@@ -1,0 +1,18 @@
+{
+  "viewport": "1366x768",
+  "fixture": "precombat disposable boundary fixture: matching hero XP 100000, field groups 29, controlled Math.random 0.01",
+  "clearAfterRealKill": "Clears: [2] · known milestone: 4 clears",
+  "knownItems": [
+    "Cheap leather pants",
+    "Stale bread",
+    "Rat tail",
+    "Rat fang",
+    "Rat pelt"
+  ],
+  "estimates": [
+    "Known loot estimate: 0.58 base coins per enemy. Acquired items only; single-enemy fight without loot accessories. Standard quality, before market saturation and trader markup. Not a sale quote."
+  ],
+  "itemLog": "Item\tBest\tTotal\tKnown bestiary sources\nCheap leather pants\t40%\t1\t\nStale bread\t\t5\t\nRat tail\t\t2\tStarving wolf rat\nRat fang\t\t2\tStarving wolf rat\nRat pelt\t\t2\tStarving wolf rat",
+  "reloaded": "Clears: [2] · known milestone: 4 clears",
+  "errors": []
+}
