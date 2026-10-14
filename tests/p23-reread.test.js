@@ -55,6 +55,7 @@ test('custody, combat, world, body and occupation controls block without changin
         assert.deepEqual(before,copy);
     }
     assert.throws(()=>observe(read(),context(1,{ownedAnthology:false})));
+    assert.throws(()=>observe(read(),context(1,{available:false})));
 });
 test('draws, malformed receipts and future/backwards clock reject', () => {
     for(const draw of [-1,2**32,1.2,undefined]) assert.throws(()=>read(draw === undefined ? null : draw));
@@ -95,7 +96,7 @@ test('rest accepts native five-minute batches, crosses calendar year correctly, 
 test('rest refuses synchronous 1080-minute replay and unsafe requests', () => {
     assert.throws(()=>observe(rest().state,context(1080)));
     const corrupt=rest().state; corrupt.current.progress=1.5; assert.throws(()=>validate(corrupt,0));
-    for(const override of [{safe:false},{alive:false},{housingAccessible:false},{worldId:'other'},{nativeBody:false}])
+    for(const override of [{safe:false},{alive:false},{available:false},{housingAccessible:false},{worldId:'other'},{nativeBody:false}])
         assert.throws(()=>request(rest().state,context(0,override)));
     assert.equal(observe(rest().state,context(2)).state.current.progress,2);
 });

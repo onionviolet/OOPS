@@ -80,7 +80,7 @@ export function planReadingCommand(state,command,context) {
 export function observeReadingClock(state,context) {
     const next = frame(state,context), row = next.current;
     if(!row || row.status === 'paused') return result(state === undefined ? undefined : next);
-    check(context.alive === true && context.safe === true && context.nativeBody === true && context.worldId === 'base.frontier' &&
+    check(context.alive === true && context.safe === true && context.available === true && context.nativeBody === true && context.worldId === 'base.frontier' &&
         (row.kind === 'read' ? context.ownedAnthology === true : context.housingAccessible === true), 'Stop unsupported reading/rest before advancing time.');
     const elapsed = context.clock-row.observedAt;
     const rate = row.kind === 'read' ? context.readProgressPerMinute : 1;
@@ -100,7 +100,7 @@ export function longRestClockRequest(state,context) {
     validateReadingState(state,context?.clock);
     const row = state?.current;
     if(row?.kind !== 'rest') return 0;
-    check(context.clock === row.observedAt && context.alive === true && context.safe === true && context.nativeBody === true &&
+    check(context.clock === row.observedAt && context.alive === true && context.safe === true && context.available === true && context.nativeBody === true &&
         context.worldId === 'base.frontier' && context.housingAccessible === true, 'Cancel unsupported rest before requesting played time.');
     return Math.min(REST_BATCH_MINUTES,row.outcome.duration-row.progress);
 }
