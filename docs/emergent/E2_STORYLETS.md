@@ -6,8 +6,23 @@ listed at the end. Principle: [anything is possible](../USER_VISION.md#anything-
 Where there are several answers, the card, deck, world, storyteller, cheat or
 player picks, and every option stays reachable.
 
-**Everything below is a proposal** unless it is under "Verified source facts".
-Nothing is selected for a build, and no code was changed.
+**The 2026-10-09 draft below remains a proposal** except its verified source facts.
+
+## P3 implementation status, 2026-10-13
+
+Weibao authorized the bounded P3 deck slice. Fourteen cards now draw from four
+saved competing Village decks after explicit opt-in. Storylet decisions retain
+their mode but continue played time and expire safely; existing decisions retain
+their global pause. Single-target fixed-contact adaptation and faster cadence
+are implementation choices, not acceptance of the entire draft. Unknown-fact
+negation also fails in the live rules, requiring explicit local defaults.
+
+The [P3 report](../gm/dispatch/procgen-2026-10-13/p3/REPORT.md) owns exact source,
+rebuilt desktop, natural and seeded-native persistence evidence and shared-file
+edits. Its [backlog](../gm/dispatch/procgen-2026-10-13/p3/BACKLOG.md) owns unverified
+native branches and deferred casting/storyteller/season/remaining-card work.
+The original sketches and questions below are preserved as dated design history;
+this slice does not implement all twenty cards or the full E2 engine.
 
 ## 1. Verified source facts (read 2026-10-09)
 

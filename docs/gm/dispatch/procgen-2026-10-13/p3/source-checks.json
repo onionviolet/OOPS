@@ -1,0 +1,15 @@
+{
+  "label": "SOURCE",
+  "date": "2026-10-14",
+  "commands": [
+    "npm test",
+    "npm run build"
+  ],
+  "tests": 629,
+  "passed": 629,
+  "failed": 0,
+  "newSliceTests": 8,
+  "build": "PASS",
+  "bundleSha256": "e08c23fde4d07f9cdef8ab3a74574bd62d149f84630bccefdb0671340c626e3b",
+  "limits": "Source tests and build do not prove every native response branch."
+}
