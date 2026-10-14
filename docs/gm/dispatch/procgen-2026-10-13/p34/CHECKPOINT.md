@@ -13,3 +13,7 @@ S-1 complete: merged P1 7b787fdd, P3 4e444a5e, P4 09403f5c. Merge commits 83af4b
 New native opt-ins draw via P1 deck:* / world.people:village streams. Existing P3 decks lacking randomSource preserve xorshift cursor and next result; existing P4 records need no future generation draw. Headless legacy callers retain local generator unless supplied named state. P4 publisher now adopts durable expansion state so named population draws cannot be overwritten by the next Save.
 
 SOURCE: npm test 664/664 pass; npm run build pass. A new stream test initially skipped scheduler boundaries, correctly rejected an overdue deck, then was fixed to use the first due boundary. No feature work began before full passing integration checks. Next S-2.
+
+S-2 complete: optional expansion.loreHistory schema1 extends the D8-A/P14 owner. Query actor/issuer/targets/action/result/time/cause refs; actual native item/coin/skill deltas captured after P3 response effects in its detached plan. No new feed, biography or shadow purse. Capacity96; reference-aware eviction protects request outcomes, retained causal parents and open cards. All-pinned admission rejects. Legacy absent owner remains absent; no backfill; expansion load/import validates new records and dangling causes. This slice enrolls settled P3 responses and P34 requests, not a complete lifetime transcript; ambient/expiry history producers deferred.
+
+SOURCE: 10/10 affected history+deck checks, then 4/4 focused history checks including real P3 settlement. Native proof pending final rebuilt slice. Next S-3.

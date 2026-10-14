@@ -1,3 +1,4 @@
+import {validateLoreHistory} from './lore_history_state.js';
 import {nativeEquipmentSnapshot} from './native_equipment_transaction.js';
 import {nextContainerBoundary} from './structured_container_runtime.js';
 import {advanceNativeContainerClocks} from './simulation_effects.js';
@@ -143,6 +144,7 @@ export function validateExpansionState(state, registry) {
     check([state.realmPrototype,state.featureDestination,state.nestedCampaign,state.bookWorldCampaign,state.motherOfLearning,state.proto23Village]
         .filter(owner=>owner?.activeVisitId!=null).length<=1,'One controlled native body requires one active retained-world visit.');
     validateAuditRemainderProjects(state,registry);
+    validateLoreHistory(state);
     validateChronicle(state.chronicle, state.clock);
     validateSimulationState(state.simulation, state, registry?.simulation);
     validateManagementState(state,registry?.simulation);
