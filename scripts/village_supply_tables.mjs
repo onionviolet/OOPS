@@ -27,7 +27,7 @@ export function readVillageSupplyTables() {
  const main=read('main.js'),opening=main.slice(main.indexOf('set_loading_screen_versions();\n    character.addToInventory(['));
  const inventory={};for(const m of opening.slice(0,opening.indexOf(']);')).replace(/\/\/[^\n]*/g,'').matchAll(/item_id:\s*"([^"]+)"(?:,\s*count:\s*(\d+))?/g))inventory[m[1]]=Number(m[2]||1);
  const loc=read('data/locations.js'),locStart=loc.indexOf('{',loc.indexOf('locations["Village"].activities =')),actions=evaluate(balanced(loc,locStart));
- const gathers=Object.entries(actions).filter(([,a])=>a.gained_resources).map(([id,a])=>({source:`Village:${id}`,resources:a.gained_resources.resources.map(r=>({item:r.name,chance:r.chance,count:r.ammount?.[0]?.[0]||1})),period:a.gained_resources.time_period[0],tool:a.require_tool?id:null,season:a.availability_seasons||null,known:a.is_unlocked===true,available:!a.require_tool&&a.is_unlocked===true}));
+ const gathers=Object.entries(actions).filter(([,a])=>a.gained_resources).map(([id,a])=>({source:`Village:${id}`,resources:a.gained_resources.resources.map(r=>({item:r.name,chance:r.chance,count:r.ammount?.[0]?.[0]||1})),period:a.gained_resources.time_period[0],tool:a.require_tool?id:null,season:a.availability_seasons||null,known:false,available:false}));
  const enemy=read('enemies.js'),drops=[];
  for(const m of enemy.matchAll(/enemy_templates\["([^"\n]+)"\]\s*=\s*new Enemy\(\{/g)) {if(!/wolf rat/i.test(m[1]))continue;const body=balanced(enemy,m.index+m[0].length-1);for(const d of body.matchAll(/item_name:\s*"([^"]+)",\s*chance:\s*([\d.]+)/g))drops.push({item:d[1],chance:Number(d[2]),source:m[1],known:false,available:false});}
  const craft=read('crafting_recipes.js'),recipes=[];

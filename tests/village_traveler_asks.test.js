@@ -17,7 +17,7 @@ test('fees cover actual opening trader price and scale with count, work and disc
  assert.equal(feeFromBasis(60,'stretch'),95);assert.throws(()=>feeFromBasis(1,'invented'));
 });
 test('draws mix reach bands with a ready majority when affordable known sources exist',()=>{
- const tables=readVillageSupplyTables();tables.stock=tables.stock.map(r=>({...r,known:true,available:true}));const index=buildVillageObtainability(tables),counts={ready:0,stretch:0,unknown:0};let rng=12345;
+ const tables=readVillageSupplyTables();tables.stock=tables.stock.map(r=>({...r,known:true,available:true}));tables.gathers=tables.gathers.map(r=>({...r,known:true}));const index=buildVillageObtainability(tables),counts={ready:0,stretch:0,unknown:0};let rng=12345;
  const draw=n=>{rng^=rng<<13;rng^=rng>>>17;rng^=rng<<5;return Math.floor((rng>>>0)/0x100000000*n);};
  for(let i=0;i<1000;i++){const ask=drawVillageAsk('hill_carrier',index,{money:102},draw);counts[ask.band]++;assert.equal(ask.reward,askFee(index[ask.item],ask.quantity,ask.band).reward);}
  assert.ok(counts.ready>650&&counts.stretch>100&&counts.unknown>50,JSON.stringify(counts));

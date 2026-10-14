@@ -21,7 +21,7 @@ export function buildVillageObtainability({items={},stock=[],margin=4,inventory=
    if(!r.unlocked||!r.materials?.length||r.chance<=0||index[r.item]?.routes.some(x=>x.kind==='recipe'&&x.source===r.source))continue;
    const ingredients=r.materials.map(m=>{const options=m.item?[index[m.item]]:Object.values(index).filter(x=>items[x.item]?.materialType===m.type);const best=options.filter(Boolean).sort((a,b)=>a.effortMinutes-b.effortMinutes)[0];return best?{row:best,count:m.count}:null;});
    if(ingredients.some(x=>!x))continue;
-   const minutes=(1+ingredients.reduce((n,x)=>n+Math.min(...x.row.routes.filter(t=>t.kind!=='inventory').map(t=>t.minutes))*x.count,0))/r.chance/(r.count||1);
+   const minutes=(1+ingredients.reduce((n,x)=>n+Math.min(...(x.row.routes.some(t=>t.kind!=='inventory')?x.row.routes.filter(t=>t.kind!=='inventory'):x.row.routes).map(t=>t.minutes))*x.count,0))/r.chance/(r.count||1);
    add(r.item,{kind:'recipe',source:r.source,stage:'village_craft',minutes,known:r.known===true,available:r.available===true&&ingredients.every(x=>x.row.routes.some(t=>t.known&&t.available))});changed=true;
   }
   summarize(index);if(!changed)break;
@@ -39,13 +39,13 @@ export function reachBand(row,{quantity=1,money=0}={}) {
  return known.some(r=>r.available&&(r.kind==='inventory'?r.count>=quantity:r.kind==='trader'?r.count>=quantity&&r.chance===1&&r.price*quantity<=money:true))?'ready':'stretch';
 }
 // The same normal form used by the SOURCE reader, built here from native owners.
-export function villageTablesFromNative({items,trader,stock,inventory,activities,enemies,recipes,craftingKnown=false,tools={},season}) {
+export function villageTablesFromNative({items,trader,stock,inventory,activities,enemies,recipes,craftingKnown=false,gatheringKnown=false,tools={},season}) {
  const unlocked=o=>o?.getAvailabilityComponent?.().getStatus?.().is_unlocked===true;
  const knownTrader=unlocked(trader);
  return {items:Object.fromEntries(Object.entries(items).map(([id,i])=>[id,{value:i.getBaseValue(),materialType:i.material_type}])),margin:trader.profit_margin,
   inventory:Object.fromEntries(Object.entries(inventory).map(([key,r])=>{try{return [JSON.parse(key).id,r.count];}catch{return ['',0];}})),
   stock:stock.flatMap(g=>g.items.map(i=>({item:i.item_name,count:i.count,chance:i.chance,quality:i.quality,known:knownTrader,available:knownTrader}))),
-  gathers:Object.entries(activities).filter(([,a])=>a.gained_resources).map(([id,a])=>({source:`Village:${id}`,resources:a.gained_resources.resources.map(r=>({item:r.name,chance:r.chance,count:r.ammount?.[0]?.[0]||1})),period:a.gained_resources.time_period[0],tool:a.require_tool?id==='woodcutting'?'axe':id==='fishing'?'fishing_rod':'shovel':null,season:a.availability_seasons||null,known:unlocked(a),available:unlocked(a)&&(!a.require_tool||!!tools[id])&&(!a.availability_seasons||a.availability_seasons.includes(season))})),
+  gathers:Object.entries(activities).filter(([,a])=>a.gained_resources).map(([id,a])=>({source:`Village:${id}`,resources:a.gained_resources.resources.map(r=>({item:r.name,chance:r.chance,count:r.ammount?.[0]?.[0]||1})),period:a.gained_resources.time_period[0],tool:a.require_tool?id==='woodcutting'?'axe':id==='fishing'?'fishing_rod':'shovel':null,season:a.availability_seasons||null,known:gatheringKnown&&unlocked(a),available:gatheringKnown&&unlocked(a)&&(!a.require_tool||!!tools[id])&&(!a.availability_seasons||a.availability_seasons.includes(season))})),
   drops:Object.entries(enemies).flatMap(([id,e])=>(e.loot_list||[]).map(d=>({item:d.item_name,chance:d.chance,source:id,known:(e.knownKills||0)>0,available:(e.knownKills||0)>0}))),
   recipes:Object.entries(recipes).flatMap(([category,rows])=>Object.entries(rows.items||{}).filter(([,r])=>r.result?.result_id).map(([id,r])=>({item:r.result.result_id,count:r.result.count,source:`Village:${category}:${id}`,unlocked:unlocked(r),known:craftingKnown&&unlocked(r),available:craftingKnown&&unlocked(r),chance:r.success_chance?.[0]||1,materials:r.materials.map(m=>({item:m.material_id,type:m.material_type,count:m.count}))}))) };
 }

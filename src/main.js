@@ -3,7 +3,7 @@ import {buildVillageObtainability,villageTablesFromNative} from './village_obtai
 import {setProductAppearanceOwner} from './product_appearance_view.js';
 import {STREAMS,ensureStreams,bindGameStreams,gameRandom,gameRandomRange,drawUnit,scopedStream,seededRecipe,validateNativeEncounter,streamSeed} from "./seeded_streams.js";
 const mixtureSeed=()=>streamSeed(expansionState,STREAMS.craft,"village.mixtures@1");
-const generatedPeopleSeed=()=>streamSeed(expansionState,scopedStream("world.people"),"village.generated_people@1");
+const generatedPeopleSeed=()=>streamSeed(expansionState,scopedStream("world.people"),"village.generated_people@2");
 import {getMixtureOwner,setMixtureOwner,MIXTURE_ID} from './mixture_state.js';
 import {stageMixtureAction,commitMixturePlan} from './mixture_native.js';
 import {createMixturePanel} from './mixture_ui.js';
@@ -8552,8 +8552,8 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
         mentor:choice=>writeVillageCareer(choice),resolve:choice=>writeVillageCareer(choice),promote:()=>writeVillageCareer('promote'),
         notes:()=>writeVillageCareer('notes'),tutor:()=>writeVillageCareer('tutor'),readNotes:()=>start_reading(WATCHCRAFT_BOOK),
         practice:()=>start_activity('meditating')});
-    const travelerSupplyIndex=()=>buildVillageObtainability(villageTablesFromNative({items:item_templates,trader:traders['village trader'],stock:inventoryTemplates[traders['village trader'].inventory_template],inventory:character.getItems(),activities:locations.Village.activities,enemies:Object.fromEntries(Object.entries(enemy_templates).filter(([id])=>/wolf rat/i.test(id)).map(([id,e])=>[id,{loot_list:e.loot_list,knownKills:enemy_killcount[id]||0}])),recipes,craftingKnown:global_flags.is_crafting_unlocked,tools:Object.fromEntries(Object.entries(locations.Village.activities).map(([id,a])=>[id,!!character.getEquipment()[activities[a.activity_name]?.required_tool_type]])),season:current_game_time.getSeason()}));
-    registerGeneratedPeople({read:()=>({supplyIndex:travelerSupplyIndex(),season:current_game_time.getSeason(),at:calendarMinutes(current_game_time),seed:generatedPeopleSeed(),expansion:expansionState,
+    const travelerSupplyIndex=()=>buildVillageObtainability(villageTablesFromNative({items:item_templates,trader:traders['village trader'],stock:inventoryTemplates[traders['village trader'].inventory_template],inventory:character.getItems(),activities:locations.Village.activities,enemies:Object.fromEntries(Object.entries(enemy_templates).filter(([id])=>/wolf rat/i.test(id)).map(([id,e])=>[id,{loot_list:e.loot_list,knownKills:enemy_killcount[id]||0}])),recipes,craftingKnown:global_flags.is_crafting_unlocked,gatheringKnown:global_flags.is_gathering_unlocked,tools:Object.fromEntries(Object.entries(locations.Village.activities).map(([id,a])=>[id,!!character.getEquipment()[activities[a.activity_name]?.required_tool_type]])),season:current_game_time.getSeason()}));
+    registerGeneratedPeople({read:()=>({supplyIndex:travelerSupplyIndex(),money:character.money,season:current_game_time.getSeason(),at:calendarMinutes(current_game_time),seed:generatedPeopleSeed(),expansion:expansionState,
         inVillage:current_location?.id==='Village'&&expansionState.actors.player.worldId==='base.frontier',
         canWrite:ownsSave&&!foundationSaveBlocked&&!importProbeToken&&!is_loading_error&&!lifeStorageFailure,
         busy:!!(nativeOccupationReason()||current_activity||current_game_action||current_combat||current_dialogue||is_sleeping||is_reading||is_in_trade())}),
