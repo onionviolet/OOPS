@@ -29,12 +29,12 @@ Reconciled from lane folders, `~/.codex/research/procgen-2026-10-13/<lane>.last.
 | P23 | done (docs) | n/a | inner life/ambitions/morals |
 | P24 | done (docs) | n/a | knowledge/perspectives/time |
 | P25 | done (docs) | n/a | presentation/export |
-| CR1 | done (docs) | n/a | consumables and body response |
-| CR2 | done (docs) | n/a | world crafting laws |
-| CR3 | done (docs) | n/a | crafting play, automation, director tools |
-| CR4 | done (docs) | n/a | makers, economy, social, npc crafters |
-| CR5 | done (docs) | n/a | comic-world making, sourced check |
-| CR6 | done (docs; resumed once for W4/R1 alignment) | n/a | crafting wave 2 build packet on merged code |
+| CR1 | done (docs), folded into crafting palette | n/a | consumables and body response |
+| CR2 | done (docs), folded into crafting palette | n/a | world crafting laws |
+| CR3 | done (docs), folded into crafting palette | n/a | crafting play, automation, director tools |
+| CR4 | done (docs), folded into crafting palette | n/a | makers, economy, social, npc crafters |
+| CR5 | done (docs), folded into crafting palette | n/a | comic-world making, sourced check |
+| CR6 | done (docs; resumed once for W4/R1 alignment), folded into crafting palette | n/a | crafting wave 2 build packet on merged code |
 | P26 | done (docs) | n/a | beat templates/genres/humor |
 | P27 | done (docs) | n/a | journeys/groups/death |
 | P28 | done (docs) | n/a | intent/taste/writers room/onboarding |
