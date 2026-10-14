@@ -1,0 +1,332 @@
+{
+  "bundle": {
+    "url": "http://127.0.0.1:19190/dist/bundle.js?version=v0.6-f7ef53cefe38",
+    "loaded": "f7ef53cefe38bcdda23a8b54a767c6ab393499d43986fa0cf0437107168350e0",
+    "disk": "f7ef53cefe38bcdda23a8b54a767c6ab393499d43986fa0cf0437107168350e0"
+  },
+  "results": [
+    {
+      "id": "N1-worn",
+      "label": "seeded-native",
+      "status": "PASS",
+      "saveReload": true,
+      "exportLiteralFileImport": true,
+      "exactState": true,
+      "exportSha256": "1a527d6d83137bec31e5b3f7c3991d6b0fb03df851a443a308ea547220c96332"
+    },
+    {
+      "id": "N1-defense",
+      "label": "seeded-native",
+      "status": "PASS",
+      "before": 5.5,
+      "after": 1.5
+    },
+    {
+      "id": "N1-acquisition-care-riding",
+      "label": "seeded-native",
+      "status": "PASS"
+    },
+    {
+      "id": "N1-gather-sales",
+      "label": "seeded-native",
+      "status": "PASS",
+      "paid": 4
+    },
+    {
+      "id": "N1-sales",
+      "label": "seeded-native",
+      "status": "PASS",
+      "saveReload": true,
+      "exportLiteralFileImport": true,
+      "exactState": true,
+      "exportSha256": "c155d8ac9b3a5177f237d1815ffd2646a65a72823bf9922afd38a57ca3b48a98"
+    },
+    {
+      "id": "N1-return",
+      "label": "seeded-native",
+      "status": "PASS",
+      "saveReload": true,
+      "exportLiteralFileImport": true,
+      "exactState": true,
+      "exportSha256": "12d8a95800640b9dc2dc0c535a4830863405c03cbc53a9ff6f580cdda981424b"
+    },
+    {
+      "id": "N1-return-custody",
+      "label": "seeded-native",
+      "status": "PASS"
+    },
+    {
+      "id": "N2-damaged-stale-disposal",
+      "label": "seeded-native",
+      "status": "PASS"
+    },
+    {
+      "id": "N2-disposed-return",
+      "label": "seeded-native",
+      "status": "PASS",
+      "saveReload": true,
+      "exportLiteralFileImport": true,
+      "exactState": true,
+      "exportSha256": "08ff41e0f0ba21bfaeb96de6139729f3dd78ecc1af6f9ce90ad57c735863d8cd"
+    },
+    {
+      "id": "N2-expiry-during-sale",
+      "label": "seeded-native",
+      "status": "PASS",
+      "ageAtReservation": 119,
+      "payment": 0
+    },
+    {
+      "id": "N2-expired-sale",
+      "label": "seeded-native",
+      "status": "PASS",
+      "saveReload": true,
+      "exportLiteralFileImport": true,
+      "exactState": true,
+      "exportSha256": "51c16eb3d11e8a8588a67be3c01103c84bf3235eab56110d38d624164d65a019"
+    },
+    {
+      "id": "N3-recognized",
+      "label": "seeded-native",
+      "status": "PASS",
+      "saveReload": true,
+      "exportLiteralFileImport": true,
+      "exactState": true,
+      "exportSha256": "efd838bf190bac3cc04004bbe8209f3891d32877c3b4ee285c6a16a6dcd983b9"
+    },
+    {
+      "id": "N3-weekly-1",
+      "label": "seeded-native",
+      "status": "PASS",
+      "paidTotal": 3,
+      "employerRemainder": 9,
+      "oneMinuteBeforeDueRefused": true
+    },
+    {
+      "id": "N3-report-1",
+      "label": "seeded-native",
+      "status": "PASS",
+      "saveReload": true,
+      "exportLiteralFileImport": true,
+      "exactState": true,
+      "exportSha256": "ae11663503e6b0c6a2cc25494fb34e339f24f852cb29202c553e732a1f75e382"
+    },
+    {
+      "id": "N3-continuation",
+      "label": "seeded-native",
+      "status": "PASS",
+      "freshObservationRequired": true
+    },
+    {
+      "id": "N3-weekly-2",
+      "label": "seeded-native",
+      "status": "PASS",
+      "paidTotal": 6,
+      "employerRemainder": 6,
+      "oneMinuteBeforeDueRefused": true
+    },
+    {
+      "id": "N3-report-2",
+      "label": "seeded-native",
+      "status": "PASS",
+      "saveReload": true,
+      "exportLiteralFileImport": true,
+      "exactState": true,
+      "exportSha256": "f1ef21b310f96757f234d1b423a0dc37baf162a88e15e4f300cabba111c164eb"
+    },
+    {
+      "id": "N4-custody-exposure-control",
+      "label": "seeded-native",
+      "status": "PASS",
+      "titleAndHolderPreserved": true,
+      "outsideAgeAdvanced": 300,
+      "otherOutsideConditionExpired": true
+    },
+    {
+      "id": "N4-stored-age",
+      "label": "seeded-native",
+      "status": "PASS",
+      "ageBefore": 0,
+      "ageAfter": 0,
+      "commonClockAdvanced": 300,
+      "titleUnchanged": true,
+      "storedCount": 1,
+      "carriedCount": 0
+    },
+    {
+      "id": "N4-stored",
+      "label": "seeded-native",
+      "status": "PASS",
+      "saveReload": true,
+      "exportLiteralFileImport": true,
+      "exactState": true,
+      "exportSha256": "b415257cc83577def18ed6e3d490487e78df8fd231afe411e40f83307a55d569"
+    },
+    {
+      "id": "N4-retrieval-exposure",
+      "label": "seeded-native",
+      "status": "PASS",
+      "exposureBefore": 0,
+      "exposureAfter": 7,
+      "sameIdentifiedUnit": true
+    },
+    {
+      "id": "N4-sale",
+      "label": "seeded-native",
+      "status": "PASS",
+      "paid": 2,
+      "buyerCount": 1,
+      "noLotMerge": true
+    },
+    {
+      "id": "N4-sale",
+      "label": "seeded-native",
+      "status": "PASS",
+      "saveReload": true,
+      "exportLiteralFileImport": true,
+      "exactState": true,
+      "exportSha256": "a44960818fd9ba809f4511455798b5389526173d06e6b5cbe346e0da1700c5f3"
+    },
+    {
+      "id": "N5-local-vocabulary",
+      "label": "seeded-native",
+      "status": "PASS",
+      "supplyConversationAllowed": true,
+      "otherVocabularyRefused": true
+    },
+    {
+      "id": "N5-provider-ready",
+      "label": "seeded-native",
+      "status": "PASS",
+      "saveReload": true,
+      "exportLiteralFileImport": true,
+      "exactState": true,
+      "exportSha256": "8753032910920e920b0a2fe1909ee4980fb5a9541dde9d1383cb52722b50a73d"
+    },
+    {
+      "id": "N5-reservation",
+      "label": "seeded-native",
+      "status": "PASS",
+      "reserve": 19,
+      "pending": true
+    },
+    {
+      "id": "N5-pending",
+      "label": "seeded-native",
+      "status": "PASS",
+      "saveReload": true,
+      "exportLiteralFileImport": true,
+      "exactState": true,
+      "exportSha256": "dcdd25cf5d0edc698de5a9e142e79d56cec46d65d3cb1876d1c3326ed4e62c17"
+    },
+    {
+      "id": "N5-cancel",
+      "label": "seeded-native",
+      "status": "PASS",
+      "reserve": 20,
+      "charge": false,
+      "timerHeld": true
+    },
+    {
+      "id": "N5-cancelled",
+      "label": "seeded-native",
+      "status": "PASS",
+      "saveReload": true,
+      "exportLiteralFileImport": true,
+      "exactState": true,
+      "exportSha256": "1798aecc8d77d981640dc5fefcd41649b208def770b36f2b9ffa3cbae4374e7f"
+    },
+    {
+      "id": "N5-depletion",
+      "label": "seeded-native",
+      "status": "PASS",
+      "completed": 20,
+      "reserve": 0
+    },
+    {
+      "id": "N5-depleted",
+      "label": "seeded-native",
+      "status": "PASS",
+      "saveReload": true,
+      "exportLiteralFileImport": true,
+      "exactState": true,
+      "exportSha256": "d97493966fc2a0e16b8c99a9790bcb45d067e7713afa2fb9df03ef0efb82747d"
+    },
+    {
+      "id": "N5-recovery",
+      "label": "seeded-native",
+      "status": "PASS",
+      "recovered": 4,
+      "afterUse": 3
+    },
+    {
+      "id": "N5-recovered",
+      "label": "seeded-native",
+      "status": "PASS",
+      "saveReload": true,
+      "exportLiteralFileImport": true,
+      "exactState": true,
+      "exportSha256": "1ed8454a3f8c85c366ed180e7e85423c045521830baaa03f17f9e98f84113b9a"
+    },
+    {
+      "id": "N5-changed-source",
+      "label": "seeded-native",
+      "status": "PASS",
+      "reserve": 20,
+      "charge": false,
+      "realEffectFixture": true
+    },
+    {
+      "id": "N5-changed-source",
+      "label": "seeded-native",
+      "status": "PASS",
+      "saveReload": true,
+      "exportLiteralFileImport": true,
+      "exactState": true,
+      "exportSha256": "be5ff07800f31f0236d35e771434cedbd95ee856367feed69b19be7963dec06e"
+    },
+    {
+      "id": "N5-changed-body",
+      "label": "seeded-native",
+      "status": "PASS",
+      "reserve": 20,
+      "charge": false,
+      "realEffectFixture": true
+    },
+    {
+      "id": "N5-changed-body",
+      "label": "seeded-native",
+      "status": "PASS",
+      "saveReload": true,
+      "exportLiteralFileImport": true,
+      "exactState": true,
+      "exportSha256": "facb5b17dac2571905c42e380d8359c4c6a8f03519ab85619cf21fc6e1657521"
+    },
+    {
+      "id": "N4-fuel-capacity",
+      "label": "seeded-native",
+      "status": "PASS",
+      "openDebit": 4,
+      "storeDebit": 4,
+      "retrieveDebit": 4,
+      "physicalFit": true
+    },
+    {
+      "id": "N4-fuel",
+      "label": "seeded-native",
+      "status": "PASS",
+      "saveReload": true,
+      "exportLiteralFileImport": true,
+      "exactState": true,
+      "exportSha256": "d44bb472225dea688f4f33ca9a720389ccd5fb613e5f2d5d49315d387e3a0429"
+    },
+    {
+      "id": "final-browser-check",
+      "label": "seeded-native",
+      "status": "PASS",
+      "pageErrors": 0,
+      "servedBytesMatch": true
+    }
+  ],
+  "errors": []
+}

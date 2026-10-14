@@ -19,3 +19,17 @@ RESUME ONLY AFTER HUMAN RESUMPTION: recover current AGENTS/PROJECT, paused hando
 ## Foundation shared ownership release, 2026-10-12
 
 [Exact release](FOUNDATION_OWNERSHIP_RELEASE_2026-10-12.json) transfers World1-held shared runtime/main/UI/test/build reservations to foundation coordinator `01a12e94-7b63-7e12-b584-ae2265f579e1`. It pins live dirty Lin/Ink inputs and preserves private/frozen/source/candidate/paused-resume exclusions. Shared Lin/Ink source exists; no dated candidate recovery is needed. Retained v3 is a new absent artifact with no World1 claim; the separate historical evidence-owner boundary remains explicit. World1 stays paused, with no workers or successor restarted.
+
+## R15 resumption, 2026-10-13
+
+Weibao's “add FA19 World1 too, send accordingly” authorizes the bounded R15 G9
+N1–N5 refresh, including FA19/N4, in branch `r15-g9-world1`. The requested care,
+route/trade/returns, disposition, weekly continuation, identified storage versus
+exposure, and provider reservation/cancel/depletion/recovery/source/body checks
+pass **seeded-native** on current rebuilt bytes; N5's broader regional-conversation
+leaf remains OPEN. 613/613 tests and 13 retained
+route contracts pass **source**. No runtime source changes. The
+[R15 G9 report](../foundation-adoption-next-2026-10-13/rounds/r15/g9/REPORT.md)
+owns exact scope, controlled-clock/persistence evidence and the broader regional
+language-native limit. Historical failures and receipts stay unchanged. The full
+S00–S14 campaign remains paused; resuming it is Weibao's next decision.

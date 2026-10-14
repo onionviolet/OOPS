@@ -1,0 +1,58 @@
+{
+  "label": "source",
+  "status": "PASS",
+  "groups": [
+    {
+      "id": "ROUTE-E1",
+      "status": "pass"
+    },
+    {
+      "id": "ROUTE-E2",
+      "status": "pass"
+    },
+    {
+      "id": "ROUTE-E3",
+      "status": "pass"
+    },
+    {
+      "id": "ROUTE-E4",
+      "status": "pass"
+    },
+    {
+      "id": "ROUTE-E5",
+      "status": "pass"
+    },
+    {
+      "id": "ROUTE-E6",
+      "status": "pass"
+    },
+    {
+      "id": "ROUTE-E7",
+      "status": "pass"
+    },
+    {
+      "id": "ROUTE-E8",
+      "status": "pass"
+    },
+    {
+      "id": "ROUTE-E9",
+      "status": "pass"
+    },
+    {
+      "id": "ROUTE-E10",
+      "status": "pass"
+    },
+    {
+      "id": "ROUTE-E11",
+      "status": "pass"
+    },
+    {
+      "id": "ROUTE-E12",
+      "status": "pass"
+    },
+    {
+      "id": "ROUTE-E13",
+      "status": "pass"
+    }
+  ]
+}

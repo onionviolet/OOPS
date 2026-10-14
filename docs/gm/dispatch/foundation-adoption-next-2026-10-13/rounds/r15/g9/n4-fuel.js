@@ -1,0 +1,10 @@
+await start('N4-fuel','ST04');
+for(const id of ['meet','inspect_form','learn_method'])await fastAct(id);
+const container=raw.simulation.containers[0],energy=container.energyId;
+const before=(await saved()).expansion.simulation.energies.player[energy].reserve;
+let s=await fastAct('open');const opened=s.expansion.simulation.energies.player[energy].reserve;assert(opened<before);
+for(const id of ['walk_stable','walk_woods','meet_warden','gather_mushroom_good'])await fastAct(id);
+s=await fastAct('store_mushroom01_fresh_woods');const stored=s.expansion.simulation.energies.player[energy].reserve;assert(stored<opened);
+const object=container.objects.find(o=>o.unitId==='p08.unit_mushroom01');assert(object.volume<=container.capacity);assert(object.dimensions.every((n,i)=>n<=container.aperture[i]));
+s=await fastAct('retrieve_mushroom01_fresh_woods');const retrieved=s.expansion.simulation.energies.player[energy].reserve;assert(retrieved<stored);
+record('N4-fuel-capacity',{openDebit:before-opened,storeDebit:opened-stored,retrieveDebit:stored-retrieved,physicalFit:true});await roundtrip('N4-fuel');return 'N4 fuel PASS';
