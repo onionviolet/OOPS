@@ -1,0 +1,290 @@
+{
+  "lane": "trimps-antimatter",
+  "date": "2026-10-13",
+  "status": "complete bounded static audit",
+  "authority": "proposals only; no accepted decisions or implementation",
+  "sources": {
+    "trimps": {
+      "repo": "https://github.com/Trimps/Trimps.github.io",
+      "sha": "b9edb1dfee270ebf81bef8d934dc71276bf8d963",
+      "commit_date": "2025-03-12",
+      "license_headers": "GPL-3.0-or-later",
+      "license_file": "GPL-2.0 text",
+      "license_conflict": true,
+      "clone_depth": 1
+    },
+    "ad": {
+      "repo": "https://github.com/IvarK/AntimatterDimensionsSourceCode",
+      "sha": "5409e320cecef96a917cca1dfb68f1f183e499ca",
+      "commit_date": "2026-07-17",
+      "license": "MIT",
+      "clone_depth": 1
+    },
+    "autotrimps": {
+      "url": "https://github.com/Zorn192/AutoTrimps",
+      "level": "author page only",
+      "pinned": false,
+      "compatibility_verified": false
+    }
+  },
+  "private_root": "/private/tmp/claude-501/codex-lanes/trimps-antimatter-src/",
+  "yair": {
+    "head": "9d6dc6a1ad9c4ae6bd12cc8e528923ae3c941e5f",
+    "dirty": true,
+    "read_files": [
+      {
+        "path": "src/simulation.js",
+        "sha256": "baa7fc35a5c311413ff0ba7e6590aa64b1549e2b64159733e0c1233d07ee884c"
+      },
+      {
+        "path": "src/simulation_contracts.js",
+        "sha256": "bfcf6b671c00e2db774880a204fa94cba06cdbf43ac56bef30bf131fee19ac95"
+      },
+      {
+        "path": "src/feature_expansion_work_plan.js",
+        "sha256": "611483d42d6f75100db469ddc6b648a63dcb757f3f31e56982e18e7841e24f25"
+      },
+      {
+        "path": "src/structured_equipment_runtime.js",
+        "sha256": "bc4394604030d7b2e6abb0095e5ab1abeda307bc728befc98a81115cfc9c1ab3"
+      },
+      {
+        "path": "src/heir_inheritance.js",
+        "sha256": "41c510b1ceb72e39620ea97c5c9f0a3763604a4dd329de5a5b8cccbc5fc4370f"
+      }
+    ]
+  },
+  "findings": [
+    {
+      "id": "F1",
+      "label": "inferred",
+      "title": "Later layers change what deserves attention",
+      "claim": "The useful pattern is an early manual engine becoming a managed subsystem, then a later rule set making a formerly routine action strategic again. Adapt this attention shift inside one world and its authorized prestige layer; park the full ladders.",
+      "sources": [
+        "https://github.com/IvarK/AntimatterDimensionsSourceCode/blob/5409e320cecef96a917cca1dfb68f1f183e499ca/src/core/secret-formula/eternity/eternity-milestones.js#L1-L28",
+        "https://github.com/IvarK/AntimatterDimensionsSourceCode/blob/5409e320cecef96a917cca1dfb68f1f183e499ca/src/core/celestials/effarig.js#L8-L60"
+      ]
+    },
+    {
+      "id": "F2",
+      "label": "verified (code)",
+      "title": "AD nests rewards and reset scopes",
+      "claim": "Big Crunch awards Infinity Points and Infinities, then resets the antimatter run, boosts, galaxies and some Replicanti state. Eternity awards Eternity Points and Eternities, resets Infinity Points, Infinity Dimensions and Replicanti, with milestone exceptions. Reality awards Reality Machines and perk points and generates Glyph choices, then resets the Infinity/Eternity engine including studies, challenges and dilation unless late rules say otherwise. Celestials are distinct rule systems over Reality, not a uniform fourth currency reset.",
+      "sources": [
+        "https://github.com/IvarK/AntimatterDimensionsSourceCode/blob/5409e320cecef96a917cca1dfb68f1f183e499ca/src/core/big-crunch.js#L55-L76",
+        "https://github.com/IvarK/AntimatterDimensionsSourceCode/blob/5409e320cecef96a917cca1dfb68f1f183e499ca/src/core/big-crunch.js#L121-L167",
+        "https://github.com/IvarK/AntimatterDimensionsSourceCode/blob/5409e320cecef96a917cca1dfb68f1f183e499ca/src/core/eternity.js#L1-L32",
+        "https://github.com/IvarK/AntimatterDimensionsSourceCode/blob/5409e320cecef96a917cca1dfb68f1f183e499ca/src/core/eternity.js#L69-L150",
+        "https://github.com/IvarK/AntimatterDimensionsSourceCode/blob/5409e320cecef96a917cca1dfb68f1f183e499ca/src/core/reality.js#L301-L315",
+        "https://github.com/IvarK/AntimatterDimensionsSourceCode/blob/5409e320cecef96a917cca1dfb68f1f183e499ca/src/core/reality.js#L590-L728"
+      ]
+    },
+    {
+      "id": "F3",
+      "label": "verified (code)",
+      "title": "Trimps has a central Portal plus persistent side systems",
+      "claim": "activatePortal commits perk allocation, transfers leftover Helium/Radon and selects the next universe before resetGame(true). resetGame saves selected meta fields, replaces game with newGame(), then restores perks, bones, permanent bone bonuses, heirlooms, mastery/talent data and automation settings. Ordinary resource production and maps rebuild. Universe 2 changes currency and perk behavior within this Portal route; it is not simply an Eternity-style wipe of all Universe 1 progression.",
+      "sources": [
+        "https://github.com/Trimps/Trimps.github.io/blob/b9edb1dfee270ebf81bef8d934dc71276bf8d963/main.js#L3988-L4047",
+        "https://github.com/Trimps/Trimps.github.io/blob/b9edb1dfee270ebf81bef8d934dc71276bf8d963/updates.js#L4456-L4550",
+        "https://github.com/Trimps/Trimps.github.io/blob/b9edb1dfee270ebf81bef8d934dc71276bf8d963/updates.js#L4641-L4682",
+        "https://github.com/Trimps/Trimps.github.io/blob/b9edb1dfee270ebf81bef8d934dc71276bf8d963/updates.js#L4749-L4817"
+      ]
+    },
+    {
+      "id": "F4",
+      "label": "verified (code)",
+      "title": "Perks alter bottlenecks rather than only grant damage",
+      "claim": "Coordinated reduces the population cost of successive Coordination upgrades while retaining their stat benefit. Universe 2 Equality lowers enemy and player attack together; its purchased ceiling, active stacks and death-driven scaling are distinct state. Helium/Radon allocations and respecs make these persistent investment choices. Exact optimal allocations were not calculated.",
+      "sources": [
+        "https://github.com/Trimps/Trimps.github.io/blob/b9edb1dfee270ebf81bef8d934dc71276bf8d963/config.js#L2636-L2655",
+        "https://github.com/Trimps/Trimps.github.io/blob/b9edb1dfee270ebf81bef8d934dc71276bf8d963/config.js#L2798-L2851",
+        "https://github.com/Trimps/Trimps.github.io/blob/b9edb1dfee270ebf81bef8d934dc71276bf8d963/main.js#L1663-L1685",
+        "https://github.com/Trimps/Trimps.github.io/blob/b9edb1dfee270ebf81bef8d934dc71276bf8d963/main.js#L3509-L3560"
+      ]
+    },
+    {
+      "id": "F5",
+      "label": "verified (code)",
+      "title": "Heirlooms separate ownership, equipment and discard pools",
+      "claim": "Shield/Staff drops select seeded rarity and eligible modifiers; Spire Cores use a separate branch. The Portal saves equipped and carried objects and Nullifium, while recycling extra objects. Item choice therefore outlives the disposable production economy. It is equipment meta-progression, not family inheritance. Avoid confusing this with YAIRPG heir estates.",
+      "sources": [
+        "https://github.com/Trimps/Trimps.github.io/blob/b9edb1dfee270ebf81bef8d934dc71276bf8d963/main.js#L7933-L7970",
+        "https://github.com/Trimps/Trimps.github.io/blob/b9edb1dfee270ebf81bef8d934dc71276bf8d963/main.js#L7082-L7180",
+        "https://github.com/Trimps/Trimps.github.io/blob/b9edb1dfee270ebf81bef8d934dc71276bf8d963/updates.js#L4521-L4531"
+      ]
+    },
+    {
+      "id": "F6",
+      "label": "verified (code)",
+      "title": "Void Maps are timing choices whose role evolves",
+      "claim": "A seeded drop check uses eligible enemy kills since the last drop, a minimum kill interval and modifiers from equipment/Golden upgrades. A Void Map takes the current world zone when entered, carries a dangerous modifier and is consumed on completion. Its prestige-currency reward changes with current zone and late bonuses; challenge-squared mode suppresses that currency. Fluffy and masteries later stack completions and alter their reward math. Delaying a map changes risk and payoff, rather than only queue order.",
+      "sources": [
+        "https://github.com/Trimps/Trimps.github.io/blob/b9edb1dfee270ebf81bef8d934dc71276bf8d963/main.js#L6611-L6730",
+        "https://github.com/Trimps/Trimps.github.io/blob/b9edb1dfee270ebf81bef8d934dc71276bf8d963/main.js#L10897-L10900",
+        "https://github.com/Trimps/Trimps.github.io/blob/b9edb1dfee270ebf81bef8d934dc71276bf8d963/main.js#L10731-L10734",
+        "https://github.com/Trimps/Trimps.github.io/blob/b9edb1dfee270ebf81bef8d934dc71276bf8d963/config.js#L8882-L8975",
+        "https://github.com/Trimps/Trimps.github.io/blob/b9edb1dfee270ebf81bef8d934dc71276bf8d963/config.js#L2415-L2429"
+      ]
+    },
+    {
+      "id": "F7",
+      "label": "verified (code)",
+      "title": "Bone Trader mixes several time horizons",
+      "claim": "The same bone balance buys persistent exotic enemy imports, generated heirlooms, single-run bonuses and permanent bonus levels. boostHe grants prestige currency and other best-run-linked rewards without calling resetGame. Its counter changes do not mean an actual Portal wipe occurred. Single-run purchases have challenge-specific exclusions; permanent bonuses have a local level ceiling. This is an economy classification reference, not a monetization proposal.",
+      "sources": [
+        "https://github.com/Trimps/Trimps.github.io/blob/b9edb1dfee270ebf81bef8d934dc71276bf8d963/main.js#L17375-L17425",
+        "https://github.com/Trimps/Trimps.github.io/blob/b9edb1dfee270ebf81bef8d934dc71276bf8d963/main.js#L17461-L17598",
+        "https://github.com/Trimps/Trimps.github.io/blob/b9edb1dfee270ebf81bef8d934dc71276bf8d963/config.js#L807-L817"
+      ]
+    },
+    {
+      "id": "F8",
+      "label": "verified (code)",
+      "title": "Trimps restrictions teach alternate production choices",
+      "claim": "Trapper disables breeding and prefilled housing, completes at a named map objective and unlocks Anticipation. Balance trades lower health for faster gathering through stacks gained in world combat and shed in maps, rewarding completion with extra earned Helium. These are specific examples of changing the value of an existing subsystem. Generic challenge entry and repeat completion are already covered by Modding Tree P3/P4.",
+      "sources": [
+        "https://github.com/Trimps/Trimps.github.io/blob/b9edb1dfee270ebf81bef8d934dc71276bf8d963/config.js#L3377-L3405",
+        "https://github.com/Trimps/Trimps.github.io/blob/b9edb1dfee270ebf81bef8d934dc71276bf8d963/config.js#L3567-L3595"
+      ]
+    },
+    {
+      "id": "F9",
+      "label": "verified (code)",
+      "title": "AD challenges can replace a formula or a subsystem",
+      "claim": "Infinity Challenge 3 makes Tickspeed purchases act as a static multiplier instead of their normal role. Eternity Challenges disable Time or Infinity Dimensions; EC4 restricts the number of Infinities allowed. Completion targets rise, rewards use completion count, and bulk completion is earned by a perk. The ordinary EC ceiling is five, but EC1 during the Nameless run uses 1000. That exception is evidence against universal fixed completion rules.",
+      "sources": [
+        "https://github.com/IvarK/AntimatterDimensionsSourceCode/blob/5409e320cecef96a917cca1dfb68f1f183e499ca/src/core/secret-formula/challenges/infinity-challenges.js#L33-L48",
+        "https://github.com/IvarK/AntimatterDimensionsSourceCode/blob/5409e320cecef96a917cca1dfb68f1f183e499ca/src/core/secret-formula/challenges/eternity-challenges.js#L7-L65",
+        "https://github.com/IvarK/AntimatterDimensionsSourceCode/blob/5409e320cecef96a917cca1dfb68f1f183e499ca/src/core/eternity-challenge.js#L73-L86",
+        "https://github.com/IvarK/AntimatterDimensionsSourceCode/blob/5409e320cecef96a917cca1dfb68f1f183e499ca/src/core/eternity.js#L15-L31"
+      ]
+    },
+    {
+      "id": "F10",
+      "label": "verified (code)",
+      "title": "Trimps earns built-in control alongside external automation",
+      "claim": "Map At Zone is awarded by the zone-150 unlock and adds a native setting. The Bionic Wonderland reward definitions grant AutoJobs at 140 and AutoStructure at 155. Persistent settings survive Portal. These are declarative controls over jobs, structures and maps; the inspected native features are not an arbitrary user programming language.",
+      "sources": [
+        "https://github.com/Trimps/Trimps.github.io/blob/b9edb1dfee270ebf81bef8d934dc71276bf8d963/config.js#L9902-L9918",
+        "https://github.com/Trimps/Trimps.github.io/blob/b9edb1dfee270ebf81bef8d934dc71276bf8d963/config.js#L13392-L13412",
+        "https://github.com/Trimps/Trimps.github.io/blob/b9edb1dfee270ebf81bef8d934dc71276bf8d963/updates.js#L4350-L4435",
+        "https://github.com/Trimps/Trimps.github.io/blob/b9edb1dfee270ebf81bef8d934dc71276bf8d963/updates.js#L4508-L4600"
+      ]
+    },
+    {
+      "id": "F11",
+      "label": "verified (page)",
+      "title": "AutoTrimps is an external strategy layer with fork lineage",
+      "claim": "The Zorn192 author repository describes a fork from genbtc, installation as an injected script/userscript or Steam mod and a need to configure settings. Its README dates its compatibility statement to June 2022. Author repositories show a fork ecosystem, but this does not prove present compatibility, player adoption rates or the best maintained fork. No injector was installed or executed.",
+      "sources": [
+        "https://github.com/Zorn192/AutoTrimps",
+        "https://github.com/genbtc/AutoTrimps",
+        "https://github.com/SadAugust/AutoTrimps"
+      ]
+    },
+    {
+      "id": "F12",
+      "label": "verified (code)",
+      "title": "AD makes automation an earned and bounded in-game language",
+      "claim": "Automator unlocks at 100 points from perks, Reality upgrades and other milestones, with an explicit forceUnlock override. Lexer, parser, compiler and commands handle game actions such as study purchases, waits, prestige and challenge starts. Prestige normally waits until available unless NOWAIT is set. The backend has pause/single-step, persistent script state, errors and events, a 100-command update budget and a separate no-op guard. These guards protect execution, but a valid wait can still remain blocked indefinitely.",
+      "sources": [
+        "https://github.com/IvarK/AntimatterDimensionsSourceCode/blob/5409e320cecef96a917cca1dfb68f1f183e499ca/src/core/automator/automator-points.js#L1-L36",
+        "https://github.com/IvarK/AntimatterDimensionsSourceCode/blob/5409e320cecef96a917cca1dfb68f1f183e499ca/src/core/player.js#L985-L987",
+        "https://github.com/IvarK/AntimatterDimensionsSourceCode/blob/5409e320cecef96a917cca1dfb68f1f183e499ca/src/core/automator/automator-commands.js#L427-L477",
+        "https://github.com/IvarK/AntimatterDimensionsSourceCode/blob/5409e320cecef96a917cca1dfb68f1f183e499ca/src/core/automator/automator-backend.js#L718-L789",
+        "https://github.com/IvarK/AntimatterDimensionsSourceCode/blob/5409e320cecef96a917cca1dfb68f1f183e499ca/src/core/automator/automator-backend.js#L956-L982"
+      ]
+    },
+    {
+      "id": "F13",
+      "label": "verified (code)",
+      "title": "Celestials give old layers new jobs",
+      "claim": "Teresa invests Reality Machines and bases a run reward on peak antimatter. Effarig separates Infinity, Eternity and Reality stages with stage-specific Glyph ceilings and altered multiplier math. The Nameless Ones store/release time and impose run restrictions. V scores distinct achievements within its run. Ra turns chunks and memories into pet levels. Lai'tela combines a Dark Matter economy with a run that reduces permitted dimension tiers. Pelle disables many accumulated effects and introduces Armageddon/recovery rules. This sampled catalog establishes different roles, not exhaustive late-game balance.",
+      "sources": [
+        "https://github.com/IvarK/AntimatterDimensionsSourceCode/blob/5409e320cecef96a917cca1dfb68f1f183e499ca/src/core/celestials/teresa.js#L8-L60",
+        "https://github.com/IvarK/AntimatterDimensionsSourceCode/blob/5409e320cecef96a917cca1dfb68f1f183e499ca/src/core/celestials/effarig.js#L8-L110",
+        "https://github.com/IvarK/AntimatterDimensionsSourceCode/blob/5409e320cecef96a917cca1dfb68f1f183e499ca/src/core/celestials/enslaved.js#L50-L175",
+        "https://github.com/IvarK/AntimatterDimensionsSourceCode/blob/5409e320cecef96a917cca1dfb68f1f183e499ca/src/core/secret-formula/celestials/v.js#L65-L137",
+        "https://github.com/IvarK/AntimatterDimensionsSourceCode/blob/5409e320cecef96a917cca1dfb68f1f183e499ca/src/core/celestials/ra/ra.js#L93-L151",
+        "https://github.com/IvarK/AntimatterDimensionsSourceCode/blob/5409e320cecef96a917cca1dfb68f1f183e499ca/src/core/celestials/laitela/laitela.js#L6-L91",
+        "https://github.com/IvarK/AntimatterDimensionsSourceCode/blob/5409e320cecef96a917cca1dfb68f1f183e499ca/src/core/celestials/pelle/pelle.js#L13-L105"
+      ]
+    },
+    {
+      "id": "F14",
+      "label": "verified (code)",
+      "title": "Later rules must revalidate earned automation",
+      "claim": "Entering the Nameless run recalculates Automator errors because Black Hole commands become forbidden, then stops an invalid running script. Pelle entry disables repeat/restart settings, and its disabled-mechanic map separately controls old autobuyers and effects. An earned tool can remain owned while being unusable under a local rule. YAIRPG should preserve the plan and show the blocked reason, not silently erase it or let a script bypass the world.",
+      "sources": [
+        "https://github.com/IvarK/AntimatterDimensionsSourceCode/blob/5409e320cecef96a917cca1dfb68f1f183e499ca/src/core/celestials/enslaved.js#L150-L164",
+        "https://github.com/IvarK/AntimatterDimensionsSourceCode/blob/5409e320cecef96a917cca1dfb68f1f183e499ca/src/core/celestials/pelle/pelle.js#L13-L105"
+      ]
+    }
+  ],
+  "packets": [
+    {
+      "id": "P1",
+      "name": "World-aware routine permissions",
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "P2",
+      "name": "Run-purpose ledger",
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "P3",
+      "name": "Expedition timing contract",
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "P4",
+      "name": "Relic preparation",
+      "status": "PROPOSAL deferred"
+    },
+    {
+      "id": "P5",
+      "name": "Reward lifetime labels",
+      "status": "PROPOSAL"
+    }
+  ],
+  "overlap": {
+    "conditional_keep": "modding-tree P1; not duplicated",
+    "mastery_reruns": "modding-tree P3/P4; not duplicated",
+    "generic_earned_automation": "increlution and modding-tree; extend current work-plan seam"
+  },
+  "verification": {
+    "static_read": true,
+    "json_validated": true,
+    "runtime": false,
+    "build": false,
+    "save_reload_import": false,
+    "human_acceptance": false,
+    "committed": false,
+    "lane_checks": [
+      "five-file inventory",
+      "14 finding IDs",
+      "5 packet count",
+      "15 touch count",
+      "local Markdown links",
+      "full-SHA locators and ranges",
+      "no em dash",
+      "local source hashes unchanged"
+    ]
+  },
+  "unread": [
+    "exhaustive challenge/perk/heirloom catalogs",
+    "all Celestial formulas and unlock chains",
+    "full AutoTrimps code or compatibility",
+    "vendor/asset license inventory",
+    "balance/pacing/playtests"
+  ],
+  "failed_fetches": [
+    {
+      "url": "https://www.gnu.org/licenses/gpl-faq.html#IfLibraryIsGPL",
+      "error": "web internal error",
+      "switched_to": "https://choosealicense.com/licenses/gpl-3.0/"
+    }
+  ]
+}
