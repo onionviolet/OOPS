@@ -87,6 +87,11 @@ eight lane outputs, 179 proposed detail contracts, earlier VFX-family mappings
 and titles/skills/progression micro-audits. Linked ledger/queue route actual
 consumers, missing contracts and 693 unrun acceptance cases. This finite return
 does not adjudicate every artifact or finish local source worlds/gameplay.
+[Intro flow considerations](INTRO_FLOW_CONSIDERATIONS_2026-10-13.md) owns the
+2026-10-13 opening palette: flow beats, creation screen, teaching without a
+tutorial, cheat/advantage choice placement and start options, with source
+findings on the current opening. Proposals, not accepted mechanics.
+
 
 For whole book/anime worlds or a broad feature family, start with the
 [actionability GM prompt](gm/WORLD_ACTIONABILITY_GM_PROMPT.md): recover and expand

@@ -1,0 +1,5 @@
+You are the code worker for /Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/start-records-2026-10-13/pockets/GOAL.md (call its folder PK). Work only in the worktree /Users/weiwei/.codex/worktrees/start-records/yet-another-idle-rpg (your cwd). Read AGENTS.md, PK/GOAL.md, PK/pockets_gate.mjs and PK/check_pockets.sh (READ-ONLY), the parent folder's GOAL.md and checks/gate.cjs (must keep passing), and the intro doc /Users/weiwei/code/yet-another-idle-rpg/docs/INTRO_FLOW_CONSIDERATIONS_2026-10-13.md rounds 19-20 (MZ codes) for tone.
+
+Implement the spec in the allowed files, extend tests/start_records.test.js, rebuild with `node build.js`, and run `bash PK/check_pockets.sh` (it starts its own server on 18341; make sure no other server holds that port) until it exits 0. Write pocket lines yourself: original, plain, one sentence each, specific and sensory, fitting an amnesiac village wake-up and the background layers.
+
+Rules: allowed files only; no git add/commit/push; never edit any checks, gates or GATE.sha256. If a check seems wrong, stop and write the diagnosis to PK/NEXT.md. Final message: check output, the pocket lines you wrote, files changed.

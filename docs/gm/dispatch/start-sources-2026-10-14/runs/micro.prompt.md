@@ -1,0 +1,7 @@
+You are the start micro-details lane. Read /Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/start-sources-2026-10-14/COMMON.md and AGENTS.md first and follow them. Then read docs/INTRO_FLOW_CONSIDERATIONS_2026-10-13.md rounds 6, 9, 17 and 19 (SA start kinds, PN, FH, EH, MZ codes), docs/worlds/world-depth-2026-10-13/36_MICRO_MOMENTS_AND_SMALL_SIGNALS.md (MC1-MC48), docs/worlds/VILLAIN_STARTS_AND_OTHER_SELVES_2026-10-14.md, docs/research/START_AS_X_SOURCE_CATALOG_2026-10-14.md and docs/research/GAMES_OTHER_SELVES_AND_VILLAIN_PLAY_2026-10-14.md.
+
+Write one tracked idea palette: /Users/weiwei/code/yet-another-idle-rpg/docs/worlds/START_MICRO_DETAILS_2026-10-14.md.
+- For each start kind SA1-SA24 and each entry kind (born, woke, arrived, summoned, reincarnated, possessed, contracted, conscripted, returned): 4-6 subtle micro details, each one line, across senses, pockets/items, body habits, social tells, odd details, first log line, interface micro. Mark which need no new system (pure text/data) vs which need a hook.
+- A short section on micro tells for canon events, substitutes, branches and endings that go beyond MZ1-MZ18.
+- A "cheapest twenty" list: the details that are pure text or data and would most improve the existing vanilla opening and the start-records probe, each with where it would live.
+Codes MD1.. (start micro). No book prose; original wording only. Default + dial language, no absolutes. Keep CHECKPOINT.md in /Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/start-sources-2026-10-14/micro/.
