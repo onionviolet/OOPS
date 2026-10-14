@@ -1314,7 +1314,7 @@ function actSystemsWorkshop(command) {
         return actSimulation({type:'command',id:'systems_workshop.apply_model_'+variant,sequence:command.sequence});
     }
     if(command.id==='cancel') return actSimulation({type:'cancel',sequence:command.sequence});
-    return actSimulation({type:command.id==='enroll'?'enroll':'command',id:command.id==='enroll'?undefined:command.id,sequence:command.sequence});
+    return actSimulation({type:command.id==='enroll'?'enroll':'command',id:command.id==='enroll'?undefined:command.id,targetId:expeditionRegistry.simulation.commands.get(command.id)?.targetId,sequence:command.sequence});
 }
 function actSkillExpansion(command){
     if(!ownsSave||importProbeToken||foundationSaveBlocked||expansionError)throw new Error('Saving must be available before this action.');
@@ -8266,7 +8266,7 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
         read: () => ({...readProgression(), inDialogue: !!current_dialogue}), command: startExpedition, cancel: cancelExpedition});
     simulationPanel = createSimulationPanel({registry: expeditionRegistry,
         read: () => ({...readProgression(), inDialogue: !!current_dialogue}), command: actSimulation});
-    systemsWorkshopPanel=createSystemsWorkshopPanel({parent:document.getElementById('location_actions_div'),read:()=>({...readProgression(),inDialogue:!!current_dialogue,inCombat:!!current_combat}),act:actSystemsWorkshop});
+    systemsWorkshopPanel=createSystemsWorkshopPanel({registry:expeditionRegistry,parent:document.getElementById('location_actions_div'),read:()=>({...readProgression(),inDialogue:!!current_dialogue,inCombat:!!current_combat}),act:actSystemsWorkshop});
     pursuitPanel=createPursuitPanel({registry:expeditionRegistry,read:()=>{const snapshot=readProgression();return {...snapshot,inDialogue:!!current_dialogue,inCombat:!!current_combat,canWrite:ownsSave && !foundationSaveBlocked && !importProbeToken,
         context:{...snapshot.context,vitals:Object.fromEntries(Object.entries(simulationNativeContexts()).map(([id,c])=>[id,c.vitals]))}};},command:actSimulation});
     nativeBattleHost=createNativeBattleHost({Combat,Enemy,registry:expeditionRegistry,player:character,getState:()=>expansionState,getContext:campaignContext,persist:persistExpansion,

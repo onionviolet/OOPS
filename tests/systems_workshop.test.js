@@ -28,3 +28,20 @@ test('import rejects unfunded points and falsified experiment outputs',()=>{let 
 test('expiry import must bind the receipt and cannot delete or move its deadline',()=>{let p=earned();for(const id of ['work','buy_glass','buy_food','ordinary_ration'])p=act(p,id);const q=structuredClone(p);delete q.state.actors.player.facts[SW+'.rationDue'];assert.throws(()=>loadExpansionState(q.state,R),/expiry/);p.state.actors.player.facts[SW+'.rationDue']+=99;assert.throws(()=>loadExpansionState(p.state,R),/expiry/);});
 
 test('irrigation preservation still requires its actual fixed-function carrier and rival cannot wager unfunded',()=>{let p=earned();p=act(p,'model_branched_3');p=act(p,'buy_log');p=act(p,'apply_model_recommended');p=act(p,'sell_parts');p=act(p,'work');p=act(p,'buy_food');p=act(p,'buy_glass');assert.throws(()=>command(p,'irrigation_use'));p=act(p,'seal');p=act(p,'irrigation_use');assert.equal(p.gameplay.player.inventory[K.food],2);const poor=act(begin(),'work');poor.state.actors[P].resources.coins=0;const seed=poor.state.simulation.seed;assert.throws(()=>command(poor,'wager'));assert.equal(poor.state.simulation.seed,seed);});
+
+test('eligibility ignores caller assertions about recommendation, installation and Ren learning',()=>{
+ const p=begin(),context={...ctx(p),facts:{location:'Village','sw.modelRecommended':true,'sw.fieldInstalled':true,'sw.renTaught':true}};
+ for(const id of ['apply_model_recommended','irrigation_use','ask_ren']){
+  const d=R.simulation.commands.get(SW+'.'+id);
+  assert.equal(previewSimulationCommand(p.state,R,d.id,{...context,targetId:d.targetId}).eligible,false);
+ }
+});
+test('engine reconciles manufacture receipts and expiry before validating or returning its plan',()=>{
+ let p=earned();for(const id of ['work','buy_glass','buy_food'])p=act(p,id);
+ const pending=command(p,'ordinary_ration'),job=pending.state.simulation.jobs.find(j=>j.commandId===SW+'.ordinary_ration');
+ const made=advanceSimulation(pending.state,R,job.due-pending.state.clock,pending.external,pending.gameplay,{player:{facts:{location:'Village'}}});
+ const receipt=made.state.simulation.knowledge.player[SW+'.ordinary_ration'];
+ assert.equal(fact(made,'rationDue'),receipt.at+4);loadExpansionState(made.state,R);
+ const expired=advanceSimulation(made.state,R,4,made.external,made.gameplay,{player:{facts:{location:'Village'}}});
+ assert.equal(expired.gameplay.player.inventory[K.ordinaryFood],undefined);assert.equal(expired.gameplay.player.inventory[K.spoiledFood],1);loadExpansionState(expired.state,R);
+});

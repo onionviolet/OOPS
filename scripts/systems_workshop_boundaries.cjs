@@ -1,10 +1,10 @@
 // Native failure/alternate routes on disposable contexts using only generated
 // saves from the unenriched natural journey. No personal saves or dev grants.
-const fs=require('node:fs'),assert=require('node:assert/strict'),{chromium}=require('playwright');
-const OUT=process.env.YAIRPG_PROOF_DIR||'/tmp/systems-workshop-proof',URL=process.env.YAIRPG_PROOF_URL||'http://127.0.0.1:18653/';
+const fs=require('node:fs'),assert=require('node:assert/strict'),{chromium}=require('/Users/weiwei/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
+const OUT=process.env.YAIRPG_PROOF_DIR||'/tmp/systems-workshop-proof',URL=process.env.YAIRPG_PROOF_URL||'http://127.0.0.1:18701/';
 const SW='systems_workshop',key=id=>JSON.stringify({id});
 (async()=>{const {encodeSaveFile}=await import('../src/save_files.js');const b=await chromium.launch({headless:true,executablePath:'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'});const errors=[],cases=[];let p,c;
- const open=async fixture=>{c=await b.newContext();await c.addInitScript(d=>{if(!localStorage.getItem('save data'))localStorage.setItem('save data',JSON.stringify(d));},fixture);p=await c.newPage();p.setDefaultTimeout(30000);p.on('pageerror',e=>errors.push(e.message));await p.goto(URL);await play();};
+ const open=async fixture=>{c=await b.newContext({viewport:{width:1366,height:768}});await c.addInitScript(d=>{if(!localStorage.getItem('save data'))localStorage.setItem('save data',JSON.stringify(d));},fixture);p=await c.newPage();p.setDefaultTimeout(30000);p.on('pageerror',e=>errors.push(e.message));await p.goto(URL);await play();};
  const play=async()=>{await p.getByText('PLAY',{exact:true}).click({noWaitAfter:true});if(await p.getByText('Confirm',{exact:true}).isVisible())await p.getByText('Confirm',{exact:true}).click({noWaitAfter:true});if(await p.locator('#systems_workshop_panel').isVisible()&&!await p.locator('#systems_workshop_panel').evaluate(n=>n.open))await p.locator('#systems_workshop_panel > summary').click({noWaitAfter:true});};
  const save=async()=>{await p.evaluate(()=>window.saveProgress());return p.evaluate(()=>JSON.parse(localStorage.getItem('save data')));};
  const click=async id=>{const q=p.locator('[data-systems="'+(['enroll','cancel','continue','apply_model'].includes(id)?id:SW+'.'+id)+'"]');await q.waitFor({state:'visible'});await p.waitForFunction(n=>!n.disabled,await q.elementHandle());await q.click({noWaitAfter:true});};

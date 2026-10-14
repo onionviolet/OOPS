@@ -1,3 +1,4 @@
+import {systemsWorkshopItems} from './systems_workshop_content.js';
 import {equipmentDurability as durability} from './absorb_e2/durability.js';
 import {registerAccessoryItems} from './absorb_c1/accessories.js';
 import {WATCHCRAFT_BOOK, WATCHCRAFT_READING} from './village_career.js';
@@ -4541,6 +4542,12 @@ crafting_component_manager.fill_components();
 add_gear();
 registerAccessoryItems({item_templates, Amulet});
 setup_ids();
+// Air workshop proposal: optional templates must not enrich absent-edition saves.
+// Actual item instantiation registers its availability when workshop goods arrive.
+for(const [name,description,value] of systemsWorkshopItems){
+    item_templates[name]=new OtherItem({id:name,name,description,value});
+    delete availabilities.item[name];
+}
 
 availability_havers.push(Item);
 

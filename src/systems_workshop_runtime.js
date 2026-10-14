@@ -21,3 +21,12 @@ export function reconcileSystemsWorkshop(before,plan,{chest}={}){
   f[SW+'.'+kind+'Spoiled']=true;
  }
 }
+
+// Eligibility is derived from current persisted carriers, never caller claims.
+export function systemsWorkshopFacts(state){
+ const a=state.actors.player,f=a.facts,ren=state.actors[SW+'.apprentice']?.facts||{};
+ return {'sw.assistPresent':!!a.sources[SW+'.assist'],
+  'sw.modelRecommended':!!f[SW+'.modeled']&&f[SW+'.modelLayout']===f[SW+'.modelBest'],
+  'sw.fieldInstalled':state.actors[PROVIDER]?.facts[SW+'.irrigationInstalled']===true,
+  'sw.renTaught':ren[SW+'.taught']===true,'sw.renOrder':ren[SW+'.order']===true};
+}

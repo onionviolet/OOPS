@@ -1,3 +1,4 @@
+import {reconcileSystemsWorkshop} from './systems_workshop_runtime.js';
 import {nativeEquipmentSnapshot} from './native_equipment_transaction.js';
 import {nextContainerBoundary} from './structured_container_runtime.js';
 import {advanceNativeContainerClocks} from './simulation_effects.js';
@@ -634,6 +635,7 @@ export function advanceSimulation(state, registry, minutes, external = {}, gamep
     reconcileParadiseCampaignDepthRuntime(state,simulationPlan,registry);
     reconcileWorldCompletionPlan(simulationPlan,registry,loreContexts());
     advanceNativeContainerClocks(simulationPlan,registry,simulationContexts);
+    reconcileSystemsWorkshop(state,simulationPlan,{chest:simulationPlan.ownership?.chest||simulationContexts.player?.inventoryOwners?.chest});
     validateExpansionState(next, registry);
     return {state: next, external: budgets, gameplay: owned, acquisitions, unlocks, native: simulationPlan.native, equipment: simulationPlan.equipment, ownership: simulationPlan.ownership,
         ...(simulationPlan.nativeLocation?{nativeLocation:simulationPlan.nativeLocation}:{}),
