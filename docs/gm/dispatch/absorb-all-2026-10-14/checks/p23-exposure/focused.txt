@@ -1,0 +1,178 @@
+TAP version 13
+# Subtest: legacy saves default both options off without invented debt or elapsed history
+ok 1 - legacy saves default both options off without invented debt or elapsed history
+  ---
+  duration_ms: 4.807667
+  type: 'test'
+  ...
+# Subtest: normalization bounds persisted meters and rejects future schema
+ok 2 - normalization bounds persisted meters and rejects future schema
+  ---
+  duration_ms: 0.785083
+  type: 'test'
+  ...
+# Subtest: hunger uses common played minutes, caps floor, and has actual XP effect
+ok 3 - hunger uses common played minutes, caps floor, and has actual XP effect
+  ---
+  duration_ms: 0.407709
+  type: 'test'
+  ...
+# Subtest: off options freeze existing state; absence of explicit home context cannot penalize worlds
+ok 4 - off options freeze existing state; absence of explicit home context cannot penalize worlds
+  ---
+  duration_ms: 0.427875
+  type: 'test'
+  ...
+# Subtest: native food replenishes even if native meal buff already lasts longer
+ok 5 - native food replenishes even if native meal buff already lasts longer
+  ---
+  duration_ms: 0.485125
+  type: 'test'
+  ...
+# Subtest: weather duration actually expires, fog affects outdoors XP, shelter preserves hunger only
+ok 6 - weather duration actually expires, fog affects outdoors XP, shelter preserves hunger only
+  ---
+  duration_ms: 0.13825
+  type: 'test'
+  ...
+# Subtest: optional rain adds native wet route without suppressing the native rain cycle
+ok 7 - optional rain adds native wet route without suppressing the native rain cycle
+  ---
+  duration_ms: 1.064875
+  type: 'test'
+  ...
+# Subtest: weather offsets native temperature and respects disabled/sheltered/external worlds
+ok 8 - weather offsets native temperature and respects disabled/sheltered/external worlds
+  ---
+  duration_ms: 0.177
+  type: 'test'
+  ...
+# Subtest: season changes new durations and long common-clock steps equal segmented progression
+ok 9 - season changes new durations and long common-clock steps equal segmented progression
+  ---
+  duration_ms: 36.536333
+  type: 'test'
+  ...
+# Subtest: saved JSON roundtrip restores disabled retained state, phase and next transition without a second clock
+ok 10 - saved JSON roundtrip restores disabled retained state, phase and next transition without a second clock
+  ---
+  duration_ms: 0.53375
+  type: 'test'
+  ...
+# Subtest: readable status and food description explain defaults, effects and scope
+ok 11 - readable status and food description explain defaults, effects and scope
+  ---
+  duration_ms: 0.296333
+  type: 'test'
+  ...
+# Subtest: panel toggles call integrator and roll back visual checkbox on rejected save
+ok 12 - panel toggles call integrator and roll back visual checkbox on rejected save
+  ---
+  duration_ms: 0.39275
+  type: 'test'
+  ...
+# Subtest: old saves remain absent; defaults have no new weather cost
+ok 13 - old saves remain absent; defaults have no new weather cost
+  ---
+  duration_ms: 1.587083
+  type: 'test'
+  ...
+# Subtest: idle underfed played time earns fractional native Famine XP without activity
+ok 14 - idle underfed played time earns fractional native Famine XP without activity
+  ---
+  duration_ms: 0.325167
+  type: 'test'
+  ...
+# Subtest: tiny ticks retain positive progress rather than rounding it away
+ok 15 - tiny ticks retain positive progress rather than rounding it away
+  ---
+  duration_ms: 0.592167
+  type: 'test'
+  ...
+# Subtest: fed, nonfeeding, absent body, offline, outside home and hunger-off controls award none
+ok 16 - fed, nonfeeding, absent body, offline, outside home and hunger-off controls award none
+  ---
+  duration_ms: 0.247709
+  type: 'test'
+  ...
+# Subtest: threshold crossing integrates only actual underfed suffix and matches split E1 clock
+ok 17 - threshold crossing integrates only actual underfed suffix and matches split E1 clock
+  ---
+  duration_ms: 0.301875
+  type: 'test'
+  ...
+# Subtest: event replay after reload is idempotent; later real events keep awarding
+ok 18 - event replay after reload is idempotent; later real events keep awarding
+  ---
+  duration_ms: 0.623667
+  type: 'test'
+  ...
+# Subtest: overlaps and gaps reject before any source mutation
+ok 19 - overlaps and gaps reject before any source mutation
+  ---
+  duration_ms: 0.433917
+  type: 'test'
+  ...
+# Subtest: gust and rest have distinct visible temperature and native-resource costs
+ok 20 - gust and rest have distinct visible temperature and native-resource costs
+  ---
+  duration_ms: 0.127958
+  type: 'test'
+  ...
+# Subtest: shelter blocks exposure, still advances the same weather phase; resistance reduces cost
+ok 21 - shelter blocks exposure, still advances the same weather phase; resistance reduces cost
+  ---
+  duration_ms: 0.604333
+  type: 'test'
+  ...
+# Subtest: mode off and unavailable weather/body/world freeze phase without added penalties
+ok 22 - mode off and unavailable weather/body/world freeze phase without added penalties
+  ---
+  duration_ms: 5.385708
+  type: 'test'
+  ...
+# Subtest: long common-clock step matches segmented gust costs and saved remainder
+ok 23 - long common-clock step matches segmented gust costs and saved remainder
+  ---
+  duration_ms: 95.384417
+  type: 'test'
+  ...
+# Subtest: pending phase and XP remainder survive JSON literal payload preflight and resume
+ok 24 - pending phase and XP remainder survive JSON literal payload preflight and resume
+  ---
+  duration_ms: 0.320041
+  type: 'test'
+  ...
+# Subtest: unsupported/malformed save states reject without mutation
+ok 25 - unsupported/malformed save states reject without mutation
+  ---
+  duration_ms: 1.120833
+  type: 'test'
+  ...
+# Subtest: Famine projects a bounded benefit over existing optional penalty only
+ok 26 - Famine projects a bounded benefit over existing optional penalty only
+  ---
+  duration_ms: 0.137541
+  type: 'test'
+  ...
+# Subtest: status reveals only known skill names and explains risk without effects
+ok 27 - status reveals only known skill names and explains risk without effects
+  ---
+  duration_ms: 0.270625
+  type: 'test'
+  ...
+# Subtest: panel rollback respects failed native commit and does not alter source state
+ok 28 - panel rollback respects failed native commit and does not alter source state
+  ---
+  duration_ms: 0.386167
+  type: 'test'
+  ...
+1..28
+# tests 28
+# suites 0
+# pass 28
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 269.987333

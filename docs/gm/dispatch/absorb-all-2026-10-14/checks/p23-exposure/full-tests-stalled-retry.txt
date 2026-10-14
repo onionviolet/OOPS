@@ -1,0 +1,336 @@
+
+> test
+> node --test tests/*.test.js --test-concurrency=1 --test-timeout=30000
+
+TAP version 13
+# Subtest: native housing bonuses are local, readable, and absent on old missing owners
+ok 1 - native housing bonuses are local, readable, and absent on old missing owners
+  ---
+  duration_ms: 2.328834
+  type: 'test'
+  ...
+# Subtest: book bonus needs completed owned books, counts distinct works and caps ten
+ok 2 - book bonus needs completed owned books, counts distinct works and caps ten
+  ---
+  duration_ms: 0.501292
+  type: 'test'
+  ...
+# Subtest: counted carried furniture is inert; only settled installed local fixtures earn bonuses
+ok 3 - counted carried furniture is inert; only settled installed local fixtures earn bonuses
+  ---
+  duration_ms: 0.634333
+  type: 'test'
+  ...
+# Subtest: Shack project flags alone earn nothing; existing earned phased fixture owners do
+ok 4 - Shack project flags alone earn nothing; existing earned phased fixture owners do
+  ---
+  duration_ms: 0.786542
+  type: 'test'
+  ...
+# Subtest: home kit requires earned adaptation plus current owned physical kit; copies and reload never stack
+ok 5 - home kit requires earned adaptation plus current owned physical kit; copies and reload never stack
+  ---
+  duration_ms: 1.120375
+  type: 'test'
+  ...
+# Subtest: utilities derive solely from the native amulet slot, never saved metadata
+ok 6 - utilities derive solely from the native amulet slot, never saved metadata
+  ---
+  duration_ms: 1.332666
+  type: 'test'
+  ...
+# Subtest: luck changes nonzero item craft chance without converting impossible or certain recipes
+ok 7 - luck changes nonzero item craft chance without converting impossible or certain recipes
+  ---
+  duration_ms: 0.220625
+  type: 'test'
+  ...
+# Subtest: price reduces only markup and leaves sell values and below-base margins intact
+ok 8 - price reduces only markup and leaves sell values and below-base margins intact
+  ---
+  duration_ms: 0.0775
+  type: 'test'
+  ...
+# Subtest: portable cooking respects safety/unlock gates and preserves better native stations
+ok 9 - portable cooking respects safety/unlock gates and preserves better native stations
+  ---
+  duration_ms: 0.219541
+  type: 'test'
+  ...
+# Subtest: injected equipment reader stays live and accepts the host custody filter
+ok 10 - injected equipment reader stays live and accepts the host custody filter
+  ---
+  duration_ms: 98.347
+  type: 'test'
+  ...
+# Subtest: native registration, material acquisition, equipment and save-key roundtrip use existing models
+ok 11 - native registration, material acquisition, equipment and save-key roundtrip use existing models
+  ---
+  duration_ms: 1476.644333
+  type: 'test'
+  ...
+# Subtest: C2 compatibility: absent saves default empty; unsupported or malformed containers reject
+ok 12 - C2 compatibility: absent saves default empty; unsupported or malformed containers reject
+  ---
+  duration_ms: 1.40275
+  type: 'test'
+  ...
+# Subtest: C2 source balance and readable documentation remain in agreement
+ok 13 - C2 source balance and readable documentation remain in agreement
+  ---
+  duration_ms: 3.526708
+  type: 'test'
+  ...
+# Subtest: C2 exposure is played, bounded by actual remaining poison and replay resistant
+ok 14 - C2 exposure is played, bounded by actual remaining poison and replay resistant
+  ---
+  duration_ms: 1.33325
+  type: 'test'
+  ...
+# Subtest: C2 five-minute searches persist misses, cap chance, and award a finite native item once
+ok 15 - C2 five-minute searches persist misses, cap chance, and award a finite native item once
+  ---
+  duration_ms: 0.890833
+  type: 'test'
+  ...
+# Subtest: C2 interruptions and clock jumps never replay unbounded idle searches
+ok 16 - C2 interruptions and clock jumps never replay unbounded idle searches
+  ---
+  duration_ms: 0.285916
+  type: 'test'
+  ...
+# Subtest: C2 hub contact has common-clock cadence, saved misses and one daily occurrence
+ok 17 - C2 hub contact has common-clock cadence, saved misses and one daily occurrence
+  ---
+  duration_ms: 1.250292
+  type: 'test'
+  ...
+# Subtest: C2 free meal derives from native calendar, persists claim, and skips missed days
+ok 18 - C2 free meal derives from native calendar, persists claim, and skips missed days
+  ---
+  duration_ms: 0.379167
+  type: 'test'
+  ...
+# Subtest: C2 no random rolls on rendering or invalid actions; rollback keeps claims and money unchanged
+ok 19 - C2 no random rolls on rendering or invalid actions; rollback keeps claims and money unchanged
+  ---
+  duration_ms: 9.562583
+  type: 'test'
+  ...
+# Subtest: C2 panel reattaches after native location menu clears unchanged view
+ok 20 - C2 panel reattaches after native location menu clears unchanged view
+  ---
+  duration_ms: 5.18975
+  type: 'test'
+  ...
+# Subtest: old saves start empty without invented knowledge/history; malformed future schema fails
+ok 21 - old saves start empty without invented knowledge/history; malformed future schema fails
+  ---
+  duration_ms: 2.636792
+  type: 'test'
+  ...
+# Subtest: free earned or paid entry gives one real native book and durable funds
+ok 22 - free earned or paid entry gives one real native book and durable funds
+  ---
+  duration_ms: 1.26625
+  type: 'test'
+  ...
+# Subtest: repeat hand-ins conserve actual inventory, wages and finite employer budget
+ok 23 - repeat hand-ins conserve actual inventory, wages and finite employer budget
+  ---
+  duration_ms: 1.760208
+  type: 'test'
+  ...
+# Subtest: repair requires location, reading, actual clear, exact stock and custody
+ok 24 - repair requires location, reading, actual clear, exact stock and custody
+  ---
+  duration_ms: 1.188209
+  type: 'test'
+  ...
+# Subtest: journal uses only actual learned edges and known items, distinguishes reports
+ok 25 - journal uses only actual learned edges and known items, distinguishes reports
+  ---
+  duration_ms: 0.851708
+  type: 'test'
+  ...
+# Subtest: known remaining-clear projection never scans or reveals undisclosed thresholds
+ok 26 - known remaining-clear projection never scans or reveals undisclosed thresholds
+  ---
+  duration_ms: 0.141625
+  type: 'test'
+  ...
+# Subtest: registration creates original native content once; salvage recovers failed smelting
+ok 27 - registration creates original native content once; salvage recovers failed smelting
+  ---
+  duration_ms: 10.75975
+  type: 'test'
+  ...
+# Subtest: native Quest placeholder writes preserve prior identities and absent bindings
+ok 28 - native Quest placeholder writes preserve prior identities and absent bindings
+  ---
+  duration_ms: 2.275334
+  type: 'test'
+  ...
+# Subtest: legacy saves default both options off without invented debt or elapsed history
+ok 29 - legacy saves default both options off without invented debt or elapsed history
+  ---
+  duration_ms: 236.718958
+  type: 'test'
+  ...
+# Subtest: normalization bounds persisted meters and rejects future schema
+ok 30 - normalization bounds persisted meters and rejects future schema
+  ---
+  duration_ms: 0.522542
+  type: 'test'
+  ...
+# Subtest: hunger uses common played minutes, caps floor, and has actual XP effect
+ok 31 - hunger uses common played minutes, caps floor, and has actual XP effect
+  ---
+  duration_ms: 0.280334
+  type: 'test'
+  ...
+# Subtest: off options freeze existing state; absence of explicit home context cannot penalize worlds
+ok 32 - off options freeze existing state; absence of explicit home context cannot penalize worlds
+  ---
+  duration_ms: 0.225
+  type: 'test'
+  ...
+# Subtest: native food replenishes even if native meal buff already lasts longer
+ok 33 - native food replenishes even if native meal buff already lasts longer
+  ---
+  duration_ms: 0.1515
+  type: 'test'
+  ...
+# Subtest: weather duration actually expires, fog affects outdoors XP, shelter preserves hunger only
+ok 34 - weather duration actually expires, fog affects outdoors XP, shelter preserves hunger only
+  ---
+  duration_ms: 65.332541
+  type: 'test'
+  ...
+# Subtest: optional rain adds native wet route without suppressing the native rain cycle
+ok 35 - optional rain adds native wet route without suppressing the native rain cycle
+  ---
+  duration_ms: 90.036916
+  type: 'test'
+  ...
+# Subtest: weather offsets native temperature and respects disabled/sheltered/external worlds
+ok 36 - weather offsets native temperature and respects disabled/sheltered/external worlds
+  ---
+  duration_ms: 0.213375
+  type: 'test'
+  ...
+# Subtest: season changes new durations and long common-clock steps equal segmented progression
+ok 37 - season changes new durations and long common-clock steps equal segmented progression
+  ---
+  duration_ms: 336.940041
+  type: 'test'
+  ...
+# Subtest: saved JSON roundtrip restores disabled retained state, phase and next transition without a second clock
+ok 38 - saved JSON roundtrip restores disabled retained state, phase and next transition without a second clock
+  ---
+  duration_ms: 0.476167
+  type: 'test'
+  ...
+# Subtest: readable status and food description explain defaults, effects and scope
+ok 39 - readable status and food description explain defaults, effects and scope
+  ---
+  duration_ms: 0.315
+  type: 'test'
+  ...
+# Subtest: panel toggles call integrator and roll back visual checkbox on rejected save
+ok 40 - panel toggles call integrator and roll back visual checkbox on rejected save
+  ---
+  duration_ms: 27.833667
+  type: 'test'
+  ...
+# Subtest: old-save and default-off native keys and pacing stay intact
+ok 41 - old-save and default-off native keys and pacing stay intact
+  ---
+  duration_ms: 0.7985
+  type: 'test'
+  ...
+# Subtest: separate equal-quality copies keep immutable keys, distinct damage and repair coins
+ok 42 - separate equal-quality copies keep immutable keys, distinct damage and repair coins
+  ---
+  duration_ms: 13.896917
+  type: 'test'
+  ...
+# Subtest: condition and ID allocation survive serialization, old missing condition defaults full
+ok 43 - condition and ID allocation survive serialization, old missing condition defaults full
+  ---
+  duration_ms: 0.577709
+  type: 'test'
+  ...
+# Subtest: actual native inventory, Hero equip/unequip, key decoder and equipment publisher preserve worn copy
+ok 44 - actual native inventory, Hero equip/unequip, key decoder and equipment publisher preserve worn copy
+  ---
+  duration_ms: 873.869
+  type: 'test'
+  ...
+# Native steel greaves defense: fresh 13, condition20 4.16; direct getter 13.
+# Subtest: staged repair and toggle reject storage/custody failures without live writes or ID forks
+ok 45 - staged repair and toggle reject storage/custody failures without live writes or ID forks
+  ---
+  duration_ms: 0.869291
+  type: 'test'
+  ...
+# Subtest: landed hits degrade armor and shield with real defense/block penalties and no destruction
+ok 46 - landed hits degrade armor and shield with real defense/block penalties and no destruction
+  ---
+  duration_ms: 0.22775
+  type: 'test'
+  ...
+# Subtest: option defaults off and never coerces old or malformed save values
+ok 47 - option defaults off and never coerces old or malformed save values
+  ---
+  duration_ms: 5.682375
+  type: 'test'
+  ...
+# Subtest: gear swap changes actual native damage only against fitting attacks
+ok 48 - gear swap changes actual native damage only against fitting attacks
+  ---
+  duration_ms: 0.602541
+  type: 'test'
+  ...
+# Subtest: only current fitting native slots count and protection stays capped
+ok 49 - only current fitting native slots count and protection stays capped
+  ---
+  duration_ms: 1.683666
+  type: 'test'
+  ...
+# Subtest: preparation view reveals only provided encounters, deduplicates and changes with setting
+ok 50 - preparation view reveals only provided encounters, deduplicates and changes with setting
+  ---
+  duration_ms: 0.357667
+  type: 'test'
+  ...
+# Subtest: native equipped IDs and reconstructed component gear provide real preparation
+ok 51 - native equipped IDs and reconstructed component gear provide real preparation
+  ---
+  duration_ms: 1038.2425
+  type: 'test'
+  ...
+# Subtest: trade stages both owners, quality keys, money, market and native acquisition without mutating input
+ok 52 - trade stages both owners, quality keys, money, market and native acquisition without mutating input
+  ---
+  duration_ms: 425.080042
+  type: 'test'
+  ...
+# Subtest: stale prices or quantity, insufficient money, over-selling and overflow reject unchanged
+ok 53 - stale prices or quantity, insufficient money, over-selling and overflow reject unchanged
+  ---
+  duration_ms: 1.003125
+  type: 'test'
+  ...
+# Subtest: a failed durable trade leaves live and durable owners, XP and acquisition unchanged; success writes once
+ok 54 - a failed durable trade leaves live and durable owners, XP and acquisition unchanged; success writes once
+  ---
+  duration_ms: 6.759083
+  type: 'test'
+  ...
+# Subtest: packing reserves its fee, resumes from save and grants its kit, XP and acquisition once
+ok 55 - packing reserves its fee, resumes from save and grants its kit, XP and acquisition once
+  ---
+  duration_ms: 435.904416
+  type: 'test'
+  ...

@@ -1,0 +1,15 @@
+{
+  "viewport": [
+    1366,
+    768
+  ],
+  "bundleSha256": "598e02f54fe7db4c9a35bc79c75a754a7f8dc42eccf9fab828de8fd82e97b615",
+  "servedBytes": 5100591,
+  "fixture": "PASS: module controls, pending Save/reload, export/literal-file import, future-schema rejection, resumed awards, mode off",
+  "native": "BASE SMOKE ONLY: fresh native start, no exposure panel. P00 changed-loop and native persistence gates OPEN",
+  "errors": [],
+  "sourceModules": {
+    "src/absorb_p23/exposure/exposure.js": "362526f9493af4b1542e43ae9e7ab0211ed79fe9f8c4089efff8c6449649483e",
+    "src/absorb_p23/exposure/panel.js": "71fb0e62564f4637f037f473f4160ad27ce1840c645917f5c6471a460069f514"
+  }
+}
