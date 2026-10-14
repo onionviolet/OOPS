@@ -1,3 +1,4 @@
+import {createStoryletPanel} from './storylet_ui.js';
 import {beginNativeCraftTransaction,nativeCraftQuestOwners} from './native_craft_transaction.js';
 import {worldCompletionSavedNativeItem} from './world_completion_native.js';
 import {createFoundationInteractionPanel} from './foundation_interaction_ui.js';
@@ -1277,7 +1278,7 @@ function actSimulation(command) {
     if(command.id&&expeditionRegistry.simulation.commands.get(command.id)?.group==='management')throw new Error('Use the courtyard controls for this quoted commitment.');
     if(['cancel','pause','resume'].includes(command.type)&&expansionState.simulation?.programs.player?.commandId.startsWith('mg.'))throw new Error('Use the courtyard mandate controls.');
     if(command.type==='cancel'&&expansionState.simulation?.jobs.some(j=>j.actorId==='player'&&j.commandId.startsWith('mg.')))throw new Error('Cancel courtyard work through its current controls.');
-    if(command.type === "enroll" && !metVillageElder()) throw new Error("Speak to the Village elder first.");
+    if(["enroll","storylet_begin"].includes(command.type) && !metVillageElder()) throw new Error("Speak to the Village elder first.");
     if(command.id&&expeditionRegistry.simulation.commands.get(command.id)?.group?.startsWith('world_completion_'))throw new Error('Use the current home-world controls for this action.');
     if(command.id && ['status_care','field_care','book_care','book_care_npc','lore_work','lore_warning'].includes(expeditionRegistry.simulation.commands.get(command.id)?.group))throw new Error('Use the current care controls for this preparation.');
     if(command.type==='cancel'&&expansionState.simulation?.jobs.some(j=>j.actorId==='player'&&j.commandId.startsWith('world.completion.')))throw new Error('Cancel the actual home-world job from its connected controls.');
@@ -1286,6 +1287,10 @@ function actSimulation(command) {
     if(command.type === "promise_begin") plan = beginPromiseVisitor(expansionState, expeditionRegistry, context, command.sequence ?? expansionState.sequence);
     else if(command.type === "body_begin") plan = beginBodyRecord(expansionState, expeditionRegistry, context);
     else if(command.type === "field_begin") plan = beginFieldWorkshop(expansionState, expeditionRegistry, context);
+    else if(command.type === "storylet_begin") {
+        const enrolled=expansionState.simulation?null:enrollSimulation(expansionState,expeditionRegistry,context);
+        plan=commitSimulationCommand(enrolled?.state || expansionState,expeditionRegistry,{id:'village.storylets.begin'},{...context,external:enrolled?.external || context.external,gameplay:enrolled?.gameplay || context.gameplay});
+    }
     else if(command.type === "enroll") plan = enrollSimulation(expansionState, expeditionRegistry, context);
     else if(command.type === "command"&&['home_furnishings','proto23','factorio_retort','causal_story','artifact_collection','audit_remainder','remainder_livelihood','remainder_home','remainder_offers','remainder_consequences','remainder_combat_fit','remainder_combat_objectives'].includes(expeditionRegistry.simulation.commands.get(command.id)?.group))throw new Error('Choose this action in its current Here project controls.');
     else if(command.type === "command") plan = commitSimulationCommand(expansionState, expeditionRegistry, command, context, command.sequence ?? expansionState.sequence);
@@ -8249,6 +8254,9 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
         read: () => ({...readProgression(), inDialogue: !!current_dialogue}), command: startExpedition, cancel: cancelExpedition});
     simulationPanel = createSimulationPanel({registry: expeditionRegistry,
         read: () => ({...readProgression(), inDialogue: !!current_dialogue}), command: actSimulation});
+    const storyletPanel=createStoryletPanel({registry:expeditionRegistry,read:()=>({...readProgression(),inDialogue:!!current_dialogue}),command:actSimulation});
+    const renderWorkshop=simulationPanel.render;
+    simulationPanel.render=()=>{renderWorkshop();storyletPanel.render();};simulationPanel.render();
     pursuitPanel=createPursuitPanel({registry:expeditionRegistry,read:()=>{const snapshot=readProgression();return {...snapshot,inDialogue:!!current_dialogue,inCombat:!!current_combat,canWrite:ownsSave && !foundationSaveBlocked && !importProbeToken,
         context:{...snapshot.context,vitals:Object.fromEntries(Object.entries(simulationNativeContexts()).map(([id,c])=>[id,c.vitals]))}};},command:actSimulation});
     nativeBattleHost=createNativeBattleHost({Combat,Enemy,registry:expeditionRegistry,player:character,getState:()=>expansionState,getContext:campaignContext,persist:persistExpansion,
@@ -8396,7 +8404,7 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
             const panel = document.getElementById(event.panel);
             if(!panel || panel.hidden) return;
             panel.open = true;
-            const attribute = ({chronicle_panel:"chronicle",simulation_panel:"simulation",expedition_panel:"expedition-action",field_panel:"field-command",promise_panel:"promise-command",pursuit_panel:"pursuit"})[event.panel];
+            const attribute = ({chronicle_panel:"chronicle",simulation_panel:"simulation",storylet_panel:"storylet-card",expedition_panel:"expedition-action",field_panel:"field-command",promise_panel:"promise-command",pursuit_panel:"pursuit"})[event.panel];
             const control = event.control && panel.querySelector(`[data-${attribute}="${CSS.escape(event.control)}"]`);
             if(control)for(let ancestor=control.parentElement;ancestor && ancestor !== panel;ancestor=ancestor.parentElement)if(ancestor.tagName === "DETAILS")ancestor.open=true;
             const target = control && !control.hidden && !control.disabled ? control : panel.querySelector("summary");
@@ -8438,8 +8446,8 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
             ...(expansionState.simulation?.jobs||[]).filter(j=>j.actorId==='player').map(j=>`${j.label||'Current work'}: ${Math.max(0,j.due-expansionState.clock)} min remaining`),
             ...Object.entries(optionalPackState.packs).filter(([,r])=>r.active&&r.job).map(([id,r])=>`${optionalPacks.get(id)?.activities.find(a=>a.id===r.job.actionId)?.label||'Local work'}: ${r.job.remaining} min remaining`),
             expansionState.simulation?.sessions.player?'A response is waiting in your notes.':null,
-            ...Object.values(expansionState.simulation?.events||{}).filter(e=>e.actorId==='player'&&e.mode==='decision'&&e.status==='open'&&e.discoveredBy.includes('player')).map(e=>'Waiting response: '+e.label),
-        ].filter(Boolean),waiting:!!expansionState.simulation?.sessions.player||Object.values(expansionState.simulation?.events||{}).some(e=>e.actorId==='player'&&e.mode==='decision'&&e.status==='open'&&e.discoveredBy.includes('player')),canWrite:workLedgerCanWrite(),error:expansionError,
+            ...Object.values(expansionState.simulation?.events||{}).filter(e=>e.actorId==='player'&&e.mode==='decision'&&e.nonBlocking!==true&&e.status==='open'&&e.discoveredBy.includes('player')).map(e=>'Waiting response: '+e.label),
+        ].filter(Boolean),waiting:!!expansionState.simulation?.sessions.player||Object.values(expansionState.simulation?.events||{}).some(e=>e.actorId==='player'&&e.mode==='decision'&&e.nonBlocking!==true&&e.status==='open'&&e.discoveredBy.includes('player')),canWrite:workLedgerCanWrite(),error:expansionError,
         world:Object.values(optionalPackState.packs).find(p=>p.active)?.worldId || expansionState.actors.player.worldId,
         away:expansionState.actors.player.worldId!=='base.frontier'
     }),combatKnown:()=>!!last_combat_location||game_stats.total_hits_done>0});

@@ -1,3 +1,4 @@
+import {validateStoryletState} from './storylet_deck.js';
 import {validateCheatState} from './cheat_cards.js';
 import {validateCustomizationState} from './customization_profiles.js';
 import {migrateWorkLedger} from './work_ledger_system.js';
@@ -70,7 +71,7 @@ export function validateSaveEnvelope(original, currentVersion) {
     migrateFortSupply(original);
     if(Object.hasOwn(original,"absorb_local_life"))normalizeLocalLife(original.absorb_local_life);
     const {save, retired} = prepareFoundationSave(original);
-    if(save.expansion != null) validateExpansionState(save.expansion);
+    if(save.expansion != null) {validateExpansionState(save.expansion);validateStoryletState(save.expansion);}
     validateRealmEnvelope(save);
     validateTidemarkEnvelope(save);
     validateNestedEnvelope(save);
