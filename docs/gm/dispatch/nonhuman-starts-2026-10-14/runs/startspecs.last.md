@@ -1,0 +1,3 @@
+- **F1:** Wrote [start specs](/Users/weiwei/code/yet-another-idle-rpg/docs/worlds/NONHUMAN_START_SPECS_2026-10-14.md): 3 records/templates, 30 beats, and 23 implementer plus 23 browser checks. Updated [CHECKPOINT.md](/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/nonhuman-starts-2026-10-14/startspecs/CHECKPOINT.md).
+- **F2:** Template parsing, field coverage, counts, and 29 links pass. Engine admission/persistence dependencies remain explicit.
+- **F3:** Canon gaps retain labels and locators. Everything remains proposed; no runtime, build, browser, or save/import verification ran.
