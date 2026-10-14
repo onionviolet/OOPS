@@ -150,6 +150,13 @@ const message_log = document.getElementById("message_box_div");
 // a sticky "N new" control at the log's bottom edge jumps to the newest line.
 let message_log_unread_count = 0;
 let message_log_unread_anchor = null;
+let batched_log_following;
+let batched_log_scroll_requested = false;
+function finish_batched_message_log() {
+    if(batched_log_scroll_requested) message_log.scrollTop = message_log.scrollHeight;
+    batched_log_following = undefined;
+    batched_log_scroll_requested = false;
+}
 function is_message_log_near_bottom() {
     if(!message_log) return true;
     return message_log.scrollHeight - message_log.scrollTop - message_log.clientHeight < 24;
@@ -159,6 +166,7 @@ function hide_message_log_unread() {
     if(message_log_unread_anchor) message_log_unread_anchor.hidden = true;
 }
 function show_message_log_unread() {
+    if(deferSimulationRender(show_message_log_unread, show_message_log_unread)) return;
     if(!message_log) return;
     if(!message_log_unread_anchor) {
         message_log_unread_anchor = document.createElement("div");
@@ -1106,7 +1114,10 @@ export function setNativeLogBufferReader(reader) {
     }
         
     // Log follow "always" (display setting) jumps to the newest line even while scrolled up.
-    const log_was_following = getDisplaySetting("logFollow") === "always" || is_message_log_near_bottom();
+    const batch_log = deferSimulationRender(finish_batched_message_log, finish_batched_message_log);
+    const log_was_following = batch_log && batched_log_following !== undefined ? batched_log_following
+        : getDisplaySetting("logFollow") === "always" || is_message_log_near_bottom();
+    if(batch_log) batched_log_following = log_was_following;
 
     message.classList.add(class_to_add, group_to_add);
     set_HTML(message, message_to_add);
@@ -1120,7 +1131,8 @@ export function setNativeLogBufferReader(reader) {
         //scroll the message log but only if added message is in a not hidden category
         //and the player is not reading older lines; then count it as unread instead
         if(log_was_following) {
-            message_log.scrollTop = message_log.scrollHeight;
+            if(batch_log) batched_log_scroll_requested = true;
+            else message_log.scrollTop = message_log.scrollHeight;
         } else {
             message_log_unread_count += 1;
             show_message_log_unread();

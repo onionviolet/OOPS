@@ -46,17 +46,20 @@ try {
   const initial=await snapshot(real.page);
   await real.page.evaluate(ms=>proofClock.advance(ms),scenario.n*1000);
   const a=await snapshot(real.page);
+  const combatLog=scenario.id==='combat'?await real.page.locator('#message_box_div .message_combat').allTextContents():null;
   await real.page.evaluate(()=>proofClock.advance(1000));
   const resumedReference=await snapshot(real.page);
   await real.context.close();
   const stepped=await open(browser,true,scenario.seed,scenario.setup);
   sameSave(await snapshot(stepped.page),initial,scenario.id+' initial');
   await stepped.page.evaluate(()=>{for(const n of [-1,1.5,NaN,Infinity]){let rejected=false;try{advanceTicks(n);}catch(e){rejected=e instanceof RangeError;}if(!rejected)throw Error('Invalid tick count accepted');}if(advanceTicks(0).ticks!==0)throw Error('Zero advanced');});
-  const started=performance.now();const count=await stepped.page.evaluate(n=>advanceTicks(n),scenario.n);const ms=performance.now()-started;
+  await stepped.page.evaluate(()=>{const log=document.getElementById('message_box_div'),descriptor=Object.getOwnPropertyDescriptor(Element.prototype,'scrollHeight');window.stepperLogLayoutReads=0;Object.defineProperty(log,'scrollHeight',{configurable:true,get(){window.stepperLogLayoutReads++;return descriptor.get.call(this);}});});
+  const started=performance.now();const count=await stepped.page.evaluate(n=>{const result=advanceTicks(n);return {...result,logLayoutReads:window.stepperLogLayoutReads};},scenario.n);const ms=performance.now()-started;
   const b=await snapshot(stepped.page);
   fs.writeFileSync(`${out}/${scenario.id}-real.json`,JSON.stringify(a,null,2));fs.writeFileSync(`${out}/${scenario.id}-step.json`,JSON.stringify(b,null,2));
   sameSave(b,a,scenario.id+' real speed-1 vs step');
   assert.equal(count.ticks,scenario.n);
+  if(combatLog){assert.deepEqual(await stepped.page.locator('#message_box_div .message_combat').allTextContents(),combatLog);assert.ok(count.logLayoutReads<=2,'message-log layout is read once plus final scroll');}
   if(scenario.id==='timed-action')assert.ok(count.callbacks>500,'action interval really ran');
   if(scenario.id==='timed-job')assert.ok(b.current_activity.earnings>0,'paid working period settled');
   if(scenario.id==='autosave-boundary')assert.equal(count.autosaves,1);
