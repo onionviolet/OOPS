@@ -1,0 +1,34 @@
+{
+  "branch": "absorb-all/p23-reveal-chain",
+  "sourceCommit": "51827c04",
+  "bundleSha256": "5815e5e74707938410ed6361b08e9fac3f2c06b7b6427ff3650d8832e49e8c2c",
+  "viewport": {
+    "width": 1366,
+    "height": 768
+  },
+  "port": 18705,
+  "build": "pass",
+  "focused": {
+    "tests": 18,
+    "pass": 18,
+    "fail": 0
+  },
+  "full": {
+    "command": "node --test --test-timeout=120000 --test-concurrency=2 tests/*.test.js",
+    "tests": 626,
+    "pass": 626,
+    "fail": 0,
+    "cancelled": 0,
+    "durationMs": 206735.308041
+  },
+  "browserGroups": 9,
+  "persistence": [
+    "practice toggle",
+    "held herb lesson and recipe availability",
+    "completed reading",
+    "unfamiliar-world denomination knowledge",
+    "partial reading exact work and XP reload",
+    "staged introduction browser progress"
+  ],
+  "remainingAcceptance": "Weibao play/taste; proposal remains unaccepted"
+}

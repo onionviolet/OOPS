@@ -1,3 +1,12 @@
+## Proto23 reveal-chain proposal, 2026-10-14
+
+Authorized absorb-all adaptation adds first-level skill discovery and modest native
+milestone perks, practiced Run/Investigate controls, held-herb recipe learning,
+literacy-scaled study and earned reference panels. The optional staged opening is
+off by default; the original beginning remains intact. Desktop 1366x768 build,
+18 focused/626 full tests, nine rebuilt browser groups and native persistence
+checks pass. Taste remains unaccepted. [Lane owner and evidence](docs/gm/dispatch/absorb-all-2026-10-14/P23_REVEAL_CHAIN.md).
+
 ## Foundation R14 final assessment, 2026-10-13
 
 Final integrated recovery assessment and independent finite-gap review accepted; technical FA01–FA23 chain remains INCOMPLETE. No authorized untouched compatible changed-positive artifact/nonretry route was established, so R14 made zero native attempts and no runtime edits/build. 51 final SOURCE checks pass; R13 scoped unchanged proof reused. Required native/integration/compatibility gates, accepted FA17 leftovers and separate FA21/22 ownership remain OPEN. All inherited failed/stopped attempts and R10 state loss stay exact. No useful dependency-ready successor established. [R14 report](docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r14/REPORT.md) owns evidence; [checkpoint](docs/gm/dispatch/foundation-adoption-next-2026-10-13/CHECKPOINT.md) owns writer and revisit conditions. Assessment completion is not gameplay completion.
