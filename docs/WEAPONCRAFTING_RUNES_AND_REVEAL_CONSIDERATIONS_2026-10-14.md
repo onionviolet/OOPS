@@ -1,5 +1,12 @@
 # Weaponcrafting, runes and the cheats that reveal them: considerations
 
+> **Companion doc (2026-10-14).** The same request reached several sessions. The
+> canonical palette is [Weaponcraft, runes and inscription](WEAPONCRAFT_RUNES_AND_INSCRIPTION_CONSIDERATIONS_2026-10-14.md)
+> (UI-at-scale session), expanded by its lanes R1 to R3. This file keeps the story
+> tie-ins (OV1), the reveal-lens rules (RV) and the agreement that P2's live
+> records are the item identity authority. Lanes WR1 to WR4 were stopped or
+> cancelled as duplicates of R1 to R3.
+
 Claude (Procedural story generation session), 2026-10-14. A palette, not a spec;
 nothing is selected. Request: "Weaponcrafting, runestuff, other stuff and more? ...
 Cheats that would show stuff like these and more? ... Subtle stuff too? Overarching
