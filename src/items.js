@@ -87,29 +87,28 @@ const item_log = {
     },
 
     log_item(item_id, number = 1, quality = 0) {
+        const wasKnown = this.items[item_id]?.number > 0;
         if (!this.items[item_id]) {
             this.items[item_id] = {
                 id: item_id,
                 number: 0,
                 quality_highest: 0,
                 quality_lowest: Number.POSITIVE_INFINITY
-            }
-
-
-            if(droplist[item_id]) { //if item can possibly drop from an enemy
-                Object.keys(enemy_killcount).forEach(enemy_key => {
-                    if(enemy_templates[enemy_key].loot_list.filter(x => x.item_name === item_id)) {
-                        //if item can drop from specific enemy - update that enemey's bestiary tooltip
-                        update_bestiary_entry_tooltip(enemy_key);
-                    }
-                });
-            }
+            };
         }
-
         this.items[item_id].number += number;
         this.items[item_id].quality_highest = Math.max(this.items[item_id].quality_highest, quality);
         this.items[item_id].quality_lowest = Math.min(this.items[item_id].quality_lowest, quality);
-        
+
+        // Refresh after the positive acquisition is recorded. FNA08/FNA10
+        // projections must not treat a newly allocated zero-count record as known.
+        if (!wasKnown && this.items[item_id].number > 0 && droplist[item_id]) {
+            Object.keys(enemy_killcount).forEach(enemy_key => {
+                if (enemy_templates[enemy_key]?.loot_list.some(x => x.item_name === item_id)) {
+                    update_bestiary_entry_tooltip(enemy_key);
+                }
+            });
+        }
     },
 
     is_known(item_id) {

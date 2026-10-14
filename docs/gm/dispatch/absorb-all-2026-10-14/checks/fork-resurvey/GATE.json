@@ -1,0 +1,66 @@
+{
+  "at": "2026-10-14T04:56:27.202452+00:00",
+  "base": "0216ccdefcfce79877378f8cb0ee41129fe11c5d",
+  "implementation_commit": "57fce47e8b9e3324a02974c07a802f76865119bc",
+  "branch": "absorb-all/fork-resurvey",
+  "hashes": {
+    "dist/bundle.js": "69097d0c46c8a5e1876945dcdaaf17772973fdf21f781bbedcd8c110ca8e5100",
+    "dist/bundle.js.map": "a0e646685791f561eded051a3513aae41cf52cc6b0c876867fa3613fe5f90270",
+    "src/fork_discovery_views.js": "d33f0c199b4420c24889b7e59dac87fbd3e4908a6286ad0941506ad5bd388e5e",
+    "src/display.js": "80ede1a74aac26062558db7c8d7358319be95f1608f3e65ff1d1231c8dad3076",
+    "src/items.js": "1a876e5baf9e790de3a51023391c44c15bb8ee54b0704e5b16d98bfc011e05ce",
+    "src/data/locations.js": "2bd6fba4eaf745b05fa5aacc4a29caf92032254c69be213ff01bd493433fb79c",
+    "src/absorb_d/fort.js": "3bd401fe47e45b194e4cbef7a0b21471d7156b07d0e862301f27c55e4e2e4da3"
+  },
+  "focused_tests": {
+    "tests": 11,
+    "pass": 11,
+    "fail": 0
+  },
+  "full_tests": {
+    "command": "npm test -- --test-concurrency=2",
+    "tests": 624,
+    "pass": 624,
+    "fail": 0,
+    "duration_ms": 50407.073209
+  },
+  "browser": {
+    "viewport": "1366x768",
+    "fixture": "precombat disposable boundary fixture: matching hero XP 100000, field groups 29, controlled Math.random 0.01",
+    "clearAfterRealKill": "Clears: [2] \u00b7 known milestone: 4 clears",
+    "knownItems": [
+      "Cheap leather pants",
+      "Stale bread",
+      "Rat tail",
+      "Rat fang",
+      "Rat pelt"
+    ],
+    "estimates": [
+      "Known loot estimate: 0.58 base coins per enemy. Acquired items only; single-enemy fight without loot accessories. Standard quality, before market saturation and trader markup. Not a sale quote."
+    ],
+    "itemLog": "Item\tBest\tTotal\tKnown bestiary sources\nCheap leather pants\t40%\t1\t\nStale bread\t\t5\t\nRat tail\t\t2\tStarving wolf rat\nRat fang\t\t2\tStarving wolf rat\nRat pelt\t\t2\tStarving wolf rat",
+    "reloaded": "Clears: [2] \u00b7 known milestone: 4 clears",
+    "errors": []
+  },
+  "source_map": {
+    "files": 465,
+    "mismatches": 0
+  },
+  "persistence": "No new state/schema; native save reload verified; no new-state export/import required.",
+  "commits": [
+    "57fce47e8b9e3324a02974c07a802f76865119bc",
+    "38075d47"
+  ],
+  "prior_full_run": {
+    "command": "npm test",
+    "tests": 624,
+    "pass": 623,
+    "fail": 1,
+    "failure": "alloy_equipment.test.js:118 equipped native brace fixture child exceeded 60000ms",
+    "isolated_rerun": {
+      "tests": 5,
+      "pass": 5,
+      "fail": 0
+    }
+  }
+}

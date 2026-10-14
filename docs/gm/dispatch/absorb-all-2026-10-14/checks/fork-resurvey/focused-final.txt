@@ -1,0 +1,76 @@
+TAP version 13
+# Subtest: old saves start empty without invented knowledge/history; malformed future schema fails
+ok 1 - old saves start empty without invented knowledge/history; malformed future schema fails
+  ---
+  duration_ms: 1.729958
+  type: 'test'
+  ...
+# Subtest: free earned or paid entry gives one real native book and durable funds
+ok 2 - free earned or paid entry gives one real native book and durable funds
+  ---
+  duration_ms: 0.74525
+  type: 'test'
+  ...
+# Subtest: repeat hand-ins conserve actual inventory, wages and finite employer budget
+ok 3 - repeat hand-ins conserve actual inventory, wages and finite employer budget
+  ---
+  duration_ms: 1.110542
+  type: 'test'
+  ...
+# Subtest: repair requires location, reading, actual clear, exact stock and custody
+ok 4 - repair requires location, reading, actual clear, exact stock and custody
+  ---
+  duration_ms: 0.985291
+  type: 'test'
+  ...
+# Subtest: journal uses only actual learned edges and known items, distinguishes reports
+ok 5 - journal uses only actual learned edges and known items, distinguishes reports
+  ---
+  duration_ms: 0.433084
+  type: 'test'
+  ...
+# Subtest: known remaining-clear projection never scans or reveals undisclosed thresholds
+ok 6 - known remaining-clear projection never scans or reveals undisclosed thresholds
+  ---
+  duration_ms: 0.154458
+  type: 'test'
+  ...
+# Subtest: registration creates original native content once; salvage recovers failed smelting
+ok 7 - registration creates original native content once; salvage recovers failed smelting
+  ---
+  duration_ms: 0.446333
+  type: 'test'
+  ...
+# Subtest: native Quest placeholder writes preserve prior identities and absent bindings
+ok 8 - native Quest placeholder writes preserve prior identities and absent bindings
+  ---
+  duration_ms: 0.356084
+  type: 'test'
+  ...
+# Subtest: public and heard milestones use real remaining rewards without revealing hidden thresholds
+ok 9 - public and heard milestones use real remaining rewards without revealing hidden thresholds
+  ---
+  duration_ms: 0.569875
+  type: 'test'
+  ...
+# Subtest: reverse sources require positive item acquisition and encountered bestiary
+ok 10 - reverse sources require positive item acquisition and encountered bestiary
+  ---
+  duration_ms: 0.506042
+  type: 'test'
+  ...
+# Subtest: loot expectation excludes unknown items, accounts for range, caps chance and does not call unknown prices
+ok 11 - loot expectation excludes unknown items, accounts for range, caps chance and does not call unknown prices
+  ---
+  duration_ms: 0.336291
+  type: 'test'
+  ...
+1..11
+# tests 11
+# suites 0
+# pass 11
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 78.480708
