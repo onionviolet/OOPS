@@ -1744,7 +1744,7 @@ Ranked: Q41 one anomaly with a revisable explanation, Q42 a useful reread,
 Q43 sample to lab routine, Q44 one method taught to one local user, Q45 an
 optional repeatable refinement.
 
-**T6, planner module** ([report](../.claude/worktrees/rt-t6-planner/docs/gm/dispatch/research-tech-2026-10-14/t6/REPORT.md),
+**T6, planner module** ([report](gm/dispatch/research-tech-2026-10-14/t6/REPORT.md),
 branch `codex/invention-planner`, commit `144ed1a0`). Pure module
 `src/invention_planner.js` with the five round 5 functions, a demonstration
 pack and an original magic-world fixture. Root reran the planner tests: 30
@@ -1819,7 +1819,7 @@ both reports are complete.
 | **T13** architecture ([report](gm/dispatch/research-tech-2026-10-14/t13/REPORT.md)) | R1 to R12: module owners, one additive research save envelope, dependency order, writer conflicts | Refines IM6: "non-stacking" is not enough identity, native keys merge equal type, components and quality (R12e). IM2 should store evidence and references, not duplicate economy balances; P34 loreHistory overlaps (R12c) | R11a: first slice = U40 craft cue plus N19 village sentence, then the C1 anomaly |
 | **T14** revealer cards ([report](gm/dispatch/research-tech-2026-10-14/t14/REPORT.md), [cards](gm/dispatch/research-tech-2026-10-14/t14/CARDS.md)) | L codes: 60 cards, RC1 to RC15 in four forms each including a mood form. The real validator accepts 54; six need panel decisions (L30 to L35) | Confirms IM8: the validator's fixed panel list blocks some forms. The 850 KB `cards.json` stays uncommitted; CARDS.md summarizes it | L71: RC2 atlas paired with the planner, actor view versus true graph |
 | **T15** comics ([report](gm/dispatch/research-tech-2026-10-14/t15/REPORT.md)) | M11 to M74: every CW and RC16 to RC23 checked, 24 comic targets, original public-build cheats (psychometric traces, flaw sight, truthful testimony) | Corrections placed under round 10 above | M70: an original-city communicator-to-rescue-drone repair chain that spreads to a second crew |
-| **T16** planner QA ([report](../.claude/worktrees/rt-t16-qa/docs/gm/dispatch/research-tech-2026-10-14/t9-build/REPORT.md)) | Z1 to Z6 built: 128-cell matrix, independent oracle, golden roadmaps, contextual danger lint, receipts, limits. Reports 30 planner, 334 QA and 992 full-suite tests passing; 216 benchmark profiles within target | Merged in `5b8989e8`. Native consumers remain `unbound-demo` | Wire one real consumer only when a slice is chosen |
+| **T16** planner QA ([report](gm/dispatch/research-tech-2026-10-14/t9-build/REPORT.md)) | Z1 to Z6 built: 128-cell matrix, independent oracle, golden roadmaps, contextual danger lint, receipts, limits. Reports 30 planner, 334 QA and 992 full-suite tests passing; 216 benchmark profiles within target | Merged in `5b8989e8`. Native consumers remain `unbound-demo` | Wire one real consumer only when a slice is chosen |
 
 **Where the lanes agree.** T10, T11, T13 and T12 independently point at the
 same first step: text only, no save change. One skill-dependent craft cue

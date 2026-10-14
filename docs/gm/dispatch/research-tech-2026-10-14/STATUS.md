@@ -17,3 +17,8 @@ U40 craft cue plus N19 village sentence (text only, no save change).
 Round 11 (2026-10-14): the agreed first step is written as a ready-to-run
 [continuation prompt](NEXT_SLICE_PROMPT.md). Not dispatched; it waits for
 Weibao's go and a live file-owner check.
+
+Build wave B1-B5 launched 2026-10-14 on Weibao's "send out codex accordingly
+for each": B1 builds the first slice, B2 its fixtures, B3 designs the debug
+inspector, B4 reconciles USER_VISION.md, B5 writes the step 2-5 prompts.
+Merged worktrees rt-t6-planner and rt-t16-qa removed (branches kept).
