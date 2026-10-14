@@ -346,6 +346,23 @@ My lanes R1 and R3 were stopped as duplicates of W1 (by world) and W4
 [SESSIONS](gm/dispatch/weaponcraft-runes-2026-10-14/runs/SESSIONS.md). R2
 (game references, especially rune and decipher games) keeps running.
 
+**Later peer input (2026-10-14).** The Procedural crafting and Procedural
+story sessions agreed that P2's live product and knowledge records are the
+item identity and knowledge authority: `src/mixture_state.js`,
+`mixture_native.js` and `active_effects.js` on `codex/gameplay-foundations`
+at `4e13f97f`. Abstractions here are adapters onto those records, not a
+parallel model. Reveal lenses extend the crafting palette's CT codes rather
+than redefining appraisal.
+
+A fourth companion doc,
+[Weaponcrafting, runes and reveal](WEAPONCRAFTING_RUNES_AND_REVEAL_CONSIDERATIONS_2026-10-14.md)
+(commit `4995282a`), adds three things:
+- reveal-lens rules RV (scope, depth, cost, error, writing to known context);
+- made things writing receipts on the story spine;
+- XA and IM notes.
+
+Its WR lanes were stopped, and WR1 is resumable.
+
 ### Crosswalk: one name per idea
 
 Read across a row, and use the primary code going forward. "M" is maker

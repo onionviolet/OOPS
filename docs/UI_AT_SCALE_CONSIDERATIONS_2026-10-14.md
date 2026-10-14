@@ -1469,3 +1469,45 @@ TY19 from 23 sources (Failbetter, inkle, Butterick, W3C spacing):
 - **Readers control time and position.** Prose and logs are instant by
   default, paced scenes are optional, and full plain history and stable
   backward reading are always available.
+
+### U12 and U13 folded in (2026-10-14)
+
+**U12, outside inspirations**
+([OUTSIDE_INSPIRATIONS.md](gm/dispatch/ui-at-scale-2026-10-14/OUTSIDE_INSPIRATIONS.md),
+[report](gm/dispatch/ui-at-scale-2026-10-14/U12_REPORT.md)) keeps OI1 to
+OI12 and OI18 with corrections, and adds OI19 to OI32. Corrections to my
+memory rows:
+- **OI1 plus OI19, visibility isn't discovery.** VS Code's "when" clauses
+  decide whether a view shows. Secrecy is a separate filter, with a distinct
+  known-but-unavailable reason. Ranked first.
+- **OI2, dark cockpit means quiet normal annunciation.** It doesn't reserve
+  all color for problems. Role, world, selection and success color stay;
+  failure states stay explicit. This qualifies MI7.
+- **OI3 and OI9, five different verbs.** Read, acknowledge, shelve, suppress
+  and resolve each need explicit clear and return rules. Raw history stays.
+- **OI7, overview first is an entry, not a toll gate.** Direct links and
+  remembered filters stay reachable.
+- **OI11 and OI12, borrow mechanisms, not keymaps.** i3 allows floating
+  windows, and Emacs modes aren't layouts. Take stable view state, focus
+  return and enlarge-and-restore.
+
+**U13, tabletop and paper**
+([TABLETOP_AND_PAPER.md](gm/dispatch/ui-at-scale-2026-10-14/TABLETOP_AND_PAPER.md),
+[report](gm/dispatch/ui-at-scale-2026-10-14/U13_REPORT.md)) draws on 24
+sources (D&D 2024, PF2e, Blades, Mothership, Spirit Island, Gloomhaven,
+Bullet Journal, FAA wayfinding) and proposes TT01 to TT16:
+- **OI13, four pages instead of front and back.** Play, Build, Records and
+  Reference. Real sheets span pages; one page isn't a scaling rule.
+- **Stock, rate, reservations and committed capacity are shown separately**
+  (resource boards). This refines DV1 and IN1.
+- **OI14 and MI68, honest clocks.** A clock names its obstacle, shows what
+  advances it, never promises a time when it's event-driven, and never leaks
+  author-only plans.
+- **Help at the decision.** A pocket reference with one canonical entity
+  behind every topic link, and Back.
+- **OI16 and MI72, migration is an optional review.** It keeps the same
+  goal, with no forced daily copying, and its marks stay distinct from
+  unread and danger marks.
+
+U13's top order: TT01 (sheet pages), TT04, TT09 (stock and rate), TT06, TT07
+(clocks), TT16, TT03, TT14, TT11, TT13. All 13 UI lanes have now reported.
