@@ -1956,3 +1956,21 @@ fidelity) is running.
 | NX11 | **This root is long** (about 1,900 lines). The topic map helps; the next run should start a dated successor file and link back rather than keep appending. | LATER, next run |
 | NX12 | **Fidelity before breadth.** After A1-A3, the cheapest real depth gain is fixing leaks and placeholders in the two native worlds that already play (MoL, Paradise), before adding parts to unbuilt worlds. | ACCOUNT |
 
+### Round 15 follow-up: A1 and A2 done (2026-10-14)
+
+A1 and A2 ran: the calendar and climate slice is merged into
+`codex/gameplay-foundations` (`51b045e0`, not pushed) with a rebuilt desktop
+journey at 1366x768 ([journey record](world-core-kit-2026-10-14/W36_JOURNEY.md)).
+Visible now: per-world date headers in the log (Home, Cyoria visitor,
+Paradise hub shift day, Goa) and per-world weather words, with "Weather
+unknown" in the Paradise hub. Also fixed: CR8 home rain gate and a
+pre-existing Paradise enrollment crash. Open: export and literal import,
+the top time bar still showing the home date in visitor worlds (NX13),
+director acceptance.
+
+| Code | New angle | Do |
+|---|---|---|
+| NX13 | **Two dates on screen.** The top bar shows the home date while the log shows the local one. Route the top bar through the same projector. | Next slice |
+| NX14 | **The home clock freezes in visitor worlds.** Good for the leak, but home-world timers, rain and schedules simply pause; this is the existing frozen-absence policy and the away-ledger owner should confirm it. | ACCOUNT |
+| NX15 | **Journeys find old bugs.** The Paradise enrollment crash was a week old and invisible to 1381 tests; render paths that query every action need a test with no mission. | LATER: test |
+
