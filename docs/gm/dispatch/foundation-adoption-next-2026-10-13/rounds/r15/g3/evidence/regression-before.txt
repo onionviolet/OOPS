@@ -1,0 +1,183 @@
+TAP version 13
+# Subtest: a failed save during a panel action shows the paused-save instruction, not a retry prompt
+not ok 1 - a failed save during a panel action shows the paused-save instruction, not a retry prompt
+  ---
+  duration_ms: 2177.11325
+  type: 'test'
+  location: '/private/tmp/r15-g3-regression-ggdwnu4q/tests/feature_panel_save_failure.test.js:21:1'
+  failureType: 'testCodeFailure'
+  error: 'paused-save instruction is shown'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (file:///private/tmp/r15-g3-regression-ggdwnu4q/tests/feature_panel_save_failure.test.js:40:16)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)
+  ...
+# Subtest: opening a module keeps focus already inside it and still focuses it from outside
+not ok 2 - opening a module keeps focus already inside it and still focuses it from outside
+  ---
+  duration_ms: 137.360667
+  type: 'test'
+  location: '/private/tmp/r15-g3-regression-ggdwnu4q/tests/workspace_focus.test.js:17:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    focus inside the module is preserved
+    + actual - expected
+
+      <ref *1> Element {
+        children: [],
+        dataset: {},
+    +   focused: 2,
+    -   focused: 1,
+        parentElement: <ref *3> Element {
+          children: [
+            [Circular *1],
+    +       <ref *2> Element {
+    +         children: [
+    +           Element {
+    +             children: [],
+    +             dataset: {},
+    +             focused: 1,
+    +             parentElement: [Circular *2],
+    +             style: {},
+    +             tagName: 'BUTTON'
+    +           }
+    +         ],
+    +         dataset: {},
+    +         focused: 0,
+    +         parentElement: [Circular *3],
+    +         style: {},
+    +         tagName: 'DIV'
+    +       }
+          ],
+          dataset: {},
+          focused: 0,
+    +     parentElement: Element {
+    -     parentElement: <ref *2> Element {
+            children: [
+    -         Element {
+    -           children: [],
+    -           dataset: {},
+    -           focused: 2,
+    -           parentElement: [Circular *2],
+    -           style: {},
+    -           tagName: 'BUTTON'
+    -         },
+              [Circular *3]
+            ],
+            dataset: {},
+            focused: 0,
+    +       parentElement: null,
+    -       parentElement: Element {
+    -         children: [
+    -           [Circular *2]
+    -         ],
+    -         dataset: {},
+    -         focused: 0,
+    -         parentElement: null,
+    -         style: {},
+    -         tagName: 'DIV'
+    -       },
+            style: {},
+    +       tagName: 'DIV'
+    -       tagName: 'SECTION'
+          },
+          style: {},
+    +     tagName: 'SECTION'
+    -     tagName: 'DIV'
+        },
+        style: {},
+        tagName: 'BUTTON'
+      }
+
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+    tagName: 'BUTTON'
+    children:
+    parentElement:
+      tagName: 'DIV'
+      children:
+        0: <Circular>
+      parentElement:
+        tagName: 'SECTION'
+        children:
+          0:
+            tagName: 'BUTTON'
+            children:
+            parentElement: <Circular>
+            dataset:
+            focused: 2
+            style:
+          1: <Circular>
+        parentElement:
+          tagName: 'DIV'
+          children:
+            0: <Circular>
+          parentElement: ~
+          dataset:
+          focused: 0
+          style:
+        dataset:
+        focused: 0
+        style:
+      dataset:
+      focused: 0
+      style:
+    dataset:
+    focused: 1
+    style:
+  actual:
+    tagName: 'BUTTON'
+    children:
+    parentElement:
+      tagName: 'SECTION'
+      children:
+        0: <Circular>
+        1:
+          tagName: 'DIV'
+          children:
+            0:
+              tagName: 'BUTTON'
+              children:
+              parentElement: <Circular>
+              dataset:
+              focused: 1
+              style:
+          parentElement: <Circular>
+          dataset:
+          focused: 0
+          style:
+      parentElement:
+        tagName: 'DIV'
+        children:
+          0: <Circular>
+        parentElement: ~
+        dataset:
+        focused: 0
+        style:
+      dataset:
+      focused: 0
+      style:
+    dataset:
+    focused: 2
+    style:
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///private/tmp/r15-g3-regression-ggdwnu4q/tests/workspace_focus.test.js:30:16)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)
+  ...
+1..2
+# tests 2
+# suites 0
+# pass 0
+# fail 2
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2443.107459

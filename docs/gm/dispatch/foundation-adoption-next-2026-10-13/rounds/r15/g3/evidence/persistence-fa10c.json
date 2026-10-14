@@ -1,0 +1,24 @@
+[
+ {
+  "checkpoint": {
+   "name": "fa10c-final",
+   "clock": 894,
+   "exportHash": "5c636f826f9ff2b7c20b2e2fb241ab13aa813f243893929d8f2f213c28875732",
+   "reloadExact": true,
+   "reloadDiff": [],
+   "exportEqual": true,
+   "importEqual": true,
+   "exportImportOtherDiffs": [],
+   "derivedEquipmentFieldsOnlyInExport": [
+    ".0.equipment.weapon.rarity"
+   ],
+   "bundle": {
+    "label": "fa10c-final",
+    "built": "06a333f9546326e5d41b2bfb632f5c6ec65871a401d2992c383b44ea6ed0d6d8",
+    "loaded": "06a333f9546326e5d41b2bfb632f5c6ec65871a401d2992c383b44ea6ed0d6d8",
+    "match": true
+   },
+   "pageErrors": []
+  }
+ }
+]

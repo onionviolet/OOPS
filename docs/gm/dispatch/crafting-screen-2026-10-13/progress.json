@@ -1,0 +1,65 @@
+[
+ {
+  "id": "C1",
+  "item": "Select-only click and full detail beside list",
+  "check": "gate.cjs C1",
+  "passes": true,
+  "notes": "PASS (own run). New src/crafting_detail.js (renderer), styles/crafting_detail.css (linked in index.html before component_themes.css). index.html: #recipe_categories wrapped in #crafting_body with section#crafting_detail[data-craft-detail]. display.js add_crafting_recipe_to_display items branch: row click/Enter selects (role=option, aria-selected), 5/10/all moved from rows into the detail; new block after apply_crafting_filter (item_recipe_state, select_item_recipe, build_item_recipe_model, refresh_crafting_detail, commit_selected_item_recipe)."
+ },
+ {
+  "id": "C2",
+  "item": "One owner for row, button, filter; blocked explains",
+  "check": "gate.cjs C2",
+  "passes": true,
+  "notes": "PASS. crafting_visibility.js itemRecipeStatus() (get_availability + station + canConsume) is the one owner: row class (add/update/update_item_recipe_visibility/refresh), Makeable now (apply_crafting_filter items branch), detail Craft. Filter station tier now accessoryCraftingTiers (map tier-source mismatch fixed). Items rows no longer retained under the filter. Blocked Craft: aria-disabled, reason line, data-missing rows 'missing N' in --sem-blocked; click focuses first missing row. No main.js change needed."
+ },
+ {
+  "id": "C3",
+  "item": "Unknown ingredients unnamed",
+  "check": "gate.cjs C3",
+  "passes": true,
+  "notes": "PASS. Items rows no longer build the hover .recipe_tooltip (detail replaces it; update_recipe_tooltip items branch returns). Unknown ingredient = 'Unfamiliar material' with data-unknown; material_type requirements also hidden until any item of that type is known. Word is 'missing N' because 'more' contains 'ore' (gate's leak regex)."
+ },
+ {
+  "id": "C4",
+  "item": "Truthful receipt",
+  "check": "gate.cjs C4",
+  "passes": true,
+  "notes": "PASS. Receipt measured from inventory and skill XP deltas around window.useRecipe (display.js commit_selected_item_recipe + craftReceiptText). Overlay fix at source: work_ledger_system.js 136-139, receipt success keyed on outputs>0 (not successes), text 'Craft settled: X xN from K attempt(s).'. Commission completion and precision events untouched (they still need successes>0). No main.js change."
+ },
+ {
+  "id": "C5",
+  "item": "Selection, focus, scroll persist",
+  "check": "gate.cjs C5",
+  "passes": true,
+  "notes": "PASS. Selection kept in display.js selected_item_recipe; renderCraftingDetail restores focus to the same control after re-render; commit restores list scrollTop."
+ },
+ {
+  "id": "C6",
+  "item": "Keyboard",
+  "check": "gate.cjs C6",
+  "passes": true,
+  "notes": "PASS. Roving tabindex on item rows (selected or first visible = 0), Enter/Space select, ArrowUp/Down/Home/End move selection and focus together; Craft is a real button."
+ },
+ {
+  "id": "C7",
+  "item": "Fit at three desktop sizes",
+  "check": "gate.cjs C7",
+  "passes": true,
+  "notes": "PASS at 1366x768, 1440x900, 1920x1080. #crafting_window[style*=block] is a flex column (no fixed 400px), Exit static in flow; in Workspace the Local actions body/location_related_div flex so the window fills its region (:has rules in crafting_detail.css). Hover tooltip gone for item rows, so nothing covers Craft."
+ },
+ {
+  "id": "C8",
+  "item": "Beside/below setting",
+  "check": "gate.cjs C8",
+  "passes": true,
+  "notes": "PASS. workspace_layout.js: Layout menu select[data-workspace-action=craft-detail] (Beside list/Below list) after Colors, key yairpg.craft-detail.v1, applied as html[data-craft-detail-place] (not data-craft-detail, which would collide with the gate selector)."
+ },
+ {
+  "id": "C9",
+  "item": "Readable detail",
+  "check": "gate.cjs C9",
+  "passes": true,
+  "notes": "PASS. Detail uses --theme-surface/--theme-surface-text; checked Standard and Vivid, beside and below, with Result details open (my probe, all >=4.5:1). Result details are filled only while open; coin_wood lightened inside it."
+ }
+]

@@ -1,5 +1,6 @@
 import {createSettledTextEffects} from './settled_text_effects.js';
 import {COMPONENT_THEMES} from './component_themes.js';
+import {mountDisplaySettings} from './display_settings.js';
 import {defaultCustomizationState, defaultPresentationSettings, validateCustomizationState, getCustomizationSettings, mergePresentationSettings, applyCustomizationProfile, EFFECT_MODULES} from './customization_profiles.js';
 
 export function createCustomizationUI({container, effectsContainer, read, save, season = () => '', canWrite = () => true, moduleIds = [], previewContainer, readPreview = () => []}) {
@@ -33,6 +34,8 @@ export function createCustomizationUI({container, effectsContainer, read, save, 
     const effects = select('Effects', ['off','reduced','full']), sound = input('Sound after gesture', 'checkbox'), presentation = select('Receipt placement', ['inline','margin']);
     const motif = select('Original VFX motif', ['receipt','seal','guidance','closing']), duration = input('Receipt duration (ms)', 'number', 200, 10000);
     const effectColor = input('VFX color', 'color'), effectBackground = input('VFX background', 'color'), staticMode = input('Static VFX', 'checkbox'), plain = input('Plain text VFX', 'checkbox');
+    // Per-browser display settings sit outside the save-bound fieldset, so they stay usable when the save is read-only.
+    const displaySettings = mountDisplaySettings(effectSurface.body);
     const button = (label, callback) => { const node = document.createElement('button'); node.type = 'button'; node.textContent = label; node.addEventListener('click', callback); actions.append(node); return node; };
     const componentPreview=document.createElement('section');componentPreview.className='theme-preview';componentPreview.setAttribute('aria-label','Component theme preview');
     const previewModule=document.createElement('div');componentPreview.append(previewModule);(previewContainer||body).append(componentPreview);
@@ -129,5 +132,5 @@ export function createCustomizationUI({container, effectsContainer, read, save, 
         } catch (error) { validSaved = false; editable(); status(error.message); }
     }
     refresh(); status(allowed() && validSaved ? 'Saved presentation. Changes here remain a draft.' : appearance.notice.textContent);
-    return {refresh, destroy() { disposed = true; preview.cancel();componentPreview.remove();panel.remove(); effectSurface.panel.remove(); }, getDraft: () => structuredClone(draft), getSettings: id => getCustomizationSettings(draft,id,{season:season()})};
+    return {refresh, destroy() { disposed = true; preview.cancel();componentPreview.remove();displaySettings?.destroy();panel.remove(); effectSurface.panel.remove(); }, getDraft: () => structuredClone(draft), getSettings: id => getCustomizationSettings(draft,id,{season:season()})};
 }

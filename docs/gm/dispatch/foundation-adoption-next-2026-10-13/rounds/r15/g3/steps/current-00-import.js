@@ -1,0 +1,12 @@
+globalThis.runName = 'current-fa10'; globalThis.steps = []; log = [];
+await importFile(path.join(dir, 'fixture/TEST-FIXTURE-R15-G3-FA10.txt'));
+await page.waitForTimeout(1000); await waitPlay();
+await play();
+globalThis.check = (v, message) => {if (!v) throw Error(message);};
+globalThis.n = (s, key) => inv(s)[key] || 0;
+const s = await save();
+check(s.character.name === 'TEST FIXTURE R15 G3 FA10', 'fixture hero imported');
+check(n(s, 'Sound repair stave') === 4, 'four ordinary sample staves');
+const result = {name:s.character.name, start:brief(s), binding:await bundleBinding('current-fa10-import')};
+check(result.binding.match, 'rebuilt bytes loaded');
+return result;

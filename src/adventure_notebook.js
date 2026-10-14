@@ -1,4 +1,7 @@
-import {registerWorkspaceModule,workspaceOwns,openWorkspaceModule} from './workspace_layout.js';
+import {knownPeopleView} from './people_knowledge.js';
+import {getDisplaySetting, subscribeDisplaySettings} from './display_settings.js';
+import {definePanel} from './panel_kit.js';
+import {workspaceOwns,openWorkspaceModule} from './workspace_layout.js';
 import {STEAM_ABSORPTION_GROUPS} from './steam_absorption_content.js';
 import {isFeatureBattleSchema} from './feature_expansion_battle.js';
 import {activePractice} from "./techniques.js";
@@ -74,6 +77,19 @@ export function createAdventureNotebook({registry, read}) {
     function render() {
         const snapshot = read(), {state,context,error} = snapshot, actor = state.actors.player, location = context.facts.location;
         const knownPeople = people.render(state, context.facts);
+        // Sort only witnessed rows, using existing memory times. Untimed ties keep source order.
+        const peopleRows = knownPeopleView(state, context.facts).map((row, order) => ({...row, order,
+            recent: Math.max(0, ...row.memories.map(m => Number(m.at) || 0))}));
+        peopleRows.sort((a, b) => getDisplaySetting('panel.known-people.sort') === 'name'
+            ? (a.name.toLowerCase() < b.name.toLowerCase() ? -1 : a.name.toLowerCase() > b.name.toLowerCase() ? 1 : a.order - b.order)
+            : b.recent - a.recent || a.order - b.order);
+        const cards = new Map([...people.panel.querySelectorAll('[data-known-person]')].map(card => [card.dataset.knownPerson, card]));
+        for (const [index, row] of peopleRows.entries()) {
+            const card = cards.get(row.id); if (!card) continue;
+            card.dataset.panelRow = ''; card.dataset.sortName = row.name;
+            const list = card.parentNode;
+            if (list.children[index] !== card) list.insertBefore(card, list.children[index] || null);
+        }
         const active = attention(state,registry,snapshot.inCombat), familiar = knownPeople || state.chronicle || state.simulation || Object.keys(actor.techniques).length || actor.facts["town.joined"] || active;
         root.hidden = !familiar;
         const host = document.getElementById("notebook_box_div"), control = document.getElementById("journal_show_notebook");
@@ -112,8 +128,9 @@ export function createAdventureNotebook({registry, read}) {
     function open(view = selected) {openWorkspaceModule('notebook');render(); if(buttons.has(view) && !buttons.get(view).disabled) {selected=view; render();} document.getElementById("journal_show_notebook")?.click();}
     render();
     // Discovered: the notebook once its journal control shows (familiar, from saved state); people and routes once they have had content (sticky per session).
-    registerWorkspaceModule({id:'notebook',title:'Notes, practice & people',node:root,home:'right',eligible:()=>!root.hidden,discovered:()=>{const c=document.getElementById('journal_show_notebook');return c?!c.hidden:!root.hidden;}});
-    registerWorkspaceModule({id:'known-people',title:'People you know',node:people.panel,home:'right',eligible:()=>!people.panel.hidden,discovered:()=>!people.panel.hidden});
-    const routes=document.getElementById('known_routes_panel');if(routes)registerWorkspaceModule({id:'known-routes',title:'Known routes',node:routes,home:'right',eligible:()=>!routes.hidden,discovered:()=>!routes.hidden});
-    return {render, open};
+    definePanel({id:'notebook',role:'records',unavailableReason:()=> 'No local notes are available here',title:'Notes, practice & people',node:root,home:'right',eligible:()=>!root.hidden,discovered:()=>{const c=document.getElementById('journal_show_notebook');return c?!c.hidden:!root.hidden;}});
+    definePanel({id:'known-people',role:'records',settings:[{key:'sort',label:'Sort people',description:'Order known people by their most recent recorded memory or by name.',options:[['recent','Most recent'],['name','Name']],default:'recent'}],unavailableReason:()=> 'No known people to show here',title:'People you know',node:people.panel,home:'right',eligible:()=>!people.panel.hidden,discovered:()=>!people.panel.hidden});
+    const routes=document.getElementById('known_routes_panel');if(routes)definePanel({id:'known-routes',role:'records',unavailableReason:()=> 'No learned routes to show here',title:'Known routes',node:routes,home:'right',eligible:()=>!routes.hidden,discovered:()=>!routes.hidden});
+    const unsubscribe = subscribeDisplaySettings(() => render());
+    return {render, open, destroy() { unsubscribe(); }};
 }

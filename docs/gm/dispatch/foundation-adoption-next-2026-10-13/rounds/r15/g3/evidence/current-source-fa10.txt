@@ -1,0 +1,70 @@
+TAP version 13
+# Subtest: SOURCE real copy scheduler reserves exact costs, returns paid physical stock once and restores pending
+ok 1 - SOURCE real copy scheduler reserves exact costs, returns paid physical stock once and restores pending
+  ---
+  duration_ms: 273.622667
+  type: 'test'
+  ...
+# Subtest: SOURCE trial diagnostic/four-minute fatigue, exact rest and comparison remain separate from learned read
+ok 2 - SOURCE trial diagnostic/four-minute fatigue, exact rest and comparison remain separate from learned read
+  ---
+  duration_ms: 498.657125
+  type: 'test'
+  ...
+# Subtest: SOURCE natural expiry and rest crossing expiry retain legal diagnostic history
+ok 3 - SOURCE natural expiry and rest crossing expiry retain legal diagnostic history
+  ---
+  duration_ms: 805.311166
+  type: 'test'
+  ...
+# Subtest: SOURCE paid guided comparison prepares only; separate read preserves actual procedure despite losing copy
+ok 4 - SOURCE paid guided comparison prepares only; separate read preserves actual procedure despite losing copy
+  ---
+  duration_ms: 380.74875
+  type: 'test'
+  ...
+# Subtest: SOURCE both learned knife variants conserve held copy, dull held sharp key, produce two real kit keys once
+ok 5 - SOURCE both learned knife variants conserve held copy, dull held sharp key, produce two real kit keys once
+  ---
+  duration_ms: 977.273917
+  type: 'test'
+  ...
+# Subtest: SOURCE cancel copy/trial/rest/comparison/guidance/read/both kits refunds exact inputs and effort without result
+ok 6 - SOURCE cancel copy/trial/rest/comparison/guidance/read/both kits refunds exact inputs and effort without result
+  ---
+  duration_ms: 2157.217041
+  type: 'test'
+  ...
+# Subtest: SOURCE real scheduler support loss refunds body/site/clock/author/hands/battle failures without outcome
+ok 7 - SOURCE real scheduler support loss refunds body/site/clock/author/hands/battle failures without outcome
+  ---
+  duration_ms: 1178.210834
+  type: 'test'
+  ...
+# Subtest: SOURCE admission excludes borrowed/equipped/missing references, alien actor/body/realm and occupied bench
+ok 8 - SOURCE admission excludes borrowed/equipped/missing references, alien actor/body/realm and occupied bench
+  ---
+  duration_ms: 952.649208
+  type: 'test'
+  ...
+# Subtest: SOURCE stale host quotes and frozen save mutation reject while exact old absence stays inert
+ok 9 - SOURCE stale host quotes and frozen save mutation reject while exact old absence stays inert
+  ---
+  duration_ms: 240.295417
+  type: 'test'
+  ...
+# Subtest: SOURCE FA10 durable quota failure leaves live original untouched; explicit retry stores exact caused result
+ok 10 - SOURCE FA10 durable quota failure leaves live original untouched; explicit retry stores exact caused result
+  ---
+  duration_ms: 170.847959
+  type: 'test'
+  ...
+1..10
+# tests 10
+# suites 0
+# pass 10
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 8549.521625

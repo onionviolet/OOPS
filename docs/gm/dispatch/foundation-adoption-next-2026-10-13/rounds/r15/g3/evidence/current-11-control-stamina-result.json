@@ -1,0 +1,115 @@
+{
+ "ok": true,
+ "value": {
+  "inconclusive": "Compare the failed trial with your reed-oil evidence · 1 min\n\nEvidence-based identification can follow the failed trial either immediately or after later acquiring the missing control. One played minute records the deduction. Empty containers stay empty; no privately known answer is substituted for missing evidence.\n\nUnavailable\n\nKnown requirements\nReturn to the Village with your living native body, stock and local clock.\nRecover your usable hands before bench work.\nUse Eda's actual fitting bench under her retained external-trial permission.\nRecover above one HP before work.\nHear Eda's closed-batch terms first.\nActually identify the separate pale reed-oil stock through its existing assay or sharpening trial first. A rumor or purchase is not a control.\nWhy this is unavailable\nThis action is not available under the current conditions. Review the known preparation or choose another action.\n\nTime terms: 1 played minutes under the known terms.\n\nCancellation: Cancelling returns reserved inputs. Time already played is not returned.\n\nReserved\nYour attention is reserved while the accepted work runs.\nA place at Eda's dry fitting bench is reserved for this work.\nUnavailable: Compare the failed trial with your reed-oil evidence · 1 min",
+  "blockedKey": {
+   "tabs": 3,
+   "focused": {
+    "tag": "BUTTON",
+    "text": "Unavailable: Compare the failed trial with your reed-oil evidence · 1 min",
+    "focusVisible": true,
+    "outline": "solid 3px rgb(255, 229, 138)"
+   },
+   "key": "Enter",
+   "notice": "",
+   "focusAfter": {
+    "tag": "BUTTON",
+    "text": "Unavailable: Compare the failed trial with your reed-oil evidence · 1 min"
+   }
+  },
+  "controlKey": {
+   "tabs": 4,
+   "focused": {
+    "tag": "BUTTON",
+    "text": "Do this: Apply a pale vial to your own dull plain knife · 1 stamina + 3 min",
+    "focusVisible": true,
+    "outline": "solid 3px rgb(255, 229, 138)"
+   },
+   "key": "Enter",
+   "notice": "",
+   "focusAfter": {
+    "tag": "BUTTON",
+    "text": "Unavailable: Apply a pale vial to your own dull plain knife · 1 stamina + 3 min"
+   }
+  },
+  "pending": {
+   "clock": 868,
+   "money": 47,
+   "staminaToFull": 1,
+   "location": "Village",
+   "inv": {
+    "Cheap leather pants": 1,
+    "Stale bread": 5,
+    "Old pickaxe": 1,
+    "Old sickle": 1,
+    "Old shovel": 1,
+    "Rough wood log": 78,
+    "Cooling salt packet": 1,
+    "Empty cooling sleeve": 2,
+    "Prepared survey kit": 7,
+    "Wax-sealed survey kit": 4,
+    "Dulled field fitting knife": 1,
+    "Bench clearance manual": 1,
+    "Set repair resin": 1,
+    "Empty retort resin tray": 1,
+    "Empty retort residue tray": 1,
+    "Empty bench vial": 1
+   },
+   "jobs": [
+    [
+     "nethack_fieldcraft.trial_dull",
+     871
+    ]
+   ],
+   "conditions": {}
+  },
+  "liveStamina": "50/51 stamina",
+  "pendingPersistence": {
+   "name": "current-fa13-control-pending",
+   "clock": 868,
+   "exportHash": "d005008853d3e8805a06a76ef8f697cd5bd355194e368b639ae23eec9a0b870e",
+   "reloadExact": true,
+   "reloadDiff": [],
+   "exportEqual": true,
+   "importEqual": true,
+   "exportImportOtherDiffs": [],
+   "derivedEquipmentFieldsOnlyInExport": [
+    ".0.equipment.weapon.rarity"
+   ],
+   "bundle": {
+    "label": "current-fa13-control-pending",
+    "built": "84746e7891da46f2f7a7f89cf67a712f43c31454c5c479da065fb53eff734e1c",
+    "loaded": "84746e7891da46f2f7a7f89cf67a712f43c31454c5c479da065fb53eff734e1c",
+    "match": true
+   },
+   "pageErrors": []
+  },
+  "completed": {
+   "clock": 871,
+   "money": 47,
+   "staminaToFull": 0,
+   "location": "Village",
+   "inv": {
+    "Cheap leather pants": 1,
+    "Stale bread": 5,
+    "Old pickaxe": 1,
+    "Old sickle": 1,
+    "Old shovel": 1,
+    "Rough wood log": 78,
+    "Cooling salt packet": 1,
+    "Empty cooling sleeve": 2,
+    "Prepared survey kit": 7,
+    "Wax-sealed survey kit": 4,
+    "Dulled field fitting knife": 1,
+    "Bench clearance manual": 1,
+    "Set repair resin": 1,
+    "Empty retort resin tray": 1,
+    "Empty retort residue tray": 1,
+    "Empty bench vial": 2,
+    "Field fitting knife": 1
+   },
+   "jobs": [],
+   "conditions": {}
+  }
+ }
+}

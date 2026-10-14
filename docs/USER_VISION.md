@@ -68,6 +68,32 @@ compiled to data, lints over hand ledgers, browser proof per slice) in part 10
 of the considerations doc. It is a proposal; the completion standard stays the
 owner of what "complete" means.
 
+> deprioritize fallout, we want to put book worlds and anime worlds and more at higher priorirty
+
+Direction recorded: Fallout moves to the back of the world order. Its existing
+packs, wiki dumps, roster entry and code stay; they are not deleted or
+reopened, and they are not active work. The paused Fallout full-dump read
+queue does not resume unless Weibao asks for it. Book worlds and anime/manga
+worlds now share the high-priority tier with Harry Potter and D&D. "And more" is read
+as other story-driven sources of the same kind (light novels, web novels,
+manhwa and similar). Anime/manga worlds already in the repo include Naruto,
+Bleach, Jujutsu Kaisen, Hunter x Hunter, Fullmetal Alchemist, Fate, Frieren,
+Demon Slayer, Black Clover, Chainsaw Man, Dandadan and Fire Force (wiki digests
+in `docs/research/power-systems/wiki-digests/`). Within the tier, the order
+follows source coverage, like the book worlds. This sets order, not scope.
+(Superseded the same day: "Skyrim and Elden Ring were not mentioned and keep
+their earlier place, below this tier.")
+
+> deprioritize skyrim and elden ring too, for anime world, Probably JJK bleach fate and others with deep systems and cannon that can easily be refered to and used accordingly?
+
+Direction recorded: Skyrim and Elden Ring join Fallout at the back, on the same
+terms (kept, inactive, paused dump queues stay paused). Among anime/manga worlds,
+Jujutsu Kaisen, Bleach and Fate lead. Other anime worlds follow when they share
+the same selection test: a deep power system with explicit rules, and canon that
+is well documented enough to cite and build from (for example Hunter x Hunter,
+Fullmetal Alchemist and Naruto, by Claude's reading). Within that group the order
+follows source coverage.
+
 The per-world considerations, iteration workflow, parallel worlds, starting
 points, subtle details, required features and engine improvements live in
 [World depth considerations](worlds/WORLD_DEPTH_CONSIDERATIONS_2026-10-13.md).
@@ -1832,3 +1858,52 @@ fuutr”. Design answers live in the [UI owner](THEMATIC_UI_AND_INFORMATION_DESI
 (layers L1-L7, per-world gates and arrival styles, festivals, a declarative
 world UI card, mold-not-copy). Execution runs as the
 [until-done goal](gm/dispatch/vivid-proto23-flow-2026-10-13/GOAL.md).
+
+Next pick, 2026-10-13: “go with the crafting screen one, same until done setup
+Consider Proto 23 parity and dpeth and more? like the revealing ones and more?
+More to consider? Missing stuff and more? Making everything little thing
+adjustable and more? more to consider?” Direction: crafting screen goal next;
+every presentation choice should be adjustable in its existing owner.
+[Considerations CP/D/RV/M/AJ](research/proto23/CRAFTING_SCREEN_AND_ADJUSTABILITY_CONSIDERATIONS_2026-10-13.md);
+execution in [the crafting goal](gm/dispatch/crafting-screen-2026-10-13/GOAL.md).
+
+Follow-up: “also do the settings pass after crafting, consider improvable
+aspects too”. Settings pass (AJ1-AJ7, AJ12 plus improvements to shipped
+features) runs as its own until-done goal after the crafting goal.
+
+Then: “more to consider for the settings and crafting? Panels for cheats and
+other stuff and more?” Palette saved as ST/CR/CH/PN/PK in the
+[considerations](research/proto23/CRAFTING_SCREEN_AND_ADJUSTABILITY_CONSIDERATIONS_2026-10-13.md#more-to-consider-settings-crafting-cheat-panels-and-other-panels-2026-10-13);
+running goals keep their scope.
+
+Cheat acquisition, 2026-10-13: “optional start, more to consider for
+acquiring cheats?” then “make it an optional start, keep everything possible,
+random possibility, other stuff and more? Types of cheat too? Very rare? Not
+so rare? starts by being researched? more optiobs and more?” First route is
+an optional start; all other routes (random, researched, taught, found,
+bought, stolen, inherited, earned, contagious and more) stay possible, with
+rarity as a per-world dial. [Considerations AQ1-AQ14](CHEAT_LIBRARY.md#acquiring-cheats-routes-rarity-and-types-considerations-2026-10-13).
+Then: “It might hurt progression a little to give me cheats straight from the
+get go, maybe I have to unlock it first, more to consider?” Considerations
+US1-US6 (unlock gates) and ST11-ST17 (dormant, hidden, growing, costed starts)
+in [CHEAT_LIBRARY](CHEAT_LIBRARY.md#unlocking-the-optional-start-and-keeping-progression-intact-2026-10-13).
+First build proposal: dormant seed that awakens at a milestone.
+Then: “more to consider for the status window? HOw to consider unlock
+progress and other stuff ? random starts and more? more to consider?”
+Palette SW1-SW12, UP1-UP10, RS1-RS10 in
+[CHEAT_LIBRARY](CHEAT_LIBRARY.md#more-to-consider-the-status-window-unlock-progress-and-random-starts-2026-10-13).
+Then: “more to consider for the cheat library tab?other types of cheats and
+more? stuff should make sense accordingly based on the world and stuff?
+normal status window isnt a cheat?” Direction: whether a power is a cheat
+depends on the world's baseline; a status window is world law where everyone
+has one. Palette WR1-WR8, LB1-LB12, CT1-CT18 in
+[CHEAT_LIBRARY](CHEAT_LIBRARY.md#more-to-consider-what-counts-as-a-cheat-the-library-tab-and-more-types-2026-10-13).
+Then: “more to consider for cheat types per world? multiversal cheats? cheat
+rarity and more? mroe to consider? hiding ui? integrations and more? send out
+codex accordingly”. Dispatched as three Codex docs workers in
+[cheat-considerations-2026-10-13](gm/dispatch/cheat-considerations-2026-10-13/).
+Then: “more to consider for the status window stage 1? Make a prompt to
+audit”. Stage 1 palette (S1, S1P, S1U, S1V, S1S) in
+[CHEAT_LIBRARY](CHEAT_LIBRARY.md#more-to-consider-status-window-stage-1-2026-10-13);
+audit prompt at
+[AUDIT_PROMPT.md](gm/dispatch/cheat-status-window-2026-10-13/AUDIT_PROMPT.md).

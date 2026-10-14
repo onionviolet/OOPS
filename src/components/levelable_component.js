@@ -131,7 +131,7 @@ class LevelableComponent extends StatHaver {
             }
         }
 
-        if(cap_gained_xp && typeof skillXP.xp_to_next_lvl === Number) {
+        if(cap_gained_xp && Number.isFinite(skillXP.xp_to_next_lvl)) {
             //cap on singular gains for non-crafting skills; cap for crafting skills handled in crafting code as it's dependent on how many items are made at once
             xp_to_add = Math.min(xp_to_add, skillXP.xp_to_next_lvl*config.skill_xp_gains_cap);
         }

@@ -1,0 +1,10 @@
+globalThis.runName='current-fa13';globalThis.steps=[];log=[];
+await importFile(path.join(dir,'fixture/TEST-FIXTURE-R15-G3-FA13.txt'));
+await page.waitForTimeout(1000);await waitPlay();await play();
+const s=await save();check(s.character.name==='TEST FIXTURE R15 G3 FA13','test hero');
+check(!!s.expansion.simulation.knowledge.player['game_absorption_assay.negative'],'earned negative prerequisite retained');
+check(!s.expansion.simulation.knowledge.player['nethack_fieldcraft.reed_oil'],'no control supplied');
+check(!s.expansion.simulation.knowledge.player['game_absorption_assay.identity'],'no identification supplied');
+globalThis.rowText = async (label,prefix)=>{await openSec(label);return secLocator(label).locator('article',{has:page.locator('button',{hasText:prefix})}).first().innerText();};
+globalThis.fsec = async()=>({clouded:await sec("Eda's clouded batch"),fieldcraft:await sec("Eda's bench fieldcraft"),feats:await sec('Field feats')});
+return {name:s.character.name,start:brief(s),binding:await bundleBinding('current-fa13-import')};

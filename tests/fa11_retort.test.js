@@ -93,3 +93,8 @@ test('SOURCE durable quota failure leaves live pending untouched; explicit retry
  const options={storage,key:'source',createSave:()=>JSON.stringify({...envelope(pending),levels:{person:{main_character:{skill_xp:{}}}}}),bindings:{player:{category:'person',id:'main_character'}},validateEnvelope:validateFactorioRetortNativeEnvelope};
  assert.throws(()=>persistExpansionPlan(done,options),/quota/);assert.deepEqual(pending,before);persistExpansionPlan(done,options);assert.equal(calls,2);assert(validateFactorioRetortNativeEnvelope(JSON.parse(saved)));assert.equal(JSON.parse(saved).inventories.person.main_character[K.resinFull].count,1);assert.deepEqual(loadExpansionState(JSON.parse(saved).expansion,registry),done.state);
 });
+test('R15 G2 regression: cancelling a retort batch leaves an already settled routine settled',()=>{
+ // Shape copied from the genuine R7 export: the measured-pack routine finished earlier.
+ const p=installed();p.state.simulation.programs={player:{commandId:'village.measured_pack',remaining:0,status:'complete',targetId:null}};
+ const out=cancel(command(p,I.batch));assert.equal(out.state.simulation.programs.player.status,'complete');assert.equal(out.state.simulation.programs.player.remaining,0);
+});

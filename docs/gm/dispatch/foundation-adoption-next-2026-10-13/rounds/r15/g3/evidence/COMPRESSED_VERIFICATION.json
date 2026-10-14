@@ -1,0 +1,19 @@
+{
+ "result": "PASS",
+ "literalExportHashesVerified": 13,
+ "checkpoints": [
+  "current-fa13-control-pending",
+  "fa13-identified-by-inference",
+  "fa13-pins-recovered",
+  "fa13-pin-kit-delivered",
+  "fa13-final",
+  "current-clouded-negative-pending",
+  "current-fa10-prepared",
+  "current-fa10-learned",
+  "current-fa10-kits-pending",
+  "current-fa10-kits-completed",
+  "current-fa10-delivered",
+  "current-fa10-failure-retry",
+  "current-old-absent"
+ ]
+}

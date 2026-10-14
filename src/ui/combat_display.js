@@ -407,6 +407,7 @@ function update_attack_bar({fighter_index, is_attacker, progress}) {
 }
 
 function do_onhit_animation({fighter_index, is_attacker}) {
+    if(document.documentElement.dataset.effects==='off') return; // Effects off stops combat motion too.
     const animations = (is_attacker ? attacker_animations : defender_animations);
     const fighter_div = (is_attacker ? current_combat.attackers_ui_slot : current_combat.defenders_ui_slot).children[fighter_index];
     animations[fighter_index]?.cancel(); //likely unnecessary, but won't hurt
@@ -418,6 +419,7 @@ function remove_onhit_animation({fighter_index, is_attacker}) {
 }
 
 function do_onstart_animation({fighter_index, is_attacker}) {
+    if(document.documentElement.dataset.effects==='off') return;
     const animations = (is_attacker ? attacker_animations : defender_animations);
     const fighter_div = (is_attacker ? current_combat.attackers_ui_slot : current_combat.defenders_ui_slot).children[fighter_index];
     

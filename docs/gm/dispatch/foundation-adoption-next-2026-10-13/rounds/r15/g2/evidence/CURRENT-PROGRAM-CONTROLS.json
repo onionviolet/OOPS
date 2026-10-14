@@ -1,0 +1,226 @@
+{
+ "label": "seeded-native",
+ "built": "d4999496a25e220c14e09e159bf0dc7e910fa8dfb7781cc94fbec180fbbf5c2a",
+ "cases": [
+  {
+   "name": "program-material-pause-funds-still-available",
+   "before": {
+    "clock": 749,
+    "money": 6,
+    "stamina_to_full": 0,
+    "hp_to_full": 0,
+    "location": "Shack",
+    "items": {
+     "Rough wood log": 1,
+     "Prepared survey kit": 7
+    },
+    "jobs": [],
+    "cursor": {
+     "definitionId": "factorio_retort.three_batches",
+     "status": "cancelled",
+     "index": 0,
+     "reason": "Future steps cancelled. Any retained accepted job keeps its disclosed terms.",
+     "accepted": null
+    },
+    "program": {
+     "commandId": "village.measured_pack",
+     "remaining": 0,
+     "status": "complete",
+     "targetId": null
+    }
+   },
+   "after": {
+    "clock": 752,
+    "money": 4,
+    "stamina_to_full": 0,
+    "hp_to_full": 0,
+    "location": "Shack",
+    "items": {
+     "Rough wood log": 0,
+     "Prepared survey kit": 8
+    },
+    "jobs": [],
+    "cursor": {
+     "definitionId": "factorio_retort.three_batches",
+     "status": "cancelled",
+     "index": 0,
+     "reason": "Future steps cancelled. Any retained accepted job keeps its disclosed terms.",
+     "accepted": null
+    },
+    "program": {
+     "commandId": "village.measured_pack",
+     "remaining": 2,
+     "status": "paused",
+     "targetId": null,
+     "reason": "Next reserved inputs, funding, capacity, support or access are unavailable."
+    }
+   },
+   "restoration": {
+    "label": "current-program-materials",
+    "comparison": "loaded before PLAY, real Save/Export/reload/literal-file Import",
+    "file": "current-program-materials.txt",
+    "fileSha": "a1211f23f5022a2950125d762398341c34fa4bf41e9dd19c3fa50b701e1f0109",
+    "reloadDiff": [],
+    "importDiff": [],
+    "clocks": [
+     752,
+     752,
+     752
+    ]
+   }
+  },
+  {
+   "name": "program-pause-current-finishes-resume-current-refund",
+   "before": {
+    "clock": 749,
+    "money": 5,
+    "stamina_to_full": 0,
+    "hp_to_full": 0,
+    "location": "Shack",
+    "items": {
+     "Rough wood log": 78,
+     "Prepared survey kit": 7
+    },
+    "jobs": [],
+    "cursor": {
+     "definitionId": "factorio_retort.three_batches",
+     "status": "cancelled",
+     "index": 0,
+     "reason": "Future steps cancelled. Any retained accepted job keeps its disclosed terms.",
+     "accepted": null
+    },
+    "program": {
+     "commandId": "village.measured_pack",
+     "remaining": 0,
+     "status": "complete",
+     "targetId": null
+    }
+   },
+   "pausedWithJob": {
+    "clock": 749,
+    "money": 3,
+    "stamina_to_full": 0,
+    "hp_to_full": 0,
+    "location": "Shack",
+    "items": {
+     "Rough wood log": 77,
+     "Prepared survey kit": 7
+    },
+    "jobs": [
+     {
+      "id": "simulation:4745",
+      "commandId": "village.measured_pack",
+      "due": 752
+     }
+    ],
+    "cursor": {
+     "definitionId": "factorio_retort.three_batches",
+     "status": "cancelled",
+     "index": 0,
+     "reason": "Future steps cancelled. Any retained accepted job keeps its disclosed terms.",
+     "accepted": null
+    },
+    "program": {
+     "commandId": "village.measured_pack",
+     "remaining": 2,
+     "status": "paused",
+     "targetId": null
+    }
+   },
+   "settledPaused": {
+    "clock": 753,
+    "money": 3,
+    "stamina_to_full": 0,
+    "hp_to_full": 0,
+    "location": "Shack",
+    "items": {
+     "Rough wood log": 77,
+     "Prepared survey kit": 8
+    },
+    "jobs": [],
+    "cursor": {
+     "definitionId": "factorio_retort.three_batches",
+     "status": "cancelled",
+     "index": 0,
+     "reason": "Future steps cancelled. Any retained accepted job keeps its disclosed terms.",
+     "accepted": null
+    },
+    "program": {
+     "commandId": "village.measured_pack",
+     "remaining": 2,
+     "status": "paused",
+     "targetId": null
+    }
+   },
+   "resumed": {
+    "clock": 753,
+    "money": 1,
+    "stamina_to_full": 0,
+    "hp_to_full": 0,
+    "location": "Shack",
+    "items": {
+     "Rough wood log": 76,
+     "Prepared survey kit": 8
+    },
+    "jobs": [
+     {
+      "id": "simulation:4751",
+      "commandId": "village.measured_pack",
+      "due": 756
+     }
+    ],
+    "cursor": {
+     "definitionId": "factorio_retort.three_batches",
+     "status": "cancelled",
+     "index": 0,
+     "reason": "Future steps cancelled. Any retained accepted job keeps its disclosed terms.",
+     "accepted": null
+    },
+    "program": {
+     "commandId": "village.measured_pack",
+     "remaining": 1,
+     "status": "running",
+     "targetId": null
+    }
+   },
+   "cancelled": {
+    "clock": 753,
+    "money": 3,
+    "stamina_to_full": 0,
+    "hp_to_full": 0,
+    "location": "Shack",
+    "items": {
+     "Rough wood log": 77,
+     "Prepared survey kit": 8
+    },
+    "jobs": [],
+    "cursor": {
+     "definitionId": "factorio_retort.three_batches",
+     "status": "cancelled",
+     "index": 0,
+     "reason": "Future steps cancelled. Any retained accepted job keeps its disclosed terms.",
+     "accepted": null
+    },
+    "program": {
+     "commandId": "village.measured_pack",
+     "remaining": 1,
+     "status": "paused",
+     "targetId": null
+    }
+   },
+   "restoration": {
+    "label": "current-program-cancelled",
+    "comparison": "loaded before PLAY, real Save/Export/reload/literal-file Import",
+    "file": "current-program-cancelled.txt",
+    "fileSha": "a5d2b42196564bb183c27aae267697b568c326228fa6f6da956e4e54d172b11e",
+    "reloadDiff": [],
+    "importDiff": [],
+    "clocks": [
+     753,
+     753,
+     753
+    ]
+   }
+  }
+ ]
+}

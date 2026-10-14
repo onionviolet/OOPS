@@ -1,0 +1,101 @@
+// C0 data contract. Cards describe future behavior; granting one runs no hooks.
+const CARD_KEYS = ['id', 'family', 'name', 'ui', 'terms', 'hooks', 'state', 'stages', 'observers', 'sources'];
+const PANELS = new Set(['status-window', 'death-menu', 'anchor-list', 'system-shop', 'companion-voice',
+    'simulator', 'simulator-foresight', 'appraisal-lens', 'harvest-ledger', 'harvest-multiplier-ledger',
+    'cheat-library', 'cheat-settings', 'quiet']);
+const TERMS = new Set(['gift', 'digested', 'matured', 'lease', 'loan', 'lien', 'leash', 'burdened-loan', 'bound-item']);
+function object(value, label) {
+    if(!value || typeof value !== 'object' || Array.isArray(value) || ![Object.prototype, null].includes(Object.getPrototypeOf(value)))
+        throw new Error(`Invalid cheat ${label}: expected an object.`);
+}
+function keys(value, allowed, label) {
+    object(value, label);
+    if(Object.keys(value).some(key => !allowed.includes(key)) || allowed.some(key => !Object.hasOwn(value, key)))
+        throw new Error(`Invalid cheat ${label}: expected only ${allowed.join(', ')}.`);
+}
+function text(value, label) {
+    if(typeof value !== 'string' || !value.trim()) throw new Error(`Invalid cheat ${label}: expected non-empty text.`);
+}
+// All nested data must survive JSON serialization without loss or executable values.
+function json(value, label, ancestors = new Set()) {
+    if(value === null || typeof value === 'string' || typeof value === 'boolean' || (typeof value === 'number' && Number.isFinite(value))) return;
+    if(typeof value !== 'object' || ancestors.has(value)) throw new Error(`Invalid cheat ${label}: expected JSON data.`);
+    if(!Array.isArray(value)) object(value, label);
+    ancestors.add(value);
+    for(const child of Object.values(value)) json(child, label, ancestors);
+    ancestors.delete(value);
+}
+function timestamp(at) {
+    if(at == null) throw new Error('Invalid cheat timestamp: expected a recorded time.');
+    json(at, 'timestamp');
+}
+export function validateCheatCard(card) {
+    keys(card, CARD_KEYS, 'card');
+    for(const key of ['id', 'family', 'name']) text(card[key], `card ${key}`);
+    if(!PANELS.has(card.ui)) throw new Error('Invalid cheat card ui: unknown panel.');
+    if(!TERMS.has(card.terms)) throw new Error('Invalid cheat card terms.');
+    object(card.state, 'card state');
+    if(Object.hasOwn(card.state, 'awakened') && typeof card.state.awakened !== 'boolean')
+        throw new Error('Invalid cheat awakened state: expected a boolean.');
+    for(const key of ['hooks', 'stages', 'observers', 'sources']) {
+        if(!Array.isArray(card[key])) throw new Error(`Invalid cheat card ${key}: expected an array.`);
+    }
+    json(card, 'card');
+    return structuredClone(card);
+}
+export function defaultCheatState() { return {schema: 1, held: {}, known: {}}; }
+export function validateCheatState(state) {
+    keys(state, ['schema', 'held', 'known'], 'state');
+    if(state.schema !== 1) throw new Error('Invalid cheat state schema: expected 1.');
+    object(state.held, 'held'); object(state.known, 'known');
+    for(const [id, entry] of Object.entries(state.held)) {
+        keys(entry, ['card', 'acquired', 'messages'], 'held entry');
+        validateCheatCard(entry.card);
+        if(entry.card.id !== id) throw new Error('Invalid cheat card id: held key must match.');
+        keys(entry.acquired, ['route', 'at'], 'acquisition');
+        text(entry.acquired.route, 'acquisition route'); timestamp(entry.acquired.at);
+        if(!Array.isArray(entry.messages)) throw new Error('Invalid cheat messages: expected an array.');
+        for(const message of entry.messages) {
+            keys(message, ['text', 'at'], 'message'); text(message.text, 'message text'); timestamp(message.at);
+        }
+    }
+    json(state, 'state');
+    return structuredClone(state);
+}
+export function grantCheat(state, card, {route, at}) {
+    const next = validateCheatState(state), validated = validateCheatCard(card);
+    if(Object.hasOwn(next.held, validated.id)) throw new Error('Cheat card is already held.');
+    Object.defineProperty(next.held, validated.id, {value: {card: validated, acquired: {route, at: structuredClone(at)}, messages: []}, enumerable: true, writable: true, configurable: true});
+    return validateCheatState(next);
+}
+export function recordCheatMessage(state, id, text, at) {
+    const next = validateCheatState(state);
+    if(!Object.hasOwn(next.held, id)) throw new Error('Cannot record a message for an unheld cheat.');
+    next.held[id].messages.push({text, at: structuredClone(at)});
+    return validateCheatState(next);
+}
+export const SYSTEM_QUESTS_CARD = Object.freeze({id: 'system-quests', family: 'system', name: 'Quest system',
+    ui: 'status-window', terms: 'gift', hooks: Object.freeze([]), state: Object.freeze({}),
+    stages: Object.freeze([]), observers: Object.freeze([]), sources: Object.freeze([])});
+
+// CH1: explicit dormancy is opt-in; legacy C0 cards and messages stay valid.
+export function optionalStartCard() {
+    return {...structuredClone(SYSTEM_QUESTS_CARD), state: {awakened: false, points: 0}};
+}
+export function awakenedStatusCard(state) {
+    return Object.values(state.held).find(entry => entry.card.ui === 'status-window' &&
+        (entry.card.state.awakened === true || (entry.card.state.awakened === undefined && entry.messages.length > 0)));
+}
+export const FIRST_SYSTEM_MESSAGE = 'Your system is awake. You can now read your level and known abilities.';
+export function awakenCheats(state, {dayCount, wonFight = false, at}) {
+    const next = validateCheatState(state), messages = [];
+    if(!wonFight && !(dayCount >= 3)) return {state: next, messages};
+    for(const [id, entry] of Object.entries(next.held)) {
+        if(entry.card.ui !== 'status-window' || entry.card.state.awakened !== false) continue;
+        entry.card.state.awakened = true;
+        const recorded = recordCheatMessage(next, id, FIRST_SYSTEM_MESSAGE, at);
+        next.held[id] = recorded.held[id];
+        messages.push(FIRST_SYSTEM_MESSAGE);
+    }
+    return {state: validateCheatState(next), messages};
+}

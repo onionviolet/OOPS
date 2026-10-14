@@ -1,0 +1,10 @@
+await boot2('retort');page.setDefaultTimeout(60000);const r=await row('factorio_retort.three_batches');const before=await save();
+await page.evaluate(()=>{window.__quota=1;window.__writes=[];});
+await r.locator('button').first().evaluate(b=>{b.click();const t=setTimeout(()=>{},0);for(let i=0;i<=t+10;i++){clearTimeout(i);clearInterval(i);}});
+const after=await peek();assert.deepEqual(after,before);const writes=await page.evaluate(()=>window.__writes);
+const notices=await page.locator('#feature_expansion_panel [role="status"], [role="alert"]').allTextContents();
+await reload();const retry=await row('factorio_retort.three_batches');await retry.locator('button').first().evaluate(b=>{b.click();const t=setTimeout(()=>{},0);for(let i=0;i<=t+10;i++){clearTimeout(i);clearInterval(i);}});
+const pending=await save();assert.equal(pjobs(pending).length,1);assert.equal(inv(pending,'Tree sap'),5);assert.equal(inv(pending,'Rough wood log'),77);assert.equal(inv(pending,'Empty retort resin tray'),0);
+const j={label:'seeded-native',built:built(),failedWrites:writes,notices,durableUnchanged:true,pending:summary(pending,['Tree sap','Rough wood log','Empty retort resin tray','Empty retort residue tray']),restoration:await restoration('current-retort-quota-retry-pending')};
+await ticks(4);const done=await save();assert.equal(inv(done,'Filled retort resin tray'),1);assert.equal(inv(done,'Filled retort residue tray'),1);assert.equal(inv(done,'Tree sap'),5);
+j.settled=summary(done,['Tree sap','Rough wood log','Filled retort resin tray','Filled retort residue tray']);record('CURRENT-RETORT-QUOTA',j);return j;

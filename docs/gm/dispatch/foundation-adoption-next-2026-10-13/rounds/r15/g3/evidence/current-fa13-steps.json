@@ -1,0 +1,759 @@
+[
+ {
+  "name": "current-control-stamina",
+  "clock": 871,
+  "money": 47,
+  "staminaToFull": 0,
+  "location": "Village",
+  "inv": {
+   "Cheap leather pants": 1,
+   "Stale bread": 5,
+   "Old pickaxe": 1,
+   "Old sickle": 1,
+   "Old shovel": 1,
+   "Rough wood log": 78,
+   "Cooling salt packet": 1,
+   "Empty cooling sleeve": 2,
+   "Prepared survey kit": 7,
+   "Wax-sealed survey kit": 4,
+   "Dulled field fitting knife": 1,
+   "Bench clearance manual": 1,
+   "Set repair resin": 1,
+   "Empty retort resin tray": 1,
+   "Empty retort residue tray": 1,
+   "Empty bench vial": 2,
+   "Field fitting knife": 1
+  },
+  "jobs": [],
+  "conditions": {},
+  "facts": {
+   "steam.boh.enrolled": true,
+   "nethack_fieldcraft.opened": true,
+   "game_absorption_assay.opened": true,
+   "game_absorption_assay.termsRevision": 1,
+   "game_absorption_assay.negativeTrial": "dull"
+  },
+  "inconclusive": "Compare the failed trial with your reed-oil evidence · 1 min\n\nEvidence-based identification can follow the failed trial either immediately or after later acquiring the missing control. One played minute records the deduction. Empty containers stay empty; no privately known answer is substituted for missing evidence.\n\nUnavailable\n\nKnown requirements\nReturn to the Village with your living native body, stock and local clock.\nRecover your usable hands before bench work.\nUse Eda's actual fitting bench under her retained external-trial permission.\nRecover above one HP before work.\nHear Eda's closed-batch terms first.\nActually identify the separate pale reed-oil stock through its existing assay or sharpening trial first. A rumor or purchase is not a control.\nWhy this is unavailable\nThis action is not available under the current conditions. Review the known preparation or choose another action.\n\nTime terms: 1 played minutes under the known terms.\n\nCancellation: Cancelling returns reserved inputs. Time already played is not returned.\n\nReserved\nYour attention is reserved while the accepted work runs.\nA place at Eda's dry fitting bench is reserved for this work.\nUnavailable: Compare the failed trial with your reed-oil evidence · 1 min",
+  "blockedKey": {
+   "tabs": 3,
+   "focused": {
+    "tag": "BUTTON",
+    "text": "Unavailable: Compare the failed trial with your reed-oil evidence · 1 min",
+    "focusVisible": true,
+    "outline": "solid 3px rgb(255, 229, 138)"
+   },
+   "key": "Enter",
+   "notice": "",
+   "focusAfter": {
+    "tag": "BUTTON",
+    "text": "Unavailable: Compare the failed trial with your reed-oil evidence · 1 min"
+   }
+  },
+  "controlKey": {
+   "tabs": 4,
+   "focused": {
+    "tag": "BUTTON",
+    "text": "Do this: Apply a pale vial to your own dull plain knife · 1 stamina + 3 min",
+    "focusVisible": true,
+    "outline": "solid 3px rgb(255, 229, 138)"
+   },
+   "key": "Enter",
+   "notice": "",
+   "focusAfter": {
+    "tag": "BUTTON",
+    "text": "Unavailable: Apply a pale vial to your own dull plain knife · 1 stamina + 3 min"
+   }
+  },
+  "pending": {
+   "clock": 868,
+   "money": 47,
+   "staminaToFull": 1,
+   "location": "Village",
+   "inv": {
+    "Cheap leather pants": 1,
+    "Stale bread": 5,
+    "Old pickaxe": 1,
+    "Old sickle": 1,
+    "Old shovel": 1,
+    "Rough wood log": 78,
+    "Cooling salt packet": 1,
+    "Empty cooling sleeve": 2,
+    "Prepared survey kit": 7,
+    "Wax-sealed survey kit": 4,
+    "Dulled field fitting knife": 1,
+    "Bench clearance manual": 1,
+    "Set repair resin": 1,
+    "Empty retort resin tray": 1,
+    "Empty retort residue tray": 1,
+    "Empty bench vial": 1
+   },
+   "jobs": [
+    [
+     "nethack_fieldcraft.trial_dull",
+     871
+    ]
+   ],
+   "conditions": {}
+  },
+  "liveStamina": "50/51 stamina",
+  "pendingPersistence": {
+   "name": "current-fa13-control-pending",
+   "clock": 868,
+   "exportHash": "d005008853d3e8805a06a76ef8f697cd5bd355194e368b639ae23eec9a0b870e",
+   "reloadExact": true,
+   "reloadDiff": [],
+   "exportEqual": true,
+   "importEqual": true,
+   "exportImportOtherDiffs": [],
+   "derivedEquipmentFieldsOnlyInExport": [
+    ".0.equipment.weapon.rarity"
+   ],
+   "bundle": {
+    "label": "current-fa13-control-pending",
+    "built": "84746e7891da46f2f7a7f89cf67a712f43c31454c5c479da065fb53eff734e1c",
+    "loaded": "84746e7891da46f2f7a7f89cf67a712f43c31454c5c479da065fb53eff734e1c",
+    "match": true
+   },
+   "pageErrors": []
+  },
+  "completed": {
+   "clock": 871,
+   "money": 47,
+   "staminaToFull": 0,
+   "location": "Village",
+   "inv": {
+    "Cheap leather pants": 1,
+    "Stale bread": 5,
+    "Old pickaxe": 1,
+    "Old sickle": 1,
+    "Old shovel": 1,
+    "Rough wood log": 78,
+    "Cooling salt packet": 1,
+    "Empty cooling sleeve": 2,
+    "Prepared survey kit": 7,
+    "Wax-sealed survey kit": 4,
+    "Dulled field fitting knife": 1,
+    "Bench clearance manual": 1,
+    "Set repair resin": 1,
+    "Empty retort resin tray": 1,
+    "Empty retort residue tray": 1,
+    "Empty bench vial": 2,
+    "Field fitting knife": 1
+   },
+   "jobs": [],
+   "conditions": {}
+  }
+ },
+ {
+  "name": "controlled-comparison-completed",
+  "clock": 880,
+  "money": 47,
+  "staminaToFull": 0,
+  "location": "Village",
+  "inv": {
+   "Cheap leather pants": 1,
+   "Stale bread": 5,
+   "Old pickaxe": 1,
+   "Old sickle": 1,
+   "Old shovel": 1,
+   "Rough wood log": 78,
+   "Cooling salt packet": 1,
+   "Empty cooling sleeve": 2,
+   "Prepared survey kit": 7,
+   "Wax-sealed survey kit": 4,
+   "Dulled field fitting knife": 1,
+   "Bench clearance manual": 1,
+   "Set repair resin": 1,
+   "Empty retort resin tray": 1,
+   "Empty retort residue tray": 1,
+   "Empty bench vial": 2,
+   "Field fitting knife": 1
+  },
+  "jobs": [],
+  "conditions": {},
+  "facts": {
+   "steam.boh.enrolled": true,
+   "nethack_fieldcraft.opened": true,
+   "game_absorption_assay.opened": true,
+   "game_absorption_assay.termsRevision": 1,
+   "game_absorption_assay.negativeTrial": "dull"
+  },
+  "keyboard": {
+   "tabs": 3,
+   "focused": {
+    "tag": "BUTTON",
+    "text": "Do this: Compare the failed trial with your reed-oil evidence · 1 min",
+    "focusVisible": true,
+    "outline": "solid 3px rgb(255, 229, 138)"
+   },
+   "key": "Enter",
+   "notice": "",
+   "focusAfter": {
+    "tag": "SUMMARY",
+    "text": "Tools, practice & local lives"
+   }
+  }
+ },
+ {
+  "name": "pins-recovered",
+  "clock": 903,
+  "money": 43,
+  "staminaToFull": 0,
+  "location": "Village",
+  "inv": {
+   "Cheap leather pants": 1,
+   "Stale bread": 5,
+   "Old pickaxe": 1,
+   "Old sickle": 1,
+   "Old shovel": 1,
+   "Rough wood log": 78,
+   "Cooling salt packet": 1,
+   "Empty cooling sleeve": 2,
+   "Prepared survey kit": 7,
+   "Wax-sealed survey kit": 4,
+   "Bench clearance manual": 1,
+   "Set repair resin": 1,
+   "Empty retort resin tray": 1,
+   "Empty retort residue tray": 1,
+   "Empty bench vial": 3,
+   "Field fitting knife": 1,
+   "Recovered fitting pin": 2,
+   "Dulled field fitting knife": 1
+  },
+  "jobs": [],
+  "conditions": {},
+  "facts": {
+   "steam.boh.enrolled": true,
+   "nethack_fieldcraft.opened": true,
+   "game_absorption_assay.opened": true,
+   "game_absorption_assay.termsRevision": 1,
+   "game_absorption_assay.negativeTrial": "dull"
+  },
+  "start": {
+   "clock": 890,
+   "money": 47,
+   "stf": 0,
+   "clouded": 0,
+   "gummed": 0,
+   "pin": 0,
+   "empty": 2,
+   "dull": 1,
+   "jobs": []
+  },
+  "bought": {
+   "clock": 893,
+   "money": 43,
+   "stf": 0,
+   "clouded": 1,
+   "gummed": 2,
+   "pin": 0,
+   "empty": 2,
+   "dull": 1,
+   "jobs": []
+  },
+  "soldOut": [
+   "Unavailable: Buy one Clouded bench vial · 2 coins",
+   "Unavailable: Buy one Gummed fitting pin · 1 coin"
+  ],
+  "washPending": {
+   "clock": 894,
+   "money": 43,
+   "stf": 1,
+   "clouded": 0,
+   "gummed": 1,
+   "pin": 0,
+   "empty": 2,
+   "dull": 1,
+   "jobs": [
+    "game_absorption_assay.rinse"
+   ]
+  },
+  "washed": {
+   "clock": 895,
+   "money": 43,
+   "stf": 0,
+   "clouded": 0,
+   "gummed": 1,
+   "pin": 1,
+   "empty": 3,
+   "dull": 1,
+   "jobs": []
+  },
+  "scrapePending": {
+   "clock": 896,
+   "money": 43,
+   "stf": 2,
+   "clouded": 0,
+   "gummed": 0,
+   "pin": 1,
+   "empty": 3,
+   "dull": 0,
+   "jobs": [
+    "game_absorption_assay.scrape_dull"
+   ]
+  },
+  "scrapeCancelled": {
+   "clock": 897,
+   "money": 43,
+   "stf": 0,
+   "clouded": 0,
+   "gummed": 1,
+   "pin": 1,
+   "empty": 3,
+   "dull": 1,
+   "jobs": []
+  },
+  "scraped": {
+   "clock": 902,
+   "money": 43,
+   "stf": 0,
+   "clouded": 0,
+   "gummed": 0,
+   "pin": 2,
+   "empty": 3,
+   "dull": 1,
+   "jobs": []
+  }
+ },
+ {
+  "name": "stave-pin-kit-delivered",
+  "clock": 928,
+  "money": 45,
+  "staminaToFull": 0,
+  "location": "Village",
+  "inv": {
+   "Cheap leather pants": 1,
+   "Stale bread": 5,
+   "Old pickaxe": 1,
+   "Old sickle": 1,
+   "Old shovel": 1,
+   "Rough wood log": 77,
+   "Cooling salt packet": 1,
+   "Empty cooling sleeve": 2,
+   "Prepared survey kit": 6,
+   "Wax-sealed survey kit": 4,
+   "Bench clearance manual": 1,
+   "Empty retort resin tray": 1,
+   "Empty retort residue tray": 1,
+   "Empty bench vial": 3,
+   "Recovered fitting pin": 1,
+   "Dulled field fitting knife": 2,
+   "Wet repair stave": 1
+  },
+  "jobs": [],
+  "conditions": {},
+  "facts": {
+   "steam.boh.enrolled": true,
+   "nethack_fieldcraft.opened": true,
+   "game_absorption_assay.opened": true,
+   "game_absorption_assay.termsRevision": 1,
+   "game_absorption_assay.negativeTrial": "dull"
+  },
+  "start": {
+   "clock": 912,
+   "money": 43,
+   "sharp": 1,
+   "dull": 1,
+   "log": 78,
+   "wet": 0,
+   "sound": 0,
+   "pin": 2,
+   "resin": 1,
+   "kits": 7,
+   "jobs": []
+  },
+  "cutPending": {
+   "clock": 913,
+   "money": 43,
+   "sharp": 0,
+   "dull": 1,
+   "log": 77,
+   "wet": 0,
+   "sound": 0,
+   "pin": 2,
+   "resin": 1,
+   "kits": 7,
+   "jobs": [
+    "feature_objects.cut_sharp_own"
+   ]
+  },
+  "cut": {
+   "clock": 916,
+   "money": 43,
+   "sharp": 0,
+   "dull": 2,
+   "log": 77,
+   "wet": 2,
+   "sound": 0,
+   "pin": 2,
+   "resin": 1,
+   "kits": 7,
+   "jobs": []
+  },
+  "dried": {
+   "clock": 922,
+   "money": 43,
+   "sharp": 0,
+   "dull": 2,
+   "log": 77,
+   "wet": 1,
+   "sound": 1,
+   "pin": 2,
+   "resin": 1,
+   "kits": 7,
+   "jobs": []
+  },
+  "bindPending": {
+   "clock": 923,
+   "money": 43,
+   "sharp": 0,
+   "dull": 2,
+   "log": 77,
+   "wet": 1,
+   "sound": 0,
+   "pin": 1,
+   "resin": 0,
+   "kits": 7,
+   "jobs": [
+    "nethack_fieldcraft.pin_kit"
+   ]
+  },
+  "bound": {
+   "clock": 925,
+   "money": 43,
+   "sharp": 0,
+   "dull": 2,
+   "log": 77,
+   "wet": 1,
+   "sound": 0,
+   "pin": 1,
+   "resin": 0,
+   "kits": 8,
+   "jobs": []
+  },
+  "delivered": {
+   "clock": 927,
+   "money": 45,
+   "sharp": 0,
+   "dull": 2,
+   "log": 77,
+   "wet": 1,
+   "sound": 0,
+   "pin": 1,
+   "resin": 0,
+   "kits": 6,
+   "jobs": []
+  }
+ },
+ {
+  "name": "dog-oil-feats",
+  "clock": 959,
+  "money": 40,
+  "staminaToFull": 0,
+  "location": "Village",
+  "inv": {
+   "Cheap leather pants": 1,
+   "Stale bread": 5,
+   "Old pickaxe": 1,
+   "Old sickle": 1,
+   "Old shovel": 1,
+   "Rough wood log": 77,
+   "Cooling salt packet": 1,
+   "Empty cooling sleeve": 2,
+   "Prepared survey kit": 6,
+   "Wax-sealed survey kit": 4,
+   "Bench clearance manual": 1,
+   "Empty retort resin tray": 1,
+   "Empty retort residue tray": 1,
+   "Empty bench vial": 4,
+   "Recovered fitting pin": 3,
+   "Dulled field fitting knife": 2,
+   "Wet repair stave": 1
+  },
+  "jobs": [],
+  "conditions": {},
+  "facts": {
+   "steam.boh.enrolled": true,
+   "nethack_fieldcraft.opened": true,
+   "game_absorption_assay.opened": true,
+   "game_absorption_assay.termsRevision": 1,
+   "game_absorption_assay.negativeTrial": "dull"
+  },
+  "start": {
+   "clock": 938,
+   "money": 45,
+   "ration": 0,
+   "vial": 0,
+   "empty": 3,
+   "pin": 1,
+   "dog": {
+    "satiety": 0,
+    "lessons": 0,
+    "stamina": 4,
+    "willing": true
+   },
+   "scent": null,
+   "feats": [
+    "bench_liquid_discovery"
+   ],
+   "jobs": []
+  },
+  "before": [
+   "Do this: Buy one Unmarked pale vial · 2 coins",
+   "Do this: Buy one Workshop ration · 1 coin",
+   "Unavailable: Apply a pale vial to your own dull plain knife · 1 stamina + 3 min",
+   "Unavailable: Scent Eda's recess with identified reed oil · 1 stamina",
+   "Unavailable: Feed Rill one Workshop ration · up to 2 satiety + 2 dog stamina",
+   "Unavailable: Practice one ordinary scent lesson with Rill · 2 min + care effort",
+   "Do this: Recover one of Eda's actual pins by hand · 2 stamina + 4 min",
+   "Unavailable: Bind one pin, sound stave and set resin into a survey kit · 1 stamina + 3 min",
+   "Do this: Hand Rill's workshop attention back to Eda"
+  ],
+  "bought": {
+   "clock": 943,
+   "money": 40,
+   "ration": 3,
+   "vial": 1,
+   "empty": 3,
+   "pin": 1,
+   "dog": {
+    "satiety": 0,
+    "lessons": 0,
+    "stamina": 4,
+    "willing": true
+   },
+   "scent": null,
+   "feats": [
+    "bench_liquid_discovery"
+   ],
+   "jobs": []
+  },
+  "fed1": {
+   "clock": 944,
+   "money": 40,
+   "ration": 2,
+   "vial": 1,
+   "empty": 3,
+   "pin": 1,
+   "dog": {
+    "satiety": 2,
+    "lessons": 0,
+    "stamina": 4,
+    "willing": true
+   },
+   "scent": null,
+   "feats": [
+    "bench_liquid_discovery"
+   ],
+   "jobs": []
+  },
+  "lesson1": {
+   "clock": 946,
+   "money": 40,
+   "ration": 2,
+   "vial": 1,
+   "empty": 3,
+   "pin": 1,
+   "dog": {
+    "satiety": 1,
+    "lessons": 1,
+    "stamina": 3,
+    "willing": true
+   },
+   "scent": null,
+   "feats": [
+    "bench_liquid_discovery"
+   ],
+   "jobs": []
+  },
+  "lesson2": {
+   "clock": 948,
+   "money": 40,
+   "ration": 2,
+   "vial": 1,
+   "empty": 3,
+   "pin": 1,
+   "dog": {
+    "satiety": 0,
+    "lessons": 2,
+    "stamina": 2,
+    "willing": true
+   },
+   "scent": null,
+   "feats": [
+    "bench_liquid_discovery"
+   ],
+   "jobs": []
+  },
+  "afterLessons": [
+   "Do this: Buy one Unmarked pale vial · 2 coins",
+   "Do this: Buy one Workshop ration · 1 coin",
+   "Do this: Apply a pale vial to your own dull plain knife · 1 stamina + 3 min",
+   "Do this: Scent Eda's recess with identified reed oil · 1 stamina",
+   "Do this: Feed Rill one Workshop ration · up to 2 satiety + 2 dog stamina",
+   "Do this: Recover one of Eda's actual pins by hand · 2 stamina + 4 min",
+   "Unavailable: Ask trained Rill to retrieve one actual pin · care + 1 stamina + 1 min",
+   "Unavailable: Bind one pin, sound stave and set resin into a survey kit · 1 stamina + 3 min",
+   "Do this: Hand Rill's workshop attention back to Eda"
+  ],
+  "fed3": {
+   "clock": 950,
+   "money": 40,
+   "ration": 0,
+   "vial": 1,
+   "empty": 3,
+   "pin": 1,
+   "dog": {
+    "satiety": 4,
+    "lessons": 2,
+    "stamina": 4,
+    "willing": true
+   },
+   "scent": null,
+   "feats": [
+    "bench_liquid_discovery"
+   ],
+   "jobs": []
+  },
+  "fullRefusal": "Feed Rill one Workshop ration · up to 2 satiety + 2 dog stamina\n\nRations are dog food; pale vials are not. Full satiety refuses feeding without spending anything. Feeding remains possible during a calm handoff.\n\nUnavailable\n\nKnown requirements\nReturn to the Village with your supported living body and local played clock.\nRecover your usable hands for bench work.\nYour health: at least 2. (met)\nEda needs her present living body and permission.\nRill is already full; keep the ration.\nWhy this is unavailable\nThis action is not available under the current conditions. Review the known preparation or choose another action.\nStated costs\n1 Workshop ration. You have 0 available.\n\nTime terms: Immediate action.\n\nReserved\nEda, Village sluice fitter is reserved for this accepted work.\nUnavailable: Feed Rill one Workshop ration · up to 2 satiety + 2 dog stamina",
+  "noScentRefusal": "Ask trained Rill to retrieve one actual pin · care + 1 stamina + 1 min\n\nRequires two earned lessons, current consent, jaws, four legs, health, attention and co-location. Lost scent or support at completion returns reserved pin and effort and produces no result.\n\nUnavailable\n\nKnown requirements\nReturn to the Village with your supported living body and local played clock.\nRecover your usable hands for bench work.\nYour health: at least 2. (met)\nEda needs her present living body and permission.\nRill needs present willingness, a living body, usable jaws and all four legs.\nFeed Rill a Workshop ration before asking for effort.\nRill needs one actual stamina.\nApply identified reed oil to this recess first.\nWhy this is unavailable\nThis action is not available under the current conditions. Review the known preparation or choose another action.\nStated costs\n1 stamina. You have 50.849999999999994 available.\nEda, Village sluice fitter: 1 Recovered fitting pin.\n\nTime terms: 1 played minutes under the known terms.\n\nCancellation: Cancelling returns reserved inputs. Time already played is not returned.\n\nReserved\nYour attention is reserved while the accepted work runs.\nEda, Village sluice fitter is reserved for this accepted work.\nA place at Eda's dry fitting bench is reserved for this work.\nUnavailable: Ask trained Rill to retrieve one actual pin · care + 1 stamina + 1 min",
+  "scented": {
+   "clock": 951,
+   "money": 40,
+   "ration": 0,
+   "vial": 0,
+   "empty": 4,
+   "pin": 1,
+   "dog": {
+    "satiety": 4,
+    "lessons": 2,
+    "stamina": 4,
+    "willing": true
+   },
+   "scent": null,
+   "feats": [
+    "bench_liquid_discovery",
+    "reed_oil_two_uses"
+   ],
+   "jobs": []
+  },
+  "dogPending": {
+   "clock": 952,
+   "money": 40,
+   "ration": 0,
+   "vial": 0,
+   "empty": 4,
+   "pin": 2,
+   "dog": {
+    "satiety": 3,
+    "lessons": 2,
+    "stamina": 3,
+    "willing": true
+   },
+   "scent": null,
+   "feats": [
+    "bench_liquid_discovery",
+    "reed_oil_two_uses",
+    "rill_retrieved_real_stock"
+   ],
+   "jobs": []
+  },
+  "dogRetrieved": {
+   "clock": 952,
+   "money": 40,
+   "ration": 0,
+   "vial": 0,
+   "empty": 4,
+   "pin": 2,
+   "dog": {
+    "satiety": 3,
+    "lessons": 2,
+    "stamina": 3,
+    "willing": true
+   },
+   "scent": null,
+   "feats": [
+    "bench_liquid_discovery",
+    "reed_oil_two_uses",
+    "rill_retrieved_real_stock"
+   ],
+   "jobs": []
+  },
+  "manualRetrieved": {
+   "clock": 956,
+   "money": 40,
+   "ration": 0,
+   "vial": 0,
+   "empty": 4,
+   "pin": 3,
+   "dog": {
+    "satiety": 3,
+    "lessons": 2,
+    "stamina": 3,
+    "willing": true
+   },
+   "scent": null,
+   "feats": [
+    "bench_liquid_discovery",
+    "reed_oil_two_uses",
+    "rill_retrieved_real_stock"
+   ],
+   "jobs": []
+  },
+  "pinsExhausted": "Recover one of Eda's actual pins by hand · 2 stamina + 4 min\n\nA complete ordinary route. The accepted recovery removes one actual pin into reservation; completion hands that pin to you. Cancellation returns it to Eda.\n\nUnavailable\n\nKnown requirements\nReturn to the Village with your supported living body and local played clock.\nRecover your usable hands for bench work.\nYour health: at least 2. (met)\nEda needs her present living body and permission.\nBoth finite pins have already been retrieved or reserved.\nWhy this is unavailable\nThis action is not available under the current conditions. Review the known preparation or choose another action.\nStated costs\n2 stamina. You have 50.849999999999994 available.\nEda, Village sluice fitter: 1 Recovered fitting pin.\n\nTime terms: 4 played minutes under the known terms.\n\nCancellation: Cancelling returns reserved inputs. Time already played is not returned.\n\nReserved\nYour attention is reserved while the accepted work runs.\nEda, Village sluice fitter is reserved for this accepted work.\nA place at Eda's dry fitting bench is reserved for this work.\nUnavailable: Recover one of Eda's actual pins by hand · 2 stamina + 4 min",
+  "handoff": {
+   "clock": 957,
+   "money": 40,
+   "ration": 0,
+   "vial": 0,
+   "empty": 4,
+   "pin": 3,
+   "dog": {
+    "satiety": 3,
+    "lessons": 2,
+    "stamina": 3,
+    "willing": false
+   },
+   "scent": null,
+   "feats": [
+    "bench_liquid_discovery",
+    "reed_oil_two_uses",
+    "rill_retrieved_real_stock"
+   ],
+   "jobs": []
+  },
+  "afterHandoff": [
+   "Do this: Buy one Unmarked pale vial · 2 coins",
+   "Do this: Buy one Workshop ration · 1 coin",
+   "Unavailable: Apply a pale vial to your own dull plain knife · 1 stamina + 3 min",
+   "Unavailable: Scent Eda's recess with identified reed oil · 1 stamina",
+   "Unavailable: Feed Rill one Workshop ration · up to 2 satiety + 2 dog stamina",
+   "Unavailable: Recover one of Eda's actual pins by hand · 2 stamina + 4 min",
+   "Unavailable: Ask trained Rill to retrieve one actual pin · care + 1 stamina + 1 min",
+   "Unavailable: Bind one pin, sound stave and set resin into a survey kit · 1 stamina + 3 min",
+   "Do this: Ask Eda and Rill to resume willing workshop practice"
+  ],
+  "resumed": {
+   "clock": 958,
+   "money": 40,
+   "ration": 0,
+   "vial": 0,
+   "empty": 4,
+   "pin": 3,
+   "dog": {
+    "satiety": 3,
+    "lessons": 2,
+    "stamina": 3,
+    "willing": true
+   },
+   "scent": null,
+   "feats": [
+    "bench_liquid_discovery",
+    "reed_oil_two_uses",
+    "rill_retrieved_real_stock"
+   ],
+   "jobs": []
+  },
+  "featRecords": []
+ }
+]

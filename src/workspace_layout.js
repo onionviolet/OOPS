@@ -1,23 +1,24 @@
+import { getDisplaySettings, getDisplaySetting, replaceDisplaySettings, effectsCap } from './display_settings.js';
 import { normalizeLayout, parseLayout, presetLayout, changeModule, reorderModule, layoutStorageKey, normalizeColumns } from './workspace_state.js';
 const registry = new Map();
 let owner;
 const el = (tag, cls, text) => { const node = document.createElement(tag); if (cls) node.className = cls; if (text) node.textContent = text; return node; };
 function button(label, action, id) { const b = el('button', '', label); b.type = 'button'; b.dataset.workspaceAction = action; if (id) b.dataset.module = id; return b; }
 export function workspaceOwns(node) { return !!owner && [...registry.values()].some(v => v.node === node); }
-export function registerWorkspaceModule({ id, title, node, home = node?.parentNode, homeHost, defaultDock, after, eligible = () => true, discovered = () => true, critical = false }) {
+export function registerWorkspaceModule({ id, title, node, home = node?.parentNode, homeHost, defaultDock, after, eligible = () => true, discovered = () => true, critical = false, decorateShell, unavailableReason }) {
     if (!/^[a-z][a-z0-9_-]*$/.test(id) || !node || !home) throw new Error('Workspace modules require a stable safe ID, node and home.');
     const old = registry.get(id);
-    if (old) { if (old.node !== node) { if (owner && old.node.parentNode) old.node.replaceWith(node); old.node = node; } old.eligible = eligible; old.discovered = discovered; old.critical = critical; updateWorkspace(); return old; }
+    if (old) { if (old.node !== node) { if (owner && old.node.parentNode) old.node.replaceWith(node); old.node = node; } old.eligible = eligible; old.discovered = discovered; old.critical = critical; old.decorateShell = decorateShell; old.unavailableReason = unavailableReason; updateWorkspace(); return old; }
     const placeholder = null;
     const dock = defaultDock || (typeof home === 'string' ? home : home?.dock);
-    const module = { id, title: String(title), node, home: (typeof homeHost === 'string' ? document.getElementById(homeHost) : homeHost) || (home?.append ? home : node.parentNode), homeId: typeof homeHost === 'string' ? homeHost : (node.parentNode?.id || null), defaultDock: ['left','center','right','float'].includes(dock) ? dock : undefined, eligible, discovered, critical, placeholder, after }; registry.set(id, module);
+    const module = { id, title: String(title), node, home: (typeof homeHost === 'string' ? document.getElementById(homeHost) : homeHost) || (home?.append ? home : node.parentNode), homeId: typeof homeHost === 'string' ? homeHost : (node.parentNode?.id || null), defaultDock: ['left','center','right','float'].includes(dock) ? dock : undefined, eligible, discovered, critical, placeholder, after, decorateShell, unavailableReason }; registry.set(id, module);
     if (owner) { owner.layout = withDefaults(owner.layout); makeShell(module); updateWorkspace(); }
     return module;
 }
 function makeShell(module) {
     if (module.shell) return;
     if (!module.placeholder) { module.placeholder = document.createComment(`workspace:${module.id}`); module.node.before(module.placeholder); }
-    const shell = el('section', 'workspace-module'); shell.dataset.module = module.id;
+    const shell = el('section', 'workspace-module'); shell.dataset.module = module.id; shell.tabIndex = -1;
     const header = el('div', 'workspace-module-header');
     const handle = button('↕', 'handle', module.id); handle.className = 'workspace-drag-handle'; handle.draggable = false; handle.title = 'Drag to reorder or dock. Arrow keys move; left/right changes dock.'; 
     const title = el('strong'); header.append(handle, title, button('Collapse', 'collapse', module.id));
@@ -50,10 +51,15 @@ function action(event) {
     if (a === 'edit-layout') { setEditing(!owner.editing); owner.menu.open=false; owner.menuSummary.focus({preventScroll:true}); return; }
     if (a === 'preset') { owner.layout = makePreset(control.value); save(); updateWorkspace(); return; }
     if (a === 'density') { owner.layout.density = control.value; save(); updateWorkspace(); return; }
+    if (a === 'craft-detail') { applyCraftDetail(control.value); try { localStorage.setItem(CRAFT_DETAIL_KEY, control.value); } catch { owner.status.textContent = 'Crafting detail placement applies for this session; browser storage is unavailable.'; } return; }
     if (a === 'colors') { applyColorScheme(control.value); try { localStorage.setItem(COLOR_KEY, control.value); } catch { owner.status.textContent = 'Colors apply for this session; browser storage is unavailable.'; } return; }
     if (a === 'reset') { owner.layout = makePreset('Workspace'); save(); updateWorkspace(); return; }
-    if (a === 'export') { owner.config.value = JSON.stringify(normalizeLayout(owner.layout, [...registry.keys()]), null, 2); owner.status.textContent = 'Layout configuration ready to copy. It contains panel IDs and positions only.'; return; }
-    if (a === 'import') { try { const raw = JSON.parse(owner.config.value); if (raw.version !== 1 || !Array.isArray(raw.modules)) throw Error(); owner.layout = normalizeLayout(raw, [...registry.keys()]); save(); updateWorkspace(); owner.status.textContent = 'Layout imported.'; } catch { owner.status.textContent = 'Invalid layout. Current layout preserved.'; } return; }
+    // One export (AJ12): layout plus this browser's color scheme and display settings. Layout-only JSON still imports.
+    if (a === 'export') { owner.config.value = JSON.stringify({...normalizeLayout(owner.layout, [...registry.keys()]), colors: readColorScheme(), display: getDisplaySettings()}, null, 2); owner.status.textContent = 'Layout configuration ready to copy. It contains panel positions, colors and display settings only.'; return; }
+    if (a === 'import') { try { const raw = JSON.parse(owner.config.value); if (raw.version !== 1 || !Array.isArray(raw.modules)) throw Error(); owner.layout = normalizeLayout(raw, [...registry.keys()]); save();
+        if (COLOR_SCHEMES.includes(raw.colors)) { applyColorScheme(raw.colors); const picker = owner.toolbar.querySelector('[data-workspace-action="colors"]'); if (picker) picker.value = raw.colors; try { localStorage.setItem(COLOR_KEY, raw.colors); } catch { /* session only */ } }
+        if (raw.display && typeof raw.display === 'object') replaceDisplaySettings(raw.display);
+        updateWorkspace(); owner.status.textContent = 'Layout imported.'; } catch { owner.status.textContent = 'Invalid layout. Current layout preserved.'; } return; }
     if (!state) return;
     if (moduleCritical(id) && ['hide', 'collapse'].includes(a)) { owner.status.textContent = 'This panel contains required current actions and stays open.'; return; }
     if (a === 'restore') openWorkspaceModule(id);
@@ -74,6 +80,10 @@ function setEditing(on) {
 // Color scheme is a per-browser display preference, separate from layouts and saves.
 const COLOR_KEY = 'yairpg.colors.v1', COLOR_SCHEMES = ['standard', 'vivid'];
 function readColorScheme() { try { const v = localStorage.getItem(COLOR_KEY); return COLOR_SCHEMES.includes(v) ? v : 'vivid'; } catch { return 'vivid'; } }
+// Crafting detail placement (AJ8) is a per-browser display preference, beside the list by default.
+const CRAFT_DETAIL_KEY = 'yairpg.craft-detail.v1', CRAFT_DETAIL_PLACES = ['beside', 'below'];
+function readCraftDetail() { try { const v = localStorage.getItem(CRAFT_DETAIL_KEY); return CRAFT_DETAIL_PLACES.includes(v) ? v : 'beside'; } catch { return 'beside'; } }
+function applyCraftDetail(value) { document.documentElement.dataset.craftDetailPlace = CRAFT_DETAIL_PLACES.includes(value) ? value : 'beside'; }
 function applyColorScheme(value) { document.documentElement.dataset.colorScheme = COLOR_SCHEMES.includes(value) ? value : 'standard'; }
 function moduleCritical(id) { return registry.get(id)?.critical === true; }
 // Discovery (A6/V10): a panel is named nowhere until discovered. Discovery is sticky for
@@ -83,15 +93,19 @@ function labelShell(module, known) {
     if (!module.shell || module.labelled === known) return; module.labelled = known;
     const name = known ? module.title : 'panel', shell = module.shell;
     shell.querySelector('.workspace-module-header > strong').textContent = known ? module.title : '';
+    module.decorateShell?.(shell, known);
     shell.querySelector('.workspace-drag-handle').setAttribute('aria-label', `Move ${name}`);
     shell.querySelectorAll('[data-workspace-action=width],[data-workspace-action=height]').forEach(r => r.setAttribute('aria-label', `${name} ${r.dataset.workspaceAction}`));
     shell.querySelectorAll('[data-resize]').forEach(g => g.setAttribute('aria-label', `Resize ${name} ${g.dataset.resize === 'e' ? 'width' : g.dataset.resize === 's' ? 'height' : 'width and height'}`));
 }
-let revealSettledAt = null;
+let revealSettledAt = null, revealGesture = false;
+// A trusted click or key press after the start screen closes is play, so a panel met by a
+// player who acts within the settle window still gets its reveal (settings pass, 2026-10-13).
+if (typeof document !== 'undefined') for (const type of ['pointerdown', 'keydown']) document.addEventListener(type, e => { if (e.isTrusted && document.documentElement.dataset.startScreen === 'closed' && !e.target?.closest?.('#hero_creation_panel')) revealGesture = true; }, true);
 function revealArmed() {
-    if (document.documentElement.dataset.startScreen === 'open') { revealSettledAt = null; return false; }
+    if (document.documentElement.dataset.startScreen === 'open') { revealSettledAt = null; revealGesture = false; return false; }
     if (revealSettledAt == null) revealSettledAt = performance.now();
-    return performance.now() - revealSettledAt >= 1200;
+    return revealGesture || performance.now() - revealSettledAt >= 1200;
 }
 function moduleKnown(module, eligible) {
     if (module.known) return true;
@@ -101,6 +115,8 @@ function moduleKnown(module, eligible) {
 }
 function reveal(module) {
     const target = owner.layout.mode === 'classic' ? module.node : module.shell; if (!target) return;
+    // Reveal setting (AJ1): off, or save-level Effects off, shows the panel with no marker or motion.
+    if (getDisplaySetting('reveal') === 'off' || effectsCap() === 'off') return;
     target.dataset.workspaceReveal = 'new'; clearTimeout(module.revealTimer);
     const reduced = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
     module.revealTimer = setTimeout(() => { if (target.dataset.workspaceReveal === 'new') delete target.dataset.workspaceReveal; }, reduced ? 60 : 1000);
@@ -110,7 +126,7 @@ function syncRestore(module, state, known, eligible, classic) {
     if (!known) { restore?.remove(); return; }
     if (!restore) { restore = button(`Open ${module.title}`, 'restore', state.id); owner.picker.append(restore); }
     restore.disabled = !eligible; if (!classic) restore.textContent = `${state.hidden ? 'Show' : 'Open'} ${module.title}`;
-    const reason = eligible ? '' : 'Not available here right now';
+    const reason = eligible ? '' : (module.unavailableReason?.() || 'Not available here right now');
     if (restore.title !== reason) { restore.title = reason; if (reason) restore.setAttribute('aria-description', reason); else restore.removeAttribute('aria-description'); }
 }
 export function updateWorkspace() {
@@ -278,6 +294,7 @@ export function mountWorkspace({ root = document.getElementById('main_content') 
     const presetLabel = el('label', '', 'Layout '), presets = el('select'); presets.dataset.workspaceAction = 'preset'; ['Workspace', 'Classic', 'Focus', 'Compare'].forEach(v => { const o = el('option', '', v); o.value = v; presets.append(o); }); presetLabel.append(presets); tools.append(presetLabel, button('Reset layout', 'reset'));
     const densityLabel = el('label', '', 'Density '), density = el('select'); density.dataset.workspaceAction='density'; ['compact','comfortable','inspection'].forEach(v=>{const o=el('option','',v);o.value=v;density.append(o);}); densityLabel.append(density);tools.append(densityLabel);
     const colorsLabel = el('label', '', 'Colors '), colors = el('select'); colors.dataset.workspaceAction = 'colors'; [['standard','Standard'],['vivid','Vivid']].forEach(([v,t])=>{const o=el('option','',t);o.value=v;colors.append(o);}); colorsLabel.append(colors); tools.append(colorsLabel); colors.value = readColorScheme(); applyColorScheme(colors.value);
+    const craftLabel = el('label', '', 'Crafting detail '), craft = el('select'); craft.dataset.workspaceAction = 'craft-detail'; [['beside','Beside list'],['below','Below list']].forEach(([v,t])=>{const o=el('option','',t);o.value=v;craft.append(o);}); craftLabel.append(craft); tools.append(craftLabel); craft.value = readCraftDetail(); applyCraftDetail(craft.value);
     const picker = el('details', 'workspace-picker'); picker.append(el('summary', '', 'Panels')); tools.append(picker);
     const transfer = el('details', 'workspace-transfer'); transfer.append(el('summary', '', 'Layout configuration'));
     const config = el('textarea'); config.setAttribute('aria-label', 'Layout configuration'); config.rows = 5; transfer.append(config, button('Export layout', 'export'), button('Import layout', 'import')); tools.append(transfer);
@@ -294,6 +311,18 @@ export function mountWorkspace({ root = document.getElementById('main_content') 
     listen(root, 'click', e => { if (e.target.closest('[data-workspace-action]')?.tagName !== 'SELECT' && e.target.closest('[data-workspace-action]')?.tagName !== 'INPUT') action(e); const floating = e.target.closest('.workspace-floating'); if (floating) { owner.front = (owner.front || 200) + 1; floating.style.zIndex = owner.front; } });
     listen(document, 'pointerdown', e => {
         root.querySelectorAll('.workspace-module-controls[open], .workspace-picker[open], .workspace-transfer[open], .workspace-layout-menu[open]').forEach(details => {if(!details.contains(e.target))details.open=false;});
+    });
+    // DOM order follows the visible dock order, including saved reordering.
+    listen(document, 'keydown', e => {
+        if (e.key !== 'F6' || e.altKey || e.ctrlKey || e.metaKey || owner.root.inert) return;
+        const panels = [...owner.board.querySelectorAll('.workspace-module')]
+            .filter(s => !s.hidden && s.getClientRects().length && !s.closest('[hidden]'));
+        if (!panels.length) return;
+        const at = panels.indexOf(document.activeElement?.closest('.workspace-module'));
+        const next = at < 0 ? (e.shiftKey ? panels.length - 1 : 0)
+            : (at + (e.shiftKey ? -1 : 1) + panels.length) % panels.length;
+        e.preventDefault(); panels[next].focus({preventScroll: true});
+        panels[next].querySelector('.workspace-module-header')?.scrollIntoView({block: 'nearest', inline: 'nearest'});
     });
     listen(toolbar, 'keydown', e => { if(e.key==='Escape' && owner.menu.open) { e.preventDefault(); owner.menu.open=false; owner.menuSummary.focus(); } });
     listen(root, 'change', action);
@@ -339,6 +368,9 @@ export function openWorkspaceModule(id) {
     target.scrollIntoView?.({block:'nearest',behavior:'instant'});
     const first = module.node.querySelector('button:not([hidden]):not(:disabled),summary,input:not([hidden]):not(:disabled),select:not([hidden]):not(:disabled),[data-native-keyboard]');
     const focus = owner && owner.layout.mode !== 'classic' && owner.editing ? module.shell.querySelector('.workspace-drag-handle') : first;
+    // Opening a module the player is already working inside (for example the notebook
+    // re-opening itself when a started job needs attention) keeps their keyboard focus.
+    if (module.node.contains?.(document.activeElement)) return true;
     focus?.focus({preventScroll:true}); return true;
 }
 

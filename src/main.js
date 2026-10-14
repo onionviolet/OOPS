@@ -281,6 +281,7 @@ import {createExpansionState, loadExpansionState, commitAction, advanceSimulatio
 import {beginFieldWorkshop} from "./field_workshop.js";
 import {createFieldPanel} from "./field_ui.js";
 import {expeditionRegistry, initializeExpedition, SURVEY_KIT_KEY, SURVEY_ROPE_KEY} from "./expedition_content.js";
+import {defaultCheatState, validateCheatState, grantCheat, optionalStartCard, awakenCheats} from './cheat_cards.js';
 import {loadContentPacks, emptyPackState, validatePackState, enterPack, leavePack, actPack, cancelPack, advancePackSettlement, preparePackSave, packSaveState} from './content_packs.js';
 import {syncAuthoredRegistration, applyAuthoredState, resetAuthoredState, AUTHORED_WORLD_ID} from './authored_site.js';
 import {createAuthoredSiteUI} from './authored_site_ui.js';
@@ -298,6 +299,20 @@ const structuredPacks=new Map();
 const initialStructuredDefinition=()=>foundationProbeEnabled&&structuredPacks.get(FOUNDATION_START_PACK_ID)||structuredPacks.get(LIVELIHOOD_PACK_ID)||[...structuredPacks.values()][0];
 const packDefinitionsForSave=()=>new Map([...optionalPacks,...structuredPacks]);
 let structuredPanel,structuredNotice='',suspendedStructuredSave=null;
+let cheatState=defaultCheatState();
+let statusWindow;
+function cheatCalendarTime() {
+    const {year, month, day, hour, minute, day_count} = current_game_time;
+    return {year, month, day, hour, minute, day_count};
+}
+function awakenOptionalStart(wonFight = false) {
+    const result = awakenCheats(cheatState, {dayCount: current_game_time.day_count, wonFight, at: cheatCalendarTime()});
+    if(!result.messages.length) return;
+    cheatState = result.state;
+    for(const message of result.messages) log_message(message, 'notification');
+    statusWindow?.render();
+    save_progress();
+}
 let optionalPackState=emptyPackState();
 let optionalPackPanel;
 import "./data/expedition_items.js";
@@ -324,6 +339,7 @@ import {townUnlocks, usesTownClock} from "./town_content.js";
 import {createTownPanel} from "./town_ui.js";
 import {createExpansionQuests} from "./expansion_quest_ui.js";
 import {worldIdentityView} from "./world_knowledge.js";
+import {createStatusWindow} from './status_window.js';
 import {createAdventureNotebook} from "./adventure_notebook.js";
 import {createCharacterBio} from "./character_bio_ui.js";
 import {bodyFacts, beginBodyRecord} from "./body_progression.js";
@@ -413,6 +429,7 @@ const lifeSaveStorage = {setItem(key, serialized, onDurable) {
     customization=customizationFromSave(save);
     refreshCustomization();
     workLedgerPanel?.render();
+    cheatState=validateCheatState(save.cheats??defaultCheatState());
     optionalPackState=validatePackState(save.content_packs??emptyPackState());
     optionalPackPanel?.render();
     villageCareerControls?.render();
@@ -2278,7 +2295,8 @@ function customizationFromSave(save) {
 }
 function refreshCustomization() {
     if(!customization)return;
-    applyCustomizationProfile(customization,{season:current_game_time.getSeason(),moduleNodes:{ledger:document.getElementById('work_ledger_panel'),crafting:document.getElementById('crafting_window'),'local-actions':document.getElementById('location_related_div'),vitals:document.getElementById('basic_character_info_div'),preparation:document.getElementById('character_div'),belongings:[document.getElementById('inventory_div'),document.getElementById('inventory_combat_switch_selection')],records:document.getElementById('journal_div'),time:document.getElementById('time_and_location'),location:document.getElementById('location_div'),skills:document.getElementById('skills_and_stances_div'),messages:document.getElementById('message_log_div'),notebook:document.getElementById('adventure_notebook'),customization:[document.getElementById('customization_host'),document.getElementById('customization_effects_host'),document.getElementById('customization_rules_host')]}});
+    document.documentElement.dataset.effects=customization.profiles?.[customization.active]?.settings?.effects||'full'; // settings pass S3: save-level Effects caps per-browser motion
+    applyCustomizationProfile(customization,{season:current_game_time.getSeason(),moduleNodes:{ledger:document.getElementById('work_ledger_panel'),crafting:document.getElementById('crafting_window'),'local-actions':document.getElementById('location_related_div'),vitals:document.getElementById('basic_character_info_div'),preparation:document.getElementById('character_div'),belongings:[document.getElementById('inventory_div'),document.getElementById('inventory_combat_switch_selection')],records:document.getElementById('journal_div'),time:document.getElementById('time_and_location'),location:document.getElementById('location_div'),skills:document.getElementById('skills_and_stances_div'),messages:document.getElementById('message_log_div'),notebook:document.getElementById('adventure_notebook'),'status-window':document.getElementById('status_window_panel'),customization:[document.getElementById('customization_host'),document.getElementById('customization_effects_host'),document.getElementById('customization_rules_host')]}});
     customizationPanel?.refresh();workLedgerAuthor?.refresh();
 }
 function saveCustomization(next) {
@@ -3637,6 +3655,8 @@ function start_combat() {
 }
 
 function finish_combat_round(was_special_combat) {
+    // CH1: the native combat calls this only after the player wins.
+    awakenOptionalStart(true);
     // Clear rewards may move the player. Retain the defeated zone for its event.
     const cleared_location=current_location;
     if(!was_special_combat){
@@ -5176,6 +5196,7 @@ function create_save({forExport = false} = {}) {
         save_data.pacing_e1=getPacingState();
         save_data.fort_supply=structuredClone(fortSupply);
         save_data.absorb_local_life=structuredClone(localLife);
+        save_data.cheats = validateCheatState(cheatState);
         save_data.content_packs = packSaveState(optionalPackState,packDefinitionsForSave());
         save_data.village_career = structuredClone(villageCareer);
         save_data.work_ledger=structuredClone(workLedger);
@@ -5284,6 +5305,7 @@ function load(save_data) {
             syncAuthoredSite(save_data.content_packs?.authored?.draft??null);
             save_data = preparePackSave(save_data,packDefinitionsForSave());
             save_data = validateSaveEnvelope(save_data, game_version);
+            cheatState=validateCheatState(save_data.cheats??defaultCheatState());
             optionalPackState=validatePackState(save_data.content_packs??emptyPackState());
             localLife=normalizeLocalLife(save_data.absorb_local_life);
             fortSupply=migrateFortSupply(save_data);
@@ -7250,6 +7272,8 @@ function update() {
 
         const curr_day = current_game_time.day_count;
         if(curr_day > prev_day) {
+            // CH1 dormant seed: first won fight or day 3.
+            awakenOptionalStart();
             recover_item_prices(config.trade_price_recovery_flat, config.trade_price_recovery_ratio);
             trickle_market_saturations(config.market_saturation_trickle_rate);
             if(is_in_trade()) {
@@ -8157,6 +8181,18 @@ play_button.addEventListener("click", hide_loading_screen);
 
 if(!global_flags.is_hero_created && config.do_hero_creation) {
     characterCreator.fill_creation_panel();
+    // CH1 capture runs before CharacterCreator removes the creation controls.
+    document.getElementById('hero_creation_panel_confirmation').addEventListener('click', () => {
+        if(global_flags.is_hero_created) return;
+        const choice = document.querySelector('[data-cheat-start]').value;
+        if(choice === 'system-quests' || choice === 'surprise') {
+            cheatState = grantCheat(cheatState, optionalStartCard(), {route: 'optional-start', at: cheatCalendarTime()});
+        }
+        lifeRecord = appendLifeMilestone(lifeRecord, {year: current_game_time.year,
+            at: lifeCalendarMinute(current_game_time), worldId: 'base.frontier', kind: 'beginning',
+            text: choice === 'none' ? 'You chose an ordinary beginning without a system.' :
+                choice === 'surprise' ? 'You chose a surprise beginning with a dormant system.' : 'You chose to begin with a dormant system.'});
+    }, {capture: true});
     //run is triggered from confirming hero creation
 } else {
     play_button.addEventListener("click", run);
@@ -8294,6 +8330,16 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
             }):[];
             return knownRoutesPresentation(snapshot,{refinement:refinementPresentation(snapshot,expeditionRegistry,{base:featureWavePresentation,relayHost,referenceDeskHost,replacementContext:backlogContext}),proto23:proto23Presentation(snapshot.state,expeditionRegistry,snapshot.context),pocket:{view:pocketView,actions:pocketActions}});
         },command:command=>command.type?actFeatureExpansion(command):actPocketRealm(command)});
+    // CH1 panel wiring: read native stats and only held title names.
+    statusWindow = createStatusWindow({read: () => ({cheats: cheatState, level: character.getLevelableComponent().current_level,
+        stats: character.getFullStats(), titles: titleView(character.titles, readTitleCounters()).filter(row => row.held).map(row => row.name)}),
+        onKnown: () => {
+            // Appearance names this module only after its persisted discovery.
+            const select = document.querySelector('#customization_host select[aria-label="Native module"]');
+            if(select && !select.querySelector('option[value="status-window"]')) {
+                const option = document.createElement('option'); option.value = 'status-window'; option.textContent = 'Status window'; select.append(option);
+            }
+        }});
     adventureNotebook = createAdventureNotebook({registry: expeditionRegistry,
         read: () => ({...readProgression(), inDialogue: !!current_dialogue, inCombat: !!current_combat})});
     document.getElementById('crafting_window').classList.add('settled-effects-host');
@@ -8412,6 +8458,7 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
             expansionState.simulation?.sessions.player?'A response is waiting in your notes.':null,
             ...Object.values(expansionState.simulation?.events||{}).filter(e=>e.actorId==='player'&&e.mode==='decision'&&e.status==='open'&&e.discoveredBy.includes('player')).map(e=>'Waiting response: '+e.label),
         ].filter(Boolean),waiting:!!expansionState.simulation?.sessions.player||Object.values(expansionState.simulation?.events||{}).some(e=>e.actorId==='player'&&e.mode==='decision'&&e.status==='open'&&e.discoveredBy.includes('player')),canWrite:workLedgerCanWrite(),error:expansionError,
+        world:Object.values(optionalPackState.packs).find(p=>p.active)?.worldId || expansionState.actors.player.worldId,
         away:expansionState.actors.player.worldId!=='base.frontier'
     }),combatKnown:()=>!!last_combat_location||game_stats.total_hits_done>0});
     registerWorkspaceModule({id:'ledger',title:'Work Ledger',node:workLedgerPanel.panel,home:'center',eligible:()=>!workLedgerPanel.panel.hidden});

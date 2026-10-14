@@ -133,9 +133,10 @@ export function observeWorkLedgerCraft(state,evidence,context) {
     // The native caller supplies its already-applied output, not a promised reward.
     // Existing schema2 receipts accept arbitrary types and retain plain history.
     const output=evidence.outputLabel||evidence.recipeId;
-    const succeeded=evidence.outputs>0&&evidence.successes>0;
+    // Output decides the receipt: partial-result recipes can produce output with 0 whole successes.
+    const succeeded=evidence.outputs>0;
     const text=succeeded
-        ? `Craft settled: ${output} ×${evidence.outputs}. ${evidence.successes}/${evidence.attempts} attempts succeeded.`
+        ? `Craft settled: ${output} ×${evidence.outputs} from ${evidence.attempts} attempt${evidence.attempts===1?'':'s'}.`
         : `Craft settled: no output from ${output}. 0/${evidence.attempts} attempts succeeded.`;
     events.push(receipt(succeeded?'native-craft':'native-craft-failed',next.actorId,next.sequence,text,succeeded?{}:{motif:'closing'}));
     return finish(next,events);

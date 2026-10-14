@@ -1,0 +1,20 @@
+const L = 'Bench clearance study', T = 'Fitting tools & materials';
+const out = {before:brief(await save())};
+const before=await stored();
+out.key = await keyAct(L, 'Make 2 survey kits with your sharp field fitting knife');
+const pending=await stored(); out.pending=brief(pending);
+for(const [k,delta] of [['Bench clearance manual',-1],['Field fitting knife',-1],['Sound repair stave',-2],['Tree sap',-1]])
+  check(n(pending,k)===n(before,k)+delta, 'exact reserved '+k);
+out.pendingPersistence = await checkpoint2('current-fa10-kits-pending');
+await waitJobs(); let s=await stored();
+check(n(s,'Prepared survey kit')===n(before,'Prepared survey kit')+2, 'two actual BOH kits');
+check(n(s,'Bench clearance manual')===n(before,'Bench clearance manual'), 'manual conserved');
+check(n(s,'Field fitting knife')===n(before,'Field fitting knife')-1 && n(s,'Dulled field fitting knife')===n(before,'Dulled field fitting knife')+1, 'same counted sharp tool becomes dull');
+out.completed=brief(s); out.completedPersistence=await checkpoint2('current-fa10-kits-completed');
+out.deliveryKey=await keyAct(T,'Deliver two real survey kits');
+await waitJobs(); s=await stored();
+check(n(s,'Prepared survey kit')===n(before,'Prepared survey kit'), 'actual two kits consumed by finite Eda order');
+check(s.character.money===before.character.money+2,'finite funded delivery paid two coins');
+out.delivered=brief(s); out.persistence=await checkpoint2('current-fa10-delivered');
+await record('current-kits',out);
+return out;

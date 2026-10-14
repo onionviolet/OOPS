@@ -1,4 +1,5 @@
 import {validatePresentationSettings} from './customization_profiles.js';
+import {getDisplaySetting, effectsCap} from './display_settings.js';
 
 // Presentation only: callers pass receipts after the authoritative save settles.
 // No simulation, reward, save, or gameplay timer belongs in this module.
@@ -154,8 +155,12 @@ export function installCoinFeedback({purse = document.getElementById('money_div'
     if (!purse || typeof MutationObserver !== 'function') return null;
     const motion = globalThis.matchMedia?.('(prefers-reduced-motion: reduce)');
     const playing = () => !screen || getComputedStyle(screen).visibility === 'hidden' || getComputedStyle(screen).display === 'none';
-    let last = parsePurse(purse.textContent), current = null;
+    let last = parsePurse(purse.textContent), current = null, lastGesture = -Infinity;
     const clear = () => { current?.remove(); current = null; };
+    // A purse drop within 1.5 s of a trusted click or key press is the player's own spend;
+    // anything else (upkeep, rent, timers) is automatic and floats only when asked (AJ2).
+    const gesture = event => { if (event.isTrusted) lastGesture = performance.now(); };
+    document.addEventListener('pointerdown', gesture, true); document.addEventListener('keydown', gesture, true);
     function show(spent) {
         clear();
         const float = document.createElement('span');
@@ -168,7 +173,7 @@ export function installCoinFeedback({purse = document.getElementById('money_div'
         const x = Math.max(centre - 200, Math.min(centre + 200, textEnd + 10 + size.width / 2));
         Object.assign(float.style, {left: `${Math.round(x - size.width / 2)}px`, top: `${Math.round(line.top + line.height / 2 - size.height / 2)}px`});
         current = float;
-        const reduced = motion?.matches;
+        const reduced = motion?.matches || effectsCap() === 'reduced';
         if (!reduced && float.animate) float.animate([
             {opacity: 0, transform: 'translateY(4px)'}, {opacity: 1, transform: 'translateY(0)', offset: .15},
             {opacity: 1, transform: 'translateY(-6px)', offset: .75}, {opacity: 0, transform: 'translateY(-14px)'}
@@ -181,10 +186,13 @@ export function installCoinFeedback({purse = document.getElementById('money_div'
         if (value == null) return;
         const previous = last; last = value;
         if (previous == null || !playing() || document.hidden) return;
-        if (value < previous) show(previous - value);
+        if (value >= previous || effectsCap() === 'off' || getDisplaySetting('coinFloat') === 'off') return;
+        const automatic = performance.now() - lastGesture > 1500;
+        if (automatic && getDisplaySetting('coinFloatAutomatic') !== 'on') return;
+        show(previous - value);
     });
     observer.observe(purse, {childList: true, subtree: true, characterData: true});
-    return {destroy() { observer.disconnect(); clear(); }};
+    return {destroy() { observer.disconnect(); clear(); document.removeEventListener('pointerdown', gesture, true); document.removeEventListener('keydown', gesture, true); }};
 }
 
 if (typeof document !== 'undefined' && typeof window !== 'undefined') {

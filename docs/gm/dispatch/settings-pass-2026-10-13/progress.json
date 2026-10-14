@@ -1,0 +1,51 @@
+[
+ {
+  "id": "S1",
+  "item": "Display controls persist, describe, reset",
+  "check": "gate.cjs S1",
+  "passes": true,
+  "notes": "PASS 2026-10-13: src/display_settings.js owns yairpg.display.v1; \"This browser\" fieldset mounted by customization_ui.js in Effects & sound body (outside the save-bound fieldset)."
+ },
+ {
+  "id": "S2",
+  "item": "Each setting works",
+  "check": "gate.cjs S2",
+  "passes": true,
+  "notes": "BLOCKED 2026-10-13: only \"reveal off still animates\" fails. The running animation is the combat on-hit shake (src/ui/combat_display.js do_onhit_animation, WAAPI 100ms x2 on #defender_0_div, currentTime ~183ms at the gate snapshot), not a reveal. Reveal off sets no marker. Coin, newDot, logFollow, vitals, semMoney, quiet marker all pass. | Coordinator: gate S2 narrowed to shell animations (was counting fighter hit-shake); combat_display.js Effects-off guard added; full check.sh exit 0."
+ },
+ {
+  "id": "S3",
+  "item": "Global effects cap",
+  "check": "gate.cjs S3",
+  "passes": true,
+  "notes": "BLOCKED 2026-10-13: <html data-effects> mirrored from main.js refreshCustomization; coin float off works. Remaining fail is the same combat on-hit shake; fixing needs src/ui/combat_display.js (outside allowed files). | Coordinator: gate S2 narrowed to shell animations (was counting fighter hit-shake); combat_display.js Effects-off guard added; full check.sh exit 0."
+ },
+ {
+  "id": "S4",
+  "item": "One export for layout, colors, display",
+  "check": "gate.cjs S4",
+  "passes": true,
+  "notes": "PASS 2026-10-13: export = normalizeLayout + colors + display; import applies present parts; layout-only JSON still imports."
+ },
+ {
+  "id": "S5",
+  "item": "Keyboard clears new dot",
+  "check": "gate.cjs S5",
+  "passes": true,
+  "notes": "PASS 2026-10-13: character inventory rows get tabIndex 0; existing focusin clear handles it."
+ },
+ {
+  "id": "S6",
+  "item": "In-play reveals (guard)",
+  "check": "gate.cjs S6",
+  "passes": true,
+  "notes": "PASS 2026-10-13 (guard kept)."
+ },
+ {
+  "id": "S7",
+  "item": "Settings readable",
+  "check": "gate.cjs S7",
+  "passes": true,
+  "notes": "PASS 2026-10-13."
+ }
+]

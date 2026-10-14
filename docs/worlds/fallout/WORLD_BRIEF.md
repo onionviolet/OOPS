@@ -1,5 +1,7 @@
 # Commonwealth: A Working Water Line
 
+Priority (Weibao, 2026-10-13): deprioritized and inactive. This work is kept, not deleted; resume only on his request. See [User vision](../../USER_VISION.md#world-depth-and-canon-first-world-priority-2026-10-13).
+
 Status: expanded Develop/Research proposal r3, 2026-10-03. No local runtime, new destination, lethal mode or human acceptance is claimed.
 Expanded campaign detail has moved to [CAMPAIGN](CAMPAIGN.md); this file owns the entry summary and live checkpoint.
 

@@ -1,0 +1,195 @@
+[
+ {
+  "name": "current-clouded-negative-debit",
+  "clock": 760,
+  "money": 46,
+  "staminaToFull": 0,
+  "location": "Village",
+  "inv": {
+   "Cheap leather pants": 1,
+   "Stale bread": 5,
+   "Old pickaxe": 1,
+   "Old sickle": 1,
+   "Old shovel": 1,
+   "Rough wood log": 78,
+   "Cooling salt packet": 1,
+   "Empty cooling sleeve": 2,
+   "Prepared survey kit": 7,
+   "Wax-sealed survey kit": 4,
+   "Dulled field fitting knife": 2,
+   "Bench clearance manual": 1,
+   "Set repair resin": 1,
+   "Empty retort resin tray": 1,
+   "Empty retort residue tray": 1,
+   "Workshop ration": 1,
+   "Empty bench vial": 1
+  },
+  "jobs": [],
+  "conditions": {},
+  "facts": {
+   "steam.boh.enrolled": true,
+   "nethack_fieldcraft.opened": true,
+   "game_absorption_assay.opened": true,
+   "game_absorption_assay.termsRevision": 1,
+   "game_absorption_assay.negativeTrial": "dull"
+  },
+  "starvedLessonKey": {
+   "tabs": 6,
+   "focused": {
+    "tag": "BUTTON",
+    "text": "Unavailable: Practice one ordinary scent lesson with Rill · 2 min + care effort",
+    "focusVisible": true,
+    "outline": "solid 3px rgb(255, 229, 138)"
+   },
+   "key": "Enter",
+   "notice": "",
+   "focusAfter": {
+    "tag": "BUTTON",
+    "text": "Unavailable: Practice one ordinary scent lesson with Rill · 2 min + care effort"
+   }
+  },
+  "fullFeedKey": {
+   "tabs": 5,
+   "focused": {
+    "tag": "BUTTON",
+    "text": "Unavailable: Feed Rill one Workshop ration · up to 2 satiety + 2 dog stamina",
+    "focusVisible": true,
+    "outline": "solid 3px rgb(255, 229, 138)"
+   },
+   "key": "Enter",
+   "notice": "",
+   "focusAfter": {
+    "tag": "BUTTON",
+    "text": "Unavailable: Feed Rill one Workshop ration · up to 2 satiety + 2 dog stamina"
+   }
+  },
+  "fullRefusal": {
+   "spareRationBefore": 1,
+   "spareRationAfter": 1,
+   "satiety": 4,
+   "notice": ""
+  },
+  "before": {
+   "clock": 757,
+   "money": 46,
+   "staminaToFull": 0,
+   "location": "Village",
+   "inv": {
+    "Cheap leather pants": 1,
+    "Stale bread": 5,
+    "Old pickaxe": 1,
+    "Old sickle": 1,
+    "Old shovel": 1,
+    "Rough wood log": 78,
+    "Cooling salt packet": 1,
+    "Empty cooling sleeve": 2,
+    "Prepared survey kit": 7,
+    "Wax-sealed survey kit": 4,
+    "Dulled field fitting knife": 2,
+    "Bench clearance manual": 1,
+    "Set repair resin": 1,
+    "Empty retort resin tray": 1,
+    "Empty retort residue tray": 1,
+    "Workshop ration": 1,
+    "Clouded bench vial": 1
+   },
+   "jobs": [],
+   "conditions": {}
+  },
+  "key": {
+   "tabs": 3,
+   "focused": {
+    "tag": "BUTTON",
+    "text": "Do this: Try the clouded charge on your dull knife · 1 stamina + 2 min",
+    "focusVisible": true,
+    "outline": "solid 3px rgb(255, 229, 138)"
+   },
+   "key": "Enter",
+   "notice": "",
+   "focusAfter": {
+    "tag": "BUTTON",
+    "text": "Unavailable: Try the clouded charge on your dull knife · 1 stamina + 2 min"
+   }
+  },
+  "pending": {
+   "clock": 757,
+   "money": 46,
+   "staminaToFull": 1,
+   "location": "Village",
+   "inv": {
+    "Cheap leather pants": 1,
+    "Stale bread": 5,
+    "Old pickaxe": 1,
+    "Old sickle": 1,
+    "Old shovel": 1,
+    "Rough wood log": 78,
+    "Cooling salt packet": 1,
+    "Empty cooling sleeve": 2,
+    "Prepared survey kit": 7,
+    "Wax-sealed survey kit": 4,
+    "Dulled field fitting knife": 1,
+    "Bench clearance manual": 1,
+    "Set repair resin": 1,
+    "Empty retort resin tray": 1,
+    "Empty retort residue tray": 1,
+    "Workshop ration": 1
+   },
+   "jobs": [
+    [
+     "game_absorption_assay.trial_dull",
+     759
+    ]
+   ],
+   "conditions": {}
+  },
+  "liveStamina": "50/51 stamina",
+  "persistence": {
+   "name": "current-clouded-negative-pending",
+   "clock": 757,
+   "exportHash": "88c387272eda8257940fd12f551ae0e35b340ed398a2af921bf000155437b718",
+   "reloadExact": true,
+   "reloadDiff": [],
+   "exportEqual": true,
+   "importEqual": true,
+   "exportImportOtherDiffs": [],
+   "derivedEquipmentFieldsOnlyInExport": [
+    ".0.equipment.weapon.rarity"
+   ],
+   "bundle": {
+    "label": "current-clouded-negative-pending",
+    "built": "84746e7891da46f2f7a7f89cf67a712f43c31454c5c479da065fb53eff734e1c",
+    "loaded": "84746e7891da46f2f7a7f89cf67a712f43c31454c5c479da065fb53eff734e1c",
+    "match": true
+   },
+   "pageErrors": []
+  },
+  "completed": {
+   "clock": 759,
+   "money": 46,
+   "staminaToFull": 0,
+   "location": "Village",
+   "inv": {
+    "Cheap leather pants": 1,
+    "Stale bread": 5,
+    "Old pickaxe": 1,
+    "Old sickle": 1,
+    "Old shovel": 1,
+    "Rough wood log": 78,
+    "Cooling salt packet": 1,
+    "Empty cooling sleeve": 2,
+    "Prepared survey kit": 7,
+    "Wax-sealed survey kit": 4,
+    "Dulled field fitting knife": 2,
+    "Bench clearance manual": 1,
+    "Set repair resin": 1,
+    "Empty retort resin tray": 1,
+    "Empty retort residue tray": 1,
+    "Workshop ration": 1,
+    "Empty bench vial": 1
+   },
+   "jobs": [],
+   "conditions": {}
+  },
+  "inconclusive": "Compare the failed trial with your reed-oil evidence · 1 min\n\nEvidence-based identification can follow the failed trial either immediately or after later acquiring the missing control. One played minute records the deduction. Empty containers stay empty; no privately known answer is substituted for missing evidence.\n\nUnavailable\n\nKnown requirements\nReturn to the Village with your living native body, stock and local clock.\nRecover your usable hands before bench work.\nUse Eda's actual fitting bench under her retained external-trial permission.\nRecover above one HP before work.\nHear Eda's closed-batch terms first.\nActually identify the separate pale reed-oil stock through its existing assay or sharpening trial first. A rumor or purchase is not a control.\nWhy this is unavailable\nThis action is not available under the current conditions. Review the known preparation or choose another action.\n\nTime terms: 1 played minutes under the known terms.\n\nCancellation: Cancelling returns reserved inputs. Time already played is not returned.\n\nReserved\nYour attention is reserved while the accepted work runs.\nA place at Eda's dry fitting bench is reserved for this work.\nUnavailable: Compare the failed trial with your reed-oil evidence · 1 min"
+ }
+]

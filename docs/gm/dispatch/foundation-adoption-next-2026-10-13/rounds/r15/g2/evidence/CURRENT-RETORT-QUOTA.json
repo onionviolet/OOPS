@@ -1,0 +1,117 @@
+{
+ "label": "seeded-native",
+ "built": "d4999496a25e220c14e09e159bf0dc7e910fa8dfb7781cc94fbec180fbbf5c2a",
+ "failedWrites": [
+  {
+   "at": 1791946396964,
+   "rejected": true
+  }
+ ],
+ "notices": [
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "This action could not be completed. Review the current requirements and try again.",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  ""
+ ],
+ "durableUnchanged": true,
+ "pending": {
+  "clock": 748,
+  "money": 51,
+  "stamina_to_full": 1,
+  "hp_to_full": 0,
+  "location": "Village",
+  "items": {
+   "Tree sap": 5,
+   "Rough wood log": 77,
+   "Empty retort resin tray": 0,
+   "Empty retort residue tray": 0
+  },
+  "jobs": [
+   {
+    "id": "simulation:4744",
+    "commandId": "factorio_retort.batch",
+    "due": 751
+   }
+  ],
+  "cursor": {
+   "definitionId": "factorio_retort.three_batches",
+   "status": "running",
+   "index": 0,
+   "reason": "",
+   "accepted": {
+    "commandId": "factorio_retort.batch",
+    "due": 751
+   }
+  },
+  "program": {
+   "commandId": "village.measured_pack",
+   "remaining": 0,
+   "status": "complete",
+   "targetId": null
+  }
+ },
+ "restoration": {
+  "label": "current-retort-quota-retry-pending",
+  "comparison": "loaded before PLAY, real Save/Export/reload/literal-file Import",
+  "file": "current-retort-quota-retry-pending.txt",
+  "fileSha": "959d36c2a0335def8c291fc7f8bbb289b2ecb5778d9db7b48cec1a1fd4654041",
+  "reloadDiff": [],
+  "importDiff": [],
+  "clocks": [
+   748,
+   748,
+   748
+  ]
+ },
+ "settled": {
+  "clock": 752,
+  "money": 51,
+  "stamina_to_full": 0,
+  "hp_to_full": 0,
+  "location": "Village",
+  "items": {
+   "Tree sap": 5,
+   "Rough wood log": 77,
+   "Filled retort resin tray": 1,
+   "Filled retort residue tray": 1
+  },
+  "jobs": [],
+  "cursor": {
+   "definitionId": "factorio_retort.three_batches",
+   "status": "paused",
+   "index": 1,
+   "reason": "The required knowledge, means or circumstances are missing.",
+   "accepted": null
+  },
+  "program": {
+   "commandId": "village.measured_pack",
+   "remaining": 0,
+   "status": "complete",
+   "targetId": null
+  }
+ }
+}

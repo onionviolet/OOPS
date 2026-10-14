@@ -1,0 +1,171 @@
+[
+ {
+  "label": "current-retort-complete-frozen",
+  "comparison": "loaded before PLAY, real Save/Export/reload/literal-file Import",
+  "file": "current-retort-complete-frozen.txt",
+  "fileSha": "70f79494f5f6cb665c721d6668285248cf6bd58f4fc7ceb3f8aef4ff282dded4",
+  "reloadDiff": [],
+  "importDiff": [],
+  "clocks": [
+   794,
+   794,
+   794
+  ]
+ },
+ {
+  "label": "current-retort-refund",
+  "comparison": "loaded before PLAY, real Save/Export/reload/literal-file Import",
+  "file": "current-retort-refund.txt",
+  "fileSha": "98d221a3c1e776ff1e6bf97bedecba00b557ed5463a3787cca4e5d99057c5753",
+  "reloadDiff": [],
+  "importDiff": [],
+  "clocks": [
+   748,
+   748,
+   748
+  ]
+ },
+ {
+  "label": "current-reserve-refund",
+  "comparison": "loaded before PLAY, real Save/Export/reload/literal-file Import",
+  "file": "current-reserve-refund.txt",
+  "fileSha": "eb893557ec4dcdaa6283208189202d86931bb10f251011bf25bedae4ce84334a",
+  "reloadDiff": [],
+  "importDiff": [],
+  "clocks": [
+   748,
+   748,
+   748
+  ]
+ },
+ {
+  "label": "current-program-funding",
+  "comparison": "loaded before PLAY, real Save/Export/reload/literal-file Import",
+  "file": "current-program-funding.txt",
+  "fileSha": "ec8e5c391f787ade8b1d256f24f647df23426d986e61a5b7dfd4d781ca773395",
+  "reloadDiff": [],
+  "importDiff": [],
+  "clocks": [
+   754,
+   754,
+   754
+  ]
+ },
+ {
+  "label": "current-held",
+  "comparison": "loaded before PLAY, real Save/Export/reload/literal-file Import",
+  "file": "current-held.txt",
+  "fileSha": "6e3983fee6ea0a7d12e97c017328ea447c9ca30728ff72c48f3f8f6d6e7f5919",
+  "reloadDiff": [],
+  "importDiff": [],
+  "clocks": [
+   749,
+   749,
+   749
+  ]
+ },
+ {
+  "label": "current-mixed-root1-depleted",
+  "comparison": "loaded before PLAY, real Save/Export/reload/literal-file Import",
+  "file": "current-mixed-root1-depleted.txt",
+  "fileSha": "8b1c54f7869b15504b5c89c8c01fb5da91a6820353fdd8f45758a3099a67cab8",
+  "reloadDiff": [],
+  "importDiff": [],
+  "clocks": [
+   529,
+   529,
+   529
+  ]
+ },
+ {
+  "label": "current-mixed-future-cancelled",
+  "comparison": "loaded before PLAY, real Save/Export/reload/literal-file Import",
+  "file": "current-mixed-future-cancelled.txt",
+  "fileSha": "f16c6a391102fc742867b18dcf8d8bd46eca37173593e7a0259d61cfe00f8b6b",
+  "reloadDiff": [],
+  "importDiff": [],
+  "clocks": [
+   536,
+   536,
+   536
+  ]
+ },
+ {
+  "label": "current-mixed-current-refund",
+  "comparison": "loaded before PLAY, real Save/Export/reload/literal-file Import",
+  "file": "current-mixed-current-refund.txt",
+  "fileSha": "d8cd5a5e22b6bb54663f38ffcea483368008fe579409a30795426fdd6721aef2",
+  "reloadDiff": [],
+  "importDiff": [],
+  "clocks": [
+   549,
+   549,
+   549
+  ]
+ },
+ {
+  "label": "current-merchant-receiver",
+  "comparison": "loaded before PLAY, real Save/Export/reload/literal-file Import",
+  "file": "current-merchant-receiver.txt",
+  "fileSha": "7ad026986e5c5249af1c25f68e0603317a70f0d46a26170b6395c0810a7b89de",
+  "reloadDiff": [],
+  "importDiff": [],
+  "clocks": [
+   748,
+   748,
+   748
+  ]
+ },
+ {
+  "label": "current-reserve-exhausted",
+  "comparison": "loaded before PLAY, real Save/Export/reload/literal-file Import",
+  "file": "current-reserve-exhausted.txt",
+  "fileSha": "45e00fc5d8b2565ec7012f9c763ed5310f3c9aa9ffd2dc018b18607f27396348",
+  "reloadDiff": [],
+  "importDiff": [],
+  "clocks": [
+   786,
+   786,
+   786
+  ]
+ },
+ {
+  "label": "current-program-materials",
+  "comparison": "loaded before PLAY, real Save/Export/reload/literal-file Import",
+  "file": "current-program-materials.txt",
+  "fileSha": "a1211f23f5022a2950125d762398341c34fa4bf41e9dd19c3fa50b701e1f0109",
+  "reloadDiff": [],
+  "importDiff": [],
+  "clocks": [
+   752,
+   752,
+   752
+  ]
+ },
+ {
+  "label": "current-program-cancelled",
+  "comparison": "loaded before PLAY, real Save/Export/reload/literal-file Import",
+  "file": "current-program-cancelled.txt",
+  "fileSha": "a5d2b42196564bb183c27aae267697b568c326228fa6f6da956e4e54d172b11e",
+  "reloadDiff": [],
+  "importDiff": [],
+  "clocks": [
+   753,
+   753,
+   753
+  ]
+ },
+ {
+  "label": "current-retort-quota-retry-pending",
+  "comparison": "loaded before PLAY, real Save/Export/reload/literal-file Import",
+  "file": "current-retort-quota-retry-pending.txt",
+  "fileSha": "959d36c2a0335def8c291fc7f8bbb289b2ecb5778d9db7b48cec1a1fd4654041",
+  "reloadDiff": [],
+  "importDiff": [],
+  "clocks": [
+   748,
+   748,
+   748
+  ]
+ }
+]

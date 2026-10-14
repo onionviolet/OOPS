@@ -1,0 +1,77 @@
+[
+  {
+    "file": "TEST-FIXTURE-R15-G3-FA10.txt",
+    "input": "rounds/r8/final-earned-native.txt",
+    "name": "TEST FIXTURE R15 G3 FA10",
+    "added": [
+      {
+        "item_id": "Sound repair stave",
+        "count": 4
+      },
+      {
+        "item_id": "Field fitting knife",
+        "count": 1
+      },
+      {
+        "item_id": "Tree sap",
+        "count": 1
+      },
+      {
+        "item_id": "Cyorian research paper",
+        "count": 1
+      },
+      {
+        "item_id": "Cyorian formula ink",
+        "count": 1
+      }
+    ],
+    "importPreflight": "PASS",
+    "loadWarnings": [],
+    "clock": 856,
+    "money": 47,
+    "expansionUnchanged": true,
+    "stock": {
+      "Sound repair stave": 4,
+      "Field fitting knife": 1,
+      "Tree sap": 1,
+      "Cyorian research paper": 1,
+      "Cyorian formula ink": 1
+    }
+  },
+  {
+    "file": "TEST-FIXTURE-R15-G3-FA13.txt",
+    "input": "rounds/r8/final-earned-native.txt",
+    "name": "TEST FIXTURE R15 G3 FA13",
+    "added": [],
+    "importPreflight": "PASS",
+    "loadWarnings": [],
+    "clock": 856,
+    "money": 47,
+    "expansionUnchanged": true,
+    "stock": {}
+  },
+  {
+    "file": "TEST-FIXTURE-R15-G3-OLD.txt",
+    "input": "rounds/r3/final-earned-native.txt",
+    "name": "TEST FIXTURE R15 G3 OLD",
+    "added": [],
+    "importPreflight": "PASS",
+    "loadWarnings": [],
+    "clock": 69,
+    "money": 86,
+    "expansionUnchanged": true,
+    "stock": {}
+  },
+  {
+    "file": "TEST-FIXTURE-R15-G3-NEGATIVE.txt",
+    "input": "rounds/r7/final-earned-native.txt",
+    "name": "TEST FIXTURE R15 G3 NEGATIVE",
+    "added": [],
+    "importPreflight": "PASS",
+    "loadWarnings": [],
+    "clock": 748,
+    "money": 51,
+    "expansionUnchanged": true,
+    "stock": {}
+  }
+]

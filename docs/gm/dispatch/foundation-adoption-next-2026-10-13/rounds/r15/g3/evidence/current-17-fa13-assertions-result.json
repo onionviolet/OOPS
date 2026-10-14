@@ -1,0 +1,70 @@
+{
+ "ok": true,
+ "value": {
+  "result": "PASS",
+  "label": "seeded-native",
+  "checks": [
+   "controlled comparison",
+   "wash and scrape",
+   "cancel refunds",
+   "native sound-stave kit and order",
+   "two oil uses",
+   "dog care lessons and finite pins",
+   "manual alternative",
+   "opposites and handoff",
+   "three feats retained once"
+  ],
+  "scentAtExport": {
+   "intensity": 1,
+   "expiresAt": 962,
+   "cause": "simulation:4972"
+  },
+  "feats": [
+   {
+    "id": "bench_liquid_discovery",
+    "sequence": 4871,
+    "at": 871,
+    "provenance": {
+     "kind": "committed-completion",
+     "ids": [
+      "completion:nethack_fieldcraft.trial_dull:1",
+      "knowledge:nethack_fieldcraft.reed_oil:simulation:4868"
+     ]
+    }
+   },
+   {
+    "id": "reed_oil_two_uses",
+    "sequence": 4972,
+    "at": 950,
+    "provenance": {
+     "kind": "committed-completion",
+     "ids": [
+      "completion:nethack_fieldcraft.trial_dull:1",
+      "completion:nethack_fieldcraft.scent:1"
+     ]
+    }
+   },
+   {
+    "id": "rill_retrieved_real_stock",
+    "sequence": 4975,
+    "at": 952,
+    "provenance": {
+     "kind": "committed-completion",
+     "ids": [
+      "completion:nethack_fieldcraft.recover_dog:1",
+      "completion:nethack_fieldcraft.train:2",
+      "native-pin:1->2",
+      "helper:nethack_fieldcraft.rill"
+     ]
+    }
+   }
+  ],
+  "binding": {
+   "label": "current-fa13-final",
+   "built": "84746e7891da46f2f7a7f89cf67a712f43c31454c5c479da065fb53eff734e1c",
+   "loaded": "84746e7891da46f2f7a7f89cf67a712f43c31454c5c479da065fb53eff734e1c",
+   "match": true
+  },
+  "errors": []
+ }
+}

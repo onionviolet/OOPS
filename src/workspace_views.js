@@ -1,3 +1,4 @@
+import {definePanel} from './panel_kit.js';
 import {registerWorkspaceModule, updateWorkspace, openWorkspaceModule} from './workspace_layout.js';
 
 // Only host-supplied, already visible labels enter this presentation. No new
@@ -15,8 +16,8 @@ export function createWorkspaceViews({read,combatKnown=()=>false}) {
     const shown=node=>!!node&&getComputedStyle(node).display!=='none';
     const combat=document.getElementById('combat_div'),stance=document.getElementById('character_combat_management');
     // Discovery: the first real fight (save facts: last combat location or a landed hit), or being shown in one now.
-    if(combat)registerWorkspaceModule({id:'combat',title:'Combat',node:combat,home:'center',after:'current-work',eligible:()=>shown(combat),discovered:()=>combatKnown()||shown(combat)});
-    if(stance)registerWorkspaceModule({id:'stance',title:'Stance & combatants',node:stance,home:'left',after:'combat-controls',eligible:()=>shown(stance),discovered:()=>combatKnown()||shown(stance)});
+    if(combat)definePanel({id:'combat',role:'actions',unavailableReason:()=> 'No fight right now',title:'Combat',node:combat,home:'center',after:'current-work',eligible:()=>shown(combat),discovered:()=>combatKnown()||shown(combat)});
+    if(stance)definePanel({id:'stance',role:'character',unavailableReason:()=> 'Only during a fight',title:'Stance & combatants',node:stance,home:'left',after:'combat-controls',eligible:()=>shown(stance),discovered:()=>combatKnown()||shown(stance)});
     // Place prose keeps its first lines readable; the rest opens in place.
     const prose=document.getElementById('location_description_div'),more=document.createElement('button');
     more.type='button';more.className='workspace-prose-toggle';more.hidden=true;
@@ -42,6 +43,7 @@ export function createWorkspaceViews({read,combatKnown=()=>false}) {
             ownership.textContent=view.canWrite?'Saving available.':view.error||'Read only. Restore saving before starting work.';
             ownership.className=view.canWrite?'':'workspace-warning';jump.hidden=!view.waiting&&!view.work.length&&view.canWrite;}
         // Generic world palettes stay deliberately independent of sealed IDs.
+        document.documentElement.dataset.world = !view.world || view.world === 'base.frontier' ? 'native' : view.world;
         document.getElementById('main_content').dataset.worldTheme=view.away?'cool':'warm';
         updateWorkspace();
     };

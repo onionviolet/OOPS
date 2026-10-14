@@ -1,0 +1,17 @@
+{
+ "tests": 611,
+ "pass": 611,
+ "fail": 0,
+ "cancelled": 0,
+ "skipped": 0,
+ "command": "npm test",
+ "label": "source",
+ "baseline": "a697c3d1",
+ "build": "npm run build",
+ "bundleSha256": "84746e7891da46f2f7a7f89cf67a712f43c31454c5c479da065fb53eff734e1c",
+ "sourceFilesChanged": [
+  "src/feature_expansion_ui.js",
+  "src/workspace_layout.js"
+ ],
+ "sharedFilesChanged": []
+}

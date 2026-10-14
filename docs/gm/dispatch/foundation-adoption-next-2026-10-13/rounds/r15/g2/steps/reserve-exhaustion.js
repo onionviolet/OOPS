@@ -1,0 +1,11 @@
+await boot2('reserve');page.setDefaultTimeout(60000);const ids=['Prepared survey kit','Set repair resin','Sound repair stave'];
+const j={label:'seeded-native',built:built(),states:[]};
+const snap=async name=>{const s=await save();j.states.push({name,...summary(s,ids)});record('CURRENT-RESERVE',j);return s;};
+await snap('before');await act('audited_kit_reserve.resin_plan');
+await page.waitForFunction(()=>{const s=JSON.parse(localStorage.getItem('save data'));const c=s.expansion.simulation.workPlans.cursors.player;return c.stockHold&&c.stockAcceptedBatches===2&&!c.accepted;},null,{timeout:90000});
+const held=await snap('two-batches-held-four');assert.equal(inv(held,'Prepared survey kit'),4);
+await travel('Shack');await chest('Prepared survey kit',2);const stored=await snap('two-kits-stored-two-carried');assert.equal(inv(stored,'Prepared survey kit'),2);
+await travel('Village');await act('audited_kit_reserve.resume');await page.waitForFunction(()=>JSON.parse(localStorage.getItem('save data')).expansion.simulation.workPlans.cursors.player.status==='complete',null,{timeout:90000});
+const final=await snap('three-accepted-complete');assert.equal(cursor(final).stockAcceptedBatches,3);assert.equal(inv(final,'Set repair resin'),0);assert.equal(inv(final,'Sound repair stave'),0);assert.equal(inv(final,'Prepared survey kit'),4);
+j.chestKits=final.inventories.storage.player[JSON.stringify({id:'Prepared survey kit'})].count;assert.equal(j.chestKits,2);
+j.restoration=await restoration('current-reserve-exhausted');record('CURRENT-RESERVE',j);return j;

@@ -329,3 +329,5 @@ place header, enemy beside player, list beside detail, tall log. Each panel gets
 a pattern note and an alignment check. The vitals panel is the first
 (goal item I10); other panels follow by the same rule, and each world's L3
 frame decorates the molded panel rather than replacing it.
+
+Shared contract proposal and acceptance template: [Panel kit](PANEL_KIT.md).

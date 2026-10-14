@@ -1,0 +1,231 @@
+[
+  {
+    "id": "CH1",
+    "panel": "status-window",
+    "role": "character",
+    "discoveredBy": "The holder knows the cheat and its first system message is persisted.",
+    "holds": "Known stats, titles, points, level and quests.",
+    "reveal": "A crisp world-frame arrival after the first system message. Cue once on live discovery, never on reload/import; reduced motion shows the final state immediately.",
+    "settings": [
+      {
+        "key": "panel.status-window.density",
+        "label": "Row spacing",
+        "options": [
+          "comfortable",
+          "compact"
+        ],
+        "default": "comfortable"
+      }
+    ],
+    "sealedRule": "Show only stats and quest facts the holder has learned; the Clerk never supplies undiscovered names.",
+    "needsFoundation": true
+  },
+  {
+    "id": "CH2",
+    "panel": "death-menu",
+    "role": "actions",
+    "discoveredBy": "The first death with a known death-menu cheat has been persisted.",
+    "holds": "Known carry slots, anchors, costs and what is kept.",
+    "reveal": "A slow, solemn arrival at the first eligible death choice. Cue once on live discovery, never on reload/import; reduced motion shows the final state immediately.",
+    "settings": [
+      {
+        "key": "panel.death-menu.detail",
+        "label": "Carry detail",
+        "options": [
+          "brief",
+          "expanded"
+        ],
+        "default": "brief"
+      }
+    ],
+    "sealedRule": "List only discovered carry choices and anchors; preview no hidden outcomes.",
+    "needsFoundation": true
+  },
+  {
+    "id": "CH3",
+    "panel": "anchor-list",
+    "role": "records",
+    "discoveredBy": "The first anchor established by a known cheat is persisted.",
+    "holds": "Known anchors, time, place and costs.",
+    "reveal": "A quiet list arrival after the first anchor; later anchors add rows without replaying panel arrival. Cue once on live discovery, never on reload/import; reduced motion shows the final state immediately.",
+    "settings": [
+      {
+        "key": "panel.anchor-list.sort",
+        "label": "Anchor order",
+        "options": [
+          "recent",
+          "oldest"
+        ],
+        "default": "recent"
+      }
+    ],
+    "sealedRule": "Only recorded anchors and known place names appear; hidden destinations and branches stay absent.",
+    "needsFoundation": true
+  },
+  {
+    "id": "CH4",
+    "panel": "system-shop",
+    "role": "actions",
+    "discoveredBy": "The first point earned through a known shop-bearing cheat is persisted.",
+    "holds": "Known offers, points, prices and refresh timer.",
+    "reveal": "A crisp arrival after the first earned point; money and blocked semantic colors show prices and affordability. Cue once on live discovery, never on reload/import; reduced motion shows the final state immediately.",
+    "settings": [
+      {
+        "key": "panel.system-shop.sort",
+        "label": "Offer order",
+        "options": [
+          "default",
+          "price"
+        ],
+        "default": "default"
+      }
+    ],
+    "sealedRule": "Render only offers revealed by the shop discovery route; hidden stock contributes no labels or counts.",
+    "needsFoundation": true
+  },
+  {
+    "id": "CH5",
+    "panel": "companion-voice",
+    "role": "log",
+    "discoveredBy": "A known companion has a persisted first message and has reached its panel-bearing growth stage.",
+    "holds": "Known companion messages, mood, hunger and relationship cues.",
+    "reveal": "Start as a log channel at first contact; quietly arrive as a panel only at the recorded growth stage. Cue once on live discovery, never on reload/import; reduced motion shows the final state immediately.",
+    "settings": [
+      {
+        "key": "panel.companion-voice.notifications",
+        "label": "Voice notifications",
+        "options": [
+          "quiet",
+          "normal"
+        ],
+        "default": "normal"
+      }
+    ],
+    "sealedRule": "The voice can be fallible; show only communicated knowledge and never reveal a sealed identity through tone, labels or settings.",
+    "needsFoundation": true
+  },
+  {
+    "id": "CH6",
+    "panel": "simulator-foresight",
+    "role": "records",
+    "discoveredBy": "The first completed simulation through a known cheat is persisted.",
+    "holds": "Known runs, outcomes, odds, keeps and honesty grade.",
+    "reveal": "A world-specific arrival after the first completed run; label uncertainty immediately. Cue once on live discovery, never on reload/import; reduced motion shows the final state immediately.",
+    "settings": [
+      {
+        "key": "panel.simulator-foresight.detail",
+        "label": "Run detail",
+        "options": [
+          "summary",
+          "expanded"
+        ],
+        "default": "summary"
+      }
+    ],
+    "sealedRule": "Display only what that simulator can know; mark estimates and unreliable claims, redact sealed outcomes outside the discovery route.",
+    "needsFoundation": true
+  },
+  {
+    "id": "CH7",
+    "panel": "appraisal-lens",
+    "role": "overlay",
+    "discoveredBy": "The holder has persisted discovery of an appraisal cheat and its readable grade.",
+    "holds": "Grade-limited readings on a focused item or person.",
+    "reveal": "A local overlay on hover or keyboard focus after discovery; no standalone workspace panel. Cue once on live discovery, never on reload/import; reduced motion shows the final state immediately.",
+    "settings": [
+      {
+        "key": "panel.appraisal-lens.detail",
+        "label": "Reading detail",
+        "options": [
+          "brief",
+          "expanded"
+        ],
+        "default": "brief"
+      }
+    ],
+    "sealedRule": "Redact readings above the lens grade; never expose sealed names or facts through hover, focus or accessible descriptions.",
+    "needsFoundation": true
+  },
+  {
+    "id": "CH8",
+    "panel": "harvest-multiplier-ledger",
+    "role": "records",
+    "discoveredBy": "The first harvest or multiplier event from a known cheat is persisted.",
+    "holds": "Recorded gains, known sources and observer-visible consequences.",
+    "reveal": "Quiet ledger rows after the first recorded event; no repeated panel cue per gain. Cue once on live discovery, never on reload/import; reduced motion shows the final state immediately.",
+    "settings": [
+      {
+        "key": "panel.harvest-multiplier-ledger.sort",
+        "label": "Ledger order",
+        "options": [
+          "recent",
+          "source"
+        ],
+        "default": "recent"
+      }
+    ],
+    "sealedRule": "Use only known source identities and observed consequences; hidden observers and motives stay absent.",
+    "needsFoundation": true
+  },
+  {
+    "id": "CH9",
+    "panel": "cheat-library",
+    "role": "records",
+    "discoveredBy": "At least one met, held or explicitly rumored cheat is persisted in the C6 known-cheat library.",
+    "holds": "Cheats met, held or rumored, with known terms and stages.",
+    "reveal": "A notebook tab arrives at the first known library entry; rumors carry an unverified label. Cue once on live discovery, never on reload/import; reduced motion shows the final state immediately.",
+    "settings": [
+      {
+        "key": "panel.cheat-library.filter",
+        "label": "Library view",
+        "options": [
+          "all-known",
+          "held",
+          "rumored"
+        ],
+        "default": "all-known"
+      }
+    ],
+    "sealedRule": "Index only known entries; rumored entries expose only the actual rumor, never confirm hidden truth or count unknown cheats.",
+    "needsFoundation": true
+  },
+  {
+    "id": "CH10",
+    "panel": "cheat-settings",
+    "role": "optional",
+    "discoveredBy": "The holder knows a cheat with configurable controls in its persisted card state.",
+    "holds": "That cheat's notification preferences, auto-use policy and confirm-before-spend control. Gameplay policies require Foundation-owned runtime; browser preferences do not authorize spending.",
+    "reveal": "Inline controls arrive within the discovered cheat's own panel; no separate global screen. Cue once on live discovery, never on reload/import; reduced motion shows the final state immediately.",
+    "settings": [
+      {
+        "key": "panel.cheat-settings.notifications",
+        "label": "Notifications",
+        "options": [
+          "quiet",
+          "normal"
+        ],
+        "default": "normal"
+      },
+      {
+        "key": "panel.cheat-settings.auto-use",
+        "label": "Auto-use policy",
+        "options": [
+          "off",
+          "authorized-only"
+        ],
+        "default": "off"
+      },
+      {
+        "key": "panel.cheat-settings.confirm-before-spend",
+        "label": "Confirm before spending",
+        "options": [
+          "always",
+          "never"
+        ],
+        "default": "always"
+      }
+    ],
+    "sealedRule": "Expose controls only for known functions of the discovered cheat; hidden stages have no labels, defaults or disabled hints.",
+    "needsFoundation": true
+  }
+]
