@@ -705,8 +705,11 @@ function createDurabilityPanel() {
 }
 
 function homePacingContext(state=expansionState, location=current_location, calendar=current_game_time) {
-    return {homeWorld:state.actors.player.worldId==='base.frontier'&&!Object.values(optionalPackState.packs).some(p=>p.active),
-        outdoors:location?.is_under_roof===false,season:calendar.getSeason?calendar.getSeason():current_game_time.getSeason(),nativeRain:!!is_raining()};
+    // CR8: the home rain cycle belongs to the home world only. Visitor worlds
+    // (MoL, Paradise) have no sourced rain, so home rain must not wet them.
+    const atHome=state.actors.player.worldId==='base.frontier';
+    return {homeWorld:atHome&&!Object.values(optionalPackState.packs).some(p=>p.active),
+        outdoors:location?.is_under_roof===false,season:calendar.getSeason?calendar.getSeason():current_game_time.getSeason(),nativeRain:atHome&&!!is_raining()};
 }
 function changeHomePacing(next) {
     if(!ownsSave||foundationSaveBlocked||importProbeToken||restoringNativeSave)throw Error('Pacing changes require the writable game tab.');
