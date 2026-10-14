@@ -12,8 +12,14 @@ import { skill_consumable_tags } from "../misc.js";
 import { skills } from "../data/skills.js";
 import { levels, bios } from "../data/component_references.js";
 import { Person } from "./person.js";
+import {get_current_light_level} from '../weather.js';
 
 class Hero extends Person {
+    #nativeLightBonusReader = null;
+    setNativeLightBonusReader(reader) {
+        if(typeof reader !== 'function')throw Error('Invalid native light bonus reader.');
+        this.#nativeLightBonusReader=reader;
+    }
     #simulationEffectReader = null;
     setSimulationEffectReader(reader) {
         if(typeof reader !== "function") throw new Error("Invalid simulation effect reader.");
@@ -172,6 +178,10 @@ class Hero extends Person {
 
             if(location.light_level === "dark" || location.light_level === "normal" && is_night()) {
                 light_modifier = 0.5 + 0.5 * this.getTotalSkillLevel("Night vision")/skills["Night vision"].max_level;
+                const bonus=this.#nativeLightBonusReader?.()||0;
+                if(bonus>0){const light=Math.max(0,Math.min(100,get_current_light_level()));
+                    const lit=Math.min(100,light+bonus);
+                    if(light<100)light_modifier+=(1-light_modifier)*(lit-light)/(100-light);}
                 levelable.stats.multiplier.light_level.evasion_points = light_modifier;
                 levelable.stats.multiplier.light_level.attack_points = light_modifier;
             } else {

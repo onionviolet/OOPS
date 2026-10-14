@@ -2,9 +2,9 @@
   "schema": 1,
   "lane": "p23-host-joins",
   "date": "2026-10-14",
-  "status": "tranche 1 technically passed; tranches 2-5 OPEN",
+  "status": "tranches 1-2 technically passed; tranches 3-5 and P15 last OPEN",
   "base_head": "43b01f95112b5a4017d0cd426d414ae553abeadc",
-  "candidate_head": "355c7a3a",
+  "candidate_head": "P00 tranche 2 commit follows",
   "session": "01a138ea-def0-77c0-b800-f4ade39f33af",
   "port": 18834,
   "viewport": {
@@ -13,7 +13,9 @@
   },
   "merge_ready_lanes": [
     "p23-exposure",
-    "p23-household"
+    "p23-household",
+    "p23-living-gear",
+    "p23-combat-options"
   ],
   "tranches": [
     {
@@ -40,6 +42,26 @@
       "prerequisites": "supported old-envelope fixture; no feature outcomes seeded",
       "human_acceptance": "OPEN",
       "commit": "355c7a3a"
+    },
+    {
+      "number": 2,
+      "status": "technical gates passed for declared normal native combat/held-gear scope",
+      "lanes": [
+        "p23-living-gear",
+        "p23-combat-options"
+      ],
+      "bundle_sha256": "f9fc7206168d872a48716e7546941096170c70461cc1516ffc9aa984c9e6d4fa",
+      "focused_pass": 33,
+      "full_pass": 986,
+      "full_fail": 0,
+      "native_gate": "tranche2-native-gate.json",
+      "commit": "see P00 tranche 2 commit",
+      "open": [
+        "P16 encounter profile",
+        "special/actionAdapter extension",
+        "native summoned-unit control",
+        "Weibao play/taste"
+      ]
     }
   ],
   "merged_lanes": [
@@ -111,5 +133,12 @@
     "tranche 4 field/market/leisure plus repeat-search joins",
     "tranche 5 detail/adaptation plus approved save options",
     "merge current main before final gate"
-  ]
+  ],
+  "p15_authority_approval": {
+    "status": "approved explicit opt-in proposal; implementation LAST",
+    "date": "2026-10-14",
+    "native_undo": "OPEN",
+    "multi_slot": "out of scope",
+    "N29_offline": "out of scope"
+  }
 }

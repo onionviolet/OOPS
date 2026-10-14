@@ -26,11 +26,11 @@ function keyKind(key) {
 }
 function validate(value) {
     if (value === undefined) return {schema: 1, lastKill: 0, copies: {}};
-    check(record(value) && value.schema === 1 && natural(value.lastKill) && record(value.copies), 'Invalid living gear schema/state.');
+    check(record(value) && Object.keys(value).sort().join(',') === 'copies,lastKill,schema' && value.schema === 1 && natural(value.lastKill) && record(value.copies), 'Invalid living gear schema/state.');
     const ids = new Set();
     for (const [key, copy] of Object.entries(value.copies)) {
         const data = copyKey(key), kind = keyKind(key);
-        check(kind && record(copy) && copy.kind === kind && natural(copy.kills) && natural(copy.reserve)
+        check(kind && record(copy) && Object.keys(copy).sort().join(',') === 'kills,kind,reserve' && copy.kind === kind && natural(copy.kills) && natural(copy.reserve)
             && copy.reserve <= 30 && (kind === 'collector' || copy.reserve === 0)
             && (kind === 'weapon' || copy.kills === 0), 'Invalid living gear copy.');
         check(!ids.has(data.e2_instance), 'Duplicate living gear identity.');

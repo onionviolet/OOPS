@@ -40,6 +40,7 @@ export function createCombatOptions({state, host}) {
     }
     return {
         snapshot,
+        restore(state) { validateCombatOptions(state); check(state !== undefined, 'Missing combat options checkpoint.'); current=structuredClone(state); },
         select(tactic) {
             check(tactic === null || Object.hasOwn(TACTICS, tactic), 'Unknown tactic.');
             current.selected = tactic;

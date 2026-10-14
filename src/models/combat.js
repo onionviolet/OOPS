@@ -55,6 +55,7 @@ class Combat {
         combatOptions,
         nextCombatEvent,
         encounterProfile,
+        nativeExchangeHost,
     }) {
         this.attackers = attackers;
         this.defenders = defenders;
@@ -64,6 +65,7 @@ class Combat {
         this.show_stance_controls = show_stance_controls ?? !this.is_special_combat;
         this.is_ended = false;
         this.actionAdapter = actionAdapter;
+        this.nativeExchangeHost = nativeExchangeHost;
         validateEncounterCombatProfile(encounterProfile);
         if(combatOptions && (this.is_special_combat || actionAdapter || typeof nextCombatEvent !== 'function')) {
             throw new Error('Tactics require normal native combat and a saved host event cursor.');
@@ -72,13 +74,23 @@ class Combat {
         this.nextCombatEvent = nextCombatEvent;
         this.encounterProfile = encounterProfile ? {...encounterProfile} : undefined;
         this.rngKey = savedEncounter?.key || defenders[0]?.encounterKey || (actionAdapter ? null : `combat:${gameOrdinal(STREAMS.combat)}`);
-        if(savedEncounter) {this.#turns=structuredClone(savedEncounter.turns);this.#resume=structuredClone(savedEncounter.loops);}
+        if(savedEncounter) {this.#turns=structuredClone(savedEncounter.turns);
+            if(!combatOptions||combatOptions.snapshot().phase==='active')this.#resume=structuredClone(savedEncounter.loops);}
     }
 
     snapshot(locationId) {
         if(this.is_special_combat || this.actionAdapter || this.is_ended) return null;
         return {schema:1,locationId,key:this.rngKey,turns:structuredClone(this.#turns),loops:structuredClone(Object.fromEntries(Object.entries(this.#pendingLoops).filter(([key])=>{const [side,index]=key.split(":");return this[side][index]?.is_alive;}))),
             enemies:this.defenders.map(e=>({template:e.templateKey || e.name,key:e.rngKey,stats:{...e.stats},full:{...e.getFullStats()},alive:e.is_alive}))};
+    }
+
+    strikeCheckpoint() {
+        return {turns:structuredClone(this.#turns),loops:structuredClone(this.#pendingLoops),ended:this.is_ended,options:this.combatOptions?.snapshot()};
+    }
+    restoreStrikeCheckpoint(s) {
+        this.#turns=structuredClone(s.turns);this.#pendingLoops=structuredClone(s.loops);this.is_ended=s.ended;
+        this.#settledTargets=new WeakSet([...this.attackers,...this.defenders].filter(f=>!f.is_alive));
+        if(s.options)this.combatOptions.restore(s.options);
     }
 
     #startFighter(fighter_index,is_attacker) {
@@ -95,6 +107,10 @@ class Combat {
 
     #setupDisplay() {
         fill_fighter_divs();
+    }
+    showPausedCombatOptions() {
+        this.#setupDisplay();
+        this.defenders.forEach((_,fighter_index)=>update_displayed_health_of_fighter({fighter_index,is_attacker:false}));
     }
 
     reset() {
@@ -255,36 +271,9 @@ class Combat {
             count++;
             if(count >= 60) {
                 count = 0;
-                let leveled = false;
-
-                const tactic = fighter.tags?.main_character && this.combatOptions
-                    ? this.combatOptions.beforeExchange(this.nextCombatEvent(), {combat: this, fighter, targets}) : {kind: 'attack'};
-                if(['paused', 'duplicate', 'escaped'].includes(tactic.kind)) {
-                    this.clearAllAttackLoops();
-                    return;
-                }
-                // Throw replaces this paid native swing, and goes through the same strike/defeat path.
-                const exchangeTargets = tactic.kind === 'throw' ? targets.slice(0, 1) : targets;
-
-                for(let i = 0; i < exchangeTargets.length; i++) {
-                    this.doCombatAction({fighter_index, is_attacker, target: exchangeTargets[i], attack_power: tactic.kind === 'throw' ? tactic.power : attack_power, target_count: exchangeTargets.length, attack_count: tactic.kind === 'throw' ? 1 : undefined});
-                    if(this.is_ended) return;
-                }
-
-                if(tactic.kind !== 'throw' && !this.is_special_combat && fighter.tags?.main_character && current_stance.related_skill) {
-                    leveled = add_xp_to_skill({skill: skills[current_stance.related_skill], xp_to_add: targets.reduce((sum,enemy)=>sum+enemy.xp_value,0)/targets.length});
-                    
-                    if(leveled) {
-                        update_stance_tooltip(current_stance);
-                        fighter.updateStatsAndDisplay();
-                    }
-                }
-
-                const victory = (is_attacker ? this.defenders : this.attackers).every(enemy => !enemy.is_alive);
-                if(fighter.tags?.main_character && this.combatOptions?.afterExchange({victory})) {
-                    this.clearAllAttackLoops();
-                    return;
-                }
+                const resolve=()=>this.resolveExchange({fighter_index,is_attacker,targets,attack_power});
+                const result=this.nativeExchangeHost?this.nativeExchangeHost(this,resolve):resolve();
+                if(!result||result.paused||result.ended||this.is_ended)return;
 
                 if((is_attacker ? this.defenders : this.attackers).filter(enemy => enemy.is_alive).length != 0) { //set next loop if there's still an enemy left;
                     this.setAttackLoop({fighter_index, base_cooldown, is_attacker});
@@ -300,6 +289,43 @@ class Combat {
             }
 
         }, actual_cooldown*1000/(60*tickrate) - fighter_data.timer_adjustments[fighter_index]);
+    }
+
+    resolveExchange({fighter_index,is_attacker,targets,attack_power}) {
+        const fighter=(is_attacker?this.attackers:this.defenders)[fighter_index];
+        delete this.#pendingLoops[`${is_attacker?'attackers':'defenders'}:${fighter_index}`];
+        let leveled = false;
+
+        const tactic = fighter.tags?.main_character && this.combatOptions
+            ? this.combatOptions.beforeExchange(this.nextCombatEvent(), {combat: this, fighter, targets}) : {kind: 'attack'};
+        if(['paused', 'duplicate', 'escaped'].includes(tactic.kind)) {
+            this.clearAllAttackLoops();
+            return {paused:true};
+        }
+        // Throw replaces this paid native swing, and goes through the same strike/defeat path.
+        const exchangeTargets = tactic.kind === 'throw' ? targets.slice(0, 1) : targets;
+
+        for(let i = 0; i < exchangeTargets.length; i++) {
+            this.doCombatAction({fighter_index, is_attacker, target: exchangeTargets[i], attack_power: tactic.kind === 'throw' ? tactic.power : attack_power, target_count: exchangeTargets.length, attack_count: tactic.kind === 'throw' ? 1 : undefined});
+            if(this.is_ended) return {ended:true};
+        }
+
+        if(tactic.kind !== 'throw' && !this.is_special_combat && fighter.tags?.main_character && current_stance.related_skill) {
+            leveled = add_xp_to_skill({skill: skills[current_stance.related_skill], xp_to_add: targets.reduce((sum,enemy)=>sum+enemy.xp_value,0)/targets.length});
+
+            if(leveled) {
+                update_stance_tooltip(current_stance);
+                fighter.updateStatsAndDisplay();
+            }
+        }
+
+        const victory = (is_attacker ? this.defenders : this.attackers).every(enemy => !enemy.is_alive);
+        if(fighter.tags?.main_character && this.combatOptions?.afterExchange({victory})) {
+            this.clearAllAttackLoops();
+            return {paused:true,victory};
+        }
+
+        return {victory};
     }
 
     /**

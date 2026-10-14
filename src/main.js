@@ -1,3 +1,10 @@
+import {createCombatOptionsPanel} from './absorb_p23/host_joins/combat_options_ui.js';
+import {TACTICS,createCombatOptions,validateCombatOptions} from './absorb_p23/combat_options/runtime.js';
+import {createLivingGearPanel} from './absorb_p23/host_joins/tranche_two_ui.js';
+import {createLivingGear,registerLivingGearItems,LIVING_GEAR} from './absorb_p23/living_gear/index.js';
+import {livingGearKind,stageLivingEquip} from './absorb_p23/host_joins/tranche_two.js';
+import inventoryTemplates from './data/inventory_templates.js';
+import {TradeItem,TradeItemGroup} from './models/trade_item.js';
 import {PROTO23_IDS} from './proto23_world_ids.js';
 import {stageExposureJoin,stageHouseholdJoin} from './absorb_p23/host_joins/tranche_one.js';
 import {validateExposure,exposureEffects,famineEfficiency} from './absorb_p23/exposure/exposure.js';
@@ -34,7 +41,7 @@ import {createWorkLedgerUI} from './work_ledger_ui.js';
 import {commitManagement} from './management/host.js';
 import {createManagementPanel} from './management/ui.js';
 import {normalizeElementalOption,describeElementalPreparation,ELEMENTAL_SETTING_DESCRIPTION} from './absorb_e3/elemental_affinities.js';
-import {equipmentDurability as durability,createDurability} from './absorb_e2/durability.js';
+import {equipmentDurability as durability,canonicalDurabilityKey,createDurability} from './absorb_e2/durability.js';
 import {getPacingState,setPacingState,advancePacing,prepareFood,getPacingEffects as basePacingEffects} from './absorb_e1/pacing.js';
 import {mountPacingPanel,pacingStatus} from './absorb_e1/panel.js';
 import {setKnownClearTextReader} from './display.js';
@@ -167,7 +174,7 @@ import {prepareRivalRematch,commitFieldRenewal,RIVAL_PURSUIT} from "./frontier_c
 "use strict";
 
 import { current_game_time, is_night, Game_Time } from "./game_time.js";
-import { Book, BookData, OtherItem, Armor, item_templates, restoreSystemsWorkshopAvailability, item_log, getItem, book_stats, rarity_multipliers, getArmorSlot, getItemFromKey, getItemRarity} from "./items.js";
+import { Amulet, Weapon, WeaponComponent, Book, BookData, OtherItem, Armor, item_templates, restoreSystemsWorkshopAvailability, item_log, getItem, book_stats, rarity_multipliers, getArmorSlot, getItemFromKey, getItemRarity} from "./items.js";
 import { loot_sold_count, market_region_mapping, recover_item_prices, trickle_market_saturations, set_loot_sold_count, capped_at } from "./market_saturation.js";
 import { locations, favourite_locations, location_types } from "./data/locations.js";
 import { skills } from "./data/skills.js";
@@ -186,7 +193,7 @@ import { character,
 import { activities } from "./activities.js";
 import { end_activity_animation, 
          update_displayed_character_inventory, update_displayed_trader_inventory, sort_displayed_inventory, sort_displayed_skills,
-         update_displayed_money, log_message,
+         update_displayed_money, setNativeLogBufferReader, log_message,
          update_displayed_combat_location, update_displayed_normal_location,
          log_loot, update_displayed_equipment,
          update_displayed_health, update_displayed_stamina,
@@ -440,6 +447,7 @@ const lifeSaveStorage = {setItem(key, serialized, onDurable) {
     if(nextNpc) save.npc_lives = nextNpc;
     writeGuardedSave(localStorage, key, JSON.stringify(save));
     onDurable?.();
+    if(nativeP23Transaction?.status==='pending')nativeP23Transaction.markDurable();
     villageCareer = migrateVillageCareer(save);
     const previousRules=workLedger?.rules,previousConnection=workLedger?.connection,previousPrecision=workLedger?.precisionKnown,previousAssist=workLedger?.assistUnlocked;
     workLedger=migrateWorkLedger(save.work_ledger);
@@ -461,9 +469,38 @@ const lifeSaveStorage = {setItem(key, serialized, onDurable) {
 let expansionState = initializeExpedition(createExpansionState(crypto.getRandomValues(new Uint32Array(1))[0]));
 ensureStreams(expansionState);
 bindGameStreams(() => expansionState);
+registerLivingGearItems({item_templates,Amulet,getItem,WeaponComponent,Weapon});
+for(const [tactic,{itemId}]of Object.entries(TACTICS))item_templates[itemId]||=new OtherItem({id:itemId,name:itemId,description:tactic==='throw'?'One paid native projectile replaces a swing.':tactic==='smoke'?'Escape a native fight without its rewards.':'Offer a repeatable native field outing.',value:tactic==='throw'?3:tactic==='smoke'?8:6});
+inventoryTemplates.Basic.unshift(new TradeItemGroup({items:[LIVING_GEAR.aura,LIVING_GEAR.collector,LIVING_GEAR.weapon,...Object.values(TACTICS).map(t=>t.itemId)].map(item_name=>new TradeItem({item_name,count:[Object.values(TACTICS).some(t=>t.itemId===item_name)?6:2],quality:Object.values(TACTICS).some(t=>t.itemId===item_name)?undefined:[100,100],chance:1}))}));
+let p23LivingGear;
+let livingGearPanel;
+let nativeLivingStrike=false;
+let nativeP23Transaction=null;
+let nativeP23Scope=null;
+setNativeLogBufferReader(()=>nativeP23Scope?.messages);
+let p23CombatOptions;
+let combatOptionsPanel;
+let p23EscapeDestination=null;
+let p23FaintDeparture=null;
+function livingFrame(){
+    if(p23LivingGear===undefined)return {rows:[],attackMultiplier:1,lightBonus:0,disabled:true};
+    const owner=livingOwner(),assertDisposition=key=>{assertNativeItemDisposition(expansionState,key);assertNativeItemDisposition(expansionState,canonicalDurabilityKey(key));};
+    return {...livingProjection(),rows:owner.rows({equipment:livingEquipment(),isKnown:()=>true,assertDisposition}),disabled:!workLedgerCanWrite()||!!nativeActionReasons(expansionState).length};
+}
+function spendLivingCinders(key){
+    if(!workLedgerCanWrite()||!character.is_alive||nativeActionReasons(expansionState).length)throw Error('This character cannot spend cinders now.');
+    const owner=livingOwner(),stage=owner.stageSpend({actor:character,key,assertDisposition:key=>{assertNativeItemDisposition(expansionState,key);assertNativeItemDisposition(expansionState,canonicalDurabilityKey(key));}});
+    stage.preflight();persistExpansion({state:structuredClone(expansionState),external:{money:character.money},gameplay:gameplaySnapshot(),native:stage.native,nativePatch:stage.nativePatch});
+}
+function livingOwnerFromSave(save){return createLivingGear(save.p23_living_gear).serialize();}
+function livingOwner(){return createLivingGear(p23LivingGear);}
+function livingEquipment(){return Object.fromEntries(Object.entries(character.getEquipment()).filter(([,item])=>{if(!item)return false;try{assertNativeItemDisposition(expansionState,item.getInventoryKey());assertNativeItemDisposition(expansionState,canonicalDurabilityKey(item.getInventoryKey()));return true;}catch{return false;}}));}
+function livingProjection(){if(restoringNativeSave)return {attackMultiplier:1,lightBonus:0};return livingOwner().project({equipment:livingEquipment(),time:current_game_time,assertDisposition:key=>{assertNativeItemDisposition(expansionState,key);assertNativeItemDisposition(expansionState,canonicalDurabilityKey(key));}});}
+function livingEffects(){if(p23LivingGear===undefined)return {};const p=livingProjection();return {'Living equipment':{tags:{},effects:{stats:{attack_power:{multiplier:p.attackMultiplier}},bonus_skill_levels:{},xp_multipliers:{}}}};}
+character.setNativeLightBonusReader(()=>p23LivingGear===undefined?0:livingProjection().lightBonus);
 let pendingNativeEncounter = null;
 setFieldcraftKnowledgeReader(()=>expansionState);
-character.setSimulationEffectReader(()=>{const context={nativeBody:currentNativeBody(),nativeAlive:character.is_alive===true};return {...projectStatusCareEffects(expansionState,expeditionRegistry,context),...projectFieldCareEffects(expansionState,expeditionRegistry,context),...projectBookCareEffects(expansionState,expeditionRegistry,context),...projectBookWorldEffects(expansionState,expeditionRegistry,context),...projectParadiseCampaignEffects(expansionState,expeditionRegistry,context),...structuredEquipmentView().effects};});
+character.setSimulationEffectReader(()=>{const context={nativeBody:currentNativeBody(),nativeAlive:character.is_alive===true};return {...projectStatusCareEffects(expansionState,expeditionRegistry,context),...projectFieldCareEffects(expansionState,expeditionRegistry,context),...projectBookCareEffects(expansionState,expeditionRegistry,context),...projectBookWorldEffects(expansionState,expeditionRegistry,context),...projectParadiseCampaignEffects(expansionState,expeditionRegistry,context),...structuredEquipmentView().effects,...livingEffects()};});
 let publishedStatusCareSignature = "";
 let expansionError = "";
 let expeditionPanel;
@@ -635,7 +672,7 @@ function changeElementalPreparation(enabled) {
     if(!ownsSave||foundationSaveBlocked||importProbeToken||restoringNativeSave)throw Error('Elemental settings require the writable game tab.');
     const state=structuredClone(expansionState);state.sequence++;
     persistExpansion({state,external:{money:character.money},gameplay:gameplaySnapshot(),nativePatch:{'options/elemental_affinities':enabled},
-        absorbPublish:()=>{game_options.elemental_affinities=enabled;}});elementalPanel?.render();
+        absorbPublish:()=>{game_options.elemental_affinities=enabled;}});elementalPanel?.render();livingGearPanel?.render();combatOptionsPanel?.render();householdPanel?.render();
 }
 function createElementalPanel() {
     const option=document.createElement('label'),input=document.createElement('input');input.type='checkbox';input.dataset.elementalOption='true';
@@ -660,7 +697,7 @@ function commitDurability(stage) {
         nativePatch:stage.nativePatch,absorbPublish:stage.publish});
     character._equipItem(null);character.updateStatsAndDisplay();update_displayed_equipment();update_displayed_character_inventory();
     if(current_combat){current_combat.resetCombatLoops(true);update_displayed_fighters_stats();}
-    durabilityPanel?.render();elementalPanel?.render();
+    durabilityPanel?.render();elementalPanel?.render();livingGearPanel?.render();combatOptionsPanel?.render();householdPanel?.render();
 }
 function createDurabilityPanel() {
     const host=document.getElementById('options_choices'),option=document.createElement('label'),input=document.createElement('input');
@@ -789,13 +826,13 @@ function changeHomePacing(next) {
     if(!ownsSave||foundationSaveBlocked||importProbeToken||restoringNativeSave)throw Error('Pacing changes require the writable game tab.');
     const state=structuredClone(expansionState);state.sequence++;
     persistExpansion({state,external:{money:character.money},gameplay:gameplaySnapshot(),nativePatch:{pacing_e1:next},pacingNext:next,pacingTarget:calendarMinutes(current_game_time)});
-    pacingPanel?.render();pacingStatusPanel?.render();durabilityPanel?.render();elementalPanel?.render();
+    pacingPanel?.render();pacingStatusPanel?.render();durabilityPanel?.render();elementalPanel?.render();livingGearPanel?.render();combatOptionsPanel?.render();householdPanel?.render();
 }
 function createPacingStatusPanel() {
     const panel=document.createElement('details');panel.id='pacing_status_panel';panel.className='expedition_panel';
     const title=document.createElement('summary');title.textContent='Optional pacing';const text=document.createElement('p');panel.append(title,text);
     const render=()=>{const host=document.getElementById('location_actions_div');if(panel.parentElement!==host)host.append(panel);
-        panel.hidden=!!current_dialogue||!!current_combat;text.textContent=pacingStatus(getPacingState(),homePacingContext()).replace('Total XP ×','Base pacing XP ×')+` Native XP ×${getPacingEffects(homePacingContext()).efficiency.toFixed(5)}. `+exposureStatus(p23Exposure,p00ExposureContext(),Object.keys(skills).filter(id=>nativeSkillDiscovery(skills[id],character)));p23ExposurePanel?.render();householdPanel?.render();};
+        panel.hidden=!!current_dialogue||!!current_combat;text.textContent=pacingStatus(getPacingState(),homePacingContext()).replace('Total XP ×','Base pacing XP ×')+` Native XP ×${getPacingEffects(homePacingContext()).efficiency.toFixed(5)}. `+exposureStatus(p23Exposure,p00ExposureContext(),Object.keys(skills).filter(id=>nativeSkillDiscovery(skills[id],character)));p23ExposurePanel?.render();householdPanel?.render();livingGearPanel?.render();combatOptionsPanel?.render();};
     render();return {render};
 }
 
@@ -813,7 +850,7 @@ function actFort(action) {
     const plan=stageFortAction({state:expansionState,gameplay:gameplaySnapshot(),money:character.money,itemLog:item_log.items,
         fort:fortSupply,action,context:{...frame,busy:frame.disabled,readOnly:!ownsSave||foundationSaveBlocked||importProbeToken,
         assertItemDisposition:key=>assertNativeItemDisposition(expansionState,key)},keyFor:id=>item_templates[id].getInventoryKey(),getItem:getItemFromKey});
-    persistExpansion(plan);log_message(plan.message,action==='buy_notes'?'purchase':'notification');fortControls?.render();pacingPanel?.render();pacingStatusPanel?.render();durabilityPanel?.render();elementalPanel?.render();return plan;
+    persistExpansion(plan);log_message(plan.message,action==='buy_notes'?'purchase':'notification');fortControls?.render();pacingPanel?.render();pacingStatusPanel?.render();durabilityPanel?.render();elementalPanel?.render();livingGearPanel?.render();combatOptionsPanel?.render();householdPanel?.render();return plan;
 }
 function observeFortAcquisition(itemId,count,kind,sourceId,label) {
     if(restoringNativeSave||!(count>0)||!item_templates[itemId]||expansionState.actors.player.worldId!=='base.frontier')return;
@@ -1070,8 +1107,8 @@ function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}) {
     expansionState = plan.state;
     if(plan.p00Exposure)p23Exposure=plan.p00Exposure;
     if(plan.p00Household){household=plan.p00Household.state;for(const text of plan.p00Household.notices)log_message(text,'notification');}
-    p23ExposurePanel?.render();householdPanel?.render();
-    if(plan.pacingNext){setPacingState(plan.pacingNext);pacingMinute=plan.pacingTarget;pacingPanel?.render();pacingStatusPanel?.render();durabilityPanel?.render();elementalPanel?.render();}
+    p23ExposurePanel?.render();householdPanel?.render();livingGearPanel?.render();combatOptionsPanel?.render();
+    if(plan.pacingNext){setPacingState(plan.pacingNext);pacingMinute=plan.pacingTarget;pacingPanel?.render();pacingStatusPanel?.render();durabilityPanel?.render();elementalPanel?.render();livingGearPanel?.render();combatOptionsPanel?.render();householdPanel?.render();}
     if(plan.nativePatch?.fort_supply)fortSupply=migrateFortSupply({fort_supply:plan.nativePatch.fort_supply});
     if(plan.localLifeResult){localLife=normalizeLocalLife(plan.localLifeResult.state);for(const message of plan.localLifeResult.messages)log_message(message,'notification');}
     character.money = plan.external.money;
@@ -1087,6 +1124,9 @@ function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}) {
     if(plan.p00EffectPublication){for(const id of Object.keys(active_effects))delete active_effects[id];Object.assign(active_effects,plan.p00EffectPublication.next);
         if(plan.p00EffectPublication.resetRain)rain_counter=0;character.addActiveEffectBonus(active_effects);character.updateStatsAndDisplay();update_displayed_effects();}
     if(expansionState.chronicle?.life.endedAt != null) character.is_alive = false;
+    if(plan.nativePatch?.combatOptions){p23CombatOptions=structuredClone(plan.nativePatch.combatOptions);if(current_combat&&!current_combat.is_special_combat){current_combat.combatOptions=combatRuntime();current_combat.nextCombatEvent=()=>current_combat.combatOptions.snapshot().lastEvent+1;current_combat.nativeExchangeHost=runP23CombatExchange;}}
+    if(plan.nativePatch?.p23_living_gear)p23LivingGear=structuredClone(plan.nativePatch.p23_living_gear);
+    if(plan.nativePatch?.equipment_durability)durability.load(plan.nativePatch.equipment_durability);
     if(plan.absorbPublish)plan.absorbPublish();
     publication.publish();
     unlockPublication.publish();
@@ -1128,7 +1168,7 @@ function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}) {
         }
         for(const id of publication.changes)if(p00Hidden[id]&&nativeSkillDiscovery(skills[id],character))nativeDiscoveryFeedback?.publish({type:'native-skill-discovery',id,settled:true});
         if(publication.changes.length) character.updateStatsAndDisplay();
-        if(plan.calendar && previousNight !== is_night(current_game_time)) character.updateStatsAndDisplay();
+        if(plan.calendar && (p23LivingGear!==undefined||previousNight !== is_night(current_game_time))) {character.addActiveEffectBonus(active_effects);character.updateStatsAndDisplay();}
         if(townAccess.length && current_location.tags.safe_zone) update_displayed_normal_location(current_location);
         renderWorldIdentity();
         expeditionPanel?.render(); techniquePanel?.render(); chroniclePanel?.render(); villagePanel?.render(); simulationPanel?.render(); systemsWorkshopPanel?.render(); townPanel?.render();
@@ -1138,7 +1178,7 @@ function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}) {
         frontierCampaignPanel?.render();
         partyPanel?.render(); exchangePanel?.render(); observationPanel?.render(); pocketRealmPanel?.render();skillExpansionPanel?.render();originalFrontierPanel?.render();featureExpansionPanel?.render();foundationInteractionPanel?.render();causalStoryPanel?.render();
         backlogPanel?.render();replacementRecognitionPanel?.render();backlogOpeningPanel?.render();repositoryPanel?.render();inkPanel?.render();nestedInkPanels?.render();
-        knownRoutesPanel?.render();adventureNotebook?.render();localLifePanel?.render();practicePanel?.render();updateWorkspace();fortControls?.render();pacingPanel?.render();pacingStatusPanel?.render();durabilityPanel?.render();elementalPanel?.render();
+        knownRoutesPanel?.render();adventureNotebook?.render();livingGearPanel?.render();combatOptionsPanel?.render();localLifePanel?.render();practicePanel?.render();updateWorkspace();fortControls?.render();pacingPanel?.render();pacingStatusPanel?.render();durabilityPanel?.render();elementalPanel?.render();livingGearPanel?.render();combatOptionsPanel?.render();householdPanel?.render();
         expansionQuests?.render();
         characterBio?.render();
         worldEventFeed?.render();
@@ -1353,7 +1393,7 @@ function advanceExpeditions(minutes) {
     pursuitPanel?.render();
     bodyPanel?.render();
     fieldPanel?.render(); promisePanel?.render(); crushSocialPanel?.render(); managementPanel?.render();
-    knownRoutesPanel?.render();adventureNotebook?.render();
+    knownRoutesPanel?.render();adventureNotebook?.render();livingGearPanel?.render();combatOptionsPanel?.render();
     expansionQuests?.render();
     characterBio?.render();
     worldEventFeed?.render();
@@ -2354,7 +2394,7 @@ function change_location({location_id, event, skip_travel_time = false, do_quest
         throw `No such location as "${location_id}"`;
     }
 
-    if((p23Exposure!==undefined||household!==undefined)&&!realm_move&&!restoringNativeSave&&!skip_travel_time&&previous_location&&location.id!==previous_location.id){
+    if((p23Exposure!==undefined||household!==undefined||p23LivingGear!==undefined||p23CombatOptions!==undefined)&&!realm_move&&!restoringNativeSave&&!skip_travel_time&&previous_location&&location.id!==previous_location.id){
         if(!pathfinder){pathfinder=new Pathfinder();pathfinder.fill_connections(locations);}
         travel_times[previous_location.id] ||= pathfinder.find_shortest_paths(previous_location.id);
         const running=revealFacts()['reveal.run']===true&&character.getTotalSkillLevel('Running')>=1&&!practiceRunReason();
@@ -2366,6 +2406,7 @@ function change_location({location_id, event, skip_travel_time = false, do_quest
         if(running)plan.native={...plan.native,staminaToFull:Math.min(full_stats.max_stamina,(plan.native?.staminaToFull??full_stats.max_stamina-full_stats.stamina)+2)};
         plan.nativeLocation=location.id;plan.nativeEnterQuest=do_quest_events;
         plan.nativePatch={...plan.nativePatch,'current location':location.id,native_encounter:null};
+        if(p23CombatOptions&&['exchange-break','encounter-break'].includes(p23CombatOptions.phase))plan.nativePatch.combatOptions={...p23CombatOptions,phase:'active',breakRequested:false};
         persistExpansion(plan);return;
     }
     if((optionalPackState.structured||expansionState.causalStories||expansionState.proto23Village)&&!realm_move&&!restoringNativeSave&&location.id!==current_location?.id){
@@ -3682,7 +3723,7 @@ function end_dialogue() {
 
 function reload_normal_location() {
     update_displayed_normal_location(current_location);
-    furniturePanel?.render();localLifePanel?.render();practicePanel?.render();updateWorkspace();fortControls?.render();pacingPanel?.render();pacingStatusPanel?.render();durabilityPanel?.render();elementalPanel?.render();
+    furniturePanel?.render();localLifePanel?.render();practicePanel?.render();updateWorkspace();fortControls?.render();pacingPanel?.render();pacingStatusPanel?.render();durabilityPanel?.render();elementalPanel?.render();livingGearPanel?.render();combatOptionsPanel?.render();householdPanel?.render();
 }
 
 /**
@@ -3838,12 +3879,117 @@ function set_new_combat({enemies} = {}) {
         });
     }
     enemies ||= current_location.get_next_enemies();
+    if(!savedEncounter&&p23CombatOptions?.phase==='escaped')p23CombatOptions={...p23CombatOptions,phase:'active'};
 
-    current_combat = new Combat({attackers: [character], defenders: enemies, savedEncounter});
+    current_combat = new Combat({attackers: [character], defenders: enemies, savedEncounter,nativeExchangeHost:p23LivingGear===undefined&&p23CombatOptions===undefined?undefined:runP23CombatExchange,combatOptions:p23CombatOptions===undefined?undefined:combatRuntime(),nextCombatEvent:()=>{const n=current_combat.combatOptions.snapshot().lastEvent;if(n>=Number.MAX_SAFE_INTEGER)throw Error('Combat event cursor exhausted.');return n+1;}});
     // A durable technique observation can occur after the last kill but before
     // the zone clear. Resume that boundary without awarding the kill twice.
+    if(savedEncounter && p23CombatOptions&&['exchange-break','encounter-break'].includes(p23CombatOptions.phase)){current_combat.showPausedCombatOptions();combatOptionsPanel?.render();return;}
     if(savedEncounter && !enemies.some(e=>e.is_alive)) {finish_combat_round(false);return;}
     current_combat.start();
+}
+
+function tacticItem(id){return Object.entries(character.getItems()).find(([key,row])=>{if(row.item.id!==id||row.count<1)return false;try{assertNativeItemDisposition(expansionState,key);assertNativeItemDisposition(expansionState,canonicalDurabilityKey(key));return true;}catch{return false;}});}
+function combatRuntime(state=p23CombatOptions){return createCombatOptions({state,host:{
+    preflight:({tactic,itemId,context})=>workLedgerCanWrite()&&character.is_alive&&nativeActionReasons(expansionState).length===0&&!!tacticItem(itemId)&&
+        (context.training?current_location?.tags.safe_zone&&!current_combat:tactic==='lure'?current_location?.id==='Village'&&!current_combat&&locations['Infested field'].isUnlocked():
+        !!current_combat&&!current_combat.is_special_combat&&context.targets?.some(t=>t.is_alive)&&(tactic!=='smoke'||!!current_location.parent_location?.tags.safe_zone)),
+    consumeItem:({itemId})=>{const row=tacticItem(itemId);if(!row)return false;character.removeFromInventory([{item_key:row[0],count:1}]);return true;},
+    escape:()=>{p23EscapeDestination=current_location.parent_location.id;},
+    offerEncounter:()=>{const facts=expansionState.actors.player.facts,n=facts['p23.tactics.lureOffers']||0;if(n>=Number.MAX_SAFE_INTEGER)throw Error('Outing cursor exhausted.');facts['p23.tactics.lureOffers']=n+1;},
+    trainThrow:()=>add_xp_to_skill({skill:skills.Throwing,xp_to_add:1})
+}});}
+function tacticsFrame(){
+    const state=current_combat?.combatOptions?.snapshot()||p23CombatOptions;
+    const actions=[];
+    if(tacticItem(TACTICS.throw.itemId))actions.push({id:'throw',label:'Throw one stone at next exchange'},{id:'train',label:'Practice throwing · one stone · 1 played minute',disabled:!!current_combat||!current_location?.tags.safe_zone});
+    if(tacticItem(TACTICS.smoke.itemId))actions.push({id:'smoke',label:'Smoke escape at next exchange',disabled:!!current_combat&&!current_location.parent_location?.tags.safe_zone});
+    if(tacticItem(TACTICS.lure.itemId)&&current_location?.id==='Village')actions.push({id:'lure',label:'Offer a scented field outing · one pouch',disabled:!!current_combat||!locations['Infested field'].isUnlocked()});
+    const facts=expansionState.actors.player.facts;
+    if(current_location?.id==='Village'&&(facts['p23.tactics.lureOffers']||0)>(facts['p23.tactics.lureClaimed']||0))actions.push({id:'follow',label:'Follow a paid scent to Infested field'});
+    if(state||current_combat)actions.push({id:'break',label:state?.breakRequested?'Cancel requested break':'Break after next exchange',disabled:state?.phase&&state.phase!=='active'},{id:'clear',label:'Clear queued tactic'});
+    if(state&&['exchange-break','encounter-break'].includes(state.phase))actions.push({id:'resume',label:'Resume native encounter'});
+    return {visible:actions.length>0,status:state?`Phase: ${state.phase}; queued: ${state.selected||'ordinary swing'}; break: ${state.breakRequested?'requested':'off'}.`:'Paid items use native combat and custody.',actions,disabled:!workLedgerCanWrite()||!character.is_alive||!!nativeActionReasons(expansionState).length};
+}
+function actTactic(id){
+    if(id==='throw'||id==='smoke')return commitTacticChoice({selected:id});
+    if(id==='clear')return commitTacticChoice({selected:null});
+    if(id==='break')return commitTacticChoice({breakRequested:!(current_combat?.combatOptions?.snapshot()||p23CombatOptions)?.breakRequested});
+    if(!workLedgerCanWrite()||!character.is_alive||nativeActionReasons(expansionState).length)throw Error('This character cannot use tactics now.');
+    if(id==='resume'){
+        const combat=current_combat,phase=combat?.combatOptions?.snapshot().phase;
+        if(!combat||!['exchange-break','encounter-break'].includes(phase))throw Error('Restore the actual paused encounter first.');
+        const next={...combat.combatOptions.snapshot(),phase:'active'};persistExpansion({state:structuredClone(expansionState),external:{money:character.money},gameplay:gameplaySnapshot(),nativePatch:{combatOptions:next}});
+        if(phase==='encounter-break')finish_combat_round(false);else combat.start();return;
+    }
+    if(current_combat||current_activity||current_dialogue||current_game_action||is_reading||is_sleeping||is_in_trade()||expeditionOccupiesPlayer())throw Error('Finish current work first.');
+    if(id==='follow'){
+        const state=structuredClone(expansionState),facts=state.actors.player.facts;
+        if(current_location.id!=='Village'||!locations['Infested field'].isUnlocked()||(facts['p23.tactics.lureOffers']||0)<=(facts['p23.tactics.lureClaimed']||0))throw Error('No paid field outing is waiting.');
+        facts['p23.tactics.lureClaimed']=(facts['p23.tactics.lureClaimed']||0)+1;
+        persistExpansion({state,external:{money:character.money},gameplay:gameplaySnapshot()});change_location({location_id:'Infested field'});return;
+    }
+    if(!['train','lure'].includes(id))throw Error('Unknown tactic command.');
+    if(id==='lure'&&(current_location.id!=='Village'||!locations['Infested field'].isUnlocked()))throw Error('The native field route is unavailable.');
+    if(id==='train'&&!current_location.tags.safe_zone)throw Error('Practice from a safe location.');
+    const state=structuredClone(expansionState),gameplay=gameplaySnapshot(),itemId=TACTICS[id==='train'?'throw':'lure'].itemId,row=tacticItem(itemId);
+    if(!row)throw Error('Acquire one usable paid item first.');
+    const runtime=createCombatOptions({state:p23CombatOptions?.phase==='escaped'?{...p23CombatOptions,phase:'active'}:p23CombatOptions,host:{preflight:()=>true,consumeItem:()=>{applyGameplayEffect(gameplay,{type:'item',key:row[0],amount:1},'player',true);return true;},escape:()=>{},offerEncounter:()=>{const f=state.actors.player.facts,n=f['p23.tactics.lureOffers']||0;if(n>=Number.MAX_SAFE_INTEGER)throw Error('Outing cursor exhausted.');f['p23.tactics.lureOffers']=n+1;},trainThrow:()=>applyGameplayEffect(gameplay,{type:'xp',skill:'Throwing',amount:1},'player')}});
+    if(runtime.snapshot().lastEvent>=Number.MAX_SAFE_INTEGER)throw Error('Combat event cursor exhausted.');
+    const event=runtime.snapshot().lastEvent+1;
+    if(!(id==='train'?runtime.trainThrow(event,{}):runtime.lure(event,{})))throw Error('This tactic event is unavailable.');
+    const plan=id==='train'?advanceChroniclePlan({state,external:{money:character.money},gameplay},1):{state,external:{money:character.money},gameplay};
+    if(id==='train'&&plan.state.clock-state.clock!==1)throw Error('Finish the current local decision before practicing.');
+    plan.nativePatch={...plan.nativePatch,combatOptions:runtime.snapshot()};persistExpansion(plan);combatOptionsPanel?.render();
+}
+
+function commitTacticChoice({selected,breakRequested}){
+    if(!workLedgerCanWrite()||!character.is_alive||nativeActionReasons(expansionState).length)throw Error('This character cannot choose tactics now.');
+    const runtime=combatRuntime(current_combat?.combatOptions?.snapshot()||p23CombatOptions);
+    if(selected!==undefined)runtime.select(selected);if(breakRequested!==undefined)runtime.requestBreak(breakRequested);
+    persistExpansion({state:structuredClone(expansionState),external:{money:character.money},gameplay:gameplaySnapshot(),nativePatch:{combatOptions:runtime.snapshot()}});combatOptionsPanel?.render();
+}
+
+function runP23CombatExchange(combat,resolve) {
+    if(!workLedgerCanWrite()) {combat.clearAllAttackLoops();return;}
+    const checkpoint=combat.strikeCheckpoint(),wear=durability.serialize();
+    p23EscapeDestination=null;p23FaintDeparture=null;let result;
+    let transaction,scope;
+    try {
+        validateCombatOptions(combat.combatOptions?.snapshot());if(p23LivingGear!==undefined)createLivingGear(p23LivingGear);
+        transaction=beginNativeCraftTransaction({owners:[expansionState,character,character.getItems(),character.getLevelableComponent(),character.getEquipment(),character.getBioComponent(),...combat.defenders,...combat.defenders.map(enemy=>enemy.getLevelableComponent()),item_log,game_stats,global_flags,availabilities,enemy_killcount,favourite_consumables,favourite_items,favourite_locations,
+            ...Object.values(skills).map(skill=>skill.getAvailabilityComponent()),which_skills_affect_skill,active_effects,...nativeCraftQuestOwners(quests,active_quests)],
+            bindings:[{get:()=>expansionState,set:v=>{expansionState=v;}},{get:()=>p23LivingGear,set:v=>{p23LivingGear=v;}},{get:()=>p23CombatOptions,set:v=>{p23CombatOptions=v;}},{get:()=>current_combat,set:v=>{current_combat=v;}},{get:()=>current_location,set:v=>{current_location=v;}},{get:()=>pathfinder,set:v=>{pathfinder=v;}},{get:()=>travel_times,set:v=>{travel_times=v;}}]});
+        scope={transaction,messages:[]};nativeP23Scope=scope;nativeCraftScopes.push(scope);
+        nativeP23Transaction=transaction;nativeLivingStrike=true;result=resolve();
+        if(combat.combatOptions)p23CombatOptions=combat.combatOptions.snapshot();
+        if(p23EscapeDestination||p23FaintDeparture){
+            const destination=p23EscapeDestination||p23FaintDeparture.destination,paths=new Pathfinder();paths.fill_connections(locations);
+            const minutes=paths.find_shortest_paths(current_location.id)[destination];
+            if(!Number.isFinite(minutes)||minutes<0)throw Error('The native safe return route is unavailable.');
+            const plan=advanceChroniclePlan({state:expansionState,external:{money:character.money},gameplay:gameplaySnapshot()},minutes,true);
+            if(plan.state.clock-expansionState.clock!==minutes)throw Error('Finish the pending local decision before escaping.');
+            plan.nativeLocation=destination;plan.nativePatch={...plan.nativePatch,'current location':destination,native_encounter:null};
+            if(p23CombatOptions!==undefined){if(p23FaintDeparture)p23CombatOptions={...p23CombatOptions,phase:'active',selected:null,breakRequested:false};plan.nativePatch.combatOptions=p23CombatOptions;}
+            if(p23FaintDeparture){add_active_effect('Recovering',2);if(p23FaintDeparture.sleep)plan.nativePatch.is_sleeping=true;}
+            persistExpansion(plan);if(p23FaintDeparture?.sleep)start_sleeping();
+        }else{
+            const text=create_save();if(!text)throw Error('Native combat save could not be constructed.');
+            validateSaveEnvelope(JSON.parse(text),game_version);
+            lifeSaveStorage.setItem(is_on_dev()?dev_save_key:save_key,text,()=>transaction.markDurable());
+        }
+        character.addActiveEffectBonus(active_effects);character.updateStatsAndDisplay();livingGearPanel?.render();combatOptionsPanel?.render();
+        return result;
+    }catch(error){
+        nativeP23Scope=null;
+        if(transaction?.status==='pending'){transaction.rollback();durability.load(wear);combat.restoreStrikeCheckpoint(checkpoint);combat.showPausedCombatOptions();for(const skill of Object.values(skills))update_displayed_skill_bar(skill);}
+        combat.clearAllAttackLoops();foundationSaveBlocked=true;
+        update_displayed_character_inventory();update_displayed_health();update_displayed_stamina();
+        log_message((transaction?.status==='durable'?'Combat was saved; its display failed. Reload the saved encounter. ':'Combat paused because its save failed. Reload the preserved save before continuing. ')+error.message,'message_critical');
+        combat.is_ended=true;
+    }finally {nativeLivingStrike=false;nativeP23Transaction=null;nativeP23Scope=null;
+        if(scope){nativeCraftScopes.pop();if(transaction.status==='durable'){for(const row of scope.bestiary||[]){if(row.existing)update_bestiary_entry_killcount(row.id);else create_new_bestiary_entry(row.id);}for(const args of scope.messages)log_message(...args);for(const event of scope.discoveries||[])nativeDiscoveryFeedback?.publish(event);}}
+    }
 }
 
 function start_combat() {
@@ -3851,7 +3997,7 @@ function start_combat() {
         if(expeditionOccupiesPlayer())return;
         set_new_combat();
         pursuitPanel?.render();
-        knownRoutesPanel?.render();adventureNotebook?.render();
+        knownRoutesPanel?.render();adventureNotebook?.render();livingGearPanel?.render();combatOptionsPanel?.render();
     }
 }
 
@@ -3896,16 +4042,20 @@ function kill_target({target_index, fighter_index, is_target_an_attacker, do_que
     }
     
     target.is_alive = false;
+    if(nativeLivingStrike&&p23LivingGear!==undefined&&!is_special_combat) {
+        const owner=livingOwner(),plan=owner.stageKill({sequence:owner.serialize().lastKill+1,killerId:fighter.tags.main_character?'player':fighter.id||'enemy',defeated:{tags:{...target.tags,training:!!target.tags.training||current_location.tags.training===true}},equipment:livingEquipment(),assertDisposition:key=>{assertNativeItemDisposition(expansionState,key);assertNativeItemDisposition(expansionState,canonicalDurabilityKey(key));}});
+        plan.preflight();p23LivingGear=plan.nativePatch.p23_living_gear;
+    }
     update_displayed_health_of_fighter({fighter_index: target_index, is_attacker: is_target_an_attacker});
 
     // Enemies are defenders since the combat rewrite (hero attacks), so count kills of defenders.
     if(target.add_to_bestiary && !is_target_an_attacker && !is_special_combat) {
         if(enemy_killcount[target.name]) {
             enemy_killcount[target.name] += 1;
-            update_bestiary_entry_killcount(target.name);
+            if(nativeP23Scope)(nativeP23Scope.bestiary ||= []).push({id:target.name,existing:true});else update_bestiary_entry_killcount(target.name);
         } else {
             enemy_killcount[target.name] = 1;
-            create_new_bestiary_entry(target.name);
+            if(nativeP23Scope)(nativeP23Scope.bestiary ||= []).push({id:target.name,existing:false});else create_new_bestiary_entry(target.name);
         }
     }
 
@@ -3926,7 +4076,8 @@ function kill_target({target_index, fighter_index, is_target_an_attacker, do_que
     }
     if(fighter.tags.main_character && !is_special_combat && target.get_loot && ownsSave && !expansionError && !foundationSaveBlocked) {
         const observed = observeNativeTechnique(expansionState, expeditionRegistry, "player", target.name);
-        if(observed) {
+        if(observed && nativeLivingStrike)expansionState=observed;
+        if(observed && !nativeLivingStrike) {
             try {
                 persistExpansion({state: observed, external: {money: character.money}, gameplay: gameplaySnapshot()});
                 log_message(`Observed ${target.name}'s footwork. Read the Technique notebook in Village.`, "notification");
@@ -3937,6 +4088,11 @@ function kill_target({target_index, fighter_index, is_target_an_attacker, do_que
 }
 
 function kill_player({is_combat = true}) {
+    if(nativeLivingStrike&&is_combat){
+        game_stats.total_deaths++;log_message('%HeroName% has lost consciousness','hero_defeat');
+        const sleep=!!(game_options.auto_return_to_bed&&last_location_with_bed&&(!optionalPackState.structured||optionalPackState.structured.locationIds.includes(last_location_with_bed)));
+        p23FaintDeparture={destination:sleep?last_location_with_bed:current_location.parent_location.id,sleep};return;
+    }
     if(is_combat) {
         game_stats.total_deaths++;
         log_message("%HeroName% has lost consciousness", "hero_defeat");
@@ -4851,11 +5007,17 @@ function character_equip_item(item_key) {
     const reasons = nativeActionReasons(expansionState);
     if(reasons.length) {log_message(reasons.join(" "),"notification");return;}
     try{assertNativeItemDisposition(expansionState,item_key);}catch(error){log_message(error.message,"notification");return;}
-    character.equipItemFromInventory(item_key);
+    const item=character.getItems()[item_key]?.item;
+    if(livingGearKind(item)) {
+        if(!workLedgerCanWrite())return;
+        try{const plan=stageLivingEquip({state:expansionState,gameplay:gameplaySnapshot(),money:character.money,gear:livingOwner(),wear:durability.serialize(),item,key:item_key,equipment:readNativeEquipment({player:character}).player,getItem:getItemFromKey,assertDisposition:key=>assertNativeItemDisposition(expansionState,key)});persistExpansion(plan);}
+        catch(error){log_message(error.message,'notification');return;}
+    }else character.equipItemFromInventory(item_key);
     if(current_location.tags.safe_zone) reload_normal_location();
     update_displayed_crafting_recipes();
     update_displayed_stats();
     if(current_combat) {
+        if(p23LivingGear!==undefined)current_combat.nativeExchangeHost=runP23CombatExchange;
         current_combat.resetCombatLoops(true);
         update_displayed_fighters_stats();
     } else if(current_location.tags.safe_zone) {
@@ -4876,6 +5038,7 @@ function character_unequip_item(item_slot) {
     if(current_location.tags.safe_zone) reload_normal_location();
     update_displayed_crafting_recipes();
     if(current_combat) {
+        if(p23LivingGear!==undefined)current_combat.nativeExchangeHost=runP23CombatExchange;
         current_combat.resetCombatLoops(true);
         update_displayed_fighters_stats();
     }
@@ -4950,7 +5113,7 @@ function use_item(item_key) {
         });
 
         character.removeFromInventory([{item_key}]);
-        setPacingState(nourishment.state);pacingPanel?.render();pacingStatusPanel?.render();durabilityPanel?.render();elementalPanel?.render();
+        setPacingState(nourishment.state);pacingPanel?.render();pacingStatusPanel?.render();durabilityPanel?.render();elementalPanel?.render();livingGearPanel?.render();combatOptionsPanel?.render();householdPanel?.render();
     }
 }
 
@@ -5417,6 +5580,8 @@ function create_save({forExport = false} = {}) {
         save_data.pacing_e1=getPacingState();
         if(p23Exposure!==undefined)save_data.p23_exposure=structuredClone(p23Exposure);
         if(household!==undefined)save_data.household=structuredClone(household);
+        if(p23LivingGear!==undefined)save_data.p23_living_gear=structuredClone(p23LivingGear);
+        if(p23CombatOptions!==undefined)save_data.combatOptions=current_combat?.combatOptions?.snapshot()||structuredClone(p23CombatOptions);
         save_data.fort_supply=structuredClone(fortSupply);
         save_data.absorb_local_life=structuredClone(localLife);
         save_data.cheats = validateCheatState(cheatState);
@@ -5536,6 +5701,8 @@ function load(save_data) {
             localLife=normalizeLocalLife(save_data.absorb_local_life);
             fortSupply=migrateFortSupply(save_data);
             durability.load(save_data.equipment_durability);
+            validateCombatOptions(save_data.combatOptions);p23CombatOptions=save_data.combatOptions===undefined?undefined:structuredClone(save_data.combatOptions);
+            p23LivingGear=save_data.p23_living_gear===undefined?undefined:livingOwnerFromSave(save_data);
             p23Exposure=validateExposure(save_data.p23_exposure);household=save_data.household===undefined?undefined:structuredClone(save_data.household);
             setPacingState(save_data.pacing_e1);pacingMinute=calendarMinutes(save_data["current time"]);
             if(localLife.lastClock==null)localLife.lastClock=calendarMinutes(save_data["current time"]);
@@ -5890,7 +6057,9 @@ function load(save_data) {
         Object.keys(save_data.character.equipment).forEach(function(key){
             if(save_data.character.equipment[key] != null) {
                 const quality_mult = compare_game_version("v0.4.4", save_data["game version"]) == 1?100:1; //x100 if its from before quality rework
-                if(item_templates[save_data.character.equipment[key].id]?.tags.structuredEquipment) {
+                if(save_data.character.equipment[key].inventory_key&&JSON.parse(save_data.character.equipment[key].inventory_key).e2_instance){
+                    character._equipItem(getItemFromKey(save_data.character.equipment[key].inventory_key),true);
+                }else if(item_templates[save_data.character.equipment[key].id]?.tags.structuredEquipment) {
                     character._equipItem(getItemFromKey(save_data.character.equipment[key].inventory_key||JSON.stringify({id:save_data.character.equipment[key].id})),true);
                 } else if(key === "weapon") {
                     const {quality, equip_slot} = save_data.character.equipment[key];
@@ -7299,6 +7468,7 @@ function load(save_data) {
     } finally {
         loadingReputationTotals = null;
         restoringNativeSave = false;
+        if(p23LivingGear!==undefined){character.addActiveEffectBonus(active_effects);character.updateStatsAndDisplay();}
     }
 } 
 
@@ -7399,13 +7569,13 @@ function update_timer(time_in_minutes, source = null) {
             return consumed;
         }catch(error){log_message('Optional work paused: '+error.message,'notification');return 0;}
     }
-    if(backlogNativeClockPaused(expansionState)){backlogPanel?.render();replacementRecognitionPanel?.render();backlogOpeningPanel?.render();knownRoutesPanel?.render();adventureNotebook?.render();return 0;}
+    if(backlogNativeClockPaused(expansionState)){backlogPanel?.render();replacementRecognitionPanel?.render();backlogOpeningPanel?.render();knownRoutesPanel?.render();adventureNotebook?.render();livingGearPanel?.render();combatOptionsPanel?.render();return 0;}
     const was_night = is_night(current_game_time);
     const minutes = time_in_minutes ?? (is_sleeping ? config.time_speedup_when_sleeping : 1);
     if(minutes === 0) return 0;
     if(usesJoinedClock()) {
         if(importProbeToken || !ownsSave || expansionError || foundationSaveBlocked || is_loading_error || expansionState.chronicle?.life.endedAt != null) return 0;
-        if(expansionState.simulation?.sessions.player || waitingSimulationChoice(expansionState)) {frontierCampaignPanel?.render();featureExpansionPanel?.render();foundationInteractionPanel?.render();causalStoryPanel?.render();simulationPanel?.render(); pursuitPanel?.render(); fieldPanel?.render(); promisePanel?.render(); crushSocialPanel?.render(); managementPanel?.render(); knownRoutesPanel?.render();adventureNotebook?.render(); return 0;}
+        if(expansionState.simulation?.sessions.player || waitingSimulationChoice(expansionState)) {frontierCampaignPanel?.render();featureExpansionPanel?.render();foundationInteractionPanel?.render();causalStoryPanel?.render();simulationPanel?.render(); pursuitPanel?.render(); fieldPanel?.render(); promisePanel?.render(); crushSocialPanel?.render(); managementPanel?.render(); knownRoutesPanel?.render();adventureNotebook?.render();livingGearPanel?.render();combatOptionsPanel?.render(); return 0;}
         if(expansionState.chronicle?.session?.policy === "manual") {chroniclePanel?.render(); return 0;}
         try {
             const response = expansionState.chronicle && automaticResponse(expansionState.chronicle);
@@ -7493,7 +7663,7 @@ function update() {
         let were_stats_updated = false;
         const prev_day = current_game_time.day_count;
         const advancedMinutes = update_timer();
-        furniturePanel?.render();localLifePanel?.render();practicePanel?.render();updateWorkspace();fortControls?.render();pacingPanel?.render();pacingStatusPanel?.render();durabilityPanel?.render();elementalPanel?.render();
+        furniturePanel?.render();localLifePanel?.render();practicePanel?.render();updateWorkspace();fortControls?.render();pacingPanel?.render();pacingStatusPanel?.render();durabilityPanel?.render();elementalPanel?.render();livingGearPanel?.render();combatOptionsPanel?.render();householdPanel?.render();
         if(!advancedMinutes || expansionState.chronicle?.life.endedAt != null) {update(); return;}
 
         if(start_date - last_rewarded_export > config.time_between_export_rewards) {
@@ -8140,7 +8310,7 @@ const saveOwnership = acquireSaveOwnership().then(owned => {
     simulationPanel?.render(); pursuitPanel?.render(); fieldPanel?.render(); promisePanel?.render(); crushSocialPanel?.render(); managementPanel?.render(); bodyPanel?.render(); townPanel?.render();
     frontierCampaignPanel?.render();
     featureExpansionPanel?.render();foundationInteractionPanel?.render();
-    knownRoutesPanel?.render();adventureNotebook?.render(); worldEventFeed?.render();
+    knownRoutesPanel?.render();adventureNotebook?.render();livingGearPanel?.render();combatOptionsPanel?.render(); worldEventFeed?.render();
     return owned;
 });
 
@@ -8524,12 +8694,12 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
     nativeBattleHost=createNativeBattleHost({Combat,Enemy,registry:expeditionRegistry,player:character,getState:()=>expansionState,getContext:campaignContext,persist:persistExpansion,
         getCombat:()=>current_combat,setCombat:c=>{current_combat=c;},endCombat:end_combat,
         refresh:()=>{for(const [is_attacker,list] of [[true,current_combat?.attackers||[]],[false,current_combat?.defenders||[]]])for(let i=0;i<list.length;i++)update_displayed_health_of_fighter({fighter_index:i,is_attacker});},
-        render:error=>{if(error)nativeBattlePauseReason=error;frontierCampaignPanel?.render();partyPanel?.render();knownRoutesPanel?.render();adventureNotebook?.render();}});
+        render:error=>{if(error)nativeBattlePauseReason=error;frontierCampaignPanel?.render();partyPanel?.render();knownRoutesPanel?.render();adventureNotebook?.render();livingGearPanel?.render();combatOptionsPanel?.render();}});
     featureBattleHost=createFeatureBattleHost({Combat,Enemy,registry:expeditionRegistry,player:character,getState:()=>expansionState,getContext:featureWaveContext,persist:persistExpansion,
         getCombat:()=>current_combat,setCombat:c=>{current_combat=c;},endCombat:end_combat,
         attackersSlot:()=>document.getElementById('feature_battle_attackers'),defendersSlot:()=>document.getElementById('feature_battle_defenders'),
         refresh:()=>{for(const [is_attacker,list] of [[true,current_combat?.attackers||[]],[false,current_combat?.defenders||[]]])for(let i=0;i<list.length;i++)update_displayed_health_of_fighter({fighter_index:i,is_attacker});},
-        render:()=>{featureExpansionPanel?.render();foundationInteractionPanel?.render();causalStoryPanel?.render();knownRoutesPanel?.render();adventureNotebook?.render();}});
+        render:()=>{featureExpansionPanel?.render();foundationInteractionPanel?.render();causalStoryPanel?.render();knownRoutesPanel?.render();adventureNotebook?.render();livingGearPanel?.render();combatOptionsPanel?.render();}});
     frontierCampaignPanel=createFrontierCampaignPanel({registry:expeditionRegistry,read:()=>({...readProgression(),context:campaignContext(),
         error:expansionError || nativeBattlePauseReason,inDialogue:!!current_dialogue,inCombat:!!current_combat,battleRunning:!!current_combat?.actionAdapter,canWrite:ownsSave && !foundationSaveBlocked && !importProbeToken}),command:actFrontierCampaign});
     partyPanel=createPartyPanel({registry:expeditionRegistry,read:()=>({...readProgression(),context:campaignContext(),error:expansionError || nativeBattlePauseReason,inDialogue:!!current_dialogue,canWrite:ownsSave && !foundationSaveBlocked && !importProbeToken}),command:actParty});
@@ -8660,6 +8830,8 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
     pacingStatusPanel=createPacingStatusPanel();
     p23ExposurePanel=mountExposurePanel({host:document.getElementById('options_choices'),getState:()=>p23Exposure,getContext:p00ExposureContext,
         getKnownSkills:()=>Object.keys(skills).filter(id=>nativeSkillDiscovery(skills[id],character)),onChange:changeP00Exposure});
+    combatOptionsPanel=createCombatOptionsPanel({read:tacticsFrame,act:actTactic});
+    livingGearPanel=createLivingGearPanel({read:livingFrame,spend:spendLivingCinders});
     householdPanel=createHouseholdPanel({host:document.getElementById('location_actions_div'),read:p00HouseholdFrame,act:actP00Household});
     durabilityPanel=createDurabilityPanel();
     elementalPanel=createElementalPanel();

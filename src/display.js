@@ -924,7 +924,14 @@ function end_activity_animation(remove) {
  * @param {String} message_to_add text to display
  * @param {String} message_type used for adding proper class to html element
  */
+let nativeLogBufferReader=null;
+export function setNativeLogBufferReader(reader) {
+    if(typeof reader!=='function')throw Error('Invalid native message buffer reader.');
+    nativeLogBufferReader=reader;
+}
  function log_message(message_to_add, message_type, details = {}) {
+    const buffer=nativeLogBufferReader?.();
+    if(buffer){buffer.push([message_to_add,message_type,details]);return;}
     if(typeof message_to_add === 'undefined') {
         return;
     }
