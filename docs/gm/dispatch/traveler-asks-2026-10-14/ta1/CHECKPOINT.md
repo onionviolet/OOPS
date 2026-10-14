@@ -19,3 +19,7 @@ Re-read live PLAN Amendment 1, updated TA1.md and harvest PLAN. Supersedes the i
 ## Stage 1 complete
 
 Pure live-table index plus no-DOM SOURCE adapter and 3/3 real-table checks pass. None of the legacy asks lacks a world route; rat parts fail easy-supply/fee expectations. Rev-1 native baseline fixture created and Exported before source changes, metadata REV1_BASELINE.json; literal file /private/tmp/ta1-rev1-baseline.txt. Stage 2 next. Stage 1 commit includes only index, adapter, tests and lane documents/harness.
+
+## Stage 2 complete
+
+12 authored tagged entries across mender/river traveler/hill courier, optional grade:null, ordinary fiction clues. Reach bands are derived per quantity from knowledge, funds, inventory and tools. Draw preference ready/stretch/unknown 7:2:1 among present bands. Fee basis chooses reliable trader replacement price or estimated work at 0.5 coins/minute, then adds 25/50/75 percent and 2/5/10 discovery coins respectively. Frozen fee basis will protect saved terms. 6/6 index/table SOURCE tests pass. Table remains a balance/fiction proposal. Stage 3 next.
