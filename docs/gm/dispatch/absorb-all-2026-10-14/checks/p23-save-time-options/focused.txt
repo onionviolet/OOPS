@@ -1,0 +1,70 @@
+TAP version 13
+# Subtest: P15 optional journal is absent on old origins and release keys are disjoint
+ok 1 - P15 optional journal is absent on old origins and release keys are disjoint
+  ---
+  duration_ms: 1.443625
+  type: 'test'
+  ...
+# Subtest: P15 capture and repeated undo preserve valid exact snapshots and all legacy keys
+ok 2 - P15 capture and repeated undo preserve valid exact snapshots and all legacy keys
+  ---
+  duration_ms: 15.820167
+  type: 'test'
+  ...
+# Subtest: P15 quota setItem abort preserves the complete previous origin
+ok 3 - P15 quota setItem abort preserves the complete previous origin
+  ---
+  duration_ms: 3.533417
+  type: 'test'
+  ...
+# Subtest: P15 budget accounts for unrelated keys without eviction
+ok 4 - P15 budget accounts for unrelated keys without eviction
+  ---
+  duration_ms: 0.829041
+  type: 'test'
+  ...
+# Subtest: P15 unsupported native schemas reject before loader and storage mutation
+ok 5 - P15 unsupported native schemas reject before loader and storage mutation
+  ---
+  duration_ms: 1.026708
+  type: 'test'
+  ...
+# Subtest: P15 unsupported or malformed journal cannot be overwritten
+ok 6 - P15 unsupported or malformed journal cannot be overwritten
+  ---
+  duration_ms: 0.997792
+  type: 'test'
+  ...
+# Subtest: P15 real-loader rejection preserves every key
+ok 7 - P15 real-loader rejection preserves every key
+  ---
+  duration_ms: 0.601917
+  type: 'test'
+  ...
+# Subtest: P15 writable ownership is required both before and after asynchronous preflight
+ok 8 - P15 writable ownership is required both before and after asynchronous preflight
+  ---
+  duration_ms: 1.270791
+  type: 'test'
+  ...
+# Subtest: P15 overlapping async captures cannot lose the winning undo snapshot
+ok 9 - P15 overlapping async captures cannot lose the winning undo snapshot
+  ---
+  duration_ms: 1.400459
+  type: 'test'
+  ...
+# Subtest: P15 undo requires a valid previous snapshot and preflights both retained saves
+ok 10 - P15 undo requires a valid previous snapshot and preflights both retained saves
+  ---
+  duration_ms: 7.189708
+  type: 'test'
+  ...
+1..10
+# tests 10
+# suites 0
+# pass 10
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 725.950084
