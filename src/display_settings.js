@@ -6,6 +6,7 @@
 export const DISPLAY_KEY = 'yairpg.display.v1';
 
 export const DISPLAY_SETTINGS = [
+    {key:'stagedOpening',label:'Staged opening (proposal)',options:[['off','Off'],['on','On']],fallback:'off',description:'Introduce time, character, belongings and local actions in four steps on a fresh opening. Save, reports and settings stay reachable.'},
     {key: 'reveal', label: 'Panel reveal', options: [['full', 'Full'], ['quiet', 'Quiet'], ['off', 'Off']], fallback: 'full',
         description: 'How a panel announces itself when you first meet it in play; quiet is a short outline without movement.'},
     {key: 'coinFloat', label: 'Coin float', options: [['on', 'On'], ['off', 'Off']], fallback: 'on',

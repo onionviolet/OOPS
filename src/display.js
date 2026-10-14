@@ -1,6 +1,7 @@
 import {knownBestiarySources, knownLootValue} from './fork_discovery_views.js';
 import {vendorState, conditionText} from './ui_polish.js';
 import {equipmentDurability} from './absorb_e2/durability.js';
+import {denominationsKnown} from './reveal_chain.js';
 import {foodPacingDescription} from './absorb_e1/panel.js';
 import {rarityColor} from './rarity_palette.js';
 import {getDisplaySetting} from './display_settings.js';
@@ -757,7 +758,7 @@ function create_item_tooltip_content({item, options={}, is_trade = false}) {
 
     if (item.item_type === "BOOK") {
         if(!item.isFinished()) {
-            item_tooltip += `<br><br>Time to read: ${item.getRemainingTime()} minutes`;
+            item_tooltip += `<br><br>Time to read: ${Math.ceil(item.getRemainingTime()*10)/10} minutes`;
         }
         else {
             item_tooltip += `<br><br>Reading it provided ${character.name} with:`;
@@ -1279,7 +1280,7 @@ function update_displayed_storage() {
 }
 
 function update_displayed_money() {
-    set_HTML(document.getElementById("money_div"), `Your purse contains: ${format_money(character.money)}`);
+    set_HTML(document.getElementById("money_div"), `Your purse contains: ${denominationsKnown() ? format_money(character.money) : `${character.money} coins (denominations unfamiliar)`}`);
 }
 
 function update_displayed_total_price(total_price) {
@@ -4307,6 +4308,7 @@ function create_temperature_tooltip() {
  * @param {Boolean} round if the value should be rounded a bit
  */
 function format_money(num) {
+    if(!denominationsKnown())return `${num} coins`;
     let value;
     const sign = num >= 0 ? '' : '-';
     num = Math.abs(num);
