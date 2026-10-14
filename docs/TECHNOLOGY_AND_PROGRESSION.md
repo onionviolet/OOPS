@@ -1880,3 +1880,33 @@ hot.
 | CN13 | **USER_VISION drift** (duplicated paragraphs, stale working copy) | Already offered as a separate task; must finish before any session commits that file whole |
 | CN14 | **Steps 2 to 5 of the build order** (anomaly log with evidence store, teach one cue, glass roadmap plus RC2, one diffusion consequence) | One slice at a time per AGENTS.md; write each prompt only after the previous slice is accepted |
 | CN15 | **Push** of `codex/gameplay-foundations` | Waits for Weibao's explicit yes; publishes every session's unpushed commits to the public fork |
+
+## Game research wave as evidence, round 12, 2026-10-14
+
+Weibao: "Research? Technology? More to consider? ... save and extend
+accordingly ... Send out codex as useful".
+
+Claude, using the more-to-consider pass. Round 11 concluded the palette has
+converged and the next step is the [NEXT_SLICE_PROMPT](gm/dispatch/research-tech-2026-10-14/NEXT_SLICE_PROMPT.md)
+slice; that stands. What is new is evidence: today's 21 game passes in the
+[game research wave](gm/dispatch/game-research-wave-2026-10-14/runs/SESSIONS.md).
+This round lists what they add and sends one lane (TW-T) to check each
+against the existing rows instead of restating them.
+
+| Code | Source | Angle | Likely existing row to extend |
+|---|---|---|---|
+| RW1 | HoI4 research | Ahead-of-time penalty: research is possible early but costs more; bonuses as consumable boosts | Roadmap and diffusion steps |
+| RW2 | HoI4 doctrines and variants | A tech unlocks a design space (variants, templates), not one item | Invention planner |
+| RW3 | Academagia | Preparation is separate from practical skill; term curricula and assessment results persist | School worlds, teaching |
+| RW4 | Taiwu | Reading and comprehension of manuals, partial and damaged copies, teacher goodwill separate from institutional access | Knowledge carriers |
+| RW5 | Heaven's Vault | Evidence-backed guesses that can be corrected; the notebook compares related evidence | Anomaly log (step 2) |
+| RW6 | Discworld MUD | Use-based growth (taskmaster) with challenge-based practice that still supports queued idle work | Skill growth owners |
+| RW7 | KoL | New discovery routes for existing skills, rather than new skills | Discovery and teaching |
+| RW8 | Immortality Idle, Path of the Idle Cultivator | Techniques that change how an action behaves; technique history and refinement | Technique programs (X9) |
+| RW9 | Prestige Tree community | Explain slowed progress with the current effect, threshold and earned relief | Legibility |
+| RW10 | CivIdle, HoI4 | Age or era gates as a world dial, not a global ladder | Per-world tech dials |
+
+Little stuff: tech-relevant small touches from the wave (study notes, "you
+almost understand" lines, research receipts) go through lane TW-S.
+
+No build. Lanes: [topic wave 2026-10-14](gm/dispatch/topic-wave-2026-10-14/COMMON.md) TW-T, TW-L, TW-S.

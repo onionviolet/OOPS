@@ -18,6 +18,10 @@ Remaining gaps, in order:
 
 ## How ideas are kept
 
+## Topic wave over chains, technology, bodies and world kit, 2026-10-14
+
+Topic wave 2026-10-14 index entry: rounds appended to [modular chains](MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md#round-4-2026-10-14-the-game-research-wave-as-new-evidence-triggers-rerun) (GW1-GW10, ML-R4), [technology](TECHNOLOGY_AND_PROGRESSION.md#game-research-wave-as-evidence-round-12-2026-10-14) (RW1-RW10), [genetics](GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md#round-12-game-research-wave-as-evidence-2026-10-14) (BW1-BW8) and a new [world core kit successor root](worlds/WORLD_CORE_KIT_SUCCESSOR_2026-10-14.md) (KW1-KW6). Lanes in the [topic wave dispatch](gm/dispatch/topic-wave-2026-10-14/COMMON.md). Proposals only.
+
 [Modular production chains](MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md)
 owns the cross-stage view: one operation shape from harvest through refining,
 making, use and salvage, modularity from substance to network, and procedural

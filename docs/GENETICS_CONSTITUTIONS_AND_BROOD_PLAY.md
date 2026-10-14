@@ -1709,3 +1709,33 @@ Evidence read from the repo; nothing built.
 | NA10 | Body rites of passage | Coming-of-age tests, first hunts, scarification or naming ceremonies per culture; they record a body milestone (MG1) and grant standing (CL) |
 
 No build or browser journey was run for this pass.
+
+## Round 12: game research wave as evidence, 2026-10-14
+
+User prompt: "Constitution, genetics, little stuff and more? Expanding on
+ideas and more? physiques? Gender and more? ... save and extend
+accordingly ... Send out codex as useful".
+
+Rounds 10 and 11 covered stability, lives and authoring volume; G19 and
+SG1-SG10 already keep sex, gender and presentation as separate parts. New
+since then is evidence from today's cultivation and life-sim passes
+([game research wave](gm/dispatch/game-research-wave-2026-10-14/runs/SESSIONS.md)).
+Lane TW-B checks each row below against the existing G, SG, ST and RL rows
+and the source files before anything is added.
+
+| Code | Source | Angle | Existing row to extend |
+|---|---|---|---|
+| BW1 | Taiwu | Succession with explicit transfer channels: what passes by blood, by teaching, by item, by legacy points | B3 successor, RL3 |
+| BW2 | Taiwu, Tale of Immortal | Constitution and root tables as data: how many, how rolled, how they gate methods | G-rows on constitutions |
+| BW3 | Tale of Immortal | Preparation, advancement quality and failure recovery as separate rules at a breakthrough | Body milestones |
+| BW4 | Immortal Life | Lifespan, aging and what a breakthrough does to it | ST-E aging dials |
+| BW5 | Idle Reincarnator, Your Chronicle | Traits rolled per life, with a reset preview by carryover type (body, soul, account) | RL2, RL5 |
+| BW6 | Taiwu, Tale of Immortal, Immortal Life | How sex and gender appear in marriage, heirs, dual or gendered methods and NPC autonomy; what a world dial would change | SG3-SG10 |
+| BW7 | Warsim | Procedural races and their traits reused across systems | Nonhuman starts, B6 grammar |
+| BW8 | Path of the Idle Cultivator | Main and secondary cultivation methods as body slots | ML9 bodies as assemblies |
+
+Physiques: BW2 and BW8 are the physique angle; the lane maps any physique
+tables found (strength, build, meridians) to the existing body record.
+Little stuff: body-relevant small touches go through lane TW-S.
+
+Lanes: [topic wave 2026-10-14](gm/dispatch/topic-wave-2026-10-14/COMMON.md) TW-B, TW-L, TW-S. No build.

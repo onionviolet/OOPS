@@ -1974,3 +1974,7 @@ director acceptance.
 | NX14 | **The home clock freezes in visitor worlds.** Good for the leak, but home-world timers, rain and schedules simply pause; this is the existing frozen-absence policy and the away-ledger owner should confirm it. | ACCOUNT |
 | NX15 | **Journeys find old bugs.** The Paradise enrollment crash was a week old and invisible to 1381 tests; render paths that query every action need a test with no mission. | LATER: test |
 
+
+## Continued in the successor root
+
+Round 16 onward: [world core kit successor root](WORLD_CORE_KIT_SUCCESSOR_2026-10-14.md) (2026-10-14).

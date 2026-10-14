@@ -2942,3 +2942,14 @@ paraphrase and short identifiers. Gameplay content stays original unless
 Weibao requests a direct adaptation (PROJECT.md attribution rules). Sealed
 secrets still follow AGENTS.md. User saves and source libraries stay
 untouched.
+
+## Topic wave across chains, technology, bodies and world kit, 2026-10-14
+
+> modularity at every level and more? from harvesting, to extracting
+> resources to crafting and more? procedural rules and more? ... Research?
+> Technology? ... Constitution, genetics, little stuff and more? Expanding on
+> ideas and more? physiques? Gender and more?core stuff needed for each world
+> to be implemented in depth? do a 'more to consider? other stuff and more?
+> save and extend accordingly Send out codex as useful?' for each aspect?
+
+Topic wave 2026-10-14 recorded: one round per existing root (modular chains round 4, technology round 12, genetics round 12, world core kit successor round 16), each built on the day's 21 game passes as new evidence. Lanes TW-C, TW-T, TW-B, TW-K, TW-L (modularity at every level, consistency) and TW-S (little stuff routing) are in the [topic wave dispatch](gm/dispatch/topic-wave-2026-10-14/COMMON.md). The finished chain-build T3 rule reader (with the T2 inspector) was merged first under the merge-before-dispatch rule. Proposals only.

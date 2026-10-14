@@ -428,3 +428,58 @@ merge-sweep session instead of merged here (lane owners merge their own work).
 **Later / delegate:** save this topic as a repeatable core audit
 ([modular chains core audit](audits/MODULAR_CHAINS_CORE_AUDIT.md), created
 this round). A build dispatch for T2-T5 needs Weibao's go-ahead per slice.
+
+## Round 4 (2026-10-14): the game research wave as new evidence, triggers rerun
+
+Request (Weibao, 2026-10-14): "modularity at every level and more? from
+harvesting, to extracting resources to crafting and more? procedural rules
+and more? ... save and extend accordingly ... Send out codex as useful".
+
+Root, using the more-to-consider pass. Rounds 1-3 converged on a shared
+verdict (no universal engine; extend owners; a shared piece after two real
+consumers). What is new since round 3 is evidence, not angles: 21 game passes
+and per-game aspect passes in the [game research wave](gm/dispatch/game-research-wave-2026-10-14/runs/SESSIONS.md),
+and two fired [rerun triggers](audits/MODULAR_CHAINS_CORE_AUDIT.md#rerun-triggers).
+
+### Triggers fired
+
+| Code | Trigger | Rerun |
+|---|---|---|
+| TR1 | HV1 merged (`4f853c24`) | PC1 crosswalk and PC4 idle catch-up deltas, in lane TW-C below |
+| TR2 | T3 rule reader (`proc/cb-t3-rules`, includes T2 inspector) is a new `rules.js` consumer; merged this round after a full test pass | PC2 delta in TW-C |
+
+### New evidence to fold (game wave, to be checked by TW-C)
+
+| Code | Source | Angle for chains | Owner it touches |
+|---|---|---|---|
+| GW1 | HoI4 production lines | Efficiency that grows with a steady line and partly survives a switch (H-P3), matches re-audit U02 same-batch continuity | P6 workshops, T5 repeat order |
+| GW2 | Vagrus trip quotes | Quote a chain's full cost before committing: inputs, wages, supplies, delay reserve | T2 inspector, receipts |
+| GW3 | Idleon | Show rate and blocker beside each queued step, and a receipt for settled work | PC4 idle chains |
+| GW4 | Immortal Life | Skilled work earns trial applications; shared repairs unlock services | HV2 roles, maintenance (X18) |
+| GW5 | Taiwu village and manuals | Damaged inputs stay useful (a torn manual teaches part of a skill), mirrors X6 accounting | Salvage, knowledge |
+| GW6 | Warsim generators | One faction trait read by economy, diplomacy and descriptions; name pools reused across roles | GR rule modules, procgen |
+| GW7 | KoL | Rules that check the actual action taken, not a flag set beside it | PC2 rule readers |
+| GW8 | Prestige Tree community | A layer contract (identity, clock, persistence, reset effect) as the module boundary | R3-1 saved-domain registry |
+| GW9 | URR | Culture traits that make recognition useful (who makes what, where) | Materials provenance |
+| GW10 | Re-audit U01 | Toolkit energy and recycling as a chain stage | HV2, salvage |
+
+### Modularity at every level, consistency check (new)
+
+| Code | Angle |
+|---|---|
+| ML-R4a | The round 3 verdict (shared references, typed interfaces, exclusive custody, explanations; separate domain reducers) should read the same in the body, technology and world-kit palettes. Lane TW-L checks the four palettes and `docs/research/ABSTRACTION_INVENTORY_2026-10-14.md` for contradictions |
+| ML-R4b | A level table for knowledge (observation, technique, discipline, institution) and for bodies (tissue, organ, body, lineage, population) beside ML1-ML10, each naming its reducer and its live owner, so "every level" means the same thing everywhere |
+| ML-R4c | Procedural rules at every level: a law selects carriers at its own scope (X5, X13); list which scopes have a live reader after T3 (Village only) and which have none |
+
+### Little stuff (new, route through lane TW-S)
+
+The wave saved 20 or more small touches per game (about 500). Route chain-
+relevant ones (stack labels, receipt wording, overflow notices, tool wear
+lines) to the crafting, harvest and inspector owners, deduplicated against
+existing micro rows.
+
+### Lanes this round
+
+Dispatch: [topic wave 2026-10-14](gm/dispatch/topic-wave-2026-10-14/COMMON.md).
+TW-C (chains, triggers and sources), TW-L (levels consistency), TW-S (little
+stuff routing). Docs only, two owned files each.

@@ -28,3 +28,4 @@ Prompts and shared rules live in [`gm/dispatch/modular-chains-2026-10-14/`](../g
 | 2026-10-14 | 1 | none | Palette ML, MS, MV, MR, MX, MT, MC, MA, MI |
 | 2026-10-14 | 2 | PC1-PC5 sent | Correction: harvest end owned by HV1/HV2; FL, SR, AG, KS, GC, CS, OP |
 | 2026-10-14 | 3 | PC1-PC5 folded | X1-X19 corrections, shared verdict (no universal engine), top picks T1-T5, R3-1 to R3-5 |
+| 2026-10-14 | 4 | TW-C, TW-L, TW-S ([topic wave](../gm/dispatch/topic-wave-2026-10-14/COMMON.md)) | Triggers TR1 (HV1 merged) and TR2 (T3 rule reader merged); game wave evidence GW1-GW10; levels consistency ML-R4a-c |
