@@ -1,0 +1,42 @@
+{
+  "viewport": {
+    "width": 1366,
+    "height": 768
+  },
+  "servedHash": "e8f1bee494155325c4b6be013044e3564d82b329de82b8caf528e158cdce958b",
+  "checks": [
+    {
+      "id": "B1",
+      "label": "fresh-origin native desktop loads rebuilt bundle",
+      "ok": true,
+      "hash": "e8f1bee494155325c4b6be013044e3564d82b329de82b8caf528e158cdce958b"
+    },
+    {
+      "id": "B2",
+      "label": "native old-save defaults preserve optional absence",
+      "ok": true
+    },
+    {
+      "id": "B3",
+      "label": "native reload retains held title state",
+      "ok": true
+    },
+    {
+      "id": "B4",
+      "label": "native literal-file import preserves old held titles and optional absence",
+      "ok": true
+    },
+    {
+      "id": "B5",
+      "label": "SUPPLEMENTAL uncoupled worn UI callbacks",
+      "ok": true,
+      "fixture": {
+        "sleeping": 1.02,
+        "combat": 1.02
+      }
+    }
+  ],
+  "errors": [],
+  "nativeChangedLoop": "OPEN: P00 host joins required",
+  "positivePersistence": "OPEN: P00 host joins required"
+}

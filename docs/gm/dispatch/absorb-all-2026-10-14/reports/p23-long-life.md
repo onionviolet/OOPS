@@ -93,8 +93,13 @@ also in the companion ledger.
 - C3: Full suite `npm test -- --test-concurrency=2 --test-timeout=60000`: 630 tests,
   630 pass, 0 failures, 0 cancelled/skipped, 55,486.972459 ms. No timeout hit.
   Initial unrestricted `npm test` stalled after 55 visible passes and was terminated
-  in this lane only; termination flushed 141 buffered passing tests, without a final
-  summary. Only the completed bounded run counts as full-suite proof.
+  in this lane only; termination flushed 140 passes and one failure, without a final
+  summary. Failed test: `equipped native brace with an open road offer keeps ticking,
+  travelling and reloading` (`tests/alloy_equipment.test.js:118`), whose existing
+  fixture subprocess hit its 60-second timeout. It passed in the completed bounded
+  run. This is an observed initial failure resolved by lower test concurrency, not
+  asserted to be a pre-existing product bug. Only the completed bounded run counts
+  as full-suite proof.
 - C4: Fresh-origin native Chrome headless desktop: 4 baseline checks pass for
   rebuilt served bytes, optional absence, held-title reload and export/literal-file
   import. One supplemental uncoupled UI callback check passes. Zero page errors.

@@ -58,7 +58,12 @@
     },
     "initial_full": {
       "command": "npm test",
-      "status": "terminated after stalled output; 141 buffered passing tests, no summary; not completion evidence"
+      "status": "terminated after stalled output; no final summary",
+      "visible_pass": 140,
+      "visible_fail": 1,
+      "failed_test": "equipped native brace with an open road offer keeps ticking, travelling and reloading",
+      "failure": "existing fixture subprocess exceeded 60000 ms under unrestricted concurrency",
+      "resolution": "same test passed in completed 630/630 bounded full run"
     },
     "browser": {
       "viewport": [
