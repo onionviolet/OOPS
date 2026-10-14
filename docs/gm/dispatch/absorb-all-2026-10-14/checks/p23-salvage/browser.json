@@ -1,0 +1,14 @@
+{
+  "kind": "fresh-origin base smoke only; changed native salvage loop OPEN",
+  "viewport": [
+    1366,
+    768
+  ],
+  "origin": "http://127.0.0.1:18827/",
+  "servedBundleSha256": "598e02f54fe7db4c9a35bc79c75a754a7f8dc42eccf9fab828de8fd82e97b615",
+  "localBundleSha256": "598e02f54fe7db4c9a35bc79c75a754a7f8dc42eccf9fab828de8fd82e97b615",
+  "servedBytesMatch": true,
+  "errors": [],
+  "salvageInNativeBundle": false,
+  "nativeSaveReloadExportLiteralImport": "OPEN: P00 host connection absent"
+}
