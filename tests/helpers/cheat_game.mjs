@@ -5,13 +5,13 @@ import {createRequire} from 'node:module';
 import {build} from 'esbuild';
 const require = createRequire(import.meta.url);
 const {chromium} = require('/Users/weiwei/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
-export async function cheatGame() {
+export async function cheatGame({start = 'none'} = {}) {
     const root = new URL('../../', import.meta.url);
     const source = await readFile(new URL('src/main.js', root), 'utf8');
     const bundle = await build({entryPoints: [new URL('src/main.js', root).pathname],
         plugins: [{name: 'cheat-test-access', setup(build) {
             build.onLoad({filter: /[/\\]src[/\\]main\.js$/}, () => ({contents: source + `
-                globalThis.__cheatTest = {create_save, load, read: () => structuredClone(cheatState),
+                globalThis.__cheatTest = {create_save, load, advance: update_timer, read: () => structuredClone(cheatState),
                   set: value => {cheatState=validateCheatState(value);}};`, loader: 'js', resolveDir: new URL('src/', root).pathname}));
         }}], bundle: true, write: false, format: 'esm', platform: 'browser', target: 'es2022'});
     const server = createServer(async (req, res) => {
@@ -32,7 +32,10 @@ export async function cheatGame() {
     await page.goto(`http://127.0.0.1:${server.address().port}/`, {waitUntil: 'domcontentloaded'});
     await page.locator('#loading_screen_play_button:not(.none_display)').click();
     await page.waitForTimeout(1200);
-    if(await page.locator('#hero_creation_panel_confirmation').isVisible()) await page.locator('#hero_creation_panel_confirmation').click();
+    if(await page.locator('#hero_creation_panel_confirmation').isVisible()) {
+        await page.locator('[data-cheat-start]').selectOption(start);
+        await page.locator('#hero_creation_panel_confirmation').click();
+    }
     await page.waitForFunction(() => !!globalThis.__cheatTest);
     return {page, errors, close: async () => {await browser.close(); await new Promise(resolve => server.close(resolve));}};
 }
