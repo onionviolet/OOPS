@@ -1,0 +1,17 @@
+{
+  "lane": "air-workshop",
+  "foundationBase": "0216ccdefcfce79877378f8cb0ee41129fe11c5d",
+  "mergeCommit": "8ff5f936",
+  "implementationCommit": "379518ec",
+  "viewport": [
+    1366,
+    768
+  ],
+  "origin": "http://127.0.0.1:18701/",
+  "bundleSha256": "62e3888c2fa4a5179e8043823ea10e8f152f261c70d78ee7608cdbf5ecded9dc",
+  "generatedBundleCommitted": false,
+  "legacyClientSource": "git archive 0216ccde index.html dist style.css styles assets resources locales favicon.ico",
+  "proposal": true,
+  "humanTasteAccepted": false,
+  "loaderCommit": "04c79ed3"
+}
