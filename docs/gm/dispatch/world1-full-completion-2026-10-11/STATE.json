@@ -1,10 +1,10 @@
 {
   "schema": "world1-full-completion-chain-1",
-  "ownerThreadId": "01a12e25-4154-7090-bcc2-d434478da4cc",
+  "ownerThreadId": "w1-campaign Codex coordinator",
   "predecessorThreadId": "01a12dee-d943-7cf2-ade3-8b5163bd0532",
-  "goalStatus": "paused",
+  "goalStatus": "active",
   "soleGoal": "ASSIGNMENT.md",
-  "candidate": "/Users/weiwei/.codex/worktrees/world1-completion/yet-another-idle-rpg",
+  "candidate": "/Users/weiwei/code/yet-another-idle-rpg/.claude/worktrees/w1-campaign",
   "rootScopes": [
     "dispatch except coverage",
     "candidate manifest/runtime/tests/build/native proof",
@@ -15,58 +15,8 @@
     "structured equipment integration and affected tests",
     "src/models/hero.js current equipment effect refresh; no incumbent writer"
   ],
-  "workers": {
-    "route_livelihood": {
-      "id": "/root/route_livelihood",
-      "scope": "new shared private route area and p08 only",
-      "state": "complete/released;no active write or proof process"
-    },
-    "equipment_consumer": {
-      "id": "/root/equipment_consumer",
-      "scope": "new structured equipment module/tests/private equipment receipt",
-      "state": "complete/released;no active write or proof process"
-    },
-    "source_extraction": {
-      "id": "/root/source_extraction",
-      "scope": "new ignored source-e2-b Chapters71\u201384 only; prior source-e2-a completed/released",
-      "state": "complete/released;no active write or proof process"
-    },
-    "route_review": {
-      "id": "/root/route_review",
-      "scope": "read-only;new generic public review/private route-review receipts only",
-      "state": "complete/released;no active write or proof process"
-    },
-    "source_e2_c": {
-      "id": "/root/source_e2_c",
-      "scope": "new ignored source-e2-c only Chapters85\u201398 full qualification",
-      "state": "complete/released;no active write or proof process"
-    },
-    "native_performance": {
-      "id": "/root/native_performance",
-      "scope": "ignored native-performance only;root source fixes",
-      "state": "complete/released;no active write or proof process"
-    }
-  },
-  "processes": [
-    {
-      "origin": "http://127.0.0.1:18554/",
-      "pid": 72991,
-      "scope": "inherited static candidate preview",
-      "state": "idle retained HTTP server;not simulation/proof loop"
-    },
-    {
-      "origin": "http://127.0.0.1:18555/",
-      "pid": 77327,
-      "scope": "inherited static intended shared preview",
-      "state": "idle retained HTTP server;not simulation/proof loop"
-    },
-    {
-      "origin": "http://127.0.0.1:18556/",
-      "pid": 78836,
-      "scope": "inherited static proof preview",
-      "state": "idle retained HTTP server;not simulation/proof loop"
-    }
-  ],
+  "workers": {},
+  "processes": [],
   "successors": [
     {
       "threadId": "01a12e25-4154-7090-bcc2-d434478da4cc",
@@ -76,11 +26,11 @@
       "status": "create_thread returned actual ready ID; exclusive writes transferred"
     }
   ],
-  "sharedIntegration": "foundation coordinator owns shared integration after explicit release;World1 stays paused;candidate remains older",
-  "nextAction": "Requires explicit human resume;then read PAUSED_HANDOFF/PAUSE_COORDINATION/current foundation owners and exact private inputs before selecting progression/native unit",
+  "sharedIntegration": "Root Claude Code merges branch; no main-checkout runtime writes",
+  "nextAction": "Source-qualify and implement L2-U01 F05 supplies/service recipient consumer in a new immutable edition",
   "projectResume": "PROJECT.md Full book world 1 delivery; parent/current macro/system/absorption have no retained claim; appended without rewriting dirty hunks",
   "projectHash": "338c163655c5bf916e5332fe71628935d7a1d682410de5dfb7e35cf8bf645340",
-  "stage": "human-paused;durable handoff;no active implementation/proof work",
+  "stage": "W1-C01 verified; next W1-C02",
   "sourceIntegration": "paused shared p08 baseline preserved in private capsule;candidate older,not byte mirror;future foundation deltas need affected proof reconciliation",
   "uiCoordination": {
     "threadId": "01a12e3a-298d-7612-972b-031015c2f368",
@@ -108,34 +58,28 @@
     "durability": "W1-FULL-F03 canonical identity authorization/count corrected plus actual native wear projection;52focused checks;native enabled gate pending"
   },
   "sourceChecks": {
-    "fullSource": 417,
-    "lastFullScope": "before one guard and location-projection refinement",
-    "affectedLatest": 15,
-    "focusedEquipment": 9,
-    "privateConnected": 13,
-    "build": "shared exit0;after latestsource",
-    "native": "earlierpartial worn save/reload/import and immediateunequip5.5\u21921.5;finaljourney pending"
+    "fullSource": 620,
+    "focusedC01": 8,
+    "selectorRegression": 2,
+    "build": "PASS"
   },
   "nativeState": {
-    "N1": "same actual run positive prefix/sales/returns and import evidence retained;earlier exact bundle input;latest UI/host-only delta still requires affected current acceptance,not whole-world verified",
-    "p07": "fresh actual prior receipt/facts/inventory file import/reload PASS;packbytefrozen;before performance-only delta",
-    "N2": "open",
-    "N3": "open;weekly native long interval",
-    "N4": "open",
-    "N5": "partial charge debit observed;cancel raced completion;latest generated has no pending jobs;depletion/recovery/persistence native failed/unrun;preserved in private pause capsule"
+    "G9": "N1-N4 and requested N5 provider seeded-native retained",
+    "C01": "21 redacted results; 12 persistence checkpoints; seeded-native PASS",
+    "fullCampaign": "15 section gates OPEN"
   },
   "pausedAt": "2026-10-12",
   "pauseAuthority": "Weibao explicit pause relayed by predecessor01a12dee-d943-7cf2-ade3-8b5163bd0532",
-  "requiresExplicitResume": true,
-  "activeWriteReservation": false,
+  "requiresExplicitResume": false,
+  "activeWriteReservation": true,
   "handoff": "PAUSED_HANDOFF.md",
   "foundationCoordination": "PAUSE_COORDINATION.md",
   "privateSnapshot": "docs/research/novels/world1-full-completion-2026-10-11/pause/INPUTS.json",
   "apiGoal": "none in this chat;get_goal returned null",
   "proofProcesses": "none running;task-specific ps inventory empty;all recorded sessions exited/browsers closed",
   "successorCreationAllowed": false,
-  "currentBundle": "5b3863b2a2c2f04dfd4318b80349aca4610c2cf49ccb980bfe1a0777705055cf",
-  "currentPack": "b7da41fd1a55720792f7c132fe64c6fbb84bb45c66c12c3c23caeb497601f213",
+  "currentBundle": "74207cc3061498aa23cecdeac83d9b1a6d3ab8f149bd0eab5f9e95afdd2999a6",
+  "currentPack": "eadae04632e2dc90732d2518b62397e83ea4ee7d848099fce9b442753469781f",
   "candidateSourceParity": false,
   "pauseHandoffHash": "718f0cf26a0f03e5624707e55caa1389a11fc236a0181724b2565331d56fac1e",
   "pauseSnapshotHash": "0ac3c2282df240763fb7b595710d1ec1ff4c03481471f5d7cd812066fa1e5c1e",
@@ -144,5 +88,9 @@
     "path": "FOUNDATION_OWNERSHIP_RELEASE_2026-10-12.json",
     "status": "effective;shared donor-held runtime/build claims released;private/frozen/world resume exclusions retained",
     "sha256": "bf2209f7bccfcf761367e993422aafc092af52a48adbf35925e6abbfbf80b864"
-  }
+  },
+  "resumedAt": "2026-10-13",
+  "resumeAuthority": "Weibao: send the full World1 campaign after G9 with codex",
+  "privateCompanion": "private_packs/p09/pack.json; main installation by root only",
+  "activeProof": "19300/19301 C01 harness; disposable profile; idle after checks"
 }

@@ -290,13 +290,14 @@ import {beginStructuredCampaign,planStructuredSelection,validateStructuredBootst
 import {requireStructuredContent,requireStructuredSelection} from './structured_pack_state.js';
 import {previewStructuredRenewal,commitStructuredRenewal} from './structured_renewal.js';
 import {createStructuredPackPanel} from './structured_pack_ui.js';
+import {initialStructuredBeginning} from './structured_beginning_choice.js';
 import {nativeStructuredEquipmentTemplate,projectStructuredEquipment} from './structured_equipment_runtime.js';
 import {createContentPackPanel} from './content_pack_ui.js';
 import {SafeLocation as OptionalPackLocation} from './models/location.js';
 const optionalPacks=new Map();
 const foundationProbeEnabled=typeof location!=='undefined'&&['localhost','127.0.0.1'].includes(location.hostname)&&new URLSearchParams(location.search).get('foundation_probe')==='1';
 const structuredPacks=new Map();
-const initialStructuredDefinition=()=>foundationProbeEnabled&&structuredPacks.get(FOUNDATION_START_PACK_ID)||structuredPacks.get(LIVELIHOOD_PACK_ID)||[...structuredPacks.values()][0];
+const initialStructuredDefinition=()=>initialStructuredBeginning(structuredPacks,foundationProbeEnabled?FOUNDATION_START_PACK_ID:null);
 const packDefinitionsForSave=()=>new Map([...optionalPacks,...structuredPacks]);
 let structuredPanel,structuredNotice='',suspendedStructuredSave=null;
 let cheatState=defaultCheatState();

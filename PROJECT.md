@@ -621,32 +621,16 @@ director acceptance and broader full-world horizons remain open.
 [Report, play path and remainder](docs/gm/dispatch/world1-expansion-2026-10-11/REPORT.md);
 [checkpoint](docs/gm/dispatch/world1-expansion-2026-10-11/CHECKPOINT.md).
 
-## Full book world 1 delivery, paused 2026-10-12
+## Full book world 1 campaign resumed, 2026-10-13
 
-Weibao requested a dedicated fresh GM to implement the whole supplied-source
-book world, including meaningful small details, and continue through useful
-fresh-context successors until autonomous technical delivery is complete.
-Connected units sequence that work; the earlier verified finite edition does
-not define or close this full-world goal. S00–S14 source/detail coverage,
-actual consumers, rebuilt native gameplay and persistence, integrated playable
-starts/routes/late progression/continuation, and independent gap review remain
-required. Director fiction/balance/pacing acceptance stays human-only.
-
-Paused snapshot owner, with no active implementation writes:
-`01a12e25-4154-7090-bcc2-d434478da4cc`.
-[Assignment and live checkpoint](docs/gm/dispatch/world1-full-completion-2026-10-11/CHECKPOINT.md)
-own the complete horizon, source boundaries, ledger, runtime reservations and
-successor transfer. The existing dirty World1 candidate is retained; frozen
-predecessor packs and proofs stay intact. Shared runtime integration has an
-explicit incumbent release and a restricted input plan. No commits, pushes,
-publishing, source acquisition or private-save changes are authorized by this
-assignment. New mechanics and numbers remain playable proposals.
-
-Weibao paused this goal on 2026-10-12 for foundational/progression review.
-[Paused handoff](docs/gm/dispatch/world1-full-completion-2026-10-11/PAUSED_HANDOFF.md)
-and [foundation coordination](docs/gm/dispatch/world1-full-completion-2026-10-11/PAUSE_COORDINATION.md)
-retain exact current inputs, private source coverage, failed/unrun native gates
-and shared-owner dependencies. All internal workers/proof browsers are released;
-no successor or further implementation runs until explicit human resumption.
-The whole source/world horizon remains open, and isolated foundation/UI/customization
-returns require their own narrow integration and acceptance gates.
+Weibao: “send the full World1 campaign after G9 with codex”. The full pause
+is lifted, including the complete supplied-source and existing design horizon
+across S00–S14. G9’s local N1–N5 seeded-native evidence is retained at its
+exact scope; broader campaign, natural pacing and director acceptance remain
+OPEN. [Live checkpoint](docs/gm/dispatch/world1-full-completion-2026-10-11/CHECKPOINT.md)
+and [progress](docs/gm/dispatch/world1-full-completion-2026-10-11/PROGRESS.md) own
+execution. Codex is sole World1 writer in `.claude/worktrees/w1-campaign`,
+committing units on `w1-campaign`; root merges. Main checkout is not written.
+Old reservation mechanics, no-commit rule and new-chat daisy chain are
+superseded. The [pause snapshot](docs/gm/dispatch/world1-full-completion-2026-10-11/history/2026-10-13-paused-project-section.md)
+retains previous authority and evidence without competing live instructions.

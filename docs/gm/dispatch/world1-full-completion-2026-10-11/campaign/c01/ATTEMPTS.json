@@ -1,0 +1,26 @@
+{
+  "sourceAuthorCorrections": [
+    "participant namespace corrected before compilation passed",
+    "route prerequisites corrected in source driver",
+    "ordinary exposure prepare added after ST05 fresh-sale rejection reproduced"
+  ],
+  "nativeAttempts": [
+    {
+      "id": 1,
+      "observedPrefix": [
+        {
+          "id": "C01-normal-installed-entry",
+          "label": "seeded-native",
+          "status": "PASS",
+          "fixtureDefinitionMapEdits": false,
+          "magicalAccessGranted": false
+        }
+      ],
+      "failure": "Import PLAY visibility timed out at five seconds; later loading screen clean; widened only harness wait to thirty seconds."
+    },
+    {
+      "id": "visible-1",
+      "failure": "Test targeted the edit-only Expand button; corrected to normal Layout > Panels > Open Your beginning route."
+    }
+  ]
+}
