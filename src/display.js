@@ -16,7 +16,7 @@ import { get_next_skill_milestone, get_unlocked_skill_rewards } from "./models/s
 import { character, cold_status_temperatures, lowest_tolerable_temperature } from "./data/character.js";
 import {nativeSkillDiscovery} from './skill_discovery_native.js';
 import { game_options, 
-    can_work, current_location, 
+    can_work, current_location, readLocalWeatherWords,
     active_effects, enough_time_for_earnings, 
     get_current_book, last_location_with_bed, 
     last_combat_location, faved_stances, 
@@ -1101,7 +1101,14 @@ function end_activity_animation(remove) {
     const log_was_following = getDisplaySetting("logFollow") === "always" || is_message_log_near_bottom();
 
     message.classList.add(class_to_add, group_to_add);
-    set_HTML(message, message_to_add);
+    if(details.safeText) message.textContent = message_to_add;
+    else set_HTML(message, message_to_add);
+    if(details.calendarDate) {
+        message.dataset.calendarDate = details.calendarDate;
+        message.tabIndex = 0;
+        message.title = details.description;
+        message.setAttribute('aria-label', `${message_to_add}. ${details.description}`);
+    }
     //message.innerText = message_to_add;
     insert_HTML(message, "<div class='message_border'> </>");
 
@@ -4226,6 +4233,14 @@ function update_displayed_time() {
 }
 
 function update_displayed_temperature(optionalWeather = {}) {
+    const localWords = readLocalWeatherWords();
+    if (localWords !== null) {
+        clear_HTML_content(weather_field);
+        weather_field.textContent = localWords;
+        weather_field.title = 'Display only; local climate proposals do not change weather effects.';
+        return;
+    }
+    weather_field.removeAttribute('title');
     const temperature = get_current_temperature_smoothed() + (optionalWeather.temperatureOffset || 0);
     let displayed_temperature = Math.round(10*(game_options.use_uncivilised_temperature_scale?celsius_to_fahrenheit(temperature):temperature))/10;
     let html_content;

@@ -1,3 +1,5 @@
+import {resolveWorldCalendar, createCalendarLog} from './world_calendar.js';
+import {worldWeatherWords} from './world_weather_display.js';
 import {STREAMS,ensureStreams,bindGameStreams,gameRandom,gameRandomRange,drawUnit,scopedStream,seededRecipe,validateNativeEncounter,streamSeed} from "./seeded_streams.js";
 const mixtureSeed=()=>streamSeed(expansionState,STREAMS.craft,"village.mixtures@1");
 const generatedPeopleSeed=()=>streamSeed(expansionState,scopedStream("world.people"),"village.generated_people@1");
@@ -398,6 +400,13 @@ const importProbeToken = new URL(window.location.href).searchParams.get("import_
 let importInProgress = false;
 let loadingReputationTotals = null;
 let restoringNativeSave = false;
+const localDateLog = createCalendarLog((...args) => log_message(...args));
+export function readLocalCalendar() {return resolveWorldCalendar(expansionState, current_game_time);}
+export function readLocalWeatherWords() {
+    return worldWeatherWords(expansionState?.actors?.player?.worldId ?? 'base.frontier', readLocalCalendar(), current_location);
+}
+function commitLocalDateHeader() {if (!restoringNativeSave) localDateLog.commit(readLocalCalendar());}
+
 
 import {prepareV06Save} from "./save_migration.js";
 
@@ -919,6 +928,7 @@ function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}) {
     stageContextualBalmEffectRequest(expansionState,plan,expeditionContext());
     reconcileWorldCompletionPlan(plan,expeditionRegistry,{player:{...expeditionContext(),external:plan.external,gameplay:plan.gameplay,vitals:plan.vitals||expeditionContext().vitals,equipment:plan.equipment||expeditionContext().equipment}});
     reconcileStructuredLifePlan(plan,optionalPackState.structured,{deaths:game_stats.total_deaths});
+    const nextLocalCalendar = resolveWorldCalendar(plan.state, plan.calendar ?? current_game_time);
     const previousNight = is_night(current_game_time);
     if(!ownsSave || importProbeToken || expansionError || foundationSaveBlocked || is_loading_error) throw new Error(expansionError || "This tab cannot commit expeditions.");
     for(const actor of Object.values(plan.state.actors)) {
@@ -981,6 +991,7 @@ function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}) {
     // Every owned domain is durable before native state is published. Rendering
     // happens afterward and never applies rewards.
     expansionState = plan.state;
+    localDateLog.commit(nextLocalCalendar);
     if(plan.pacingNext){setPacingState(plan.pacingNext);pacingMinute=plan.pacingTarget;pacingPanel?.render();pacingStatusPanel?.render();durabilityPanel?.render();elementalPanel?.render();}
     if(plan.nativePatch?.fort_supply)fortSupply=migrateFortSupply({fort_supply:plan.nativePatch.fort_supply});
     if(plan.localLifeResult){localLife=normalizeLocalLife(plan.localLifeResult.state);for(const message of plan.localLifeResult.messages)log_message(message,'notification');}
@@ -2288,6 +2299,7 @@ function change_location({location_id, event, skip_travel_time = false, do_quest
         persistExpansion({state,external:{money:character.money},gameplay:gameplaySnapshot(),nativeLocation:location.id,nativeEnterQuest:do_quest_events,nativePatch:{'current location':location.id}});
         return;
     }
+    commitLocalDateHeader();
     if(do_quest_events) {
         do_quest_event({
             quest_event_type: "enter_location",
@@ -7204,6 +7216,8 @@ function load(save_data) {
         update_displayed_time();
         set_loading_screen_versions(save_data["game version"]);
         if(any_warnings) foundationSaveBlocked = true;
+        localDateLog.reset();
+        localDateLog.commit(readLocalCalendar());
         return {warnings: any_warnings};
     } catch(error) {
         foundationSaveBlocked = true;
@@ -7342,6 +7356,7 @@ function update_timer(time_in_minutes, source = null) {
         }
     }
     current_game_time.goUp(minutes);
+    commitLocalDateHeader();
     refreshCustomization();
     advanceExpeditions(minutes);
     if(localLife.lastClock!==calendarMinutes(current_game_time)) {
@@ -8293,6 +8308,7 @@ if(importProbeToken) {
     update_displayed_xp_bonuses();
 } else {
     set_loading_screen_versions();
+    commitLocalDateHeader();
     character.addToInventory([
                                 //{item_id: "Cheap iron sword", quality: 50},
                                 {item_id: "Cheap leather pants", quality: 40},
