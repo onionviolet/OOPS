@@ -4299,3 +4299,9 @@ other sessions; weapon/rune work is canonical in the UI-at-scale session's
 palette (R1-R3), so WR1-WR4 here were stopped as duplicates. Story round 11 saved
 (BN story-reveal cheats, BO one knowledge layer, BP story abstractions, BQ
 implementation). Finished lane reports committed; push awaits Weibao's yes.
+
+Then (2026-10-14): “save as core audit to repeat in the future too”. Saved
+[companions core audit](audits/COMPANIONS_CORE_AUDIT.md) (triggers, lane
+templates C1-C16, procedure, run log) and the general
+[topic expansion audit playbook](audits/TOPIC_EXPANSION_AUDIT_PLAYBOOK.md)
+with the own-paths commit helper and project skill `topic-expansion-audit`.
