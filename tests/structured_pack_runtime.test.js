@@ -128,7 +128,7 @@ test('observer action quote contains time and own inputs but no NPC reserves or 
     const f=setup(),view=structuredCampaignView(f.plan.state,f.definition,f.record,{...f.context,registry:f.registry});
     const repair=view.actions.find(a=>a.id==='atelier.repair');assert.equal(repair.duration,2);assert.deepEqual(repair.costs,[]);assert.equal(repair.repeatable,true);
     assert.deepEqual(structuredActionCosts({eligible:true,costs:[{type:'vital',key:'stamina',amount:-2},{type:'item',actor:'player',key:key('worn'),amount:-1},{type:'resource',actor:'atelier.issuer',key:'secret',amount:-400}]},f.definition),['2 stamina','1 × worn']);
-    assert.deepEqual(structuredActionCosts({eligible:false,costs:[{type:'vital',key:'stamina',amount:-2}]},f.definition),[]);
+    assert.deepEqual(structuredActionCosts({eligible:false,costs:[{type:'vital',key:'stamina',amount:-2}]},f.definition),['2 stamina']);
 });
 
 
