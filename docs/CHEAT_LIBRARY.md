@@ -888,3 +888,70 @@ proposals:
 
 Open questions they raise are collected in USER_VISION's 2026-10-13 cheat
 entries once answered; until then they stay in each draft.
+
+### More to consider: status window stage 1 (2026-10-13)
+
+Weibao: "more to consider for the status window stage 1? Make a prompt to
+audit". Stage 0 shipped (CH1: dormant start, awakening, informational panel).
+Stage 1 adds **system quests and points**. Palette, not specs.
+
+**What stage 1 is (S1)**
+
+| Code | Consideration |
+| --- | --- |
+| S1.1 | **Trigger:** stage 1 opens after a stretch of ordinary play since awakening (days lived, a level, a first title), never at awakening itself |
+| S1.2 | **Quests come from real state:** counters, skills, known recipes, known people and routes, titles; never a parallel fake world. Reuse `src/quests.js` task/condition shapes where they fit, but keep system quests in the held card's state, apart from the journal's story quests |
+| S1.3 | **Spoiler-safe generation:** only targets the player can already see (a known recipe, a known person, a known route); unknown content is never named |
+| S1.4 | **Near-next, not far:** each quest is one or two steps beyond what the player has done ("make 3 Processed rough wood", "reach Woodworking 2", "talk to the elder again") |
+| S1.5 | **Idle-friendly kinds:** milestone (one-off), habit (daily, passive-capable: "rest 8 hours", "work 2 shifts"), discovery-safe (visit a known place), social (talk to someone known), craft (make N of a known recipe) |
+| S1.6 | **Cadence and caps:** a small board (three to five), daily refresh, a soft daily point cap; abandon and reroll with a cost or a cooldown |
+| S1.7 | **Deterministic and saved:** generated from a stored seed and real counters, so reload and import give the same board |
+
+**Points and rewards (S1P)**
+
+| Code | Consideration |
+| --- | --- |
+| S1P.1 | Points accumulate at stage 1 but **buy nothing that skips progression**; their first use is stage 2's shop |
+| S1P.2 | Optional small information rewards at stage 1: a hint where a known material is sold, the success odds of a known recipe, a forecast line |
+| S1P.3 | Titles can come from system quests through the existing titles owner, never a second title system |
+| S1P.4 | No item or XP rewards that complete existing chains (the progression guard) |
+| S1P.5 | Point earning pace is a per-world and per-life dial (humble / standard / strong) |
+
+**Status window UI at stage 1 (S1U)**
+
+| Code | Consideration |
+| --- | --- |
+| S1U.1 | Quest rows: title, progress (have/need), time left for habits, a Claim button; claimed rows fade, not vanish, until the next refresh |
+| S1U.2 | Completion as one quiet system line in the log; claim as a settled receipt (same truthful-receipt rule as crafting) |
+| S1U.3 | A "why" line on each quest ("you know this recipe"), building trust that the system reads real state |
+| S1U.4 | Settings: auto-claim, quest notifications quiet/normal/off, board size |
+| S1U.5 | The stage-1 opening is its own reveal (once, never on reload/import), under the Effects master switch |
+| S1U.6 | Keyboard: rows and Claim reachable; F6 reaches the panel |
+
+**System voice and world fit (S1V)**
+
+- Voice per card and world (SW2): terse system, the Clerk, a guide; a setting tones it down.
+- In a world where the window is world law (WR2), stage 1 quests are what everyone gets; the cheat is the extra (WR3).
+- The board can be jammed, cracked or dark under interference (SW7), and says so.
+
+**Persistence and compatibility (S1S)**
+
+- Quest board, seed, points and stage live inside the held card's `state`
+  (C0 shape), so no new top-level save field. Older held cards default to
+  stage 0 with an empty board.
+- Validators extend with a closed quest-entry shape; invalid boards are
+  refused at import like invalid cards.
+- Counters already in the save (titles' counters, game_stats) drive progress;
+  no counter is duplicated.
+
+**Edge cases worth deciding**
+
+Quests that become impossible (a person dies, a route closes) close with a
+reason and refund nothing or a small amount; quests completed before they
+were offered don't count retroactively unless the board says "already done";
+an heir inherits the card only if its backing allows, with or without its
+board; a jammed window keeps counting but can't show.
+
+**Suggested build order:** S1.1-S1.4 with two quest kinds (milestone, craft)
+and points with no spend; S1U.1-S1U.3; persistence S1S; then habits (S1.5)
+and settings (S1U.4).

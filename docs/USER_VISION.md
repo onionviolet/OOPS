@@ -1902,3 +1902,8 @@ Then: “more to consider for cheat types per world? multiversal cheats? cheat
 rarity and more? mroe to consider? hiding ui? integrations and more? send out
 codex accordingly”. Dispatched as three Codex docs workers in
 [cheat-considerations-2026-10-13](gm/dispatch/cheat-considerations-2026-10-13/).
+Then: “more to consider for the status window stage 1? Make a prompt to
+audit”. Stage 1 palette (S1, S1P, S1U, S1V, S1S) in
+[CHEAT_LIBRARY](CHEAT_LIBRARY.md#more-to-consider-status-window-stage-1-2026-10-13);
+audit prompt at
+[AUDIT_PROMPT.md](gm/dispatch/cheat-status-window-2026-10-13/AUDIT_PROMPT.md).
