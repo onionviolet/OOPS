@@ -1,0 +1,31 @@
+{
+ "ok": true,
+ "value": {
+  "label": "seeded-native",
+  "cases": [
+   {
+    "acceptance": 2,
+    "status": "paused",
+    "refund": true,
+    "noOutput": true
+   },
+   {
+    "acceptance": 3,
+    "status": "paused",
+    "refund": true,
+    "noOutput": true
+   }
+  ],
+  "persistence": {
+   "label": "reserve-refunded-budget",
+   "reload": true,
+   "literalImport": true,
+   "file": "reserve-refunded-budget.txt",
+   "sha256": "11cf361df3650394d603aba2f4c5cd9ec16b6833f9a3aa5074cda908e05e0263",
+   "clock": 758,
+   "derivedCacheDifferences": [
+    ".character.equipment.weapon.rarity"
+   ]
+  }
+ }
+}

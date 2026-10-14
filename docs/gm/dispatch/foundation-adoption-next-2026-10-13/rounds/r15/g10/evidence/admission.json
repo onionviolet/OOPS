@@ -1,0 +1,205 @@
+{
+ "label": "seeded-native",
+ "cases": [
+  {
+   "id": "manual-missing",
+   "result": {
+    "ok": false,
+    "message": "Bring your own clearance manual, put it away from equipment and return any borrowed copy first."
+   },
+   "durableUnchanged": true
+  },
+  {
+   "id": "manual-borrowed",
+   "result": {
+    "ok": false,
+    "message": "Bring your own clearance manual, put it away from equipment and return any borrowed copy first."
+   },
+   "durableUnchanged": true
+  },
+  {
+   "id": "manual-body",
+   "result": {
+    "ok": false,
+    "message": "Return to the Village and recover before this clearance work. Bench work also needs usable hands and access to Eda’s bench."
+   },
+   "durableUnchanged": true
+  },
+  {
+   "id": "manual-world",
+   "result": {
+    "ok": false,
+    "message": "Return to the Village and recover before this clearance work. Bench work also needs usable hands and access to Eda’s bench."
+   },
+   "durableUnchanged": true
+  },
+  {
+   "id": "manual-site",
+   "result": {
+    "ok": false,
+    "message": "The work site is at capacity."
+   },
+   "durableUnchanged": true
+  },
+  {
+   "id": "retort-missing",
+   "result": {
+    "ok": false,
+    "message": "The required knowledge, means or circumstances are missing."
+   },
+   "durableUnchanged": true
+  },
+  {
+   "id": "retort-borrowed",
+   "result": {
+    "ok": false,
+    "message": "The required knowledge, means or circumstances are missing."
+   },
+   "durableUnchanged": true
+  },
+  {
+   "id": "retort-body",
+   "result": {
+    "ok": false,
+    "message": "The required knowledge, means or circumstances are missing."
+   },
+   "durableUnchanged": true
+  },
+  {
+   "id": "retort-world",
+   "result": {
+    "ok": false,
+    "message": "Cannot read properties of undefined (reading 'facts')"
+   },
+   "durableUnchanged": true
+  },
+  {
+   "id": "retort-site",
+   "result": {
+    "ok": false,
+    "message": "Orphan or overlapping retort capacity reservation."
+   },
+   "durableUnchanged": true
+  },
+  {
+   "id": "reserve-missing",
+   "result": {
+    "ok": true,
+    "unfundedPaused": true
+   },
+   "durableUnchanged": false
+  },
+  {
+   "id": "reserve-borrowed",
+   "result": {
+    "ok": false,
+    "message": "Invalid custody."
+   },
+   "durableUnchanged": true
+  },
+  {
+   "id": "reserve-body",
+   "result": {
+    "ok": false,
+    "message": "Hear and accept this itinerary’s known origin first."
+   },
+   "durableUnchanged": true
+  },
+  {
+   "id": "reserve-world",
+   "result": {
+    "ok": false,
+    "message": "Cannot read properties of undefined (reading 'facts')"
+   },
+   "durableUnchanged": true
+  },
+  {
+   "id": "reserve-site",
+   "result": {
+    "ok": false,
+    "message": "Orphan site reservation."
+   },
+   "durableUnchanged": true
+  },
+  {
+   "id": "fieldcraft-missing",
+   "result": {
+    "ok": false,
+    "message": "The required knowledge, means or circumstances are missing."
+   },
+   "durableUnchanged": true
+  },
+  {
+   "id": "fieldcraft-borrowed",
+   "result": {
+    "ok": false,
+    "message": "The required knowledge, means or circumstances are missing."
+   },
+   "durableUnchanged": true
+  },
+  {
+   "id": "fieldcraft-body",
+   "result": {
+    "ok": false,
+    "message": "The required knowledge, means or circumstances are missing."
+   },
+   "durableUnchanged": true
+  },
+  {
+   "id": "fieldcraft-world",
+   "result": {
+    "ok": false,
+    "message": "Cannot read properties of undefined (reading 'facts')"
+   },
+   "durableUnchanged": true
+  },
+  {
+   "id": "fieldcraft-site",
+   "result": {
+    "ok": false,
+    "message": "The work site is at capacity."
+   },
+   "durableUnchanged": true
+  },
+  {
+   "id": "assay-missing",
+   "result": {
+    "ok": false,
+    "message": "The required knowledge, means or circumstances are missing."
+   },
+   "durableUnchanged": true
+  },
+  {
+   "id": "assay-borrowed",
+   "result": {
+    "ok": false,
+    "message": "The required knowledge, means or circumstances are missing."
+   },
+   "durableUnchanged": true
+  },
+  {
+   "id": "assay-body",
+   "result": {
+    "ok": false,
+    "message": "The required knowledge, means or circumstances are missing."
+   },
+   "durableUnchanged": true
+  },
+  {
+   "id": "assay-world",
+   "result": {
+    "ok": false,
+    "message": "Cannot read properties of undefined (reading 'facts')"
+   },
+   "durableUnchanged": true
+  },
+  {
+   "id": "assay-site",
+   "result": {
+    "ok": false,
+    "message": "The work site is at capacity."
+   },
+   "durableUnchanged": true
+  }
+ ]
+}

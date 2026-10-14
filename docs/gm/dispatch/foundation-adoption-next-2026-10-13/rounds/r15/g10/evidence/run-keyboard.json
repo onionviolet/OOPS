@@ -1,0 +1,258 @@
+{
+ "ok": true,
+ "value": {
+  "label": "seeded-native",
+  "cases": [
+   {
+    "text": "Keep a finite survey-kit reserve",
+    "key": "Enter",
+    "tabs": 1,
+    "focused": {
+     "text": "Do this: Keep a finite survey-kit reserve · at most 3 accepted resin batches",
+     "focusVisible": true,
+     "outline": "solid 3px"
+    },
+    "after": {
+     "tag": "SUMMARY",
+     "text": "Tools, practice & local lives",
+     "connected": true
+    }
+   },
+   {
+    "text": "Pause kit reserve",
+    "key": "Space",
+    "tabs": 1,
+    "focused": {
+     "text": "Do this: Pause kit reserve",
+     "focusVisible": true,
+     "outline": "solid 3px"
+    },
+    "after": {
+     "tag": "SUMMARY",
+     "text": "Tools, practice & local lives",
+     "connected": true
+    }
+   },
+   {
+    "text": "Resume kit reserve",
+    "key": "Enter",
+    "tabs": 1,
+    "focused": {
+     "text": "Do this: Resume kit reserve",
+     "focusVisible": true,
+     "outline": "solid 3px"
+    },
+    "after": {
+     "tag": "SUMMARY",
+     "text": "Tools, practice & local lives",
+     "connected": true
+    }
+   },
+   {
+    "text": "Cancel reserve and refund",
+    "key": "Space",
+    "tabs": 3,
+    "focused": {
+     "text": "Do this: Cancel reserve and refund the accepted resin batch",
+     "focusVisible": true,
+     "outline": "solid 3px"
+    },
+    "after": {
+     "tag": "SUMMARY",
+     "text": "Tools, practice & local lives",
+     "connected": true
+    }
+   },
+   {
+    "text": "Plan three retort batches",
+    "key": "Enter",
+    "tabs": 2,
+    "focused": {
+     "text": "Do this: Plan three retort batches · pause until each actual receiver is cleared",
+     "focusVisible": true,
+     "outline": "solid 3px"
+    },
+    "after": {
+     "tag": "SUMMARY",
+     "text": "Tools, practice & local lives",
+     "connected": true
+    }
+   },
+   {
+    "text": "Collect the resin",
+    "key": "Enter",
+    "tabs": 2,
+    "focused": {
+     "text": "Do this: Collect the resin · keep the same empty receiver",
+     "focusVisible": true,
+     "outline": "solid 3px"
+    },
+    "after": {
+     "tag": "SUMMARY",
+     "text": "Tools, practice & local lives",
+     "connected": true
+    }
+   },
+   {
+    "text": "Dispose",
+    "key": "Space",
+    "tabs": 3,
+    "focused": {
+     "text": "Do this: Dispose of the held tray’s residue · 1 stamina + 1 min",
+     "focusVisible": true,
+     "outline": "solid 3px"
+    },
+    "after": {
+     "tag": "SUMMARY",
+     "text": "Tools, practice & local lives",
+     "connected": true
+    }
+   },
+   {
+    "text": "Resume retort plan",
+    "key": "Enter",
+    "tabs": 2,
+    "focused": {
+     "text": "Do this: Resume retort plan",
+     "focusVisible": true,
+     "outline": "solid 3px"
+    },
+    "after": {
+     "tag": "SUMMARY",
+     "text": "Tools, practice & local lives",
+     "connected": true
+    }
+   },
+   {
+    "text": "Stop future retort batches",
+    "key": "Space",
+    "tabs": 3,
+    "focused": {
+     "text": "Do this: Stop future retort batches; accepted work keeps its terms",
+     "focusVisible": true,
+     "outline": "solid 3px"
+    },
+    "after": {
+     "tag": "SUMMARY",
+     "text": "Tools, practice & local lives",
+     "connected": true
+    }
+   },
+   {
+    "text": "Collect the resin",
+    "key": "Enter",
+    "tabs": 2,
+    "focused": {
+     "text": "Do this: Collect the resin · keep the same empty receiver",
+     "focusVisible": true,
+     "outline": "solid 3px"
+    },
+    "after": {
+     "tag": "SUMMARY",
+     "text": "Tools, practice & local lives",
+     "connected": true
+    }
+   },
+   {
+    "text": "Visit the market courtyard",
+    "key": "Enter",
+    "tabs": 1,
+    "focused": {
+     "text": "Visit the market courtyard · optional, free",
+     "focusVisible": true,
+     "outline": "solid 3px"
+    },
+    "after": {
+     "tag": "SUMMARY",
+     "text": "Market courtyard · trade, property and projects",
+     "connected": true
+    }
+   },
+   {
+    "text": "Buy one Rough wood log",
+    "key": "Space",
+    "tabs": 1,
+    "focused": {
+     "text": "Buy one Rough wood log · 2 coins",
+     "focusVisible": true,
+     "outline": "solid 3px"
+    },
+    "after": {
+     "tag": "BUTTON",
+     "text": "Buy one Rough wood log · 2 coins",
+     "connected": true
+    }
+   },
+   {
+    "text": "Inspect Orin",
+    "key": "Enter",
+    "tabs": 1,
+    "focused": {
+     "text": "Inspect Orin’s small enterprise",
+     "focusVisible": true,
+     "outline": "solid 3px"
+    },
+    "after": {
+     "tag": "BUTTON",
+     "text": "Inspect Orin’s small enterprise",
+     "connected": true
+    }
+   },
+   {
+    "text": "Fund one production share",
+    "key": "Space",
+    "tabs": 2,
+    "focused": {
+     "text": "Fund one production share · 3 coins",
+     "focusVisible": true,
+     "outline": "solid 3px"
+    },
+    "after": {
+     "tag": "BODY",
+     "text": "\n\n        \n            \n                Yet Another Idle RPG\n                \n                    by",
+     "connected": true
+    }
+   },
+   {
+    "text": "Make Orin",
+    "key": "Enter",
+    "tabs": 2,
+    "focused": {
+     "text": "Make Orin’s one-batch crate · 2 logs + 2 stamina + 4 min",
+     "focusVisible": true,
+     "outline": "solid 3px"
+    },
+    "after": {
+     "tag": "BUTTON",
+     "text": "Here",
+     "connected": true
+    }
+   },
+   {
+    "text": "Cancel Make Orin",
+    "key": "Space",
+    "tabs": 1,
+    "focused": {
+     "text": "Cancel Make Orin’s one-batch crate · 2 logs + 2 stamina + 4 min · refund inputs",
+     "focusVisible": true,
+     "outline": "solid 3px"
+    },
+    "after": {
+     "tag": "SUMMARY",
+     "text": "Market courtyard · trade, property and projects",
+     "connected": true
+    }
+   }
+  ],
+  "reattached": true,
+  "persists": {
+   "label": "keyboard-courtyard",
+   "reload": true,
+   "literalImport": true,
+   "file": "keyboard-courtyard.txt",
+   "sha256": "641794b26f0efc8ba34f9a03163fbdef6e4b4468773846a794ff7a32c0fea915",
+   "clock": 0,
+   "derivedCacheDifferences": []
+  }
+ }
+}

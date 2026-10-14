@@ -1,0 +1,11 @@
+{
+ "label": "retort-support-refund",
+ "reload": true,
+ "literalImport": true,
+ "file": "retort-support-refund.txt",
+ "sha256": "560e7438813243efdc83c0a1ef348f8262959151b4acae6a69d6120661b8c021",
+ "clock": 752,
+ "derivedCacheDifferences": [
+  ".character.equipment.weapon.rarity"
+ ]
+}

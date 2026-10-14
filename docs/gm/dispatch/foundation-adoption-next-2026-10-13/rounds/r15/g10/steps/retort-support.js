@@ -1,0 +1,4 @@
+const E={label:'seeded-native',cases:[]};
+for(const bad of ['alive','hands','health']){
+ await reload();await fixture('g2','fixture/TEST-FIXTURE-R15-G2-retort.txt');await page.evaluate(()=>G.character.name='TEST FIXTURE R15 G10 retort support');const before=await save();await feature('Prepare one retort batch');await page.evaluate(bad=>{if(bad==='alive')G.negativeAlive(false);if(bad==='hands')G.state.simulation.people.player.body.hands=1;if(bad==='health')G.character.getFullStats().health=1;},bad);let done=(await advance(3)).save;assert.equal(jobs(done).length,0);for(const id of ['Tree sap','Rough wood log','Empty retort resin tray','Empty retort residue tray','Filled retort resin tray','Filled retort residue tray'])assert.equal(inv(done,id),inv(before,id));E.cases.push({id:'retort-'+bad,refunded:true,noOutput:true});h.write('retort-support.json',E);
+}return E;

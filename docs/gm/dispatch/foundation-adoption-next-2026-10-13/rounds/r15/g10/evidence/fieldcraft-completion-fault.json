@@ -1,0 +1,24 @@
+{
+ "id": "fieldcraft-completion",
+ "label": "seeded-native",
+ "durableUnchanged": true,
+ "liveUnchanged": true,
+ "failedWrites": 1,
+ "notices": [
+  "Your browser has no room for this life. Export your save to a file; your last saved life is still safe.",
+  "Saving available. Draft changes can now be applied.",
+  "Saving available. Draft changes can now be applied."
+ ],
+ "retryOnce": true,
+ "persistence": {
+  "label": "fieldcraft-completion",
+  "reload": true,
+  "literalImport": true,
+  "file": "fieldcraft-completion.txt",
+  "sha256": "2c0d06484832d118dc26649579018d1ad6810ce7ede7f6e17178f33edccf5a38",
+  "clock": 859,
+  "derivedCacheDifferences": [
+   ".character.equipment.weapon.rarity"
+  ]
+ }
+}

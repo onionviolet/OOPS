@@ -1,0 +1,23 @@
+{
+ "id": "courtyard-material-purchase",
+ "label": "seeded-native",
+ "durableUnchanged": true,
+ "liveUnchanged": true,
+ "failedWrites": 1,
+ "actionError": null,
+ "notices": [
+  "Saving available. Draft changes can now be applied.",
+  "Saving available. Draft changes can now be applied.",
+  "Your browser has no room for this life. Export your save to a file; your last saved life is still safe."
+ ],
+ "retryOnce": true,
+ "persistence": {
+  "label": "courtyard-material-purchase",
+  "reload": true,
+  "literalImport": true,
+  "file": "courtyard-material-purchase.txt",
+  "sha256": "1d6916b3d71349e6e94af739ba37da0c93ffa3702f6bb8ccf15cf53cdbd791bb",
+  "clock": 0,
+  "derivedCacheDifferences": []
+ }
+}

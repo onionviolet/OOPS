@@ -4,6 +4,8 @@ import {foundationInteractionProbeGuard} from './foundation_interaction_content.
 import {guardSteamLambAdmission,stampSteamLambAcceptedJob,steamLambCompletionContext} from './steam_lamb_runtime.js';
 import {guardSteamONIAdmission,stampSteamONIAcceptedJob,steamONICompletionContext} from './steam_oni_runtime.js';
 import {guardSteamBOHAdmission,stampSteamBOHAcceptedJob,steamBOHCompletionContext} from './steam_boh_runtime.js';
+import {stampNethackFieldcraftJob} from './nethack_fieldcraft_facts.js';
+import {stampManagementJob} from './management/validation.js';
 import {alloyTechniqueEffects} from "./alloy_equipment.js";
 import {guardSteamDFAdmission,stampSteamDFAcceptedJob,steamDFCompletionContext} from './steam_df_runtime.js';
 import {agreedDutyCompletionEffects,agreedDutyCancellationEffects,agreedDutyStoppedEffects,agreedDutyRefusalEffects} from './agreed_duty_host.js';
@@ -218,6 +220,8 @@ function startCommand(out, registry, commandId, context, immediatePreview, conte
     if(d.audience) job.audience = d.audience.map(id => participant(id,context));
     stampSteamDFAcceptedJob(state,job,context);
     stampSteamBOHAcceptedJob(state,job,context);
+    stampNethackFieldcraftJob(state,job);
+    stampManagementJob(state,job);
     stampSteamONIAcceptedJob(state,job,context);
     stampSteamLambAcceptedJob(state,job,context);
     stampLorePracticeJob(state,job,context);

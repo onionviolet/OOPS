@@ -1,0 +1,16 @@
+{
+ "label": "source",
+ "npmTest": {
+  "command": "npm test",
+  "exitCode": 0,
+  "tests": 617,
+  "pass": 617,
+  "fail": 0,
+  "rawLogSha256": "49c3257d7c8ef0c1537de3ea26816c7d9bcdef916ca5ab54fdb2fcb93c76b16b"
+ },
+ "fa13Probe": {
+  "command": "node docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r15/g3/source-fa13.mjs",
+  "exitCode": 0,
+  "rawLogSha256": "d62c670f21f94e08e8f218a8d6f9c668c06370a29f487272a4e26a28d81db09f"
+ }
+}

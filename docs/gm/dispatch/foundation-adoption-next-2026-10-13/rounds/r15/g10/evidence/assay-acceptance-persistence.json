@@ -1,0 +1,11 @@
+{
+ "label": "assay-acceptance",
+ "reload": true,
+ "literalImport": true,
+ "file": "assay-acceptance.txt",
+ "sha256": "d4e476173a3218c3c253f549f5cd2aebc11efb1e1b275b7bf60069a378f84ff2",
+ "clock": 858,
+ "derivedCacheDifferences": [
+  ".character.equipment.weapon.rarity"
+ ]
+}

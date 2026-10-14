@@ -1,10 +1,39 @@
 // Pure live eligibility and state contract. Deliberately no simulation.js import:
 // the shared executor recomputes these facts at admission and job settlement.
-import {NETHACK_FIELDCRAFT_IDS as I, NETHACK_FIELDCRAFT_KEYS as K} from './nethack_fieldcraft_content.js';
+import {NETHACK_FIELDCRAFT_IDS as I, NETHACK_FIELDCRAFT_KEYS as K, nethackFieldcraftDefinitions} from './nethack_fieldcraft_content.js';
 import {originalFrontierFacts} from './original_frontier_facts.js';
 import {assert, natural, record} from './simulation_contracts.js';
 const count = n => natural(n) ? n : 0;
 const prefix = 'nethack_fieldcraft.';
+const definitions = new Map(nethackFieldcraftDefinitions.commands.map(d => [d.id, d]));
+const same = (a, b) => JSON.stringify(a) === JSON.stringify(b);
+export function stampNethackFieldcraftJob(state, job) {
+    if(definitions.get(job.commandId)?.duration) job.nethackFieldcraftWork = {schema: 1, startedAt: state.clock};
+}
+function validateFieldcraftJob(state, job) {
+    const d = definitions.get(job.commandId);
+    const participants = [...new Set(['player', ...(d?.participants || []).map(id => id === '$target' ? d.targetId : id)])];
+    assert(d?.duration && job.actorId === 'player' && job.revision === d.revision &&
+        job.targetId === (d.targetId || null) && job.siteId === d.siteId && job.claim === (d.claim || null) &&
+        job.label === d.label && job.roll === null && job.outcomeId === null &&
+        job.cancellation === 'refund' && job.reservationReturns === 1 &&
+        same(job.costs, d.costs) && same(job.effects, d.effects) && same(job.participants, participants) &&
+        same(job.context, {actorId: 'player', targetId: d.targetId || null, partyIds: state.simulation.party}) &&
+        same(job.completionSupport, {schema: 1, requires: d.completionRequires,
+            coLocated: !!d.completionCoLocated, location: 'Village', failure: 'refund'}) &&
+        state.simulation.sites[d.siteId]?.reservations[job.id] === 'player',
+        'The saved fieldcraft work differs from its admitted costs, effects, participants or support.');
+    // Older accepted work has no start stamp. Keep its exact terms and bounded
+    // remaining time; all newly accepted work retains its exact due time.
+    assert(natural(job.due) && job.due >= state.clock && job.due <= state.clock + d.duration,
+        'Unsupported fieldcraft work duration.');
+    if(job.nethackFieldcraftWork != null) {
+        const w = job.nethackFieldcraftWork;
+        assert(record(w) && same(Object.keys(w).sort(), ['schema', 'startedAt']) && w.schema === 1 &&
+            natural(w.startedAt) && w.startedAt <= state.clock && job.due === w.startedAt + d.duration,
+            'Fieldcraft work lost its actual start and due time.');
+    }
+}
 const encumbered = (s, actor, key) => Object.values(s?.custody || {}).some(c => c.holder === actor && c.key === key);
 const owned = (state, context, actor, key) => {
     const s = state.simulation, stock = s?.people?.[actor]?.inventory === 'simulation' ? s.owners?.[actor] : context.gameplay?.[actor]?.inventory;
@@ -22,7 +51,7 @@ export function nethackFieldcraftFacts(state, context = {}, registry) {
     const nativeReady = !!stock && Object.values(stock).every(natural) && !!v &&
         ['health', 'max_health', 'stamina', 'max_stamina'].every(k => Number.isFinite(v[k]) && v[k] >= 0) && v.health <= v.max_health && v.stamina <= v.max_stamina;
     const frontier = a ? originalFrontierFacts(state, context, registry) : {};
-    const supported = enabled && (context.actorId || 'player') === 'player' && a?.worldId === I.world && location === 'Village' && p?.life === 'alive' &&
+    const supported = enabled && context.nativeAlive === true && (context.actorId || 'player') === 'player' && a?.worldId === I.world && location === 'Village' && p?.life === 'alive' &&
         nativeReady && !state.realmPrototype?.activeVisitId && !s?.sessions?.player && !state.chronicle?.session && state.chronicle?.life?.endedAt == null;
     const eda = s?.people?.[I.eda], ea = state.actors?.[I.eda], dog = s?.people?.[I.dog], da = state.actors?.[I.dog];
     const edaSupported = !!eda && eda.life === 'alive' && ea?.worldId === a?.worldId && eda.location === location && eda.body?.hands >= 2 && eda.vitals?.health > 1 && ea?.facts?.['feature_objects.willing'] === true;
@@ -63,6 +92,10 @@ export function validateNethackFieldcraft(state, registry) {
         Object.values(s?.knowledge || {}).some(namespace) || Object.values(s?.conditions || {}).some(namespace) ||
         (s?.jobs || []).some(j => j.commandId?.startsWith(prefix) || (j.participants || []).includes(I.dog));
     if(value == null) {assert(!related, 'Fieldcraft activation lost its explicit meeting receipt.'); return;}
+    for(const job of s?.jobs || []) {
+        if(job.commandId?.startsWith(prefix)) validateFieldcraftJob(state, job);
+        else assert(job.nethackFieldcraftWork == null, 'A fieldcraft work stamp belongs only to fieldcraft.');
+    }
     assert([9, 10, 11].includes(state.schema) && state.referenceGameplay?.schema === 1 && record(value) && value.schema === 1 && Object.keys(value).every(k => ['schema', 'openedAt', 'openedSequence'].includes(k)), 'Unsupported fieldcraft receipt.');
     assert(natural(value.openedAt) && value.openedAt <= state.clock && natural(value.openedSequence) && value.openedSequence > 0 && value.openedSequence <= state.sequence &&
         pf[`${prefix}opened`] === true && completed[I.open] === 1 && state.referenceGameplay.workshop?.schema === 1 && completed['reference_gameplay.open'] === 1,

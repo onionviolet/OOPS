@@ -1,0 +1,11 @@
+{
+ "label": "fa10-guided-fine",
+ "reload": true,
+ "literalImport": true,
+ "file": "fa10-guided-fine.txt",
+ "sha256": "2520a42219352e597a172f0c8b8f6663af3d7db04cc962976e60ac381ae24508",
+ "clock": 865,
+ "derivedCacheDifferences": [
+  ".character.equipment.weapon.rarity"
+ ]
+}

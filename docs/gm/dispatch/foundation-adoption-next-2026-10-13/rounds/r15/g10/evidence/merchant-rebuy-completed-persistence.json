@@ -1,0 +1,11 @@
+{
+ "label": "merchant-rebuy-completed",
+ "reload": true,
+ "literalImport": true,
+ "file": "merchant-rebuy-completed.txt",
+ "sha256": "86c76933e56d3dd3da0154fee7777e9bb8b28372478cdb6bcf49ab34ead8e309",
+ "clock": 6511,
+ "derivedCacheDifferences": [
+  ".character.equipment.weapon.rarity"
+ ]
+}

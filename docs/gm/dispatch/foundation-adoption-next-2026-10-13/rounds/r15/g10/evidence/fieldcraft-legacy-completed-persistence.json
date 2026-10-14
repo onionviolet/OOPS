@@ -1,0 +1,11 @@
+{
+ "label": "fieldcraft-legacy-completed",
+ "reload": true,
+ "literalImport": true,
+ "file": "fieldcraft-legacy-completed.txt",
+ "sha256": "e73db35c30fefb56fabeb7e942fb9128970938cd9032e1854a96ed7e73d4838b",
+ "clock": 871,
+ "derivedCacheDifferences": [
+  ".character.equipment.weapon.rarity"
+ ]
+}

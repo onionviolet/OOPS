@@ -1,0 +1,9 @@
+{
+ "label": "courtyard-aid-contact",
+ "reload": true,
+ "literalImport": true,
+ "file": "courtyard-aid-contact.txt",
+ "sha256": "cfca74c5316e60980000cf989fe79b28e5222d4bf4e40a1cd1bc1f738b699a3a",
+ "clock": 6,
+ "derivedCacheDifferences": []
+}
