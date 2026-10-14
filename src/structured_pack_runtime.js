@@ -1,6 +1,8 @@
 import {previewStructuredExpeditions} from './structured_expedition_runtime.js';
 import {createSimulationState,validateSimulationState,validateSimulationEffect,jsonData,stableId} from './simulation_contracts.js';
 import {applySimulationEffects} from './simulation_effects.js';
+import {structuredReachabilityHints} from './structured_reachability.js';
+import {simulationFacts} from './simulation_effects.js';
 import {previewSimulationCommand} from './simulation.js';
 import {requireStructuredContent,validateStructuredRecord,requireStructuredSelection,validateStructuredSelection} from './structured_pack_state.js';
 
@@ -98,7 +100,7 @@ export function structuredCampaignView(state,d,record,context) {
         if(a.actorId && a.actorId!=='player' || a.actorDefinitionId && a.actorDefinitionId!==state.simulation.people.player?.definitionId)continue;
         if(a.location!=null&&a.location!==(context.facts?.location||state.simulation.people.player.location))continue;
         const quote=previewSimulationCommand(state,context.registry,a.id,{...context,targetId:a.targetId});
-        if(quote.visible)actions.push({id:a.id,label:a.label,description:a.description||'',eligible:quote.eligible,reasons:quote.reasons,duration:quote.duration,completed:state.actors.player.completed[a.id]||0,repeatable:!a.once&&quote.duration>0,costs:structuredActionCosts(quote,d)});
+        if(quote.visible)actions.push({id:a.id,label:a.label,description:a.description||'',eligible:quote.eligible,reasons:[...structuredReachabilityHints(d,a,simulationFacts(state,{...context,targetId:a.targetId},context.registry)),...quote.reasons],duration:quote.duration,completed:state.actors.player.completed[a.id]||0,repeatable:!a.once&&quote.duration>0,costs:structuredActionCosts({...quote,costs:quote.costs?.length?quote.costs:a.costs},d)});
     }
     const jobs=state.simulation.jobs.filter(j=>j.actorId==='player'&&j.commandId.startsWith(d.id+'.')).map(j=>({id:j.id,commandId:j.commandId,label:j.label,remaining:Math.max(0,j.due-state.clock),duration:context.registry.simulation.commands.get(j.commandId)?.duration||0,cancellable:j.cancellation!=='none'}));
     return {available:true,active:true,expeditions:previewStructuredExpeditions(state,d,context),title:d.title||'Local life',place:d.locations.find(l=>l.id===state.simulation.people.player.location)?.label,description:validateStructuredBootstrap(d,record.startId).description,people,status,actions,jobs};
@@ -107,9 +109,9 @@ export function structuredCampaignView(state,d,record,context) {
 // Show only the acting character's executable input quote. NPC reserves and
 // counterfactual outcomes never become part of the observer projection.
 export function structuredActionCosts(quote, definition) {
-    if(!quote.eligible)return [];
     const rows=[];
     for(const e of quote.costs||[]) {
+        if(e.amount != null && !Number.isFinite(e.amount))continue;
         if(e.actor!=null&&!['player','$actor'].includes(e.actor))continue;
         if(e.type==='vital'&&e.amount<0)rows.push(`${-e.amount} ${e.key}`);
         else if(e.type==='resource'&&e.amount<0)rows.push(e.native&&e.key==='money'?`${-e.amount} coins`:`${-e.amount} local resource units`);
