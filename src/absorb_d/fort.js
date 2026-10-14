@@ -1,3 +1,4 @@
+import {clearRewardText} from '../fork_discovery_views.js';
 // Original adaptation of FNA04/05/08/12. Pins and attribution: W-D.md.
 // Player inventory, money, quest events and time retain their native owners.
 import {recordAcquisitions} from '../acquisition.js';
@@ -38,10 +39,7 @@ export function itemSourceJournal(fort,knownItems) {
     return migrateFortSupply({fort_supply:fort}).sources.filter(s=>!!knownItems?.[s.itemId]).map(s=>({...s}));
 }
 export function knownClearText(location,disclosed=[]) {
-    const clears=Math.floor((location.enemy_groups_killed||0)/location.enemy_count);
-    const remaining=disclosed.filter(d=>d.location===location.id&&integer(d.clears)&&d.clears>clears&&
-        location.rewards_with_clear_requirement?.some(r=>r.required_clear_count===d.clears));
-    return `Clears: [${clears}]`+(remaining.length?` · known milestone: ${Math.min(...remaining.map(d=>d.clears))} clears`:'');
+    return clearRewardText(location,disclosed);
 }
 export function fortDisclosures(notesRead) {return notesRead?[{location:FORT.yard,clears:2}]:[];}
 

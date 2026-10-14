@@ -467,7 +467,7 @@ const favourite_locations = {};
     locations["Eastern mill"].connected_locations.push({location: locations["Eastern storehouse"], travel_time: 10});
 
     locations["Infested field"] = new CombatZone({
-        description: "Field infested with wolf rats. You can see the grain stalks move as these creatures scurry around", 
+        description: "Field infested with wolf rats. You can see the grain stalks move as these creatures scurry around. The Village publicly recognizes repeated field clearing at 2, 4 and 10 full clears",
         enemy_count: 15, 
         enemies_list: ["Starving wolf rat", "Wolf rat"],
         types: [{type: "open", stage: 1, xp_gain: 1}],
@@ -488,14 +488,17 @@ const favourite_locations = {};
         rewards_with_clear_requirement: [
             {
                 required_clear_count: 2,
+                hint: {visibility: "public"}, // Public field description, never inferred from hidden rewards.
                 reputation: {Village: 10},
             },
             {
                 required_clear_count: 4,
+                hint: {visibility: "public"}, // Public field description, never inferred from hidden rewards.
                 reputation: {Village: 30},
             },
             {
                 required_clear_count: 10,
+                hint: {visibility: "public"}, // Public field description, never inferred from hidden rewards.
                 reputation: {Village: 50},
             }
         ]

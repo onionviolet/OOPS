@@ -1,3 +1,4 @@
+import {knownBestiarySources, knownLootValue} from './fork_discovery_views.js';
 import {foodPacingDescription} from './absorb_e1/panel.js';
 import {rarityColor} from './rarity_palette.js';
 import {getDisplaySetting} from './display_settings.js';
@@ -3368,7 +3369,8 @@ function update_displayed_crafting_recipes() {
         Object.keys(recipes[recipe_category]).forEach(recipe_subcategory => {
             Object.keys(recipes[recipe_category][recipe_subcategory]).forEach(recipe => {
                 if(recipes[recipe_category][recipe_subcategory][recipe].isUnlocked()){
-                    if(crafting_pages[recipe_category][recipe_subcategory].querySelector(`[data-recipe_id="${recipe}"]`)) {
+                    // Save restoration can refresh recipes before initial page creation.
+                    if(get_recipe_page(recipe_category, recipe_subcategory).querySelector(`[data-recipe_id="${recipe}"]`)) {
                         update_displayed_crafting_recipe({category: recipe_category, subcategory: recipe_subcategory, recipe_id: recipe});
                     } else {
                         add_crafting_recipe_to_display({category: recipe_category, subcategory: recipe_subcategory, recipe_id: recipe});
@@ -4301,7 +4303,7 @@ function update_displayed_item_log() {
 
     set_HTML(data_entry_divs.item_log,`<div id='item_log_header'>Item log</div>`)
 
-    let html_content = "<table id='item_log_table'><tr><th width='100%'>Item</th><th>Best</th><th>Total</th></tr>";
+    let html_content = "<table id='item_log_table'><tr><th>Item</th><th>Best</th><th>Total</th><th>Known bestiary sources</th></tr>";
 
     Object.values(item_log.items).forEach(item => {
         if(!item_templates[item.id] || item_templates[item.id].components) {
@@ -4326,7 +4328,8 @@ function update_displayed_item_log() {
             //skip the lowest and show just the highest, seems better for display purposes?
         }
 
-        html_content += `</td><td>${item.number < 1e6? item.number : expo({number: item.number, precision: 2, treshold: 6})}</td></tr>`;
+        const sources = knownBestiarySources(item.id, {knownItems: item_log.items, kills: enemy_killcount, enemies: enemy_templates});
+        html_content += `</td><td>${item.number < 1e6? item.number : expo({number: item.number, precision: 2, treshold: 6})}</td><td>${sources.join(", ")}</td></tr>`;
         //html_content += `</td><td>${item.number}</td>${create_item_tooltip(item_templates[item.id]).outerHTML}</tr>`;
     });
 
@@ -5361,6 +5364,17 @@ function create_bestiary_entry_tooltip(enemy_name) {
     bestiary_tooltip.appendChild(tooltip_tags);
     bestiary_tooltip.appendChild(tooltip_stats);
     bestiary_tooltip.appendChild(tooltip_drops);
+    const estimate = knownLootValue(enemy_name, {
+        knownItems: item_log.items, kills: enemy_killcount, enemies: enemy_templates,
+        baseValue: id => item_templates[id]?.getBaseValue({quality: 100}),
+        dropModifier: enemy.get_droprate_modifier()
+    });
+    if (estimate !== null) {
+        const value = document.createElement("div");
+        value.classList.add("known_loot_value");
+        value.innerText = `Known loot estimate: ${Math.round(estimate * 100) / 100} base coins per enemy. Acquired items only; standard quality, before market saturation and trader markup. Not a sale quote.`;
+        bestiary_tooltip.appendChild(value);
+    }
 
     return bestiary_tooltip;
 }
