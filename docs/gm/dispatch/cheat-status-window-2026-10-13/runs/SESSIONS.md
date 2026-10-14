@@ -15,3 +15,5 @@ Resume: `python3 runs/launch.py <name> <prompt_file> <session id>`.
 | ia (read-only info-layer architecture study, writes INFO_LAYER_IMPLICATIONS.md) | 01a138d0-bb07-7f22-9b85-ab134c0e8bbf | runs/ia.log |
 | w5 (research: showing hidden information in games, writes cheat-considerations W5) | 01a138d0-bb18-7b00-bb01-7ebc65568e47 | runs/w5.log |
 | ab (read-only abstraction map, writes ABSTRACTION_MAP.md) | 01a138d5-dabb-7251-94eb-4077c4645d17 | runs/ab.log |
+
+Returns of audit, r1, w4, w5, te, mx, lq, ia and ab folded 2026-10-14 into [CHEAT_LIBRARY](../../../../CHEAT_LIBRARY.md#lane-returns-audit-r1-w4-w5-te-mx-lq-ia-and-ab-folded-2026-10-14).
