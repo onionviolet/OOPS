@@ -110,6 +110,11 @@ Its rows are proposals; only this section's quoted priority is Weibao's directio
 
 ## World core kit, every little detail and a repeating audit, 2026-10-14
 
+Round 12 request (2026-10-14): "cannon calendar and more? More to
+consider?" Read as: each world should count and name its days the way its
+source does (units, holidays, canon dates and how sure the source is),
+instead of every world borrowing the base world's date format.
+
 Round 11 request (2026-10-14): "Consider specific world stuff too, cause
 paradise hub might based on the book and more? Or has special stuff and
 more? more t oconsider? Send out codex accordingly". Read as: generic kit
@@ -182,7 +187,8 @@ disposition per part), same-day owner map OM1-OM10, KX63-KX70 and lanes
 W21-W23; 10, corrections CR1-CR3, directions DR1-DR8 with one lane each,
 MD1-MD12, KX71-KX75 and lanes W24-W28; 11, specific worlds: corrections
 CR4-CR6 (Paradise has sourced calendars and per-instance clock policies),
-world shapes SW1-SW8, per-world rows WS1-WS9, MW1-MW7 and lanes W29-W32.
+world shapes SW1-SW8, per-world rows WS1-WS9, MW1-MW7 and lanes W29-W32; 12, canon calendars: CR7 (native calendars are base-format counters),
+CC1-CC16, KX76-KX81 and lanes W33-W35.
 
 Owners: the [world core kit](worlds/WORLD_CORE_KIT_2026-10-14.md) (palette,
 rounds and lane returns, all proposals), the

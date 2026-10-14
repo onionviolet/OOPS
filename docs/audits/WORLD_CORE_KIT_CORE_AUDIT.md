@@ -66,3 +66,4 @@ scope, changes a standing priority or turns deferred work into a gate
 | 2026-10-14 | 9 | W21-W23 (W19 still running) | this commit | More-to-consider school per part (MC1-MC34). Found `weather.js` is one global season table (KX67); template lacked K19-K34 rows (fixed, AN1); readiness lacked K19-K34 (W21) |
 | 2026-10-14 | 10 | W24-W27 launched, W28 prototype queued behind W23 | this commit | Lane per direction (DR1-DR8). Corrected MC2/MC17 lane refs; flagged 35 unmerged branches (core a2-a5) as chain-staleness risk (CR3) |
 | 2026-10-14 | 11 | W29-W32 by world group | this commit | Specific worlds. Paradise already has per-instance clock policies and a sourced calendar (CR4-CR5); world shapes SW1-SW8 (hub, loop, paired, institution, modular, hidden layer, contest, book eras) |
+| 2026-10-14 | 12 | W33-W35 calendars | this commit | Canon calendars. MoL and Paradise native calendars are elapsed counters in the base-world 30-day, 12-month format (CR7); CC1-CC16 |

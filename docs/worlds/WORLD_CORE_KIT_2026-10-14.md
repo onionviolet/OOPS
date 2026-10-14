@@ -1685,3 +1685,94 @@ to source-check.
 | W30 | HP, D&D, Mother of Learning | `W30_HP_DND_MOL_SPECIAL.md` |
 | W31 | LOTM, CoI, Shadow Slave, TTKS B1-B5 | `W31_NOVEL_WORLDS_SPECIAL.md` |
 | W32 | JJK, Bleach, Naruto, Fate, HxH, FMA | `W32_ANIME_WORLDS_SPECIAL.md` |
+
+## Round 12: canon calendars (2026-10-14)
+
+Request (Weibao, 2026-10-14): "cannon calendar and more? More to consider?"
+
+A canon calendar is how a world names and counts its own days: units,
+names, holidays, the canon date you arrive on, and how sure the source is
+about each date. It sits under K12 (canon course), K21 (ritual), K28
+(seasons), K32 (rhythm) and DR4 (clocks).
+
+Owners to reuse (checked first, per LL13):
+[origins and world timelines](ORIGINS_AND_WORLD_TIMELINES.md#overarching-history-with-local-calendars)
+(three concepts: campaign order, local calendar and era, traveler exposure);
+[intro flow](../INTRO_FLOW_CONSIDERATIONS_2026-10-13.md) AH1-AH11 anchors,
+SS4 calendar starts, MZ5 in-fiction date stamp, IR3 clock binding;
+[canon-events MoL pilot lessons](../gm/dispatch/canon-events-2026-10-14/pilot-mol/LESSONS.md)
+K3 (record date precision, never call a replay ordinal an exact source date)
+and K6 (loop-local versus calendar recurrence);
+[TIMELINES_AND_DIVERGENCE](../TIMELINES_AND_DIVERGENCE.md) TIME-P4.
+
+### What the code does today (CR7)
+
+| Code | Finding | Evidence |
+|---|---|---|
+| CR7 | **Native "calendars" are counters, not canon calendars.** MoL and Paradise each derive a date from elapsed minutes in the base-world format: year 1, twelve 30-day months, start at 06:00. No month names, no canon year, no week, no holidays, no canon anchor date. | SHOWN: `src/book_world_mol_native.js:7` (`calendarSeed` year 1, month 1, day 1, 06:00), `:19` `molCalendarAt`; `src/book_world_paradise_native.js` `paradiseCalendarAt` (same shape); `src/game_time.js:35-40` (30-day months, 12 months), `:63-71` and `:193` (four seasons by month number). |
+| CR7a | So per-instance *clocks* exist (CR5), but every world *formats* time like the base world. This is the KX67 globals pattern again, one layer up. | INFERRED from the above |
+
+### Canon calendar parts (CC)
+
+| Code | Part | Default + Dial |
+|---|---|---|
+| CC1 | **Calendar system.** Day length, week, month names and lengths, year count and era, epoch. Real-world calendars (JJK, Bleach, Shadow Slave, HP) reuse the Gregorian calendar with the world's year. | Default: source calendar where the text gives one; base format only for worlds with none. Dial: show both. |
+| CC2 | **Date precision.** Exact day, week, month, season, "around", unknown, per canon event (pilot K3). | Default: display at the precision the source supports ("early autumn", not "Sept 14"). Dial: exact fan-timeline dates, labelled. |
+| CC3 | **Arrival anchor.** The canon date a start lands on, mapped from elapsed time: `canon date = anchor + local elapsed`. Anchors come from starts (AH1). | Default: one anchor per world instance, saved. Dial: anchor chosen at start. |
+| CC4 | **Recurring dates.** Terms, holidays, festivals, market days, holy days, full moons, exam seasons, auctions. | Default: recurring list per world with source labels. Dial: original festivals marked as original. |
+| CC5 | **Several calendars in one world.** Civil versus church, school term versus civil, hub versus derived world, waking versus dream, loop day versus real day. | Default: one primary, others as overlays in the date line. |
+| CC6 | **Canon timeline on the calendar.** Canon events placed by date window with precision, causes and abstention outcomes (K12, canon-events graphs). | Default: window, not point. |
+| CC7 | **Calendar as foreknowledge.** A countdown to a canon event is a spoiler and a cheat. Showing it depends on what the actor knows (K11). Sealed events never show dates outside their route. | Default: dates of public events only; foreknowledge shows with confidence. Dial: a foreknowledge cheat adds the rest. |
+| CC8 | **Divergence.** After you change things, dates keep running; canon events become "would have happened" ghosts (MC12). | Default: ghosts visible only to actors who knew. |
+| CC9 | **Loop calendars.** MoL repeats one month: date resets, loop count is separate, recurrence is loop-local (pilot K6). | Default: date shows loop day plus loop number for loop-aware actors. |
+| CC10 | **Ages and birthdays.** Cast ages come from canon birth years where sourced; birthdays are micro moments (KT) and callbacks (KC). | Default: sourced birthdays only; generated ones for generated people. |
+| CC11 | **Sky and daylight.** Sunrise, night length, moons and their phases by latitude and world. Links weather (DR1) and night_time in `game_time.js:3-6`, which is one global night window. | Default: per world profile, derived not saved. |
+| CC12 | **Calendar literacy.** Locals say "Friday after the feast"; outsiders and imports need a translation; a wrong date is a social tell (K30, K31). | Default: local names in log, tooltip with plain date. |
+| CC13 | **Save shape.** Save elapsed time plus calendar profile revision and anchor; derive the date. Changing a canon anchor in a later pack revision needs a migration note (MC33). | ACCOUNT |
+| CC14 | **Calendar lens.** One inspector page: today in each calendar, recurring dates ahead, canon windows the actor knows, precision labels (W27 shell). | LATER |
+| CC15 | **Contradictory sources.** Text dates, author statements and fan timelines disagree in several series. Keep all with labels; choose per world by Default + Dial (MW4). | ACCOUNT |
+| CC16 | **Crossover anchors.** Linked worlds can share a date (AH11); otherwise the date line shows each world's own date, never a converted one by default. | Default: no conversion. |
+
+### Per world, first pass (all MEMORY until lanes check)
+
+| Code | World | Calendar notes to check |
+|---|---|---|
+| CW-C1 | Paradise | Hub interval rules are SHOWN in [hub life](paradise-hub/HUB_LIFE_ECONOMY_AND_PEOPLE_2026-10-14.md) (rest, mission spacing, origin return, open contradiction). Derived worlds carry their own dates; the hub may have no civil calendar at all. |
+| CW-C2 | Harry Potter | School year from September 1, Halloween feast, Christmas and Easter holidays, exam weeks, Quidditch fixtures, full moons. Book years are commonly dated by fans from in-text clues; label them. |
+| CW-C3 | D&D | Per setting (for example a named Realms calendar with festivals); rests are the play clock. |
+| CW-C4 | Mother of Learning | One loop month with a festival and an ending event; loop count; school term context. |
+| CW-C5 | LOTM and CoI | In-world era and year numbering, church holy days, newspapers dated in-world. |
+| CW-C6 | Shadow Slave | Near-future Earth calendar plus Spell-driven events and Dream Realm time. |
+| CW-C7 | JJK, Bleach | Real Japanese calendar and school year; famous arcs tied to specific dates. |
+| CW-C8 | Naruto, HxH | Thin explicit calendars; exams and auctions as recurring anchors. |
+| CW-C9 | Fate, FMA | Year-anchored settings; Grail War duration; national calendar and state exams. |
+| CW-C10 | TTKS | Per book (SW8). |
+
+### Other stuff and more (KX76-KX81)
+
+| Code | Consideration |
+|---|---|
+| KX76 | **Date line in the log.** Every world's first log line and day changes print the local date in its own format (MZ5); this is the cheapest visible slice. |
+| KX77 | **Week rhythm.** Weekdays change jobs, shops, classes and crowds; most worlds have none in code today. |
+| KX78 | **Holiday price and mood shifts** feed K8 and K32 through the same caused-effect path (AX9). |
+| KX79 | **Calendar-gated starts** (SS4): a festival start exists only while the festival runs in that instance. |
+| KX80 | **Elapsed versus experienced time.** A traveler's body age (exposure) differs from any calendar; the date line never stands in for age. |
+| KX81 | **Calendar profile is content.** It lives in the world pack with a revision, not in code, so new worlds add calendars without new modules. |
+
+### Suggestions (round 12, ranked)
+
+1. A calendar profile in world content plus a pure formatter, shared by
+   the MoL and Paradise native calendars, then a date line in the log
+   (KX76, KX81). Small, visible and testable.
+2. Put date precision (CC2) on every canon event row now, before more
+   graphs are written.
+3. Fold calendar into the W28 climate prototype's inputs so seasons and
+   daylight come from the same profile.
+
+### Codex lanes, round 12
+
+| Lane | Covers | Owns |
+|---|---|---|
+| W33 | Calendar engine shape: today's time code (`game_time.js`, native calendars, `chronicle.js`, `life_record.js`, canon-events windows), CC1-CC16 against it, profile and formatter design, save and migration | `W33_CALENDAR_ENGINE.md` |
+| W34 | Canon calendar census, book worlds: Paradise, HP, MoL, LOTM, CoI, Shadow Slave, TTKS B1-B5 | `W34_CALENDARS_BOOK_WORLDS.md` |
+| W35 | Canon calendar census, other worlds: D&D, JJK, Bleach, Naruto, Fate, HxH, FMA | `W35_CALENDARS_OTHER_WORLDS.md` |

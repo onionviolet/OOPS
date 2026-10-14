@@ -67,3 +67,6 @@ Round 7 (launched 2026-10-14 01:25):
 | W30 HP, D&D, MoL special (round 11) | 01a13ba0-6fb5-7c62-9aea-8c123b68a240 | .../W30_HP_DND_MOL_SPECIAL.md, ../W30_REPORT.md |
 | W31 novel worlds special (round 11) | 01a13ba0-6fd1-7052-9b7b-726c47b988df | .../W31_NOVEL_WORLDS_SPECIAL.md, ../W31_REPORT.md |
 | W32 anime worlds special (round 11) | 01a13ba0-6ff5-7e82-9a09-74546fa71e59 | .../W32_ANIME_WORLDS_SPECIAL.md, ../W32_REPORT.md |
+| W33 calendar engine (round 12) | 01a13ba9-80af-7820-a2e7-64a672d34838 | .../W33_CALENDAR_ENGINE.md, ../W33_REPORT.md |
+| W34 calendars, book worlds (round 12) | 01a13ba9-80d2-7bd1-9b59-ebc02a324547 | .../W34_CALENDARS_BOOK_WORLDS.md, ../W34_REPORT.md |
+| W35 calendars, other worlds (round 12) | 01a13ba9-80f8-7352-a596-9b6301d4370e | .../W35_CALENDARS_OTHER_WORLDS.md, ../W35_REPORT.md |
