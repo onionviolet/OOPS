@@ -1,3 +1,4 @@
+import {GRADED_IDS} from './harvest.js';
 import {registerFortRecipes} from "./fork_fort_content.js";
 import {registerAccessoryRecipes, accessoryCraftChance} from './absorb_c1/accessories.js';
 import {BRACE_ID, deriveBraceStats} from "./alloy_equipment.js";
@@ -170,7 +171,7 @@ class ComponentRecipe extends ItemRecipe{
         this.getResult = function(material, station_tier = 1){
             const result = recipe_material_result(this, material);
             //return based on material used
-            let quality = this.roll_quality((station_tier-result.component_tier) || 0);
+            let quality = this.roll_quality((station_tier-result.component_tier) || 0, GRADED_IDS.includes(material.id)?material.quality:undefined);
             if(result.tags["clothing"]) {
                 //means its a clothing (wearable internal part of armor)
                 return new Armor({...item_templates[result.id], quality: quality});
@@ -202,8 +203,8 @@ class ComponentRecipe extends ItemRecipe{
         }
     }
 
-    roll_quality(tier = 0) {
-        const quality_range = this.get_quality_range(tier);
+    roll_quality(tier = 0, material_quality) {
+        const quality_range = this.get_quality_range(tier, material_quality);
         return round_quality(random_range(quality_range[0], quality_range[1]),this.quality_precision);
     }
 }
@@ -223,7 +224,7 @@ class ComponentlessEquipRecipe extends ItemRecipe{
         this.getResult = function(material, station_tier = 1){
             const result = recipe_material_result(this, material);
             //return based on material used
-            let quality = this.roll_quality((station_tier-result.item_tier) || 0);
+            let quality = this.roll_quality((station_tier-result.item_tier) || 0, GRADED_IDS.includes(material.id)?material.quality:undefined);
             return new Cape({...item_templates[result.id], quality: quality});
         }
     }
@@ -232,8 +233,8 @@ class ComponentlessEquipRecipe extends ItemRecipe{
         return get_crafting_quality_caps(this.recipe_skill).equipment;
     }
 
-    roll_quality(tier = 0) {
-        const quality_range = this.get_quality_range(tier);
+    roll_quality(tier = 0, material_quality) {
+        const quality_range = this.get_quality_range(tier, material_quality);
         return round_quality(random_range(quality_range[0], quality_range[1]),this.quality_precision);
     }
 }
@@ -320,7 +321,7 @@ function find_recipe_material({material, ignore_stop, needed_count}) {
     if (material.material_id) {
         const key = item_templates[material.material_id].getInventoryKey();
         //material without quality exists, no need to search further
-        if (character.getItems()[key]) {
+        if (character.getItems()[key] && !GRADED_IDS.includes(material.material_id)) {
             count = character.getItems()[key].count;
             items = [character.getItems()[key]];
 

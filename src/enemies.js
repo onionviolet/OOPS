@@ -1,3 +1,4 @@
+import {replacedHarvestDrop,supportedHarvest} from './harvest.js';
 import {registerFortEnemies} from "./fork_fort_content.js";
 import {STREAMS,gameRandom,gameKeyedRandom} from "./seeded_streams.js";
 "use strict";
@@ -170,6 +171,7 @@ class Enemy {
         
         for (let i = 0; i < this.loot_list.length; i++) {
             item = this.loot_list[i];
+            if(replacedHarvestDrop(this.name,item.item_name))continue;
             if(item.chance * this.get_droprate_modifier(drop_chance_modifier) > random(`drop:${i}`)) {
                 // checks if it should drop
                 let item_count = 1;
@@ -191,6 +193,7 @@ class Enemy {
      */
     get_droprate_modifier(drop_chance_modifier = 1) {
         let droprate_modifier = 1 * drop_chance_modifier;
+        if(supportedHarvest(this.name))return droprate_modifier;
 
         Object.keys(this.tags).forEach(tag => {
             if(droprate_modifier_skills_for_tags[tag]) {
