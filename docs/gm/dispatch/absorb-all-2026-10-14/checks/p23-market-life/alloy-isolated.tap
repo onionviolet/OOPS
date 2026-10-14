@@ -1,0 +1,16 @@
+TAP version 13
+# Subtest: equipped native brace with an open road offer keeps ticking, travelling and reloading
+ok 1 - equipped native brace with an open road offer keeps ticking, travelling and reloading
+  ---
+  duration_ms: 7928.360042
+  type: 'test'
+  ...
+1..1
+# tests 1
+# suites 0
+# pass 1
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 8565.066667

@@ -1,0 +1,70 @@
+TAP version 13
+# Subtest: old saves remain empty; unsupported and inconsistent records reject before mutation
+ok 1 - old saves remain empty; unsupported and inconsistent records reject before mutation
+  ---
+  duration_ms: 12.661792
+  type: 'test'
+  ...
+# Subtest: two favor occurrences provide useful coupons without random draws or lifetime limits
+ok 2 - two favor occurrences provide useful coupons without random draws or lifetime limits
+  ---
+  duration_ms: 2.000709
+  type: 'test'
+  ...
+# Subtest: duplicate and older transactions are no-ops; fresh coupon cannot fund its own earning purchase
+ok 3 - duplicate and older transactions are no-ops; fresh coupon cannot fund its own earning purchase
+  ---
+  duration_ms: 0.21075
+  type: 'test'
+  ...
+# Subtest: native delivery changes notice and exact bread price; no passive drift or wall-clock replay
+ok 4 - native delivery changes notice and exact bread price; no passive drift or wall-clock replay
+  ---
+  duration_ms: 0.397917
+  type: 'test'
+  ...
+# Subtest: JSON restore retains occurrences, coupons and index exactly; projection never changes state
+ok 5 - JSON restore retains occurrences, coupons and index exactly; projection never changes state
+  ---
+  duration_ms: 0.269791
+  type: 'test'
+  ...
+# Subtest: known-only notice and Effects-off suppress cues without freezing economy
+ok 6 - known-only notice and Effects-off suppress cues without freezing economy
+  ---
+  duration_ms: 0.207791
+  type: 'test'
+  ...
+# Subtest: small baskets keep a one-coin floor; selling gives no coupon or purchase subsidy
+ok 7 - small baskets keep a one-coin floor; selling gives no coupon or purchase subsidy
+  ---
+  duration_ms: 0.089333
+  type: 'test'
+  ...
+# Subtest: invalid baskets, incomplete deliveries and overflow cannot mutate caller state
+ok 8 - invalid baskets, incomplete deliveries and overflow cannot mutate caller state
+  ---
+  duration_ms: 0.19825
+  type: 'test'
+  ...
+# Subtest: native stock chance/count, restock boundary and earned markup remain unchanged
+ok 9 - native stock chance/count, restock boundary and earned markup remain unchanged
+  ---
+  duration_ms: 28.270917
+  type: 'test'
+  ...
+# Subtest: native sales cause saturation; purchases and recovery reduce it without inflation
+ok 10 - native sales cause saturation; purchases and recovery reduce it without inflation
+  ---
+  duration_ms: 8.881917
+  type: 'test'
+  ...
+1..10
+# tests 10
+# suites 0
+# pass 10
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 160.212375

@@ -1,0 +1,61 @@
+{
+  "schema": 1,
+  "lane": "p23-market-life",
+  "date": "2026-10-14",
+  "base_head": "0216ccdefcfce79877378f8cb0ee41129fe11c5d",
+  "implementation_commit": "e9c9185de63f75f90d74ade2144f55d9aa0e4c4b",
+  "status": "implemented-unverified; P00 native integration OPEN; full suite 630/631",
+  "port": 18828,
+  "rows": [
+    {
+      "id": "R43",
+      "disposition": "native-equivalent-retained; source-tested; native regression OPEN",
+      "commit": "e9c9185de63f75f90d74ade2144f55d9aa0e4c4b"
+    },
+    {
+      "id": "R68",
+      "disposition": "implemented-unverified",
+      "commit": "e9c9185de63f75f90d74ade2144f55d9aa0e4c4b"
+    },
+    {
+      "id": "N15",
+      "disposition": "implemented-unverified",
+      "commit": "e9c9185de63f75f90d74ade2144f55d9aa0e4c4b"
+    },
+    {
+      "id": "N18",
+      "disposition": "parked: zero-population/boundary/gathering trigger unmet",
+      "commit": null
+    },
+    {
+      "id": "N20",
+      "disposition": "implemented-unverified",
+      "commit": "e9c9185de63f75f90d74ade2144f55d9aa0e4c4b"
+    }
+  ],
+  "compatibility": "optional p23_market_life schema1; undefined empty; unsupported/malformed reject before host mutation; P00 envelope join OPEN",
+  "checks": {
+    "build": "pass",
+    "focused": {
+      "tests": 10,
+      "pass": 10,
+      "fail": 0
+    },
+    "full": {
+      "tests": 631,
+      "pass": 630,
+      "fail": 1,
+      "failure": "alloy_equipment equipped-clock child timeout"
+    },
+    "isolated_failure_rerun": {
+      "tests": 1,
+      "pass": 1,
+      "fail": 0
+    },
+    "browser": "baseline native opening/save/reload/export/literal import pass; uncoupled module probe pass; changed native loop OPEN",
+    "served_bundle_sha256": "598e02f54fe7db4c9a35bc79c75a754a7f8dc42eccf9fab828de8fd82e97b615"
+  },
+  "host_contract": "src/absorb_p23/market_life/HOST_CONTRACT.md",
+  "final_merge_ready": false,
+  "remaining_gate": "P00 native integrated technical gates then Weibao play/taste"
+}
