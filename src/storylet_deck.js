@@ -1,6 +1,6 @@
 import {bindStoryAftermath} from './story_aftermath.js';
 import {assert, meets, natural} from './simulation_contracts.js';
-import {drawUnit,scopedStream} from './seeded_streams.js';
+import {drawUnit,scopedStream,xorshift32} from './seeded_streams.js';
 import {deriveSimulationSeed} from './simulation_resolution.js';
 
 export const STORYLET_DECKS = [
@@ -44,7 +44,7 @@ export function storyletCandidates(state,registry,deckId,factsFor) {
     });
 }
 function roll(record) {
-    let n=record.rng; n^=n<<13; n^=n>>>17; n^=n<<5; record.rng=n>>>0;
+    record.rng=xorshift32(record.rng);
     return record.rng/0x100000000;
 }
 // Called only at the existing common-clock boundary; each tick compares a deck.

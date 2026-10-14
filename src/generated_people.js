@@ -1,5 +1,5 @@
 import {validateStoryRequests} from './story_requests.js';
-import {drawUnit,scopedStream} from './seeded_streams.js';
+import {drawUnit,scopedStream,xorshift32} from './seeded_streams.js';
 import {deriveSimulationSeed} from './simulation_resolution.js';
 import {generatePersonName} from './name_grammar.js';
 const traits=['kind','curious','patient','practical','sociable','reserved'];
@@ -14,7 +14,7 @@ const natural=n=>Number.isSafeInteger(n)&&n>=0;
 export function createGeneratedPeople(seed,at,authoredNames=[],streamState=null) {
     check(natural(seed)&&seed<=0xffffffff&&natural(at),'seed or clock');
     let rng=deriveSimulationSeed(seed,'village.generated_people@1');
-    const draw=n=>{if(streamState)return Math.floor(drawUnit(streamState,scopedStream('world.people:village'),'generation')*n);rng^=rng<<13;rng^=rng>>>17;rng^=rng<<5;rng>>>=0;return Math.floor(rng/0x100000000*n);};
+    const draw=n=>{if(streamState)return Math.floor(drawUnit(streamState,scopedStream('world.people:village'),'generation')*n);rng=xorshift32(rng);return Math.floor(rng/0x100000000*n);};
     const people=[];
     for(let i=0;i<3;i++) {
         const template=peopleTemplates[draw(peopleTemplates.length)],id=`traveler_${i+1}`;

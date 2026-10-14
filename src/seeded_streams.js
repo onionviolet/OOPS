@@ -15,6 +15,12 @@ export function hashStreamSeed(seed, id) {
     let n=seed; for(const ch of id) n=Math.imul(n ^ ch.charCodeAt(0),16777619) >>> 0;
     return n || 1;
 }
+// The one xorshift32 13/17/5 step. Owned legacy cursors (storylet decks, mixture
+// seeds, generated-people fallback, native battles) call this so their saved
+// state and replay output stay byte-identical to the old inline copies.
+export function xorshift32(n) {
+    n^=n<<13;n^=n>>>17;n^=n<<5;return n>>>0;
+}
 export function mix32(n) {
     n=Math.imul(n ^ (n >>> 16),0x85ebca6b);
     n=Math.imul(n ^ (n >>> 13),0xc2b2ae35);

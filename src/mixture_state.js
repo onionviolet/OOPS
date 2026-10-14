@@ -1,3 +1,4 @@
+import {xorshift32} from './seeded_streams.js';
 import {currentProductAppearanceView} from './product_appearance_view.js';
 // Original Village law revision 1. Truth is retained, knowledge is independent.
 export const MIXTURE_ID = 'Village mixture';
@@ -11,7 +12,7 @@ const clone = value => structuredClone(value);
 const fail = message => {throw new Error(message);};
 export function localMixtureSeed(seed, scope) {
     let n=seed>>>0;for(const c of scope)n=Math.imul(n^c.charCodeAt(0),16777619)>>>0;
-    n^=n<<13;n^=n>>>17;n^=n<<5;return n>>>0||1;
+    return xorshift32(n)||1;
 }
 export function createMixtureState(seed) {
     if(!Number.isSafeInteger(seed)||seed<0)fail('Unresolved mixture seed.');
