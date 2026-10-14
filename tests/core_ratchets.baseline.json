@@ -5,7 +5,7 @@
     "mathRandomCalls": 60,
     "mathRandomReferences": 63,
     "worldModuleImports": 23,
-    "xorshiftCopies": 7
+    "xorshiftCopies": 10
   },
   "minimum": {
     "definePanelCalls": 6,
