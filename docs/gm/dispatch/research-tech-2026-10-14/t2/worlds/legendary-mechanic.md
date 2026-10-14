@@ -1,0 +1,21 @@
+# W18: The Legendary Mechanic
+
+2026-10-14. Research and proposals only. Supplied-edition indexed coverage c0001–c1463. Early examples retain their actual context.
+
+| Angle | Located evidence and fitting extension |
+|---|---|
+| RP5 | **SHOWN/STATED:** Germinal labs control research/materials; government departments and borrowed private workshops have conflicting interests. [PEOPLE_AND_INSTITUTIONS.md:14](../../../../../research/novels/full-book/legendary-mechanic/PEOPLE_AND_INSTITUTIONS.md#L14) [PEOPLE_AND_INSTITUTIONS.md:22](../../../../../research/novels/full-book/legendary-mechanic/PEOPLE_AND_INSTITUTIONS.md#L22) [PEOPLE_AND_INSTITUTIONS.md:28](../../../../../research/novels/full-book/legendary-mechanic/PEOPLE_AND_INSTITUTIONS.md#L28) **INFERRED:** compare patron-funded secrecy with paid market fabrication. |
+| Knowledge / KL | **SHOWN/STATED:** blueprint routes include combinations, reverse engineering and free creation; knowing a design differs from building and operating it. [POWER_AND_PRODUCTION.md:12](../../../../../research/novels/full-book/legendary-mechanic/POWER_AND_PRODUCTION.md#L12) [POWER_AND_PRODUCTION.md:13](../../../../../research/novels/full-book/legendary-mechanic/POWER_AND_PRODUCTION.md#L13) [POWER_AND_PRODUCTION.md:19](../../../../../research/novels/full-book/legendary-mechanic/POWER_AND_PRODUCTION.md#L19) **INFERRED:** notebook failures and guarded knowledge are real research assets. |
+| RB6 / RE6 / SR | **SHOWN:** invasive research, coercive training and encrypted disassembly hazards are particular institutional/technical risks. [PEOPLE_AND_INSTITUTIONS.md:9](../../../../../research/novels/full-book/legendary-mechanic/PEOPLE_AND_INSTITUTIONS.md#L9) [PEOPLE_AND_INSTITUTIONS.md:10](../../../../../research/novels/full-book/legendary-mechanic/PEOPLE_AND_INSTITUTIONS.md#L10) [POWER_AND_PRODUCTION.md:23](../../../../../research/novels/full-book/legendary-mechanic/POWER_AND_PRODUCTION.md#L23) **INFERRED:** not every blueprint is a cognitively hazardous text. |
+| TL / TP | **SHOWN:** modules, batteries, signal range and replaceable materials gate robots; incomplete designs remain incomplete despite spending. [POWER_AND_PRODUCTION.md:23](../../../../../research/novels/full-book/legendary-mechanic/POWER_AND_PRODUCTION.md#L23) [POWER_AND_PRODUCTION.md:25](../../../../../research/novels/full-book/legendary-mechanic/POWER_AND_PRODUCTION.md#L25) **INFERRED:** compare local workshops with later fleets without turning class/knowledge tiers into regional adoption. |
+| UE / TW9 | **SHOWN:** demonstrations change demand; mishandled reverse engineering has consequences. [CAUSALITY_WORLD_AND_LIFE.md:27](../../../../../research/novels/full-book/legendary-mechanic/CAUSALITY_WORLD_AND_LIFE.md#L27) **INFERRED:** UE4/UE5 fit design sales/training; future-player knowledge becomes stale after divergence. |
+| RT | **SHOWN:** finite fabrication deadlines and version-linked player intervals matter. [POWER_AND_PRODUCTION.md:19](../../../../../research/novels/full-book/legendary-mechanic/POWER_AND_PRODUCTION.md#L19) [CAUSALITY_WORLD_AND_LIFE.md:27](../../../../../research/novels/full-book/legendary-mechanic/CAUSALITY_WORLD_AND_LIFE.md#L27) **INFERRED:** neither player respawn nor remembered versions grants a safe reset to every native lab. |
+| LB6 | **SHOWN:** fitted prostheses differ from learned arm blueprints and control methods. [POWER_AND_PRODUCTION.md:19](../../../../../research/novels/full-book/legendary-mechanic/POWER_AND_PRODUCTION.md#L19) **INFERRED:** a mechanical-body/AI researcher needs its actual manipulators, control, energy and accessible records; sophistication is not automatic autonomy. |
+
+Concrete activities, all **INFERRED proposals**, not canon scenes or runtime claims:
+
+- Develop one incomplete prototype through paid tests and record the exact missing knowledge or material that stalls it.
+- Compare manually controlled and simple automated robots on the same task, measuring signal range, battery and handling.
+- Demonstrate a supported design to a buyer, then choose sale, license proposal or teaching without transferring unowned institutional stock.
+
+Open qualification: No universal failed-test reward, immutable control-unit cap or free full blueprint. Exact advanced AI bodies, knowledge access and later version timing require indexed scene qualification.
