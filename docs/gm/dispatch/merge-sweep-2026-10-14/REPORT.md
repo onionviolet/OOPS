@@ -42,3 +42,27 @@ worktree; the shared index was never touched.
   new copies fail. Moving those three onto `src/seeded_streams.js` and
   lowering the ceiling is a follow-up for the streams owner.
 - R2: Not pushed. Push waits for Weibao's yes.
+
+## Later addition: harvest-modules HV1 carcass processing
+
+Flagged by the modular-chains session (PC1-PC5 build on it). Branch
+`proc/hv1-carcass`, tip `dbf266c7`, all five stages complete per its
+CHECKPOINT; no worker running in its worktree. Merged onto `ce23ead8`.
+
+- Conflict in `src/main.js` with the world-calendar integration: the import
+  line (kept both calendar imports and HV1's `gameKeyedRandom`) and
+  `update_timer` (kept `commitLocalDateHeader()` then `tickHarvest(minutes)`).
+- `npm test`: 1394 tests, 1391 pass, 0 fail, 3 todo ([summary](hv1-npm-test-summary.txt)).
+  `node build.js` passes; the bundle is rebuilt in this merge.
+- Browser, headless Chrome 1366x768, fresh profile and fresh `127.0.0.1`
+  origin ([script](hv1-browser-smoke.cjs), [record](hv1-browser.json)):
+  new hero, save, reload; literal Import of HV1's earned test-fixture save
+  (`TEST FIXTURE HV HV1 NATURAL`, harvest state matched exactly); a natural
+  Infested field kill left a carcass; whole processing queued, survived a
+  reload exactly, then produced 3 graded parts and Butchering XP; Export and
+  Import into a second fresh profile matched harvest, inventory and XP
+  exactly. Zero page errors. Screenshots: [pending](hv1-pending-1366.png),
+  [processed](hv1-processed-1366.png), [after import](hv1-import-1366.png).
+- Persistence: HV1 adds a `harvest` save block; a brand-new hero has none
+  until it is used, and the HV1-era save imports exactly. HV1's BACKLOG
+  keeps long native auto-fight overflow and balance/taste open.
