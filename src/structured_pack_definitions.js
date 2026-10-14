@@ -1,3 +1,4 @@
+import {compileStructuredExpeditions} from './structured_expedition_runtime.js';
 import {compileStructuredAbilities} from './structured_ability_runtime.js';
 import {validateStructuredEquipmentDefinition} from './structured_equipment_runtime.js';
 import {validateStructuredRenewalDefinition} from './structured_renewal.js';
@@ -105,6 +106,7 @@ export function compileStructuredPack(raw, existingRegistry = null) {
         const abilities = compileStructuredAbilities(d);
         d.simulation.commands = abilities.commands;
     }
+    if(Object.hasOwn(d, 'expeditions'))d.simulation.commands = compileStructuredExpeditions(d).commands;
     const authored = {worlds: [d.world], simulation: d.simulation};
     for(const family of contentFamilies.filter(f => f !== 'worlds')) {
         const rows = (family === 'capabilities' ? d.capabilityDefinitions : d[family]) || [];

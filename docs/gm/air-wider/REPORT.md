@@ -31,3 +31,21 @@ P1 technical gate passed; commit follows this report. P2, P3 and P4 not started.
 Merge risks: `main.js` overlaps air-workshop and upstream/integration lanes; compiler changes overlap other structured authoring work. Preserve both integrations through an intentional merge and rerun the combined gates. Life/clock work overlaps p23-life-loops; UI visibility overlaps reveal/polish lanes. This lane performs no merge or push.
 
 Remaining authoritative gate: finish this lane's required technical packet checks, then Weibao's play/taste. Neither prior audit completion nor passing SOURCE tests imply whole-chain acceptance.
+
+## P2: discoverable repeat outings
+
+| Source item | Decision | Landing |
+| --- | --- | --- |
+| D2 wider expedition adapter/eight tests | Adapted with optional lethal route and repeat settlement | `src/structured_expedition_runtime.js`, 11 focused tests |
+| Discovery | Compiled into actual requires, visibility and refundable timed completion; direct bypass rejected | Compiler and shared simulation commands |
+| Repeat settlement | Resolved phase settles one genuine attempt, returned phase blocks retries; no global once/claim for extraction | Shared saved actor facts/jobs; two settlements proved |
+| Known-site projection | Only held-discovered sites and current quotes projected | Structured runtime/UI |
+| Original desktop loop | Typed native body/start, actual camp/reed travel, paid prepare, held and ordinary approaches, retreat/extract return, health injury/treatment | Public `outing_pack.js`, `p2-browser.cjs` |
+
+Read-only source is the same wider snapshot directory, `src/structured_expedition_runtime.js` and its tests. MIT attribution retained. No rival timer/inventory/save domain, no blanket encounter/RNG restriction; lethal route omitted from this fixture. Metadata is optional; absence preserves old compiled definition bytes. Existing receipt hashes and native location/body/equipment/custody/container/refund guards remain. A failed first native attempt exposed missing typed body identity in the test fixture; the fixture now uses supported typed starts rather than weakening travel checks.
+
+Final checks: 11 expedition SOURCE tests pass (393.55025 ms); broader runtime/UI slice 32/32 pass before last refund regression addition. Final full `npm test`: **639 tests, 639 pass, zero fail/cancel/skip/todo**, 28469.538583 ms. Build passes; tested bundle SHA-256 `5bf75aac00251f61a196271d259576e4b44587e13337bb8d0818cbaf494eae4e`. Focused tests include direct discovery bypass, phase skips, paid method loss/refund, discovery loss/refund, failed durable write, exact pending reload, no payout retreat, ordinary injury/real treatment and two completed attempts with duplicate extraction refusal.
+
+Rebuilt fresh-origin 1366×768 Chrome gate passes: hidden site before discovery; paid pending preparation exact Save/reload/Export/literal-file Import; natural elapsed native job completion using Playwright's controlled browser clock (not a completion command); held approach, extraction/return, ordinary approach/retreat with no payout, blocked retry until treatment, next ordinary attempt/extraction/treatment, and final literal-file import. Native bread counts **5 → 6 → 6 → 7**, money **102 → 100 (pending) → 91 (final)**; extraction completion count 2. Exact pending jobs/money and final receipt/facts/reward inventory comparisons pass. Screenshot `/tmp/air-wider-p2-desktop.png`, log `/tmp/air-wider-p2-typed-browser.log`. Human play/taste stays OPEN. Lethal route/browser source-loss/refund and native quota fault are unexercised; corresponding source transaction checks pass.
+
+P1 commit `b3cdd4b7`; P2 technical gate passed and its commit follows. P3 next; P4 waits for adapters. Main/UI/compiler integration conflicts require preserving other lanes' current work. No merge, push or private live-pack mutation.

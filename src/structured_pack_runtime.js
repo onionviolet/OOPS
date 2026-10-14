@@ -1,3 +1,4 @@
+import {previewStructuredExpeditions} from './structured_expedition_runtime.js';
 import {createSimulationState,validateSimulationState,validateSimulationEffect,jsonData,stableId} from './simulation_contracts.js';
 import {applySimulationEffects} from './simulation_effects.js';
 import {previewSimulationCommand} from './simulation.js';
@@ -100,7 +101,7 @@ export function structuredCampaignView(state,d,record,context) {
         if(quote.visible)actions.push({id:a.id,label:a.label,description:a.description||'',eligible:quote.eligible,reasons:quote.reasons,duration:quote.duration,completed:state.actors.player.completed[a.id]||0,repeatable:!a.once&&quote.duration>0,costs:structuredActionCosts(quote,d)});
     }
     const jobs=state.simulation.jobs.filter(j=>j.actorId==='player'&&j.commandId.startsWith(d.id+'.')).map(j=>({id:j.id,commandId:j.commandId,label:j.label,remaining:Math.max(0,j.due-state.clock),duration:context.registry.simulation.commands.get(j.commandId)?.duration||0,cancellable:j.cancellation!=='none'}));
-    return {available:true,active:true,title:d.title||'Local life',place:d.locations.find(l=>l.id===state.simulation.people.player.location)?.label,description:validateStructuredBootstrap(d,record.startId).description,people,status,actions,jobs};
+    return {available:true,active:true,expeditions:previewStructuredExpeditions(state,d,context),title:d.title||'Local life',place:d.locations.find(l=>l.id===state.simulation.people.player.location)?.label,description:validateStructuredBootstrap(d,record.startId).description,people,status,actions,jobs};
 }
 
 // Show only the acting character's executable input quote. NPC reserves and
