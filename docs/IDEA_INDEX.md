@@ -92,6 +92,8 @@ proposed build order, and lanes B15 (body cheats) and B16 (roadmap).
 Round 9 adds comic bodies CB1-CB15, comic body cheats CC1-CC6, subtle comic
 detail, and abstractions AB1-AB12 mapped to code and to the comic doc's CA
 list, with lanes B17 and B18.
+The final fold records B10, B12 and B14-B18, applies B17 and B16 corrections,
+lists cross-lane conflicts FD1-FD8 and top picks; the wave is folded.
 
 Current idea-expansion return, 2026-10-11:
 [joined planning](gm/dispatch/idea-expansion-2026-10-11/RECONCILIATION.md) retains
