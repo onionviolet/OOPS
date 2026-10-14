@@ -1632,3 +1632,80 @@ Recorded for future selection; none is authorised by this pass.
 | NA6 | Rival bodies over time | Recurring rivals' bodies change too: they train, get injured, modify, age; their projection updates only when you see them (B7) |
 
 No build or browser journey was run for this pass.
+
+## Round 11: ownership, stability, lives and authoring volume, 2026-10-14
+
+User prompt: “more to consider? other stuff and more? save and extend
+accordingly”. Second more-to-consider pass, on what round 10 left out.
+Evidence read from the repo; nothing built.
+
+### ACT NOW (done in this pass)
+
+- Code index note extended: [SELVES_AND_ECHOES](SELVES_AND_ECHOES.md) uses
+  G1, G2 and G9 for kinds of self, so this doc's G-sections are cited as
+  "genetics G1" when both appear together.
+- Ownership table below, so sibling palettes and this one do not grow a
+  second copy of the same mechanic.
+
+### Ownership with sibling palettes
+
+| Code | Topic | Owner | This doc keeps | Evidence |
+|---|---|---|---|---|
+| OW1 | Pill and potion tolerance, toxicity | [Crafting and consumables](PROCEDURAL_CRAFTING_AND_CONSUMABLES_CONSIDERATIONS_2026-10-14.md) CO3, CO4, WL2, WL5 (item side) | SB1-SB6 body side: one per-body tolerance state that CO4 items read and write, not a second meter | Consumables doc lines 40-41 define per-body tolerance |
+| OW2 | Beast and pet breeding | Genetics GN10 (the companions doc already defers: "Breeding beasts is GN10") | Transmission rules; companions owns breeders, trainers and the companion economy (K7) | Companions doc lines 11, 224 |
+| OW3 | Bloodline-shaped selves and visions | [Selves and echoes](SELVES_AND_ECHOES.md) | BP3 ancestral memory and MS6 soul lineage as the carriers a self-generator reads | Selves doc lines 148, 162 |
+| OW4 | Shapeshifting and metamorphosis | [Nonhuman transformation](worlds/NONHUMAN_TRANSFORMATION_AND_BODY_CHANGE_2026-10-14.md) | G6 body detail and BM modification; link, do not restate |  |
+| OW5 | Body parts as materials | [Maker arts](WEAPONCRAFT_RUNES_AND_MAKER_ARTS_CONSIDERATIONS_2026-10-14.md) and consumables for crafting use | OB1 and SO sourcing (where it comes from, custody) | Bone and blood mentions in both |
+| OW6 | Per-world body checklist | [World core kit](worlds/WORLD_CORE_KIT_2026-10-14.md) | Palette rows the kit's body part can pick from; B1's fit matrix is the input |  |
+
+### ACCOUNT FOR NOW: stability across updates and reloads
+
+| Code | Constraint | Evidence and consequence |
+|---|---|---|
+| ST-A | Key draws by stable names, not order | `unitDecision` in `src/seeded_streams.js:53-58` hashes root, stream, key and ordinal, so outcomes do not shift when new tables are added, as long as keys stay stable (for example `people:body.quirk:<person>:<slot>`) |
+| ST-B | Use an allowed stream family | The live family allowlist (`src/seeded_streams.js:5-6`) has no `body` family; body draws use an existing family such as `people`, `world.people`, `discovery` or `legacy.outcome` with a body-scoped key (B18 F3) |
+| ST-C | Save the outcome, not just the seed | `streamSeed` is a one-time generator seed; generators keep their resolved truth (`src/seeded_streams.js:59-61` comment). Body cards, quirks and inherited traits save their resolved values |
+| ST-D | Pin card and table revisions | Sources, roll tables and actions already carry `revision` (`src/expansion_engine.js:214, 291, 328`). A content update that changes a physique or world dial applies to new draws; existing bodies keep their pinned revision unless a migration says otherwise |
+| ST-E | World dial changes mid-save | A patched dial (say, aging pace) needs a policy per dial: apply to existing saves, apply to new events only, or offer the player the choice. Default proposal: new events only, recorded in the save |
+| ST-F | Rename without breaking saves | Card IDs survive display renames; removed cards become deprecated stubs that still load (MT5) |
+
+### Reincarnation, other lives and selves
+
+| Code | Idea | Play and owner |
+|---|---|---|
+| RL1 | Past-life marks | A birthmark where a past life's fatal wound was; a fear of water after drowning. Small, true breadcrumbs (BC) carried by the soul, not the blood |
+| RL2 | What the body forgets and the soul keeps | Muscle memory resets with a new body; technique knowledge and some aptitude may carry by the soul (L12, MS6); each world sets the split |
+| RL3 | Born into your own line | Reincarnating as your own descendant: your bloodline, your estate, your old rivals' grandchildren (G30, B3) |
+| RL4 | Bodies of other selves | Variant selves (SELVES_AND_ECHOES) can differ in body: a self with the injury you avoided, a self with the bloodline awakened |
+| RL5 | Body in the death screen | What the last body achieved and lost is part of the life summary and the legacy offer (B3 successor preview) |
+| RL6 | Regression | Returning to a younger body keeps the mind and loses training (TM4); old injuries are undone, old habits remain |
+
+### Authoring volume
+
+| Code | Item | Estimate and route |
+|---|---|---|
+| AV1 | Floor per world | About 3 physiques or constitutions, 2 bloodline or lineage rows, 6 quirks, 1 body cheat and 3 breadcrumbs: about 15 cards. Inference, not a requirement |
+| AV2 | Across worlds | B1 covered 72 world notes, so the floor is roughly 1,000 cards if every world got one. Pick fitting worlds first, per B1's matrix |
+| AV3 | Who writes them | Cheap agents at low effort fill cards from B1 notes and B4 canon cards, with a lint (LD4 plus world-fit and sealed-secret checks); a balanced agent reviews per world; Weibao accepts samples |
+| AV4 | Generated vs authored | B6's grammar fills background bodies; named canon bodies stay authored (P7, P13) |
+| AV5 | Quality gate | Each card names the action it touches (OV2); cards that touch nothing stay unlisted |
+
+### LATER / DELEGATE
+
+| Code | Item | Suggested level and effort | Done check |
+|---|---|---|---|
+| LD7 | Joint tolerance spec with the consumables owner (OW1) | Balanced, medium | One per-body tolerance record read by CO4 items; no second meter in either doc |
+| LD8 | Stability test: add a new quirk table to a fixture save and confirm existing outcomes are unchanged | Cheap, low, after B2 | Same fixture, before and after, identical body fields |
+| LD9 | Dial-change policy table for each world dial | Strong, medium (save compatibility) | Each dial has apply-existing, new-only or player-choice with a migration note |
+| LD10 | Card authoring pilot: one world's 15-card floor through the lint | Cheap author, balanced reviewer | Lint passes; reviewer notes per card; Weibao samples three |
+
+### New angles
+
+| Code | Angle | Play |
+|---|---|---|
+| NA7 | Body photo album | Snapshots of how you looked at milestones, generated from the body record; a cheap memory hook |
+| NA8 | Family resemblance across lives | A reincarnated player recognised by a former lover's descendant because of a shared feature (RL1, MH1) |
+| NA9 | Inherited debts of the body | A line owes a beast pact (BD3) that comes due on a descendant's birthday |
+| NA10 | Body rites of passage | Coming-of-age tests, first hunts, scarification or naming ceremonies per culture; they record a body milestone (MG1) and grant standing (CL) |
+
+No build or browser journey was run for this pass.

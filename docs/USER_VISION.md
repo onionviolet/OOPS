@@ -2806,3 +2806,4 @@ extracting resources to crafting and more? procedural rules and more? Use more
 to consider”. Saved as [modular production chains](MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md)
 (MDF1-MDF4 code findings, ML levels, MS stages, MV verbs, MR rule kinds, MX other
 chains, MT subtle, MC cheats, MA abstractions, smallest proof). Proposals only.
+Then: “more to consider? other stuff and more? save and extend accordingly” Saved [round 11](GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md#round-11-ownership-stability-lives-and-authoring-volume-2026-10-14): ownership OW1-OW6, stability ST-A to ST-F, reincarnation RL1-RL6, authoring volume AV1-AV5. Proposals only.

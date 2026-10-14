@@ -96,6 +96,8 @@ The final fold records B10, B12 and B14-B18, applies B17 and B16 corrections,
 lists cross-lane conflicts FD1-FD8 and top picks; the wave is folded.
 Round 10 runs the more-to-consider pass: code index, slice constraints
 MT1-MT7, delegated items LD1-LD6 and new angles NA1-NA6.
+Round 11 adds ownership with sibling palettes OW1-OW6, stability rules
+ST-A to ST-F, reincarnation RL1-RL6, authoring volume AV1-AV5, LD7-LD10, NA7-NA10.
 
 Current idea-expansion return, 2026-10-11:
 [joined planning](gm/dispatch/idea-expansion-2026-10-11/RECONCILIATION.md) retains
