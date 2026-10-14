@@ -2,7 +2,7 @@
   "schema": 1,
   "lane": "p23-host-joins",
   "date": "2026-10-14",
-  "status": "fixture-repaired; native tranches in progress",
+  "status": "tranche 1 technically passed; tranches 2-5 OPEN",
   "base_head": "43b01f95112b5a4017d0cd426d414ae553abeadc",
   "candidate_head": "be0e594527dd2f7e50314fa6ab3d910adb89481f",
   "session": "01a138ea-def0-77c0-b800-f4ade39f33af",
@@ -11,8 +11,36 @@
     "width": 1366,
     "height": 768
   },
-  "merge_ready_lanes": [],
-  "tranches": [],
+  "merge_ready_lanes": [
+    "p23-exposure",
+    "p23-household"
+  ],
+  "tranches": [
+    {
+      "number": 1,
+      "status": "technical gates passed for declared human/home scope",
+      "lanes": [
+        "p23-exposure",
+        "p23-household"
+      ],
+      "build": "PASS",
+      "focused": {
+        "tests": 32,
+        "pass": 32,
+        "fail": 0
+      },
+      "full": {
+        "tests": 979,
+        "pass": 979,
+        "fail": 0,
+        "duration_ms": 14993.713333
+      },
+      "native": "tranche1-native.json and tranche1-guards.json",
+      "bundle_sha256": "313c5c95ff047166fa7eb81e2f3297bcba5383d6d765fead15613b69bfb7a1d5",
+      "prerequisites": "supported old-envelope fixture; no feature outcomes seeded",
+      "human_acceptance": "OPEN"
+    }
+  ],
   "merged_lanes": [
     "p23-long-life",
     "p23-exposure",
@@ -33,12 +61,10 @@
   ],
   "excluded_lane": "air-wider",
   "actual_full": {
-    "tests": 974,
-    "pass": 974,
+    "tests": 979,
+    "pass": 979,
     "fail": 0,
-    "cancelled": 0,
-    "skipped": 0,
-    "duration_ms": 9473.786375
+    "duration_ms": 14993.713333
   },
   "proposed_fixture_slice": {
     "tests": 43,
@@ -64,18 +90,11 @@
     "bundleSha256": "2ff397f1a6cd86eacf4f10e173e8bd49eae71e3572e779fddaf40eeea2126eeb",
     "pageErrors": []
   },
-  "blocker": {
-    "type": "exclusive-write-scope",
-    "requested_paths": [
-      "tests/p23-combat-options.test.js",
-      "tests/p23-market-life.test.js",
-      "tests/p23-long-life.test.js",
-      "tests/p23_life_loops.test.js"
-    ],
-    "proposal": "checks/p23-host-joins/proposed-fixture-updates.patch",
-    "approval": "approved and applied"
+  "blocker": null,
+  "persistent_families": {
+    "p23_exposure": "native pending/settled/full-envelope restore passed",
+    "household": "native pending/settled/full-envelope restore passed"
   },
-  "persistent_families": "host joins OPEN; absent-state/preflight/native import not implemented by P00",
   "remaining_acceptance": "native technical tranche gates then Weibao play/taste",
   "push": false,
   "standing_scope": "finished absorb-all lane files transferred for integration except air-wider; record edits"

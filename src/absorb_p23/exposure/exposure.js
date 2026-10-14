@@ -10,6 +10,7 @@ function fail() {throw new Error('Invalid exposure state');}
 export function validateExposure(raw) {
     if(raw===undefined) return undefined; // Old saves retain an absent optional field.
     if(!raw || typeof raw!=='object' || Array.isArray(raw)) fail();
+    if(Object.keys(raw).length!==7 || !['schema','hazardousEnabled','phase','remaining','cursor','famineRemainder','coldRemainder'].every(k=>Object.hasOwn(raw,k))) fail();
     if(raw.schema!==EXPOSURE_SCHEMA) throw new Error('Unsupported exposure schema');
     if(typeof raw.hazardousEnabled!=='boolean' || !['gust','rest'].includes(raw.phase)) fail();
     if(!finite(raw.remaining,Number.MIN_VALUE,raw.phase==='gust'?PROFILE.gustMinutes:PROFILE.restMinutes)) fail();

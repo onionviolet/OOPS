@@ -1,3 +1,10 @@
+import {PROTO23_IDS} from './proto23_world_ids.js';
+import {stageExposureJoin,stageHouseholdJoin} from './absorb_p23/host_joins/tranche_one.js';
+import {validateExposure,exposureEffects,famineEfficiency} from './absorb_p23/exposure/exposure.js';
+import {mountExposurePanel,exposureStatus} from './absorb_p23/exposure/panel.js';
+import {HOUSEHOLD,householdRest} from './absorb_p23/household/model.js';
+import {householdPresentation} from './absorb_p23/household/host.js';
+import {createHouseholdPanel} from './absorb_p23/host_joins/tranche_one_ui.js';
 import {STREAMS,ensureStreams,bindGameStreams,gameRandom,gameRandomRange,drawUnit,scopedStream,seededRecipe,validateNativeEncounter,streamSeed} from "./seeded_streams.js";
 const mixtureSeed=()=>streamSeed(expansionState,STREAMS.craft,"village.mixtures@1");
 const generatedPeopleSeed=()=>streamSeed(expansionState,scopedStream("world.people"),"village.generated_people@1");
@@ -28,7 +35,7 @@ import {commitManagement} from './management/host.js';
 import {createManagementPanel} from './management/ui.js';
 import {normalizeElementalOption,describeElementalPreparation,ELEMENTAL_SETTING_DESCRIPTION} from './absorb_e3/elemental_affinities.js';
 import {equipmentDurability as durability,createDurability} from './absorb_e2/durability.js';
-import {getPacingState,setPacingState,advancePacing,prepareFood,getPacingEffects} from './absorb_e1/pacing.js';
+import {getPacingState,setPacingState,advancePacing,prepareFood,getPacingEffects as basePacingEffects} from './absorb_e1/pacing.js';
 import {mountPacingPanel,pacingStatus} from './absorb_e1/panel.js';
 import {setKnownClearTextReader} from './display.js';
 import {FORT, createFortSupply, migrateFortSupply, stageFortAction, observeFortSource, fortDisclosures, knownClearText} from './absorb_d/fort.js';
@@ -37,7 +44,7 @@ import {createFortControls} from './absorb_d/ui.js';
 import {normalizeLocalLife, advanceLocalLife, localLifeAction, recordLocalPurchases} from './absorb_c2/local_life.js';
 import {createLocalLifePanel} from './absorb_c2/panel.js';
 import {setAccessoryEquipmentReader, accessoryCraftingTiers} from './absorb_c1/accessories.js';
-import {furnitureProjection, furnitureSkillMultiplier, furnitureRecovery, furniturePresentation, furnitureItemBonusText} from './absorb_b/furniture.js';
+import {furnitureProjection, furnitureComfort, furnitureSkillMultiplier, furnitureRecovery, furniturePresentation, furnitureItemBonusText} from './absorb_b/furniture.js';
 import {STEAM_ABSORPTION_GROUPS} from './steam_absorption_content.js';
 import {steamAbsorptionContext,commitSteamAbsorptionCommand} from './steam_absorption_host.js';
 import {contextualBalmContext,commitContextualBalmCommand,stageContextualBalmEffectRequest} from './contextual_balm_host.js';
@@ -672,6 +679,108 @@ function createDurabilityPanel() {
     render();return {render};
 }
 
+effect_templates['Household smoke']=new ActiveEffect({name:'Household smoke',description:'An explicitly chosen smoky hearth. Ventilate or step outside to clear it.',effects:{},tags:{debuff:true},base_xp_value:0});
+let p23Exposure,household,p23ExposurePanel,householdPanel;
+function p00ExposureContext(){
+    const body=currentNativeBody(),human=body.form==='human'&&body.ownerId==='player'&&body.controllerId==='player';
+    const s=character.getFullStats();
+    return {...homePacingContext(),played:character.is_alive===true&&!restoringNativeSave,needsFood:human,
+        exposureEligible:human&&character.is_alive===true,sheltered:current_location?.is_under_roof!==false,
+        pacing:getPacingState(),coldResistanceLevel:character.getTotalSkillLevel('Cold resistance'),
+        maxStamina:s.max_stamina,staminaToFull:s.max_stamina-s.stamina};
+}
+function getPacingEffects(context){
+    const base=basePacingEffects(context),body=p00ExposureContext();
+    const hungerEfficiency=famineEfficiency(base.hungerEfficiency,character.getTotalSkillLevel('Famine'),
+        {...body,hungerEnabled:getPacingState().hungerEnabled});
+    return {...base,hungerEfficiency,efficiency:hungerEfficiency*base.weatherEfficiency,
+        temperatureOffset:base.temperatureOffset+exposureEffects(p23Exposure,body).temperatureOffset};
+}
+function p00HouseholdContext(clock=expansionState.clock,state=expansionState,location=current_location?.id){
+    const world=state.actors.player.worldId,body=currentNativeBody();
+    const defaultHome=world===PROTO23_IDS.world?`${PROTO23_IDS.world}:${PROTO23_LOCATIONS.cottage}`:'base.frontier:Shack';
+    const homeId=household?.homeId||defaultHome,atHome=homeId===`${world}:${location}`;
+    const input={...readFurnitureInput(),state,locationId:location,housingAccessible:!!locations[location]?.housing?.isUnlocked()};
+    const projection=furnitureProjection(input),protoHome=homeId===`${PROTO23_IDS.world}:${PROTO23_LOCATIONS.cottage}`;
+    const rights=protoHome?state.actors.player.facts['proto23.cottageRight']===true&&
+        state.simulation?.claims?.['proto23.cottage_right']?.owner==='player'&&state.simulation.claims['proto23.cottage_right'].status==='settled':
+        locations.Shack.getAvailabilityComponent().getStatus().is_unlocked===true&&locations.Shack.housing.isUnlocked();
+    const stock=readInventoryOwner(character.getItems()),ownedInventory={};
+    for(const [key,count] of Object.entries(stock))try{assertNativeItemDisposition(state,key);ownedInventory[key]=count;}catch{/* Unspendable goods never fund the home. */}
+    return {sequence:state.sequence,clock,homeId,homeOwned:rights,atHome,alive:character.is_alive===true,
+        controlled:body.ownerId==='player'&&body.controllerId==='player'&&body.form==='human',
+        animalKnown:household?.animal?.id===HOUSEHOLD.animalId,
+        hearthOwned:protoHome?projection.rows.some(r=>r.id==='proto23.hearth'):state.actors.player.facts['household.shackHearthInstalled']===true,
+        ownedInventory,wet:!!active_effects.Wet,knownGift:(item_log.items['Rat tail']?.number||0)>0,furnitureInput:input,
+        assertDisposition:key=>assertNativeItemDisposition(state,key)};
+}
+function p00HouseholdFrame(){
+    const c=p00HouseholdContext(),view=householdPresentation({household,context:c,furnitureInput:c.furnitureInput});
+    const actions=view.sections.flatMap(s=>s.actions.map(a=>({...a,id:a.command.id}))),records=view.sections.flatMap(s=>s.records.map(r=>r.text));
+    if(c.homeOwned&&c.atHome&&c.controlled&&!household?.animal)actions.unshift({id:'meet',label:'Meet the brindled cat at this home'});
+    if(c.homeId==='base.frontier:Shack'&&c.atHome&&c.homeOwned&&!c.hearthOwned)actions.push({id:'install_hearth',label:'Install a home hearth · 3 Rough wood logs + 5 coins',enabled:(c.ownedInventory[HOUSEHOLD.fuelKey]||0)>=3&&character.money>=5});
+    return {visible:c.atHome&&c.homeOwned&&c.controlled&&!current_dialogue&&!current_combat,records,actions,
+        disabled:!ownsSave||foundationSaveBlocked||!!importProbeToken||!!nativeOccupationReason()||!!current_game_action||!!current_activity||is_sleeping||is_reading||is_in_trade()};
+}
+function p00HouseholdEffects(plan,result){
+    if(!result)return;
+    const next={...active_effects};
+    if(plan.effectDurations)for(const [id,duration] of Object.entries(plan.effectDurations)){
+        if(duration===0)delete next[id];else if(next[id])next[id]=new ActiveEffect({...next[id],duration});}
+    let resetRain=false;
+    for(const e of result.effects){
+        if(e.type==='removeCondition'){if(e.id!=='Wet')throw Error('Unsupported household condition.');delete next.Wet;resetRain=true;}
+        if(e.type==='householdSmoke'){
+            if(e.active)next['Household smoke']=new ActiveEffect({...effect_templates['Household smoke'],duration:2});
+            else delete next['Household smoke'];
+        }
+    }
+    plan.nativePatch={...plan.nativePatch,active_effects:next,...(resetRain?{rain_counter:0}:{})};
+    plan.p00EffectPublication={next,resetRain};
+}
+function stageP00Time(plan){
+    const elapsed=plan.state.clock-expansionState.clock;
+    if(elapsed>0&&!restoringNativeSave){
+        plan.gameplay ||= gameplaySnapshot();
+        stageExposureJoin(plan,p23Exposure,expansionState.clock,p00ExposureContext());
+        if(household){
+            if(plan.state.sequence===expansionState.sequence)plan.state.sequence++;
+            const c={...p00HouseholdContext(plan.state.clock,plan.state),sequence:plan.state.sequence-1};
+            stageHouseholdJoin(plan,household,c);
+        }
+    }
+    if(household&&plan.nativeLocation&&plan.nativeLocation!==current_location?.id){
+        const raw=plan.p00Household?.state||household,c={...p00HouseholdContext(plan.state.clock,plan.state,plan.nativeLocation),sequence:plan.state.sequence};
+        const prior=plan.p00Household?.notices||[];
+        plan.state.sequence++;
+        const result=stageHouseholdJoin(plan,raw,c,'leave');result.notices=[...prior,...result.notices];
+    }
+    p00HouseholdEffects(plan,plan.p00Household);
+}
+function actP00Household(type){
+    const frame=p00HouseholdFrame();if(frame.disabled||!frame.visible)throw Error('Use this owned home when your living body is free.');
+    const c=p00HouseholdContext(),state=structuredClone(expansionState);state.sequence++;
+    const plan={state,external:{money:character.money},gameplay:gameplaySnapshot()};
+    if(type==='install_hearth'){
+        if(c.hearthOwned||c.homeId!=='base.frontier:Shack'||character.money<5)throw Error('An available owned home and five coins are required.');
+        c.assertDisposition(HOUSEHOLD.fuelKey);
+        applyGameplayEffect(plan.gameplay,{type:'item',key:HOUSEHOLD.fuelKey,amount:3},'player',true);
+        plan.external.money-=5;state.actors.player.facts['household.shackHearthInstalled']=true;
+    }else {
+        if(type==='meet'){c.animalKnown=true;state.actors.player.facts['household.mossKnown']=true;}
+        stageHouseholdJoin(plan,household,c,type);
+    }
+    persistExpansion(plan);householdPanel?.render();
+}
+function changeP00Exposure(next){
+    if(!ownsSave||foundationSaveBlocked||importProbeToken||restoringNativeSave||nativeOccupationReason())throw Error('Use the writable free native body to change exposure.');
+    next={...validateExposure(next),cursor:expansionState.clock};
+    const state=structuredClone(expansionState);state.sequence++;
+    persistExpansion({state,external:{money:character.money},gameplay:gameplaySnapshot(),nativePatch:{p23_exposure:next},p00Exposure:next});
+    p23ExposurePanel?.render();pacingStatusPanel?.render();update_displayed_temperature(getPacingEffects(homePacingContext()));
+}
+function p00SleepingMultiplier(){const c=p00HouseholdContext();return householdRest(household,c,furnitureComfort(readFurnitureBonuses()));}
+
 function homePacingContext(state=expansionState, location=current_location, calendar=current_game_time) {
     return {homeWorld:state.actors.player.worldId==='base.frontier'&&!Object.values(optionalPackState.packs).some(p=>p.active),
         outdoors:location?.is_under_roof===false,season:calendar.getSeason?calendar.getSeason():current_game_time.getSeason(),nativeRain:!!is_raining()};
@@ -686,7 +795,7 @@ function createPacingStatusPanel() {
     const panel=document.createElement('details');panel.id='pacing_status_panel';panel.className='expedition_panel';
     const title=document.createElement('summary');title.textContent='Optional pacing';const text=document.createElement('p');panel.append(title,text);
     const render=()=>{const host=document.getElementById('location_actions_div');if(panel.parentElement!==host)host.append(panel);
-        panel.hidden=!!current_dialogue||!!current_combat;text.textContent=pacingStatus(getPacingState(),homePacingContext());};
+        panel.hidden=!!current_dialogue||!!current_combat;text.textContent=pacingStatus(getPacingState(),homePacingContext()).replace('Total XP ×','Base pacing XP ×')+` Native XP ×${getPacingEffects(homePacingContext()).efficiency.toFixed(5)}. `+exposureStatus(p23Exposure,p00ExposureContext(),Object.keys(skills).filter(id=>nativeSkillDiscovery(skills[id],character)));p23ExposurePanel?.render();householdPanel?.render();};
     render();return {render};
 }
 
@@ -828,6 +937,7 @@ function expeditionContext() {
 }
 
 function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}) {
+    stageP00Time(plan);
     // Non-person pack inventories are native registry owners. Their contents
     // publish through the existing ownership transaction after durable saving.
     for(const [id,counts] of Object.entries(plan.ownership||{})) {
@@ -908,6 +1018,7 @@ function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}) {
         ...(unlocks.skills || []).map(id => ({kind: "skill", id})),
         ...(unlocks.recipes || []).map(r => ({kind: "recipe", id: recipes[r.category]?.[r.subcategory]?.[r.recipe_id]?.id})),
         ...(unlocks.quests || []).map(id => ({kind: "quest", id}))];
+    const p00Hidden=Object.fromEntries(['Famine','Cold resistance'].map(id=>[id,!nativeSkillDiscovery(skills[id],character)]));
     const publication = prepareGameplayPublication(plan.gameplay, {actors: actorBindings, skills, getItemFromKey, unlockAdapter});
     const townAccess = townUnlocks(expansionState, plan.state);
     const unlockPublication = prepareNativeUnlocks([...(plan.unlocks || []), ...publication.unlocks, ...townAccess], {availabilities, flags: global_flags, quests, questManager});
@@ -957,6 +1068,9 @@ function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}) {
     // Every owned domain is durable before native state is published. Rendering
     // happens afterward and never applies rewards.
     expansionState = plan.state;
+    if(plan.p00Exposure)p23Exposure=plan.p00Exposure;
+    if(plan.p00Household){household=plan.p00Household.state;for(const text of plan.p00Household.notices)log_message(text,'notification');}
+    p23ExposurePanel?.render();householdPanel?.render();
     if(plan.pacingNext){setPacingState(plan.pacingNext);pacingMinute=plan.pacingTarget;pacingPanel?.render();pacingStatusPanel?.render();durabilityPanel?.render();elementalPanel?.render();}
     if(plan.nativePatch?.fort_supply)fortSupply=migrateFortSupply({fort_supply:plan.nativePatch.fort_supply});
     if(plan.localLifeResult){localLife=normalizeLocalLife(plan.localLifeResult.state);for(const message of plan.localLifeResult.messages)log_message(message,'notification');}
@@ -970,6 +1084,8 @@ function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}) {
         }
         if(expired) {character.addActiveEffectBonus(active_effects); character.updateStatsAndDisplay();}
     }
+    if(plan.p00EffectPublication){for(const id of Object.keys(active_effects))delete active_effects[id];Object.assign(active_effects,plan.p00EffectPublication.next);
+        if(plan.p00EffectPublication.resetRain)rain_counter=0;character.addActiveEffectBonus(active_effects);character.updateStatsAndDisplay();update_displayed_effects();}
     if(expansionState.chronicle?.life.endedAt != null) character.is_alive = false;
     if(plan.absorbPublish)plan.absorbPublish();
     publication.publish();
@@ -1010,6 +1126,7 @@ function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}) {
                 update_displayed_skill_bar(skills[id], true);
             }
         }
+        for(const id of publication.changes)if(p00Hidden[id]&&nativeSkillDiscovery(skills[id],character))nativeDiscoveryFeedback?.publish({type:'native-skill-discovery',id,settled:true});
         if(publication.changes.length) character.updateStatsAndDisplay();
         if(plan.calendar && previousNight !== is_night(current_game_time)) character.updateStatsAndDisplay();
         if(townAccess.length && current_location.tags.safe_zone) update_displayed_normal_location(current_location);
@@ -1097,7 +1214,8 @@ function answerPractice(practiceId, response, sequence) {
     return {correct: result.correct};
 }
 
-function usesJoinedClock() {return !!expansionState.chronicle || !!expansionState.simulation || usesVillageClock(expansionState) || usesTownClock(expansionState);}
+// Native played time now shares the existing durable expansion clock in every origin.
+function usesJoinedClock() {return true;}
 
 function structuredInventoryOwners() {
     return Object.fromEntries([...expeditionRegistry.simulation.containers.values()].map(c=>[c.id,readInventoryOwner(inventories[c.category]?.[c.id]?.getItems()||{})]));
@@ -2236,6 +2354,20 @@ function change_location({location_id, event, skip_travel_time = false, do_quest
         throw `No such location as "${location_id}"`;
     }
 
+    if((p23Exposure!==undefined||household!==undefined)&&!realm_move&&!restoringNativeSave&&!skip_travel_time&&previous_location&&location.id!==previous_location.id){
+        if(!pathfinder){pathfinder=new Pathfinder();pathfinder.fill_connections(locations);}
+        travel_times[previous_location.id] ||= pathfinder.find_shortest_paths(previous_location.id);
+        const running=revealFacts()['reveal.run']===true&&character.getTotalSkillLevel('Running')>=1&&!practiceRunReason();
+        const minutes=Math.max(1,Math.ceil(travel_times[previous_location.id][location.id]*(running?.8:1)));
+        const plan=advanceChroniclePlan({state:expansionState,external:{money:character.money},gameplay:gameplaySnapshot()},minutes,true);
+        if(plan.state.clock-expansionState.clock!==minutes){persistExpansion(plan);log_message('Finish the current local decision before completing this journey.','notification');return;}
+        plan.state.sequence++;
+        if(plan.state.simulation?.people.player)plan.state.simulation.people.player.location=location.id;
+        if(running)plan.native={...plan.native,staminaToFull:Math.min(full_stats.max_stamina,(plan.native?.staminaToFull??full_stats.max_stamina-full_stats.stamina)+2)};
+        plan.nativeLocation=location.id;plan.nativeEnterQuest=do_quest_events;
+        plan.nativePatch={...plan.nativePatch,'current location':location.id,native_encounter:null};
+        persistExpansion(plan);return;
+    }
     if((optionalPackState.structured||expansionState.causalStories||expansionState.proto23Village)&&!realm_move&&!restoringNativeSave&&location.id!==current_location?.id){
         const state=structuredClone(expansionState);state.sequence++;state.simulation.people.player.location=location.id;
         persistExpansion({state,external:{money:character.money},gameplay:gameplaySnapshot(),nativeLocation:location.id,nativeEnterQuest:do_quest_events,nativePatch:{'current location':location.id}});
@@ -2873,13 +3005,13 @@ function do_resting() {
 
 function do_sleeping() {
     if(full_stats.health < full_stats.max_health) {
-        const sleeping_heal_ammount = furnitureRecovery(readFurnitureBonuses(), Math.round(Math.max(full_stats.max_health * 0.04, 5) * (1 + character.getTotalSkillLevel("Sleeping")/skills["Sleeping"].max_level) * (1 + 3*character.getTotalSkillLevel("Regeneration")/skills["Regeneration"].max_level)));
+        const sleeping_heal_ammount = p00SleepingMultiplier()*furnitureRecovery(readFurnitureBonuses(), Math.round(Math.max(full_stats.max_health * 0.04, 5) * (1 + character.getTotalSkillLevel("Sleeping")/skills["Sleeping"].max_level) * (1 + 3*character.getTotalSkillLevel("Regeneration")/skills["Regeneration"].max_level)));
         
         update_health({ammount_to_restore: sleeping_heal_ammount});
     }
 
     if(full_stats.stamina < full_stats.max_stamina) {
-        const sleeping_stamina_ammount = furnitureRecovery(readFurnitureBonuses(), Math.round(Math.max(full_stats.max_stamina/30, 5) * (1 + character.getTotalSkillLevel("Sleeping")/skills["Sleeping"].max_level)));
+        const sleeping_stamina_ammount = p00SleepingMultiplier()*furnitureRecovery(readFurnitureBonuses(), Math.round(Math.max(full_stats.max_stamina/30, 5) * (1 + character.getTotalSkillLevel("Sleeping")/skills["Sleeping"].max_level)));
 
         full_stats.stamina += (sleeping_stamina_ammount);
         if(full_stats.stamina > full_stats.max_stamina) {
@@ -5283,6 +5415,8 @@ function create_save({forExport = false} = {}) {
 
         save_data.equipment_durability=durability.serialize();
         save_data.pacing_e1=getPacingState();
+        if(p23Exposure!==undefined)save_data.p23_exposure=structuredClone(p23Exposure);
+        if(household!==undefined)save_data.household=structuredClone(household);
         save_data.fort_supply=structuredClone(fortSupply);
         save_data.absorb_local_life=structuredClone(localLife);
         save_data.cheats = validateCheatState(cheatState);
@@ -5402,6 +5536,7 @@ function load(save_data) {
             localLife=normalizeLocalLife(save_data.absorb_local_life);
             fortSupply=migrateFortSupply(save_data);
             durability.load(save_data.equipment_durability);
+            p23Exposure=validateExposure(save_data.p23_exposure);household=save_data.household===undefined?undefined:structuredClone(save_data.household);
             setPacingState(save_data.pacing_e1);pacingMinute=calendarMinutes(save_data["current time"]);
             if(localLife.lastClock==null)localLife.lastClock=calendarMinutes(save_data["current time"]);
             const prepared = prepareFoundationSave(save_data);
@@ -7291,13 +7426,10 @@ function update_timer(time_in_minutes, source = null) {
             chroniclePanel?.render(true); return 0;
         }
     }
-    current_game_time.goUp(minutes);
+    if(importProbeToken||!ownsSave||foundationSaveBlocked||expansionError||is_loading_error)return 0;
+    try{persistExpansion(advanceChroniclePlan({state:expansionState,external:{money:character.money},gameplay:gameplaySnapshot()},minutes,source==='travel'));}
+    catch(error){console.error('Native clock paused:',error);log_message(error.message,'notification');return 0;}
     refreshCustomization();
-    advanceExpeditions(minutes);
-    if(localLife.lastClock!==calendarMinutes(current_game_time)) {
-        try{const state=structuredClone(expansionState);dispatchLocalLifePlan(advanceSavedLocalLife(state,localLifeContext()),state);}
-        catch(error){console.error('Local life paused:',error);log_message(error.message,'notification');return 0;}
-    }
 
     //character.updateStatsAndDisplay(); //done every second, probably only used for day-night cycle at this point
     const daynight_change = was_night !== is_night(current_game_time);
@@ -7391,7 +7523,7 @@ function update() {
         update_displayed_effects();
 
         const optionalWeather=getPacingEffects(homePacingContext());
-        const new_temperature = get_current_temperature_smoothed()+optionalWeather.temperatureOffset;
+        const new_temperature = get_current_temperature_smoothed()+basePacingEffects(homePacingContext()).temperatureOffset;
 
         if(!current_location.is_under_roof) {
             //not under roof, background animations can happen
@@ -8526,6 +8658,9 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
     pacingMinute??=calendarMinutes(current_game_time);
     pacingPanel=mountPacingPanel({host:document.getElementById('options_choices'),getContext:homePacingContext,onChange:changeHomePacing});
     pacingStatusPanel=createPacingStatusPanel();
+    p23ExposurePanel=mountExposurePanel({host:document.getElementById('options_choices'),getState:()=>p23Exposure,getContext:p00ExposureContext,
+        getKnownSkills:()=>Object.keys(skills).filter(id=>nativeSkillDiscovery(skills[id],character)),onChange:changeP00Exposure});
+    householdPanel=createHouseholdPanel({host:document.getElementById('location_actions_div'),read:p00HouseholdFrame,act:actP00Household});
     durabilityPanel=createDurabilityPanel();
     elementalPanel=createElementalPanel();
     setKnownClearTextReader(location=>knownClearText(location,fortDisclosures(book_stats[FORT.notes].accumulated_time>=4)));
