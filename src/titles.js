@@ -34,6 +34,12 @@ export const title_catalog = [
     {id: 'old_hand', family: 'life', name: 'Old Hand', counter: 'years', at: 5, text: 'Live through five years.', bonus: {xp_multipliers: {all_skill: 1.01}}},
     {id: 'hermit', family: 'life', name: 'Long-Lived', counter: 'years', at: 10, text: 'Live through a whole decade.', bonus: {xp_multipliers: {all_skill: 1.02}}},
     {id: 'devoted', family: 'life', name: 'Devoted', counter: 'playtime_hours', at: 10, text: 'Spend 10 hours of your own time on this life.'},
+    // Original proposal goals; P00 projects only earned native counters, never elapsed wall time.
+    {id: 'quiet_hour', family: 'life', name: 'A Place to Breathe', counter: 'home_minutes', at: 60, text: 'Spend 60 played minutes at home.', requires_counter: true},
+    {id: 'home_season', family: 'life', name: 'Keeper of the Hearth', counter: 'home_minutes', at: 129600, text: 'Spend a season of played time at home.', requires_counter: true},
+    {id: 'pantry_keeper', family: 'life', name: 'Pantry Keeper', counter: 'items_bought', at: 25, text: 'Buy 25 items through settled native purchases.', requires_counter: true},
+    {id: 'small_surprise', family: 'endurance', name: 'Small Surprise', counter: 'weak_enemy_losses', at: 1, text: 'Lose a settled fight to a known novice opponent.', requires_counter: true},
+    {id: 'million_tales', family: 'combat', name: 'A Million Encounters', counter: 'kills', at: 1000000, text: 'Defeat 1,000,000 enemies.'},
     {id: 'well_off', family: 'life', name: 'Well-Off', counter: 'money', at: 10000, text: 'Hold 10,000 coins at once.', bonus: {xp_multipliers: {Haggling: 1.03}}},
 ];
 
@@ -103,8 +109,8 @@ export function describeTitleBonus(bonus) {
 }
 
 /** Rows for the panel: every catalog title with held state and progress toward it. */
-export function titleView(titles, counters) {
-    return title_catalog.map(t => ({
+export function titleView(titles, counters, {knownOnly = false} = {}) {
+    return title_catalog.filter(t => !knownOnly || !t.requires_counter || titles[t.id] || Object.hasOwn(counters, t.counter)).map(t => ({
         id: t.id, family: t.family, name: t.name, text: t.text, bonus: describeTitleBonus(t.bonus),
         held: !!titles[t.id], progress: Math.min(count(counters[t.counter]), t.at), at: t.at,
     }));
