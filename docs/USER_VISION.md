@@ -2896,3 +2896,10 @@ extends HV2 M1 downstream), FL graphs, SR scale regimes, AG actors, KS stage
 knowledge, MR8-MR13, GC chain generation, CS stage cheats, OP principles,
 MT11-MT15. Docs lanes PC1-PC5 sent (`gm/dispatch/modular-chains-2026-10-14/`).
 Proposals only.
+
+Then: “/more-to-consider ?” on the modular chains run. Round 3 of
+[modular production chains](MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md#round-3-2026-10-14-lane-returns-pc1-pc5-folded-plus-a-more-to-consider-pass)
+folds lanes PC1-PC5 (corrections X1-X19, shared verdict of no universal
+engine, top picks T1-T5, R3-1 to R3-5) and saves the
+[modular chains core audit](audits/MODULAR_CHAINS_CORE_AUDIT.md). HV1 flagged
+to the merge-sweep session. Proposals only.

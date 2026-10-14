@@ -24,7 +24,9 @@ making, use and salvage, modularity from substance to network, and procedural
 rule modules (world laws, generated per-save rules, social rules). Round 2
 defers the harvest end to the harvest-modules wave (HV2 model) and adds chain
 graphs, scale regimes, stage actors, chain generation and stage cheats; lanes
-PC1-PC5. Proposals only.
+PC1-PC5. Round 3 folds them: corrections X1-X19, no universal engine, top
+picks T1-T5; repeatable via the [core audit](audits/MODULAR_CHAINS_CORE_AUDIT.md).
+Proposals only.
 
 [World core kit](worlds/WORLD_CORE_KIT_2026-10-14.md) owns the 2026-10-14
 per-world checklist of what a world needs to play in depth (K1-K34, micro,

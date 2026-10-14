@@ -347,3 +347,84 @@ lane folder. Session ids in `SESSIONS.md` there.
 | PC3 | Assembly at every level: slots and parts across items, structures, sites, bodies and techniques, reconciled with weaponcraft identity, P6 buildings, CR1 bodies and genetics | medium |
 | PC4 | Idle chains and references: automation, logistics, bottleneck display, closed-form catch-up and NPC competition, from games such as Factorio, Dwarf Fortress, RimWorld, Vintage Story, GregTech, Oxygen Not Included and Melvor | medium |
 | PC5 | Per-world chains and stress journeys: four existing worlds (one comic) walked end to end; contradictions across HV2, materials audit, crafting palette and this doc | medium |
+
+## Round 3 (2026-10-14): lane returns PC1-PC5 folded, plus a more-to-consider pass
+
+All five lanes finished (docs only). Reports: [PC1 crosswalk](gm/dispatch/modular-chains-2026-10-14/pc1/REPORT.md),
+[PC2 rule modules](gm/dispatch/modular-chains-2026-10-14/pc2/REPORT.md),
+[PC3 assembly](gm/dispatch/modular-chains-2026-10-14/pc3/REPORT.md),
+[PC4 idle chains](gm/dispatch/modular-chains-2026-10-14/pc4/REPORT.md),
+[PC5 world journeys](gm/dispatch/modular-chains-2026-10-14/pc5/REPORT.md).
+Read them for detail; this section keeps corrections, the shared verdict and
+a cross-lane ranking.
+
+### Corrections to rounds 1 and 2 (root was wrong or overstated)
+
+| Code | Root claim | Correction | Source |
+|---|---|---|---|
+| X1 | MDF2: `rules.js` has one consumer | Four production importers: `action_legibility`, `simulation_contracts`, `expansion_engine`, `capabilities`. It also has caller-draw outcome selection and a resolution receipt. Extend it; do not start a second interpreter | PC1-F2, PC2-F1 |
+| X2 | MDF3: seven parallel making paths | Seven content families, but most share the same simulation and publisher. Divergence is representation, identity and receipt depth, not seven save engines. PC1 found nine more paths (P16-P24), including an existing multi-stage chain: feature objects cut, dry, match, kit | PC1-F3, PC1-P16 |
+| X3 | MDF4: gathering coupled to the mixture consumer | It only registers two herb supply IDs; there is no runtime gather-to-mix call. Tags help selection but cannot supply composition, units or reserves | PC1-F4 |
+| X4 | ML: "a new level costs data, not code" | Overstated. Substance is composition, a network is connectivity, a body is a recipient with agency, a technique is a program. Share references, typed interfaces, exclusive custody and explanations; keep domain reducers separate | PC3-F2 |
+| X5 | ML-A: stats roll up | Capabilities derive through **domain reducers** (charge conserves, throughput bottlenecks, coverage is spatial); a law reaches only the carriers it selects | PC3-F3 |
+| X6 | ML-B: break yields parts | Accounting principle, not a refund. Detach returns surviving parts; shatter or remelt returns fractions or waste. Never refund original ingredients for worn or upgraded assemblies | PC3-F4 |
+| X7 | ML-C: identity stays shallow | A shallow **key** referencing complete validated truth, never a shallow truth record or a second identity registry | PC3-F5 |
+| X8 | ML3-ML4: parts and slots are new | `src/items.js` already has typed weapon components, head and handle assembly, armor components. The missing piece is saved mutable parts, custody, fit and restoration | PC3-F1 |
+| X9 | ML10: techniques as assemblies | `invention_planner.js` plans prerequisites; it spends nothing and executes nothing. It is not a spell compiler | PC3-F6 |
+| X10 | MT4: quality propagates with a cap | Cap a **named response** with a law and revision, not all material truth by one scalar | PC5-C1 |
+| X11 | SR2: averaged grade, sampled provenance | Average only properties whose consumers accept averaging; sample provenance for display only; keep exact identity where gameplay reads it (two half pelts never make a whole one) | PC4-F2, PC5-C2 |
+| X12 | MT5/SR3: whole-chain closed-form catch-up | Closed form only within a proven constant segment; advance shared causal boundaries; keep unsettled time. This is not authorization for closed-browser progress | PC4-F1, PC5-C5 |
+| X13 | MR4: one priority ladder | Separate physics, institutional rules and knowledge first; then explicit override permission; then deterministic priority. A ban has consequences without making cutting impossible. Overlay order selects content, it never bypasses eligibility | PC2-F4, PC5-C3 |
+| X14 | GC4/MR2: freeze on reveal | Also freeze at **causal commitment**: an unseen rule a worker already used has changed stock | PC5-C4 |
+| X15 | MR6: pocket realm rules | `pocket_realm_rules.js` builds a doorway; it is not a law editor. Player-made rules need new owners | PC2-F3 |
+| X16 | MT10/MI2: wrap old items as single-part assemblies | Readers only. Never infer recoverable parts, age or genealogy for old items | PC5-C6 |
+| X17 | MT12: a potion without a vial does not exist | Needs per-family applicability and real container custody; a carrier ID is not a reusable vial | PC5-C7 |
+| X18 | Maintenance and upkeep costs | Default to pausing or reducing optional production with notice; harsh consequences are per-world dials. No new mandatory survival chores (accepted food direction) | PC4-F5 |
+| X19 | HV1 state | HV1 is **finished** on `proc/hv1-carcass` (13/13 focused, 1377/1380 full, desktop browser and literal import per its checkpoint), not merged. Take-one discards the remainder; auto overflow settles at once; the receipt is latest-only | HV1 CHECKPOINT, PC4-H2 to H5 |
+
+### Shared verdict across the five lanes
+
+Every lane reached the same answer from a different angle: **no universal
+crafting, rule or assembly engine.** Extend existing owners (HV2 M1, P2
+mixture, `rules.js`, `items.js` components, simulation publisher), add a
+shared piece only after two real consumers exercise it, and give every new
+saved domain an opt-in revision with old saves unchanged. Rounds 1 and 2 stand
+as a palette under that rule.
+
+### Cross-lane top picks (proposal, ranked)
+
+| Rank | Pick | Why first | Save change | Executor |
+|---|---|---|---|---|
+| T1 | Merge HV1 (`proc/hv1-carcass`) through the merge sweep | Every later chain step builds on it; merge-before-dispatch rule. Flagged to the merge-sweep session | Its own, already gated | Merge-sweep owner |
+| T2 | Read-only chain inspector: project HV1, P2 and the cut-dry-kit chain onto HV2 M1 roles, and show HV1 auto concurrency and overflow as they are (PC1-A1 + PC4-N1) | Cheap, no new save bytes, makes every later slice debuggable (MC1, MC2) | None | Medium; high review on native hooks |
+| T3 | First rule reader at Village mixing: one world law and one generated per-save law change the actual brewed dose (PC2-A1 + A2) | Proves rule modules with a real reader (GR12); P2 is already merged | Opt-in new product revision; revision-1 products untouched | High, one owner |
+| T4 | Bind the existing cut, dry, match, kit chain to a shared plan and receipt (PC1-A2) | The live code's clearest multi-stage chain; tests the downstream contract without new content | Optional receipt refs; old jobs keep revision 1 | High |
+| T5 | One-recipe repeat order after a manual run (PC4-N2) | Idle comfort without a chain-plan engine (MA5 stays later) | Optional order domain | High |
+
+Supersedes round 1's "smallest playable proof": harvest already exists via HV1,
+and vial reuse needs container custody first (X17). T3 is the first playable
+chain slice; T2 is its inspector.
+
+Deferred, with owners: rich lots and preservation (HV2 B4, PC1-A4), part swap
+and repair (PC3-A1, A2), NPC makers competing for inputs (PC4-N3), causal
+catch-up (PC4-N4), rate representation (PC4-N5), institution and field rules
+(PC2-A3, A4), prosthetic mounts (PC3-A5), exact-copy salvage refresh (PC1-A5).
+
+### More to consider on this round
+
+**Act now (done in this round):** corrections X1-X19 folded; HV1 flagged to the
+merge-sweep session instead of merged here (lane owners merge their own work).
+
+**Account for now:**
+
+| Code | Consideration |
+|---|---|
+| R3-1 | **Saved-domain sprawl.** T3, T4, T5, HV2 B1-B4 and PC3 each add an optional revisioned owner. Each build packet must name its domain in the existing native envelope validator and literal-import path, and say how a missing domain behaves. Watch the count; the engine runtime palette (DA rows) is the place to set a ceiling or a registry |
+| R3-2 | **Hot shared files.** Nearly every pick touches `src/main.js`, and research-tech B1/B2 are building in worktrees now. Reserve writers before dispatch; one integrator per slice |
+| R3-3 | **Twenty-five ranked rows across five lanes** is a backlog, not a plan. Only T1-T5 are candidates; one playable slice at a time per AGENTS.md |
+| R3-4 | **Rule effects stay in resolvers.** PC2's schema puts effects in the operation resolver; the inspector (T2) must read the same trace, not recompute it, or debug views will drift from play |
+| R3-5 | **Inspector is a lens, not a cheat.** T2 shows truth only to a debug or explicitly granted lens; in-fiction views go through knowledge projection (GR5) so sealed IDs never leak |
+
+**Later / delegate:** save this topic as a repeatable core audit
+([modular chains core audit](audits/MODULAR_CHAINS_CORE_AUDIT.md), created
+this round). A build dispatch for T2-T5 needs Weibao's go-ahead per slice.
