@@ -1,0 +1,80 @@
+{
+  "schema": 1,
+  "lane": "p23-living-gear",
+  "base_head": "0216ccdefcfce79877378f8cb0ee41129fe11c5d",
+  "status": "implemented-unverified",
+  "final_merge_ready": false,
+  "rows": [
+    {
+      "id": "R12",
+      "disposition": "adapted-original-implemented-unverified",
+      "native_gate": "P00 host joins OPEN"
+    },
+    {
+      "id": "R33",
+      "disposition": "adapted-original-implemented-unverified",
+      "native_gate": "P00 host joins OPEN"
+    },
+    {
+      "id": "N10",
+      "disposition": "adapted-original-implemented-unverified",
+      "native_gate": "P00 host joins OPEN"
+    }
+  ],
+  "compatibility": {
+    "field": "p23_living_gear",
+    "schema": 1,
+    "absent": "empty unchanged old gear",
+    "invalid": "reject before mutation",
+    "copy_identity": "E2 native key"
+  },
+  "checks": {
+    "focused": {
+      "tests": 11,
+      "pass": 11,
+      "fail": 0,
+      "evidence": "SOURCE: ten fixtures plus native item registration/decoder with host presentation stubs"
+    },
+    "build": "PASS",
+    "full_test": {
+      "command": "node --test --test-concurrency=1 --test-timeout=30000 tests/*.test.js",
+      "tests": 603,
+      "pass": 601,
+      "fail": 0,
+      "cancelled": 2,
+      "duration_ms": 172103.9705,
+      "timeout_files": [
+        "tests/agreed_duty_continuation.test.js",
+        "tests/cooling_refinement.test.js"
+      ],
+      "status": "gate-failed",
+      "baseline_cause": "not established; files unchanged by lane",
+      "npm_test": "initial incomplete run stopped exit130"
+    },
+    "native_loop": "OPEN",
+    "native_changed_persistence": "OPEN",
+    "browser_compatibility": {
+      "status": "PASS",
+      "viewport": [
+        1366,
+        768
+      ],
+      "save_reload": "exact bytes",
+      "feature_native": "OPEN",
+      "initial_attempt": "save/reload mismatch"
+    },
+    "affected": {
+      "tests": 17,
+      "pass": 17,
+      "fail": 0
+    }
+  },
+  "built_bundle_sha256": "97aa627cd0bf15a81b63713e4cf08caab551831ff7874a795635b30d5766296b",
+  "p00_contract": "src/absorb_p23/living_gear/HOST_CONTRACT.md",
+  "acceptance": "Weibao play/taste after technical integration",
+  "commits": [
+    "0e31f05343907ab2222a680c15ad43e34ac633be",
+    "8424e51a"
+  ],
+  "served_bundle_sha256": "97aa627cd0bf15a81b63713e4cf08caab551831ff7874a795635b30d5766296b"
+}
