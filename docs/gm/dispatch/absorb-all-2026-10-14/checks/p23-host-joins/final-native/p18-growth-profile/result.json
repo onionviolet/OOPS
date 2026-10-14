@@ -1,0 +1,26 @@
+{
+  "status": "PASS",
+  "lane": "P18-growth-profile",
+  "viewport": "1366x768",
+  "bundleSha256": "aed370ca9cdf895625028762486d14c5a231817f6cdcd7116cbed849594c9ed0",
+  "gates": [
+    "Actual paid tutor instruction grants knowledge only; explicit growth enrollment defaults background off, counter absent zero",
+    "enrolled-growth: native Save/reload/Export/literal-file Import",
+    "Native choice quota failure preserves prior durable save",
+    "Separate native tonic stock costs 25 actual coins, conserved original shop unchanged; absolute +2 max health without healing",
+    "tonic-settled: native Save/reload/Export/literal-file Import",
+    "Second separately paid native tonic consumes once and adds another2 max health without healing or a lifetime once cap",
+    "tonic-repeated: native Save/reload/Export/literal-file Import",
+    "Real ordinary native reading grants counted earned skill XP and per-played-minute enabled conditioning, no backfilled history",
+    "earned-background-growth: native Save/reload/Export/literal-file Import",
+    "pending-earned-threshold-award: native Save/reload/Export/literal-file Import",
+    "Labelled near-threshold history control crossed by a real native grant; frozen 150000 proposal reward settles in native bounded steps, no duplicate receipt",
+    "settled-earned-threshold-award: native Save/reload/Export/literal-file Import",
+    "P18-unsupported: literal unsupported schema rejected before mutation",
+    "P18-earned-counter-unsupported: literal unsupported schema rejected before mutation",
+    "P18-unsupported-body-identity: literal unsupported schema rejected before mutation",
+    "Unsupported profile/counter schemas and unsupported native body identity reject literal files before mutation; native nonhuman transformation remains unplayed."
+  ],
+  "pageErrors": [],
+  "prerequisites": "Immutable old baseline: earned Shack permission, native Meditation admission, money and ordinary inventory controls. All new families created by native opt-ins; optional counter control labelled where used."
+}

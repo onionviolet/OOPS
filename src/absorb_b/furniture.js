@@ -114,3 +114,15 @@ export function furnitureItemBonusText(itemId) {
         'Prepared survey kit': 'After your completed Proto23 notebook adaptation, carrying an owned kit in the home world gives +2% Crafting mastery XP. Copies do not stack.',
     })[itemId] || '';
 }
+
+/** Original comfort description, derived from earned local fixture rows only.
+ * No price score, save field, universal stat or construction rule is introduced.
+ * P03's sleeping consumer applies this once alongside the existing rest bonus.
+ */
+export function furnitureComfort(projection) {
+    const weights = {'native.bedding': 1, 'shack.drying_rack': 1, 'shack.drafting_bench': 1,
+        'proto23.bed': 2, 'proto23.hearth': 2, 'proto23.bookstand': 1};
+    const fixtures = [...new Set(projection.rows.filter(row => row.active && weights[row.id]).map(row => row.id))];
+    const score = fixtures.reduce((n, id) => n + weights[id], 0);
+    return {score, fixtures, label: score >= 4 ? 'Lived-in' : score >= 2 ? 'Settled' : score ? 'Simple shelter' : 'Unfurnished'};
+}

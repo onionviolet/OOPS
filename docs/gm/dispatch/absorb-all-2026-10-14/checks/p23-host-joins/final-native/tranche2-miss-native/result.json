@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "bundleSha256": "aed370ca9cdf895625028762486d14c5a231817f6cdcd7116cbed849594c9ed0",
+  "gates": [
+    "actual paid native projectile can miss without damaging target; real event/payment still settle"
+  ],
+  "seededFixtureAttempts": 1,
+  "pageErrors": []
+}

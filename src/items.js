@@ -4586,7 +4586,7 @@ export {
     restoreSystemsWorkshopAvailability,
     item_log,
     Item, OtherItem, UsableItem,
-    Armor, Shield, Weapon, Cape, Artifact, Book,
+    Armor, Shield, Weapon, Cape, Artifact, Book, Tool,
     Material, WeaponComponent, ArmorComponent, ShieldComponent, Amulet,
     getItem, getItemFromKey,
     round_item_price, getArmorSlot, getEquipmentValue,

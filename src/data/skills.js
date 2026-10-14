@@ -907,6 +907,10 @@ Adds ${skills["Unarmed"].getCurrentLvl()/10} base damage to unarmed attacks`;
         max_level: 40,
         category: "Environmental",
     });
+    skills.Throwing = new Skill({names:{0:'Throwing'},description:'Paid projectile practice.',base_xp_cost:10,xp_scaling:1.8,max_level:40,visibility_treshold:1,category:'Combat'});
+    skills.Famine = new Skill({names:{0:'Famine'},description:'Adaptation to going without nourishment.',
+        base_xp_cost:10,xp_scaling:1.8,max_level:40,visibility_treshold:0.01,category:'Environmental',
+        get_effect_description:()=>`Removes up to ${Math.min(40,skills.Famine.getCurrentLvl())/40*5}% of the optional hunger efficiency loss.`});
     skills["Cold resistance"] = new Skill({
         milestones: {1: {stats: {max_stamina: {flat: 1}}}},
         names: {0: "Cold resistance"},

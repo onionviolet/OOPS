@@ -1,0 +1,328 @@
+TAP version 13
+# Subtest: P07 optional old-save defaults do not touch C2 or source objects
+ok 1 - P07 optional old-save defaults do not touch C2 or source objects
+  ---
+  duration_ms: 1.14425
+  type: 'test'
+  ...
+# Subtest: P07 strict schema preflight rejects malformed records before mutation
+ok 2 - P07 strict schema preflight rejects malformed records before mutation
+  ---
+  duration_ms: 0.482916
+  type: 'test'
+  ...
+# Subtest: P07 window matches native New phase across 120 days and hour boundaries
+ok 3 - P07 window matches native New phase across 120 days and hour boundaries
+  ---
+  duration_ms: 5.612
+  type: 'test'
+  ...
+# Subtest: P07 next window preserves native month/year rollover and fractional lunar cycle
+ok 4 - P07 next window preserves native month/year rollover and fractional lunar cycle
+  ---
+  duration_ms: 0.15175
+  type: 'test'
+  ...
+# Subtest: P07 physical harvest settles once, reload/view never creates a claim
+ok 5 - P07 physical harvest settles once, reload/view never creates a claim
+  ---
+  duration_ms: 0.613791
+  type: 'test'
+  ...
+# Subtest: P07 two distinct lunar cycles harvest and future occurrences remain reachable
+ok 6 - P07 two distinct lunar cycles harvest and future occurrences remain reachable
+  ---
+  duration_ms: 0.406333
+  type: 'test'
+  ...
+# Subtest: P07 scouting and combat time unlock a faster real search without clear XP
+ok 7 - P07 scouting and combat time unlock a faster real search without clear XP
+  ---
+  duration_ms: 0.358083
+  type: 'test'
+  ...
+# Subtest: P07 both learning sources can independently reach the useful threshold
+ok 8 - P07 both learning sources can independently reach the useful threshold
+  ---
+  duration_ms: 0.164917
+  type: 'test'
+  ...
+# Subtest: P07 ineligible world/location/death and ordinary idle time do not learn
+ok 9 - P07 ineligible world/location/death and ordinary idle time do not learn
+  ---
+  duration_ms: 0.389375
+  type: 'test'
+  ...
+# Subtest: P07 duplicate/backward/gapped callbacks do not replay elapsed familiarity
+ok 10 - P07 duplicate/backward/gapped callbacks do not replay elapsed familiarity
+  ---
+  duration_ms: 0.359792
+  type: 'test'
+  ...
+# Subtest: P07 interruption/closing/phase change stops unpaid search without stock claim
+ok 11 - P07 interruption/closing/phase change stops unpaid search without stock claim
+  ---
+  duration_ms: 0.282125
+  type: 'test'
+  ...
+# Subtest: P07 pending and settled serialization stays exact without replaying rewards
+ok 12 - P07 pending and settled serialization stays exact without replaying rewards
+  ---
+  duration_ms: 0.106458
+  type: 'test'
+  ...
+# Subtest: P07 known-only projection has no effects or undiscovered name leak
+ok 13 - P07 known-only projection has no effects or undiscovered name leak
+  ---
+  duration_ms: 0.364
+  type: 'test'
+  ...
+# Subtest: P07 whole-save preflight rejects impossible occurrence and clock bindings
+ok 14 - P07 whole-save preflight rejects impossible occurrence and clock bindings
+  ---
+  duration_ms: 0.285125
+  type: 'test'
+  ...
+# Subtest: old native envelope stays absent; optional schema rejection does not mutate it
+ok 15 - old native envelope stays absent; optional schema rejection does not mutate it
+  ---
+  duration_ms: 8.430542
+  type: 'test'
+  ...
+# Subtest: paid-round owner must agree with the native reservation
+ok 16 - paid-round owner must agree with the native reservation
+  ---
+  duration_ms: 0.703458
+  type: 'test'
+  ...
+# Subtest: field output uses the native bag without supplying passive XP or money
+ok 17 - field output uses the native bag without supplying passive XP or money
+  ---
+  duration_ms: 0.940625
+  type: 'test'
+  ...
+# Subtest: Eda aid transfers the actual finite donor purse to native money
+ok 18 - Eda aid transfers the actual finite donor purse to native money
+  ---
+  duration_ms: 1.169667
+  type: 'test'
+  ...
+# Subtest: market quote consumes native rounded subtotals and leaves coupon off by default
+ok 19 - market quote consumes native rounded subtotals and leaves coupon off by default
+  ---
+  duration_ms: 0.208666
+  type: 'test'
+  ...
+# Subtest: old absent state stays absent and unsupported schemas reject without mutation
+ok 20 - old absent state stays absent and unsupported schemas reject without mutation
+  ---
+  duration_ms: 1.079875
+  type: 'test'
+  ...
+# Subtest: paid start freezes native RNG draw; pending reload/import does not reveal or reroll
+ok 21 - paid start freezes native RNG draw; pending reload/import does not reveal or reroll
+  ---
+  duration_ms: 0.506833
+  type: 'test'
+  ...
+# Subtest: two paid rounds use advancing native RNG and settle once each
+ok 22 - two paid rounds use advancing native RNG and settle once each
+  ---
+  duration_ms: 0.42875
+  type: 'test'
+  ...
+# Subtest: matching target restores only one paid stamina, no minted coins
+ok 23 - matching target restores only one paid stamina, no minted coins
+  ---
+  duration_ms: 0.223542
+  type: 'test'
+  ...
+# Subtest: pending paid result remains settleable after life ends without stamina resurrection
+ok 24 - pending paid result remains settleable after life ends without stamina resurrection
+  ---
+  duration_ms: 0.194583
+  type: 'test'
+  ...
+# Subtest: due time and revision prevent premature settlement or stale payments
+ok 25 - due time and revision prevent premature settlement or stale payments
+  ---
+  duration_ms: 0.166834
+  type: 'test'
+  ...
+# Subtest: resource, location, custody/body and native person controls reject before mutation
+ok 26 - resource, location, custody/body and native person controls reject before mutation
+  ---
+  duration_ms: 0.359791
+  type: 'test'
+  ...
+# Subtest: gift transfers a real coin and changes only a later known local response
+ok 27 - gift transfers a real coin and changes only a later known local response
+  ---
+  duration_ms: 0.811459
+  type: 'test'
+  ...
+# Subtest: refusal remains different and ordinary leisure stays reachable
+ok 28 - refusal remains different and ordinary leisure stays reachable
+  ---
+  duration_ms: 0.403875
+  type: 'test'
+  ...
+# Subtest: kindness can recur after consumed offer without a lifetime cap
+ok 29 - kindness can recur after consumed offer without a lifetime cap
+  ---
+  duration_ms: 0.407333
+  type: 'test'
+  ...
+# Subtest: absent donor does not grant saved private offer or expose person
+ok 30 - absent donor does not grant saved private offer or expose person
+  ---
+  duration_ms: 0.221084
+  type: 'test'
+  ...
+# Subtest: malformed counters, paid draw and forged outcomes reject
+ok 31 - malformed counters, paid draw and forged outcomes reject
+  ---
+  duration_ms: 0.250125
+  type: 'test'
+  ...
+# Subtest: native defeat baseline creates no invented past; cause memory is idempotent
+ok 32 - native defeat baseline creates no invented past; cause memory is idempotent
+  ---
+  duration_ms: 0.212125
+  type: 'test'
+  ...
+# Subtest: known-only biography and existing relationship owner accept actual helper facts
+ok 33 - known-only biography and existing relationship owner accept actual helper facts
+  ---
+  duration_ms: 0.946916
+  type: 'test'
+  ...
+# Subtest: sponsored practice spends Eda real coin and no-coin donor leaves ordinary play available
+ok 34 - sponsored practice spends Eda real coin and no-coin donor leaves ordinary play available
+  ---
+  duration_ms: 0.099541
+  type: 'test'
+  ...
+# Subtest: response retry with captured revision cannot duplicate a coin transfer
+ok 35 - response retry with captured revision cannot duplicate a coin transfer
+  ---
+  duration_ms: 0.1685
+  type: 'test'
+  ...
+# Subtest: unattributed native health defeat records recovery without inventing an attacker
+ok 36 - unattributed native health defeat records recovery without inventing an attacker
+  ---
+  duration_ms: 0.048458
+  type: 'test'
+  ...
+# Subtest: old saves remain empty; unsupported and inconsistent records reject before mutation
+ok 37 - old saves remain empty; unsupported and inconsistent records reject before mutation
+  ---
+  duration_ms: 1.378333
+  type: 'test'
+  ...
+# Subtest: two favor occurrences provide useful coupons without random draws or lifetime limits
+ok 38 - two favor occurrences provide useful coupons without random draws or lifetime limits
+  ---
+  duration_ms: 0.270125
+  type: 'test'
+  ...
+# Subtest: duplicate and older transactions are no-ops; fresh coupon cannot fund its own earning purchase
+ok 39 - duplicate and older transactions are no-ops; fresh coupon cannot fund its own earning purchase
+  ---
+  duration_ms: 0.1005
+  type: 'test'
+  ...
+# Subtest: native delivery changes notice and exact bread price; no passive drift or wall-clock replay
+ok 40 - native delivery changes notice and exact bread price; no passive drift or wall-clock replay
+  ---
+  duration_ms: 0.181167
+  type: 'test'
+  ...
+# Subtest: JSON restore retains occurrences, coupons and index exactly; projection never changes state
+ok 41 - JSON restore retains occurrences, coupons and index exactly; projection never changes state
+  ---
+  duration_ms: 0.145125
+  type: 'test'
+  ...
+# Subtest: known-only notice and Effects-off suppress cues without freezing economy
+ok 42 - known-only notice and Effects-off suppress cues without freezing economy
+  ---
+  duration_ms: 0.119375
+  type: 'test'
+  ...
+# Subtest: small baskets keep a one-coin floor; selling gives no coupon or purchase subsidy
+ok 43 - small baskets keep a one-coin floor; selling gives no coupon or purchase subsidy
+  ---
+  duration_ms: 0.051042
+  type: 'test'
+  ...
+# Subtest: invalid baskets, incomplete deliveries and overflow cannot mutate caller state
+ok 44 - invalid baskets, incomplete deliveries and overflow cannot mutate caller state
+  ---
+  duration_ms: 0.117625
+  type: 'test'
+  ...
+# Subtest: native stock chance/count, restock boundary and earned markup remain unchanged
+ok 45 - native stock chance/count, restock boundary and earned markup remain unchanged
+  ---
+  duration_ms: 14.707458
+  type: 'test'
+  ...
+# Subtest: native sales cause saturation; purchases and recovery reduce it without inflation
+ok 46 - native sales cause saturation; purchases and recovery reduce it without inflation
+  ---
+  duration_ms: 7.131292
+  type: 'test'
+  ...
+# Subtest: P14 absent saves preserve finite C2 finds and start without fabricated stock
+ok 47 - P14 absent saves preserve finite C2 finds and start without fabricated stock
+  ---
+  duration_ms: 1.367542
+  type: 'test'
+  ...
+# Subtest: P14 depletion, stopped feedback, real next occurrence and reload settle each offer once
+ok 48 - P14 depletion, stopped feedback, real next occurrence and reload settle each offer once
+  ---
+  duration_ms: 0.603667
+  type: 'test'
+  ...
+# Subtest: P14 offers do not accumulate and large clock jumps never pay a batch
+ok 49 - P14 offers do not accumulate and large clock jumps never pay a batch
+  ---
+  duration_ms: 0.112834
+  type: 'test'
+  ...
+# Subtest: P14 failed native persistence can discard a plan without losing or duplicating stock
+ok 50 - P14 failed native persistence can discard a plan without losing or duplicating stock
+  ---
+  duration_ms: 0.195333
+  type: 'test'
+  ...
+# Subtest: P14 views are pure; wrong world, busy, dead, movement and backward/repeated clocks cannot harvest
+ok 51 - P14 views are pure; wrong world, busy, dead, movement and backward/repeated clocks cannot harvest
+  ---
+  duration_ms: 0.269625
+  type: 'test'
+  ...
+# Subtest: P14 malformed optional state/event rejects before mutation
+ok 52 - P14 malformed optional state/event rejects before mutation
+  ---
+  duration_ms: 0.290083
+  type: 'test'
+  ...
+# Subtest: P14 same-clock departure from Village cancels accrued progress before return
+ok 53 - P14 same-clock departure from Village cancels accrued progress before return
+  ---
+  duration_ms: 0.140167
+  type: 'test'
+  ...
+1..53
+# tests 53
+# suites 0
+# pass 53
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 76.927792

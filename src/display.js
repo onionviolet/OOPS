@@ -1,3 +1,5 @@
+let nativeObservedDropReader;
+export function setNativeObservedDropReader(read){nativeObservedDropReader=read;}
 import {GRADED_IDS} from './harvest.js';
 import {knownBestiarySources, knownLootValue} from './fork_discovery_views.js';
 import {vendorState, conditionText} from './ui_polish.js';
@@ -925,7 +927,14 @@ function end_activity_animation(remove) {
  * @param {String} message_to_add text to display
  * @param {String} message_type used for adding proper class to html element
  */
+let nativeLogBufferReader=null;
+export function setNativeLogBufferReader(reader) {
+    if(typeof reader!=='function')throw Error('Invalid native message buffer reader.');
+    nativeLogBufferReader=reader;
+}
  function log_message(message_to_add, message_type, details = {}) {
+    const buffer=nativeLogBufferReader?.();
+    if(buffer){buffer.push([message_to_add,message_type,details]);return;}
     if(typeof message_to_add === 'undefined') {
         return;
     }
@@ -5462,20 +5471,22 @@ function create_bestiary_entry_tooltip(enemy_name) {
 
     const tooltip_drops = document.createElement("div"); //enemy drops
     tooltip_drops.classList.add("loot_slots_div");
-    if(enemy.loot_list.length > 0) {
-        tooltip_drops.appendChild(create_bestiary_loot_line());
+    if(nativeObservedDropReader) {
+        const heading=document.createElement('div');heading.textContent='Observed drops';tooltip_drops.append(heading);
+        const facts=nativeObservedDropReader(enemy_name);
+        for(const fact of facts){const line=document.createElement('div');line.textContent=`${fact.label}: ${fact.count} acquired`;tooltip_drops.append(line);}
+        if(!facts.length){const line=document.createElement('div');line.textContent='No drops observed yet.';tooltip_drops.append(line);}
+    } else {
+        if(enemy.loot_list.length > 0)tooltip_drops.appendChild(create_bestiary_loot_line());
+        for(const loot of enemy.loot_list)tooltip_drops.appendChild(create_bestiary_loot_line(enemy,loot));
     }
 
-    for(let i = 0; i < enemy.loot_list.length; i++) {
-        tooltip_drops.appendChild(create_bestiary_loot_line(enemy, enemy.loot_list[i]));
-    }
-    
     bestiary_tooltip.appendChild(tooltip_desc);
     bestiary_tooltip.appendChild(tooltip_xp);
     bestiary_tooltip.appendChild(tooltip_tags);
     bestiary_tooltip.appendChild(tooltip_stats);
     bestiary_tooltip.appendChild(tooltip_drops);
-    const estimate = knownLootValue(enemy_name, {
+    const estimate = nativeObservedDropReader ? null : knownLootValue(enemy_name, {
         knownItems: item_log.items, kills: enemy_killcount, enemies: enemy_templates,
         baseValue: id => item_templates[id]?.getBaseValue({quality: 100}),
         dropModifier: enemy.get_droprate_modifier()
@@ -5509,6 +5520,7 @@ function update_bestiary_entry(enemy_name) {
  */
 function update_bestiary_entry_killcount(enemy_name) {
     bestiary_entry_divs[enemy_name].children[1].innerText = enemy_killcount[enemy_name];
+    if(nativeObservedDropReader)update_bestiary_entry_tooltip(enemy_name);
 }
 
 function create_bestiary_loot_line(enemy, loot) {

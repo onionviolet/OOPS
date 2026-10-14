@@ -1,0 +1,26 @@
+{
+  "origin": "http://127.0.0.1:18833/",
+  "probeBundleHash": "ba35b21a77291d2a9bd6a9a921982c375c0287f8fe229d0e073bc21613ff316b",
+  "viewport": {
+    "width": 1366,
+    "height": 768
+  },
+  "servedHash": "598e02f54fe7db4c9a35bc79c75a754a7f8dc42eccf9fab828de8fd82e97b615",
+  "baselineNative": {
+    "save": true,
+    "reloadExact": true,
+    "exportDownload": true,
+    "literalFileImportReloadVerified": true,
+    "pageErrors": []
+  },
+  "moduleProbe": {
+    "undoExact": true,
+    "abortPreserved": true,
+    "unsupportedRejected": true,
+    "legacyKeysPreserved": true,
+    "revision": 3,
+    "reloadDurable": true,
+    "preflight": "native iframe loader; native backup controls/publication OPEN"
+  },
+  "changedNativeLoop": "OPEN: no P00 integration"
+}

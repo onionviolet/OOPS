@@ -1,0 +1,208 @@
+TAP version 13
+# Subtest: old saves absent; unsupported or malformed tactics reject before host mutation
+ok 1 - old saves absent; unsupported or malformed tactics reject before host mutation
+  ---
+  duration_ms: 0.573
+  type: 'test'
+  ...
+# Subtest: paid throw can repeat with distinct native events, duplicate is inert
+ok 2 - paid throw can repeat with distinct native events, duplicate is inert
+  ---
+  duration_ms: 0.162917
+  type: 'test'
+  ...
+# Subtest: missing ammo and denied custody preserve selected tactic and inventory
+ok 3 - missing ammo and denied custody preserve selected tactic and inventory
+  ---
+  duration_ms: 0.064167
+  type: 'test'
+  ...
+# Subtest: smoke pays a real item and calls escape without any kill reward; no replay
+ok 4 - smoke pays a real item and calls escape without any kill reward; no replay
+  ---
+  duration_ms: 0.270709
+  type: 'test'
+  ...
+# Subtest: lure offers one authored opportunity per payment, can repeat, never pays a kill
+ok 5 - lure offers one authored opportunity per payment, can repeat, never pays a kill
+  ---
+  duration_ms: 0.114375
+  type: 'test'
+  ...
+# Subtest: pending tactic, break request and paused phase survive exact JSON export/import
+ok 6 - pending tactic, break request and paused phase survive exact JSON export/import
+  ---
+  duration_ms: 0.154917
+  type: 'test'
+  ...
+# Subtest: victory break resumes the pending native round once
+ok 7 - victory break resumes the pending native round once
+  ---
+  duration_ms: 0.060167
+  type: 'test'
+  ...
+# Subtest: noncombat throwing training pays again per occurrence and uses native XP host
+ok 8 - noncombat throwing training pays again per occurrence and uses native XP host
+  ---
+  duration_ms: 0.111625
+  type: 'test'
+  ...
+# Subtest: P16 drop profile is optional and validates before mutation
+ok 9 - P16 drop profile is optional and validates before mutation
+  ---
+  duration_ms: 0.278417
+  type: 'test'
+  ...
+# Subtest: actual native strike hits armor with single projectile, misses with native hit roll
+ok 10 - actual native strike hits armor with single projectile, misses with native hit roll
+  ---
+  duration_ms: 2.796625
+  type: 'test'
+  ...
+# Subtest: actual native defeat awards once, duplicate dead target does not repay
+ok 11 - actual native defeat awards once, duplicate dead target does not repay
+  ---
+  duration_ms: 0.662959
+  type: 'test'
+  ...
+# Subtest: actual cooldown exchange consumes ammo, then break prevents scheduling another swing
+ok 12 - actual cooldown exchange consumes ammo, then break prevents scheduling another swing
+  ---
+  duration_ms: 0.940291
+  type: 'test'
+  ...
+# Subtest: actual smoke exchange never invokes native damage or loot settlement
+ok 13 - actual smoke exchange never invokes native damage or loot settlement
+  ---
+  duration_ms: 0.768625
+  type: 'test'
+  ...
+# Subtest: actual victory break keeps next encounter pending until one explicit resume
+ok 14 - actual victory break keeps next encounter pending until one explicit resume
+  ---
+  duration_ms: 0.554292
+  type: 'test'
+  ...
+# Subtest: R51 native independent cooldowns retain a 4:1 speed ratio without a burst engine
+ok 15 - R51 native independent cooldowns retain a 4:1 speed ratio without a burst engine
+  ---
+  duration_ms: 0.809875
+  type: 'test'
+  ...
+# Subtest: living equip pays one stack copy and allocates identity with wear off, without changing source owners
+ok 16 - living equip pays one stack copy and allocates identity with wear off, without changing source owners
+  ---
+  duration_ms: 0.96
+  type: 'test'
+  ...
+# Subtest: two native copies remain distinct after swapping and imported duplicate owners reject
+ok 17 - two native copies remain distinct after swapping and imported duplicate owners reject
+  ---
+  duration_ms: 1.350125
+  type: 'test'
+  ...
+# Subtest: custody refusal leaves paid-copy and allocator plans untouched
+ok 18 - custody refusal leaves paid-copy and allocator plans untouched
+  ---
+  duration_ms: 0.114458
+  type: 'test'
+  ...
+# Subtest: staging an already allocated copy never rebinds the live inventory item to staged wear
+ok 19 - staging an already allocated copy never rebinds the live inventory item to staged wear
+  ---
+  duration_ms: 0.281833
+  type: 'test'
+  ...
+# Subtest: optional absence is inert and unknown fields, missing E2 allocation or stacked instance reject
+ok 20 - optional absence is inert and unknown fields, missing E2 allocation or stacked instance reject
+  ---
+  duration_ms: 0.155208
+  type: 'test'
+  ...
+# Subtest: paused combat state requires the same real encounter and survivor phase
+ok 21 - paused combat state requires the same real encounter and survivor phase
+  ---
+  duration_ms: 0.091791
+  type: 'test'
+  ...
+# Subtest: an equipped aura refuses a malformed native hour before projection or owner mutation
+ok 22 - an equipped aura refuses a malformed native hour before projection or owner mutation
+  ---
+  duration_ms: 0.218625
+  type: 'test'
+  ...
+# Subtest: E2 identity contract preserves independent copies with wear disabled
+ok 23 - E2 identity contract preserves independent copies with wear disabled
+  ---
+  duration_ms: 1.021166
+  type: 'test'
+  ...
+# Subtest: native played clock flips aura at 20:00 and 04:00, removal stops it
+ok 24 - native played clock flips aura at 20:00 and 04:00, removal stops it
+  ---
+  duration_ms: 0.546791
+  type: 'test'
+  ...
+# Subtest: kill staging is inert until publication and a real event settles once
+ok 25 - kill staging is inert until publication and a real event settles once
+  ---
+  duration_ms: 0.569167
+  type: 'test'
+  ...
+# Subtest: identical weapon and collector copies grow independently through swap and re-equip
+ok 26 - identical weapon and collector copies grow independently through swap and re-equip
+  ---
+  duration_ms: 0.629375
+  type: 'test'
+  ...
+# Subtest: training, summoned and other actor kills do not award; non-beast kills only grow weapon
+ok 27 - training, summoned and other actor kills do not award; non-beast kills only grow weapon
+  ---
+  duration_ms: 0.178833
+  type: 'test'
+  ...
+# Subtest: collector spend consumes real saved reserve and supplies native stamina publication patch
+ok 28 - collector spend consumes real saved reserve and supplies native stamina publication patch
+  ---
+  duration_ms: 0.183791
+  type: 'test'
+  ...
+# Subtest: failed persistence, custody and stale plans leave live resource unchanged
+ok 29 - failed persistence, custody and stale plans leave live resource unchanged
+  ---
+  duration_ms: 0.172666
+  type: 'test'
+  ...
+# Subtest: collector reserve has capacity but spending allows unlimited future refill
+ok 30 - collector reserve has capacity but spending allows unlimited future refill
+  ---
+  duration_ms: 0.704292
+  type: 'test'
+  ...
+# Subtest: full old/new copy JSON import controls and schema rejection before mutation
+ok 31 - full old/new copy JSON import controls and schema rejection before mutation
+  ---
+  duration_ms: 0.458208
+  type: 'test'
+  ...
+# Subtest: known-only rows and native custody failures cannot expose unknown gear
+ok 32 - known-only rows and native custody failures cannot expose unknown gear
+  ---
+  duration_ms: 0.309667
+  type: 'test'
+  ...
+# Subtest: native item registration and decoder preserve original living weapon components and E2 copies
+ok 33 - native item registration and decoder preserve original living weapon components and E2 copies
+  ---
+  duration_ms: 35.261083
+  type: 'test'
+  ...
+1..33
+# tests 33
+# suites 0
+# pass 33
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 88.350167

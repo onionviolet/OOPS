@@ -45,5 +45,5 @@ test('FA18 failing real publisher retains ticket, money and bread then successfu
  const original=disk,opts={createSave:()=>disk,key:'source',bindings:{player:{category:'person',id:'main_character'}}};
  assert.throws(()=>persistExpansionPlan(plan,{...opts,storage:{setItem(){throw Error('quota');}}}),/quota/);assert.equal(disk,original);assert.equal(prior.runnerMealsUsed,0);
  persistExpansionPlan(plan,{...opts,storage:{setItem(_k,v){disk=v;}}});const saved=JSON.parse(disk);assert.equal(saved.character.money,9);assert.equal(saved.absorb_local_life.runnerMealsUsed,1);assert.equal(saved.inventories.person.main_character[key].count,1);
- const main=readFileSync(new URL('../src/main.js',import.meta.url),'utf8');assert.ok(main.indexOf('persistExpansionPlan(plan,')<main.indexOf('if(plan.localLifeResult){localLife='));assert.match(main,/act:id=>dispatchLocalLifePlan\(localLifeAction\(localLife,localLifeContext\(\),id\)\)/);
+ const main=readFileSync(new URL('../src/main.js',import.meta.url),'utf8');assert.ok(main.indexOf('persistExpansionPlan(plan,')<main.indexOf('if(plan.localLifeResult){localLife='));assert.match(main,/act:id=>dispatchLocalLifePlan\(localLifeAction\(localLife,localLifeContext\(\),id\),undefined,id\)/);
 });

@@ -7,6 +7,8 @@ export const DISPLAY_KEY = 'yairpg.display.v1';
 
 export const DISPLAY_SETTINGS = [
     {key:'stagedOpening',label:'Staged opening (proposal)',options:[['off','Off'],['on','On']],fallback:'off',description:'Introduce time, character, belongings and local actions in four steps on a fresh opening. Save, reports and settings stay reachable.'},
+    {key: 'numberFormat', label: 'Large numbers', options: [['exact', 'Exact'], ['compact', 'Compact'], ['scientific', 'Scientific']], fallback: 'exact',
+        description: 'Optional shorter display for large values; the exact value remains available.'},
     {key: 'reveal', label: 'Panel reveal', options: [['full', 'Full'], ['quiet', 'Quiet'], ['off', 'Off']], fallback: 'full',
         description: 'How a panel announces itself when you first meet it in play; quiet is a short outline without movement.'},
     {key: 'coinFloat', label: 'Coin float', options: [['on', 'On'], ['off', 'Off']], fallback: 'on',
@@ -86,7 +88,7 @@ export function mountDisplaySettings(host) {
     const section = document.createElement('fieldset'); section.className = 'display-settings';
     const legend = document.createElement('legend'); legend.textContent = 'This browser'; section.append(legend);
     const intro = document.createElement('p'); intro.className = 'display-settings-intro';
-    intro.textContent = 'Stored in this browser only, never in your save. Changes apply at once. Effects off above turns off every motion here.';
+    intro.textContent = 'Stored in this browser. Changes apply at once. Effects off above turns off every motion here.';
     section.append(intro);
     const controls = {};
     const row = (key, label, control, description) => {
@@ -150,3 +152,45 @@ export function mountDisplaySettings(host) {
 }
 
 if (typeof document !== 'undefined') applyDisplaySettings();
+
+// P00 attaches this optional snapshot to the save envelope. Only presentation
+// preferences travel, never panel registries, item identities or hidden facts.
+export function exportDisplayPreferences() {
+    return {schema: 1, settings: Object.fromEntries(Object.keys(DISPLAY_DEFAULTS).map(key => [key, current[key]]))};
+}
+export function validateDisplayPreferences(snapshot) {
+    if (!snapshot || typeof snapshot !== 'object' || Array.isArray(snapshot) || snapshot.schema !== 1 ||
+        Object.keys(snapshot).some(k => !['schema', 'settings'].includes(k)) ||
+        !snapshot.settings || typeof snapshot.settings !== 'object' || Array.isArray(snapshot.settings)) {
+        throw new Error('Unsupported display preference schema.');
+    }
+    for (const [key, value] of Object.entries(snapshot.settings)) {
+        const setting = DISPLAY_SETTINGS.find(s => s.key === key);
+        const color = DISPLAY_COLORS.find(c => c.key === key);
+        if (setting ? !setting.options.some(([v]) => v === value)
+            : !color || typeof value !== 'string' || !(value === '' || /^#[0-9a-f]{6}$/i.test(value))) {
+            throw new Error('Invalid display preference.');
+        }
+    }
+    return structuredClone(snapshot);
+}
+// Call only after the whole envelope and isolated native loader pass preflight,
+// and after the guarded save write succeeds. Per-key existing local values win.
+export function adoptDisplayPreferences(snapshot) {
+    if (snapshot === undefined) return {adopted: []};
+    const validated = validateDisplayPreferences(snapshot);
+    let local;
+    try {
+        const stored = localStorage.getItem(DISPLAY_KEY);
+        local = stored === null ? {} : JSON.parse(stored);
+        // A malformed existing local preference is not permission to overwrite it.
+        if (!local || typeof local !== 'object' || Array.isArray(local)) return {adopted: []};
+    } catch { return {adopted: []}; }
+    const adopted = Object.keys(validated.settings).filter(key => !Object.hasOwn(local, key));
+    if (!adopted.length) return {adopted};
+    const next = {...local, ...Object.fromEntries(adopted.map(key => [key, validated.settings[key]]))};
+    // Store the sparse union so unrelated unset keys remain eligible later.
+    localStorage.setItem(DISPLAY_KEY, JSON.stringify(next));
+    commit(next, {store: false});
+    return {adopted};
+}

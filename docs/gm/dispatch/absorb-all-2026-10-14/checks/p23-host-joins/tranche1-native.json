@@ -1,0 +1,61 @@
+{
+  "status": "PASS",
+  "viewport": [
+    1366,
+    768
+  ],
+  "bundleSha256": "313c5c95ff047166fa7eb81e2f3297bcba5383d6d765fead15613b69bfb7a1d5",
+  "clock": "Actual worker-backed native played timers; no synthetic clock or engine/debug advancement",
+  "prerequisites": "explicit supported old-envelope fixture: native home access,5 logs,200 coins,Wet and underfed pacing; feature state/cursors/XP absent",
+  "results": [
+    {
+      "gate": "old optional absence in fresh native envelope",
+      "status": "PASS"
+    },
+    {
+      "gate": "pending native Save/reload/Export/literal-file Import exact stored envelope before resumed played callbacks",
+      "status": "PASS"
+    },
+    {
+      "gate": "played underfed passive XP, paid fuel, Wet drying and opted-in smoke",
+      "status": "PASS"
+    },
+    {
+      "gate": "actual sleeping multiplies native recovery once by adopted household and owned furnishing comfort",
+      "status": "PASS"
+    },
+    {
+      "gate": "settled native Save/reload/Export/literal-file Import exact stored envelope before resumed played callbacks",
+      "status": "PASS"
+    },
+    {
+      "gate": "real underfed played sleep earns Famine level 1 and useful native hunger efficiency reduction",
+      "status": "PASS"
+    },
+    {
+      "gate": "native travel clears smoke and keeps finite prepaid fuel",
+      "status": "PASS"
+    },
+    {
+      "gate": "exposure-settled native Save/reload/Export/literal-file Import exact stored envelope before resumed played callbacks",
+      "status": "PASS"
+    },
+    {
+      "gate": "actual two meals stop underfed passive XP without clearing earned progress",
+      "status": "PASS"
+    },
+    {
+      "gate": "outdoor gust native resistance XP and mode-off control",
+      "status": "PASS"
+    },
+    {
+      "gate": "p23_exposure unsupported optional schema rejects without native storage mutation in the actual native import handler",
+      "status": "PASS"
+    },
+    {
+      "gate": "household unsupported optional schema rejects without native storage mutation in the actual native import handler",
+      "status": "PASS"
+    }
+  ],
+  "pageErrors": []
+}

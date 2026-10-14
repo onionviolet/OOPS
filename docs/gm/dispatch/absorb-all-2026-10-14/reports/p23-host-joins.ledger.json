@@ -1,0 +1,539 @@
+{
+  "schema": 1,
+  "lane": "p23-host-joins",
+  "date": "2026-10-14",
+  "status": "Final technical gates passed for declared native scopes; director acceptance OPEN",
+  "base_head": "43b01f95112b5a4017d0cd426d414ae553abeadc",
+  "candidate_head": "7e246b76",
+  "session": "01a138ea-def0-77c0-b800-f4ade39f33af",
+  "port": 18834,
+  "viewport": {
+    "width": 1366,
+    "height": 768
+  },
+  "merge_ready_lanes": [
+    "p23-long-life",
+    "p23-exposure",
+    "p23-household",
+    "p23-living-gear",
+    "p23-reread",
+    "p23-combat-options",
+    "p23-field-familiarity",
+    "p23-salvage",
+    "p23-market-life",
+    "p23-leisure-memory",
+    "p23-known-detail",
+    "p23-world-adaptation",
+    "p23-repeat-search",
+    "p23-save-time-options",
+    "p23-encounter-profiles",
+    "p23-growth-profile"
+  ],
+  "tranches": [
+    {
+      "number": 1,
+      "status": "technical gates passed for declared human/home scope",
+      "lanes": [
+        "p23-exposure",
+        "p23-household"
+      ],
+      "build": "PASS",
+      "focused": {
+        "tests": 32,
+        "pass": 32,
+        "fail": 0
+      },
+      "full": {
+        "tests": 979,
+        "pass": 979,
+        "fail": 0,
+        "duration_ms": 14993.713333
+      },
+      "native": "tranche1-native.json and tranche1-guards.json",
+      "bundle_sha256": "313c5c95ff047166fa7eb81e2f3297bcba5383d6d765fead15613b69bfb7a1d5",
+      "prerequisites": "supported old-envelope fixture; no feature outcomes seeded",
+      "human_acceptance": "OPEN",
+      "commit": "355c7a3a"
+    },
+    {
+      "number": 2,
+      "status": "technical gates passed for declared normal native combat/held-gear scope",
+      "lanes": [
+        "p23-living-gear",
+        "p23-combat-options"
+      ],
+      "bundle_sha256": "f9fc7206168d872a48716e7546941096170c70461cc1516ffc9aa984c9e6d4fa",
+      "focused_pass": 33,
+      "full_pass": 986,
+      "full_fail": 0,
+      "native_gate": "tranche2-native-gate.json",
+      "commit": "e3ffdf2e",
+      "open": [
+        "P16 encounter profile",
+        "special/actionAdapter extension",
+        "native summoned-unit control",
+        "Weibao play/taste"
+      ]
+    },
+    {
+      "number": 3,
+      "status": "native reading/salvage scope PASS; auxiliary growth OPEN",
+      "lanes": [
+        "p23-reread",
+        "p23-salvage"
+      ],
+      "build": "PASS",
+      "focused": {
+        "tests": 30,
+        "pass": 30,
+        "fail": 0
+      },
+      "full": {
+        "tests": 988,
+        "pass": 988,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 0,
+        "durationMs": 12323.91825
+      },
+      "bundle_sha256": "369c92378e75670109b4181c85a0535dac812075ab5c5ca55df797ff753a4e19",
+      "evidence": "checks/p23-host-joins/tranche3-native-gate.json",
+      "commit": "pending"
+    }
+  ],
+  "merged_lanes": [
+    "p23-long-life",
+    "p23-exposure",
+    "p23-household",
+    "p23-living-gear",
+    "p23-reread",
+    "p23-combat-options",
+    "p23-field-familiarity",
+    "p23-salvage",
+    "p23-market-life",
+    "p23-leisure-memory",
+    "p23-known-detail",
+    "p23-world-adaptation",
+    "p23-repeat-search",
+    "p23-save-time-options",
+    "p23-encounter-profiles",
+    "p23-growth-profile"
+  ],
+  "excluded_lane": "air-wider",
+  "actual_full": {
+    "tests": 979,
+    "pass": 979,
+    "fail": 0,
+    "duration_ms": 14993.713333
+  },
+  "proposed_fixture_slice": {
+    "tests": 43,
+    "pass": 43,
+    "fail": 0
+  },
+  "proposed_substitution_full": {
+    "tests": 974,
+    "pass": 974,
+    "fail": 0,
+    "actual_npm_gate": false
+  },
+  "native": {
+    "status": "PASS baseline only; no P00 feature joins",
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "location": "Village",
+    "savedLocation": "Village",
+    "nativeCombatRestore": true,
+    "encounterKey": "Infested field:1",
+    "bundleSha256": "2ff397f1a6cd86eacf4f10e173e8bd49eae71e3572e779fddaf40eeea2126eeb",
+    "pageErrors": []
+  },
+  "blocker": null,
+  "persistent_families": {
+    "p23_exposure": "native pending/settled/full-envelope restore passed",
+    "household": "native pending/settled/full-envelope restore passed"
+  },
+  "remaining_acceptance": "native technical tranche gates then Weibao play/taste",
+  "push": false,
+  "standing_scope": "finished absorb-all lane files transferred for integration except air-wider; record edits",
+  "remaining_work": [
+    "tranche 2 gear/combat plus encounter-profile joins",
+    "tranche 3 reading/salvage plus long-life/growth joins",
+    "tranche 4 field/market/leisure plus repeat-search joins",
+    "tranche 5 detail/adaptation plus approved save options",
+    "merge current main before final gate"
+  ],
+  "p15_authority_approval": {
+    "status": "approved explicit opt-in proposal; implementation LAST",
+    "date": "2026-10-14",
+    "native_undo": "OPEN",
+    "multi_slot": "out of scope",
+    "N29_offline": "out of scope",
+    "runtime_implementation": true
+  },
+  "next_tranche": 4,
+  "next_scope": "single final full npm test and all native lane journeys; fix observed failures only; report readiness per lane",
+  "p18_question": "answered resume4: future native earned local skill XP, optional counter/no backfill, labelled150000 proposal threshold",
+  "gate_policy": "resume5: build+focused per step; one full/native gate after all steps, current main merge, P15 last",
+  "steps": [
+    {
+      "step": 1,
+      "scope": [
+        "p23-long-life",
+        "p23-known-detail"
+      ],
+      "build": "PASS",
+      "focused": {
+        "tests": 24,
+        "pass": 24,
+        "fail": 0
+      },
+      "native": "OPEN final gate",
+      "merge_ready": false,
+      "commit": "646ca999"
+    },
+    {
+      "step": 2,
+      "scope": [
+        "p23-field-familiarity",
+        "p23-market-life",
+        "p23-leisure-memory",
+        "p23-repeat-search"
+      ],
+      "build": "PASS",
+      "focused": {
+        "tests": 53,
+        "pass": 53,
+        "fail": 0
+      },
+      "native": "OPEN final gate",
+      "merge_ready": false,
+      "commit": "f52344c7"
+    },
+    {
+      "step": 3,
+      "scope": [
+        "p23-world-adaptation",
+        "p23-encounter-profiles",
+        "p23-growth-profile"
+      ],
+      "build": "PASS",
+      "focused": {
+        "tests": 60,
+        "pass": 60,
+        "fail": 0
+      },
+      "native": "OPEN final gate",
+      "merge_ready": false,
+      "commit": "05652ac2"
+    },
+    {
+      "step": 5,
+      "scope": [
+        "p23-save-time-options"
+      ],
+      "build": "PASS",
+      "focused": {
+        "tests": 17,
+        "pass": 17,
+        "fail": 0
+      },
+      "native": "OPEN final gate",
+      "merge_ready": false
+    }
+  ],
+  "main_merged_tip": "cc04a4bf68169d8a538a89cef1d973872c8ba75d",
+  "final_gate": {
+    "status": "29 successful native check processes; declared scopes passed, original partial-scope label retained",
+    "sourceCommit": "7e246b76",
+    "mergedMainTip": "cc04a4bf68169d8a538a89cef1d973872c8ba75d",
+    "bundleSha256": "aed370ca9cdf895625028762486d14c5a231817f6cdcd7116cbed849594c9ed0",
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "nativeScripts": 29,
+    "records": {
+      "p11-native-consumable-hotkey": {
+        "status": "PASS",
+        "evidence": "final-native/p11-native-consumable-hotkey/result.json",
+        "bundleSha256": "aed370ca9cdf895625028762486d14c5a231817f6cdcd7116cbed849594c9ed0",
+        "gates": 3
+      },
+      "p11-native-producers": {
+        "status": "PASS",
+        "evidence": "final-native/p11-native-producers/result.json",
+        "bundleSha256": "aed370ca9cdf895625028762486d14c5a231817f6cdcd7116cbed849594c9ed0",
+        "gates": 6
+      },
+      "p12-world-adaptation": {
+        "status": "PASS",
+        "evidence": "final-native/p12-world-adaptation/result.json",
+        "bundleSha256": "aed370ca9cdf895625028762486d14c5a231817f6cdcd7116cbed849594c9ed0",
+        "gates": 9
+      },
+      "p16-encounter-profiles": {
+        "status": "PASS",
+        "evidence": "final-native/p16-encounter-profiles/result.json",
+        "bundleSha256": "aed370ca9cdf895625028762486d14c5a231817f6cdcd7116cbed849594c9ed0",
+        "gates": 9
+      },
+      "p18-growth-profile": {
+        "status": "PASS",
+        "evidence": "final-native/p18-growth-profile/result.json",
+        "bundleSha256": "aed370ca9cdf895625028762486d14c5a231817f6cdcd7116cbed849594c9ed0",
+        "gates": 16
+      },
+      "merged-smoke": {
+        "status": "PASS baseline only; no P00 feature joins",
+        "evidence": "final-native/merged-smoke/result.json",
+        "bundleSha256": "aed370ca9cdf895625028762486d14c5a231817f6cdcd7116cbed849594c9ed0",
+        "gates": 0
+      },
+      "p01-long-life": {
+        "status": "PASS",
+        "evidence": "final-native/p01-long-life/result.json",
+        "bundleSha256": "aed370ca9cdf895625028762486d14c5a231817f6cdcd7116cbed849594c9ed0",
+        "gates": 9
+      },
+      "p07-field-familiarity": {
+        "status": "PASS",
+        "evidence": "final-native/p07-field-familiarity/result.json",
+        "bundleSha256": "aed370ca9cdf895625028762486d14c5a231817f6cdcd7116cbed849594c9ed0",
+        "gates": 7
+      },
+      "p09-market-life": {
+        "status": "PASS",
+        "evidence": "final-native/p09-market-life/result.json",
+        "bundleSha256": "aed370ca9cdf895625028762486d14c5a231817f6cdcd7116cbed849594c9ed0",
+        "gates": 6
+      },
+      "p10-leisure-memory": {
+        "status": "PASS",
+        "evidence": "final-native/p10-leisure-memory/result.json",
+        "bundleSha256": "aed370ca9cdf895625028762486d14c5a231817f6cdcd7116cbed849594c9ed0",
+        "gates": 10
+      },
+      "p11-known-detail": {
+        "status": "PASS",
+        "evidence": "final-native/p11-known-detail/result.json",
+        "bundleSha256": "aed370ca9cdf895625028762486d14c5a231817f6cdcd7116cbed849594c9ed0",
+        "gates": 5
+      },
+      "p14-repeat-search": {
+        "status": "PASS",
+        "evidence": "final-native/p14-repeat-search/result.json",
+        "bundleSha256": "aed370ca9cdf895625028762486d14c5a231817f6cdcd7116cbed849594c9ed0",
+        "gates": 6
+      },
+      "p15-save-time-options": {
+        "status": "PASS",
+        "evidence": "final-native/p15-save-time-options/result.json",
+        "bundleSha256": "aed370ca9cdf895625028762486d14c5a231817f6cdcd7116cbed849594c9ed0",
+        "gates": 10
+      },
+      "tranche1-guards": {
+        "status": "PASS",
+        "evidence": "final-native/tranche1-guards/result.json",
+        "bundleSha256": "aed370ca9cdf895625028762486d14c5a231817f6cdcd7116cbed849594c9ed0",
+        "gates": 6
+      },
+      "tranche1-native": {
+        "status": "PASS",
+        "evidence": "final-native/tranche1-native/result.json",
+        "bundleSha256": "aed370ca9cdf895625028762486d14c5a231817f6cdcd7116cbed849594c9ed0",
+        "gates": 12
+      },
+      "tranche2-armored-native": {
+        "status": "PASS",
+        "evidence": "final-native/tranche2-armored-native/result.json",
+        "bundleSha256": "aed370ca9cdf895625028762486d14c5a231817f6cdcd7116cbed849594c9ed0",
+        "gates": 3
+      },
+      "tranche2-combat-native": {
+        "status": "PARTIAL PASS",
+        "evidence": "final-native/tranche2-combat-native/result.json",
+        "bundleSha256": "aed370ca9cdf895625028762486d14c5a231817f6cdcd7116cbed849594c9ed0",
+        "gates": 11
+      },
+      "tranche2-custody-native": {
+        "status": "PASS",
+        "evidence": "final-native/tranche2-custody-native/result.json",
+        "bundleSha256": "aed370ca9cdf895625028762486d14c5a231817f6cdcd7116cbed849594c9ed0",
+        "gates": 1
+      },
+      "tranche2-faint-native": {
+        "status": "PASS",
+        "evidence": "final-native/tranche2-faint-native/result.json",
+        "bundleSha256": "aed370ca9cdf895625028762486d14c5a231817f6cdcd7116cbed849594c9ed0",
+        "gates": 1
+      },
+      "tranche2-gear-native": {
+        "status": "PASS",
+        "evidence": "final-native/tranche2-gear-native/result.json",
+        "bundleSha256": "aed370ca9cdf895625028762486d14c5a231817f6cdcd7116cbed849594c9ed0",
+        "gates": 8
+      },
+      "tranche2-guards": {
+        "status": "PASS",
+        "evidence": "final-native/tranche2-guards/result.json",
+        "bundleSha256": "aed370ca9cdf895625028762486d14c5a231817f6cdcd7116cbed849594c9ed0",
+        "gates": 7
+      },
+      "tranche2-miss-native": {
+        "status": "PASS",
+        "evidence": "final-native/tranche2-miss-native/result.json",
+        "bundleSha256": "aed370ca9cdf895625028762486d14c5a231817f6cdcd7116cbed849594c9ed0",
+        "gates": 1
+      },
+      "tranche2-practice-native": {
+        "status": "PASS",
+        "evidence": "final-native/tranche2-practice-native/result.json",
+        "bundleSha256": "aed370ca9cdf895625028762486d14c5a231817f6cdcd7116cbed849594c9ed0",
+        "gates": 1
+      },
+      "tranche3-copy-controls": {
+        "status": "PASS",
+        "evidence": "final-native/tranche3-copy-controls/result.json",
+        "bundleSha256": "aed370ca9cdf895625028762486d14c5a231817f6cdcd7116cbed849594c9ed0",
+        "gates": 2
+      },
+      "tranche3-guards": {
+        "status": "PASS",
+        "evidence": "final-native/tranche3-guards/result.json",
+        "bundleSha256": "aed370ca9cdf895625028762486d14c5a231817f6cdcd7116cbed849594c9ed0",
+        "gates": 4
+      },
+      "tranche3-reading-controls": {
+        "status": "PASS",
+        "evidence": "final-native/tranche3-reading-controls/result.json",
+        "bundleSha256": "aed370ca9cdf895625028762486d14c5a231817f6cdcd7116cbed849594c9ed0",
+        "gates": 4
+      },
+      "tranche3-reading-native": {
+        "status": "PASS",
+        "evidence": "final-native/tranche3-reading-native/result.json",
+        "bundleSha256": "aed370ca9cdf895625028762486d14c5a231817f6cdcd7116cbed849594c9ed0",
+        "gates": 9
+      },
+      "tranche3-salvage-native": {
+        "status": "PASS",
+        "evidence": "final-native/tranche3-salvage-native/result.json",
+        "bundleSha256": "aed370ca9cdf895625028762486d14c5a231817f6cdcd7116cbed849594c9ed0",
+        "gates": 4
+      },
+      "tranche3-salvage-repeat-native": {
+        "status": "PASS",
+        "evidence": "final-native/tranche3-salvage-repeat-native/result.json",
+        "bundleSha256": "aed370ca9cdf895625028762486d14c5a231817f6cdcd7116cbed849594c9ed0",
+        "gates": 2
+      }
+    },
+    "fullTests": {
+      "tests": 1653,
+      "pass": 1650,
+      "fail": 0,
+      "todo": 3,
+      "cancelled": 0,
+      "skipped": 0,
+      "durationMs": 37889.654334
+    },
+    "focusedTests": {
+      "tests": 88,
+      "pass": 88,
+      "fail": 0,
+      "durationMs": 208.3075
+    },
+    "humanAcceptance": "OPEN",
+    "rawTestSaves": "Retained only in isolated temporary proof directories, never user saves.",
+    "per_lane": {
+      "p23-long-life": {
+        "merge_ready": true,
+        "scope": "Declared bounded native scope and OPEN exclusions in final report"
+      },
+      "p23-exposure": {
+        "merge_ready": true,
+        "scope": "Declared bounded native scope and OPEN exclusions in final report"
+      },
+      "p23-household": {
+        "merge_ready": true,
+        "scope": "Declared bounded native scope and OPEN exclusions in final report"
+      },
+      "p23-living-gear": {
+        "merge_ready": true,
+        "scope": "Declared bounded native scope and OPEN exclusions in final report"
+      },
+      "p23-reread": {
+        "merge_ready": true,
+        "scope": "Declared bounded native scope and OPEN exclusions in final report"
+      },
+      "p23-combat-options": {
+        "merge_ready": true,
+        "scope": "Declared bounded native scope and OPEN exclusions in final report"
+      },
+      "p23-field-familiarity": {
+        "merge_ready": true,
+        "scope": "Declared bounded native scope and OPEN exclusions in final report"
+      },
+      "p23-salvage": {
+        "merge_ready": true,
+        "scope": "Declared bounded native scope and OPEN exclusions in final report"
+      },
+      "p23-market-life": {
+        "merge_ready": true,
+        "scope": "Declared bounded native scope and OPEN exclusions in final report"
+      },
+      "p23-leisure-memory": {
+        "merge_ready": true,
+        "scope": "Declared bounded native scope and OPEN exclusions in final report"
+      },
+      "p23-known-detail": {
+        "merge_ready": true,
+        "scope": "Declared bounded native scope and OPEN exclusions in final report"
+      },
+      "p23-world-adaptation": {
+        "merge_ready": true,
+        "scope": "Declared bounded native scope and OPEN exclusions in final report"
+      },
+      "p23-repeat-search": {
+        "merge_ready": true,
+        "scope": "Declared bounded native scope and OPEN exclusions in final report"
+      },
+      "p23-save-time-options": {
+        "merge_ready": true,
+        "scope": "Declared bounded native scope and OPEN exclusions in final report"
+      },
+      "p23-encounter-profiles": {
+        "merge_ready": true,
+        "scope": "Declared bounded native scope and OPEN exclusions in final report"
+      },
+      "p23-growth-profile": {
+        "merge_ready": true,
+        "scope": "Declared bounded native scope and OPEN exclusions in final report"
+      }
+    },
+    "p15_commits": [
+      "916617cb",
+      "629f5a10"
+    ],
+    "steps": {
+      "1": "646ca999",
+      "2": "f52344c7",
+      "3": "05652ac2",
+      "4": "b980be10",
+      "5": "916617cb",
+      "6": "7e246b76"
+    },
+    "open": [
+      "Weibao play/taste",
+      "P01 novice-loss producer",
+      "P07 intervening full native month",
+      "P09 full predecessor/new-day route",
+      "P14 second future runner day",
+      "native nonhuman/new-body/future-world variants",
+      "optional special/summoned combat adapters"
+    ]
+  }
+}

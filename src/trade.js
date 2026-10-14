@@ -6,7 +6,7 @@ import { character } from "./data/character.js";
 import { skills } from "./data/skills.js";
 import { getItemFromKey } from "./items.js";
 import { add_to_sold, calculate_total_saturation, capped_at, equipment_capped_at, group_key_prefix, remove_from_sold } from "./market_saturation.js";
-import { commitNativeTrade, current_location, get_context } from "./main.js";
+import { commitNativeTrade, current_location, get_context, previewP23MarketPurchase, interruptP23NativeWork } from "./main.js";
 import { round_item_price } from "./misc.js";
 import {readInventoryOwner} from "./acquisition.js";
 import {loot_sold_count} from "./market_saturation.js";
@@ -15,6 +15,7 @@ import NPCRegistry from "./data/npcs.js";
 
 let current_trader = null;
 let current_quote = null;
+let current_bread_subtotal=0, use_market_coupon=false;
 const to_sell = {value: 0, items: [], groups: {}};
 const to_buy = {value: 0, items: [], groups: {}};
 
@@ -53,15 +54,18 @@ function set_current_trader(trader_key) {
  * @param {String} trader_key 
  */
 function start_trade(trader_key) {
+    interruptP23NativeWork();use_market_coupon=false;
     NPCRegistry.get(trader_key).refreshTraderInventory(get_context());
     current_trader = trader_key;
     
     update_displayed_trader();
     update_displayed_character_inventory({is_trade: true});
+    calculate_total_values();
 }
 
 function cancel_trade() {
-    current_quote = null;
+    current_quote = null;use_market_coupon=false;current_bread_subtotal=0;
+    document.getElementById("p23_market_trade_quote")?.remove();
 
     to_buy.items = [];
     to_buy.groups = {};
@@ -78,7 +82,8 @@ function readTradeQuote() {
     return {vendorId: current_trader, region: current_location.market_region,
         buy: to_buy.items.map(({item_key, count}) => ({item_key, count})),
         sell: to_sell.items.map(({item_key, count}) => ({item_key, count})),
-        buyValue: to_buy.value, sellValue: to_sell.value, money: character.money,
+        buyValue: to_buy.value, breadSubtotal:current_bread_subtotal, sellValue: to_sell.value, money: character.money,
+        marketLife:previewP23MarketPurchase(current_trader,{buySubtotal:to_buy.value,breadSubtotal:current_bread_subtotal,buyUnits:to_buy.items.reduce((n,row)=>n+row.count,0),useCoupon:use_market_coupon}),
         margin: NPCRegistry.get(current_trader).getTraderComponent().getProfitMargin(current_location.market_region),
         player: readInventoryOwner(character.getItems()),
         vendor: readInventoryOwner(NPCRegistry.get(current_trader).getTraderInventory()),
@@ -92,7 +97,7 @@ function accept_trade() {
     // Repricing is read-only. Keep selections and the new quote on a stale or
     // failed command so the player can review and retry it.
     if(!quoted || tradeQuoteFingerprint(quoted) !== tradeQuoteFingerprint(current_quote)) {
-        update_displayed_total_price(to_sell.value - to_buy.value);
+        update_displayed_total_price(to_sell.value - current_quote.marketLife.quote.total);
         throw new Error("Trade quote changed. Review the refreshed price before accepting again.");
     }
     commitNativeTrade(quoted, current_quote);
@@ -336,6 +341,7 @@ function calculate_total_values() {
     const traded_groups = {buying_precalculated: {}, selling: {}, buying: {}};
     to_buy.value = 0;
     to_sell.value = 0;
+    current_bread_subtotal=0;
 
 
     ///////////////////////////////////////////////
@@ -447,8 +453,7 @@ function calculate_total_values() {
             stop_multiplier_at: difference in counts, as only count over that difference should be subject to saturation
             */
             
-            to_buy.groups[group_key].group_value 
-                                    += item.getValueOfMultiple({
+            const line_value=item.getValueOfMultiple({
                                         additional_traded_count: -bought_saturation,
                                         stop_multiplier_at: Math.max(0,sold_saturation-bought_saturation-to_buy.groups[traded_group_key].sorted[i].count),
                                         count: to_buy.groups[traded_group_key].sorted[i].count,
@@ -456,6 +461,8 @@ function calculate_total_values() {
                                         price_multiplier: trader.getProfitMargin(current_location.market_region),
                                         is_selling: false,
                                     });
+            to_buy.groups[group_key].group_value+=line_value;
+            if(item.id==='Stale bread')current_bread_subtotal+=line_value;
 
             //array too short compared to tier: push a spreaded array with the length of how much is missing, filled with zeroes
             if(traded_groups.buying[traded_group_key].length < group_tier + 1) {
@@ -470,7 +477,10 @@ function calculate_total_values() {
     });
 
     current_quote = readTradeQuote();
-    return  to_sell.value - to_buy.value;
+    renderP23MarketQuote();
+    const total=to_sell.value-current_quote.marketLife.quote.total;
+    window.dispatchEvent(new CustomEvent("native-trade-total",{detail:total}));
+    return total;
 }
 
 /**
@@ -479,6 +489,21 @@ function calculate_total_values() {
  * @param {Boolean} is_stackable
  * @returns total value of items, including character haggling skill and trader profit margin
  */
+function renderP23MarketQuote() {
+    const preview=current_quote?.marketLife,context=preview?.context;
+    const eligible=current_trader==='villageTrader'&&context?.worldId==='base.frontier'&&context.location==='Village';
+    if(!eligible){document.getElementById('p23_market_trade_quote')?.remove();return;}
+    const total=document.getElementById('trade_price_value');if(!total)return;
+    let box=document.getElementById('p23_market_trade_quote');
+    if(!box){box=document.createElement('div');box.id='p23_market_trade_quote';total.parentElement.append(box);}
+    box.replaceChildren();
+    const label=document.createElement('label'),input=document.createElement('input');input.type='checkbox';input.checked=use_market_coupon;
+    input.dataset.p23MarketCoupon='true';input.disabled=preview.state.couponsIssued<=preview.state.couponsUsed;
+    label.append(input,document.createTextNode(' Use one earned customer coupon (up to 5 coins; minimum payment 1 coin)'));
+    input.onchange=()=>{use_market_coupon=input.checked;const net=calculate_total_values();update_displayed_total_price(net);};
+    const explanation=document.createElement('p');explanation.textContent=preview.quote.explanation;box.append(label,explanation);
+}
+
 function get_item_value(selected_item) {
     const profit_margin = NPCRegistry.get(current_trader).getTraderComponent().getProfitMargin(current_location.market_region);
 

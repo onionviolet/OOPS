@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "lane": "P16-encounter-profiles",
+  "viewport": "1366x768",
+  "bundleSha256": "aed370ca9cdf895625028762486d14c5a231817f6cdcd7116cbed849594c9ed0",
+  "gates": [
+    "Actual funded native starter weapon and available armor, native equip before training, no feature XP or receipts seeded",
+    "Labelled old native character/Combat/Axes/Shield-blocking experience control; actual purchased gear retained, all new encounters/rewards remain absent",
+    "Native choice quota failure preserves prior durable save",
+    "pending-native-training: native Save/reload/Export/literal-file Import",
+    "Native pending rank/HP/cooldown/seed restoration, actual defeat XP and return travel share one receipt",
+    "settled-native-training: native Save/reload/Export/literal-file Import",
+    "Three separately entered real native encounters, repeatable settlement and matching cleared-group owner",
+    "abandoned-native-training: native Save/reload/Export/literal-file Import",
+    "P16-unsupported: literal unsupported schema rejected before mutation"
+  ],
+  "pageErrors": [],
+  "prerequisites": "Immutable old baseline: earned Shack permission, native Meditation admission, money and ordinary inventory controls. All new families created by native opt-ins; optional counter control labelled where used."
+}

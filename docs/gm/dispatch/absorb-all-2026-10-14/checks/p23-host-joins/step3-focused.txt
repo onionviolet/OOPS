@@ -1,0 +1,370 @@
+TAP version 13
+# Subtest: saved training restores actual per-seed rank, XP and damaged health rather than placeholder rank
+ok 1 - saved training restores actual per-seed rank, XP and damaged health rather than placeholder rank
+  ---
+  duration_ms: 173.85425
+  type: 'test'
+  ...
+# Subtest: pending native encounter rejects missing identity, wrong stats, absent profile and unearned exchange cursor
+ok 2 - pending native encounter rejects missing identity, wrong stats, absent profile and unearned exchange cursor
+  ---
+  duration_ms: 0.843541
+  type: 'test'
+  ...
+# Subtest: completed and abandoned attempts restore only off the training area with matching native progress
+ok 3 - completed and abandoned attempts restore only off the training area with matching native progress
+  ---
+  duration_ms: 0.580916
+  type: 'test'
+  ...
+# Subtest: old schema saves need no optional training records
+ok 4 - old schema saves need no optional training records
+  ---
+  duration_ms: 0.1725
+  type: 'test'
+  ...
+# Subtest: old save absence is inert and strict schemas reject unknown or malformed state
+ok 5 - old save absence is inert and strict schemas reject unknown or malformed state
+  ---
+  duration_ms: 3.310709
+  type: 'test'
+  ...
+# Subtest: saved seeds reproduce all authored bands across two hundred attempts
+ok 6 - saved seeds reproduce all authored bands across two hundred attempts
+  ---
+  duration_ms: 281.917333
+  type: 'test'
+  ...
+# Subtest: level scaling retains native stat names and no shared template mutation
+ok 7 - level scaling retains native stat names and no shared template mutation
+  ---
+  duration_ms: 0.516708
+  type: 'test'
+  ...
+# Subtest: native admission rejects before mutation and cannot reroll a pending encounter
+ok 8 - native admission rejects before mutation and cannot reroll a pending encounter
+  ---
+  duration_ms: 0.230083
+  type: 'test'
+  ...
+# Subtest: Reed sweep is probability gated and defensive counter prevents target status
+ok 9 - Reed sweep is probability gated and defensive counter prevents target status
+  ---
+  duration_ms: 0.650875
+  type: 'test'
+  ...
+# Subtest: exchange cursor and one-exchange status survive export/import without reroll
+ok 10 - exchange cursor and one-exchange status survive export/import without reroll
+  ---
+  duration_ms: 0.309625
+  type: 'test'
+  ...
+# Subtest: area rank and native luck modifier affect a single deterministic draw
+ok 11 - area rank and native luck modifier affect a single deterministic draw
+  ---
+  duration_ms: 4.221208
+  type: 'test'
+  ...
+# Subtest: settlement state suppresses duplicate publication including after restore
+ok 12 - settlement state suppresses duplicate publication including after restore
+  ---
+  duration_ms: 0.173666
+  type: 'test'
+  ...
+# Subtest: wrong event, rank, absent kill and nonfinite modifiers reject without changes
+ok 13 - wrong event, rank, absent kill and nonfinite modifiers reject without changes
+  ---
+  duration_ms: 0.673083
+  type: 'test'
+  ...
+# Subtest: repeat ladder has new occurrence IDs and no lifetime cap; old events fail
+ok 14 - repeat ladder has new occurrence IDs and no lifetime cap; old events fail
+  ---
+  duration_ms: 1.204375
+  type: 'test'
+  ...
+# Subtest: abandon pays no drop/completion and retires the occurrence
+ok 15 - abandon pays no drop/completion and retires the occurrence
+  ---
+  duration_ms: 0.912583
+  type: 'test'
+  ...
+# Subtest: native zone contract is optional, one group and repeatable with dojo parent
+ok 16 - native zone contract is optional, one group and repeatable with dojo parent
+  ---
+  duration_ms: 0.240458
+  type: 'test'
+  ...
+# Subtest: intent preview is stable without cursor mutation and resolution reads live counter
+ok 17 - intent preview is stable without cursor mutation and resolution reads live counter
+  ---
+  duration_ms: 0.422166
+  type: 'test'
+  ...
+# Subtest: old optional state remains absent with no default profile or bonuses
+ok 18 - old optional state remains absent with no default profile or bonuses
+  ---
+  duration_ms: 43.570125
+  type: 'test'
+  ...
+# Subtest: enrollment requires current world/body, learned preparation and save custody
+ok 19 - enrollment requires current world/body, learned preparation and save custody
+  ---
+  duration_ms: 0.473583
+  type: 'test'
+  ...
+# Subtest: two funded acquisitions and consumptions propose exact native health and item costs
+ok 20 - two funded acquisitions and consumptions propose exact native health and item costs
+  ---
+  duration_ms: 1.018458
+  type: 'test'
+  ...
+# Subtest: tonic source projection rebuilds once, while replay does not consume another item
+ok 21 - tonic source projection rebuilds once, while replay does not consume another item
+  ---
+  duration_ms: 0.182541
+  type: 'test'
+  ...
+# Subtest: repeat tonics have no lifetime once limit
+ok 22 - repeat tonics have no lifetime once limit
+  ---
+  duration_ms: 5.055083
+  type: 'test'
+  ...
+# Subtest: unsupported bodies/profiles cannot buy, consume or receive projections
+ok 23 - unsupported bodies/profiles cannot buy, consume or receive projections
+  ---
+  duration_ms: 0.517583
+  type: 'test'
+  ...
+# Subtest: unfunded shop, absent item, occupied body and native eligibility reject without mutation
+ok 24 - unfunded shop, absent item, occupied body and native eligibility reject without mutation
+  ---
+  duration_ms: 0.327084
+  type: 'test'
+  ...
+# Subtest: large 150000 XP settles iteratively, crossing each intended milestone exactly once
+ok 25 - large 150000 XP settles iteratively, crossing each intended milestone exactly once
+  ---
+  duration_ms: 1.238916
+  type: 'test'
+  ...
+# Subtest: max finite safe award has finite save/view, no recursive settlement or numeric cap
+ok 26 - max finite safe award has finite save/view, no recursive settlement or numeric cap
+  ---
+  duration_ms: 1.6575
+  type: 'test'
+  ...
+# Subtest: invalid/overflow awards, altered receipts and concurrent awards reject atomically
+ok 27 - invalid/overflow awards, altered receipts and concurrent awards reject atomically
+  ---
+  duration_ms: 0.733916
+  type: 'test'
+  ...
+# Subtest: supported background progresses during reading on native minutes with replay protection
+ok 28 - supported background progresses during reading on native minutes with replay protection
+  ---
+  duration_ms: 47.173208
+  type: 'test'
+  ...
+# Subtest: real body/resources/action conflicts block honestly and blocked time earns nothing later
+ok 29 - real body/resources/action conflicts block honestly and blocked time earns nothing later
+  ---
+  duration_ms: 5.358667
+  type: 'test'
+  ...
+# Subtest: disabled background and unchecked time leaps cannot invent elapsed rewards
+ok 30 - disabled background and unchecked time leaps cannot invent elapsed rewards
+  ---
+  duration_ms: 0.307458
+  type: 'test'
+  ...
+# Subtest: unsupported/malformed imports reject before any mutation
+ok 31 - unsupported/malformed imports reject before any mutation
+  ---
+  duration_ms: 5.751917
+  type: 'test'
+  ...
+# Subtest: literal JSON fixture imports preserve complete old envelope, pending and completed state without reapplying bonuses
+ok 32 - literal JSON fixture imports preserve complete old envelope, pending and completed state without reapplying bonuses
+  ---
+  duration_ms: 126.597041
+  type: 'test'
+  ...
+# Subtest: old accumulated XP is not backfilled; actual positive native deltas retain hundredths
+ok 33 - old accumulated XP is not backfilled; actual positive native deltas retain hundredths
+  ---
+  duration_ms: 0.893084
+  type: 'test'
+  ...
+# Subtest: each further earned threshold can fund a bounded reward without a lifetime once gate
+ok 34 - each further earned threshold can fund a bounded reward without a lifetime once gate
+  ---
+  duration_ms: 2.843542
+  type: 'test'
+  ...
+# Subtest: unsupported contexts and schemas do not count or mutate future grant receipts
+ok 35 - unsupported contexts and schemas do not count or mutate future grant receipts
+  ---
+  duration_ms: 1.319416
+  type: 'test'
+  ...
+# Subtest: growth maximum-vital source preserves absolute health and stamina, including clamping departure
+ok 36 - growth maximum-vital source preserves absolute health and stamina, including clamping departure
+  ---
+  duration_ms: 0.233334
+  type: 'test'
+  ...
+# Subtest: old absence stays absent; real retained world enrollment owns native energy
+ok 37 - old absence stays absent; real retained world enrollment owns native energy
+  ---
+  duration_ms: 15.814541
+  type: 'test'
+  ...
+# Subtest: played fractional accrual and saved seeded trial debit actual gameplay dose
+ok 38 - played fractional accrual and saved seeded trial debit actual gameplay dose
+  ---
+  duration_ms: 40.787459
+  type: 'test'
+  ...
+# Subtest: success commits native Meditation XP once and rawness blocks the next exposure segment
+ok 39 - success commits native Meditation XP once and rawness blocks the next exposure segment
+  ---
+  duration_ms: 29.092709
+  type: 'test'
+  ...
+# Subtest: unsupported families and unbound resources reject without native mutation
+ok 40 - unsupported families and unbound resources reject without native mutation
+  ---
+  duration_ms: 1.091542
+  type: 'test'
+  ...
+# Subtest: native merchant refresh stages same owner stock after sixty played minutes
+ok 41 - native merchant refresh stages same owner stock after sixty played minutes
+  ---
+  duration_ms: 1.165459
+  type: 'test'
+  ...
+# Subtest: native passage closes retained visit; same-clock new context interrupts without refund
+ok 42 - native passage closes retained visit; same-clock new context interrupts without refund
+  ---
+  duration_ms: 1.624459
+  type: 'test'
+  ...
+# Subtest: absent family and unsupported worlds preserve old profiles
+ok 43 - absent family and unsupported worlds preserve old profiles
+  ---
+  duration_ms: 1.781333
+  type: 'test'
+  ...
+# Subtest: enrollment is explicit, learned, body and instance bound
+ok 44 - enrollment is explicit, learned, body and instance bound
+  ---
+  duration_ms: 0.448292
+  type: 'test'
+  ...
+# Subtest: fractional idle exposure has no active-action requirement
+ok 45 - fractional idle exposure has no active-action requirement
+  ---
+  duration_ms: 0.360208
+  type: 'test'
+  ...
+# Subtest: chunking exposure agrees and full pool cannot bank hidden overflow
+ok 46 - chunking exposure agrees and full pool cannot bank hidden overflow
+  ---
+  duration_ms: 0.465459
+  type: 'test'
+  ...
+# Subtest: world, instance, body, life, controller and condition controls discard ineligible time
+ok 47 - world, instance, body, life, controller and condition controls discard ineligible time
+  ---
+  duration_ms: 0.373
+  type: 'test'
+  ...
+# Subtest: clock replay pays nothing and backwards clock rejects without mutation
+ok 48 - clock replay pays nothing and backwards clock rejects without mutation
+  ---
+  duration_ms: 0.196167
+  type: 'test'
+  ...
+# Subtest: preview spells out payment, reward, timed risk and no hidden draw
+ok 49 - preview spells out payment, reward, timed risk and no hidden draw
+  ---
+  duration_ms: 0.185375
+  type: 'test'
+  ...
+# Subtest: start needs actual custody, resource, stable body, clock and valid native RNG
+ok 50 - start needs actual custody, resource, stable body, clock and valid native RNG
+  ---
+  duration_ms: 0.21975
+  type: 'test'
+  ...
+# Subtest: start plans one exact-copy consumption and resource debit without mutating input
+ok 51 - start plans one exact-copy consumption and resource debit without mutating input
+  ---
+  duration_ms: 1.404292
+  type: 'test'
+  ...
+# Subtest: pending trial survives exact JSON export/import and settles once at saved deadline
+ok 52 - pending trial survives exact JSON export/import and settles once at saved deadline
+  ---
+  duration_ms: 1.169333
+  type: 'test'
+  ...
+# Subtest: failure boundary pays no XP and emits a native temporary condition
+ok 53 - failure boundary pays no XP and emits a native temporary condition
+  ---
+  duration_ms: 0.566459
+  type: 'test'
+  ...
+# Subtest: boundary splitting prevents large ticks from bypassing failure rawness
+ok 54 - boundary splitting prevents large ticks from bypassing failure rawness
+  ---
+  duration_ms: 0.525875
+  type: 'test'
+  ...
+# Subtest: leaving original world or body interrupts at the boundary with no refund
+ok 55 - leaving original world or body interrupts at the boundary with no refund
+  ---
+  duration_ms: 1.015667
+  type: 'test'
+  ...
+# Subtest: repeat paid trials use real occurrence IDs without lifetime once flags
+ok 56 - repeat paid trials use real occurrence IDs without lifetime once flags
+  ---
+  duration_ms: 0.427042
+  type: 'test'
+  ...
+# Subtest: projection obeys known-only and Effects-off without changing progression
+ok 57 - projection obeys known-only and Effects-off without changing progression
+  ---
+  duration_ms: 0.187208
+  type: 'test'
+  ...
+# Subtest: strict optional-family validation rejects malformed imports before mutations
+ok 58 - strict optional-family validation rejects malformed imports before mutations
+  ---
+  duration_ms: 0.311459
+  type: 'test'
+  ...
+# Subtest: resource bounds and finite clocks reject unsafe numeric state
+ok 59 - resource bounds and finite clocks reject unsafe numeric state
+  ---
+  duration_ms: 0.22925
+  type: 'test'
+  ...
+# Subtest: authored subunit policy fits native integer energy validation and charge
+ok 60 - authored subunit policy fits native integer energy validation and charge
+  ---
+  duration_ms: 0.145541
+  type: 'test'
+  ...
+1..60
+# tests 60
+# suites 0
+# pass 60
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 3241.187209

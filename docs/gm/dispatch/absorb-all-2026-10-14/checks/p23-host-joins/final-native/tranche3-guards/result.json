@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "bundleSha256": "aed370ca9cdf895625028762486d14c5a231817f6cdcd7116cbed849594c9ed0",
+  "gates": [
+    "unsupported salvage literal-import handler rejects before durable mutation",
+    "native equipped copy excluded; unequip restores exact selectable identity",
+    "failed publication preserves native copy, tool, XP/lesson, condition, resources and paid clock",
+    "reload and one paid retry settles exactly one receipt"
+  ],
+  "loadedBundleHashes": [
+    "aed370ca9cdf895625028762486d14c5a231817f6cdcd7116cbed849594c9ed0"
+  ],
+  "pageErrors": []
+}

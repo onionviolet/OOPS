@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "viewport": [
+    1366,
+    768
+  ],
+  "bundleSha256": "aed370ca9cdf895625028762486d14c5a231817f6cdcd7116cbed849594c9ed0",
+  "gates": [
+    "Effects-off retains passive gameplay with no discovery cue",
+    "read-only tab cannot light the hearth",
+    "need mode off supplies no passive Famine",
+    "unconfigured native body form does not gain human-profile Famine",
+    "failed durable fuel command leaves all native stored state and stock unchanged",
+    "failed fuel command can retry after native reload without a lost item"
+  ],
+  "pageErrors": []
+}

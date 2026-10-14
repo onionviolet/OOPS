@@ -1,0 +1,204 @@
+{
+  "status": "29 successful native check processes; declared scopes passed, original partial-scope label retained",
+  "sourceCommit": "7e246b76",
+  "mergedMainTip": "cc04a4bf68169d8a538a89cef1d973872c8ba75d",
+  "bundleSha256": "aed370ca9cdf895625028762486d14c5a231817f6cdcd7116cbed849594c9ed0",
+  "viewport": {
+    "width": 1366,
+    "height": 768
+  },
+  "nativeScripts": 29,
+  "records": {
+    "p11-native-consumable-hotkey": {
+      "status": "PASS",
+      "evidence": "final-native/p11-native-consumable-hotkey/result.json",
+      "bundleSha256": "aed370ca9cdf895625028762486d14c5a231817f6cdcd7116cbed849594c9ed0",
+      "gates": 3
+    },
+    "p11-native-producers": {
+      "status": "PASS",
+      "evidence": "final-native/p11-native-producers/result.json",
+      "bundleSha256": "aed370ca9cdf895625028762486d14c5a231817f6cdcd7116cbed849594c9ed0",
+      "gates": 6
+    },
+    "p12-world-adaptation": {
+      "status": "PASS",
+      "evidence": "final-native/p12-world-adaptation/result.json",
+      "bundleSha256": "aed370ca9cdf895625028762486d14c5a231817f6cdcd7116cbed849594c9ed0",
+      "gates": 9
+    },
+    "p16-encounter-profiles": {
+      "status": "PASS",
+      "evidence": "final-native/p16-encounter-profiles/result.json",
+      "bundleSha256": "aed370ca9cdf895625028762486d14c5a231817f6cdcd7116cbed849594c9ed0",
+      "gates": 9
+    },
+    "p18-growth-profile": {
+      "status": "PASS",
+      "evidence": "final-native/p18-growth-profile/result.json",
+      "bundleSha256": "aed370ca9cdf895625028762486d14c5a231817f6cdcd7116cbed849594c9ed0",
+      "gates": 16
+    },
+    "merged-smoke": {
+      "status": "PASS baseline only; no P00 feature joins",
+      "evidence": "final-native/merged-smoke/result.json",
+      "bundleSha256": "aed370ca9cdf895625028762486d14c5a231817f6cdcd7116cbed849594c9ed0",
+      "gates": 0
+    },
+    "p01-long-life": {
+      "status": "PASS",
+      "evidence": "final-native/p01-long-life/result.json",
+      "bundleSha256": "aed370ca9cdf895625028762486d14c5a231817f6cdcd7116cbed849594c9ed0",
+      "gates": 9
+    },
+    "p07-field-familiarity": {
+      "status": "PASS",
+      "evidence": "final-native/p07-field-familiarity/result.json",
+      "bundleSha256": "aed370ca9cdf895625028762486d14c5a231817f6cdcd7116cbed849594c9ed0",
+      "gates": 7
+    },
+    "p09-market-life": {
+      "status": "PASS",
+      "evidence": "final-native/p09-market-life/result.json",
+      "bundleSha256": "aed370ca9cdf895625028762486d14c5a231817f6cdcd7116cbed849594c9ed0",
+      "gates": 6
+    },
+    "p10-leisure-memory": {
+      "status": "PASS",
+      "evidence": "final-native/p10-leisure-memory/result.json",
+      "bundleSha256": "aed370ca9cdf895625028762486d14c5a231817f6cdcd7116cbed849594c9ed0",
+      "gates": 10
+    },
+    "p11-known-detail": {
+      "status": "PASS",
+      "evidence": "final-native/p11-known-detail/result.json",
+      "bundleSha256": "aed370ca9cdf895625028762486d14c5a231817f6cdcd7116cbed849594c9ed0",
+      "gates": 5
+    },
+    "p14-repeat-search": {
+      "status": "PASS",
+      "evidence": "final-native/p14-repeat-search/result.json",
+      "bundleSha256": "aed370ca9cdf895625028762486d14c5a231817f6cdcd7116cbed849594c9ed0",
+      "gates": 6
+    },
+    "p15-save-time-options": {
+      "status": "PASS",
+      "evidence": "final-native/p15-save-time-options/result.json",
+      "bundleSha256": "aed370ca9cdf895625028762486d14c5a231817f6cdcd7116cbed849594c9ed0",
+      "gates": 10
+    },
+    "tranche1-guards": {
+      "status": "PASS",
+      "evidence": "final-native/tranche1-guards/result.json",
+      "bundleSha256": "aed370ca9cdf895625028762486d14c5a231817f6cdcd7116cbed849594c9ed0",
+      "gates": 6
+    },
+    "tranche1-native": {
+      "status": "PASS",
+      "evidence": "final-native/tranche1-native/result.json",
+      "bundleSha256": "aed370ca9cdf895625028762486d14c5a231817f6cdcd7116cbed849594c9ed0",
+      "gates": 12
+    },
+    "tranche2-armored-native": {
+      "status": "PASS",
+      "evidence": "final-native/tranche2-armored-native/result.json",
+      "bundleSha256": "aed370ca9cdf895625028762486d14c5a231817f6cdcd7116cbed849594c9ed0",
+      "gates": 3
+    },
+    "tranche2-combat-native": {
+      "status": "PARTIAL PASS",
+      "evidence": "final-native/tranche2-combat-native/result.json",
+      "bundleSha256": "aed370ca9cdf895625028762486d14c5a231817f6cdcd7116cbed849594c9ed0",
+      "gates": 11
+    },
+    "tranche2-custody-native": {
+      "status": "PASS",
+      "evidence": "final-native/tranche2-custody-native/result.json",
+      "bundleSha256": "aed370ca9cdf895625028762486d14c5a231817f6cdcd7116cbed849594c9ed0",
+      "gates": 1
+    },
+    "tranche2-faint-native": {
+      "status": "PASS",
+      "evidence": "final-native/tranche2-faint-native/result.json",
+      "bundleSha256": "aed370ca9cdf895625028762486d14c5a231817f6cdcd7116cbed849594c9ed0",
+      "gates": 1
+    },
+    "tranche2-gear-native": {
+      "status": "PASS",
+      "evidence": "final-native/tranche2-gear-native/result.json",
+      "bundleSha256": "aed370ca9cdf895625028762486d14c5a231817f6cdcd7116cbed849594c9ed0",
+      "gates": 8
+    },
+    "tranche2-guards": {
+      "status": "PASS",
+      "evidence": "final-native/tranche2-guards/result.json",
+      "bundleSha256": "aed370ca9cdf895625028762486d14c5a231817f6cdcd7116cbed849594c9ed0",
+      "gates": 7
+    },
+    "tranche2-miss-native": {
+      "status": "PASS",
+      "evidence": "final-native/tranche2-miss-native/result.json",
+      "bundleSha256": "aed370ca9cdf895625028762486d14c5a231817f6cdcd7116cbed849594c9ed0",
+      "gates": 1
+    },
+    "tranche2-practice-native": {
+      "status": "PASS",
+      "evidence": "final-native/tranche2-practice-native/result.json",
+      "bundleSha256": "aed370ca9cdf895625028762486d14c5a231817f6cdcd7116cbed849594c9ed0",
+      "gates": 1
+    },
+    "tranche3-copy-controls": {
+      "status": "PASS",
+      "evidence": "final-native/tranche3-copy-controls/result.json",
+      "bundleSha256": "aed370ca9cdf895625028762486d14c5a231817f6cdcd7116cbed849594c9ed0",
+      "gates": 2
+    },
+    "tranche3-guards": {
+      "status": "PASS",
+      "evidence": "final-native/tranche3-guards/result.json",
+      "bundleSha256": "aed370ca9cdf895625028762486d14c5a231817f6cdcd7116cbed849594c9ed0",
+      "gates": 4
+    },
+    "tranche3-reading-controls": {
+      "status": "PASS",
+      "evidence": "final-native/tranche3-reading-controls/result.json",
+      "bundleSha256": "aed370ca9cdf895625028762486d14c5a231817f6cdcd7116cbed849594c9ed0",
+      "gates": 4
+    },
+    "tranche3-reading-native": {
+      "status": "PASS",
+      "evidence": "final-native/tranche3-reading-native/result.json",
+      "bundleSha256": "aed370ca9cdf895625028762486d14c5a231817f6cdcd7116cbed849594c9ed0",
+      "gates": 9
+    },
+    "tranche3-salvage-native": {
+      "status": "PASS",
+      "evidence": "final-native/tranche3-salvage-native/result.json",
+      "bundleSha256": "aed370ca9cdf895625028762486d14c5a231817f6cdcd7116cbed849594c9ed0",
+      "gates": 4
+    },
+    "tranche3-salvage-repeat-native": {
+      "status": "PASS",
+      "evidence": "final-native/tranche3-salvage-repeat-native/result.json",
+      "bundleSha256": "aed370ca9cdf895625028762486d14c5a231817f6cdcd7116cbed849594c9ed0",
+      "gates": 2
+    }
+  },
+  "fullTests": {
+    "tests": 1653,
+    "pass": 1650,
+    "fail": 0,
+    "todo": 3,
+    "cancelled": 0,
+    "skipped": 0,
+    "durationMs": 37889.654334
+  },
+  "focusedTests": {
+    "tests": 88,
+    "pass": 88,
+    "fail": 0,
+    "durationMs": 208.3075
+  },
+  "humanAcceptance": "OPEN",
+  "rawTestSaves": "Retained only in isolated temporary proof directories, never user saves."
+}

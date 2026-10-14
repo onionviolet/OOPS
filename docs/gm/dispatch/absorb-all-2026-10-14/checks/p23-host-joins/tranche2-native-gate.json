@@ -1,0 +1,105 @@
+{
+  "status": "PASS",
+  "scope": "normal native combat, authored sparring classification and held living gear",
+  "viewport": [
+    1366,
+    768
+  ],
+  "bundleSha256": "f9fc7206168d872a48716e7546941096170c70461cc1516ffc9aa984c9e6d4fa",
+  "focused": {
+    "pass": 33,
+    "fail": 0
+  },
+  "full": {
+    "pass": 986,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "duration_ms": 14488.423083
+  },
+  "merge_ready_lanes": [
+    "p23-living-gear",
+    "p23-combat-options"
+  ],
+  "checks": {
+    "gear-native": {
+      "file": "tranche2-gear-native.json",
+      "gates": [
+        "paid native trader acquisition; no feature family on old save",
+        "two bought ring copies receive distinct identities with condition off",
+        "allocated pending gear Export/literal-file Import retains physical identities before any kill",
+        "actual native beast kills settle per equipped copy with native XP/loot",
+        "native cinder spending debits three and recovers missing stamina",
+        "native unequip/re-equip keeps per-copy reserves and does not reallocate identity",
+        "settled copy growth and spend survive native reload",
+        "actual Export and literal-file Import retain native living gear"
+      ]
+    },
+    "combat-native": {
+      "file": "tranche2-combat-native.json",
+      "gates": [
+        "paid native tactical item acquisition; absent old family and known-only panel",
+        "paid native throwing practice advances played clock and native skill",
+        "two paid repeatable native outing opportunities without kill rewards",
+        "queued native Save/reload/Export/literal-file Import",
+        "paid throw resolves in actual native exchange then pauses",
+        "paused native Save/reload/Export/literal-file Import",
+        "paused native fighters preserve identity/health with no reroll or kill replay",
+        "Resume and a second paid throw use a new real event",
+        "paid smoke uses native safe return and travel clock with no kill/XP/group credit",
+        "escaped native Save/reload/Export/literal-file Import",
+        "Effects-off retains readable mechanics with no discovery cue"
+      ]
+    },
+    "guards": {
+      "file": "tranche2-guards.json",
+      "gates": [
+        "native played 19:59\u219220:00 replaces day attack with +25 light; removal reduces native AP",
+        "native played 03:59\u219204:00 restores one day attack source",
+        "unsupported gear and combat schemas reject in real native import before storage mutation",
+        "cross-owner duplicate equipment identity rejects in native import",
+        "read-only second tab cannot spend living gear",
+        "failed cinder durable write retains prior authority and native stamina",
+        "failed paid native exchange restores stone, enemy private health and prior stored encounter"
+      ]
+    },
+    "custody-native": {
+      "file": "tranche2-custody-native.json",
+      "gates": [
+        "actual native equip handler refuses admitted borrowed allocated ring before inventory/identity/save mutation"
+      ]
+    },
+    "armored-native": {
+      "file": "tranche2-armored-native.json",
+      "gates": [
+        "paid throw hits an actual native armored target through armor",
+        "paid native throw defeats an armored target; final exchange holds group completion",
+        "completed encounter Export/literal Import stays paused; Resume settles group once without duplicate kill XP"
+      ]
+    },
+    "miss-native": {
+      "file": "tranche2-miss-native.json",
+      "gates": [
+        "actual paid native projectile can miss without damaging target; real event/payment still settle"
+      ]
+    },
+    "faint-native": {
+      "file": "tranche2-faint-native.json",
+      "gates": [
+        "actual normal-combat faint settles existing defeat count, native return and Recovering together; reload does not repeat defeat"
+      ]
+    },
+    "practice-native": {
+      "file": "tranche2-practice-native.json",
+      "gates": [
+        "actual authored native sparring defeat advances ordered event cursor without weapon growth or cinders"
+      ]
+    }
+  },
+  "open": [
+    "P16 encounter profiles and targeted intent/counter",
+    "special/actionAdapter battle extensions",
+    "native summoned-unit content control",
+    "Weibao play and taste"
+  ]
+}

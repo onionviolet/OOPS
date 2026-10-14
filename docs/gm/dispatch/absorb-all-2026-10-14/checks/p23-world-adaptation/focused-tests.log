@@ -1,0 +1,118 @@
+TAP version 13
+# Subtest: absent family and unsupported worlds preserve old profiles
+ok 1 - absent family and unsupported worlds preserve old profiles
+  ---
+  duration_ms: 57.173667
+  type: 'test'
+  ...
+# Subtest: enrollment is explicit, learned, body and instance bound
+ok 2 - enrollment is explicit, learned, body and instance bound
+  ---
+  duration_ms: 4.226291
+  type: 'test'
+  ...
+# Subtest: fractional idle exposure has no active-action requirement
+ok 3 - fractional idle exposure has no active-action requirement
+  ---
+  duration_ms: 0.527959
+  type: 'test'
+  ...
+# Subtest: chunking exposure agrees and full pool cannot bank hidden overflow
+ok 4 - chunking exposure agrees and full pool cannot bank hidden overflow
+  ---
+  duration_ms: 24.021041
+  type: 'test'
+  ...
+# Subtest: world, instance, body, life, controller and condition controls discard ineligible time
+ok 5 - world, instance, body, life, controller and condition controls discard ineligible time
+  ---
+  duration_ms: 10.30525
+  type: 'test'
+  ...
+# Subtest: clock replay pays nothing and backwards clock rejects without mutation
+ok 6 - clock replay pays nothing and backwards clock rejects without mutation
+  ---
+  duration_ms: 5.248292
+  type: 'test'
+  ...
+# Subtest: preview spells out payment, reward, timed risk and no hidden draw
+ok 7 - preview spells out payment, reward, timed risk and no hidden draw
+  ---
+  duration_ms: 0.815375
+  type: 'test'
+  ...
+# Subtest: start needs actual custody, resource, stable body, clock and valid native RNG
+ok 8 - start needs actual custody, resource, stable body, clock and valid native RNG
+  ---
+  duration_ms: 16.084167
+  type: 'test'
+  ...
+# Subtest: start plans one exact-copy consumption and resource debit without mutating input
+ok 9 - start plans one exact-copy consumption and resource debit without mutating input
+  ---
+  duration_ms: 71.621625
+  type: 'test'
+  ...
+# Subtest: pending trial survives exact JSON export/import and settles once at saved deadline
+ok 10 - pending trial survives exact JSON export/import and settles once at saved deadline
+  ---
+  duration_ms: 109.799292
+  type: 'test'
+  ...
+# Subtest: failure boundary pays no XP and emits a native temporary condition
+ok 11 - failure boundary pays no XP and emits a native temporary condition
+  ---
+  duration_ms: 475.250833
+  type: 'test'
+  ...
+# Subtest: boundary splitting prevents large ticks from bypassing failure rawness
+ok 12 - boundary splitting prevents large ticks from bypassing failure rawness
+  ---
+  duration_ms: 14.177917
+  type: 'test'
+  ...
+# Subtest: leaving original world or body interrupts at the boundary with no refund
+ok 13 - leaving original world or body interrupts at the boundary with no refund
+  ---
+  duration_ms: 22.028125
+  type: 'test'
+  ...
+# Subtest: repeat paid trials use real occurrence IDs without lifetime once flags
+ok 14 - repeat paid trials use real occurrence IDs without lifetime once flags
+  ---
+  duration_ms: 138.098542
+  type: 'test'
+  ...
+# Subtest: projection obeys known-only and Effects-off without changing progression
+ok 15 - projection obeys known-only and Effects-off without changing progression
+  ---
+  duration_ms: 10.282166
+  type: 'test'
+  ...
+# Subtest: strict optional-family validation rejects malformed imports before mutations
+ok 16 - strict optional-family validation rejects malformed imports before mutations
+  ---
+  duration_ms: 22.97375
+  type: 'test'
+  ...
+# Subtest: resource bounds and finite clocks reject unsafe numeric state
+ok 17 - resource bounds and finite clocks reject unsafe numeric state
+  ---
+  duration_ms: 0.509209
+  type: 'test'
+  ...
+# Subtest: authored subunit policy fits native integer energy validation and charge
+ok 18 - authored subunit policy fits native integer energy validation and charge
+  ---
+  duration_ms: 0.25325
+  type: 'test'
+  ...
+1..18
+# tests 18
+# suites 0
+# pass 18
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 11593.833333

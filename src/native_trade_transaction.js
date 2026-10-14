@@ -6,11 +6,12 @@ import {validateExpansionState} from "./expansion_engine.js";
 // synchronous with staging and saving; no callback can interleave the transfer.
 export const tradeQuoteFingerprint = quote => JSON.stringify(quote);
 
-export function stageNativeTrade({state, gameplay, owners, money, market, itemLog, quote, currentQuote, xp, getItem}) {
+export function stageNativeTrade({state, gameplay, owners, money, market, itemLog, quote, currentQuote, xp, getItem, buyDebit = quote.buyValue}) {
     if(tradeQuoteFingerprint(quote) !== tradeQuoteFingerprint(currentQuote)) throw new Error("Trade quote changed. Refresh your selections before accepting.");
     if(!quote.buy.length && !quote.sell.length) throw new Error("Select items to trade first.");
-    if(![quote.buyValue, quote.sellValue, money].every(n => Number.isFinite(n) && n >= 0 && n <= Number.MAX_SAFE_INTEGER)) throw new Error("Invalid trade price.");
-    const balance = money + quote.sellValue - quote.buyValue;
+    if(![quote.buyValue, quote.sellValue, money, buyDebit].every(n => Number.isFinite(n) && n >= 0 && n <= Number.MAX_SAFE_INTEGER)) throw new Error("Invalid trade price.");
+    if(buyDebit>quote.buyValue||(!quote.buy.length&&buyDebit!==0))throw Error("Invalid adjusted native buy debit.");
+    const balance = money + quote.sellValue - buyDebit;
     if(!Number.isFinite(balance) || balance < 0 || balance > Number.MAX_SAFE_INTEGER) throw new Error("This trade cannot be afforded.");
     const transfers = [
         ...quote.buy.map(e => ({from: "vendor", to: "player", key: e.item_key, count: e.count})),
@@ -38,7 +39,8 @@ export function stageNativeTrade({state, gameplay, owners, money, market, itemLo
     nextState.sequence++;
     nextState.history.push({id: `event:${nextState.sequence}`, sequence: nextState.sequence, at: nextState.clock,
         actionId: "native.trade", revision: 1, outcome: "transferred", draw: 0,
-        label: `Trade with ${quote.vendorId}: bought ${quote.buyValue}, sold ${quote.sellValue} coins`});
+        label: `Trade with ${quote.vendorId}: bought ${buyDebit}, sold ${quote.sellValue} coins`,
+        nativeBuyValue:quote.buyValue,buyDebit,sellValue:quote.sellValue,marketExplanation:quote.marketLife?.quote.explanation||null});
     nextState.history = nextState.history.slice(-100);
     validateExpansionState(nextState);
     return {state: nextState, external: {money: balance}, gameplay: nextGameplay, ownership: {vendor: ownership.vendor},

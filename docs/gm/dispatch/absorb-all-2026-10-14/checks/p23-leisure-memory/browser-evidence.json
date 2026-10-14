@@ -1,0 +1,12 @@
+{
+  "url": "http://127.0.0.1:18829/",
+  "viewport": {
+    "width": 1366,
+    "height": 768
+  },
+  "servedBundleSha256": "598e02f54fe7db4c9a35bc79c75a754a7f8dc42eccf9fab828de8fd82e97b615",
+  "servedBytes": 5100591,
+  "errors": [],
+  "featureHookVisible": 0,
+  "scope": "baseline only; feature not registered; changed native loop and persistence OPEN"
+}

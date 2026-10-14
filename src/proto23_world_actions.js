@@ -1,6 +1,6 @@
 // Derive eligibility from actual owners. No renderer, quote or import seeds
 // resident funds/items, completes work or installs a fixture.
-import {PROTO23_IDS as I, PROTO23_KEYS as K, PROTO23_LOCATIONS as L, proto23Commands} from './proto23_world_content.js';
+import {PROTO23_IDS as I, PROTO23_KEYS as K, PROTO23_LOCATIONS as L, PROTO23_OPTIONAL_NATIVE_LOCATIONS, proto23Commands} from './proto23_world_content.js';
 const same = (a, b) => JSON.stringify(a) === JSON.stringify(b);
 export function proto23Facts(state, context = {}) {
     const d = state.proto23Village, s = state.simulation || {}, n = context.proto23Native || {}, p = s.people?.player;
@@ -14,7 +14,7 @@ export function proto23Facts(state, context = {}) {
     const sameBody = body?.id === 'native.player.body' && actual?.id === body.id && actual.form === body.form &&
         actual.ownerId === body.ownerId && actual.controllerId === body.controllerId;
     const controlled = bound && sameBody && context.nativeAlive === true && usable('player') && p.location === at;
-    const here = !!visit && visit.endpoint.worldId === I.world && state.actors?.player?.worldId === I.world && Object.values(L).includes(at);
+    const here = !!visit && visit.endpoint.worldId === I.world && state.actors?.player?.worldId === I.world && [...Object.values(L), ...PROTO23_OPTIONAL_NATIVE_LOCATIONS].includes(at);
     const supported = controlled && here;
     const f = {'proto23.nativeBound': bound, 'proto23.playerSupported': supported,
         'proto23.homeSupported': controlled && !visit && state.actors?.player?.worldId === 'base.frontier' && at === 'Shack',

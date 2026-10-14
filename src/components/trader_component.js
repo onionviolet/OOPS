@@ -33,9 +33,12 @@ class TraderComponent {
                 inventory_template,
                 profit_margin = 3,
                 is_unlocked = false,
+                played_minute_refresh = null,
             } = {})
     {
         
+        if(played_minute_refresh !== null && typeof played_minute_refresh !== "function") throw new Error("Invalid native played-minute shop adapter.");
+        this.played_minute_refresh = played_minute_refresh;
         this.name = name;
         this.trade_text = trade_text;
         this.last_refresh = -1;  
@@ -68,6 +71,9 @@ class TraderComponent {
      * @returns boolean informing if it was able to refresh
      */
     refresh(context) {
+        // Optional owner callback stages the same private inventory through the
+        // normal durable native transaction. Legacy shops retain day cadence.
+        if(this.played_minute_refresh) return this.played_minute_refresh(context);
         if(this.can_refresh()) {
             //refresh inventory
             const retained = {};

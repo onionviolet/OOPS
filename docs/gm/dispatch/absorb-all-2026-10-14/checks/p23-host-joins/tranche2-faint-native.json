@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "bundleSha256": "f9fc7206168d872a48716e7546941096170c70461cc1516ffc9aa984c9e6d4fa",
+  "gates": [
+    "actual normal-combat faint settles existing defeat count, native return and Recovering together; reload does not repeat defeat"
+  ],
+  "pageErrors": []
+}

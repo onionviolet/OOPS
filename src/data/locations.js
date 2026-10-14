@@ -394,6 +394,7 @@ const favourite_locations = {};
         }),
     });
 
+
     locations["Shack"] = new SafeLocation({
         connected_locations: [{location: locations["Village"], custom_text: "Go outside to [Village]", travel_time: 10}],
         description: "This small shack was the only spare building in the village. It's surprisingly tidy",
@@ -1774,6 +1775,7 @@ There's another gate on the wall in front of you, but you have a strange feeling
         },
         unlock_text: "You can now spar with the guard (heavy stance) in the Village"
     });
+    locations["Sparring with the village guard (heavy)"].tags.training = true;
     locations["Sparring with the village guard (quick)"] = new ChallengeZone({
         description: "She's showing you a technique that makes her attacks fast but weaker",
         enemy_count: 1, 
@@ -1792,6 +1794,7 @@ There's another gate on the wall in front of you, but you have a strange feeling
         },
         unlock_text: "You can now spar with the guard (quick stance) in the Village"
     });
+    locations["Sparring with the village guard (quick)"].tags.training = true;
     locations["Village"].connected_locations.push(
         {location: locations["Sparring with the village guard (heavy)"], custom_text: "Spar with the guard [heavy]", travel_time: 0},
         {location: locations["Sparring with the village guard (quick)"], custom_text: "Spar with the guard [quick]", travel_time: 0}
@@ -1932,6 +1935,7 @@ There's another gate on the wall in front of you, but you have a strange feeling
 //add activities
 (function(){
     locations["Village"].activities = {
+        ...Object.fromEntries(['scouting','lunar_gathering'].map(id=>[id,new LocationActivity({activity_name:id,starting_text:id==='scouting'?'Scout familiar ground':'Search the moonlit herb bed',is_unlocked:false,skill_xp_per_tick:0,gained_skills:{},working_period:1})])),
         "fieldwork": new LocationActivity({
             activity_name: "fieldwork",
             starting_text: "Work on the fields",

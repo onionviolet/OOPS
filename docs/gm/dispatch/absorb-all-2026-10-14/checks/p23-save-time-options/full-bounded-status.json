@@ -1,0 +1,6 @@
+{
+  "command": "node --test --test-concurrency=2 tests/*.test.js",
+  "status": "timeout",
+  "exit": 1,
+  "seconds": 240.35
+}

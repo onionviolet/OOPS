@@ -1,0 +1,21 @@
+{
+  "lane": "p01-long-life",
+  "status": "PASS",
+  "viewport": "1366x768",
+  "bundleSha256": "aed370ca9cdf895625028762486d14c5a231817f6cdcd7116cbed849594c9ed0",
+  "gates": [
+    "old worn family absent; admitted old native counters home59/purchases24, earned Cooking/Alchemy prerequisites",
+    "native-cooking3-alchemy-milestone: Save/reload/Export/literal-file Import",
+    "repeated-craft-training-bonus: Save/reload/Export/literal-file Import",
+    "admitted old native Cooking189/Alchemy1000 and ingredient custody; actual recipe commit crosses Cooking3; known Alchemy rate preserves old Sleeping bonuses and gains one Cooking3 factor1.05; uncapped real grants before/after and repeated post-reload craft use exactly one multiplier: {\"beforeGrant\":{\"delta\":21.72,\"success\":1,\"rate\":1.1025},\"afterGrant\":{\"delta\":22.81,\"success\":1,\"rate\":1.1576250000000001},\"repeatGrant\":{\"delta\":22.81,\"success\":1,\"rate\":1.1576250000000001}}",
+    "forced save quota: prior durable native bytes retained",
+    "worn-enabled: Save/reload/Export/literal-file Import",
+    "worn-disabled: Save/reload/Export/literal-file Import",
+    "character/long_life_worn: unsupported-schema rejected before durable mutation",
+    "native paid25th purchase and played60th home minute earn domestic titles; explicit worn opt-in/off"
+  ],
+  "limitations": [
+    "Weak known novice-loss title has no accepted native producer and remains OPEN."
+  ],
+  "pageErrors": []
+}

@@ -1,0 +1,100 @@
+TAP version 13
+# Subtest: earned domestic counters cross thresholds without capping repeat progression
+ok 1 - earned domestic counters cross thresholds without capping repeat progression
+  ---
+  duration_ms: 1.229875
+  type: 'test'
+  ...
+# Subtest: missing counters do not invent domestic history or expose unavailable goals
+ok 2 - missing counters do not invent domestic history or expose unavailable goals
+  ---
+  duration_ms: 7.450708
+  type: 'test'
+  ...
+# Subtest: odd settled outcome is one recognition, not a restriction on subsequent fights
+ok 3 - odd settled outcome is one recognition, not a restriction on subsequent fights
+  ---
+  duration_ms: 4.917208
+  type: 'test'
+  ...
+# Subtest: every old bonus is preserved verbatim, including worn mode
+ok 4 - every old bonus is preserved verbatim, including worn mode
+  ---
+  duration_ms: 0.873459
+  type: 'test'
+  ...
+# Subtest: worn payoff is optional, additive, collection derived and stable through serialization
+ok 5 - worn payoff is optional, additive, collection derived and stable through serialization
+  ---
+  duration_ms: 3.421541
+  type: 'test'
+  ...
+# Subtest: optional state preflight rejects unsupported schema/unheld/invalid selection without mutation
+ok 6 - optional state preflight rejects unsupported schema/unheld/invalid selection without mutation
+  ---
+  duration_ms: 0.654
+  type: 'test'
+  ...
+# Subtest: training registration preflights conflicts and preserves unrelated milestone data
+ok 7 - training registration preflights conflicts and preserves unrelated milestone data
+  ---
+  duration_ms: 0.346791
+  type: 'test'
+  ...
+# Subtest: training projection names only known skills and never settles XP
+ok 8 - training projection names only known skills and never settles XP
+  ---
+  duration_ms: 0.14025
+  type: 'test'
+  ...
+# Subtest: native milestone awards once, repeat training progresses, XP reconstruction restores exact rate
+ok 9 - native milestone awards once, repeat training progresses, XP reconstruction restores exact rate
+  ---
+  duration_ms: 2091.785125
+  type: 'test'
+  ...
+# Subtest: catalog ids are unique and every title has a counter and threshold
+ok 10 - catalog ids are unique and every title has a counter and threshold
+  ---
+  duration_ms: 20.839417
+  type: 'test'
+  ...
+# Subtest: a title is granted exactly at its threshold and never twice
+ok 11 - a title is granted exactly at its threshold and never twice
+  ---
+  duration_ms: 0.687166
+  type: 'test'
+  ...
+# Subtest: old saves ({}) and corrupt records normalize; unknown ids survive but grant nothing
+ok 12 - old saves ({}) and corrupt records normalize; unknown ids survive but grant nothing
+  ---
+  duration_ms: 294.526125
+  type: 'test'
+  ...
+# Subtest: bonuses are derived from held titles, so recomputing after a reload gives the same values
+ok 13 - bonuses are derived from held titles, so recomputing after a reload gives the same values
+  ---
+  duration_ms: 0.427333
+  type: 'test'
+  ...
+# Subtest: years lived use 30-day months from the start date
+ok 14 - years lived use 30-day months from the start date
+  ---
+  duration_ms: 51.335
+  type: 'test'
+  ...
+# Subtest: view lists every title with capped progress and readable bonus text
+ok 15 - view lists every title with capped progress and readable bonus text
+  ---
+  duration_ms: 32.614709
+  type: 'test'
+  ...
+1..15
+# tests 15
+# suites 0
+# pass 15
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 6883.572292

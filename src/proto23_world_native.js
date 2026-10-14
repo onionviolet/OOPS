@@ -1,4 +1,4 @@
-import {PROTO23_FOOTPRINTS as footprints,PROTO23_NATIVE_DOMAIN as nativeDomain,PROTO23_NATIVE_STOCK,PROTO23_KEYS as K,PROTO23_IDS as I,proto23Definitions} from './proto23_world_content.js';
+import {PROTO23_FOOTPRINTS as footprints,PROTO23_NATIVE_DOMAIN as nativeDomain,PROTO23_NATIVE_STOCK,PROTO23_KEYS as K,PROTO23_IDS as I,PROTO23_OPTIONAL_NATIVE_LOCATIONS,proto23Definitions} from './proto23_world_content.js';
 import {activeProto23Visit,validateProto23State} from './proto23_world_host.js';
 import {validateItemKey} from './gameplay_transactions.js';
 import {jsonData} from './simulation_contracts.js';
@@ -8,6 +8,9 @@ const people=proto23Definitions.people.map(d=>d.id),calendarSeed={year:1,month:1
 const owners=footprints.map(f=>({...f.native,worldId:f.worldId,instanceId:f.instanceId,
  peopleIds:proto23Definitions.people.filter(p=>p.worldId===f.worldId).map(p=>p.id)}));
 const places=owners.flatMap(o=>o.locations);
+// Admission can recognize an optional host zone without changing the original
+// inventories, registration loop or mandatory old-save location placeholders.
+const supportedPlaces=[...places,...PROTO23_OPTIONAL_NATIVE_LOCATIONS];
 function validateDefinitions(){
  assert(owners.length===1&&new Set(owners.map(o=>o.worldId)).size===1&&new Set(owners.map(o=>o.instanceId)).size===1,'Proto23 needs one exact retained world owner.');
  const ids=owners.flatMap(o=>[o.stockOwner,o.shopOwner,o.questId,...o.locations]);
@@ -65,7 +68,7 @@ export function validateProto23NativeMetadata(value,state){jsonData(value);shape
 export function validateProto23Envelope(envelope){const state=envelope.expansion||{},d=state.proto23Village,n=envelope[nativeDomain],visit=activeProto23Visit(state),location=envelope['current location'];
  assert(Object.keys(envelope.inventories?.proto23_world||{}).every(id=>owners.some(o=>o.stockOwner===id)),'Unknown Proto23 native stock owner.');
  if(!d){
-  assert(n==null&&!places.includes(location),'This save requires its optional Proto23 campaign/native owner binding.');
+  assert(n==null&&!supportedPlaces.includes(location),'This save requires its optional Proto23 campaign/native owner binding.');
   for(const o of owners){for(const inventory of [envelope.inventories?.proto23_world?.[o.stockOwner],envelope.inventories?.trader?.[o.shopOwner]])assert(inventory==null||(object(inventory)&&Object.keys(inventory).length===0),'Absent Proto23 cannot retain finite world stock.');
    assert(!envelope.quests?.[o.questId]?.is_active&&!envelope.quests?.[o.questId]?.is_finished,'Absent Proto23 cannot retain an active local quest.');
    for(const id of o.locations)assert(!envelope.availabilities?.location?.[id],'Absent Proto23 locations must remain unavailable.');
@@ -78,7 +81,7 @@ export function validateProto23Envelope(envelope){const state=envelope.expansion
   validatePhysicalOwners(envelope,state);return true;
  }
 
- validateProto23State(state);validateProto23NativeMetadata(n,state);assert(places.includes(location)===!!visit&&(!visit||location===state.simulation.people.player.location),'Saved current location and actual campaign visit disagree.');
+ validateProto23State(state);validateProto23NativeMetadata(n,state);assert(supportedPlaces.includes(location)===!!visit&&(!visit||location===state.simulation.people.player.location),'Saved current location and actual campaign visit disagree.');
  assert(object(envelope.character)&&object(envelope.character.equipment)&&object(envelope.levels?.person?.main_character),'Missing actual shared native player/equipment/XP owner.');
  savedCounts(envelope.inventories?.person?.main_character,'main_character');
  if(visit){const body=state.simulation.people.player.body;assert(body?.id==='native.player.body'&&body.form==='human'&&body.ownerId==='player'&&body.controllerId==='player','Active Proto23 visit requires the actual supported native player body.');}
@@ -143,7 +146,7 @@ export function createProto23NativeBindings({NPC,NPCRegistry,SafeLocation,locati
   for(const id of o.locations)envelope.availabilities.location[id]=state.proto23Village?1:0;for(const id of o.peopleIds)envelope.availabilities.person[id]=state.proto23Village&&state.simulation.people[id].life==='alive'?1:0;}}
  function read(state){assert(registered,'Register native campaign definitions before reading.');const d=state.proto23Village;
   assert(d?metadata&&metadata.revision===d.nativeRevision:metadata===null,'Restore matching campaign metadata before reading its native owners.');
-  const context=getNativeContext(),at=getCurrentLocation(),bodyHere=state.simulation?.people.player?.location,free=at!==null&&(at==='Village'||places.includes(at))&&bodyHere===at;
+  const context=getNativeContext(),at=getCurrentLocation(),bodyHere=state.simulation?.people.player?.location,free=at!==null&&(at==='Village'||supportedPlaces.includes(at))&&bodyHere===at;
   // This stock view is private admission context. Observer UI must use scoped host presentation.
   return {bound:true,revision:metadata?.revision||0,body:copy(getNativeBody()),stock:Object.fromEntries(owners.flatMap(o=>[[o.stockOwner,actualCounts(stock[o.stockOwner].getItems())],[o.shopOwner,actualCounts(shops[o.shopOwner].getInventoryComponent().getItems())]])),
    calendars:Object.fromEntries(owners.map(o=>[o.worldId,copy(metadata?.worldOwners.find(w=>w.worldId===o.worldId)?.calendar||calendarSeed)])),quests:Object.fromEntries(owners.map(o=>[o.questId,proto23QuestProjection(state,o.worldId)])),

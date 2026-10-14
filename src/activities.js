@@ -99,6 +99,7 @@ class Gathering extends Training {
 
 //trainings
 (function(){
+    for(const name of ["scouting","lunar_gathering"])activities[name]=new Training({name,action_text:name==="scouting"?"Scouting familiar ground":"Searching the moonlit herb bed",description:"Native played-time field practice; no additional XP or generic resource roll.",base_skills_names:[],is_unlocked:true});
     activities["running"] = new Training({
         name: "running",
         action_text: "Just running around",

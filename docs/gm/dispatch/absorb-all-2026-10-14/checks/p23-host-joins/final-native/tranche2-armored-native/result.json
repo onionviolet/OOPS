@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "bundleSha256": "aed370ca9cdf895625028762486d14c5a231817f6cdcd7116cbed849594c9ed0",
+  "gates": [
+    "paid throw hits an actual native armored target through armor",
+    "paid native throw defeats an armored target; final exchange holds group completion",
+    "completed encounter Export/literal Import stays paused; Resume settles group once without duplicate kill XP"
+  ],
+  "pageErrors": []
+}

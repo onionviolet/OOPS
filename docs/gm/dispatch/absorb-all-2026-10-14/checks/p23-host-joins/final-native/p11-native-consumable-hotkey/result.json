@@ -1,0 +1,13 @@
+{
+  "lane": "P11-native-consumable-hotkey",
+  "status": "PASS",
+  "viewport": "1366x768",
+  "bundleSha256": "aed370ca9cdf895625028762486d14c5a231817f6cdcd7116cbed849594c9ed0",
+  "gates": [
+    "forced save quota: prior durable native bytes retained",
+    "native-consumable-hotkey: Save/reload/Export/literal-file Import",
+    "Known owned Stale bread hotkey dispatches native use; quota rolls back custody/pacing/effects/XP and actual retry consumes exactly one"
+  ],
+  "limitations": [],
+  "pageErrors": []
+}

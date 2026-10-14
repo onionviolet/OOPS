@@ -1,0 +1,88 @@
+--- a/tests/p23-combat-options.test.js
++++ b/tests/p23-combat-options.test.js
+@@ -2,6 +2,7 @@
+ import assert from 'node:assert/strict';
+ import fs from 'node:fs';
+ import vm from 'node:vm';
++import {combatHitText} from '../src/ui_polish.js';
+ import {createCombatOptions, validateCombatOptions, validateEncounterCombatProfile} from '../src/absorb_p23/combat_options/runtime.js';
+ import {rollBaseCombatDamage, nextAttackTiming, get_hit_chance, mitigateCombatDamage} from '../src/combat_math.js';
+
+@@ -100,7 +101,8 @@
+         get_loot: () => (calls.loot++, []),
+     });
+     const hero = actor(true), target = actor(false);
+-    const context = {Math: Object.assign(Object.create(Math), {random: () => draw}), Date, structuredClone, validateEncounterCombatProfile,
++    const context = {combatHitText, Math, Date, structuredClone, validateEncounterCombatProfile,
++        STREAMS: {combat:'encounter:core'}, gameOrdinal: () => 1, gameKeyedRandom: () => draw,
+         rollBaseCombatDamage: (...args) => rollBaseCombatDamage(...args, () => draw), nextAttackTiming, get_hit_chance,
+         config: {}, document: {getElementById: () => null}, character: {addToInventory() {}}, skills: {Combat: {}}, enemy_tag_to_skill_mapping: {}, item_templates: {},
+         game_options: {}, game_stats: {total_hits_taken: 0, total_hits_done: 0, total_crits_taken: 0, total_crits_done: 0, strongest_hit: 0},
+--- a/tests/p23-market-life.test.js
++++ b/tests/p23-market-life.test.js
+@@ -90,6 +90,7 @@
+ // bodies with small dependency doubles. This is source behavior evidence only,
+ // not browser/native integration. Direct Node import hits native circular init.
+ const doubles = {
++    'seeded_streams.js':`export const STREAMS={market:'market'};let draws=[0];export const setMarketDraws=x=>{draws=[...x]};export const gameKeyedRandom=()=>draws.length>1?draws.shift():draws[0];`,
+     'accessories.js':`export const accessoryTradeMargin=n=>n;`,
+     'character.js':`export const character={reputation:{Village:0},getTotalLevelBonus:()=>0};`,
+     'inventory_templates.js':`export const row={item_name:'bread',chance:.5,count:[2,4],canBeStarted:()=>true}; export default {Test:[{canBeStarted:()=>true,items:[row]}]};`,
+@@ -104,7 +105,7 @@
+ async function nativeProbe() {
+     const bundled=await build({stdin:{contents:`export {TraderComponent} from './src/components/trader_component.js';
+         export * from './src/market_saturation.js';export {current_game_time} from './src/game_time.js';
+-        export {character} from './src/data/character.js';export {row} from './src/data/inventory_templates.js';`,resolveDir:process.cwd()},
++        export {character} from './src/data/character.js';export {setMarketDraws} from './src/seeded_streams.js';export {row} from './src/data/inventory_templates.js';`,resolveDir:process.cwd()},
+         bundle:true,write:false,platform:'node',format:'esm',plugins:[{name:'native-dependency-doubles',setup(b){
+             b.onResolve({filter:/\.js$/},args=>{const name=args.path.split('/').at(-1);if(doubles[name]) return {path:name,namespace:'double'};});
+             b.onLoad({filter:/.*/,namespace:'double'},args=>({contents:doubles[args.path],loader:'js'}));
+@@ -113,19 +114,17 @@
+ }
+ test('native stock chance/count, restock boundary and earned markup remain unchanged',async()=>{
+     const n=await nativeProbe();const trader=new n.TraderComponent({inventory_template:'Test',profit_margin:4,refresh_time:4});
+-    const random=Math.random;
+-    try {
+-        Math.random=()=>.6;trader.fillInventoryFromTemplate({});assert.deepEqual(trader.getTradeInventory(),{});
+-        let draws=[.5,1];Math.random=()=>draws.shift();trader.fillInventoryFromTemplate({});
++        n.setMarketDraws([.6]);trader.fillInventoryFromTemplate({});assert.deepEqual(trader.getTradeInventory(),{});
++        n.setMarketDraws([.49,.999]);trader.fillInventoryFromTemplate({});
+         assert.equal(trader.getTradeInventory().bread.count,4);
+-        Math.random=()=>0;n.current_game_time.day_count=0;assert.equal(trader.refresh({}),true);
++        n.setMarketDraws([0]);n.current_game_time.day_count=0;assert.equal(trader.refresh({}),true);
+         assert.equal(trader.last_refresh,1);assert.equal(trader.getTradeInventory().bread.count,2);
+         n.current_game_time.day_count=4;assert.equal(trader.refresh({}),false);
+         n.current_game_time.day_count=5;assert.equal(trader.refresh({}),true);
+         assert.equal(trader.getProfitMargin('Village'),4);
+         n.character.reputation.Village=1000;n.character.getTotalLevelBonus=()=>.2;
+         assert.ok(Math.abs(trader.getProfitMargin('Village')-2.2)<1e-12);
+-    } finally {Math.random=random;}
++
+ });
+ test('native sales cause saturation; purchases and recovery reduce it without inflation',async()=>{
+     const n=await nativeProbe();n.market_regions.Village={};n.fill_market_regions();
+--- a/tests/p23-long-life.test.js
++++ b/tests/p23-long-life.test.js
+@@ -13,9 +13,9 @@
+     const titles={},counters={home_minutes:59,items_bought:24};
+     assert.deepEqual(grantEarnedTitles(titles,counters,59),[]);
+     counters.home_minutes++; counters.items_bought++;
+-    assert.deepEqual(grantEarnedTitles(titles,counters,60),['quiet_hour','pantry_keeper']);
++    assert.deepEqual(grantEarnedTitles(titles,counters,60),['local_customer','quiet_hour','pantry_keeper']);
+     counters.home_minutes+=129540; counters.items_bought++;
+-    assert.deepEqual(grantEarnedTitles(titles,counters,129600),['home_season']);
++    assert.deepEqual(grantEarnedTitles(titles,counters,129600),['homebody','home_season']);
+     const restored=normalizeTitles(JSON.parse(JSON.stringify(titles)));
+     assert.deepEqual(grantEarnedTitles(restored,counters,129601),[]);
+     assert.deepEqual(restored,titles);
+--- a/tests/p23_life_loops.test.js
++++ b/tests/p23_life_loops.test.js
+@@ -22,7 +22,7 @@
+     assert.equal(advanceLocalLife(s,c({clock:1870})).state.homeMinutes,1440);
+     const p=recordLocalPurchases(s,25);assert.equal(s.itemsBought,0);assert.equal(p.itemsBought,25);
+     assert.throws(()=>recordLocalPurchases(s,NaN));
+-    assert.deepEqual(grantEarnedTitles({}, {home_minutes:p.homeMinutes,items_bought:p.itemsBought},0),['homebody','local_customer']);
++    assert.deepEqual(grantEarnedTitles({}, {home_minutes:p.homeMinutes,items_bought:p.itemsBought},0),['homebody','local_customer','quiet_hour','pantry_keeper']);
+     assert.equal(titleView({}, {items_bought:7}).find(r=>r.id==='local_customer').progress,7);
+ });
+ test('watch gates accept window, pays once at evening and permits later days without catch-up pay',()=>{

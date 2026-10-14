@@ -1,0 +1,18 @@
+{
+  "lane": "p09-market-life",
+  "status": "PASS",
+  "viewport": "1366x768",
+  "bundleSha256": "aed370ca9cdf895625028762486d14c5a231817f6cdcd7116cbed849594c9ed0",
+  "gates": [
+    "forced save quota: prior durable native bytes retained",
+    "real-final-mill-receipt: Save/reload/Export/literal-file Import",
+    "earned-customer-coupon: Save/reload/Export/literal-file Import",
+    "explicit-coupon-redemption: Save/reload/Export/literal-file Import",
+    "p23_market_life: unsupported-schema rejected before durable mutation",
+    "admitted old completed mill handoff; actual final craftsmans receipt produces same-day supply state, paid five-unit native trade earns one coupon, later explicit redemption"
+  ],
+  "limitations": [
+    "Full elder-to-mill route and next-day bread price reset not newly played; admitted predecessor history only."
+  ],
+  "pageErrors": []
+}

@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "bundleSha256": "aed370ca9cdf895625028762486d14c5a231817f6cdcd7116cbed849594c9ed0",
+  "gates": [
+    "paid native trader acquisition; no feature family on old save",
+    "two bought ring copies receive distinct identities with condition off",
+    "allocated pending gear Export/literal-file Import retains physical identities before any kill",
+    "actual native beast kills settle per equipped copy with native XP/loot",
+    "native cinder spending debits three and recovers missing stamina",
+    "native unequip/re-equip keeps per-copy reserves and does not reallocate identity",
+    "settled copy growth and spend survive native reload",
+    "actual Export and literal-file Import retain native living gear"
+  ],
+  "pageErrors": []
+}

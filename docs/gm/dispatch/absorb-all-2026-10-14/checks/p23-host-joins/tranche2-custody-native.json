@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "bundleSha256": "f9fc7206168d872a48716e7546941096170c70461cc1516ffc9aa984c9e6d4fa",
+  "gates": [
+    "actual native equip handler refuses admitted borrowed allocated ring before inventory/identity/save mutation"
+  ],
+  "fixtureScope": "borrow receipt after actual native owner enrollment; no natural lending-route claim",
+  "pageErrors": []
+}

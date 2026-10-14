@@ -1,0 +1,190 @@
+TAP version 13
+# Subtest: host settlement puts XP and finished book in one unpublished envelope and never mutates native books
+ok 1 - host settlement puts XP and finished book in one unpublished envelope and never mutates native books
+  ---
+  duration_ms: 0.9985
+  type: 'test'
+  ...
+# Subtest: host optional absence remains absent and unsupported reading schemas reject before publication
+ok 2 - host optional absence remains absent and unsupported reading schemas reject before publication
+  ---
+  duration_ms: 0.098166
+  type: 'test'
+  ...
+# Subtest: old absence remains absent, explicit schema and null reject before mutation
+ok 3 - old absence remains absent, explicit schema and null reject before mutation
+  ---
+  duration_ms: 0.563292
+  type: 'test'
+  ...
+# Subtest: two rereads settle distinct real events once and keep native book ownership
+ok 4 - two rereads settle distinct real events once and keep native book ownership
+  ---
+  duration_ms: 0.666875
+  type: 'test'
+  ...
+# Subtest: stopped read survives JSON restore without redrawing or idle progress
+ok 5 - stopped read survives JSON restore without redrawing or idle progress
+  ---
+  duration_ms: 0.246
+  type: 'test'
+  ...
+# Subtest: pending and completed source roundtrips are exact and settlement replay emits no XP
+ok 6 - pending and completed source roundtrips are exact and settlement replay emits no XP
+  ---
+  duration_ms: 0.130375
+  type: 'test'
+  ...
+# Subtest: wave-1 speed input advances progress without a second speed formula
+ok 7 - wave-1 speed input advances progress without a second speed formula
+  ---
+  duration_ms: 0.109
+  type: 'test'
+  ...
+# Subtest: custody, combat, world, body and occupation controls block without changing inputs
+ok 8 - custody, combat, world, body and occupation controls block without changing inputs
+  ---
+  duration_ms: 0.276375
+  type: 'test'
+  ...
+# Subtest: draws, malformed receipts and future/backwards clock reject
+ok 9 - draws, malformed receipts and future/backwards clock reject
+  ---
+  duration_ms: 0.182583
+  type: 'test'
+  ...
+# Subtest: rest requires earned progression and owned meal, consumes exactly at admission
+ok 10 - rest requires earned progression and owned meal, consumes exactly at admission
+  ---
+  duration_ms: 0.096167
+  type: 'test'
+  ...
+# Subtest: cancelled rest keeps paid meal consumed and is repeatable with another meal
+ok 11 - cancelled rest keeps paid meal consumed and is repeatable with another meal
+  ---
+  duration_ms: 0.203458
+  type: 'test'
+  ...
+# Subtest: rest accepts native five-minute batches, crosses calendar year correctly, no replay rewards
+ok 12 - rest accepts native five-minute batches, crosses calendar year correctly, no replay rewards
+  ---
+  duration_ms: 1.786208
+  type: 'test'
+  ...
+# Subtest: rest refuses synchronous 1080-minute replay and unsafe requests
+ok 13 - rest refuses synchronous 1080-minute replay and unsafe requests
+  ---
+  duration_ms: 0.206375
+  type: 'test'
+  ...
+# Subtest: native collection remains distinct, finished and owned across rereads/copies/custody
+ok 14 - native collection remains distinct, finished and owned across rereads/copies/custody
+  ---
+  duration_ms: 0.588792
+  type: 'test'
+  ...
+# Subtest: presentation discloses only known title and actual settled stories
+ok 15 - presentation discloses only known title and actual settled stories
+  ---
+  duration_ms: 0.070833
+  type: 'test'
+  ...
+# Subtest: old saves grant no recipe; unknown schemas and malformed receipts reject without mutation
+ok 16 - old saves grant no recipe; unknown schemas and malformed receipts reject without mutation
+  ---
+  duration_ms: 0.724917
+  type: 'test'
+  ...
+# Subtest: missing tool blocks preview and commit without output, receipt, XP or sequence
+ok 17 - missing tool blocks preview and commit without output, receipt, XP or sequence
+  ---
+  duration_ms: 8.630208
+  type: 'test'
+  ...
+# Subtest: quality gate applies again at commit and permits threshold exactly
+ok 18 - quality gate applies again at commit and permits threshold exactly
+  ---
+  duration_ms: 1.672833
+  type: 'test'
+  ...
+# Subtest: salvage consumes precisely the selected copy, matches displayed yield and teaches recipe
+ok 19 - salvage consumes precisely the selected copy, matches displayed yield and teaches recipe
+  ---
+  duration_ms: 1.576792
+  type: 'test'
+  ...
+# Subtest: condition and native skill change yield; preview drift is rejected
+ok 20 - condition and native skill change yield; preview drift is rejected
+  ---
+  duration_ms: 0.5815
+  type: 'test'
+  ...
+# Subtest: worn-first choices exclude equipped controls and permit explicit pristine override
+ok 21 - worn-first choices exclude equipped controls and permit explicit pristine override
+  ---
+  duration_ms: 0.803708
+  type: 'test'
+  ...
+# Subtest: unidentified stacks and invalid selected-copy counts are not silently split
+ok 22 - unidentified stacks and invalid selected-copy counts are not silently split
+  ---
+  duration_ms: 0.240667
+  type: 'test'
+  ...
+# Subtest: custody of selected instance, canonical family or held tool blocks preview and commit
+ok 23 - custody of selected instance, canonical family or held tool blocks preview and commit
+  ---
+  duration_ms: 16.785416
+  type: 'test'
+  ...
+# Subtest: worn-copy portable craft preserves spare, spends one log and returns native kit
+ok 24 - worn-copy portable craft preserves spare, spends one log and returns native kit
+  ---
+  duration_ms: 0.735833
+  type: 'test'
+  ...
+# Subtest: acquisition gate blocks direct craft bypass; successful salvage opens craft
+ok 25 - acquisition gate blocks direct craft bypass; successful salvage opens craft
+  ---
+  duration_ms: 0.693334
+  type: 'test'
+  ...
+# Subtest: stale event replay cannot duplicate output; a fresh physical copy allows another craft
+ok 26 - stale event replay cannot duplicate output; a fresh physical copy allows another craft
+  ---
+  duration_ms: 1.171417
+  type: 'test'
+  ...
+# Subtest: native location, available skill and material guards reject before settlement
+ok 27 - native location, available skill and material guards reject before settlement
+  ---
+  duration_ms: 0.374542
+  type: 'test'
+  ...
+# Subtest: native staged envelope keeps exact identities and receipts through JSON import, failed write preserves bytes
+ok 28 - native staged envelope keeps exact identities and receipts through JSON import, failed write preserves bytes
+  ---
+  duration_ms: 1.374167
+  type: 'test'
+  ...
+# Subtest: broken identified tool blocks both operations without spending its copy
+ok 29 - broken identified tool blocks both operations without spending its copy
+  ---
+  duration_ms: 0.2325
+  type: 'test'
+  ...
+# Subtest: real graded keys enforce portable tool threshold and remain exact in durable receipt
+ok 30 - real graded keys enforce portable tool threshold and remain exact in durable receipt
+  ---
+  duration_ms: 0.531792
+  type: 'test'
+  ...
+1..30
+# tests 30
+# suites 0
+# pass 30
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 176.817167

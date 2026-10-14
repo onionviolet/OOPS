@@ -1,0 +1,100 @@
+TAP version 13
+# Subtest: old saves grant no recipe; unknown schemas and malformed receipts reject without mutation
+ok 1 - old saves grant no recipe; unknown schemas and malformed receipts reject without mutation
+  ---
+  duration_ms: 1.644209
+  type: 'test'
+  ...
+# Subtest: missing tool blocks preview and commit without output, receipt, XP or sequence
+ok 2 - missing tool blocks preview and commit without output, receipt, XP or sequence
+  ---
+  duration_ms: 14.197
+  type: 'test'
+  ...
+# Subtest: quality gate applies again at commit and permits threshold exactly
+ok 3 - quality gate applies again at commit and permits threshold exactly
+  ---
+  duration_ms: 24.079042
+  type: 'test'
+  ...
+# Subtest: salvage consumes precisely the selected copy, matches displayed yield and teaches recipe
+ok 4 - salvage consumes precisely the selected copy, matches displayed yield and teaches recipe
+  ---
+  duration_ms: 2.709417
+  type: 'test'
+  ...
+# Subtest: condition and native skill change yield; preview drift is rejected
+ok 5 - condition and native skill change yield; preview drift is rejected
+  ---
+  duration_ms: 81.500292
+  type: 'test'
+  ...
+# Subtest: worn-first choices exclude equipped controls and permit explicit pristine override
+ok 6 - worn-first choices exclude equipped controls and permit explicit pristine override
+  ---
+  duration_ms: 1.923375
+  type: 'test'
+  ...
+# Subtest: unidentified stacks and invalid selected-copy counts are not silently split
+ok 7 - unidentified stacks and invalid selected-copy counts are not silently split
+  ---
+  duration_ms: 0.51525
+  type: 'test'
+  ...
+# Subtest: custody of selected instance, canonical family or held tool blocks preview and commit
+ok 8 - custody of selected instance, canonical family or held tool blocks preview and commit
+  ---
+  duration_ms: 190.053417
+  type: 'test'
+  ...
+# Subtest: worn-copy portable craft preserves spare, spends one log and returns native kit
+ok 9 - worn-copy portable craft preserves spare, spends one log and returns native kit
+  ---
+  duration_ms: 1.421334
+  type: 'test'
+  ...
+# Subtest: acquisition gate blocks direct craft bypass; successful salvage opens craft
+ok 10 - acquisition gate blocks direct craft bypass; successful salvage opens craft
+  ---
+  duration_ms: 56.966333
+  type: 'test'
+  ...
+# Subtest: stale event replay cannot duplicate output; a fresh physical copy allows another craft
+ok 11 - stale event replay cannot duplicate output; a fresh physical copy allows another craft
+  ---
+  duration_ms: 45.929917
+  type: 'test'
+  ...
+# Subtest: native location, available skill and material guards reject before settlement
+ok 12 - native location, available skill and material guards reject before settlement
+  ---
+  duration_ms: 1.506792
+  type: 'test'
+  ...
+# Subtest: native staged envelope keeps exact identities and receipts through JSON import, failed write preserves bytes
+ok 13 - native staged envelope keeps exact identities and receipts through JSON import, failed write preserves bytes
+  ---
+  duration_ms: 3.310041
+  type: 'test'
+  ...
+# Subtest: broken identified tool blocks both operations without spending its copy
+ok 14 - broken identified tool blocks both operations without spending its copy
+  ---
+  duration_ms: 0.407125
+  type: 'test'
+  ...
+# Subtest: real graded keys enforce portable tool threshold and remain exact in durable receipt
+ok 15 - real graded keys enforce portable tool threshold and remain exact in durable receipt
+  ---
+  duration_ms: 0.914167
+  type: 'test'
+  ...
+1..15
+# tests 15
+# suites 0
+# pass 15
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1785.96425

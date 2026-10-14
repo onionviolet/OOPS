@@ -1,0 +1,14 @@
+<!doctype html><meta charset="utf-8"><title>P02 isolated module verification</title>
+<body><h1>P02 isolated module fixture, not native gameplay</h1><div id="panel"></div><button id="save">Save fixture</button><button id="export">Export fixture</button><input id="import" type="file"><p id="notice"></p>
+<script type="module">
+import {createExposure,validateExposure,stageExposure} from '../../../../../../src/absorb_p23/exposure/exposure.js';
+import {mountExposurePanel} from '../../../../../../src/absorb_p23/exposure/panel.js';
+import {normalizePacing} from '../../../../../../src/absorb_e1/pacing.js';
+let state=validateExposure(JSON.parse(localStorage.getItem('p02-fixture')||'null')??undefined)??createExposure();
+const context={played:true,homeWorld:true,needsFood:true,exposureEligible:true,outdoors:true,sheltered:false,pacing:{...normalizePacing(),fullness:0,hungerEnabled:true,weatherEnabled:true}};
+const panel=mountExposurePanel({host:document.querySelector('#panel'),getState:()=>state,getContext:()=>context,getKnownSkills:()=>['Famine'],onChange:next=>{localStorage.setItem('p02-fixture',JSON.stringify(next));state=next;}});
+window.fixture={get:()=>state,step:(minutes)=>{const start=state.cursor??0;const r=stageExposure(state,{start,end:start+minutes},context);state=r.state;panel.render();return r;}};
+document.querySelector('#save').onclick=()=>localStorage.setItem('p02-fixture',JSON.stringify(state));
+document.querySelector('#export').onclick=()=>{const a=document.createElement('a');a.download='p02-fixture.json';a.href=URL.createObjectURL(new Blob([JSON.stringify(state)],{type:'application/json'}));a.click();URL.revokeObjectURL(a.href);};
+document.querySelector('#import').onchange=async e=>{try{const next=validateExposure(JSON.parse(await e.target.files[0].text()));if(!next)throw Error('Missing fixture state');localStorage.setItem('p02-fixture',JSON.stringify(next));state=next;panel.render();document.querySelector('#notice').textContent='Imported';}catch(error){document.querySelector('#notice').textContent=error.message;}};
+</script>

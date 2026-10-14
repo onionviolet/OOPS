@@ -1,3 +1,12 @@
+import {validateMistglassEnvelope} from './absorb_p23/host_joins/world_adaptation.js';
+import {validateGrowthEnvelope} from './absorb_p23/host_joins/growth_profile.js';
+import {validateTrainingEnvelope} from './absorb_p23/host_joins/encounter_profiles.js';
+import {validateTrancheFourEnvelope} from './absorb_p23/host_joins/tranche_four.js';
+import {validateKnownDetailEnvelope} from './absorb_p23/host_joins/known_detail.js';
+import {validateLongLifeEnvelope} from './absorb_p23/host_joins/long_life.js';
+import {validateTrancheThreeEnvelope} from './absorb_p23/host_joins/tranche_three.js';
+import {validateTrancheOneEnvelope} from './absorb_p23/host_joins/tranche_one.js';
+import {validateTrancheTwoEnvelope} from './absorb_p23/host_joins/tranche_two.js';
 import {validateHarvestEnvelope} from './harvest.js';
 import {validateProductAppearanceEnvelope} from './product_appearance_state.js';
 import {validateStreams,validateNativeEncounter} from "./seeded_streams.js";
@@ -49,6 +58,14 @@ const number = (value, label, minimum = 0) => {
 
 export function validateSaveEnvelope(original, currentVersion) {
     object(original, "Save");
+    validateKnownDetailEnvelope(original);
+    validateTrancheOneEnvelope(original);
+    validateTrancheTwoEnvelope(original);
+    validateTrancheThreeEnvelope(original);
+    validateGrowthEnvelope(original);
+    validateMistglassEnvelope(original);
+    validateTrainingEnvelope(original);
+    validateTrancheFourEnvelope(original);
     validateHarvestEnvelope(original,original["current time"]?calendarMinutes(original["current time"]):Number.MAX_SAFE_INTEGER);
     validateMixtureEnvelope(original);
     validateProductAppearanceEnvelope(original);

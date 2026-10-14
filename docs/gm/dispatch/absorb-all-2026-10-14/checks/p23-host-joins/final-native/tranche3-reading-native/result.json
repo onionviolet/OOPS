@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "bundleSha256": "aed370ca9cdf895625028762486d14c5a231817f6cdcd7116cbed849594c9ed0",
+  "gates": [
+    "native paid anthology, bread and herbs; old earned sleep/cooking prerequisite fixture, no feature state",
+    "paused-read: native Export and literal-file Import",
+    "two actual timed native reads, different event identities, retained finished physical book and native Literacy settlement",
+    "settled-reads: native Export and literal-file Import",
+    "paid four-minute native reserved meal preparation; consumed rest admission and cancel without refund",
+    "cancelled-rest: native Export and literal-file Import",
+    "pending-rest: native Export and literal-file Import",
+    "1080 accepted played minutes in asynchronous native batches, completed rest and calendar rollover",
+    "completed-rest: native Export and literal-file Import"
+  ],
+  "prerequisites": "Native old save: Shack permission, Sleeping 5, Cooking 1 and one carried cooking herb. Feature items purchased and timed loops played; opening progression not claimed.",
+  "loadedBundleHashes": [
+    "aed370ca9cdf895625028762486d14c5a231817f6cdcd7116cbed849594c9ed0"
+  ],
+  "pageErrors": []
+}

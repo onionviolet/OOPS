@@ -1,0 +1,19 @@
+{
+  "lane": "p07-field-familiarity",
+  "status": "PASS",
+  "viewport": "1366x768",
+  "bundleSha256": "aed370ca9cdf895625028762486d14c5a231817f6cdcd7116cbed849594c9ed0",
+  "gates": [
+    "known-familiar-ground: Save/reload/Export/literal-file Import",
+    "atomic actual search quota failure preserves prior save bytes",
+    "pending-familiar-search: Save/reload/Export/literal-file Import",
+    "harvested-new-phase: Save/reload/Export/literal-file Import",
+    "field_familiarity_p07: unsupported-schema rejected before durable mutation",
+    "native elder disclosure; thirty real scout minutes; real three-minute New-phase harvest with one physical leaf",
+    "second-phase-import-control: Save/reload/Export/literal-file Import"
+  ],
+  "limitations": [
+    "Two admitted old calendar origins test actual phase-local searches. The intervening native month is NOT played; no offline rewards claimed. Full real-month recurring journey remains OPEN."
+  ],
+  "pageErrors": []
+}

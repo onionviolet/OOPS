@@ -1,0 +1,51 @@
+browser-error Failed to load resource: the server responded with a status of 404 (File not found)
+browser-error Failed to load resource: the server responded with a status of 404 (File not found)
+browser-error Failed to load resource: the server responded with a status of 404 (File not found)
+browser-error Failed to load resource: the server responded with a status of 404 (File not found)
+browser-error Failed to load resource: the server responded with a status of 404 (File not found)
+browser-error Failed to load resource: the server responded with a status of 404 (File not found)
+browser-error Failed to load resource: the server responded with a status of 404 (File not found)
+browser-error Failed to load resource: the server responded with a status of 404 (File not found)
+browser-error Failed to load resource: the server responded with a status of 404 (File not found)
+native passive sleep progress 0 0.88
+native passive sleep progress 40 3.64
+native passive sleep progress 80 6.34
+native passive sleep progress 120 9.1
+locator.click: Timeout 12000ms exceeded.
+Call log:
+[2m  - waiting for locator('.action_travel[data-travel="Village"]')[22m
+[2m    - locator resolved to <div tabindex="0" role="button" data-travel="Village" aria-disabled="false" data-native-keyboard="true" class="travel_normal action_travel location_choice" onclick="change_location({location_id: this.getAttribute('data-travel')});">…</div>[22m
+[2m  - attempting click action[22m
+[2m    2 × waiting for element to be visible, enabled and stable[22m
+[2m      - element is not visible[22m
+[2m    - retrying click action[22m
+[2m    - waiting 20ms[22m
+[2m    2 × waiting for element to be visible, enabled and stable[22m
+[2m      - element is not visible[22m
+[2m    - retrying click action[22m
+[2m      - waiting 100ms[22m
+[2m    22 × waiting for element to be visible, enabled and stable[22m
+[2m       - element is not visible[22m
+[2m     - retrying click action[22m
+[2m       - waiting 500ms[22m
+
+    at /Users/weiwei/code/yair-absorb-all-20261014/p23-host-joins/docs/gm/dispatch/absorb-all-2026-10-14/checks/p23-host-joins/tranche1-native.cjs:57:174 {
+  log: [
+    `  - waiting for locator('.action_travel[data-travel="Village"]')`,
+    `    - locator resolved to <div tabindex="0" role="button" data-travel="Village" aria-disabled="false" data-native-keyboard="true" class="travel_normal action_travel location_choice" onclick="change_location({location_id: this.getAttribute('data-travel')});">…</div>`,
+    '  - attempting click action',
+    '    2 × waiting for element to be visible, enabled and stable',
+    '      - element is not visible',
+    '    - retrying click action',
+    '    - waiting 20ms',
+    '    2 × waiting for element to be visible, enabled and stable',
+    '      - element is not visible',
+    '    - retrying click action',
+    '      - waiting 100ms',
+    '    22 × waiting for element to be visible, enabled and stable',
+    '       - element is not visible',
+    '     - retrying click action',
+    '       - waiting 500ms'
+  ],
+  name: 'TimeoutError'
+}

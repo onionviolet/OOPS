@@ -1,0 +1,17 @@
+{
+  "lane": "p11-known-detail",
+  "status": "PASS",
+  "viewport": "1366x768",
+  "bundleSha256": "aed370ca9cdf895625028762486d14c5a231817f6cdcd7116cbed849594c9ed0",
+  "gates": [
+    "forced save quota: prior durable native bytes retained",
+    "exact-copy-hotkey-equipment: Save/reload/Export/literal-file Import",
+    "display-preferences: Save/reload/Export/literal-file Import",
+    "display_preferences: unsupported-schema rejected before durable mutation",
+    "native durable exact equipment identity, binding and typing guard; stale equipped identity never substitutes canonical spare; stale list removable; known-only bestiary hides catalog odds; exact number expandable and preferences persist"
+  ],
+  "limitations": [
+    "Native new kill observation and learned method readiness chains require additional final combat/method journey; legacy recognized loot alone is verified not to create association."
+  ],
+  "pageErrors": []
+}

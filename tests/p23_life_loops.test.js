@@ -22,7 +22,7 @@ test('home minutes count only observed home steps and settled purchase quantitie
     assert.equal(advanceLocalLife(s,c({clock:1870})).state.homeMinutes,1440);
     const p=recordLocalPurchases(s,25);assert.equal(s.itemsBought,0);assert.equal(p.itemsBought,25);
     assert.throws(()=>recordLocalPurchases(s,NaN));
-    assert.deepEqual(grantEarnedTitles({}, {home_minutes:p.homeMinutes,items_bought:p.itemsBought},0),['homebody','local_customer']);
+    assert.deepEqual(grantEarnedTitles({}, {home_minutes:p.homeMinutes,items_bought:p.itemsBought},0),['homebody','local_customer','quiet_hour','pantry_keeper']);
     assert.equal(titleView({}, {items_bought:7}).find(r=>r.id==='local_customer').progress,7);
 });
 test('watch gates accept window, pays once at evening and permits later days without catch-up pay',()=>{
