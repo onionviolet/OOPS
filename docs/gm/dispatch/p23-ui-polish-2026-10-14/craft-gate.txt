@@ -1,0 +1,9 @@
+PASS C1_detail_beside_list select-only click, full detail beside list
+PASS C2_one_owner_blocked rows, commit, filter agree; blocked explains and focuses
+PASS C3_unknown_placeholder ["Unfamiliar material0/1missing 1"]
+PASS C4_receipt_truth {"used":1,"made":1,"receipt":"Made 1 Processed rough wood from 1 Rough wood log (+2.5 XP)"}
+PASS C5_selection_persists selection, detail, focus and scroll kept
+PASS C6_keyboard focusable rows, Enter selects, arrows move, Enter crafts
+PASS C7_fit detail, commit, exit fully visible at 3 desktop sizes; no page scroll
+PASS C8_detail_setting beside/below setting works and persists
+PASS C9_readable all detail text >= 4.5:1 on its own background

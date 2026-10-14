@@ -1,0 +1,57 @@
+[
+  {
+    "check": "keyboard detail without hover",
+    "visible": "block",
+    "within": true,
+    "description": true
+  },
+  {
+    "check": "native enabled condition",
+    "labels": [
+      "Condition 100/100 · Repair 0 coins"
+    ]
+  },
+  {
+    "check": "enabled weather consequence",
+    "weather": " · Clear · 119m · Weather XP ×1"
+  },
+  {
+    "check": "native landed hits update exact condition and grammar",
+    "labels": [
+      "Condition 99.96/100 · Repair 1 coin"
+    ],
+    "hits": [
+      "Wolf rat was hit for 1 physical damage ",
+      "Hero was hit for 3.9 physical damage ",
+      "Wolf rat was hit for 1 physical damage ",
+      "Wolf rat was hit for 1 physical damage "
+    ]
+  },
+  {
+    "check": "native bulk purchase retains disabled sold-out row",
+    "before": "Camping supplies x3\n5\n10\nall\n8S",
+    "after": "Camping supplies x0\nCamping supplies\nBedroll, tent, small chest, and generally just anything that could be needed to establish a camp\n\nValue: 8S [originally 8S]\n8S\nSold out",
+    "key": "{\"id\":\"Camping supplies\"}"
+  },
+  {
+    "check": "zero budget shows semantic price and reason",
+    "text": "Bread kwas x3\n5\n10\nall\n16C\nCannot afford one more"
+  },
+  {
+    "check": "restored optional fog reports its actual XP consequence",
+    "text": " · Fog · 89m · Weather XP ×0.95"
+  },
+  {
+    "check": "controlled native 30-hit critical is one total",
+    "lines": [
+      "Hero was hit [CRIT] ×30 hits for 159.1 physical damage total ",
+      "Hero was hit [CRIT] ×30 hits for 159.1 physical damage total ",
+      "Hero was hit [CRIT] ×30 hits for 159.1 physical damage total ",
+      "Hero was hit [CRIT] ×30 hits for 159.1 physical damage total ",
+      "Hero was hit [CRIT] ×30 hits for 159.1 physical damage total ",
+      "Hero was hit [CRIT] ×30 hits for 159.1 physical damage total ",
+      "Hero was hit [CRIT] ×30 hits for 159.1 physical damage total ",
+      "Hero was hit [CRIT] ×30 hits for 159.1 physical damage total "
+    ]
+  }
+]
