@@ -1,0 +1,320 @@
+{
+  "evidenceLabels": {
+    "browser": "seeded-native",
+    "tests": "source",
+    "natural": "not claimed"
+  },
+  "tests": {
+    "full": {
+      "pass": 616,
+      "fail": 0
+    },
+    "r9Source": 8,
+    "r10Source": 8,
+    "r13Source": 5,
+    "newRegressionTests": 7
+  },
+  "finalBundleSha256": "41e5d514f96971afc05af9174ce7dd23ad75e636a47307d9702a5128af70665a",
+  "persistence": [
+    {
+      "artifact": "evidence/fa14-allocation-keep-kit-final-persistence.json",
+      "reloadExact": true,
+      "importExact": true,
+      "fullRootChecked": true,
+      "fullReloadDiff": [],
+      "fullImportDiff": []
+    },
+    {
+      "artifact": "evidence/fa14-allocation-withdrawn-final-persistence.json",
+      "reloadExact": true,
+      "importExact": true,
+      "fullRootChecked": true,
+      "fullReloadDiff": [],
+      "fullImportDiff": []
+    },
+    {
+      "artifact": "evidence/fa14-current-allocation-orr-final-persistence.json",
+      "reloadExact": true,
+      "importExact": true,
+      "fullRootChecked": true,
+      "fullReloadDiff": [],
+      "fullImportDiff": []
+    },
+    {
+      "artifact": "evidence/fa14-current-allocation-orr-pending-persistence.json",
+      "reloadExact": true,
+      "importExact": true,
+      "fullRootChecked": true,
+      "fullReloadDiff": [],
+      "fullImportDiff": []
+    },
+    {
+      "artifact": "evidence/fa14-current-collected-persistence.json",
+      "reloadExact": true,
+      "importExact": true,
+      "fullRootChecked": false,
+      "fullReloadDiff": null,
+      "fullImportDiff": null
+    },
+    {
+      "artifact": "evidence/fa14-current-frost-final-persistence.json",
+      "reloadExact": true,
+      "importExact": true,
+      "fullRootChecked": true,
+      "fullReloadDiff": [],
+      "fullImportDiff": []
+    },
+    {
+      "artifact": "evidence/fa14-current-neri-pending-persistence.json",
+      "reloadExact": true,
+      "importExact": true,
+      "fullRootChecked": false,
+      "fullReloadDiff": null,
+      "fullImportDiff": null
+    },
+    {
+      "artifact": "evidence/fa14-current-nursery-pending-persistence.json",
+      "reloadExact": true,
+      "importExact": true,
+      "fullRootChecked": false,
+      "fullReloadDiff": null,
+      "fullImportDiff": null
+    },
+    {
+      "artifact": "evidence/fa14-current-room-frame-pending-persistence.json",
+      "reloadExact": true,
+      "importExact": true,
+      "fullRootChecked": false,
+      "fullReloadDiff": null,
+      "fullImportDiff": null
+    },
+    {
+      "artifact": "evidence/fa14-current-room-neri-final-persistence.json",
+      "reloadExact": true,
+      "importExact": true,
+      "fullRootChecked": false,
+      "fullReloadDiff": null,
+      "fullImportDiff": null
+    },
+    {
+      "artifact": "evidence/fa14-current-shift1-pending-persistence.json",
+      "reloadExact": true,
+      "importExact": true,
+      "fullRootChecked": false,
+      "fullReloadDiff": null,
+      "fullImportDiff": null
+    },
+    {
+      "artifact": "evidence/fa14-current-shift2-pending-persistence.json",
+      "reloadExact": true,
+      "importExact": true,
+      "fullRootChecked": true,
+      "fullReloadDiff": [],
+      "fullImportDiff": []
+    },
+    {
+      "artifact": "evidence/fa14-current-worker-kit-consumer-persistence.json",
+      "reloadExact": true,
+      "importExact": true,
+      "fullRootChecked": true,
+      "fullReloadDiff": [],
+      "fullImportDiff": []
+    },
+    {
+      "artifact": "evidence/fa14-eda-covered-pending-persistence.json",
+      "reloadExact": true,
+      "importExact": true,
+      "fullRootChecked": false,
+      "fullReloadDiff": null,
+      "fullImportDiff": null
+    },
+    {
+      "artifact": "evidence/fa14-eda-final-current-persistence.json",
+      "reloadExact": true,
+      "importExact": true,
+      "fullRootChecked": false,
+      "fullReloadDiff": null,
+      "fullImportDiff": null
+    },
+    {
+      "artifact": "evidence/fa14-lio-final-persistence.json",
+      "reloadExact": true,
+      "importExact": true,
+      "fullRootChecked": false,
+      "fullReloadDiff": null,
+      "fullImportDiff": null
+    },
+    {
+      "artifact": "evidence/fa14-lio-pending-persistence.json",
+      "reloadExact": true,
+      "importExact": true,
+      "fullRootChecked": false,
+      "fullReloadDiff": null,
+      "fullImportDiff": null
+    },
+    {
+      "artifact": "evidence/fa14-nursery-food-final-persistence.json",
+      "reloadExact": true,
+      "importExact": true,
+      "fullRootChecked": true,
+      "fullReloadDiff": [],
+      "fullImportDiff": []
+    },
+    {
+      "artifact": "evidence/fa14-vale-final-persistence.json",
+      "reloadExact": true,
+      "importExact": true,
+      "fullRootChecked": true,
+      "fullReloadDiff": [],
+      "fullImportDiff": []
+    },
+    {
+      "artifact": "evidence/fa14-vale-pending-persistence.json",
+      "reloadExact": true,
+      "importExact": true,
+      "fullRootChecked": true,
+      "fullReloadDiff": [],
+      "fullImportDiff": []
+    },
+    {
+      "artifact": "evidence/fa15-fitting-wrap-final-persistence.json",
+      "reloadExact": true,
+      "importExact": true,
+      "fullRootChecked": true,
+      "fullReloadDiff": [],
+      "fullImportDiff": []
+    },
+    {
+      "artifact": "evidence/fa15-grip-final-persistence.json",
+      "reloadExact": true,
+      "importExact": true,
+      "fullRootChecked": false,
+      "fullReloadDiff": null,
+      "fullImportDiff": null
+    },
+    {
+      "artifact": "evidence/fa15-grip-practice-pending-persistence.json",
+      "reloadExact": true,
+      "importExact": true,
+      "fullRootChecked": false,
+      "fullReloadDiff": null,
+      "fullImportDiff": null
+    },
+    {
+      "artifact": "evidence/fa15-harness-final-persistence.json",
+      "reloadExact": true,
+      "importExact": true,
+      "fullRootChecked": false,
+      "fullReloadDiff": null,
+      "fullImportDiff": null
+    },
+    {
+      "artifact": "evidence/fa15-maintained-current-final-persistence.json",
+      "reloadExact": true,
+      "importExact": true,
+      "fullRootChecked": true,
+      "fullReloadDiff": [],
+      "fullImportDiff": []
+    },
+    {
+      "artifact": "evidence/fa15-maneuvers-final-persistence.json",
+      "reloadExact": true,
+      "importExact": true,
+      "fullRootChecked": false,
+      "fullReloadDiff": null,
+      "fullImportDiff": null
+    },
+    {
+      "artifact": "evidence/fa15-pad-current-final-persistence.json",
+      "reloadExact": true,
+      "importExact": true,
+      "fullRootChecked": true,
+      "fullReloadDiff": [],
+      "fullImportDiff": []
+    },
+    {
+      "artifact": "evidence/fa15-pad-final-persistence.json",
+      "reloadExact": true,
+      "importExact": true,
+      "fullRootChecked": false,
+      "fullReloadDiff": null,
+      "fullImportDiff": null
+    },
+    {
+      "artifact": "evidence/fa15-pad-held-persistence.json",
+      "reloadExact": true,
+      "importExact": true,
+      "fullRootChecked": false,
+      "fullReloadDiff": null,
+      "fullImportDiff": null
+    },
+    {
+      "artifact": "evidence/fa20-A-pending-persistence.json",
+      "reloadExact": true,
+      "importExact": true,
+      "fullRootChecked": false,
+      "fullReloadDiff": null,
+      "fullImportDiff": null
+    },
+    {
+      "artifact": "evidence/fa20-B-stave-pending-persistence.json",
+      "reloadExact": true,
+      "importExact": true,
+      "fullRootChecked": false,
+      "fullReloadDiff": null,
+      "fullImportDiff": null
+    },
+    {
+      "artifact": "evidence/fa20-complete-root-final-persistence.json",
+      "reloadExact": true,
+      "importExact": true,
+      "fullRootChecked": true,
+      "fullReloadDiff": [],
+      "fullImportDiff": []
+    },
+    {
+      "artifact": "evidence/fa20-final-fa15-supply-persistence.json",
+      "reloadExact": true,
+      "importExact": true,
+      "fullRootChecked": false,
+      "fullReloadDiff": null,
+      "fullImportDiff": null
+    },
+    {
+      "artifact": "evidence/fa20-notebook-held-persistence.json",
+      "reloadExact": true,
+      "importExact": true,
+      "fullRootChecked": false,
+      "fullReloadDiff": null,
+      "fullImportDiff": null
+    },
+    {
+      "artifact": "evidence/fa20-rack-built-persistence.json",
+      "reloadExact": true,
+      "importExact": false,
+      "fullRootChecked": false,
+      "fullReloadDiff": null,
+      "fullImportDiff": null
+    },
+    {
+      "artifact": "evidence/fa20-rack-verified-persistence.json",
+      "reloadExact": true,
+      "importExact": true,
+      "fullRootChecked": false,
+      "fullReloadDiff": null,
+      "fullImportDiff": null
+    }
+  ],
+  "repairedDefects": [
+    "held lamp fact precedence",
+    "registry-free grip job save validation",
+    "allocation toolkit sponsorship support"
+  ],
+  "sourceFiles": [
+    "src/simulation_effects.js",
+    "src/simulation_contracts.js",
+    "src/audit_remainder_livelihood_facts.js",
+    "src/audit_remainder_livelihood_content.js"
+  ],
+  "rootAcceptance": "post-merge integration and independent review remain root-owned"
+}

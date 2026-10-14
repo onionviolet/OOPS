@@ -1,0 +1,2 @@
+await h.importFile(path.resolve(h.evidence,'../fixture/TEST-FIXTURE-R15-G4-nursery-consumer.txt'));await h.play();await h.record('fa14-current-nursery-pending');await h.persist('fa14-current-nursery-pending');await h.advance(5);await h.record('fa14-current-nursery-harvest');
+await h.click('Tend a fresh nursery round');await h.record('fa14-current-nursery-renewed');await h.advance(6);await h.record('fa14-current-nursery-second-harvest');return {b:await h.buttons('Craft'),e:h.errors};

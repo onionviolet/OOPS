@@ -1,0 +1,3 @@
+const base=path.resolve(h.evidence,'../fixture/TEST-FIXTURE-R15-G4-allocation.txt');
+await h.importFile(base);await h.play();await h.click('Sponsor Orr packing');await h.advance(1);await h.record('fa14-current-allocation-orr-pending');await h.persist('fa14-current-allocation-orr-pending');await h.advance(6);await h.record('fa14-current-allocation-orr-complete');await h.click('Collect Orr’s 1 actually completed kit');await h.record('fa14-current-allocation-orr-collected');await h.persist('fa14-current-allocation-orr-final');
+await h.importFile(base);await h.play();await h.click('Sponsor Orr packing');await h.advance(1);return {cancel:await h.buttons('Cancel'),withdraw:await h.buttons('Withdraw'),e:h.errors};

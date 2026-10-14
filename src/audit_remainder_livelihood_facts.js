@@ -107,6 +107,10 @@ export function remainderLivelihoodFacts(state, context = {}, registry) {
         const kit = (s?.owners?.[c.worker]?.[K.kit] || 0) + remainderLivelihoodReservedKit(state, context, c);
         facts[f('supported')] = local && workerSupported(state, c.worker) && !!access && kit >= 1 && toolFree(state, c.worker, K.kit) &&
             (c.worker !== I.lio || p?.facts?.['field.member'] === true);
+        // Allocation sponsorship supplies the worker's tool. Actual work still
+        // requires that transferred kit in the worker's own stock/reservation.
+        facts[f('fundSupported')] = facts[f('supported')] || allocation && local && workerSupported(state, c.worker) &&
+            !!access && toolFree(state, c.worker, K.kit) && facts['remainder.livelihood.playerKitAvailable'];
         facts[f('funded')] = funded;
         facts[f('unfunded')] = !s?.claims?.[c.fundingClaim] && !funded;
         facts[f('offered')] = funded && !withdrawn && actorFact(state, c.worker, `offered.${c.topic}`) === true;
