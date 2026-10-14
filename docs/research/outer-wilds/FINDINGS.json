@@ -1,0 +1,344 @@
+{
+  "lane": "outer-wilds",
+  "date": "2026-10-13",
+  "status": "bounded research complete; wiki and talk coverage partial",
+  "authority": "PROPOSAL, not accepted or implemented",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "New Horizons ship-log guide",
+      "url": "https://github.com/Outer-Wilds-New-Horizons/new-horizons/blob/5611a9ce01f881d8798de5c0342f99ba3cee3e47/docs/src/content/docs/guides/ship-log.mdx",
+      "label": "verified (code)",
+      "coverage": "Full selected guide, static; community description of entries, facts, groups and layout",
+      "sha": "5611a9ce01f881d8798de5c0342f99ba3cee3e47"
+    },
+    {
+      "id": "S2",
+      "title": "New Horizons XML schema",
+      "url": "https://github.com/Outer-Wilds-New-Horizons/new-horizons/blob/5611a9ce01f881d8798de5c0342f99ba3cee3e47/NewHorizons/Schemas/shiplog_schema.xsd",
+      "label": "verified (code)",
+      "coverage": "Full schema, static; not the proprietary vanilla parser",
+      "sha": "5611a9ce01f881d8798de5c0342f99ba3cee3e47"
+    },
+    {
+      "id": "S3",
+      "title": "New Horizons reveal builder",
+      "url": "https://github.com/Outer-Wilds-New-Horizons/new-horizons/blob/5611a9ce01f881d8798de5c0342f99ba3cee3e47/NewHorizons/Builder/ShipLog/RevealBuilder.cs",
+      "label": "verified (code)",
+      "coverage": "Full selected builder, static; Enter, Observe and Snapshot adapters",
+      "sha": "5611a9ce01f881d8798de5c0342f99ba3cee3e47"
+    },
+    {
+      "id": "S4",
+      "title": "New Horizons knowledge lookup",
+      "url": "https://github.com/Outer-Wilds-New-Horizons/new-horizons/blob/5611a9ce01f881d8798de5c0342f99ba3cee3e47/NewHorizons/Handlers/ShipLogHandler.cs#L115-L119",
+      "label": "verified (code)",
+      "coverage": "Handler and selected manager/fact patches read; save-backed fact lookup",
+      "sha": "5611a9ce01f881d8798de5c0342f99ba3cee3e47"
+    },
+    {
+      "id": "S5",
+      "title": "OWML README and storage",
+      "url": "https://github.com/ow-mods/owml/blob/d58505f01d37630e71152ef0b78921b3d2c08f4f/Readme.md",
+      "label": "verified (code)",
+      "coverage": "README, storage docs and ModStorage.cs read; loader and JSON storage, not the ship-log XML owner",
+      "sha": "d58505f01d37630e71152ef0b78921b3d2c08f4f"
+    },
+    {
+      "id": "S6",
+      "title": "Mobius release design description, Kelsey Rice, 2019",
+      "url": "https://blog.playstation.com/archive/2019/10/08/explore-a-solar-system-that-resets-every-22-minutes-in-the-outer-wilds-out-this-month",
+      "label": "verified (page)",
+      "coverage": "Article body read; 22-minute loop, equipment, knowledge carry and changing environments"
+    },
+    {
+      "id": "S7",
+      "title": "Kelsey Beachum found-text breakdown",
+      "url": "https://static1.squarespace.com/static/54ad82b4e4b09209a614c362/t/682bc92229567841984abe38/1747700002451/beachum_foundtext_breakdown.pdf",
+      "label": "verified (page)",
+      "coverage": "All three pages of extracted text read; no game script copied"
+    },
+    {
+      "id": "S8",
+      "title": "Kelsey Beachum GDC 2021 talk",
+      "url": "https://www.gdcvault.com/play/1027368/Independent-Games-Summit-Sparking-Curiosity",
+      "label": "verified (page)",
+      "coverage": "Indexed session abstract and author talk listing only; PDF 403, video not watched"
+    },
+    {
+      "id": "S9",
+      "title": "Alex Beachum and Sarah Scialli interview, 2015",
+      "url": "https://www.gamedeveloper.com/design/road-to-the-igf-alex-beachum-s-i-outer-wilds-i-",
+      "label": "verified (page)",
+      "coverage": "Interview body read; pre-release 20-minute description is historical, not shipped 22-minute timing"
+    },
+    {
+      "id": "S10",
+      "title": "Outer Wilds wiki: Computer",
+      "url": "https://outerwilds.fandom.com/wiki/Computer",
+      "label": "verified (wiki)",
+      "coverage": "Search-returned excerpts only; orange asterisk and log memory mechanism; no revision ID"
+    },
+    {
+      "id": "S11",
+      "title": "Outer Wilds wiki: Ash Twin Project and Quantum Moon",
+      "url": "https://outerwilds.fandom.com/wiki/Ash_Twin_Project",
+      "label": "verified (wiki)",
+      "coverage": "Search-returned excerpts only; memory transfer and imaging example; no revision IDs",
+      "additional_urls": [
+        "https://outerwilds.fandom.com/wiki/Quantum_Moon",
+        "https://outerwilds.fandom.com/wiki/Endings"
+      ]
+    },
+    {
+      "id": "S12",
+      "title": "Outer Wilds wiki: Forbidden Archives and Subterranean Lake",
+      "url": "https://outerwilds.fandom.com/wiki/Forbidden_Archives",
+      "label": "verified (wiki)",
+      "coverage": "Search-returned excerpts only; unburnt record and simulation bypass examples; no revision IDs",
+      "additional_urls": [
+        "https://outerwilds.fandom.com/wiki/Subterranean_Lake"
+      ]
+    },
+    {
+      "id": "S13",
+      "title": "Alex Beachum Echoes announcement, 2021",
+      "url": "https://blog.playstation.com/2021/07/29/more-to-explore-outer-wilds-echoes-of-the-eye-expansion-lands-september-28/",
+      "label": "verified (page)",
+      "coverage": "Article body read; trailhead, depth, new storytelling and reduced-frights option"
+    },
+    {
+      "id": "S14",
+      "title": "Mobius 1.1.8 to 1.1.10 patch notes",
+      "url": "https://www.mobiusdigitalgames.com/news/echoes-of-the-eye-is-here",
+      "label": "verified (page)",
+      "coverage": "Changelog read; clue polish, contradiction repair and less misleading visual aid"
+    },
+    {
+      "id": "S15",
+      "title": "Custom Ship Log Modes author documentation",
+      "url": "https://outerwildsmods.com/mods/customshiplogmodes/",
+      "label": "verified (page)",
+      "coverage": "Selected API sections read: SetItems, GetQuestionMark, EnterMode; vanilla icon meanings"
+    }
+  ],
+  "findings": [
+    {
+      "id": "F1",
+      "rank": 1,
+      "label": "verified (code)",
+      "title": "The log is an evidence graph, not a quest dependency tree.",
+      "claim": "Entries describe places or concepts; rumor facts point from a source entry to a destination through SourceID. Explore facts record direct findings. A link explains why a lead is known; it does not establish that all earlier nodes must be completed.",
+      "sources": [
+        "S1",
+        "S2"
+      ]
+    },
+    {
+      "id": "F2",
+      "rank": 2,
+      "label": "verified (page)",
+      "title": "Knowledge replaces permanent ability upgrades, not physical constraints.",
+      "claim": "The developer describes progression as limited by player knowledge while also naming oxygen, fuel, hazards and tools. Learning changes a feasible plan. Do not translate this into a universal rule that merely setting a notebook flag opens a door.",
+      "sources": [
+        "S6"
+      ]
+    },
+    {
+      "id": "F3",
+      "rank": 3,
+      "label": "verified (page)",
+      "title": "The shipped loop is 22 minutes, with knowledge carried.",
+      "claim": "The developer describes changing environments and information retained between loops. The wiki explains memories and computer data being sent backward by the Ash Twin Project. Ordinary physical changes are reset rather than banked as permanent inventory or XP gains. Tutorial and disabled-project endings are exceptions to the normal loop, not alternative prestige tiers.",
+      "sources": [
+        "S6",
+        "S11"
+      ]
+    },
+    {
+      "id": "F4",
+      "rank": 4,
+      "label": "verified (page)",
+      "title": "A return hint can say something remains without naming it.",
+      "claim": "Mod-author documentation distinguishes question marks for rumored entries, green exclamation marks for unread facts, and orange asterisks for more exploration. Wiki excerpt corroborates the asterisk. Neither proves every secret is catalogued; exact vanilla completeness code remains unread.",
+      "sources": [
+        "S10",
+        "S15"
+      ]
+    },
+    {
+      "id": "F5",
+      "rank": 5,
+      "label": "verified (code)",
+      "title": "Rumored, explored and still-unfinished are separate states.",
+      "claim": "The schema uses RumorName until an ExploreFact on the entry is revealed. Entry-level, child-entry and fact-level IgnoreMoreToExplore controls can suppress coverage hints. A discovered lead need not expose an unseen answer or every child node.",
+      "sources": [
+        "S2"
+      ]
+    },
+    {
+      "id": "F6",
+      "rank": 6,
+      "label": "verified (code)",
+      "title": "Labels and summaries can deepen after further evidence.",
+      "claim": "RumorNamePriority chooses among rumor titles; AltText conditions and AltPhotoCondition support later presentations. Curiosity groups and nested entries structure scale without making a larger node an XP reward. These are community extension contracts, not a reverse engineering claim about all vanilla behavior.",
+      "sources": [
+        "S1",
+        "S2"
+      ]
+    },
+    {
+      "id": "F7",
+      "rank": 7,
+      "label": "verified (page)",
+      "title": "Clues work in both directions through a story.",
+      "claim": "Beachum explains that nonlinear text must point toward earlier context as well as later leads. Her High Energy Lab sample pairs a previous experiment with an alternate access path. The structure allows a player to enter a thread partway through and reconstruct it.",
+      "sources": [
+        "S7"
+      ]
+    },
+    {
+      "id": "F8",
+      "rank": 8,
+      "label": "verified (page)",
+      "title": "Hidden answers are protected by placement and understanding.",
+      "claim": "Beachum separates surface hooks, mid-level explanations and hidden payoffs. Mid-level material may be found accidentally; hidden material was not found accidentally in the cited playtests. Hard-to-reach answers need information or a clue that the place exists. This is a playtest observation, not a guarantee against every future shortcut.",
+      "sources": [
+        "S7"
+      ]
+    },
+    {
+      "id": "F9",
+      "rank": 9,
+      "label": "verified (code)",
+      "title": "Reveal receipts should come from actual acts.",
+      "claim": "The New Horizons builder binds facts to entering a volume, observing within distance and angle, or taking a snapshot. ShipLogHandler checks saved revealOrder, including between star systems. This is evidence for separating trigger, recorded fact and presentation; no runtime behavior was tested.",
+      "sources": [
+        "S3",
+        "S4"
+      ]
+    },
+    {
+      "id": "F10",
+      "rank": 10,
+      "label": "verified (page)",
+      "title": "Time is part of a route, not just its cost.",
+      "claim": "The developer describes collapse and shifting sand changing access during the loop. Alex and Sarah explain why resets permit irreversible dynamic systems. A route can require returning at the right phase with the same equipment rather than buying stronger equipment.",
+      "sources": [
+        "S6",
+        "S9"
+      ]
+    },
+    {
+      "id": "F11",
+      "rank": 11,
+      "label": "verified (wiki)",
+      "title": "Echoes uses withheld records to teach investigation.",
+      "claim": "The Forbidden Archives excerpt describes unburnt records and a report about leaving rafts between simulation areas. The Subterranean Lake excerpt describes dying near a campfire to bypass alarm bells. These are different applications of understanding the simulation, not permanent power upgrades. A full three-archive or all-seal audit was not performed.",
+      "sources": [
+        "S12"
+      ]
+    },
+    {
+      "id": "F12",
+      "rank": 12,
+      "label": "verified (page)",
+      "title": "Echoes adds depth through a trailhead and changed storytelling.",
+      "claim": "Alex describes a new museum exhibit as the trailhead, a hidden location with greater depth than an existing location, and new storytelling and mechanics. The expansion should serve new and returning players. Reduced frights is an explicit option. These are developer design statements, not measured pacing.",
+      "sources": [
+        "S13"
+      ]
+    },
+    {
+      "id": "F13",
+      "rank": 13,
+      "label": "verified (code)",
+      "title": "OWML is infrastructure; New Horizons owns the inspected ship-log authoring contract.",
+      "claim": "OWML patches and loads mods. Its ModStorage writes JSON relative to a mod folder; docs warn that update preservation needs pathsToPreserve. This is not evidence that OWML itself defines rumor XML or vanilla loop carry.",
+      "sources": [
+        "S5"
+      ]
+    },
+    {
+      "id": "F14",
+      "rank": 14,
+      "label": "verified (page)",
+      "title": "Clue wording and visual evidence need iteration.",
+      "claim": "Official patch notes repair a Southern Observatory clue and a museum-statue contradiction, and make a visual aid less misleading. Knowledge progression still needs feedback repair after release. A confusing inference is not automatically a player failure.",
+      "sources": [
+        "S14"
+      ]
+    },
+    {
+      "id": "F15",
+      "rank": 15,
+      "label": "inferred",
+      "title": "Pair permanent recognition with world-specific certainty and carry.",
+      "claim": "Cultivation-idlers F1 already covers invisible unearned systems, lasting revelation and deeper labels. This lane adds connected leads and separate coverage hints. Recognition can remain while a hypothesis is disproved, a visit window closes or a new life lacks the old character's memory carrier. This synthesis is a YAIRPG proposal, not an Outer Wilds rule.",
+      "sources": [
+        "S2",
+        "S7"
+      ]
+    }
+  ],
+  "packets": [
+    {
+      "id": "P1",
+      "title": "Connected field notes",
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "P2",
+      "title": "Unfinished leads without hidden counts",
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "P3",
+      "title": "Remembered visit window",
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "P4",
+      "title": "Incomplete record becomes useful",
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "P5",
+      "title": "Per-world knowledge-only reset",
+      "status": "PROPOSAL"
+    }
+  ],
+  "coverage": {
+    "runtime": false,
+    "videos_watched": false,
+    "wiki_full_pages": false,
+    "wiki_revision_ids": false,
+    "proprietary_game_code": false,
+    "community_code_static": true,
+    "author_found_text_sample": "all 3 extracted pages"
+  },
+  "scratch_root": "/private/tmp/claude-501/codex-lanes/outer-wilds-src",
+  "blocked": [
+    "Fandom web access failed; browser access denied by security policy; no workaround",
+    "GDC slides 403; switched to author sample"
+  ],
+  "local_source_files_read": [
+    "src/adventure_notebook.js",
+    "src/world_knowledge.js",
+    "src/observation_channels.js",
+    "src/observation_ui.js",
+    "src/people_knowledge.js",
+    "src/known_routes.js",
+    "src/native_discovery_policy.js",
+    "src/simulation_contracts.js",
+    "src/simulation_effects.js",
+    "src/causal_situations.js",
+    "src/world_rhythm.js",
+    "src/heir_inheritance.js"
+  ],
+  "verification": {
+    "json_validated": true,
+    "markdown_links_checked": true,
+    "gameplay": "not applicable; research only"
+  }
+}
