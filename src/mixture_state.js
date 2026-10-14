@@ -115,7 +115,12 @@ export function validateExposure(e,product){const x=e?.mixtureExposure;if(![1,2]
     const retained=x.revision===1?{id:x.product,...JSON.parse(x.product.slice(3)),unit:'fictional-mass',consumer:'oral-village@1',dose:x.dose}:product;
     if(retained?.revision!==x.revision||retained.id!==x.product||JSON.stringify(retained.dose)!==JSON.stringify(x.dose))fail('Missing complete retained exposure product.');
     const expected=mixtureExposure(retained,x.appliedAt);
-    if(JSON.stringify(e.effects?.stats)!==JSON.stringify(expected.effects.stats)||e.name!==expected.name)fail('Invalid retained mixture exposure payload.');return e;}
+    if(JSON.stringify(e.effects?.stats)!==JSON.stringify(expected.effects.stats)||e.name!==expected.name)fail('Invalid retained mixture exposure payload.');
+    if(x.revision===2){
+        if(Object.keys(x).sort().join()!==Object.keys(expected.mixtureExposure).sort().join())fail('Unsupported retained exposure fields.');
+        for(const key of ['id','effects','tags','group_tags','potency','base_xp_value','affected_by_travel'])if(JSON.stringify(e[key])!==JSON.stringify(expected[key]))fail('Invalid complete responsive exposure payload.');
+    }
+    return e;}
 let owner=null;
 export const getMixtureOwner=()=>owner;
 export function setMixtureOwner(s){owner=s==null?null:validateMixtureState(s);}

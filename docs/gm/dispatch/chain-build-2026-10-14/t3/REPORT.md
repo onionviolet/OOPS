@@ -1,6 +1,6 @@
 # T3 Village rule reader
 
-2026-10-14. IN PROGRESS. User dispatch plus COMMON.md authorize this slice and stage commits. T3 owns this isolated worktree. Live direction: desktop/laptop first, one Village stage, existing acquisition and native drinking. No universal crafting engine, new realm, NPC route, institutional gameplay or closed-browser progress.
+2026-10-14. TECHNICAL SLICE DELIVERED. User dispatch plus COMMON.md authorize this slice and stage commits. T3 owns this isolated worktree. Live direction: desktop/laptop first, one Village stage, existing acquisition and native drinking. No universal crafting engine, new realm, NPC route, institutional gameplay or closed-browser progress.
 
 ## Audit before code
 
@@ -22,7 +22,7 @@ D5: Visible outcome at 1366x768 and 1600x1000: opt into a responsive method besi
 
 ## Checks and playable gate
 
-Audit only so far. Required stages: pure tests, native transaction and compatibility tests, GR16 sweep/goldens/restoration, npm test, node build.js, fresh-origin natural paid mix/drink and old-product control at both desktop sizes, exact Save/reload/Export/literal Import and forced failed-write control. BACKLOG.md owns anything unexercised.
+Historical stage-1 gate: pure tests, native transaction and compatibility tests, GR16 sweep/goldens/restoration, npm test, node build.js, fresh-origin natural paid mix/drink and old-product control at both desktop sizes, exact Save/reload/Export/literal Import and forced failed-write control. BACKLOG.md owns anything unexercised.
 
 V1 SOURCE: Stage 2 adds src/rule_modules.js and 16 named checks covering PC2-T1 through T15 and T34. Matching delegates to unchanged evaluateRule and tagFacts. Rational parameter arithmetic remains exact through composition; one route-scoped candidate index includes negative/unanchored selectors. Physical, institutional and knowledge channels are separate before exemptions/priority. Unsupported transformation/cycle programs are rejected at admission; T15 proves refusal, not a general transform engine. The finite claim allocator is an admission helper for synthetic T11/T12 fixtures, not a new gameplay reaction system.
 
@@ -36,4 +36,33 @@ V3 SOURCE: Stage 4 pins the retained grammar/table-v1 interpreter separately fro
 
 V4 SOURCE: Eight generation/persistence checks pass, including 1,000 roots, three exact fixed-seed law/lock/receipt/product snapshots (developer-only test fixture), full-envelope Save/serialization/literal import with identical next law and native seeded draw, old owner absence, pending methods/exposures and eleven corruption controls. All three admitted outcomes satisfy the predeclared 25%-42% distribution band; zero fallbacks. The grammar is a finite all-feasible parameter table, so there is no retry or fallback branch to exercise in this reader. NPC pure chemistry equality is source-only; no NPC gameplay is claimed.
 
-V5 SOURCE/BUILD: npm test passes: 1435 total, 1432 pass, zero fail, three existing TODOs. node build.js passes, including the Ink artifact check. Browser acceptance remains OPEN at this stage.
+V5 SOURCE/BUILD: npm test passes: 1435 total, 1432 pass, zero fail, three existing TODOs. node build.js passes, including the Ink artifact check. Browser acceptance was still OPEN at that stage; final evidence follows.
+
+## What the player sees
+
+N1: In Village, choose **Mix at the Village counter**, select **Responsive method**, keep one River bellleaf and one Spring water, choose steep or boil, buy missing packs and press **Mix one vial**. The default remains Ordinary method. Before use the responsive vial is untested. Its actual chemistry already operates, but its dose is shown only after **Experiment: drink one dose**. The ordinary character health bar/tooltip and active effect change immediately. **Save observed method** enables the existing paid repeat queue. Cancel returns its exact held inputs; shortage refuses with no debit. New product types appear first so their Drink action is reachable on the laptop view. Generated law rule:village.response stays undisclosed as a parameter; the experiment reveals the resulting dose, not its internal formula.
+
+N2: To inspect the retained cause trace deliberately, open `/?harvest-inspector=1`, then **Developer chain inspector · retained truth · read only** and its **Resolver rule trace** section. It shows the resolver-produced receipt copied from the last committed output. The inspector neither resolves nor initializes anything. The ordinary URL does not mount it. Developer captures contain truth and must not be reused as player knowledge; their raw contents are not transcribed here.
+
+## Final proof
+
+V6 NATURAL: [browser-proof.cjs](browser-proof.cjs) starts separate fresh profiles at 1366x768 and 1600x1000, each with a newly named TEST FIXTURE CB T3 hero. On each it buys four actual bellleaf/water pairs for 40 coins, reducing the native purse from 102 to 62. It brews one revision-1 vial before enrollment and three responsive vials through the visible counter. Both desktop runs prove: causal freeze before drinking, owned output and input debit, retained inspector trace with no mutation controls, changed native health tooltip and exact saved exposure payload, unchanged old-vial drink, observed method learning, actual repeat reservation/cancel refund and zero-debit shortage.
+
+V7 NATURAL FAILURE CONTROL: Before the first responsive brew, the harness forces only the native save-data storage write to throw. The counter reports failure. Saved bytes remain unchanged, and a subsequent real Save confirms identical mixture, stock, money, laws/receipts, streams, appearances and active effects. The write hook is restored before the successful brew. This is a forced persistence fault, not a fictional failed recipe. Source also checks failure before any owner exists, with no enrollment or draw leakage.
+
+V8 NATIVE PERSISTENCE: Each run uses real Save and Export, reloads, and performs literal-file Import into another fresh profile, four profiles total. Export decodes to the exact complete saved envelope. Literal Import initially writes those exact complete bytes. After native load, the relevant mixture, inventory, appearance, stream and active-effect owners compare exactly; both the next untouched addressed law and next native craft draw match. The existing host may normalize other character/option fields on load, so byte identity after that normalization is not claimed. Native revision-2 exposure restoration passes. Test literal files and profiles remain only under /private/tmp/cb-t3-*; no private user save was accessed.
+
+The harness fixes the wall clock and stops only the external HackTimer worker after panels mount, preventing unrelated played-time ticks from contaminating exact comparisons. It does not grant inventory, currency, profiles, laws or effects. These are natural paid/native action proofs; timed completion and law-epoch transitions are separately SOURCE-proved, not claimed natural here.
+
+V9 SOURCE/BUILD: Final npm test: **1435 total, 1432 pass, zero fail, three existing TODOs**. The 34 new tests comprise 16 pure-rule, ten mixture-reader and eight generation/persistence checks. The final affected persistence/reader slice passes 25 checks, including revision-2 bonus-skill/XP/potency/travel/group/unknown-field corruption controls. Old exposure validation retains its original contract. Final node build.js passes, including Ink validation. Browser-script syntax and source/test/doc/index whitespace checks pass. T34 compares full and indexed matching over 3,003 modules and evaluates just the three relevant candidates. Served final bundle SHA-256: `deeadb63b1f5fe3446b92d11ef6af2b7f2eff31c88ac14672594bf116e42190a`, equal to the rebuilt worktree file in both runs. Zero browser page errors.
+
+[Machine-readable proof](evidence/proof.json) omits generated law values. Visual QA inspected both desktop layouts: the counter stays within the center panel, Mix and the new vial's Drink action are visible, and longer observation/method content uses its existing panel scroll. No mobile claim.
+
+| Evidence | 1366x768 | 1600x1000 |
+|---|---|---|
+| Paid responsive mix, still untested | [Laptop](evidence/natural-mixed-1366.png) | [Desktop](evidence/natural-mixed-1600.png) |
+| Actual drink and resulting native effect | [Laptop](evidence/natural-drink-1366.png) | [Desktop](evidence/natural-drink-1600.png) |
+| Native learned-repeat reservation | [Laptop](evidence/native-repeat-pending-1366.png) | [Desktop](evidence/native-repeat-pending-1600.png) |
+| Restored literal Import | [Laptop](evidence/literal-import-1366.png) | [Desktop](evidence/literal-import-1600.png) |
+
+V10 DELIVERY: Five staged commits on proc/cb-t3-rules. Runtime touch set: new src/rule_modules.js and src/mixture_rules.js plus src/mixture_state.js, src/mixture_native.js, src/mixture_ui.js, src/active_effects.js and src/main.js; tests add the three new suites and developer-only golden fixture. Tracked dist/bundle.js, its map and index.html are regenerated because this repository commits the build, as on the T2 base. No main-checkout edits, merge or push. Root owns integration. All required T3 technical gates pass; [BACKLOG](BACKLOG.md) distinguishes unexercised variants, deferred features and human judgment.

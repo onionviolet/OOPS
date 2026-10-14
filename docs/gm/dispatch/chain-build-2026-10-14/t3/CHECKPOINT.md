@@ -1,5 +1,13 @@
-IN PROGRESS
+DONE
 
-T3 sole writer, proc/cb-t3-rules, base da1ced88 (finished proc/cb-t2-inspector). Clean entry tree verified. Work only here; no merge/push. Port 22460 was free. User dispatch authorizes staged commits.
+T3 technical slice complete on proc/cb-t3-rules, base da1ced88 (finished proc/cb-t2-inspector). Sole writer in this isolated worktree; main checkout untouched. No merge or push. Root owns integration.
 
-Stage 1 audit and decisions recorded before runtime edits in REPORT.md. Stage 2 pure module implemented; 16 named PC2 checks pass. Existing rules/tag-store slice also passes. Stage 3 native reader implemented; 39 focused reader/legacy/appearance/inspector checks pass. Stage 4 persistence/GR16 implemented and passing: 1000-root sweep, three goldens, exact next-law/draw import, whole-envelope corruption refusal. Full npm test: 1435 total, 1432 pass, 0 fail, 3 existing TODOs. node build.js passes. Next: fresh-origin natural desktop proof, literal import and failed-write control. Target 1366x768 and 1600x1000; mobile deferred. No gameplay completion claim yet.
+Stage commits: cd966034 audit/decisions; df342ec5 pure rules; d17f4062 native reader; 1c5f3e34 persistence/GR16. Stage 5 contains final proof, desktop presentation refinement, complete revision-2 exposure validation and these deliverables.
+
+Final verification: npm test 1435 total, 1432 pass, zero fail, three existing TODOs. 34 new named tests. 1000-root sweep, three exact goldens and next-law/native-draw restoration pass. node build.js, browser-script syntax and scoped whitespace checks pass. Served final bundle SHA-256 deeadb63b1f5fe3446b92d11ef6af2b7f2eff31c88ac14672594bf116e42190a matches both fresh browser runs.
+
+Natural paid counter proof passes independently at 1366x768 and 1600x1000: responsive mix, causal freeze, retained developer trace, actual drink/native health effect, old revision-1 drink, learned repeat/cancel, shortage, forced durable-write failure with unchanged owners, full exact Export/literal Import into second fresh profiles, exact relevant owners after reload/native load, same next law/native draw, ordinary-URL inspector exclusion, zero page errors. Four disposable TEST FIXTURE profiles; private user saves untouched.
+
+REPORT.md owns play route, balance numbers, compatibility, shared touch set and labeled proof. BACKLOG.md owns unexercised variants and deferred scope. Human fiction/balance/taste remains unaccepted. Generated law values omitted from report, commit messages and ordinary UI; raw traces are developer-only.
+
+Resume/review: node build.js; python3 -m http.server 22460 --bind 127.0.0.1; open / for play or /?harvest-inspector=1 for the developer truth lens. Browser harness: node docs/gm/dispatch/chain-build-2026-10-14/t3/browser-proof.cjs. Proof profiles/literal files remain under /private/tmp/cb-t3-*. The disposable proof contexts are closed and the port-22460 test server is stopped.
