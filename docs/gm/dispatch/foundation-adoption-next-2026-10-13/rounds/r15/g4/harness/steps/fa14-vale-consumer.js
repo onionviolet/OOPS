@@ -1,0 +1,3 @@
+await h.importFile(path.resolve(h.evidence,'../fixture/TEST-FIXTURE-R15-G4-vale-consumer.txt'));await h.play();await h.record('fa14-vale-wet-ready');
+await h.click('Sponsor Vale bench drying');await h.advance(1);await h.record('fa14-vale-pending');await h.persist('fa14-vale-pending');await h.advance(5);await h.record('fa14-vale-completed');
+await h.record('fa14-vale-dry-bench-before-native-expiry');await h.click('Build a braced field harness');await h.record('fa14-vale-dry-bench-consumer-pending');await h.advance(7);await h.record('fa14-vale-dry-bench-consumer');return await h.persist('fa14-vale-final');

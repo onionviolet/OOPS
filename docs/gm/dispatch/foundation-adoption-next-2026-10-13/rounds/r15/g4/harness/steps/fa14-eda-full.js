@@ -1,0 +1,12 @@
+await h.importFile(path.resolve(h.evidence,'../fixture/TEST-FIXTURE-R15-G4-shifts.txt'));await h.play();await h.advance(4);
+await h.click("Hear Eda's measuring-strip terms");await h.record('fa14-eda-permission');
+await h.click('Build the outer measuring-strip cover');await h.advance(6);await h.record('fa14-eda-cover-built');
+await h.click('Restore the knife edge');await h.advance(2);await h.click('Cut one actual log into two wet staves');await h.advance(5);await h.record('fa14-eda-cut-observed');
+await h.click('Dry in the ordinary sheltered rack');await h.advance(7);await h.record('fa14-eda-dry-observed');
+await h.click('Reconcile your two actual work observations');await h.advance(5);await h.record('fa14-eda-research-paid');
+await h.click('Build your reusable measuring jig');await h.advance(4);await h.record('fa14-eda-jig-built');
+await h.click('Restore the knife edge');await h.advance(2);h.write('fa14-eda-weather.txt',await h.text('#location_div'));
+await h.click('Use your covered measuring strip');await h.record('fa14-eda-covered-pending');await h.persist('fa14-eda-covered-pending');await h.advance(6);await h.record('fa14-eda-covered-trim');
+await h.click('Dry two counted green offcuts');await h.advance(7);await h.record('fa14-eda-compatible-offcuts');
+await h.click('Use ordinary jig salvage');await h.advance(5);await h.record('fa14-eda-salvaged-stave');
+return await h.persist('fa14-eda-final-current');

@@ -1,0 +1,1 @@
+await h.importFile(path.join(h.evidence,'fa14-current-collected.txt'));await h.play();await h.click('Hear Ressa’s funded shortage report');await h.click('Accept Ressa’s kit deadline');await h.record('fa14-current-ressa-accepted');await h.click('Deliver 1 real kit to Ressa');await h.record('fa14-current-worker-kit-used');return await h.persist('fa14-current-worker-kit-consumer');

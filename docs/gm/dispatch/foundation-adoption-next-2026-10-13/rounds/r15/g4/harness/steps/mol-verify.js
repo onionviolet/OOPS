@@ -1,0 +1,4 @@
+await h.importFile(path.resolve(h.evidence,'../fixture/TEST-FIXTURE-R15-G4-control-pending.txt'));
+const before=await h.saved();await h.play();await h.advance(1);const after=await h.save();
+h.write('mol-held-lamp-repaired.json',{bundle:h.loaded.slice(-1),before:{clock:before.expansion.clock,jobs:before.expansion.simulation.jobs.filter(j=>j.commandId==='book.mol.control_drill'),mastery:before.expansion.simulation.powers.player['book.mol.formula_operator'].mastery},after:{clock:after.expansion.clock,mastery:after.expansion.simulation.powers.player['book.mol.formula_operator'].mastery,controlTrained:after.expansion.actors.player.facts['book.mol.controlTrained'],log:after.expansion.simulation.log.slice(-2)},errors:h.errors});
+return {mastery:after.expansion.simulation.powers.player['book.mol.formula_operator'].mastery,log:after.expansion.simulation.log.slice(-1)};
