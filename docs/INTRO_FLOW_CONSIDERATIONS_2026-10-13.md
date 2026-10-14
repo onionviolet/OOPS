@@ -1807,3 +1807,5 @@ layer that adds three.
 
 - [Start micro details](worlds/START_MICRO_DETAILS_2026-10-14.md): 234 MD details (175 pure text or data), cheapest twenty with exact homes.
 - [CX cheat cards](gm/dispatch/canon-events-2026-10-14/cxcards/CX_CHEAT_CARDS.json) and [notes](gm/dispatch/canon-events-2026-10-14/cxcards/NOTES.md): twelve cards in the panel-kit format.
+
+Shipped (2026-10-14): docs commit `2fec408b`; code on `codex/start-records` (`6b8a114b`), merged into `codex/gameplay-foundations` as `554435c9` after all gates passed on the merged result (npm 725/0, browser gates at three desktop sizes); main checkout rebuilt and npm 725/0; both branches pushed to origin. USER_VISION entries for this work remain in the working tree pending another session's de-duplication of that file.
