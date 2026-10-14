@@ -180,6 +180,18 @@ Its rows are proposals; only this section's quoted priority is Weibao's directio
 
 ## World core kit, every little detail and a repeating audit, 2026-10-14
 
+Integration request (2026-10-14): "yes, hand W28 climate and W33 calendar
+to integration as one slice, ending in a visible local date line and weather
+words, proven in a rebuilt desktop journey". R15 had stopped, so the kit's
+root session integrates it (lane W36 builds on its own branch; root rebuilds
+and runs the desktop journey). Push still waits for a yes.
+
+Round 14 request (2026-10-14): "was FX5 based on that be book said? more to
+consider? Other stuff and more?" Read as: tell apart what a source says from
+what code assumes. Every world value should carry its provenance (book,
+derived, original or placeholder); unknown is never shown as fact, and
+home-world defaults leaking into another world rank above new features.
+
 Round 13 request (2026-10-14): "wait until all lanes finish, then fold
 everything". Folded all 35 lanes; corrections went in place first.
 
@@ -263,7 +275,8 @@ CR4-CR6 (Paradise has sourced calendars and per-instance clock policies),
 world shapes SW1-SW8, per-world rows WS1-WS9, MW1-MW7 and lanes W29-W32; 12, canon calendars: CR7 (native calendars are base-format counters),
 CC1-CC16, KX76-KX81 and lanes W33-W35; 13, all returns folded (FX1-FX5
 corrections, F32-F49, twenty world cards, a per-world climate prototype on
-branch kit/w28-world-climate, not integrated).
+branch kit/w28-world-climate, not integrated); 14, book versus code: CR8 (Paradise 20 C is a
+placeholder and home rain leaks in), SF1-SF10, KX82-KX86, lane W37.
 
 Owners: the [world core kit](worlds/WORLD_CORE_KIT_2026-10-14.md) (palette,
 rounds and lane returns, all proposals), the

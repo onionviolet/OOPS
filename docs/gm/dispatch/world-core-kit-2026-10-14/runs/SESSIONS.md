@@ -70,3 +70,5 @@ Round 7 (launched 2026-10-14 01:25):
 | W33 calendar engine (round 12) | 01a13ba9-80af-7820-a2e7-64a672d34838 | .../W33_CALENDAR_ENGINE.md, ../W33_REPORT.md |
 | W34 calendars, book worlds (round 12) | 01a13ba9-80d2-7bd1-9b59-ebc02a324547 | .../W34_CALENDARS_BOOK_WORLDS.md, ../W34_REPORT.md |
 | W35 calendars, other worlds (round 12) | 01a13ba9-80f8-7352-a596-9b6301d4370e | .../W35_CALENDARS_OTHER_WORLDS.md, ../W35_REPORT.md |
+| W36 calendar + climate slice (integration) | 01a13bba-1db3-75d0-94aa-0fa5f9541d90 | branch kit/w36-calendar-climate, ../W36_REPORT.md |
+| W37 source fidelity (round 14) | 01a13bbb-b228-7473-8fe5-3697bfe1d029 | .../W37_SOURCE_FIDELITY.md, ../W37_REPORT.md |

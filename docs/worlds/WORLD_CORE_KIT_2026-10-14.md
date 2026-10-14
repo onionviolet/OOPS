@@ -1839,3 +1839,59 @@ lane built, browser-tested or got director acceptance for gameplay.
 2. Fix canon same-tick ordering (F39) before more canon graphs are written.
 3. Build the first inspector page from W27's ranked list, starting with the
    W22 orphans it would reveal.
+
+## Round 14: book versus code, where numbers come from (2026-10-14)
+
+Request (Weibao, 2026-10-14): "was FX5 based on that be book said? more to
+consider? Other stuff and more?"
+
+**Answer: no.** FX5 describes the code, not the book. The book evidence
+(W29.C, read from the supplied English EPUB) is different:
+
+| What | Book (W29.C) | Code today |
+|---|---|---|
+| Ordinary hub weather, day and night, seasons | UNKNOWN in the checked chapters; "no weather" is not proved either | All seven Paradise places: static 20 C, normal light, `is_under_roof: false` (`src/book_world_paradise_native.js:104-106`) |
+| Crisis sky | SHOWN: a black sky with blood-red lines before a war (sid852 p7-10); a blood-red overhead membrane with market rush (sid2347 p41-44) | Not represented |
+| Private habitat | SHOWN/STATED: paid simulated sunlight 7-8 hours a day, imported soil, varied temperature and humidity (sid2597 p53-59), a later-era room | Not represented |
+| Rain | Not established | **Home rain reaches Paradise.** Paradise places count as outdoors, so the home world's rain cycle (`src/weather.js:194-196`, day count mod 13) feeds `nativeRain` (`src/main.js:701`) into pacing (`src/absorb_e1/pacing.js:76`), which drives the rain icon (`src/display.js:4250-4258`), the Wet effect (`src/main.js:7449-7455`) and `weather.raining` facts (`src/main.js:575`, `:840`). SHOWN code path, not exercised in a browser. |
+
+So the 20 C is an authored placeholder, and the rain is a home-world leak.
+Neither is canon. This is the KX67 globals pattern again, now with a
+gameplay effect (getting Wet in a place the book never describes as rainy).
+
+### Corrections first (CR8)
+
+| Code | Fix |
+|---|---|
+| CR8 | FX5 and W29-R2 now read: the 20 C is a code placeholder, not book climate; home rain also leaks into Paradise places through `is_under_roof: false`. The W36 integration slice must stop home rain and Wet in Paradise places whose weather is UNKNOWN (root adds this at integration if W36 does not). |
+
+### More to consider: source fidelity (SF)
+
+| Code | Angle | Do |
+|---|---|---|
+| SF1 | **Every number gets a provenance tag.** Book (with locator), derived from book, original (labelled), or placeholder. A placeholder never shows to the player as fact. | ACCOUNT |
+| SF2 | **Unknown is not a default.** Showing "20 C" asserts something the book never said. UNKNOWN shows as no reading, "sheltered" or a neutral line, not a number. | ACCOUNT, W36 |
+| SF3 | **Engine flags carry claims.** `is_under_roof: false` silently says "outdoors, exposed to home weather". Flags like roof, light, temperature, danger and market need the same provenance as text. | W37 |
+| SF4 | **Book atmosphere is often an event, not weather.** Paradise's red skies are war signals (K12, KS), so they belong on the canon clock, not the climate table. | LATER |
+| SF5 | **Later-era places override, never set, the world.** The paid habitat is one room in a later era; it does not make the hub climate-controlled. | ACCOUNT |
+| SF6 | **The same check for every native world.** MoL, Proto23 and any book profile with numbers (prices, wages, temperatures, durations, counts) need the same book/derived/original/placeholder split. | W37 |
+| SF7 | **Lens shows provenance.** The inspector (W27) shows each value's tag, so a player or agent can tell canon from prototype at a glance. | LATER |
+| SF8 | **Prototype prices and wages are original.** W29 found Paradise's current survey, wages and prices are original prototypes; the book's own prices (for example three coins for a meal, sid28) are different data. Keep both, labelled. | ACCOUNT |
+| SF9 | **Leaks are worse than gaps.** A missing feature is honest; a home default showing up in another world misleads. Rank leak fixes above new features in each world. | ACCOUNT |
+| SF10 | **Unexercised paths.** The rain leak is SHOWN in code but not seen in play. The integration journey should confirm it before and after the fix. | W36 journey |
+
+### Other stuff and more (KX82-KX86)
+
+| Code | Consideration |
+|---|---|
+| KX82 | **Placeholder registry.** One list per world of placeholder values, so they can be found and replaced when the source is checked. |
+| KX83 | **Fidelity score per world card.** Count book, derived, original and placeholder values; the placeholder count should fall over runs (like detail debt, KX62). |
+| KX84 | **Leak tests.** For each native world, a test that home-only systems (rain cycle, seasons, trader epochs, home prices) do not change state there unless the world opts in. |
+| KX85 | **Source windows on every claim.** W29's style (sid plus paragraph range plus EPUB hash) is the model for every world's code comments or data rows. |
+| KX86 | **Translation-qualified sources.** Paradise evidence comes from a supplied English translation; labels say so, and exact wording claims wait for a better edition. |
+
+### Codex lanes, round 14
+
+| Lane | Covers | Owns |
+|---|---|---|
+| W37 | Source-fidelity audit of native world code: every constant and engine flag in MoL, Paradise, Proto23 and active book profiles, tagged book, derived, original or placeholder with locators; home-world leaks (KX84) with SHOWN code paths; placeholder registry (KX82) | `W37_SOURCE_FIDELITY.md` |

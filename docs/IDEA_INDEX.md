@@ -22,7 +22,8 @@ Remaining gaps, in order:
 per-world checklist of what a world needs to play in depth (K1-K34, micro,
 subtle detail, comics, lens cheats, abstractions, per-part more-to-consider
 pass MC1-MC34, directions DR1-DR8, world shapes SW1-SW8, canon calendars
-CC1-CC16; thirteen rounds, lanes W1-W35 all folded; per-world
+CC1-CC16, source fidelity SF1-SF10; fourteen rounds, lanes W1-W35 folded,
+W36-W37 running; per-world
 [cards](worlds/world-core-kit-2026-10-14/cards/README.md)).
 It repeats as a standing audit: [core audit entry](audits/WORLD_CORE_KIT_CORE_AUDIT.md)
 and [playbook](worlds/WORLD_CORE_KIT_AUDIT_PLAYBOOK.md). Proposals only.
