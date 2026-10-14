@@ -1,0 +1,1103 @@
+{
+  "status": "PASS",
+  "evidenceLabel": "STATIC_DOCS_ONLY",
+  "proposalOnly": true,
+  "checkedAt": "2026-10-14T05:04:24.217236+00:00",
+  "headAtCheck": "8e0f1138028a12a837e4d2784621ea357da0d051",
+  "counts": {
+    "requiredFiles": 8,
+    "markdownFiles": 9,
+    "localLinks": 78,
+    "headingFragments": 7,
+    "sourceLocators": 72,
+    "coverageGroups": 5,
+    "sourceFingerprints": 34
+  },
+  "coverage": {
+    "root_codes": true,
+    "ports": true,
+    "reference_games": true,
+    "P15_extensions": true,
+    "scope_guards": true
+  },
+  "errors": [],
+  "localLinks": [
+    {
+      "file": "DEATH_AND_AFTER.md",
+      "target": "../../../../PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md#ac-death-and-after",
+      "exists": true
+    },
+    {
+      "file": "DEATH_AND_AFTER.md",
+      "target": "../p16/ENDINGS_AND_SUCCESSION.md",
+      "exists": true
+    },
+    {
+      "file": "DEATH_AND_AFTER.md",
+      "target": "../p16/LOOPS_AND_RESETS.md",
+      "exists": true
+    },
+    {
+      "file": "DEATH_AND_AFTER.md",
+      "target": "../../../../../PROJECT.md",
+      "exists": true
+    },
+    {
+      "file": "DEATH_AND_AFTER.md",
+      "target": "../p11/DREAMS_AND_OCCASIONS.md#n8-festivals-and-seasonal-events",
+      "exists": true
+    },
+    {
+      "file": "DEATH_AND_AFTER.md",
+      "target": "../p15/REPORT.md",
+      "exists": true
+    },
+    {
+      "file": "DEATH_AND_AFTER.md",
+      "target": "../p9/HARRY_POTTER.md",
+      "exists": true
+    },
+    {
+      "file": "DEATH_AND_AFTER.md",
+      "target": "../p9/DND.md",
+      "exists": true
+    },
+    {
+      "file": "DEATH_AND_AFTER.md",
+      "target": "../p10/BLEACH.md",
+      "exists": true
+    },
+    {
+      "file": "DEATH_AND_AFTER.md",
+      "target": "../../../../worlds/bleach/SOURCE_LEDGER.md",
+      "exists": true
+    },
+    {
+      "file": "DEATH_AND_AFTER.md",
+      "target": "../p9/MOTHER_OF_LEARNING.md",
+      "exists": true
+    },
+    {
+      "file": "DEATH_AND_AFTER.md",
+      "target": "../p16/LOOPS_AND_RESETS.md#l2-source-comparison-bounded-and-unbiased",
+      "exists": true
+    },
+    {
+      "file": "DEATH_AND_AFTER.md",
+      "target": "../p9/TTKS_B1.md",
+      "exists": true
+    },
+    {
+      "file": "DEATH_AND_AFTER.md",
+      "target": "../p9/WAR_PANTHEON.md",
+      "exists": true
+    },
+    {
+      "file": "DEATH_AND_AFTER.md",
+      "target": "../p10/CHAINSAW_MAN.md",
+      "exists": true
+    },
+    {
+      "file": "DEATH_AND_AFTER.md",
+      "target": "../../../../worlds/chainsaw-man/SOURCE_LEDGER.md",
+      "exists": true
+    },
+    {
+      "file": "DEATH_AND_AFTER.md",
+      "target": "../p9/LOTM.md",
+      "exists": true
+    },
+    {
+      "file": "DEATH_AND_AFTER.md",
+      "target": "../p9/CIRCLE_OF_INEVITABILITY.md",
+      "exists": true
+    },
+    {
+      "file": "DEATH_AND_AFTER.md",
+      "target": "../p9/SOURCE_MAP.md",
+      "exists": true
+    },
+    {
+      "file": "DEATH_AND_AFTER.md",
+      "target": "../p16/LOOPS_AND_RESETS.md",
+      "exists": true
+    },
+    {
+      "file": "DEATH_AND_AFTER.md",
+      "target": "../p10/ORIGINAL_WORLD_FACTORY.md",
+      "exists": true
+    },
+    {
+      "file": "DEATH_AND_AFTER.md",
+      "target": "../p10/ODD_WORLDS.md",
+      "exists": true
+    },
+    {
+      "file": "DISCIPLES.md",
+      "target": "../../../../PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+      "exists": true
+    },
+    {
+      "file": "DISCIPLES.md",
+      "target": "../p6/CREATIVE_WORKS.md",
+      "exists": true
+    },
+    {
+      "file": "DISCIPLES.md",
+      "target": "../p19/LINEAGE.md",
+      "exists": true
+    },
+    {
+      "file": "DISCIPLES.md",
+      "target": "../p23/CHECKPOINT.md",
+      "exists": true
+    },
+    {
+      "file": "DISCIPLES.md",
+      "target": "../p16/ENDINGS_AND_SUCCESSION.md",
+      "exists": true
+    },
+    {
+      "file": "DISCIPLES.md",
+      "target": "../p14/CONTRACT.md",
+      "exists": true
+    },
+    {
+      "file": "DISCIPLES.md",
+      "target": "DEATH_AND_AFTER.md",
+      "exists": true
+    },
+    {
+      "file": "DISCIPLES.md",
+      "target": "../p15/DIALOGUE.md",
+      "exists": true
+    },
+    {
+      "file": "DISCIPLES.md",
+      "target": "../p15/RUNTIME_TEXT.md",
+      "exists": true
+    },
+    {
+      "file": "EXPEDITIONS.md",
+      "target": "../../../../PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+      "exists": true
+    },
+    {
+      "file": "EXPEDITIONS.md",
+      "target": "../p8/LOGISTICS.md",
+      "exists": true
+    },
+    {
+      "file": "EXPEDITIONS.md",
+      "target": "../p21/VENTURES.md",
+      "exists": true
+    },
+    {
+      "file": "EXPEDITIONS.md",
+      "target": "../p14/CONTRACT.md",
+      "exists": true
+    },
+    {
+      "file": "EXPEDITIONS.md",
+      "target": "../p15/RUNTIME_TEXT.md",
+      "exists": true
+    },
+    {
+      "file": "EXPEDITIONS.md",
+      "target": "../p15/DIALOGUE.md",
+      "exists": true
+    },
+    {
+      "file": "JOURNEYS.md",
+      "target": "../../../../PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md#aa-journeys",
+      "exists": true
+    },
+    {
+      "file": "JOURNEYS.md",
+      "target": "../p9/PROFILE_RULES.md",
+      "exists": true
+    },
+    {
+      "file": "JOURNEYS.md",
+      "target": "REPORT.md",
+      "exists": true
+    },
+    {
+      "file": "JOURNEYS.md",
+      "target": "../p12/CONTRACT.md",
+      "exists": true
+    },
+    {
+      "file": "JOURNEYS.md",
+      "target": "../p20/CHECKPOINT.md",
+      "exists": true
+    },
+    {
+      "file": "JOURNEYS.md",
+      "target": "../p11/REQUESTS_AND_MARKETS.md#n1-generated-requests-and-quests-from-actual-needs",
+      "exists": true
+    },
+    {
+      "file": "JOURNEYS.md",
+      "target": "../p8/LOGISTICS.md",
+      "exists": true
+    },
+    {
+      "file": "JOURNEYS.md",
+      "target": "../../../../TIMELINES_AND_DIVERGENCE.md#t4-give-parallel-worlds-independent-state-and-selected-clocks",
+      "exists": true
+    },
+    {
+      "file": "JOURNEYS.md",
+      "target": "../../../../INTRO_FLOW_CONSIDERATIONS_2026-10-13.md#round-12-derived-snapshots-and-offline-branch-time-2026-10-14",
+      "exists": true
+    },
+    {
+      "file": "JOURNEYS.md",
+      "target": "../p16/IDLE_AND_EVENT_STORIES.md",
+      "exists": true
+    },
+    {
+      "file": "JOURNEYS.md",
+      "target": "../p15/RUNTIME_TEXT.md",
+      "exists": true
+    },
+    {
+      "file": "JOURNEYS.md",
+      "target": "../p15/DIALOGUE.md",
+      "exists": true
+    },
+    {
+      "file": "JOURNEYS.md",
+      "target": "../p15/AUTHORING_PIPELINE.md",
+      "exists": true
+    },
+    {
+      "file": "LEADING_GROUPS.md",
+      "target": "../../../../PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+      "exists": true
+    },
+    {
+      "file": "LEADING_GROUPS.md",
+      "target": "../p19/NPC_LIVES.md",
+      "exists": true
+    },
+    {
+      "file": "LEADING_GROUPS.md",
+      "target": "../p11/REQUESTS_AND_MARKETS.md",
+      "exists": true
+    },
+    {
+      "file": "LEADING_GROUPS.md",
+      "target": "../p16/ENDINGS_AND_SUCCESSION.md",
+      "exists": true
+    },
+    {
+      "file": "LEADING_GROUPS.md",
+      "target": "../p15/DIALOGUE.md",
+      "exists": true
+    },
+    {
+      "file": "LEADING_GROUPS.md",
+      "target": "../p15/AUTHORING_PIPELINE.md",
+      "exists": true
+    },
+    {
+      "file": "MORE.md",
+      "target": "../../../../PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+      "exists": true
+    },
+    {
+      "file": "REPORT.md",
+      "target": "CHECKPOINT.md",
+      "exists": true
+    },
+    {
+      "file": "REPORT.md",
+      "target": "BACKLOG.md",
+      "exists": true
+    },
+    {
+      "file": "REPORT.md",
+      "target": "CHECKS.json",
+      "exists": true
+    },
+    {
+      "file": "REPORT.md",
+      "target": "JOURNEYS.md",
+      "exists": true
+    },
+    {
+      "file": "REPORT.md",
+      "target": "EXPEDITIONS.md",
+      "exists": true
+    },
+    {
+      "file": "REPORT.md",
+      "target": "LEADING_GROUPS.md",
+      "exists": true
+    },
+    {
+      "file": "REPORT.md",
+      "target": "DISCIPLES.md",
+      "exists": true
+    },
+    {
+      "file": "REPORT.md",
+      "target": "DEATH_AND_AFTER.md",
+      "exists": true
+    },
+    {
+      "file": "REPORT.md",
+      "target": "MORE.md",
+      "exists": true
+    },
+    {
+      "file": "REPORT.md",
+      "target": "../../../../../.claude/worktrees/proc-p3-storylets/docs/gm/dispatch/procgen-2026-10-13/p3/REPORT.md",
+      "exists": true
+    },
+    {
+      "file": "REPORT.md",
+      "target": "../../../../../.claude/worktrees/proc-p4-people/docs/gm/dispatch/procgen-2026-10-13/p4/REPORT.md",
+      "exists": true
+    },
+    {
+      "file": "REPORT.md",
+      "target": "../../../../PROCEDURAL_GENERATION_STATUS_2026-10-13.md",
+      "exists": true
+    },
+    {
+      "file": "REPORT.md",
+      "target": "../p12/CONTRACT.md",
+      "exists": true
+    },
+    {
+      "file": "REPORT.md",
+      "target": "../p13/RULES.md",
+      "exists": true
+    },
+    {
+      "file": "REPORT.md",
+      "target": "../p14/CONTRACT.md",
+      "exists": true
+    },
+    {
+      "file": "REPORT.md",
+      "target": "../p16/ENDINGS_AND_SUCCESSION.md",
+      "exists": true
+    },
+    {
+      "file": "REPORT.md",
+      "target": "../p16/LOOPS_AND_RESETS.md",
+      "exists": true
+    },
+    {
+      "file": "REPORT.md",
+      "target": "../p19/LINEAGE.md",
+      "exists": true
+    },
+    {
+      "file": "REPORT.md",
+      "target": "../p20/PLACE_MEMORY.md",
+      "exists": true
+    },
+    {
+      "file": "REPORT.md",
+      "target": "../p21/VENTURES.md",
+      "exists": true
+    },
+    {
+      "file": "REPORT.md",
+      "target": "../p25/TRIAGE.md",
+      "exists": true
+    }
+  ],
+  "headingFragments": [
+    {
+      "file": "DEATH_AND_AFTER.md",
+      "target": "../../../../PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md#ac-death-and-after",
+      "heading_exists": true
+    },
+    {
+      "file": "DEATH_AND_AFTER.md",
+      "target": "../p11/DREAMS_AND_OCCASIONS.md#n8-festivals-and-seasonal-events",
+      "heading_exists": true
+    },
+    {
+      "file": "DEATH_AND_AFTER.md",
+      "target": "../p16/LOOPS_AND_RESETS.md#l2-source-comparison-bounded-and-unbiased",
+      "heading_exists": true
+    },
+    {
+      "file": "JOURNEYS.md",
+      "target": "../../../../PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md#aa-journeys",
+      "heading_exists": true
+    },
+    {
+      "file": "JOURNEYS.md",
+      "target": "../p11/REQUESTS_AND_MARKETS.md#n1-generated-requests-and-quests-from-actual-needs",
+      "heading_exists": true
+    },
+    {
+      "file": "JOURNEYS.md",
+      "target": "../../../../TIMELINES_AND_DIVERGENCE.md#t4-give-parallel-worlds-independent-state-and-selected-clocks",
+      "heading_exists": true
+    },
+    {
+      "file": "JOURNEYS.md",
+      "target": "../../../../INTRO_FLOW_CONSIDERATIONS_2026-10-13.md#round-12-derived-snapshots-and-offline-branch-time-2026-10-14",
+      "heading_exists": true
+    }
+  ],
+  "sourceLocators": [
+    {
+      "file": "DEATH_AND_AFTER.md",
+      "source": "src/main.js",
+      "start": 3721,
+      "end": 3735,
+      "in_bounds": true
+    },
+    {
+      "file": "DEATH_AND_AFTER.md",
+      "source": "src/chronicle.js",
+      "start": 16,
+      "end": 19,
+      "in_bounds": true
+    },
+    {
+      "file": "DEATH_AND_AFTER.md",
+      "source": "src/chronicle.js",
+      "start": 288,
+      "end": 311,
+      "in_bounds": true
+    },
+    {
+      "file": "DEATH_AND_AFTER.md",
+      "source": "src/chronicle_ui.js",
+      "start": 22,
+      "end": 22,
+      "in_bounds": true
+    },
+    {
+      "file": "DEATH_AND_AFTER.md",
+      "source": "src/chronicle_ui.js",
+      "start": 77,
+      "end": 77,
+      "in_bounds": true
+    },
+    {
+      "file": "DEATH_AND_AFTER.md",
+      "source": "src/npc_lives.js",
+      "start": 5,
+      "end": 22,
+      "in_bounds": true
+    },
+    {
+      "file": "DEATH_AND_AFTER.md",
+      "source": "src/npc_lives.js",
+      "start": 33,
+      "end": 42,
+      "in_bounds": true
+    },
+    {
+      "file": "DEATH_AND_AFTER.md",
+      "source": "src/simulation.js",
+      "start": 483,
+      "end": 492,
+      "in_bounds": true
+    },
+    {
+      "file": "EXPEDITIONS.md",
+      "source": "src/expedition_content.js",
+      "start": 79,
+      "end": 150,
+      "in_bounds": true
+    },
+    {
+      "file": "EXPEDITIONS.md",
+      "source": "src/expedition_ui.js",
+      "start": 74,
+      "end": 74,
+      "in_bounds": true
+    },
+    {
+      "file": "EXPEDITIONS.md",
+      "source": "src/main.js",
+      "start": 2164,
+      "end": 2164,
+      "in_bounds": true
+    },
+    {
+      "file": "JOURNEYS.md",
+      "source": "src/main.js",
+      "start": 1508,
+      "end": 1529,
+      "in_bounds": true
+    },
+    {
+      "file": "JOURNEYS.md",
+      "source": "src/main.js",
+      "start": 2177,
+      "end": 2180,
+      "in_bounds": true
+    },
+    {
+      "file": "JOURNEYS.md",
+      "source": "src/main.js",
+      "start": 2233,
+      "end": 2234,
+      "in_bounds": true
+    },
+    {
+      "file": "JOURNEYS.md",
+      "source": "src/pathfinding.js",
+      "start": 91,
+      "end": 115,
+      "in_bounds": true
+    },
+    {
+      "file": "JOURNEYS.md",
+      "source": "src/pathfinding.js",
+      "start": 124,
+      "end": 150,
+      "in_bounds": true
+    },
+    {
+      "file": "LEADING_GROUPS.md",
+      "source": "src/simulation_effects.js",
+      "start": 268,
+      "end": 278,
+      "in_bounds": true
+    },
+    {
+      "file": "LEADING_GROUPS.md",
+      "source": "src/simulation_effects.js",
+      "start": 285,
+      "end": 292,
+      "in_bounds": true
+    },
+    {
+      "file": "REPORT.md",
+      "source": "src/main.js",
+      "start": 1508,
+      "end": 1529,
+      "in_bounds": true
+    },
+    {
+      "file": "REPORT.md",
+      "source": "src/main.js",
+      "start": 2177,
+      "end": 2180,
+      "in_bounds": true
+    },
+    {
+      "file": "REPORT.md",
+      "source": "src/pathfinding.js",
+      "start": 91,
+      "end": 115,
+      "in_bounds": true
+    },
+    {
+      "file": "REPORT.md",
+      "source": "src/pathfinding.js",
+      "start": 124,
+      "end": 150,
+      "in_bounds": true
+    },
+    {
+      "file": "REPORT.md",
+      "source": "src/models/location.js",
+      "start": 197,
+      "end": 208,
+      "in_bounds": true
+    },
+    {
+      "file": "REPORT.md",
+      "source": "src/main.js",
+      "start": 2233,
+      "end": 2234,
+      "in_bounds": true
+    },
+    {
+      "file": "REPORT.md",
+      "source": "src/data/locations.js",
+      "start": 7,
+      "end": 13,
+      "in_bounds": true
+    },
+    {
+      "file": "REPORT.md",
+      "source": "src/market_saturation.js",
+      "start": 8,
+      "end": 35,
+      "in_bounds": true
+    },
+    {
+      "file": "REPORT.md",
+      "source": "src/models/location.js",
+      "start": 206,
+      "end": 209,
+      "in_bounds": true
+    },
+    {
+      "file": "REPORT.md",
+      "source": "src/known_routes.js",
+      "start": 11,
+      "end": 47,
+      "in_bounds": true
+    },
+    {
+      "file": "REPORT.md",
+      "source": "src/known_routes_host.js",
+      "start": 187,
+      "end": 240,
+      "in_bounds": true
+    },
+    {
+      "file": "REPORT.md",
+      "source": "src/native_realm_traveler.js",
+      "start": 15,
+      "end": 25,
+      "in_bounds": true
+    },
+    {
+      "file": "REPORT.md",
+      "source": "src/native_realm_traveler.js",
+      "start": 29,
+      "end": 59,
+      "in_bounds": true
+    },
+    {
+      "file": "REPORT.md",
+      "source": "src/realm_traveler_profiles.js",
+      "start": 1,
+      "end": 2,
+      "in_bounds": true
+    },
+    {
+      "file": "REPORT.md",
+      "source": "src/realm_traveler_profiles.js",
+      "start": 371,
+      "end": 415,
+      "in_bounds": true
+    },
+    {
+      "file": "REPORT.md",
+      "source": "src/expedition_content.js",
+      "start": 33,
+      "end": 33,
+      "in_bounds": true
+    },
+    {
+      "file": "REPORT.md",
+      "source": "src/expedition_content.js",
+      "start": 79,
+      "end": 150,
+      "in_bounds": true
+    },
+    {
+      "file": "REPORT.md",
+      "source": "src/expedition_ui.js",
+      "start": 58,
+      "end": 99,
+      "in_bounds": true
+    },
+    {
+      "file": "REPORT.md",
+      "source": "src/main.js",
+      "start": 2164,
+      "end": 2164,
+      "in_bounds": true
+    },
+    {
+      "file": "REPORT.md",
+      "source": "src/causal_story_actors.js",
+      "start": 25,
+      "end": 37,
+      "in_bounds": true
+    },
+    {
+      "file": "REPORT.md",
+      "source": "src/causal_story_content.js",
+      "start": 23,
+      "end": 29,
+      "in_bounds": true
+    },
+    {
+      "file": "REPORT.md",
+      "source": "src/causal_story_ids.js",
+      "start": 7,
+      "end": 13,
+      "in_bounds": true
+    },
+    {
+      "file": "REPORT.md",
+      "source": "src/causal_story_core.js",
+      "start": 390,
+      "end": 422,
+      "in_bounds": true
+    },
+    {
+      "file": "REPORT.md",
+      "source": "src/causal_story_host.js",
+      "start": 293,
+      "end": 348,
+      "in_bounds": true
+    },
+    {
+      "file": "REPORT.md",
+      "source": "src/causal_story_host.js",
+      "start": 454,
+      "end": 455,
+      "in_bounds": true
+    },
+    {
+      "file": "REPORT.md",
+      "source": "src/causal_story_native.js",
+      "start": 120,
+      "end": 127,
+      "in_bounds": true
+    },
+    {
+      "file": "REPORT.md",
+      "source": "src/causal_story_scenes.js",
+      "start": 63,
+      "end": 66,
+      "in_bounds": true
+    },
+    {
+      "file": "REPORT.md",
+      "source": "src/causal_story_ui.js",
+      "start": 274,
+      "end": 293,
+      "in_bounds": true
+    },
+    {
+      "file": "REPORT.md",
+      "source": "src/simulation.js",
+      "start": 395,
+      "end": 410,
+      "in_bounds": true
+    },
+    {
+      "file": "REPORT.md",
+      "source": "src/simulation.js",
+      "start": 483,
+      "end": 510,
+      "in_bounds": true
+    },
+    {
+      "file": "REPORT.md",
+      "source": "src/simulation_content.js",
+      "start": 55,
+      "end": 57,
+      "in_bounds": true
+    },
+    {
+      "file": "REPORT.md",
+      "source": "src/simulation_contracts.js",
+      "start": 44,
+      "end": 47,
+      "in_bounds": true
+    },
+    {
+      "file": "REPORT.md",
+      "source": "src/simulation_contracts.js",
+      "start": 101,
+      "end": 212,
+      "in_bounds": true
+    },
+    {
+      "file": "REPORT.md",
+      "source": "src/simulation_contracts.js",
+      "start": 250,
+      "end": 250,
+      "in_bounds": true
+    },
+    {
+      "file": "REPORT.md",
+      "source": "src/simulation_resolution.js",
+      "start": 4,
+      "end": 20,
+      "in_bounds": true
+    },
+    {
+      "file": "REPORT.md",
+      "source": "src/simulation_ui.js",
+      "start": 6,
+      "end": 17,
+      "in_bounds": true
+    },
+    {
+      "file": "REPORT.md",
+      "source": "src/simulation_effects.js",
+      "start": 268,
+      "end": 292,
+      "in_bounds": true
+    },
+    {
+      "file": "REPORT.md",
+      "source": "src/event_feed.js",
+      "start": 37,
+      "end": 47,
+      "in_bounds": true
+    },
+    {
+      "file": "REPORT.md",
+      "source": "src/event_feed.js",
+      "start": 99,
+      "end": 102,
+      "in_bounds": true
+    },
+    {
+      "file": "REPORT.md",
+      "source": "src/event_feed_ui.js",
+      "start": 4,
+      "end": 34,
+      "in_bounds": true
+    },
+    {
+      "file": "REPORT.md",
+      "source": "src/people_knowledge.js",
+      "start": 6,
+      "end": 24,
+      "in_bounds": true
+    },
+    {
+      "file": "REPORT.md",
+      "source": "src/people_knowledge.js",
+      "start": 47,
+      "end": 55,
+      "in_bounds": true
+    },
+    {
+      "file": "REPORT.md",
+      "source": "src/world_visit_history.js",
+      "start": 21,
+      "end": 58,
+      "in_bounds": true
+    },
+    {
+      "file": "REPORT.md",
+      "source": "src/world_visit_history.js",
+      "start": 63,
+      "end": 68,
+      "in_bounds": true
+    },
+    {
+      "file": "REPORT.md",
+      "source": "src/life_record.js",
+      "start": 1,
+      "end": 1,
+      "in_bounds": true
+    },
+    {
+      "file": "REPORT.md",
+      "source": "src/life_record.js",
+      "start": 32,
+      "end": 58,
+      "in_bounds": true
+    },
+    {
+      "file": "REPORT.md",
+      "source": "src/main.js",
+      "start": 3721,
+      "end": 3735,
+      "in_bounds": true
+    },
+    {
+      "file": "REPORT.md",
+      "source": "src/chronicle.js",
+      "start": 16,
+      "end": 19,
+      "in_bounds": true
+    },
+    {
+      "file": "REPORT.md",
+      "source": "src/chronicle.js",
+      "start": 174,
+      "end": 180,
+      "in_bounds": true
+    },
+    {
+      "file": "REPORT.md",
+      "source": "src/chronicle.js",
+      "start": 288,
+      "end": 311,
+      "in_bounds": true
+    },
+    {
+      "file": "REPORT.md",
+      "source": "src/chronicle_ui.js",
+      "start": 22,
+      "end": 22,
+      "in_bounds": true
+    },
+    {
+      "file": "REPORT.md",
+      "source": "src/chronicle_ui.js",
+      "start": 77,
+      "end": 77,
+      "in_bounds": true
+    },
+    {
+      "file": "REPORT.md",
+      "source": "src/npc_lives.js",
+      "start": 5,
+      "end": 22,
+      "in_bounds": true
+    },
+    {
+      "file": "REPORT.md",
+      "source": "src/npc_lives.js",
+      "start": 33,
+      "end": 42,
+      "in_bounds": true
+    }
+  ],
+  "sourceFingerprints": {
+    "src/causal_story_actors.js": {
+      "sha256": "232f064f41a139490b05fbaa6d96e7280d13a8b7b7a772e4983a1b635febbd2e",
+      "lines": 163
+    },
+    "src/causal_story_content.js": {
+      "sha256": "6fbcfc9e1718f961f8c4b99c588c1cc8c4816378ce889c93662cec0aea10af22",
+      "lines": 255
+    },
+    "src/causal_story_core.js": {
+      "sha256": "7f4993ccc8251e376c72f59dbec61f6efe24c744b61915d6011725da572b4fb5",
+      "lines": 433
+    },
+    "src/causal_story_host.js": {
+      "sha256": "cc6464bb00936100be5cf6b02c95be62f38c3478d273b2b83c4395fb7bcf8c1c",
+      "lines": 504
+    },
+    "src/causal_story_ids.js": {
+      "sha256": "1aca94dc5eaf5412865b60ce292bc00f5c34fa7e5cdd85a53d31efbd4fa22fee",
+      "lines": 20
+    },
+    "src/causal_story_native.js": {
+      "sha256": "f70656361f79b011fdf18953caa10fba3acea327c007e16c170fd5345c5ccc84",
+      "lines": 477
+    },
+    "src/causal_story_scenes.js": {
+      "sha256": "7ccaeae599ce284f7d5003ab95b9687426c69ebdba452b9238d2931ef9f28ca9",
+      "lines": 104
+    },
+    "src/causal_story_ui.js": {
+      "sha256": "5e43b094b364e574e9ad00e8bda57ada6b2a333c04191af86c2db49df87a32e5",
+      "lines": 352
+    },
+    "src/chronicle.js": {
+      "sha256": "c21046237528b7b692efc367ae7cacc9b1a41714c622eff24b29c8ff5a9b261b",
+      "lines": 315
+    },
+    "src/chronicle_ui.js": {
+      "sha256": "80b3623e72aee4cc22fba6db958ed5a10cf8c98c8f5b1789cfb16e84afa40cc3",
+      "lines": 136
+    },
+    "src/data/locations.js": {
+      "sha256": "6ab6c9781ec963b770cf00dcf0870884432960a7858fd66707074c0f6a20c393",
+      "lines": 3702
+    },
+    "src/event_feed.js": {
+      "sha256": "f25a1f1ff13bc751509cece72a3825cc7163c646e7f565f29f477bbcbffb2915",
+      "lines": 103
+    },
+    "src/event_feed_ui.js": {
+      "sha256": "d1c3539ea9d2f1f64fa67f453237f593b1dec3e9cd9b56754e730d674d02ffd0",
+      "lines": 50
+    },
+    "src/expedition_content.js": {
+      "sha256": "0b9030b096bbe4e2868e0686d9d51057e9c34e7ccd07781badbd46b83e38ff37",
+      "lines": 163
+    },
+    "src/expedition_ui.js": {
+      "sha256": "4e7a461cc64398a946ffcabc7b9457cac055594f901f234b79eb7d084577cfec",
+      "lines": 100
+    },
+    "src/known_routes.js": {
+      "sha256": "9464fe731285c7d175945f5bb5d87a6be9b938c52e3fb7c12dfea771dfe92efd",
+      "lines": 74
+    },
+    "src/known_routes_host.js": {
+      "sha256": "76eb92d3d5f0fe948b09af531c3b056374bd10ee91ddb332e132c40647814c7f",
+      "lines": 241
+    },
+    "src/life_experience.js": {
+      "sha256": "c1753b6bbbcd63180e729f67bfd9c0260ee981bfc1329d7a1287d5b63e1adb6c",
+      "lines": 36
+    },
+    "src/life_record.js": {
+      "sha256": "21ac5f17fff62794ba26d7180deb6a9c0ad85060d79134e5d6ce83de51d1d9bd",
+      "lines": 82
+    },
+    "src/main.js": {
+      "sha256": "fc0743237c7c93a62ac834bd636afe5c6c7858172b77d1a53d01a84b1195172f",
+      "lines": 8579
+    },
+    "src/market_saturation.js": {
+      "sha256": "76c962fb2b7d25e7c3adf532c9f64a12a78d8e13dcc9dbba4d07e2aa4aea8b49",
+      "lines": 304
+    },
+    "src/models/location.js": {
+      "sha256": "2e4c0e8d84b9213fb3f0324d0a495791bfa4d1adc5b15b37ecadd079678b2ecd",
+      "lines": 586
+    },
+    "src/native_realm_traveler.js": {
+      "sha256": "df41221c00073b7fe7fbc69baca6d549dc25291017b36eb1a3752af70250eb42",
+      "lines": 61
+    },
+    "src/npc_lives.js": {
+      "sha256": "abef56e7d73a0e17a3ba551608eafc4fb7f9f1660c17a445cfe96ae9869eb804",
+      "lines": 52
+    },
+    "src/pathfinding.js": {
+      "sha256": "61f6f6cae577a301c0fe51e2282886d5dd0bf8f0faaa234c949587833cf90f44",
+      "lines": 154
+    },
+    "src/people_knowledge.js": {
+      "sha256": "e52bf2508ab626785ad66074179f33916aaed7946fbd403706cb59303e851261",
+      "lines": 106
+    },
+    "src/realm_traveler_profiles.js": {
+      "sha256": "d4e98f8d9dd3fe2efe49e57ded583ef1ed2910b91d711eb2ece25f4f77aa774f",
+      "lines": 532
+    },
+    "src/simulation.js": {
+      "sha256": "2a790db46f004639d356ebec3678bfe63e1957fe5fda6cc9892368a050b54b66",
+      "lines": 637
+    },
+    "src/simulation_content.js": {
+      "sha256": "9c55fc6edeebb9f75027dcada4dcc44ebb1fc27e4815cac75731825e0f2252bc",
+      "lines": 129
+    },
+    "src/simulation_contracts.js": {
+      "sha256": "519b55317952eb7b4cd10a0cabb899542e7af706f568358f146b241be81b301c",
+      "lines": 322
+    },
+    "src/simulation_effects.js": {
+      "sha256": "507a5a60b82eaade331601c90f5e98410a2d99486903b9109937f933f3ffe151",
+      "lines": 394
+    },
+    "src/simulation_resolution.js": {
+      "sha256": "b47789d1959d5e43fcce298b3631830169aa0d89b972cd7d08da1a55e4c2fd94",
+      "lines": 41
+    },
+    "src/simulation_ui.js": {
+      "sha256": "ed41498fbf78e78d2383d2fb397692f1e6c211ad2666eeb1a3bb69d1b226fc37",
+      "lines": 100
+    },
+    "src/world_visit_history.js": {
+      "sha256": "c9296a84f4df6c0a0ea5ed818ca1ca283149e247eb7354eaaeb983f9b99b2bd2",
+      "lines": 70
+    }
+  },
+  "limits": [
+    "Inventory, markers, local target existence, simple heading slugs and source line bounds only.",
+    "Hashes pin bytes at check time in a concurrent checkout, not a build or guaranteed unchanged read window.",
+    "No runtime tests, build, browser, save operations, commit or primary canon authentication.",
+    "Manual disclosure review is bounded; no sealed/private novel inputs opened."
+  ]
+}

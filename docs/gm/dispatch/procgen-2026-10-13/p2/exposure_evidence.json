@@ -1,0 +1,22 @@
+{
+  "checks": [
+    {
+      "id": "N12",
+      "label": "natural",
+      "check": "native use applies new dose and replaces one family; consumed vial gone",
+      "pass": true
+    },
+    {
+      "id": "N13",
+      "label": "natural",
+      "check": "replacement exposure exact after native Save/reload",
+      "pass": true
+    },
+    {
+      "id": "N14",
+      "label": "natural",
+      "check": "native effect expires on elapsed game minutes",
+      "pass": true
+    }
+  ]
+}

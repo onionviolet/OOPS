@@ -15,7 +15,7 @@ const panels = [
     ["causal_story_panel","here"],
     ["repository_absorption_panel","here"], ["backlog_expansion_panel","here"], ["ink_narrative_panel","here"],
     ["original_frontier_panel","here"], ["pocket_realm_panel","here"], ["town_panel", "here"], ["village_panel", "here"], ["expedition_panel", "here"], ["field_panel","here"],
-    ["skills_panel","practice"], ["technique_panel", "practice"], ["body_panel", "practice"], ["chronicle_panel", "people"], ["simulation_panel", "people"], ["pursuit_panel","people"], ["frontier_campaign_panel","people"], ["party_panel","people"], ["exchange_panel","people"], ["observation_panel","people"], ["promise_panel","people"]
+    ["skills_panel","practice"], ["technique_panel", "practice"], ["body_panel", "practice"], ["chronicle_panel", "people"], ["storylet_panel", "people"], ["simulation_panel", "people"], ["pursuit_panel","people"], ["frontier_campaign_panel","people"], ["party_panel","people"], ["exchange_panel","people"], ["observation_panel","people"], ["promise_panel","people"]
 ];
 const node = (tag, text = "", className = "") => {const n = document.createElement(tag); n.textContent = text; n.className = className; return n;};
 
@@ -44,7 +44,7 @@ function attention(state, registry, battleRunning=false) {
     if(state.actors.player.facts["original_frontier.travel.remaining"]>0)return {id:"frontier-travel",view:"here",panel:"original_frontier_panel",text:`Native journey: ${state.actors.player.facts["original_frontier.travel.remaining"]} min remain. Continue played time or cancel the remaining journey.`};
     if(work&&registry.simulation.commands.get(work.commandId)?.group?.startsWith('world_completion_'))return {id:work.id,view:'here',panel:'feature_expansion_panel',text:`${work.label} · ${Math.max(0,work.due-state.clock)} min remaining`};
     if(work) {const group=registry.simulation.commands.get(work.commandId)?.group;return {id:work.id,view:group === "original_frontier" ? "here" : group === "field" ? "here" : ["body","skills","glasshouse"].includes(group)?group==="glasshouse"?"here":"practice" : "people",panel:group==="original_frontier"?"original_frontier_panel":group==="skills"?"skills_panel":group === "field" ? "field_panel" : group === "body" ? "body_panel" : group === "pursuit" ? "pursuit_panel" : group === "rival" ? "frontier_campaign_panel" : group === "promise" ? "promise_panel" : group === "party" ? "party_panel" : group === "exchange" ? "exchange_panel" : group === "glasshouse" ? "pocket_realm_panel" : "simulation_panel",text:`${work.label} · ${Math.max(0,work.due-state.clock)} min remaining`};}
-    const decision = Object.values(state.simulation?.events || {}).find(e => e.mode === "decision" && e.status === "open" && e.discoveredBy.includes("player"));
+    const decision = Object.values(state.simulation?.events || {}).find(e => e.mode === "decision" && e.nonBlocking !== true && e.status === "open" && e.discoveredBy.includes("player"));
     if(decision) return {id:decision.id,view:"people",panel:"simulation_panel",text:decision.label};
     return null;
 }

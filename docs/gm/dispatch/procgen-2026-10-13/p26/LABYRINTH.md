@@ -1,0 +1,20 @@
+# Labyrinth of the Mad God, volumes I–II: W1 beat candidates
+
+2026-10-14. **PROPOSAL ONLY.** Inherits [W1.2 shape](BEAT_TEMPLATES.md#w12-shared-shape). Every shape, role binding and outcome below is **INFERRED / ORIGINAL PROPOSAL**. Source-basis modes describe the cited research report, not independent primary rereading.
+
+Attribution: Magnus Grey in supplied metadata; independent publication authenticity is unverified. Volume I has 119 chapters; volume II uses its separate supplied edition. Claim C suffixes are claim IDs, not necessarily printed chapter numbers. Windows below distinguish the two.
+
+Source/law profile: [LABYRINTH_MAD_GOD](../p9/LABYRINTH_MAD_GOD.md). Private analytical owner, **locator only**: [volume I](../../../../research/novels/full-book/labyrinth-mad-god-1/SYNTHESIS.md), [I timeline](../../../../research/novels/full-book/labyrinth-mad-god-1/TIMELINE.md), [volume II](../../../../research/novels/full-book/labyrinth-mad-god-2/SYNTHESIS.md). No private-note wording or source prose is reproduced.
+
+| ID / scene shape | Roles | Preconditions | Turning point | Outcome options | World-law reads | Source basis / chapter locators |
+|---|---|---|---|---|---|---|
+| LAB1-I Useful resource changes with the task | survivor; specialist; material; authored shelter | actual environment and owned resource; known use or safe test | the same weight, heat or container property helps one task and hinders another | cook; shelter; preserve; test outside container; find another route | environment/source support; storage is not remote processing | SHOWN reported I: ch24–28 B02-C24–28; ch59–76 B04-C08/C10/C19/C20; narrower extraction locators remain in I claim index |
+| LAB2-I Cooperation without command ownership | traveler; nonhuman group; rival; route bottleneck | actual shared aid and independent group aims | environmental phase changes routes and forces a new coordination opportunity | share supplies; signal; negotiate; defer fight; cross; retreat | nonverbal knowledge/agency; authored regional state; custody on passage | SHOWN reported I: ch46–58 B03-C22/C23; ch99–114 B06-C19/C22; ch115–119 B07-C24–31 |
+| LAB1-II Camp life between dangerous crossings | camp members; cook; scout; suppliers | real watch, shelter, food and medicine; willing workers | a route report or stock change alters tomorrow’s preparation | fish/cook; copy research; rest; trade; move camp; stay | ecology and actual material use; reduced needs do not mean unlimited stock | SHOWN reported II: ch46–65 R04-C11–C40; additional camp rows R05/R06/R07 through ch121; select exact activity/block before compiling |
+| LAB2-II Individual entry versus shared conditions | arriving parties; local organizers; threshold authority | a declared entry contract and current actual outside population | real entry threshold changes the outside hazard | coordinate; enter; wait; warn; evacuate; abandon ideal synchronization | individual healing promise vs collective hazard; independent communication | STATED/SHOWN reported II: R04-C29: ch59 b33–38; R04-C31: ch60 b4–9 (actor forecast); R04-C37: ch63 b29–38; R03/R07 supporting claim windows remain separately scoped |
+
+## Source conflicts and admission gate
+
+C-LAB: book I ending does not settle interrupted rewards or later reunion. Book II recap is testimony, not fresh book I proof. Source spatial change does not authorize procedural geography. A god’s claim, System promise and enacted reward have distinct authority. II rows remain chapter-mapping-gated where claim IDs only bound a broad window; no guessed conversion.
+
+Before canon-labelled admission, qualify the exact source claims, role reservations and selected era; bind every operation to an actual adapter. Options remain conditional and extensible, with world-local recurrence adjectives. P13 owns divergence; P12 composes the thread; P15 realizes safe original text through its existing grammar/Ink seam and checks entries through QA1–QA14. No playable, build, persistence or human acceptance is claimed.

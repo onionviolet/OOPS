@@ -1,0 +1,199 @@
+{
+  "origin": "http://127.0.0.1:19660",
+  "profile": "/private/tmp/procgen-wave1-integration-profile-1791954159724",
+  "bundleSha256": "14bd5563497b8e0b7ee3aaf7ba066c16ef25158a19b55f325c69b7beb8a2a9a5",
+  "hero": "TEST FIXTURE PROCGEN WAVE1 combined",
+  "viewports": [
+    "1366x768",
+    "1600x1000"
+  ],
+  "checks": [
+    {
+      "id": "W0",
+      "label": "source/rebuilt",
+      "check": "served bundle bytes equal the integration worktree build",
+      "pass": true
+    },
+    {
+      "id": "W1",
+      "label": "natural",
+      "check": "fresh hero has P1 streams and no opt-in P2/P3/P4 owners before use",
+      "pass": true
+    },
+    {
+      "id": "P3a",
+      "label": "natural",
+      "check": "storylet decks begin through elder and Notebook controls",
+      "pass": true,
+      "detail": {
+        "decks": [
+          "village.daily",
+          "village.people",
+          "village.chances",
+          "village.threats"
+        ]
+      }
+    },
+    {
+      "id": "P4a",
+      "label": "natural",
+      "check": "two generated travelers met; one trait discovered by talking; rest hidden",
+      "pass": true,
+      "detail": {
+        "names": [
+          "Hale Stoneleigh",
+          "Mirek Stoneleigh"
+        ],
+        "requests": [
+          "Stale bread",
+          "Stale bread"
+        ]
+      }
+    },
+    {
+      "id": "P2a",
+      "label": "natural",
+      "check": "preview inputs consume no mixture state",
+      "pass": true
+    },
+    {
+      "id": "P2b",
+      "label": "natural",
+      "check": "paid ingredients; stacked identical vial plus distinct product; experiment applies real exposure",
+      "pass": true,
+      "detail": {
+        "products": 2,
+        "steepCount": 1
+      }
+    },
+    {
+      "id": "P2c",
+      "label": "natural",
+      "check": "learned-method queue produced vials from held stock while idle in Village",
+      "pass": true,
+      "detail": {
+        "job": null,
+        "steepCount": 4
+      }
+    },
+    {
+      "id": "X1",
+      "label": "seeded-native",
+      "check": "reload of mid-fight checkpoint retains all four owners exactly (streams, encounter, mixtures, travelers, decks, cards); compared after reload, before PLAY",
+      "pass": true
+    },
+    {
+      "id": "P1a",
+      "label": "seeded-native",
+      "check": "next kill replays identically after reload: hero roll receipts, loot receipts, inventory and next lineup",
+      "pass": true,
+      "detail": {
+        "kills": 1,
+        "lootReceipts": 3
+      }
+    },
+    {
+      "id": "P1b",
+      "label": "seeded-native",
+      "check": "trader restock replays identically from the pre-refresh save",
+      "pass": true
+    },
+    {
+      "id": "P3b",
+      "label": "natural",
+      "check": "idle Village time drew storylet cards from the seeded decks",
+      "pass": true,
+      "detail": {
+        "clockFrom": 24,
+        "clockTo": 48,
+        "cards": [
+          [
+            "village.teacher_passes_through",
+            "offer",
+            "open"
+          ],
+          [
+            "village.roof_promise",
+            "ambient",
+            "resolved"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "P3c",
+      "label": "seeded-native",
+      "check": "after Save and reload in a separate profile, the next deck draws match the uninterrupted run at the same clock",
+      "pass": true,
+      "detail": {
+        "clock": 62
+      }
+    },
+    {
+      "id": "P3d",
+      "label": "natural",
+      "check": "storylet offer answered through its panel button",
+      "pass": true,
+      "detail": {
+        "card": "village.teacher_passes_through",
+        "response": "learn",
+        "status": "resolved"
+      }
+    },
+    {
+      "id": "P4b",
+      "label": "natural",
+      "check": "traveler request paid from their saved purse after giving the native item",
+      "pass": true,
+      "detail": {
+        "item": "Stale bread"
+      }
+    },
+    {
+      "id": "X2",
+      "label": "natural",
+      "check": "Save then reload retains combined state exactly before PLAY",
+      "pass": true
+    },
+    {
+      "id": "X3",
+      "label": "natural",
+      "check": "UI Export download, then literal-file Import restores the exact combined projection (streams, encounter, mixtures, exposure, travelers, decks, cards, inventory, purse, clock)",
+      "pass": true
+    },
+    {
+      "id": "X4",
+      "label": "natural/visual",
+      "check": "1600x1000 render after import captured",
+      "pass": true
+    },
+    {
+      "id": "O1",
+      "label": "seeded-native",
+      "check": "old-format save imports and plays: same hero/inventory, no P2/P3/P4 owners invented, streams derived",
+      "pass": true,
+      "detail": {
+        "fixture": "docs/gm/d1-alloy-equipment-2026-10-07/fixture/TEST-FIXTURE-D1-smelting-10.txt",
+        "hero": "TEST FIXTURE D1 Smelting 10"
+      }
+    },
+    {
+      "id": "O2",
+      "label": "seeded-native",
+      "check": "old-format save imports and plays: same hero/inventory, no P2/P3/P4 owners invented, streams kept",
+      "pass": true,
+      "detail": {
+        "fixture": "docs/gm/dispatch/procgen-2026-10-13/p1/literal-export.txt",
+        "hero": "TEST FIXTURE PROCGEN P1 replay"
+      }
+    }
+  ],
+  "errors": [],
+  "final": {
+    "travelers": 3,
+    "products": 2,
+    "cards": 5,
+    "streamCells": 2
+  },
+  "pass": true
+}

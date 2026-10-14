@@ -1,5 +1,6 @@
 import {systemsWorkshopItems} from './systems_workshop_content.js';
 import {registerFortItems} from "./fork_fort_content.js";
+import {MIXTURE_ID,INGREDIENTS,getMixtureOwner,productFromKey,mixturePresentation} from './mixture_state.js';
 import {equipmentDurability as durability} from './absorb_e2/durability.js';
 import {registerAccessoryItems} from './absorb_c1/accessories.js';
 import {WATCHCRAFT_BOOK, WATCHCRAFT_READING} from './village_career.js';
@@ -1217,6 +1218,14 @@ function getItem(item_data) {
 function getItemFromKey(key) {return durability.bindFromKey(key,nativeGetItemFromKey(key));}
 function nativeGetItemFromKey(key) {
     let {id, components, quality} = JSON.parse(key);
+    if(id===MIXTURE_ID) {
+        const product=productFromKey(getMixtureOwner(),key),view=mixturePresentation(getMixtureOwner(),product);
+        const item=new UsableItem({id:MIXTURE_ID,name:view.name,description:view.description,value:12,effects:[],tags:{medicine:true}});
+        item.inventory_key=key;item.mixture=product.id;
+        item.getName=()=>mixturePresentation(getMixtureOwner(),product).name;
+        Object.defineProperty(item,'description',{get:()=>mixturePresentation(getMixtureOwner(),product).description});
+        return item;
+    }
     if(id && !quality) {
         if(item_templates[id]) {
             return preserveWorldCompletionNativeItem(key,getItem(item_templates[id]));
@@ -4520,6 +4529,10 @@ item_templates[ALLOY_ID].alloy_profile = SPRINGSTEEL;
 item_templates[BRACE_ID] = new Amulet({value: 140, item_tier: 2, use_quality: false,
     stats: deriveBraceStats(item_templates[ALLOY_ID]),
     description: "Spring grade 1, derived from springsteel: +2 Agility, -1 Strength. Forceful workshop packing: 2 kits for 2 drive units instead of 1 kit for 3. Other techniques unchanged. Balance proposal."});
+
+// Original procedural carriers. Fixed prices convey no hidden properties.
+for(const ingredient of INGREDIENTS)item_templates[ingredient.id]=new Material({name:ingredient.id,value:ingredient.price,material_type:'mixture ingredient',description:'Original fictional mixing ingredient. Properties are unobserved; they still operate.'});
+item_templates[MIXTURE_ID]=new UsableItem({name:MIXTURE_ID,value:12,effects:[],description:'Generated Village vial. Use its exact owned mixture.',tags:{medicine:true}});
 
 //setup ids
 function setup_ids() {

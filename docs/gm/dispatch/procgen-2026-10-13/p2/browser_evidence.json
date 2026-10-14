@@ -1,0 +1,71 @@
+{
+  "profile": "/private/tmp/procgen-p2-profile-journey-final",
+  "checks": [
+    {
+      "id": "N1",
+      "label": "natural",
+      "check": "rebuilt served bytes match",
+      "pass": true
+    },
+    {
+      "id": "N2",
+      "label": "natural",
+      "check": "paid supplies reduce purse exactly",
+      "pass": true
+    },
+    {
+      "id": "N3",
+      "label": "natural",
+      "check": "preview and rejected craft retain owner/draws; unknown forecast",
+      "pass": true
+    },
+    {
+      "id": "N4",
+      "label": "natural",
+      "check": "identical stack plus distinct ratio/process product",
+      "pass": true
+    },
+    {
+      "id": "N5",
+      "label": "natural",
+      "check": "consumed exposure + exact held inputs reload",
+      "pass": true
+    },
+    {
+      "id": "N6",
+      "label": "natural",
+      "check": "literal-file Export/Import pending reservation and consumed exposure",
+      "pass": true
+    },
+    {
+      "id": "N7",
+      "label": "natural",
+      "check": "cancel returns exact held stock",
+      "pass": true
+    },
+    {
+      "id": "N8",
+      "label": "natural",
+      "check": "literal-file consumed-source exposure retained without vial",
+      "pass": true
+    },
+    {
+      "id": "N9",
+      "label": "natural",
+      "check": "idle timed repeat produces exact vials and stops on shortage",
+      "pass": true
+    },
+    {
+      "id": "N10",
+      "label": "natural",
+      "check": "final exact literal-file Import at wider desktop",
+      "pass": true
+    },
+    {
+      "id": "N11",
+      "label": "natural",
+      "check": "no page errors; both target viewports",
+      "pass": true
+    }
+  ]
+}

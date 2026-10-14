@@ -1,0 +1,105 @@
+{
+  "status": "PROPOSAL_PACKET_SOURCE_SNAPSHOT_ONLY",
+  "capturedAt": "2026-10-14T05:02:38.570577+00:00",
+  "branch": "codex/gameplay-foundations",
+  "head": "8e0f1138028a12a837e4d2784621ea357da0d051",
+  "readScope": "surface inventory and selected entrypoint/contract/projection excerpts, not exhaustive semantic audit",
+  "runtimeChecksRun": false,
+  "sources": [
+    {
+      "path": "src/causal_story_actors.js",
+      "lines": 163,
+      "sha256": "232f064f41a139490b05fbaa6d96e7280d13a8b7b7a772e4983a1b635febbd2e"
+    },
+    {
+      "path": "src/causal_story_content.js",
+      "lines": 255,
+      "sha256": "6fbcfc9e1718f961f8c4b99c588c1cc8c4816378ce889c93662cec0aea10af22"
+    },
+    {
+      "path": "src/causal_story_core.js",
+      "lines": 433,
+      "sha256": "7f4993ccc8251e376c72f59dbec61f6efe24c744b61915d6011725da572b4fb5"
+    },
+    {
+      "path": "src/causal_story_host.js",
+      "lines": 504,
+      "sha256": "cc6464bb00936100be5cf6b02c95be62f38c3478d273b2b83c4395fb7bcf8c1c"
+    },
+    {
+      "path": "src/causal_story_ids.js",
+      "lines": 20,
+      "sha256": "1aca94dc5eaf5412865b60ce292bc00f5c34fa7e5cdd85a53d31efbd4fa22fee"
+    },
+    {
+      "path": "src/causal_story_native.js",
+      "lines": 477,
+      "sha256": "f70656361f79b011fdf18953caa10fba3acea327c007e16c170fd5345c5ccc84"
+    },
+    {
+      "path": "src/causal_story_scenes.js",
+      "lines": 104,
+      "sha256": "7ccaeae599ce284f7d5003ab95b9687426c69ebdba452b9238d2931ef9f28ca9"
+    },
+    {
+      "path": "src/causal_story_ui.js",
+      "lines": 352,
+      "sha256": "5e43b094b364e574e9ad00e8bda57ada6b2a333c04191af86c2db49df87a32e5"
+    },
+    {
+      "path": "src/event_feed.js",
+      "lines": 103,
+      "sha256": "f25a1f1ff13bc751509cece72a3825cc7163c646e7f565f29f477bbcbffb2915"
+    },
+    {
+      "path": "src/event_feed_ui.js",
+      "lines": 50,
+      "sha256": "d1c3539ea9d2f1f64fa67f453237f593b1dec3e9cd9b56754e730d674d02ffd0"
+    },
+    {
+      "path": "src/life_record.js",
+      "lines": 82,
+      "sha256": "21ac5f17fff62794ba26d7180deb6a9c0ad85060d79134e5d6ce83de51d1d9bd"
+    },
+    {
+      "path": "src/people_knowledge.js",
+      "lines": 106,
+      "sha256": "e52bf2508ab626785ad66074179f33916aaed7946fbd403706cb59303e851261"
+    },
+    {
+      "path": "src/simulation.js",
+      "lines": 637,
+      "sha256": "2a790db46f004639d356ebec3678bfe63e1957fe5fda6cc9892368a050b54b66"
+    },
+    {
+      "path": "src/simulation_content.js",
+      "lines": 129,
+      "sha256": "9c55fc6edeebb9f75027dcada4dcc44ebb1fc27e4815cac75731825e0f2252bc"
+    },
+    {
+      "path": "src/simulation_contracts.js",
+      "lines": 322,
+      "sha256": "519b55317952eb7b4cd10a0cabb899542e7af706f568358f146b241be81b301c"
+    },
+    {
+      "path": "src/simulation_effects.js",
+      "lines": 394,
+      "sha256": "507a5a60b82eaade331601c90f5e98410a2d99486903b9109937f933f3ffe151"
+    },
+    {
+      "path": "src/simulation_resolution.js",
+      "lines": 41,
+      "sha256": "b47789d1959d5e43fcce298b3631830169aa0d89b972cd7d08da1a55e4c2fd94"
+    },
+    {
+      "path": "src/simulation_ui.js",
+      "lines": 100,
+      "sha256": "ed41498fbf78e78d2383d2fb397692f1e6c211ad2666eeb1a3bb69d1b226fc37"
+    },
+    {
+      "path": "src/world_visit_history.js",
+      "lines": 70,
+      "sha256": "c9296a84f4df6c0a0ea5ed818ca1ca283149e247eb7354eaaeb983f9b99b2bd2"
+    }
+  ]
+}

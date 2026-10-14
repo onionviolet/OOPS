@@ -1,0 +1,37 @@
+# D4/D5 extensions: Roles, heroic records and fear
+
+2026-10-14. **PROPOSAL ONLY.** Additional source clusters found through world/profile/digest owners. No source's rules become global. [CONTRACT](CONTRACT.md) and [P13 canon/divergence](../p13/) bind these consumers; [P15](../p15/) owns wording. Source summaries are paraphrases, not copied prose.
+
+## D4.4: A Practical Guide to Evil, narrative position is causal
+
+Attribution: ErraticErrata. The [local digest](../../../../research/power-systems/wiki-digests/DIGEST_a-practical-guide-to-evil.md) has blocked revision status; earlier Name/Aspect mappings stay unverified there. P17 instead read the author's [Book 6, Chapter 15: Machinations](https://practicalguidetoevil.wordpress.com/2020/03/06/chapter-15-machinations/), closing discussion of the Arsenal investigation. **Shown-primary:** Catherine identifies an ill-fitting investigation pattern and chooses a different investigative approach. **Stated by Catherine:** providence uses fitting existing means and she can anticipate a revelation's role. Her prediction is not a verified universal success formula. The [author's Chapter 59: Materialism](https://practicalguidetoevil.wordpress.com/2020/09/22/chapter-59-materialism/) is only a discovered lead here, not readback evidence for new powers.
+
+Reader: actual sequence of acts, counterpart roles/goals, current available means and selected pattern predicates. Proposed grant: source-qualified narrative pressure/role opportunity or specifically qualified Name/Aspect eligibility, each separate from the social title. A generator can propose fitting opportunities without writing the winner first. One original supported role pattern might favor a real testimony encounter; it cannot create a missing sage or force a canon actor's cooperation.
+
+Local adjectives: role-sensitive, pattern-sensitive, culturally/era-bound where primary-qualified, contestable. Earlier three-Aspect mappings are source leads, not a restriction imposed on every original world. Repetition, subversion, abandoning a role, rival narratives, villain/hero roles and alternative routes remain candidates. A claim to be heroic is not objective moral truth. Positive first slice requires primary-checking one pattern's actual payoff, not only a character's confident interpretation. Save cause order, assessors, interventions and changed prerequisites; future pressure never rewrites an already settled outcome.
+
+## D5.8: Fate/TYPE-MOON, history and the summoned vessel
+
+Attribution: TYPE-MOON and work-specific creators. [P10 Fate](../p10/FATE.md), [digest DF2](../../../../research/power-systems/wiki-digests/DIGEST_fate-series.md), Servant r405040 / Characteristics: **stated-secondary** a heroic record supplies a summoned copy whose class vessel exposes a subset of abilities. Legend-derived kit is not an ordinary reward for writing a chronicle. Famous identity, origin record, current summoned actor, true name, known name and current source are distinct.
+
+Reader: qualified authored historical/legend record, continuity, class/ritual, current vessel and source/body supply. Candidate grant: supported vessel-valid kit or one specifically bound local fame/territory modifier. Exact fame bonus, its geographical reach and modern-new-hero admission remain **unknown in P17's reviewed DF2 window**. Do not claim DF2 proves them; select their own primary installment/scene first.
+
+Concrete generation: P14 can produce an original labelled historical account for an original heroic counterpart, with real attributed deeds/cultural belief. A private source pack authors its admitted record/kit; P12/P15 generate contextual incidents/dialogue, not random Noble Phantasms. A catalyst provenance investigation changes actual ritual eligibility through an owned object, not a renamed trinket. Class-specific, summon-bound, record-sensitive, sustained by its actual source are useful adjectives. Fuyuki, EXTRA and Grand Order cannot donate each other's kit/growth/memory defaults. Reasonable original heroes, altered rituals and legacy routes remain reachable as declared AUs.
+
+Gate: choose one work/route, primary qualify exact heroic-record/function or fame modifier, prove useful action with real vessel/source, preserve record/copy identity and knowledge-safe names across import. A portrait/title does not prove incarnation or power. P17 ran no such gate.
+
+## D5.9: Chainsaw Man, fear is a social power source
+
+Attribution: Tatsuki Fujimoto. [P10 profile](../p10/CHAINSAW_MAN.md) and [source ledger](../../../../worlds/chainsaw-man/SOURCE_LEDGER.md), Devil r25098 / core species mechanics, preserve **stated-secondary** concept-linked public fear and positive-emotion weakening. The older digest was blocked; the separate dump-derived ledger has dated 2023-11-27 evidence. This is not new primary verification. Contracts, Fiends, Hybrids and Devil lifecycle remain distinct; a primal history is not invulnerability.
+
+Reader: actual admitted audience belief/fear of the target concept and specifically qualified source identity. Proposed consequence: source-qualified concept strength/effect change, possibly opposed by real reassurance. Personal fear of a particular actor, broad fear of a concept, affection and a fraudulent report need explicit separate relationships. No arbitrary generated “object Devil” with unlimited literal authority or duplicating an occupied named concept.
+
+Concrete slice: a fixed original incident causes fear among reached witnesses; a truthful report, sensational report or effective reassurance changes their recorded response. One declared original concept-source handler changes an actual supported encounter/preparation function. Newscasts act only when transmitted; reopening the feed is no fear event. General strength/fear coefficients and global population aggregates remain unknown until sourced or explicitly labelled adaptation parameters. Use qualitative volatile, concept-bound, aggregate, report-sensitive and source/body-specific adjectives, not universal daily caps.
+
+Gate: separate incident truth from belief, qualify one exact primary fear/function window for canon implementation, test correction and actual downstream function, preserve source identity and audience aggregation without secretly multiplying retellings. Unknown chronology/blood/contract exceptions remain in the source ledger, not resolved by the most dramatic generated story.
+
+## D2/D5.10: oath, revelation and concept leads still reachable
+
+[Stormlight digest](../../../../research/power-systems/wiki-digests/DIGEST_the-stormlight-archive.md) is blocked and supplies no freshly checked oath/bond law. [P10 HxH](../p10/HXH.md) and [JJK](../p10/JJK.md) own qualified restrictions/disclosure/source mechanics. Possible readers: genuine kept oath, actual agreed restriction or received explanation → a specifically sourced binding effect. Mere dialogue praising commitment cannot add Nen/cursed energy or make every spoken promise a metaphysical contract. These are candidate source windows, not asserted universal narrative power.
+
+Keep fiction-changing contracts, truth names, emotional magic, divine epithets, symbolic artifacts and concept cultivation as additional research routes where their source owners support them. First choose a named uncertainty and retrieve one operation's evidence. Bounded source qualification improves a selected option without making every other option unreachable or requiring a complete cosmology.
