@@ -735,3 +735,20 @@ body #bottom_panel_div .sl_button {padding-left:6px;padding-right:6px;}
 #message_box_div .log-unread-button:focus-visible {outline: 2px solid #fff; outline-offset: 2px;}
 :root[data-color-scheme="vivid"] #message_box_div .log-unread-button {background: var(--sem-money, #ffd54f); color: #1a1300;}
 /* ---- end I5/I8 block ---- */
+
+/* Shared panel contract. Icons occupy a stable header slot in both schemes. */
+[data-panel-role-icon] {display: inline-block; flex: 0 0 1em; width: 1em; text-align: center;}
+:root[data-color-scheme="vivid"] .workspace-module[data-panel-role="actions"] {--vivid-surface: #15204c; --vivid-header: #22337a; --vivid-edge: #5d78d8;}
+:root[data-color-scheme="vivid"] .workspace-module[data-panel-role="character"] {--vivid-surface: #0f3438; --vivid-header: #13585d; --vivid-edge: #35a7a5;}
+:root[data-color-scheme="vivid"] .workspace-module[data-panel-role="records"] {--vivid-surface: #241a44; --vivid-header: #3b2a72; --vivid-edge: #8f73e0;}
+
+#main_content.workspace-active .workspace-module:focus-visible {
+    outline: 2px solid var(--theme-focus, var(--workspace-focus, #ffd87c));
+    outline-offset: -2px;
+}
+
+/* Native frame aliases retain the existing page and warm workspace accent. */
+:root {--frame-page: #05040f; --frame-accent: #dfb77c;}
+:root[data-world]:not([data-world="native"]) {--frame-accent: #8fd4d6;}
+:root[data-world][data-color-scheme="vivid"] {--frame-page: var(--vivid-page); --frame-accent: var(--vivid-accent);}
+.workspace-module[data-panel-kit="1"] {--panel-frame-accent: var(--frame-accent);}

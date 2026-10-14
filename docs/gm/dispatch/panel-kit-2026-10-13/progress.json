@@ -1,0 +1,51 @@
+[
+ {
+  "id": "K1",
+  "item": "Kit contract on five panels",
+  "check": "gate.cjs K1",
+  "passes": true,
+  "notes": "Final own gate PASS K1_contract. src/panel_kit.js:7-36; src/workspace_layout.js:8-20,96; src/workspace_views.js:19-20; src/adventure_notebook.js:131-133; styles/workspace.css:740-743. Pending regions use a generic referenced label to preserve discovery. | Coordinator full check.sh exit 0 (2026-10-13)."
+ },
+ {
+  "id": "K2",
+  "item": "Panel-specific unavailable reasons",
+  "check": "gate.cjs K2",
+  "passes": true,
+  "notes": "Final own gate PASS K2_reasons. src/workspace_layout.js:129; per-panel reason callbacks in src/workspace_views.js:19-20 and src/adventure_notebook.js:131-133. | Coordinator full check.sh exit 0 (2026-10-13)."
+ },
+ {
+  "id": "K3",
+  "item": "F6 panel navigation",
+  "check": "gate.cjs K3",
+  "passes": true,
+  "notes": "Final own gate PASS K3_f6_navigation: vitals -> combat-controls -> vitals. src/workspace_layout.js:20,315-326; styles/workspace.css:745-748. One initial Node 22 fetch retry documented in GOAL. | Coordinator full check.sh exit 0 (2026-10-13)."
+ },
+ {
+  "id": "K4",
+  "item": "Per-panel setting registration",
+  "check": "gate.cjs K4",
+  "passes": true,
+  "notes": "Final own gate PASS K4_panel_setting. src/display_settings.js:33-53,112-148; src/panel_kit.js:10-15; src/adventure_notebook.js:80-93,132,134-135. Supplemental browser PASS reload/export/import/reset; recent uses existing witnessed memory timestamps with source-order ties. | Coordinator full check.sh exit 0 (2026-10-13)."
+ },
+ {
+  "id": "K5",
+  "item": "World frame tokens",
+  "check": "gate.cjs K5",
+  "passes": true,
+  "notes": "Final own gate PASS K5_world_frame: native/#090d26/#ffc94a. src/main.js:8398 is the sole worker main.js wiring addition; src/workspace_views.js:46; styles/workspace.css:750-754. Supplemental Standard native alias and Vivid other-ID specificity passed. | Coordinator full check.sh exit 0 (2026-10-13)."
+ },
+ {
+  "id": "K6",
+  "item": "Template guard",
+  "check": "gate.cjs K6",
+  "passes": true,
+  "notes": "Final own gate PASS K6_template: reachable headers, >=4.5:1, no horizontal overflow at 1366x768, 1440x900, 1920x1080. | Coordinator full check.sh exit 0 (2026-10-13)."
+ },
+ {
+  "id": "K7",
+  "item": "Contract doc and cheat cards",
+  "check": "gate.cjs K7",
+  "passes": true,
+  "notes": "Codex docs worker (session 01a13828-...0f42): docs/PANEL_KIT.md, CHEAT_PANEL_CARDS.json, UI owner link. Coordinator K7 PASS. | Coordinator full check.sh exit 0 (2026-10-13)."
+ }
+]

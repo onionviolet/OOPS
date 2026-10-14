@@ -1,5 +1,6 @@
 import {foodPacingDescription} from './absorb_e1/panel.js';
 import {rarityColor} from './rarity_palette.js';
+import {getDisplaySetting} from './display_settings.js';
 import {accessoryCraftingTiers} from './absorb_c1/accessories.js';
 import {projectGameAbsorptionAssayItemView} from './game_absorption_assay_item_view.js';
 import {projectFieldcraftItemView} from './nethack_fieldcraft_item_view.js';
@@ -33,7 +34,8 @@ import { enemy_killcount, enemy_templates } from "./enemies.js";
 import { expo, format_reading_time, stat_names, round_item_price, format_working_time, task_type_names, celsius_to_fahrenheit, is_a_older_than_b, select_outline_class } from "./misc.js"
 //import { stances } from "./combat_stances.js";
 import { recipes, get_recipe_xp_value, find_recipe_material, get_component_stats } from "./crafting_recipes.js";
-import {recipeMakeableNow} from "./crafting_visibility.js";
+import {recipeMakeableNow, itemRecipeStatus} from "./crafting_visibility.js";
+import {renderCraftingDetail, focusFirstBlocker, craftReceiptText, UNKNOWN_MATERIAL_LABEL} from "./crafting_detail.js";
 import { effect_templates } from "./active_effects.js";
 import { player_storage } from "./data/storage.js";
 import { quests } from "./quests.js";
@@ -270,11 +272,14 @@ function apply_inventory_new_marker(row, key) {
         inventory_known_keys.add(key);
         return;
     }
+    // Rows are keyboard-focusable so focus can clear the marker like hover does (S5).
+    row.tabIndex = 0;
     if(!inventory_known_keys.has(key)) {
         inventory_known_keys.add(key);
-        inventory_new_keys.add(key);
+        // New-item dot off (display setting): the item is simply known, never marked.
+        if(getDisplaySetting("newDot") !== "off") inventory_new_keys.add(key);
     }
-    if(inventory_new_keys.has(key)) row.setAttribute("data-item-new", "");
+    if(inventory_new_keys.has(key) && getDisplaySetting("newDot") !== "off") row.setAttribute("data-item-new", "");
 }
 function clear_inventory_new_marker(event) {
     const row = event.target?.closest?.("[data-item-new]");
@@ -289,6 +294,9 @@ let selected_crafting_category;
 let selected_crafting_subcategory;
 let crafting_filter_bound = false;
 let crafting_filter_applied = false;
+// Crafting screen (2026-10-13): the selected items recipe and its last receipt.
+let selected_item_recipe = null; // {category, subcategory, recipe_id}
+let crafting_receipt = null; // {key, text}
 
 const loading_progress_div = document.getElementById("loading_screen_loading_progress");
 
@@ -1021,7 +1029,8 @@ function end_activity_animation(remove) {
         message_count[group_to_add]--;
     }
         
-    const log_was_following = is_message_log_near_bottom();
+    // Log follow "always" (display setting) jumps to the newest line even while scrolled up.
+    const log_was_following = getDisplaySetting("logFollow") === "always" || is_message_log_near_bottom();
 
     message.classList.add(class_to_add, group_to_add);
     set_HTML(message, message_to_add);
@@ -2962,24 +2971,30 @@ function apply_crafting_filter() {
     const empty = document.getElementById("crafting_filter_empty");
     if(!filtered && !crafting_filter_applied) {
         empty.hidden = true;
+        refresh_crafting_detail();
         return;
     }
     const inventory = character.getItems();
+    // Same station source as the window, the detail and the craft (was location tiers only).
+    const tiers = accessoryCraftingTiers(current_location, undefined, global_flags.is_crafting_unlocked);
     let makeable_in_current_page = 0;
     for(const [category, pages] of Object.entries(crafting_pages)) {
         for(const [subcategory, page] of Object.entries(pages)) {
             // Only already-created, unlocked native recipe rows are considered.
             for(const row of page.querySelectorAll(".recipe_div[data-recipe_id]")) {
                 const recipe = recipes[category][subcategory][row.dataset.recipe_id];
-                const makeable = !filtered || recipeMakeableNow({recipe,
-                    stationTier: current_location?.crafting?.tiers[category], inventory,
+                const makeable = !filtered || (subcategory === "items"
+                    ? item_recipe_state(category, recipe).available
+                    : recipeMakeableNow({recipe,
+                    stationTier: tiers[category], inventory,
                     itemTemplates: item_templates, isMaterialKnown: id => item_log.is_known(id),
-                    canConsume: canConsumeNativeCraftingItem});
+                    canConsume: canConsumeNativeCraftingItem}));
                 if(makeable && category === selected_crafting_category && subcategory === selected_crafting_subcategory) {
                     makeable_in_current_page++;
                 }
                 // Keep an open/focused recipe stable while its last material is consumed.
-                const retained = row.classList.contains("selected_recipe") || row.contains(document.activeElement);
+                // Items rows are never retained: Makeable now shows exactly the craftable rows.
+                const retained = subcategory !== "items" && (row.classList.contains("selected_recipe") || row.contains(document.activeElement));
                 const hidden = filtered && !makeable && !retained;
                 if(row.hidden !== hidden) {
                     row.hidden = hidden;
@@ -2990,6 +3005,148 @@ function apply_crafting_filter() {
     }
     empty.hidden = !filtered || !selected_crafting_category || makeable_in_current_page > 0;
     crafting_filter_applied = filtered;
+    refresh_crafting_detail();
+}
+
+// ---- Crafting screen detail (2026-10-13) ----
+// One status per items recipe drives the row, Makeable now, the detail and its Craft button.
+function item_recipe_state(category, recipe) {
+    return itemRecipeStatus({recipe,
+        stationTier: accessoryCraftingTiers(current_location, undefined, global_flags.is_crafting_unlocked)[category],
+        findMaterial: find_recipe_material,
+        isMaterialKnown: id => item_log.is_known(id),
+        canConsume: key => { try { return canConsumeNativeCraftingItem(key); } catch { return true; } }});
+}
+
+function is_selected_item_recipe(category, subcategory, recipe_id) {
+    return !!selected_item_recipe && selected_item_recipe.category === category
+        && selected_item_recipe.subcategory === subcategory && selected_item_recipe.recipe_id === recipe_id;
+}
+
+function item_recipe_key({category, subcategory, recipe_id}) {
+    return `${category}/${subcategory}/${recipe_id}`;
+}
+
+function sync_item_recipe_tabstops(page) {
+    const rows = [...page.querySelectorAll(".recipe_div[data-recipe_id]")];
+    const current = rows.find(r => r.getAttribute("aria-selected") === "true" && !r.hidden) || rows.find(r => !r.hidden);
+    for(const row of rows) row.tabIndex = row === current ? 0 : -1;
+}
+
+function select_item_recipe(selection) {
+    selected_item_recipe = selection;
+    refresh_crafting_detail();
+}
+
+function handle_item_recipe_key(event, recipe_div, selection) {
+    if(event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        select_item_recipe(selection);
+        return;
+    }
+    const moves = {ArrowDown: 1, ArrowUp: -1};
+    if(!(event.key in moves) && event.key !== "Home" && event.key !== "End") return;
+    event.preventDefault();
+    const rows = [...recipe_div.parentNode.querySelectorAll(".recipe_div[data-recipe_id]")].filter(r => !r.hidden && r.offsetParent);
+    const index = rows.indexOf(recipe_div);
+    const next = event.key === "Home" ? rows[0] : event.key === "End" ? rows.at(-1) : rows[index + moves[event.key]];
+    if(!next) return;
+    select_item_recipe({category: selection.category, subcategory: selection.subcategory, recipe_id: next.dataset.recipe_id});
+    next.focus();
+    next.scrollIntoView({block: "nearest"});
+}
+
+function material_type_known(material_type) {
+    return Object.values(item_templates).some(t => t.material_type === material_type && item_log.is_known(t.id));
+}
+
+function build_item_recipe_model(selection) {
+    const {category, subcategory, recipe_id} = selection;
+    const recipe = recipes[category][subcategory][recipe_id];
+    const state = item_recipe_state(category, recipe);
+    const station_tier = accessoryCraftingTiers(current_location, undefined, global_flags.is_crafting_unlocked)[category] || 0;
+    const {result_id, count} = recipe.getResult();
+    const requirements = state.requirements.map(req => {
+        const m = req.material;
+        // Unknown ingredients stay unnamed: no item name and no material type (CP2).
+        const unknown = m.material_type ? !material_type_known(m.material_type) : !req.known;
+        const label = unknown ? UNKNOWN_MATERIAL_LABEL : m.material_type ? `Any ${m.material_type}` : item_templates[m.material_id].getName();
+        return {label, have: req.have, need: req.need, missing: req.missing, unknown, held_back: req.held_back};
+    });
+    const station_name = document.querySelector(`.crafting_mainpage_button[data-crafting_category="${category}"]`)?.textContent.trim() || category;
+    const chance = Math.round(100*nativeWorkLedgerChance(recipe.get_success_chance(station_tier || 1), category, subcategory));
+    const skill = skills[recipe.recipe_skill];
+    // The recipe's XP value (same number the old tooltip showed); the receipt reports the measured gain.
+    const xp_value = Math.round(10*get_recipe_xp_value({category, subcategory, recipe_id}))/10;
+    let xp = `value ${xp_value} per success, a quarter on failure; bonuses and level caps apply`;
+    if(recipe.recipe_level[1] < skill.getCurrentLvl()) xp += ". You are past what this recipe teaches";
+    let blocked_reason = "";
+    if(!state.available) {
+        const missing = requirements.filter(r => r.missing);
+        if(!(station_tier > 0)) blocked_reason = `Can't craft here: no ${station_name.toLowerCase()} station.`;
+        else if(missing.length) blocked_reason = `Can't craft yet: missing ${missing.map(r => `${r.need - r.have} ${r.label}`).join(", ")}.`;
+        else if(requirements.some(r => r.held_back)) blocked_reason = "Can't craft now: a material is reserved, or you are busy elsewhere.";
+        else blocked_reason = "Can't craft this right now.";
+    }
+    const receipt = crafting_receipt?.key === item_recipe_key(selection) ? crafting_receipt.text : "";
+    return {title: recipe.name, requirements,
+        output: {name: item_templates[result_id].getName(), count, scaled: !!recipe.scale_results && count > 1},
+        chance, station: station_tier > 0 ? `${station_name}, tier ${station_tier}` : `${station_name}: not available here`,
+        xp, available: state.available, blocked_reason, receipt,
+        result_details: create_item_tooltip_content({item: item_templates[result_id], options: {skip_quality: true, anchor_tooltip: true}})};
+}
+
+function refresh_crafting_detail() {
+    const root = document.getElementById("crafting_detail");
+    const win = document.getElementById("crafting_window");
+    if(!root || !win) return;
+    const items_page = selected_crafting_subcategory === "items";
+    win.dataset.craftView = items_page ? "items" : "other";
+    root.hidden = !items_page;
+    if(!items_page) return;
+    const page = crafting_pages[selected_crafting_category]?.items;
+    if(page) {
+        for(const row of page.querySelectorAll(".recipe_div[data-recipe_id]")) {
+            const recipe = recipes[selected_crafting_category].items[row.dataset.recipe_id];
+            row.classList.toggle("recipe_unavailable", !item_recipe_state(selected_crafting_category, recipe).available);
+            row.setAttribute("aria-selected", String(is_selected_item_recipe(selected_crafting_category, "items", row.dataset.recipe_id)));
+        }
+        sync_item_recipe_tabstops(page);
+    }
+    const visible = selected_item_recipe && selected_item_recipe.category === selected_crafting_category
+        && selected_item_recipe.subcategory === "items" && page?.querySelector(`[data-recipe_id="${selected_item_recipe.recipe_id}"]`);
+    renderCraftingDetail(root, visible ? build_item_recipe_model(selected_item_recipe) : null, {
+        onCommit: amount => commit_selected_item_recipe(amount),
+        onBlocked: focusFirstBlocker,
+    });
+}
+
+// Crafts the selected recipe through the existing native path, then reports measured changes.
+function commit_selected_item_recipe(amount) {
+    const selection = selected_item_recipe;
+    if(!selection) return;
+    const {category, subcategory, recipe_id} = selection;
+    const recipe = recipes[category][subcategory][recipe_id];
+    const row = crafting_pages[category][subcategory].querySelector(`[data-recipe_id="${recipe_id}"]`);
+    if(!row || !item_recipe_state(category, recipe).available) { focusFirstBlocker(document.getElementById("crafting_detail")); return; }
+    const result_key = item_templates[recipe.getResult().result_id].getInventoryKey();
+    const inputs = {};
+    for(const material of recipe.materials) {
+        for(const entry of find_recipe_material({material, ignore_stop: true}).items) {
+            inputs[entry.item.getInventoryKey()] = {name: entry.item.getName(), before: entry.count};
+        }
+    }
+    const skill = skills[recipe.recipe_skill];
+    const made_before = character.getItems()[result_key]?.count || 0, xp_before = skill.getTotalXP();
+    const list = row.parentNode, scroll = list.scrollTop;
+    window.useRecipe(row.querySelector(".recipe_item_name"), amount);
+    const items = character.getItems();
+    const used = Object.entries(inputs).map(([key, v]) => ({name: v.name, count: v.before - (items[key]?.count || 0)})).filter(u => u.count > 0);
+    crafting_receipt = {key: item_recipe_key(selection), text: craftReceiptText({
+        made: (items[result_key]?.count || 0) - made_before, result_name: item_templates[recipe.getResult().result_id].getName(),
+        used, xp: skill.getTotalXP() - xp_before})};
+    refresh_crafting_detail();
+    list.scrollTop = scroll;
 }
 
 function get_recipe_page(category, subcategory) {
@@ -3049,21 +3206,22 @@ function add_crafting_recipe_to_display({ category, subcategory, recipe_id }) {
     if(subcategory === "items") {
         recipe_name_span.classList.add("recipe_item_name");
         const result_count = recipe.getResult().count;
-        set_HTML(recipe_div.children[0], '<i class="material-icons icon" style="visibility:hidden"> keyboard_double_arrow_down </i>' + recipe_div.children[0].innerText + (result_count>1?` x${result_count}`:''));
-        //invisible icon added just so it properly matches in height and text position with recipes in other subcategories
-        if(!recipe.get_availability().available_ammount) {
-            recipe_div.classList.add("recipe_unavailable");
+        // The name span holds only the recipe name; the result count sits beside it.
+        if(result_count > 1) {
+            const count_span = document.createElement("span");
+            count_span.classList.add("recipe_item_count");
+            count_span.innerText = ` x${result_count}`;
+            recipe_name_span.after(count_span);
         }
+        recipe_div.classList.toggle("recipe_unavailable", !item_recipe_state(category, recipe).available);
 
-        recipe_div.addEventListener("click", (event)=>{
-            if(event.target.classList.contains("recipe_item_name") && !event.target.parentNode.classList.contains("recipe_unavailable")) {
-                window.useRecipe(event.target);
-            } else if(event.target.classList.contains("craft_ammount_button")) {
-                window.useRecipe(event.target.parentNode, Number(event.target.dataset.craft_ammount));
-            }
-        });
-        recipe_div.append(create_craft_amount_buttons());
-        recipe_div.append(create_recipe_tooltip({category, subcategory, recipe_id}));
+        // Crafting screen: a click or Enter selects; crafting happens only from the detail's Craft button.
+        recipe_div.setAttribute("role", "option");
+        recipe_div.tabIndex = -1;
+        recipe_div.setAttribute("aria-selected", String(is_selected_item_recipe(category, subcategory, recipe_id)));
+        recipe_div.addEventListener("click", ()=>select_item_recipe({category, subcategory, recipe_id}));
+        recipe_div.addEventListener("keydown", (event)=>handle_item_recipe_key(event, recipe_div, {category, subcategory, recipe_id}));
+        // No hover tooltip: the detail region replaces it and never names unknown ingredients.
     } else if(subcategory === "components") {
         recipe_name_span.classList.add("recipe_name");
         set_HTML(recipe_div.children[0], '<i class="material-icons icon crafting_dropdown_icon"> keyboard_double_arrow_down </i>' + recipe_div.children[0].innerText);
@@ -3166,7 +3324,13 @@ function add_crafting_recipe_to_display({ category, subcategory, recipe_id }) {
         throw new Error(`No such crafting subcategory as "${subcategory}"`);
     }
 
-    get_recipe_page(category, subcategory).appendChild(recipe_div);
+    const page = get_recipe_page(category, subcategory);
+    if(subcategory === "items") {
+        page.setAttribute("role", "listbox");
+        page.setAttribute("aria-label", "Recipes");
+    }
+    page.appendChild(recipe_div);
+    if(subcategory === "items") sync_item_recipe_tabstops(page);
 }
 
 function create_craft_amount_buttons() {
@@ -3224,11 +3388,7 @@ function update_displayed_crafting_recipe({category, subcategory, recipe_id}) {
     const recipe = recipes[category][subcategory][recipe_id];
 
     if(subcategory === "items") {
-        if(recipe.get_availability().available_ammount) {
-            recipe_div.classList.remove("recipe_unavailable");
-        } else {
-            recipe_div.classList.add("recipe_unavailable");
-        }
+        recipe_div.classList.toggle("recipe_unavailable", !item_recipe_state(category, recipe).available);
         update_recipe_tooltip({category, subcategory, recipe_id});
     } else if (subcategory === "components" || recipe.recipe_type === "component") {
         //if(recipe.get_availability().available_ammount) {
@@ -3292,9 +3452,8 @@ function update_item_recipe_tooltips() {
 function update_recipe_tooltip({category, subcategory, recipe_id, components}) {
     const recipe = recipes[category][subcategory][recipe_id];
     if(subcategory === "items") {
-        const tooltip = crafting_pages[category][subcategory].querySelector(`[data-recipe_id="${recipe_id}"]`).querySelector(`.${subcategory}_recipe_tooltip`);
-
-        set_HTML(tooltip, create_recipe_tooltip_content({category, subcategory, recipe_id}));
+        // Item recipes show their quote in the crafting detail region (refreshed by apply_crafting_filter).
+        return;
     } else if(subcategory === "components" || recipe.recipe_type === "component" || recipe.recipe_type === "componentless") {
         const material_selections_div = crafting_pages[category][subcategory].querySelector(`[data-recipe_id='${recipe_id}']`).children[1];
         for(let i = 0; i < material_selections_div.children.length; i++) {
@@ -3568,11 +3727,7 @@ function update_item_recipe_visibility() {
                     return;
                 }
                 const recipe_div = crafting_pages[recipe_category][recipe_subcategory].querySelector(`[data-recipe_id="${recipe}"]`);
-                if(!recipes[recipe_category][recipe_subcategory][recipe].get_availability().available_ammount) {
-                    recipe_div.classList.add("recipe_unavailable");
-                } else {
-                    recipe_div.classList.remove("recipe_unavailable");
-                }
+                recipe_div.classList.toggle("recipe_unavailable", !item_recipe_state(recipe_category, recipes[recipe_category][recipe_subcategory][recipe]).available);
             });
         })
     });

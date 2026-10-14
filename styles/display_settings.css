@@ -1,0 +1,27 @@
+/* Per-browser display settings (settings pass 2026-10-13). src/display_settings.js sets
+   data-display-* on <html>; main.js mirrors the save-level Effects value as data-effects. */
+.customization-surface fieldset.display-settings {display: block;}
+.display-settings > legend {font-weight: 700; padding: 0 .3rem;}
+.display-settings-intro {margin: 0 0 .6rem; line-height: 1.4;}
+.display-setting-row {display: grid; grid-template-columns: minmax(8rem, 12rem) minmax(0, 1fr); align-items: center; gap: .2rem .6rem; margin: 0 0 .55rem;}
+.display-setting-row > label {font-weight: 600; display: block;}
+.display-setting-row > select, .display-setting-row > input {max-width: 100%; justify-self: start;}
+.display-setting-row > .display-color-clear {grid-column: 2; justify-self: start; font: inherit; font-size: .85em;}
+.display-setting-row > .display-setting-desc {grid-column: 1 / -1; font-size: .88em; line-height: 1.35;}
+.display-setting-row > input[type=color][data-source="scheme"] {outline: 1px dashed currentColor; outline-offset: 1px;}
+.display-settings-actions {margin-top: .4rem;}
+.display-settings-actions button {font: inherit; white-space: normal;}
+
+/* AJ1 reveal: quiet is a brief outline with no movement or filter; off, or Effects off, none. */
+@keyframes workspace-reveal-quiet {
+    from {box-shadow: 0 0 0 2px var(--vivid-accent, var(--workspace-accent, #ffc94a));}
+    to {box-shadow: 0 0 0 0 transparent;}
+}
+:root:is([data-display-reveal="quiet"], [data-effects="reduced"]) [data-workspace-reveal="new"] {animation: workspace-reveal-quiet 400ms linear 1;}
+:root:is([data-display-reveal="off"], [data-effects="off"]) [data-workspace-reveal="new"] {animation: none;}
+
+/* AJ5 vitals: value beside the bar instead of over it; level shown or hidden. */
+:root[data-display-vitals-value="beside"] #main_content #basic_character_info_div .character_bar_parent_div {display: flex; align-items: center; gap: .4rem;}
+:root[data-display-vitals-value="beside"] #main_content #basic_character_info_div :is(#character_xp_bar_max, #character_stamina_bar_max, #character_mana_bar_max, #character_healthbar_max) {flex: 1 1 auto; min-width: 0; margin: 0;}
+:root[data-display-vitals-value="beside"] #main_content #basic_character_info_div :is(#character_xp_value, #character_stamina_value, #character_mana_value, #character_health_value) {position: static; flex: 0 1 auto; width: auto; min-width: 0; max-width: 55%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; text-align: left;}
+:root[data-display-vitals-level="hide"] #main_content #character_vitals_level {display: none;}

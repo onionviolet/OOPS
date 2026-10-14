@@ -2261,6 +2261,7 @@ function customizationFromSave(save) {
 }
 function refreshCustomization() {
     if(!customization)return;
+    document.documentElement.dataset.effects=customization.profiles?.[customization.active]?.settings?.effects||'full'; // settings pass S3: save-level Effects caps per-browser motion
     applyCustomizationProfile(customization,{season:current_game_time.getSeason(),moduleNodes:{ledger:document.getElementById('work_ledger_panel'),crafting:document.getElementById('crafting_window'),'local-actions':document.getElementById('location_related_div'),vitals:document.getElementById('basic_character_info_div'),preparation:document.getElementById('character_div'),belongings:[document.getElementById('inventory_div'),document.getElementById('inventory_combat_switch_selection')],records:document.getElementById('journal_div'),time:document.getElementById('time_and_location'),location:document.getElementById('location_div'),skills:document.getElementById('skills_and_stances_div'),messages:document.getElementById('message_log_div'),notebook:document.getElementById('adventure_notebook'),customization:[document.getElementById('customization_host'),document.getElementById('customization_effects_host'),document.getElementById('customization_rules_host')]}});
     customizationPanel?.refresh();workLedgerAuthor?.refresh();
 }
@@ -8394,6 +8395,7 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
             expansionState.simulation?.sessions.player?'A response is waiting in your notes.':null,
             ...Object.values(expansionState.simulation?.events||{}).filter(e=>e.actorId==='player'&&e.mode==='decision'&&e.status==='open'&&e.discoveredBy.includes('player')).map(e=>'Waiting response: '+e.label),
         ].filter(Boolean),waiting:!!expansionState.simulation?.sessions.player||Object.values(expansionState.simulation?.events||{}).some(e=>e.actorId==='player'&&e.mode==='decision'&&e.status==='open'&&e.discoveredBy.includes('player')),canWrite:workLedgerCanWrite(),error:expansionError,
+        world:Object.values(optionalPackState.packs).find(p=>p.active)?.worldId || expansionState.actors.player.worldId,
         away:expansionState.actors.player.worldId!=='base.frontier'
     }),combatKnown:()=>!!last_combat_location||game_stats.total_hits_done>0});
     registerWorkspaceModule({id:'ledger',title:'Work Ledger',node:workLedgerPanel.panel,home:'center',eligible:()=>!workLedgerPanel.panel.hidden});

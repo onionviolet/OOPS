@@ -5,13 +5,15 @@
         <link rel="stylesheet" href="styles/customization.css">
         <link rel="stylesheet" href="styles/workspace.css">
         <link rel="stylesheet" href="styles/workspace_discovery.css">
+        <link rel="stylesheet" href="styles/display_settings.css">
         <link rel = "stylesheet" href = "style.css?version=v0.6-b76c6660e503">
         <link rel="stylesheet" href="styles/action_legibility.css?version=721590da18e7">
+        <link rel="stylesheet" href="styles/crafting_detail.css">
         <link rel="stylesheet" href="styles/component_themes.css">
         
         <script type="module" src="resources/js/HackTimer/HackTimer.min.js"></script>
 
-        <script type="module" src="dist/bundle.js?version=v0.6-4b73a29024d4"></script>
+        <script type="module" src="dist/bundle.js?version=v0.6-4f2183b5f900"></script>
 
         <!--Icons-->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -363,7 +365,10 @@
                             <input id="crafting_makeable_filter" type="checkbox"> Makeable now
                         </label>
                         <p id="crafting_filter_empty" hidden>No known recipes can be made with your available materials. Turn off Makeable now to review requirements.</p>
-                        <div id="recipe_categories" class="crafting_category"></div>
+                        <div id="crafting_body" class="crafting_body">
+                            <div id="recipe_categories" class="crafting_category"></div>
+                            <section id="crafting_detail" class="crafting_detail" data-craft-detail aria-label="Selected recipe"></section>
+                        </div>
                         <div id="exit_crafting_button" onclick="closeCraftingWindow()">
                             Exit
                         </div>
