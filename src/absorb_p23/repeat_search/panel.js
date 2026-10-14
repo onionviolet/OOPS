@@ -10,13 +10,13 @@ export function createRepeatSearchPanel({container,read,act}) {
     function render() {
         if(panel.parentElement!==container)container.append(panel);
         const {state,context}=read(),v=repeatSearchView(state,context);panel.hidden=!v.visible;
-        const next=JSON.stringify(v);if(next===signature)return;signature=next;
+        const next=JSON.stringify(v);if(next===signature)return;signature=next;status.textContent='';
         const focused=document.activeElement?.dataset.repeatSearchAction;
         body.replaceChildren(node('p',v.summary));
         for(const row of v.rows) {
             const button=node('button',row.label);button.type='button';button.disabled=row.disabled;button.dataset.repeatSearchAction=row.id;
-            button.addEventListener('click',()=>{try{const answer=act(row.id);status.textContent=answer?.messages?.join(' ')||'';}
-                catch(error){status.textContent=error.message;}render();});body.append(button);
+            button.addEventListener('click',()=>{let message='';try{const answer=act(row.id);message=answer?.messages?.join(' ')||'';}
+                catch(error){message=error.message;}render();status.textContent=message;});body.append(button);
         }
         if(focused)body.querySelector('[data-repeat-search-action="runner_offcut"]')?.focus();
     }
