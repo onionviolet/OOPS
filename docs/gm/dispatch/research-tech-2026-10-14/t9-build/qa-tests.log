@@ -1,0 +1,2014 @@
+TAP version 13
+# Subtest: Z4 abstract-energy reviewed catalog passes
+ok 1 - Z4 abstract-energy reviewed catalog passes
+  ---
+  duration_ms: 19.138583
+  type: 'test'
+  ...
+# Subtest: Z4 ordinary-soap reviewed catalog passes
+ok 2 - Z4 ordinary-soap reviewed catalog passes
+  ---
+  duration_ms: 9.672
+  type: 'test'
+  ...
+# Subtest: Z4 material rejected without raw diagnostic text
+ok 3 - Z4 material rejected without raw diagnostic text
+  ---
+  duration_ms: 5.510459
+  type: 'test'
+  ...
+# Subtest: Z4 unicode rejected without raw diagnostic text
+ok 4 - Z4 unicode rejected without raw diagnostic text
+  ---
+  duration_ms: 4.096208
+  type: 'test'
+  ...
+# Subtest: Z4 procedure rejected without raw diagnostic text
+ok 5 - Z4 procedure rejected without raw diagnostic text
+  ---
+  duration_ms: 3.802167
+  type: 'test'
+  ...
+# Subtest: Z4 split rejected without raw diagnostic text
+ok 6 - Z4 split rejected without raw diagnostic text
+  ---
+  duration_ms: 3.744125
+  type: 'test'
+  ...
+# Subtest: Z4 quantity rejected without raw diagnostic text
+ok 7 - Z4 quantity rejected without raw diagnostic text
+  ---
+  duration_ms: 3.381375
+  type: 'test'
+  ...
+# Subtest: Z4 belief rejected without raw diagnostic text
+ok 8 - Z4 belief rejected without raw diagnostic text
+  ---
+  duration_ms: 3.356666
+  type: 'test'
+  ...
+# Subtest: Z4 error rejected without raw diagnostic text
+ok 9 - Z4 error rejected without raw diagnostic text
+  ---
+  duration_ms: 3.429084
+  type: 'test'
+  ...
+# Subtest: Z4 missing-annotation rejected without raw diagnostic text
+ok 10 - Z4 missing-annotation rejected without raw diagnostic text
+  ---
+  duration_ms: 3.633542
+  type: 'test'
+  ...
+# Subtest: Z4 schema rejected without raw diagnostic text
+ok 11 - Z4 schema rejected without raw diagnostic text
+  ---
+  duration_ms: 3.262583
+  type: 'test'
+  ...
+# Subtest: Z4 language explicitly holds review
+ok 12 - Z4 language explicitly holds review
+  ---
+  duration_ms: 3.20075
+  type: 'test'
+  ...
+# Subtest: Z4 coverage explicitly holds review
+ok 13 - Z4 coverage explicitly holds review
+  ---
+  duration_ms: 3.417875
+  type: 'test'
+  ...
+# Subtest: Z4 fictional credits have typed closed costs
+ok 14 - Z4 fictional credits have typed closed costs
+  ---
+  duration_ms: 10.849958
+  type: 'test'
+  ...
+# Subtest: Z4 hazard context reaches original dependencies and cycles
+ok 15 - Z4 hazard context reaches original dependencies and cycles
+  ---
+  duration_ms: 3.763417
+  type: 'test'
+  ...
+# Subtest: Z4 unreachable and pruned world additions still scanned
+ok 16 - Z4 unreachable and pruned world additions still scanned
+  ---
+  duration_ms: 3.688583
+  type: 'test'
+  ...
+# Subtest: Z4 exact benign exception binds revision text node surface and context
+ok 17 - Z4 exact benign exception binds revision text node surface and context
+  ---
+  duration_ms: 13.035625
+  type: 'test'
+  ...
+# Subtest: Z4 exceptions cannot waive prohibited synthetic detail
+ok 18 - Z4 exceptions cannot waive prohibited synthetic detail
+  ---
+  duration_ms: 5.497292
+  type: 'test'
+  ...
+# Subtest: Z4 offline candidate input is pure admission with open semantic coverage
+ok 19 - Z4 offline candidate input is pure admission with open semantic coverage
+  ---
+  duration_ms: 3.167792
+  type: 'test'
+  ...
+# Subtest: Z4 joined candidates catch split synthetic process token
+ok 20 - Z4 joined candidates catch split synthetic process token
+  ---
+  duration_ms: 5.091083
+  type: 'test'
+  ...
+# Subtest: Z4 malformed policy or duplicate sidecar rejects detached input
+ok 21 - Z4 malformed policy or duplicate sidecar rejects detached input
+  ---
+  duration_ms: 1.066166
+  type: 'test'
+  ...
+# Subtest: Z1 all 128 cells independently disposed
+ok 22 - Z1 all 128 cells independently disposed
+  ---
+  duration_ms: 44.441208
+  type: 'test'
+  ...
+# Subtest: Z2 seed.1.case.0
+ok 23 - Z2 seed.1.case.0
+  ---
+  duration_ms: 3.113541
+  type: 'test'
+  ...
+# Subtest: Z2 seed.17.case.1
+ok 24 - Z2 seed.17.case.1
+  ---
+  duration_ms: 1.366584
+  type: 'test'
+  ...
+# Subtest: Z2 seed.73.case.2
+ok 25 - Z2 seed.73.case.2
+  ---
+  duration_ms: 1.062542
+  type: 'test'
+  ...
+# Subtest: Z2 seed.4294967295.case.3
+ok 26 - Z2 seed.4294967295.case.3
+  ---
+  duration_ms: 1.157792
+  type: 'test'
+  ...
+# Subtest: Z2 seed.1.case.4
+ok 27 - Z2 seed.1.case.4
+  ---
+  duration_ms: 0.881042
+  type: 'test'
+  ...
+# Subtest: Z2 seed.17.case.5
+ok 28 - Z2 seed.17.case.5
+  ---
+  duration_ms: 1.084334
+  type: 'test'
+  ...
+# Subtest: Z2 seed.73.case.6
+ok 29 - Z2 seed.73.case.6
+  ---
+  duration_ms: 1.2425
+  type: 'test'
+  ...
+# Subtest: Z2 seed.4294967295.case.7
+ok 30 - Z2 seed.4294967295.case.7
+  ---
+  duration_ms: 0.917167
+  type: 'test'
+  ...
+# Subtest: Z2 seed.1.case.8
+ok 31 - Z2 seed.1.case.8
+  ---
+  duration_ms: 1.637125
+  type: 'test'
+  ...
+# Subtest: Z2 seed.17.case.9
+ok 32 - Z2 seed.17.case.9
+  ---
+  duration_ms: 1.1425
+  type: 'test'
+  ...
+# Subtest: Z2 seed.73.case.10
+ok 33 - Z2 seed.73.case.10
+  ---
+  duration_ms: 0.573
+  type: 'test'
+  ...
+# Subtest: Z2 seed.4294967295.case.11
+ok 34 - Z2 seed.4294967295.case.11
+  ---
+  duration_ms: 1.450625
+  type: 'test'
+  ...
+# Subtest: Z2 seed.1.case.12
+ok 35 - Z2 seed.1.case.12
+  ---
+  duration_ms: 0.758459
+  type: 'test'
+  ...
+# Subtest: Z2 seed.17.case.13
+ok 36 - Z2 seed.17.case.13
+  ---
+  duration_ms: 0.876583
+  type: 'test'
+  ...
+# Subtest: Z2 seed.73.case.14
+ok 37 - Z2 seed.73.case.14
+  ---
+  duration_ms: 1.175875
+  type: 'test'
+  ...
+# Subtest: Z2 seed.4294967295.case.15
+ok 38 - Z2 seed.4294967295.case.15
+  ---
+  duration_ms: 0.781208
+  type: 'test'
+  ...
+# Subtest: Z2 seed.1.case.16
+ok 39 - Z2 seed.1.case.16
+  ---
+  duration_ms: 1.395542
+  type: 'test'
+  ...
+# Subtest: Z2 seed.17.case.17
+ok 40 - Z2 seed.17.case.17
+  ---
+  duration_ms: 1.487625
+  type: 'test'
+  ...
+# Subtest: Z2 seed.73.case.18
+ok 41 - Z2 seed.73.case.18
+  ---
+  duration_ms: 0.642708
+  type: 'test'
+  ...
+# Subtest: Z2 seed.4294967295.case.19
+ok 42 - Z2 seed.4294967295.case.19
+  ---
+  duration_ms: 1.187917
+  type: 'test'
+  ...
+# Subtest: Z2 seed.1.case.20
+ok 43 - Z2 seed.1.case.20
+  ---
+  duration_ms: 1.127917
+  type: 'test'
+  ...
+# Subtest: Z2 seed.17.case.21
+ok 44 - Z2 seed.17.case.21
+  ---
+  duration_ms: 0.699583
+  type: 'test'
+  ...
+# Subtest: Z2 seed.73.case.22
+ok 45 - Z2 seed.73.case.22
+  ---
+  duration_ms: 1.071541
+  type: 'test'
+  ...
+# Subtest: Z2 seed.4294967295.case.23
+ok 46 - Z2 seed.4294967295.case.23
+  ---
+  duration_ms: 0.803125
+  type: 'test'
+  ...
+# Subtest: Z2 seed.1.case.24
+ok 47 - Z2 seed.1.case.24
+  ---
+  duration_ms: 1.375042
+  type: 'test'
+  ...
+# Subtest: Z2 seed.17.case.25
+ok 48 - Z2 seed.17.case.25
+  ---
+  duration_ms: 0.936375
+  type: 'test'
+  ...
+# Subtest: Z2 seed.73.case.26
+ok 49 - Z2 seed.73.case.26
+  ---
+  duration_ms: 0.659
+  type: 'test'
+  ...
+# Subtest: Z2 seed.4294967295.case.27
+ok 50 - Z2 seed.4294967295.case.27
+  ---
+  duration_ms: 1.336667
+  type: 'test'
+  ...
+# Subtest: Z2 seed.1.case.28
+ok 51 - Z2 seed.1.case.28
+  ---
+  duration_ms: 0.882459
+  type: 'test'
+  ...
+# Subtest: Z2 seed.17.case.29
+ok 52 - Z2 seed.17.case.29
+  ---
+  duration_ms: 0.762584
+  type: 'test'
+  ...
+# Subtest: Z2 seed.73.case.30
+ok 53 - Z2 seed.73.case.30
+  ---
+  duration_ms: 1.143167
+  type: 'test'
+  ...
+# Subtest: Z2 seed.4294967295.case.31
+ok 54 - Z2 seed.4294967295.case.31
+  ---
+  duration_ms: 0.810792
+  type: 'test'
+  ...
+# Subtest: Z2 seed.1.case.32
+ok 55 - Z2 seed.1.case.32
+  ---
+  duration_ms: 0.934334
+  type: 'test'
+  ...
+# Subtest: Z2 seed.17.case.33
+ok 56 - Z2 seed.17.case.33
+  ---
+  duration_ms: 0.999291
+  type: 'test'
+  ...
+# Subtest: Z2 seed.73.case.34
+ok 57 - Z2 seed.73.case.34
+  ---
+  duration_ms: 0.511917
+  type: 'test'
+  ...
+# Subtest: Z2 seed.4294967295.case.35
+ok 58 - Z2 seed.4294967295.case.35
+  ---
+  duration_ms: 0.770583
+  type: 'test'
+  ...
+# Subtest: Z2 seed.1.case.36
+ok 59 - Z2 seed.1.case.36
+  ---
+  duration_ms: 0.571417
+  type: 'test'
+  ...
+# Subtest: Z2 seed.17.case.37
+ok 60 - Z2 seed.17.case.37
+  ---
+  duration_ms: 0.5945
+  type: 'test'
+  ...
+# Subtest: Z2 seed.73.case.38
+ok 61 - Z2 seed.73.case.38
+  ---
+  duration_ms: 0.845458
+  type: 'test'
+  ...
+# Subtest: Z2 seed.4294967295.case.39
+ok 62 - Z2 seed.4294967295.case.39
+  ---
+  duration_ms: 0.323792
+  type: 'test'
+  ...
+# Subtest: Z2 seed.1.case.40
+ok 63 - Z2 seed.1.case.40
+  ---
+  duration_ms: 0.67975
+  type: 'test'
+  ...
+# Subtest: Z2 seed.17.case.41
+ok 64 - Z2 seed.17.case.41
+  ---
+  duration_ms: 0.993041
+  type: 'test'
+  ...
+# Subtest: Z2 seed.73.case.42
+ok 65 - Z2 seed.73.case.42
+  ---
+  duration_ms: 0.36825
+  type: 'test'
+  ...
+# Subtest: Z2 seed.4294967295.case.43
+ok 66 - Z2 seed.4294967295.case.43
+  ---
+  duration_ms: 0.552792
+  type: 'test'
+  ...
+# Subtest: Z2 seed.1.case.44
+ok 67 - Z2 seed.1.case.44
+  ---
+  duration_ms: 0.505458
+  type: 'test'
+  ...
+# Subtest: Z2 seed.17.case.45
+ok 68 - Z2 seed.17.case.45
+  ---
+  duration_ms: 0.344166
+  type: 'test'
+  ...
+# Subtest: Z2 seed.73.case.46
+ok 69 - Z2 seed.73.case.46
+  ---
+  duration_ms: 1.00325
+  type: 'test'
+  ...
+# Subtest: Z2 seed.4294967295.case.47
+ok 70 - Z2 seed.4294967295.case.47
+  ---
+  duration_ms: 0.554083
+  type: 'test'
+  ...
+# Subtest: Z2 seed.1.case.48
+ok 71 - Z2 seed.1.case.48
+  ---
+  duration_ms: 0.808542
+  type: 'test'
+  ...
+# Subtest: Z2 seed.17.case.49
+ok 72 - Z2 seed.17.case.49
+  ---
+  duration_ms: 1.171416
+  type: 'test'
+  ...
+# Subtest: Z2 seed.73.case.50
+ok 73 - Z2 seed.73.case.50
+  ---
+  duration_ms: 0.423584
+  type: 'test'
+  ...
+# Subtest: Z2 seed.4294967295.case.51
+ok 74 - Z2 seed.4294967295.case.51
+  ---
+  duration_ms: 0.495167
+  type: 'test'
+  ...
+# Subtest: Z2 seed.1.case.52
+ok 75 - Z2 seed.1.case.52
+  ---
+  duration_ms: 0.649375
+  type: 'test'
+  ...
+# Subtest: Z2 seed.17.case.53
+ok 76 - Z2 seed.17.case.53
+  ---
+  duration_ms: 0.454792
+  type: 'test'
+  ...
+# Subtest: Z2 seed.73.case.54
+ok 77 - Z2 seed.73.case.54
+  ---
+  duration_ms: 0.49125
+  type: 'test'
+  ...
+# Subtest: Z2 seed.4294967295.case.55
+ok 78 - Z2 seed.4294967295.case.55
+  ---
+  duration_ms: 0.329541
+  type: 'test'
+  ...
+# Subtest: Z2 seed.1.case.56
+ok 79 - Z2 seed.1.case.56
+  ---
+  duration_ms: 1.110333
+  type: 'test'
+  ...
+# Subtest: Z2 seed.17.case.57
+ok 80 - Z2 seed.17.case.57
+  ---
+  duration_ms: 0.546375
+  type: 'test'
+  ...
+# Subtest: Z2 seed.73.case.58
+ok 81 - Z2 seed.73.case.58
+  ---
+  duration_ms: 0.543834
+  type: 'test'
+  ...
+# Subtest: Z2 seed.4294967295.case.59
+ok 82 - Z2 seed.4294967295.case.59
+  ---
+  duration_ms: 0.821125
+  type: 'test'
+  ...
+# Subtest: Z2 seed.1.case.60
+ok 83 - Z2 seed.1.case.60
+  ---
+  duration_ms: 0.543792
+  type: 'test'
+  ...
+# Subtest: Z2 seed.17.case.61
+ok 84 - Z2 seed.17.case.61
+  ---
+  duration_ms: 0.779833
+  type: 'test'
+  ...
+# Subtest: Z2 seed.73.case.62
+ok 85 - Z2 seed.73.case.62
+  ---
+  duration_ms: 0.697542
+  type: 'test'
+  ...
+# Subtest: Z2 seed.4294967295.case.63
+ok 86 - Z2 seed.4294967295.case.63
+  ---
+  duration_ms: 0.389792
+  type: 'test'
+  ...
+# Subtest: Z2 seed.1.case.64
+ok 87 - Z2 seed.1.case.64
+  ---
+  duration_ms: 1.033625
+  type: 'test'
+  ...
+# Subtest: Z2 seed.17.case.65
+ok 88 - Z2 seed.17.case.65
+  ---
+  duration_ms: 1.619834
+  type: 'test'
+  ...
+# Subtest: Z2 seed.73.case.66
+ok 89 - Z2 seed.73.case.66
+  ---
+  duration_ms: 0.37175
+  type: 'test'
+  ...
+# Subtest: Z2 seed.4294967295.case.67
+ok 90 - Z2 seed.4294967295.case.67
+  ---
+  duration_ms: 0.750958
+  type: 'test'
+  ...
+# Subtest: Z2 seed.1.case.68
+ok 91 - Z2 seed.1.case.68
+  ---
+  duration_ms: 0.795917
+  type: 'test'
+  ...
+# Subtest: Z2 seed.17.case.69
+ok 92 - Z2 seed.17.case.69
+  ---
+  duration_ms: 0.335834
+  type: 'test'
+  ...
+# Subtest: Z2 seed.73.case.70
+ok 93 - Z2 seed.73.case.70
+  ---
+  duration_ms: 0.609166
+  type: 'test'
+  ...
+# Subtest: Z2 seed.4294967295.case.71
+ok 94 - Z2 seed.4294967295.case.71
+  ---
+  duration_ms: 0.278291
+  type: 'test'
+  ...
+# Subtest: Z2 seed.1.case.72
+ok 95 - Z2 seed.1.case.72
+  ---
+  duration_ms: 1.329875
+  type: 'test'
+  ...
+# Subtest: Z2 seed.17.case.73
+ok 96 - Z2 seed.17.case.73
+  ---
+  duration_ms: 1.014875
+  type: 'test'
+  ...
+# Subtest: Z2 seed.73.case.74
+ok 97 - Z2 seed.73.case.74
+  ---
+  duration_ms: 0.595625
+  type: 'test'
+  ...
+# Subtest: Z2 seed.4294967295.case.75
+ok 98 - Z2 seed.4294967295.case.75
+  ---
+  duration_ms: 0.472291
+  type: 'test'
+  ...
+# Subtest: Z2 seed.1.case.76
+ok 99 - Z2 seed.1.case.76
+  ---
+  duration_ms: 1.2535
+  type: 'test'
+  ...
+# Subtest: Z2 seed.17.case.77
+ok 100 - Z2 seed.17.case.77
+  ---
+  duration_ms: 0.613125
+  type: 'test'
+  ...
+# Subtest: Z2 seed.73.case.78
+ok 101 - Z2 seed.73.case.78
+  ---
+  duration_ms: 0.575458
+  type: 'test'
+  ...
+# Subtest: Z2 seed.4294967295.case.79
+ok 102 - Z2 seed.4294967295.case.79
+  ---
+  duration_ms: 0.726458
+  type: 'test'
+  ...
+# Subtest: Z2 seed.1.case.80
+ok 103 - Z2 seed.1.case.80
+  ---
+  duration_ms: 0.693625
+  type: 'test'
+  ...
+# Subtest: Z2 seed.17.case.81
+ok 104 - Z2 seed.17.case.81
+  ---
+  duration_ms: 0.583334
+  type: 'test'
+  ...
+# Subtest: Z2 seed.73.case.82
+ok 105 - Z2 seed.73.case.82
+  ---
+  duration_ms: 0.359416
+  type: 'test'
+  ...
+# Subtest: Z2 seed.4294967295.case.83
+ok 106 - Z2 seed.4294967295.case.83
+  ---
+  duration_ms: 0.859167
+  type: 'test'
+  ...
+# Subtest: Z2 seed.1.case.84
+ok 107 - Z2 seed.1.case.84
+  ---
+  duration_ms: 0.551
+  type: 'test'
+  ...
+# Subtest: Z2 seed.17.case.85
+ok 108 - Z2 seed.17.case.85
+  ---
+  duration_ms: 0.4605
+  type: 'test'
+  ...
+# Subtest: Z2 seed.73.case.86
+ok 109 - Z2 seed.73.case.86
+  ---
+  duration_ms: 0.5545
+  type: 'test'
+  ...
+# Subtest: Z2 seed.4294967295.case.87
+ok 110 - Z2 seed.4294967295.case.87
+  ---
+  duration_ms: 0.593916
+  type: 'test'
+  ...
+# Subtest: Z2 seed.1.case.88
+ok 111 - Z2 seed.1.case.88
+  ---
+  duration_ms: 1.2705
+  type: 'test'
+  ...
+# Subtest: Z2 seed.17.case.89
+ok 112 - Z2 seed.17.case.89
+  ---
+  duration_ms: 1.130666
+  type: 'test'
+  ...
+# Subtest: Z2 seed.73.case.90
+ok 113 - Z2 seed.73.case.90
+  ---
+  duration_ms: 0.397125
+  type: 'test'
+  ...
+# Subtest: Z2 seed.4294967295.case.91
+ok 114 - Z2 seed.4294967295.case.91
+  ---
+  duration_ms: 1.041625
+  type: 'test'
+  ...
+# Subtest: Z2 seed.1.case.92
+ok 115 - Z2 seed.1.case.92
+  ---
+  duration_ms: 1.150125
+  type: 'test'
+  ...
+# Subtest: Z2 seed.17.case.93
+ok 116 - Z2 seed.17.case.93
+  ---
+  duration_ms: 0.31325
+  type: 'test'
+  ...
+# Subtest: Z2 seed.73.case.94
+ok 117 - Z2 seed.73.case.94
+  ---
+  duration_ms: 0.628709
+  type: 'test'
+  ...
+# Subtest: Z2 seed.4294967295.case.95
+ok 118 - Z2 seed.4294967295.case.95
+  ---
+  duration_ms: 0.464708
+  type: 'test'
+  ...
+# Subtest: Z2 seed.1.case.96
+ok 119 - Z2 seed.1.case.96
+  ---
+  duration_ms: 1.433291
+  type: 'test'
+  ...
+# Subtest: Z2 seed.17.case.97
+ok 120 - Z2 seed.17.case.97
+  ---
+  duration_ms: 0.621
+  type: 'test'
+  ...
+# Subtest: Z2 seed.73.case.98
+ok 121 - Z2 seed.73.case.98
+  ---
+  duration_ms: 0.821625
+  type: 'test'
+  ...
+# Subtest: Z2 seed.4294967295.case.99
+ok 122 - Z2 seed.4294967295.case.99
+  ---
+  duration_ms: 0.584875
+  type: 'test'
+  ...
+# Subtest: Z2 seed.1.case.100
+ok 123 - Z2 seed.1.case.100
+  ---
+  duration_ms: 0.60925
+  type: 'test'
+  ...
+# Subtest: Z2 seed.17.case.101
+ok 124 - Z2 seed.17.case.101
+  ---
+  duration_ms: 0.656083
+  type: 'test'
+  ...
+# Subtest: Z2 seed.73.case.102
+ok 125 - Z2 seed.73.case.102
+  ---
+  duration_ms: 0.690291
+  type: 'test'
+  ...
+# Subtest: Z2 seed.4294967295.case.103
+ok 126 - Z2 seed.4294967295.case.103
+  ---
+  duration_ms: 0.602917
+  type: 'test'
+  ...
+# Subtest: Z2 seed.1.case.104
+ok 127 - Z2 seed.1.case.104
+  ---
+  duration_ms: 1.488084
+  type: 'test'
+  ...
+# Subtest: Z2 seed.17.case.105
+ok 128 - Z2 seed.17.case.105
+  ---
+  duration_ms: 0.755542
+  type: 'test'
+  ...
+# Subtest: Z2 seed.73.case.106
+ok 129 - Z2 seed.73.case.106
+  ---
+  duration_ms: 0.416666
+  type: 'test'
+  ...
+# Subtest: Z2 seed.4294967295.case.107
+ok 130 - Z2 seed.4294967295.case.107
+  ---
+  duration_ms: 0.587875
+  type: 'test'
+  ...
+# Subtest: Z2 seed.1.case.108
+ok 131 - Z2 seed.1.case.108
+  ---
+  duration_ms: 0.622125
+  type: 'test'
+  ...
+# Subtest: Z2 seed.17.case.109
+ok 132 - Z2 seed.17.case.109
+  ---
+  duration_ms: 0.678458
+  type: 'test'
+  ...
+# Subtest: Z2 seed.73.case.110
+ok 133 - Z2 seed.73.case.110
+  ---
+  duration_ms: 0.519667
+  type: 'test'
+  ...
+# Subtest: Z2 seed.4294967295.case.111
+ok 134 - Z2 seed.4294967295.case.111
+  ---
+  duration_ms: 0.315208
+  type: 'test'
+  ...
+# Subtest: Z2 seed.1.case.112
+ok 135 - Z2 seed.1.case.112
+  ---
+  duration_ms: 1.166708
+  type: 'test'
+  ...
+# Subtest: Z2 seed.17.case.113
+ok 136 - Z2 seed.17.case.113
+  ---
+  duration_ms: 0.824834
+  type: 'test'
+  ...
+# Subtest: Z2 seed.73.case.114
+ok 137 - Z2 seed.73.case.114
+  ---
+  duration_ms: 1.242583
+  type: 'test'
+  ...
+# Subtest: Z2 seed.4294967295.case.115
+ok 138 - Z2 seed.4294967295.case.115
+  ---
+  duration_ms: 1.425417
+  type: 'test'
+  ...
+# Subtest: Z2 seed.1.case.116
+ok 139 - Z2 seed.1.case.116
+  ---
+  duration_ms: 1.051167
+  type: 'test'
+  ...
+# Subtest: Z2 seed.17.case.117
+ok 140 - Z2 seed.17.case.117
+  ---
+  duration_ms: 0.707416
+  type: 'test'
+  ...
+# Subtest: Z2 seed.73.case.118
+ok 141 - Z2 seed.73.case.118
+  ---
+  duration_ms: 0.848583
+  type: 'test'
+  ...
+# Subtest: Z2 seed.4294967295.case.119
+ok 142 - Z2 seed.4294967295.case.119
+  ---
+  duration_ms: 0.651875
+  type: 'test'
+  ...
+# Subtest: Z2 seed.1.case.120
+ok 143 - Z2 seed.1.case.120
+  ---
+  duration_ms: 1.854667
+  type: 'test'
+  ...
+# Subtest: Z2 seed.17.case.121
+ok 144 - Z2 seed.17.case.121
+  ---
+  duration_ms: 1.011875
+  type: 'test'
+  ...
+# Subtest: Z2 seed.73.case.122
+ok 145 - Z2 seed.73.case.122
+  ---
+  duration_ms: 0.685875
+  type: 'test'
+  ...
+# Subtest: Z2 seed.4294967295.case.123
+ok 146 - Z2 seed.4294967295.case.123
+  ---
+  duration_ms: 0.6655
+  type: 'test'
+  ...
+# Subtest: Z2 seed.1.case.124
+ok 147 - Z2 seed.1.case.124
+  ---
+  duration_ms: 0.667959
+  type: 'test'
+  ...
+# Subtest: Z2 seed.17.case.125
+ok 148 - Z2 seed.17.case.125
+  ---
+  duration_ms: 0.608875
+  type: 'test'
+  ...
+# Subtest: Z2 seed.73.case.126
+ok 149 - Z2 seed.73.case.126
+  ---
+  duration_ms: 0.833417
+  type: 'test'
+  ...
+# Subtest: Z2 seed.4294967295.case.127
+ok 150 - Z2 seed.4294967295.case.127
+  ---
+  duration_ms: 0.687
+  type: 'test'
+  ...
+# Subtest: Z2 seed.1.case.128
+ok 151 - Z2 seed.1.case.128
+  ---
+  duration_ms: 1.513417
+  type: 'test'
+  ...
+# Subtest: Z2 seed.17.case.129
+ok 152 - Z2 seed.17.case.129
+  ---
+  duration_ms: 0.557042
+  type: 'test'
+  ...
+# Subtest: Z2 seed.73.case.130
+ok 153 - Z2 seed.73.case.130
+  ---
+  duration_ms: 1.158791
+  type: 'test'
+  ...
+# Subtest: Z2 seed.4294967295.case.131
+ok 154 - Z2 seed.4294967295.case.131
+  ---
+  duration_ms: 0.839209
+  type: 'test'
+  ...
+# Subtest: Z2 seed.1.case.132
+ok 155 - Z2 seed.1.case.132
+  ---
+  duration_ms: 0.786041
+  type: 'test'
+  ...
+# Subtest: Z2 seed.17.case.133
+ok 156 - Z2 seed.17.case.133
+  ---
+  duration_ms: 0.425208
+  type: 'test'
+  ...
+# Subtest: Z2 seed.73.case.134
+ok 157 - Z2 seed.73.case.134
+  ---
+  duration_ms: 0.993834
+  type: 'test'
+  ...
+# Subtest: Z2 seed.4294967295.case.135
+ok 158 - Z2 seed.4294967295.case.135
+  ---
+  duration_ms: 0.454458
+  type: 'test'
+  ...
+# Subtest: Z2 seed.1.case.136
+ok 159 - Z2 seed.1.case.136
+  ---
+  duration_ms: 1.079792
+  type: 'test'
+  ...
+# Subtest: Z2 seed.17.case.137
+ok 160 - Z2 seed.17.case.137
+  ---
+  duration_ms: 0.910875
+  type: 'test'
+  ...
+# Subtest: Z2 seed.73.case.138
+ok 161 - Z2 seed.73.case.138
+  ---
+  duration_ms: 0.477959
+  type: 'test'
+  ...
+# Subtest: Z2 seed.4294967295.case.139
+ok 162 - Z2 seed.4294967295.case.139
+  ---
+  duration_ms: 0.796
+  type: 'test'
+  ...
+# Subtest: Z2 seed.1.case.140
+ok 163 - Z2 seed.1.case.140
+  ---
+  duration_ms: 0.51025
+  type: 'test'
+  ...
+# Subtest: Z2 seed.17.case.141
+ok 164 - Z2 seed.17.case.141
+  ---
+  duration_ms: 0.385458
+  type: 'test'
+  ...
+# Subtest: Z2 seed.73.case.142
+ok 165 - Z2 seed.73.case.142
+  ---
+  duration_ms: 0.72025
+  type: 'test'
+  ...
+# Subtest: Z2 seed.4294967295.case.143
+ok 166 - Z2 seed.4294967295.case.143
+  ---
+  duration_ms: 0.658792
+  type: 'test'
+  ...
+# Subtest: Z2 seed.1.case.144
+ok 167 - Z2 seed.1.case.144
+  ---
+  duration_ms: 0.804458
+  type: 'test'
+  ...
+# Subtest: Z2 seed.17.case.145
+ok 168 - Z2 seed.17.case.145
+  ---
+  duration_ms: 1.023625
+  type: 'test'
+  ...
+# Subtest: Z2 seed.73.case.146
+ok 169 - Z2 seed.73.case.146
+  ---
+  duration_ms: 0.714333
+  type: 'test'
+  ...
+# Subtest: Z2 seed.4294967295.case.147
+ok 170 - Z2 seed.4294967295.case.147
+  ---
+  duration_ms: 0.749708
+  type: 'test'
+  ...
+# Subtest: Z2 seed.1.case.148
+ok 171 - Z2 seed.1.case.148
+  ---
+  duration_ms: 0.843
+  type: 'test'
+  ...
+# Subtest: Z2 seed.17.case.149
+ok 172 - Z2 seed.17.case.149
+  ---
+  duration_ms: 0.582583
+  type: 'test'
+  ...
+# Subtest: Z2 seed.73.case.150
+ok 173 - Z2 seed.73.case.150
+  ---
+  duration_ms: 0.577833
+  type: 'test'
+  ...
+# Subtest: Z2 seed.4294967295.case.151
+ok 174 - Z2 seed.4294967295.case.151
+  ---
+  duration_ms: 0.435459
+  type: 'test'
+  ...
+# Subtest: Z2 seed.1.case.152
+ok 175 - Z2 seed.1.case.152
+  ---
+  duration_ms: 1.455625
+  type: 'test'
+  ...
+# Subtest: Z2 seed.17.case.153
+ok 176 - Z2 seed.17.case.153
+  ---
+  duration_ms: 0.76925
+  type: 'test'
+  ...
+# Subtest: Z2 seed.73.case.154
+ok 177 - Z2 seed.73.case.154
+  ---
+  duration_ms: 0.375417
+  type: 'test'
+  ...
+# Subtest: Z2 seed.4294967295.case.155
+ok 178 - Z2 seed.4294967295.case.155
+  ---
+  duration_ms: 0.685083
+  type: 'test'
+  ...
+# Subtest: Z2 seed.1.case.156
+ok 179 - Z2 seed.1.case.156
+  ---
+  duration_ms: 0.719125
+  type: 'test'
+  ...
+# Subtest: Z2 seed.17.case.157
+ok 180 - Z2 seed.17.case.157
+  ---
+  duration_ms: 0.552833
+  type: 'test'
+  ...
+# Subtest: Z2 seed.73.case.158
+ok 181 - Z2 seed.73.case.158
+  ---
+  duration_ms: 1.426416
+  type: 'test'
+  ...
+# Subtest: Z2 seed.4294967295.case.159
+ok 182 - Z2 seed.4294967295.case.159
+  ---
+  duration_ms: 0.379708
+  type: 'test'
+  ...
+# Subtest: Z2 seed.1.case.160
+ok 183 - Z2 seed.1.case.160
+  ---
+  duration_ms: 0.877917
+  type: 'test'
+  ...
+# Subtest: Z2 seed.17.case.161
+ok 184 - Z2 seed.17.case.161
+  ---
+  duration_ms: 0.55825
+  type: 'test'
+  ...
+# Subtest: Z2 seed.73.case.162
+ok 185 - Z2 seed.73.case.162
+  ---
+  duration_ms: 0.248167
+  type: 'test'
+  ...
+# Subtest: Z2 seed.4294967295.case.163
+ok 186 - Z2 seed.4294967295.case.163
+  ---
+  duration_ms: 0.594666
+  type: 'test'
+  ...
+# Subtest: Z2 seed.1.case.164
+ok 187 - Z2 seed.1.case.164
+  ---
+  duration_ms: 0.430875
+  type: 'test'
+  ...
+# Subtest: Z2 seed.17.case.165
+ok 188 - Z2 seed.17.case.165
+  ---
+  duration_ms: 0.31
+  type: 'test'
+  ...
+# Subtest: Z2 seed.73.case.166
+ok 189 - Z2 seed.73.case.166
+  ---
+  duration_ms: 0.522625
+  type: 'test'
+  ...
+# Subtest: Z2 seed.4294967295.case.167
+ok 190 - Z2 seed.4294967295.case.167
+  ---
+  duration_ms: 0.337084
+  type: 'test'
+  ...
+# Subtest: Z2 seed.1.case.168
+ok 191 - Z2 seed.1.case.168
+  ---
+  duration_ms: 1.323834
+  type: 'test'
+  ...
+# Subtest: Z2 seed.17.case.169
+ok 192 - Z2 seed.17.case.169
+  ---
+  duration_ms: 0.864458
+  type: 'test'
+  ...
+# Subtest: Z2 seed.73.case.170
+ok 193 - Z2 seed.73.case.170
+  ---
+  duration_ms: 0.652042
+  type: 'test'
+  ...
+# Subtest: Z2 seed.4294967295.case.171
+ok 194 - Z2 seed.4294967295.case.171
+  ---
+  duration_ms: 0.684917
+  type: 'test'
+  ...
+# Subtest: Z2 seed.1.case.172
+ok 195 - Z2 seed.1.case.172
+  ---
+  duration_ms: 0.665375
+  type: 'test'
+  ...
+# Subtest: Z2 seed.17.case.173
+ok 196 - Z2 seed.17.case.173
+  ---
+  duration_ms: 0.486959
+  type: 'test'
+  ...
+# Subtest: Z2 seed.73.case.174
+ok 197 - Z2 seed.73.case.174
+  ---
+  duration_ms: 1.211
+  type: 'test'
+  ...
+# Subtest: Z2 seed.4294967295.case.175
+ok 198 - Z2 seed.4294967295.case.175
+  ---
+  duration_ms: 0.507041
+  type: 'test'
+  ...
+# Subtest: Z2 seed.1.case.176
+ok 199 - Z2 seed.1.case.176
+  ---
+  duration_ms: 0.811791
+  type: 'test'
+  ...
+# Subtest: Z2 seed.17.case.177
+ok 200 - Z2 seed.17.case.177
+  ---
+  duration_ms: 0.447791
+  type: 'test'
+  ...
+# Subtest: Z2 seed.73.case.178
+ok 201 - Z2 seed.73.case.178
+  ---
+  duration_ms: 0.342542
+  type: 'test'
+  ...
+# Subtest: Z2 seed.4294967295.case.179
+ok 202 - Z2 seed.4294967295.case.179
+  ---
+  duration_ms: 0.493916
+  type: 'test'
+  ...
+# Subtest: Z2 seed.1.case.180
+ok 203 - Z2 seed.1.case.180
+  ---
+  duration_ms: 0.502667
+  type: 'test'
+  ...
+# Subtest: Z2 seed.17.case.181
+ok 204 - Z2 seed.17.case.181
+  ---
+  duration_ms: 0.483666
+  type: 'test'
+  ...
+# Subtest: Z2 seed.73.case.182
+ok 205 - Z2 seed.73.case.182
+  ---
+  duration_ms: 0.85475
+  type: 'test'
+  ...
+# Subtest: Z2 seed.4294967295.case.183
+ok 206 - Z2 seed.4294967295.case.183
+  ---
+  duration_ms: 0.641042
+  type: 'test'
+  ...
+# Subtest: Z2 seed.1.case.184
+ok 207 - Z2 seed.1.case.184
+  ---
+  duration_ms: 0.739292
+  type: 'test'
+  ...
+# Subtest: Z2 seed.17.case.185
+ok 208 - Z2 seed.17.case.185
+  ---
+  duration_ms: 0.6995
+  type: 'test'
+  ...
+# Subtest: Z2 seed.73.case.186
+ok 209 - Z2 seed.73.case.186
+  ---
+  duration_ms: 0.215417
+  type: 'test'
+  ...
+# Subtest: Z2 seed.4294967295.case.187
+ok 210 - Z2 seed.4294967295.case.187
+  ---
+  duration_ms: 0.655417
+  type: 'test'
+  ...
+# Subtest: Z2 seed.1.case.188
+ok 211 - Z2 seed.1.case.188
+  ---
+  duration_ms: 0.832084
+  type: 'test'
+  ...
+# Subtest: Z2 seed.17.case.189
+ok 212 - Z2 seed.17.case.189
+  ---
+  duration_ms: 0.299583
+  type: 'test'
+  ...
+# Subtest: Z2 seed.73.case.190
+ok 213 - Z2 seed.73.case.190
+  ---
+  duration_ms: 0.840167
+  type: 'test'
+  ...
+# Subtest: Z2 seed.4294967295.case.191
+ok 214 - Z2 seed.4294967295.case.191
+  ---
+  duration_ms: 0.417542
+  type: 'test'
+  ...
+# Subtest: Z2 seed.1.case.192
+ok 215 - Z2 seed.1.case.192
+  ---
+  duration_ms: 0.656875
+  type: 'test'
+  ...
+# Subtest: Z2 seed.17.case.193
+ok 216 - Z2 seed.17.case.193
+  ---
+  duration_ms: 0.569625
+  type: 'test'
+  ...
+# Subtest: Z2 seed.73.case.194
+ok 217 - Z2 seed.73.case.194
+  ---
+  duration_ms: 0.413666
+  type: 'test'
+  ...
+# Subtest: Z2 seed.4294967295.case.195
+ok 218 - Z2 seed.4294967295.case.195
+  ---
+  duration_ms: 0.5595
+  type: 'test'
+  ...
+# Subtest: Z2 seed.1.case.196
+ok 219 - Z2 seed.1.case.196
+  ---
+  duration_ms: 0.747708
+  type: 'test'
+  ...
+# Subtest: Z2 seed.17.case.197
+ok 220 - Z2 seed.17.case.197
+  ---
+  duration_ms: 0.756791
+  type: 'test'
+  ...
+# Subtest: Z2 seed.73.case.198
+ok 221 - Z2 seed.73.case.198
+  ---
+  duration_ms: 0.467417
+  type: 'test'
+  ...
+# Subtest: Z2 seed.4294967295.case.199
+ok 222 - Z2 seed.4294967295.case.199
+  ---
+  duration_ms: 0.609916
+  type: 'test'
+  ...
+# Subtest: Z2 seed.1.case.200
+ok 223 - Z2 seed.1.case.200
+  ---
+  duration_ms: 0.5015
+  type: 'test'
+  ...
+# Subtest: Z2 seed.17.case.201
+ok 224 - Z2 seed.17.case.201
+  ---
+  duration_ms: 0.498042
+  type: 'test'
+  ...
+# Subtest: Z2 seed.73.case.202
+ok 225 - Z2 seed.73.case.202
+  ---
+  duration_ms: 0.387833
+  type: 'test'
+  ...
+# Subtest: Z2 seed.4294967295.case.203
+ok 226 - Z2 seed.4294967295.case.203
+  ---
+  duration_ms: 0.77725
+  type: 'test'
+  ...
+# Subtest: Z2 seed.1.case.204
+ok 227 - Z2 seed.1.case.204
+  ---
+  duration_ms: 0.581625
+  type: 'test'
+  ...
+# Subtest: Z2 seed.17.case.205
+ok 228 - Z2 seed.17.case.205
+  ---
+  duration_ms: 0.985375
+  type: 'test'
+  ...
+# Subtest: Z2 seed.73.case.206
+ok 229 - Z2 seed.73.case.206
+  ---
+  duration_ms: 0.94775
+  type: 'test'
+  ...
+# Subtest: Z2 seed.4294967295.case.207
+ok 230 - Z2 seed.4294967295.case.207
+  ---
+  duration_ms: 0.362209
+  type: 'test'
+  ...
+# Subtest: Z2 seed.1.case.208
+ok 231 - Z2 seed.1.case.208
+  ---
+  duration_ms: 0.840792
+  type: 'test'
+  ...
+# Subtest: Z2 seed.17.case.209
+ok 232 - Z2 seed.17.case.209
+  ---
+  duration_ms: 0.804334
+  type: 'test'
+  ...
+# Subtest: Z2 seed.73.case.210
+ok 233 - Z2 seed.73.case.210
+  ---
+  duration_ms: 0.562
+  type: 'test'
+  ...
+# Subtest: Z2 seed.4294967295.case.211
+ok 234 - Z2 seed.4294967295.case.211
+  ---
+  duration_ms: 0.807625
+  type: 'test'
+  ...
+# Subtest: Z2 seed.1.case.212
+ok 235 - Z2 seed.1.case.212
+  ---
+  duration_ms: 0.638167
+  type: 'test'
+  ...
+# Subtest: Z2 seed.17.case.213
+ok 236 - Z2 seed.17.case.213
+  ---
+  duration_ms: 0.453167
+  type: 'test'
+  ...
+# Subtest: Z2 seed.73.case.214
+ok 237 - Z2 seed.73.case.214
+  ---
+  duration_ms: 1.098
+  type: 'test'
+  ...
+# Subtest: Z2 seed.4294967295.case.215
+ok 238 - Z2 seed.4294967295.case.215
+  ---
+  duration_ms: 0.576417
+  type: 'test'
+  ...
+# Subtest: Z2 seed.1.case.216
+ok 239 - Z2 seed.1.case.216
+  ---
+  duration_ms: 1.51375
+  type: 'test'
+  ...
+# Subtest: Z2 seed.17.case.217
+ok 240 - Z2 seed.17.case.217
+  ---
+  duration_ms: 0.937875
+  type: 'test'
+  ...
+# Subtest: Z2 seed.73.case.218
+ok 241 - Z2 seed.73.case.218
+  ---
+  duration_ms: 1.131292
+  type: 'test'
+  ...
+# Subtest: Z2 seed.4294967295.case.219
+ok 242 - Z2 seed.4294967295.case.219
+  ---
+  duration_ms: 0.777334
+  type: 'test'
+  ...
+# Subtest: Z2 seed.1.case.220
+ok 243 - Z2 seed.1.case.220
+  ---
+  duration_ms: 0.753584
+  type: 'test'
+  ...
+# Subtest: Z2 seed.17.case.221
+ok 244 - Z2 seed.17.case.221
+  ---
+  duration_ms: 1.347958
+  type: 'test'
+  ...
+# Subtest: Z2 seed.73.case.222
+ok 245 - Z2 seed.73.case.222
+  ---
+  duration_ms: 0.810583
+  type: 'test'
+  ...
+# Subtest: Z2 seed.4294967295.case.223
+ok 246 - Z2 seed.4294967295.case.223
+  ---
+  duration_ms: 0.690084
+  type: 'test'
+  ...
+# Subtest: Z2 seed.1.case.224
+ok 247 - Z2 seed.1.case.224
+  ---
+  duration_ms: 1.092291
+  type: 'test'
+  ...
+# Subtest: Z2 seed.17.case.225
+ok 248 - Z2 seed.17.case.225
+  ---
+  duration_ms: 0.727959
+  type: 'test'
+  ...
+# Subtest: Z2 seed.73.case.226
+ok 249 - Z2 seed.73.case.226
+  ---
+  duration_ms: 0.405791
+  type: 'test'
+  ...
+# Subtest: Z2 seed.4294967295.case.227
+ok 250 - Z2 seed.4294967295.case.227
+  ---
+  duration_ms: 0.823375
+  type: 'test'
+  ...
+# Subtest: Z2 seed.1.case.228
+ok 251 - Z2 seed.1.case.228
+  ---
+  duration_ms: 0.600167
+  type: 'test'
+  ...
+# Subtest: Z2 seed.17.case.229
+ok 252 - Z2 seed.17.case.229
+  ---
+  duration_ms: 0.523
+  type: 'test'
+  ...
+# Subtest: Z2 seed.73.case.230
+ok 253 - Z2 seed.73.case.230
+  ---
+  duration_ms: 0.955417
+  type: 'test'
+  ...
+# Subtest: Z2 seed.4294967295.case.231
+ok 254 - Z2 seed.4294967295.case.231
+  ---
+  duration_ms: 0.347334
+  type: 'test'
+  ...
+# Subtest: Z2 seed.1.case.232
+ok 255 - Z2 seed.1.case.232
+  ---
+  duration_ms: 1.092583
+  type: 'test'
+  ...
+# Subtest: Z2 seed.17.case.233
+ok 256 - Z2 seed.17.case.233
+  ---
+  duration_ms: 0.780625
+  type: 'test'
+  ...
+# Subtest: Z2 seed.73.case.234
+ok 257 - Z2 seed.73.case.234
+  ---
+  duration_ms: 0.403875
+  type: 'test'
+  ...
+# Subtest: Z2 seed.4294967295.case.235
+ok 258 - Z2 seed.4294967295.case.235
+  ---
+  duration_ms: 1.180084
+  type: 'test'
+  ...
+# Subtest: Z2 seed.1.case.236
+ok 259 - Z2 seed.1.case.236
+  ---
+  duration_ms: 0.631875
+  type: 'test'
+  ...
+# Subtest: Z2 seed.17.case.237
+ok 260 - Z2 seed.17.case.237
+  ---
+  duration_ms: 0.348958
+  type: 'test'
+  ...
+# Subtest: Z2 seed.73.case.238
+ok 261 - Z2 seed.73.case.238
+  ---
+  duration_ms: 0.956125
+  type: 'test'
+  ...
+# Subtest: Z2 seed.4294967295.case.239
+ok 262 - Z2 seed.4294967295.case.239
+  ---
+  duration_ms: 0.480375
+  type: 'test'
+  ...
+# Subtest: Z2 seed.1.case.240
+ok 263 - Z2 seed.1.case.240
+  ---
+  duration_ms: 0.764167
+  type: 'test'
+  ...
+# Subtest: Z2 seed.17.case.241
+ok 264 - Z2 seed.17.case.241
+  ---
+  duration_ms: 1.099625
+  type: 'test'
+  ...
+# Subtest: Z2 seed.73.case.242
+ok 265 - Z2 seed.73.case.242
+  ---
+  duration_ms: 0.680958
+  type: 'test'
+  ...
+# Subtest: Z2 seed.4294967295.case.243
+ok 266 - Z2 seed.4294967295.case.243
+  ---
+  duration_ms: 0.617417
+  type: 'test'
+  ...
+# Subtest: Z2 seed.1.case.244
+ok 267 - Z2 seed.1.case.244
+  ---
+  duration_ms: 0.709167
+  type: 'test'
+  ...
+# Subtest: Z2 seed.17.case.245
+ok 268 - Z2 seed.17.case.245
+  ---
+  duration_ms: 0.469542
+  type: 'test'
+  ...
+# Subtest: Z2 seed.73.case.246
+ok 269 - Z2 seed.73.case.246
+  ---
+  duration_ms: 1.285125
+  type: 'test'
+  ...
+# Subtest: Z2 seed.4294967295.case.247
+ok 270 - Z2 seed.4294967295.case.247
+  ---
+  duration_ms: 0.503208
+  type: 'test'
+  ...
+# Subtest: Z2 seed.1.case.248
+ok 271 - Z2 seed.1.case.248
+  ---
+  duration_ms: 1.149125
+  type: 'test'
+  ...
+# Subtest: Z2 seed.17.case.249
+ok 272 - Z2 seed.17.case.249
+  ---
+  duration_ms: 0.584084
+  type: 'test'
+  ...
+# Subtest: Z1.I mutant and approved control
+ok 273 - Z1.I mutant and approved control
+  ---
+  duration_ms: 0.484208
+  type: 'test'
+  ...
+# Subtest: Z1.T mutant and approved control
+ok 274 - Z1.T mutant and approved control
+  ---
+  duration_ms: 0.222875
+  type: 'test'
+  ...
+# Subtest: Z1.C mutant and approved control
+ok 275 - Z1.C mutant and approved control
+  ---
+  duration_ms: 0.227709
+  type: 'test'
+  ...
+# Subtest: Z1.U mutant and approved control
+ok 276 - Z1.U mutant and approved control
+  ---
+  duration_ms: 3.7085
+  type: 'test'
+  ...
+# Subtest: Z1.M mutant and approved control
+ok 277 - Z1.M mutant and approved control
+  ---
+  duration_ms: 0.288208
+  type: 'test'
+  ...
+# Subtest: Z2 oracle supports composition and finite exhaustion separately from N/A
+ok 278 - Z2 oracle supports composition and finite exhaustion separately from N/A
+  ---
+  duration_ms: 0.234333
+  type: 'test'
+  ...
+# Subtest: Z2 deterministic class-preserving legal shrink in independent worker
+ok 279 - Z2 deterministic class-preserving legal shrink in independent worker
+  ---
+  duration_ms: 25.5645
+  type: 'test'
+  ...
+# Subtest: Z1 invalid schema and unsupported remain distinct
+ok 280 - Z1 invalid schema and unsupported remain distinct
+  ---
+  duration_ms: 0.383541
+  type: 'test'
+  ...
+# Subtest: Z1 synthetic consumer requires all promised dimensions
+ok 281 - Z1 synthetic consumer requires all promised dimensions
+  ---
+  duration_ms: 0.045791
+  type: 'test'
+  ...
+# Subtest: Z2 SHA256 matches authoritative tooling
+ok 282 - Z2 SHA256 matches authoritative tooling
+  ---
+  duration_ms: 0.238541
+  type: 'test'
+  ...
+# Subtest: Z2 plain admission rejects accessors without executing them
+ok 283 - Z2 plain admission rejects accessors without executing them
+  ---
+  duration_ms: 0.151083
+  type: 'test'
+  ...
+# Subtest: Z2 every API detaches output and repeat calls preserve frozen inputs
+ok 284 - Z2 every API detaches output and repeat calls preserve frozen inputs
+  ---
+  duration_ms: 0.655917
+  type: 'test'
+  ...
+# Subtest: Z1 invalid original catalog cannot hide behind an unsupported tuple
+ok 285 - Z1 invalid original catalog cannot hide behind an unsupported tuple
+  ---
+  duration_ms: 0.317334
+  type: 'test'
+  ...
+# Subtest: Z2 adapter rejects knowledge getters before projection
+ok 286 - Z2 adapter rejects knowledge getters before projection
+  ---
+  duration_ms: 0.062583
+  type: 'test'
+  ...
+# Subtest: Z3 immutable v1 fixture and reviewed golden digests
+ok 287 - Z3 immutable v1 fixture and reviewed golden digests
+  ---
+  duration_ms: 1.147583
+  type: 'test'
+  ...
+# Subtest: Z3 exact pinned composed truth/view bundle
+ok 288 - Z3 exact pinned composed truth/view bundle
+  ---
+  duration_ms: 0.276291
+  type: 'test'
+  ...
+# Subtest: Z3 exact pinned lamp truth/view bundle
+ok 289 - Z3 exact pinned lamp truth/view bundle
+  ---
+  duration_ms: 0.1975
+  type: 'test'
+  ...
+# Subtest: Z3 exact pinned magic truth/view bundle
+ok 290 - Z3 exact pinned magic truth/view bundle
+  ---
+  duration_ms: 0.061583
+  type: 'test'
+  ...
+# Subtest: Z3 exact pinned noReference truth/view bundle
+ok 291 - Z3 exact pinned noReference truth/view bundle
+  ---
+  duration_ms: 0.109375
+  type: 'test'
+  ...
+# Subtest: Z3 exact pinned noWater truth/view bundle
+ok 292 - Z3 exact pinned noWater truth/view bundle
+  ---
+  duration_ms: 0.088541
+  type: 'test'
+  ...
+# Subtest: Z3 exact pinned soap truth/view bundle
+ok 293 - Z3 exact pinned soap truth/view bundle
+  ---
+  duration_ms: 0.2035
+  type: 'test'
+  ...
+# Subtest: Z3 exact pinned thermometer truth/view bundle
+ok 294 - Z3 exact pinned thermometer truth/view bundle
+  ---
+  duration_ms: 0.276333
+  type: 'test'
+  ...
+# Subtest: Z3 hand-derived adjacency and scalars independently match current pack
+ok 295 - Z3 hand-derived adjacency and scalars independently match current pack
+  ---
+  duration_ms: 2.191458
+  type: 'test'
+  ...
+# Subtest: Z3 unknown truth labels and reasons never leak into slots/beliefs
+ok 296 - Z3 unknown truth labels and reasons never leak into slots/beliefs
+  ---
+  duration_ms: 0.4505
+  type: 'test'
+  ...
+# Subtest: Z3 stock shortage differs from reference knowledge gap
+ok 297 - Z3 stock shortage differs from reference knowledge gap
+  ---
+  duration_ms: 0.08275
+  type: 'test'
+  ...
+# Subtest: Z6 long-chain structured isolated oversize refusal
+ok 298 - Z6 long-chain structured isolated oversize refusal
+  ---
+  duration_ms: 29.208334
+  type: 'test'
+  ...
+# Subtest: Z6 wide-and structured isolated oversize refusal
+ok 299 - Z6 wide-and structured isolated oversize refusal
+  ---
+  duration_ms: 27.970917
+  type: 'test'
+  ...
+# Subtest: Z6 unused-catalog structured isolated oversize refusal
+ok 300 - Z6 unused-catalog structured isolated oversize refusal
+  ---
+  duration_ms: 31.381417
+  type: 'test'
+  ...
+# Subtest: Z6 huge-text structured isolated oversize refusal
+ok 301 - Z6 huge-text structured isolated oversize refusal
+  ---
+  duration_ms: 16.800541
+  type: 'test'
+  ...
+# Subtest: Z6 independent parent deadline terminates nonterminating worker
+ok 302 - Z6 independent parent deadline terminates nonterminating worker
+  ---
+  duration_ms: 103.143
+  type: 'test'
+  ...
+# Subtest: Z6 admitted long-chain terminates
+ok 303 - Z6 admitted long-chain terminates
+  ---
+  duration_ms: 29.574208
+  type: 'test'
+  ...
+# Subtest: Z6 admitted wide-and terminates
+ok 304 - Z6 admitted wide-and terminates
+  ---
+  duration_ms: 23.888
+  type: 'test'
+  ...
+# Subtest: Z6 admitted many-or terminates
+ok 305 - Z6 admitted many-or terminates
+  ---
+  duration_ms: 23.4445
+  type: 'test'
+  ...
+# Subtest: Z6 admitted diamond terminates
+ok 306 - Z6 admitted diamond terminates
+  ---
+  duration_ms: 20.915625
+  type: 'test'
+  ...
+# Subtest: Z6 admitted scc-exit terminates
+ok 307 - Z6 admitted scc-exit terminates
+  ---
+  duration_ms: 21.897041
+  type: 'test'
+  ...
+# Subtest: Z6 admitted hostile-chain terminates
+ok 308 - Z6 admitted hostile-chain terminates
+  ---
+  duration_ms: 23.781625
+  type: 'test'
+  ...
+# Subtest: Z6 every phase checks external graphs and operation budget
+ok 309 - Z6 every phase checks external graphs and operation budget
+  ---
+  duration_ms: 4.45575
+  type: 'test'
+  ...
+# Subtest: Z6 dangling operators choices and depth fail before publication
+ok 310 - Z6 dangling operators choices and depth fail before publication
+  ---
+  duration_ms: 3.712209
+  type: 'test'
+  ...
+# Subtest: Z6 sparse huge arrays refused without iteration or clone
+ok 311 - Z6 sparse huge arrays refused without iteration or clone
+  ---
+  duration_ms: 0.421584
+  type: 'test'
+  ...
+# Subtest: Z6 cyclic SCC plus long path uses conservative condensation bound
+ok 312 - Z6 cyclic SCC plus long path uses conservative condensation bound
+  ---
+  duration_ms: 18.076333
+  type: 'test'
+  ...
+# Subtest: Z5 retained v1 meaning against additive v2
+ok 313 - Z5 retained v1 meaning against additive v2
+  ---
+  duration_ms: 26.298333
+  type: 'test'
+  ...
+# Subtest: Z5 retained v1 meaning against removal v2
+ok 314 - Z5 retained v1 meaning against removal v2
+  ---
+  duration_ms: 10.507667
+  type: 'test'
+  ...
+# Subtest: Z5 retained v1 meaning against rename v2
+ok 315 - Z5 retained v1 meaning against rename v2
+  ---
+  duration_ms: 5.053958
+  type: 'test'
+  ...
+# Subtest: Z5 retained v1 meaning against semantic v2
+ok 316 - Z5 retained v1 meaning against semantic v2
+  ---
+  duration_ms: 5.192875
+  type: 'test'
+  ...
+# Subtest: Z5 retained v1 meaning against world-law v2
+ok 317 - Z5 retained v1 meaning against world-law v2
+  ---
+  duration_ms: 5.209875
+  type: 'test'
+  ...
+# Subtest: Z5 retained v1 meaning against missing-pack v2
+ok 318 - Z5 retained v1 meaning against missing-pack v2
+  ---
+  duration_ms: 4.848125
+  type: 'test'
+  ...
+# Subtest: Z5 future-schema preserves SOURCE_SYNTHETIC fixture atomically
+ok 319 - Z5 future-schema preserves SOURCE_SYNTHETIC fixture atomically
+  ---
+  duration_ms: 1.296542
+  type: 'test'
+  ...
+# Subtest: Z5 dangling-ref preserves SOURCE_SYNTHETIC fixture atomically
+ok 320 - Z5 dangling-ref preserves SOURCE_SYNTHETIC fixture atomically
+  ---
+  duration_ms: 1.471459
+  type: 'test'
+  ...
+# Subtest: Z5 bad-digest preserves SOURCE_SYNTHETIC fixture atomically
+ok 321 - Z5 bad-digest preserves SOURCE_SYNTHETIC fixture atomically
+  ---
+  duration_ms: 1.591958
+  type: 'test'
+  ...
+# Subtest: Z5 duplicate-id preserves SOURCE_SYNTHETIC fixture atomically
+ok 322 - Z5 duplicate-id preserves SOURCE_SYNTHETIC fixture atomically
+  ---
+  duration_ms: 1.416542
+  type: 'test'
+  ...
+# Subtest: Z5 invalid-choice preserves SOURCE_SYNTHETIC fixture atomically
+ok 323 - Z5 invalid-choice preserves SOURCE_SYNTHETIC fixture atomically
+  ---
+  duration_ms: 1.322333
+  type: 'test'
+  ...
+# Subtest: Z5 unknown-operator preserves SOURCE_SYNTHETIC fixture atomically
+ok 324 - Z5 unknown-operator preserves SOURCE_SYNTHETIC fixture atomically
+  ---
+  duration_ms: 1.229125
+  type: 'test'
+  ...
+# Subtest: Z5 oversize preserves SOURCE_SYNTHETIC fixture atomically
+ok 325 - Z5 oversize preserves SOURCE_SYNTHETIC fixture atomically
+  ---
+  duration_ms: 1.053959
+  type: 'test'
+  ...
+# Subtest: Z5 missing-handler preserves SOURCE_SYNTHETIC fixture atomically
+ok 326 - Z5 missing-handler preserves SOURCE_SYNTHETIC fixture atomically
+  ---
+  duration_ms: 1.289041
+  type: 'test'
+  ...
+# Subtest: Z5 failWrite source synthetic protocol leaves memory intact
+ok 327 - Z5 failWrite source synthetic protocol leaves memory intact
+  ---
+  duration_ms: 2.18325
+  type: 'test'
+  ...
+# Subtest: Z5 failHandler source synthetic protocol leaves memory intact
+ok 328 - Z5 failHandler source synthetic protocol leaves memory intact
+  ---
+  duration_ms: 2.26525
+  type: 'test'
+  ...
+# Subtest: Z5 absent owner stays absent without catalog consultation
+ok 329 - Z5 absent owner stays absent without catalog consultation
+  ---
+  duration_ms: 0.055417
+  type: 'test'
+  ...
+# Subtest: Z5 wrong beliefs and equal-knowledge projection survive load without discovery
+ok 330 - Z5 wrong beliefs and equal-knowledge projection survive load without discovery
+  ---
+  duration_ms: 3.913584
+  type: 'test'
+  ...
+# Subtest: Z5 repeated queries and capture add zero records or bytes; returned data detached
+ok 331 - Z5 repeated queries and capture add zero records or bytes; returned data detached
+  ---
+  duration_ms: 11.693958
+  type: 'test'
+  ...
+# Subtest: Z5 shared pinned bundles and 1/32/128 projects, all-pinned denial
+ok 332 - Z5 shared pinned bundles and 1/32/128 projects, all-pinned denial
+  ---
+  duration_ms: 200.460375
+  type: 'test'
+  ...
+# Subtest: Z5 ID collision and unsupported migration reject
+ok 333 - Z5 ID collision and unsupported migration reject
+  ---
+  duration_ms: 1.4045
+  type: 'test'
+  ...
+# Subtest: Z5 absent executable support holds detached import before publication
+ok 334 - Z5 absent executable support holds detached import before publication
+  ---
+  duration_ms: 1.390709
+  type: 'test'
+  ...
+1..334
+# tests 334
+# suites 0
+# pass 334
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 419.507
