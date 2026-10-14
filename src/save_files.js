@@ -1,3 +1,4 @@
+import {validateProductAppearanceEnvelope} from './product_appearance_state.js';
 import {validateStreams,validateNativeEncounter} from "./seeded_streams.js";
 import {validateMixtureEnvelope} from './mixture_state.js';
 import {validateStoryletState} from './storylet_deck.js';
@@ -47,6 +48,7 @@ const number = (value, label, minimum = 0) => {
 export function validateSaveEnvelope(original, currentVersion) {
     object(original, "Save");
     validateMixtureEnvelope(original);
+    validateProductAppearanceEnvelope(original);
     if(Object.hasOwn(original, "cheats"))validateCheatState(original.cheats);
     if(original.customization!=null)validateCustomizationState(original.customization);
     if(original.work_ledger!=null)migrateWorkLedger(original.work_ledger);

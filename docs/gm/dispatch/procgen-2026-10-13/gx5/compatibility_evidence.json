@@ -1,0 +1,23 @@
+{
+  "checks": [
+    {
+      "id": "S1",
+      "label": "seeded-native",
+      "check": "pre-slice mixture literal-file load preserves truth/stock/knowledge and original label",
+      "pass": true
+    },
+    {
+      "id": "S2",
+      "label": "seeded-native",
+      "check": "repeat legacy type stays unchanged; actual new type explicitly enrolls first appearance",
+      "pass": true
+    },
+    {
+      "id": "S3",
+      "label": "seeded-native",
+      "check": "native literal-file unsupported-pool and forged-binding rejection keep current save exact",
+      "pass": true
+    }
+  ],
+  "errors": []
+}
