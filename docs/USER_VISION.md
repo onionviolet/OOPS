@@ -2903,3 +2903,8 @@ folds lanes PC1-PC5 (corrections X1-X19, shared verdict of no universal
 engine, top picks T1-T5, R3-1 to R3-5) and saves the
 [modular chains core audit](audits/MODULAR_CHAINS_CORE_AUDIT.md). HV1 flagged
 to the merge-sweep session. Proposals only.
+
+Then: “Dispatch T2 (read-only chain inspector) then T3 (rule reader at Village
+mixing) as code lanes, after HV1 merges.” HV1 merged at 4f853c24 (merge sweep).
+Code lanes in [chain build](gm/dispatch/chain-build-2026-10-14/COMMON.md): T2
+running; T3 starts on T2's branch once T2 is DONE. Root merges after gates.
