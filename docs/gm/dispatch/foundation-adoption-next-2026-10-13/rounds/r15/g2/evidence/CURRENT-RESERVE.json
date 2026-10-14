@@ -1,0 +1,134 @@
+{
+ "label": "seeded-native",
+ "built": "d4999496a25e220c14e09e159bf0dc7e910fa8dfb7781cc94fbec180fbbf5c2a",
+ "states": [
+  {
+   "name": "before",
+   "clock": 748,
+   "money": 51,
+   "stamina_to_full": 0,
+   "hp_to_full": 0,
+   "location": "Village",
+   "items": {
+    "Prepared survey kit": 0,
+    "Set repair resin": 3,
+    "Sound repair stave": 6
+   },
+   "jobs": [],
+   "cursor": {
+    "definitionId": "factorio_retort.three_batches",
+    "status": "cancelled",
+    "index": 0,
+    "reason": "Future steps cancelled. Any retained accepted job keeps its disclosed terms.",
+    "accepted": null
+   },
+   "program": {
+    "commandId": "village.measured_pack",
+    "remaining": 0,
+    "status": "complete",
+    "targetId": null
+   }
+  },
+  {
+   "name": "two-batches-held-four",
+   "clock": 754,
+   "money": 51,
+   "stamina_to_full": 0,
+   "hp_to_full": 0,
+   "location": "Village",
+   "items": {
+    "Prepared survey kit": 4,
+    "Set repair resin": 1,
+    "Sound repair stave": 2
+   },
+   "jobs": [],
+   "cursor": {
+    "definitionId": "audited_kit_reserve.resin_plan",
+    "status": "running",
+    "index": 2,
+    "reason": "Reserve holding: 4 available owned kits. Restart at 2 or fewer; holding spends no materials, stamina or work time.",
+    "accepted": null,
+    "stockHold": true,
+    "stockAcceptedBatches": 2
+   },
+   "program": {
+    "commandId": "village.measured_pack",
+    "remaining": 0,
+    "status": "complete",
+    "targetId": null
+   }
+  },
+  {
+   "name": "two-kits-stored-two-carried",
+   "clock": 782,
+   "money": 51,
+   "stamina_to_full": 0,
+   "hp_to_full": 0,
+   "location": "Shack",
+   "items": {
+    "Prepared survey kit": 2,
+    "Set repair resin": 1,
+    "Sound repair stave": 2
+   },
+   "jobs": [],
+   "cursor": {
+    "definitionId": "audited_kit_reserve.resin_plan",
+    "status": "paused",
+    "index": 2,
+    "reason": "Reserve paused: return to Eda’s Village bench with your supported living body and usable hands, then resume.",
+    "accepted": null,
+    "stockHold": true,
+    "stockAcceptedBatches": 2
+   },
+   "program": {
+    "commandId": "village.measured_pack",
+    "remaining": 0,
+    "status": "complete",
+    "targetId": null
+   }
+  },
+  {
+   "name": "three-accepted-complete",
+   "clock": 786,
+   "money": 51,
+   "stamina_to_full": 0,
+   "hp_to_full": 0,
+   "location": "Village",
+   "items": {
+    "Prepared survey kit": 4,
+    "Set repair resin": 0,
+    "Sound repair stave": 0
+   },
+   "jobs": [],
+   "cursor": {
+    "definitionId": "audited_kit_reserve.resin_plan",
+    "status": "complete",
+    "index": 3,
+    "reason": "The finite three-accepted-batch reserve is complete. No later batch will be reserved.",
+    "accepted": null,
+    "stockHold": false,
+    "stockAcceptedBatches": 3
+   },
+   "program": {
+    "commandId": "village.measured_pack",
+    "remaining": 0,
+    "status": "complete",
+    "targetId": null
+   }
+  }
+ ],
+ "chestKits": 2,
+ "restoration": {
+  "label": "current-reserve-exhausted",
+  "comparison": "loaded before PLAY, real Save/Export/reload/literal-file Import",
+  "file": "current-reserve-exhausted.txt",
+  "fileSha": "45e00fc5d8b2565ec7012f9c763ed5310f3c9aa9ffd2dc018b18607f27396348",
+  "reloadDiff": [],
+  "importDiff": [],
+  "clocks": [
+   786,
+   786,
+   786
+  ]
+ }
+}

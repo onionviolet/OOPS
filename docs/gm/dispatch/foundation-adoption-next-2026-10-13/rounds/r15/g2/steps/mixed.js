@@ -1,0 +1,13 @@
+page.setDefaultTimeout(60000);const j={label:'seeded-native',built:built(),cases:[]};
+const held=async id=>{const r=await row(id);await r.locator('button').first().evaluate(b=>{b.click();const t=setTimeout(()=>{},0);for(let i=0;i<=t+10;i++){clearTimeout(i);clearInterval(i);}});};
+const ids=['Rough wood log','Prepared survey kit'];
+await boot2('mixed-nowood');await act('feature_society.household_itinerary');const d=await save();assert.equal(cursor(d).status,'paused');assert.equal(cursor(d).index,0);assert.equal(inv(d,'Rough wood log'),1);
+j.cases.push({name:'mixed-no-wood-no-charge',state:summary(d,ids),rootSchema:d.expansion.simulation.workPlans.schema,restoration:await restoration('current-mixed-root1-depleted')});record('CURRENT-MIXED',j);
+await boot2('mixed');await held('feature_society.household_itinerary');const f0=await save();await held('plan-cancel');const f1=await save();assert.equal(cursor(f1).status,'cancelled');assert.equal(inv(f1,'Rough wood log'),87);
+await reload();await ticks(8);const f2=await save();assert.equal(cursor(f2).status,'cancelled');assert.equal(inv(f2,'Prepared survey kit'),3);
+j.cases.push({name:'mixed-future-stops-cursor-keeps-resident-job',accepted:summary(f0,ids),cancelled:summary(f1,ids),later:summary(f2,ids),residentJobs:f0.expansion.simulation.jobs.filter(x=>x.actorId!=='player').map(x=>({actorId:x.actorId,commandId:x.commandId,due:x.due})),restoration:await restoration('current-mixed-future-cancelled')});record('CURRENT-MIXED',j);
+await boot2('mixed');await act('feature_society.household_itinerary');await page.waitForFunction(()=>{const s=JSON.parse(localStorage.getItem('save data'));const c=s.expansion.simulation.workPlans.cursors.player;return c.status==='paused'&&c.index===5;},null,{timeout:90000});
+await travel('Shack');const a=await save();await held('plan-resume');const b=await save();assert.equal(pjobs(b)[0].commandId,'feature_society.personal_pack');await held('cancel:'+pjobs(b)[0].id);const c=await save();
+assert.equal(inv(b,'Rough wood log'),inv(a,'Rough wood log')-1);assert.equal(inv(c,'Rough wood log'),inv(a,'Rough wood log'));assert.equal(inv(c,'Prepared survey kit'),3);assert.equal(pjobs(c).length,0);
+j.cases.push({name:'mixed-current-refunds-owned-log-no-kit',before:summary(a,ids),accepted:summary(b,ids),cancelled:summary(c,ids),rootSchema:c.expansion.simulation.workPlans.schema});
+await reload();j.cases.at(-1).restoration=await restoration('current-mixed-current-refund');record('CURRENT-MIXED',j);return j;

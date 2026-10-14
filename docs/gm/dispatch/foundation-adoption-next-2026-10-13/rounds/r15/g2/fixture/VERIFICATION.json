@@ -1,0 +1,144 @@
+[
+  {
+    "file": "TEST-FIXTURE-R15-G2-retort.txt",
+    "base": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r7/final-earned-native.txt",
+    "why": "FA11/FA12: genuine R7 state has 0 sap; seed 6 Tree sap (purchasable via proto23.buy_sap).",
+    "name": "TEST FIXTURE R15 G2 retort",
+    "clock": 748,
+    "money": [
+      51,
+      51
+    ],
+    "added": {
+      "Tree sap": 6
+    },
+    "removed": {},
+    "loadWarnings": [],
+    "reloadWarnings": [],
+    "reimport": "PASS"
+  },
+  {
+    "file": "TEST-FIXTURE-R15-G2-reserve.txt",
+    "base": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r7/final-earned-native.txt",
+    "why": "FA09 reserve: kit stock 0 (kits delivered/used), resin 3, sound staves 6 so three accepted batches are fundable.",
+    "name": "TEST FIXTURE R15 G2 reserve",
+    "clock": 748,
+    "money": [
+      51,
+      51
+    ],
+    "added": {
+      "Set repair resin": 2,
+      "Sound repair stave": 6
+    },
+    "removed": {
+      "Prepared survey kit": 7
+    },
+    "loadWarnings": [],
+    "reloadWarnings": [],
+    "reimport": "PASS"
+  },
+  {
+    "file": "TEST-FIXTURE-R15-G2-held.txt",
+    "base": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r7/final-earned-native.txt",
+    "why": "FA09 held reserve/closed browser: genuine 7 kits stay above hold; add resin 2 + staves 6 so a release is fundable.",
+    "name": "TEST FIXTURE R15 G2 held",
+    "clock": 748,
+    "money": [
+      51,
+      51
+    ],
+    "added": {
+      "Set repair resin": 2,
+      "Sound repair stave": 6
+    },
+    "removed": {},
+    "loadWarnings": [],
+    "reloadWarnings": [],
+    "reimport": "PASS"
+  },
+  {
+    "file": "TEST-FIXTURE-R15-G2-program.txt",
+    "base": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r7/final-earned-native.txt",
+    "why": "FA09 program: purse 5 coins funds exactly two 2-coin measured packs, so a 3-job program must pause on funding.",
+    "name": "TEST FIXTURE R15 G2 program",
+    "clock": 748,
+    "money": [
+      51,
+      5
+    ],
+    "added": {},
+    "removed": {},
+    "loadWarnings": [],
+    "reloadWarnings": [],
+    "reimport": "PASS"
+  },
+  {
+    "file": "TEST-FIXTURE-R15-G2-program3.txt",
+    "base": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r7/final-earned-native.txt",
+    "why": "FA09 program depletion: purse 3 coins funds one 2-coin pack, so a 3-job routine must pause on funding after its first job.",
+    "name": "TEST FIXTURE R15 G2 program3",
+    "clock": 748,
+    "money": [
+      51,
+      3
+    ],
+    "added": {},
+    "removed": {},
+    "loadWarnings": [],
+    "reloadWarnings": [],
+    "reimport": "PASS"
+  },
+  {
+    "file": "TEST-FIXTURE-R15-G2-program1log.txt",
+    "base": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r7/final-earned-native.txt",
+    "why": "FA09 material depletion: six coins fund three packs, but one carried log allows only the first.",
+    "name": "TEST FIXTURE R15 G2 program1log",
+    "clock": 748,
+    "money": [
+      51,
+      6
+    ],
+    "added": {},
+    "removed": {
+      "Rough wood log": 77
+    },
+    "loadWarnings": [],
+    "reloadWarnings": [],
+    "reimport": "PASS"
+  },
+  {
+    "file": "TEST-FIXTURE-R15-G2-mixed.txt",
+    "base": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r4/mixed-plan-ready-native.txt",
+    "why": "FA09 mixed plan opposites: genuine R4 state with household terms heard and itinerary not yet started. Name only.",
+    "name": "TEST FIXTURE R15 G2 mixed",
+    "clock": 528,
+    "money": [
+      63,
+      63
+    ],
+    "added": {},
+    "removed": {},
+    "loadWarnings": [],
+    "reloadWarnings": [],
+    "reimport": "PASS"
+  },
+  {
+    "file": "TEST-FIXTURE-R15-G2-mixed-nowood.txt",
+    "base": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r4/mixed-plan-ready-native.txt",
+    "why": "FA09 mixed depletion: same R4 state with logs sold down to 1 so the supply step lacks wood.",
+    "name": "TEST FIXTURE R15 G2 mixed nowood",
+    "clock": 528,
+    "money": [
+      63,
+      63
+    ],
+    "added": {},
+    "removed": {
+      "Rough wood log": 88
+    },
+    "loadWarnings": [],
+    "reloadWarnings": [],
+    "reimport": "PASS"
+  }
+]

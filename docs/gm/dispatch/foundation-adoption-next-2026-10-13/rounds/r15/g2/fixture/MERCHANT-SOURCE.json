@@ -1,0 +1,9 @@
+{
+  "label": "source",
+  "operation": "Real TraderComponent.refresh after real model transfer of one tray; native serializer/importer/loader re-import",
+  "playerTray": 0,
+  "merchantTray": 1,
+  "refreshPreserved": 1,
+  "reimport": "PASS",
+  "warnings": []
+}
