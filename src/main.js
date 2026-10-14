@@ -296,7 +296,9 @@ import {SafeLocation as OptionalPackLocation} from './models/location.js';
 const optionalPacks=new Map();
 const foundationProbeEnabled=typeof location!=='undefined'&&['localhost','127.0.0.1'].includes(location.hostname)&&new URLSearchParams(location.search).get('foundation_probe')==='1';
 const structuredPacks=new Map();
-const initialStructuredDefinition=()=>foundationProbeEnabled&&structuredPacks.get(FOUNDATION_START_PACK_ID)||structuredPacks.get(LIVELIHOOD_PACK_ID)||[...structuredPacks.values()][0];
+// Local authoring preview selects an optional candidate without replacing live content.
+const structuredCandidateId=typeof location!=='undefined'&&['localhost','127.0.0.1'].includes(location.hostname)?new URLSearchParams(location.search).get('structured_candidate'):null;
+const initialStructuredDefinition=()=>structuredPacks.get(structuredCandidateId)||foundationProbeEnabled&&structuredPacks.get(FOUNDATION_START_PACK_ID)||structuredPacks.get(LIVELIHOOD_PACK_ID)||[...structuredPacks.values()][0];
 const packDefinitionsForSave=()=>new Map([...optionalPacks,...structuredPacks]);
 let structuredPanel,structuredNotice='',suspendedStructuredSave=null;
 let cheatState=defaultCheatState();
