@@ -1,0 +1,198 @@
+{
+  "captured": "2026-10-14",
+  "meaning": "completion-time read input fingerprints, not runtime proof or a claim that shared owners stayed fixed during the audit",
+  "files": {
+    "AGENTS.md": {
+      "sha256": "0aecd5d70ed7f6c7815c81b66ac6137da49b1c04573ac785007cfb38ad559026",
+      "lines": 107
+    },
+    "PROJECT.md": {
+      "sha256": "ef9b99c939970a706b9b91b9ca2715e2b1b6bfec629d567aacbe72d16d44b0fa",
+      "lines": 670
+    },
+    "docs/ABUSE_AND_LIMITS.md": {
+      "sha256": "4a3cdce7fce485e30cb92d7d009b38a6e7e787b8b814b13ac41c3f6ef41947ec",
+      "lines": 176
+    },
+    "docs/LIFE_SIM_NORTH_STAR.md": {
+      "sha256": "8b4bb828e22666db1aba29f761e583dc5e0a99bb192b59f2d2956009a68c47a1",
+      "lines": 7637
+    },
+    "docs/RULES_FROM_SCRATCH.md": {
+      "sha256": "1ddd1625556c44558514a226f44cabd20ac4a70d1ca7628b0515d0fdec86808a",
+      "lines": 353
+    },
+    "docs/TIMELINES_AND_DIVERGENCE.md": {
+      "sha256": "ddbd89552dc53a8f830b2f43c65fcc4f639c23aca450c3e99440152f9d1588ee",
+      "lines": 602
+    },
+    "docs/USER_VISION.md": {
+      "sha256": "e98fe500c0b2567e72c057a4c21d547dc23be572b7a81b5ce7c5036c37e3ce4e",
+      "lines": 2346
+    },
+    "docs/gm/dispatch/procgen-2026-10-13/PLAN.md": {
+      "sha256": "36cae007c1b27f9c0151ed056047b9c5242879bfdbc8d80daad798394644ede2",
+      "lines": 66
+    },
+    "docs/gm/dispatch/runs-and-endings-2026-10-14/COMMON.md": {
+      "sha256": "94b1d6f621b83ad21f27357b363527cafd00342c166618374e5a92d71f3acae4",
+      "lines": 32
+    },
+    "docs/worlds/CAMPAIGN_FRAMEWORK.md": {
+      "sha256": "679feddcd8572f75525cd598d54243353883ad86fd99a5584fa46dfb6e4d081d",
+      "lines": 216
+    },
+    "docs/worlds/CONTINUATION_CHOICE_CONSIDERATION_2026-10-13.md": {
+      "sha256": "366113034330b1636b9d9a5972304a27ffd960d587d3b650d81b526c7725c06e",
+      "lines": 59
+    },
+    "docs/worlds/world-depth-2026-10-13/06_CROSS_WORLD.md": {
+      "sha256": "a6081b5ba342e30bc0ef9c0da06dc7e2b7db51c5d2c9622c674dd694401a2aef",
+      "lines": 130
+    },
+    "docs/worlds/world-depth-2026-10-13/11_ACCESS_AND_STARTS.md": {
+      "sha256": "0b193caad04f10bade2a939ba6fddf6fa5096b308715b7b0626dedd2fca58566",
+      "lines": 175
+    },
+    "docs/worlds/world-depth-2026-10-13/13_EARNED_OPTIONS_AND_CHEATS.md": {
+      "sha256": "27d5e9b634f107843f69cd556a88e180ace033baa7e015331d985d30c57478ba",
+      "lines": 179
+    },
+    "docs/worlds/world-depth-2026-10-13/17_CARRYOVER_AND_RETROFIT.md": {
+      "sha256": "e5a1d87e46fde4dee3df8f0ec9c02df1376bb025d44c23fc1eb80b5f9e361f18",
+      "lines": 140
+    },
+    "docs/worlds/world-depth-2026-10-13/22_FEATURES_AS_CHEATS.md": {
+      "sha256": "db87678991749e3834b1ad5ef8dfa9e4a3204f78305b413adc2c3931bcc05e1c",
+      "lines": 1340
+    },
+    "src/backlog_expansion_host.js": {
+      "sha256": "fdea94ae9d03a8dd73839c9fa14f6d2e0cfb815188dee58a72e2a3df3152d556",
+      "lines": 156
+    },
+    "src/backlog_expansion_time.js": {
+      "sha256": "4f8e6b065ad76370671cf878a203cd1d9d3966a290268e3897684e690a0478fb",
+      "lines": 425
+    },
+    "src/backlog_expansion_transit.js": {
+      "sha256": "767e483e63f31964d058f066b7492e0cfaf827e31cf3efd0a1fbb8e4a6783906",
+      "lines": 497
+    },
+    "src/book_world_mol_host.js": {
+      "sha256": "d5d4417217390d0d15c7ec732c99d33c244eb23867869673da7defdaef9c3879",
+      "lines": 79
+    },
+    "src/book_world_mol_state.js": {
+      "sha256": "6d67e9b60ccb6f057bf56faf25d98e6475f47463f43daa5fe9ade8a883cdc651",
+      "lines": 60
+    },
+    "src/causal_story_host.js": {
+      "sha256": "cc6464bb00936100be5cf6b02c95be62f38c3478d273b2b83c4395fb7bcf8c1c",
+      "lines": 504
+    },
+    "src/chronicle.js": {
+      "sha256": "c21046237528b7b692efc367ae7cacc9b1a41714c622eff24b29c8ff5a9b261b",
+      "lines": 315
+    },
+    "src/chronicle_ui.js": {
+      "sha256": "80b3623e72aee4cc22fba6db958ed5a10cf8c98c8f5b1789cfb16e84afa40cc3",
+      "lines": 136
+    },
+    "src/expansion_engine.js": {
+      "sha256": "da1e9761400bec1cf72f4da171408f22af6cb6a2ce3dd72565b8b29039ab3f82",
+      "lines": 685
+    },
+    "src/expansion_persistence.js": {
+      "sha256": "779a82715884c48f3d2338816d76b90e5e894b625f2fb7daec174091c73bc966",
+      "lines": 51
+    },
+    "src/expansion_quest_ui.js": {
+      "sha256": "6a0a7d2bc44a1a5586e3c1bfedacedc78818979776b1c3c6ca1eeef4e39f8d5e",
+      "lines": 31
+    },
+    "src/feature_expansion_destination_host.js": {
+      "sha256": "d91f8c31d0ae72676bd327ab60134e66376ed04091127d4b98049db4fd0b92f0",
+      "lines": 182
+    },
+    "src/feature_expansion_nested_host.js": {
+      "sha256": "94c04d5c80b660d617b92b0341115f2bf97abe3a211c98fc66c70021233eff42",
+      "lines": 300
+    },
+    "src/frontier_campaign.js": {
+      "sha256": "f1e08ded56a03ab38feec3004ca1f88b06accaa7cd1c9393cdd1a91e31806012",
+      "lines": 108
+    },
+    "src/heir_inheritance.js": {
+      "sha256": "41c510b1ceb72e39620ea97c5c9f0a3763604a4dd329de5a5b8cccbc5fc4370f",
+      "lines": 115
+    },
+    "src/life_experience.js": {
+      "sha256": "c1753b6bbbcd63180e729f67bfd9c0260ee981bfc1329d7a1287d5b63e1adb6c",
+      "lines": 36
+    },
+    "src/life_experience_host.js": {
+      "sha256": "67d347365e40988aa281fa093b08c5a3a8a1cd354544a13d5e3c647fd07426f2",
+      "lines": 30
+    },
+    "src/life_record.js": {
+      "sha256": "21ac5f17fff62794ba26d7180deb6a9c0ad85060d79134e5d6ce83de51d1d9bd",
+      "lines": 82
+    },
+    "src/main.js": {
+      "sha256": "fc0743237c7c93a62ac834bd636afe5c6c7858172b77d1a53d01a84b1195172f",
+      "lines": 8579
+    },
+    "src/native_realm_traveler.js": {
+      "sha256": "df41221c00073b7fe7fbc69baca6d549dc25291017b36eb1a3752af70250eb42",
+      "lines": 61
+    },
+    "src/native_unlock_transaction.js": {
+      "sha256": "2382bab9895016e22d6d25ba5f94929eac76ef14b9cfb7225cb77e08369f65ad",
+      "lines": 40
+    },
+    "src/quests.js": {
+      "sha256": "19f14bec33bb8782a3ae6f8c827c8bea1136bc65afd99e7733f598ecd9246ca8",
+      "lines": 597
+    },
+    "src/realm_clock_leases.js": {
+      "sha256": "2daa0cd9778f52e5e2d69834fe65aa87b643d14f3ec7f49f8aae3a5c7718cb3e",
+      "lines": 227
+    },
+    "src/save_files.js": {
+      "sha256": "dc7908d8a257ddcb896b0a3a077902ce961a7b681d0cba24e1dd1ef7f992e81f",
+      "lines": 217
+    },
+    "src/simulation.js": {
+      "sha256": "4b0cec849a464c1ea758752c0881f15f7f26d5be857173ffcefda4b7eaba149c",
+      "lines": 633
+    },
+    "src/simulation_contracts.js": {
+      "sha256": "519b55317952eb7b4cd10a0cabb899542e7af706f568358f146b241be81b301c",
+      "lines": 322
+    },
+    "src/simulation_resolution.js": {
+      "sha256": "b47789d1959d5e43fcce298b3631830169aa0d89b972cd7d08da1a55e4c2fd94",
+      "lines": 41
+    },
+    "src/structured_renewal.js": {
+      "sha256": "0475b893680b1432af10d180bc03440ba7bfa9fc4d3d65cc93b88a6fb52ac1d8",
+      "lines": 51
+    },
+    "src/titles.js": {
+      "sha256": "f73f298b6557220ce2753484115210f4fdf7b6e2731f69c6d6d41dce16645230",
+      "lines": 111
+    },
+    "src/workspace_layout.js": {
+      "sha256": "51d9ecdf3cbb29a55d431582c489563d36ad6b36adabc9db2e7dfabd464c23c7",
+      "lines": 395
+    },
+    "src/world_completion_life_content.js": {
+      "sha256": "823edcb1f298408fc283c193e712c241c2c5a9c465300c7b1f7928fd4b1330f4",
+      "lines": 81
+    },
+    "src/world_instances.js": {
+      "sha256": "cf15bd3c1d34153c541617fdd83a45d9b9faddd98b64b20edd0160d9547720fd",
+      "lines": 429
+    }
+  }
+}

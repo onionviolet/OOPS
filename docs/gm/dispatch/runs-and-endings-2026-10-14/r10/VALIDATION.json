@@ -1,0 +1,38 @@
+{
+  "date": "2026-10-14",
+  "state": "docs-only research validated; source unknowns retained",
+  "checks": {
+    "worlds": 15,
+    "world_rows": 94,
+    "cross_world_rows": 10,
+    "first_builds": 3,
+    "unique_row_codes": 107,
+    "integration_rows_match": true,
+    "local_links_and_anchors": true,
+    "world_evidence_labels_and_citations": true,
+    "em_dash_free": true,
+    "selected_outcome_name_guard": true
+  },
+  "limits": [
+    "Name guard supplements manual review, not a complete spoiler detector.",
+    "No build/browser/save tests; no runtime edits.",
+    "Indexed/derived evidence and exact first-day/rite/recognition unknowns remain labeled."
+  ],
+  "world_counts": {
+    "Harry Potter: M001–M006": 6,
+    "D&D: M011–M016": 6,
+    "A Soldier's Life: M021–M026": 6,
+    "TTKS B1–B5: M031–M040": 10,
+    "Mother of Learning: M041–M046": 6,
+    "LOTM / Circle of Inevitability: M051–M056": 6,
+    "Shadow Slave: M061–M066": 6,
+    "Jujutsu Kaisen: M071–M076": 6,
+    "Bleach: M081–M086": 6,
+    "Fate: M091–M096": 6,
+    "Hunter × Hunter: M101–M106": 6,
+    "Fullmetal Alchemist: M111–M116": 6,
+    "Naruto: M121–M126": 6,
+    "Chainsaw Man: M131–M136": 6,
+    "One Piece: M141–M146": 6
+  }
+}

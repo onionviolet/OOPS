@@ -1,0 +1,24 @@
+{
+  "date": "2026-10-14",
+  "lane": "R6",
+  "source": "docs/worlds/world-depth-2026-10-13/22_FEATURES_AS_CHEATS.md",
+  "whole_file_sha256": "fbbd6097b316771b43183105246f20a4e11afc281956007f0c5650086231dfb3",
+  "sections_8_to_17_sha256": "a647d6a16772a37a167ccb0a8a1645f703774252a7b2310c2dcaade342e92cdc",
+  "line_count": 1448,
+  "evidence": "read-only document inspection; paper simulation only",
+  "authority": [
+    "AGENTS.md",
+    "PROJECT.md",
+    "docs/USER_VISION.md",
+    "docs/RULES_FROM_SCRATCH.md",
+    "docs/worlds/CONTINUATION_CHOICE_CONSIDERATION_2026-10-13.md",
+    "docs/worlds/WORLD_SECRETS_AND_DISCOVERY.md"
+  ],
+  "final_reread": {
+    "whole_file_sha256": "5eb44fc465350ab000eafb31e80a9023b2c862edbacf2d45c4fad43997f48684",
+    "sections_8_to_17_sha256": "6bcd2094972e885b26e2face2b5e9ac3a1fc349f65f27840e7fe891b6b403a15",
+    "section_boundary": "from section 8 to before section 18",
+    "scope": "corrected/affected section 8-17 rows, section 11 source classifications, section 12 introduction, and section 21 integrated LR/OC/RG/RT/RN rules; all cited step codes revalidated",
+    "concurrent_change": "other lanes integrated inline corrections and sections 18-22; reconciliation is in INTEGRATION.md"
+  }
+}
