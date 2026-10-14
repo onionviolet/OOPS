@@ -13,5 +13,12 @@ export function structuredReachabilityHints(definition, command, facts) {
         if(command.id===site.prepareId && facts['actor.'+site.injuryKey]>0)
             hints.push('Treat the current expedition injury before preparing another attempt.');
     }
+    for(const cost of command.costs||[]) {
+        if(cost.actor!=null&&!['player','$actor'].includes(cost.actor))continue;
+        if(cost.type!=='item'||!Number.isFinite(cost.amount)||cost.amount>=0)continue;
+        let item;try{item=definition.items?.find(i=>i.id===JSON.parse(cost.key).id);}catch{continue;}
+        const held=facts['item.'+cost.key]||0;
+        if(item && held < -cost.amount)hints.push(`Carried stock: ${held} / ${-cost.amount} × ${item.label} required. Retrieve or acquire the quoted input first.`);
+    }
     return hints;
 }
