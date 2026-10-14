@@ -94,6 +94,15 @@ is well documented enough to cite and build from (for example Hunter x Hunter,
 Fullmetal Alchemist and Naruto, by Claude's reading). Within that group the order
 follows source coverage.
 
+> more to consider? send out more codex agents accordingly, bring Reincarnation paradise to priority world too
+
+Direction recorded 2026-10-14: Reincarnation Paradise joins the canon-first
+tier as a book world. It already has a full supplied-edition reading (English
+MTL, printed chapters 4042-4049 missing) and the playable Paradise hub and Goa
+slice, so it slots in by source coverage like the other book worlds. Its role
+as a hub and its role as a world to live in both stay open. Earlier Paradise
+work keeps its own limits (original prototype fiction, unaccepted numbers).
+
 The per-world considerations, iteration workflow, parallel worlds, starting
 points, subtle details, required features and engine improvements live in
 [World depth considerations](worlds/WORLD_DEPTH_CONSIDERATIONS_2026-10-13.md).
@@ -3422,11 +3431,3 @@ other sessions; weapon/rune work is canonical in the UI-at-scale session's
 palette (R1-R3), so WR1-WR4 here were stopped as duplicates. Story round 11 saved
 (BN story-reveal cheats, BO one knowledge layer, BP story abstractions, BQ
 implementation). Finished lane reports committed; push awaits Weibao's yes.
-
-Then: “Considering comic worlds and stuff and more? ... Abstaction thats
-needed? Merging, commiting or pushing?” Round 10 of the same doc: comic
-research and tech CW1-CW18, comic revealer cheats RC16-RC23, abstractions
-AB1-AB12 with what not to abstract, and the merge/commit/push state. T2,
-T8, T9 results folded. Lanes T15 (comics) and T16 (planner QA build on T6's
-branch). Root committed its own doc paths only; push waits for an explicit
-yes. Proposals only.
