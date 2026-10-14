@@ -1,0 +1,457 @@
+{
+ "bf-roguelike-src": {
+  "games": [
+   "nethack",
+   "dcss-dda-depth",
+   "keeperrl"
+  ],
+  "gate": null
+ },
+ "bf-idle-src": {
+  "games": [
+   "bitburner",
+   "cividle",
+   "open-idle-games-2026-10-09",
+   "theory-of-magic",
+   "trimps-antimatter",
+   "cultivation-idlers",
+   "melvor-idle"
+  ],
+  "gate": null
+ },
+ "bf-public-other": {
+  "games": [
+   "majoras-mask",
+   "outer-wilds",
+   "rogue-legacy",
+   "super-robot-wars",
+   "bitlife"
+  ],
+  "gate": null
+ },
+ "bf-hogwarts": {
+  "games": [
+   "hogwarts-legacy"
+  ],
+  "gate": null
+ },
+ "bf-amazing-cultivation-simulator": {
+  "games": [
+   "amazing-cultivation-simulator"
+  ],
+  "gate": {
+   "kind": "steam_name",
+   "names": [
+    "amazing cultivation"
+   ]
+  }
+ },
+ "bf-ani-idle": {
+  "games": [
+   "ani-idle"
+  ],
+  "gate": {
+   "kind": "steam_name",
+   "names": [
+    "ani idle"
+   ]
+  }
+ },
+ "bf-battle-brothers": {
+  "games": [
+   "battle-brothers"
+  ],
+  "gate": {
+   "kind": "steam_name",
+   "names": [
+    "battle brothers"
+   ]
+  }
+ },
+ "bf-book-of-hours": {
+  "games": [
+   "book-of-hours"
+  ],
+  "gate": {
+   "kind": "steam_name",
+   "names": [
+    "book of hours"
+   ]
+  }
+ },
+ "bf-caves-of-qud": {
+  "games": [
+   "caves-of-qud"
+  ],
+  "gate": {
+   "kind": "steam_name",
+   "names": [
+    "caves of qud"
+   ]
+  }
+ },
+ "bf-citizen-sleeper": {
+  "games": [
+   "citizen-sleeper"
+  ],
+  "gate": {
+   "kind": "steam_name",
+   "names": [
+    "citizen sleeper"
+   ]
+  }
+ },
+ "bf-citizen-sleeper-2": {
+  "games": [
+   "citizen-sleeper-2"
+  ],
+  "gate": {
+   "kind": "steam_name",
+   "names": [
+    "citizen sleeper 2"
+   ]
+  }
+ },
+ "bf-crusader-kings-3": {
+  "games": [
+   "crusader-kings-3"
+  ],
+  "gate": {
+   "kind": "steam_name",
+   "names": [
+    "crusader kings iii",
+    "crusader kings 3"
+   ]
+  }
+ },
+ "bf-crush-crush": {
+  "games": [
+   "crush-crush"
+  ],
+  "gate": {
+   "kind": "steam_name",
+   "names": [
+    "crush crush"
+   ]
+  }
+ },
+ "bf-cult-of-the-lamb": {
+  "games": [
+   "cult-of-the-lamb"
+  ],
+  "gate": {
+   "kind": "steam_name",
+   "names": [
+    "cult of the lamb"
+   ]
+  }
+ },
+ "bf-cultist-simulator": {
+  "games": [
+   "cultist-simulator"
+  ],
+  "gate": {
+   "kind": "steam_name",
+   "names": [
+    "cultist simulator"
+   ]
+  }
+ },
+ "bf-disco-elysium": {
+  "games": [
+   "disco-elysium"
+  ],
+  "gate": {
+   "kind": "steam_name",
+   "names": [
+    "disco elysium"
+   ]
+  }
+ },
+ "bf-dwarf-fortress": {
+  "games": [
+   "dwarf-fortress"
+  ],
+  "gate": {
+   "kind": "steam_name",
+   "names": [
+    "dwarf fortress"
+   ]
+  }
+ },
+ "bf-elin": {
+  "games": [
+   "elin"
+  ],
+  "gate": {
+   "kind": "steam_name",
+   "names": [
+    "elin"
+   ]
+  }
+ },
+ "bf-endless-ascent": {
+  "games": [
+   "endless-ascent"
+  ],
+  "gate": {
+   "kind": "steam_name",
+   "names": [
+    "endless ascent"
+   ]
+  }
+ },
+ "bf-factorio": {
+  "games": [
+   "factorio"
+  ],
+  "gate": {
+   "kind": "steam_name",
+   "names": [
+    "factorio"
+   ]
+  }
+ },
+ "bf-idling-to-rule-the-gods": {
+  "games": [
+   "idling-to-rule-the-gods"
+  ],
+  "gate": {
+   "kind": "steam_name",
+   "names": [
+    "idling to rule"
+   ]
+  }
+ },
+ "bf-increlution": {
+  "games": [
+   "increlution"
+  ],
+  "gate": {
+   "kind": "steam_name",
+   "names": [
+    "increlution"
+   ]
+  }
+ },
+ "bf-kenshi": {
+  "games": [
+   "kenshi"
+  ],
+  "gate": {
+   "kind": "steam_name",
+   "names": [
+    "kenshi"
+   ]
+  }
+ },
+ "bf-kill-the-lich-idle": {
+  "games": [
+   "kill-the-lich-idle"
+  ],
+  "gate": {
+   "kind": "steam_name",
+   "names": [
+    "kill the lich"
+   ]
+  }
+ },
+ "bf-king-of-dragon-pass": {
+  "games": [
+   "king-of-dragon-pass"
+  ],
+  "gate": {
+   "kind": "steam_name",
+   "names": [
+    "king of dragon pass"
+   ]
+  }
+ },
+ "bf-magic-research-2": {
+  "games": [
+   "magic-research-2"
+  ],
+  "gate": {
+   "kind": "steam_name",
+   "names": [
+    "magic research 2"
+   ]
+  }
+ },
+ "bf-noita": {
+  "games": [
+   "noita"
+  ],
+  "gate": {
+   "kind": "steam_name",
+   "names": [
+    "noita"
+   ]
+  }
+ },
+ "bf-orb-of-creation": {
+  "games": [
+   "orb-of-creation"
+  ],
+  "gate": {
+   "kind": "steam_name",
+   "names": [
+    "orb of creation"
+   ]
+  }
+ },
+ "bf-oxygen-not-included": {
+  "games": [
+   "oxygen-not-included"
+  ],
+  "gate": {
+   "kind": "steam_name",
+   "names": [
+    "oxygen not included"
+   ]
+  }
+ },
+ "bf-path-of-achra": {
+  "games": [
+   "path-of-achra"
+  ],
+  "gate": {
+   "kind": "steam_name",
+   "names": [
+    "path of achra"
+   ]
+  }
+ },
+ "bf-planescape-torment": {
+  "games": [
+   "planescape-torment"
+  ],
+  "gate": {
+   "kind": "steam_name",
+   "names": [
+    "planescape"
+   ]
+  }
+ },
+ "bf-rimworld": {
+  "games": [
+   "rimworld"
+  ],
+  "gate": {
+   "kind": "steam_name",
+   "names": [
+    "rimworld"
+   ]
+  }
+ },
+ "bf-six-ages-2": {
+  "games": [
+   "six-ages-2"
+  ],
+  "gate": {
+   "kind": "steam_name",
+   "names": [
+    "six ages 2"
+   ]
+  }
+ },
+ "bf-soulash-2": {
+  "games": [
+   "soulash-2"
+  ],
+  "gate": {
+   "kind": "steam_name",
+   "names": [
+    "soulash 2"
+   ]
+  }
+ },
+ "bf-streets-of-rogue": {
+  "games": [
+   "streets-of-rogue"
+  ],
+  "gate": {
+   "kind": "steam_name",
+   "names": [
+    "streets of rogue"
+   ]
+  }
+ },
+ "bf-sucker-for-love-crush-landing": {
+  "games": [
+   "sucker-for-love-crush-landing"
+  ],
+  "gate": {
+   "kind": "steam_name",
+   "names": [
+    "sucker for love"
+   ]
+  }
+ },
+ "bf-sunless-sea": {
+  "games": [
+   "sunless-sea"
+  ],
+  "gate": {
+   "kind": "steam_name",
+   "names": [
+    "sunless sea"
+   ]
+  }
+ },
+ "bf-sunless-skies": {
+  "games": [
+   "sunless-skies"
+  ],
+  "gate": {
+   "kind": "steam_name",
+   "names": [
+    "sunless skies"
+   ]
+  }
+ },
+ "bf-tales-of-maj-eyal": {
+  "games": [
+   "tales-of-maj-eyal"
+  ],
+  "gate": {
+   "kind": "steam_name",
+   "names": [
+    "tales of maj"
+   ]
+  }
+ },
+ "bf-the-lands-of-eldyn": {
+  "games": [
+   "the-lands-of-eldyn"
+  ],
+  "gate": {
+   "kind": "steam_name",
+   "names": [
+    "eldyn"
+   ]
+  }
+ },
+ "bf-upload-labs": {
+  "games": [
+   "upload-labs"
+  ],
+  "gate": {
+   "kind": "steam_name",
+   "names": [
+    "upload labs"
+   ]
+  }
+ },
+ "bf-wildermyth": {
+  "games": [
+   "wildermyth"
+  ],
+  "gate": {
+   "kind": "steam_name",
+   "names": [
+    "wildermyth"
+   ]
+  }
+ }
+}

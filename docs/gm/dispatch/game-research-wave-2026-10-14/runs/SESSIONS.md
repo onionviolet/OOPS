@@ -88,3 +88,16 @@ Weibao: "save aspects like dialogue, impletation and more? deeper systems and ot
 Gated by `runs/watch2.py` (resumes the same session so the lane keeps its extracted context): asp-warsim, asp-taiwu, asp-immortal-life and asp-academagia each start when their round 3 lane finishes; synthesis-2 resumes cross-game-synthesis once every aspect lane is done. Log `runs/watch2.log`, state `runs/watch2.state.json`.
 
 Later, not dispatched: aspect backfill for the older dossiers (pre-wave games such as CK3, RimWorld, Caves of Qud, Hogwarts Legacy).
+
+## Round 5: aspect backfill for earlier dossiers (2026-10-14 18:35)
+
+Weibao: "send the same aspect pass for past stuff, consider if need install and more?" Earlier private extracts stayed on the old Mac, so 38 lanes wait for reinstalls ([install list](../BACKFILL_INSTALLS.md)); `runs/watch3.py` starts each when Steam reports its game installed (name match, max six at once, log `runs/watch3.log`). Prompts: `lanes/backfill/`.
+
+| Lane | Games | Session id |
+| --- | --- | --- |
+| bf-roguelike-src | NetHack, DCSS/DDA, KeeperRL | 01a13c87-b7a3-7a93-b490-0e99764cf2fe |
+| bf-idle-src | Bitburner, CivIdle, open idle repos, Theory of Magic, Trimps/Antimatter, cultivation idlers, Melvor | 01a13c87-b851-7943-a389-ea1f6fff2369 |
+| bf-public-other | Majora's Mask, Outer Wilds, Rogue Legacy, Super Robot Wars, BitLife | 01a13c87-b66e-7ad2-a027-ce025407e106 |
+| bf-hogwarts | Hogwarts Legacy | 01a13c87-b988-77f0-b5f5-7d01cdb2d770 |
+
+Round 4 gated aspect lanes all started (watch2): asp-taiwu 18:12, asp-immortal-life and asp-academagia 18:17, asp-warsim 18:22.
