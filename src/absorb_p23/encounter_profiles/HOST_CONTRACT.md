@@ -104,3 +104,16 @@ health/intent/cooldown, and completed state. Test absence and malformed field
 without mutation. Rebuild on the integrated candidate, record served hash and
 1366×768 evidence. Module fixtures and baseline Village smoke cannot close this
 gate. After these technical gates, Weibao's play/taste remains authoritative.
+
+## H6 P06 report reconciliation, 2026-10-14
+
+P06 source commit `a5f9d7a3` adds optional Combat
+`encounterProfile: {id, dropChanceModifier}` and native duplicate-defeat guards.
+For this rung pass `{id: PROFILE_ID, dropChanceModifier: 1}`. Our rank factor
+already lives inside `planSettlement`; do not also multiply it through Combat.
+P00 can bind this construct's native `get_loot` adapter to the planned area
+array, feeding its one native accessory/group modifier into our planner, but
+must stage/install returned state with the same kill publication. The P06
+modifier alone does not add an area table or prove durable atomicity. P06
+currently does not supply seeded move preview/target-local modifier or exact
+fighter/HP/cooldown restore; H2/H4 remain explicit P00 extension requests.

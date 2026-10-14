@@ -1,0 +1,93 @@
+{
+  "schema": 1,
+  "lane": "p23-encounter-profiles",
+  "date": "2026-10-14",
+  "base_head": "0216ccdefcfce79877378f8cb0ee41129fe11c5d",
+  "branch": "absorb-all/p23-encounter-profiles",
+  "source_commit": "a561a949a7a9764fd117a182e280e2ab8e3fb102",
+  "status": "implemented-unverified",
+  "final_merge_eligible": false,
+  "rows": [
+    {
+      "id": "R34",
+      "disposition": "unpark-now",
+      "status": "implemented-unverified",
+      "module": "src/absorb_p23/encounter_profiles/profile.js",
+      "open_native_dependency": "P06/P00"
+    },
+    {
+      "id": "R60",
+      "disposition": "adapt-next",
+      "status": "implemented-unverified",
+      "module": "src/absorb_p23/encounter_profiles/profile.js",
+      "open_native_dependency": "P06/P00"
+    },
+    {
+      "id": "N09",
+      "disposition": "adapt-next",
+      "status": "implemented-unverified",
+      "module": "src/absorb_p23/encounter_profiles/profile.js",
+      "open_native_dependency": "P06/P00"
+    },
+    {
+      "id": "N11",
+      "disposition": "unpark-now",
+      "status": "implemented-unverified",
+      "module": "src/absorb_p23/encounter_profiles/profile.js",
+      "open_native_dependency": "P06/P00"
+    }
+  ],
+  "compatibility": {
+    "field": "p23EncounterProfile",
+    "optional": true,
+    "schema": 1,
+    "old_absence": "inert, native old templates unchanged",
+    "validation": "reject unsupported/malformed optional field before entire native envelope mutation",
+    "native_save_join": "OPEN"
+  },
+  "checks": {
+    "build": "PASS baseline compatibility; standalone feature not bundled",
+    "focused": {
+      "tests": 13,
+      "pass": 13,
+      "fail": 0
+    },
+    "full": {
+      "tests": 633,
+      "pass": 632,
+      "fail": 1,
+      "duration_ms": 501288.452875,
+      "failure": "alloy_equipment.test.js:118 fixture subprocess 60-second timeout; unchanged files"
+    },
+    "failure_reproduction": {
+      "tests": 1,
+      "pass": 1,
+      "fail": 0,
+      "test_duration_ms": 16319.092375
+    },
+    "browser": {
+      "viewport": [
+        1366,
+        768
+      ],
+      "fresh_origin": true,
+      "baseline_village": "PASS",
+      "page_errors": 0,
+      "module_import_roundtrip": "PASS, not native gameplay",
+      "served_bundle_sha256": "598e02f54fe7db4c9a35bc79c75a754a7f8dc42eccf9fab828de8fd82e97b615",
+      "changed_native_loop": "OPEN",
+      "native_save_reload_export_literal_import": "OPEN"
+    }
+  },
+  "host_requests": "src/absorb_p23/encounter_profiles/HOST_CONTRACT.md H1-H6",
+  "p06_read_commit": "a5f9d7a3f90b09c78de2189e6ff3e5b400611760",
+  "remaining_gates": [
+    "P00 integrated native candidate",
+    "full integrated build/test gate",
+    "two legitimate training attempts and one native receipt per kill",
+    "pending/final native persistence and old-save controls",
+    "Weibao play/taste"
+  ],
+  "push": false,
+  "merge": false
+}

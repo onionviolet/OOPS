@@ -1,0 +1,15 @@
+{
+  "head": "0216ccdefcfce79877378f8cb0ee41129fe11c5d",
+  "branch": "absorb-all/p23-encounter-profiles",
+  "sourceSha256": "a43e55e2eeb455f1c1ae589e3fc074a588813fe6cd57cfba827dcf923f3755d5",
+  "unchangedFailureFiles": {
+    "tests/alloy_equipment.test.js": {
+      "sameAsBase": true,
+      "sha256": "929e7593e9a13d650499baa2c7f60db849f9ccab4f8eb6d40d98f6f4a4a9a36a"
+    },
+    "docs/gm/d1-alloy-equipment-2026-10-07/fixture/generate.mjs": {
+      "sameAsBase": true,
+      "sha256": "8b510322a914426eb5e56aa514129dde0ca42d4f878a6abf2b3bf04b9d6653a3"
+    }
+  }
+}
