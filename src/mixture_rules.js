@@ -19,7 +19,8 @@ const fields=(v,ks)=>check(v&&typeof v==='object'&&!Array.isArray(v)&&Object.key
 const options={registry:villageRuleTags};
 const module=(id,revision,process,value,kind='world_law')=>({schema:1,id,revision,resolver:'village.mix@2',kind,scope:{...VILLAGE_RULE_SCOPE},selector:{routes:['mix'],subjects:[{role:'input',quantifier:'some',query:{tag:'village.restorative'}}],requires:process?{fact:'procedure.process',op:'eq',value:process}:{all:[]}},priority:{layer:'world',depth:0,value:0,specificity:0,order:0},effects:[{id:'response',channel:'physics',kind:'parameter',target:RULE_TARGET,combine:process?'replace':'multiply',value,overrides:[]}]});
 export function villageRuleRoot(expansion,seed){return expansion?.streams?validateStreams(expansion.streams).root:createStreams(expansion?.rng??seed).root;}
-export function generateVillageLaw(root,epoch=0){
+// Retained grammar/table revision 1. Keep this interpreter when future tables change.
+function interpretVillageLawV1(root,epoch=0){
     check(Number.isInteger(root)&&root>=0&&root<=0xffffffff&&natural(epoch),'Invalid law generation address.');
     const key=address('craft:village.rules@1',VILLAGE_RULE_SCOPE,{epoch,generatorRevision:1,tableRevision:1,slot:'response',attempt:0});
     const draw=drawU32(root,key),rows=[{id:'response:a',value:rational(4,5)},{id:'response:b',value:rational(1)},{id:'response:c',value:rational(6,5)}];
@@ -29,6 +30,7 @@ export function generateVillageLaw(root,epoch=0){
         receipt:{generator:'village.response@1',table:'village.response@1',tagRevision:1,address:key,draw,pick:pick.receipt,attempt:0,fallback:null},
         witness:{station:'Village mixing counter',inputs:{'River bellleaf':1,'Spring water':1},processes:['steep','boil'],consumer:'oral-village@2'}};
 }
+export function generateVillageLaw(root,epoch=0){return interpretVillageLawV1(root,epoch);}
 export function createVillageRuleOwner(root){return {schema:1,revision:1,root,scope:{...VILLAGE_RULE_SCOPE},epoch:0,laws:{},receipts:{},lastReceipt:null};}
 export function currentVillageLaw(owner,root){return owner?.laws?.[owner.epoch]?.law??generateVillageLaw(owner?.root??root,owner?.epoch??0);}
 export function resolveResponsiveMixture(base,law){
@@ -66,10 +68,10 @@ export function freezeVillageLaw(owner,law,{clock,sequence,reason='causal_mix',p
 export function validateVillageRuleOwner(owner,products,sequence){
     fields(owner,['schema','revision','root','scope','epoch','laws','receipts','lastReceipt']);
     check(owner.schema===1&&owner.revision===1&&natural(owner.epoch)&&same(owner.scope,VILLAGE_RULE_SCOPE),'Unsupported Village rule owner revision.');
-    generateVillageLaw(owner.root,owner.epoch); // pure address admission, no enrollment or cursor mutation
+    check(Number.isInteger(owner.root)&&owner.root>=0&&owner.root<=0xffffffff&&owner.laws&&typeof owner.laws==='object'&&!Array.isArray(owner.laws)&&owner.receipts&&typeof owner.receipts==='object'&&!Array.isArray(owner.receipts),'Invalid retained law maps/root.');
     for(const [epoch,entry]of Object.entries(owner.laws)){
         fields(entry,['law','frozenAt','reason']);check(String(entry.law?.epoch)===epoch&&Number(epoch)<=owner.epoch&&natural(entry.frozenAt)&&['causal_mix','reveal'].includes(entry.reason),'Invalid frozen law event.');
-        check(same(entry.law,generateVillageLaw(owner.root,Number(epoch))),'Unresolved frozen law dependency.');
+        check(same(entry.law,interpretVillageLawV1(owner.root,Number(epoch))),'Unresolved frozen law dependency.');
     }
     for(const [id,r]of Object.entries(owner.receipts)){
         fields(r,['schema','sequence','at','product','lawEpoch','trace']);const p=products[r.product],law=owner.laws[r.lawEpoch]?.law;

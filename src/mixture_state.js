@@ -1,4 +1,4 @@
-import {resolveResponsiveLock,validateVillageRuleOwner} from './mixture_rules.js';
+import {resolveResponsiveLock,validateVillageRuleOwner,villageRuleRoot} from './mixture_rules.js';
 import {xorshift32} from './seeded_streams.js';
 import {currentProductAppearanceView} from './product_appearance_view.js';
 // Original Village law revision 1. Truth is retained, knowledge is independent.
@@ -100,6 +100,7 @@ export function splitComposition(p,numerator,denominator){validateProduct(p);if(
 export function diluteComposition(p,water){validateProduct(p);if(!Number.isSafeInteger(water)||water<=0||water+p.mass>Number.MAX_SAFE_INTEGER)fail('Invalid dilution.');return {...clone(p.fractions),matrix:p.fractions.matrix+water};}
 export function validateMixtureEnvelope(envelope){
     const s=envelope.mixtures;if(s!=null)validateMixtureState(s);
+    if(s?.ruleLaws&&(!envelope.expansion?.streams||s.ruleLaws.root!==villageRuleRoot(envelope.expansion)))fail('Missing or mismatched saved rule root.');
     function visit(value){if(typeof value==='string'&&value.startsWith('{')){let k;try{k=JSON.parse(value);}catch{return;}if(k.id===MIXTURE_ID||k.mixture!=null)productFromKey(s,value);}else if(value&&typeof value==='object'){for(const [key,v]of Object.entries(value)){visit(key);visit(v);}}}
     // All holders, including vendor/chest inventories and job reservations.
     visit(envelope);
