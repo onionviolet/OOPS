@@ -1,0 +1,506 @@
+{
+  "lane": "bitlife",
+  "date": "2026-10-13",
+  "status": "public-page research complete with wiki and current-version gaps",
+  "authority": "RESEARCH; all packets PROPOSAL; no accepted decisions",
+  "runtime_verified": false,
+  "bitlife_source_verified": false,
+  "head_at_inspection": "9d6dc6a1ad9c4ae6bd12cc8e528923ae3c941e5f",
+  "dirty_tree": true,
+  "target_viewports": [
+    "1366x768",
+    "1920x1080"
+  ],
+  "deferred_scope": [
+    "mobile optimization",
+    "BitLife decompilation",
+    "playing an existing child",
+    "new prestige",
+    "monetization"
+  ],
+  "sources": [
+    {
+      "id": "S1",
+      "name": "official landing",
+      "url": "https://bitlifeapp.com/",
+      "type": "page",
+      "coverage": "retrieved",
+      "access_date": "2026-10-13",
+      "revision_id": null
+    },
+    {
+      "id": "S2",
+      "name": "official help",
+      "url": "https://bitlifeapp.com/help/",
+      "type": "page",
+      "coverage": "retrieved relevant FAQ",
+      "access_date": "2026-10-13",
+      "revision_id": null
+    },
+    {
+      "id": "S3",
+      "name": "official ribbons",
+      "url": "https://bitlife.zendesk.com/hc/en-us/articles/360038370652-What-are-Ribbons",
+      "type": "page",
+      "coverage": "indexed article; updated 2020-01-13",
+      "access_date": "2026-10-13",
+      "revision_id": null
+    },
+    {
+      "id": "S4",
+      "name": "official God Mode",
+      "url": "https://bitlife.zendesk.com/hc/en-us/articles/360048375252-What-is-God-Mode",
+      "type": "page",
+      "coverage": "indexed article; updated 2020-08-27",
+      "access_date": "2026-10-13",
+      "revision_id": null
+    },
+    {
+      "id": "S5",
+      "name": "official Bitizenship",
+      "url": "https://bitlife.zendesk.com/hc/en-us/articles/360038749171-What-is-Bitizenship",
+      "type": "page",
+      "coverage": "retrieved",
+      "access_date": "2026-10-13",
+      "revision_id": null
+    },
+    {
+      "id": "S6",
+      "name": "GRAVE NOISE review",
+      "url": "https://www.gravenoisemedia.com/game-review-bitlife-mobile-free-to-play/",
+      "type": "page",
+      "coverage": "full short review; 2019-03-26",
+      "access_date": "2026-10-13",
+      "revision_id": null
+    },
+    {
+      "id": "S7",
+      "name": "Gamezebo v1.14 child guide",
+      "url": "https://www.gamezebo.com/walkthroughs/bitlife-version-1-14-faq-how-to-continue-as-your-child-how-to-repeat-a-bitlife-and-how-to-become-a-model/",
+      "type": "page",
+      "coverage": "historical iOS child/repeat sections",
+      "access_date": "2026-10-13",
+      "revision_id": null
+    },
+    {
+      "id": "S8",
+      "name": "Karma community wiki",
+      "url": "https://bitlife-life-simulator.fandom.com/wiki/Karma",
+      "type": "wiki",
+      "coverage": "search extract only; no revision",
+      "access_date": "2026-10-13",
+      "revision_id": null
+    },
+    {
+      "id": "S9",
+      "name": "Profile community wiki",
+      "url": "https://bitlife-life-simulator.fandom.com/wiki/Profile",
+      "type": "wiki",
+      "coverage": "search extract only; no revision; under construction",
+      "access_date": "2026-10-13",
+      "revision_id": null
+    },
+    {
+      "id": "S10",
+      "name": "Good Cop Bad Cop guide",
+      "url": "https://www.iskmogul.com/how-to-complete-the-good-cop-bad-cop-challenge-in-bitlife/",
+      "type": "page",
+      "coverage": "historical challenge example; 2023-01-21",
+      "access_date": "2026-10-13",
+      "revision_id": null
+    },
+    {
+      "id": "S11",
+      "name": "official patch notes",
+      "url": "https://bitlifeapp.com/whats-new/patch-notes/",
+      "type": "page",
+      "coverage": "retrieved; Vault and dead-character fixes",
+      "access_date": "2026-10-13",
+      "revision_id": null
+    },
+    {
+      "id": "S12",
+      "name": "Life Simulator 3 by Playdrop",
+      "url": "https://play.google.com/store/apps/details?hl=en&id=uk.playdrop.lifesimulatorpro",
+      "type": "page",
+      "coverage": "public store claims only",
+      "access_date": "2026-10-13",
+      "revision_id": null
+    },
+    {
+      "id": "S13",
+      "name": "InstLife acquisition report",
+      "url": "https://www.gamezebo.com/news/bitlife-developer-candywriter-has-acquired-instlife-and-will-merge-it-with-bitlife-over-the-coming-months/",
+      "type": "page",
+      "coverage": "historical 2019 reporting",
+      "access_date": "2026-10-13",
+      "revision_id": null
+    }
+  ],
+  "findings": [
+    {
+      "id": "F1",
+      "rank": 1,
+      "label": "verified (page)",
+      "claim": "Age advancement is a deliberate life boundary",
+      "source_ids": [
+        "S6"
+      ],
+      "novelty": "covered pacing; added boundary detail",
+      "limit": "current action budgets and half-year settings unknown",
+      "report": "REPORT.md"
+    },
+    {
+      "id": "F2",
+      "rank": 2,
+      "label": "verified (page)",
+      "claim": "End-of-life ribbons summarize a life",
+      "source_ids": [
+        "S3"
+      ],
+      "novelty": "added appraisal presentation",
+      "limit": "catalog, precedence and thresholds unread",
+      "report": "REPORT.md"
+    },
+    {
+      "id": "F3",
+      "rank": 3,
+      "label": "verified (page)",
+      "claim": "Historical child continuation preserves current age",
+      "source_ids": [
+        "S7"
+      ],
+      "novelty": "partial heir overlap; added identity distinction",
+      "limit": "current platform parity and full carry matrix unknown",
+      "report": "REPORT.md"
+    },
+    {
+      "id": "F4",
+      "rank": 4,
+      "label": "verified (page); verified (wiki)",
+      "claim": "Relationship roles organize contextual actions",
+      "source_ids": [
+        "S6",
+        "S9"
+      ],
+      "novelty": "covered architecture; added roster presentation",
+      "limit": "wiki extract only; do not expose private NPC stats",
+      "report": "REPORT.md"
+    },
+    {
+      "id": "F5",
+      "rank": 5,
+      "label": "verified (page)",
+      "claim": "Four headline stats make life status readable",
+      "source_ids": [
+        "S6"
+      ],
+      "novelty": "covered dimensions; added presentation",
+      "limit": "no inspected stat formulas",
+      "report": "REPORT.md"
+    },
+    {
+      "id": "F6",
+      "rank": 6,
+      "label": "verified (wiki)",
+      "claim": "Karma is less visible and action-linked",
+      "source_ids": [
+        "S8"
+      ],
+      "novelty": "added reference only",
+      "limit": "extract only; survival claims not formula-verified",
+      "report": "REPORT.md"
+    },
+    {
+      "id": "F7",
+      "rank": 7,
+      "label": "verified (page)",
+      "claim": "Education and careers have layered eligibility",
+      "source_ids": [
+        "S2"
+      ],
+      "novelty": "covered systems; added eligibility presentation",
+      "limit": "odds and complete prerequisite tables unread",
+      "report": "REPORT.md"
+    },
+    {
+      "id": "F8",
+      "rank": 8,
+      "label": "verified (page)",
+      "claim": "Prison creates constrained play and escape puzzles",
+      "source_ids": [
+        "S2"
+      ],
+      "novelty": "added cross-domain consequence reference",
+      "limit": "crime probabilities and jurisdictions unread",
+      "report": "REPORT.md"
+    },
+    {
+      "id": "F9",
+      "rank": 9,
+      "label": "verified (page)",
+      "claim": "Life events include news and decisions",
+      "source_ids": [
+        "S6"
+      ],
+      "novelty": "covered outside-player events; added distinction",
+      "limit": "internal scheduler not established",
+      "report": "REPORT.md"
+    },
+    {
+      "id": "F10",
+      "rank": 10,
+      "label": "verified (page)",
+      "claim": "Challenges combine existing life domains",
+      "source_ids": [
+        "S10",
+        "S11"
+      ],
+      "novelty": "partial challenge-run overlap; added cross-domain objectives",
+      "limit": "historical mechanics; current cadence and rewards unread",
+      "report": "REPORT.md"
+    },
+    {
+      "id": "F11",
+      "rank": 11,
+      "label": "verified (page)",
+      "claim": "God Mode authors and edits characters",
+      "source_ids": [
+        "S4"
+      ],
+      "novelty": "covered creation; added access distinction",
+      "limit": "full editing restrictions unread",
+      "report": "REPORT.md"
+    },
+    {
+      "id": "F12",
+      "rank": 12,
+      "label": "verified (page)",
+      "claim": "Content access, edits and rewind are distinct",
+      "source_ids": [
+        "S5",
+        "S2"
+      ],
+      "novelty": "added entitlement taxonomy",
+      "limit": "no prices or full current purchase matrix",
+      "report": "REPORT.md"
+    },
+    {
+      "id": "F13",
+      "rank": 13,
+      "label": "verified (page)",
+      "claim": "Age-up saves; some data-loss caveats exist",
+      "source_ids": [
+        "S2"
+      ],
+      "novelty": "covered saves; added acceptance case",
+      "limit": "no runtime save inspection",
+      "report": "REPORT.md"
+    },
+    {
+      "id": "F14",
+      "rank": 14,
+      "label": "verified (page)",
+      "claim": "Peers span historical and idle life models",
+      "source_ids": [
+        "S12",
+        "S13"
+      ],
+      "novelty": "added bounded peer comparison",
+      "limit": "Alter Life ambiguous; store claims unplayed",
+      "report": "REPORT.md"
+    },
+    {
+      "id": "F15",
+      "rank": 15,
+      "label": "inferred",
+      "claim": "Present existing owners as a readable causal life",
+      "source_ids": [],
+      "novelty": "added synthesis",
+      "limit": "design judgment; not implementation or acceptance",
+      "report": "REPORT.md"
+    }
+  ],
+  "packets": [
+    {
+      "id": "P1",
+      "rank": 1,
+      "status": "PROPOSAL",
+      "title": "A life remembered",
+      "finding_ids": [
+        "F2",
+        "F15"
+      ],
+      "file": "IMPLEMENTATION_PACKETS.md"
+    },
+    {
+      "id": "P2",
+      "rank": 2,
+      "status": "PROPOSAL",
+      "title": "An honest succession receipt",
+      "finding_ids": [
+        "F3",
+        "F12"
+      ],
+      "file": "IMPLEMENTATION_PACKETS.md"
+    },
+    {
+      "id": "P3",
+      "rank": 3,
+      "status": "PROPOSAL",
+      "title": "Known people in the life view",
+      "finding_ids": [
+        "F4",
+        "F7",
+        "F9"
+      ],
+      "file": "IMPLEMENTATION_PACKETS.md"
+    },
+    {
+      "id": "P4",
+      "rank": 4,
+      "status": "PROPOSAL",
+      "title": "An optional life aim",
+      "finding_ids": [
+        "F10"
+      ],
+      "file": "IMPLEMENTATION_PACKETS.md"
+    },
+    {
+      "id": "P5",
+      "rank": 5,
+      "status": "PROPOSAL",
+      "title": "A period recap beside routine controls",
+      "finding_ids": [
+        "F1",
+        "F5",
+        "F9",
+        "F13"
+      ],
+      "file": "IMPLEMENTATION_PACKETS.md"
+    }
+  ],
+  "small_touch_ids": [
+    "T1",
+    "T2",
+    "T3",
+    "T4",
+    "T5",
+    "T6",
+    "T7",
+    "T8",
+    "T9",
+    "T10",
+    "T11",
+    "T12",
+    "T13",
+    "T14",
+    "T15"
+  ],
+  "local_source_reads": [
+    {
+      "path": "src/chronicle.js",
+      "sha256_at_delivery": "c21046237528b7b692efc367ae7cacc9b1a41714c622eff24b29c8ff5a9b261b",
+      "coverage": "full static module",
+      "verification": "verified (code), static only"
+    },
+    {
+      "path": "src/heir_inheritance.js",
+      "sha256_at_delivery": "41c510b1ceb72e39620ea97c5c9f0a3763604a4dd329de5a5b8cccbc5fc4370f",
+      "coverage": "full static module",
+      "verification": "verified (code), static only"
+    },
+    {
+      "path": "src/life_record.js",
+      "sha256_at_delivery": "21ac5f17fff62794ba26d7180deb6a9c0ad85060d79134e5d6ce83de51d1d9bd",
+      "coverage": "full static module",
+      "verification": "verified (code), static only"
+    },
+    {
+      "path": "src/npc_lives.js",
+      "sha256_at_delivery": "abef56e7d73a0e17a3ba551608eafc4fb7f9f1660c17a445cfe96ae9869eb804",
+      "coverage": "full static module",
+      "verification": "verified (code), static only"
+    },
+    {
+      "path": "src/life_experience.js",
+      "sha256_at_delivery": "c1753b6bbbcd63180e729f67bfd9c0260ee981bfc1329d7a1287d5b63e1adb6c",
+      "coverage": "full static module",
+      "verification": "verified (code), static only"
+    },
+    {
+      "path": "src/game_time.js",
+      "sha256_at_delivery": "ae58e07158d52962cc8e0735b2e30af803f85bba4e68881038127a2b6b9cbf6c",
+      "coverage": "bounded sections and named functions in report",
+      "verification": "verified (code), static only"
+    },
+    {
+      "path": "src/event_feed.js",
+      "sha256_at_delivery": "f25a1f1ff13bc751509cece72a3825cc7163c646e7f565f29f477bbcbffb2915",
+      "coverage": "bounded sections and named functions in report",
+      "verification": "verified (code), static only"
+    },
+    {
+      "path": "src/people_knowledge.js",
+      "sha256_at_delivery": "e52bf2508ab626785ad66074179f33916aaed7946fbd403706cb59303e851261",
+      "coverage": "bounded sections and named functions in report",
+      "verification": "verified (code), static only"
+    },
+    {
+      "path": "src/village_career.js",
+      "sha256_at_delivery": "6e8cf84ace080b1955ff4c21e32b11fbc78c52ac1728ac989c66593aada2f962",
+      "coverage": "bounded sections and named functions in report",
+      "verification": "verified (code), static only"
+    }
+  ],
+  "prior_coverage": [
+    "docs/LIFE_SIM_NORTH_STAR.md",
+    "docs/EMERGENT_SYSTEMS.md",
+    "docs/research/far-field-tropes-2026-10-08/PART_1_GENRES.md",
+    "docs/research/relationships-2026-10-10/REPORT.md",
+    "docs/research/groundhog-life/REPORT.md",
+    "docs/research/academagia/REPORT.md",
+    "docs/research/immortality-idle/REPORT.md",
+    "docs/research/wildermyth/REPORT.md"
+  ],
+  "blocked_routes": [
+    {
+      "route": "direct wiki first batch",
+      "result": "Stats/Generations 402; Ribbons restricted",
+      "action": "switched route; no repeated fetches"
+    },
+    {
+      "route": "in-app browser",
+      "result": "unavailable",
+      "action": "checked extension route"
+    },
+    {
+      "route": "Chrome extension wiki navigation",
+      "result": "browser security denied permission",
+      "action": "stopped; no workaround or subsequent wiki acquisition"
+    },
+    {
+      "route": "Hwb page",
+      "result": "failed fetch",
+      "action": "switched to other reviews"
+    }
+  ],
+  "downloads": [],
+  "scratch_source_directory_if_needed": "/private/tmp/claude-501/codex-lanes/bitlife-src/",
+  "license": "Proprietary game and pages; ideas only. Wiki extract reports CC-BY-SA, exact revision/scope not inspected. No raw content/code/assets copied.",
+  "safety": {
+    "source_edits": false,
+    "builds": false,
+    "installs": false,
+    "purchases": false,
+    "logins": false,
+    "decompile": false,
+    "git_add_commit_push": false,
+    "sealed_truth_disclosed": false
+  },
+  "verification": {
+    "json_parse": "passed",
+    "inventory_ids_links_and_style": "passed: exact five files; 15 findings; 5 packets; 15 touches; local links; no em dashes",
+    "gameplay": "not run; documentation only"
+  }
+}
