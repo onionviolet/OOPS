@@ -1,0 +1,460 @@
+{
+  "lane": "hogwarts-games",
+  "date": "2026-10-13",
+  "status": "bounded web research complete; proposals only; no runtime verification",
+  "targets": [
+    "Harry Potter: Hogwarts Mystery (Jam City)",
+    "Hogwarts Legacy (Avalanche Software)"
+  ],
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Mystery overview",
+      "label": "verified (wiki)",
+      "url": "https://harrypotter.fandom.com/wiki/Harry_Potter:_Hogwarts_Mystery",
+      "scope": "Story/classes; year headings; Classes; inconsistencies. Mutable rendered page, revision not captured.",
+      "wiki_revision": null
+    },
+    {
+      "id": "S2",
+      "title": "Mystery energy",
+      "label": "verified (page)",
+      "url": "https://jamcity.helpshift.com/hc/en/41-harry-potter-hogwarts-mystery/faq/718-how-do-i-earn-energy/",
+      "scope": "Official support, Energy.",
+      "wiki_revision": "not applicable"
+    },
+    {
+      "id": "S3",
+      "title": "Special Adventures",
+      "label": "verified (page)",
+      "url": "https://jamcity.helpshift.com/hc/en/41-harry-potter-hogwarts-mystery/faq/810-what-are-special-adventures/",
+      "scope": "Official support, queue and cooldown.",
+      "wiki_revision": "not applicable"
+    },
+    {
+      "id": "S4",
+      "title": "Take the O.W.L.s",
+      "label": "verified (page)",
+      "url": "https://jamcity.helpshift.com/hc/ru/41-harry-potter-hogwarts-mystery/faq/1109-take-the-o-w-l-s/?f=why-don-t-i-get-all-of-the-classes-each-year&l=zh&mobile-app=true&p=android&s=how-to-play&theme=wiki",
+      "scope": "Official English body under localized URL; trigger, deadline, recorded result.",
+      "wiki_revision": "not applicable"
+    },
+    {
+      "id": "S5",
+      "title": "OWL practical example",
+      "label": "verified (page)",
+      "url": "https://www.hogwarts.cafe/take-the-o-w-l-s-part-3/",
+      "scope": "Community walkthrough, 2024-07-12: revision, Herbology and creature exams.",
+      "wiki_revision": "not applicable"
+    },
+    {
+      "id": "S6",
+      "title": "Mystery house points",
+      "label": "verified (page)",
+      "url": "https://jamcity.helpshift.com/hc/en/41-harry-potter-hogwarts-mystery/faq/761-how-do-i-earn-house-points/",
+      "scope": "Official support, point sources and year-end winner.",
+      "wiki_revision": "not applicable"
+    },
+    {
+      "id": "S7",
+      "title": "Friend encounters",
+      "label": "verified (page)",
+      "url": "https://www.gamezebo.com/walkthroughs/harry-potter-hogwarts-mystery-friendship-guide-how-to-make-friends-and-influence-people/",
+      "scope": "Launch-era guide: answer choices, attribute recommendations, encounter progress.",
+      "wiki_revision": "not applicable"
+    },
+    {
+      "id": "S8",
+      "title": "Friend rewards",
+      "label": "verified (page)",
+      "url": "https://jamcity.helpshift.com/hc/en/41-harry-potter-hogwarts-mystery/faq/5241-list-of-friends-and-friendship-items/?p=web&s=adventures",
+      "scope": "Official indexed excerpt: Level 10 friend-specific customization. Not complete roster.",
+      "wiki_revision": "not applicable"
+    },
+    {
+      "id": "S9",
+      "title": "Mystery duel stances",
+      "label": "verified (page)",
+      "url": "https://jamcity.helpshift.com/hc/en/41-harry-potter-hogwarts-mystery/faq/782-what-stance-should-i-choose/",
+      "scope": "Official support, stance triangle and move priority; not damage formulas.",
+      "wiki_revision": "not applicable"
+    },
+    {
+      "id": "S10",
+      "title": "Beyond Hogwarts",
+      "label": "verified (page)",
+      "url": "https://jamcity.helpshift.com/hc/en/41-harry-potter-hogwarts-mystery/faq/7841-beyond-hogwarts---frequently-asked-questions/",
+      "scope": "Official support, graduation, retained resources/attributes and changed social venues.",
+      "wiki_revision": "not applicable"
+    },
+    {
+      "id": "S11",
+      "title": "Legacy official FAQ",
+      "label": "verified (page)",
+      "url": "https://www.hogwartslegacy.com/en-us/faq",
+      "scope": "Classes, companions, challenges, no morality system, original adaptation and monetization.",
+      "wiki_revision": "not applicable"
+    },
+    {
+      "id": "S12",
+      "title": "Legacy developer explanation",
+      "label": "verified (page)",
+      "url": "https://blog.playstation.com/?p=362688",
+      "scope": "Avalanche developer post, 2022-03-17: late fifth-year premise, combat, study, plants/potions.",
+      "wiki_revision": "not applicable"
+    },
+    {
+      "id": "S13",
+      "title": "Legacy spell routes",
+      "label": "verified (page)",
+      "url": "https://www.powerpyx.com/hogwarts-legacy-all-spells-guide/",
+      "scope": "2023-02-06 guide: story, assignments, utility spells and room-restricted functions.",
+      "wiki_revision": "not applicable"
+    },
+    {
+      "id": "S14",
+      "title": "Legacy room",
+      "label": "verified (page)",
+      "url": "https://www.pcgamer.com/hogwarts-legacy-room-of-requirement/",
+      "scope": "2023-02-08 guide: room unlock, placement costs, stations and restricted furnishing spells.",
+      "wiki_revision": "not applicable"
+    },
+    {
+      "id": "S15",
+      "title": "Legacy vivarium",
+      "label": "verified (page)",
+      "url": "https://www.gamespot.com/articles/hogwarts-legacy-beasts-vivarium-capture-tame-guide/1100-6511394/",
+      "scope": "Guide: capture, care, material outputs, capacity, breeding and later habitats.",
+      "wiki_revision": "not applicable"
+    },
+    {
+      "id": "S16",
+      "title": "Legacy House Cup",
+      "label": "verified (page)",
+      "url": "https://www.pcgamesn.com/hogwarts-legacy/house-cup",
+      "scope": "Campaign completion and level 34 ending, no ordinary earnable point economy. Dated mod aside not used.",
+      "wiki_revision": "not applicable"
+    },
+    {
+      "id": "S17",
+      "title": "Mystery launch criticism",
+      "label": "verified (page)",
+      "url": "https://www.pocketgamer.com/harry-potter-hogwarts-mystery/review/",
+      "scope": "2018-04-25 review: energy interrupts story. Historical reception, not current pricing.",
+      "wiki_revision": "not applicable"
+    },
+    {
+      "id": "S18",
+      "title": "Legacy review",
+      "label": "verified (page)",
+      "url": "https://www.pcgamer.com/hogwarts-legacy-review/",
+      "scope": "2023 launch review: enjoyable setting, school life displaced by highlands story/combat.",
+      "wiki_revision": "not applicable"
+    },
+    {
+      "id": "S19",
+      "title": "Legacy checklist criticism",
+      "label": "verified (page)",
+      "url": "https://www.gamespot.com/reviews/hogwarts-legacy-review-sleight-of-hand/1900-6418032/",
+      "scope": "Review: initial classes engaging, repeated Merlin puzzles tied to inventory constraints.",
+      "wiki_revision": "not applicable"
+    },
+    {
+      "id": "S20",
+      "title": "Legacy fan school-life debate",
+      "label": "verified (page)",
+      "url": "https://www.reddit.com/r/HarryPotterGame/comments/1100bhn/",
+      "scope": "Public thread, selected comments only: desire for routines, common-room use and classes; dissent also present.",
+      "wiki_revision": "not applicable"
+    },
+    {
+      "id": "S21",
+      "title": "Legacy teaching games",
+      "label": "verified (wiki)",
+      "url": "https://harrypotter.fandom.com/wiki/Abraham_Ronen",
+      "scope": "Indexed excerpt on game-based teaching including Summoner's Court; revision not captured.",
+      "wiki_revision": null
+    },
+    {
+      "id": "S22",
+      "title": "Legacy season report",
+      "label": "verified (page)",
+      "url": "https://www.reddit.com/r/HarryPotterGame/comments/1eo5q3y/",
+      "scope": "Indexed player report: seasons follow story while time can advance separately. Not code proof.",
+      "wiki_revision": "not applicable"
+    }
+  ],
+  "findings": [
+    {
+      "code": "F1",
+      "rank": 1,
+      "label": "verified (page)",
+      "title": "Learn a spell, then use it elsewhere",
+      "claim": "Legacy links spells to story lessons and professor assignments. Accio comes from Charms; Reparo from Ronen's assignment. Light, repair and levitation serve exploration as well as combat. New value: instruction changes available verbs, rather than merely a subject XP bar.",
+      "sources": [
+        "S13"
+      ],
+      "urls": [
+        "https://www.powerpyx.com/hogwarts-legacy-all-spells-guide/"
+      ],
+      "overlap": "new"
+    },
+    {
+      "code": "F2",
+      "rank": 2,
+      "label": "verified (wiki)",
+      "title": "Chapter prerequisites make a year legible",
+      "claim": "Mystery has seven school years and chapter-based story plus lesson requirements. Their order can vary within the current gate, but both must be satisfied to advance. Lessons grow across years. Its visible curriculum is a game unlock schedule, not the whole book curriculum.",
+      "sources": [
+        "S1"
+      ],
+      "urls": [
+        "https://harrypotter.fandom.com/wiki/Harry_Potter:_Hogwarts_Mystery"
+      ],
+      "overlap": "new chapter/lesson join; timetable already covered"
+    },
+    {
+      "code": "F3",
+      "rank": 3,
+      "label": "verified (page)",
+      "title": "Exams reuse familiar lesson actions",
+      "claim": "Mystery's OWL adventure unlocks after Year 5 Chapter 24 and has a 3-day-19-hour deadline. Closing the app does not erase results. A community Herbology example joins revision, written questions, then focus, tracing and hold/release practical tasks. Exact grade math and later career effects were not verified.",
+      "sources": [
+        "S4",
+        "S5"
+      ],
+      "urls": [
+        "https://jamcity.helpshift.com/hc/ru/41-harry-potter-hogwarts-mystery/faq/1109-take-the-o-w-l-s/?f=why-don-t-i-get-all-of-the-classes-each-year&l=zh&mobile-app=true&p=android&s=how-to-play&theme=wiki",
+        "https://www.hogwarts.cafe/take-the-o-w-l-s-part-3/"
+      ],
+      "overlap": "new practical and recorded-result evidence; exam system already covered"
+    },
+    {
+      "code": "F4",
+      "rank": 4,
+      "label": "verified (page)",
+      "title": "Two clocks compete for the same energy",
+      "claim": "Mystery recovers one energy per four real minutes below capacity; gems refill it and hidden castle sources supply more. Special Adventures enter a prerequisite queue, run sequentially and currently have a documented 24-hour gap. Task deadlines and recovery can therefore pull in opposite directions.",
+      "sources": [
+        "S2",
+        "S3"
+      ],
+      "urls": [
+        "https://jamcity.helpshift.com/hc/en/41-harry-potter-hogwarts-mystery/faq/718-how-do-i-earn-energy/",
+        "https://jamcity.helpshift.com/hc/en/41-harry-potter-hogwarts-mystery/faq/810-what-are-special-adventures/"
+      ],
+      "overlap": "new monetized timer interaction"
+    },
+    {
+      "code": "F5",
+      "rank": 5,
+      "label": "verified (wiki)",
+      "title": "Classes combine progress meters with short checks",
+      "claim": "Mystery uses timed 1/3/8-hour star tasks, short subject questions and tracing or potion gestures. Completing the stars can end a lesson early. These are repeatable engagement wrappers; this evidence does not establish deeper subject simulation.",
+      "sources": [
+        "S1"
+      ],
+      "urls": [
+        "https://harrypotter.fandom.com/wiki/Harry_Potter:_Hogwarts_Mystery"
+      ],
+      "overlap": "new class interaction pattern"
+    },
+    {
+      "code": "F6",
+      "rank": 6,
+      "label": "verified (page)",
+      "title": "House Cup means different things in each game",
+      "claim": "Mystery awards points for class work, main quests and dialogue, then compares houses at year end. Legacy's documented Cup ending requires campaign completion and level 34; it does not expose the same freely earned score economy.",
+      "sources": [
+        "S6",
+        "S16"
+      ],
+      "urls": [
+        "https://jamcity.helpshift.com/hc/en/41-harry-potter-hogwarts-mystery/faq/761-how-do-i-earn-house-points/",
+        "https://www.pcgamesn.com/hogwarts-legacy/house-cup"
+      ],
+      "overlap": "covered house-score proposal; new contrast"
+    },
+    {
+      "code": "F7",
+      "rank": 7,
+      "label": "verified (page)",
+      "title": "Friendship becomes a recurring encounter",
+      "claim": "Mystery's launch-era guide describes answer-based friend encounters with suggested Courage, Empathy and Knowledge values. Official support lists friend-specific cosmetics at friendship Level 10. Legacy's FAQ instead describes companions and their stories. Neither source proves a simulated classmate cohort or freely summonable companions.",
+      "sources": [
+        "S7",
+        "S8",
+        "S11"
+      ],
+      "urls": [
+        "https://www.gamezebo.com/walkthroughs/harry-potter-hogwarts-mystery-friendship-guide-how-to-make-friends-and-influence-people/",
+        "https://jamcity.helpshift.com/hc/en/41-harry-potter-hogwarts-mystery/faq/5241-list-of-friends-and-friendship-items/?p=web&s=adventures",
+        "https://www.hogwartslegacy.com/en-us/faq"
+      ],
+      "overlap": "covered relationships; new encounter reward and companion contrast"
+    },
+    {
+      "code": "F8",
+      "rank": 8,
+      "label": "verified (page)",
+      "title": "A workroom connects school learning to production",
+      "claim": "Legacy's Room of Requirement has decoration, plant/potion stations and gear work. Placement costs Moonstone; furnishing spells are room-restricted. Its chief lesson is a productive home with local permissions, not a universal conjuration license.",
+      "sources": [
+        "S14"
+      ],
+      "urls": [
+        "https://www.pcgamer.com/hogwarts-legacy-room-of-requirement/"
+      ],
+      "overlap": "new school-to-workroom mapping; facilities exist"
+    },
+    {
+      "code": "F9",
+      "rank": 9,
+      "label": "verified (page)",
+      "title": "Creature care feeds useful crafting",
+      "claim": "Legacy captures creatures for a vivarium; feeding and brushing yield upgrade materials. The guide reports 12 creatures and four species per habitat, later habitats and breeding. Those are this game's balance limits, not book laws or YAIRPG defaults. Buying materials is another route.",
+      "sources": [
+        "S15"
+      ],
+      "urls": [
+        "https://www.gamespot.com/articles/hogwarts-legacy-beasts-vivarium-capture-tame-guide/1100-6511394/"
+      ],
+      "overlap": "new care-to-material production chain"
+    },
+    {
+      "code": "F10",
+      "rank": 10,
+      "label": "verified (page)",
+      "title": "School dueling can be a bounded practice mode",
+      "claim": "Mystery's official stance triangle has Aggressive beat Sneaky, Sneaky beat Defensive and Defensive beat Aggressive; the winner gets move priority. Legacy combines spells in action combat. Do not treat this mobile rule as canon dueling or infer present damage/turn rules from an old FAQ.",
+      "sources": [
+        "S9",
+        "S11"
+      ],
+      "urls": [
+        "https://jamcity.helpshift.com/hc/en/41-harry-potter-hogwarts-mystery/faq/782-what-stance-should-i-choose/",
+        "https://www.hogwartslegacy.com/en-us/faq"
+      ],
+      "overlap": "new explicit practice contrast"
+    },
+    {
+      "code": "F11",
+      "rank": 11,
+      "label": "verified (page)",
+      "title": "The school year can frame an action campaign",
+      "claim": "Avalanche deliberately starts Legacy as a late fifth-year entrant in an original 1800s story. Classes support catch-up and adventure, rather than seven years of scheduled study. Official FAQ promises explorable castle puzzles and world challenges that award XP and upgrades.",
+      "sources": [
+        "S12",
+        "S11"
+      ],
+      "urls": [
+        "https://blog.playstation.com/?p=362688",
+        "https://www.hogwartslegacy.com/en-us/faq"
+      ],
+      "overlap": "new late-entry campaign shape"
+    },
+    {
+      "code": "F12",
+      "rank": 12,
+      "label": "verified (page)",
+      "title": "Graduation changes access while preserving progress",
+      "claim": "Mystery's Beyond FAQ retains resources, attributes and XP, ages the avatar, and replaces school meals/Gobstones with adult social venues. Graduation is a continuity transition, not a reset that discards learning. No cross-life carry rule follows from it.",
+      "sources": [
+        "S10"
+      ],
+      "urls": [
+        "https://jamcity.helpshift.com/hc/en/41-harry-potter-hogwarts-mystery/faq/7841-beyond-hogwarts---frequently-asked-questions/"
+      ],
+      "overlap": "new graduation contract; continuation already considered"
+    },
+    {
+      "code": "F13",
+      "rank": 13,
+      "label": "verified (wiki)",
+      "title": "A lesson can also be a social game",
+      "claim": "The Ronen wiki describes playful teaching including Summoner's Court, which practices summoning. This supplies an alternative to separate trivia and combat lessons: subject skill used in a friendly contest. Only the indexed account was checked, not scoring or physics.",
+      "sources": [
+        "S21"
+      ],
+      "urls": [
+        "https://harrypotter.fandom.com/wiki/Abraham_Ronen"
+      ],
+      "overlap": "new practical social activity"
+    },
+    {
+      "code": "F14",
+      "rank": 14,
+      "label": "verified (page)",
+      "title": "Reception points to timer pressure and weak school routine",
+      "claim": "Mystery's launch review objects to energy stopping the narrative. Legacy reviews criticize repeated checklist puzzles and school life giving way to highlands combat. A sampled fan thread asks for classes, meals and common-room use, but includes players who do not want mandatory school simulation. This is qualitative reception, not a prevalence estimate.",
+      "sources": [
+        "S17",
+        "S18",
+        "S19",
+        "S20"
+      ],
+      "urls": [
+        "https://www.pocketgamer.com/harry-potter-hogwarts-mystery/review/",
+        "https://www.pcgamer.com/hogwarts-legacy-review/",
+        "https://www.gamespot.com/reviews/hogwarts-legacy-review-sleight-of-hand/1900-6418032/",
+        "https://www.reddit.com/r/HarryPotterGame/comments/1100bhn/"
+      ],
+      "overlap": "new two-game critique; repetition overlaps Academagia"
+    },
+    {
+      "code": "F15",
+      "rank": 15,
+      "label": "inferred",
+      "title": "Combine a visible term with useful subject verbs",
+      "claim": "Best fit: reuse Academagia's proposed idle timetable; add a small chapter/lesson join, a practical assessment and a spell that changes a known task. Keep real-time payment pressure out of the proposed slice. Borrow workroom and care chains later. A player season report suggests story-driven seasons; exact calendar/season state remains unverified.",
+      "sources": [
+        "S1",
+        "S3",
+        "S13",
+        "S22"
+      ],
+      "urls": [
+        "https://harrypotter.fandom.com/wiki/Harry_Potter:_Hogwarts_Mystery",
+        "https://jamcity.helpshift.com/hc/en/41-harry-potter-hogwarts-mystery/faq/810-what-are-special-adventures/",
+        "https://www.powerpyx.com/hogwarts-legacy-all-spells-guide/",
+        "https://www.reddit.com/r/HarryPotterGame/comments/1eo5q3y/"
+      ],
+      "overlap": "synthesis; not accepted"
+    }
+  ],
+  "source_paths_read": [
+    "src/feature_expansion_book_roster.js",
+    "src/techniques.js",
+    "src/world_rhythm.js",
+    "src/energy_resources.js",
+    "src/chronicle.js",
+    "src/people_knowledge.js",
+    "src/world_knowledge.js",
+    "src/field_workshop.js",
+    "src/proto23_world_content.js",
+    "src/known_routes.js",
+    "src/save_compatibility.js"
+  ],
+  "packets": [
+    "P1",
+    "P2",
+    "P3",
+    "P4",
+    "P5"
+  ],
+  "limits": [
+    "No game play or code/data inspection",
+    "No wiki revision receipt",
+    "Launch-era criticism is historical",
+    "Current exact damage, grade and career formulas unverified",
+    "Playable Legacy OWL exams not established"
+  ],
+  "safety": {
+    "downloads": false,
+    "decompile": false,
+    "purchase": false,
+    "accounts": false,
+    "source_changes": false,
+    "sealed_truths_disclosed": false
+  }
+}
