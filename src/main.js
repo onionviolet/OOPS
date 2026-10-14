@@ -336,8 +336,8 @@ fill_availability_methods();
 registerFortContent({locations,item_templates,book_stats,quests,availabilities,SafeLocation,CombatZone,Book,BookData,Quest,QuestTask});
 
 import {prepareFoundationSave, retainRetiredContent} from "./save_compatibility.js";
-import {writeGuardedSave, encodeSaveFile, importSaveFile, validateSaveEnvelope} from "./save_files.js";
-import {preflightImport, installImportProbe} from "./import_probe.js";
+import {writeGuardedSave, encodeSaveFile, decodeSaveFile, importSaveFile, validateSaveEnvelope} from "./save_files.js";
+import {freshNativeSave, preflightImport, installImportProbe} from "./import_probe.js";
 import {restoreSavedReputation, shouldReplayReputation} from "./reputation_state.js";
 import {hasEarnedClear} from "./clear_state.js";
 import {createExpansionState, loadExpansionState, commitAction, advanceSimulation, cancelAction, validateExpansionState} from "./expansion_engine.js";
@@ -447,6 +447,9 @@ const gameplayBindings = {player: {category: "person", id: "main_character"}, ol
 
 let retiredContent = {schema: 1, entries: []};
 let foundationSaveBlocked = false;
+import {createNativeAuthority, nativeAuthorityKey} from "./absorb_p23/save_time_options/native_authority.js";
+const freshAuthorityProbe = new URL(window.location.href).searchParams.has("authority_fresh");
+let authorityOperationBusy=false, authorityBootError=null;
 const importProbeToken = new URL(window.location.href).searchParams.get("import_probe");
 let importInProgress = false;
 let loadingReputationTotals = null;
@@ -467,6 +470,61 @@ const backup_key = "backup save";
 const dev_backup_key = "dev backup save";
 // Heir succession: the ended life stays in the save slot until the heir's
 // envelope passes the real import check. Only a small request crosses reload.
+const nativeAuthority=createNativeAuthority({storage:localStorage,release:is_on_dev()?'dev':'live',currentVersion:game_version,
+    ownsSave:()=>ownsSave&&!importProbeToken&&!foundationSaveBlocked&&!is_loading_error,
+    preflight:preflightImport});
+function activeNativeBytes(key) {
+    if(importProbeToken)return localStorage.getItem(key);
+    if(key===save_key||key===dev_save_key) {
+        const release=key===dev_save_key?'dev':'live';
+        if(localStorage.getItem(nativeAuthorityKey(release))!==null) {
+            // Cross-release reads still validate authority, never silently select legacy.
+            return createNativeAuthority({storage:localStorage,release,currentVersion:game_version,
+                ownsSave:()=>ownsSave,preflight:preflightImport}).read().current;
+        }
+    }
+    return localStorage.getItem(key);
+}
+let authorityBootPending=!importProbeToken&&localStorage.getItem(nativeAuthority.key)!==null;
+function authorityEnrolled(){return !importProbeToken&&localStorage.getItem(nativeAuthority.key)!==null;}
+function assertAuthorityIdle() {
+    if(!ownsSave||importProbeToken||foundationSaveBlocked||is_loading_error||authorityOperationBusy)throw Error('Use the writable game tab after recovery finishes.');
+    if(current_combat||current_activity||current_game_action||current_dialogue||is_sleeping||is_reading||is_in_trade()||nativeOccupationReason())throw Error('Finish your current native work before save recovery.');
+}
+async function authorityOperation(run,{reload=false}={}) {
+    assertAuthorityIdle();authorityOperationBusy=true;
+    try {const result=await run();if(reload){window.location.reload();return result;}authorityOperationBusy=false;return result;}
+    catch(error){authorityOperationBusy=false;throw error;}
+}
+for(const type of ['click','keydown','change','submit'])document.addEventListener(type,event=>{
+    if(authorityOperationBusy&&!event.target?.closest?.('#native_authority_recovery')){event.preventDefault();event.stopImmediatePropagation();}
+},true);
+function downloadAuthorityData(name,bytes) {
+    const url=URL.createObjectURL(new Blob([encodeSaveFile(bytes)],{type:'text/plain'})),a=document.createElement('a');a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
+}
+function mountAuthorityUI() {
+    if(importProbeToken||authorityBootError)return;
+    const box=document.createElement('details');box.id='native_save_authority';
+    const summary=document.createElement('summary');summary.textContent='Backup and Undo (opt in)';box.append(summary);
+    const text=document.createElement('p');text.textContent='Enrollment keeps your legacy saves unchanged. Enrolled games need this build or later. Capture a backup before Undo; Undo restores that exact native life.';box.append(text);
+    const status=document.createElement('p');status.id='native_save_authority_status';box.append(status);
+    const refresh=()=>{try{const root=nativeAuthority.read();status.textContent=root?`Enrolled, revision ${root.revision}. ${root.previous?'Backup available.':'No captured backup yet.'}`:'Not enrolled. Existing save behavior is unchanged.';}catch(error){status.textContent=error.message;}};
+    const action=(label,id,run)=>{const b=document.createElement('button');b.type='button';b.textContent=label;b.id=id;b.onclick=async()=>{try{await run();refresh();}catch(error){status.textContent=error.message;log_message(error.message,'message_critical');}};box.append(b);};
+    action('Enroll this game','native_authority_enroll',()=>authorityOperation(()=>nativeAuthority.enroll(create_save())));
+    action('Capture backup','native_authority_capture',()=>authorityOperation(()=>nativeAuthority.capture(create_save())));
+    action('Undo to captured backup','native_authority_undo',()=>authorityOperation(()=>nativeAuthority.undo(),{reload:true}));
+    action('Download captured backup','native_authority_download',()=>{const r=nativeAuthority.read();if(!r?.previous)throw Error('Capture a backup first.');downloadAuthorityData('YAIRPG-captured-backup.txt',r.previous);});
+    document.getElementById('options_choices').append(box);refresh();
+}
+function showAuthorityRecovery(error) {
+    const box=document.createElement('section');box.id='native_authority_recovery';
+    Object.assign(box.style,{position:'fixed',inset:'15% 15%',padding:'24px',background:'#252525',color:'#eee',zIndex:'30000',overflow:'auto'});
+    const text=document.createElement('p');text.textContent=error.message+' To recover, download your preserved legacy save below, then import that file in an older compatible build on a separate origin. This origin remains blocked until its authority is repaired or explicitly removed in browser storage after preserving these files.';box.append(text);
+    for(const [label,key] of [['preserved legacy save',is_on_dev()?dev_save_key:save_key],['original authority',nativeAuthority.key]]) {
+        const bytes=localStorage.getItem(key);if(bytes===null)continue;const b=document.createElement('button');b.textContent='Download '+label;b.onclick=()=>downloadAuthorityData('YAIRPG-'+label.replaceAll(' ','-')+'.txt',bytes);box.append(b);
+    }
+    document.body.append(box);
+}
 const independent_request_key='structured independent request';
 const independentRequest=(()=>{if(importProbeToken)return null;try{const r=JSON.parse(localStorage.getItem(independent_request_key));return r?.schema===1&&!r.error?r:null;}catch{return null;}})();
 const heir_request_key = "heir request";
@@ -474,9 +532,9 @@ const heirRequest = (() => {
     if(importProbeToken) return null;
     try {
         const r = JSON.parse(localStorage.getItem(heir_request_key));
-        if(r?.error) localStorage.removeItem(heir_request_key);
+        if(r?.error && !authorityEnrolled()) localStorage.removeItem(heir_request_key);
         return r?.schema === 1 ? r : null;
-    } catch {localStorage.removeItem(heir_request_key); return null;}
+    } catch {if(!authorityEnrolled())localStorage.removeItem(heir_request_key); return null;}
 })();
 
 registerBookSubtletyCatalogue(expeditionRegistry);
@@ -514,7 +572,10 @@ const lifeSaveStorage = {setItem(key, serialized, onDurable) {
     save.life_record = next;
     const nextNpc = save.npc_lives == null ? null : advanceVillageLives(save.npc_lives, save['current time'].year);
     if(nextNpc) save.npc_lives = nextNpc;
-    writeGuardedSave(localStorage, key, JSON.stringify(save));
+    if(authorityBootError)throw authorityBootError;
+    if(authorityBootPending)throw Error('The enrolled save is awaiting complete native preflight.');
+    if(authorityEnrolled())nativeAuthority.commitPreparedSave(JSON.stringify(save));
+    else writeGuardedSave(localStorage, key, JSON.stringify(save));
     onDurable?.();
     if(nativeP23Transaction?.status==='pending')nativeP23Transaction.markDurable();
     villageCareer = migrateVillageCareer(save);
@@ -2594,18 +2655,18 @@ function beginHeir() {
 }
 function beginIndependentLife(){
     if(!ownsSave||importProbeToken||foundationSaveBlocked||!structuredLifeEnded(expansionState,optionalPackState.structured))throw Error('A writable ended local life is required.');
-    const key=is_on_dev()?dev_save_key:save_key;const serialized=localStorage.getItem(key);
-    const archived=archiveStructuredLife({storage:localStorage,key,serialized,writeArchive:(k,v)=>writeGuardedSave(localStorage,k,v),validateEnvelope:s=>validateSaveEnvelope(s,game_version)});
+    const key=is_on_dev()?dev_save_key:save_key;const serialized=activeNativeBytes(key);
+    const archived=archiveStructuredLife({storage:{getItem:activeNativeBytes},key,serialized,writeArchive:(k,v)=>writeGuardedSave(localStorage,k,v),validateEnvelope:s=>validateSaveEnvelope(s,game_version)});
     localStorage.setItem(independent_request_key,JSON.stringify({schema:1,key,instanceId:archived.instanceId,archiveKey:archived.archiveKey}));window.location.reload();
 }
 async function completeIndependentRequest(request){
     const key=is_on_dev()?dev_save_key:save_key;
     try{
         if(!(await saveOwnership)||request.key!==key)throw Error('The destination tab must own this save.');
-        const serialized=localStorage.getItem(key),old=JSON.parse(serialized);
+        const serialized=activeNativeBytes(key),old=JSON.parse(serialized);
         if(old.content_packs?.structured?.instanceId!==request.instanceId||request.archiveKey!==`${key}:ended-life:${request.instanceId}`)throw Error('The active life changed.');
         const nextSerialized=create_save();if(!nextSerialized)throw Error('No supported fresh beginning.');
-        await publishIndependentStructuredLife({storage:localStorage,key,serialized,nextSerialized,validateEnvelope:s=>validateSaveEnvelope(s,game_version),preflight:bytes=>preflightImport(JSON.parse(bytes)),publish:bytes=>lifeSaveStorage.setItem(key,bytes)});
+        await publishIndependentStructuredLife({storage:{getItem:activeNativeBytes,setItem:(k,v)=>writeGuardedSave(localStorage,k,v)},key,serialized,nextSerialized,validateEnvelope:s=>validateSaveEnvelope(s,game_version),preflight:bytes=>preflightImport(JSON.parse(bytes)),publish:bytes=>{if(authorityEnrolled())nativeAuthority.commitPreparedSave(bytes);else lifeSaveStorage.setItem(key,bytes);}});
     }catch(error){console.error('Independent character waits; preserved archive available.',error);
         try{localStorage.setItem(independent_request_key,JSON.stringify({schema:1,error:'Independent character could not begin. The ended life and its archive are preserved.'}));}catch{}
         window.location.reload();await new Promise(()=>{});
@@ -2616,7 +2677,7 @@ async function completeHeirRequest(request) {
     const key = is_on_dev() ? dev_save_key : save_key;
     try {
         if(!(await saveOwnership)) throw new Error("Another game tab owns the save.");
-        const previous = JSON.parse(localStorage.getItem(key)), fresh = create_save();
+        const previous = JSON.parse(activeNativeBytes(key)), fresh = create_save();
         if(!fresh) throw new Error("No fresh beginning could be created.");
         const next = buildLifeHeirSave(previous, JSON.parse(fresh), request.leftovers);
         await importSaveFile(encodeSaveFile(JSON.stringify(next)), {currentVersion: game_version, preflight: preflightImport, storage: lifeSaveStorage, key});
@@ -3524,6 +3585,7 @@ function start_game_action(action_key, event) {
 
         //kept in a variable rather than passed inline, so the interval can be re-armed at a new speed without losing the progress
         game_action_tick = ()=>{
+            if(authorityOperationBusy||authorityBootError)return;
             if(current_iterations >= total_iterations - 1) {
                 stop_game_action_interval();
                 finish_game_action({action_key, conditions_status, dialogue_key: current_dialogue});
@@ -6529,9 +6591,10 @@ function save_to_file() {
             give_export_reward();
         }
         const serialized = create_save({forExport:true});
-        const encoded = encodeSaveFile(serialized);
+        let encoded = encodeSaveFile(serialized);
         try {lifeSaveStorage.setItem(is_on_dev() ? dev_save_key : save_key, serialized);}
         catch(error) {log_message(error.message + " Your exported file can still be kept.", "message_critical"); return encoded;}
+        if(authorityEnrolled()){const root=nativeAuthority.read();encoded=encodeSaveFile(JSON.stringify({p23_native_authority_export:1,release:root.release,current:root.current,previous:root.previous}));}
         save_counter = 0;
         log_message("Saved the game manually");
         return encoded;
@@ -6546,7 +6609,7 @@ function save_to_file() {
  * @param {Boolean} is_manual 
  */
 function save_to_localStorage({key, is_manual}) {
-    if(importProbeToken || !ownsSave) return;
+    if(importProbeToken || !ownsSave || authorityOperationBusy || authorityBootError || authorityBootPending) return;
     const save = create_save();
     if(save) {
         try {lifeSaveStorage.setItem(key, save);}
@@ -8392,19 +8455,27 @@ function load(save_data) {
  * @param {String} save_string 
  */
 async function load_from_file(save_string) {
-    if(importProbeToken || importInProgress) return;
-    if(!ownsSave) {log_message("Import blocked: this tab is read-only.", "message_critical"); return;}
-    importInProgress = true;
+    if(importProbeToken||importInProgress||authorityOperationBusy)return;
+    if(!ownsSave){log_message('Import blocked: this tab is read-only.','message_critical');return;}
+    importInProgress=true;
     try {
-        await importSaveFile(save_string, {currentVersion: game_version, preflight: preflightImport,
-            storage: lifeSaveStorage, key: is_on_dev() ? dev_save_key : save_key});
+        const enrolled=authorityEnrolled();
+        if(enrolled){assertAuthorityIdle();authorityOperationBusy=true;}
+        const raw=save_string.trim(),prefix='YAIR-UTF8-1:';
+        let candidate;
+        try{const binary=atob(raw.startsWith(prefix)?raw.slice(prefix.length):raw);candidate=JSON.parse(raw.startsWith(prefix)?new TextDecoder('utf-8',{fatal:true}).decode(Uint8Array.from(binary,c=>c.charCodeAt(0))):binary);}catch{throw Error('The file is not a valid save.');}
+        if(candidate?.p23_native_authority_export!==undefined) {
+            if(!authorityEnrolled())throw Error('Explicitly enroll this game before importing an enrolled export. Legacy saves were kept.');
+            if(Object.keys(candidate).sort().join(',')!=='current,p23_native_authority_export,previous,release'||candidate.p23_native_authority_export!==1)throw Error('Unsupported enrolled export schema.');
+            await nativeAuthority.importAuthority(candidate);
+        } else if(authorityEnrolled()) {
+            const save=decodeSaveFile(save_string,game_version);await nativeAuthority.importSnapshot(JSON.stringify(save));
+        } else {
+            await importSaveFile(save_string,{currentVersion:game_version,preflight:preflightImport,storage:lifeSaveStorage,key:is_on_dev()?dev_save_key:save_key});
+        }
         window.location.reload(false);
-    } catch (error) {
-        log_message("Import rejected. Current save kept. " + error.message, "message_critical");
-    } finally {
-        importInProgress = false;
-    }
-} 
+    }catch(error){authorityOperationBusy=false;importInProgress=false;log_message('Import rejected. Current save kept. '+error.message,'message_critical');}
+}
 
 /**
  * loads the game from localStorage
@@ -8413,16 +8484,16 @@ async function load_from_file(save_string) {
 function load_from_localstorage() {
     try{
         if(is_on_dev()) {
-            if(localStorage.getItem(dev_save_key)){
-                load(JSON.parse(localStorage.getItem(dev_save_key)));
+            if(activeNativeBytes(dev_save_key)){
+                load(JSON.parse(activeNativeBytes(dev_save_key)));
                 log_message("Loaded dev save. If you want to use save from live version, import it through options panel or manually");
             } else {
                 //no need to check if it should import or do a fresh start (in case it's a result of hard reset), as that's already handled elsewhere
-                load(JSON.parse(localStorage.getItem(save_key)));
+                load(JSON.parse(activeNativeBytes(save_key)));
                 log_message("Dev save was not found. Loaded live version save.");
             }
         } else {
-            load(JSON.parse(localStorage.getItem(save_key)));
+            load(JSON.parse(activeNativeBytes(save_key)));
         }
     } catch(error) {
         is_loading_error = true;
@@ -8435,20 +8506,25 @@ function load_from_localstorage() {
 
 async function restoreStoredSave(sourceKey) {
     if(!ownsSave) {log_message("Restore blocked: this tab is read-only.", "message_critical"); return;}
-    const serialized = localStorage.getItem(sourceKey);
+    const serialized = activeNativeBytes(sourceKey);
     if(!serialized) {log_message("There is no saved progress to restore.", "notification"); return;}
     try {await load_from_file(encodeSaveFile(serialized));}
     catch(error) {log_message("Restore rejected. Current save kept. " + error.message, "message_critical");}
 }
 
-function load_backup() {return restoreStoredSave(is_on_dev() ? dev_backup_key : backup_key);}
+function load_backup() {if(authorityEnrolled())return authorityOperation(()=>nativeAuthority.undo(),{reload:true}).catch(e=>log_message(e.message,'message_critical'));return restoreStoredSave(is_on_dev() ? dev_backup_key : backup_key);}
 function load_other_release_save() {return restoreStoredSave(is_on_dev() ? save_key : dev_save_key);}
 
-function hard_reset() {
+async function hard_reset() {
     if(!ownsSave) {log_message("This tab is read-only. Close the other game tab and reload.", "message_critical"); return;}
     let confirmation = prompt(`This will erase all your progress and you will have to start from the very beginning. If you are sure this is what you want, type "reset" below`);
 
     if(confirmation === "reset" || confirmation === `"reset"`) {
+        if(authorityEnrolled()) {
+            try{await authorityOperation(async()=>nativeAuthority.resetSnapshot(await freshNativeSave()),{reload:true});}
+            catch(error){log_message('Reset rejected; current authority kept. '+error.message,'message_critical');}
+            return false;
+        }
         if(is_on_dev()) {
             localStorage.removeItem(dev_save_key);
             localStorage.setItem("skip_live_import", "true");
@@ -8464,6 +8540,7 @@ function hard_reset() {
 
 //update game time
 function update_timer(time_in_minutes, source = null) {
+    if(authorityOperationBusy||authorityBootError)return 0;
     if(nativeLifeEnded())return 0;
     if(optionalPackState.pendingStructured&&!optionalPackState.structured)return 0;
     if(Object.values(optionalPackState.packs).some(r=>r.active)) {
@@ -8566,6 +8643,7 @@ function update_effect_durations({time_in_minutes = 1, is_travel}) {
 
 function update() {
     setTimeout(() => {
+        if(authorityOperationBusy||authorityBootError){start_date=Date.now();update();return;}
         end_date = Date.now();
         //basically when previous tick ends, used for timer smoothing
 
@@ -8979,6 +9057,7 @@ function update() {
 
         backup_counter += 1;
         if(backup_counter >= backup_period*tickrate) {
+            if(authorityEnrolled()){backup_counter=0;try{if(!current_combat&&!current_activity&&!current_game_action&&!nativeOccupationReason())authorityOperation(()=>nativeAuthority.capture(create_save())).catch(e=>log_message(e.message,'message_critical'));}catch(error){log_message(error.message,'message_critical');}update();return;}
             backup_counter = 0;
             let saved_at;
             if(is_on_dev()) {
@@ -9225,6 +9304,7 @@ window.run = run;
 // Do not suspend the legacy initialization before its onload UI has elements.
 const saveOwnership = acquireSaveOwnership().then(owned => {
     ownsSave = owned;
+    if(authorityBootPending)return owned;
     if(!owned) expansionError = "This tab is read-only. Close the other game tab and reload to save progress.";
     expeditionPanel?.render(true);
     techniquePanel?.render(true);
@@ -9459,10 +9539,16 @@ await registerStructuredNative(createLocalLivelihoodContent());
 await translationManager.init(language);
 translationManager.translateUI(language);
 
+// Optional authority boot never changes absent-key selection.
+if(!importProbeToken&&authorityEnrolled()) {
+    try{await nativeAuthority.boot();authorityBootPending=false;}catch(error){authorityBootError=error;foundationSaveBlocked=true;is_loading_error=true;showAuthorityRecovery(error);}
+}
 //check if there's an existing save file, otherwise just do some initial setup
-if(importProbeToken) {
+if(authorityBootError){
+    // Invalid authority blocks both legacy fallback and fresh initialization.
+} else if(importProbeToken&&!freshAuthorityProbe) {
     // Probe uses fresh definitions and never reads another saved character.
-} else if(!independentRequest && !heirRequest?.leftovers && (!is_on_dev() && save_key in localStorage || is_on_dev() && (dev_save_key in localStorage || !("skip_live_import" in localStorage) && save_key in localStorage ))) {
+} else if(!independentRequest && !heirRequest?.leftovers && (!importProbeToken&&(authorityEnrolled()||!is_on_dev() && save_key in localStorage || is_on_dev() && (dev_save_key in localStorage || !("skip_live_import" in localStorage) && save_key in localStorage )))) {
     load_from_localstorage();
     if(!is_loading_error) refresh_titles({silent: true});
     character.updateStatsAndDisplay();
@@ -9916,7 +10002,9 @@ if(game_options.skip_play_button && !importProbeToken) {
     play_button.click();
 }
 
-if(importProbeToken) installImportProbe(importProbeToken, data => {
+mountAuthorityUI();
+if(importProbeToken&&freshAuthorityProbe)window.parent.postMessage({type:'save-fresh-result',token:importProbeToken,serialized:create_save()},window.location.origin);
+if(importProbeToken&&!freshAuthorityProbe) installImportProbe(importProbeToken, data => {
     const result = load(data);
     if(config.use_racial_bonuses) character.addRaceBonus();
     if(config.use_height_bonuses) character.addHeightBonus();

@@ -1,0 +1,112 @@
+TAP version 13
+# Subtest: absent authority is a boot no-op; ordinary publication and capture cannot enroll
+ok 1 - absent authority is a boot no-op; ordinary publication and capture cannot enroll
+  ---
+  duration_ms: 5.931666
+  type: 'test'
+  ...
+# Subtest: explicit enrollment performs one guarded durable write and preserves all original hashes
+ok 2 - explicit enrollment performs one guarded durable write and preserves all original hashes
+  ---
+  duration_ms: 6.905958
+  type: 'test'
+  ...
+# Subtest: capture A, save B and repeated exact undo use one publication each
+ok 3 - capture A, save B and repeated exact undo use one publication each
+  ---
+  duration_ms: 6.448666
+  type: 'test'
+  ...
+# Subtest: native import preflights candidate and retained backup before one write
+ok 4 - native import preflights candidate and retained backup before one write
+  ---
+  duration_ms: 2.155666
+  type: 'test'
+  ...
+# Subtest: present invalid roots reject boot, enrollment and normal saves without fallback or mutation
+ok 5 - present invalid roots reject boot, enrollment and normal saves without fallback or mutation
+  ---
+  duration_ms: 1.852417
+  type: 'test'
+  ...
+# Subtest: real native structural validation rejects unsupported candidate before preflight or write
+ok 6 - real native structural validation rejects unsupported candidate before preflight or write
+  ---
+  duration_ms: 0.536625
+  type: 'test'
+  ...
+# Subtest: recursive authority metadata in snapshots is refused rather than rewritten
+ok 7 - recursive authority metadata in snapshots is refused rather than rewritten
+  ---
+  duration_ms: 0.198708
+  type: 'test'
+  ...
+# Subtest: host preflight failure preserves root and legacy data; boot failure is loud
+ok 8 - host preflight failure preserves root and legacy data; boot failure is loud
+  ---
+  duration_ms: 11.780625
+  type: 'test'
+  ...
+# Subtest: shared-lock ownership is checked before and after async validation
+ok 9 - shared-lock ownership is checked before and after async validation
+  ---
+  duration_ms: 1.968125
+  type: 'test'
+  ...
+# Subtest: async operation blocks same-tab normal writes and rejects changed root after preflight
+ok 10 - async operation blocks same-tab normal writes and rejects changed root after preflight
+  ---
+  duration_ms: 0.947083
+  type: 'test'
+  ...
+# Subtest: stale expected bytes refuse prepared native commit
+ok 11 - stale expected bytes refuse prepared native commit
+  ---
+  duration_ms: 1.835209
+  type: 'test'
+  ...
+# Subtest: changed valid-looking root requires full existing-root preflight before replacement
+ok 12 - changed valid-looking root requires full existing-root preflight before replacement
+  ---
+  duration_ms: 2.076916
+  type: 'test'
+  ...
+# Subtest: full-origin budget includes legacy and archives and preserves all bytes
+ok 13 - full-origin budget includes legacy and archives and preserves all bytes
+  ---
+  duration_ms: 1.95775
+  type: 'test'
+  ...
+# Subtest: actual setItem quota failure leaves prior complete authority byte-identical
+ok 14 - actual setItem quota failure leaves prior complete authority byte-identical
+  ---
+  duration_ms: 12.069292
+  type: 'test'
+  ...
+# Subtest: injected native durable owner receives exactly one complete root publication
+ok 15 - injected native durable owner receives exactly one complete root publication
+  ---
+  duration_ms: 4.156083
+  type: 'test'
+  ...
+# Subtest: explicit reset clears recovery in one authority publication without deleting legacy data
+ok 16 - explicit reset clears recovery in one authority publication without deleting legacy data
+  ---
+  duration_ms: 7.982917
+  type: 'test'
+  ...
+# Subtest: enrolled export imports both snapshots with one write and preserved legacy hashes
+ok 17 - enrolled export imports both snapshots with one write and preserved legacy hashes
+  ---
+  duration_ms: 1.879416
+  type: 'test'
+  ...
+1..17
+# tests 17
+# suites 0
+# pass 17
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 897.388

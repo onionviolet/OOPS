@@ -160,10 +160,11 @@
     "date": "2026-10-14",
     "native_undo": "OPEN",
     "multi_slot": "out of scope",
-    "N29_offline": "out of scope"
+    "N29_offline": "out of scope",
+    "runtime_implementation": true
   },
   "next_tranche": 4,
-  "next_scope": "P15 last, then single full/native final gate",
+  "next_scope": "single final full npm test and all native lane journeys; fix observed failures only; report readiness per lane",
   "p18_question": "answered resume4: future native earned local skill XP, optional counter/no backfill, labelled150000 proposal threshold",
   "gate_policy": "resume5: build+focused per step; one full/native gate after all steps, current main merge, P15 last",
   "steps": [
@@ -217,6 +218,20 @@
       "native": "OPEN final gate",
       "merge_ready": false,
       "commit": "05652ac2"
+    },
+    {
+      "step": 5,
+      "scope": [
+        "p23-save-time-options"
+      ],
+      "build": "PASS",
+      "focused": {
+        "tests": 17,
+        "pass": 17,
+        "fail": 0
+      },
+      "native": "OPEN final gate",
+      "merge_ready": false
     }
   ],
   "main_merged_tip": "cc04a4bf68169d8a538a89cef1d973872c8ba75d"
