@@ -3,9 +3,28 @@
  * contracts. Graphs are world truth; only roadmapView is an actor projection.
  */
 const scales = ["person", "workshop", "town", "nation", "civilization"];
-const compare = (a, b) => a < b ? -1 : a > b ? 1 : 0;
+const compare = (a, b) => { tick("ordering"); return a < b ? -1 : a > b ? 1 : 0; };
 const sorted = values => [...new Set(values)].sort(compare);
-const copy = value => structuredClone(value);
+// Scoped instrumentation used by the headless QA adapter. Original signatures
+// and in-bound outputs are unchanged; exhaustion throws before publication.
+let accounting = null;
+const tick = (phase, amount = 1) => {
+    if (!accounting) return;
+    accounting.total += amount;
+    accounting.phases[phase] = (accounting.phases[phase] ?? 0) + amount;
+    if (accounting.total > accounting.limit) {
+        const error = new RangeError("Planner work budget exceeded");
+        error.code = "budget-exceeded"; error.counters = {...accounting, phases: {...accounting.phases}}; throw error;
+    }
+};
+export function measurePlannerCall(call, limit = 1000000) {
+    if (accounting) throw new TypeError("Nested accounting is unsupported");
+    const counters = {total: 0, phases: {}, limit};
+    accounting = counters;
+    try { return {value: call(), counters}; }
+    finally { accounting = null; }
+}
+const copy = value => { if (accounting) tick("copy", JSON.stringify(value).length); return structuredClone(value); };
 const available = (world, id) => world.available?.[id] === true || world.available?.[id]?.available === true;
 
 function catalog(pack, world) {
@@ -16,6 +35,7 @@ function catalog(pack, world) {
         ["method", [...(pack.methods ?? []), ...(world.methods ?? [])]],
     ]) {
         for (const value of values) {
+            tick("catalog");
             if (typeof value.id !== "string" || !value.id || value.id.startsWith("$")) {
                 throw new TypeError("Node IDs must be nonempty strings without the reserved $ prefix");
             }
@@ -26,10 +46,12 @@ function catalog(pack, world) {
         }
     }
     for (const entry of entries.values()) {
+        tick("validation");
         if (entry.kind !== "method") continue;
         if (entries.get(entry.produces)?.kind !== "goal") throw new TypeError(`Unknown product: ${entry.produces}`);
         if (!Array.isArray(entry.requires)) throw new TypeError(`Missing requirements: ${entry.id}`);
         for (const id of entry.requires) {
+            tick("validation");
             if (!["goal", "primitive"].includes(entries.get(id)?.kind)) throw new TypeError(`Unknown requirement: ${id}`);
         }
     }
@@ -71,6 +93,7 @@ function expand(pack, world, targets) {
     const nodes = new Map(), pruned = [];
     const methods = [...entries.values()].filter(entry => entry.kind === "method").sort((a, b) => compare(a.id, b.id));
     function visit(id) {
+        tick("traversal");
         if (nodes.has(id)) return;
         const entry = entries.get(id);
         const node = {id, kind: entry.kind, label: entry.label, scale: entry.scale ?? "person"};
@@ -82,7 +105,7 @@ function expand(pack, world, targets) {
             node.operator = "OR";
             if (entry.target) node.target = copy(entry.target);
             node.alternatives = [];
-            for (const method of methods.filter(method => method.produces === id)) {
+            for (const method of methods.filter(method => { tick("expansion"); return method.produces === id; })) {
                 const reason = pruneReason(method, world);
                 if (reason !== null) pruned.push({id: method.id, product: id, reason});
                 else { node.alternatives.push(method.id); visit(method.id); }
@@ -109,16 +132,18 @@ export function composeTargets(pack, world, a, b) {
     return expand(pack, world, [a, b]);
 }
 
-const children = node => node.kind === "goal" ? node.alternatives : node.kind === "method" ? node.requires : [];
-const index = graph => new Map(graph.nodes.map(node => [node.id, node]));
+const children = node => { tick("edges"); return node.kind === "goal" ? node.alternatives : node.kind === "method" ? node.requires : []; };
+const index = graph => new Map(graph.nodes.map(node => { tick("index"); return [node.id, node]; }));
 
 // Tarjan SCCs report cycles once, including overlapping loops in the same group.
 function cycleGroups(nodes, edges) {
     const indices = new Map(), low = new Map(), stack = [], active = new Set(), groups = [];
     let next = 0;
     function visit(id) {
+        tick("traversal");
         indices.set(id, next); low.set(id, next++); stack.push(id); active.add(id);
         for (const child of edges(nodes.get(id))) {
+            tick("edges");
             if (!indices.has(child)) { visit(child); low.set(id, Math.min(low.get(id), low.get(child))); }
             else if (active.has(child)) low.set(id, Math.min(low.get(id), indices.get(child)));
         }
@@ -140,9 +165,10 @@ export function checkFeasibility(graph, world) {
     while (changed) {
         changed = false;
         for (const node of nodes.values()) {
+            tick("solve");
             if (solved.has(node.id) || node.kind === "primitive") continue;
-            const method = node.kind === "goal" ? node.alternatives.find(id => solved.has(id)) : undefined;
-            if (node.kind === "method" ? node.requires.every(id => solved.has(id)) : method !== undefined) {
+            const method = node.kind === "goal" ? node.alternatives.find(id => { tick("solve-edge"); return solved.has(id); }) : undefined;
+            if (node.kind === "method" ? node.requires.every(id => { tick("solve-edge"); return solved.has(id); }) : method !== undefined) {
                 solved.add(node.id); changed = true;
                 if (method !== undefined) selected.set(node.id, method);
             }
@@ -153,6 +179,7 @@ export function checkFeasibility(graph, world) {
     if (solvable) {
         const seen = new Set(), steps = [], primitives = [];
         function trace(id) {
+            tick("trace");
             if (seen.has(id)) return;
             seen.add(id);
             const node = nodes.get(id);
@@ -171,18 +198,19 @@ export function checkFeasibility(graph, world) {
     // block a composed goal. Remaining shortages are a union, not a minimal cut.
     const frontier = new Set();
     function diagnose(id) {
+        tick("diagnose");
         if (solved.has(id) || frontier.has(id)) return;
         frontier.add(id); children(nodes.get(id)).forEach(diagnose);
     }
     graph.roots.forEach(diagnose);
-    const missingPrimitives = graph.nodes.filter(node => node.kind === "primitive" && frontier.has(node.id))
+    const missingPrimitives = graph.nodes.filter(node => { tick("diagnostics"); return node.kind === "primitive" && frontier.has(node.id); })
         .map(node => ({id: node.id, label: node.label, reason: world.available?.[node.id]?.reason ?? node.missingReason}));
     // An exit for one goal in a large SCC need not break every smaller loop.
     const unresolved = new Map([...nodes].filter(([id]) => !solved.has(id)));
     const blocked = new Set(cycleGroups(unresolved, node => children(node).filter(id => unresolved.has(id))).flat());
     const cycles = cycleGroups(nodes, children).map(nodeIds => ({nodeIds,
         blocking: nodeIds.some(id => blocked.has(id))}));
-    const deadEnds = graph.nodes.filter(node => node.kind === "goal" && node.alternatives.length === 0 && frontier.has(node.id))
+    const deadEnds = graph.nodes.filter(node => { tick("diagnostics"); return node.kind === "goal" && node.alternatives.length === 0 && frontier.has(node.id); })
         .map(node => ({id: node.id, label: node.label, reason: `No permitted method for ${node.label.toLowerCase()}.`}));
     return {solvable, witness, missingPrimitives, cycles, deadEnds};
 }
@@ -204,6 +232,7 @@ export function roadmapView(graph, knowledge) {
     let slot = 0, nextMissing = null;
     const gap = (id, reason) => { nextMissing ??= {id, reason}; };
     function show(id) {
+        tick("show");
         const node = nodes.get(id), info = known(knowledge[id]);
         if (info.fidelity < 2 && !info.believed) {
             const slotId = `$slot:${++slot}`;
@@ -218,6 +247,7 @@ export function roadmapView(graph, knowledge) {
         if (node.kind === "goal") {
             view.operator = "OR";
             view.alternatives = node.alternatives.filter(child => {
+                tick("view-edge");
                 const childInfo = known(knowledge[child]);
                 return childInfo.fidelity > 0 || childInfo.believed;
             }).map(show);
@@ -250,6 +280,7 @@ export function estimate(graph, choice = {}) {
     for (let i = 0; i < queue.length; i++) {
         const id = queue[i];
         for (const child of edges(nodes.get(id))) {
+            tick("edges");
             if (!distance.has(child)) { distance.set(child, distance.get(id) + 1); queue.push(child); }
         }
     }
@@ -257,6 +288,7 @@ export function estimate(graph, choice = {}) {
     const cycles = cycleGroups(reached, edges);
     const memo = new Map();
     function depth(id) {
+        tick("depth");
         if (memo.has(id)) return memo.get(id);
         const result = Math.max(0, ...edges(nodes.get(id)).map(child => 1 + depth(child)));
         memo.set(id, result); return result;
@@ -264,6 +296,7 @@ export function estimate(graph, choice = {}) {
     const byScale = Object.fromEntries(scales.map(scale => [scale, 0]));
     const byKind = {goal: 0, method: 0, primitive: 0}, layers = [];
     for (const [id, level] of distance) {
+        tick("estimate");
         const node = nodes.get(id);
         byScale[node.scale]++; byKind[node.kind]++;
         layers[level] = (layers[level] ?? 0) + 1;
