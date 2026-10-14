@@ -11,7 +11,7 @@ Profile: `before.cpuprofile`, baseline commit `67c7f15c`, headless Chrome, 1366x
 | `setItem` | `../src/main.js:452:26` | 462.48 | 786.25 |
 | `prepareFoundationSave` | `../src/save_compatibility.js:9:17` | 445.60 | 57847.09 |
 | `(garbage collector)` | `(V8):0:0` | 376.77 | 376.77 |
-| `n` | `../src/save_compatibility.js:42:20` | 347.50 | 57402.72 |
+| `detach` | `../src/save_compatibility.js:42:20` | 347.50 | 57402.72 |
 | `worldCompletionFacts` | `../src/world_completion_facts.js:15:17` | 309.42 | 947.52 |
 | `auditRemainderCombinedFacts` | `../src/audit_remainder_facts.js:12:17` | 299.24 | 428.61 |
 | `simulateTick` | `../src/main.js:7797:10` | 289.92 | 65661.27 |
@@ -32,7 +32,7 @@ Profile: `before.cpuprofile`, baseline commit `67c7f15c`, headless Chrome, 1366x
 | `(anonymous)` | `(V8):1:1` | 0.00 | 65729.20 |
 | `advanceTicks` | `../src/main.js:8254:10` | 0.00 | 65729.20 |
 | `runEngineTicks` | `../src/simulation_clock.js:62:17` | 1.59 | 65673.53 |
-| `engineTimeout` | `../src/main.js:7777:19` | 9.39 | 65670.68 |
+| `(anonymous)` | `../src/main.js:7777:19` | 9.39 | 65670.68 |
 | `simulateTick` | `../src/main.js:7797:10` | 289.92 | 65661.27 |
 | `update_timer` | `../src/main.js:7681:10` | 13.42 | 65140.51 |
 | `persistExpansion` | `../src/main.js:1077:10` | 58.79 | 64392.13 |
@@ -40,8 +40,8 @@ Profile: `before.cpuprofile`, baseline commit `67c7f15c`, headless Chrome, 1366x
 | `data` | `../src/main.js:1203:27` | 7.25 | 58400.05 |
 | `validateSaveEnvelope` | `../src/save_files.js:49:17` | 43.22 | 58388.60 |
 | `prepareFoundationSave` | `../src/save_compatibility.js:9:17` | 445.60 | 57847.09 |
-| `n` | `../src/save_compatibility.js:42:20` | 347.50 | 57402.72 |
+| `detach` | `../src/save_compatibility.js:42:20` | 347.50 | 57402.72 |
 
-F1. `retiredKey` accounts for 57,055.22 ms self time (about 86% of the advance call). `prepareFoundationSave` recursively visits save keys and tries JSON parsing for each non-retired key. Most field names are not JSON, so this repeatedly creates and catches syntax errors.
+P1. `retiredKey` consumes about 86% of the advance call. It tries JSON parsing for each property name during recursive retirement validation, repeatedly creating/catching syntax errors. The pure result depends only on its input string and a private constant set.
 
-D1. Cache only this immutable string classification per `render:false` advance. Keep each transaction's new-state validation, envelope traversal, serialization, durable write and publication. Do not treat this as authority to skip full transaction validation.
+P2. Commit `1806ec91` caches only this classification for one render-suppressed advance. Full new-state validation, serialization, durable writes and publication remain.

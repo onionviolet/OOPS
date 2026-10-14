@@ -1,0 +1,16 @@
+{
+  "status": "unavailable",
+  "criteria": {
+    "minimumCpuIdlePercent": 85,
+    "maximumLoad1": 18,
+    "minimumFreeMiB": 1024
+  },
+  "attempts": 12,
+  "error": "Error: A quiet slice (>=85% CPU idle, load<=cores, >=1GiB free) was unavailable.\n    at quietSlice (/Users/weiwei/code/yair-absorb-all-20261014/sim-stepper/scripts/simulation_stepper_profile.cjs:14:8)\n    at async /Users/weiwei/code/yair-absorb-all-20261014/sim-stepper/scripts/simulation_stepper_profile.cjs:57:66",
+  "postVerificationObservation": {
+    "cpuIdlePercent": 71,
+    "load1": 6.6083984375,
+    "freeMiB": 2233
+  },
+  "claimedQuietBenchmark": false
+}

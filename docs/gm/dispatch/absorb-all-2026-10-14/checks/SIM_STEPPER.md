@@ -66,3 +66,24 @@ YAIRPG_FIXTURE_TIMEOUT_MS=180000 node --test --test-concurrency=2 tests/*.test.j
 
 Put Node runner flags before test paths. Appending them through `npm test --`
 does not bound this package's workers.
+
+Performance follow-up: [profiles, three-run medians, limitations and structural
+next fixes](sim-stepper/PERFORMANCE_FOLLOWUP.md). The per-advance cache covers
+only immutable retirement-key classification; mutable save validation still runs
+on each transaction. Combat log-follow geometry and scrolling are batched.
+
+```sh
+node scripts/simulation_stepper_profile.cjs --profile after
+YAIRPG_PROFILE_SCENARIO=combat YAIRPG_BENCH_TICKS=200 node scripts/simulation_stepper_profile.cjs --profile combat-after
+node scripts/simulation_stepper_profile.cjs --bench matched-after
+YAIRPG_BENCH_BUNDLE=/path/to/original/bundle.js node scripts/simulation_stepper_profile.cjs --bench matched-before
+node scripts/simulation_stepper_profile.cjs --compare matched-before matched-after
+```
+
+Benchmark samples default to 200 ticks, three fresh contexts per scenario. The
+profiler defaults to 1000 opening ticks. `YAIRPG_QUIET=1` requires a quiet preflight
+before every sample and fails if one is unavailable; an unset flag never claims
+quiet certification. Set `YAIRPG_BENCH_BUNDLE` to the baseline bundle to replay
+it without changing branches. To re-summarize an older `.cpuprofile`, provide its
+matching bundle and adjacent `.map` with that same variable, then use
+`--summarize <label>`; current maps must not be applied to older profiles.

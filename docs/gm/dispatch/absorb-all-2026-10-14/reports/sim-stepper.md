@@ -1,3 +1,21 @@
+# Performance follow-up, 2026-10-14
+
+Correctness remains passing; speed acceptance remains OPEN. Profile-driven
+retirement-key caching and batched log layout improve provisional median
+throughput from about 20 ticks/s to 170–207 ticks/s. The 1000 ticks/s idle/work
+and 200 ticks/s combat targets are not met, and no quiet slice was certified.
+No transaction semantics or main.js code changed in this follow-up. Engine
+commits: `1806ec91` and `3a6c7eb4`; initial profiler commit: `8de5347a`.
+
+[Performance report, profiles, call sites and smallest safe next fixes](../checks/sim-stepper/PERFORMANCE_FOLLOWUP.md)
+own the current evidence: 991/991 full tests, six byte-equal state comparisons,
+three-run medians with matching before/after save hashes, both native journeys
+passing. See the report for the exact structural costs and quiet-machine gate.
+
+---
+
+## Initial correctness delivery (commit 67c7f15c)
+
 # Sim-stepper lane, 2026-10-14
 
 Branch `absorb-all/sim-stepper`, base `b0fba727`, port 18950.
