@@ -1,0 +1,100 @@
+TAP version 13
+# Subtest: old optional state remains absent with no default profile or bonuses
+ok 1 - old optional state remains absent with no default profile or bonuses
+  ---
+  duration_ms: 1.540709
+  type: 'test'
+  ...
+# Subtest: enrollment requires current world/body, learned preparation and save custody
+ok 2 - enrollment requires current world/body, learned preparation and save custody
+  ---
+  duration_ms: 0.582958
+  type: 'test'
+  ...
+# Subtest: two funded acquisitions and consumptions propose exact native health and item costs
+ok 3 - two funded acquisitions and consumptions propose exact native health and item costs
+  ---
+  duration_ms: 9.997333
+  type: 'test'
+  ...
+# Subtest: tonic source projection rebuilds once, while replay does not consume another item
+ok 4 - tonic source projection rebuilds once, while replay does not consume another item
+  ---
+  duration_ms: 126.496084
+  type: 'test'
+  ...
+# Subtest: repeat tonics have no lifetime once limit
+ok 5 - repeat tonics have no lifetime once limit
+  ---
+  duration_ms: 229.21975
+  type: 'test'
+  ...
+# Subtest: unsupported bodies/profiles cannot buy, consume or receive projections
+ok 6 - unsupported bodies/profiles cannot buy, consume or receive projections
+  ---
+  duration_ms: 0.287041
+  type: 'test'
+  ...
+# Subtest: unfunded shop, absent item, occupied body and native eligibility reject without mutation
+ok 7 - unfunded shop, absent item, occupied body and native eligibility reject without mutation
+  ---
+  duration_ms: 0.225875
+  type: 'test'
+  ...
+# Subtest: large 150000 XP settles iteratively, crossing each intended milestone exactly once
+ok 8 - large 150000 XP settles iteratively, crossing each intended milestone exactly once
+  ---
+  duration_ms: 103.447666
+  type: 'test'
+  ...
+# Subtest: max finite safe award has finite save/view, no recursive settlement or numeric cap
+ok 9 - max finite safe award has finite save/view, no recursive settlement or numeric cap
+  ---
+  duration_ms: 7.977
+  type: 'test'
+  ...
+# Subtest: invalid/overflow awards, altered receipts and concurrent awards reject atomically
+ok 10 - invalid/overflow awards, altered receipts and concurrent awards reject atomically
+  ---
+  duration_ms: 0.619583
+  type: 'test'
+  ...
+# Subtest: supported background progresses during reading on native minutes with replay protection
+ok 11 - supported background progresses during reading on native minutes with replay protection
+  ---
+  duration_ms: 254.636625
+  type: 'test'
+  ...
+# Subtest: real body/resources/action conflicts block honestly and blocked time earns nothing later
+ok 12 - real body/resources/action conflicts block honestly and blocked time earns nothing later
+  ---
+  duration_ms: 81.319625
+  type: 'test'
+  ...
+# Subtest: disabled background and unchecked time leaps cannot invent elapsed rewards
+ok 13 - disabled background and unchecked time leaps cannot invent elapsed rewards
+  ---
+  duration_ms: 0.286833
+  type: 'test'
+  ...
+# Subtest: unsupported/malformed imports reject before any mutation
+ok 14 - unsupported/malformed imports reject before any mutation
+  ---
+  duration_ms: 61.991541
+  type: 'test'
+  ...
+# Subtest: literal JSON fixture imports preserve complete old envelope, pending and completed state without reapplying bonuses
+ok 15 - literal JSON fixture imports preserve complete old envelope, pending and completed state without reapplying bonuses
+  ---
+  duration_ms: 823.390625
+  type: 'test'
+  ...
+1..15
+# tests 15
+# suites 0
+# pass 15
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2195.772333

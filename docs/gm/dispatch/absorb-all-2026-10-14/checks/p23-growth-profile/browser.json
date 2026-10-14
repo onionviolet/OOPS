@@ -1,0 +1,17 @@
+{
+  "origin": "http://127.0.0.1:18836",
+  "freshContext": true,
+  "viewport": {
+    "width": 1366,
+    "height": 768
+  },
+  "httpStatus": 200,
+  "servedBundleSha256": "598e02f54fe7db4c9a35bc79c75a754a7f8dc42eccf9fab828de8fd82e97b615",
+  "localBundleSha256": "598e02f54fe7db4c9a35bc79c75a754a7f8dc42eccf9fab828de8fd82e97b615",
+  "matched": true,
+  "pageErrors": [],
+  "nativeEntryRendered": true,
+  "changedNativeLoop": "OPEN: module is intentionally unregistered; P00 owns native joins",
+  "nativePersistence": "OPEN: native pending/completed state cannot be created without P00 joins",
+  "p18ControlsAbsent": true
+}
