@@ -1,0 +1,26 @@
+const {chromium}=require('/Users/weiwei/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
+const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict');
+const root=process.argv[2],out=process.argv[3],origin='http://127.0.0.1:'+(30000+Math.floor(Math.random()*20000));
+const types={'.js':'text/javascript','.mjs':'text/javascript','.html':'text/html','.css':'text/css','.json':'application/json','.png':'image/png','.svg':'image/svg+xml','.map':'application/json','.woff2':'font/woff2','.ttf':'font/ttf','.gif':'image/gif','.jpg':'image/jpeg'};
+(async()=>{
+ const ctx=await chromium.launchPersistentContext('/private/tmp/claude-501/sweep-profile-'+Date.now(),{channel:'chrome',headless:true,viewport:{width:1366,height:768},acceptDownloads:true});
+ await ctx.route(origin+'/**',r=>{let p=new URL(r.request().url()).pathname;if(p.endsWith('/'))p+='index.html';const f=path.join(root,decodeURIComponent(p));if(!fs.existsSync(f))return r.fulfill({status:404,body:''});r.fulfill({status:200,body:fs.readFileSync(f),contentType:types[path.extname(f)]||'application/octet-stream'});});
+ const page=ctx.pages()[0]||await ctx.newPage();const errors=[];page.on('console',m=>{if(m.type()==='error')console.log('CONSOLE',m.text())});page.on('response',r=>{if(r.status()>=400)console.log('HTTP',r.status(),r.url())});page.on('requestfailed',r=>console.log('REQFAIL',r.url(),r.failure()&&r.failure().errorText));page.on('pageerror',e=>{errors.push(e.message);console.log('PAGEERROR',e.message,(e.stack||'').split('\n').slice(0,3).join(' | '))});
+ await page.goto(origin+'/');await page.locator('#loading_screen_play_button').click();
+ await page.locator('#hero_creation_name_field').fill('TEST FIXTURE MERGE SWEEP');await page.locator('#hero_creation_panel_confirmation').click();
+ await page.waitForTimeout(3000);await page.locator('#save_button').click();
+ const saved=await page.evaluate(()=>localStorage.getItem('save data'));assert.ok(saved&&saved.includes('TEST FIXTURE MERGE SWEEP'));
+ await page.screenshot({path:out+'/sweep-play-1366.png'});
+ await page.reload();await page.locator('#loading_screen_play_button').click();await page.waitForTimeout(1500);
+ const after=JSON.parse(await page.evaluate(()=>localStorage.getItem('save data')));assert.equal(after.character.name,'TEST FIXTURE MERGE SWEEP');
+ const dl=page.waitForEvent('download');await page.locator('#save_to_file_button').click();const lit=out+'/sweep-export.txt';await (await dl).saveAs(lit);
+ const ctx2=await chromium.launchPersistentContext('/private/tmp/claude-501/sweep-import-'+Date.now(),{channel:'chrome',headless:true,viewport:{width:1366,height:768}});
+ await ctx2.route(origin+'/**',r=>{let p=new URL(r.request().url()).pathname;if(p.endsWith('/'))p+='index.html';const f=path.join(root,decodeURIComponent(p));if(!fs.existsSync(f))return r.fulfill({status:404,body:''});r.fulfill({status:200,body:fs.readFileSync(f),contentType:types[path.extname(f)]||'application/octet-stream'});});
+ const p2=ctx2.pages()[0];const err2=[];p2.on('pageerror',e=>err2.push(e.message));await p2.goto(origin+'/');await p2.locator('#loading_screen_play_button').click();await p2.locator('#hero_creation_name_field').fill('TEST FIXTURE IMPORT TARGET');await p2.locator('#hero_creation_panel_confirmation').click();
+ await Promise.all([p2.waitForNavigation({waitUntil:'domcontentloaded'}),p2.locator('#saved_file_input').setInputFiles(lit)]);
+ const imp=JSON.parse(await p2.evaluate(()=>localStorage.getItem('save data')));assert.equal(imp.character.name,'TEST FIXTURE MERGE SWEEP');
+ await p2.locator('#loading_screen_play_button').click();await p2.waitForTimeout(1500);await p2.screenshot({path:out+'/sweep-import-1366.png'});
+ const served=await(await page.request.get(origin+'/dist/bundle.js').catch(()=>null));
+ console.log(JSON.stringify({origin,viewport:'1366x768',errors,importErrors:err2,savedName:after.character.name,importedName:imp.character.name,clock:after.expansion?.clock}));
+ assert.deepEqual(errors,[]);assert.deepEqual(err2,[]);await ctx.close();await ctx2.close();
+})().catch(e=>{console.error('FAIL',e.message);process.exit(1)});
