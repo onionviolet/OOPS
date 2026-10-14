@@ -1417,3 +1417,45 @@ modules, panel kit); the stack connects them.
 - A14: Treat AB1-AB10 as the single map; an abstraction map lane (AB) checks it against code and other docs before anyone builds a second copy.
 - A15: Merge R1 once its final check passes; stage 1 builds on that.
 - A16: In comic worlds, start with CSW1 and CSW2: they test standing and the knowledge layer with no new UI.
+
+### Lane returns AUDIT, R1, W4, W5, TE, MX, LQ, IA and AB (folded 2026-10-14)
+
+Folded at Weibao's O2 approval. Returns live in
+[cheat-status-window-2026-10-13](gm/dispatch/cheat-status-window-2026-10-13/)
+and [cheat-considerations-2026-10-13](gm/dispatch/cheat-considerations-2026-10-13/).
+Everything below stays a proposal; nothing here reopens or closes a gate.
+
+**What each return adds**
+
+| Return | Adds | Status |
+| --- | --- | --- |
+| [AUDIT](gm/dispatch/cheat-status-window-2026-10-13/AUDIT_REPORT.md) | F1-F14 on stage 0; D1-D3 stage 1 slice (one known-skill milestone, manual claim, one unspendable point) | Folded earlier as AW, S1D and GL |
+| [R1](gm/dispatch/cheat-status-window-2026-10-13/R1_REPORT.md) | Save-before-reveal awakening, checks after every clock advance and load, stricter validation, reveal in view; gate R1-R6 | Merged as 536e36db with bundle 59917616; sleep path unexercised |
+| [W4](gm/dispatch/cheat-considerations-2026-10-13/W4_SYSTEM_QUESTS_IN_OTHER_GAMES.md) | SQ1-SQ20 quest and point patterns from fiction, idle games, life sims, MMOs, roguelites and habit apps; AP1-AP10 anti-patterns | Supports QG, QT, PT, SC |
+| [W5](gm/dispatch/cheat-considerations-2026-10-13/W5_SHOWING_HIDDEN_INFORMATION_IN_GAMES.md) | HI1-HI13 information-display patterns; AP1-AP12; five P1-P5 suggestions for the status window plus SH4 | Supports SH, OV, SE, TR |
+| [TE](gm/dispatch/cheat-status-window-2026-10-13/ENGINE_EDGES_PROBE.md) | TE1-TE7: no single settlement order; cheat code draws no randomness; one save writer per origin, so two tabs are safe; clock jumps bypassed day 3 (fixed by R1); message growth uncapped; unknown open state survives import | Answers ME1-ME8 |
+| [MX](gm/dispatch/cheat-status-window-2026-10-13/MICRO_UX_AUDIT.md) | MX1-MX29; top five: window placement and arrival in view, a system-line marker and game-time stamp, stat explanations on hover, empty-state copy, tabular figures on level and points | Answers MN, ML, MI; arrival partly fixed by R1 |
+| [LQ](gm/dispatch/cheat-status-window-2026-10-13/LEAK_AND_QUARANTINE_PROBE.md) | Reusable `checks/leak_lint.cjs`; LQ2 dormant Export text names the card when decoded; LQ3 one invalid held card blocks normal load (raw save kept); LQ5 smallest FR1 rule | Answers SL1, FR1 |
+| [IA](gm/dispatch/cheat-status-window-2026-10-13/INFO_LAYER_IMPLICATIONS.md) | II1-II12 inventory against code; smallest seam is a fact adapter plus one redactor with two main.js hunks; existing named streams reusable; P5.1-P5.6 sequence with done checks | Narrows II |
+| [AB](gm/dispatch/cheat-status-window-2026-10-13/ABSTRACTION_MAP.md) | AB1-AB10 mapped to every proposing doc and code owner; D1-D10 folds and look-alikes; C1-C14 conflicts; P1-P5 landing order | Narrows AB |
+
+**Corrections to rows above (the returns win where they cite code)**
+
+- **II2 "current values read live"** turns an old report into remote omniscience. Keep a retained reading's value, time and cause, as `simulation_contracts.js` and `people_knowledge.js` already do; live reads are only for the holder's own current self (IA R1, AB C3).
+- **OV3 one grade ladder** mixes separate axes. Precision (none → exact), depth, interpretation stage and freshness stay distinct; "future" is a forecast method, not a step above exact (AB D9, IA R2, W5).
+- **II6, II8, II9 and II10 as new builds** duplicate what exists: `seeded_streams.js`, the current log, the C0 envelope and save ownership. Keep only adapters on them (IA R5, AB D3, D4).
+- **SE4, SH9 and UP2 silhouette counts** conflict with the panel kit's no-name, no-count discovery. A world needs an explicit discovery route before presence is shown (IA R4, AB C1).
+- **AB6 and AB9 "already two users"** was overstated; expected cards are not implemented consumers (AB C5).
+- **FR3 board reset** can erase legitimate points. Quarantine keeps raw data inert with a reason, never a silent reset (IA R7, LQ5).
+- **SL and export:** redact the human-readable share summary; the full backup must keep real data so restore works (AB C6). LQ2 remains open.
+- **Determinism (ME3, II10):** "same seed, same fights" is stronger than a board stream guarantees; compare saved context, actions and draw receipts instead (IA R6).
+
+**Agreements across returns:** stage 1 starts with one patient known-skill row, a manual claim and a durable receipt (AUDIT D1, W4 A1-A2, IA P5.4, AB P2). Information pays when it changes what the player can do (W5 HI12, OV7). No attendance pressure or offline expiry (W4 AP1-AP2, QT1-QT2).
+
+**Top picks**
+
+1. Fix LQ2 (dormant Export leak), LQ3 via LQ5's FR1 rule, and cap the R1 retry log line in one small stage 0 lane before stage 1.
+2. Build stage 1 as IA P5.4 and AB P2: one known-skill milestone with typed card state, a baseline, a manual claim and one point.
+3. Apply MX's top five micro fixes alongside, since they touch the same panel.
+4. Build the read-only fact adapter and redactor (IA P1, AB P3), with stage 1 as its second reader.
+5. Then SH4 True Appraisal as the second lens, using W5's P1-P2: one property, retained historical readings.

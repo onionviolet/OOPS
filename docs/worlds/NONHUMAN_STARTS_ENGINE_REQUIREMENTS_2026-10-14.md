@@ -598,3 +598,76 @@ and NA6; perception, clocks and kin wait for their own second consumer.
 Standing rule: commit only this task's paths and keep other sessions' edits
 out. Lane logs stay uncommitted because Codex echoes file contents from the
 private novels folder into them.
+
+## Round 11: fold of the last ten lanes; wave folded (2026-10-14)
+
+Approved fold (relayed from the coordinating session as Weibao's O2): fold
+finished lane returns, no new lanes, everything stays proposals. The
+[nonhuman-starts-2026-10-14](../gm/dispatch/nonhuman-starts-2026-10-14/runs/SESSIONS.md)
+wave had 26 runs: 23 completed, and three stopped before any output (comics and
+manhwa as duplicates of the comic owner, and the first abstraction run, which
+was relaunched as abstraction2). This round folds the ten not yet
+folded. **The wave is folded.**
+
+### What each lane adds
+
+| Lane | Adds | Top pick |
+| --- | --- | --- |
+| [Synthesis and roadmap](NONHUMAN_SYNTHESIS_AND_ROADMAP_2026-10-14.md) | One-page answer; dependency graph; a 25-row ordered slice roadmap with one gate G0 for every row (rebuild, fresh origin at 1366x768, save/reload/export/literal import); a crosswalk placing every lane's "first" pick; conflicts CF1-CF24; duplicates DU1-DU18 with canonical pointers; gaps G1-G10 | Slice 1 foundation, then Slice 2 Village hound |
+| [Start specs](NONHUMAN_START_SPECS_2026-10-14.md) | Build-ready records and first-hour scripts: SS-A Village hound, SS-B HP free house-elf worker, SS-C Paradise alchemical bird partner beside an original contractor; shared contract SS0; acceptance checklist SS-AC | SS-A |
+| [Minds and cognition](NONHUMAN_MINDS_AND_COGNITION_2026-10-14.md) | Knowledge modes, instinct vs reason vs compulsion, faceless emotion, language and numbers, memory and time sense, theory of mind; beats MN-S1-S32, MN1-MN18 | MN-P1: two knowledge presets (human memory vs native) in one hound encounter |
+| [Making and building](NONHUMAN_MAKING_AND_BUILDING_2026-10-14.md) | Routes MK1-MK15 (silk, resin, digging, nests, grown structures, breath forging, core rooms), recipe methods and slots, earned manipulators, homes as facilities, buyers; MK-S1-S16 | MK-A1: the hound arranges real lining into a fitted rest spot |
+| [Micro details](NONHUMAN_SUBTLE_MICRO_DETAILS_2026-10-14.md) | 8+ details per body kind; cross-species signals, body states, scraps economy, habits into skills, micro ecology; noise rules MD-N1-N10 | MD-P1: two comfort/rest lines for one admitted body |
+| [Body authoring](NONHUMAN_BODY_AUTHORING_2026-10-14.md) | Template/instance data format with worked hound, sapling, blade and an enemy-to-template example; checklist BA-C1-C12; lint rules; fixture set; procedural species grammar; per-world packs | BA-S1/BA-S2: template/instance split plus human, reedling, Tern and hound fixtures |
+| [Cheats](NONHUMAN_CHEATS_2026-10-14.md) | Show cheats CN-S, grant/change cheats CN-G, starting cheats CN-A, combinations and per-world limits CN-I, quiet knacks CN-SB, state and desktop layout CN-E | CN-P1: body self-reader plus one scent result on the hound |
+| [Overarching frame](NONHUMAN_OVERARCHING_FRAME_2026-10-14.md) | Identity across bodies and worlds (OA1/OA2 extended), continuity dispositions, optional long arcs, life-sim fit, a code-routing glossary | S1: apply OA1's six distinctions to the selected slice |
+| [Implementation implications](NONHUMAN_IMPLEMENTATION_IMPLICATIONS_2026-10-14.md) | Blast radius per system, sequencing IM-D1-D9 against live owners, save and rollback, verification matrix IM-V, many-body caps, content cost, risks, a minimum viable path IM-A1-A5 | IM-A1-A5: baseline fixtures, preserve existing lives, prove Slice 1, add one hound, playable acceptance |
+| [Abstractions needed](NONHUMAN_ABSTRACTIONS_NEEDED_2026-10-14.md) | Inventory of existing code abstractions; nonhuman additions mapped to AX1-AX19 and intro AB1-AB9; bridge plan for native Hero vs simulation people; layering save to UI; second-consumer threshold | NA-S1/NA-S2: lock vocabulary, then a narrow body read/function bridge |
+
+### Agreement: one first path
+
+Every lane above converges on the same path, which matches C1 and C12:
+**Slice 1** (one body record, function queries, migration, proved on human,
+reedling and Tern, with the missing tests written first), then **Slice 2**, the
+original Village hound (scent errand, guard signal, collar fit, safe routine,
+bite and recovery, two knowledge presets, two comfort lines, a self-reader
+cheat and a nest-lining action), then **Slice 3**, hound plus caretaker. The
+synthesis keeps the many extras optional so the first taste stays small
+(CF23). Proposal; implementation still needs its own authorization and
+scheduling with the foundation owner (IM1, IM-D6).
+
+### Corrections and contradictions this round settles
+
+| Code | What changes in this owner | Source |
+| --- | --- | --- |
+| K1 | **First-slice shortlist superseded.** Round 5's order (hound, house-elf, Paradise pet, blade, aranea or slime) is replaced by the synthesis roadmap: Slices 4-6 put HP house-elf, D&D blade and MoL aranea first among canon worlds (D&D before MoL follows standing priority), and Paradise runs hub return (7), then household creature (8), then pet seat (9) | CF7, CF8 |
+| K2 | **Some form checks are real rules.** E2 and B8 said to replace `form === 'human'` checks. Several are authored world admission or material rules and stay; only anatomy shortcuts are replaced | CF4 |
+| K3 | **F1, B1, B7 and B11 corrected.** The engine spec corrects this owner's source summaries (age read, single-combatant framing, heirs-are-human); use its entries | CF6 |
+| K4 | **One body store now, a registry later.** E1's single body per person holds until a second-body slice; then an explicit registry migration | CF5 |
+| K5 | **Bond doesn't lend hands.** N5's "bond as a stat" is refined: regard changes what a partner offers to do; the partner still does the work with its own means | CF9, DU4 |
+| K6 | **Knowledge belongs to the knower.** E9's "skills keep XP on the controller" is refined: knowledge sits with the actual person, mind or source; motor practice with the body | CF13, DU6 |
+| K7 | **Round 10 NA codes.** The abstraction lane's NA table supersedes round 10's illustrative NA1-NA8 list | Abstractions lane |
+| K8 | **Cadence.** Micro owns texture timing; the hound spec's tighter cadence is a local override (CF21) | CF21 |
+
+Other conflicts (CF10-CF20, CF22, CF24) keep the synthesis lane's resolutions. None requires Weibao unless a slice would add
+irreversible offscreen loss, forced instinct actions, hunger death or a new
+prestige layer, or move an original beast catalog ahead of canon-first work
+(IM-Q1, IM-Q2).
+
+### Duplicates
+
+Use the synthesis duplicates register (DU1-DU18) as the canonical pointer
+table. Examples: perception goes to SU1, ownership to SL2, support to BS5,
+defeat and repair to E6, knowledge to PG1, staying nonhuman to N15.
+
+### Open gaps no lane closed
+
+The synthesis gaps G1-G10, with the most important being G5 (no running body
+compiler or pack migration), G8 (no executed browser and save matrix for body
+starts) and G10 (no selected integration packet with reserved files). These
+are where implementation planning starts; they are not new research lanes.
+
+### Status
+
+Wave folded 2026-10-14. All outputs are proposals. No code, build, test or
+browser verification was run by this wave.

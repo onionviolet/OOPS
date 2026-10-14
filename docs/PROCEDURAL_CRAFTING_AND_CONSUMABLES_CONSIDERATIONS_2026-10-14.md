@@ -430,3 +430,35 @@ risks: version drift between registry and P2 data, effects expiring twice across
 clocks, partial publication, and hidden chemistry leaking through keys, sorting or
 tooltips. Remaining gate for any builder: rebuilt port 21700 at 1366x768 and
 1600x1000 with Save/reload/Export/literal Import and old-save compatibility.
+
+## Fold: maker-arts W1-W7 and weaponcraft R1-R3 (2026-10-14)
+
+These lanes belong to the weaponcraft owner session; its
+[canonical palette](WEAPONCRAFT_RUNES_AND_INSCRIPTION_CONSIDERATIONS_2026-10-14.md)
+and [maker-arts palette](WEAPONCRAFT_RUNES_AND_MAKER_ARTS_CONSIDERATIONS_2026-10-14.md)
+own their content. This section records only how they relate to crafting codes
+here. Everything stays proposal.
+
+| Lane | Adds to this palette | Duplicates | Contradicts or corrects |
+|---|---|---|---|
+| [W1 maker arts by world](worlds/MAKER_ARTS_BY_WORLD_2026-10-14.md) | Weapon/armor/rune laws for all 25 world folders and 17 full-book folders; fabrication, exact identity, ownership, bond and fuel kept distinct | WL1-WL8, CR2 world laws (both now point here for weapons) | Of 11 memory rows, 4 confirmed and 7 corrected. Legendary Mechanic blueprints come from combining knowledge and talents, not fusing two finished blueprints. CT6 fusion stays an original idea. |
+| [W2 rune language](gm/dispatch/maker-arts-2026-10-14/W2_REPORT.md) | Runes as programs with execution traces and failures | XD1 enchanted potions only as a pointer | None |
+| [W3 reveal cheats](gm/dispatch/maker-arts-2026-10-14/REVEAL_CHEATS.md) | RC1-RC16 plus 12 additions, with status-text samples and companion ladders | CT1 appraisal, CX1-CX10 and RV1-RV8 overlap in purpose | None. Rule here: CX rows are making-specific lenses, and RC is the general item lens set. CR5-C5 still applies: both are original unless a scene proves it. |
+| [W4 implementation](gm/dispatch/maker-arts-2026-10-14/IMPLEMENTATION.md) | AB1-AB12 with live file:line evidence; PS1-PS5 ordered slices | II1-II7 analysis of P2 | **Code collision:** W4's AB1-AB12 is maker-arts-local. Crafting AB1-AB7 here map as below. **Build order:** W4 starts with braces, repair, blades, appraisal and a work lamp; CR6 starts with the registry adapter, then poison/antidote, then the notebook. Both are reachable and selectable separately. CR6 adopts W4's identity contract (ID1-ID5). |
+| [W5 micro craft](gm/dispatch/maker-arts-2026-10-14/MICRO_CRAFT.md) | 80 sourced text cues (SB13-SB92) across ten crafts | SU1-SU9 cover the same idea for potions | None; SU stays potion-side and SB covers the other crafts |
+| [W6 other arts](gm/dispatch/maker-arts-2026-10-14/OTHER_ARTS.md) | 12 more arts, 16 game references, worked joins (ceramic containers, hauling frames, training as bond) | P6 M1-M11, CO kinds | None |
+| [W7 item lifetimes](gm/dispatch/maker-arts-2026-10-14/ITEM_LIFETIMES.md) | LT1-LT12 lifetimes, a three-generation weapon biography, carryover matrix CR1-CR8 | IT1-IT5, PR1-PR2, MK2 | None. Note: W7's "CR1-CR8" are carryover rows, not crafting lanes CR1-CR6. |
+| [R1 weapons by world](gm/dispatch/weaponcraft-runes-2026-10-14/) | Recorded W1 as its source-world replacement | W1 | None |
+| [R2 game references](gm/dispatch/weaponcraft-runes-2026-10-14/R2_REPORT.md) | Top 10 (Tinkers' Construct, Ars Nouveau, Noita, Atelier Ryza, ...), GX1-GX10; suggests absorbing GX1-3, GX5, GX7 and GX8 | FE1/FE2 reference list | GX5/GX6: old paid items under revised rules need pinning or migration, never silent rerolls. Same rule as audit R6. |
+| R3 shared abstraction | Stopped as a duplicate of W4 | | |
+
+**Code map, crafting AB to maker-arts W4 AB:** AB1 product family registry
+covers W4 AB12 entity refs and AB4 material/batch. AB2 exposure ledger extends W4
+AB7 consumer profile and is new for doses. AB3 observer knowledge is W4 AB6. AB4
+maker actor joins W4 AB1 process and AB11 station. AB5 uniqueness registry has no
+W4 counterpart and is new. AB6 continuity policy and AB7 design lineage build on
+W4 AB8 history.
+
+**Top picks after the fold:** CR6's registry adapter, then CR1-S1 poison/antidote,
+then CR3-S1 notebook, for potions; W4 PS1 braces for equipment, on the same
+registry. W3's RC1 appraisal is the first lens either path uses.

@@ -1511,3 +1511,57 @@ Bullet Journal, FAA wayfinding) and proposes TT01 to TT16:
 
 U13's top order: TT01 (sheet pages), TT04, TT09 (stock and rate), TT06, TT07
 (clocks), TT16, TT03, TT14, TT11, TT13. All 13 UI lanes have now reported.
+
+## Round 10: fold of stranded lane returns and the ER11 micro-feel audit (2026-10-14)
+
+This is a fold only. No new lanes were dispatched, everything stays a
+proposal, and it's desktop first. The stranded files were saved in
+`fd176f27`.
+
+### U12 and U13
+
+Both were already folded above, in "U12 and U13 folded in," and in HEAD at
+`07cf6ed3`. Nothing further: their top picks (U12's OI1 plus OI19, keeping
+visibility separate from discovery, and U13's TT01 sheet pages and TT09
+stock versus rate) stand as recorded.
+
+### ER11, UI micro feel audit
+
+[UI_MICRO_FEEL_AUDIT_2026-10-14.md](research/UI_MICRO_FEEL_AUDIT_2026-10-14.md)
+reads source and runs isolated probes at 1366×768, then ranks 11 findings by
+player exposure. It's the first source-and-measurement check of this
+palette's micro rows. What it confirms, adds or contradicts:
+
+| ER11 | What it found | Effect on this palette |
+| --- | --- | --- |
+| F1 | Layout read and write interleave every 250 ms poll even when nothing changed (312 layouts in 5 s on opening) | **Confirms EN2.** First concrete target: read bounds once, then write; skip docked float bounds |
+| F2 | Numbers format differently across surfaces; main counters lack tabular numerals | **Confirms MI22, MI52, VI3 and U11's TY figures.** Smallest step: tabular numerals on counters, then shared helpers |
+| F3 | Progress changes rebuild buttons and prose; focus falls to BODY and selection is lost | **Confirms MI23, MI25, MX02 and AX2.** Adds a panel kit rule: keyed nodes, change text only |
+| F4 | "1 minutes," zero shows empty, unpadded countdowns | **Confirms MI10 and MI51.** Small fix |
+| F5 | Double-clicking Craft runs the paid commit twice | **Confirms MI18 and MX06 as a real wrong-outcome bug,** not just polish. The guard must cover one physical gesture, including key repeat |
+| F6 | Old click and activity motion ignores hidden tabs and reduced motion | **Confirms LP1 and AX8** |
+| F7 | Scientific notation drops the sign and flips tiny values into large ones | **New.** IN2 notation needs a correctness test, not just options |
+| F8 | Player and save strings reach HTML unescaped | **New.** AX11's single filtered representation must also be an escaping boundary. This is a safety item, so it ranks above polish |
+| F9 | One panel's render exception can skip later panels or stop the native tick | **New.** The panel kit needs per-panel isolation with a visible failed-panel state (MC7 broken state, made concrete) |
+| F10, F11 | Partial asset fingerprints; a public 13 MB source map | Outside this palette (deploy owner); recorded only |
+
+Existing protections ER11 found: keyed inventory rows, a log that keeps its
+reading position, a trade basket cleared after commit, and motion-aware
+settled effects. These match MI24 and IG3, so those rows describe what's
+already partly true.
+
+### Top picks after the fold
+
+1. **ER11-F8 and F5 first.** Escape variable text, and guard paid
+   commits per gesture. These are wrong-outcome and safety fixes, so they
+   rank ahead of any polish.
+2. **ER11-F9: per-panel render isolation.** It keeps one broken panel from
+   stalling play, and it's now in the panel kit as a proposed contract rule.
+3. **ER11-F3: keyed updates instead of rebuilds.** One fix covers MI23,
+   MI25, MX02 and AX2 at once.
+4. **The ZN3, EN1 and SC2 trio from U3**, unchanged.
+5. **ER11-F2: tabular numerals plus shared formatters,** with F7's sign fix
+   folded in.
+
+ER11's measurements cover its frozen candidate only. Every runtime claim
+here still needs a rebuilt desktop check on current source.

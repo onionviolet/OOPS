@@ -100,7 +100,7 @@ index. Unmerged fixes (U04 streams) do not help play.
 | M11 | Monolith split plan for `main.js` and `display.js` by seam, one seam per change | Reduces conflict hot spots for every lane |
 | M12 | Belief/truth fence: predicates about other actors read the actor's knowledge view by default; true state needs an explicit "omniscient" flag | Makes U06 hold for NPC agency, deception and appraisal cheats |
 
-## Codex lanes queued
+## Codex lanes (folded 2026-10-14, see below)
 
 Dispatched under [core-foundations-2026-10-14](gm/dispatch/core-foundations-2026-10-14/COMMON.md).
 Each code lane works in its own worktree and branch, adds new files or tests
@@ -118,3 +118,59 @@ Not dispatched, already owned elsewhere: U01/U02 (nonhuman-starts engine
 lane), U04/K4 streams and mixing (procgen wave 1 integration), U03 snapshots
 and U05 offline time (derived-snapshots lane), U13 runs and endings
 (runs-and-endings lane).
+
+## Lane returns folded, 2026-10-14
+
+Wave folded. No new lanes. Reports live in each lane folder under
+[core-foundations-2026-10-14](gm/dispatch/core-foundations-2026-10-14/COMMON.md)
+(saved in `fd176f27`). Code lanes merged by the
+[afternoon merge sweep](gm/dispatch/merge-sweep-2026-10-14/REPORT.md)
+(`5b8989e8`), which reports 1367 tests (1364 pass, 0 fail, 3 todo), a clean
+build and a fresh-origin 1366x768 save/reload/Export/Import smoke. None of the
+merged modules is imported by the game yet, so no gameplay changed.
+
+### What landed
+
+| Code | Lane | State | Evidence |
+|---|---|---|---|
+| A2 | Shared tag store (K1) | Merged, unwired | `src/tag_store.js` with registry, implication, sense filters, `tagFacts`, revisioned snapshots that keep and report unknown tags. 17 new tests plus 4 rules tests pass in the lane |
+| A3 | Realm travel tests (U12, M9) | Merged | Six new test files, 124 tests; full lane suite 758/758. No production bug found |
+| A5 | Ratchets and replay (M1, M2) | Merged | `tests/core_ratchets.test.js` plus baseline; `tests/determinism_replay.test.js` matches per-boundary hashes across two fresh runs and through save/reload, seeds 17, 42, 51966 and a loaded expedition fixture |
+| xorshift | Follow-up by the merge sweep owner | Merged (`70291906`) | Procgen's three new inline copies and `native_battle` now call one `xorshift32()` in `seeded_streams.js`; ceiling back to 7; same math, 0 diffs on fuzz and seed checks |
+| procgen | Wave 1 (seeded streams, mixing, storylets, people) | Merged by its owner | `proc/wave1-integration` and `proc/p1-streams` are ancestors of HEAD |
+
+### Still proposals
+
+| Code | Lane | State |
+|---|---|---|
+| A4 | Relationship read view (U08) | Committed on `core/a4-relationships` (`c6ea2cbc`), **not merged**. 15/15 own tests, 34/34 with chronicle, rules and reputation. Unwired |
+| A4-F1 | Correction to F4 | Relationships are not as write-only as the scorecard said: chronicle gates and simulation memory consequences read them. General social-axis rule predicates stay thin. U08 stays "thin", for that narrower reason |
+| A4-D2 | Factions, standing, membership palette | [STANDING.md](gm/dispatch/core-foundations-2026-10-14/a4/STANDING.md), proposal |
+| A1 | Consolidation plan | [PLAN.md](gm/dispatch/core-foundations-2026-10-14/a1/PLAN.md): 74 world import rows census; immutable runtime registry with Tidemark as the first single-world move; engine schemas 5-11 are reader labels, not a migration sequence, so one shadow-mode runner is proposed; six read APIs ranked; three seams each in `main.js` and `display.js` |
+
+A1's five ranked first changes (one worktree each, none dispatched): rebase
+the ratchet baseline and add an adapter-edge inventory; review and merge A4
+then wire one notebook reader; registry container with Tidemark only;
+migration runner in shadow mode; extract the effect renderer from
+`display.js`.
+
+### Score changes from the fold
+
+- U04: unseeded randomness dropped from 60 direct `Math.random()` calls to
+  **26** after the streams merge (live count, all of `src/`). The ratchet
+  ceiling still says 60, so it allows regression back up; lowering it to 26
+  is A1's first change. A1 and A5 disagreed (26 vs 60) only because they
+  read before and after the streams merge.
+- U12: partial, now with a direct test floor.
+- K1: absent to partial (module exists, no consumer).
+- U08: unchanged score, corrected reason (A4-F1).
+
+### Remaining gates
+
+- G1 Merge A4 after review (root or next merge sweep).
+- G2 Lower the `mathRandomCalls` ceiling to the live count.
+- G3 First real consumers: tags (item material adapter is A2's first pick),
+  relationship view (one notebook reader), each needing a rebuilt 1366x768
+  browser check and, if persistence changes, save/reload/import.
+- G4 A1's registry and migration moves, each with its own differential test.
+- G5 Push waits for Weibao's yes.

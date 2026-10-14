@@ -92,6 +92,11 @@ All in [companions-2026-10-14](../gm/dispatch/companions-2026-10-14/):
 | C15 | C15.md | CRAFTING_AND_RESEARCH | Crafting for, of, with and from companions; in-world research |
 | C16 | C16.md | ABSTRACTION | Overarching abstraction for bonds of every kind |
 
+## Fold status
+
+All sixteen first-run lanes are folded into the palette ("Lane returns"
+sections). Next run starts from those sections and the trigger table.
+
 ## Quality checks before reporting
 
 - Every lane wrote only its owned files; root palette edited only by root.
@@ -106,4 +111,4 @@ All in [companions-2026-10-14](../gm/dispatch/companions-2026-10-14/):
 
 | Date | Scope | Lanes | Result | Commit |
 |---|---|---|---|---|
-| 2026-10-14 | First full run, palette rounds 1 to 11 | C1 to C16 | Palette A to IC; H checked (8 confirmed, 3 corrected); Rill found as existing dog; stray-dog N1 to N5 ranked; 33 JX tensions; 59-source micro register; owner map; abstraction sketch HD1 to HD8 | 9a0c049b (rounds 1-11, C1-C10); later lanes in the audit-save commit |
+| 2026-10-14 | First full run, palette rounds 1 to 11 | C1 to C16, all folded | Palette A to IC; H checked (8 confirmed, 3 corrected); Rill found as existing dog; stray-dog N1 to N5 ranked; 33 JX tensions; 59-source micro register; owner map; abstraction; C11 to C16 folded (corrections to GC3 cue saving, line-rate tension, narrower observation channels, build layers L00 to L07, CM1 to CM12) | 9a0c049b (rounds 1-11, C1-C10); be47d1dd (audit, C11-C13, C15-C16 files); fd176f27 (C14 files, by peer session); fold commit |

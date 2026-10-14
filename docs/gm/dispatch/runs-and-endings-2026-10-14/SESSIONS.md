@@ -15,3 +15,5 @@ Launched 2026-10-14 via `launch.py` (setsid detached, default model, high effort
 | R9 | 01a138c2-0d86-7852-ae48-e6e973796918 | Dedupe and coherence audit of part 22 sections 8-20 (r9/) |
 | R10 | 01a138cc-1e0e-7fd0-ae52-e2fa3c8df5b6 | Per-world micro texture for boards, death, next lives, endings (r10/) |
 | R11 | 01a138cf-3220-7dc1-a065-22f5697af99f | Implementation implications measured: save sizes, tab lock, export sealing, pitfalls (r11/) |
+
+**Status: folded (2026-10-14).** All lanes R1-R11 returned and are merged into `docs/worlds/world-depth-2026-10-13/22_FEATURES_AS_CHEATS.md` (parts 11, 21, 24, 26, 27; summary in part 28) and R4 into `docs/worlds/SUCCESSION_BY_WORLD.md`. R9's two search-evidence JSONs stay uncommitted on purpose.

@@ -1,5 +1,7 @@
 # Codex sessions (2026-10-14, setsid detached)
 
+**Wave folded 2026-10-14** into the owner doc, round 11. All lanes complete or stopped; no further lanes.
+
 | Run | Topic | Session id | Output |
 | --- | --- | --- | --- |
 | engine | Body schema, query API, touch list, migration, phased plan | 01a138a4-a7ad-7fc2-9a2b-8492524f09e4 | docs/worlds/NONHUMAN_STARTS_ENGINE_SPEC_2026-10-14.md |
