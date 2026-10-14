@@ -1,0 +1,27 @@
+{
+  "date": "2026-10-14",
+  "purpose": "End-of-read source fingerprints. No copied prose or saves. Not a clean checkout claim.",
+  "sha256": {
+    "AGENTS.md": "0aecd5d70ed7f6c7815c81b66ac6137da49b1c04573ac785007cfb38ad559026",
+    "PROJECT.md": "ef9b99c939970a706b9b91b9ca2715e2b1b6bfec629d567aacbe72d16d44b0fa",
+    "docs/USER_VISION.md": "ac16945aa9ea81528930fdf8b0554d67407e6d62f5111f97833b724bbd572d50",
+    "docs/RESEARCH_IDLE_GAMES.md": "2bd63f3aad5f77f2e735ad2fce93a636cf0cae068dd2919890347308646259c6",
+    "docs/worlds/world-depth-2026-10-13/22_FEATURES_AS_CHEATS.md": "4e6054741f6ee738c985320edff78daf97528688f880d2fd75a93fdd89be53de",
+    "src/titles.js": "f73f298b6557220ce2753484115210f4fdf7b6e2731f69c6d6d41dce16645230",
+    "src/models/skill.js": "efa7050dd81d4aefba26db70ba044e7b73313a56fb7535616e90087555834dd8",
+    "src/data/skills.js": "8edce9a32137c3432f2bd2953908c84f7e8ed3f676018dababef2b193463a671",
+    "src/config.js": "19f710242546540b4677d9b893733496fccf9842ef597fad7dc0935fa3375195",
+    "src/components/levelable_component.js": "d48f4a9e411dab0a0e7f45ac47f6413a5c0a3cce20b41ed8d3acb7b7b73d62a4",
+    "src/data/locations.js": "6ab6c9781ec963b770cf00dcf0870884432960a7858fd66707074c0f6a20c393",
+    "src/display.js": "da4b693e743ccba934955e883c05fb7ad868c72b76f4dbd9c2df06215d6a7fa8",
+    "src/components/trader_component.js": "d7c7b594f1528074edb04a2e0a8b57bba401f3c0f7c352976e9295362085f540",
+    "src/data/traders.js": "bdfa7f397d2285f8bcc56cb2a8cc1114ce7d0172038f91485d887826d67bcc04",
+    "src/market_saturation.js": "76c962fb2b7d25e7c3adf532c9f64a12a78d8e13dcc9dbba4d07e2aa4aea8b49",
+    "src/trade.js": "77cd7fcfcfb3add65d7cd4bc92d6b3f154133e9e6d17236a072a3fc3ef92640b",
+    "src/misc.js": "fb68556cee90d303cf980d992b637d37c46bd14501d14436df35d990ba6ac510",
+    "src/quests.js": "19f14bec33bb8782a3ae6f8c827c8bea1136bc65afd99e7733f598ecd9246ca8",
+    "src/rewards.js": "9f23d3e3a2abe6f354ccb66da262296d1aee9a89c5e6bea1c0bef7c494a52109",
+    "src/life_experience_host.js": "67d347365e40988aa281fa093b08c5a3a8a1cd354544a13d5e3c647fd07426f2",
+    "src/heir_inheritance.js": "41c510b1ceb72e39620ea97c5c9f0a3763604a4dd329de5a5b8cccbc5fc4370f"
+  }
+}

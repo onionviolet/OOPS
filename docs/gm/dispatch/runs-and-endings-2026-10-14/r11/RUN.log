@@ -1,0 +1,313 @@
+{
+  "measurementVersion": 1,
+  "budgetStorageBytes": 4194304,
+  "method": "Minified JSON.stringify; UTF-16 storageBytes = JS string.length * 2 via current measureSaveSize. Does not include localStorage key/other entries unless explicitly noted.",
+  "assumptions": {
+    "offers": 1000,
+    "offerTasks": 1,
+    "lifeCount": 100,
+    "prestigeCycles": 10,
+    "deedsPerCycle": 12,
+    "expiredCompaction": "only unaccepted terminal offers; full Outcomes and dedup identity retained in safe variant",
+    "branchChangedSites": 1
+  },
+  "rows": [
+    {
+      "id": "K400",
+      "utf8Bytes": 848,
+      "storageBytes": 1696,
+      "budgetPercent": 0.04044,
+      "note": "Synthetic sample of proposed shape; not admitted gameplay."
+    },
+    {
+      "id": "K401",
+      "utf8Bytes": 628,
+      "storageBytes": 1256,
+      "budgetPercent": 0.02995,
+      "note": "Synthetic sample of proposed shape; not admitted gameplay."
+    },
+    {
+      "id": "K402",
+      "utf8Bytes": 465,
+      "storageBytes": 930,
+      "budgetPercent": 0.02217,
+      "note": "Synthetic sample of proposed shape; not admitted gameplay."
+    },
+    {
+      "id": "K403",
+      "utf8Bytes": 127,
+      "storageBytes": 254,
+      "budgetPercent": 0.00606,
+      "note": "Synthetic sample of proposed shape; not admitted gameplay."
+    },
+    {
+      "id": "K404",
+      "utf8Bytes": 49,
+      "storageBytes": 98,
+      "budgetPercent": 0.00234,
+      "note": "Synthetic sample of proposed shape; not admitted gameplay."
+    },
+    {
+      "id": "K405",
+      "utf8Bytes": 593,
+      "storageBytes": 1186,
+      "budgetPercent": 0.02828,
+      "note": "Synthetic sample of proposed shape; not admitted gameplay."
+    },
+    {
+      "id": "K406",
+      "utf8Bytes": 0,
+      "storageBytes": 0,
+      "budgetPercent": 0,
+      "note": "Derived sorting; no added durable record."
+    },
+    {
+      "id": "K407",
+      "utf8Bytes": 313,
+      "storageBytes": 626,
+      "budgetPercent": 0.01493,
+      "note": "Synthetic sample of proposed shape; not admitted gameplay."
+    },
+    {
+      "id": "K408",
+      "utf8Bytes": 93,
+      "storageBytes": 186,
+      "budgetPercent": 0.00443,
+      "note": "Synthetic sample of proposed shape; not admitted gameplay."
+    },
+    {
+      "id": "K409",
+      "utf8Bytes": 272,
+      "storageBytes": 544,
+      "budgetPercent": 0.01297,
+      "note": "Synthetic sample of proposed shape; not admitted gameplay."
+    },
+    {
+      "id": "K410",
+      "utf8Bytes": 562,
+      "storageBytes": 1124,
+      "budgetPercent": 0.0268,
+      "note": "Synthetic sample of proposed shape; not admitted gameplay."
+    },
+    {
+      "id": "K411",
+      "utf8Bytes": 126,
+      "storageBytes": 252,
+      "budgetPercent": 0.00601,
+      "note": "Synthetic sample of proposed shape; not admitted gameplay."
+    },
+    {
+      "id": "K412",
+      "utf8Bytes": 986,
+      "storageBytes": 1972,
+      "budgetPercent": 0.04702,
+      "note": "Synthetic sample of proposed shape; not admitted gameplay."
+    },
+    {
+      "id": "K413",
+      "utf8Bytes": 246,
+      "storageBytes": 492,
+      "budgetPercent": 0.01173,
+      "note": "Synthetic sample of proposed shape; not admitted gameplay."
+    },
+    {
+      "id": "K414",
+      "utf8Bytes": 509,
+      "storageBytes": 1018,
+      "budgetPercent": 0.02427,
+      "note": "Synthetic sample of proposed shape; not admitted gameplay."
+    },
+    {
+      "id": "K415",
+      "utf8Bytes": 1205,
+      "storageBytes": 2410,
+      "budgetPercent": 0.05746,
+      "note": "Synthetic sample of proposed shape; not admitted gameplay."
+    },
+    {
+      "id": "T22",
+      "utf8Bytes": 635,
+      "storageBytes": 1270,
+      "budgetPercent": 0.03028,
+      "note": "Synthetic sample of proposed shape; not admitted gameplay."
+    },
+    {
+      "id": "T24",
+      "utf8Bytes": 499,
+      "storageBytes": 998,
+      "budgetPercent": 0.02379,
+      "note": "Synthetic sample of proposed shape; not admitted gameplay."
+    },
+    {
+      "id": "T25",
+      "utf8Bytes": 607,
+      "storageBytes": 1214,
+      "budgetPercent": 0.02894,
+      "note": "Synthetic sample of proposed shape; not admitted gameplay."
+    },
+    {
+      "id": "one_offer_metadata",
+      "utf8Bytes": 628,
+      "storageBytes": 1256,
+      "budgetPercent": 0.02995,
+      "note": "K401 alone."
+    },
+    {
+      "id": "one_offer_bundle",
+      "utf8Bytes": 1524,
+      "storageBytes": 3048,
+      "budgetPercent": 0.07267,
+      "note": "K400 frozen definition plus K401, no native progress copy."
+    },
+    {
+      "id": "expired_1000_before",
+      "utf8Bytes": 1818410,
+      "storageBytes": 3636820,
+      "budgetPercent": 86.70855,
+      "note": "1000 unique unaccepted offers, definitions and terminal outcomes."
+    },
+    {
+      "id": "expired_1000_log_only",
+      "utf8Bytes": 64924,
+      "storageBytes": 129848,
+      "budgetPercent": 3.09582,
+      "note": "Requested lower bound; loses receipt/observer/dedup facts, unsafe as sole archive."
+    },
+    {
+      "id": "expired_1000_safe_compact",
+      "utf8Bytes": 489240,
+      "storageBytes": 978480,
+      "budgetPercent": 23.32878,
+      "note": "Proposed compact tombstones plus log lines; retain identities and Outcomes. Assumes no live dependency needs discarded definition."
+    },
+    {
+      "id": "one_run_segment",
+      "utf8Bytes": 986,
+      "storageBytes": 1972,
+      "budgetPercent": 0.04702,
+      "note": "K412 with one outcome, ending, goal and carry row."
+    },
+    {
+      "id": "hall_100_lives",
+      "utf8Bytes": 262926,
+      "storageBytes": 525852,
+      "budgetPercent": 12.53729,
+      "note": "100 T22/T24 headers and K412 archived runs. Referenced biography/estate/advance/end/owner payloads excluded; history-only sizing, not exact resume."
+    },
+    {
+      "id": "deeds_after_10_prestiges",
+      "utf8Bytes": 133791,
+      "storageBytes": 267582,
+      "budgetPercent": 6.37965,
+      "note": "120 deed/outcome pairs, 30 staged arcs, 12 repeated families, 10 settlements/draws. Proposed RN11/N20 extension; JS float size example, not numeric determinism proof."
+    },
+    {
+      "id": "current_world_instance",
+      "utf8Bytes": 691,
+      "storageBytes": 1382,
+      "budgetPercent": 0.03295,
+      "note": "Actual schema-1 constructor and revision-2 GLASSHOUSE_DEFINITION used in tests/realm_dormant_structured.test.js. Bounded workshop example, not representative whole-world inventory."
+    },
+    {
+      "id": "branch_diff_payload",
+      "utf8Bytes": 484,
+      "storageBytes": 968,
+      "budgetPercent": 0.02308,
+      "note": "Replaces identity, revision and entire sites field. Requires retained base. No native bodies/jobs copied."
+    },
+    {
+      "id": "branch_full_payload",
+      "utf8Bytes": 696,
+      "storageBytes": 1392,
+      "budgetPercent": 0.03319,
+      "note": "Same child state as diff, full world-instance JSON only."
+    },
+    {
+      "id": "T25_branch_diff",
+      "utf8Bytes": 1111,
+      "storageBytes": 2222,
+      "budgetPercent": 0.05298,
+      "note": "Same R5 fork header plus delta. References still require dependency closure."
+    },
+    {
+      "id": "T25_branch_full",
+      "utf8Bytes": 1323,
+      "storageBytes": 2646,
+      "budgetPercent": 0.06309,
+      "note": "Same fork header plus full child."
+    },
+    {
+      "id": "T25_diff_with_anchor",
+      "utf8Bytes": 1812,
+      "storageBytes": 3624,
+      "budgetPercent": 0.0864,
+      "note": "Portable one-branch self-contained instance anchor plus delta; other promised native owners excluded."
+    },
+    {
+      "id": "fresh_save",
+      "utf8Bytes": 54437,
+      "storageBytes": 108866,
+      "budgetPercent": 2.59557,
+      "note": "Real create_save from existing helper, start none, fresh isolated origin; no private save."
+    },
+    {
+      "id": "fresh_plus_pessimistic_samples",
+      "utf8Bytes": 2506366,
+      "storageBytes": 5012724,
+      "budgetPercent": 119.51265,
+      "note": "Synthetic stress with duplicate deed/run data; not an admitted save/schema."
+    },
+    {
+      "id": "fresh_plus_unique_uncompacted",
+      "utf8Bytes": 2269679,
+      "storageBytes": 4539350,
+      "budgetPercent": 108.22654,
+      "note": "One owner per sample ledger/run; includes headers only, no referenced native archive payloads or other origin keys."
+    },
+    {
+      "id": "fresh_plus_unique_compacted",
+      "utf8Bytes": 940509,
+      "storageBytes": 1881010,
+      "budgetPercent": 44.84677,
+      "note": "One owner per sample ledger/run; includes headers only, no referenced native archive payloads or other origin keys."
+    }
+  ],
+  "fresh": {
+    "status": "measured",
+    "utf8Bytes": 54437,
+    "storageBytes": 108866,
+    "exportBytes": 72596,
+    "fieldCount": 62,
+    "heroCreated": true,
+    "pageErrors": [],
+    "guardedSingleKey": {
+      "utf8Bytes": 54437,
+      "storageBytes": 108866,
+      "originStorageBytes": 108894,
+      "budget": 4194304
+    },
+    "fresh_plus_unique_uncompactedGuard": "SAVE_STORAGE_FULL",
+    "fresh_plus_unique_compactedGuard": "fits single key",
+    "compactedWithFullBackup": 3762080
+  },
+  "sourceHashes": {
+    "src/main.js": "63bde375a9416186e116f26aa554172e0ef077563ed6d695eec93dd22f0cc956",
+    "src/save_files.js": "9b87a732f2cb18abfd9e4225fa546203fed0b5d6e544e1284af01b2f61f16e6a",
+    "src/chronicle.js": "c21046237528b7b692efc367ae7cacc9b1a41714c622eff24b29c8ff5a9b261b",
+    "src/world_instances.js": "cf15bd3c1d34153c541617fdd83a45d9b9faddd98b64b20edd0160d9547720fd",
+    "src/realm_state.js": "ac698b24a8643f1bce7ca22fd81ebf1952de4f380841852e564824bab12b63c7",
+    "src/pocket_realm_content.js": "fc07450167ad08273bfb09acdce4ea5dda20897d844911738f540c05c679f325",
+    "tests/realm_dormant_structured.test.js": "f405de27e2b3070360c79469cec952e5834c23345aba8714348de97f1c4d7985",
+    "tests/helpers/cheat_game.mjs": "1521fb43f1f3d14be771ce62aa3080dc818b599a51efb784cc8a956ad846b6c4",
+    "docs/gm/dispatch/runs-and-endings-2026-10-14/r2/REPORT.md": "23829666c091594f44a16f29c945620d71956b9807d29ae24a29eb0c1dc3c025",
+    "docs/gm/dispatch/runs-and-endings-2026-10-14/r5/REPORT.md": "8d3eef93aa5bdf18fb2dce425c0a5d84d6f920440117c2c8493fd2626a03aa72",
+    "docs/gm/dispatch/runs-and-endings-2026-10-14/r7/REPORT.md": "7cff2453481da2dc4b0bd856742a71bf4cb546db1cd9b64854e5a6926e1435ad"
+  },
+  "sourceDriftDuringRun": [],
+  "checks": [
+    "R5 JSON examples parsed",
+    "current world constructor validated",
+    "child validated",
+    "diff restores same child"
+  ]
+}

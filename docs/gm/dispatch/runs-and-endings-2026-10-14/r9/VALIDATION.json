@@ -1,0 +1,132 @@
+{
+  "checked_at": "2026-10-14T01:27:37.596263-04:00",
+  "source": "docs/worlds/world-depth-2026-10-13/22_FEATURES_AS_CHEATS.md",
+  "source_sha256": "38dc54ccec9bb7b0927e91999df259d58a495cf4da8763bc02c72d3592687aef",
+  "scope": "sections 8-20 only",
+  "scoped_rows": 551,
+  "relation_counts": {
+    "refines": 249,
+    "duplicate": 257,
+    "contradicts": 26,
+    "no demonstrated overlap": 4,
+    "source metadata retained": 15
+  },
+  "table_coverage": "551/551",
+  "retained_or_flagged_routes": 294,
+  "scoped_duplicates": [],
+  "whole_current_document_duplicate_codes": {},
+  "dial_ids": {
+    "first": "DL9",
+    "last": "DL47",
+    "count": 39,
+    "contiguous": true
+  },
+  "build_ids": {
+    "first": "T6",
+    "last": "T37",
+    "count": 32,
+    "contiguous": true
+  },
+  "owner_locators_checked": 317,
+  "peer_updated_scoped_rows": [
+    "QC4",
+    "QBC1",
+    "QBC6",
+    "RL3",
+    "RL8",
+    "RB4",
+    "RP8",
+    "T19",
+    "NT10",
+    "NE2",
+    "NE3",
+    "NP2",
+    "NP5"
+  ],
+  "input_changes_reconciled": true,
+  "outside_scope_sections": [
+    21,
+    22,
+    23,
+    24,
+    25,
+    26
+  ],
+  "baseline_corpus": {
+    "files": 84,
+    "lines": 33603
+  },
+  "final_corpus": {
+    "files": 104,
+    "lines": 42696
+  },
+  "new_corpus_files": [
+    "docs/worlds/COMIC_WORLDS_STARTS_AND_BRANCHES_2026-10-14.md",
+    "docs/worlds/IDENTITY_LAWS_GAPS_2026-10-14.md",
+    "docs/worlds/MAKER_ARTS_BY_WORLD_2026-10-14.md",
+    "docs/worlds/NONHUMAN_ABSTRACTIONS_NEEDED_2026-10-14.md",
+    "docs/worlds/NONHUMAN_BODY_AUTHORING_2026-10-14.md",
+    "docs/worlds/NONHUMAN_CHEATS_2026-10-14.md",
+    "docs/worlds/NONHUMAN_CLOCKS_LIFESPANS_AND_SEASONS_2026-10-14.md",
+    "docs/worlds/NONHUMAN_IMPLEMENTATION_IMPLICATIONS_2026-10-14.md",
+    "docs/worlds/NONHUMAN_KIN_AND_RELATIONSHIPS_2026-10-14.md",
+    "docs/worlds/NONHUMAN_MAJORITY_WORLDS_2026-10-14.md",
+    "docs/worlds/NONHUMAN_MAKING_AND_BUILDING_2026-10-14.md",
+    "docs/worlds/NONHUMAN_MINDS_AND_COGNITION_2026-10-14.md",
+    "docs/worlds/NONHUMAN_OVERARCHING_FRAME_2026-10-14.md",
+    "docs/worlds/NONHUMAN_START_SPECS_2026-10-14.md",
+    "docs/worlds/NONHUMAN_SUBTLE_MICRO_DETAILS_2026-10-14.md",
+    "docs/worlds/NONHUMAN_SYNTHESIS_AND_ROADMAP_2026-10-14.md",
+    "docs/worlds/START_AS_TRASH_NOBLE_LESSONS_2026-10-14.md",
+    "docs/worlds/START_MICRO_DETAILS_2026-10-14.md",
+    "docs/worlds/WORLD_CORE_KIT_2026-10-14.md",
+    "docs/worlds/WORLD_CORE_KIT_AUDIT_PLAYBOOK.md"
+  ],
+  "changed_corpus_files": [
+    {
+      "path": "docs/CHEAT_LIBRARY.md",
+      "baseline_lines": 957,
+      "current_lines": 1419
+    },
+    {
+      "path": "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+      "baseline_lines": 521,
+      "current_lines": 887
+    },
+    {
+      "path": "docs/emergent/E2_STORYLETS.md",
+      "baseline_lines": 785,
+      "current_lines": 800
+    },
+    {
+      "path": "docs/worlds/NONHUMAN_STARTS_ENGINE_REQUIREMENTS_2026-10-14.md",
+      "baseline_lines": 334,
+      "current_lines": 600
+    },
+    {
+      "path": "docs/worlds/SUCCESSION_BY_WORLD.md",
+      "baseline_lines": 74,
+      "current_lines": 258
+    },
+    {
+      "path": "docs/worlds/WORLD_DEPTH_CONSIDERATIONS_2026-10-13.md",
+      "baseline_lines": 149,
+      "current_lines": 161
+    }
+  ],
+  "missing_depth_parts": [
+    25,
+    26,
+    27
+  ],
+  "checks": [
+    "row identity/content stable at final review",
+    "one disposition per row",
+    "one retained integration route per nonduplicate",
+    "owner paths/line bounds/nonblank lines",
+    "dial/build ranges",
+    "required deliverables",
+    "plain style"
+  ],
+  "runtime_tests_build_browser_save": "not run; docs-only audit"
+}

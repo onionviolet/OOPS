@@ -1,0 +1,29 @@
+{
+  "date": "2026-10-14",
+  "outputs_before_rerun": {
+    "TABLES.md": "be29198b432abb6e57b812b0202c82602daa03bfdbbab53c91aca5c4c984cf75",
+    "simulation.json": "69df4f76ceef7744aa9821f96358c29f1f2cb2808386a59d4a0d8adf1cd85e41",
+    "cycles.csv": "b93981e611e09558b4ddb4635b1e7a45c0710c04e9710f2c614915ba6d6c0fdf",
+    "sensitivity.csv": "ffb984298df771d7b3c8933919abfd3d2f139449305cdb27177a268ce7f03a27"
+  },
+  "outputs_after_rerun": {
+    "TABLES.md": "be29198b432abb6e57b812b0202c82602daa03bfdbbab53c91aca5c4c984cf75",
+    "simulation.json": "69df4f76ceef7744aa9821f96358c29f1f2cb2808386a59d4a0d8adf1cd85e41",
+    "cycles.csv": "b93981e611e09558b4ddb4635b1e7a45c0710c04e9710f2c614915ba6d6c0fdf",
+    "sensitivity.csv": "ffb984298df771d7b3c8933919abfd3d2f139449305cdb27177a268ce7f03a27"
+  },
+  "byte_identical": true,
+  "checks_passed": 27,
+  "source_drift_since_fingerprint": [
+    "docs/USER_VISION.md"
+  ],
+  "local_links_and_whitespace": "pass",
+  "scope": "Only R7 outputs written by this task. No native gameplay validation.",
+  "reviewed_source_drift": {
+    "docs/USER_VISION.md": {
+      "rechecked_lines": "33-62",
+      "result": "Relevant authority remains consistent; concurrent proposals appended elsewhere.",
+      "rechecked_sha256": "40f0887c8719c4c50148175eb37794786464e49067939c5c3e8e7d7cc2a6b966"
+    }
+  }
+}
