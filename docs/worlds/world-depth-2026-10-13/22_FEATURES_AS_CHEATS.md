@@ -1750,3 +1750,25 @@ Script and output: `r11/measure.mjs`, `r11/OUTPUT.json`. Sizes are UTF-16 bytes 
 ### 27.4 R10 per-world micro texture
 
 `r10/REPORT.md`: 94 world-native details across 15 worlds (how work is posted, how death is recorded and mourned, how a return might be signaled where allowed, the first ordinary day after an arc), cited, spoilers in `r10/SPOILERS.md`. Ten cross-world additions (M201-M210), for example "Received; awaiting your answer" until real acceptance, "Awaiting reissue by the successor" when an issuer dies, a memorial that says it holds no remains, a dated correction appended to an earlier death report, a witness column left blank. Cheapest first (read-only, no save change): M301 one native work-channel line on an existing quest, M302 an acceptance cue, M303 a time-domain qualifier on a timestamp.
+
+---
+
+## 28. Wave fold summary: runs-and-endings R1-R11 (2026-10-14)
+
+The `docs/gm/dispatch/runs-and-endings-2026-10-14/` wave is **folded**. Every lane return is merged above; this table is the one-place summary. All rows remain proposals.
+
+| Code | Lane | Adds | Duplicates | Contradictions fixed | Top pick |
+|---|---|---|---|---|---|
+| WF1 | R1 source check | Verified ending types, spans, eras and proposed pace for 15 worlds; QBV1-QBV6 (part 11) | None | TTKS is five ongoing captures and B3 holds several worlds; JJK and HP sequel status | QBV2: four dated frontier endpoints |
+| WF2 | R2 code reconciliation | Build order T10, T6, T7, T8 then closure; save contracts K400-K415; open choices OC1-OC5 (part 21) | Heir, renewal, reset and pacing seams already in code | 13 rows rewritten in place; override rules LR1-LR8 | LR1 frozen absence plus T10 to T7 first slice |
+| WF3 | R3 genre research | 51 comparisons; RG1-RG13 (21.5) | Many with LIFE_SIM persistence layers | Menu choice is not a time power (RL8, RB4) | RG5: offers expire, accepted jobs are liabilities |
+| WF4 | R4 death routes | Per-world NE routes, recognition ladder, era bounds, death-screen defaults (in SUCCESSION_BY_WORLD) | Existing succession rows | LOTM resurrection absolute; HP infant rebirth and portraits | W42 recognition ladder |
+| WF5 | R5 time placement | 31 rows P40-P70; RT1-RT13 (21.6) | TIMELINES branch rules | MoL overwrite scope; past selves as background NPCs (Weibao lean) | RT11: frozen selection, atomic publication |
+| WF6 | R6 paper playthroughs | Ten ranked gaps PG1-PG10 (part 24) | None | Late crises need causes | PG1 typed transition record, PG2 dated clocks |
+| WF7 | R7 reward math | Cumulative sublinear prestige curve, weights, repeat modes, bounty pricing; RN1-RN11 (21.8) | None | No per-reset grants | RN1: identical deeds pay identically across lives |
+| WF8 | R8 endgame per world | EG2-1 to EG2-15 (part 26) | Part 18 headings | Resolver restored; no forced peak crises | EG2-15: one funded local office slice, after the first milestone |
+| WF9 | R9 dedupe | 551 rows reviewed: 257 duplicates, 249 refinements, 26 contradictions; compact outline (part 27) | 257 rows defer to their owners (part 20 plus DEDUPE_TABLE) | CC1-CC23 override table | Apply the compact outline to sections 8-20 next |
+| WF10 | R10 per-world micro | 94 world-native details, M201-M210 (27.4) | Part 36 general micro | None | M301-M303 read-only signals, no save change |
+| WF11 | R11 measurements | Save sizes, export and lock findings CM1-CM7 (27.3) | None | IX2 title backfill corrected | CM2: compaction is mandatory for offers |
+
+Not committed by design: R9's `SEARCH_EVIDENCE.json` and `FINAL_SEARCH_EVIDENCE.json` (machine search hits, 1.2 MB and 3 MB). Remaining owner work: apply R9's compact outline; fold the weaponcraft duplicate rows into the primary weaponcraft palette.
