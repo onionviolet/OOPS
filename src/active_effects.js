@@ -516,8 +516,8 @@ Object.keys(effect_templates).forEach(effect_key => {
     effect_templates[effect_key].id = effect_key;
 });
 
-export function restoreActiveEffect(id, saved) {
-    if(saved.mixtureExposure){validateExposure(saved);const effect=new ActiveEffect(structuredClone(saved));effect.mixtureExposure=structuredClone(saved.mixtureExposure);return effect;}
+export function restoreActiveEffect(id, saved, mixtureProduct) {
+    if(saved.mixtureExposure){validateExposure(saved,mixtureProduct);const effect=new ActiveEffect(structuredClone(saved));effect.mixtureExposure=structuredClone(saved.mixtureExposure);return effect;}
     if(!effect_templates[id])throw new Error('Unsupported saved active effect.');
     return new ActiveEffect({...effect_templates[id],duration:saved.duration});
 }
