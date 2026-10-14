@@ -1,0 +1,11 @@
+{
+ "label": "fieldcraft-stamped-completed",
+ "reload": true,
+ "literalImport": true,
+ "file": "fieldcraft-stamped-completed.txt",
+ "sha256": "d4c4bc2e7916adfae9dad8a9838ab37b4fcbba814276ae6fdb832393b3f905e6",
+ "clock": 859,
+ "derivedCacheDifferences": [
+  ".character.equipment.weapon.rarity"
+ ]
+}

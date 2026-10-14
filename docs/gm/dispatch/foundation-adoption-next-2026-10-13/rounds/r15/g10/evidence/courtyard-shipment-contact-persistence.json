@@ -1,0 +1,9 @@
+{
+ "label": "courtyard-shipment-contact",
+ "reload": true,
+ "literalImport": true,
+ "file": "courtyard-shipment-contact.txt",
+ "sha256": "c12d80dd63cd9999777d4b938229ee84f37a888646c77b670bd082613c56fd65",
+ "clock": 6,
+ "derivedCacheDifferences": []
+}

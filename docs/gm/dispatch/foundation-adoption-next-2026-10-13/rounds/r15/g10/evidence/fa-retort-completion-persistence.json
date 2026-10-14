@@ -1,0 +1,11 @@
+{
+ "label": "fa-retort-completion",
+ "reload": true,
+ "literalImport": true,
+ "file": "fa-retort-completion.txt",
+ "sha256": "c96c0ec66354d5582b44fc82e86e20dcdd19be99bba6f2245b59b4418af77baf",
+ "clock": 751,
+ "derivedCacheDifferences": [
+  ".character.equipment.weapon.rarity"
+ ]
+}

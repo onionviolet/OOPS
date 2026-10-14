@@ -1,0 +1,5 @@
+globalThis.openPanels=async()=>page.evaluate(()=>{window.workspaceOpenModule?.('notebook');document.querySelectorAll('#feature_expansion_panel,#management_panel,#chronicle_panel').forEach(p=>{p.open=true;p.querySelectorAll('details').forEach(d=>d.open=true);});});
+globalThis.feature=async(text,key=false)=>{await openPanels();const b=page.locator('#feature_expansion_panel button').filter({hasText:text}).first();assert.equal(await b.isDisabled(),false,text+' disabled');if(key){await b.focus();await b.press(key===true?'Enter':key);}else await b.evaluate(b=>b.click());await stop();};
+globalThis.mg=async(text,key=false)=>{await openPanels();const b=page.locator('#management_panel section button').filter({hasText:text}).first();assert.equal(await b.isDisabled(),false,text+' disabled');if(key){await b.focus();await b.press(key===true?'Enter':key);}else await b.evaluate(b=>b.click());await stop();};
+globalThis.advance=async(n)=>{const result=await page.evaluate(n=>G.advance(n),n);await stop();return {consumed:result,save:await save()};};
+return {defined:true};

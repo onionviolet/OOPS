@@ -1,0 +1,1 @@
+const rows=[];for(const f of fs.readdirSync(h.evidence).filter(f=>f.endsWith('-fault.json'))){const v=JSON.parse(fs.readFileSync(path.join(h.evidence,f)));rows.push({id:v.id,writes:v.failedWrites,persist:v.persistence});}return rows;

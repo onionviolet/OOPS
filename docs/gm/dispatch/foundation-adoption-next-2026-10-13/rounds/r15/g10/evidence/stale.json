@@ -1,0 +1,29 @@
+{
+ "label": "seeded-native",
+ "cases": [
+  {
+   "id": "manual",
+   "result": {
+    "ok": false,
+    "message": "This clearance-manual action is stale or unavailable."
+   },
+   "durableUnchanged": true
+  },
+  {
+   "id": "retort",
+   "result": {
+    "ok": false,
+    "message": "This living-world command is stale."
+   },
+   "durableUnchanged": true
+  },
+  {
+   "id": "reserve",
+   "result": {
+    "ok": false,
+    "message": "This itinerary request is stale or unbound."
+   },
+   "durableUnchanged": true
+  }
+ ]
+}

@@ -1,0 +1,25 @@
+{
+ "id": "courtyard-charter",
+ "label": "seeded-native",
+ "durableUnchanged": true,
+ "liveUnchanged": true,
+ "failedWrites": 1,
+ "actionError": "page.evaluate: Error: Your browser has no room for this life. Export your save to a file; your last saved life is still safe.\n    at cde (http://127.0.0.1:19200/dist/bundle.js?version=v0.6-86394b60d659:1050:58748)\n    at Object.setItem (http://127.0.0.1:19200/dist/bundle.js?version=v0.6-86394b60d659:1050:287912)\n    at a$e (http://127.0.0.1:19200/dist/bundle.js?version=v0.6-86394b60d659:1050:185611)\n    at Zo (http://127.0.0.1:19200/dist/bundle.js?version=v0.6-86394b60d659:1050:311108)\n    at jPe (http://127.0.0.1:19200/dist/bundle.js?version=v0.6-86394b60d659:1050:331072)\n    at Object.management (http://127.0.0.1:19200/dist/bundle.js?version=v0.6-86394b60d659:1056:23331)\n    at eval (eval at evaluate (:311:30), <anonymous>:1:7)\n    at UtilityScript.evaluate (<anonymous>:313:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)",
+ "notices": [
+  "Saving must be available before this choice.",
+  "Saving must be available before this action.",
+  "Current activity or save access does not allow new work.",
+  "Saving available. Draft changes can now be applied.",
+  "Saving available. Draft changes can now be applied."
+ ],
+ "retryOnce": true,
+ "persistence": {
+  "label": "courtyard-charter",
+  "reload": true,
+  "literalImport": true,
+  "file": "courtyard-charter.txt",
+  "sha256": "bec8397eec644e005c0056a2e786adf5ce702630c2d57080af66f838865d4d5c",
+  "clock": 0,
+  "derivedCacheDifferences": []
+ }
+}

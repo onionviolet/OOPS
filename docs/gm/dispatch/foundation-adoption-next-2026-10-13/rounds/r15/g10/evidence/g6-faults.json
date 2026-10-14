@@ -1,0 +1,194 @@
+{
+ "label": "seeded-native",
+ "cases": [
+  {
+   "id": "courtyard-charter",
+   "label": "seeded-native",
+   "durableUnchanged": true,
+   "liveUnchanged": true,
+   "failedWrites": 1,
+   "actionError": "page.evaluate: Error: Your browser has no room for this life. Export your save to a file; your last saved life is still safe.\n    at cde (http://127.0.0.1:19200/dist/bundle.js?version=v0.6-86394b60d659:1050:58748)\n    at Object.setItem (http://127.0.0.1:19200/dist/bundle.js?version=v0.6-86394b60d659:1050:287912)\n    at a$e (http://127.0.0.1:19200/dist/bundle.js?version=v0.6-86394b60d659:1050:185611)\n    at Zo (http://127.0.0.1:19200/dist/bundle.js?version=v0.6-86394b60d659:1050:311108)\n    at jPe (http://127.0.0.1:19200/dist/bundle.js?version=v0.6-86394b60d659:1050:331072)\n    at Object.management (http://127.0.0.1:19200/dist/bundle.js?version=v0.6-86394b60d659:1056:23331)\n    at eval (eval at evaluate (:311:30), <anonymous>:1:7)\n    at UtilityScript.evaluate (<anonymous>:313:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)",
+   "notices": [
+    "Saving must be available before this choice.",
+    "Saving must be available before this action.",
+    "Current activity or save access does not allow new work.",
+    "Saving available. Draft changes can now be applied.",
+    "Saving available. Draft changes can now be applied."
+   ],
+   "retryOnce": true,
+   "persistence": {
+    "label": "courtyard-charter",
+    "reload": true,
+    "literalImport": true,
+    "file": "courtyard-charter.txt",
+    "sha256": "bec8397eec644e005c0056a2e786adf5ce702630c2d57080af66f838865d4d5c",
+    "clock": 0,
+    "derivedCacheDifferences": []
+   }
+  },
+  {
+   "id": "courtyard-funding",
+   "label": "seeded-native",
+   "durableUnchanged": true,
+   "liveUnchanged": true,
+   "failedWrites": 1,
+   "actionError": "page.evaluate: Error: Your browser has no room for this life. Export your save to a file; your last saved life is still safe.\n    at cde (http://127.0.0.1:19200/dist/bundle.js?version=v0.6-86394b60d659:1050:58748)\n    at Object.setItem (http://127.0.0.1:19200/dist/bundle.js?version=v0.6-86394b60d659:1050:287912)\n    at a$e (http://127.0.0.1:19200/dist/bundle.js?version=v0.6-86394b60d659:1050:185611)\n    at Zo (http://127.0.0.1:19200/dist/bundle.js?version=v0.6-86394b60d659:1050:311108)\n    at jPe (http://127.0.0.1:19200/dist/bundle.js?version=v0.6-86394b60d659:1050:331072)\n    at Object.management (http://127.0.0.1:19200/dist/bundle.js?version=v0.6-86394b60d659:1056:23331)\n    at eval (eval at evaluate (:311:30), <anonymous>:1:7)\n    at UtilityScript.evaluate (<anonymous>:313:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)",
+   "notices": [
+    "Saving available. Draft changes can now be applied.",
+    "Saving available. Draft changes can now be applied.",
+    "Courtyard change saved."
+   ],
+   "retryOnce": true,
+   "persistence": {
+    "label": "courtyard-funding",
+    "reload": true,
+    "literalImport": true,
+    "file": "courtyard-funding.txt",
+    "sha256": "430727a89b14f2588932cc9aa2fbdb697847eae25560fb5dbcf8c120cdb6176e",
+    "clock": 0,
+    "derivedCacheDifferences": []
+   }
+  },
+  {
+   "id": "courtyard-room-repair",
+   "label": "seeded-native",
+   "durableUnchanged": true,
+   "liveUnchanged": true,
+   "failedWrites": 1,
+   "actionError": "page.evaluate: Error: Your browser has no room for this life. Export your save to a file; your last saved life is still safe.\n    at cde (http://127.0.0.1:19200/dist/bundle.js?version=v0.6-86394b60d659:1050:58748)\n    at Object.setItem (http://127.0.0.1:19200/dist/bundle.js?version=v0.6-86394b60d659:1050:287912)\n    at a$e (http://127.0.0.1:19200/dist/bundle.js?version=v0.6-86394b60d659:1050:185611)\n    at Zo (http://127.0.0.1:19200/dist/bundle.js?version=v0.6-86394b60d659:1050:311108)\n    at jPe (http://127.0.0.1:19200/dist/bundle.js?version=v0.6-86394b60d659:1050:331072)\n    at Object.management (http://127.0.0.1:19200/dist/bundle.js?version=v0.6-86394b60d659:1056:23331)\n    at eval (eval at evaluate (:311:30), <anonymous>:1:7)\n    at UtilityScript.evaluate (<anonymous>:313:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)",
+   "notices": [
+    "Saving available. Draft changes can now be applied.",
+    "Saving available. Draft changes can now be applied.",
+    "Courtyard change saved."
+   ],
+   "retryOnce": true,
+   "persistence": {
+    "label": "courtyard-room-repair",
+    "reload": true,
+    "literalImport": true,
+    "file": "courtyard-room-repair.txt",
+    "sha256": "91a99a9343f5feca1db375524f2466756236ab7d6112892d5a5bf06e86ffa0d1",
+    "clock": 0,
+    "derivedCacheDifferences": []
+   }
+  },
+  {
+   "id": "courtyard-harvest",
+   "label": "seeded-native",
+   "durableUnchanged": true,
+   "liveUnchanged": true,
+   "failedWrites": 1,
+   "actionError": "page.evaluate: Error: Your browser has no room for this life. Export your save to a file; your last saved life is still safe.\n    at cde (http://127.0.0.1:19200/dist/bundle.js?version=v0.6-86394b60d659:1050:58748)\n    at Object.setItem (http://127.0.0.1:19200/dist/bundle.js?version=v0.6-86394b60d659:1050:287912)\n    at a$e (http://127.0.0.1:19200/dist/bundle.js?version=v0.6-86394b60d659:1050:185611)\n    at Zo (http://127.0.0.1:19200/dist/bundle.js?version=v0.6-86394b60d659:1050:311108)\n    at jPe (http://127.0.0.1:19200/dist/bundle.js?version=v0.6-86394b60d659:1050:331072)\n    at Object.management (http://127.0.0.1:19200/dist/bundle.js?version=v0.6-86394b60d659:1056:23331)\n    at eval (eval at evaluate (:311:30), <anonymous>:1:7)\n    at UtilityScript.evaluate (<anonymous>:313:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)",
+   "notices": [
+    "Saving available. Draft changes can now be applied.",
+    "Saving available. Draft changes can now be applied.",
+    "Courtyard change saved."
+   ],
+   "retryOnce": true,
+   "persistence": {
+    "label": "courtyard-harvest",
+    "reload": true,
+    "literalImport": true,
+    "file": "courtyard-harvest.txt",
+    "sha256": "8e1f5c70f5a4ade2e476f2976f7ad774ad6894441a8eb7d14e0be1fb108beb30",
+    "clock": 6,
+    "derivedCacheDifferences": []
+   }
+  },
+  {
+   "id": "courtyard-shipment-completion",
+   "label": "seeded-native",
+   "durableUnchanged": true,
+   "liveUnchanged": true,
+   "failedWrites": 1,
+   "actionError": null,
+   "notices": [
+    "Your browser has no room for this life. Export your save to a file; your last saved life is still safe.",
+    "Saving available. Draft changes can now be applied.",
+    "Saving available. Draft changes can now be applied.",
+    "Courtyard change saved."
+   ],
+   "retryOnce": true,
+   "persistence": {
+    "label": "courtyard-shipment-completion",
+    "reload": true,
+    "literalImport": true,
+    "file": "courtyard-shipment-completion.txt",
+    "sha256": "ebc884e8ba8e266342157fab65c13a4e85f00114a1e9a70be1b267916073d59d",
+    "clock": 6,
+    "derivedCacheDifferences": []
+   }
+  },
+  {
+   "id": "courtyard-delegated-completion",
+   "label": "seeded-native",
+   "durableUnchanged": true,
+   "liveUnchanged": true,
+   "failedWrites": 1,
+   "actionError": null,
+   "notices": [
+    "Your browser has no room for this life. Export your save to a file; your last saved life is still safe.",
+    "Saving available. Draft changes can now be applied.",
+    "Saving available. Draft changes can now be applied.",
+    "Courtyard change saved."
+   ],
+   "retryOnce": true,
+   "persistence": {
+    "label": "courtyard-delegated-completion",
+    "reload": true,
+    "literalImport": true,
+    "file": "courtyard-delegated-completion.txt",
+    "sha256": "482583b0df177c38f3b21c8ad6bae94837eec75b9a6d86171c8e84a137d21561",
+    "clock": 4,
+    "derivedCacheDifferences": []
+   }
+  },
+  {
+   "id": "courtyard-event-payment",
+   "label": "seeded-native",
+   "durableUnchanged": true,
+   "liveUnchanged": true,
+   "failedWrites": 1,
+   "actionError": null,
+   "notices": [
+    "Your browser has no room for this life. Export your save to a file; your last saved life is still safe.",
+    "Saving available. Draft changes can now be applied.",
+    "Saving available. Draft changes can now be applied.",
+    "Courtyard change saved."
+   ],
+   "retryOnce": true,
+   "persistence": {
+    "label": "courtyard-event-payment",
+    "reload": true,
+    "literalImport": true,
+    "file": "courtyard-event-payment.txt",
+    "sha256": "14119e22db485dddc6aaf19763453f0172eb3357ceb47acc1b1af52b9031c264",
+    "clock": 5,
+    "derivedCacheDifferences": []
+   }
+  },
+  {
+   "id": "courtyard-loan-settlement",
+   "label": "seeded-native",
+   "durableUnchanged": true,
+   "liveUnchanged": true,
+   "failedWrites": 1,
+   "actionError": "page.evaluate: Error: Your browser has no room for this life. Export your save to a file; your last saved life is still safe.\n    at cde (http://127.0.0.1:19200/dist/bundle.js?version=v0.6-86394b60d659:1050:58748)\n    at Object.setItem (http://127.0.0.1:19200/dist/bundle.js?version=v0.6-86394b60d659:1050:287912)\n    at a$e (http://127.0.0.1:19200/dist/bundle.js?version=v0.6-86394b60d659:1050:185611)\n    at Zo (http://127.0.0.1:19200/dist/bundle.js?version=v0.6-86394b60d659:1050:311108)\n    at jPe (http://127.0.0.1:19200/dist/bundle.js?version=v0.6-86394b60d659:1050:331072)\n    at Object.management (http://127.0.0.1:19200/dist/bundle.js?version=v0.6-86394b60d659:1056:23331)\n    at eval (eval at evaluate (:311:30), <anonymous>:1:7)\n    at UtilityScript.evaluate (<anonymous>:313:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)",
+   "notices": [
+    "Saving available. Draft changes can now be applied.",
+    "Saving available. Draft changes can now be applied.",
+    "Courtyard change saved."
+   ],
+   "retryOnce": true,
+   "persistence": {
+    "label": "courtyard-loan-settlement",
+    "reload": true,
+    "literalImport": true,
+    "file": "courtyard-loan-settlement.txt",
+    "sha256": "a29ceecec1b443635179b8cfad0990a4c2261a7174cef13bd7851c618c934ea7",
+    "clock": 5,
+    "derivedCacheDifferences": []
+   }
+  }
+ ]
+}

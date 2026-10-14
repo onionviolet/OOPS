@@ -1,0 +1,9 @@
+{
+ "label": "courtyard-foreman-leave",
+ "reload": true,
+ "literalImport": true,
+ "file": "courtyard-foreman-leave.txt",
+ "sha256": "acfc3ecd3dcac131c1f7d8d414f5ea7d032f1992dd65b7ea204cffaf40283fb6",
+ "clock": 6,
+ "derivedCacheDifferences": []
+}

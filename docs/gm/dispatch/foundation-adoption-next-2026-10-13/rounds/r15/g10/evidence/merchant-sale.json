@@ -1,0 +1,21 @@
+{
+ "label": "seeded-native",
+ "sale": true,
+ "rebuy": true,
+ "purse": [
+  47,
+  48,
+  44
+ ],
+ "persistence": {
+  "label": "merchant-sold-rebought",
+  "reload": true,
+  "literalImport": true,
+  "file": "merchant-sold-rebought.txt",
+  "sha256": "58b8f89cfe2cbefe9541da3090dc7bd7351b4912033047bff73dab6dd871228e",
+  "clock": 6511,
+  "derivedCacheDifferences": [
+   ".character.equipment.weapon.rarity"
+  ]
+ }
+}

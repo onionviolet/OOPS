@@ -1,0 +1,9 @@
+{
+ "label": "courtyard-shipment-leave",
+ "reload": true,
+ "literalImport": true,
+ "file": "courtyard-shipment-leave.txt",
+ "sha256": "2282b1937b85b4e1363856e8149c2c300ed3188c9d5768982e20631bcccd5f56",
+ "clock": 6,
+ "derivedCacheDifferences": []
+}

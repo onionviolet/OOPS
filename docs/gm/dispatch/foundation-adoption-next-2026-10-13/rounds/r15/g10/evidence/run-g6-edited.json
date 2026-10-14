@@ -1,0 +1,71 @@
+{
+ "ok": true,
+ "value": {
+  "label": "seeded-native",
+  "cases": [
+   {
+    "id": "mg-partial",
+    "label": "seeded-native",
+    "rejected": true,
+    "durableUnchanged": true,
+    "message": "Import rejected. Current save kept. Unknown persistent actor mg.sela."
+   },
+   {
+    "id": "mg-unknown-revision",
+    "label": "seeded-native",
+    "rejected": true,
+    "durableUnchanged": true,
+    "message": "Import rejected. Current save kept. Courtyard: unsupported or duplicate charter revision."
+   },
+   {
+    "id": "mg-resident-coins",
+    "label": "seeded-native",
+    "rejected": true,
+    "durableUnchanged": true,
+    "message": "Import rejected. Current save kept. Courtyard: resident cash does not match completed sales/costs and held reservations."
+   },
+   {
+    "id": "mg-duplicated-stock",
+    "label": "seeded-native",
+    "rejected": true,
+    "durableUnchanged": true,
+    "message": "Import rejected. Current save kept. Courtyard: resident stock was duplicated or lost from its authored transaction."
+   },
+   {
+    "id": "mg-job-cost",
+    "label": "seeded-native",
+    "rejected": true,
+    "durableUnchanged": true,
+    "message": "Import rejected. Current save kept. Courtyard: accepted local work lost exact reserved inputs/output/support."
+   },
+   {
+    "id": "mg-job-effect",
+    "label": "seeded-native",
+    "rejected": true,
+    "durableUnchanged": true,
+    "message": "Import rejected. Current save kept. Courtyard: accepted local work lost exact reserved inputs/output/support."
+   },
+   {
+    "id": "mg-job-duration",
+    "label": "seeded-native",
+    "rejected": true,
+    "durableUnchanged": true,
+    "message": "Import rejected. Current save kept. Courtyard: unsupported local duration."
+   },
+   {
+    "id": "mg-job-partial-duration",
+    "label": "seeded-native",
+    "rejected": true,
+    "durableUnchanged": true,
+    "message": "Import rejected. Current save kept. Courtyard: accepted local work lost its actual start and due time."
+   },
+   {
+    "id": "mg-mandate-limit",
+    "label": "seeded-native",
+    "rejected": true,
+    "durableUnchanged": true,
+    "message": "Import rejected. Current save kept. Courtyard: work mandate exceeded its learned finite recipe limit."
+   }
+  ]
+ }
+}

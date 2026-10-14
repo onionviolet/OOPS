@@ -1,0 +1,9 @@
+{
+ "label": "fieldcraft-legacy-pending",
+ "reload": true,
+ "literalImport": true,
+ "file": "fieldcraft-legacy-pending.txt",
+ "sha256": "452db8ad0711b85c6c506641625533ae7a7a9a152890b7d1614940dc8c6243e1",
+ "clock": 868,
+ "derivedCacheDifferences": []
+}

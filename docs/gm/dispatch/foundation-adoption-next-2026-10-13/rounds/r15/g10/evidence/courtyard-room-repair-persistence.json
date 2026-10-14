@@ -1,0 +1,9 @@
+{
+ "label": "courtyard-room-repair",
+ "reload": true,
+ "literalImport": true,
+ "file": "courtyard-room-repair.txt",
+ "sha256": "91a99a9343f5feca1db375524f2466756236ab7d6112892d5a5bf06e86ffa0d1",
+ "clock": 0,
+ "derivedCacheDifferences": []
+}

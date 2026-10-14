@@ -1,0 +1,11 @@
+{
+ "label": "reserve-support-refund",
+ "reload": true,
+ "literalImport": true,
+ "file": "reserve-support-refund.txt",
+ "sha256": "39fb799f3a0b07b2a706c3a124529b430107b6429c69be330d83e60438d22d34",
+ "clock": 752,
+ "derivedCacheDifferences": [
+  ".character.equipment.weapon.rarity"
+ ]
+}

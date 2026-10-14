@@ -1,0 +1,9 @@
+{
+ "label": "heir-kin-papers",
+ "reload": true,
+ "literalImport": true,
+ "file": "heir-kin-papers.txt",
+ "sha256": "0bbb169726b43ea78656b97857500fb14b04fe5474f3fe7d887ce1dadd9fcc44",
+ "clock": 5,
+ "derivedCacheDifferences": []
+}

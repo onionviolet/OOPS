@@ -1,0 +1,9 @@
+{
+ "label": "courtyard-loan-settlement",
+ "reload": true,
+ "literalImport": true,
+ "file": "courtyard-loan-settlement.txt",
+ "sha256": "a29ceecec1b443635179b8cfad0990a4c2261a7174cef13bd7851c618c934ea7",
+ "clock": 5,
+ "derivedCacheDifferences": []
+}

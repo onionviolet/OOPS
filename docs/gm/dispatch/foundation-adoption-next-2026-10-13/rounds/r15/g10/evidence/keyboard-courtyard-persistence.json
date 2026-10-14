@@ -1,0 +1,9 @@
+{
+ "label": "keyboard-courtyard",
+ "reload": true,
+ "literalImport": true,
+ "file": "keyboard-courtyard.txt",
+ "sha256": "641794b26f0efc8ba34f9a03163fbdef6e4b4468773846a794ff7a32c0fea915",
+ "clock": 0,
+ "derivedCacheDifferences": []
+}
