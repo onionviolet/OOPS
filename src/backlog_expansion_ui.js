@@ -38,7 +38,9 @@ export function createBacklogExpansionPanel({registry,read,command,parent,openin
         const publicRecords=view.sections.flatMap(section=>strings(section?.records));
         const next=JSON.stringify(publicRecords);
         if(next!==signature) {signature=next;records.replaceChildren(...publicRecords.map(text=>node('p',text)));}
-        for(const control of controls.values()) {
+        // A hidden panel shows no control, so it skips the per-action staged previews;
+        // the first render after it opens computes them before anything is visible.
+        if(!panel.hidden) for(const control of controls.values()) {
             const isOpening=control.action.id==='backlog.body.origin_reedling';
             control.row.hidden=opening ? !isOpening : isOpening;
             if(control.row.hidden) continue;

@@ -1,0 +1,138 @@
+{
+ "url": "http://127.0.0.1:18978/",
+ "idleSec": 15,
+ "phases": {
+  "launch": 232.6,
+  "newContext": 6.9,
+  "newPage": 141.7,
+  "goto_load": 277.2,
+  "play_ready": 1859.7,
+  "screenshot_viewport": 69.4,
+  "screenshot_fullpage": 71.3,
+  "reload_to_load": 87.6,
+  "context_close": 7,
+  "browser_close": 183.2
+ },
+ "windows": {
+  "idle_a": {
+   "wallMs": 15003,
+   "cpuBusyPct": 12,
+   "scriptMs": 1315,
+   "layoutMs": 134,
+   "styleMs": 67,
+   "layouts": 1030,
+   "styleRecalcs": 2663,
+   "heapMB": 36.8,
+   "heapDeltaMB": -26.84,
+   "domNodes": 11734,
+   "listeners": 1395,
+   "storageWrites": 15,
+   "storageWriteKB": 1707,
+   "storageWriteMs": 1,
+   "longTasks": 14,
+   "longTaskMaxMs": 265,
+   "saveKB": 114,
+   "keys": {
+    "save data": 16
+   }
+  },
+  "idle_b": {
+   "wallMs": 15002,
+   "cpuBusyPct": 13.6,
+   "scriptMs": 1493,
+   "layoutMs": 175,
+   "styleMs": 72,
+   "layouts": 1040,
+   "styleRecalcs": 2674,
+   "heapMB": 39.4,
+   "heapDeltaMB": 1.57,
+   "domNodes": 12464,
+   "listeners": 1401,
+   "storageWrites": 14,
+   "storageWriteKB": 1598,
+   "storageWriteMs": 1,
+   "longTasks": 14,
+   "longTaskMaxMs": 265,
+   "saveKB": 114,
+   "keys": {
+    "save data": 30
+   }
+  },
+  "poll_raf": {
+   "wallMs": 15002,
+   "cpuBusyPct": 17.2,
+   "scriptMs": 1982,
+   "layoutMs": 172,
+   "styleMs": 67,
+   "layouts": 980,
+   "styleRecalcs": 2691,
+   "heapMB": 36.5,
+   "heapDeltaMB": -2.85,
+   "domNodes": 11253,
+   "listeners": 1395,
+   "storageWrites": 15,
+   "storageWriteKB": 1718,
+   "storageWriteMs": 1,
+   "longTasks": 15,
+   "longTaskMaxMs": 265,
+   "saveKB": 115,
+   "keys": {
+    "save data": 45
+   }
+  },
+  "poll_250": {
+   "wallMs": 15003,
+   "cpuBusyPct": 16.8,
+   "scriptMs": 1870,
+   "layoutMs": 206,
+   "styleMs": 83,
+   "layouts": 1006,
+   "styleRecalcs": 2676,
+   "heapMB": 40.1,
+   "heapDeltaMB": 3.53,
+   "domNodes": 12100,
+   "listeners": 1401,
+   "storageWrites": 16,
+   "storageWriteKB": 1839,
+   "storageWriteMs": 2,
+   "longTasks": 15,
+   "longTaskMaxMs": 265,
+   "saveKB": 115,
+   "keys": {
+    "save data": 61
+   }
+  },
+  "busy": {
+   "wallMs": 15002,
+   "cpuBusyPct": 15.6,
+   "scriptMs": 1756,
+   "layoutMs": 158,
+   "styleMs": 85,
+   "layouts": 1024,
+   "styleRecalcs": 2657,
+   "heapMB": 60.3,
+   "heapDeltaMB": 22.01,
+   "domNodes": 11314,
+   "listeners": 1397,
+   "storageWrites": 15,
+   "storageWriteKB": 1731,
+   "storageWriteMs": 2,
+   "longTasks": 14,
+   "longTaskMaxMs": 265,
+   "saveKB": 115,
+   "keys": {
+    "save data": 79
+   }
+  }
+ },
+ "notes": [],
+ "busyAction": "Ask for repair notes (one field clear) (click failed)",
+ "saveProgressMs": [
+  2.7,
+  2.9,
+  2.2,
+  2.5,
+  2.4
+ ],
+ "errors": []
+}
