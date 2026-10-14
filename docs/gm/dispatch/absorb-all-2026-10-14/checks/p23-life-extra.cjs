@@ -15,7 +15,7 @@ out.push({check:'actual seeded visit rolls on real arrivals, meeting retained',r
 // of naturally earning this high-tier route or surviving the entire encounter.
 await p.evaluate(async()=>{const m=await import(document.querySelector('script[src*="dist/bundle.js"]').src);window.__main=m;m.process_rewards({rewards:{locations:[{location:'Mysterious gate'}]},source_type:'test',source_name:'disposable browser fixture'});m.change_location({location_id:'Mysterious gate',skip_travel_time:true});// Native XP recomputation overwrites direct hero full-stat edits. Control
  // each actual guardian strike instead, preserving hit and bleeding paths.
- for(const enemy of m.current_combat.defenders)enemy.getFullStats().attack_power=.01;window.__rng=Math.random;Math.random=()=>0;});
+ m.current_combat.defenders.forEach((enemy,i)=>{enemy.getFullStats().attack_power=.01;m.current_combat.setAttackLoop({fighter_index:i,is_attacker:false,base_cooldown:1/enemy.getFullStats().attack_speed});});window.__rng=Math.random;Math.random=()=>0;});
 await p.waitForFunction(()=>window.__main.active_effects.Bleeding?.duration>0,null,{timeout:15000});
 await p.waitForTimeout(1200);
 await p.evaluate(()=>{const m=window.__main;Math.random=window.__rng;window.__bleed=m.active_effects.Bleeding.duration;m.change_location({location_id:'Village',skip_travel_time:true});});
