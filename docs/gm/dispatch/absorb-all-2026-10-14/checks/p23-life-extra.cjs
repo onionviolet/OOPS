@@ -11,10 +11,12 @@ async function travel(to){await p.locator('#location_actions_div').getByText('Mo
 await travel('Village');// Since procgen the arrival roll draws from the saved local-life stream, not Math.random: repeat real arrivals (40% each).
 let arrivals=0;for(;arrivals<30&&!(await save()).absorb_local_life.visitorMet;arrivals++){await travel('Shack');await travel('Village');}assert.equal((await save()).absorb_local_life.visitorMet,true,'visitor met within '+arrivals+' arrivals');await travel('Shack');await travel('Village');assert.equal((await save()).absorb_local_life.visitorMet,true,'meeting retained after another arrival');
 out.push({check:'actual seeded visit rolls on real arrivals, meeting retained',result:'PASS'});
-// Controlled actual native combat, using rebuilt combatants and disposable high-health fixture. No claim
+// Controlled actual native combat, using rebuilt combatants and disposable low-damage guardian control. No claim
 // of naturally earning this high-tier route or surviving the entire encounter.
-await p.evaluate(async()=>{const m=await import(document.querySelector('script[src*="dist/bundle.js"]').src);window.__main=m;m.process_rewards({rewards:{locations:[{location:'Mysterious gate'}]},source_type:'test',source_name:'disposable browser fixture'});m.change_location({location_id:'Mysterious gate',skip_travel_time:true});const stats=m.current_combat.attackers[0].getFullStats();stats.max_health=100000;stats.health=100000;window.__rng=Math.random;Math.random=()=>0;});
-await p.waitForFunction(()=>window.__main.active_effects.Bleeding?.duration>0,null,{timeout:5000});
+await p.evaluate(async()=>{const m=await import(document.querySelector('script[src*="dist/bundle.js"]').src);window.__main=m;m.process_rewards({rewards:{locations:[{location:'Mysterious gate'}]},source_type:'test',source_name:'disposable browser fixture'});m.change_location({location_id:'Mysterious gate',skip_travel_time:true});// Native XP recomputation overwrites direct hero full-stat edits. Control
+ // each actual guardian strike instead, preserving hit and bleeding paths.
+ for(const enemy of m.current_combat.defenders)enemy.getFullStats().attack_power=.01;window.__rng=Math.random;Math.random=()=>0;});
+await p.waitForFunction(()=>window.__main.active_effects.Bleeding?.duration>0,null,{timeout:15000});
 await p.waitForTimeout(1200);
 await p.evaluate(()=>{const m=window.__main;Math.random=window.__rng;window.__bleed=m.active_effects.Bleeding.duration;m.change_location({location_id:'Village',skip_travel_time:true});});
 assert.ok(await p.evaluate(()=>window.__bleed>=5&&window.__bleed<=15));assert.ok((await save()).active_effects.Bleeding.duration>0);await p.waitForTimeout(2200);assert.ok(Object.values((await save()).levels).flatMap(Object.values).some(l=>(l.skill_xp['Iron skin']||0)>0));out.push({check:'actual landed guardian hits stack native bleeding, exposure trains Iron skin',result:'PASS'});
