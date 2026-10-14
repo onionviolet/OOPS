@@ -3422,3 +3422,11 @@ other sessions; weapon/rune work is canonical in the UI-at-scale session's
 palette (R1-R3), so WR1-WR4 here were stopped as duplicates. Story round 11 saved
 (BN story-reveal cheats, BO one knowledge layer, BP story abstractions, BQ
 implementation). Finished lane reports committed; push awaits Weibao's yes.
+
+Then: “Considering comic worlds and stuff and more? ... Abstaction thats
+needed? Merging, commiting or pushing?” Round 10 of the same doc: comic
+research and tech CW1-CW18, comic revealer cheats RC16-RC23, abstractions
+AB1-AB12 with what not to abstract, and the merge/commit/push state. T2,
+T8, T9 results folded. Lanes T15 (comics) and T16 (planner QA build on T6's
+branch). Root committed its own doc paths only; push waits for an explicit
+yes. Proposals only.
