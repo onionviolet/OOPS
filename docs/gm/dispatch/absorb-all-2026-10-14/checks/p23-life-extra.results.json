@@ -1,0 +1,10 @@
+[
+  {
+    "check": "actual visit roll: miss, revisit, meeting retained",
+    "result": "PASS"
+  },
+  {
+    "check": "actual landed guardian hits stack native bleeding, exposure trains Iron skin",
+    "result": "PASS"
+  }
+]
