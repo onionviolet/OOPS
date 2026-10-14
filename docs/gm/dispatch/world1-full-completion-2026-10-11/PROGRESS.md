@@ -52,9 +52,12 @@ checkpoints including p09, final matched rebuild/fresh19304 desktop origin.
 and regional economy stay OPEN. Root installs p10/p09 when merging; payloads
 are deliberately ignored and preserved privately. No save schema migration.
 
-Commits: C01 `dd7501bb`; C02 commit follows this verified checkpoint. No dist or
-index content is staged. Latest foundation integration is next, then W1-C03/
-L2-U02. [NEXT_UNIT](NEXT_UNIT.md) is the exact source/implementation resume task.
+Commits: C01 `dd7501bb`; C02 `2a355072`. No dist or
+index content is staged. Latest foundation `638241e9` is integrated in this worktree.
+Current **source**628/628 tests and affected8+8 groups pass; **seeded-native**
+9 integration groups/5 exact persistence checkpoints pass on rebuilt origin19306.
+[Integration report](campaign/integration/REPORT.md) owns exact input/HTML correction.
+Next is W1-C03/L2-U02. [NEXT_UNIT](NEXT_UNIT.md) is the exact source/implementation resume task.
 
 ## Remaining full horizon
 
@@ -73,3 +76,12 @@ C01 verified as above. Shared-file edit: `src/main.js`, beginning choice only.
 `src/simulation.js`: three C02 selected-predicate call sites.
 `src/simulation_effects.js`: bounded current-inventory projection.
 `src/save_files.js`: unchanged.
+
+## Resume boundary
+
+C01 and C02 plus the foundation integration are checkpointed. Continue the
+same full campaign through [NEXT_UNIT](NEXT_UNIT.md); no new chat or permission
+needed. Root must copy ignored companions when merging this branch. Their exact
+payloads/authoring/proofs are at the new private research campaign folders;
+p01–p09 remain frozen. Installed/main proof and final whole-horizon review are
+still OPEN. Do not manufacture a full-world completion from these local units.

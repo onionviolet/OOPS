@@ -1,0 +1,79 @@
+[
+ {
+  "id": "Z1",
+  "item": "Validators",
+  "check": "c0_gate.cjs Z1",
+  "passes": true,
+  "notes": "Coordinator: c0_gate PASS against worktree; merged 12a088bf."
+ },
+ {
+  "id": "Z2",
+  "item": "Old save gains empty cheats",
+  "check": "c0_gate.cjs Z2",
+  "passes": true,
+  "notes": "Coordinator: c0_gate PASS against worktree; merged 12a088bf."
+ },
+ {
+  "id": "Z3",
+  "item": "Round trip incl. literal import",
+  "check": "c0_gate.cjs Z3",
+  "passes": true,
+  "notes": "Coordinator: c0_gate PASS against worktree; merged 12a088bf."
+ },
+ {
+  "id": "Z4",
+  "item": "Invalid card refused",
+  "check": "c0_gate.cjs Z4",
+  "passes": true,
+  "notes": "Coordinator: c0_gate PASS against worktree; merged 12a088bf."
+ },
+ {
+  "id": "Z5",
+  "item": "npm test with cheat tests",
+  "check": "c0_gate.cjs Z5",
+  "passes": true,
+  "notes": "Coordinator: c0_gate PASS against worktree; merged 12a088bf."
+ },
+ {
+  "id": "H1",
+  "item": "Opt-in control, default none",
+  "check": "ch1_gate.cjs H1",
+  "passes": true,
+  "notes": "Coordinator full check_ch1.sh exit 0 after B1 fix; committed dc06d02e on ui/cheats-ch1."
+ },
+ {
+  "id": "H2",
+  "item": "Dormant optional start",
+  "check": "ch1_gate.cjs H2",
+  "passes": true,
+  "notes": "Coordinator full check_ch1.sh exit 0 after B1 fix; committed dc06d02e on ui/cheats-ch1."
+ },
+ {
+  "id": "H3",
+  "item": "Awakening and first message",
+  "check": "ch1_gate.cjs H3",
+  "passes": true,
+  "notes": "Coordinator full check_ch1.sh exit 0 after B1 fix; committed dc06d02e on ui/cheats-ch1."
+ },
+ {
+  "id": "H4",
+  "item": "Panel contents and density",
+  "check": "ch1_gate.cjs H4",
+  "passes": true,
+  "notes": "Coordinator full check_ch1.sh exit 0 after B1 fix; committed dc06d02e on ui/cheats-ch1."
+ },
+ {
+  "id": "H5",
+  "item": "Reload/import persistence",
+  "check": "ch1_gate.cjs H5",
+  "passes": true,
+  "notes": "Coordinator full check_ch1.sh exit 0 after B1 fix; committed dc06d02e on ui/cheats-ch1."
+ },
+ {
+  "id": "H6",
+  "item": "Fit, contrast, F6",
+  "check": "ch1_gate.cjs H6",
+  "passes": true,
+  "notes": "Coordinator full check_ch1.sh exit 0 after B1 fix; committed dc06d02e on ui/cheats-ch1."
+ }
+]

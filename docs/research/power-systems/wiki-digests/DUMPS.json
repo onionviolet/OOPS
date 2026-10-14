@@ -542,7 +542,24 @@
         }
       ],
       "source_wiki": "jujutsu-kaisen.fandom.com",
-      "source_binding": "same_community"
+      "source_binding": "same_community",
+      "cache_restorations": [
+        {
+          "route": "fandom-s3-refetch",
+          "started": "2026-10-13T19:25:53.340162+00:00",
+          "url": "https://s3.amazonaws.com/wikia_xml_dumps/j/ju/jujutsukaisen_pages_current.xml.7z",
+          "expected_sha256": "f8a8ac1e26dde6931b0cb046a8d6c98a7f038a61318dea039269f89eec5ae37c",
+          "expected_bytes": 2754355,
+          "status": 200,
+          "final_url": "https://s3.amazonaws.com/wikia_xml_dumps/j/ju/jujutsukaisen_pages_current.xml.7z",
+          "file": "/Users/weiwei/.codex/research/wikis/jujutsu-kaisen.fandom.com/dump/pages-current.xml.7z",
+          "bytes": 2754355,
+          "sha256": "f8a8ac1e26dde6931b0cb046a8d6c98a7f038a61318dea039269f89eec5ae37c",
+          "md5": "d3ce037c46e1a3c3323287fda0cf98bc",
+          "finished": "2026-10-13T19:25:54.437893+00:00",
+          "verified": true
+        }
+      ]
     },
     "lordofthemysteries.fandom.com": {
       "wiki": "lordofthemysteries.fandom.com",
@@ -677,7 +694,7 @@
       "dbnames": [
         "bleach"
       ],
-      "state": "unavailable_two_guesses",
+      "state": "review_ready",
       "attempts": [
         {
           "method": "HEAD",
@@ -762,7 +779,35 @@
           "error_code": "InvalidObjectState",
           "finished": "2026-10-10T06:37:11.684692+00:00"
         }
-      }
+      },
+      "alternate_routes": [
+        {
+          "route": "wikiteam-ia",
+          "started": "2026-10-13T19:31:18.469382+00:00",
+          "item": "wiki-bleach.fandom.com-20231226",
+          "url": "https://archive.org/download/wiki-bleach.fandom.com-20231226/bleach.fandom.com-20231226-history.xml.zst",
+          "expected_md5": "5589b60c882eee1936f8ba781a1ecce5",
+          "expected_bytes": 71218122,
+          "dumper": "<a href=\"https://bleach.fandom.com/wiki/Bleach_Wiki\" rel=\"ugc nofollow\">Bleach Wiki</a> dumped with <a href=\"https://github.com/saveweb/wikiteam3/\" rel=\"ugc nofollow\">wikiteam3</a> tools.",
+          "status": 200,
+          "final_url": "https://dn721107.ca.archive.org/0/items/wiki-bleach.fandom.com-20231226/bleach.fandom.com-20231226-history.xml.zst",
+          "file": "/Users/weiwei/.codex/research/wikis/bleach.fandom.com/dump/bleach.fandom.com-20231226-history.xml.zst",
+          "bytes": 71218122,
+          "sha256": "1cef9e4401b7fc8c12f6239a20a40ceaa13587b9d04b942bd4b7550c18248e01",
+          "md5": "5589b60c882eee1936f8ba781a1ecce5",
+          "finished": "2026-10-13T19:32:23.704987+00:00",
+          "verified": true
+        }
+      ],
+      "archive_sha256": "1cef9e4401b7fc8c12f6239a20a40ceaa13587b9d04b942bd4b7550c18248e01",
+      "archive_format": "wikiteam-history-xml-zst",
+      "download": {
+        "file": "/Users/weiwei/.codex/research/wikis/bleach.fandom.com/dump/bleach.fandom.com-20231226-history.xml.zst",
+        "sha256": "1cef9e4401b7fc8c12f6239a20a40ceaa13587b9d04b942bd4b7550c18248e01",
+        "url": "https://archive.org/download/wiki-bleach.fandom.com-20231226/bleach.fandom.com-20231226-history.xml.zst",
+        "route": "wikiteam-ia"
+      },
+      "state_note": "S3 dump DEEP_ARCHIVE and Fandom API refused; WikiTeam IA text dump used 2026-10-13. Latest revision per page is the reading input."
     },
     "naruto.fandom.com": {
       "wiki": "naruto.fandom.com",
@@ -13701,7 +13746,7 @@
         "chainsawman",
         "chainsaw-man"
       ],
-      "state": "dump_unavailable_storage",
+      "state": "review_ready",
       "attempts": [
         {
           "method": "HEAD",
@@ -13732,23 +13777,33 @@
       "url": "https://s3.amazonaws.com/wikia_xml_dumps/c/ch/chainsawman_pages_current.xml.7z",
       "last_modified": "Mon, 22 May 2023 22:27:53 GMT",
       "download": {
-        "method": "GET",
-        "url": "https://s3.amazonaws.com/wikia_xml_dumps/c/ch/chainsawman_pages_current.xml.7z",
-        "started": "2026-10-10T06:17:23.446544+00:00",
-        "status": 403,
-        "headers": {
-          "Server": "AmazonS3",
-          "x-amz-request-id": "29D32X3WQA37NS72",
-          "x-amz-id-2": "17oz74bGGRI5hXuXfU3TD7h4OlzdG2H4KOWHyIGSaEqLahvirsmIF2brkikbm8CkpDrTOnDRkt4=",
-          "Content-Type": "application/xml",
-          "Transfer-Encoding": "chunked",
-          "Date": "Sat, 10 Oct 2026 06:17:23 GMT",
-          "Connection": "close"
-        },
-        "error_body_sha256": "b488522da4c0c5a65f30a538f0dd9ce17bda12c56e2e690f356275c924cdcfb4",
-        "error_code": "InvalidObjectState",
-        "finished": "2026-10-10T06:17:23.609468+00:00"
-      }
+        "file": "/Users/weiwei/.codex/research/wikis/chainsaw-man.fandom.com/dump/chainsaw-man.fandom.com-20231127-history.xml.zst",
+        "sha256": "b69fd1c8cee6c2195114a2c4c49b67e9a664bd55bf294d7e1c3acdb4643f27db",
+        "url": "https://archive.org/download/wiki-chainsaw-man.fandom.com-20231127/chainsaw-man.fandom.com-20231127-history.xml.zst",
+        "route": "wikiteam-ia"
+      },
+      "alternate_routes": [
+        {
+          "route": "wikiteam-ia",
+          "started": "2026-10-13T19:27:47.130489+00:00",
+          "item": "wiki-chainsaw-man.fandom.com-20231127",
+          "url": "https://archive.org/download/wiki-chainsaw-man.fandom.com-20231127/chainsaw-man.fandom.com-20231127-history.xml.zst",
+          "expected_md5": "3dc78bf83427cce191bd6261f916cb4f",
+          "expected_bytes": 2246952,
+          "dumper": "<a href=\"https://chainsaw-man.fandom.com/wiki/Chainsaw_Man_Wiki\" rel=\"ugc nofollow\">Chainsaw Man Wiki</a> dumped with <a href=\"https://github.com/saveweb/wikiteam3/\" rel=\"ugc nofollow\">wikiteam3</a> tools.",
+          "status": 200,
+          "final_url": "https://dn721003.ca.archive.org/0/items/wiki-chainsaw-man.fandom.com-20231127/chainsaw-man.fandom.com-20231127-history.xml.zst",
+          "file": "/Users/weiwei/.codex/research/wikis/chainsaw-man.fandom.com/dump/chainsaw-man.fandom.com-20231127-history.xml.zst",
+          "bytes": 2246952,
+          "sha256": "b69fd1c8cee6c2195114a2c4c49b67e9a664bd55bf294d7e1c3acdb4643f27db",
+          "md5": "3dc78bf83427cce191bd6261f916cb4f",
+          "finished": "2026-10-13T19:27:56.601036+00:00",
+          "verified": true
+        }
+      ],
+      "archive_sha256": "b69fd1c8cee6c2195114a2c4c49b67e9a664bd55bf294d7e1c3acdb4643f27db",
+      "archive_format": "wikiteam-history-xml-zst",
+      "state_note": "S3 dump DEEP_ARCHIVE and Fandom API refused; WikiTeam IA text dump used 2026-10-13. Latest revision per page is the reading input."
     },
     "hunterxhunter.fandom.com": {
       "wiki": "hunterxhunter.fandom.com",
@@ -14380,7 +14435,24 @@
         }
       ],
       "source_wiki": "hunterxhunter.fandom.com",
-      "source_binding": "same_community"
+      "source_binding": "same_community",
+      "cache_restorations": [
+        {
+          "route": "fandom-s3-refetch",
+          "started": "2026-10-14T02:23:20.680012+00:00",
+          "url": "https://s3.amazonaws.com/wikia_xml_dumps/h/hu/hunterxhunter_pages_current.xml.7z",
+          "expected_sha256": "5fdc003e60ecf76936da8f0e04eb6b70b16f44a418fc58f4892c9a03b43c2a58",
+          "expected_bytes": 13616791,
+          "status": 200,
+          "final_url": "https://s3.amazonaws.com/wikia_xml_dumps/h/hu/hunterxhunter_pages_current.xml.7z",
+          "file": "/Users/weiwei/.codex/research/wikis/hunterxhunter.fandom.com/dump/pages-current.xml.7z",
+          "bytes": 13616791,
+          "sha256": "5fdc003e60ecf76936da8f0e04eb6b70b16f44a418fc58f4892c9a03b43c2a58",
+          "md5": "8b0006f1405157b4620ce1bbac76fe73",
+          "finished": "2026-10-14T02:23:21.798676+00:00",
+          "verified": true
+        }
+      ]
     },
     "undead-unluck.fandom.com": {
       "wiki": "undead-unluck.fandom.com",
@@ -18122,7 +18194,24 @@
         }
       ],
       "source_wiki": "typemoon.fandom.com",
-      "source_binding": "same_community"
+      "source_binding": "same_community",
+      "cache_restorations": [
+        {
+          "route": "fandom-s3-refetch",
+          "started": "2026-10-14T02:03:37.417576+00:00",
+          "url": "https://s3.amazonaws.com/wikia_xml_dumps/t/ty/typemoon_pages_current.xml.7z",
+          "expected_sha256": "872ee43b72811383016f7e5776a67a55b2fb6beb434a15607d78d87f01178754",
+          "expected_bytes": 17340005,
+          "status": 200,
+          "final_url": "https://s3.amazonaws.com/wikia_xml_dumps/t/ty/typemoon_pages_current.xml.7z",
+          "file": "/Users/weiwei/.codex/research/wikis/typemoon.fandom.com/dump/pages-current.xml.7z",
+          "bytes": 17340005,
+          "sha256": "872ee43b72811383016f7e5776a67a55b2fb6beb434a15607d78d87f01178754",
+          "md5": "ea4beeafeca19ded674dd1abccd08cea",
+          "finished": "2026-10-14T02:03:41.275886+00:00",
+          "verified": true
+        }
+      ]
     },
     "stormlightarchive.fandom.com": {
       "wiki": "stormlightarchive.fandom.com",
@@ -25725,7 +25814,24 @@
         }
       ],
       "source_wiki": "onepiece.fandom.com",
-      "source_binding": "same_community"
+      "source_binding": "same_community",
+      "cache_restorations": [
+        {
+          "route": "fandom-s3-refetch",
+          "started": "2026-10-14T03:32:39.128010+00:00",
+          "url": "https://s3.amazonaws.com/wikia_xml_dumps/o/on/onepiece_pages_current.xml.7z",
+          "expected_sha256": "c4e33cc6793425d9baa5f76a9f12f047d75dec135006093ed9357629a7d1f7bb",
+          "expected_bytes": 64758346,
+          "status": 200,
+          "final_url": "https://s3.amazonaws.com/wikia_xml_dumps/o/on/onepiece_pages_current.xml.7z",
+          "file": "/Users/weiwei/.codex/research/wikis/onepiece.fandom.com/dump/pages-current.xml.7z",
+          "bytes": 64758346,
+          "sha256": "c4e33cc6793425d9baa5f76a9f12f047d75dec135006093ed9357629a7d1f7bb",
+          "md5": "bb0e8ea85b4eb01e5ba8ec2dd08a5be8",
+          "finished": "2026-10-14T03:32:42.733723+00:00",
+          "verified": true
+        }
+      ]
     },
     "myheroacademia.fandom.com": {
       "wiki": "myheroacademia.fandom.com",
@@ -25740,7 +25846,7 @@
       "dbnames": [
         "myheroacademia"
       ],
-      "state": "dump_unavailable_storage",
+      "state": "review_ready",
       "attempts": [
         {
           "method": "HEAD",
@@ -25771,23 +25877,33 @@
       "url": "https://s3.amazonaws.com/wikia_xml_dumps/m/my/myheroacademia_pages_current.xml.7z",
       "last_modified": "Fri, 10 Mar 2023 15:28:18 GMT",
       "download": {
-        "method": "GET",
-        "url": "https://s3.amazonaws.com/wikia_xml_dumps/m/my/myheroacademia_pages_current.xml.7z",
-        "started": "2026-10-10T06:19:48.723794+00:00",
-        "status": 403,
-        "headers": {
-          "x-amz-request-id": "N7YMK1NA5N2N27KN",
-          "x-amz-id-2": "LRSc7moYKxM02ZCD8hTsLZ0VZQx9PTFEACijvdhnmCXwvRt2g/tw5sSgWWaMP4N4TjCmBn0+Afk=",
-          "Date": "Sat, 10 Oct 2026 06:19:48 GMT",
-          "Content-Type": "application/xml",
-          "Server": "AmazonS3",
-          "Transfer-Encoding": "chunked",
-          "Connection": "close"
-        },
-        "error_body_sha256": "1adb9f7770d7d8c47c868af8455ee10a190473bf3b4f0b7458bcaced60df57b3",
-        "error_code": "InvalidObjectState",
-        "finished": "2026-10-10T06:19:48.836872+00:00"
-      }
+        "file": "/Users/weiwei/.codex/research/wikis/myheroacademia.fandom.com/dump/myheroacademia.fandom.com-20231128-history.xml.zst",
+        "sha256": "0e86b97c6c01d80292a80b9d52cf2b2196878e9f661849e646bfc40ae5c1f93a",
+        "url": "https://archive.org/download/wiki-myheroacademia.fandom.com-20231128/myheroacademia.fandom.com-20231128-history.xml.zst",
+        "route": "wikiteam-ia"
+      },
+      "alternate_routes": [
+        {
+          "route": "wikiteam-ia",
+          "started": "2026-10-14T03:32:42.751072+00:00",
+          "item": "wiki-myheroacademia.fandom.com-20231128",
+          "url": "https://archive.org/download/wiki-myheroacademia.fandom.com-20231128/myheroacademia.fandom.com-20231128-history.xml.zst",
+          "expected_md5": "aa6174808b29eaf582bc689340292b8f",
+          "expected_bytes": 32831743,
+          "dumper": "<a href=\"https://myheroacademia.fandom.com/wiki/My_Hero_Academia_Wiki\" rel=\"ugc nofollow\">My Hero Academia Wiki</a> dumped with <a href=\"https://github.com/saveweb/wikiteam3/\" rel=\"ugc nofollow\">wikiteam3</a> tools.",
+          "status": 200,
+          "final_url": "https://dn721308.ca.archive.org/0/items/wiki-myheroacademia.fandom.com-20231128/myheroacademia.fandom.com-20231128-history.xml.zst",
+          "file": "/Users/weiwei/.codex/research/wikis/myheroacademia.fandom.com/dump/myheroacademia.fandom.com-20231128-history.xml.zst",
+          "bytes": 32831743,
+          "sha256": "0e86b97c6c01d80292a80b9d52cf2b2196878e9f661849e646bfc40ae5c1f93a",
+          "md5": "aa6174808b29eaf582bc689340292b8f",
+          "finished": "2026-10-14T03:32:56.733909+00:00",
+          "verified": true
+        }
+      ],
+      "archive_sha256": "0e86b97c6c01d80292a80b9d52cf2b2196878e9f661849e646bfc40ae5c1f93a",
+      "archive_format": "wikiteam-history-xml-zst",
+      "state_note": "S3 dump DEEP_ARCHIVE and Fandom API refused; WikiTeam IA text dump used 2026-10-13. Latest revision per page is the reading input."
     },
     "fma.fandom.com": {
       "wiki": "fma.fandom.com",
@@ -26176,7 +26292,24 @@
         }
       ],
       "source_wiki": "fma.fandom.com",
-      "source_binding": "same_community"
+      "source_binding": "same_community",
+      "cache_restorations": [
+        {
+          "route": "fandom-s3-refetch",
+          "started": "2026-10-14T02:23:21.823551+00:00",
+          "url": "https://s3.amazonaws.com/wikia_xml_dumps/f/fm/fma_pages_current.xml.7z",
+          "expected_sha256": "ecd822e8cc21c9492cb1bccc5d9fbf362e9411c86eb791a9491f82d91b2855e6",
+          "expected_bytes": 2494329,
+          "status": 200,
+          "final_url": "https://s3.amazonaws.com/wikia_xml_dumps/f/fm/fma_pages_current.xml.7z",
+          "file": "/Users/weiwei/.codex/research/wikis/fma.fandom.com/dump/pages-current.xml.7z",
+          "bytes": 2494329,
+          "sha256": "ecd822e8cc21c9492cb1bccc5d9fbf362e9411c86eb791a9491f82d91b2855e6",
+          "md5": "6c43742c272df5ed614def3dad69756c",
+          "finished": "2026-10-14T02:23:28.495131+00:00",
+          "verified": true
+        }
+      ]
     },
     "frieren.fandom.com": {
       "wiki": "frieren.fandom.com",
@@ -26192,7 +26325,7 @@
       "dbnames": [
         "frieren"
       ],
-      "state": "dump_unavailable_storage",
+      "state": "review_ready",
       "attempts": [
         {
           "method": "HEAD",
@@ -26223,23 +26356,33 @@
       "url": "https://s3.amazonaws.com/wikia_xml_dumps/f/fr/frieren_pages_current.xml.7z",
       "last_modified": "Sat, 01 Mar 2025 08:53:35 GMT",
       "download": {
-        "method": "GET",
-        "url": "https://s3.amazonaws.com/wikia_xml_dumps/f/fr/frieren_pages_current.xml.7z",
-        "started": "2026-10-10T06:20:10.677544+00:00",
-        "status": 403,
-        "headers": {
-          "Server": "AmazonS3",
-          "x-amz-request-id": "RAGRHWPRKAVY6GSX",
-          "x-amz-id-2": "zxkKz77Ljey5mCn0IdQc1gMiAALelT1Tl+Y9iZ3UAgnD9LY/Xiq6FGb6lO6xtOqBwPqjCiQlZiWJAXwDjaA0LA4qMP0cWb9I",
-          "Content-Type": "application/xml",
-          "Transfer-Encoding": "chunked",
-          "Date": "Sat, 10 Oct 2026 06:20:10 GMT",
-          "Connection": "close"
-        },
-        "error_body_sha256": "77e0ce709b5bad923abac94cca587b1df7461c99107ccfec61fc0d6390c92055",
-        "error_code": "InvalidObjectState",
-        "finished": "2026-10-10T06:20:10.802912+00:00"
-      }
+        "file": "/Users/weiwei/.codex/research/wikis/frieren.fandom.com/dump/frieren.fandom.com-20231212-history.xml.zst",
+        "sha256": "eec0fae530ffbac88fc219b603612761f8045893a44b7fad2909794f27185eec",
+        "url": "https://archive.org/download/wiki-frieren.fandom.com-20231212/frieren.fandom.com-20231212-history.xml.zst",
+        "route": "wikiteam-ia"
+      },
+      "alternate_routes": [
+        {
+          "route": "wikiteam-ia",
+          "started": "2026-10-14T03:32:56.751715+00:00",
+          "item": "wiki-frieren.fandom.com-20231212",
+          "url": "https://archive.org/download/wiki-frieren.fandom.com-20231212/frieren.fandom.com-20231212-history.xml.zst",
+          "expected_md5": "c5ec19927e0a602fa6d9e67afe2ec832",
+          "expected_bytes": 1178943,
+          "dumper": "<a href=\"https://frieren.fandom.com/wiki/Frieren_Wiki\" rel=\"ugc nofollow\">Frieren Wiki</a> dumped with <a href=\"https://github.com/saveweb/wikiteam3/\" rel=\"ugc nofollow\">wikiteam3</a> tools.",
+          "status": 200,
+          "final_url": "https://dn720804.ca.archive.org/0/items/wiki-frieren.fandom.com-20231212/frieren.fandom.com-20231212-history.xml.zst",
+          "file": "/Users/weiwei/.codex/research/wikis/frieren.fandom.com/dump/frieren.fandom.com-20231212-history.xml.zst",
+          "bytes": 1178943,
+          "sha256": "eec0fae530ffbac88fc219b603612761f8045893a44b7fad2909794f27185eec",
+          "md5": "c5ec19927e0a602fa6d9e67afe2ec832",
+          "finished": "2026-10-14T03:33:09.213666+00:00",
+          "verified": true
+        }
+      ],
+      "archive_sha256": "eec0fae530ffbac88fc219b603612761f8045893a44b7fad2909794f27185eec",
+      "archive_format": "wikiteam-history-xml-zst",
+      "state_note": "S3 dump DEEP_ARCHIVE and Fandom API refused; WikiTeam IA text dump used 2026-10-13. Latest revision per page is the reading input."
     },
     "mob-psycho-100.fandom.com": {
       "wiki": "mob-psycho-100.fandom.com",
@@ -26304,7 +26447,7 @@
         "kimetsunoyaiba",
         "kimetsu-no-yaiba"
       ],
-      "state": "unavailable_name_guesses",
+      "state": "review_ready",
       "attempts": [
         {
           "method": "HEAD",
@@ -26338,7 +26481,35 @@
           },
           "finished": "2026-10-10T06:20:30.484752+00:00"
         }
-      ]
+      ],
+      "alternate_routes": [
+        {
+          "route": "wikiteam-ia",
+          "started": "2026-10-14T03:33:54.879544+00:00",
+          "item": "wiki-kimetsu-no-yaiba.fandom.com-20231219",
+          "url": "https://archive.org/download/wiki-kimetsu-no-yaiba.fandom.com-20231219/kimetsu-no-yaiba.fandom.com-20231219-history.xml.zst",
+          "expected_md5": "d1b112d9311820a18d97b1009f6f42dc",
+          "expected_bytes": 10622706,
+          "dumper": "<a href=\"https://kimetsu-no-yaiba.fandom.com/wiki/Kimetsu_no_Yaiba_Wiki\" rel=\"ugc nofollow\">Kimetsu no Yaiba Wiki</a> dumped with <a href=\"https://github.com/saveweb/wikiteam3/\" rel=\"ugc nofollow\">wikiteam3</a> tools.",
+          "status": 200,
+          "final_url": "https://dn721101.ca.archive.org/0/items/wiki-kimetsu-no-yaiba.fandom.com-20231219/kimetsu-no-yaiba.fandom.com-20231219-history.xml.zst",
+          "file": "/Users/weiwei/.codex/research/wikis/kimetsu-no-yaiba.fandom.com/dump/kimetsu-no-yaiba.fandom.com-20231219-history.xml.zst",
+          "bytes": 10622706,
+          "sha256": "3e70d51b96fc54f3e468857c60bc36915bff203eda1cc2e32e092a610c92550c",
+          "md5": "d1b112d9311820a18d97b1009f6f42dc",
+          "finished": "2026-10-14T03:34:05.615257+00:00",
+          "verified": true
+        }
+      ],
+      "archive_sha256": "3e70d51b96fc54f3e468857c60bc36915bff203eda1cc2e32e092a610c92550c",
+      "archive_format": "wikiteam-history-xml-zst",
+      "download": {
+        "file": "/Users/weiwei/.codex/research/wikis/kimetsu-no-yaiba.fandom.com/dump/kimetsu-no-yaiba.fandom.com-20231219-history.xml.zst",
+        "sha256": "3e70d51b96fc54f3e468857c60bc36915bff203eda1cc2e32e092a610c92550c",
+        "url": "https://archive.org/download/wiki-kimetsu-no-yaiba.fandom.com-20231219/kimetsu-no-yaiba.fandom.com-20231219-history.xml.zst",
+        "route": "wikiteam-ia"
+      },
+      "state_note": "S3 dump DEEP_ARCHIVE and Fandom API refused; WikiTeam IA text dump used 2026-10-13. Latest revision per page is the reading input."
     },
     "blackclover.fandom.com": {
       "wiki": "blackclover.fandom.com",
@@ -26352,7 +26523,7 @@
       "dbnames": [
         "blackclover"
       ],
-      "state": "unavailable_name_guesses",
+      "state": "review_ready",
       "attempts": [
         {
           "method": "HEAD",
@@ -26370,7 +26541,35 @@
           },
           "finished": "2026-10-10T06:20:35.010386+00:00"
         }
-      ]
+      ],
+      "alternate_routes": [
+        {
+          "route": "wikiteam-ia",
+          "started": "2026-10-14T03:33:09.228877+00:00",
+          "item": "wiki-blackclover.fandom.com-20231224",
+          "url": "https://archive.org/download/wiki-blackclover.fandom.com-20231224/blackclover.fandom.com-20231224-history.xml.zst",
+          "expected_md5": "300c3a819c22b4c27f4594200ead9267",
+          "expected_bytes": 8043449,
+          "dumper": "<a href=\"https://blackclover.fandom.com/wiki/Black_Clover_Wiki\" rel=\"ugc nofollow\">Black Clover Wiki</a> dumped with <a href=\"https://github.com/saveweb/wikiteam3/\" rel=\"ugc nofollow\">wikiteam3</a> tools.",
+          "status": 200,
+          "final_url": "https://dn721307.ca.archive.org/0/items/wiki-blackclover.fandom.com-20231224/blackclover.fandom.com-20231224-history.xml.zst",
+          "file": "/Users/weiwei/.codex/research/wikis/blackclover.fandom.com/dump/blackclover.fandom.com-20231224-history.xml.zst",
+          "bytes": 8043449,
+          "sha256": "dc6b3e4d96ab9a24c5d7e148296c49fea88659db5b7fb978e61cd1e9f7cc256a",
+          "md5": "300c3a819c22b4c27f4594200ead9267",
+          "finished": "2026-10-14T03:33:24.771857+00:00",
+          "verified": true
+        }
+      ],
+      "archive_sha256": "dc6b3e4d96ab9a24c5d7e148296c49fea88659db5b7fb978e61cd1e9f7cc256a",
+      "archive_format": "wikiteam-history-xml-zst",
+      "download": {
+        "file": "/Users/weiwei/.codex/research/wikis/blackclover.fandom.com/dump/blackclover.fandom.com-20231224-history.xml.zst",
+        "sha256": "dc6b3e4d96ab9a24c5d7e148296c49fea88659db5b7fb978e61cd1e9f7cc256a",
+        "url": "https://archive.org/download/wiki-blackclover.fandom.com-20231224/blackclover.fandom.com-20231224-history.xml.zst",
+        "route": "wikiteam-ia"
+      },
+      "state_note": "S3 dump DEEP_ARCHIVE and Fandom API refused; WikiTeam IA text dump used 2026-10-13. Latest revision per page is the reading input."
     },
     "dandadan.fandom.com": {
       "wiki": "dandadan.fandom.com",

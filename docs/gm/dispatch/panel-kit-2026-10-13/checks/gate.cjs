@@ -1,5 +1,7 @@
 // Panel-kit gate. READ-ONLY for workers (see ../GOAL.md).
 // Prints "PASS|FAIL <item> <detail>". Exit 0 all pass, 1 any fail, 3 broken tooling.
+// Harness fix 2026-10-13: Node 22 fetch (undici) can crash with assert(!this.paused) against python http.server; probe with plain http and no keep-alive.
+const __probe = u => new Promise(res => { const req = require('http').get(u, {agent: false}, r => { r.resume(); res({ok: r.statusCode >= 200 && r.statusCode < 400}); }); req.on('error', () => res({ok: false})); req.setTimeout(3000, () => { req.destroy(); res({ok: false}); }); });
 const fs = require('fs'), path = require('path');
 let chromium;
 try { ({chromium} = require('/Users/weiwei/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright')); } catch { console.log('BROKEN playwright'); process.exit(3); }
@@ -120,7 +122,7 @@ const checks = {
 };
 (async () => {
   let b; try { b = await chromium.launch({headless: true, executablePath: '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'}); } catch { console.log('BROKEN chrome'); process.exit(3); }
-  try { const r = await fetch(URL + 'index.html'); if (!r.ok) throw 0; } catch { try { await new Promise(r => setTimeout(r, 500)); const r2 = await fetch(URL + 'index.html'); if (!r2.ok) throw 0; } catch { console.log('BROKEN server ' + URL); await b.close(); process.exit(3); } }
+  try { const r = await __probe(URL + 'index.html'); if (!r.ok) throw 0; } catch { try { await new Promise(r => setTimeout(r, 500)); const r2 = await __probe(URL + 'index.html'); if (!r2.ok) throw 0; } catch { console.log('BROKEN server ' + URL); await b.close(); process.exit(3); } }
   for (const [id, fn] of Object.entries(checks)) { if (only && !id.startsWith(only)) continue; try { await fn(b); } catch (e) { rec(id, false, 'threw: ' + String(e.message).split('\n')[0]); } }
   await b.close(); process.exit(results.every(Boolean) ? 0 : 1);
 })();

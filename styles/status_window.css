@@ -1,0 +1,11 @@
+/* Inherit kit and Player Appearance colors, font and size. */
+.status_window { padding: .6em; min-width: 0; }
+.status_window_row { display: flex; justify-content: space-between; gap: 1em; padding: .45em .2em; }
+.status_window_row > [data-status-stat] { padding-block: .25em; font-variant-numeric: tabular-nums; }
+.status_window[data-density="compact"] .status_window_row { padding-block: .1em; }
+.status_window[data-density="compact"] [data-status-stat] { padding-block: 0; }
+.status_window_detail { padding: .4em .2em; overflow-wrap: anywhere; }
+.status_window_detail p { margin: .3em 0; }
+.cheat_start_choice { max-width: 42em; padding: .5em; }
+.cheat_start_choice select { margin-left: .5em; }
+.cheat_start_choice p { font-size: .9em; line-height: 1.4; margin: .5em 0; }

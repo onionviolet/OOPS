@@ -1,0 +1,426 @@
+{
+ "max_running": 14,
+ "model": "gpt-6-luna",
+ "effort": "medium",
+ "lanes": [
+  {
+   "name": "csm",
+   "prompt": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/wiki-lanes-2026-10-13/CSM.md",
+   "cwd": "/Users/weiwei/code/yet-another-idle-rpg",
+   "done": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/power-systems/wiki-digests/full-dumps/workers/csm-full/SUMMARY.md",
+   "deps": [],
+   "progress": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/power-systems/wiki-digests/full-dumps/workers/csm-full/READ_LEDGER.jsonl"
+  },
+  {
+   "name": "jjk",
+   "prompt": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/wiki-lanes-2026-10-13/JJK.md",
+   "cwd": "/Users/weiwei/code/yet-another-idle-rpg",
+   "done": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/power-systems/wiki-digests/full-dumps/workers/jjk-full/SUMMARY.md",
+   "deps": [],
+   "progress": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/power-systems/wiki-digests/full-dumps/workers/jjk-full/READ_LEDGER.jsonl"
+  },
+  {
+   "name": "bleach-a",
+   "prompt": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/wiki-lanes-2026-10-13/BLEACH-A.md",
+   "cwd": "/Users/weiwei/code/yet-another-idle-rpg",
+   "done": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/power-systems/wiki-digests/full-dumps/workers/bleach-full/shard-a/SUMMARY.md",
+   "deps": [],
+   "progress": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/power-systems/wiki-digests/full-dumps/workers/bleach-full/shard-a/READ_LEDGER.jsonl"
+  },
+  {
+   "name": "bleach-b",
+   "prompt": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/wiki-lanes-2026-10-13/BLEACH-B.md",
+   "cwd": "/Users/weiwei/code/yet-another-idle-rpg",
+   "done": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/power-systems/wiki-digests/full-dumps/workers/bleach-full/shard-b/SUMMARY.md",
+   "deps": [],
+   "progress": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/power-systems/wiki-digests/full-dumps/workers/bleach-full/shard-b/READ_LEDGER.jsonl"
+  },
+  {
+   "name": "bleach-c",
+   "prompt": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/wiki-lanes-2026-10-13/BLEACH-C.md",
+   "cwd": "/Users/weiwei/code/yet-another-idle-rpg",
+   "done": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/power-systems/wiki-digests/full-dumps/workers/bleach-full/shard-c/SUMMARY.md",
+   "deps": [],
+   "progress": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/power-systems/wiki-digests/full-dumps/workers/bleach-full/shard-c/READ_LEDGER.jsonl"
+  },
+  {
+   "name": "fate-a",
+   "prompt": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/wiki-lanes-2026-10-13/FATE-A.md",
+   "cwd": "/Users/weiwei/code/yet-another-idle-rpg",
+   "done": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/power-systems/wiki-digests/full-dumps/workers/fate-full/r2-2026-10-13/shard-a/SUMMARY.md",
+   "deps": [],
+   "progress": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/power-systems/wiki-digests/full-dumps/workers/fate-full/r2-2026-10-13/shard-a/READ_LEDGER.jsonl"
+  },
+  {
+   "name": "fate-b",
+   "prompt": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/wiki-lanes-2026-10-13/FATE-B.md",
+   "cwd": "/Users/weiwei/code/yet-another-idle-rpg",
+   "done": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/power-systems/wiki-digests/full-dumps/workers/fate-full/r2-2026-10-13/shard-b/SUMMARY.md",
+   "deps": [],
+   "progress": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/power-systems/wiki-digests/full-dumps/workers/fate-full/r2-2026-10-13/shard-b/READ_LEDGER.jsonl"
+  },
+  {
+   "name": "fate-c",
+   "prompt": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/wiki-lanes-2026-10-13/FATE-C.md",
+   "cwd": "/Users/weiwei/code/yet-another-idle-rpg",
+   "done": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/power-systems/wiki-digests/full-dumps/workers/fate-full/r2-2026-10-13/shard-c/SUMMARY.md",
+   "deps": [],
+   "progress": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/power-systems/wiki-digests/full-dumps/workers/fate-full/r2-2026-10-13/shard-c/READ_LEDGER.jsonl"
+  },
+  {
+   "name": "hxh-a",
+   "prompt": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/wiki-lanes-2026-10-13/HXH-A.md",
+   "cwd": "/Users/weiwei/code/yet-another-idle-rpg",
+   "done": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/power-systems/wiki-digests/full-dumps/workers/hxh-full/r2-2026-10-13/shard-a/SUMMARY.md",
+   "deps": [],
+   "progress": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/power-systems/wiki-digests/full-dumps/workers/hxh-full/r2-2026-10-13/shard-a/READ_LEDGER.jsonl"
+  },
+  {
+   "name": "hxh-b",
+   "prompt": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/wiki-lanes-2026-10-13/HXH-B.md",
+   "cwd": "/Users/weiwei/code/yet-another-idle-rpg",
+   "done": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/power-systems/wiki-digests/full-dumps/workers/hxh-full/r2-2026-10-13/shard-b/SUMMARY.md",
+   "deps": [],
+   "progress": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/power-systems/wiki-digests/full-dumps/workers/hxh-full/r2-2026-10-13/shard-b/READ_LEDGER.jsonl"
+  },
+  {
+   "name": "fma-review",
+   "prompt": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/wiki-lanes-2026-10-13/FMA-REVIEW.md",
+   "cwd": "/Users/weiwei/code/yet-another-idle-rpg",
+   "done": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/power-systems/wiki-digests/full-dumps/workers/fma-full/r2-2026-10-13/review/SUMMARY.md",
+   "deps": [],
+   "progress": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/power-systems/wiki-digests/full-dumps/workers/fma-full/r2-2026-10-13/review/READ_LEDGER.jsonl"
+  },
+  {
+   "name": "synth-jjk",
+   "prompt": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/wiki-lanes-2026-10-13/SYNTH-JJK.md",
+   "cwd": "/Users/weiwei/code/yet-another-idle-rpg",
+   "done": "/Users/weiwei/code/yet-another-idle-rpg/docs/worlds/jujutsu/SYNTHESIS.md",
+   "deps": [
+    "jjk"
+   ],
+   "progress": null
+  },
+  {
+   "name": "synth-bleach",
+   "prompt": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/wiki-lanes-2026-10-13/SYNTH-BLEACH.md",
+   "cwd": "/Users/weiwei/code/yet-another-idle-rpg",
+   "done": "/Users/weiwei/code/yet-another-idle-rpg/docs/worlds/bleach/SYNTHESIS.md",
+   "deps": [
+    "bleach-a",
+    "bleach-b",
+    "bleach-c"
+   ],
+   "progress": null
+  },
+  {
+   "name": "synth-fate",
+   "prompt": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/wiki-lanes-2026-10-13/SYNTH-FATE.md",
+   "cwd": "/Users/weiwei/code/yet-another-idle-rpg",
+   "done": "/Users/weiwei/code/yet-another-idle-rpg/docs/worlds/fate/SYNTHESIS.md",
+   "deps": [
+    "fate-a",
+    "fate-b",
+    "fate-c"
+   ],
+   "progress": null
+  },
+  {
+   "name": "synth-csm",
+   "prompt": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/wiki-lanes-2026-10-13/SYNTH-CSM.md",
+   "cwd": "/Users/weiwei/code/yet-another-idle-rpg",
+   "done": "/Users/weiwei/code/yet-another-idle-rpg/docs/worlds/chainsaw-man/SYNTHESIS.md",
+   "deps": [
+    "csm"
+   ],
+   "progress": null
+  },
+  {
+   "name": "synth-hxh",
+   "prompt": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/wiki-lanes-2026-10-13/SYNTH-HXH.md",
+   "cwd": "/Users/weiwei/code/yet-another-idle-rpg",
+   "done": "/Users/weiwei/code/yet-another-idle-rpg/docs/worlds/hunter-x-hunter/SYNTHESIS.md",
+   "deps": [
+    "hxh-a",
+    "hxh-b"
+   ],
+   "progress": null
+  },
+  {
+   "name": "synth-fma",
+   "prompt": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/wiki-lanes-2026-10-13/SYNTH-FMA.md",
+   "cwd": "/Users/weiwei/code/yet-another-idle-rpg",
+   "done": "/Users/weiwei/code/yet-another-idle-rpg/docs/worlds/fullmetal-alchemist/SYNTHESIS.md",
+   "deps": [
+    "fma-review"
+   ],
+   "progress": null
+  },
+  {
+   "name": "absorb-a5-native-audit",
+   "prompt": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/air-absorb-2026-10-13/A5-NATIVE-AUDIT.md",
+   "cwd": "/Users/weiwei/code/yair-air-absorb-20261013/a5-native-audit",
+   "done": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/air-absorb-2026-10-13/reports/a5-native-audit.md",
+   "deps": [],
+   "progress": null
+  },
+  {
+   "name": "absorb-micro-p1-xp",
+   "prompt": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/air-absorb-2026-10-13/MICRO-P1-XP.md",
+   "cwd": "/Users/weiwei/code/yair-air-absorb-20261013/micro-p1-xp",
+   "done": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/air-absorb-2026-10-13/reports/micro-p1-xp.md",
+   "deps": [],
+   "progress": null
+  },
+  {
+   "name": "absorb-minigame-management",
+   "prompt": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/air-absorb-2026-10-13/MINIGAME-MANAGEMENT.md",
+   "cwd": "/Users/weiwei/code/yair-air-absorb-20261013/minigame-management",
+   "done": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/air-absorb-2026-10-13/reports/minigame-management.md",
+   "deps": [],
+   "progress": null
+  },
+  {
+   "name": "absorb-systems-cheats-completion",
+   "prompt": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/air-absorb-2026-10-13/SYSTEMS-CHEATS-COMPLETION.md",
+   "cwd": "/Users/weiwei/code/yair-air-absorb-20261013/systems-cheats-completion",
+   "done": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/air-absorb-2026-10-13/reports/systems-cheats-completion.md",
+   "deps": [],
+   "progress": null
+  },
+  {
+   "name": "absorb-structured-packs",
+   "prompt": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/air-absorb-2026-10-13/STRUCTURED-PACKS.md",
+   "cwd": "/Users/weiwei/code/yair-air-absorb-20261013/structured-packs",
+   "done": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/air-absorb-2026-10-13/reports/structured-packs.md",
+   "deps": [],
+   "progress": null
+  },
+  {
+   "name": "frieren",
+   "prompt": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/wiki-lanes-2026-10-13/FRIEREN.md",
+   "cwd": "/Users/weiwei/code/yet-another-idle-rpg",
+   "done": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/power-systems/wiki-digests/full-dumps/workers/frieren-full/SUMMARY.md",
+   "deps": [],
+   "progress": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/power-systems/wiki-digests/full-dumps/workers/frieren-full/READ_LEDGER.jsonl"
+  },
+  {
+   "name": "synth-frieren",
+   "prompt": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/wiki-lanes-2026-10-13/SYNTH-FRIEREN.md",
+   "cwd": "/Users/weiwei/code/yet-another-idle-rpg",
+   "done": "/Users/weiwei/code/yet-another-idle-rpg/docs/worlds/frieren/SYNTHESIS.md",
+   "deps": [
+    "frieren"
+   ],
+   "progress": null
+  },
+  {
+   "name": "demon-slayer",
+   "prompt": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/wiki-lanes-2026-10-13/DEMON-SLAYER.md",
+   "cwd": "/Users/weiwei/code/yet-another-idle-rpg",
+   "done": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/power-systems/wiki-digests/full-dumps/workers/demon-slayer-full/SUMMARY.md",
+   "deps": [],
+   "progress": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/power-systems/wiki-digests/full-dumps/workers/demon-slayer-full/READ_LEDGER.jsonl"
+  },
+  {
+   "name": "synth-demon-slayer",
+   "prompt": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/wiki-lanes-2026-10-13/SYNTH-DEMON-SLAYER.md",
+   "cwd": "/Users/weiwei/code/yet-another-idle-rpg",
+   "done": "/Users/weiwei/code/yet-another-idle-rpg/docs/worlds/demon-slayer/SYNTHESIS.md",
+   "deps": [
+    "demon-slayer"
+   ],
+   "progress": null
+  },
+  {
+   "name": "black-clover",
+   "prompt": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/wiki-lanes-2026-10-13/BLACK-CLOVER.md",
+   "cwd": "/Users/weiwei/code/yet-another-idle-rpg",
+   "done": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/power-systems/wiki-digests/full-dumps/workers/black-clover-full/SUMMARY.md",
+   "deps": [],
+   "progress": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/power-systems/wiki-digests/full-dumps/workers/black-clover-full/READ_LEDGER.jsonl"
+  },
+  {
+   "name": "synth-black-clover",
+   "prompt": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/wiki-lanes-2026-10-13/SYNTH-BLACK-CLOVER.md",
+   "cwd": "/Users/weiwei/code/yet-another-idle-rpg",
+   "done": "/Users/weiwei/code/yet-another-idle-rpg/docs/worlds/black-clover/SYNTHESIS.md",
+   "deps": [
+    "black-clover"
+   ],
+   "progress": null
+  },
+  {
+   "name": "mha-a",
+   "prompt": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/wiki-lanes-2026-10-13/MHA-A.md",
+   "cwd": "/Users/weiwei/code/yet-another-idle-rpg",
+   "done": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/power-systems/wiki-digests/full-dumps/workers/mha-full/shard-a/SUMMARY.md",
+   "deps": [],
+   "progress": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/power-systems/wiki-digests/full-dumps/workers/mha-full/shard-a/READ_LEDGER.jsonl"
+  },
+  {
+   "name": "mha-b",
+   "prompt": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/wiki-lanes-2026-10-13/MHA-B.md",
+   "cwd": "/Users/weiwei/code/yet-another-idle-rpg",
+   "done": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/power-systems/wiki-digests/full-dumps/workers/mha-full/shard-b/SUMMARY.md",
+   "deps": [],
+   "progress": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/power-systems/wiki-digests/full-dumps/workers/mha-full/shard-b/READ_LEDGER.jsonl"
+  },
+  {
+   "name": "synth-mha",
+   "prompt": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/wiki-lanes-2026-10-13/SYNTH-MHA.md",
+   "cwd": "/Users/weiwei/code/yet-another-idle-rpg",
+   "done": "/Users/weiwei/code/yet-another-idle-rpg/docs/worlds/mha/SYNTHESIS.md",
+   "deps": [
+    "mha-a",
+    "mha-b"
+   ],
+   "progress": null
+  },
+  {
+   "name": "one-piece-a",
+   "prompt": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/wiki-lanes-2026-10-13/ONE-PIECE-A.md",
+   "cwd": "/Users/weiwei/code/yet-another-idle-rpg",
+   "done": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/power-systems/wiki-digests/full-dumps/workers/one-piece-full/shard-a/SUMMARY.md",
+   "deps": [],
+   "progress": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/power-systems/wiki-digests/full-dumps/workers/one-piece-full/shard-a/READ_LEDGER.jsonl"
+  },
+  {
+   "name": "one-piece-b",
+   "prompt": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/wiki-lanes-2026-10-13/ONE-PIECE-B.md",
+   "cwd": "/Users/weiwei/code/yet-another-idle-rpg",
+   "done": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/power-systems/wiki-digests/full-dumps/workers/one-piece-full/shard-b/SUMMARY.md",
+   "deps": [],
+   "progress": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/power-systems/wiki-digests/full-dumps/workers/one-piece-full/shard-b/READ_LEDGER.jsonl"
+  },
+  {
+   "name": "one-piece-c",
+   "prompt": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/wiki-lanes-2026-10-13/ONE-PIECE-C.md",
+   "cwd": "/Users/weiwei/code/yet-another-idle-rpg",
+   "done": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/power-systems/wiki-digests/full-dumps/workers/one-piece-full/shard-c/SUMMARY.md",
+   "deps": [],
+   "progress": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/power-systems/wiki-digests/full-dumps/workers/one-piece-full/shard-c/READ_LEDGER.jsonl"
+  },
+  {
+   "name": "synth-one-piece",
+   "prompt": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/wiki-lanes-2026-10-13/SYNTH-ONE-PIECE.md",
+   "cwd": "/Users/weiwei/code/yet-another-idle-rpg",
+   "done": "/Users/weiwei/code/yet-another-idle-rpg/docs/worlds/one-piece/SYNTHESIS.md",
+   "deps": [
+    "one-piece-a",
+    "one-piece-b",
+    "one-piece-c"
+   ],
+   "progress": null
+  },
+  {
+   "name": "review-jjk",
+   "prompt": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/wiki-lanes-2026-10-13/REVIEW-JJK.md",
+   "cwd": "/Users/weiwei/code/yet-another-idle-rpg",
+   "done": "/Users/weiwei/code/yet-another-idle-rpg/docs/worlds/jujutsu/REVIEW.md",
+   "deps": [
+    "synth-jjk"
+   ],
+   "progress": null,
+   "model": "gpt-6-sol",
+   "effort": "high"
+  },
+  {
+   "name": "review-bleach",
+   "prompt": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/wiki-lanes-2026-10-13/REVIEW-BLEACH.md",
+   "cwd": "/Users/weiwei/code/yet-another-idle-rpg",
+   "done": "/Users/weiwei/code/yet-another-idle-rpg/docs/worlds/bleach/REVIEW.md",
+   "deps": [
+    "synth-bleach"
+   ],
+   "progress": null,
+   "model": "gpt-6-sol",
+   "effort": "high"
+  },
+  {
+   "name": "review-fate",
+   "prompt": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/wiki-lanes-2026-10-13/REVIEW-FATE.md",
+   "cwd": "/Users/weiwei/code/yet-another-idle-rpg",
+   "done": "/Users/weiwei/code/yet-another-idle-rpg/docs/worlds/fate/REVIEW.md",
+   "deps": [
+    "synth-fate"
+   ],
+   "progress": null,
+   "model": "gpt-6-sol",
+   "effort": "high"
+  },
+  {
+   "name": "review-hxh",
+   "prompt": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/wiki-lanes-2026-10-13/REVIEW-HXH.md",
+   "cwd": "/Users/weiwei/code/yet-another-idle-rpg",
+   "done": "/Users/weiwei/code/yet-another-idle-rpg/docs/worlds/hunter-x-hunter/REVIEW.md",
+   "deps": [
+    "synth-hxh"
+   ],
+   "progress": null,
+   "model": "gpt-6-sol",
+   "effort": "high"
+  },
+  {
+   "name": "review-frieren",
+   "prompt": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/wiki-lanes-2026-10-13/REVIEW-FRIEREN.md",
+   "cwd": "/Users/weiwei/code/yet-another-idle-rpg",
+   "done": "/Users/weiwei/code/yet-another-idle-rpg/docs/worlds/frieren/REVIEW.md",
+   "deps": [
+    "synth-frieren"
+   ],
+   "progress": null,
+   "model": "gpt-6-sol",
+   "effort": "high"
+  },
+  {
+   "name": "review-demon-slayer",
+   "prompt": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/wiki-lanes-2026-10-13/REVIEW-DEMON-SLAYER.md",
+   "cwd": "/Users/weiwei/code/yet-another-idle-rpg",
+   "done": "/Users/weiwei/code/yet-another-idle-rpg/docs/worlds/demon-slayer/REVIEW.md",
+   "deps": [
+    "synth-demon-slayer"
+   ],
+   "progress": null,
+   "model": "gpt-6-sol",
+   "effort": "high"
+  },
+  {
+   "name": "review-black-clover",
+   "prompt": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/wiki-lanes-2026-10-13/REVIEW-BLACK-CLOVER.md",
+   "cwd": "/Users/weiwei/code/yet-another-idle-rpg",
+   "done": "/Users/weiwei/code/yet-another-idle-rpg/docs/worlds/black-clover/REVIEW.md",
+   "deps": [
+    "synth-black-clover"
+   ],
+   "progress": null,
+   "model": "gpt-6-sol",
+   "effort": "high"
+  },
+  {
+   "name": "review-mha",
+   "prompt": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/wiki-lanes-2026-10-13/REVIEW-MHA.md",
+   "cwd": "/Users/weiwei/code/yet-another-idle-rpg",
+   "done": "/Users/weiwei/code/yet-another-idle-rpg/docs/worlds/mha/REVIEW.md",
+   "deps": [
+    "synth-mha"
+   ],
+   "progress": null,
+   "model": "gpt-6-sol",
+   "effort": "high"
+  },
+  {
+   "name": "review-one-piece",
+   "prompt": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/wiki-lanes-2026-10-13/REVIEW-ONE-PIECE.md",
+   "cwd": "/Users/weiwei/code/yet-another-idle-rpg",
+   "done": "/Users/weiwei/code/yet-another-idle-rpg/docs/worlds/one-piece/REVIEW.md",
+   "deps": [
+    "synth-one-piece"
+   ],
+   "progress": null,
+   "model": "gpt-6-sol",
+   "effort": "high"
+  }
+ ],
+ "resume_gap": 240
+}

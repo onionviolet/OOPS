@@ -1,5 +1,7 @@
 // Gate for the Vivid + Proto23 flow goal. READ-ONLY for workers (see GOAL.md).
 // Prints one "PASS|FAIL <item> <detail>" line per item. Exit 0 all pass, 1 any fail, 3 broken tooling.
+// Harness fix 2026-10-13: Node 22 fetch (undici) can crash with assert(!this.paused) against python http.server; probe with plain http and no keep-alive.
+const __probe = u => new Promise(res => { const req = require('http').get(u, {agent: false}, r => { r.resume(); res({ok: r.statusCode >= 200 && r.statusCode < 400}); }); req.on('error', () => res({ok: false})); req.setTimeout(3000, () => { req.destroy(); res({ok: false}); }); });
 const fs = require('fs'), path = require('path');
 let chromium;
 try { ({chromium} = require('/Users/weiwei/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright')); }
@@ -252,7 +254,7 @@ const checks = {
   let browser;
   try { browser = await chromium.launch({headless: true, executablePath: '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'}); }
   catch (e) { console.log('BROKEN chrome launch: ' + e.message); process.exit(3); }
-  try { const r = await fetch(URL + 'index.html'); if (!r.ok) throw Error(r.status); }
+  try { const r = await __probe(URL + 'index.html'); if (!r.ok) throw Error(r.status); }
   catch (e) { console.log('BROKEN server not reachable at ' + URL + ': ' + e.message); await browser.close(); process.exit(3); }
   fs.mkdirSync(path.join(__dirname, '..', 'evidence'), {recursive: true});
   for (const [id, fn] of Object.entries(checks)) {

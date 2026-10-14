@@ -75,3 +75,4 @@ Deferred: component/equipment recipes still use their in-row pickers (detail hid
 - 2026-10-13 worker: setting the C8 choice as `html[data-craft-detail]` made the gate's `[data-craft-detail]` match <html>; renamed to `data-craft-detail-place`.
 - 2026-10-13 worker: "need N more" leaks under C3 because "more" contains "ore"; requirement word is "missing N".
 - 2026-10-13 worker: gate/fixtures fetch of index.html from python http.server intermittently crashes Node 22 undici (`assert(!this.paused)`), about 1 in 8 runs, also with the HEAD index.html; rerun. Not caused by this change.
+- 2026-10-13 coordinator harness fix: index.html probe uses plain http (no keep-alive) instead of Node 22 fetch, which crashed with undici assert(!this.paused); check.sh logs go to a per-run mktemp dir so parallel runs don't collide. No check loosened.
