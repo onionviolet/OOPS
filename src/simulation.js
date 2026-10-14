@@ -1,3 +1,4 @@
+import {initializeStoryletDecks,nextStoryletBoundary,advanceStoryletDecks,validateStoryletState} from './storylet_deck.js';
 import {admitFoundationInteraction,freezeFoundationInteractionActivation,advanceFoundationInteractions,nextFoundationInteractionBoundary} from './foundation_interaction_policy.js';
 import {foundationInteractionProbeGuard} from './foundation_interaction_content.js';
 import {guardSteamLambAdmission,stampSteamLambAcceptedJob,steamLambCompletionContext} from './steam_lamb_runtime.js';
@@ -81,7 +82,7 @@ export function simulationOccupiesActor(state, actorId = "player", exceptPursuit
 function commandParticipants(d, context, s) {
     return [...new Set([context.actorId, ...(d.participants || []).flatMap(id => id === "$party" ? s.party : [participant(id,context)])])];
 }
-export function waitingSimulationChoice(state) {return Object.values(state.simulation?.events || {}).find(e => e.actorId === "player" && e.mode === "decision" && e.status === "open" && e.discoveredBy.includes("player"));}
+export function waitingSimulationChoice(state) {return Object.values(state.simulation?.events || {}).find(e => e.actorId === "player" && e.mode === "decision" && e.nonBlocking !== true && e.status === "open" && e.discoveredBy.includes("player"));}
 
 export function previewSimulationCommand(state, registry, commandId, context) {
     const d = registry.simulation.commands.get(commandId); assert(d, "Unknown living-world command.");
@@ -245,6 +246,7 @@ export function commitSimulationCommand(state, registry, command, context, expec
     if(definition?.pursuitId) assert(command.requestId && command.requestId === state.simulation?.pursuits?.[definition.pursuitId]?.request?.id, "This interception request is stale.");
     const out = plan(state, context), job = startCommand(out, registry, command.id, context);
     if(job.due > state.clock) out.commitment = copy(job);
+    initializeStoryletDecks(out.state);validateStoryletState(out.state);
     validateSimulationState(out.state.simulation, out.state, registry.simulation); return out;
 }
 function completeJob(out, job, registry, contexts = {}, beforeJob=null) {
@@ -402,6 +404,7 @@ function occur(out, registry, d, check, roll) {
     const event = {id, definitionId: d.id, revision: d.revision, actorId, targetId, mode: d.mode, at: state.clock,
         expiresAt: d.lifetime ? state.clock + d.lifetime : null, status: d.mode === "ambient" ? "resolved" : "open", roll,
         label: d.label, responses: copy(d.responses || []), onExpire: copy(d.onExpire || []), discoveredBy: [], cause: check.cause || id};
+    if(d.storylet) {event.storylet={deck:d.storylet.deck,urgency:d.storylet.urgency,receipt:copy(check.receipt)};if(d.mode === "decision")event.nonBlocking=true;}
     applySimulationEffects(out, d.effects || [], context, registry, id);
     if(d.aware || d.public && actorId === "player") event.discoveredBy.push(actorId);
     if(d.public) {if(!event.discoveredBy.includes("player")) event.discoveredBy.push("player"); log(s, state.clock, d.label, id);}
@@ -455,8 +458,8 @@ export function previewSimulationResponse(state, registry, choice, context) {
 
 export function nextSimulationBoundary(state,{skipLoreJobs=false,skipCompletionJobs=false,skipCompletionCropChecks=false}={}) {
     const s = state.simulation; if(!s) return Infinity;
-    return Math.min(nextFoundationInteractionBoundary(state),nextPursuitBoundary(state), ...s.jobs.filter(j=>(!skipLoreJobs||!/^lore\.(?:work|warning)\./.test(j.commandId))&&(!skipCompletionJobs||!j.commandId.startsWith("world.completion."))).map(j => j.due), ...Object.values(s.checks).filter(c=>!skipCompletionCropChecks||!["remainder_consequences.frost_warning","remainder_consequences.frost_settlement"].includes(c.definitionId)).map(c => c.due), ...Object.values(s.controllers).filter(c => s.people[c.actorId].life === "alive"&&(!skipCompletionJobs||c.definitionId!=="world.completion.learning.neri_controller")).map(c => c.due),
-        ...Object.values(s.events).filter(e => e.status === "open" && e.expiresAt != null && (e.mode !== "decision" || e.actorId !== "player" || !e.discoveredBy.includes("player"))).map(e => e.expiresAt),
+    return Math.min(nextStoryletBoundary(state),nextFoundationInteractionBoundary(state),nextPursuitBoundary(state), ...s.jobs.filter(j=>(!skipLoreJobs||!/^lore\.(?:work|warning)\./.test(j.commandId))&&(!skipCompletionJobs||!j.commandId.startsWith("world.completion."))).map(j => j.due), ...Object.values(s.checks).filter(c=>!skipCompletionCropChecks||!["remainder_consequences.frost_warning","remainder_consequences.frost_settlement"].includes(c.definitionId)).map(c => c.due), ...Object.values(s.controllers).filter(c => s.people[c.actorId].life === "alive"&&(!skipCompletionJobs||c.definitionId!=="world.completion.learning.neri_controller")).map(c => c.due),
+        ...Object.values(s.events).filter(e => e.status === "open" && e.expiresAt != null && (e.nonBlocking === true || e.mode !== "decision" || e.actorId !== "player" || !e.discoveredBy.includes("player"))).map(e => e.expiresAt),
         ...Object.values(s.conditions).flatMap(cs => Object.values(cs).flatMap(c => [c.expiresAt != null && c.expiresAt > state.clock ? c.expiresAt : Infinity, c.nextTick ?? Infinity])),
         ...Object.values(s.people).filter(p => p.life === "alive" && p.lifePolicy).map(p => p.bornAt + p.lifePolicy.lifespan));
 }
@@ -495,7 +498,7 @@ export function advanceSimulationBoundary(out, registry, contexts = {}) {
         if(s.programs[actorId]) s.programs[actorId].status = "paused";
         delete s.sessions[actorId]; log(s,state.clock,`${actorId}'s local life ended.`,cause); work++;
     }
-    for(const e of Object.values(s.events).sort((a,b) => a.at - b.at || a.id.localeCompare(b.id))) if(e.status === "open" && (e.mode !== "decision" || e.actorId !== "player" || !e.discoveredBy.includes("player")) && e.expiresAt != null && e.expiresAt <= state.clock) {
+    for(const e of Object.values(s.events).sort((a,b) => a.at - b.at || a.id.localeCompare(b.id))) if(e.status === "open" && (e.nonBlocking === true || e.mode !== "decision" || e.actorId !== "player" || !e.discoveredBy.includes("player")) && e.expiresAt != null && e.expiresAt <= state.clock) {
         applySimulationEffects(out, e.onExpire, {actorId: e.actorId, targetId: e.targetId}, registry, `expire:${++state.sequence}`); e.status = "expired"; work++;
     }
     for(const [id,c] of Object.entries(s.checks).sort(([a],[b]) => a.localeCompare(b))) if(c.due <= state.clock) {
@@ -513,6 +516,8 @@ export function advanceSimulationBoundary(out, registry, contexts = {}) {
         }
         if(d.maxOccurrences != null && (c.occurrences || 0) >= d.maxOccurrences) delete s.checks[id]; work++;
     }
+    work+=advanceStoryletDecks(state,registry,d=>simulationFacts(state,{...contexts.player,actorId:'player',targetId:d.targetId || null,external:out.external,gameplay:out.gameplay},registry),
+        (d,receipt)=>occur(out,registry,d,{receipt},receipt.roll));
     work+=advancePursuits(out,contexts,(costs,ctx,cause)=>applySimulationEffects(out,costs,ctx,registry,cause,{spending:true}),(p,text)=>{
         applySimulationEffects(out,[{type:"knowledge",key:p.policy.noticeKey || "pursuit.notice",stage:"seen",value:text}],{actorId:p.targetId},registry,p.request?.id || p.id);
         log(s,state.clock,text,p.request?.id || p.id);s.log.at(-1).audience=[p.targetId];

@@ -1,0 +1,30 @@
+const {chromium}=require('/Users/weiwei/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
+const fs=require('node:fs');const assert=require('node:assert/strict');const path=require('node:path');
+const root=process.cwd(),proof=path.join(root,'docs/gm/dispatch/procgen-2026-10-13/p3');
+(async()=>{
+ const browser=await chromium.launchPersistentContext('/private/tmp/procgen-p3-profile-'+Date.now(),{channel:'chrome',headless:true,viewport:{width:1366,height:768},acceptDownloads:true});
+ const page=await browser.newPage(),errors=[];page.on('pageerror',e=>errors.push(e.message));
+ await page.goto('http://127.0.0.1:19330/');const crypto=require('node:crypto');
+ const hash=body=>crypto.createHash('sha256').update(body).digest('hex');
+ const buildHash=hash(fs.readFileSync(path.join(root,'dist/bundle.js')));
+ assert.equal(hash(await (await page.request.get('http://127.0.0.1:19330/dist/bundle.js')).body()),buildHash);await page.getByText('PLAY',{exact:true}).click();
+ if(await page.getByText('Confirm',{exact:true}).isVisible()){await page.locator('#hero_creation_name_field').fill('TEST FIXTURE PROCGEN P3 NATURAL');await page.getByText('Confirm',{exact:true}).click();}
+ await page.waitForTimeout(500);
+ console.log('initial',await page.locator('body').innerText().then(t=>t.slice(-300)));
+ await page.getByText('Talk to someone',{exact:false}).click();await page.locator('[data-dialogue="villageElder"]').click();await page.locator('[data-textline="hello"]').click();await page.locator('.end_dialogue_button').click();
+ await page.locator('#journal_show_notebook').click();await page.locator('[data-notebook-view="people"]').click();
+ await page.locator('[data-storylet="begin"]').click();
+ await page.evaluate(()=>window.saveProgress());
+ let begun=await page.evaluate(()=>JSON.parse(localStorage.getItem('save data')));
+ fs.writeFileSync('/private/tmp/procgen-p3-natural-begin.json',JSON.stringify(begun));
+ assert.ok(begun.expansion.simulation.decks);console.log('natural begin',begun.expansion.clock,begun.character.name);
+ await page.waitForTimeout(65000);
+ await page.evaluate(()=>window.saveProgress());let accrued=await page.evaluate(()=>JSON.parse(localStorage.getItem('save data')));
+ let cards=Object.values(accrued.expansion.simulation.events).filter(e=>e.storylet);
+ assert.ok(new Set(cards.map(e=>e.definitionId)).size>=3);console.log('natural cards',accrued.expansion.clock,cards.map(e=>[e.definitionId,e.mode,e.status]));
+ await page.locator('[data-notebook-view="people"]').click();await page.locator('#storylet_panel').scrollIntoViewIfNeeded();
+ await page.screenshot({path:path.join(proof,'natural-1366.png')});
+ fs.writeFileSync('/private/tmp/procgen-p3-accrued.json',JSON.stringify(accrued));
+ fs.writeFileSync(path.join(proof,'browser-initial.json'),JSON.stringify({label:'NATURAL',buildHash,start:begun.expansion.clock,end:accrued.expansion.clock,cards:cards.map(e=>({id:e.definitionId,mode:e.mode,status:e.status})),errors},null,2));
+ await browser.close();
+})().catch(e=>{console.error(e);process.exit(1);});

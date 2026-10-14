@@ -1,0 +1,43 @@
+{
+  "label": "NATURAL_RESTORED",
+  "route": "Unmodified naturally earned disposable save from browser.cjs; normal native timers, no fabricated advancement",
+  "hero": "TEST FIXTURE PROCGEN P3 NATURAL",
+  "buildHash": "e08c23fde4d07f9cdef8ab3a74574bd62d149f84630bccefdb0671340c626e3b",
+  "start": 46,
+  "end": 48,
+  "moneyBefore": 102,
+  "moneyAfter": 103,
+  "cards": [
+    {
+      "id": "village.rats_nearly_ate_cat",
+      "mode": "offer",
+      "status": "open",
+      "at": 12
+    },
+    {
+      "id": "village.child_has_fever",
+      "mode": "decision",
+      "status": "open",
+      "at": 18
+    },
+    {
+      "id": "village.peddler_with_rope",
+      "mode": "offer",
+      "status": "open",
+      "at": 30
+    },
+    {
+      "id": "village.rats_in_the_granary",
+      "mode": "offer",
+      "status": "open",
+      "at": 36
+    },
+    {
+      "id": "village.cow_on_the_road",
+      "mode": "ambient",
+      "status": "resolved",
+      "at": 48
+    }
+  ],
+  "errors": []
+}

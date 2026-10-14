@@ -40,8 +40,8 @@ export function eventFeed(state, registry, facts = {}, lifeRecord = null) {
         if(e.status === "open" && e.actorId === "player") leads.push({
             id:`simulation:${e.id}`, label:e.label, at:e.at,
             detail:e.expiresAt == null ? "Waiting for your response." : `${Math.max(0,e.expiresAt-state.clock)} game minutes remaining`,
-            action:"View responses", available:true, locations:registry.simulation.events.get(e.definitionId)?.group === "field" ? ["Village"] : ["Village","Shack"],
-            ...(registry.simulation.events.get(e.definitionId)?.group === "field" ? {view:"here",panel:"field_panel",control:`event.${e.responses[0]?.id}`} : destination("simulation_panel", `event.${e.responses[0]?.id}`))
+            action:"View responses", available:true, locations:e.storylet ? ["Village"] : registry.simulation.events.get(e.definitionId)?.group === "field" ? ["Village"] : ["Village","Shack"],
+            ...(registry.simulation.events.get(e.definitionId)?.group === "field" ? {view:"here",panel:"field_panel",control:`event.${e.responses[0]?.id}`} : e.storylet ? destination("storylet_panel", e.definitionId) : destination("simulation_panel", `event.${e.responses[0]?.id}`))
         });
         else news.push({id:`simulation:news:${e.id}`, at:e.status === "expired" ? e.expiresAt : e.at,
             text:`${e.label}${e.status === "expired" ? " · the opportunity has passed." : e.mode === "ambient" ? "" : " · resolved."}`});
