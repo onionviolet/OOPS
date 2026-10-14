@@ -1,0 +1,15 @@
+{
+  "label": "seeded-native",
+  "speciesPriorityObserved": "Starving wolf rat",
+  "combatConcurrent": true,
+  "overflowImmediate": true,
+  "processedBefore": 1,
+  "processedAfter": 2,
+  "overflowSpecies": "Wolf rat",
+  "fullLotRetained": 24,
+  "automaticJobRemainingAtOverflow": 3,
+  "excludedOccupation": "running",
+  "remainingBefore": 4,
+  "remainingAfter": 4,
+  "errors": []
+}

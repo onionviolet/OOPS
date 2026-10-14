@@ -49,3 +49,10 @@ test('trace slot copies only a supplied trace and never evaluates it',()=>{
     const text=projectChains(f,{developer:true})[3].rows[0].detail;
     assert.deepEqual(JSON.parse(text),f.ruleTrace);assert.deepEqual(projectChains(f),[]);
 });
+test('completed harvest still maps consumed source and template without inventing live stock',()=>{
+    const f=fixture();f.harvest.job=null;f.harvest.lots={};f.inventory={};
+    const rows=projectChains(f,{developer:true})[0].rows;
+    assert.ok(rows.some(r=>r.role==='source'&&r.detail.startsWith('Consumed specimen snapshot')));
+    assert.ok(rows.some(r=>r.role==='part template'&&r.ref==='Wolf rat'));
+    assert.ok(rows.some(r=>r.role==='output batch'&&r.why.includes('receipt output count')));
+});
