@@ -1,3 +1,4 @@
+import {validateReadingState} from './absorb_p23/reading/runtime.js';
 import {reconcileSystemsWorkshop} from './systems_workshop_runtime.js';
 import {nativeEquipmentSnapshot} from './native_equipment_transaction.js';
 import {nextContainerBoundary} from './structured_container_runtime.js';
@@ -145,6 +146,7 @@ export function validateExpansionState(state, registry) {
     check([state.realmPrototype,state.featureDestination,state.nestedCampaign,state.bookWorldCampaign,state.motherOfLearning,state.proto23Village]
         .filter(owner=>owner?.activeVisitId!=null).length<=1,'One controlled native body requires one active retained-world visit.');
     validateAuditRemainderProjects(state,registry);
+    validateReadingState(state.p23Reading,state.clock);
     validateChronicle(state.chronicle, state.clock);
     validateSimulationState(state.simulation, state, registry?.simulation);
     validateSystemsWorkshop(state);

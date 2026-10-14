@@ -76,7 +76,7 @@ export const expeditionRegistry = createContentRegistry({
             {id: "field_eye", label: "Discovered Field eye: +1 route preparation", weight: 1,
                 effects: [{type: "source", sourceId: "frontier.field_eye", operation: "grant"}]}]}],
     opportunities: [{id: "frontier.departure", label: "The guide's next departure"}],
-    actions: [...techniqueActions, ratStepRoute, archiveDutyAction, ...villageActions, ...townActions,
+    actions: [{id:'p23.reading.pack_rest',worldId:'base.frontier',group:'village',revision:1,completionScope:'actor',repeatable:true,duration:4,cancellation:'refund',label:'Pack a long-rest meal',description:'Prepare one meal from two bread and two cooking herbs in four played minutes.',requires:{all:[{fact:'location',op:'eq',value:'Village'},{fact:'skill.Cooking',op:'gte',value:1}]},costs:[{type:'item',key:JSON.stringify({id:'Stale bread'}),amount:2},{type:'item',key:JSON.stringify({id:'Cooking herbs'}),amount:2}],outcomes:[{id:'packed',label:'Long-rest meal packed',chance:1,effects:[{type:'item',key:JSON.stringify({id:'Packed long-rest meal'}),amount:1}]}]},...techniqueActions, ratStepRoute, archiveDutyAction, ...villageActions, ...townActions,
         {id: "frontier.inspect", worldId: "base.frontier", revision: 2, label: "Inspect the crossing",
             description: "Look for firm anchor points. Earn 12 Perception XP; you may notice something else along the bank.", completionScope: "actor",
             duration: 3, repeatable: false, requires: village, costs: [],

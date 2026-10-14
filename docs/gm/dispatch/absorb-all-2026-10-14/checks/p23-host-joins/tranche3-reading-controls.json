@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "bundleSha256": "369c92378e75670109b4181c85a0535dac812075ab5c5ca55df797ff753a4e19",
+  "loadedBundleHashes": [
+    "369c92378e75670109b4181c85a0535dac812075ab5c5ca55df797ff753a4e19"
+  ],
+  "gates": [
+    "native finished anthology supplies exactly one home collection entry after two rereads",
+    "unsupported reading schema rejects through the real literal-import handler before mutation",
+    "failed read admission leaves prior stream, attempt, XP, physical book and clock unchanged",
+    "second physical book purchased natively; another timed read still supplies one distinct collection entry and preserves normal books"
+  ],
+  "pageErrors": []
+}

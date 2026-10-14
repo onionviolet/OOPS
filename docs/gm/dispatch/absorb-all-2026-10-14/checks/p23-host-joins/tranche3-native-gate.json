@@ -1,0 +1,114 @@
+{
+  "status": "PASS for native reading/salvage scope; P18 auxiliary still OPEN",
+  "bundleSha256": "369c92378e75670109b4181c85a0535dac812075ab5c5ca55df797ff753a4e19",
+  "viewport": {
+    "width": 1366,
+    "height": 768
+  },
+  "build": "npm run build PASS",
+  "focused": {
+    "command": "node --test tests/p23-host-joins-tranche3.test.js tests/p23-reread.test.js tests/p23-salvage.test.js",
+    "tests": 30,
+    "pass": 30,
+    "fail": 0
+  },
+  "full": {
+    "command": "npm test",
+    "tests": 988,
+    "pass": 988,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "durationMs": 12323.91825
+  },
+  "mergeReady": [
+    "p23-reread",
+    "p23-salvage"
+  ],
+  "evidence": [
+    {
+      "file": "tranche3-reading-native.json",
+      "gates": [
+        "native paid anthology, bread and herbs; old earned sleep/cooking prerequisite fixture, no feature state",
+        "paused-read: native Export and literal-file Import",
+        "two actual timed native reads, different event identities, retained finished physical book and native Literacy settlement",
+        "settled-reads: native Export and literal-file Import",
+        "paid four-minute native reserved meal preparation; consumed rest admission and cancel without refund",
+        "cancelled-rest: native Export and literal-file Import",
+        "pending-rest: native Export and literal-file Import",
+        "1080 accepted played minutes in asynchronous native batches, completed rest and calendar rollover",
+        "completed-rest: native Export and literal-file Import"
+      ],
+      "loadedBundleHashes": [
+        "369c92378e75670109b4181c85a0535dac812075ab5c5ca55df797ff753a4e19"
+      ],
+      "prerequisites": "Native old save: Shack permission, Sleeping 5, Cooking 1 and one carried cooking herb. Feature items purchased and timed loops played; opening progression not claimed."
+    },
+    {
+      "file": "tranche3-reading-controls.json",
+      "gates": [
+        "native finished anthology supplies exactly one home collection entry after two rereads",
+        "unsupported reading schema rejects through the real literal-import handler before mutation",
+        "failed read admission leaves prior stream, attempt, XP, physical book and clock unchanged",
+        "second physical book purchased natively; another timed read still supplies one distinct collection entry and preserves normal books"
+      ],
+      "loadedBundleHashes": [
+        "369c92378e75670109b4181c85a0535dac812075ab5c5ca55df797ff753a4e19"
+      ],
+      "prerequisites": null
+    },
+    {
+      "file": "tranche3-salvage-native.json",
+      "gates": [
+        "native paid vest and grade-59/60 portable tools",
+        "explicit carried-copy identity through native E2 allocator, no lesson on preview or identification",
+        "grade threshold, actual carried-copy debit, paid minute, native XP and durable earned survey-kit lesson/craft counters",
+        "settled native Save/reload/Export/literal-file Import does not replay copy debit or XP"
+      ],
+      "loadedBundleHashes": [
+        "369c92378e75670109b4181c85a0535dac812075ab5c5ca55df797ff753a4e19"
+      ],
+      "prerequisites": null
+    },
+    {
+      "file": "tranche3-salvage-repeat-native.json",
+      "gates": [
+        "actual native paid second vest at Slums vendor, joined round-trip travel; earned lesson consumes new real copy/log and yields native survey kit under a second event",
+        "second funded recipe receipt survives actual Export/literal-file Import without replay"
+      ],
+      "loadedBundleHashes": [
+        "369c92378e75670109b4181c85a0535dac812075ab5c5ca55df797ff753a4e19"
+      ],
+      "prerequisites": "Slums native permission added to the genuine earlier salvage export; second vest bought from actual co-located vendor, not seeded."
+    },
+    {
+      "file": "tranche3-guards.json",
+      "gates": [
+        "unsupported salvage literal-import handler rejects before durable mutation",
+        "native equipped copy excluded; unequip restores exact selectable identity",
+        "failed publication preserves native copy, tool, XP/lesson, condition, resources and paid clock",
+        "reload and one paid retry settles exactly one receipt"
+      ],
+      "loadedBundleHashes": [
+        "369c92378e75670109b4181c85a0535dac812075ab5c5ca55df797ff753a4e19"
+      ],
+      "prerequisites": null
+    },
+    {
+      "file": "tranche3-copy-controls.json",
+      "gates": [
+        "supported native E2 condition prerequisite: worn-first legal rows, explicit pristine override debits exact copy and preserves worn spare",
+        "supported native E2 zero-condition tool control refuses before cost or recipe lesson"
+      ],
+      "loadedBundleHashes": null,
+      "prerequisites": "Control-only native E2 condition fixtures layered on the genuine paid identified export. This proves native guard/exact-copy selection, not the historical wear or source of the extra control copy."
+    }
+  ],
+  "open": [
+    "P18 large earned award producer/native gate",
+    "natural opening-to-prerequisite progression",
+    "historical tool/vest wear production from control-only E2 prerequisites",
+    "Weibao play/taste",
+    "later main-tip compatibility/full gate"
+  ]
+}

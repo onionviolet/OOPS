@@ -1,3 +1,4 @@
+import {validateTrancheThreeEnvelope} from './absorb_p23/host_joins/tranche_three.js';
 import {validateTrancheOneEnvelope} from './absorb_p23/host_joins/tranche_one.js';
 import {validateTrancheTwoEnvelope} from './absorb_p23/host_joins/tranche_two.js';
 import {validateStreams,validateNativeEncounter} from "./seeded_streams.js";
@@ -49,6 +50,7 @@ export function validateSaveEnvelope(original, currentVersion) {
     object(original, "Save");
     validateTrancheOneEnvelope(original);
     validateTrancheTwoEnvelope(original);
+    validateTrancheThreeEnvelope(original);
     validateMixtureEnvelope(original);
     if(Object.hasOwn(original, "cheats"))validateCheatState(original.cheats);
     if(original.customization!=null)validateCustomizationState(original.customization);

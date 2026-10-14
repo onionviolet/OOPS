@@ -2,7 +2,7 @@
   "schema": 1,
   "lane": "p23-host-joins",
   "date": "2026-10-14",
-  "status": "tranches 1-2 technically passed; tranches 3-5 and P15 last OPEN",
+  "status": "tranches1\u20133 declared native scopes passed; continuous remaining joins active",
   "base_head": "43b01f95112b5a4017d0cd426d414ae553abeadc",
   "candidate_head": "e3ffdf2e",
   "session": "01a138ea-def0-77c0-b800-f4ade39f33af",
@@ -15,7 +15,9 @@
     "p23-exposure",
     "p23-household",
     "p23-living-gear",
-    "p23-combat-options"
+    "p23-combat-options",
+    "p23-reread",
+    "p23-salvage"
   ],
   "tranches": [
     {
@@ -62,6 +64,31 @@
         "native summoned-unit control",
         "Weibao play/taste"
       ]
+    },
+    {
+      "number": 3,
+      "status": "native reading/salvage scope PASS; auxiliary growth OPEN",
+      "lanes": [
+        "p23-reread",
+        "p23-salvage"
+      ],
+      "build": "PASS",
+      "focused": {
+        "tests": 30,
+        "pass": 30,
+        "fail": 0
+      },
+      "full": {
+        "tests": 988,
+        "pass": 988,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 0,
+        "durationMs": 12323.91825
+      },
+      "bundle_sha256": "369c92378e75670109b4181c85a0535dac812075ab5c5ca55df797ff753a4e19",
+      "evidence": "checks/p23-host-joins/tranche3-native-gate.json",
+      "commit": "pending"
     }
   ],
   "merged_lanes": [
@@ -141,6 +168,7 @@
     "multi_slot": "out of scope",
     "N29_offline": "out of scope"
   },
-  "next_tranche": 3,
-  "next_scope": "reading/salvage plus relevant growth host joins"
+  "next_tranche": 4,
+  "next_scope": "field/market/leisure/repeat-search, then detail/adaptation/P01/P16 and remaining growth, main merge/full gate, P15 last",
+  "p18_question": "No authored150000 earned event. Nonblocking original paid study assessment versus reading-only/OPEN native gate question pending."
 }

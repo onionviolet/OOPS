@@ -1,3 +1,11 @@
+import {ANTHOLOGY,ANTHOLOGY_KEY,REST_MEAL,REST_KEY,REGISTRATIONS} from './absorb_p23/reading/content.js';
+import {planReadingCommand,observeReadingClock,longRestClockRequest} from './absorb_p23/reading/runtime.js';
+import {readingPresentation} from './absorb_p23/reading/presentation.js';
+import {readingRate} from './reveal_chain.js';
+import {SALVAGE,loadSalvage,wornSalvageChoices,quoteSalvage,stageSalvage} from './absorb_p23/salvage/salvage.js';
+import {stageReadingResult} from './absorb_p23/host_joins/tranche_three.js';
+import {createReadingSalvagePanel} from './absorb_p23/host_joins/tranche_three_ui.js';
+import {Tool} from './items.js';
 import {createCombatOptionsPanel} from './absorb_p23/host_joins/combat_options_ui.js';
 import {TACTICS,createCombatOptions,validateCombatOptions} from './absorb_p23/combat_options/runtime.js';
 import {createLivingGearPanel} from './absorb_p23/host_joins/tranche_two_ui.js';
@@ -472,6 +480,97 @@ bindGameStreams(() => expansionState);
 registerLivingGearItems({item_templates,Amulet,getItem,WeaponComponent,Weapon});
 for(const [tactic,{itemId}]of Object.entries(TACTICS))item_templates[itemId]||=new OtherItem({id:itemId,name:itemId,description:tactic==='throw'?'One paid native projectile replaces a swing.':tactic==='smoke'?'Escape a native fight without its rewards.':'Offer a repeatable native field outing.',value:tactic==='throw'?3:tactic==='smoke'?8:6});
 inventoryTemplates.Basic.unshift(new TradeItemGroup({items:[LIVING_GEAR.aura,LIVING_GEAR.collector,LIVING_GEAR.weapon,...Object.values(TACTICS).map(t=>t.itemId)].map(item_name=>new TradeItem({item_name,count:[Object.values(TACTICS).some(t=>t.itemId===item_name)?6:2],quality:Object.values(TACTICS).some(t=>t.itemId===item_name)?undefined:[100,100],chance:1}))}));
+book_stats[ANTHOLOGY] ||= new BookData({required_time:12,literacy_xp_rate:0});
+item_templates[ANTHOLOGY] ||= new Book({id:ANTHOLOGY,name:ANTHOLOGY,value:5,description:'A retained anthology of original village stories. Read again for another remembered story.'});
+item_templates[REST_MEAL] ||= new OtherItem({id:REST_MEAL,name:REST_MEAL,value:4,description:REGISTRATIONS.rest.description});
+item_templates[SALVAGE.tool] ||= new Tool({id:SALVAGE.tool,name:SALVAGE.tool,value:30,quality:100,equip_slot:'sickle',description:'Portable leatherwork requires quality 60 and a usable native condition.'});
+inventoryTemplates.Basic.unshift(new TradeItemGroup({items:[new TradeItem({item_name:ANTHOLOGY,count:[2],chance:1}),new TradeItem({item_name:SALVAGE.tool,count:[2],quality:[60,60],chance:1}),new TradeItem({item_name:SALVAGE.tool,count:[1],quality:[59,59],chance:1})]}));
+let p23Salvage,readingSalvagePanel;
+function studyContext(state=expansionState,gameplay=gameplaySnapshot()) {
+    const body=currentNativeBody(),current=state.p23Reading?.current;
+    const held=key=>{try{assertNativeItemDisposition(state,key);return gameplay.player.inventory[key]>0;}catch{return false;}};
+    return {clock:state.clock,worldId:state.actors.player.worldId,nativeBody:body.ownerId==='player'&&body.controllerId==='player'&&body.form==='human',alive:character.is_alive===true,
+        safe:!current_combat&&!current_location?.tags.combat_zone&&!waitingSimulationChoice(state),
+        available:!current_activity&&!current_game_action&&!current_dialogue&&!is_in_trade()&&!nativeOccupationReason()&&(!is_reading||is_reading===ANTHOLOGY)&&(!is_sleeping||current?.kind==='rest'),
+        ownedAnthology:held(ANTHOLOGY_KEY),ownedRestMeal:held(REST_KEY),knownAnthology:held(ANTHOLOGY_KEY)||state.p23Reading?.current?.kind==='read'||!!state.p23Reading?.receipts.some(r=>r.kind==='read'),
+        housingAccessible:!!current_location?.housing?.isUnlocked()&&current_location.getAvailabilityComponent().getStatus().is_unlocked,
+        sleepingLevel:character.getTotalSkillLevel('Sleeping'),readProgressPerMinute:readingRate(character.getTotalSkillLevel('Literacy'))};
+}
+function p00NativeSkillXP(id,amount){
+    const skill=skills[id];if(!skill?.canGainXP(get_context()))throw Error('Native skill eligibility blocks this settlement.');
+    let xp=amount*lifeLearningMultiplier(expansionState.chronicle)*furnitureSkillMultiplier(readFurnitureBonuses(),id)*getPacingEffects(homePacingContext()).efficiency*config.global_xp_multiplier*character.getSkillXPGain(id)*(character.xp_multiplier??1);
+    if(skill.parent_skill)xp*=skill.get_parent_xp_multiplier();
+    const toNext=character.getLevelableComponent().skill_progress[id]?.xp_to_next_lvl??skill.base_xp_cost;
+    if(Number.isFinite(toNext))xp=Math.min(xp,toNext*config.skill_xp_gains_cap);
+    return Math.round(xp*100)/100;
+}
+function nativeBooksSnapshot(){return Object.fromEntries(Object.entries(book_stats).filter(([,b])=>b.accumulated_time>0).map(([id,b])=>[id,{accumulated_time:b.accumulated_time}]));}
+function studyPlan(result,state=structuredClone(expansionState),gameplay=gameplaySnapshot()) {
+    return stageReadingResult({state,gameplay,p00StudyCommand:true,external:{money:character.money}},result,{books:nativeBooksSnapshot(),quoteXP:p00NativeSkillXP});
+}
+function publishStudy(plan){
+    if(plan.p00FinishedAnthology){item_templates[ANTHOLOGY].setAsFinished();update_booklist_entry(ANTHOLOGY,true);}
+    for(const text of plan.p00ReadingNotices||[])log_message(text,'notification');
+    const current=expansionState.p23Reading?.current;
+    if(current?.kind==='read'&&current.status==='active'){is_reading=ANTHOLOGY;is_sleeping=false;}
+    else if(is_reading===ANTHOLOGY)is_reading=null;
+    if(current?.kind==='rest'){is_sleeping=true;is_reading=null;last_location_with_bed=current_location.id;}
+    else if(plan.p00WasRest)is_sleeping=false;
+    readingSalvagePanel?.render();
+}
+function actStudy(type){
+    if(!workLedgerCanWrite())throw Error('Restore writable saving before study.');
+    if(type==='prepareMeal'){
+        if(current_location.id!=='Village'||character.getTotalSkillLevel('Cooking')<1||!studyContext().available)throw Error('Cooking 1 and free Village work are required.');
+        return startExpedition('p23.reading.pack_rest',expansionState.sequence);
+    }
+    const state=structuredClone(expansionState),context=studyContext(),command={type};
+    if(type==='startRead')command.draw=Math.floor(drawUnit(state,scopedStream(STREAMS.reward,context.worldId),'p23.reading.start')*0x100000000);
+    const result=planReadingCommand(state.p23Reading,command,context),plan=studyPlan(result,state);state.sequence++;
+    plan.p00WasRest=expansionState.p23Reading?.current?.kind==='rest';persistExpansion(plan);
+}
+function salvageContext(){return {state:expansionState,gameplay:gameplaySnapshot(),equipment:readNativeEquipment({player:character}),durability,saved:p23Salvage,location:current_location.id,money:character.money,skillLevel:character.getTotalSkillLevel('Crafting'),getItem:getItemFromKey};}
+function identifySalvageCopy(key){
+    if(!workLedgerCanWrite()||!studyContext().available||current_location.id!=='Village')throw Error('Use the free Village workbench with writable saving.');
+    assertNativeItemDisposition(expansionState,key);assertNativeItemDisposition(expansionState,canonicalDurabilityKey(key));
+    const item=getItemFromKey(key);if(item.id!=='Leather vest'||!(gameplaySnapshot().player.inventory[key]>0))throw Error('Choose one carried Leather vest.');
+    const wear=createDurability(durability.serialize()),copy=wear.prepareEquip(item,getItemFromKey,{requireIdentity:true}),nextKey=copy.getInventoryKey();
+    const gameplay=gameplaySnapshot();applyGameplayEffect(gameplay,{type:'item',key,amount:1},'player',true);applyGameplayEffect(gameplay,{type:'item',key:nextKey,amount:1},'player');
+    const state=structuredClone(expansionState);state.sequence++;persistExpansion({state,gameplay,external:{money:character.money},nativePatch:{equipment_durability:wear.serialize()}});
+}
+function craftSalvage(recipe,itemKey,toolKey){
+    if(!workLedgerCanWrite()||!studyContext().available)throw Error('Finish current work before leatherwork.');
+    const c=salvageContext(),request={recipe,itemKey,toolKey,sequence:c.state.sequence};
+    const quote=quoteSalvage(c,request),paid=advanceChroniclePlan({state:structuredClone(c.state),gameplay:c.gameplay,external:{money:c.money}},quote.duration);
+    if(paid.state.clock-c.state.clock!==quote.duration)throw Error('The native clock paused before leatherwork.');
+    const nextContext={...c,state:paid.state,gameplay:paid.gameplay},nextRequest={...request,sequence:paid.state.sequence},nextQuote=quoteSalvage(nextContext,nextRequest);
+    const plan=stageSalvage({...nextContext,nativeXP:p00NativeSkillXP(SALVAGE.skill,nextQuote.xp)},{...nextRequest,token:nextQuote.token});plan.calendar=paid.calendar;plan.effectDurations=paid.effectDurations;plan.native=paid.native;
+    plan.acquisitions=plan.acquisitions.map(row=>({...row,owner:'player'}));
+    plan.nativePatch={...plan.nativePatch,total_crafting_attempts:game_stats.total_crafting_attempts+1,total_crafting_successes:game_stats.total_crafting_successes+1};
+    plan.absorbPublish=()=>{game_stats.total_crafting_attempts++;game_stats.total_crafting_successes++;};
+    persistExpansion(plan);
+}
+function studyFrame(){
+    const context=studyContext(),view=readingPresentation(expansionState.p23Reading,context),actions=[],lines=[];
+    const disabled=!workLedgerCanWrite()?'Restore writable saving.':'';
+    if(view.visible){if(view.current)lines.push(`${view.current.label}: ${view.current.status}, ${view.current.remaining.toFixed(2)} remaining.`);
+        if(!view.current&&context.knownAnthology)actions.push({id:'startRead',label:'Read Tales of the Lantern Road',reason:disabled||(!context.available||!context.ownedAnthology?'Hold your book and finish other work.':'')});
+        else if(view.current.kind==='read')actions.push({id:view.current.status==='paused'?'resumeRead':'stopRead',label:view.current.status==='paused'?'Resume saved read':'Stop and retain read',reason:disabled});
+        else actions.push({id:'cancelRest',label:'Cancel long rest (meal stays consumed)',reason:disabled});
+        for(const row of view.records)lines.push(`#${row.id}: ${row.text}`);
+    }
+    if(context.housingAccessible||context.ownedRestMeal){actions.push({id:'startRest',label:'Use one packed meal for 18-hour rest',reason:disabled||(!context.available||view.current||!context.housingAccessible||context.sleepingLevel<5||!context.ownedRestMeal?'Requires free accessible housing, Sleeping 5 and your meal.':'')});}
+    if(current_location.id==='Village'&&character.getTotalSkillLevel('Cooking')>=1)actions.push({id:'prepareMeal',label:'Pack rest meal: 2 bread + 2 herbs, 4 minutes',reason:disabled||(!context.available?'Finish current work.':'')});
+    const c=salvageContext(),tools=Object.keys(c.gameplay.player.inventory).filter(k=>getItemFromKey(k).id===SALVAGE.tool);
+    if(tools.length&&current_location.id==='Village'){
+        for(const key of Object.keys(c.gameplay.player.inventory))if(getItemFromKey(key).id==='Leather vest'&&!JSON.parse(key).e2_instance)actions.push({id:'identify',key,label:`Identify one carried vest (${key})`,reason:disabled});
+        let choices=[];try{choices=wornSalvageChoices(c);}catch{}
+        for(const row of choices)for(const toolKey of tools)for(const recipe of [SALVAGE.salvage,...(p23Salvage?.learned?[SALVAGE.craft]:[])]){let label,reason=disabled;try{const quote=quoteSalvage(c,{recipe,itemKey:row.key,toolKey,sequence:c.state.sequence});label=`${recipe===SALVAGE.salvage?'Salvage':'Survey kit'}: condition ${row.condition}, tool ${getItemFromKey(toolKey).quality}; ${quote.outputCount} output, 1 minute; exact copy ${row.key}`; }catch(e){label=`Leatherwork: condition ${row.condition}, tool ${getItemFromKey(toolKey).quality}; exact copy ${row.key}`;reason=e.message;}actions.push({id:'salvage',recipe,itemKey:row.key,toolKey,label,reason});}
+        if(p23Salvage)lines.push(`${Object.keys(p23Salvage.receipts).length} settled leatherwork receipts; survey-kit lesson ${p23Salvage.learned?'learned':'unknown'}.`);
+    }
+    return {visible:view.visible||actions.length>0||!!p23Salvage,lines,actions};
+}
+
 let p23LivingGear;
 let livingGearPanel;
 let nativeLivingStrike=false;
@@ -786,7 +885,7 @@ function stageP00Time(plan){
             stageHouseholdJoin(plan,household,c);
         }
     }
-    if(household&&plan.nativeLocation&&plan.nativeLocation!==current_location?.id){
+    if(household&&plan.nativeLocation&&plan.nativeLocation!==current_location?.id&&p00HouseholdContext(expansionState.clock).atHome&&!p00HouseholdContext(plan.state.clock,plan.state,plan.nativeLocation).atHome){
         const raw=plan.p00Household?.state||household,c={...p00HouseholdContext(plan.state.clock,plan.state,plan.nativeLocation),sequence:plan.state.sequence};
         const prior=plan.p00Household?.notices||[];
         plan.state.sequence++;
@@ -963,7 +1062,7 @@ function expeditionContext() {
             "village.circleOpen": current_game_time.hour >= 8 && current_game_time.hour < 10,
             "village.briefingActive": (expansionState.actors.player.sources["village.morning_signs"]?.expiresAt ?? 0) > expansionState.clock,
             calendarMinute: calendarMinutes(current_game_time), perception: character.getTotalSkillLevel("Perception"),
-            'skill.Crafting': character.getTotalSkillLevel('Crafting'),
+            'skill.Crafting': character.getTotalSkillLevel('Crafting'),'skill.Cooking':character.getTotalSkillLevel('Cooking'),
             "village.elderMet": metVillageElder(),
             "village.craftsmanMet": (() => {const status = dialogues["old craftsman"].textlines.hello.getAvailabilityComponent().getStatus(); return !!(status.is_locked || status.is_finished);})(),
             "village.shackUnlocked": !!locations.Shack.getAvailabilityComponent().getStatus().is_unlocked,
@@ -974,6 +1073,12 @@ function expeditionContext() {
 }
 
 function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}) {
+    plan.p00WasRest ||= expansionState.p23Reading?.current?.kind==='rest';
+    if(plan.state.p23Reading && !plan.p00StudyCommand){
+        const context=studyContext(plan.state,plan.gameplay||gameplaySnapshot());
+        const result=observeReadingClock(plan.state.p23Reading,context);
+        stageReadingResult(plan,result,{books:nativeBooksSnapshot(),quoteXP:p00NativeSkillXP});
+    }
     stageP00Time(plan);
     // Non-person pack inventories are native registry owners. Their contents
     // publish through the existing ownership transaction after durable saving.
@@ -1127,6 +1232,8 @@ function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}) {
     if(plan.nativePatch?.combatOptions){p23CombatOptions=structuredClone(plan.nativePatch.combatOptions);if(current_combat&&!current_combat.is_special_combat){current_combat.combatOptions=combatRuntime();current_combat.nextCombatEvent=()=>current_combat.combatOptions.snapshot().lastEvent+1;current_combat.nativeExchangeHost=runP23CombatExchange;}}
     if(plan.nativePatch?.p23_living_gear)p23LivingGear=structuredClone(plan.nativePatch.p23_living_gear);
     if(plan.nativePatch?.equipment_durability)durability.load(plan.nativePatch.equipment_durability);
+    if(plan.nativePatch?.p23_salvage)p23Salvage=loadSalvage(plan.nativePatch.p23_salvage);
+    publishStudy(plan);
     if(plan.absorbPublish)plan.absorbPublish();
     publication.publish();
     unlockPublication.publish();
@@ -2356,6 +2463,7 @@ function change_current_location(location_key) {
  * @param {Boolean} params.skip_combat used to not call start_combat function, used in loading as it's only called after 'PLAY' button is clicked
  */
 function change_location({location_id, event, skip_travel_time = false, do_quest_events = true, skip_combat = false,realm_move=false}) {
+    if(!restoringNativeSave&&location_id!==current_location?.id){const row=expansionState.p23Reading?.current;if(row?.kind==='rest')actStudy('cancelRest');else if(row?.status==='active')actStudy('stopRead');}
     if(!realm_move&&!restoringNativeSave&&optionalPackState.structured&&location_id!==current_location?.id&&!optionalPackState.structured.locationIds.includes(location_id)){log_message('Continue through your local routes.','notification');return;}
     if(!realm_move&&!restoringNativeSave&&Object.values(optionalPackState.packs).some(r=>r.active)&&location_id!==current_location?.id){log_message('Use Return to Village in your optional world controls.','notification');return;}
     if(!restoringNativeSave&&location_id!==current_location?.id){const reasons=causalStoryTravelReasons(expansionState,'player');if(reasons.length){log_message(reasons.join(' '),'notification');return;}}
@@ -2394,11 +2502,12 @@ function change_location({location_id, event, skip_travel_time = false, do_quest
         throw `No such location as "${location_id}"`;
     }
 
-    if((p23Exposure!==undefined||household!==undefined||p23LivingGear!==undefined||p23CombatOptions!==undefined)&&!realm_move&&!restoringNativeSave&&!skip_travel_time&&previous_location&&location.id!==previous_location.id){
+    if((p23Exposure!==undefined||household!==undefined||p23LivingGear!==undefined||p23CombatOptions!==undefined||p23Salvage!==undefined||expansionState.p23Reading!==undefined)&&!realm_move&&!restoringNativeSave&&!skip_travel_time&&previous_location&&location.id!==previous_location.id){
         if(!pathfinder){pathfinder=new Pathfinder();pathfinder.fill_connections(locations);}
         travel_times[previous_location.id] ||= pathfinder.find_shortest_paths(previous_location.id);
         const running=revealFacts()['reveal.run']===true&&character.getTotalSkillLevel('Running')>=1&&!practiceRunReason();
         const minutes=Math.max(1,Math.ceil(travel_times[previous_location.id][location.id]*(running?.8:1)));
+        if(!Number.isSafeInteger(minutes))throw Error('No admitted native route connects these places.');
         const plan=advanceChroniclePlan({state:expansionState,external:{money:character.money},gameplay:gameplaySnapshot()},minutes,true);
         if(plan.state.clock-expansionState.clock!==minutes){persistExpansion(plan);log_message('Finish the current local decision before completing this journey.','notification');return;}
         plan.state.sequence++;
@@ -3072,6 +3181,7 @@ function start_sleeping() {
 }
 
 function end_sleeping() {
+    if(expansionState.p23Reading?.current?.kind==='rest'&&!restoringNativeSave)return actStudy('cancelRest');
     is_sleeping = false;
     pursuitPanel?.render();
     change_location({location_id: current_location.id, skip_travel_time: true});
@@ -3079,6 +3189,10 @@ function end_sleeping() {
 }
 
 function start_reading(book_key) {
+    if((is_JSON(book_key)?JSON.parse(book_key).id:book_key)===ANTHOLOGY&&!restoringNativeSave){
+        const current=expansionState.p23Reading?.current;
+        return actStudy(current?.kind==='read'?(current.status==='paused'?'resumeRead':'stopRead'):'startRead');
+    }
     if(expeditionOccupiesPlayer()) return;
     
     const book_id = is_JSON(book_key)?JSON.parse(book_key).id:book_key;
@@ -3113,6 +3227,7 @@ function start_reading(book_key) {
 }
 
 function end_reading() {
+    if(is_reading===ANTHOLOGY&&!restoringNativeSave)return actStudy('stopRead');
     change_location({location_id: current_location.id, skip_travel_time: true});
     end_activity_animation();
     
@@ -3141,6 +3256,7 @@ function practiceRunReason(){
     return '';
 }
 function do_reading() {
+    if(is_reading===ANTHOLOGY)return;
     const book = book_stats[is_reading], before=book.accumulated_time;
     item_templates[is_reading].addProgress();
     update_displayed_book(is_reading);
@@ -5580,6 +5696,9 @@ function create_save({forExport = false} = {}) {
         save_data.pacing_e1=getPacingState();
         if(p23Exposure!==undefined)save_data.p23_exposure=structuredClone(p23Exposure);
         if(household!==undefined)save_data.household=structuredClone(household);
+        if(save_data.is_reading===ANTHOLOGY)delete save_data.is_reading;
+        if(expansionState.p23Reading?.current?.kind==='rest')delete save_data.is_sleeping;
+        if(p23Salvage!==undefined)save_data.p23_salvage=structuredClone(p23Salvage);
         if(p23LivingGear!==undefined)save_data.p23_living_gear=structuredClone(p23LivingGear);
         if(p23CombatOptions!==undefined)save_data.combatOptions=current_combat?.combatOptions?.snapshot()||structuredClone(p23CombatOptions);
         save_data.fort_supply=structuredClone(fortSupply);
@@ -5703,6 +5822,7 @@ function load(save_data) {
             durability.load(save_data.equipment_durability);
             validateCombatOptions(save_data.combatOptions);p23CombatOptions=save_data.combatOptions===undefined?undefined:structuredClone(save_data.combatOptions);
             p23LivingGear=save_data.p23_living_gear===undefined?undefined:livingOwnerFromSave(save_data);
+            p23Salvage=save_data.p23_salvage===undefined?undefined:loadSalvage(save_data.p23_salvage);
             p23Exposure=validateExposure(save_data.p23_exposure);household=save_data.household===undefined?undefined:structuredClone(save_data.household);
             setPacingState(save_data.pacing_e1);pacingMinute=calendarMinutes(save_data["current time"]);
             if(localLife.lastClock==null)localLife.lastClock=calendarMinutes(save_data["current time"]);
@@ -7449,7 +7569,7 @@ function load(save_data) {
         if(save_data.is_sleeping) {
             start_sleeping();
         }
-        if(save_data.is_reading) {
+        if(save_data.is_reading && save_data.is_reading!==ANTHOLOGY) {
             start_reading(save_data.is_reading);
         }
 
@@ -7571,7 +7691,7 @@ function update_timer(time_in_minutes, source = null) {
     }
     if(backlogNativeClockPaused(expansionState)){backlogPanel?.render();replacementRecognitionPanel?.render();backlogOpeningPanel?.render();knownRoutesPanel?.render();adventureNotebook?.render();livingGearPanel?.render();combatOptionsPanel?.render();return 0;}
     const was_night = is_night(current_game_time);
-    const minutes = time_in_minutes ?? (is_sleeping ? config.time_speedup_when_sleeping : 1);
+    const minutes = time_in_minutes ?? (expansionState.p23Reading?.current?.kind==='rest' ? longRestClockRequest(expansionState.p23Reading,studyContext()) : is_sleeping ? config.time_speedup_when_sleeping : 1);
     if(minutes === 0) return 0;
     if(usesJoinedClock()) {
         if(importProbeToken || !ownsSave || expansionError || foundationSaveBlocked || is_loading_error || expansionState.chronicle?.life.endedAt != null) return 0;
@@ -8214,7 +8334,7 @@ window.end_sleeping = end_sleeping;
 window.start_reading = start_reading;
 window.end_reading = end_reading;
 
-window.start_trade = (...args) => {if(!expeditionOccupiesPlayer()) return start_trade(...args);};
+window.start_trade = (...args) => {const row=expansionState.p23Reading?.current;if(row?.kind==='rest')actStudy('cancelRest');else if(row?.status==='active')actStudy('stopRead');if(!expeditionOccupiesPlayer()) return start_trade(...args);};
 window.exit_trade = exit_trade;
 window.add_to_buying_list = add_to_buying_list;
 window.remove_from_buying_list = remove_from_buying_list;
@@ -8832,6 +8952,7 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
         getKnownSkills:()=>Object.keys(skills).filter(id=>nativeSkillDiscovery(skills[id],character)),onChange:changeP00Exposure});
     combatOptionsPanel=createCombatOptionsPanel({read:tacticsFrame,act:actTactic});
     livingGearPanel=createLivingGearPanel({read:livingFrame,spend:spendLivingCinders});
+    readingSalvagePanel=createReadingSalvagePanel({read:studyFrame,act:(id,row)=>id==='identify'?identifySalvageCopy(row.key):id==='salvage'?craftSalvage(row.recipe,row.itemKey,row.toolKey):actStudy(id)});
     householdPanel=createHouseholdPanel({host:document.getElementById('location_actions_div'),read:p00HouseholdFrame,act:actP00Household});
     durabilityPanel=createDurabilityPanel();
     elementalPanel=createElementalPanel();

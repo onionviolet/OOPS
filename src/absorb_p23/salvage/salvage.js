@@ -21,9 +21,9 @@ const stableCopy = k => {validateItemKey(k); const id = JSON.parse(k).e2_instanc
 // Validate fully before returning a clone, never repair malformed input in place.
 export function loadSalvage(value) {
     if (value === undefined) return {schema: 1, learned: false, receipts: {}};
-    check(record(value) && value.schema === 1 && typeof value.learned === 'boolean' && record(value.receipts), 'Unsupported salvage save.');
+    check(record(value) && Object.keys(value).length===3 && value.schema === 1 && typeof value.learned === 'boolean' && record(value.receipts), 'Unsupported salvage save.');
     for (const [id, r] of Object.entries(value.receipts)) {
-        check(/^p23\.salvage:[1-9]\d*$/.test(id) && record(r) && r.id === id &&
+        check(/^p23\.salvage:[1-9]\d*$/.test(id) && record(r) && Object.keys(r).length===10 && r.id === id &&
             [SALVAGE.salvage, SALVAGE.craft].includes(r.recipe) && Number.isSafeInteger(r.sequence) && r.sequence > 0 &&
             id === `p23.salvage:${r.sequence}` && Number.isSafeInteger(r.at) && r.at >= 0 &&
             stableCopy(r.consumedKey) && typeof r.toolKey === 'string' && Number.isFinite(r.condition) && r.condition >= 0 && r.condition <= 100 &&
@@ -110,7 +110,9 @@ export function stageSalvage(c, request) {
     const acquisitions = [{key: quote.outputKey, count: quote.outputCount}];
     gameplay.player.inventory = stageAcquisition({player: gameplay.player.inventory}, {consumes,
         grants: acquisitions.map(r => ({owner: 'player', ...r}))}).player;
-    applyGameplayEffect(gameplay, {type: 'xp', skill: SALVAGE.skill, amount: quote.xp}, 'player');
+    const nativeXP=c.nativeXP ?? quote.xp;
+    check(Number.isFinite(nativeXP)&&nativeXP>=0,'Invalid native salvage XP quote.');
+    if(nativeXP)applyGameplayEffect(gameplay, {type: 'xp', skill: SALVAGE.skill, amount: nativeXP}, 'player');
     const receipt = {id, recipe: quote.recipe, sequence: next.sequence, at: next.clock,
         consumedKey: quote.consumedKey, toolKey: quote.toolKey, condition: quote.condition,
         outputKey: quote.outputKey, outputCount: quote.outputCount, xp: quote.xp};
