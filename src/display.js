@@ -2113,7 +2113,8 @@ function create_inventory_item_div({key, item_count, target, is_equipped, trade_
             }
 
             item_additional.appendChild(item_use_button);
-            item_additional.appendChild(item_auto_use_button);
+            // Generated vials require deliberate use of their exact owned key.
+            if(!target_item.mixture)item_additional.appendChild(item_auto_use_button);
         } else if(target_item.item_type === "BOOK") {
             const item_read_button = document.createElement("div");
             item_read_button.classList.add("item_use_button");

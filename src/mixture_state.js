@@ -1,3 +1,4 @@
+import {currentProductAppearanceView} from './product_appearance_view.js';
 // Original Village law revision 1. Truth is retained, knowledge is independent.
 export const MIXTURE_ID = 'Village mixture';
 export const INGREDIENTS = [
@@ -41,6 +42,10 @@ export function validateMixtureState(s) {
     const h=s.hiddenMethod;
     if(h.revision!==1||!Number.isSafeInteger(h.draw)||h.draw<=0||h.witness?.station!=='Village mixing counter'||h.witness?.consumer!=='oral-village@1'||!INGREDIENTS.every(i=>h.witness.supplies.includes(i.id)))fail('Unresolved hidden method witness.');
     resolveMixture(s,h.inputs,h.process);
+    if(s.acquisitions!=null){
+        if(typeof s.acquisitions!=='object'||Array.isArray(s.acquisitions))fail('Invalid mixture acquisition ledger.');
+        for(const [id,r]of Object.entries(s.acquisitions))if(id!==`mixture.acquisition:${r.sequence}`||!Number.isSafeInteger(r.sequence)||r.sequence<1||r.sequence>s.sequence||!s.products[r.product]||r.revision!==s.products[r.product].revision||!Number.isSafeInteger(r.at)||r.at<0)fail('Unresolved mixture acquisition.');
+    }
     if(s.job){const j=s.job,p=s.products[j.product];if(!p||!s.methods[j.product]||!Number.isSafeInteger(j.due)||j.due<0||!Number.isSafeInteger(j.remaining)||j.remaining<1||j.remaining>999||JSON.stringify(j.held)!==JSON.stringify(p.inputs))fail('Invalid mixture reservation.');}
     return s;
 }
@@ -74,9 +79,9 @@ export function mixtureKey(product){validateProduct(product);return JSON.stringi
 export function productFromKey(s,key){const k=JSON.parse(key);if(k.id!==MIXTURE_ID||typeof k.mixture!=='string'||!s?.products?.[k.mixture])fail('Missing generated product reference.');const p=validateProduct(s.products[k.mixture],k.mixture);if(key!==mixtureKey(p))fail('Noncanonical mixture key.');return p;}
 export function mixturePresentation(s,p){
     const known=s?.knowledge?.[p.id]?.observed;
-    return {name:`${p.process==='steep'?'Steeped':'Boiled'} Village mixture`,description:known?
+    return currentProductAppearanceView(p,s?.knowledge,{name:`${p.process==='steep'?'Steeped':'Boiled'} Village mixture`,description:known?
         `Observed dose: +${p.dose.health} health regeneration, +${p.dose.stamina} stamina regeneration; agility -${p.dose.sedation}. ${p.dose.duration} minutes. Same family replaces the previous dose.`:
-        'An untested mixture. Its properties still operate. Drink one dose to observe them. Same family replaces the previous dose.'};
+        'An untested mixture. Its properties still operate. Drink one dose to observe them. Same family replaces the previous dose.'});
 }
 // Exact rational aliquots: traces are never rounded. This slice exposes whole vials.
 export function splitComposition(p,numerator,denominator){validateProduct(p);if(!Number.isSafeInteger(numerator)||!Number.isSafeInteger(denominator)||numerator<=0||numerator>=denominator||denominator*p.mass>Number.MAX_SAFE_INTEGER)fail('Invalid aliquot.');return [numerator,denominator-numerator].map(n=>({unit:p.unit,fractions:Object.fromEntries(Object.entries(p.fractions).map(([k,v])=>[k,{numerator:v*n,denominator}]))}));}

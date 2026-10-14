@@ -1,0 +1,18 @@
+{
+  "label": "natural",
+  "profile": "/private/tmp/procgen-p34-profile-natural-1791954989088",
+  "route": "elder > Begin Village encounters > Welcome road travelers > Meet traveler > Begin remembered requests > Ask about a supply need > Take request > Deliver > Story so far > remembered supply card > compare road signs",
+  "viewports": [
+    "1366x768",
+    "1600x1000"
+  ],
+  "requestItem": "Stale bread",
+  "pendingReloadExact": true,
+  "actualStockAndFee": true,
+  "receiptRecap": true,
+  "laterSamePersonObject": true,
+  "completedReloadExact": true,
+  "exportLiteralImportSecondProfileExact": true,
+  "pageErrors": [],
+  "bundleSha256": "379fddf5697fb62472ce5c1ba9dbaac846c1f4544a3a75513941514bb6bdfd35"
+}

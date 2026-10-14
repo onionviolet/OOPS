@@ -1,3 +1,4 @@
+import {setProductAppearanceOwner} from './product_appearance_view.js';
 import {STREAMS,ensureStreams,bindGameStreams,gameRandom,gameRandomRange,drawUnit,scopedStream,seededRecipe,validateNativeEncounter,streamSeed} from "./seeded_streams.js";
 const mixtureSeed=()=>streamSeed(expansionState,STREAMS.craft,"village.mixtures@1");
 const generatedPeopleSeed=()=>streamSeed(expansionState,scopedStream("world.people"),"village.generated_people@1");
@@ -4800,9 +4801,11 @@ function performMixtureAction(request) {
     const reasons=nativeActionReasons(expansionState);if(reasons.length||!character.is_alive)throw new Error(reasons.join(" ")||"A living character is needed.");
     if(!workLedgerCanWrite()||(request.type!=='use'&&current_location?.id!=='Village')||expansionState.actors.player.worldId!=='base.frontier'||expeditionOccupiesPlayer()||current_activity||current_game_action||current_combat||current_dialogue||is_sleeping||is_reading||is_in_trade())throw new Error('Use the mixing counter while free in Village.');
     if(request.key)assertNativeItemDisposition(expansionState,request.key);
-    const plan=stageMixtureAction({owner:getMixtureOwner(),seed:mixtureSeed(),inventory:character.getItems(),money:character.money,clock:calendarMinutes(current_game_time),request});
+    const plan=stageMixtureAction({owner:getMixtureOwner(),seed:mixtureSeed(),inventory:character.getItems(),money:character.money,clock:calendarMinutes(current_game_time),request,expansion:expansionState});
     commitMixturePlan(plan,{createSave:create_save,validateEnvelope:save=>validateSaveEnvelope(save,game_version),
         write:text=>lifeSaveStorage.setItem(is_on_dev()?dev_save_key:save_key,text),publish:p=>{
+            if(p.expansion)expansionState=p.expansion;
+            setProductAppearanceOwner(expansionState.productAppearances);
             setMixtureOwner(p.state);character.money=p.money;
             const stock=character.getItems();for(const key of Object.keys(stock))if(!p.inventory[key])delete stock[key];
             for(const [key,row]of Object.entries(p.inventory))stock[key]={item:getItemFromKey(key),count:row.count};
@@ -5464,6 +5467,7 @@ function load(save_data) {
             npcLives = save_data.npc_lives == null ? null : advanceVillageLives(save_data.npc_lives, save_data["current time"].year);
             expansionState = initializeExpedition(loadExpansionState(save_data.expansion, expeditionRegistry, expansionState.rng));
             restoreSystemsWorkshopAvailability(save_data);
+            setProductAppearanceOwner(expansionState.productAppearances);
             // Pre-expansion saves have no seed: use the documented stable
             // fallback for native streams while leaving legacy engine RNG alone.
             ensureStreams(expansionState,save_data.expansion?.rng ?? 1);
@@ -8546,11 +8550,11 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
         mentor:choice=>writeVillageCareer(choice),resolve:choice=>writeVillageCareer(choice),promote:()=>writeVillageCareer('promote'),
         notes:()=>writeVillageCareer('notes'),tutor:()=>writeVillageCareer('tutor'),readNotes:()=>start_reading(WATCHCRAFT_BOOK),
         practice:()=>start_activity('meditating')});
-    registerGeneratedPeople({read:()=>({at:calendarMinutes(current_game_time),seed:generatedPeopleSeed(),
+    registerGeneratedPeople({read:()=>({at:calendarMinutes(current_game_time),seed:generatedPeopleSeed(),expansion:expansionState,
         inVillage:current_location?.id==='Village'&&expansionState.actors.player.worldId==='base.frontier',
         canWrite:ownsSave&&!foundationSaveBlocked&&!importProbeToken&&!is_loading_error&&!lifeStorageFailure,
         busy:!!(nativeOccupationReason()||current_activity||current_game_action||current_combat||current_dialogue||is_sleeping||is_reading||is_in_trade())}),
-        save:create_save,persist:serialized=>lifeSaveStorage.setItem(is_on_dev()?dev_save_key:save_key,serialized),
+        save:create_save,persist:serialized=>{const saved=JSON.parse(serialized);validateSaveEnvelope(saved,game_version);lifeSaveStorage.setItem(is_on_dev()?dev_save_key:save_key,serialized);expansionState=saved.expansion;simulationPanel?.render();},
         authoredNames:[...expeditionRegistry.simulation.people.values()].map(p=>p.label||p.name||p.id),
         itemKey:id=>item_templates[id].getInventoryKey(),canSupply:key=>canConsumeNativeCraftingItem(key)&&character.getItems()[key]?.count>=1,
         publishSupply:key=>{character.removeFromInventory([{item_key:key,item_count:1}]);update_displayed_character_inventory();},publishReward:add_money_to_character});
