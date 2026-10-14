@@ -28,6 +28,8 @@ const fetchBytes=url=>new Promise((resolve,reject)=>http.get(url,{agent:false},r
   const evidence={viewport:[1366,768],bundleSha256:crypto.createHash('sha256').update(served).digest('hex'),servedBytes:served.length,
     fixture:'PASS: module controls, pending Save/reload, export/literal-file import, future-schema rejection, resumed awards, mode off',
     native:'BASE SMOKE ONLY: fresh native start, no exposure panel. P00 changed-loop and native persistence gates OPEN',errors};
+  evidence.sourceModules={};
+  for(const file of ['src/absorb_p23/exposure/exposure.js','src/absorb_p23/exposure/panel.js']) {const bytes=await fetchBytes(base+file);assert.deepEqual(bytes,fs.readFileSync(file));evidence.sourceModules[file]=crypto.createHash('sha256').update(bytes).digest('hex');}
   fs.writeFileSync(dir+'/browser.json',JSON.stringify(evidence,null,2));console.log(JSON.stringify(evidence,null,2));
  }finally{await browser.close();}
 })().catch(e=>{console.error(e);process.exitCode=1;});
