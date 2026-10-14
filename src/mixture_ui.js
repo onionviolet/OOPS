@@ -3,7 +3,7 @@ export function createMixturePanel({craftingContainer,actionContainer,read,act})
     const launch=document.createElement('button');launch.id='village_mixing_open';launch.textContent='Mix at the Village counter';actionContainer.append(launch);
     const panel=document.createElement('section');panel.id='village_mixing_panel';panel.style.cssText='padding:12px;border:1px solid var(--border-color,#888);margin:8px;display:none;max-width:850px;';
     craftingContainer.prepend(panel);const title=document.createElement('h3');title.style.cssText='font-size:16px;margin:0 0 6px';title.textContent='Village mixing counter';panel.append(title);
-    const help=document.createElement('p');help.style.cssText='margin:4px 0 8px;font-size:13px';help.textContent='Choose whole packs of water and plants, then steep or boil. Try a dose to learn its effects.';panel.append(help);
+    const help=document.createElement('p');help.style.cssText='margin:4px 0 8px;font-size:13px';help.textContent='Choose whole packs of water and plants, then steep or boil. The first four new types receive saved container appearances. Try a dose to learn and recognize a type.';panel.append(help);
     const rows=document.createElement('div');rows.style.cssText='display:grid;grid-template-columns:repeat(2,minmax(230px,1fr));gap:4px';panel.append(rows);
     const amounts={};const stockLabels={};
     const notice=document.createElement('p');notice.style.cssText='margin:6px 0;font-size:13px';notice.id='mixture_notice';notice.setAttribute('role','status');

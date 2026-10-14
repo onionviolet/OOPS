@@ -54,4 +54,21 @@ Round 7 (launched 2026-10-14 01:25):
 | Run | Session id | Writes |
 | --- | --- | --- |
 | W20 comic media and cheats | 01a138d6-1cdb-7ca2-a7ff-b35e881837d9 | .../W20_COMIC_MEDIA_AND_CHEATS.md, ../W20_REPORT.md |
-| W19 consolidation | queued until W1-W18 finish | .../cards/, ../W19_REPORT.md |
+| W19 consolidation | 01a13b8f-dc03-7651-ba36-ba4046e09c77 | .../cards/, ../W19_REPORT.md |
+| W21 K19-K34 readiness (round 9) | 01a13b93-7306-7f81-807c-e85a32fe7144 | .../W21_READINESS_K19_K34.md, ../W21_REPORT.md |
+| W22 dependency chains (round 9) | 01a13b93-7322-7181-b58b-5f7726c0689c | .../W22_DEPENDENCY_CHAINS.md, ../W22_REPORT.md |
+| W23 globals and lifecycle (round 9) | 01a13b93-733e-7762-a3fb-fab74a66bd1e | .../W23_GLOBALS_AND_LIFECYCLE.md, ../W23_REPORT.md |
+| W24 laws and ordering (round 10) | 01a13b9b-1828-7001-a372-d558afff2a64 | .../W24_LAWS_AND_ORDERING.md, ../W24_REPORT.md |
+| W25 clocks and away (round 10) | 01a13b9b-184a-78a1-8c0b-d08a71047474 | .../W25_CLOCKS_AND_AWAY.md, ../W25_REPORT.md |
+| W26 carriers and small consequences (round 10) | 01a13b9b-1863-7da2-a6bf-2f7a2b8cf047 | .../W26_CARRIERS_AND_SMALL_CONSEQUENCES.md, ../W26_REPORT.md |
+| W27 inspector map (round 10) | 01a13b9b-188b-73e1-8735-5bece6bcdc44 | .../W27_INSPECTOR_MAP.md, ../W27_REPORT.md |
+| W28 world climate prototype (round 10) | 01a13bb0-8ca3-7b70-9eb6-dfedb0b0c327 | branch kit/w28-world-climate, ../W28_REPORT.md |
+| W29 Paradise special (round 11) | 01a13ba0-6f9b-7022-93ad-ca7581579bee | .../W29_PARADISE_SPECIAL.md, ../W29_REPORT.md |
+| W30 HP, D&D, MoL special (round 11) | 01a13ba0-6fb5-7c62-9aea-8c123b68a240 | .../W30_HP_DND_MOL_SPECIAL.md, ../W30_REPORT.md |
+| W31 novel worlds special (round 11) | 01a13ba0-6fd1-7052-9b7b-726c47b988df | .../W31_NOVEL_WORLDS_SPECIAL.md, ../W31_REPORT.md |
+| W32 anime worlds special (round 11) | 01a13ba0-6ff5-7e82-9a09-74546fa71e59 | .../W32_ANIME_WORLDS_SPECIAL.md, ../W32_REPORT.md |
+| W33 calendar engine (round 12) | 01a13ba9-80af-7820-a2e7-64a672d34838 | .../W33_CALENDAR_ENGINE.md, ../W33_REPORT.md |
+| W34 calendars, book worlds (round 12) | 01a13ba9-80d2-7bd1-9b59-ebc02a324547 | .../W34_CALENDARS_BOOK_WORLDS.md, ../W34_REPORT.md |
+| W35 calendars, other worlds (round 12) | 01a13ba9-80f8-7352-a596-9b6301d4370e | .../W35_CALENDARS_OTHER_WORLDS.md, ../W35_REPORT.md |
+| W36 calendar + climate slice (integration) | 01a13bba-1db3-75d0-94aa-0fa5f9541d90 | branch kit/w36-calendar-climate, ../W36_REPORT.md |
+| W37 source fidelity (round 14) | 01a13bbb-b228-7473-8fe5-3697bfe1d029 | .../W37_SOURCE_FIDELITY.md, ../W37_REPORT.md |

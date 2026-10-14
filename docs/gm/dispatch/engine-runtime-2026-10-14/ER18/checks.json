@@ -1,0 +1,110 @@
+{
+  "source_files": 474,
+  "categories": {
+    "AB1": {
+      "sites": 65,
+      "files": 46
+    },
+    "AB2": {
+      "sites": 68,
+      "files": 43
+    },
+    "AB3": {
+      "sites": 259,
+      "files": 151
+    },
+    "AB4": {
+      "sites": 86,
+      "files": 27
+    },
+    "AB5": {
+      "sites": 459,
+      "files": 204
+    },
+    "AB6": {
+      "sites": 203,
+      "files": 127
+    },
+    "AB7": {
+      "sites": 72,
+      "files": 44
+    },
+    "AB8": {
+      "sites": 286,
+      "files": 136
+    },
+    "AB9": {
+      "sites": 150,
+      "files": 113
+    },
+    "AB10": {
+      "sites": 26,
+      "files": 13
+    },
+    "AB11": {
+      "sites": 82,
+      "files": 37
+    },
+    "AB12": {
+      "sites": 35,
+      "files": 27
+    },
+    "AB13": {
+      "sites": 397,
+      "files": 234
+    },
+    "AB14": {
+      "sites": 264,
+      "files": 65
+    },
+    "AB15": {
+      "sites": 47,
+      "files": 23
+    }
+  },
+  "explicit_anchors": 88,
+  "xorshift_sites": [
+    "src/causal_story_host.js:222",
+    "src/chronicle.js:224",
+    "src/expansion_engine.js:519",
+    "src/feature_expansion_battle.js:279",
+    "src/generated_people.js:15",
+    "src/mixture_state.js:13",
+    "src/native_battle.js:47",
+    "src/party_battle.js:87",
+    "src/simulation.js:40",
+    "src/storylet_deck.js:44"
+  ],
+  "raw_random_line_sites": [
+    "src/combat_math.js:34",
+    "src/combat_math.js:44",
+    "src/display.js:361",
+    "src/display.js:376",
+    "src/main.js:2531",
+    "src/main.js:2606",
+    "src/main.js:2609",
+    "src/main.js:2630",
+    "src/main.js:3522",
+    "src/main.js:3524",
+    "src/main.js:7635",
+    "src/main.js:7636",
+    "src/main.js:7639",
+    "src/main.js:7642",
+    "src/misc.js:69",
+    "src/particles.js:5",
+    "src/particles.js:7",
+    "src/particles.js:8",
+    "src/particles.js:9",
+    "src/particles.js:10",
+    "src/particles.js:16",
+    "src/particles.js:43",
+    "src/particles.js:49",
+    "src/particles.js:72",
+    "src/particles.js:85",
+    "src/particles.js:86",
+    "src/particles.js:102"
+  ],
+  "source_drift": [],
+  "errors": [],
+  "pass": true
+}

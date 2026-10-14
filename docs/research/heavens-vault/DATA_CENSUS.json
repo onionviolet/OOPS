@@ -1,0 +1,113 @@
+{
+  "inkVersion": 19,
+  "root_named_entries": 3165,
+  "list_definitions": 655,
+  "timeline_populated_fields": {
+    "inkNotifyState": 22,
+    "title": 271,
+    "date": 302,
+    "tags": 278,
+    "description": 248,
+    "uniqueObjectIdentifier": 302,
+    "upgradeID": 187,
+    "inkRemoveState": 136,
+    "inkUnlockState": 269,
+    "location": 273,
+    "inkConfirmState": 44,
+    "inkFunctionForTitle": 30,
+    "linked": 110,
+    "inkFunctionForDescription": 40
+  },
+  "tables": {
+    "ages": 8,
+    "clues": 101,
+    "storyLocations": 17,
+    "timelineEvents": 302
+  },
+  "words": 867,
+  "atoms": 43,
+  "inscription_database_count": 58,
+  "textassets": [
+    {
+      "source": "resources.assets",
+      "path_id": 2072,
+      "name": "LineBreaking Following Characters",
+      "bytes": 266,
+      "sha256": "bacbe27ee7ac98aceb46063cd45338a8b9979a4f488defc3ade6f67119f008a3"
+    },
+    {
+      "source": "resources.assets",
+      "path_id": 2073,
+      "name": "LICENSE",
+      "bytes": 401,
+      "sha256": "0076a6fd33d302cc919b9a278b518e1d0685b2003b2b024352a56483a778f61e"
+    },
+    {
+      "source": "resources.assets",
+      "path_id": 2074,
+      "name": "LineBreaking Leading Characters",
+      "bytes": 104,
+      "sha256": "6c251bfd52c12dbac2385a795ca5f9690296f125f14ef4be23294bf758e4a0bc"
+    },
+    {
+      "source": "resources.assets",
+      "path_id": 2075,
+      "name": "GameData",
+      "bytes": 280825,
+      "sha256": "a76a3622266580c577f72347a566a9d758ae07b8bc9ff1e011bb2135194d7078"
+    },
+    {
+      "source": "resources.assets",
+      "path_id": 2076,
+      "name": "COPYING",
+      "bytes": 7169,
+      "sha256": "f4e7f373b9b996950337e8d41a4a2939c2d90b7725e9baf3d5084a22717ad328"
+    },
+    {
+      "source": "sharedassets0.assets",
+      "path_id": 47,
+      "name": "ages",
+      "bytes": 1501,
+      "sha256": "a0e01e1bdaee880dd88fe28bc830b2ce72bbeb6fb227a4263019df9e0a6f21fa"
+    },
+    {
+      "source": "sharedassets0.assets",
+      "path_id": 48,
+      "name": "clues",
+      "bytes": 19510,
+      "sha256": "07c519e99eac34fca55a86e79dc544bfe6639056ce5a925a085f810bd5702107"
+    },
+    {
+      "source": "sharedassets0.assets",
+      "path_id": 49,
+      "name": "storyLocations",
+      "bytes": 18390,
+      "sha256": "b931e6f877e16c6624f2f0439fe9a3a51cdc83314f73b937e5bdf2c4e41b9e97"
+    },
+    {
+      "source": "sharedassets0.assets",
+      "path_id": 50,
+      "name": "timelineEvents",
+      "bytes": 181895,
+      "sha256": "9e098e31c7b36d822a5638903812722e9c7c0d002ac9ae993b8628cc78cce45e"
+    },
+    {
+      "source": "sharedassets0.assets",
+      "path_id": 51,
+      "name": "core",
+      "bytes": 10926739,
+      "sha256": "3cd55d072fdf60eeb6e53ce53b91a5d2983c2b1dabbcddaa45ce233d9473b708"
+    }
+  ],
+  "external_call_counts": {
+    "KNOW_WORD": 15,
+    "ARTEFACT_TRANSLATION_PLAYED": 2,
+    "ARTEFACT_TRANSLATION_SOLVED": 1,
+    "ARTEFACT_TRANSLATION_INCORRECT_WORD": 1,
+    "ARTEFACT_TRANSLATION_UNCONFIRMED_CORRECT_WORD": 1,
+    "reached": 5034,
+    "recently": 98,
+    "implication": 227,
+    "viewedStateFrom": 1
+  }
+}

@@ -1,0 +1,176 @@
+{
+  "status": "proposal research; read-only source snapshot",
+  "date": "2026-10-14",
+  "branch": "codex/gameplay-foundations",
+  "head": "ffa05064b6941f3cac0d74ddd812325afdd8a854",
+  "p2_head": "f8fe699487c90ec06e83bfc020dfa8a6dc234705",
+  "sources": [
+    {
+      "path": "src/main.js",
+      "sha256": "63bde375a9416186e116f26aa554172e0ef077563ed6d695eec93dd22f0cc956",
+      "lines": 8655
+    },
+    {
+      "path": "src/body_progression.js",
+      "sha256": "47e8de67bdb099fb41365afafbf3081e342e734d97615850f921e0b280dfe84e",
+      "lines": 85
+    },
+    {
+      "path": "src/contextual_balm_content.js",
+      "sha256": "41f9d95c7ef9ec1811e8da60ad86ae9822dd24841ccf51e8b7e047f2d9deb26e",
+      "lines": 75
+    },
+    {
+      "path": "src/contextual_balm_native.js",
+      "sha256": "50ee6b79876a742183e9c3fbcfb603c3e818bf37b1641913b5e263b14de11476",
+      "lines": 53
+    },
+    {
+      "path": "src/contextual_balm_host.js",
+      "sha256": "40e13d06435fa38fb9d824f0e4204a6a53b7ed8c63950e0ad76e98eea604b5e1",
+      "lines": 86
+    },
+    {
+      "path": "src/simulation_effects.js",
+      "sha256": "507a5a60b82eaade331601c90f5e98410a2d99486903b9109937f933f3ffe151",
+      "lines": 394
+    },
+    {
+      "path": "src/chronicle.js",
+      "sha256": "c21046237528b7b692efc367ae7cacc9b1a41714c622eff24b29c8ff5a9b261b",
+      "lines": 315
+    },
+    {
+      "path": "src/life_experience.js",
+      "sha256": "c1753b6bbbcd63180e729f67bfd9c0260ee981bfc1329d7a1287d5b63e1adb6c",
+      "lines": 36
+    },
+    {
+      "path": "src/npc_lives.js",
+      "sha256": "abef56e7d73a0e17a3ba551608eafc4fb7f9f1660c17a445cfe96ae9869eb804",
+      "lines": 52
+    },
+    {
+      "path": "src/game_time.js",
+      "sha256": "ae58e07158d52962cc8e0735b2e30af803f85bba4e68881038127a2b6b9cbf6c",
+      "lines": 197
+    },
+    {
+      "path": "src/backlog_expansion_time.js",
+      "sha256": "4f8e6b065ad76370671cf878a203cd1d9d3966a290268e3897684e690a0478fb",
+      "lines": 425
+    },
+    {
+      "path": "src/absorb_e1/pacing.js",
+      "sha256": "0cb526073c7e2f36ddef60f93d5d276c62e39f18a2f873502363c38fa419e661",
+      "lines": 87
+    },
+    {
+      "path": ".claude/worktrees/proc-p2-mixing/src/mixture_state.js",
+      "sha256": "1d3f161da9f2cb9bf138292be0f5e5b4e38c381a337fe55cc616eb71b908c02e",
+      "lines": 101
+    },
+    {
+      "path": ".claude/worktrees/proc-p2-mixing/src/mixture_native.js",
+      "sha256": "15d49051cdea16f5ff10dd1db1aa6d8d17dd7b7e4685a3c46651c3bab196eea0",
+      "lines": 44
+    },
+    {
+      "path": ".claude/worktrees/proc-p2-mixing/src/mixture_ui.js",
+      "sha256": "fb95a88773aeb13de0a42441ca38747ff0d9cf0281b7df8938a06e2441dc9d63",
+      "lines": 39
+    },
+    {
+      "path": ".claude/worktrees/proc-p2-mixing/docs/gm/dispatch/procgen-2026-10-13/p2/REPORT.md",
+      "sha256": "23e4bf9f8e24b5709944bb54d32e47d91d29324682a8abb23c31f7304e86c6b7",
+      "lines": 62
+    },
+    {
+      "path": "src/town_content.js",
+      "sha256": "8f225e2795d366f835b282c008171380a4cfd299223893d15e465c9fed5eae06",
+      "lines": 80
+    },
+    {
+      "path": "src/character_bio.js",
+      "sha256": "f6dc97c32f651734fb1984df7a93b9c44b42b1078380b7df51a1b670c8dd959a",
+      "lines": 52
+    },
+    {
+      "path": "src/mixture_state.js",
+      "sha256": "1d3f161da9f2cb9bf138292be0f5e5b4e38c381a337fe55cc616eb71b908c02e",
+      "lines": 101
+    },
+    {
+      "path": "src/mixture_native.js",
+      "sha256": "15d49051cdea16f5ff10dd1db1aa6d8d17dd7b7e4685a3c46651c3bab196eea0",
+      "lines": 44
+    },
+    {
+      "path": "src/mixture_ui.js",
+      "sha256": "fb95a88773aeb13de0a42441ca38747ff0d9cf0281b7df8938a06e2441dc9d63",
+      "lines": 39
+    }
+  ],
+  "captured_at_utc": "2026-10-14T05:18:09.505473+00:00",
+  "external_sources": [
+    {
+      "url": "https://frieren-anime.jp/story/1st/ep01/",
+      "scope": "official synopsis"
+    },
+    {
+      "url": "https://frieren-anime.jp/story/1st/ep02/",
+      "scope": "official synopsis"
+    },
+    {
+      "url": "https://frieren-anime.jp/story/1st/ep16/",
+      "scope": "official synopsis"
+    },
+    {
+      "url": "https://www.webnovel.com/book/8094127105005005/21727507619467295",
+      "scope": "ch238 public opening only"
+    },
+    {
+      "url": "https://www.webnovel.com/book/8094127105005005/21727507619844126",
+      "scope": "ch246 public opening only"
+    },
+    {
+      "url": "https://www.webnovel.com/book/8094127105005005/21727507619827742",
+      "scope": "ch249 public opening only"
+    },
+    {
+      "url": "https://www.royalroad.com/fiction/58243/a-soldiers-life/chapter/1049636/chapter-1-wrong-place-wrong-time",
+      "scope": "ch1 opening/recruitment"
+    },
+    {
+      "url": "https://www.royalroad.com/fiction/21188/forge-of-destiny/chapter/301255/prologue-smelting",
+      "scope": "prologue"
+    }
+  ],
+  "final_refresh": {
+    "at_utc": "2026-10-14T05:19:26.548940+00:00",
+    "head": "c8b48a59c5e3a69b2640affe5c340231006c4f43",
+    "p2_in_main_ancestry": true,
+    "p2_containing_branches": [
+      "+ absorb-all/integration",
+      "* codex/gameplay-foundations",
+      "+ proc/gx5-appearances",
+      "+ proc/p2-mixing",
+      "+ proc/wave1-integration"
+    ],
+    "main_mixture_module_comparison": [
+      {
+        "name": "mixture_state.js",
+        "byte_identical": true
+      },
+      {
+        "name": "mixture_native.js",
+        "byte_identical": true
+      },
+      {
+        "name": "mixture_ui.js",
+        "byte_identical": true
+      }
+    ],
+    "runtime_verification": "NOT RUN"
+  }
+}

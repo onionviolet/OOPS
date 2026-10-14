@@ -1,0 +1,12 @@
+# T7 checkpoint: invention planner applied to powers
+
+- Status: COMPLETE, docs-only research, 2026-10-14. No implementation selected. [REPORT](REPORT.md) owns results, five ranked suggestions and source gaps.
+- Owner/scope: user-assigned T7, prefix `A`, only this `t7/` directory; branch `codex/gameplay-foundations` verified. Other workers' dirty state preserved. No staging/commit.
+- Deliverables: [SHARED_VOCABULARY](SHARED_VOCABULARY.md), A1–A8; 13 short world sheets A10–A22; 26 small/large AND/OR graphs. Cultivation case: Reverend Insanity. Nonhuman case: Tensura WN. REPORT suggestions A30–A34; unresolved questions A40–A42.
+- Resume point: root can review/fold these proposals into its existing owner. If a slice is later selected, read T6's actual module/API and resolve that slice's named source/consumer questions first. This record grants no write ownership outside T7.
+- Authority/source inspection: COMMON, PLAN/T7, AGENTS, PROJECT, USER_VISION; Technology rounds 5–6 and shared research/skill/ability owners; relevant world briefs/ledgers/variants and power-system digests. Private novel notes informed located paraphrase only, never quoted or changed. No sealed world files opened.
+- Fresh public evidence: MOL ch.11 formula/cube sections, official D&D Mending/Teleportation Circle, HP Snape companion and Tensura Rimuru profile. Other scene details retain inherited/secondary labels. MoL author-blog fetch failed once; switched to Royal Road. No full-source reread or library mutation.
+- Corrections: Rat-step example uses its actual crossing consumer; Frieren's uncertain transfer shortcut removed; LOTM examples require independent eligible starts; JJK large example now uses the concrete Deadly Sentencing source rather than an unspecified domain effect.
+- Validation PASS: 16 Markdown files, 13 worlds, 26 graphs, 70 local links, 30 nonblank in-range cited line locators, five ranked suggestions. Reviewed source/body grants, providers versus learning, hidden alternatives, continuity and actual native consumer. No forbidden em dashes or broken graph fences.
+- Open: precise primary-source/custom-effect checks and real adapter/consumer/clock selection. Exact costs, custom feasibility, native behavior, persistence and human acceptance are unverified. No tests/build/browser/save work was run or claimed.
+- Standing direction preserved: canon-first order; one realm/one prestige; desktop/laptop first with mobile deferred. No runtime/UI change or new acceptance gate imposed on this docs-only task.

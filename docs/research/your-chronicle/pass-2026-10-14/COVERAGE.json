@@ -1,0 +1,782 @@
+{
+  "schema_version": 1,
+  "status": "PARTIAL",
+  "build": "25001959",
+  "inputs": [
+    {
+      "name": "global-metadata.dat",
+      "sha256": "2f84664c809f076c73e4515567c282682b0fcafafc57cb9d7e5eaf4d948b9c6f",
+      "matches_prior": true
+    },
+    {
+      "name": "GameAssembly.dylib",
+      "sha256": "8a21647ce035ff6993d0faa617d2f8ac63e25297f4ecf9b18bab6770bb72f969",
+      "matches_prior": true
+    },
+    {
+      "name": "globalgamemanagers",
+      "sha256": "c6dc72b073306f3eac742bea93ce480c48e32ad3c734d84f0902d4eb0de9e70c",
+      "matches_prior": true
+    },
+    {
+      "name": "Info.plist",
+      "sha256": "964d805f9a356f47d7dff523183578b0762d6f259920a40249abb984b6015019",
+      "matches_prior": true
+    }
+  ],
+  "prior_table_comparison": [
+    {
+      "path_id": 115,
+      "table": "[Setting]UpgradeAction - [Setting]0_Past",
+      "matches_prior_decoded_sha256": true
+    },
+    {
+      "path_id": 60,
+      "table": "[Setting]Dungeon - [Setting]1_Event",
+      "matches_prior_decoded_sha256": true
+    },
+    {
+      "path_id": 71,
+      "table": "[Setting]Chronicle - [Setting]0_All",
+      "matches_prior_decoded_sha256": true
+    },
+    {
+      "path_id": 99,
+      "table": "[Setting]Flag - [Setting]0_Past",
+      "matches_prior_decoded_sha256": true
+    },
+    {
+      "path_id": 83,
+      "table": "[Setting]Ally - [Setting]0_human",
+      "matches_prior_decoded_sha256": true
+    },
+    {
+      "path_id": 88,
+      "table": "[Setting]LoopAction - [Setting]0_Past",
+      "matches_prior_decoded_sha256": true
+    },
+    {
+      "path_id": 98,
+      "table": "[Setting]Dungeon - [Setting]0_Normal",
+      "matches_prior_decoded_sha256": true
+    },
+    {
+      "path_id": 114,
+      "table": "[Setting]Enemy - [Setting]0_Normal",
+      "matches_prior_decoded_sha256": true
+    },
+    {
+      "path_id": 105,
+      "table": "[Setting]Ally - [Setting]1_normal",
+      "matches_prior_decoded_sha256": true
+    },
+    {
+      "path_id": 118,
+      "table": "[Setting]Equipment - [Setting]0_Past",
+      "matches_prior_decoded_sha256": true
+    },
+    {
+      "path_id": 65,
+      "table": "[Setting]Skill - [Setting]0_Past",
+      "matches_prior_decoded_sha256": true
+    },
+    {
+      "path_id": 130,
+      "table": "[Setting]UpgradeAction - [Setting]1_AstralWorld",
+      "matches_prior_decoded_sha256": true
+    },
+    {
+      "path_id": 69,
+      "table": "[Setting]UpgradeAction - [Setting]2_AkashicRecord",
+      "matches_prior_decoded_sha256": true
+    },
+    {
+      "path_id": 122,
+      "table": "[Setting]Resource - [Setting]0_Past",
+      "matches_prior_decoded_sha256": true
+    },
+    {
+      "path_id": 80,
+      "table": "[Setting]UpgradeAction - [Setting]C7",
+      "matches_prior_decoded_sha256": true
+    },
+    {
+      "path_id": 138,
+      "table": "[Setting]UpgradeAction - [Setting]C8",
+      "matches_prior_decoded_sha256": true
+    },
+    {
+      "path_id": 78,
+      "table": "[Setting]UpgradeAction - [Setting]A13",
+      "matches_prior_decoded_sha256": true
+    }
+  ],
+  "reviewed": [
+    {
+      "table": "[Setting]Gluttony - [Setting]0_Past",
+      "asset": "resources.assets",
+      "path_id": 29,
+      "decoded_path": "/Users/weiwei/.codex/research/your-chronicle-2/extract/decoded/resources.assets__29___Setting_Gluttony_-__Setting_0_Past.txt",
+      "decoded_sha256": "2b943b8d7e892d3fab25e1ed9a78810c431c8cd6e6f901c1ddcf5d958f0bfd29",
+      "inventory_rows": 73,
+      "reviewed": [
+        {
+          "csv_record": 9,
+          "id": "eatFish"
+        },
+        {
+          "csv_record": 26,
+          "id": "eatBread"
+        },
+        {
+          "csv_record": 32,
+          "id": "eatGrilledFish"
+        },
+        {
+          "csv_record": 33,
+          "id": "eatPorkSteak"
+        },
+        {
+          "csv_record": 34,
+          "id": "eatChickenSteak"
+        },
+        {
+          "csv_record": 35,
+          "id": "eatBeefSteak"
+        },
+        {
+          "csv_record": 47,
+          "id": "eatCactusSteak"
+        },
+        {
+          "csv_record": 52,
+          "id": "eatCrayfishStew"
+        },
+        {
+          "csv_record": 54,
+          "id": "eatPotion"
+        },
+        {
+          "csv_record": 57,
+          "id": "eatElixir"
+        },
+        {
+          "csv_record": 61,
+          "id": "eatRockGrilledSteak"
+        },
+        {
+          "csv_record": 70,
+          "id": "eatTwiceSmokedFish"
+        }
+      ]
+    },
+    {
+      "table": "[Setting]Skill - [Setting]0_Past",
+      "asset": "resources.assets",
+      "path_id": 65,
+      "decoded_path": "/Users/weiwei/.codex/research/your-chronicle-2/extract/decoded/resources.assets__65___Setting_Skill_-__Setting_0_Past.txt",
+      "decoded_sha256": "9a9fce703f51acaeef95c857acb7535c65b4b3390c0ed01f7e8243c1f12bfc79",
+      "inventory_rows": 67,
+      "reviewed": [
+        {
+          "csv_record": 4,
+          "id": "tackle"
+        },
+        {
+          "csv_record": 5,
+          "id": "slash"
+        },
+        {
+          "csv_record": 7,
+          "id": "power_slash"
+        },
+        {
+          "csv_record": 52,
+          "id": "loveDissection"
+        },
+        {
+          "csv_record": 53,
+          "id": "loveHug"
+        }
+      ]
+    },
+    {
+      "table": "[Setting]Greed - [Setting]0_Past",
+      "asset": "resources.assets",
+      "path_id": 68,
+      "decoded_path": "/Users/weiwei/.codex/research/your-chronicle-2/extract/decoded/resources.assets__68___Setting_Greed_-__Setting_0_Past.txt",
+      "decoded_sha256": "530072a29e1cb65f96e2da57d9f7520f50d7b8cee660316eb94d6249b31a7fc5",
+      "inventory_rows": 22,
+      "reviewed": [
+        {
+          "csv_record": 2,
+          "id": "greed1"
+        },
+        {
+          "csv_record": 3,
+          "id": "greed2"
+        },
+        {
+          "csv_record": 4,
+          "id": "greed3"
+        },
+        {
+          "csv_record": 5,
+          "id": "greed4"
+        },
+        {
+          "csv_record": 6,
+          "id": "greed5"
+        },
+        {
+          "csv_record": 7,
+          "id": "greed6"
+        },
+        {
+          "csv_record": 8,
+          "id": "greed7"
+        },
+        {
+          "csv_record": 9,
+          "id": "greed8"
+        },
+        {
+          "csv_record": 10,
+          "id": "greed9"
+        },
+        {
+          "csv_record": 11,
+          "id": "greed10"
+        },
+        {
+          "csv_record": 12,
+          "id": "greed11"
+        },
+        {
+          "csv_record": 13,
+          "id": "greedA13"
+        },
+        {
+          "csv_record": 14,
+          "id": "greedA14"
+        },
+        {
+          "csv_record": 15,
+          "id": "greedA15"
+        },
+        {
+          "csv_record": 16,
+          "id": "greed_rare1"
+        },
+        {
+          "csv_record": 17,
+          "id": "greed_rare2"
+        },
+        {
+          "csv_record": 18,
+          "id": "greed_rare3"
+        },
+        {
+          "csv_record": 19,
+          "id": "greed_guardian1"
+        },
+        {
+          "csv_record": 20,
+          "id": "greed_guardian2"
+        },
+        {
+          "csv_record": 21,
+          "id": "greed_guardian3"
+        },
+        {
+          "csv_record": 22,
+          "id": "greed_guardian4"
+        },
+        {
+          "csv_record": 23,
+          "id": "greed_guardian5"
+        }
+      ]
+    },
+    {
+      "table": "[Setting]UpgradeAction - [Setting]2_AkashicRecord",
+      "asset": "resources.assets",
+      "path_id": 69,
+      "decoded_path": "/Users/weiwei/.codex/research/your-chronicle-2/extract/decoded/resources.assets__69___Setting_UpgradeAction_-__Setting_2_AkashicRecord.txt",
+      "decoded_sha256": "a33c3a7a40f9a0ea038b747d8739e7eb05244bb0eef8ab7a18465e5ee5a698e7",
+      "inventory_rows": 87,
+      "reviewed": [
+        {
+          "csv_record": 2,
+          "id": "awakeningOfGluttony"
+        },
+        {
+          "csv_record": 9,
+          "id": "awakenSloth_sin"
+        },
+        {
+          "csv_record": 10,
+          "id": "awakenGreed_sin"
+        },
+        {
+          "csv_record": 19,
+          "id": "awakenPride_sin"
+        },
+        {
+          "csv_record": 20,
+          "id": "awakenPride2_sin"
+        },
+        {
+          "csv_record": 57,
+          "id": "enable_classRoutine_inheritance_sin"
+        },
+        {
+          "csv_record": 65,
+          "id": "awakenSloth2_sin"
+        },
+        {
+          "csv_record": 72,
+          "id": "awakenEnvy_sin"
+        },
+        {
+          "csv_record": 78,
+          "id": "awakenGreed2_sin"
+        },
+        {
+          "csv_record": 79,
+          "id": "awakenGluttony2_sin"
+        },
+        {
+          "csv_record": 84,
+          "id": "unlockSecondaryEquipment_sin"
+        }
+      ]
+    },
+    {
+      "table": "[Translation]Pride_Restriction",
+      "asset": "resources.assets",
+      "path_id": 79,
+      "decoded_path": "/Users/weiwei/.codex/research/your-chronicle-2/extract/decoded/resources.assets__79___Translation_Pride_Restriction.txt",
+      "decoded_sha256": "678ea49d415ecef5e5ae8eded13103aa0f2fc6e63d2d67e0eff08c77dcd87acc",
+      "inventory_rows": 9,
+      "reviewed": [
+        {
+          "csv_record": 2,
+          "id": "noGluttony"
+        },
+        {
+          "csv_record": 3,
+          "id": "noGreed"
+        },
+        {
+          "csv_record": 4,
+          "id": "noEnvy"
+        },
+        {
+          "csv_record": 5,
+          "id": "habit1"
+        },
+        {
+          "csv_record": 6,
+          "id": "slowSpeed"
+        },
+        {
+          "csv_record": 7,
+          "id": "noAdditionalEffect"
+        },
+        {
+          "csv_record": 8,
+          "id": "noDarkRitual"
+        },
+        {
+          "csv_record": 9,
+          "id": "noAlchemy"
+        },
+        {
+          "csv_record": 10,
+          "id": "noWrath"
+        }
+      ]
+    },
+    {
+      "table": "[Setting]InstantAction - [Setting]0_Past",
+      "asset": "resources.assets",
+      "path_id": 81,
+      "decoded_path": "/Users/weiwei/.codex/research/your-chronicle-2/extract/decoded/resources.assets__81___Setting_InstantAction_-__Setting_0_Past.txt",
+      "decoded_sha256": "7c2d97815ea441e904d36dfd8029198f0a97b400a9b13c81de39f29eef372f40",
+      "inventory_rows": 89,
+      "reviewed": [
+        {
+          "csv_record": 44,
+          "id": "baking"
+        },
+        {
+          "csv_record": 46,
+          "id": "makeGrilledFish"
+        }
+      ]
+    },
+    {
+      "table": "[Setting]LoopAction - [Setting]0_Past",
+      "asset": "resources.assets",
+      "path_id": 88,
+      "decoded_path": "/Users/weiwei/.codex/research/your-chronicle-2/extract/decoded/resources.assets__88___Setting_LoopAction_-__Setting_0_Past.txt",
+      "decoded_sha256": "3c95cd86cab0d1e7af34ba5c993323bbd8ec80c786f4555e2d2480d93fe933f5",
+      "inventory_rows": 63,
+      "reviewed": [
+        {
+          "csv_record": 7,
+          "id": "makingPotion"
+        },
+        {
+          "csv_record": 8,
+          "id": "makingElixir"
+        },
+        {
+          "csv_record": 37,
+          "id": "fishing"
+        }
+      ]
+    },
+    {
+      "table": "[Setting]UpgradeAction - [Setting]0_Past",
+      "asset": "resources.assets",
+      "path_id": 115,
+      "decoded_path": "/Users/weiwei/.codex/research/your-chronicle-2/extract/decoded/resources.assets__115___Setting_UpgradeAction_-__Setting_0_Past.txt",
+      "decoded_sha256": "404e5af5f48d49c88bd4188c9fb4b9c6804ebbc9ecc6bfcb061bec8723aad8b8",
+      "inventory_rows": 2187,
+      "reviewed": [
+        {
+          "csv_record": 1506,
+          "id": "A10EventL_Question"
+        },
+        {
+          "csv_record": 1507,
+          "id": "A10EventL_AnswerA"
+        },
+        {
+          "csv_record": 1508,
+          "id": "A10EventL_AnswerB"
+        },
+        {
+          "csv_record": 1509,
+          "id": "A10EventL_QuestionA"
+        },
+        {
+          "csv_record": 1510,
+          "id": "A10EventL_AnswerAA"
+        },
+        {
+          "csv_record": 1511,
+          "id": "A10EventL_AnswerAB"
+        },
+        {
+          "csv_record": 1512,
+          "id": "A10EventL_QuestionB"
+        },
+        {
+          "csv_record": 1513,
+          "id": "A10EventL_AnswerBA"
+        },
+        {
+          "csv_record": 1514,
+          "id": "A10EventL_AnswerBB"
+        },
+        {
+          "csv_record": 1515,
+          "id": "A10EventL_Reply1"
+        },
+        {
+          "csv_record": 1516,
+          "id": "A10EventL_Reply2"
+        },
+        {
+          "csv_record": 1517,
+          "id": "A10EventL_Reply3"
+        },
+        {
+          "csv_record": 1518,
+          "id": "A10EventL_Reply4"
+        },
+        {
+          "csv_record": 1519,
+          "id": "A10EventL_Reply5"
+        }
+      ]
+    },
+    {
+      "table": "[Setting]Resource - [Setting]0_Past",
+      "asset": "resources.assets",
+      "path_id": 122,
+      "decoded_path": "/Users/weiwei/.codex/research/your-chronicle-2/extract/decoded/resources.assets__122___Setting_Resource_-__Setting_0_Past.txt",
+      "decoded_sha256": "acbb483deab39d726bd47c4726f27f5c1ce5c1433dcc62048acc7c3bb27a52ad",
+      "inventory_rows": 190,
+      "reviewed": [
+        {
+          "csv_record": 14,
+          "id": "inspiration"
+        },
+        {
+          "csv_record": 18,
+          "id": "sin"
+        },
+        {
+          "csv_record": 19,
+          "id": "sin_gluttony"
+        },
+        {
+          "csv_record": 172,
+          "id": "ePoint1"
+        },
+        {
+          "csv_record": 173,
+          "id": "ePoint2"
+        },
+        {
+          "csv_record": 174,
+          "id": "ePoint3"
+        },
+        {
+          "csv_record": 175,
+          "id": "envyUpgradePoint"
+        },
+        {
+          "csv_record": 178,
+          "id": "markOfGoddess"
+        },
+        {
+          "csv_record": 179,
+          "id": "sealedMark"
+        },
+        {
+          "csv_record": 181,
+          "id": "spiritMark"
+        }
+      ]
+    },
+    {
+      "table": "[Setting]Pride - [Setting]0_All",
+      "asset": "resources.assets",
+      "path_id": 126,
+      "decoded_path": "/Users/weiwei/.codex/research/your-chronicle-2/extract/decoded/resources.assets__126___Setting_Pride_-__Setting_0_All.txt",
+      "decoded_sha256": "4fb2790a2b9a09a85a6bb1322cde7206d88b454a5200917a34cbf7ff47ad23b6",
+      "inventory_rows": 88,
+      "reviewed": [
+        {
+          "csv_record": 2,
+          "id": "basicA"
+        },
+        {
+          "csv_record": 3,
+          "id": "basicB"
+        },
+        {
+          "csv_record": 4,
+          "id": "basicC"
+        },
+        {
+          "csv_record": 5,
+          "id": "basicD"
+        },
+        {
+          "csv_record": 6,
+          "id": "basicE"
+        },
+        {
+          "csv_record": 7,
+          "id": "basicF"
+        },
+        {
+          "csv_record": 8,
+          "id": "basicG"
+        },
+        {
+          "csv_record": 9,
+          "id": "basicH"
+        },
+        {
+          "csv_record": 10,
+          "id": "habit1A"
+        },
+        {
+          "csv_record": 11,
+          "id": "habit1B"
+        },
+        {
+          "csv_record": 12,
+          "id": "habit1C"
+        },
+        {
+          "csv_record": 13,
+          "id": "habit1D"
+        },
+        {
+          "csv_record": 14,
+          "id": "habit1E"
+        },
+        {
+          "csv_record": 15,
+          "id": "habit1F"
+        },
+        {
+          "csv_record": 16,
+          "id": "habit1G"
+        },
+        {
+          "csv_record": 17,
+          "id": "habit1H"
+        },
+        {
+          "csv_record": 18,
+          "id": "noGluttonyA"
+        },
+        {
+          "csv_record": 19,
+          "id": "noGluttonyB"
+        },
+        {
+          "csv_record": 20,
+          "id": "noGluttonyC"
+        },
+        {
+          "csv_record": 21,
+          "id": "noGluttonyD"
+        }
+      ]
+    },
+    {
+      "table": "[Setting]UpgradeAction - [Setting]1_AstralWorld",
+      "asset": "resources.assets",
+      "path_id": 130,
+      "decoded_path": "/Users/weiwei/.codex/research/your-chronicle-2/extract/decoded/resources.assets__130___Setting_UpgradeAction_-__Setting_1_AstralWorld.txt",
+      "decoded_sha256": "813e8d44365798e15c8e6a961c6b9440a9b991c53647c334cf0ac559eabc315f",
+      "inventory_rows": 119,
+      "reviewed": [
+        {
+          "csv_record": 5,
+          "id": "loveSkillBookRulersForce"
+        },
+        {
+          "csv_record": 6,
+          "id": "loveSkillBookLeadersBrave"
+        },
+        {
+          "csv_record": 7,
+          "id": "loveSkillBookLoveDissection"
+        },
+        {
+          "csv_record": 8,
+          "id": "loveSkillBookLoveHug"
+        }
+      ]
+    },
+    {
+      "table": "YC_HelpSection",
+      "asset": "sharedassets1.assets",
+      "path_id": 10,
+      "decoded_path": "/Users/weiwei/.codex/research/your-chronicle-2/extract/decoded/sharedassets1.assets__10__YC_HelpSection.txt",
+      "decoded_sha256": "0465cc2f5bbfdafdfe78819eeb46bfbd9f1f9e1aa444077a117e041a2e7aa79a",
+      "inventory_rows": 52,
+      "reviewed": [
+        {
+          "csv_record": 14,
+          "id": "quest_party"
+        },
+        {
+          "csv_record": 16,
+          "id": "additional_effect"
+        },
+        {
+          "csv_record": 17,
+          "id": "wrath_additional_effect"
+        },
+        {
+          "csv_record": 18,
+          "id": "type_skill"
+        },
+        {
+          "csv_record": 26,
+          "id": "reincarnation"
+        },
+        {
+          "csv_record": 29,
+          "id": "alchemy"
+        },
+        {
+          "csv_record": 30,
+          "id": "alchemy_ingredients"
+        },
+        {
+          "csv_record": 31,
+          "id": "alchemy_pot"
+        },
+        {
+          "csv_record": 32,
+          "id": "alchemy_orb_selection"
+        },
+        {
+          "csv_record": 33,
+          "id": "alchemy_plate"
+        },
+        {
+          "csv_record": 34,
+          "id": "alchemy_tarot"
+        },
+        {
+          "csv_record": 35,
+          "id": "alchemy_orbTemplate"
+        },
+        {
+          "csv_record": 36,
+          "id": "gluttony"
+        },
+        {
+          "csv_record": 37,
+          "id": "greed"
+        },
+        {
+          "csv_record": 38,
+          "id": "envy"
+        },
+        {
+          "csv_record": 39,
+          "id": "wrath"
+        },
+        {
+          "csv_record": 40,
+          "id": "sloth_action"
+        },
+        {
+          "csv_record": 41,
+          "id": "sloth_routine"
+        },
+        {
+          "csv_record": 42,
+          "id": "pride"
+        },
+        {
+          "csv_record": 43,
+          "id": "offline_bonus"
+        },
+        {
+          "csv_record": 47,
+          "id": "gluttony_formula"
+        },
+        {
+          "csv_record": 48,
+          "id": "greed_formula"
+        },
+        {
+          "csv_record": 49,
+          "id": "envy_formula"
+        },
+        {
+          "csv_record": 50,
+          "id": "offline_bonus_formula"
+        }
+      ]
+    }
+  ],
+  "native_recovery": "Prior private corpus absent; prior native findings cited as prior evidence only.",
+  "runtime": false
+}

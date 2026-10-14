@@ -1,0 +1,1232 @@
+{
+  "date": "2026-10-14",
+  "b1_worlds": 72,
+  "world_notes": 37,
+  "matrix_only": 35,
+  "worlds": {
+    "a-novel-concept": {
+      "note": false,
+      "codes": {
+        "SO1": "U",
+        "SO2": "U",
+        "SO3": "U",
+        "SO4": "U",
+        "SO5": "U",
+        "SO6": "U",
+        "SO7": "U",
+        "SO8": "U",
+        "SO9": "U",
+        "SO10": "U",
+        "SO11": "U",
+        "SO12": "U"
+      }
+    },
+    "a-will-eternal": {
+      "note": false,
+      "codes": {
+        "SO1": "U",
+        "SO2": "U",
+        "SO3": "U",
+        "SO4": "U",
+        "SO5": "U",
+        "SO6": "U",
+        "SO7": "U",
+        "SO8": "U",
+        "SO9": "U",
+        "SO10": "U",
+        "SO11": "U",
+        "SO12": "U"
+      }
+    },
+    "archive": {
+      "note": false,
+      "codes": {
+        "SO1": "U",
+        "SO2": "U",
+        "SO3": "U",
+        "SO4": "U",
+        "SO5": "U",
+        "SO6": "U",
+        "SO7": "U",
+        "SO8": "U",
+        "SO9": "U",
+        "SO10": "U",
+        "SO11": "U",
+        "SO12": "U"
+      }
+    },
+    "bay-city": {
+      "note": false,
+      "codes": {
+        "SO1": "U",
+        "SO2": "U",
+        "SO3": "U",
+        "SO4": "U",
+        "SO5": "U",
+        "SO6": "U",
+        "SO7": "U",
+        "SO8": "U",
+        "SO9": "U",
+        "SO10": "U",
+        "SO11": "U",
+        "SO12": "U"
+      }
+    },
+    "beyond-timescape": {
+      "note": false,
+      "codes": {
+        "SO1": "U",
+        "SO2": "U",
+        "SO3": "U",
+        "SO4": "U",
+        "SO5": "U",
+        "SO6": "U",
+        "SO7": "U",
+        "SO8": "U",
+        "SO9": "U",
+        "SO10": "U",
+        "SO11": "U",
+        "SO12": "U"
+      }
+    },
+    "bleach": {
+      "note": true,
+      "codes": {
+        "SO1": "L",
+        "SO2": "L",
+        "SO3": "P",
+        "SO4": "U",
+        "SO5": "B",
+        "SO6": "B",
+        "SO7": "P",
+        "SO8": "B",
+        "SO9": "B",
+        "SO10": "P",
+        "SO11": "P",
+        "SO12": "L"
+      }
+    },
+    "borrowed-floodwarden": {
+      "note": true,
+      "codes": {
+        "SO1": "U",
+        "SO2": "U",
+        "SO3": "P",
+        "SO4": "U",
+        "SO5": "P",
+        "SO6": "U",
+        "SO7": "P",
+        "SO8": "P",
+        "SO9": "U",
+        "SO10": "P",
+        "SO11": "P",
+        "SO12": "P"
+      }
+    },
+    "chainsaw-man": {
+      "note": true,
+      "codes": {
+        "SO1": "B",
+        "SO2": "L",
+        "SO3": "P",
+        "SO4": "U",
+        "SO5": "B",
+        "SO6": "L",
+        "SO7": "P",
+        "SO8": "B",
+        "SO9": "L",
+        "SO10": "P",
+        "SO11": "P",
+        "SO12": "B"
+      }
+    },
+    "circle-of-inevitability": {
+      "note": true,
+      "codes": {
+        "SO1": "L",
+        "SO2": "L",
+        "SO3": "U",
+        "SO4": "P",
+        "SO5": "B",
+        "SO6": "L",
+        "SO7": "P",
+        "SO8": "L",
+        "SO9": "U",
+        "SO10": "P",
+        "SO11": "P",
+        "SO12": "L"
+      }
+    },
+    "concord-waymarks": {
+      "note": false,
+      "codes": {
+        "SO1": "U",
+        "SO2": "U",
+        "SO3": "U",
+        "SO4": "U",
+        "SO5": "U",
+        "SO6": "U",
+        "SO7": "U",
+        "SO8": "U",
+        "SO9": "U",
+        "SO10": "U",
+        "SO11": "U",
+        "SO12": "U"
+      }
+    },
+    "cradle": {
+      "note": true,
+      "codes": {
+        "SO1": "L",
+        "SO2": "L",
+        "SO3": "L",
+        "SO4": "U",
+        "SO5": "L",
+        "SO6": "U",
+        "SO7": "P",
+        "SO8": "P",
+        "SO9": "L",
+        "SO10": "P",
+        "SO11": "P",
+        "SO12": "L"
+      }
+    },
+    "crucible": {
+      "note": true,
+      "codes": {
+        "SO1": "P",
+        "SO2": "P",
+        "SO3": "P",
+        "SO4": "P",
+        "SO5": "P",
+        "SO6": "P",
+        "SO7": "P",
+        "SO8": "P",
+        "SO9": "P",
+        "SO10": "P",
+        "SO11": "P",
+        "SO12": "P"
+      }
+    },
+    "dnd": {
+      "note": true,
+      "codes": {
+        "SO1": "U",
+        "SO2": "U",
+        "SO3": "U",
+        "SO4": "U",
+        "SO5": "P",
+        "SO6": "U",
+        "SO7": "P",
+        "SO8": "B",
+        "SO9": "U",
+        "SO10": "U",
+        "SO11": "P",
+        "SO12": "P"
+      }
+    },
+    "dreaming": {
+      "note": true,
+      "codes": {
+        "SO1": "P",
+        "SO2": "P",
+        "SO3": "P",
+        "SO4": "P",
+        "SO5": "P",
+        "SO6": "U",
+        "SO7": "P",
+        "SO8": "P",
+        "SO9": "P",
+        "SO10": "P",
+        "SO11": "P",
+        "SO12": "P"
+      }
+    },
+    "elden-ring": {
+      "note": false,
+      "codes": {
+        "SO1": "U",
+        "SO2": "U",
+        "SO3": "U",
+        "SO4": "U",
+        "SO5": "U",
+        "SO6": "U",
+        "SO7": "U",
+        "SO8": "U",
+        "SO9": "U",
+        "SO10": "U",
+        "SO11": "U",
+        "SO12": "U"
+      }
+    },
+    "fallout": {
+      "note": false,
+      "codes": {
+        "SO1": "U",
+        "SO2": "U",
+        "SO3": "U",
+        "SO4": "U",
+        "SO5": "U",
+        "SO6": "U",
+        "SO7": "U",
+        "SO8": "U",
+        "SO9": "U",
+        "SO10": "U",
+        "SO11": "U",
+        "SO12": "U"
+      }
+    },
+    "fate": {
+      "note": true,
+      "codes": {
+        "SO1": "U",
+        "SO2": "L",
+        "SO3": "P",
+        "SO4": "U",
+        "SO5": "L",
+        "SO6": "B",
+        "SO7": "P",
+        "SO8": "B",
+        "SO9": "L",
+        "SO10": "P",
+        "SO11": "P",
+        "SO12": "L"
+      }
+    },
+    "fated-villain": {
+      "note": false,
+      "codes": {
+        "SO1": "U",
+        "SO2": "U",
+        "SO3": "U",
+        "SO4": "U",
+        "SO5": "U",
+        "SO6": "U",
+        "SO7": "U",
+        "SO8": "U",
+        "SO9": "U",
+        "SO10": "U",
+        "SO11": "U",
+        "SO12": "U"
+      }
+    },
+    "fog-city": {
+      "note": true,
+      "codes": {
+        "SO1": "P",
+        "SO2": "P",
+        "SO3": "P",
+        "SO4": "P",
+        "SO5": "P",
+        "SO6": "U",
+        "SO7": "P",
+        "SO8": "P",
+        "SO9": "P",
+        "SO10": "P",
+        "SO11": "P",
+        "SO12": "P"
+      }
+    },
+    "folded-glasshouse": {
+      "note": false,
+      "codes": {
+        "SO1": "U",
+        "SO2": "U",
+        "SO3": "U",
+        "SO4": "U",
+        "SO5": "U",
+        "SO6": "U",
+        "SO7": "U",
+        "SO8": "U",
+        "SO9": "U",
+        "SO10": "U",
+        "SO11": "U",
+        "SO12": "U"
+      }
+    },
+    "frieren": {
+      "note": true,
+      "codes": {
+        "SO1": "L",
+        "SO2": "U",
+        "SO3": "B",
+        "SO4": "L",
+        "SO5": "B",
+        "SO6": "B",
+        "SO7": "P",
+        "SO8": "B",
+        "SO9": "L",
+        "SO10": "P",
+        "SO11": "P",
+        "SO12": "P"
+      }
+    },
+    "fullmetal-alchemist": {
+      "note": true,
+      "codes": {
+        "SO1": "B",
+        "SO2": "L",
+        "SO3": "P",
+        "SO4": "U",
+        "SO5": "B",
+        "SO6": "L",
+        "SO7": "B",
+        "SO8": "B",
+        "SO9": "L",
+        "SO10": "P",
+        "SO11": "P",
+        "SO12": "B"
+      }
+    },
+    "genetic-ascension": {
+      "note": true,
+      "codes": {
+        "SO1": "L",
+        "SO2": "U",
+        "SO3": "P",
+        "SO4": "U",
+        "SO5": "P",
+        "SO6": "U",
+        "SO7": "L",
+        "SO8": "P",
+        "SO9": "L",
+        "SO10": "P",
+        "SO11": "P",
+        "SO12": "P"
+      }
+    },
+    "goa": {
+      "note": false,
+      "codes": {
+        "SO1": "U",
+        "SO2": "U",
+        "SO3": "U",
+        "SO4": "U",
+        "SO5": "U",
+        "SO6": "U",
+        "SO7": "U",
+        "SO8": "U",
+        "SO9": "U",
+        "SO10": "U",
+        "SO11": "U",
+        "SO12": "U"
+      }
+    },
+    "gu-wilds": {
+      "note": true,
+      "codes": {
+        "SO1": "P",
+        "SO2": "P",
+        "SO3": "P",
+        "SO4": "P",
+        "SO5": "P",
+        "SO6": "U",
+        "SO7": "P",
+        "SO8": "P",
+        "SO9": "P",
+        "SO10": "P",
+        "SO11": "P",
+        "SO12": "P"
+      }
+    },
+    "harry-potter": {
+      "note": true,
+      "codes": {
+        "SO1": "L",
+        "SO2": "U",
+        "SO3": "P",
+        "SO4": "B",
+        "SO5": "B",
+        "SO6": "P",
+        "SO7": "P",
+        "SO8": "P",
+        "SO9": "U",
+        "SO10": "P",
+        "SO11": "P",
+        "SO12": "P"
+      }
+    },
+    "hunter-x-hunter": {
+      "note": true,
+      "codes": {
+        "SO1": "B",
+        "SO2": "L",
+        "SO3": "P",
+        "SO4": "L",
+        "SO5": "B",
+        "SO6": "L",
+        "SO7": "P",
+        "SO8": "P",
+        "SO9": "L",
+        "SO10": "P",
+        "SO11": "P",
+        "SO12": "L"
+      }
+    },
+    "i-shall-seal-heavens": {
+      "note": false,
+      "codes": {
+        "SO1": "U",
+        "SO2": "U",
+        "SO3": "U",
+        "SO4": "U",
+        "SO5": "U",
+        "SO6": "U",
+        "SO7": "U",
+        "SO8": "U",
+        "SO9": "U",
+        "SO10": "U",
+        "SO11": "U",
+        "SO12": "U"
+      }
+    },
+    "jujutsu": {
+      "note": true,
+      "codes": {
+        "SO1": "L",
+        "SO2": "L",
+        "SO3": "P",
+        "SO4": "P",
+        "SO5": "P",
+        "SO6": "L",
+        "SO7": "P",
+        "SO8": "B",
+        "SO9": "L",
+        "SO10": "P",
+        "SO11": "P",
+        "SO12": "B"
+      }
+    },
+    "kairos": {
+      "note": false,
+      "codes": {
+        "SO1": "U",
+        "SO2": "U",
+        "SO3": "U",
+        "SO4": "U",
+        "SO5": "U",
+        "SO6": "U",
+        "SO7": "U",
+        "SO8": "U",
+        "SO9": "U",
+        "SO10": "U",
+        "SO11": "U",
+        "SO12": "U"
+      }
+    },
+    "kenshi": {
+      "note": true,
+      "codes": {
+        "SO1": "U",
+        "SO2": "L",
+        "SO3": "P",
+        "SO4": "U",
+        "SO5": "P",
+        "SO6": "U",
+        "SO7": "L",
+        "SO8": "P",
+        "SO9": "U",
+        "SO10": "P",
+        "SO11": "P",
+        "SO12": "L"
+      }
+    },
+    "labyrinth-mad-god": {
+      "note": false,
+      "codes": {
+        "SO1": "U",
+        "SO2": "U",
+        "SO3": "U",
+        "SO4": "U",
+        "SO5": "U",
+        "SO6": "U",
+        "SO7": "U",
+        "SO8": "U",
+        "SO9": "U",
+        "SO10": "U",
+        "SO11": "U",
+        "SO12": "U"
+      }
+    },
+    "lantern-compact": {
+      "note": false,
+      "codes": {
+        "SO1": "U",
+        "SO2": "U",
+        "SO3": "U",
+        "SO4": "U",
+        "SO5": "U",
+        "SO6": "U",
+        "SO7": "U",
+        "SO8": "U",
+        "SO9": "U",
+        "SO10": "U",
+        "SO11": "U",
+        "SO12": "U"
+      }
+    },
+    "legendary-mechanic": {
+      "note": true,
+      "codes": {
+        "SO1": "U",
+        "SO2": "L",
+        "SO3": "P",
+        "SO4": "U",
+        "SO5": "L",
+        "SO6": "U",
+        "SO7": "L",
+        "SO8": "L",
+        "SO9": "U",
+        "SO10": "P",
+        "SO11": "P",
+        "SO12": "L"
+      }
+    },
+    "lord-of-mysteries": {
+      "note": true,
+      "codes": {
+        "SO1": "B",
+        "SO2": "L",
+        "SO3": "P",
+        "SO4": "P",
+        "SO5": "B",
+        "SO6": "L",
+        "SO7": "P",
+        "SO8": "P",
+        "SO9": "L",
+        "SO10": "P",
+        "SO11": "P",
+        "SO12": "L"
+      }
+    },
+    "many-door-observatory": {
+      "note": true,
+      "codes": {
+        "SO1": "U",
+        "SO2": "P",
+        "SO3": "P",
+        "SO4": "P",
+        "SO5": "U",
+        "SO6": "U",
+        "SO7": "P",
+        "SO8": "P",
+        "SO9": "P",
+        "SO10": "P",
+        "SO11": "P",
+        "SO12": "P"
+      }
+    },
+    "mother-of-learning": {
+      "note": true,
+      "codes": {
+        "SO1": "U",
+        "SO2": "U",
+        "SO3": "P",
+        "SO4": "P",
+        "SO5": "P",
+        "SO6": "P",
+        "SO7": "P",
+        "SO8": "B",
+        "SO9": "U",
+        "SO10": "P",
+        "SO11": "P",
+        "SO12": "P"
+      }
+    },
+    "naruto": {
+      "note": true,
+      "codes": {
+        "SO1": "L",
+        "SO2": "L",
+        "SO3": "L",
+        "SO4": "P",
+        "SO5": "B",
+        "SO6": "L",
+        "SO7": "P",
+        "SO8": "B",
+        "SO9": "L",
+        "SO10": "P",
+        "SO11": "P",
+        "SO12": "B"
+      }
+    },
+    "omniscient-reader": {
+      "note": false,
+      "codes": {
+        "SO1": "U",
+        "SO2": "U",
+        "SO3": "U",
+        "SO4": "U",
+        "SO5": "U",
+        "SO6": "U",
+        "SO7": "U",
+        "SO8": "U",
+        "SO9": "U",
+        "SO10": "U",
+        "SO11": "U",
+        "SO12": "U"
+      }
+    },
+    "orchard-city": {
+      "note": true,
+      "codes": {
+        "SO1": "U",
+        "SO2": "P",
+        "SO3": "P",
+        "SO4": "P",
+        "SO5": "P",
+        "SO6": "U",
+        "SO7": "P",
+        "SO8": "P",
+        "SO9": "P",
+        "SO10": "P",
+        "SO11": "P",
+        "SO12": "P"
+      }
+    },
+    "original-frontier": {
+      "note": true,
+      "codes": {
+        "SO1": "P",
+        "SO2": "P",
+        "SO3": "P",
+        "SO4": "P",
+        "SO5": "P",
+        "SO6": "P",
+        "SO7": "P",
+        "SO8": "P",
+        "SO9": "P",
+        "SO10": "P",
+        "SO11": "P",
+        "SO12": "P"
+      }
+    },
+    "paradise-hub": {
+      "note": true,
+      "codes": {
+        "SO1": "B",
+        "SO2": "L",
+        "SO3": "P",
+        "SO4": "P",
+        "SO5": "L",
+        "SO6": "B",
+        "SO7": "B",
+        "SO8": "P",
+        "SO9": "L",
+        "SO10": "P",
+        "SO11": "B",
+        "SO12": "L"
+      }
+    },
+    "perfect-run": {
+      "note": true,
+      "codes": {
+        "SO1": "U",
+        "SO2": "U",
+        "SO3": "U",
+        "SO4": "U",
+        "SO5": "L",
+        "SO6": "U",
+        "SO7": "L",
+        "SO8": "P",
+        "SO9": "U",
+        "SO10": "P",
+        "SO11": "P",
+        "SO12": "L"
+      }
+    },
+    "proto23": {
+      "note": false,
+      "codes": {
+        "SO1": "U",
+        "SO2": "U",
+        "SO3": "U",
+        "SO4": "U",
+        "SO5": "U",
+        "SO6": "U",
+        "SO7": "U",
+        "SO8": "U",
+        "SO9": "U",
+        "SO10": "U",
+        "SO11": "U",
+        "SO12": "U"
+      }
+    },
+    "proving-ground": {
+      "note": false,
+      "codes": {
+        "SO1": "U",
+        "SO2": "U",
+        "SO3": "U",
+        "SO4": "U",
+        "SO5": "U",
+        "SO6": "U",
+        "SO7": "U",
+        "SO8": "U",
+        "SO9": "U",
+        "SO10": "U",
+        "SO11": "U",
+        "SO12": "U"
+      }
+    },
+    "red-basin": {
+      "note": true,
+      "codes": {
+        "SO1": "P",
+        "SO2": "P",
+        "SO3": "P",
+        "SO4": "P",
+        "SO5": "P",
+        "SO6": "U",
+        "SO7": "P",
+        "SO8": "P",
+        "SO9": "U",
+        "SO10": "P",
+        "SO11": "P",
+        "SO12": "P"
+      }
+    },
+    "regressors-tale": {
+      "note": false,
+      "codes": {
+        "SO1": "U",
+        "SO2": "U",
+        "SO3": "U",
+        "SO4": "U",
+        "SO5": "U",
+        "SO6": "U",
+        "SO7": "U",
+        "SO8": "U",
+        "SO9": "U",
+        "SO10": "U",
+        "SO11": "U",
+        "SO12": "U"
+      }
+    },
+    "renegade-immortal": {
+      "note": false,
+      "codes": {
+        "SO1": "U",
+        "SO2": "U",
+        "SO3": "U",
+        "SO4": "U",
+        "SO5": "U",
+        "SO6": "U",
+        "SO7": "U",
+        "SO8": "U",
+        "SO9": "U",
+        "SO10": "U",
+        "SO11": "U",
+        "SO12": "U"
+      }
+    },
+    "reverend-insanity": {
+      "note": true,
+      "codes": {
+        "SO1": "L",
+        "SO2": "L",
+        "SO3": "P",
+        "SO4": "L",
+        "SO5": "B",
+        "SO6": "U",
+        "SO7": "B",
+        "SO8": "P",
+        "SO9": "L",
+        "SO10": "P",
+        "SO11": "P",
+        "SO12": "L"
+      }
+    },
+    "saltworks": {
+      "note": false,
+      "codes": {
+        "SO1": "U",
+        "SO2": "U",
+        "SO3": "U",
+        "SO4": "U",
+        "SO5": "U",
+        "SO6": "U",
+        "SO7": "U",
+        "SO8": "U",
+        "SO9": "U",
+        "SO10": "U",
+        "SO11": "U",
+        "SO12": "U"
+      }
+    },
+    "salvage-reach": {
+      "note": true,
+      "codes": {
+        "SO1": "P",
+        "SO2": "P",
+        "SO3": "P",
+        "SO4": "P",
+        "SO5": "P",
+        "SO6": "U",
+        "SO7": "P",
+        "SO8": "P",
+        "SO9": "P",
+        "SO10": "P",
+        "SO11": "P",
+        "SO12": "P"
+      }
+    },
+    "second-coming-gluttony": {
+      "note": false,
+      "codes": {
+        "SO1": "U",
+        "SO2": "U",
+        "SO3": "U",
+        "SO4": "U",
+        "SO5": "U",
+        "SO6": "U",
+        "SO7": "U",
+        "SO8": "U",
+        "SO9": "U",
+        "SO10": "U",
+        "SO11": "U",
+        "SO12": "U"
+      }
+    },
+    "service-hub": {
+      "note": false,
+      "codes": {
+        "SO1": "U",
+        "SO2": "U",
+        "SO3": "U",
+        "SO4": "U",
+        "SO5": "U",
+        "SO6": "U",
+        "SO7": "U",
+        "SO8": "U",
+        "SO9": "U",
+        "SO10": "U",
+        "SO11": "U",
+        "SO12": "U"
+      }
+    },
+    "shadow-slave": {
+      "note": true,
+      "codes": {
+        "SO1": "B",
+        "SO2": "L",
+        "SO3": "P",
+        "SO4": "P",
+        "SO5": "P",
+        "SO6": "L",
+        "SO7": "P",
+        "SO8": "P",
+        "SO9": "B",
+        "SO10": "P",
+        "SO11": "P",
+        "SO12": "L"
+      }
+    },
+    "shatterreach": {
+      "note": false,
+      "codes": {
+        "SO1": "U",
+        "SO2": "U",
+        "SO3": "U",
+        "SO4": "U",
+        "SO5": "U",
+        "SO6": "U",
+        "SO7": "U",
+        "SO8": "U",
+        "SO9": "U",
+        "SO10": "U",
+        "SO11": "U",
+        "SO12": "U"
+      }
+    },
+    "skyrim": {
+      "note": false,
+      "codes": {
+        "SO1": "U",
+        "SO2": "U",
+        "SO3": "U",
+        "SO4": "U",
+        "SO5": "U",
+        "SO6": "U",
+        "SO7": "U",
+        "SO8": "U",
+        "SO9": "U",
+        "SO10": "U",
+        "SO11": "U",
+        "SO12": "U"
+      }
+    },
+    "soldiers-life": {
+      "note": true,
+      "codes": {
+        "SO1": "L",
+        "SO2": "U",
+        "SO3": "L",
+        "SO4": "L",
+        "SO5": "P",
+        "SO6": "U",
+        "SO7": "P",
+        "SO8": "P",
+        "SO9": "U",
+        "SO10": "U",
+        "SO11": "P",
+        "SO12": "P"
+      }
+    },
+    "solo-leveling": {
+      "note": false,
+      "codes": {
+        "SO1": "U",
+        "SO2": "U",
+        "SO3": "U",
+        "SO4": "U",
+        "SO5": "U",
+        "SO6": "U",
+        "SO7": "U",
+        "SO8": "U",
+        "SO9": "U",
+        "SO10": "U",
+        "SO11": "U",
+        "SO12": "U"
+      }
+    },
+    "speedrunning-multiverse": {
+      "note": true,
+      "codes": {
+        "SO1": "U",
+        "SO2": "L",
+        "SO3": "P",
+        "SO4": "U",
+        "SO5": "L",
+        "SO6": "U",
+        "SO7": "P",
+        "SO8": "P",
+        "SO9": "L",
+        "SO10": "P",
+        "SO11": "L",
+        "SO12": "L"
+      }
+    },
+    "tidemark": {
+      "note": false,
+      "codes": {
+        "SO1": "U",
+        "SO2": "U",
+        "SO3": "U",
+        "SO4": "U",
+        "SO5": "U",
+        "SO6": "U",
+        "SO7": "U",
+        "SO8": "U",
+        "SO9": "U",
+        "SO10": "U",
+        "SO11": "U",
+        "SO12": "U"
+      }
+    },
+    "travelers-gate": {
+      "note": false,
+      "codes": {
+        "SO1": "U",
+        "SO2": "U",
+        "SO3": "U",
+        "SO4": "U",
+        "SO5": "U",
+        "SO6": "U",
+        "SO7": "U",
+        "SO8": "U",
+        "SO9": "U",
+        "SO10": "U",
+        "SO11": "U",
+        "SO12": "U"
+      }
+    },
+    "ttks-annual-traits": {
+      "note": false,
+      "codes": {
+        "SO1": "U",
+        "SO2": "U",
+        "SO3": "U",
+        "SO4": "U",
+        "SO5": "U",
+        "SO6": "U",
+        "SO7": "U",
+        "SO8": "U",
+        "SO9": "U",
+        "SO10": "U",
+        "SO11": "U",
+        "SO12": "U"
+      }
+    },
+    "ttks-border-inspector": {
+      "note": true,
+      "codes": {
+        "SO1": "L",
+        "SO2": "U",
+        "SO3": "P",
+        "SO4": "B",
+        "SO5": "B",
+        "SO6": "U",
+        "SO7": "P",
+        "SO8": "P",
+        "SO9": "U",
+        "SO10": "P",
+        "SO11": "P",
+        "SO12": "P"
+      }
+    },
+    "ttks-humanitys-heir": {
+      "note": true,
+      "codes": {
+        "SO1": "U",
+        "SO2": "U",
+        "SO3": "U",
+        "SO4": "U",
+        "SO5": "P",
+        "SO6": "U",
+        "SO7": "P",
+        "SO8": "B",
+        "SO9": "L",
+        "SO10": "U",
+        "SO11": "P",
+        "SO12": "P"
+      }
+    },
+    "ttks-jjk-challenge": {
+      "note": false,
+      "codes": {
+        "SO1": "U",
+        "SO2": "U",
+        "SO3": "U",
+        "SO4": "U",
+        "SO5": "U",
+        "SO6": "U",
+        "SO7": "U",
+        "SO8": "U",
+        "SO9": "U",
+        "SO10": "U",
+        "SO11": "U",
+        "SO12": "U"
+      }
+    },
+    "ttks-mimic": {
+      "note": true,
+      "codes": {
+        "SO1": "U",
+        "SO2": "U",
+        "SO3": "U",
+        "SO4": "U",
+        "SO5": "P",
+        "SO6": "U",
+        "SO7": "P",
+        "SO8": "P",
+        "SO9": "U",
+        "SO10": "U",
+        "SO11": "L",
+        "SO12": "L"
+      }
+    },
+    "wandering-inn": {
+      "note": false,
+      "codes": {
+        "SO1": "U",
+        "SO2": "U",
+        "SO3": "U",
+        "SO4": "U",
+        "SO5": "U",
+        "SO6": "U",
+        "SO7": "U",
+        "SO8": "U",
+        "SO9": "U",
+        "SO10": "U",
+        "SO11": "U",
+        "SO12": "U"
+      }
+    },
+    "warlock-magus-world": {
+      "note": true,
+      "codes": {
+        "SO1": "L",
+        "SO2": "L",
+        "SO3": "P",
+        "SO4": "P",
+        "SO5": "L",
+        "SO6": "U",
+        "SO7": "L",
+        "SO8": "L",
+        "SO9": "L",
+        "SO10": "P",
+        "SO11": "P",
+        "SO12": "P"
+      }
+    },
+    "wish-upon-stars": {
+      "note": false,
+      "codes": {
+        "SO1": "U",
+        "SO2": "U",
+        "SO3": "U",
+        "SO4": "U",
+        "SO5": "U",
+        "SO6": "U",
+        "SO7": "U",
+        "SO8": "U",
+        "SO9": "U",
+        "SO10": "U",
+        "SO11": "U",
+        "SO12": "U"
+      }
+    },
+    "worm": {
+      "note": false,
+      "codes": {
+        "SO1": "U",
+        "SO2": "U",
+        "SO3": "U",
+        "SO4": "U",
+        "SO5": "U",
+        "SO6": "U",
+        "SO7": "U",
+        "SO8": "U",
+        "SO9": "U",
+        "SO10": "U",
+        "SO11": "U",
+        "SO12": "U"
+      }
+    },
+    "you-are-summoned": {
+      "note": false,
+      "codes": {
+        "SO1": "U",
+        "SO2": "U",
+        "SO3": "U",
+        "SO4": "U",
+        "SO5": "U",
+        "SO6": "U",
+        "SO7": "U",
+        "SO8": "U",
+        "SO9": "U",
+        "SO10": "U",
+        "SO11": "U",
+        "SO12": "U"
+      }
+    },
+    "you-have-died-again": {
+      "note": false,
+      "codes": {
+        "SO1": "U",
+        "SO2": "U",
+        "SO3": "U",
+        "SO4": "U",
+        "SO5": "U",
+        "SO6": "U",
+        "SO7": "U",
+        "SO8": "U",
+        "SO9": "U",
+        "SO10": "U",
+        "SO11": "U",
+        "SO12": "U"
+      }
+    }
+  }
+}

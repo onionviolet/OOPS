@@ -1,0 +1,24 @@
+{
+  "rarity_roll_counts_per_100": {
+    "veryrare": 6,
+    "rare": 25,
+    "common": 69
+  },
+  "cooldown_boundary": {
+    "elapsed_4_freq_5": "blocked",
+    "elapsed_5_freq_5": "allowed"
+  },
+  "ration_examples": {
+    "consumption_20_ration_50": 10,
+    "consumption_20_ration_100": 20
+  },
+  "profit_example": {
+    "buy": 100,
+    "sell": 140,
+    "quantity": 10,
+    "overhead": 250,
+    "net": 150,
+    "one_extra_delay_cost_200_net": -50
+  },
+  "verification": "Independent arithmetic probes of recovered expressions, not game execution or market balance proof."
+}

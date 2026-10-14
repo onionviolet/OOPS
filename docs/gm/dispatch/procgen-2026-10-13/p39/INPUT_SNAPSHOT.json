@@ -1,0 +1,653 @@
+{
+  "captured_utc": "2026-10-14T05:32:18.480449+00:00",
+  "evidence": "read-only source/doc snapshot; no build/runtime verification",
+  "main_head": "f16bd67c99b2ab3b4aed329295f6823c9ab85cc4",
+  "branch": "codex/gameplay-foundations",
+  "p2_head": "f8fe699487c90ec06e83bfc020dfa8a6dc234705",
+  "inputs": [
+    {
+      "path": "PROJECT.md",
+      "bytes": 50071,
+      "lines": 674,
+      "sha256": "ff1d541093bd734521277ed29fdb95a5c5e0e7701c52fd9ca7463f791b57b3ab"
+    },
+    {
+      "path": "AGENTS.md",
+      "bytes": 5222,
+      "lines": 107,
+      "sha256": "0aecd5d70ed7f6c7815c81b66ac6137da49b1c04573ac785007cfb38ad559026"
+    },
+    {
+      "path": "docs/USER_VISION.md",
+      "bytes": 269051,
+      "lines": 2773,
+      "sha256": "fe5f370e14ea463255af9758d1abecc52f7bcf124b50d48d41a82806fb785e89"
+    },
+    {
+      "path": "docs/GAME_MASTER_PROMPT.md",
+      "bytes": 36666,
+      "lines": 238,
+      "sha256": "3897f042930bea3545b3e63dbe332f90a14f0077727f1670996a6c75fe1381cc"
+    },
+    {
+      "path": "docs/PROCEDURAL_CRAFTING_AND_CONSUMABLES_CONSIDERATIONS_2026-10-14.md",
+      "bytes": 35429,
+      "lines": 399,
+      "sha256": "36f08b14af5b8f1cc3654e9d99c12280bade323f5af7b8ddf04e158614a9005f"
+    },
+    {
+      "path": "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+      "bytes": 63607,
+      "lines": 887,
+      "sha256": "c418a4c0fbbbd583949e00d80e3edd8481975eef6d40c7880f3d2af4037ba1ca"
+    },
+    {
+      "path": "docs/PROCEDURAL_GENERATION_STATUS_2026-10-13.md",
+      "bytes": 13533,
+      "lines": 120,
+      "sha256": "06e881835e437d2ca9d3d3e6e2fcec8d5c9db03f16b2b01e49859be738f48afc"
+    },
+    {
+      "path": "docs/PROCEDURAL_MATERIALS_AND_ALCHEMY_AUDIT_2026-10-13.md",
+      "bytes": 20075,
+      "lines": 149,
+      "sha256": "c3618194661ed293f35963f37196db2f100dd4d148a96abb56347dec92da3648"
+    },
+    {
+      "path": "docs/research/procedural-materials-2026-10-13/REPORT.md",
+      "bytes": 15550,
+      "lines": 113,
+      "sha256": "1e08be0ccb6cb44655f32c641e1877e6c2aeb0beaf10a8b55c40de3a03175314"
+    },
+    {
+      "path": "docs/research/procedural-materials-2026-10-13/deep/REPORT.md",
+      "bytes": 16986,
+      "lines": 113,
+      "sha256": "08fc31ade17d230bd30e8f899a07332cc258374a96707da9747bc2a319b82f99"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/COMMON.md",
+      "bytes": 4046,
+      "lines": 50,
+      "sha256": "615702f75ed356bfbd2d427b59d6bd713cc1ce5768a4cde6062a20aa5f1342ef"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/PLAN.md",
+      "bytes": 13387,
+      "lines": 84,
+      "sha256": "0be50079f37aa38129955582db626d10a07e2ad6a7619884a6c8f18cfea8cd08"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/STATUS.md",
+      "bytes": 4077,
+      "lines": 55,
+      "sha256": "4e2a6ae7debb602576a7daa812e54d3e4f6a04c750e35fd49d9fe4eaaaeac09b"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p11/MORE.md",
+      "bytes": 9834,
+      "lines": 35,
+      "sha256": "5bdb6015953bb27831e022f21c2216e658d6e62aa32df6d407132cbeca17824c"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p5/EXTRA_IDEAS.md",
+      "bytes": 7677,
+      "lines": 26,
+      "sha256": "078b592855214c06d0e86169a6d1ab2b8f5ad25aad5ae0cd308aa6be26442d34"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p6/AGRICULTURE.md",
+      "bytes": 5177,
+      "lines": 35,
+      "sha256": "aabd26408add5385159b80e648d29631a5756d9df83e2c9ff93b6d10ae03bb72"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p6/BACKLOG.md",
+      "bytes": 2063,
+      "lines": 15,
+      "sha256": "8bdc8918b74196700628e1be746aa1d9a76c3f08ce10a8b9ef0ad8ef5bb79950"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p6/BUILDINGS.md",
+      "bytes": 4874,
+      "lines": 35,
+      "sha256": "25a40ca818d55a3dc2bbcdab13899e953296ee19e33a1a7ff54ac4f3a7a97fce"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p6/CANON_LOCATORS.md",
+      "bytes": 7032,
+      "lines": 31,
+      "sha256": "bf9d1a9f64509b3430524720b6606554b992fa753a8bbeb19571713cd8f3c363"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p6/CHECKPOINT.md",
+      "bytes": 4316,
+      "lines": 25,
+      "sha256": "baa7d03ad610b49d34978b81a186ec798f9a140aa1ac440b9b3a752a3ad45166"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p6/COATINGS.md",
+      "bytes": 4628,
+      "lines": 35,
+      "sha256": "10332ccb12c17a261c5422fda3566ac88082642766c9615222c547c3da31a9d7"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p6/CONSTRUCTS.md",
+      "bytes": 4922,
+      "lines": 35,
+      "sha256": "fd222e321e9fd340ef315f8ea0a93698bb774563ea585f8193ba8ed79855a3fd"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p6/COOKING.md",
+      "bytes": 4734,
+      "lines": 35,
+      "sha256": "14530d8e93cf7e10bc4b099b5083c679a4abc60d0baf9d7dc3e2c998e4c2d595"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p6/CREATIVE_WORKS.md",
+      "bytes": 5740,
+      "lines": 43,
+      "sha256": "273d0e3f0ffa0aab690da8227dc7803aa13b34094b9ee8995fa093baeef68764"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p6/LIVE_AUDIT.md",
+      "bytes": 5581,
+      "lines": 22,
+      "sha256": "e60a6daf03ba7cc1b9a9d99cd0d53625b7fb327a8ed8ed35df21644d89b048c5"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p6/MORE.md",
+      "bytes": 7344,
+      "lines": 19,
+      "sha256": "4e287a039428187105d8ad6d58c70654f3f33d482bc9be5a750c750a6d81a78d"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p6/PATTERNS.md",
+      "bytes": 5050,
+      "lines": 35,
+      "sha256": "ee9ca6b3d26825a8ce4f6e78cb08c4ab4add1accdbedcea083be9f2cabd1f863"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p6/REPAIR_SALVAGE.md",
+      "bytes": 4372,
+      "lines": 35,
+      "sha256": "890ac1a5313a5571e2a62d930f333bb54335588e8418bd0dcd47759e30c42ba2"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p6/REPORT.md",
+      "bytes": 24995,
+      "lines": 109,
+      "sha256": "2b58f1b41d9fa32abb6768728278075ec5aa89c0d8dae368cb8fbc2d8a8d1ba2"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p6/SMITHING.md",
+      "bytes": 4648,
+      "lines": 35,
+      "sha256": "f8a96300067177965db7e4fc3786c9bd824d8f17303f153c614cb2f6f64679d4"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p6/TECHNIQUE_INVENTION.md",
+      "bytes": 8425,
+      "lines": 43,
+      "sha256": "0a54ba5d872aff9bc4410737a508973e4bcde25c1437a6b5c04b103e235ef5d8"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p6/TOOLS_TEXTILES.md",
+      "bytes": 4298,
+      "lines": 33,
+      "sha256": "6287ec823c7811a9016d4d0c7280f310c7f7345cc2329cb93768d43b60105401"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p8/REPORT.md",
+      "bytes": 18813,
+      "lines": 94,
+      "sha256": "d6103ce8a810d8918179b46a8c3011d0b6cd82f27564917f6286bbf849c221ce"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p1/REPORT.md",
+      "bytes": 10425,
+      "lines": 74,
+      "sha256": "74e4a96a84586d8e174054b26829b987fe6622ae9a0fa5902e2788e91341f98e"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p10/REPORT.md",
+      "bytes": 17624,
+      "lines": 89,
+      "sha256": "ddc3b9c9d6c83020f70f083e65200191f415f13391a83fcccc74797bfd722402"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p11/REPORT.md",
+      "bytes": 13782,
+      "lines": 77,
+      "sha256": "ffa056c0cd1e5b7e70763f765ce4dc77e742dbf89446467dda651751e744713e"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p12/REPORT.md",
+      "bytes": 14434,
+      "lines": 63,
+      "sha256": "965fcc06bf3f051949a74bd94c16cbb18f041ee859f3badfe7372336889d1506"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p13/REPORT.md",
+      "bytes": 13655,
+      "lines": 74,
+      "sha256": "c4495773300ea768a9ae3f2d70fb7c1305766468956f86e98eac571383d9a275"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p14/REPORT.md",
+      "bytes": 20435,
+      "lines": 87,
+      "sha256": "28f91295a5b5bf6ac61e66c37094a94ed7a78559830ca5bb7f9e25661bb285d0"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p15/REPORT.md",
+      "bytes": 17937,
+      "lines": 90,
+      "sha256": "f84c7167e2536bb47fba4846e95befebdda1aae82b56820278eb88592607275a"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p16/REPORT.md",
+      "bytes": 15953,
+      "lines": 85,
+      "sha256": "b64873ec9d1401de06bc0c8717433523cbf581aacd4ca5d99a69fdc864f0c720"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p17/REPORT.md",
+      "bytes": 10245,
+      "lines": 45,
+      "sha256": "5e73e390b634b1f527164a4329c3a812fe538a8ac6f9c2ec647d2bcdb2c3dfd7"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p18/REPORT.md",
+      "bytes": 6787,
+      "lines": 67,
+      "sha256": "51e0c91ef7dfebfb35b1f72a1b28f12dbae4872852187c432a45fc1f0039785f"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p19/REPORT.md",
+      "bytes": 9230,
+      "lines": 54,
+      "sha256": "6ac9cfa39455ee6cba3dd7f07994bafaf4faf2ee77b8facdf0cea9db511e695a"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p2/REPORT.md",
+      "bytes": 9803,
+      "lines": 62,
+      "sha256": "23e4bf9f8e24b5709944bb54d32e47d91d29324682a8abb23c31f7304e86c6b7"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p20/REPORT.md",
+      "bytes": 17870,
+      "lines": 78,
+      "sha256": "8451f718637eeb9f2994f126fafc7cfe2b8bc3749a00d92610ef9faa59c1c91e"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p21/REPORT.md",
+      "bytes": 14929,
+      "lines": 164,
+      "sha256": "887689c9f8eac9907f676f9f632e707a72c7b6c13b4845e3e88015c3edab2d89"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p22/REPORT.md",
+      "bytes": 17481,
+      "lines": 88,
+      "sha256": "8152f67c2e22641bfbbaa33507e9d426c9c033cad24dfb60243b847c64af24d1"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p23/REPORT.md",
+      "bytes": 18402,
+      "lines": 87,
+      "sha256": "9846dc3b72106f65bc28b9d0af04f9c8c6a10c3872b7a21ec52ee92142b80417"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p24/REPORT.md",
+      "bytes": 18184,
+      "lines": 83,
+      "sha256": "10894fde4166c99b367b3c6e09addf351f127ee32dd2b757f87abe776c03a9db"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p25/REPORT.md",
+      "bytes": 15011,
+      "lines": 75,
+      "sha256": "7392fd9f7275762fb200bb4a0da9aab9256fcc0ee6999a7dc23e503a0b736ec0"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p26/REPORT.md",
+      "bytes": 12512,
+      "lines": 60,
+      "sha256": "7e22c22b4fe85ba27b613c8a6a0042885c5c35f2a56c48f13aa554baca0f686c"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p27/REPORT.md",
+      "bytes": 20082,
+      "lines": 98,
+      "sha256": "e97f751265d641bf8ea5536ff50e1faabca71cc1e18360d16679ce50383561b9"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p28/REPORT.md",
+      "bytes": 15191,
+      "lines": 75,
+      "sha256": "e8635f435d8c42eb678824029049520cca61636642458ec39998ac1e23a5cd38"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p3/REPORT.md",
+      "bytes": 12782,
+      "lines": 83,
+      "sha256": "f39f768a08e595bf751de18135534d47767726142f20d39b98a3490244e5d3c7"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p30/REPORT.md",
+      "bytes": 12846,
+      "lines": 62,
+      "sha256": "d1ffe3ca7a869d2808905cde4356299dc4180891c93377388723d7c763336c12"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p31/REPORT.md",
+      "bytes": 21875,
+      "lines": 98,
+      "sha256": "9563141c7be74e66afba3c03d169c53b2a99316124b33bbc61942fe6d32259bd"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p32/REPORT.md",
+      "bytes": 7759,
+      "lines": 41,
+      "sha256": "83bd8d1c904821f04b7cfbe3b5792d0c81b0e8b2279359f9d3e54b634ecfdcb2"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p33/REPORT.md",
+      "bytes": 15266,
+      "lines": 80,
+      "sha256": "d0b1f1b1e1170db1dcb9d3bd21f612bfcee0ec53ab360aca86d90a6dc07ba0f9"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p35/REPORT.md",
+      "bytes": 15211,
+      "lines": 78,
+      "sha256": "e2d06ac8c335fe7b6c4c2a0004cb1d18548a76116521dd93cbb2cdfbf7bb543d"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p36/REPORT.md",
+      "bytes": 26325,
+      "lines": 125,
+      "sha256": "6a00acebe4ce23cdd5cb6d2aa75592c7bce62597e344eba208ca705c0b7831eb"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p37/REPORT.md",
+      "bytes": 15704,
+      "lines": 80,
+      "sha256": "95d685d2638754fefac5e0922d9c5309325a6f42d751c0357876a11cd352a89c"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p38/REPORT.md",
+      "bytes": 11038,
+      "lines": 67,
+      "sha256": "4b06a0854b08c6df763c6c15ae8629179d7c207db85677e4f524d216651d54e2"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p4/REPORT.md",
+      "bytes": 6420,
+      "lines": 56,
+      "sha256": "b5d9b5ed3dc1a4e1b7b3dc10b80042016a9c9783fba09c957054d10b3997c5ee"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p40/REPORT.md",
+      "bytes": 9031,
+      "lines": 47,
+      "sha256": "724a38272d7cfb0288a8e969f99a608a171f8da0a59410ed00907ab381e6a36c"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p5/REPORT.md",
+      "bytes": 12589,
+      "lines": 59,
+      "sha256": "acf976b42df432a049bd48a2a6345d13bed6afc4ee327803d33996cfc523fa01"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p7/REPORT.md",
+      "bytes": 13015,
+      "lines": 85,
+      "sha256": "ccb31c16dfa24d0393385c7f1f80b2aa8a39e9e3a51285f0d58b06be9ed85ddd"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p9/REPORT.md",
+      "bytes": 22102,
+      "lines": 129,
+      "sha256": "b257986094135e6b83779875987334f46a611c5c99134243992e9116ed5b519e"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/cr1/REPORT.md",
+      "bytes": 21360,
+      "lines": 107,
+      "sha256": "4d011a1607e150b3042bd04ec141c557391dee18765ce8abba1ae1e35b52e5af"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/cr2/REPORT.md",
+      "bytes": 17757,
+      "lines": 79,
+      "sha256": "fce097e26c6673a0bc1a9a614f74d5453aee073d764a9f031bb7140b50f684c4"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/cr3/REPORT.md",
+      "bytes": 18849,
+      "lines": 88,
+      "sha256": "233b77abd2251e8269d3f395e5bca3c793ace45f95dd9db9470354c8a1ef822f"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/cr4/REPORT.md",
+      "bytes": 18955,
+      "lines": 83,
+      "sha256": "b8ac83def1f57c663d82b6f3eab3e0468199ff7d4a49cfaf858cf8022beb3768"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p38/CHECKPOINT.md",
+      "bytes": 1693,
+      "lines": 15,
+      "sha256": "552a7b8d32846e9caa69e817c51e0c37b04d5510a51cd0e97e5f54d9ee4e77ec"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p38/DUPLICATES.md",
+      "bytes": 14390,
+      "lines": 83,
+      "sha256": "6c3e1836cf215c948b588663de081d1dd2357e58e2e72a8bee25279fcab0d3da"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p38/ENTITY_REFS.md",
+      "bytes": 8837,
+      "lines": 70,
+      "sha256": "3c6bfe08ee2e34a1fbfd6e22720cc50b32b1767fa81beb0f0aeea48e5fbc3399"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p38/MIGRATION.md",
+      "bytes": 12123,
+      "lines": 82,
+      "sha256": "a9c59ac854df2551a4651cfb86866378e47f522b97c40ab0a9ef8d57a1b7fee4"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p38/RECEIPT_LOG.md",
+      "bytes": 13824,
+      "lines": 107,
+      "sha256": "2fcf8471460bfd7d6fdd386f8087fe36389e5d45d713e11aa16377533cd8d836"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p38/RETENTION.md",
+      "bytes": 10267,
+      "lines": 67,
+      "sha256": "2393e3e6ee517a7097261bed42b13a7a8168976950d474de2c877b90b227d6ca"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p38/SOURCE_AUDIT.md",
+      "bytes": 11717,
+      "lines": 57,
+      "sha256": "f391cfdae2283ab90646a3fbd5da696b20b456aa92b7acc49aefc9e8c29bf34b"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p38/STORE_OWNERS.md",
+      "bytes": 10949,
+      "lines": 74,
+      "sha256": "b88ed1ba088b417df770809294e81470e595cd6decb082522cb97776ced25158"
+    },
+    {
+      "path": ".claude/worktrees/proc-p2-mixing/docs/gm/dispatch/procgen-2026-10-13/p2/REPORT.md",
+      "bytes": 9803,
+      "lines": 62,
+      "sha256": "23e4bf9f8e24b5709944bb54d32e47d91d29324682a8abb23c31f7304e86c6b7"
+    },
+    {
+      "path": ".claude/worktrees/proc-p2-mixing/src/mixture_native.js",
+      "bytes": 4540,
+      "lines": 44,
+      "sha256": "15d49051cdea16f5ff10dd1db1aa6d8d17dd7b7e4685a3c46651c3bab196eea0"
+    },
+    {
+      "path": ".claude/worktrees/proc-p2-mixing/src/mixture_state.js",
+      "bytes": 10784,
+      "lines": 101,
+      "sha256": "1d3f161da9f2cb9bf138292be0f5e5b4e38c381a337fe55cc616eb71b908c02e"
+    },
+    {
+      "path": ".claude/worktrees/proc-p2-mixing/src/mixture_ui.js",
+      "bytes": 7656,
+      "lines": 39,
+      "sha256": "fb95a88773aeb13de0a42441ca38747ff0d9cf0281b7df8938a06e2441dc9d63"
+    },
+    {
+      "path": ".claude/worktrees/proc-p34-spine/docs/gm/dispatch/procgen-2026-10-13/p34/CHECKPOINT.md",
+      "bytes": 4607,
+      "lines": 29,
+      "sha256": "4dac73e041ccd87ea68108ecd1a474f2418970ce8785a66362803fea18d3f67a"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p40/FINDINGS.md",
+      "bytes": 20558,
+      "lines": 49,
+      "sha256": "919d6ef65ccc26c78d71121c48ca374c4dff7be9775d0c9120fcff2a98d062e5"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p40/LINT_RULES.md",
+      "bytes": 10980,
+      "lines": 46,
+      "sha256": "7ddcb6414c6a48265debdc1f968e9d6e5a23eb4085476cde83f55bf99f008f8a"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/integration/REPORT.md",
+      "bytes": 1238,
+      "lines": 10,
+      "sha256": "bf812270fc32ca75d9c2f2e41e120163d86302a40970f541038024f4595632bd"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/integration/BACKLOG.md",
+      "bytes": 1533,
+      "lines": 12,
+      "sha256": "9ccb736b32dc17bb3cf6391a782ea1548f2c1e89b1fd4a486e559e7594371fff"
+    },
+    {
+      "path": "build.js",
+      "bytes": 2708,
+      "lines": 65,
+      "sha256": "8561349784483242a15ce4208b9180651c1aaf03c3d8ff1379de8c7d8065fea5"
+    },
+    {
+      "path": "package.json",
+      "bytes": 497,
+      "lines": 21,
+      "sha256": "805269ecbf25287b2758391e718c805e1a4336b4b4f1c923a87b3712620e8e2c"
+    },
+    {
+      "path": "src/main.js",
+      "bytes": 510686,
+      "lines": 8668,
+      "sha256": "81a8b6130efe5560e456c25840ae6ec035666ecf92efdcd133de620183c0ba16"
+    },
+    {
+      "path": "src/save_files.js",
+      "bytes": 14950,
+      "lines": 227,
+      "sha256": "9b87a732f2cb18abfd9e4225fa546203fed0b5d6e544e1284af01b2f61f16e6a"
+    },
+    {
+      "path": "src/simulation.js",
+      "bytes": 62344,
+      "lines": 642,
+      "sha256": "c5717787ca8e0fcb57e2933e8d8a39e9088f6e12d8d7197d91605517cdc0041b"
+    },
+    {
+      "path": "src/simulation_effects.js",
+      "bytes": 36376,
+      "lines": 394,
+      "sha256": "507a5a60b82eaade331601c90f5e98410a2d99486903b9109937f933f3ffe151"
+    },
+    {
+      "path": "src/expansion_engine.js",
+      "bytes": 50849,
+      "lines": 685,
+      "sha256": "da1e9761400bec1cf72f4da171408f22af6cb6a2ce3dd72565b8b29039ab3f82"
+    },
+    {
+      "path": "src/expedition_content.js",
+      "bytes": 15247,
+      "lines": 163,
+      "sha256": "0b9030b096bbe4e2868e0686d9d51057e9c34e7ccd07781badbd46b83e38ff37"
+    },
+    {
+      "path": "src/workspace_layout.js",
+      "bytes": 43985,
+      "lines": 395,
+      "sha256": "51d9ecdf3cbb29a55d431582c489563d36ad6b36adabc9db2e7dfabd464c23c7"
+    },
+    {
+      "path": "src/content_packs.js",
+      "bytes": 17769,
+      "lines": 187,
+      "sha256": "4236b7064dc6ba994416b80abafb36ba94514b8054a1e667479bb88ea7f2a81d"
+    },
+    {
+      "path": "src/game_time.js",
+      "bytes": 6692,
+      "lines": 197,
+      "sha256": "ae58e07158d52962cc8e0735b2e30af803f85bba4e68881038127a2b6b9cbf6c"
+    },
+    {
+      "path": "src/storylet_deck.js",
+      "bytes": 6868,
+      "lines": 98,
+      "sha256": "683688b03fd26d2bfae7a1a1f5042bef27bf2e406b9787af94bf72b2416642a3"
+    }
+  ],
+  "dist": [
+    {
+      "path": "dist/INKJS_AUTHORS.txt",
+      "bytes": 474,
+      "gzip_estimate_bytes": 295,
+      "sha256": "40cb9e4353e8b18a04079a1fd6f824540633aeae19b8a9d3da5e0d8b2983e014"
+    },
+    {
+      "path": "dist/INKJS_NOTICE.txt",
+      "bytes": 1121,
+      "gzip_estimate_bytes": 669,
+      "sha256": "040e957a77e3e19432e265cb549d5c3b4ca6f3551e24d22b81785ffd1bc2b67b"
+    },
+    {
+      "path": "dist/bundle.js",
+      "bytes": 5164161,
+      "gzip_estimate_bytes": 1438222,
+      "sha256": "e98816933aee27d56856a1bc5094f0b6573f4ce44608efe043539ec1456cf904"
+    },
+    {
+      "path": "dist/bundle.js.map",
+      "bytes": 13277072,
+      "gzip_estimate_bytes": 3070575,
+      "sha256": "ec95a62be29ef1b7fd4ffde9853d4b4421e875d315bb8a482cead13ba666090d"
+    },
+    {
+      "path": "dist/nethack-fieldcraft-preview.js",
+      "bytes": 2927363,
+      "gzip_estimate_bytes": 806024,
+      "sha256": "e1aaca74683bcae0ce7024acc4bbb391f5622aa0c6c0e9c73b32f0bbf57e676f"
+    },
+    {
+      "path": "dist/nethack-fieldcraft-preview.js.map",
+      "bytes": 7756828,
+      "gzip_estimate_bytes": 1735340,
+      "sha256": "0dbc85df0ef666db09d72ff0f424071ee5db077a809b31b07fdcb23cef34c70d"
+    }
+  ]
+}

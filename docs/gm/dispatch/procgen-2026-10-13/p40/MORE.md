@@ -1,0 +1,50 @@
+# P40: further engineering angles for procedural making
+
+2026-10-14. **All proposals.** Deliberate expansion of root [BL](../../../../PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md#bl-subtle-engineering-hazards) and [crafting codes](../../../../PROCEDURAL_CRAFTING_AND_CONSUMABLES_CONSIDERATIONS_2026-10-14.md). Suffix `.P40a` identifies an extension owned here, avoiding collisions with other lanes' new integer codes. These add observable consumers/proofs; they do not restate the broad feature palette or dispatch runtime work.
+
+## Join the existing owners
+
+| Existing owner | P40 addition, not replacement |
+|---|---|
+| [P26 crafting draft: consumables/body](../crafting-lanes/P26-crafting-draft.md), root CO/RS2/XD2–XD4 | Dose/onset/tolerance thresholds need deterministic time-domain and quantization contracts, not another toxicity model. |
+| [P27 crafting draft: world laws](../crafting-lanes/P27-crafting-draft.md), root WL/CT/RX | Local laws can intentionally use calendar, identity or exceptional conservation; record which law executes before lint classifies it. |
+| [P28 crafting draft: play/automation/tools](../crafting-lanes/P28-crafting-draft.md), root FE/AU/SC/CL/PG2/TL | Queue boundary adapter, safe director diagnostics and equivalence/coverage reports over the same resolver. |
+| [P29 crafting draft: makers/economy/social](../crafting-lanes/P29-crafting-draft.md), root MK/IT/EC/SO/KN/NP/PR | Exact actor/product/cause references and preserved meaning across prestige, transfer, death and compaction. |
+| [P6 family papers](../p6/REPORT.md), [P8 resources](../p8/REPORT.md), [P11 more](../p11/MORE.md), [P5 extra ideas](../p5/EXTRA_IDEAS.md) | Reuse selected custody, clock, product and knowledge owners; engineering tests must not create competing stores or extra biology/economy rules. |
+| [P18 runner](../p18/HARNESS.md), [P38 contracts](../p38/REPORT.md), [P39 registry](../p39/REGISTRY.md) / [graph](../p39/GRAPH.md) | Shared manifests/reference types and rule classifications; these are proposal joins, not APIs guaranteed to exist in main. |
+
+C5: The similarly numbered `p26/`, `p27/`, `p28/` story reports are different lanes. P40 links the crafting **drafts** above because those are the unambiguous task scopes available for this pass. Their existence does not prove consumable/world-law/automation/NPC-crafter runtime delivery.
+
+## Concrete extensions
+
+| Extension code | New angle / suggestion | First observable use and gate | Dependencies / scope |
+|---|---|---|---|
+| TL2.P40a | **Determinism manifest**: content/table/hash/order/weight/clock revisions plus seed, fixture/actions and read module digests travel with QA results. | Given one original brew or request receipt ID, rerun same public inputs and get exact product/next cursor. Diagnostics export IDs/status, never sealed causes. | P18/P39; extends F01–F08 without storing a second gameplay history. |
+| TL3.P40a | **Failure-phase fuzzing**: abort after reservation/draw/resolve/write/publication separately; compare all owner cursors. | Randomly placed storage faults leave no spent stock/draw before durability; post-write UI fault preserves committed receipt. | P2 transaction bridge, native craft scopes. No actual personal storage faults or private saves. |
+| TL2.P40b | **Distribution ledger**: explain full candidate IDs, quantized weights, quiet interval and selected numerator in developer QA, while player explanation uses only known factors. | Compare old/new weight law distributions across fixed seeds; show whether a “rare” outcome is reachable and whether a zero branch is intentional. | F07/P18; measurement informs tuning, does not set fixed caps or mandatory balancing downsides. |
+| AU2.P40a | **Boundary trace for chains**: drying, extracting, bottling and delivery publish typed phase transitions at saved prior due boundaries. | Advance one supported chain in small steps and drained jumps; same output/custody/XP/knowledge and shortage stop. | P28/P6/P8. Queue limits are vessel/site adjectives; new cycles remain possible. |
+| AU1.P40a | **Stale-order revalidation**: thresholds apply to current stock at admission, with frozen substitutions and priority IDs. | Two standing orders compete for one batch; deterministic documented order and named stop, no rare ingredient silently replaced. | P28; explicit player priority, not arbitrary object order. |
+| RX2.P40a | **Clock-qualified recipe windows**: distinguish start-time snapshot, whole-process condition and completion-time requirement. | A moon/time-window brew crosses the boundary; same result for split/jump/reload, understandable cause from known calendar. | P27 local law plus P18; no universal offline advancement or fixed once window. |
+| CO1.P40a | **Threshold-safe neutralization**: exact neutralized fraction and onset/dose boundary are part of the retained law. | Two close doses straddle an authored antidote threshold and remain on the same side after splitting/import. | P26 body law/P6 fractions; fictional arithmetic, no real medical recipe or universal dose curve. |
+| RS2.P40a | **Exposure interval union**: overlapping work/fume periods charge the actual body once per declared source/route, not once per polling callback. | Queue and active work overlap; cumulative exposure matches the authored interval law under delayed rendering. | P26/CO4, world-specific; cozy mild/off options remain reachable. |
+| PG1.P40a | **Family admission witness as data**: freeze feasible stock/station/consumer refs with generator revision, separate from secret identity. | Generate original herb family; a public reachable-route report shows only existence/status while trials discover properties. | P8/P6/deep generator contract; no requirement to inspect secret truth to craft. |
+| FE4.P40a | **Equivalent-experiment comparator**: journal groups tests by controlled known inputs and observed scope, not hidden product potency or internal key order. | Two trials with the same known protocol remain comparable across transfer and import, including negative/inconclusive result. | P28/P11 M2; suggestion engine reads observer knowledge, not raw fractions. |
+| KN4.P40a | **Edition graph with retained disagreements**: copied methods reference the parent's revision plus observed deviations, not an overwritten shared recipe. | Teacher and student perform original methods; real measured outcomes explain the differing edition. | P29/P6 creative works. Wrong belief remains attributed, never rewritten into truth after a test. |
+| NP1.P40a | **NPC offscreen parity contract**: actor stock, method revision, skill/clock eligibility and committed draw owner are the same with UI open/closed. | One original NPC maker finishes a funded batch while player does other work; no extra output from observing more often. | P29/P4/P2; no claim that endpoint P4 routine projection enumerates intervening actions. |
+| PR1.P40a | **Carryover closure report**: retained notebooks/heirlooms/exposures/jobs list required product/person/law revisions before prestige. | An allowed relic stays usable with its old law/known provenance, while ordinary noncarried stock does not reappear. | P29/P38; selected prestige policy, not a universal wipe or universal carryover. |
+| CL1.P40a | **Codex certainty changes**: a completion count counts observed category membership, not hidden generated truth. | Two unseen truth variants yield the same public collection count; scoped identification changes only the learned entry. | P28/PG2/F12; full hidden coverage is a dev report, not a spoiler percentage. |
+| IT1.P40a | **Versioned maturation boundaries**: resolved product, condition transition and useful age window survive content updates. | Original aged product improves under its declared law, then transfers/imports without re-aging or rerolling. | P29/P6/P8; spoilage applies only where locally authored, food stays optional. |
+| BL8.P40a | **Reference pressure telemetry**: count pinned live meanings, reclaimable display history and tombstone needs before approaching retention capacity. | A long original request run remains playable while reference-preserving compaction occurs; diagnostics report IDs/status and cannot leak causes. | P34/P38/P18; computational bounds should yield/archive safely, not become permanent “no more stories” rules. |
+| BL12.P40a | **Accessible identity disclosure**: full name shown through keyboard/focus details, abbreviated summary and stable ID action binding. | Long/CJK traveler names remain distinguishable and their request buttons reachable at 1366x768 without reducing font. | F18/P28; save identity unchanged, mobile deferred. |
+
+## Additional root BL refinements
+
+BL1.P40a: Clock domain is part of a lawful mechanic. Intentional reviewed absence/export inputs can coexist with played-clock recipes; replay records explicit external inputs rather than forbidding all wall-time adapters.
+
+BL3.P40a: Ordinary JSON string-key ordering is generally retained. The dangerous cases are unsupported collections, reconstruction/reordering, numeric-like keys and choosing semantics from a container's insertion order. Specify identity-bearing order versus unordered mappings, and preserve intentionally ordered process steps.
+
+BL7.P40a: Transaction undo and in-world rewind are different verbs. Administrative rollback requires whole affected owner/cursor restoration; scenario rewind can intentionally retain random history. Neither rule licenses a new anti-winning policy.
+
+BL9.P40a: Projection noninterference includes metadata and ordering, not just visible paragraphs. Opaque DOM action handles and safe error reasons matter as much as recaps; a sealed-derived product key is not automatically an ID-safe public description.
+
+These routes can coexist. Selection chooses a first observable slice and its owners, not permanent either/or availability. Costs are joins, retained-version support and test coverage, not inferred time estimates. No new source-world canon claim or raw/private source quotation is introduced by these engineering proposals.

@@ -1,0 +1,87 @@
+425:function round(number) {
+450:        const delta = Math.round(((mine || 0) - (theirs || 0))*100)/100;
+459:        const multi = 1 + Math.round(((mine || 1) / (theirs || 1) - 1) * 100) / 100;
+576:                    `<br><br>Attack: ${round(item.getAttack(options.quality[0]))} - ${round(item.getAttack(options.quality[1]))}`;
+579:                    `<br><br>Defense: ${round(item.getDefense(options.quality[0]))} - ${round(item.getDefense(options.quality[1]))}`;
+583:                    `<br><br>Can block up to: ${round(item.getShieldStrength(options.quality[0])*block_multiplier)} - ${round(item.getShieldStrength(options.quality[1])*block_multiplier)} damage [base: ${item.getShieldStrength(options.quality[0])}-${item.getShieldStrength(options.quality[1])}]`;
+604:                    `<br><br>Attack: ${Math.round(10*item.getAttack())/10}`;
+607:                `<br><br>Defense: ${Math.round(10*item.getDefense())/10}`;
+611:                `<br><br>Can block up to: ${Math.round(10*item.getShieldStrength())/10} damage [unaffected by skill]`;
+614:                `<br><br>Can block up to: ${Math.round(10*item.getShieldStrength()*(character.getStats().total_multiplier.block_strength))/10} damage [base: ${item.getShieldStrength()}]`;
+814:            tooltip_html_content += `: ${sign}${Math.round(100*stat_value.flat)/100}`;
+821:                tooltip_html_content += `, x${Math.round(100*stat_value.multiplier)/100}`;
+823:                tooltip_html_content += `: x${Math.round(100*stat_value.multiplier)/100}`;
+1201:    document.getElementById("trader_cost_mult_value").textContent = `${Math.round(100 * (NPCRegistry.get(current_trader).getTraderComponent().getProfitMargin(current_location.market_region)))}%`
+2772:let knownClearReader=location=>'Clears: ['+Math.floor(location.enemy_groups_killed/location.enemy_count)+']';
+2847:                    type_tooltip_html_content += `<br>${stat_names[stat]} x${Math.round(1000*actual)/1000}`;
+2855:                    type_tooltip_html_content += `<br>${stat_names[stat]}: ${Math.round(1000*actual)/1000}`;
+3077:    const chance = Math.round(100*nativeWorkLedgerChance(recipe.get_success_chance(station_tier || 1), category, subcategory));
+3080:    const xp_value = Math.round(10*get_recipe_xp_value({category, subcategory, recipe_id}))/10;
+3487:        const success_chance = Math.round(100*nativeWorkLedgerChance(recipe.get_success_chance(station_tier),category,subcategory));
+3783:        tooltip_content += `<br>x${count[0]===count[1]?count[0]:`${count[0]}-${count[1]}`} "${obscure_name(gained_resources[i].name)}" at ${Math.round(100*gained_resources[i].chance)}%`;
+3821:        tooltip_content += `<br>x${gained_resources[i].count[0] === gained_resources[i].count[1] ? gained_resources[i].count[0] : `${gained_resources[i].count[0]}-${gained_resources[i].count[1]}`} "${obscure_name(gained_resources[i].name)} " at ${Math.round(100*gained_resources[i].chance)}%`;
+3831:    current_health_value_div.innerText = Math.ceil(full_stats.health) + "/" + Math.ceil(full_stats.max_health)
+3832:        + (total_regen != 0 ? " ("+ sign + expo({number: total_regen, precision: 1}) + "/s) " : "")
+3841:    current_stamina_value_div.innerText = Math.round(full_stats.stamina) + "/" + Math.round(full_stats.max_stamina)
+3842:        + (total_regen != 0 ? " (" + sign + expo({number: total_regen, precision: 1}) + "/s) " : " ")
+3871:    const ap = Math.round(full_stats.attack_points);
+3881:        other_combat_divs.defensive_points.innerText = `${dp}% / ${expo({number: character.getBlockStrength()})}`;
+3885:        const ep = Math.round(full_stats.evasion_points);
+3895:        if(attack_stats) attack_stats.children[3].innerText = `EP: ${Math.round(ep)} `;
+3904:        atk = Math.round(atk);
+3906:        atk = Math.round(10*atk)/10;
+3910:        attack_stats.children[1].innerText = `Spd: ${Math.round(character.getAttackSpeed()*100)/100}`;
+3911:        attack_stats.children[2].innerText = `AP:  ${Math.round(ap)}`;
+3912:        attack_stats.children[4].innerText = `Def: ${Math.round(full_stats.defense)} `;
+3944:    let html_content = "<b>Max health:</b> " + Math.ceil(full_stats.max_health) + "<br>";
+3948:        html_content += "<br>------------------------<br><b>Health regen (flat):</b> " + Math.round(10*full_stats.health_regeneration_flat)/10 + "<br>";
+3953:        html_content += "<br>------------------------<br><b>Health regen (%):</b> " + Math.round(10*full_stats.health_regeneration_percent)/10 + "<br>";
+3958:        html_content += "<br>------------------------<br><b>Health loss (flat):</b> " + Math.round(10*full_stats.health_loss_flat)/10 + "<br>";
+3963:        html_content += "<br>------------------------<br><b>Health loss (%):</b> " + Math.round(10*full_stats.health_loss_percent)/10 + "<br>";
+3969:    html_content += "<br>------------------------<br><b>Total health balance:</b> " + (health_recovery_balance>0?"+":"") + Math.round(10*health_recovery_balance)/10 + "<br>";
+3980:    html_content = "<b>Max stamina:</b> " + Math.round(full_stats.max_stamina) + "<br>";
+3984:        html_content += "<br>------------------------<br><b>Stamina efficiency:</b> " + Math.round(100*full_stats.stamina_efficiency)/100 + "<br>";
+3989:        html_content += "<br>------------------------<br><b>Stamina regen (flat):</b> " + Math.round(10*full_stats.stamina_regeneration_flat)/10 + "<br>";
+3994:        html_content += "<br>------------------------<br><b>Stamina regen (%):</b> " + Math.round(10*full_stats.stamina_regeneration_percent)/10 + "<br>";
+4007:        html_content += "<b>Global xp multiplier:</b> " + Math.round(100*total_multiplier.all)/100 + "<br>";
+4014:        html_content += "<br>------------------------<br><b>Hero xp multiplier:</b> " + Math.round(100*total_multiplier.hero)/100 
+4015:                                        + " (with global: " + Math.round(character.getMainXPGain()*100)/100 +")<br>";
+4020:        html_content += "<br>------------------------<br><b>Skill xp multiplier:</b> " + Math.round(100*total_multiplier.all_skill)/100
+4021:                                        + " (with global: " + Math.round(character.getSkillsOveralXPGain()*100)/100 +")<br>";
+4043:        <br>Base value (weapon * str/10): ${Math.round(100 * stats.total_flat.attack_power)/100}`;
+4047:        <br>Base value: ${Math.round(100* stats.total_flat.attack_points)/100}`;
+4056:            <br>Base value: ${Math.round(100 * stats.total_flat[stat])/100}`;
+4060:        <br>Base value: ${Math.round(100*base_stats[stat])/100}`;
+4066:            html_string +=  `<br>${capitalize_first_letter(stat_type.replace("_"," "))}: ${sign}${Math.round(100*stats.flat[stat_type][stat])/100}`;
+4072:            html_string +=  `<br>${capitalize_first_letter(stat_type.replace("_"," "))}: x${Math.round(100*stats.multiplier[stat_type][stat])/100}`;
+4100:        <br>Base value: ${Math.round(100*xp_bonus_value)/100}`;
+4105:            html_string +=  `<br>${capitalize_first_letter(bonus_type.replace("_"," "))}: x${Math.round(100*xp_bonuses.multiplier[bonus_type][bonus])/100}`;
+4147:    let displayed_temperature = Math.round(10*(game_options.use_uncivilised_temperature_scale?celsius_to_fahrenheit(temperature):temperature))/10;
+4197:        html_content = `Lowest tolerable temperature: <strong>${Math.round(10*(lowest_tolerable_temperature - cold_tolerance))/10}</strong>`;
+4198:        html_content += `<br>(<strong>${lowest_tolerable_temperature}</strong> base minus <strong>${Math.round(10*cold_tolerance)/10}</strong> cold protection)<br>`;
+4201:        html_content = `Lowest tolerable temperature: <strong>${Math.round(10*(celsius_to_fahrenheit(lowest_tolerable_temperature - cold_tolerance)))/10}</strong>`;
+4202:        html_content += `<br>(<strong>${Math.round(10*celsius_to_fahrenheit(lowest_tolerable_temperature))/10}</strong> base minus <strong>${Math.round(10*celsius_to_fahrenheit(cold_tolerance)-320)/10}</strong> cold protection)<br>`;
+4226:            value = (Math.floor(num/10)%100 != 0?`${Math.floor(num/10)%100}<span class="coin coin_copper">C</span>${value?" ":""}` :'') + value;
+4228:                value = (Math.floor(num/1000)%100 != 0?`${Math.floor(num/1000)%100}<span class="coin coin_silver">S</span>${value?" ":""}` :'') + value;
+4230:                    value = `${Math.floor(num/100000)}<span class="coin coin_gold">G</span>${value?" ":""}` + value;
+4253:    character_xp_div.children[1].innerText = `${expo({number: levelable.current_xp})} / ${expo({number: levelable.xp_to_next_lvl})} xp`;
+4329:        html_content += `</td><td>${item.number < 1e6? item.number : expo({number: item.number, precision: 2, treshold: 6})}</td></tr>`;
+4592:            const percent_xp = is_maxed ? "Max" : `${Math.floor(10000 * skill.getCurrentXP() / skill.getXPToNextLvl()) / 100}%`
+4593:            const curr_xp = is_maxed ? "Max" : `${Math.floor(skill.getCurrentXP())}`;
+4594:            const needed_xp = is_maxed ? "Max" : `${Math.ceil(skill.getXPToNextLvl())}`;
+4595:            const time_needed = Math.ceil((needed_xp - curr_xp) / (xp_rate * character.getSkillXPGain(skill.skill_id))) * (current_activity.xp_given_per_working_period?current_activity.gathering_time_needed:1);
+4597:            action_xp_div.innerText += ` ${skill.getName()} (${percent_xp}  [${expo({number: curr_xp})} / ${expo({number: needed_xp})}])`;
+4926:        skill_bar_divs[skill.category][skill.skill_id].children[0].children[0].children[1].innerText = `${100*Math.floor(skill.getCurrentXP()/skill.getXPToNextLvl()*1000)/1000}%`;
+4927:        skill_bar_divs[skill.category][skill.skill_id].children[0].children[2].children[0].innerText = `${expo({number: skill.getCurrentXP()})} / ${expo({number: skill.getXPToNextLvl()})}`;
+4987:    const xp_gain = Math.round(100*skill.get_parent_xp_multiplier()*character.getSkillXPGain(skill.skill_id))/100;
+5165:        target_count = target_count + Math.round(target_count * character.getTotalSkillLevel(stance.related_skill)/skills[stance.related_skill].max_level);
+5181:        desc += `<br>x${Math.round(100*stats[stat])/100} ${stat_names[stat]}`;
+5193:            target_count = target_count + Math.round(target_count * character.getTotalSkillLevel(stance.related_skill)/skills[stance.related_skill].max_level);
+5406:        loot_chance_current.innerText = `${Math.round(10000*loot.chance*enemy.get_droprate_modifier())/100}%`;
+5457:            stat_value_div.innerText = `${Math.round(enemy.stats.dexterity * Math.sqrt(enemy.stats.intuition || 1))}`;
+5462:            stat_value_div.innerText = `${Math.round(enemy.stats.agility * Math.sqrt(enemy.stats.intuition || 1))}`;
+5914:    for(let i = 0; i < Math.ceil((canvas.width*canvas.height)/5000); i++) {
+5966:        const seconds = Math.floor(time_needed%60);
+5967:        time_needed = Math.floor(time_needed/60);
+5968:        const minutes = Math.floor(time_needed%60);
+5969:        time_needed = Math.floor(time_needed/60);

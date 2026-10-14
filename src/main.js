@@ -38,7 +38,12 @@ import {mountExposurePanel,exposureStatus} from './absorb_p23/exposure/panel.js'
 import {HOUSEHOLD,householdRest} from './absorb_p23/household/model.js';
 import {householdPresentation} from './absorb_p23/household/host.js';
 import {createHouseholdPanel} from './absorb_p23/host_joins/tranche_one_ui.js';
-import {STREAMS,ensureStreams,bindGameStreams,gameRandom,gameRandomRange,drawUnit,scopedStream,seededRecipe,validateNativeEncounter,streamSeed} from "./seeded_streams.js";
+import {STREAMS,ensureStreams,bindGameStreams,gameKeyedRandom,gameRandom,gameRandomRange,drawUnit,scopedStream,seededRecipe,validateNativeEncounter,streamSeed} from "./seeded_streams.js";
+import {GRADED_IDS,createHarvest,validateHarvest,supportedHarvest,drawSpecimen,addCarcass,beginHarvest,cancelHarvest,advanceHarvest,consumedHarvestQuality,gradedKey} from './harvest.js';
+import {createHarvestPanel} from './harvest_ui.js';
+import {setProductAppearanceOwner} from './product_appearance_view.js';
+import {resolveWorldCalendar, createCalendarLog} from './world_calendar.js';
+import {worldWeatherWords} from './world_weather_display.js';
 const mixtureSeed=()=>streamSeed(expansionState,STREAMS.craft,"village.mixtures@1");
 const generatedPeopleSeed=()=>streamSeed(expansionState,scopedStream("world.people"),"village.generated_people@1");
 import {getMixtureOwner,setMixtureOwner,MIXTURE_ID} from './mixture_state.js';
@@ -54,6 +59,7 @@ import {skillExpansionPresentation} from './skill_expansion_host.js';
 import {setNativeObservedDropReader} from './display.js';
 let p23DropObservations,loadedDisplayPreferences;
 
+import {structuredLifeEnded,reconcileStructuredLifePlan,structuredLifeView,archiveStructuredLife,publishIndependentStructuredLife,listStructuredLifeArchives} from './structured_life_runtime.js';
 import {beginNativeCraftTransaction,nativeCraftQuestOwners} from './native_craft_transaction.js';
 import {worldCompletionSavedNativeItem} from './world_completion_native.js';
 import {createFoundationInteractionPanel} from './foundation_interaction_ui.js';
@@ -354,9 +360,12 @@ import {createStartProbe} from './start_probe_ui.js';
 const optionalPacks=new Map();
 const foundationProbeEnabled=typeof location!=='undefined'&&['localhost','127.0.0.1'].includes(location.hostname)&&new URLSearchParams(location.search).get('foundation_probe')==='1';
 const structuredPacks=new Map();
-const initialStructuredDefinition=()=>foundationProbeEnabled&&structuredPacks.get(FOUNDATION_START_PACK_ID)||structuredPacks.get(LIVELIHOOD_PACK_ID)||[...structuredPacks.values()][0];
+// Local authoring preview selects an optional candidate without replacing live content.
+const structuredCandidateId=typeof location!=='undefined'&&['localhost','127.0.0.1'].includes(location.hostname)?new URLSearchParams(location.search).get('structured_candidate'):null;
+const initialStructuredDefinition=()=>structuredPacks.get(structuredCandidateId)||foundationProbeEnabled&&structuredPacks.get(FOUNDATION_START_PACK_ID)||structuredPacks.get(LIVELIHOOD_PACK_ID)||[...structuredPacks.values()][0];
 const packDefinitionsForSave=()=>new Map([...optionalPacks,...structuredPacks]);
 let structuredPanel,structuredNotice='',suspendedStructuredSave=null;
+const nativeLifeEnded=(state=expansionState)=>state.chronicle?.life.endedAt!=null||structuredLifeEnded(state,optionalPackState.structured);
 let cheatState=defaultCheatState();
 let statusWindow;
 function cheatCalendarTime() {
@@ -364,12 +373,29 @@ function cheatCalendarTime() {
     return {year, month, day, hour, minute, day_count};
 }
 function awakenOptionalStart(wonFight = false) {
-    const result = awakenCheats(cheatState, {dayCount: current_game_time.day_count, wonFight, at: cheatCalendarTime()});
+    if(importProbeToken || !ownsSave || foundationSaveBlocked || is_loading_error || restoringNativeSave) return;
+    // A won zone round is retained for retry/load; an individual bestiary kill is not a won fight.
+    const result = awakenCheats(cheatState, {dayCount: current_game_time.day_count,
+        wonFight: wonFight || Object.values(locations).some(zone => zone.tags.combat_zone && zone.enemy_groups_killed > 0), at: cheatCalendarTime()});
     if(!result.messages.length) return;
-    cheatState = result.state;
+    let durable = false;
+    try {
+        const serialized = create_save();
+        if(!serialized) return;
+        const save = JSON.parse(serialized);
+        save.cheats = result.state;
+        validateSaveEnvelope(save, game_version);
+        // Keep live discovery dormant until the shared storage owner commits.
+        lifeSaveStorage.setItem(is_on_dev() ? dev_save_key : save_key, JSON.stringify(save), () => {
+            durable = true;
+            cheatState = result.state;
+        });
+    } catch(error) {
+        if(!durable) {log_message(error.message, 'message_critical'); return;}
+        console.error('Awakening saved; display refresh failed:', error);
+    }
     for(const message of result.messages) log_message(message, 'notification');
     statusWindow?.render();
-    save_progress();
 }
 let optionalPackState=emptyPackState();
 let optionalPackPanel;
@@ -425,6 +451,13 @@ const importProbeToken = new URL(window.location.href).searchParams.get("import_
 let importInProgress = false;
 let loadingReputationTotals = null;
 let restoringNativeSave = false;
+const localDateLog = createCalendarLog((...args) => log_message(...args));
+export function readLocalCalendar() {return resolveWorldCalendar(expansionState, current_game_time);}
+export function readLocalWeatherWords() {
+    return worldWeatherWords(expansionState?.actors?.player?.worldId ?? 'base.frontier', readLocalCalendar(), current_location);
+}
+function commitLocalDateHeader() {if (!restoringNativeSave) localDateLog.commit(readLocalCalendar());}
+
 
 import {prepareV06Save} from "./save_migration.js";
 
@@ -434,6 +467,8 @@ const backup_key = "backup save";
 const dev_backup_key = "dev backup save";
 // Heir succession: the ended life stays in the save slot until the heir's
 // envelope passes the real import check. Only a small request crosses reload.
+const independent_request_key='structured independent request';
+const independentRequest=(()=>{if(importProbeToken)return null;try{const r=JSON.parse(localStorage.getItem(independent_request_key));return r?.schema===1&&!r.error?r:null;}catch{return null;}})();
 const heir_request_key = "heir request";
 const heirRequest = (() => {
     if(importProbeToken) return null;
@@ -1255,8 +1290,11 @@ function changeP00Exposure(next){
 function p00SleepingMultiplier(){const c=p00HouseholdContext();return householdRest(household,c,furnitureComfort(readFurnitureBonuses()));}
 
 function homePacingContext(state=expansionState, location=current_location, calendar=current_game_time) {
-    return {homeWorld:state.actors.player.worldId==='base.frontier'&&!Object.values(optionalPackState.packs).some(p=>p.active),
-        outdoors:location?.is_under_roof===false,season:calendar.getSeason?calendar.getSeason():current_game_time.getSeason(),nativeRain:!!is_raining()};
+    // CR8: the home rain cycle belongs to the home world only. Visitor worlds
+    // (MoL, Paradise) have no sourced rain, so home rain must not wet them.
+    const atHome=state.actors.player.worldId==='base.frontier';
+    return {homeWorld:atHome&&!Object.values(optionalPackState.packs).some(p=>p.active),
+        outdoors:location?.is_under_roof===false,season:calendar.getSeason?calendar.getSeason():current_game_time.getSeason(),nativeRain:atHome&&!!is_raining()};
 }
 function changeHomePacing(next) {
     if(!ownsSave||foundationSaveBlocked||importProbeToken||restoringNativeSave)throw Error('Pacing changes require the writable game tab.');
@@ -1664,6 +1702,8 @@ function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}) {
     reconcileFieldCareNative(expansionState,plan,expeditionContext());
     stageContextualBalmEffectRequest(expansionState,plan,expeditionContext());
     reconcileWorldCompletionPlan(plan,expeditionRegistry,{player:{...expeditionContext(),external:plan.external,gameplay:plan.gameplay,vitals:plan.vitals||expeditionContext().vitals,equipment:plan.equipment||expeditionContext().equipment}});
+    reconcileStructuredLifePlan(plan,optionalPackState.structured,{deaths:game_stats.total_deaths});
+    const nextLocalCalendar = resolveWorldCalendar(plan.state, plan.calendar ?? current_game_time);
     const previousNight = is_night(current_game_time);
     if(!ownsSave || importProbeToken || expansionError || foundationSaveBlocked || is_loading_error) throw new Error(expansionError || "This tab cannot commit expeditions.");
     for(const actor of Object.values(plan.state.actors)) {
@@ -1729,10 +1769,11 @@ function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}) {
     // Every owned domain is durable before native state is published. Rendering
     // happens afterward and never applies rewards.
     expansionState = plan.state;
+    localDateLog.commit(nextLocalCalendar);
+    if(plan.pacingNext){setPacingState(plan.pacingNext);pacingMinute=plan.pacingTarget;pacingPanel?.render();pacingStatusPanel?.render();durabilityPanel?.render();elementalPanel?.render();livingGearPanel?.render();combatOptionsPanel?.render();householdPanel?.render();}
     if(plan.p00Exposure)p23Exposure=plan.p00Exposure;
     if(plan.p00Household){household=plan.p00Household.state;for(const text of plan.p00Household.notices)log_message(text,'notification');}
     p23ExposurePanel?.render();householdPanel?.render();livingGearPanel?.render();combatOptionsPanel?.render();
-    if(plan.pacingNext){setPacingState(plan.pacingNext);pacingMinute=plan.pacingTarget;pacingPanel?.render();pacingStatusPanel?.render();durabilityPanel?.render();elementalPanel?.render();livingGearPanel?.render();combatOptionsPanel?.render();householdPanel?.render();}
     if(plan.nativePatch?.fort_supply)fortSupply=migrateFortSupply({fort_supply:plan.nativePatch.fort_supply});
     if(plan.localLifeResult){localLife=normalizeLocalLife(plan.localLifeResult.state);for(const message of plan.localLifeResult.messages)log_message(message,'notification');}
     if(Object.hasOwn(plan.nativePatch||{},'field_familiarity_p07'))p23Field=normalizeFieldFamiliarity(plan.nativePatch.field_familiarity_p07);
@@ -1754,7 +1795,7 @@ function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}) {
     }
     if(plan.p00EffectPublication){for(const id of Object.keys(active_effects))delete active_effects[id];Object.assign(active_effects,plan.p00EffectPublication.next);
         if(plan.p00EffectPublication.resetRain)rain_counter=0;character.addActiveEffectBonus(active_effects);character.updateStatsAndDisplay();update_displayed_effects();}
-    if(expansionState.chronicle?.life.endedAt != null) character.is_alive = false;
+    if(nativeLifeEnded()) character.is_alive = false;
     if(plan.nativePatch?.combatOptions){p23CombatOptions=structuredClone(plan.nativePatch.combatOptions);if(current_combat&&!current_combat.is_special_combat){current_combat.combatOptions=combatRuntime();current_combat.nextCombatEvent=()=>current_combat.combatOptions.snapshot().lastEvent+1;current_combat.nativeExchangeHost=runP23CombatExchange;}}
     if(Object.hasOwn(plan.nativePatch||{},'p23EncounterProfile'))p23EncounterProfile=readProfileState(plan.nativePatch.p23EncounterProfile);
     if(Object.hasOwn(plan.nativePatch||{},'native_encounter'))pendingNativeEncounter=plan.nativePatch.native_encounter;
@@ -1831,6 +1872,7 @@ function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}) {
         if(plan.p00EarnedTitles){for(const id of plan.p00EarnedTitles)log_message(`Title earned: ${title_by_id[id].name}. ${title_by_id[id].text}`,'level_up');titlesPanel?.announce(plan.p00EarnedTitles);}
         worldEventFeed?.render();
     } catch(error) {console.error("Saved expedition display could not refresh; reload to restore it.", error);}
+    if(plan.calendar) awakenOptionalStart();
 }
 
 function commitNativeTrade(quote, currentQuote) {
@@ -1883,7 +1925,7 @@ function commitNativeStorage(request) {
 bind_storage_transfer(commitNativeStorage);
 
 function startExpedition(actionId, sequence) {
-    if(expansionState.chronicle?.session || expansionState.chronicle?.life.endedAt != null || current_activity || current_game_action || current_combat || is_sleeping || is_reading || is_in_trade()) {
+    if(expansionState.chronicle?.session || nativeLifeEnded() || current_activity || current_game_action || current_combat || is_sleeping || is_reading || is_in_trade()) {
         throw new Error("Finish your current activity, combat, trade or rest before beginning an expedition.");
     }
     persistExpansion(commitAction(expansionState, expeditionRegistry, actionId, expeditionContext(), sequence));
@@ -1934,6 +1976,7 @@ function readStructuredCampaign() {
 }
 function commandStructuredCampaign(command) {
     try {
+        if(nativeLifeEnded())throw Error('This life has ended.');
         if(!ownsSave||foundationSaveBlocked||expansionError||importProbeToken)throw Error('Restore saving before continuing.');
         const record=optionalPackState.structured,d=record?structuredPacks.get(record.packId):optionalPackState.pendingStructured?structuredPacks.get(optionalPackState.pendingStructured.packId):initialStructuredDefinition(),context=structuredContext();
         if(!d)throw Error('This beginning content is unavailable.');
@@ -2006,8 +2049,61 @@ function commandOptionalPack(id,action) {
     optionalPackPanel?.render();
 }
 
+let harvestOwner=null;
+let harvestPanel;
+function harvestContext(){
+    const weapon=character.getEquipment().weapon;
+    const tool=weapon && weapon.weapon_type!=='hammer' ? (weapon.quality??100) : 0;
+    return {clock:calendarMinutes(current_game_time),skill:character.getTotalSkillLevel('Butchering'),tool};
+}
+function harvestWritable(){return ownsSave&&!foundationSaveBlocked&&!importProbeToken&&!restoringNativeSave&&!is_loading_error&&!lifeStorageFailure&&character.is_alive&&expansionState.actors.player.worldId==='base.frontier';}
+function harvestReady(){return harvestWritable()&&!nativeOccupationReason()&&!current_activity&&!current_game_action&&!current_combat&&!current_dialogue&&!is_sleeping&&!is_reading&&!is_in_trade();}
+function grantHarvest(plan){
+    if(!plan)return;
+    if(!skills.Butchering.isUnlocked()) {skills.Butchering.setUnlocked();create_new_skill_bar(skills.Butchering);}
+    const items=plan.outputs.map(o=>({item_key:o.item_key,count:o.count}));
+    character.addToInventory(items);
+    add_xp_to_skill({skill:skills.Butchering,xp_to_add:plan.xp,should_info:false,cap_gained_xp:false});
+    log_message('Processed carcass: '+plan.outputs.map(o=>`${o.count} ${getItemFromKey(o.item_key).getName()}`).join(', '),'loot');
+    update_displayed_character_inventory();update_displayed_crafting_recipes();
+}
+function receiveHarvest(target){
+    if(!supportedHarvest(target.name)||!harvestWritable())return;
+    harvestOwner??=createHarvest();
+    const context=harvestContext();
+    const specimen=drawSpecimen({species:target.name,key:target.rngKey||`harvest:${harvestOwner.sequence+1}`,clock:context.clock,damage:target.harvestDamage},key=>gameKeyedRandom(STREAMS.loot,key));
+    const left=harvestOwner.left;grantHarvest(addCarcass(harvestOwner,specimen,context));
+    if(harvestOwner.left>left)log_message('Carcass lot full: one '+target.name+' left behind. Enable auto-processing to retain incoming parts.','notification');
+    harvestPanel?.render();
+}
+function harvestTransaction(run){
+    const transaction=beginNativeCraftTransaction({owners:[expansionState,character,character.getItems(),character.getLevelableComponent(),item_log,global_flags,availabilities,...Object.values(skills).map(s=>s.getAvailabilityComponent()),which_skills_affect_skill,...nativeCraftQuestOwners(quests,active_quests)],bindings:[{get:()=>harvestOwner,set:v=>{harvestOwner=v;}},{get:()=>expansionState,set:v=>{expansionState=v;}},{get:()=>p23Growth,set:v=>{p23Growth=v;}},{get:()=>p23GrowthEarned,set:v=>{p23GrowthEarned=v;}}]});
+    try {run();const serialized=create_save();if(!serialized)throw Error('Could not save carcass processing.');validateSaveEnvelope(JSON.parse(serialized),game_version);lifeSaveStorage.setItem(is_on_dev()?dev_save_key:save_key,serialized,()=>transaction.markDurable());}
+    catch(e){if(transaction.status==='pending'){transaction.rollback();update_displayed_character_inventory();}throw e;}
+}
+function actHarvest(request){
+    if(!harvestWritable())throw Error('Processing requires a living player in the writable frontier game.');
+    if(request.type==='begin'&&!harvestReady())throw Error('Finish the current activity before processing.');
+    harvestTransaction(()=>{harvestOwner??=createHarvest();
+    if(request.type==='auto')harvestOwner.auto=!!request.value;
+    else if(request.type==='cancel')cancelHarvest(harvestOwner);
+    else if(request.type==='begin')beginHarvest(harvestOwner,request.species,request.choice,harvestContext());
+    else throw Error('Unknown processing action.');});
+    harvestPanel?.render();
+}
+function tickHarvest(minutes){
+    if(!harvestOwner||!harvestWritable())return;
+    // Auto handling is an idle combat companion; explicit handling occupies the player.
+    const ready=harvestOwner.job&&!harvestOwner.job.automatic || (!current_activity&&!current_game_action&&!current_dialogue&&!is_sleeping&&!is_reading&&!is_in_trade()&&!nativeOccupationReason());
+    if(!ready || !harvestOwner.job && !harvestOwner.auto)return;
+    try {harvestTransaction(()=>{for(const plan of advanceHarvest(harvestOwner,minutes,harvestContext(),{ready:true}))grantHarvest(plan);});}
+    catch(e){log_message('Carcass processing paused: '+e.message,'notification');}
+    harvestPanel?.render();
+}
+
 function nativeOccupationReason() {
     if(!restoringNativeSave&&expansionState.actors.player.facts[P23_LEISURE_RESERVATION])return 'Your paid target-dice round is still settling on the played clock.';
+    if(!restoringNativeSave && harvestOwner?.job && !harvestOwner.job.automatic)return "Finish or cancel carcass processing before starting another activity.";
     if(!restoringNativeSave && Object.values(optionalPackState.packs).some(r=>r.active))return 'Return from your optional world before starting native activities.';
     if(!restoringNativeSave && villageTeachingBusy(villageCareer))return 'Finish the agreed teaching minutes before starting another activity.';
     const backlogReasons=backlogNativeActionReasons(expansionState);
@@ -2015,7 +2111,7 @@ function nativeOccupationReason() {
     if(expansionState.actors.player.facts['original_frontier.travel.remaining']>0)return 'Finish or cancel your remaining native journey in local notes first.';
     if(simulationOccupiesActor(expansionState) || waitingSimulationChoice(expansionState)) return "Finish your living-world work or decision first.";
     if(usesJoinedClock() && ((!ownsSave && !restoringNativeSave) || foundationSaveBlocked || expansionError)) return "Progress is paused until saving is restored. Reload before continuing.";
-    if(expansionState.chronicle?.session || expansionState.chronicle?.life.endedAt != null) {
+    if(expansionState.chronicle?.session || nativeLifeEnded()) {
         return "Finish or withdraw from the elder encounter; an ended mortal life cannot begin a new activity.";
     }
     if(expansionState.pending.some(job => job.context.actorId === "player") || activePractice(expansionState.actors.player)) {
@@ -2495,6 +2591,26 @@ function beginHeir() {
     lifeSaveStorage.setItem(is_on_dev() ? dev_save_key : save_key, serialized);
     localStorage.setItem(heir_request_key, JSON.stringify({schema: 1, leftovers}));
     window.location.reload();
+}
+function beginIndependentLife(){
+    if(!ownsSave||importProbeToken||foundationSaveBlocked||!structuredLifeEnded(expansionState,optionalPackState.structured))throw Error('A writable ended local life is required.');
+    const key=is_on_dev()?dev_save_key:save_key;const serialized=localStorage.getItem(key);
+    const archived=archiveStructuredLife({storage:localStorage,key,serialized,writeArchive:(k,v)=>writeGuardedSave(localStorage,k,v),validateEnvelope:s=>validateSaveEnvelope(s,game_version)});
+    localStorage.setItem(independent_request_key,JSON.stringify({schema:1,key,instanceId:archived.instanceId,archiveKey:archived.archiveKey}));window.location.reload();
+}
+async function completeIndependentRequest(request){
+    const key=is_on_dev()?dev_save_key:save_key;
+    try{
+        if(!(await saveOwnership)||request.key!==key)throw Error('The destination tab must own this save.');
+        const serialized=localStorage.getItem(key),old=JSON.parse(serialized);
+        if(old.content_packs?.structured?.instanceId!==request.instanceId||request.archiveKey!==`${key}:ended-life:${request.instanceId}`)throw Error('The active life changed.');
+        const nextSerialized=create_save();if(!nextSerialized)throw Error('No supported fresh beginning.');
+        await publishIndependentStructuredLife({storage:localStorage,key,serialized,nextSerialized,validateEnvelope:s=>validateSaveEnvelope(s,game_version),preflight:bytes=>preflightImport(JSON.parse(bytes)),publish:bytes=>lifeSaveStorage.setItem(key,bytes)});
+    }catch(error){console.error('Independent character waits; preserved archive available.',error);
+        try{localStorage.setItem(independent_request_key,JSON.stringify({schema:1,error:'Independent character could not begin. The ended life and its archive are preserved.'}));}catch{}
+        window.location.reload();await new Promise(()=>{});
+    }
+    localStorage.removeItem(independent_request_key);window.location.reload();await new Promise(()=>{});
 }
 async function completeHeirRequest(request) {
     const key = is_on_dev() ? dev_save_key : save_key;
@@ -3076,6 +3192,7 @@ function change_location({location_id, event, skip_travel_time = false, do_quest
         persistExpansion({state,external:{money:character.money},gameplay:gameplaySnapshot(),nativeLocation:location.id,nativeEnterQuest:do_quest_events,nativePatch:{'current location':location.id}});
         return;
     }
+    commitLocalDateHeader();
     if(do_quest_events) {
         do_quest_event({
             quest_event_type: "enter_location",
@@ -3186,7 +3303,7 @@ function feedbackClockPauseReason() {
     if(!workLedgerCanWrite())return 'Paused until saving is restored.';
     if(expansionState.simulation?.sessions.player||waitingSimulationChoice(expansionState))return 'Waiting for your response.';
     if(backlogNativeClockPaused(expansionState))return 'Waiting for the current local situation.';
-    if(expansionState.chronicle?.life.endedAt!=null)return 'This life has ended.';
+    if(nativeLifeEnded())return 'This life has ended.';
     return '';
 }
 function publishWorkLedger(plan,anchor,onDurable) {
@@ -3810,7 +3927,7 @@ function recipeLesson(inventory){
 function practiceRunReason(){
     if(!ownsSave||foundationSaveBlocked||importProbeToken)return 'Saving is unavailable.';
     if(expansionState.actors.player.worldId!=='base.frontier')return 'Run is practiced for frontier travel.';
-    if(current_combat||current_activity||is_reading||is_sleeping||current_dialogue||is_in_trade()||expeditionOccupiesPlayer())return 'Finish your current activity before running.';
+    if(current_combat||current_activity||is_reading||is_sleeping||current_dialogue||is_in_trade()||nativeOccupationReason())return 'Finish your current activity before running.';
     if(character.getFullStats().stamina<2)return 'Requires 2 stamina for a journey.';
     return '';
 }
@@ -4495,7 +4612,7 @@ function unlock_combat_stance(stance_id) {
 
 function change_stance({stance_id, is_temporary = false}) {
     if(!restoringNativeSave){const reasons=backlogNativeActionReasons(expansionState,'combat');if(reasons.length){log_message(reasons.join(' '),'notification');return;}}
-    if(expansionState.chronicle?.session || expansionState.chronicle?.life.endedAt != null) return;
+    if(expansionState.chronicle?.session || nativeLifeEnded()) return;
     if(is_temporary) {
         if(!stances[stance_id]) {
             throw new Error(`No such stance as "${stance_id}"`);
@@ -4553,6 +4670,7 @@ function set_new_combat({enemies} = {}) {
         enemies=savedEncounter.enemies.map(row=>{
             const e=current_location.id===AREA_ID?trainingEnemy(p23EncounterProfile,Enemy,row):new Enemy({...enemy_templates[row.template],stats:{...row.stats}});
             e.init();Object.assign(e.getFullStats(),row.full);e.is_alive=row.alive;
+            if(row.harvestDamage)e.harvestDamage=structuredClone(row.harvestDamage);
             e.rngKey=row.key;e.encounterKey=savedEncounter.key;e.templateKey=row.template;return e;
         });
     }
@@ -4638,7 +4756,7 @@ function runP23CombatExchange(combat,resolve) {
         validateCombatOptions(combat.combatOptions?.snapshot());if(p23LivingGear!==undefined)createLivingGear(p23LivingGear);
         transaction=beginNativeCraftTransaction({owners:[expansionState,character,character.getItems(),character.getLevelableComponent(),character.getEquipment(),character.getBioComponent(),...combat.defenders,...combat.defenders.map(enemy=>enemy.getLevelableComponent()),...(current_location.id===AREA_ID?[locations[AREA_ID],locations[AREA_ID].getAvailabilityComponent()]:[]),item_log,game_stats,global_flags,availabilities,enemy_killcount,favourite_consumables,favourite_items,favourite_locations,
             ...Object.values(skills).map(skill=>skill.getAvailabilityComponent()),which_skills_affect_skill,active_effects,...nativeCraftQuestOwners(quests,active_quests)],
-            bindings:[{get:()=>p23Growth,set:v=>{p23Growth=v;}},{get:()=>p23GrowthEarned,set:v=>{p23GrowthEarned=v;}},{get:()=>p23EncounterProfile,set:v=>{p23EncounterProfile=v;}},{get:()=>p23EncounterReceipt,set:v=>{p23EncounterReceipt=v;}},{get:()=>pendingNativeEncounter,set:v=>{pendingNativeEncounter=v;}},{get:()=>p23DropObservations,set:v=>{p23DropObservations=v;}},{get:()=>expansionState,set:v=>{expansionState=v;}},{get:()=>p23LivingGear,set:v=>{p23LivingGear=v;}},{get:()=>p23CombatOptions,set:v=>{p23CombatOptions=v;}},{get:()=>current_combat,set:v=>{current_combat=v;}},{get:()=>current_location,set:v=>{current_location=v;}},{get:()=>pathfinder,set:v=>{pathfinder=v;}},{get:()=>travel_times,set:v=>{travel_times=v;}}]});
+            bindings:[{get:()=>harvestOwner,set:v=>{harvestOwner=v;}},{get:()=>p23Growth,set:v=>{p23Growth=v;}},{get:()=>p23GrowthEarned,set:v=>{p23GrowthEarned=v;}},{get:()=>p23EncounterProfile,set:v=>{p23EncounterProfile=v;}},{get:()=>p23EncounterReceipt,set:v=>{p23EncounterReceipt=v;}},{get:()=>pendingNativeEncounter,set:v=>{pendingNativeEncounter=v;}},{get:()=>p23DropObservations,set:v=>{p23DropObservations=v;}},{get:()=>expansionState,set:v=>{expansionState=v;}},{get:()=>p23LivingGear,set:v=>{p23LivingGear=v;}},{get:()=>p23CombatOptions,set:v=>{p23CombatOptions=v;}},{get:()=>current_combat,set:v=>{current_combat=v;}},{get:()=>current_location,set:v=>{current_location=v;}},{get:()=>pathfinder,set:v=>{pathfinder=v;}},{get:()=>travel_times,set:v=>{travel_times=v;}}]});
         scope={transaction,messages:[]};nativeP23Scope=scope;nativeCraftScopes.push(scope);
         nativeP23Transaction=transaction;nativeLivingStrike=true;result=resolve();
         if(combat.combatOptions)p23CombatOptions=combat.combatOptions.snapshot();
@@ -4728,6 +4846,7 @@ function kill_target({target_index, fighter_index, is_target_an_attacker, do_que
         const owner=livingOwner(),plan=owner.stageKill({sequence:owner.serialize().lastKill+1,killerId:fighter.tags.main_character?'player':fighter.id||'enemy',defeated:{tags:{...target.tags,training:!!target.tags.training||current_location.tags.training===true}},equipment:livingEquipment(),assertDisposition:key=>{assertNativeItemDisposition(expansionState,key);assertNativeItemDisposition(expansionState,canonicalDurabilityKey(key));}});
         plan.preflight();p23LivingGear=plan.nativePatch.p23_living_gear;
     }
+    if(fighter.tags.main_character && !is_special_combat)receiveHarvest(target);
     update_displayed_health_of_fighter({fighter_index: target_index, is_attacker: is_target_an_attacker});
 
     // Enemies are defenders since the combat rewrite (hero attacks), so count kills of defenders.
@@ -5317,6 +5436,7 @@ function execute_native_recipe(target, ammount_wanted_to_craft = 1) {
                 game_stats.total_crafting_attempts += attempted_crafting_ammount;
                 game_stats.total_crafting_successes += successful_crafting_ammount;
 
+                const harvestQuality = category==='butchering' && GRADED_IDS.includes(result_id) ? consumedHarvestQuality(materials,selected_recipe.materials,attempted_crafting_ammount) : null;
                 //remove used materials
                 for (let i = 0; i < selected_recipe.materials.length; i++) {
                     let to_remove = selected_recipe.materials[i].count * attempted_crafting_ammount;
@@ -5341,7 +5461,7 @@ function execute_native_recipe(target, ammount_wanted_to_craft = 1) {
                 const final_count = scale_results ? fuzzy_final_result_count : final_result_count;
 
                 if(final_count) {
-                    character.addToInventory([{item_key: item_templates[result_id].getInventoryKey(), count: final_count}]);
+                    character.addToInventory([{item_key: harvestQuality ? gradedKey(result_id,harvestQuality) : item_templates[result_id].getInventoryKey(), count: final_count}]);
                     observeFortAcquisition(result_id,final_count,"craft",selected_recipe.id,selected_recipe.name);
                     let msg = `Created ${item_templates[result_id].getName()}`;
                     if(attempted_crafting_ammount > 1 || scale_results) {
@@ -5797,9 +5917,11 @@ function performMixtureAction(request) {
     const reasons=nativeActionReasons(expansionState);if(reasons.length||!character.is_alive)throw new Error(reasons.join(" ")||"A living character is needed.");
     if(!workLedgerCanWrite()||(request.type!=='use'&&current_location?.id!=='Village')||expansionState.actors.player.worldId!=='base.frontier'||expeditionOccupiesPlayer()||current_activity||current_game_action||current_combat||current_dialogue||is_sleeping||is_reading||is_in_trade())throw new Error('Use the mixing counter while free in Village.');
     if(request.key)assertNativeItemDisposition(expansionState,request.key);
-    const plan=stageMixtureAction({owner:getMixtureOwner(),seed:mixtureSeed(),inventory:character.getItems(),money:character.money,clock:calendarMinutes(current_game_time),request});
+    const plan=stageMixtureAction({owner:getMixtureOwner(),seed:mixtureSeed(),inventory:character.getItems(),money:character.money,clock:calendarMinutes(current_game_time),request,expansion:expansionState});
     commitMixturePlan(plan,{createSave:create_save,validateEnvelope:save=>validateSaveEnvelope(save,game_version),
         write:text=>lifeSaveStorage.setItem(is_on_dev()?dev_save_key:save_key,text),publish:p=>{
+            if(p.expansion)expansionState=p.expansion;
+            setProductAppearanceOwner(expansionState.productAppearances);
             setMixtureOwner(p.state);character.money=p.money;
             const stock=character.getItems();for(const key of Object.keys(stock))if(!p.inventory[key])delete stock[key];
             for(const [key,row]of Object.entries(p.inventory))stock[key]={item:getItemFromKey(key),count:row.count};
@@ -6151,6 +6273,7 @@ function create_save({forExport = false} = {}) {
         });
         
         save_data["current location"] = current_location.id;
+        if(harvestOwner)save_data.harvest=structuredClone(validateHarvest(harvestOwner,calendarMinutes(current_game_time)));
         save_data.native_encounter = current_location.id===AREA_ID&&!p23EncounterProfile?.pending?null:(current_combat?.snapshot(current_location.id) || pendingNativeEncounter);
 
         save_data["locations"] = {};
@@ -6463,6 +6586,7 @@ function load(save_data) {
             p23DropObservations=save_data.p23_drop_observations===undefined?undefined:validateDropObservations(save_data.p23_drop_observations);
             loadedDisplayPreferences=save_data.display_preferences;
             setMixtureOwner(save_data.mixtures);
+            harvestOwner=save_data.harvest==null?null:structuredClone(validateHarvest(save_data.harvest,calendarMinutes(save_data["current time"])));
             cheatState=validateCheatState(save_data.cheats??defaultCheatState());
             optionalPackState=validatePackState(save_data.content_packs??emptyPackState());
             localLife=normalizeLocalLife(save_data.absorb_local_life);
@@ -6496,6 +6620,7 @@ function load(save_data) {
             npcLives = save_data.npc_lives == null ? null : advanceVillageLives(save_data.npc_lives, save_data["current time"].year);
             expansionState = initializeExpedition(loadExpansionState(save_data.expansion, expeditionRegistry, expansionState.rng));
             restoreSystemsWorkshopAvailability(save_data);
+            setProductAppearanceOwner(expansionState.productAppearances);
             // Pre-expansion saves have no seed: use the documented stable
             // fallback for native streams while leaving legacy engine RNG alone.
             ensureStreams(expansionState,save_data.expansion?.rng ?? 1);
@@ -7125,6 +7250,7 @@ function load(save_data) {
 
                     Object.keys(saved_inventory).forEach(key => {
                         const parsedKey=JSON.parse(key);
+                        if(GRADED_IDS.includes(parsedKey.id)&&parsedKey.quality!=null){getItemFromKey(key);item_list.push({item_key:key,count:saved_inventory[key].count});return;}
                         if(parsedKey.id===MIXTURE_ID){const item=getItemFromKey(key);item_list.push({item_key:item.getInventoryKey(),count:saved_inventory[key].count});return;}
                         const measuredItem=worldCompletionSavedNativeItem(key,saved_inventory[key],getItemFromKey);
                         if(measuredItem){item_list.push(measuredItem);return;}
@@ -7935,7 +8061,8 @@ function load(save_data) {
         set_loading_screen_progress("Hiding from the vet");
 
         publishGrowthProjection(growthFlatSource(p23Growth,growthIdentity()),false);
-        if(save_data.character.hp_to_full == null || save_data.character.hp_to_full >= full_stats.max_health) {
+        if(structuredLifeEnded(expansionState,optionalPackState.structured)){full_stats.health=0;character.is_alive=false;}
+        else if(save_data.character.hp_to_full == null || save_data.character.hp_to_full >= full_stats.max_health) {
             full_stats.health = 1;
         } else {
             full_stats.health = full_stats.max_health - save_data.character.hp_to_full;
@@ -8243,6 +8370,8 @@ function load(save_data) {
         if(!any_warnings && !importProbeToken && save_data.display_preferences!==undefined) {
             try {adoptDisplayPreferences(save_data.display_preferences);} catch(error) {log_message('Display preferences could not be adopted. '+error.message,'notification');}
         }
+        localDateLog.reset();
+        localDateLog.commit(readLocalCalendar());
         return {warnings: any_warnings};
     } catch(error) {
         foundationSaveBlocked = true;
@@ -8253,6 +8382,7 @@ function load(save_data) {
         restoringNativeSave = false;
         if(p23LivingGear!==undefined){character.addActiveEffectBonus(active_effects);character.updateStatsAndDisplay();}
         trancheFourPanel?.render();
+        awakenOptionalStart();
     }
 } 
 
@@ -8334,6 +8464,7 @@ function hard_reset() {
 
 //update game time
 function update_timer(time_in_minutes, source = null) {
+    if(nativeLifeEnded())return 0;
     if(optionalPackState.pendingStructured&&!optionalPackState.structured)return 0;
     if(Object.values(optionalPackState.packs).some(r=>r.active)) {
         if(importProbeToken||!ownsSave||foundationSaveBlocked||is_loading_error||lifeStorageFailure)return 0;
@@ -8361,7 +8492,7 @@ function update_timer(time_in_minutes, source = null) {
     minutes=mistglassNextBoundary(expansionState,expansionState.clock+minutes)-expansionState.clock;
     if(minutes === 0) return 0;
     if(usesJoinedClock()) {
-        if(importProbeToken || !ownsSave || expansionError || foundationSaveBlocked || is_loading_error || expansionState.chronicle?.life.endedAt != null) return 0;
+        if(importProbeToken || !ownsSave || expansionError || foundationSaveBlocked || is_loading_error || nativeLifeEnded()) return 0;
         if(expansionState.simulation?.sessions.player || waitingSimulationChoice(expansionState)) {frontierCampaignPanel?.render();featureExpansionPanel?.render();foundationInteractionPanel?.render();causalStoryPanel?.render();simulationPanel?.render(); pursuitPanel?.render(); fieldPanel?.render(); promisePanel?.render(); crushSocialPanel?.render(); managementPanel?.render(); knownRoutesPanel?.render();adventureNotebook?.render();livingGearPanel?.render();combatOptionsPanel?.render(); return 0;}
         if(expansionState.chronicle?.session?.policy === "manual") {chroniclePanel?.render(); return 0;}
         try {
@@ -8370,8 +8501,9 @@ function update_timer(time_in_minutes, source = null) {
             const plan = response ? makeChroniclePlan({type: "respond", action: response}) : pendingJourney ? advanceFrontierJourney({state:expansionState,external:{money:character.money},gameplay:gameplaySnapshot()},minutes) : advanceChroniclePlan({state: expansionState, external: {money: character.money}, gameplay: gameplaySnapshot()}, minutes, source === "travel");
             const consumed = plan.state.clock - expansionState.clock;
             persistExpansion(plan);
+            tickHarvest(consumed);
             if(was_night !== is_night(current_game_time)) character.updateStatsAndDisplay();
-            if(expansionState.chronicle?.life.endedAt != null) {if(current_combat) end_combat(); character.is_alive = false;}
+            if(nativeLifeEnded()) {if(current_combat) end_combat(); character.is_alive = false;}
             expeditionPanel?.render(); techniquePanel?.render(); chroniclePanel?.render(); villagePanel?.render(); simulationPanel?.render();
             return consumed;
         } catch(error) {
@@ -8395,6 +8527,7 @@ function update_timer(time_in_minutes, source = null) {
     }
     
     update_displayed_time();
+    awakenOptionalStart();
     return minutes;
 }
 
@@ -8451,7 +8584,7 @@ function update() {
         const prev_day = current_game_time.day_count;
         const advancedMinutes = update_timer();
         trancheFourPanel?.render();furniturePanel?.render();localLifePanel?.render();practicePanel?.render();updateWorkspace();fortControls?.render();pacingPanel?.render();pacingStatusPanel?.render();durabilityPanel?.render();elementalPanel?.render();livingGearPanel?.render();combatOptionsPanel?.render();householdPanel?.render();
-        if(!advancedMinutes || expansionState.chronicle?.life.endedAt != null) {update(); return;}
+        if(!advancedMinutes || nativeLifeEnded()) {awakenOptionalStart(); update(); return;}
 
         if(start_date - last_rewarded_export > config.time_between_export_rewards) {
             document.getElementById("save_to_file_button").classList.add("export_button_with_reward");
@@ -8463,8 +8596,6 @@ function update() {
 
         const curr_day = current_game_time.day_count;
         if(curr_day > prev_day) {
-            // CH1 dormant seed: first won fight or day 3.
-            awakenOptionalStart();
             recover_item_prices(config.trade_price_recovery_flat, config.trade_price_recovery_ratio);
             trickle_market_saturations(config.market_saturation_trickle_rate);
             if(is_in_trade()) {
@@ -8958,7 +9089,7 @@ function refresh_titles({silent = false} = {}) {
 
 function run() {
     if(importProbeToken) return;
-    if(expansionState.chronicle?.life.endedAt != null) {character.is_alive = false; chroniclePanel?.render(true); return;}
+    if(nativeLifeEnded()) {character.is_alive = false; chroniclePanel?.render(true); return;}
     if(typeof current_location === "undefined") {
         change_location({location_id: "Village", skip_travel_time: true});
     } 
@@ -9103,6 +9234,7 @@ const saveOwnership = acquireSaveOwnership().then(owned => {
     frontierCampaignPanel?.render();
     featureExpansionPanel?.render();foundationInteractionPanel?.render();
     knownRoutesPanel?.render();adventureNotebook?.render();livingGearPanel?.render();combatOptionsPanel?.render(); worldEventFeed?.render();
+    awakenOptionalStart();
     return owned;
 });
 
@@ -9330,13 +9462,14 @@ translationManager.translateUI(language);
 //check if there's an existing save file, otherwise just do some initial setup
 if(importProbeToken) {
     // Probe uses fresh definitions and never reads another saved character.
-} else if(!heirRequest?.leftovers && (!is_on_dev() && save_key in localStorage || is_on_dev() && (dev_save_key in localStorage || !("skip_live_import" in localStorage) && save_key in localStorage ))) {
+} else if(!independentRequest && !heirRequest?.leftovers && (!is_on_dev() && save_key in localStorage || is_on_dev() && (dev_save_key in localStorage || !("skip_live_import" in localStorage) && save_key in localStorage ))) {
     load_from_localstorage();
     if(!is_loading_error) refresh_titles({silent: true});
     character.updateStatsAndDisplay();
     update_displayed_xp_bonuses();
 } else {
     set_loading_screen_versions();
+    commitLocalDateHeader();
     character.addToInventory([
                                 //{item_id: "Cheap iron sword", quality: 50},
                                 {item_id: "Cheap leather pants", quality: 40},
@@ -9355,6 +9488,7 @@ if(importProbeToken) {
     questManager.startQuest({quest_id: "Lost memory"});
 
     last_rewarded_export = Date.now() - 1000*60*60*16; //reduces timer by 16 hours, making first reward export appear in 4 hours from starting
+    if(independentRequest) await completeIndependentRequest(independentRequest);
     if(heirRequest?.leftovers) await completeHeirRequest(heirRequest);
 }
 
@@ -9456,6 +9590,7 @@ update_displayed_equipment();
 sort_displayed_inventory({sort_by: "name", target: "character"});
 
 if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
+    harvestPanel=createHarvestPanel({container:document.getElementById('location_actions_div'),read:()=>({state:harvestOwner,context:harvestContext(),writable:harvestWritable(),ready:harvestReady()}),act:actHarvest,developer:is_on_dev()||new URLSearchParams(location.search).get("harvest-inspector")==="1"});
     if(structuredPacks.size)structuredPanel=createStructuredPackPanel({read:readStructuredCampaign,command:commandStructuredCampaign});
     optionalPackPanel=createContentPackPanel({definitions:optionalPacks,always:true,
         read:()=>({state:optionalPackState,pauseReason:feedbackClockPauseReason(),canEnter:ownsSave&&current_location?.id==='Village'&&!nativeOccupationReason()&&!current_activity&&!current_game_action&&!current_combat&&!current_dialogue&&!is_sleeping&&!is_reading&&!is_in_trade(),canAct:ownsSave&&!foundationSaveBlocked&&!lifeStorageFailure,
@@ -9534,15 +9669,15 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
     fieldPanel = createFieldPanel({registry:expeditionRegistry,read:()=>{const snapshot=readProgression();return {...snapshot,inDialogue:!!current_dialogue,
         context:{...snapshot.context,vitals:Object.fromEntries(Object.entries(simulationNativeContexts()).map(([id,c])=>[id,c.vitals]))}};},command:actSimulation});
     promisePanel=createPromisePanel({registry:expeditionRegistry,read:()=>({...readProgression(),context:campaignContext(),canWrite:ownsSave && !foundationSaveBlocked && !importProbeToken,inDialogue:!!current_dialogue,inCombat:!!current_combat}),command:actSimulation});
-    chroniclePanel = createChroniclePanel({read: () => ({state: expansionState, context: chronicleContext(),
+    chroniclePanel = createChroniclePanel({read: () => ({structuredLife:structuredLifeView(expansionState,optionalPackState.structured),state: expansionState, context: chronicleContext(),
         canWrite: ownsSave && !importProbeToken && !foundationSaveBlocked,
         enabled: ownsSave && current_location?.id === "Village" && !current_activity && !current_game_action && !current_combat && !is_sleeping && !is_reading && !is_in_trade() && !activePractice(expansionState.actors.player) && metVillageElder(),
         occupied: expansionState.pending.some(j => j.context.actorId === "player"),
-        dutyJob: expansionState.pending.find(j => j.actionId === "chronicle.archive_duty"), error: expansionError, pauseReason: chroniclePauseReason}),
+        dutyJob: expansionState.pending.find(j => j.actionId === "chronicle.archive_duty"), error: expansionError||(()=>{try{return JSON.parse(localStorage.getItem(independent_request_key))?.error;}catch{return '';}})(), pauseReason: chroniclePauseReason}),
         command: actChronicle, duty: () => startExpedition("chronicle.archive_duty", expansionState.sequence),
         cancelDuty: () => {const j = expansionState.pending.find(j => j.actionId === "chronicle.archive_duty"); if(j) cancelExpedition(j.id, expansionState.sequence);},
         exportSave: () => {const serialized = create_save(); if(!serialized) return; const url = URL.createObjectURL(new Blob([encodeSaveFile(serialized)], {type: "text/plain"})); const a = document.createElement("a"); a.href = url; a.download = "YAIRPG-ended-life.txt"; a.click(); setTimeout(() => URL.revokeObjectURL(url), 1000);}, reset: hard_reset,
-        beginHeir, heirPreview: previewHeir});
+        beginHeir, heirPreview: previewHeir,beginIndependent:beginIndependentLife,archiveExports:listStructuredLifeArchives({storage:localStorage,key:is_on_dev()?dev_save_key:save_key}).map(a=>({label:a.label,export:()=>{const url=URL.createObjectURL(new Blob([encodeSaveFile(a.serialized)],{type:'text/plain'}));const link=document.createElement('a');link.href=url;link.download='YAIRPG-archived-life.txt';link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}}))});
     knownRoutesPanel=createKnownRoutesPanel({container:document.getElementById('location_actions_div'),focusFallback:document.getElementById('journal_show_notebook'),
         read:()=>({...readProgression(),context:featureWaveContext(),inDialogue:!!current_dialogue,inCombat:!!current_combat,canWrite:ownsSave&&!foundationSaveBlocked&&!importProbeToken}),
         present:snapshot=>{
@@ -9599,11 +9734,11 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
         mentor:choice=>writeVillageCareer(choice),resolve:choice=>writeVillageCareer(choice),promote:()=>writeVillageCareer('promote'),
         notes:()=>writeVillageCareer('notes'),tutor:()=>writeVillageCareer('tutor'),readNotes:()=>start_reading(WATCHCRAFT_BOOK),
         practice:()=>start_activity('meditating')});
-    registerGeneratedPeople({read:()=>({at:calendarMinutes(current_game_time),seed:generatedPeopleSeed(),
+    registerGeneratedPeople({read:()=>({at:calendarMinutes(current_game_time),seed:generatedPeopleSeed(),expansion:expansionState,
         inVillage:current_location?.id==='Village'&&expansionState.actors.player.worldId==='base.frontier',
         canWrite:ownsSave&&!foundationSaveBlocked&&!importProbeToken&&!is_loading_error&&!lifeStorageFailure,
         busy:!!(nativeOccupationReason()||current_activity||current_game_action||current_combat||current_dialogue||is_sleeping||is_reading||is_in_trade())}),
-        save:create_save,persist:serialized=>lifeSaveStorage.setItem(is_on_dev()?dev_save_key:save_key,serialized),
+        save:create_save,persist:serialized=>{const saved=JSON.parse(serialized);validateSaveEnvelope(saved,game_version);lifeSaveStorage.setItem(is_on_dev()?dev_save_key:save_key,serialized);expansionState=saved.expansion;simulationPanel?.render();},
         authoredNames:[...expeditionRegistry.simulation.people.values()].map(p=>p.label||p.name||p.id),
         itemKey:id=>item_templates[id].getInventoryKey(),canSupply:key=>canConsumeNativeCraftingItem(key)&&character.getItems()[key]?.count>=1,
         publishSupply:key=>{character.removeFromInventory([{item_key:key,item_count:1}]);update_displayed_character_inventory();},publishReward:add_money_to_character});
@@ -9735,6 +9870,7 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
     };
     createWorkspaceViews({read:()=>({
         work:[current_activity?nativeWorkLabel(current_activity):null,current_game_action?.name,
+            harvestOwner?.job?`${harvestOwner.job.automatic?'Auto-processing':'Processing'} ${harvestOwner.job.specimen.species}: ${harvestOwner.job.choice}, ${Math.ceil(harvestOwner.job.remaining)} min remaining`:null,
             is_sleeping?'Sleeping':null,is_reading?'Reading':null,current_dialogue?'Conversation in progress':null,
             current_combat?'Combat in progress':null,
             ...expansionState.pending.filter(j=>j.context.actorId==='player').map(j=>`${j.label||expeditionRegistry.actions.get(j.actionId)?.label||'Current work'}: ${Math.max(0,j.due-expansionState.clock)} min remaining`),

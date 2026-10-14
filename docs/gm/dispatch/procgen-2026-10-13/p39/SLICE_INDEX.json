@@ -1,0 +1,2852 @@
+[
+  {
+    "id": "P11.S1",
+    "lane": "P11",
+    "rank": 1,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p11/REPORT.md",
+    "line": 23,
+    "outcome": "Known context wraps funded contact",
+    "spine": [
+      "S-1",
+      "S-4"
+    ],
+    "other": "supported calendar/stock/actor; P38 refs",
+    "area": "context",
+    "size": "M",
+    "files": "J,U",
+    "gate": "Same person/terms after context change and import; no hidden projection"
+  },
+  {
+    "id": "P11.S2",
+    "lane": "P11",
+    "rank": 2,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p11/REPORT.md",
+    "line": 24,
+    "outcome": "Actual deficit creates supply/repair request",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-3",
+      "S-4"
+    ],
+    "other": "P11.S1; actual need/repair writer",
+    "area": "requests",
+    "size": "M",
+    "files": "J,U",
+    "gate": "Real deficit, funded settlement, decline and new funded recurrence"
+  },
+  {
+    "id": "P11.S3",
+    "lane": "P11",
+    "rank": 3,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p11/REPORT.md",
+    "line": 25,
+    "outcome": "Demand changes funded buy order",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-3",
+      "S-4"
+    ],
+    "other": "P11.S1/S2; trader quote owner",
+    "area": "market",
+    "size": "M",
+    "files": "J,U",
+    "gate": "Quote/stock/purse reconcile; reopen and reload preserve terms"
+  },
+  {
+    "id": "P11.S4",
+    "lane": "P11",
+    "rank": 4,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p11/REPORT.md",
+    "line": 26,
+    "outcome": "Deed travels and is corrected",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "P14.S1; D8 accounts; actual channel",
+    "area": "information",
+    "size": "M",
+    "files": "J,U",
+    "gate": "No knowledge before arrival; evidence changes belief/consumer"
+  },
+  {
+    "id": "P11.S5",
+    "lane": "P11",
+    "rank": 5,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p11/REPORT.md",
+    "line": 27,
+    "outcome": "Borrowed handbook teaches supported method",
+    "spine": [
+      "S-1",
+      "S-4"
+    ],
+    "other": "P11.S1; P6.S11-A; reading/custody",
+    "area": "library",
+    "size": "M",
+    "files": "J,U",
+    "gate": "Real learning, exact loan/return, safe progress restoration"
+  },
+  {
+    "id": "P12.S1",
+    "lane": "P12",
+    "rank": 1,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p12/REPORT.md",
+    "line": 37,
+    "outcome": "Request settles with useful aftermath",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4",
+      "S-3"
+    ],
+    "other": "P11.S1/S2; actual repair; P14/D8 reader",
+    "area": "request_arc",
+    "size": "M",
+    "files": "J,U,T",
+    "gate": "Repair changes exact later offer; decline remains useful"
+  },
+  {
+    "id": "P12.S2",
+    "lane": "P12",
+    "rank": 2,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p12/REPORT.md",
+    "line": 38,
+    "outcome": "Shared work opens lesson and reciprocity",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "P12.S1; P19 directed ties; supported teaching",
+    "area": "relationship_arc",
+    "size": "L",
+    "files": "J,U,T",
+    "gate": "Real lesson/access; no relationship invented by paid job"
+  },
+  {
+    "id": "P12.S3",
+    "lane": "P12",
+    "rank": 3,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p12/REPORT.md",
+    "line": 39,
+    "outcome": "NPC pursues funded competing service plan",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4",
+      "S-3"
+    ],
+    "other": "P12.S1; P4 actor/means bridge; appointment",
+    "area": "npc_plan",
+    "size": "L",
+    "files": "J,U,T",
+    "gate": "Ignore hero and NPC still spends its own means; segmented parity"
+  },
+  {
+    "id": "P12.S4",
+    "lane": "P12",
+    "rank": 4,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p12/REPORT.md",
+    "line": 40,
+    "outcome": "Fixed delivery mystery admits evidence paths",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "P12.S1; P11.M3; custody/channel",
+    "area": "mystery",
+    "size": "L",
+    "files": "J,U,T",
+    "gate": "Cause predates inquiry; contradictory/inconclusive testimony retained"
+  },
+  {
+    "id": "P12.S5",
+    "lane": "P12",
+    "rank": 5,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p12/REPORT.md",
+    "line": 41,
+    "outcome": "Reader recognizes actual micro-arcs",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "P12.S1; P12.S2 if reciprocity; P14.S1",
+    "area": "story_sifting",
+    "size": "M",
+    "files": "J,U",
+    "gate": "Pinned genuine chain matches, near-miss does not; no render reward"
+  },
+  {
+    "id": "P13.S1",
+    "lane": "P13",
+    "rank": 1,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p13/REPORT.md",
+    "line": 62,
+    "outcome": "HP original dispatch changes preparation",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4",
+      "S-3"
+    ],
+    "other": "qualified source/era; P11.S2; P12.S1; P15",
+    "area": "hp_dispatch",
+    "size": "L",
+    "files": "J,U,T",
+    "gate": "Useful change and abstention control; independent canon stays intact"
+  },
+  {
+    "id": "P13.S2",
+    "lane": "P13",
+    "rank": 2,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p13/REPORT.md",
+    "line": 63,
+    "outcome": "D&D local hinge changes scene eligibility",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "chosen edition/adventure; P11.S2; P12.S1",
+    "area": "dnd_hinge",
+    "size": "L",
+    "files": "J,U,T",
+    "gate": "Removed prerequisite disables scene; actual alternative restores it"
+  },
+  {
+    "id": "P13.S3",
+    "lane": "P13",
+    "rank": 3,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p13/REPORT.md",
+    "line": 64,
+    "outcome": "Soldier supply changes readiness",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4",
+      "S-3"
+    ],
+    "other": "authorized distinct fixture; P8.R5-A; P12.S1",
+    "area": "soldier_supply",
+    "size": "L",
+    "files": "J,U,T,N",
+    "gate": "Actual cargo/order/clock changes departure; paused world untouched"
+  },
+  {
+    "id": "P13.S4",
+    "lane": "P13",
+    "rank": 4,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p13/REPORT.md",
+    "line": 65,
+    "outcome": "MoL experiment changes retained preparation",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "qualified carrier/reset; P16.L1-L4; P12",
+    "area": "mol_experiment",
+    "size": "XL",
+    "files": "J,U,T,N",
+    "gate": "Baseline/reset/knowledge carrier exact; reload is never reset"
+  },
+  {
+    "id": "P13.S5",
+    "lane": "P13",
+    "rank": 5,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p13/REPORT.md",
+    "line": 66,
+    "outcome": "LOTM evidence changes inquiry",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "qualified source; P11.S4; P12; P14/P15",
+    "area": "lotm_inquiry",
+    "size": "L",
+    "files": "J,U,N",
+    "gate": "Actual received record changes plan; no free source/identity"
+  },
+  {
+    "id": "P14.S1",
+    "lane": "P14",
+    "rank": 1,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p14/REPORT.md",
+    "line": 67,
+    "outcome": "Durable deed gives recap and later work",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "D8-A same owner; actual typed producer",
+    "area": "deed_recap",
+    "size": "M",
+    "files": "J,U",
+    "gate": "Natural deed/callback remains explained after display eviction"
+  },
+  {
+    "id": "P14.S2",
+    "lane": "P14",
+    "rank": 2,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p14/REPORT.md",
+    "line": 68,
+    "outcome": "Canon gap has disputed useful editions",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "P13 selected anchor; P14.S1; qualified pack",
+    "area": "gap_history",
+    "size": "L",
+    "files": "J,U",
+    "gate": "Contrary accounts and evidence change belief/action; source roles intact"
+  },
+  {
+    "id": "P14.S3",
+    "lane": "P14",
+    "rank": 3,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p14/REPORT.md",
+    "line": 69,
+    "outcome": "Deed becomes rumor and performed legend",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "P11.S4; P6 creative-work consumer; P15",
+    "area": "retelling",
+    "size": "L",
+    "files": "J,U",
+    "gate": "Arrival/lineage/correction exact; audience response has real consumer"
+  },
+  {
+    "id": "P14.S4",
+    "lane": "P14",
+    "rank": 4,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p14/REPORT.md",
+    "line": 70,
+    "outcome": "Original past leaves useful surviving work",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "P10 factory; P14.S1; P6/P8 custody/use",
+    "area": "original_history",
+    "size": "XL",
+    "files": "J,U",
+    "gate": "Two valid pasts, usable survivor, no changed past on inspection"
+  },
+  {
+    "id": "P14.S5",
+    "lane": "P14",
+    "rank": 5,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p14/REPORT.md",
+    "line": 71,
+    "outcome": "Closed life leaves lawful later-life trace",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "P16 carrier; ending/identity; P6 transfer",
+    "area": "life_trace",
+    "size": "XL",
+    "files": "J,U",
+    "gate": "Actual trace versus fresh-instance negative control; no auto-assets"
+  },
+  {
+    "id": "P15.S1",
+    "lane": "P15",
+    "rank": 1,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p15/REPORT.md",
+    "line": 70,
+    "outcome": "Lint rejects impossible content and admits batch",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "supported operators; qualified input pack",
+    "area": "batch_lint",
+    "size": "M",
+    "files": "J,U",
+    "gate": "Malformed/unfunded/orphan fixtures rejected; one admitted entry played"
+  },
+  {
+    "id": "P15.S2",
+    "lane": "P15",
+    "rank": 2,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p15/REPORT.md",
+    "line": 71,
+    "outcome": "Typed grammar varies safe request wording",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4",
+      "S-3"
+    ],
+    "other": "D8 grammar; P11.S1; expression stream",
+    "area": "grammar",
+    "size": "M",
+    "files": "J,U",
+    "gate": "Terms unchanged across variants; saved speech and next draws exact"
+  },
+  {
+    "id": "P15.S3",
+    "lane": "P15",
+    "rank": 3,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p15/REPORT.md",
+    "line": 72,
+    "outcome": "Known person converses and acknowledges deed",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "existing Ink/topic host; P11 channel",
+    "area": "dialogue",
+    "size": "M",
+    "files": "J,U",
+    "gate": "Speaker-limited knowledge; exact pause/resume; human voice separate"
+  },
+  {
+    "id": "P15.S4",
+    "lane": "P15",
+    "rank": 4,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p15/REPORT.md",
+    "line": 73,
+    "outcome": "Qualified canon mini-batch adds real actions",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "P15.S1; P13 anchor; chosen source pack",
+    "area": "canon_batch",
+    "size": "L",
+    "files": "J,U",
+    "gate": "Essential locators/no raw prose; alternate route and remembered result"
+  },
+  {
+    "id": "P15.S5",
+    "lane": "P15",
+    "rank": 5,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p15/REPORT.md",
+    "line": 74,
+    "outcome": "Optional model expression compared to baseline",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "P15.S2; qualified runtime/data choice",
+    "area": "optional_prose",
+    "size": "L",
+    "files": "J,U",
+    "gate": "Measured latency/cost/drift; offline fallback; no state authority"
+  },
+  {
+    "id": "P16.S1",
+    "lane": "P16",
+    "rank": 1,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p16/REPORT.md",
+    "line": 69,
+    "outcome": "Issuer return report links real output",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "P14.S1 or narrow existing receipt; P15",
+    "area": "return_report",
+    "size": "S",
+    "files": "J,U",
+    "gate": "Running-browser job yields true report; exact unread/replay state"
+  },
+  {
+    "id": "P16.S2",
+    "lane": "P16",
+    "rank": 2,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p16/REPORT.md",
+    "line": 70,
+    "outcome": "Closure yields useful local epilogue",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "P12.S1; actual terminal cause; P14",
+    "area": "epilogue",
+    "size": "M",
+    "files": "J,U",
+    "gate": "Different real closures give truthful later terms; ordinary play continues"
+  },
+  {
+    "id": "P16.S3",
+    "lane": "P16",
+    "rank": 3,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p16/REPORT.md",
+    "line": 71,
+    "outcome": "Reading controls preserve pending work",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "integrated P3 selection seam; known projection",
+    "area": "content_controls",
+    "size": "M",
+    "files": "J,U",
+    "gate": "Reading no draw; veto preserves pending terms; keyboard route"
+  },
+  {
+    "id": "P16.S4",
+    "lane": "P16",
+    "rank": 4,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p16/REPORT.md",
+    "line": 72,
+    "outcome": "Named repaired work is acknowledged",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "P6 exact object/transfer; recipient knowledge",
+    "area": "named_work",
+    "size": "M",
+    "files": "J,U,I",
+    "gate": "Alias/custody and acknowledgement exact; escaped input"
+  },
+  {
+    "id": "P16.S5",
+    "lane": "P16",
+    "rank": 5,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p16/REPORT.md",
+    "line": 73,
+    "outcome": "Imported account prompts funded inquiry",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4",
+      "S-3"
+    ],
+    "other": "actual crossing/channel; P11.S4/S2",
+    "area": "imported_inquiry",
+    "size": "L",
+    "files": "J,U,I",
+    "gate": "Real arrival and useful diagnostic result; no cloned stock"
+  },
+  {
+    "id": "P17.S1",
+    "lane": "P17",
+    "rank": 1,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p17/REPORT.md",
+    "line": 23,
+    "outcome": "Qualified LOTM action progresses digestion",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "selected source/principle/holder; action adapter",
+    "area": "acting",
+    "size": "L",
+    "files": "J,U,T,N",
+    "gate": "Real behavior progresses; title/text alone does not; repeat reachable"
+  },
+  {
+    "id": "P17.S2",
+    "lane": "P17",
+    "rank": 2,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p17/REPORT.md",
+    "line": 24,
+    "outcome": "Qualified System request settles and recognizes",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4",
+      "S-3"
+    ],
+    "other": "P11.S2; selected W11/source skill",
+    "area": "system_request",
+    "size": "L",
+    "files": "J,U,T,N",
+    "gate": "Real objective/reward; decline/alternate; no notice-only award"
+  },
+  {
+    "id": "P17.S3",
+    "lane": "P17",
+    "rank": 3,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p17/REPORT.md",
+    "line": 25,
+    "outcome": "ORV cooperative deed has Story and sponsor",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "qualified source; P12.S5; P14; treasury",
+    "area": "orv_deed",
+    "size": "XL",
+    "files": "J,U,T,N",
+    "gate": "Actual function and distinct audience gift/refusal; exact shares"
+  },
+  {
+    "id": "P17.S4",
+    "lane": "P17",
+    "rank": 4,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p17/REPORT.md",
+    "line": 26,
+    "outcome": "Scoped fortune changes future legal distribution",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "draw owner; qualified/original law; P13 causes",
+    "area": "fortune",
+    "size": "L",
+    "files": "J,U,T,N",
+    "gate": "Modifier affects future eligible attempt, never rerolls settlement"
+  },
+  {
+    "id": "P17.S5",
+    "lane": "P17",
+    "rank": 5,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p17/REPORT.md",
+    "line": 27,
+    "outcome": "Received belief changes qualified function",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "P14.S3; P11.S4; source/belief consumer",
+    "area": "belief_power",
+    "size": "L",
+    "files": "J,U,N",
+    "gate": "Unseen deed no public credit; correction obeys local law"
+  },
+  {
+    "id": "P18.S1",
+    "lane": "P18",
+    "rank": 1,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p18/REPORT.md",
+    "line": 35,
+    "outcome": "Headless enrolled run reproduces scheduler",
+    "spine": [
+      "S-1"
+    ],
+    "other": "integrated P3/P1; pure host/factory",
+    "area": "headless",
+    "size": "M",
+    "files": "J,U,T",
+    "gate": "Same seed, step/jump/reload/remainder parity; no native claim"
+  },
+  {
+    "id": "P18.S2",
+    "lane": "P18",
+    "rank": 2,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p18/REPORT.md",
+    "line": 36,
+    "outcome": "Thirty-day metrics and ten-year soak",
+    "spine": [
+      "S-1",
+      "S-2"
+    ],
+    "other": "P18.S1; optional composed-thread adapter",
+    "area": "metrics",
+    "size": "M",
+    "files": "J,U,T",
+    "gate": "Correct denominators; zero dangling refs/debits; annual byte report"
+  },
+  {
+    "id": "P18.S3",
+    "lane": "P18",
+    "rank": 3,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p18/REPORT.md",
+    "line": 37,
+    "outcome": "Retained revisions survive update/compaction",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "P38 pins/migration; P14 query declarations; P22.S22.4",
+    "area": "retention_tests",
+    "size": "L",
+    "files": "J,U,T",
+    "gate": "Frozen pending outcome/next draw; all-pinned and corrupt import safe"
+  },
+  {
+    "id": "P18.S4",
+    "lane": "P18",
+    "rank": 4,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p18/REPORT.md",
+    "line": 38,
+    "outcome": "Repeat and disclosure gate checks expression",
+    "spine": [
+      "S-1",
+      "S-4"
+    ],
+    "other": "P18.S1; P15 pipeline; selected private reviewer",
+    "area": "leak_qa",
+    "size": "M",
+    "files": "J,U",
+    "gate": "Recurring legitimate work stays possible; coverage/scanner limits explicit"
+  },
+  {
+    "id": "P18.S5",
+    "lane": "P18",
+    "rank": 5,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p18/REPORT.md",
+    "line": 39,
+    "outcome": "Known event exposes truthful why view",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "retained receipts; P11.S1; P18.S3 if pruning",
+    "area": "why",
+    "size": "S",
+    "files": "J,U",
+    "gate": "Pure reads and known basis; no hidden candidates/future disclosure"
+  },
+  {
+    "id": "P19.S1",
+    "lane": "P19",
+    "rank": 1,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p19/REPORT.md",
+    "line": 32,
+    "outcome": "Two NPCs work and react differently",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "P4 actor/means bridge; actual shared job; P3",
+    "area": "joint_work",
+    "size": "L",
+    "files": "J,U,T",
+    "gate": "Both reserve means; directed willingness differs; busy control"
+  },
+  {
+    "id": "P19.S2",
+    "lane": "P19",
+    "rank": 2,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p19/REPORT.md",
+    "line": 33,
+    "outcome": "Account travels and corrects listener belief",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "P19.S1 or existing cause; P11.S4; P14",
+    "area": "gossip",
+    "size": "L",
+    "files": "J,U,T",
+    "gate": "No early belief; cyclic echo not corroboration; real response changes"
+  },
+  {
+    "id": "P19.S3",
+    "lane": "P19",
+    "rank": 3,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p19/REPORT.md",
+    "line": 34,
+    "outcome": "Companion advances unfinished ambition",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4",
+      "S-3"
+    ],
+    "other": "actual recruitment; P12 thread; P15; appointment",
+    "area": "companion_arc",
+    "size": "L",
+    "files": "J,U,T",
+    "gate": "Two routes and independent progress; no implicit loyalty award"
+  },
+  {
+    "id": "P19.S4",
+    "lane": "P19",
+    "rank": 4,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p19/REPORT.md",
+    "line": 35,
+    "outcome": "Repairer passes actual teaching legacy",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "P6 manual/custody/teaching; P14 pins",
+    "area": "teaching_legacy",
+    "size": "XL",
+    "files": "J,U,T",
+    "gate": "Real shares and method/mastery separation; liability is not claim"
+  },
+  {
+    "id": "P19.S5",
+    "lane": "P19",
+    "rank": 5,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p19/REPORT.md",
+    "line": 36,
+    "outcome": "Recurring peer chooses funded different path",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4",
+      "S-3"
+    ],
+    "other": "P12.S3; persistent plans; rival consumer",
+    "area": "mirror_peer",
+    "size": "L",
+    "files": "J,U",
+    "gate": "No automatic level scaling/forced feud; paid known adaptation"
+  },
+  {
+    "id": "P20.S20-1",
+    "lane": "P20",
+    "rank": 1,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p20/REPORT.md",
+    "line": 54,
+    "outcome": "Place remembers repair and offers work",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "P14.S1/D8; actual repair; P11.S1",
+    "area": "place_memory",
+    "size": "M",
+    "files": "J,U,T",
+    "gate": "Functional repair drives same-site callback after pruning/import"
+  },
+  {
+    "id": "P20.S20-2",
+    "lane": "P20",
+    "rank": 2,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p20/REPORT.md",
+    "line": 55,
+    "outcome": "One settlement site changes service",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "P20.S20-1; P6 installation; real staff/rights",
+    "area": "settlement_site",
+    "size": "L",
+    "files": "J,U,T",
+    "gate": "Real occupancy/service; idempotent annual close; no invented census"
+  },
+  {
+    "id": "P20.S20-3",
+    "lane": "P20",
+    "rank": 3,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p20/REPORT.md",
+    "line": 56,
+    "outcome": "Home fixture enables real shared visit",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "P6 fixture; P11.M1; actor/site appointment",
+    "area": "home_visit",
+    "size": "L",
+    "files": "J,U,T",
+    "gate": "Actual invitation/capacity/stock; repeat/refusal/interruption"
+  },
+  {
+    "id": "P20.S20-4",
+    "lane": "P20",
+    "rank": 4,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p20/REPORT.md",
+    "line": 57,
+    "outcome": "Courier delivers dated changed news",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "P20.S20-1; P11.S4; P14 lineage; route",
+    "area": "dated_news",
+    "size": "L",
+    "files": "J,U,T",
+    "gate": "No early knowledge; stale news honest; correction preserves event truth"
+  },
+  {
+    "id": "P20.S20-5",
+    "lane": "P20",
+    "rank": 5,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p20/REPORT.md",
+    "line": 58,
+    "outcome": "Qualified trace informs different preparation",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "P8 sample; qualified source/perception; actual action",
+    "area": "trace_survey",
+    "size": "L",
+    "files": "J,U",
+    "gate": "Real observation/use; evidence not free fuel; no broad haunting claim"
+  },
+  {
+    "id": "P21.S1",
+    "lane": "P21",
+    "rank": 1,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p21/REPORT.md",
+    "line": 120,
+    "outcome": "Contest participant remembers actual turning point",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "native/party battle producer; P14 typed outcome",
+    "area": "battle_memory",
+    "size": "L",
+    "files": "J,U,T",
+    "gate": "Capture real target/deltas before deletion; missed attempt not rescue"
+  },
+  {
+    "id": "P21.S2",
+    "lane": "P21",
+    "rank": 2,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p21/REPORT.md",
+    "line": 121,
+    "outcome": "Funded venture repeats with truthful proceeds",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4",
+      "S-3"
+    ],
+    "other": "management finance; P11 terms; P14",
+    "area": "venture",
+    "size": "L",
+    "files": "J,U,T",
+    "gate": "Second funded agreement possible; claims/fee/capital reconcile"
+  },
+  {
+    "id": "P21.S3",
+    "lane": "P21",
+    "rank": 3,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p21/REPORT.md",
+    "line": 122,
+    "outcome": "Supply episode changes next quote/offer",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4",
+      "S-3"
+    ],
+    "other": "P8.R5-A; P11.S2/S3; trader owner",
+    "area": "supply_episode",
+    "size": "M",
+    "files": "J,U,T,N",
+    "gate": "Actual supply/demand; no double refill/scarcity or unfunded payment"
+  },
+  {
+    "id": "P21.S4",
+    "lane": "P21",
+    "rank": 4,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p21/REPORT.md",
+    "line": 123,
+    "outcome": "Harvest pressure leads to useful renewal callback",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "P8.R3-A; P11 observation/request; P14",
+    "area": "ecology_callback",
+    "size": "L",
+    "files": "J,U,T,N",
+    "gate": "Same producer/site renews; survey creates no stock"
+  },
+  {
+    "id": "P21.S5",
+    "lane": "P21",
+    "rank": 5,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p21/REPORT.md",
+    "line": 124,
+    "outcome": "Faction supply cause changes authored route",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4",
+      "S-3"
+    ],
+    "other": "real faction means; P8 manifest; P13/P20",
+    "area": "campaign_supply",
+    "size": "XL",
+    "files": "J,U,N",
+    "gate": "Real held/delivered cargo and reopened route; ordinary play continues"
+  },
+  {
+    "id": "P22.S22.1",
+    "lane": "P22",
+    "rank": 1,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p22/REPORT.md",
+    "line": 66,
+    "outcome": "Known-card mark exports traceable feedback",
+    "spine": [
+      "S-1",
+      "S-4"
+    ],
+    "other": "known feed; captured projection; local notes owner",
+    "area": "feedback",
+    "size": "S",
+    "files": "J,U",
+    "gate": "Captured known content only; no draw/effect; mark is not acceptance"
+  },
+  {
+    "id": "P22.S22.2",
+    "lane": "P22",
+    "rank": 2,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p22/REPORT.md",
+    "line": 67,
+    "outcome": "Isolated director fork inspects and intervenes",
+    "spine": [
+      "S-1",
+      "S-4"
+    ],
+    "other": "integrated event host; isolated bootstrap/storage",
+    "area": "director",
+    "size": "L",
+    "files": "J,U",
+    "gate": "Normal save/build access denied; forced actual effect labelled intervention"
+  },
+  {
+    "id": "P22.S22.3",
+    "lane": "P22",
+    "rank": 3,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p22/REPORT.md",
+    "line": 68,
+    "outcome": "Premise becomes reviewed playable candidate",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-3",
+      "S-4"
+    ],
+    "other": "P15.S1; chosen action adapters; acceptance ledger",
+    "area": "candidate",
+    "size": "M",
+    "files": "J,U",
+    "gate": "Request/hash trace; real consequence/callback; explicit entry decision"
+  },
+  {
+    "id": "P22.S22.4",
+    "lane": "P22",
+    "rank": 4,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p22/REPORT.md",
+    "line": 69,
+    "outcome": "Pinned revisions permit future disable/re-enable",
+    "spine": [
+      "S-1",
+      "S-4"
+    ],
+    "other": "P15 immutable artifacts; registry; P38 compatibility",
+    "area": "pack_locks",
+    "size": "L",
+    "files": "J,U",
+    "gate": "Old work unchanged; new admission versioned; failed migration no write"
+  },
+  {
+    "id": "P22.S22.5",
+    "lane": "P22",
+    "rank": 5,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p22/REPORT.md",
+    "line": 70,
+    "outcome": "Editor diagnostics and replay change real entry",
+    "spine": [
+      "S-1",
+      "S-4"
+    ],
+    "other": "P15 lint; P22.S2/S4; P18 witness",
+    "area": "editor",
+    "size": "XL",
+    "files": "J,U",
+    "gate": "Stale/invalid draft cannot register; supported replay and keyboard use"
+  },
+  {
+    "id": "P23.P23-A",
+    "lane": "P23",
+    "rank": 1,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p23/REPORT.md",
+    "line": 67,
+    "outcome": "Real deed supports revisable reflection",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "P11.S1; typed cause; control/identity; P15",
+    "area": "reflection",
+    "size": "M",
+    "files": "J,U",
+    "gate": "Two interpretations/opt-out; actual suggestion only; no forced values"
+  },
+  {
+    "id": "P23.P23-B",
+    "lane": "P23",
+    "rank": 2,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p23/REPORT.md",
+    "line": 68,
+    "outcome": "Useful ambition permits several real routes",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4",
+      "S-3"
+    ],
+    "other": "P12 operators; job/stock/time owner",
+    "area": "ambition",
+    "size": "M",
+    "files": "J,U",
+    "gate": "Two routes satisfy actual goal; shared step no double payment"
+  },
+  {
+    "id": "P23.P23-C",
+    "lane": "P23",
+    "rank": 3,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p23/REPORT.md",
+    "line": 69,
+    "outcome": "Dilemma yields delayed differing accounts",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "P12/P14; P19 channels; P11 actual contracts",
+    "area": "dilemma",
+    "size": "L",
+    "files": "J,U",
+    "gate": "Actual means/terms; clean success reachable; no automatic guilt"
+  },
+  {
+    "id": "P23.P23-D",
+    "lane": "P23",
+    "rank": 4,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p23/REPORT.md",
+    "line": 70,
+    "outcome": "Experience unlocks supported useful growth",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "P5 D3/trait owner; P6 consumer; qualified law",
+    "area": "growth",
+    "size": "L",
+    "files": "J,U",
+    "gate": "Real experience/native use; unsupported prose cannot grant trait"
+  },
+  {
+    "id": "P23.P23-E",
+    "lane": "P23",
+    "rank": 5,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p23/REPORT.md",
+    "line": 71,
+    "outcome": "Voluntary personal trial reads lived causes",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "trial/control/body; qualified P17 assessor",
+    "area": "personal_trial",
+    "size": "XL",
+    "files": "J,U",
+    "gate": "Pending terms frozen; support/withdrawal; source-specific severe gate"
+  },
+  {
+    "id": "P24.S1",
+    "lane": "P24",
+    "rank": 1,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p24/REPORT.md",
+    "line": 65,
+    "outcome": "Shared repair has optional anniversary",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "P14.S1/D8; calendar; actual participants/repair",
+    "area": "anniversary",
+    "size": "M",
+    "files": "J,U,T",
+    "gate": "Unrelated-date control; next cycle reachable; no fabricated old past"
+  },
+  {
+    "id": "P24.S2",
+    "lane": "P24",
+    "rank": 2,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p24/REPORT.md",
+    "line": 66,
+    "outcome": "Wrong handbook becomes evidence-backed annotation",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "P6 edition/custody; P11.M2; P14 belief",
+    "area": "handbook_enquiry",
+    "size": "L",
+    "files": "J,U,T",
+    "gate": "Fixed answer; negative/inconclusive kept; changed real preparation"
+  },
+  {
+    "id": "P24.S3",
+    "lane": "P24",
+    "rank": 3,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p24/REPORT.md",
+    "line": 67,
+    "outcome": "Foreknowledge facets revise after evidence",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "P13 sparse graph/carrier; real response action",
+    "area": "foreknowledge",
+    "size": "L",
+    "files": "J,U,T,N",
+    "gate": "No hidden meter update; unrelated/no-op controls; useful enquiry"
+  },
+  {
+    "id": "P24.S4",
+    "lane": "P24",
+    "rank": 4,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p24/REPORT.md",
+    "line": 68,
+    "outcome": "Exact work tool retains useful biography",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "P6 repair/custody; actual holder use; P14",
+    "area": "tool_biography",
+    "size": "L",
+    "files": "J,U,T,N,I",
+    "gate": "Same object lost/returned/imported; claim separate; no extra item"
+  },
+  {
+    "id": "P24.S5",
+    "lane": "P24",
+    "rank": 5,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p24/REPORT.md",
+    "line": 69,
+    "outcome": "Carried spirit and holder have distinct accounts",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "nonhuman senses/control/bond; real holder action",
+    "area": "spirit_account",
+    "size": "XL",
+    "files": "J,U,N,I",
+    "gate": "Useful body verb, holder refusal, distinct knowledge and exact custody"
+  },
+  {
+    "id": "P25.S1",
+    "lane": "P25",
+    "rank": 1,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p25/REPORT.md",
+    "line": 51,
+    "outcome": "Known live matter routes to owning panel",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "existing feed; safe cause projection; response host",
+    "area": "triage",
+    "size": "M",
+    "files": "J,U",
+    "gate": "Blocking/away/busy/expiry; no duplicate notice or lost critical action"
+  },
+  {
+    "id": "P25.S2",
+    "lane": "P25",
+    "rank": 2,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p25/REPORT.md",
+    "line": 52,
+    "outcome": "Stories read and group real outcomes",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "P14.S1; P15 titles; optional P12 grouping",
+    "area": "story_reader",
+    "size": "M",
+    "files": "J,U",
+    "gate": "Honest learned/occurred dates; saved titles/episodes; no render draws"
+  },
+  {
+    "id": "P25.S3",
+    "lane": "P25",
+    "rank": 3,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p25/REPORT.md",
+    "line": 53,
+    "outcome": "Timeline and authored map share evidence",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "P25.S2; known geography; P13 scope if needed",
+    "area": "timeline_map",
+    "size": "M",
+    "files": "J,U",
+    "gate": "Missing dates honest; keyboard parity; no invented routes/hidden facets"
+  },
+  {
+    "id": "P25.S4",
+    "lane": "P25",
+    "rank": 4,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p25/REPORT.md",
+    "line": 54,
+    "outcome": "Hero page/novel exports supported clauses",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "P25.S2; P15 attribution; P18 scan",
+    "area": "story_export",
+    "size": "L",
+    "files": "J,U,I",
+    "gate": "Final bytes/metadata safe; preview identity; no game mutation"
+  },
+  {
+    "id": "P25.S5",
+    "lane": "P25",
+    "rank": 5,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p25/REPORT.md",
+    "line": 55,
+    "outcome": "Chosen test-file legend admits reviewed account",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "P25.S4; detached decoder; P14 capsule",
+    "area": "legend_import",
+    "size": "XL",
+    "files": "J,U,I",
+    "gate": "No private enumeration/live loader; cancel/failure pure; idempotent capsule"
+  },
+  {
+    "id": "P26.S1",
+    "lane": "P26",
+    "rank": 1,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p26/REPORT.md",
+    "line": 38,
+    "outcome": "Qualified beat batch creates useful canon situation",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "P13 anchor; P15 lint; P12 operators",
+    "area": "beat_batch",
+    "size": "L",
+    "files": "J,U",
+    "gate": "Essential-law/means failures rejected; natural alternate route/callback"
+  },
+  {
+    "id": "P26.S2",
+    "lane": "P26",
+    "rank": 2,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p26/REPORT.md",
+    "line": 39,
+    "outcome": "Optional meal or quiet occasion returns to work",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "P19 availability; P6 food; P11 occasion",
+    "area": "quiet_occasion",
+    "size": "M",
+    "files": "J,U,I",
+    "gate": "Real stock/time/guest choice; refusal/reschedule; no compulsory crisis"
+  },
+  {
+    "id": "P26.S3",
+    "lane": "P26",
+    "rank": 3,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p26/REPORT.md",
+    "line": 40,
+    "outcome": "Running gag changes and pays off real cause",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "P3; actual person/object/need; P15 frames",
+    "area": "running_gag",
+    "size": "M",
+    "files": "J,U,N",
+    "gate": "Repair prevents obsolete recurrence; muted mode and true audience knowledge"
+  },
+  {
+    "id": "P26.S4",
+    "lane": "P26",
+    "rank": 4,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p26/REPORT.md",
+    "line": 41,
+    "outcome": "Heist admits real improvisation and abort",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "P12 plan; P21/P24; custody/lock/access",
+    "area": "heist",
+    "size": "XL",
+    "files": "J,U,N",
+    "gate": "Two approaches, stale-intel control, real custody and valid abort"
+  },
+  {
+    "id": "P26.S5",
+    "lane": "P26",
+    "rank": 5,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p26/REPORT.md",
+    "line": 42,
+    "outcome": "Scoped first and sought rarity stay reachable",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "P14/P25; P1/P3; actual action/visit",
+    "area": "novelty",
+    "size": "M",
+    "files": "J,U,N",
+    "gate": "Correct scope/no backfill/re-award; rare witness and ordinary control"
+  },
+  {
+    "id": "P27.S1",
+    "lane": "P27",
+    "rank": 1,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p27/REPORT.md",
+    "line": 78,
+    "outcome": "Road interruption has same-person arrival callback",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "current journey; P11.S2; actual authored edge",
+    "area": "journey_incident",
+    "size": "M",
+    "files": "J,U,T",
+    "gate": "Natural help/pass/arrival; pending/final exact; new funded cause repeats"
+  },
+  {
+    "id": "P27.S2",
+    "lane": "P27",
+    "rank": 2,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p27/REPORT.md",
+    "line": 79,
+    "outcome": "Crew survey returns real cargo/accounts",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "P8 logistics; P21.S2; actor wages/stages",
+    "area": "crew_expedition",
+    "size": "XL",
+    "files": "J,U,T",
+    "gate": "Hero free; crew not double-booked; partial return/settlement exact"
+  },
+  {
+    "id": "P27.S3",
+    "lane": "P27",
+    "rank": 3,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p27/REPORT.md",
+    "line": 80,
+    "outcome": "Taught learner independently repairs for client",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "P6 method/teaching; P19; actual learner",
+    "area": "apprenticeship",
+    "size": "L",
+    "files": "J,U,T,N",
+    "gate": "Own stock/tool/time; failure/help and departure; no text mastery"
+  },
+  {
+    "id": "P27.S4",
+    "lane": "P27",
+    "rank": 4,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p27/REPORT.md",
+    "line": 81,
+    "outcome": "Workshop council delegates affordable work",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "P19 membership; P21 finance; actual rights",
+    "area": "group_leadership",
+    "size": "XL",
+    "files": "J,U,T,N",
+    "gate": "Advice not authority; both plans reachable; real output/exit/succession"
+  },
+  {
+    "id": "P27.S5",
+    "lane": "P27",
+    "rank": 5,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p27/REPORT.md",
+    "line": 82,
+    "outcome": "Confirmed NPC ending supports memorial/bequest",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "chosen life owner; P14 pins; real custody/claims",
+    "area": "npc_aftermath",
+    "size": "XL",
+    "files": "J,U,N",
+    "gate": "False-report control; voluntary memorial; no absence/hunger penalty"
+  },
+  {
+    "id": "P28.S1",
+    "lane": "P28",
+    "rank": 1,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p28/REPORT.md",
+    "line": 59,
+    "outcome": "Typed supported intent opens real next step",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "P23.P23-B; P12/P11 action adapters; current preview",
+    "area": "intent",
+    "size": "M",
+    "files": "J,U",
+    "gate": "Negation/unknown/stale corpus; no preview action/draw; real receipt"
+  },
+  {
+    "id": "P28.S2",
+    "lane": "P28",
+    "rank": 2,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p28/REPORT.md",
+    "line": 60,
+    "outcome": "Known-topic conversation reflects settlement",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "P15.S3; P14/P24 claims; P11 channel",
+    "area": "topics",
+    "size": "M",
+    "files": "J,U",
+    "gate": "Player/speaker knowledge differ; no hidden topic/alias leakage"
+  },
+  {
+    "id": "P28.S3",
+    "lane": "P28",
+    "rank": 3,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p28/REPORT.md",
+    "line": 61,
+    "outcome": "Bookmark gently varies future eligible cards",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "P22.S22.1; integrated P3/P1; coverage",
+    "area": "taste",
+    "size": "M",
+    "files": "J,U",
+    "gate": "Positive eligible candidates remain; reset/idempotence; pending card exact"
+  },
+  {
+    "id": "P28.S4",
+    "lane": "P28",
+    "rank": 4,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p28/REPORT.md",
+    "line": 62,
+    "outcome": "Reviewed room mini-pack becomes playable",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "P22.S22.3; P15.S1; selected roles/adapters",
+    "area": "room_pack",
+    "size": "L",
+    "files": "J,U",
+    "gate": "Frozen drafts/roles; malformed entries rejected; human entry choices"
+  },
+  {
+    "id": "P28.S5",
+    "lane": "P28",
+    "rank": 5,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p28/REPORT.md",
+    "line": 63,
+    "outcome": "Gentle/direct start reveals supported generator",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "discovery/enrollment; P25.S1; selected stage",
+    "area": "onboarding",
+    "size": "M",
+    "files": "J,U,T",
+    "gate": "Useful natural callback; no restore grants; all accepted work visible"
+  },
+  {
+    "id": "P30.S-P30.1",
+    "lane": "P30",
+    "rank": 1,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p30/REPORT.md",
+    "line": 36,
+    "outcome": "Role-aware weak/strong support has useful aftermath",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "P11 context; actual work/teaching; P4 bridge",
+    "area": "power_story",
+    "size": "L",
+    "files": "J,U",
+    "gate": "Real weak support and strong success; no artificial new threat"
+  },
+  {
+    "id": "P30.S-P30.2",
+    "lane": "P30",
+    "rank": 2,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p30/REPORT.md",
+    "line": 37,
+    "outcome": "Caused scrape admits rest/adapted work/treatment",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "body/condition/balm owner; CR1 only for new remedy",
+    "area": "care_story",
+    "size": "L",
+    "files": "J,U",
+    "gate": "Real limitation/recovery; absence-safe/unfed route and exact care"
+  },
+  {
+    "id": "P30.S-P30.3",
+    "lane": "P30",
+    "rank": 3,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p30/REPORT.md",
+    "line": 38,
+    "outcome": "Child chooses useful learned action",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "P5 D7; life-stage/relationship; P6 learning",
+    "area": "upbringing_story",
+    "size": "XL",
+    "files": "J,U,N",
+    "gate": "Real learning/agency; born/adopted history gives no unsupported power"
+  },
+  {
+    "id": "P30.S-P30.4",
+    "lane": "P30",
+    "rank": 4,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p30/REPORT.md",
+    "line": 39,
+    "outcome": "Animal habit informs useful safe errand",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "companion actor/body/bond/task; optional P6 tack",
+    "area": "animal_story",
+    "size": "XL",
+    "files": "J,U,N",
+    "gate": "Same individual/task; no hunger death or duplicated deployment"
+  },
+  {
+    "id": "P30.S-P30.5",
+    "lane": "P30",
+    "rank": 5,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p30/REPORT.md",
+    "line": 40,
+    "outcome": "Shared exposure causes scoped community care",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "CR1 exposure/contact; P8/P11 supplies; CR4 healer",
+    "area": "community_care",
+    "size": "XL",
+    "files": "J,U,N",
+    "gate": "Fixed exposure, source removal versus cure, unaffected-household control"
+  },
+  {
+    "id": "P31.S1",
+    "lane": "P31",
+    "rank": 1,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p31/REPORT.md",
+    "line": 76,
+    "outcome": "Reciprocal delivery and lesson promises",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "real delivery/learning; P19; existing promise bridge",
+    "area": "promise_ledger",
+    "size": "L",
+    "files": "J,U,T",
+    "gate": "Two directions/amendments/due ties; exact paid effects"
+  },
+  {
+    "id": "P31.S2",
+    "lane": "P31",
+    "rank": 2,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p31/REPORT.md",
+    "line": 77,
+    "outcome": "Acknowledged favor calls staffed assistance",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "P31.S1 obligation subset; actual labor/custody",
+    "area": "social_credit",
+    "size": "L",
+    "files": "J,U,T",
+    "gate": "Acknowledgment differs from gratitude; real service/new causes"
+  },
+  {
+    "id": "P31.S3",
+    "lane": "P31",
+    "rank": 3,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p31/REPORT.md",
+    "line": 78,
+    "outcome": "Disputed evidence trades and reveals through contact",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "P11 transit; P14 claims; P19; actual funds",
+    "area": "confidential",
+    "size": "L",
+    "files": "J,U,T,N",
+    "gate": "Independent sources, false-claim control, recipient-only disclosure"
+  },
+  {
+    "id": "P31.S4",
+    "lane": "P31",
+    "rank": 4,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p31/REPORT.md",
+    "line": 79,
+    "outcome": "Original self-binding changes operation and breach",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "P31.S1; E8D selected source/action; CR2 law",
+    "area": "binding",
+    "size": "XL",
+    "files": "J,U,T,N",
+    "gate": "Attempt versus act, release/penalty/grant separate and exact"
+  },
+  {
+    "id": "P31.S5",
+    "lane": "P31",
+    "rank": 5,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p31/REPORT.md",
+    "line": 80,
+    "outcome": "Optional shrine practice yields real service/account",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "actual site/cargo; P19/P11/P14; optional P6 offering",
+    "area": "faith_practice",
+    "size": "L",
+    "files": "J,U,N",
+    "gate": "Silence/known doctrine; real consumer; unfed and ordinary work viable"
+  },
+  {
+    "id": "P32.S1",
+    "lane": "P32",
+    "rank": 1,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p32/REPORT.md",
+    "line": 23,
+    "outcome": "Stale cast/station invitation fails honestly",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "P11 reader; integrated event semantics",
+    "area": "continuity_guard",
+    "size": "M",
+    "files": "J,U,T",
+    "gate": "Valid versus stale fire/response; no false visit/debit/reroll"
+  },
+  {
+    "id": "P32.S2",
+    "lane": "P32",
+    "rank": 2,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p32/REPORT.md",
+    "line": 24,
+    "outcome": "Cold person promotes and returns with same identity",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "P4 API; P19 past; P14/P15; P38 refs",
+    "area": "lod_person",
+    "size": "L",
+    "files": "J,U,T",
+    "gate": "Same anchors/custody across demotion/table update/import"
+  },
+  {
+    "id": "P32.S3",
+    "lane": "P32",
+    "rank": 3,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p32/REPORT.md",
+    "line": 25,
+    "outcome": "Distant maker work shares cooperative budget",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "P32.S2 optional; P19/P20/CR4 jobs; P18 runner",
+    "area": "lod_work",
+    "size": "XL",
+    "files": "J,U,T,N",
+    "gate": "Yield/jump parity, fair backlog, measured p95/p99 and real output"
+  },
+  {
+    "id": "P32.S4",
+    "lane": "P32",
+    "rank": 4,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p32/REPORT.md",
+    "line": 26,
+    "outcome": "Qualified pack has horizon of useful work/returns",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "P12 semantics; P13 era; P15; P18 metrics",
+    "area": "content_horizon",
+    "size": "L",
+    "files": "J,U,T,N",
+    "gate": "Feasibility/cadence/repetition; actual route; human freshness separate"
+  },
+  {
+    "id": "P32.S5",
+    "lane": "P32",
+    "rank": 5,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p32/REPORT.md",
+    "line": 27,
+    "outcome": "Opt-in local play log exports known diagnostics",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "observer stream; P22 feedback; P28 projection",
+    "area": "play_logger",
+    "size": "M",
+    "files": "J,U,N",
+    "gate": "Disabled/failure spies; no save/network access or auto-taste write"
+  },
+  {
+    "id": "P33.S1",
+    "lane": "P33",
+    "rank": 1,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p33/REPORT.md",
+    "line": 17,
+    "outcome": "Repair produces corrected framed bulletin accounts",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "P14/P11 delivery; P25 views; P15 text",
+    "area": "media_profiles",
+    "size": "M",
+    "files": "J,U,T",
+    "gate": "Received evidence changes actual offer; short/long same effects"
+  },
+  {
+    "id": "P33.S2",
+    "lane": "P33",
+    "rank": 2,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p33/REPORT.md",
+    "line": 18,
+    "outcome": "Defeat opens qualified lesson/rematch/recovery",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "battle result; teacher; P12; P31 if terms accepted",
+    "area": "defeat_hooks",
+    "size": "L",
+    "files": "J,U,T",
+    "gate": "Loss/win/withdraw controls; useful paid lesson and free fallback"
+  },
+  {
+    "id": "P33.S3",
+    "lane": "P33",
+    "rank": 3,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p33/REPORT.md",
+    "line": 19,
+    "outcome": "Overlapping invitations can book/reschedule/pass",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "P24 clock; P11 appointment; P31 accepted terms",
+    "area": "calendar_conflict",
+    "size": "L",
+    "files": "J,U,T,N",
+    "gate": "No double booking; harmless unaccepted expiry; exact escrow"
+  },
+  {
+    "id": "P33.S4",
+    "lane": "P33",
+    "rank": 4,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p33/REPORT.md",
+    "line": 20,
+    "outcome": "Independent rival work moves public board",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "P4 bridge; actual judge/work; P14 media",
+    "area": "ranking_board",
+    "size": "L",
+    "files": "J,U,T,N",
+    "gate": "Real rival cause; ties/retraction/certification separate; no scaling"
+  },
+  {
+    "id": "P33.S5",
+    "lane": "P33",
+    "rank": 5,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p33/REPORT.md",
+    "line": 21,
+    "outcome": "Distinct outsiders exchange evidence and revise plan",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "P16 identities; P24 forecast; P13/P12; real cheats",
+    "area": "outsider_plan",
+    "size": "XL",
+    "files": "J,U,N",
+    "gate": "Separate stock/memory; autonomous real action; no reload respawn"
+  },
+  {
+    "id": "P35.S35-1",
+    "lane": "P35",
+    "rank": 1,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p35/REPORT.md",
+    "line": 54,
+    "outcome": "Repair leaves inspectable useful physical trace",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "P20.S20-1; real survivor/repair; P14",
+    "area": "environment_story",
+    "size": "M",
+    "files": "J,U",
+    "gate": "Current trace changes on cleanup; past retained; no generated loot"
+  },
+  {
+    "id": "P35.S35-2",
+    "lane": "P35",
+    "rank": 2,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p35/REPORT.md",
+    "line": 55,
+    "outcome": "Known entries expose sourced credit contradiction",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "P11/P14 claims; optional CR3 product link",
+    "area": "encyclopedia",
+    "size": "M",
+    "files": "J,U",
+    "gate": "Hidden-only mutation leaves counts/search/order unchanged; real check"
+  },
+  {
+    "id": "P35.S35-3",
+    "lane": "P35",
+    "rank": 3,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p35/REPORT.md",
+    "line": 56,
+    "outcome": "Recorded pattern suggests optional service aspiration",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "complete producer coverage; actual repeat/funding; P14",
+    "area": "story_challenge",
+    "size": "M",
+    "files": "J,U",
+    "gate": "Feasible goal/Stop; fresh outcomes only; incomplete past not certified"
+  },
+  {
+    "id": "P35.S35-4",
+    "lane": "P35",
+    "rank": 4,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p35/REPORT.md",
+    "line": 57,
+    "outcome": "Observed transition changes optional ambience/motif",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "current place/context; existing sound/settings",
+    "area": "story_audio",
+    "size": "M",
+    "files": "J,U",
+    "gate": "Default-off/gesture; mute/text; no hidden-state audible difference"
+  },
+  {
+    "id": "P35.S35-5",
+    "lane": "P35",
+    "rank": 5,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p35/REPORT.md",
+    "line": 58,
+    "outcome": "Selected safe recap has optional local narration",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "P14/P25 edition; qualifying voice capability",
+    "area": "story_narration",
+    "size": "M",
+    "files": "J,U",
+    "gate": "Text fallback/Stop; stale queue teardown; actual hearing gate"
+  },
+  {
+    "id": "P36.A1",
+    "lane": "P36",
+    "rank": 1,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p36/REPORT.md",
+    "line": 95,
+    "outcome": "Disclosed name and deed-backed nickname with opt-out",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "integrated P34 known person/deed; actual speaker disclosure",
+    "area": "micro_address",
+    "size": "S",
+    "files": "J,U",
+    "gate": "Informed versus uninformed speaker; same saved name/basis"
+  },
+  {
+    "id": "P36.A2",
+    "lane": "P36",
+    "rank": 2,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p36/REPORT.md",
+    "line": 96,
+    "outcome": "Cause has witnessed/reported/uncertain voice",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "P34 known frame; actual normalized knowledge basis",
+    "area": "micro_information",
+    "size": "S",
+    "files": "J,U",
+    "gate": "Missing basis neutral; receipt ID list is not firsthand evidence"
+  },
+  {
+    "id": "P36.A3",
+    "lane": "P36",
+    "rank": 3,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p36/REPORT.md",
+    "line": 97,
+    "outcome": "Ready useful work leads stable return headline",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "S-2/S-4; explicit watermark/digest owner",
+    "area": "micro_return",
+    "size": "S",
+    "files": "J,U",
+    "gate": "Same watermark same headline; hidden events excluded"
+  },
+  {
+    "id": "P36.A4",
+    "lane": "P36",
+    "rank": 4,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p36/REPORT.md",
+    "line": 98,
+    "outcome": "Vendor recalls real last purchase and usual",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "actual native trade receipt; informed merchant/stock",
+    "area": "micro_preferences",
+    "size": "M",
+    "files": "J,U",
+    "gate": "Preview not counted; no false reservation; alternatives/correction"
+  },
+  {
+    "id": "P36.A5",
+    "lane": "P36",
+    "rank": 5,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p36/REPORT.md",
+    "line": 99,
+    "outcome": "Known why appears on hover/focus/disclosure",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "current displayed quote; S-4; legibility UI owner",
+    "area": "micro_why",
+    "size": "S",
+    "files": "J,U",
+    "gate": "Hover/focus/click agree; no mutation/draw; hidden blocker neutral"
+  },
+  {
+    "id": "P37.BH-S1",
+    "lane": "P37",
+    "rank": 1,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p37/REPORT.md",
+    "line": 68,
+    "outcome": "Original locale address links real known tool callback",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "P4/P7; P36.A1; actual role/prop receipts",
+    "area": "texture_locale",
+    "size": "S",
+    "files": "J,U",
+    "gate": "Two actual contexts; unknown role omitted; callback exact after import"
+  },
+  {
+    "id": "P37.BH-S2",
+    "lane": "P37",
+    "rank": 2,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p37/REPORT.md",
+    "line": 69,
+    "outcome": "Known paid mixing order has truthful counter slip",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "integrated P2; P11 context; CR3/CR4 receipt owner",
+    "area": "texture_counter",
+    "size": "S",
+    "files": "J,U",
+    "gate": "Slip matches acquired/use/queue facts; preview/failure no receipt"
+  },
+  {
+    "id": "P37.BH-S3",
+    "lane": "P37",
+    "rank": 3,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p37/REPORT.md",
+    "line": 70,
+    "outcome": "Qualified event has personal office and news forms",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "P13/P15/P33; actual issuer/delivery/claim",
+    "area": "texture_channels",
+    "size": "M",
+    "files": "J,U",
+    "gate": "Recipient latency/bias differ; correction changes belief not history"
+  },
+  {
+    "id": "P37.BH-S4",
+    "lane": "P37",
+    "rank": 4,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p37/REPORT.md",
+    "line": 71,
+    "outcome": "Optional remembered serving fits real body/visit",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "P6 food; CR1 if consumed; CR4 preferences; P19/P36",
+    "area": "texture_hospitality",
+    "size": "M",
+    "files": "J,U",
+    "gate": "Real order/known preference; decline/different/no meal useful"
+  },
+  {
+    "id": "P37.BH-S5",
+    "lane": "P37",
+    "rank": 5,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p37/REPORT.md",
+    "line": 72,
+    "outcome": "Director reviews community texture and evidence gaps",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "P15/P18/P22 QA; selected source-qualified catalogue",
+    "area": "texture_review",
+    "size": "M",
+    "files": "J,U",
+    "gate": "Role/era/body/channel select lawful forms; gaps neutral; no copied phrase"
+  },
+  {
+    "id": "P11.N11",
+    "lane": "P11",
+    "rank": 6,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p11/REPORT.md",
+    "line": 37,
+    "outcome": "Identity",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "Audience-local memory of deeds; D8/title/reputation owner",
+    "area": "n11",
+    "size": "M",
+    "files": "J,U,T,N",
+    "gate": "One recognized deed with fitting issuer/audience and changed supported access"
+  },
+  {
+    "id": "P11.N8",
+    "lane": "P11",
+    "rank": 7,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p11/REPORT.md",
+    "line": 38,
+    "outcome": "Occasions",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "Calendar-local useful work/visits; P3/organizer/actual stock",
+    "area": "n8",
+    "size": "M",
+    "files": "J,U,T,N",
+    "gate": "One occurrence, real activities, recurrence and exact reservations"
+  },
+  {
+    "id": "P11.N3",
+    "lane": "P11",
+    "rank": 8,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p11/REPORT.md",
+    "line": 39,
+    "outcome": "Ecology",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "Different preparations/noncombat routes; P8 habitat and P5 X1 means",
+    "area": "n3",
+    "size": "M",
+    "files": "J,U,T,N",
+    "gate": "Saved variant/activity plus disturbance cause and useful response"
+  },
+  {
+    "id": "P11.N4",
+    "lane": "P11",
+    "rank": 9,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p11/REPORT.md",
+    "line": 40,
+    "outcome": "Companions",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "Individual preferences and sensory teamwork; P4 identity/adoption/party",
+    "area": "n4",
+    "size": "M",
+    "files": "J,U,T,N",
+    "gate": "Promote one actual cause, known trait and functional action, no duplicate pet"
+  },
+  {
+    "id": "P11.N10",
+    "lane": "P11",
+    "rank": 10,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p11/REPORT.md",
+    "line": 41,
+    "outcome": "Dungeons",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "Variable expeditions in fixed authored maps; encounter/object owners",
+    "area": "n10",
+    "size": "M",
+    "files": "J,U,T,N",
+    "gate": "Stable slot assignment, reachable counter/exit and persistent claimed loot"
+  },
+  {
+    "id": "P11.N7",
+    "lane": "P11",
+    "rank": 11,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p11/REPORT.md",
+    "line": 42,
+    "outcome": "Dreams",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "Inner life or supported information lead; memory/body/simulator owner",
+    "area": "n7",
+    "size": "M",
+    "files": "J,U,T,N",
+    "gate": "One stored known-memory dream; stronger foresight remains a distinct gate"
+  },
+  {
+    "id": "P11.N12",
+    "lane": "P11",
+    "rank": 12,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p11/REPORT.md",
+    "line": 43,
+    "outcome": "Symbols",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "Recognition and object identity; maker/issuer/culture",
+    "area": "n12",
+    "size": "M",
+    "files": "J,U,T,N",
+    "gate": "Stable original mark, known association, separate credential authority"
+  },
+  {
+    "id": "P11.N13",
+    "lane": "P11",
+    "rank": 13,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p11/REPORT.md",
+    "line": 44,
+    "outcome": "Culture",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "Contextual creative texture; P6 creator/D8 subject",
+    "area": "n13",
+    "size": "M",
+    "files": "J,U,T,N",
+    "gate": "Original stored description and actual work/audience receipt; audio/images separate"
+  },
+  {
+    "id": "P11.N14",
+    "lane": "P11",
+    "rank": 14,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p11/REPORT.md",
+    "line": 45,
+    "outcome": "Cheats",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "Distinct supported functions and discovery; actual handlers/world baseline",
+    "area": "n14",
+    "size": "M",
+    "files": "J,U,T,N",
+    "gate": "Two functional packages, safe known UI and retained acquisition/state"
+  },
+  {
+    "id": "P11.N9",
+    "lane": "P11",
+    "rank": 15,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p11/REPORT.md",
+    "line": 46,
+    "outcome": "Recovery",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "Concrete rebuilding/rescue/trade; damage/repair/object owner",
+    "area": "n9",
+    "size": "M",
+    "files": "J,U,T,N",
+    "gate": "One reversible disruption with useful alternatives and actual restored object"
+  },
+  {
+    "id": "P11.N15",
+    "lane": "P11",
+    "rank": 16,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p11/REPORT.md",
+    "line": 47,
+    "outcome": "Seeds",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "Coherent revisitable variation; instance/law/transition/pack owners",
+    "area": "n15",
+    "size": "M",
+    "files": "J,U,T,N",
+    "gate": "One original realm's local profile has changed consumer and exact revisit"
+  },
+  {
+    "id": "P16.M1",
+    "lane": "P16",
+    "rank": 6,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p16/REPORT.md",
+    "line": 40,
+    "outcome": "Thriving/abundance",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "Medium; P6/P11 actual stocked work",
+    "area": "m1",
+    "size": "M",
+    "files": "J,U,T,N",
+    "gate": "Well-supplied workshop commissions a real comparison, keeping both designs available"
+  },
+  {
+    "id": "P16.V2",
+    "lane": "P16",
+    "rank": 7,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p16/REPORT.md",
+    "line": 41,
+    "outcome": "Non-hero/ensemble lives",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "Medium; actual actor, appointments, P6/P12",
+    "area": "v2",
+    "size": "M",
+    "files": "J,U,T,N",
+    "gate": "Help a known worker's research/lesson ambition without taking ownership of its success"
+  },
+  {
+    "id": "P16.D2,D4",
+    "lane": "P16",
+    "rank": 8,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p16/REPORT.md",
+    "line": 42,
+    "outcome": "Fictional observers/meta",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "Medium; actual witness/channel, P11/P12/P15",
+    "area": "d2_d4",
+    "size": "M",
+    "files": "J,U,T,N",
+    "gate": "Public repair receives a critique/request; unseen deed has no omniscient reaction"
+  },
+  {
+    "id": "P16.I3",
+    "lane": "P16",
+    "rank": 9,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p16/REPORT.md",
+    "line": 43,
+    "outcome": "Seasonal story constellation",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "Medium; P11 N8, shared funds, P6/P12",
+    "area": "i3",
+    "size": "M",
+    "files": "J,U,T,N",
+    "gate": "Add preparation inquiry and later invitation to the existing fair proposal"
+  },
+  {
+    "id": "P16.I2",
+    "lane": "P16",
+    "rank": 10,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p16/REPORT.md",
+    "line": 44,
+    "outcome": "Companion correspondence",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "Medium/high; actor/order authority, P6 experiment",
+    "area": "i2",
+    "size": "L",
+    "files": "J,U,T,N",
+    "gate": "Assistant's actual uncertainty offers two fitting next tests"
+  },
+  {
+    "id": "P16.V1",
+    "lane": "P16",
+    "rank": 11,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p16/REPORT.md",
+    "line": 45,
+    "outcome": "Villain-side life",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "Medium/high; P11 roles/funds/permissions, P12",
+    "area": "v1",
+    "size": "L",
+    "files": "J,U,T,N",
+    "gate": "Disputed original workshop's paid supply/access conflict, with cooperation/reform/competition hooks"
+  },
+  {
+    "id": "P16.A3",
+    "lane": "P16",
+    "rank": 12,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p16/REPORT.md",
+    "line": 46,
+    "outcome": "Player traditions/religions",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "High; P6 teaching, P11 institutions/consent",
+    "area": "a3",
+    "size": "L",
+    "files": "J,U,T,N",
+    "gate": "Name/fund a voluntary study tradition and one real lesson; no automatic divine truth"
+  },
+  {
+    "id": "P16.A4,M6",
+    "lane": "P16",
+    "rank": 13,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p16/REPORT.md",
+    "line": 47,
+    "outcome": "Local packs/anthologies",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "Medium/high; typed loader/P15, pinned editions",
+    "area": "a4_m6",
+    "size": "L",
+    "files": "J,U,T,N",
+    "gate": "Cosmetic phrase pack first; anthology later yields a reader's real follow-up without importing rewards"
+  },
+  {
+    "id": "P16.C2",
+    "lane": "P16",
+    "rank": 14,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p16/REPORT.md",
+    "line": 48,
+    "outcome": "Succession",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "High; actual role/custody/control, P6 teaching",
+    "area": "c2",
+    "size": "L",
+    "files": "J,U,T,N",
+    "gate": "Living craftsperson delegates a real role to a consenting apprentice"
+  },
+  {
+    "id": "P16.X2",
+    "lane": "P16",
+    "rank": 15,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p16/REPORT.md",
+    "line": 49,
+    "outcome": "Visitors/rival travelers",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "High; travel/identity, appointment, P12",
+    "area": "x2",
+    "size": "L",
+    "files": "J,U,T,N",
+    "gate": "Returning surveyor competes or collaborates over an actual inquiry"
+  },
+  {
+    "id": "P16.X3",
+    "lane": "P16",
+    "rank": 16,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p16/REPORT.md",
+    "line": 50,
+    "outcome": "Foreign artifact stories",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "High; object/travel/destination-law consumer",
+    "area": "x3",
+    "size": "L",
+    "files": "J,U,T,N",
+    "gate": "Imported repair instrument gets a useful supported calibration"
+  },
+  {
+    "id": "P16.X4",
+    "lane": "P16",
+    "rank": 17,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p16/REPORT.md",
+    "line": 51,
+    "outcome": "Bilateral crossover",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "High; X1 and reverse channel",
+    "area": "x4",
+    "size": "L",
+    "files": "J,U,T,N",
+    "gate": "Return a real diagnostic answer to its original issuer"
+  },
+  {
+    "id": "P16.L1-L4",
+    "lane": "P16",
+    "rank": 18,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p16/REPORT.md",
+    "line": 52,
+    "outcome": "Loops/regression/resets",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "High; snapshot and carrier, all affected owners, P1/P11/P12",
+    "area": "l1_l4",
+    "size": "L",
+    "files": "J,U,T,N",
+    "gate": "Voluntary original rehearsal pocket restores baseline matter while knowledge changes next preparation"
+  },
+  {
+    "id": "P16.V3-V4",
+    "lane": "P16",
+    "rank": 19,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p16/REPORT.md",
+    "line": 53,
+    "outcome": "Other selves",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "High playable; medium hypothetical; instances, actor/custody, trace or isolated forecast",
+    "area": "v3_v4",
+    "size": "L",
+    "files": "J,U,T,N",
+    "gate": "Authored branch colleague has a different learned method; separately labelled what-if can precede it"
+  },
+  {
+    "id": "P16.C3-C4",
+    "lane": "P16",
+    "rank": 20,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p16/REPORT.md",
+    "line": 54,
+    "outcome": "Post-ending/premise generation",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "Medium/high follow-up; high start; clocks/channels/snapshots",
+    "area": "c3_c4",
+    "size": "L",
+    "files": "J,U,T,N",
+    "gate": "Real post-closure correspondence first; selected aftermath-derived start later"
+  },
+  {
+    "id": "P16.I4",
+    "lane": "P16",
+    "rank": 21,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p16/REPORT.md",
+    "line": 55,
+    "outcome": "Cosmic story aftermath",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "Medium/high small omen; very high destructive; actual law/actor/channel",
+    "area": "i4",
+    "size": "L",
+    "files": "J,U,T,N",
+    "gate": "Non-destructive original omen creates two fitting investigations/preparations"
+  },
+  {
+    "id": "P16.D1",
+    "lane": "P16",
+    "rank": 22,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p16/REPORT.md",
+    "line": 56,
+    "outcome": "Original generated dimension",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "High; P10 factory, authored graph, instance/passage/clock",
+    "area": "d1",
+    "size": "L",
+    "files": "J,U,T,N",
+    "gate": "Original archive pocket with useful loan/work and unchanged revisit state"
+  },
+  {
+    "id": "P16.D3",
+    "lane": "P16",
+    "rank": 23,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p16/REPORT.md",
+    "line": 57,
+    "outcome": "Observation-bound stories",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "Medium/high; E7/P1 discovery, P12 callback",
+    "area": "d3",
+    "size": "L",
+    "files": "J,U,T,N",
+    "gate": "Original K3 object fixes at observation; two senses and later useful inquiry"
+  },
+  {
+    "id": "P16.M2",
+    "lane": "P16",
+    "rank": 24,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p16/REPORT.md",
+    "line": 58,
+    "outcome": "Staged what-ifs",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "Medium; A2/P14/P15",
+    "area": "m2",
+    "size": "M",
+    "files": "J,U,T,N",
+    "gate": "Audience commissions revision of a labelled imagined known deed"
+  },
+  {
+    "id": "P16.M3",
+    "lane": "P16",
+    "rank": 25,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p16/REPORT.md",
+    "line": 59,
+    "outcome": "Ecological perspectives",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "High; P8 ecology/body/reach, V2",
+    "area": "m3",
+    "size": "L",
+    "files": "J,U,T,N",
+    "gate": "Grove participant signals an actual change and receives supported aid"
+  },
+  {
+    "id": "P16.M4",
+    "lane": "P16",
+    "rank": 26,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p16/REPORT.md",
+    "line": 60,
+    "outcome": "Long-scale reunion",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "High; clock/roles, C2/P14",
+    "area": "m4",
+    "size": "L",
+    "files": "J,U,T,N",
+    "gate": "Revisit after one real workshop appointment transition"
+  },
+  {
+    "id": "P16.M5",
+    "lane": "P16",
+    "rank": 27,
+    "source": "docs/gm/dispatch/procgen-2026-10-13/p16/REPORT.md",
+    "line": 61,
+    "outcome": "Multilingual crossing",
+    "spine": [
+      "S-1",
+      "S-2",
+      "S-4"
+    ],
+    "other": "Medium/high; X1/P11 translation/test",
+    "area": "m5",
+    "size": "L",
+    "files": "J,U,T,N",
+    "gate": "Resolve courier's repair term with translator or actual experiment"
+  }
+]

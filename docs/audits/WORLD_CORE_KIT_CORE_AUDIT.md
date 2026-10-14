@@ -63,3 +63,11 @@ scope, changes a standing priority or turns deferred work into a gate
 | Date | Rounds | Lanes | Commit | Notes |
 |---|---|---|---|---|
 | 2026-10-14 | 1-8 | W1-W20, W19 queued | 596e1cac, then this save | First run. Top gap K3 power core (fragmented capability systems); MoL most ready; comics added as consideration; lens cheats and AX abstractions named |
+| 2026-10-14 | 9 | W21-W23 (W19 still running) | this commit | More-to-consider school per part (MC1-MC34). Found `weather.js` is one global season table (KX67); template lacked K19-K34 rows (fixed, AN1); readiness lacked K19-K34 (W21) |
+| 2026-10-14 | 10 | W24-W27 launched, W28 prototype queued behind W23 | this commit | Lane per direction (DR1-DR8). Corrected MC2/MC17 lane refs; flagged 35 unmerged branches (core a2-a5) as chain-staleness risk (CR3) |
+| 2026-10-14 | 11 | W29-W32 by world group | this commit | Specific worlds. Paradise already has per-instance clock policies and a sourced calendar (CR4-CR5); world shapes SW1-SW8 (hub, loop, paired, institution, modular, hidden layer, contest, book eras) |
+| 2026-10-14 | 12 | W33-W35 calendars | this commit | Canon calendars. MoL and Paradise native calendars are elapsed counters in the base-world 30-day, 12-month format (CR7); CC1-CC16 |
+| 2026-10-14 | 13 | All W1-W35 finished and folded | this commit | Corrections FX1-FX5 in place; F32-F49; 20 world cards; K19-K34 runtime 0 met of 288; W28 climate prototype on branch kit/w28-world-climate (807/807 tests in worktree, not integrated) |
+| 2026-10-14 | 14 | W36 integration slice, W37 fidelity | this commit | Book versus code. Paradise 20 C is a code placeholder; home rain reaches Paradise places via is_under_roof false (CR8); provenance tags SF1-SF10 |
+| 2026-10-14 | 15 | none new (W36, W37 running) | this commit | What's next A1-A5; NX1-NX12; topic map added. Baseline for trend: K19-K34 runtime 0 met of 288. Next run starts a dated successor root (NX11) |
+| 2026-10-14 | 15 follow-up | W36 integrated by root | this commit | Calendar and climate slice merged (51b045e0, not pushed); rebuilt 1366x768 journey passed except export/import (OPEN); fixed CR8 and a pre-existing Paradise enrollment crash |

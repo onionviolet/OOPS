@@ -1,0 +1,16 @@
+{
+  "label": "seeded-native",
+  "fixture": "exact disposable natural pending checkpoint copied through literal-file import; no grants or fabricated time",
+  "profiles": [
+    "/private/tmp/procgen-p34-profile-replay-1791955891997-1",
+    "/private/tmp/procgen-p34-profile-replay-1791955894505-2"
+  ],
+  "samePendingImportExact": true,
+  "reloadAtStart": true,
+  "nextClock": 12,
+  "nextDrawReceiptsAndPopulationAndStockExact": true,
+  "nativeDeclineReleasesFeeWithoutStockOrPlayerCost": true,
+  "sameNeedNewFundedReoffer": true,
+  "pageErrors": [],
+  "bundleSha256": "4e39334013e23a032b0cafbb4f235d4cad4f5097af6f66207eb43dd31638c278"
+}

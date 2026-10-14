@@ -1644,6 +1644,20 @@ Original versions for public builds; the named examples are inspirations.
 | RC22 | **Suit assistant** | J.A.R.V.I.S. | Diagnostics, roadmaps, bottlenecks (RC15 form) | Only for systems it is connected to |
 | RC23 | **Contingency files** | Batman's files | A known person's weaknesses (CW8) | Needs study; files can be stolen and used against you |
 
+**Corrections from T15** ([report](gm/dispatch/research-tech-2026-10-14/t15/REPORT.md),
+[genius and status quo](gm/dispatch/research-tech-2026-10-14/t15/GENIUS_AND_STATUS_QUO.md)).
+Read the tables above with these fixes: vibranium is mined, adamantium is
+manufactured (CW3); comics Ultron is Hank Pym's creation, the MCU's is
+Stark's (CW13); the Expo, the Vulture and the Sokovia Accords are screen
+canon, not comics (CW6, CW14, CW15); comic geniuses are exceptional people,
+not literally supernatural (CW1). For the cheats: Cerebro finds mutant
+minds, it is not a universal power-ranker (RC16); Mother Box is not
+verified as an arbitrary goal solver (RC17); Brainiac's collection does not
+prove access to every fact (RC18); Oracle depends on her access (RC19);
+the Watcher's oath is a vow, not physical inability (RC20); danger senses
+warn without explaining (RC21). CW2 now lists changeable in-fiction causes
+and real counterexamples where diffusion succeeds.
+
 ### AB. Abstractions the code would need
 
 Rounds 3 to 10 keep reusing the same few shapes. These are the interfaces
@@ -1730,7 +1744,7 @@ Ranked: Q41 one anomaly with a revisable explanation, Q42 a useful reread,
 Q43 sample to lab routine, Q44 one method taught to one local user, Q45 an
 optional repeatable refinement.
 
-**T6, planner module** ([report](../.claude/worktrees/rt-t6-planner/docs/gm/dispatch/research-tech-2026-10-14/t6/REPORT.md),
+**T6, planner module** ([report](gm/dispatch/research-tech-2026-10-14/t6/REPORT.md),
 branch `codex/invention-planner`, commit `144ed1a0`). Pure module
 `src/invention_planner.js` with the five round 5 functions, a demonstration
 pack and an original magic-world fixture. Root reran the planner tests: 30
@@ -1786,3 +1800,83 @@ small-graph oracle, frozen golden roadmaps for soap, lamp and thermometer,
 a contextual danger lint (T6's abstract data is not a lint), receipts that
 pin meaning across pack revisions, and measured computation limits. Its
 ready build prompt is being run as lane T16.
+
+### Lane results, part 2 (folded 2026-10-14)
+
+Lanes T5, T7 and T10 to T16 finished; another session committed their
+stranded outputs in `fd176f27`, and the afternoon sweep merged T6 and T16
+into the branch (`5b8989e8`). Everything below stays proposal; no gameplay
+uses the planner yet. T12 and T13 checkpoints still read "started", but
+both reports are complete.
+
+| Lane | What it adds | Duplicates or contradictions | Top pick |
+|---|---|---|---|
+| **T5** procedural invention ([report](gm/dispatch/research-tech-2026-10-14/t5/REPORT.md)) | V1 to V38: verified references (Infinite Craft, Scribblenauts, Dwarf Fortress raws, GOAP, HTN), a function vocabulary, worked roadmaps in two worlds each, offline and runtime model routes. Native glass, potash, charcoal, fat and processed wood recipes already shorten roadmaps | Corrects PI2: an AND/OR display, GOAP search, HTN decomposition and scheduling are related but distinct; keep "make" versus "obtain", task order and capacity separate. Runtime models never replace a frozen validated pack (V34 to V38) | V22: use native glass unlocks as the first real planner witness |
+| **T7** planner for powers ([report](gm/dispatch/research-tech-2026-10-14/t7/REPORT.md)) | A1 onward: per-world power roadmaps keeping each world's source, body, fuel and delivery rules (PP) | Confirms PP5: a deeper graph never certifies canon legality or teaches an innate faculty | A30: project the existing home Rat-step chain into a planner pack |
+| **T10** per-craft micro ([report](gm/dispatch/research-tech-2026-10-14/t10/REPORT.md)) | U1 onward: sensory ladders, mistakes, body costs and tool care for about 18 crafts, nonhuman readings, code hooks | None; fills MS to MU with wording | U40: one skill-dependent cue on a Woodworking or Forging result, text only, no save change |
+| **T11** ambient signs ([report](gm/dispatch/research-tech-2026-10-14/t11/REPORT.md)) | N1 onward: where SW and SE text attaches; worked soap, lamp and copy examples | Corrects SW and SE: signs need an actual saved cause; market saturation cannot reveal a hidden rival project (also T13 R12f) | N19: one earned local sentence from the existing `town.returned` outcome |
+| **T12** expertise and memory ([report](gm/dispatch/research-tech-2026-10-14/t12/REPORT.md), [findings](gm/dispatch/research-tech-2026-10-14/t12/FINDINGS.md)) | K1 to K18 with sources and effect sizes; spacing and retrieval practice have the strongest evidence | Corrects SC: TK is not a scientific scale; Dreyfus stages, deliberate-practice claims and Dunning-Kruger explanations are contested, so SC8 must not stereotype novices; strong experts can be less prone to fixation (SC3) | K1/K2/K11/K16: teach one operative cue to a real recipient (joins T4 S1) |
+| **T13** architecture ([report](gm/dispatch/research-tech-2026-10-14/t13/REPORT.md)) | R1 to R12: module owners, one additive research save envelope, dependency order, writer conflicts | Refines IM6: "non-stacking" is not enough identity, native keys merge equal type, components and quality (R12e). IM2 should store evidence and references, not duplicate economy balances; P34 loreHistory overlaps (R12c) | R11a: first slice = U40 craft cue plus N19 village sentence, then the C1 anomaly |
+| **T14** revealer cards ([report](gm/dispatch/research-tech-2026-10-14/t14/REPORT.md), [cards](gm/dispatch/research-tech-2026-10-14/t14/CARDS.md)) | L codes: 60 cards, RC1 to RC15 in four forms each including a mood form. The real validator accepts 54; six need panel decisions (L30 to L35) | Confirms IM8: the validator's fixed panel list blocks some forms. The 850 KB `cards.json` stays uncommitted; CARDS.md summarizes it | L71: RC2 atlas paired with the planner, actor view versus true graph |
+| **T15** comics ([report](gm/dispatch/research-tech-2026-10-14/t15/REPORT.md)) | M11 to M74: every CW and RC16 to RC23 checked, 24 comic targets, original public-build cheats (psychometric traces, flaw sight, truthful testimony) | Corrections placed under round 10 above | M70: an original-city communicator-to-rescue-drone repair chain that spreads to a second crew |
+| **T16** planner QA ([report](gm/dispatch/research-tech-2026-10-14/t9-build/REPORT.md)) | Z1 to Z6 built: 128-cell matrix, independent oracle, golden roadmaps, contextual danger lint, receipts, limits. Reports 30 planner, 334 QA and 992 full-suite tests passing; 216 benchmark profiles within target | Merged in `5b8989e8`. Native consumers remain `unbound-demo` | Wire one real consumer only when a slice is chosen |
+
+**Where the lanes agree.** T10, T11, T13 and T12 independently point at the
+same first step: text only, no save change. One skill-dependent craft cue
+(U40) and one earned village sentence (N19). Next comes the C1 anomaly with
+a real evidence store, then teaching one operative cue (T4 S1, T12 K16),
+then one roadmap tied to native glass (T5 V22) with RC2 as the first
+revealer (T14 L71). This matches round 9's build order with the lanes'
+corrections applied.
+
+**Top picks, ranked:** (1) U40 plus N19 text slice; (2) C1 anomaly with the
+IM2 evidence store; (3) teach one operative cue; (4) native-glass roadmap
+plus RC2; (5) M70 or B31 as the first diffusion consequence.
+
+## From palette to play, round 11, 2026-10-14
+
+Weibao: "use the updated more to consider to continue accordingly"
+
+Claude, using the more-to-consider pass. Ten rounds and sixteen lanes have
+converged; the useful continuation is now a first playable slice, not a
+wider palette. This round turns the lanes' agreed first step into a
+ready-to-run [continuation prompt](gm/dispatch/research-tech-2026-10-14/NEXT_SLICE_PROMPT.md)
+and records what it depends on. Nothing was dispatched or built.
+
+**Live evidence checked this round:** the merged planner and QA suites pass
+on HEAD (364 tests, 0 failures, `tests/invention_*.test.js`); the craft
+detail hooks exist (`src/crafting_detail.js:61-75`, `:127`); `town.returned`
+already changes the Town scene (`src/town_content.js:55-63`) but not the
+Village; no other same-day doc or lane claims the same slice; the craft
+display files were changed by a procgen merge minutes earlier, so they are
+hot.
+
+### Act now (done in this round)
+
+| Code | Finding | Disposition |
+|---|---|---|
+| CN1 | The lanes agree on one first step (U40 craft cue plus N19 village sentence), but no executable prompt existed | Wrote [NEXT_SLICE_PROMPT](gm/dispatch/research-tech-2026-10-14/NEXT_SLICE_PROMPT.md) with scope, live-owner check, build, done gates and stop conditions |
+| CN2 | Wave status still showed T6 and T16 as pending in places | [STATUS](gm/dispatch/research-tech-2026-10-14/STATUS.md) records all sixteen lanes finished and merged where code |
+
+### Account for now (constraints written into the prompt)
+
+| Code | Constraint | Why |
+|---|---|---|
+| CN3 | **Cue wording uses skill at craft time**, captured with the receipt | Using current skill would silently rewrite old receipts after leveling (T10's maker snapshot note) |
+| CN4 | **No new save field**; the village sentence is a projection of a saved fact | Keeps the slice reversible and old saves untouched; reload and import must show identical text |
+| CN5 | **Hot files, one writer**: check live owners of `crafting_detail.js`, `display.js`, `town_content.js` before writing; stop on conflict | Several sessions merge into these areas within the hour (shared-branch race) |
+| CN6 | **Cue lives inside the existing collapsed Result details** plus one receipt line | Opt-in by default, so the texture dial (MU4, U43) can come later without the slice being noisy |
+| CN7 | **Wording keyed by sense channel in plain data, no presenter layer** | Only one consumer exists; AB4 Presenter waits for a second (nonhuman senses) per the abstraction rule |
+| CN8 | **Planner stays unwired** in this slice; its demo consumers remain `unbound-demo` | Wiring a roadmap is step 4, with its own save receipts (T9 Z5, T13 R12d) |
+| CN9 | **Executor fit**: balanced Codex worker, medium effort; root reviews ownership, wording and screenshots; Weibao judges feel | Text work with deterministic gates suits a cheaper route; ownership and save questions stay with root |
+
+### Later or delegate (recorded, not started)
+
+| Code | Item | Suggested route and done check |
+|---|---|---|
+| CN10 | **Debug view for knowledge versus truth.** When IM2 lands, a dev-only inspector showing an actor's beliefs beside world truth, reusing RC1/RC2 card logic, never written to saves | Balanced worker; done when it opens only in dev builds and a save round trip shows no inspector state |
+| CN11 | **Seeded fixture saves** for "crafted at two skill levels" and "ledger shared", checked into tests | Cheap worker; done when the slice's browser journey can start from each fixture through real load code |
+| CN12 | **Clean up merged worktrees** `rt-t6-planner` and `rt-t16-qa` (branches already in `5b8989e8`); 79 worktrees and 32 unmerged branches exist overall, which the merge-before-dispatch rule says to sweep before the next wave | Root, after confirming no process uses them; done when `git worktree list` drops both and branches stay recoverable |
+| CN13 | **USER_VISION drift** (duplicated paragraphs, stale working copy) | Already offered as a separate task; must finish before any session commits that file whole |
+| CN14 | **Steps 2 to 5 of the build order** (anomaly log with evidence store, teach one cue, glass roadmap plus RC2, one diffusion consequence) | One slice at a time per AGENTS.md; write each prompt only after the previous slice is accepted |
+| CN15 | **Push** of `codex/gameplay-foundations` | Waits for Weibao's explicit yes; publishes every session's unpushed commits to the public fork |

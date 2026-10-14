@@ -1,0 +1,297 @@
+{
+  "lane": "idle-reincarnator",
+  "date": "2026-10-14",
+  "status": "PARTIAL",
+  "research_only": true,
+  "runtime_exercised": false,
+  "game_launched": false,
+  "user_saves_accessed": false,
+  "gameplay_changed": false,
+  "source": {
+    "steam_app": 3779340,
+    "install": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Idle Reincarnator/",
+    "exe_sha256": "e459d12477e1e57f46cdfbb9cbf84bffda8ee700b2f9a4425c18d8702ae4652d",
+    "game_version": "v1.2.20 Full Version",
+    "engine_header": "4.5.1",
+    "pack_format": 3,
+    "pack_start": 96775168,
+    "pack_files": 1764,
+    "pack_md5_passed": 1764,
+    "gdc_decoded": 234,
+    "gdc_errors": 0,
+    "json_files": 75,
+    "content_rows": 651,
+    "raw_root": "/Users/weiwei/.codex/research/idle-reincarnator/extract/",
+    "hashes": "/Users/weiwei/.codex/research/idle-reincarnator/extract/HASHES.txt"
+  },
+  "labels": {
+    "shown": "Parsed installed data or decoded source; not observed gameplay",
+    "stated": "Source-authored text",
+    "inferred": "Analysis bounded by inspected paths"
+  },
+  "findings": [
+    {
+      "id": "F1",
+      "label": "inferred",
+      "claim": "The installed architecture supports regions within one setting, not independently simulated realms.",
+      "evidence": [
+        "assets/explorations/data.json::types",
+        "models/AssetLoader.gd::CONSTRUCTORS",
+        "models/player/player/player_state.gd",
+        "models/tab_manager.gd"
+      ],
+      "limits": "All twelve group definitions and core player/loader paths inspected; no runtime world travel tested."
+    },
+    {
+      "id": "F2",
+      "label": "shown",
+      "claim": "Ordinary action current levels reset on rebirth, retaining cycle/lifetime best. Generic Action uses 1 + cycle best / 10. Skill overrides the XP multiplier and Heroic Potential skips resets.",
+      "evidence": [
+        "models/action/level.gd::rebirth/regress",
+        "models/action/Action.gd::update_max_level_multiplier",
+        "models/action/types/Skill.gd::get_exp_multiplier/rebirth/regress"
+      ],
+      "limits": "Do not apply generic multiplier to every skill or spell reset scope."
+    },
+    {
+      "id": "F3",
+      "label": "shown",
+      "claim": "Technologies persist across rebirth, normally clear on regression, and can later retain via a purchased permanence effect.",
+      "evidence": [
+        "models/action/types/civilization/Technology.gd::rebirth/regress",
+        "assets/temporals/1/content.json::library_of_time"
+      ],
+      "limits": "Public infrastructure fiction for YAIRPG is a proposal, not a direct source simulation of townspeople."
+    },
+    {
+      "id": "F4",
+      "label": "shown",
+      "claim": "Separate job and training slots progress alongside lifestyle effects; exploration suspends active work until concurrency is unlocked. Passive job income can continue.",
+      "evidence": [
+        "models/player/player/player_progression.gd",
+        "models/action/types/job/job_equip.gd",
+        "models/action/types/training/training_equip.gd",
+        "models/player/resources/gold.gd",
+        "assets/temporals/1/content.json::time_split"
+      ],
+      "limits": "Slots do not establish a conserved day budget or multiple world clocks."
+    },
+    {
+      "id": "F5",
+      "label": "shown",
+      "claim": "Offline load adds elapsed wall time and saved bank; the bank has no delta-based spend and is not consumed by the speed multiplier.",
+      "evidence": [
+        "models/game/offline_time_manager.gd",
+        "models/game/game.gd::run_game_loop",
+        "models/game/game_speed_handler.gd::update_speed_multiplier",
+        "models/game/game_loading_controller.gd::_threaded_load"
+      ],
+      "limits": "Static contradiction only; runtime efficacy, FPS and scene wiring not tested."
+    },
+    {
+      "id": "F5S",
+      "label": "stated",
+      "claim": "Offline popup promises a duration-based 2x speed benefit.",
+      "evidence": [
+        "Scenes/popup/offline_popup.gd::OFFLINE_POPUP_TEMPLATE/update_offline_time"
+      ],
+      "limits": "No script caller found for popup method; binary signal wiring unread; contradicted by inspected consumers."
+    },
+    {
+      "id": "F6",
+      "label": "shown",
+      "claim": "Birth age is fixed at 20 or 12 with Temporal Youth; baseline lifespan is 50, modified by named effects and boss day rewards.",
+      "evidence": [
+        "models/player/lifespan.gd::reset/update/update_base_lifespan_in_days",
+        "models/statistics/boss_statistics.gd",
+        "assets/trainings/physical/content.json::limit_breaking"
+      ],
+      "limits": "No generated life trait/family seed found in inspected state, handlers, save or JSON field inventory."
+    },
+    {
+      "id": "F7",
+      "label": "shown",
+      "claim": "Live save is GZIP-compressed JSON encoded as base64, with version, player/content domains, reset scopes, automation, loadouts, clocks and preferences.",
+      "evidence": [
+        "models/game/Save.gd::save/get_save_text/save_data/load_data",
+        "models/player/player/player_serialization.gd"
+      ],
+      "limits": "Actual user save/import/backup behavior not exercised; raw saves untouched."
+    },
+    {
+      "id": "F8",
+      "label": "shown",
+      "claim": "Resources are shared and reset-scoped. Temporal Essence has special regression award, lifetime learning bonus and allocation handling.",
+      "evidence": [
+        "models/player/resources/player_resource.gd",
+        "models/player/resources/temporal_essence.gd",
+        "models/action/types/Temporal.gd",
+        "assets/resources/data.json"
+      ],
+      "limits": "Resource descriptors include future categories; they are not all live player wallets."
+    },
+    {
+      "id": "F9",
+      "label": "shown",
+      "claim": "Age and exploration mortality cause death; Miracles can absorb exploration rolls; Press On is a purchased scoped route.",
+      "evidence": [
+        "models/player/player/player_lifecycle.gd::update_death_state",
+        "models/action/types/exploration/danger.gd",
+        "models/player/player/player_actions.gd"
+      ],
+      "limits": "Mortality depends on update cadence; zero-danger denominator and speed scaling untested."
+    },
+    {
+      "id": "F10",
+      "label": "shown",
+      "claim": "Specified routes force regression on death until an end boss clears the flag, with confirmation and optional automation auto-accept.",
+      "evidence": [
+        "models/action/types/exploration/Exploration.gd::set_exploration/completion_update",
+        "assets/explorations/dark_light/content.json::story0/boss",
+        "assets/explorations/yuksul/content.json::story3/superboss",
+        "Scenes/popup/ForceRegressConfirmWindow.gd",
+        "models/automation/exploration_automation.gd"
+      ],
+      "limits": "Source intent and handler checks only; rendered warning and input flow open."
+    },
+    {
+      "id": "F11",
+      "label": "shown",
+      "claim": "The parser accepts OR groups with multiple requirements inside; nonlockable content caches many satisfied conditions by erasing them from working requirements.",
+      "evidence": [
+        "models/action/requirement.gd::is_requirements_met/_check_requirement_group/_check_individual_action_req"
+      ],
+      "limits": "Some negative individual checks are also erased; do not describe all prerequisites as simultaneously live."
+    },
+    {
+      "id": "F12",
+      "label": "shown",
+      "claim": "Diary milestones progressively expose statistics, loadouts, automation and speed controls.",
+      "evidence": [
+        "assets/stories/lore/content.json::rebirth_1/rebirth_10/rebirth_15/rebirth_20/age_1000",
+        "assets/automations/data.json",
+        "assets/statistics/data.json",
+        "models/game/game_speed_handler.gd::update_fast_forward_index"
+      ],
+      "limits": "Manual rebirth also has age/route requirements; no first-play timing established."
+    },
+    {
+      "id": "F13",
+      "label": "shown",
+      "claim": "Explorations retain separate life, regression and lifetime completion/timing records; repeat learning can reduce boss danger and lifetime rewards can extend lifespan.",
+      "evidence": [
+        "models/action/types/exploration/Exploration.gd::rebirth/regress/update_finish_count/update_timings",
+        "models/statistics/boss_statistics.gd",
+        "models/action/types/exploration/danger.gd::get_danger",
+        "assets/temporals/1/content.json::echoes_of_time"
+      ],
+      "limits": "Balance and attainable repeat rates unmeasured."
+    },
+    {
+      "id": "F14",
+      "label": "shown",
+      "claim": "All 75 JSON files parse, exposing 651 content rows; constructors use category/subgroup/ID maps. There is no registered realm category.",
+      "evidence": [
+        "models/AssetLoader.gd",
+        "assets/*/data.json",
+        "assets/*/*/content.json"
+      ],
+      "limits": "All tables inventoried; full balance/prose coverage not claimed."
+    },
+    {
+      "id": "F15",
+      "label": "inferred",
+      "claim": "Ascension and Divinity descriptors are not evidence of a live third prestige layer in this build.",
+      "evidence": [
+        "assets/resources/data.json",
+        "assets/resources/eternal/content.json",
+        "models/player/player/player_state.gd",
+        "models/player/player/player_serialization.gd",
+        "models/player/player/player_lifecycle.gd",
+        "models/AssetLoader.gd::CONSTRUCTORS"
+      ],
+      "limits": "No handler, wallet or serializer found; developer future intent unresolved."
+    },
+    {
+      "id": "F16",
+      "label": "shown",
+      "claim": "Detail popups show past best and applicable XP multiplier; manual reset shows essence sources; cards provide requirement and unlock signals.",
+      "evidence": [
+        "Scenes/popup/action/action_popup.gd",
+        "Scenes/popup/manual_reset/manual_reset_popup.gd",
+        "Scenes/Action/ActionCard.gd",
+        "models/action/Action.gd::show_cards_notification"
+      ],
+      "limits": "UI wiring only; binary scenes and native rendering not inspected."
+    }
+  ],
+  "comparisons": [
+    "../immortality-idle/REPORT.md",
+    "../groundhog-life/REPORT.md",
+    "../DEATH_AND_RESET_CONSIDERATIONS_2026-10-10.md"
+  ],
+  "proposals": [
+    {
+      "id": "P1",
+      "status": "UNSELECTED",
+      "packet": "IMPLEMENTATION_PACKETS.md"
+    },
+    {
+      "id": "P2",
+      "status": "UNSELECTED",
+      "packet": "IMPLEMENTATION_PACKETS.md"
+    },
+    {
+      "id": "P3",
+      "status": "UNSELECTED",
+      "packet": "IMPLEMENTATION_PACKETS.md"
+    },
+    {
+      "id": "P4",
+      "status": "UNSELECTED",
+      "packet": "IMPLEMENTATION_PACKETS.md"
+    },
+    {
+      "id": "P5",
+      "status": "UNSELECTED",
+      "packet": "IMPLEMENTATION_PACKETS.md"
+    },
+    {
+      "id": "P6",
+      "status": "UNSELECTED",
+      "packet": "IMPLEMENTATION_PACKETS.md"
+    },
+    {
+      "id": "P7",
+      "status": "UNSELECTED",
+      "packet": "IMPLEMENTATION_PACKETS.md"
+    },
+    {
+      "id": "P8",
+      "status": "UNSELECTED",
+      "packet": "IMPLEMENTATION_PACKETS.md"
+    }
+  ],
+  "gaps": [
+    {
+      "id": "G1",
+      "item": "Rendered desktop UI and complete binary scene signal wiring",
+      "reason": "No game launch authorized; 96 .scn and 55 .res files not converted."
+    },
+    {
+      "id": "G2",
+      "item": "Runtime offline/FPS/hazard/save/import behavior",
+      "reason": "Static code only; observed gameplay prohibited."
+    },
+    {
+      "id": "G3",
+      "item": "Full story prose and per-row balance/reachability",
+      "reason": "All 75 tables inventoried; selected reset/unlock/effect rows traced, not every narrative or numeric combination."
+    },
+    {
+      "id": "G4",
+      "item": "Ascension/Divinity future intention",
+      "reason": "Descriptors lack live consumer in inspected registry/state/handlers."
+    }
+  ]
+}

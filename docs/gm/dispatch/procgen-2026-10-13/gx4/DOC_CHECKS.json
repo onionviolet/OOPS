@@ -1,0 +1,42 @@
+{
+  "status": "static documentation checks only, not gameplay proof",
+  "checkedAt": "2026-10-14T05:32:10.566228+00:00",
+  "localLinksChecked": 45,
+  "missingLinks": [],
+  "fragmentIssues": [],
+  "explicitSourceLocatorRangesChecked": 89,
+  "invalidSourceLocatorRanges": [],
+  "recommendedSliceCount": 5,
+  "gaApiSections": [
+    "GA1",
+    "GA2",
+    "GA3",
+    "GA4",
+    "GA5",
+    "GA6",
+    "GA7",
+    "GA8"
+  ],
+  "randomCensus": 27,
+  "snapshotDriftAtFinalCheck": [],
+  "ownedFiles": [
+    "APIS_AND_MIGRATION.md",
+    "AUDIT.md",
+    "BACKLOG.md",
+    "CHECKPOINT.md",
+    "DOC_CHECKS.json",
+    "REPORT.md",
+    "SOURCE_SNAPSHOT.json"
+  ],
+  "filesOver2MB": [],
+  "verificationNotRun": [
+    "runtime tests",
+    "build",
+    "native gameplay",
+    "Save/reload",
+    "literal-file Import",
+    "human acceptance"
+  ],
+  "writeScope": "All tool mutations in this turn targeted gx4; shared dirty state pre-existed or changed concurrently. No source/index/commit mutation by GX4.",
+  "manualReview": "Wave-1 semantics, attribution/sealed disclosure, local authority, overlap/code namespaces and future acceptance gates reviewed. Not independent sealed fairness or runtime verification."
+}

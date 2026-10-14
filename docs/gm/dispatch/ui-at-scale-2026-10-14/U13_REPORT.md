@@ -37,8 +37,8 @@ The public Gloomhaven rulebook, Dan Palmer's illustrated Scythe design analysis,
 Bullet Journal, USGS, Library of Congress, Smithsonian, FAA and OCLC supply the
 remaining mechanisms. Transfers are explicitly INFERRED.
 
-Web loading was used for public research only. After failed web access, D&D 2024
-and Terraforming Mars PDF text was successfully read through in-memory HTTP and
+Web loading was used for public research only. After failed web access, D&D 2024,
+legacy 5e and Terraforming Mars PDF text was successfully read through in-memory HTTP and
 `pdftotext`, without saved downloads. An initial Python PDF-library route failed
 because those modules were absent; no dependencies were installed. GURPS's
 alternate route returned 403; Apocalypse World's returned TLS mismatch, so their
@@ -58,7 +58,7 @@ full PDFs remain open. No login or password flow was entered.
 
 | Code | Open point | Consequence |
 | --- | --- | --- |
-| Q1 | Exact legacy D&D/GURPS reverse-side placement, Lancer paper layout, Spirit Island tracks and current Arkham timing reference were not fully inspected. | Do not promote these specific layout claims to SHOWN; inspect only if a later selected transfer depends on them. |
+| Q1 | Exact GURPS reverse-side placement, Lancer paper layout, Spirit Island tracks and current Arkham timing reference were not fully inspected. | Do not promote these specific layout claims to SHOWN; inspect only if a later selected transfer depends on them. |
 | Q2 | Which TT proposals earn a build depends on root/director selection. | Research completion grants no implementation authority or new milestone gate. |
 | Q3 | Runtime fit, focus behavior, known-state filtering and any persistence changes remain untested. | Later selected slice needs the project's rebuilt desktop acceptance route; research evidence cannot close it. |
 

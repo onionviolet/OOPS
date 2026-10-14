@@ -1,0 +1,1217 @@
+{
+  "status": "PROPOSAL evidence snapshot; docs only",
+  "captured_at": "2026-10-14T05:26:18.116375+00:00",
+  "initial_main_head": "4e13f97f4dfe43360b6d02ac6dc6bf72737b2add",
+  "initial_p34_head": "6b0f1f328aa001664b72d46bea2f141871813a79",
+  "roots": {
+    "main": {
+      "head": "f16bd67c99b2ab3b4aed329295f6823c9ab85cc4",
+      "branch": "codex/gameplay-foundations",
+      "dirty_path_count": 404,
+      "inspected_dirty_paths": []
+    },
+    "p2": {
+      "head": "f8fe699487c90ec06e83bfc020dfa8a6dc234705",
+      "branch": "proc/p2-mixing",
+      "dirty_path_count": 3,
+      "inspected_dirty_paths": []
+    },
+    "p34": {
+      "head": "364d83007a64c0409a1d528493410751cf4679a2",
+      "branch": "proc/p34-story-spine",
+      "dirty_path_count": 25,
+      "inspected_dirty_paths": [
+        " M src/save_files.js"
+      ]
+    }
+  },
+  "committed_s2": {
+    "commit": "6b0f1f328aa001664b72d46bea2f141871813a79",
+    "path": "src/lore_history_state.js",
+    "sha256": "f8c6bc4f9c8c1b98ab9c6a8eaa56b92a6e8c247450c608e8a23a47aa67dbb540"
+  },
+  "contracts_present": [
+    "docs/gm/dispatch/procgen-2026-10-13/p12/CONTRACT.md",
+    "docs/gm/dispatch/procgen-2026-10-13/p14/CONTRACT.md",
+    "docs/gm/dispatch/procgen-2026-10-13/p17/CONTRACT.md",
+    "docs/gm/dispatch/procgen-2026-10-13/p19/CONTRACT.md"
+  ],
+  "lane_report_presence": {
+    "p11": true,
+    "p12": true,
+    "p13": true,
+    "p14": true,
+    "p15": true,
+    "p16": true,
+    "p17": true,
+    "p18": true,
+    "p19": true,
+    "p20": true,
+    "p21": true,
+    "p22": true,
+    "p23": true,
+    "p24": true,
+    "p25": true,
+    "p26": true,
+    "p27": true,
+    "p28": true,
+    "p29": false,
+    "p30": true,
+    "p31": true,
+    "p32": true,
+    "p33": true,
+    "p34": false,
+    "p35": true,
+    "p36": true,
+    "p37": false
+  },
+  "files": [
+    {
+      "path": ".claude/worktrees/proc-p2-mixing/docs/gm/dispatch/procgen-2026-10-13/p2/REPORT.md",
+      "sha256": "23e4bf9f8e24b5709944bb54d32e47d91d29324682a8abb23c31f7304e86c6b7",
+      "lines": 62,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": ".claude/worktrees/proc-p2-mixing/src/mixture_native.js",
+      "sha256": "15d49051cdea16f5ff10dd1db1aa6d8d17dd7b7e4685a3c46651c3bab196eea0",
+      "lines": 44,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": ".claude/worktrees/proc-p2-mixing/src/mixture_state.js",
+      "sha256": "1d3f161da9f2cb9bf138292be0f5e5b4e38c381a337fe55cc616eb71b908c02e",
+      "lines": 101,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": ".claude/worktrees/proc-p34-spine/docs/gm/dispatch/procgen-2026-10-13/p34/CHECKPOINT.md",
+      "sha256": "4dac73e041ccd87ea68108ecd1a474f2418970ce8785a66362803fea18d3f67a",
+      "lines": 29,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": ".claude/worktrees/proc-p34-spine/src/lore_history_state.js",
+      "sha256": "2c612a7e8fed5bef1dc5314914188b8af3d3b0fdb16e36290f9b3340017c14a8",
+      "lines": 63,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": ".claude/worktrees/proc-p34-spine/src/lore_history_view.js",
+      "sha256": "4afc314cc1844d0fd16e212e6186eed79d39040d229c0800f966e310da4a6ecd",
+      "lines": 14,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": ".claude/worktrees/proc-p34-spine/src/simulation.js",
+      "sha256": "157871c353f0e82af6aebc76133e087287ecdacced7976ad74b32cb7714d3c83",
+      "lines": 646,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": ".claude/worktrees/proc-p34-spine/src/story_requests.js",
+      "sha256": "4111bcae84a4f86edaea1911896d609e7dbba24f6885ad2d0264f66829bed184",
+      "lines": 71,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "AGENTS.md",
+      "sha256": "0aecd5d70ed7f6c7815c81b66ac6137da49b1c04573ac785007cfb38ad559026",
+      "lines": 107,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "PROJECT.md",
+      "sha256": "ff1d541093bd734521277ed29fdb95a5c5e0e7701c52fd9ca7463f791b57b3ab",
+      "lines": 674,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/PROCEDURAL_CRAFTING_AND_CONSUMABLES_CONSIDERATIONS_2026-10-14.md",
+      "sha256": "36f08b14af5b8f1cc3654e9d99c12280bade323f5af7b8ddf04e158614a9005f",
+      "lines": 399,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/PROCEDURAL_GENERATION_STATUS_2026-10-13.md",
+      "sha256": "06e881835e437d2ca9d3d3e6e2fcec8d5c9db03f16b2b01e49859be738f48afc",
+      "lines": 120,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/PROCEDURAL_MATERIALS_AND_ALCHEMY_AUDIT_2026-10-13.md",
+      "sha256": "c3618194661ed293f35963f37196db2f100dd4d148a96abb56347dec92da3648",
+      "lines": 149,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+      "sha256": "c418a4c0fbbbd583949e00d80e3edd8481975eef6d40c7880f3d2af4037ba1ca",
+      "lines": 887,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/USER_VISION.md",
+      "sha256": "fe5f370e14ea463255af9758d1abecc52f7bcf124b50d48d41a82806fb785e89",
+      "lines": 2773,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/COMMON.md",
+      "sha256": "615702f75ed356bfbd2d427b59d6bd713cc1ce5768a4cde6062a20aa5f1342ef",
+      "lines": 50,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/PLAN.md",
+      "sha256": "0be50079f37aa38129955582db626d10a07e2ad6a7619884a6c8f18cfea8cd08",
+      "lines": 84,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/cr1/REPORT.md",
+      "sha256": "4d011a1607e150b3042bd04ec141c557391dee18765ce8abba1ae1e35b52e5af",
+      "lines": 107,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/cr2/REPORT.md",
+      "sha256": "fce097e26c6673a0bc1a9a614f74d5453aee073d764a9f031bb7140b50f684c4",
+      "lines": 79,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/cr3/REPORT.md",
+      "sha256": "233b77abd2251e8269d3f395e5bca3c793ace45f95dd9db9470354c8a1ef822f",
+      "lines": 88,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/cr4/REPORT.md",
+      "sha256": "b8ac83def1f57c663d82b6f3eab3e0468199ff7d4a49cfaf858cf8022beb3768",
+      "lines": 83,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/crafting-lanes/P26-crafting-draft.md",
+      "sha256": "216f117e5e764a50999826f997b80479549f6e14eec4f3f899c406b2b6b6504b",
+      "lines": 11,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/crafting-lanes/P27-crafting-draft.md",
+      "sha256": "0e634ca9190e9307fa77e075c7eab9441fb4f860967e0eae3230b855a2505964",
+      "lines": 11,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/crafting-lanes/P28-crafting-draft.md",
+      "sha256": "6b044c8f24cace2c5ca094425adc8b0428b740dedead42927f55eac39f140eb6",
+      "lines": 11,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/crafting-lanes/P29-crafting-draft.md",
+      "sha256": "88d35c914a4b4bbd640b116ccd7efc4c2587d922f9122aff3eb3f6d7de7a29b0",
+      "lines": 11,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p11/CHEAT_VARIANTS.md",
+      "sha256": "13b233b41f7845b3d21694970510f26ca298bab71582c743931315265981271a",
+      "lines": 27,
+      "scope": "late semantic/state-contract section refresh, not whole-source certification"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p11/CONTEXT.md",
+      "sha256": "5e4b52ee44abaeae0009fe8b48a73189e81583492e599123cced619a802ddb4c",
+      "lines": 130,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p11/DREAMS_AND_OCCASIONS.md",
+      "sha256": "1bf9c51857ba760efabc5d69843b26fe86252c60cee9e71db0ad10ec32f20ca2",
+      "lines": 45,
+      "scope": "late semantic/state-contract section refresh, not whole-source certification"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p11/DUNGEON_CONTENT.md",
+      "sha256": "ab9039c4d9cafc28c2f87b371df33a99870c9b21813701c6c48fa845e6e61723",
+      "lines": 31,
+      "scope": "late semantic/state-contract section refresh, not whole-source certification"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p11/ECOLOGY_AND_COMPANIONS.md",
+      "sha256": "8c1c6599dd334d27278047a298944d2ac330c0d2a535079882c18261a606c83b",
+      "lines": 35,
+      "scope": "late semantic/state-contract section refresh, not whole-source certification"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p11/IDENTITY_AND_CULTURE.md",
+      "sha256": "546705808bc37af3b66067c1fe630e4dc7f5e78ff3f2f2310ba7a07937a25b36",
+      "lines": 49,
+      "scope": "late semantic/state-contract section refresh, not whole-source certification"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p11/INFORMATION_AND_LIBRARIES.md",
+      "sha256": "ac819208cf00876642baeaaa94146057bc6dd745cf4800e5f27c13a4850c25c4",
+      "lines": 37,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p11/MORE.md",
+      "sha256": "5bdb6015953bb27831e022f21c2216e658d6e62aa32df6d407132cbeca17824c",
+      "lines": 35,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p11/REPORT.md",
+      "sha256": "ffa056c0cd1e5b7e70763f765ce4dc77e742dbf89446467dda651751e744713e",
+      "lines": 77,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p11/REQUESTS_AND_MARKETS.md",
+      "sha256": "96838a304e73a4643471880b82cfab0ea1355c1d38c63c91c394eb346ee74940",
+      "lines": 37,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p11/WORLD_SEEDS.md",
+      "sha256": "79a06f8eb72cce6c5680c7473727a06ccd334ba6cc2e7fbc6150651029a2f1f3",
+      "lines": 37,
+      "scope": "late semantic/state-contract section refresh, not whole-source certification"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p12/CONTRACT.md",
+      "sha256": "f73b164727d9553a53a9114d94f4d93502feb6dd7d8a989238615ff8e5a44db9",
+      "lines": 127,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p12/MORE.md",
+      "sha256": "9cc3993a3bdaaec0515698fdd8a403577a6ab0c3733fe0e2d35c12e4174ed2c4",
+      "lines": 41,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p12/REPORT.md",
+      "sha256": "965fcc06bf3f051949a74bd94c16cbb18f041ee859f3badfe7372336889d1506",
+      "lines": 63,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p13/MORE.md",
+      "sha256": "d15709f38a3ab7d897f1235a9912d96c9c162092527cbd32ef558ade916df988",
+      "lines": 38,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p13/REPORT.md",
+      "sha256": "c4495773300ea768a9ae3f2d70fb7c1305766468956f86e98eac571383d9a275",
+      "lines": 74,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p13/RULES.md",
+      "sha256": "c7acc591d900cd09cb47532667a534457085b89fa91518053ca78c435dc9f0d8",
+      "lines": 83,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p14/CONTRACT.md",
+      "sha256": "704e5265ed988e026f9acf25dce78541c13be333dab887e85b78c0a7188b57f4",
+      "lines": 148,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p14/MORE.md",
+      "sha256": "4494db08194f35f54fdb8b5d17067cf4b8b2bbf8834aa49ea8b00f2fdcae829f",
+      "lines": 45,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p14/REPORT.md",
+      "sha256": "28f91295a5b5bf6ac61e66c37094a94ed7a78559830ca5bb7f9e25661bb285d0",
+      "lines": 87,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p15/DIALOGUE.md",
+      "sha256": "59e68b2f969d0a661364cf6cd1f32232ba80da758e6a148ec5aab01901459c08",
+      "lines": 75,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p15/MORE.md",
+      "sha256": "a2361f590048c254184ea951388e29c7e4c67ab6a296b4d016d797289a41d30d",
+      "lines": 53,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p15/REPORT.md",
+      "sha256": "f84c7167e2536bb47fba4846e95befebdda1aae82b56820278eb88592607275a",
+      "lines": 90,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p15/RUNTIME_TEXT.md",
+      "sha256": "5ba74b701fca6ccf26629165be42eba71a4ecd068f979d449ee09e57a72276da",
+      "lines": 105,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p16/CROSSOVERS.md",
+      "sha256": "f83be3d32cf4c3bb513561b423ec544b58c25e4be0d24b8d194621b5819158ec",
+      "lines": 37,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p16/LOOPS_AND_RESETS.md",
+      "sha256": "537ed5f5ca525b2b21231a15587ce529a8a51e1ef8c2df046542c060fa0f6ddb",
+      "lines": 48,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p16/MORE.md",
+      "sha256": "b1e0b21ef0b8335387fed04c8df6d800541edd889fbbf22e04b6e54e44db8078",
+      "lines": 16,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p16/REPORT.md",
+      "sha256": "b64873ec9d1401de06bc0c8717433523cbf581aacd4ca5d99a69fdc864f0c720",
+      "lines": 85,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p17/CONTRACT.md",
+      "sha256": "95fb0de1dba84260344ff0bb8d989ed169ebd6c7bcf2ab5c784a1ffc7532961b",
+      "lines": 83,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p17/MORE.md",
+      "sha256": "de41feb48d9a3e5e4b92c2f8ca909f54f9b1fac044ee83a530fdd035a60984f2",
+      "lines": 30,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p17/REPORT.md",
+      "sha256": "5e73e390b634b1f527164a4329c3a812fe538a8ac6f9c2ec647d2bcdb2c3dfd7",
+      "lines": 45,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p18/EXPLAIN.md",
+      "sha256": "f071c9a4895ec7244e5d11749c6f53583fe4245e676ec41441fb965b9bdc1e68",
+      "lines": 114,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p18/HARNESS.md",
+      "sha256": "7ebb1c5f0b97fdbdbaa5c3ab5c6ba6de7da80606166590c6e4cc02af97ea59e0",
+      "lines": 181,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p18/HYGIENE.md",
+      "sha256": "2baec972f37d1379b575d9abefe67164b75b68f8f783a9dbe50ba308b480fe74",
+      "lines": 205,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p18/METRICS.md",
+      "sha256": "7b9af0cff2d8db5a6df196d4dca41a495e1e41c297d27f8eb326b9864b614c83",
+      "lines": 241,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p18/MORE.md",
+      "sha256": "28e0418ad4cacf60f534605752df911fcf02fdb3c7032846c71829db64c08974",
+      "lines": 75,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p18/REPORT.md",
+      "sha256": "51e0c91ef7dfebfb35b1f72a1b28f12dbae4872852187c432a45fc1f0039785f",
+      "lines": 67,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p19/COMPANIONS.md",
+      "sha256": "c2cb1682dc12e5972011e539667d3471da41975c44b11025b0b9918e9d3f7e0d",
+      "lines": 71,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p19/CONTRACT.md",
+      "sha256": "8d8a0c305e469d762754eb666dd78db5b7c6ad60ef26c8398cff25cae004e046",
+      "lines": 118,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p19/LINEAGE.md",
+      "sha256": "75ca18bed4bc1c82e601f6b030532536c0dd17550a8e595d6bb718485d0ea081",
+      "lines": 61,
+      "scope": "late semantic/state-contract section refresh, not whole-source certification"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p19/MORE.md",
+      "sha256": "ff9d45a971f92ba944f1d3adc7b65aad2c5ce2b77dd607b771825ccd0f66738b",
+      "lines": 67,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p19/REPORT.md",
+      "sha256": "6ac9cfa39455ee6cba3dd7f07994bafaf4faf2ee77b8facdf0cea9db511e695a",
+      "lines": 54,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p20/HOME.md",
+      "sha256": "5d3481225a158aee4b5c25f80925e87e5e89c15f3047a358dedfa77fdd413294",
+      "lines": 45,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p20/MORE.md",
+      "sha256": "b6d693c6ede42f79b9e099aa9da2976b540ce2216590df9ba1895b78fe4888bf",
+      "lines": 39,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p20/PLACE_MEMORY.md",
+      "sha256": "25d617962673c53017b008b1a97470086af05575b619876f0ccc4b2e54a55893",
+      "lines": 58,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p20/REPORT.md",
+      "sha256": "8451f718637eeb9f2994f126fafc7cfe2b8bc3749a00d92610ef9faa59c1c91e",
+      "lines": 78,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p20/SCALES_AND_NEWS.md",
+      "sha256": "e253262a21e89a60df61c38bac18e2f660ff7adfa9346954e285ba10296919c4",
+      "lines": 56,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p20/SETTLEMENTS.md",
+      "sha256": "254937e7ae115efb741a1208d5e31259348dae00c7d71f260eeea54ebc964f3b",
+      "lines": 47,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p21/BATTLE_STORIES.md",
+      "sha256": "359bac0a52afbf8a86cc156f052a9801e5d77b9f48d18347003d89a47e342f76",
+      "lines": 115,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p21/MORE.md",
+      "sha256": "b258ab08ab9bae3ebfd958817ba0a3dbb3751db23d0f7ecef4884e6fe4c85b61",
+      "lines": 96,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p21/REPORT.md",
+      "sha256": "887689c9f8eac9907f676f9f632e707a72c7b6c13b4845e3e88015c3edab2d89",
+      "lines": 164,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p21/VENTURES.md",
+      "sha256": "efc0e76350b7042f5f04919d4d8f10b1095708396513cd314701fe94ebd2e454",
+      "lines": 116,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p22/CONTENT_PACKS.md",
+      "sha256": "2202d1ed316b69175d59ca4a78a06ce364ddca08e04ebf0d20e6716f830a5909",
+      "lines": 73,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p22/DIRECTOR_MODE.md",
+      "sha256": "a94aae795b6fecfd6593854ca3c53ac4ab998cf80382ecf52e600b79289e2bec",
+      "lines": 45,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p22/FEEDBACK_LOOP.md",
+      "sha256": "b2a03ae45f03581d402f6c6b8a699158b02f4cf2b761a790a44bfa714f3d601a",
+      "lines": 66,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p22/MORE.md",
+      "sha256": "1a44ee974b79e4e3e99716e6b999ca88ed6d7046ba00d15c983ddda7dad5a057",
+      "lines": 52,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p22/REPORT.md",
+      "sha256": "8152f67c2e22641bfbbaa33507e9d426c9c033cad24dfb60243b847c64af24d1",
+      "lines": 88,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p22/STORY_REQUESTS.md",
+      "sha256": "49d0901a2b48a45910c1d81331999ee9a613d132023469860cd9acf21d3162ec",
+      "lines": 82,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p23/AMBITIONS.md",
+      "sha256": "3419c1380271aa324b18dc1c5ce5d0f9889b681d36dede47a1ff96f1db0e95ab",
+      "lines": 63,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p23/INNER_LIFE.md",
+      "sha256": "3a3f047b67eb461676448edb3c7a1482e1ae1d06d0a2a32b7ff968617eefd38d",
+      "lines": 73,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p23/MORAL_TEXTURE.md",
+      "sha256": "96d0132f531fd629faf2910ccbb1df8af5ffaeca92c7473f280f3c6f72a45a06",
+      "lines": 63,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p23/MORE.md",
+      "sha256": "f08c93261c3b9445796c056c744ad4fc2fc677bd0c1fe196dc0522b7a101f857",
+      "lines": 62,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p23/REPORT.md",
+      "sha256": "9846dc3b72106f65bc28b9d0af04f9c8c6a10c3872b7a21ec52ee92142b80417",
+      "lines": 87,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p24/FOREKNOWLEDGE.md",
+      "sha256": "f060bcd7f5f5dee490310bb79368db2b2b3aea0b8f486a109077efacbf4bf0c7",
+      "lines": 76,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p24/INFORMATION.md",
+      "sha256": "71f87344c63ba6dd10e22ce8ece9c259aeeb7293fc044006cab4a3b7883aea6b",
+      "lines": 65,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p24/ITEM_STORIES.md",
+      "sha256": "21ad1fbca30d3f8d186506ba8aeea8b58ab6d4768303aa0103181e98ebefb2ea",
+      "lines": 67,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p24/MORE.md",
+      "sha256": "a014043d2159ebfba78dd30b858c6aaa50f1c1e2c4aff4e03699f6bb491b6f60",
+      "lines": 69,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p24/REPORT.md",
+      "sha256": "10894fde4166c99b367b3c6e09addf351f127ee32dd2b757f87abe776c03a9db",
+      "lines": 83,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p24/TIME_STRUCTURES.md",
+      "sha256": "f7961652bfbbbf6560a2e08c57279f489c62206b4853fe9198d08c5d2540bed0",
+      "lines": 83,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p25/EPISODES.md",
+      "sha256": "a280fa10a26ff4f47fb1d7daed6a85d1ab7297c7c7e5882f88e86aa65db4ef60",
+      "lines": 60,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p25/EXPORTS.md",
+      "sha256": "29aef506f5d06692fb697482843f949f7eb146fc0d57702dac1f52ca8cdf5db5",
+      "lines": 118,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p25/MORE.md",
+      "sha256": "807447911db59e0625a8138f9fb01c1fb3300fda78af2d864d3d0a4a13c88143",
+      "lines": 54,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p25/REPORT.md",
+      "sha256": "7392fd9f7275762fb200bb4a0da9aab9256fcc0ee6999a7dc23e503a0b736ec0",
+      "lines": 75,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p25/TRIAGE.md",
+      "sha256": "cbbd3de9f955badd71f9ce489def2b236ac01690c5aa4d6f4718ae4b587c94b1",
+      "lines": 66,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p25/VIEWS.md",
+      "sha256": "1d1b1751dbd38a62272509514ea86ed15d5a7c748e6adde137a44acf07e6bfaf",
+      "lines": 75,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p26/BEAT_TEMPLATES.md",
+      "sha256": "a840dc29875d6559552b4b250c2f2f32acd2953bd299209f202a46dfe4fbb7bf",
+      "lines": 67,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p26/MORE.md",
+      "sha256": "0c218409527d11ee0c92fd538523ace52045c4befee331cdac2eb3342bbe2363",
+      "lines": 46,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p26/REPORT.md",
+      "sha256": "7e22c22b4fe85ba27b613c8a6a0042885c5c35f2a56c48f13aa554baca0f686c",
+      "lines": 60,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p27/EXPEDITIONS.md",
+      "sha256": "1698c1a179cbda0810d0fa02a2519703913a5544c3685273b34d1ad80551d7de",
+      "lines": 45,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p27/LEADING_GROUPS.md",
+      "sha256": "5051b0fb788d5cbd281cade0a781d6b55131f7a861596232f497fa89251300db",
+      "lines": 46,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p27/MORE.md",
+      "sha256": "21cd3a46530b8c943f1c12e5f59db845fd9b4ae9b3e3668471baae214f57d3d9",
+      "lines": 54,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p27/REPORT.md",
+      "sha256": "e97f751265d641bf8ea5536ff50e1faabca71cc1e18360d16679ce50383561b9",
+      "lines": 98,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p28/INTENT.md",
+      "sha256": "2466ba775fa4fc911090f21adc0772a12ebbd3bc1c040c8d1329302213d5f7ed",
+      "lines": 64,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p28/MORE.md",
+      "sha256": "f578361e3994c50c8cd8a803ad7108310295a1711f54da05128cce4a0b261dc3",
+      "lines": 62,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p28/ONBOARDING.md",
+      "sha256": "84c9378a25108c6d6972a31d5664e610da8cfeb44a1f0331485956c579c9eef5",
+      "lines": 61,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p28/REPORT.md",
+      "sha256": "e8635f435d8c42eb678824029049520cca61636642458ec39998ac1e23a5cd38",
+      "lines": 75,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p28/TASTE.md",
+      "sha256": "3d463d09e5944cf769b8010c96042ebebbddbd7438e74493c13443330f898657",
+      "lines": 50,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p28/WRITERS_ROOM.md",
+      "sha256": "41817e80b8d532a45b29d1cfca6a6c858b3b0a3aad6eb61f54d15dac8e027487",
+      "lines": 115,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p30/ANIMALS.md",
+      "sha256": "7a27daab17e8cd4bcfed34404738e8d0340d4ab836ab88aae0165ffab31eff93",
+      "lines": 56,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p30/BODY_AND_AGE.md",
+      "sha256": "52082c868331b5ead898d53b78507e1656a18fcbc3804a759487a60b64aad367",
+      "lines": 69,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p30/FAMILY.md",
+      "sha256": "b9172966f12fe720f0ccfd94e0ae7e9ebf8f370264411e77c815c7faa9499cc6",
+      "lines": 61,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p30/MORE.md",
+      "sha256": "d292cc35337a3db39ea3c4cd9ec12fbc89fdc58d2ea10130116a9bcc3f16f799",
+      "lines": 58,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p30/POWER_LEVELS.md",
+      "sha256": "5275d09e4eb55644b9ebfc741e8ba84fa388570525dafcfc71e9cfebc201e9e9",
+      "lines": 77,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p30/REPORT.md",
+      "sha256": "d1ffe3ca7a869d2808905cde4356299dc4180891c93377388723d7c763336c12",
+      "lines": 62,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p31/FAITH.md",
+      "sha256": "2693dcacc7458d1dfd4852692fb8fbdfdc8d468ede1727b59e0ddec3037ae16f",
+      "lines": 63,
+      "scope": "late semantic/state-contract section refresh, not whole-source certification"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p31/MORE.md",
+      "sha256": "94c995308e98bf69fd36ac14f5983110e9615aa624136b7b538a149f3ce827bf",
+      "lines": 51,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p31/OATHS_AND_CONTRACTS.md",
+      "sha256": "2eec1e987f72e4136edb73ca5c8f9c7129f12fae60f94ed8e3407424417780f5",
+      "lines": 51,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p31/PROMISES.md",
+      "sha256": "22cfb15b9e132055a026a04f087c79f6359d52582278f51330047b5df7b651f9",
+      "lines": 79,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p31/REPORT.md",
+      "sha256": "9563141c7be74e66afba3c03d169c53b2a99316124b33bbc61942fe6d32259bd",
+      "lines": 98,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p31/SECRETS_AS_CURRENCY.md",
+      "sha256": "f0be717106ef77f3ad5d277096ebb84c9920f05336a6a38bd1373beae2ae769e",
+      "lines": 81,
+      "scope": "late semantic/state-contract section refresh, not whole-source certification"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p32/CONTINUITY_GUARD.md",
+      "sha256": "b1df0b34f9c510297aea5a41a396bc274edf2d13a77ae67ee22466193603e6cb",
+      "lines": 54,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p32/LEVEL_OF_DETAIL.md",
+      "sha256": "94b8684f7ebd25af80e962ca2347df0df375079e407236e11317b660142b682c",
+      "lines": 95,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p32/MORE.md",
+      "sha256": "93a1d3fbb3993b35442c948de230df7511d5a3b3afa6e8a7ed0970517c95c706",
+      "lines": 52,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p32/PLAY_LOGS.md",
+      "sha256": "bb5b38a70cbf63d9f58a042684e7039e9580eef26ee021b3cc121a38c47b6e71",
+      "lines": 60,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p32/REPORT.md",
+      "sha256": "83bd8d1c904821f04b7cfbe3b5792d0c81b0e8b2279359f9d3e54b634ecfdcb2",
+      "lines": 41,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p33/CALENDAR.md",
+      "sha256": "ca010d84d1d3c6aa2c4de31991a2e92b6f96809131de6db0113e3191b8e805a7",
+      "lines": 53,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p33/DEFEAT_ARCS.md",
+      "sha256": "ba18189c75b0c820b72866c8378a6ce18e59c947f450f2e887d6d1583bc0f976",
+      "lines": 59,
+      "scope": "late semantic/state-contract section refresh, not whole-source certification"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p33/IN_WORLD_MEDIA.md",
+      "sha256": "07fdd37845626e21255ce61b8c18d7ab32b6443a47aafe817b512e5331e7d715",
+      "lines": 46,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p33/MORE.md",
+      "sha256": "dba737080994f8fabdc8f6314f5914eec13b03a5232cbbf6acb4b3c1ad49f20e",
+      "lines": 39,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p33/OTHER_OUTSIDERS.md",
+      "sha256": "aedc8ccee4909c0a0121d08d84ec3722ffbb68385b5922db964661ca7bfe7f53",
+      "lines": 49,
+      "scope": "late semantic/state-contract section refresh, not whole-source certification"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p33/RANKINGS.md",
+      "sha256": "07f6c924b3120a1cc7ec1953994efa482c37e1d94f327e7dca017dea25bc428c",
+      "lines": 59,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p33/REPORT.md",
+      "sha256": "d0b1f1b1e1170db1dcb9d3bd21f612bfcee0ec53ab360aca86d90a6dc07ba0f9",
+      "lines": 80,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p33/SESSION_PACING.md",
+      "sha256": "9d7896aa31164d49ff7d23df52ceec057cf300d6e4a8d29a9f8d8b08d700a5f9",
+      "lines": 47,
+      "scope": "late semantic/state-contract section refresh, not whole-source certification"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p35/CHALLENGES.md",
+      "sha256": "4235a77537e99cf05a5b8f627e0abd5b74d6847087a1236e24e0b111cbc77c4e",
+      "lines": 70,
+      "scope": "late semantic/state-contract section refresh, not whole-source certification"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p35/ENCYCLOPEDIA.md",
+      "sha256": "273f268cd90f0303b49010fe2f06972e4383fb77122a4e8253ae23dd05482658",
+      "lines": 50,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p35/ENVIRONMENTAL.md",
+      "sha256": "f4fbe2e208ad314e1cde4087f1cca6b8d0c9d81b5e4b45f76f025b23ff31b5dc",
+      "lines": 64,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p35/MORE.md",
+      "sha256": "c18c619e55cf7606f16ec2b0ef401a93035c8d89f633ef0df8e49ef4dc1384c5",
+      "lines": 36,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p35/REPORT.md",
+      "sha256": "e2d06ac8c335fe7b6c4c2a0004cb1d18548a76116521dd93cbb2cdfbf7bb543d",
+      "lines": 78,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p35/SOUND.md",
+      "sha256": "fbf35eadaee3930c267b00ca189a24181f7423e2684d33e0dd7d439fb5e7ce7e",
+      "lines": 52,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p36/ADDRESS.md",
+      "sha256": "89b38dfa91c7be38717caac6cd661851eb69b9b8ea68761cda66ede9639fc150",
+      "lines": 22,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p36/INFORMATION_TEXTURE.md",
+      "sha256": "605b91c21572564f9f2c81349656d1d020609cbdd2e6f284576e52d96fc8fe26",
+      "lines": 21,
+      "scope": "late semantic/state-contract section refresh, not whole-source certification"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p36/MORE.md",
+      "sha256": "fa3c7b901bc5e5c0d587edffab4f8d5f6e094dbbb61d7f273e5b4bcf18f8c2b6",
+      "lines": 44,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p36/REMEMBERED.md",
+      "sha256": "f6646b1a9bf50a10e4c1ae2a8567cb162377148aabc378b961105c5c57677e71",
+      "lines": 22,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p36/REPORT.md",
+      "sha256": "6a00acebe4ce23cdd5cb6d2aa75592c7bce62597e344eba208ca705c0b7831eb",
+      "lines": 125,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p36/TIMING.md",
+      "sha256": "eb37ad7ca0983a5712c3c0283ea981f4f344f9b7bcdae2c3f3d15c9ee6047327",
+      "lines": 25,
+      "scope": "late semantic/state-contract section refresh, not whole-source certification"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p36/TRACES.md",
+      "sha256": "5a52424bbf14e29de7087897e9609d3c2144e8b24fbabcb28629d5f309e29222",
+      "lines": 21,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p36/UI_TOUCHES.md",
+      "sha256": "11ce2dfad34b93c35ac1435ef4245ae693f40df24665d06200c416f2fd983181",
+      "lines": 23,
+      "scope": "late semantic/state-contract section refresh, not whole-source certification"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p37/SHARED_SHAPE.md",
+      "sha256": "a66ae1ec9f08145f5b829149b0e75a5812e8601885e6aa3e0864845c03d88f1f",
+      "lines": 69,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p5/D3_TALENT_ROLL.md",
+      "sha256": "3202380f4b1e6126669d97b2d71b491837dbee2c339fa28e99ea18baeaa7a5d7",
+      "lines": 62,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p5/D6_SECRET_ROLL.md",
+      "sha256": "3ea9ab353a07c2eb4bc17baffc5bda29937ab4464af5aebff12f6d3bbc3563a0",
+      "lines": 51,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p5/D7_HOUSEHOLDS.md",
+      "sha256": "303a9c8d02f7a06beb7da62d1dc2d4b5c83c7938152f7b8cd8bd6a294c542851",
+      "lines": 59,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p5/D8_LORE_GRAMMAR.md",
+      "sha256": "0676ae0006f847fcebbbf596afbe3cb2a60644b64368a041c29f27f23a38295d",
+      "lines": 53,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p5/D9_STORYTELLER.md",
+      "sha256": "9cb2dc362f585c33a85a1ec34cd0d15e949634120d1725a8687b39c8dba19f95",
+      "lines": 53,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p5/EXTRA_IDEAS.md",
+      "sha256": "078b592855214c06d0e86169a6d1ab2b8f5ad25aad5ae0cd308aa6be26442d34",
+      "lines": 26,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p5/O3_APPEARANCE_SHUFFLE.md",
+      "sha256": "adac9f717a7a40c080ed83bd1e1c550adc82a05d9abbd03e74c6ee4443344804",
+      "lines": 53,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p6/AGRICULTURE.md",
+      "sha256": "aabd26408add5385159b80e648d29631a5756d9df83e2c9ff93b6d10ae03bb72",
+      "lines": 35,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p6/BUILDINGS.md",
+      "sha256": "25a40ca818d55a3dc2bbcdab13899e953296ee19e33a1a7ff54ac4f3a7a97fce",
+      "lines": 35,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p6/CANON_LOCATORS.md",
+      "sha256": "bf9d1a9f64509b3430524720b6606554b992fa753a8bbeb19571713cd8f3c363",
+      "lines": 31,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p6/COATINGS.md",
+      "sha256": "10332ccb12c17a261c5422fda3566ac88082642766c9615222c547c3da31a9d7",
+      "lines": 35,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p6/CONSTRUCTS.md",
+      "sha256": "fd222e321e9fd340ef315f8ea0a93698bb774563ea585f8193ba8ed79855a3fd",
+      "lines": 35,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p6/COOKING.md",
+      "sha256": "14530d8e93cf7e10bc4b099b5083c679a4abc60d0baf9d7dc3e2c998e4c2d595",
+      "lines": 35,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p6/CREATIVE_WORKS.md",
+      "sha256": "273d0e3f0ffa0aab690da8227dc7803aa13b34094b9ee8995fa093baeef68764",
+      "lines": 43,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p6/LIVE_AUDIT.md",
+      "sha256": "e60a6daf03ba7cc1b9a9d99cd0d53625b7fb327a8ed8ed35df21644d89b048c5",
+      "lines": 22,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p6/MORE.md",
+      "sha256": "4e287a039428187105d8ad6d58c70654f3f33d482bc9be5a750c750a6d81a78d",
+      "lines": 19,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p6/PATTERNS.md",
+      "sha256": "ee9ca6b3d26825a8ce4f6e78cb08c4ab4add1accdbedcea083be9f2cabd1f863",
+      "lines": 35,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p6/REPAIR_SALVAGE.md",
+      "sha256": "890ac1a5313a5571e2a62d930f333bb54335588e8418bd0dcd47759e30c42ba2",
+      "lines": 35,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p6/REPORT.md",
+      "sha256": "2b58f1b41d9fa32abb6768728278075ec5aa89c0d8dae368cb8fbc2d8a8d1ba2",
+      "lines": 109,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p6/SMITHING.md",
+      "sha256": "f8a96300067177965db7e4fc3786c9bd824d8f17303f153c614cb2f6f64679d4",
+      "lines": 35,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p6/TECHNIQUE_INVENTION.md",
+      "sha256": "0a54ba5d872aff9bc4410737a508973e4bcde25c1437a6b5c04b103e235ef5d8",
+      "lines": 43,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p6/TOOLS_TEXTILES.md",
+      "sha256": "6287ec823c7811a9016d4d0c7280f310c7f7345cc2329cb93768d43b60105401",
+      "lines": 33,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p7/DATA_SHAPE.md",
+      "sha256": "d176f6d1ccfc7a7707c55347565a04c0c14643e8b78545cdcaa8bd9865bdc643",
+      "lines": 155,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p8/REPORT.md",
+      "sha256": "d6103ce8a810d8918179b46a8c3011d0b6cd82f27564917f6286bbf849c221ce",
+      "lines": 94,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p9/PROFILE_RULES.md",
+      "sha256": "97b7fbc217e6d552d58697ee1681e3efba7227d9ee4e3b07da3a7520cf6f833d",
+      "lines": 38,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/research/procedural-materials-2026-10-13/REPORT.md",
+      "sha256": "1e08be0ccb6cb44655f32c641e1877e6c2aeb0beaf10a8b55c40de3a03175314",
+      "lines": 113,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "docs/research/procedural-materials-2026-10-13/deep/REPORT.md",
+      "sha256": "08fc31ade17d230bd30e8f899a07332cc258374a96707da9747bc2a319b82f99",
+      "lines": 113,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "src/event_feed.js",
+      "sha256": "cdc1c747ae9cc2b68ba6725d97b9657aabebfe531c3be4e961b3a8d59fcc2e3e",
+      "lines": 103,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "src/generated_people.js",
+      "sha256": "c2b4c1d7dda442ee9032524059dea15a044dace23b50c355d343b7f6aca6acd3",
+      "lines": 80,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "src/life_record.js",
+      "sha256": "21ac5f17fff62794ba26d7180deb6a9c0ad85060d79134e5d6ce83de51d1d9bd",
+      "lines": 82,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "src/main.js",
+      "sha256": "81a8b6130efe5560e456c25840ae6ec035666ecf92efdcd133de620183c0ba16",
+      "lines": 8668,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "src/npc_lives.js",
+      "sha256": "abef56e7d73a0e17a3ba551608eafc4fb7f9f1660c17a445cfe96ae9869eb804",
+      "lines": 52,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "src/people_knowledge.js",
+      "sha256": "e52bf2508ab626785ad66074179f33916aaed7946fbd403706cb59303e851261",
+      "lines": 106,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "src/save_files.js",
+      "sha256": "9b87a732f2cb18abfd9e4225fa546203fed0b5d6e544e1284af01b2f61f16e6a",
+      "lines": 227,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "src/simulation.js",
+      "sha256": "c5717787ca8e0fcb57e2933e8d8a39e9088f6e12d8d7197d91605517cdc0041b",
+      "lines": 642,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "src/simulation_contracts.js",
+      "sha256": "519b55317952eb7b4cd10a0cabb899542e7af706f568358f146b241be81b301c",
+      "lines": 322,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "src/simulation_effects.js",
+      "sha256": "507a5a60b82eaade331601c90f5e98410a2d99486903b9109937f933f3ffe151",
+      "lines": 394,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    },
+    {
+      "path": "src/world_visit_history.js",
+      "sha256": "c9296a84f4df6c0a0ea5ed818ca1ca283149e247eb7354eaaeb983f9b99b2bd2",
+      "lines": 70,
+      "scope": "source inspection or selected contract sections; hash is a snapshot, not runtime proof"
+    }
+  ],
+  "additional_contract_refresh_at": "2026-10-14T05:30:49.202758+00:00"
+}

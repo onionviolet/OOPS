@@ -1,0 +1,544 @@
+{
+  "Acamaeda/The-Modding-Tree": {
+    "full_name": "Acamaeda/The-Modding-Tree",
+    "html_url": "https://github.com/Acamaeda/The-Modding-Tree",
+    "license": {
+      "key": "other",
+      "name": "Other",
+      "spdx_id": "NOASSERTION",
+      "url": null,
+      "node_id": "MDc6TGljZW5zZTA="
+    },
+    "language": "JavaScript",
+    "default_branch": "master",
+    "pushed_at": "2024-10-28T13:29:39Z",
+    "archived": false,
+    "description": "Create your own tree (or non-tree) of prestige upgrades!"
+  },
+  "IvarK/AntimatterDimensionsSourceCode": {
+    "full_name": "IvarK/AntimatterDimensionsSourceCode",
+    "html_url": "https://github.com/IvarK/AntimatterDimensionsSourceCode",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "spdx_id": "MIT",
+      "url": "https://api.github.com/licenses/mit",
+      "node_id": "MDc6TGljZW5zZTEz"
+    },
+    "language": "JavaScript",
+    "default_branch": "master",
+    "pushed_at": "2026-07-17T20:19:12Z",
+    "archived": false,
+    "description": null
+  },
+  "nuclear-unicorn/kittensgame": {
+    "full_name": "nuclear-unicorn/kittensgame",
+    "html_url": "https://github.com/nuclear-unicorn/kittensgame",
+    "license": {
+      "key": "other",
+      "name": "Other",
+      "spdx_id": "NOASSERTION",
+      "url": null,
+      "node_id": "MDc6TGljZW5zZTA="
+    },
+    "language": "JavaScript",
+    "default_branch": "master",
+    "pushed_at": "2026-10-13T03:37:38Z",
+    "archived": false,
+    "description": "A game of kittens"
+  },
+  "123ishaTest/incremental-game-template": {
+    "full_name": "123ishaTest/igt-vue",
+    "html_url": "https://github.com/123ishaTest/igt-vue",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "spdx_id": "MIT",
+      "url": "https://api.github.com/licenses/mit",
+      "node_id": "MDc6TGljZW5zZTEz"
+    },
+    "language": "Vue",
+    "default_branch": "master",
+    "pushed_at": "2021-10-06T22:24:12Z",
+    "archived": false,
+    "description": "A Vue project that consumes the igt-libray for developing incremental games."
+  },
+  "123ishaTest/igt-library": {
+    "full_name": "123ishaTest/igt-library",
+    "html_url": "https://github.com/123ishaTest/igt-library",
+    "license": null,
+    "language": "TypeScript",
+    "default_branch": "master",
+    "pushed_at": "2024-02-29T15:04:53Z",
+    "archived": false,
+    "description": "A collection of useful scripts to help you develop Incremental Games"
+  },
+  "123ishaTest/igt-vue": {
+    "full_name": "123ishaTest/igt-vue",
+    "html_url": "https://github.com/123ishaTest/igt-vue",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "spdx_id": "MIT",
+      "url": "https://api.github.com/licenses/mit",
+      "node_id": "MDc6TGljZW5zZTEz"
+    },
+    "language": "Vue",
+    "default_branch": "master",
+    "pushed_at": "2021-10-06T22:24:12Z",
+    "archived": false,
+    "description": "A Vue project that consumes the igt-libray for developing incremental games."
+  },
+  "klembot/twinejs": {
+    "full_name": "klembot/twinejs",
+    "html_url": "https://github.com/klembot/twinejs",
+    "license": {
+      "key": "gpl-3.0",
+      "name": "GNU General Public License v3.0",
+      "spdx_id": "GPL-3.0",
+      "url": "https://api.github.com/licenses/gpl-3.0",
+      "node_id": "MDc6TGljZW5zZTk="
+    },
+    "language": "TypeScript",
+    "default_branch": "develop",
+    "pushed_at": "2026-10-07T02:00:51Z",
+    "archived": false,
+    "description": "Twine, a tool for telling interactive, nonlinear stories"
+  },
+  "tmedwards/sugarcube-2": {
+    "full_name": "tmedwards/sugarcube-2",
+    "html_url": "https://github.com/tmedwards/sugarcube-2",
+    "license": {
+      "key": "bsd-2-clause",
+      "name": "BSD 2-Clause \"Simplified\" License",
+      "spdx_id": "BSD-2-Clause",
+      "url": "https://api.github.com/licenses/bsd-2-clause",
+      "node_id": "MDc6TGljZW5zZTQ="
+    },
+    "language": "JavaScript",
+    "default_branch": "develop",
+    "pushed_at": "2026-03-02T19:22:03Z",
+    "archived": false,
+    "description": "SugarCube is a free (gratis and libre) story format for Twine/Twee."
+  },
+  "renpy/renpy": {
+    "full_name": "renpy/renpy",
+    "html_url": "https://github.com/renpy/renpy",
+    "license": null,
+    "language": "Ren'Py",
+    "default_branch": "master",
+    "pushed_at": "2026-10-14T03:02:44Z",
+    "archived": false,
+    "description": "The Ren'Py Visual Novel Engine"
+  },
+  "YarnSpinnerTool/YarnSpinner": {
+    "full_name": "YarnSpinnerTool/YarnSpinner",
+    "html_url": "https://github.com/YarnSpinnerTool/YarnSpinner",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "spdx_id": "MIT",
+      "url": "https://api.github.com/licenses/mit",
+      "node_id": "MDc6TGljZW5zZTEz"
+    },
+    "language": "C#",
+    "default_branch": "main",
+    "pushed_at": "2026-10-14T00:31:56Z",
+    "archived": false,
+    "description": "The core compiler and engine-agnostic components for Yarn Spinner, the friendly dialogue tool."
+  },
+  "dendry/dendry": {
+    "full_name": "dendry/dendry",
+    "html_url": "https://github.com/dendry/dendry",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "spdx_id": "MIT",
+      "url": "https://api.github.com/licenses/mit",
+      "node_id": "MDc6TGljZW5zZTEz"
+    },
+    "language": "JavaScript",
+    "default_branch": "master",
+    "pushed_at": "2015-07-12T15:00:39Z",
+    "archived": false,
+    "description": "Tools to create and build interactive fiction."
+  },
+  "inform7/inform": {
+    "error": "HTTP Error 404: Not Found"
+  },
+  "inkle/ink": {
+    "full_name": "inkle/ink",
+    "html_url": "https://github.com/inkle/ink",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "spdx_id": "MIT",
+      "url": "https://api.github.com/licenses/mit",
+      "node_id": "MDc6TGljZW5zZTEz"
+    },
+    "language": "C#",
+    "default_branch": "master",
+    "pushed_at": "2026-05-05T11:24:42Z",
+    "archived": false,
+    "description": "inkle's open source scripting language for writing interactive narrative."
+  },
+  "4ian/GDevelop": {
+    "full_name": "4ian/GDevelop",
+    "html_url": "https://github.com/4ian/GDevelop",
+    "license": {
+      "key": "other",
+      "name": "Other",
+      "spdx_id": "NOASSERTION",
+      "url": null,
+      "node_id": "MDc6TGljZW5zZTA="
+    },
+    "language": "JavaScript",
+    "default_branch": "master",
+    "pushed_at": "2026-10-13T23:16:41Z",
+    "archived": false,
+    "description": "\ud83c\udfae Open-source, cross-platform 2D/3D/multiplayer game engine designed for everyone."
+  },
+  "defold/defold": {
+    "full_name": "defold/defold",
+    "html_url": "https://github.com/defold/defold",
+    "license": {
+      "key": "other",
+      "name": "Other",
+      "spdx_id": "NOASSERTION",
+      "url": null,
+      "node_id": "MDc6TGljZW5zZTA="
+    },
+    "language": "C++",
+    "default_branch": "dev",
+    "pushed_at": "2026-10-13T18:50:53Z",
+    "archived": false,
+    "description": "Defold is a completely free to use game engine for development of desktop, console, mobile and web games."
+  },
+  "love2d/love": {
+    "full_name": "love2d/love",
+    "html_url": "https://github.com/love2d/love",
+    "license": {
+      "key": "other",
+      "name": "Other",
+      "spdx_id": "NOASSERTION",
+      "url": null,
+      "node_id": "MDc6TGljZW5zZTA="
+    },
+    "language": "C++",
+    "default_branch": "main",
+    "pushed_at": "2026-09-20T14:36:40Z",
+    "archived": false,
+    "description": "L\u00d6VE is an awesome 2D game framework for Lua."
+  },
+  "HeapsIO/heaps": {
+    "full_name": "HeapsIO/heaps",
+    "html_url": "https://github.com/HeapsIO/heaps",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "spdx_id": "MIT",
+      "url": "https://api.github.com/licenses/mit",
+      "node_id": "MDc6TGljZW5zZTEz"
+    },
+    "language": "Haxe",
+    "default_branch": "master",
+    "pushed_at": "2026-10-13T14:03:27Z",
+    "archived": false,
+    "description": "Heaps : Haxe Game Framework"
+  },
+  "SanderMertens/flecs": {
+    "full_name": "SanderMertens/flecs",
+    "html_url": "https://github.com/SanderMertens/flecs",
+    "license": {
+      "key": "other",
+      "name": "Other",
+      "spdx_id": "NOASSERTION",
+      "url": null,
+      "node_id": "MDc6TGljZW5zZTA="
+    },
+    "language": "C",
+    "default_branch": "master",
+    "pushed_at": "2026-10-03T20:01:56Z",
+    "archived": false,
+    "description": "A fast entity component system (ECS) for C & C++"
+  },
+  "statelyai/xstate": {
+    "full_name": "statelyai/xstate",
+    "html_url": "https://github.com/statelyai/xstate",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "spdx_id": "MIT",
+      "url": "https://api.github.com/licenses/mit",
+      "node_id": "MDc6TGljZW5zZTEz"
+    },
+    "language": "TypeScript",
+    "default_branch": "main",
+    "pushed_at": "2026-10-13T21:43:22Z",
+    "archived": false,
+    "description": "State machines, statecharts, and actors for complex logic"
+  },
+  "CacheControl/json-rules-engine": {
+    "full_name": "CacheControl/json-rules-engine",
+    "html_url": "https://github.com/CacheControl/json-rules-engine",
+    "license": {
+      "key": "isc",
+      "name": "ISC License",
+      "spdx_id": "ISC",
+      "url": "https://api.github.com/licenses/isc",
+      "node_id": "MDc6TGljZW5zZTEw"
+    },
+    "language": "JavaScript",
+    "default_branch": "master",
+    "pushed_at": "2026-02-16T21:57:04Z",
+    "archived": false,
+    "description": "A rules engine expressed in JSON"
+  },
+  "tonsky/datascript": {
+    "full_name": "tonsky/datascript",
+    "html_url": "https://github.com/tonsky/datascript",
+    "license": {
+      "key": "epl-1.0",
+      "name": "Eclipse Public License 1.0",
+      "spdx_id": "EPL-1.0",
+      "url": "https://api.github.com/licenses/epl-1.0",
+      "node_id": "MDc6TGljZW5zZTc="
+    },
+    "language": "Clojure",
+    "default_branch": "master",
+    "pushed_at": "2026-08-15T16:29:25Z",
+    "archived": false,
+    "description": "Immutable database and Datalog query engine for Clojure, ClojureScript and JS"
+  },
+  "neutralinojs/neutralinojs": {
+    "full_name": "neutralinojs/neutralinojs",
+    "html_url": "https://github.com/neutralinojs/neutralinojs",
+    "license": {
+      "key": "other",
+      "name": "Other",
+      "spdx_id": "NOASSERTION",
+      "url": null,
+      "node_id": "MDc6TGljZW5zZTA="
+    },
+    "language": "C",
+    "default_branch": "main",
+    "pushed_at": "2026-10-14T00:38:29Z",
+    "archived": false,
+    "description": "Portable and lightweight cross-platform desktop application development framework"
+  },
+  "wailsapp/wails": {
+    "full_name": "wailsapp/wails",
+    "html_url": "https://github.com/wailsapp/wails",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "spdx_id": "MIT",
+      "url": "https://api.github.com/licenses/mit",
+      "node_id": "MDc6TGljZW5zZTEz"
+    },
+    "language": "Go",
+    "default_branch": "master",
+    "pushed_at": "2026-10-14T00:25:55Z",
+    "archived": false,
+    "description": "Create beautiful applications using Go"
+  },
+  "YoYoGames/GameMaker-Bugs": {
+    "full_name": "YoYoGames/GameMaker-Bugs",
+    "html_url": "https://github.com/YoYoGames/GameMaker-Bugs",
+    "license": null,
+    "language": "Python",
+    "default_branch": "main",
+    "pushed_at": "2026-10-07T15:22:44Z",
+    "archived": false,
+    "description": "Public tracking for GameMaker bugs"
+  },
+  "MonoGame/MonoGame": {
+    "full_name": "MonoGame/MonoGame",
+    "html_url": "https://github.com/MonoGame/MonoGame",
+    "license": {
+      "key": "other",
+      "name": "Other",
+      "spdx_id": "NOASSERTION",
+      "url": null,
+      "node_id": "MDc6TGljZW5zZTA="
+    },
+    "language": "C#",
+    "default_branch": "develop",
+    "pushed_at": "2026-10-11T15:21:59Z",
+    "archived": false,
+    "description": "One framework for creating powerful cross-platform games."
+  },
+  "FNA-XNA/FNA": {
+    "full_name": "FNA-XNA/FNA",
+    "html_url": "https://github.com/FNA-XNA/FNA",
+    "license": null,
+    "language": "C#",
+    "default_branch": "master",
+    "pushed_at": "2026-10-14T01:30:22Z",
+    "archived": false,
+    "description": "FNA - Accuracy-focused XNA4 reimplementation for open platforms"
+  },
+  "raysan5/raylib": {
+    "full_name": "raysan5/raylib",
+    "html_url": "https://github.com/raysan5/raylib",
+    "license": {
+      "key": "zlib",
+      "name": "zlib License",
+      "spdx_id": "Zlib",
+      "url": "https://api.github.com/licenses/zlib",
+      "node_id": "MDc6TGljZW5zZTI3"
+    },
+    "language": "C",
+    "default_branch": "master",
+    "pushed_at": "2026-10-13T21:03:24Z",
+    "archived": false,
+    "description": "A simple and easy-to-use library to enjoy videogames programming"
+  },
+  "hajimehoshi/ebiten": {
+    "full_name": "hajimehoshi/ebiten",
+    "html_url": "https://github.com/hajimehoshi/ebiten",
+    "license": {
+      "key": "apache-2.0",
+      "name": "Apache License 2.0",
+      "spdx_id": "Apache-2.0",
+      "url": "https://api.github.com/licenses/apache-2.0",
+      "node_id": "MDc6TGljZW5zZTI="
+    },
+    "language": "Go",
+    "default_branch": "main",
+    "pushed_at": "2026-10-13T16:40:41Z",
+    "archived": false,
+    "description": "A dead simple 2D game engine for Go"
+  },
+  "flame-engine/flame": {
+    "full_name": "flame-engine/flame",
+    "html_url": "https://github.com/flame-engine/flame",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "spdx_id": "MIT",
+      "url": "https://api.github.com/licenses/mit",
+      "node_id": "MDc6TGljZW5zZTEz"
+    },
+    "language": "Dart",
+    "default_branch": "main",
+    "pushed_at": "2026-10-13T19:38:47Z",
+    "archived": false,
+    "description": "A Flutter based game engine."
+  },
+  "cocos/cocos-engine": {
+    "full_name": "cocos/cocos-engine",
+    "html_url": "https://github.com/cocos/cocos-engine",
+    "license": {
+      "key": "other",
+      "name": "Other",
+      "spdx_id": "NOASSERTION",
+      "url": null,
+      "node_id": "MDc6TGljZW5zZTA="
+    },
+    "language": "C++",
+    "default_branch": "v3.8.9",
+    "pushed_at": "2026-10-08T07:08:45Z",
+    "archived": false,
+    "description": "Cocos simplifies game creation and distribution with Cocos Creator, a free, open-source, cross-platform game engine. Empowering millions of developers to create high-performance, engaging 2D/3D games and instant web entertainment."
+  },
+  "playcanvas/engine": {
+    "full_name": "playcanvas/engine",
+    "html_url": "https://github.com/playcanvas/engine",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "spdx_id": "MIT",
+      "url": "https://api.github.com/licenses/mit",
+      "node_id": "MDc6TGljZW5zZTEz"
+    },
+    "language": "JavaScript",
+    "default_branch": "main",
+    "pushed_at": "2026-10-14T02:20:27Z",
+    "archived": false,
+    "description": "Powerful web graphics runtime built on WebGL, WebGPU, WebXR and glTF"
+  },
+  "skypjack/entt": {
+    "full_name": "skypjack/entt",
+    "html_url": "https://github.com/skypjack/entt",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "spdx_id": "MIT",
+      "url": "https://api.github.com/licenses/mit",
+      "node_id": "MDc6TGljZW5zZTEz"
+    },
+    "language": "C++",
+    "default_branch": "main",
+    "pushed_at": "2026-10-13T16:04:14Z",
+    "archived": false,
+    "description": "Gaming meets modern C++ - a fast and reliable entity component system (ECS) and much more"
+  },
+  "yjs/yjs": {
+    "full_name": "yjs/yjs",
+    "html_url": "https://github.com/yjs/yjs",
+    "license": {
+      "key": "other",
+      "name": "Other",
+      "spdx_id": "NOASSERTION",
+      "url": null,
+      "node_id": "MDc6TGljZW5zZTA="
+    },
+    "language": "JavaScript",
+    "default_branch": "main",
+    "pushed_at": "2026-10-07T12:07:31Z",
+    "archived": false,
+    "description": "Shared data types for building collaborative software"
+  },
+  "automerge/automerge": {
+    "full_name": "automerge/automerge",
+    "html_url": "https://github.com/automerge/automerge",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "spdx_id": "MIT",
+      "url": "https://api.github.com/licenses/mit",
+      "node_id": "MDc6TGljZW5zZTEz"
+    },
+    "language": "JavaScript",
+    "default_branch": "main",
+    "pushed_at": "2026-10-14T02:54:40Z",
+    "archived": false,
+    "description": "A JSON-like data structure (a CRDT) that can be modified concurrently by different users, and merged again automatically. "
+  },
+  "nwjs/nw.js": {
+    "full_name": "nwjs/nw.js",
+    "html_url": "https://github.com/nwjs/nw.js",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "spdx_id": "MIT",
+      "url": "https://api.github.com/licenses/mit",
+      "node_id": "MDc6TGljZW5zZTEz"
+    },
+    "language": "JavaScript",
+    "default_branch": "main",
+    "pushed_at": "2026-10-10T21:24:59Z",
+    "archived": false,
+    "description": "Call all Node.js modules directly from DOM/WebWorker and enable a new way of writing applications with all Web technologies."
+  },
+  "videlais/twine-sugarcube-storylet": {
+    "error": "HTTP Error 404: Not Found"
+  },
+  "aucchen/dendry": {
+    "full_name": "aucchen/dendry",
+    "html_url": "https://github.com/aucchen/dendry",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "spdx_id": "MIT",
+      "url": "https://api.github.com/licenses/mit",
+      "node_id": "MDc6TGljZW5zZTEz"
+    },
+    "language": "JavaScript",
+    "default_branch": "master",
+    "pushed_at": "2026-04-16T04:08:55Z",
+    "archived": false,
+    "description": "Tools to create and build interactive fiction."
+  }
+}

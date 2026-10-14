@@ -236,3 +236,66 @@ regression).
 G4 comic-world generation profiles, G5 generation cheats and draw hooks, G6
 address space and pins (canon, AU and generated as one). All docs, all
 proposal. See [lane folder](gm/dispatch/gen-rules-2026-10-14/COMMON.md).
+
+---
+
+## Fold: G1-G6 lane returns (2026-10-14)
+
+Status: **wave folded.** Six lane returns read in full and reconciled here.
+Lane files were committed by the gameplay-foundations session in `fd176f27`;
+G1's kit is merged (`adaa4e18`, `src/gen_kit.js`). Everything below stays
+proposal. No new lanes. Links: [G1](gm/dispatch/gen-rules-2026-10-14/g1/REPORT.md),
+[G2](gm/dispatch/gen-rules-2026-10-14/g2/REPORT.md),
+[G3](gm/dispatch/gen-rules-2026-10-14/g3/REPORT.md),
+[G4](gm/dispatch/gen-rules-2026-10-14/g4/REPORT.md),
+[G5](gm/dispatch/gen-rules-2026-10-14/g5/REPORT.md),
+[G6](gm/dispatch/gen-rules-2026-10-14/g6/REPORT.md).
+
+### What each lane adds
+
+| Lane | Adds | Evidence level |
+|---|---|---|
+| G1 kit | `src/gen_kit.js` (194 lines, no imports): addressed two-lane hash, integer weighted and stratified picks with explain receipts, JSON shuffle bag, pity, sample-and-score, bounded retries with named fallback, peek/commit. 15-line P3 storylet example | 27/27 kit tests, 661/661 suite on its branch. Merged. No live consumer yet |
+| G2 audit | [Conformance table](gm/dispatch/gen-rules-2026-10-14/g2/CONFORMANCE.md) for 37 generator groups against GR1-GR17; [subtle bug hits](gm/dispatch/gen-rules-2026-10-14/g2/SUBTLE_BUGS.md) with file:line; nine new failure modes | 12 read-only source probes. No harness, build or browser |
+| G3 tables | Table format, tag query grammar, integer strata, `id@rev`, budgets; overlay merge order and saved director overlays; Village, HP and JJK worked views where a new tagged item joins three selectors with zero table edits; offline pool pipeline; MC19-MC28 | JSON and arithmetic doc checks only. A2 tag API still absent |
+| G4 comics | Profiles for Worm/Ward, MHA, a Big Two pattern and an original Masked City; three-Earth variant, mantle and retcon save sketches; name grammars with collision filters; CG13-CG20, SB27-SB36 | Doc checks; Worm passages verified against the local edition; MHA glossary checked live. Big Two stays MEMORY-labeled |
+| G5 cheats | GA9 hook spec (peek, pin, reroll, bias, branch preview, blind); all 14 GC cards in the live cheat-card shape with costs and framings per world; odds honesty rules and 18 builder test cases; GC15-GC28 | 14/14 cards pass live `validateCheatCard` and `grantCheat`. Data shape only |
+| G6 address space | Address grammar mapped to live IDs; pin store shared by canon and cheats with typed authority; migration decisions G6-CD1 to CD4; 15 risks | 16/16 source assertions against live modules |
+
+### Corrections to this doc (root was wrong or overstated)
+
+- **C1, SB17 (G2 F2).** "Old saves get a fresh root; P1 already does this" is false. `src/seeded_streams.js:25,38-44` back-derives new stream roots from the saved legacy RNG, and craft streams ignore world scope. Corrected rule: the migration choice is an open compatibility decision for the integrator. Do not overwrite merged roots.
+- **C2, SB1 (G2 F1).** "Previews consuming draws is the most likely bug" was inference. G2 found no live preview leak. Real ordering risks are locale/JSON tie sorts and sequential per-stream rolls (`src/main.js:4738-4742`, `src/simulation.js:527-550`, `src/storylet_deck.js:31,62-64`). SB1 stays a rule; it is not a known bug.
+- **C3, OG1 (G6).** "Canon is a pinned address" is too literal. Canon events are conditional expectations: divergence changes real causes, and generated observed facts stay stable without pins. Corrected OG1: one **read interface** over addresses, with typed authority (canon expectation, cheat pin, freeze record, draw) behind it. One pin envelope, several meanings.
+- **C4, GR9 explain (G1, G5 F4).** The kit's top-five receipt explains table shares, not modifier arithmetic. Odds sight (GC1) needs the full resolver snapshot the commit uses, not just the receipt.
+- **C5, GA4 (G3, G5).** Category pins and multiplicative bias are not in G3's overlay v1. They are named extensions, needed before GC6 category pins and GC8.
+
+### Duplicates and code collisions
+
+- G2 numbered its additions **SB18-SB26**, colliding with root round 2. Root renumbers G2's set to **SB37-SB45** in the same order (rounded endpoints, falsy-zero chance, frozen value rechecked against today's law, unbounded keyed receipts, cosmetic labels as identity, name-scan collisions, surrogate drop, forever-pinned requests, unbounded combinatorial search). G2's own file keeps its old labels.
+- G2 SB24 (surrogate drop) and G1 D1 are the same finding from two sides: P1's hash and four other sites drop the low surrogate of emoji and rare CJK. G1 fixed it in the kit; the live sites remain.
+- G3's pin envelope and G6's pin store overlap. G6 owns pin storage and authority; G3 owns overlay ordering that reads it. G5 hooks call both and own neither.
+- G4 SB36 and G5 GCR4 both guard sealed truth in diagnostics; keep one lint (P15) with both cases.
+
+### Contradictions left open
+
+- G1 deliberately does not reproduce P1's draw values (two lanes, multiply-high, no cursor mutation). Porting a live consumer changes its numbers. Frozen values must keep old readers (G2 F4); unseen ones may switch with a revision bump.
+- G5 says G1 was not yet an ancestor of HEAD; it now is. Its gate wording is stale only on that point.
+- G6 F3: no live stream takes continuity, pass or life as input, so GA10 salts and time loops need an adapter, not a config flag.
+
+### Top picks (proposal, ranked across lanes)
+
+1. **Fix the shared hash and ordering basics** (G2 F1 plus SB37-SB45 items surrogate drop, falsy zero, cosmetic labels): small, removes bugs before more content keys spread. A5 owns the replay checks.
+2. **Port P3 storylets onto the kit** (G1 example, G2 F3, G3 S3): first real consumer, game-time addresses, integer weights, quiet outcome kept. Gate: rebuilt fresh-origin desktop route at 1366x768 with Save/reload/literal Import keeping the next pick.
+3. **Decide stream migration and scope** (C1, G2 F2, G6 CD1-CD4): one compatibility decision covering legacy roots, craft scope and life/continuity inputs.
+4. **Odds plus why lens on the status window** (G5 S1): the first generation cheat, reading the same resolver snapshot as commit. Waits on pick 2.
+5. **Table compiler on A2 tags with one Village material pool** (G3 S1): waits on A2's actual API.
+
+Comic slices (G4 S1 Worm case desk first) and G6 address resolver stay
+reachable but behind the canon-first order; they are not promoted here.
+
+### Remaining gates
+
+No generator has a live kit consumer. All native, persistence, browser and
+director acceptance gates stay OPEN. Unresolved owner inputs: A2 tag API, A1
+consolidation plan, A5 replay harness.

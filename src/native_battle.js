@@ -3,6 +3,7 @@ import {applySimulationEffects} from "./simulation_effects.js";
 import {validateExpansionState} from "./expansion_engine.js";
 import {ROAD_RIVAL,RIVAL_PURSUIT} from "./frontier_campaign.js";
 import {validateNativeBattle} from "./native_battle_contracts.js";
+import {xorshift32} from "./seeded_streams.js";
 export {validateNativeBattle} from "./native_battle_contracts.js";
 import {commitPartyBattleAction,withdrawPartyBattle} from "./party_battle.js";
 const check=(ok,message)=>{if(!ok)throw new Error(message);};
@@ -44,7 +45,7 @@ export function commitNativeBattleStrike(state,registry,{actorId,targetId,attack
     const saved=state.simulation?.sessions.player;validateNativeBattle(saved?.nativeBattle,saved);
     check((actorId === "player" && targetId === ROAD_RIVAL) || (actorId === ROAD_RIVAL && targetId === "player"),"Unsupported native battle participant.");
     const plan=battlePlan(state,context),session=plan.state.simulation.sessions.player,battle=session.nativeBattle;
-    const random=()=>{let n=battle.seed;n^=n<<13;n^=n>>>17;n^=n<<5;battle.seed=n>>>0;return battle.seed/0x100000000;};
+    const random=()=>{battle.seed=xorshift32(battle.seed);return battle.seed/0x100000000;};
     const person=plan.state.simulation.people[actorId],vitals=actorId === "player" ? plan.vitals.player : person.vitals;
     check(vitals?.health > 1,"The fighter needs recovery before another duel.");
     const hadStamina=vitals.stamina > 0;

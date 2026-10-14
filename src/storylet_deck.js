@@ -1,4 +1,6 @@
+import {bindStoryAftermath} from './story_aftermath.js';
 import {assert, meets, natural} from './simulation_contracts.js';
+import {drawUnit,scopedStream,xorshift32} from './seeded_streams.js';
 import {deriveSimulationSeed} from './simulation_resolution.js';
 
 export const STORYLET_DECKS = [
@@ -14,7 +16,7 @@ export function initializeStoryletDecks(state) {
     delete state.simulation.checks['village.shower'];
     state.simulation.storyletSchema=1;
     state.simulation.decks=Object.fromEntries(STORYLET_DECKS.map(d=>[d.id,{due:state.clock+d.interval,interval:d.interval,
-        rng:deriveSimulationSeed(state.simulation.seed,`deck:${d.id}`),ticks:0,drawn:0,nulls:0,cards:{},miss:{},lastFamily:null,receipts:[]}]));
+        rng:deriveSimulationSeed(state.simulation.seed,`deck:${d.id}`),...(state.streams?{randomSource:'named'}:{}),ticks:0,drawn:0,nulls:0,cards:{},miss:{},lastFamily:null,receipts:[]}]));
 }
 export function nextStoryletBoundary(state) {
     if(!state.simulation || !enabled(state)) return Infinity;
@@ -32,6 +34,7 @@ export function storyletCandidates(state,registry,deckId,factsFor) {
         const card=record.cards[d.id], config=d.storylet, facts=storyletFacts(factsFor(d));
         if(config.once && card?.seen || card && state.clock < card.last+config.cooldown || !meets(d.requires,facts) ||
             Object.values(state.simulation.events).some(e=>e.definitionId===d.id && e.status==='open')) return [];
+        if(!bindStoryAftermath(d,state))return [];
         let weight=config.weight.base;
         for(const plus of config.weight.plus || []) if(meets(plus.when,facts)) weight+=plus.add;
         weight=Math.max(0,weight)*Math.max(0.1,0.6**(card?.seen || 0));
@@ -41,7 +44,7 @@ export function storyletCandidates(state,registry,deckId,factsFor) {
     });
 }
 function roll(record) {
-    let n=record.rng; n^=n<<13; n^=n>>>17; n^=n<<5; record.rng=n>>>0;
+    record.rng=xorshift32(record.rng);
     return record.rng/0x100000000;
 }
 // Called only at the existing common-clock boundary; each tick compares a deck.
@@ -59,7 +62,7 @@ export function advanceStoryletDecks(state,registry,factsFor,emit) {
         if(state.actors.player.worldId!=='base.frontier' || location!=='Village' || state.simulation.people.player.life!=='alive')continue;
         if(Object.values(state.simulation.events).filter(e=>e.status==='open' && e.storylet?.deck===config.id).length>=3)continue;
         const candidates=storyletCandidates(state,registry,config.id,factsFor);
-        const total=config.quiet+candidates.reduce((n,c)=>n+c.weight,0), r=roll(record);
+        const total=config.quiet+candidates.reduce((n,c)=>n+c.weight,0), r=record.randomSource==='named'?drawUnit(state,scopedStream(`deck:${config.id}`),`tick:${record.ticks}`):roll(record);
         let cursor=r*total, selected=null;
         for(const candidate of candidates) {cursor-=candidate.weight;if(cursor<0){selected=candidate.definition;break;}}
         const receipt={at:state.clock,tick:record.ticks,roll:r,total,cardId:selected?.id || null,
@@ -70,7 +73,7 @@ export function advanceStoryletDecks(state,registry,factsFor,emit) {
         if(!selected){record.nulls++;continue;}
         const card=record.cards[selected.id] ||= {seen:0,last:0};card.seen++;card.last=state.clock;
         record.drawn++;record.lastFamily=selected.storylet.family;
-        emit(selected,receipt);
+        emit(bindStoryAftermath(selected,state),receipt);
     }
     return work;
 }
@@ -84,6 +87,7 @@ export function validateStoryletState(state) {
     assert(Object.keys(s.decks).length===STORYLET_DECKS.length,'Unsupported storylet decks.');
     for(const definition of STORYLET_DECKS) {
         const d=s.decks[definition.id];
+        assert(d.randomSource==null || d.randomSource==='named' && state.streams,'Invalid storylet random source.');
         assert(object(d) && natural(d.due) && d.due>=state.clock && d.interval===definition.interval && natural(d.rng) && d.rng>0 && d.rng<=0xffffffff &&
             [d.ticks,d.drawn,d.nulls].every(natural) && d.drawn+d.nulls<=d.ticks && object(d.cards) && object(d.miss) && Array.isArray(d.receipts) && d.receipts.length<=20,'Invalid saved storylet deck.');
         assert(Object.keys(d.cards).length<=400,'Storylet card history is too large.');

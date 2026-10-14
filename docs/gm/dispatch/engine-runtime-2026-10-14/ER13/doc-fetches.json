@@ -1,0 +1,350 @@
+{
+  "renpy": {
+    "url": "https://www.renpy.org/doc/html/license.html",
+    "bytes": 122423,
+    "status": "ok"
+  },
+  "yarn": {
+    "url": "https://docs.yarnspinner.dev/write-yarn-scripts/advanced-scripting/storylets-and-saliency",
+    "error": "HTTP Error 404: Not Found"
+  },
+  "dendry": {
+    "url": "https://raw.githubusercontent.com/dendry/dendry/master/README.md",
+    "bytes": 710,
+    "status": "ok"
+  },
+  "inform": {
+    "url": "https://ganelson.github.io/inform-website/",
+    "bytes": 8294,
+    "status": "ok"
+  },
+  "gdevelop": {
+    "url": "https://raw.githubusercontent.com/4ian/GDevelop/master/LICENSE.md",
+    "bytes": 305,
+    "status": "ok"
+  },
+  "defold": {
+    "url": "https://defold.com/license/",
+    "bytes": 46277,
+    "status": "ok"
+  },
+  "love": {
+    "url": "https://love2d.org/wiki/Getting_Started",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  "loveweb": {
+    "url": "https://github.com/love2d/love.js",
+    "error": "HTTP Error 404: Not Found"
+  },
+  "heaps": {
+    "url": "https://heaps.io/documentation/home.html",
+    "bytes": 11378,
+    "status": "ok"
+  },
+  "flecs": {
+    "url": "https://raw.githubusercontent.com/SanderMertens/flecs/master/LICENSE",
+    "bytes": 1131,
+    "status": "ok"
+  },
+  "xstate": {
+    "url": "https://stately.ai/docs/persistence",
+    "bytes": 309493,
+    "status": "ok"
+  },
+  "rules": {
+    "url": "https://raw.githubusercontent.com/CacheControl/json-rules-engine/master/README.md",
+    "bytes": 7434,
+    "status": "ok"
+  },
+  "datascript": {
+    "url": "https://raw.githubusercontent.com/tonsky/datascript/master/README.md",
+    "bytes": 13423,
+    "status": "ok"
+  },
+  "neutralino": {
+    "url": "https://neutralino.js.org/docs/",
+    "bytes": 26132,
+    "status": "ok"
+  },
+  "wails": {
+    "url": "https://wails.io/docs/introduction/",
+    "bytes": 30415,
+    "status": "ok"
+  },
+  "construct": {
+    "url": "https://www.construct.net/en/make-games/releases",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  "gamemaker": {
+    "url": "https://releases.gamemaker.io/release-notes/2024/1400",
+    "bytes": 68526,
+    "status": "ok"
+  },
+  "flame": {
+    "url": "https://pub.dev/api/packages/flame",
+    "bytes": 135481,
+    "status": "ok"
+  },
+  "xstatepkg": {
+    "url": "https://registry.npmjs.org/xstate/latest",
+    "bytes": 5156,
+    "status": "ok"
+  },
+  "rulespkg": {
+    "url": "https://registry.npmjs.org/json-rules-engine/latest",
+    "bytes": 2789,
+    "status": "ok"
+  },
+  "wa": {
+    "url": "https://api.github.com/repos/wailsapp/wails/releases/latest",
+    "bytes": 2260,
+    "status": "ok"
+  },
+  "informrepo": {
+    "url": "https://api.github.com/repos/ganelson/inform/releases/latest",
+    "bytes": 11291,
+    "status": "ok"
+  },
+  "flecsweb": {
+    "url": "https://www.flecs.dev/flecs/md_docs_2Manual.html",
+    "bytes": 348,
+    "status": "ok"
+  },
+  "nw": {
+    "url": "https://nwjs.io/downloads/",
+    "bytes": 3119,
+    "status": "ok"
+  },
+  "cocos": {
+    "url": "https://raw.githubusercontent.com/cocos/cocos-engine/v3.8.8/licenses/LICENSE",
+    "error": "HTTP Error 404: Not Found"
+  },
+  "monogame": {
+    "url": "https://raw.githubusercontent.com/MonoGame/MonoGame/develop/LICENSE.txt",
+    "bytes": 3878,
+    "status": "ok"
+  },
+  "fna": {
+    "url": "https://raw.githubusercontent.com/FNA-XNA/FNA/master/LICENSE",
+    "error": "HTTP Error 404: Not Found"
+  },
+  "igt": {
+    "url": "https://raw.githubusercontent.com/123ishatest/igt-library/main/package.json",
+    "error": "HTTP Error 404: Not Found"
+  },
+  "yjslicense": {
+    "url": "https://raw.githubusercontent.com/yjs/yjs/main/LICENSE",
+    "bytes": 1211,
+    "status": "ok"
+  },
+  "neutralinolic": {
+    "url": "https://raw.githubusercontent.com/neutralinojs/neutralinojs/main/LICENSE",
+    "bytes": 57309,
+    "status": "ok"
+  },
+  "lovelic": {
+    "url": "https://raw.githubusercontent.com/love2d/love/main/license.txt",
+    "bytes": 74910,
+    "status": "ok"
+  },
+  "kittens-license": {
+    "url": "https://api.github.com/repos/nuclear-unicorn/kittensgame/license",
+    "bytes": 1563
+  },
+  "tmt-current": {
+    "url": "https://api.github.com/repos/ThePrestigeTreeGuy/The-Modding-Tree",
+    "bytes": 16755
+  },
+  "cocos-license": {
+    "url": "https://api.github.com/repos/cocos/cocos-engine/license",
+    "bytes": 2494
+  },
+  "fna-license": {
+    "url": "https://api.github.com/repos/FNA-XNA/FNA/contents",
+    "bytes": 13133
+  },
+  "dendry-fork": {
+    "url": "https://raw.githubusercontent.com/aucchen/dendry/master/README.md",
+    "bytes": 4419
+  },
+  "dendry-package": {
+    "url": "https://raw.githubusercontent.com/aucchen/dendry/master/package.json",
+    "bytes": 1356
+  },
+  "dendry-original-package": {
+    "url": "https://raw.githubusercontent.com/dendry/dendry/master/package.json",
+    "bytes": 1356
+  },
+  "flecs-readme": {
+    "url": "https://raw.githubusercontent.com/SanderMertens/flecs/master/README.md",
+    "bytes": 9615
+  },
+  "flecs-cmake": {
+    "url": "https://raw.githubusercontent.com/SanderMertens/flecs/master/CMakeLists.txt",
+    "bytes": 3174
+  },
+  "igt-old": {
+    "url": "https://api.github.com/repositories/302698907",
+    "bytes": 6409
+  },
+  "xstate-times": {
+    "url": "https://registry.npmjs.org/xstate",
+    "bytes": 1361742
+  },
+  "rules-times": {
+    "url": "https://registry.npmjs.org/json-rules-engine",
+    "bytes": 253682
+  },
+  "nwversions": {
+    "url": "https://nwjs.io/versions.json",
+    "bytes": 128132
+  },
+  "inform-license": {
+    "url": "https://raw.githubusercontent.com/ganelson/inform/master/LICENSE",
+    "bytes": 8894
+  },
+  "construct-alt": {
+    "url": "https://editor.construct.net/",
+    "bytes": 23821
+  },
+  "yarn-readme": {
+    "url": "https://raw.githubusercontent.com/YarnSpinnerTool/YarnSpinner/main/README.md",
+    "bytes": 4235
+  },
+  "storyassembler": {
+    "url": "https://github.com/LudoNarrative/StoryAssembler",
+    "bytes": 269937
+  },
+  "kit-tree": {
+    "url": "https://api.github.com/repos/nuclear-unicorn/kittensgame/git/trees/781e379f79f1e7512d168849cba21ed111502644?recursive=1",
+    "bytes": 79955
+  },
+  "fna-licenses": {
+    "url": "https://api.github.com/repos/FNA-XNA/FNA/contents/licenses",
+    "bytes": 2345
+  },
+  "tmt-new-releases": {
+    "url": "https://api.github.com/repos/ThePrestigeTreeGuy/The-Modding-Tree/releases?per_page=5",
+    "bytes": 2
+  },
+  "kit-head": {
+    "url": "https://api.github.com/repos/nuclear-unicorn/kittensgame/commits?per_page=1",
+    "bytes": 3370
+  },
+  "ad-head": {
+    "url": "https://api.github.com/repos/IvarK/AntimatterDimensionsSourceCode/commits?per_page=1",
+    "bytes": 3381
+  },
+  "articy": {
+    "url": "https://articy.com/help/adx/RecentChanges.html",
+    "bytes": 47123
+  },
+  "mz-news": {
+    "url": "https://api.steampowered.com/ISteamNews/GetNewsForApp/v2/?appid=1096900&count=30&maxlength=0",
+    "bytes": 54043
+  },
+  "construct-page": {
+    "url": "https://www.construct.net/en/make-games/releases/stable",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  "flecs-site": {
+    "url": "https://www.flecs.dev/",
+    "bytes": 192
+  },
+  "gamemaker-latest": {
+    "url": "https://releases.gamemaker.io/release-notes/2026/0",
+    "bytes": 639201
+  },
+  "igt-npm": {
+    "url": "https://registry.npmjs.org/incremental-game-template",
+    "bytes": 21371
+  },
+  "igt-npm-new": {
+    "url": "https://registry.npmjs.org/@123ishatest%2Figt-library",
+    "bytes": 7256
+  },
+  "dendry-tags": {
+    "url": "https://api.github.com/repos/aucchen/dendry/tags?per_page=1",
+    "bytes": 407
+  },
+  "kit-ui": {
+    "url": "https://raw.githubusercontent.com/nuclear-unicorn/kittensgame/781e379f79f1e7512d168849cba21ed111502644/js/ui.js",
+    "bytes": 39004
+  },
+  "fna-lic-final": {
+    "url": "https://raw.githubusercontent.com/FNA-XNA/FNA/master/licenses/LICENSE",
+    "bytes": 2710
+  },
+  "storyassembler-readme": {
+    "url": "https://raw.githubusercontent.com/LudoNarrative/StoryAssembler/master/README.md",
+    "bytes": 2593
+  },
+  "storyassembler-meta": {
+    "url": "https://api.github.com/repos/LudoNarrative/StoryAssembler",
+    "bytes": 6818
+  },
+  "storyassembler-release": {
+    "url": "https://api.github.com/repos/LudoNarrative/StoryAssembler/releases?per_page=1",
+    "bytes": 2
+  },
+  "heaps-readme": {
+    "url": "https://raw.githubusercontent.com/HeapsIO/heaps/master/README.md",
+    "bytes": 1935
+  },
+  "construct-terms": {
+    "url": "https://www.construct.net/en/make-games/terms-and-conditions",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  "gamemaker-license": {
+    "url": "https://gamemaker.io/en/legal/gamemaker-software-licence",
+    "error": "HTTP Error 404: Not Found"
+  },
+  "gdevelop-extensions": {
+    "url": "https://raw.githubusercontent.com/4ian/GDevelop/master/Extensions/README.md",
+    "bytes": 585
+  },
+  "MonoGame/MonoGame": {
+    "url": "https://raw.githubusercontent.com/MonoGame/MonoGame/develop/README.md",
+    "bytes": 9209
+  },
+  "FNA-XNA/FNA": {
+    "url": "https://raw.githubusercontent.com/FNA-XNA/FNA/master/README.md",
+    "error": "HTTP Error 404: Not Found"
+  },
+  "raysan5/raylib": {
+    "url": "https://raw.githubusercontent.com/raysan5/raylib/master/README.md",
+    "bytes": 11084
+  },
+  "hajimehoshi/ebiten": {
+    "url": "https://raw.githubusercontent.com/hajimehoshi/ebiten/main/README.md",
+    "bytes": 3878
+  },
+  "flame-engine/flame": {
+    "url": "https://raw.githubusercontent.com/flame-engine/flame/main/README.md",
+    "bytes": 12764
+  },
+  "cocos/cocos-engine": {
+    "url": "https://raw.githubusercontent.com/cocos/cocos-engine/v3.8.9/README.md",
+    "bytes": 7598
+  },
+  "playcanvas/engine": {
+    "url": "https://raw.githubusercontent.com/playcanvas/engine/main/README.md",
+    "bytes": 7170
+  },
+  "skypjack/entt": {
+    "url": "https://raw.githubusercontent.com/skypjack/entt/main/README.md",
+    "bytes": 17651
+  },
+  "automerge/automerge": {
+    "url": "https://raw.githubusercontent.com/automerge/automerge/main/README.md",
+    "bytes": 8660
+  },
+  "yjs/yjs": {
+    "url": "https://raw.githubusercontent.com/yjs/yjs/main/README.md",
+    "bytes": 63881
+  },
+  "nwjs/nw.js": {
+    "url": "https://raw.githubusercontent.com/nwjs/nw.js/main/README.md",
+    "bytes": 6416
+  }
+}

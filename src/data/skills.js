@@ -2261,7 +2261,7 @@ Multiplies AP with daggers by ${Math.round((character.getTotalSkillCoefficient({
         visibility_treshold: 0,
         get_effect_description: () => {
             let value = character.getTotalSkillCoefficient({skill_id:"Butchering",scaling_type:"multiplicative"});
-            return `Multiplies drop chances from Beasts by ${Math.round(value * 100) / 100}`;
+            return `Improves wolf-rat processing quality and fang yield at level 25. Multiplies other Beast drop chances by ${Math.round(value * 100) / 100}`;
         },
         milestones: {
             12: {

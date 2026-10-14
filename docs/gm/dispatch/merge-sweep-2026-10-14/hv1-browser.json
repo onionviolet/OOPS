@@ -1,0 +1,27 @@
+{
+  "newHeroReload": {
+    "harvestPresent": false
+  },
+  "fixtureImport": {
+    "name": "TEST FIXTURE HV HV1 NATURAL",
+    "processed": 17
+  },
+  "carcass": {
+    "lots": 1,
+    "kills": {
+      "Wolf rat": 6,
+      "Starving wolf rat": 12
+    }
+  },
+  "processed": {
+    "species": "Wolf rat",
+    "outputs": 3,
+    "xp": [
+      113.53,
+      122.02
+    ]
+  },
+  "secondProfileImport": "exact",
+  "pageErrors": [],
+  "origin": "http://127.0.0.1:48001"
+}

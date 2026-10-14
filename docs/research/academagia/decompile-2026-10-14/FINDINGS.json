@@ -1,0 +1,269 @@
+{
+  "lane": "academagia-decompile",
+  "date": "2026-10-14",
+  "status": "PARTIAL",
+  "payload": {
+    "appId": 533480,
+    "buildId": 2453605,
+    "depot": 533481,
+    "manifest": "6671209053462036643",
+    "stateFlags": 4
+  },
+  "method": "ILSpy 11.1 source read and passive Python binary decoding; no game execution or save access",
+  "findings": [
+    {
+      "code": "D01",
+      "label": "shown",
+      "topic": "rolls",
+      "summary": "Normal roll uses integer 1..max(1,2A) plus effective skill; strict greater-than except contextual Penetrate. Helper Power has a different 0..2A-1 range.",
+      "digest": "ROLLS_AND_EXAMS.md",
+      "priorCodes": [
+        "F11"
+      ]
+    },
+    {
+      "code": "D02",
+      "label": "shown",
+      "topic": "exam score",
+      "summary": "K independent integer draws S..10, extra credit and min(0,(Fitness-5)*K) while ill, floored at zero.",
+      "digest": "ROLLS_AND_EXAMS.md",
+      "priorCodes": [
+        "F3"
+      ]
+    },
+    {
+      "code": "D03",
+      "label": "shown",
+      "topic": "weights and grading",
+      "summary": "17 course weights 80..99%; five grading styles including skill>=5 pass/fail. Hybrids choose worse/better of band and curve.",
+      "digest": "CLASS_TABLES.md",
+      "priorCodes": [
+        "F3"
+      ]
+    },
+    {
+      "code": "D04",
+      "label": "shown",
+      "topic": "class steps",
+      "summary": "1192 dated gain rows, variance 3; randomized weekday placement at initialization, saved thereafter; +1 step per matching row.",
+      "digest": "CLASS_TABLES.md",
+      "priorCodes": [
+        "F4"
+      ]
+    },
+    {
+      "code": "D05",
+      "label": "shown",
+      "topic": "skill steps",
+      "summary": "Top-three minimum; exact attribute/train-modifier step equation and no excess-step carry documented.",
+      "digest": "ROLLS_AND_EXAMS.md",
+      "priorCodes": [
+        "F5"
+      ]
+    },
+    {
+      "code": "D06",
+      "label": "shown",
+      "topic": "content format",
+      "summary": "112-type custom binary header/data index, GUID references, UTF-8 strings; NRBF metadata; ZIP patches; Firebird is authoring infrastructure.",
+      "digest": "EVENTS_AND_CALENDAR.md",
+      "priorCodes": [
+        "F18"
+      ]
+    },
+    {
+      "code": "D07",
+      "label": "shown",
+      "topic": "adventure graph",
+      "summary": "1555 base Adventure records and 237 roots; root and continuation gates distinct; wiki 258 pages is not an engine count.",
+      "digest": "EVENTS_AND_CALENDAR.md",
+      "priorCodes": [
+        "F6"
+      ]
+    },
+    {
+      "code": "D08",
+      "label": "shown",
+      "topic": "event selection",
+      "summary": "Daily chance clamp(48+Luck+RandomEventChance,0,100)%, no event while ill; uniform eligible-unplayed List selection.",
+      "digest": "EVENTS_AND_CALENDAR.md",
+      "priorCodes": [
+        "F16"
+      ]
+    },
+    {
+      "code": "D09",
+      "label": "shown",
+      "topic": "calendar",
+      "summary": "360 records, 28 numbered days plus 2 named holidays per month; three action slots and internal night phase; year end month6/day28.",
+      "digest": "EVENTS_AND_CALENDAR.md",
+      "priorCodes": [
+        "F1",
+        "F2"
+      ]
+    },
+    {
+      "code": "D10",
+      "label": "shown",
+      "topic": "relationships",
+      "summary": "Default -10..10; same-college start +1; high >=5, low <=-5; successful favor reward resets instructor relationship.",
+      "digest": "RELATIONSHIPS_AND_GROUPS.md",
+      "priorCodes": [
+        "F7",
+        "F9"
+      ]
+    },
+    {
+      "code": "D11",
+      "label": "shown",
+      "topic": "cliques",
+      "summary": "Recruitment malus sums deficits below +5 against other members; negative pair repair interval, camps and split conditions.",
+      "digest": "RELATIONSHIPS_AND_GROUPS.md",
+      "priorCodes": [
+        "F8"
+      ]
+    },
+    {
+      "code": "D12",
+      "label": "shown",
+      "topic": "group skills",
+      "summary": "Adventure checks use best clique member player+familiar skill; ordinary events use initiator+familiar; alternatives are OR checks.",
+      "digest": "EVENTS_AND_CALENDAR.md",
+      "priorCodes": [
+        "F6",
+        "F8"
+      ]
+    },
+    {
+      "code": "D13",
+      "label": "shown",
+      "topic": "stress",
+      "summary": "Max baseline 2*Fitness plus offsets; overflow has resistance roll rather than guaranteed lost day.",
+      "digest": "REPORT.md",
+      "priorCodes": [
+        "F10"
+      ]
+    },
+    {
+      "code": "D14",
+      "label": "shown",
+      "topic": "inventory",
+      "summary": "Concealability total across backpack/equipment compared with 2*Finesse; chance route produces blackmail/reprimand, no direct item removal in inspected method.",
+      "digest": "REPORT.md",
+      "priorCodes": [
+        "F13"
+      ]
+    },
+    {
+      "code": "D15",
+      "label": "shown",
+      "topic": "clubs and factions",
+      "summary": "No Club/Faction registry type; clubs use authored story/effect/prerequisite graphs; clique factions are temporary partitions.",
+      "digest": "RELATIONSHIPS_AND_GROUPS.md",
+      "priorCodes": [
+        "F8"
+      ]
+    },
+    {
+      "code": "D16",
+      "label": "shown",
+      "topic": "merge discrepancy",
+      "summary": "Patch deletions are NRBF List<Guid>, but GetDeletedObjects expects string[]; intended deletion reconstructions and non-deletion unions reported separately.",
+      "digest": "EVENTS_AND_CALENDAR.md",
+      "priorCodes": [
+        "F6",
+        "F12"
+      ]
+    }
+  ],
+  "profileCounts": {
+    "base": {
+      "Adventure": 1555,
+      "roots": 237,
+      "randomEvents": 836,
+      "locations": 452,
+      "spells": 639,
+      "students": 83,
+      "skills": 364
+    },
+    "Content": {
+      "Adventure": 3018,
+      "roots": 383,
+      "randomEvents": 1316,
+      "locations": 545,
+      "spells": 679,
+      "students": 87,
+      "skills": 386
+    },
+    "Summer": {
+      "Adventure": 3026,
+      "roots": 384,
+      "randomEvents": 1317,
+      "locations": 545,
+      "spells": 679,
+      "students": 87,
+      "skills": 386
+    }
+  },
+  "profileCountLabel": "base shown; patch counts inferred intended deletion-list reconstruction, not runtime-selected profile",
+  "priorReconciliation": {
+    "coveredCodes": [
+      "F1",
+      "F2",
+      "F3",
+      "F4",
+      "F5",
+      "F6",
+      "F7",
+      "F8",
+      "F9",
+      "F10",
+      "F11",
+      "F12",
+      "F13",
+      "F14",
+      "F15",
+      "F16",
+      "F17",
+      "F18",
+      "F19",
+      "F20"
+    ],
+    "owner": "REPORT.md",
+    "unrefreshedExternalClaims": [
+      "F17",
+      "F19",
+      "F20"
+    ]
+  },
+  "proposals": [
+    "P1",
+    "P2",
+    "P3",
+    "P4",
+    "P5",
+    "P6",
+    "P7",
+    "P8"
+  ],
+  "verification": {
+    "decompileAssemblies": 6,
+    "baseHeaderBytesConsumed": 7189608,
+    "baseDataBytesConsumed": 68154787,
+    "patchStreamsConsumedCompletely": 4,
+    "courseCount": 17,
+    "gainRows": 1192,
+    "gainVariance": 3,
+    "dates": 360,
+    "classReferenceChecks": "pass"
+  },
+  "gaps": [
+    "Runtime cache merge and selected mod profile",
+    "One-to-one mapping of 258 wiki adventure pages and full reachable catalog",
+    "All club membership/reward paths and merit ladders",
+    "Exact vendetta entry gates",
+    "Full spell/duel formulas and familiar/creation UI rules",
+    "Public runnable mod editor package not acquired",
+    "Gameplay acceptance excluded by lane read-only rule"
+  ]
+}

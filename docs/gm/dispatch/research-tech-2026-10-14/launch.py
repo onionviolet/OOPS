@@ -3,7 +3,7 @@ import os,sys,pathlib,time
 CODEX='/Users/weiwei/MacTransferArchive/Application-staging/ChatGPT.app/Contents/Resources/codex-cli/CodexCLI.app/Contents/MacOS/codex'
 REPO='/Users/weiwei/code/yet-another-idle-rpg';HERE=pathlib.Path(__file__).resolve().parent
 LOGS=pathlib.Path.home()/'.codex/research/research-tech-2026-10-14'
-WT={'T6':'rt-t6-planner','T16':'rt-t16-qa'}
+WT={'T6':'rt-t6-planner','T16':'rt-t16-qa','B1':'rt-slice1','B2':'rt-slice1-fixtures'}
 def cwd(lane):return f'{REPO}/.claude/worktrees/{WT[lane]}' if lane in WT else REPO
 def spawn(lane,argv):
  LOGS.mkdir(parents=True,exist_ok=True);log=LOGS/f'{lane}.log'
@@ -14,7 +14,8 @@ def spawn(lane,argv):
  os.dup2(os.open(os.devnull,os.O_RDONLY),0)
  os.write(1,f'\n=== {time.ctime()} {lane} {argv[:2]}\n'.encode())
  os.execv(CODEX,[CODEX]+argv)
-def args(lane):return ['-C',cwd(lane),'-c','model_reasoning_effort="high"','--dangerously-bypass-approvals-and-sandbox','-o',str(LOGS/f'{lane}.last.md')]
+EFFORT={'B1':'medium','B2':'medium','B4':'medium'}
+def args(lane):return ['-C',cwd(lane),'-c',f'model_reasoning_effort="{EFFORT.get(lane,"high")}"','--dangerously-bypass-approvals-and-sandbox','-o',str(LOGS/f'{lane}.last.md')]
 if __name__=='__main__':
  if sys.argv[1]=='--resume':
   lane,sid=sys.argv[2],sys.argv[3]

@@ -1,0 +1,442 @@
+[
+  {
+    "file": "src/models/combat.js",
+    "line": 294,
+    "needle": "const random="
+  },
+  {
+    "file": "src/seeded_streams.js",
+    "line": 100,
+    "needle": "export function gameKeyedRandom"
+  },
+  {
+    "file": "src/game_time.js",
+    "line": 8,
+    "needle": "function Game_Time"
+  },
+  {
+    "file": "src/world_rhythm.js",
+    "line": 5,
+    "needle": "export function calendarMinutes"
+  },
+  {
+    "file": "src/expansion_engine.js",
+    "line": 588,
+    "needle": "export function advanceSimulation"
+  },
+  {
+    "file": "src/main.js",
+    "line": 7189,
+    "needle": "function update_timer"
+  },
+  {
+    "file": "src/world_instances.js",
+    "line": 310,
+    "needle": "export function planWorldClock"
+  },
+  {
+    "file": "src/realm_clock_leases.js",
+    "line": 179,
+    "needle": "export function planRealmActivityClock"
+  },
+  {
+    "file": "src/away_ledger.js",
+    "line": 6,
+    "needle": "export function computeAway"
+  },
+  {
+    "file": "src/backlog_expansion_time.js",
+    "line": 197,
+    "needle": "function stagePackingRequest"
+  },
+  {
+    "file": "src/realm_state.js",
+    "line": 92,
+    "needle": "export function syncRealmClock"
+  },
+  {
+    "file": "src/feature_expansion_destination_host.js",
+    "line": 46,
+    "needle": "export function syncTidemarkClock"
+  },
+  {
+    "file": "src/feature_expansion_nested_host.js",
+    "line": 92,
+    "needle": "export function syncNestedCampaignClock"
+  },
+  {
+    "file": "src/book_world_paradise_state.js",
+    "line": 51,
+    "needle": "export function syncParadiseClock"
+  },
+  {
+    "file": "src/book_world_mol_state.js",
+    "line": 55,
+    "needle": "export function syncMolClock"
+  },
+  {
+    "file": "src/proto23_world_state.js",
+    "line": 123,
+    "needle": "export function syncProto23Clock"
+  },
+  {
+    "file": "src/feature_expansion_destination_native.js",
+    "line": 9,
+    "needle": "function calendarAt"
+  },
+  {
+    "file": "src/feature_expansion_nested_native.js",
+    "line": 11,
+    "needle": "export function nestedCalendarAt"
+  },
+  {
+    "file": "src/book_world_paradise_native.js",
+    "line": 19,
+    "needle": "export function paradiseCalendarAt"
+  },
+  {
+    "file": "src/book_world_mol_native.js",
+    "line": 19,
+    "needle": "export function molCalendarAt"
+  },
+  {
+    "file": "src/proto23_world_native.js",
+    "line": 19,
+    "needle": "export function proto23CalendarAt"
+  },
+  {
+    "file": "src/main.js",
+    "line": 7287,
+    "needle": "function update()"
+  },
+  {
+    "file": "src/expansion_engine.js",
+    "line": 588,
+    "needle": "export function advanceSimulation"
+  },
+  {
+    "file": "src/simulation.js",
+    "line": 459,
+    "needle": "export function nextSimulationBoundary"
+  },
+  {
+    "file": "src/simulation.js",
+    "line": 468,
+    "needle": "export function advanceSimulationBoundary"
+  },
+  {
+    "file": "src/anchor_snapshots.js",
+    "line": 74,
+    "needle": "function advance"
+  },
+  {
+    "file": "src/content_packs.js",
+    "line": 118,
+    "needle": "export function advancePackSettlement"
+  },
+  {
+    "file": "src/mixture_ui.js",
+    "line": 37,
+    "needle": "const interval=setInterval"
+  },
+  {
+    "file": "src/world_rhythm.js",
+    "line": 20,
+    "needle": "export function recurringWindow"
+  },
+  {
+    "file": "src/expansion_engine.js",
+    "line": 536,
+    "needle": "export function commitAction"
+  },
+  {
+    "file": "src/simulation.js",
+    "line": 243,
+    "needle": "export function commitSimulationCommand"
+  },
+  {
+    "file": "src/audit_remainder_host.js",
+    "line": 17,
+    "needle": "const lanes"
+  },
+  {
+    "file": "src/audit_remainder_host.js",
+    "line": 31,
+    "needle": "export function commitAuditRemainderCommand"
+  },
+  {
+    "file": "src/main.js",
+    "line": 1397,
+    "needle": "function actFeatureExpansion"
+  },
+  {
+    "file": "src/main.js",
+    "line": 1282,
+    "needle": "function actSimulation"
+  },
+  {
+    "file": "src/feature_expansion_book_host.js",
+    "line": 164,
+    "needle": "function commit("
+  },
+  {
+    "file": "src/expansion_engine.js",
+    "line": 519,
+    "needle": "value ^= value << 13"
+  },
+  {
+    "file": "src/simulation.js",
+    "line": 40,
+    "needle": "function draw(check)"
+  },
+  {
+    "file": "src/native_battle.js",
+    "line": 47,
+    "needle": "const random="
+  },
+  {
+    "file": "src/party_battle.js",
+    "line": 87,
+    "needle": "const random="
+  },
+  {
+    "file": "src/feature_expansion_battle.js",
+    "line": 279,
+    "needle": "const random="
+  },
+  {
+    "file": "src/causal_story_host.js",
+    "line": 222,
+    "needle": "let n=plan.state.simulation.seed"
+  },
+  {
+    "file": "src/storylet_deck.js",
+    "line": 44,
+    "needle": "let n=record.rng"
+  },
+  {
+    "file": "src/chronicle.js",
+    "line": 224,
+    "needle": "next.rng ^= next.rng << 13"
+  },
+  {
+    "file": "src/generated_people.js",
+    "line": 15,
+    "needle": "const draw=n"
+  },
+  {
+    "file": "src/mixture_state.js",
+    "line": 13,
+    "needle": "n^=n<<13"
+  },
+  {
+    "file": "src/start_records.js",
+    "line": 3,
+    "needle": "export function seededStartRng"
+  },
+  {
+    "file": "src/anchor_snapshots.js",
+    "line": 39,
+    "needle": "function eventTime"
+  },
+  {
+    "file": "src/seeded_streams.js",
+    "line": 47,
+    "needle": "export function unitDecision"
+  },
+  {
+    "file": "src/seeded_streams.js",
+    "line": 70,
+    "needle": "export function drawUnit"
+  },
+  {
+    "file": "src/seeded_streams.js",
+    "line": 75,
+    "needle": "export function keyedUnit"
+  },
+  {
+    "file": "src/expansion_engine.js",
+    "line": 73,
+    "needle": "export function createExpansionState"
+  },
+  {
+    "file": "src/simulation.js",
+    "line": 49,
+    "needle": "export function enrollSimulation"
+  },
+  {
+    "file": "src/components/inventory_component.js",
+    "line": 6,
+    "needle": "const inventories"
+  },
+  {
+    "file": "src/components/equipment_component.js",
+    "line": 3,
+    "needle": "const equipments"
+  },
+  {
+    "file": "src/data/component_references.js",
+    "line": 3,
+    "needle": "const levels"
+  },
+  {
+    "file": "src/data/npcs.js",
+    "line": 20,
+    "needle": "class NPCRegistryC"
+  },
+  {
+    "file": "src/simulation_effects.js",
+    "line": 60,
+    "needle": "export function inventory"
+  },
+  {
+    "file": "src/native_gameplay_adapter.js",
+    "line": 9,
+    "needle": "export function createNativeGameplayAdapter"
+  },
+  {
+    "file": "src/expansion_engine.js",
+    "line": 70,
+    "needle": "const domain ="
+  },
+  {
+    "file": "src/simulation.js",
+    "line": 36,
+    "needle": "const domain ="
+  },
+  {
+    "file": "src/expansion_engine.js",
+    "line": 401,
+    "needle": "function factsFor"
+  },
+  {
+    "file": "src/simulation_effects.js",
+    "line": 85,
+    "needle": "export function simulationFacts"
+  },
+  {
+    "file": "src/simulation_effects.js",
+    "line": 281,
+    "needle": "else if(e.type === \"knowledge\")"
+  },
+  {
+    "file": "src/anchor_snapshots.js",
+    "line": 147,
+    "needle": "export function deriveSnapshot"
+  },
+  {
+    "file": "src/anchor_snapshots.js",
+    "line": 160,
+    "needle": "export function explainFact"
+  },
+  {
+    "file": "src/causal_situations.js",
+    "line": 52,
+    "needle": "export function validateKnowledgeBasis"
+  },
+  {
+    "file": "src/expansion_persistence.js",
+    "line": 7,
+    "needle": "export function persistExpansionPlan"
+  },
+  {
+    "file": "src/main.js",
+    "line": 822,
+    "needle": "function persistExpansion"
+  },
+  {
+    "file": "src/mixture_native.js",
+    "line": 38,
+    "needle": "export function commitMixturePlan"
+  },
+  {
+    "file": "src/native_craft_transaction.js",
+    "line": 4,
+    "needle": "export function beginNativeCraftTransaction"
+  },
+  {
+    "file": "src/expedition_content.js",
+    "line": 39,
+    "needle": "export const expeditionRegistry"
+  },
+  {
+    "file": "src/simulation_content.js",
+    "line": 58,
+    "needle": "export const simulationDefinitions"
+  },
+  {
+    "file": "src/anchor_snapshots.js",
+    "line": 147,
+    "needle": "export function deriveSnapshot"
+  },
+  {
+    "file": "src/start_records.js",
+    "line": 51,
+    "needle": "export function resolveStart"
+  },
+  {
+    "file": "src/acquisition.js",
+    "line": 39,
+    "needle": "export function stageAcquisition"
+  },
+  {
+    "file": "src/simulation_effects.js",
+    "line": 265,
+    "needle": "e.type === \"transfer\""
+  },
+  {
+    "file": "src/heir_inheritance.js",
+    "line": 81,
+    "needle": "export function applyHeirLeftovers"
+  },
+  {
+    "file": "src/life_experience_host.js",
+    "line": 11,
+    "needle": "export function buildLifeHeirSave"
+  },
+  {
+    "file": "src/backlog_expansion_transit.js",
+    "line": 384,
+    "needle": "export function stageCarrierTransit"
+  },
+  {
+    "file": "src/backlog_expansion_transit.js",
+    "line": 412,
+    "needle": "export function stageCarrierClock"
+  },
+  {
+    "file": "src/world_instances.js",
+    "line": 54,
+    "needle": "export function validateWorldDefinition"
+  },
+  {
+    "file": "src/anchor_snapshots.js",
+    "line": 163,
+    "needle": "export function deriveIncremental"
+  },
+  {
+    "file": "src/start_probe_ui.js",
+    "line": 3,
+    "needle": "export function createStartProbe"
+  },
+  {
+    "file": "src/misc.js",
+    "line": 83,
+    "needle": "function expo"
+  },
+  {
+    "file": "src/game_time.js",
+    "line": 137,
+    "needle": "function format_time"
+  },
+  {
+    "file": "src/display.js",
+    "line": 4217,
+    "needle": "function format_money"
+  },
+  {
+    "file": "src/settled_text_effects.js",
+    "line": 149,
+    "needle": "const formatCoins"
+  }
+]

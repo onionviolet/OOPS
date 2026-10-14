@@ -1,0 +1,36 @@
+{
+  "label": "DOCS only; no runtime tests/build/browser/persistence run",
+  "checked_at_utc": "2026-10-14T05:23:59.213213+00:00",
+  "required_artifacts": 10,
+  "detail_rows": 60,
+  "detail_rows_by_file": {
+    "CHECKPOINT.md": 0,
+    "ADDRESS.md": 6,
+    "REMEMBERED.md": 8,
+    "TRACES.md": 7,
+    "VILLAGE_REACTIONS.md": 6,
+    "INFORMATION_TEXTURE.md": 7,
+    "TIMING.md": 7,
+    "UI_TOUCHES.md": 7,
+    "MORE.md": 12,
+    "REPORT.md": 0
+  },
+  "root_codes_covered": 33,
+  "unique_detail_codes": 60,
+  "recommended_slices": 5,
+  "local_links_checked": 85,
+  "local_anchors_checked": 25,
+  "explicit_source_ranges_checked": 66,
+  "source_range_limit": "range existence against captured files; semantics manually reviewed, abbreviated subsequent ranges not counted",
+  "source_files_fingerprinted": 34,
+  "source_drift_since_snapshot": [],
+  "style_checks": [
+    "proposal labels",
+    "table header widths",
+    "no em dash",
+    "no trailing whitespace"
+  ],
+  "write_scope_review": "P36 mutations target only this folder; shared checkout concurrently changes under root",
+  "failures": [],
+  "pass": true
+}

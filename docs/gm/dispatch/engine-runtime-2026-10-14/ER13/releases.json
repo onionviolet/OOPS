@@ -1,0 +1,950 @@
+{
+  "Acamaeda/The-Modding-Tree": {
+    "url": "https://api.github.com/repos/Acamaeda/The-Modding-Tree/releases?per_page=5",
+    "releases": []
+  },
+  "IvarK/AntimatterDimensionsSourceCode": {
+    "url": "https://api.github.com/repos/IvarK/AntimatterDimensionsSourceCode/releases?per_page=5",
+    "releases": []
+  },
+  "nuclear-unicorn/kittensgame": {
+    "url": "https://api.github.com/repos/nuclear-unicorn/kittensgame/releases?per_page=5",
+    "releases": []
+  },
+  "123ishaTest/incremental-game-template": {
+    "url": "https://api.github.com/repos/123ishaTest/incremental-game-template/releases?per_page=5",
+    "releases": []
+  },
+  "123ishaTest/igt-library": {
+    "url": "https://api.github.com/repos/123ishaTest/igt-library/releases?per_page=5",
+    "releases": [
+      {
+        "tag": "v1.2.4",
+        "date": "2021-10-07T09:37:25Z",
+        "prerelease": false,
+        "url": "https://github.com/123ishaTest/igt-library/releases/tag/v1.2.4"
+      },
+      {
+        "tag": "v1.2.3",
+        "date": "2021-10-07T09:27:33Z",
+        "prerelease": false,
+        "url": "https://github.com/123ishaTest/igt-library/releases/tag/v1.2.3"
+      },
+      {
+        "tag": "v1.2.2",
+        "date": "2021-10-07T09:22:15Z",
+        "prerelease": false,
+        "url": "https://github.com/123ishaTest/igt-library/releases/tag/v1.2.2"
+      },
+      {
+        "tag": "v1.2.1",
+        "date": "2021-10-06T22:20:19Z",
+        "prerelease": false,
+        "url": "https://github.com/123ishaTest/igt-library/releases/tag/v1.2.1"
+      },
+      {
+        "tag": "v1.2.0",
+        "date": "2021-10-06T19:55:27Z",
+        "prerelease": false,
+        "url": "https://github.com/123ishaTest/igt-library/releases/tag/v1.2.0"
+      }
+    ]
+  },
+  "123ishaTest/igt-vue": {
+    "url": "https://api.github.com/repos/123ishaTest/igt-vue/releases?per_page=5",
+    "releases": []
+  },
+  "klembot/twinejs": {
+    "url": "https://api.github.com/repos/klembot/twinejs/releases?per_page=5",
+    "releases": [
+      {
+        "tag": "2.12.1",
+        "date": "2026-10-07T02:01:50Z",
+        "prerelease": false,
+        "url": "https://github.com/klembot/twinejs/releases/tag/2.12.1"
+      },
+      {
+        "tag": "2.12.0",
+        "date": "2026-04-10T22:22:53Z",
+        "prerelease": false,
+        "url": "https://github.com/klembot/twinejs/releases/tag/2.12.0"
+      },
+      {
+        "tag": "2.11.1",
+        "date": "2025-11-08T16:16:17Z",
+        "prerelease": false,
+        "url": "https://github.com/klembot/twinejs/releases/tag/2.11.1"
+      },
+      {
+        "tag": "2.11.0",
+        "date": "2025-11-03T01:40:31Z",
+        "prerelease": false,
+        "url": "https://github.com/klembot/twinejs/releases/tag/2.11.0"
+      },
+      {
+        "tag": "2.10.0",
+        "date": "2024-11-25T01:18:45Z",
+        "prerelease": false,
+        "url": "https://github.com/klembot/twinejs/releases/tag/2.10.0"
+      }
+    ]
+  },
+  "tmedwards/sugarcube-2": {
+    "url": "https://api.github.com/repos/tmedwards/sugarcube-2/releases?per_page=5",
+    "releases": [
+      {
+        "tag": "v2.37.3",
+        "date": "2025-01-28T19:55:23Z",
+        "prerelease": false,
+        "url": "https://github.com/tmedwards/sugarcube-2/releases/tag/v2.37.3"
+      },
+      {
+        "tag": "v2.37.0",
+        "date": "2024-07-17T10:42:03Z",
+        "prerelease": false,
+        "url": "https://github.com/tmedwards/sugarcube-2/releases/tag/v2.37.0"
+      },
+      {
+        "tag": "v2.36.1",
+        "date": "2021-12-22T05:48:01Z",
+        "prerelease": false,
+        "url": "https://github.com/tmedwards/sugarcube-2/releases/tag/v2.36.1"
+      },
+      {
+        "tag": "v2.36.0",
+        "date": "2021-12-21T01:51:17Z",
+        "prerelease": false,
+        "url": "https://github.com/tmedwards/sugarcube-2/releases/tag/v2.36.0"
+      },
+      {
+        "tag": "v2.35.0",
+        "date": "2021-03-18T18:10:02Z",
+        "prerelease": false,
+        "url": "https://github.com/tmedwards/sugarcube-2/releases/tag/v2.35.0"
+      }
+    ]
+  },
+  "renpy/renpy": {
+    "url": "https://api.github.com/repos/renpy/renpy/releases?per_page=5",
+    "releases": [
+      {
+        "tag": "8.5.3.26051504",
+        "date": "2026-05-16T02:09:49Z",
+        "prerelease": false,
+        "url": "https://github.com/renpy/renpy/releases/tag/8.5.3.26051504"
+      },
+      {
+        "tag": "8.5.2.26010301",
+        "date": "2026-01-04T03:34:09Z",
+        "prerelease": false,
+        "url": "https://github.com/renpy/renpy/releases/tag/8.5.2.26010301"
+      },
+      {
+        "tag": "8.5.1.25123106",
+        "date": "2026-01-01T02:59:02Z",
+        "prerelease": false,
+        "url": "https://github.com/renpy/renpy/releases/tag/8.5.1.25123106"
+      },
+      {
+        "tag": "8.5.0.25111603",
+        "date": "2026-03-05T04:41:15Z",
+        "prerelease": false,
+        "url": "https://github.com/renpy/renpy/releases/tag/8.5.0.25111603"
+      },
+      {
+        "tag": "8.4.1.25072401",
+        "date": "2025-07-25T00:55:47Z",
+        "prerelease": false,
+        "url": "https://github.com/renpy/renpy/releases/tag/8.4.1.25072401"
+      }
+    ]
+  },
+  "YarnSpinnerTool/YarnSpinner": {
+    "url": "https://api.github.com/repos/YarnSpinnerTool/YarnSpinner/releases?per_page=5",
+    "releases": [
+      {
+        "tag": "v3.2.1",
+        "date": "2026-05-05T02:37:44Z",
+        "prerelease": false,
+        "url": "https://github.com/YarnSpinnerTool/YarnSpinner/releases/tag/v3.2.1"
+      },
+      {
+        "tag": "v3.2.0",
+        "date": "2026-03-27T07:28:42Z",
+        "prerelease": false,
+        "url": "https://github.com/YarnSpinnerTool/YarnSpinner/releases/tag/v3.2.0"
+      },
+      {
+        "tag": "v3.1.0",
+        "date": "2025-12-02T01:01:42Z",
+        "prerelease": false,
+        "url": "https://github.com/YarnSpinnerTool/YarnSpinner/releases/tag/v3.1.0"
+      },
+      {
+        "tag": "v3.0.2",
+        "date": "2025-06-12T07:03:27Z",
+        "prerelease": false,
+        "url": "https://github.com/YarnSpinnerTool/YarnSpinner/releases/tag/v3.0.2"
+      },
+      {
+        "tag": "v3.0.0",
+        "date": "2025-05-16T00:09:43Z",
+        "prerelease": false,
+        "url": "https://github.com/YarnSpinnerTool/YarnSpinner/releases/tag/v3.0.0"
+      }
+    ]
+  },
+  "dendry/dendry": {
+    "url": "https://api.github.com/repos/dendry/dendry/releases?per_page=5",
+    "releases": []
+  },
+  "inform7/inform": {
+    "url": "https://api.github.com/repos/inform7/inform/releases?per_page=5",
+    "error": "HTTP Error 404: Not Found"
+  },
+  "inkle/ink": {
+    "url": "https://api.github.com/repos/inkle/ink/releases?per_page=5",
+    "releases": [
+      {
+        "tag": "v1.2.1",
+        "date": "2026-05-05T11:24:42Z",
+        "prerelease": false,
+        "url": "https://github.com/inkle/ink/releases/tag/v1.2.1"
+      },
+      {
+        "tag": "v.1.2.0",
+        "date": "2024-06-10T11:03:21Z",
+        "prerelease": false,
+        "url": "https://github.com/inkle/ink/releases/tag/v.1.2.0"
+      },
+      {
+        "tag": "v1.1.1",
+        "date": "2022-10-18T14:01:54Z",
+        "prerelease": false,
+        "url": "https://github.com/inkle/ink/releases/tag/v1.1.1"
+      },
+      {
+        "tag": "v1.0.0",
+        "date": "2021-02-22T16:03:56Z",
+        "prerelease": false,
+        "url": "https://github.com/inkle/ink/releases/tag/v1.0.0"
+      },
+      {
+        "tag": "0.9.0",
+        "date": "2019-06-10T09:59:19Z",
+        "prerelease": false,
+        "url": "https://github.com/inkle/ink/releases/tag/0.9.0"
+      }
+    ]
+  },
+  "4ian/GDevelop": {
+    "url": "https://api.github.com/repos/4ian/GDevelop/releases?per_page=5",
+    "releases": [
+      {
+        "tag": "v5.6.283",
+        "date": "2026-09-29T13:19:40Z",
+        "prerelease": false,
+        "url": "https://github.com/4ian/GDevelop/releases/tag/v5.6.283"
+      },
+      {
+        "tag": "v5.6.282",
+        "date": "2026-09-11T14:18:27Z",
+        "prerelease": false,
+        "url": "https://github.com/4ian/GDevelop/releases/tag/v5.6.282"
+      },
+      {
+        "tag": "v5.6.281",
+        "date": "2026-08-28T14:34:28Z",
+        "prerelease": false,
+        "url": "https://github.com/4ian/GDevelop/releases/tag/v5.6.281"
+      },
+      {
+        "tag": "v5.6.280",
+        "date": "2026-08-20T16:48:43Z",
+        "prerelease": false,
+        "url": "https://github.com/4ian/GDevelop/releases/tag/v5.6.280"
+      },
+      {
+        "tag": "v5.6.279",
+        "date": "2026-08-11T21:56:44Z",
+        "prerelease": false,
+        "url": "https://github.com/4ian/GDevelop/releases/tag/v5.6.279"
+      }
+    ]
+  },
+  "defold/defold": {
+    "url": "https://api.github.com/repos/defold/defold/releases?per_page=5",
+    "releases": [
+      {
+        "tag": "1.14.1-alpha",
+        "date": "2026-09-30T18:00:00Z",
+        "prerelease": true,
+        "url": "https://github.com/defold/defold/releases/tag/1.14.1-alpha"
+      },
+      {
+        "tag": "1.14.0",
+        "date": "2026-10-12T13:24:54Z",
+        "prerelease": false,
+        "url": "https://github.com/defold/defold/releases/tag/1.14.0"
+      },
+      {
+        "tag": "1.14.0-beta",
+        "date": "2026-09-30T13:40:47Z",
+        "prerelease": true,
+        "url": "https://github.com/defold/defold/releases/tag/1.14.0-beta"
+      },
+      {
+        "tag": "1.13.2",
+        "date": "2026-09-29T16:21:08Z",
+        "prerelease": false,
+        "url": "https://github.com/defold/defold/releases/tag/1.13.2"
+      },
+      {
+        "tag": "1.14.0-alpha",
+        "date": "2026-09-10T08:27:06Z",
+        "prerelease": true,
+        "url": "https://github.com/defold/defold/releases/tag/1.14.0-alpha"
+      }
+    ]
+  },
+  "love2d/love": {
+    "url": "https://api.github.com/repos/love2d/love/releases?per_page=5",
+    "releases": [
+      {
+        "tag": "11.5",
+        "date": "2023-12-03T13:39:06Z",
+        "prerelease": false,
+        "url": "https://github.com/love2d/love/releases/tag/11.5"
+      },
+      {
+        "tag": "11.4",
+        "date": "2022-01-04T15:54:41Z",
+        "prerelease": false,
+        "url": "https://github.com/love2d/love/releases/tag/11.4"
+      },
+      {
+        "tag": "11.3",
+        "date": "2020-01-12T18:15:28Z",
+        "prerelease": false,
+        "url": "https://github.com/love2d/love/releases/tag/11.3"
+      },
+      {
+        "tag": "11.2",
+        "date": "2020-01-12T18:12:47Z",
+        "prerelease": false,
+        "url": "https://github.com/love2d/love/releases/tag/11.2"
+      },
+      {
+        "tag": "11.1",
+        "date": "2020-01-12T18:09:46Z",
+        "prerelease": false,
+        "url": "https://github.com/love2d/love/releases/tag/11.1"
+      }
+    ]
+  },
+  "HeapsIO/heaps": {
+    "url": "https://api.github.com/repos/HeapsIO/heaps/releases?per_page=5",
+    "releases": [
+      {
+        "tag": "2.1.1",
+        "date": "2025-06-07T08:57:19Z",
+        "prerelease": false,
+        "url": "https://github.com/HeapsIO/heaps/releases/tag/2.1.1"
+      },
+      {
+        "tag": "2.1",
+        "date": "2025-03-23T12:37:55Z",
+        "prerelease": false,
+        "url": "https://github.com/HeapsIO/heaps/releases/tag/2.1"
+      },
+      {
+        "tag": "2.0",
+        "date": "2024-01-01T17:41:21Z",
+        "prerelease": false,
+        "url": "https://github.com/HeapsIO/heaps/releases/tag/2.0"
+      },
+      {
+        "tag": "1.10.0",
+        "date": "2023-02-19T12:48:58Z",
+        "prerelease": false,
+        "url": "https://github.com/HeapsIO/heaps/releases/tag/1.10.0"
+      },
+      {
+        "tag": "1.9.0",
+        "date": "2021-02-28T10:50:01Z",
+        "prerelease": false,
+        "url": "https://github.com/HeapsIO/heaps/releases/tag/1.9.0"
+      }
+    ]
+  },
+  "SanderMertens/flecs": {
+    "url": "https://api.github.com/repos/SanderMertens/flecs/releases?per_page=5",
+    "releases": [
+      {
+        "tag": "v4.1.6",
+        "date": "2026-06-29T02:09:09Z",
+        "prerelease": false,
+        "url": "https://github.com/SanderMertens/flecs/releases/tag/v4.1.6"
+      },
+      {
+        "tag": "v4.1.5",
+        "date": "2026-03-15T23:45:25Z",
+        "prerelease": false,
+        "url": "https://github.com/SanderMertens/flecs/releases/tag/v4.1.5"
+      },
+      {
+        "tag": "v4.1.4",
+        "date": "2025-12-12T22:18:16Z",
+        "prerelease": false,
+        "url": "https://github.com/SanderMertens/flecs/releases/tag/v4.1.4"
+      },
+      {
+        "tag": "v4.1.3",
+        "date": "2025-12-06T23:49:23Z",
+        "prerelease": false,
+        "url": "https://github.com/SanderMertens/flecs/releases/tag/v4.1.3"
+      },
+      {
+        "tag": "v4.1.2",
+        "date": "2025-10-28T01:58:04Z",
+        "prerelease": false,
+        "url": "https://github.com/SanderMertens/flecs/releases/tag/v4.1.2"
+      }
+    ]
+  },
+  "statelyai/xstate": {
+    "url": "https://api.github.com/repos/statelyai/xstate/releases?per_page=5",
+    "releases": [
+      {
+        "tag": "@xstate/store@4.3.0",
+        "date": "2026-10-08T21:25:11Z",
+        "prerelease": false,
+        "url": "https://github.com/statelyai/xstate/releases/tag/%40xstate/store%404.3.0"
+      },
+      {
+        "tag": "@xstate/store-solid@2.0.1",
+        "date": "2026-10-08T21:25:17Z",
+        "prerelease": false,
+        "url": "https://github.com/statelyai/xstate/releases/tag/%40xstate/store-solid%402.0.1"
+      },
+      {
+        "tag": "@xstate/store-react@2.1.0",
+        "date": "2026-10-08T21:25:14Z",
+        "prerelease": false,
+        "url": "https://github.com/statelyai/xstate/releases/tag/%40xstate/store-react%402.1.0"
+      },
+      {
+        "tag": "xstate@6.0.0-alpha.65",
+        "date": "2026-10-08T04:35:41Z",
+        "prerelease": true,
+        "url": "https://github.com/statelyai/xstate/releases/tag/xstate%406.0.0-alpha.65"
+      },
+      {
+        "tag": "@xstate/test@2.0.0-alpha.2",
+        "date": "2026-10-08T04:35:47Z",
+        "prerelease": true,
+        "url": "https://github.com/statelyai/xstate/releases/tag/%40xstate/test%402.0.0-alpha.2"
+      }
+    ]
+  },
+  "CacheControl/json-rules-engine": {
+    "url": "https://api.github.com/repos/CacheControl/json-rules-engine/releases?per_page=5",
+    "releases": [
+      {
+        "tag": "v6.5.0",
+        "date": "2023-11-10T09:04:45Z",
+        "prerelease": false,
+        "url": "https://github.com/CacheControl/json-rules-engine/releases/tag/v6.5.0"
+      },
+      {
+        "tag": "v6.4.0",
+        "date": "2023-08-23T18:08:43Z",
+        "prerelease": false,
+        "url": "https://github.com/CacheControl/json-rules-engine/releases/tag/v6.4.0"
+      },
+      {
+        "tag": "v6.3.0",
+        "date": "2023-07-13T00:13:16Z",
+        "prerelease": false,
+        "url": "https://github.com/CacheControl/json-rules-engine/releases/tag/v6.3.0"
+      },
+      {
+        "tag": "v6.2.0",
+        "date": "2023-07-03T18:31:02Z",
+        "prerelease": false,
+        "url": "https://github.com/CacheControl/json-rules-engine/releases/tag/v6.2.0"
+      },
+      {
+        "tag": "v2.3.6",
+        "date": "2019-05-08T20:05:27Z",
+        "prerelease": false,
+        "url": "https://github.com/CacheControl/json-rules-engine/releases/tag/v2.3.6"
+      }
+    ]
+  },
+  "tonsky/datascript": {
+    "url": "https://api.github.com/repos/tonsky/datascript/releases?per_page=5",
+    "releases": [
+      {
+        "tag": "1.8.1",
+        "date": "2026-08-15T16:29:25Z",
+        "prerelease": false,
+        "url": "https://github.com/tonsky/datascript/releases/tag/1.8.1"
+      },
+      {
+        "tag": "1.8.0",
+        "date": "2026-08-13T18:07:26Z",
+        "prerelease": false,
+        "url": "https://github.com/tonsky/datascript/releases/tag/1.8.0"
+      },
+      {
+        "tag": "1.7.8",
+        "date": "2025-10-11T09:46:42Z",
+        "prerelease": false,
+        "url": "https://github.com/tonsky/datascript/releases/tag/1.7.8"
+      },
+      {
+        "tag": "1.7.7",
+        "date": "2025-10-11T09:43:58Z",
+        "prerelease": false,
+        "url": "https://github.com/tonsky/datascript/releases/tag/1.7.7"
+      },
+      {
+        "tag": "1.7.6",
+        "date": "2025-10-02T21:06:04Z",
+        "prerelease": false,
+        "url": "https://github.com/tonsky/datascript/releases/tag/1.7.6"
+      }
+    ]
+  },
+  "neutralinojs/neutralinojs": {
+    "url": "https://api.github.com/repos/neutralinojs/neutralinojs/releases?per_page=5",
+    "releases": [
+      {
+        "tag": "nightly",
+        "date": "2026-10-14T00:38:29Z",
+        "prerelease": true,
+        "url": "https://github.com/neutralinojs/neutralinojs/releases/tag/nightly"
+      },
+      {
+        "tag": "v6.10.0",
+        "date": "2026-10-06T08:22:31Z",
+        "prerelease": false,
+        "url": "https://github.com/neutralinojs/neutralinojs/releases/tag/v6.10.0"
+      },
+      {
+        "tag": "v6.9.0",
+        "date": "2026-07-24T08:26:14Z",
+        "prerelease": false,
+        "url": "https://github.com/neutralinojs/neutralinojs/releases/tag/v6.9.0"
+      },
+      {
+        "tag": "v6.8.0",
+        "date": "2026-06-03T07:39:33Z",
+        "prerelease": false,
+        "url": "https://github.com/neutralinojs/neutralinojs/releases/tag/v6.8.0"
+      },
+      {
+        "tag": "v6.7.0",
+        "date": "2026-04-02T13:06:40Z",
+        "prerelease": false,
+        "url": "https://github.com/neutralinojs/neutralinojs/releases/tag/v6.7.0"
+      }
+    ]
+  },
+  "wailsapp/wails": {
+    "url": "https://api.github.com/repos/wailsapp/wails/releases?per_page=5",
+    "releases": [
+      {
+        "tag": "v3.0.0-beta.29",
+        "date": "2026-10-13T15:15:32Z",
+        "prerelease": true,
+        "url": "https://github.com/wailsapp/wails/releases/tag/v3.0.0-beta.29"
+      },
+      {
+        "tag": "v3.0.0-beta.28",
+        "date": "2026-10-05T15:15:38Z",
+        "prerelease": true,
+        "url": "https://github.com/wailsapp/wails/releases/tag/v3.0.0-beta.28"
+      },
+      {
+        "tag": "v3.0.0-beta.27",
+        "date": "2026-10-01T15:15:26Z",
+        "prerelease": true,
+        "url": "https://github.com/wailsapp/wails/releases/tag/v3.0.0-beta.27"
+      },
+      {
+        "tag": "v3.0.0-beta.26",
+        "date": "2026-09-25T15:16:00Z",
+        "prerelease": true,
+        "url": "https://github.com/wailsapp/wails/releases/tag/v3.0.0-beta.26"
+      },
+      {
+        "tag": "v3.0.0-beta.25",
+        "date": "2026-09-22T15:14:11Z",
+        "prerelease": true,
+        "url": "https://github.com/wailsapp/wails/releases/tag/v3.0.0-beta.25"
+      }
+    ]
+  },
+  "YoYoGames/GameMaker-Bugs": {
+    "url": "https://api.github.com/repos/YoYoGames/GameMaker-Bugs/releases?per_page=5",
+    "releases": []
+  },
+  "MonoGame/MonoGame": {
+    "url": "https://api.github.com/repos/MonoGame/MonoGame/releases?per_page=5",
+    "releases": [
+      {
+        "tag": "v3.8.6",
+        "date": "2026-10-07T14:16:03Z",
+        "prerelease": false,
+        "url": "https://github.com/MonoGame/MonoGame/releases/tag/v3.8.6"
+      },
+      {
+        "tag": "v3.8.6-preview.2",
+        "date": "2026-10-02T09:58:29Z",
+        "prerelease": true,
+        "url": "https://github.com/MonoGame/MonoGame/releases/tag/v3.8.6-preview.2"
+      },
+      {
+        "tag": "v3.8.6-preview.1",
+        "date": "2026-09-30T16:44:06Z",
+        "prerelease": true,
+        "url": "https://github.com/MonoGame/MonoGame/releases/tag/v3.8.6-preview.1"
+      },
+      {
+        "tag": "v3.8.5.1",
+        "date": "2026-08-14T21:51:51Z",
+        "prerelease": false,
+        "url": "https://github.com/MonoGame/MonoGame/releases/tag/v3.8.5.1"
+      },
+      {
+        "tag": "v3.8.5",
+        "date": "2026-07-15T15:43:18Z",
+        "prerelease": false,
+        "url": "https://github.com/MonoGame/MonoGame/releases/tag/v3.8.5"
+      }
+    ]
+  },
+  "FNA-XNA/FNA": {
+    "url": "https://api.github.com/repos/FNA-XNA/FNA/releases?per_page=5",
+    "releases": [
+      {
+        "tag": "26.10",
+        "date": "2026-10-01T13:09:59Z",
+        "prerelease": false,
+        "url": "https://github.com/FNA-XNA/FNA/releases/tag/26.10"
+      },
+      {
+        "tag": "26.09",
+        "date": "2026-09-01T13:26:30Z",
+        "prerelease": false,
+        "url": "https://github.com/FNA-XNA/FNA/releases/tag/26.09"
+      },
+      {
+        "tag": "26.08",
+        "date": "2026-08-01T15:30:11Z",
+        "prerelease": false,
+        "url": "https://github.com/FNA-XNA/FNA/releases/tag/26.08"
+      },
+      {
+        "tag": "26.07",
+        "date": "2026-07-01T14:46:05Z",
+        "prerelease": false,
+        "url": "https://github.com/FNA-XNA/FNA/releases/tag/26.07"
+      },
+      {
+        "tag": "26.06",
+        "date": "2026-06-01T14:30:34Z",
+        "prerelease": false,
+        "url": "https://github.com/FNA-XNA/FNA/releases/tag/26.06"
+      }
+    ]
+  },
+  "raysan5/raylib": {
+    "url": "https://api.github.com/repos/raysan5/raylib/releases?per_page=5",
+    "releases": [
+      {
+        "tag": "6.0",
+        "date": "2026-04-23T09:55:57Z",
+        "prerelease": false,
+        "url": "https://github.com/raysan5/raylib/releases/tag/6.0"
+      },
+      {
+        "tag": "5.5",
+        "date": "2024-11-18T12:22:31Z",
+        "prerelease": false,
+        "url": "https://github.com/raysan5/raylib/releases/tag/5.5"
+      },
+      {
+        "tag": "5.0",
+        "date": "2023-11-18T12:05:48Z",
+        "prerelease": false,
+        "url": "https://github.com/raysan5/raylib/releases/tag/5.0"
+      },
+      {
+        "tag": "4.6-dev",
+        "date": "2023-10-08T16:25:28Z",
+        "prerelease": true,
+        "url": "https://github.com/raysan5/raylib/releases/tag/4.6-dev"
+      },
+      {
+        "tag": "4.5.0",
+        "date": "2023-03-18T17:18:11Z",
+        "prerelease": false,
+        "url": "https://github.com/raysan5/raylib/releases/tag/4.5.0"
+      }
+    ]
+  },
+  "hajimehoshi/ebiten": {
+    "url": "https://api.github.com/repos/hajimehoshi/ebiten/releases?per_page=5",
+    "releases": [
+      {
+        "tag": "v2.10.5",
+        "date": "2026-10-09T19:24:38Z",
+        "prerelease": false,
+        "url": "https://github.com/hajimehoshi/ebiten/releases/tag/v2.10.5"
+      },
+      {
+        "tag": "v2.10.4",
+        "date": "2026-09-25T18:13:03Z",
+        "prerelease": false,
+        "url": "https://github.com/hajimehoshi/ebiten/releases/tag/v2.10.4"
+      },
+      {
+        "tag": "v2.10.3",
+        "date": "2026-09-22T16:06:17Z",
+        "prerelease": false,
+        "url": "https://github.com/hajimehoshi/ebiten/releases/tag/v2.10.3"
+      },
+      {
+        "tag": "v2.10.2",
+        "date": "2026-09-13T15:13:07Z",
+        "prerelease": false,
+        "url": "https://github.com/hajimehoshi/ebiten/releases/tag/v2.10.2"
+      },
+      {
+        "tag": "v2.10.1",
+        "date": "2026-09-10T13:55:24Z",
+        "prerelease": false,
+        "url": "https://github.com/hajimehoshi/ebiten/releases/tag/v2.10.1"
+      }
+    ]
+  },
+  "flame-engine/flame": {
+    "url": "https://api.github.com/repos/flame-engine/flame/releases?per_page=5",
+    "releases": [
+      {
+        "tag": "jenny-v1.5.2-dev.1",
+        "date": "2026-10-06T16:05:24Z",
+        "prerelease": true,
+        "url": "https://github.com/flame-engine/flame/releases/tag/jenny-v1.5.2-dev.1"
+      },
+      {
+        "tag": "flame_typled-v0.2.0-dev.1",
+        "date": "2026-10-06T16:01:02Z",
+        "prerelease": true,
+        "url": "https://github.com/flame-engine/flame/releases/tag/flame_typled-v0.2.0-dev.1"
+      },
+      {
+        "tag": "flame_tiled-v4.0.0-dev.1",
+        "date": "2026-10-06T16:11:33Z",
+        "prerelease": true,
+        "url": "https://github.com/flame-engine/flame/releases/tag/flame_tiled-v4.0.0-dev.1"
+      },
+      {
+        "tag": "flame_texturepacker-v5.2.0-dev.1",
+        "date": "2026-10-06T15:55:49Z",
+        "prerelease": true,
+        "url": "https://github.com/flame-engine/flame/releases/tag/flame_texturepacker-v5.2.0-dev.1"
+      },
+      {
+        "tag": "flame_test-v3.0.0-dev.1",
+        "date": "2026-10-06T16:10:22Z",
+        "prerelease": true,
+        "url": "https://github.com/flame-engine/flame/releases/tag/flame_test-v3.0.0-dev.1"
+      }
+    ]
+  },
+  "cocos/cocos-engine": {
+    "url": "https://api.github.com/repos/cocos/cocos-engine/releases?per_page=5",
+    "releases": [
+      {
+        "tag": "3.8.8",
+        "date": "2025-12-16T03:54:26Z",
+        "prerelease": false,
+        "url": "https://github.com/cocos/cocos-engine/releases/tag/3.8.8"
+      },
+      {
+        "tag": "3.8.7",
+        "date": "2025-08-22T10:07:17Z",
+        "prerelease": false,
+        "url": "https://github.com/cocos/cocos-engine/releases/tag/3.8.7"
+      },
+      {
+        "tag": "3.8.7-beta0",
+        "date": "2025-04-28T08:59:17Z",
+        "prerelease": true,
+        "url": "https://github.com/cocos/cocos-engine/releases/tag/3.8.7-beta0"
+      },
+      {
+        "tag": "3.8.6",
+        "date": "2025-03-27T10:19:25Z",
+        "prerelease": false,
+        "url": "https://github.com/cocos/cocos-engine/releases/tag/3.8.6"
+      }
+    ]
+  },
+  "playcanvas/engine": {
+    "url": "https://api.github.com/repos/playcanvas/engine/releases?per_page=5",
+    "releases": [
+      {
+        "tag": "v2.23.2",
+        "date": "2026-10-09T15:01:02Z",
+        "prerelease": false,
+        "url": "https://github.com/playcanvas/engine/releases/tag/v2.23.2"
+      },
+      {
+        "tag": "v2.23.1",
+        "date": "2026-10-07T10:49:32Z",
+        "prerelease": false,
+        "url": "https://github.com/playcanvas/engine/releases/tag/v2.23.1"
+      },
+      {
+        "tag": "v2.23.0",
+        "date": "2026-10-01T12:28:22Z",
+        "prerelease": false,
+        "url": "https://github.com/playcanvas/engine/releases/tag/v2.23.0"
+      },
+      {
+        "tag": "v2.22.6",
+        "date": "2026-09-28T11:47:19Z",
+        "prerelease": false,
+        "url": "https://github.com/playcanvas/engine/releases/tag/v2.22.6"
+      },
+      {
+        "tag": "v2.22.5",
+        "date": "2026-09-28T10:05:03Z",
+        "prerelease": false,
+        "url": "https://github.com/playcanvas/engine/releases/tag/v2.22.5"
+      }
+    ]
+  },
+  "skypjack/entt": {
+    "url": "https://api.github.com/repos/skypjack/entt/releases?per_page=5",
+    "releases": [
+      {
+        "tag": "v4.0.0",
+        "date": "2026-07-23T12:22:33Z",
+        "prerelease": false,
+        "url": "https://github.com/skypjack/entt/releases/tag/v4.0.0"
+      },
+      {
+        "tag": "v3.16.0",
+        "date": "2025-11-20T09:14:48Z",
+        "prerelease": false,
+        "url": "https://github.com/skypjack/entt/releases/tag/v3.16.0"
+      },
+      {
+        "tag": "v3.15.0",
+        "date": "2025-03-19T14:24:10Z",
+        "prerelease": false,
+        "url": "https://github.com/skypjack/entt/releases/tag/v3.15.0"
+      },
+      {
+        "tag": "v3.14.0",
+        "date": "2024-10-23T12:57:01Z",
+        "prerelease": false,
+        "url": "https://github.com/skypjack/entt/releases/tag/v3.14.0"
+      },
+      {
+        "tag": "v3.13.2",
+        "date": "2024-04-10T06:57:55Z",
+        "prerelease": false,
+        "url": "https://github.com/skypjack/entt/releases/tag/v3.13.2"
+      }
+    ]
+  },
+  "yjs/yjs": {
+    "url": "https://api.github.com/repos/yjs/yjs/releases?per_page=5",
+    "releases": [
+      {
+        "tag": "v14.0.0-rc.28",
+        "date": "2026-09-29T00:14:35Z",
+        "prerelease": true,
+        "url": "https://github.com/yjs/yjs/releases/tag/v14.0.0-rc.28"
+      },
+      {
+        "tag": "v13.6.33",
+        "date": "2026-09-23T16:37:33Z",
+        "prerelease": false,
+        "url": "https://github.com/yjs/yjs/releases/tag/v13.6.33"
+      },
+      {
+        "tag": "v14.0.0-rc.26",
+        "date": "2026-09-07T15:45:45Z",
+        "prerelease": true,
+        "url": "https://github.com/yjs/yjs/releases/tag/v14.0.0-rc.26"
+      },
+      {
+        "tag": "v14.0.0-rc.25",
+        "date": "2026-09-03T21:44:16Z",
+        "prerelease": true,
+        "url": "https://github.com/yjs/yjs/releases/tag/v14.0.0-rc.25"
+      },
+      {
+        "tag": "v13.6.32",
+        "date": "2026-08-04T08:22:06Z",
+        "prerelease": false,
+        "url": "https://github.com/yjs/yjs/releases/tag/v13.6.32"
+      }
+    ]
+  },
+  "automerge/automerge": {
+    "url": "https://api.github.com/repos/automerge/automerge/releases?per_page=5",
+    "releases": [
+      {
+        "tag": "js/automerge-3.5.0",
+        "date": "2026-09-16T14:25:23Z",
+        "prerelease": false,
+        "url": "https://github.com/automerge/automerge/releases/tag/js/automerge-3.5.0"
+      },
+      {
+        "tag": "js/automerge-3.4.1",
+        "date": "2026-08-12T08:26:08Z",
+        "prerelease": false,
+        "url": "https://github.com/automerge/automerge/releases/tag/js/automerge-3.4.1"
+      },
+      {
+        "tag": "js/automerge-3.4.0",
+        "date": "2026-07-31T17:31:59Z",
+        "prerelease": false,
+        "url": "https://github.com/automerge/automerge/releases/tag/js/automerge-3.4.0"
+      },
+      {
+        "tag": "js/automerge-3.3.2",
+        "date": "2026-07-14T21:38:03Z",
+        "prerelease": false,
+        "url": "https://github.com/automerge/automerge/releases/tag/js/automerge-3.3.2"
+      },
+      {
+        "tag": "js/automerge-3.3.1",
+        "date": "2026-07-13T10:06:14Z",
+        "prerelease": false,
+        "url": "https://github.com/automerge/automerge/releases/tag/js/automerge-3.3.1"
+      }
+    ]
+  },
+  "nwjs/nw.js": {
+    "url": "https://api.github.com/repos/nwjs/nw.js/releases?per_page=5",
+    "releases": []
+  },
+  "videlais/twine-sugarcube-storylet": {
+    "url": "https://api.github.com/repos/videlais/twine-sugarcube-storylet/releases?per_page=5",
+    "error": "HTTP Error 404: Not Found"
+  },
+  "aucchen/dendry": {
+    "url": "https://api.github.com/repos/aucchen/dendry/releases?per_page=5",
+    "releases": []
+  }
+}

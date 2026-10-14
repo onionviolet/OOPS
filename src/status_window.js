@@ -1,11 +1,16 @@
 import {awakenedStatusCard} from './cheat_cards.js';
 import {definePanel} from './panel_kit.js';
+import {updateWorkspace} from './workspace_layout.js';
 import {getDisplaySetting, subscribeDisplaySettings} from './display_settings.js';
 
 const coreStats = ['strength', 'agility', 'dexterity', 'intuition', 'magic'];
 const node = (tag, text = '') => {const n = document.createElement(tag); n.textContent = text; return n;};
 export function createStatusWindow({read, onKnown = () => {}}) {
     const panel = node('section'); panel.id = 'status_window_panel'; panel.className = 'status_window'; panel.hidden = true;
+    panel.tabIndex = 0;
+    panel.setAttribute('role', 'region');
+    // Existing awakened saves restore silently; only a live transition scrolls.
+    let known = !!awakenedStatusCard(read().cheats);
     document.getElementById('character_div').append(panel);
     const level = node('span'); level.dataset.statusLevel = '';
     const levelRow = node('div'); levelRow.className = 'status_window_row'; levelRow.append(node('span', 'Level'), level); panel.append(levelRow);
@@ -24,6 +29,8 @@ export function createStatusWindow({read, onKnown = () => {}}) {
         const snapshot = read(), entry = awakenedStatusCard(snapshot.cheats);
         panel.hidden = !entry;
         if(!entry) return;
+        const newlyKnown = !known; known = true;
+        panel.setAttribute('aria-label', 'Status window contents');
         onKnown();
         panel.dataset.density = getDisplaySetting('panel.status-window.density') || 'comfortable';
         level.textContent = String(snapshot.level);
@@ -31,6 +38,11 @@ export function createStatusWindow({read, onKnown = () => {}}) {
         fields.titles.textContent = snapshot.titles.join(', ') || 'No titles earned yet.';
         fields.points.textContent = String(entry.card.state.points ?? 0);
         fields.quests.textContent = 'No system quests yet. For now, the system only records what you know.';
+        if(newlyKnown) {
+            // Lay out the revealed shell before moving its useful row into view.
+            updateWorkspace();
+            levelRow.scrollIntoView({block: 'nearest', inline: 'nearest', behavior: 'instant'});
+        }
     }
     render();
     definePanel({id: 'status-window', title: 'Status window', role: 'character', node: panel,

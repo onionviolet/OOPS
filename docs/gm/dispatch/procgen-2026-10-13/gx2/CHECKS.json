@@ -1,0 +1,207 @@
+{
+  "status": "STATIC DOC CHECKS PASS",
+  "head_initial_check": "f16bd67c99b2ab3b4aed329295f6823c9ab85cc4",
+  "head_final_check": "f16bd67c99b2ab3b4aed329295f6823c9ab85cc4",
+  "merge_present": true,
+  "document_count": 8,
+  "documents": [
+    "BACKLOG.md",
+    "CATALOG.md",
+    "CHECKPOINT.md",
+    "CONTRACT.md",
+    "MORE.md",
+    "RECONCILIATION.md",
+    "REPORT.md",
+    "SOURCE_MAP.md"
+  ],
+  "local_links_checked": 81,
+  "missing_links": [],
+  "bad_fragments": [],
+  "source_references_checked": 58,
+  "out_of_range_seams": [],
+  "semantic_anchor_checks": [
+    {
+      "check": "P1 pure evaluation",
+      "source": "src/seeded_streams.js:47",
+      "pass": true
+    },
+    {
+      "check": "P1 receipt slots",
+      "source": "src/seeded_streams.js:51",
+      "pass": true
+    },
+    {
+      "check": "P2 pure resolver",
+      "source": "src/mixture_state.js:47",
+      "pass": true
+    },
+    {
+      "check": "P2 knowledge projection",
+      "source": "src/mixture_state.js:75",
+      "pass": true
+    },
+    {
+      "check": "P2 observed provenance",
+      "source": "src/mixture_native.js:18",
+      "pass": true
+    },
+    {
+      "check": "P2 durable commit",
+      "source": "src/mixture_native.js:38",
+      "pass": true
+    },
+    {
+      "check": "P3 candidates",
+      "source": "src/storylet_deck.js:29",
+      "pass": true
+    },
+    {
+      "check": "P3 local cursor",
+      "source": "src/storylet_deck.js:44",
+      "pass": true
+    },
+    {
+      "check": "P3 quiet draw",
+      "source": "src/storylet_deck.js:62",
+      "pass": true
+    },
+    {
+      "check": "P3 issued receipt",
+      "source": "src/simulation.js:407",
+      "pass": true
+    },
+    {
+      "check": "P4 person projection",
+      "source": "src/generated_people.js:62",
+      "pass": true
+    },
+    {
+      "check": "P4 admission",
+      "source": "src/generated_people.js:12",
+      "pass": true
+    },
+    {
+      "check": "P7 name grammar",
+      "source": "src/name_grammar.js:11",
+      "pass": true
+    },
+    {
+      "check": "world identity",
+      "source": "src/world_knowledge.js:3",
+      "pass": true
+    },
+    {
+      "check": "C0 data validator",
+      "source": "src/cheat_cards.js:32",
+      "pass": true
+    },
+    {
+      "check": "rewind retained stream",
+      "source": "src/expansion_engine.js:683",
+      "pass": true
+    },
+    {
+      "check": "gather chance",
+      "source": "src/main.js:7564",
+      "pass": true
+    },
+    {
+      "check": "gather count",
+      "source": "src/main.js:7565",
+      "pass": true
+    },
+    {
+      "check": "gather quality",
+      "source": "src/main.js:7570",
+      "pass": true
+    },
+    {
+      "check": "mixture save",
+      "source": "src/main.js:5196",
+      "pass": true
+    },
+    {
+      "check": "people save",
+      "source": "src/main.js:5238",
+      "pass": true
+    }
+  ],
+  "coverage": {
+    "GL1_GL10": true,
+    "GL11_GL20": true,
+    "kit_CL1_CL15": true,
+    "E1_seven": true,
+    "recommended_exactly_five": true
+  },
+  "sources_changed_since_initial_check": [],
+  "sources": {
+    "src/cheat_cards.js": {
+      "sha256": "8ca52e83187845d8da7bdb11d5ba96befe81bd3f2ebbe932f0c664f8140273d4",
+      "lines": 101
+    },
+    "src/expansion_engine.js": {
+      "sha256": "da1e9761400bec1cf72f4da171408f22af6cb6a2ce3dd72565b8b29039ab3f82",
+      "lines": 685
+    },
+    "src/generated_people.js": {
+      "sha256": "c2b4c1d7dda442ee9032524059dea15a044dace23b50c355d343b7f6aca6acd3",
+      "lines": 80
+    },
+    "src/generated_people_ui.js": {
+      "sha256": "ed4f5b598a4c4ec7eb731acc6662201e221b22bff6bd86aefe03dccc96ab6670",
+      "lines": 52
+    },
+    "src/main.js": {
+      "sha256": "81a8b6130efe5560e456c25840ae6ec035666ecf92efdcd133de620183c0ba16",
+      "lines": 8668
+    },
+    "src/mixture_native.js": {
+      "sha256": "15d49051cdea16f5ff10dd1db1aa6d8d17dd7b7e4685a3c46651c3bab196eea0",
+      "lines": 44
+    },
+    "src/mixture_state.js": {
+      "sha256": "1d3f161da9f2cb9bf138292be0f5e5b4e38c381a337fe55cc616eb71b908c02e",
+      "lines": 101
+    },
+    "src/mixture_ui.js": {
+      "sha256": "fb95a88773aeb13de0a42441ca38747ff0d9cf0281b7df8938a06e2441dc9d63",
+      "lines": 39
+    },
+    "src/name_grammar.js": {
+      "sha256": "862067cd88e96e2dc79c79bb68be4eddef2a9459fa1fcfbb653ecfce20825652",
+      "lines": 22
+    },
+    "src/people_knowledge.js": {
+      "sha256": "e52bf2508ab626785ad66074179f33916aaed7946fbd403706cb59303e851261",
+      "lines": 106
+    },
+    "src/save_files.js": {
+      "sha256": "9b87a732f2cb18abfd9e4225fa546203fed0b5d6e544e1284af01b2f61f16e6a",
+      "lines": 227
+    },
+    "src/seeded_streams.js": {
+      "sha256": "db2a19d956515eab816f7df7ca13ffc11d08797de61a583811f92254c46b7610",
+      "lines": 135
+    },
+    "src/simulation.js": {
+      "sha256": "c5717787ca8e0fcb57e2933e8d8a39e9088f6e12d8d7197d91605517cdc0041b",
+      "lines": 642
+    },
+    "src/storylet_content.js": {
+      "sha256": "eb24109e0fa2efcae69db8ce0effd2dd9313b1b7f281a1647211a2bcee979fa9",
+      "lines": 80
+    },
+    "src/storylet_deck.js": {
+      "sha256": "683688b03fd26d2bfae7a1a1f5042bef27bf2e406b9787af94bf72b2416642a3",
+      "lines": 98
+    },
+    "src/world_knowledge.js": {
+      "sha256": "c724bb5ba4644573b685c5d55333531bf2645f55dea5a4f4f52ed404d90c9442",
+      "lines": 14
+    }
+  },
+  "manual_review": "No sealed truth or new canon assertion; observe/intervene distinction; adjective limits; ID-only S1 routes; source bindings inspected. Not independent sealed fairness proof.",
+  "write_scope": "Only docs/gm/dispatch/procgen-2026-10-13/gx2/ via task tool calls; no stage/commit. Broad checkout has concurrent writers.",
+  "runtime_tests_build_browser_save_import": "NOT RUN",
+  "future_gates": "OPEN"
+}

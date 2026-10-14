@@ -1,0 +1,40 @@
+# G6 OG1 failure and cost register
+
+2026-10-14. **PROPOSAL ONLY.** Codes persist for root review. Priorities rank
+consequence and adoption cost; none authorizes implementation. SHOWN is bounded
+to inspected code, INFERRED is proposed analysis, UNKNOWN is an open gate.
+
+| Code / priority | Where OG1 fails or costs too much | Evidence / consequence | Better bounded proposal |
+|---|---|---|---|
+| R1 / critical | A fixed future event pin becomes forced plot | [P13 C1](../../procgen-2026-10-13/p13/RULES.md) reconciles older pinned scenes/inertia with Timelines T3. INFERRED: pin lookup cannot resurrect an absent participant or mint a required object. | Typed conditional expectation pins; real prerequisite invalidation, unchanged independent control and supported new actor plans. Unpin is a masked expectation, not a payout. |
+| R2 / critical | “Generated is unpinned” allows observed detail to drift | SHOWN [src/structured_pack_runtime.js:71](../../../../../src/structured_pack_runtime.js:71) stores actual person definition/body/vitals. INFERRED: an unpinned generated person may have already interacted. | Freeze resolved slots and retain authoritative current state/receipts; origin, pin status and observed status remain separate. |
+| R3 / critical | Address identity is mistaken for cloned owner state | SHOWN [src/structured_pack_runtime.js:69](../../../../../src/structured_pack_runtime.js:69) rejects duplicate people; [src/book_world_mol_state.js:25](../../../../../src/book_world_mol_state.js:25) admits exactly one instance. | Read-only bindings first. Simultaneous counterparts require actor/inventory/controller/knowledge remaps in a separate reviewed branch adapter. GA10 alone does not supply them. |
+| R4 / critical | Every loop receives a new continuity salt and new neighbors | SHOWN [src/book_world_mol_ids.js:13](../../../../../src/book_world_mol_ids.js:13) declares a continuous visitor branch; INFERRED loop baseline follows P13 MoL. | Stable baseline root and exact reset domains; pass-specific variation only where allowed. New loop fixture, no retrofit. |
+| R5 / high | Sparse source evidence becomes fake canon | SHOWN [src/feature_expansion_book_roster.js:2538](../../../../../src/feature_expansion_book_roster.js:2538) has HP nativeWorldId null and a bounded evidence statement. HP chapter anchors are candidate locators. | Evidence gate before executable source pins; UNKNOWN stays unresolved. Original public fixtures can test mechanics without certifying book fidelity. |
+| R6 / high | Additive fields still break exact validators/readers | SHOWN [src/world_instances.js:100](../../../../../src/world_instances.js:100), [src/structured_pack_state.js:27](../../../../../src/structured_pack_state.js:27), [src/book_world_mol_state.js:23](../../../../../src/book_world_mol_state.js:23). | A1 selects owner/version; detached envelope, exact revision refs, old absent-state proof and explicit incompatible-active-reader behavior. |
+| R7 / high | One address space becomes one new giant store | INFERRED: mirroring every actor, inventory, knowledge and event doubles writes and creates disagreement. AXR2 calls for interface before storage. | Resolver dispatches to existing owner refs. Compact content manifests plus small local pin/freeze maps; no second scheduler or actor store. |
+| R8 / high | Frozen current value prevents legitimate play | INFERRED: freezing yesterday's stock/health would block paid transfer, injury or repair. OG5 must concern stable resolved truth/history, not prohibit ordinary causal change. | Facet/occurrence-scoped records; current state changes through its owner, with prior observations retained. Retcon revises history only under a named mechanism. |
+| R9 / high | New salting shifts old luck or promises 64-bit safety | SHOWN [src/seeded_streams.js:14](../../../../../src/seeded_streams.js:14) and [src/seeded_streams.js:50](../../../../../src/seeded_streams.js:50) use 32-bit hashing/mixing; [src/seeded_streams.js:70](../../../../../src/seeded_streams.js:70) uses sequential ordinals. | Preserve old contracts. Full address equality detects identity conflicts; G1/P1 owns any new hash/draw version. Do not claim no collisions or reroll independence merely from new labels. |
+| R10 / high | Address indexes, pin conflicts or change counts leak secrets | SHOWN [src/world_instances.js:407](../../../../../src/world_instances.js:407) and [src/structured_pack_runtime.js:89](../../../../../src/structured_pack_runtime.js:89) project known information. INFERRED unified indexes may reveal hidden truth even without values. | Author resolver and observer view stay distinct. Filter names, existence, missing options, counts and errors by disclosure route. No SECRETS files read in this lane. |
+| R11 / medium-high | Save growth is underestimated | INFERRED: repeated full addresses, pin values, freeze values, explain receipts and pass history can exceed cheap delta assumptions. No measured size result here. | Measure representative active fixtures; store immutable manifest refs, retain causal/active references, compact optional texture via P1/P32. A lossy chronicle cannot promise playable resume. |
+| R12 / medium-high | Alias corrections merge identities or lose cargo | SHOWN [src/book_world_mol_ids.js:7](../../../../../src/book_world_mol_ids.js:7) uses location labels and [src/book_world_mol_ids.js:9](../../../../../src/book_world_mol_ids.js:9) JSON stack keys; structured units track custody separately. | Explicit revisioned alias map, cycle/ambiguity checks, type versus unit distinction, and traveler origin identity with separate current endpoint. Never slug/parse legacy IDs heuristically. |
+| R13 / medium | Full source canon graph becomes a prerequisite for local work | INFERRED: pinning every fact of every novel is costly and creates unsupported claims. [Lore](../../../../worlds/LORE_AND_CONTINUITY.md) recommends small invariant sets. | Sparse source-qualified anchor plus one causal hinge and ordinary gap. Leave unrelated source scope unresolved; no global simulated timeline prerequisite. |
+| R14 / medium | Pins share storage but disagree about authority/order | INFERRED: canon, AU, cheat, director and NPC pins can conflict; last writer wins would make imports/gameplay nondeterministic. | G3 ordered overlays, G5 operation authority/cost, revision guards and conflict records. A shared envelope does not make all pin kinds equally editable. |
+
+## R15: falsification cases for review
+
+Each would refute a claim that OG1 is sufficient as written:
+
+| Counterexample | Required outcome |
+|---|---|
+| Remove the only means of a pinned event while an independent event remains valid | Exact old scene becomes inapplicable; independent event retains eligibility. No substitute is created by pin resolution. |
+| Generate and introduce an ordinary worker, then mask a canon expectation and change tables | Worker name/identity remains exact; future eligible choices may change by admitted revision. |
+| Two continuities use identical actor display names and the same legacy p.id | Resolver detects ambiguous actual owner registration; it cannot claim isolated playable counterparts until remaps exist. |
+| Reset a selected loop while an object was exported to another world | Selected retention/export contract determines restoration/custody; no automatic duplication or universal ban inferred from the pin map. |
+| Load the same old save twice or export/import after a pin | No new nonce, pass or draw; exact reader/content dependencies and authoritative owner state preserved. |
+| Remove a pinned table option or private pack | Declared safe compatibility result; old intent/history preserved; no hidden answer in diagnostics. |
+
+UNKNOWN: full archive cost, branch remap implementation, source-qualified HP
+event graph, exact MoL loop scope and rebuilt native behavior. These are not
+grounds to block a read resolver; they are gates for the functions that need
+them. [MIGRATION](MIGRATION.md) names the additive route and decisions.

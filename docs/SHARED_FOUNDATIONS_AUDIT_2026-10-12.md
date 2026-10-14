@@ -351,3 +351,8 @@ implement every speculative mechanic, a complete strategic enemy AI or a true
 omniscient future simulator before a qualified consumer exists. The framework
 can support future-sight adapters without claiming to predict unimplemented
 world behavior. No runtime work or acceptance case was run in this proposal.
+
+
+2026-10-13 pointer: a source-read foundations check for abilities, automation, progression and cheats, with a shared rule kernel proposal, lives in [ability authoring](worlds/ABILITY_AUTHORING.md#foundations-check-and-other-systems-that-share-the-pattern-2026-10-13).
+
+2026-10-14 pointer: a code-grounded scorecard of U01-U15 and the kernel pieces, with more angles (M1-M12) and queued Codex lanes, lives in [core foundations scorecard](CORE_FOUNDATIONS_SCORECARD_2026-10-14.md).

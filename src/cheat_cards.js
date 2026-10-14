@@ -37,6 +37,8 @@ export function validateCheatCard(card) {
     object(card.state, 'card state');
     if(Object.hasOwn(card.state, 'awakened') && typeof card.state.awakened !== 'boolean')
         throw new Error('Invalid cheat awakened state: expected a boolean.');
+    if(Object.hasOwn(card.state, 'points') && (!Number.isSafeInteger(card.state.points) || card.state.points < 0))
+        throw new Error(`Invalid cheat card ${card.id} points: expected a non-negative integer.`);
     for(const key of ['hooks', 'stages', 'observers', 'sources']) {
         if(!Array.isArray(card[key])) throw new Error(`Invalid cheat card ${key}: expected an array.`);
     }
@@ -55,6 +57,8 @@ export function validateCheatState(state) {
         keys(entry.acquired, ['route', 'at'], 'acquisition');
         text(entry.acquired.route, 'acquisition route'); timestamp(entry.acquired.at);
         if(!Array.isArray(entry.messages)) throw new Error('Invalid cheat messages: expected an array.');
+        if(entry.card.state.awakened === true && entry.messages.length === 0)
+            throw new Error(`Invalid cheat card ${id}: awakening requires its first system message.`);
         for(const message of entry.messages) {
             keys(message, ['text', 'at'], 'message'); text(message.text, 'message text'); timestamp(message.at);
         }
@@ -84,7 +88,7 @@ export function optionalStartCard() {
 }
 export function awakenedStatusCard(state) {
     return Object.values(state.held).find(entry => entry.card.ui === 'status-window' &&
-        (entry.card.state.awakened === true || (entry.card.state.awakened === undefined && entry.messages.length > 0)));
+        entry.messages.length > 0 && entry.card.state.awakened !== false);
 }
 export const FIRST_SYSTEM_MESSAGE = 'Your system is awake. You can now read your level and known abilities.';
 export function awakenCheats(state, {dayCount, wonFight = false, at}) {
@@ -92,9 +96,9 @@ export function awakenCheats(state, {dayCount, wonFight = false, at}) {
     if(!wonFight && !(dayCount >= 3)) return {state: next, messages};
     for(const [id, entry] of Object.entries(next.held)) {
         if(entry.card.ui !== 'status-window' || entry.card.state.awakened !== false) continue;
+        // Validate only the complete transition, never an awake/message-free intermediate.
+        entry.messages.push({text: FIRST_SYSTEM_MESSAGE, at: structuredClone(at)});
         entry.card.state.awakened = true;
-        const recorded = recordCheatMessage(next, id, FIRST_SYSTEM_MESSAGE, at);
-        next.held[id] = recorded.held[id];
         messages.push(FIRST_SYSTEM_MESSAGE);
     }
     return {state: validateCheatState(next), messages};

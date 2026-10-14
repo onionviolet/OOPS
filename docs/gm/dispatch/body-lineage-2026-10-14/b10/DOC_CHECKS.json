@@ -1,0 +1,36 @@
+{
+  "status": "PASS",
+  "b1_worlds": 72,
+  "world_notes": 37,
+  "matrix_only": 35,
+  "matrix_cells": 864,
+  "status_counts": {
+    "U": 500,
+    "L": 90,
+    "P": 230,
+    "B": 44
+  },
+  "causal_chains": 9,
+  "local_links_checked": 511,
+  "checks": [
+    "exact B1 slug roster",
+    "twelve cells per matrix row",
+    "note/matrix/coverage status agreement",
+    "twelve SO codes and five variables per world note",
+    "required note sections",
+    "C1-C9 unique ordered chains",
+    "local file link targets exist",
+    "no em dashes in Markdown"
+  ],
+  "errors": [],
+  "not_verified": [
+    "anchor semantics",
+    "primary source claims",
+    "source fidelity",
+    "runtime",
+    "build",
+    "browser",
+    "save/import",
+    "human acceptance"
+  ]
+}

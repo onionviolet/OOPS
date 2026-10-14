@@ -1,0 +1,73 @@
+{
+  "checked_utc": "2026-10-14T05:33:42.425642+00:00",
+  "result": "PASS",
+  "kind": "static docs/source review only",
+  "ranked_rows": 158,
+  "ranked_source_rows_including_folded_alias_policy": 158,
+  "report_count": 25,
+  "local_link_targets_checked": 226,
+  "source_row_locators_checked": 158,
+  "file_line_locators_checked": 36,
+  "mermaid_nodes": 165,
+  "graph_edges": 858,
+  "runtime_cycles": [],
+  "dist_raw_total": 29127019,
+  "dist_gzip_estimate_total": 7051125,
+  "report_presence": {
+    "p11": true,
+    "p12": true,
+    "p13": true,
+    "p14": true,
+    "p15": true,
+    "p16": true,
+    "p17": true,
+    "p18": true,
+    "p19": true,
+    "p20": true,
+    "p21": true,
+    "p22": true,
+    "p23": true,
+    "p24": true,
+    "p25": true,
+    "p26": true,
+    "p27": true,
+    "p28": true,
+    "p29": false,
+    "p30": true,
+    "p31": true,
+    "p32": true,
+    "p33": true,
+    "p34": false,
+    "p35": true,
+    "p36": true,
+    "p37": true
+  },
+  "missing_reports": [
+    "p29",
+    "p34"
+  ],
+  "missing_report_disposition": {
+    "p29": "historical crafting alias CR4, not independent story assignment",
+    "p34": "separate isolated S-1..S-5 spine checkpoint, not ranked main REPORT"
+  },
+  "p38_report_present": true,
+  "p40_report_present": true,
+  "inputs_changed_since_snapshot": [
+    ".claude/worktrees/proc-p34-spine/docs/gm/dispatch/procgen-2026-10-13/p34/CHECKPOINT.md"
+  ],
+  "issues": [],
+  "runtime_edits": false,
+  "builds_run": false,
+  "gameplay_tests_run": false,
+  "browser_servers_opened": false,
+  "private_saves_accessed": false,
+  "commits_created": false,
+  "write_scope": "p39 only; concurrent outside changes preserved",
+  "limits": [
+    "File targets checked; link fragments not verified.",
+    "File:line existence and Mermaid DAG do not prove runtime semantics.",
+    "Hashes are a snapshot, not locks against concurrent changes.",
+    "No measured runtime, catch-up, gameplay, persistence or human acceptance."
+  ],
+  "scratch_inventory_generator_removed": true
+}

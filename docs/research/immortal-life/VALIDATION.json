@@ -1,0 +1,275 @@
+{
+  "date": "2026-10-14",
+  "status": "passed",
+  "checks": [
+    {
+      "check": "required outputs",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "JSON parse",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "local Markdown links exist",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "24 small touches",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "no em dash",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "296 exports",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "no duplicate table names",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "291 parsed assets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "five recorded nonJSON gaps",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "roommate event partition",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "roommate valid trigger gate",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "schedules behavior counts",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Level all time fields zero",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "profession rows 6 by 15",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "hash CourseRule",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "hash MeditationPoint",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "hash GlobalSettings",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "hash Level",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "hash Task",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "hash BreakthroughMaps",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "hash Grade",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "hash NPC",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "hash SchoolSalary",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "hash Breakthrough",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "hash Study",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "hash NPCSchedule",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "hash FavourLevels",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "hash MarryEvent",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "hash LifeSkillLevel",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "hash BreakthroughMapConfig",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "hash Delegation",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "hash FavourLv",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "hash SchoolUnlockGroup",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "hash PlayerValueVersionModify",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "hash Trigger",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "hash Marry",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "hash ClassSchedule",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "hash FightSkill",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "hash Language",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "hash LifeSkill",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "hash SchoolDevelopment",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "hash Exercise",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "hash NPCEvent",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "hash Pray",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "hash AutoWater",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "hash Course",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "hash PlayerInitialData",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "hash GodnessLevel",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "hash SchoolRenown",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "hash School",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "partial status names gaps",
+      "passed": true,
+      "detail": null
+    }
+  ],
+  "private_extract_hashed_files": 388,
+  "private_work_bytes": 191085684,
+  "evidence_scope": "artifact integrity and selected data assertions only",
+  "unrun": [
+    "game launch",
+    "native method bodies",
+    "runtime behavior",
+    "YAIRPG implementation",
+    "build",
+    "browser",
+    "save/reload/import",
+    "human acceptance"
+  ],
+  "write_scope": "docs/research/immortal-life plus private work root"
+}

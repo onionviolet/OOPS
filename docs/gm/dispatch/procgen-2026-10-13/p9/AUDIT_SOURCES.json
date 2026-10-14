@@ -1,0 +1,507 @@
+{
+  "date": "2026-10-14",
+  "snapshot_kind": "late cited-target inventory, not initial immutable snapshot",
+  "coverage": "Read/excerpt/reference-only evidence strength remains SOURCE_MAP and REPORT; hashing does not grant reading credit",
+  "sources": [
+    {
+      "path": ".claude/worktrees/proc-p1-streams/docs/gm/dispatch/procgen-2026-10-13/p1/REPORT.md",
+      "sha256": "74e4a96a84586d8e174054b26829b987fe6622ae9a0fa5902e2788e91341f98e",
+      "bytes": 10425
+    },
+    {
+      "path": ".claude/worktrees/proc-p2-mixing/docs/gm/dispatch/procgen-2026-10-13/p2/REPORT.md",
+      "sha256": "23e4bf9f8e24b5709944bb54d32e47d91d29324682a8abb23c31f7304e86c6b7",
+      "bytes": 9803
+    },
+    {
+      "path": ".claude/worktrees/proc-p3-storylets/docs/gm/dispatch/procgen-2026-10-13/p3/REPORT.md",
+      "sha256": "f39f768a08e595bf751de18135534d47767726142f20d39b98a3490244e5d3c7",
+      "bytes": 12782
+    },
+    {
+      "path": ".claude/worktrees/proc-p4-people/docs/gm/dispatch/procgen-2026-10-13/p4/REPORT.md",
+      "sha256": "b5d9b5ed3dc1a4e1b7b3dc10b80042016a9c9783fba09c957054d10b3997c5ee",
+      "bytes": 6420
+    },
+    {
+      "path": "docs/gm/dispatch/er-gen-haul-2026-10-09/issth.md",
+      "sha256": "0ea3a527cb58e1e8fcd742f518e8a9162445965dd50c2ed3676d3d4deffc8ad3",
+      "bytes": 511
+    },
+    {
+      "path": "docs/gm/dispatch/er-gen-haul-2026-10-09/renegade-immortal.md",
+      "sha256": "42d8726f8a04770c1cb6c050958eac4b3f16675e644394b3908558494f1f3540",
+      "bytes": 530
+    },
+    {
+      "path": "docs/gm/dispatch/parallel-book-design-2026-10-11/legendary-mechanic/REPORT.md",
+      "sha256": "abecece50f7b33a5c25ac4120c5ed829732adcedeb1de4e41bc3d8b2357aeb84",
+      "bytes": 1516
+    },
+    {
+      "path": "docs/gm/dispatch/parallel-book-design-2026-10-11/lord-of-mysteries/REPORT.md",
+      "sha256": "7e2709a8b6a749b63533947396c30f41a081b02fa6c644782174fa017c9b57ff",
+      "bytes": 2380
+    },
+    {
+      "path": "docs/gm/dispatch/parallel-book-design-2026-10-11/mother-of-learning/REPORT.md",
+      "sha256": "08d321a0e6f54c3b687637af39a49cb9621dbb5e38ed3807bd2e5ef35455d471",
+      "bytes": 1458
+    },
+    {
+      "path": "docs/gm/dispatch/parallel-book-design-2026-10-11/perfect-run/REPORT.md",
+      "sha256": "957ffc93edc73e126a1eb8a7c11f35d091f9201a2e31e365ca1c3a32095915f8",
+      "bytes": 2219
+    },
+    {
+      "path": "docs/gm/dispatch/parallel-book-design-2026-10-11/reverend-insanity/REPORT.md",
+      "sha256": "579206dbc3fb1626cd8995a9e68a23d0e790eca6790f8ab0320a9c11c5e2fab9",
+      "bytes": 3105
+    },
+    {
+      "path": "docs/gm/dispatch/parallel-book-design-2026-10-11/shadow-slave/REPORT.md",
+      "sha256": "3440a91d186811c7ecc21cc7990f2896382f983025e7d9a4e90f1c464e8bc862",
+      "bytes": 2080
+    },
+    {
+      "path": "docs/gm/dispatch/parallel-book-design-2026-10-11/warlock/REPORT.md",
+      "sha256": "f9d40080b1b08c3648dd867c5be3ab0a82d3dfc4138bec5b062a08fdc7b41fbe",
+      "bytes": 2305
+    },
+    {
+      "path": "docs/gm/dispatch/parallel-book-design-2026-10-11/worm/REPORT.md",
+      "sha256": "b292d5f9f9a96bf0a93502a387bf3dec7d14f156cd09cfc2a83c871376906866",
+      "bytes": 1442
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p10/CHECKPOINT.md",
+      "sha256": "b51f88587d2a6e0a6a7443f80a773d447dec61b81ec7d07c493798938b1ef08b",
+      "bytes": 3449
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p10/JJK.md",
+      "sha256": "34b4df8eee46c97635d62ff8f3602a654b9cba1abdd7df83c4aff69f9a7738c3",
+      "bytes": 8091
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p10/REPORT.md",
+      "sha256": "ddc3b9c9d6c83020f70f083e65200191f415f13391a83fcccc74797bfd722402",
+      "bytes": 17624
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p11/CHECKPOINT.md",
+      "sha256": "bc052f7ab2c4c5e1a895852d653c5658a40079a4afd284263e4ced0be538bbfc",
+      "bytes": 3732
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p11/CONTEXT.md",
+      "sha256": "5e4b52ee44abaeae0009fe8b48a73189e81583492e599123cced619a802ddb4c",
+      "bytes": 23118
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p5/D3_TALENT_ROLL.md",
+      "sha256": "3202380f4b1e6126669d97b2d71b491837dbee2c339fa28e99ea18baeaa7a5d7",
+      "bytes": 11284
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p5/D6_SECRET_ROLL.md",
+      "sha256": "3ea9ab353a07c2eb4bc17baffc5bda29937ab4464af5aebff12f6d3bbc3563a0",
+      "bytes": 9485
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p5/D7_HOUSEHOLDS.md",
+      "sha256": "303a9c8d02f7a06beb7da62d1dc2d4b5c83c7938152f7b8cd8bd6a294c542851",
+      "bytes": 11236
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p5/D8_LORE_GRAMMAR.md",
+      "sha256": "0676ae0006f847fcebbbf596afbe3cb2a60644b64368a041c29f27f23a38295d",
+      "bytes": 10112
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p5/D9_STORYTELLER.md",
+      "sha256": "9cb2dc362f585c33a85a1ec34cd0d15e949634120d1725a8687b39c8dba19f95",
+      "bytes": 9741
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p5/EXTRA_IDEAS.md",
+      "sha256": "078b592855214c06d0e86169a6d1ab2b8f5ad25aad5ae0cd308aa6be26442d34",
+      "bytes": 7677
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p5/O3_APPEARANCE_SHUFFLE.md",
+      "sha256": "adac9f717a7a40c080ed83bd1e1c550adc82a05d9abbd03e74c6ee4443344804",
+      "bytes": 10193
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p6/CANON_LOCATORS.md",
+      "sha256": "bf9d1a9f64509b3430524720b6606554b992fa753a8bbeb19571713cd8f3c363",
+      "bytes": 7032
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p6/CHECKPOINT.md",
+      "sha256": "baa7d03ad610b49d34978b81a186ec798f9a140aa1ac440b9b3a752a3ad45166",
+      "bytes": 4316
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p6/PATTERNS.md",
+      "sha256": "ee9ca6b3d26825a8ce4f6e78cb08c4ab4add1accdbedcea083be9f2cabd1f863",
+      "bytes": 5050
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p7/CHECKPOINT.md",
+      "sha256": "94b8d295333ae88fa55a3afcaa0cb4c3def5b32cff2f1c752009abfca1bdc946",
+      "bytes": 2239
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p7/DATA_SHAPE.md",
+      "sha256": "d176f6d1ccfc7a7707c55347565a04c0c14643e8b78545cdcaa8bd9865bdc643",
+      "bytes": 15916
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p7/DND.md",
+      "sha256": "dc4a26367b6f3f4f7fd5a5ed968c0912e4c89299a982af04b6d2372c563173d1",
+      "bytes": 5014
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p7/GUIDELINES.md",
+      "sha256": "4a9091b2705a8c7884d221f4d5206193da7b7bb0a9f4c1dbf22fd7c8e88ee78d",
+      "bytes": 14816
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p7/HARRY_POTTER.md",
+      "sha256": "4b5d71d779318115449890d9133fc1d3fdd6f6bffd251524e3125ab75e5e5e7c",
+      "bytes": 5798
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p7/LOTM_COI.md",
+      "sha256": "fb47f7303c1fa04356ed7bfa569f243e3fb1b606813ec4faf8a140f3f569fbed",
+      "bytes": 5559
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p7/MOTHER_OF_LEARNING.md",
+      "sha256": "35c52366f073b9308432a97f171c0d4023687c1787d92edf34bc369a8e62cfe5",
+      "bytes": 4885
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p7/OTHER_WORLDS.md",
+      "sha256": "9617122019e69ddbf7204428d9ebfef1b3d742ffbc15e99ec378a7502918e3bf",
+      "bytes": 6559
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p7/SHADOW_SLAVE.md",
+      "sha256": "4bdba199f47251d61a8c28321a3e513366663fcaa6828b5454d77450bc6a2b84",
+      "bytes": 5233
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p7/SOLDIERS_LIFE.md",
+      "sha256": "5540f0ef5604434de2881496de0a22000b996b6e2f29262940f5caa8d63a1b67",
+      "bytes": 5217
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p7/TTKS.md",
+      "sha256": "168e0715c92f6c12caf7f99b4caf431e35e506d0bff89fb31b44454bf45f7c1a",
+      "bytes": 15907
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p8/CHECKPOINT.md",
+      "sha256": "dd48c99d6c86b5d43d5887a158d897ae5d14935cf1ccdd51dd477510c138dd82",
+      "bytes": 2612
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p8/LOGISTICS.md",
+      "sha256": "07017c2f270000d199686b867ec744d1c9b38273fd95739ddf5a4775c94a3994",
+      "bytes": 4197
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p8/MAGICAL_RESOURCES.md",
+      "sha256": "030458f72d92a04d0b820cbaaa953f2177cad86d9b5e826a61dd70459ec71151",
+      "bytes": 4579
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p8/WORLD_VARIATIONS.md",
+      "sha256": "460163e2a6fdb2213b1624f73c7ab8bc2d81823af594638b2955a6a72fb8d019",
+      "bytes": 14293
+    },
+    {
+      "path": "docs/gm/dispatch/ttks-novels-2026-10-10/FINDINGS.md",
+      "sha256": "b4e9053853d04ae6c8d998db75632f90df31a469dcd2d457ec7e7413685d9105",
+      "bytes": 39795
+    },
+    {
+      "path": "docs/gm/dispatch/world1-full-completion-2026-10-11/CHECKPOINT.md",
+      "sha256": "fe8c1759ae9449b5e3ac1984945ed89d5456e2e4e37a129e03e93b50514c05e8",
+      "bytes": 4882
+    },
+    {
+      "path": "docs/research/novels/cradle/WORLD_AUDIT_2026-10-10.md",
+      "sha256": "2ad26aa76fd3fa66eed02ddb3d47cdc7b2058daae150973843f629943ed3ae09",
+      "bytes": 34479
+    },
+    {
+      "path": "docs/research/novels/er-gen-haul-2026-10-09/a-will-eternal/DOSSIER.md",
+      "sha256": "e5d0aef7af7ddf2d6a51205a59436487660cdaaf3996a3fbda1ce8c4d7b0fd90",
+      "bytes": 40814
+    },
+    {
+      "path": "docs/research/novels/er-gen-haul-2026-10-09/beyond-the-timescape/DOSSIER.md",
+      "sha256": "dc6b40098c2acde4541dcf10125a86bbbeb3b0eb1573dae1b5a30805d1282149",
+      "bytes": 27264
+    },
+    {
+      "path": "docs/research/novels/er-gen-haul-2026-10-09/issth/DOSSIER.md",
+      "sha256": "1d2fb4cfd1f33d5faddb4ab5446a5adc97191b01b3d406126e1b217a5e25256b",
+      "bytes": 26752
+    },
+    {
+      "path": "docs/research/novels/full-book/a-novel-concept/PROPOSALS.md",
+      "sha256": "0904aa82b3e0563e9c574f380357cec87c0219e856c5d3089dfdb0127ab84b8d",
+      "bytes": 4125
+    },
+    {
+      "path": "docs/research/novels/full-book/circle-of-inevitability/SYNTHESIS.md",
+      "sha256": "e45c0a418511557b943d99e36f4ea079e7da18f72bccaf51121b5cff740aef42",
+      "bytes": 10529
+    },
+    {
+      "path": "docs/research/novels/full-book/fated-villain/SYNTHESIS.md",
+      "sha256": "821556a4c80a6ce0154ea504fb891db91be20e140d8fa8f9b1e404ea3b7c8019",
+      "bytes": 10593
+    },
+    {
+      "path": "docs/research/novels/full-book/labyrinth-mad-god-2/SYNTHESIS.md",
+      "sha256": "ea877c8abfcd95720b05edeaf2ef38abe49c1f2cb36095a0a2ffe871d697c308",
+      "bytes": 5643
+    },
+    {
+      "path": "docs/research/novels/full-book/mother-of-learning/SYNTHESIS.md",
+      "sha256": "20e802bbbf82f090b05f20d8064f627e719bc4c2489fa485420c808232633b68",
+      "bytes": 8942
+    },
+    {
+      "path": "docs/research/novels/full-book/omniscient-reader/SYNTHESIS.md",
+      "sha256": "e074811cad01f94d25f499f58cc1b29e99d8313885eacfe6a5dff45e9f6e4b39",
+      "bytes": 14714
+    },
+    {
+      "path": "docs/research/novels/full-book/regressors-tale/SYNTHESIS.md",
+      "sha256": "a092aae3b0af2425772684ee27fd09c98c5a938b10bf29c72b3be674169b0412",
+      "bytes": 34785
+    },
+    {
+      "path": "docs/research/novels/full-book/solo-leveling/PROPOSALS.md",
+      "sha256": "32062734f722d5a081279b83a642874bbe9238eceb2f8c9770404f12666c8834",
+      "bytes": 2513
+    },
+    {
+      "path": "docs/research/novels/full-book/speedrunning-multiverse/PROPOSALS.md",
+      "sha256": "bbf69afee2fcee3cc3b2bfd78f4f5e9d7182ec70d4be5a86c2316adab58dcde5",
+      "bytes": 6548
+    },
+    {
+      "path": "docs/research/novels/full-book/you-have-died-again/PROPOSALS.md",
+      "sha256": "d4bc05d8cee31ea3daae6a5cc3073e076f30a8a238f92daa3a5c692fba0ac0cd",
+      "bytes": 3490
+    },
+    {
+      "path": "docs/research/novels/legendary-mechanic/world-design-2026-10-11/DESIGN.md",
+      "sha256": "22602a944c898209e78f16c2e0436ae4917e035ab77231d5cf9a95f1f7a9856a",
+      "bytes": 25197
+    },
+    {
+      "path": "docs/research/novels/lord-of-mysteries/PATHWAYS_DEEP_DIVE_2026-10-10.md",
+      "sha256": "f898358b5fccaa14cce488a26068b3b3e26234cc20d45e60ca8f4287ea43069f",
+      "bytes": 28019
+    },
+    {
+      "path": "docs/research/novels/novel-wave-2026-10-08/books/gluttony/REPORT.md",
+      "sha256": "fc608777889f379c43d6bfc4be84688ee54732d5717f67ada736b5b828ced38c",
+      "bytes": 9231
+    },
+    {
+      "path": "docs/research/novels/novel-wave-2026-10-08/books/kairos-1/REPORT.md",
+      "sha256": "4ea7d722d66eeb7633454268f87ccd075605fa24aaf085f3fc7046497710d929",
+      "bytes": 25388
+    },
+    {
+      "path": "docs/research/novels/novel-wave-2026-10-08/books/war-of-pantheon/REPORT.md",
+      "sha256": "929e630306b14821a9c11053044c7a609490182161fae77bb94bb3ce2751502d",
+      "bytes": 12652
+    },
+    {
+      "path": "docs/research/novels/novel-wave-2026-10-09/genetic/DOSSIER.md",
+      "sha256": "3e7e936cfbfa620c15f86fa31d98508ba2134d09b01848407e4b7eeb3afcf165",
+      "bytes": 28859
+    },
+    {
+      "path": "docs/research/novels/novel-wave-2026-10-09/soldier/SERIES_DOSSIER.md",
+      "sha256": "94993fa2a1d916ed7b0adbba6fe75a9a2927dea6967aa30999709ed42725bd22",
+      "bytes": 18822
+    },
+    {
+      "path": "docs/research/novels/novel-wave-2026-10-09/summoned/SERIES_REPORT.md",
+      "sha256": "b4418003f30ab4590a5e385c0ae3f8abb3eb9f29e6d19f755e0d11c283efb1e0",
+      "bytes": 3130
+    },
+    {
+      "path": "docs/research/novels/novel-wave-2026-10-09/wish-stars/SERIES-DOSSIER.md",
+      "sha256": "c78b482b997af4f992a9d22483301c3b296b7564d4c2c5136988ad90dd6cceae",
+      "bytes": 40842
+    },
+    {
+      "path": "docs/research/novels/perfect-run/world-design-2026-10-11/DESIGN.md",
+      "sha256": "66780a10a5a36864099a24636bf8dd89fcac61b84d3328e0f47a1f218faf59c6",
+      "bytes": 22615
+    },
+    {
+      "path": "docs/research/novels/reverend-insanity/world-design-2026-10-11/DESIGN.md",
+      "sha256": "89fedf71e3ee7b6e9cc52a1731c7a19830282c996c1b978525749d8da3dc96d0",
+      "bytes": 21012
+    },
+    {
+      "path": "docs/research/novels/reverend-insanity/world-design-2026-10-11/SOURCE_BINDINGS.json",
+      "sha256": "6a14b0e02b45fd050c80706de95d744d6f727d6dd2e379cb3108808eb26a756b",
+      "bytes": 7169
+    },
+    {
+      "path": "docs/research/novels/ttks-novels-2026-10-10/B1/DEEP_DIVE_2026-10-10.md",
+      "sha256": "fb593df5fb48ef50f52395033b6239a4798e04dd2f453b7392962894933f574c",
+      "bytes": 15354
+    },
+    {
+      "path": "docs/research/novels/ttks-novels-2026-10-10/B2/DEEP_DIVE_2026-10-10.md",
+      "sha256": "003f63ee7287f5a0e5af10e825ad8f5c276f8dc0cd45f31cf21393bd1bf5a0f7",
+      "bytes": 11436
+    },
+    {
+      "path": "docs/research/novels/ttks-novels-2026-10-10/B3/DEEP_DIVE_2026-10-10.md",
+      "sha256": "3f7f779e55fe0214ddd0a5f592b9071c8e5a371e7d469af83fcc1346cb627572",
+      "bytes": 12077
+    },
+    {
+      "path": "docs/research/novels/ttks-novels-2026-10-10/B4/DEEP_DIVE_2026-10-10.md",
+      "sha256": "72f863eb937899143f20fc262e95bee37a61a7d3af81057d10c5911ba546a5e5",
+      "bytes": 10934
+    },
+    {
+      "path": "docs/research/novels/ttks-novels-2026-10-10/B5/DEEP_DIVE_2026-10-10.md",
+      "sha256": "3ffe732026b9a04d671cf048127f3b47851b0068ccadb087a91ead21b00448ca",
+      "bytes": 12375
+    },
+    {
+      "path": "docs/research/novels/warlock/world-design-2026-10-11/BINDINGS.md",
+      "sha256": "39757a5e7e91be196c3430f267f0c981150ad5da86e638714b845a8dca405b72",
+      "bytes": 6534
+    },
+    {
+      "path": "docs/research/novels/warlock/world-design-2026-10-11/DESIGN.md",
+      "sha256": "b0b2b6a8b9d1a5f2a082ec90439e335d03ccce59d80e435552e263e8b4db330f",
+      "bytes": 19347
+    },
+    {
+      "path": "docs/research/novels/worm/world-design-2026-10-11/DESIGN.md",
+      "sha256": "3fd3cde32eac75e380bcbc096ab9d14bd793f3a35a3ddeefbda41202090ccb76",
+      "bytes": 23388
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/DIGEST_harry-potter.md",
+      "sha256": "3eb187c10a766122342053f7cc3f2bf12807acc24cca92d16525fc291a3bce87",
+      "bytes": 7305
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/DIGEST_mistborn.md",
+      "sha256": "421f1d6367a2bb6cfd3b49572b99c032ec6ccc5e6caa49bfab2fb5157faf572c",
+      "bytes": 2716
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/DIGEST_shadow-slave.md",
+      "sha256": "335f48761ef577cde360eb1d43bfbd9677c302187150aebb9fe71b45bf0d476c",
+      "bytes": 39278
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/DIGEST_the-wandering-inn.md",
+      "sha256": "dbdb2d60c2e4bb98d7cf109efcfd69fba76410edf0126c6512cb9f93f1051b44",
+      "bytes": 12448
+    },
+    {
+      "path": "docs/research/procedural-materials-2026-10-13/deep/ARCANE_AND_BOOK_ATLAS.md",
+      "sha256": "d83cee9f3f0dbfd4ec7539e20dead4c261f392cd844440018c541e52a0b26988",
+      "bytes": 18133
+    },
+    {
+      "path": "docs/research/procedural-materials-2026-10-13/deep/CANON_CRAFT_WORLDS.md",
+      "sha256": "62741b67ede2bb4e62b9cec6675c183c3602213410f5d3191f00105f96aaca14",
+      "bytes": 19315
+    },
+    {
+      "path": "docs/worlds/WORLD_DEPTH_CONSIDERATIONS_2026-10-13.md",
+      "sha256": "9a1fbfab06d176fd6ff26899a4271e60744829ff6cf64dba52a14eea55df4561",
+      "bytes": 15226
+    },
+    {
+      "path": "docs/worlds/dnd/COVERAGE_MAP.md",
+      "sha256": "8fa9b1d8e635b10e1a7209b168171a1d8d0599caef1d47181965463c117524f9",
+      "bytes": 6779
+    },
+    {
+      "path": "docs/worlds/dnd/FIRST_SLICE.md",
+      "sha256": "46ad473f56b73b3fa63e14f59ae8cd8063d4f75225f8036300278929ea76f905",
+      "bytes": 11309
+    },
+    {
+      "path": "docs/worlds/dnd/SOURCE_CONTRACT.md",
+      "sha256": "79eb5c8184e4ac02076935a36f9db597898c919812316dcc5a74243f7111cb5b",
+      "bytes": 9391
+    },
+    {
+      "path": "docs/worlds/harry-potter/SOURCE_LEDGER.md",
+      "sha256": "3cc43e541609e7e471e0bd8996fdc68fe31ce5aa6f9c0f4c526585e2fd4bad9c",
+      "bytes": 4731
+    },
+    {
+      "path": "docs/worlds/harry-potter/WORLD_BRIEF.md",
+      "sha256": "d26bb9a47bdb003d0a2a50776ea82ed2e0459066ca2b234eebc6c4fa6e31e765",
+      "bytes": 10254
+    },
+    {
+      "path": "docs/worlds/mother-of-learning/WORLD_BRIEF.md",
+      "sha256": "efbddc496490bc7e15681f5ac4bde4b4f2c83fd7924d4a683b826d78141dc2ea",
+      "bytes": 11827
+    },
+    {
+      "path": "docs/worlds/novel-worlds/CANDIDATES.md",
+      "sha256": "9b520ccbb425ac3010699ae18e9a74b3ea0ca5cdc935e1e17ad70ab422f10ffc",
+      "bytes": 6847
+    },
+    {
+      "path": "docs/worlds/world-depth-2026-10-13/04_FALLOUT_SKYRIM_SL_TTKS.md",
+      "sha256": "c792445dadcbbf78a053181fb35888cff33f68ca439d58f8cb2ec7decbe30e35",
+      "bytes": 44695
+    },
+    {
+      "path": "docs/worlds/world-depth-2026-10-13/05_RESEARCHED_WORLDS.md",
+      "sha256": "0459d9ae8f2f4770e8fe29fe413a1932e534010022505442d557ea3b35576165",
+      "bytes": 67313
+    },
+    {
+      "path": "docs/worlds/world-depth-2026-10-13/08_PRIORITY_CANON_AND_AU.md",
+      "sha256": "d8ea8f659845682a5c58c341367b49f961f8a4812c5ef50d465c6ede0079799b",
+      "bytes": 31769
+    },
+    {
+      "path": "docs/worlds/world-depth-2026-10-13/09_MORE_BOOK_WORLDS_CANON_AND_AU.md",
+      "sha256": "9d1112f3cd58918e3caad9f71360671650181e9087277002f2696b11c5c8f3d6",
+      "bytes": 47948
+    },
+    {
+      "path": "docs/worlds/world-depth-2026-10-13/17_CARRYOVER_AND_RETROFIT.md",
+      "sha256": "e5a1d87e46fde4dee3df8f0ec9c02df1376bb025d44c23fc1eb80b5f9e361f18",
+      "bytes": 35325
+    },
+    {
+      "path": "docs/worlds/world-depth-2026-10-13/23_DEEPER_SYNTHESIS.md",
+      "sha256": "39e0365abfaed43de02646ba606b6d4081a29b4dec4f8ec366079be9504ad9b2",
+      "bytes": 50182
+    }
+  ]
+}

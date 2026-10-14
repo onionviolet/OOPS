@@ -1,0 +1,900 @@
+{
+  "schema": 1,
+  "lane": "ngu-idle",
+  "date": "2026-10-14",
+  "status": "PARTIAL",
+  "scope": "Read-only installed source, selected unlock/reset/challenge/UI mechanisms",
+  "payload": {
+    "steam_app": 1147690,
+    "build_id": "6938742",
+    "manifest_state_flags": 4,
+    "staging_bytes": 0,
+    "windows_executable_present": true,
+    "assembly": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/NGU IDLE/NGUIdle_Data/Managed/Assembly-CSharp.dll",
+    "assembly_bytes": 2031616,
+    "assembly_sha256": "f138c8555f3e3aa9b6661b45e569258125a798ff77555d42eeeaa61fb71eaf71",
+    "fully_installed": true
+  },
+  "evidence_labels": {
+    "shown-source": "Directly read source snapshot, execution untested",
+    "shown-image": "Official historical screenshot inspected",
+    "stated": "Public claim, not verified by execution",
+    "inferred": "Interpretation or transfer proposal"
+  },
+  "findings": [
+    {
+      "id": "F1",
+      "label": "shown-source",
+      "claim": "At least 18 progression surfaces use run gates and permanent item/milestone gates; menu visibility is not usable unlock.",
+      "evidence": [
+        "E1",
+        "E2",
+        "E3",
+        "E5"
+      ]
+    },
+    {
+      "id": "F2",
+      "label": "shown-source",
+      "claim": "Ordinary rebirth settles gains first, clears run state and allocations, and retains selected growth; hard challenge boundaries additionally wipe NUMBER factors and banks. Laser Sword uses ordinary rebirth.",
+      "evidence": [
+        "E4",
+        "E5",
+        "E10",
+        "E11",
+        "E12",
+        "E13",
+        "E14",
+        "E15",
+        "E17",
+        "E18"
+      ]
+    },
+    {
+      "id": "F3",
+      "label": "shown-source",
+      "claim": "The active challenge roster has 11 controllers with distinct gates, objectives and retained completion consumers. An extra class alone is not a usable feature.",
+      "evidence": [
+        "E6",
+        "E21"
+      ]
+    },
+    {
+      "id": "F4",
+      "label": "shown-image",
+      "claim": "Historical desktop UI keeps stats and features visible while presenting one large active system page.",
+      "evidence": [
+        "IMG1",
+        "E7"
+      ]
+    },
+    {
+      "id": "F5",
+      "label": "inferred",
+      "claim": "Stable addresses, explicit readiness and current/next consequences are transferable; default short rebirth cadence and one-page detail swapping conflict with YAIRPG live direction.",
+      "evidence": [
+        "E1",
+        "E7",
+        "E8",
+        "E9",
+        "IMG1"
+      ],
+      "owner_constraints": [
+        "docs/USER_VISION.md",
+        "docs/LIFE_SIM_NORTH_STAR.md"
+      ]
+    }
+  ],
+  "proposals": [
+    {
+      "id": "P1",
+      "status": "PROPOSAL",
+      "rank": 1
+    },
+    {
+      "id": "P2",
+      "status": "PROPOSAL",
+      "rank": 2
+    },
+    {
+      "id": "P3",
+      "status": "PROPOSAL",
+      "rank": 3
+    },
+    {
+      "id": "P4",
+      "status": "PROPOSAL",
+      "rank": 4
+    },
+    {
+      "id": "P5",
+      "status": "PROPOSAL",
+      "rank": 5
+    },
+    {
+      "id": "P6",
+      "status": "PROPOSAL",
+      "rank": 6
+    },
+    {
+      "id": "P7",
+      "status": "PROPOSAL",
+      "rank": 7
+    },
+    {
+      "id": "P8",
+      "status": "PROPOSAL",
+      "rank": 8
+    }
+  ],
+  "evidence": [
+    {
+      "id": "E1",
+      "label": "shown-source",
+      "path": "/Users/weiwei/.codex/research/ngu-idle/extract/assembly/ButtonShower.cs",
+      "sha256": "20e0e4038ac7891673b6a82efcf2019adefadcf30ca6c165819b3d73b0feba86",
+      "anchors": [
+        {
+          "symbol": "updateButtons",
+          "occurrence_lines": [
+            121
+          ]
+        }
+      ],
+      "meaning": "Per-run predicates, permanent flags, visibility and readiness cues"
+    },
+    {
+      "id": "E2",
+      "label": "shown-source",
+      "path": "/Users/weiwei/.codex/research/ngu-idle/extract/assembly/ItemController.cs",
+      "sha256": "9bf149747744866d02b64df12e48d5c3738d3d400c82c795afd56496d4a26208",
+      "anchors": [],
+      "meaning": "Item consumption joins to permanent feature flags; IDs 66 92 102 141 197 292 294 343 391"
+    },
+    {
+      "id": "E3",
+      "label": "shown-source",
+      "path": "/Users/weiwei/.codex/research/ngu-idle/extract/assembly/LootDrop.cs",
+      "sha256": "7fee9fcf3745f24553158a39dc25954d3bba6f3c79a7f589e923ffd80f8e63ab",
+      "anchors": [
+        {
+          "symbol": "zone4Drop",
+          "occurrence_lines": [
+            488
+          ]
+        },
+        {
+          "symbol": "zone6Drop",
+          "occurrence_lines": [
+            730
+          ]
+        },
+        {
+          "symbol": "zone8Drop",
+          "occurrence_lines": [
+            980
+          ]
+        },
+        {
+          "symbol": "zone11Drop",
+          "occurrence_lines": [
+            1355
+          ]
+        },
+        {
+          "symbol": "zone14Drop",
+          "occurrence_lines": [
+            1711
+          ]
+        },
+        {
+          "symbol": "zone19Drop",
+          "occurrence_lines": [
+            2341
+          ]
+        },
+        {
+          "symbol": "zone23Drop",
+          "occurrence_lines": [
+            2917
+          ]
+        },
+        {
+          "symbol": "zone26Drop",
+          "occurrence_lines": [
+            3347
+          ]
+        },
+        {
+          "symbol": "zone30Drop",
+          "occurrence_lines": [
+            3927
+          ]
+        },
+        {
+          "symbol": "zone34Drop",
+          "occurrence_lines": [
+            4503
+          ]
+        }
+      ],
+      "meaning": "Drop-to-unlock routes, not guaranteed first-kill claims"
+    },
+    {
+      "id": "E4",
+      "label": "shown-source",
+      "path": "/Users/weiwei/.codex/research/ngu-idle/extract/assembly/Rebirth.cs",
+      "sha256": "de701a08f7ca63d007d7749a7b331d3b5fc833d49d046ac3d2924e0ae08158b0",
+      "anchors": [
+        {
+          "symbol": "engage",
+          "occurrence_lines": [
+            182,
+            184,
+            187,
+            342,
+            361,
+            380,
+            399,
+            418,
+            438,
+            459,
+            480,
+            499,
+            519,
+            540,
+            569,
+            581,
+            590,
+            818
+          ]
+        },
+        {
+          "symbol": "resetTraining",
+          "occurrence_lines": [
+            199,
+            636
+          ]
+        },
+        {
+          "symbol": "resetEnergy",
+          "occurrence_lines": [
+            196,
+            607
+          ]
+        },
+        {
+          "symbol": "hardResetMultis",
+          "occurrence_lines": [
+            215,
+            439,
+            549,
+            570,
+            583,
+            591,
+            819
+          ]
+        },
+        {
+          "symbol": "calculateNextMultis",
+          "occurrence_lines": [
+            40,
+            780
+          ]
+        },
+        {
+          "symbol": "verifyChallengeStatus",
+          "occurrence_lines": [
+            311,
+            333,
+            352,
+            371,
+            390,
+            409,
+            429,
+            450,
+            471,
+            490,
+            510,
+            531
+          ]
+        },
+        {
+          "symbol": "engageLaserSwordChallenge",
+          "occurrence_lines": [
+            478
+          ]
+        }
+      ],
+      "meaning": "Ordered settlement/reset and NUMBER formula"
+    },
+    {
+      "id": "E5",
+      "label": "shown-source",
+      "path": "/Users/weiwei/.codex/research/ngu-idle/extract/assembly/Character.cs",
+      "sha256": "212bdadb8862372fdcbf8a3c388071d1ccab28e0407b256c34914fa475574b39",
+      "anchors": [
+        {
+          "symbol": "resetAll",
+          "occurrence_lines": [
+            928
+          ]
+        },
+        {
+          "symbol": "addGold",
+          "occurrence_lines": [
+            2084,
+            2423
+          ]
+        }
+      ],
+      "meaning": "Reset fan-out and persistent pit gate"
+    },
+    {
+      "id": "E6",
+      "label": "shown-source",
+      "path": "/Users/weiwei/.codex/research/ngu-idle/extract/assembly/AllChallengesController.cs",
+      "sha256": "cf18c53e930cb6ed677b0b95057309da456b1157bbe654b8c3857ec1313992cd",
+      "anchors": [],
+      "meaning": "11-controller active roster and later bonus consumers"
+    },
+    {
+      "id": "E7",
+      "label": "shown-source",
+      "path": "/Users/weiwei/.codex/research/ngu-idle/extract/assembly/MenuSwapper.cs",
+      "sha256": "935bde193197eaa7444a9638300d4bc180d185c0fbdc9acd40a4a491bcde5dfc",
+      "anchors": [
+        {
+          "symbol": "swapMenu",
+          "occurrence_lines": [
+            42,
+            46
+          ]
+        },
+        {
+          "symbol": "swapIn",
+          "occurrence_lines": [
+            59,
+            77
+          ]
+        },
+        {
+          "symbol": "swapOut",
+          "occurrence_lines": [
+            58,
+            66
+          ]
+        }
+      ],
+      "meaning": "Only selected detail menu has active canvas/raycaster"
+    },
+    {
+      "id": "E8",
+      "label": "shown-source",
+      "path": "/Users/weiwei/.codex/research/ngu-idle/extract/assembly/RebirthPowerDisplay.cs",
+      "sha256": "100670a8ea91ca21146d4744d641f0535bbc3c8e483fcdf94839690cd5a3775b",
+      "anchors": [
+        {
+          "symbol": "Update",
+          "occurrence_lines": [
+            37
+          ]
+        }
+      ],
+      "meaning": "Current/next NUMBER comparison, contributor rows and challenge access"
+    },
+    {
+      "id": "E9",
+      "label": "shown-source",
+      "path": "/Users/weiwei/.codex/research/ngu-idle/extract/assembly/DisabledButtonTooltip.cs",
+      "sha256": "f38b341289c036c1ef46a70599dee270af2b360df039e48e3ca53d1bf0ef1870",
+      "anchors": [
+        {
+          "symbol": "tooltipEnter",
+          "occurrence_lines": [
+            14
+          ]
+        },
+        {
+          "symbol": "invTooltipEnter",
+          "occurrence_lines": [
+            27
+          ]
+        }
+      ],
+      "meaning": "Disabled reason and discoverable inventory controls"
+    },
+    {
+      "id": "E10",
+      "label": "shown-source",
+      "path": "/Users/weiwei/.codex/research/ngu-idle/extract/assembly/AllAdvancedTraining.cs",
+      "sha256": "5676c1ff01169f95ab094a5f12097fc6d74073ac011650c8935cb992d564ed27",
+      "anchors": [
+        {
+          "symbol": "reset",
+          "occurrence_lines": [
+            49
+          ]
+        },
+        {
+          "symbol": "challengeReset",
+          "occurrence_lines": [
+            78
+          ]
+        },
+        {
+          "symbol": "advancedTrainingUnlocked",
+          "occurrence_lines": [
+            24,
+            40
+          ]
+        }
+      ],
+      "meaning": "Conditional banking and delayed transfer"
+    },
+    {
+      "id": "E11",
+      "label": "shown-source",
+      "path": "/Users/weiwei/.codex/research/ngu-idle/extract/assembly/TimeMachineController.cs",
+      "sha256": "e5bac539ae5f9e701db8c173b42b92c37d2a272f1053beff6234bcef4dd22255",
+      "anchors": [
+        {
+          "symbol": "reset",
+          "occurrence_lines": [
+            490
+          ]
+        },
+        {
+          "symbol": "challengeReset",
+          "occurrence_lines": [
+            97
+          ]
+        },
+        {
+          "symbol": "setBankedLevels",
+          "occurrence_lines": [
+            104
+          ]
+        }
+      ],
+      "meaning": "Conditional banking and guarded transfer"
+    },
+    {
+      "id": "E12",
+      "label": "shown-source",
+      "path": "/Users/weiwei/.codex/research/ngu-idle/extract/assembly/AllBeardsController.cs",
+      "sha256": "3cd36b739d06776fa94bd69016eb3eefc127a3326f340d674c81943140ab2414",
+      "anchors": [
+        {
+          "symbol": "reset",
+          "occurrence_lines": [
+            226
+          ]
+        },
+        {
+          "symbol": "challengeReset",
+          "occurrence_lines": [
+            246
+          ]
+        },
+        {
+          "symbol": "convertBeardTrimmings",
+          "occurrence_lines": [
+            286
+          ]
+        }
+      ],
+      "meaning": "Temporary-to-permanent conversion and temporary banks"
+    },
+    {
+      "id": "E13",
+      "label": "shown-source",
+      "path": "/Users/weiwei/.codex/research/ngu-idle/extract/assembly/NGU.cs",
+      "sha256": "ee6bc29c82868e5abf4dd734534e309365848a5385ee1cf838efd38a37024c80",
+      "anchors": [
+        {
+          "symbol": "reset",
+          "occurrence_lines": [
+            37
+          ]
+        },
+        {
+          "symbol": "targetLevel",
+          "occurrence_lines": [
+            43
+          ]
+        }
+      ],
+      "meaning": "Levels/progress/targets retained while allocations clear"
+    },
+    {
+      "id": "E14",
+      "label": "shown-source",
+      "path": "/Users/weiwei/.codex/research/ngu-idle/extract/assembly/HacksController.cs",
+      "sha256": "5e297aae74cc8129ec5a6bdcd3a673a93b279bbba672aa8a928ad0db10f7e2bf",
+      "anchors": [
+        {
+          "symbol": "reset",
+          "occurrence_lines": [
+            106
+          ]
+        },
+        {
+          "symbol": "updateAllHacks",
+          "occurrence_lines": [
+            227
+          ]
+        }
+      ],
+      "meaning": "Allocation clear and menu-independent timed progression"
+    },
+    {
+      "id": "E15",
+      "label": "shown-source",
+      "path": "/Users/weiwei/.codex/research/ngu-idle/extract/assembly/Wish.cs",
+      "sha256": "9a1eb4c49b55734a4906663898f4a238a9ec93fb7fbe294c97d6a7e6529f4e04",
+      "anchors": [
+        {
+          "symbol": "reset",
+          "occurrence_lines": [
+            25
+          ]
+        }
+      ],
+      "meaning": "Three resource allocations clear; levels/progress retained"
+    },
+    {
+      "id": "E16",
+      "label": "shown-source",
+      "path": "/Users/weiwei/.codex/research/ngu-idle/extract/assembly/WishesController.cs",
+      "sha256": "28e2827285cf37b101305fa1d3ed2864e44b78d1449958985e99f5a66188867f",
+      "anchors": [
+        {
+          "symbol": "reset",
+          "occurrence_lines": [
+            682,
+            686
+          ]
+        },
+        {
+          "symbol": "updateAllWishes",
+          "occurrence_lines": [
+            266
+          ]
+        }
+      ],
+      "meaning": "All wish reset caller and distinct simulation/UI cadence"
+    },
+    {
+      "id": "E17",
+      "label": "shown-source",
+      "path": "/Users/weiwei/.codex/research/ngu-idle/extract/assembly/InventoryController.cs",
+      "sha256": "6899806f5a60942ef4f12ff07f95f37be20a3a7ff44598f59a14ac2ce631e4c8",
+      "anchors": [
+        {
+          "symbol": "reset",
+          "occurrence_lines": [
+            127,
+            132,
+            158,
+            2019
+          ]
+        }
+      ],
+      "meaning": "Inventory reset is empty"
+    },
+    {
+      "id": "E18",
+      "label": "shown-source",
+      "path": "/Users/weiwei/.codex/research/ngu-idle/extract/assembly/Yggdrasil.cs",
+      "sha256": "a5f8026c1c8f657133efec3070d2dc782323e47e690711081809edcc9af20fdc",
+      "anchors": [
+        {
+          "symbol": "reset",
+          "occurrence_lines": [
+            41,
+            47,
+            48,
+            49,
+            50,
+            51,
+            52,
+            58
+          ]
+        }
+      ],
+      "meaning": "Run fruit reset and activation flag behavior"
+    },
+    {
+      "id": "E19",
+      "label": "shown-source",
+      "path": "/Users/weiwei/.codex/research/ngu-idle/extract/assembly/Fruit.cs",
+      "sha256": "c2cf6a6cbdc061f6ec00e9eb9999766e5d5698b28a4c6590ff58aed562266c55",
+      "anchors": [
+        {
+          "symbol": "reset",
+          "occurrence_lines": [
+            39,
+            47
+          ]
+        }
+      ],
+      "meaning": "Current fruit lifecycle distinct from max tier"
+    },
+    {
+      "id": "E20",
+      "label": "shown-source",
+      "path": "/Users/weiwei/.codex/research/ngu-idle/extract/assembly/RebirthReminders.cs",
+      "sha256": "5b3b9abda3962fa242c36c39d75957afbc62bc6721269b457b655c97ae87de75",
+      "anchors": [],
+      "meaning": "Actual readiness checks"
+    },
+    {
+      "id": "E21",
+      "label": "shown-source",
+      "path": "/Users/weiwei/.codex/research/ngu-idle/extract/assembly/AllNGUController.cs",
+      "sha256": "17242036a2067b8731779f9b46ce63ac63c396135ae11901c1a11be0d086ea68",
+      "anchors": [
+        {
+          "symbol": "nguChallengeUnlocked",
+          "occurrence_lines": [
+            122
+          ]
+        },
+        {
+          "symbol": "unlocked100LevelChallenge",
+          "occurrence_lines": [
+            1230
+          ]
+        },
+        {
+          "symbol": "autoAdvanceEnergy",
+          "occurrence_lines": [
+            1244
+          ]
+        }
+      ],
+      "meaning": "Challenge gates and allocation redirect"
+    },
+    {
+      "id": "E22",
+      "label": "shown-source",
+      "path": "/Users/weiwei/.codex/research/ngu-idle/extract/assembly/Wandoos98.cs",
+      "sha256": "de428c4c1871cf697c7a35ed81cd2b54c38892f8b298f3555961265977adc9f7",
+      "anchors": [
+        {
+          "symbol": "reset",
+          "occurrence_lines": [
+            65,
+            67
+          ]
+        }
+      ],
+      "meaning": "Temporary boot/growth resets without deleting OS upgrades"
+    },
+    {
+      "id": "E23",
+      "label": "shown-source",
+      "path": "/Users/weiwei/.codex/research/ngu-idle/extract/assembly/AdventureController.cs",
+      "sha256": "5968b5e1707ce35ccbe4210088b3b142497b6805b489a94cad3e80bdeca0a18c",
+      "anchors": [],
+      "meaning": "No Rebirth unlock assigned on Titan 3 paths"
+    },
+    {
+      "id": "C-BasicChallengeController",
+      "label": "shown-source",
+      "path": "/Users/weiwei/.codex/research/ngu-idle/extract/assembly/BasicChallengeController.cs",
+      "sha256": "6660a88449851a49a3597588761aa3abe5c3a0e331ca06605e89442cb9f3e20e",
+      "anchors": [
+        "unlocked",
+        "targetBoss or laserSwordTarget",
+        "complete"
+      ],
+      "meaning": "Selected gates, objectives, completion records; full restriction consumers unread"
+    },
+    {
+      "id": "C-BlindChallengeController",
+      "label": "shown-source",
+      "path": "/Users/weiwei/.codex/research/ngu-idle/extract/assembly/BlindChallengeController.cs",
+      "sha256": "d5b9ce5eb3bef3d11ccd3bbe328504e8c9919cf27fdb1068dd968cae7dbfdae7",
+      "anchors": [
+        "unlocked",
+        "targetBoss or laserSwordTarget",
+        "complete"
+      ],
+      "meaning": "Selected gates, objectives, completion records; full restriction consumers unread"
+    },
+    {
+      "id": "C-Hour24ChallengeController",
+      "label": "shown-source",
+      "path": "/Users/weiwei/.codex/research/ngu-idle/extract/assembly/Hour24ChallengeController.cs",
+      "sha256": "f1e1f9f31e1f83c35ebb2a274975513b72910a2c07447707b702cf2d16954f13",
+      "anchors": [
+        "unlocked",
+        "targetBoss or laserSwordTarget",
+        "complete"
+      ],
+      "meaning": "Selected gates, objectives, completion records; full restriction consumers unread"
+    },
+    {
+      "id": "C-LaserSwordChallengeController",
+      "label": "shown-source",
+      "path": "/Users/weiwei/.codex/research/ngu-idle/extract/assembly/LaserSwordChallengeController.cs",
+      "sha256": "1ec0557d8aa303681ecdac69b023e9b6f2db000c0d4e191d9af694b250997969",
+      "anchors": [
+        "unlocked",
+        "targetBoss or laserSwordTarget",
+        "complete"
+      ],
+      "meaning": "Selected gates, objectives, completion records; full restriction consumers unread"
+    },
+    {
+      "id": "C-LevelChallenge10KController",
+      "label": "shown-source",
+      "path": "/Users/weiwei/.codex/research/ngu-idle/extract/assembly/LevelChallenge10KController.cs",
+      "sha256": "3420fecb2841e980a706637cac0591ffe642bba16e742128c0de932730ff91ff",
+      "anchors": [
+        "unlocked",
+        "targetBoss or laserSwordTarget",
+        "complete"
+      ],
+      "meaning": "Selected gates, objectives, completion records; full restriction consumers unread"
+    },
+    {
+      "id": "C-NGUChallengeController",
+      "label": "shown-source",
+      "path": "/Users/weiwei/.codex/research/ngu-idle/extract/assembly/NGUChallengeController.cs",
+      "sha256": "4526af32fa07b7b234df46ba5718ae351325d946a21fbd6a57d8da7593e0dbc6",
+      "anchors": [
+        "unlocked",
+        "targetBoss or laserSwordTarget",
+        "complete"
+      ],
+      "meaning": "Selected gates, objectives, completion records; full restriction consumers unread"
+    },
+    {
+      "id": "C-NoAugsChallengeController",
+      "label": "shown-source",
+      "path": "/Users/weiwei/.codex/research/ngu-idle/extract/assembly/NoAugsChallengeController.cs",
+      "sha256": "6fa5a0b6d23d01143d0d4bfee77e8d41d366a1a8da22aa458434c9f8f1eb4355",
+      "anchors": [
+        "unlocked",
+        "targetBoss or laserSwordTarget",
+        "complete"
+      ],
+      "meaning": "Selected gates, objectives, completion records; full restriction consumers unread"
+    },
+    {
+      "id": "C-NoEquipmentChallengeController",
+      "label": "shown-source",
+      "path": "/Users/weiwei/.codex/research/ngu-idle/extract/assembly/NoEquipmentChallengeController.cs",
+      "sha256": "55b3db7739b5100f394c8ca6d9e5099d3353cd51fe3559f475f0e97f2db4e94f",
+      "anchors": [
+        "unlocked",
+        "targetBoss or laserSwordTarget",
+        "complete"
+      ],
+      "meaning": "Selected gates, objectives, completion records; full restriction consumers unread"
+    },
+    {
+      "id": "C-NoRebirthChallengeController",
+      "label": "shown-source",
+      "path": "/Users/weiwei/.codex/research/ngu-idle/extract/assembly/NoRebirthChallengeController.cs",
+      "sha256": "b67061851be3fe31509673d42c335202164f9dc030abae284fbb445d81e9b2bc",
+      "anchors": [
+        "unlocked",
+        "targetBoss or laserSwordTarget",
+        "complete"
+      ],
+      "meaning": "Selected gates, objectives, completion records; full restriction consumers unread"
+    },
+    {
+      "id": "C-TimeMachineChallengeController",
+      "label": "shown-source",
+      "path": "/Users/weiwei/.codex/research/ngu-idle/extract/assembly/TimeMachineChallengeController.cs",
+      "sha256": "b5ce2380ff983888ccf51d84720206f75e07b96a09b55821aaebdb44b12ea50d",
+      "anchors": [
+        "unlocked",
+        "targetBoss or laserSwordTarget",
+        "complete"
+      ],
+      "meaning": "Selected gates, objectives, completion records; full restriction consumers unread"
+    },
+    {
+      "id": "C-TrollChallengeController",
+      "label": "shown-source",
+      "path": "/Users/weiwei/.codex/research/ngu-idle/extract/assembly/TrollChallengeController.cs",
+      "sha256": "f8b6391d38781788ff1188567e2468c8cd97393353a8f1b5072eaa6dbb717db7",
+      "anchors": [
+        "unlocked",
+        "targetBoss or laserSwordTarget",
+        "complete"
+      ],
+      "meaning": "Selected gates, objectives, completion records; full restriction consumers unread"
+    },
+    {
+      "id": "C-YggdrasilChallengeController",
+      "label": "shown-source",
+      "path": "/Users/weiwei/.codex/research/ngu-idle/extract/assembly/YggdrasilChallengeController.cs",
+      "sha256": "2f784c89d1feb43b539ffe7b1092e83c0121ff51778c3006bdc6a0ce77ab6500",
+      "anchors": [
+        "unlocked",
+        "targetBoss or laserSwordTarget",
+        "complete"
+      ],
+      "meaning": "Selected gates, objectives, completion records; full restriction consumers unread"
+    },
+    {
+      "id": "IMG1",
+      "label": "shown-image",
+      "path": "/Users/weiwei/.codex/research/ngu-idle/notes/store-screen-0.jpg",
+      "sha256": "0fbb6744d9218b39b15b07c81e4ad909575d128d28c7fefdc0e7a9235e98e20e",
+      "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1147690/ss_5bd022cf9448ee41b7d7a0be97f32ff1c5169ad5.1920x1080.jpg?t=1698784381",
+      "viewport": [
+        1680,
+        1050
+      ],
+      "visible_build": "0.427-2",
+      "limit": "Historical official image, not installed runtime"
+    },
+    {
+      "id": "E24",
+      "label": "shown-source",
+      "path": "/Users/weiwei/.codex/research/ngu-idle/extract/assembly/AllBloodMagicController.cs",
+      "sha256": "0b3ce459890df96cc8b8829324824433ccaa07affd318bb5d5a23f6c23c0f0ea",
+      "anchors": [
+        "reset"
+      ],
+      "meaning": "Read final reset caller/data joins"
+    },
+    {
+      "id": "E25",
+      "label": "shown-source",
+      "path": "/Users/weiwei/.codex/research/ngu-idle/extract/assembly/AllAugsController.cs",
+      "sha256": "ed1da58bd959cd450c155a85be2efd6254a5bfa6899db366dc52aa98d577cfe5",
+      "anchors": [
+        "reset"
+      ],
+      "meaning": "Read final reset caller/data joins"
+    },
+    {
+      "id": "E26",
+      "label": "shown-source",
+      "path": "/Users/weiwei/.codex/research/ngu-idle/extract/assembly/AugmentController.cs",
+      "sha256": "1e41158bbd09521d896527cac9acc5f5e24124b1f6ab64820c33ffad9136f60f",
+      "anchors": [
+        "reset"
+      ],
+      "meaning": "Read final reset caller/data joins"
+    },
+    {
+      "id": "E27",
+      "label": "shown-source",
+      "path": "/Users/weiwei/.codex/research/ngu-idle/extract/assembly/Aug.cs",
+      "sha256": "cb5e82dcca385ef265769a10403806649da2b379127f40f542c3a77ab66677de",
+      "anchors": [
+        "reset"
+      ],
+      "meaning": "Read final reset caller/data joins"
+    }
+  ],
+  "public_sources": [
+    {
+      "url": "https://store.steampowered.com/app/1147690/NGU_IDLE/",
+      "label": "stated",
+      "purpose": "Official unfolding-feature and mixed-play description"
+    },
+    {
+      "url": "https://store.steampowered.com/api/appdetails?appids=1147690",
+      "label": "shown-image",
+      "purpose": "Official screenshot URLs"
+    }
+  ],
+  "gaps": [
+    "Runtime and current desktop presentation prohibited by no-launch rule",
+    "Serialized scenes and inspector data unread",
+    "Full challenge restriction consumers and all reward caps unread",
+    "Full offline/save/platform/monetization semantics unread",
+    "Whole assembly exported, selected semantics only"
+  ]
+}

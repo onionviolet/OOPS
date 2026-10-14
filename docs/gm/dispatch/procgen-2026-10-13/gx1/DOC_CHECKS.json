@@ -1,0 +1,46 @@
+{
+  "status": "PASS",
+  "checked_utc": "2026-10-14T05:40:59.586176+00:00",
+  "evidence_layer": "STATIC DOCUMENTATION ONLY",
+  "counts": {
+    "markdown_files": 19,
+    "family_profiles": 13,
+    "profile_domain_rows": 156,
+    "required_title_checks": 39,
+    "recommended_slices": 5,
+    "local_link_targets": 232,
+    "local_anchor_targets": 3,
+    "source_line_links": 10,
+    "tables": 43,
+    "table_lines": 403,
+    "input_fingerprints": 38
+  },
+  "errors": [],
+  "scope": "All successful write tool targets were under gx1; failed first profile-generator command wrote no files. Shared dirty state was not staged/reset/edited by GX1. Content checks do not prove preservation against concurrent writers.",
+  "manual_review": [
+    "Original examples only; no sealed file opened or truth assigned/disclosed. This is not an independent sealed fairness audit.",
+    "All profiles label proposal/evidence boundaries and preserve source contradictions.",
+    "No runtime tests/build/browser/native/persistence/commit evidence claimed.",
+    "13 profiles plus common owners route all K1/K2 requested titles without new priority."
+  ],
+  "not_run": [
+    "runtime tests",
+    "build",
+    "native gameplay",
+    "Save/reload",
+    "literal-file Import",
+    "desktop browser",
+    "human acceptance",
+    "external URL availability sweep"
+  ],
+  "final_readback_utc": "2026-10-14T05:42:31.154299+00:00",
+  "final_k_outputs": {
+    "K1_REPORT.md": true,
+    "K2_REPORT.md": true,
+    "K3_REPORT.md": true,
+    "K4_REPORT.md": true,
+    "K5_REPORT.md": true,
+    "K6_REPORT.md": false
+  },
+  "source_module_drift_since_capture": []
+}

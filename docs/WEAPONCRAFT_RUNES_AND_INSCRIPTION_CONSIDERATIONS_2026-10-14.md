@@ -492,3 +492,85 @@ duplicate anything.
 Once lanes W1 to W7 and R2 report, fold their findings here. Then turn the
 other two palettes into pointers to this doc, as the inscription doc already
 offers. Nothing is selected for a build.
+
+## Round 3: fold of lanes W1 to W7 and R1 to R3 (2026-10-14)
+
+This is a fold only, with no new lanes, and everything stays a proposal.
+The returns were committed in `fd176f27`. The crafting palette already
+cross-references these lanes in `eefa68a3`, including the code map between
+crafting AB1 to AB7 and W4's AB1 to AB12; see
+[the crafting palette's fold table](PROCEDURAL_CRAFTING_AND_CONSUMABLES_CONSIDERATIONS_2026-10-14.md).
+This round doesn't redo that map. It records only what changes in this doc.
+
+### Corrections to this doc
+
+- **Code state was wrong.** W4 F1 shows live weapons already have template
+  parts, weapon-type selection and computed attack (`src/items.js:939-1008`,
+  `src/crafting_recipes.js:255-289`). My "no module for weapons built from
+  parts" meant no generated part-instance truth, not no parts at all.
+  Part-built weapons (WC1) extend that path; they don't need a new engine.
+- **P2 is live in main** (W4 F2: `src/mixture_state.js`, P1 streams). Older
+  wording that calls it unmerged is stale. Source presence still isn't
+  rebuilt acceptance.
+- **The WW table (MEMORY) is replaced by W1's sourced table.** See
+  [Maker arts by world](worlds/MAKER_ARTS_BY_WORLD_2026-10-14.md), which
+  covers 25 world folders and 17 full-book folders with an evidence ledger.
+  Of 11 memory rows, four were confirmed and seven corrected:
+  - D&D attunement applies to selected items only.
+  - Elden Ring Ashes of War need compatible armaments.
+  - Fallout mod rules are Fallout 4-specific.
+  - Bleach zanpakuto blanks are manufactured before the soul develops them,
+    so WW3's "grown, not forged" is too simple.
+  - Fate copying is exceptional.
+  - FMA energy disagreements stay attributed both ways.
+  - Legendary Mechanic blueprints come from combining knowledge and talents,
+    not fusing finished blueprints. My CR13-adjacent "blueprint fusion"
+    stays an original idea.
+- **Wear has two owners today** (W4 F3). An optional E2 durability wraps
+  per landed hit. IM5's per-job batching would be a new compatibility
+  decision, not current behavior, and wear needs exactly one selected owner.
+
+### What each lane adds here
+
+| Lane | Adds | Maps to this doc |
+| --- | --- | --- |
+| W1 by world | Sourced laws, maker, cost, product and starts per world, with era and role fit | Replaces WW1-WW15 |
+| W2 rune language | Word classes, contextual senses, carrier capacity vectors, gates and latches, reading and counters, hijacking, deep words, binding clauses, ruin hypothesis loops, sealed meaning IDs, copy lineage, three worked ASCII glyph programs with execution traces | Deepens RN1-RN13 and CR16; the worked programs are the first concrete rune composer content (UI CF3) |
+| W3 reveal cheats | RC1-RC16 plus 12 more cards with status-text samples; fidelity ladders reconciled (root F0-F5, companion RF0-RF6); a 28-card leak list (feelings, glow, counts, sorting and buyer prices can all leak) | Deepens CR1-CR22. RC13 is the only physical-copy exception, and information-copy cards never duplicate identity, souls or bonds |
+| W4 implementation | AB1-AB12 with file:line evidence, identity contract ID1-ID5, ordered slices PS1-PS5 | Replaces this doc's AB and IM rows as the evidence-backed set. My AB1-AB12 are superseded where they differ |
+| W5 micro craft | 80 sourced text cues (SB13-SB92) across ten crafts | Extends SU1-SU21 |
+| W6 other arts | OM1-OM16 deepened, 12 more arts (pottery, rope, dyes, masonry, calibration, assistive fittings, maps, restoration and more), 16 game references, worked joins | Extends WC11 |
+| W7 item lifetimes | LT1-LT12, a three-generation knife biography, carryover matrix (W7's CR1-CR8 are carryover rows, not cheats) | Extends WC8-WC10 and WX3. Keeps physical instance, biography, claims, custody and identity separate |
+| R1 | Stopped; W1 is its replacement | None |
+| R2 game references | Ranked top 10 (Tinkers' Construct, Ars Nouveau, Noita, Atelier Ryza and more), GX1-GX10 | GX2 (program, carrier and executor kept separate) and GX3 (three kinds of failure) sharpen RN; GX7 (a notebook of claims, not truth) matches OV4; GX8 (a learned procedure unlocks repetition) matches OV3 |
+| R3 | Stopped; W4 is its replacement | None |
+
+### Contradictions to keep visible
+
+- **R2 GX5 and GX6 versus silent rules changes.** Paid items made under
+  older rules need pinning or migration, never a silent reroll. This is the
+  same rule as the materials audit's R6, and it applies to IM7 here.
+- **Build order differs, and both orders stay reachable.** W4 starts with
+  braces, repair, a blade pair, appraisal and a work lamp (PS1-PS5). The
+  crafting palette's CR6 starts with the registry adapter, then
+  poison and antidote, then the notebook. My earlier "three-part knife" slice
+  is superseded by W4 PS1 and PS3.
+- **W4 F5: the scheduler's 512-boundary cap protects causal work, not browser
+  responsiveness.** IM3's resolver budget is an unmeasured candidate gate.
+
+### Top picks after the fold
+
+1. **W4 PS1, two Springsteel braces on the P2 registry.** It's the shared
+   first step for equipment and matches the crafting palette's top pick.
+2. **W3 RC1 appraisal as the first lens,** with W3's leak list as its
+   acceptance checklist.
+3. **W4 PS3, a generated blade pair** that changes attack or recovery in real
+   native combat.
+4. **W4 PS5, P6's work lamp, using W2's typed ports and bounded trace.** It's
+   the first rune that does something useful, without a universal rune
+   language.
+5. **W7's identity separation (JR1-JR5) adopted before any history log,** so
+   reforging and heirs work.
+
+The duplicate palettes stay as they are; they're owned elsewhere. This doc
+remains primary, and the maker-arts doc keeps its W-lane links.

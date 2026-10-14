@@ -1498,6 +1498,93 @@ work). Added a topic map and a short merging section.
 | J61 | Misread finder | Cues you've been reading wrong | It shows how long you were wrong |
 | J62 | Fusion preview | What a merge would keep and lose (IA1) | The companions see it too |
 
+## Lane returns C11 to C16 (folded 2026-10-14)
+
+Fold only: no new lanes, everything stays proposals. All six outputs live in
+[companions dispatch](gm/dispatch/companions-2026-10-14/COMMON.md). Corrections
+to this palette come first.
+
+### Corrections and contradictions
+
+- **GC3 and HD7 overstated "cues are save-free" (C13 F3).** A passive caption
+  rendered from current state can be pure. A line that becomes *history*
+  (shown in the log, deduped, replayed) needs a saved replay identity, as C10
+  B3 says. Both stay: pure captions for presence, a small saved cue ledger for
+  emitted lines.
+- **Line rate disagrees between lanes.** C9 FR02 suggests a visible line every
+  3 to 5 minutes; C10 B1 suggests about six an hour, eight minutes apart. Both
+  are taste proposals, not measured; keep both as candidates.
+- **Observation channels are narrower than GA assumed (C13 F4, C12 E1-E14).**
+  The existing channel code is light and sound scoped, information only, with
+  means and receipt guards. It is a precedent, not generic pet telepathy;
+  reveal cheats need declared domains and acquired means.
+- **Save headroom (C13 F5).** Size budgets for one companion, a group and an
+  army are investigation targets, not benchmarks. The current guard counts the
+  whole origin's UTF-16 storage; do not plan on "4 MiB free for pets".
+- **Retention (C13 F2).** Recent relationship memory truncates at 32 entries,
+  and lifePolicy ages everyone on common time regardless of world. Durable
+  companion milestones, away-world care and heirs keeping a living companion
+  each need an explicit adapter.
+- **Crafting evidence moved (C15 F1).** Earlier lane wording that Village
+  mixture source was absent is dated; it is now in the checkout.
+
+### What each lane adds
+
+| Lane | Output | Adds |
+|---|---|---|
+| C11 | [Tension defaults](gm/dispatch/companions-2026-10-14/TENSION_DEFAULTS.md) | 42 Default + Dial + Reasonably rows (seven tension groups by six world types: cozy village, cultivation, wizard school, devil-contract city, time loop, tech), 37 named-world fit rows, procedures for C6's gaps (G1 contagion and quarantine, G2 conflicting carers, G3 a pet becoming sapient), and one-line wording for each owner doc on C6 overlaps F1 to F18 (not applied) |
+| C12 | [Reveal cheats](gm/dispatch/companions-2026-10-14/REVEAL_CHEATS.md) | Fidelity ladder RF0 to RF6 (matches GA1 to GA7), 26 full cheat cards RC01 to RC26 in cheat-library shape, including other people's beasts, wild targets and companions reading you; a CH1 status window "Pets" section for short granted fields, inline cues for senses, proposed Cause, Replay, Mind and Life views. BX08 holds: bond growth never silently unlocks omniscience |
+| C13 | [Implementation implications](gm/dispatch/companions-2026-10-14/IMPLEMENTATION_IMPLICATIONS.md) | Thirteen state owners, event-to-cue and acquired-reveal pipelines, old-save defaults, byte and timing budgets, six verification groups, all ten BX anti-patterns as code guards, and dependency layers L00 to L07 (below) |
+| C14 | [Comics](gm/dispatch/companions-2026-10-14/COMICS.md) | 44 sourced rows (Marvel, DC, indie and Image, strips, webtoons) and 17 variant-target rows covering comics targets T1 to T24; comic mechanics CM1 to CM12 (below). Section HA rows are now checked there |
+| C15 | [Crafting and research](gm/dispatch/companions-2026-10-14/CRAFTING_AND_RESEARCH.md) | Five-record joins for goods made for companions, six made-being families as actors with provenance, five production roles, harm and provenance rules PR1 to PR5, six research and teaching routes, real-world reference cards |
+| C16 | [Abstraction](gm/dispatch/companions-2026-10-14/ABSTRACTION.md) | Seven shapes tested on fourteen cases (HD minus Thread, which stays with the story owner), eight over-abstraction guards, twelve principles |
+
+### Build layers from C13 (dependency order, not a schedule)
+
+| Layer | Builds | Opens in this palette |
+|---|---|---|
+| L00 | Shared contracts: body choice, actor, clock and observation owners, deterministic causes, validators | Backbone only |
+| L01 | N1 stray: new dog, two paid feeds, sparse dog-to-player bond, safe follow, finite forage, explicit age, save round trip | B2, C1/C2 subset, E1, L2, readable age, EO |
+| L02 | N2 knowledge and cues: observation receipts, cue ledger, species-safe templates in the People view | L, Z, DA, DJ, DP, EK, ET |
+| L03 | N3 care and habits: optional rest and care policy, sparse preferences and retraining | E6, V, DB, DC, DR, EA, ED, EP, EJ, FB, FC, FH |
+| L04 | N4/N5 senses and carrying | DE, EM, BB1, BB4, G3, DK, R104, R106 |
+| L05 | Durable history, life stage, first prestige renewal | DG, EF, EL, EN, FI, CD, DQ, CJ, CK |
+| L06 | Typed support and reveal | C5, C6, P, DM, DT, J33, J36, J40, pair acts |
+| L07 | Outward branches: mounts, world passage, heirs, generation, evolution, groups | G, BF, I, M, R |
+
+### Comic mechanics from C14
+
+CM1 pet mantles (holder versus office), CM2 retcon versus lived memory (freeze
+the run's source snapshot), CM3 counterparts are other actors by default, CM4
+a power event is separate from care, CM5 a pet's sidekick career beside its
+home routine, CM6 nonhuman team members join by agreement, CM7 a
+witness-to-proof ladder for a pet exposing a secret identity, CM8 crossovers
+with return state, CM9 host and symbiote permissions per sense and action,
+CM10 artificial support becoming a colleague, CM11 thought bubbles and
+unresolved reality (Hobbes stays ambiguous), CM12 costs tied to a named source
+era, never one universal pet tariff.
+
+### Duplicates
+
+- C12 RF0 to RF6 and this palette's GA1 to GA7 are the same ladder; C12 owns
+  the card detail.
+- C14 CM1 to CM3, CM11 refine HB3 to HB5 and HB1; C14 owns the sourced form.
+- C16's seven shapes refine HD1 to HD7; C16 owns the definitions and guards.
+- C11's G1 to G3 procedures answer FO and C6 G1 to G3.
+
+### Top picks across C11 to C16
+
+1. **Pet Appraisal on Rill (C12 BP1 to BP3)** as the first reveal cheat: reads
+   satiety and stamina that already exist, with an honest grade and age. No
+   new pet mind needed.
+2. **L00 plus L01 from C13** as the shape of a first companion slice, if one
+   is ever chosen.
+3. **C11's G3 procedure** before any world lets a pet become a person.
+4. **C16's guards** (a sapient ally keeps its decisions; a cheat need not be a
+   person) as a review checklist for any companion code.
+5. **C15 PR1 to PR5**: harmless method, nonlethal method, consent and legal
+   approval are four different facts.
+
 ## Suggestions (separate from the palette)
 
 1. **Smallest playable companion:** a stray dog in an existing world that you

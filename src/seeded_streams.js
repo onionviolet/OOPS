@@ -1,3 +1,4 @@
+import {validateHarvestDamage} from './harvest.js';
 // Per-save decisions. Legacy expansion/simulation/duel generators remain owners
 // of their own cursors. No cheat policies are applied here; receipts are the seam.
 export const STREAMS = Object.freeze({encounter:'encounter', combat:'encounter:core', loot:'loot', market:'market',
@@ -14,6 +15,12 @@ function requireStream(name) {
 export function hashStreamSeed(seed, id) {
     let n=seed; for(const ch of id) n=Math.imul(n ^ ch.charCodeAt(0),16777619) >>> 0;
     return n || 1;
+}
+// The one xorshift32 13/17/5 step. Owned legacy cursors (storylet decks, mixture
+// seeds, generated-people fallback, native battles) call this so their saved
+// state and replay output stay byte-identical to the old inline copies.
+export function xorshift32(n) {
+    n^=n<<13;n^=n>>>17;n^=n<<5;return n>>>0;
 }
 export function mix32(n) {
     n=Math.imul(n ^ (n >>> 16),0x85ebca6b);
@@ -120,6 +127,7 @@ export function validateNativeEncounter(s,locationId) {
         if(!Array.isArray(s.turns[side])||s.turns[side].length!==length||s.turns[side].some(n=>!natural(n)))fail();
     }
     for(const e of s.enemies) {
+        if(e.harvestDamage!=null)validateHarvestDamage(e.harvestDamage);
         if(!object(e)||typeof e.template!=='string'||typeof e.key!=='string'||!object(e.stats)||!object(e.full)||typeof e.alive!=='boolean')fail();
         for(const stats of [e.stats,e.full])for(const v of Object.values(stats))if(!Number.isFinite(v)||v<0)fail();
         if(!(e.full.max_health>0)||e.full.health>e.full.max_health||e.alive!==(e.full.health>0))fail();

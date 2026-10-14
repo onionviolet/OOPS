@@ -1,0 +1,190 @@
+TAP version 13
+# Subtest: expansion makes OR functions, AND methods and declared terminal primitives
+ok 1 - expansion makes OR functions, AND methods and declared terminal primitives
+  ---
+  duration_ms: 1.203708
+  type: 'test'
+  ...
+# Subtest: functional descriptor selects the same authored target as its ID
+ok 2 - functional descriptor selects the same authored target as its ID
+  ---
+  duration_ms: 1.138417
+  type: 'test'
+  ...
+# Subtest: world flags prune a home method and add a magic method with its own primitives
+ok 3 - world flags prune a home method and add a magic method with its own primitives
+  ---
+  duration_ms: 0.497709
+  type: 'test'
+  ...
+# Subtest: named world method and tag prohibitions prune only their branches
+ok 4 - named world method and tag prohibitions prune only their branches
+  ---
+  duration_ms: 0.205833
+  type: 'test'
+  ...
+# Subtest: feasibility gives a complete dependency-first witness and ignores missing unused alternatives
+ok 5 - feasibility gives a complete dependency-first witness and ignores missing unused alternatives
+  ---
+  duration_ms: 1.203625
+  type: 'test'
+  ...
+# Subtest: missing primitive diagnostics name shortages and preserve authored or world reasons
+ok 6 - missing primitive diagnostics name shortages and preserve authored or world reasons
+  ---
+  duration_ms: 0.2265
+  type: 'test'
+  ...
+# Subtest: availability is explicit and feasibility reads the supplied world's current primitive stock
+ok 7 - availability is explicit and feasibility reads the supplied world's current primitive stock
+  ---
+  duration_ms: 0.225166
+  type: 'test'
+  ...
+# Subtest: a fully pruned goal reports a named dead end even without missing primitives
+ok 8 - a fully pruned goal reports a named dead end even without missing primitives
+  ---
+  duration_ms: 0.126625
+  type: 'test'
+  ...
+# Subtest: a product required to make itself cannot bootstrap and reports its cycle
+ok 9 - a product required to make itself cannot bootstrap and reports its cycle
+  ---
+  duration_ms: 0.237583
+  type: 'test'
+  ...
+# Subtest: a cyclic graph with an independent route solves and its witness avoids the loop
+ok 10 - a cyclic graph with an independent route solves and its witness avoids the loop
+  ---
+  duration_ms: 0.265875
+  type: 'test'
+  ...
+# Subtest: a missing independent seed remains a shortage alongside the unresolved cycle
+ok 11 - a missing independent seed remains a shortage alongside the unresolved cycle
+  ---
+  duration_ms: 0.10925
+  type: 'test'
+  ...
+# Subtest: an escape for one goal does not hide another unresolved loop inside its SCC
+ok 12 - an escape for one goal does not hide another unresolved loop inside its SCC
+  ---
+  duration_ms: 0.083209
+  type: 'test'
+  ...
+# Subtest: zero-input independent methods can break a self cycle
+ok 13 - zero-input independent methods can break a self cycle
+  ---
+  duration_ms: 0.058
+  type: 'test'
+  ...
+# Subtest: unknown root and rumor are redacted slots without truth IDs or descendants
+ok 14 - unknown root and rumor are redacted slots without truth IDs or descendants
+  ---
+  duration_ms: 0.314
+  type: 'test'
+  ...
+# Subtest: unaware alternatives stay hidden even when their descendants are known
+ok 15 - unaware alternatives stay hidden even when their descendants are known
+  ---
+  duration_ms: 0.168584
+  type: 'test'
+  ...
+# Subtest: a rumored method is an unknown slot and reveals no requirements
+ok 16 - a rumored method is an unknown slot and reveals no requirements
+  ---
+  duration_ms: 0.128166
+  type: 'test'
+  ...
+# Subtest: knowledge gaps give plain nextMissing reasons, mastery removes gaps
+ok 17 - knowledge gaps give plain nextMissing reasons, mastery removes gaps
+  ---
+  duration_ms: 0.187459
+  type: 'test'
+  ...
+# Subtest: wrong knowledge is displayed as belief with its remembered label, never corrected by truth
+ok 18 - wrong knowledge is displayed as belief with its remembered label, never corrected by truth
+  ---
+  duration_ms: 0.149542
+  type: 'test'
+  ...
+# Subtest: actor view cannot leak stock, world prohibitions or feasibility
+ok 19 - actor view cannot leak stock, world prohibitions or feasibility
+  ---
+  duration_ms: 0.345583
+  type: 'test'
+  ...
+# Subtest: knowledge projection terminates and preserves known cyclic edges
+ok 20 - knowledge projection terminates and preserves known cyclic edges
+  ---
+  duration_ms: 0.044667
+  type: 'test'
+  ...
+# Subtest: knowledge fidelity range is validated for visible entries
+ok 21 - knowledge fidelity range is validated for visible entries
+  ---
+  duration_ms: 0.140792
+  type: 'test'
+  ...
+# Subtest: estimates count unique nodes, dependency-edge depth and shortest-distance width
+ok 22 - estimates count unique nodes, dependency-edge depth and shortest-distance width
+  ---
+  duration_ms: 0.059292
+  type: 'test'
+  ...
+# Subtest: deep abstract target spans every scale band and lands in civilization
+ok 23 - deep abstract target spans every scale band and lands in civilization
+  ---
+  duration_ms: 0.238792
+  type: 'test'
+  ...
+# Subtest: selecting methods narrows estimates and invalid selections fail visibly
+ok 24 - selecting methods narrows estimates and invalid selections fail visibly
+  ---
+  duration_ms: 0.208291
+  type: 'test'
+  ...
+# Subtest: composition merges roots with shared subprojects and primitives once
+ok 25 - composition merges roots with shared subprojects and primitives once
+  ---
+  duration_ms: 0.664875
+  type: 'test'
+  ...
+# Subtest: every composed root must be feasible
+ok 26 - every composed root must be feasible
+  ---
+  duration_ms: 0.202333
+  type: 'test'
+  ...
+# Subtest: composed shortages exclude missing optional routes under already solved roots
+ok 27 - composed shortages exclude missing optional routes under already solved roots
+  ---
+  duration_ms: 0.292458
+  type: 'test'
+  ...
+# Subtest: deterministic output survives input catalog and requirements reordering
+ok 28 - deterministic output survives input catalog and requirements reordering
+  ---
+  duration_ms: 1.783875
+  type: 'test'
+  ...
+# Subtest: all APIs accept frozen inputs without mutation or returned aliases
+ok 29 - all APIs accept frozen inputs without mutation or returned aliases
+  ---
+  duration_ms: 1.123708
+  type: 'test'
+  ...
+# Subtest: invalid authored IDs, scales and dangling references are rejected
+ok 30 - invalid authored IDs, scales and dangling references are rejected
+  ---
+  duration_ms: 0.439
+  type: 'test'
+  ...
+1..30
+# tests 30
+# suites 0
+# pass 30
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 52.21875

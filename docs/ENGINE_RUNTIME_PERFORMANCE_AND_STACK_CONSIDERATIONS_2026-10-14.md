@@ -69,7 +69,7 @@ Proposals and measurements, not accepted decisions. Each lane owns its detail.
 | [ER12 kernel](research/OWN_ENGINE_KERNEL_DESIGN_2026-10-14.md) | Kernel APIs, two filled manifests, cycle cuts and extraction order from current code. |
 | [ER14 kernel spike](research/KERNEL_SPIKE_2026-10-14.md) | 15 checks pass. Copying whole actor slices dominates adapter cost; crowded settlement 92.9 ms median even with a heap scheduler. Structural sharing (LB3) matters more than the scheduler. |
 
-Running: ER11, ER13, ER15-ER18.
+All lanes ER1-ER18 have returned. The rest are folded in section U below.
 
 ## A. Runtime architecture (RT)
 
@@ -894,6 +894,91 @@ merges only with a playable slice (IM9), through the GM integration flow.
 worktree branch, and one integrator merges it; never multiple writers on
 `main.js` (IM8).
 
+## U. Wave fold: ER2, ER4, ER11, ER13, ER15-ER18 (2026-10-14)
+
+Folded on Weibao's approval (O2, relayed by the gameplay-foundations
+session). No new lanes; everything stays proposals. Each lane doc owns its
+evidence. ER1, ER3, ER5-ER10, ER12 and ER14 are folded in "Lane
+results so far" above.
+
+### What each lane adds
+
+| Lane | Adds | Duplicates or contradicts |
+| --- | --- | --- |
+| [ER2 structure](research/CODEBASE_STRUCTURE_AND_BUNDLE_AUDIT_2026-10-14.md) | Bundle composition, four import cycles, host/content/facts as a manifest candidate (ER2-F4), `npm test` 628 tests in 172 s | Corrected round 1: the NetHack preview is live, not stale (already fixed in "Where things stand") |
+| [ER4 references](research/IDLE_AND_SIM_ENGINE_REFERENCES_2026-10-14.md) | 19 games on seven engine dimensions, eight new ideas; pinned source ranges | None found; ER13 specializes several of its lessons |
+| [ER11 UI micro](research/UI_MICRO_FEEL_AUDIT_2026-10-14.md) | 11 ranked findings with 1366x768 probes: focus loss on progress rebuilds, a double-firing Craft handler, scientific format dropping the minus sign (`0.001` and `-0.001` print alike), "1 minutes", player and save strings reaching HTML unescaped, one panel error able to stop the native tick, partial asset fingerprints, a 13 MB source map served directly | Confirms MC22-MC33 and OS4. Adds a real defect class (sign loss) the palette did not name |
+| [ER13 catalog](research/ENGINES_AND_FRAMEWORKS_CATALOG_2026-10-14.md) | Section M with sources; reads the Antimatter Dimensions, Kittens Game, Incremental Game Template and Modding Tree loops; ten "steal" patterns | Agrees with ER5 (keep JS/DOM, borrow small patterns) |
+| [ER15 cheat matrix](research/CHEAT_ENGINE_CAPABILITY_MATRIX_2026-10-14.md) | 103 cheat rows against engine foundations; foundation payoff table; eight new engine cheats | **Refines IM1:** the four-foundation order fits broad time tools, but it is not a prerequisite for every cheat. Knowledge-filtered read models (RT4 + AI6/E9) cover the most cheats per effort |
+| [ER16 sources](research/ENGINE_AWARE_CHEATS_SOURCES_2026-10-14.md) | 26 fiction and meta-game entries labeled SHOWN/STATED/MEMORY, 11 two-sided conflicts, four new cheats | MEMORY rows remain unchecked |
+| [ER17 comic fit](research/COMIC_WORLDS_ENGINE_FIT_2026-10-14.md) | All 50 comic CL/CK/CA rows mapped to foundations; five stress verdicts; six missing contracts (ER17-N1-N6) | ER17-S5 clarifies E5/F8: the 512-boundary budget returning remaining time is correct; only claiming the whole skip settled would be a bug |
+| [ER18 inventory](research/ABSTRACTION_INVENTORY_2026-10-14.md) | Site counts for AB1-AB15 across 474 files (e.g. 65 clock sites, 86 RNG sites, 459 store/registry sites), the best existing candidate per AB, five ranked extractions | **Extends the "do not abstract yet" list:** nine semantics that must stay separate (ER18-N1-N9), e.g. native calendar vs joined elapsed vs local lease time, and saved RNG cursors vs cosmetic randomness |
+
+### Code renumbering (CX)
+
+ER15 and ER16 proposed new cheats while section R took CX19-CX23 for
+comics. To keep codes unique, the root assigns:
+
+| Root code | Lane code | Cheat |
+| --- | --- | --- |
+| CX24 | ER15-X1 | Snapshot diff eye: what changed since an anchor, within what you may know |
+| CX25 | ER15-X2 | Commit seal: a ritual's cost and effect settle together or stay pending |
+| CX26 | ER15-X3 | Boundary step: stop before the next consequential event and take one step |
+| CX27 | ER15-X4 | Cursor ward: shield one domain's rolls from unrelated activity; detect a stale forecast |
+| CX28 | ER15-X5 | Rule-version anchor: keep one learned spell or dream on its pinned rules |
+| CX29 | ER15-X6 | Dream interruption thread: pause a long dream and resume without paying twice |
+| CX30 | ER15-X7 | Provenance compass: follow an item's real origin and custody within your grade |
+| CX31 | ER15-X8 | Counterpart conflict sense: notice two branch records disagree; reconcile by an authored rule |
+| CX32 | ER16-N1 | Perspective forge: apparent size or shape becomes real (Superliminal) |
+| CX33 | ER16-N2 | Interface hands: grab a UI label or fictional file as a world object |
+| CX34 | ER16-N3 | Narrative route lever: change who narrates or which scene follows |
+| CX35 | ER16-N4 | World-line compass: tell causal histories apart and move between them |
+
+### New contracts and subtleties taken from the lanes
+
+- **CE10 (ER17-N1) Two dates per fact:** when it became true in-world, and
+  when it was recorded or learned. A retcon learned today can claim truth
+  last year. Extends AB6.
+- **CE11 (ER17-N2) Dependency invalidation:** frozen jobs, forecasts and
+  anchors record which facts they rely on; a retcon returns the affected
+  commitments with a retain/cancel/refund/recompute decision.
+- **CE12 (ER17-N3) Atomic event phases:** a crossover has one event id,
+  owner, phase and completion acknowledgments (sharpens CE3, MC37).
+- **CE13 (ER17-N4) Promotion and demotion:** a background hero becoming
+  foreground freezes its aggregate history first; demotion keeps custody
+  and witnessed outcomes. No convenient re-roll.
+- **CE14 (ER17-N5) Contact separate from rank:** reach, penetration and
+  nullification are described apart from power magnitude, so "no contact"
+  is expressible (sharpens CE4).
+- **CE15 (ER17-N6) Semantic beats:** durable scene/beat references for
+  gameplay, separate from disposable render lines (sharpens CE8).
+- **MC38 (ER11-F7) Sign-preserving notation:** number formatters must keep
+  sign and exponent sign; test both against fixtures.
+- **AB16 (ER18-N1-N9) Keep-separate list:** the nine semantics ER18 names
+  stay distinct types even when their code looks alike.
+
+### Top picks across the wave (proposal, ranked by value per effort)
+
+1. **Correctness first:** ER9's three high save findings, plus ER11-R1
+   (escape player and save text at HTML sinks, fix the scientific sign,
+   "1 minute"). Small, real defects.
+2. **ER15-A1:** one knowledge-filtered observation read model (value or
+   range, grade, source, as-of) with the status window and one appraisal
+   as consumers. Widest cheat coverage, and it guards sealed truths.
+3. **ER11-R2/R3:** a pending guard on paid single crafts, plus keyed rows for
+   career and storylet choices so ticks stop stealing focus and clicks.
+4. **ER18-P1:** one shared calendar projection and coin decomposition.
+   ER18-P2's xorshift step is partly done already: commit `70291906`
+   routed copies through `seeded_streams` and lowered the ratchet to 7.
+5. **ER15-A4 / SB5:** pick the next time-based slice and establish the
+   shared time path inside it, not as a standalone rewrite.
+
+Engine route unchanged: EG0 plus OE10 strangler, PixiJS per visual panel
+(EG1), Tauri trial when a desktop build is wanted (EG5).
+
+**Wave status: folded 2026-10-14.** All lanes ER1-ER18 have returned and
+are folded. No lane is running and none is queued.
+
 ## Suggested order (proposal)
 
 1. **Measure** (PF1, PF3, CH2, CH3). Nothing below is justified without it.
@@ -906,7 +991,7 @@ worktree branch, and one integrator merges it; never multiple writers on
    step 3 exists. This is the default "proper engine" path.
 7. **Engine port** (EG2/EG4) only if 1-4 show the web runtime is the blocker.
 
-## Dispatch, 2026-10-14
+## Dispatch, 2026-10-14 (folded)
 
 Codex lanes in [engine-runtime-2026-10-14](gm/dispatch/engine-runtime-2026-10-14/COMMON.md).
 All read-only on gameplay source; each writes its own research file. Findings

@@ -1,0 +1,179 @@
+{
+  "lane": "heavens-vault",
+  "date": "2026-10-14",
+  "status": "PARTIAL",
+  "scope": "bounded static source and data read, no gameplay run",
+  "build": "4220136",
+  "runtime": "Unity Mono",
+  "raw_evidence_root": "/Users/weiwei/.codex/research/heavens-vault",
+  "payload_sources": [
+    {
+      "path": "Heaven's Vault.exe",
+      "sha256": "3b2a8aa0ff255ce6600fdaaa5b5c566c984e8c470f4a0afb84c3ebde0c0c3711",
+      "bytes": 639488
+    },
+    {
+      "path": "Heaven's Vault_Data/Managed/Assembly-CSharp.dll",
+      "sha256": "53fd37b93632fc3cdaf25668450971230b85bd12a2a0023548e743e40eca866e",
+      "bytes": 2762240
+    },
+    {
+      "path": "Heaven's Vault_Data/resources.assets",
+      "sha256": "71e406372b9f03615cc3175ba9ff16969290834a7961820519dcecd098297dab",
+      "bytes": 35917224
+    },
+    {
+      "path": "Heaven's Vault_Data/sharedassets0.assets",
+      "sha256": "e9e18febc2f92b57b81643122833d9d22cb9371fb99d3d953a5d360f8a130da3",
+      "bytes": 11515476
+    }
+  ],
+  "findings": [
+    {
+      "id": "F1",
+      "label": "SHOWN",
+      "claim": "Words have component structure; seen, guessed, correct and known are distinct.",
+      "evidence": [
+        "extract/csharp/Translation/PrototypeWordModel.cs",
+        "extract/csharp/Translation/EntityLexDictionaryWordTranslation.cs",
+        "extract/csharp/Translation/EntityLexDictionary.cs"
+      ]
+    },
+    {
+      "id": "F2",
+      "label": "SHOWN",
+      "claim": "Confirmation checks clues, usages and prior inscription IDs; contradiction blacklists a guess.",
+      "evidence": [
+        "extract/csharp/Translation/EntityLexDictionary.cs::ReadyToConfirmOrBlacklistWord",
+        "extract/csharp/Translation/SubstitutingStateView.cs::CheckForConfirmedWords",
+        "extract/csharp/Translation/TranslationGameTranslationModelWord.cs::PlayWord"
+      ]
+    },
+    {
+      "id": "F3",
+      "label": "SHOWN",
+      "claim": "Compiled ink and host bindings distinguish wrong and correct-but-unconfirmed readings.",
+      "evidence": [
+        "extract/csharp/StoryScript.cs::Start",
+        "extract/textassets/sharedassets0.assets__51__core.txt::root[2].showing_uncertain_translation"
+      ]
+    },
+    {
+      "id": "F4",
+      "label": "SHOWN",
+      "claim": "Translated clues reduce residual site-search uncertainty by a factor of 0.85 in this build.",
+      "evidence": [
+        "extract/csharp/Game.cs::KnowledgeScoreForLocationWithClues"
+      ]
+    },
+    {
+      "id": "F5",
+      "label": "SHOWN",
+      "claim": "Authored implications recombine source knowledge until stable.",
+      "evidence": [
+        "extract/csharp/Player.cs::EstablishImplication",
+        "extract/csharp/Player.cs::ProcessRecombinationsInKnowledgeModel"
+      ]
+    },
+    {
+      "id": "F6",
+      "label": "SHOWN",
+      "claim": "History supports reveal, confirm, remove, notify, upgrade and linked entries.",
+      "evidence": [
+        "extract/csharp/TimelineEventData.cs",
+        "extract/csharp/TimelineEvent.cs",
+        "extract/csharp/StoryScript.cs",
+        "extract/textassets/sharedassets0.assets__50__timelineEvents.txt"
+      ]
+    },
+    {
+      "id": "F7",
+      "label": "SHOWN",
+      "claim": "Directed river graph cost accounts for speeds, hidden/travelled state and locks.",
+      "evidence": [
+        "extract/csharp/SpaceGame.Pathfinding/PathfinderNodeConnection.cs",
+        "extract/csharp/SpaceGame/RegionKnowledgeRiverLocker.cs"
+      ]
+    },
+    {
+      "id": "F8",
+      "label": "SHOWN",
+      "claim": "Travel estimates, timed branch cues and skip eligibility use separate checks.",
+      "evidence": [
+        "extract/csharp/SpaceGame.Pathfinding/PathfinderPath.cs",
+        "extract/csharp/SpaceGame.Pathfinding/ShipPather.cs",
+        "extract/csharp/SpaceGame/SpaceSkipUI.cs"
+      ]
+    },
+    {
+      "id": "F4S",
+      "label": "STATED",
+      "claim": "Developer says translation is optional for plot completion and affects understanding.",
+      "evidence": [
+        "https://medium.com/@inklestudios/why-does-translation-unlock-sites-in-heavens-vault-e05c4ccadf62"
+      ]
+    },
+    {
+      "id": "F4I",
+      "label": "INFERRED",
+      "claim": "Completion-level optionality can coexist with the installed search bonus; exact all-route necessity is untested.",
+      "evidence": [
+        "F4",
+        "F4S"
+      ]
+    },
+    {
+      "id": "F9",
+      "label": "SHOWN",
+      "claim": "YAIRPG already has a notebook shell and known-person projections; richer correction history is an existing proposal.",
+      "evidence": [
+        "src/adventure_notebook.js",
+        "src/people_knowledge.js",
+        "docs/emergent/E7_OBSERVATION_AND_MYSTERY.md",
+        "docs/GRANULAR_SYSTEMS_AND_INTERACTIONS.md"
+      ]
+    }
+  ],
+  "aggregate_census": "DATA_CENSUS.json",
+  "proposals": [
+    {
+      "id": "P1",
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "P2",
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "P3",
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "P4",
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "P5",
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "P6",
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "P7",
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "P8",
+      "status": "PROPOSAL"
+    }
+  ],
+  "gaps": [
+    "all story branches",
+    "individual timeline rows and conditions",
+    "scene river topology and tuning",
+    "native pacing",
+    "save roundtrip"
+  ]
+}

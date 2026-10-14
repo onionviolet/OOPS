@@ -1,0 +1,35 @@
+{
+  "checked": "2026-10-14",
+  "evidence": "READ source snapshots; not execution or performance proof",
+  "sources": {
+    "tmt": {
+      "repo": "ThePrestigeTreeGuy/The-Modding-Tree",
+      "sha": "51bbdff4beb42847d99e1dd903669bc81e948fbe",
+      "commit_date": "2024-03-30T15:20:17-04:00"
+    },
+    "igt-library": {
+      "repo": "123ishaTest/igt-library",
+      "sha": "7c2953bcf3284c4a1a2798cdf3cfcab6195b5d5a",
+      "commit_date": "2024-02-29T16:04:33+01:00"
+    },
+    "igt-vue": {
+      "repo": "123ishaTest/igt-vue",
+      "sha": "8fad6c9b078e4dc245989abf24ec14f5427f5d9d",
+      "commit_date": "2021-10-07T00:21:34+02:00"
+    },
+    "antimatter": {
+      "sha": "5409e320cecef96a917cca1dfb68f1f183e499ca",
+      "date": "2026-07-17T20:12:51Z",
+      "source_path": "ER4 retained source; HEAD independently checked"
+    },
+    "kittens": {
+      "sha": "781e379f79f1e7512d168849cba21ed111502644",
+      "date": "2026-08-31T22:40:18Z",
+      "source_path": "ER4 retained source; HEAD independently checked"
+    }
+  },
+  "extra_file": {
+    "url": "https://raw.githubusercontent.com/nuclear-unicorn/kittensgame/781e379f79f1e7512d168849cba21ed111502644/js/ui.js",
+    "sha256": "fb6c3e422003aec73cb43ec8dbab1fbfaf65f0ac2a132e83413b797e2311cb4e"
+  }
+}

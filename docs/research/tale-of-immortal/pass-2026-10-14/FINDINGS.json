@@ -1,0 +1,496 @@
+{
+  "date": "2026-10-14",
+  "lane": "tale-of-immortal-2",
+  "status": "PARTIAL",
+  "source_build": "backup workbook build unknown; prior native build21758240 not requalified",
+  "findings": [
+    {
+      "id": "N21",
+      "label": "shown + stated comments",
+      "claim": "Joint practice and sparring combine social and competence outputs; autonomous cultivation selection remains untraced.",
+      "evidence": {
+        "source": "October 9 official modFQA workbook backup",
+        "workbook": "角色交互行为配置表.xlsx",
+        "sheet": "RoleTrains",
+        "excel_rows": [
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      },
+      "unresolved": "AI decision, EXP formula, debit and final mutation",
+      "runtime_exercised": false
+    },
+    {
+      "id": "N22",
+      "label": "shown + stated comments",
+      "claim": "Opinion change bands are separate from development parameters; two development floor entries are explicitly obsolete.",
+      "evidence": {
+        "source": "October 9 official modFQA workbook backup",
+        "workbook": "角色交互行为配置表.xlsx",
+        "sheet": "RoleCloseDevelop",
+        "excel_rows": [
+          4,
+          5,
+          6
+        ]
+      },
+      "unresolved": "Decay formula and cadence",
+      "runtime_exercised": false
+    },
+    {
+      "id": "N23",
+      "label": "shown + stated comments",
+      "claim": "Conversation includes directed A/B/C effects and local small-talk limits.",
+      "evidence": {
+        "source": "October 9 official modFQA workbook backup",
+        "workbook": "角色交互行为配置表.xlsx",
+        "sheet": "RoleChat",
+        "excel_rows": [
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          35,
+          36,
+          37,
+          38
+        ]
+      },
+      "unresolved": "Branch execution and knowledge propagation",
+      "runtime_exercised": false
+    },
+    {
+      "id": "N24",
+      "label": "shown + stated comments",
+      "claim": "Marriage regret has intimacy-loss range and two companion-outcome letters.",
+      "evidence": {
+        "source": "October 9 official modFQA workbook backup",
+        "workbook": "角色交互行为配置表.xlsx",
+        "sheet": "RoleMarry",
+        "excel_rows": [
+          4,
+          5,
+          6,
+          7
+        ]
+      },
+      "unresolved": "Autonomous initiation, eligibility, payment, ceremony, relation mutation",
+      "runtime_exercised": false
+    },
+    {
+      "id": "N25",
+      "label": "shown + stated comments",
+      "claim": "Sect recruitment supplies invite/accept/refuse dramas and energy cost; personal disciple execution is not established.",
+      "evidence": {
+        "source": "October 9 official modFQA workbook backup",
+        "workbook": "角色交互行为配置表.xlsx",
+        "sheet": "RoleSchoolRecruit",
+        "excel_rows": [
+          4,
+          5,
+          6,
+          7
+        ]
+      },
+      "unresolved": "Personal student selection and teaching execution",
+      "runtime_exercised": false
+    },
+    {
+      "id": "N26",
+      "label": "shown + stated comments",
+      "claim": "Appointments link event, task, energy, AI-stop feature and breach consequence.",
+      "evidence": {
+        "source": "October 9 official modFQA workbook backup",
+        "workbook": "角色交互行为配置表.xlsx",
+        "sheet": "RoleInvite",
+        "excel_rows": [
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ]
+      },
+      "unresolved": "AI pause and release consumer/order",
+      "runtime_exercised": false
+    },
+    {
+      "id": "N27",
+      "label": "shown",
+      "claim": "Dying tables separate ghost availability, lifespan, cure item and help goal by grade.",
+      "evidence": {
+        "source": "October 9 official modFQA workbook backup",
+        "workbook": "角色交互行为配置表.xlsx",
+        "sheet": "RoleDying",
+        "excel_rows": [
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13
+        ]
+      },
+      "unresolved": "ghostLife unit, final death, rescue and aging consumers",
+      "runtime_exercised": false
+    },
+    {
+      "id": "N28",
+      "label": "shown + stated comments",
+      "claim": "Death tables name grudge, declining loot chance, delayed cure and burial range.",
+      "evidence": {
+        "source": "October 9 official modFQA workbook backup",
+        "workbook": "角色交互行为配置表.xlsx",
+        "sheet": "RoleKill",
+        "excel_rows": [
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ]
+      },
+      "unresolved": "cureTime unit, event sequencing and possessions transaction",
+      "runtime_exercised": false
+    },
+    {
+      "id": "B21",
+      "label": "shown",
+      "claim": "Early phase display pills coexist with zero required-item counts.",
+      "evidence": {
+        "source": "October 9 official modFQA workbook backup",
+        "workbook": "角色配置表.xlsx",
+        "sheet": "RoleGrade",
+        "excel_rows": [
+          5,
+          6
+        ]
+      },
+      "unresolved": "Whether/how display pills are consumed",
+      "runtime_exercised": false
+    },
+    {
+      "id": "B22",
+      "label": "shown",
+      "claim": "Foundation quality changes required count, optional capacity, fate and points at equal experience.",
+      "evidence": {
+        "source": "October 9 official modFQA workbook backup",
+        "workbook": "角色配置表.xlsx",
+        "sheet": "RoleGrade",
+        "excel_rows": [
+          7,
+          8,
+          9
+        ]
+      },
+      "unresolved": "Final payment and success draw",
+      "runtime_exercised": false
+    },
+    {
+      "id": "B24",
+      "label": "shown",
+      "claim": "Later grade entries use different quality/count shapes, including four grade10 phase1 records.",
+      "evidence": {
+        "source": "October 9 official modFQA workbook backup",
+        "workbook": "角色配置表.xlsx",
+        "sheet": "RoleGrade",
+        "excel_rows": [
+          25,
+          26,
+          27,
+          33,
+          34,
+          35,
+          36,
+          39,
+          42,
+          43,
+          44,
+          45
+        ]
+      },
+      "unresolved": "Reachability and runtime overrides",
+      "runtime_exercised": false
+    },
+    {
+      "id": "B25",
+      "label": "shown",
+      "claim": "Grade9/10 later phases include dialogue conditions and bottleneck features.",
+      "evidence": {
+        "source": "October 9 official modFQA workbook backup",
+        "workbook": "角色配置表.xlsx",
+        "sheet": "RoleGrade",
+        "excel_rows": [
+          40,
+          41,
+          46,
+          47
+        ]
+      },
+      "unresolved": "Condition interpreter and successful transition",
+      "runtime_exercised": false
+    },
+    {
+      "id": "B26",
+      "label": "shown + stated annotation",
+      "claim": "Generic failure dungeon13 is type42 with30-second configured limit and special outcome flags.",
+      "evidence": {
+        "source": "October 9 official modFQA workbook backup",
+        "workbook": "副本配置表.xlsx",
+        "sheet": "DungeonBase",
+        "excel_rows": [
+          7,
+          1322
+        ]
+      },
+      "unresolved": "Special consumer, lightning behavior and outcome",
+      "runtime_exercised": false
+    },
+    {
+      "id": "B27",
+      "label": "shown + stated comments",
+      "claim": "Dungeon type74 configures protection, energy, escalation and capped spawned monsters, separate from generic failure type42.",
+      "evidence": {
+        "source": "October 9 official modFQA workbook backup",
+        "workbook": "副本配置表.xlsx",
+        "sheet": "DungeonSpecial74",
+        "excel_rows": [
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35,
+          36,
+          37,
+          38,
+          39,
+          40,
+          41,
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48,
+          49,
+          50
+        ]
+      },
+      "unresolved": "All consumers, entry route, victory and abandonment transaction",
+      "runtime_exercised": false
+    },
+    {
+      "id": "S21",
+      "label": "shown + stated comments",
+      "claim": "Contest schedules use both interval and month fields, with distinct promotion counts.",
+      "evidence": {
+        "source": "October 9 official modFQA workbook backup",
+        "workbook": "宗门配置表.xlsx",
+        "sheet": "SchoolPostParam",
+        "excel_rows": [
+          6,
+          16,
+          22,
+          23,
+          24,
+          30,
+          38,
+          39,
+          40
+        ]
+      },
+      "unresolved": "Exact executable schedule",
+      "runtime_exercised": false
+    },
+    {
+      "id": "S22",
+      "label": "shown + stated comments",
+      "claim": "Overflow parameters explicitly include exit/death weights and delayed churn.",
+      "evidence": {
+        "source": "October 9 official modFQA workbook backup",
+        "workbook": "宗门配置表.xlsx",
+        "sheet": "SchoolPostParam",
+        "excel_rows": [
+          17,
+          18,
+          19,
+          20,
+          21,
+          31,
+          32,
+          33,
+          34,
+          120,
+          121,
+          122,
+          125,
+          126
+        ]
+      },
+      "unresolved": "Selection, per-person cause and -1 semantics",
+      "runtime_exercised": false
+    },
+    {
+      "id": "S23",
+      "label": "shown + stated comments",
+      "claim": "Office replacement delays vary by rank.",
+      "evidence": {
+        "source": "October 9 official modFQA workbook backup",
+        "workbook": "宗门配置表.xlsx",
+        "sheet": "SchoolPostParam",
+        "excel_rows": [
+          79,
+          80,
+          93,
+          94,
+          118,
+          119
+        ]
+      },
+      "unresolved": "Replacement identity and transaction",
+      "runtime_exercised": false
+    },
+    {
+      "id": "S24",
+      "label": "shown + stated comments",
+      "claim": "Leadership routes include monthly triggers, absence in years and return growth parameters.",
+      "evidence": {
+        "source": "October 9 official modFQA workbook backup",
+        "workbook": "宗门配置表.xlsx",
+        "sheet": "SchoolPostParam",
+        "excel_rows": [
+          97,
+          98,
+          99,
+          100,
+          101,
+          102,
+          103,
+          104,
+          105,
+          106,
+          107,
+          108,
+          109,
+          110,
+          111,
+          112,
+          113,
+          114,
+          115,
+          116,
+          117
+        ]
+      },
+      "unresolved": "Authored route execution, no autonomous hidden planner proved",
+      "runtime_exercised": false
+    },
+    {
+      "id": "S25",
+      "label": "shown + stated comments",
+      "claim": "NPC-leader wage policy responds to loyalty and preserves expansion payroll reserve.",
+      "evidence": {
+        "source": "October 9 official modFQA workbook backup",
+        "workbook": "宗门配置表.xlsx",
+        "sheet": "SchoolParameters1",
+        "excel_rows": [
+          14,
+          19,
+          20,
+          26
+        ]
+      },
+      "unresolved": "Final resource transaction",
+      "runtime_exercised": false
+    },
+    {
+      "id": "S26",
+      "label": "shown",
+      "claim": "Expired event801125 creates801300, whose grave marker is configured indefinitely and invokes another package.",
+      "evidence": {
+        "source": "October 9 official modFQA workbook backup",
+        "workbook": "大地图元素配置表.xlsx",
+        "sheet": "WorldFortuitousEventBase",
+        "excel_rows": [
+          937,
+          945
+        ]
+      },
+      "unresolved": "Package11100 and timeout interpreter",
+      "runtime_exercised": false
+    }
+  ],
+  "proposals": [
+    "P1",
+    "P2",
+    "P3",
+    "P4",
+    "P5",
+    "P6",
+    "P7"
+  ],
+  "comparison_status": "idler reports compared; Immortal Life pending source lane",
+  "raw_game_content_in_repo": false
+}

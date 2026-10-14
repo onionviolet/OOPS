@@ -1,0 +1,276 @@
+{
+  "lane": "taiwu",
+  "date": "2026-10-14",
+  "status": "PARTIAL",
+  "scope": "read-only installed-code and shipped-document research",
+  "payload": {
+    "appid": 838350,
+    "buildid": "25845203",
+    "state_flags": 4,
+    "windows_executable_present": true,
+    "download_complete": true,
+    "windows_depot": "838351",
+    "windows_depot_manifest": "5251987467382502170"
+  },
+  "evidence_root": "/Users/weiwei/.codex/research/taiwu/extract",
+  "claims": [
+    {
+      "id": "F1",
+      "system": "inheritance",
+      "basis": "shown",
+      "claim": "Candidates are not limited to children; visible eligibility uses template and physiological age 16.",
+      "evidence": [
+        "TaiwuDomain.cs:FindSuccessorCandidates",
+        "TaiwuDomain.cs:CalculateSuccessorCandidates"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "F2",
+      "system": "inheritance",
+      "basis": "shown",
+      "claim": "Successor learned skill lists are cleared before copied predecessor knowledge, loadout and proficiency arrive.",
+      "evidence": [
+        "CharacterDomain.cs:PrepareTaiwuInheritor",
+        "TaiwuDomain.cs:TransferTaiwuData"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "F3",
+      "system": "inheritance",
+      "basis": "shown",
+      "claim": "Inventory, resources and XP transfer with old-state clearing; equipment has a clothing exception; warehouse is settlement-owned.",
+      "evidence": [
+        "TaiwuDomain.cs:TransferTaiwuData",
+        "TaiwuDomain.cs:WarehouseAdd"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "F4",
+      "system": "relationships",
+      "basis": "shown",
+      "claim": "Specific bonds and favour handlers are invoked; fixed-character favour transfer selects templates 831 and 833.",
+      "evidence": [
+        "TaiwuDomain.cs:TransferTaiwuData",
+        "CharacterDomain.cs:TransferFixedCharacterFavorability"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "F5",
+      "system": "legacy",
+      "basis": "shown",
+      "claim": "Awards scale and clamp by source; half/full source thresholds grant options; selected legacies affect actor and world.",
+      "evidence": [
+        "TaiwuDomain.cs:AddLegacyPoint",
+        "TaiwuDomain.cs:DirectlyAddLegacyPoint",
+        "TaiwuDomain.cs:ApplyLegacyAffect",
+        "LegacyPoint.cs"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "F6",
+      "system": "techniques",
+      "basis": "shown",
+      "claim": "955 compiled rows with 124 readonly fields include school, requirements, effects and force data; not all are player-acquirable.",
+      "evidence": [
+        "Config.CombatSkill.cs:Init",
+        "Config.CombatSkillItem.cs",
+        "table_counts.json"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "F7",
+      "system": "reading",
+      "basis": "shown",
+      "claim": "Five/six pages, three strategy slots per page, page conditions and prior knowledge affect study; monthly and active paths differ.",
+      "evidence": [
+        "TaiwuDomain.cs:SetReadingStrategy",
+        "TaiwuDomain.cs:GetReadingSpeedBonus",
+        "TaiwuDomain.cs:ActiveReadOnce"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "F8",
+      "system": "sects",
+      "basis": "shown",
+      "claim": "Member support aggregates and clamps; teaching grade and study modifiers consume support; cultural attainment substitutions are separate.",
+      "evidence": [
+        "Settlement.cs:CalcApprovingRate",
+        "OrganizationDomain.cs:GetHighestGradeOfTeachableCombatSkill",
+        "TaiwuDomain.cs:CalcReadingSpeedSectApprovalFactor",
+        "TaiwuDomain.cs:GetAttainmentWithSectApprovalBonus"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "F9",
+      "system": "internal_force",
+      "basis": "shown",
+      "claim": "Training generates force, disorder and allocation progress with elemental, method, reference and world modifiers.",
+      "evidence": [
+        "CombatSkillDomain.cs:CalcNeigongLoopingEffect",
+        "CombatSkillDomain.cs:ApplyNeigongLoopingEffect",
+        "Character.cs:GenerateNeigongLoopingImprovementForTaiwu"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "F10",
+      "system": "world",
+      "basis": "shown",
+      "claim": "Ordered month phases update NPC status, learning, relations, actions and work; birth month advances actual age separately from current age.",
+      "evidence": [
+        "WorldDomain.cs:AdvanceMonth_Execute",
+        "Character.cs:OfflineIncreaseAge",
+        "Character.cs:OfflineUpdatePregnantState",
+        "CharacterDomain.cs:MakeCharacterDead"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "F11",
+      "system": "village",
+      "basis": "shown",
+      "claim": "319 building definitions link worker skill, progress, maintenance, production and storage limits.",
+      "evidence": [
+        "BuildingBlock.cs",
+        "BuildingDomain.cs:ClacBuildingTimeCost",
+        "BuildingDomain.cs:OfflineUpdateShopManagement",
+        "BuildingDomain.cs:UpdateBlockMaintenance"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "F12",
+      "system": "data",
+      "basis": "shown",
+      "claim": "Typed compiled definitions, reference maps, localized text and mutable domain instances form separate layers.",
+      "evidence": [
+        "ConfigData.cs",
+        "Config.CombatSkill.cs",
+        "Config.CombatSkillItem.cs"
+      ],
+      "runtime_verified": false
+    }
+  ],
+  "stated_sources": [
+    {
+      "path": "encyclopedia_CN/Yihuidianshu.tsv",
+      "use": "life deed categories"
+    },
+    {
+      "path": "encyclopedia_CN/Menpaizhichi.tsv",
+      "use": "support tiers and benefits"
+    },
+    {
+      "path": "encyclopedia_CN/Neilishuxing.tsv",
+      "use": "elemental composition descriptions"
+    }
+  ],
+  "inferences": [
+    {
+      "id": "I1",
+      "claim": "Ordinary relationships should not be assumed to blanket-transfer; only selected downstream handlers were read.",
+      "evidence": [
+        "TaiwuDomain.cs:TransferTaiwuData",
+        "CharacterDomain.cs:TransferFixedCharacterFavorability"
+      ]
+    },
+    {
+      "id": "I2",
+      "claim": "Stable settlement warehouse identity supports inheritance continuity, but no save/runtime continuity was tested.",
+      "evidence": [
+        "TaiwuDomain.cs:WarehouseAdd",
+        "TaiwuDomain.cs:TransferTaiwuData"
+      ]
+    }
+  ],
+  "proposals": [
+    {
+      "id": "P1",
+      "title": "Institution-shaped study",
+      "status": "PROPOSAL",
+      "owners": [
+        "docs/ENGINE_EXPANSION.md",
+        "docs/LIFE_SIM_NORTH_STAR.md"
+      ]
+    },
+    {
+      "id": "P2",
+      "title": "Channel-specific succession",
+      "status": "PROPOSAL",
+      "owners": [
+        "docs/RULES_FROM_SCRATCH.md",
+        "docs/SELVES_AND_ECHOES.md",
+        "docs/ENGINE_EXPANSION.md"
+      ]
+    },
+    {
+      "id": "P3",
+      "title": "Manual knowledge and physical copies",
+      "status": "PROPOSAL",
+      "owners": [
+        "docs/SKILLS_AND_TALENTS.md",
+        "docs/ENGINE_EXPANSION.md"
+      ]
+    },
+    {
+      "id": "P4",
+      "title": "Worker and facility loop",
+      "status": "PROPOSAL",
+      "owners": [
+        "docs/PROTO23_VILLAGE_LIFE_LOOPS_2026-10-14.md",
+        "docs/ENGINE_EXPANSION.md"
+      ]
+    },
+    {
+      "id": "P5",
+      "title": "Distinct force training outcomes",
+      "status": "PROPOSAL",
+      "owners": [
+        "docs/ENGINE_EXPANSION.md",
+        "docs/SKILLS_AND_TALENTS.md"
+      ]
+    },
+    {
+      "id": "P6",
+      "title": "Readable cast updates",
+      "status": "PROPOSAL",
+      "owners": [
+        "docs/LIFE_SIM_NORTH_STAR.md",
+        "docs/ENGINE_EXPANSION.md"
+      ]
+    },
+    {
+      "id": "P7",
+      "title": "Definition-to-instance links",
+      "status": "PROPOSAL",
+      "owners": [
+        "docs/ENGINE_EXPANSION.md"
+      ]
+    }
+  ],
+  "excluded": [
+    "game launch",
+    "Windows executable execution",
+    "game assembly execution",
+    "save access",
+    "YAIRPG implementation",
+    "git staging, commit or push"
+  ],
+  "gaps": [
+    "full relationship/information transfer internals",
+    "legacy payout frontend order",
+    "every teaching/service dialogue gate",
+    "GlobalConfig numeric study settings",
+    "population and marriage policy details",
+    "full config-row semantics",
+    "native gameplay/persistence/compatibility"
+  ]
+}

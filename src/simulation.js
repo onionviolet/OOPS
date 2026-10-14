@@ -1,3 +1,4 @@
+import {recordStoryletOutcome} from './lore_history_state.js';
 import {initializeStoryletDecks,nextStoryletBoundary,advanceStoryletDecks,validateStoryletState} from './storylet_deck.js';
 import {admitFoundationInteraction,freezeFoundationInteractionActivation,advanceFoundationInteractions,nextFoundationInteractionBoundary} from './foundation_interaction_policy.js';
 import {foundationInteractionProbeGuard} from './foundation_interaction_content.js';
@@ -405,6 +406,7 @@ function occur(out, registry, d, check, roll) {
     const event = {id, definitionId: d.id, revision: d.revision, actorId, targetId, mode: d.mode, at: state.clock,
         expiresAt: d.lifetime ? state.clock + d.lifetime : null, status: d.mode === "ambient" ? "resolved" : "open", roll,
         label: d.label, responses: copy(d.responses || []), onExpire: copy(d.onExpire || []), discoveredBy: [], cause: check.cause || id};
+    if(d.historyRef)event.historyRef=d.historyRef;
     if(d.storylet) {event.storylet={deck:d.storylet.deck,urgency:d.storylet.urgency,receipt:copy(check.receipt)};if(d.mode === "decision")event.nonBlocking=true;}
     applySimulationEffects(out, d.effects || [], context, registry, id);
     if(d.aware || d.public && actorId === "player") event.discoveredBy.push(actorId);
@@ -437,12 +439,14 @@ function respondEventInto(out, registry, eventId, responseId, context) {
     if(response.requiresIdle) assert(!simulationOccupiesActor(state,context.actorId) && !state.pending.some(j=>j.context.actorId === context.actorId) && !activePractice(state.actors[context.actorId]), "Finish your current activity before responding.");
     const ctx = {...context, targetId: event.targetId}, facts = simulationFacts(state, ctx, registry);
     assert(meets(response.requires, facts), "Response prerequisites are missing.");
+    const before=structuredClone({external:out.external,gameplay:out.gameplay});
     const cause = `settle:${++state.sequence}`;
     const costs = prepareSimulationEffects(response.costs, facts, registry, cause), effects = prepareSimulationEffects(response.effects, facts, registry, cause);
     applySimulationEffects(out, costs, ctx, registry, cause, {spending: true});
     applySimulationEffects(out, effects, ctx, registry, cause);
     event.status = "resolved";
     event.response = {id:responseId,at:state.clock,cause};
+    recordStoryletOutcome(out,event,{action:'storylet.response',result:responseId,cause,before});
     if(event.discoveredBy.includes("player")) log(state.simulation, state.clock, `${event.label}: ${response.label}.`, cause);
 }
 

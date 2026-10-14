@@ -1,0 +1,31 @@
+{
+  "build": "25001959",
+  "build_changed": false,
+  "inputs": [
+    {
+      "name": "global-metadata.dat",
+      "sha256": "2f84664c809f076c73e4515567c282682b0fcafafc57cb9d7e5eaf4d948b9c6f",
+      "matches_prior": true
+    },
+    {
+      "name": "GameAssembly.dylib",
+      "sha256": "8a21647ce035ff6993d0faa617d2f8ac63e25297f4ecf9b18bab6770bb72f969",
+      "matches_prior": true
+    },
+    {
+      "name": "globalgamemanagers",
+      "sha256": "c6dc72b073306f3eac742bea93ce480c48e32ad3c734d84f0902d4eb0de9e70c",
+      "matches_prior": true
+    },
+    {
+      "name": "Info.plist",
+      "sha256": "964d805f9a356f47d7dff523183578b0762d6f259920a40249abb984b6015019",
+      "matches_prior": true
+    }
+  ],
+  "prior_private_workspace_present": false,
+  "asset_extractor": "Heavens Vault existing extractor copied to lane tools",
+  "source_mutated": false,
+  "saves_read": false,
+  "game_launched": false
+}

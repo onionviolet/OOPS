@@ -66,3 +66,24 @@ Use this template per panel; record each result and evidence separately. A K7 pa
 | Restore | Save/reload and literal-file import preserve discovery without replaying cues; browser display preferences remain browser-owned |
 
 The coordinator owns the full frozen gate and regression checks. This docs slice runs only K7. Runtime, rebuilt desktop evidence, discovery/restore behavior and Weibao's taste remain separate acceptance gates.
+
+## Scale and robustness considerations (proposals, 2026-10-14)
+
+These are proposals folded from [UI at scale](UI_AT_SCALE_CONSIDERATIONS_2026-10-14.md)
+and the [ER11 micro-feel audit](research/UI_MICRO_FEEL_AUDIT_2026-10-14.md).
+They aren't part of the accepted contract until selected; desktop first.
+
+| Code | Proposed rule | Source |
+| --- | --- | --- |
+| PK1 | **Keyed updates.** A panel changes text and attributes on existing keyed nodes. It doesn't rebuild controls or prose while progress ticks, so focus, pointer press and selection survive. | ER11-F3; MI23, MI25, AX2 |
+| PK2 | **Render isolation.** Each panel's render runs in its own guard. A throw shows that panel's failed state with a reason and retry, and later panels and the native tick continue. Simulation and save errors are not swallowed. | ER11-F9; MC7 |
+| PK3 | **Escaped variable text.** Names, imported strings and saved text enter the DOM as text nodes or escaped values. Authored markup stays a separate trusted path. | ER11-F8; AX11 |
+| PK4 | **One gesture, one paid command.** Commit buttons guard repeat clicks and key repeat per physical gesture. Explicit 5, 10 and All controls stay. | ER11-F5; MI18, MX06 |
+| PK5 | **Summary line.** A collapsed panel shows one known-safe summary line through the discovery filter. | UI at scale ZN3, IG5 |
+| PK6 | **Surface kind.** Cheat and power panels declare a `surface.kind` from V1 to V13, and quiet effects get no shell. | [Cheat UI references](gm/dispatch/ui-at-scale-2026-10-14/CHEAT_UI_REFERENCES.md) |
+| PK7 | **Numbers.** Counters and timers use tabular numerals and the shared formatters for counts, durations and notation. | ER11-F2, F4, F7; VI3 |
+| PK8 | **Motion budget.** Decorative motion checks hidden state and reduced motion, as the settled text effects already do. | ER11-F6; AX8 |
+
+Acceptance for any selected row follows the table above: rebuilt
+fresh-origin desktop evidence at 1366x768 and 1920x1080, plus a K-style
+check per rule.

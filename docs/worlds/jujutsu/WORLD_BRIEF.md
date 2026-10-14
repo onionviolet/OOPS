@@ -29,6 +29,12 @@ Related: [E8C JJK layering](../../emergent/E8C_POWER_PATHS_AND_ANIME.md#the-jjk-
 [ability contract](../ABILITY_AUTHORING.md),
 [Proving Ground](../proving-ground/WORLD_BRIEF.md).
 
+## Current pack and evidence boundary
+
+The eight linked owners and M5 synthesis now live beside this brief. They supersede the early 2026-10-10 brainstorm tables below wherever detailed mechanics differ. Those earlier mechanic examples were explicitly based on memory and remain unverified proposals; do not treat them as canon facts or implemented rules. The source-bounded pack is: [Campaign](CAMPAIGN.md), [Module catalogue](MODULE_CATALOGUE.md), [Source ledger](SOURCE_LEDGER.md), [Ability variants](ABILITY_VARIANTS.md), [Interactions](INTERACTIONS.md), [GM prompt](GM_PROMPT.md), [Implementation packet](IMPLEMENTATION_PACKET.md), and [Synthesis](SYNTHESIS.md).
+
+`W` Core examples directly checked against revision-pinned private wiki payloads are catalogued in SOURCE_LEDGER. All remain secondary wiki claims. `P` The first proposed play slice is the bounded curtain dispatch in IMPLEMENTATION_PACKET. No mechanic, start, AU, roster, runtime binding, save format or playable world is accepted by this research pack.
+
 ## Where it lives
 
 Three placements, all reachable (anything is possible, reasonably). They
@@ -37,10 +43,10 @@ how you get in.
 
 | Code | Placement | What it is | Names |
 |---|---|---|---|
-| P1 | **Book world** | The full JJK world as a destination: sorcerer society, curses, schools, clans, grades, Culling Game era options. Follows the book (rule 3); premise can be canon, divergent, remix or swapped | Canon, private pack |
-| P2 | **Frontier echoes** | The Frontier keeps its own rules (rule 2), so JJK pieces appear only through carriers (rule 5) or as outliers (rule 12): a cursed relic found in ruins, a stranded sorcerer, an adaptive beast, a fear-born spirit in a haunted spot | Original |
-| P4 | **Odd world** | An original world built from borrowed ideas: JJK pieces mixed with other sources, and each borrowed idea free to work differently than in its home world. See [odd world](#q3-an-odd-world-of-borrowed-ideas) | Original |
-| P3 | **Proving Ground** | A testing world where each primitive can be tried in isolation against dummies with dials exposed. Doubles as an in-fiction training realm | Original |
+| P P1 | **Book world** | The full JJK world as a destination: sorcerer society, curses, schools, clans, grades, Culling Game era options. Follows the book (rule 3); premise can be canon, divergent, remix or swapped | Canon, private pack |
+| P P2 | **Frontier echoes** | The Frontier keeps its own rules (rule 2), so JJK pieces appear only through carriers (rule 5) or as outliers (rule 12): a cursed relic found in ruins, a stranded sorcerer, an adaptive beast, a fear-born spirit in a haunted spot | Original |
+| P P4 | **Odd world** | An original world built from borrowed ideas: JJK pieces mixed with other sources, and each borrowed idea free to work differently than in its home world. See [odd world](#q3-an-odd-world-of-borrowed-ideas) | Original |
+| P P3 | **Proving Ground** | A testing world where each primitive can be tried in isolation against dummies with dials exposed. Doubles as an in-fiction training realm | Original |
 
 **Build order proposal:** primitives first in P3 (cheap to test, no
 story), then one or two Frontier echoes in P2 (playable in the real save),
@@ -70,18 +76,18 @@ whole.
 
 | Code | Layer | Mechanic | Engine owner |
 |---|---|---|---|
-| L1 | Cursed energy | Fuel with three stats: **reserve** (how much), **output** (how much per second), **control** (waste). Refills from negative moods. Non-sorcerers leak it into places; sorcerers don't | New fuel; E3 moods; E6 place facts |
-| L2 | Innate technique | One per body, written in the brain at birth, manifests in childhood. Some are inherited in clans. Same record shape as Rat-step plus trigger, scope, hidden rules and an extensions list | [techniques.js](../../../src/techniques.js) records |
-| L3 | Reinforcement | Pour energy into body or tool. Universal, learnable by anyone with energy | Practice path, vanilla skills as base |
-| L4 | Reverse cursed technique | Multiply negative by negative to get positive energy: self-heal first, heal others later (much rarer), and **technique reversal** (the opposite effect of your technique) | Second mastery track |
-| L5 | Maximum | A once-per-fight overcharge of your technique, or a fusion of two applications | Mode on the technique record |
-| L6 | Binding vows | Restriction for power, with yourself or with others. Explaining your technique is a vow. Breaking one brings an uncertain penalty | [E8D](../../emergent/E8D_VOW_SYSTEM.md) |
-| L7 | Barriers and curtains | Zones with conditions: keep in, keep out, hide, admit only some. Strength traded between inside and outside | E4 place rule layer |
-| L8 | Domains | Your technique's rules over a closed zone; sure-hit. Costs huge energy, then **burnout**: technique unusable for a while | Place rule layer; `hitModifier` forced in [combat_math.js](../../../src/combat_math.js) |
-| L9 | Anti-domain | Simple domain (small zone that cancels sure-hit), older basket form, clan counter techniques, domain amplification (coat yourself, nullify techniques you touch) | Rule priority |
-| L10 | Black Flash | A hit landed within a tiny window of energy release; huge multiplier, then a short "zone" of improved control. First one permanently raises understanding | Timing crit, temporary state via [active_effects.js](../../../src/active_effects.js) |
-| L11 | Heavenly Restriction | A birth vow: lose energy for a monstrous body, or lose the body for vast energy and range | Body traits (rule 4) |
-| L12 | Grades | Institution ranks for sorcerers and curses, lagging true strength | E3 factions; institutional grade path (E8C) |
+| P L1 | Cursed energy | Fuel with three stats: **reserve** (how much), **output** (how much per second), **control** (waste). Refills from negative moods. Non-sorcerers leak it into places; sorcerers don't | New fuel; E3 moods; E6 place facts |
+| P L2 | Innate technique | One per body, written in the brain at birth, manifests in childhood. Some are inherited in clans. Same record shape as Rat-step plus trigger, scope, hidden rules and an extensions list | [techniques.js](../../../src/techniques.js) records |
+| P L3 | Reinforcement | Pour energy into body or tool. Universal, learnable by anyone with energy | Practice path, vanilla skills as base |
+| P L4 | Reverse cursed technique | Multiply negative by negative to get positive energy: self-heal first, heal others later (much rarer), and **technique reversal** (the opposite effect of your technique) | Second mastery track |
+| P L5 | Maximum | A once-per-fight overcharge of your technique, or a fusion of two applications | Mode on the technique record |
+| P L6 | Binding vows | Restriction for power, with yourself or with others. Explaining your technique is a vow. Breaking one brings an uncertain penalty | [E8D](../../emergent/E8D_VOW_SYSTEM.md) |
+| P L7 | Barriers and curtains | Zones with conditions: keep in, keep out, hide, admit only some. Strength traded between inside and outside | E4 place rule layer |
+| P L8 | Domains | Your technique's rules over a closed zone; sure-hit. Costs huge energy, then **burnout**: technique unusable for a while | Place rule layer; `hitModifier` forced in [combat_math.js](../../../src/combat_math.js) |
+| P L9 | Anti-domain | Simple domain (small zone that cancels sure-hit), older basket form, clan counter techniques, domain amplification (coat yourself, nullify techniques you touch) | Rule priority |
+| P L10 | Black Flash | A hit landed within a tiny window of energy release; huge multiplier, then a short "zone" of improved control. First one permanently raises understanding | Timing crit, temporary state via [active_effects.js](../../../src/active_effects.js) |
+| P L11 | Heavenly Restriction | A birth vow: lose energy for a monstrous body, or lose the body for vast energy and range | Body traits (rule 4) |
+| P L12 | Grades | Institution ranks for sorcerers and curses, lagging true strength | E3 factions; institutional grade path (E8C) |
 
 ## Domains in detail
 
@@ -90,14 +96,14 @@ spec.
 
 | Part | Rule proposal |
 |---|---|
-| Startup | Hand sign and energy; interruptible. Announcing it is information the enemy gets |
-| Barrier | Closed by default. An open domain with no barrier is a far harder feat (huge range, needs a vow or monstrous skill) |
-| Sure-hit | Your technique's hit chance is 1 for targets inside |
-| Clash | Two domains: the more refined wins the space. Refinement is a skill stat, not raw energy |
-| Escape | Break the barrier from outside (weaker from inside by design, or the reverse, a dial per barrier) |
-| Counters | Simple domain, basket, amplification, or a tool that cuts techniques |
-| Aftermath | Burnout: technique offline for minutes; reverse technique can repair the brain and shorten it (a high-skill trick) |
-| Incomplete | A domain without sure-hit: home ground and buffs only. A real stepping stone, not a failure |
+| P Startup | Hand sign and energy; interruptible. Announcing it is information the enemy gets |
+| P Barrier | Closed by default. An open domain with no barrier is a far harder feat (huge range, needs a vow or monstrous skill) |
+| P Sure-hit | Your technique's hit chance is 1 for targets inside |
+| P Clash | Two domains: the more refined wins the space. Refinement is a skill stat, not raw energy |
+| P Escape | Break the barrier from outside (weaker from inside by design, or the reverse, a dial per barrier) |
+| P Counters | Simple domain, basket, amplification, or a tool that cuts techniques |
+| P Aftermath | Burnout: technique offline for minutes; reverse technique can repair the brain and shorten it (a high-skill trick) |
+| P Incomplete | A domain without sure-hit: home ground and buffs only. A real stepping stone, not a failure |
 
 ### Domains that aren't damage
 
@@ -124,21 +130,21 @@ counter that works for a real reason, an information weak point.
 
 | Code | Canon technique | Mechanic | Cost | Counter | Info weak point |
 |---|---|---|---|---|---|
-| T1 | Limitless / Infinity | Incoming attacks slow as they approach and never arrive. Attract, repel, then fuse them into an erasing shot | Constant control load; near-free only with the eye trait | Sure-hit domain, technique-cutting tool, adaptation, attacks on space | Filter rules: what it lets through |
-| T2 | Six Eyes | Efficiency near total; reads energy and techniques in detail | Born with it; the world reacts (more curses, more attention) | Not seeing the attacker; physical-only bodies with no energy to read | None for the user; it *is* information |
-| T3 | Ten Shadows | Shadow summons unlocked by beating each one in a ritual. A destroyed summon is gone but its power passes to another. Untamed summon of the strongest is a forced fight; involving an enemy voids the taming | Hand signs, shadow, fights to tame | Kill the summoner; flood the shadows with light | Which summons exist; who is in the ritual |
-| T4 | Mahoraga | The [E8E](../../emergent/E8E_ADAPTATION.md) adapter: wheel, steps, healing, answering defenses, an anti-curse positive-energy blade | Being untamed means it kills its summoner too | Burst, novelty, off-axis, steal the lesson | The wheel shows each turn |
-| T5 | Dismantle and Cleave | Plain cut, and a cut that scales to the target's toughness. A world-cutting slash that targets space itself | Energy; the space cut needs a learned answer | Distance, barriers, adaptation (except to the space cut) | Hand signs and chant can be skipped at a cost |
-| T6 | Idle Transfiguration | Touch the soul, reshape it; the body follows | Touch; needs understanding of souls | Someone who can hit souls; a body used to holding two souls | Touch range |
-| T7 | Body hopping (brain swap) | Move your brain into a corpse; **use that body's technique**. Rule 5 answer for JJK: the innate technique travels with the brain, not the soul | Needs the corpse; leaves a stitch scar | Recognition; the body's own will resisting | The scar |
-| T8 | Copy with a stored spirit | Copy techniques; the bound spirit stores and limits them. Time-limited full manifestation | A bond with a loved one's curse | Separate them; run out the timer | Which techniques are stored |
-| T9 | Cursed speech | Words that command; backlash scales with the target's strength | Throat damage, medicine | Soundproofing, stronger targets | Must be heard |
-| T10 | Boogie Woogie | Clap to swap positions of two energy-bearing things | Line of sight | Closing the hands; no energy-bearing objects | A fake clap is a real feint |
-| T11 | Resonance | Strike an effigy with a sample (hair, blood) to hit the owner | A sample with provenance | Not leaving samples | Sample custody: the engine's custody owners already fit |
-| T12 | Projection | Plan your next second in frames; the target must follow the frame rules or freeze | Committing to a plan | Breaking the rule on purpose; going faster | The 24-frame rule |
-| T13 | Comedian | Reality bends as long as the user honestly finds it funny | Must stay sincerely amused | Make them stop laughing | It is the user's sense of humor |
-| T14 | Construction | Make matter from energy, up to a perfect sphere that pierces | Huge energy | Avoid the sphere's set path | Its fixed rule |
-| T15 | Jacob's ladder | A light that ends all techniques | Rare vessel | Physical force | Range and start-up |
+| P T1 | Limitless / Infinity | Incoming attacks slow as they approach and never arrive. Attract, repel, then fuse them into an erasing shot | Constant control load; near-free only with the eye trait | Sure-hit domain, technique-cutting tool, adaptation, attacks on space | Filter rules: what it lets through |
+| P T2 | Six Eyes | Efficiency near total; reads energy and techniques in detail | Born with it; the world reacts (more curses, more attention) | Not seeing the attacker; physical-only bodies with no energy to read | None for the user; it *is* information |
+| P T3 | Ten Shadows | Shadow summons unlocked by beating each one in a ritual. A destroyed summon is gone but its power passes to another. Untamed summon of the strongest is a forced fight; involving an enemy voids the taming | Hand signs, shadow, fights to tame | Kill the summoner; flood the shadows with light | Which summons exist; who is in the ritual |
+| P T4 | Mahoraga | The [E8E](../../emergent/E8E_ADAPTATION.md) adapter: wheel, steps, healing, answering defenses, an anti-curse positive-energy blade | Being untamed means it kills its summoner too | Burst, novelty, off-axis, steal the lesson | The wheel shows each turn |
+| P T5 | Dismantle and Cleave | Plain cut, and a cut that scales to the target's toughness. A world-cutting slash that targets space itself | Energy; the space cut needs a learned answer | Distance, barriers, adaptation (except to the space cut) | Hand signs and chant can be skipped at a cost |
+| P T6 | Idle Transfiguration | Touch the soul, reshape it; the body follows | Touch; needs understanding of souls | Someone who can hit souls; a body used to holding two souls | Touch range |
+| P T7 | Body hopping (brain swap) | Move your brain into a corpse; **use that body's technique**. Rule 5 answer for JJK: the innate technique travels with the brain, not the soul | Needs the corpse; leaves a stitch scar | Recognition; the body's own will resisting | The scar |
+| P T8 | Copy with a stored spirit | Copy techniques; the bound spirit stores and limits them. Time-limited full manifestation | A bond with a loved one's curse | Separate them; run out the timer | Which techniques are stored |
+| P T9 | Cursed speech | Words that command; backlash scales with the target's strength | Throat damage, medicine | Soundproofing, stronger targets | Must be heard |
+| P T10 | Boogie Woogie | Clap to swap positions of two energy-bearing things | Line of sight | Closing the hands; no energy-bearing objects | A fake clap is a real feint |
+| P T11 | Resonance | Strike an effigy with a sample (hair, blood) to hit the owner | A sample with provenance | Not leaving samples | Sample custody: the engine's custody owners already fit |
+| P T12 | Projection | Plan your next second in frames; the target must follow the frame rules or freeze | Committing to a plan | Breaking the rule on purpose; going faster | The 24-frame rule |
+| P T13 | Comedian | Reality bends as long as the user honestly finds it funny | Must stay sincerely amused | Make them stop laughing | It is the user's sense of humor |
+| P T14 | Construction | Make matter from energy, up to a perfect sphere that pierces | Huge energy | Avoid the sphere's set path | Its fixed rule |
+| P T15 | Jacob's ladder | A light that ends all techniques | Rare vessel | Physical force | Range and start-up |
 
 Rows T13 to T15 test whether the engine's concept contract (in the
 [ability doc](../ABILITY_AUTHORING.md#conceptual-powers-and-mechanical-difficulty-requested-follow-through))
@@ -210,12 +216,12 @@ connect to.
 
 | Thing | Carrier | Notes |
 |---|---|---|
-| Innate technique | Brain (body) | Leaving your body leaves it behind; swapping into a body gains its technique |
-| Cursed energy capacity | Body plus soul (dial) | Proposal: reserve with the body, control with the soul |
-| Learned skills (reinforcement, reverse technique, domains) | Soul memory | Works in a new body only if that body can produce energy |
-| Vows | Swearer | Whether a vow survives a world crossing is that world's call |
-| Cursed tools, relics, fingers | Items | Carry normally; foreign worlds may not read them |
-| Adaptation | Ledger owner | See E8E |
+| P Innate technique | Brain (body) | Leaving your body leaves it behind; swapping into a body gains its technique |
+| P Cursed energy capacity | Body plus soul (dial) | Proposal: reserve with the body, control with the soul |
+| P Learned skills (reinforcement, reverse technique, domains) | Soul memory | Works in a new body only if that body can produce energy |
+| P Vows | Swearer | Whether a vow survives a world crossing is that world's call |
+| P Cursed tools, relics, fingers | Items | Carry normally; foreign worlds may not read them |
+| P Adaptation | Ledger owner | See E8E |
 
 In the Frontier, a carried technique works only if the Frontier lets it
 run: by default an outlier, rare and strange, not a new rule for everyone.
@@ -229,12 +235,12 @@ One playable slice at a time, per AGENTS.md.
 
 | Slice | Contents | Playable check |
 |---|---|---|
-| S1 | Proving Ground shell plus E8E adaptation ledger plus one adaptive dummy | Fight it, watch the wheel, switch weapons, save, reload, import |
-| S2 | E1 Wheelbearer in the Frontier | Meet it in the real save; decay works across days |
-| S3 | Energy fuel (L1) plus reinforcement (L3) plus a vow (L6, reusing E8D) | Spend, refill from mood, keep a vow, break one |
-| S4 | Barriers and domains (L7 to L9) | Domain vs simple domain in the Proving Ground |
-| S5 | Grudge-knots (E2) from Village mood facts | A sad week spawns more |
-| S6 | Private pack P1 opening: one school, one mission loop, one innate technique roll | Enter, take a mission, get paid, return |
+| P S1 | Proving Ground shell plus E8E adaptation ledger plus one adaptive dummy | Fight it, watch the wheel, switch weapons, save, reload, import |
+| P S2 | E1 Wheelbearer in the Frontier | Meet it in the real save; decay works across days |
+| P S3 | Energy fuel (L1) plus reinforcement (L3) plus a vow (L6, reusing E8D) | Spend, refill from mood, keep a vow, break one |
+| P S4 | Barriers and domains (L7 to L9) | Domain vs simple domain in the Proving Ground |
+| P S5 | Grudge-knots (E2) from Village mood facts | A sad week spawns more |
+| P S6 | Private pack P1 opening: one school, one mission loop, one innate technique roll | Enter, take a mission, get paid, return |
 
 Each slice that adds save data needs a migration or explicit
 compatibility decision.
@@ -255,12 +261,12 @@ and rules in force.
 
 | Era | What changes (canon details to verify) | Play feel |
 |---|---|---|
-| Ancient (Heian-like golden age) | No schools; clans and court sorcerers; techniques more brutal; Sukuna alive and at his height; older barrier arts (the basket before simple domain) | Lawless power, patronage, legends in the making |
-| Pre-story | Gojo's generation as students; the Star Plasma Vessel incident; Toji active | Watch the strongest grow; small ripples change him |
-| Prequel and main story | Yuta's curse, then Yuji's fingers; schools, missions, higher-ups | Classic mission loop |
-| Culling Game | Colonies, points, added rules, reincarnated sorcerers | Rule-game survival |
-| Aftermath and future | After the ending; the official future spin-off (*Modulo*, set decades later; verify scope before use) or an original far future | Inherited techniques in new families, new threats, history as lore |
-| Original eras | A divergent past, a world where the strongest never lived, or a remix | Swapped premise |
+| P Ancient (Heian-like golden age) | No schools; clans and court sorcerers; techniques more brutal; Sukuna alive and at his height; older barrier arts (the basket before simple domain) | Lawless power, patronage, legends in the making |
+| P Pre-story | Gojo's generation as students; the Star Plasma Vessel incident; Toji active | Watch the strongest grow; small ripples change him |
+| P Prequel and main story | Yuta's curse, then Yuji's fingers; schools, missions, higher-ups | Classic mission loop |
+| P Culling Game | Colonies, points, added rules, reincarnated sorcerers | Rule-game survival |
+| P Aftermath and future | After the ending; the official future spin-off (*Modulo*, set decades later; verify scope before use) or an original far future | Inherited techniques in new families, new threats, history as lore |
+| P Original eras | A divergent past, a world where the strongest never lived, or a remix | Swapped premise |
 
 Details that make eras matter:
 - **Curse density shifts.** Canon ties the rise in curse strength to the
@@ -283,14 +289,14 @@ normal and which are rare (rule 1).
 
 | Route | How | Notes |
 |---|---|---|
-| None | Most people have none | Still viable: reinforcement, tools, Heavenly-Restriction-style bodies, missions as support |
-| Rolled at birth | Random innate technique, weighted by era and parents | Seeded (E1), so a roll is fair and replayable |
-| Inherited | Born into a clan with its technique | Comes with clan politics |
-| Chosen premise | Pick it at entry, like a starting class | For a deliberate run |
-| Late awakening | Near death, a brain injury, a vow, eating a relic shard, a curse's touch on the soul | The obscure ways; each with a price |
-| Borrowed body | Enter a body that already has one (body hopping) | The technique belongs to the brain, not you |
-| Carried in | From a prior run or another world through a carrier | Works only if this world can run it |
-| Copied or stored | Copy, a cursed tool, a bound spirit | Limited and conditional |
+| P None | Most people have none | Still viable: reinforcement, tools, Heavenly-Restriction-style bodies, missions as support |
+| P Rolled at birth | Random innate technique, weighted by era and parents | Seeded (E1), so a roll is fair and replayable |
+| P Inherited | Born into a clan with its technique | Comes with clan politics |
+| P Chosen premise | Pick it at entry, like a starting class | For a deliberate run |
+| P Late awakening | Near death, a brain injury, a vow, eating a relic shard, a curse's touch on the soul | The obscure ways; each with a price |
+| P Borrowed body | Enter a body that already has one (body hopping) | The technique belongs to the brain, not you |
+| P Carried in | From a prior run or another world through a carrier | Works only if this world can run it |
+| P Copied or stored | Copy, a cursed tool, a bound spirit | Limited and conditional |
 
 The same applies to cursed energy itself: from none (sight only, or not
 even that) to vast.
@@ -343,15 +349,15 @@ normal, and flag outliers:
 
 | Finding | Reaction |
 |---|---|
-| Ordinary crime | Normal trial; evidence, defense, verdict |
-| Extreme count | Judge asks why; the gallery murmurs; a ruling about "obsession" can be its own verdict |
-| Absurd act | Laughter, a confused judge, a sentence that fits the joke (pay the farmer, apologize to the chicken's owner) |
-| Act in another world or life | Jurisdiction fight: is it admissible here? The judge may refuse it, or treat it as character evidence |
-| No witnesses | Evidence the court cannot see (rule 6): inadmissible, so you win on a technicality, and someone notices |
-| Contradicting records | The court catches a lie; or the records were wrong and you prove it |
-| A vow you broke | Strongest evidence of all; vows are law here |
-| Good deeds | Mitigation; witnesses you helped may show up |
-| Nothing odd | A short, boring trial, which is its own kind of suspicious if you are known to be dangerous |
+| P Ordinary crime | Normal trial; evidence, defense, verdict |
+| P Extreme count | Judge asks why; the gallery murmurs; a ruling about "obsession" can be its own verdict |
+| P Absurd act | Laughter, a confused judge, a sentence that fits the joke (pay the farmer, apologize to the chicken's owner) |
+| P Act in another world or life | Jurisdiction fight: is it admissible here? The judge may refuse it, or treat it as character evidence |
+| P No witnesses | Evidence the court cannot see (rule 6): inadmissible, so you win on a technicality, and someone notices |
+| P Contradicting records | The court catches a lie; or the records were wrong and you prove it |
+| P A vow you broke | Strongest evidence of all; vows are law here |
+| P Good deeds | Mitigation; witnesses you helped may show up |
+| P Nothing odd | A short, boring trial, which is its own kind of suspicious if you are known to be dangerous |
 
 Rule: the court reads only receipts the save actually holds; it never
 invents crimes. Save integrity (rule 9) means reload abuse does not leave

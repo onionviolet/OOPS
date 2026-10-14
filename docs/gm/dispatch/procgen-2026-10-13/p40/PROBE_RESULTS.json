@@ -1,0 +1,63 @@
+{
+  "proposal": true,
+  "checks": [
+    {
+      "id": "AP1",
+      "finding": "F15",
+      "observed": "Distinct astral suffixes collide in hash input",
+      "label": "SOURCE_SYNTHETIC",
+      "status": "reproduced"
+    },
+    {
+      "id": "AP2",
+      "finding": "F09",
+      "observed": "Late clock 9 gives 1 batch; boundaries 3/6/9 give 3",
+      "label": "SOURCE_SYNTHETIC",
+      "status": "reproduced; catch-up policy not implemented"
+    },
+    {
+      "id": "AP3",
+      "finding": "F11",
+      "observed": "Eviction removes a receipt still referenced by a terminal event; final validation rejects",
+      "label": "SOURCE_SYNTHETIC",
+      "status": "reproduced"
+    },
+    {
+      "id": "AP4",
+      "finding": "F06",
+      "observed": "Equivalent inventory maps yield different first delta keys",
+      "label": "SOURCE_SYNTHETIC",
+      "status": "reproduced"
+    },
+    {
+      "id": "AP5",
+      "finding": "F13",
+      "observed": "Owner validation masks newer-build message; envelope still rejects",
+      "label": "SOURCE_SYNTHETIC",
+      "status": "reproduced; no import write attempted"
+    },
+    {
+      "id": "AP6",
+      "finding": "F16",
+      "observed": "Integer API admits an unsafe-width span with individually safe endpoints",
+      "label": "SOURCE_SYNTHETIC",
+      "status": "reproduced API admission; no bad gameplay output claim"
+    },
+    {
+      "id": "AP7",
+      "finding": "F05",
+      "observed": "JSON-only validator admits Map and Set; JSON encoding loses their entries",
+      "label": "SOURCE_SYNTHETIC",
+      "status": "reproduced validator gap; no live saved collection claimed"
+    },
+    {
+      "id": "AP8",
+      "finding": "F04",
+      "observed": "Legal ASCII IDs order differently under English and Danish collation",
+      "label": "SOURCE_SYNTHETIC",
+      "status": "reproduced locale sensitivity; no natural event divergence claimed"
+    }
+  ],
+  "passed": 8,
+  "failed": 0
+}

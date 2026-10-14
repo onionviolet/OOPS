@@ -1,6 +1,9 @@
 import {validateAdaptation} from './absorb_p23/world_adaptation/index.js';
 import {validateReadingState} from './absorb_p23/reading/runtime.js';
 import {reconcileSystemsWorkshop} from './systems_workshop_runtime.js';
+import {validateStreams} from './seeded_streams.js';
+import {validateStoryletState} from './storylet_deck.js';
+import {validateLoreHistory} from './lore_history_state.js';
 import {nativeEquipmentSnapshot} from './native_equipment_transaction.js';
 import {nextContainerBoundary} from './structured_container_runtime.js';
 import {advanceNativeContainerClocks} from './simulation_effects.js';
@@ -149,6 +152,9 @@ export function validateExpansionState(state, registry) {
     validateAuditRemainderProjects(state,registry);
     validateReadingState(state.p23Reading,state.clock);
     validateAdaptation(state.worldAdaptation);
+    if(state.streams!=null)validateStreams(state.streams);
+    validateStoryletState(state);
+    validateLoreHistory(state);
     validateChronicle(state.chronicle, state.clock);
     validateSimulationState(state.simulation, state, registry?.simulation);
     validateSystemsWorkshop(state);

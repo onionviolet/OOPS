@@ -1,0 +1,214 @@
+{
+  "captured_at_utc": "2026-10-14T05:21:23.304330+00:00",
+  "label": "SOURCE inspection / final locator refresh; not gameplay proof",
+  "main_head_initial_worktree_observation": "20aa1312",
+  "checkouts": [
+    {
+      "label": "main",
+      "path": "/Users/weiwei/code/yet-another-idle-rpg",
+      "branch": "codex/gameplay-foundations",
+      "head": "602c8abdf6dd88211a35ec653151d6c445609b42",
+      "files": [
+        {
+          "file": "src/components/dialogue_component.js",
+          "sha256": "33e4cc1c432ab784e143967a22c40914e1880c0c9bfd04d78e56b694b6db41f5",
+          "lines": 115
+        },
+        {
+          "file": "src/data/dialogues.js",
+          "sha256": "277fce60a665df34f5869009c2e6d6f49baa064106e4b844a0dd13d6a553a8cf",
+          "lines": 2260
+        },
+        {
+          "file": "src/main.js",
+          "sha256": "81a8b6130efe5560e456c25840ae6ec035666ecf92efdcd133de620183c0ba16",
+          "lines": 8668
+        },
+        {
+          "file": "src/display.js",
+          "sha256": "da4b693e743ccba934955e883c05fb7ad868c72b76f4dbd9c2df06215d6a7fa8",
+          "lines": 6167
+        },
+        {
+          "file": "src/items.js",
+          "sha256": "a133d61e7473038fd47bdf749916d98c307b38611d2a16eb241b342dfd8c528e",
+          "lines": 4571
+        },
+        {
+          "file": "src/components/inventory_component.js",
+          "sha256": "042c6be419ea8d3795eddfe938d04fd1b16e974a11372a571b864bae08d1673a",
+          "lines": 94
+        },
+        {
+          "file": "src/simulation_effects.js",
+          "sha256": "507a5a60b82eaade331601c90f5e98410a2d99486903b9109937f933f3ffe151",
+          "lines": 394
+        },
+        {
+          "file": "src/simulation_contracts.js",
+          "sha256": "519b55317952eb7b4cd10a0cabb899542e7af706f568358f146b241be81b301c",
+          "lines": 322
+        },
+        {
+          "file": "src/causal_situations.js",
+          "sha256": "3bd9a375ce95f9666cbf8081706272c3358186f647681a7db2330f328a2d0366",
+          "lines": 57
+        },
+        {
+          "file": "src/chronicle.js",
+          "sha256": "c21046237528b7b692efc367ae7cacc9b1a41714c622eff24b29c8ff5a9b261b",
+          "lines": 315
+        },
+        {
+          "file": "src/people_knowledge.js",
+          "sha256": "e52bf2508ab626785ad66074179f33916aaed7946fbd403706cb59303e851261",
+          "lines": 106
+        },
+        {
+          "file": "src/life_record.js",
+          "sha256": "21ac5f17fff62794ba26d7180deb6a9c0ad85060d79134e5d6ce83de51d1d9bd",
+          "lines": 82
+        },
+        {
+          "file": "src/event_feed.js",
+          "sha256": "cdc1c747ae9cc2b68ba6725d97b9657aabebfe531c3be4e961b3a8d59fcc2e3e",
+          "lines": 103
+        },
+        {
+          "file": "src/npc_lives.js",
+          "sha256": "abef56e7d73a0e17a3ba551608eafc4fb7f9f1660c17a445cfe96ae9869eb804",
+          "lines": 52
+        },
+        {
+          "file": "src/game_time.js",
+          "sha256": "ae58e07158d52962cc8e0735b2e30af803f85bba4e68881038127a2b6b9cbf6c",
+          "lines": 197
+        },
+        {
+          "file": "src/world_rhythm.js",
+          "sha256": "a6d3f7e63f2627aac99ff5e9f16b62e6a41c59a27a235f7365f48952b0d2d3e6",
+          "lines": 31
+        },
+        {
+          "file": "src/components/trader_component.js",
+          "sha256": "f408d1bac7c12e11dd737267ef6bfd3bf9af91e13c6bd7d7b0de5858e5361b6a",
+          "lines": 187
+        },
+        {
+          "file": "src/simulation.js",
+          "sha256": "c5717787ca8e0fcb57e2933e8d8a39e9088f6e12d8d7197d91605517cdc0041b",
+          "lines": 642
+        },
+        {
+          "file": "src/ink_narrative.js",
+          "sha256": "f54f3413232acb9f134028cfb78a58e5d029f903c0976e259169ac7e7e9607ff",
+          "lines": 355
+        },
+        {
+          "file": "src/ink_scene_content.js",
+          "sha256": "17510921b76264463dfc68911f3179c407a2b1c7970d9431dfdb50ec5820d761",
+          "lines": 400
+        },
+        {
+          "file": "src/ink_narrative_ui.js",
+          "sha256": "a23ca720ea5244cb006dbfbf7306838b4cc3540628707b00b022d0f23f7566bd",
+          "lines": 141
+        },
+        {
+          "file": "src/action_legibility_ui.js",
+          "sha256": "62fe85800e8502c55812ae66fb6ae79e0fc22047401586c8e5064b407f68564d",
+          "lines": 378
+        },
+        {
+          "file": "src/absorb_e2/durability.js",
+          "sha256": "da884f4348090ceb0449af17c307df4fea2c07bafb3252682c9f5f20e7bdd02b",
+          "lines": 179
+        }
+      ]
+    },
+    {
+      "label": "P2 read-only",
+      "path": "/Users/weiwei/code/yet-another-idle-rpg/.claude/worktrees/proc-p2-mixing",
+      "branch": "proc/p2-mixing",
+      "head": "f8fe699487c90ec06e83bfc020dfa8a6dc234705",
+      "files": [
+        {
+          "file": "src/mixture_state.js",
+          "sha256": "1d3f161da9f2cb9bf138292be0f5e5b4e38c381a337fe55cc616eb71b908c02e",
+          "lines": 101
+        },
+        {
+          "file": "src/mixture_native.js",
+          "sha256": "15d49051cdea16f5ff10dd1db1aa6d8d17dd7b7e4685a3c46651c3bab196eea0",
+          "lines": 44
+        },
+        {
+          "file": "src/mixture_ui.js",
+          "sha256": "fb95a88773aeb13de0a42441ca38747ff0d9cf0281b7df8938a06e2441dc9d63",
+          "lines": 39
+        },
+        {
+          "file": "src/items.js",
+          "sha256": "a133d61e7473038fd47bdf749916d98c307b38611d2a16eb241b342dfd8c528e",
+          "lines": 4571
+        },
+        {
+          "file": "src/components/inventory_component.js",
+          "sha256": "042c6be419ea8d3795eddfe938d04fd1b16e974a11372a571b864bae08d1673a",
+          "lines": 94
+        },
+        {
+          "file": "docs/gm/dispatch/procgen-2026-10-13/p2/REPORT.md",
+          "sha256": "23e4bf9f8e24b5709944bb54d32e47d91d29324682a8abb23c31f7304e86c6b7",
+          "lines": 62
+        }
+      ]
+    },
+    {
+      "label": "P34 read-only",
+      "path": "/Users/weiwei/code/yet-another-idle-rpg/.claude/worktrees/proc-p34-spine",
+      "branch": "proc/p34-story-spine",
+      "head": "364d83007a64c0409a1d528493410751cf4679a2",
+      "files": [
+        {
+          "file": "src/lore_history_state.js",
+          "sha256": "2c612a7e8fed5bef1dc5314914188b8af3d3b0fdb16e36290f9b3340017c14a8",
+          "lines": 63
+        },
+        {
+          "file": "src/lore_history_view.js",
+          "sha256": "4afc314cc1844d0fd16e212e6186eed79d39040d229c0800f966e310da4a6ecd",
+          "lines": 14
+        },
+        {
+          "file": "src/story_requests.js",
+          "sha256": "4111bcae84a4f86edaea1911896d609e7dbba24f6885ad2d0264f66829bed184",
+          "lines": 71
+        },
+        {
+          "file": "src/story_aftermath.js",
+          "sha256": "6c1cdf50739733cc273d4012b9aed2f5ec4b20622e256163bb84fb3444b5e6ba",
+          "lines": 16
+        },
+        {
+          "file": "docs/gm/dispatch/procgen-2026-10-13/p34/CHECKPOINT.md",
+          "sha256": "4dac73e041ccd87ea68108ecd1a474f2418970ce8785a66362803fea18d3f67a",
+          "lines": 29
+        }
+      ]
+    }
+  ],
+  "p2_ancestor_of_main": true,
+  "prior_refreshes": [
+    {
+      "head": "be47d1ddc4e786f5d7bf7ce0162303f23d24a854",
+      "file": {
+        "file": "src/main.js",
+        "sha256": "63bde375a9416186e116f26aa554172e0ef077563ed6d695eec93dd22f0cc956",
+        "lines": 8655
+      },
+      "note": "Root added one import line after first passing documentation check; dialogue locator refresh follows."
+    }
+  ],
+  "last_main_locator_refresh_utc": "2026-10-14T05:23:59.170876+00:00"
+}

@@ -1,0 +1,5 @@
+# World pack fixes: Chainsaw Man
+
+Repo `/Users/weiwei/code/yet-another-idle-rpg`. Read `AGENTS.md` and `docs/worlds/chainsaw-man/REVIEW.md` (an independent review of this pack). You are the only writer of `docs/worlds/chainsaw-man/` for this task; do not edit REVIEW.md except to append a final `## Fixes applied` section.
+
+Apply every fix the review lists, in its priority order, and add the rules it says the pack missed when the cited notes or payloads support them. Before changing a rule, open the cited payload (manifest row `read_file` under `~/.codex/research/wikis/`, via the lane notes under `docs/research/power-systems/wiki-digests/full-dumps/workers/`) and confirm the review's reading; if you disagree, keep the pack's text and explain why in `## Fixes applied`. Keep proposals labelled, continuity separated, sealed secrets as slot IDs only, and no quotes over 15 words. Update SYNTHESIS.md where a core law changed. Finish with `## Fixes applied` in REVIEW.md: each fix, file touched, and anything declined with reason. Then write `docs/worlds/chainsaw-man/FIXES_APPLIED.md` containing one line: the date and "see REVIEW.md". No commits.

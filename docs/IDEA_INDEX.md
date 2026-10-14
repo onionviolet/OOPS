@@ -18,9 +18,23 @@ Remaining gaps, in order:
 
 ## How ideas are kept
 
+[Modular production chains](MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md)
+owns the cross-stage view: one operation shape from harvest through refining,
+making, use and salvage, modularity from substance to network, and procedural
+rule modules (world laws, generated per-save rules, social rules). Round 2
+defers the harvest end to the harvest-modules wave (HV2 model) and adds chain
+graphs, scale regimes, stage actors, chain generation and stage cheats; lanes
+PC1-PC5. Round 3 folds them: corrections X1-X19, no universal engine, top
+picks T1-T5; repeatable via the [core audit](audits/MODULAR_CHAINS_CORE_AUDIT.md).
+Proposals only.
+
 [World core kit](worlds/WORLD_CORE_KIT_2026-10-14.md) owns the 2026-10-14
 per-world checklist of what a world needs to play in depth (K1-K34, micro,
-subtle detail, comics, lens cheats, abstractions; eight rounds, lanes W1-W20).
+subtle detail, comics, lens cheats, abstractions, per-part more-to-consider
+pass MC1-MC34, directions DR1-DR8, world shapes SW1-SW8, canon calendars
+CC1-CC16, source fidelity SF1-SF10; fourteen rounds, lanes W1-W35 folded,
+W36-W37 running; per-world
+[cards](worlds/world-core-kit-2026-10-14/cards/README.md)).
 It repeats as a standing audit: [core audit entry](audits/WORLD_CORE_KIT_CORE_AUDIT.md)
 and [playbook](worlds/WORLD_CORE_KIT_AUDIT_PLAYBOOK.md). Proposals only.
 
@@ -88,6 +102,12 @@ proposed build order, and lanes B15 (body cheats) and B16 (roadmap).
 Round 9 adds comic bodies CB1-CB15, comic body cheats CC1-CC6, subtle comic
 detail, and abstractions AB1-AB12 mapped to code and to the comic doc's CA
 list, with lanes B17 and B18.
+The final fold records B10, B12 and B14-B18, applies B17 and B16 corrections,
+lists cross-lane conflicts FD1-FD8 and top picks; the wave is folded.
+Round 10 runs the more-to-consider pass: code index, slice constraints
+MT1-MT7, delegated items LD1-LD6 and new angles NA1-NA6.
+Round 11 adds ownership with sibling palettes OW1-OW6, stability rules
+ST-A to ST-F, reincarnation RL1-RL6, authoring volume AV1-AV5, LD7-LD10, NA7-NA10.
 
 Current idea-expansion return, 2026-10-11:
 [joined planning](gm/dispatch/idea-expansion-2026-10-11/RECONCILIATION.md) retains

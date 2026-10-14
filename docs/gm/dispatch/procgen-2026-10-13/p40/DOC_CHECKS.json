@@ -1,0 +1,843 @@
+{
+  "proposal": true,
+  "checkedAt": "2026-10-14T05:31:31.547467+00:00",
+  "kind": "document/static checks only",
+  "localLinks": [
+    {
+      "file": "MORE.md",
+      "target": "../../../../PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md#bl-subtle-engineering-hazards",
+      "exists": true
+    },
+    {
+      "file": "MORE.md",
+      "target": "../../../../PROCEDURAL_CRAFTING_AND_CONSUMABLES_CONSIDERATIONS_2026-10-14.md",
+      "exists": true
+    },
+    {
+      "file": "MORE.md",
+      "target": "../crafting-lanes/P26-crafting-draft.md",
+      "exists": true
+    },
+    {
+      "file": "MORE.md",
+      "target": "../crafting-lanes/P27-crafting-draft.md",
+      "exists": true
+    },
+    {
+      "file": "MORE.md",
+      "target": "../crafting-lanes/P28-crafting-draft.md",
+      "exists": true
+    },
+    {
+      "file": "MORE.md",
+      "target": "../crafting-lanes/P29-crafting-draft.md",
+      "exists": true
+    },
+    {
+      "file": "MORE.md",
+      "target": "../p6/REPORT.md",
+      "exists": true
+    },
+    {
+      "file": "MORE.md",
+      "target": "../p8/REPORT.md",
+      "exists": true
+    },
+    {
+      "file": "MORE.md",
+      "target": "../p11/MORE.md",
+      "exists": true
+    },
+    {
+      "file": "MORE.md",
+      "target": "../p5/EXTRA_IDEAS.md",
+      "exists": true
+    },
+    {
+      "file": "MORE.md",
+      "target": "../p18/HARNESS.md",
+      "exists": true
+    },
+    {
+      "file": "MORE.md",
+      "target": "../p38/REPORT.md",
+      "exists": true
+    },
+    {
+      "file": "MORE.md",
+      "target": "../p39/REGISTRY.md",
+      "exists": true
+    },
+    {
+      "file": "MORE.md",
+      "target": "../p39/GRAPH.md",
+      "exists": true
+    },
+    {
+      "file": "REPORT.md",
+      "target": "CHECKPOINT.md",
+      "exists": true
+    },
+    {
+      "file": "REPORT.md",
+      "target": "FINDINGS.md",
+      "exists": true
+    },
+    {
+      "file": "REPORT.md",
+      "target": "FINDINGS.md",
+      "exists": true
+    },
+    {
+      "file": "REPORT.md",
+      "target": "LINT_RULES.md",
+      "exists": true
+    },
+    {
+      "file": "REPORT.md",
+      "target": "proposed/determinism_lint.mjs",
+      "exists": true
+    },
+    {
+      "file": "REPORT.md",
+      "target": "TEST_CASES.md",
+      "exists": true
+    },
+    {
+      "file": "REPORT.md",
+      "target": "MORE.md",
+      "exists": true
+    },
+    {
+      "file": "REPORT.md",
+      "target": "SOURCE_SNAPSHOT.json",
+      "exists": true
+    },
+    {
+      "file": "REPORT.md",
+      "target": "SOURCE_REFRESH.json",
+      "exists": true
+    },
+    {
+      "file": "REPORT.md",
+      "target": "PROBE_RESULTS.json",
+      "exists": true
+    },
+    {
+      "file": "REPORT.md",
+      "target": "proposed/audit_probes.mjs",
+      "exists": true
+    },
+    {
+      "file": "REPORT.md",
+      "target": "LINT_SCAN.json",
+      "exists": true
+    },
+    {
+      "file": "REPORT.md",
+      "target": "LINT_REFRESH.json",
+      "exists": true
+    },
+    {
+      "file": "REPORT.md",
+      "target": "DOC_CHECKS.json",
+      "exists": true
+    },
+    {
+      "file": "REPORT.md",
+      "target": "MORE.md#join-the-existing-owners",
+      "exists": true
+    },
+    {
+      "file": "REPORT.md",
+      "target": "DOC_CHECKS.json",
+      "exists": true
+    },
+    {
+      "file": "TEST_CASES.md",
+      "target": "../p18/HARNESS.md",
+      "exists": true
+    },
+    {
+      "file": "TEST_CASES.md",
+      "target": "../p18/HYGIENE.md",
+      "exists": true
+    },
+    {
+      "file": "TEST_CASES.md",
+      "target": "../p18/EXPLAIN.md",
+      "exists": true
+    },
+    {
+      "file": "TEST_CASES.md",
+      "target": "PROBE_RESULTS.json",
+      "exists": true
+    },
+    {
+      "file": "TEST_CASES.md",
+      "target": "proposed/determinism_lint.mjs",
+      "exists": true
+    },
+    {
+      "file": "CHECKPOINT.md",
+      "target": "REPORT.md",
+      "exists": true
+    },
+    {
+      "file": "CHECKPOINT.md",
+      "target": "FINDINGS.md",
+      "exists": true
+    },
+    {
+      "file": "CHECKPOINT.md",
+      "target": "LINT_RULES.md",
+      "exists": true
+    },
+    {
+      "file": "CHECKPOINT.md",
+      "target": "TEST_CASES.md",
+      "exists": true
+    },
+    {
+      "file": "CHECKPOINT.md",
+      "target": "MORE.md",
+      "exists": true
+    },
+    {
+      "file": "CHECKPOINT.md",
+      "target": "proposed/determinism_lint.mjs",
+      "exists": true
+    },
+    {
+      "file": "CHECKPOINT.md",
+      "target": "proposed/audit_probes.mjs",
+      "exists": true
+    },
+    {
+      "file": "FINDINGS.md",
+      "target": "REPORT.md",
+      "exists": true
+    },
+    {
+      "file": "FINDINGS.md",
+      "target": "SOURCE_SNAPSHOT.json",
+      "exists": true
+    },
+    {
+      "file": "FINDINGS.md",
+      "target": "proposed/audit_probes.mjs",
+      "exists": true
+    },
+    {
+      "file": "FINDINGS.md",
+      "target": "PROBE_RESULTS.json",
+      "exists": true
+    },
+    {
+      "file": "FINDINGS.md",
+      "target": "../../../../../.claude/worktrees/proc-p2-mixing/docs/gm/dispatch/procgen-2026-10-13/p2/REPORT.md",
+      "exists": true
+    },
+    {
+      "file": "FINDINGS.md",
+      "target": "SOURCE_REFRESH.json",
+      "exists": true
+    },
+    {
+      "file": "FINDINGS.md",
+      "target": "../COMMON.md",
+      "exists": true
+    },
+    {
+      "file": "FINDINGS.md",
+      "target": "../crafting-lanes/P26-crafting-draft.md",
+      "exists": true
+    },
+    {
+      "file": "FINDINGS.md",
+      "target": "MORE.md",
+      "exists": true
+    },
+    {
+      "file": "FINDINGS.md",
+      "target": "../p6/REPORT.md",
+      "exists": true
+    },
+    {
+      "file": "FINDINGS.md",
+      "target": "../../../../../.claude/worktrees/proc-p34-spine/src/lore_history_view.js",
+      "exists": true
+    },
+    {
+      "file": "FINDINGS.md",
+      "target": "../../../../../src/world_visit_history.js",
+      "exists": true
+    },
+    {
+      "file": "FINDINGS.md",
+      "target": "TEST_CASES.md",
+      "exists": true
+    },
+    {
+      "file": "LINT_RULES.md",
+      "target": "proposed/determinism_lint.mjs",
+      "exists": true
+    },
+    {
+      "file": "LINT_RULES.md",
+      "target": "proposed/audit_probes.mjs",
+      "exists": true
+    }
+  ],
+  "locators": [
+    {
+      "branch": "P2",
+      "file": "src/enemies.js",
+      "lines": "170,174",
+      "exists": true,
+      "rangeValid": true,
+      "sourceSha256": "62b337c824c94a2545743dce5224b3f5c3410e9e2ad463b7c6c1f2a192124f94"
+    },
+    {
+      "branch": "P3",
+      "file": "src/models/location.js",
+      "lines": "344,355,357",
+      "exists": true,
+      "rangeValid": true,
+      "sourceSha256": "2e4c0e8d84b9213fb3f0324d0a495791bfa4d1adc5b15b37ecadd079678b2ecd"
+    },
+    {
+      "branch": "P3",
+      "file": "src/models/combat.js",
+      "lines": "323,351,377",
+      "exists": true,
+      "rangeValid": true,
+      "sourceSha256": "ef133e52be5db0660d48fad15f4c8f3a9c5ada505acc2286c31cbe6d43d3c1d0"
+    },
+    {
+      "branch": "main",
+      "file": "src/combat_math.js",
+      "lines": "34,44",
+      "exists": true,
+      "rangeValid": true,
+      "sourceSha256": "ad191cf1e6ddafb2b895bb953829e27ec4abe3806a90b4b4d87f8bf27842c045"
+    },
+    {
+      "branch": "main",
+      "file": "src/misc.js",
+      "lines": "68-69",
+      "exists": true,
+      "rangeValid": true,
+      "sourceSha256": "fb68556cee90d303cf980d992b637d37c46bd14501d14436df35d990ba6ac510"
+    },
+    {
+      "branch": "main",
+      "file": "src/crafting_recipes.js",
+      "lines": "206,236,302",
+      "exists": true,
+      "rangeValid": true,
+      "sourceSha256": "bd726bf865d0ae059bdb0811edd78bffe62ee9824c7beff1d9a2db027a228c9f"
+    },
+    {
+      "branch": "main",
+      "file": "src/main.js",
+      "lines": "2606,2609,2630,3522-3526,7635-7642",
+      "exists": true,
+      "rangeValid": true,
+      "sourceSha256": "81a8b6130efe5560e456c25840ae6ec035666ecf92efdcd133de620183c0ba16"
+    },
+    {
+      "branch": "main",
+      "file": "src/models/combat.js",
+      "lines": "136,229-246",
+      "exists": true,
+      "rangeValid": true,
+      "sourceSha256": "e73d170047906527881a0b46cd8b78b713782da5a9b48e9c803bdae99fa2f9a4"
+    },
+    {
+      "branch": "main",
+      "file": "src/main.js",
+      "lines": "5285-5287,5414",
+      "exists": true,
+      "rangeValid": true,
+      "sourceSha256": "81a8b6130efe5560e456c25840ae6ec035666ecf92efdcd133de620183c0ba16"
+    },
+    {
+      "branch": "main",
+      "file": "src/backlog_expansion_time.js",
+      "lines": "80-86",
+      "exists": true,
+      "rangeValid": true,
+      "sourceSha256": "4f8e6b065ad76370671cf878a203cd1d9d3966a290268e3897684e690a0478fb"
+    },
+    {
+      "branch": "main",
+      "file": "src/storylet_deck.js",
+      "lines": "31",
+      "exists": true,
+      "rangeValid": true,
+      "sourceSha256": "683688b03fd26d2bfae7a1a1f5042bef27bf2e406b9787af94bf72b2416642a3"
+    },
+    {
+      "branch": "P34",
+      "file": "src/storylet_deck.js",
+      "lines": "33",
+      "exists": true,
+      "rangeValid": true,
+      "sourceSha256": "7cf343ca9badaa71f142e46dd8869ee2165b74191202efb6118e6afdc27cd113"
+    },
+    {
+      "branch": "main",
+      "file": "src/simulation.js",
+      "lines": "501,504,527,530,550",
+      "exists": true,
+      "rangeValid": true,
+      "sourceSha256": "c5717787ca8e0fcb57e2933e8d8a39e9088f6e12d8d7197d91605517cdc0041b"
+    },
+    {
+      "branch": "P4",
+      "file": "src/generated_people.js",
+      "lines": "57",
+      "exists": true,
+      "rangeValid": true,
+      "sourceSha256": "c2b4c1d7dda442ee9032524059dea15a044dace23b50c355d343b7f6aca6acd3"
+    },
+    {
+      "branch": "P34",
+      "file": "src/story_requests.js",
+      "lines": "29",
+      "exists": true,
+      "rangeValid": true,
+      "sourceSha256": "899b235be48e0b899ab72279a4bf24eb357f624ec9d5412b7f2b2870d02a2193"
+    },
+    {
+      "branch": "main",
+      "file": "src/simulation_contracts.js",
+      "lines": "13,18-26,92,108,229",
+      "exists": true,
+      "rangeValid": true,
+      "sourceSha256": "519b55317952eb7b4cd10a0cabb899542e7af706f568358f146b241be81b301c"
+    },
+    {
+      "branch": "main",
+      "file": "src/native_craft_transaction.js",
+      "lines": "9-12",
+      "exists": true,
+      "rangeValid": true,
+      "sourceSha256": "df314bdbde04ad3a5f413e9ff2d6bb5f323a6f444b430f8dc5921a3df2c898f5"
+    },
+    {
+      "branch": "P34",
+      "file": "src/lore_history_state.js",
+      "lines": "52-55,61-63",
+      "exists": true,
+      "rangeValid": true,
+      "sourceSha256": "e1e464ea8da308f087e49f2d33a88c3d3cadff888e7a44cd953c0310f5733148"
+    },
+    {
+      "branch": "main",
+      "file": "src/storylet_deck.js",
+      "lines": "35-39,62-66",
+      "exists": true,
+      "rangeValid": true,
+      "sourceSha256": "683688b03fd26d2bfae7a1a1f5042bef27bf2e406b9787af94bf72b2416642a3"
+    },
+    {
+      "branch": "P34",
+      "file": "src/storylet_deck.js",
+      "lines": "38-42,65-69",
+      "exists": true,
+      "rangeValid": true,
+      "sourceSha256": "7cf343ca9badaa71f142e46dd8869ee2165b74191202efb6118e6afdc27cd113"
+    },
+    {
+      "branch": "P1",
+      "file": "src/seeded_streams.js",
+      "lines": "82-86",
+      "exists": true,
+      "rangeValid": true,
+      "sourceSha256": "c0ec7b394e00e65fdf6c8b380aa7aa34770dacafe8ee6f738045ac8011071ba3"
+    },
+    {
+      "branch": "main",
+      "file": "src/seeded_streams.js",
+      "lines": "88-92",
+      "exists": true,
+      "rangeValid": true,
+      "sourceSha256": "db2a19d956515eab816f7df7ca13ffc11d08797de61a583811f92254c46b7610"
+    },
+    {
+      "branch": "main",
+      "file": "src/simulation_resolution.js",
+      "lines": "36-40",
+      "exists": true,
+      "rangeValid": true,
+      "sourceSha256": "b47789d1959d5e43fcce298b3631830169aa0d89b972cd7d08da1a55e4c2fd94"
+    },
+    {
+      "branch": "main",
+      "file": "src/start_records.js",
+      "lines": "41-47",
+      "exists": true,
+      "rangeValid": true,
+      "sourceSha256": "f9b716c653bfdf408823c19c60dcf0bbb4bba03258359a33c25419c1d314098f"
+    },
+    {
+      "branch": "main",
+      "file": "src/simulation.js",
+      "lines": "477,483-499,501-504,527-530",
+      "exists": true,
+      "rangeValid": true,
+      "sourceSha256": "c5717787ca8e0fcb57e2933e8d8a39e9088f6e12d8d7197d91605517cdc0041b"
+    },
+    {
+      "branch": "main",
+      "file": "src/expansion_engine.js",
+      "lines": "614-623",
+      "exists": true,
+      "rangeValid": true,
+      "sourceSha256": "da1e9761400bec1cf72f4da171408f22af6cb6a2ce3dd72565b8b29039ab3f82"
+    },
+    {
+      "branch": "main",
+      "file": "src/storylet_deck.js",
+      "lines": "53",
+      "exists": true,
+      "rangeValid": true,
+      "sourceSha256": "683688b03fd26d2bfae7a1a1f5042bef27bf2e406b9787af94bf72b2416642a3"
+    },
+    {
+      "branch": "main",
+      "file": "src/mixture_native.js",
+      "lines": "29-33",
+      "exists": true,
+      "rangeValid": true,
+      "sourceSha256": "15d49051cdea16f5ff10dd1db1aa6d8d17dd7b7e4685a3c46651c3bab196eea0"
+    },
+    {
+      "branch": "main",
+      "file": "src/mixture_ui.js",
+      "lines": "37",
+      "exists": true,
+      "rangeValid": true,
+      "sourceSha256": "fb95a88773aeb13de0a42441ca38747ff0d9cf0281b7df8938a06e2441dc9d63"
+    },
+    {
+      "branch": "main",
+      "file": "src/storylet_deck.js",
+      "lines": "33,56-57,87",
+      "exists": true,
+      "rangeValid": true,
+      "sourceSha256": "683688b03fd26d2bfae7a1a1f5042bef27bf2e406b9787af94bf72b2416642a3"
+    },
+    {
+      "branch": "main",
+      "file": "src/simulation.js",
+      "lines": "432,484-486,501",
+      "exists": true,
+      "rangeValid": true,
+      "sourceSha256": "c5717787ca8e0fcb57e2933e8d8a39e9088f6e12d8d7197d91605517cdc0041b"
+    },
+    {
+      "branch": "main",
+      "file": "src/expansion_engine.js",
+      "lines": "608-626",
+      "exists": true,
+      "rangeValid": true,
+      "sourceSha256": "da1e9761400bec1cf72f4da171408f22af6cb6a2ce3dd72565b8b29039ab3f82"
+    },
+    {
+      "branch": "P34",
+      "file": "src/lore_history_state.js",
+      "lines": "13,34,41-46",
+      "exists": true,
+      "rangeValid": true,
+      "sourceSha256": "e1e464ea8da308f087e49f2d33a88c3d3cadff888e7a44cd953c0310f5733148"
+    },
+    {
+      "branch": "P34",
+      "file": "src/simulation.js",
+      "lines": "415-416",
+      "exists": true,
+      "rangeValid": true,
+      "sourceSha256": "157871c353f0e82af6aebc76133e087287ecdacced7976ad74b32cb7714d3c83"
+    },
+    {
+      "branch": "main",
+      "file": "src/simulation_ui.js",
+      "lines": "29,79-96",
+      "exists": true,
+      "rangeValid": true,
+      "sourceSha256": "45ad7ea1e33582de866b3cba56659a2191ca78c15a2e692d291d9337945ab946"
+    },
+    {
+      "branch": "main",
+      "file": "src/simulation.js",
+      "lines": "38,300-302,416-417",
+      "exists": true,
+      "rangeValid": true,
+      "sourceSha256": "c5717787ca8e0fcb57e2933e8d8a39e9088f6e12d8d7197d91605517cdc0041b"
+    },
+    {
+      "branch": "main",
+      "file": "src/mixture_ui.js",
+      "lines": "21,24,29-30",
+      "exists": true,
+      "rangeValid": true,
+      "sourceSha256": "fb95a88773aeb13de0a42441ca38747ff0d9cf0281b7df8938a06e2441dc9d63"
+    },
+    {
+      "branch": "main",
+      "file": "src/mixture_state.js",
+      "lines": "61-62",
+      "exists": true,
+      "rangeValid": true,
+      "sourceSha256": "1d3f161da9f2cb9bf138292be0f5e5b4e38c381a337fe55cc616eb71b908c02e"
+    },
+    {
+      "branch": "P34",
+      "file": "src/generated_people_ui.js",
+      "lines": "45,59-64",
+      "exists": true,
+      "rangeValid": true,
+      "sourceSha256": "065f4816bf8ad5377dcf2766ac7cf4c421ddac3f51e5f754bf07a076e2094783"
+    },
+    {
+      "branch": "main",
+      "file": "src/start_probe_ui.js",
+      "lines": "27-29",
+      "exists": true,
+      "rangeValid": true,
+      "sourceSha256": "8ae2154af7dd0e2b0cdc02c5abbd80d86cde8e934047377ed345237d9dc11868"
+    },
+    {
+      "branch": "main",
+      "file": "src/save_files.js",
+      "lines": "45-73,168-183,195-200",
+      "exists": true,
+      "rangeValid": true,
+      "sourceSha256": "9b87a732f2cb18abfd9e4225fa546203fed0b5d6e544e1284af01b2f61f16e6a"
+    },
+    {
+      "branch": "P2",
+      "file": "src/mixture_state.js",
+      "lines": "31-32",
+      "exists": true,
+      "rangeValid": true,
+      "sourceSha256": "1d3f161da9f2cb9bf138292be0f5e5b4e38c381a337fe55cc616eb71b908c02e"
+    },
+    {
+      "branch": "main",
+      "file": "src/main.js",
+      "lines": "4167-4171",
+      "exists": true,
+      "rangeValid": true,
+      "sourceSha256": "81a8b6130efe5560e456c25840ae6ec035666ecf92efdcd133de620183c0ba16"
+    },
+    {
+      "branch": "main",
+      "file": "src/native_craft_transaction.js",
+      "lines": "32-50",
+      "exists": true,
+      "rangeValid": true,
+      "sourceSha256": "df314bdbde04ad3a5f413e9ff2d6bb5f323a6f444b430f8dc5921a3df2c898f5"
+    },
+    {
+      "branch": "main",
+      "file": "src/expansion_engine.js",
+      "lines": "671-684",
+      "exists": true,
+      "rangeValid": true,
+      "sourceSha256": "da1e9761400bec1cf72f4da171408f22af6cb6a2ce3dd72565b8b29039ab3f82"
+    },
+    {
+      "branch": "P2",
+      "file": "src/mixture_native.js",
+      "lines": "38-43",
+      "exists": true,
+      "rangeValid": true,
+      "sourceSha256": "15d49051cdea16f5ff10dd1db1aa6d8d17dd7b7e4685a3c46651c3bab196eea0"
+    },
+    {
+      "branch": "main",
+      "file": "src/seeded_streams.js",
+      "lines": "14-16",
+      "exists": true,
+      "rangeValid": true,
+      "sourceSha256": "db2a19d956515eab816f7df7ca13ffc11d08797de61a583811f92254c46b7610"
+    },
+    {
+      "branch": "main",
+      "file": "src/simulation_resolution.js",
+      "lines": "4-6",
+      "exists": true,
+      "rangeValid": true,
+      "sourceSha256": "b47789d1959d5e43fcce298b3631830169aa0d89b972cd7d08da1a55e4c2fd94"
+    },
+    {
+      "branch": "main",
+      "file": "src/mixture_state.js",
+      "lines": "11-13",
+      "exists": true,
+      "rangeValid": true,
+      "sourceSha256": "1d3f161da9f2cb9bf138292be0f5e5b4e38c381a337fe55cc616eb71b908c02e"
+    },
+    {
+      "branch": "P4",
+      "file": "src/name_grammar.js",
+      "lines": "16",
+      "exists": true,
+      "rangeValid": true,
+      "sourceSha256": "862067cd88e96e2dc79c79bb68be4eddef2a9459fa1fcfbb653ecfce20825652"
+    },
+    {
+      "branch": "main",
+      "file": "src/start_records.js",
+      "lines": "3-6",
+      "exists": true,
+      "rangeValid": true,
+      "sourceSha256": "f9b716c653bfdf408823c19c60dcf0bbb4bba03258359a33c25419c1d314098f"
+    },
+    {
+      "branch": "main",
+      "file": "src/anchor_snapshots.js",
+      "lines": "45-48",
+      "exists": true,
+      "rangeValid": true,
+      "sourceSha256": "cdd206b641de8de774adc5e7f0e8c506c904e908f6a65f543ee98c4fe1b94998"
+    },
+    {
+      "branch": "main",
+      "file": "src/seeded_streams.js",
+      "lines": "83-86",
+      "exists": true,
+      "rangeValid": true,
+      "sourceSha256": "db2a19d956515eab816f7df7ca13ffc11d08797de61a583811f92254c46b7610"
+    },
+    {
+      "branch": "P1",
+      "file": "src/seeded_streams.js",
+      "lines": "77-80",
+      "exists": true,
+      "rangeValid": true,
+      "sourceSha256": "c0ec7b394e00e65fdf6c8b380aa7aa34770dacafe8ee6f738045ac8011071ba3"
+    },
+    {
+      "branch": "main",
+      "file": "src/generated_people.js",
+      "lines": "22-25,29-41",
+      "exists": true,
+      "rangeValid": true,
+      "sourceSha256": "c2b4c1d7dda442ee9032524059dea15a044dace23b50c355d343b7f6aca6acd3"
+    },
+    {
+      "branch": "main",
+      "file": "src/generated_people_ui.js",
+      "lines": "29,38-44",
+      "exists": true,
+      "rangeValid": true,
+      "sourceSha256": "ed4f5b598a4c4ec7eb731acc6662201e221b22bff6bd86aefe03dccc96ab6670"
+    },
+    {
+      "branch": "P2",
+      "file": "src/mixture_native.js",
+      "lines": "13",
+      "exists": true,
+      "rangeValid": true,
+      "sourceSha256": "15d49051cdea16f5ff10dd1db1aa6d8d17dd7b7e4685a3c46651c3bab196eea0"
+    },
+    {
+      "branch": "P34",
+      "file": "src/lore_history_view.js",
+      "lines": "12",
+      "exists": true,
+      "rangeValid": true,
+      "sourceSha256": "4afc314cc1844d0fd16e212e6186eed79d39040d229c0800f966e310da4a6ecd"
+    },
+    {
+      "branch": "main",
+      "file": "src/generated_people.js",
+      "lines": "33",
+      "exists": true,
+      "rangeValid": true,
+      "sourceSha256": "c2b4c1d7dda442ee9032524059dea15a044dace23b50c355d343b7f6aca6acd3"
+    },
+    {
+      "branch": "main",
+      "file": "src/generated_people_ui.js",
+      "lines": "38,44",
+      "exists": true,
+      "rangeValid": true,
+      "sourceSha256": "ed4f5b598a4c4ec7eb731acc6662201e221b22bff6bd86aefe03dccc96ab6670"
+    },
+    {
+      "branch": "P34",
+      "file": "src/generated_people_ui.js",
+      "lines": "49,64",
+      "exists": true,
+      "rangeValid": true,
+      "sourceSha256": "065f4816bf8ad5377dcf2766ac7cf4c421ddac3f51e5f754bf07a076e2094783"
+    },
+    {
+      "branch": "main",
+      "file": "src/mixture_ui.js",
+      "lines": "7,11-13,30",
+      "exists": true,
+      "rangeValid": true,
+      "sourceSha256": "fb95a88773aeb13de0a42441ca38747ff0d9cf0281b7df8938a06e2441dc9d63"
+    },
+    {
+      "branch": "main",
+      "file": "style.css",
+      "lines": "126",
+      "exists": true,
+      "rangeValid": true,
+      "sourceSha256": "b76c6660e5039717b426a3bef56d84b08b77ed93b78197de29164bf30cbf265e"
+    },
+    {
+      "branch": "main",
+      "file": "styles/workspace.css",
+      "lines": "12",
+      "exists": true,
+      "rangeValid": true,
+      "sourceSha256": "12f0510e7ad31a263901ee4ae9fc567d06408c55c39ff41fdf78268002d33181"
+    },
+    {
+      "branch": "main",
+      "file": "src/mixture_state.js",
+      "lines": "37,61,66-70,89",
+      "exists": true,
+      "rangeValid": true,
+      "sourceSha256": "1d3f161da9f2cb9bf138292be0f5e5b4e38c381a337fe55cc616eb71b908c02e"
+    }
+  ],
+  "errors": [],
+  "scriptHashes": {
+    "determinism_lint.mjs": "987ecbfbaf1020b1b2928efa49a44ff292b1f4c540e08f844812f786d687884f",
+    "audit_probes.mjs": "735312061fc0b95b7404d0dadd34a25dd52d25b7e5c57e82804aeeb2b007747b"
+  },
+  "findingCount": 19,
+  "caseCount": 21,
+  "totalBytes": 1710633,
+  "sourceRefreshHeads": {
+    "main": "f16bd67c99b2ab3b4aed329295f6823c9ab85cc4",
+    "p1": "7b787fdddc72c3d6a5f6fabba0bbe643e98ea576",
+    "p2": "f8fe699487c90ec06e83bfc020dfa8a6dc234705",
+    "p3": "4e444a5e19c0ba5815ef2a7bc03886305479081d",
+    "p4": "09403f5c948e072444d29dc41fde15caac23286a",
+    "p34": "364d83007a64c0409a1d528493410751cf4679a2"
+  },
+  "syntaxChecks": {
+    "determinism_lint.mjs": "node --check passed",
+    "audit_probes.mjs": "node --check passed"
+  },
+  "allFilesBelow2MB": true,
+  "documentHashes": {
+    "MORE.md": "7ce00bb0b6ecbecb1e2d3bb9503ac817bb8a46859b210e7bb1e06a877c3bd529",
+    "REPORT.md": "724a38272d7cfb0288a8e969f99a608a171f8da0a59410ed00907ab381e6a36c",
+    "TEST_CASES.md": "7f1cbda7a4c95fbc236d9294b5f0a796b2a5e4234fcf4d7ef634a6386e733f15",
+    "CHECKPOINT.md": "669b31c57bf5e0d41dc2f3801e7fcb9595425e86849366274466ae883b9f298f",
+    "FINDINGS.md": "919d6ef65ccc26c78d71121c48ca374c4dff7be9775d0c9120fcff2a98d062e5",
+    "LINT_RULES.md": "7ddcb6414c6a48265debdc1f968e9d6e5a23eb4085476cde83f55bf99f008f8a"
+  }
+}

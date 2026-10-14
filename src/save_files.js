@@ -7,9 +7,13 @@ import {validateLongLifeEnvelope} from './absorb_p23/host_joins/long_life.js';
 import {validateTrancheThreeEnvelope} from './absorb_p23/host_joins/tranche_three.js';
 import {validateTrancheOneEnvelope} from './absorb_p23/host_joins/tranche_one.js';
 import {validateTrancheTwoEnvelope} from './absorb_p23/host_joins/tranche_two.js';
+import {validateHarvestEnvelope} from './harvest.js';
+import {validateProductAppearanceEnvelope} from './product_appearance_state.js';
 import {validateStreams,validateNativeEncounter} from "./seeded_streams.js";
 import {validateMixtureEnvelope} from './mixture_state.js';
 import {validateStoryletState} from './storylet_deck.js';
+import {validateStructuredDeathEnvelope} from './structured_life_runtime.js';
+import {validateStoryRequests} from './story_requests.js';
 import {validateCheatState} from './cheat_cards.js';
 import {validateCustomizationState} from './customization_profiles.js';
 import {migrateWorkLedger} from './work_ledger_system.js';
@@ -62,12 +66,15 @@ export function validateSaveEnvelope(original, currentVersion) {
     validateMistglassEnvelope(original);
     validateTrainingEnvelope(original);
     validateTrancheFourEnvelope(original);
+    validateHarvestEnvelope(original,original["current time"]?calendarMinutes(original["current time"]):Number.MAX_SAFE_INTEGER);
     validateMixtureEnvelope(original);
+    validateProductAppearanceEnvelope(original);
     if(Object.hasOwn(original, "cheats"))validateCheatState(original.cheats);
     if(original.customization!=null)validateCustomizationState(original.customization);
     if(original.work_ledger!=null)migrateWorkLedger(original.work_ledger);
     if(original.content_packs!=null)validatePackState(original.content_packs);
     validateStructuredEnvelope(original);
+    validateStructuredDeathEnvelope(original);
     if(original.village_career != null) {
         validateVillageCareer(original.village_career);
         if(original.village_career.recruit && !original.npc_lives?.people?.some(p=>p.id==='iona' && p.name==='Iona'))throw new Error('Village recruit needs her public life.');
@@ -78,7 +85,8 @@ export function validateSaveEnvelope(original, currentVersion) {
         if(original.village_career.loan?.status==='active' && (original['current location']!=='Village' || original.current_activity?.activity_id!=='patrolling'))throw new Error('Active Village career must have its native patrol.');
     }
     if(original.life_record != null) validateLifeRecord(original.life_record);
-    if(original.generated_people != null) {validateGeneratedPeople(original.generated_people);if(original.generated_people.lastMinute>calendarMinutes(original['current time']))throw Error('Generated people are ahead of this calendar.');}
+    if(original.generated_people?.storyRequests&&!original.expansion)throw Error('Remembered requests require their history owner.');
+    if(original.generated_people != null) {validateGeneratedPeople(original.generated_people);validateStoryRequests(original.generated_people,original.expansion);if(original.generated_people.lastMinute>calendarMinutes(original['current time']))throw Error('Generated people are ahead of this calendar.');}
     if(original.npc_lives != null) {validateVillageLives(original.npc_lives);if(original.npc_lives.lastYear > original["current time"]?.year)throw new Error("Village lives are ahead of this calendar.");}
     const parts = version => {
         if(typeof version !== "string" || !/^v\d+(\.\d+){1,4}$/.test(version)) throw new Error("Unrecognized save version.");

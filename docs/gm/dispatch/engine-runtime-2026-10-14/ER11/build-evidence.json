@@ -1,0 +1,216 @@
+{
+  "mapSources": 501,
+  "mapMismatch": [],
+  "liveSrcDrift": [],
+  "bundleSha256": "012297afd9c7a4d0884beb775bceb5c82004876f23100270461ea72d2246554f",
+  "bundleBytes": 5102764,
+  "mapBytes": 13106520,
+  "liveSrcDriftAtClose": [
+    "src/simulation.js",
+    "src/crafting_recipes.js",
+    "src/enemies.js",
+    "src/items.js",
+    "src/components/inventory_component.js",
+    "src/components/trader_component.js",
+    "src/models/location.js",
+    "src/active_effects.js",
+    "src/absorb_c2/local_life.js",
+    "src/models/combat.js",
+    "src/save_files.js",
+    "src/simulation_content.js",
+    "src/adventure_notebook.js",
+    "src/simulation_ui.js",
+    "src/event_feed.js",
+    "src/main.js"
+  ],
+  "mapMissingInputs": [
+    "../../../../Users/weiwei/code/yet-another-idle-rpg/node_modules/inkjs/src/engine/Path.ts",
+    "../../../../Users/weiwei/code/yet-another-idle-rpg/node_modules/inkjs/src/engine/Debug.ts",
+    "../../../../Users/weiwei/code/yet-another-idle-rpg/node_modules/inkjs/src/engine/Value.ts",
+    "../../../../Users/weiwei/code/yet-another-idle-rpg/node_modules/inkjs/src/engine/PushPop.ts",
+    "../../../../Users/weiwei/code/yet-another-idle-rpg/node_modules/inkjs/src/engine/Error.ts",
+    "../../../../Users/weiwei/code/yet-another-idle-rpg/node_modules/inkjs/src/engine/TypeAssertion.ts",
+    "../../../../Users/weiwei/code/yet-another-idle-rpg/node_modules/inkjs/src/engine/NullException.ts",
+    "../../../../Users/weiwei/code/yet-another-idle-rpg/node_modules/inkjs/src/engine/Object.ts",
+    "../../../../Users/weiwei/code/yet-another-idle-rpg/node_modules/inkjs/src/engine/StringBuilder.ts",
+    "../../../../Users/weiwei/code/yet-another-idle-rpg/node_modules/inkjs/src/engine/InkList.ts",
+    "../../../../Users/weiwei/code/yet-another-idle-rpg/node_modules/inkjs/src/engine/StoryException.ts",
+    "../../../../Users/weiwei/code/yet-another-idle-rpg/node_modules/inkjs/src/engine/TryGetResult.ts",
+    "../../../../Users/weiwei/code/yet-another-idle-rpg/node_modules/inkjs/src/engine/SearchResult.ts",
+    "../../../../Users/weiwei/code/yet-another-idle-rpg/node_modules/inkjs/src/engine/Container.ts",
+    "../../../../Users/weiwei/code/yet-another-idle-rpg/node_modules/inkjs/src/engine/Glue.ts",
+    "../../../../Users/weiwei/code/yet-another-idle-rpg/node_modules/inkjs/src/engine/ControlCommand.ts",
+    "../../../../Users/weiwei/code/yet-another-idle-rpg/node_modules/inkjs/src/engine/Pointer.ts",
+    "../../../../Users/weiwei/code/yet-another-idle-rpg/node_modules/inkjs/src/engine/Divert.ts",
+    "../../../../Users/weiwei/code/yet-another-idle-rpg/node_modules/inkjs/src/engine/ChoicePoint.ts",
+    "../../../../Users/weiwei/code/yet-another-idle-rpg/node_modules/inkjs/src/engine/VariableReference.ts",
+    "../../../../Users/weiwei/code/yet-another-idle-rpg/node_modules/inkjs/src/engine/VariableAssignment.ts",
+    "../../../../Users/weiwei/code/yet-another-idle-rpg/node_modules/inkjs/src/engine/Void.ts",
+    "../../../../Users/weiwei/code/yet-another-idle-rpg/node_modules/inkjs/src/engine/NativeFunctionCall.ts",
+    "../../../../Users/weiwei/code/yet-another-idle-rpg/node_modules/inkjs/src/engine/Tag.ts",
+    "../../../../Users/weiwei/code/yet-another-idle-rpg/node_modules/inkjs/src/engine/Choice.ts",
+    "../../../../Users/weiwei/code/yet-another-idle-rpg/node_modules/inkjs/src/engine/ListDefinition.ts",
+    "../../../../Users/weiwei/code/yet-another-idle-rpg/node_modules/inkjs/src/engine/ListDefinitionsOrigin.ts",
+    "../../../../Users/weiwei/code/yet-another-idle-rpg/node_modules/inkjs/src/engine/JsonSerialisation.ts",
+    "../../../../Users/weiwei/code/yet-another-idle-rpg/node_modules/inkjs/src/engine/CallStack.ts",
+    "../../../../Users/weiwei/code/yet-another-idle-rpg/node_modules/inkjs/src/engine/VariablesState.ts",
+    "../../../../Users/weiwei/code/yet-another-idle-rpg/node_modules/inkjs/src/engine/PRNG.ts",
+    "../../../../Users/weiwei/code/yet-another-idle-rpg/node_modules/inkjs/src/engine/StatePatch.ts",
+    "../../../../Users/weiwei/code/yet-another-idle-rpg/node_modules/inkjs/src/engine/SimpleJson.ts",
+    "../../../../Users/weiwei/code/yet-another-idle-rpg/node_modules/inkjs/src/engine/Flow.ts",
+    "../../../../Users/weiwei/code/yet-another-idle-rpg/node_modules/inkjs/src/engine/StoryState.ts",
+    "../../../../Users/weiwei/code/yet-another-idle-rpg/node_modules/inkjs/src/engine/StopWatch.ts",
+    "../../../../Users/weiwei/code/yet-another-idle-rpg/node_modules/inkjs/src/engine/Story.ts"
+  ],
+  "physicalMapInputsMatched": 464,
+  "upstreamEmbeddedSources": [
+    {
+      "source": "src/engine/Path.ts",
+      "match": true
+    },
+    {
+      "source": "src/engine/Debug.ts",
+      "match": true
+    },
+    {
+      "source": "src/engine/Value.ts",
+      "match": true
+    },
+    {
+      "source": "src/engine/PushPop.ts",
+      "match": true
+    },
+    {
+      "source": "src/engine/Error.ts",
+      "match": true
+    },
+    {
+      "source": "src/engine/TypeAssertion.ts",
+      "match": true
+    },
+    {
+      "source": "src/engine/NullException.ts",
+      "match": true
+    },
+    {
+      "source": "src/engine/Object.ts",
+      "match": true
+    },
+    {
+      "source": "src/engine/StringBuilder.ts",
+      "match": true
+    },
+    {
+      "source": "src/engine/InkList.ts",
+      "match": true
+    },
+    {
+      "source": "src/engine/StoryException.ts",
+      "match": true
+    },
+    {
+      "source": "src/engine/TryGetResult.ts",
+      "match": true
+    },
+    {
+      "source": "src/engine/SearchResult.ts",
+      "match": true
+    },
+    {
+      "source": "src/engine/Container.ts",
+      "match": true
+    },
+    {
+      "source": "src/engine/Glue.ts",
+      "match": true
+    },
+    {
+      "source": "src/engine/ControlCommand.ts",
+      "match": true
+    },
+    {
+      "source": "src/engine/Pointer.ts",
+      "match": true
+    },
+    {
+      "source": "src/engine/Divert.ts",
+      "match": true
+    },
+    {
+      "source": "src/engine/ChoicePoint.ts",
+      "match": true
+    },
+    {
+      "source": "src/engine/VariableReference.ts",
+      "match": true
+    },
+    {
+      "source": "src/engine/VariableAssignment.ts",
+      "match": true
+    },
+    {
+      "source": "src/engine/Void.ts",
+      "match": true
+    },
+    {
+      "source": "src/engine/NativeFunctionCall.ts",
+      "match": true
+    },
+    {
+      "source": "src/engine/Tag.ts",
+      "match": true
+    },
+    {
+      "source": "src/engine/Choice.ts",
+      "match": true
+    },
+    {
+      "source": "src/engine/ListDefinition.ts",
+      "match": true
+    },
+    {
+      "source": "src/engine/ListDefinitionsOrigin.ts",
+      "match": true
+    },
+    {
+      "source": "src/engine/JsonSerialisation.ts",
+      "match": true
+    },
+    {
+      "source": "src/engine/CallStack.ts",
+      "match": true
+    },
+    {
+      "source": "src/engine/VariablesState.ts",
+      "match": true
+    },
+    {
+      "source": "src/engine/PRNG.ts",
+      "match": true
+    },
+    {
+      "source": "src/engine/StatePatch.ts",
+      "match": true
+    },
+    {
+      "source": "src/engine/SimpleJson.ts",
+      "match": true
+    },
+    {
+      "source": "src/engine/Flow.ts",
+      "match": true
+    },
+    {
+      "source": "src/engine/StoryState.ts",
+      "match": true
+    },
+    {
+      "source": "src/engine/StopWatch.ts",
+      "match": true
+    },
+    {
+      "source": "src/engine/Story.ts",
+      "match": true
+    }
+  ]
+}

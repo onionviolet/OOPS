@@ -51,6 +51,14 @@ commit raw prose. Keep `docs/research/novels/` out of git. For a deep dive
 on a whole source (power system, rules, fan premises, wiki cross-check),
 follow [the source deep dive playbook](docs/research/SOURCE_DEEP_DIVE_PLAYBOOK.md).
 
+Research passes save deep details for future reference
+([standing rule](docs/USER_VISION.md#save-deep-details-for-reference-2026-10-14)):
+full dialogue and text with IDs and conditions, full data tables, decoded
+flows and native notes. Store them in gitignored
+`docs/research/<source>/private/` (bulk raw data may stay in
+`~/.codex/research/<source>/`). Committed docs still paraphrase and link
+there; gameplay stays original unless a direct adaptation is requested.
+
 Finish one playable slice before starting the next. A wave ends
 at a checkpoint where Weibao can play it, not when a context or batch boundary
 is reached.

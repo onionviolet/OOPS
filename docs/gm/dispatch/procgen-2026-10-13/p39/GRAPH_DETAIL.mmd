@@ -1,0 +1,1025 @@
+flowchart TD
+  %% Proposal-only dependencies. Dotted edges are acceptance gates, not work launch prerequisites.
+  S_1["S-1"]
+  S_2["S-2"]
+  S_3["S-3"]
+  S_4["S-4"]
+  S_5["S-5"]
+  Registry["P39 registry host adapters"]
+  P38["P38 refs log owners pins"]
+  P11_S1["P11.S1: Known context wraps funded contact"]
+  P11_S2["P11.S2: Actual deficit creates supply/repair request"]
+  P11_S3["P11.S3: Demand changes funded buy order"]
+  P11_S4["P11.S4: Deed travels and is corrected"]
+  P11_S5["P11.S5: Borrowed handbook teaches supported method"]
+  P12_S1["P12.S1: Request settles with useful aftermath"]
+  P12_S2["P12.S2: Shared work opens lesson and reciprocity"]
+  P12_S3["P12.S3: NPC pursues funded competing service plan"]
+  P12_S4["P12.S4: Fixed delivery mystery admits evidence paths"]
+  P12_S5["P12.S5: Reader recognizes actual micro-arcs"]
+  P13_S1["P13.S1: HP original dispatch changes preparation"]
+  P13_S2["P13.S2: DandD local hinge changes scene eligibility"]
+  P13_S3["P13.S3: Soldier supply changes readiness"]
+  P13_S4["P13.S4: MoL experiment changes retained preparation"]
+  P13_S5["P13.S5: LOTM evidence changes inquiry"]
+  P14_S1["P14.S1: Durable deed gives recap and later work"]
+  P14_S2["P14.S2: Canon gap has disputed useful editions"]
+  P14_S3["P14.S3: Deed becomes rumor and performed legend"]
+  P14_S4["P14.S4: Original past leaves useful surviving work"]
+  P14_S5["P14.S5: Closed life leaves lawful later-life trace"]
+  P15_S1["P15.S1: Lint rejects impossible content and admits batch"]
+  P15_S2["P15.S2: Typed grammar varies safe request wording"]
+  P15_S3["P15.S3: Known person converses and acknowledges deed"]
+  P15_S4["P15.S4: Qualified canon mini-batch adds real actions"]
+  P15_S5["P15.S5: Optional model expression compared to baseline"]
+  P16_S1["P16.S1: Issuer return report links real output"]
+  P16_S2["P16.S2: Closure yields useful local epilogue"]
+  P16_S3["P16.S3: Reading controls preserve pending work"]
+  P16_S4["P16.S4: Named repaired work is acknowledged"]
+  P16_S5["P16.S5: Imported account prompts funded inquiry"]
+  P17_S1["P17.S1: Qualified LOTM action progresses digestion"]
+  P17_S2["P17.S2: Qualified System request settles and recognizes"]
+  P17_S3["P17.S3: ORV cooperative deed has Story and sponsor"]
+  P17_S4["P17.S4: Scoped fortune changes future legal distribution"]
+  P17_S5["P17.S5: Received belief changes qualified function"]
+  P18_S1["P18.S1: Headless enrolled run reproduces scheduler"]
+  P18_S2["P18.S2: Thirty-day metrics and ten-year soak"]
+  P18_S3["P18.S3: Retained revisions survive update/compaction"]
+  P18_S4["P18.S4: Repeat and disclosure gate checks expression"]
+  P18_S5["P18.S5: Known event exposes truthful why view"]
+  P19_S1["P19.S1: Two NPCs work and react differently"]
+  P19_S2["P19.S2: Account travels and corrects listener belief"]
+  P19_S3["P19.S3: Companion advances unfinished ambition"]
+  P19_S4["P19.S4: Repairer passes actual teaching legacy"]
+  P19_S5["P19.S5: Recurring peer chooses funded different path"]
+  P20_S20_1["P20.S20-1: Place remembers repair and offers work"]
+  P20_S20_2["P20.S20-2: One settlement site changes service"]
+  P20_S20_3["P20.S20-3: Home fixture enables real shared visit"]
+  P20_S20_4["P20.S20-4: Courier delivers dated changed news"]
+  P20_S20_5["P20.S20-5: Qualified trace informs different preparation"]
+  P21_S1["P21.S1: Contest participant remembers actual turning point"]
+  P21_S2["P21.S2: Funded venture repeats with truthful proceeds"]
+  P21_S3["P21.S3: Supply episode changes next quote/offer"]
+  P21_S4["P21.S4: Harvest pressure leads to useful renewal callback"]
+  P21_S5["P21.S5: Faction supply cause changes authored route"]
+  P22_S22_1["P22.S22.1: Known-card mark exports traceable feedback"]
+  P22_S22_2["P22.S22.2: Isolated director fork inspects and intervenes"]
+  P22_S22_3["P22.S22.3: Premise becomes reviewed playable candidate"]
+  P22_S22_4["P22.S22.4: Pinned revisions permit future disable/re-enable"]
+  P22_S22_5["P22.S22.5: Editor diagnostics and replay change real entry"]
+  P23_P23_A["P23.P23-A: Real deed supports revisable reflection"]
+  P23_P23_B["P23.P23-B: Useful ambition permits several real routes"]
+  P23_P23_C["P23.P23-C: Dilemma yields delayed differing accounts"]
+  P23_P23_D["P23.P23-D: Experience unlocks supported useful growth"]
+  P23_P23_E["P23.P23-E: Voluntary personal trial reads lived causes"]
+  P24_S1["P24.S1: Shared repair has optional anniversary"]
+  P24_S2["P24.S2: Wrong handbook becomes evidence-backed annotation"]
+  P24_S3["P24.S3: Foreknowledge facets revise after evidence"]
+  P24_S4["P24.S4: Exact work tool retains useful biography"]
+  P24_S5["P24.S5: Carried spirit and holder have distinct accounts"]
+  P25_S1["P25.S1: Known live matter routes to owning panel"]
+  P25_S2["P25.S2: Stories read and group real outcomes"]
+  P25_S3["P25.S3: Timeline and authored map share evidence"]
+  P25_S4["P25.S4: Hero page/novel exports supported clauses"]
+  P25_S5["P25.S5: Chosen test-file legend admits reviewed account"]
+  P26_S1["P26.S1: Qualified beat batch creates useful canon situation"]
+  P26_S2["P26.S2: Optional meal or quiet occasion returns to work"]
+  P26_S3["P26.S3: Running gag changes and pays off real cause"]
+  P26_S4["P26.S4: Heist admits real improvisation and abort"]
+  P26_S5["P26.S5: Scoped first and sought rarity stay reachable"]
+  P27_S1["P27.S1: Road interruption has same-person arrival callback"]
+  P27_S2["P27.S2: Crew survey returns real cargo/accounts"]
+  P27_S3["P27.S3: Taught learner independently repairs for client"]
+  P27_S4["P27.S4: Workshop council delegates affordable work"]
+  P27_S5["P27.S5: Confirmed NPC ending supports memorial/bequest"]
+  P28_S1["P28.S1: Typed supported intent opens real next step"]
+  P28_S2["P28.S2: Known-topic conversation reflects settlement"]
+  P28_S3["P28.S3: Bookmark gently varies future eligible cards"]
+  P28_S4["P28.S4: Reviewed room mini-pack becomes playable"]
+  P28_S5["P28.S5: Gentle/direct start reveals supported generator"]
+  P30_S_P30_1["P30.S-P30.1: Role-aware weak/strong support has useful aftermath"]
+  P30_S_P30_2["P30.S-P30.2: Caused scrape admits rest/adapted work/treatment"]
+  P30_S_P30_3["P30.S-P30.3: Child chooses useful learned action"]
+  P30_S_P30_4["P30.S-P30.4: Animal habit informs useful safe errand"]
+  P30_S_P30_5["P30.S-P30.5: Shared exposure causes scoped community care"]
+  P31_S1["P31.S1: Reciprocal delivery and lesson promises"]
+  P31_S2["P31.S2: Acknowledged favor calls staffed assistance"]
+  P31_S3["P31.S3: Disputed evidence trades and reveals through contact"]
+  P31_S4["P31.S4: Original self-binding changes operation and breach"]
+  P31_S5["P31.S5: Optional shrine practice yields real service/account"]
+  P32_S1["P32.S1: Stale cast/station invitation fails honestly"]
+  P32_S2["P32.S2: Cold person promotes and returns with same identity"]
+  P32_S3["P32.S3: Distant maker work shares cooperative budget"]
+  P32_S4["P32.S4: Qualified pack has horizon of useful work/returns"]
+  P32_S5["P32.S5: Opt-in local play log exports known diagnostics"]
+  P33_S1["P33.S1: Repair produces corrected framed bulletin accounts"]
+  P33_S2["P33.S2: Defeat opens qualified lesson/rematch/recovery"]
+  P33_S3["P33.S3: Overlapping invitations can book/reschedule/pass"]
+  P33_S4["P33.S4: Independent rival work moves public board"]
+  P33_S5["P33.S5: Distinct outsiders exchange evidence and revise plan"]
+  P35_S35_1["P35.S35-1: Repair leaves inspectable useful physical trace"]
+  P35_S35_2["P35.S35-2: Known entries expose sourced credit contradiction"]
+  P35_S35_3["P35.S35-3: Recorded pattern suggests optional service aspiration"]
+  P35_S35_4["P35.S35-4: Observed transition changes optional ambience/motif"]
+  P35_S35_5["P35.S35-5: Selected safe recap has optional local narration"]
+  P36_A1["P36.A1: Disclosed name and deed-backed nickname with opt-out"]
+  P36_A2["P36.A2: Cause has witnessed/reported/uncertain voice"]
+  P36_A3["P36.A3: Ready useful work leads stable return headline"]
+  P36_A4["P36.A4: Vendor recalls real last purchase and usual"]
+  P36_A5["P36.A5: Known why appears on hover/focus/disclosure"]
+  P37_BH_S1["P37.BH-S1: Original locale address links real known tool callback"]
+  P37_BH_S2["P37.BH-S2: Known paid mixing order has truthful counter slip"]
+  P37_BH_S3["P37.BH-S3: Qualified event has personal office and news forms"]
+  P37_BH_S4["P37.BH-S4: Optional remembered serving fits real body/visit"]
+  P37_BH_S5["P37.BH-S5: Director reviews community texture and evidence gaps"]
+  P11_N11["P11.N11: Identity"]
+  P11_N8["P11.N8: Occasions"]
+  P11_N3["P11.N3: Ecology"]
+  P11_N4["P11.N4: Companions"]
+  P11_N10["P11.N10: Dungeons"]
+  P11_N7["P11.N7: Dreams"]
+  P11_N12["P11.N12: Symbols"]
+  P11_N13["P11.N13: Culture"]
+  P11_N14["P11.N14: Cheats"]
+  P11_N9["P11.N9: Recovery"]
+  P11_N15["P11.N15: Seeds"]
+  P16_M1["P16.M1: Thriving/abundance"]
+  P16_V2["P16.V2: Non-hero/ensemble lives"]
+  P16_D2_D4["P16.D2,D4: Fictional observers/meta"]
+  P16_I3["P16.I3: Seasonal story constellation"]
+  P16_I2["P16.I2: Companion correspondence"]
+  P16_V1["P16.V1: Villain-side life"]
+  P16_A3["P16.A3: Player traditions/religions"]
+  P16_A4_M6["P16.A4,M6: Local packs/anthologies"]
+  P16_C2["P16.C2: Succession"]
+  P16_X2["P16.X2: Visitors/rival travelers"]
+  P16_X3["P16.X3: Foreign artifact stories"]
+  P16_X4["P16.X4: Bilateral crossover"]
+  P16_L1_L4["P16.L1-L4: Loops/regression/resets"]
+  P16_V3_V4["P16.V3-V4: Other selves"]
+  P16_C3_C4["P16.C3-C4: Post-ending/premise generation"]
+  P16_I4["P16.I4: Cosmic story aftermath"]
+  P16_D1["P16.D1: Original generated dimension"]
+  P16_D3["P16.D3: Observation-bound stories"]
+  P16_M2["P16.M2: Staged what-ifs"]
+  P16_M3["P16.M3: Ecological perspectives"]
+  P16_M4["P16.M4: Long-scale reunion"]
+  P16_M5["P16.M5: Multilingual crossing"]
+  P11_S1 --> P11_S2
+  P11_S1 --> P11_S3
+  P11_S1 --> P11_S5
+  P11_S1 --> P12_S1
+  P11_S1 --> P15_S2
+  P11_S1 --> P18_S5
+  P11_S1 --> P20_S20_1
+  P11_S1 --> P23_P23_A
+  P11_S2 --> P11_S3
+  P11_S2 --> P12_S1
+  P11_S2 --> P13_S1
+  P11_S2 --> P13_S2
+  P11_S2 --> P16_S5
+  P11_S2 --> P17_S2
+  P11_S2 --> P21_S3
+  P11_S2 --> P27_S1
+  P11_S3 --> P21_S3
+  P11_S4 --> P13_S5
+  P11_S4 --> P14_S3
+  P11_S4 --> P16_S5
+  P11_S4 --> P17_S5
+  P11_S4 --> P19_S2
+  P11_S4 --> P20_S20_4
+  P12_S1 --> P12_S2
+  P12_S1 --> P12_S3
+  P12_S1 --> P12_S4
+  P12_S1 --> P12_S5
+  P12_S1 --> P13_S1
+  P12_S1 --> P13_S2
+  P12_S1 --> P13_S3
+  P12_S1 --> P16_S2
+  P12_S2 --> P12_S5
+  P12_S3 --> P19_S5
+  P12_S5 --> P17_S3
+  P14_S1 --> P11_S4
+  P14_S1 --> P12_S5
+  P14_S1 --> P14_S2
+  P14_S1 --> P14_S4
+  P14_S1 --> P16_S1
+  P14_S1 --> P20_S20_1
+  P14_S1 --> P24_S1
+  P14_S1 --> P25_S2
+  P14_S3 --> P17_S5
+  P15_S1 --> P15_S4
+  P15_S1 --> P22_S22_3
+  P15_S1 --> P28_S4
+  P15_S2 --> P15_S5
+  P15_S3 --> P28_S2
+  P16_L1_L4 --> P13_S4
+  P18_S1 --> P18_S2
+  P18_S1 --> P18_S4
+  P18_S3 --> P18_S5
+  P19_S1 --> P19_S2
+  P20_S20_1 --> P20_S20_2
+  P20_S20_1 --> P20_S20_4
+  P20_S20_1 --> P35_S35_1
+  P21_S2 --> P27_S2
+  P22_S22_1 --> P28_S3
+  P22_S22_3 --> P28_S4
+  P22_S22_4 --> P18_S3
+  P23_P23_B --> P28_S1
+  P25_S1 --> P28_S5
+  P25_S2 --> P25_S3
+  P25_S2 --> P25_S4
+  P25_S4 --> P25_S5
+  P31_S1 --> P31_S2
+  P31_S1 --> P31_S4
+  P32_S2 --> P32_S3
+  P36_A1 --> P37_BH_S1
+  P38 --> Registry
+  Registry --> P11_N10
+  Registry --> P11_N11
+  Registry --> P11_N12
+  Registry --> P11_N13
+  Registry --> P11_N14
+  Registry --> P11_N15
+  Registry --> P11_N3
+  Registry --> P11_N4
+  Registry --> P11_N7
+  Registry --> P11_N8
+  Registry --> P11_N9
+  Registry --> P11_S1
+  Registry --> P11_S2
+  Registry --> P11_S3
+  Registry --> P11_S4
+  Registry --> P11_S5
+  Registry --> P12_S1
+  Registry --> P12_S2
+  Registry --> P12_S3
+  Registry --> P12_S4
+  Registry --> P12_S5
+  Registry --> P13_S1
+  Registry --> P13_S2
+  Registry --> P13_S3
+  Registry --> P13_S4
+  Registry --> P13_S5
+  Registry --> P14_S1
+  Registry --> P14_S2
+  Registry --> P14_S3
+  Registry --> P14_S4
+  Registry --> P14_S5
+  Registry --> P15_S2
+  Registry --> P15_S3
+  Registry --> P15_S4
+  Registry --> P15_S5
+  Registry --> P16_A3
+  Registry --> P16_A4_M6
+  Registry --> P16_C2
+  Registry --> P16_C3_C4
+  Registry --> P16_D1
+  Registry --> P16_D2_D4
+  Registry --> P16_D3
+  Registry --> P16_I2
+  Registry --> P16_I3
+  Registry --> P16_I4
+  Registry --> P16_L1_L4
+  Registry --> P16_M1
+  Registry --> P16_M2
+  Registry --> P16_M3
+  Registry --> P16_M4
+  Registry --> P16_M5
+  Registry --> P16_S1
+  Registry --> P16_S2
+  Registry --> P16_S3
+  Registry --> P16_S4
+  Registry --> P16_S5
+  Registry --> P16_V1
+  Registry --> P16_V2
+  Registry --> P16_V3_V4
+  Registry --> P16_X2
+  Registry --> P16_X3
+  Registry --> P16_X4
+  Registry --> P17_S1
+  Registry --> P17_S2
+  Registry --> P17_S3
+  Registry --> P17_S4
+  Registry --> P17_S5
+  Registry --> P18_S5
+  Registry --> P19_S1
+  Registry --> P19_S2
+  Registry --> P19_S3
+  Registry --> P19_S4
+  Registry --> P19_S5
+  Registry --> P20_S20_1
+  Registry --> P20_S20_2
+  Registry --> P20_S20_3
+  Registry --> P20_S20_4
+  Registry --> P20_S20_5
+  Registry --> P21_S1
+  Registry --> P21_S2
+  Registry --> P21_S3
+  Registry --> P21_S4
+  Registry --> P21_S5
+  Registry --> P22_S22_1
+  Registry --> P22_S22_2
+  Registry --> P22_S22_3
+  Registry --> P22_S22_4
+  Registry --> P22_S22_5
+  Registry --> P23_P23_A
+  Registry --> P23_P23_B
+  Registry --> P23_P23_C
+  Registry --> P23_P23_D
+  Registry --> P23_P23_E
+  Registry --> P24_S1
+  Registry --> P24_S2
+  Registry --> P24_S3
+  Registry --> P24_S4
+  Registry --> P24_S5
+  Registry --> P25_S1
+  Registry --> P25_S2
+  Registry --> P25_S3
+  Registry --> P25_S4
+  Registry --> P25_S5
+  Registry --> P26_S1
+  Registry --> P26_S2
+  Registry --> P26_S3
+  Registry --> P26_S4
+  Registry --> P26_S5
+  Registry --> P27_S1
+  Registry --> P27_S2
+  Registry --> P27_S3
+  Registry --> P27_S4
+  Registry --> P27_S5
+  Registry --> P28_S1
+  Registry --> P28_S2
+  Registry --> P28_S3
+  Registry --> P28_S4
+  Registry --> P28_S5
+  Registry --> P30_S_P30_1
+  Registry --> P30_S_P30_2
+  Registry --> P30_S_P30_3
+  Registry --> P30_S_P30_4
+  Registry --> P30_S_P30_5
+  Registry --> P31_S1
+  Registry --> P31_S2
+  Registry --> P31_S3
+  Registry --> P31_S4
+  Registry --> P31_S5
+  Registry --> P32_S1
+  Registry --> P32_S2
+  Registry --> P32_S3
+  Registry --> P32_S4
+  Registry --> P32_S5
+  Registry --> P33_S1
+  Registry --> P33_S2
+  Registry --> P33_S3
+  Registry --> P33_S4
+  Registry --> P33_S5
+  Registry --> P35_S35_1
+  Registry --> P35_S35_2
+  Registry --> P35_S35_3
+  Registry --> P35_S35_4
+  Registry --> P35_S35_5
+  Registry --> P36_A1
+  Registry --> P36_A2
+  Registry --> P36_A3
+  Registry --> P36_A4
+  Registry --> P36_A5
+  Registry --> P37_BH_S1
+  Registry --> P37_BH_S2
+  Registry --> P37_BH_S3
+  Registry --> P37_BH_S4
+  Registry --> P37_BH_S5
+  S_1 --> P11_N10
+  S_1 --> P11_N11
+  S_1 --> P11_N12
+  S_1 --> P11_N13
+  S_1 --> P11_N14
+  S_1 --> P11_N15
+  S_1 --> P11_N3
+  S_1 --> P11_N4
+  S_1 --> P11_N7
+  S_1 --> P11_N8
+  S_1 --> P11_N9
+  S_1 --> P11_S1
+  S_1 --> P11_S2
+  S_1 --> P11_S3
+  S_1 --> P11_S4
+  S_1 --> P11_S5
+  S_1 --> P12_S1
+  S_1 --> P12_S2
+  S_1 --> P12_S3
+  S_1 --> P12_S4
+  S_1 --> P12_S5
+  S_1 --> P13_S1
+  S_1 --> P13_S2
+  S_1 --> P13_S3
+  S_1 --> P13_S4
+  S_1 --> P13_S5
+  S_1 --> P14_S1
+  S_1 --> P14_S2
+  S_1 --> P14_S3
+  S_1 --> P14_S4
+  S_1 --> P14_S5
+  S_1 --> P15_S1
+  S_1 --> P15_S2
+  S_1 --> P15_S3
+  S_1 --> P15_S4
+  S_1 --> P15_S5
+  S_1 --> P16_A3
+  S_1 --> P16_A4_M6
+  S_1 --> P16_C2
+  S_1 --> P16_C3_C4
+  S_1 --> P16_D1
+  S_1 --> P16_D2_D4
+  S_1 --> P16_D3
+  S_1 --> P16_I2
+  S_1 --> P16_I3
+  S_1 --> P16_I4
+  S_1 --> P16_L1_L4
+  S_1 --> P16_M1
+  S_1 --> P16_M2
+  S_1 --> P16_M3
+  S_1 --> P16_M4
+  S_1 --> P16_M5
+  S_1 --> P16_S1
+  S_1 --> P16_S2
+  S_1 --> P16_S3
+  S_1 --> P16_S4
+  S_1 --> P16_S5
+  S_1 --> P16_V1
+  S_1 --> P16_V2
+  S_1 --> P16_V3_V4
+  S_1 --> P16_X2
+  S_1 --> P16_X3
+  S_1 --> P16_X4
+  S_1 --> P17_S1
+  S_1 --> P17_S2
+  S_1 --> P17_S3
+  S_1 --> P17_S4
+  S_1 --> P17_S5
+  S_1 --> P18_S1
+  S_1 --> P18_S2
+  S_1 --> P18_S3
+  S_1 --> P18_S4
+  S_1 --> P18_S5
+  S_1 --> P19_S1
+  S_1 --> P19_S2
+  S_1 --> P19_S3
+  S_1 --> P19_S4
+  S_1 --> P19_S5
+  S_1 --> P20_S20_1
+  S_1 --> P20_S20_2
+  S_1 --> P20_S20_3
+  S_1 --> P20_S20_4
+  S_1 --> P20_S20_5
+  S_1 --> P21_S1
+  S_1 --> P21_S2
+  S_1 --> P21_S3
+  S_1 --> P21_S4
+  S_1 --> P21_S5
+  S_1 --> P22_S22_1
+  S_1 --> P22_S22_2
+  S_1 --> P22_S22_3
+  S_1 --> P22_S22_4
+  S_1 --> P22_S22_5
+  S_1 --> P23_P23_A
+  S_1 --> P23_P23_B
+  S_1 --> P23_P23_C
+  S_1 --> P23_P23_D
+  S_1 --> P23_P23_E
+  S_1 --> P24_S1
+  S_1 --> P24_S2
+  S_1 --> P24_S3
+  S_1 --> P24_S4
+  S_1 --> P24_S5
+  S_1 --> P25_S1
+  S_1 --> P25_S2
+  S_1 --> P25_S3
+  S_1 --> P25_S4
+  S_1 --> P25_S5
+  S_1 --> P26_S1
+  S_1 --> P26_S2
+  S_1 --> P26_S3
+  S_1 --> P26_S4
+  S_1 --> P26_S5
+  S_1 --> P27_S1
+  S_1 --> P27_S2
+  S_1 --> P27_S3
+  S_1 --> P27_S4
+  S_1 --> P27_S5
+  S_1 --> P28_S1
+  S_1 --> P28_S2
+  S_1 --> P28_S3
+  S_1 --> P28_S4
+  S_1 --> P28_S5
+  S_1 --> P30_S_P30_1
+  S_1 --> P30_S_P30_2
+  S_1 --> P30_S_P30_3
+  S_1 --> P30_S_P30_4
+  S_1 --> P30_S_P30_5
+  S_1 --> P31_S1
+  S_1 --> P31_S2
+  S_1 --> P31_S3
+  S_1 --> P31_S4
+  S_1 --> P31_S5
+  S_1 --> P32_S1
+  S_1 --> P32_S2
+  S_1 --> P32_S3
+  S_1 --> P32_S4
+  S_1 --> P32_S5
+  S_1 --> P33_S1
+  S_1 --> P33_S2
+  S_1 --> P33_S3
+  S_1 --> P33_S4
+  S_1 --> P33_S5
+  S_1 --> P35_S35_1
+  S_1 --> P35_S35_2
+  S_1 --> P35_S35_3
+  S_1 --> P35_S35_4
+  S_1 --> P35_S35_5
+  S_1 --> P36_A1
+  S_1 --> P36_A2
+  S_1 --> P36_A3
+  S_1 --> P36_A4
+  S_1 --> P36_A5
+  S_1 --> P37_BH_S1
+  S_1 --> P37_BH_S2
+  S_1 --> P37_BH_S3
+  S_1 --> P37_BH_S4
+  S_1 --> P37_BH_S5
+  S_2 --> P11_N10
+  S_2 --> P11_N11
+  S_2 --> P11_N12
+  S_2 --> P11_N13
+  S_2 --> P11_N14
+  S_2 --> P11_N15
+  S_2 --> P11_N3
+  S_2 --> P11_N4
+  S_2 --> P11_N7
+  S_2 --> P11_N8
+  S_2 --> P11_N9
+  S_2 --> P11_S2
+  S_2 --> P11_S3
+  S_2 --> P11_S4
+  S_2 --> P12_S1
+  S_2 --> P12_S2
+  S_2 --> P12_S3
+  S_2 --> P12_S4
+  S_2 --> P12_S5
+  S_2 --> P13_S1
+  S_2 --> P13_S2
+  S_2 --> P13_S3
+  S_2 --> P13_S4
+  S_2 --> P13_S5
+  S_2 --> P14_S1
+  S_2 --> P14_S2
+  S_2 --> P14_S3
+  S_2 --> P14_S4
+  S_2 --> P14_S5
+  S_2 --> P15_S1
+  S_2 --> P15_S2
+  S_2 --> P15_S3
+  S_2 --> P15_S4
+  S_2 --> P15_S5
+  S_2 --> P16_A3
+  S_2 --> P16_A4_M6
+  S_2 --> P16_C2
+  S_2 --> P16_C3_C4
+  S_2 --> P16_D1
+  S_2 --> P16_D2_D4
+  S_2 --> P16_D3
+  S_2 --> P16_I2
+  S_2 --> P16_I3
+  S_2 --> P16_I4
+  S_2 --> P16_L1_L4
+  S_2 --> P16_M1
+  S_2 --> P16_M2
+  S_2 --> P16_M3
+  S_2 --> P16_M4
+  S_2 --> P16_M5
+  S_2 --> P16_S1
+  S_2 --> P16_S2
+  S_2 --> P16_S3
+  S_2 --> P16_S4
+  S_2 --> P16_S5
+  S_2 --> P16_V1
+  S_2 --> P16_V2
+  S_2 --> P16_V3_V4
+  S_2 --> P16_X2
+  S_2 --> P16_X3
+  S_2 --> P16_X4
+  S_2 --> P17_S1
+  S_2 --> P17_S2
+  S_2 --> P17_S3
+  S_2 --> P17_S4
+  S_2 --> P17_S5
+  S_2 --> P18_S2
+  S_2 --> P18_S3
+  S_2 --> P18_S5
+  S_2 --> P19_S1
+  S_2 --> P19_S2
+  S_2 --> P19_S3
+  S_2 --> P19_S4
+  S_2 --> P19_S5
+  S_2 --> P20_S20_1
+  S_2 --> P20_S20_2
+  S_2 --> P20_S20_3
+  S_2 --> P20_S20_4
+  S_2 --> P20_S20_5
+  S_2 --> P21_S1
+  S_2 --> P21_S2
+  S_2 --> P21_S3
+  S_2 --> P21_S4
+  S_2 --> P21_S5
+  S_2 --> P22_S22_3
+  S_2 --> P23_P23_A
+  S_2 --> P23_P23_B
+  S_2 --> P23_P23_C
+  S_2 --> P23_P23_D
+  S_2 --> P23_P23_E
+  S_2 --> P24_S1
+  S_2 --> P24_S2
+  S_2 --> P24_S3
+  S_2 --> P24_S4
+  S_2 --> P24_S5
+  S_2 --> P25_S1
+  S_2 --> P25_S2
+  S_2 --> P25_S3
+  S_2 --> P25_S4
+  S_2 --> P25_S5
+  S_2 --> P26_S1
+  S_2 --> P26_S2
+  S_2 --> P26_S3
+  S_2 --> P26_S4
+  S_2 --> P26_S5
+  S_2 --> P27_S1
+  S_2 --> P27_S2
+  S_2 --> P27_S3
+  S_2 --> P27_S4
+  S_2 --> P27_S5
+  S_2 --> P28_S1
+  S_2 --> P28_S2
+  S_2 --> P28_S3
+  S_2 --> P28_S4
+  S_2 --> P28_S5
+  S_2 --> P30_S_P30_1
+  S_2 --> P30_S_P30_2
+  S_2 --> P30_S_P30_3
+  S_2 --> P30_S_P30_4
+  S_2 --> P30_S_P30_5
+  S_2 --> P31_S1
+  S_2 --> P31_S2
+  S_2 --> P31_S3
+  S_2 --> P31_S4
+  S_2 --> P31_S5
+  S_2 --> P32_S1
+  S_2 --> P32_S2
+  S_2 --> P32_S3
+  S_2 --> P32_S4
+  S_2 --> P32_S5
+  S_2 --> P33_S1
+  S_2 --> P33_S2
+  S_2 --> P33_S3
+  S_2 --> P33_S4
+  S_2 --> P33_S5
+  S_2 --> P35_S35_1
+  S_2 --> P35_S35_2
+  S_2 --> P35_S35_3
+  S_2 --> P35_S35_4
+  S_2 --> P35_S35_5
+  S_2 --> P36_A1
+  S_2 --> P36_A2
+  S_2 --> P36_A3
+  S_2 --> P36_A4
+  S_2 --> P36_A5
+  S_2 --> P37_BH_S1
+  S_2 --> P37_BH_S2
+  S_2 --> P37_BH_S3
+  S_2 --> P37_BH_S4
+  S_2 --> P37_BH_S5
+  S_2 --> Registry
+  S_3 --> P11_S2
+  S_3 --> P11_S3
+  S_3 --> P12_S1
+  S_3 --> P12_S3
+  S_3 --> P13_S1
+  S_3 --> P13_S3
+  S_3 --> P15_S2
+  S_3 --> P16_S5
+  S_3 --> P17_S2
+  S_3 --> P19_S3
+  S_3 --> P19_S5
+  S_3 --> P21_S2
+  S_3 --> P21_S3
+  S_3 --> P21_S5
+  S_3 --> P22_S22_3
+  S_3 --> P23_P23_B
+  S_4 --> P11_N10
+  S_4 --> P11_N11
+  S_4 --> P11_N12
+  S_4 --> P11_N13
+  S_4 --> P11_N14
+  S_4 --> P11_N15
+  S_4 --> P11_N3
+  S_4 --> P11_N4
+  S_4 --> P11_N7
+  S_4 --> P11_N8
+  S_4 --> P11_N9
+  S_4 --> P11_S1
+  S_4 --> P11_S2
+  S_4 --> P11_S3
+  S_4 --> P11_S4
+  S_4 --> P11_S5
+  S_4 --> P12_S1
+  S_4 --> P12_S2
+  S_4 --> P12_S3
+  S_4 --> P12_S4
+  S_4 --> P12_S5
+  S_4 --> P13_S1
+  S_4 --> P13_S2
+  S_4 --> P13_S3
+  S_4 --> P13_S4
+  S_4 --> P13_S5
+  S_4 --> P14_S1
+  S_4 --> P14_S2
+  S_4 --> P14_S3
+  S_4 --> P14_S4
+  S_4 --> P14_S5
+  S_4 --> P15_S1
+  S_4 --> P15_S2
+  S_4 --> P15_S3
+  S_4 --> P15_S4
+  S_4 --> P15_S5
+  S_4 --> P16_A3
+  S_4 --> P16_A4_M6
+  S_4 --> P16_C2
+  S_4 --> P16_C3_C4
+  S_4 --> P16_D1
+  S_4 --> P16_D2_D4
+  S_4 --> P16_D3
+  S_4 --> P16_I2
+  S_4 --> P16_I3
+  S_4 --> P16_I4
+  S_4 --> P16_L1_L4
+  S_4 --> P16_M1
+  S_4 --> P16_M2
+  S_4 --> P16_M3
+  S_4 --> P16_M4
+  S_4 --> P16_M5
+  S_4 --> P16_S1
+  S_4 --> P16_S2
+  S_4 --> P16_S3
+  S_4 --> P16_S4
+  S_4 --> P16_S5
+  S_4 --> P16_V1
+  S_4 --> P16_V2
+  S_4 --> P16_V3_V4
+  S_4 --> P16_X2
+  S_4 --> P16_X3
+  S_4 --> P16_X4
+  S_4 --> P17_S1
+  S_4 --> P17_S2
+  S_4 --> P17_S3
+  S_4 --> P17_S4
+  S_4 --> P17_S5
+  S_4 --> P18_S3
+  S_4 --> P18_S4
+  S_4 --> P18_S5
+  S_4 --> P19_S1
+  S_4 --> P19_S2
+  S_4 --> P19_S3
+  S_4 --> P19_S4
+  S_4 --> P19_S5
+  S_4 --> P20_S20_1
+  S_4 --> P20_S20_2
+  S_4 --> P20_S20_3
+  S_4 --> P20_S20_4
+  S_4 --> P20_S20_5
+  S_4 --> P21_S1
+  S_4 --> P21_S2
+  S_4 --> P21_S3
+  S_4 --> P21_S4
+  S_4 --> P21_S5
+  S_4 --> P22_S22_1
+  S_4 --> P22_S22_2
+  S_4 --> P22_S22_3
+  S_4 --> P22_S22_4
+  S_4 --> P22_S22_5
+  S_4 --> P23_P23_A
+  S_4 --> P23_P23_B
+  S_4 --> P23_P23_C
+  S_4 --> P23_P23_D
+  S_4 --> P23_P23_E
+  S_4 --> P24_S1
+  S_4 --> P24_S2
+  S_4 --> P24_S3
+  S_4 --> P24_S4
+  S_4 --> P24_S5
+  S_4 --> P25_S1
+  S_4 --> P25_S2
+  S_4 --> P25_S3
+  S_4 --> P25_S4
+  S_4 --> P25_S5
+  S_4 --> P26_S1
+  S_4 --> P26_S2
+  S_4 --> P26_S3
+  S_4 --> P26_S4
+  S_4 --> P26_S5
+  S_4 --> P27_S1
+  S_4 --> P27_S2
+  S_4 --> P27_S3
+  S_4 --> P27_S4
+  S_4 --> P27_S5
+  S_4 --> P28_S1
+  S_4 --> P28_S2
+  S_4 --> P28_S3
+  S_4 --> P28_S4
+  S_4 --> P28_S5
+  S_4 --> P30_S_P30_1
+  S_4 --> P30_S_P30_2
+  S_4 --> P30_S_P30_3
+  S_4 --> P30_S_P30_4
+  S_4 --> P30_S_P30_5
+  S_4 --> P31_S1
+  S_4 --> P31_S2
+  S_4 --> P31_S3
+  S_4 --> P31_S4
+  S_4 --> P31_S5
+  S_4 --> P32_S1
+  S_4 --> P32_S2
+  S_4 --> P32_S3
+  S_4 --> P32_S4
+  S_4 --> P32_S5
+  S_4 --> P33_S1
+  S_4 --> P33_S2
+  S_4 --> P33_S3
+  S_4 --> P33_S4
+  S_4 --> P33_S5
+  S_4 --> P35_S35_1
+  S_4 --> P35_S35_2
+  S_4 --> P35_S35_3
+  S_4 --> P35_S35_4
+  S_4 --> P35_S35_5
+  S_4 --> P36_A1
+  S_4 --> P36_A2
+  S_4 --> P36_A3
+  S_4 --> P36_A4
+  S_4 --> P36_A5
+  S_4 --> P37_BH_S1
+  S_4 --> P37_BH_S2
+  S_4 --> P37_BH_S3
+  S_4 --> P37_BH_S4
+  S_4 --> P37_BH_S5
+  S_4 --> Registry
+  S_5 -. QA gate .-> P11_N10
+  S_5 -. QA gate .-> P11_N11
+  S_5 -. QA gate .-> P11_N12
+  S_5 -. QA gate .-> P11_N13
+  S_5 -. QA gate .-> P11_N14
+  S_5 -. QA gate .-> P11_N15
+  S_5 -. QA gate .-> P11_N3
+  S_5 -. QA gate .-> P11_N4
+  S_5 -. QA gate .-> P11_N7
+  S_5 -. QA gate .-> P11_N8
+  S_5 -. QA gate .-> P11_N9
+  S_5 -. QA gate .-> P11_S1
+  S_5 -. QA gate .-> P11_S2
+  S_5 -. QA gate .-> P11_S3
+  S_5 -. QA gate .-> P11_S4
+  S_5 -. QA gate .-> P11_S5
+  S_5 -. QA gate .-> P12_S1
+  S_5 -. QA gate .-> P12_S2
+  S_5 -. QA gate .-> P12_S3
+  S_5 -. QA gate .-> P12_S4
+  S_5 -. QA gate .-> P12_S5
+  S_5 -. QA gate .-> P13_S1
+  S_5 -. QA gate .-> P13_S2
+  S_5 -. QA gate .-> P13_S3
+  S_5 -. QA gate .-> P13_S4
+  S_5 -. QA gate .-> P13_S5
+  S_5 -. QA gate .-> P14_S1
+  S_5 -. QA gate .-> P14_S2
+  S_5 -. QA gate .-> P14_S3
+  S_5 -. QA gate .-> P14_S4
+  S_5 -. QA gate .-> P14_S5
+  S_5 -. QA gate .-> P15_S2
+  S_5 -. QA gate .-> P15_S3
+  S_5 -. QA gate .-> P15_S4
+  S_5 -. QA gate .-> P15_S5
+  S_5 -. QA gate .-> P16_A3
+  S_5 -. QA gate .-> P16_A4_M6
+  S_5 -. QA gate .-> P16_C2
+  S_5 -. QA gate .-> P16_C3_C4
+  S_5 -. QA gate .-> P16_D1
+  S_5 -. QA gate .-> P16_D2_D4
+  S_5 -. QA gate .-> P16_D3
+  S_5 -. QA gate .-> P16_I2
+  S_5 -. QA gate .-> P16_I3
+  S_5 -. QA gate .-> P16_I4
+  S_5 -. QA gate .-> P16_L1_L4
+  S_5 -. QA gate .-> P16_M1
+  S_5 -. QA gate .-> P16_M2
+  S_5 -. QA gate .-> P16_M3
+  S_5 -. QA gate .-> P16_M4
+  S_5 -. QA gate .-> P16_M5
+  S_5 -. QA gate .-> P16_S1
+  S_5 -. QA gate .-> P16_S2
+  S_5 -. QA gate .-> P16_S3
+  S_5 -. QA gate .-> P16_S4
+  S_5 -. QA gate .-> P16_S5
+  S_5 -. QA gate .-> P16_V1
+  S_5 -. QA gate .-> P16_V2
+  S_5 -. QA gate .-> P16_V3_V4
+  S_5 -. QA gate .-> P16_X2
+  S_5 -. QA gate .-> P16_X3
+  S_5 -. QA gate .-> P16_X4
+  S_5 -. QA gate .-> P17_S1
+  S_5 -. QA gate .-> P17_S2
+  S_5 -. QA gate .-> P17_S3
+  S_5 -. QA gate .-> P17_S4
+  S_5 -. QA gate .-> P17_S5
+  S_5 -. QA gate .-> P18_S5
+  S_5 -. QA gate .-> P19_S1
+  S_5 -. QA gate .-> P19_S2
+  S_5 -. QA gate .-> P19_S3
+  S_5 -. QA gate .-> P19_S4
+  S_5 -. QA gate .-> P19_S5
+  S_5 -. QA gate .-> P20_S20_1
+  S_5 -. QA gate .-> P20_S20_2
+  S_5 -. QA gate .-> P20_S20_3
+  S_5 -. QA gate .-> P20_S20_4
+  S_5 -. QA gate .-> P20_S20_5
+  S_5 -. QA gate .-> P21_S1
+  S_5 -. QA gate .-> P21_S2
+  S_5 -. QA gate .-> P21_S3
+  S_5 -. QA gate .-> P21_S4
+  S_5 -. QA gate .-> P21_S5
+  S_5 -. QA gate .-> P22_S22_1
+  S_5 -. QA gate .-> P22_S22_2
+  S_5 -. QA gate .-> P22_S22_3
+  S_5 -. QA gate .-> P22_S22_4
+  S_5 -. QA gate .-> P22_S22_5
+  S_5 -. QA gate .-> P23_P23_A
+  S_5 -. QA gate .-> P23_P23_B
+  S_5 -. QA gate .-> P23_P23_C
+  S_5 -. QA gate .-> P23_P23_D
+  S_5 -. QA gate .-> P23_P23_E
+  S_5 -. QA gate .-> P24_S1
+  S_5 -. QA gate .-> P24_S2
+  S_5 -. QA gate .-> P24_S3
+  S_5 -. QA gate .-> P24_S4
+  S_5 -. QA gate .-> P24_S5
+  S_5 -. QA gate .-> P25_S1
+  S_5 -. QA gate .-> P25_S2
+  S_5 -. QA gate .-> P25_S3
+  S_5 -. QA gate .-> P25_S4
+  S_5 -. QA gate .-> P25_S5
+  S_5 -. QA gate .-> P26_S1
+  S_5 -. QA gate .-> P26_S2
+  S_5 -. QA gate .-> P26_S3
+  S_5 -. QA gate .-> P26_S4
+  S_5 -. QA gate .-> P26_S5
+  S_5 -. QA gate .-> P27_S1
+  S_5 -. QA gate .-> P27_S2
+  S_5 -. QA gate .-> P27_S3
+  S_5 -. QA gate .-> P27_S4
+  S_5 -. QA gate .-> P27_S5
+  S_5 -. QA gate .-> P28_S1
+  S_5 -. QA gate .-> P28_S2
+  S_5 -. QA gate .-> P28_S3
+  S_5 -. QA gate .-> P28_S4
+  S_5 -. QA gate .-> P28_S5
+  S_5 -. QA gate .-> P30_S_P30_1
+  S_5 -. QA gate .-> P30_S_P30_2
+  S_5 -. QA gate .-> P30_S_P30_3
+  S_5 -. QA gate .-> P30_S_P30_4
+  S_5 -. QA gate .-> P30_S_P30_5
+  S_5 -. QA gate .-> P31_S1
+  S_5 -. QA gate .-> P31_S2
+  S_5 -. QA gate .-> P31_S3
+  S_5 -. QA gate .-> P31_S4
+  S_5 -. QA gate .-> P31_S5
+  S_5 -. QA gate .-> P32_S1
+  S_5 -. QA gate .-> P32_S2
+  S_5 -. QA gate .-> P32_S3
+  S_5 -. QA gate .-> P32_S4
+  S_5 -. QA gate .-> P32_S5
+  S_5 -. QA gate .-> P33_S1
+  S_5 -. QA gate .-> P33_S2
+  S_5 -. QA gate .-> P33_S3
+  S_5 -. QA gate .-> P33_S4
+  S_5 -. QA gate .-> P33_S5
+  S_5 -. QA gate .-> P35_S35_1
+  S_5 -. QA gate .-> P35_S35_2
+  S_5 -. QA gate .-> P35_S35_3
+  S_5 -. QA gate .-> P35_S35_4
+  S_5 -. QA gate .-> P35_S35_5
+  S_5 -. QA gate .-> P36_A1
+  S_5 -. QA gate .-> P36_A2
+  S_5 -. QA gate .-> P36_A3
+  S_5 -. QA gate .-> P36_A4
+  S_5 -. QA gate .-> P36_A5
+  S_5 -. QA gate .-> P37_BH_S1
+  S_5 -. QA gate .-> P37_BH_S2
+  S_5 -. QA gate .-> P37_BH_S3
+  S_5 -. QA gate .-> P37_BH_S4
+  S_5 -. QA gate .-> P37_BH_S5

@@ -1,0 +1,3 @@
+- **F1:** Wrote [synthesis and roadmap](docs/worlds/NONHUMAN_SYNTHESIS_AND_ROADMAP_2026-10-14.md) and [checkpoint](docs/gm/dispatch/nonhuman-starts-2026-10-14/synthesis/CHECKPOINT.md).
+- **F2:** Includes E1-E15 plus 14 lane additions, 25 slices, 24 conflicts, 18 duplicates, 10 gaps and 14 deferred scopes. All five late-arriving optional reports are integrated.
+- **F3:** Links, numbering, tables and dependency structure checked. Runtime, browser and persistence gates remain unverified. No owner or sibling edits.

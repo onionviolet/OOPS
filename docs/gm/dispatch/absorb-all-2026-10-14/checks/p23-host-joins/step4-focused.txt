@@ -1,0 +1,406 @@
+TAP version 13
+# Subtest: species partition replaces only supported drops, wall body plan is distinct
+ok 1 - species partition replaces only supported drops, wall body plan is distinct
+  ---
+  duration_ms: 4.240333
+  type: 'test'
+  ...
+# Subtest: same saved seed and kill key replay specimen without mutable cursor
+ok 2 - same saved seed and kill key replay specimen without mutable cursor
+  ---
+  duration_ms: 1.056917
+  type: 'test'
+  ...
+# Subtest: preview is pure and whole versus single part conserve outputs, time and XP
+ok 3 - preview is pure and whole versus single part conserve outputs, time and XP
+  ---
+  duration_ms: 0.672666
+  type: 'test'
+  ...
+# Subtest: overkill hits critical and type reduce completeness, skill tool freshness affect quality
+ok 4 - overkill hits critical and type reduce completeness, skill tool freshness affect quality
+  ---
+  duration_ms: 0.460708
+  type: 'test'
+  ...
+# Subtest: take one consumes specimen, cancel returns it, pending slot reserved at cap
+ok 5 - take one consumes specimen, cancel returns it, pending slot reserved at cap
+  ---
+  duration_ms: 0.465666
+  type: 'test'
+  ...
+# Subtest: ten thousand kills keep lot bounded and auto overflow preserves finished outputs, exact replay
+ok 6 - ten thousand kills keep lot bounded and auto overflow preserves finished outputs, exact replay
+  ---
+  duration_ms: 828.82975
+  type: 'test'
+  ...
+# Subtest: material keys bound stack cardinality and mixed recipe quality follows actual spends
+ok 7 - material keys bound stack cardinality and mixed recipe quality follows actual spends
+  ---
+  duration_ms: 0.288416
+  type: 'test'
+  ...
+# Subtest: damage record remembers all landed strikes and overkill after zero clamp
+ok 8 - damage record remembers all landed strikes and overkill after zero clamp
+  ---
+  duration_ms: 0.11125
+  type: 'test'
+  ...
+# Subtest: optional owner loads unchanged and pending/completed state JSON roundtrip validates
+ok 9 - optional owner loads unchanged and pending/completed state JSON roundtrip validates
+  ---
+  duration_ms: 0.676792
+  type: 'test'
+  ...
+# Subtest: import rejects newer owners bad specimen grade future freshness duplicate claims and cap overflow
+ok 10 - import rejects newer owners bad specimen grade future freshness duplicate claims and cap overflow
+  ---
+  duration_ms: 0.671583
+  type: 'test'
+  ...
+# Subtest: pending reserved slot survives long fight and cancel at cap without exceeding cap
+ok 11 - pending reserved slot survives long fight and cancel at cap without exceeding cap
+  ---
+  duration_ms: 2.604292
+  type: 'test'
+  ...
+# Subtest: legacy quality-only material keys are preserved without a newly imposed grade restriction
+ok 12 - legacy quality-only material keys are preserved without a newly imposed grade restriction
+  ---
+  duration_ms: 0.106292
+  type: 'test'
+  ...
+# Subtest: loot-stream specimen flood persists halfway then replays exact next specimens outputs and counters
+ok 13 - loot-stream specimen flood persists halfway then replays exact next specimens outputs and counters
+  ---
+  duration_ms: 5234.91525
+  type: 'test'
+  ...
+# Subtest: saved training restores actual per-seed rank, XP and damaged health rather than placeholder rank
+ok 14 - saved training restores actual per-seed rank, XP and damaged health rather than placeholder rank
+  ---
+  duration_ms: 15.456834
+  type: 'test'
+  ...
+# Subtest: pending native encounter rejects missing identity, wrong stats, absent profile and unearned exchange cursor
+ok 15 - pending native encounter rejects missing identity, wrong stats, absent profile and unearned exchange cursor
+  ---
+  duration_ms: 0.376834
+  type: 'test'
+  ...
+# Subtest: completed and abandoned attempts restore only off the training area with matching native progress
+ok 16 - completed and abandoned attempts restore only off the training area with matching native progress
+  ---
+  duration_ms: 0.366458
+  type: 'test'
+  ...
+# Subtest: old schema saves need no optional training records
+ok 17 - old schema saves need no optional training records
+  ---
+  duration_ms: 0.077708
+  type: 'test'
+  ...
+# Subtest: old accumulated XP is not backfilled; actual positive native deltas retain hundredths
+ok 18 - old accumulated XP is not backfilled; actual positive native deltas retain hundredths
+  ---
+  duration_ms: 0.812292
+  type: 'test'
+  ...
+# Subtest: each further earned threshold can fund a bounded reward without a lifetime once gate
+ok 19 - each further earned threshold can fund a bounded reward without a lifetime once gate
+  ---
+  duration_ms: 1.677916
+  type: 'test'
+  ...
+# Subtest: unsupported contexts and schemas do not count or mutate future grant receipts
+ok 20 - unsupported contexts and schemas do not count or mutate future grant receipts
+  ---
+  duration_ms: 1.169417
+  type: 'test'
+  ...
+# Subtest: growth maximum-vital source preserves absolute health and stamina, including clamping departure
+ok 21 - growth maximum-vital source preserves absolute health and stamina, including clamping departure
+  ---
+  duration_ms: 0.182958
+  type: 'test'
+  ...
+# Subtest: legacy absence preserves the envelope; invalid optional schemas reject without mutation
+ok 22 - legacy absence preserves the envelope; invalid optional schemas reject without mutation
+  ---
+  duration_ms: 1.202584
+  type: 'test'
+  ...
+# Subtest: actual loot associates only its own creature and cannot exceed native settlement history
+ok 23 - actual loot associates only its own creature and cannot exceed native settlement history
+  ---
+  duration_ms: 4.118125
+  type: 'test'
+  ...
+# Subtest: recognition stages settled native home and purchase counters without publishing titles
+ok 24 - recognition stages settled native home and purchase counters without publishing titles
+  ---
+  duration_ms: 1.488792
+  type: 'test'
+  ...
+# Subtest: repeat finished anthology does not invent another completed book
+ok 25 - repeat finished anthology does not invent another completed book
+  ---
+  duration_ms: 22.555166
+  type: 'test'
+  ...
+# Subtest: optional worn state stays absent and rejects invalid selections in envelope preflight
+ok 26 - optional worn state stays absent and rejects invalid selections in envelope preflight
+  ---
+  duration_ms: 0.472042
+  type: 'test'
+  ...
+# Subtest: old native envelope stays absent; optional schema rejection does not mutate it
+ok 27 - old native envelope stays absent; optional schema rejection does not mutate it
+  ---
+  duration_ms: 249.578125
+  type: 'test'
+  ...
+# Subtest: paid-round owner must agree with the native reservation
+ok 28 - paid-round owner must agree with the native reservation
+  ---
+  duration_ms: 9.028875
+  type: 'test'
+  ...
+# Subtest: field output uses the native bag without supplying passive XP or money
+ok 29 - field output uses the native bag without supplying passive XP or money
+  ---
+  duration_ms: 3.061417
+  type: 'test'
+  ...
+# Subtest: Eda aid transfers the actual finite donor purse to native money
+ok 30 - Eda aid transfers the actual finite donor purse to native money
+  ---
+  duration_ms: 1.545709
+  type: 'test'
+  ...
+# Subtest: market quote consumes native rounded subtotals and leaves coupon off by default
+ok 31 - market quote consumes native rounded subtotals and leaves coupon off by default
+  ---
+  duration_ms: 0.305208
+  type: 'test'
+  ...
+# Subtest: old optional absence is retained; clock-cursor and unsupported schema preflight reject
+ok 32 - old optional absence is retained; clock-cursor and unsupported schema preflight reject
+  ---
+  duration_ms: 1.053041
+  type: 'test'
+  ...
+# Subtest: passive native XP stages as exact hundredths with matching saved clock and no input mutation
+ok 33 - passive native XP stages as exact hundredths with matching saved clock and no input mutation
+  ---
+  duration_ms: 0.815583
+  type: 'test'
+  ...
+# Subtest: inert old native clock advances do not initialize an optional exposure family
+ok 34 - inert old native clock advances do not initialize an optional exposure family
+  ---
+  duration_ms: 0.079917
+  type: 'test'
+  ...
+# Subtest: storm costs clamp native stamina and do not stage HP damage or action XP multipliers
+ok 35 - storm costs clamp native stamina and do not stage HP damage or action XP multipliers
+  ---
+  duration_ms: 0.152292
+  type: 'test'
+  ...
+# Subtest: household fuel preflight rejects denied custody before any native owner publication
+ok 36 - household fuel preflight rejects denied custody before any native owner publication
+  ---
+  duration_ms: 0.664666
+  type: 'test'
+  ...
+# Subtest: living equip pays one stack copy and allocates identity with wear off, without changing source owners
+ok 37 - living equip pays one stack copy and allocates identity with wear off, without changing source owners
+  ---
+  duration_ms: 1.514333
+  type: 'test'
+  ...
+# Subtest: two native copies remain distinct after swapping and imported duplicate owners reject
+ok 38 - two native copies remain distinct after swapping and imported duplicate owners reject
+  ---
+  duration_ms: 0.687292
+  type: 'test'
+  ...
+# Subtest: custody refusal leaves paid-copy and allocator plans untouched
+ok 39 - custody refusal leaves paid-copy and allocator plans untouched
+  ---
+  duration_ms: 0.110125
+  type: 'test'
+  ...
+# Subtest: staging an already allocated copy never rebinds the live inventory item to staged wear
+ok 40 - staging an already allocated copy never rebinds the live inventory item to staged wear
+  ---
+  duration_ms: 0.349625
+  type: 'test'
+  ...
+# Subtest: optional absence is inert and unknown fields, missing E2 allocation or stacked instance reject
+ok 41 - optional absence is inert and unknown fields, missing E2 allocation or stacked instance reject
+  ---
+  duration_ms: 0.215875
+  type: 'test'
+  ...
+# Subtest: paused combat state requires the same real encounter and survivor phase
+ok 42 - paused combat state requires the same real encounter and survivor phase
+  ---
+  duration_ms: 0.10375
+  type: 'test'
+  ...
+# Subtest: an equipped aura refuses a malformed native hour before projection or owner mutation
+ok 43 - an equipped aura refuses a malformed native hour before projection or owner mutation
+  ---
+  duration_ms: 0.256958
+  type: 'test'
+  ...
+# Subtest: host settlement puts XP and finished book in one unpublished envelope and never mutates native books
+ok 44 - host settlement puts XP and finished book in one unpublished envelope and never mutates native books
+  ---
+  duration_ms: 1.613208
+  type: 'test'
+  ...
+# Subtest: host optional absence remains absent and unsupported reading schemas reject before publication
+ok 45 - host optional absence remains absent and unsupported reading schemas reject before publication
+  ---
+  duration_ms: 0.188875
+  type: 'test'
+  ...
+# Subtest: old absence stays absent; real retained world enrollment owns native energy
+ok 46 - old absence stays absent; real retained world enrollment owns native energy
+  ---
+  duration_ms: 33.781375
+  type: 'test'
+  ...
+# Subtest: played fractional accrual and saved seeded trial debit actual gameplay dose
+ok 47 - played fractional accrual and saved seeded trial debit actual gameplay dose
+  ---
+  duration_ms: 172.262541
+  type: 'test'
+  ...
+# Subtest: success commits native Meditation XP once and rawness blocks the next exposure segment
+ok 48 - success commits native Meditation XP once and rawness blocks the next exposure segment
+  ---
+  duration_ms: 3.57
+  type: 'test'
+  ...
+# Subtest: unsupported families and unbound resources reject without native mutation
+ok 49 - unsupported families and unbound resources reject without native mutation
+  ---
+  duration_ms: 6.884292
+  type: 'test'
+  ...
+# Subtest: native merchant refresh stages same owner stock after sixty played minutes
+ok 50 - native merchant refresh stages same owner stock after sixty played minutes
+  ---
+  duration_ms: 1.179709
+  type: 'test'
+  ...
+# Subtest: native passage closes retained visit; same-clock new context interrupts without refund
+ok 51 - native passage closes retained visit; same-clock new context interrupts without refund
+  ---
+  duration_ms: 5.636834
+  type: 'test'
+  ...
+# Subtest: six neutral distinct labels use words/shape, five draws, deterministic root and isolation
+ok 52 - six neutral distinct labels use words/shape, five draws, deterministic root and isolation
+  ---
+  duration_ms: 10.264459
+  type: 'test'
+  ...
+# Subtest: preview, failed acquisition and duplicate type never allocate or draw; four slots then passthrough
+ok 53 - preview, failed acquisition and duplicate type never allocate or draw; four slots then passthrough
+  ---
+  duration_ms: 74.396
+  type: 'test'
+  ...
+# Subtest: experiment recognizes repeat exact type, never a different concentration/process or fabricated unseen batch
+ok 54 - experiment recognizes repeat exact type, never a different concentration/process or fabricated unseen batch
+  ---
+  duration_ms: 1.174208
+  type: 'test'
+  ...
+# Subtest: failed durable acquisition/experiment preserves map, stream, inventory, knowledge and money
+ok 55 - failed durable acquisition/experiment preserves map, stream, inventory, knowledge and money
+  ---
+  duration_ms: 2.960666
+  type: 'test'
+  ...
+# Subtest: exact serialized map, truth, inventory, knowledge and cursor survive reload/import and consumption
+ok 56 - exact serialized map, truth, inventory, knowledge and cursor survive reload/import and consumption
+  ---
+  duration_ms: 7.457
+  type: 'test'
+  ...
+# Subtest: forged bindings, duplicates, future pool/truth, missing receipts and cursor reject unchanged
+ok 57 - forged bindings, duplicates, future pool/truth, missing receipts and cursor reject unchanged
+  ---
+  duration_ms: 1.313
+  type: 'test'
+  ...
+# Subtest: pre-slice products retain names, first new acquisition opts in, fieldcraft remains unchanged
+ok 58 - pre-slice products retain names, first new acquisition opts in, fieldcraft remains unchanged
+  ---
+  duration_ms: 4.412667
+  type: 'test'
+  ...
+# Subtest: full old-save loader preserves absent appearance owner; invalid owner rejected at preflight
+ok 59 - full old-save loader preserves absent appearance owner; invalid owner rejected at preflight
+  ---
+  duration_ms: 122.113625
+  type: 'test'
+  ...
+# Subtest: W33.T1 pure legacy projection matches native calendars and weekdays at all boundaries
+ok 60 - W33.T1 pure legacy projection matches native calendars and weekdays at all boundaries
+  ---
+  duration_ms: 2.158
+  type: 'test'
+  ...
+# Subtest: W33.T2 applicable fixed custom-day/month arithmetic keeps elapsed separate from labels
+ok 61 - W33.T2 applicable fixed custom-day/month arithmetic keeps elapsed separate from labels
+  ---
+  duration_ms: 0.30425
+  type: 'test'
+  ...
+# Subtest: W33.T3 hub unknown civil date and public projection omit undeclared hidden fields
+ok 62 - W33.T3 hub unknown civil date and public projection omit undeclared hidden fields
+  ---
+  duration_ms: 0.213709
+  type: 'test'
+  ...
+# Subtest: W33.T5 legacy bindings resolve without mutating any saved owner, absent and unsupported worlds stay unavailable
+ok 63 - W33.T5 legacy bindings resolve without mutating any saved owner, absent and unsupported worlds stay unavailable
+  ---
+  duration_ms: 0.356417
+  type: 'test'
+  ...
+# Subtest: W33.T6 transient entry/midnight/reentry headers deduplicate and bound jumps
+ok 64 - W33.T6 transient entry/midnight/reentry headers deduplicate and bound jumps
+  ---
+  duration_ms: 0.387
+  type: 'test'
+  ...
+# Subtest: W33.T6 actual host publication seam emits only after storage success and before new-day messages
+ok 65 - W33.T6 actual host publication seam emits only after storage success and before new-day messages
+  ---
+  duration_ms: 4.912917
+  type: 'test'
+  ...
+# Subtest: W28/W33 display-only climate uses frozen local frame, unknown hub and untouched home
+ok 66 - W28/W33 display-only climate uses frozen local frame, unknown hub and untouched home
+  ---
+  duration_ms: 0.538417
+  type: 'test'
+  ...
+1..66
+# tests 66
+# suites 0
+# pass 66
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 6314.817584

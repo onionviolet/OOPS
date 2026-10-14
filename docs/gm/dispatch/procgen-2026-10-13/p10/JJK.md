@@ -1,0 +1,40 @@
+# JJK generation profile
+
+2026-10-14. PROPOSAL ONLY. Gege Akutami's *Jujutsu Kaisen*. [Evidence S-J/C1](SOURCE_NOTES.md), [world owner](../../../../worlds/jujutsu/WORLD_BRIEF.md). Direct adaptation is private-pack content. All generation below is INFERRED/proposal; cited wiki assertions are STATED-secondary, not SHOWN-primary.
+
+## Source law and generation boundary
+
+[Binding Vow r78401](https://jujutsu-kaisen.fandom.com/wiki/Binding_Vow?oldid=78401), Self / Others / Known Vows, distinguishes lost self-vow benefit from incompletely specified mutual sanctions. [Cursed Technique r79254](https://jujutsu-kaisen.fandom.com/wiki/Cursed_Technique?oldid=79254), Activation / Innate / Inherited, separates fuel, method, ceremony, bodily storage and external assistance. Do not generate a technique by accumulating generic residue or randomly punish every failed condition as a vow breach. The memory-derived brief's one-method and Maximum shorthand is insufficient to override this.
+
+| Code | Domain | Proposed generation and actual consequence | Authored/reserved boundary |
+|---|---|---|---|
+| J1 | Resources / harvesting | Survey traces at a reported site; freeze signature, age, contamination and evidence quality. Recover an actual held sample or paid report. Separate **cursed energy residue as evidence** from a recoverable fuel resource. A supported tool/technique could later convert or store energy through its own law. | Routine residue-to-energy bottling is UNKNOWN. Site fear, spirit population, personal reserve, output and control are different quantities. No guaranteed resource from every exorcism. |
+| J2 | Materials / creation | Procedural mundane carriers, wraps, cases, seals and reinforced equipment: choose substrate, preparation, durability and compatible application. A cursed-tool work order records the actual maker/method/source, not only a grade. Link [P6](../p6/) for creation, [P8](../p8/) for recovery/custody. | Canon tools and technique-bearing objects remain authored unique carriers. Cursed corpses require an explicit life/core/agency method; a craft label cannot mint a person. |
+| J3 | People / names | Original civilians, survey support, records staff, sellers and eligible sorcerers in admitted cohorts. [P7 JJK](../p7/JJK.md) and [shape](../p7/DATA_SHAPE.md) own naming/reservations; clan membership, teacher access and inherited formula are separate facts. | Reserve named cast, canonical kinship, clan succession, named vessels and special technique/source combinations. No generated Gojo-relative badge granting Six Eyes/Limitless, Ten Shadows or a copied named signature. Authored acquisition/AU routes remain available. |
+| J4 | Encounters | Generate lesser curse behavior from a coherent authored fear/theme package plus movement, target sense and counter. Grade is a reported classification with issuer/time, not a stat multiplier. Negotiation, containment, evacuation and exorcism can coexist. | Finger Bearer r73010 supports a carrier-dependent case and incomplete domain without innate technique. Do not clone that carrier as ordinary loot or promote every lesser curse into a named disaster entity. |
+| J5 | Events / loot | Missing report, mislabeled mission, clan stock dispute, ritual maintenance or civilian recovery request. Loot can be paid fee, recovered personal property, a verified sample, training access or an intact seized tool. | Physical recovery and entitlement differ. [Zenin Clan r79324](https://jujutsu-kaisen.fandom.com/wiki/Sorcerer_Clan/Zenin_Clan?oldid=79324) shows designation, warehouse access and custody can diverge. No automatic looting of another person's possessions. |
+| J6 | Locations | Fill eligible rooms, incidents and contacts inside authored Tokyo/Kyoto school or district/site anchors and era-defined barriers. Generate an interior's affordances, not a new city topology. | Curtains, colony boundaries and entry routes are authored rule-bearing geography. No procedural dungeon/map requirement. |
+| J7 | Talents / aptitude | On admitted birth/start, freeze compatible body/fuel/perception/technique eligibility separately; reveal through fitting tests. Rare innate availability, inherited teaching, late route, external source and technique-less practice remain distinct reachable proposals. Use [D3](../p5/D3_TALENT_ROLL.md), not uniform equal odds. | Canon prevalence is UNKNOWN. Heavenly Restriction is imposed body exchange, not a consented vow or free chosen drawback. No top-grade/domain/RCT from a good talent roll. Every innate route remains reachable when its actual body/source/event exists. |
+| J8 | Economy | Finite mission issuer budgets, equipment custody, hospital/school logistics, paid survey and ordinary work. Low attention, contact trust and reliable reports can be useful without combat grade. | Mission wages and rarity weights are prototype numbers, not sourced canon prices. A civilian can buy assistance without buying perception. |
+
+## Timeline, AUs, secrets and idle play
+
+**J9 timeline:** pin manga range, era, incident phase, alive/present cast, clan authority and versioned colony rules. Natural course continues while its causes still hold; a rescue, removed carrier or changed successor updates dependent events. Old/modern/future/original eras remain reachable per the world brief; future beyond sourced canon is an explicit original continuation. Nobody starts with future arc knowledge.
+
+**J10 AU variants:** independent visitor, generated household, different teacher/relationship, altered institutional practice, inherited-source variant or odd-world reinterpretation are composable overlays, not a forced binary canon/AU selector. Reserve changes to named identities/powers until the premise declares source, consequences and knowledge. A public canon technique is not sealed merely because powerful; changed truth is.
+
+**J11 secrets:** proposed opaque slot `P10.J.S1`, unassigned/unauthored; routes R1 skill-based investigation and R2 independent testimony/record comparison. Store no candidate truth here. [D6](../p5/D6_SECRET_ROLL.md) supplies selection/knowledge principles only; no random replacement of canon facts in baseline.
+
+**J12 idle fit:** queue permitted records work, observation shifts, reinforcement practice or tool maintenance with real time/fuel/capacity. Missions can use precommitted detection/retreat/counter policies, but a new vow, dangerous relic use or irreversible settlement waits for an explicit decision. No offline casualties or new closed-browser advancement. [P3](../P3.md) owns event delivery, not automatic consent. The courtroom request reads actual evidence through an authored procedure; it is neither a universal sorcerer ability nor omniscient access to the whole save.
+
+## More to consider
+
+| Code | New angle | Concrete suggestion |
+|---|---|---|
+| JM1 | Evidence decays differently from fuel | Let sample handling preserve a signature for a later comparison; an old trace can still prove route without charging a battery. |
+| JM2 | Sensor clutter versus absence | Use Fly Heads r61878 as a sourced lead for one authored detection interaction. Expose observations from actual means; do not label a hidden zero-energy actor automatically. |
+| JM3 | Technique publicity has a social life | An inherited manual can accelerate study and also make a known counter circulate. Track who obtained that record rather than globally revealing a weakness. |
+| JM4 | Mission grade can be wrong | A paid reconnaissance route corrects a report and changes evacuation/preparation, so investigating has value before any fight. |
+| JM5 | Custody after victory | Recover a locked container, establish entitlement, then arrange transport or return. Combat resolution alone does not settle ownership or dangerous contents. |
+
+First candidate: paid site survey → retained trace/report → compare → choose a better preparation or safe evacuation job. Gate: primary-check the selected trace/perception method before canon execution; show one real downstream difference and persistence. No domain implementation is required by this proposal.

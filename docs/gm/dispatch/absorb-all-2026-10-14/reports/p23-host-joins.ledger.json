@@ -163,7 +163,7 @@
     "N29_offline": "out of scope"
   },
   "next_tranche": 4,
-  "next_scope": "merge current codex/gameplay-foundations; P15 last; final full/native gate",
+  "next_scope": "P15 last, then single full/native final gate",
   "p18_question": "answered resume4: future native earned local skill XP, optional counter/no backfill, labelled150000 proposal threshold",
   "gate_policy": "resume5: build+focused per step; one full/native gate after all steps, current main merge, P15 last",
   "steps": [
@@ -215,7 +215,9 @@
         "fail": 0
       },
       "native": "OPEN final gate",
-      "merge_ready": false
+      "merge_ready": false,
+      "commit": "05652ac2"
     }
-  ]
+  ],
+  "main_merged_tip": "cc04a4bf68169d8a538a89cef1d973872c8ba75d"
 }

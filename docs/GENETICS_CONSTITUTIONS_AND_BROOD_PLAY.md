@@ -87,6 +87,8 @@ really carries them. A network does not automatically reveal every mind.
 
 ## G5 Small playable proof candidate
 
+*(2026-10-14: for build order, the [wave fold top picks](#top-picks-across-the-wave) supersede this; it stays a valid brood-route proof.)*
+
 My preferred first proof is an original lone-organism start with one useful
 acquired organ and one small network foothold. Give it actual body-specific
 actions, a visible change in everyday interaction, and an observer who needs
@@ -1032,7 +1034,7 @@ Lane B10 maps these per world.
 |---|---|---|
 | GD1 | Somatic or heritable | Change only this body, or also descendants; a world can make both possible |
 | GD2 | Read before write | Sequencing, diagnosis or a seer's reading first; editing blind is possible and riskier |
-| GD3 | Capacity budget | A body can hold only so much change: complexity, metabolism, stability (RimWorld Biotech's complexity and metabolic budget is a design reference); some constitutions raise the budget |
+| GD3 | Capacity budget | Where a world says so, a body holds only so much change: complexity, metabolism, stability (RimWorld Biotech's complexity and metabolic budget is a design reference); a local profile, not a global law (B16 C7) |
 | GD4 | Side effects | Off-target changes, rejection, instability, appearance shifts, shortened life; or none in a clean world |
 | GD5 | Reversal | Undo, partial undo, or permanent (BM6) |
 | GD6 | Who can do it | A lab, a sect alchemist, a lone genius, a cheat, the player's own system |
@@ -1354,7 +1356,7 @@ The body links outward to every other system: combat (PH, WR, EM), crafting
 | Code | Implication | Evidence or owner |
 |---|---|---|
 | IM1 | Body record first | B2 A2 (optional record with migration) plus A1 (identity and address split) is the safest first slice |
-| IM2 | Capability system needs costs and new kinds | B6 F1: `src/capabilities.js` allows `trait` and `bloodline` only and grants positive amounts only; physiques, constitutions and costs need adapters |
+| IM2 | Capability system needs typed adapters for costs | B6 F1: `src/capabilities.js` allows `trait` and `bloodline` kinds and positive grants only; a physique label need not create a new kind, while costs need action adapters outside positive grants (B16 C1, B18 R3) |
 | IM3 | Observer projection everywhere | B7 R4: views read a knowledge projection, never raw truth; status window, bio and NPC views share it |
 | IM4 | Save budget | B7: large populations with lineage exceed about 10 MB; sparse NPC bodies and measured envelopes before any 10,000-person goal |
 | IM5 | Freeze inputs at creation | B7 R3: parents' contributing inputs fixed before a child's details exist |
@@ -1408,19 +1410,19 @@ against the Marvel, DC, Worm and Godclads digests.
 
 | Code | Comic pattern | Body and lineage meaning | Links |
 |---|---|---|---|
-| CB1 | Born mutants | Powers carried from birth, expressed at puberty (Marvel's X-gene) | GN2, ST1, SG12 |
+| CB1 | Born mutants | Congenital potential differs from expression; many show in adolescence, some at birth or later (Marvel's X-gene) | GN2, ST1, SG12 |
 | CB2 | Latent activation | Dormant inheritance switched on by an outside trigger (Marvel's Inhumans and Terrigen) | BD2, CN1 |
 | CB3 | Metagene | Hidden potential that a crisis or accident activates (DC) | BC1, LA9 |
-| CB4 | Origin by accident | Bite, radiation, chemicals, lightning; acquired and usually not inherited | SO1, GM2, GD1 |
+| CB4 | Origin by accident | Bite, radiation, chemicals, lightning, experiments; somatic, heritable and offspring effects recorded separately, transmission often unknown | SO1, GM2, GD1 |
 | CB5 | Serum and programmes | Super-soldier serums and weapon programmes; lost formulas, failed copies, rival programmes | GM3, GD6, SO8 |
 | CB6 | Alien physiology | A body fuelled by its environment (a Kryptonian under a yellow sun) | EV3, EV6 |
-| CB7 | Trigger events | Powers born from a worst day (Worm's triggers); second triggers; children of capes trigger more often | EM3, ST3, GN4 |
-| CB8 | Healing factor | Fast regeneration, slow aging, pain still felt | BC7, WR5, AG6 |
-| CB9 | Power absorption and copying | Touch to take or copy powers, with costs to both sides | CA3, CA6 |
+| CB7 | Trigger events | A worst day connects a host to an outside power source (Worm's triggers); some hosts trigger again; in-world research reports easier triggering in later cape generations | G1, G4, GN9, ST3 |
+| CB8 | Healing factor | Repair speed, repair template, aging, pain, infection and survival vary independently | BC7, WR5, AG6 |
+| CB9 | Power absorption and copying | Copying, draining, borrowing and bestowing are different operations, each with its own activation, duration and retention | CA3, CA6 |
 | CB10 | Clones and legacies of the body | Clones of heroes, cloned heirs, gene-derived sidekicks | OB5, GN11, G10 |
 | CB11 | Symbiotes | A living suit that bonds, changes the host and keeps its own will | G1 identity, BM4 |
-| CB12 | Mantles | Hero names passed to students and successors, not blood (several Flashes, several Robins) | CL2, G30 alternatives, comic CA4 |
-| CB13 | Bodies outside time | Sliding timescales: heroes do not age while the world moves | TM1, comic CL laws |
+| CB12 | Mantles | Titles passed by appointment, apprenticeship, kinship or artifact custody; the title does not transmit the holder's body (several Flashes, several Robins) | CL2, G30 alternatives, comic CA4 |
+| CB13 | Bodies outside time | Sliding timescales are an editorial law that redates history, separate from real stasis or nonaging (TM2) | TM1, comic CL laws |
 | CB14 | Retcons of origin | The story of a body changes later: a mutant becomes something else, a dead hero's body was a clone | SI2, comic CA5 |
 | CB15 | Secret identity bodies | Costume, voice, build and scars hide or betray the person under the mask | OB4, MP1, comic CA7 |
 
@@ -1489,3 +1491,221 @@ report for this round, not here.
 Lanes B17 (comic bodies) and B18 (abstraction spec) run in the
 [same dispatch](gm/dispatch/body-lineage-2026-10-14/PLAN.md).
 No build or browser journey was run for this expansion.
+
+## Fold: lanes B10, B12 and B14 to B18, 2026-10-14
+
+All 18 body-lineage lanes are complete; this fold closes the wave. A sibling
+session committed the last seven lane folders in `fd176f27` under Weibao's
+fold approval. No new lanes. Everything remains proposal.
+
+### What each adds
+
+| Lane | Adds | Top pick |
+|---|---|---|
+| [B10 sourcing per world](gm/dispatch/body-lineage-2026-10-14/b10/REPORT.md) | One SO code supplies different things per world; quality, freshness, purity, compatibility and provenance need independent causes; providers grant access, not anatomy | A typed source-use relation (carrier, holder, method, recipient, consumer, claim vs fact); Harry Potter hair-and-ingredient preparation as the clearest bounded canon sourcing slice |
+| [B12 micro hooks](gm/dispatch/body-lineage-2026-10-14/b12/REPORT.md) | All 32 micro rows mapped to 13 consumer families; 29 need a new join; 216 flavour lines; `strongest_hit` is not a personal best as-is | Reading and rest rhythm: MI6 afternoon dip + MG6 daily variance + MP3 lines on the existing clock, reading and sleep |
+| [B14 subtle play](gm/dispatch/body-lineage-2026-10-14/b14/REPORT.md) | G64-G68 mapped to live consumers, new rows SS8+ and ST8, event shapes | SS2 + MP4: one witnessed work cue with an optional explanation; SP7 quiet relief after real recovery |
+| [B15 body cheats](gm/dispatch/body-lineage-2026-10-14/b15/REPORT.md) | CV/CA cards validate against `src/cheat_cards.js`; CV1 spec composes a body lens on the existing system card | CV1 on B2's body record with a durable, atomic enable; prove knowledge boundaries before numeric diagnosis |
+| [B16 roadmap](gm/dispatch/body-lineage-2026-10-14/b16/REPORT.md) | Dependency graph, build order, 13 cross-lane conflicts (C1-C13) | B2 A2+A1 first, then A3+A4; unify evidence and projection before NPC diagnosis, CV1 or wider UI |
+| [B17 comic bodies](gm/dispatch/body-lineage-2026-10-14/b17/REPORT.md) | CB corrections (applied above), new rows CB16+, original stand-ins | Keep typed transmission causes; a stored-energy body (CB6) as the comic proof if one is selected |
+| [B18 abstractions](gm/dispatch/body-lineage-2026-10-14/b18/REPORT.md) | AB1-AB12 mapped to code; proposed `body.gen` and `body.modify` streams are invalid under the live family allowlist | Land B2's body reader first; share AB5 knowledge projection with comic CA5 and kit owners; reuse existing named streams |
+
+### Corrections applied in this fold
+
+- G75 CB1, CB4, CB7, CB8, CB9, CB12, CB13 reworded per
+  [B17 CORRECTIONS](gm/dispatch/body-lineage-2026-10-14/b17/CORRECTIONS.md).
+  CB7 no longer cites emotion as fuel; CB4 drops "usually not inherited";
+  CB12 no longer says "not blood".
+- G73 IM2: a physique label does not need a new capability kind; costs need
+  action adapters (B16 C1, B18 F1 and R3).
+- G53 GD3: capacity budgets are local world profiles, not global law (B16 C7).
+
+### Duplicates and contradictions to keep in mind
+
+From [B16 CONFLICTS](gm/dispatch/body-lineage-2026-10-14/b16/CONFLICTS.md):
+
+| Code | Issue | Resolution |
+|---|---|---|
+| FD1 (C3) | B2, B6, B7 and B11 each propose body fields; their strict validators would reject each other's additions | One body truth owner (B2) with typed extensions admitted by explicit validators |
+| FD2 (C4) | G48 relationship tiers read as disclosure levels | Tier is a demand hint, not what an observer knows; projection decides display |
+| FD3 (C5, B18 F3) | Local seeded helpers and new stream names conflict with live named streams | Reuse existing stream families with stable keys; pin permanent outcomes outside rolling logs |
+| FD4 (C6) | Later parental change could rewrite a lazily generated child | Freeze contributing inputs at the creation event (B7 R3) |
+| FD5 (C8) | Steady hand, packing card and tendon edit overlap the existing Conditioned grip | Link to the existing source and faculty once; no stacked duplicate |
+| FD6 (C9) | B2 A4 bio, B8 UI views and B15 CV1 could build three body dashboards | One projection contract, several presentations |
+| FD7 (C2) | G63 says each flavour line maps to a modifier | A line can carry an action, evidence or texture role without a penalty |
+| FD8 (C13) | "Lazy detail is cheap" vs B7 save arithmetic | Measure whole save envelopes before any large-population goal |
+
+### Top picks across the wave
+
+These rank the lanes' own recommendations. None is selected; PROJECT.md and
+Weibao own selection.
+
+1. B2 A2 + A1: optional body record with neutral migration, plus the
+   identity and address split (B16 R1, B18 R1).
+2. One shared knowledge projection (AB5 with comic CA5) before CV1, NPC
+   diagnosis or new body UI (B16 R2, B18 R2, B15 A2).
+3. One micro rhythm on real consumers: reading and rest with daily variance
+   and flavour lines (B12 A1), plus one witnessed work cue (B14 A1).
+4. CV1 status window body tab on the existing system card once 1 and 2 exist
+   (B15 A1).
+5. Palette only until a selected slice earns them: general genome, anatomy,
+   population genetics, broad sample economy, G30 lineage carry (B16 R5,
+   B18 R5, B10 A5).
+
+Wave status: folded. B1-B18 reports are linked from their rounds or this fold.
+
+## Round 10: more-to-consider pass over the whole palette, 2026-10-14
+
+User prompt: “more to consider? other stuff and more? save and extend
+accordingly, use the udpated more to consider?” This pass uses the
+more-to-consider skill's game and document lenses on G1-G80 and the B1-B18
+fold. Evidence was read from the repo; nothing was built.
+
+### Code index
+
+The doc is about 1,550 lines with 49 code families and no duplicate codes
+inside it. Several prefixes are reused by other palettes, so cite this doc's
+codes with the doc name: SB (substances here, other docs use SB), CA (cheats
+that act here, comic doc abstractions), CL (clan here, comic industry laws),
+MI (micro states here, UI-at-scale micro), BC (breadcrumbs BC1-BC9 here,
+cultivation lane cards BC01-BC12 in G16).
+
+| Family | Section | Family | Section | Family | Section |
+|---|---|---|---|---|---|
+| PH physique | G17 | GN genetics | G18 | SG sex and gender | G19 |
+| LQ little quirks | G20, G50 | AG age | G21 | BD bloodline routes | G26 |
+| CL clan politics | G27 | BP bloodline powers | G28 | MX mixing | G29 |
+| HI health | G31 | MS mind and soul | G32 | PR presence | G33 |
+| TR training | G35 | SB substances | G36 | WR wear and injury | G37 |
+| OB body as object | G38 | BM modification | G39 | RP reproduction | G40 |
+| SR social reading | G41 | EV world physics | G43 | EM emotion | G44 |
+| TM time | G45 | PG populations | G46 | UI player tools | G49 |
+| SO sourcing | G52 | GM, GD modification | G53 | MC more | G54 |
+| MI moment states | G56 | LA look-alikes | G57 | BC breadcrumbs | G58 |
+| MG micro growth | G59 | MB changed bodies | G60 | MH family micro | G61 |
+| MP presentation | G62 | SS social | G64 | SP psychology | G65 |
+| SI information | G66 | ST timing | G67 | SC side effects | G68 |
+| CV cheats that show | G70 | CA cheats that act | G71 | OV model | G72 |
+| IM implications | G73 | CB comic bodies | G75 | CC comic cheats | G76 |
+| AB abstractions | G78 | FD fold conflicts | Fold | CN constitution angles | G23 |
+
+### ACT NOW (done in this pass)
+
+- Added the code index above and the cross-doc prefix note.
+- Marked G5's "preferred first proof" as superseded for build order by the
+  fold's top picks; it remains a valid brood-route proof.
+
+### ACCOUNT FOR NOW: constraints for any body slice
+
+| Code | Constraint | Evidence and consequence |
+|---|---|---|
+| MT1 | One modifier pipeline | Race and height multipliers sit in `src/races.js` and tooltips; quirks, micro states, substances and conditions would all modify the same stats. Route them through the existing capability `sum`/`max` with provenance (`src/capabilities.js`) and active effects (`src/active_effects.js`), plus B18's typed cost adapters, never scattered `*= 1.1` |
+| MT2 | One clock for body time | Delayed effects (ST1), buildup and decay (SB1), acclimation (EV1), healing timelines (MG4) and aging all need `src/game_time.js` boundaries, not private timers |
+| MT3 | Offline body time follows the offline policy | Live offline code reviews explicit elapsed time and discards unsupported time (`src/backlog_expansion_time.js:44-46`; [offline audit](research/OFFLINE_TIME_AND_BRANCH_CLOCK_AUDIT_2026-10-14.md)). Body processes over offline spans resolve by formula over the reviewed span, never by silent wall-clock aging |
+| MT4 | Every new field gets a save decision | Saved, derived on load or transient; B2 migration pattern; old saves keep identical behaviour |
+| MT5 | Stable IDs for cards | Physique, bloodline, quirk and cheat card IDs stay stable across renames; deprecate rather than delete anything a save references |
+| MT6 | Truth vs projection in every view | B7, B15 and B18 agree: views read the knowledge projection; a hidden change never shows as a "stale" label (B18 F2) |
+| MT7 | Comfort settings stay intact | Standing direction: comfortable unfed play and no hunger death; body realism rows (PH5, LQ, MI8, SG12) respect it and a per-player body-realism setting |
+
+### LATER / DELEGATE
+
+Recorded for future selection; none is authorised by this pass.
+
+| Code | Item | Suggested level and effort | Done check |
+|---|---|---|---|
+| LD1 | Body inspector debug view: truth and each observer's projection side by side, read-only, never saved | Balanced, medium | Toggle shows both columns for player and one NPC; save file unchanged after toggling |
+| LD2 | Fixture saves for risky states: child generated before parent change, two conflicting diagnoses, mid-modification, offline span during buildup | Cheap, low, after B2 lands | Fixtures load through the real loader and pass save, reload, export and import comparison |
+| LD3 | Headless invariant run: no negative capacity, no projection field absent from truth, no child with unfrozen parent inputs, no sealed field in any view | Balanced, medium; review by strong | Joined to P18 headless story QA; fails on a planted leak |
+| LD4 | Code index lint: flag duplicate codes inside a palette and undefined code references | Cheap, low | Script exits non-zero on a planted duplicate |
+| LD5 | Economy check on compounding body bonuses over a year of idle time | Strong, medium (curves and exploits) | A one-year headless run reports total effect per row; none exceeds the world dial's stated intent |
+| LD6 | USER_VISION duplication cleanup in HEAD | Strong coordinator; touches every session's entries | One copy of each paragraph; `grep -vxF` shows no HEAD-unique lines dropped |
+
+### New angles surfaced by the pass
+
+| Code | Angle | Play or reason |
+|---|---|---|
+| NA1 | Body codex | A collection of bodies, constitutions and bloodlines you have observed, filled by real observation; an idle-friendly meta goal that reuses the projection |
+| NA2 | Body-realism comfort panel | One player-facing group of settings: injury permanence, aging pace, quirk frequency, body cycles, hunger strictness; separate from world harshness |
+| NA3 | Player-named lines | Name your bloodline, write a family motto, design a crest; nothing cosmetic, since names attach fame and enemies (L-layer names) |
+| NA4 | Accessibility | Bloodline colours and body maps need shape or text cues for colour-blind players; gendered grammar needs a pronoun resolver before localisation (B2 F1) |
+| NA5 | Body events in the chronicle | Firsts, injuries, awakenings and modifications flow into the life record and legends (P14), with bias by teller |
+| NA6 | Rival bodies over time | Recurring rivals' bodies change too: they train, get injured, modify, age; their projection updates only when you see them (B7) |
+
+No build or browser journey was run for this pass.
+
+## Round 11: ownership, stability, lives and authoring volume, 2026-10-14
+
+User prompt: “more to consider? other stuff and more? save and extend
+accordingly”. Second more-to-consider pass, on what round 10 left out.
+Evidence read from the repo; nothing built.
+
+### ACT NOW (done in this pass)
+
+- Code index note extended: [SELVES_AND_ECHOES](SELVES_AND_ECHOES.md) uses
+  G1, G2 and G9 for kinds of self, so this doc's G-sections are cited as
+  "genetics G1" when both appear together.
+- Ownership table below, so sibling palettes and this one do not grow a
+  second copy of the same mechanic.
+
+### Ownership with sibling palettes
+
+| Code | Topic | Owner | This doc keeps | Evidence |
+|---|---|---|---|---|
+| OW1 | Pill and potion tolerance, toxicity | [Crafting and consumables](PROCEDURAL_CRAFTING_AND_CONSUMABLES_CONSIDERATIONS_2026-10-14.md) CO3, CO4, WL2, WL5 (item side) | SB1-SB6 body side: one per-body tolerance state that CO4 items read and write, not a second meter | Consumables doc lines 40-41 define per-body tolerance |
+| OW2 | Beast and pet breeding | Genetics GN10 (the companions doc already defers: "Breeding beasts is GN10") | Transmission rules; companions owns breeders, trainers and the companion economy (K7) | Companions doc lines 11, 224 |
+| OW3 | Bloodline-shaped selves and visions | [Selves and echoes](SELVES_AND_ECHOES.md) | BP3 ancestral memory and MS6 soul lineage as the carriers a self-generator reads | Selves doc lines 148, 162 |
+| OW4 | Shapeshifting and metamorphosis | [Nonhuman transformation](worlds/NONHUMAN_TRANSFORMATION_AND_BODY_CHANGE_2026-10-14.md) | G6 body detail and BM modification; link, do not restate |  |
+| OW5 | Body parts as materials | [Maker arts](WEAPONCRAFT_RUNES_AND_MAKER_ARTS_CONSIDERATIONS_2026-10-14.md) and consumables for crafting use | OB1 and SO sourcing (where it comes from, custody) | Bone and blood mentions in both |
+| OW6 | Per-world body checklist | [World core kit](worlds/WORLD_CORE_KIT_2026-10-14.md) | Palette rows the kit's body part can pick from; B1's fit matrix is the input |  |
+
+### ACCOUNT FOR NOW: stability across updates and reloads
+
+| Code | Constraint | Evidence and consequence |
+|---|---|---|
+| ST-A | Key draws by stable names, not order | `unitDecision` in `src/seeded_streams.js:53-58` hashes root, stream, key and ordinal, so outcomes do not shift when new tables are added, as long as keys stay stable (for example `people:body.quirk:<person>:<slot>`) |
+| ST-B | Use an allowed stream family | The live family allowlist (`src/seeded_streams.js:5-6`) has no `body` family; body draws use an existing family such as `people`, `world.people`, `discovery` or `legacy.outcome` with a body-scoped key (B18 F3) |
+| ST-C | Save the outcome, not just the seed | `streamSeed` is a one-time generator seed; generators keep their resolved truth (`src/seeded_streams.js:59-61` comment). Body cards, quirks and inherited traits save their resolved values |
+| ST-D | Pin card and table revisions | Sources, roll tables and actions already carry `revision` (`src/expansion_engine.js:214, 291, 328`). A content update that changes a physique or world dial applies to new draws; existing bodies keep their pinned revision unless a migration says otherwise |
+| ST-E | World dial changes mid-save | A patched dial (say, aging pace) needs a policy per dial: apply to existing saves, apply to new events only, or offer the player the choice. Default proposal: new events only, recorded in the save |
+| ST-F | Rename without breaking saves | Card IDs survive display renames; removed cards become deprecated stubs that still load (MT5) |
+
+### Reincarnation, other lives and selves
+
+| Code | Idea | Play and owner |
+|---|---|---|
+| RL1 | Past-life marks | A birthmark where a past life's fatal wound was; a fear of water after drowning. Small, true breadcrumbs (BC) carried by the soul, not the blood |
+| RL2 | What the body forgets and the soul keeps | Muscle memory resets with a new body; technique knowledge and some aptitude may carry by the soul (L12, MS6); each world sets the split |
+| RL3 | Born into your own line | Reincarnating as your own descendant: your bloodline, your estate, your old rivals' grandchildren (G30, B3) |
+| RL4 | Bodies of other selves | Variant selves (SELVES_AND_ECHOES) can differ in body: a self with the injury you avoided, a self with the bloodline awakened |
+| RL5 | Body in the death screen | What the last body achieved and lost is part of the life summary and the legacy offer (B3 successor preview) |
+| RL6 | Regression | Returning to a younger body keeps the mind and loses training (TM4); old injuries are undone, old habits remain |
+
+### Authoring volume
+
+| Code | Item | Estimate and route |
+|---|---|---|
+| AV1 | Floor per world | About 3 physiques or constitutions, 2 bloodline or lineage rows, 6 quirks, 1 body cheat and 3 breadcrumbs: about 15 cards. Inference, not a requirement |
+| AV2 | Across worlds | B1 covered 72 world notes, so the floor is roughly 1,000 cards if every world got one. Pick fitting worlds first, per B1's matrix |
+| AV3 | Who writes them | Cheap agents at low effort fill cards from B1 notes and B4 canon cards, with a lint (LD4 plus world-fit and sealed-secret checks); a balanced agent reviews per world; Weibao accepts samples |
+| AV4 | Generated vs authored | B6's grammar fills background bodies; named canon bodies stay authored (P7, P13) |
+| AV5 | Quality gate | Each card names the action it touches (OV2); cards that touch nothing stay unlisted |
+
+### LATER / DELEGATE
+
+| Code | Item | Suggested level and effort | Done check |
+|---|---|---|---|
+| LD7 | Joint tolerance spec with the consumables owner (OW1) | Balanced, medium | One per-body tolerance record read by CO4 items; no second meter in either doc |
+| LD8 | Stability test: add a new quirk table to a fixture save and confirm existing outcomes are unchanged | Cheap, low, after B2 | Same fixture, before and after, identical body fields |
+| LD9 | Dial-change policy table for each world dial | Strong, medium (save compatibility) | Each dial has apply-existing, new-only or player-choice with a migration note |
+| LD10 | Card authoring pilot: one world's 15-card floor through the lint | Cheap author, balanced reviewer | Lint passes; reviewer notes per card; Weibao samples three |
+
+### New angles
+
+| Code | Angle | Play |
+|---|---|---|
+| NA7 | Body photo album | Snapshots of how you looked at milestones, generated from the body record; a cheap memory hook |
+| NA8 | Family resemblance across lives | A reincarnated player recognised by a former lover's descendant because of a shared feature (RL1, MH1) |
+| NA9 | Inherited debts of the body | A line owes a beast pact (BD3) that comes due on a descendant's birthday |
+| NA10 | Body rites of passage | Coming-of-age tests, first hunts, scarification or naming ceremonies per culture; they record a body milestone (MG1) and grant standing (CL) |
+
+No build or browser journey was run for this pass.

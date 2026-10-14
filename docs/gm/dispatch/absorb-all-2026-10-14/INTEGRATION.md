@@ -71,3 +71,38 @@ through Local life and Quests. Two public lifetime title goals use observed home
 minutes and settled trade quantities. Guardian claws can cause native Bleeding
 that trains Iron skin. Search states remaining finds.
 [Owner](../../../PROTO23_VILLAGE_LIFE_LOOPS_2026-10-14.md).
+
+# Pass 2: air-wider (2026-10-14)
+
+Merged `absorb-all/air-wider` (P1 structured abilities, P2 repeatable outings,
+P3 scoped true death with independent next life, P4 candidate tooling) onto main
+`59917616`. Conflicts: imports (union) and the per-minute render/early-return
+line, which keeps main's practice panel and `awakenOptionalStart()` and uses
+air-wider's `nativeLifeEnded()` (chronicle end OR structured death, a superset
+of the old check).
+
+Checks: build pass; `npm test` **800/800**; fresh-origin 1366x768 air-wider
+P1-P3 browser gates pass; P4 passes with the git-ignored private candidate
+linked into the integration worktree for the run only and removed after (the
+candidate stays uninstalled in main; installing it is a separate decision).
+Regression subset passes: workshop browser, legacy old save (old client
+`59917616`), Fort route, reveal chain, life-loop extra.
+
+P00 (`p23-host-joins`) is still integrating the sixteen wave-2 p23 modules; its
+fixture-scope question was approved by the coordinator (finished lanes' files
+transfer to P00).
+
+## Air-wider candidate installed (2026-10-14)
+
+Weibao: "install the air-wider candidate too". Copied the git-ignored
+`private_packs/p06-air-wider-candidate/pack.json` (identity `p06_air_wider_v1`
+rev 1, SHA-256 `5cbd5798…`) into the main checkout and listed it in
+`private_packs/manifest.json` directly after `p06/pack.json`. Co-loaded, not a
+replacement: original `p06/pack.json` is untouched (`89adcf18…`), and old saves
+keep binding it. Manifest backup: `private_packs/manifest.json.bak-20261014-pre-air-wider`.
+Play it on localhost with `?structured_candidate=p06_air_wider_v1`.
+
+Checked on main tip `2aaf07ad` with the real manifest: all nine packs load (200),
+zero page or console errors with and without the candidate query; the P4 native
+route, pending and final literal-file import pass at 1366x768. Lethal candidate
+content is omitted. To uninstall, restore the manifest backup and remove the folder.

@@ -1,0 +1,60 @@
+{
+  "lane": "free-text-worlds",
+  "date": "2026-10-14",
+  "status": "PARTIAL, bounded research delivered; unread gaps explicit",
+  "labels": {
+    "SHOWN": "inspected source/artifact, not runtime proof",
+    "STATED": "attributed official description",
+    "INFERRED": "lane design judgment"
+  },
+  "targets": [
+    "URR 0.10.4d official download; later 0.11 developer posts separate"
+  ],
+  "sources": [
+    {
+      "id": "URR-ZIP",
+      "url": "https://www.markrjohnsongames.com/wp-content/uploads/2026/01/URR0104d.zip",
+      "path": "/Users/weiwei/.codex/research/free-text-worlds/extract/URR0104d.exe",
+      "sha256": "f91c46e8912789083e6407f23738bad473d1d5f88b963b7b247e9bfaa65981b9",
+      "scope": "CRC-verified selected ZIP member; Python 3.7 recovered bytecode, not original source"
+    }
+  ],
+  "findings": [
+    {
+      "id": "UR-F1",
+      "label": "SHOWN",
+      "claim": "Culture option pools remove chosen values and refill on exhaustion; religion and heresy records connect parent facts.",
+      "evidence": [
+        "URR0104d.py::Civilization.__init__:29976-29987",
+        "URR0104d.py::Religion.__init__:266048",
+        "URR0104d.py::Heresy.__init__:265176-265212"
+      ]
+    },
+    {
+      "id": "UR-F2",
+      "label": "SHOWN",
+      "claim": "Inspected historical prose branch depends on existing world facts and dates; make_civilizations itself is a stub.",
+      "evidence": [
+        "URR0104d.py::History.__init__:154485-154523",
+        "URR0104d.py::make_civilizations:271228"
+      ]
+    },
+    {
+      "id": "UR-F3",
+      "label": "SHOWN",
+      "claim": "Painting geometry and frame selection include a loading-screen path; playable art integration is not established.",
+      "evidence": [
+        "URR0104d.py::draw_painting:114224-114250"
+      ]
+    }
+  ],
+  "gaps": [
+    "Full generator call graph",
+    "All history categories and cultural/art consumers",
+    "Native generation and puzzle solving",
+    "Original loose source and unreleased 0.11 source"
+  ],
+  "proposals_are_accepted": false,
+  "game_executed": false,
+  "shared_checkpoint": "../CHECKPOINT.md"
+}

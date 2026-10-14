@@ -221,6 +221,31 @@ Owner file: `<path>`; floor: `<met / partial / missing>`; deep: `<status>`; shar
 
 More to consider: `<world-specific angle; Default + Dial + in-world reason; root K-angle code or new extension>`.
 
+## K19-K34: lived and subtle parts
+
+Added in kit round 9 (MC rows). Floors are in the root palette; fill one row
+per part. Save key: where this part's state persists, or "derived". Inspect:
+the read-only view that proves it. Away: what happens while the player is gone.
+
+| Part | Floor status and pointer | Save key | Inspect | Away | More to consider |
+|---|---|---|---|---|---|
+| K19 Senses | <met / partial / missing> | <derived from seed> | <sense lens> | <none> | <angle> |
+| K20 Language | <fill> | <saved names> | <name origin> | <none> | <angle> |
+| K21 Belief | <fill> | <fill> | <belief map> | <festivals missed> | <angle> |
+| K22 Bodies | <fill> | <fill> | <body chart> | <healing, aging> | <angle> |
+| K23 Information | <fill> | <fill> | <rumour trace> | <news queued> | <angle> |
+| K24 Law of small | <fill> | <fill> | <small-debt ledger> | <debts due> | <angle> |
+| K25 Personal space | <fill> | <fill> | <room view> | <fill> | <angle> |
+| K26 Routine | <fill> | <fill> | <habit list> | <streaks> | <angle> |
+| K27 Comedy | <fill> | <gag flags> | <gag ledger> | <none> | <angle> |
+| K28 Weather | <fill> | <world clock + seed> | <weather by day> | <fill> | <angle> |
+| K29 Ripples | <fill> | <cause IDs> | <ripple timeline> | <fill> | <angle> |
+| K30 Perception | <fill> | <derived> | <perception diff> | <none> | <angle> |
+| K31 Subtext | <fill> | <fill> | <sandbox reveal> | <none> | <angle> |
+| K32 Tension rhythm | <fill> | <canon clock> | <rhythm strip> | <storms crossed> | <angle> |
+| K33 Revision | <fill> | <pack revision pin> | <pack diff> | <none> | <angle> |
+| K34 Tools | <fill> | <never in real saves> | <tool list, read or write> | <none> | <angle> |
+
 ## More to consider, other stuff
 
 | Code | Cross-world join beyond the root palette | Default / dial / reason | Owner and proof |

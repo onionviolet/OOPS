@@ -1,0 +1,412 @@
+{
+  "status": "PROPOSAL/documentation evidence only",
+  "checkedAt": "2026-10-14T04:18:14.128082+00:00",
+  "p4Branch": "proc/p4-people",
+  "p4Head": "09403f5c948e072444d29dc41fde15caac23286a",
+  "p4ScopedDirtyPaths": [],
+  "limits": "Fingerprints are current input references, not primary-source authentication or new chapter-reading credit. Some reads were bounded/truncated; only profile-labelled claims are used. Referenced-only dossiers are not claimed read. No private source prose or secret truth included.",
+  "inputs": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "0aecd5d70ed7f6c7815c81b66ac6137da49b1c04573ac785007cfb38ad559026",
+      "category": "public_owner_or_digest",
+      "coverage": "targeted sections/search; P4 modules/report read in full"
+    },
+    {
+      "path": "PROJECT.md",
+      "sha256": "3a9ce6bdf821caa68c3be574bcd0d294027af637988fe56c130a7c5e34718dda",
+      "category": "public_owner_or_digest",
+      "coverage": "targeted sections/search; P4 modules/report read in full"
+    },
+    {
+      "path": "docs/USER_VISION.md",
+      "sha256": "93e38a8aeca674e8bfc7c901a09cd201f7840ed42ddb67684623c9dbff8e041b",
+      "category": "public_owner_or_digest",
+      "coverage": "targeted sections/search; P4 modules/report read in full"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/COMMON.md",
+      "sha256": "615702f75ed356bfbd2d427b59d6bd713cc1ce5768a4cde6062a20aa5f1342ef",
+      "category": "public_owner_or_digest",
+      "coverage": "targeted sections/search; P4 modules/report read in full"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/PLAN.md",
+      "sha256": "08e0a179b94d78b043c72957e8fd67567662fbb67b5a7e5fc9c3a14cec78c846",
+      "category": "public_owner_or_digest",
+      "coverage": "targeted sections/search; P4 modules/report read in full"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p5/D7_HOUSEHOLDS.md",
+      "sha256": "303a9c8d02f7a06beb7da62d1dc2d4b5c83c7938152f7b8cd8bd6a294c542851",
+      "category": "public_owner_or_digest",
+      "coverage": "targeted sections/search; P4 modules/report read in full"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p5/D8_LORE_GRAMMAR.md",
+      "sha256": "0676ae0006f847fcebbbf596afbe3cb2a60644b64368a041c29f27f23a38295d",
+      "category": "public_owner_or_digest",
+      "coverage": "targeted sections/search; P4 modules/report read in full"
+    },
+    {
+      "path": "docs/emergent/E3_LIVING_PEOPLE.md",
+      "sha256": "292190b45c4ff167d387aa5b2b9233220645cae1f4977844ccbf5257c93840c2",
+      "category": "public_owner_or_digest",
+      "coverage": "targeted sections/search; P4 modules/report read in full"
+    },
+    {
+      "path": "docs/emergent/E6_LORE_LAYER.md",
+      "sha256": "886a2fb8ef8b7192b71814bfcbc3b4e28934191e74e6b572ac728bfe16cb94dd",
+      "category": "public_owner_or_digest",
+      "coverage": "targeted sections/search; P4 modules/report read in full"
+    },
+    {
+      "path": "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+      "sha256": "f6869a2b8ad9f08f43acf7f99ba1e7a624a657f5913d718a36dc8a0141c24f90",
+      "category": "public_owner_or_digest",
+      "coverage": "targeted sections/search; P4 modules/report read in full"
+    },
+    {
+      "path": "docs/worlds/ORIGINS_AND_WORLD_TIMELINES.md",
+      "sha256": "ff928265b787cbece0dcc7e4634df8f5bb4cd6009b70a0f8fe246fb66f4ed403",
+      "category": "public_owner_or_digest",
+      "coverage": "targeted sections/search; P4 modules/report read in full"
+    },
+    {
+      "path": "docs/worlds/harry-potter/WORLD_BRIEF.md",
+      "sha256": "d26bb9a47bdb003d0a2a50776ea82ed2e0459066ca2b234eebc6c4fa6e31e765",
+      "category": "public_owner_or_digest",
+      "coverage": "targeted sections/search; P4 modules/report read in full"
+    },
+    {
+      "path": "docs/worlds/harry-potter/SOURCE_LEDGER.md",
+      "sha256": "3cc43e541609e7e471e0bd8996fdc68fe31ce5aa6f9c0f4c526585e2fd4bad9c",
+      "category": "public_owner_or_digest",
+      "coverage": "targeted sections/search; P4 modules/report read in full"
+    },
+    {
+      "path": "docs/worlds/dnd/SOURCE_CONTRACT.md",
+      "sha256": "79eb5c8184e4ac02076935a36f9db597898c919812316dcc5a74243f7111cb5b",
+      "category": "public_owner_or_digest",
+      "coverage": "targeted sections/search; P4 modules/report read in full"
+    },
+    {
+      "path": "docs/worlds/dnd/FIRST_SLICE.md",
+      "sha256": "46ad473f56b73b3fa63e14f59ae8cd8063d4f75225f8036300278929ea76f905",
+      "category": "public_owner_or_digest",
+      "coverage": "targeted sections/search; P4 modules/report read in full"
+    },
+    {
+      "path": "docs/worlds/mother-of-learning/WORLD_BRIEF.md",
+      "sha256": "efbddc496490bc7e15681f5ac4bde4b4f2c83fd7924d4a683b826d78141dc2ea",
+      "category": "public_owner_or_digest",
+      "coverage": "targeted sections/search; P4 modules/report read in full"
+    },
+    {
+      "path": "docs/worlds/jujutsu/WORLD_BRIEF.md",
+      "sha256": "54574e712ec79264876d08858e11f14dcd9e1b0b2dc9dede3c16cb7db87cd0e7",
+      "category": "public_owner_or_digest",
+      "coverage": "targeted sections/search; P4 modules/report read in full"
+    },
+    {
+      "path": "docs/worlds/bleach/WORLD_BRIEF.md",
+      "sha256": "45f87d89e0ba70c889d8fd000bebd8c480208819c67c976ecf29f004cc3ad288",
+      "category": "public_owner_or_digest",
+      "coverage": "targeted sections/search; P4 modules/report read in full"
+    },
+    {
+      "path": "docs/worlds/bleach/SOURCE_LEDGER.md",
+      "sha256": "9d41e919192d7ffdd7ec324135c99afbe3b0bdb633d145616c76f6d153c7ec57",
+      "category": "public_owner_or_digest",
+      "coverage": "targeted sections/search; P4 modules/report read in full"
+    },
+    {
+      "path": "docs/worlds/fullmetal-alchemist/WORLD_BRIEF.md",
+      "sha256": "3bcc9d87fb5dd78b151840c2e96843f272e16ce8084a9ee961a7369f32735faa",
+      "category": "public_owner_or_digest",
+      "coverage": "targeted sections/search; P4 modules/report read in full"
+    },
+    {
+      "path": "docs/worlds/fullmetal-alchemist/SOURCE_LEDGER.md",
+      "sha256": "ec79936f22356c5b397e3b34aa56b4de16cffc7eedf4c35449e0a526e607c568",
+      "category": "public_owner_or_digest",
+      "coverage": "targeted sections/search; P4 modules/report read in full"
+    },
+    {
+      "path": "docs/worlds/naruto/WORLD_BRIEF.md",
+      "sha256": "4e42a09b6ea51075d0f04fcc6a80bcdf31b8b3ce1f228992b99f86c0c860669c",
+      "category": "public_owner_or_digest",
+      "coverage": "targeted sections/search; P4 modules/report read in full"
+    },
+    {
+      "path": "docs/worlds/chainsaw-man/WORLD_BRIEF.md",
+      "sha256": "3a5a2c4c11d6fe70e5469407af40a007c9ff8537ba2e710d09362485af9c5f0f",
+      "category": "public_owner_or_digest",
+      "coverage": "targeted sections/search; P4 modules/report read in full"
+    },
+    {
+      "path": "docs/worlds/world-depth-2026-10-13/04_FALLOUT_SKYRIM_SL_TTKS.md",
+      "sha256": "c792445dadcbbf78a053181fb35888cff33f68ca439d58f8cb2ec7decbe30e35",
+      "category": "public_owner_or_digest",
+      "coverage": "targeted sections/search; P4 modules/report read in full"
+    },
+    {
+      "path": "docs/gm/dispatch/ttks-novels-2026-10-10/FINDINGS.md",
+      "sha256": "b4e9053853d04ae6c8d998db75632f90df31a469dcd2d457ec7e7413685d9105",
+      "category": "public_owner_or_digest",
+      "coverage": "targeted sections/search; P4 modules/report read in full"
+    },
+    {
+      "path": "docs/gm/dispatch/parallel-book-design-2026-10-11/lord-of-mysteries/REPORT.md",
+      "sha256": "7e2709a8b6a749b63533947396c30f41a081b02fa6c644782174fa017c9b57ff",
+      "category": "public_owner_or_digest",
+      "coverage": "targeted sections/search; P4 modules/report read in full"
+    },
+    {
+      "path": "docs/gm/dispatch/parallel-book-design-2026-10-11/shadow-slave/REPORT.md",
+      "sha256": "3440a91d186811c7ecc21cc7990f2896382f983025e7d9a4e90f1c464e8bc862",
+      "category": "public_owner_or_digest",
+      "coverage": "targeted sections/search; P4 modules/report read in full"
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/DIGEST_harry-potter.md",
+      "sha256": "3eb187c10a766122342053f7cc3f2bf12807acc24cca92d16525fc291a3bce87",
+      "category": "public_owner_or_digest",
+      "coverage": "targeted sections/search; P4 modules/report read in full"
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/DIGEST_the-stubborn-skill-grinder-in-a-time-loop.md",
+      "sha256": "c852424cb168fa8771ea4cb639fcc41924b871d01d42200d26ae485a9ed3bd70",
+      "category": "public_owner_or_digest",
+      "coverage": "targeted sections/search; P4 modules/report read in full"
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/DIGEST_lord-of-mysteries.md",
+      "sha256": "d768f9f0ff74b1cad1b2a7ff88837278e51abe80a3fb5c54cd3db7fb0dcb0a88",
+      "category": "public_owner_or_digest",
+      "coverage": "targeted sections/search; P4 modules/report read in full"
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/DIGEST_shadow-slave.md",
+      "sha256": "335f48761ef577cde360eb1d43bfbd9677c302187150aebb9fe71b45bf0d476c",
+      "category": "public_owner_or_digest",
+      "coverage": "targeted sections/search; P4 modules/report read in full"
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/DIGEST_mother-of-learning.md",
+      "sha256": "8932608db8e1df6b1751b8c49982ba973edd753564397833b33dc68d3d6ab91d",
+      "category": "public_owner_or_digest",
+      "coverage": "targeted sections/search; P4 modules/report read in full"
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/DIGEST_jujutsu-kaisen.md",
+      "sha256": "ffd45b69ca39f5ee476a8d6cc680614381dfeaa8c4bf18fd32547935fa41d479",
+      "category": "public_owner_or_digest",
+      "coverage": "targeted sections/search; P4 modules/report read in full"
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/DIGEST_bleach.md",
+      "sha256": "2ad52eb204851ef5be11245d4520bfa32d823a2a3a410a514e8c9932dc77d8f5",
+      "category": "public_owner_or_digest",
+      "coverage": "targeted sections/search; P4 modules/report read in full"
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/DIGEST_fate-series.md",
+      "sha256": "a00285a3b678542c9e072ff4af5f45d92070093f4e58ea9489bbaec136111319",
+      "category": "public_owner_or_digest",
+      "coverage": "targeted sections/search; P4 modules/report read in full"
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/DIGEST_hunter-x-hunter.md",
+      "sha256": "1ece7f09d4e5791c0ffcc8370f68cdc2f10906ac1a3ee34999a041b3f4a13416",
+      "category": "public_owner_or_digest",
+      "coverage": "targeted sections/search; P4 modules/report read in full"
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/DIGEST_fullmetal-alchemist.md",
+      "sha256": "81e2043b4f06ccbce01e1895476a95484b25d14130cb3642eff7c75bfe5f1cdd",
+      "category": "public_owner_or_digest",
+      "coverage": "targeted sections/search; P4 modules/report read in full"
+    },
+    {
+      "path": "docs/gm/dispatch/wiki-lanes-2026-10-13/SYNTH-JJK.md",
+      "sha256": "e27b3e67fa7bf6627200b3cc74e4abf3a8b835ea597ec324c1cc21ba4cb7fc96",
+      "category": "public_owner_or_digest",
+      "coverage": "targeted sections/search; P4 modules/report read in full"
+    },
+    {
+      "path": "docs/gm/dispatch/wiki-lanes-2026-10-13/SYNTH-BLEACH.md",
+      "sha256": "bf485421231d4dda4314f19144a9fac652f99f43c8eb0401ba25f7a8d312d40f",
+      "category": "public_owner_or_digest",
+      "coverage": "targeted sections/search; P4 modules/report read in full"
+    },
+    {
+      "path": "docs/gm/dispatch/wiki-lanes-2026-10-13/SYNTH-FATE.md",
+      "sha256": "dc46d575497e06c1a7e504da1416bb6e9dc0ea1a6036240c8d485408a9077a91",
+      "category": "public_owner_or_digest",
+      "coverage": "targeted sections/search; P4 modules/report read in full"
+    },
+    {
+      "path": "docs/gm/dispatch/wiki-lanes-2026-10-13/SYNTH-HXH.md",
+      "sha256": "f92435baee4aa0f948e7d2bbf941b50eef65fa7d4200c1ea432dfb2896e3e1b2",
+      "category": "public_owner_or_digest",
+      "coverage": "targeted sections/search; P4 modules/report read in full"
+    },
+    {
+      "path": "docs/gm/dispatch/wiki-lanes-2026-10-13/SYNTH-FMA.md",
+      "sha256": "52d7ad3363f53b70a49642b3dc071c66c187ff88b201553adacfbd866b39db3e",
+      "category": "public_owner_or_digest",
+      "coverage": "targeted sections/search; P4 modules/report read in full"
+    },
+    {
+      "path": "docs/research/novels/soldiers-life-world-2026-10-09/REPORT.md",
+      "sha256": "245a8a4d66171700bcaeacbde28d3da3f2558b1c8b99ade149ba481c3bff31be",
+      "category": "private_notes_paraphrase_only",
+      "coverage": "targeted sections/search; P4 modules/report read in full"
+    },
+    {
+      "path": "docs/research/novels/novel-wave-2026-10-09/soldier/INDEXES.md",
+      "sha256": "7bb30e22cfd2509f8269d398039c3ffcd5c1e9654ba679ea149dbe60a5809977",
+      "category": "private_notes_paraphrase_only",
+      "coverage": "targeted sections/search; P4 modules/report read in full"
+    },
+    {
+      "path": "docs/research/novels/full-book/lord-of-mysteries/SYNTHESIS.md",
+      "sha256": "441ce548a67a51366e4a4d1ac988b41e9797dfe812808625a914d5f481a3c32d",
+      "category": "private_notes_paraphrase_only",
+      "coverage": "targeted sections/search; P4 modules/report read in full"
+    },
+    {
+      "path": "docs/research/novels/full-book/circle-of-inevitability/WORLD_BRIEF.md",
+      "sha256": "effd8dd0544847ef453f9c25fef7537feaf521b21da74bbda2b1b5ad4e4f950d",
+      "category": "private_notes_paraphrase_only",
+      "coverage": "targeted sections/search; P4 modules/report read in full"
+    },
+    {
+      "path": "docs/research/novels/ttks-novels-2026-10-10/B1/DEEP_DIVE_2026-10-10.md",
+      "sha256": "fb593df5fb48ef50f52395033b6239a4798e04dd2f453b7392962894933f574c",
+      "category": "private_notes_paraphrase_only",
+      "coverage": "targeted sections/search; P4 modules/report read in full"
+    },
+    {
+      "path": "docs/research/novels/ttks-novels-2026-10-10/B2/DEEP_DIVE_2026-10-10.md",
+      "sha256": "003f63ee7287f5a0e5af10e825ad8f5c276f8dc0cd45f31cf21393bd1bf5a0f7",
+      "category": "private_notes_paraphrase_only",
+      "coverage": "targeted sections/search; P4 modules/report read in full"
+    },
+    {
+      "path": "docs/research/novels/ttks-novels-2026-10-10/B3/DEEP_DIVE_2026-10-10.md",
+      "sha256": "3f7f779e55fe0214ddd0a5f592b9071c8e5a371e7d469af83fcc1346cb627572",
+      "category": "private_notes_paraphrase_only",
+      "coverage": "targeted sections/search; P4 modules/report read in full"
+    },
+    {
+      "path": "docs/research/novels/ttks-novels-2026-10-10/B4/DEEP_DIVE_2026-10-10.md",
+      "sha256": "72f863eb937899143f20fc262e95bee37a61a7d3af81057d10c5911ba546a5e5",
+      "category": "private_notes_paraphrase_only",
+      "coverage": "targeted sections/search; P4 modules/report read in full"
+    },
+    {
+      "path": "docs/research/novels/ttks-novels-2026-10-10/B5/DEEP_DIVE_2026-10-10.md",
+      "sha256": "3ffe732026b9a04d671cf048127f3b47851b0068ccadb087a91ead21b00448ca",
+      "category": "private_notes_paraphrase_only",
+      "coverage": "targeted sections/search; P4 modules/report read in full"
+    },
+    {
+      "path": "docs/research/novels/ttks-novels-2026-10-10/workers/novel_reader/B2_FREE_RANGE.md",
+      "sha256": "e5ab5b2e2e365c262915fd967c390421d474681bbb3cbc04718b0a34a432ba71",
+      "category": "private_notes_paraphrase_only",
+      "coverage": "targeted sections/search; P4 modules/report read in full"
+    },
+    {
+      "path": "docs/research/novels/ttks-novels-2026-10-10/workers/novel_reader/B3_FREE_RANGE.md",
+      "sha256": "97d44fc7feb01c6118b43db8477eb8f3c3c063c09f39baff4e9b7a915d0337e7",
+      "category": "private_notes_paraphrase_only",
+      "coverage": "targeted sections/search; P4 modules/report read in full"
+    },
+    {
+      "path": ".claude/worktrees/proc-p4-people/src/name_grammar.js",
+      "sha256": "862067cd88e96e2dc79c79bb68be4eddef2a9459fa1fcfbb653ecfce20825652",
+      "category": "p4_read_only",
+      "coverage": "full source/report read"
+    },
+    {
+      "path": ".claude/worktrees/proc-p4-people/src/generated_people.js",
+      "sha256": "c2b4c1d7dda442ee9032524059dea15a044dace23b50c355d343b7f6aca6acd3",
+      "category": "p4_read_only",
+      "coverage": "full source/report read"
+    },
+    {
+      "path": ".claude/worktrees/proc-p4-people/docs/gm/dispatch/procgen-2026-10-13/p4/REPORT.md",
+      "sha256": "b5d9b5ed3dc1a4e1b7b3dc10b80042016a9c9783fba09c957054d10b3997c5ee",
+      "category": "p4_read_only",
+      "coverage": "full source/report read"
+    },
+    {
+      "path": "docs/worlds/WORLD_SECRETS_AND_DISCOVERY.md",
+      "sha256": "238e270799dab7a8b09bc81ebfce0943a6df4bf465bfb7cbe7079ebf7c8120e9",
+      "category": "public_owner_or_digest",
+      "coverage": "targeted source/standing-boundary sections; not whole-source audit"
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/DIGEST_dungeons-dragons-2024-revised-fifth-edition.md",
+      "sha256": "13a0378a38e1daf1bd722db166785eb41bcbb19d6e3507afd71af41bcf45cc40",
+      "category": "public_owner_or_digest",
+      "coverage": "targeted source/standing-boundary sections; not whole-source audit"
+    },
+    {
+      "path": "docs/gm/dispatch/wiki-lanes-2026-10-13/SYNTH-CSM.md",
+      "sha256": "a92bfb2a45727026170dde016f18b4adb3390446e6f7a4d22301fac16b73a591",
+      "category": "public_owner_or_digest",
+      "coverage": "targeted source/standing-boundary sections; not whole-source audit"
+    },
+    {
+      "path": "docs/worlds/naruto/SOURCE_LEDGER.md",
+      "sha256": "d0636f17f1425b1d3bacd670f31611845243112251e76239bff3299ec8da8004",
+      "category": "public_owner_or_digest",
+      "coverage": "targeted source/standing-boundary sections; not whole-source audit"
+    },
+    {
+      "path": "docs/worlds/chainsaw-man/SOURCE_LEDGER.md",
+      "sha256": "50bca23b1466c223238f273e5960acac099b56df857c8ac072127fc28bd7e352",
+      "category": "public_owner_or_digest",
+      "coverage": "targeted source/standing-boundary sections; not whole-source audit"
+    },
+    {
+      "path": "docs/PROCEDURAL_GENERATION_STATUS_2026-10-13.md",
+      "sha256": "c84ccb29b6e5425fa0dd7f98f2d390c2a8fb17f364b43e32bdd2a8db87290b49",
+      "category": "public_owner_or_digest",
+      "coverage": "targeted source/standing-boundary sections; not whole-source audit"
+    },
+    {
+      "path": "docs/PROCEDURAL_MATERIALS_AND_ALCHEMY_AUDIT_2026-10-13.md",
+      "sha256": "c3618194661ed293f35963f37196db2f100dd4d148a96abb56347dec92da3648",
+      "category": "public_owner_or_digest",
+      "coverage": "targeted source/standing-boundary sections; not whole-source audit"
+    },
+    {
+      "path": "docs/research/procedural-materials-2026-10-13/REPORT.md",
+      "sha256": "1e08be0ccb6cb44655f32c641e1877e6c2aeb0beaf10a8b55c40de3a03175314",
+      "category": "public_owner_or_digest",
+      "coverage": "targeted source/standing-boundary sections; not whole-source audit"
+    },
+    {
+      "path": "docs/research/procedural-materials-2026-10-13/IMPLEMENTATION.md",
+      "sha256": "61df28367bdf88d8e076f5afcc20b3e029544d3a84a7c7d9ce09c719b1cc2002",
+      "category": "public_owner_or_digest",
+      "coverage": "targeted source/standing-boundary sections; not whole-source audit"
+    },
+    {
+      "path": "docs/research/procedural-materials-2026-10-13/PROCEDURAL_RULES.md",
+      "sha256": "7b8f115510b5901c236903cba4471e8fc9ce750e65dd76cadddbeacb2d5e2f9e",
+      "category": "public_owner_or_digest",
+      "coverage": "targeted source/standing-boundary sections; not whole-source audit"
+    },
+    {
+      "path": "docs/HUNGER_AND_BODILY_NEEDS_CONSIDERATIONS_2026-10-13.md",
+      "sha256": "cb80db4c460d059eae9d82761b6f1675954147015ea481a078f0c4e3c380004e",
+      "category": "public_owner_or_digest",
+      "coverage": "targeted source/standing-boundary sections; not whole-source audit"
+    }
+  ]
+}

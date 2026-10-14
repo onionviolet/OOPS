@@ -60,3 +60,9 @@ Added after round 9 (comics, abstractions):
 |---|---|---|
 | B17 Comic bodies | G75-G77 checked against Marvel, DC, Worm and Godclads digests and the comic lanes K1-K6; corrections and new rows | `b17/` |
 | B18 Abstraction spec | G78 AB1-AB12 as interfaces mapped to live code with file:line, overlaps with comic CA1-CA10 and K6, minimal first set | `b18/` |
+
+## Status: folded (2026-10-14)
+
+All lanes B1-B18 complete. Returns folded into the genetics doc rounds 5, 7
+and the final [fold section](../../../GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md#fold-lanes-b10-b12-and-b14-to-b18-2026-10-14).
+No further lanes. Proposals only.

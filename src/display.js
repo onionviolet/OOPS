@@ -1,5 +1,6 @@
 let nativeObservedDropReader;
 export function setNativeObservedDropReader(read){nativeObservedDropReader=read;}
+import {GRADED_IDS} from './harvest.js';
 import {knownBestiarySources, knownLootValue} from './fork_discovery_views.js';
 import {vendorState, conditionText} from './ui_polish.js';
 import {equipmentDurability} from './absorb_e2/durability.js';
@@ -18,7 +19,7 @@ import { get_next_skill_milestone, get_unlocked_skill_rewards } from "./models/s
 import { character, cold_status_temperatures, lowest_tolerable_temperature } from "./data/character.js";
 import {nativeSkillDiscovery} from './skill_discovery_native.js';
 import { game_options, 
-    can_work, current_location, 
+    can_work, current_location, readLocalWeatherWords,
     active_effects, enough_time_for_earnings, 
     get_current_book, last_location_with_bed, 
     last_combat_location, faved_stances, 
@@ -1110,7 +1111,14 @@ export function setNativeLogBufferReader(reader) {
     const log_was_following = getDisplaySetting("logFollow") === "always" || is_message_log_near_bottom();
 
     message.classList.add(class_to_add, group_to_add);
-    set_HTML(message, message_to_add);
+    if(details.safeText) message.textContent = message_to_add;
+    else set_HTML(message, message_to_add);
+    if(details.calendarDate) {
+        message.dataset.calendarDate = details.calendarDate;
+        message.tabIndex = 0;
+        message.title = details.description;
+        message.setAttribute('aria-label', `${message_to_add}. ${details.description}`);
+    }
     //message.innerText = message_to_add;
     insert_HTML(message, "<div class='message_border'> </>");
 
@@ -2122,7 +2130,8 @@ function create_inventory_item_div({key, item_count, target, is_equipped, trade_
             }
 
             item_additional.appendChild(item_use_button);
-            item_additional.appendChild(item_auto_use_button);
+            // Generated vials require deliberate use of their exact owned key.
+            if(!target_item.mixture)item_additional.appendChild(item_auto_use_button);
         } else if(target_item.item_type === "BOOK") {
             const item_read_button = document.createElement("div");
             item_read_button.classList.add("item_use_button");
@@ -3219,7 +3228,9 @@ function commit_selected_item_recipe(amount) {
     const recipe = recipes[category][subcategory][recipe_id];
     const row = crafting_pages[category][subcategory].querySelector(`[data-recipe_id="${recipe_id}"]`);
     if(!row || !item_recipe_state(category, recipe).available) { focusFirstBlocker(document.getElementById("crafting_detail")); return; }
-    const result_key = item_templates[recipe.getResult().result_id].getInventoryKey();
+    const result_id=recipe.getResult().result_id;
+    const result_key = item_templates[result_id].getInventoryKey();
+    const resultCount=()=>GRADED_IDS.includes(result_id)?Object.values(character.getItems()).filter(row=>row.item.id===result_id).reduce((n,row)=>n+row.count,0):(character.getItems()[result_key]?.count||0);
     const inputs = {};
     for(const material of recipe.materials) {
         for(const entry of find_recipe_material({material, ignore_stop: true}).items) {
@@ -3227,13 +3238,13 @@ function commit_selected_item_recipe(amount) {
         }
     }
     const skill = skills[recipe.recipe_skill];
-    const made_before = character.getItems()[result_key]?.count || 0, xp_before = skill.getTotalXP();
+    const made_before = resultCount(), xp_before = skill.getTotalXP();
     const list = row.parentNode, scroll = list.scrollTop;
     window.useRecipe(row.querySelector(".recipe_item_name"), amount);
     const items = character.getItems();
     const used = Object.entries(inputs).map(([key, v]) => ({name: v.name, count: v.before - (items[key]?.count || 0)})).filter(u => u.count > 0);
     crafting_receipt = {key: item_recipe_key(selection), text: craftReceiptText({
-        made: (items[result_key]?.count || 0) - made_before, result_name: item_templates[recipe.getResult().result_id].getName(),
+        made: resultCount() - made_before, result_name: item_templates[recipe.getResult().result_id].getName(),
         used, xp: skill.getTotalXP() - xp_before})};
     refresh_crafting_detail();
     list.scrollTop = scroll;
@@ -4235,6 +4246,14 @@ function update_displayed_time() {
 }
 
 function update_displayed_temperature(optionalWeather = {}) {
+    const localWords = readLocalWeatherWords();
+    if (localWords !== null) {
+        clear_HTML_content(weather_field);
+        weather_field.textContent = localWords;
+        weather_field.title = 'Display only; local climate proposals do not change weather effects.';
+        return;
+    }
+    weather_field.removeAttribute('title');
     const temperature = get_current_temperature_smoothed() + (optionalWeather.temperatureOffset || 0);
     let displayed_temperature = Math.round(10*(game_options.use_uncivilised_temperature_scale?celsius_to_fahrenheit(temperature):temperature))/10;
     let html_content;

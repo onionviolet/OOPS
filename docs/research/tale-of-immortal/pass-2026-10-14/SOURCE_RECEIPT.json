@@ -1,0 +1,63 @@
+{
+  "source_type": "official mod workbook backup",
+  "current_install_build_verified": false,
+  "prior_build": "21758240",
+  "reused_private_area_available": false,
+  "files": [
+    {
+      "workbook": "NPC封装行为配置表.xlsx",
+      "sha256": "bb88a96c3fc3f10832494eb9c4fb028e599b78d45d2ab9ea1cca29c67929a2ce",
+      "private_export_sha256": "1303c132df395f983b9edc10cfa0f241c4115de01a2347f084d53b86e940f517"
+    },
+    {
+      "workbook": "角色交互行为配置表.xlsx",
+      "sha256": "9273bbddfa74b2b75c371b2d67eab703cc4279f4dae23b435a0b4efe4cef9ea1",
+      "private_export_sha256": "f845e4a063a2b97eeaa3aacf335a70d84aebf25b063c41cb0b75f8f731b8d694"
+    },
+    {
+      "workbook": "角色配置表.xlsx",
+      "sha256": "d5d9d7156ed02a3ca3b211bd4bdc5d5c888b43f237bf502ce9a5d921de2d668c",
+      "private_export_sha256": "affac3fe8dedc36727ccbe85df57ad58b4ca4b224094a8d8f1985edd69a7eaa8"
+    },
+    {
+      "workbook": "宗门AI配置表.xlsx",
+      "sha256": "a52dd822d47b408541b476dfe6e4553a0abe299ef85be71a9224dc4a2d2dd385",
+      "private_export_sha256": "a40b5d0fbcc73db03516a067024fdd84321a63f068614a949326455f8871ef24"
+    },
+    {
+      "workbook": "宗门配置表.xlsx",
+      "sha256": "2b2f28af375ae35ebf5926715369f13cd786c363da2c93b19caa66c6186a78d0",
+      "private_export_sha256": "89d99178528c7fb85ecb5958979754610d4aef8f3e66bf7e7180fd607eca8aae"
+    },
+    {
+      "workbook": "宗门战配置表.xlsx",
+      "sha256": "ee4a80f9b3291bae04f4c463d714efcf38b273a8338d3496b6179e2e2ad46351",
+      "private_export_sha256": "8fccddd2000357ea93c11bf8d4f5b7d65ac5725a4e2a782224e839c6f1414a35"
+    },
+    {
+      "workbook": "奇遇配置.xlsx",
+      "sha256": "056c8c75d4a27195cc7c1ea89023d9e309b2fab27b5bdf3fd289ed29bed66c97",
+      "private_export_sha256": "c50ccef7b30a98767212a979c82667b7dd665d382db63fc87ca58b0c1a6e6612"
+    },
+    {
+      "workbook": "大地图元素配置表.xlsx",
+      "sha256": "2aa36d4cce0f05dd32a118740bfed1cf9fe150738d2671612a428babe3c3aed8",
+      "private_export_sha256": "a81388aa54ddaa887c10e7705710a6897c92d89ced44bc4c85cde46a9a230728"
+    },
+    {
+      "workbook": "创角配置表.xlsx",
+      "sha256": "0fecbbed34238361a7b476fb807965f66028ad75b418fa90694ab99f35df3411",
+      "private_export_sha256": "4f1be1b0071d716102e663d0cc0acc1ad87a06345d653f367003ccb80c80a8fb"
+    },
+    {
+      "workbook": "副本配置表.xlsx",
+      "sha256": "3df7d612c08e1d46bcb3a2ea50e5b7eb73e90acc3c8c1d2ffb468246c14fd7bb",
+      "private_export_sha256": "003e32c0fe8e0bcc644316312edfb7fd01cec4f9755a3ebce84526fc7def87bb"
+    },
+    {
+      "workbook": "角色行为日志配置表.xlsx",
+      "sha256": "038dd251eb2a19c6bafd145bf26280de808d2f4c50ac57363ca965a51ecd7b9c",
+      "private_export_sha256": "5c1a80527a09ffb2aa0014d908ef0fa2766ccb3f889541c77a437a97db51b549"
+    }
+  ]
+}

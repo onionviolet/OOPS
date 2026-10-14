@@ -68,6 +68,76 @@ compiled to data, lints over hand ledgers, browser proof per slice) in part 10
 of the considerations doc. It is a proposal; the completion standard stays the
 owner of what "complete" means.
 
+> more to consider? save accordingly Different starts, other stuff and more? Accessing such mechanics and more/? what were the 5 priority worlds? more to consider?
+
+The five priority worlds named earlier: Harry Potter, D&D, A Soldier's Life,
+TTKS and Mother of Learning, widened to LOTM/Circle of Inevitability, Shadow
+Slave and other book worlds. This round adds how the player reaches starts, AUs,
+copies and other mechanics (routes, gating, the start picker, mid-run access)
+and a deeper start catalogue for those eight worlds, as parts 11 and 12 of the
+considerations doc.
+
+> more to consider? Making options to chose and more earned? more to consider? Path to obtain cheats and more? Researching? subtle skills? macro and micro and meso stuff? save accordingly
+
+Added as parts 13 (earned options and cheat acquisition paths) and 14 (in-game
+research, subtle skills, and micro, meso and macro scales with their joins).
+Earned options keep a Default + Dial so a player who wants everything open can
+still have it, per the "everything possible, reasonably" direction.
+
+> more to consider? Expanding each possibility and more?  MOre to consider? One off jokes and stuff could be hints towards real worlds and stuff? more to consider? save accordingly
+
+Added as parts 15 (throwaway jokes, rumors and gags that can later prove to be
+real pointers toward existing worlds, mechanics or sealed truths, without ever
+stating a sealed truth) and 16 (each possibility family from this round expanded
+into many forms with look-alike pairs, per the one-idea-many-forms method).
+
+> We can expand on this 'Nothing carries across lives except the heir.' That doesnt have to be the case, more to consider? Prior stuff can be changed to better fit future capabiltiies? also consider stuff in proto23 that we can absorb?
+
+Recorded direction: the current code's heir-only carryover is an implementation
+state, not a design limit. Earlier designs and code may be revised to fit future
+capabilities, with the usual save compatibility decision for each change.
+Accepted rules (for example RULES_FROM_SCRATCH's "no free carries") still hold
+until Weibao revises them, so carries come through an in-world source with a
+cost. Added as parts 17 (cross-life carryover forms and a retrofit list for
+systems that fight the future direction, with a separate "needs Weibao" list)
+and 18 (Proto23 mechanics not yet absorbed).
+
+> more to consider? save accordingly Dialogue actions with impact and more? making friends with people? relatshionship stuff and more?
+
+Added as parts 19 (dialogue actions and their micro, meso and macro impact,
+conversation form, per-world talk) and 20 (relationship model, making friends,
+what bonds do, bonds across worlds and lives, people UI).
+
+> more to consider? save accordingly Renoun? other subtle stuff? "cheats" for stuff and more? Idea of unlocking game features as 'cheats' or is that unnecissary and be in the base game, more to consider? There are so many ways this can go, more to consider? Deeper stuff and more?
+
+Claude's proposed default, not yet accepted: quality-of-life and interface
+features live in the base game and unlock through play, Proto23 style; "cheat"
+keeps its lore meaning of breaking a world's own rules; a feature can also be
+framed as an in-world cheat or tool where a world gives a reason, with the
+sandbox opening everything. Added as parts 21 (renown and subtle social
+details), 22 (game features as unlocks or cheats, with framings and dials) and
+23 (a deeper synthesis: shared primitives, tensions as dials, ways each big
+direction can go, duplicates, and one connected first arc).
+
+> more to consider? save accordingly, Titles can be power, achivement, and much more, and it matters dependingly? More to consider? price stuff should make sense, consider godville, thigns can be cheaper because of fear too, it all depends and more?
+
+Direction recorded: a title can be power, an achievement, an office, an epithet,
+a brand and more, and what it means depends on world, observer, place and time.
+Prices should make sense and explain themselves; fear, respect, pity, suspicion,
+scarcity and other causes can each move a price either way or close a shop.
+Godville is a named reference. Added as parts 24 (titles) and 25 (prices and
+economy, with Godville lessons).
+
+> more to consider? Length of play? Heir, if any, first character's death? Death being greatly exagerated? other stuff and more? moRe to conisder?save accordingly
+
+Recorded: an heir is optional ("if any"), so a life can end with no heir and the
+game still continues somehow; the first character's death, its timing and
+framing, is its own design question; and death can be exaggerated (presumed,
+faked, rumored, reversed or not sticking by world lore). Added as parts 26
+(death, heirs, heirless endings, exaggerated death, funerals and estates) and
+27 (length of play: sessions, lives, lineages and worlds, pacing, lifespan,
+content budget and local-only measurement).
+
 > deprioritize fallout, we want to put book worlds and anime worlds and more at higher priorirty
 
 Direction recorded: Fallout moves to the back of the world order. Its existing
@@ -109,6 +179,46 @@ points, subtle details, required features and engine improvements live in
 Its rows are proposals; only this section's quoted priority is Weibao's direction.
 
 ## World core kit, every little detail and a repeating audit, 2026-10-14
+
+Integration request (2026-10-14): "yes, hand W28 climate and W33 calendar
+to integration as one slice, ending in a visible local date line and weather
+words, proven in a rebuilt desktop journey". R15 had stopped, so the kit's
+root session integrates it (lane W36 builds on its own branch; root rebuilds
+and runs the desktop journey). Push still waits for a yes.
+
+Round 14 request (2026-10-14): "was FX5 based on that be book said? more to
+consider? Other stuff and more?" Read as: tell apart what a source says from
+what code assumes. Every world value should carry its provenance (book,
+derived, original or placeholder); unknown is never shown as fact, and
+home-world defaults leaking into another world rank above new features.
+
+Round 13 request (2026-10-14): "wait until all lanes finish, then fold
+everything". Folded all 35 lanes; corrections went in place first.
+
+Round 12 request (2026-10-14): "cannon calendar and more? More to
+consider?" Read as: each world should count and name its days the way its
+source does (units, holidays, canon dates and how sure the source is),
+instead of every world borrowing the base world's date format.
+
+Round 11 request (2026-10-14): "Consider specific world stuff too, cause
+paradise hub might based on the book and more? Or has special stuff and
+more? more t oconsider? Send out codex accordingly". Read as: generic kit
+directions must be checked against each world's source and its special
+systems, starting from the book (Paradise first), and a world that already
+solved a direction in its own code is the template, not an exception.
+
+Round 10 request (2026-10-14): "sned out codex to address each direction, run
+another more to consider pass". Read as: one Codex lane per open round 9
+direction (DR1-DR8) plus a more-to-consider pass on those directions
+(MD1-MD12). Included one reversible code prototype on its own branch
+(per-world climate, W28), queued behind its design lane; not integrated.
+
+Round 9 request (2026-10-14): the same "more to consider? other stuff and
+more? save and extend accordingly Send out codex as usesful?" for each aspect,
+with "Use the more to consider school". Read as: run the more-to-consider
+skill's questions on every kit part (what breaks between having a part and
+the player feeling it, what to inspect, what to reuse, what to do now versus
+later), not only list more features.
 
 Weibao's requests, in order, on 2026-10-14:
 
@@ -156,7 +266,17 @@ implementation implications; 6, comic worlds, lens cheats, overarching shape
 and abstractions AX1-AX19; 7, more comic media and cheats, merging and git
 (kit committed as 596e1cac; push and master merge await a yes); 8, lane
 returns F15-F26, every-little-detail principles ED1-ED8 and the repeating
-audit RA1-RA10.
+audit RA1-RA10; 9, the more-to-consider school part by part (MC1-MC34:
+producer, owner, reader, lifecycle, inspect and a NOW, ACCOUNT or LATER
+disposition per part), same-day owner map OM1-OM10, KX63-KX70 and lanes
+W21-W23; 10, corrections CR1-CR3, directions DR1-DR8 with one lane each,
+MD1-MD12, KX71-KX75 and lanes W24-W28; 11, specific worlds: corrections
+CR4-CR6 (Paradise has sourced calendars and per-instance clock policies),
+world shapes SW1-SW8, per-world rows WS1-WS9, MW1-MW7 and lanes W29-W32; 12, canon calendars: CR7 (native calendars are base-format counters),
+CC1-CC16, KX76-KX81 and lanes W33-W35; 13, all returns folded (FX1-FX5
+corrections, F32-F49, twenty world cards, a per-world climate prototype on
+branch kit/w28-world-climate, not integrated); 14, book versus code: CR8 (Paradise 20 C is a
+placeholder and home rain leaks in), SF1-SF10, KX82-KX86, lane W37.
 
 Owners: the [world core kit](worlds/WORLD_CORE_KIT_2026-10-14.md) (palette,
 rounds and lane returns, all proposals), the
@@ -433,6 +553,20 @@ tools (Ghidra/IDA MCP, ILSpy).
 Status: dossiers exist under `docs/research/<game>/`. Four-game absorption
 (Dwarf Fortress, Book of Hours, ONI, Cult of the Lamb) and Factorio recovery
 were in progress on 2026-10-07. A newer-games audit was also started.
+
+2026-10-14 update:
+
+> make sure the province war is able to refer and use the audits too?
+
+> we dont mind going through path of the idle cultivator, we dont need to
+> copy code, just go through how things are implmented
+
+Game research is shared: Province War may cite and route YAIRPG dossiers
+through its own audit register. Reading obfuscated or minified builds to
+learn how mechanics are implemented is accepted; copying code is not. Partial
+lanes, free titles and re-audits of earlier rejected or parked proposals were
+also requested. Wave record:
+[game research wave](gm/dispatch/game-research-wave-2026-10-14/runs/SESSIONS.md).
 
 ### 2. Book worlds lived in fully, not followed on rails
 
@@ -1927,6 +2061,18 @@ fuutr”. Design answers live in the [UI owner](THEMATIC_UI_AND_INFORMATION_DESI
 world UI card, mold-not-copy). Execution runs as the
 [until-done goal](gm/dispatch/vivid-proto23-flow-2026-10-13/GOAL.md).
 
+## Ability coverage and habits, 2026-10-13
+
+Weibao asked whether ability implementations and variations had all been
+considered. The answer and gap list (AB1-AB5) live in
+[ability authoring](worlds/ABILITY_AUTHORING.md#coverage-check-and-open-angles-2026-10-13).
+He then asked: “expand AB1, save accordingly, more to consider? Dont make it too
+complex”. AB1 became [habits](worlds/ABILITY_AUTHORING.md#ab1-expanded-habits-proposal-2026-10-13):
+one-line when/use/on rules read top to bottom, earned through in-world means,
+shared with NPC and enemy behavior. Simplicity is part of the request: a list,
+not a programming language. Angles H1-H8 are proposals; nothing is selected
+for a build.
+
 Next pick, 2026-10-13: “go with the crafting screen one, same until done setup
 Consider Proto 23 parity and dpeth and more? like the revealing ones and more?
 More to consider? Missing stuff and more? Making everything little thing
@@ -1935,14 +2081,227 @@ every presentation choice should be adjustable in its existing owner.
 [Considerations CP/D/RV/M/AJ](research/proto23/CRAFTING_SCREEN_AND_ADJUSTABILITY_CONSIDERATIONS_2026-10-13.md);
 execution in [the crafting goal](gm/dispatch/crafting-screen-2026-10-13/GOAL.md).
 
+Follow-up: “more to consider? save accordingly Making it complex if people
+want but people if its not complext if people dont want that”. Habits now have
+[depth levels D0-D4](worlds/ABILITY_AUTHORING.md#depth-on-request-2026-10-13):
+hands off, styles, simple list, advanced, expert. Interface depth is the
+player's choice; capacity stays in-world. Simple must stay good enough for
+ordinary content. Angles C1-C6 are proposals; applying the same depth levels
+to other systems (C6) is unselected.
 Follow-up: “also do the settings pass after crafting, consider improvable
 aspects too”. Settings pass (AJ1-AJ7, AJ12 plus improvements to shipped
 features) runs as its own until-done goal after the crafting goal.
 
+Complexity question: “more to consider? Are we adding too much complexity
+versus the base game? More to consider? save accordingly”. Answer and rules
+live in [the complexity check](worlds/ABILITY_AUTHORING.md#complexity-check-against-the-base-game-2026-10-13):
+habits are low risk if they extend base stances and stay invisible when off;
+the larger risk is design running ahead of playable slices. The smallest proof
+is now stance habits. Rules and angles X1-X5 are proposals.
+
+Emergence follow-up: “more to consider? Creating set of simple rules and
+possibilities that builds into complext things? more to consider? save
+accordingly”. Saved as [simple rules that build into complex things](worlds/ABILITY_AUTHORING.md#simple-rules-that-build-into-complex-things-2026-10-13):
+a four-piece kernel (verbs, tags, triggers, rules) under abilities, habits,
+enemy behavior and world laws, which folds AB2-AB5 into one grammar.
+Angles SR1-SR8 are proposals; nothing is selected for a build.
+
+Second “more to consider? save accordingly” on the kernel added
+[SR9-SR15](worlds/ABILITY_AUTHORING.md#more-to-consider-simple-rules-second-pass-2026-10-13):
+discovery-gated habit words, scale, social tags, paying loops softened by
+existing base-game pressure, a designer bench, chains as stories and honest
+backfires. Proposals only.
+
+Foundations follow-up: “more to consider? Other things that need similar
+implementations and more? ... Did we setup ground/foundational stuff for like
+abilitity variations and more? and ways of progression and stuff? Types of
+cheats? other stuff? save accordingly”. Answer saved as
+[foundations check and shared pattern](worlds/ABILITY_AUTHORING.md#foundations-check-and-other-systems-that-share-the-pattern-2026-10-13):
+what exists in source per area, the gaps, systems that reuse the kernel and
+habit list, progression and cheats indexed by kernel piece, and SP1-SP6.
+Proposals only.
+
+Senses, world progression and system cheats: “more to consider? I mean ability
+variation ans like different typese of the same sense or observation and more?
+World progression? Maybe types of cheats can be ways to add entire systems to
+worlds, oor would that be too easy or something? more to conisder? save
+accordingly”. Saved in [ability authoring](worlds/ABILITY_AUTHORING.md#one-sense-many-versions-2026-10-13):
+a sense as a tag filter with dials, world progression lines, and system cheats
+as holder-scoped kernel bundles that stay interesting through frame-not-content,
+collision, reaction, price and scope. Angles SN1-SN3, WP1-WP2, CS1-CS3 are
+proposals.
+
+Next “more to consider? save accordingly” added
+[SN4-SN7, WP3-WP6 and CS4-CS7](worlds/ABILITY_AUTHORING.md#more-to-consider-senses-world-progression-system-cheats-second-pass-2026-10-13):
+medium-specific wording, stale sightings, borrowed senses, tuned decoys; world
+bars moved by others, falling, unlocking and persisting across lives; rival
+systems, world fit, losing a system and its voice. Proposals only.
 Then: “more to consider for the settings and crafting? Panels for cheats and
 other stuff and more?” Palette saved as ST/CR/CH/PN/PK in the
 [considerations](research/proto23/CRAFTING_SCREEN_AND_ADJUSTABILITY_CONSIDERATIONS_2026-10-13.md#more-to-consider-settings-crafting-cheat-panels-and-other-panels-2026-10-13);
 running goals keep their scope.
+
+> Lets ponder foundational ideas and more? like wether some functions should exist by default or earned as cheats, stuff like game functions such as relationship stuff and more? more to consider?
+
+Claude's proposal, not accepted: ask "default or earned" per layer, not per
+function. The world always simulates a function (NPCs remember you from day
+one); ordinary verbs come from this life's body, place, role and law; seeing
+more is a setting or play; scale and upkeep are earned reach; breaking a
+world's rule is a cheat. Added as
+[part 28](worlds/world-depth-2026-10-13/28_FOUNDATIONAL_FUNCTIONS.md)
+(layer stack, default sources, lost functions, life functions inventory,
+social foundations, rules as content, placement test).
+
+> stuff required for relationship stuff and more?
+
+Claude's proposal, not accepted: the relationship store already exists; the
+missing pieces are one store instead of two, distinct person identity,
+schedules, a drift clock, per-person temperament, more writers and readers,
+typed ties and obligations, carriers across resets and a save decision.
+Teaching, trade, hiring, marriage, heirs, reputation and institutions share
+that spine. Added as
+[part 29](worlds/world-depth-2026-10-13/29_RELATIONSHIP_PREREQUISITES.md).
+
+> more to consider? Send out codex to audit and expand accordingly?
+>
+> more to consider while codex runs?
+
+Codex audit and expansion of part 29 dispatched
+([runs](gm/dispatch/relationship-prereqs-2026-10-14/runs/SESSIONS.md)).
+While it ran, Claude added CQ1-CQ15 in a
+[holding addendum](gm/dispatch/relationship-prereqs-2026-10-14/CLAUDE_ADDENDUM.md),
+to merge into part 29 after the run. Proposals only.
+
+> more to consider? CQ1 makes sense, make relevant to history and time period and sutff and more tho, fit the lore? More to consider? Send out codex accordingly, expand on ideas and more accordingly?
+
+Accepted direction (CQ1): life-stage boundaries for work, school, law,
+inheritance, service and coming of age fit each world, era and lore. Fixed
+floor kept by Claude, not a dial: romance and partner content needs both
+people 18+ by body age; lore betrothals stay offscreen contract ties until
+then. CQ16-CQ18 added. Second Codex run dispatched for part 30 (life stages
+and custom by world and era) and addendum expansion.
+
+> more to consider while codex runs? Consider appearances can be deceiving and more? Other stuff and more?
+
+Claude added DV1-DV25 in
+[addendum 2](gm/dispatch/relationship-prereqs-2026-10-14/CLAUDE_ADDENDUM_2.md):
+true versus shown layers for people, items and places, reveals, deception
+both ways, rumor and memory. DV1 tightens the fixed floor: romance needs
+18+ body age and adult appearance; claimed, soul or species age never
+unlocks it. Other rows are proposals.
+
+> more to consider while codex runs? Save and expand accordingly?
+
+Codex audit of part 29 finished: 6 confirmed, 9 wrong Have claims corrected
+([AUDIT](gm/dispatch/relationship-prereqs-2026-10-14/AUDIT.md)), 64 rows
+added (RZ, RFM, RI, RAU, RCL, RUI, RHE, RPW). RFM6 aligned to the fixed age
+floor. Claude added BK1-BK23 in
+[addendum 3](gm/dispatch/relationship-prereqs-2026-10-14/CLAUDE_ADDENDUM_3.md):
+bonds as power, social conflict, rituals, teaching lineages. Proposals only.
+
+Lifestages Codex run finished: [part 30](worlds/world-depth-2026-10-13/30_LIFE_STAGES_AND_CUSTOM.md)
+(106 rows, world and era ladders with source labels) and CQ19-CQ32. All three
+Claude addenda merged into part 29 sections 12-14 (174 rows). Fixed floor
+held throughout: both people 18+ by body age and adult in appearance.
+
+> more to consider? other stuff and more? save and extend accordingly Send out codex as usesful?
+
+Claude added [part 31](worlds/world-depth-2026-10-13/31_INNER_LIFE_HOUSEHOLD_COMMUNITY.md)
+(IL1-IL30: inner life, household, community; moods follow the food pattern,
+bonus not death spiral). Two Codex lanes dispatched: part 32 social spine
+(synthesis, dedupe, contradictions, build order) and part 33 institutions
+and communities by world. Proposals only.
+
+> more to consider? other stuff and more? save and extend accordingly Send out codex as usesful? (repeated)
+
+Claude added [part 34](worlds/world-depth-2026-10-13/34_VALUES_CONSCIENCE_AND_LEISURE.md)
+(VL1-VL26: values per person, no single karma bar, conscience, leisure).
+Third Codex lane dispatched: part 35 health, injury, illness, medicine and
+death by world. Proposals only.
+
+> more to consider? other stuff and more? save and extend accordingly Send out codex as usesful? Subtle micro stuff too?
+
+Claude added [part 36](worlds/world-depth-2026-10-13/36_MICRO_MOMENTS_AND_SMALL_SIGNALS.md)
+(MC1-MC48 small signals). Fourth Codex lane dispatched: part 37 micro
+texture by world from sources, with a feasibility check of part 36 against
+code. Proposals only.
+
+> more to consider? other stuff and more? save and extend accordingly Send out codex as usesful? Subtle micro stuff too? (repeated)
+
+Claude added [part 38](worlds/world-depth-2026-10-13/38_PATTERNS_HABITS_AND_QUIET_SYSTEMS.md)
+(HB1-HB32: patterns, habits, tiny progress, quiet systems). No new Codex
+lane: four were running; the next useful one extends the part 32 spine
+over parts 33-38 once its lane finishes. Proposals only.
+
+> more to consider? other stuff and more? save and extend accordingly Send out codex as usesful? Subtle stuff too? Overarching stuff? Implementation considerations and more?
+
+Spine lane finished: [part 32](worlds/world-depth-2026-10-13/32_SOCIAL_SPINE.md)
+(66 rows, Village-first build order SSB1-SSB10, 12 tensions, 6 gaps).
+Claude added [part 39](worlds/world-depth-2026-10-13/39_OVERARCHING_PRINCIPLES.md)
+(OA1-OA30: principles, fixed lines, joins, risks). Codex lane dispatched
+for part 40 implementation considerations grounded in code. Proposals only.
+
+> Weaponcrafting, runestuff, other stuff and more? more to consider? other stuff and more? Cheats that would show stuff like these and more? MOre to consider save and extend accordingly Send out codex as usesful? Subtle stuff too? Overarching stuff? Implementation implciations and more? Abstaction thats needed?
+
+Institutions (part 33, 132 rows) and health (part 35, 87 rows) lanes
+finished and are indexed. Claude added
+[part 41](worlds/world-depth-2026-10-13/41_WEAPONCRAFT_RUNES_AND_REVEAL_CHEATS.md)
+(WR weapons, RU runes, RV reveal cheats, AX shared item abstraction),
+linking existing crafting owners rather than restating them. Codex lane
+dispatched for part 42: weapons and runes by world plus an item-model code
+audit. Proposals only.
+
+> more to consider? other stuff and more? Cheats that would show stuff like these and more? MOre to consider save and extend accordingly Send out codex as usesful? Subtle stuff too? Overarching stuff? Implementation implciations and more? Abstaction thats needed? Merging, commiting or pushing?
+
+Part 42 lane stopped as a duplicate of the parallel weaponcraft-runes lanes
+R1 and R3; part 41 marked to fold into the primary weaponcraft palette.
+Micro lane finished (part 37, 150 rows). Claude added
+[part 43](worlds/world-depth-2026-10-13/43_REVEAL_CHEATS_FOR_LIFE_SYSTEMS.md)
+(LR1-LR22 reveal cheats for life systems). Committed this session's own
+files as e07fc507 (parts 29-39, 41 and the dispatch folder) without other
+sessions' staged or edited files; not pushed or merged.
+
+## Food benefits and Famine consideration, 2026-10-13
+
+> Maybe food stuff but one wont die from hunger? more to consider? how does proto23 do? what about just making it a boost for eating and no boost if not which is effectivally a penalty for not eating, more to consider?
+>
+> I see, I guess we can keep it like that, having famine be a skill too?
+
+Accepted ordinary-play direction, interpreting “keep it like that” against the
+preceding recommendation: retain useful meal benefits and comfortable unfed
+play, without hunger death. Food bonus wording alone does not make feeding
+optional if balance assumes continuous eating. Existing default-off hunger
+source remains unchanged; this discussion does not authorize a silent save
+conversion or mandatory hunger across worlds.
+
+Famine is part of the requested skill direction, inspired by Proto23's
+adaptation to going without nourishment. **Passive progression is required:**
+while the character is underfed and eligible game time advances, Famine can
+gain XP without exertion, combat, clicks or an active-play prerequisite.
+The game is an idle RPG. A very slow but positive passive rate is a permissible
+balance proposal; withholding all passive XP until the player performs an
+action is not. Exact rate, underfed threshold, effects and interaction with
+the optional hunger penalty remain unselected. Offline accrual follows an
+explicit future clock decision, rather than being assumed implemented.
+Benefits should fit the body/world and its actual needs. Do not infer
+acceptance of Proto23's severe effectiveness curve, its complete milestone
+list or a universal starvation-to-power system. Famine is not implemented.
+
+Weibao's correction and follow-up:
+
+> The game is meant to be an idle rpg so it should be able to level up passibely lmao
+>
+> We should save that structure accordingly? The passive aspects and more? We could make it really hard to get famine xp from passive starvation or something, but we would not be gating it, more to consider?
+
+Superseded agent proposal, preserved as history: require relevant active
+exertion while underfed. Weibao rejected that active-only restriction.
+Passive progression should be considered across applicable systems, not
+just Famine; this does not grant every skill unconditional XP or invent new
+world rules. Relevant sustained conditions or queued activity can supply
+progress without player presence. Detailed consideration is linked below.
+
+[Design considerations and checked Proto23 source](HUNGER_AND_BODILY_NEEDS_CONSIDERATIONS_2026-10-13.md)
+own proposals and evidence. No new runtime or human play acceptance.
 
 Cheat acquisition, 2026-10-13: “optional start, more to consider for
 acquiring cheats?” then “make it an optional start, keep everything possible,
@@ -1970,11 +2329,113 @@ Then: “more to consider for cheat types per world? multiversal cheats? cheat
 rarity and more? mroe to consider? hiding ui? integrations and more? send out
 codex accordingly”. Dispatched as three Codex docs workers in
 [cheat-considerations-2026-10-13](gm/dispatch/cheat-considerations-2026-10-13/).
+Then: “cosider best gameplay intro flow? More to consider? Cheats options
+other stuff and more?” Palette IF1-IF10 (flow beats), CR1-CR10 (creation
+screen), TE1-TE9 (teaching without a tutorial), CO1-CO12 (cheat and advantage
+choice in the flow), OP1-OP8 (start options), XS1-XS9, plus findings F1-F5 on
+the current opening, in
+[intro flow considerations](INTRO_FLOW_CONSIDERATIONS_2026-10-13.md).
+Proposals only; vanilla opening and discovery-gated menus stay the accepted
+constraints.
+Then: “more to consider for the intro flow? Random start? random world start?
+more to consider? UI considerations and more?” Palette RW1-RW12 (landing in an
+unknown world), RX1-RX12 (rolling mechanics), RP1-RP8, UI1-UI14 (laptop
+intro UI), MI1-MI7 in the same doc's round 2. Correction: round 1 had made
+Village the first-life opening; realigned with the accepted random-entry
+decision (Village stays a chosen start).
+Then: “how to connect for relevant world starts and more? more to consider?”
+Round 3 of the intro doc: a per-world start record joining the shared intro
+(WC1-WC12, built on the existing pack `starts[]`/`admission` shape), links
+between starts (WL1-WL7), relevance per world type (WF1-WF8), qualification
+and fallback (WQ1-WQ7), WM1-WM7.
+Then: “more to consider for start records and linked starts? Save
+accordingly”. Round 4 of the intro doc: record composition and lifecycle
+(SR1-SR10), other start sources (SG1-SG9), link kinds (LK1-LK10), link rules
+(LG1-LG9), player-facing start map and notices (LV1-LV7), SX1-SX6.
+Then: “more to consider for layered records and start sources? Send codex to
+try and work accordingly?” Round 5 (LY1-LY12 layer mechanics, SS1-SS10 more
+sources) in the intro doc, and a Codex lane
+[start-records-2026-10-13](gm/dispatch/start-records-2026-10-13/GOAL.md)
+tries the first layered-record slice in its own worktree branch.
 Then: “more to consider for the status window stage 1? Make a prompt to
 audit”. Stage 1 palette (S1, S1P, S1U, S1V, S1S) in
 [CHEAT_LIBRARY](CHEAT_LIBRARY.md#more-to-consider-status-window-stage-1-2026-10-13);
 audit prompt at
 [AUDIT_PROMPT.md](gm/dispatch/cheat-status-window-2026-10-13/AUDIT_PROMPT.md).
+Then (2026-10-14): “more to consider for linked starts and start sources?
+audit different starts ... starting as a villian ... what happens to other
+selves? do they just not exist?” Round 6 of the intro doc: start-kind audit
+SA1-SA24 with coverage, villain-start angles VS1-VS14 (beyond B3/V1-V9),
+other selves OS1-OS15 (default: past lives keep existing as NPCs, summarized
+when far; other versions exist only where a world's premise says so), and
+LS1-LS10.
+Then: “more to consider for villain starts and other selves? Send out idea
+stuff accordingly? we can find source material for starting as x y z
+accordingly? like the latest downloaded trash of the counts family? ... Send
+out codex agents accordingly”. Five Codex lanes in
+[start-sources-2026-10-14](gm/dispatch/start-sources-2026-10-14/COMMON.md)
+(Lout of Count's Family vols 1-9 full read in three readers, start-as-X
+source catalog, villain/other-selves ideas doc); round 7 in the intro doc.
+Then: “more to consider for other selves and villain starts? Should there be
+no other selves? ... Send out other codex accordingly?” Round 8 in the intro
+doc: proposal to treat "no other selves" as the ordinary-world default and a
+reachable mode (NS1-NS10, spectrum dial None/Implied/Present/Playable), with
+earlier characters kept as separate people; OM1-OM8, VM1-VM8; two more Codex
+lanes (identity laws per world, games reference).
+Then: “Little to no interaction with the past selfs or bodies? or make them
+not exist? ... what makes sense for story worlds and more? I guess they would
+just be npc”. Stated lean (2026-10-14): past selves and former bodies become
+ordinary NPCs with little to no special interaction; not existing stays
+reachable. Round 9 of the intro doc: PN1-PN10, interaction dial IX0-IX5
+(IX2 background NPC as persistent-world default), story worlds BW1-BW8
+(fresh canon per life by default, continue a changed branch by choice),
+PX1-PX7.
+Then: “more to consider for story world timelines and branches?” Round 10
+of the intro doc: anchors and canon versions TA1-TA7, branch lifecycle
+TB1-TB10, timeline UI TU1-TU6, TX1-TX8; world-side rules stay owned by
+TIMELINES_AND_DIVERGENCE.
+Then: “more to consider for branch lifecycle and anchors?” Round 11 of the
+intro doc: anchors AH1-AH12 (kinds, density, derived snapshots, evidence,
+role fit, unlocks, crossover) and branch lifecycle BR1-BR15 (states, forks,
+checkpoints, strict/relaxed, offline time to the active branch only,
+export/import, content updates).
+Then: “more to consider for derived snapshots and offline branch time? Other
+stuff and more? send codex accordingly”. Round 12 of the intro doc (DV1-DV12,
+OT1-OT10, MX1-MX4) and two Codex lanes in
+[derived-snapshots-2026-10-14](gm/dispatch/derived-snapshots-2026-10-14/GOAL.md).
+
+Then (2026-10-14): “Procedural story generation?” followed by “Extend
+accordingly, I meant generation/creating content and more? extend stuff and
+more consider book worlds cannon and more? more to consider?” and “send out
+codex accordingly”. Dispatched five docs-only Codex lanes P12-P16 (quests and
+arcs, canon and divergence, history and legends, text/dialogue/authoring
+pipeline, more angles) in
+[procgen wave 1](gm/dispatch/procgen-2026-10-13/PLAN.md). Proposals only; no
+generator is selected by this request.
+Then: “more to consider for branch overrides and canon events? Exent and
+consider accordingly? send out codex agents accordingly?” Round 13 of the
+intro doc (OV1-OV12, CV1-CV12) and lanes in
+[canon-events-2026-10-14](gm/dispatch/canon-events-2026-10-14/COMMON.md):
+two canon event graph pilots (Mother of Learning, Fated Villain) and a
+queued override-kinds code lane.
+Then: “more to consider? other stuff and more? Save and expand accordingly?”
+Saved root palette
+[procedural story and content considerations](PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md)
+(A story craft, B more content, C book canon, D story as power, E player
+control and idle, F quality) and launched P17 (story as a power source) and P18
+(headless story QA). Proposals only.
+
+Then (2026-10-14): “Constitution, genetics, little stuff and more? Expanding
+on ideas and more? physiques? Gender and more?” Saved as
+[bodies in finer detail](GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md#bodies-in-finer-detail-2026-10-14)
+(G17-G25). Proposals only.
+Then: “more to consider for canon event motives and substitutes? Save and
+extend accordingly, more to consider in general?” Round 14 of the intro doc:
+motives MT1-MT10, substitutes SP1-SP10 (reusing E2 casting), GE1-GE7.
+Then: “more to consider? other stuff and more? Save and extend accordingly,
+use codex as needed and more?” Round 2 of the same palette (G social web, H
+places, I conflict, J economy, K creative-director tools, L other) and lanes
+P19-P22. Proposals only.
 
 Then (2026-10-14): “familliars, pets, other stuff and more? More to consider,
 expansions and more?” Saved root palette
@@ -2087,6 +2548,7 @@ beasts, BJ arc shapes, J23-J27 cheats). C1 source pass folded into section H
 Paradise BEINGS_PETS_AND_BODIES now linked. New lanes C6 (owner map and
 overlaps) and C7 (bond craft from books). Proposals only.
 Then: “more to consider? other stuff and more? save and extend accordingly
+## Merge before dispatch, 2026-10-14
 Send out codex as usesful? MAking things more procedural? How to do stuff
 like "create soap" or like "create nuclear bomb" and more?” Saved as
 [procedural invention, round 5](TECHNOLOGY_AND_PROGRESSION.md#making-anything-procedural-invention-round-5-2026-10-14)
@@ -2105,94 +2567,6 @@ GR1-GR22 game patterns (memory, under verification) and MO1-MO12. Codex lanes
 U1-U3 sent to [ui-at-scale dispatch](gm/dispatch/ui-at-scale-2026-10-14/runs/SESSIONS.md).
 Proposals only.
 
-Then (2026-10-14): “Research? Technology? More to consider? more to
-consider? other stuff and more? save and extend accordingly”. Saved as
-[research and technology, round 3](TECHNOLOGY_AND_PROGRESSION.md#research-and-technology-round-3-2026-10-14):
-research as an idle verb (RV), where questions come from (RQ), honest
-uncertainty (RU), libraries (RB), research people (RP), ethics and risk
-(RE), social technologies (SO), living and nonhuman-body tech (LB), tech
-economics (TE), tech meeting power systems (TP), time structures (RT),
-cross-world science (RX), presentation (RD), cheats TC9-TC15 and verified
-reference mechanics (GR). Proposals only.
-Then: “more to consider for substitute ladders and motive outlets? ... save
-and extend accordingly”. Round 15 of the intro doc: LD1-LD10, OL1-OL10,
-NX1-NX5. Override kinds module verified by the coordinator (O1-O8, G1-G9,
-npm 649/0) on worktree branch codex/start-records.
-Then: “more to consider? other stuff and more? save and extend accordingly Send
-out codex as usesfule”. Round 4 of the palette (W book beat templates, X genres,
-Z humor/novelty, AA journeys, AB leading groups, AC death and after, Y player
-intent, AD taste learning, AE agent writers' room, AF onboarding), P15 result
-folded in, lanes P26-P28. Proposals only.
-Then: “more to consider? other stuff and more? save and extend accordingly
-Send out codex as usesful?” Round 16 of the intro doc (player layer MP1-MP10,
-saves SV1-SV7, authoring AU1-AU6), the Fated Villain pilot return, and three
-lanes: an intro/starts index, identity-law gaps, and a queued Lout synthesis.
-Then: “more to consider? other stuff and more? save and extend accordingly
-Send out codex as usesfule”. Saved round 3 (G35-G42) and launched docs-only
-lanes B1-B5 in [body-lineage-2026-10-14](gm/dispatch/body-lineage-2026-10-14/PLAN.md).
-Proposals only.
-Then: “more to consider? other stuff and more? save and extend accordingly
-Send out codex as usesfule”. Round 2 of the same palette (O minds and
-personhood, P communication, Q merging, R scale, S society, T darker, U cozy,
-V time and idle, W system links, J11-J17 cheats, Y non-creature companions,
-Z presentation, M6-M8 expansions) and Codex lanes C1-C3 in
-[companions dispatch](gm/dispatch/companions-2026-10-14/COMMON.md): sources by
-world, engine fit, game and book references. Proposals only.
-Then (2026-10-14): “Long term ui considerations for when the scope gets bigger
-and more? more to consider?”. Saved as [UI at scale](UI_AT_SCALE_CONSIDERATIONS_2026-10-14.md):
-question homes instead of panel-per-system, a contribution registry, one
-attention queue, command palette, activity workspaces, number breakdowns,
-policies, cross-world ledger and layout budget tests. Desktop first; proposals
-only.
-Then: “more to consider? other stuff and more? save and extend accordingly
-Send out codex as usesful?” Round 4 of the same doc (KD, RF, KL, UE, EV,
-LG, KM, BS, IN, EC, SR, IF) and four docs-only Codex lanes T1-T4 (code fit,
-worlds, reference games, real history) in
-[research-tech-2026-10-14](gm/dispatch/research-tech-2026-10-14/PLAN.md).
-Proposals only.
-Then: “more to consider? other stuff and more? save and extend accordingly Send
-out codex as usesful?”. Round 5 of the palette (AG power levels, AH body and
-age, AI family and animals, AJ promises, AK secrets as currency, AL faith, AM
-simulation detail, AN continuity guard, AO content math and local play logs),
-P14 result folded in, lanes P30-P32 queued behind a load gate. Proposals only.
-Then: “more to consider? other stuff and more? save and extend accordingly
-Send out codex as usesful?” Round 3 (AA ecology, AB elders, AC roles
-reversed, AE losses besides death, AF memory and recognition, AG culture, AH
-care knowledge, AI building, AJ fighting habits, AK comfort settings, AL life
-story, J18-J22 cheats) and lanes C4 (whole-life journeys plus palette stress
-test) and C5 (procedural companions and species). Proposals only.
-Then (same request again): Round 17 of the intro doc: first hour FH1-FH8,
-early hardship EH1-EH7, variety VA1-VA6, and a save-shape lane
-(read-only audit and migration plan for profiles and branches).
-Then: “more to consider? other stuff and more? save and extend accordingly Send
-out codex as usesfule Merge stuff and more?” Round 2 of the crafting palette (RX,
-KN, SC, RS, PG, CL, XD, NP, PR), four docs-only Codex lanes CR1-CR4 in
-[procgen wave 1](gm/dispatch/procgen-2026-10-13/PLAN.md), and a P1-P4 integration
-branch `proc/wave1-integration`. Merging into `codex/gameplay-foundations` waits
-on the shared main-checkout index gate.
-Then: “more to consider? other stuff and more? save and extend accordingly? We
-can give specific panels and stuff for cheats and more, but where to put
-accordingly and more? More to consider?”. Saved as [round 2](UI_AT_SCALE_CONSIDERATIONS_2026-10-14.md#round-2-specific-panels-cheats-and-where-things-go-2026-10-14):
-specific panels are welcome; the own-panel test and form ladder (PL), five
-laptop regions plus one contextual slot (ZN), cheat surfaces chosen by fiction
-with spread, shelf and merged arrangements (CS), a placement table for other
-systems and more (MC). Proposals only.
-Then the same request again. Round 6 of the palette: a convergence section (P12,
-P14, P15 and P18 independently recommend one first slice: integrated P1/P3/P4, a
-generated person's real request with an aftermath, recap, later memory, lint and
-a headless proof), plus AP rankings, AQ in-world media, AR calendar, AS other
-outsiders, AT session-sized stories, AU defeat arcs. P30-P33 queued in a slot
-queue that launches as running lanes finish. Proposals only.
-Then: “more to consider? other stuff and more? save and extend accordingly
-Send out codex as usesful?” Saved round 4 (G43-G51) and launched lanes B6-B8
-(generated physiques, NPC body detail levels, body and lineage UI). Proposals only.
-Then: same request again. Round 4 (BA teams, BB companions at work, BC
-companion businesses, BD health, BE when you change, BF same companion in
-different worlds, BG law and inheritance, BH wild things, BI legendary
-beasts, BJ arc shapes, J23-J27 cheats). C1 source pass folded into section H
-(8 confirmed, 3 corrected); sibling owners NONHUMAN_BONDS_AND_PARTIES and
-Paradise BEINGS_PETS_AND_BODIES now linked. New lanes C6 (owner map and
-overlaps) and C7 (bond craft from books). Proposals only.
 Then: “more to consider? other stuff and more? save and extend accordingly
 Send out codex as usesful? MAking things more procedural? How to do stuff
 like "create soap" or like "create nuclear bomb" and more?” Saved as
@@ -2201,123 +2575,7 @@ like "create soap" or like "create nuclear bomb" and more?” Saved as
 knowledge-filtered roadmaps, free invention, feeding routes, danger kept
 abstract). Lanes T5 (references, worked roadmaps) and T6 (pure planner
 module in a worktree, not wired into play). Proposals only.
-Then (same request again): Round 18 of the intro doc: ending flow EF1-EF12,
-pilot returns PR1-PR6 (Mother of Learning and Fated Villain pilots done),
-and an event format v2 code lane (knowledge, reveal axis, windows, loop
-reset) with a frozen gate.
-Then: “more to consider? other stuff and more? save and extend accordingly Send
-out codex as usesful? How does other games do it and more?”. Saved as
-[round 3](UI_AT_SCALE_CONSIDERATIONS_2026-10-14.md#round-3-how-other-games-do-it-and-more-2026-10-14):
-GR1-GR22 game patterns (memory, under verification) and MO1-MO12. Codex lanes
-U1-U3 sent to [ui-at-scale dispatch](gm/dispatch/ui-at-scale-2026-10-14/runs/SESSIONS.md).
-Proposals only.
 
-Then (2026-10-14): “Research? Technology? More to consider? more to
-consider? other stuff and more? save and extend accordingly”. Saved as
-[research and technology, round 3](TECHNOLOGY_AND_PROGRESSION.md#research-and-technology-round-3-2026-10-14):
-research as an idle verb (RV), where questions come from (RQ), honest
-uncertainty (RU), libraries (RB), research people (RP), ethics and risk
-(RE), social technologies (SO), living and nonhuman-body tech (LB), tech
-economics (TE), tech meeting power systems (TP), time structures (RT),
-cross-world science (RX), presentation (RD), cheats TC9-TC15 and verified
-reference mechanics (GR). Proposals only.
-Then: “more to consider for substitute ladders and motive outlets? ... save
-and extend accordingly”. Round 15 of the intro doc: LD1-LD10, OL1-OL10,
-NX1-NX5. Override kinds module verified by the coordinator (O1-O8, G1-G9,
-npm 649/0) on worktree branch codex/start-records.
-Then: “more to consider? other stuff and more? save and extend accordingly Send
-out codex as usesfule”. Round 4 of the palette (W book beat templates, X genres,
-Z humor/novelty, AA journeys, AB leading groups, AC death and after, Y player
-intent, AD taste learning, AE agent writers' room, AF onboarding), P15 result
-folded in, lanes P26-P28. Proposals only.
-Then: “more to consider? other stuff and more? save and extend accordingly
-Send out codex as usesful?” Round 16 of the intro doc (player layer MP1-MP10,
-saves SV1-SV7, authoring AU1-AU6), the Fated Villain pilot return, and three
-lanes: an intro/starts index, identity-law gaps, and a queued Lout synthesis.
-Then: “more to consider? other stuff and more? save and extend accordingly
-Send out codex as usesfule”. Saved round 3 (G35-G42) and launched docs-only
-lanes B1-B5 in [body-lineage-2026-10-14](gm/dispatch/body-lineage-2026-10-14/PLAN.md).
-Proposals only.
-Then: “more to consider? other stuff and more? save and extend accordingly
-Send out codex as usesfule”. Round 2 of the same palette (O minds and
-personhood, P communication, Q merging, R scale, S society, T darker, U cozy,
-V time and idle, W system links, J11-J17 cheats, Y non-creature companions,
-Z presentation, M6-M8 expansions) and Codex lanes C1-C3 in
-[companions dispatch](gm/dispatch/companions-2026-10-14/COMMON.md): sources by
-world, engine fit, game and book references. Proposals only.
-Then (2026-10-14): “Long term ui considerations for when the scope gets bigger
-and more? more to consider?”. Saved as [UI at scale](UI_AT_SCALE_CONSIDERATIONS_2026-10-14.md):
-question homes instead of panel-per-system, a contribution registry, one
-attention queue, command palette, activity workspaces, number breakdowns,
-policies, cross-world ledger and layout budget tests. Desktop first; proposals
-only.
-Then: “more to consider? other stuff and more? save and extend accordingly
-Send out codex as usesful?” Round 4 of the same doc (KD, RF, KL, UE, EV,
-LG, KM, BS, IN, EC, SR, IF) and four docs-only Codex lanes T1-T4 (code fit,
-worlds, reference games, real history) in
-[research-tech-2026-10-14](gm/dispatch/research-tech-2026-10-14/PLAN.md).
-Proposals only.
-Then: “more to consider? other stuff and more? save and extend accordingly Send
-out codex as usesful?”. Round 5 of the palette (AG power levels, AH body and
-age, AI family and animals, AJ promises, AK secrets as currency, AL faith, AM
-simulation detail, AN continuity guard, AO content math and local play logs),
-P14 result folded in, lanes P30-P32 queued behind a load gate. Proposals only.
-Then: “more to consider? other stuff and more? save and extend accordingly
-Send out codex as usesful?” Round 3 (AA ecology, AB elders, AC roles
-reversed, AE losses besides death, AF memory and recognition, AG culture, AH
-care knowledge, AI building, AJ fighting habits, AK comfort settings, AL life
-story, J18-J22 cheats) and lanes C4 (whole-life journeys plus palette stress
-test) and C5 (procedural companions and species). Proposals only.
-Then (same request again): Round 17 of the intro doc: first hour FH1-FH8,
-early hardship EH1-EH7, variety VA1-VA6, and a save-shape lane
-(read-only audit and migration plan for profiles and branches).
-Then: “more to consider? other stuff and more? save and extend accordingly Send
-out codex as usesfule Merge stuff and more?” Round 2 of the crafting palette (RX,
-KN, SC, RS, PG, CL, XD, NP, PR), four docs-only Codex lanes CR1-CR4 in
-[procgen wave 1](gm/dispatch/procgen-2026-10-13/PLAN.md), and a P1-P4 integration
-branch `proc/wave1-integration`. Merging into `codex/gameplay-foundations` waits
-on the shared main-checkout index gate.
-Then: “more to consider? other stuff and more? save and extend accordingly? We
-can give specific panels and stuff for cheats and more, but where to put
-accordingly and more? More to consider?”. Saved as [round 2](UI_AT_SCALE_CONSIDERATIONS_2026-10-14.md#round-2-specific-panels-cheats-and-where-things-go-2026-10-14):
-specific panels are welcome; the own-panel test and form ladder (PL), five
-laptop regions plus one contextual slot (ZN), cheat surfaces chosen by fiction
-with spread, shelf and merged arrangements (CS), a placement table for other
-systems and more (MC). Proposals only.
-Then the same request again. Round 6 of the palette: a convergence section (P12,
-P14, P15 and P18 independently recommend one first slice: integrated P1/P3/P4, a
-generated person's real request with an aftermath, recap, later memory, lint and
-a headless proof), plus AP rankings, AQ in-world media, AR calendar, AS other
-outsiders, AT session-sized stories, AU defeat arcs. P30-P33 queued in a slot
-queue that launches as running lanes finish. Proposals only.
-Then: “more to consider? other stuff and more? save and extend accordingly
-Send out codex as usesful?” Saved round 4 (G43-G51) and launched lanes B6-B8
-(generated physiques, NPC body detail levels, body and lineage UI). Proposals only.
-Then: same request again. Round 4 (BA teams, BB companions at work, BC
-companion businesses, BD health, BE when you change, BF same companion in
-different worlds, BG law and inheritance, BH wild things, BI legendary
-beasts, BJ arc shapes, J23-J27 cheats). C1 source pass folded into section H
-(8 confirmed, 3 corrected); sibling owners NONHUMAN_BONDS_AND_PARTIES and
-Paradise BEINGS_PETS_AND_BODIES now linked. New lanes C6 (owner map and
-overlaps) and C7 (bond craft from books). Proposals only.
-Then: “more to consider? other stuff and more? save and extend accordingly
-Send out codex as usesful? MAking things more procedural? How to do stuff
-like "create soap" or like "create nuclear bomb" and more?” Saved as
-[procedural invention, round 5](TECHNOLOGY_AND_PROGRESSION.md#making-anything-procedural-invention-round-5-2026-10-14)
-(PI1-PI11: targets as functions, AND/OR roadmaps, scale as graph size,
-knowledge-filtered roadmaps, free invention, feeding routes, danger kept
-abstract). Lanes T5 (references, worked roadmaps) and T6 (pure planner
-module in a worktree, not wired into play). Proposals only.
-Then (same request again): Round 18 of the intro doc: ending flow EF1-EF12,
-pilot returns PR1-PR6 (Mother of Learning and Fated Villain pilots done),
-and an event format v2 code lane (knowledge, reveal axis, windows, loop
-reset) with a frozen gate.
-Then: “more to consider? other stuff and more? save and extend accordingly Send
-out codex as usesful? How does other games do it and more?”. Saved as
-[round 3](UI_AT_SCALE_CONSIDERATIONS_2026-10-14.md#round-3-how-other-games-do-it-and-more-2026-10-14):
-GR1-GR22 game patterns (memory, under verification) and MO1-MO12. Codex lanes
-U1-U3 sent to [ui-at-scale dispatch](gm/dispatch/ui-at-scale-2026-10-14/runs/SESSIONS.md).
-Proposals only.
 
 Then (2026-10-14): “core stuff needed for each world to be implemented in
 depth? do a 'more to consider? other stuff and more? save and extend
@@ -2380,66 +2638,6 @@ neighbourhood, familiar asides, mounts, seasons, feedback without toasts,
 small grief, small choices, folklore, J33-J35). New lane C9 grounds micro
 behaviour in real ethology and vet sources as text cues. Proposals only.
 
-Then (2026-10-14): “core stuff needed for each world to be implemented in
-depth? do a 'more to consider? other stuff and more? save and extend
-accordingly Send out codex as usesful?' for each aspect?” Saved as
-[world core kit](worlds/WORLD_CORE_KIT_2026-10-14.md): 18 kit parts (K1-K18)
-with a floor and deep form each, a more-to-consider round per part and KX
-cross-cutting rows. Codex lanes W1-W6 in
-[world-core-kit-2026-10-14](gm/dispatch/world-core-kit-2026-10-14/COMMON.md).
-Proposals only.
-Then: “more to consider? other stuff and more? save and extend accordingly Send
-out codex as usesful?”. Saved as [round 4](UI_AT_SCALE_CONSIDERATIONS_2026-10-14.md#round-4-time-decisions-stories-worlds-and-upkeep-2026-10-14):
-TP, DP, GP, NP, WT, SO, VI, FR and SF. Codex lanes U4 (accessibility and
-input), U5 (surface inventory stress test) and U6 (big lists) sent. Proposals
-only.
-Then: same request again. Folded lane returns C1-C5 into the palette (C2
-found the existing fieldcraft dog Rill and ranked N1-N5 from the stray
-proposal; C3 angles R101-R115; C4 journeys and 33 JX tensions grouped; C5
-procgen) and added round 5 (CA-CM: relationship roles, life stages,
-human-form companions, keepsakes, gifts and diplomacy, making minds, odd
-environments, enemies' companions, opt-out, prestige and reset, idle numbers,
-titles and texture, J28-J32). New lane C8 (idle loop and prestige). Proposals
-only.
-Then: “more to consider? other stuff and more? save and extend accordingly
-Send out codex as usesful?” Round 6 of the same doc (PA after it exists, PM
-project running, PS substitution, PC conceiving goals, PP the planner for
-powers, PW procedural world tech states, PV balance, PQ testing) and lanes
-T7-T9. Proposals only.
-Then the same request again. Saved as [round 5](UI_AT_SCALE_CONSIDERATIONS_2026-10-14.md#round-5-expression-meta-knowledge-sandbox-battery-and-more-2026-10-14):
-AN, MK, SB, LP, PT, SH and QL. Codex lanes U7 (maps and charts) and U8 (combat
-at scale) sent. Proposals only.
-Then: “more to consider? other stuff and more? save and extend accordingly
-Send out codex as usesful? Sourcing from world and more? more to consider?
-Genetic modification and more?” Saved round 5 (G52-G55) and launched lanes
-B9-B11 (modification in canon, sourcing per world, first modification loop
-spec). Proposals only.
-Then (2026-10-14), after the stage 0 cheat audit: “more to consider? other
-stuff and more? save and extend accordingly Send out codex as usesful?”. Saved
-as [after the stage 0 audit](CHEAT_LIBRARY.md#more-to-consider-after-the-stage-0-audit-stage-1-and-beyond-2026-10-14):
-AW1-AW7 robust awakening, DM1-DM5 dormancy as content, S1D1-S1D4 (the audit's
-Q1-Q3 rewritten as dials with Village defaults), QG1-QG10, QT1-QT5, PT1-PT5,
-SC1-SC5, IN and GL. Codex lanes R1 (stage 0 hardening, gate R1-R6 in
-[GOAL](gm/dispatch/cheat-status-window-2026-10-13/GOAL.md#r1-stage-0-hardening-2026-10-14))
-and W4 (system quests in other games) sent. Proposals only.
-Then: “more to consider? other stuff and more? save and extend accordingly
-Send out codex as usesful? Subtle micro stuff too?” Round 2 of the kit: new
-parts K19-K24 (senses, language, belief, health, news, small law), more angles
-on K2-K16, a micro family KM1-KM18 with rules KM-a to KM-h, KX11-KX20, and
-lanes W7-W9. Proposals only.
-Then the same request again. Round 7: a spine synthesis (P12-P25 first slices
-nearly all need S-1 integrated P1/P3/P4, S-2 typed receipts, S-3 requests from
-real needs, S-4 known-context, S-5 lint and headless runner), plus AV
-environmental storytelling, AW in-game encyclopedia, AX sound, AY generated
-challenges. Dispatched P34, a code prototype of the spine in isolated worktree
-proc-p34-spine (no main-checkout writes, root merges), and queued P35 docs.
-Then: “more to consider? other stuff and more? save and extend accordingly
-Send out codex as usesful? Subtle micro stuff too?” Round 6 (DA-DT: body
-language tells, routines, tiny preferences, small memories, senses, reading
-the player, visible ageing, names, mischief, presence in text, objects,
-neighbourhood, familiar asides, mounts, seasons, feedback without toasts,
-small grief, small choices, folklore, J33-J35). New lane C9 grounds micro
-behaviour in real ethology and vet sources as text cues. Proposals only.
 
 After a core foundations scorecard flagged unmerged branches as a risk
 ([scorecard F5](CORE_FOUNDATIONS_SCORECARD_2026-10-14.md#findings)), Weibao:
@@ -2651,845 +2849,9 @@ palette (R1-R3), so WR1-WR4 here were stopped as duplicates. Story round 11 save
 (BN story-reveal cheats, BO one knowledge layer, BP story abstractions, BQ
 implementation). Finished lane reports committed; push awaits Weibao's yes.
 
-After a core foundations scorecard flagged unmerged branches as a risk
-([scorecard F5](CORE_FOUNDATIONS_SCORECARD_2026-10-14.md#findings)), Weibao:
-“yes merge stuff accordingly and more, do that each time accordingly”.
-Standing direction: finished, gate-passing work gets merged into
-`codex/gameplay-foundations` (and pushed to origin under existing push
-authorizations) promptly, and every coordinator runs a merge sweep of its own
-finished branches before dispatching a new wave. Lane owners still merge their
-own lanes; an orphaned finished branch may be taken over with an explicit
-handoff. No stash, reset or force over other sessions' work.
-Then: “more to consider? other stuff and more? save and extend accordingly
-Send out codex as usesful? Subtle micro stuff too?” Round 7 of the same doc
-(MS senses, MB body, MT tools, MR paper trail, MA small accidents, MO small
-moments, MU presentation with a texture dial) and lane T10 (per-craft
-micro catalogue). Proposals only.
-Then: “more to consider? other stuff and more? save and extend accordingly Send
-out codex as usesful? Subtle micro stuff too?”. Saved as [round 6](UI_AT_SCALE_CONSIDERATIONS_2026-10-14.md#round-6-subtle-micro-details-2026-10-14):
-MI1-MI47, extending thematic P4. Codex lane U9 (micro-interactions with
-sources) sent. Proposals only.
-Then: “more to consider? other stuff and more? save and extend accordingly
-Send out codex as usesful? Subtle micro stuff too?” Saved round 6 (G56-G63)
-and launched lanes B12 (micro hooks audit) and B13 (diagnosis and look-alikes).
-Proposals only.
-Then: “more to consider? other stuff and more? save and extend accordingly Send
-out codex as usesful? Subtle micro stuff too?” Round 8 of the palette: micro
-details (BA address, BB being remembered, BC traces, BD village reactions, BE
-information texture, BF timing, BG desktop UI touches, BH per-world texture),
-P27/P28 results and P34 stage S-1 noted, lanes P36-P37 queued. Proposals only.
-Then the same prompt again. Round 3 of the kit: K25-K28 (personal space,
-routine and habit, lightness, seasons), micro verbs KV1-KV12, moments KT1-KT6,
-marks KK1-KK5, callbacks KC1-KC5, guards KG1-KG7, KX21-KX28 and lanes W10-W11.
-Proposals only.
-Then: same request again (with micro stuff). Round 7 (EA-ET micro: small
-verbs incl. "sit together", sound, consistency marks, mirroring, talking
-birds leaking secrets, dates, jealousy, health clues, weather sense, trust
-repair, firsts and lasts, its small wins, reunions, where it walks, food
-habits, guarding, companion pairs, spirit oddities, interface micro; EU-EZ
-other: art, it knows your secret, childhood pets, psychopomp, hunting ethics,
-rescued animals; J36-J38). New lane C10 (presentation surfaces and line
-budget at desktop). Proposals only.
-Then: “more to consider? other stuff and more? save and extend accordingly Send
-out codex as usesful? Subtle micro stuff too?”. Saved as
-[subtle micro details](CHEAT_LIBRARY.md#more-to-consider-subtle-micro-details-other-stuff-and-more-2026-10-14):
-MN1-MN10 numbers and text, ML1-ML7 messages, MI1-MI7 interaction, ME1-ME8
-engine edges (tick order, separate random stream, two tabs, throttling, save
-size), MW1-MW8 body, people and world, OS1-OS6. Read-only Codex lanes MX
-(micro UX audit) and TE (engine edges probe) sent beside R1 and W4.
-Proposals only.
-Then the same request again. Saved as [round 7](UI_AT_SCALE_CONSIDERATIONS_2026-10-14.md#round-7-u4-returns-interaction-grammar-and-more-micro-2026-10-14):
-U4 accessibility results folded in, IG1-IG7 and MI48-MI64. Codex lanes U10
-(teaching many systems) and U11 (reading and typography) sent. Proposals only.
-Then: “more to consider? ... Subtle micro stuff too?” Round 19 of the intro
-doc: reconciliation of the index's C1-C11 (OP3 Classic default superseded by
-PROJECT's Workspace default; others clarified), micro details MZ1-MZ18,
-returns (v2 verified, index, identity gaps, save shape), and a micro-details
-lane.
-Then: “... Subtle relevant stuff too?” Round 4 of the kit: K29-K32 (ripples,
-perception profile, subtext and status, tension rhythm), signals KS1-KS9,
-ripples KQ1-KQ7, perception KP1-KP7, subtext KD1-KD6, relevance rules KR1-KR5,
-KX29-KX36 and lanes W12-W13. Proposals only.
-Then: same request again ("Subtle stuff too?"). Folded C6 owner map (OM1-OM13,
-F1-F18 overlaps, gaps G1-G3) and C8 idle/prestige (current reset behaviour,
-closed-browser rest default, five first-prestige candidates). Round 8 (FA-FK
-subtle: uneven love, it knows something you don't, habituation, small
-agency, learned temperament, dreams, how others read your care, loyalty
-tests, private signals, comfort objects, late-life rhythm, ordinary is
-enough, long tail; FL-FO other; J39-J41). New lane C11 (per-world defaults for
-tensions and gaps). Proposals only.
-Then (same request, "Subtle stuff too?"): Round 20 of the intro doc
-(WS1-WS7, AY1-AY5, FR1-FR5, QA1-QA5, SB1-SB6; MZ16 autosave already exists
-every 60 s) and a pockets (MZ2) code lane in the start-records worktree.
-Then: “more to consider? other stuff and more? save and extend accordingly
-Send out codex as usesful? Subtle stuff too?” Saved round 7 (G64-G69), applied
-B4's reference corrections and launched lane B14. Proposals only.
-Then: “more to consider? other stuff and more? save and extend accordingly
-Send out codex as usesful? Subtle stuff too?” Round 8 of the same doc (SC
-how a mind holds knowledge, SS reading each other's work, SE market
-signals, SW the world showing change quietly, SN small numbers, SH hints
-and pacing), T1/T3/T4/T6 results folded, lanes T11-T12. Proposals only.
-Then: “more to consider? other stuff and more? save and extend accordingly Send
-out codex as usesful? Subtle stuff too?”. Saved as
-[subtle stuff, round 2](CHEAT_LIBRARY.md#more-to-consider-subtle-stuff-round-2-2026-10-14):
-PF1-PF7 player feel, TR1-TR6 trust and honesty, CA1-CA4 consent and agency,
-FR1-FR5 failure and recovery (quarantine at load), SL1-SL5 spoilers and
-leaks, LA1-LA7 look, sound and access, PE, LE1-LE4. Codex lane LQ (reusable
-leak lint check and load-time quarantine probe) sent. Proposals only.
-Then: “more to consider? other stuff and more? save and extend accordingly Send
-out codex as usesful? Subtle stuff too? Macro and general stuff? consider
-things to be inspired by and more? more to consider?”. Saved as
-[round 8](UI_AT_SCALE_CONSIDERATIONS_2026-10-14.md#round-8-lane-returns-macro-shape-and-inspirations-2026-10-14):
-U1/U2/U3/U8 results folded in, a correction of unsourced count limits, MA1-MA7,
-OI1-OI18 and MI65-MI72. Codex lanes U12 (outside inspirations) and U13
-(tabletop and paper) sent. Proposals only.
-Then: “more to consider? other stuff and more? save and extend accordingly Send
-out codex as usesful? Subtle stuff too? Implementation implciations and more?”
-Round 9 of the palette: implementation implications (BI one entity-ref scheme
-and receipt log, BJ order of work and a generator registry, BK runtime budgets,
-BL subtle determinism hazards, BM process). Merge sweep first (P26 committed
-12179d0f). Lanes P38 contract consolidation, P39 roadmap/registry, P40
-determinism audit queued. Proposals only.
-Then: “Cheats that would show stuff like these and more? ... Overarching
-stuff? Implementation implciations and more?” Round 21 of the intro doc:
-CX1-CX12 cheats that reveal hidden structure, OG1-OG7 overarching rules,
-IR1-IR9 implementation implications; lanes for an implementation map and
-CX cheat cards.
-Then: “more to consider? other stuff and more? Cheats that would show stuff
-like these and more? ... Subtle stuff too? Implementation implciations and
-more?” Folded C7 bond craft (C7:BB01-BB12 beats, BX01-BX10 anti-patterns).
-Round 9: GA reveal fidelity ladder (cue to forecast), GB reveal cheats
-J42-J56, GC implementation implications summary, GD subtle, GE other. New
-lanes C12 (reveal cheat cards fitted to CH1 status window) and C13
-(consolidated implementation implications). Proposals only.
-Then: “... Implementation implciations and more?” Round 5 of the kit: lane
-findings F1-F7 (power core is the top gap and is fragmented across about six
-capability systems; Mother of Learning most ready), implications II1-II26,
-subtle implementation IS1-IS10, K33-K34, proposed order IO1-IO6, KX37-KX42 and
-lanes W14-W15. Proposals only.
-Then: “more to consider? other stuff and more? Cheats that would show stuff
-like these and more? ... Subtle stuff too? Overarching stuff? Implementation
-implciations and more?” Saved round 8 (G70-G74) and launched lanes B15 and
-B16. Proposals only.
-Then: “more to consider? other stuff and more? Cheats that would show stuff like
-these and more? ... Subtle stuff too? Overarching stuff? Implementation
-implciations and more?”. Saved as
-[cheats that show things, the overarching model and implementation](CHEAT_LIBRARY.md#more-to-consider-cheats-that-show-things-the-overarching-model-and-implementation-2026-10-14):
-SH1-SH18 information cheats built from the earlier micro rows, OV1-OV8 one
-fact/knowledge/display model with a shared grade ladder, SE1-SE7 subtle
-effects of seeing, II1-II12 implementation implications and a proposed build
-order. Codex lanes IA (read-only info-layer architecture study) and W5
-(showing hidden information in games) sent. Proposals only.
-Then: “more to consider? other stuff and more? Cheats that would show stuff
-like these and more? MOre to consider save and extend accordingly Send out
-codex as usesful? Subtle stuff too? Overarching stuff? Implementation
-implciations and more?” Round 9 of the same doc: revealer cheats RC1-RC15
-with forms and subtle versions, the overarching model OM1-OM11 (truth,
-knowledge, presentation; means; receipts; one vocabulary, planner and
-scale ladder), and implementation implications IM1-IM8 with a build order.
-Lanes T13 (architecture) and T14 (cheat cards checked by the real
-validator). Proposals only.
-Then: “Considering comic worlds and stuff and more? ... Cheats that would
-show stuff like these ... Overarching stuff? Implementation implciations and
-more? Abstaction thats needed? Relevant Crafting? Research?” Folded C10
-presentation (surfaces, ambient-line budget, layouts). Round 10: HA comic
-companions, HB comic mechanics, HC overarching principles, HD abstraction
-sketch (Actor, Link, Terms, Lens, Clock, Custody, Cue, Thread), HE crafting,
-HF in-world research, HG subtle, J57-J60 reveal cheats. New lanes C14 comics,
-C15 crafting and research, C16 overarching abstraction. Proposals only.
-Then: “Weaponcrafting, runestuff, other stuff and more? ... Cheats that would
-show stuff like these and more? ... Subtle stuff too? Overarching stuff?
-Implementation implciations and more? Abstaction thats needed?” Saved
-[weaponcrafting, runes and reveal](WEAPONCRAFTING_RUNES_AND_REVEAL_CONSIDERATIONS_2026-10-14.md)
-(WC, RN, RV, OV, XA, IM) and story round 10; lanes WR1-WR4 queued. Extends the
-crafting session's palette and P6. Proposals only.
-Then: “Weaponcrafting, runestuff, other stuff and more? more to consider? other
-stuff and more? Cheats that would show stuff like these and more? MOre to
-consider save and extend accordingly Send out codex as usesful? Subtle stuff
-too? Overarching stuff? Implementation implciations and more? Abstaction thats
-needed?”. Saved as [Weaponcraft, runes and inscription](WEAPONCRAFT_RUNES_AND_INSCRIPTION_CONSIDERATIONS_2026-10-14.md)
-(WC, RN, WW, CR, SU, OV, AB, IM) with UI surfaces in
-[UI at scale round 9](UI_AT_SCALE_CONSIDERATIONS_2026-10-14.md#round-9-u5-and-u6-returns-crafting-and-rune-surfaces-2026-10-14).
-Codex lanes R1-R3 sent to [weaponcraft-runes dispatch](gm/dispatch/weaponcraft-runes-2026-10-14/runs/SESSIONS.md).
-Proposals only.
-Then: “Considering comic worlds and stuff and more? ... Cheats that would show
-stuff like these and more? ... Overarching stuff? Implementation implciations
-and more? Abstaction thats needed?” Round 6 of the kit: comic worlds CW1-CW17
-and subtle CWS1-CWS7 (comics are not moved up the canon-first order), lens
-cheats CL1-CL15 with rules CLR1-CLR6, overarching shape OV1-OV8, abstractions
-AX1-AX19 with rules AXR1-AXR4, II27-II36, KX43-KX50 and lanes W16-W18.
-Proposals only.
-Then: “Considering comic worlds ... Abstaction thats needed? Idle stuff to
-gain progress out of the game as well? like meditating and wheatver While Im
-gone?” Round 22 of the intro doc: comic quick map CC1-CC10, away progress
-AW1-AW12, abstractions AB1-AB9, cheats CX13-CX16; lanes: away ledger (pure
-module, gate-first) and comic worlds mapping.
-Then (2026-10-14): “Weaponcrafting, runestuff, other stuff and more? more to
-consider? ... Cheats that would show stuff like these and more? ... Subtle stuff
-too? Overarching stuff? Implementation implciations and more? Abstaction thats
-needed?” Saved in [weaponcraft, runes and maker arts considerations](WEAPONCRAFT_RUNES_AND_MAKER_ARTS_CONSIDERATIONS_2026-10-14.md):
-WC1-WC14, AR1-AR6, RN1-RN14, OM1-OM16, WQ1-WQ14, RC1-RC16 with fidelity tiers
-F0-F5, SB1-SB12, OV1-OV8, IM1-IM12, AB1-AB12. Codex lanes W1-W7 sent
-([sessions](gm/dispatch/maker-arts-2026-10-14/SESSIONS.md)). Proposals only.
-Then: same request plus “Merging, commiting or pushing?”. Folded C9 micro
-behaviour (15 animal profiles, 59 sources, caveats on popular labels). Round
-11: topic map, IA merging companions, IB subtle, J61-J62. Committed this
-task's companion paths only; push and merge left for Weibao's explicit yes.
-A third session saved [comic worlds and the comic medium](COMIC_WORLDS_AND_MEDIUM_CONSIDERATIONS_2026-10-14.md):
-comic traditions beyond superheroes, industry habits as world-law dials,
-medium and law cheats, subtle panel touches, implications and abstractions,
-with a reconciliation table that defers overlapping rows to the kit and intro
-rounds. Codex lanes K1-K5 sent ([sessions](gm/dispatch/comics-2026-10-14/runs/SESSIONS.md));
-K6 stopped as a duplicate of W18. Proposals only.
-Then: “Considering comic worlds and stuff and more? ... Abstaction thats
-needed? Merging, commiting or pushing?” Saved round 9 (G75-G80) and launched
-lanes B17 (comic bodies) and B18 (abstractions). Proposals only.
-Then: “... Abstaction thats needed? Merging, commiting or pushing?” Round 23
-of the intro doc: merge/commit/push considerations MG1-MG6, projection layer
-PJ1-PJ6, cheats CX17-CX20; a probe micro-text lane.
-Then: “Considering comic worlds and stuff and more? ... Abstaction thats needed?
-Merging, commiting or pushing?”. Saved as
-[comic worlds, the abstractions needed, and landing the work](CHEAT_LIBRARY.md#more-to-consider-comic-worlds-the-abstractions-needed-and-landing-the-work-2026-10-14):
-CSW1-CSW10 the status window in comic worlds (beside the existing
-[comic worlds doc](COMIC_WORLDS_AND_MEDIUM_CONSIDERATIONS_2026-10-14.md)),
-SH19-SH26 comic information cheats, AB1-AB10 one reconciled abstraction
-stack with rule-of-two status, LW1-LW5 landing rules. Codex lane AB (read-only
-abstraction map across docs and code) sent. Proposals only.
-Then the same request with “Merging, commiting or pushing?”. Same request reached
-other sessions; weapon/rune work is canonical in the UI-at-scale session's
-palette (R1-R3), so WR1-WR4 here were stopped as duplicates. Story round 11 saved
-(BN story-reveal cheats, BO one knowledge layer, BP story abstractions, BQ
-implementation). Finished lane reports committed; push awaits Weibao's yes.
 
-After a core foundations scorecard flagged unmerged branches as a risk
-([scorecard F5](CORE_FOUNDATIONS_SCORECARD_2026-10-14.md#findings)), Weibao:
-“yes merge stuff accordingly and more, do that each time accordingly”.
-Standing direction: finished, gate-passing work gets merged into
-`codex/gameplay-foundations` (and pushed to origin under existing push
-authorizations) promptly, and every coordinator runs a merge sweep of its own
-finished branches before dispatching a new wave. Lane owners still merge their
-own lanes; an orphaned finished branch may be taken over with an explicit
-handoff. No stash, reset or force over other sessions' work.
-Then: “more to consider? other stuff and more? save and extend accordingly
-Send out codex as usesful? Subtle micro stuff too?” Round 7 of the same doc
-(MS senses, MB body, MT tools, MR paper trail, MA small accidents, MO small
-moments, MU presentation with a texture dial) and lane T10 (per-craft
-micro catalogue). Proposals only.
-Then: “more to consider? other stuff and more? save and extend accordingly Send
-out codex as usesful? Subtle micro stuff too?”. Saved as [round 6](UI_AT_SCALE_CONSIDERATIONS_2026-10-14.md#round-6-subtle-micro-details-2026-10-14):
-MI1-MI47, extending thematic P4. Codex lane U9 (micro-interactions with
-sources) sent. Proposals only.
-Then: “more to consider? other stuff and more? save and extend accordingly
-Send out codex as usesful? Subtle micro stuff too?” Saved round 6 (G56-G63)
-and launched lanes B12 (micro hooks audit) and B13 (diagnosis and look-alikes).
-Proposals only.
-Then: “more to consider? other stuff and more? save and extend accordingly Send
-out codex as usesful? Subtle micro stuff too?” Round 8 of the palette: micro
-details (BA address, BB being remembered, BC traces, BD village reactions, BE
-information texture, BF timing, BG desktop UI touches, BH per-world texture),
-P27/P28 results and P34 stage S-1 noted, lanes P36-P37 queued. Proposals only.
-Then the same prompt again. Round 3 of the kit: K25-K28 (personal space,
-routine and habit, lightness, seasons), micro verbs KV1-KV12, moments KT1-KT6,
-marks KK1-KK5, callbacks KC1-KC5, guards KG1-KG7, KX21-KX28 and lanes W10-W11.
-Proposals only.
-Then: same request again (with micro stuff). Round 7 (EA-ET micro: small
-verbs incl. "sit together", sound, consistency marks, mirroring, talking
-birds leaking secrets, dates, jealousy, health clues, weather sense, trust
-repair, firsts and lasts, its small wins, reunions, where it walks, food
-habits, guarding, companion pairs, spirit oddities, interface micro; EU-EZ
-other: art, it knows your secret, childhood pets, psychopomp, hunting ethics,
-rescued animals; J36-J38). New lane C10 (presentation surfaces and line
-budget at desktop). Proposals only.
-Then: “more to consider? other stuff and more? save and extend accordingly Send
-out codex as usesful? Subtle micro stuff too?”. Saved as
-[subtle micro details](CHEAT_LIBRARY.md#more-to-consider-subtle-micro-details-other-stuff-and-more-2026-10-14):
-MN1-MN10 numbers and text, ML1-ML7 messages, MI1-MI7 interaction, ME1-ME8
-engine edges (tick order, separate random stream, two tabs, throttling, save
-size), MW1-MW8 body, people and world, OS1-OS6. Read-only Codex lanes MX
-(micro UX audit) and TE (engine edges probe) sent beside R1 and W4.
-Proposals only.
-Then the same request again. Saved as [round 7](UI_AT_SCALE_CONSIDERATIONS_2026-10-14.md#round-7-u4-returns-interaction-grammar-and-more-micro-2026-10-14):
-U4 accessibility results folded in, IG1-IG7 and MI48-MI64. Codex lanes U10
-(teaching many systems) and U11 (reading and typography) sent. Proposals only.
-Then: “more to consider? ... Subtle micro stuff too?” Round 19 of the intro
-doc: reconciliation of the index's C1-C11 (OP3 Classic default superseded by
-PROJECT's Workspace default; others clarified), micro details MZ1-MZ18,
-returns (v2 verified, index, identity gaps, save shape), and a micro-details
-lane.
-Then: “... Subtle relevant stuff too?” Round 4 of the kit: K29-K32 (ripples,
-perception profile, subtext and status, tension rhythm), signals KS1-KS9,
-ripples KQ1-KQ7, perception KP1-KP7, subtext KD1-KD6, relevance rules KR1-KR5,
-KX29-KX36 and lanes W12-W13. Proposals only.
-Then: same request again ("Subtle stuff too?"). Folded C6 owner map (OM1-OM13,
-F1-F18 overlaps, gaps G1-G3) and C8 idle/prestige (current reset behaviour,
-closed-browser rest default, five first-prestige candidates). Round 8 (FA-FK
-subtle: uneven love, it knows something you don't, habituation, small
-agency, learned temperament, dreams, how others read your care, loyalty
-tests, private signals, comfort objects, late-life rhythm, ordinary is
-enough, long tail; FL-FO other; J39-J41). New lane C11 (per-world defaults for
-tensions and gaps). Proposals only.
-Then (same request, "Subtle stuff too?"): Round 20 of the intro doc
-(WS1-WS7, AY1-AY5, FR1-FR5, QA1-QA5, SB1-SB6; MZ16 autosave already exists
-every 60 s) and a pockets (MZ2) code lane in the start-records worktree.
-Then: “more to consider? other stuff and more? save and extend accordingly
-Send out codex as usesful? Subtle stuff too?” Saved round 7 (G64-G69), applied
-B4's reference corrections and launched lane B14. Proposals only.
-Then: “more to consider? other stuff and more? save and extend accordingly
-Send out codex as usesful? Subtle stuff too?” Round 8 of the same doc (SC
-how a mind holds knowledge, SS reading each other's work, SE market
-signals, SW the world showing change quietly, SN small numbers, SH hints
-and pacing), T1/T3/T4/T6 results folded, lanes T11-T12. Proposals only.
-Then: “more to consider? other stuff and more? save and extend accordingly Send
-out codex as usesful? Subtle stuff too?”. Saved as
-[subtle stuff, round 2](CHEAT_LIBRARY.md#more-to-consider-subtle-stuff-round-2-2026-10-14):
-PF1-PF7 player feel, TR1-TR6 trust and honesty, CA1-CA4 consent and agency,
-FR1-FR5 failure and recovery (quarantine at load), SL1-SL5 spoilers and
-leaks, LA1-LA7 look, sound and access, PE, LE1-LE4. Codex lane LQ (reusable
-leak lint check and load-time quarantine probe) sent. Proposals only.
-Then: “more to consider? other stuff and more? save and extend accordingly Send
-out codex as usesful? Subtle stuff too? Macro and general stuff? consider
-things to be inspired by and more? more to consider?”. Saved as
-[round 8](UI_AT_SCALE_CONSIDERATIONS_2026-10-14.md#round-8-lane-returns-macro-shape-and-inspirations-2026-10-14):
-U1/U2/U3/U8 results folded in, a correction of unsourced count limits, MA1-MA7,
-OI1-OI18 and MI65-MI72. Codex lanes U12 (outside inspirations) and U13
-(tabletop and paper) sent. Proposals only.
-Then: “more to consider? other stuff and more? save and extend accordingly Send
-out codex as usesful? Subtle stuff too? Implementation implciations and more?”
-Round 9 of the palette: implementation implications (BI one entity-ref scheme
-and receipt log, BJ order of work and a generator registry, BK runtime budgets,
-BL subtle determinism hazards, BM process). Merge sweep first (P26 committed
-12179d0f). Lanes P38 contract consolidation, P39 roadmap/registry, P40
-determinism audit queued. Proposals only.
-Then: “Cheats that would show stuff like these and more? ... Overarching
-stuff? Implementation implciations and more?” Round 21 of the intro doc:
-CX1-CX12 cheats that reveal hidden structure, OG1-OG7 overarching rules,
-IR1-IR9 implementation implications; lanes for an implementation map and
-CX cheat cards.
-Then: “more to consider? other stuff and more? Cheats that would show stuff
-like these and more? ... Subtle stuff too? Implementation implciations and
-more?” Folded C7 bond craft (C7:BB01-BB12 beats, BX01-BX10 anti-patterns).
-Round 9: GA reveal fidelity ladder (cue to forecast), GB reveal cheats
-J42-J56, GC implementation implications summary, GD subtle, GE other. New
-lanes C12 (reveal cheat cards fitted to CH1 status window) and C13
-(consolidated implementation implications). Proposals only.
-Then: “... Implementation implciations and more?” Round 5 of the kit: lane
-findings F1-F7 (power core is the top gap and is fragmented across about six
-capability systems; Mother of Learning most ready), implications II1-II26,
-subtle implementation IS1-IS10, K33-K34, proposed order IO1-IO6, KX37-KX42 and
-lanes W14-W15. Proposals only.
-Then: “more to consider? other stuff and more? Cheats that would show stuff
-like these and more? ... Subtle stuff too? Overarching stuff? Implementation
-implciations and more?” Saved round 8 (G70-G74) and launched lanes B15 and
-B16. Proposals only.
-Then: “more to consider? other stuff and more? Cheats that would show stuff like
-these and more? ... Subtle stuff too? Overarching stuff? Implementation
-implciations and more?”. Saved as
-[cheats that show things, the overarching model and implementation](CHEAT_LIBRARY.md#more-to-consider-cheats-that-show-things-the-overarching-model-and-implementation-2026-10-14):
-SH1-SH18 information cheats built from the earlier micro rows, OV1-OV8 one
-fact/knowledge/display model with a shared grade ladder, SE1-SE7 subtle
-effects of seeing, II1-II12 implementation implications and a proposed build
-order. Codex lanes IA (read-only info-layer architecture study) and W5
-(showing hidden information in games) sent. Proposals only.
-Then: “more to consider? other stuff and more? Cheats that would show stuff
-like these and more? MOre to consider save and extend accordingly Send out
-codex as usesful? Subtle stuff too? Overarching stuff? Implementation
-implciations and more?” Round 9 of the same doc: revealer cheats RC1-RC15
-with forms and subtle versions, the overarching model OM1-OM11 (truth,
-knowledge, presentation; means; receipts; one vocabulary, planner and
-scale ladder), and implementation implications IM1-IM8 with a build order.
-Lanes T13 (architecture) and T14 (cheat cards checked by the real
-validator). Proposals only.
-Then: “Considering comic worlds and stuff and more? ... Cheats that would
-show stuff like these ... Overarching stuff? Implementation implciations and
-more? Abstaction thats needed? Relevant Crafting? Research?” Folded C10
-presentation (surfaces, ambient-line budget, layouts). Round 10: HA comic
-companions, HB comic mechanics, HC overarching principles, HD abstraction
-sketch (Actor, Link, Terms, Lens, Clock, Custody, Cue, Thread), HE crafting,
-HF in-world research, HG subtle, J57-J60 reveal cheats. New lanes C14 comics,
-C15 crafting and research, C16 overarching abstraction. Proposals only.
-Then: “Weaponcrafting, runestuff, other stuff and more? ... Cheats that would
-show stuff like these and more? ... Subtle stuff too? Overarching stuff?
-Implementation implciations and more? Abstaction thats needed?” Saved
-[weaponcrafting, runes and reveal](WEAPONCRAFTING_RUNES_AND_REVEAL_CONSIDERATIONS_2026-10-14.md)
-(WC, RN, RV, OV, XA, IM) and story round 10; lanes WR1-WR4 queued. Extends the
-crafting session's palette and P6. Proposals only.
-Then: “Weaponcrafting, runestuff, other stuff and more? more to consider? other
-stuff and more? Cheats that would show stuff like these and more? MOre to
-consider save and extend accordingly Send out codex as usesful? Subtle stuff
-too? Overarching stuff? Implementation implciations and more? Abstaction thats
-needed?”. Saved as [Weaponcraft, runes and inscription](WEAPONCRAFT_RUNES_AND_INSCRIPTION_CONSIDERATIONS_2026-10-14.md)
-(WC, RN, WW, CR, SU, OV, AB, IM) with UI surfaces in
-[UI at scale round 9](UI_AT_SCALE_CONSIDERATIONS_2026-10-14.md#round-9-u5-and-u6-returns-crafting-and-rune-surfaces-2026-10-14).
-Codex lanes R1-R3 sent to [weaponcraft-runes dispatch](gm/dispatch/weaponcraft-runes-2026-10-14/runs/SESSIONS.md).
-Proposals only.
-Then: “Considering comic worlds and stuff and more? ... Cheats that would show
-stuff like these and more? ... Overarching stuff? Implementation implciations
-and more? Abstaction thats needed?” Round 6 of the kit: comic worlds CW1-CW17
-and subtle CWS1-CWS7 (comics are not moved up the canon-first order), lens
-cheats CL1-CL15 with rules CLR1-CLR6, overarching shape OV1-OV8, abstractions
-AX1-AX19 with rules AXR1-AXR4, II27-II36, KX43-KX50 and lanes W16-W18.
-Proposals only.
-Then: “Considering comic worlds ... Abstaction thats needed? Idle stuff to
-gain progress out of the game as well? like meditating and wheatver While Im
-gone?” Round 22 of the intro doc: comic quick map CC1-CC10, away progress
-AW1-AW12, abstractions AB1-AB9, cheats CX13-CX16; lanes: away ledger (pure
-module, gate-first) and comic worlds mapping.
-Then (2026-10-14): “Weaponcrafting, runestuff, other stuff and more? more to
-consider? ... Cheats that would show stuff like these and more? ... Subtle stuff
-too? Overarching stuff? Implementation implciations and more? Abstaction thats
-needed?” Saved in [weaponcraft, runes and maker arts considerations](WEAPONCRAFT_RUNES_AND_MAKER_ARTS_CONSIDERATIONS_2026-10-14.md):
-WC1-WC14, AR1-AR6, RN1-RN14, OM1-OM16, WQ1-WQ14, RC1-RC16 with fidelity tiers
-F0-F5, SB1-SB12, OV1-OV8, IM1-IM12, AB1-AB12. Codex lanes W1-W7 sent
-([sessions](gm/dispatch/maker-arts-2026-10-14/SESSIONS.md)). Proposals only.
-Then: same request plus “Merging, commiting or pushing?”. Folded C9 micro
-behaviour (15 animal profiles, 59 sources, caveats on popular labels). Round
-11: topic map, IA merging companions, IB subtle, J61-J62. Committed this
-task's companion paths only; push and merge left for Weibao's explicit yes.
-A third session saved [comic worlds and the comic medium](COMIC_WORLDS_AND_MEDIUM_CONSIDERATIONS_2026-10-14.md):
-comic traditions beyond superheroes, industry habits as world-law dials,
-medium and law cheats, subtle panel touches, implications and abstractions,
-with a reconciliation table that defers overlapping rows to the kit and intro
-rounds. Codex lanes K1-K5 sent ([sessions](gm/dispatch/comics-2026-10-14/runs/SESSIONS.md));
-K6 stopped as a duplicate of W18. Proposals only.
-Then: “Considering comic worlds and stuff and more? ... Abstaction thats
-needed? Merging, commiting or pushing?” Saved round 9 (G75-G80) and launched
-lanes B17 (comic bodies) and B18 (abstractions). Proposals only.
-Then: “... Abstaction thats needed? Merging, commiting or pushing?” Round 23
-of the intro doc: merge/commit/push considerations MG1-MG6, projection layer
-PJ1-PJ6, cheats CX17-CX20; a probe micro-text lane.
-Then: “Considering comic worlds and stuff and more? ... Abstaction thats needed?
-Merging, commiting or pushing?”. Saved as
-[comic worlds, the abstractions needed, and landing the work](CHEAT_LIBRARY.md#more-to-consider-comic-worlds-the-abstractions-needed-and-landing-the-work-2026-10-14):
-CSW1-CSW10 the status window in comic worlds (beside the existing
-[comic worlds doc](COMIC_WORLDS_AND_MEDIUM_CONSIDERATIONS_2026-10-14.md)),
-SH19-SH26 comic information cheats, AB1-AB10 one reconciled abstraction
-stack with rule-of-two status, LW1-LW5 landing rules. Codex lane AB (read-only
-abstraction map across docs and code) sent. Proposals only.
-Then the same request with “Merging, commiting or pushing?”. Same request reached
-other sessions; weapon/rune work is canonical in the UI-at-scale session's
-palette (R1-R3), so WR1-WR4 here were stopped as duplicates. Story round 11 saved
-(BN story-reveal cheats, BO one knowledge layer, BP story abstractions, BQ
-implementation). Finished lane reports committed; push awaits Weibao's yes.
 
-After a core foundations scorecard flagged unmerged branches as a risk
-([scorecard F5](CORE_FOUNDATIONS_SCORECARD_2026-10-14.md#findings)), Weibao:
-“yes merge stuff accordingly and more, do that each time accordingly”.
-Standing direction: finished, gate-passing work gets merged into
-`codex/gameplay-foundations` (and pushed to origin under existing push
-authorizations) promptly, and every coordinator runs a merge sweep of its own
-finished branches before dispatching a new wave. Lane owners still merge their
-own lanes; an orphaned finished branch may be taken over with an explicit
-handoff. No stash, reset or force over other sessions' work.
-Then: “more to consider? other stuff and more? save and extend accordingly
-Send out codex as usesful? Subtle micro stuff too?” Round 7 of the same doc
-(MS senses, MB body, MT tools, MR paper trail, MA small accidents, MO small
-moments, MU presentation with a texture dial) and lane T10 (per-craft
-micro catalogue). Proposals only.
-Then: “more to consider? other stuff and more? save and extend accordingly Send
-out codex as usesful? Subtle micro stuff too?”. Saved as [round 6](UI_AT_SCALE_CONSIDERATIONS_2026-10-14.md#round-6-subtle-micro-details-2026-10-14):
-MI1-MI47, extending thematic P4. Codex lane U9 (micro-interactions with
-sources) sent. Proposals only.
-Then: “more to consider? other stuff and more? save and extend accordingly
-Send out codex as usesful? Subtle micro stuff too?” Saved round 6 (G56-G63)
-and launched lanes B12 (micro hooks audit) and B13 (diagnosis and look-alikes).
-Proposals only.
-Then: “more to consider? other stuff and more? save and extend accordingly Send
-out codex as usesful? Subtle micro stuff too?” Round 8 of the palette: micro
-details (BA address, BB being remembered, BC traces, BD village reactions, BE
-information texture, BF timing, BG desktop UI touches, BH per-world texture),
-P27/P28 results and P34 stage S-1 noted, lanes P36-P37 queued. Proposals only.
-Then the same prompt again. Round 3 of the kit: K25-K28 (personal space,
-routine and habit, lightness, seasons), micro verbs KV1-KV12, moments KT1-KT6,
-marks KK1-KK5, callbacks KC1-KC5, guards KG1-KG7, KX21-KX28 and lanes W10-W11.
-Proposals only.
-Then: same request again (with micro stuff). Round 7 (EA-ET micro: small
-verbs incl. "sit together", sound, consistency marks, mirroring, talking
-birds leaking secrets, dates, jealousy, health clues, weather sense, trust
-repair, firsts and lasts, its small wins, reunions, where it walks, food
-habits, guarding, companion pairs, spirit oddities, interface micro; EU-EZ
-other: art, it knows your secret, childhood pets, psychopomp, hunting ethics,
-rescued animals; J36-J38). New lane C10 (presentation surfaces and line
-budget at desktop). Proposals only.
-Then: “more to consider? other stuff and more? save and extend accordingly Send
-out codex as usesful? Subtle micro stuff too?”. Saved as
-[subtle micro details](CHEAT_LIBRARY.md#more-to-consider-subtle-micro-details-other-stuff-and-more-2026-10-14):
-MN1-MN10 numbers and text, ML1-ML7 messages, MI1-MI7 interaction, ME1-ME8
-engine edges (tick order, separate random stream, two tabs, throttling, save
-size), MW1-MW8 body, people and world, OS1-OS6. Read-only Codex lanes MX
-(micro UX audit) and TE (engine edges probe) sent beside R1 and W4.
-Proposals only.
-Then the same request again. Saved as [round 7](UI_AT_SCALE_CONSIDERATIONS_2026-10-14.md#round-7-u4-returns-interaction-grammar-and-more-micro-2026-10-14):
-U4 accessibility results folded in, IG1-IG7 and MI48-MI64. Codex lanes U10
-(teaching many systems) and U11 (reading and typography) sent. Proposals only.
-Then: “more to consider? ... Subtle micro stuff too?” Round 19 of the intro
-doc: reconciliation of the index's C1-C11 (OP3 Classic default superseded by
-PROJECT's Workspace default; others clarified), micro details MZ1-MZ18,
-returns (v2 verified, index, identity gaps, save shape), and a micro-details
-lane.
-Then: “... Subtle relevant stuff too?” Round 4 of the kit: K29-K32 (ripples,
-perception profile, subtext and status, tension rhythm), signals KS1-KS9,
-ripples KQ1-KQ7, perception KP1-KP7, subtext KD1-KD6, relevance rules KR1-KR5,
-KX29-KX36 and lanes W12-W13. Proposals only.
-Then: same request again ("Subtle stuff too?"). Folded C6 owner map (OM1-OM13,
-F1-F18 overlaps, gaps G1-G3) and C8 idle/prestige (current reset behaviour,
-closed-browser rest default, five first-prestige candidates). Round 8 (FA-FK
-subtle: uneven love, it knows something you don't, habituation, small
-agency, learned temperament, dreams, how others read your care, loyalty
-tests, private signals, comfort objects, late-life rhythm, ordinary is
-enough, long tail; FL-FO other; J39-J41). New lane C11 (per-world defaults for
-tensions and gaps). Proposals only.
-Then (same request, "Subtle stuff too?"): Round 20 of the intro doc
-(WS1-WS7, AY1-AY5, FR1-FR5, QA1-QA5, SB1-SB6; MZ16 autosave already exists
-every 60 s) and a pockets (MZ2) code lane in the start-records worktree.
-Then: “more to consider? other stuff and more? save and extend accordingly
-Send out codex as usesful? Subtle stuff too?” Saved round 7 (G64-G69), applied
-B4's reference corrections and launched lane B14. Proposals only.
-Then: “more to consider? other stuff and more? save and extend accordingly
-Send out codex as usesful? Subtle stuff too?” Round 8 of the same doc (SC
-how a mind holds knowledge, SS reading each other's work, SE market
-signals, SW the world showing change quietly, SN small numbers, SH hints
-and pacing), T1/T3/T4/T6 results folded, lanes T11-T12. Proposals only.
-Then: “more to consider? other stuff and more? save and extend accordingly Send
-out codex as usesful? Subtle stuff too?”. Saved as
-[subtle stuff, round 2](CHEAT_LIBRARY.md#more-to-consider-subtle-stuff-round-2-2026-10-14):
-PF1-PF7 player feel, TR1-TR6 trust and honesty, CA1-CA4 consent and agency,
-FR1-FR5 failure and recovery (quarantine at load), SL1-SL5 spoilers and
-leaks, LA1-LA7 look, sound and access, PE, LE1-LE4. Codex lane LQ (reusable
-leak lint check and load-time quarantine probe) sent. Proposals only.
-Then: “more to consider? other stuff and more? save and extend accordingly Send
-out codex as usesful? Subtle stuff too? Macro and general stuff? consider
-things to be inspired by and more? more to consider?”. Saved as
-[round 8](UI_AT_SCALE_CONSIDERATIONS_2026-10-14.md#round-8-lane-returns-macro-shape-and-inspirations-2026-10-14):
-U1/U2/U3/U8 results folded in, a correction of unsourced count limits, MA1-MA7,
-OI1-OI18 and MI65-MI72. Codex lanes U12 (outside inspirations) and U13
-(tabletop and paper) sent. Proposals only.
-Then: “more to consider? other stuff and more? save and extend accordingly Send
-out codex as usesful? Subtle stuff too? Implementation implciations and more?”
-Round 9 of the palette: implementation implications (BI one entity-ref scheme
-and receipt log, BJ order of work and a generator registry, BK runtime budgets,
-BL subtle determinism hazards, BM process). Merge sweep first (P26 committed
-12179d0f). Lanes P38 contract consolidation, P39 roadmap/registry, P40
-determinism audit queued. Proposals only.
-Then: “Cheats that would show stuff like these and more? ... Overarching
-stuff? Implementation implciations and more?” Round 21 of the intro doc:
-CX1-CX12 cheats that reveal hidden structure, OG1-OG7 overarching rules,
-IR1-IR9 implementation implications; lanes for an implementation map and
-CX cheat cards.
-Then: “more to consider? other stuff and more? Cheats that would show stuff
-like these and more? ... Subtle stuff too? Implementation implciations and
-more?” Folded C7 bond craft (C7:BB01-BB12 beats, BX01-BX10 anti-patterns).
-Round 9: GA reveal fidelity ladder (cue to forecast), GB reveal cheats
-J42-J56, GC implementation implications summary, GD subtle, GE other. New
-lanes C12 (reveal cheat cards fitted to CH1 status window) and C13
-(consolidated implementation implications). Proposals only.
-Then: “... Implementation implciations and more?” Round 5 of the kit: lane
-findings F1-F7 (power core is the top gap and is fragmented across about six
-capability systems; Mother of Learning most ready), implications II1-II26,
-subtle implementation IS1-IS10, K33-K34, proposed order IO1-IO6, KX37-KX42 and
-lanes W14-W15. Proposals only.
-Then: “more to consider? other stuff and more? Cheats that would show stuff
-like these and more? ... Subtle stuff too? Overarching stuff? Implementation
-implciations and more?” Saved round 8 (G70-G74) and launched lanes B15 and
-B16. Proposals only.
-Then: “more to consider? other stuff and more? Cheats that would show stuff like
-these and more? ... Subtle stuff too? Overarching stuff? Implementation
-implciations and more?”. Saved as
-[cheats that show things, the overarching model and implementation](CHEAT_LIBRARY.md#more-to-consider-cheats-that-show-things-the-overarching-model-and-implementation-2026-10-14):
-SH1-SH18 information cheats built from the earlier micro rows, OV1-OV8 one
-fact/knowledge/display model with a shared grade ladder, SE1-SE7 subtle
-effects of seeing, II1-II12 implementation implications and a proposed build
-order. Codex lanes IA (read-only info-layer architecture study) and W5
-(showing hidden information in games) sent. Proposals only.
-Then: “more to consider? other stuff and more? Cheats that would show stuff
-like these and more? MOre to consider save and extend accordingly Send out
-codex as usesful? Subtle stuff too? Overarching stuff? Implementation
-implciations and more?” Round 9 of the same doc: revealer cheats RC1-RC15
-with forms and subtle versions, the overarching model OM1-OM11 (truth,
-knowledge, presentation; means; receipts; one vocabulary, planner and
-scale ladder), and implementation implications IM1-IM8 with a build order.
-Lanes T13 (architecture) and T14 (cheat cards checked by the real
-validator). Proposals only.
-Then: “Considering comic worlds and stuff and more? ... Cheats that would
-show stuff like these ... Overarching stuff? Implementation implciations and
-more? Abstaction thats needed? Relevant Crafting? Research?” Folded C10
-presentation (surfaces, ambient-line budget, layouts). Round 10: HA comic
-companions, HB comic mechanics, HC overarching principles, HD abstraction
-sketch (Actor, Link, Terms, Lens, Clock, Custody, Cue, Thread), HE crafting,
-HF in-world research, HG subtle, J57-J60 reveal cheats. New lanes C14 comics,
-C15 crafting and research, C16 overarching abstraction. Proposals only.
-Then: “Weaponcrafting, runestuff, other stuff and more? ... Cheats that would
-show stuff like these and more? ... Subtle stuff too? Overarching stuff?
-Implementation implciations and more? Abstaction thats needed?” Saved
-[weaponcrafting, runes and reveal](WEAPONCRAFTING_RUNES_AND_REVEAL_CONSIDERATIONS_2026-10-14.md)
-(WC, RN, RV, OV, XA, IM) and story round 10; lanes WR1-WR4 queued. Extends the
-crafting session's palette and P6. Proposals only.
-Then: “Weaponcrafting, runestuff, other stuff and more? more to consider? other
-stuff and more? Cheats that would show stuff like these and more? MOre to
-consider save and extend accordingly Send out codex as usesful? Subtle stuff
-too? Overarching stuff? Implementation implciations and more? Abstaction thats
-needed?”. Saved as [Weaponcraft, runes and inscription](WEAPONCRAFT_RUNES_AND_INSCRIPTION_CONSIDERATIONS_2026-10-14.md)
-(WC, RN, WW, CR, SU, OV, AB, IM) with UI surfaces in
-[UI at scale round 9](UI_AT_SCALE_CONSIDERATIONS_2026-10-14.md#round-9-u5-and-u6-returns-crafting-and-rune-surfaces-2026-10-14).
-Codex lanes R1-R3 sent to [weaponcraft-runes dispatch](gm/dispatch/weaponcraft-runes-2026-10-14/runs/SESSIONS.md).
-Proposals only.
-Then: “Considering comic worlds and stuff and more? ... Cheats that would show
-stuff like these and more? ... Overarching stuff? Implementation implciations
-and more? Abstaction thats needed?” Round 6 of the kit: comic worlds CW1-CW17
-and subtle CWS1-CWS7 (comics are not moved up the canon-first order), lens
-cheats CL1-CL15 with rules CLR1-CLR6, overarching shape OV1-OV8, abstractions
-AX1-AX19 with rules AXR1-AXR4, II27-II36, KX43-KX50 and lanes W16-W18.
-Proposals only.
-Then: “Considering comic worlds ... Abstaction thats needed? Idle stuff to
-gain progress out of the game as well? like meditating and wheatver While Im
-gone?” Round 22 of the intro doc: comic quick map CC1-CC10, away progress
-AW1-AW12, abstractions AB1-AB9, cheats CX13-CX16; lanes: away ledger (pure
-module, gate-first) and comic worlds mapping.
-Then (2026-10-14): “Weaponcrafting, runestuff, other stuff and more? more to
-consider? ... Cheats that would show stuff like these and more? ... Subtle stuff
-too? Overarching stuff? Implementation implciations and more? Abstaction thats
-needed?” Saved in [weaponcraft, runes and maker arts considerations](WEAPONCRAFT_RUNES_AND_MAKER_ARTS_CONSIDERATIONS_2026-10-14.md):
-WC1-WC14, AR1-AR6, RN1-RN14, OM1-OM16, WQ1-WQ14, RC1-RC16 with fidelity tiers
-F0-F5, SB1-SB12, OV1-OV8, IM1-IM12, AB1-AB12. Codex lanes W1-W7 sent
-([sessions](gm/dispatch/maker-arts-2026-10-14/SESSIONS.md)). Proposals only.
-Then: same request plus “Merging, commiting or pushing?”. Folded C9 micro
-behaviour (15 animal profiles, 59 sources, caveats on popular labels). Round
-11: topic map, IA merging companions, IB subtle, J61-J62. Committed this
-task's companion paths only; push and merge left for Weibao's explicit yes.
-A third session saved [comic worlds and the comic medium](COMIC_WORLDS_AND_MEDIUM_CONSIDERATIONS_2026-10-14.md):
-comic traditions beyond superheroes, industry habits as world-law dials,
-medium and law cheats, subtle panel touches, implications and abstractions,
-with a reconciliation table that defers overlapping rows to the kit and intro
-rounds. Codex lanes K1-K5 sent ([sessions](gm/dispatch/comics-2026-10-14/runs/SESSIONS.md));
-K6 stopped as a duplicate of W18. Proposals only.
-Then: “Considering comic worlds and stuff and more? ... Abstaction thats
-needed? Merging, commiting or pushing?” Saved round 9 (G75-G80) and launched
-lanes B17 (comic bodies) and B18 (abstractions). Proposals only.
-Then: “... Abstaction thats needed? Merging, commiting or pushing?” Round 23
-of the intro doc: merge/commit/push considerations MG1-MG6, projection layer
-PJ1-PJ6, cheats CX17-CX20; a probe micro-text lane.
-Then: “Considering comic worlds and stuff and more? ... Abstaction thats needed?
-Merging, commiting or pushing?”. Saved as
-[comic worlds, the abstractions needed, and landing the work](CHEAT_LIBRARY.md#more-to-consider-comic-worlds-the-abstractions-needed-and-landing-the-work-2026-10-14):
-CSW1-CSW10 the status window in comic worlds (beside the existing
-[comic worlds doc](COMIC_WORLDS_AND_MEDIUM_CONSIDERATIONS_2026-10-14.md)),
-SH19-SH26 comic information cheats, AB1-AB10 one reconciled abstraction
-stack with rule-of-two status, LW1-LW5 landing rules. Codex lane AB (read-only
-abstraction map across docs and code) sent. Proposals only.
-Then the same request with “Merging, commiting or pushing?”. Same request reached
-other sessions; weapon/rune work is canonical in the UI-at-scale session's
-palette (R1-R3), so WR1-WR4 here were stopped as duplicates. Story round 11 saved
-(BN story-reveal cheats, BO one knowledge layer, BP story abstractions, BQ
-implementation). Finished lane reports committed; push awaits Weibao's yes.
 
-After a core foundations scorecard flagged unmerged branches as a risk
-([scorecard F5](CORE_FOUNDATIONS_SCORECARD_2026-10-14.md#findings)), Weibao:
-“yes merge stuff accordingly and more, do that each time accordingly”.
-Standing direction: finished, gate-passing work gets merged into
-`codex/gameplay-foundations` (and pushed to origin under existing push
-authorizations) promptly, and every coordinator runs a merge sweep of its own
-finished branches before dispatching a new wave. Lane owners still merge their
-own lanes; an orphaned finished branch may be taken over with an explicit
-handoff. No stash, reset or force over other sessions' work.
-Then: “more to consider? other stuff and more? save and extend accordingly
-Send out codex as usesful? Subtle micro stuff too?” Round 7 of the same doc
-(MS senses, MB body, MT tools, MR paper trail, MA small accidents, MO small
-moments, MU presentation with a texture dial) and lane T10 (per-craft
-micro catalogue). Proposals only.
-Then: “more to consider? other stuff and more? save and extend accordingly Send
-out codex as usesful? Subtle micro stuff too?”. Saved as [round 6](UI_AT_SCALE_CONSIDERATIONS_2026-10-14.md#round-6-subtle-micro-details-2026-10-14):
-MI1-MI47, extending thematic P4. Codex lane U9 (micro-interactions with
-sources) sent. Proposals only.
-Then: “more to consider? other stuff and more? save and extend accordingly
-Send out codex as usesful? Subtle micro stuff too?” Saved round 6 (G56-G63)
-and launched lanes B12 (micro hooks audit) and B13 (diagnosis and look-alikes).
-Proposals only.
-Then: “more to consider? other stuff and more? save and extend accordingly Send
-out codex as usesful? Subtle micro stuff too?” Round 8 of the palette: micro
-details (BA address, BB being remembered, BC traces, BD village reactions, BE
-information texture, BF timing, BG desktop UI touches, BH per-world texture),
-P27/P28 results and P34 stage S-1 noted, lanes P36-P37 queued. Proposals only.
-Then the same prompt again. Round 3 of the kit: K25-K28 (personal space,
-routine and habit, lightness, seasons), micro verbs KV1-KV12, moments KT1-KT6,
-marks KK1-KK5, callbacks KC1-KC5, guards KG1-KG7, KX21-KX28 and lanes W10-W11.
-Proposals only.
-Then: same request again (with micro stuff). Round 7 (EA-ET micro: small
-verbs incl. "sit together", sound, consistency marks, mirroring, talking
-birds leaking secrets, dates, jealousy, health clues, weather sense, trust
-repair, firsts and lasts, its small wins, reunions, where it walks, food
-habits, guarding, companion pairs, spirit oddities, interface micro; EU-EZ
-other: art, it knows your secret, childhood pets, psychopomp, hunting ethics,
-rescued animals; J36-J38). New lane C10 (presentation surfaces and line
-budget at desktop). Proposals only.
-Then: “more to consider? other stuff and more? save and extend accordingly Send
-out codex as usesful? Subtle micro stuff too?”. Saved as
-[subtle micro details](CHEAT_LIBRARY.md#more-to-consider-subtle-micro-details-other-stuff-and-more-2026-10-14):
-MN1-MN10 numbers and text, ML1-ML7 messages, MI1-MI7 interaction, ME1-ME8
-engine edges (tick order, separate random stream, two tabs, throttling, save
-size), MW1-MW8 body, people and world, OS1-OS6. Read-only Codex lanes MX
-(micro UX audit) and TE (engine edges probe) sent beside R1 and W4.
-Proposals only.
-Then the same request again. Saved as [round 7](UI_AT_SCALE_CONSIDERATIONS_2026-10-14.md#round-7-u4-returns-interaction-grammar-and-more-micro-2026-10-14):
-U4 accessibility results folded in, IG1-IG7 and MI48-MI64. Codex lanes U10
-(teaching many systems) and U11 (reading and typography) sent. Proposals only.
-Then: “more to consider? ... Subtle micro stuff too?” Round 19 of the intro
-doc: reconciliation of the index's C1-C11 (OP3 Classic default superseded by
-PROJECT's Workspace default; others clarified), micro details MZ1-MZ18,
-returns (v2 verified, index, identity gaps, save shape), and a micro-details
-lane.
-Then: “... Subtle relevant stuff too?” Round 4 of the kit: K29-K32 (ripples,
-perception profile, subtext and status, tension rhythm), signals KS1-KS9,
-ripples KQ1-KQ7, perception KP1-KP7, subtext KD1-KD6, relevance rules KR1-KR5,
-KX29-KX36 and lanes W12-W13. Proposals only.
-Then: same request again ("Subtle stuff too?"). Folded C6 owner map (OM1-OM13,
-F1-F18 overlaps, gaps G1-G3) and C8 idle/prestige (current reset behaviour,
-closed-browser rest default, five first-prestige candidates). Round 8 (FA-FK
-subtle: uneven love, it knows something you don't, habituation, small
-agency, learned temperament, dreams, how others read your care, loyalty
-tests, private signals, comfort objects, late-life rhythm, ordinary is
-enough, long tail; FL-FO other; J39-J41). New lane C11 (per-world defaults for
-tensions and gaps). Proposals only.
-Then (same request, "Subtle stuff too?"): Round 20 of the intro doc
-(WS1-WS7, AY1-AY5, FR1-FR5, QA1-QA5, SB1-SB6; MZ16 autosave already exists
-every 60 s) and a pockets (MZ2) code lane in the start-records worktree.
-Then: “more to consider? other stuff and more? save and extend accordingly
-Send out codex as usesful? Subtle stuff too?” Saved round 7 (G64-G69), applied
-B4's reference corrections and launched lane B14. Proposals only.
-Then: “more to consider? other stuff and more? save and extend accordingly
-Send out codex as usesful? Subtle stuff too?” Round 8 of the same doc (SC
-how a mind holds knowledge, SS reading each other's work, SE market
-signals, SW the world showing change quietly, SN small numbers, SH hints
-and pacing), T1/T3/T4/T6 results folded, lanes T11-T12. Proposals only.
-Then: “more to consider? other stuff and more? save and extend accordingly Send
-out codex as usesful? Subtle stuff too?”. Saved as
-[subtle stuff, round 2](CHEAT_LIBRARY.md#more-to-consider-subtle-stuff-round-2-2026-10-14):
-PF1-PF7 player feel, TR1-TR6 trust and honesty, CA1-CA4 consent and agency,
-FR1-FR5 failure and recovery (quarantine at load), SL1-SL5 spoilers and
-leaks, LA1-LA7 look, sound and access, PE, LE1-LE4. Codex lane LQ (reusable
-leak lint check and load-time quarantine probe) sent. Proposals only.
-Then: “more to consider? other stuff and more? save and extend accordingly Send
-out codex as usesful? Subtle stuff too? Macro and general stuff? consider
-things to be inspired by and more? more to consider?”. Saved as
-[round 8](UI_AT_SCALE_CONSIDERATIONS_2026-10-14.md#round-8-lane-returns-macro-shape-and-inspirations-2026-10-14):
-U1/U2/U3/U8 results folded in, a correction of unsourced count limits, MA1-MA7,
-OI1-OI18 and MI65-MI72. Codex lanes U12 (outside inspirations) and U13
-(tabletop and paper) sent. Proposals only.
-Then: “more to consider? other stuff and more? save and extend accordingly Send
-out codex as usesful? Subtle stuff too? Implementation implciations and more?”
-Round 9 of the palette: implementation implications (BI one entity-ref scheme
-and receipt log, BJ order of work and a generator registry, BK runtime budgets,
-BL subtle determinism hazards, BM process). Merge sweep first (P26 committed
-12179d0f). Lanes P38 contract consolidation, P39 roadmap/registry, P40
-determinism audit queued. Proposals only.
-Then: “Cheats that would show stuff like these and more? ... Overarching
-stuff? Implementation implciations and more?” Round 21 of the intro doc:
-CX1-CX12 cheats that reveal hidden structure, OG1-OG7 overarching rules,
-IR1-IR9 implementation implications; lanes for an implementation map and
-CX cheat cards.
-Then: “more to consider? other stuff and more? Cheats that would show stuff
-like these and more? ... Subtle stuff too? Implementation implciations and
-more?” Folded C7 bond craft (C7:BB01-BB12 beats, BX01-BX10 anti-patterns).
-Round 9: GA reveal fidelity ladder (cue to forecast), GB reveal cheats
-J42-J56, GC implementation implications summary, GD subtle, GE other. New
-lanes C12 (reveal cheat cards fitted to CH1 status window) and C13
-(consolidated implementation implications). Proposals only.
-Then: “... Implementation implciations and more?” Round 5 of the kit: lane
-findings F1-F7 (power core is the top gap and is fragmented across about six
-capability systems; Mother of Learning most ready), implications II1-II26,
-subtle implementation IS1-IS10, K33-K34, proposed order IO1-IO6, KX37-KX42 and
-lanes W14-W15. Proposals only.
-Then: “more to consider? other stuff and more? Cheats that would show stuff
-like these and more? ... Subtle stuff too? Overarching stuff? Implementation
-implciations and more?” Saved round 8 (G70-G74) and launched lanes B15 and
-B16. Proposals only.
-Then: “more to consider? other stuff and more? Cheats that would show stuff like
-these and more? ... Subtle stuff too? Overarching stuff? Implementation
-implciations and more?”. Saved as
-[cheats that show things, the overarching model and implementation](CHEAT_LIBRARY.md#more-to-consider-cheats-that-show-things-the-overarching-model-and-implementation-2026-10-14):
-SH1-SH18 information cheats built from the earlier micro rows, OV1-OV8 one
-fact/knowledge/display model with a shared grade ladder, SE1-SE7 subtle
-effects of seeing, II1-II12 implementation implications and a proposed build
-order. Codex lanes IA (read-only info-layer architecture study) and W5
-(showing hidden information in games) sent. Proposals only.
-Then: “more to consider? other stuff and more? Cheats that would show stuff
-like these and more? MOre to consider save and extend accordingly Send out
-codex as usesful? Subtle stuff too? Overarching stuff? Implementation
-implciations and more?” Round 9 of the same doc: revealer cheats RC1-RC15
-with forms and subtle versions, the overarching model OM1-OM11 (truth,
-knowledge, presentation; means; receipts; one vocabulary, planner and
-scale ladder), and implementation implications IM1-IM8 with a build order.
-Lanes T13 (architecture) and T14 (cheat cards checked by the real
-validator). Proposals only.
-Then: “Considering comic worlds and stuff and more? ... Cheats that would
-show stuff like these ... Overarching stuff? Implementation implciations and
-more? Abstaction thats needed? Relevant Crafting? Research?” Folded C10
-presentation (surfaces, ambient-line budget, layouts). Round 10: HA comic
-companions, HB comic mechanics, HC overarching principles, HD abstraction
-sketch (Actor, Link, Terms, Lens, Clock, Custody, Cue, Thread), HE crafting,
-HF in-world research, HG subtle, J57-J60 reveal cheats. New lanes C14 comics,
-C15 crafting and research, C16 overarching abstraction. Proposals only.
-Then: “Weaponcrafting, runestuff, other stuff and more? ... Cheats that would
-show stuff like these and more? ... Subtle stuff too? Overarching stuff?
-Implementation implciations and more? Abstaction thats needed?” Saved
-[weaponcrafting, runes and reveal](WEAPONCRAFTING_RUNES_AND_REVEAL_CONSIDERATIONS_2026-10-14.md)
-(WC, RN, RV, OV, XA, IM) and story round 10; lanes WR1-WR4 queued. Extends the
-crafting session's palette and P6. Proposals only.
-Then: “Weaponcrafting, runestuff, other stuff and more? more to consider? other
-stuff and more? Cheats that would show stuff like these and more? MOre to
-consider save and extend accordingly Send out codex as usesful? Subtle stuff
-too? Overarching stuff? Implementation implciations and more? Abstaction thats
-needed?”. Saved as [Weaponcraft, runes and inscription](WEAPONCRAFT_RUNES_AND_INSCRIPTION_CONSIDERATIONS_2026-10-14.md)
-(WC, RN, WW, CR, SU, OV, AB, IM) with UI surfaces in
-[UI at scale round 9](UI_AT_SCALE_CONSIDERATIONS_2026-10-14.md#round-9-u5-and-u6-returns-crafting-and-rune-surfaces-2026-10-14).
-Codex lanes R1-R3 sent to [weaponcraft-runes dispatch](gm/dispatch/weaponcraft-runes-2026-10-14/runs/SESSIONS.md).
-Proposals only.
-Then: “Considering comic worlds and stuff and more? ... Cheats that would show
-stuff like these and more? ... Overarching stuff? Implementation implciations
-and more? Abstaction thats needed?” Round 6 of the kit: comic worlds CW1-CW17
-and subtle CWS1-CWS7 (comics are not moved up the canon-first order), lens
-cheats CL1-CL15 with rules CLR1-CLR6, overarching shape OV1-OV8, abstractions
-AX1-AX19 with rules AXR1-AXR4, II27-II36, KX43-KX50 and lanes W16-W18.
-Proposals only.
-Then: “Considering comic worlds ... Abstaction thats needed? Idle stuff to
-gain progress out of the game as well? like meditating and wheatver While Im
-gone?” Round 22 of the intro doc: comic quick map CC1-CC10, away progress
-AW1-AW12, abstractions AB1-AB9, cheats CX13-CX16; lanes: away ledger (pure
-module, gate-first) and comic worlds mapping.
-Then (2026-10-14): “Weaponcrafting, runestuff, other stuff and more? more to
-consider? ... Cheats that would show stuff like these and more? ... Subtle stuff
-too? Overarching stuff? Implementation implciations and more? Abstaction thats
-needed?” Saved in [weaponcraft, runes and maker arts considerations](WEAPONCRAFT_RUNES_AND_MAKER_ARTS_CONSIDERATIONS_2026-10-14.md):
-WC1-WC14, AR1-AR6, RN1-RN14, OM1-OM16, WQ1-WQ14, RC1-RC16 with fidelity tiers
-F0-F5, SB1-SB12, OV1-OV8, IM1-IM12, AB1-AB12. Codex lanes W1-W7 sent
-([sessions](gm/dispatch/maker-arts-2026-10-14/SESSIONS.md)). Proposals only.
-Then: same request plus “Merging, commiting or pushing?”. Folded C9 micro
-behaviour (15 animal profiles, 59 sources, caveats on popular labels). Round
-11: topic map, IA merging companions, IB subtle, J61-J62. Committed this
-task's companion paths only; push and merge left for Weibao's explicit yes.
-A third session saved [comic worlds and the comic medium](COMIC_WORLDS_AND_MEDIUM_CONSIDERATIONS_2026-10-14.md):
-comic traditions beyond superheroes, industry habits as world-law dials,
-medium and law cheats, subtle panel touches, implications and abstractions,
-with a reconciliation table that defers overlapping rows to the kit and intro
-rounds. Codex lanes K1-K5 sent ([sessions](gm/dispatch/comics-2026-10-14/runs/SESSIONS.md));
-K6 stopped as a duplicate of W18. Proposals only.
-Then: “Considering comic worlds and stuff and more? ... Abstaction thats
-needed? Merging, commiting or pushing?” Saved round 9 (G75-G80) and launched
-lanes B17 (comic bodies) and B18 (abstractions). Proposals only.
-Then: “... Abstaction thats needed? Merging, commiting or pushing?” Round 23
-of the intro doc: merge/commit/push considerations MG1-MG6, projection layer
-PJ1-PJ6, cheats CX17-CX20; a probe micro-text lane.
-Then: “Considering comic worlds and stuff and more? ... Abstaction thats needed?
-Merging, commiting or pushing?”. Saved as
-[comic worlds, the abstractions needed, and landing the work](CHEAT_LIBRARY.md#more-to-consider-comic-worlds-the-abstractions-needed-and-landing-the-work-2026-10-14):
-CSW1-CSW10 the status window in comic worlds (beside the existing
-[comic worlds doc](COMIC_WORLDS_AND_MEDIUM_CONSIDERATIONS_2026-10-14.md)),
-SH19-SH26 comic information cheats, AB1-AB10 one reconciled abstraction
-stack with rule-of-two status, LW1-LW5 landing rules. Codex lane AB (read-only
-abstraction map across docs and code) sent. Proposals only.
-Then the same request with “Merging, commiting or pushing?”. Same request reached
-other sessions; weapon/rune work is canonical in the UI-at-scale session's
-palette (R1-R3), so WR1-WR4 here were stopped as duplicates. Story round 11 saved
-(BN story-reveal cheats, BO one knowledge layer, BP story abstractions, BQ
-implementation). Finished lane reports committed; push awaits Weibao's yes.
 
 Then: “Considering comic worlds and stuff and more? ... Abstaction thats
 needed? Merging, commiting or pushing?” Round 10 of the same doc: comic
@@ -3499,868 +2861,84 @@ T8, T9 results folded. Lanes T15 (comics) and T16 (planner QA build on T6's
 branch). Root committed its own doc paths only; push waits for an explicit
 yes. Proposals only.
 
-Then: “Considering comic worlds and stuff and more? ... Abstaction thats
-needed? Merging, commiting or pushing?” Saved round 9 (G75-G80) and launched
-lanes B17 (comic bodies) and B18 (abstractions). Proposals only.
-Then: “... Abstaction thats needed? Merging, commiting or pushing?” Round 23
-of the intro doc: merge/commit/push considerations MG1-MG6, projection layer
-PJ1-PJ6, cheats CX17-CX20; a probe micro-text lane.
-Then: “Considering comic worlds and stuff and more? ... Abstaction thats needed?
-Merging, commiting or pushing?”. Saved as
-[comic worlds, the abstractions needed, and landing the work](CHEAT_LIBRARY.md#more-to-consider-comic-worlds-the-abstractions-needed-and-landing-the-work-2026-10-14):
-CSW1-CSW10 the status window in comic worlds (beside the existing
-[comic worlds doc](COMIC_WORLDS_AND_MEDIUM_CONSIDERATIONS_2026-10-14.md)),
-SH19-SH26 comic information cheats, AB1-AB10 one reconciled abstraction
-stack with rule-of-two status, LW1-LW5 landing rules. Codex lane AB (read-only
-abstraction map across docs and code) sent. Proposals only.
-Then the same request with “Merging, commiting or pushing?”. Same request reached
-other sessions; weapon/rune work is canonical in the UI-at-scale session's
-palette (R1-R3), so WR1-WR4 here were stopped as duplicates. Story round 11 saved
-(BN story-reveal cheats, BO one knowledge layer, BP story abstractions, BQ
-implementation). Finished lane reports committed; push awaits Weibao's yes.
 
-After a core foundations scorecard flagged unmerged branches as a risk
-([scorecard F5](CORE_FOUNDATIONS_SCORECARD_2026-10-14.md#findings)), Weibao:
-“yes merge stuff accordingly and more, do that each time accordingly”.
-Standing direction: finished, gate-passing work gets merged into
-`codex/gameplay-foundations` (and pushed to origin under existing push
-authorizations) promptly, and every coordinator runs a merge sweep of its own
-finished branches before dispatching a new wave. Lane owners still merge their
-own lanes; an orphaned finished branch may be taken over with an explicit
-handoff. No stash, reset or force over other sessions' work.
-Then: “more to consider? other stuff and more? save and extend accordingly
-Send out codex as usesful? Subtle micro stuff too?” Round 7 of the same doc
-(MS senses, MB body, MT tools, MR paper trail, MA small accidents, MO small
-moments, MU presentation with a texture dial) and lane T10 (per-craft
-micro catalogue). Proposals only.
-Then: “more to consider? other stuff and more? save and extend accordingly Send
-out codex as usesful? Subtle micro stuff too?”. Saved as [round 6](UI_AT_SCALE_CONSIDERATIONS_2026-10-14.md#round-6-subtle-micro-details-2026-10-14):
-MI1-MI47, extending thematic P4. Codex lane U9 (micro-interactions with
-sources) sent. Proposals only.
-Then: “more to consider? other stuff and more? save and extend accordingly
-Send out codex as usesful? Subtle micro stuff too?” Saved round 6 (G56-G63)
-and launched lanes B12 (micro hooks audit) and B13 (diagnosis and look-alikes).
-Proposals only.
-Then: “more to consider? other stuff and more? save and extend accordingly Send
-out codex as usesful? Subtle micro stuff too?” Round 8 of the palette: micro
-details (BA address, BB being remembered, BC traces, BD village reactions, BE
-information texture, BF timing, BG desktop UI touches, BH per-world texture),
-P27/P28 results and P34 stage S-1 noted, lanes P36-P37 queued. Proposals only.
-Then the same prompt again. Round 3 of the kit: K25-K28 (personal space,
-routine and habit, lightness, seasons), micro verbs KV1-KV12, moments KT1-KT6,
-marks KK1-KK5, callbacks KC1-KC5, guards KG1-KG7, KX21-KX28 and lanes W10-W11.
-Proposals only.
-Then: same request again (with micro stuff). Round 7 (EA-ET micro: small
-verbs incl. "sit together", sound, consistency marks, mirroring, talking
-birds leaking secrets, dates, jealousy, health clues, weather sense, trust
-repair, firsts and lasts, its small wins, reunions, where it walks, food
-habits, guarding, companion pairs, spirit oddities, interface micro; EU-EZ
-other: art, it knows your secret, childhood pets, psychopomp, hunting ethics,
-rescued animals; J36-J38). New lane C10 (presentation surfaces and line
-budget at desktop). Proposals only.
-Then: “more to consider? other stuff and more? save and extend accordingly Send
-out codex as usesful? Subtle micro stuff too?”. Saved as
-[subtle micro details](CHEAT_LIBRARY.md#more-to-consider-subtle-micro-details-other-stuff-and-more-2026-10-14):
-MN1-MN10 numbers and text, ML1-ML7 messages, MI1-MI7 interaction, ME1-ME8
-engine edges (tick order, separate random stream, two tabs, throttling, save
-size), MW1-MW8 body, people and world, OS1-OS6. Read-only Codex lanes MX
-(micro UX audit) and TE (engine edges probe) sent beside R1 and W4.
-Proposals only.
-Then the same request again. Saved as [round 7](UI_AT_SCALE_CONSIDERATIONS_2026-10-14.md#round-7-u4-returns-interaction-grammar-and-more-micro-2026-10-14):
-U4 accessibility results folded in, IG1-IG7 and MI48-MI64. Codex lanes U10
-(teaching many systems) and U11 (reading and typography) sent. Proposals only.
-Then: “more to consider? ... Subtle micro stuff too?” Round 19 of the intro
-doc: reconciliation of the index's C1-C11 (OP3 Classic default superseded by
-PROJECT's Workspace default; others clarified), micro details MZ1-MZ18,
-returns (v2 verified, index, identity gaps, save shape), and a micro-details
-lane.
-Then: “... Subtle relevant stuff too?” Round 4 of the kit: K29-K32 (ripples,
-perception profile, subtext and status, tension rhythm), signals KS1-KS9,
-ripples KQ1-KQ7, perception KP1-KP7, subtext KD1-KD6, relevance rules KR1-KR5,
-KX29-KX36 and lanes W12-W13. Proposals only.
-Then: same request again ("Subtle stuff too?"). Folded C6 owner map (OM1-OM13,
-F1-F18 overlaps, gaps G1-G3) and C8 idle/prestige (current reset behaviour,
-closed-browser rest default, five first-prestige candidates). Round 8 (FA-FK
-subtle: uneven love, it knows something you don't, habituation, small
-agency, learned temperament, dreams, how others read your care, loyalty
-tests, private signals, comfort objects, late-life rhythm, ordinary is
-enough, long tail; FL-FO other; J39-J41). New lane C11 (per-world defaults for
-tensions and gaps). Proposals only.
-Then (same request, "Subtle stuff too?"): Round 20 of the intro doc
-(WS1-WS7, AY1-AY5, FR1-FR5, QA1-QA5, SB1-SB6; MZ16 autosave already exists
-every 60 s) and a pockets (MZ2) code lane in the start-records worktree.
-Then: “more to consider? other stuff and more? save and extend accordingly
-Send out codex as usesful? Subtle stuff too?” Saved round 7 (G64-G69), applied
-B4's reference corrections and launched lane B14. Proposals only.
-Then: “more to consider? other stuff and more? save and extend accordingly
-Send out codex as usesful? Subtle stuff too?” Round 8 of the same doc (SC
-how a mind holds knowledge, SS reading each other's work, SE market
-signals, SW the world showing change quietly, SN small numbers, SH hints
-and pacing), T1/T3/T4/T6 results folded, lanes T11-T12. Proposals only.
-Then: “more to consider? other stuff and more? save and extend accordingly Send
-out codex as usesful? Subtle stuff too?”. Saved as
-[subtle stuff, round 2](CHEAT_LIBRARY.md#more-to-consider-subtle-stuff-round-2-2026-10-14):
-PF1-PF7 player feel, TR1-TR6 trust and honesty, CA1-CA4 consent and agency,
-FR1-FR5 failure and recovery (quarantine at load), SL1-SL5 spoilers and
-leaks, LA1-LA7 look, sound and access, PE, LE1-LE4. Codex lane LQ (reusable
-leak lint check and load-time quarantine probe) sent. Proposals only.
-Then: “more to consider? other stuff and more? save and extend accordingly Send
-out codex as usesful? Subtle stuff too? Macro and general stuff? consider
-things to be inspired by and more? more to consider?”. Saved as
-[round 8](UI_AT_SCALE_CONSIDERATIONS_2026-10-14.md#round-8-lane-returns-macro-shape-and-inspirations-2026-10-14):
-U1/U2/U3/U8 results folded in, a correction of unsourced count limits, MA1-MA7,
-OI1-OI18 and MI65-MI72. Codex lanes U12 (outside inspirations) and U13
-(tabletop and paper) sent. Proposals only.
-Then: “more to consider? other stuff and more? save and extend accordingly Send
-out codex as usesful? Subtle stuff too? Implementation implciations and more?”
-Round 9 of the palette: implementation implications (BI one entity-ref scheme
-and receipt log, BJ order of work and a generator registry, BK runtime budgets,
-BL subtle determinism hazards, BM process). Merge sweep first (P26 committed
-12179d0f). Lanes P38 contract consolidation, P39 roadmap/registry, P40
-determinism audit queued. Proposals only.
-Then: “Cheats that would show stuff like these and more? ... Overarching
-stuff? Implementation implciations and more?” Round 21 of the intro doc:
-CX1-CX12 cheats that reveal hidden structure, OG1-OG7 overarching rules,
-IR1-IR9 implementation implications; lanes for an implementation map and
-CX cheat cards.
-Then: “more to consider? other stuff and more? Cheats that would show stuff
-like these and more? ... Subtle stuff too? Implementation implciations and
-more?” Folded C7 bond craft (C7:BB01-BB12 beats, BX01-BX10 anti-patterns).
-Round 9: GA reveal fidelity ladder (cue to forecast), GB reveal cheats
-J42-J56, GC implementation implications summary, GD subtle, GE other. New
-lanes C12 (reveal cheat cards fitted to CH1 status window) and C13
-(consolidated implementation implications). Proposals only.
-Then: “... Implementation implciations and more?” Round 5 of the kit: lane
-findings F1-F7 (power core is the top gap and is fragmented across about six
-capability systems; Mother of Learning most ready), implications II1-II26,
-subtle implementation IS1-IS10, K33-K34, proposed order IO1-IO6, KX37-KX42 and
-lanes W14-W15. Proposals only.
-Then: “more to consider? other stuff and more? Cheats that would show stuff
-like these and more? ... Subtle stuff too? Overarching stuff? Implementation
-implciations and more?” Saved round 8 (G70-G74) and launched lanes B15 and
-B16. Proposals only.
-Then: “more to consider? other stuff and more? Cheats that would show stuff like
-these and more? ... Subtle stuff too? Overarching stuff? Implementation
-implciations and more?”. Saved as
-[cheats that show things, the overarching model and implementation](CHEAT_LIBRARY.md#more-to-consider-cheats-that-show-things-the-overarching-model-and-implementation-2026-10-14):
-SH1-SH18 information cheats built from the earlier micro rows, OV1-OV8 one
-fact/knowledge/display model with a shared grade ladder, SE1-SE7 subtle
-effects of seeing, II1-II12 implementation implications and a proposed build
-order. Codex lanes IA (read-only info-layer architecture study) and W5
-(showing hidden information in games) sent. Proposals only.
-Then: “more to consider? other stuff and more? Cheats that would show stuff
-like these and more? MOre to consider save and extend accordingly Send out
-codex as usesful? Subtle stuff too? Overarching stuff? Implementation
-implciations and more?” Round 9 of the same doc: revealer cheats RC1-RC15
-with forms and subtle versions, the overarching model OM1-OM11 (truth,
-knowledge, presentation; means; receipts; one vocabulary, planner and
-scale ladder), and implementation implications IM1-IM8 with a build order.
-Lanes T13 (architecture) and T14 (cheat cards checked by the real
-validator). Proposals only.
-Then: “Considering comic worlds and stuff and more? ... Cheats that would
-show stuff like these ... Overarching stuff? Implementation implciations and
-more? Abstaction thats needed? Relevant Crafting? Research?” Folded C10
-presentation (surfaces, ambient-line budget, layouts). Round 10: HA comic
-companions, HB comic mechanics, HC overarching principles, HD abstraction
-sketch (Actor, Link, Terms, Lens, Clock, Custody, Cue, Thread), HE crafting,
-HF in-world research, HG subtle, J57-J60 reveal cheats. New lanes C14 comics,
-C15 crafting and research, C16 overarching abstraction. Proposals only.
-Then: “Weaponcrafting, runestuff, other stuff and more? ... Cheats that would
-show stuff like these and more? ... Subtle stuff too? Overarching stuff?
-Implementation implciations and more? Abstaction thats needed?” Saved
-[weaponcrafting, runes and reveal](WEAPONCRAFTING_RUNES_AND_REVEAL_CONSIDERATIONS_2026-10-14.md)
-(WC, RN, RV, OV, XA, IM) and story round 10; lanes WR1-WR4 queued. Extends the
-crafting session's palette and P6. Proposals only.
-Then: “Weaponcrafting, runestuff, other stuff and more? more to consider? other
-stuff and more? Cheats that would show stuff like these and more? MOre to
-consider save and extend accordingly Send out codex as usesful? Subtle stuff
-too? Overarching stuff? Implementation implciations and more? Abstaction thats
-needed?”. Saved as [Weaponcraft, runes and inscription](WEAPONCRAFT_RUNES_AND_INSCRIPTION_CONSIDERATIONS_2026-10-14.md)
-(WC, RN, WW, CR, SU, OV, AB, IM) with UI surfaces in
-[UI at scale round 9](UI_AT_SCALE_CONSIDERATIONS_2026-10-14.md#round-9-u5-and-u6-returns-crafting-and-rune-surfaces-2026-10-14).
-Codex lanes R1-R3 sent to [weaponcraft-runes dispatch](gm/dispatch/weaponcraft-runes-2026-10-14/runs/SESSIONS.md).
-Proposals only.
-Then: “Considering comic worlds and stuff and more? ... Cheats that would show
-stuff like these and more? ... Overarching stuff? Implementation implciations
-and more? Abstaction thats needed?” Round 6 of the kit: comic worlds CW1-CW17
-and subtle CWS1-CWS7 (comics are not moved up the canon-first order), lens
-cheats CL1-CL15 with rules CLR1-CLR6, overarching shape OV1-OV8, abstractions
-AX1-AX19 with rules AXR1-AXR4, II27-II36, KX43-KX50 and lanes W16-W18.
-Proposals only.
-Then: “Considering comic worlds ... Abstaction thats needed? Idle stuff to
-gain progress out of the game as well? like meditating and wheatver While Im
-gone?” Round 22 of the intro doc: comic quick map CC1-CC10, away progress
-AW1-AW12, abstractions AB1-AB9, cheats CX13-CX16; lanes: away ledger (pure
-module, gate-first) and comic worlds mapping.
-Then (2026-10-14): “Weaponcrafting, runestuff, other stuff and more? more to
-consider? ... Cheats that would show stuff like these and more? ... Subtle stuff
-too? Overarching stuff? Implementation implciations and more? Abstaction thats
-needed?” Saved in [weaponcraft, runes and maker arts considerations](WEAPONCRAFT_RUNES_AND_MAKER_ARTS_CONSIDERATIONS_2026-10-14.md):
-WC1-WC14, AR1-AR6, RN1-RN14, OM1-OM16, WQ1-WQ14, RC1-RC16 with fidelity tiers
-F0-F5, SB1-SB12, OV1-OV8, IM1-IM12, AB1-AB12. Codex lanes W1-W7 sent
-([sessions](gm/dispatch/maker-arts-2026-10-14/SESSIONS.md)). Proposals only.
-Then: same request plus “Merging, commiting or pushing?”. Folded C9 micro
-behaviour (15 animal profiles, 59 sources, caveats on popular labels). Round
-11: topic map, IA merging companions, IB subtle, J61-J62. Committed this
-task's companion paths only; push and merge left for Weibao's explicit yes.
-A third session saved [comic worlds and the comic medium](COMIC_WORLDS_AND_MEDIUM_CONSIDERATIONS_2026-10-14.md):
-comic traditions beyond superheroes, industry habits as world-law dials,
-medium and law cheats, subtle panel touches, implications and abstractions,
-with a reconciliation table that defers overlapping rows to the kit and intro
-rounds. Codex lanes K1-K5 sent ([sessions](gm/dispatch/comics-2026-10-14/runs/SESSIONS.md));
-K6 stopped as a duplicate of W18. Proposals only.
-Then: “Considering comic worlds and stuff and more? ... Abstaction thats
-needed? Merging, commiting or pushing?” Saved round 9 (G75-G80) and launched
-lanes B17 (comic bodies) and B18 (abstractions). Proposals only.
-Then: “... Abstaction thats needed? Merging, commiting or pushing?” Round 23
-of the intro doc: merge/commit/push considerations MG1-MG6, projection layer
-PJ1-PJ6, cheats CX17-CX20; a probe micro-text lane.
-Then: “Considering comic worlds and stuff and more? ... Abstaction thats needed?
-Merging, commiting or pushing?”. Saved as
-[comic worlds, the abstractions needed, and landing the work](CHEAT_LIBRARY.md#more-to-consider-comic-worlds-the-abstractions-needed-and-landing-the-work-2026-10-14):
-CSW1-CSW10 the status window in comic worlds (beside the existing
-[comic worlds doc](COMIC_WORLDS_AND_MEDIUM_CONSIDERATIONS_2026-10-14.md)),
-SH19-SH26 comic information cheats, AB1-AB10 one reconciled abstraction
-stack with rule-of-two status, LW1-LW5 landing rules. Codex lane AB (read-only
-abstraction map across docs and code) sent. Proposals only.
-Then the same request with “Merging, commiting or pushing?”. Same request reached
-other sessions; weapon/rune work is canonical in the UI-at-scale session's
-palette (R1-R3), so WR1-WR4 here were stopped as duplicates. Story round 11 saved
-(BN story-reveal cheats, BO one knowledge layer, BP story abstractions, BQ
-implementation). Finished lane reports committed; push awaits Weibao's yes.
 
-After a core foundations scorecard flagged unmerged branches as a risk
-([scorecard F5](CORE_FOUNDATIONS_SCORECARD_2026-10-14.md#findings)), Weibao:
-“yes merge stuff accordingly and more, do that each time accordingly”.
-Standing direction: finished, gate-passing work gets merged into
-`codex/gameplay-foundations` (and pushed to origin under existing push
-authorizations) promptly, and every coordinator runs a merge sweep of its own
-finished branches before dispatching a new wave. Lane owners still merge their
-own lanes; an orphaned finished branch may be taken over with an explicit
-handoff. No stash, reset or force over other sessions' work.
-Then: “more to consider? other stuff and more? save and extend accordingly
-Send out codex as usesful? Subtle micro stuff too?” Round 7 of the same doc
-(MS senses, MB body, MT tools, MR paper trail, MA small accidents, MO small
-moments, MU presentation with a texture dial) and lane T10 (per-craft
-micro catalogue). Proposals only.
-Then: “more to consider? other stuff and more? save and extend accordingly Send
-out codex as usesful? Subtle micro stuff too?”. Saved as [round 6](UI_AT_SCALE_CONSIDERATIONS_2026-10-14.md#round-6-subtle-micro-details-2026-10-14):
-MI1-MI47, extending thematic P4. Codex lane U9 (micro-interactions with
-sources) sent. Proposals only.
-Then: “more to consider? other stuff and more? save and extend accordingly
-Send out codex as usesful? Subtle micro stuff too?” Saved round 6 (G56-G63)
-and launched lanes B12 (micro hooks audit) and B13 (diagnosis and look-alikes).
-Proposals only.
-Then: “more to consider? other stuff and more? save and extend accordingly Send
-out codex as usesful? Subtle micro stuff too?” Round 8 of the palette: micro
-details (BA address, BB being remembered, BC traces, BD village reactions, BE
-information texture, BF timing, BG desktop UI touches, BH per-world texture),
-P27/P28 results and P34 stage S-1 noted, lanes P36-P37 queued. Proposals only.
-Then the same prompt again. Round 3 of the kit: K25-K28 (personal space,
-routine and habit, lightness, seasons), micro verbs KV1-KV12, moments KT1-KT6,
-marks KK1-KK5, callbacks KC1-KC5, guards KG1-KG7, KX21-KX28 and lanes W10-W11.
-Proposals only.
-Then: same request again (with micro stuff). Round 7 (EA-ET micro: small
-verbs incl. "sit together", sound, consistency marks, mirroring, talking
-birds leaking secrets, dates, jealousy, health clues, weather sense, trust
-repair, firsts and lasts, its small wins, reunions, where it walks, food
-habits, guarding, companion pairs, spirit oddities, interface micro; EU-EZ
-other: art, it knows your secret, childhood pets, psychopomp, hunting ethics,
-rescued animals; J36-J38). New lane C10 (presentation surfaces and line
-budget at desktop). Proposals only.
-Then: “more to consider? other stuff and more? save and extend accordingly Send
-out codex as usesful? Subtle micro stuff too?”. Saved as
-[subtle micro details](CHEAT_LIBRARY.md#more-to-consider-subtle-micro-details-other-stuff-and-more-2026-10-14):
-MN1-MN10 numbers and text, ML1-ML7 messages, MI1-MI7 interaction, ME1-ME8
-engine edges (tick order, separate random stream, two tabs, throttling, save
-size), MW1-MW8 body, people and world, OS1-OS6. Read-only Codex lanes MX
-(micro UX audit) and TE (engine edges probe) sent beside R1 and W4.
-Proposals only.
-Then the same request again. Saved as [round 7](UI_AT_SCALE_CONSIDERATIONS_2026-10-14.md#round-7-u4-returns-interaction-grammar-and-more-micro-2026-10-14):
-U4 accessibility results folded in, IG1-IG7 and MI48-MI64. Codex lanes U10
-(teaching many systems) and U11 (reading and typography) sent. Proposals only.
-Then: “more to consider? ... Subtle micro stuff too?” Round 19 of the intro
-doc: reconciliation of the index's C1-C11 (OP3 Classic default superseded by
-PROJECT's Workspace default; others clarified), micro details MZ1-MZ18,
-returns (v2 verified, index, identity gaps, save shape), and a micro-details
-lane.
-Then: “... Subtle relevant stuff too?” Round 4 of the kit: K29-K32 (ripples,
-perception profile, subtext and status, tension rhythm), signals KS1-KS9,
-ripples KQ1-KQ7, perception KP1-KP7, subtext KD1-KD6, relevance rules KR1-KR5,
-KX29-KX36 and lanes W12-W13. Proposals only.
-Then: same request again ("Subtle stuff too?"). Folded C6 owner map (OM1-OM13,
-F1-F18 overlaps, gaps G1-G3) and C8 idle/prestige (current reset behaviour,
-closed-browser rest default, five first-prestige candidates). Round 8 (FA-FK
-subtle: uneven love, it knows something you don't, habituation, small
-agency, learned temperament, dreams, how others read your care, loyalty
-tests, private signals, comfort objects, late-life rhythm, ordinary is
-enough, long tail; FL-FO other; J39-J41). New lane C11 (per-world defaults for
-tensions and gaps). Proposals only.
-Then (same request, "Subtle stuff too?"): Round 20 of the intro doc
-(WS1-WS7, AY1-AY5, FR1-FR5, QA1-QA5, SB1-SB6; MZ16 autosave already exists
-every 60 s) and a pockets (MZ2) code lane in the start-records worktree.
-Then: “more to consider? other stuff and more? save and extend accordingly
-Send out codex as usesful? Subtle stuff too?” Saved round 7 (G64-G69), applied
-B4's reference corrections and launched lane B14. Proposals only.
-Then: “more to consider? other stuff and more? save and extend accordingly
-Send out codex as usesful? Subtle stuff too?” Round 8 of the same doc (SC
-how a mind holds knowledge, SS reading each other's work, SE market
-signals, SW the world showing change quietly, SN small numbers, SH hints
-and pacing), T1/T3/T4/T6 results folded, lanes T11-T12. Proposals only.
-Then: “more to consider? other stuff and more? save and extend accordingly Send
-out codex as usesful? Subtle stuff too?”. Saved as
-[subtle stuff, round 2](CHEAT_LIBRARY.md#more-to-consider-subtle-stuff-round-2-2026-10-14):
-PF1-PF7 player feel, TR1-TR6 trust and honesty, CA1-CA4 consent and agency,
-FR1-FR5 failure and recovery (quarantine at load), SL1-SL5 spoilers and
-leaks, LA1-LA7 look, sound and access, PE, LE1-LE4. Codex lane LQ (reusable
-leak lint check and load-time quarantine probe) sent. Proposals only.
-Then: “more to consider? other stuff and more? save and extend accordingly Send
-out codex as usesful? Subtle stuff too? Macro and general stuff? consider
-things to be inspired by and more? more to consider?”. Saved as
-[round 8](UI_AT_SCALE_CONSIDERATIONS_2026-10-14.md#round-8-lane-returns-macro-shape-and-inspirations-2026-10-14):
-U1/U2/U3/U8 results folded in, a correction of unsourced count limits, MA1-MA7,
-OI1-OI18 and MI65-MI72. Codex lanes U12 (outside inspirations) and U13
-(tabletop and paper) sent. Proposals only.
-Then: “more to consider? other stuff and more? save and extend accordingly Send
-out codex as usesful? Subtle stuff too? Implementation implciations and more?”
-Round 9 of the palette: implementation implications (BI one entity-ref scheme
-and receipt log, BJ order of work and a generator registry, BK runtime budgets,
-BL subtle determinism hazards, BM process). Merge sweep first (P26 committed
-12179d0f). Lanes P38 contract consolidation, P39 roadmap/registry, P40
-determinism audit queued. Proposals only.
-Then: “Cheats that would show stuff like these and more? ... Overarching
-stuff? Implementation implciations and more?” Round 21 of the intro doc:
-CX1-CX12 cheats that reveal hidden structure, OG1-OG7 overarching rules,
-IR1-IR9 implementation implications; lanes for an implementation map and
-CX cheat cards.
-Then: “more to consider? other stuff and more? Cheats that would show stuff
-like these and more? ... Subtle stuff too? Implementation implciations and
-more?” Folded C7 bond craft (C7:BB01-BB12 beats, BX01-BX10 anti-patterns).
-Round 9: GA reveal fidelity ladder (cue to forecast), GB reveal cheats
-J42-J56, GC implementation implications summary, GD subtle, GE other. New
-lanes C12 (reveal cheat cards fitted to CH1 status window) and C13
-(consolidated implementation implications). Proposals only.
-Then: “... Implementation implciations and more?” Round 5 of the kit: lane
-findings F1-F7 (power core is the top gap and is fragmented across about six
-capability systems; Mother of Learning most ready), implications II1-II26,
-subtle implementation IS1-IS10, K33-K34, proposed order IO1-IO6, KX37-KX42 and
-lanes W14-W15. Proposals only.
-Then: “more to consider? other stuff and more? Cheats that would show stuff
-like these and more? ... Subtle stuff too? Overarching stuff? Implementation
-implciations and more?” Saved round 8 (G70-G74) and launched lanes B15 and
-B16. Proposals only.
-Then: “more to consider? other stuff and more? Cheats that would show stuff like
-these and more? ... Subtle stuff too? Overarching stuff? Implementation
-implciations and more?”. Saved as
-[cheats that show things, the overarching model and implementation](CHEAT_LIBRARY.md#more-to-consider-cheats-that-show-things-the-overarching-model-and-implementation-2026-10-14):
-SH1-SH18 information cheats built from the earlier micro rows, OV1-OV8 one
-fact/knowledge/display model with a shared grade ladder, SE1-SE7 subtle
-effects of seeing, II1-II12 implementation implications and a proposed build
-order. Codex lanes IA (read-only info-layer architecture study) and W5
-(showing hidden information in games) sent. Proposals only.
-Then: “more to consider? other stuff and more? Cheats that would show stuff
-like these and more? MOre to consider save and extend accordingly Send out
-codex as usesful? Subtle stuff too? Overarching stuff? Implementation
-implciations and more?” Round 9 of the same doc: revealer cheats RC1-RC15
-with forms and subtle versions, the overarching model OM1-OM11 (truth,
-knowledge, presentation; means; receipts; one vocabulary, planner and
-scale ladder), and implementation implications IM1-IM8 with a build order.
-Lanes T13 (architecture) and T14 (cheat cards checked by the real
-validator). Proposals only.
-Then: “Considering comic worlds and stuff and more? ... Cheats that would
-show stuff like these ... Overarching stuff? Implementation implciations and
-more? Abstaction thats needed? Relevant Crafting? Research?” Folded C10
-presentation (surfaces, ambient-line budget, layouts). Round 10: HA comic
-companions, HB comic mechanics, HC overarching principles, HD abstraction
-sketch (Actor, Link, Terms, Lens, Clock, Custody, Cue, Thread), HE crafting,
-HF in-world research, HG subtle, J57-J60 reveal cheats. New lanes C14 comics,
-C15 crafting and research, C16 overarching abstraction. Proposals only.
-Then: “Weaponcrafting, runestuff, other stuff and more? ... Cheats that would
-show stuff like these and more? ... Subtle stuff too? Overarching stuff?
-Implementation implciations and more? Abstaction thats needed?” Saved
-[weaponcrafting, runes and reveal](WEAPONCRAFTING_RUNES_AND_REVEAL_CONSIDERATIONS_2026-10-14.md)
-(WC, RN, RV, OV, XA, IM) and story round 10; lanes WR1-WR4 queued. Extends the
-crafting session's palette and P6. Proposals only.
-Then: “Weaponcrafting, runestuff, other stuff and more? more to consider? other
-stuff and more? Cheats that would show stuff like these and more? MOre to
-consider save and extend accordingly Send out codex as usesful? Subtle stuff
-too? Overarching stuff? Implementation implciations and more? Abstaction thats
-needed?”. Saved as [Weaponcraft, runes and inscription](WEAPONCRAFT_RUNES_AND_INSCRIPTION_CONSIDERATIONS_2026-10-14.md)
-(WC, RN, WW, CR, SU, OV, AB, IM) with UI surfaces in
-[UI at scale round 9](UI_AT_SCALE_CONSIDERATIONS_2026-10-14.md#round-9-u5-and-u6-returns-crafting-and-rune-surfaces-2026-10-14).
-Codex lanes R1-R3 sent to [weaponcraft-runes dispatch](gm/dispatch/weaponcraft-runes-2026-10-14/runs/SESSIONS.md).
-Proposals only.
-Then: “Considering comic worlds and stuff and more? ... Cheats that would show
-stuff like these and more? ... Overarching stuff? Implementation implciations
-and more? Abstaction thats needed?” Round 6 of the kit: comic worlds CW1-CW17
-and subtle CWS1-CWS7 (comics are not moved up the canon-first order), lens
-cheats CL1-CL15 with rules CLR1-CLR6, overarching shape OV1-OV8, abstractions
-AX1-AX19 with rules AXR1-AXR4, II27-II36, KX43-KX50 and lanes W16-W18.
-Proposals only.
-Then: “Considering comic worlds ... Abstaction thats needed? Idle stuff to
-gain progress out of the game as well? like meditating and wheatver While Im
-gone?” Round 22 of the intro doc: comic quick map CC1-CC10, away progress
-AW1-AW12, abstractions AB1-AB9, cheats CX13-CX16; lanes: away ledger (pure
-module, gate-first) and comic worlds mapping.
-Then (2026-10-14): “Weaponcrafting, runestuff, other stuff and more? more to
-consider? ... Cheats that would show stuff like these and more? ... Subtle stuff
-too? Overarching stuff? Implementation implciations and more? Abstaction thats
-needed?” Saved in [weaponcraft, runes and maker arts considerations](WEAPONCRAFT_RUNES_AND_MAKER_ARTS_CONSIDERATIONS_2026-10-14.md):
-WC1-WC14, AR1-AR6, RN1-RN14, OM1-OM16, WQ1-WQ14, RC1-RC16 with fidelity tiers
-F0-F5, SB1-SB12, OV1-OV8, IM1-IM12, AB1-AB12. Codex lanes W1-W7 sent
-([sessions](gm/dispatch/maker-arts-2026-10-14/SESSIONS.md)). Proposals only.
-Then: same request plus “Merging, commiting or pushing?”. Folded C9 micro
-behaviour (15 animal profiles, 59 sources, caveats on popular labels). Round
-11: topic map, IA merging companions, IB subtle, J61-J62. Committed this
-task's companion paths only; push and merge left for Weibao's explicit yes.
-A third session saved [comic worlds and the comic medium](COMIC_WORLDS_AND_MEDIUM_CONSIDERATIONS_2026-10-14.md):
-comic traditions beyond superheroes, industry habits as world-law dials,
-medium and law cheats, subtle panel touches, implications and abstractions,
-with a reconciliation table that defers overlapping rows to the kit and intro
-rounds. Codex lanes K1-K5 sent ([sessions](gm/dispatch/comics-2026-10-14/runs/SESSIONS.md));
-K6 stopped as a duplicate of W18. Proposals only.
-Then: “Considering comic worlds and stuff and more? ... Abstaction thats
-needed? Merging, commiting or pushing?” Saved round 9 (G75-G80) and launched
-lanes B17 (comic bodies) and B18 (abstractions). Proposals only.
-Then: “... Abstaction thats needed? Merging, commiting or pushing?” Round 23
-of the intro doc: merge/commit/push considerations MG1-MG6, projection layer
-PJ1-PJ6, cheats CX17-CX20; a probe micro-text lane.
-Then: “Considering comic worlds and stuff and more? ... Abstaction thats needed?
-Merging, commiting or pushing?”. Saved as
-[comic worlds, the abstractions needed, and landing the work](CHEAT_LIBRARY.md#more-to-consider-comic-worlds-the-abstractions-needed-and-landing-the-work-2026-10-14):
-CSW1-CSW10 the status window in comic worlds (beside the existing
-[comic worlds doc](COMIC_WORLDS_AND_MEDIUM_CONSIDERATIONS_2026-10-14.md)),
-SH19-SH26 comic information cheats, AB1-AB10 one reconciled abstraction
-stack with rule-of-two status, LW1-LW5 landing rules. Codex lane AB (read-only
-abstraction map across docs and code) sent. Proposals only.
-Then the same request with “Merging, commiting or pushing?”. Same request reached
-other sessions; weapon/rune work is canonical in the UI-at-scale session's
-palette (R1-R3), so WR1-WR4 here were stopped as duplicates. Story round 11 saved
-(BN story-reveal cheats, BO one knowledge layer, BP story abstractions, BQ
-implementation). Finished lane reports committed; push awaits Weibao's yes.
 
-After a core foundations scorecard flagged unmerged branches as a risk
-([scorecard F5](CORE_FOUNDATIONS_SCORECARD_2026-10-14.md#findings)), Weibao:
-“yes merge stuff accordingly and more, do that each time accordingly”.
-Standing direction: finished, gate-passing work gets merged into
-`codex/gameplay-foundations` (and pushed to origin under existing push
-authorizations) promptly, and every coordinator runs a merge sweep of its own
-finished branches before dispatching a new wave. Lane owners still merge their
-own lanes; an orphaned finished branch may be taken over with an explicit
-handoff. No stash, reset or force over other sessions' work.
-Then: “more to consider? other stuff and more? save and extend accordingly
-Send out codex as usesful? Subtle micro stuff too?” Round 7 of the same doc
-(MS senses, MB body, MT tools, MR paper trail, MA small accidents, MO small
-moments, MU presentation with a texture dial) and lane T10 (per-craft
-micro catalogue). Proposals only.
-Then: “more to consider? other stuff and more? save and extend accordingly Send
-out codex as usesful? Subtle micro stuff too?”. Saved as [round 6](UI_AT_SCALE_CONSIDERATIONS_2026-10-14.md#round-6-subtle-micro-details-2026-10-14):
-MI1-MI47, extending thematic P4. Codex lane U9 (micro-interactions with
-sources) sent. Proposals only.
-Then: “more to consider? other stuff and more? save and extend accordingly
-Send out codex as usesful? Subtle micro stuff too?” Saved round 6 (G56-G63)
-and launched lanes B12 (micro hooks audit) and B13 (diagnosis and look-alikes).
-Proposals only.
-Then: “more to consider? other stuff and more? save and extend accordingly Send
-out codex as usesful? Subtle micro stuff too?” Round 8 of the palette: micro
-details (BA address, BB being remembered, BC traces, BD village reactions, BE
-information texture, BF timing, BG desktop UI touches, BH per-world texture),
-P27/P28 results and P34 stage S-1 noted, lanes P36-P37 queued. Proposals only.
-Then the same prompt again. Round 3 of the kit: K25-K28 (personal space,
-routine and habit, lightness, seasons), micro verbs KV1-KV12, moments KT1-KT6,
-marks KK1-KK5, callbacks KC1-KC5, guards KG1-KG7, KX21-KX28 and lanes W10-W11.
-Proposals only.
-Then: same request again (with micro stuff). Round 7 (EA-ET micro: small
-verbs incl. "sit together", sound, consistency marks, mirroring, talking
-birds leaking secrets, dates, jealousy, health clues, weather sense, trust
-repair, firsts and lasts, its small wins, reunions, where it walks, food
-habits, guarding, companion pairs, spirit oddities, interface micro; EU-EZ
-other: art, it knows your secret, childhood pets, psychopomp, hunting ethics,
-rescued animals; J36-J38). New lane C10 (presentation surfaces and line
-budget at desktop). Proposals only.
-Then: “more to consider? other stuff and more? save and extend accordingly Send
-out codex as usesful? Subtle micro stuff too?”. Saved as
-[subtle micro details](CHEAT_LIBRARY.md#more-to-consider-subtle-micro-details-other-stuff-and-more-2026-10-14):
-MN1-MN10 numbers and text, ML1-ML7 messages, MI1-MI7 interaction, ME1-ME8
-engine edges (tick order, separate random stream, two tabs, throttling, save
-size), MW1-MW8 body, people and world, OS1-OS6. Read-only Codex lanes MX
-(micro UX audit) and TE (engine edges probe) sent beside R1 and W4.
-Proposals only.
-Then the same request again. Saved as [round 7](UI_AT_SCALE_CONSIDERATIONS_2026-10-14.md#round-7-u4-returns-interaction-grammar-and-more-micro-2026-10-14):
-U4 accessibility results folded in, IG1-IG7 and MI48-MI64. Codex lanes U10
-(teaching many systems) and U11 (reading and typography) sent. Proposals only.
-Then: “more to consider? ... Subtle micro stuff too?” Round 19 of the intro
-doc: reconciliation of the index's C1-C11 (OP3 Classic default superseded by
-PROJECT's Workspace default; others clarified), micro details MZ1-MZ18,
-returns (v2 verified, index, identity gaps, save shape), and a micro-details
-lane.
-Then: “... Subtle relevant stuff too?” Round 4 of the kit: K29-K32 (ripples,
-perception profile, subtext and status, tension rhythm), signals KS1-KS9,
-ripples KQ1-KQ7, perception KP1-KP7, subtext KD1-KD6, relevance rules KR1-KR5,
-KX29-KX36 and lanes W12-W13. Proposals only.
-Then: same request again ("Subtle stuff too?"). Folded C6 owner map (OM1-OM13,
-F1-F18 overlaps, gaps G1-G3) and C8 idle/prestige (current reset behaviour,
-closed-browser rest default, five first-prestige candidates). Round 8 (FA-FK
-subtle: uneven love, it knows something you don't, habituation, small
-agency, learned temperament, dreams, how others read your care, loyalty
-tests, private signals, comfort objects, late-life rhythm, ordinary is
-enough, long tail; FL-FO other; J39-J41). New lane C11 (per-world defaults for
-tensions and gaps). Proposals only.
-Then (same request, "Subtle stuff too?"): Round 20 of the intro doc
-(WS1-WS7, AY1-AY5, FR1-FR5, QA1-QA5, SB1-SB6; MZ16 autosave already exists
-every 60 s) and a pockets (MZ2) code lane in the start-records worktree.
-Then: “more to consider? other stuff and more? save and extend accordingly
-Send out codex as usesful? Subtle stuff too?” Saved round 7 (G64-G69), applied
-B4's reference corrections and launched lane B14. Proposals only.
-Then: “more to consider? other stuff and more? save and extend accordingly
-Send out codex as usesful? Subtle stuff too?” Round 8 of the same doc (SC
-how a mind holds knowledge, SS reading each other's work, SE market
-signals, SW the world showing change quietly, SN small numbers, SH hints
-and pacing), T1/T3/T4/T6 results folded, lanes T11-T12. Proposals only.
-Then: “more to consider? other stuff and more? save and extend accordingly Send
-out codex as usesful? Subtle stuff too?”. Saved as
-[subtle stuff, round 2](CHEAT_LIBRARY.md#more-to-consider-subtle-stuff-round-2-2026-10-14):
-PF1-PF7 player feel, TR1-TR6 trust and honesty, CA1-CA4 consent and agency,
-FR1-FR5 failure and recovery (quarantine at load), SL1-SL5 spoilers and
-leaks, LA1-LA7 look, sound and access, PE, LE1-LE4. Codex lane LQ (reusable
-leak lint check and load-time quarantine probe) sent. Proposals only.
-Then: “more to consider? other stuff and more? save and extend accordingly Send
-out codex as usesful? Subtle stuff too? Macro and general stuff? consider
-things to be inspired by and more? more to consider?”. Saved as
-[round 8](UI_AT_SCALE_CONSIDERATIONS_2026-10-14.md#round-8-lane-returns-macro-shape-and-inspirations-2026-10-14):
-U1/U2/U3/U8 results folded in, a correction of unsourced count limits, MA1-MA7,
-OI1-OI18 and MI65-MI72. Codex lanes U12 (outside inspirations) and U13
-(tabletop and paper) sent. Proposals only.
-Then: “more to consider? other stuff and more? save and extend accordingly Send
-out codex as usesful? Subtle stuff too? Implementation implciations and more?”
-Round 9 of the palette: implementation implications (BI one entity-ref scheme
-and receipt log, BJ order of work and a generator registry, BK runtime budgets,
-BL subtle determinism hazards, BM process). Merge sweep first (P26 committed
-12179d0f). Lanes P38 contract consolidation, P39 roadmap/registry, P40
-determinism audit queued. Proposals only.
-Then: “Cheats that would show stuff like these and more? ... Overarching
-stuff? Implementation implciations and more?” Round 21 of the intro doc:
-CX1-CX12 cheats that reveal hidden structure, OG1-OG7 overarching rules,
-IR1-IR9 implementation implications; lanes for an implementation map and
-CX cheat cards.
-Then: “more to consider? other stuff and more? Cheats that would show stuff
-like these and more? ... Subtle stuff too? Implementation implciations and
-more?” Folded C7 bond craft (C7:BB01-BB12 beats, BX01-BX10 anti-patterns).
-Round 9: GA reveal fidelity ladder (cue to forecast), GB reveal cheats
-J42-J56, GC implementation implications summary, GD subtle, GE other. New
-lanes C12 (reveal cheat cards fitted to CH1 status window) and C13
-(consolidated implementation implications). Proposals only.
-Then: “... Implementation implciations and more?” Round 5 of the kit: lane
-findings F1-F7 (power core is the top gap and is fragmented across about six
-capability systems; Mother of Learning most ready), implications II1-II26,
-subtle implementation IS1-IS10, K33-K34, proposed order IO1-IO6, KX37-KX42 and
-lanes W14-W15. Proposals only.
-Then: “more to consider? other stuff and more? Cheats that would show stuff
-like these and more? ... Subtle stuff too? Overarching stuff? Implementation
-implciations and more?” Saved round 8 (G70-G74) and launched lanes B15 and
-B16. Proposals only.
-Then: “more to consider? other stuff and more? Cheats that would show stuff like
-these and more? ... Subtle stuff too? Overarching stuff? Implementation
-implciations and more?”. Saved as
-[cheats that show things, the overarching model and implementation](CHEAT_LIBRARY.md#more-to-consider-cheats-that-show-things-the-overarching-model-and-implementation-2026-10-14):
-SH1-SH18 information cheats built from the earlier micro rows, OV1-OV8 one
-fact/knowledge/display model with a shared grade ladder, SE1-SE7 subtle
-effects of seeing, II1-II12 implementation implications and a proposed build
-order. Codex lanes IA (read-only info-layer architecture study) and W5
-(showing hidden information in games) sent. Proposals only.
-Then: “more to consider? other stuff and more? Cheats that would show stuff
-like these and more? MOre to consider save and extend accordingly Send out
-codex as usesful? Subtle stuff too? Overarching stuff? Implementation
-implciations and more?” Round 9 of the same doc: revealer cheats RC1-RC15
-with forms and subtle versions, the overarching model OM1-OM11 (truth,
-knowledge, presentation; means; receipts; one vocabulary, planner and
-scale ladder), and implementation implications IM1-IM8 with a build order.
-Lanes T13 (architecture) and T14 (cheat cards checked by the real
-validator). Proposals only.
-Then: “Considering comic worlds and stuff and more? ... Cheats that would
-show stuff like these ... Overarching stuff? Implementation implciations and
-more? Abstaction thats needed? Relevant Crafting? Research?” Folded C10
-presentation (surfaces, ambient-line budget, layouts). Round 10: HA comic
-companions, HB comic mechanics, HC overarching principles, HD abstraction
-sketch (Actor, Link, Terms, Lens, Clock, Custody, Cue, Thread), HE crafting,
-HF in-world research, HG subtle, J57-J60 reveal cheats. New lanes C14 comics,
-C15 crafting and research, C16 overarching abstraction. Proposals only.
-Then: “Weaponcrafting, runestuff, other stuff and more? ... Cheats that would
-show stuff like these and more? ... Subtle stuff too? Overarching stuff?
-Implementation implciations and more? Abstaction thats needed?” Saved
-[weaponcrafting, runes and reveal](WEAPONCRAFTING_RUNES_AND_REVEAL_CONSIDERATIONS_2026-10-14.md)
-(WC, RN, RV, OV, XA, IM) and story round 10; lanes WR1-WR4 queued. Extends the
-crafting session's palette and P6. Proposals only.
-Then: “Weaponcrafting, runestuff, other stuff and more? more to consider? other
-stuff and more? Cheats that would show stuff like these and more? MOre to
-consider save and extend accordingly Send out codex as usesful? Subtle stuff
-too? Overarching stuff? Implementation implciations and more? Abstaction thats
-needed?”. Saved as [Weaponcraft, runes and inscription](WEAPONCRAFT_RUNES_AND_INSCRIPTION_CONSIDERATIONS_2026-10-14.md)
-(WC, RN, WW, CR, SU, OV, AB, IM) with UI surfaces in
-[UI at scale round 9](UI_AT_SCALE_CONSIDERATIONS_2026-10-14.md#round-9-u5-and-u6-returns-crafting-and-rune-surfaces-2026-10-14).
-Codex lanes R1-R3 sent to [weaponcraft-runes dispatch](gm/dispatch/weaponcraft-runes-2026-10-14/runs/SESSIONS.md).
-Proposals only.
-Then: “Considering comic worlds and stuff and more? ... Cheats that would show
-stuff like these and more? ... Overarching stuff? Implementation implciations
-and more? Abstaction thats needed?” Round 6 of the kit: comic worlds CW1-CW17
-and subtle CWS1-CWS7 (comics are not moved up the canon-first order), lens
-cheats CL1-CL15 with rules CLR1-CLR6, overarching shape OV1-OV8, abstractions
-AX1-AX19 with rules AXR1-AXR4, II27-II36, KX43-KX50 and lanes W16-W18.
-Proposals only.
-Then: “Considering comic worlds ... Abstaction thats needed? Idle stuff to
-gain progress out of the game as well? like meditating and wheatver While Im
-gone?” Round 22 of the intro doc: comic quick map CC1-CC10, away progress
-AW1-AW12, abstractions AB1-AB9, cheats CX13-CX16; lanes: away ledger (pure
-module, gate-first) and comic worlds mapping.
-Then (2026-10-14): “Weaponcrafting, runestuff, other stuff and more? more to
-consider? ... Cheats that would show stuff like these and more? ... Subtle stuff
-too? Overarching stuff? Implementation implciations and more? Abstaction thats
-needed?” Saved in [weaponcraft, runes and maker arts considerations](WEAPONCRAFT_RUNES_AND_MAKER_ARTS_CONSIDERATIONS_2026-10-14.md):
-WC1-WC14, AR1-AR6, RN1-RN14, OM1-OM16, WQ1-WQ14, RC1-RC16 with fidelity tiers
-F0-F5, SB1-SB12, OV1-OV8, IM1-IM12, AB1-AB12. Codex lanes W1-W7 sent
-([sessions](gm/dispatch/maker-arts-2026-10-14/SESSIONS.md)). Proposals only.
-Then: same request plus “Merging, commiting or pushing?”. Folded C9 micro
-behaviour (15 animal profiles, 59 sources, caveats on popular labels). Round
-11: topic map, IA merging companions, IB subtle, J61-J62. Committed this
-task's companion paths only; push and merge left for Weibao's explicit yes.
-A third session saved [comic worlds and the comic medium](COMIC_WORLDS_AND_MEDIUM_CONSIDERATIONS_2026-10-14.md):
-comic traditions beyond superheroes, industry habits as world-law dials,
-medium and law cheats, subtle panel touches, implications and abstractions,
-with a reconciliation table that defers overlapping rows to the kit and intro
-rounds. Codex lanes K1-K5 sent ([sessions](gm/dispatch/comics-2026-10-14/runs/SESSIONS.md));
-K6 stopped as a duplicate of W18. Proposals only.
-Then: “Considering comic worlds and stuff and more? ... Abstaction thats
-needed? Merging, commiting or pushing?” Saved round 9 (G75-G80) and launched
-lanes B17 (comic bodies) and B18 (abstractions). Proposals only.
-Then: “... Abstaction thats needed? Merging, commiting or pushing?” Round 23
-of the intro doc: merge/commit/push considerations MG1-MG6, projection layer
-PJ1-PJ6, cheats CX17-CX20; a probe micro-text lane.
-Then: “Considering comic worlds and stuff and more? ... Abstaction thats needed?
-Merging, commiting or pushing?”. Saved as
-[comic worlds, the abstractions needed, and landing the work](CHEAT_LIBRARY.md#more-to-consider-comic-worlds-the-abstractions-needed-and-landing-the-work-2026-10-14):
-CSW1-CSW10 the status window in comic worlds (beside the existing
-[comic worlds doc](COMIC_WORLDS_AND_MEDIUM_CONSIDERATIONS_2026-10-14.md)),
-SH19-SH26 comic information cheats, AB1-AB10 one reconciled abstraction
-stack with rule-of-two status, LW1-LW5 landing rules. Codex lane AB (read-only
-abstraction map across docs and code) sent. Proposals only.
-Then the same request with “Merging, commiting or pushing?”. Same request reached
-other sessions; weapon/rune work is canonical in the UI-at-scale session's
-palette (R1-R3), so WR1-WR4 here were stopped as duplicates. Story round 11 saved
-(BN story-reveal cheats, BO one knowledge layer, BP story abstractions, BQ
-implementation). Finished lane reports committed; push awaits Weibao's yes.
 
-After a core foundations scorecard flagged unmerged branches as a risk
-([scorecard F5](CORE_FOUNDATIONS_SCORECARD_2026-10-14.md#findings)), Weibao:
-“yes merge stuff accordingly and more, do that each time accordingly”.
-Standing direction: finished, gate-passing work gets merged into
-`codex/gameplay-foundations` (and pushed to origin under existing push
-authorizations) promptly, and every coordinator runs a merge sweep of its own
-finished branches before dispatching a new wave. Lane owners still merge their
-own lanes; an orphaned finished branch may be taken over with an explicit
-handoff. No stash, reset or force over other sessions' work.
-Then: “more to consider? other stuff and more? save and extend accordingly
-Send out codex as usesful? Subtle micro stuff too?” Round 7 of the same doc
-(MS senses, MB body, MT tools, MR paper trail, MA small accidents, MO small
-moments, MU presentation with a texture dial) and lane T10 (per-craft
-micro catalogue). Proposals only.
-Then: “more to consider? other stuff and more? save and extend accordingly Send
-out codex as usesful? Subtle micro stuff too?”. Saved as [round 6](UI_AT_SCALE_CONSIDERATIONS_2026-10-14.md#round-6-subtle-micro-details-2026-10-14):
-MI1-MI47, extending thematic P4. Codex lane U9 (micro-interactions with
-sources) sent. Proposals only.
-Then: “more to consider? other stuff and more? save and extend accordingly
-Send out codex as usesful? Subtle micro stuff too?” Saved round 6 (G56-G63)
-and launched lanes B12 (micro hooks audit) and B13 (diagnosis and look-alikes).
-Proposals only.
-Then: “more to consider? other stuff and more? save and extend accordingly Send
-out codex as usesful? Subtle micro stuff too?” Round 8 of the palette: micro
-details (BA address, BB being remembered, BC traces, BD village reactions, BE
-information texture, BF timing, BG desktop UI touches, BH per-world texture),
-P27/P28 results and P34 stage S-1 noted, lanes P36-P37 queued. Proposals only.
-Then the same prompt again. Round 3 of the kit: K25-K28 (personal space,
-routine and habit, lightness, seasons), micro verbs KV1-KV12, moments KT1-KT6,
-marks KK1-KK5, callbacks KC1-KC5, guards KG1-KG7, KX21-KX28 and lanes W10-W11.
-Proposals only.
-Then: same request again (with micro stuff). Round 7 (EA-ET micro: small
-verbs incl. "sit together", sound, consistency marks, mirroring, talking
-birds leaking secrets, dates, jealousy, health clues, weather sense, trust
-repair, firsts and lasts, its small wins, reunions, where it walks, food
-habits, guarding, companion pairs, spirit oddities, interface micro; EU-EZ
-other: art, it knows your secret, childhood pets, psychopomp, hunting ethics,
-rescued animals; J36-J38). New lane C10 (presentation surfaces and line
-budget at desktop). Proposals only.
-Then: “more to consider? other stuff and more? save and extend accordingly Send
-out codex as usesful? Subtle micro stuff too?”. Saved as
-[subtle micro details](CHEAT_LIBRARY.md#more-to-consider-subtle-micro-details-other-stuff-and-more-2026-10-14):
-MN1-MN10 numbers and text, ML1-ML7 messages, MI1-MI7 interaction, ME1-ME8
-engine edges (tick order, separate random stream, two tabs, throttling, save
-size), MW1-MW8 body, people and world, OS1-OS6. Read-only Codex lanes MX
-(micro UX audit) and TE (engine edges probe) sent beside R1 and W4.
-Proposals only.
-Then the same request again. Saved as [round 7](UI_AT_SCALE_CONSIDERATIONS_2026-10-14.md#round-7-u4-returns-interaction-grammar-and-more-micro-2026-10-14):
-U4 accessibility results folded in, IG1-IG7 and MI48-MI64. Codex lanes U10
-(teaching many systems) and U11 (reading and typography) sent. Proposals only.
-Then: “more to consider? ... Subtle micro stuff too?” Round 19 of the intro
-doc: reconciliation of the index's C1-C11 (OP3 Classic default superseded by
-PROJECT's Workspace default; others clarified), micro details MZ1-MZ18,
-returns (v2 verified, index, identity gaps, save shape), and a micro-details
-lane.
-Then: “... Subtle relevant stuff too?” Round 4 of the kit: K29-K32 (ripples,
-perception profile, subtext and status, tension rhythm), signals KS1-KS9,
-ripples KQ1-KQ7, perception KP1-KP7, subtext KD1-KD6, relevance rules KR1-KR5,
-KX29-KX36 and lanes W12-W13. Proposals only.
-Then: same request again ("Subtle stuff too?"). Folded C6 owner map (OM1-OM13,
-F1-F18 overlaps, gaps G1-G3) and C8 idle/prestige (current reset behaviour,
-closed-browser rest default, five first-prestige candidates). Round 8 (FA-FK
-subtle: uneven love, it knows something you don't, habituation, small
-agency, learned temperament, dreams, how others read your care, loyalty
-tests, private signals, comfort objects, late-life rhythm, ordinary is
-enough, long tail; FL-FO other; J39-J41). New lane C11 (per-world defaults for
-tensions and gaps). Proposals only.
-Then (same request, "Subtle stuff too?"): Round 20 of the intro doc
-(WS1-WS7, AY1-AY5, FR1-FR5, QA1-QA5, SB1-SB6; MZ16 autosave already exists
-every 60 s) and a pockets (MZ2) code lane in the start-records worktree.
-Then: “more to consider? other stuff and more? save and extend accordingly
-Send out codex as usesful? Subtle stuff too?” Saved round 7 (G64-G69), applied
-B4's reference corrections and launched lane B14. Proposals only.
-Then: “more to consider? other stuff and more? save and extend accordingly
-Send out codex as usesful? Subtle stuff too?” Round 8 of the same doc (SC
-how a mind holds knowledge, SS reading each other's work, SE market
-signals, SW the world showing change quietly, SN small numbers, SH hints
-and pacing), T1/T3/T4/T6 results folded, lanes T11-T12. Proposals only.
-Then: “more to consider? other stuff and more? save and extend accordingly Send
-out codex as usesful? Subtle stuff too?”. Saved as
-[subtle stuff, round 2](CHEAT_LIBRARY.md#more-to-consider-subtle-stuff-round-2-2026-10-14):
-PF1-PF7 player feel, TR1-TR6 trust and honesty, CA1-CA4 consent and agency,
-FR1-FR5 failure and recovery (quarantine at load), SL1-SL5 spoilers and
-leaks, LA1-LA7 look, sound and access, PE, LE1-LE4. Codex lane LQ (reusable
-leak lint check and load-time quarantine probe) sent. Proposals only.
-Then: “more to consider? other stuff and more? save and extend accordingly Send
-out codex as usesful? Subtle stuff too? Macro and general stuff? consider
-things to be inspired by and more? more to consider?”. Saved as
-[round 8](UI_AT_SCALE_CONSIDERATIONS_2026-10-14.md#round-8-lane-returns-macro-shape-and-inspirations-2026-10-14):
-U1/U2/U3/U8 results folded in, a correction of unsourced count limits, MA1-MA7,
-OI1-OI18 and MI65-MI72. Codex lanes U12 (outside inspirations) and U13
-(tabletop and paper) sent. Proposals only.
-Then: “more to consider? other stuff and more? save and extend accordingly Send
-out codex as usesful? Subtle stuff too? Implementation implciations and more?”
-Round 9 of the palette: implementation implications (BI one entity-ref scheme
-and receipt log, BJ order of work and a generator registry, BK runtime budgets,
-BL subtle determinism hazards, BM process). Merge sweep first (P26 committed
-12179d0f). Lanes P38 contract consolidation, P39 roadmap/registry, P40
-determinism audit queued. Proposals only.
-Then: “Cheats that would show stuff like these and more? ... Overarching
-stuff? Implementation implciations and more?” Round 21 of the intro doc:
-CX1-CX12 cheats that reveal hidden structure, OG1-OG7 overarching rules,
-IR1-IR9 implementation implications; lanes for an implementation map and
-CX cheat cards.
-Then: “more to consider? other stuff and more? Cheats that would show stuff
-like these and more? ... Subtle stuff too? Implementation implciations and
-more?” Folded C7 bond craft (C7:BB01-BB12 beats, BX01-BX10 anti-patterns).
-Round 9: GA reveal fidelity ladder (cue to forecast), GB reveal cheats
-J42-J56, GC implementation implications summary, GD subtle, GE other. New
-lanes C12 (reveal cheat cards fitted to CH1 status window) and C13
-(consolidated implementation implications). Proposals only.
-Then: “... Implementation implciations and more?” Round 5 of the kit: lane
-findings F1-F7 (power core is the top gap and is fragmented across about six
-capability systems; Mother of Learning most ready), implications II1-II26,
-subtle implementation IS1-IS10, K33-K34, proposed order IO1-IO6, KX37-KX42 and
-lanes W14-W15. Proposals only.
-Then: “more to consider? other stuff and more? Cheats that would show stuff
-like these and more? ... Subtle stuff too? Overarching stuff? Implementation
-implciations and more?” Saved round 8 (G70-G74) and launched lanes B15 and
-B16. Proposals only.
-Then: “more to consider? other stuff and more? Cheats that would show stuff like
-these and more? ... Subtle stuff too? Overarching stuff? Implementation
-implciations and more?”. Saved as
-[cheats that show things, the overarching model and implementation](CHEAT_LIBRARY.md#more-to-consider-cheats-that-show-things-the-overarching-model-and-implementation-2026-10-14):
-SH1-SH18 information cheats built from the earlier micro rows, OV1-OV8 one
-fact/knowledge/display model with a shared grade ladder, SE1-SE7 subtle
-effects of seeing, II1-II12 implementation implications and a proposed build
-order. Codex lanes IA (read-only info-layer architecture study) and W5
-(showing hidden information in games) sent. Proposals only.
-Then: “more to consider? other stuff and more? Cheats that would show stuff
-like these and more? MOre to consider save and extend accordingly Send out
-codex as usesful? Subtle stuff too? Overarching stuff? Implementation
-implciations and more?” Round 9 of the same doc: revealer cheats RC1-RC15
-with forms and subtle versions, the overarching model OM1-OM11 (truth,
-knowledge, presentation; means; receipts; one vocabulary, planner and
-scale ladder), and implementation implications IM1-IM8 with a build order.
-Lanes T13 (architecture) and T14 (cheat cards checked by the real
-validator). Proposals only.
-Then: “Considering comic worlds and stuff and more? ... Cheats that would
-show stuff like these ... Overarching stuff? Implementation implciations and
-more? Abstaction thats needed? Relevant Crafting? Research?” Folded C10
-presentation (surfaces, ambient-line budget, layouts). Round 10: HA comic
-companions, HB comic mechanics, HC overarching principles, HD abstraction
-sketch (Actor, Link, Terms, Lens, Clock, Custody, Cue, Thread), HE crafting,
-HF in-world research, HG subtle, J57-J60 reveal cheats. New lanes C14 comics,
-C15 crafting and research, C16 overarching abstraction. Proposals only.
-Then: “Weaponcrafting, runestuff, other stuff and more? ... Cheats that would
-show stuff like these and more? ... Subtle stuff too? Overarching stuff?
-Implementation implciations and more? Abstaction thats needed?” Saved
-[weaponcrafting, runes and reveal](WEAPONCRAFTING_RUNES_AND_REVEAL_CONSIDERATIONS_2026-10-14.md)
-(WC, RN, RV, OV, XA, IM) and story round 10; lanes WR1-WR4 queued. Extends the
-crafting session's palette and P6. Proposals only.
-Then: “Weaponcrafting, runestuff, other stuff and more? more to consider? other
-stuff and more? Cheats that would show stuff like these and more? MOre to
-consider save and extend accordingly Send out codex as usesful? Subtle stuff
-too? Overarching stuff? Implementation implciations and more? Abstaction thats
-needed?”. Saved as [Weaponcraft, runes and inscription](WEAPONCRAFT_RUNES_AND_INSCRIPTION_CONSIDERATIONS_2026-10-14.md)
-(WC, RN, WW, CR, SU, OV, AB, IM) with UI surfaces in
-[UI at scale round 9](UI_AT_SCALE_CONSIDERATIONS_2026-10-14.md#round-9-u5-and-u6-returns-crafting-and-rune-surfaces-2026-10-14).
-Codex lanes R1-R3 sent to [weaponcraft-runes dispatch](gm/dispatch/weaponcraft-runes-2026-10-14/runs/SESSIONS.md).
-Proposals only.
+Then the same request again (with "Merging, commiting or pushing?"). The
+weaponcraft request had reached three sessions; saved as a consolidation in
+[weaponcraft round 2](WEAPONCRAFT_RUNES_AND_INSCRIPTION_CONSIDERATIONS_2026-10-14.md#round-2-consolidation-and-whats-still-new-2026-10-14)
+(crosswalk, P6 owner correction, WX1-WX9, CR16-CR22, SU15-SU21). Duplicate
+lanes R1/R3 stopped. Proposals only.
 Then: “Considering comic worlds and stuff and more? ... Cheats that would show
-stuff like these and more? ... Overarching stuff? Implementation implciations
-and more? Abstaction thats needed?” Round 6 of the kit: comic worlds CW1-CW17
-and subtle CWS1-CWS7 (comics are not moved up the canon-first order), lens
-cheats CL1-CL15 with rules CLR1-CLR6, overarching shape OV1-OV8, abstractions
-AX1-AX19 with rules AXR1-AXR4, II27-II36, KX43-KX50 and lanes W16-W18.
-Proposals only.
-Then: “Considering comic worlds ... Abstaction thats needed? Idle stuff to
-gain progress out of the game as well? like meditating and wheatver While Im
-gone?” Round 22 of the intro doc: comic quick map CC1-CC10, away progress
-AW1-AW12, abstractions AB1-AB9, cheats CX13-CX16; lanes: away ledger (pure
-module, gate-first) and comic worlds mapping.
-Then (2026-10-14): “Weaponcrafting, runestuff, other stuff and more? more to
-consider? ... Cheats that would show stuff like these and more? ... Subtle stuff
-too? Overarching stuff? Implementation implciations and more? Abstaction thats
-needed?” Saved in [weaponcraft, runes and maker arts considerations](WEAPONCRAFT_RUNES_AND_MAKER_ARTS_CONSIDERATIONS_2026-10-14.md):
-WC1-WC14, AR1-AR6, RN1-RN14, OM1-OM16, WQ1-WQ14, RC1-RC16 with fidelity tiers
-F0-F5, SB1-SB12, OV1-OV8, IM1-IM12, AB1-AB12. Codex lanes W1-W7 sent
-([sessions](gm/dispatch/maker-arts-2026-10-14/SESSIONS.md)). Proposals only.
-Then: same request plus “Merging, commiting or pushing?”. Folded C9 micro
-behaviour (15 animal profiles, 59 sources, caveats on popular labels). Round
-11: topic map, IA merging companions, IB subtle, J61-J62. Committed this
-task's companion paths only; push and merge left for Weibao's explicit yes.
-A third session saved [comic worlds and the comic medium](COMIC_WORLDS_AND_MEDIUM_CONSIDERATIONS_2026-10-14.md):
-comic traditions beyond superheroes, industry habits as world-law dials,
-medium and law cheats, subtle panel touches, implications and abstractions,
-with a reconciliation table that defers overlapping rows to the kit and intro
-rounds. Codex lanes K1-K5 sent ([sessions](gm/dispatch/comics-2026-10-14/runs/SESSIONS.md));
-K6 stopped as a duplicate of W18. Proposals only.
-Then: “Considering comic worlds and stuff and more? ... Abstaction thats
-needed? Merging, commiting or pushing?” Saved round 9 (G75-G80) and launched
-lanes B17 (comic bodies) and B18 (abstractions). Proposals only.
-Then: “... Abstaction thats needed? Merging, commiting or pushing?” Round 23
-of the intro doc: merge/commit/push considerations MG1-MG6, projection layer
-PJ1-PJ6, cheats CX17-CX20; a probe micro-text lane.
-Then: “Considering comic worlds and stuff and more? ... Abstaction thats needed?
-Merging, commiting or pushing?”. Saved as
-[comic worlds, the abstractions needed, and landing the work](CHEAT_LIBRARY.md#more-to-consider-comic-worlds-the-abstractions-needed-and-landing-the-work-2026-10-14):
-CSW1-CSW10 the status window in comic worlds (beside the existing
-[comic worlds doc](COMIC_WORLDS_AND_MEDIUM_CONSIDERATIONS_2026-10-14.md)),
-SH19-SH26 comic information cheats, AB1-AB10 one reconciled abstraction
-stack with rule-of-two status, LW1-LW5 landing rules. Codex lane AB (read-only
-abstraction map across docs and code) sent. Proposals only.
-Then the same request with “Merging, commiting or pushing?”. Same request reached
-other sessions; weapon/rune work is canonical in the UI-at-scale session's
-palette (R1-R3), so WR1-WR4 here were stopped as duplicates. Story round 11 saved
-(BN story-reveal cheats, BO one knowledge layer, BP story abstractions, BQ
-implementation). Finished lane reports committed; push awaits Weibao's yes.
+stuff like these ... Subtle stuff too? Overarching stuff? Implementation
+implciations ... Abstaction thats needed? Merging, commiting or pushing?” Round 3
+of the crafting palette (CM comic making, CX making-reveal cheats, SU subtle, OA
+overarching, II implementation, AB abstractions) and lanes CR5 (sourced comic
+making) and CR6 (crafting wave 2 build packet). The general comic palette is owned
+by another session. Proposals only.
+Then (procgen session): “Considering comic worlds ... Abstaction thats needed?
+Merging, commiting or pushing?” Saved as [procedural generation round 2](PROCEDURAL_GENERATION_STATUS_2026-10-13.md#round-2-comics-lens-cheats-subtle-overarching-implications-abstractions-2026-10-14)
+(CG1-CG8, GL1-GL10, GS1-GS8, GO1-GO7, GI1-GI6, GA1-GA8), generation angle
+only. Committed a30d022a/4307e64a and pushed origin; lanes GX1-GX4 (docs)
+and GX5 (per-save mixture appearances, code) sent. Proposals only.
 
 Then (2026-10-14): “save as core audit to repeat in the future too”. Saved
 [companions core audit](audits/COMPANIONS_CORE_AUDIT.md) (triggers, lane
 templates C1-C16, procedure, run log) and the general
 [topic expansion audit playbook](audits/TOPIC_EXPANSION_AUDIT_PLAYBOOK.md)
 with the own-paths commit helper and project skill `topic-expansion-audit`.
+Then (2026-10-14, peer fold request under Weibao's O2 approval): folded body-lineage lanes B10, B12 and B14-B18 into the genetics palette's [fold section](GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md#fold-lanes-b10-b12-and-b14-to-b18-2026-10-14); wave marked folded. Proposals only.
+Then: “more to consider? other stuff and more? save and extend accordingly, use the udpated more to consider?” Saved [round 10](GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md#round-10-more-to-consider-pass-over-the-whole-palette-2026-10-14): code index, constraints MT1-MT7, delegated items LD1-LD6, new angles NA1-NA6. Proposals only.
+
+Then: “use the updated more to consider to continue accordingly” (research
+and technology). Round 11 of [Technology and progression](TECHNOLOGY_AND_PROGRESSION.md#from-palette-to-play-round-11-2026-10-14):
+act now, account for now and later items (CN1-CN15), and a ready-to-run
+[first slice prompt](gm/dispatch/research-tech-2026-10-14/NEXT_SLICE_PROMPT.md)
+(U40 craft cue plus N19 village sentence, text only). Not dispatched.
+
+Then (2026-10-14): “modularity at every level and more? from harvesting, to
+extracting resources to crafting and more? procedural rules and more? Use more
+to consider”. Saved as [modular production chains](MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md)
+(MDF1-MDF4 code findings, ML levels, MS stages, MV verbs, MR rule kinds, MX other
+chains, MT subtle, MC cheats, MA abstractions, smallest proof). Proposals only.
+Then: “more to consider? other stuff and more? save and extend accordingly” Saved [round 11](GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md#round-11-ownership-stability-lives-and-authoring-volume-2026-10-14): ownership OW1-OW6, stability ST-A to ST-F, reincarnation RL1-RL6, authoring volume AV1-AV5. Proposals only.
+Then: “Send out more to consider,, consider accordingly and more?” Round 2 of
+[modular production chains](MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md#round-2-2026-10-14-more-to-consider-lanes-sent):
+correction (harvest-modules HV1/HV2 already own the harvest end; MA1 now
+extends HV2 M1 downstream), FL graphs, SR scale regimes, AG actors, KS stage
+knowledge, MR8-MR13, GC chain generation, CS stage cheats, OP principles,
+MT11-MT15. Docs lanes PC1-PC5 sent (`gm/dispatch/modular-chains-2026-10-14/`).
+Proposals only.
+
+Then: “/more-to-consider ?” on the modular chains run. Round 3 of
+[modular production chains](MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md#round-3-2026-10-14-lane-returns-pc1-pc5-folded-plus-a-more-to-consider-pass)
+folds lanes PC1-PC5 (corrections X1-X19, shared verdict of no universal
+engine, top picks T1-T5, R3-1 to R3-5) and saves the
+[modular chains core audit](audits/MODULAR_CHAINS_CORE_AUDIT.md). HV1 flagged
+to the merge-sweep session. Proposals only.
+
+Then: “Dispatch T2 (read-only chain inspector) then T3 (rule reader at Village
+mixing) as code lanes, after HV1 merges.” HV1 merged at 4f853c24 (merge sweep).
+Code lanes in [chain build](gm/dispatch/chain-build-2026-10-14/COMMON.md): T2
+running; T3 starts on T2's branch once T2 is DONE. Root merges after gates.
+
+## Save deep details for reference, 2026-10-14
+
+> Feel free to save dialogue text for future reference for YAIR too, make that a standing rule for the future to save deep details and more
+
+Said during the Hogwarts Legacy deep decompile pass. Standing rule: every
+decompile, source-read or research pass saves deep detail for future YAIR
+reference, not only bounded summaries. That includes full dialogue and
+interface text with line IDs, speakers and conditions; full data tables
+(CSV or JSON); decoded Blueprint and quest flows; native chain notes; and
+anything else a later design or implementation lane could reuse.
+
+Where: gitignored `docs/research/<source>/private/` next to the committed
+analysis (the repo is public), with bulk raw extracts allowed in
+`~/.codex/research/<source>/`. Each committed REPORT links its private folder
+and states what it holds. Committed docs, commit messages and UI keep
+paraphrase and short identifiers. Gameplay content stays original unless
+Weibao requests a direct adaptation (PROJECT.md attribution rules). Sealed
+secrets still follow AGENTS.md. User saves and source libraries stay
+untouched.

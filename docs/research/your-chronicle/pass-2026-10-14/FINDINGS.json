@@ -1,0 +1,235 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-14",
+  "lane": "your-chronicle-2",
+  "status": "PARTIAL",
+  "build": "25001959",
+  "build_changed": false,
+  "findings": [
+    {
+      "id": "F1",
+      "family": "build",
+      "evidence_tier": "shown",
+      "claim": "Build 25001959 and four native/intake files unchanged; all 17 prior selected decoded table fingerprints match.",
+      "evidence": "INTAKE.json; COVERAGE.json inputs/prior_table_comparison",
+      "prerequisites": "Compare installed input with prior intake",
+      "cost": "None",
+      "mutation": "No new build delta found",
+      "downstream_consumer": "Identical input permits reusing prior qualified evidence",
+      "time_policy": "Rehash on future pass",
+      "failure_or_limit": "No game launch; not a remote update/news assertion"
+    },
+    {
+      "id": "F2",
+      "family": "retention",
+      "evidence_tier": "shown",
+      "claim": "Ten resource IDs declare reincarnation carryover, including three marks with positive or negative authored effects.",
+      "evidence": "resources.assets pathID 122; ShouldCarryOver; selected IDs in COVERAGE",
+      "prerequisites": "Deep reset reaches resource carry decision",
+      "cost": "Non-carry stock is lost according to prior selected reset trace",
+      "mutation": "Balance exception declared by ID",
+      "downstream_consumer": "Resource effects/gates use the retained stock",
+      "time_policy": "Deep reset",
+      "failure_or_limit": "Complete callback/effect topology is unreviewed"
+    },
+    {
+      "id": "F3",
+      "family": "retention",
+      "evidence_tier": "prior shown",
+      "claim": "Persistent Save survives while SaveR is replaced. Class proficiency and sums are SaveR; lifetime routine completion is Save.",
+      "evidence": "../FINDINGS.json YC-T-DEEP-RESET, YC-T-RETENTION; ../traces/RETENTION.md",
+      "prerequisites": "Dark Ritual versus Reincarnation",
+      "cost": "Deep reset discards run-state owner",
+      "mutation": "Class school history can reopen access without old proficiency",
+      "downstream_consumer": "AHA eligibility and routine-speed consumer in prior trace",
+      "time_policy": "Two distinct reset boundaries",
+      "failure_or_limit": "Prior native corpus absent; bodies not re-read here"
+    },
+    {
+      "id": "F4",
+      "family": "unlock",
+      "evidence_tier": "shown",
+      "claim": "Five sin-family gates plus AHA, class inheritance and late upgrades have explicit inherited purchase rows.",
+      "evidence": "resources.assets pathID 69: awakeningOfGluttony, awakenSloth_sin, awakenGreed_sin, awakenPride_sin, awakenEnvy_sin and extensions",
+      "prerequisites": "Required campaign/reincarnation/guardian predicates",
+      "cost": "Sin and sometimes Inspiration/Virtue",
+      "mutation": "ToInheritPreviousLoop TRUE; capability declarations",
+      "downstream_consumer": "Later menus/rows require purchase completion",
+      "time_policy": "Unlocks stage across campaign and lives",
+      "failure_or_limit": "Native release consumers for Wrath/Alchemy unread"
+    },
+    {
+      "id": "F5",
+      "family": "parallel systems",
+      "evidence_tier": "inferred",
+      "claim": "Seven late-loop families: six named sin systems plus Alchemy. AHA extends Sloth. This is not a full subsystem or simultaneous-unlock count.",
+      "evidence": "Help gluttony, greed, sloth_action, envy, pride, wrath, alchemy; pathID 69 unlocks",
+      "prerequisites": "Progressive release",
+      "cost": "Different currencies and ordinary stock",
+      "mutation": "Several independent loops remain useful across lives",
+      "downstream_consumer": "Food, research, work, queues, challenge and workshop benefits",
+      "time_policy": "No minimum-life schedule proven",
+      "failure_or_limit": "Ordinary party/equipment/quests and ritual types excluded from this denominator"
+    },
+    {
+      "id": "F6",
+      "family": "research",
+      "evidence_tier": "shown",
+      "claim": "Greed has 22 rows: 14 regional, three rare, five Guardian. Normal gates progress from TRUE to Reincarnation 14 with later dungeon predicates.",
+      "evidence": "resources.assets pathID 68 all 22 IDs",
+      "prerequisites": "Reincarnation/dungeon/research/upgrade predicates",
+      "cost": "AnyResearch matching category",
+      "mutation": "Declared output benefits use Log, Linear or Power effect methods",
+      "downstream_consumer": "Inspiration, ordinary outputs, drops, offline factor, routine speed and Will",
+      "time_policy": "Help states price increments of 1000",
+      "failure_or_limit": "Help says 20 categories; runtime active count and parser semantics unread"
+    },
+    {
+      "id": "F7",
+      "family": "food",
+      "evidence_tier": "shown",
+      "claim": "Cooking and eating share actual stock; potion food competes for the crafted Elixir used in a prior rescue.",
+      "evidence": "pathIDs 29 eatGrilledFish/eatElixir, 81 makeGrilledFish/baking, 88 fishing/makingPotion/makingElixir",
+      "prerequisites": "Recipe and Potion Glutton prerequisites",
+      "cost": "Fire, salt, firewood, fish; late Elixir ingredients",
+      "mutation": "Food consumes product and declares effects",
+      "downstream_consumer": "Stats and satiety channel, prior rescue consumer",
+      "time_policy": "Duration parameters 10 or 40; real timing unmeasured",
+      "failure_or_limit": "Help adds repeated-price scaling; full native evaluation unread"
+    },
+    {
+      "id": "F8",
+      "family": "alchemy",
+      "evidence_tier": "stated",
+      "claim": "Mix Score and Tarot effects survive reincarnation; Tarot picks renew. Transmutation resets pot contents.",
+      "evidence": "installed Help alchemy_ingredients/alchemy_pot/alchemy_tarot",
+      "prerequisites": "5M Mix Score and 20-hour transmute interval",
+      "cost": "Ingredients, orb slot opportunity, typed Dust",
+      "mutation": "Orb or Dust; selected card effect; renewable choice allowance",
+      "downstream_consumer": "Five-slot arrays and lasting enhancements",
+      "time_policy": "20-hour authored interval; growth slows after 100 enhancements",
+      "failure_or_limit": "RNG, exact Save fields and duplicate transaction handling unread"
+    },
+    {
+      "id": "F9",
+      "family": "challenge",
+      "evidence_tier": "shown and stated",
+      "claim": "Pride reserves a next-life challenge, permits cancellation, and declares distinct ordinary-work and convenience rewards.",
+      "evidence": "pathID 126 selected 20 rows; pathID 79 nine restrictions; Help pride",
+      "prerequisites": "Chronicle counts and awaken purchases",
+      "cost": "Voluntary restriction on next campaign",
+      "mutation": "Challenge reservation/activation stated; reward declarations shown",
+      "downstream_consumer": "Habit capacity, efficiency, food/ritual effect or drop bonus",
+      "time_policy": "Next Reincarnation; selected MaxClearNum 5",
+      "failure_or_limit": "SpecificRewardNum strings 55/555/5555 parser unread; execution not tested"
+    },
+    {
+      "id": "F10",
+      "family": "automation",
+      "evidence_tier": "stated",
+      "claim": "Three Sloth queues can work independently; AHA preserves manual allocations when its template is disabled.",
+      "evidence": "Help sloth_action/sloth_routine",
+      "prerequisites": "Eligible/unlocked work",
+      "cost": "Current resources and unused Habit",
+      "mutation": "Queue progress; separate auto ownership",
+      "downstream_consumer": "Independent action plans",
+      "time_policy": "0.1-second queue and 10-second AHA authored cadence",
+      "failure_or_limit": "Native clock, replay, exact allocation and queue exceptions unread"
+    },
+    {
+      "id": "F11",
+      "family": "offline",
+      "evidence_tier": "shown and stated",
+      "claim": "Cooking flags explicitly allow offline work; Sloth eligibility and offline eligibility are different fields. Help gives day-dependent decay.",
+      "evidence": "pathID 81 baking/makeGrilledFish CanWorkOffline; pathID 88 EnableSloth; Help offline_bonus; prior YC-T-OFFLINE",
+      "prerequisites": "Action-specific predicates and costs",
+      "cost": "Same production inputs",
+      "mutation": "Allowed offline work declaration",
+      "downstream_consumer": "Stock output; scaled versus full-time components in prior native trace",
+      "time_policy": "Help 50/40/30/20/10%; prior validation ceiling 63072000 seconds",
+      "failure_or_limit": "No fresh offline dispatch or clock-anomaly proof"
+    },
+    {
+      "id": "F12",
+      "family": "party/quests",
+      "evidence_tier": "stated",
+      "claim": "Squad work occupies allies; stamina zero doubles interval. Ongoing squads and temporary quest rewards have different stated reincarnation boundaries.",
+      "evidence": "Help quest_party/reincarnation/wrath",
+      "prerequisites": "Squad formed before starting; party/squad exclusivity",
+      "cost": "Stamina or recoverer item; absent combat member",
+      "mutation": "Minute progress rewards and completion rewards",
+      "downstream_consumer": "Wrath quest speed/completion investment",
+      "time_policy": "One-minute increments; exhausted interval doubles",
+      "failure_or_limit": "Native persistence, interruption and actual reward calculators unread"
+    },
+    {
+      "id": "F13",
+      "family": "narrative/learning",
+      "evidence_tier": "shown",
+      "claim": "Two mutually exclusive answer stages create four mentor paths. Four 900-Inspiration skill books independently declare inheritance; later replies recognize matching and all-four knowledge.",
+      "evidence": "pathID 115 A10EventL_Question/Answer/Reply selections; pathID 130 four loveSkillBook IDs",
+      "prerequisites": "Rank 60 books; mastery replies Rank 65/70; matching choices and history",
+      "cost": "Love 40/45/50/55/60 teaching chain, 900 Inspiration each book",
+      "mutation": "Local locks; persistent declared skill grant; knowledge-aware title",
+      "downstream_consumer": "Skill data and recognition conditions use earned knowledge",
+      "time_policy": "No actual campaign duration or minimum lives proven",
+      "failure_or_limit": "Full upstream route and native initialization/teaching consumer unread"
+    },
+    {
+      "id": "F14",
+      "family": "party effects",
+      "evidence_tier": "shown and stated",
+      "claim": "loveDissection targets collection; loveHug targets research, with different intervals/elements and the same Stamina cost. Formation and killer scope matter.",
+      "evidence": "pathID 65 loveDissection/loveHug; Help additional_effect/type_skill/wrath_additional_effect",
+      "prerequisites": "Formation-qualified effect; killer and skill affordability",
+      "cost": "11 Stamina each",
+      "mutation": "Collection or Luck additional-effect declaration",
+      "downstream_consumer": "Resources excluding chests versus research drops",
+      "time_policy": "Intervals 2.8/4.2 are data parameters, not measured attack times",
+      "failure_or_limit": "Actual damage, stacking and drop execution unread"
+    }
+  ],
+  "unread": [
+    {
+      "family": "reset callbacks",
+      "gap": "Full registration topology, constructor defaults, active squads and quest state",
+      "why": "Prior native corpus absent; native tool fetch timed out",
+      "next": "Restore pinned native tool from another trusted route, recover annotated native bodies, select one live squad/mark callback"
+    },
+    {
+      "family": "late systems",
+      "gap": "Wrath/Alchemy native unlocks, Envy and Wrath exact fields/refunds, Alchemy RNG and effect parsers",
+      "why": "Tables/Help establish declarations, not runtime consumer semantics",
+      "next": "Trace release and one permanent-versus-current field per system"
+    },
+    {
+      "family": "offline",
+      "gap": "Clock acquisition/anomaly policy, full per-kind dispatch, compound replay and idempotence",
+      "why": "Native consumers not recovered in this pass",
+      "next": "Trace permitted cooking and blocked upgrade through dispatch/diff"
+    },
+    {
+      "family": "combat/party",
+      "gap": "Native damage, additional effects, all Luck aggregation and squad payout",
+      "why": "Only skill rows and authored explanations extended",
+      "next": "Trace one costly skill through damage/drop consumer and shortage fallback"
+    },
+    {
+      "family": "narrative",
+      "gap": "Full endings and remaining A13/A14/A15 graphs",
+      "why": "Selected A10 knowledge chain; full chronology not audited",
+      "next": "Pick a single remaining route and join data, graph and current terminal predicate"
+    }
+  ],
+  "proposals": [
+    "P1",
+    "P2",
+    "P3",
+    "P4",
+    "P5",
+    "P6",
+    "P7"
+  ],
+  "raw_code_or_assets_in_repo": false,
+  "game_launched": false
+}
