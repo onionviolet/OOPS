@@ -13,3 +13,7 @@ Folded into [Technology and progression](../../../TECHNOLOGY_AND_PROGRESSION.md)
 
 Everything remains proposal. First playable step suggested by the lanes:
 U40 craft cue plus N19 village sentence (text only, no save change).
+
+Round 11 (2026-10-14): the agreed first step is written as a ready-to-run
+[continuation prompt](NEXT_SLICE_PROMPT.md). Not dispatched; it waits for
+Weibao's go and a live file-owner check.
