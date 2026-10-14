@@ -1,0 +1,40 @@
+TAP version 13
+# Subtest: native Smelting 10 earns the locked alloy recipe; its material crafts the brace
+ok 1 - native Smelting 10 earns the locked alloy recipe; its material crafts the brace
+  ---
+  duration_ms: 262.969583
+  type: 'test'
+  ...
+# Subtest: brace stats derive from the material grade, including its strength tradeoff
+ok 2 - brace stats derive from the material grade, including its strength tradeoff
+  ---
+  duration_ms: 0.384417
+  type: 'test'
+  ...
+# Subtest: equipped fact changes only the drive application; unequip restores its quote
+ok 3 - equipped fact changes only the drive application; unequip restores its quote
+  ---
+  duration_ms: 122.945417
+  type: 'test'
+  ...
+# Subtest: paid drive fuel and output freeze across reload, completion and cancellation
+ok 4 - paid drive fuel and output freeze across reload, completion and cancellation
+  ---
+  duration_ms: 88.506333
+  type: 'test'
+  ...
+# Subtest: equipped native brace with an open road offer keeps ticking, travelling and reloading
+ok 5 - equipped native brace with an open road offer keeps ticking, travelling and reloading
+  ---
+  duration_ms: 6096.203542
+  type: 'test'
+  ...
+1..5
+# tests 5
+# suites 0
+# pass 5
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 7047.814875

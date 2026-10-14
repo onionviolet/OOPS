@@ -1,0 +1,106 @@
+TAP version 13
+# Subtest: native housing bonuses are local, readable, and absent on old missing owners
+ok 1 - native housing bonuses are local, readable, and absent on old missing owners
+  ---
+  duration_ms: 436.710833
+  type: 'test'
+  ...
+# Subtest: book bonus needs completed owned books, counts distinct works and caps ten
+ok 2 - book bonus needs completed owned books, counts distinct works and caps ten
+  ---
+  duration_ms: 159.711291
+  type: 'test'
+  ...
+# Subtest: counted carried furniture is inert; only settled installed local fixtures earn bonuses
+ok 3 - counted carried furniture is inert; only settled installed local fixtures earn bonuses
+  ---
+  duration_ms: 130.286667
+  type: 'test'
+  ...
+# Subtest: Shack project flags alone earn nothing; existing earned phased fixture owners do
+ok 4 - Shack project flags alone earn nothing; existing earned phased fixture owners do
+  ---
+  duration_ms: 277.213292
+  type: 'test'
+  ...
+# Subtest: home kit requires earned adaptation plus current owned physical kit; copies and reload never stack
+ok 5 - home kit requires earned adaptation plus current owned physical kit; copies and reload never stack
+  ---
+  duration_ms: 79.218875
+  type: 'test'
+  ...
+# Subtest: optional old-save state is absent and ticks grant nothing
+ok 6 - optional old-save state is absent and ticks grant nothing
+  ---
+  duration_ms: 98.022
+  type: 'test'
+  ...
+# Subtest: repeated real visits bond, mature and give recurring paid-publisher gifts
+ok 7 - repeated real visits bond, mature and give recurring paid-publisher gifts
+  ---
+  duration_ms: 79.782375
+  type: 'test'
+  ...
+# Subtest: known gift gating suppresses undiscovered output without using up opportunity
+ok 8 - known gift gating suppresses undiscovered output without using up opportunity
+  ---
+  duration_ms: 11.769791
+  type: 'test'
+  ...
+# Subtest: real log is debited once, burn is bounded, Wet drying needs actual warmth
+ok 9 - real log is debited once, burn is bounded, Wet drying needs actual warmth
+  ---
+  duration_ms: 22.801
+  type: 'test'
+  ...
+# Subtest: smoke is opt-in; vent, extinguish and native exit remove exposure
+ok 10 - smoke is opt-in; vent, extinguish and native exit remove exposure
+  ---
+  duration_ms: 44.577042
+  type: 'test'
+  ...
+# Subtest: reloading preserves pending animal/hearth exactly, no retroactive upkeep
+ok 11 - reloading preserves pending animal/hearth exactly, no retroactive upkeep
+  ---
+  duration_ms: 73.407083
+  type: 'test'
+  ...
+# Subtest: invalid schemas and forged fields reject before mutating input
+ok 12 - invalid schemas and forged fields reject before mutating input
+  ---
+  duration_ms: 43.370584
+  type: 'test'
+  ...
+# Subtest: custody, home, body, discovered identity and root clock preflight gate commands
+ok 13 - custody, home, body, discovered identity and root clock preflight gate commands
+  ---
+  duration_ms: 77.067625
+  type: 'test'
+  ...
+# Subtest: atomic host contract prevents duplicate publication and partial preflight failure
+ok 14 - atomic host contract prevents duplicate publication and partial preflight failure
+  ---
+  duration_ms: 46.818709
+  type: 'test'
+  ...
+# Subtest: comfort derives distinct active fixtures, never inventory price or copies
+ok 15 - comfort derives distinct active fixtures, never inventory price or copies
+  ---
+  duration_ms: 121.910417
+  type: 'test'
+  ...
+# Subtest: known Here presentation hides undiscovered identity and uses sequenced public actions
+ok 16 - known Here presentation hides undiscovered identity and uses sequenced public actions
+  ---
+  duration_ms: 53.638625
+  type: 'test'
+  ...
+1..16
+# tests 16
+# suites 0
+# pass 16
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 20071.064125

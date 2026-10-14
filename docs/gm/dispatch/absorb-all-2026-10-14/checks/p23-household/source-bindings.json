@@ -1,0 +1,6 @@
+{
+  "src/absorb_b/furniture.js": "d49d7e3da7f22fe303adacc981a4d8b85307be557cd326ea09702d62d32f07ad",
+  "src/absorb_p23/household/model.js": "7074c1b3ac7092e08745018c94c847ac811e62af69f3df7cd4ca1fa50d635006",
+  "src/absorb_p23/household/host.js": "6bed424c9de81018a0e5cfd50df636a988d5531f501291f4ffa59bc0ba4f64ff",
+  "tests/p23-household.test.js": "2c75356ad35207b4244d8d6fc880cd36f9ab84e302a150efc2c720b56d734b1f"
+}
