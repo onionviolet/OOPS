@@ -1,0 +1,33 @@
+{
+  "focused": {
+    "total": 13,
+    "pass": 13,
+    "fail": 0
+  },
+  "full": {
+    "total": 1380,
+    "pass": 1377,
+    "fail": 0,
+    "todo": 3,
+    "skipped": 0,
+    "durationMs": 39205.124917
+  },
+  "build": "passed",
+  "sourceWhitespace": "passed",
+  "stress": "Two identical 10000-kill runs per scenario; one loot-stream scenario reloads halfway and covers all five species",
+  "sourceSha256": {
+    "src/harvest.js": "2decc6ea0eca090ac4e3bf4fd525e830f3dda38331cee19c60f1adb097fbbc19",
+    "src/harvest_ui.js": "052dfd9626d753e2bae0dd84641fdaccea07ae6d616ca53573ab934e2c61952d",
+    "src/main.js": "a8b86ebb36f9d6d317e364c0eab5253f38a5a81954664a1323c11e45eff3796a",
+    "src/models/combat.js": "578ed1658d26a24b8ed7d315a771cf03513145dc76b52f22cbd87b788678d517",
+    "src/enemies.js": "af165c62c5972b904c0f299215b85be347a730855b02eee7e23659d95b53a4d2",
+    "src/items.js": "bb9c67ef37226c9b8893b0a76732ebaccfc71de78e2cd94a9f4561f1bf0df4e9",
+    "src/crafting_recipes.js": "524ca70eb426164bce5ea9621c644a654be40ba61e979298318923f05e14c4d9",
+    "src/display.js": "c55c4f520de18f5160671a1df10acbcc70f7c543cb71d31beb6c52240f28eb9b",
+    "src/data/skills.js": "957c83ffe41accb2622095a0e0116ec3c8f3c0bd145e151db6bf5bb941a3e42d",
+    "src/seeded_streams.js": "8162f46678b0d2dfe3d6d8b3041cf8fa7f18c4bb01ec5971a848165a7862e012",
+    "src/save_files.js": "3c22cbb7e365a8bcdb09235e98c2f99ff342e81944307f82f917e2f287ec762e",
+    "tests/harvest.test.js": "4683b92068763a3a46b8a4129b96dddd6024221ecf41cb998629eba1e45e9688"
+  },
+  "bundleSha256": "3eb55ba78c5586ae2268a708c344c8c89bb16c236e7e009f699edaa65f941761"
+}

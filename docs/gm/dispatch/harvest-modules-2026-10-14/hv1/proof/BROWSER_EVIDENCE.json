@@ -1,0 +1,23 @@
+{
+  "label": "natural",
+  "profile": "/private/tmp/hv-hv1-profile-natural",
+  "hero": "TEST FIXTURE HV HV1 NATURAL",
+  "kills": {
+    "Wolf rat": 5,
+    "Starving wolf rat": 12
+  },
+  "viewports": [
+    "1366x768",
+    "1600x1000"
+  ],
+  "recipePaidGradedQuality": true,
+  "manualWhole": true,
+  "manualTailOnly": true,
+  "cancelReturnsExactLot": true,
+  "pendingReloadExact": true,
+  "completedReloadExact": true,
+  "exportLiteralImportSecondProfileExact": true,
+  "inspectorOnlyExplicitOptIn": true,
+  "pageErrors": [],
+  "bundleSha256": "5f6bbe18f75ca07affddf69f7028d5152c1574765751745fdbe7fa19040ba5c6"
+}

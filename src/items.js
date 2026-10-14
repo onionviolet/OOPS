@@ -1,3 +1,4 @@
+import {GRADED_IDS,validateGradedKey} from './harvest.js';
 import {systemsWorkshopItems} from './systems_workshop_content.js';
 import {registerFortItems} from "./fork_fort_content.js";
 import {MIXTURE_ID,INGREDIENTS,getMixtureOwner,productFromKey,mixturePresentation} from './mixture_state.js';
@@ -1218,7 +1219,13 @@ function getItem(item_data) {
  */
 function getItemFromKey(key) {return durability.bindFromKey(key,nativeGetItemFromKey(key));}
 function nativeGetItemFromKey(key) {
-    let {id, components, quality} = JSON.parse(key);
+    let {id, components, quality, completeness} = JSON.parse(key);
+    if(GRADED_IDS.includes(id) && quality != null) {
+        validateGradedKey(key);
+        const item=getItem({...item_templates[id],quality});item.inventory_key=key;item.completeness=completeness;
+        item.getName=()=>`${item.name} (${completeness?completeness+", ":""}${quality}% quality)`;
+        return item;
+    }
     if(id===MIXTURE_ID) {
         const product=productFromKey(getMixtureOwner(),key),view=mixturePresentation(getMixtureOwner(),product);
         const item=new UsableItem({id:MIXTURE_ID,name:view.name,description:view.description,value:12,effects:[],tags:{medicine:true}});

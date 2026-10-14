@@ -1,0 +1,14 @@
+{
+  "label": "natural",
+  "reason": "Pure occupation projection fixes processing log flood",
+  "finalBuildSha256": "3eb55ba78c5586ae2268a708c344c8c89bb16c236e7e009f699edaa65f941761",
+  "viewports": [
+    "1366x768",
+    "1600x1000"
+  ],
+  "noProjectionLogFlood": true,
+  "currentWorkCountdown": true,
+  "manualWhole": true,
+  "completedGradeReloadExact": true,
+  "pageErrors": []
+}

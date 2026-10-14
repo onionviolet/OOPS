@@ -1,3 +1,4 @@
+import {damageRecord,supportedHarvest} from '../harvest.js';
 import {combatHitText} from '../ui_polish.js';
 import {STREAMS,gameOrdinal,gameKeyedRandom} from "../seeded_streams.js";
 import {getElementalDefenseModifier} from '../absorb_e3/elemental_affinities.js';
@@ -66,7 +67,7 @@ class Combat {
     snapshot(locationId) {
         if(this.is_special_combat || this.actionAdapter || this.is_ended) return null;
         return {schema:1,locationId,key:this.rngKey,turns:structuredClone(this.#turns),loops:structuredClone(Object.fromEntries(Object.entries(this.#pendingLoops).filter(([key])=>{const [side,index]=key.split(":");return this[side][index]?.is_alive;}))),
-            enemies:this.defenders.map(e=>({template:e.templateKey || e.name,key:e.rngKey,stats:{...e.stats},full:{...e.getFullStats()},alive:e.is_alive}))};
+            enemies:this.defenders.map(e=>({template:e.templateKey || e.name,key:e.rngKey,stats:{...e.stats},full:{...e.getFullStats()},alive:e.is_alive,...(e.harvestDamage?{harvestDamage:structuredClone(e.harvestDamage)}:{})}))};
     }
 
     #startFighter(fighter_index,is_attacker) {
@@ -425,7 +426,14 @@ class Combat {
         }
 
         if(!this.is_special_combat&&target.tags.main_character)defense_modifier+=getElementalDefenseModifier({enabled:game_options.elemental_affinities,attacker:fighter,equipment:target.getEquipment(),baseDamage:base_damage});
+        const harvestHealth=target.getFullStats().health;
         let {damage_taken, fainted} = target.takeDamage({damage_values: damages_dealt, defense_modifier, give_skill_xp: (!this.is_special_combat && target.tags.main_character)});
+
+        if(!this.is_special_combat && fighter.tags.main_character && supportedHarvest(target.name)) {
+            const weapon=fighter.getEquipment()?.weapon;
+            const type=weapon?.weapon_type==='hammer'?'blunt':weapon?'cut':'physical';
+            target.harvestDamage=damageRecord(target.harvestDamage,{health:harvestHealth,maxHealth:target.getFullStats().max_health,damage:damage_taken,critical:critted,type,hits:damages_dealt.length});
+        }
 
         let callbackDraw=0;
         target.on_damaged(fighter,()=>random(`on_damaged:${callbackDraw++}`));

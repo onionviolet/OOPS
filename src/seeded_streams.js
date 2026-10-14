@@ -1,3 +1,4 @@
+import {validateHarvestDamage} from './harvest.js';
 // Per-save decisions. Legacy expansion/simulation/duel generators remain owners
 // of their own cursors. No cheat policies are applied here; receipts are the seam.
 export const STREAMS = Object.freeze({encounter:'encounter', combat:'encounter:core', loot:'loot', market:'market',
@@ -126,6 +127,7 @@ export function validateNativeEncounter(s,locationId) {
         if(!Array.isArray(s.turns[side])||s.turns[side].length!==length||s.turns[side].some(n=>!natural(n)))fail();
     }
     for(const e of s.enemies) {
+        if(e.harvestDamage!=null)validateHarvestDamage(e.harvestDamage);
         if(!object(e)||typeof e.template!=='string'||typeof e.key!=='string'||!object(e.stats)||!object(e.full)||typeof e.alive!=='boolean')fail();
         for(const stats of [e.stats,e.full])for(const v of Object.values(stats))if(!Number.isFinite(v)||v<0)fail();
         if(!(e.full.max_health>0)||e.full.health>e.full.max_health||e.alive!==(e.full.health>0))fail();
