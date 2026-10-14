@@ -1,0 +1,76 @@
+{
+  "status": "PARTIAL",
+  "buildid": "25598304",
+  "build_changed": false,
+  "source_read": [
+    "COMMON and prior CHECKPOINT/COVERAGE/REPORT/INTAKE/EXTRACTION_RECEIPT",
+    "PROJECT top and USER_VISION desktop/options/food sections",
+    "GameEvent scheduler/index/eligibility/dependency/trigger/history/transition methods",
+    "EventScriptParser bracket/dependency/action families and EventStep choice execution",
+    "Node market/distance/import/blend/restock pipeline, MarketTweak, MarketUI quotes",
+    "Caravan cargo/movement/camp/roster/morality; GameCharacter all cap cases",
+    "Vorax/Javek/Sedarias full recruitment choice scripts; named alternate initial routes and selected loyalty cleanup",
+    "DLCManager mount/ownership logic; ExplorationManager start/exit/result bridge",
+    "Province War AGENTS/README, routing/recovery/campaign/activity-upkeep and transport scaffold"
+  ],
+  "reused_prior": [
+    "All 25 warning/critical record review",
+    "Selected staffing/effect and camp semantic review",
+    "Prior prose/action mismatch, attributed and not reverified exhaustively"
+  ],
+  "indexed_not_semantically_complete": [
+    "All 1178 legacy event metadata, 17223 steps and 34323 choice command headers",
+    "All 58 Goods and 12 Crew row structures",
+    "Private companion script references",
+    "Prior graph structural counts 46/569, not new complete graph reading"
+  ],
+  "gaps": [
+    {
+      "id": "G1",
+      "area": "Post-departure companion returns",
+      "unread": "Full incoming-path and flag/journal-reset closure for GorGoro, Skornar, Eylani, Finndurarth and changed Criftaa/Renkailon; late Sedarias/Javek switches.",
+      "why": "Reviewed alternate sites prove initial recruitment only. Generic add/remove methods cannot establish authored reachability. Full exception graph remains a distinct unread source unit.",
+      "next": "Use retained companion-script-xref.json, add variant IDs, resolve every incoming route and custom-script hook."
+    },
+    {
+      "id": "G2",
+      "area": "Complete personal quest outcomes",
+      "unread": "Every branch/reward/ending for all twelve companions.",
+      "why": "All cap cases and selected recruitment/departure consumers read; lexical reference indexing is not full quest reading.",
+      "next": "Join journal milestones to all event mutations and consumers per companion."
+    },
+    {
+      "id": "G3",
+      "area": "DLC-specific systems",
+      "unread": "Full Sunken Tower/Knowledge Ambition progression, mountain traversal/environment and Freelancers Guild replacement rules; all regional faction endings.",
+      "why": "Official descriptions and shared engine consumers establish additions at system level; not all DLC data/hook chains reviewed.",
+      "next": "Resolve product/enum mapping from DLC Config, then trace source consumers and complete representative added-system branches."
+    },
+    {
+      "id": "G4",
+      "area": "New graph engine",
+      "unread": "All 46 base/569 subevent graph bodies and EventController internals.",
+      "why": "Legacy-to-exploration bridge read; graph corpus is separate from requested 1178-row table.",
+      "next": "Trace graph registry/node semantics with a bounded complete exploration graph."
+    },
+    {
+      "id": "G5",
+      "area": "All tuning and route balance",
+      "unread": "All difficulty modifiers, hunting/foraging transactions and every settlement/good pair.",
+      "why": "Core economics and travel formulas source-read, but no route optimizer or exhaustive balance sweep performed.",
+      "next": "Static candidate route accounting using original tuning, if requested; no claim of a best live trade loop."
+    },
+    {
+      "id": "G6",
+      "area": "Runtime, entitlement and persistence",
+      "unread": "Actual event cadence distributions, expansion access, price UI, save/load behavior and play balance.",
+      "why": "Game launch and saves/settings access prohibited by COMMON. Not a source reading defect or required playable gate for this research task.",
+      "next": "Only a separately authorized disposable gameplay route could exercise these."
+    }
+  ],
+  "game_launched": false,
+  "saves_or_settings_accessed": false,
+  "repo_runtime_edited": false,
+  "province_war_written": false,
+  "git_actions": false
+}

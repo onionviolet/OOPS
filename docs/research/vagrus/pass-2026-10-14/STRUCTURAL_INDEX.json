@@ -1,0 +1,65 @@
+{
+  "event_records": 1178,
+  "event_steps": 17223,
+  "event_choices": 34323,
+  "frequency": {
+    "highpriority": 823,
+    "common": 169,
+    "rare": 102,
+    "priority": 43,
+    "veryrare": 28,
+    "preferred": 13
+  },
+  "readiness": {
+    "progress": 17,
+    "ready": 1124,
+    "idea": 33,
+    "final": 4
+  },
+  "choice_command_index": {
+    "next": 24513,
+    "end": 6085,
+    "hidden": 8685,
+    "dependency": 12860,
+    "htest": 449,
+    "success": 3629,
+    "fail": 3630,
+    "combat": 1054,
+    "vtest": 1236,
+    "heroselect": 473,
+    "script": 118,
+    "crewcombat": 1488,
+    "exploration": 54,
+    "auto": 722,
+    "herodeselect": 81,
+    "rtest": 4,
+    "have": 1,
+    "test": 1
+  },
+  "event_command_index": {
+    "dependency": 1721,
+    "htest": 2,
+    "success": 2,
+    "fail": 2,
+    "title": 423,
+    "description": 409,
+    "step": 9017,
+    "background": 198,
+    "freq": 253,
+    "port": 112,
+    "crewcombat": 49,
+    "max": 19,
+    "task": 13
+  },
+  "goods_rows": 58,
+  "noncollection_goods": 37,
+  "crew_rows": 12,
+  "dlc_setting_token_counts": {
+    "VoraxDLC": 1,
+    "CompanionDLC": 24,
+    "TBD": 150,
+    "TMK": 177,
+    "SeekersOfKnowledge": 0
+  },
+  "index_limit": "Lexical counts, not a replacement for the installed parser or full semantic reading."
+}

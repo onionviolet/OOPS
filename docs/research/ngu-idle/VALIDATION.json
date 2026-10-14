@@ -1,0 +1,25 @@
+{
+  "status": "PASS",
+  "scope": "Research artifacts only",
+  "required_files": [
+    "REPORT.md",
+    "FINDINGS.json",
+    "IMPLEMENTATION_PACKETS.md",
+    "SMALL_TOUCHES.md",
+    "TOOLING.md",
+    "CHECKPOINT.md",
+    "UNLOCKS_DIGEST.md",
+    "REBIRTH_AND_CHALLENGES_DIGEST.md",
+    "UI_DIGEST.md"
+  ],
+  "evidence_records_checked": 40,
+  "private_evidence_hashes_match": true,
+  "source_symbol_anchors_found": true,
+  "relative_markdown_links_checked": 11,
+  "small_touches": 26,
+  "exported_cs_files": 342,
+  "detected_decompiler_diagnostic_markers": [],
+  "checkpoint_status": "PARTIAL",
+  "repo_write_scope": "docs/research/ngu-idle/",
+  "no_gameplay_build_or_runtime_claim": true
+}

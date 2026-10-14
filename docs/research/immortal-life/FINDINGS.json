@@ -1,0 +1,178 @@
+{
+  "schema_version": 1,
+  "lane": "immortal-life",
+  "date": "2026-10-14",
+  "status": "PARTIAL",
+  "build_id": "17861603",
+  "evidence_labels": {
+    "shown": "direct table or declaration read",
+    "stated": "description or another report",
+    "inferred": "bounded interpretation"
+  },
+  "findings": [
+    {
+      "id": "F1",
+      "label": "shown",
+      "system": "payload",
+      "claim": "Installed Windows IL2CPP build 17861603 passes payload gate.",
+      "evidence": [
+        "appmanifest_1201230.acf: StateFlags 4, byte totals, staging 0",
+        "ImmortalLife.exe",
+        "GameAssembly.dll",
+        "il2cpp_data/Metadata/global-metadata.dat"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "F2",
+      "label": "shown",
+      "system": "cultivation",
+      "claim": "Level separates eight work preparation categories from six LifeSkillLevel profession ladders.",
+      "evidence": [
+        "resources.assets:Level LV1\u20136",
+        "resources.assets:LifeSkillLevel",
+        "dump.cs:PlayerData TypeDefIndex 12997"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "F3",
+      "label": "shown",
+      "system": "roommates",
+      "claim": "Marry content describes stays; twelve access triggers gate on friendship quest and housing.",
+      "evidence": [
+        "resources.assets:Marry NPCID1001\u20131012",
+        "Trigger ID355\u2013366",
+        "Language invitation keys",
+        "MarryEvent"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "F4",
+      "label": "shown",
+      "system": "npc-schedule",
+      "claim": "371 schedules contain Move/Animation entries; independent cultivation transactions not established.",
+      "evidence": [
+        "NPCSchedule",
+        "dump.cs:NpcScheduleManager TypeDefIndex9586",
+        "NPC DefaultLevel/Levels"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "F5",
+      "label": "shown",
+      "system": "conflict",
+      "claim": "Level and Breakthrough tables coexist; wiki thresholds and time costs disagree with Level.",
+      "evidence": [
+        "Level LV2 Exp/BreakTimeSpend",
+        "Breakthrough",
+        "BreakthroughMaps",
+        "https://immortallife.wiki.gg/wiki/Breakthrough"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "F6",
+      "label": "shown",
+      "system": "sect",
+      "claim": "Development reward commands unlock routes, courses and recipes; renown and grade are separate.",
+      "evidence": [
+        "SchoolDevelopment ID2\u20134",
+        "SchoolRenown",
+        "Grade",
+        "SchoolSalary"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "F7",
+      "label": "shown",
+      "system": "services",
+      "claim": "Three specialists have 27 configured delegation destinations with weighted result packages.",
+      "evidence": [
+        "Delegation"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "F8",
+      "label": "shown",
+      "system": "fortune",
+      "claim": "Prayer has eleven process-specific benefit families and separate upgrade rows.",
+      "evidence": [
+        "Pray",
+        "GodnessLevel",
+        "GlobalSettings.PrayBaseCriticalRate"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "F9",
+      "label": "inferred",
+      "system": "continuity",
+      "claim": "No lifespan or next-life execution contract established by selected schemas and targeted scans.",
+      "evidence": [
+        "Level",
+        "PlayerInitialData",
+        "NPC",
+        "dump.cs targeted type search"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "F10",
+      "label": "stated",
+      "system": "store",
+      "claim": "Official description links seasonal work, skill growth, rebuilding, classes/tests and companion stories/shared dwellings.",
+      "evidence": [
+        "https://store.steampowered.com/app/1201230/?l=english"
+      ],
+      "runtime_verified": false
+    }
+  ],
+  "proposals": [
+    {
+      "id": "P1",
+      "status": "unselected",
+      "packet": "IMPLEMENTATION_PACKETS.md"
+    },
+    {
+      "id": "P2",
+      "status": "unselected",
+      "packet": "IMPLEMENTATION_PACKETS.md"
+    },
+    {
+      "id": "P3",
+      "status": "unselected",
+      "packet": "IMPLEMENTATION_PACKETS.md"
+    },
+    {
+      "id": "P4",
+      "status": "unselected",
+      "packet": "IMPLEMENTATION_PACKETS.md"
+    },
+    {
+      "id": "P5",
+      "status": "unselected",
+      "packet": "IMPLEMENTATION_PACKETS.md"
+    },
+    {
+      "id": "P6",
+      "status": "unselected",
+      "packet": "IMPLEMENTATION_PACKETS.md"
+    },
+    {
+      "id": "P7",
+      "status": "unselected",
+      "packet": "IMPLEMENTATION_PACKETS.md"
+    }
+  ],
+  "questions": {
+    "Q1": "cultivation and sect tables read; lifespan and live interpreter open",
+    "Q2": "friendship/roommate/schedule schemas read; romance/disciple/rival/autonomy execution open",
+    "Q3": "authored triggers and specific fortune data read; inheritance/rebirth open",
+    "Q4": "prior report comparison saved in REPORT and EVENTS_AND_FORTUNE_DIGEST"
+  }
+}

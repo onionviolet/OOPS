@@ -1,0 +1,180 @@
+{
+  "schema_version": 1,
+  "lane": "warsim",
+  "date": "2026-10-14",
+  "status": "PARTIAL",
+  "build_id": "25097075",
+  "app_id": 659540,
+  "evidence_layers": {
+    "install_gate": "verified_manifest_and_exe",
+    "runtime": "native_static_identified",
+    "data": "inventoried_and_core_surveyed",
+    "native_code": "six_named_functions_bounded_static_inspection",
+    "gameplay": "not_run_launch_prohibited",
+    "persistence": "not_run_private_saves_untouched",
+    "yairpg_implementation": "none"
+  },
+  "payload": {
+    "machine": "0x8664",
+    "sections": 19,
+    "coff_symbol_entries": 6652,
+    "clr_directory": [
+      0,
+      0
+    ],
+    "exe_bytes": 20947051,
+    "exe_sha256": "93d159754192876538b175b1a50a515e256806dce9f03e2d7f50a32880686e5f"
+  },
+  "work_area": "/Users/weiwei/.codex/research/warsim",
+  "findings": [
+    {
+      "id": "F1",
+      "level": "shown",
+      "claim": "Payload gate passes; native C++ x86-64 console, CLR absent",
+      "evidence": [
+        "manifest StateFlags=4, build=25097075",
+        "Warsim.exe PE header",
+        "runtime.json"
+      ]
+    },
+    {
+      "id": "F2",
+      "level": "shown",
+      "claim": "Kingdom and mercenary generators reuse direct helper calls",
+      "evidence": [
+        "Warsim.exe!KingdomGenerator",
+        "Warsim.exe!MercGenerator",
+        "call_edges.json"
+      ]
+    },
+    {
+      "id": "F3",
+      "level": "shown",
+      "claim": "Race base and modifier tables have 101 and 379 rows; uniform 14/12 field widths",
+      "evidence": [
+        "Data/RaceType.txt",
+        "Data/RaceSuffix.txt"
+      ]
+    },
+    {
+      "id": "F4",
+      "level": "shown",
+      "claim": "HeroBackground selects a whole authored line with C rand and integer remainder",
+      "evidence": [
+        "Warsim.exe!HeroBackground 0x140ac931d-0x140ac937d",
+        "Data/HeroStory.txt"
+      ]
+    },
+    {
+      "id": "F5",
+      "level": "shown",
+      "claim": "Faction-name and mercenary-story files contain role categories",
+      "evidence": [
+        "Data/FactionName.txt",
+        "Data/MercenaryStory.txt"
+      ]
+    },
+    {
+      "id": "F6",
+      "level": "shown",
+      "claim": "Numeric race effects write portrait state; exact effect graph remains unread",
+      "evidence": [
+        "Warsim.exe!SetRaceEffects 0x140b3bc1a",
+        "ChildFace",
+        "EyelessFace"
+      ]
+    },
+    {
+      "id": "F7",
+      "level": "shown",
+      "claim": "Embedded menus specify harvest, wage, tribute and arena amounts; resolvers unread",
+      "evidence": [
+        "Warsim.exe file offsets in KINGDOM_LOOPS_DIGEST.md"
+      ]
+    },
+    {
+      "id": "F8",
+      "level": "stated",
+      "claim": "Historical developer explanation connects fighting peasants and harvest loss",
+      "evidence": [
+        "https://www.reddit.com/r/WarsimRpg/comments/hokozo/how_are_the_battles_calculated/"
+      ]
+    },
+    {
+      "id": "F9",
+      "level": "stated",
+      "claim": "Developer acknowledged historical arena income trouble; not established current bug",
+      "evidence": [
+        "https://steamcommunity.com/app/659540/discussions/0/4034728215967266698/"
+      ]
+    },
+    {
+      "id": "F10",
+      "level": "inferred",
+      "claim": "Functional trait reuse is more transferable than advertised combination counts",
+      "evidence": [
+        "F2",
+        "F3",
+        "F6",
+        "F7"
+      ]
+    },
+    {
+      "id": "F11",
+      "level": "stated",
+      "claim": "Historical scope cleanup grouped themed updates and deferred optional ideas",
+      "evidence": [
+        "https://itch.io/post/2382728"
+      ]
+    },
+    {
+      "id": "F12",
+      "level": "shown",
+      "claim": "50 of 95 name-directory files begin NONAME; full resolver semantics unread",
+      "evidence": [
+        "Data/Names/*.txt"
+      ]
+    }
+  ],
+  "proposal_ids": [
+    "P1",
+    "P2",
+    "P3",
+    "P4",
+    "P5",
+    "P6",
+    "P7",
+    "P8"
+  ],
+  "implementation_packet_ids": [
+    "WP1",
+    "WP2",
+    "WP3",
+    "WP4",
+    "WP5"
+  ],
+  "province_war_ids": [
+    "PW-W1",
+    "PW-W2",
+    "PW-W3",
+    "PW-W4",
+    "PW-W5",
+    "PW-W6"
+  ],
+  "unread": [
+    "combat resolver and exact probabilities",
+    "economy resolution and modifier precedence",
+    "event weights and dispatch eligibility",
+    "full name alias and grammar paths",
+    "complete race effect graph and modifier precedence",
+    "RNG seeding and persistence lifecycle",
+    "full dialogue and art semantics",
+    "classic executable",
+    "runtime routes and save/reload/import"
+  ],
+  "privacy_excluded": [
+    "Saves/",
+    "Scores/"
+  ],
+  "work_area_bytes": 10470538
+}

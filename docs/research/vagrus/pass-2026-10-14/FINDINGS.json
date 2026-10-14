@@ -1,0 +1,241 @@
+{
+  "lane": "vagrus-2",
+  "date": "2026-10-14",
+  "status": "PARTIAL",
+  "buildid": "25598304",
+  "prior_pass": "../REPORT.md",
+  "evidence_root": "/Users/weiwei/.codex/research/vagrus-2/extract",
+  "verification": "Static installed source/data and official descriptions; no launch, saves, runtime or gameplay acceptance.",
+  "findings": [
+    {
+      "id": "F1",
+      "label": "shown",
+      "system": "event_engine",
+      "claim": "Priority events bypass the ordinary pick roll; categories compete with separate ordering.",
+      "evidence": "Vagrus.Data/GameEvent.cs:2238-2297; Caravan.cs:7183-7240"
+    },
+    {
+      "id": "F2",
+      "label": "shown",
+      "system": "economy",
+      "claim": "Markets combine source, conditions, imports and stock-sensitive marginal quotes.",
+      "evidence": "Node.cs:3780-3945,4249-4484; MarketUI.cs:1151-1226"
+    },
+    {
+      "id": "F3",
+      "label": "shown",
+      "system": "companions",
+      "claim": "Alternate first recruitment routes and persistent flags do not establish post-departure re-recruitment.",
+      "evidence": "events.json:TorZag_MarketDist root choices 2-3 and steps 44/54/64; Lumen_Tavern root choice 4"
+    },
+    {
+      "id": "F4",
+      "label": "shown",
+      "system": "intake",
+      "claim": "Build remains 25598304; prior private directory and reproduction script are absent.",
+      "evidence": "Steam appmanifest_909660.acf; prior INTAKE.json; filesystem path check"
+    },
+    {
+      "id": "F5",
+      "label": "shown",
+      "system": "corpus",
+      "claim": "1178 legacy events, 17223 steps, 34323 choices; same prior decoded hashes.",
+      "evidence": "RECOVERY.json; INDEX.json"
+    },
+    {
+      "id": "F6",
+      "label": "shown",
+      "system": "event_engine",
+      "claim": "Default readiness permits Ready/Final, with Review/Progress tester exceptions.",
+      "evidence": "Vagrus.Data/GameEvent.cs:2060-2134"
+    },
+    {
+      "id": "F7",
+      "label": "shown",
+      "system": "event_engine",
+      "claim": "Static location indexing preserves mixed-type OR groups through unrestricted buckets.",
+      "evidence": "Vagrus.Data/GameEvent.cs:143-306"
+    },
+    {
+      "id": "F8",
+      "label": "shown",
+      "system": "event_engine",
+      "claim": "Zero-based rarity thresholds give 6/25/69 before fallback to Common/Rare/VeryRare.",
+      "evidence": "Vagrus.Data/GameEvent.cs:2270-2297; Game.cs:5171+; PROBES.json"
+    },
+    {
+      "id": "F9",
+      "label": "shown",
+      "system": "event_engine",
+      "claim": "Event, step and choice have independent count ceilings and day cooldowns; equality passes.",
+      "evidence": "Vagrus.Data/GameEvent.cs:2331-2535; DependencyBlock.cs:254-271"
+    },
+    {
+      "id": "F10",
+      "label": "shown",
+      "system": "event_engine",
+      "claim": "Dependency blocks combine ordinary AND terms and at least one OR term when present, with special trigger logic evaluated separately.",
+      "evidence": "Vagrus.Data/GameEvent.cs:2331-2875; Vagrus.Data/EventScriptParser.cs:587+"
+    },
+    {
+      "id": "F11",
+      "label": "shown",
+      "system": "event_engine",
+      "claim": "Location, faction, roster, properties, material means, flags and journals have distinct predicate consumers.",
+      "evidence": "Vagrus.Data/GameEvent.cs:2929-3979"
+    },
+    {
+      "id": "F12",
+      "label": "shown",
+      "system": "event_engine",
+      "claim": "Camp and movement reset drought counters differently for priority events.",
+      "evidence": "Caravan.cs:7309-7332,10983-11013"
+    },
+    {
+      "id": "F13",
+      "label": "shown",
+      "system": "event_engine",
+      "claim": "Auto effects, branch actions, event transitions and journal completion are separate operations.",
+      "evidence": "EventStep.cs:1660-1939"
+    },
+    {
+      "id": "F14",
+      "label": "shown",
+      "system": "economy",
+      "claim": "58 Goods rows contain 37 non-collection goods.",
+      "evidence": "AirTable.json:Goods.Collection; INDEX.json"
+    },
+    {
+      "id": "F15",
+      "label": "shown",
+      "system": "economy",
+      "claim": "Default import pricing uses composed static distance and can blend sources/cascade production.",
+      "evidence": "DistanceModelFlags.cs; Node.cs:4249-4484"
+    },
+    {
+      "id": "F16",
+      "label": "shown",
+      "system": "economy",
+      "claim": "Fractional rarity-weighted restock coexists with full regeneration after more than 30 elapsed turns.",
+      "evidence": "Node.cs:IsNeedGenerateProducts,RefreshProductQtys,GenerateOrRefreshProducts; MarketTweak.cs"
+    },
+    {
+      "id": "F17",
+      "label": "shown",
+      "system": "economy",
+      "claim": "Bulk trade quotes evaluate successive stock levels; first unit times quantity can misquote.",
+      "evidence": "MarketUI.cs:1151-1226"
+    },
+    {
+      "id": "F18",
+      "label": "shown",
+      "system": "travel",
+      "claim": "Cargo, labor, wages and food are distinct company constraints; beast rows trade capacity against support.",
+      "evidence": "AirTable.json:Crew; Caravan.cs:737-778,5955+; Camp.cs:955+,1196+"
+    },
+    {
+      "id": "F19",
+      "label": "shown",
+      "system": "travel",
+      "claim": "Movement cost combines length, terrain, road and map scale; ordinary movement spills into march.",
+      "evidence": "Line.cs:880-908; Caravan.cs:6416-6433,11690-11800"
+    },
+    {
+      "id": "F20",
+      "label": "inferred",
+      "system": "economy",
+      "claim": "A profitable loop must cover overhead and delay, not only price spread.",
+      "evidence": "ECONOMY_TRAVEL.md accounting model; STATIC_PROBES.json invented example"
+    },
+    {
+      "id": "F21",
+      "label": "shown",
+      "system": "companions",
+      "claim": "Roster addition constructs a fresh GameCharacter; no universal retained-growth readmission mechanism appears in that method.",
+      "evidence": "Caravan.cs:5616-5662"
+    },
+    {
+      "id": "F22",
+      "label": "shown",
+      "system": "companions",
+      "claim": "Personal journal milestones cap Prowess at 3/5/7/9; Criftaa and Javek include alternate final journals.",
+      "evidence": "GameCharacter.cs:407-504"
+    },
+    {
+      "id": "F23",
+      "label": "shown",
+      "system": "companions",
+      "claim": "Javek/Sedarias recruitment includes rival removal, active quest failures and delayed flags.",
+      "evidence": "events.json:Javek_Recruitment; Sedarias_Recruitment all choice scripts"
+    },
+    {
+      "id": "F24",
+      "label": "stated",
+      "system": "dlc",
+      "claim": "Old Acquaintances permits both rival questlines sequentially but excludes simultaneous employment.",
+      "evidence": "https://store.steampowered.com/app/2672530/"
+    },
+    {
+      "id": "F25",
+      "label": "shown",
+      "system": "dlc",
+      "claim": "Manifest DLC 1761710 is a Patronage reward pack, not a paid gameplay expansion proof.",
+      "evidence": "appmanifest_909660.acf; Patronage Pack Digital Rewards; https://store.steampowered.com/app/1761710/"
+    },
+    {
+      "id": "F26",
+      "label": "shown",
+      "system": "dlc",
+      "claim": "Owned/loading/loaded DLC sets and event build eligibility are distinct.",
+      "evidence": "Vagrus/DLCManager.cs:15-200+; Vagrus.Data/GameEvent.cs:143-366"
+    },
+    {
+      "id": "F27",
+      "label": "shown",
+      "system": "chain_build",
+      "claim": "Legacy choices can run a registry exploration and continue through a result callback; direct SubEvent start is rejected.",
+      "evidence": "Vagrus.Exploration/ExplorationManager.cs:160-233; Vagrus.Data/GameEvent.cs:1818-1869"
+    },
+    {
+      "id": "F28",
+      "label": "inferred",
+      "system": "province_war",
+      "claim": "Add physical supply access to existing routing/upkeep consumers without charging upkeep twice.",
+      "evidence": "PROVINCE_WAR_FIT.md; Province War src/routing.mjs and extensions/next-economy-v1/upkeep.mjs"
+    }
+  ],
+  "proposals": [
+    {
+      "id": "P1",
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "P2",
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "P3",
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "P4",
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "P5",
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "P6",
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "P7",
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "P8",
+      "status": "PROPOSAL"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "required_outputs": true,
+  "input_and_prior_table_hashes": true,
+  "selected_records": 136,
+  "encoded_roundtrips": 110,
+  "local_links": 7,
+  "small_touches": 30,
+  "done_check": "PARTIAL with five named gaps",
+  "private_disk_bytes": 17155784,
+  "script_pins": {
+    "tools/findings.py": "39c56f167335542cc2f5f79f8cebc47e0f74127c62dc8599f6b82b231df5759b",
+    "tools/ledger.py": "677e17cf81a626ba0f74350f634ee443b3f1d4c840c2a23cdf665a52022d3f9d",
+    "tools/validate.py": "906bf3874d886c9e50b73fb457e1e35b527109205de7000cadc844925778fbc8",
+    "tools/decode.py": "7523a21e9462eee25a2c4193a7c968662294b299f7285ca6268cf4baf55ad31f",
+    "tools/extract_textassets.py": "65abf96f025d22a60e4cb9e8dc08c72ac502bc1a70d2c903a3caa68d5cf48897"
+  }
+}

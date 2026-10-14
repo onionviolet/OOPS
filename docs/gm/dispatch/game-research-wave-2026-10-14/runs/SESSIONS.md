@@ -54,3 +54,7 @@ Resume a lane: `LANE_CWD=<cwd> python3 runs/launch.py <lane> lanes/<lane>.prompt
 ## Tool installs this wave
 
 - `ilspycmd` 11.1.0.9782 as a dotnet global tool in `~/.dotnet/tools` (SDK 10.0.402 was already in `~/.dotnet`).
+
+## Round 2 results (all ten finished by 17:55, 2026-10-14)
+
+Immortal Life and Taiwu finished installing; the watcher launched both at 17:43 and exited with no gated lanes left. Every game lane is PARTIAL with a named unread table. pw-intake is COMPLETE in Province War: `docs/audits/yairpg-game-research-v1/` indexes 13 dossiers, routes 43 findings to existing packets and registers family A-YAIR (register check passes). Those Province War files are uncommitted in that repo.

@@ -1,0 +1,305 @@
+{
+  "textassets": 296,
+  "json_parsed": 291,
+  "selected_table_families": [
+    {
+      "table": "CourseRule",
+      "source": "resources.assets",
+      "path_id": 16962,
+      "count": 7,
+      "sha256": "1c6f994b234e39b7f60c94002ddd27513016de9a17f706927a06ea4975e3ce73",
+      "coverage": "selected rows/fields; not full semantic coverage"
+    },
+    {
+      "table": "MeditationPoint",
+      "source": "resources.assets",
+      "path_id": 16976,
+      "count": 2,
+      "sha256": "42e309ce41c57d0088ce8a0cca71f15c436374cd18e08d2174cb890e511de47f",
+      "coverage": "selected rows/fields; not full semantic coverage"
+    },
+    {
+      "table": "GlobalSettings",
+      "source": "resources.assets",
+      "path_id": 16988,
+      "count": 24,
+      "sha256": "8c8a58069d9a22f59a163a568a43685d77e576adf406aff182e0096d518b9539",
+      "coverage": "selected rows/fields; not full semantic coverage"
+    },
+    {
+      "table": "Level",
+      "source": "resources.assets",
+      "path_id": 16989,
+      "count": 7,
+      "sha256": "673f54f22a1e31109885b37ae425a826850b18fe83a665d2f370dcf286a2e84c",
+      "coverage": "selected rows/fields; not full semantic coverage"
+    },
+    {
+      "table": "Task",
+      "source": "resources.assets",
+      "path_id": 17008,
+      "count": 393,
+      "sha256": "cb9b0879640d1cf80ee7522cb5db98be1f2164810c9592b7fb9c04c8256d4340",
+      "coverage": "selected rows/fields; not full semantic coverage"
+    },
+    {
+      "table": "BreakthroughMaps",
+      "source": "resources.assets",
+      "path_id": 17016,
+      "count": 4,
+      "sha256": "8179a62c716656546acb6d7aec8624f2748be3e92be4237f753f4623187e75b3",
+      "coverage": "selected rows/fields; not full semantic coverage"
+    },
+    {
+      "table": "Grade",
+      "source": "resources.assets",
+      "path_id": 17027,
+      "count": 3,
+      "sha256": "a3499913db9deff794542b792be21883222b8fe6516c3eb955e886545fd32a4f",
+      "coverage": "selected rows/fields; not full semantic coverage"
+    },
+    {
+      "table": "NPC",
+      "source": "resources.assets",
+      "path_id": 17031,
+      "count": 67,
+      "sha256": "b90c534187b42c18afccdadcf7be232fbac9f793ae8ac84428184650e7b6e190",
+      "coverage": "selected rows/fields; not full semantic coverage"
+    },
+    {
+      "table": "SchoolSalary",
+      "source": "resources.assets",
+      "path_id": 17037,
+      "count": 64,
+      "sha256": "761858e0040e7963d80f456515b5b79dd9284991b58d45008c5c32885696eb5b",
+      "coverage": "selected rows/fields; not full semantic coverage"
+    },
+    {
+      "table": "Breakthrough",
+      "source": "resources.assets",
+      "path_id": 17039,
+      "count": 9,
+      "sha256": "a1e1dc2531fa412fb7d06f6770d1a4b42a1aeaa60e4d153cfd1fae4ec63fe133",
+      "coverage": "selected rows/fields; not full semantic coverage"
+    },
+    {
+      "table": "Study",
+      "source": "resources.assets",
+      "path_id": 17049,
+      "count": 14,
+      "sha256": "58cd8ea533fcb227781eda3ae806f579ac90755dc07280dce2e6c2285da3f9d4",
+      "coverage": "selected rows/fields; not full semantic coverage"
+    },
+    {
+      "table": "NPCSchedule",
+      "source": "resources.assets",
+      "path_id": 17061,
+      "count": 371,
+      "sha256": "4db9f4b87bb5cb6e699d10cbefff024a8630c6a40c8b4fa2090698a0e2bef885",
+      "coverage": "selected rows/fields; not full semantic coverage"
+    },
+    {
+      "table": "FavourLevels",
+      "source": "resources.assets",
+      "path_id": 17066,
+      "count": 6,
+      "sha256": "354bf2e9384d6446fdd7cbd7045b583fdd2df27354a0d8936b8ac3d349944483",
+      "coverage": "selected rows/fields; not full semantic coverage"
+    },
+    {
+      "table": "MarryEvent",
+      "source": "resources.assets",
+      "path_id": 17073,
+      "count": 60,
+      "sha256": "8acc6e0ea65bcf7da52391caf0d50b3fd88d5dfc4355b4aa17e64d4a9998ec14",
+      "coverage": "selected rows/fields; not full semantic coverage"
+    },
+    {
+      "table": "LifeSkillLevel",
+      "source": "resources.assets",
+      "path_id": 17075,
+      "count": 90,
+      "sha256": "78a3193ae11284cb93e12e5a8d365d2557ad97c484690fb1ecfd40b1887bd3af",
+      "coverage": "selected rows/fields; not full semantic coverage"
+    },
+    {
+      "table": "BreakthroughMapConfig",
+      "source": "resources.assets",
+      "path_id": 17077,
+      "count": 4,
+      "sha256": "5722e9e5b881fae303ecf6cc36c2f7d5fdab660b472140a3c85d75335b27f032",
+      "coverage": "selected rows/fields; not full semantic coverage"
+    },
+    {
+      "table": "Delegation",
+      "source": "resources.assets",
+      "path_id": 17079,
+      "count": 3,
+      "sha256": "cd041dc6c90025560e08ce6ef44c7cd1254790ef734ef4330fa03b1e5b93e1de",
+      "coverage": "selected rows/fields; not full semantic coverage"
+    },
+    {
+      "table": "FavourLv",
+      "source": "resources.assets",
+      "path_id": 17083,
+      "count": 4,
+      "sha256": "11b51949e0af28506c384f6b49ba9ec06f164022becdb327badd8559b7e49f83",
+      "coverage": "selected rows/fields; not full semantic coverage"
+    },
+    {
+      "table": "SchoolUnlockGroup",
+      "source": "resources.assets",
+      "path_id": 17085,
+      "count": 42,
+      "sha256": "71f0993c630915cac18538bc9b687d5e9c53556f6b0cce6aecefcf1e22ff0f2b",
+      "coverage": "selected rows/fields; not full semantic coverage"
+    },
+    {
+      "table": "PlayerValueVersionModify",
+      "source": "resources.assets",
+      "path_id": 17088,
+      "count": 1,
+      "sha256": "cac32280cff7d3299a8e1cd0e3c85f7883973e97647748628fcd1f5af965a486",
+      "coverage": "selected rows/fields; not full semantic coverage"
+    },
+    {
+      "table": "Trigger",
+      "source": "resources.assets",
+      "path_id": 17089,
+      "count": 413,
+      "sha256": "98a965409e28ad96354b131816530e71e9671fe75d00de0da5b69f833da1bda9",
+      "coverage": "selected rows/fields; not full semantic coverage"
+    },
+    {
+      "table": "Marry",
+      "source": "resources.assets",
+      "path_id": 17096,
+      "count": 12,
+      "sha256": "cb8e52afc5c1a20101787e27bfd7d8e8bb2decc8cbf0b93bc220f3f3b31ce314",
+      "coverage": "selected rows/fields; not full semantic coverage"
+    },
+    {
+      "table": "ClassSchedule",
+      "source": "resources.assets",
+      "path_id": 17105,
+      "count": 4,
+      "sha256": "408bb43db07e6b085df27dafc255e5ec67592f5d7b1abc0ab610301ecdf33f7a",
+      "coverage": "selected rows/fields; not full semantic coverage"
+    },
+    {
+      "table": "FightSkill",
+      "source": "resources.assets",
+      "path_id": 17111,
+      "count": 158,
+      "sha256": "8ea0a216e845757634fc5ed7c18d8516f1a3d1940d1f8a361c50aaf2d477f46a",
+      "coverage": "selected rows/fields; not full semantic coverage"
+    },
+    {
+      "table": "Language",
+      "source": "resources.assets",
+      "path_id": 17112,
+      "count": 19775,
+      "sha256": "efde437522d7c2b0587a387f0818cbd734cfe6b58834d63d27651337a4e72397",
+      "coverage": "selected rows/fields; not full semantic coverage"
+    },
+    {
+      "table": "LifeSkill",
+      "source": "resources.assets",
+      "path_id": 17135,
+      "count": 4,
+      "sha256": "8046dfd0fe44ee82b29cd4c41f4a2b7e9f131522bf4e5986ddcaf607dfb3814f",
+      "coverage": "selected rows/fields; not full semantic coverage"
+    },
+    {
+      "table": "SchoolDevelopment",
+      "source": "resources.assets",
+      "path_id": 17146,
+      "count": 4,
+      "sha256": "61eca9996ca4d02fab16ce1cf347ca91355f3aef9b4564220c240071ea75c272",
+      "coverage": "selected rows/fields; not full semantic coverage"
+    },
+    {
+      "table": "Exercise",
+      "source": "resources.assets",
+      "path_id": 17149,
+      "count": 6,
+      "sha256": "ab838aaf36a5e270d00ca61b3ca7510b8e4555a69fd179673757cab4a901c2d0",
+      "coverage": "selected rows/fields; not full semantic coverage"
+    },
+    {
+      "table": "NPCEvent",
+      "source": "resources.assets",
+      "path_id": 17156,
+      "count": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "coverage": "selected rows/fields; not full semantic coverage"
+    },
+    {
+      "table": "Pray",
+      "source": "resources.assets",
+      "path_id": 17166,
+      "count": 11,
+      "sha256": "5f36408fcecb5df07d0443c4cb8d4e7b2834bbbb8a67cdb5661440fe5b0cd87a",
+      "coverage": "selected rows/fields; not full semantic coverage"
+    },
+    {
+      "table": "AutoWater",
+      "source": "resources.assets",
+      "path_id": 17173,
+      "count": 4,
+      "sha256": "95cc8fcbe4bde2d7c4944e09f99b971493e8d9f750a251d0de78de18eb7005b9",
+      "coverage": "selected rows/fields; not full semantic coverage"
+    },
+    {
+      "table": "Course",
+      "source": "resources.assets",
+      "path_id": 17176,
+      "count": 20,
+      "sha256": "00815039ce8e611e83e9bc267c659773f57556cf65a99c6349520cd73e7d76ea",
+      "coverage": "selected rows/fields; not full semantic coverage"
+    },
+    {
+      "table": "PlayerInitialData",
+      "source": "resources.assets",
+      "path_id": 17206,
+      "count": 75,
+      "sha256": "c18582b62219513f12ac18bc7b77968ddc4672af538e7a524b8b04678f0ad2f1",
+      "coverage": "selected rows/fields; not full semantic coverage"
+    },
+    {
+      "table": "GodnessLevel",
+      "source": "resources.assets",
+      "path_id": 17211,
+      "count": 12,
+      "sha256": "30a96e245d6884871cfd99ef7c4f268f3ee1ecee112493bab7c21a9f7ab37653",
+      "coverage": "selected rows/fields; not full semantic coverage"
+    },
+    {
+      "table": "SchoolRenown",
+      "source": "resources.assets",
+      "path_id": 17229,
+      "count": 5,
+      "sha256": "3b0a168bb49a2c4d79bc927347f8fd30b3b0cb34bd7437f4c5df72ab4f7d8050",
+      "coverage": "selected rows/fields; not full semantic coverage"
+    },
+    {
+      "table": "School",
+      "source": "resources.assets",
+      "path_id": 17236,
+      "count": 7,
+      "sha256": "91e927b79b923194b62793e79a89cb5376785e7406b3bcbf517029af69433a90",
+      "coverage": "selected rows/fields; not full semantic coverage"
+    }
+  ],
+  "non_json_or_parse_failure": [
+    "SensitiveWords",
+    "骑鹤比赛动作信息",
+    "LineBreaking Leading Characters",
+    "LineBreaking Following Characters",
+    "Decorate"
+  ],
+  "private_index": "/Users/weiwei/.codex/research/immortal-life/extract/text/textasset-index.json",
+  "private_hashes": "/Users/weiwei/.codex/research/immortal-life/extract/HASHES.txt",
+  "native_bodies_read": false,
+  "personal_saves_read": false
+}

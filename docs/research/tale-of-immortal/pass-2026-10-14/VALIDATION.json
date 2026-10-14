@@ -1,0 +1,18 @@
+{
+  "kind": "export fidelity only",
+  "sheets_compared": 22,
+  "numeric_id_rows": 8385,
+  "field_values_compared": 115837,
+  "mismatches": 0,
+  "runtime_verified": false,
+  "private_details": "/Users/weiwei/.codex/research/tale-of-immortal-2/extract/VALIDATION.json",
+  "delivery_check": {
+    "required_files_present": 12,
+    "json_parsed": true,
+    "internal_links_resolved": true,
+    "finding_count": 20,
+    "touch_count": 24,
+    "source_and_export_hashes_rechecked": 22,
+    "errors": []
+  }
+}
