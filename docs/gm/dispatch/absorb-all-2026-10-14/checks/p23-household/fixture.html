@@ -1,0 +1,16 @@
+<!doctype html><meta charset="utf-8"><title>P03 module fixture, not native gameplay</title>
+<style>body{font:18px system-ui;background:#202622;color:#eee;margin:28px}h1{font-size:24px}main{display:grid;grid-template-columns:1fr 1fr;gap:28px}button,input{font:inherit;margin:6px;padding:8px}p{line-height:1.5}article{border:1px solid #8b9d88;padding:20px}</style>
+<h1>P03 isolated module fixture. Native integration OPEN.</h1>
+<main><article id="view"></article><article><p>This page exercises module contracts with mock native owners. Inventory, clock and persistence here are test fixtures.</p><button id="save">Fixture save</button><input type="file" id="import" aria-label="Import fixture JSON"><p id="status"></p></article></main>
+<script type="module">
+import {planHousehold, HOUSEHOLD as H} from '/src/absorb_p23/household/model.js';
+import {preflightHouseholdImport, householdPresentation} from '/src/absorb_p23/household/host.js';
+const saved=localStorage.getItem('p03-fixture');
+window.fixture=saved?JSON.parse(saved):{household:undefined,context:{sequence:0,clock:0,homeId:'fixture.home',homeOwned:true,atHome:true,alive:true,controlled:true,animalKnown:true,hearthOwned:true,knownGift:true,wet:false,ownedInventory:{[H.fuelKey]:3,[H.giftKey]:0}},furnitureInput:{state:{actors:{player:{worldId:'base.frontier'}}},locationId:'Shack',housingAccessible:true}};
+const f=window.fixture;
+function render(){const v=householdPresentation(f);document.querySelector('#view').replaceChildren();for(const section of v.sections){const h=document.createElement('h2');h.textContent=section.label;view.append(h);for(const r of section.records){const p=document.createElement('p');p.textContent=r.text;view.append(p);}for(const a of section.actions){const b=document.createElement('button');b.textContent=a.label;b.disabled=!a.enabled;b.onclick=()=>window.act(a.command.id);view.append(b);}}}
+window.act=(type,elapsed)=>{if(type==='tick')f.context.clock+=elapsed;const out=planHousehold(f.household,{type,sequence:f.context.sequence+1,clock:f.context.clock,elapsed},f.context);for(const e of out.effects){if(e.type==='item')f.context.ownedInventory[e.key]+=e.amount;if(e.type==='removeCondition')f.context.wet=false;}f.household=out.state;f.context.sequence++;render();return out;};
+save.onclick=()=>{localStorage.setItem('p03-fixture',JSON.stringify(f));document.querySelector('#status').textContent='Fixture saved';};
+document.querySelector('#import').onchange=async e=>{const candidate=JSON.parse(await e.target.files[0].text());preflightHouseholdImport(candidate.household,candidate.context.clock,candidate.context.sequence);Object.assign(f,candidate);render();document.querySelector('#status').textContent='Fixture literal-file import complete';};
+render();window.ready=true;
+</script>
