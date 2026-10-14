@@ -84,7 +84,7 @@ export function waitingSimulationChoice(state) {return Object.values(state.simul
 export function previewSimulationCommand(state, registry, commandId, context) {
     const d = registry.simulation.commands.get(commandId); assert(d, "Unknown living-world command.");
     if(d.group==='proto23' && context.proto23Host!==true)return {visible:false,eligible:false,reasons:['Use the current Proto23 visitor controls.']};
-    const s=state.simulation, facts = simulationFacts(state, {...context,targetId:s?.people[context.targetId] ? context.targetId : null}, registry), p = person(state, context.actorId);
+    const s=state.simulation, facts = simulationFacts(state, {...context,targetId:s?.people[context.targetId] ? context.targetId : null}, registry, [d.requires,d.visibleWhen]), p = person(state, context.actorId);
     const reasons = [...ruleReason(d.requires, facts)];
     if(d.group === "original_frontier" && !facts["originalFrontier.clockSupported"]) reasons.push("This local work has no supported clock or contact while you are in another realm.");
     if(d.actorId && d.actorId !== context.actorId) reasons.push("This command belongs to another actor.");
@@ -171,7 +171,7 @@ function startCommand(out, registry, commandId, context, immediatePreview, conte
     if(d.group === "pursuit")s.schema=Math.max(s.schema,2);
     if(context.actorId === "player" && context.facts?.location) s.people.player.location = context.facts.location;
     const frozenContext = {actorId: context.actorId, targetId: context.targetId || null, partyIds: copy(s.party)};
-    const facts = simulationFacts(state, context, registry);
+    const facts = simulationFacts(state, context, registry, d.requires);
     applySimulationEffects(out, preview.costs, context, registry, cause, {spending: true});
     recordRemainderSupplyCommandCommit(state,d.id,context.actorId,cause);
     if(d.claim) applySimulationEffects(out, [{type: "claim", operation: "acquire", key: d.claim}], context, registry, cause);
@@ -265,7 +265,7 @@ function completeJob(out, job, registry, contexts = {}, beforeJob=null) {
         const location = context.facts?.location || s.people[job.actorId].location;
         const present = (job.participants || [job.actorId]).every(id => s.people[id]?.life === "alive" && state.actors[id]?.worldId === state.actors[job.actorId].worldId &&
             (!support.coLocated || (id === job.actorId ? location : id === "player" ? contexts.player?.facts?.location || s.people.player.location : s.people[id].location) === support.location));
-        if(!present || !meets(support.requires, simulationFacts(state, context, registry))) {
+        if(!present || !meets(support.requires, simulationFacts(state, context, registry, support.requires))) {
             const failureCause = `unsupported:${++state.sequence}`;
             if(support.failure === 'refund') applySimulationEffects(out, refundCosts(job.costs,job.reservationReturns === 1), wcContext||job.context, registry, failureCause);
             if(job.claim) delete s.claims[job.claim];

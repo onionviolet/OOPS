@@ -1,0 +1,175 @@
+{
+  "beforeReview": {
+    "packHash": "b3eb99e871f293f61527203b47d75f3bb59cb9defe365f584aa9352b1026a61d",
+    "browserResults": [
+      {
+        "id": "C02-grant-pending",
+        "label": "seeded-native",
+        "status": "PASS",
+        "saveReload": true,
+        "exportLiteralFileImport": true,
+        "exactState": true,
+        "exportSha256": "aca56630171d950ae4f841513aab4e955e7834939b37ee2871ac9c7613951265"
+      },
+      {
+        "id": "C02-cancel-grant",
+        "label": "seeded-native",
+        "status": "PASS",
+        "sourceStockRestored": 6,
+        "recipientStock": 0
+      },
+      {
+        "id": "C02-grant-cancelled",
+        "label": "seeded-native",
+        "status": "PASS",
+        "saveReload": true,
+        "exportLiteralFileImport": true,
+        "exactState": true,
+        "exportSha256": "fc7fad53738d7462a95fd7432b4f45cfd12e995d26bf3a4d558091c4b1e6dc4d"
+      },
+      {
+        "id": "C02-grant-declined",
+        "label": "seeded-native",
+        "status": "PASS",
+        "saveReload": true,
+        "exportLiteralFileImport": true,
+        "exactState": true,
+        "exportSha256": "ebaf3401266efb6dc98dffa206843357d6d43d07a6cdece5532ba2449e98c5c0"
+      },
+      {
+        "id": "C02-granted-load",
+        "label": "seeded-native",
+        "status": "PASS",
+        "companyStock": 4,
+        "recipientStock": 2,
+        "notWages": true,
+        "realPointerClick": true
+      },
+      {
+        "id": "C02-granted",
+        "label": "seeded-native",
+        "status": "PASS",
+        "saveReload": true,
+        "exportLiteralFileImport": true,
+        "exactState": true,
+        "exportSha256": "5e1fbfbce845660e6d8130c2c5d54150a1c5f945cdf9f4ba318784578acc94bd"
+      },
+      {
+        "id": "C02-service-pending",
+        "label": "seeded-native",
+        "status": "PASS",
+        "saveReload": true,
+        "exportLiteralFileImport": true,
+        "exactState": true,
+        "exportSha256": "0e12448dc96a48099d5cd07a0e58cc2cd7d02d91edf94fad38c46279e0fd3bc3"
+      },
+      {
+        "id": "C02-cancel-service",
+        "label": "seeded-native",
+        "status": "PASS",
+        "recipientInputRestored": true,
+        "noObservationGranted": true
+      },
+      {
+        "id": "C02-service-cancelled",
+        "label": "seeded-native",
+        "status": "PASS",
+        "saveReload": true,
+        "exportLiteralFileImport": true,
+        "exactState": true,
+        "exportSha256": "800b6fe8d97b6aeb3330b6b0c6fb51e6e09fe6c494477330b45a76a6d552185d"
+      },
+      {
+        "id": "C02-service-report",
+        "label": "seeded-native",
+        "status": "PASS",
+        "saveReload": true,
+        "exportLiteralFileImport": true,
+        "exactState": true,
+        "exportSha256": "a00f2f3fda25b0460f20e35e6d9b779b9a8bc34dbd55b0951fb967893a19b031"
+      },
+      {
+        "id": "C02-funded-report",
+        "label": "seeded-native",
+        "status": "PASS",
+        "recipientWages": 3,
+        "foodRemaining": 1
+      },
+      {
+        "id": "C02-paid",
+        "label": "seeded-native",
+        "status": "PASS",
+        "saveReload": true,
+        "exportLiteralFileImport": true,
+        "exactState": true,
+        "exportSha256": "b694d95b86f95773d59d171b5d18e452922ac945a0f4eb63f3ff66f1e4fba8c3"
+      },
+      {
+        "id": "C02-finite-recipient-service",
+        "label": "seeded-native",
+        "status": "PASS",
+        "foodExhausted": true,
+        "ordinaryInspectionAvailable": true
+      },
+      {
+        "id": "C02-exhausted",
+        "label": "seeded-native",
+        "status": "PASS",
+        "saveReload": true,
+        "exportLiteralFileImport": true,
+        "exactState": true,
+        "exportSha256": "6197163997093978d957baa8be92fb4062b6fea9d3fc581221c08e792c55484d"
+      },
+      {
+        "id": "C02-changed-recipient",
+        "label": "seeded-native",
+        "status": "PASS",
+        "reservedFoodRefunded": true,
+        "noLoadGranted": true
+      },
+      {
+        "id": "C02-body-refund",
+        "label": "seeded-native",
+        "status": "PASS",
+        "saveReload": true,
+        "exportLiteralFileImport": true,
+        "exactState": true,
+        "exportSha256": "a279f350885583df0d624a7be668299b33f74a90f45e32af4584cd007b127457"
+      },
+      {
+        "id": "C02-changed-carriage",
+        "label": "seeded-native",
+        "status": "PASS",
+        "departureRefused": true,
+        "cargoRetained": true
+      },
+      {
+        "id": "C02-carriage-refused",
+        "label": "seeded-native",
+        "status": "PASS",
+        "saveReload": true,
+        "exportLiteralFileImport": true,
+        "exactState": true,
+        "exportSha256": "832e7213f4c6a9286739925c575aa8eb8258708dc081a48924430f594c6ef3c1"
+      }
+    ],
+    "scope": "passing pre-review candidate; final current-payload proof is rerun after cargo predicate repair"
+  },
+  "reviewDefect": {
+    "id": "C02-E08",
+    "reproduced": "outward escort eligible with four held bundles and body capacity two",
+    "repair": "same predicate at admission and completion for both travel controls"
+  },
+  "beforeCanonicalRepair": {
+    "bundle": {
+      "url": "http://127.0.0.1:19302/dist/bundle.js?version=v0.6-93334c60ee96",
+      "loaded": "93334c60ee962fffe915e6e85fa0bf9aedb370d76c5ad0da011ee7c92f9af9dd",
+      "disk": "93334c60ee962fffe915e6e85fa0bf9aedb370d76c5ad0da011ee7c92f9af9dd"
+    },
+    "status": "24 native groups passed before canonical/missing-owner helper regressions were repaired; final native rerun replaces current scope"
+  },
+  "harnessCorrections": [
+    "Intermediate cargo predicate used a missing stack as known zero; source checks correctly blocked; actual-inventory selected-predicate projection supplies known zero.",
+    "Canonical identified stock and absent-owner stale counts reproduced in failing tests and repaired before final proof."
+  ]
+}

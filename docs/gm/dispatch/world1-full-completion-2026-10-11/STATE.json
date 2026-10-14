@@ -27,10 +27,10 @@
     }
   ],
   "sharedIntegration": "Root Claude Code merges branch; no main-checkout runtime writes",
-  "nextAction": "Source-qualify and implement L2-U01 F05 supplies/service recipient consumer in a new immutable edition",
+  "nextAction": "Merge codex/gameplay-foundations here, reconcile affected checks; then W1-C03/L2-U02",
   "projectResume": "PROJECT.md Full book world 1 delivery; parent/current macro/system/absorption have no retained claim; appended without rewriting dirty hunks",
   "projectHash": "338c163655c5bf916e5332fe71628935d7a1d682410de5dfb7e35cf8bf645340",
-  "stage": "W1-C01 verified; next W1-C02",
+  "stage": "C02 verified; foundation integration next",
   "sourceIntegration": "paused shared p08 baseline preserved in private capsule;candidate older,not byte mirror;future foundation deltas need affected proof reconciliation",
   "uiCoordination": {
     "threadId": "01a12e3a-298d-7612-972b-031015c2f368",
@@ -58,15 +58,17 @@
     "durability": "W1-FULL-F03 canonical identity authorization/count corrected plus actual native wear projection;52focused checks;native enabled gate pending"
   },
   "sourceChecks": {
-    "fullSource": 620,
-    "focusedC01": 8,
-    "selectorRegression": 2,
+    "fullSource": 625,
+    "focusedC02": 8,
+    "affectedC01": 8,
+    "inventoryRegressions": 5,
     "build": "PASS"
   },
   "nativeState": {
     "G9": "N1-N4 and requested N5 provider seeded-native retained",
     "C01": "21 redacted results; 12 persistence checkpoints; seeded-native PASS",
-    "fullCampaign": "15 section gates OPEN"
+    "fullCampaign": "15 section gates OPEN",
+    "C02": "24 seeded-native groups; 14 exact persistence checkpoints PASS"
   },
   "pausedAt": "2026-10-12",
   "pauseAuthority": "Weibao explicit pause relayed by predecessor01a12dee-d943-7cf2-ade3-8b5163bd0532",
@@ -78,8 +80,8 @@
   "apiGoal": "none in this chat;get_goal returned null",
   "proofProcesses": "none running;task-specific ps inventory empty;all recorded sessions exited/browsers closed",
   "successorCreationAllowed": false,
-  "currentBundle": "74207cc3061498aa23cecdeac83d9b1a6d3ab8f149bd0eab5f9e95afdd2999a6",
-  "currentPack": "eadae04632e2dc90732d2518b62397e83ea4ee7d848099fce9b442753469781f",
+  "currentBundle": "516d4eb01571588848b511c660ee2b3b26191d62e67fafd28b3baaa5eb833805",
+  "currentPack": "0740a1a5f541cb53583e0439fab6bec6c1211e410b8f0c8ad72808bae1eb31f2",
   "candidateSourceParity": false,
   "pauseHandoffHash": "718f0cf26a0f03e5624707e55caa1389a11fc236a0181724b2565331d56fac1e",
   "pauseSnapshotHash": "0ac3c2282df240763fb7b595710d1ec1ff4c03481471f5d7cd812066fa1e5c1e",
@@ -91,6 +93,6 @@
   },
   "resumedAt": "2026-10-13",
   "resumeAuthority": "Weibao: send the full World1 campaign after G9 with codex",
-  "privateCompanion": "private_packs/p09/pack.json; main installation by root only",
-  "activeProof": "19300/19301 C01 harness; disposable profile; idle after checks"
+  "privateCompanion": "p10 and p09 ignored companions; root installs, frozen predecessors retained",
+  "activeProof": "19304/19305 C02 final harness, idle after checks"
 }

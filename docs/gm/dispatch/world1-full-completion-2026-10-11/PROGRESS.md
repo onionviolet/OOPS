@@ -37,9 +37,24 @@ manifest are local to this worktree; root must install the named companion
 when merging. No main source, personal save or source-library writes occurred.
 New private notes/payload were saved only in the explicitly authorized folder.
 
-Next unit: W1-C02, the remaining L2-U01 F05 recipient supplies/service join.
-Source packet retains recruitment and broader regional economy; do not close
-all L2-U01 by delivering the finite local grant/service consumer.
+## W1-C02 playable now
+
+New immutable p10 follows L2-U01-F05: actual institutional stock, alternative
+recipient loads/refusal/cancellation, supported carriage, useful service and
+funded reporting. Empty stacks are known zero only for selected predicates with
+actual owners; identified copies and missing owners retain correct meaning.
+Travel support is rechecked in both directions, including mid-job loss.
+
+**source:** 625/625 full tests, 8 C02 private groups, 8 affected C01 groups and
+5 inventory regressions. **seeded-native:** 24 groups, 14 exact persistence
+checkpoints including p09, final matched rebuild/fresh19304 desktop origin.
+[Report](campaign/c02/REPORT.md) owns exact routes and limits. Broader recruitment
+and regional economy stay OPEN. Root installs p10/p09 when merging; payloads
+are deliberately ignored and preserved privately. No save schema migration.
+
+Commits: C01 `dd7501bb`; C02 commit follows this verified checkpoint. No dist or
+index content is staged. Latest foundation integration is next, then W1-C03/
+L2-U02. [NEXT_UNIT](NEXT_UNIT.md) is the exact source/implementation resume task.
 
 ## Remaining full horizon
 
@@ -55,4 +70,6 @@ explicit. The private DETAIL_LEDGER and later-source UNIT_INDEX own details.
 ## Checks and shared files
 
 C01 verified as above. Shared-file edit: `src/main.js`, beginning choice only.
-`src/simulation.js` and `src/save_files.js`: no planned edits.
+`src/simulation.js`: three C02 selected-predicate call sites.
+`src/simulation_effects.js`: bounded current-inventory projection.
+`src/save_files.js`: unchanged.

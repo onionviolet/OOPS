@@ -1,4 +1,5 @@
 import {applyFoundationInteractionEffect,resolveFoundationDelivery,recordFoundationDelivery} from './foundation_interaction_policy.js';
+import {addInventoryRequirementFacts} from './inventory_requirement_facts.js';
 import {foundationInteractionProbeFacts} from './foundation_interaction_content.js';
 import {applyContainerEffect,containerFacts,advanceContainerClocks} from './structured_container_runtime.js';
 import {managementFacts} from './management/facts.js';
@@ -82,7 +83,7 @@ export function resolveSimulationCostKeys(plan,costs,context) {
         return effect;
     });
 }
-export function simulationFacts(state, context, registry) {
+export function simulationFacts(state, context, registry, predicates = null) {
     const s = state.simulation, actor = context.actorId, a = state.actors[actor];
     assert(s && a, "Enroll the living-world services first.");
     const referenceFacts = referenceGameplayFacts(state, context, registry);
@@ -163,7 +164,11 @@ export function simulationFacts(state, context, registry) {
         facts[`pursuit.${id}.contact`]=p.status === "waiting" && (p.request.expiresAt == null || p.request.expiresAt > state.clock) && pursuitContact(state,p,context);
         facts[`pursuit.${id}.declared`]=true;
     }
-    return facts;
+    const target = s.people[context.targetId];
+    return addInventoryRequirementFacts(facts, predicates, {
+        'item.': owned,
+        'target.item.': target?.inventory === 'native' ? context.gameplay?.[context.targetId]?.inventory : target ? s.owners[context.targetId] : null,
+    });
 }
 export function effectContext(e, context) {
     const out = copy(e);

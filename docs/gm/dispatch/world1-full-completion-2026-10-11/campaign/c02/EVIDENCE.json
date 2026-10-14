@@ -1,0 +1,207 @@
+{
+  "bundle": {
+    "url": "http://127.0.0.1:19304/dist/bundle.js?version=v0.6-516d4eb01571",
+    "loaded": "516d4eb01571588848b511c660ee2b3b26191d62e67fafd28b3baaa5eb833805",
+    "disk": "516d4eb01571588848b511c660ee2b3b26191d62e67fafd28b3baaa5eb833805"
+  },
+  "results": [
+    {
+      "id": "C02-grant-pending",
+      "label": "seeded-native",
+      "status": "PASS",
+      "saveReload": true,
+      "exportLiteralFileImport": true,
+      "exactState": true,
+      "exportSha256": "4bdfaa91e505b5698c56d1d43793621cdcc90a7d2acc008eef3ff562c8d7392a"
+    },
+    {
+      "id": "C02-cancel-grant",
+      "label": "seeded-native",
+      "status": "PASS",
+      "sourceStockRestored": 6,
+      "recipientStock": 0
+    },
+    {
+      "id": "C02-grant-cancelled",
+      "label": "seeded-native",
+      "status": "PASS",
+      "saveReload": true,
+      "exportLiteralFileImport": true,
+      "exactState": true,
+      "exportSha256": "0adcb768fc76578ca5f8dbef23a5922b10e95e703d22b81dc9f74007e493e685"
+    },
+    {
+      "id": "C02-grant-declined",
+      "label": "seeded-native",
+      "status": "PASS",
+      "saveReload": true,
+      "exportLiteralFileImport": true,
+      "exactState": true,
+      "exportSha256": "db544b1bf7a0bec7737c194e0000c4889584559534753df26a23a8e594704d08"
+    },
+    {
+      "id": "C02-granted-load",
+      "label": "seeded-native",
+      "status": "PASS",
+      "companyStock": 4,
+      "recipientStock": 2,
+      "notWages": true,
+      "realPointerClick": true
+    },
+    {
+      "id": "C02-granted",
+      "label": "seeded-native",
+      "status": "PASS",
+      "saveReload": true,
+      "exportLiteralFileImport": true,
+      "exactState": true,
+      "exportSha256": "a32505ca7cd8c8e6df8ecf269835578c934db2afed5cc0d9a1fc0395c6eea9ac"
+    },
+    {
+      "id": "C02-service-pending",
+      "label": "seeded-native",
+      "status": "PASS",
+      "saveReload": true,
+      "exportLiteralFileImport": true,
+      "exactState": true,
+      "exportSha256": "59acffd083d31fb5ebe2fe1aa5ef0cca515f9c9ee8a04b30aea2f016c19be849"
+    },
+    {
+      "id": "C02-cancel-service",
+      "label": "seeded-native",
+      "status": "PASS",
+      "recipientInputRestored": true,
+      "noObservationGranted": true
+    },
+    {
+      "id": "C02-service-cancelled",
+      "label": "seeded-native",
+      "status": "PASS",
+      "saveReload": true,
+      "exportLiteralFileImport": true,
+      "exactState": true,
+      "exportSha256": "13bcd0aecc00ef330346fd4fd9e13ff9d5af1df14629ce53238bbd085c0af6df"
+    },
+    {
+      "id": "C02-service-report",
+      "label": "seeded-native",
+      "status": "PASS",
+      "saveReload": true,
+      "exportLiteralFileImport": true,
+      "exactState": true,
+      "exportSha256": "9e277e0a4a4a58631485aed7ff4e78934493e72707f5cee2b502de0639540b63"
+    },
+    {
+      "id": "C02-funded-report",
+      "label": "seeded-native",
+      "status": "PASS",
+      "recipientWages": 3,
+      "foodRemaining": 1
+    },
+    {
+      "id": "C02-paid",
+      "label": "seeded-native",
+      "status": "PASS",
+      "saveReload": true,
+      "exportLiteralFileImport": true,
+      "exactState": true,
+      "exportSha256": "54f90077f679408259f90c2f8065b71878a19fb3eed64a8c3392949d6363cd51"
+    },
+    {
+      "id": "C02-finite-recipient-service",
+      "label": "seeded-native",
+      "status": "PASS",
+      "foodExhausted": true,
+      "ordinaryInspectionAvailable": true
+    },
+    {
+      "id": "C02-exhausted",
+      "label": "seeded-native",
+      "status": "PASS",
+      "saveReload": true,
+      "exportLiteralFileImport": true,
+      "exactState": true,
+      "exportSha256": "5c3c822d0560a5dcde4b3056c4cf9928a22c392a0948bb7c9f4fdcfe5aba2f91"
+    },
+    {
+      "id": "C02-changed-recipient",
+      "label": "seeded-native",
+      "status": "PASS",
+      "reservedFoodRefunded": true,
+      "noLoadGranted": true
+    },
+    {
+      "id": "C02-body-refund",
+      "label": "seeded-native",
+      "status": "PASS",
+      "saveReload": true,
+      "exportLiteralFileImport": true,
+      "exactState": true,
+      "exportSha256": "ba3a2ad0b8f0a2f449fb0cc94b957ef298a1974dfe625fe631d3c9131bb0a6ae"
+    },
+    {
+      "id": "C02-changed-carriage",
+      "label": "seeded-native",
+      "status": "PASS",
+      "departureRefused": true,
+      "cargoRetained": true
+    },
+    {
+      "id": "C02-carriage-refused",
+      "label": "seeded-native",
+      "status": "PASS",
+      "saveReload": true,
+      "exportLiteralFileImport": true,
+      "exactState": true,
+      "exportSha256": "0cc0abd3c07bcf5884ccf79d70846c8925d01db4df225d2f68eb1ddc8a2337bd"
+    },
+    {
+      "id": "C02-mid-return",
+      "label": "seeded-native",
+      "status": "PASS",
+      "unsupportedTravelStopped": true,
+      "sameCargoRetained": true
+    },
+    {
+      "id": "C02-mid-return-stopped",
+      "label": "seeded-native",
+      "status": "PASS",
+      "saveReload": true,
+      "exportLiteralFileImport": true,
+      "exactState": true,
+      "exportSha256": "ce4deea87124638f98ac7b6e5ca8d2b5deb29e2ccdc7752535000cf723cb90bf"
+    },
+    {
+      "id": "C02-mid-outward",
+      "label": "seeded-native",
+      "status": "PASS",
+      "unsupportedTravelStopped": true,
+      "sameCargoRetained": true
+    },
+    {
+      "id": "C02-mid-outward-stopped",
+      "label": "seeded-native",
+      "status": "PASS",
+      "saveReload": true,
+      "exportLiteralFileImport": true,
+      "exactState": true,
+      "exportSha256": "a01139dd74c3d6d4948b29260805b327845173aebd4687a40f67f4e0beee0fcc"
+    },
+    {
+      "id": "C02-prior-p09",
+      "label": "seeded-native",
+      "status": "PASS",
+      "saveReload": true,
+      "exportLiteralFileImport": true,
+      "exactState": true,
+      "exportSha256": "b84dc5c65d613046c18a229b9692a86210cdb55f141fe82451212280ab330600"
+    },
+    {
+      "id": "C02-prior-exact",
+      "label": "seeded-native",
+      "status": "PASS",
+      "noConversion": true
+    }
+  ],
+  "errors": []
+}

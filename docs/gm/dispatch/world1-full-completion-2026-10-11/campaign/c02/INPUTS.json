@@ -1,0 +1,39 @@
+{
+  "unit": "W1-C02",
+  "branch": "w1-campaign",
+  "base": "dd7501bb",
+  "date": "2026-10-14",
+  "packSha256": "0740a1a5f541cb53583e0439fab6bec6c1211e410b8f0c8ad72808bae1eb31f2",
+  "previousPackSha256": "eadae04632e2dc90732d2518b62397e83ea4ee7d848099fce9b442753469781f",
+  "bundleSha256": "516d4eb01571588848b511c660ee2b3b26191d62e67fafd28b3baaa5eb833805",
+  "privateOwner": "docs/research/novels/world1-full-completion-2026-10-11/campaign-2026-10-13/c02/INPUTS.json",
+  "source": {
+    "full": 625,
+    "focusedPrivate": 8,
+    "inventoryRegressions": 5,
+    "previousC01Affected": 8
+  },
+  "native": {
+    "results": 24,
+    "persistenceCheckpoints": 14,
+    "label": "seeded-native",
+    "errors": 0
+  },
+  "compatibility": "new immutable p10; prior p09 actual fixture restore exact; p01-p09 frozen bytes retained; no schema migration",
+  "frozenPredecessors": {
+    "private_packs/a-soldiers-life/pack.json": "b728aca3f3debece1b31eff356c5bf215c9020f29cfa6379520d25afb6e8b3c6",
+    "private_packs/p05/pack.json": "25b5d3c50dc42d8c46929a0f061f308c47f9f9665137d7473382012661ba6c4b",
+    "private_packs/p02/pack.json": "482fdbb749bbdf2a6384886fae14fee445bb6ba9446355342a43ad76badfb0a8",
+    "private_packs/p03/pack.json": "9d1c323014663fa01146d7e2fa8afe5be833ecac8ab076ed1128a0036a2c5abc",
+    "private_packs/p04/pack.json": "77a98f5e695ab98b4c52d077a63ccb9427e8cd8ee64c369d64e0cdbf5e7fbccc",
+    "private_packs/p06/pack.json": "89adcf18685ff564de985a2bb774d21a759f24cce3c2318e6b3fe15d1cb80f52",
+    "private_packs/p08/pack.json": "b7da41fd1a55720792f7c132fe64c6fbb84bb45c66c12c3c23caeb497601f213",
+    "private_packs/p09/pack.json": "eadae04632e2dc90732d2518b62397e83ea4ee7d848099fce9b442753469781f",
+    "private_packs/p07/pack.json": "63651b7082ac3aa2f5ee303a6aa05438bdc56744a996d9d5c0f22886d7323a87"
+  },
+  "runtimeChanges": {
+    "src/simulation.js": "f9bbaaceee892f0c1ca301f0e11db45257a215cfb08a0a4c1841032b1176f433",
+    "src/simulation_effects.js": "46f194d3392660a7fd5c9c13fe05dadce71c826892549bc24a5184c647e162b9",
+    "src/inventory_requirement_facts.js": "e76c9fa5e6440163425e38fe8bd67e627536910f72ee6d6c817a53600fc0c784"
+  }
+}

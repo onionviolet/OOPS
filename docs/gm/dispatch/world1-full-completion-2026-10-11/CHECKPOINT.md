@@ -22,6 +22,13 @@ Normal installed entry, regional continuation, alternatives and ordinary
 exposure now work at this scope. Root must install the ignored p09 companion
 when merging; no main runtime write was made.
 
-Next: W1-C02, remaining L2-U01 F05 supplies/service consumer.
+W1-C02 verified: [report](campaign/c02/REPORT.md), 625 full tests, 8 C02/8
+C01 affected source groups, 5 reproduced-regression tests, 24 seeded-native
+groups and 14 exact persistence checkpoints on final rebuilt origin19304.
+Companions p10/p09 remain ignored for root installation. No whole section closed.
+
+Next: integrate current `codex/gameplay-foundations` here, then W1-C03/L2-U02
+following [NEXT_UNIT](NEXT_UNIT.md). Source, libraries and personal saves remain
+untouched outside the explicitly authorized new private notes.
 Preserve frozen p01–p08; new immutable content edition, existing engine/clock/
 stock/knowledge/publisher. Desktop proof at 1600×1100; mobile deferred.
