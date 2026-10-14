@@ -1280,10 +1280,13 @@ function actHarvest(request){
     else throw Error('Unknown processing action.');});
     harvestPanel?.render();
 }
+function harvestAutomaticReady(){
+    return !current_activity&&!current_game_action&&!current_dialogue&&!is_sleeping&&!is_reading&&!is_in_trade()&&!nativeOccupationReason();
+}
 function tickHarvest(minutes){
     if(!harvestOwner||!harvestWritable())return;
     // Auto handling is an idle combat companion; explicit handling occupies the player.
-    const ready=harvestOwner.job&&!harvestOwner.job.automatic || (!current_activity&&!current_game_action&&!current_dialogue&&!is_sleeping&&!is_reading&&!is_in_trade()&&!nativeOccupationReason());
+    const ready=harvestOwner.job&&!harvestOwner.job.automatic || harvestAutomaticReady();
     if(!ready || !harvestOwner.job && !harvestOwner.auto)return;
     try {harvestTransaction(()=>{for(const plan of advanceHarvest(harvestOwner,minutes,harvestContext(),{ready:true}))grantHarvest(plan);});}
     catch(e){log_message('Carcass processing paused: '+e.message,'notification');}
@@ -8498,7 +8501,7 @@ update_displayed_equipment();
 sort_displayed_inventory({sort_by: "name", target: "character"});
 
 if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
-    harvestPanel=createHarvestPanel({container:document.getElementById('location_actions_div'),read:()=>({state:harvestOwner,context:harvestContext(),writable:harvestWritable(),ready:harvestReady()}),act:actHarvest,developer:is_on_dev()||new URLSearchParams(location.search).get("harvest-inspector")==="1"});
+    harvestPanel=createHarvestPanel({container:document.getElementById('location_actions_div'),read:()=>({state:harvestOwner,context:harvestContext(),writable:harvestWritable(),ready:harvestReady()}),readInspector:()=>({harvest:harvestOwner,mixtures:getMixtureOwner(),expansion:expansionState,inventory:character.getItems(),clock:calendarMinutes(current_game_time),handling:{context:harvestContext(),ready:harvestReady(),automaticReady:harvestWritable()&&harvestAutomaticReady()}}),act:actHarvest,developer:is_on_dev()||new URLSearchParams(location.search).get("harvest-inspector")==="1"});
     if(structuredPacks.size)structuredPanel=createStructuredPackPanel({read:readStructuredCampaign,command:commandStructuredCampaign});
     optionalPackPanel=createContentPackPanel({definitions:optionalPacks,always:true,
         read:()=>({state:optionalPackState,pauseReason:feedbackClockPauseReason(),canEnter:ownsSave&&current_location?.id==='Village'&&!nativeOccupationReason()&&!current_activity&&!current_game_action&&!current_combat&&!current_dialogue&&!is_sleeping&&!is_reading&&!is_in_trade(),canAct:ownsSave&&!foundationSaveBlocked&&!lifeStorageFailure,

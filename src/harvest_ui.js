@@ -1,10 +1,12 @@
+import {createChainInspector} from './chain_inspector_ui.js';
 import {HARVEST_SPECIES,HARVEST_CAP,HARVEST_PARTS,partNames,planHarvest} from './harvest.js';
-export function createHarvestPanel({container,read,act,developer=false}){
+export function createHarvestPanel({container,read,act,developer=false,readInspector}){
     const panel=document.createElement('details');panel.id='harvest_panel';panel.style.cssText='padding:8px;border:1px solid #888;margin:6px 0;font-size:13px;max-width:900px;';
     const title=document.createElement('summary');title.textContent='Carcass processing';panel.append(title);
     const body=document.createElement('div');panel.append(body);let signature='';
+    const inspector=createChainInspector({container,developer,read:readInspector});
     const run=command=>{try{act(command);}catch(e){notice=e.message;}render(true);};let notice='';
-    function render(force=false){const frame=read(),s=frame.state;panel.hidden=!s; if(!panel.isConnected)container.append(panel);if(!s)return;
+    function render(force=false){inspector.render();const frame=read(),s=frame.state;panel.hidden=!s; if(!panel.isConnected)container.append(panel);if(!s)return;
         const next=JSON.stringify([s,frame.context,frame.ready,frame.writable]);if(next===signature&&!force)return;signature=next;body.replaceChildren();
         const text=document.createElement('p');text.style.margin='6px 0';text.textContent=`Keep up to ${HARVEST_CAP} per species. Take one part leaves the rest behind. Hands take twice as long. Freshness declines over four played hours. ${s.left} carcasses left behind at capacity.`;body.append(text);
         const auto=document.createElement('label'),check=document.createElement('input');check.type='checkbox';check.checked=s.auto;check.disabled=!frame.writable;check.dataset.harvest='auto';check.onchange=()=>run({type:'auto',value:check.checked});auto.append(check,' Auto-process whole carcasses during idle fighting; process incoming overflow immediately');body.append(auto);
@@ -14,7 +16,6 @@ export function createHarvestPanel({container,read,act,developer=false}){
             for(const choice of ['whole',...partNames(species)]){const plan=planHarvest(lot[0],choice,frame.context);const line=document.createElement('div');line.style.cssText='display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:3px 0';const button=document.createElement('button');button.dataset.harvestChoice=choice;button.textContent=choice==='whole'?'Process whole':`Take only ${choice}`;button.disabled=!frame.ready||!!s.job;button.onclick=()=>run({type:'begin',species,choice});const forecast=document.createElement('span');forecast.textContent=`${plan.minutes} min, ${plan.xp} Butchering XP; `+plan.outputs.map(o=>`${o.count} ${HARVEST_PARTS[o.part].id}: ${o.completeness}, quality ${o.quality}%`).join('; ');line.append(button,forecast);row.append(line);}
             body.append(row);}
         if(s.last){const receipt=document.createElement('p');receipt.id='harvest_receipt';receipt.textContent='Last processing: '+s.last.outputs.map(o=>`${o.count} ${HARVEST_PARTS[o.part].id}, ${o.completeness}, quality ${o.quality}%`).join('; ');body.append(receipt);}
-        if(developer){const inspector=document.createElement('details');inspector.id='harvest_inspector';const summary=document.createElement('summary');summary.textContent='Developer harvest inputs';const pre=document.createElement('pre');pre.style.cssText='white-space:pre-wrap;font-size:11px';pre.textContent=JSON.stringify({oldest:Object.fromEntries(Object.entries(s.lots).map(([id,lot])=>[id,lot[0]])),last:s.last,handling:frame.context},null,2);inspector.append(summary,pre);body.append(inspector);}
         if(notice){const status=document.createElement('p');status.setAttribute('role','status');status.textContent=notice;body.append(status);}
     }
     container.append(panel);setInterval(()=>render(),500);render();return {render};

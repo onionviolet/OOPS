@@ -10,7 +10,7 @@ const row = (role, ref, detail, why = '') => ({role, ref, detail, why});
 const entries = value => Object.entries(value || {});
 const quantity = stock => entries(stock).map(([id,n]) => `${count(n)} × ${id}`).join('; ') || 'none';
 
-export function projectHarvest({harvest: s, inventory = {}, handling = {}} = {}) {
+function projectHarvest({harvest: s, inventory = {}, handling = {}} = {}) {
     const rows = [];
     if (!s) return [row('source', 'HV1', 'No retained harvest owner. Inspector does not create one.')];
     for (const species of HARVEST_SPECIES) {
@@ -36,7 +36,7 @@ export function projectHarvest({harvest: s, inventory = {}, handling = {}} = {})
     return rows;
 }
 
-export function projectMixtures({mixtures: s, inventory = {}, clock} = {}) {
+function projectMixtures({mixtures: s, inventory = {}, clock} = {}) {
     if (!s) return [row('source', 'P2', 'No retained mixture owner. Inspector does not generate ingredient profiles or laws.')];
     const rows = INGREDIENTS.map(i => row('source', i.id, `${count(inventory[JSON.stringify({id:i.id})])} owned; profile ${show(s.profiles[i.id])}`));
     rows.push(row('part template', 'P2 revision 1', 'Whole ingredient packs; fictional-mass basis 1000. Steep or boil; oral-village@1 consumer. Product identity is composition/recipe, not a physical vial lot.'));
@@ -51,7 +51,7 @@ export function projectMixtures({mixtures: s, inventory = {}, clock} = {}) {
     return rows;
 }
 
-export function projectFeatureObjects({expansion = {}, inventory = {}} = {}) {
+function projectFeatureObjects({expansion = {}, inventory = {}} = {}) {
     const s = expansion.simulation, rows = [];
     rows.push(row('source', 'Feature objects native stock', quantity(Object.fromEntries(Object.values(FEATURE_OBJECT_KEYS).filter(k => count(inventory[k])).map(k => [k,inventory[k]]))),
         'Carried tools and actual keyed materials. Borrowed tools remain under simulation custody, not a second stock.'));
