@@ -1862,6 +1862,10 @@ book_stats[ROUTE_NOTES] = new BookData({required_time: 4, literacy_xp_rate: 1});
         value: 8,
         material_type: "raw fabric",
     });
+    item_templates["Meadow hay"] = new Material({
+        name: "Meadow hay", description: "One counted dry hay ration for the Village meadow pen. Feeding consumes the bundle.",
+        value: 2, material_type: "animal feed",
+    });
     item_templates["Silica Sand"] = new Material({
         name: "Silica sand",
         description: "Sand made potent by the remains of countless generations of creatures that lived and died in the body of water it was taken from",
