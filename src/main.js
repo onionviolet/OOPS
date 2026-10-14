@@ -369,7 +369,7 @@ import {calendarMinutes} from "./world_rhythm.js";
 import {ROUTE_NOTES, NOTES_KEY, usesVillageClock} from "./village_content.js";
 import {createVillagePanel} from "./village_ui.js";
 import {everydayFacts, recordRouteReading} from "./everyday_life.js";
-import {townUnlocks, usesTownClock} from "./town_content.js";
+import {townUnlocks, usesTownClock, villageLedgerSentence} from "./town_content.js";
 import {createTownPanel} from "./town_ui.js";
 import {createExpansionQuests} from "./expansion_quest_ui.js";
 import {worldIdentityView} from "./world_knowledge.js";
@@ -402,6 +402,7 @@ let importInProgress = false;
 let loadingReputationTotals = null;
 let restoringNativeSave = false;
 const localDateLog = createCalendarLog((...args) => log_message(...args));
+function readVillageLedgerSentence() {return villageLedgerSentence(expansionState);}
 export function readLocalCalendar() {return resolveWorldCalendar(expansionState, current_game_time);}
 export function readLocalWeatherWords() {
     return worldWeatherWords(expansionState?.actors?.player?.worldId ?? 'base.frontier', readLocalCalendar(), current_location);
@@ -948,6 +949,7 @@ function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}) {
         ...(unlocks.quests || []).map(id => ({kind: "quest", id}))];
     const publication = prepareGameplayPublication(plan.gameplay, {actors: actorBindings, skills, getItemFromKey, unlockAdapter});
     const townAccess = townUnlocks(expansionState, plan.state);
+    const villageTextChanged = villageLedgerSentence(expansionState) !== villageLedgerSentence(plan.state);
     const unlockPublication = prepareNativeUnlocks([...(plan.unlocks || []), ...publication.unlocks, ...townAccess], {availabilities, flags: global_flags, quests, questManager});
     const wearState=plan.nativePatch?.equipment_durability||durability.serialize();
     const structuredWear=optionalPackState.structured&&plan.equipment&&wearState.enabled?createDurability(wearState):null;
@@ -1052,7 +1054,7 @@ function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}) {
         }
         if(publication.changes.length) character.updateStatsAndDisplay();
         if(plan.calendar && previousNight !== is_night(current_game_time)) character.updateStatsAndDisplay();
-        if(townAccess.length && current_location.tags.safe_zone) update_displayed_normal_location(current_location);
+        if((townAccess.length || villageTextChanged && current_location.id === "Village") && current_location.tags.safe_zone) update_displayed_normal_location(current_location);
         renderWorldIdentity();
         expeditionPanel?.render(); techniquePanel?.render(); chroniclePanel?.render(); villagePanel?.render(); simulationPanel?.render(); systemsWorkshopPanel?.render(); townPanel?.render();
         pursuitPanel?.render();
@@ -8801,6 +8803,7 @@ if(config.enable_dev_mode) {
     enable_dev_console();
 }
 export { 
+    readVillageLedgerSentence,
     current_combat,
     current_location,
     can_work, active_effects,
