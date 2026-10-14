@@ -1,3 +1,4 @@
+import {validateCheatState} from './cheat_cards.js';
 import {validateCustomizationState} from './customization_profiles.js';
 import {migrateWorkLedger} from './work_ledger_system.js';
 import {createDurability} from './absorb_e2/durability.js';
@@ -38,6 +39,7 @@ const number = (value, label, minimum = 0) => {
 
 export function validateSaveEnvelope(original, currentVersion) {
     object(original, "Save");
+    if(Object.hasOwn(original, "cheats"))validateCheatState(original.cheats);
     if(original.customization!=null)validateCustomizationState(original.customization);
     if(original.work_ledger!=null)migrateWorkLedger(original.work_ledger);
     if(original.content_packs!=null)validatePackState(original.content_packs);
