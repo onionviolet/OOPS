@@ -1,0 +1,284 @@
+{
+  "schema": 1,
+  "status": "PASS",
+  "label": "DOCUMENTATION_STATIC_ONLY",
+  "checked_at": "2026-10-14T04:44:26.706170+00:00",
+  "scope": "docs/gm/dispatch/procgen-2026-10-13/p15/ only",
+  "branch": "codex/gameplay-foundations",
+  "head": "5c084e50cc251fc9b9d8f26b754377da5c61ffca",
+  "required_markdown_files": 8,
+  "markdown_files": [
+    {
+      "path": "CHECKPOINT.md",
+      "lines": 19,
+      "bytes": 2778,
+      "sha256": "9d73267b191f5ba290bc1859b65ae64c417e029c6793248b1dc30caea8ef73ad"
+    },
+    {
+      "path": "RUNTIME_TEXT.md",
+      "lines": 105,
+      "bytes": 15613,
+      "sha256": "5ba74b701fca6ccf26629165be42eba71a4ecd068f979d449ee09e57a72276da"
+    },
+    {
+      "path": "DIALOGUE.md",
+      "lines": 75,
+      "bytes": 13409,
+      "sha256": "59e68b2f969d0a661364cf6cd1f32232ba80da758e6a148ec5aab01901459c08"
+    },
+    {
+      "path": "LLM_OPTIONS.md",
+      "lines": 71,
+      "bytes": 12703,
+      "sha256": "c3cb05d8d8e16a077d4635adcf0d5a1d10b0624188dd6c0c74b9e7d864ab4d39"
+    },
+    {
+      "path": "AUTHORING_PIPELINE.md",
+      "lines": 121,
+      "bytes": 21230,
+      "sha256": "f459a48438c9e03b94ada0bc360370fda091ae89c400690ad51bcd04091e2d4c"
+    },
+    {
+      "path": "MORE.md",
+      "lines": 53,
+      "bytes": 11233,
+      "sha256": "a2361f590048c254184ea951388e29c7e4c67ab6a296b4d016d797289a41d30d"
+    },
+    {
+      "path": "REPORT.md",
+      "lines": 90,
+      "bytes": 17937,
+      "sha256": "f84c7167e2536bb47fba4846e95befebdda1aae82b56820278eb88592607275a"
+    },
+    {
+      "path": "BACKLOG.md",
+      "lines": 13,
+      "bytes": 1797,
+      "sha256": "cc2a3ed24df41fb93b2adb993a8733706ba70a3e8733002c514a18512118b4af"
+    }
+  ],
+  "local_link_occurrences": 124,
+  "broken_links": [],
+  "source_locator_occurrences": 31,
+  "invalid_source_locators": [],
+  "ranked_slices": 5,
+  "proposed_ports": [
+    "20400",
+    "20410",
+    "20420",
+    "20430",
+    "20440"
+  ],
+  "tool_modules": [
+    "QA1",
+    "QA2",
+    "QA3",
+    "QA4",
+    "QA5",
+    "QA6",
+    "QA7",
+    "QA8",
+    "QA9",
+    "QA10",
+    "QA11",
+    "QA12",
+    "QA13",
+    "QA14"
+  ],
+  "topic_checks": {
+    "Tracery": true,
+    "replacement grammar": true,
+    "slot": true,
+    "personality": true,
+    "conversation": true,
+    "register": true,
+    "naming": true,
+    "repetition": true,
+    "offline": true,
+    "determin": true,
+    "reload": true,
+    "sealed": true,
+    "attribution": true,
+    "reachability": true,
+    "duplicate": true,
+    "tone": true,
+    "canon": true,
+    "playthrough": true,
+    "human acceptance": true,
+    "sample_playthrough_contract": true
+  },
+  "external_reference_urls": [
+    "https://docs.yarnspinner.dev/2.3/getting-started/writing-in-yarn/logic-and-variables",
+    "https://docs.yarnspinner.dev/yarn-spinner-for-unity/creating-commands-functions",
+    "https://github.com/galaxykate/tracery",
+    "https://github.com/inkle/ink/blob/master/Documentation/RunningYourInk.md"
+  ],
+  "audit_sources_final_read_window": [
+    {
+      "path": "build.js",
+      "lines": 65,
+      "sha256": "8561349784483242a15ce4208b9180651c1aaf03c3d8ff1379de8c7d8065fea5"
+    },
+    {
+      "path": "docs/worlds/ABILITY_AUTHORING.md",
+      "lines": 404,
+      "sha256": "afa6e6a7e16906041da66d5c7662d82c7c47d69c522246d646e0fefc142b915e"
+    },
+    {
+      "path": "package.json",
+      "lines": 21,
+      "sha256": "805269ecbf25287b2758391e718c805e1a4336b4b4f1c923a87b3712620e8e2c"
+    },
+    {
+      "path": "scripts/build_nethack_preview.mjs",
+      "lines": 78,
+      "sha256": "0fe0f8a57bbc294153d001a71a2cef50d61095b01777b7cad92ee4b4ed716997"
+    },
+    {
+      "path": "scripts/compile_feature_ink.mjs",
+      "lines": 239,
+      "sha256": "f3f9c2ca77440435431e8da55bedd5c42bad2ea01768a4b899a80173d4e75987"
+    },
+    {
+      "path": "scripts/field_fixtures.mjs",
+      "lines": 27,
+      "sha256": "4e91d6cedf0afff327cebabed277dba4f837bdf53a07d3fc01aa1d90a56bcae6"
+    },
+    {
+      "path": "src/authored_site.js",
+      "lines": 161,
+      "sha256": "dcf782b0ef076c57f661e4f7a868dba5333e56a1f205209384fabdb32fdb8599"
+    },
+    {
+      "path": "src/causal_story_actors.js",
+      "lines": 163,
+      "sha256": "232f064f41a139490b05fbaa6d96e7280d13a8b7b7a772e4983a1b635febbd2e"
+    },
+    {
+      "path": "src/causal_story_content.js",
+      "lines": 255,
+      "sha256": "6fbcfc9e1718f961f8c4b99c588c1cc8c4816378ce889c93662cec0aea10af22"
+    },
+    {
+      "path": "src/causal_story_core.js",
+      "lines": 433,
+      "sha256": "7f4993ccc8251e376c72f59dbec61f6efe24c744b61915d6011725da572b4fb5"
+    },
+    {
+      "path": "src/causal_story_host.js",
+      "lines": 504,
+      "sha256": "cc6464bb00936100be5cf6b02c95be62f38c3478d273b2b83c4395fb7bcf8c1c"
+    },
+    {
+      "path": "src/causal_story_ids.js",
+      "lines": 20,
+      "sha256": "1aca94dc5eaf5412865b60ce292bc00f5c34fa7e5cdd85a53d31efbd4fa22fee"
+    },
+    {
+      "path": "src/causal_story_native.js",
+      "lines": 477,
+      "sha256": "f70656361f79b011fdf18953caa10fba3acea327c007e16c170fd5345c5ccc84"
+    },
+    {
+      "path": "src/causal_story_scenes.js",
+      "lines": 104,
+      "sha256": "7ccaeae599ce284f7d5003ab95b9687426c69ebdba452b9238d2931ef9f28ca9"
+    },
+    {
+      "path": "src/causal_story_ui.js",
+      "lines": 352,
+      "sha256": "5e43b094b364e574e9ad00e8bda57ada6b2a333c04191af86c2db49df87a32e5"
+    },
+    {
+      "path": "src/event_feed.js",
+      "lines": 103,
+      "sha256": "f25a1f1ff13bc751509cece72a3825cc7163c646e7f565f29f477bbcbffb2915"
+    },
+    {
+      "path": "src/event_feed_ui.js",
+      "lines": 50,
+      "sha256": "d1c3539ea9d2f1f64fa67f453237f593b1dec3e9cd9b56754e730d674d02ffd0"
+    },
+    {
+      "path": "src/ink_narrative.js",
+      "lines": 355,
+      "sha256": "f54f3413232acb9f134028cfb78a58e5d029f903c0976e259169ac7e7e9607ff"
+    },
+    {
+      "path": "src/ink_scene_content.js",
+      "lines": 400,
+      "sha256": "17510921b76264463dfc68911f3179c407a2b1c7970d9431dfdb50ec5820d761"
+    },
+    {
+      "path": "src/life_record.js",
+      "lines": 82,
+      "sha256": "21ac5f17fff62794ba26d7180deb6a9c0ad85060d79134e5d6ce83de51d1d9bd"
+    },
+    {
+      "path": "src/people_knowledge.js",
+      "lines": 106,
+      "sha256": "e52bf2508ab626785ad66074179f33916aaed7946fbd403706cb59303e851261"
+    },
+    {
+      "path": "src/simulation.js",
+      "lines": 633,
+      "sha256": "4b0cec849a464c1ea758752c0881f15f7f26d5be857173ffcefda4b7eaba149c"
+    },
+    {
+      "path": "src/simulation_content.js",
+      "lines": 129,
+      "sha256": "9c55fc6edeebb9f75027dcada4dcc44ebb1fc27e4815cac75731825e0f2252bc"
+    },
+    {
+      "path": "src/simulation_contracts.js",
+      "lines": 322,
+      "sha256": "519b55317952eb7b4cd10a0cabb899542e7af706f568358f146b241be81b301c"
+    },
+    {
+      "path": "src/simulation_effects.js",
+      "lines": 394,
+      "sha256": "507a5a60b82eaade331601c90f5e98410a2d99486903b9109937f933f3ffe151"
+    },
+    {
+      "path": "src/simulation_resolution.js",
+      "lines": 41,
+      "sha256": "b47789d1959d5e43fcce298b3631830169aa0d89b972cd7d08da1a55e4c2fd94"
+    },
+    {
+      "path": "src/simulation_ui.js",
+      "lines": 100,
+      "sha256": "ed41498fbf78e78d2383d2fb397692f1e6c211ad2666eeb1a3bb69d1b226fc37"
+    },
+    {
+      "path": "src/site_projects.js",
+      "lines": 32,
+      "sha256": "0a9eeb705992b988e5d678f2bd9f4d62f1fc4e911cdb1b456df69787c042583c"
+    },
+    {
+      "path": "src/work_ledger_author_ui.js",
+      "lines": 19,
+      "sha256": "0e741e2c9878a0a27b12955df63579f5030fd27dd27d12dde215715d5c488c0f"
+    },
+    {
+      "path": "src/work_ledger_system.js",
+      "lines": 161,
+      "sha256": "3ad8f82f8a8d55ff9f73be20ecbbb23222bf7c82aeac7932776abea2be13aebb"
+    },
+    {
+      "path": "src/world_visit_history.js",
+      "lines": 70,
+      "sha256": "c9296a84f4df6c0a0ea5ed818ca1ca283149e247eb7354eaaeb983f9b99b2bd2"
+    }
+  ],
+  "manual_review": {
+    "disclosure": "No private novel notes or sealed truth files were opened; fixture IDs and original sample speech only. Structural/manual review, not formal secrecy proof.",
+    "source_labels": "Source observations distinct from branch-reported checks and design proposals. No fresh primary book reading claimed.",
+    "siblings": "Initial checkpoints and final P12/P13/P14/P16 interface draft refresh, cross-linked without copying owners.",
+    "scope": "Only P15 file mutations were issued by this session; outside concurrent dirty state preserved."
+  },
+  "runtime_tests": "NOT_RUN",
+  "builds": "NOT_RUN",
+  "browser_and_saves": "NOT_RUN",
+  "commits": "NONE",
+  "errors": []
+}

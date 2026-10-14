@@ -1,0 +1,122 @@
+{
+  "scope": "late readback fingerprint, not initial snapshot or semantic reading proof",
+  "observed_at": "2026-10-14T04:55:15.756084+00:00",
+  "sources": [
+    {
+      "path": ".claude/worktrees/proc-p3-storylets/docs/gm/dispatch/procgen-2026-10-13/p3/REPORT.md",
+      "sha256": "f39f768a08e595bf751de18135534d47767726142f20d39b98a3490244e5d3c7"
+    },
+    {
+      "path": ".claude/worktrees/proc-p4-people/docs/gm/dispatch/procgen-2026-10-13/p4/REPORT.md",
+      "sha256": "b5d9b5ed3dc1a4e1b7b3dc10b80042016a9c9783fba09c957054d10b3997c5ee"
+    },
+    {
+      "path": "AGENTS.md",
+      "sha256": "0aecd5d70ed7f6c7815c81b66ac6137da49b1c04573ac785007cfb38ad559026"
+    },
+    {
+      "path": "PROJECT.md",
+      "sha256": "ef9b99c939970a706b9b91b9ca2715e2b1b6bfec629d567aacbe72d16d44b0fa"
+    },
+    {
+      "path": "docs/INTRO_FLOW_CONSIDERATIONS_2026-10-13.md",
+      "sha256": "dad684ad1cd658d9b0f458f1ee86cd49e4670efd281122b7d53170458fd8dbf3"
+    },
+    {
+      "path": "docs/PROCEDURAL_GENERATION_STATUS_2026-10-13.md",
+      "sha256": "9a80d3c1a8326f7bd306e36f1efdfbd40f15daaa76631af02705b9b5a12ceb9d"
+    },
+    {
+      "path": "docs/TIMELINES_AND_DIVERGENCE.md",
+      "sha256": "ddbd89552dc53a8f830b2f43c65fcc4f639c23aca450c3e99440152f9d1588ee"
+    },
+    {
+      "path": "docs/USER_VISION.md",
+      "sha256": "ac16945aa9ea81528930fdf8b0554d67407e6d62f5111f97833b724bbd572d50"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/COMMON.md",
+      "sha256": "615702f75ed356bfbd2d427b59d6bd713cc1ce5768a4cde6062a20aa5f1342ef"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/PLAN.md",
+      "sha256": "7dbdfecf32b86fa2f2af05e76c7f24f7a1d59d03d46ce54d5a79ddb0de183ebb"
+    },
+    {
+      "path": "src/causal_story_actors.js",
+      "sha256": "232f064f41a139490b05fbaa6d96e7280d13a8b7b7a772e4983a1b635febbd2e"
+    },
+    {
+      "path": "src/causal_story_content.js",
+      "sha256": "6fbcfc9e1718f961f8c4b99c588c1cc8c4816378ce889c93662cec0aea10af22"
+    },
+    {
+      "path": "src/causal_story_core.js",
+      "sha256": "7f4993ccc8251e376c72f59dbec61f6efe24c744b61915d6011725da572b4fb5"
+    },
+    {
+      "path": "src/causal_story_host.js",
+      "sha256": "cc6464bb00936100be5cf6b02c95be62f38c3478d273b2b83c4395fb7bcf8c1c"
+    },
+    {
+      "path": "src/causal_story_ids.js",
+      "sha256": "1aca94dc5eaf5412865b60ce292bc00f5c34fa7e5cdd85a53d31efbd4fa22fee"
+    },
+    {
+      "path": "src/causal_story_native.js",
+      "sha256": "f70656361f79b011fdf18953caa10fba3acea327c007e16c170fd5345c5ccc84"
+    },
+    {
+      "path": "src/causal_story_scenes.js",
+      "sha256": "7ccaeae599ce284f7d5003ab95b9687426c69ebdba452b9238d2931ef9f28ca9"
+    },
+    {
+      "path": "src/causal_story_ui.js",
+      "sha256": "5e43b094b364e574e9ad00e8bda57ada6b2a333c04191af86c2db49df87a32e5"
+    },
+    {
+      "path": "src/event_feed.js",
+      "sha256": "f25a1f1ff13bc751509cece72a3825cc7163c646e7f565f29f477bbcbffb2915"
+    },
+    {
+      "path": "src/event_feed_ui.js",
+      "sha256": "d1c3539ea9d2f1f64fa67f453237f593b1dec3e9cd9b56754e730d674d02ffd0"
+    },
+    {
+      "path": "src/life_record.js",
+      "sha256": "21ac5f17fff62794ba26d7180deb6a9c0ad85060d79134e5d6ce83de51d1d9bd"
+    },
+    {
+      "path": "src/people_knowledge.js",
+      "sha256": "e52bf2508ab626785ad66074179f33916aaed7946fbd403706cb59303e851261"
+    },
+    {
+      "path": "src/simulation.js",
+      "sha256": "2a790db46f004639d356ebec3678bfe63e1957fe5fda6cc9892368a050b54b66"
+    },
+    {
+      "path": "src/simulation_content.js",
+      "sha256": "9c55fc6edeebb9f75027dcada4dcc44ebb1fc27e4815cac75731825e0f2252bc"
+    },
+    {
+      "path": "src/simulation_contracts.js",
+      "sha256": "519b55317952eb7b4cd10a0cabb899542e7af706f568358f146b241be81b301c"
+    },
+    {
+      "path": "src/simulation_effects.js",
+      "sha256": "507a5a60b82eaade331601c90f5e98410a2d99486903b9109937f933f3ffe151"
+    },
+    {
+      "path": "src/simulation_resolution.js",
+      "sha256": "b47789d1959d5e43fcce298b3631830169aa0d89b972cd7d08da1a55e4c2fd94"
+    },
+    {
+      "path": "src/simulation_ui.js",
+      "sha256": "ed41498fbf78e78d2383d2fb397692f1e6c211ad2666eeb1a3bb69d1b226fc37"
+    },
+    {
+      "path": "src/world_visit_history.js",
+      "sha256": "c9296a84f4df6c0a0ea5ed818ca1ca283149e247eb7354eaaeb983f9b99b2bd2"
+    }
+  ]
+}

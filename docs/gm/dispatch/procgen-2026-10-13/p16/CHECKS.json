@@ -1,0 +1,83 @@
+{
+  "status": "PASS",
+  "checkedAtUTC": "2026-10-14T04:49:14.612329+00:00",
+  "scope": "P16 docs-only proposal",
+  "markdownFiles": 13,
+  "clusterFiles": 9,
+  "localLinkChecks": 127,
+  "headingChecks": 13,
+  "sourceRangeChecks": 21,
+  "rankedAngleGroups": 27,
+  "recommendedSlices": 5,
+  "candidatePorts": [
+    20500,
+    20510,
+    20520,
+    20530,
+    20540
+  ],
+  "errors": [],
+  "manualReview": "Proposal scope, secret-ID discipline, source summaries/attribution and no private-note/raw-prose reproduction reviewed; not a universal leak proof. P16 tool writes confined to this directory.",
+  "notRun": [
+    "runtime tests",
+    "builds",
+    "browser/gameplay",
+    "save/reload/import",
+    "server launch",
+    "commits"
+  ],
+  "files": [
+    {
+      "path": "BACKLOG.md",
+      "bytes": 1786
+    },
+    {
+      "path": "CHECKPOINT.md",
+      "bytes": 2690
+    },
+    {
+      "path": "CROSSOVERS.md",
+      "bytes": 6531
+    },
+    {
+      "path": "DIMENSIONS_AND_OBSERVATION.md",
+      "bytes": 6368
+    },
+    {
+      "path": "ENDINGS_AND_SUCCESSION.md",
+      "bytes": 6303
+    },
+    {
+      "path": "IDLE_AND_EVENT_STORIES.md",
+      "bytes": 6826
+    },
+    {
+      "path": "LIVE_AUDIT.md",
+      "bytes": 10178
+    },
+    {
+      "path": "LOOPS_AND_RESETS.md",
+      "bytes": 9146
+    },
+    {
+      "path": "MORE.md",
+      "bytes": 4133
+    },
+    {
+      "path": "OTHER_LIVES_AND_SELVES.md",
+      "bytes": 6976
+    },
+    {
+      "path": "PLAYER_AUTHORSHIP.md",
+      "bytes": 7036
+    },
+    {
+      "path": "REPORT.md",
+      "bytes": 15953
+    },
+    {
+      "path": "WORLD_DIALS_AND_PLAYER_CONTROL.md",
+      "bytes": 7127
+    }
+  ]
+}

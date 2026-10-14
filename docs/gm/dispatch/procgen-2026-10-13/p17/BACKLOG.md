@@ -1,0 +1,11 @@
+# P17 remaining gates
+
+2026-10-14. **PROPOSAL ONLY.** Documentation complete. Everything below is unselected or unverified future work, not required additional P17 writing or selected product scope.
+
+| Code | Open work | Owner / evidence to close |
+|---|---|---|
+| B1 Source qualification | Choose one exact source reader. Retain edition/creator metadata, current effective claim, shown/stated distinction, contradictions and primary operation window. Fated Villain pass-2, Gu luck, specific System issuer/reward laws, universal faith/divine feeding and exact Fate fame modifier are not certified here. | Source/world owner plus root; the cluster tables carry locators and specific gaps. Wish late-rank mismatch remains a source-owner correction task, not silently repaired. |
+| B2 Integration | Verify actual merged P1/P3/P4 APIs and live writer ownership. Join P12 recognized patterns and P14 typed outcome/Claim/BeliefEpisode without duplicate actors or extra story store. Map the two clocks; choose one power/source publisher and migration. | Root and selected producer/consumer owners. Current branch reports and new docs do not establish integrated APIs. |
+| B3 Runtime and saves | Implement only the selected reader, test real behavior, repeat/partial/failed/stale/corrupt cases, compaction/coverage and exact pending/final Save/reload/Export/literal Import. Missing packs/versions preserve or reject under explicit compatible policy. | Selected builder, exclusive file area and root shared joins. All NOT RUN by P17. |
+| B4 Native desktop/disclosure | Own rebuild/served bytes, fresh disposable natural acquire → act → qualify → use journey at 1366×768 and 1600×1000; controlled contrasts labelled separately. Check known projections/errors/accessibility/filter/price for ID-only secrets. | Selected builder; private user saves untouched. Mobile and generalized offline progression deferred. |
+| B5 Scale and acceptance | P18 long-run histories/causes/audiences/queues and feedback analysis; human fiction, powerful-source fidelity, balance and presentation acceptance. No moral/drama score imposed globally. | P18 and Weibao. Documentation and passing source slices cannot close native/persistence/human acceptance. |
