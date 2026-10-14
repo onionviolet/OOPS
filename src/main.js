@@ -1,3 +1,4 @@
+import {STREAMS,ensureStreams,bindGameStreams,gameRandom,gameRandomRange,drawUnit,scopedStream,seededRecipe,validateNativeEncounter} from "./seeded_streams.js";
 import {beginNativeCraftTransaction,nativeCraftQuestOwners} from './native_craft_transaction.js';
 import {worldCompletionSavedNativeItem} from './world_completion_native.js';
 import {createFoundationInteractionPanel} from './foundation_interaction_ui.js';
@@ -242,7 +243,7 @@ import { end_activity_animation,
          insert_HTML,
         } from "./display.js";
 import { update_displayed_fighters_stats, update_displayed_health_of_fighter, } from "./ui/combat_display.js";
-import { compare_game_version, crafting_tags_to_skills, get_component_name, is_a_older_than_b, get_item_mapping, random_range, skill_consumable_tags, rtp, write_availability_status, npc_key_mapping, format_working_time } from "./misc.js";
+import { compare_game_version, crafting_tags_to_skills, get_component_name, is_a_older_than_b, get_item_mapping, skill_consumable_tags, rtp, write_availability_status, npc_key_mapping, format_working_time } from "./misc.js";
 import { stances } from "./combat_stances.js";
 import { recipes, get_recipe_xp_value, get_component_stats } from "./crafting_recipes.js";
 import { game_version, get_game_version } from "./game_version.js";
@@ -438,6 +439,9 @@ const lifeSaveStorage = {setItem(key, serialized, onDurable) {
 }};
 
 let expansionState = initializeExpedition(createExpansionState(crypto.getRandomValues(new Uint32Array(1))[0]));
+ensureStreams(expansionState);
+bindGameStreams(() => expansionState);
+let pendingNativeEncounter = null;
 setFieldcraftKnowledgeReader(()=>expansionState);
 character.setSimulationEffectReader(()=>{const context={nativeBody:currentNativeBody(),nativeAlive:character.is_alive===true};return {...projectStatusCareEffects(expansionState,expeditionRegistry,context),...projectFieldCareEffects(expansionState,expeditionRegistry,context),...projectBookCareEffects(expansionState,expeditionRegistry,context),...projectBookWorldEffects(expansionState,expeditionRegistry,context),...projectParadiseCampaignEffects(expansionState,expeditionRegistry,context),...structuredEquipmentView().effects};});
 let publishedStatusCareSignature = "";
@@ -713,10 +717,13 @@ function stageLocalLifeResult(plan, result) {
     plan.nativePatch={...plan.nativePatch,absorb_local_life:result.state};plan.localLifeResult=result;
     return plan;
 }
-function dispatchLocalLifePlan(result) {
+function advanceSavedLocalLife(state,context) {
+    return advanceLocalLife(localLife,context,()=>drawUnit(state,scopedStream(STREAMS.localLife,context.worldId),`local:${context.clock}`));
+}
+function dispatchLocalLifePlan(result, state = structuredClone(expansionState)) {
     if(!ownsSave||foundationSaveBlocked||importProbeToken||is_loading_error)throw Error('This tab cannot save local actions.');
     if(result.ok===false)throw Error(result.messages.join(' '));
-    const state=structuredClone(expansionState);state.sequence++;
+    state.sequence++;
     persistExpansion(stageLocalLifeResult({state,external:{money:character.money},gameplay:gameplaySnapshot()},result));
     return result;
 }
@@ -821,7 +828,7 @@ function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}) {
     }
     const localFrame=localLifeContext(plan.calendar||current_game_time,plan.state,plan.nativeLocation||current_location?.id);
     if(!restoringNativeSave&&!plan.localLifeResult&&localFrame.clock>(localLife.lastClock??localFrame.clock))
-        stageLocalLifeResult(plan,advanceLocalLife(localLife,localFrame));
+        stageLocalLifeResult(plan,advanceSavedLocalLife(plan.state,localFrame));
     // Played-time settlements may retain their original job sequence. Opted-in
     // characters give this committed boundary a fresh nonce before recognition.
     if(plan.state.referenceGameplay && expansionState.referenceGameplay && plan.state.sequence===expansionState.sequence && plan.state.clock>expansionState.clock)plan.state.sequence++;
@@ -2590,7 +2597,7 @@ function finish_game_action({action_key, conditions_status, dialogue_key}){
     } else {
         const action_result = get_game_action_result({action_key, conditions_status, dialogue_key});
         let is_won = false;
-        if(action_result > Math.random()) {
+        if(action_result > gameRandom(STREAMS.reward, `action:${action.id || action.name}:success`)) {
             //win
 
             result_message = action.getSuccessText({character});
@@ -2930,7 +2937,7 @@ function get_current_book() {
  */
 function process_rewards({rewards = {}, source_type, source_name, is_first_clear, inform_overall = true, inform_textline = true, only_unlocks = false, is_from_loading = false}) {
    
-    if(rewards.chance && (Math.random() > rewards.chance)) {
+    if(!is_from_loading && rewards.chance != null && !(gameRandom(STREAMS.reward, `reward:${source_type}:${source_name}`) < rewards.chance)) {
         return;
     }
 
@@ -3289,11 +3296,11 @@ function process_mixed_rewards({mixed_rewards, source_type, source_name, is_firs
     const total_rewards = {};
 
     for(let i = 0; i < arr.length; i++) {
-        if(arr[i].chance_to_be_in_mix && (Math.random() > arr[i].chance_to_be_in_mix)) {
+        if(arr[i].chance_to_be_in_mix != null && !(gameRandom(STREAMS.reward, `mix:${source_type}:${source_name}:${i}:include`) < arr[i].chance_to_be_in_mix)) {
             continue;
         }
 
-        const selected_rewards = arr[i].possible_rewards[random_range(0, arr[i].possible_rewards.length-1)];
+        const selected_rewards = arr[i].possible_rewards[gameRandomRange(STREAMS.reward, `mix:${source_type}:${source_name}:${i}:pick`,0, arr[i].possible_rewards.length-1)];
 
         if(selected_rewards.money) {
             total_rewards.money = (total_rewards.money || 0) + selected_rewards.money;
@@ -3621,10 +3628,21 @@ function set_new_combat({enemies} = {}) {
         return;
     }
 
+    const savedEncounter = pendingNativeEncounter?.locationId === current_location.id ? pendingNativeEncounter : null;
+    pendingNativeEncounter = null;
+    if(savedEncounter && !enemies) {
+        enemies=savedEncounter.enemies.map(row=>{
+            const e=new Enemy({...enemy_templates[row.template],stats:{...row.stats}});
+            e.init();Object.assign(e.getFullStats(),row.full);e.is_alive=row.alive;
+            e.rngKey=row.key;e.encounterKey=savedEncounter.key;e.templateKey=row.template;return e;
+        });
+    }
     enemies ||= current_location.get_next_enemies();
 
-    current_combat = new Combat({attackers: [character], defenders: enemies});
-
+    current_combat = new Combat({attackers: [character], defenders: enemies, savedEncounter});
+    // A durable technique observation can occur after the last kill but before
+    // the zone clear. Resume that boundary without awarding the kill twice.
+    if(savedEncounter && !enemies.some(e=>e.is_alive)) {finish_combat_round(false);return;}
     current_combat.start();
 }
 
@@ -4133,7 +4151,7 @@ function use_recipe(target, amount=1){
     if(expeditionOccupiesPlayer()||!workLedgerCanWrite())return;
     let scope;
     try {
-        const transaction=beginNativeCraftTransaction({owners:[character,character.getItems(),character.getLevelableComponent(),item_log,game_stats,global_flags,availabilities,
+        const transaction=beginNativeCraftTransaction({owners:[expansionState.streams,character,character.getItems(),character.getLevelableComponent(),item_log,game_stats,global_flags,availabilities,
             ...Object.values(skills).map(skill=>skill.getAvailabilityComponent()),which_skills_affect_skill,favourite_consumables,favourite_items,favourite_locations,active_effects,
             ...nativeCraftQuestOwners(quests,active_quests)],
             bindings:[{get:()=>fortSupply,set:v=>{fortSupply=v;}},{get:()=>workLedger,set:v=>{workLedger=v;}},
@@ -4181,7 +4199,7 @@ function execute_native_recipe(target, ammount_wanted_to_craft = 1) {
         //shouldn't be possible to reach this
         throw new Error(`Tried to use a recipe that doesn't exist: ${category} -> ${subcategory} -> ${recipe_id}`);
     } else {
-        const selected_recipe = recipes[category][subcategory][recipe_id];
+        const selected_recipe = seededRecipe(recipes[category][subcategory][recipe_id],()=>gameRandom(STREAMS.craft, `recipe:${recipe_id}:quality`));
         const recipe_div = document.querySelector(`[data-crafting_category="${category}"][data-crafting_subcategory="${subcategory}"] [data-recipe_id="${recipe_id}"]`);
         try {
             if(subcategory === "items") {
@@ -4221,7 +4239,7 @@ function execute_native_recipe(target, ammount_wanted_to_craft = 1) {
                 successful_crafting_ammount = Math.floor(attempted_crafting_ammount*success_chance);
                 
                 //chance to get 1 more if it was not an integer
-                const variable_craft = Math.random()<(attempted_crafting_ammount*success_chance - successful_crafting_ammount)?1:0;
+                const variable_craft = gameRandom(STREAMS.craft, `recipe:${recipe_id}:success-round`)<(attempted_crafting_ammount*success_chance - successful_crafting_ammount)?1:0;
                 successful_crafting_ammount += variable_craft;
                 
                 //const current_gained_xp = (attempted_crafting_ammount-1)*estimated_xp_per_craft + (variable_craft?xp_per_craft:(xp_per_craft/4));
@@ -4233,7 +4251,7 @@ function execute_native_recipe(target, ammount_wanted_to_craft = 1) {
                     //if more can be crafted and failed to get enough for a levelup, try to make up to 3 more (since it's 1/4th per fail and there's already 1 fail)
                     for(let i = 0; i < 2 && attempted_crafting_ammount+success+fail < ammount_that_can_be_crafted; i++) {
                         
-                        if(Math.random()<success_chance) {
+                        if(gameRandom(STREAMS.craft, `recipe:${recipe_id}:attempt`)<success_chance) {
                             success++;
                         } else {
                             fail++;
@@ -4270,7 +4288,7 @@ function execute_native_recipe(target, ammount_wanted_to_craft = 1) {
                 //recipe is either full success or full fail
 
                 const fuzzy_result = count * attempted_crafting_ammount * success_chance;
-                const fuzzy_final_result_count = Math.floor(fuzzy_result) + (Math.random()<(fuzzy_result - Math.floor(fuzzy_result))?1:0);
+                const fuzzy_final_result_count = Math.floor(fuzzy_result) + (gameRandom(STREAMS.craft, `recipe:${recipe_id}:partial-round`)<(fuzzy_result - Math.floor(fuzzy_result))?1:0);
                 //recipe can be a partial success; ignores successful_crafting_ammount for crafting gains but still uses it for xp as of now
  
                 const final_count = scale_results ? fuzzy_final_result_count : final_result_count;
@@ -4691,7 +4709,7 @@ function use_item(item_key) {
         const recovered = [];
         Object.keys(item_templates[id].recovery_chances).forEach(recoverable => {
             const chance = item_templates[id].recovery_chances[recoverable];
-            if(chance > Math.random()) {
+            if(chance > gameRandom(STREAMS.gather, `recover:${id}:${recoverable}`)) {
                 recovered.push({item_id: recoverable});
             }
         });
@@ -5002,6 +5020,7 @@ function create_save({forExport = false} = {}) {
         });
         
         save_data["current location"] = current_location.id;
+        save_data.native_encounter = current_combat?.snapshot(current_location.id) || pendingNativeEncounter;
 
         save_data["locations"] = {};
         Object.keys(locations).forEach(function(key) { 
@@ -5306,6 +5325,13 @@ function load(save_data) {
             lifeRecord = migrateLifeRecord(save_data);
             npcLives = save_data.npc_lives == null ? null : advanceVillageLives(save_data.npc_lives, save_data["current time"].year);
             expansionState = initializeExpedition(loadExpansionState(save_data.expansion, expeditionRegistry, expansionState.rng));
+            // Pre-expansion saves have no seed: use the documented stable
+            // fallback for native streams while leaving legacy engine RNG alone.
+            ensureStreams(expansionState,save_data.expansion?.rng ?? 1);
+            pendingNativeEncounter = save_data.native_encounter || null;
+            validateNativeEncounter(pendingNativeEncounter,save_data["current location"]);
+            if(pendingNativeEncounter && (!locations[pendingNativeEncounter.locationId]?.tags.combat_zone ||
+                pendingNativeEncounter.enemies.some(e=>!enemy_templates[e.template])))throw Error("Unsupported saved native encounter.");
             validateGameAbsorptionAssay(expansionState,expeditionRegistry,{gameplay:{player:{inventory:Object.fromEntries(Object.entries(save_data.character.inventory || {}).map(([key,row])=>[key,row.count]))}}});
             validateNativeGameplayReferences(expansionState.pending.flatMap(job => [job.effects, job.costs || []]));
             for(const actor of Object.values(expansionState.actors)) {
@@ -5321,7 +5347,7 @@ function load(save_data) {
         loadingReputationTotals = save_data.character.reputation ?? null;
         //single loading method
         
-        //current enemies are not saved
+        //Pre-stream saves have no active encounter; resume with a deterministic fresh group.
 
         let any_warnings = false;
 
@@ -7176,7 +7202,7 @@ function update_timer(time_in_minutes, source = null) {
     refreshCustomization();
     advanceExpeditions(minutes);
     if(localLife.lastClock!==calendarMinutes(current_game_time)) {
-        try{dispatchLocalLifePlan(advanceLocalLife(localLife,localLifeContext()));}
+        try{const state=structuredClone(expansionState);dispatchLocalLifePlan(advanceSavedLocalLife(state,localLifeContext()),state);}
         catch(error){console.error('Local life paused:',error);log_message(error.message,'notification');return 0;}
     }
 
@@ -7500,13 +7526,13 @@ function update() {
                     //add resource drops (if defined)
                     if (gained_resources) {
                         for(let i = 0; i < gained_resources.length; i++) {
-                            if(Math.random() > (1-gained_resources[i].chance)) {
-                                const count = random_range(gained_resources[i].count[0], gained_resources[i].count[1]);
+                            if(gameRandom(STREAMS.gather, `activity:${current_activity.activity_id}:${i}:chance`) < gained_resources[i].chance) {
+                                const count = gameRandomRange(STREAMS.gather, `activity:${current_activity.activity_id}:${i}:count`,gained_resources[i].count[0], gained_resources[i].count[1]);
                                 let quality = null;
 
                                 //quality
                                 if (quality_range) {
-                                    quality = Math.round(random_range(quality_range[0], quality_range[1]) / 4) * 4;
+                                    quality = Math.round(gameRandomRange(STREAMS.gather, `activity:${current_activity.activity_id}:${i}:quality`,quality_range[0], quality_range[1]) / 4) * 4;
                                 }
 
                                 items.push({item_id: gained_resources[i].name, quality: quality, count: count});
