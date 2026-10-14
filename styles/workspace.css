@@ -752,3 +752,7 @@ body #bottom_panel_div .sl_button {padding-left:6px;padding-right:6px;}
 :root[data-world]:not([data-world="native"]) {--frame-accent: #8fd4d6;}
 :root[data-world][data-color-scheme="vivid"] {--frame-page: var(--vivid-page); --frame-accent: var(--vivid-accent);}
 .workspace-module[data-panel-kit="1"] {--panel-frame-accent: var(--frame-accent);}
+
+.workspace-discovery-hidden { display: none !important; }
+#practice_capabilities button { margin: 4px 8px 4px 0; }
+#staged_opening { padding: 8px; }

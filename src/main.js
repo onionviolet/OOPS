@@ -1,10 +1,12 @@
+import {HERB_LESSON,heldLesson,bindAcquisitionLesson,bindDenominationKnowledge,createPracticePanel,openingAllows,stageRevealKnowledge} from './reveal_chain.js';
+import {getDisplaySetting,subscribeDisplaySettings} from './display_settings.js';
 import {beginNativeCraftTransaction,nativeCraftQuestOwners} from './native_craft_transaction.js';
 import {worldCompletionSavedNativeItem} from './world_completion_native.js';
 import {createFoundationInteractionPanel} from './foundation_interaction_ui.js';
 import {foundationInteractionProbeContext,foundationInteractionProbeGuard,FOUNDATION_PROBE_GROUP} from './foundation_interaction_content.js';
 import {createFoundationStartContent,FOUNDATION_START_PACK_ID} from './foundation_start_content.js';
 import {createLocalLivelihoodContent,LIVELIHOOD_PACK_ID} from './local_livelihood_content.js';
-import {mountWorkspace,registerWorkspaceModule,workspaceOwns,openWorkspaceModule} from './workspace_layout.js';
+import {mountWorkspace,registerWorkspaceModule,workspaceOwns,openWorkspaceModule,updateWorkspace} from './workspace_layout.js';
 import {createWorkspaceViews,createEquipmentComparison} from './workspace_views.js';
 import {defaultCustomizationState,validateCustomizationState,getCustomizationSettings,applyCustomizationProfile} from './customization_profiles.js';
 import {createCustomizationUI} from './customization_ui.js';
@@ -578,6 +580,7 @@ let nativeBattlePauseReason="";
 let chroniclePauseReason = "";
 
 function renderWorldIdentity() {
+    update_displayed_money();
     const note = document.getElementById("world_identity_note");
     if(!note) return;
     const known = worldIdentityView(expansionState, expeditionRegistry);
@@ -876,6 +879,7 @@ function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}) {
         const active = activePractice(actor);
         if(active && !Object.hasOwn(skills, active[1].practice.xpSkill)) throw new Error("Unsupported saved practice skill.");
     }
+    stageRevealKnowledge(plan,readInventoryOwner(character.getItems()),character.money);
     const stagedGameplay = nativeGameplay.stageBindings(plan.gameplay,plan.state);
     const actorBindings = stagedGameplay.actors;
     const unlockAdapter = unlocks => [
@@ -948,6 +952,7 @@ function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}) {
     if(plan.absorbPublish)plan.absorbPublish();
     publication.publish();
     unlockPublication.publish();
+    if(plan.revealLesson)log_message('Handling twenty Golmoon leaves taught you a preparation. Review it in Learned preparations.','notification');
     equipmentPublication.publish();
     publishNativeVitals(plan.native,character);
     projectNativePeopleBodies();
@@ -994,7 +999,7 @@ function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}) {
         frontierCampaignPanel?.render();
         partyPanel?.render(); exchangePanel?.render(); observationPanel?.render(); pocketRealmPanel?.render();skillExpansionPanel?.render();originalFrontierPanel?.render();featureExpansionPanel?.render();foundationInteractionPanel?.render();causalStoryPanel?.render();
         backlogPanel?.render();replacementRecognitionPanel?.render();backlogOpeningPanel?.render();repositoryPanel?.render();inkPanel?.render();nestedInkPanels?.render();
-        knownRoutesPanel?.render();adventureNotebook?.render();localLifePanel?.render();fortControls?.render();pacingPanel?.render();pacingStatusPanel?.render();durabilityPanel?.render();elementalPanel?.render();
+        knownRoutesPanel?.render();adventureNotebook?.render();localLifePanel?.render();practicePanel?.render();updateWorkspace();fortControls?.render();pacingPanel?.render();pacingStatusPanel?.render();durabilityPanel?.render();elementalPanel?.render();
         expansionQuests?.render();
         characterBio?.render();
         worldEventFeed?.render();
@@ -2231,7 +2236,9 @@ function change_location({location_id, event, skip_travel_time = false, do_quest
     }
 
     if(previous_location && !skip_travel_time) {
-        progress_time({value: travel_times[previous_location.id][current_location.id], source: "travel"});
+        const running=revealFacts()['reveal.run']===true && character.getTotalSkillLevel('Running')>=1 && !practiceRunReason();
+        if(running)use_stamina({stamina_to_use:2});
+        progress_time({value: Math.max(1,Math.ceil(travel_times[previous_location.id][current_location.id]*(running?.8:1))), source: "travel"});
     }
 
     update_displayed_temperature();
@@ -2894,12 +2901,30 @@ function end_reading() {
     update_displayed_book(book_id);
 }
 
+let practicePanel, referenceRender=()=>{}, openingStep=0;
+try{const step=Number(localStorage.getItem('yairpg.opening.v1'));if(Number.isInteger(step)&&step>=0&&step<=3)openingStep=step;}catch{/* Session-only presentation if browser storage is unavailable. */}
+function revealFacts(){return expansionState.actors.player.facts;}
+function recipeLesson(inventory){
+    if(restoringNativeSave || !ownsSave || foundationSaveBlocked || importProbeToken)return;
+    if(!heldLesson(inventory,revealFacts()['reveal.herbLesson']))return;
+    revealFacts()['reveal.herbLesson']=true;
+    process_rewards({rewards:{recipes:[{category:'alchemy',subcategory:'items',recipe_id:HERB_LESSON.recipe}]}});
+    log_message('Handling twenty Golmoon leaves taught you a preparation. Review it in Learned preparations.','notification');
+    update_displayed_crafting_recipes();practicePanel?.render();updateWorkspace();
+}
+function practiceRunReason(){
+    if(!ownsSave||foundationSaveBlocked||importProbeToken)return 'Saving is unavailable.';
+    if(expansionState.actors.player.worldId!=='base.frontier')return 'Run is practiced for frontier travel.';
+    if(current_combat||current_activity||is_reading||is_sleeping||current_dialogue||is_in_trade()||expeditionOccupiesPlayer())return 'Finish your current activity before running.';
+    if(character.getFullStats().stamina<2)return 'Requires 2 stamina for a journey.';
+    return '';
+}
 function do_reading() {
+    const book = book_stats[is_reading], before=book.accumulated_time;
     item_templates[is_reading].addProgress();
-
     update_displayed_book(is_reading);
-    const book = book_stats[is_reading];
-    add_xp_to_skill({skill: skills["Literacy"], xp_to_add: book.literacy_xp_rate});
+    // Literacy tracks completed study work, preserving the saved-book XP invariant.
+    add_xp_to_skill({skill: skills["Literacy"], xp_to_add: book.literacy_xp_rate*(book.accumulated_time-before)});
 
     if(item_templates[is_reading].isFinished()) {
         log_message(`Finished the book "${is_reading}"`);
@@ -2909,6 +2934,7 @@ function do_reading() {
         character.addBookBonus(book.bonuses);
         character.updateStatsAndDisplay();
         process_rewards({rewards: book.rewards});
+        referenceRender();updateWorkspace();
     }
 }
 
@@ -2933,6 +2959,7 @@ function process_rewards({rewards = {}, source_type, source_name, is_first_clear
     if(rewards.chance && (Math.random() > rewards.chance)) {
         return;
     }
+    if(!is_from_loading && !restoringNativeSave && rewards.money)revealFacts()['reveal.wallet.'+expansionState.actors.player.worldId]=true;
 
     let was_any_location_availability_changed = false;
     let is_current_location_reload_needed = false;
@@ -3475,7 +3502,7 @@ function end_dialogue() {
 
 function reload_normal_location() {
     update_displayed_normal_location(current_location);
-    furniturePanel?.render();localLifePanel?.render();fortControls?.render();pacingPanel?.render();pacingStatusPanel?.render();durabilityPanel?.render();elementalPanel?.render();
+    furniturePanel?.render();localLifePanel?.render();practicePanel?.render();updateWorkspace();fortControls?.render();pacingPanel?.render();pacingStatusPanel?.render();durabilityPanel?.render();elementalPanel?.render();
 }
 
 /**
@@ -3800,6 +3827,7 @@ function add_xp_to_skill({skill, xp_to_add = 1, should_info = true, use_bonus = 
             const scope=nativeCraftScopes.at(-1);
             if(scope)(scope.discoveries ||= []).push(event);
             else nativeDiscoveryFeedback?.publish(event);
+            practicePanel?.render();updateWorkspace();
         }
     } 
     
@@ -5487,7 +5515,7 @@ function load(save_data) {
 
                             total_book_xp += book_stats[book].required_time * book_stats[book].literacy_xp_rate;
                         } else {
-                            item_templates[book].addProgress(save_data.books[book].accumulated_time);
+                            item_templates[book].addProgress(save_data.books[book].accumulated_time,{study:false});
                             total_book_xp += book_stats[book].accumulated_time * book_stats[book].literacy_xp_rate;
                         }
                     }
@@ -5514,7 +5542,7 @@ function load(save_data) {
 
                     if(save_data.books[book_id].accumulated_time > 0) {
 
-                        item_templates[book_id].addProgress(save_data.books[book_id].accumulated_time);
+                        item_templates[book_id].addProgress(save_data.books[book_id].accumulated_time,{study:false});
                         total_book_xp += book_stats[book_id].accumulated_time * book_stats[book_id].literacy_xp_rate;
                         
                         if(item_templates[book_id].isFinished()) {
@@ -7242,7 +7270,7 @@ function update() {
         let were_stats_updated = false;
         const prev_day = current_game_time.day_count;
         const advancedMinutes = update_timer();
-        furniturePanel?.render();localLifePanel?.render();fortControls?.render();pacingPanel?.render();pacingStatusPanel?.render();durabilityPanel?.render();elementalPanel?.render();
+        furniturePanel?.render();localLifePanel?.render();practicePanel?.render();updateWorkspace();fortControls?.render();pacingPanel?.render();pacingStatusPanel?.render();durabilityPanel?.render();elementalPanel?.render();
         if(!advancedMinutes || expansionState.chronicle?.life.endedAt != null) {update(); return;}
 
         if(start_date - last_rewarded_export > config.time_between_export_rewards) {
@@ -8413,7 +8441,44 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
         ['belongings','Belongings','inventory_div','left',false],
         ['local-actions','Local actions','location_related_div','center',true],
         ['messages','Reports','message_log_div','right',false],
-    ]) {const node=document.getElementById(nodeId);if(node)registerWorkspaceModule({id,title,node,home,critical});}
+    ]) {const node=document.getElementById(nodeId);if(node){
+        const found=()=> {
+            if(!openingAllows(id,getDisplaySetting('stagedOpening')==='on',openingStep))return false;
+            if(id==='skills')return Object.values(skills).some(skill=>nativeSkillDiscovery(skill,character));
+            if(id==='records')return item_templates['Old combat manual'].isFinished() || item_templates['ABC for kids'].isFinished() || Object.values(enemy_killcount).some(n=>n>0) || metVillageElder();
+            return true;
+        };
+        registerWorkspaceModule({id,title,node,home,critical,eligible:found,discovered:found});
+    }}
+    // An opt-in presentation introduction. Never changes the original beginning or save recovery.
+    const opening=document.createElement('section');opening.id='staged_opening';
+    const introduction=document.createElement('p'),next=document.createElement('button');next.type='button';
+    opening.append(introduction,next);document.getElementById('main_content').prepend(opening);
+    const renderOpening=()=>{opening.hidden=getDisplaySetting('stagedOpening')!=='on'||openingStep>=3;
+        introduction.textContent=['Time passes as you act. Continue to meet your character.','Your character grows through experience. Continue to inspect your belongings.','Your belongings and local actions are ready. Continue to open your records.'][openingStep]||'';
+        next.textContent='Continue introduction';};
+    next.onclick=()=>{openingStep=Math.min(3,openingStep+1);try{localStorage.setItem('yairpg.opening.v1',String(openingStep));}catch{/* Session only. */}renderOpening();updateWorkspace();};
+    if(Object.values(character.getLevelableComponent().skill_progress).some(p=>p.total_xp>0)||Object.values(enemy_killcount).some(n=>n>0)||Object.values(book_stats).some(b=>b.accumulated_time>0))openingStep=3;
+    subscribeDisplaySettings(()=>{renderOpening();updateWorkspace();});renderOpening();
+    const reference=document.createElement('section');reference.id='reading_reference';
+    const referenceKnown=()=>['ABC for kids','Old combat manual'].some(id=>item_templates[id].isFinished());
+    referenceRender=()=>{
+        reference.replaceChildren();const heading=document.createElement('h3');heading.textContent='Reading reference (proposal)';
+        const text=document.createElement('p');text.textContent=`Completed reading opens your reference desk. ${Object.values(enemy_killcount).filter(n=>n>0).length} creatures recorded from your own encounters.`;
+        const button=document.createElement('button');button.type='button';button.textContent='Open Journal & Bestiary';button.onclick=()=>openWorkspaceModule('records');reference.append(heading,text,button);
+    };
+    document.getElementById('journal_div').after(reference);referenceRender();
+    registerWorkspaceModule({id:'reading-reference',title:'Reading reference',node:reference,home:'right',eligible:referenceKnown,discovered:referenceKnown});
+    bindAcquisitionLesson(recipeLesson);
+    bindDenominationKnowledge(()=>expansionState.actors.player.worldId==='base.frontier'||!!revealFacts()['reveal.wallet.'+expansionState.actors.player.worldId]);
+    update_displayed_money();
+    practicePanel=createPracticePanel({register:registerWorkspaceModule,update:updateWorkspace,
+        read:()=>{const context=localLifeContext(),found=localLife.searches[current_location?.id]?.found;
+            return {progress:character.getLevelableComponent().skill_progress,run:revealFacts()['reveal.run']===true,reason:practiceRunReason(),recipe:revealFacts()['reveal.herbLesson']===true,craftReason:accessoryCraftingTiers(current_location,undefined,global_flags.is_crafting_unlocked).alchemy?'':'Requires an accessible alchemy station before crafting.',
+                search:{on:localLife.looking,reason:!ownsSave||foundationSaveBlocked||importProbeToken?'Saving is unavailable.':!context.idle?'Finish your current activity before investigating.':!['Village','Shack'].includes(context.location)?'Investigate is practiced in Village and Shack.':found?'Nothing remains to find here.':''}};},
+        toggleRun:()=>{if(practiceRunReason())return;const next=structuredClone(expansionState);next.sequence++;next.actors.player.facts['reveal.run']=!revealFacts()['reveal.run'];persistExpansion({state:next,gameplay:gameplaySnapshot(),external:{money:character.money},messages:[]});},
+        investigate:()=>dispatchLocalLifePlan(localLifeAction(localLife,localLifeContext(),'look')),
+        craft:()=>{if(!accessoryCraftingTiers(current_location,undefined,global_flags.is_crafting_unlocked).alchemy)return;open_crafting_window();switch_crafting_recipes_page('alchemy');}});
     createEquipmentComparison({read:()=>{
         const held=Object.entries(character.getItems()).map(([id,row])=>({id,item:row.item,label:'Held'}));
         const worn=Object.entries(character.getEquipment()).filter(([,item])=>item).map(([id,item])=>({id:'worn:'+id,item,label:'Worn'}));

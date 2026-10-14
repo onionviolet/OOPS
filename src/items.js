@@ -1,3 +1,4 @@
+import {readingRate} from './reveal_chain.js';
 import {equipmentDurability as durability} from './absorb_e2/durability.js';
 import {registerAccessoryItems} from './absorb_c1/accessories.js';
 import {WATCHCRAFT_BOOK, WATCHCRAFT_READING} from './village_career.js';
@@ -1130,9 +1131,9 @@ class Book extends Item {
      * @returns {Number} total time needed to read the book
      */
     getReadingTime() {
-        //maybe make it go faster with literacy skill level?
+        // Progress stays in original work units, so old saves need no conversion.
         let {required_time} = book_stats[this.name];
-        return required_time;
+        return required_time / readingRate(character.getTotalSkillLevel("Literacy"));
     }
 
     /**
@@ -1141,11 +1142,11 @@ class Book extends Item {
      */
     getRemainingTime() {
         let remaining_time = Math.max(book_stats[this.name].required_time - book_stats[this.name].accumulated_time, 0);
-        return remaining_time;
+        return remaining_time / readingRate(character.getTotalSkillLevel("Literacy"));
     }
 
-    addProgress(time = 1) {
-        book_stats[this.name].accumulated_time += time;
+    addProgress(time = 1, {study = true} = {}) {
+        book_stats[this.name].accumulated_time += time * (study ? readingRate(character.getTotalSkillLevel("Literacy")) : 1);
         if(book_stats[this.name].accumulated_time >= book_stats[this.name].required_time) {
             this.setAsFinished();
         }

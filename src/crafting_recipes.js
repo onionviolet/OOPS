@@ -1890,7 +1890,7 @@ function get_recipe_xp_value({category, subcategory, recipe_id, material_count, 
     });
     
     alchemy_recipes.items["Weak healing powder"] = new ItemRecipe({
-        name: "Weak healing powder",
+        name: "Weak healing powder", id: "Weak healing powder",
         recipe_type: "usable",
         is_unlocked: false,
         materials: [{material_id: "Golmoon leaf", count: 5}],
