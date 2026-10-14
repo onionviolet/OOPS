@@ -59,7 +59,7 @@ Resume a lane: `LANE_CWD=<cwd> python3 runs/launch.py <lane> lanes/<lane>.prompt
 
 Immortal Life and Taiwu finished installing; the watcher launched both at 17:43 and exited with no gated lanes left. Every game lane is PARTIAL with a named unread table. pw-intake is COMPLETE in Province War: `docs/audits/yairpg-game-research-v1/` indexes 13 dossiers, routes 43 findings to existing packets and registers family A-YAIR (register check passes). Those Province War files are uncommitted in that repo.
 
-## Round 3 (launched 2026-10-14 18:20)
+## Round 3 (launched 2026-10-14 about 18:00)
 
 Weibao: "consider deeper for taiwu and immortal and more? For warsim use REA accordingly". REA is the pinned Ghidra MCP build from the Hogwarts lane, reused read-only.
 
@@ -72,3 +72,19 @@ Weibao: "consider deeper for taiwu and immortal and more? For warsim use REA acc
 | cross-game-synthesis | `docs/research/cross-game-synthesis-2026-10-14/` | 01a13c6d-c0cc-7343-b5a8-9eaeb4d3f741 |
 
 Province War intake committed there as `7e661376` (branch `claude/cow-parity`, now on origin) with only its own registry entry; two other chats' pending registry entries stay uncommitted.
+
+## Round 4: aspect passes (2026-10-14 18:07)
+
+Weibao: "save aspects like dialogue, impletation and more? deeper systems and other stiff?" Standard: [ASPECTS.md](../ASPECTS.md) (A01 dialogue to A12 other systems, plus a system inventory and the top three undocumented deeper systems per game, in `docs/research/<game>/aspects-2026-10-14/`).
+
+| Lane | Games | Session id |
+| --- | --- | --- |
+| asp-hoi4 | Hearts of Iron IV | 01a13c74-d62a-7ae1-958d-93b26377a1c9 |
+| asp-narrative | Heaven's Vault, Vagrus | 01a13c74-d631-7d32-9cf2-fa69746f72d4 |
+| asp-idle | NGU IDLE, Idle Reincarnator, Idleon, Your Chronicle | 01a13c74-d66d-7900-9565-5393f7928c99 |
+| asp-cultivation | Path of the Idle Cultivator, Tale of Immortal, Immortality Idle, Groundhog Life | 01a13c74-d6a2-7f02-a94c-bc469bb64e30 |
+| asp-text | Discworld MUD, Kingdom of Loathing, free text worlds, Prestige Tree community | 01a13c74-d6f3-7df1-801e-3d9379b2e503 |
+
+Gated by `runs/watch2.py` (resumes the same session so the lane keeps its extracted context): asp-warsim, asp-taiwu, asp-immortal-life and asp-academagia each start when their round 3 lane finishes; synthesis-2 resumes cross-game-synthesis once every aspect lane is done. Log `runs/watch2.log`, state `runs/watch2.state.json`.
+
+Later, not dispatched: aspect backfill for the older dossiers (pre-wave games such as CK3, RimWorld, Caves of Qud, Hogwarts Legacy).

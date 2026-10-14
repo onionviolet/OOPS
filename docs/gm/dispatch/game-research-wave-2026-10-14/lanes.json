@@ -156,5 +156,94 @@
   "out": "docs/research/cross-game-synthesis-2026-10-14/",
   "gate": null,
   "cwd": null
+ },
+ "asp-hoi4": {
+  "out": "`docs/research/hearts-of-iron-iv/aspects-2026-10-14/`",
+  "gate": null,
+  "cwd": null
+ },
+ "asp-narrative": {
+  "out": "`docs/research/heavens-vault/aspects-2026-10-14/`, `docs/research/vagrus/aspects-2026-10-14/`",
+  "gate": null,
+  "cwd": null
+ },
+ "asp-idle": {
+  "out": "`docs/research/ngu-idle/aspects-2026-10-14/`, `docs/research/idle-reincarnator/aspects-2026-10-14/`, `docs/research/legends-of-idleon/aspects-2026-10-14/`, `docs/research/your-chronicle/aspects-2026-10-14/`",
+  "gate": null,
+  "cwd": null
+ },
+ "asp-cultivation": {
+  "out": "`docs/research/cultivation-idlers/path-of-the-idle-cultivator/aspects-2026-10-14/`, `docs/research/tale-of-immortal/aspects-2026-10-14/`, `docs/research/immortality-idle/aspects-2026-10-14/`, `docs/research/groundhog-life/aspects-2026-10-14/`",
+  "gate": null,
+  "cwd": null
+ },
+ "asp-text": {
+  "out": "`docs/research/discworld-mud/aspects-2026-10-14/`, `docs/research/kingdom-of-loathing/aspects-2026-10-14/`, `docs/research/free-text-worlds-2026-10-14/aspects-2026-10-14/`, `docs/research/modding-tree/aspects-2026-10-14/`",
+  "gate": null,
+  "cwd": null
+ },
+ "asp-warsim": {
+  "out": "docs/research/warsim/aspects-2026-10-14/",
+  "gate": {
+   "kind": "lane_done",
+   "lanes": [
+    "warsim-rea"
+   ]
+  },
+  "resume": "01a13c6d-c00e-77e2-9985-4d9be7ad40eb",
+  "cwd": null
+ },
+ "asp-taiwu": {
+  "out": "docs/research/scroll-of-taiwu/aspects-2026-10-14/",
+  "gate": {
+   "kind": "lane_done",
+   "lanes": [
+    "taiwu-2"
+   ]
+  },
+  "resume": "01a13c6d-c038-74e3-9e5d-c20c97a7b3b2",
+  "cwd": null
+ },
+ "asp-immortal-life": {
+  "out": "docs/research/immortal-life/aspects-2026-10-14/",
+  "gate": {
+   "kind": "lane_done",
+   "lanes": [
+    "immortal-life-2"
+   ]
+  },
+  "resume": "01a13c6d-c05e-71e1-aace-7fd84b1938f9",
+  "cwd": null
+ },
+ "asp-academagia": {
+  "out": "docs/research/academagia/aspects-2026-10-14/",
+  "gate": {
+   "kind": "lane_done",
+   "lanes": [
+    "academagia-2"
+   ]
+  },
+  "resume": "01a13c6d-c09a-7221-9a15-a730176b3bfd",
+  "cwd": null
+ },
+ "synthesis-2": {
+  "out": "docs/research/cross-game-synthesis-2026-10-14/",
+  "gate": {
+   "kind": "lane_done",
+   "lanes": [
+    "asp-hoi4",
+    "asp-narrative",
+    "asp-idle",
+    "asp-cultivation",
+    "asp-text",
+    "asp-warsim",
+    "asp-taiwu",
+    "asp-immortal-life",
+    "asp-academagia",
+    "cross-game-synthesis"
+   ]
+  },
+  "resume": "01a13c6d-c0cc-7343-b5a8-9eaeb4d3f741",
+  "cwd": null
  }
 }
