@@ -1832,3 +1832,47 @@ fuutr”. Design answers live in the [UI owner](THEMATIC_UI_AND_INFORMATION_DESI
 (layers L1-L7, per-world gates and arrival styles, festivals, a declarative
 world UI card, mold-not-copy). Execution runs as the
 [until-done goal](gm/dispatch/vivid-proto23-flow-2026-10-13/GOAL.md).
+
+Next pick, 2026-10-13: “go with the crafting screen one, same until done setup
+Consider Proto 23 parity and dpeth and more? like the revealing ones and more?
+More to consider? Missing stuff and more? Making everything little thing
+adjustable and more? more to consider?” Direction: crafting screen goal next;
+every presentation choice should be adjustable in its existing owner.
+[Considerations CP/D/RV/M/AJ](research/proto23/CRAFTING_SCREEN_AND_ADJUSTABILITY_CONSIDERATIONS_2026-10-13.md);
+execution in [the crafting goal](gm/dispatch/crafting-screen-2026-10-13/GOAL.md).
+
+Follow-up: “also do the settings pass after crafting, consider improvable
+aspects too”. Settings pass (AJ1-AJ7, AJ12 plus improvements to shipped
+features) runs as its own until-done goal after the crafting goal.
+
+Then: “more to consider for the settings and crafting? Panels for cheats and
+other stuff and more?” Palette saved as ST/CR/CH/PN/PK in the
+[considerations](research/proto23/CRAFTING_SCREEN_AND_ADJUSTABILITY_CONSIDERATIONS_2026-10-13.md#more-to-consider-settings-crafting-cheat-panels-and-other-panels-2026-10-13);
+running goals keep their scope.
+
+Cheat acquisition, 2026-10-13: “optional start, more to consider for
+acquiring cheats?” then “make it an optional start, keep everything possible,
+random possibility, other stuff and more? Types of cheat too? Very rare? Not
+so rare? starts by being researched? more optiobs and more?” First route is
+an optional start; all other routes (random, researched, taught, found,
+bought, stolen, inherited, earned, contagious and more) stay possible, with
+rarity as a per-world dial. [Considerations AQ1-AQ14](CHEAT_LIBRARY.md#acquiring-cheats-routes-rarity-and-types-considerations-2026-10-13).
+Then: “It might hurt progression a little to give me cheats straight from the
+get go, maybe I have to unlock it first, more to consider?” Considerations
+US1-US6 (unlock gates) and ST11-ST17 (dormant, hidden, growing, costed starts)
+in [CHEAT_LIBRARY](CHEAT_LIBRARY.md#unlocking-the-optional-start-and-keeping-progression-intact-2026-10-13).
+First build proposal: dormant seed that awakens at a milestone.
+Then: “more to consider for the status window? HOw to consider unlock
+progress and other stuff ? random starts and more? more to consider?”
+Palette SW1-SW12, UP1-UP10, RS1-RS10 in
+[CHEAT_LIBRARY](CHEAT_LIBRARY.md#more-to-consider-the-status-window-unlock-progress-and-random-starts-2026-10-13).
+Then: “more to consider for the cheat library tab?other types of cheats and
+more? stuff should make sense accordingly based on the world and stuff?
+normal status window isnt a cheat?” Direction: whether a power is a cheat
+depends on the world's baseline; a status window is world law where everyone
+has one. Palette WR1-WR8, LB1-LB12, CT1-CT18 in
+[CHEAT_LIBRARY](CHEAT_LIBRARY.md#more-to-consider-what-counts-as-a-cheat-the-library-tab-and-more-types-2026-10-13).
+Then: “more to consider for cheat types per world? multiversal cheats? cheat
+rarity and more? mroe to consider? hiding ui? integrations and more? send out
+codex accordingly”. Dispatched as three Codex docs workers in
+[cheat-considerations-2026-10-13](gm/dispatch/cheat-considerations-2026-10-13/).

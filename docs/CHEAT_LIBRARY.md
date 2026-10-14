@@ -593,3 +593,298 @@ stronger and weaker variants; the dials pick them per world.
   says otherwise.
 - **Enemies get the same cards** with their own carriers and tells, per
   [enemies with cheats](#enemies-with-cheats-2026-10-10).
+
+## Acquiring cheats: routes, rarity and types (considerations, 2026-10-13)
+
+Weibao: "optional start, more to consider for acquiring cheats?" then "make it
+an optional start, keep everything possible, random possibility, other stuff
+and more? Types of cheat too? Very rare? Not so rare? starts by being
+researched? more optiobs and more?"
+
+Related same-day owners: [feature unlock and acquisition process](worlds/FEATURE_UNLOCK_AND_CHEAT_ACQUISITION_PROCESS_2026-10-13.md) and [first cheats and death rewards](worlds/FIRST_CHEATS_AND_DEATH_REWARDS_2026-10-13.md) (D1 recommends random circumstances with an authored, reachable early opportunity rather than an unavoidable powerful grant, consistent with the dormant seed below).
+
+Decision: the **first playable route is an optional start** (the player picks
+a system cheat when beginning a life). Every other route below stays possible
+and is a palette, not a spec. Rarity is a per-world adjective, never a fixed
+global rule (see solo-player, no "once" limits).
+
+### Routes (AQ)
+
+| Code | Route | Feel | Notes |
+| --- | --- | --- | --- |
+| AQ1 | **Optional start** | Chosen at a new life: "begin with a system" | First build. Player picks a card or a family, or "surprise me" |
+| AQ2 | Random at start | A rolled start may include a cheat | Odds per world adjective; can be off |
+| AQ3 | Random awakening mid-life | A trigger rolls: near-death, first death, an age, a full moon | The library's "Awakening" step; the roll and odds shown only after it happens |
+| AQ4 | **Researched** | Study, experiment, reverse-engineer until it works | A knowledge chain (TECHNOLOGY TK/TN): partial versions, failed builds, a lab notebook; slow and earned |
+| AQ5 | Taught or granted | A patron, sect, teacher or AI gives it | Patron terms apply (gift, lease, loan, lien, leash) |
+| AQ6 | Found item | A ring, book, device, egg that holds it | Can be lost, stolen, traded unless bound |
+| AQ7 | Bought or bargained | A hub shop, a devil's deal, a black market | Price can be more than money: years, memories, a debt |
+| AQ8 | Stolen or harvested | From a holder, an enemy, a corpse | Observers and consequences; the ethics are visible |
+| AQ9 | Inherited | From a parent, a previous life, an heir chain | Ties to the heir pipeline and what carries over |
+| AQ10 | Contracted or fused | Merging two partial cheats, or a bond with a being | Library "Evolution" step |
+| AQ11 | Earned by deed | A title-style unlock after a feat ("survive 100 days alone") | Visible goals or hidden ones per world |
+| AQ12 | Spread or contagious | Caught from an event, a meteor, a plague of systems | World-level cosmic events |
+| AQ13 | Mistaken identity | You hold someone else's cheat, delivered to the wrong person | Comedy or dread; the real owner may come looking |
+| AQ14 | Debug or authoring | A test start for fixtures and creative play | Labeled; never presented as natural |
+
+### Rarity dials (per world, adjustable)
+
+| Dial | Values |
+| --- | --- |
+| How common | none, mythic (one in a world), very rare, rare, uncommon, common (everyone awakens one) |
+| Who knows | secret, rumored, known to experts, public |
+| How you learn it's real | instant system message, slow evidence, someone tells you, you never quite know |
+| Odds shown | never, after it happens, always |
+
+Common-cheat worlds (everyone has a system) change society: schools, rankings,
+cheat-based jobs, crime. Very rare worlds make a holder a target. Both fit,
+per world.
+
+### Types to offer at the optional start (first set)
+
+From the library families: system with quests (status window, CH1), death
+regression, simulator/foresight, companion spirit, appraisal lens, multiplier
+or harvest, a quiet knack (absolute direction, perfect memory), a hub
+contract. The first start offers **the system with quests**, since CH1 is
+its panel; others join as their panels land.
+
+### Start screen details
+
+- Options: pick a specific card, pick a family, "surprise me" (rolled by the
+  chosen world's rarity), or "no cheat".
+- Show what the card adds, its costs and limits as known; sealed details
+  stay sealed.
+- Strength dial for a chosen start: humble, standard, strong. A rolled start
+  can land anywhere.
+- An "I don't know what I have" variant: the cheat is held but unidentified
+  until its first message (AQ3 feel inside AQ1).
+- The choice is recorded in the life record and can be inherited or lost
+  like any other fact.
+
+### Unlocking the optional start, and keeping progression intact (2026-10-13)
+
+Weibao: "more to consider for the optional start and cheat types? It might
+hurt progression a little to give me cheats straight from the get go, maybe
+I have to unlock it first, more to consider?"
+
+The concern: a strong cheat at minute one skips the early game's learning
+and makes ordinary progress feel pointless. Ways to keep the start optional
+without that cost (all can coexist, per world):
+
+**Unlock the option first (US)**
+
+| Code | Unlock | Feel |
+| --- | --- | --- |
+| US1 | After a first life ends (death, retirement or heir) | Classic "new game+" door; the first life is always ordinary |
+| US2 | After meeting a cheat in the world (an NPC holder, a rumor, a library entry) | You learn cheats exist before you can start with one |
+| US3 | After researching it (AQ4) in an earlier life | The research notes become a start option |
+| US4 | After an earned deed or title ("survive a winter", "reach level 10") | Achievement-style door |
+| US5 | Per family: each family unlocks separately by its own meeting | Status window after a system holder; regression after first death |
+| US6 | Always available, but only in "creative" or test starts | Labeled, for play and fixtures |
+
+**Start with it, but not at full strength (ST)**
+
+| Code | Shape | Feel |
+| --- | --- | --- |
+| ST11 | **Dormant seed:** chosen at start, awakens at a milestone (first fight won, day 3, level 1, a near-death) | You know it's coming; the early game stays ordinary |
+| ST12 | Hidden seed: chosen, but you don't know which one until it wakes | Surprise without randomness at the door |
+| ST13 | Grows from nothing: stage 0 does almost nothing; its loop grows with ordinary play | The cheat rewards the progression it rides on |
+| ST14 | Costed start: taking a cheat trades away something (fewer starting coins, a debt, a patron's lien, a weaker body) | A real choice, not a free bonus |
+| ST15 | Budget start: a few points to spend on cheat, talent, wealth or connections | Cheats compete with other boosts |
+| ST16 | Noisy cheat: it draws observers or rivals early | Power with pressure |
+| ST17 | Scaled to the world: a strong world needs a strong cheat to feel normal, a quiet world makes even a small one big | Rarity and strength are per-world dials |
+
+**Cheat types that suit an early start (low skip risk)**
+
+Quiet knacks (direction, memory), a status window that mostly informs
+(knowledge, not power), a companion that advises, appraisal at a low grade,
+a quest system whose points arrive slowly. **Late or unlocked types** (high
+skip risk): death regression, foresight with exact odds, multipliers,
+harvest, time stops.
+
+**Progression guards worth keeping in any route**
+
+- The cheat's own growth is gated by ordinary play (levels, skills, days).
+- Early wins are small and clear; big verbs come at milestones.
+- No retroactive skip: a cheat does not complete existing progress chains.
+- Player dial: "cheat strength" humble / standard / strong per life.
+
+**First build proposal (reversible):** the optional start offers the system
+cheat as a **dormant seed (ST11)** that awakens on the first won fight or on
+day 3, whichever comes first, with its first system message; the status
+window is mostly informational at stage 0. The start option itself is visible
+from the first life so it can be played and tested; US1-US5 unlock gates are
+the next layer, toggled by a per-world dial.
+
+### More to consider: the status window, unlock progress and random starts (2026-10-13)
+
+Weibao: "more to consider for the status window? HOw to consider unlock
+progress and other stuff ? random starts and more? more to consider?"
+Palette, not specs. The running CH1 goal keeps its scope (stage 0,
+informational).
+
+**Status window: what it is and how it behaves (SW)**
+
+| Code | Consideration |
+| --- | --- |
+| SW1 | **Stages:** stage 0 informs (level, stats, titles); stage 1 adds quests; stage 2 points and a shop; stage 3 skill slots or class; growth gated by ordinary play |
+| SW2 | **Voice:** cold system text, the Clerk (bored, bribeable), a cheerful guide, a broken translation; per world and per card, with a setting to tone it down |
+| SW3 | **What it can read:** only what the holder knows or the card's grade allows; unknown stats show as "??" or are absent (spoiler level per world, AJ9) |
+| SW4 | **Accuracy:** honest, rounded, delayed, or wrong in a known way (a cracked window under-reads); "last updated" stamp |
+| SW5 | **Quest sources:** generated from real state (reach level 2, learn a recipe, meet the elder's ask), never fake tasks; rewards are points, not raw power at early stages |
+| SW6 | **Notifications:** level-ups, new titles, quest done, as system lines in the log; budgeted by ST6 |
+| SW7 | **Interference:** jammed in a dead-magic zone, forged by a rival, goes dark when the system dies; the panel shows it rather than hiding |
+| SW8 | **Who sees it:** private by default; some worlds let others read your window, or require you to show it (guild checks) |
+| SW9 | **Comparisons:** show deltas since yesterday or last level ("+0.4 Strength"); a sparkline per stat |
+| SW10 | **Exports:** a screenshot-style card of your status, for fun |
+| SW11 | **Per world look:** crisp panels in a status-window world, ink in a Hanzi world, a terminal in sci-fi, through the L3 frame |
+| SW12 | **When lost:** the panel stays as a memory ("last seen" values), greyed, with what you remember |
+
+**Unlock progress (UP): how to show progress toward unlocking cheats or the optional start**
+
+| Code | Consideration |
+| --- | --- |
+| UP1 | **Spoiler rule first:** progress toward an unlock shows only after the player knows the unlock exists (met a holder, read a rumor, researched) |
+| UP2 | **Where it lives:** the cheat library tab (CH9) lists known unlocks with progress bars; unknown ones are absent, or a silhouette count if the world allows |
+| UP3 | **Kinds of progress:** counters (days survived), checklists (meet three holders), research percentage (AQ4), chance-based (each near-death has an X% roll) |
+| UP4 | **Chance shown or hidden:** per world dial: "the odds are unknown", "about 1 in 20", exact |
+| UP5 | **Pity and guarantees:** optional soft pity (odds rise each roll) so a rare unlock isn't purely luck; per world |
+| UP6 | **Carry across lives:** unlock progress is meta-progress (across heirs and new lives) or per life, per unlock |
+| UP7 | **Partial unlocks:** research yields a weaker version first (a "beta" cheat) before the full one |
+| UP8 | **Ways to speed it:** mentors, books, items, rituals; costs visible |
+| UP9 | **Notifications:** "You sense you're close" style hints instead of numbers in mystery worlds |
+| UP10 | **Never lose earned progress** to a reload or a UI mistake; failures cost time or resources, not records |
+
+**Random starts (RS)**
+
+| Code | Consideration |
+| --- | --- |
+| RS1 | **"Surprise me"** rolls from cards eligible for the chosen world and the player's unlocks, weighted by rarity dials |
+| RS2 | **Roll result timing:** shown at start, at awakening, or never named (you figure it out) |
+| RS3 | **Seeded runs:** a visible seed so a start can be shared or replayed; daily seed challenges |
+| RS4 | **Rerolls:** free, limited, or costed (a debt, a weaker body); or "accept what you get" mode |
+| RS5 | **Whole-start rolls:** cheat plus origin, family, place, era, talents rolled together (CAMPAIGN_FRAMEWORK random starting point) |
+| RS6 | **Bad rolls are content:** a useless or harmful cheat (a curse-like system) can be its own story with a way to grow out of it |
+| RS7 | **Duds and fakes:** a "system" that turns out to be a person, an AI, or nothing; detectable over time |
+| RS8 | **Protect progression:** random strong cheats still start dormant (ST11) and grow with play |
+| RS9 | **Record:** the roll, odds and seed go into the life record for later lives and the library |
+| RS10 | **Player dial:** "random start" off / cheat only / everything |
+
+**Other angles**
+
+- **Cheats on NPCs:** the same cards held by NPCs and rivals, with their own status windows the player might glimpse.
+- **Cheat-free mode:** a whole life with cheats disabled by choice, recorded as a feat.
+- **Cheat stacking:** rules for holding two (conflict, fusion, one suppresses the other) from "When cheats meet".
+- **Accessibility:** status window text readable by screen readers; numbers announced on change only when asked.
+
+**Suggested next after CH1:** SW1 stage 1 (real quests from game state)
+with SW5, then UP1-UP3 in the cheat library tab, then RS1-RS4 for the
+"Surprise me" option once a second start card exists.
+
+### More to consider: what counts as a cheat, the library tab and more types (2026-10-13)
+
+Weibao: "more to consider for the cheat library tab?other types of cheats and
+more? stuff should make sense accordingly based on the world and stuff?
+normal status window isnt a cheat? more to. consider?"
+
+**A cheat is relative to its world (WR)**
+
+Right: a status window is not a cheat where everyone has one. "Cheat" means
+an advantage beyond what the world gives ordinary people. The same power can
+be a world law in one place, a rare gift in another, and an outright cheat in
+a third. This pairs with the backing table above (world law, system, patron).
+
+| Code | Consideration |
+| --- | --- |
+| WR1 | **Standing field per world:** each power has a standing: `world-law` (everyone, part of the world's interface), `common` (many have one), `rare-gift`, `cheat` (beyond the world's rules), `forbidden` |
+| WR2 | **Status window by world:** in a system world it is the world's UI for everyone (a world panel, not a cheat card; NPCs have one too); in the native Village it is a cheat; in a cultivation world a "spirit sense" panel plays the same role as world law |
+| WR3 | **The cheat inside a system world** is what goes beyond the shared system: hidden stats, admin access, a second class, seeing others' windows, an unpatched exploit |
+| WR4 | **Standing changes when you travel:** modern knowledge is ordinary at home and a cheat in a medieval world; a world-law loop is blocked elsewhere; the library shows "here it is: …" |
+| WR5 | **Social meaning follows standing:** world-law powers carry no suspicion; cheats draw observers, envy, regulation, theft |
+| WR6 | **Panel follows standing:** the same status-window panel can be revealed by a world fact (world law) or by a held card (cheat); the panel kit card should allow both `discoveredBy` kinds |
+| WR7 | **The optional start offers only true cheats** for the chosen world: a status window is a start option in the Village, but in a system world the option becomes "an extra" (WR3) |
+| WR8 | **No universal rank:** standing and strength are judged against the world's baseline, as the cosmology's verse equalization already says |
+
+**The cheat library tab (LB)**
+
+| Code | Consideration |
+| --- | --- |
+| LB1 | **Entries by relation:** held, met (seen in someone), rumored, researched, lost; each labeled shown / stated / inferred |
+| LB2 | **Standing column:** "In this world: world law / rare gift / cheat"; recalculated when you travel |
+| LB3 | **What you know about it:** loop, costs, limits found by testing, anti-feats; blank where unknown (spoiler rule) |
+| LB4 | **Holders you've seen** and what happened around them; rivals flagged |
+| LB5 | **Unlock progress** (UP1-UP10) for entries you know can be unlocked |
+| LB6 | **Hypotheses:** player notes and guesses ("I think the loop resets at dawn"), checked against evidence later |
+| LB7 | **Filters:** family, backing, world, standing, relation; search |
+| LB8 | **Comparisons:** two cheats side by side, including how they'd interact (from "When cheats meet") |
+| LB9 | **Rumors can be false:** a rumored entry may be a misunderstanding or bait; it says so once disproven |
+| LB10 | **Carries across lives** as knowledge (backing: knowledge), unless the world makes you forget |
+| LB11 | **In-world forms:** a bestiary-style tome, a guild registry, a forum thread, a sect's forbidden catalog, per world |
+| LB12 | **Sealed secrets:** entries tied to a sealed truth show only by ID and status until discovered |
+
+**More cheat types (CT, additions to the 49 families)**
+
+| Code | Type | Loop |
+| --- | --- | --- |
+| CT1 | Interface cheat | Game-like UI the world lacks: pause, map overlay, quest log, inventory grid |
+| CT2 | Admin or debug access | Edit a value with a cost; the world pushes back (patches) |
+| CT3 | Loophole finder | Sees exploitable rule gaps in laws, contracts, magic systems |
+| CT4 | Anti-cheat | Detects, negates or steals other cheats; a hunter's power |
+| CT5 | Nullification zone | Cancels powers nearby, including your own |
+| CT6 | Boring perfect body | No sickness, perfect sleep, no hunger; small, life-sim friendly |
+| CT7 | Skip the boring parts | Fast-forward routine time with averaged outcomes |
+| CT8 | Small undo | Undo the last few seconds once a day |
+| CT9 | Market sight | Sees true prices, demand and who is lying in trade |
+| CT10 | Relationship sight | Sees affection, grudges and debts between people |
+| CT11 | Probability readout | Shows odds on actions; can be wrong in a known way |
+| CT12 | Borrowed competence | Rent a master's skill for an hour at a price |
+| CT13 | Ghost observer | Leave the body to watch, vulnerable meanwhile |
+| CT14 | Cross-world knowledge | Ordinary knowledge from another world, a cheat here (WR4) |
+| CT15 | Mana or energy battery | Store surplus power for later; leaks over time |
+| CT16 | Reputation editor | Rumors you start always spread; misuse backfires |
+| CT17 | Weather or season sense | Knows the next days' weather and harvests |
+| CT18 | Echo of a past life | Skills and memories surface in pieces, with personality bleed |
+
+**Making sense per world (checklist)**
+
+- Who in this world has powers, and what is ordinary here?
+- What backs this power, and does it work here?
+- What standing does it have here, and who would notice?
+- What does it cost, and what stops it from skipping progression?
+- What would a local call it, and what does their library entry look like?
+
+**Suggested next:** WR6 (let the status-window panel be revealed by a world
+fact as well as a cheat card) before a system world arrives; LB1-LB3 as the
+first library tab slice.
+
+### Per-world types, rarity, multiversal cheats, hiding UI and integrations (2026-10-13)
+
+Weibao: "more to consider for cheat types per world? multiversal cheats? cheat
+rarity and more? mroe to consider? hiding ui? integrations and more? send out
+codex accordingly". Three Codex research drafts own the detail; all are
+proposals:
+
+- [W1 per-world types and rarity](gm/dispatch/cheat-considerations-2026-10-13/W1_PER_WORLD_TYPES_AND_RARITY.md)
+  (PW1-PW7, RY1-RY9, EX1-EX12): a world declares what ordinary people can do;
+  standing, frequency and legality are separate questions; family fit by
+  archetype; local wording for the same family; rarity as a profile (base
+  rate, new incidence, active prevalence, holder kind, access, distribution,
+  clustering, era waves, transmission, visibility, demand); pity tied to a
+  declared process; twelve worked world × cheat examples.
+- [W2 multiversal cheats](gm/dispatch/cheat-considerations-2026-10-13/W2_MULTIVERSAL_CHEATS.md)
+  (MV1-MV40, XW1-XW10, EX1-EX8): travelers, contractors, traveling shops,
+  adaptive systems; compatibility per function at each border; rarity that
+  flips between home and hub; what is actually exchanged; administrators and
+  anti-cheat factions; conflicts between imported cheats; whose panel shows
+  where; heirs who inherit a route, not a whole life; coherence without
+  compulsory power creep.
+- [W3 hiding UI and integrations](gm/dispatch/cheat-considerations-2026-10-13/W3_HIDING_UI_AND_INTEGRATIONS.md)
+  (HU1-HU20, IG1-IG12, AC1-AC12): four meanings of hidden; private windows and
+  observers who can read them; a notebook disguise; public stealth; the window
+  going dark; a boss key as a temporary mask with exact restore; minimal and
+  screenshot-safe modes; redaction by grade; what must stay reachable; the
+  full system × hook matrix; reuse ordinary transactions; death vs restart;
+  the card-to-panel contract and two adapter gaps.
+
+Open questions they raise are collected in USER_VISION's 2026-10-13 cheat
+entries once answered; until then they stay in each draft.

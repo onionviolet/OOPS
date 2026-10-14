@@ -76,3 +76,4 @@ Coordinator: run the frozen aggregate acceptance check. Worker server on 18311 s
 - Removing the pending label fixed Vivid I4 but K1 requires even the undiscovered known-routes shell to be labelled. Use aria-labelledby to hidden generic "Panel" text until discovery, then aria-label=title. This preserves both gates without exposing the panel name.
 
 - Supplemental preference smoke initially selected Colors while the Layout menu was closed. Opened the menu in the temporary smoke harness; reload/export/import/reset and frame checks passed. No game change needed.
+- 2026-10-13 coordinator harness fix: index.html probe uses plain http (no keep-alive) instead of Node 22 fetch, which crashed with undici assert(!this.paused); check.sh logs go to a per-run mktemp dir so parallel runs don't collide. No check loosened.
