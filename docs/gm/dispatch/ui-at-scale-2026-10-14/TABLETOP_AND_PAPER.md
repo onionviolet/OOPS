@@ -58,7 +58,7 @@ the relevant class/body/world fields. Class is not the same thing as body.
 
 | Row | Source and evidence | Mechanism, including front/back limits | Concrete transfer, default plus dial | Root / new code |
 | --- | --- | --- | --- | --- |
-| R01 | D&D legacy 5e, S01 STATED | Official resource page offers legacy PDFs and a separate 2024 sheet. The legacy archive did not load here, so its exact front/back field positions remain unverified. Do not treat 2024 as proof of the old layout. | Default: a named current-character summary grouped by play question. Dial: pin more class features or use a full-sheet view. The transfer is a proposal, independent of unverified legacy positions. | OI13, SC1, ZN3; TT01 |
+| R01 | D&D legacy 5e, S01 SHOWN, 2014 PDF pp.1–3 | Three pages. First combines ability/saving-throw/skill groups, defenses, attacks, equipment, traits and small personality fields. Second holds appearance, backstory, allies and overflow traits/treasure. Third is a spell sheet with prepared marks and slots. Neither backstory nor spellcasting must compete for the whole first page. | Default: named current-character summary with play groups and small identity cues; deep history in Records. Dial: pin class features or prepared spells beside Play, or use a full-sheet view. | OI13, SC1, ZN3; TT01 |
 | R02 | D&D 2024, S02 SHOWN, PDF text pp.1–2 | Two pages. Page one groups skills under their governing abilities beside defenses, weapons/damage cantrips and class/species/feat fields. Page two holds spells and slots, equipment, coins, languages and personal history. Page two contains active play information too. | Default: ability groups plus a combat summary on Self, prepared spells in the relevant action view. Dial: keep spells or equipment beside Self rather than behind a tab. | OI13, IN1, PL4; TT01, TT02 |
 | R03 | Pathfinder 2e Remaster, S03 SHOWN, pp.1–4 | Four named sheets divide core statistics, abilities/inventory, notes/actions and spells. Repeated component fields expose proficiency and other inputs; advancement rows organize abilities by level. This is not a one-page solution. | Default: show final values; inspect to reveal contributing sources. Build gets a level history; known actions remain reachable from Play. Dial: expanded component columns for comparison and a larger build sheet. | OI13, IN1, IN5, IN6; TT02 |
 | R04 | Call of Cthulhu 7e standard 1920s, S04 SHOWN, pp.1–2 | Front concentrates characteristics, skill rows, vitals and combat. Reverse holds backstory, gear, wealth, fellow investigators and quick-reference rules. Regular/hard/extreme success thresholds recur in its rules reference. Era-specific sheets share the family. | Default: one current body sheet, with story and ties in Records and a known-rules reference beside checks. Dial: expose derived thresholds inline, or dock relationships with Self. | OI13, MW2, IN1, MC5; TT01, TT04 |
@@ -173,7 +173,7 @@ explicit STATED evidence; no signed-in/native browser was opened.
 
 | ID | Source, evidence and locating detail |
 | --- | --- |
-| S01 | [D&D Beyond official character resources](https://www.dndbeyond.com/resources/1779-d-d-character-sheets), SHOWN page, STATED digital tracking/roll behavior and legacy/2024 downloads. Legacy ZIP route failed; no exact legacy layout proof. |
+| S01 | [D&D Beyond official character resources](https://www.dndbeyond.com/resources/1779-d-d-character-sheets), SHOWN page, STATED digital tracking/roll behavior; [legacy fillable PDF](https://media.dndbeyond.com/compendium-images/marketing/dnd_5e_charactersheet_formfillable.pdf), SHOWN three-page text through in-memory HTTP/`pdftotext`, 2014 copyright. ZIP route failed, then the independently listed PDF supplied layout evidence. No live digital-sheet operation. |
 | S02 | [Official D&D 2024 PDF](https://media.dndbeyond.com/compendium-images/phb/downloads/DnD_2024_Character-Sheet.pdf), SHOWN two pages of text through in-memory HTTP fetch and `pdftotext` after web's size limit. No PDF was saved. |
 | S03 | [Paizo Remaster Player Core sheet](https://downloads.paizo.com/RemasterPlayerCoreCharacterSheet.pdf), SHOWN four-page PDF text, 2023 copyright. Named sheet sections and component fields. |
 | S04 | [Chaosium sheet catalogue](https://www.chaosium.com/cthulhu-character-sheets/) and [standard investigator PDF](https://downloads.chaosium.com/call-of-cthulhu/cha2300-investigator-sheets/CoC7_Investigator_Sheet_Standard_autocalc.pdf), SHOWN catalogue and two-page PDF text. Loaded sheet has 2025 copyright. Autocalculation itself not tested. |
@@ -200,7 +200,7 @@ explicit STATED evidence; no signed-in/native browser was opened.
 
 ## Remaining gates
 
-**G1. Research limits:** full legacy D&D/GURPS page placement, Lancer paper layout,
+**G1. Research limits:** full GURPS page placement, Lancer paper layout,
 Spirit Island panel geometry and current Arkham timing-card layout are not proven
 by this pass. Their entries use bounded official descriptions, not invented detail.
 Further visual inspection is useful only if a later slice depends on those layouts.

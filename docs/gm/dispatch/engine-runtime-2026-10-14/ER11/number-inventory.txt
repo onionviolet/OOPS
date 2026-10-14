@@ -1,0 +1,39 @@
+src/character_bio.js:50:        life:state.chronicle ? `Chronicle age: ${ageYears(state.chronicle, state.clock).toFixed(1)} years${state.chronicle.life.endedAt != null ? " · Life ended" : ""}` : "",
+src/action_legibility.js:187:    const minutes = number(preview.duration) ? preview.duration : number(definition.duration) ? definition.duration
+src/absorb_e1/panel.js:4:    const fullness=raw.fullness.toFixed(1);
+src/absorb_e1/panel.js:6:    return `${scope}. Hunger ${raw.hungerEnabled?`${fullness}/100, XP ×${e.hungerEfficiency.toFixed(3)}`:'off (native pacing)'}. Weather ${raw.weatherEnabled?`${e.weatherLabel}, ${Math.ceil(e.remaining)} played minutes remaining${context.outdoors?'':'; sheltered'}`:'off (native weather)'}. Total XP ×${e.efficiency.toFixed(3)}. Temperature ${e.temperatureOffset>=0?'+':''}${e.temperatureOffset}°C over native temperature. Native rain is retained.`;
+src/absorb_e1/panel.js:10:    return gain?`Optional hunger: restores up to ${Number(gain.toFixed(1))}/100 fullness.`:'';
+src/causal_story_scenes.js:88:        const remaining = String(Number(deadlineRemaining.toFixed(2)));
+src/status_window.js:30:        for(const [stat, value] of values) value.textContent = snapshot.stats[stat].toFixed(1);
+src/display.js:426:    return +number.toFixed(1);
+src/display.js:1060:function format_book_bonuses(bonuses) {
+src/display.js:3855:            stats_divs[key].innerText = `${(full_stats[key]*100).toFixed(1)}%`;
+src/display.js:3858:            stats_divs[key].innerText = `${(character.getAttackSpeed()).toFixed(1)}`;
+src/display.js:3861:            stats_divs[key].innerText = `${(character.getAttackPower()).toFixed(1)}`;
+src/display.js:3864:            stats_divs[key].innerText = `${(full_stats[key]).toFixed(1)}`;
+src/display.js:3875:        const dp = (full_stats.block_chance*100).toFixed(1)
+src/display.js:4217:function format_money(num) {
+src/display.js:5968:        const minutes = Math.floor(time_needed%60);
+src/misc.js:91:        return abs_number.toExponential(precision).replace(/[+-]/g,"");
+src/misc.js:93:        return Math.round(number).toLocaleString();
+src/misc.js:95:        return (Math.round(number * 10) / 10).toLocaleString();
+src/misc.js:97:        return (Math.round(number * 100) / 100).toLocaleString();
+src/misc.js:113:function format_reading_time(time) {
+src/misc.js:123:function format_working_time(time) {
+src/misc.js:126:    const minutes = time%60;
+src/cooling_refinement_host.js:114:            return `Accepted frozen quote: ${accepted.prepared ? 'prepared' : 'ordinary'} ${Math.round(accepted.successProbability * 100)}% success; ${accepted.retryCountBefore} earlier completed failures; calendar minute ${accepted.calendarMinute}; one roll ${accepted.roll.toFixed(6)} (${accepted.outcomeId}).`;
+src/cooling_refinement_host.js:118:    const lastText = lastAttempt ? `Last paid result: ${lastAttempt.result}; accepted ${Math.round(lastAttempt.successProbability * 100)}% ${lastAttempt.prepared ? 'prepared' : 'ordinary'} quote, one roll ${Number(lastAttempt.roll).toFixed(6)} (${lastAttempt.outcomeId}).` : '';
+src/settled_text_effects.js:149:const formatCoins = value => Object.entries(COIN_UNITS).map(([unit, size]) => {
+src/world_rhythm.js:10:    const minutes = (((t.year * 12 + t.month - 1) * 30 + t.day - 1) * 24 + t.hour) * 60 + t.minute;
+src/causal_story_ui.js:9:const minutes = value => Number.isFinite(value) && value >= 0 ? String(Number(value.toFixed(2))) : '';
+src/chronicle_ui.js:76:            life.textContent = `Age ${ageYears(c).toFixed(3)} · ${format_time({time:{minutes:state.clock-c.enrolledAt}}) || "0m"} elapsed · ` +
+src/chronicle_ui.js:77:                (c.life.mode === "open" ? "No old-age ending in this life" : `Mortal lifespan ${c.life.lifespan} years · ${(remaining / (360 * 24 * 60)).toFixed(3)} years remaining`);
+src/chronicle_ui.js:80:            encounter.textContent = s ? `${s.intent === "spar" ? "Agreed challenge" : "Hostile attack; elder attempts restraint"} · turn ${s.turn + 1}/16 · stamina ${context.stamina.toFixed(1)} · your control pressure ${s.heroPosture.toFixed(1)}/${c.elder.profile.control} · elder pressure ${s.elderPosture.toFixed(1)}/${c.elder.profile.posture} · ` +
+src/chronicle_ui.js:99:                    buttons.get(id).textContent = `${({guard:"Guard",step:"Ordinary sidestep","rat-step":"Earned Rat-step",strike:"Strike / counter"})[id]} · ${cost.toFixed(1)} stamina`;
+src/game_time.js:137:function format_time({time, long_names, round=true}) { //{time, long_names?}
+src/models/skill.js:417:function format_skill_rewards(milestone){
+src/backlog_expansion_host.js:84:        const minutes = out.backlogAdvanceMinutes;
+src/cooling_refinement_content.js:23:const resultText = receipt => `A paid three-minute cooling refinement completed ${receipt.result === 'success' ? 'successfully' : 'as a failure'}. ${receipt.result === 'failure' ? 'One actual salt packet and two stamina were spent. ' : ''}The accepted ${receipt.prepared ? 'prepared' : 'ordinary'} quote was ${(100 * receipt.successProbability).toFixed(0)}%, after ${receipt.retryCountBefore} completed failed ${receipt.retryCountBefore === 1 ? 'attempt' : 'attempts'}; the one frozen roll was ${receipt.roll.toFixed(6)}. ${receipt.result === 'success' ? 'This earns one attributed steadied-hook application, with no rank, free source, sleeve or quality bank.' : 'The completed failure adds one retry, capped at +15 percentage points, and five played minutes of soreness. No source, rank, application or quality bank was granted.'}`;
+src/main.js:649:        for(const row of rows){const line=document.createElement('p');line.textContent=`${row.name}: ${row.condition.toFixed(2)}/100 · repair ${row.cost} coins `;
+src/main.js:7150:    const minutes = time_in_minutes ?? (is_sleeping ? config.time_speedup_when_sleeping : 1);
+src/titles_ui.js:4:const fmt=n=>Math.floor(n).toLocaleString('en-US');

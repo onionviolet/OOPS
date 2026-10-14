@@ -1,0 +1,16 @@
+{
+  "date": "2026-10-14",
+  "phase": "pre-report",
+  "scope": "structural documentation checks, no gameplay verification",
+  "numbered_targets": 24,
+  "ordinary_activity_contracts": 72,
+  "later_candidate_dossiers": 13,
+  "cw_rows": 18,
+  "rc_inspiration_rows": 8,
+  "original_cards": 12,
+  "raw_files": 10,
+  "unique_citation_urls": 117,
+  "local_links": "REPORT.md intentionally pending creation",
+  "errors": [],
+  "status": "PASS"
+}

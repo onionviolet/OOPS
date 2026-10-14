@@ -1,0 +1,124 @@
+{
+  "viewport": {
+    "width": 1366,
+    "height": 768
+  },
+  "durationMs": 5000,
+  "delta": {
+    "LayoutCount": 312,
+    "RecalcStyleCount": 736,
+    "LayoutDuration": 0.056226,
+    "RecalcStyleDuration": 0.031702,
+    "TaskDuration": 0.6279530000000001
+  },
+  "opening": {
+    "name": "ER11 Audit",
+    "localText": "question_answer Talk to someone\nwork_outline Find work\nLocal life\nWaypost supply clerk\nClerk purse: 180 coins. Paid so far: 0. Supplies change hands immediately; no shift, promotion or patrol credit. After one Infested field clear the clerk offers free repair notes, or buy a copy for 10 coins.\nAsk for repair notes (one field clear)Buy repair notes (10 coins)\nOptional pacing\nEquipment condition and repair\nElemental preparation\nMarket courtyard · trade, property and projects",
+    "counters": [
+      {
+        "id": "money_div",
+        "exists": true,
+        "font": "system-ui, sans-serif",
+        "numeric": "normal"
+      },
+      {
+        "id": "time_div",
+        "exists": true,
+        "font": "system-ui, sans-serif",
+        "numeric": "normal"
+      },
+      {
+        "id": "character_health_value",
+        "exists": true,
+        "font": "system-ui, sans-serif",
+        "numeric": "normal"
+      },
+      {
+        "id": "character_stamina_value",
+        "exists": true,
+        "font": "system-ui, sans-serif",
+        "numeric": "normal"
+      }
+    ]
+  },
+  "servedHash": "012297afd9c7a4d0884beb775bceb5c82004876f23100270461ea72d2246554f",
+  "component": {
+    "focus": {
+      "originalConnected": false,
+      "activeId": "",
+      "activeTag": "BODY",
+      "replacementExists": true
+    },
+    "selection": {
+      "before": "Audit title",
+      "after": "",
+      "originalConnected": false
+    },
+    "craftDoubleClickCommits": 2
+  },
+  "formatting": {
+    "expo": [
+      {
+        "input": 0,
+        "output": 0
+      },
+      {
+        "input": 0.001,
+        "output": "1.000e3"
+      },
+      {
+        "input": -0.001,
+        "output": "1.000e3"
+      },
+      {
+        "input": -1000000,
+        "output": "1.000e6"
+      },
+      {
+        "input": 1200,
+        "output": "1,200"
+      }
+    ],
+    "reading": [
+      {
+        "input": 0,
+        "output": "0 minutes"
+      },
+      {
+        "input": 1,
+        "output": "1 minutes"
+      },
+      {
+        "input": 59.6,
+        "output": "60 minutes"
+      },
+      {
+        "input": 60,
+        "output": "1 hour"
+      },
+      {
+        "input": 120,
+        "output": "2 hours"
+      }
+    ],
+    "working": [
+      {
+        "input": 0,
+        "output": ""
+      },
+      {
+        "input": 1,
+        "output": "1 minute"
+      },
+      {
+        "input": 1.5,
+        "output": "1.5 minutes"
+      },
+      {
+        "input": 61,
+        "output": "1 hour 1 minute"
+      }
+    ]
+  },
+  "errors": []
+}

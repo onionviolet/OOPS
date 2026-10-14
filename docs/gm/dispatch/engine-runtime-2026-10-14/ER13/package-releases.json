@@ -1,0 +1,62 @@
+{
+  "xstate": {
+    "version": "5.33.2",
+    "published": "2026-09-15T19:59:03.496Z",
+    "license": "MIT",
+    "url": "https://registry.npmjs.org/xstate",
+    "checked": "2026-10-14"
+  },
+  "json-rules-engine": {
+    "version": "7.3.1",
+    "published": "2025-02-20T13:49:55.112Z",
+    "license": "ISC",
+    "url": "https://registry.npmjs.org/json-rules-engine",
+    "checked": "2026-10-14"
+  },
+  "incremental-game-template": {
+    "version": "1.2.4",
+    "published": "2021-10-07T09:37:25.292Z",
+    "license": "MIT",
+    "url": "https://registry.npmjs.org/incremental-game-template",
+    "checked": "2026-10-14"
+  },
+  "@123ishatest/igt-library": {
+    "version": "1.0.0",
+    "published": "2024-02-17T20:11:35.409Z",
+    "license": "MIT",
+    "url": "https://registry.npmjs.org/@123ishatest%2Figt-library",
+    "checked": "2026-10-14"
+  },
+  "flame": {
+    "version": "1.38.2",
+    "published": "2026-08-27T14:42:32.485514Z",
+    "url": "https://pub.dev/api/packages/flame",
+    "checked": "2026-10-14"
+  },
+  "nwjs": {
+    "stable": "v0.118.0",
+    "release": {
+      "version": "v0.118.0",
+      "date": "2026/10/10",
+      "files": [
+        "win-x64",
+        "win-ia32",
+        "win-arm64",
+        "linux-x64",
+        "linux-arm64",
+        "osx-x64",
+        "osx-arm64"
+      ],
+      "flavors": [
+        "normal",
+        "sdk"
+      ],
+      "components": {
+        "node": "26.7.0",
+        "chromium": "155.0.8059.40"
+      }
+    },
+    "url": "https://nwjs.io/versions.json",
+    "checked": "2026-10-14"
+  }
+}

@@ -1,0 +1,139 @@
+src/field_care_host.js:43:    if(wound)records.push({id:I.prefix+'last_wound',text:`Your last observed qualifying cut: Oren’s landed pole hit, action ${wound.action}, ${Math.round(wound.damage*10)/10} resolved strike damage. Treatment does not restore that lost health.`});
+src/party_battle.js:91:        b.last=`${actorId==='player'?'You':'Mara'} ${strike.kind==='hit'?`hit ${targetId===PARTY_HELPER?'Lio':targetId==='player'?'you':'Mara'} for ${Math.round(damage*10)/10}`:strike.kind==='blocked'?'met a full block':'missed'}.`;
+src/absorb_e1/panel.js:6:    return `${scope}. Hunger ${raw.hungerEnabled?`${fullness}/100, XP ×${e.hungerEfficiency.toFixed(3)}`:'off (native pacing)'}. Weather ${raw.weatherEnabled?`${e.weatherLabel}, ${Math.ceil(e.remaining)} played minutes remaining${context.outdoors?'':'; sheltered'}`:'off (native weather)'}. Total XP ×${e.efficiency.toFixed(3)}. Temperature ${e.temperatureOffset>=0?'+':''}${e.temperatureOffset}°C over native temperature. Native rain is retained.`;
+src/display.js:604:                    `<br><br>Attack: ${Math.round(10*item.getAttack())/10}`;
+src/display.js:607:                `<br><br>Defense: ${Math.round(10*item.getDefense())/10}`;
+src/display.js:611:                `<br><br>Can block up to: ${Math.round(10*item.getShieldStrength())/10} damage [unaffected by skill]`;
+src/display.js:614:                `<br><br>Can block up to: ${Math.round(10*item.getShieldStrength()*(character.getStats().total_multiplier.block_strength))/10} damage [base: ${item.getShieldStrength()}]`;
+src/display.js:814:            tooltip_html_content += `: ${sign}${Math.round(100*stat_value.flat)/100}`;
+src/display.js:821:                tooltip_html_content += `, x${Math.round(100*stat_value.multiplier)/100}`;
+src/display.js:823:                tooltip_html_content += `: x${Math.round(100*stat_value.multiplier)/100}`;
+src/display.js:1201:    document.getElementById("trader_cost_mult_value").textContent = `${Math.round(100 * (NPCRegistry.get(current_trader).getTraderComponent().getProfitMargin(current_location.market_region)))}%`
+src/display.js:2847:                    type_tooltip_html_content += `<br>${stat_names[stat]} x${Math.round(1000*actual)/1000}`;
+src/display.js:2855:                    type_tooltip_html_content += `<br>${stat_names[stat]}: ${Math.round(1000*actual)/1000}`;
+src/display.js:3783:        tooltip_content += `<br>x${count[0]===count[1]?count[0]:`${count[0]}-${count[1]}`} "${obscure_name(gained_resources[i].name)}" at ${Math.round(100*gained_resources[i].chance)}%`;
+src/display.js:3821:        tooltip_content += `<br>x${gained_resources[i].count[0] === gained_resources[i].count[1] ? gained_resources[i].count[0] : `${gained_resources[i].count[0]}-${gained_resources[i].count[1]}`} "${obscure_name(gained_resources[i].name)} " at ${Math.round(100*gained_resources[i].chance)}%`;
+src/display.js:3831:    current_health_value_div.innerText = Math.ceil(full_stats.health) + "/" + Math.ceil(full_stats.max_health)
+src/display.js:3841:    current_stamina_value_div.innerText = Math.round(full_stats.stamina) + "/" + Math.round(full_stats.max_stamina)
+src/display.js:3895:        if(attack_stats) attack_stats.children[3].innerText = `EP: ${Math.round(ep)} `;
+src/display.js:3910:        attack_stats.children[1].innerText = `Spd: ${Math.round(character.getAttackSpeed()*100)/100}`;
+src/display.js:3911:        attack_stats.children[2].innerText = `AP:  ${Math.round(ap)}`;
+src/display.js:3912:        attack_stats.children[4].innerText = `Def: ${Math.round(full_stats.defense)} `;
+src/display.js:4043:        <br>Base value (weapon * str/10): ${Math.round(100 * stats.total_flat.attack_power)/100}`;
+src/display.js:4047:        <br>Base value: ${Math.round(100* stats.total_flat.attack_points)/100}`;
+src/display.js:4056:            <br>Base value: ${Math.round(100 * stats.total_flat[stat])/100}`;
+src/display.js:4060:        <br>Base value: ${Math.round(100*base_stats[stat])/100}`;
+src/display.js:4066:            html_string +=  `<br>${capitalize_first_letter(stat_type.replace("_"," "))}: ${sign}${Math.round(100*stats.flat[stat_type][stat])/100}`;
+src/display.js:4072:            html_string +=  `<br>${capitalize_first_letter(stat_type.replace("_"," "))}: x${Math.round(100*stats.multiplier[stat_type][stat])/100}`;
+src/display.js:4100:        <br>Base value: ${Math.round(100*xp_bonus_value)/100}`;
+src/display.js:4105:            html_string +=  `<br>${capitalize_first_letter(bonus_type.replace("_"," "))}: x${Math.round(100*xp_bonuses.multiplier[bonus_type][bonus])/100}`;
+src/display.js:4197:        html_content = `Lowest tolerable temperature: <strong>${Math.round(10*(lowest_tolerable_temperature - cold_tolerance))/10}</strong>`;
+src/display.js:4198:        html_content += `<br>(<strong>${lowest_tolerable_temperature}</strong> base minus <strong>${Math.round(10*cold_tolerance)/10}</strong> cold protection)<br>`;
+src/display.js:4201:        html_content = `Lowest tolerable temperature: <strong>${Math.round(10*(celsius_to_fahrenheit(lowest_tolerable_temperature - cold_tolerance)))/10}</strong>`;
+src/display.js:4202:        html_content += `<br>(<strong>${Math.round(10*celsius_to_fahrenheit(lowest_tolerable_temperature))/10}</strong> base minus <strong>${Math.round(10*celsius_to_fahrenheit(cold_tolerance)-320)/10}</strong> cold protection)<br>`;
+src/display.js:4226:            value = (Math.floor(num/10)%100 != 0?`${Math.floor(num/10)%100}<span class="coin coin_copper">C</span>${value?" ":""}` :'') + value;
+src/display.js:4228:                value = (Math.floor(num/1000)%100 != 0?`${Math.floor(num/1000)%100}<span class="coin coin_silver">S</span>${value?" ":""}` :'') + value;
+src/display.js:4230:                    value = `${Math.floor(num/100000)}<span class="coin coin_gold">G</span>${value?" ":""}` + value;
+src/display.js:4592:            const percent_xp = is_maxed ? "Max" : `${Math.floor(10000 * skill.getCurrentXP() / skill.getXPToNextLvl()) / 100}%`
+src/display.js:4593:            const curr_xp = is_maxed ? "Max" : `${Math.floor(skill.getCurrentXP())}`;
+src/display.js:4594:            const needed_xp = is_maxed ? "Max" : `${Math.ceil(skill.getXPToNextLvl())}`;
+src/display.js:4926:        skill_bar_divs[skill.category][skill.skill_id].children[0].children[0].children[1].innerText = `${100*Math.floor(skill.getCurrentXP()/skill.getXPToNextLvl()*1000)/1000}%`;
+src/display.js:5181:        desc += `<br>x${Math.round(100*stats[stat])/100} ${stat_names[stat]}`;
+src/display.js:5406:        loot_chance_current.innerText = `${Math.round(10000*loot.chance*enemy.get_droprate_modifier())/100}%`;
+src/display.js:5457:            stat_value_div.innerText = `${Math.round(enemy.stats.dexterity * Math.sqrt(enemy.stats.intuition || 1))}`;
+src/display.js:5462:            stat_value_div.innerText = `${Math.round(enemy.stats.agility * Math.sqrt(enemy.stats.intuition || 1))}`;
+src/settled_text_effects.js:174:        Object.assign(float.style, {left: `${Math.round(x - size.width / 2)}px`, top: `${Math.round(line.top + line.height / 2 - size.height / 2)}px`});
+src/absorb_c2/local_life.js:128:        `${Math.round(chance(s,c)*100)}% find chance, capped at 40%. Five played minutes per attempt; each miss adds 5 percentage points. Perception helps up to 10 points.`,
+src/ui/combat_display.js:268:    let text_string = `Atk: ${Math.round(fighter_stats.attack_power)}dmg`;
+src/ui/combat_display.js:283:        (opponents[0].hasShield() ? `| Hit: 100% 🛡️` : `| Hit: ${Math.min(100,Math.max(0,Math.round(100*hit_chance)))}%`) : `| AP: ${Math.round(fighter.getFullStats().attack_points)}`;
+src/ui/combat_display.js:286:        `| 🛡️: ${Math.round(total_block)}2345` : (opponents.length == 1 ? `| Ddg: ${Math.min(100,Math.max(0,Math.round(100*evasion_chance)))}%` : `| EP: ${Math.round(fighter.getFullStats().evasion_points)}`);
+src/ui/combat_display.js:351:        stats_div.children[2].innerText = attackers.length == 1 ? `Hit: ${Math.min(100,Math.max(0,Math.round(100*hit_chance)))}%` : `AP: ${Math.round(full_stats.attack_points)}`;
+src/ui/combat_display.js:352:        stats_div.children[3].innerText = attackers.length == 1 ? `Ddg: ${Math.min(100,Math.max(0,Math.round(100*evasion_chance)))}%` : `EP: ${Math.round(full_stats.evasion_points)}`;
+src/ui/combat_display.js:375:        defenders_div.children[i].querySelector(".health_value").innerText = `${Math.ceil(defenders[i].stats.health)}/${Math.ceil(defenders[i].stats.max_health)} hp`;
+src/ui/combat_display.js:400:    fighter_div.querySelector(".health_value").innerText = `${Math.ceil(fighter.getFullStats().health)}/${Math.ceil(fighter.getFullStats().max_health)} hp`;
+src/structured_pack_state.js:17:    if(!object(r)||r.schema!==2||!id(r.packId)||!Number.isSafeInteger(r.revision)||r.revision<1||!hash(r.contentHash)||!hash(r.snapshotHash)||![r.startId,r.worldId,r.locationId].every(v=>id(v)&&v.startsWith(r.packId+'.'))||!id(r.bodyId)||r.controllerId!=='player'||r.playerActorId!=='player'||r.life!=='alive'||!Number.isSafeInteger(r.seed)||r.seed<1||r.seed>0xffffffff||!Number.isSafeInteger(r.originSequence)||r.originSequence<1||r.instanceId!==`${r.packId}.run.${r.seed}.${r.originSequence}`||!Number.isSafeInteger(r.startCount)||r.startCount<1||!Number.isSafeInteger(r.choice)||r.choice!==Math.floor(r.seed/0x100000000*r.startCount))throw Error('Invalid durable beginning selection.');
+src/feature_expansion_battle.js:339:            lines.push(`${reference&&c.technique==='hook'?name(c.actorId)+' committed a pole pull. ':reference&&c.technique==='rush'?name(c.actorId)+' rushed with the frame. ':reference&&c.technique==='jab'?name(c.actorId)+' used a short bodily jab. ':''}${name(c.actorId)} ${strike.kind==='hit'?`hit ${name(targetId)} for ${Math.round(damage*10)/10}${strike.critted?' (critical)':''}`:strike.kind==='blocked'?`met ${name(targetId)}’s full block`:`missed ${name(targetId)}`}${g&&anchored?' [anchored: fatigue counter resisted]':''}.`);
+src/cooling_refinement_host.js:114:            return `Accepted frozen quote: ${accepted.prepared ? 'prepared' : 'ordinary'} ${Math.round(accepted.successProbability * 100)}% success; ${accepted.retryCountBefore} earlier completed failures; calendar minute ${accepted.calendarMinute}; one roll ${accepted.roll.toFixed(6)} (${accepted.outcomeId}).`;
+src/cooling_refinement_host.js:117:    const quoteText = quote ? `Current quote: ${quote.preparation}, ${Math.round(quote.successProbability * 100)}% success from a ${Math.round(quote.baseProbability * 100)}% base plus ${Math.round(quote.retryBonus * 100)} retry points after ${quote.failedAttempts} completed failures. Costs one actual salt packet, two stamina and three played minutes. The 06:00–08:00 quiet window is ${quote.quietWindowOpen ? `open for ${quote.quietWindowRemaining} minutes` : 'closed'}.` : '';
+src/cooling_refinement_host.js:118:    const lastText = lastAttempt ? `Last paid result: ${lastAttempt.result}; accepted ${Math.round(lastAttempt.successProbability * 100)}% ${lastAttempt.prepared ? 'prepared' : 'ordinary'} quote, one roll ${Number(lastAttempt.roll).toFixed(6)} (${lastAttempt.outcomeId}).` : '';
+src/party_ui.js:25:        report.textContent=p?`Lio: ${Math.round(p.vitals.health*10)/10}/${p.vitals.max_health} HP, ${Math.round(p.vitals.stamina*10)/10}/${p.vitals.max_stamina} stamina, ${state.actors[PARTY_HELPER].resources.brace_effort} guard effort. ${b?`Role: ${b.fighters[PARTY_HELPER].status}. ${b.guard?'Braced: the next attempted blow aimed at you goes to Lio.':'No guard held.'}`:f['party.lastResult']?`Last contest: ${f['party.lastResult']}; ${f['party.guardsTaken']} guarded attempts. ${f['party.helperStatus']}. Wounds and costs remain.`:f['party.declined']?'Lio respects the refusal; peaceful preparation is still available.':'His kit and control belong to him; you gain neither by asking.'}`:'';
+src/feature_expansion_powers_host.js:56:            for(const fighter of battleView.fighters)records.push({id:`feature_battle.fighter.${fighter.id}`,text:`${fighter.label}: ${fighter.status}${fighter.vitals?`, HP ${Math.round(fighter.vitals.health*10)/10}/${fighter.vitals.max_health}, stamina ${Math.round(fighter.vitals.stamina*10)/10}/${fighter.vitals.max_stamina}`:''}.`});
+src/absorb_e3/elemental_affinities.js:86:            text: `${enemy.name}: ${affinity} attack preparation; ${Math.round(fraction * 100)}% of base attack added as defense per hit.`});
+src/absorb_e3/elemental_affinities.js:89:        ? `Worn preparation: ${ELEMENTS.map(e => `${e} ${Math.round(protection[e] * 100)}%`).join(', ')}. Each matching piece adds 4% of base attack as defense per hit, capped at 12%; native armor and minimum damage still apply.`
+src/absorb_b/furniture.js:9:const percent = value => `${Math.round((value - 1) * 10000) / 100}%`;
+src/native_battle.js:58:    battle.last=`${actorId === "player" ? "You" : "Mara"} ${strike.kind === "hit" ? `hit for ${Math.round(damage*10)/10}${strike.critted ? " (critical)" : ""}` : strike.kind === "blocked" ? "met a full block" : "missed"}.`;
+src/titles.js:99:    for(const [stat, v] of Object.entries(bonus.flats || {})) parts.push(`+${Math.round(v * 1000) / 10}% ${stat_names[stat] || stat}`);
+src/titles.js:100:    for(const [stat, v] of Object.entries(bonus.multipliers || {})) parts.push(`+${Math.round((v - 1) * 1000) / 10}% ${stat_names[stat] || stat}`);
+src/titles.js:101:    for(const [target, v] of Object.entries(bonus.xp_multipliers || {})) parts.push(`+${Math.round((v - 1) * 1000) / 10}% ${xp_names[target] || target + ' xp'}`);
+src/enemies.js:176:                    item_count = Math.round(random(`count:${i}`) * (item["count"]["max"] - item["count"]["min"]) + item["count"]["min"]);
+src/main.js:4303:                const fuzzy_final_result_count = Math.floor(fuzzy_result) + (gameRandom(STREAMS.craft, `recipe:${recipe_id}:partial-round`)<(fuzzy_result - Math.floor(fuzzy_result))?1:0);
+src/main.js:4413:                                nativeCraftMessage(`Created ${result.getName()} x${crafted_count} [highest quality: ${highest_qual}% x${crafted_items[highest_qual]}] (+${Math.floor(accumulated_xp)} xp)`, "crafting");
+src/main.js:4415:                                nativeCraftMessage(`Created ${result.getName()} [${highest_qual}% quality] x1 (+${Math.floor(accumulated_xp)} xp)`, "crafting");
+src/main.js:4434:                            nativeCraftMessage(`Created ${result.getName()} x${crafted_count} [highest quality: ${highest_qual}% x${crafted_items[highest_qual]}] (+${Math.floor(accumulated_xp)} xp)`, "crafting");
+src/main.js:4437:                            nativeCraftMessage(`Created ${result.getName()} [${highest_qual}% quality] x1 (+${Math.floor(accumulated_xp)} xp)`, "crafting");
+src/main.js:4529:                        nativeCraftMessage(`Created ${result.getName()} x${crafted_count} [highest quality: ${highest_qual}% x${crafted_items[highest_qual]}] (+${Math.floor(accumulated_xp)} xp)`, "crafting");
+src/main.js:4531:                        nativeCraftMessage(`Created ${result.getName()} [${highest_qual}% quality] x1 (+${Math.floor(accumulated_xp)} xp)`, "crafting");
+src/main.js:4551:                    nativeCraftMessage(`Created ${result.getName()} x${crafted_count} [highest quality: ${highest_qual}% x${crafted_items[highest_qual]}] (+${Math.floor(accumulated_xp)} xp)`, "crafting");
+src/main.js:4554:                    nativeCraftMessage(`Created ${result.getName()} [${highest_qual}% quality] x1 (+${Math.floor(accumulated_xp)} xp)`, "crafting");
+src/main.js:7569:                                    quality = Math.round(gameRandomRange(STREAMS.gather, `activity:${current_activity.activity_id}:${i}:quality`,quality_range[0], quality_range[1]) / 4) * 4;
+src/main.js:7635:                    log_message(`"${sounds[Math.floor(Math.random()*sounds.length)]}"`, "background");
+src/main.js:7641:                    log_message(`"${sounds[Math.floor(Math.random()*sounds.length)]}"`, "background");
+src/verifier.js:78:        console.log(`Finished verifying items in: ${Math.round(trc*(end_time-start_time))/trc}s\nFound issue in ${item_results[1]} out of ${item_results[0]}`);
+src/verifier.js:80:        console.log(`Finished verifying ${item_results[0]} items in: ${Math.round(trc*(end_time-start_time))/trc}s\nNo issues were found.`);
+src/verifier.js:159:        console.log(`Finished verifying skills in: ${Math.round(trc*(end_time-start_time))/trc}s\nFound issue in ${skill_results[1]} out of ${skill_results[0]}`);
+src/verifier.js:161:        console.log(`Finished verifying ${skill_results[0]} skills in: ${Math.round(trc*(end_time-start_time))/trc}s\nNo issues were found.`);
+src/verifier.js:263:        console.log(`Finished verifying locations in: ${Math.round(trc*(end_time-start_time))/trc}s\nFound issue in ${location_results[1]} out of ${location_results[0]}`);
+src/verifier.js:265:        console.log(`Finished verifying ${location_results[0]} locations in: ${Math.round(trc*(end_time-start_time))/trc}s\nNo issues were found.`);
+src/verifier.js:292:        console.log(`Finished verifying enemies in: ${Math.round(trc*(end_time-start_time))/trc}s\nFound issue in ${enemy_results[1]} out of ${enemy_results[0]}`);
+src/verifier.js:294:        console.log(`Finished verifying ${enemy_results[0]} in: ${Math.round(trc*(end_time-start_time))/trc}s\nNo issues were found.`);
+src/verifier.js:321:        console.log(`Finished verifying market regions in: ${Math.round(trc*(end_time-start_time))/trc}s\nFound issue in ${market_region_results[1]} out of ${market_region_results[0]}`);
+src/verifier.js:323:        console.log(`Finished verifying ${market_region_results[0]} market regions in: ${Math.round(trc*(end_time-start_time))/trc}s\nNo issues were found.`);
+src/verifier.js:374:        console.log(`Finished verifying dialogues in: ${Math.round(trc*(end_time-start_time))/trc}s\nFound issue in ${dialogue_results[1]} out of ${dialogue_results[0]}`);
+src/verifier.js:376:        console.log(`Finished verifying ${dialogue_results[0]} dialogues in: ${Math.round(trc*(end_time-start_time))/trc}s\nNo issues were found.`);
+src/verifier.js:427:        console.log(`Finished verifying recipes in: ${Math.round(trc*(end_time-start_time))/trc}s\nFound issue in ${recipes_results[1]} out of ${recipes_results[0]}`);
+src/verifier.js:429:        console.log(`Finished verifying ${recipes_results[0]} recipes in: ${Math.round(trc*(end_time-start_time))/trc}s\nNo issues were found.`);
+src/verifier.js:456:        result_message = `Finished verifying game objects in: ${Math.round(trc*(overall_end_time-overall_start_time))/trc}s\nFound issue in ${results[1]} out of ${results[0]}`;
+src/verifier.js:458:        result_message = `Finished verifying ${results[0]} game objects in: ${Math.round(trc*(overall_end_time-overall_start_time))/trc}s\nNo issues were found.`;
+src/components/levelable_component.js:211:        gains += `\nSkill xp gains increased by ${Math.round((gained_skill_xp_multiplier-1)*100)}%`;
+src/misc.js:115:        return `${Math.floor(time/60)} hours`;
+src/misc.js:119:        return `${Math.round(time)} minutes`;
+src/models/skill.js:254:                                message += `\n x${Math.round(100*gains.stats[stat].multiplier)/100} ${stat_names[stat].replace("_"," ")}`;
+src/models/skill.js:279:                            message += `\n x${Math.round(100*gains.xp_multipliers[xp_multiplier])/100} ${name} xp gain`;
+src/expedition_ui.js:89:                .map(o => `${o.label}: ${Math.round(o.chance * 100)}%`).join(" · ") +
+src/expedition_ui.js:92:                    .map(o => `${o.label} ${Math.round(o.chance * 100)}%`).join(" / ")).join("");
+src/data/skills.js:35:                                    return `Multiplies AP by ${Math.round(character.getTotalSkillCoefficient({skill_id:"Combat",scaling_type:"multiplicative"})*1000)/1000}`;
+src/data/skills.js:45:                                    return `Multiplies AP against small-type enemies by ${Math.round(character.getTotalSkillCoefficient({skill_id:"Pest killer",scaling_type:"multiplicative"})*1000)/1000}`;
+src/data/skills.js:112:                                    return `Multiplies EP against large-type enemies by ${Math.round(character.getTotalSkillCoefficient({skill_id:"Giant slayer",scaling_type:"multiplicative"})*1000)/1000}`;
+src/data/skills.js:129:                                    return `Multiplies EP by ${Math.round(character.getTotalSkillCoefficient({skill_id:"Evasion",scaling_type:"multiplicative"})*1000)/1000}`;
+src/data/skills.js:198:                                        return `Increases block chance by flat ${Math.round(character.getTotalLevelBonus("Shield blocking")*1000)/10}%. Increases blocked damage by ${Math.round(character.getTotalLevelBonus("Shield blocking")*5000)/10}%, and blocks ${character.getTotalSkillLevel("Shield blocking")}% of attack damage before other calculations.`;
+src/data/skills.js:275:                                        return `Multiplies damage dealt in unarmed combat by ${Math.round(character.getTotalSkillCoefficient({skill_id:"Unarmed",scaling_type:"multiplicative"})*1000)/1000}. 
+src/data/skills.js:937:                                    return `Multiplies damage dealt with swords by ${Math.round(character.getTotalSkillCoefficient({skill_id:"Swords",scaling_type:"multiplicative"})*1000)/1000}.
+src/data/skills.js:938:Multiplies AP with swords by ${Math.round((character.getTotalSkillCoefficient({skill_id:"Swords",scaling_type:"multiplicative"})**0.3333)*1000)/1000}`;
+src/data/skills.js:983:                                    return `Multiplies damage dealt with axes by ${Math.round(character.getTotalSkillCoefficient({skill_id:"Axes",scaling_type:"multiplicative"})*1000)/1000}.
+src/data/skills.js:984:Multiplies AP with axes by ${Math.round((character.getTotalSkillCoefficient({skill_id:"Axes",scaling_type:"multiplicative"})**0.3333)*1000)/1000}`;
+src/data/skills.js:1028:                                    return `Multiplies damage dealt with spears by ${Math.round(character.getTotalSkillCoefficient({skill_id:"Spears",scaling_type:"multiplicative"})*1000)/1000}.
+src/data/skills.js:1029:Multiplies AP with spears by ${Math.round((character.getTotalSkillCoefficient({skill_id:"Spears",scaling_type:"multiplicative"})**0.3333)*1000)/1000}`;
+src/data/skills.js:1074:                                            return `Multiplies damage dealt with battle hammers by ${Math.round(character.getTotalSkillCoefficient({skill_id:"Hammers",scaling_type:"multiplicative"})*1000)/1000}.
+src/data/skills.js:1075:Multiplies AP with hammers by ${Math.round((character.getTotalSkillCoefficient({skill_id:"Hammers",scaling_type:"multiplicative"})**0.3333)*1000)/1000}`;
+src/data/skills.js:1120:                                    return `Multiplies damage dealt with daggers by ${Math.round(character.getTotalSkillCoefficient({skill_id:"Daggers",scaling_type:"multiplicative"})*1000)/1000}.
+src/data/skills.js:1121:Multiplies AP with daggers by ${Math.round((character.getTotalSkillCoefficient({skill_id:"Daggers",scaling_type:"multiplicative"})**0.3333)*1000)/1000}`;
+src/data/skills.js:1166:                                    return `Multiplies damage dealt with wands by ${Math.round(character.getTotalSkillCoefficient({skill_id:"Wands",scaling_type:"multiplicative"})*1000)/1000}`;
+src/data/skills.js:1176:                                    return `Multiplies damage dealt with staffs by ${Math.round(character.getTotalSkillCoefficient({skill_id:"Staffs",scaling_type:"multiplicative"})*1000)/1000}`;
+src/data/skills.js:1273:                                        return `Multiplies health restored when sleeping by ${Math.round(100*(1 + character.getTotalSkillLevel("Sleeping")/skills["Sleeping"].max_level))/100}`;
+src/data/skills.js:1461:            return `Multiplies intuition by ${Math.round(value*100)/100}`;
+src/data/skills.js:1572:            return `Multiplies stamina efficiency by ${Math.round(value*100)/100}`;
+src/data/skills.js:1672:        return `Multiplies strength by ${Math.round(value*100)/100}`;
+src/data/skills.js:1679:            return `Multiplies agility and stamina by ${Math.round(value*100)/100}. Reduces environmental penalty in aquatic areas.`;
+src/data/skills.js:1845:            return `Multiplies agility by ${Math.round(value*100)/100}`;
+src/data/skills.js:1935:          return `Multiplies strength, dexterity and agility by ${Math.round(value*100)/100}`;
+src/data/skills.js:2230:            return `Multiplies drop chances from Beasts by ${Math.round(value * 100) / 100}`;
+src/data/skills.js:2266:            return `Increases base defense by ${Math.round(character.getTotalLevelBonus("Iron skin"))}`;
+src/data/skills.js:2328:            return `Multiplies max health by ${Math.round(100*character.getTotalSkillCoefficient({scaling_type: "multiplicative", skill_id: "Fortitude"}))/100}`;
+src/data/skills.js:2390:            return `Increases low stamina stat multiplier to x${(50+Math.round(character.getTotalLevelBonus("Persistence")*100000)/1000)/100} (originally x0.5)`;
+src/data/skills.js:2580:            return `Multiplies additive effects of medicines by ${Math.round((value**2)*100)/100} and multiplicative effects by ${Math.round(value*100)/100}`;
+src/data/skills.js:2592:            return `Divides effects of poisons by ${Math.round(value*100)/100}`;
+src/data/skills.js:2670:            return `Multiplies additive effects of foods by ${Math.round((value**2)*100)/100} and multiplicative effects by ${Math.round(value*100)/100}`;
+src/data/skills.js:2842:            return `Multiplies strength, agility and stamina by ${Math.round(value*100)/100}. Reduces thin air effects`;
+src/data/skills.js:2849:                                    return `Multiplies health restored when resting or sleeping by ${Math.round(100*(1 + 3*character.getTotalSkillLevel("Regeneration")/skills["Regeneration"].max_level))/100}`;
+src/data/skills.js:2937:            return `Lowers trader cost multiplier to ${Math.round((1 - character.getTotalLevelBonus("Haggling"))*100)}% of original value`;
+src/crafting_detail.js:129:    const xpText = xp > 0 ? ` (+${Math.round(xp * 10) / 10} XP)` : '';

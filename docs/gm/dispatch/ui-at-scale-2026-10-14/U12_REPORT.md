@@ -38,14 +38,14 @@ calm actionable queue. Source evidence and inferred RPG behavior remain distinct
 ## Source coverage
 
 The [source register](OUTSIDE_INSPIRATIONS.md#sources-and-access-limits) links
-S1-S36 directly and records access quality. All external claims in the main
+S1-S37 directly and records access quality. All external claims in the main
 tables resolve to that register.
 
 | Code | Requested field | Evidence |
 | --- | --- | --- |
 | E1 | Developer tools | VS Code official UI/API/UX docs; JetBrains tool windows; GNU manual indexed text; i3 guide; htop site; btop author README; tmux project wiki. S1-S10. |
 | E2 | Dense professional screens | Grafana question-led dashboard guide, Bloomberg tutorial chapters/customization excerpt, TradingView synchronization guide. S11-S14. No terminal installation, screenshot geometry or expert-speed claim. |
-| E3 | Safety-critical attention | FAA historical dark-cockpit rationale, public ISA design writing, EEMUA publisher scope, Drew et al. primary observational research and AHRQ synthesis, FAA terminal automation procedures. S15-S19, S36. |
+| E3 | Safety-critical attention | FAA historical dark-cockpit rationale, public ISA design writing, EEMUA publisher scope, Drew et al. primary observational research and AHRQ synthesis, FAA terminal automation procedures. S15-S19, S36-S37. |
 | E4 | Information design | Tufte author writing/book description, Pad++ primary papers, Shneiderman primary paper, NN/g progressive disclosure. S20-S24. Full Tufte book was not read. |
 | E5 | Knowledge and triage | Obsidian official docs, Roam help mirror, Notion official docs, Zettelkasten design writing, Gmail snooze, original Inbox Zero access-limit record, Slack/Discord official help. S25-S35. |
 

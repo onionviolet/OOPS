@@ -1,0 +1,11 @@
+{
+  "mapStatus": 200,
+  "mapServedBytes": 13106520,
+  "headers": {
+    "Server": "SimpleHTTP Python/3.15.0",
+    "Date": "Wed, 14 Oct 2026 05:09:40 GMT",
+    "Content-type": "application/octet-stream",
+    "Content-Length": "13106520",
+    "Last-Modified": "Wed, 14 Oct 2026 05:04:52 GMT"
+  }
+}
