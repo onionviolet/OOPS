@@ -1,0 +1,18 @@
+{
+  "lane": "p14-repeat-search",
+  "status": "PASS",
+  "viewport": "1366x768",
+  "bundleSha256": "aed370ca9cdf895625028762486d14c5a231817f6cdcd7116cbed849594c9ed0",
+  "gates": [
+    "forced save quota: prior durable native bytes retained",
+    "runner-offer: Save/reload/Export/literal-file Import",
+    "pending-offcut: Save/reload/Export/literal-file Import",
+    "settled-offcut: Save/reload/Export/literal-file Import",
+    "absorb_repeat_search: unsupported-schema rejected before durable mutation",
+    "admitted old waiting runner; actual free decline creates offer then real five-minute idle search yields one physical offcut and stops"
+  ],
+  "limitations": [
+    "Second real runner day and replenishment journey not exercised; reducer recurring event gates only source evidence."
+  ],
+  "pageErrors": []
+}

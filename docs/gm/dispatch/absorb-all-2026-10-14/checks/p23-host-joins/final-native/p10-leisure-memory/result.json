@@ -1,0 +1,20 @@
+{
+  "lane": "p10-leisure-memory",
+  "status": "PASS",
+  "viewport": "1366x768",
+  "bundleSha256": "aed370ca9cdf895625028762486d14c5a231817f6cdcd7116cbed849594c9ed0",
+  "gates": [
+    "forced save quota: prior durable native bytes retained",
+    "paid-pending-dice: Save/reload/Export/literal-file Import",
+    "settled-dice: Save/reload/Export/literal-file Import",
+    "actual-eda-kindness: Save/reload/Export/literal-file Import",
+    "eda-reciprocal-offer: Save/reload/Export/literal-file Import",
+    "actual-eda-sponsored-round: Save/reload/Export/literal-file Import",
+    "p23_leisure_memory: unsupported-schema rejected before durable mutation",
+    "real paid native two-minute seeded round, native biography settlement and Eda actual coin custody",
+    "actual-native-faint-and-leisure-memory: Save/reload/Export/literal-file Import",
+    "one actual native combat faint increments the existing defeat counter and enrolled leisure memory once; known-only biography, native recovery/return, Save/reload/Export/literal-file Import and no replay"
+  ],
+  "limitations": [],
+  "pageErrors": []
+}

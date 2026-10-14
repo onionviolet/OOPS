@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "bundleSha256": "aed370ca9cdf895625028762486d14c5a231817f6cdcd7116cbed849594c9ed0",
+  "gates": [
+    "native played 19:59→20:00 replaces day attack with +25 light; removal reduces native AP",
+    "native played 03:59→04:00 restores one day attack source",
+    "unsupported gear and combat schemas reject in real native import before storage mutation",
+    "cross-owner duplicate equipment identity rejects in native import",
+    "read-only second tab cannot spend living gear",
+    "failed cinder durable write retains prior authority and native stamina",
+    "failed paid native exchange restores stone, enemy private health and prior stored encounter"
+  ],
+  "pageErrors": []
+}

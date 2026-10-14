@@ -1,0 +1,18 @@
+{
+  "status": "PARTIAL PASS",
+  "bundleSha256": "aed370ca9cdf895625028762486d14c5a231817f6cdcd7116cbed849594c9ed0",
+  "gates": [
+    "paid native tactical item acquisition; absent old family and known-only panel",
+    "paid native throwing practice advances played clock and native skill",
+    "two paid repeatable native outing opportunities without kill rewards",
+    "queued native Save/reload/Export/literal-file Import",
+    "paid throw resolves in actual native exchange then pauses",
+    "paused native Save/reload/Export/literal-file Import",
+    "paused native fighters preserve identity/health with no reroll or kill replay",
+    "Resume and a second paid throw use a new real event",
+    "paid smoke uses native safe return and travel clock with no kill/XP/group credit",
+    "escaped native Save/reload/Export/literal-file Import",
+    "Effects-off retains readable mechanics with no discovery cue"
+  ],
+  "pageErrors": []
+}
