@@ -1,0 +1,31 @@
+{
+ "clock": 868,
+ "money": 47,
+ "staminaToFull": 1,
+ "location": "Village",
+ "inv": {
+  "Cheap leather pants": 1,
+  "Stale bread": 5,
+  "Old pickaxe": 1,
+  "Old sickle": 1,
+  "Old shovel": 1,
+  "Rough wood log": 78,
+  "Cooling salt packet": 1,
+  "Empty cooling sleeve": 2,
+  "Prepared survey kit": 7,
+  "Wax-sealed survey kit": 4,
+  "Dulled field fitting knife": 1,
+  "Bench clearance manual": 1,
+  "Set repair resin": 1,
+  "Empty retort resin tray": 1,
+  "Empty retort residue tray": 1,
+  "Empty bench vial": 1
+ },
+ "jobs": [
+  [
+   "nethack_fieldcraft.trial_dull",
+   871
+  ]
+ ],
+ "conditions": {}
+}

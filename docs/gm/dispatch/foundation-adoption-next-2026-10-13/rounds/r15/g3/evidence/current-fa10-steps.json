@@ -1,0 +1,859 @@
+[
+ {
+  "name": "current-study",
+  "clock": 878,
+  "money": 47,
+  "staminaToFull": 0,
+  "location": "Village",
+  "inv": {
+   "Cheap leather pants": 1,
+   "Stale bread": 5,
+   "Old pickaxe": 1,
+   "Old sickle": 1,
+   "Old shovel": 1,
+   "Rough wood log": 78,
+   "Cooling salt packet": 1,
+   "Empty cooling sleeve": 2,
+   "Prepared survey kit": 7,
+   "Wax-sealed survey kit": 4,
+   "Dulled field fitting knife": 2,
+   "Set repair resin": 1,
+   "Empty retort resin tray": 1,
+   "Empty retort residue tray": 1,
+   "Empty bench vial": 1,
+   "Unmarked pale vial": 1,
+   "Sound repair stave": 4,
+   "Field fitting knife": 1,
+   "Tree sap": 1,
+   "Cyorian research paper": 1,
+   "Cyorian formula ink": 1,
+   "Bench clearance manual": 1
+  },
+  "jobs": [],
+  "conditions": {},
+  "facts": {
+   "steam.boh.enrolled": true,
+   "nethack_fieldcraft.opened": true,
+   "game_absorption_assay.opened": true,
+   "game_absorption_assay.termsRevision": 1,
+   "game_absorption_assay.negativeTrial": "dull",
+   "steam.boh.diagnosticAvailable": false,
+   "steam.boh.preparationVersion": 1,
+   "steam.boh.procedureVersion": 1
+  },
+  "before": {
+   "clock": 867,
+   "money": 47,
+   "staminaToFull": 0,
+   "location": "Village",
+   "inv": {
+    "Cheap leather pants": 1,
+    "Stale bread": 5,
+    "Old pickaxe": 1,
+    "Old sickle": 1,
+    "Old shovel": 1,
+    "Rough wood log": 78,
+    "Cooling salt packet": 1,
+    "Empty cooling sleeve": 2,
+    "Prepared survey kit": 7,
+    "Wax-sealed survey kit": 4,
+    "Dulled field fitting knife": 2,
+    "Bench clearance manual": 1,
+    "Set repair resin": 1,
+    "Empty retort resin tray": 1,
+    "Empty retort residue tray": 1,
+    "Empty bench vial": 1,
+    "Unmarked pale vial": 1,
+    "Sound repair stave": 4,
+    "Field fitting knife": 1,
+    "Tree sap": 1,
+    "Cyorian research paper": 1,
+    "Cyorian formula ink": 1
+   },
+   "jobs": [],
+   "conditions": {}
+  },
+  "trialKey": {
+   "tabs": 2,
+   "focused": {
+    "tag": "BUTTON",
+    "text": "Do this: Try the difficult reading · manual + sample set aside + 2 stamina + 3 min",
+    "focusVisible": true,
+    "outline": "solid 3px rgb(255, 229, 138)"
+   },
+   "key": "Enter",
+   "notice": "",
+   "focusAfter": {
+    "tag": "BUTTON",
+    "text": "Unavailable: Try the difficult reading · manual + sample set aside + 2 stamina +"
+   }
+  },
+  "trialPending": {
+   "clock": 868,
+   "money": 47,
+   "staminaToFull": 2,
+   "location": "Village",
+   "inv": {
+    "Cheap leather pants": 1,
+    "Stale bread": 5,
+    "Old pickaxe": 1,
+    "Old sickle": 1,
+    "Old shovel": 1,
+    "Rough wood log": 78,
+    "Cooling salt packet": 1,
+    "Empty cooling sleeve": 2,
+    "Prepared survey kit": 7,
+    "Wax-sealed survey kit": 4,
+    "Dulled field fitting knife": 2,
+    "Set repair resin": 1,
+    "Empty retort resin tray": 1,
+    "Empty retort residue tray": 1,
+    "Empty bench vial": 1,
+    "Unmarked pale vial": 1,
+    "Sound repair stave": 3,
+    "Field fitting knife": 1,
+    "Tree sap": 1,
+    "Cyorian research paper": 1,
+    "Cyorian formula ink": 1
+   },
+   "jobs": [
+    [
+     "steam.boh.trial",
+     870
+    ]
+   ],
+   "conditions": {}
+  },
+  "diagnostic": {
+   "stage": "seen",
+   "value": "You can identify the sound stave, but the diagrams leave one question unanswered: how much room does the knife’s edge need beside the marked working strip? This missing edge-clearance comparison is where the reading stopped. Your manual and sample return. You still need to settle that comparison before learning the method.",
+   "at": 870,
+   "cause": "simulation:4867",
+   "basis": {
+    "kind": "observation",
+    "attributedTo": "player",
+    "situationId": "feature_objects.sluice"
+   }
+  },
+  "fatigue": {
+   "intensity": 1,
+   "expiresAt": 874,
+   "cause": "simulation:4867"
+  },
+  "restKey": {
+   "tabs": 2,
+   "focused": {
+    "tag": "BUTTON",
+    "text": "Do this: Rest from clearance study · 2 min",
+    "focusVisible": true,
+    "outline": "solid 3px rgb(255, 229, 138)"
+   },
+   "key": "Enter",
+   "notice": "",
+   "focusAfter": {
+    "tag": "BUTTON",
+    "text": "Unavailable: Rest from clearance study · 2 min"
+   }
+  },
+  "restPending": {
+   "clock": 871,
+   "money": 47,
+   "staminaToFull": 0,
+   "location": "Village",
+   "inv": {
+    "Cheap leather pants": 1,
+    "Stale bread": 5,
+    "Old pickaxe": 1,
+    "Old sickle": 1,
+    "Old shovel": 1,
+    "Rough wood log": 78,
+    "Cooling salt packet": 1,
+    "Empty cooling sleeve": 2,
+    "Prepared survey kit": 7,
+    "Wax-sealed survey kit": 4,
+    "Dulled field fitting knife": 2,
+    "Set repair resin": 1,
+    "Empty retort resin tray": 1,
+    "Empty retort residue tray": 1,
+    "Empty bench vial": 1,
+    "Unmarked pale vial": 1,
+    "Sound repair stave": 4,
+    "Field fitting knife": 1,
+    "Tree sap": 1,
+    "Cyorian research paper": 1,
+    "Cyorian formula ink": 1,
+    "Bench clearance manual": 1
+   },
+   "jobs": [
+    [
+     "steam.boh.rest",
+     872
+    ]
+   ],
+   "conditions": {
+    "steam.boh.study_fatigue": {
+     "intensity": 1,
+     "expiresAt": 874,
+     "cause": "simulation:4867"
+    }
+   }
+  },
+  "rested": {
+   "clock": 872,
+   "money": 47,
+   "staminaToFull": 0,
+   "location": "Village",
+   "inv": {
+    "Cheap leather pants": 1,
+    "Stale bread": 5,
+    "Old pickaxe": 1,
+    "Old sickle": 1,
+    "Old shovel": 1,
+    "Rough wood log": 78,
+    "Cooling salt packet": 1,
+    "Empty cooling sleeve": 2,
+    "Prepared survey kit": 7,
+    "Wax-sealed survey kit": 4,
+    "Dulled field fitting knife": 2,
+    "Set repair resin": 1,
+    "Empty retort resin tray": 1,
+    "Empty retort residue tray": 1,
+    "Empty bench vial": 1,
+    "Unmarked pale vial": 1,
+    "Sound repair stave": 4,
+    "Field fitting knife": 1,
+    "Tree sap": 1,
+    "Cyorian research paper": 1,
+    "Cyorian formula ink": 1,
+    "Bench clearance manual": 1
+   },
+   "jobs": [],
+   "conditions": {}
+  },
+  "compareKey": {
+   "tabs": 2,
+   "focused": {
+    "tag": "BUTTON",
+    "text": "Do this: Resolve the missing clearance comparison · manual + sample set aside + 2 min",
+    "focusVisible": true,
+    "outline": "solid 3px rgb(255, 229, 138)"
+   },
+   "key": "Enter",
+   "notice": "",
+   "focusAfter": {
+    "tag": "BUTTON",
+    "text": "Unavailable: Resolve the missing clearance comparison · manual + sample set asid"
+   }
+  },
+  "prepared": {
+   "name": "current-fa10-prepared",
+   "clock": 874,
+   "exportHash": "f851a9f25c43c85597cc4713d5e84e39d6a2598ea4b7466cf9540c13d9c48f1c",
+   "reloadExact": true,
+   "reloadDiff": [],
+   "exportEqual": true,
+   "importEqual": true,
+   "exportImportOtherDiffs": [],
+   "derivedEquipmentFieldsOnlyInExport": [
+    ".0.equipment.weapon.rarity"
+   ],
+   "bundle": {
+    "label": "current-fa10-prepared",
+    "built": "84746e7891da46f2f7a7f89cf67a712f43c31454c5c479da065fb53eff734e1c",
+    "loaded": "84746e7891da46f2f7a7f89cf67a712f43c31454c5c479da065fb53eff734e1c",
+    "match": true
+   },
+   "pageErrors": []
+  },
+  "readKey": {
+   "tabs": 2,
+   "focused": {
+    "tag": "BUTTON",
+    "text": "Do this: Read the prepared manual · manual set aside + 1 stamina + 3 min",
+    "focusVisible": true,
+    "outline": "solid 3px rgb(255, 229, 138)"
+   },
+   "key": "Space",
+   "notice": "",
+   "focusAfter": {
+    "tag": "BUTTON",
+    "text": "Unavailable: Read the prepared manual · manual set aside + 1 stamina + 3 min"
+   }
+  },
+  "learned": {
+   "name": "current-fa10-learned",
+   "clock": 878,
+   "exportHash": "db6deeb4908eea32384251ec21c9e509ff58daa2703ca5f9cc790200836798e7",
+   "reloadExact": true,
+   "reloadDiff": [],
+   "exportEqual": true,
+   "importEqual": true,
+   "exportImportOtherDiffs": [],
+   "derivedEquipmentFieldsOnlyInExport": [
+    ".0.equipment.weapon.stats",
+    ".0.equipment.weapon.bonus_skill_levels",
+    ".0.equipment.weapon.attack_power",
+    ".0.equipment.weapon.inventory_key",
+    ".0.equipment.weapon.rarity",
+    ".0.equipment.axe.stats",
+    ".0.equipment.axe.bonus_skill_levels",
+    ".0.equipment.axe.inventory_key"
+   ],
+   "bundle": {
+    "label": "current-fa10-learned",
+    "built": "84746e7891da46f2f7a7f89cf67a712f43c31454c5c479da065fb53eff734e1c",
+    "loaded": "84746e7891da46f2f7a7f89cf67a712f43c31454c5c479da065fb53eff734e1c",
+    "match": true
+   },
+   "pageErrors": []
+  },
+  "end": {
+   "clock": 878,
+   "money": 47,
+   "staminaToFull": 0,
+   "location": "Village",
+   "inv": {
+    "Cheap leather pants": 1,
+    "Stale bread": 5,
+    "Old pickaxe": 1,
+    "Old sickle": 1,
+    "Old shovel": 1,
+    "Rough wood log": 78,
+    "Cooling salt packet": 1,
+    "Empty cooling sleeve": 2,
+    "Prepared survey kit": 7,
+    "Wax-sealed survey kit": 4,
+    "Dulled field fitting knife": 2,
+    "Set repair resin": 1,
+    "Empty retort resin tray": 1,
+    "Empty retort residue tray": 1,
+    "Empty bench vial": 1,
+    "Unmarked pale vial": 1,
+    "Sound repair stave": 4,
+    "Field fitting knife": 1,
+    "Tree sap": 1,
+    "Cyorian research paper": 1,
+    "Cyorian formula ink": 1,
+    "Bench clearance manual": 1
+   },
+   "jobs": [],
+   "conditions": {}
+  }
+ },
+ {
+  "name": "current-kits",
+  "clock": 891,
+  "money": 49,
+  "staminaToFull": 0,
+  "location": "Village",
+  "inv": {
+   "Cheap leather pants": 1,
+   "Stale bread": 5,
+   "Old pickaxe": 1,
+   "Old sickle": 1,
+   "Old shovel": 1,
+   "Rough wood log": 78,
+   "Cooling salt packet": 1,
+   "Empty cooling sleeve": 2,
+   "Prepared survey kit": 7,
+   "Wax-sealed survey kit": 4,
+   "Dulled field fitting knife": 3,
+   "Set repair resin": 1,
+   "Empty retort resin tray": 1,
+   "Empty retort residue tray": 1,
+   "Empty bench vial": 1,
+   "Unmarked pale vial": 1,
+   "Sound repair stave": 2,
+   "Cyorian research paper": 1,
+   "Cyorian formula ink": 1,
+   "Bench clearance manual": 1
+  },
+  "jobs": [],
+  "conditions": {},
+  "facts": {
+   "steam.boh.enrolled": true,
+   "nethack_fieldcraft.opened": true,
+   "game_absorption_assay.opened": true,
+   "game_absorption_assay.termsRevision": 1,
+   "game_absorption_assay.negativeTrial": "dull",
+   "steam.boh.diagnosticAvailable": false,
+   "steam.boh.preparationVersion": 1,
+   "steam.boh.procedureVersion": 1
+  },
+  "before": {
+   "clock": 881,
+   "money": 47,
+   "staminaToFull": 0,
+   "location": "Village",
+   "inv": {
+    "Cheap leather pants": 1,
+    "Stale bread": 5,
+    "Old pickaxe": 1,
+    "Old sickle": 1,
+    "Old shovel": 1,
+    "Rough wood log": 78,
+    "Cooling salt packet": 1,
+    "Empty cooling sleeve": 2,
+    "Prepared survey kit": 7,
+    "Wax-sealed survey kit": 4,
+    "Dulled field fitting knife": 2,
+    "Set repair resin": 1,
+    "Empty retort resin tray": 1,
+    "Empty retort residue tray": 1,
+    "Empty bench vial": 1,
+    "Unmarked pale vial": 1,
+    "Sound repair stave": 4,
+    "Field fitting knife": 1,
+    "Tree sap": 1,
+    "Cyorian research paper": 1,
+    "Cyorian formula ink": 1,
+    "Bench clearance manual": 1
+   },
+   "jobs": [],
+   "conditions": {}
+  },
+  "key": {
+   "tabs": 2,
+   "focused": {
+    "tag": "BUTTON",
+    "text": "Do this: Make 2 survey kits with your sharp field fitting knife · 2 staves + 1 sap + 1 stamina + 3 min",
+    "focusVisible": true,
+    "outline": "solid 3px rgb(255, 229, 138)"
+   },
+   "key": "Enter",
+   "notice": "",
+   "focusAfter": {
+    "tag": "BUTTON",
+    "text": "Unavailable: Make 2 survey kits with your sharp field fitting knife · 2 staves +"
+   }
+  },
+  "pending": {
+   "clock": 883,
+   "money": 47,
+   "staminaToFull": 1,
+   "location": "Village",
+   "inv": {
+    "Cheap leather pants": 1,
+    "Stale bread": 5,
+    "Old pickaxe": 1,
+    "Old sickle": 1,
+    "Old shovel": 1,
+    "Rough wood log": 78,
+    "Cooling salt packet": 1,
+    "Empty cooling sleeve": 2,
+    "Prepared survey kit": 7,
+    "Wax-sealed survey kit": 4,
+    "Dulled field fitting knife": 2,
+    "Set repair resin": 1,
+    "Empty retort resin tray": 1,
+    "Empty retort residue tray": 1,
+    "Empty bench vial": 1,
+    "Unmarked pale vial": 1,
+    "Sound repair stave": 2,
+    "Cyorian research paper": 1,
+    "Cyorian formula ink": 1
+   },
+   "jobs": [
+    [
+     "steam.boh.kits_sharp",
+     885
+    ]
+   ],
+   "conditions": {}
+  },
+  "pendingPersistence": {
+   "name": "current-fa10-kits-pending",
+   "clock": 884,
+   "exportHash": "652e079371af4f38811ca09a17fdd23d4087ac5e77339308618e4bc35bfb306c",
+   "reloadExact": true,
+   "reloadDiff": [],
+   "exportEqual": true,
+   "importEqual": true,
+   "exportImportOtherDiffs": [],
+   "derivedEquipmentFieldsOnlyInExport": [
+    ".0.equipment.weapon.stats",
+    ".0.equipment.weapon.bonus_skill_levels",
+    ".0.equipment.weapon.attack_power",
+    ".0.equipment.weapon.inventory_key",
+    ".0.equipment.weapon.rarity",
+    ".0.equipment.axe.stats",
+    ".0.equipment.axe.bonus_skill_levels",
+    ".0.equipment.axe.inventory_key"
+   ],
+   "bundle": {
+    "label": "current-fa10-kits-pending",
+    "built": "84746e7891da46f2f7a7f89cf67a712f43c31454c5c479da065fb53eff734e1c",
+    "loaded": "84746e7891da46f2f7a7f89cf67a712f43c31454c5c479da065fb53eff734e1c",
+    "match": true
+   },
+   "pageErrors": []
+  },
+  "completed": {
+   "clock": 885,
+   "money": 47,
+   "staminaToFull": 0,
+   "location": "Village",
+   "inv": {
+    "Cheap leather pants": 1,
+    "Stale bread": 5,
+    "Old pickaxe": 1,
+    "Old sickle": 1,
+    "Old shovel": 1,
+    "Rough wood log": 78,
+    "Cooling salt packet": 1,
+    "Empty cooling sleeve": 2,
+    "Prepared survey kit": 9,
+    "Wax-sealed survey kit": 4,
+    "Dulled field fitting knife": 3,
+    "Set repair resin": 1,
+    "Empty retort resin tray": 1,
+    "Empty retort residue tray": 1,
+    "Empty bench vial": 1,
+    "Unmarked pale vial": 1,
+    "Sound repair stave": 2,
+    "Cyorian research paper": 1,
+    "Cyorian formula ink": 1,
+    "Bench clearance manual": 1
+   },
+   "jobs": [],
+   "conditions": {}
+  },
+  "completedPersistence": {
+   "name": "current-fa10-kits-completed",
+   "clock": 885,
+   "exportHash": "40b8e0a5cb5ac2b5f96b8d0360ac265c8af227ca5e275bf49bdd3ca5f6462a94",
+   "reloadExact": true,
+   "reloadDiff": [],
+   "exportEqual": true,
+   "importEqual": true,
+   "exportImportOtherDiffs": [],
+   "derivedEquipmentFieldsOnlyInExport": [
+    ".0.equipment.weapon.rarity"
+   ],
+   "bundle": {
+    "label": "current-fa10-kits-completed",
+    "built": "84746e7891da46f2f7a7f89cf67a712f43c31454c5c479da065fb53eff734e1c",
+    "loaded": "84746e7891da46f2f7a7f89cf67a712f43c31454c5c479da065fb53eff734e1c",
+    "match": true
+   },
+   "pageErrors": []
+  },
+  "deliveryKey": {
+   "tabs": 17,
+   "focused": {
+    "tag": "BUTTON",
+    "text": "Do this: Deliver two real survey kits to Eda · earn 2 coins",
+    "focusVisible": true,
+    "outline": "solid 3px rgb(255, 229, 138)"
+   },
+   "key": "Enter",
+   "notice": "",
+   "focusAfter": {
+    "tag": "BUTTON",
+    "text": "Unavailable: Deliver two real survey kits to Eda · earn 2 coins"
+   }
+  },
+  "delivered": {
+   "clock": 888,
+   "money": 49,
+   "staminaToFull": 0,
+   "location": "Village",
+   "inv": {
+    "Cheap leather pants": 1,
+    "Stale bread": 5,
+    "Old pickaxe": 1,
+    "Old sickle": 1,
+    "Old shovel": 1,
+    "Rough wood log": 78,
+    "Cooling salt packet": 1,
+    "Empty cooling sleeve": 2,
+    "Prepared survey kit": 7,
+    "Wax-sealed survey kit": 4,
+    "Dulled field fitting knife": 3,
+    "Set repair resin": 1,
+    "Empty retort resin tray": 1,
+    "Empty retort residue tray": 1,
+    "Empty bench vial": 1,
+    "Unmarked pale vial": 1,
+    "Sound repair stave": 2,
+    "Cyorian research paper": 1,
+    "Cyorian formula ink": 1,
+    "Bench clearance manual": 1
+   },
+   "jobs": [],
+   "conditions": {}
+  },
+  "persistence": {
+   "name": "current-fa10-delivered",
+   "clock": 890,
+   "exportHash": "ce2ad3e070314c7357db4a10cdb27907bd262e8507e85b63c191c39d0f779894",
+   "reloadExact": true,
+   "reloadDiff": [],
+   "exportEqual": true,
+   "importEqual": true,
+   "exportImportOtherDiffs": [],
+   "derivedEquipmentFieldsOnlyInExport": [
+    ".0.equipment.weapon.stats",
+    ".0.equipment.weapon.bonus_skill_levels",
+    ".0.equipment.weapon.attack_power",
+    ".0.equipment.weapon.inventory_key",
+    ".0.equipment.weapon.rarity",
+    ".0.equipment.axe.stats",
+    ".0.equipment.axe.bonus_skill_levels",
+    ".0.equipment.axe.inventory_key"
+   ],
+   "bundle": {
+    "label": "current-fa10-delivered",
+    "built": "84746e7891da46f2f7a7f89cf67a712f43c31454c5c479da065fb53eff734e1c",
+    "loaded": "84746e7891da46f2f7a7f89cf67a712f43c31454c5c479da065fb53eff734e1c",
+    "match": true
+   },
+   "pageErrors": []
+  }
+ },
+ {
+  "name": "current-cancel-failure",
+  "clock": 917,
+  "money": 47,
+  "staminaToFull": 0,
+  "location": "Village",
+  "inv": {
+   "Cheap leather pants": 1,
+   "Stale bread": 5,
+   "Old pickaxe": 1,
+   "Old sickle": 1,
+   "Old shovel": 1,
+   "Rough wood log": 78,
+   "Cooling salt packet": 1,
+   "Empty cooling sleeve": 2,
+   "Prepared survey kit": 7,
+   "Wax-sealed survey kit": 4,
+   "Dulled field fitting knife": 3,
+   "Set repair resin": 1,
+   "Empty retort resin tray": 1,
+   "Empty retort residue tray": 1,
+   "Empty bench vial": 1,
+   "Unmarked pale vial": 1,
+   "Sound repair stave": 2,
+   "Bench clearance manual": 2
+  },
+  "jobs": [],
+  "conditions": {},
+  "facts": {
+   "steam.boh.enrolled": true,
+   "nethack_fieldcraft.opened": true,
+   "game_absorption_assay.opened": true,
+   "game_absorption_assay.termsRevision": 1,
+   "game_absorption_assay.negativeTrial": "dull",
+   "steam.boh.diagnosticAvailable": false,
+   "steam.boh.preparationVersion": 1,
+   "steam.boh.procedureVersion": 1
+  },
+  "copyKey": {
+   "tabs": 1,
+   "focused": {
+    "tag": "BUTTON",
+    "text": "Do this: Commission a clearance manual · paper + ink + 2 coins + 3 min",
+    "focusVisible": true,
+    "outline": "solid 3px rgb(255, 229, 138)"
+   },
+   "key": "Enter",
+   "notice": "",
+   "focusAfter": {
+    "tag": "BUTTON",
+    "text": "Unavailable: Commission a clearance manual · paper + ink + 2 coins + 3 min"
+   }
+  },
+  "pending": {
+   "clock": 911,
+   "money": 47,
+   "staminaToFull": 0,
+   "location": "Village",
+   "inv": {
+    "Cheap leather pants": 1,
+    "Stale bread": 5,
+    "Old pickaxe": 1,
+    "Old sickle": 1,
+    "Old shovel": 1,
+    "Rough wood log": 78,
+    "Cooling salt packet": 1,
+    "Empty cooling sleeve": 2,
+    "Prepared survey kit": 7,
+    "Wax-sealed survey kit": 4,
+    "Dulled field fitting knife": 3,
+    "Set repair resin": 1,
+    "Empty retort resin tray": 1,
+    "Empty retort residue tray": 1,
+    "Empty bench vial": 1,
+    "Unmarked pale vial": 1,
+    "Sound repair stave": 2,
+    "Bench clearance manual": 1
+   },
+   "jobs": [
+    [
+     "steam.boh.copy_manual",
+     913
+    ]
+   ],
+   "conditions": {}
+  },
+  "cancelKey": {
+   "tabs": 4,
+   "focused": {
+    "tag": "BUTTON",
+    "text": "Do this: Cancel work · return reserved inputs",
+    "focusVisible": true,
+    "outline": "solid 3px rgb(255, 229, 138)"
+   },
+   "key": "Space",
+   "notice": "",
+   "focusAfter": {
+    "tag": "SUMMARY",
+    "text": "Tools, practice & local lives"
+   }
+  },
+  "cancelled": {
+   "clock": 913,
+   "money": 49,
+   "staminaToFull": 0,
+   "location": "Village",
+   "inv": {
+    "Cheap leather pants": 1,
+    "Stale bread": 5,
+    "Old pickaxe": 1,
+    "Old sickle": 1,
+    "Old shovel": 1,
+    "Rough wood log": 78,
+    "Cooling salt packet": 1,
+    "Empty cooling sleeve": 2,
+    "Prepared survey kit": 7,
+    "Wax-sealed survey kit": 4,
+    "Dulled field fitting knife": 3,
+    "Set repair resin": 1,
+    "Empty retort resin tray": 1,
+    "Empty retort residue tray": 1,
+    "Empty bench vial": 1,
+    "Unmarked pale vial": 1,
+    "Sound repair stave": 2,
+    "Bench clearance manual": 1,
+    "Cyorian research paper": 1,
+    "Cyorian formula ink": 1
+   },
+   "jobs": [],
+   "conditions": {}
+  },
+  "travelControlsVisibleAfterCancel": 0,
+  "failedKey": {
+   "tabs": 1,
+   "focused": {
+    "tag": "BUTTON",
+    "text": "Do this: Commission a clearance manual · paper + ink + 2 coins + 3 min",
+    "focusVisible": true,
+    "outline": "solid 3px rgb(255, 229, 138)"
+   },
+   "key": "Enter",
+   "notice": "Progress paused because saving failed. Free storage and reload before continuing.",
+   "focusAfter": {
+    "tag": "BUTTON",
+    "text": "Do this: Commission a clearance manual · paper + ink + 2 coins + 3 min"
+   }
+  },
+  "afterFailure": {
+   "clock": 913,
+   "money": 49,
+   "staminaToFull": 0,
+   "location": "Village",
+   "inv": {
+    "Cheap leather pants": 1,
+    "Stale bread": 5,
+    "Old pickaxe": 1,
+    "Old sickle": 1,
+    "Old shovel": 1,
+    "Rough wood log": 78,
+    "Cooling salt packet": 1,
+    "Empty cooling sleeve": 2,
+    "Prepared survey kit": 7,
+    "Wax-sealed survey kit": 4,
+    "Dulled field fitting knife": 3,
+    "Set repair resin": 1,
+    "Empty retort resin tray": 1,
+    "Empty retort residue tray": 1,
+    "Empty bench vial": 1,
+    "Unmarked pale vial": 1,
+    "Sound repair stave": 2,
+    "Bench clearance manual": 1,
+    "Cyorian research paper": 1,
+    "Cyorian formula ink": 1
+   },
+   "jobs": [],
+   "conditions": {}
+  },
+  "failureNotice": "Progress paused because saving failed. Free storage and reload before continuing.",
+  "visibleFailure": [
+   "Progress paused because saving failed. Free storage and reload before continuing."
+  ],
+  "retryKey": {
+   "tabs": 1,
+   "focused": {
+    "tag": "BUTTON",
+    "text": "Do this: Commission a clearance manual · paper + ink + 2 coins + 3 min",
+    "focusVisible": true,
+    "outline": "solid 3px rgb(255, 229, 138)"
+   },
+   "key": "Enter",
+   "notice": "",
+   "focusAfter": {
+    "tag": "BUTTON",
+    "text": "Unavailable: Commission a clearance manual · paper + ink + 2 coins + 3 min"
+   }
+  },
+  "retryCompleted": {
+   "clock": 917,
+   "money": 47,
+   "staminaToFull": 0,
+   "location": "Village",
+   "inv": {
+    "Cheap leather pants": 1,
+    "Stale bread": 5,
+    "Old pickaxe": 1,
+    "Old sickle": 1,
+    "Old shovel": 1,
+    "Rough wood log": 78,
+    "Cooling salt packet": 1,
+    "Empty cooling sleeve": 2,
+    "Prepared survey kit": 7,
+    "Wax-sealed survey kit": 4,
+    "Dulled field fitting knife": 3,
+    "Set repair resin": 1,
+    "Empty retort resin tray": 1,
+    "Empty retort residue tray": 1,
+    "Empty bench vial": 1,
+    "Unmarked pale vial": 1,
+    "Sound repair stave": 2,
+    "Bench clearance manual": 2
+   },
+   "jobs": [],
+   "conditions": {}
+  },
+  "persistence": {
+   "name": "current-fa10-failure-retry",
+   "clock": 917,
+   "exportHash": "8140df824e7bc75d3c395cb525bb0609f888ac38f91b9a6a7f33d1417d9730ee",
+   "reloadExact": true,
+   "reloadDiff": [],
+   "exportEqual": true,
+   "importEqual": true,
+   "exportImportOtherDiffs": [],
+   "derivedEquipmentFieldsOnlyInExport": [
+    ".0.equipment.weapon.rarity"
+   ],
+   "bundle": {
+    "label": "current-fa10-failure-retry",
+    "built": "84746e7891da46f2f7a7f89cf67a712f43c31454c5c479da065fb53eff734e1c",
+    "loaded": "84746e7891da46f2f7a7f89cf67a712f43c31454c5c479da065fb53eff734e1c",
+    "match": true
+   },
+   "pageErrors": []
+  }
+ }
+]

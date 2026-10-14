@@ -1,0 +1,22 @@
+TAP version 13
+# Subtest: a failed save during a panel action shows the paused-save instruction, not a retry prompt
+ok 1 - a failed save during a panel action shows the paused-save instruction, not a retry prompt
+  ---
+  duration_ms: 1420.331625
+  type: 'test'
+  ...
+# Subtest: opening a module keeps focus already inside it and still focuses it from outside
+ok 2 - opening a module keeps focus already inside it and still focuses it from outside
+  ---
+  duration_ms: 39.964209
+  type: 'test'
+  ...
+1..2
+# tests 2
+# suites 0
+# pass 2
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2223.381959

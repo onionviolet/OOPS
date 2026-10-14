@@ -1,0 +1,24 @@
+[
+ {
+  "checkpoint": {
+   "name": "current-clouded-negative-pending",
+   "clock": 757,
+   "exportHash": "88c387272eda8257940fd12f551ae0e35b340ed398a2af921bf000155437b718",
+   "reloadExact": true,
+   "reloadDiff": [],
+   "exportEqual": true,
+   "importEqual": true,
+   "exportImportOtherDiffs": [],
+   "derivedEquipmentFieldsOnlyInExport": [
+    ".0.equipment.weapon.rarity"
+   ],
+   "bundle": {
+    "label": "current-clouded-negative-pending",
+    "built": "84746e7891da46f2f7a7f89cf67a712f43c31454c5c479da065fb53eff734e1c",
+    "loaded": "84746e7891da46f2f7a7f89cf67a712f43c31454c5c479da065fb53eff734e1c",
+    "match": true
+   },
+   "pageErrors": []
+  }
+ }
+]

@@ -1,0 +1,114 @@
+{
+ "ok": true,
+ "value": {
+  "start": {
+   "clock": 912,
+   "money": 43,
+   "sharp": 1,
+   "dull": 1,
+   "log": 78,
+   "wet": 0,
+   "sound": 0,
+   "pin": 2,
+   "resin": 1,
+   "kits": 7,
+   "jobs": []
+  },
+  "cutPending": {
+   "clock": 913,
+   "money": 43,
+   "sharp": 0,
+   "dull": 1,
+   "log": 77,
+   "wet": 0,
+   "sound": 0,
+   "pin": 2,
+   "resin": 1,
+   "kits": 7,
+   "jobs": [
+    "feature_objects.cut_sharp_own"
+   ]
+  },
+  "cut": {
+   "clock": 916,
+   "money": 43,
+   "sharp": 0,
+   "dull": 2,
+   "log": 77,
+   "wet": 2,
+   "sound": 0,
+   "pin": 2,
+   "resin": 1,
+   "kits": 7,
+   "jobs": []
+  },
+  "dried": {
+   "clock": 922,
+   "money": 43,
+   "sharp": 0,
+   "dull": 2,
+   "log": 77,
+   "wet": 1,
+   "sound": 1,
+   "pin": 2,
+   "resin": 1,
+   "kits": 7,
+   "jobs": []
+  },
+  "bindPending": {
+   "clock": 923,
+   "money": 43,
+   "sharp": 0,
+   "dull": 2,
+   "log": 77,
+   "wet": 1,
+   "sound": 0,
+   "pin": 1,
+   "resin": 0,
+   "kits": 7,
+   "jobs": [
+    "nethack_fieldcraft.pin_kit"
+   ]
+  },
+  "bound": {
+   "clock": 925,
+   "money": 43,
+   "sharp": 0,
+   "dull": 2,
+   "log": 77,
+   "wet": 1,
+   "sound": 0,
+   "pin": 1,
+   "resin": 0,
+   "kits": 8,
+   "jobs": []
+  },
+  "delivered": {
+   "clock": 927,
+   "money": 45,
+   "sharp": 0,
+   "dull": 2,
+   "log": 77,
+   "wet": 1,
+   "sound": 0,
+   "pin": 1,
+   "resin": 0,
+   "kits": 6,
+   "jobs": []
+  },
+  "cp": {
+   "reload": true,
+   "exp": true,
+   "imp": true,
+   "other": [],
+   "errs": []
+  },
+  "bindKeyboard": {
+   "tabs": 8,
+   "focusAfter": {
+    "tag": "BUTTON",
+    "text": "Unavailable: Bind one pin, sound stave and set resin into a survey kit · 1 stami"
+   }
+  }
+ }
+}

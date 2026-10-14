@@ -1,0 +1,101 @@
+{
+ "ok": true,
+ "value": {
+  "start": {
+   "clock": 890,
+   "money": 47,
+   "stf": 0,
+   "clouded": 0,
+   "gummed": 0,
+   "pin": 0,
+   "empty": 2,
+   "dull": 1,
+   "jobs": []
+  },
+  "bought": {
+   "clock": 893,
+   "money": 43,
+   "stf": 0,
+   "clouded": 1,
+   "gummed": 2,
+   "pin": 0,
+   "empty": 2,
+   "dull": 1,
+   "jobs": []
+  },
+  "soldOut": [
+   "Unavailable: Buy one Clouded bench vial · 2 coins",
+   "Unavailable: Buy one Gummed fitting pin · 1 coin"
+  ],
+  "washPending": {
+   "clock": 894,
+   "money": 43,
+   "stf": 1,
+   "clouded": 0,
+   "gummed": 1,
+   "pin": 0,
+   "empty": 2,
+   "dull": 1,
+   "jobs": [
+    "game_absorption_assay.rinse"
+   ]
+  },
+  "washed": {
+   "clock": 895,
+   "money": 43,
+   "stf": 0,
+   "clouded": 0,
+   "gummed": 1,
+   "pin": 1,
+   "empty": 3,
+   "dull": 1,
+   "jobs": []
+  },
+  "scrapePending": {
+   "clock": 896,
+   "money": 43,
+   "stf": 2,
+   "clouded": 0,
+   "gummed": 0,
+   "pin": 1,
+   "empty": 3,
+   "dull": 0,
+   "jobs": [
+    "game_absorption_assay.scrape_dull"
+   ]
+  },
+  "scrapeCancelled": {
+   "clock": 897,
+   "money": 43,
+   "stf": 0,
+   "clouded": 0,
+   "gummed": 1,
+   "pin": 1,
+   "empty": 3,
+   "dull": 1,
+   "jobs": []
+  },
+  "scraped": {
+   "clock": 902,
+   "money": 43,
+   "stf": 0,
+   "clouded": 0,
+   "gummed": 0,
+   "pin": 2,
+   "empty": 3,
+   "dull": 1,
+   "jobs": []
+  },
+  "washKnowledge": "seen",
+  "scrapeKnowledge": [
+   "game_absorption_assay.scraping_dull"
+  ],
+  "cp": {
+   "reload": true,
+   "exp": true,
+   "imp": true,
+   "other": [],
+   "errs": []
+  }
+ }
+}

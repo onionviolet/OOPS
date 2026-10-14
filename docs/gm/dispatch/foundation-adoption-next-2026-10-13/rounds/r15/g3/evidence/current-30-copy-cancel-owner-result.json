@@ -1,0 +1,140 @@
+{
+ "ok": true,
+ "value": {
+  "before": {
+   "clock": 856,
+   "money": 47,
+   "staminaToFull": 0,
+   "location": "Village",
+   "inv": {
+    "Cheap leather pants": 1,
+    "Stale bread": 5,
+    "Old pickaxe": 1,
+    "Old sickle": 1,
+    "Old shovel": 1,
+    "Rough wood log": 78,
+    "Cooling salt packet": 1,
+    "Empty cooling sleeve": 2,
+    "Prepared survey kit": 7,
+    "Wax-sealed survey kit": 4,
+    "Dulled field fitting knife": 2,
+    "Bench clearance manual": 1,
+    "Set repair resin": 1,
+    "Empty retort resin tray": 1,
+    "Empty retort residue tray": 1,
+    "Empty bench vial": 1,
+    "Unmarked pale vial": 1,
+    "Sound repair stave": 4,
+    "Field fitting knife": 1,
+    "Tree sap": 1,
+    "Cyorian research paper": 1,
+    "Cyorian formula ink": 1
+   },
+   "jobs": [],
+   "conditions": {},
+   "edaStamina": 7,
+   "edaCoins": 44
+  },
+  "copyKey": {
+   "tabs": 1,
+   "focused": {
+    "tag": "BUTTON",
+    "text": "Do this: Commission a clearance manual · paper + ink + 2 coins + 3 min",
+    "focusVisible": true,
+    "outline": "solid 3px rgb(255, 229, 138)"
+   },
+   "key": "Enter",
+   "notice": "",
+   "focusAfter": {
+    "tag": "BUTTON",
+    "text": "Unavailable: Commission a clearance manual · paper + ink + 2 coins + 3 min"
+   }
+  },
+  "pending": {
+   "clock": 857,
+   "money": 45,
+   "staminaToFull": 0,
+   "location": "Village",
+   "inv": {
+    "Cheap leather pants": 1,
+    "Stale bread": 5,
+    "Old pickaxe": 1,
+    "Old sickle": 1,
+    "Old shovel": 1,
+    "Rough wood log": 78,
+    "Cooling salt packet": 1,
+    "Empty cooling sleeve": 2,
+    "Prepared survey kit": 7,
+    "Wax-sealed survey kit": 4,
+    "Dulled field fitting knife": 2,
+    "Bench clearance manual": 1,
+    "Set repair resin": 1,
+    "Empty retort resin tray": 1,
+    "Empty retort residue tray": 1,
+    "Empty bench vial": 1,
+    "Unmarked pale vial": 1,
+    "Sound repair stave": 4,
+    "Field fitting knife": 1,
+    "Tree sap": 1
+   },
+   "jobs": [
+    [
+     "steam.boh.copy_manual",
+     859
+    ]
+   ],
+   "conditions": {},
+   "edaStamina": 6,
+   "edaCoins": 44
+  },
+  "cancelKey": {
+   "tabs": 4,
+   "focused": {
+    "tag": "BUTTON",
+    "text": "Do this: Cancel work · return reserved inputs",
+    "focusVisible": true,
+    "outline": "solid 3px rgb(255, 229, 138)"
+   },
+   "key": "Space",
+   "notice": "",
+   "focusAfter": {
+    "tag": "SUMMARY",
+    "text": "Tools, practice & local lives"
+   }
+  },
+  "cancelled": {
+   "clock": 858,
+   "money": 47,
+   "staminaToFull": 0,
+   "location": "Village",
+   "inv": {
+    "Cheap leather pants": 1,
+    "Stale bread": 5,
+    "Old pickaxe": 1,
+    "Old sickle": 1,
+    "Old shovel": 1,
+    "Rough wood log": 78,
+    "Cooling salt packet": 1,
+    "Empty cooling sleeve": 2,
+    "Prepared survey kit": 7,
+    "Wax-sealed survey kit": 4,
+    "Dulled field fitting knife": 2,
+    "Bench clearance manual": 1,
+    "Set repair resin": 1,
+    "Empty retort resin tray": 1,
+    "Empty retort residue tray": 1,
+    "Empty bench vial": 1,
+    "Unmarked pale vial": 1,
+    "Sound repair stave": 4,
+    "Field fitting knife": 1,
+    "Tree sap": 1,
+    "Cyorian research paper": 1,
+    "Cyorian formula ink": 1
+   },
+   "jobs": [],
+   "conditions": {},
+   "edaStamina": 7,
+   "edaCoins": 44
+  }
+ }
+}

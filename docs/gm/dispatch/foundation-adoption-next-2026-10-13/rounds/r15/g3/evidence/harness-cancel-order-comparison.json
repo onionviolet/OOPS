@@ -1,0 +1,4 @@
+{
+ "ok": false,
+ "error": "Error: cancel exact inputs and purse\n    at globalThis.check (eval at <anonymous> (/Users/weiwei/code/yet-another-idle-rpg/.claude/worktrees/agent-aedda304f5f9605f0/docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r15/g3/harness.cjs:61:34), <anonymous>:5:51)\n    at eval (eval at <anonymous> (/Users/weiwei/code/yet-another-idle-rpg/.claude/worktrees/agent-aedda304f5f9605f0/docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r15/g3/harness.cjs:61:34), <anonymous>:9:1)\n    at async Server.<anonymous> (/Users/weiwei/code/yet-another-idle-rpg/.claude/worktrees/agent-aedda304f5f9605f0/docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r15/g3/harness.cjs:61:28)"
+}

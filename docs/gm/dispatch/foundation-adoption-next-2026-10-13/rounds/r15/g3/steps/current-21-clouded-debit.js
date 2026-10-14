@@ -1,0 +1,42 @@
+globalThis.runName='current-negative';globalThis.steps=[];log=[];
+await importFile(path.join(dir,'fixture/TEST-FIXTURE-R15-G3-NEGATIVE.txt'));
+await page.waitForTimeout(1000);await waitPlay();await play();
+const C="Eda's clouded batch",F="Eda's bench fieldcraft",out={};
+check((await stored()).character.name==='TEST FIXTURE R15 G3 NEGATIVE','negative fixture hero');
+await keyAct(F,'Ask Eda about her pale vials');
+out.starvedLessonKey=await keyAct(F,'Practice one ordinary scent lesson');
+check(!(await stored()).expansion.simulation.jobs.length,'no lesson without care');
+for(let i=0;i<3;i++)await act(F,'Buy one Workshop ration');
+await act(F,'Feed Rill one Workshop ration');await act(F,'Feed Rill one Workshop ration');
+let full=await save();
+check(full.expansion.actors['nethack_fieldcraft.rill'].resources.satiety===4 && n(full,'Workshop ration')===1,'full dog still has an actual spare ration');
+out.fullFeedKey=await keyAct(F,'Feed Rill one Workshop ration');
+const fullAfter=await save();
+check(n(fullAfter,'Workshop ration')===1 && fullAfter.expansion.actors['nethack_fieldcraft.rill'].resources.satiety===4,'full refusal spends no ration');
+out.fullRefusal={spareRationBefore:n(full,'Workshop ration'),spareRationAfter:n(fullAfter,'Workshop ration'),satiety:4,notice:out.fullFeedKey.notice};
+await keyAct(C,'Ask Eda about the clouded batch');
+await act(C,'Buy one Clouded bench vial');
+await page.evaluate(()=>{
+  const original=Storage.prototype.setItem;
+  Storage.prototype.setItem=function(k,v){const result=original.call(this,k,v);
+    if(k==='save data' && JSON.parse(v).expansion?.simulation?.jobs.some(j=>j.commandId==='game_absorption_assay.trial_dull')){
+      Storage.prototype.setItem=original;const id=setTimeout(()=>{},0);
+      for(let i=0;i<=id+10;i++){clearTimeout(i);clearInterval(i);}
+    }return result;};
+});
+const pre=await save();out.before=brief(pre);
+out.key=await keyAct(C,'Try the clouded charge on your dull knife');
+let s=await stored();out.pending=brief(s);out.liveStamina=await page.locator('#character_stamina_value').innerText();
+check(s.character.stamina_to_full===pre.character.stamina_to_full+1,'clouded trial durable stamina debit');
+check((await save()).character.stamina_to_full===s.character.stamina_to_full,'live native debit matches durable');
+check(n(s,'Clouded bench vial')===n(pre,'Clouded bench vial')-1 && n(s,'Dulled field fitting knife')===n(pre,'Dulled field fitting knife')-1,'exact full vial and tool held');
+out.persistence=await checkpoint2('current-clouded-negative-pending');
+await waitJobs();s=await save();out.completed=brief(s);
+check(n(s,'Dulled field fitting knife')===n(pre,'Dulled field fitting knife'),'same dull tool returned without sharpening');
+check(n(s,'Empty bench vial')===n(pre,'Empty bench vial')+1,'one spent container returned');
+check(!s.expansion.simulation.knowledge.player['game_absorption_assay.identity'],'negative observation identifies nothing');
+check(s.expansion.actors.player.completed['game_absorption_assay.trial_dull']===1,'negative completion once');
+out.inconclusive=await rowText(C,'Compare the failed trial');
+check(/Actually identify the separate pale/.test(out.inconclusive),'missing control remains explicit');
+await record('current-clouded-negative-debit',out);
+return out;

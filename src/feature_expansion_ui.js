@@ -51,7 +51,9 @@ export function createFeatureExpansionPanel({read, command, present}) {
                 entry.legibility = createActionLegibilityList({parent:actions,idPrefix:`feature-${section.id}`,focusFallback:summary,
                     onAction:row=>{
                         const action=entry.currentActions.get(row.id);if(!action)throw new Error('This offer changed. Review it again.');
-                        command({...action.command,sequence:action.command.sequence ?? read().state.sequence});render();
+                        // Re-render after a failed command too, so a paused save shows its
+                        // reload instruction instead of a generic "try again".
+                        try {command({...action.command,sequence:action.command.sequence ?? read().state.sequence});} finally {render();}
                     }});
             }
             entry.heading.textContent = section.label;

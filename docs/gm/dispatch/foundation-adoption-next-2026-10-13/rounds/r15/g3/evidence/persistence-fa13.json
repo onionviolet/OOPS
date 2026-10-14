@@ -1,0 +1,104 @@
+[
+ {
+  "checkpoint": {
+   "name": "fa13-identified-by-inference",
+   "clock": 870,
+   "exportHash": "6721de8b11bff58ba3e3b7a64a548af2a13c45d698ca7b08ce88c70ccab98dd5",
+   "reloadExact": true,
+   "reloadDiff": [],
+   "exportEqual": true,
+   "importEqual": true,
+   "exportImportOtherDiffs": [],
+   "derivedEquipmentFieldsOnlyInExport": [
+    ".0.equipment.weapon.stats",
+    ".0.equipment.weapon.bonus_skill_levels",
+    ".0.equipment.weapon.attack_power",
+    ".0.equipment.weapon.inventory_key",
+    ".0.equipment.weapon.rarity",
+    ".0.equipment.axe.stats",
+    ".0.equipment.axe.bonus_skill_levels",
+    ".0.equipment.axe.inventory_key"
+   ],
+   "bundle": {
+    "label": "fa13-identified-by-inference",
+    "built": "06a333f9546326e5d41b2bfb632f5c6ec65871a401d2992c383b44ea6ed0d6d8",
+    "loaded": "06a333f9546326e5d41b2bfb632f5c6ec65871a401d2992c383b44ea6ed0d6d8",
+    "match": true
+   },
+   "pageErrors": []
+  }
+ },
+ {
+  "checkpoint": {
+   "name": "fa13-pins-recovered",
+   "clock": 892,
+   "exportHash": "d3746f5000a4a891ee7403fce390ab8745aee5ef517c76512b344603ec7a597c",
+   "reloadExact": true,
+   "reloadDiff": [],
+   "exportEqual": true,
+   "importEqual": true,
+   "exportImportOtherDiffs": [],
+   "derivedEquipmentFieldsOnlyInExport": [
+    ".0.equipment.weapon.rarity"
+   ],
+   "bundle": {
+    "label": "fa13-pins-recovered",
+    "built": "06a333f9546326e5d41b2bfb632f5c6ec65871a401d2992c383b44ea6ed0d6d8",
+    "loaded": "06a333f9546326e5d41b2bfb632f5c6ec65871a401d2992c383b44ea6ed0d6d8",
+    "match": true
+   },
+   "pageErrors": []
+  }
+ },
+ {
+  "checkpoint": {
+   "name": "fa13-pin-kit-delivered",
+   "clock": 915,
+   "exportHash": "854a62d2ac94ca8210e512d764fa3b2833a90fe75e2298cb25e408670c1d9eb6",
+   "reloadExact": true,
+   "reloadDiff": [],
+   "exportEqual": true,
+   "importEqual": true,
+   "exportImportOtherDiffs": [],
+   "derivedEquipmentFieldsOnlyInExport": [
+    ".0.equipment.weapon.stats",
+    ".0.equipment.weapon.bonus_skill_levels",
+    ".0.equipment.weapon.attack_power",
+    ".0.equipment.weapon.inventory_key",
+    ".0.equipment.weapon.rarity",
+    ".0.equipment.axe.stats",
+    ".0.equipment.axe.bonus_skill_levels",
+    ".0.equipment.axe.inventory_key"
+   ],
+   "bundle": {
+    "label": "fa13-pin-kit-delivered",
+    "built": "06a333f9546326e5d41b2bfb632f5c6ec65871a401d2992c383b44ea6ed0d6d8",
+    "loaded": "06a333f9546326e5d41b2bfb632f5c6ec65871a401d2992c383b44ea6ed0d6d8",
+    "match": true
+   },
+   "pageErrors": []
+  }
+ },
+ {
+  "checkpoint": {
+   "name": "fa13-final",
+   "clock": 952,
+   "exportHash": "737363b2b7f3245b5e8563e55fb5364878b8b0ca9ea7cff465f41a022d4f5f3c",
+   "reloadExact": true,
+   "reloadDiff": [],
+   "exportEqual": true,
+   "importEqual": true,
+   "exportImportOtherDiffs": [],
+   "derivedEquipmentFieldsOnlyInExport": [
+    ".0.equipment.weapon.rarity"
+   ],
+   "bundle": {
+    "label": "fa13-final",
+    "built": "06a333f9546326e5d41b2bfb632f5c6ec65871a401d2992c383b44ea6ed0d6d8",
+    "loaded": "06a333f9546326e5d41b2bfb632f5c6ec65871a401d2992c383b44ea6ed0d6d8",
+    "match": true
+   },
+   "pageErrors": []
+  }
+ }
+]

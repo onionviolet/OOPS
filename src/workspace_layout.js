@@ -339,6 +339,9 @@ export function openWorkspaceModule(id) {
     target.scrollIntoView?.({block:'nearest',behavior:'instant'});
     const first = module.node.querySelector('button:not([hidden]):not(:disabled),summary,input:not([hidden]):not(:disabled),select:not([hidden]):not(:disabled),[data-native-keyboard]');
     const focus = owner && owner.layout.mode !== 'classic' && owner.editing ? module.shell.querySelector('.workspace-drag-handle') : first;
+    // Opening a module the player is already working inside (for example the notebook
+    // re-opening itself when a started job needs attention) keeps their keyboard focus.
+    if (module.node.contains?.(document.activeElement)) return true;
     focus?.focus({preventScroll:true}); return true;
 }
 
