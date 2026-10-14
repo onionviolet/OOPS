@@ -12,6 +12,13 @@ export function practiceMethods(progress) {
         {id:'investigate',label:'Investigate',known:(progress.Perception?.current_level||0)>=1}
     ].filter(row=>row.known);
 }
+export function knownPracticeHints(progress,inventory={},learned=false) {
+    const hints=[],p=progress.Perception;
+    if(p?.total_xp>0 && !p.current_level) hints.push(`Perception practice: ${Number(p.current_xp??p.total_xp).toFixed(2)} / ${p.xp_to_next_lvl??100} XP toward level 1. Known local searches and Village watch help; level 1 opens a practiced local action.`);
+    const leaves=Object.values(inventory).reduce((n,row)=>n+(row.item?.id===HERB_LESSON.material?row.count:0),0);
+    if(leaves>0&&!learned)hints.push(`Held Golmoon leaves: ${leaves} / ${HERB_LESSON.count}. Handling a full held stack teaches a preparation; keep exploring already-open gathering routes.`);
+    return hints;
+}
 export function openingAllows(id, staged, step) {
     if (!staged) return true;
     const at={time:0,vitals:1,preparation:1,belongings:2,location:2,'local-actions':2,skills:3,records:3};
@@ -31,10 +38,11 @@ export function createPracticePanel({read,toggleRun,investigate,craft,register,u
     document.getElementById('location_related_div').append(panel,preparations);
     let signature='';
     function render(){
-        const view=read(),methods=practiceMethods(view.progress),next=JSON.stringify([methods,view.run,view.reason,view.runFallback,view.search,view.recipe,view.craftReason]);
+        const view=read(),methods=practiceMethods(view.progress),next=JSON.stringify([methods,view.run,view.reason,view.runFallback,view.search,view.recipe,view.craftReason,view.hints]);
         if(next===signature)return;signature=next;
         const focused=document.activeElement?.dataset.practiceAction;
         body.replaceChildren();preparations.replaceChildren();
+        for(const text of view.hints||[]){const note=document.createElement('p');note.textContent=text;body.append(note);}
         for(const row of methods){
             const reason=row.id==='run'?view.reason:view.search.reason;
             const line=document.createElement('div'),button=document.createElement('button'),status=document.createElement('span');
@@ -47,7 +55,7 @@ export function createPracticePanel({read,toggleRun,investigate,craft,register,u
         if(view.recipe){const note=document.createElement('p');note.textContent='Learned: Weak healing powder. Preparation uses 5 Golmoon leaves. '+(view.craftReason||'An alchemy station is available.');preparations.append(note);const button=document.createElement('button');button.type='button';button.textContent='Review learned herb preparation';button.disabled=!!view.craftReason;button.onclick=craft;preparations.append(button);}
         if(focused)body.querySelector(`[data-practice-action="${focused}"]`)?.focus();
     }
-    const known=()=>{const v=read();return practiceMethods(v.progress).length>0;};
+    const known=()=>{const v=read();return practiceMethods(v.progress).length>0 || !!v.hints?.length;};
     register({id:'practice-actions',title:'Practiced actions',node:panel,home:'center',eligible:known,discovered:known});
     register({id:'learned-preparations',title:'Learned preparations',node:preparations,home:'center',eligible:()=>read().recipe,discovered:()=>read().recipe});
     render();return {render};

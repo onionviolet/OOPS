@@ -10,7 +10,7 @@ import {getMixtureOwner,setMixtureOwner,MIXTURE_ID} from './mixture_state.js';
 import {stageMixtureAction,commitMixturePlan} from './mixture_native.js';
 import {createMixturePanel} from './mixture_ui.js';
 import {createStoryletPanel} from './storylet_ui.js';
-import {HERB_LESSON,heldLesson,bindAcquisitionLesson,bindDenominationKnowledge,createPracticePanel,openingAllows,stageRevealKnowledge} from './reveal_chain.js';
+import {HERB_LESSON,heldLesson,bindAcquisitionLesson,bindDenominationKnowledge,createPracticePanel,knownPracticeHints,openingAllows,stageRevealKnowledge} from './reveal_chain.js';
 import {getDisplaySetting,subscribeDisplaySettings} from './display_settings.js';
 import {structuredLifeEnded,reconcileStructuredLifePlan,structuredLifeView,archiveStructuredLife,publishIndependentStructuredLife,listStructuredLifeArchives} from './structured_life_runtime.js';
 import {beginNativeCraftTransaction,nativeCraftQuestOwners} from './native_craft_transaction.js';
@@ -8737,7 +8737,7 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
     update_displayed_money();
     practicePanel=createPracticePanel({register:registerWorkspaceModule,update:updateWorkspace,
         read:()=>{const context=localLifeContext(),found=localLife.searches[current_location?.id]?.found;
-            return {progress:character.getLevelableComponent().skill_progress,run:revealFacts()['reveal.run']===true,reason:practiceRunReason({toggle:true}),runFallback:character.getFullStats().stamina<2,recipe:revealFacts()['reveal.herbLesson']===true,craftReason:accessoryCraftingTiers(current_location,undefined,global_flags.is_crafting_unlocked).alchemy?'':'Requires an accessible alchemy station before crafting.',
+            return {hints:context.worldId==='base.frontier'?knownPracticeHints(character.getLevelableComponent().skill_progress,character.getItems(),revealFacts()['reveal.herbLesson']):[],progress:character.getLevelableComponent().skill_progress,run:revealFacts()['reveal.run']===true,reason:practiceRunReason({toggle:true}),runFallback:character.getFullStats().stamina<2,recipe:revealFacts()['reveal.herbLesson']===true,craftReason:accessoryCraftingTiers(current_location,undefined,global_flags.is_crafting_unlocked).alchemy?'':'Requires an accessible alchemy station before crafting.',
                 search:{on:localLife.looking,reason:!ownsSave||foundationSaveBlocked||importProbeToken?'Saving is unavailable.':!context.idle?'Finish your current activity before investigating.':!['Village','Shack'].includes(context.location)?'Investigate is practiced in Village and Shack.':found?'Nothing remains to find here.':''}};},
         toggleRun:()=>{if(practiceRunReason({toggle:true}))return;const next=structuredClone(expansionState);next.sequence++;next.actors.player.facts['reveal.run']=!revealFacts()['reveal.run'];persistExpansion({state:next,gameplay:gameplaySnapshot(),external:{money:character.money},messages:[]});},
         investigate:()=>dispatchLocalLifePlan(localLifeAction(localLife,localLifeContext(),'look')),
