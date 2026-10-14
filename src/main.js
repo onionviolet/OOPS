@@ -293,6 +293,7 @@ import {createStructuredPackPanel} from './structured_pack_ui.js';
 import {nativeStructuredEquipmentTemplate,projectStructuredEquipment} from './structured_equipment_runtime.js';
 import {createContentPackPanel} from './content_pack_ui.js';
 import {SafeLocation as OptionalPackLocation} from './models/location.js';
+import {createStartProbe} from './start_probe_ui.js';
 const optionalPacks=new Map();
 const foundationProbeEnabled=typeof location!=='undefined'&&['localhost','127.0.0.1'].includes(location.hostname)&&new URLSearchParams(location.search).get('foundation_probe')==='1';
 const structuredPacks=new Map();
@@ -8164,9 +8165,21 @@ play_button.addEventListener("click", hide_loading_screen);
 
 if(!global_flags.is_hero_created && config.do_hero_creation) {
     characterCreator.fill_creation_panel();
+    const startProbe=createStartProbe(document.getElementById('hero_creation_panel'));
     // CH1 capture runs before CharacterCreator removes the creation controls.
     document.getElementById('hero_creation_panel_confirmation').addEventListener('click', () => {
         if(global_flags.is_hero_created) return;
+        const start=startProbe?.selected();
+        if(start) {
+            // Vanilla setup precedes PLAY; reapply before creation starts the clock.
+            character.removeFromInventory(Object.entries(character.getItems()).map(([item_key,item])=>({item_key,item_count:item.count})));
+            character.addToInventory(start.snapshot.items.map(({id,...item})=>({...item,item_id:id})),true);
+            character.money=start.snapshot.money;update_displayed_money();character.updateStatsAndDisplay();
+            change_location({location_id:start.snapshot.location,skip_travel_time:true});
+            questManager.startQuest({quest_id:start.snapshot.quest});
+            lifeRecord=appendLifeMilestone(lifeRecord,{year:current_game_time.year,at:lifeCalendarMinute(current_game_time),
+                worldId:start.provenance.worldId,kind:'beginning',text:`Start layers: ${start.provenance.layers.map(l=>l.id).join(', ')}. Seed: ${start.provenance.seed}`});
+        }
         const choice = document.querySelector('[data-cheat-start]').value;
         if(choice === 'system-quests' || choice === 'surprise') {
             cheatState = grantCheat(cheatState, optionalStartCard(), {route: 'optional-start', at: cheatCalendarTime()});
