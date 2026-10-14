@@ -1,4 +1,4 @@
-import {registerWorkspaceModule, workspaceOwns, unregisterWorkspaceModule} from './workspace_layout.js';
+import {registerWorkspaceModule, workspaceOwns, unregisterWorkspaceModule, openWorkspaceModule} from './workspace_layout.js';
 import {CAREER_RANKS,KIT_DEBT,villagePromotionRequirements,villageColleagueMemory,WATCHCRAFT_BOOK,WATCHCRAFT_BONUS,WATCHCRAFT_PRACTICE, recruitMemory, TEACHING_TERMS} from './village_career.js';
 const node=(tag,text='')=>{const n=document.createElement(tag);n.textContent=text;return n;};
 // Lives inside the native center menu, including the ongoing patrol display.
@@ -60,5 +60,10 @@ export function createVillageCareerControls({read,resolve,promote,notes,readNote
         }
         const host=document.getElementById('location_actions_div');if(host && !workspaceOwns(panel) && panel.parentElement!==host)host.append(panel);
     }
-    render();registerWorkspaceModule({id:'patrol',title:'Patrol & custody',node:panel,home:'right',eligible:()=>!panel.hidden});const timer=setInterval(render,250);return {render,destroy:()=>{clearInterval(timer);unregisterWorkspaceModule('patrol');panel.remove();}};
+    const shortcut=node('button','Patrol blocked: return the loaned kit · Open Patrol & custody');shortcut.type='button';shortcut.id='village_patrol_custody_link';
+    shortcut.onclick=()=>openWorkspaceModule('patrol');
+    const originalRender=render;
+    function refreshShortcut(){const v=read();shortcut.hidden=!v.visible||!v.state.loan||v.state.loan.status==='active';
+        const host=document.getElementById('location_actions_div');if(host && shortcut.parentElement!==host)host.prepend(shortcut);}
+    originalRender();refreshShortcut();registerWorkspaceModule({id:'patrol',title:'Patrol & custody',node:panel,home:'right',eligible:()=>!panel.hidden});const refresh=()=>{render();refreshShortcut();};const timer=setInterval(refresh,250);return {render:refresh,destroy:()=>{clearInterval(timer);unregisterWorkspaceModule('patrol');panel.remove();shortcut.remove();}};
 }
