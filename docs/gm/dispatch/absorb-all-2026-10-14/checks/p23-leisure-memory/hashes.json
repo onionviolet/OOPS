@@ -1,0 +1,6 @@
+{
+  "src/absorb_p23/leisure_memory/index.js": "8beef2fb5a2494a75d5d664e779ff700c8995e7164ff03c56777093e6f848796",
+  "src/absorb_p23/leisure_memory/HOST_CONTRACT.md": "e9e418e086cc579dd03a9f2e74e67bef98c2263ab766f1b186708b3beafc724a",
+  "tests/p23-leisure-memory.test.js": "73ddc50d55041501f805d51431c2c92e2fb90ecc2b9b1dc05d0af6adf9bc4c7c",
+  "dist/bundle.js": "598e02f54fe7db4c9a35bc79c75a754a7f8dc42eccf9fab828de8fd82e97b615"
+}
