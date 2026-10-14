@@ -1,0 +1,88 @@
+TAP version 13
+# Subtest: old save absence is inert and strict schemas reject unknown or malformed state
+ok 1 - old save absence is inert and strict schemas reject unknown or malformed state
+  ---
+  duration_ms: 12.173792
+  type: 'test'
+  ...
+# Subtest: saved seeds reproduce all authored bands across two hundred attempts
+ok 2 - saved seeds reproduce all authored bands across two hundred attempts
+  ---
+  duration_ms: 214.49925
+  type: 'test'
+  ...
+# Subtest: level scaling retains native stat names and no shared template mutation
+ok 3 - level scaling retains native stat names and no shared template mutation
+  ---
+  duration_ms: 0.262834
+  type: 'test'
+  ...
+# Subtest: native admission rejects before mutation and cannot reroll a pending encounter
+ok 4 - native admission rejects before mutation and cannot reroll a pending encounter
+  ---
+  duration_ms: 0.20375
+  type: 'test'
+  ...
+# Subtest: Reed sweep is probability gated and defensive counter prevents target status
+ok 5 - Reed sweep is probability gated and defensive counter prevents target status
+  ---
+  duration_ms: 0.52825
+  type: 'test'
+  ...
+# Subtest: exchange cursor and one-exchange status survive export/import without reroll
+ok 6 - exchange cursor and one-exchange status survive export/import without reroll
+  ---
+  duration_ms: 0.260416
+  type: 'test'
+  ...
+# Subtest: area rank and native luck modifier affect a single deterministic draw
+ok 7 - area rank and native luck modifier affect a single deterministic draw
+  ---
+  duration_ms: 27.285833
+  type: 'test'
+  ...
+# Subtest: settlement state suppresses duplicate publication including after restore
+ok 8 - settlement state suppresses duplicate publication including after restore
+  ---
+  duration_ms: 60.914209
+  type: 'test'
+  ...
+# Subtest: wrong event, rank, absent kill and nonfinite modifiers reject without changes
+ok 9 - wrong event, rank, absent kill and nonfinite modifiers reject without changes
+  ---
+  duration_ms: 0.700083
+  type: 'test'
+  ...
+# Subtest: repeat ladder has new occurrence IDs and no lifetime cap; old events fail
+ok 10 - repeat ladder has new occurrence IDs and no lifetime cap; old events fail
+  ---
+  duration_ms: 0.824208
+  type: 'test'
+  ...
+# Subtest: abandon pays no drop/completion and retires the occurrence
+ok 11 - abandon pays no drop/completion and retires the occurrence
+  ---
+  duration_ms: 0.200208
+  type: 'test'
+  ...
+# Subtest: native zone contract is optional, one group and repeatable with dojo parent
+ok 12 - native zone contract is optional, one group and repeatable with dojo parent
+  ---
+  duration_ms: 0.165583
+  type: 'test'
+  ...
+# Subtest: intent preview is stable without cursor mutation and resolution reads live counter
+ok 13 - intent preview is stable without cursor mutation and resolution reads live counter
+  ---
+  duration_ms: 7.415625
+  type: 'test'
+  ...
+1..13
+# tests 13
+# suites 0
+# pass 13
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 901.262875

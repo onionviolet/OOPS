@@ -1,0 +1,29 @@
+{
+  "viewport": {
+    "width": 1366,
+    "height": 768
+  },
+  "freshOrigin": true,
+  "localHash": "598e02f54fe7db4c9a35bc79c75a754a7f8dc42eccf9fab828de8fd82e97b615",
+  "servedHash": "598e02f54fe7db4c9a35bc79c75a754a7f8dc42eccf9fab828de8fd82e97b615",
+  "baseline": "fresh native Village started",
+  "errors": [],
+  "moduleContract": {
+    "level": 2,
+    "restored": true,
+    "stats": {
+      "health": 32,
+      "attack": 4,
+      "agility": 8,
+      "dexterity": 8,
+      "intuition": 5,
+      "magic": 0,
+      "defense": 2,
+      "attack_speed": 0.8,
+      "attack_count": 1
+    },
+    "nativeIntegration": false
+  },
+  "nativeChangedLoop": "OPEN: P06/P00 registration, move, loot and save joins absent",
+  "pendingSaveReloadExportLiteralImport": "OPEN: no native save field wired"
+}
