@@ -1,0 +1,3 @@
+# Generated disposable test saves, never player saves.
+*.save.json
+*.save.txt

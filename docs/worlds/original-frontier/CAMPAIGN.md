@@ -312,3 +312,11 @@ Document/source review: the original bounded designer inspected Village/Town/Fro
 ## Cumulative timeline and ending owner
 
 [TIMELINE_AND_ENDINGS](TIMELINE_AND_ENDINGS.md) owns the persistent-chronicle recommendation, worked cumulative choice graph and seven required ending cases. Earlier audit/donation/refusal, actual dossier/material/control results, legal agreements and willing teaching affect later feasible outcomes; a final pick cannot rewrite them. [VISION_COVERAGE](VISION_COVERAGE.md) traces wider wishes while leaving optional regions/power families explicit. These are planning extensions under the current dispatch, not a source-module resume.
+
+## Optional Fort proposal, 2026-10-14
+
+The absorb-all fork-fort lane adds an opt-in mountain watchpost side expedition.
+[FORT_PROPOSAL.md](FORT_PROPOSAL.md) owns its entry, frozen IDs and compatibility.
+It is outside the finite required campaign footprint and does not resume the
+paused World1 implementation or alter the inherited opening. Fiction and balance
+remain proposals for Weibao’s play/taste acceptance.

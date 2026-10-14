@@ -1,0 +1,20 @@
+{
+  "viewport": [
+    1366,
+    768
+  ],
+  "results": [
+    {
+      "id": "literal_file_import",
+      "detail": "actual route export restored: finished quest, one journal, eight dungeon groups"
+    },
+    {
+      "id": "completed_reload_no_replay",
+      "detail": "quest, journal and second-clear count remain exact"
+    },
+    {
+      "id": "page_errors",
+      "detail": "zero runtime page errors across import/reload"
+    }
+  ]
+}
