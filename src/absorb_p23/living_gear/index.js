@@ -50,7 +50,7 @@ export function registerLivingGearItems({item_templates, Amulet, getItem, Weapon
         description: 'A blade tempered to remember use.', component_type: 'short blade',
         component_tier: 1, name_prefix: 'Road memory', attack_value: 5, value: 40, component_stats: {}});
     item_templates[LIVING_GEAR.weapon] ||= new Weapon({id: LIVING_GEAR.weapon, name: LIVING_GEAR.weapon,
-        components: {head: LIVING_GEAR.blade, handle: 'Simple short wooden hilt'}, quality: 100});
+        components: {head: LIVING_GEAR.blade, handle: 'Simple wooden short handle'}, quality: 100});
     return Object.values(LIVING_GEAR).map(id => item_templates[id]);
 }
 

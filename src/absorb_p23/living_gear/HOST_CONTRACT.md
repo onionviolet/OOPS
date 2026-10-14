@@ -10,7 +10,7 @@ not modify any shared host file. Native integrated acceptance is OPEN.
    known-discovery shop offers in an existing reachable home-world shop: Wayfarer
    dial (30 coins), Cinder keeper ring (40), Road memory knife (native calculated
    value). No new crafting transaction or recipe is required. The knife's native
-   head component is Tempered memory blade and handle Simple short wooden hilt.
+   head component is Tempered memory blade and handle Simple wooden short handle.
    Native decoder/quality/value/custody remain authoritative. Review numbers as
    reversible proposals. Do not mint equipment during load or import.
 2. **Identity/equipment:** create one `createLivingGear(saved.p23_living_gear)`
