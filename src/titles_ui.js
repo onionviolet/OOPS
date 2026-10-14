@@ -1,12 +1,14 @@
+import {createNativeDiscoveryFeedback} from './native_discovery_feedback.js';
 import {title_families} from './titles.js';
 const node=(tag,text='',cls='')=>{const n=document.createElement(tag);n.textContent=text;if(cls)n.className=cls;return n;};
 const family_names={combat:'Combat',endurance:'Endurance',craft:'Craft and gathering',life:'Life'};
 const fmt=n=>Math.floor(n).toLocaleString('en-US');
 
 // Character tab panel: held titles with their bonus, unheld ones with progress so the goal is legible.
-export function createTitlesPanel({read}) {
+export function createTitlesPanel({read,readSettings=()=>({})}) {
     const panel=node('details');panel.id='titles_panel';
     const summary=node('summary','Titles'),body=node('div');panel.append(summary,body);
+    const feedback=createNativeDiscoveryFeedback({container:panel,readSettings,eventType:'native-title-discovery',anchorAttribute:'data-title-id',singular:'Title earned',plural:'titles',resolve:id=>{const row=read().find(r=>r.id===id&&r.held);return row?{label:row.name}:null;}});
     let signature='';
     function render() {
         const rows=read();const next=JSON.stringify(rows);
@@ -28,5 +30,5 @@ export function createTitlesPanel({read}) {
         }
         const host=document.getElementById('character_bio_div');if(host && panel.parentElement!==host)host.append(panel);
     }
-    render();const timer=setInterval(render,2000);return {render,destroy:()=>{clearInterval(timer);panel.remove();}};
+    render();const timer=setInterval(render,2000);return {render,announce(ids){for(const id of ids)feedback.publish({type:'native-title-discovery',id,settled:true});},resetFeedback:()=>feedback.reset(),destroy:()=>{clearInterval(timer);feedback.destroy();panel.remove();}};
 }

@@ -25,7 +25,7 @@ import {setKnownClearTextReader} from './display.js';
 import {FORT, createFortSupply, migrateFortSupply, stageFortAction, observeFortSource, fortDisclosures, knownClearText} from './absorb_d/fort.js';
 import {registerFortContent} from './absorb_d/register.js';
 import {createFortControls} from './absorb_d/ui.js';
-import {normalizeLocalLife, advanceLocalLife, localLifeAction} from './absorb_c2/local_life.js';
+import {normalizeLocalLife, advanceLocalLife, localLifeAction, recordLocalPurchases} from './absorb_c2/local_life.js';
 import {createLocalLifePanel} from './absorb_c2/panel.js';
 import {setAccessoryEquipmentReader, accessoryCraftingTiers} from './absorb_c1/accessories.js';
 import {furnitureProjection, furnitureSkillMultiplier, furnitureRecovery, furniturePresentation, furnitureItemBonusText} from './absorb_b/furniture.js';
@@ -698,6 +698,8 @@ function localLifeContext(calendar=current_game_time, state=expansionState, loca
         idle:!current_combat&&!current_activity&&!current_game_action&&!is_sleeping&&!is_reading&&!current_dialogue&&!is_in_trade()&&nativeActionReasons(state).length===0,
         clock:calendarMinutes(calendar),calendarMinute:calendarMinutes(calendar),
         perception:character.getTotalSkillLevel('Perception'),money:character.money,
+        millUnlocked:locations['Eastern mill'].getAvailabilityComponent().getStatus().is_unlocked===true,
+        bleedingRemaining:active_effects.Bleeding?.duration||0,
         foodPoisonRemaining:active_effects['Slight food poisoning']?.duration||0};
 }
 function stageLocalLifeResult(plan, result) {
@@ -1013,6 +1015,10 @@ function commitNativeTrade(quote, currentQuote) {
     const plan = stageNativeTrade({state: expansionState, gameplay: gameplaySnapshot(),
         owners: {player: readInventoryOwner(character.getItems()), vendor: readInventoryOwner(vendor)},
         money: character.money, market: loot_sold_count, itemLog: item_log.items, quote, currentQuote, xp, getItem: getItemFromKey});
+    const purchased=quote.buy.reduce((n,row)=>n+row.count,0);
+    const purchasedLife=recordLocalPurchases(localLife,purchased);
+    plan.nativePatch={...plan.nativePatch,absorb_local_life:purchasedLife};
+    plan.localLifeResult={state:purchasedLife,messages:[]};
     persistExpansion(plan, {vendor: {category: "trader", id: quote.vendorId}}, {vendor});
 }
 
@@ -4830,6 +4836,7 @@ function add_active_effect(effect_key, duration = 1, skip_xp){
     } else {
         delete active_effects[effect_key];
     }
+    if(effect_key==='Bleeding')duration=Math.min(15,old_duration+duration);
     active_effects[effect_key] = new ActiveEffect({...effect_templates[effect_key], duration});
     update_displayed_effects();
     
@@ -5276,7 +5283,7 @@ function save_progress() {
 
 //core function for loading
 function load(save_data) {
-    nativeDiscoveryFeedback?.reset();
+    nativeDiscoveryFeedback?.reset();titlesPanel?.resetFeedback();
     hasLoadedNativeSave=true;
     // Restore validated native reading/sleep/activity before the new document
     // acquires its writer lock. Occupied/ended-life checks still apply.
@@ -7714,6 +7721,8 @@ function readTitleCounters() {
         years: yearsSince(current_game_time),
         playtime_hours: game_stats.total_playtime / 3600,
         money: character.money,
+        home_minutes:localLife.homeMinutes,
+        items_bought:localLife.itemsBought,
     };
 }
 
@@ -7737,6 +7746,7 @@ function refresh_titles({silent = false} = {}) {
     update_displayed_xp_bonuses();
     update_all_displayed_skills_xp_gain();
     titlesPanel?.render();
+    if(!silent)titlesPanel?.announce(earned);
     return earned;
 }
 
@@ -8358,7 +8368,7 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
         const save=JSON.parse(serialized);save.npc_lives=createVillageLives(save['current time'].year,expansionState.rng);
         lifeSaveStorage.setItem(is_on_dev()?dev_save_key:save_key,JSON.stringify(save));
     }});
-    titlesPanel = createTitlesPanel({read: () => titleView(character.titles, readTitleCounters())});
+    titlesPanel = createTitlesPanel({read: () => titleView(character.titles, readTitleCounters()),readSettings:()=>getCustomizationSettings(customization,'skills',{season:current_game_time.getSeason()})});
     for(const id of ['Proto23 plain bed','Proto23 cottage hearth','Proto23 bookstand','Prepared survey kit']) {
         const bonus=furnitureItemBonusText(id);if(item_templates[id]&&bonus&&!item_templates[id].description.includes(bonus))item_templates[id].description+=' '+bonus;
     }
@@ -8458,7 +8468,7 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
     registerWorkspaceModule({id:'customization-sites',title:'Original site',node:authoredHost,home:'center'});
     mountWorkspace();
     refreshCustomization();
-    expansionQuests = createExpansionQuests({read: readProgression});
+    expansionQuests = createExpansionQuests({read: readProgression,readLocalLife:()=>localLife});
     const bodySkills = new Set(["Running","Weightlifting","Climbing","Equilibrium","Breathing","Swimming","Fortitude","Perception","Meditation","Sleeping","Cold resistance"]);
     characterBio = createCharacterBio({registry: expeditionRegistry, read: readProgression,
         readTraining: () => Object.values(skills).filter(skill => skill.isUnlocked() && skill.getTotalXP() >= skill.visibility_treshold && skill.getCurrentLvl() > 0)

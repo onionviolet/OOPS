@@ -276,6 +276,7 @@ const enemy_abilites = {
     });
     enemy_templates["Elite wolf rat guardian"] = new Enemy({
         name: "Elite wolf rat guardian",
+        on_hit:()=>{if(Math.random()<.2){add_active_effect("Bleeding",5,true);log_message("The guardian’s edged claws leave a bleeding wound.","hero_attacked");}},
         description: "It's no longer dog-sized, but rather around the size of an average wolf, with thicker skin, longer claws and pure insanity in the eyes",
         xp_value: 15,
         rank: 4,

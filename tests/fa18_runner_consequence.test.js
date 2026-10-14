@@ -29,7 +29,7 @@ test('FA18 old help history never retroactively mints meal stock',()=>{
 });
 test('FA18 persisted account invariants fail closed',()=>{
  for(const change of [{runnerMealsUsed:2},{runnerMealsIssued:2},{runnerMealsIssued:-1},{runnerMealsUsed:undefined}])assert.throws(()=>normalizeLocalLife({...paid().state,...change}),/runner meal/);
- assert.throws(()=>normalizeLocalLife({...paid().state,schema:3}),/Unsupported/);
+ assert.throws(()=>normalizeLocalLife({...paid().state,schema:4}),/Unsupported/);
 });
 test('FA18 load/view/re-entry/ticks neither refill nor replay paid result',()=>{
  const s=paid().state;s.lastClock=15;const before=structuredClone(s);

@@ -69,10 +69,11 @@ export function createSettledTextEffects({container, readSettings = () => ({})})
         }
         const kind = definition && definition.motif !== 'receipt' ? definition.motif : ['closing', 'guidance', 'seal'].includes(receipt.motif) ? receipt.motif : /disconnect|service.*end|lease.*end/.test(receipt.type) ? 'closing' : /learn|precision|acquir|unlock|applied/.test(receipt.type) ? 'guidance' : 'seal';
         const craftReceipt=receipt.type==='native-craft';
-        overlay.dataset.discovery=String(receipt.type==='native-skill-discovery');
+        const discoveryReceipt=['native-skill-discovery','native-title-discovery'].includes(receipt.type);
+        overlay.dataset.discovery=String(discoveryReceipt);
         // Discovery includes an optional dismissal button, so it must remain
         // keyboard-accessible. The glyph remains purely decorative.
-        overlay.setAttribute('aria-hidden', receipt.type==='native-skill-discovery' ? 'false' : 'true');
+        overlay.setAttribute('aria-hidden', discoveryReceipt ? 'false' : 'true');
         overlay.dataset.craftReceipt=String(craftReceipt);
         overlay.dataset.motif = kind; overlay.dataset.presentation = options.presentation;
         overlay.dataset.plain = String(!!definition?.plain);
