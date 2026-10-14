@@ -1,0 +1,92 @@
+{
+  "refreshedAt": "2026-10-14T05:26:20.415084+00:00",
+  "roots": {
+    "main": {
+      "head": "f16bd67c99b2ab3b4aed329295f6823c9ab85cc4",
+      "changedSourceFiles": [
+        {
+          "file": "src/anchor_snapshots.js",
+          "before": null,
+          "after": "cdd206b641de8de774adc5e7f0e8c506c904e908f6a65f543ee98c4fe1b94998"
+        },
+        {
+          "file": "src/away_ledger.js",
+          "before": null,
+          "after": "b814c48d301c79b99cd12bc577638750b9d39cd1ae61a8a84fe10bfdb797d3ab"
+        },
+        {
+          "file": "src/data/start_layers_frontier.js",
+          "before": null,
+          "after": "bb94e6b2781501f0226126bc1bde63299e8424e1a01448f01a8b8d5cb98a269e"
+        },
+        {
+          "file": "src/main.js",
+          "before": "63bde375a9416186e116f26aa554172e0ef077563ed6d695eec93dd22f0cc956",
+          "after": "81a8b6130efe5560e456c25840ae6ec035666ecf92efdcd133de620183c0ba16"
+        },
+        {
+          "file": "src/start_probe_ui.js",
+          "before": null,
+          "after": "8ae2154af7dd0e2b0cdc02c5abbd80d86cde8e934047377ed345237d9dc11868"
+        },
+        {
+          "file": "src/start_records.js",
+          "before": null,
+          "after": "f9b716c653bfdf408823c19c60dcf0bbb4bba03258359a33c25419c1d314098f"
+        }
+      ]
+    },
+    "p1": {
+      "head": "7b787fdddc72c3d6a5f6fabba0bbe643e98ea576",
+      "changedSourceFiles": []
+    },
+    "p2": {
+      "head": "f8fe699487c90ec06e83bfc020dfa8a6dc234705",
+      "changedSourceFiles": []
+    },
+    "p3": {
+      "head": "4e444a5e19c0ba5815ef2a7bc03886305479081d",
+      "changedSourceFiles": []
+    },
+    "p4": {
+      "head": "09403f5c948e072444d29dc41fde15caac23286a",
+      "changedSourceFiles": []
+    },
+    "p34": {
+      "head": "364d83007a64c0409a1d528493410751cf4679a2",
+      "changedSourceFiles": [
+        {
+          "file": "src/expansion_engine.js",
+          "before": "8237a919e55c29d594bbe88787f80f9c8cb1172b663424eb84f2c97945f6a421",
+          "after": "9480f5673823192ecaa255e3794b9e677482f24c17b8d7b1ebb0897c7c63efab"
+        },
+        {
+          "file": "src/generated_people_ui.js",
+          "before": "5a083ada8f7db4c337f81cb0721c71bc59f4531b4461391b818c3545c8e35a3f",
+          "after": "065f4816bf8ad5377dcf2766ac7cf4c421ddac3f51e5f754bf07a076e2094783"
+        },
+        {
+          "file": "src/lore_history_state.js",
+          "before": "f8c6bc4f9c8c1b98ab9c6a8eaa56b92a6e8c247450c608e8a23a47aa67dbb540",
+          "after": "2c612a7e8fed5bef1dc5314914188b8af3d3b0fdb16e36290f9b3340017c14a8"
+        },
+        {
+          "file": "src/lore_history_view.js",
+          "before": null,
+          "after": "4afc314cc1844d0fd16e212e6186eed79d39040d229c0800f966e310da4a6ecd"
+        },
+        {
+          "file": "src/save_files.js",
+          "before": "24a80e514c86a02826f9601ae1a4585d400963d75e2a8cca6795bb9d5423ef1f",
+          "after": "0cb8ed738c37ba06ee9afcf6011ccdb9e4bc2613f0b311e93997473a76576ea7"
+        },
+        {
+          "file": "src/story_aftermath.js",
+          "before": "6da447b1166ed2d7327707fd74b491df217a5bb217f30e441d5265020cd7e842",
+          "after": "6c1cdf50739733cc273d4012b9aed2f5ec4b20622e256163bb84fb3444b5e6ba"
+        }
+      ]
+    }
+  },
+  "proposal": true
+}

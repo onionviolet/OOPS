@@ -1,0 +1,315 @@
+{
+  "status": "PASS",
+  "date": "2026-10-14",
+  "label": "DOC_STRUCTURE_ONLY",
+  "profile_count": 39,
+  "required_domain_or_section_count_per_profile": 15,
+  "total_required_profile_checks": 585,
+  "profiles": [
+    {
+      "file": "A_NOVEL_CONCEPT.md",
+      "domains_and_sections": 15,
+      "words": 574,
+      "bytes": 4492
+    },
+    {
+      "file": "A_WILL_ETERNAL.md",
+      "domains_and_sections": 15,
+      "words": 593,
+      "bytes": 4572
+    },
+    {
+      "file": "BEYOND_TIMESCAPE.md",
+      "domains_and_sections": 15,
+      "words": 592,
+      "bytes": 4561
+    },
+    {
+      "file": "CIRCLE_OF_INEVITABILITY.md",
+      "domains_and_sections": 15,
+      "words": 747,
+      "bytes": 5721
+    },
+    {
+      "file": "CRADLE.md",
+      "domains_and_sections": 15,
+      "words": 552,
+      "bytes": 4356
+    },
+    {
+      "file": "DND.md",
+      "domains_and_sections": 15,
+      "words": 859,
+      "bytes": 6253
+    },
+    {
+      "file": "FATED_VILLAIN.md",
+      "domains_and_sections": 15,
+      "words": 588,
+      "bytes": 4592
+    },
+    {
+      "file": "GENETIC_ASCENSION.md",
+      "domains_and_sections": 15,
+      "words": 600,
+      "bytes": 4586
+    },
+    {
+      "file": "HARRY_POTTER.md",
+      "domains_and_sections": 15,
+      "words": 867,
+      "bytes": 6592
+    },
+    {
+      "file": "ISSTH.md",
+      "domains_and_sections": 15,
+      "words": 587,
+      "bytes": 4579
+    },
+    {
+      "file": "KAIROS.md",
+      "domains_and_sections": 15,
+      "words": 607,
+      "bytes": 4631
+    },
+    {
+      "file": "LABYRINTH_MAD_GOD.md",
+      "domains_and_sections": 15,
+      "words": 601,
+      "bytes": 4659
+    },
+    {
+      "file": "LEGENDARY_MECHANIC.md",
+      "domains_and_sections": 15,
+      "words": 526,
+      "bytes": 4216
+    },
+    {
+      "file": "LOTM.md",
+      "domains_and_sections": 15,
+      "words": 832,
+      "bytes": 6443
+    },
+    {
+      "file": "MISTBORN.md",
+      "domains_and_sections": 15,
+      "words": 558,
+      "bytes": 4355
+    },
+    {
+      "file": "MOTHER_OF_LEARNING.md",
+      "domains_and_sections": 15,
+      "words": 843,
+      "bytes": 6430
+    },
+    {
+      "file": "OMNISCIENT_READER.md",
+      "domains_and_sections": 15,
+      "words": 592,
+      "bytes": 4643
+    },
+    {
+      "file": "PERFECT_RUN.md",
+      "domains_and_sections": 15,
+      "words": 558,
+      "bytes": 4320
+    },
+    {
+      "file": "REGRESSORS_TALE.md",
+      "domains_and_sections": 15,
+      "words": 588,
+      "bytes": 4594
+    },
+    {
+      "file": "RENEGADE_IMMORTAL.md",
+      "domains_and_sections": 15,
+      "words": 594,
+      "bytes": 4662
+    },
+    {
+      "file": "REVEREND_INSANITY.md",
+      "domains_and_sections": 15,
+      "words": 561,
+      "bytes": 4465
+    },
+    {
+      "file": "SECOND_COMING_GLUTTONY.md",
+      "domains_and_sections": 15,
+      "words": 581,
+      "bytes": 4539
+    },
+    {
+      "file": "SHADOW_SLAVE.md",
+      "domains_and_sections": 15,
+      "words": 857,
+      "bytes": 6489
+    },
+    {
+      "file": "SOLDIERS_LIFE.md",
+      "domains_and_sections": 15,
+      "words": 850,
+      "bytes": 6548
+    },
+    {
+      "file": "SOLO_LEVELING.md",
+      "domains_and_sections": 15,
+      "words": 605,
+      "bytes": 4781
+    },
+    {
+      "file": "SPEEDRUNNING_MULTIVERSE.md",
+      "domains_and_sections": 15,
+      "words": 590,
+      "bytes": 4636
+    },
+    {
+      "file": "TRAVELERS_GATE.md",
+      "domains_and_sections": 15,
+      "words": 526,
+      "bytes": 3889
+    },
+    {
+      "file": "TTKS_B1.md",
+      "domains_and_sections": 15,
+      "words": 602,
+      "bytes": 4728
+    },
+    {
+      "file": "TTKS_B2.md",
+      "domains_and_sections": 15,
+      "words": 625,
+      "bytes": 4928
+    },
+    {
+      "file": "TTKS_B3.md",
+      "domains_and_sections": 15,
+      "words": 611,
+      "bytes": 4910
+    },
+    {
+      "file": "TTKS_B4.md",
+      "domains_and_sections": 15,
+      "words": 581,
+      "bytes": 4671
+    },
+    {
+      "file": "TTKS_B5.md",
+      "domains_and_sections": 15,
+      "words": 659,
+      "bytes": 5171
+    },
+    {
+      "file": "WANDERING_INN.md",
+      "domains_and_sections": 15,
+      "words": 562,
+      "bytes": 4385
+    },
+    {
+      "file": "WARLOCK_MAGUS.md",
+      "domains_and_sections": 15,
+      "words": 533,
+      "bytes": 4281
+    },
+    {
+      "file": "WAR_PANTHEON.md",
+      "domains_and_sections": 15,
+      "words": 656,
+      "bytes": 5018
+    },
+    {
+      "file": "WISH_UPON_STARS.md",
+      "domains_and_sections": 15,
+      "words": 600,
+      "bytes": 4645
+    },
+    {
+      "file": "WORM.md",
+      "domains_and_sections": 15,
+      "words": 567,
+      "bytes": 4458
+    },
+    {
+      "file": "YOU_ARE_SUMMONED.md",
+      "domains_and_sections": 15,
+      "words": 584,
+      "bytes": 4580
+    },
+    {
+      "file": "YOU_HAVE_DIED_AGAIN.md",
+      "domains_and_sections": 15,
+      "words": 604,
+      "bytes": 4701
+    }
+  ],
+  "local_link_count": 351,
+  "local_link_failures": 0,
+  "external_urls": [
+    "https://faq.brandonsanderson.com/knowledge-base/how-did-you-come-up-with-the-magic-system-2/",
+    "https://www.dndbeyond.com/sources/dnd/dmg-2024",
+    "https://www.royalroad.com/fiction/36735/the-perfect-run"
+  ],
+  "failures": [],
+  "owned_files": [
+    "AUDIT_SOURCES.json",
+    "A_NOVEL_CONCEPT.md",
+    "A_WILL_ETERNAL.md",
+    "BACKLOG.md",
+    "BEYOND_TIMESCAPE.md",
+    "CHECKPOINT.md",
+    "CIRCLE_OF_INEVITABILITY.md",
+    "CRADLE.md",
+    "DND.md",
+    "FATED_VILLAIN.md",
+    "GENETIC_ASCENSION.md",
+    "HARRY_POTTER.md",
+    "ISSTH.md",
+    "KAIROS.md",
+    "LABYRINTH_MAD_GOD.md",
+    "LEGENDARY_MECHANIC.md",
+    "LOTM.md",
+    "MISTBORN.md",
+    "MOTHER_OF_LEARNING.md",
+    "OMNISCIENT_READER.md",
+    "PERFECT_RUN.md",
+    "PROFILE_RULES.md",
+    "REGRESSORS_TALE.md",
+    "RENEGADE_IMMORTAL.md",
+    "REPORT.md",
+    "REVEREND_INSANITY.md",
+    "SECOND_COMING_GLUTTONY.md",
+    "SHADOW_SLAVE.md",
+    "SOLDIERS_LIFE.md",
+    "SOLO_LEVELING.md",
+    "SOURCE_MAP.md",
+    "SPEEDRUNNING_MULTIVERSE.md",
+    "STATIC_REVIEW.json",
+    "TRAVELERS_GATE.md",
+    "TTKS.md",
+    "TTKS_B1.md",
+    "TTKS_B2.md",
+    "TTKS_B3.md",
+    "TTKS_B4.md",
+    "TTKS_B5.md",
+    "WANDERING_INN.md",
+    "WARLOCK_MAGUS.md",
+    "WAR_PANTHEON.md",
+    "WISH_UPON_STARS.md",
+    "WORM.md",
+    "YOU_ARE_SUMMONED.md",
+    "YOU_HAVE_DIED_AGAIN.md"
+  ],
+  "write_scope": "Only docs/gm/dispatch/procgen-2026-10-13/p9/, per this task tool history; other concurrent checkout changes not attributed to P9",
+  "semantic_review": [
+    "Canon-reserved minting differs from legitimate acquisition",
+    "No private prose or secret truth included in author-written summaries",
+    "Source evidence/contradictions and conditional L-tier boundaries retained",
+    "No global once restriction or forced exclusive career choice",
+    "COMMON docs-only override, sibling references and future gates retained"
+  ],
+  "limitations": [
+    "No independent full primary-lore audit",
+    "Marker scan is not independent sealed fairness proof",
+    "Link check is path presence, not anchor/network/content certification",
+    "No runtime tests/build/browser/persistence/human acceptance"
+  ]
+}

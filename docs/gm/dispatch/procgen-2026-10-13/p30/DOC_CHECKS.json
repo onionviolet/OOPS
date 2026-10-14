@@ -1,0 +1,180 @@
+{
+  "label": "DOCUMENT_STATIC_ONLY",
+  "status": "PASS",
+  "date": "2026-10-14",
+  "required_markdown_files": 8,
+  "local_link_targets_checked": 64,
+  "source_locator_first_ranges_checked": 21,
+  "source_locators": [
+    {
+      "document": "ANIMALS.md",
+      "path": ".claude/worktrees/proc-p2-mixing/src/mixture_state.js",
+      "start": 58,
+      "end": 62,
+      "pass": true
+    },
+    {
+      "document": "ANIMALS.md",
+      "path": ".claude/worktrees/proc-p2-mixing/src/mixture_native.js",
+      "start": 16,
+      "end": 19,
+      "pass": true
+    },
+    {
+      "document": "BODY_AND_AGE.md",
+      "path": "src/main.js",
+      "start": 2767,
+      "end": 2795,
+      "pass": true
+    },
+    {
+      "document": "BODY_AND_AGE.md",
+      "path": "src/body_progression.js",
+      "start": 3,
+      "end": 24,
+      "pass": true
+    },
+    {
+      "document": "BODY_AND_AGE.md",
+      "path": "src/town_content.js",
+      "start": 28,
+      "end": 34,
+      "pass": true
+    },
+    {
+      "document": "BODY_AND_AGE.md",
+      "path": "src/character_bio.js",
+      "start": 14,
+      "end": 25,
+      "pass": true
+    },
+    {
+      "document": "BODY_AND_AGE.md",
+      "path": "src/contextual_balm_content.js",
+      "start": 26,
+      "end": 44,
+      "pass": true
+    },
+    {
+      "document": "BODY_AND_AGE.md",
+      "path": "src/contextual_balm_native.js",
+      "start": 11,
+      "end": 35,
+      "pass": true
+    },
+    {
+      "document": "BODY_AND_AGE.md",
+      "path": "src/simulation_effects.js",
+      "start": 302,
+      "end": 314,
+      "pass": true
+    },
+    {
+      "document": "BODY_AND_AGE.md",
+      "path": "src/chronicle.js",
+      "start": 78,
+      "end": 89,
+      "pass": true
+    },
+    {
+      "document": "BODY_AND_AGE.md",
+      "path": "src/life_experience.js",
+      "start": 2,
+      "end": 2,
+      "pass": true
+    },
+    {
+      "document": "BODY_AND_AGE.md",
+      "path": "src/npc_lives.js",
+      "start": 5,
+      "end": 22,
+      "pass": true
+    },
+    {
+      "document": "BODY_AND_AGE.md",
+      "path": "src/main.js",
+      "start": 5189,
+      "end": 5189,
+      "pass": true
+    },
+    {
+      "document": "BODY_AND_AGE.md",
+      "path": "src/game_time.js",
+      "start": 18,
+      "end": 41,
+      "pass": true
+    },
+    {
+      "document": "BODY_AND_AGE.md",
+      "path": "src/main.js",
+      "start": 7226,
+      "end": 7251,
+      "pass": true
+    },
+    {
+      "document": "BODY_AND_AGE.md",
+      "path": "src/backlog_expansion_time.js",
+      "start": 43,
+      "end": 52,
+      "pass": true
+    },
+    {
+      "document": "BODY_AND_AGE.md",
+      "path": "src/absorb_e1/pacing.js",
+      "start": 20,
+      "end": 35,
+      "pass": true
+    },
+    {
+      "document": "BODY_AND_AGE.md",
+      "path": ".claude/worktrees/proc-p2-mixing/src/mixture_state.js",
+      "start": 47,
+      "end": 62,
+      "pass": true
+    },
+    {
+      "document": "BODY_AND_AGE.md",
+      "path": ".claude/worktrees/proc-p2-mixing/src/mixture_native.js",
+      "start": 16,
+      "end": 22,
+      "pass": true
+    },
+    {
+      "document": "BODY_AND_AGE.md",
+      "path": "src/main.js",
+      "start": 4,
+      "end": 6,
+      "pass": true
+    },
+    {
+      "document": "FAMILY.md",
+      "path": "src/npc_lives.js",
+      "start": 8,
+      "end": 22,
+      "pass": true
+    }
+  ],
+  "ranked_slices": [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5"
+  ],
+  "candidate_ports": [
+    "22000",
+    "22010",
+    "22020",
+    "22030",
+    "22040"
+  ],
+  "audited_source_hashes_rechecked": 21,
+  "source_changes_during_final_check": [],
+  "proposal_status_and_whitespace_style_scan": "PASS",
+  "secret_payload_field_scan": "no tested payload-field patterns found; manual authored-text review performed, not universal leak proof",
+  "issues": [],
+  "runtime_tests_build_browser_import": "NOT RUN",
+  "scope": "writes only p30; no commit",
+  "final_checked_at_utc": "2026-10-14T05:19:57.204769+00:00",
+  "concurrent_root_ancestry_refresh": "P2 now on main; three modules byte-identical; no native integration proof by P30"
+}

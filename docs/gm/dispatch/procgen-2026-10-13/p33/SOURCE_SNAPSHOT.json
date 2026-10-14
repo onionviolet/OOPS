@@ -1,0 +1,227 @@
+{
+  "status": "SOURCE snapshot only, all designs proposal",
+  "recorded_utc": "2026-10-14T05:20:24.032104+00:00",
+  "main_branch": "codex/gameplay-foundations",
+  "main_head": "c47d51939d3abcbf4d9cbbdd73270dd5b12cbb15",
+  "p2_tip": "f8fe699487c90ec06e83bfc020dfa8a6dc234705",
+  "p2_ancestor_exit_code": 0,
+  "p2_comparison": [
+    {
+      "path": "src/mixture_state.js",
+      "byte_equal": true
+    },
+    {
+      "path": "src/mixture_native.js",
+      "byte_equal": true
+    },
+    {
+      "path": "src/mixture_ui.js",
+      "byte_equal": true
+    }
+  ],
+  "files": [
+    {
+      "path": "src/audit_remainder_livelihood_facts.js",
+      "sha256": "69cd1dae7eb0df40eb813540cbd7755ee7e2b3b3b1ce0b025d379fd73364ba98",
+      "lines": 280
+    },
+    {
+      "path": "src/causal_story_host.js",
+      "sha256": "cc6464bb00936100be5cf6b02c95be62f38c3478d273b2b83c4395fb7bcf8c1c",
+      "lines": 504
+    },
+    {
+      "path": "src/chronicle.js",
+      "sha256": "c21046237528b7b692efc367ae7cacc9b1a41714c622eff24b29c8ff5a9b261b",
+      "lines": 315
+    },
+    {
+      "path": "src/event_feed.js",
+      "sha256": "cdc1c747ae9cc2b68ba6725d97b9657aabebfe531c3be4e961b3a8d59fcc2e3e",
+      "lines": 103
+    },
+    {
+      "path": "src/event_feed_ui.js",
+      "sha256": "d1c3539ea9d2f1f64fa67f453237f593b1dec3e9cd9b56754e730d674d02ffd0",
+      "lines": 50
+    },
+    {
+      "path": "src/feature_expansion_destination_native.js",
+      "sha256": "8b60fc635680a75088036846a468fd25f2eee4c24040066a80640d14ecaef9e9",
+      "lines": 135
+    },
+    {
+      "path": "src/game_time.js",
+      "sha256": "ae58e07158d52962cc8e0735b2e30af803f85bba4e68881038127a2b6b9cbf6c",
+      "lines": 197
+    },
+    {
+      "path": "src/main.js",
+      "sha256": "63bde375a9416186e116f26aa554172e0ef077563ed6d695eec93dd22f0cc956",
+      "lines": 8655
+    },
+    {
+      "path": "src/mixture_native.js",
+      "sha256": "15d49051cdea16f5ff10dd1db1aa6d8d17dd7b7e4685a3c46651c3bab196eea0",
+      "lines": 44
+    },
+    {
+      "path": "src/mixture_state.js",
+      "sha256": "1d3f161da9f2cb9bf138292be0f5e5b4e38c381a337fe55cc616eb71b908c02e",
+      "lines": 101
+    },
+    {
+      "path": "src/mixture_ui.js",
+      "sha256": "fb95a88773aeb13de0a42441ca38747ff0d9cf0281b7df8938a06e2441dc9d63",
+      "lines": 39
+    },
+    {
+      "path": "src/native_battle.js",
+      "sha256": "0eafceb761408d2d279d6037fceb92215745a73c0c64eb3a64a3be9bd268fee0",
+      "lines": 68
+    },
+    {
+      "path": "src/npc_lives.js",
+      "sha256": "abef56e7d73a0e17a3ba551608eafc4fb7f9f1660c17a445cfe96ae9869eb804",
+      "lines": 52
+    },
+    {
+      "path": "src/party_battle.js",
+      "sha256": "443b965cb757ade93c8d1c8a8ca9da7391117697cbaf8cf139b97a43daecf295",
+      "lines": 103
+    },
+    {
+      "path": "src/reputation.js",
+      "sha256": "5cdf9df294690247020b671b12308c35fbde8d654276bdb3317a319d0b7d9499",
+      "lines": 23
+    },
+    {
+      "path": "src/reputation_state.js",
+      "sha256": "ca7ff5939890e8953040c46f63f9f0151261326f503fa5f8d95beb238c37d716",
+      "lines": 17
+    },
+    {
+      "path": "src/simulation.js",
+      "sha256": "c5717787ca8e0fcb57e2933e8d8a39e9088f6e12d8d7197d91605517cdc0041b",
+      "lines": 642
+    },
+    {
+      "path": "src/storylet_deck.js",
+      "sha256": "683688b03fd26d2bfae7a1a1f5042bef27bf2e406b9787af94bf72b2416642a3",
+      "lines": 98
+    },
+    {
+      "path": "src/titles.js",
+      "sha256": "f73f298b6557220ce2753484115210f4fdf7b6e2731f69c6d6d41dce16645230",
+      "lines": 111
+    },
+    {
+      "path": "src/village_career.js",
+      "sha256": "6e8cf84ace080b1955ff4c21e32b11fbc78c52ac1728ac989c66593aada2f962",
+      "lines": 200
+    }
+  ],
+  "semantic_anchor_checks": [
+    {
+      "path": "src/main.js",
+      "line": 3751,
+      "expected_fragment": "function kill_player"
+    },
+    {
+      "path": "src/main.js",
+      "line": 4991,
+      "expected_fragment": "save_data.total_deaths"
+    },
+    {
+      "path": "src/main.js",
+      "line": 5416,
+      "expected_fragment": "game_stats.total_deaths"
+    },
+    {
+      "path": "src/main.js",
+      "line": 7214,
+      "expected_fragment": "waitingSimulationChoice"
+    },
+    {
+      "path": "src/main.js",
+      "line": 7223,
+      "expected_fragment": "character.is_alive = false"
+    },
+    {
+      "path": "src/main.js",
+      "line": 7288,
+      "expected_fragment": "Date.now"
+    },
+    {
+      "path": "src/main.js",
+      "line": 7295,
+      "expected_fragment": "Date.now"
+    },
+    {
+      "path": "src/main.js",
+      "line": 7819,
+      "expected_fragment": "Date.now"
+    },
+    {
+      "path": "src/event_feed.js",
+      "line": 102,
+      "expected_fragment": "slice(0,8)"
+    },
+    {
+      "path": "src/chronicle.js",
+      "line": 114,
+      "expected_fragment": "missed"
+    },
+    {
+      "path": "src/village_career.js",
+      "line": 99,
+      "expected_fragment": "promoteVillageCareer"
+    },
+    {
+      "path": "src/native_battle.js",
+      "line": 57,
+      "expected_fragment": "Math.max(1"
+    },
+    {
+      "path": "src/party_battle.js",
+      "line": 90,
+      "expected_fragment": "Math.max(1"
+    },
+    {
+      "path": "src/causal_story_host.js",
+      "line": 330,
+      "expected_fragment": "proof.restraint"
+    },
+    {
+      "path": "src/storylet_deck.js",
+      "line": 62,
+      "expected_fragment": "roll(record)"
+    },
+    {
+      "path": "src/storylet_deck.js",
+      "line": 87,
+      "expected_fragment": "interval===definition.interval"
+    },
+    {
+      "path": "src/simulation.js",
+      "line": 407,
+      "expected_fragment": "nonBlocking=true"
+    },
+    {
+      "path": "src/simulation.js",
+      "line": 501,
+      "expected_fragment": "e.nonBlocking"
+    },
+    {
+      "path": "src/mixture_native.js",
+      "line": 43,
+      "expected_fragment": "write(JSON.stringify(envelope))"
+    },
+    {
+      "path": "src/mixture_ui.js",
+      "line": 37,
+      "expected_fragment": "setInterval"
+    }
+  ],
+  "scope": "No private saves or source prose; source modules can drift under root ownership."
+}

@@ -24,6 +24,8 @@ V2: `git diff --check -- docs/gm/dispatch/procgen-2026-10-13/p35/` returned succ
 
 V3: Tool write inventory: initial directory/checkpoint creation, two Python Markdown-writing operations, then this checkpoint update. Every target was inside p35. Main checkout was already extensively dirty and other lanes active; whole-tree status changes cannot establish another worker's write attribution. No shared path authored, staged or committed by P35. Source fingerprint collection below is read-only.
 
+V4: Final static pass after checkpoint update: all 7 required files, 64 local links, exactly 5 ranked slices and the 5 prospective ports passed. Final source review also recorded P2 UI line29 raw-key dataset assignment as an INFERRED disclosure risk for root/P2, with no runtime patch or browser reproduction. The ensuing clarification adds two source locators and no local links.
+
 ## Read snapshot fingerprints
 
 These hashes identify sampled files at documentation close, not a checkout lock or runtime/served-byte proof. Root refreshes changed APIs before implementation. Source was not modified by P35.

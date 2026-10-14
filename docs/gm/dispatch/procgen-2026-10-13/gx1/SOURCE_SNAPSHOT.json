@@ -1,0 +1,166 @@
+{
+  "status": "PROPOSAL documentation input snapshot; no runtime evidence",
+  "captured_utc": "2026-10-14T05:40:26.587794+00:00",
+  "branch": "codex/gameplay-foundations",
+  "head_at_capture": "d5c819db9cb983ed537573340e703cc6680b9c0e",
+  "wave1_merge_ancestor": true,
+  "inputs": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "0aecd5d70ed7f6c7815c81b66ac6137da49b1c04573ac785007cfb38ad559026"
+    },
+    {
+      "path": "PROJECT.md",
+      "sha256": "ff1d541093bd734521277ed29fdb95a5c5e0e7701c52fd9ca7463f791b57b3ab"
+    },
+    {
+      "path": "docs/USER_VISION.md",
+      "sha256": "fe5f370e14ea463255af9758d1abecc52f7bcf124b50d48d41a82806fb785e89"
+    },
+    {
+      "path": "docs/PROCEDURAL_GENERATION_STATUS_2026-10-13.md",
+      "sha256": "06e881835e437d2ca9d3d3e6e2fcec8d5c9db03f16b2b01e49859be738f48afc"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/COMMON.md",
+      "sha256": "615702f75ed356bfbd2d427b59d6bd713cc1ce5768a4cde6062a20aa5f1342ef"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/PLAN.md",
+      "sha256": "0be50079f37aa38129955582db626d10a07e2ad6a7619884a6c8f18cfea8cd08"
+    },
+    {
+      "path": "src/mixture_ui.js",
+      "sha256": "fb95a88773aeb13de0a42441ca38747ff0d9cf0281b7df8938a06e2441dc9d63"
+    },
+    {
+      "path": "src/mixture_state.js",
+      "sha256": "1d3f161da9f2cb9bf138292be0f5e5b4e38c381a337fe55cc616eb71b908c02e"
+    },
+    {
+      "path": "src/mixture_native.js",
+      "sha256": "15d49051cdea16f5ff10dd1db1aa6d8d17dd7b7e4685a3c46651c3bab196eea0"
+    },
+    {
+      "path": "src/generated_people_ui.js",
+      "sha256": "ed4f5b598a4c4ec7eb731acc6662201e221b22bff6bd86aefe03dccc96ab6670"
+    },
+    {
+      "path": "src/generated_people.js",
+      "sha256": "c2b4c1d7dda442ee9032524059dea15a044dace23b50c355d343b7f6aca6acd3"
+    },
+    {
+      "path": "src/seeded_streams.js",
+      "sha256": "db2a19d956515eab816f7df7ca13ffc11d08797de61a583811f92254c46b7610"
+    },
+    {
+      "path": "src/storylet_content.js",
+      "sha256": "eb24109e0fa2efcae69db8ce0effd2dd9313b1b7f281a1647211a2bcee979fa9"
+    },
+    {
+      "path": "src/name_grammar.js",
+      "sha256": "862067cd88e96e2dc79c79bb68be4eddef2a9459fa1fcfbb653ecfce20825652"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p5/REPORT.md",
+      "sha256": "acf976b42df432a049bd48a2a6345d13bed6afc4ee327803d33996cfc523fa01"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p6/REPORT.md",
+      "sha256": "2b58f1b41d9fa32abb6768728278075ec5aa89c0d8dae368cb8fbc2d8a8d1ba2"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p7/REPORT.md",
+      "sha256": "ccb31c16dfa24d0393385c7f1f80b2aa8a39e9e3a51285f0d58b06be9ed85ddd"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p8/REPORT.md",
+      "sha256": "d6103ce8a810d8918179b46a8c3011d0b6cd82f27564917f6286bbf849c221ce"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p9/REPORT.md",
+      "sha256": "b257986094135e6b83779875987334f46a611c5c99134243992e9116ed5b519e"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p10/REPORT.md",
+      "sha256": "ddc3b9c9d6c83020f70f083e65200191f415f13391a83fcccc74797bfd722402"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p11/REPORT.md",
+      "sha256": "ffa056c0cd1e5b7e70763f765ce4dc77e742dbf89446467dda651751e744713e"
+    },
+    {
+      "path": "docs/gm/dispatch/comics-2026-10-14/K1_REPORT.md",
+      "sha256": "8191a15c1a88029e64be5bb9b4956f633527215ff45459d49e3df2bc1f19ca46"
+    },
+    {
+      "path": "docs/gm/dispatch/comics-2026-10-14/K2_REPORT.md",
+      "sha256": "7f458452df5e2377bf2599962e80c4e520d8db713bd47c5b5efcec910f948828"
+    },
+    {
+      "path": "docs/gm/dispatch/comics-2026-10-14/K3_REPORT.md",
+      "sha256": "f3b1f85f11804400f719c756d3b8c125ac5b603238bf6eccbb8abb20f51ec9a4"
+    },
+    {
+      "path": "docs/gm/dispatch/comics-2026-10-14/K4_REPORT.md",
+      "sha256": "147ad0b57b27a0ffc4b1ddccbc7973c22c92b9d18aff560a3428fc1bd228fca0"
+    },
+    {
+      "path": "docs/gm/dispatch/comics-2026-10-14/K5_REPORT.md",
+      "sha256": "ce0d9ff5a82848e56cc2cb64a177b5318c5ef0980acfb5db970201ad9ab199e7"
+    },
+    {
+      "path": "docs/gm/dispatch/comics-2026-10-14/WEBTOON_WORLDS.md",
+      "sha256": "42bbed33c40f328e480334cafeae5d93b4f34bad05ca26bbe97801ccb4607a58"
+    },
+    {
+      "path": "docs/gm/dispatch/comics-2026-10-14/MORE_COMIC_WORLDS.md",
+      "sha256": "9a132eed70d9a0e96b2a7e25268328645758e8e95211ed4f10cc050097ffcfce"
+    },
+    {
+      "path": "docs/gm/dispatch/comics-2026-10-14/MEDIUM_TO_TEXT_UI.md",
+      "sha256": "ce13ac457f6e34130d021294f6898061703ad35686ddcd7f03b12080038e2e1f"
+    },
+    {
+      "path": "docs/gm/dispatch/comics-2026-10-14/SUPERHERO_GAME_RULES.md",
+      "sha256": "0e4a7f428c056f0cb52c77894cf4cca83165bee4669324cebb113f3c638e5efb"
+    },
+    {
+      "path": "docs/gm/dispatch/comics-2026-10-14/CONTINUITY_MECHANICS.md",
+      "sha256": "433afc982809db58344b2e8ea876f466929a49134a872cfe0542996ab410f574"
+    },
+    {
+      "path": "docs/COMIC_WORLDS_AND_MEDIUM_CONSIDERATIONS_2026-10-14.md",
+      "sha256": "f39b3101381b330af0dc94ac64d49326f7909f8938f62a767e93b755d97af8e2"
+    },
+    {
+      "path": "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+      "sha256": "c418a4c0fbbbd583949e00d80e3edd8481975eef6d40c7880f3d2af4037ba1ca"
+    },
+    {
+      "path": "docs/UI_AT_SCALE_CONSIDERATIONS_2026-10-14.md",
+      "sha256": "b178f60e1a7279effbeea95dc4fb5faa193f0e25208b8250c5afee842fcc3a62"
+    },
+    {
+      "path": "docs/CORE_FOUNDATIONS_SCORECARD_2026-10-14.md",
+      "sha256": "976b7bbd77eeb3db411c8f60594908236edb63938696f3cc33586e663e8b48a4"
+    },
+    {
+      "path": "docs/CHEAT_LIBRARY.md",
+      "sha256": "17c27211a3a743fa8f7f3571d76984cbec36a91150264e55af17b930e6fe01b1"
+    },
+    {
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "sha256": "909802f3258babf0ea0bcc5e6c756a18c5b8287f2e3859033dd3a56fff9daaca"
+    },
+    {
+      "path": "docs/emergent/E1_SEEDED_STREAMS.md",
+      "sha256": "7582bb8088ac9d83f3ac95bd95340a059d91d195fa17efe331ab3ba3636604a6"
+    }
+  ],
+  "k6_output_present": {
+    "ENGINE_FIT.md": false,
+    "K6_REPORT.md": false
+  },
+  "limitations": "Hashes fingerprint capture inputs, not ownership locks, original read-time byte proofs, canon authentication or rebuilt gameplay. Concurrent checkout remains dirty."
+}

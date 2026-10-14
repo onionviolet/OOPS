@@ -1,0 +1,235 @@
+{
+  "status": "READ_ONLY_SOURCE_SNAPSHOT_NOT_RUNTIME_PROOF",
+  "capturedAt": "2026-10-14T03:41:06.277269+00:00",
+  "head": "671b3847e6483481655150307bda92e37587182e",
+  "branch": "codex/gameplay-foundations",
+  "files": [
+    {
+      "path": "PROJECT.md",
+      "sha256": "3a9ce6bdf821caa68c3be574bcd0d294027af637988fe56c130a7c5e34718dda",
+      "lines": 669
+    },
+    {
+      "path": "AGENTS.md",
+      "sha256": "0aecd5d70ed7f6c7815c81b66ac6137da49b1c04573ac785007cfb38ad559026",
+      "lines": 107
+    },
+    {
+      "path": "docs/USER_VISION.md",
+      "sha256": "dc39b8ec3691e560f8300427860b44650b2d08d1c3fd60d249fa4def53ba052f",
+      "lines": 2123
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/COMMON.md",
+      "sha256": "615702f75ed356bfbd2d427b59d6bd713cc1ce5768a4cde6062a20aa5f1342ef",
+      "lines": 50
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/PLAN.md",
+      "sha256": "c1edadfbecc0a966e64059f74ec774f6a7362c221014acbfa997ae0045bafb64",
+      "lines": 36
+    },
+    {
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "sha256": "909802f3258babf0ea0bcc5e6c756a18c5b8287f2e3859033dd3a56fff9daaca",
+      "lines": 849
+    },
+    {
+      "path": "docs/CHEAT_LIBRARY.md",
+      "sha256": "fcbd5052c0fd7a6d7c1d7be3af2a613bdffd21d5d7cc9bc0ca36467b67ba570c",
+      "lines": 957
+    },
+    {
+      "path": "docs/audits/cheat-implementation-2026-10-10/REPORT.md",
+      "sha256": "793902dc79352c28aa1973d0dd1e9a414a5d1186896c5e3c033c8055fc0797fd",
+      "lines": 281
+    },
+    {
+      "path": "docs/worlds/WORLD_SECRETS_AND_DISCOVERY.md",
+      "sha256": "238e270799dab7a8b09bc81ebfce0943a6df4bf465bfb7cbe7079ebf7c8120e9",
+      "lines": 203
+    },
+    {
+      "path": "docs/worlds/ORIGINS_AND_WORLD_TIMELINES.md",
+      "sha256": "ff928265b787cbece0dcc7e4634df8f5bb4cd6009b70a0f8fe246fb66f4ed403",
+      "lines": 118
+    },
+    {
+      "path": "docs/STARTS_ENDINGS_AND_RANDOMNESS_PALETTE.md",
+      "sha256": "79a084cd8b3669750b0648ed1739df641a4e0df7c871ce08d83dfef438f88870",
+      "lines": 107
+    },
+    {
+      "path": "docs/worlds/CAMPAIGN_FRAMEWORK.md",
+      "sha256": "679feddcd8572f75525cd598d54243353883ad86fd99a5584fa46dfb6e4d081d",
+      "lines": 216
+    },
+    {
+      "path": "docs/emergent/E6_LORE_LAYER.md",
+      "sha256": "886a2fb8ef8b7192b71814bfcbc3b4e28934191e74e6b572ac728bfe16cb94dd",
+      "lines": 599
+    },
+    {
+      "path": "docs/TIMELINES_AND_DIVERGENCE.md",
+      "sha256": "ddbd89552dc53a8f830b2f43c65fcc4f639c23aca450c3e99440152f9d1588ee",
+      "lines": 602
+    },
+    {
+      "path": "docs/emergent/E5_STORYTELLER_AND_FATE.md",
+      "sha256": "75bf377ad317b8244aa2437c5a1fd819f81490a809e7eb852d18110daa6be589",
+      "lines": 753
+    },
+    {
+      "path": "docs/RNG_ENCOUNTERS_AND_SOURCE_DEVELOPMENT.md",
+      "sha256": "f35f19991ccddab2e95206e23fb8cbe215b30353da542aceddf6bad36478f801",
+      "lines": 182
+    },
+    {
+      "path": "docs/reviews/WHOLE_PROJECT_GAME_ARCHITECTURE_REVIEW_2026-10-12.md",
+      "sha256": "73a98610d4b253da15fff363b3804c6e3f168d866e249e98cf6966279b2e5786",
+      "lines": 325
+    },
+    {
+      "path": "docs/research/nethack/REPORT.md",
+      "sha256": "512a27df406ff0237f98462f698dc182b62954047c2f9c058137a5cb559e5742",
+      "lines": 27
+    },
+    {
+      "path": "docs/research/nethack/FOLLOWUP_SOURCE.md",
+      "sha256": "1cb90f7a0ade5503187f26ea91eb17236281652a3e08fe2476d9b908e751bc53",
+      "lines": 45
+    },
+    {
+      "path": "src/main.js",
+      "sha256": "fc0743237c7c93a62ac834bd636afe5c6c7858172b77d1a53d01a84b1195172f",
+      "lines": 8579
+    },
+    {
+      "path": "src/expansion_engine.js",
+      "sha256": "da1e9761400bec1cf72f4da171408f22af6cb6a2ce3dd72565b8b29039ab3f82",
+      "lines": 685
+    },
+    {
+      "path": "src/capabilities.js",
+      "sha256": "c72b4c32d26ffb4988e970e6aa849498e3fb79e5bd987b7ab86d449a15322b35",
+      "lines": 69
+    },
+    {
+      "path": "src/simulation.js",
+      "sha256": "4b0cec849a464c1ea758752c0881f15f7f26d5be857173ffcefda4b7eaba149c",
+      "lines": 633
+    },
+    {
+      "path": "src/simulation_contracts.js",
+      "sha256": "bfcf6b671c00e2db774880a204fa94cba06cdbf43ac56bef30bf131fee19ac95",
+      "lines": 322
+    },
+    {
+      "path": "src/simulation_effects.js",
+      "sha256": "b527e7ae07125a91a6241fc125102acc4b9aa49df0db4164ff4e1416c11d1856",
+      "lines": 394
+    },
+    {
+      "path": "src/simulation_resolution.js",
+      "sha256": "b47789d1959d5e43fcce298b3631830169aa0d89b972cd7d08da1a55e4c2fd94",
+      "lines": 41
+    },
+    {
+      "path": "src/simulation_content.js",
+      "sha256": "9c55fc6edeebb9f75027dcada4dcc44ebb1fc27e4815cac75731825e0f2252bc",
+      "lines": 129
+    },
+    {
+      "path": "src/save_files.js",
+      "sha256": "dc7908d8a257ddcb896b0a3a077902ce961a7b681d0cba24e1dd1ef7f992e81f",
+      "lines": 217
+    },
+    {
+      "path": "src/life_record.js",
+      "sha256": "21ac5f17fff62794ba26d7180deb6a9c0ad85060d79134e5d6ce83de51d1d9bd",
+      "lines": 82
+    },
+    {
+      "path": "src/life_experience_host.js",
+      "sha256": "67d347365e40988aa281fa093b08c5a3a8a1cd354544a13d5e3c647fd07426f2",
+      "lines": 30
+    },
+    {
+      "path": "src/cheat_cards.js",
+      "sha256": "8ca52e83187845d8da7bdb11d5ba96befe81bd3f2ebbe932f0c664f8140273d4",
+      "lines": 101
+    },
+    {
+      "path": "src/npc_lives.js",
+      "sha256": "abef56e7d73a0e17a3ba551608eafc4fb7f9f1660c17a445cfe96ae9869eb804",
+      "lines": 52
+    },
+    {
+      "path": "src/nethack_fieldcraft_content.js",
+      "sha256": "06f1eb8333289d37e5225feba5b055c8c576ee152097d91b02f151cb87e47641",
+      "lines": 121
+    },
+    {
+      "path": "src/nethack_fieldcraft_item_view.js",
+      "sha256": "0931a4c708b4d372bf4e47577814f9373879dbb563e5b2c107de45d07c148015",
+      "lines": 70
+    },
+    {
+      "path": "src/expedition_content.js",
+      "sha256": "0b9030b096bbe4e2868e0686d9d51057e9c34e7ccd07781badbd46b83e38ff37",
+      "lines": 163
+    },
+    {
+      "path": "src/village_content.js",
+      "sha256": "0a8a4a250e97091ccf92bcaae138a5f071e6dba673ea462a31fe9b8e868b4e15",
+      "lines": 115
+    },
+    {
+      "path": "src/items.js",
+      "sha256": "bf39177717442dfcb7112e2f10d146828ccf79de6dd71e0fc14cb951667f032f",
+      "lines": 4558
+    },
+    {
+      "path": "src/models/location.js",
+      "sha256": "2e4c0e8d84b9213fb3f0324d0a495791bfa4d1adc5b15b37ecadd079678b2ecd",
+      "lines": 586
+    },
+    {
+      "path": "src/weather.js",
+      "sha256": "dd04eef6a8d917cca9ef3f5ed0cb1aef880dbd74ac762429fabb4529f577d02b",
+      "lines": 256
+    },
+    {
+      "path": "src/game_time.js",
+      "sha256": "ae58e07158d52962cc8e0735b2e30af803f85bba4e68881038127a2b6b9cbf6c",
+      "lines": 197
+    },
+    {
+      "path": "src/body_progression.js",
+      "sha256": "47e8de67bdb099fb41365afafbf3081e342e734d97615850f921e0b280dfe84e",
+      "lines": 85
+    }
+  ],
+  "finalAuthorityRefresh": {
+    "at": "2026-10-14T03:55:50.758543+00:00",
+    "head": "d1ef4736ab7602fe4cfd75d4252b6494c22501ff",
+    "changedInputs": [
+      {
+        "path": "docs/USER_VISION.md",
+        "previousSha256": "90ee3cc7a9d3474173696e4a29cdd311411506d21898c3b352a7e0061273937d",
+        "sha256": "dc39b8ec3691e560f8300427860b44650b2d08d1c3fd60d249fa4def53ba052f"
+      },
+      {
+        "path": "docs/gm/dispatch/procgen-2026-10-13/PLAN.md",
+        "previousSha256": "adf306392d4aef4457111db0438cd63fce4d9c7c9396dc8a924cba0b98f2643f",
+        "sha256": "c1edadfbecc0a966e64059f74ec774f6a7362c221014acbfa997ae0045bafb64"
+      },
+      {
+        "path": "docs/CHEAT_LIBRARY.md",
+        "previousSha256": "44179e241cd3e7ff764124ced0661dca26f37e8613fd161604e7da74e0b8bdca",
+        "sha256": "fcbd5052c0fd7a6d7c1d7be3af2a613bdffd21d5d7cc9bc0ca36467b67ba570c"
+      }
+    ],
+    "assessment": "USER_VISION appended start-record lifecycle considerations; proposals only. Selected direction and audited source hashes unchanged. Read latest tail and preserved chosen Village versus expanded random-entry distinction."
+  }
+}

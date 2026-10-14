@@ -1,0 +1,105 @@
+{
+  "capturedAtUTC": "2026-10-14T05:33:14.169756+00:00",
+  "status": "proposal read snapshot; no source lock or runtime execution",
+  "p2Branch": "proc/p2-mixing",
+  "p2Head": "f8fe699487c90ec06e83bfc020dfa8a6dc234705",
+  "records": [
+    {
+      "path": ".claude/worktrees/proc-p2-mixing/src/mixture_state.js",
+      "sha256": "1d3f161da9f2cb9bf138292be0f5e5b4e38c381a337fe55cc616eb71b908c02e",
+      "bytes": 10784,
+      "scope": "selected source/owner sections, not whole-file or primary-text certification"
+    },
+    {
+      "path": ".claude/worktrees/proc-p2-mixing/src/mixture_native.js",
+      "sha256": "15d49051cdea16f5ff10dd1db1aa6d8d17dd7b7e4685a3c46651c3bab196eea0",
+      "bytes": 4540,
+      "scope": "selected source/owner sections, not whole-file or primary-text certification"
+    },
+    {
+      "path": ".claude/worktrees/proc-p2-mixing/src/mixture_ui.js",
+      "sha256": "fb95a88773aeb13de0a42441ca38747ff0d9cf0281b7df8938a06e2441dc9d63",
+      "bytes": 7656,
+      "scope": "selected source/owner sections, not whole-file or primary-text certification"
+    },
+    {
+      "path": ".claude/worktrees/proc-p2-mixing/src/items.js",
+      "sha256": "a133d61e7473038fd47bdf749916d98c307b38611d2a16eb241b342dfd8c528e",
+      "bytes": 169213,
+      "scope": "selected source/owner sections, not whole-file or primary-text certification"
+    },
+    {
+      "path": ".claude/worktrees/proc-p2-mixing/src/main.js",
+      "sha256": "349ffd2e8f06ea8c01357938494c57dfd994b773fd30fa9b4b49a6521d19c30c",
+      "bytes": 504314,
+      "scope": "selected source/owner sections, not whole-file or primary-text certification"
+    },
+    {
+      "path": ".claude/worktrees/proc-p2-mixing/docs/gm/dispatch/procgen-2026-10-13/p2/REPORT.md",
+      "sha256": "23e4bf9f8e24b5709944bb54d32e47d91d29324682a8abb23c31f7304e86c6b7",
+      "bytes": 9803,
+      "scope": "selected source/owner sections, not whole-file or primary-text certification"
+    },
+    {
+      "path": "docs/PROCEDURAL_CRAFTING_AND_CONSUMABLES_CONSIDERATIONS_2026-10-14.md",
+      "sha256": "36f08b14af5b8f1cc3654e9d99c12280bade323f5af7b8ddf04e158614a9005f",
+      "bytes": 35429,
+      "scope": "selected source/owner sections, not whole-file or primary-text certification"
+    },
+    {
+      "path": "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+      "sha256": "c418a4c0fbbbd583949e00d80e3edd8481975eef6d40c7880f3d2af4037ba1ca",
+      "bytes": 63607,
+      "scope": "selected source/owner sections, not whole-file or primary-text certification"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/COMMON.md",
+      "sha256": "615702f75ed356bfbd2d427b59d6bd713cc1ce5768a4cde6062a20aa5f1342ef",
+      "bytes": 4046,
+      "scope": "selected source/owner sections, not whole-file or primary-text certification"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/PLAN.md",
+      "sha256": "0be50079f37aa38129955582db626d10a07e2ad6a7619884a6c8f18cfea8cd08",
+      "bytes": 13387,
+      "scope": "selected source/owner sections, not whole-file or primary-text certification"
+    },
+    {
+      "path": "PROJECT.md",
+      "sha256": "ff1d541093bd734521277ed29fdb95a5c5e0e7701c52fd9ca7463f791b57b3ab",
+      "bytes": 50071,
+      "scope": "selected source/owner sections, not whole-file or primary-text certification"
+    },
+    {
+      "path": "docs/USER_VISION.md",
+      "sha256": "fe5f370e14ea463255af9758d1abecc52f7bcf124b50d48d41a82806fb785e89",
+      "bytes": 269051,
+      "scope": "selected source/owner sections, not whole-file or primary-text certification"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p9/SOURCE_MAP.md",
+      "sha256": "67d7bc2c89754e71241457de6175b4aafbf6fefdc91c9cafe5d2efe5ce19df45",
+      "bytes": 8165,
+      "scope": "selected source/owner sections, not whole-file or primary-text certification"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p10/SOURCE_NOTES.md",
+      "sha256": "1699e03eca1a19ada1a7b04620af5b38ad2eeba1a06a77a8006e26356ed4e4fc",
+      "bytes": 9975,
+      "scope": "selected source/owner sections, not whole-file or primary-text certification"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p13/SOURCE_NOTES.md",
+      "sha256": "d1e37ee1919f6ae914e3c9c5fc3674ad715b113c8213dc553e5c3453b6d8d7fa",
+      "bytes": 7968,
+      "scope": "selected source/owner sections, not whole-file or primary-text certification"
+    },
+    {
+      "path": "docs/worlds/paradise-hub/HUB_LIFE_ECONOMY_AND_PEOPLE_2026-10-14.md",
+      "sha256": "dfa1a8928d9c5220b19ecf638e29416d1d977a6cae2c728771f6a1793458c06d",
+      "bytes": 48443,
+      "scope": "selected source/owner sections, not whole-file or primary-text certification"
+    }
+  ],
+  "privateIndexPolicy": "locator use only, no private prose copied; no private saves inspected"
+}

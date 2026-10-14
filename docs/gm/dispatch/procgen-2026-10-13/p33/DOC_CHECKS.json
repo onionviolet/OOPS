@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "label": "DOCUMENTATION/SOURCE only; no runtime tests/build/native/persistence gates run",
+  "recorded_utc": "2026-10-14T05:20:24.032104+00:00",
+  "required_markdown_artifacts": 9,
+  "relative_targets_checked": 91,
+  "fragments_checked": 9,
+  "source_line_ranges_checked": 67,
+  "semantic_anchor_checks": 20,
+  "fingerprinted_main_source_files": 20,
+  "p2_module_byte_equal_checks": 3,
+  "ranked_slices": 5,
+  "prospective_ports": [
+    22300,
+    22310,
+    22320,
+    22330,
+    22340
+  ],
+  "errors": []
+}

@@ -1,0 +1,61 @@
+{
+  "status": "PROPOSAL PACKET / DOC CHECKS PASS",
+  "checked_at": "2026-10-14T05:28:43.932406+00:00",
+  "head_at_check": "f16bd67c99b2ab3b4aed329295f6823c9ab85cc4",
+  "counts": {
+    "markdown_files": 8,
+    "local_links": 64,
+    "source_locator_groups": 15,
+    "GS_rows": 14,
+    "GO_specs": 7,
+    "recommended_slices": 5,
+    "owned_files": 9
+  },
+  "checks": {
+    "local_link_targets_and_fragments": "PASS",
+    "source_line_ranges": "range existence only, not semantic authentication",
+    "proposal_markers": "checked in every Markdown file",
+    "sealed_review": "manual structural review; no sealed candidate files read; not an independent fairness audit",
+    "write_scope": "all task write calls target gx3; global git dirty state is concurrent and not attributed to GX3",
+    "evidence": "static documentation checks only; no runtime tests/build/browser/save/import"
+  },
+  "failures": [],
+  "input_sha256_at_final_check": {
+    "PROJECT.md": "ff1d541093bd734521277ed29fdb95a5c5e0e7701c52fd9ca7463f791b57b3ab",
+    "docs/USER_VISION.md": "fe5f370e14ea463255af9758d1abecc52f7bcf124b50d48d41a82806fb785e89",
+    "docs/PROCEDURAL_GENERATION_STATUS_2026-10-13.md": "06e881835e437d2ca9d3d3e6e2fcec8d5c9db03f16b2b01e49859be738f48afc",
+    "docs/gm/dispatch/procgen-2026-10-13/COMMON.md": "615702f75ed356bfbd2d427b59d6bd713cc1ce5768a4cde6062a20aa5f1342ef",
+    "docs/gm/dispatch/procgen-2026-10-13/PLAN.md": "0be50079f37aa38129955582db626d10a07e2ad6a7619884a6c8f18cfea8cd08",
+    "docs/gm/dispatch/procgen-2026-10-13/STATUS.md": "4e2a6ae7debb602576a7daa812e54d3e4f6a04c750e35fd49d9fe4eaaaeac09b",
+    "src/seeded_streams.js": "db2a19d956515eab816f7df7ca13ffc11d08797de61a583811f92254c46b7610",
+    "src/mixture_state.js": "1d3f161da9f2cb9bf138292be0f5e5b4e38c381a337fe55cc616eb71b908c02e",
+    "src/mixture_native.js": "15d49051cdea16f5ff10dd1db1aa6d8d17dd7b7e4685a3c46651c3bab196eea0",
+    "src/mixture_ui.js": "fb95a88773aeb13de0a42441ca38747ff0d9cf0281b7df8938a06e2441dc9d63",
+    "src/storylet_content.js": "eb24109e0fa2efcae69db8ce0effd2dd9313b1b7f281a1647211a2bcee979fa9",
+    "src/storylet_deck.js": "683688b03fd26d2bfae7a1a1f5042bef27bf2e406b9787af94bf72b2416642a3",
+    "src/generated_people.js": "c2b4c1d7dda442ee9032524059dea15a044dace23b50c355d343b7f6aca6acd3",
+    "src/generated_people_ui.js": "ed4f5b598a4c4ec7eb731acc6662201e221b22bff6bd86aefe03dccc96ab6670",
+    "src/name_grammar.js": "862067cd88e96e2dc79c79bb68be4eddef2a9459fa1fcfbb653ecfce20825652",
+    "src/world_instances.js": "cf15bd3c1d34153c541617fdd83a45d9b9faddd98b64b20edd0160d9547720fd",
+    "src/save_files.js": "9b87a732f2cb18abfd9e4225fa546203fed0b5d6e544e1284af01b2f61f16e6a",
+    "src/absorb_e2/durability.js": "da884f4348090ceb0449af17c307df4fea2c07bafb3252682c9f5f20e7bdd02b",
+    "docs/UI_AT_SCALE_CONSIDERATIONS_2026-10-14.md": "b178f60e1a7279effbeea95dc4fb5faa193f0e25208b8250c5afee842fcc3a62",
+    "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md": "c418a4c0fbbbd583949e00d80e3edd8481975eef6d40c7880f3d2af4037ba1ca",
+    "docs/worlds/WORLD_CORE_KIT_2026-10-14.md": "0472a8153049c30dbbf4715dc513cfec600b4662bbe06982a245798aa17a8c31",
+    "docs/gm/dispatch/away-ledger-2026-10-14/GOAL.md": "6ac9ece2bd294c4f2c0073fc290d646536f976231966bad535d0a6f20b9f0466",
+    "docs/gm/dispatch/procgen-2026-10-13/p5/REPORT.md": "acf976b42df432a049bd48a2a6345d13bed6afc4ee327803d33996cfc523fa01",
+    "docs/gm/dispatch/procgen-2026-10-13/p6/REPORT.md": "2b58f1b41d9fa32abb6768728278075ec5aa89c0d8dae368cb8fbc2d8a8d1ba2",
+    "docs/gm/dispatch/procgen-2026-10-13/p7/REPORT.md": "ccb31c16dfa24d0393385c7f1f80b2aa8a39e9e3a51285f0d58b06be9ed85ddd",
+    "docs/gm/dispatch/procgen-2026-10-13/p8/REPORT.md": "d6103ce8a810d8918179b46a8c3011d0b6cd82f27564917f6286bbf849c221ce",
+    "docs/gm/dispatch/procgen-2026-10-13/p9/REPORT.md": "b257986094135e6b83779875987334f46a611c5c99134243992e9116ed5b519e",
+    "docs/gm/dispatch/procgen-2026-10-13/p10/REPORT.md": "ddc3b9c9d6c83020f70f083e65200191f415f13391a83fcccc74797bfd722402",
+    "docs/gm/dispatch/procgen-2026-10-13/p11/REPORT.md": "ffa056c0cd1e5b7e70763f765ce4dc77e742dbf89446467dda651751e744713e",
+    "/Users/weiwei/.codex/worktrees/start-records/yet-another-idle-rpg/src/away_ledger.js": "b814c48d301c79b99cd12bc577638750b9d39cd1ae61a8a84fe10bfdb797d3ab"
+  },
+  "fingerprint_limit": "Final-check snapshots, not a lock or a claim that concurrently edited inputs stayed byte-identical throughout research.",
+  "final_owned_document_refresh": {
+    "checked_at": "2026-10-14T05:29:37.341417+00:00",
+    "local_links": 64,
+    "failures": []
+  }
+}

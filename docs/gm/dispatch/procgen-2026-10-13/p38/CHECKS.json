@@ -1,0 +1,22 @@
+{
+  "status": "PROPOSAL documentation verification only",
+  "checked_at": "2026-10-14T05:31:21.084873+00:00",
+  "required_markdown": 8,
+  "total_markdown": 9,
+  "links_checked": 65,
+  "fragments_checked": 1,
+  "ranked_next_steps": 5,
+  "overlap_dispositions": 58,
+  "contract_files_in_snapshot": 4,
+  "source_locator_groups_checked": 26,
+  "source_spans_checked": 52,
+  "required_live_source_drift_since_snapshot": [],
+  "issues": [],
+  "passed": true,
+  "runtime_tests": "NOT RUN",
+  "build": "NOT RUN",
+  "browser": "NOT RUN",
+  "save_import": "NOT RUN",
+  "human_acceptance": "NOT RUN",
+  "write_scope": "All explicitly executed writes confined to p38; existing dirty state preserved; no commits"
+}
