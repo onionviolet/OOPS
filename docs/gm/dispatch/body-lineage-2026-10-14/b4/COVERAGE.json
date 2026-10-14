@@ -1,0 +1,723 @@
+{
+  "date": "2026-10-14",
+  "policy": "Top-level current digests only; historical copies are not additional sources.",
+  "digests": [
+    {
+      "slug": "a-practical-guide-to-evil",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_a-practical-guide-to-evil.md",
+      "disposition": "skip: no relevant supported body/lineage finding in consulted digest",
+      "output": null
+    },
+    {
+      "slug": "all-the-dust-that-falls",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_all-the-dust-that-falls.md",
+      "disposition": "skip: no relevant supported body/lineage finding in consulted digest",
+      "output": null
+    },
+    {
+      "slug": "astral-apostle",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_astral-apostle.md",
+      "disposition": "lead only, canon qualification open",
+      "output": "SRC_astral-apostle.md"
+    },
+    {
+      "slug": "black-clover",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_black-clover.md",
+      "disposition": "bounded evidence",
+      "output": "SRC_black-clover.md"
+    },
+    {
+      "slug": "bleach",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_bleach.md",
+      "disposition": "lead only, canon qualification open",
+      "output": "SRC_bleach.md"
+    },
+    {
+      "slug": "carefree-path-of-dreams",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_carefree-path-of-dreams.md",
+      "disposition": "lead only, canon qualification open",
+      "output": "SRC_carefree-path-of-dreams.md"
+    },
+    {
+      "slug": "chainsaw-man",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_chainsaw-man.md",
+      "disposition": "bounded evidence",
+      "output": "SRC_chainsaw-man.md"
+    },
+    {
+      "slug": "coiling-dragon",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_coiling-dragon.md",
+      "disposition": "bounded secondary extract plus unverified leads",
+      "output": "SRC_coiling-dragon.md"
+    },
+    {
+      "slug": "cradle",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_cradle.md",
+      "disposition": "bounded evidence",
+      "output": "SRC_cradle.md"
+    },
+    {
+      "slug": "curses-sleeping-beauty-and-the-monkey-paw",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_curses-sleeping-beauty-and-the-monkey-paw.md",
+      "disposition": "skip: no relevant supported body/lineage finding in consulted digest",
+      "output": null
+    },
+    {
+      "slug": "d-genesis-three-years-after-the-dungeons-appeared",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_d-genesis-three-years-after-the-dungeons-appeared.md",
+      "disposition": "skip: no relevant supported body/lineage finding in consulted digest",
+      "output": null
+    },
+    {
+      "slug": "dandadan",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_dandadan.md",
+      "disposition": "lead only, canon qualification open",
+      "output": "SRC_dandadan.md"
+    },
+    {
+      "slug": "dark-souls-1-covenants",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_dark-souls-1-covenants.md",
+      "disposition": "skip: no relevant supported body/lineage finding in consulted digest",
+      "output": null
+    },
+    {
+      "slug": "dc-comics",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_dc-comics.md",
+      "disposition": "skip: no relevant supported body/lineage finding in consulted digest",
+      "output": null
+    },
+    {
+      "slug": "demon-slayer",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_demon-slayer.md",
+      "disposition": "bounded evidence",
+      "output": "SRC_demon-slayer.md"
+    },
+    {
+      "slug": "did-i-seriously-just-get-reincarnated-as-my-gag-character",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_did-i-seriously-just-get-reincarnated-as-my-gag-character.md",
+      "disposition": "lead only, canon qualification open",
+      "output": "SRC_did-i-seriously-just-get-reincarnated-as-my-gag-character.md"
+    },
+    {
+      "slug": "doomsday-wonderland",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_doomsday-wonderland.md",
+      "disposition": "lead only, canon qualification open",
+      "output": "SRC_doomsday-wonderland.md"
+    },
+    {
+      "slug": "double-blind-a-modern-litrpg",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_double-blind-a-modern-litrpg.md",
+      "disposition": "skip: no relevant supported body/lineage finding in consulted digest",
+      "output": null
+    },
+    {
+      "slug": "dungeon-crawler-carl",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_dungeon-crawler-carl.md",
+      "disposition": "bounded evidence",
+      "output": "SRC_dungeon-crawler-carl.md"
+    },
+    {
+      "slug": "dungeon-reset",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_dungeon-reset.md",
+      "disposition": "skip: no relevant supported body/lineage finding in consulted digest",
+      "output": null
+    },
+    {
+      "slug": "dungeons-dragons-2024-revised-fifth-edition",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_dungeons-dragons-2024-revised-fifth-edition.md",
+      "disposition": "bounded evidence",
+      "output": "SRC_dungeons-dragons-2024-revised-fifth-edition.md"
+    },
+    {
+      "slug": "elden-ring",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_elden-ring.md",
+      "disposition": "bounded evidence",
+      "output": "SRC_elden-ring.md"
+    },
+    {
+      "slug": "everybody-is-kung-fu-fighting-while-i-started-a-farm",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_everybody-is-kung-fu-fighting-while-i-started-a-farm.md",
+      "disposition": "skip: no relevant supported body/lineage finding in consulted digest",
+      "output": null
+    },
+    {
+      "slug": "fae-bargains-rumpelstiltskin",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_fae-bargains-rumpelstiltskin.md",
+      "disposition": "skip: no relevant supported body/lineage finding in consulted digest",
+      "output": null
+    },
+    {
+      "slug": "fallout",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_fallout.md",
+      "disposition": "bounded evidence",
+      "output": "SRC_fallout.md"
+    },
+    {
+      "slug": "fantasy-simulator",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_fantasy-simulator.md",
+      "disposition": "lead only, canon qualification open",
+      "output": "SRC_fantasy-simulator.md"
+    },
+    {
+      "slug": "fate-series",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_fate-series.md",
+      "disposition": "bounded evidence",
+      "output": "SRC_fate-series.md"
+    },
+    {
+      "slug": "faustian-pact-goethe-wager",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_faustian-pact-goethe-wager.md",
+      "disposition": "skip: no relevant supported body/lineage finding in consulted digest",
+      "output": null
+    },
+    {
+      "slug": "fine-structure",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_fine-structure.md",
+      "disposition": "skip: no relevant supported body/lineage finding in consulted digest",
+      "output": null
+    },
+    {
+      "slug": "fire-force",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_fire-force.md",
+      "disposition": "lead only, canon qualification open",
+      "output": "SRC_fire-force.md"
+    },
+    {
+      "slug": "frieren",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_frieren.md",
+      "disposition": "bounded evidence",
+      "output": "SRC_frieren.md"
+    },
+    {
+      "slug": "fullmetal-alchemist",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_fullmetal-alchemist.md",
+      "disposition": "bounded evidence",
+      "output": "SRC_fullmetal-alchemist.md"
+    },
+    {
+      "slug": "genies-and-wishes-aladdin-and-fisherman-tales",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_genies-and-wishes-aladdin-and-fisherman-tales.md",
+      "disposition": "skip: no relevant supported body/lineage finding in consulted digest",
+      "output": null
+    },
+    {
+      "slug": "godclads",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_godclads.md",
+      "disposition": "lead only, canon qualification open",
+      "output": "SRC_godclads.md"
+    },
+    {
+      "slug": "hades-1-boons",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_hades-1-boons.md",
+      "disposition": "skip: no relevant supported body/lineage finding in consulted digest",
+      "output": null
+    },
+    {
+      "slug": "harry-potter",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_harry-potter.md",
+      "disposition": "bounded evidence",
+      "output": "SRC_harry-potter.md"
+    },
+    {
+      "slug": "he-who-fights-with-monsters",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_he-who-fights-with-monsters.md",
+      "disposition": "lead only, canon qualification open",
+      "output": "SRC_he-who-fights-with-monsters.md"
+    },
+    {
+      "slug": "hunter-x-hunter",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_hunter-x-hunter.md",
+      "disposition": "bounded evidence",
+      "output": "SRC_hunter-x-hunter.md"
+    },
+    {
+      "slug": "i-became-the-necromancer-of-the-academy",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_i-became-the-necromancer-of-the-academy.md",
+      "disposition": "skip: no relevant supported body/lineage finding in consulted digest",
+      "output": null
+    },
+    {
+      "slug": "i-can-see-life-values-working-english-gloss",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_i-can-see-life-values-working-english-gloss.md",
+      "disposition": "skip: no relevant supported body/lineage finding in consulted digest",
+      "output": null
+    },
+    {
+      "slug": "i-can-see-your-death",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_i-can-see-your-death.md",
+      "disposition": "lead only, canon qualification open",
+      "output": "SRC_i-can-see-your-death.md"
+    },
+    {
+      "slug": "i-have-a-super-usb-drive",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_i-have-a-super-usb-drive.md",
+      "disposition": "skip: no relevant supported body/lineage finding in consulted digest",
+      "output": null
+    },
+    {
+      "slug": "i-m-an-infinite-regressor-but-i-ve-got-stories-to-tell",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_i-m-an-infinite-regressor-but-i-ve-got-stories-to-tell.md",
+      "disposition": "skip: no relevant supported body/lineage finding in consulted digest",
+      "output": null
+    },
+    {
+      "slug": "i-shall-seal-the-heavens",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_i-shall-seal-the-heavens.md",
+      "disposition": "lead only, canon qualification open",
+      "output": "SRC_i-shall-seal-the-heavens.md"
+    },
+    {
+      "slug": "industrial-strength-magic",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_industrial-strength-magic.md",
+      "disposition": "lead only, canon qualification open",
+      "output": "SRC_industrial-strength-magic.md"
+    },
+    {
+      "slug": "information-omniscient-working-english-gloss",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_information-omniscient-working-english-gloss.md",
+      "disposition": "skip: no relevant supported body/lineage finding in consulted digest",
+      "output": null
+    },
+    {
+      "slug": "irish-geis-and-geasa",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_irish-geis-and-geasa.md",
+      "disposition": "skip: no relevant supported body/lineage finding in consulted digest",
+      "output": null
+    },
+    {
+      "slug": "jojo-s-bizarre-adventure",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_jojo-s-bizarre-adventure.md",
+      "disposition": "lead only, canon qualification open",
+      "output": "SRC_jojo-s-bizarre-adventure.md"
+    },
+    {
+      "slug": "jujutsu-kaisen",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_jujutsu-kaisen.md",
+      "disposition": "bounded evidence",
+      "output": "SRC_jujutsu-kaisen.md"
+    },
+    {
+      "slug": "kagurabachi",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_kagurabachi.md",
+      "disposition": "skip: no relevant supported body/lineage finding in consulted digest",
+      "output": null
+    },
+    {
+      "slug": "kaiju-no-8",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_kaiju-no-8.md",
+      "disposition": "lead only, canon qualification open",
+      "output": "SRC_kaiju-no-8.md"
+    },
+    {
+      "slug": "kidnapped-dragons",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_kidnapped-dragons.md",
+      "disposition": "skip: no relevant supported body/lineage finding in consulted digest",
+      "output": null
+    },
+    {
+      "slug": "knightly-vows-and-chivalry",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_knightly-vows-and-chivalry.md",
+      "disposition": "skip: no relevant supported body/lineage finding in consulted digest",
+      "output": null
+    },
+    {
+      "slug": "lazy-dungeon-master",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_lazy-dungeon-master.md",
+      "disposition": "lead only, canon qualification open",
+      "output": "SRC_lazy-dungeon-master.md"
+    },
+    {
+      "slug": "let-me-game-in-peace",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_let-me-game-in-peace.md",
+      "disposition": "skip: no relevant supported body/lineage finding in consulted digest",
+      "output": null
+    },
+    {
+      "slug": "lord-of-mysteries",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_lord-of-mysteries.md",
+      "disposition": "bounded evidence",
+      "output": "SRC_lord-of-mysteries.md"
+    },
+    {
+      "slug": "losing-money-to-be-a-tycoon",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_losing-money-to-be-a-tycoon.md",
+      "disposition": "skip: no relevant supported body/lineage finding in consulted digest",
+      "output": null
+    },
+    {
+      "slug": "low-dimensional-game",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_low-dimensional-game.md",
+      "disposition": "skip: no relevant supported body/lineage finding in consulted digest",
+      "output": null
+    },
+    {
+      "slug": "magic-the-gathering",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_magic-the-gathering.md",
+      "disposition": "skip: no relevant supported body/lineage finding in consulted digest",
+      "output": null
+    },
+    {
+      "slug": "making-magic-the-sweet-life-of-a-witch-who-knows-an-infinite-mp-loophole",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_making-magic-the-sweet-life-of-a-witch-who-knows-an-infinite-mp-loophole.md",
+      "disposition": "skip: no relevant supported body/lineage finding in consulted digest",
+      "output": null
+    },
+    {
+      "slug": "markets-and-multiverses",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_markets-and-multiverses.md",
+      "disposition": "skip: no relevant supported body/lineage finding in consulted digest",
+      "output": null
+    },
+    {
+      "slug": "martial-peak",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_martial-peak.md",
+      "disposition": "skip: no relevant supported body/lineage finding in consulted digest",
+      "output": null
+    },
+    {
+      "slug": "marvel-comics",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_marvel-comics.md",
+      "disposition": "lead only, canon qualification open",
+      "output": "SRC_marvel-comics.md"
+    },
+    {
+      "slug": "mimic-me-within-the-eternal-forest",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_mimic-me-within-the-eternal-forest.md",
+      "disposition": "lead only, canon qualification open",
+      "output": "SRC_mimic-me-within-the-eternal-forest.md"
+    },
+    {
+      "slug": "min-maxing-my-trpg-build-in-another-world",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_min-maxing-my-trpg-build-in-another-world.md",
+      "disposition": "skip: no relevant supported body/lineage finding in consulted digest",
+      "output": null
+    },
+    {
+      "slug": "minute-mage-a-time-magic-litrpg",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_minute-mage-a-time-magic-litrpg.md",
+      "disposition": "skip: no relevant supported body/lineage finding in consulted digest",
+      "output": null
+    },
+    {
+      "slug": "mistborn",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_mistborn.md",
+      "disposition": "lead only, canon qualification open",
+      "output": "SRC_mistborn.md"
+    },
+    {
+      "slug": "mob-psycho-100",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_mob-psycho-100.md",
+      "disposition": "lead only, canon qualification open",
+      "output": "SRC_mob-psycho-100.md"
+    },
+    {
+      "slug": "monastic-vows-benedictine-example",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_monastic-vows-benedictine-example.md",
+      "disposition": "skip: no relevant supported body/lineage finding in consulted digest",
+      "output": null
+    },
+    {
+      "slug": "monster-tamer",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_monster-tamer.md",
+      "disposition": "skip: no relevant supported body/lineage finding in consulted digest",
+      "output": null
+    },
+    {
+      "slug": "mother-of-learning",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_mother-of-learning.md",
+      "disposition": "bounded evidence",
+      "output": "SRC_mother-of-learning.md"
+    },
+    {
+      "slug": "my-cell-prison",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_my-cell-prison.md",
+      "disposition": "lead only, canon qualification open",
+      "output": "SRC_my-cell-prison.md"
+    },
+    {
+      "slug": "my-divine-diary",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_my-divine-diary.md",
+      "disposition": "lead only, canon qualification open",
+      "output": "SRC_my-divine-diary.md"
+    },
+    {
+      "slug": "my-hero-academia",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_my-hero-academia.md",
+      "disposition": "bounded evidence plus unverified leads",
+      "output": "SRC_my-hero-academia.md"
+    },
+    {
+      "slug": "naruto",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_naruto.md",
+      "disposition": "bounded evidence",
+      "output": "SRC_naruto.md"
+    },
+    {
+      "slug": "omniscient-reader-s-viewpoint",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_omniscient-reader-s-viewpoint.md",
+      "disposition": "skip: no relevant supported body/lineage finding in consulted digest",
+      "output": null
+    },
+    {
+      "slug": "one-piece",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_one-piece.md",
+      "disposition": "bounded evidence",
+      "output": "SRC_one-piece.md"
+    },
+    {
+      "slug": "overgeared",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_overgeared.md",
+      "disposition": "skip: no relevant supported body/lineage finding in consulted digest",
+      "output": null
+    },
+    {
+      "slug": "pale-lights",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_pale-lights.md",
+      "disposition": "skip: no relevant supported body/lineage finding in consulted digest",
+      "output": null
+    },
+    {
+      "slug": "path-of-exile-1-support-gems",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_path-of-exile-1-support-gems.md",
+      "disposition": "skip: no relevant supported body/lineage finding in consulted digest",
+      "output": null
+    },
+    {
+      "slug": "ra",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_ra.md",
+      "disposition": "skip: no relevant supported body/lineage finding in consulted digest",
+      "output": null
+    },
+    {
+      "slug": "reincarnation-paradise",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_reincarnation-paradise.md",
+      "disposition": "bounded evidence",
+      "output": "SRC_reincarnation-paradise.md"
+    },
+    {
+      "slug": "release-that-witch",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_release-that-witch.md",
+      "disposition": "bounded secondary extracts plus unverified leads",
+      "output": "SRC_release-that-witch.md"
+    },
+    {
+      "slug": "renegade-immortal",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_renegade-immortal.md",
+      "disposition": "lead only, canon qualification open",
+      "output": "SRC_renegade-immortal.md"
+    },
+    {
+      "slug": "return-of-the-mount-hua-sect",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_return-of-the-mount-hua-sect.md",
+      "disposition": "lead only, canon qualification open",
+      "output": "SRC_return-of-the-mount-hua-sect.md"
+    },
+    {
+      "slug": "return-of-the-runebound-professor",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_return-of-the-runebound-professor.md",
+      "disposition": "lead only, canon qualification open",
+      "output": "SRC_return-of-the-runebound-professor.md"
+    },
+    {
+      "slug": "reverend-insanity",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_reverend-insanity.md",
+      "disposition": "bounded evidence",
+      "output": "SRC_reverend-insanity.md"
+    },
+    {
+      "slug": "seized-by-the-system",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_seized-by-the-system.md",
+      "disposition": "lead only, canon qualification open",
+      "output": "SRC_seized-by-the-system.md"
+    },
+    {
+      "slug": "shadow-slave",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_shadow-slave.md",
+      "disposition": "bounded evidence",
+      "output": "SRC_shadow-slave.md"
+    },
+    {
+      "slug": "slay-the-spire-1-relics",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_slay-the-spire-1-relics.md",
+      "disposition": "skip: no relevant supported body/lineage finding in consulted digest",
+      "output": null
+    },
+    {
+      "slug": "slumrat-rising",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_slumrat-rising.md",
+      "disposition": "skip: no relevant supported body/lineage finding in consulted digest",
+      "output": null
+    },
+    {
+      "slug": "solo-leveling",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_solo-leveling.md",
+      "disposition": "lead only, canon qualification open",
+      "output": "SRC_solo-leveling.md"
+    },
+    {
+      "slug": "soul-of-negary",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_soul-of-negary.md",
+      "disposition": "lead only, canon qualification open",
+      "output": "SRC_soul-of-negary.md"
+    },
+    {
+      "slug": "system-novel-staples",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_system-novel-staples.md",
+      "disposition": "skip: no relevant supported body/lineage finding in consulted digest",
+      "output": null
+    },
+    {
+      "slug": "the-31st-piece-turns-the-tables",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_the-31st-piece-turns-the-tables.md",
+      "disposition": "skip: no relevant supported body/lineage finding in consulted digest",
+      "output": null
+    },
+    {
+      "slug": "the-beginning-after-the-end",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_the-beginning-after-the-end.md",
+      "disposition": "lead only, canon qualification open",
+      "output": "SRC_the-beginning-after-the-end.md"
+    },
+    {
+      "slug": "the-book-eating-magician",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_the-book-eating-magician.md",
+      "disposition": "skip: no relevant supported body/lineage finding in consulted digest",
+      "output": null
+    },
+    {
+      "slug": "the-daily-grind",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_the-daily-grind.md",
+      "disposition": "skip: no relevant supported body/lineage finding in consulted digest",
+      "output": null
+    },
+    {
+      "slug": "the-dresden-files",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_the-dresden-files.md",
+      "disposition": "skip: no relevant supported body/lineage finding in consulted digest",
+      "output": null
+    },
+    {
+      "slug": "the-elder-scrolls-skyrim",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_the-elder-scrolls-skyrim.md",
+      "disposition": "bounded evidence",
+      "output": "SRC_the-elder-scrolls-skyrim.md"
+    },
+    {
+      "slug": "the-game-at-carousel-a-horror-movie-litrpg",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_the-game-at-carousel-a-horror-movie-litrpg.md",
+      "disposition": "skip: no relevant supported body/lineage finding in consulted digest",
+      "output": null
+    },
+    {
+      "slug": "the-kingkiller-chronicle",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_the-kingkiller-chronicle.md",
+      "disposition": "skip: no relevant supported body/lineage finding in consulted digest",
+      "output": null
+    },
+    {
+      "slug": "the-law-of-averages",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_the-law-of-averages.md",
+      "disposition": "skip: no relevant supported body/lineage finding in consulted digest",
+      "output": null
+    },
+    {
+      "slug": "the-magician-who-rose-from-failure",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_the-magician-who-rose-from-failure.md",
+      "disposition": "skip: no relevant supported body/lineage finding in consulted digest",
+      "output": null
+    },
+    {
+      "slug": "the-main-heroines-are-trying-to-kill-me",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_the-main-heroines-are-trying-to-kill-me.md",
+      "disposition": "skip: no relevant supported body/lineage finding in consulted digest",
+      "output": null
+    },
+    {
+      "slug": "the-oracle-paths",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_the-oracle-paths.md",
+      "disposition": "skip: no relevant supported body/lineage finding in consulted digest",
+      "output": null
+    },
+    {
+      "slug": "the-s-classes-that-i-raised",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_the-s-classes-that-i-raised.md",
+      "disposition": "skip: no relevant supported body/lineage finding in consulted digest",
+      "output": null
+    },
+    {
+      "slug": "the-second-coming-of-gluttony",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_the-second-coming-of-gluttony.md",
+      "disposition": "lead only, canon qualification open",
+      "output": "SRC_the-second-coming-of-gluttony.md"
+    },
+    {
+      "slug": "the-stormlight-archive",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_the-stormlight-archive.md",
+      "disposition": "skip: no relevant supported body/lineage finding in consulted digest",
+      "output": null
+    },
+    {
+      "slug": "the-stubborn-skill-grinder-in-a-time-loop",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_the-stubborn-skill-grinder-in-a-time-loop.md",
+      "disposition": "skip: no relevant supported body/lineage finding in consulted digest",
+      "output": null
+    },
+    {
+      "slug": "the-wandering-inn",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_the-wandering-inn.md",
+      "disposition": "bounded evidence",
+      "output": "SRC_the-wandering-inn.md"
+    },
+    {
+      "slug": "the-wheel-of-time",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_the-wheel-of-time.md",
+      "disposition": "bounded secondary extract plus unverified leads",
+      "output": "SRC_the-wheel-of-time.md"
+    },
+    {
+      "slug": "to-another-world-with-land-mines",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_to-another-world-with-land-mines.md",
+      "disposition": "skip: no relevant supported body/lineage finding in consulted digest",
+      "output": null
+    },
+    {
+      "slug": "tower-of-god",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_tower-of-god.md",
+      "disposition": "skip: no relevant supported body/lineage finding in consulted digest",
+      "output": null
+    },
+    {
+      "slug": "trafford-s-trading-club",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_trafford-s-trading-club.md",
+      "disposition": "lead only, canon qualification open",
+      "output": "SRC_trafford-s-trading-club.md"
+    },
+    {
+      "slug": "trash-of-the-count-s-family",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_trash-of-the-count-s-family.md",
+      "disposition": "lead only, canon qualification open",
+      "output": "SRC_trash-of-the-count-s-family.md"
+    },
+    {
+      "slug": "undead-unluck",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_undead-unluck.md",
+      "disposition": "lead only, canon qualification open",
+      "output": "SRC_undead-unluck.md"
+    },
+    {
+      "slug": "world-trigger",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_world-trigger.md",
+      "disposition": "lead only, canon qualification open",
+      "output": "SRC_world-trigger.md"
+    },
+    {
+      "slug": "worm",
+      "digest": "docs/research/power-systems/wiki-digests/DIGEST_worm.md",
+      "disposition": "bounded evidence",
+      "output": "SRC_worm.md"
+    }
+  ],
+  "supplemental": [
+    "circle-of-inevitability"
+  ]
+}

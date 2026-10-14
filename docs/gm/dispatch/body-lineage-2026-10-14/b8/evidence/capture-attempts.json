@@ -1,0 +1,11 @@
+{
+  "kind": "prebuilt layout observation, no body commands",
+  "attempts": [
+    {"route": "fresh hero, Talk to someone", "result": "observed elder entry; exploratory screenshot current-talk-1366x768.png"},
+    {"route": "elder opening, go back, open body summary", "result": "30 second visibility timeout; no body command attempted"},
+    {"route": "elder Hello and My head hurts, go back, open body summary", "result": "10 second visibility timeout; notebook Practice had not been selected"},
+    {"route": "same dialogue, Journal Notebook, Practice, open body summary", "result": "visible Body & recovery in right-docked notebook; zero page errors; screenshot current-body-1366x768.png"}
+  ],
+  "correction": "body_ui initial Local actions parent is later changed by adventure_notebook render; the audit and spec now record the final home",
+  "effectsNotTested": true
+}

@@ -1,0 +1,22 @@
+{
+  "kind": "existing prebuilt assets, no rebuild",
+  "files": {
+    "dist/bundle.js": "598e02f54fe7db4c9a35bc79c75a754a7f8dc42eccf9fab828de8fd82e97b615",
+    "dist/bundle.js.map": "8d35ede3e2df3d125e175bee813a3d9c2e31325cdf6989dd49b381e49ca1ca24",
+    "index.html": "b736e490fb511329edd9c136cfcd5be9ddea8e742471d2cbfffd3c14d25c52bb",
+    "src/character_bio_ui.js": "0c6fb45a782c1699f59e1fb7ca4c26b99c40edaf8de51f302a535f4a00dacb28",
+    "src/body_ui.js": "01201d26d64409d4e476d9fe676480c2ecae19d63e3b68cec598a4a80afaba2d",
+    "styles/workspace.css": "12f0510e7ad31a263901ee4ae9fc567d06408c55c39ff41fdf78268002d33181",
+    "style.css": "b76c6660e5039717b426a3bef56d84b08b77ed93b78197de29164bf30cbf265e"
+  },
+  "sourceMapComparisons": {
+    "src/character_bio_ui.js": {
+      "sourceMapPath": "../src/character_bio_ui.js",
+      "matchesLiveSource": true
+    },
+    "src/body_ui.js": {
+      "sourceMapPath": "../src/body_ui.js",
+      "matchesLiveSource": true
+    }
+  }
+}
