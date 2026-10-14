@@ -1,0 +1,16 @@
+{
+  "checks": [
+    {
+      "id": "S1",
+      "label": "seeded-native",
+      "check": "literal-file import reconstructs exact carried/chest/vendor variants",
+      "pass": true
+    },
+    {
+      "id": "S2",
+      "label": "seeded-native",
+      "check": "all holder variants retain identity on Save/reload",
+      "pass": true
+    }
+  ]
+}

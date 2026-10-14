@@ -1,4 +1,5 @@
 import {validateStreams,validateNativeEncounter} from "./seeded_streams.js";
+import {validateMixtureEnvelope} from './mixture_state.js';
 import {validateCheatState} from './cheat_cards.js';
 import {validateCustomizationState} from './customization_profiles.js';
 import {migrateWorkLedger} from './work_ledger_system.js';
@@ -42,6 +43,7 @@ const number = (value, label, minimum = 0) => {
 
 export function validateSaveEnvelope(original, currentVersion) {
     object(original, "Save");
+    validateMixtureEnvelope(original);
     if(Object.hasOwn(original, "cheats"))validateCheatState(original.cheats);
     if(original.customization!=null)validateCustomizationState(original.customization);
     if(original.work_ledger!=null)migrateWorkLedger(original.work_ledger);
