@@ -1,7 +1,7 @@
 #!/bin/zsh
 # Slot queue: launch each lane when fewer than 12 procgen story lanes run.
 cd "${0:A:h}"; L=~/.codex/research/procgen-2026-10-13
-running(){ ps -eo args | grep -v grep | grep -o '# P[0-9]*: ' | sort -u | grep -c -E '# P(1[2-9]|2[0-9]|3[0-9]): '; }
+running(){ ps -eo args | grep -v grep | grep -o '# [A-Z]*[0-9]*: ' | sort -u | grep -c -E '# (P(1[2-9]|[2-4][0-9])|WR[0-9]): '; }
 for lane in "$@"; do
   until [ "$(running)" -lt 12 ]; do sleep 60; done
   python3 launch.py $lane; sleep 45

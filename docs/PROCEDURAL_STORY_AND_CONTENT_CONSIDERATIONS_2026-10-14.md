@@ -784,3 +784,28 @@ P40 audits live code for BL1 to BL5 with file and line and proposes the lint rul
 Proposal only. BJ3 (generator registry) and BL1-BL5 lint pay for themselves on the
 next merge. BI2 (one receipt log) should be decided before any second lane slice
 is built, or the stores will fork.
+
+---
+
+## Round 10 (2026-10-14): weapons, runes, reveal cheats and shared abstractions
+
+Request: "Weaponcrafting, runestuff, other stuff and more? ... Cheats that would
+show stuff like these ... Overarching stuff? Implementation implications and more?
+Abstraction that's needed?" Saved as its own palette:
+[weaponcrafting, runes and reveal](WEAPONCRAFTING_RUNES_AND_REVEAL_CONSIDERATIONS_2026-10-14.md)
+(WC weaponcrafting, RN runes and inscriptions, RV reveal cheats, OV overarching, XA
+abstractions, IM implementation). It extends the crafting session's palette and P6
+rather than duplicating them. Lanes WR1 to WR4.
+
+**Story tie-ins.** Made things are story objects: naming, first blood, breaking and
+reforging write spine receipts (OV1, story BC1-BC2). Reveal cheats are lenses that
+write to the same known-context store the story layer reads (XA6, story S-4, BL9).
+
+**Abstractions shared across story and making (proposal).** One item identity with
+knowledge state (XA1), one effect algebra (XA5), one lens model (XA6) and one world
+law adapter (XA8), sitting on P38's entity references and receipt log. Weapons,
+runes, potions, storylets and cheats then differ in content, not in engine.
+
+**Merge status.** Procgen wave 1 (P1-P4) merged into `codex/gameplay-foundations`
+as 4e13f97f by the Procedural crafting and potions session; 679/679 tests pass,
+build passes, nothing pushed. P34 rebases onto it when its current run ends.
