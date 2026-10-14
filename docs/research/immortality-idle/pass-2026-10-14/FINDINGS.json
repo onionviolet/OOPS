@@ -1,0 +1,63 @@
+{
+  "lane": "idle-depth",
+  "date": "2026-10-14",
+  "game": "Immortality Idle",
+  "evidence": "static source only",
+  "code_reuse": false,
+  "accepted_proposals": false,
+  "findings": [
+    {
+      "id": "F11",
+      "label": "shown",
+      "claim": "Combat exposure generates family techniques; active count sets threshold; practice precedes payment checks.",
+      "locator": "battle.service.ts:959-967,1384-1603,1888-1970"
+    },
+    {
+      "id": "F12",
+      "label": "shown",
+      "claim": "19 records mean Gates plus 18 trials, with separate task and accepted-boss-mastery states.",
+      "locator": "hell.service.ts:210-283,981-1899; item-repo.service.ts:2337-2366"
+    },
+    {
+      "id": "F12a",
+      "label": "shown",
+      "claim": "Most trial gates are fixed; Mountain of Knives uses kills and Mills uses lives.",
+      "locator": "hell.service.ts:1362-1406,1828-1853"
+    },
+    {
+      "id": "F12b",
+      "label": "shown",
+      "claim": "Progress/success and prose/control flow diverge in several trials.",
+      "locator": "hell.service.ts:1097-1113,1289-1305,1345-1359"
+    },
+    {
+      "id": "F12c",
+      "label": "shown",
+      "claim": "Generic trouble mapping drops effect and hitTracker from enemy templates.",
+      "locator": "battle.service.ts:2620-2634,4283-4302"
+    },
+    {
+      "id": "F15",
+      "label": "shown",
+      "claim": "109 activity records share a daily verb model with tier, helper, workshop and realm effects.",
+      "locator": "activity.service.ts:1316-6647"
+    },
+    {
+      "id": "F16",
+      "label": "shown",
+      "claim": "Mobilization consumes food before confirming pay, and can spawn hostile armies on failure.",
+      "locator": "activity.service.ts:1948-2053"
+    },
+    {
+      "id": "F17",
+      "label": "inferred",
+      "claim": "Useful adoption is histories, local trial rules and daily work integration, not copied balance or moral text.",
+      "locator": "REPORT.md:P1-P6"
+    }
+  ],
+  "source": {
+    "url": "https://github.com/immortalityidle/immortalityidle.github.io",
+    "pin": "c7231bae717b67a8e4dba2a3775d58bfbfadbdd6",
+    "provenance": "fresh independent clone from prior pinned snapshot"
+  }
+}

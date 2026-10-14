@@ -1,0 +1,1382 @@
+{
+  "lane": "kol-2",
+  "date": "2026-10-14",
+  "status": "PARTIAL",
+  "source": {
+    "kolmafia_sha": "d6747f7af98605b14eaeb2c63e11daa9532e1152",
+    "prior_sha": "b11fc583b6872f1d56f5936803de2359cc962328",
+    "license": "BSD-3-Clause",
+    "wiki_index_snapshots": [
+      "20180618055003",
+      "20231030182411",
+      "20260822021427"
+    ],
+    "individual_rule_pages": 44,
+    "special_rule_pages": 43
+  },
+  "labels": [
+    "SHOWN",
+    "STATED",
+    "INFERRED"
+  ],
+  "questions": {
+    "Q1": {
+      "answer": "All 57 enum modes tabulated, including all 51 special paths. Detailed page gaps named; some fine rules inferred.",
+      "artifact": "PATH_RULES.md",
+      "complete": false
+    },
+    "Q2": {
+      "answer": "Stable identity and typed modifier grammar plus explicit custom consumers; no proof of unchanged schema for every year or commercial causality.",
+      "artifact": "SHARED_GRAMMAR.md",
+      "complete": true
+    },
+    "Q3": {
+      "answer": "All 15 prior findings confirmed, corrected, narrowed or left open in REPORT; numerical audit repeated at both commits.",
+      "artifact": "REPORT.md",
+      "complete": true
+    }
+  },
+  "findings": [
+    {
+      "id": "F1",
+      "label": "SHOWN",
+      "claim": "57 path enum entries; 51 special paths; 24 points preferences",
+      "source": "AscensionPath.java / extract_paths.py"
+    },
+    {
+      "id": "F2",
+      "label": "STATED",
+      "claim": "Three archived indexes and readable individual rule pages supply rules/rewards with explicit contradictions",
+      "source": "SOURCE_LEDGER.md"
+    },
+    {
+      "id": "F3",
+      "label": "STATED",
+      "claim": "Council quest spine is common, not universal; Community Service and Sea change goal graphs",
+      "source": "PATH_RULES.md IDs 25,55"
+    },
+    {
+      "id": "F4",
+      "label": "SHOWN",
+      "claim": "13369 modifier rows, 39 source types and 258 lexical fields; prior record counts corrected",
+      "source": "data-audit.json, audit_data.py, SHARED_GRAMMAR.md"
+    },
+    {
+      "id": "F5",
+      "label": "INFERRED",
+      "claim": "Separate identity, access, legal use, property transformation and exit conversion",
+      "source": "SHARED_GRAMMAR.md, CONTRADICTIONS.md"
+    }
+  ],
+  "paths": [
+    {
+      "id": 0,
+      "name": "none",
+      "restriction": "No path-specific restriction",
+      "unique_mechanic": "Baseline ascension",
+      "reuse_vs_add": "Baseline classes, quests and rewards; adds no path rule",
+      "reuse_label": "INFERRED",
+      "rule_evidence": "SHOWN enum; ordinary reward catalogue outside scope",
+      "reward": "Baseline ascension rewards; no extra path reward established",
+      "reward_source": "SHOWN enum; ordinary reward catalogue outside scope",
+      "points_preference": null,
+      "point_max_in_client": 0,
+      "path_base_capacity": [
+        15,
+        14,
+        15
+      ],
+      "individual_rule_page_readable": false
+    },
+    {
+      "id": 1,
+      "name": "Boozetafarian",
+      "restriction": "Food disabled",
+      "unique_mechanic": "Alcohol and spleen remain usable",
+      "reuse_vs_add": "Reuses consumption and quests; changes food eligibility",
+      "reuse_label": "INFERRED",
+      "rule_evidence": "SHOWN KoLCharacter consumption checks and enum; individual rule prose OPEN",
+      "reward": "Ordinary ascension rewards; additional path reward OPEN in this pass",
+      "reward_source": "SHOWN KoLCharacter consumption checks and enum; individual rule prose OPEN",
+      "points_preference": null,
+      "point_max_in_client": 0,
+      "path_base_capacity": [
+        0,
+        14,
+        15
+      ],
+      "individual_rule_page_readable": false
+    },
+    {
+      "id": 2,
+      "name": "Teetotaler",
+      "restriction": "Alcohol disabled",
+      "unique_mechanic": "Food and spleen remain usable",
+      "reuse_vs_add": "Reuses consumption and quests; changes drink eligibility",
+      "reuse_label": "INFERRED",
+      "rule_evidence": "SHOWN KoLCharacter consumption checks and enum; individual rule prose OPEN",
+      "reward": "Ordinary ascension rewards; additional path reward OPEN in this pass",
+      "reward_source": "SHOWN KoLCharacter consumption checks and enum; individual rule prose OPEN",
+      "points_preference": null,
+      "point_max_in_client": 0,
+      "path_base_capacity": [
+        15,
+        0,
+        15
+      ],
+      "individual_rule_page_readable": false
+    },
+    {
+      "id": 3,
+      "name": "Oxygenarian",
+      "restriction": "Food and alcohol disabled",
+      "unique_mechanic": "Turn supply must come from remaining sources",
+      "reuse_vs_add": "Reuses consumption and quests; disables two channels",
+      "reuse_label": "INFERRED",
+      "rule_evidence": "SHOWN KoLCharacter consumption checks and enum; individual rule prose OPEN",
+      "reward": "Ordinary ascension rewards; additional path reward OPEN in this pass",
+      "reward_source": "SHOWN KoLCharacter consumption checks and enum; individual rule prose OPEN",
+      "points_preference": null,
+      "point_max_in_client": 0,
+      "path_base_capacity": [
+        0,
+        0,
+        15
+      ],
+      "individual_rule_page_readable": false
+    },
+    {
+      "id": 4,
+      "name": "Bees Hate You",
+      "restriction": "Names containing B restrict items/familiars; worn B gear is harmful",
+      "unique_mechanic": "Bee wanderers and name-dependent danger",
+      "reuse_vs_add": "Reuses entity names, equipment and combat; adds name rules and bee encounters",
+      "reuse_label": "INFERRED",
+      "rule_evidence": "STATED individual page; [snapshot 20230602203257](https://web.archive.org/web/20230602203257id_/https://kol.coldfront.net/thekolwiki/index.php/Bees_Hate_You); SHOWN ItemDatabase name predicates with exceptions",
+      "reward": "Thwaitgold bee statuette; Factoids; Stainless equipment (hardcore only); Reconstituted crow Familiar; Buzzkill Trophy",
+      "reward_source": "https://web.archive.org/web/20260822021427/https://wiki.kingdomofloathing.com/Special_challenge_path",
+      "points_preference": null,
+      "point_max_in_client": 0,
+      "path_base_capacity": [
+        15,
+        14,
+        15
+      ],
+      "individual_rule_page_readable": true
+    },
+    {
+      "id": 6,
+      "name": "Way of the Surprising Fist",
+      "restriction": "Weapons/offhand blocked; ordinary Meat income curtailed",
+      "unique_mechanic": "Learn unarmed techniques in particular zones",
+      "reuse_vs_add": "Reuses zones and combat; adds unarmed progression and altered income",
+      "reuse_label": "INFERRED",
+      "rule_evidence": "STATED individual page; [snapshot 20240302185611](https://web.archive.org/web/20240302185611id_/https://kol.coldfront.net/thekolwiki/index.php/Way_of_the_Surprising_Fist)",
+      "reward": "Thwaitgold grasshopper statuette; Factoids; Stainless equipment (hardcore only); Can perm Master of the Surprising Fist; Trophies: Mixed Martial Arts, Hadouken!, Good Will Punching",
+      "reward_source": "https://web.archive.org/web/20260822021427/https://wiki.kingdomofloathing.com/Special_challenge_path",
+      "points_preference": null,
+      "point_max_in_client": 0,
+      "path_base_capacity": [
+        15,
+        14,
+        15
+      ],
+      "individual_rule_page_readable": true
+    },
+    {
+      "id": 7,
+      "name": "Trendy",
+      "restriction": "Limited-time content unavailable for over a year is excluded",
+      "unique_mechanic": "Age-based item/skill/familiar eligibility",
+      "reuse_vs_add": "Reuses definitions; adds availability filter",
+      "reuse_label": "INFERRED",
+      "rule_evidence": "STATED individual page; [snapshot 20260314211014](https://web.archive.org/web/20260314211014id_/https://wiki.kingdomofloathing.com/Trendy)",
+      "reward": "Thwaitgold butterfly statuette; Stainless equipment (hardcore only); individual page instead names Hardcore Unblemished Uniform (conflict OPEN)",
+      "reward_source": "https://web.archive.org/web/20260822021427/https://wiki.kingdomofloathing.com/Special_challenge_path",
+      "points_preference": null,
+      "point_max_in_client": 0,
+      "path_base_capacity": [
+        15,
+        14,
+        15
+      ],
+      "individual_rule_page_readable": true
+    },
+    {
+      "id": 8,
+      "name": "Avatar of Boris",
+      "restriction": "Special class, Trusty only, no ordinary familiar or carried skill set",
+      "unique_mechanic": "Clancy, three skill branches, large stomach/small liver",
+      "reuse_vs_add": "Reuses quests, skill and modifier grammar; adds minstrel progression and class rules",
+      "reuse_label": "INFERRED",
+      "rule_evidence": "STATED individual page; [snapshot 20260314210829](https://web.archive.org/web/20260314210829id_/https://wiki.kingdomofloathing.com/Avatar_of_Boris)",
+      "reward": "Thwaitgold stag beetle statuette; Factoids; 2 Tattoos; Request Sandwich, from note from Clancy after getting 30 skills during a run; And My Axe Trophy",
+      "reward_source": "https://web.archive.org/web/20260822021427/https://wiki.kingdomofloathing.com/Special_challenge_path",
+      "points_preference": "borisPoints",
+      "point_max_in_client": 0,
+      "path_base_capacity": [
+        15,
+        14,
+        15
+      ],
+      "individual_rule_page_readable": true
+    },
+    {
+      "id": 9,
+      "name": "Bugbear Invasion",
+      "restriction": "Final objective changes to mothership",
+      "unique_mechanic": "Hunt bugbears in old zones to unlock and clear ship decks",
+      "reuse_vs_add": "Reuses old locations/combats; adds biodata gates and ship graph",
+      "reuse_label": "INFERRED",
+      "rule_evidence": "STATED individual page; [snapshot 20231201131541](https://web.archive.org/web/20231201131541id_/https://kol.coldfront.net/thekolwiki/index.php/Bugbear_Invasion)",
+      "reward": "Thwaitgold woollybear statuette; Factoids",
+      "reward_source": "https://web.archive.org/web/20260822021427/https://wiki.kingdomofloathing.com/Special_challenge_path",
+      "points_preference": null,
+      "point_max_in_client": 0,
+      "path_base_capacity": [
+        15,
+        14,
+        15
+      ],
+      "individual_rule_page_readable": true
+    },
+    {
+      "id": 10,
+      "name": "Zombie Slayer",
+      "restriction": "Zombie class, restricted food/familiars and skills",
+      "unique_mechanic": "Hunter brains teach skills; a recruitable zombie horde replaces MP",
+      "reuse_vs_add": "Reuses skills/combat; adds horde spending and zombie learning",
+      "reuse_label": "INFERRED",
+      "rule_evidence": "STATED individual page; [snapshot 20231203142644](https://web.archive.org/web/20231203142644id_/https://kol.coldfront.net/thekolwiki/index.php/Zombie_Slayer)",
+      "reward": "Thwaitgold maggot statuette; Factoids; 2 Tattoos; Talkative skull Familiar",
+      "reward_source": "https://web.archive.org/web/20260822021427/https://wiki.kingdomofloathing.com/Special_challenge_path",
+      "points_preference": "zombiePoints",
+      "point_max_in_client": 0,
+      "path_base_capacity": [
+        15,
+        14,
+        15
+      ],
+      "individual_rule_page_readable": true
+    },
+    {
+      "id": 11,
+      "name": "Class Act",
+      "restriction": "Only current-class permed skills allowed",
+      "unique_mechanic": "Existing skill books and in-run learning have specific exceptions",
+      "reuse_vs_add": "Reuses classes/skill acquisition; adds skill-source eligibility",
+      "reuse_label": "INFERRED",
+      "rule_evidence": "STATED individual page; [snapshot 20260314210316](https://web.archive.org/web/20260314210316id_/https://wiki.kingdomofloathing.com/Class_Act)",
+      "reward": "Thwaitgold praying mantis statuette; Stainless equipment (hardcore only)",
+      "reward_source": "https://web.archive.org/web/20260822021427/https://wiki.kingdomofloathing.com/Special_challenge_path",
+      "points_preference": null,
+      "point_max_in_client": 0,
+      "path_base_capacity": [
+        15,
+        14,
+        15
+      ],
+      "individual_rule_page_readable": true
+    },
+    {
+      "id": 12,
+      "name": "Avatar of Jarlsberg",
+      "restriction": "Cosmic Kitchen diet, no ordinary familiar/permed skills, no basic weapon attack; bookshelf/in-run exceptions",
+      "unique_mechanic": "Cosmic cooking and four food companions",
+      "reuse_vs_add": "Reuses ingredients, recipes, effects and quests; adds kitchen rules and companion modes",
+      "reuse_label": "INFERRED",
+      "rule_evidence": "STATED individual page; [snapshot 20231201090138](https://web.archive.org/web/20231201090138id_/https://kol.coldfront.net/thekolwiki/index.php/Avatar_of_Jarlsberg)",
+      "reward": "Thwaitgold firefly statuette; Factoids; 2 Tattoos; Cosmic Thing Trophy",
+      "reward_source": "https://web.archive.org/web/20260822021427/https://wiki.kingdomofloathing.com/Special_challenge_path",
+      "points_preference": "jarlsbergPoints",
+      "point_max_in_client": 0,
+      "path_base_capacity": [
+        15,
+        14,
+        15
+      ],
+      "individual_rule_page_readable": true
+    },
+    {
+      "id": 14,
+      "name": "BIG!",
+      "restriction": "Free runaways spend turns; ordinary monsters receive a size offset with caps/exceptions",
+      "unique_mechanic": "Start at level 15; enemy size offset is not identical to Monster Level",
+      "reuse_vs_add": "Reuses leveling, monster stats and quests; changes starting state and enemy offset",
+      "reuse_label": "INFERRED",
+      "rule_evidence": "STATED individual page; [snapshot 20260314210802](https://web.archive.org/web/20260314210802id_/https://wiki.kingdomofloathing.com/BIG!)",
+      "reward": "Thwaitgold Goliath beetle statuette; Stainless equipment (hardcore only)",
+      "reward_source": "https://web.archive.org/web/20260822021427/https://wiki.kingdomofloathing.com/Special_challenge_path",
+      "points_preference": null,
+      "point_max_in_client": 0,
+      "path_base_capacity": [
+        15,
+        14,
+        15
+      ],
+      "individual_rule_page_readable": true
+    },
+    {
+      "id": 15,
+      "name": "KOLHS",
+      "restriction": "First 40 daily adventures must be spent at school; special booze restrictions",
+      "unique_mechanic": "Classes/clubs, yearbook and school crafting",
+      "reuse_vs_add": "Reuses turns/items/quests; adds school schedule and club content",
+      "reuse_label": "INFERRED",
+      "rule_evidence": "STATED individual page; [snapshot 20260314210236](https://web.archive.org/web/20260314210236id_/https://wiki.kingdomofloathing.com/KOLHS)",
+      "reward": "Thwaitgold bookworm statuette; Factoids; Upgradable Yearbook Club Camera; Stainless equipment (hardcore only); Trophies: Purity of Essence, Ansel Adams Jr., Eleven Down, None to Go",
+      "reward_source": "https://web.archive.org/web/20260822021427/https://wiki.kingdomofloathing.com/Special_challenge_path",
+      "points_preference": null,
+      "point_max_in_client": 0,
+      "path_base_capacity": [
+        15,
+        14,
+        15
+      ],
+      "individual_rule_page_readable": true
+    },
+    {
+      "id": 16,
+      "name": "Class Act II: A Class For Pigs",
+      "restriction": "Own-class guild skills granted; other class-bound non-guild skills barred, but general permed skills remain",
+      "unique_mechanic": "Original combat/noncombat stat changes became global or obsolete in May 2014; current skill filter remains",
+      "reuse_vs_add": "Reuses class skills and monster level; adds gain rules and skill whitelist",
+      "reuse_label": "INFERRED",
+      "rule_evidence": "STATED individual page; [snapshot 20231211153322](https://web.archive.org/web/20231211153322id_/https://kol.coldfront.net/thekolwiki/index.php/Class_Act_II:_A_Class_For_Pigs)",
+      "reward": "Thwaitgold ant statuette; Stainless equipment (hardcore only)",
+      "reward_source": "https://web.archive.org/web/20260822021427/https://wiki.kingdomofloathing.com/Special_challenge_path",
+      "points_preference": null,
+      "point_max_in_client": 0,
+      "path_base_capacity": [
+        15,
+        14,
+        15
+      ],
+      "individual_rule_page_readable": true
+    },
+    {
+      "id": 17,
+      "name": "Avatar of Sneaky Pete",
+      "restriction": "Special class, no ordinary familiar or inherited skill set",
+      "unique_mechanic": "Motorbike parts, love/hate and three skill branches",
+      "reuse_vs_add": "Reuses modifiers, skill trees and quests; adds bike configuration and social resources",
+      "reuse_label": "INFERRED",
+      "rule_evidence": "STATED individual page; [snapshot 20240422145459](https://web.archive.org/web/20240422145459id_/https://kol.coldfront.net/thekolwiki/index.php/Avatar_of_Sneaky_Pete)",
+      "reward": "Thwaitgold dragonfly statuette; Factoids; 2 Tattoos; Cool Guy Trophy",
+      "reward_source": "https://web.archive.org/web/20260822021427/https://wiki.kingdomofloathing.com/Special_challenge_path",
+      "points_preference": "sneakyPetePoints",
+      "point_max_in_client": 0,
+      "path_base_capacity": [
+        15,
+        14,
+        15
+      ],
+      "individual_rule_page_readable": true
+    },
+    {
+      "id": 18,
+      "name": "Slow and Steady",
+      "restriction": "Ordinary adventure gain blocked; the rule page lists specific aftercore exceptions",
+      "unique_mechanic": "100 turns at run start and daily rollover rather than ordinary 40",
+      "reuse_vs_add": "Reuses daily reset, consumable buffs and quests; overrides turn-generation rules",
+      "reuse_label": "INFERRED",
+      "rule_evidence": "STATED individual page; [snapshot 20240614155808](https://web.archive.org/web/20240614155808id_/https://kol.coldfront.net/thekolwiki/index.php/Slow_and_Steady)",
+      "reward": "Thwaitgold wheel bug statuette; Stainless equipment (hardcore only); Bottled day (in-season reward only); bottled day deadline exception, see CONTRADICTIONS C9",
+      "reward_source": "https://web.archive.org/web/20260822021427/https://wiki.kingdomofloathing.com/Special_challenge_path",
+      "points_preference": null,
+      "point_max_in_client": 0,
+      "path_base_capacity": [
+        15,
+        14,
+        15
+      ],
+      "individual_rule_page_readable": true
+    },
+    {
+      "id": 19,
+      "name": "Heavy Rains",
+      "restriction": "Flood depth raises difficulty/washes away eligible loot; most familiars need flotation",
+      "unique_mechanic": "Rain/lightning/thunder resources, wanderers and boss variants",
+      "reuse_vs_add": "Reuses zone environments/monsters/drops; adds water depth and resource skills",
+      "reuse_label": "INFERRED",
+      "rule_evidence": "STATED individual page; [snapshot 20231201035239](https://web.archive.org/web/20231201035239id_/https://kol.coldfront.net/thekolwiki/index.php/Heavy_Rains)",
+      "reward": "Thwaitgold spider statuette; Factoids; Stainless equipment (hardcore only); beautiful rainbow (in-season reward only)",
+      "reward_source": "https://web.archive.org/web/20260822021427/https://wiki.kingdomofloathing.com/Special_challenge_path",
+      "points_preference": null,
+      "point_max_in_client": 0,
+      "path_base_capacity": [
+        15,
+        14,
+        15
+      ],
+      "individual_rule_page_readable": true
+    },
+    {
+      "id": 21,
+      "name": "Picky",
+      "restriction": "Restricted choice of 11 skills and three familiars",
+      "unique_mechanic": "Draft a narrow starting toolkit",
+      "reuse_vs_add": "Reuses skills/familiars/quests; adds selection screen and eligibility",
+      "reuse_label": "INFERRED",
+      "rule_evidence": "STATED individual page; [snapshot 20260314210929](https://web.archive.org/web/20260314210929id_/https://wiki.kingdomofloathing.com/Picky)",
+      "reward": "Thwaitgold nit statuette; Stainless equipment (hardcore only); picky tweezers (in-season reward only)",
+      "reward_source": "https://web.archive.org/web/20260822021427/https://wiki.kingdomofloathing.com/Special_challenge_path",
+      "points_preference": null,
+      "point_max_in_client": 0,
+      "path_base_capacity": [
+        15,
+        14,
+        15
+      ],
+      "individual_rule_page_readable": true
+    },
+    {
+      "id": 22,
+      "name": "Standard",
+      "restriction": "Rolling calendar window excludes old limited content",
+      "unique_mechanic": "Annual class rewards and reward recycling",
+      "reuse_vs_add": "Reuses classes/items/perms; adds dated eligibility and yearly reward series",
+      "reuse_label": "INFERRED",
+      "rule_evidence": "SHOWN StandardRequest and StandardRewardDatabase; calendar rule STATED in index",
+      "reward": "Year/class/mode-specific equipment (SHOWN standard-rewards.txt)",
+      "reward_source": "SHOWN StandardRequest and StandardRewardDatabase; calendar rule STATED in index",
+      "points_preference": null,
+      "point_max_in_client": 0,
+      "path_base_capacity": [
+        15,
+        14,
+        15
+      ],
+      "individual_rule_page_readable": false
+    },
+    {
+      "id": 23,
+      "name": "Actually Ed the Undying",
+      "restriction": "Ed class, limited healing/initial organs, servants instead of familiars",
+      "unique_mechanic": "Defeat leads to Underworld upgrades; Ka-funded body changes",
+      "reuse_vs_add": "Reuses combat/skills/quests; adds death recovery, servants and body upgrades",
+      "reuse_label": "INFERRED",
+      "rule_evidence": "STATED individual page; [snapshot 20260519222336](https://web.archive.org/web/20260519222336id_/https://wiki.kingdomofloathing.com/Actually_Ed_the_Undying)",
+      "reward": "Thwaitgold scarab beetle statuette; Factoids; 2 Tattoos; still-beating spleen (in-season reward only); Can perm Mild Curse",
+      "reward_source": "https://web.archive.org/web/20260822021427/https://wiki.kingdomofloathing.com/Special_challenge_path",
+      "points_preference": "edPoints",
+      "point_max_in_client": 0,
+      "path_base_capacity": [
+        15,
+        14,
+        15
+      ],
+      "individual_rule_page_readable": true
+    },
+    {
+      "id": 24,
+      "name": "One Crazy Random Summer",
+      "restriction": "Random monster modifiers change combat rules",
+      "unique_mechanic": "Score Fun rather than simply shortest run",
+      "reuse_vs_add": "Reuses monster records; adds modifier composition and Fun scoring",
+      "reuse_label": "INFERRED",
+      "rule_evidence": "STATED individual page; [snapshot 20240227144711](https://web.archive.org/web/20240227144711id_/https://kol.coldfront.net/thekolwiki/index.php/One_Crazy_Random_Summer)",
+      "reward": "Thwaitgold caterpillar statuette; dice ring (for Seal Clubbers); dice belt buckle (for Turtle Tamers); dice-print pajama pants (for Pastamancers); dice-shaped backpack (for Saucerors); dice-print do-rag (for Disco Bandits); dice sunglasses (for Accordion Thieves)",
+      "reward_source": "https://web.archive.org/web/20260822021427/https://wiki.kingdomofloathing.com/Special_challenge_path",
+      "points_preference": null,
+      "point_max_in_client": 0,
+      "path_base_capacity": [
+        15,
+        14,
+        15
+      ],
+      "individual_rule_page_readable": true
+    },
+    {
+      "id": 25,
+      "name": "Community Service",
+      "restriction": "Council quests replaced; most quest-gated areas unavailable; softcore pulls limited to five daily",
+      "unique_mechanic": "11 services use existing stats to reduce turn costs",
+      "reuse_vs_add": "Reuses gear/effects/stats/turn spending; adds substitute completion objectives",
+      "reuse_label": "INFERRED",
+      "rule_evidence": "STATED individual page; [snapshot 20230927003749](https://web.archive.org/web/20230927003749id_/https://kol.coldfront.net/thekolwiki/index.php/Community_Service)",
+      "reward": "Thwaitgold termite statuette",
+      "reward_source": "https://web.archive.org/web/20260822021427/https://wiki.kingdomofloathing.com/Special_challenge_path",
+      "points_preference": null,
+      "point_max_in_client": 0,
+      "path_base_capacity": [
+        15,
+        14,
+        15
+      ],
+      "individual_rule_page_readable": true
+    },
+    {
+      "id": 26,
+      "name": "Avatar of West of Loathing",
+      "restriction": "Three special classes and path skill set",
+      "unique_mechanic": "Cow/bean/snake skills and wandering encounters",
+      "reuse_vs_add": "Reuses class/skill/quest grammar; adds class kits and encounters",
+      "reuse_label": "INFERRED",
+      "rule_evidence": "STATED individual page; [snapshot 20260314210712](https://web.archive.org/web/20260314210712id_/https://wiki.kingdomofloathing.com/Avatar_of_West_of_Loathing)",
+      "reward": "Thwaitgold scorpion statuette; Factoids; 6 Tattoos",
+      "reward_source": "https://web.archive.org/web/20260822021427/https://wiki.kingdomofloathing.com/Special_challenge_path",
+      "points_preference": null,
+      "point_max_in_client": 0,
+      "path_base_capacity": [
+        15,
+        14,
+        15
+      ],
+      "individual_rule_page_readable": true
+    },
+    {
+      "id": 27,
+      "name": "The Source",
+      "restriction": "Source Agents accept only path skills; normal stat gains are reduced or blocked",
+      "unique_mechanic": "Agent interruptions and Source progression",
+      "reuse_vs_add": "Reuses old quests/combats; adds special encounter skill gates and points",
+      "reuse_label": "INFERRED",
+      "rule_evidence": "STATED individual page; [snapshot 20240304114848](https://web.archive.org/web/20240304114848id_/https://kol.coldfront.net/thekolwiki/index.php/The_Source_(path))",
+      "reward": "Thwaitgold moth statuette; Factoids; Stainless equipment (hardcore only); Bowl of Tastee-Wheet\u2122 (in-season reward only)",
+      "reward_source": "https://web.archive.org/web/20260822021427/https://wiki.kingdomofloathing.com/Special_challenge_path",
+      "points_preference": "sourcePoints",
+      "point_max_in_client": 0,
+      "path_base_capacity": [
+        15,
+        14,
+        15
+      ],
+      "individual_rule_page_readable": true
+    },
+    {
+      "id": 28,
+      "name": "Nuclear Autumn",
+      "restriction": "Only size-one consumables; organs 3/2/3, no permed skills, many ordinary stores closed",
+      "unique_mechanic": "Radiation skills and fallout shelter upgrades",
+      "reuse_vs_add": "Reuses consumables, effects and quests; adds shelter state and radiation mechanics",
+      "reuse_label": "INFERRED",
+      "rule_evidence": "STATED individual page; [snapshot 20230605143607](https://web.archive.org/web/20230605143607id_/https://kol.coldfront.net/thekolwiki/index.php/Nuclear_Autumn)",
+      "reward": "Thwaitgold cockroach statuette; Stainless equipment (hardcore only); Adventurer bobblehead (in-season reward only)",
+      "reward_source": "https://web.archive.org/web/20260822021427/https://wiki.kingdomofloathing.com/Special_challenge_path",
+      "points_preference": "nuclearAutumnPoints",
+      "point_max_in_client": 23,
+      "path_base_capacity": [
+        3,
+        2,
+        3
+      ],
+      "individual_rule_page_readable": true
+    },
+    {
+      "id": 29,
+      "name": "Gelatinous Noob",
+      "restriction": "No normal consumption/carried skills; most worn equipment enchantments suppressed",
+      "unique_mechanic": "Absorb items for stats/modifiers/skills",
+      "reuse_vs_add": "Reuses item records; adds consumption-as-absorption and capped absorb budget",
+      "reuse_label": "INFERRED",
+      "rule_evidence": "STATED individual page; [snapshot 20240224035755](https://web.archive.org/web/20240224035755id_/https://kol.coldfront.net/thekolwiki/index.php/Gelatinous_Noob)",
+      "reward": "Thwaitgold amoeba statuette; 2 Tattoos; Gelatinous Hubris Trophy",
+      "reward_source": "https://web.archive.org/web/20260822021427/https://wiki.kingdomofloathing.com/Special_challenge_path",
+      "points_preference": "noobPoints",
+      "point_max_in_client": 20,
+      "path_base_capacity": [
+        15,
+        14,
+        15
+      ],
+      "individual_rule_page_readable": true
+    },
+    {
+      "id": 30,
+      "name": "License to Adventure",
+      "restriction": "No ordinary food/familiars; martini-only drinking, with specific exceptions",
+      "unique_mechanic": "Liver grows with level; spy skills, briefcase and special villains",
+      "reuse_vs_add": "Reuses old quests/items; adds spy resource/skill kit and boss substitutions",
+      "reuse_label": "INFERRED",
+      "rule_evidence": "STATED individual page; [snapshot 20260314210446](https://web.archive.org/web/20260314210446id_/https://wiki.kingdomofloathing.com/License_to_Adventure)",
+      "reward": "Thwaitgold bug statuette; License To Kill (in-season reward only); Factoids; Stainless equipment (hardcore only)",
+      "reward_source": "https://web.archive.org/web/20260822021427/https://wiki.kingdomofloathing.com/Special_challenge_path",
+      "points_preference": "bondPoints",
+      "point_max_in_client": 24,
+      "path_base_capacity": [
+        0,
+        2,
+        15
+      ],
+      "individual_rule_page_readable": true
+    },
+    {
+      "id": 31,
+      "name": "Live. Ascend. Repeat.",
+      "restriction": "Fixed drop rolls and average consumption; banish/olfaction/combat-rate effects and wanderers disabled",
+      "unique_mechanic": "Repeated attempts expose a predictable sequence",
+      "reuse_vs_add": "Reuses encounters and loot; adds deterministic outcome policy",
+      "reuse_label": "INFERRED",
+      "rule_evidence": "STATED individual page; [snapshot 20240415223813](https://web.archive.org/web/20240415223813id_/https://kol.coldfront.net/thekolwiki/index.php/Live._Ascend._Repeat.)",
+      "reward": "Thwaitgold time fly statuette; perfectly fair coin (in-season reward only); Stainless equipment (hardcore only)",
+      "reward_source": "https://web.archive.org/web/20260822021427/https://wiki.kingdomofloathing.com/Special_challenge_path",
+      "points_preference": null,
+      "point_max_in_client": 0,
+      "path_base_capacity": [
+        15,
+        14,
+        15
+      ],
+      "individual_rule_page_readable": true
+    },
+    {
+      "id": 32,
+      "name": "Pocket Familiars",
+      "restriction": "No carried skills or ordinary combat tools; special Standard/Ronin exceptions stated in 2023 capture",
+      "unique_mechanic": "Three-familiar teams use path-specific moves",
+      "reuse_vs_add": "Reuses familiar identities and locations; adds team combat, growth and moves",
+      "reuse_label": "INFERRED",
+      "rule_evidence": "STATED individual page; [snapshot 20231202190618](https://web.archive.org/web/20231202190618id_/https://kol.coldfront.net/thekolwiki/index.php/Pocket_Familiars)",
+      "reward": "Thwaitgold metabug statuette; Factoids; Stainless equipment (hardcore only)",
+      "reward_source": "https://web.archive.org/web/20260822021427/https://wiki.kingdomofloathing.com/Special_challenge_path",
+      "points_preference": "pokefamPoints",
+      "point_max_in_client": 10,
+      "path_base_capacity": [
+        15,
+        14,
+        15
+      ],
+      "individual_rule_page_readable": true
+    },
+    {
+      "id": 33,
+      "name": "G-Lover",
+      "restriction": "Items/effects/skills/familiars need G in the name",
+      "unique_mechanic": "One lexical rule changes the useful tool set",
+      "reuse_vs_add": "Reuses names and content; adds eligibility predicate and exceptions",
+      "reuse_label": "INFERRED",
+      "rule_evidence": "STATED [index](https://web.archive.org/web/20260822021427/https://wiki.kingdomofloathing.com/Special_challenge_path); rule detail INFERRED, exceptions OPEN; SHOWN ItemDatabase name predicates with exceptions",
+      "reward": "Thwaitgold chigger statuette; Garland of Greatness; A tattoo; Stainless equipment (hardcore only)",
+      "reward_source": "https://web.archive.org/web/20260822021427/https://wiki.kingdomofloathing.com/Special_challenge_path",
+      "points_preference": "gloverPoints",
+      "point_max_in_client": 10,
+      "path_base_capacity": [
+        15,
+        14,
+        15
+      ],
+      "individual_rule_page_readable": false
+    },
+    {
+      "id": 34,
+      "name": "Disguises Delimit",
+      "restriction": "Masks alter player/enemy properties",
+      "unique_mechanic": "Swap masks with enemies",
+      "reuse_vs_add": "Reuses encounters/modifiers; adds mask ownership and exchange",
+      "reuse_label": "INFERRED",
+      "rule_evidence": "STATED individual page; [snapshot 20260314210412](https://web.archive.org/web/20260314210412id_/https://wiki.kingdomofloathing.com/Disguises_Delimit)",
+      "reward": "Thwaitgold masked hunter statuette; Masks for the public profile's avatar; Stainless equipment (hardcore only)",
+      "reward_source": "https://web.archive.org/web/20260822021427/https://wiki.kingdomofloathing.com/Special_challenge_path",
+      "points_preference": "masksUnlocked",
+      "point_max_in_client": 25,
+      "path_base_capacity": [
+        15,
+        14,
+        15
+      ],
+      "individual_rule_page_readable": true
+    },
+    {
+      "id": 35,
+      "name": "Dark Gyffte",
+      "restriction": "Vampyre class, HP-funded skills, restricted healing and blood diet; specific exceptions apply",
+      "unique_mechanic": "Skills cost HP and can be reassigned",
+      "reuse_vs_add": "Reuses HP, recipes and effects; adds blood supply and respec policy",
+      "reuse_label": "INFERRED",
+      "rule_evidence": "STATED individual page; [snapshot 20260314210807](https://web.archive.org/web/20260314210807id_/https://wiki.kingdomofloathing.com/Dark_Gyffte)",
+      "reward": "Thwaitgold mosquito statuette; Factoids; 2 Tattoos; Booke of Vampyric Knowledge (in-season reward only)",
+      "reward_source": "https://web.archive.org/web/20260822021427/https://wiki.kingdomofloathing.com/Special_challenge_path",
+      "points_preference": "darkGyfftePoints",
+      "point_max_in_client": 23,
+      "path_base_capacity": [
+        15,
+        14,
+        15
+      ],
+      "individual_rule_page_readable": true
+    },
+    {
+      "id": 36,
+      "name": "Two Crazy Random Summer",
+      "restriction": "Item properties vary with class/sign",
+      "unique_mechanic": "Stable per-profile randomized names, sizes, quality and modifiers",
+      "reuse_vs_add": "Reuses stable item identity and modifiers; adds property overlays and seed profiles",
+      "reuse_label": "INFERRED",
+      "rule_evidence": "STATED individual page; [snapshot 20260314210554](https://web.archive.org/web/20260314210554id_/https://wiki.kingdomofloathing.com/Two_Crazy_Random_Summer)",
+      "reward": "Thwaitgold nymph statuette; ring; Additional random modifiers for your ring; Stainless equipment (hardcore only)",
+      "reward_source": "https://web.archive.org/web/20260822021427/https://wiki.kingdomofloathing.com/Special_challenge_path",
+      "points_preference": "twoCRSPoints",
+      "point_max_in_client": 37,
+      "path_base_capacity": [
+        15,
+        14,
+        15
+      ],
+      "individual_rule_page_readable": true
+    },
+    {
+      "id": 37,
+      "name": "Kingdom of Exploathing",
+      "restriction": "Many optional places/shops unavailable",
+      "unique_mechanic": "All Council quests offered at the start",
+      "reuse_vs_add": "Reuses quests/monsters/items; changes map and prerequisite graph",
+      "reuse_label": "INFERRED",
+      "rule_evidence": "STATED [index](https://web.archive.org/web/20260822021427/https://wiki.kingdomofloathing.com/Special_challenge_path); rule detail INFERRED, exceptions OPEN",
+      "reward": "Thwaitgold bombardier beetle statuette; Factoids; The Imploded World (in-season reward only); Stainless equipment (hardcore only)",
+      "reward_source": "https://web.archive.org/web/20260822021427/https://wiki.kingdomofloathing.com/Special_challenge_path",
+      "points_preference": null,
+      "point_max_in_client": 0,
+      "path_base_capacity": [
+        15,
+        14,
+        15
+      ],
+      "individual_rule_page_readable": false
+    },
+    {
+      "id": 38,
+      "name": "Path of the Plumber",
+      "restriction": "Plumber class, no permanent skills or booze",
+      "unique_mechanic": "Jump/hammer/fireball, power points and coin purchases",
+      "reuse_vs_add": "Reuses items/quests/combat; adds plumber kit and currency progression",
+      "reuse_label": "INFERRED",
+      "rule_evidence": "STATED individual page; [snapshot 20260314210757](https://web.archive.org/web/20260314210757id_/https://wiki.kingdomofloathing.com/Path_of_the_Plumber)",
+      "reward": "Thwaitgold buzzy beetle statuette; 2 Tattoos; Factoids; red coin (in-season reward only)",
+      "reward_source": "https://web.archive.org/web/20260822021427/https://wiki.kingdomofloathing.com/Special_challenge_path",
+      "points_preference": "plumberPoints",
+      "point_max_in_client": 22,
+      "path_base_capacity": [
+        15,
+        14,
+        15
+      ],
+      "individual_rule_page_readable": true
+    },
+    {
+      "id": 39,
+      "name": "Low Key Summer",
+      "restriction": "Tower requires a much broader key collection",
+      "unique_mechanic": "Side locations become required key sources",
+      "reuse_vs_add": "Reuses old zones/quests; adds key manifest and final-door objective",
+      "reuse_label": "INFERRED",
+      "rule_evidence": "STATED individual page; [snapshot 20260314210605](https://web.archive.org/web/20260314210605id_/https://wiki.kingdomofloathing.com/Low_Key_Summer)",
+      "reward": "Thwaitgold keyhole spider statuette; Manual of Lock Picking (was supposed to drop up until Lock Picking became standard-restricted, but currently still dropping); Stainless equipment (hardcore only)",
+      "reward_source": "https://web.archive.org/web/20260822021427/https://wiki.kingdomofloathing.com/Special_challenge_path",
+      "points_preference": null,
+      "point_max_in_client": 0,
+      "path_base_capacity": [
+        15,
+        14,
+        15
+      ],
+      "individual_rule_page_readable": true
+    },
+    {
+      "id": 40,
+      "name": "Grey Goo",
+      "restriction": "Many zones closed; run follows three-day invasion",
+      "unique_mechanic": "Fight goo until timed completion replaces normal finish",
+      "reuse_vs_add": "Reuses zones/combat/drops; adds timed objective and invaded variants",
+      "reuse_label": "INFERRED",
+      "rule_evidence": "STATED individual page; [snapshot 20260314210651](https://web.archive.org/web/20260314210651id_/https://wiki.kingdomofloathing.com/Grey_Goo)",
+      "reward": "Thwaitgold slug statuette; inert grey goo ring; Factoids; Grey Goo seasonal Karma exception, see CONTRADICTIONS C2",
+      "reward_source": "https://web.archive.org/web/20260822021427/https://wiki.kingdomofloathing.com/Special_challenge_path",
+      "points_preference": null,
+      "point_max_in_client": 0,
+      "path_base_capacity": [
+        15,
+        14,
+        15
+      ],
+      "individual_rule_page_readable": true
+    },
+    {
+      "id": 41,
+      "name": "You, Robot",
+      "restriction": "No ordinary consumption/permed skills; equipment/familiar/potion access requires body upgrades, with item exceptions",
+      "unique_mechanic": "Scrap-built body parts and energy-funded CPU upgrades",
+      "reuse_vs_add": "Reuses gear/skills/modifiers; adds body-slot configuration and two resources",
+      "reuse_label": "INFERRED",
+      "rule_evidence": "STATED individual page; [snapshot 20240227030959](https://web.archive.org/web/20240227030959id_/https://kol.coldfront.net/thekolwiki/index.php/You,_Robot); SHOWN YouRobotManager permission checks",
+      "reward": "Thwaitgold listening bug statuette; Factoids",
+      "reward_source": "https://web.archive.org/web/20260822021427/https://wiki.kingdomofloathing.com/Special_challenge_path",
+      "points_preference": "youRobotPoints",
+      "point_max_in_client": 37,
+      "path_base_capacity": [
+        0,
+        0,
+        0
+      ],
+      "individual_rule_page_readable": true
+    },
+    {
+      "id": 42,
+      "name": "Quantum Terrarium",
+      "restriction": "Cannot freely choose your familiar",
+      "unique_mechanic": "Timed familiar rotation draws from shared pool",
+      "reuse_vs_add": "Reuses familiar definitions; adds schedule, preview and reroll policy",
+      "reuse_label": "INFERRED",
+      "rule_evidence": "STATED individual page; [snapshot 20231203165015](https://web.archive.org/web/20231203165015id_/https://kol.coldfront.net/thekolwiki/index.php/Quantum_Terrarium)",
+      "reward": "Thwaitgold quantum bug statuette; quantum of familiar; Stainless equipment (hardcore only)",
+      "reward_source": "https://web.archive.org/web/20260822021427/https://wiki.kingdomofloathing.com/Special_challenge_path",
+      "points_preference": "quantumPoints",
+      "point_max_in_client": 11,
+      "path_base_capacity": [
+        15,
+        14,
+        15
+      ],
+      "individual_rule_page_readable": true
+    },
+    {
+      "id": 43,
+      "name": "Wildfire",
+      "restriction": "Fires alter access, monster difficulty and drops",
+      "unique_mechanic": "Collect water and reduce local fire levels",
+      "reuse_vs_add": "Reuses zones, enemies and quests; adds per-location fire state and extinguishing",
+      "reuse_label": "INFERRED",
+      "rule_evidence": "STATED individual page; [snapshot 20240304053240](https://web.archive.org/web/20240304053240id_/https://kol.coldfront.net/thekolwiki/index.php/Wildfire)",
+      "reward": "Thwaitgold fire beetle statuette; Factoids; Stainless equipment (hardcore only)",
+      "reward_source": "https://web.archive.org/web/20260822021427/https://wiki.kingdomofloathing.com/Special_challenge_path",
+      "points_preference": null,
+      "point_max_in_client": 0,
+      "path_base_capacity": [
+        15,
+        14,
+        15
+      ],
+      "individual_rule_page_readable": true
+    },
+    {
+      "id": 44,
+      "name": "Grey You",
+      "restriction": "No ordinary class skill set or consumption",
+      "unique_mechanic": "Absorb monsters for stats/turns/skills; goose reprocessing",
+      "reuse_vs_add": "Reuses monster identity, skills and effects; adds absorption ledger and reprocess state",
+      "reuse_label": "INFERRED",
+      "rule_evidence": "STATED individual page; [snapshot 20230607182321](https://web.archive.org/web/20230607182321id_/https://kol.coldfront.net/thekolwiki/index.php/Grey_You); SHOWN GreyYouManager absorption ledger",
+      "reward": "Thwaitgold protozoa statuette; Class tattoo",
+      "reward_source": "https://web.archive.org/web/20260822021427/https://wiki.kingdomofloathing.com/Special_challenge_path",
+      "points_preference": "greyYouPoints",
+      "point_max_in_client": 11,
+      "path_base_capacity": [
+        15,
+        14,
+        15
+      ],
+      "individual_rule_page_readable": true
+    },
+    {
+      "id": 45,
+      "name": "Journeyman",
+      "restriction": "No initial skills; trainers and skill books blocked, equipment-granted skills still work",
+      "unique_mechanic": "Skills found after repeated visits to optional locations",
+      "reuse_vs_add": "Reuses 180 skills and 30 locations; adds class/location/visit-index mapping",
+      "reuse_label": "INFERRED",
+      "rule_evidence": "STATED individual page; [snapshot 20230923204430](https://web.archive.org/web/20230923204430id_/https://kol.coldfront.net/thekolwiki/index.php/Journeyman); SHOWN JourneyManager and journeyman.txt",
+      "reward": "Thwaitgold harvestman statuette; The Big Book of Every Skill; Stainless equipment (hardcore only)",
+      "reward_source": "https://web.archive.org/web/20260822021427/https://wiki.kingdomofloathing.com/Special_challenge_path",
+      "points_preference": null,
+      "point_max_in_client": 0,
+      "path_base_capacity": [
+        15,
+        14,
+        15
+      ],
+      "individual_rule_page_readable": true
+    },
+    {
+      "id": 46,
+      "name": "Fall of the Dinosaurs",
+      "restriction": "Old enemies enclosed in dinosaur overlays; ordinary banish/attraction effects do not apply",
+      "unique_mechanic": "Dinosaur modifiers/drops and path currency shop",
+      "reuse_vs_add": "Reuses original monster drops and interactions; adds dinosaur properties, replacements and shop rewards",
+      "reuse_label": "INFERRED",
+      "rule_evidence": "STATED individual page; [snapshot 20231208064159](https://web.archive.org/web/20231208064159id_/https://kol.coldfront.net/thekolwiki/index.php/Fall_of_the_Dinosaurs)",
+      "reward": "Thwaitgold mosquito-in-amber statuette; Factoids; stuffed dinosaur (needs to be bought with path currency); Stainless equipment (hardcore only)",
+      "reward_source": "https://web.archive.org/web/20260822021427/https://wiki.kingdomofloathing.com/Special_challenge_path",
+      "points_preference": null,
+      "point_max_in_client": 0,
+      "path_base_capacity": [
+        15,
+        14,
+        15
+      ],
+      "individual_rule_page_readable": true
+    },
+    {
+      "id": 47,
+      "name": "Avatar of Shadows Over Loathing",
+      "restriction": "Three special classes; no permanent skill access",
+      "unique_mechanic": "Pig Skinner, Cheese Wizard and Jazz Agent; cursed boss rewards",
+      "reuse_vs_add": "Reuses skills/items/quests; adds class kits and curse progression",
+      "reuse_label": "INFERRED",
+      "rule_evidence": "STATED individual page; [snapshot 20260519222139](https://web.archive.org/web/20260519222139id_/https://wiki.kingdomofloathing.com/Avatar_of_Shadows_Over_Loathing)",
+      "reward": "Thwaitgold anti-moth statuette; Factoids; 6 Tattoos; Unique-to-path boss drops",
+      "reward_source": "https://web.archive.org/web/20260822021427/https://wiki.kingdomofloathing.com/Special_challenge_path",
+      "points_preference": null,
+      "point_max_in_client": 0,
+      "path_base_capacity": [
+        15,
+        14,
+        15
+      ],
+      "individual_rule_page_readable": true
+    },
+    {
+      "id": 48,
+      "name": "Legacy of Loathing",
+      "restriction": "Only replica familiar hatchlings; no equipment pulls, ordinary IotM auto-pulls or VIP/workshed access",
+      "unique_mechanic": "Replay old monthly modules with replica credit",
+      "reuse_vs_add": "Reuses historical module mechanics; adds replica catalogue and acquisition state",
+      "reuse_label": "INFERRED",
+      "rule_evidence": "STATED individual page; [snapshot 20240527180836](https://web.archive.org/web/20240527180836id_/https://kol.coldfront.net/thekolwiki/index.php/Legacy_of_Loathing)",
+      "reward": "Thwaitgold splendor beetle statuette; Factoids; Stainless equipment (hardcore only); Retained replica-derived skills/items; Loaned familiar completion records",
+      "reward_source": "https://web.archive.org/web/20260822021427/https://wiki.kingdomofloathing.com/Special_challenge_path",
+      "points_preference": "legacyPoints",
+      "point_max_in_client": 19,
+      "path_base_capacity": [
+        15,
+        14,
+        15
+      ],
+      "individual_rule_page_readable": true
+    },
+    {
+      "id": 49,
+      "name": "A Shrunken Adventurer am I",
+      "restriction": "Base stats temporarily limited to one; organs 2/1; cleansing/expansion and large booze barred",
+      "unique_mechanic": "Food/booze yields scale tenfold while ordinary leveling continues; exit restores stats and converts organ occupancy",
+      "reuse_vs_add": "Reuses gear/stats/consumables; adds scaling and exit conversion",
+      "reuse_label": "INFERRED",
+      "rule_evidence": "STATED individual page; [snapshot 20231203141131](https://web.archive.org/web/20231203141131id_/https://kol.coldfront.net/thekolwiki/index.php/A_Shrunken_Adventurer_Am_I)",
+      "reward": "Thwaitgold fairyfly statue; Factoids; residual chitin paste; Stainless equipment (hardcore only)",
+      "reward_source": "https://web.archive.org/web/20260822021427/https://wiki.kingdomofloathing.com/Special_challenge_path",
+      "points_preference": null,
+      "point_max_in_client": 0,
+      "path_base_capacity": [
+        2,
+        1,
+        15
+      ],
+      "individual_rule_page_readable": true
+    },
+    {
+      "id": 50,
+      "name": "WereProfessor",
+      "restriction": "Alternates professor and beast; gear/skill access depends on form",
+      "unique_mechanic": "Research in professor form improves beast capabilities",
+      "reuse_vs_add": "Reuses monster/skill/effect grammar; adds transformation cycle and research tree",
+      "reuse_label": "INFERRED",
+      "rule_evidence": "STATED [index](https://web.archive.org/web/20260822021427/https://wiki.kingdomofloathing.com/Special_challenge_path); rule detail INFERRED, exceptions OPEN; SHOWN ResearchBenchRequest and wereprofessor.txt",
+      "reward": "Thwaitgold wolf spider statuette; Factoids",
+      "reward_source": "https://web.archive.org/web/20260822021427/https://wiki.kingdomofloathing.com/Special_challenge_path",
+      "points_preference": "wereProfessorPoints",
+      "point_max_in_client": 23,
+      "path_base_capacity": [
+        5,
+        4,
+        15
+      ],
+      "individual_rule_page_readable": false
+    },
+    {
+      "id": 51,
+      "name": "11 Things I Hate About U",
+      "restriction": "I and U counts alter content usefulness",
+      "unique_mechanic": "Letter-sensitive item/monster/consumption behavior",
+      "reuse_vs_add": "Reuses entity names/stats; adds name-count transforms",
+      "reuse_label": "INFERRED",
+      "rule_evidence": "STATED [index](https://web.archive.org/web/20260822021427/https://wiki.kingdomofloathing.com/Special_challenge_path); rule detail INFERRED, exceptions OPEN",
+      "reward": "Thwaitgold Illinigina illinoiensis model; Factoids from ewes",
+      "reward_source": "https://web.archive.org/web/20260822021427/https://wiki.kingdomofloathing.com/Special_challenge_path",
+      "points_preference": null,
+      "point_max_in_client": 0,
+      "path_base_capacity": [
+        15,
+        14,
+        15
+      ],
+      "individual_rule_page_readable": false
+    },
+    {
+      "id": 52,
+      "name": "Avant Guard",
+      "restriction": "Only Burly Bodyguard can accompany adventures; enemy guards are fought first",
+      "unique_mechanic": "Bodyguard chat can select a future opposing guard; guard and guarded fight have different rewards",
+      "reuse_vs_add": "Reuses monster identities, familiar and combat; adds paired encounters and target control",
+      "reuse_label": "INFERRED",
+      "rule_evidence": "STATED individual page; [snapshot 20260314210944](https://web.archive.org/web/20260314210944id_/https://wiki.kingdomofloathing.com/Avant_Guard)",
+      "reward": "Thwaitgold shield bug statuette; Factoids from rare/obscure bodyguards; Burly Bodyguard familiar",
+      "reward_source": "https://web.archive.org/web/20260822021427/https://wiki.kingdomofloathing.com/Special_challenge_path",
+      "points_preference": "avantGuardPoints",
+      "point_max_in_client": 11,
+      "path_base_capacity": [
+        15,
+        14,
+        15
+      ],
+      "individual_rule_page_readable": true
+    },
+    {
+      "id": 53,
+      "name": "Z is for Zootomist",
+      "restriction": "No ordinary XP; grafted familiars are unavailable for normal use",
+      "unique_mechanic": "Body grafts determine stats/skills",
+      "reuse_vs_add": "Reuses familiar identities and skills; adds graft slots and derived progression",
+      "reuse_label": "INFERRED",
+      "rule_evidence": "STATED [index](https://web.archive.org/web/20260822021427/https://wiki.kingdomofloathing.com/Special_challenge_path); rule detail INFERRED, exceptions OPEN",
+      "reward": "Thwaitgold cordyceps ant statuette; 11 (tradable!) familiars; Zoo Graft-on Trophy",
+      "reward_source": "https://web.archive.org/web/20260822021427/https://wiki.kingdomofloathing.com/Special_challenge_path",
+      "points_preference": "zootomistPoints",
+      "point_max_in_client": 10,
+      "path_base_capacity": [
+        15,
+        14,
+        15
+      ],
+      "individual_rule_page_readable": false
+    },
+    {
+      "id": 54,
+      "name": "Hat Trick",
+      "restriction": "Equipment rules change to an all-hat configuration",
+      "unique_mechanic": "Wear many hats together",
+      "reuse_vs_add": "Reuses hat items/modifiers; adds multi-hat slot collection",
+      "reuse_label": "INFERRED",
+      "rule_evidence": "STATED [index](https://web.archive.org/web/20260822021427/https://wiki.kingdomofloathing.com/Special_challenge_path); rule detail INFERRED, exceptions OPEN",
+      "reward": "Thwaitgold mad hatterpillar statuette; Hats!; Mad Hattest Trophy",
+      "reward_source": "https://web.archive.org/web/20260822021427/https://wiki.kingdomofloathing.com/Special_challenge_path",
+      "points_preference": null,
+      "point_max_in_client": 0,
+      "path_base_capacity": [
+        15,
+        14,
+        15
+      ],
+      "individual_rule_page_readable": false
+    },
+    {
+      "id": 55,
+      "name": "11,037 Leagues Under the Sea",
+      "restriction": "Regular Council progression replaced during path",
+      "unique_mechanic": "Underwater quest chain and Sea sorceress",
+      "reuse_vs_add": "Reuses existing Sea zones/bosses/gear; adds finish graph and underwater goal",
+      "reuse_label": "INFERRED",
+      "rule_evidence": "STATED [index](https://web.archive.org/web/20260822021427/https://wiki.kingdomofloathing.com/Special_challenge_path); rule detail INFERRED, exceptions OPEN",
+      "reward": "Thwaitgold lobster statuette; Durable dolphin whistle + additional use charges; Violent Vestments + Hateful Habiliment outfit pieces; 3 Instant Karma, one from each boss",
+      "reward_source": "https://web.archive.org/web/20260822021427/https://wiki.kingdomofloathing.com/Special_challenge_path",
+      "points_preference": "seaPoints",
+      "point_max_in_client": 11,
+      "path_base_capacity": [
+        15,
+        14,
+        15
+      ],
+      "individual_rule_page_readable": false
+    },
+    {
+      "id": 56,
+      "name": "Adventurer Meats World",
+      "restriction": "Meat Golem, no organs, selling or carried skill set; ordinary substat gains disabled",
+      "unique_mechanic": "Spend Meat for body growth, adventures and powers",
+      "reuse_vs_add": "Reuses currency/items/skills; adds Meat-derived body/resource conversion",
+      "reuse_label": "INFERRED",
+      "rule_evidence": "STATED individual page; [snapshot 20260407070536](https://web.archive.org/web/20260407070536id_/https://wiki.kingdomofloathing.com/Adventurer_Meats_World)",
+      "reward": "Thwaitgold meat bee statuette; Factoids",
+      "reward_source": "https://web.archive.org/web/20260822021427/https://wiki.kingdomofloathing.com/Special_challenge_path",
+      "points_preference": "adventurerMeatsWorldPoints",
+      "point_max_in_client": 10,
+      "path_base_capacity": [
+        0,
+        0,
+        0
+      ],
+      "individual_rule_page_readable": true
+    },
+    {
+      "id": 57,
+      "name": "Thrifty",
+      "restriction": "Whitelist for carried items/skills and familiars, plus limited-content exclusion; in-run evergreen exceptions",
+      "unique_mechanic": "Normal Ronin lifts the date filter; entering non-thrifty zones can forfeit leaderboard eligibility",
+      "reuse_vs_add": "Reuses ordinary content, acquisition and Ronin; adds source/price whitelist and board eligibility",
+      "reuse_label": "INFERRED",
+      "rule_evidence": "STATED individual page; [snapshot 20260731032256](https://web.archive.org/web/20260731032256id_/https://wiki.kingdomofloathing.com/Thrifty)",
+      "reward": "Thwaitgold wallet moth statuette; individual page additionally names Hardcore Unblemished Uniform",
+      "reward_source": "https://web.archive.org/web/20260822021427/https://wiki.kingdomofloathing.com/Special_challenge_path",
+      "points_preference": null,
+      "point_max_in_client": 0,
+      "path_base_capacity": [
+        15,
+        14,
+        15
+      ],
+      "individual_rule_page_readable": true
+    },
+    {
+      "id": 58,
+      "name": "Blue vs. Red",
+      "restriction": "World factions color encounters and legal support",
+      "unique_mechanic": "Choose Blue or Red in a world-wide conflict",
+      "reuse_vs_add": "Reuses monster definitions and combat; adds allegiance rules and team tags",
+      "reuse_label": "INFERRED",
+      "rule_evidence": "STATED [index](https://web.archive.org/web/20260822021427/https://wiki.kingdomofloathing.com/Special_challenge_path); rule detail INFERRED, exceptions OPEN; SHOWN monsters.txt BvR tags",
+      "reward": "Thwaitgold red and blue beetle statuette; Blue Team scarf, as Blue Team; Red Team scarf, as Red Team; Factoids",
+      "reward_source": "https://web.archive.org/web/20260822021427/https://wiki.kingdomofloathing.com/Special_challenge_path",
+      "points_preference": null,
+      "point_max_in_client": 0,
+      "path_base_capacity": [
+        15,
+        14,
+        15
+      ],
+      "individual_rule_page_readable": false
+    },
+    {
+      "id": 999,
+      "name": "Bad Moon",
+      "restriction": "Hardcore reset with restricted past-run tools/familiars",
+      "unique_mechanic": "Special bad-luck encounters and seven sin skills",
+      "reuse_vs_add": "Reuses quests/skills/effects; adds sign-based rule mode and encounter set",
+      "reuse_label": "INFERRED",
+      "rule_evidence": "STATED [Bad Moon snapshot](https://web.archive.org/web/20260314210503id_/https://wiki.kingdomofloathing.com/Bad_Moon)",
+      "reward": "Class-specific Brimstone item; permanent Bad Moon unlock through a qualifying Black Cat run",
+      "reward_source": "STATED [Bad Moon snapshot](https://web.archive.org/web/20260314210503id_/https://wiki.kingdomofloathing.com/Bad_Moon)",
+      "points_preference": null,
+      "point_max_in_client": 0,
+      "path_base_capacity": [
+        15,
+        14,
+        15
+      ],
+      "individual_rule_page_readable": true
+    }
+  ],
+  "data_summary": {
+    "items.txt": {
+      "tab_rows": 12098,
+      "rows_with_required_fields": 12098,
+      "required_fields": 7
+    },
+    "statuseffects.txt": {
+      "tab_rows": 3014,
+      "rows_with_required_fields": 3014,
+      "required_fields": 6
+    },
+    "classskills.txt": {
+      "tab_rows": 1651,
+      "rows_with_required_fields": 1651,
+      "required_fields": 6
+    },
+    "monsters.txt": {
+      "tab_rows": 2389,
+      "rows_with_required_fields": 2389,
+      "required_fields": 4
+    },
+    "adventures.txt": {
+      "tab_rows": 601,
+      "rows_with_required_fields": 601,
+      "required_fields": 4
+    },
+    "familiars.txt": {
+      "tab_rows": 324,
+      "rows_with_required_fields": 324,
+      "required_fields": 8
+    },
+    "outfits.txt": {
+      "tab_rows": 178,
+      "rows_with_required_fields": 178,
+      "required_fields": 4
+    },
+    "fullness.txt": {
+      "tab_rows": 1174,
+      "rows_with_required_fields": 1174,
+      "required_fields": 4
+    },
+    "inebriety.txt": {
+      "tab_rows": 808,
+      "rows_with_required_fields": 808,
+      "required_fields": 4
+    },
+    "spleenhit.txt": {
+      "tab_rows": 260,
+      "rows_with_required_fields": 260,
+      "required_fields": 4
+    },
+    "modifier_rows": 13369,
+    "modifier_source_types": {
+      "Item": 9160,
+      "Clancy": 3,
+      "Thrall": 8,
+      "Familiar": 236,
+      "Throne": 270,
+      "Motorbike": 4,
+      "Snowsuit": 3,
+      "Edpiece": 7,
+      "Effect": 2772,
+      "Skill": 435,
+      "Outfit": 164,
+      "Sign": 9,
+      "Event": 7,
+      "Zone": 2,
+      "Loc": 23,
+      "Synergy": 10,
+      "MutexI": 5,
+      "MutexE": 4,
+      "MutexER": 8,
+      "MaxCat": 6,
+      "Florist": 21,
+      "Path": 7,
+      "Base": 1,
+      "Horsery": 4,
+      "BoomBox": 5,
+      "RetroCape": 12,
+      "BackupCamera": 3,
+      "UnbreakableUmbrella": 6,
+      "JurassicParka": 5,
+      "LedCandle": 4,
+      "Mask": 37,
+      "Ensorcel": 7,
+      "Robot": 24,
+      "RobotTop": 2,
+      "RobotRight": 4,
+      "RobotBottom": 5,
+      "RobotLeft": 3,
+      "RobotCPU": 10,
+      "EternityCodpiece": 73
+    },
+    "modifier_unique_fields": 258,
+    "daily_limits": {
+      "Cast": 216,
+      "Chew": 5,
+      "Drink": 20,
+      "Eat": 29,
+      "Tome": 6,
+      "Use": 163
+    },
+    "leading_underscore_preferences": 1096,
+    "last_available_rows": 6211,
+    "last_available_types": {
+      "Item": 5986,
+      "Familiar": 225
+    },
+    "journeyman_rows": 1080,
+    "wereprofessor_rows": 54
+  },
+  "proposals": [
+    {
+      "id": "P1",
+      "rank": 1,
+      "status": "PROPOSAL",
+      "artifact": "IMPLEMENTATION_PACKETS.md"
+    },
+    {
+      "id": "P2",
+      "rank": 2,
+      "status": "PROPOSAL",
+      "artifact": "IMPLEMENTATION_PACKETS.md"
+    },
+    {
+      "id": "P3",
+      "rank": 3,
+      "status": "PROPOSAL",
+      "artifact": "IMPLEMENTATION_PACKETS.md"
+    },
+    {
+      "id": "P4",
+      "rank": 4,
+      "status": "PROPOSAL",
+      "artifact": "IMPLEMENTATION_PACKETS.md"
+    },
+    {
+      "id": "P5",
+      "rank": 5,
+      "status": "PROPOSAL",
+      "artifact": "IMPLEMENTATION_PACKETS.md"
+    },
+    {
+      "id": "P6",
+      "rank": 6,
+      "status": "PROPOSAL",
+      "artifact": "IMPLEMENTATION_PACKETS.md"
+    },
+    {
+      "id": "P7",
+      "rank": 7,
+      "status": "PROPOSAL",
+      "artifact": "IMPLEMENTATION_PACKETS.md"
+    },
+    {
+      "id": "P8",
+      "rank": 8,
+      "status": "PROPOSAL",
+      "artifact": "IMPLEMENTATION_PACKETS.md"
+    }
+  ],
+  "unread": [
+    {
+      "id": 1,
+      "name": "Boozetafarian",
+      "why": "no snapshot "
+    },
+    {
+      "id": 2,
+      "name": "Teetotaler",
+      "why": "Only tattoo page"
+    },
+    {
+      "id": 3,
+      "name": "Oxygenarian",
+      "why": "Only tattoo page"
+    },
+    {
+      "id": 22,
+      "name": "Standard",
+      "why": "no snapshot "
+    },
+    {
+      "id": 33,
+      "name": "G-Lover",
+      "why": "failed <urlopen error [Errno 61] Connection refused>"
+    },
+    {
+      "id": 37,
+      "name": "Kingdom of Exploathing",
+      "why": "failed <urlopen error [Errno 61] Connection refused>"
+    },
+    {
+      "id": 50,
+      "name": "WereProfessor",
+      "why": "failed HTTP Error 403: Forbidden"
+    },
+    {
+      "id": 51,
+      "name": "11 Things I Hate About U",
+      "why": "failed <urlopen error [Errno 61] Connection refused>"
+    },
+    {
+      "id": 53,
+      "name": "Z is for Zootomist",
+      "why": "failed <urlopen error [Errno 61] Connection refused>"
+    },
+    {
+      "id": 54,
+      "name": "Hat Trick",
+      "why": "failed HTTP Error 403: Forbidden"
+    },
+    {
+      "id": 55,
+      "name": "11,037 Leagues Under the Sea",
+      "why": "failed HTTP Error 403: Forbidden"
+    },
+    {
+      "id": 58,
+      "name": "Blue vs. Red",
+      "why": "failed <urlopen error [Errno 61] Connection refused>"
+    }
+  ],
+  "runtime": "Not run; excluded",
+  "repo_writes": "Only assigned output directory",
+  "installs": []
+}

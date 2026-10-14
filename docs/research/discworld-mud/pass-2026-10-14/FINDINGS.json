@@ -1,0 +1,227 @@
+{
+  "lane": "discworld-2",
+  "date": "2026-10-14",
+  "status": "PARTIAL",
+  "accepted": false,
+  "scope": "read-only research; only assigned output dir written",
+  "source": {
+    "repository": "https://github.com/Yuffster/discworld_distribution_mudlib",
+    "commit": "8c8619c64c0a41f09e406a97ee1e0a084ff92a60",
+    "release": "20.0 historical cut-down distribution",
+    "terms": "README prohibits commercial code use; not a permissive licence; no code reused"
+  },
+  "findings": [
+    {
+      "id": "F15",
+      "label": "shown",
+      "title": "Taskmaster pipeline, shown",
+      "evidence": "SKILL_GROWTH.md",
+      "summary": "`obj/handlers/taskmaster.c`: `perform_task` reads the character's bonus, selects a curve by action category, and converts an award into a one-level addition. Character advancement restrictions or a rejected addition turn that result into ordinary success. The action caller owns outcome text.",
+      "runtime_verified": false
+    },
+    {
+      "id": "F16",
+      "label": "shown",
+      "title": "Repetition and award history, shown",
+      "evidence": "SKILL_GROWTH.md",
+      "summary": "`std/living/skills.c`: `add_skill_level` sends one-level player gains with an object or absent XP argument through `tm_check_ok`. It can reject an award after the skill mutation. Command history detects the repeated current command, with an exception for point skills. A repeated command exceeding five appearances or 30% of the considered history is rejected.",
+      "runtime_verified": false
+    },
+    {
+      "id": "F17",
+      "label": "shown",
+      "title": "Levels, stats and costs, shown",
+      "evidence": "SKILL_GROWTH.md",
+      "summary": "`std/living/skills.c::calc_bonus` turns levels into unmodified bonus in four segments: through level 20, five bonus per level; 21\u201340, about 2.5; 41\u201360, one; above 60, about half. Integer shifts round. Then `stat_modify` adds a multiplier derived from logarithms of each relevant stat. Temporary versus base stats are selectable. The source does not use a literal geometric-mean computation here.",
+      "runtime_verified": false
+    },
+    {
+      "id": "F18",
+      "label": "shown",
+      "title": "Teaching transactions, shown",
+      "evidence": "SKILL_GROWTH.md",
+      "summary": "`cmds/living/teach.c::teach_skill` validates a real skill, living/interacting parties, opt-in auto-teaching, ignores/mutes, teacher competence, branch prerequisite and available XP. Ordinary branch teaching needs parent level at least depth times five; leaf-only trees use their own restrictions. An optional maximum-teaching-level enforcement macro is disabled. A request is limited to 50 levels per offer, not 50 levels for a character's lifetime.",
+      "runtime_verified": false
+    },
+    {
+      "id": "F19",
+      "label": "stated",
+      "title": "Current help disagreement, stated",
+      "evidence": "SKILL_GROWTH.md",
+      "summary": "Current [taskmaster help](https://discworld.starturtle.net/lpc/playing/documentation.c?path=/concepts/taskmaster) allows skill learning after success or failure within the task's learning range. The released core returns on failure before its award check. Other callers can award directly, so this finding is limited to those two core functions. Today's complete taskmaster and teacher implementations remain unavailable in this pass.",
+      "runtime_verified": false
+    },
+    {
+      "id": "F28",
+      "label": "stated",
+      "title": "Recovered Skills and Teaching pages, stated by players",
+      "evidence": "SKILL_GROWTH.md",
+      "summary": "[Skills, 2026-08-18 capture](https://web.archive.org/web/20260818131209/https://dwwiki.mooo.com/wiki/Skills), read in full including the stat-weight table, counts languages as an eighth branch alongside the seven ordinary roots. Thus seven versus eight is partly classification, not necessarily a game change. Languages do not use stats. Parent levels are recursively rounded averages, whereas guild level is described using outermost primary branches. The page calls 50% task success the commonly claimed best TM range, not a proven current formula. It distinguishes free skill-level awards from spending XP and cash with a guild, spending XP with a player, and expensive self-teaching. \u201cFree\u201d does not mean the attempted action has no time, GP or material cost.",
+      "runtime_verified": false
+    },
+    {
+      "id": "F20",
+      "label": "mixed: stated and inferred",
+      "title": "What \u201cliving book world\u201d means in the evidence",
+      "evidence": "CANON_AND_GUILDS.md",
+      "summary": "| Evidence | What it supports | What it does not prove |\n|---|---|---|\n| [Wikipedia full article](https://en.wikipedia.org/wiki/Discworld_MUD), revision 1368383791 | Stated: an expanding fan world, mixed chronology and play-driven departures. Its canon section has an explicit sourcing warning. | Formal licensing; a unified evolving book timeline. |\n| [Founder interview, archived 2010 capture](https://web.archive.org/web/20100924002936/http://www.armchairarcade.com/neo/node/364) | Stated by designer: place, mood, detailed interactions and social organizations are central. | Current state or every NPC's behavior. |\n| [Karlsen, 2008](https://gamestudies.org/0801/articles/karlsen) | Historical observed quest conversations involving Bethan and Cohen's household. Some events reenact books. Puzzle obscurity is a documented weakness. | Current quest routes or a globally advancing chronology. |\n| [PC Gamer tour, reissued 2022](https://www.pcgamer.com/uk/saturday-crapshoot-discworld-mud/) | Historical observations: ambient routines, recognizable NPCs and retained Holy Wood. Continued access can outweigh a novel's final state. | That today's server uses the same rooms or routines. |\n| [Official features](https://discworld.starturtle.net/lpc/about/features.html) | Stated: player-run businesses, newspapers and councils; different magical professions; object interaction. | Player choices rewriting every source event. |\n| [Official AshkEnte announcement](https://discworld.starturtle.net/lpc/blog/blog.c?action=filter&blog=recent%20developments&id=422) | A 2012 mechanical expansion is introduced through in-world discovery and research. | A replay of a specific novel's plot or the complete modern implementation. |",
+      "runtime_verified": false
+    },
+    {
+      "id": "F21",
+      "label": "stated",
+      "title": "Six current official guild pages, stated",
+      "evidence": "CANON_AND_GUILDS.md",
+      "summary": "The previously unread official pages are closed. These URLs expose public descriptions, primary lists and some/all available commands, not complete command behavior. Regional packages overlap heavily, but contain profession-specific choices.",
+      "runtime_verified": false
+    },
+    {
+      "id": "F22",
+      "label": "stated",
+      "title": "Archived Thieves' Guild, stated by players",
+      "evidence": "CANON_AND_GUILDS.md",
+      "summary": "[2026-08-18 snapshot](https://web.archive.org/web/20260818154834/https://dwwiki.mooo.com/wiki/Thieves%27_Guild), page revision 75199, describes a licence quota, a 12-hour played-time accounting cycle and a guild share of theft. It reports fines for exceeding quota, falling short and overdue payment, with NPC enforcers. The page also separates commands exclusive to thieves from shared ones. Leaders named on the snapshot are historical and were not checked live.",
+      "runtime_verified": false
+    },
+    {
+      "id": "F30",
+      "label": "stated",
+      "title": "Recovered priest and witch pages, stated by players",
+      "evidence": "CANON_AND_GUILDS.md",
+      "summary": "[Priests, 2026-08-19 capture](https://web.archive.org/web/20260819183350/https://dwwiki.mooo.com/wiki/Priests%27_Guild), read in full, describes a high-priest election initiated by a schism, with followers and priests voting. The office can excommunicate and appoint ministers with chest access. Fourteen primaries cover the faith family. That is a specific form of political authority, not proof every guild replaces a canon leader.",
+      "runtime_verified": false
+    },
+    {
+      "id": "F23",
+      "label": "shown",
+      "title": "Death and ghosts, shown",
+      "evidence": "EVERYDAY_SYSTEMS.md",
+      "summary": "`global/player.c::second_life` sets the dead state, asks Death whether to count the death, carries selected effects through death, creates a corpse and notifies guild hooks. It clears held XP/resources and temporary effects, then installs a ghost shadow. Seven is the initial maximum-deaths value. The final-death branch uses a strict greater-than comparison, so source semantics should be read with the missing Death handler rather than equated to a modern displayed counter.",
+      "runtime_verified": false
+    },
+    {
+      "id": "F24",
+      "label": "shown",
+      "title": "Languages, shown historical mechanism",
+      "evidence": "EVERYDAY_SYSTEMS.md",
+      "summary": "`obj/handlers/languages.c` registers capabilities such as spoken, written, distance communication and magical text, then dispatches to language-specific garblers. This stripped distribution registers only a few sample languages; it is not the modern world catalogue.",
+      "runtime_verified": false
+    },
+    {
+      "id": "F25",
+      "label": "stated",
+      "title": "Languages, archived player account",
+      "evidence": "EVERYDAY_SYSTEMS.md",
+      "summary": "[2026-09-22 Languages snapshot](https://web.archive.org/web/20260922031240/https://dwwiki.mooo.com/wiki/Languages), revision 73807, read in full. **Stated:** native speech and reading start at 100. Other languages begin through schools, then improve with exposure. Speech and writing are separate; grunt is spoken but not understood. Schools differ in prerequisites, schedules, price, texts and examination form. Some documented outcomes are marked as needing research, so they are not firm balance constants.",
+      "runtime_verified": false
+    },
+    {
+      "id": "F26",
+      "label": "shown",
+      "title": "Housing, shown",
+      "evidence": "EVERYDAY_SYSTEMS.md",
+      "summary": "`obj/handlers/housing.c` owns a saved registry of houses, rooms, address, region, ownership type, owner, bank and value. Owner changes notify house/room objects. Region mappings choose required citizenship and local bank/money context. Refresh/deletion can release holdings. This shows persistent property identity separate from an individual room's contents.",
+      "runtime_verified": false
+    },
+    {
+      "id": "F27",
+      "label": "stated",
+      "title": "Three official help gaps closed, stated",
+      "evidence": "EVERYDAY_SYSTEMS.md",
+      "summary": "| Source | What it adds |\n|---|---|\n| [crafts](https://discworld.starturtle.net/lpc/playing/documentation.c?path=/concepts/crafts) | Craft competence includes building, repair, art/music and medical healing; it can matter to quests and wizard training, not just a separate crafting class. |\n| [currency](https://discworld.starturtle.net/lpc/playing/documentation.c?path=/concepts/currency) | Regions use their own denominations with base-brass values and local notation. Cities offer exchange. Example: an Ankh-Morpork dollar is listed at 400 brass; a Genua livre at 300. Prices are page statements, not verified exchange quotes or proof of arbitrage. |\n| [accents](https://discworld.starturtle.net/lpc/playing/documentation.c?path=/concepts/accents) | Origin city gives an accent; outsiders notice it. Players can select altered spelling or readable text with an accent label. The readability choice preserves character identity without requiring distorted text. |",
+      "runtime_verified": false
+    },
+    {
+      "id": "F29",
+      "label": "stated",
+      "title": "Recovered Death page, stated by players",
+      "evidence": "EVERYDAY_SYSTEMS.md",
+      "summary": "[Death, 2026-06-09 capture](https://web.archive.org/web/20260609024619/https://dwwiki.mooo.com/wiki/Death), read in full. It distinguishes basic raising from resurrection that may recover some held XP and restore stats. It warns that both leave low HP and that gear recovery can trigger dangerous checks. It lists NPC return routes as well as player rescue groups, so ordinary ghost recovery is not exclusively dependent on online humans. It reports corpse decay continuing while logged out, with inventory at risk when rooms unload. Final return requires AshkEnte with major losses. The life-restock price is on a linked page, not on this page; it remains unread. Exact XP-return claims are explicitly uncertain on the page and were not promoted to source facts.",
+      "runtime_verified": false
+    }
+  ],
+  "proposals": [
+    {
+      "id": "P1",
+      "rank": 1,
+      "status": "unaccepted",
+      "details": "REPORT.md"
+    },
+    {
+      "id": "P2",
+      "rank": 2,
+      "status": "unaccepted",
+      "details": "REPORT.md"
+    },
+    {
+      "id": "P3",
+      "rank": 3,
+      "status": "unaccepted",
+      "details": "REPORT.md"
+    },
+    {
+      "id": "P4",
+      "rank": 4,
+      "status": "unaccepted",
+      "details": "REPORT.md"
+    },
+    {
+      "id": "P5",
+      "rank": 5,
+      "status": "unaccepted",
+      "details": "REPORT.md"
+    },
+    {
+      "id": "P6",
+      "rank": 6,
+      "status": "unaccepted",
+      "details": "REPORT.md"
+    },
+    {
+      "id": "P7",
+      "rank": 7,
+      "status": "unaccepted",
+      "details": "REPORT.md"
+    },
+    {
+      "id": "P8",
+      "rank": 8,
+      "status": "unaccepted",
+      "details": "REPORT.md"
+    }
+  ],
+  "archive": {
+    "read": [
+      "Death",
+      "Skills",
+      "Teaching",
+      "Languages",
+      "Thieves' Guild",
+      "Priests' Guild",
+      "Witches' Guild"
+    ],
+    "unread": {
+      "Taskmaster": "archive replay HTTP 500",
+      "Player housing": "archive replay HTTP 500",
+      "Assassins' Guild": "archive replay HTTP 500",
+      "Warriors' Guild": "archive replay HTTP 500",
+      "Fools' Guild": "archive replay HTTP 404"
+    }
+  },
+  "other_gaps": [
+    "Current server taskmaster and teaching source",
+    "Death NPC and AshkEnte implementation omitted",
+    "Actual rent and life-restock prices",
+    "Formal franchise licence document",
+    "Full three bibliographic book passages and LPMud FAQ",
+    "Unified advancing book-event timeline not established"
+  ],
+  "checks": {
+    "game_executed": false,
+    "installed": false,
+    "build_or_tests": false,
+    "json_validated": true,
+    "raw_extracts_hashed": true
+  },
+  "source_ledger": "SOURCE_LEDGER.md"
+}

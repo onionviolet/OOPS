@@ -1,0 +1,73 @@
+{
+  "lane": "free-text-worlds",
+  "date": "2026-10-14",
+  "status": "PARTIAL, bounded research delivered; unread gaps explicit",
+  "labels": {
+    "SHOWN": "inspected source/artifact, not runtime proof",
+    "STATED": "attributed official description",
+    "INFERRED": "lane design judgment"
+  },
+  "targets": [
+    "Steam 3443480: B站蛊道求真",
+    "Steam 4218540: LIHAONAN",
+    "Beta 4219080 associated with second title, secondary catalogue only"
+  ],
+  "sources": [
+    {
+      "url": "https://store.steampowered.com/app/3443480/",
+      "scope": "Official store, prerelease, no visible signup in checked snapshot"
+    },
+    {
+      "url": "https://store.steampowered.com/app/4218540/",
+      "scope": "Official English snapshot displays Join the Playtest; indexed Chinese page says Request Access"
+    },
+    {
+      "url": "https://steamdb.info/app/4219080/charts/",
+      "scope": "Secondary identity corroboration only"
+    }
+  ],
+  "findings": [
+    {
+      "id": "RI-F1",
+      "label": "SHOWN",
+      "claim": "Original title still exists as Coming soon; license, queued identity, test access and closure not established.",
+      "evidence": [
+        "https://store.steampowered.com/app/3443480/"
+      ]
+    },
+    {
+      "id": "RI-F2",
+      "label": "STATED",
+      "claim": "Original store describes Gu acquisition/refinement, killer moves and cultivation but no state schema or rule formulas.",
+      "evidence": [
+        "https://store.steampowered.com/app/3443480/"
+      ]
+    },
+    {
+      "id": "RI-F3",
+      "label": "SHOWN",
+      "claim": "Separate title displays playtest enrollment control; access was not requested or tested.",
+      "evidence": [
+        "https://store.steampowered.com/app/4218540/"
+      ]
+    },
+    {
+      "id": "RI-F4",
+      "label": "STATED",
+      "claim": "Second title describes Gu combinations, talent/lifespan tradeoff, town reputation and inheritances.",
+      "evidence": [
+        "https://store.steampowered.com/app/4218540/"
+      ]
+    }
+  ],
+  "gaps": [
+    "Exact queued app identity",
+    "Verified closure announcement or current entitlement",
+    "License authentication",
+    "Gu state schema, feeding/refinement/combat/save mechanics",
+    "Readable news beyond script-dependent shell"
+  ],
+  "proposals_are_accepted": false,
+  "game_executed": false,
+  "shared_checkpoint": "../CHECKPOINT.md"
+}

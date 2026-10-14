@@ -1,0 +1,682 @@
+{
+  "lane": "idleon",
+  "date": "2026-10-14",
+  "status": "PARTIAL",
+  "source_mode": "static official web bundle plus community wiki export tables",
+  "no_play": true,
+  "no_code_copied_to_repo": true,
+  "sources": [
+    {
+      "path": "extract/N.js",
+      "bytes": 26184213,
+      "sha256": "6de681a96813c15e95dccb4173d9a0a6cbe2564bb631955038a692bfdf14acd9"
+    },
+    {
+      "path": "extract/web-index.html",
+      "bytes": 4931,
+      "sha256": "0ae51f91a47996ac115a8f58a53467cd1369a6433b8cf45a25d01ded6056e07b"
+    },
+    {
+      "path": "extract/wiki-AFK_Gains-export.xml",
+      "bytes": 2098,
+      "sha256": "b53d36ed10add65813571db3a25fc55957fd158f6e2e489db246a46e33c47e0c",
+      "title": null,
+      "revision": null
+    },
+    {
+      "path": "extract/wiki-Alchemy-export.txt",
+      "bytes": 11148,
+      "sha256": "eb62c21acbaba51ac70a93cef9285ab22d52a32cd7145324ef79d118cac79060"
+    },
+    {
+      "path": "extract/wiki-Alchemy-export.xml",
+      "bytes": 14208,
+      "sha256": "0d39a783b154e04946a1de92a2fbbd14b380050727933c770b6d1e13269b47cd",
+      "title": "Alchemy",
+      "revision": "102906"
+    },
+    {
+      "path": "extract/wiki-Breeding-export.txt",
+      "bytes": 7196,
+      "sha256": "a5da9c97cfda017f5defc7f4f9b02d881b14c79601cf932b3a021709af3f2f31"
+    },
+    {
+      "path": "extract/wiki-Breeding-export.xml",
+      "bytes": 9966,
+      "sha256": "2e1e0483fb1396c51682c7acbe1c2e85ce1fe91650ee668ba4f892a64fa2c612",
+      "title": "Breeding",
+      "revision": "104412"
+    },
+    {
+      "path": "extract/wiki-Character_Creation-export.txt",
+      "bytes": 2713,
+      "sha256": "d7c5fbb9d9652e7e370cb04ec67e795d5c2977098753427cafe20e5f3c8f4eb2"
+    },
+    {
+      "path": "extract/wiki-Character_Creation-export.xml",
+      "bytes": 5451,
+      "sha256": "69d79b532c88671b4adf3870f9fa64c1dab6d9f80c847dc904c871987eda22dd",
+      "title": "Character Creation",
+      "revision": "103511"
+    },
+    {
+      "path": "extract/wiki-Characters-export.xml",
+      "bytes": 2098,
+      "sha256": "b53d36ed10add65813571db3a25fc55957fd158f6e2e489db246a46e33c47e0c",
+      "title": null,
+      "revision": null
+    },
+    {
+      "path": "extract/wiki-Construction-export.txt",
+      "bytes": 15109,
+      "sha256": "fab954eea23c78c2875cfaaa4b81711fbae2efecaf6eac863d2259f04d92493d"
+    },
+    {
+      "path": "extract/wiki-Construction-export.xml",
+      "bytes": 17950,
+      "sha256": "b4135796f8abca7d8349848cd66d8315af2516f069cac0b17c6580bd2a9f8fd2",
+      "title": "Construction",
+      "revision": "103521"
+    },
+    {
+      "path": "extract/wiki-Cooking-export.txt",
+      "bytes": 8129,
+      "sha256": "b1077343144a8cc55cdac4fd115960637bc38e24420b32b9ab4b75526b404079"
+    },
+    {
+      "path": "extract/wiki-Cooking-export.xml",
+      "bytes": 10858,
+      "sha256": "d2830b24ee9fc302ba4629a031cb58810cd47c721c82a5e4cfc2e3369390bc79",
+      "title": "Cooking",
+      "revision": "104205"
+    },
+    {
+      "path": "extract/wiki-Coral_Reef-export.txt",
+      "bytes": 811,
+      "sha256": "f6f3090d5ecb14ea2b1a941a92411f7749afad05f45c605ea8a63d3848ab05b9"
+    },
+    {
+      "path": "extract/wiki-Coral_Reef-export.xml",
+      "bytes": 3466,
+      "sha256": "dde464ae9db743aa499bd2c16c8b620a0fd54df5f00ca2b59cfce133e41d063b",
+      "title": "Coral Reef",
+      "revision": "103894"
+    },
+    {
+      "path": "extract/wiki-Divinity-export.txt",
+      "bytes": 8334,
+      "sha256": "ffff196a18eb4be17e1d7afe7f7d9a8674330fd98fb09a8636560bd8b649ec88"
+    },
+    {
+      "path": "extract/wiki-Divinity-export.xml",
+      "bytes": 11104,
+      "sha256": "7fcf4ece390d84ea9276ddcb021744a498bdf37c94f5f076748cbb1b238aa445",
+      "title": "Divinity",
+      "revision": "103526"
+    },
+    {
+      "path": "extract/wiki-Farming-export.txt",
+      "bytes": 7538,
+      "sha256": "171b6c8b7ca5b4b9d608f99953cff1850d2a929635a7197a5b327b9676d5957e"
+    },
+    {
+      "path": "extract/wiki-Farming-export.xml",
+      "bytes": 10454,
+      "sha256": "454d5045acbd9cc0b6c85225233438d0de82359340d0afcc827fab4b92a9019c",
+      "title": "Farming",
+      "revision": "100292"
+    },
+    {
+      "path": "extract/wiki-Game_Mechanics-export.txt",
+      "bytes": 12107,
+      "sha256": "902e2aa84c7cb3040dd12877c41b89dd8562482a79d9077a4335286c5a5ec39a"
+    },
+    {
+      "path": "extract/wiki-Game_Mechanics-export.xml",
+      "bytes": 14864,
+      "sha256": "266284b802d457c849b787de5f8f199a05b1a43ddb9581498e3356bddcb8529f",
+      "title": "Game Mechanics",
+      "revision": "91421"
+    },
+    {
+      "path": "extract/wiki-Game_Mechanics_AFK-export.txt",
+      "bytes": 4925,
+      "sha256": "af91fa75939846045b4612f331b2483672f62a1668e905b611dc7973d7f22a4c"
+    },
+    {
+      "path": "extract/wiki-Game_Mechanics_AFK-export.xml",
+      "bytes": 7636,
+      "sha256": "692bb118a1cd079f53ce1e1678ca9c4842663505646a97cac25c1dc001b27b83",
+      "title": "Game Mechanics AFK",
+      "revision": "83343"
+    },
+    {
+      "path": "extract/wiki-Gaming-export.txt",
+      "bytes": 5980,
+      "sha256": "cb7e97a26ffffec011e36565e41e15093c12d939d2f89c86f44fc472f92d0351"
+    },
+    {
+      "path": "extract/wiki-Gaming-export.xml",
+      "bytes": 8764,
+      "sha256": "a450147d1d6b54aa82fae95f2086a301dd29cc3ec9fca880416e98627236ee4b",
+      "title": "Gaming",
+      "revision": "104254"
+    },
+    {
+      "path": "extract/wiki-Laboratory-export.txt",
+      "bytes": 3992,
+      "sha256": "391811f5b63b94ee71e3b7b66dcdb5e801962a7f33b0bad4275a78a69d8d6869"
+    },
+    {
+      "path": "extract/wiki-Laboratory-export.xml",
+      "bytes": 6732,
+      "sha256": "d8674bc519d718afb94cc63bc26e1b97998558f89e864b760817b17d33ea3d6e",
+      "title": "Laboratory",
+      "revision": "103548"
+    },
+    {
+      "path": "extract/wiki-Module:Alchemy-export.txt",
+      "bytes": 27032,
+      "sha256": "648e5028b73613c88f810971920f41276fbc263acbc1efc0146807960d221b21"
+    },
+    {
+      "path": "extract/wiki-Module:Alchemy-export.xml",
+      "bytes": 29984,
+      "sha256": "4d6a0d0188b870aeaf7e9feee4960cb45a1b230e99ba5ab98fea2d3bbc72b298",
+      "title": "Module:Alchemy",
+      "revision": "104133"
+    },
+    {
+      "path": "extract/wiki-Module:Alchemy_data.json-export.txt",
+      "bytes": 211824,
+      "sha256": "3988f535904b53f8e784e3c4fbfaa97724a4e17de65b3c269447dd3190aea26a"
+    },
+    {
+      "path": "extract/wiki-Module:Alchemy_data.json-export.xml",
+      "bytes": 214544,
+      "sha256": "264551c71d3f4bce7eab7b65d261b9c60374bfcf480adfaab82244da512c920a",
+      "title": "Module:Alchemy/data.json",
+      "revision": "104120"
+    },
+    {
+      "path": "extract/wiki-Module:Construction-export.txt",
+      "bytes": 8319,
+      "sha256": "a326a4a0e6e3f8c696640e4da6bfb7722cd2b86b87ca3fb1e0f65763842ca15a"
+    },
+    {
+      "path": "extract/wiki-Module:Construction-export.xml",
+      "bytes": 11078,
+      "sha256": "89c45ff20807fcd68adf5cdcc899e347d4488b423f28f12a672037f34033ede0",
+      "title": "Module:Construction",
+      "revision": "103460"
+    },
+    {
+      "path": "extract/wiki-Module:Construction_data.json-export.txt",
+      "bytes": 37715,
+      "sha256": "0b5a5b9afed1673d0075f06149f8bfd23b33743857d4a682cba8cb1553d3c25c"
+    },
+    {
+      "path": "extract/wiki-Module:Construction_data.json-export.xml",
+      "bytes": 40439,
+      "sha256": "a5afe91471042ff617174fde58222c8c17f376f9f5ee3e1fc4e44241da05358c",
+      "title": "Module:Construction/data.json",
+      "revision": "103462"
+    },
+    {
+      "path": "extract/wiki-Module:CoralReef_data.json-export.txt",
+      "bytes": 10542,
+      "sha256": "da626895bc0cbe4acc5f70f0cf9a25449f926f14ae17d679d7e7059191456056"
+    },
+    {
+      "path": "extract/wiki-Module:CoralReef_data.json-export.xml",
+      "bytes": 13263,
+      "sha256": "30c8984b09fc8ba96cb3f0d6e48f809dc4952016d6577933e67edfdede431854",
+      "title": "Module:CoralReef/data.json",
+      "revision": "104125"
+    },
+    {
+      "path": "extract/wiki-Module:Coral_Reef-export.xml",
+      "bytes": 2098,
+      "sha256": "b53d36ed10add65813571db3a25fc55957fd158f6e2e489db246a46e33c47e0c",
+      "title": null,
+      "revision": null
+    },
+    {
+      "path": "extract/wiki-Module:Divinity-export.txt",
+      "bytes": 2938,
+      "sha256": "99c7a63ccb9d06704db0d34bba6d8a261117a4394b326dc0fe201e3841dfab16"
+    },
+    {
+      "path": "extract/wiki-Module:Divinity-export.xml",
+      "bytes": 5677,
+      "sha256": "ef19ac8b93d6b85acee5535f09cae885d2bf81a653fb269d0b86cdbdbe24a35d",
+      "title": "Module:Divinity",
+      "revision": "103448"
+    },
+    {
+      "path": "extract/wiki-Module:Divinity_data.json-export.txt",
+      "bytes": 21749,
+      "sha256": "8e0a75f9a390cf4ef962dfa602371db948e17ae92827a8776b48eb42df85a0a1"
+    },
+    {
+      "path": "extract/wiki-Module:Divinity_data.json-export.xml",
+      "bytes": 24469,
+      "sha256": "5502749f46507c029c1923a070cffa3806fd20c4bb955bee6564ffdd5e8b16d1",
+      "title": "Module:Divinity/data.json",
+      "revision": "103450"
+    },
+    {
+      "path": "extract/wiki-Module:Laboratory-export.txt",
+      "bytes": 12185,
+      "sha256": "2ca2e4e3457f56822d661f016b5d62a798c230694aca2427f85783c5cd054a89"
+    },
+    {
+      "path": "extract/wiki-Module:Laboratory-export.xml",
+      "bytes": 15008,
+      "sha256": "07979fea99e87081696db65521ddff6e506049dda3c2025be692fe107b19cbf9",
+      "title": "Module:Laboratory",
+      "revision": "104335"
+    },
+    {
+      "path": "extract/wiki-Module:Laboratory_data.json-export.txt",
+      "bytes": 35639,
+      "sha256": "e1d7fd36eabba79e109e329936ea85a7442ebdd22963dea041bc03190923c971"
+    },
+    {
+      "path": "extract/wiki-Module:Laboratory_data.json-export.xml",
+      "bytes": 38361,
+      "sha256": "23fca409bc33365bf7856039e4e058fc683bbea8ec649c96e1812abfdf981815",
+      "title": "Module:Laboratory/data.json",
+      "revision": "104329"
+    },
+    {
+      "path": "extract/wiki-Module:Mechanics_data.json-export.txt",
+      "bytes": 9762,
+      "sha256": "45db394598f152d23ada587fbadfd59da0b21d1e71f5359ec65d7cedc87253ea"
+    },
+    {
+      "path": "extract/wiki-Module:Mechanics_data.json-export.xml",
+      "bytes": 12482,
+      "sha256": "5511104acf51902c816b8b3dff852f7e7e9e7e37930923fb11d402e89415cbb6",
+      "title": "Module:Mechanics/data.json",
+      "revision": "103429"
+    },
+    {
+      "path": "extract/wiki-Module:Research-export.txt",
+      "bytes": 3561,
+      "sha256": "8b3211f1a512c229650e0291d044d7abdcfd064e383c4a3a3784e844006b911f"
+    },
+    {
+      "path": "extract/wiki-Module:Research-export.xml",
+      "bytes": 6316,
+      "sha256": "bc86b99b54b5210cbda0bcce81153400ff3b5f50dcc2d4c7f3427e6bc87b0104",
+      "title": "Module:Research",
+      "revision": "103990"
+    },
+    {
+      "path": "extract/wiki-Module:Research_data.json-export.txt",
+      "bytes": 45487,
+      "sha256": "3ce8836d124e8b7bceb2c902bf215ba7645a6cf12a92e406b71ba58433ea689d"
+    },
+    {
+      "path": "extract/wiki-Module:Research_data.json-export.xml",
+      "bytes": 48248,
+      "sha256": "d1d3d0b53d631bf4c04af2ee8b34d08991b533da9b8718504d9fcd3caa507590",
+      "title": "Module:Research/data.json",
+      "revision": "103988"
+    },
+    {
+      "path": "extract/wiki-Module:Spelunking-export.txt",
+      "bytes": 26404,
+      "sha256": "4c3c98ce05d1b35124a6885316d31b9d4dc8fa743675a20ab7bb7fb0f0200c9f"
+    },
+    {
+      "path": "extract/wiki-Module:Spelunking-export.xml",
+      "bytes": 29223,
+      "sha256": "061877db63ed25dd38783ea5c81c0235307cb2aa81b2c7a29116085c51074f58",
+      "title": "Module:Spelunking",
+      "revision": "103677"
+    },
+    {
+      "path": "extract/wiki-Module:Spelunking_data.json-export.txt",
+      "bytes": 107903,
+      "sha256": "db3283b9a4d04a7d2752a591ddecb0af7caf2b9ed70fce5f1972e8594dfab4a9"
+    },
+    {
+      "path": "extract/wiki-Module:Spelunking_data.json-export.xml",
+      "bytes": 110626,
+      "sha256": "46b57e26cd04ca8dc170ebc7c4e2dad95b67b020932f964a1f50a1ea26a9616d",
+      "title": "Module:Spelunking/data.json",
+      "revision": "103748"
+    },
+    {
+      "path": "extract/wiki-Quick_Reference-export.xml",
+      "bytes": 2098,
+      "sha256": "b53d36ed10add65813571db3a25fc55957fd158f6e2e489db246a46e33c47e0c",
+      "title": null,
+      "revision": null
+    },
+    {
+      "path": "extract/wiki-Research-export.txt",
+      "bytes": 2608,
+      "sha256": "a119b4c3997be058eea4f4e2d222634fec3f21f4357397daace3f266529f0264"
+    },
+    {
+      "path": "extract/wiki-Research-export.xml",
+      "bytes": 5331,
+      "sha256": "fa4793a440433d342d8b2ad582386e31baf8d98cacfffbd9d9a899d19aaf3a80",
+      "title": "Research",
+      "revision": "103567"
+    },
+    {
+      "path": "extract/wiki-Sailing-export.txt",
+      "bytes": 7396,
+      "sha256": "8c5cedfc32bffb1f2ecdb55707fb26915a32c91572e61a96db6dd972be7a0616"
+    },
+    {
+      "path": "extract/wiki-Sailing-export.xml",
+      "bytes": 10207,
+      "sha256": "fe7397396ea8aa0a8c7cc82c532ca9ab46611046da88b3feb0b11d72d98a48c5",
+      "title": "Sailing",
+      "revision": "103570"
+    },
+    {
+      "path": "extract/wiki-Shimmerfin_Deep-export.txt",
+      "bytes": 3098,
+      "sha256": "451a06ef196f8e1429c100e75d1cd9d161ffb7547e6bffe9d0cd7182ce579d86"
+    },
+    {
+      "path": "extract/wiki-Shimmerfin_Deep-export.xml",
+      "bytes": 5860,
+      "sha256": "c8eddfad8f190bbfbca4ddebf26e1dbd02344ca8c30e554e11d7fb3e29674b03",
+      "title": "Shimmerfin Deep",
+      "revision": "98778"
+    },
+    {
+      "path": "extract/wiki-Skills-export.txt",
+      "bytes": 5701,
+      "sha256": "853e976f2cd7b35fb940934e55a2b6b2e356450dc0389ad2520fea4c280f2b44"
+    },
+    {
+      "path": "extract/wiki-Skills-export.xml",
+      "bytes": 8491,
+      "sha256": "c19039f82fbbf62b4700be39941db0e3824d996d530bd08b7b94a153fea0a120",
+      "title": "Skills",
+      "revision": "84803"
+    },
+    {
+      "path": "extract/wiki-Sneaking-export.txt",
+      "bytes": 7987,
+      "sha256": "640b3418e20996c7a50a8db8897708484ce18542593fb94c514a7324b004bed5"
+    },
+    {
+      "path": "extract/wiki-Sneaking-export.xml",
+      "bytes": 10783,
+      "sha256": "d4e8b89c8a41d028508ef7a53884f42a3449ed56377d74e497ef82c52e796d67",
+      "title": "Sneaking",
+      "revision": "102929"
+    },
+    {
+      "path": "extract/wiki-Spelunking-export.txt",
+      "bytes": 8398,
+      "sha256": "f8d33f594051876e6f2a05103bbc7623ec1632e5f2ac00cc4b946c2c77958244"
+    },
+    {
+      "path": "extract/wiki-Spelunking-export.xml",
+      "bytes": 11126,
+      "sha256": "100a04933d4faaafdbd1e1b2db035e99adeaaf2ade4b233535deca66c72e470a",
+      "title": "Spelunking",
+      "revision": "104206"
+    },
+    {
+      "path": "extract/wiki-Summoning-export.txt",
+      "bytes": 6360,
+      "sha256": "33f2b9949ee6d515e91e71e3a2b5d19a75badd299b74a0b04efda478775ea96d"
+    },
+    {
+      "path": "extract/wiki-Summoning-export.xml",
+      "bytes": 9204,
+      "sha256": "3844920342af9baee681334f8cc8bb4c8466ea943fb159c68d33b367bf54ad6d",
+      "title": "Summoning",
+      "revision": "98530"
+    },
+    {
+      "path": "extract/wiki-Villagers-export.xml",
+      "bytes": 2098,
+      "sha256": "b53d36ed10add65813571db3a25fc55957fd158f6e2e489db246a46e33c47e0c",
+      "title": null,
+      "revision": null
+    },
+    {
+      "path": "extract/wiki-Worlds.json",
+      "bytes": 458193,
+      "sha256": "a19745b75a09b296e9fb6592c37587f553ca0a994b7d8a86afe16e0ad1dee7a7"
+    },
+    {
+      "path": "extract/wiki-Worlds.txt",
+      "bytes": 23259,
+      "sha256": "544a32eb408e9ba4591249b618a76b99a579484d9830d609fe1d7bec19691a1d"
+    }
+  ],
+  "bundle_anchors": [
+    {
+      "symbol": "ja.NewCharLvReq",
+      "character_offset": 13673390,
+      "line": 23758
+    },
+    {
+      "symbol": "q._customBlock_AFKgains",
+      "character_offset": 4953112,
+      "line": 7117
+    },
+    {
+      "symbol": "k._customBlock_HourlyKillRate",
+      "character_offset": 3786537,
+      "line": 4898
+    },
+    {
+      "symbol": "k._customBlock_AFKgainrates",
+      "character_offset": 3650175,
+      "line": 4636
+    },
+    {
+      "symbol": "m._customBlock_Divinity",
+      "character_offset": 3640700,
+      "line": 4618
+    },
+    {
+      "symbol": "m._customBlock_Spelunk",
+      "character_offset": 3648785,
+      "line": 4633
+    },
+    {
+      "symbol": "_event_cardQuickRef",
+      "character_offset": 7304137,
+      "line": 11595
+    },
+    {
+      "symbol": "PlayerAwayTime",
+      "character_offset": 3782633,
+      "line": 4891
+    },
+    {
+      "symbol": "AFKicons",
+      "character_offset": 3746219,
+      "line": 4820
+    }
+  ],
+  "findings": [
+    {
+      "id": "F1",
+      "label": "STATED",
+      "claim": "Seven released worlds add distinct work and persistent joins instead of replacing the roster.",
+      "evidence": [
+        "wiki-Worlds.json",
+        "wiki-Skills-export.xml",
+        "wiki-Shimmerfin_Deep-export.xml"
+      ]
+    },
+    {
+      "id": "F2",
+      "label": "STATED",
+      "claim": "Shared upgrades coexist with personal levels, loadouts, enrollment and assignments.",
+      "evidence": [
+        "wiki-Alchemy-export.xml",
+        "wiki-Laboratory-export.xml",
+        "wiki-Divinity-export.xml"
+      ]
+    },
+    {
+      "id": "F3",
+      "label": "SHOWN",
+      "claim": "First eleven slot thresholds agree between shipped NewCharLvReq and Mechanics.slots; article states eleven available.",
+      "evidence": [
+        "N.js::ja.NewCharLvReq",
+        "wiki-Module:Mechanics_data.json-export.xml::_tables.slots",
+        "wiki-Character_Creation-export.xml"
+      ]
+    },
+    {
+      "id": "F4",
+      "label": "SHOWN",
+      "claim": "AFK reward calculation separates time, activity rates, kill credit, XP and drops; old wiki rate constants are outdated.",
+      "evidence": [
+        "N.js::q._customBlock_AFKgains",
+        "N.js::k._customBlock_AFKgainrates",
+        "N.js::k._customBlock_HourlyKillRate",
+        "wiki-Game_Mechanics_AFK-export.xml"
+      ]
+    },
+    {
+      "id": "F5",
+      "label": "SHOWN",
+      "claim": "Roster task/time projections and gated Quick Reference menu dispatch exist; readability is not played proof.",
+      "evidence": [
+        "N.js::PlayerAwayTime",
+        "N.js::_event_cardQuickRef",
+        "N.js::AFKicons"
+      ]
+    },
+    {
+      "id": "F6",
+      "label": "STATED",
+      "claim": "Later divine/research effects can relieve Lab allocation; raw names require effect-ID resolution.",
+      "evidence": [
+        "wiki-Module:Divinity_data.json-export.xml::_tables.links",
+        "wiki-Module:Research_data.json-export.xml::_tables.grid[square=173]",
+        "N.js::m._customBlock_Divinity",
+        "N.js::GodsInfo"
+      ]
+    },
+    {
+      "id": "F7",
+      "label": "STATED",
+      "claim": "Breeding territory forage supplies spices for recipes and permanent meals.",
+      "evidence": [
+        "wiki-Breeding-export.xml",
+        "wiki-Cooking-export.xml"
+      ]
+    },
+    {
+      "id": "F8",
+      "label": "STATED",
+      "claim": "Construction completion still requires materials; concurrent queued builds each receive full build rate.",
+      "evidence": [
+        "wiki-Construction-export.xml"
+      ]
+    },
+    {
+      "id": "F9",
+      "label": "STATED",
+      "claim": "Liquid stores cap while mature farm crops can continue overgrowth; one blanket idle cap is inaccurate.",
+      "evidence": [
+        "wiki-Alchemy-export.xml",
+        "wiki-Farming-export.xml"
+      ]
+    },
+    {
+      "id": "F10",
+      "label": "STATED",
+      "claim": "Sneaking separates currency farming, untying and door breach; detection adds downtime.",
+      "evidence": [
+        "wiki-Sneaking-export.xml"
+      ]
+    },
+    {
+      "id": "F11",
+      "label": "STATED",
+      "claim": "W7 research uses observations and a revealed grid; spelunking separates AFK pages and stamina/team dives.",
+      "evidence": [
+        "wiki-Research-export.xml",
+        "wiki-Spelunking-export.xml"
+      ]
+    },
+    {
+      "id": "F12",
+      "label": "SHOWN",
+      "claim": "Combat AFK rate in the retrieved bundle starts at 0.4 before additions, unlike the old wiki 0.2.",
+      "evidence": [
+        "N.js::k._customBlock_AFKgainrates",
+        "wiki-Game_Mechanics_AFK-export.xml"
+      ]
+    },
+    {
+      "id": "F13",
+      "label": "INFERRED",
+      "claim": "All eleven can have useful contributions; optimal roster/class composition is not established.",
+      "evidence": [
+        "wiki-Skills-export.xml",
+        "wiki-Shimmerfin_Deep-export.xml",
+        "wiki-Character_Creation-export.xml"
+      ]
+    },
+    {
+      "id": "F14",
+      "label": "SHOWN",
+      "claim": "Raw GodsInfo name text and generated wiki name/effect rows differ; runtime checks use field 13 IDs.",
+      "evidence": [
+        "N.js::GodsInfo",
+        "N.js::m._customBlock_Divinity",
+        "wiki-Module:Divinity_data.json-export.xml::_tables.links"
+      ]
+    }
+  ],
+  "proposals": [
+    {
+      "id": "P1",
+      "state": "PROPOSAL",
+      "packet": "IMPLEMENTATION_PACKETS.md"
+    },
+    {
+      "id": "P2",
+      "state": "PROPOSAL",
+      "packet": "IMPLEMENTATION_PACKETS.md"
+    },
+    {
+      "id": "P3",
+      "state": "PROPOSAL",
+      "packet": "IMPLEMENTATION_PACKETS.md"
+    },
+    {
+      "id": "P4",
+      "state": "PROPOSAL",
+      "packet": "IMPLEMENTATION_PACKETS.md"
+    },
+    {
+      "id": "P5",
+      "state": "PROPOSAL",
+      "packet": "IMPLEMENTATION_PACKETS.md"
+    },
+    {
+      "id": "P6",
+      "state": "PROPOSAL",
+      "packet": "IMPLEMENTATION_PACKETS.md"
+    }
+  ],
+  "gaps": [
+    "Full server/client settlement and replay guarantees",
+    "Complete modifier, food, drop and effect-ID traces",
+    "Every W7 feature and full generated table semantic coverage",
+    "Experiential usability and optimal roster composition"
+  ]
+}

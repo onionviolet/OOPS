@@ -1,0 +1,197 @@
+{
+  "lane": "path-idle-cultivator",
+  "date": "2026-10-14",
+  "status": "PARTIAL",
+  "scope": "Static mechanisms for requested questions; specialty and exhaustive catalogue gaps recorded. No runtime.",
+  "source_url": "https://cultivator-path.com/game.bundle.js?v=mukbw9m0",
+  "sha256": "42029c9283d2cd43d20787b932027aea8344a8a2d108e545b97698db713ea404",
+  "same_as_prior_bundle": true,
+  "locator_base": "/Users/weiwei/.codex/research/path-idle-cultivator/extract/",
+  "findings": [
+    {
+      "id": "F1",
+      "label": "shown",
+      "claim": "Standard stages and within-category realms advance automatically; category boundaries require a trial.",
+      "evidence": "readable.js:81449-81479"
+    },
+    {
+      "id": "F2",
+      "label": "shown",
+      "claim": "Separate trial HP reaching zero finalizes an earned tier, without standard death rebirth.",
+      "evidence": "readable.js:140561-140660"
+    },
+    {
+      "id": "F3",
+      "label": "shown",
+      "claim": "Normal catalogue: 79 names/12 categories; demonic: 40/10; astral: 111/16. Catalogue is not proof of universal reachability.",
+      "evidence": "readable.js:79608-80048; extract/inventory.json"
+    },
+    {
+      "id": "F4",
+      "label": "shown",
+      "claim": "Trial maximum is 50; early accept supported; perfect tier requires full survival; supplies consumed on finalized result.",
+      "evidence": "readable.js:140356-140369,140600-140657"
+    },
+    {
+      "id": "F5",
+      "label": "shown",
+      "claim": "Qi generation combines base30, meridian/paid input, room quantity/gathering/refining and downstream bonuses.",
+      "evidence": "readable.js:14950,139705-139790"
+    },
+    {
+      "id": "F6",
+      "label": "shown",
+      "claim": "Qi requirement bands differ from display category bounds; stage9 threshold differs from full realm accounting.",
+      "evidence": "readable.js:136400-136527,139606-139647"
+    },
+    {
+      "id": "F7",
+      "label": "shown",
+      "claim": "Available dantian purity is maximum less corruption and impurities, with a special zero-purity branch; size is independent.",
+      "evidence": "readable.js:92514-92570"
+    },
+    {
+      "id": "F8",
+      "label": "shown",
+      "claim": "Installed node connections and setup eligibility govern elemental roots; ownership alone is insufficient.",
+      "evidence": "readable.js:92625-92695"
+    },
+    {
+      "id": "F9",
+      "label": "shown",
+      "claim": "Cultivation descriptors supply main/secondary progression, stats, lifespan and reset interfaces.",
+      "evidence": "readable.js:122975-123087,123163-123237"
+    },
+    {
+      "id": "F10",
+      "label": "shown",
+      "claim": "Voluntary rebirth requires effective realm index5; settlement and reset are shared with death rebirth.",
+      "evidence": "readable.js:80008-80042,81033-81035,81193-81243"
+    },
+    {
+      "id": "F11",
+      "label": "shown",
+      "claim": "SP is accumulated across active paths and modified by soul law and trial/Origin Power scaling.",
+      "evidence": "readable.js:136641-136706,81008-81035"
+    },
+    {
+      "id": "F12",
+      "label": "shown",
+      "claim": "Life values reset; completed quests/peaks/purchased long-term rewards retained; item/manual/stone retention conditional.",
+      "evidence": "readable.js:81039-81188"
+    },
+    {
+      "id": "F13",
+      "label": "shown",
+      "claim": "Soul-weapon first milestone requires weapon ascension10; ten-slot cap; legacy begins at index49.",
+      "evidence": "readable.js:155840-155974,112739-112753"
+    },
+    {
+      "id": "F14",
+      "label": "shown",
+      "claim": "Load resets timestamp; time calculation uses fixed1000ms rather than elapsed subtraction.",
+      "evidence": "readable.js:80918-80948,81730-81767"
+    },
+    {
+      "id": "F15",
+      "label": "inferred",
+      "claim": "No closed-browser catch-up in traced public web load/tick path; hidden-tab/native behavior unmeasured.",
+      "evidence": "readable.js:337282,337424-337438; F14"
+    },
+    {
+      "id": "F16",
+      "label": "shown",
+      "claim": "Weapon skill descriptors generate prerequisite trees with replace-mode function parameters, not only power multipliers.",
+      "evidence": "readable.js:154603-154775,154865-154943"
+    },
+    {
+      "id": "F17",
+      "label": "shown",
+      "claim": "Battle manuals are rolled item instances with rarity/variance/bonuses; tier costs and slot checks have distinct consumers.",
+      "evidence": "readable.js:90623-90660,90707-90784"
+    },
+    {
+      "id": "F18",
+      "label": "shown",
+      "claim": "Content combines authored recipes, objective/reward registries, origin chains and executable callbacks.",
+      "evidence": "readable.js:102520-102555,268150-268215,268760-268852"
+    },
+    {
+      "id": "F19",
+      "label": "shown",
+      "claim": "Room pool selection filters depth then falls back; weighted templates and objective callbacks compose layouts.",
+      "evidence": "readable.js:202912-202973,203005-203063,203184-203255"
+    },
+    {
+      "id": "F20",
+      "label": "shown",
+      "claim": "Meridian quest description says Golden Core but its effective-realm predicate is2, whereas normal Golden Core is5.",
+      "evidence": "readable.js:272143-272180,79600-79748"
+    },
+    {
+      "id": "F21",
+      "label": "shown",
+      "claim": "First ascension checks mastery, infinity condition and dialogue; sets cap/form flags instead of calling ordinary reset.",
+      "evidence": "readable.js:65993-66111"
+    },
+    {
+      "id": "F22",
+      "label": "stated",
+      "claim": "Developer page advertises50 realms/seven tiers and lethal tribulation/rebirth framing.",
+      "evidence": "https://wuxiadev.itch.io/idle-cultivation-path"
+    }
+  ],
+  "proposals": [
+    {
+      "id": "P1",
+      "state": "unselected",
+      "packet": "IMPLEMENTATION_PACKETS.md"
+    },
+    {
+      "id": "P2",
+      "state": "unselected",
+      "packet": "IMPLEMENTATION_PACKETS.md"
+    },
+    {
+      "id": "P3",
+      "state": "unselected",
+      "packet": "IMPLEMENTATION_PACKETS.md"
+    },
+    {
+      "id": "P4",
+      "state": "unselected",
+      "packet": "IMPLEMENTATION_PACKETS.md"
+    },
+    {
+      "id": "P5",
+      "state": "unselected",
+      "packet": "IMPLEMENTATION_PACKETS.md"
+    },
+    {
+      "id": "P6",
+      "state": "unselected",
+      "packet": "IMPLEMENTATION_PACKETS.md"
+    },
+    {
+      "id": "P7",
+      "state": "unselected",
+      "packet": "IMPLEMENTATION_PACKETS.md"
+    },
+    {
+      "id": "P8",
+      "state": "unselected",
+      "packet": "IMPLEMENTATION_PACKETS.md"
+    }
+  ],
+  "verification": {
+    "downloaded": true,
+    "partial_deobfuscation": "formatter plus printable string escape decoding; scrambled locals remain",
+    "source_read": true,
+    "syntax_checks": "raw and readable passed",
+    "runtime_play": false,
+    "save_access": false,
+    "yairpg_runtime_edits": false,
+    "committed": false
+  },
+  "comparison_source": "../REPORT.md (inherited, not independently reread game builds)"
+}

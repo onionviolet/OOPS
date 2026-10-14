@@ -1,0 +1,77 @@
+{
+  "lane": "free-text-worlds",
+  "date": "2026-10-14",
+  "status": "PARTIAL, bounded research delivered; unread gaps explicit",
+  "labels": {
+    "SHOWN": "inspected source/artifact, not runtime proof",
+    "STATED": "attributed official description",
+    "INFERRED": "lane design judgment"
+  },
+  "targets": [
+    "Official web static snapshot 2026-10-14",
+    "rudle/progress-quest historical mirror b5d3424a6115c07186576afb8e5c5c19fe0894bd"
+  ],
+  "sources": [
+    {
+      "url": "https://progressquest.com/play/main.js",
+      "path": "/Users/weiwei/.codex/research/free-text-worlds/extract/pq-main.js",
+      "sha256": "63926cda54b232c5e5be4e97123710ee4ab2dbd1faa213b21ddc01dab54a1ce0",
+      "scope": "Static source read"
+    },
+    {
+      "url": "https://progressquest.com/play/config.js",
+      "path": "/Users/weiwei/.codex/research/free-text-worlds/extract/pq-config.js",
+      "sha256": "cc76f256057d6ddbf7010f1b94e59913b935b9980138ed5e800bdd1e5ff5ec4e",
+      "scope": "Static source read"
+    },
+    {
+      "url": "https://progressquest.com/play/clock.js",
+      "path": "/Users/weiwei/.codex/research/free-text-worlds/extract/pq-clock.js",
+      "sha256": "71265ef36ee42f35ff3c23031d51b41607ac33dd2b767a126c48aeeb99369c35",
+      "scope": "Static source read"
+    },
+    {
+      "url": "https://progressquest.com/play/roster.js",
+      "path": "/Users/weiwei/.codex/research/free-text-worlds/extract/pq-roster.js",
+      "sha256": "27852bb8890c4d27f8d65790d0320640901cb71d037be1c84c4919e675b75730",
+      "scope": "Static source read"
+    }
+  ],
+  "findings": [
+    {
+      "id": "PQ-F1",
+      "label": "SHOWN",
+      "claim": "Automatic task selection and nested task/XP/quest/plot bars expose multiple progress horizons.",
+      "evidence": [
+        "https://progressquest.com/play/main.js::Dequeue:297-363",
+        "https://progressquest.com/play/main.js::Timer1Timer:906-951"
+      ]
+    },
+    {
+      "id": "PQ-F2",
+      "label": "SHOWN",
+      "claim": "A worker posts 50 ms wake messages; page simulation caps elapsed increments and restores saved RNG/state without an absence replay in the inspected path.",
+      "evidence": [
+        "https://progressquest.com/play/clock.js:1-17",
+        "https://progressquest.com/play/main.js:1089-1150",
+        "https://progressquest.com/play/config.js:116-141"
+      ]
+    },
+    {
+      "id": "PQ-F3",
+      "label": "INFERRED",
+      "claim": "Visible accumulation and funny variants can support spectator appeal; this is not retention evidence.",
+      "evidence": [
+        "PQ-F1"
+      ]
+    }
+  ],
+  "gaps": [
+    "Original Delphi release code not inspected",
+    "Native gameplay and persistence/import not tested",
+    "Long-run scheduler or server leaderboard behavior"
+  ],
+  "proposals_are_accepted": false,
+  "game_executed": false,
+  "shared_checkpoint": "../CHECKPOINT.md"
+}

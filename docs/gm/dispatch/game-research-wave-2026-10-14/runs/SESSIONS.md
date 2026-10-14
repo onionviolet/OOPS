@@ -14,6 +14,25 @@
 | coverage-refresh | `docs/research/coverage-refresh-2026-10-14/` | 01a13c3c-be81-7c90-94a6-582bfee0988d |
 | adoption-reaudit | `docs/research/game-research-adoption-reaudit-2026-10-14/` | 01a13c3c-be89-7151-8113-ce75058d326d |
 
+## Round 1 results (all eleven finished by 17:26, each PARTIAL with a named unread table)
+
+Outputs committed in their output dirs. Coverage refresh proposes a queue rewrite (not applied: its install rows predate the payloads). Adoption re-audit: 597 rows, 20 unpark packets (U01-U20).
+
+## Round 2 (2026-10-14 17:26 to 17:33)
+
+| Lane | How started | Session id |
+| --- | --- | --- |
+| pw-intake | manual | 01a13c55-4055-7891-8437-30d4bfef6c55 |
+| vagrus-2 | manual | 01a13c55-404f-7103-8084-c36362c12c07 |
+| tale-of-immortal-2 | manual | 01a13c55-4079-7052-b421-e4587b6bd24c |
+| your-chronicle-2 | manual | 01a13c55-4077-7642-b773-c79891f873d9 |
+| academagia-decompile | watcher | 01a13c4f-0f18-7980-a7b1-ac7bd1625122 |
+| heavens-vault | watcher | 01a13c4f-0f18-73f3-aef7-962f908f505d |
+| warsim | watcher | 01a13c4f-0f44-7a11-9f1d-85a7868731da |
+| ngu-idle | watcher | 01a13c4f-0f44-7301-bb38-edd02c4983e2 |
+
+Weibao asked for Vagrus "and more": vagrus-2, tale-of-immortal-2 and your-chronicle-2 are depth passes on prior finite lanes' unread tables. pw-intake was started by hand because HoI4 ended PARTIAL (its gate looked for COMPLETE) with `PROVINCE_WAR_FIT.md` delivered. The watcher was restarted with that state; it still waits on taiwu and immortal-life.
+
 ## Gated (started by `runs/watch.py`, detached, 5-minute poll, 7-day limit)
 
 | Lane | Gate |

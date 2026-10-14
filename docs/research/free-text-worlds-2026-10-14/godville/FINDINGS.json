@@ -1,0 +1,59 @@
+{
+  "lane": "free-text-worlds",
+  "date": "2026-10-14",
+  "status": "PARTIAL, bounded research delivered; unread gaps explicit",
+  "labels": {
+    "SHOWN": "inspected source/artifact, not runtime proof",
+    "STATED": "attributed official description",
+    "INFERRED": "lane design judgment"
+  },
+  "targets": [
+    "Godville public developer material"
+  ],
+  "sources": [
+    {
+      "url": "https://godvillegame.com/blog/",
+      "scope": "April-August 2026 developer posts plus relevant older entries"
+    },
+    {
+      "url": "https://play.google.com/store/apps/details?id=com.godvillegame.android",
+      "scope": "Developer listing"
+    }
+  ],
+  "findings": [
+    {
+      "id": "GV-F1",
+      "label": "STATED",
+      "claim": "Hero progression is automatic; optional influence and active layers remain.",
+      "evidence": [
+        "https://play.google.com/store/apps/details?id=com.godvillegame.android",
+        "https://godvillegame.com/blog/"
+      ]
+    },
+    {
+      "id": "GV-F2",
+      "label": "STATED",
+      "claim": "Developer describes anomalies, evidence-led identification, one-event alerts and automatically updated achievement IDs.",
+      "evidence": [
+        "https://godvillegame.com/blog/"
+      ]
+    },
+    {
+      "id": "GV-F3",
+      "label": "INFERRED",
+      "claim": "Personal continuity, amusing reports, surprises and milestones are plausible spectator-interest mechanisms, not measured retention.",
+      "evidence": [
+        "GV-F1",
+        "GV-F2"
+      ]
+    }
+  ],
+  "gaps": [
+    "Server tick/state/save/offline formulas",
+    "Exact influence costs and GodWiki challenge page",
+    "Account-only gameplay and retention measurement"
+  ],
+  "proposals_are_accepted": false,
+  "game_executed": false,
+  "shared_checkpoint": "../CHECKPOINT.md"
+}

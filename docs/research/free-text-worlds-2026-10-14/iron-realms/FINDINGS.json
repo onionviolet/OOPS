@@ -1,0 +1,69 @@
+{
+  "lane": "free-text-worlds",
+  "date": "2026-10-14",
+  "status": "PARTIAL, bounded research delivered; unread gaps explicit",
+  "labels": {
+    "SHOWN": "inspected source/artifact, not runtime proof",
+    "STATED": "attributed official description",
+    "INFERRED": "lane design judgment"
+  },
+  "targets": [
+    "Achaea primary; Aetolia overview and Lusternia vote-weight sample; remaining siblings catalogue"
+  ],
+  "sources": [
+    {
+      "url": "https://www.achaea.com/game-help?what=tradeskills",
+      "scope": "Official help read via web; direct snapshot timed out once"
+    },
+    {
+      "url": "https://www.ironrealms.com/games/compare-games/",
+      "scope": "Publisher comparison, contradictions retained"
+    }
+  ],
+  "findings": [
+    {
+      "id": "IR-F1",
+      "label": "STATED",
+      "claim": "Tradeskills are independent of class; help lists 17 while feature article lists 16 and omits Transmutation.",
+      "evidence": [
+        "https://www.achaea.com/game-help?what=tradeskills",
+        "https://www.achaea.com/game-features/crafting"
+      ]
+    },
+    {
+      "id": "IR-F2",
+      "label": "STATED",
+      "claim": "Housing rooms, exits, doors and permissions coexist with city jurisdiction.",
+      "evidence": [
+        "https://www.achaea.com/game-help?what=housing-summary"
+      ]
+    },
+    {
+      "id": "IR-F3",
+      "label": "STATED",
+      "claim": "Mines connect working/defending squads to commodities and storage; market lists unit-price orders and expiry.",
+      "evidence": [
+        "https://www.achaea.com/game-help?what=mines-and-mining",
+        "https://www.achaea.com/game-help?what=the-commodities-market"
+      ]
+    },
+    {
+      "id": "IR-F4",
+      "label": "STATED",
+      "claim": "Governments differ, including dictatorship and divine appointment; publisher distinguishes active and legacy games.",
+      "evidence": [
+        "https://www.achaea.com/city-states",
+        "https://www.ironrealms.com/games/compare-games/"
+      ]
+    }
+  ],
+  "gaps": [
+    "Server implementation and current live economy",
+    "Exact current election eligibility/expiry",
+    "Full sibling public-help coverage",
+    "Native housing/professions/politics"
+  ],
+  "proposals_are_accepted": false,
+  "game_executed": false,
+  "shared_checkpoint": "../CHECKPOINT.md"
+}

@@ -1,0 +1,69 @@
+{
+  "lane": "idle-depth",
+  "date": "2026-10-14",
+  "game": "Groundhog Life later build",
+  "evidence": "static source only",
+  "code_reuse": false,
+  "accepted_proposals": false,
+  "findings": [
+    {
+      "id": "G15",
+      "label": "shown",
+      "claim": "War is a time-to-arrival ship-wave defense loop, with more overlap after year 42.",
+      "locator": "app.v2.pretty.js:2149-2314"
+    },
+    {
+      "id": "G16",
+      "label": "shown",
+      "claim": "Loop Trap adds per-skill retained gain from this-loop best and efficiency.",
+      "locator": "app.v2.pretty.js:1704-1826,5319-5327"
+    },
+    {
+      "id": "G17",
+      "label": "shown",
+      "claim": "Auto-promote pauses before job switch; research Just Pause also changes research and toggles pause.",
+      "locator": "app.v2.pretty.js:4674-4699,5160-5165"
+    },
+    {
+      "id": "G17a",
+      "label": "shown",
+      "claim": "Conference-exclusion readiness and activation do not agree with a simple exclusion promise.",
+      "locator": "app.v2.pretty.js:4606-4669"
+    },
+    {
+      "id": "G18",
+      "label": "shown",
+      "claim": "31 achievements in seven groups; completion stores life/day; reward method requests save.",
+      "locator": "app.v2.pretty.js:3474-3640,4440-4540"
+    },
+    {
+      "id": "G18a",
+      "label": "shown",
+      "claim": "Duplicate subscription targets and consecutive-life wording differ from intended-looking achievement definitions.",
+      "locator": "app.v2.pretty.js:3501-3513,3630-3636,1499-1503"
+    },
+    {
+      "id": "G19",
+      "label": "shown",
+      "claim": "Later build banks paused/offline time, Turbo is 2x, arrival dilation is 10x.",
+      "locator": "app.v2.pretty.js:5795-5799,6177-6214"
+    },
+    {
+      "id": "G20",
+      "label": "inferred",
+      "claim": "Defense supplies a countdown idea but no province logistics model.",
+      "locator": "LATER_BUILD_SYSTEMS.md:G15,G19"
+    },
+    {
+      "id": "G16a",
+      "label": "shown",
+      "claim": "Vendor transform is log10; research input is level x0.01; per-life kills are unscaled. Each term approaches 0.05.",
+      "locator": "app.v2.pretty.js:563-582,5319-5327; groundhog vendor modules 210,226,264"
+    }
+  ],
+  "source": {
+    "url": "https://github.com/tcztzy/groundhog-life",
+    "pin": "sha256:d167076ecdafa7f4c0272a66a3cf193a3f465b6f7a3af60c478bf1d8ee214f3c",
+    "provenance": "prior raw bundle matched; mirror authorship unconfirmed"
+  }
+}

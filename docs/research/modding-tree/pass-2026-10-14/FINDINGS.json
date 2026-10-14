@@ -1,0 +1,776 @@
+{
+  "lane": "prestige-community",
+  "date": "2026-10-14",
+  "status": "COMPLETE",
+  "evidence_scope": "source reading only; no runtime execution",
+  "sources": [
+    {
+      "id": "prestige-tree",
+      "url": "https://github.com/Jacorb90/Prestige-Tree",
+      "commit": "cec9198c8ce9a5c6d107179871cbe84fab92ae0d",
+      "shallow": true
+    },
+    {
+      "id": "communitree",
+      "url": "https://github.com/ducdat0507/communitree",
+      "commit": "38efac6d1b9e68db158c260fcb343d1881b29256",
+      "shallow": true
+    },
+    {
+      "id": "profectus",
+      "url": "https://github.com/profectus-engine/Profectus",
+      "commit": "d69197d5c7225a0bb58b5a4d5f8e19c1c04a61ea",
+      "shallow": true
+    }
+  ],
+  "findings": [
+    {
+      "id": "F1",
+      "label": "shown",
+      "claim": "Prior Prestige Tree pin is already Rewritten, not Classic. Its mod title and changelog identify it, and the new shallow clone resolves to the same commit.",
+      "evidence": [
+        {
+          "repo": "prestige-tree",
+          "commit": "cec9198c8ce9a5c6d107179871cbe84fab92ae0d",
+          "path": "js/mod.js",
+          "lines": [
+            1,
+            20
+          ],
+          "url": "https://github.com/Jacorb90/Prestige-Tree/blob/cec9198c8ce9a5c6d107179871cbe84fab92ae0d/js/mod.js#L1-L20"
+        },
+        {
+          "repo": "prestige-tree",
+          "commit": "cec9198c8ce9a5c6d107179871cbe84fab92ae0d",
+          "path": "changelog.md",
+          "lines": [
+            1,
+            55
+          ],
+          "url": "https://github.com/Jacorb90/Prestige-Tree/blob/cec9198c8ce9a5c6d107179871cbe84fab92ae0d/changelog.md#L1-L55"
+        }
+      ]
+    },
+    {
+      "id": "F2",
+      "label": "shown",
+      "claim": "Rewritten layers.js declares 31 layer IDs, including utility layers a/sc/ab. This is a registration count, not 31 prestige mechanics or concurrent visible nodes.",
+      "evidence": [
+        {
+          "repo": "prestige-tree",
+          "commit": "cec9198c8ce9a5c6d107179871cbe84fab92ae0d",
+          "path": "js/layers.js",
+          "lines": [
+            1,
+            9915
+          ],
+          "url": "https://github.com/Jacorb90/Prestige-Tree/blob/cec9198c8ce9a5c6d107179871cbe84fab92ae0d/js/layers.js#L1-L9915"
+        }
+      ]
+    },
+    {
+      "id": "F3",
+      "label": "shown",
+      "claim": "Rewritten centralizes named softcaps with threshold, transform, magnitude, disclosure and inverse; supports root, exponent-root and log transforms.",
+      "evidence": [
+        {
+          "repo": "prestige-tree",
+          "commit": "cec9198c8ce9a5c6d107179871cbe84fab92ae0d",
+          "path": "js/sc.js",
+          "lines": [
+            1,
+            85
+          ],
+          "url": "https://github.com/Jacorb90/Prestige-Tree/blob/cec9198c8ce9a5c6d107179871cbe84fab92ae0d/js/sc.js#L1-L85"
+        },
+        {
+          "repo": "prestige-tree",
+          "commit": "cec9198c8ce9a5c6d107179871cbe84fab92ae0d",
+          "path": "js/sc.js",
+          "lines": [
+            363,
+            428
+          ],
+          "url": "https://github.com/Jacorb90/Prestige-Tree/blob/cec9198c8ce9a5c6d107179871cbe84fab92ae0d/js/sc.js#L363-L428"
+        },
+        {
+          "repo": "prestige-tree",
+          "commit": "cec9198c8ce9a5c6d107179871cbe84fab92ae0d",
+          "path": "js/layers.js",
+          "lines": [
+            9657,
+            9678
+          ],
+          "url": "https://github.com/Jacorb90/Prestige-Tree/blob/cec9198c8ce9a5c6d107179871cbe84fab92ae0d/js/layers.js#L9657-L9678"
+        }
+      ]
+    },
+    {
+      "id": "F4",
+      "label": "shown",
+      "claim": "Rewritten provides progression-gated era help, current effects and optional formula text. Current keyboard code uses minus, despite the changelog describing formulas on shift.",
+      "evidence": [
+        {
+          "repo": "prestige-tree",
+          "commit": "cec9198c8ce9a5c6d107179871cbe84fab92ae0d",
+          "path": "js/help.js",
+          "lines": [
+            1,
+            90
+          ],
+          "url": "https://github.com/Jacorb90/Prestige-Tree/blob/cec9198c8ce9a5c6d107179871cbe84fab92ae0d/js/help.js#L1-L90"
+        },
+        {
+          "repo": "prestige-tree",
+          "commit": "cec9198c8ce9a5c6d107179871cbe84fab92ae0d",
+          "path": "js/utils.js",
+          "lines": [
+            996,
+            1016
+          ],
+          "url": "https://github.com/Jacorb90/Prestige-Tree/blob/cec9198c8ce9a5c6d107179871cbe84fab92ae0d/js/utils.js#L996-L1016"
+        },
+        {
+          "repo": "prestige-tree",
+          "commit": "cec9198c8ce9a5c6d107179871cbe84fab92ae0d",
+          "path": "js/layers.js",
+          "lines": [
+            6988,
+            6993
+          ],
+          "url": "https://github.com/Jacorb90/Prestige-Tree/blob/cec9198c8ce9a5c6d107179871cbe84fab92ae0d/js/layers.js#L6988-L6993"
+        }
+      ]
+    },
+    {
+      "id": "F5",
+      "label": "shown",
+      "claim": "A separate Autobuyers side layer exposes unlocked automation as player switches; repeated lower-layer work becomes optional as milestones accrue.",
+      "evidence": [
+        {
+          "repo": "prestige-tree",
+          "commit": "cec9198c8ce9a5c6d107179871cbe84fab92ae0d",
+          "path": "js/layers.js",
+          "lines": [
+            9680,
+            9725
+          ],
+          "url": "https://github.com/Jacorb90/Prestige-Tree/blob/cec9198c8ce9a5c6d107179871cbe84fab92ae0d/js/layers.js#L9680-L9725"
+        }
+      ]
+    },
+    {
+      "id": "F6",
+      "label": "shown",
+      "claim": "Communitree declares one mod author, ducdat0507, and five named creator-content layers in separate files. It is evidence of combining creator styles, not proof of a many-author review process.",
+      "evidence": [
+        {
+          "repo": "communitree",
+          "commit": "38efac6d1b9e68db158c260fcb343d1881b29256",
+          "path": "js/mod.js",
+          "lines": [
+            1,
+            5
+          ],
+          "url": "https://github.com/ducdat0507/communitree/blob/38efac6d1b9e68db158c260fcb343d1881b29256/js/mod.js#L1-L5"
+        },
+        {
+          "repo": "communitree",
+          "commit": "38efac6d1b9e68db158c260fcb343d1881b29256",
+          "path": "js/layers/jacorb.js",
+          "lines": [
+            3,
+            11
+          ],
+          "url": "https://github.com/ducdat0507/communitree/blob/38efac6d1b9e68db158c260fcb343d1881b29256/js/layers/jacorb.js#L3-L11"
+        },
+        {
+          "repo": "communitree",
+          "commit": "38efac6d1b9e68db158c260fcb343d1881b29256",
+          "path": "js/layers/aarex.js",
+          "lines": [
+            3,
+            11
+          ],
+          "url": "https://github.com/ducdat0507/communitree/blob/38efac6d1b9e68db158c260fcb343d1881b29256/js/layers/aarex.js#L3-L11"
+        },
+        {
+          "repo": "communitree",
+          "commit": "38efac6d1b9e68db158c260fcb343d1881b29256",
+          "path": "js/layers/acamaeda.js",
+          "lines": [
+            20,
+            28
+          ],
+          "url": "https://github.com/ducdat0507/communitree/blob/38efac6d1b9e68db158c260fcb343d1881b29256/js/layers/acamaeda.js#L20-L28"
+        },
+        {
+          "repo": "communitree",
+          "commit": "38efac6d1b9e68db158c260fcb343d1881b29256",
+          "path": "js/layers/thefinaluptake.js",
+          "lines": [
+            18,
+            26
+          ],
+          "url": "https://github.com/ducdat0507/communitree/blob/38efac6d1b9e68db158c260fcb343d1881b29256/js/layers/thefinaluptake.js#L18-L26"
+        },
+        {
+          "repo": "communitree",
+          "commit": "38efac6d1b9e68db158c260fcb343d1881b29256",
+          "path": "js/layers/despacit.js",
+          "lines": [
+            195,
+            203
+          ],
+          "url": "https://github.com/ducdat0507/communitree/blob/38efac6d1b9e68db158c260fcb343d1881b29256/js/layers/despacit.js#L195-L203"
+        }
+      ]
+    },
+    {
+      "id": "F7",
+      "label": "shown",
+      "claim": "Communitree compresses lower Prestige Tree mechanics into buyables inside jac and partitions systems with nested, unlock-gated microtabs. Dozens of mechanics need not be dozens of top-level layers.",
+      "evidence": [
+        {
+          "repo": "communitree",
+          "commit": "38efac6d1b9e68db158c260fcb343d1881b29256",
+          "path": "js/layers/jacorb.js",
+          "lines": [
+            1381,
+            1410
+          ],
+          "url": "https://github.com/ducdat0507/communitree/blob/38efac6d1b9e68db158c260fcb343d1881b29256/js/layers/jacorb.js#L1381-L1410"
+        },
+        {
+          "repo": "communitree",
+          "commit": "38efac6d1b9e68db158c260fcb343d1881b29256",
+          "path": "js/layers/acamaeda.js",
+          "lines": [
+            2932,
+            2998
+          ],
+          "url": "https://github.com/ducdat0507/communitree/blob/38efac6d1b9e68db158c260fcb343d1881b29256/js/layers/acamaeda.js#L2932-L2998"
+        },
+        {
+          "repo": "communitree",
+          "commit": "38efac6d1b9e68db158c260fcb343d1881b29256",
+          "path": "js/layers/despacit.js",
+          "lines": [
+            4491,
+            4545
+          ],
+          "url": "https://github.com/ducdat0507/communitree/blob/38efac6d1b9e68db158c260fcb343d1881b29256/js/layers/despacit.js#L4491-L4545"
+        }
+      ]
+    },
+    {
+      "id": "F8",
+      "label": "shown",
+      "claim": "Communitree separates reset row from displayRow: aar resets at row 1 but displays at 0; aca/tfu/des reset at row 4 but display at 2/1/1. Drawn branches do not fully describe reset impact.",
+      "evidence": [
+        {
+          "repo": "communitree",
+          "commit": "38efac6d1b9e68db158c260fcb343d1881b29256",
+          "path": "js/layers/aarex.js",
+          "lines": [
+            3,
+            11
+          ],
+          "url": "https://github.com/ducdat0507/communitree/blob/38efac6d1b9e68db158c260fcb343d1881b29256/js/layers/aarex.js#L3-L11"
+        },
+        {
+          "repo": "communitree",
+          "commit": "38efac6d1b9e68db158c260fcb343d1881b29256",
+          "path": "js/layers/acamaeda.js",
+          "lines": [
+            20,
+            28
+          ],
+          "url": "https://github.com/ducdat0507/communitree/blob/38efac6d1b9e68db158c260fcb343d1881b29256/js/layers/acamaeda.js#L20-L28"
+        },
+        {
+          "repo": "communitree",
+          "commit": "38efac6d1b9e68db158c260fcb343d1881b29256",
+          "path": "js/layers/thefinaluptake.js",
+          "lines": [
+            18,
+            27
+          ],
+          "url": "https://github.com/ducdat0507/communitree/blob/38efac6d1b9e68db158c260fcb343d1881b29256/js/layers/thefinaluptake.js#L18-L27"
+        },
+        {
+          "repo": "communitree",
+          "commit": "38efac6d1b9e68db158c260fcb343d1881b29256",
+          "path": "js/layers/despacit.js",
+          "lines": [
+            195,
+            204
+          ],
+          "url": "https://github.com/ducdat0507/communitree/blob/38efac6d1b9e68db158c260fcb343d1881b29256/js/layers/despacit.js#L195-L204"
+        }
+      ]
+    },
+    {
+      "id": "F9",
+      "label": "shown",
+      "claim": "Communitree hub section controller checks entry/exit goals, resets finished child data and advances modLevel. Completed sections retain modTimes, which grow passively and feed hub or earlier section effects. The third slot is a false completion placeholder.",
+      "evidence": [
+        {
+          "repo": "communitree",
+          "commit": "38efac6d1b9e68db158c260fcb343d1881b29256",
+          "path": "js/layers/acamaeda.js",
+          "lines": [
+            2599,
+            2630
+          ],
+          "url": "https://github.com/ducdat0507/communitree/blob/38efac6d1b9e68db158c260fcb343d1881b29256/js/layers/acamaeda.js#L2599-L2630"
+        },
+        {
+          "repo": "communitree",
+          "commit": "38efac6d1b9e68db158c260fcb343d1881b29256",
+          "path": "js/layers/acamaeda.js",
+          "lines": [
+            141,
+            156
+          ],
+          "url": "https://github.com/ducdat0507/communitree/blob/38efac6d1b9e68db158c260fcb343d1881b29256/js/layers/acamaeda.js#L141-L156"
+        },
+        {
+          "repo": "communitree",
+          "commit": "38efac6d1b9e68db158c260fcb343d1881b29256",
+          "path": "js/layers/acamaeda.js",
+          "lines": [
+            2759,
+            2759
+          ],
+          "url": "https://github.com/ducdat0507/communitree/blob/38efac6d1b9e68db158c260fcb343d1881b29256/js/layers/acamaeda.js#L2759"
+        }
+      ]
+    },
+    {
+      "id": "F10",
+      "label": "shown",
+      "claim": "Communitree balances with chained local softcaps and hard ceilings plus higher-layer removal of selected softcaps. This is manual tuning, not an automatic global balance solver.",
+      "evidence": [
+        {
+          "repo": "communitree",
+          "commit": "38efac6d1b9e68db158c260fcb343d1881b29256",
+          "path": "js/layers/jacorb.js",
+          "lines": [
+            49,
+            78
+          ],
+          "url": "https://github.com/ducdat0507/communitree/blob/38efac6d1b9e68db158c260fcb343d1881b29256/js/layers/jacorb.js#L49-L78"
+        },
+        {
+          "repo": "communitree",
+          "commit": "38efac6d1b9e68db158c260fcb343d1881b29256",
+          "path": "js/layers/aarex.js",
+          "lines": [
+            193,
+            244
+          ],
+          "url": "https://github.com/ducdat0507/communitree/blob/38efac6d1b9e68db158c260fcb343d1881b29256/js/layers/aarex.js#L193-L244"
+        },
+        {
+          "repo": "communitree",
+          "commit": "38efac6d1b9e68db158c260fcb343d1881b29256",
+          "path": "js/game.js",
+          "lines": [
+            81,
+            85
+          ],
+          "url": "https://github.com/ducdat0507/communitree/blob/38efac6d1b9e68db158c260fcb343d1881b29256/js/game.js#L81-L85"
+        }
+      ]
+    },
+    {
+      "id": "F11",
+      "label": "shown",
+      "claim": "Inactive tfu/des source explicitly returns neutral effects or skips update. Temp still traverses registered functions and gameLoop still calls registered updates; disabling is a partial optimization, not whole-layer unscheduling.",
+      "evidence": [
+        {
+          "repo": "communitree",
+          "commit": "38efac6d1b9e68db158c260fcb343d1881b29256",
+          "path": "js/layers/thefinaluptake.js",
+          "lines": [
+            26,
+            27
+          ],
+          "url": "https://github.com/ducdat0507/communitree/blob/38efac6d1b9e68db158c260fcb343d1881b29256/js/layers/thefinaluptake.js#L26-L27"
+        },
+        {
+          "repo": "communitree",
+          "commit": "38efac6d1b9e68db158c260fcb343d1881b29256",
+          "path": "js/layers/thefinaluptake.js",
+          "lines": [
+            798,
+            800
+          ],
+          "url": "https://github.com/ducdat0507/communitree/blob/38efac6d1b9e68db158c260fcb343d1881b29256/js/layers/thefinaluptake.js#L798-L800"
+        },
+        {
+          "repo": "communitree",
+          "commit": "38efac6d1b9e68db158c260fcb343d1881b29256",
+          "path": "js/layers/despacit.js",
+          "lines": [
+            272,
+            272
+          ],
+          "url": "https://github.com/ducdat0507/communitree/blob/38efac6d1b9e68db158c260fcb343d1881b29256/js/layers/despacit.js#L272"
+        },
+        {
+          "repo": "communitree",
+          "commit": "38efac6d1b9e68db158c260fcb343d1881b29256",
+          "path": "js/layers/despacit.js",
+          "lines": [
+            4208,
+            4208
+          ],
+          "url": "https://github.com/ducdat0507/communitree/blob/38efac6d1b9e68db158c260fcb343d1881b29256/js/layers/despacit.js#L4208"
+        },
+        {
+          "repo": "communitree",
+          "commit": "38efac6d1b9e68db158c260fcb343d1881b29256",
+          "path": "js/technical/temp.js",
+          "lines": [
+            95,
+            140
+          ],
+          "url": "https://github.com/ducdat0507/communitree/blob/38efac6d1b9e68db158c260fcb343d1881b29256/js/technical/temp.js#L95-L140"
+        },
+        {
+          "repo": "communitree",
+          "commit": "38efac6d1b9e68db158c260fcb343d1881b29256",
+          "path": "js/game.js",
+          "lines": [
+            360,
+            389
+          ],
+          "url": "https://github.com/ducdat0507/communitree/blob/38efac6d1b9e68db158c260fcb343d1881b29256/js/game.js#L360-L389"
+        }
+      ]
+    },
+    {
+      "id": "F12",
+      "label": "stated",
+      "claim": "Communitree changelog records rebalancing, resource-label errors, buy-max glitches, section reload errors and a number-library migration that wiped saves. These statements show author-reported maintenance issues, not reproduced defects.",
+      "evidence": [
+        {
+          "repo": "communitree",
+          "commit": "38efac6d1b9e68db158c260fcb343d1881b29256",
+          "path": "js/mod.js",
+          "lines": [
+            20,
+            118
+          ],
+          "url": "https://github.com/ducdat0507/communitree/blob/38efac6d1b9e68db158c260fcb343d1881b29256/js/mod.js#L20-L118"
+        }
+      ]
+    },
+    {
+      "id": "F13",
+      "label": "shown",
+      "claim": "Profectus Requirement separates visibility, eligibility, payment and display. Arrays mean all requirements; Costs and Requires are grouped; bulk availability is the minimum across requirements.",
+      "evidence": [
+        {
+          "repo": "profectus",
+          "commit": "d69197d5c7225a0bb58b5a4d5f8e19c1c04a61ea",
+          "path": "src/game/requirements.tsx",
+          "lines": [
+            16,
+            48
+          ],
+          "url": "https://github.com/profectus-engine/Profectus/blob/d69197d5c7225a0bb58b5a4d5f8e19c1c04a61ea/src/game/requirements.tsx#L16-L48"
+        },
+        {
+          "repo": "profectus",
+          "commit": "d69197d5c7225a0bb58b5a4d5f8e19c1c04a61ea",
+          "path": "src/game/requirements.tsx",
+          "lines": [
+            292,
+            372
+          ],
+          "url": "https://github.com/profectus-engine/Profectus/blob/d69197d5c7225a0bb58b5a4d5f8e19c1c04a61ea/src/game/requirements.tsx#L292-L372"
+        }
+      ]
+    },
+    {
+      "id": "F14",
+      "label": "shown",
+      "claim": "Profectus cost bulk support checks inverse/integral capability, cumulative cost and summation budget; maxBulkAmount defaults to 1. Repeatable limit and visibility requirements join the same list.",
+      "evidence": [
+        {
+          "repo": "profectus",
+          "commit": "d69197d5c7225a0bb58b5a4d5f8e19c1c04a61ea",
+          "path": "src/game/requirements.tsx",
+          "lines": [
+            51,
+            95
+          ],
+          "url": "https://github.com/profectus-engine/Profectus/blob/d69197d5c7225a0bb58b5a4d5f8e19c1c04a61ea/src/game/requirements.tsx#L51-L95"
+        },
+        {
+          "repo": "profectus",
+          "commit": "d69197d5c7225a0bb58b5a4d5f8e19c1c04a61ea",
+          "path": "src/game/requirements.tsx",
+          "lines": [
+            182,
+            213
+          ],
+          "url": "https://github.com/profectus-engine/Profectus/blob/d69197d5c7225a0bb58b5a4d5f8e19c1c04a61ea/src/game/requirements.tsx#L182-L213"
+        },
+        {
+          "repo": "profectus",
+          "commit": "d69197d5c7225a0bb58b5a4d5f8e19c1c04a61ea",
+          "path": "src/features/clickables/repeatable.tsx",
+          "lines": [
+            105,
+            123
+          ],
+          "url": "https://github.com/profectus-engine/Profectus/blob/d69197d5c7225a0bb58b5a4d5f8e19c1c04a61ea/src/features/clickables/repeatable.tsx#L105-L123"
+        },
+        {
+          "repo": "profectus",
+          "commit": "d69197d5c7225a0bb58b5a4d5f8e19c1c04a61ea",
+          "path": "src/features/clickables/repeatable.tsx",
+          "lines": [
+            182,
+            191
+          ],
+          "url": "https://github.com/profectus-engine/Profectus/blob/d69197d5c7225a0bb58b5a4d5f8e19c1c04a61ea/src/features/clickables/repeatable.tsx#L182-L191"
+        }
+      ]
+    },
+    {
+      "id": "F15",
+      "label": "inferred",
+      "claim": "Profectus requirement arrays do not by themselves provide an atomic multi-resource transaction: affordability checks each requirement separately and payment loops sequentially. Two costs sharing one resource need aggregation or a host transaction.",
+      "evidence": [
+        {
+          "repo": "profectus",
+          "commit": "d69197d5c7225a0bb58b5a4d5f8e19c1c04a61ea",
+          "path": "src/game/requirements.tsx",
+          "lines": [
+            303,
+            328
+          ],
+          "url": "https://github.com/profectus-engine/Profectus/blob/d69197d5c7225a0bb58b5a4d5f8e19c1c04a61ea/src/game/requirements.tsx#L303-L328"
+        },
+        {
+          "repo": "profectus",
+          "commit": "d69197d5c7225a0bb58b5a4d5f8e19c1c04a61ea",
+          "path": "src/game/requirements.tsx",
+          "lines": [
+            366,
+            372
+          ],
+          "url": "https://github.com/profectus-engine/Profectus/blob/d69197d5c7225a0bb58b5a4d5f8e19c1c04a61ea/src/game/requirements.tsx#L366-L372"
+        },
+        {
+          "repo": "profectus",
+          "commit": "d69197d5c7225a0bb58b5a4d5f8e19c1c04a61ea",
+          "path": "src/game/requirements.tsx",
+          "lines": [
+            227,
+            241
+          ],
+          "url": "https://github.com/profectus-engine/Profectus/blob/d69197d5c7225a0bb58b5a4d5f8e19c1c04a61ea/src/game/requirements.tsx#L227-L241"
+        }
+      ]
+    },
+    {
+      "id": "F16",
+      "label": "shown",
+      "claim": "Profectus layer conventions include stable ID, lazy factory, named/color display, explicit returned persistent refs, initial layer registration and three update phases. Unregistered persistent refs emit an error; duplicate active IDs reject.",
+      "evidence": [
+        {
+          "repo": "profectus",
+          "commit": "d69197d5c7225a0bb58b5a4d5f8e19c1c04a61ea",
+          "path": "src/game/layers.tsx",
+          "lines": [
+            108,
+            170
+          ],
+          "url": "https://github.com/profectus-engine/Profectus/blob/d69197d5c7225a0bb58b5a4d5f8e19c1c04a61ea/src/game/layers.tsx#L108-L170"
+        },
+        {
+          "repo": "profectus",
+          "commit": "d69197d5c7225a0bb58b5a4d5f8e19c1c04a61ea",
+          "path": "src/game/layers.tsx",
+          "lines": [
+            218,
+            240
+          ],
+          "url": "https://github.com/profectus-engine/Profectus/blob/d69197d5c7225a0bb58b5a4d5f8e19c1c04a61ea/src/game/layers.tsx#L218-L240"
+        },
+        {
+          "repo": "profectus",
+          "commit": "d69197d5c7225a0bb58b5a4d5f8e19c1c04a61ea",
+          "path": "src/game/layers.tsx",
+          "lines": [
+            321,
+            365
+          ],
+          "url": "https://github.com/profectus-engine/Profectus/blob/d69197d5c7225a0bb58b5a4d5f8e19c1c04a61ea/src/game/layers.tsx#L321-L365"
+        },
+        {
+          "repo": "profectus",
+          "commit": "d69197d5c7225a0bb58b5a4d5f8e19c1c04a61ea",
+          "path": "src/game/layers.tsx",
+          "lines": [
+            391,
+            401
+          ],
+          "url": "https://github.com/profectus-engine/Profectus/blob/d69197d5c7225a0bb58b5a4d5f8e19c1c04a61ea/src/game/layers.tsx#L391-L401"
+        },
+        {
+          "repo": "profectus",
+          "commit": "d69197d5c7225a0bb58b5a4d5f8e19c1c04a61ea",
+          "path": "src/game/persistence.ts",
+          "lines": [
+            362,
+            372
+          ],
+          "url": "https://github.com/profectus-engine/Profectus/blob/d69197d5c7225a0bb58b5a4d5f8e19c1c04a61ea/src/game/persistence.ts#L362-L372"
+        },
+        {
+          "repo": "profectus",
+          "commit": "d69197d5c7225a0bb58b5a4d5f8e19c1c04a61ea",
+          "path": "src/data/projEntry.tsx",
+          "lines": [
+            105,
+            114
+          ],
+          "url": "https://github.com/profectus-engine/Profectus/blob/d69197d5c7225a0bb58b5a4d5f8e19c1c04a61ea/src/data/projEntry.tsx#L105-L114"
+        }
+      ]
+    },
+    {
+      "id": "F17",
+      "label": "shown",
+      "claim": "Profectus contributing rules require maintainer review, tests and style checks on Incremental Social; GitHub is a mirror. This is an explicit collaboration convention, unlike thematic creator names.",
+      "evidence": [
+        {
+          "repo": "profectus",
+          "commit": "d69197d5c7225a0bb58b5a4d5f8e19c1c04a61ea",
+          "path": "CONTRIBUTING.md",
+          "lines": [
+            15,
+            31
+          ],
+          "url": "https://github.com/profectus-engine/Profectus/blob/d69197d5c7225a0bb58b5a4d5f8e19c1c04a61ea/CONTRIBUTING.md#L15-L31"
+        }
+      ]
+    },
+    {
+      "id": "F18",
+      "label": "shown",
+      "claim": "Profectus phase comments say milliseconds, but gameLoop divides wall time by 1000 and sends seconds. Author contracts must specify actual clock units.",
+      "evidence": [
+        {
+          "repo": "profectus",
+          "commit": "d69197d5c7225a0bb58b5a4d5f8e19c1c04a61ea",
+          "path": "src/game/layers.tsx",
+          "lines": [
+            51,
+            67
+          ],
+          "url": "https://github.com/profectus-engine/Profectus/blob/d69197d5c7225a0bb58b5a4d5f8e19c1c04a61ea/src/game/layers.tsx#L51-L67"
+        },
+        {
+          "repo": "profectus",
+          "commit": "d69197d5c7225a0bb58b5a4d5f8e19c1c04a61ea",
+          "path": "src/game/gameLoop.ts",
+          "lines": [
+            15,
+            17
+          ],
+          "url": "https://github.com/profectus-engine/Profectus/blob/d69197d5c7225a0bb58b5a4d5f8e19c1c04a61ea/src/game/gameLoop.ts#L15-L17"
+        },
+        {
+          "repo": "profectus",
+          "commit": "d69197d5c7225a0bb58b5a4d5f8e19c1c04a61ea",
+          "path": "src/game/gameLoop.ts",
+          "lines": [
+            79,
+            79
+          ],
+          "url": "https://github.com/profectus-engine/Profectus/blob/d69197d5c7225a0bb58b5a4d5f8e19c1c04a61ea/src/game/gameLoop.ts#L79"
+        }
+      ]
+    }
+  ],
+  "proposals": [
+    {
+      "id": "P1",
+      "disposition": "adapt",
+      "title": "One shared layer contract",
+      "owner": "docs/ENGINE_AUTHORING.md; docs/ENGINE_EXPANSION.md",
+      "findings": "F6,F8,F13,F16,F18",
+      "proposal": "Require a stable namespaced ID, owner, version, clock units, input/output means, reset domains, carry rules, public display and discovery rules. Keep content separate while the host owns commit order and persistence.",
+      "cost": "Medium authoring cost; avoids a framework port."
+    },
+    {
+      "id": "P2",
+      "disposition": "adapt",
+      "title": "Show why progress slowed",
+      "owner": "docs/ENGINE_EXPANSION.md; docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md",
+      "findings": "F3,F4,F10",
+      "proposal": "Use one balance record to compute and explain known soft limits, thresholds and earned relief. Show current effect and next useful action beside the resource.",
+      "cost": "Small first slice; wider formula coverage needs care."
+    },
+    {
+      "id": "P3",
+      "disposition": "adapt",
+      "title": "Retain completed sections as useful passive activity",
+      "owner": "docs/ENGINE_EXPANSION.md; docs/worlds/MULTIVERSE_STRUCTURES.md",
+      "findings": "F9,F11",
+      "proposal": "Separate discovered, visible, active, retained and progressing states. Completed activity can feed a known hub with its own saved clock and queue; offer authored revisits rather than a global one-shot ladder.",
+      "cost": "Medium scheduling and save cost; distinct worlds keep their own rules."
+    },
+    {
+      "id": "P4",
+      "disposition": "adapt",
+      "title": "Use one requirement result for action and display",
+      "owner": "docs/ENGINE_AUTHORING.md; docs/ENGINE_EXPANSION.md",
+      "findings": "F13,F14,F15",
+      "proposal": "Build costs, non-spent needs, failed reasons and allowed quantity from the existing preview. Aggregate shared-resource costs and commit through existing planned state.",
+      "cost": "Small display slice; generic bulk purchase is separate medium work."
+    },
+    {
+      "id": "P5",
+      "disposition": "trial",
+      "title": "Keep a desktop overview beside useful detail",
+      "owner": "docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md",
+      "findings": "F4,F5,F7,F8",
+      "proposal": "At 1440x900 show an overview, selected system and retained activity panel. Use tabs for long detail while routine controls remain visible. Distinguish unlock links from reset effects.",
+      "cost": "Prototype needs rebuilt desktop evidence; mobile optimization deferred."
+    },
+    {
+      "id": "P6",
+      "disposition": "adapt",
+      "title": "Give authors a cross-system balance review",
+      "owner": "docs/ENGINE_AUTHORING.md; docs/ENGINE_EXPANSION.md",
+      "findings": "F10,F12,F15,F17",
+      "proposal": "Review named dependencies and sample trajectories when a system changes. Check both path orders, idle/active rhythms, reset recovery and strong feedback cycles. Keep all reasonable routes reachable.",
+      "cost": "Medium tooling cost; no claim of automatic balance."
+    },
+    {
+      "id": "P7",
+      "disposition": "trial",
+      "title": "Offer voluntary automation in one clear panel",
+      "owner": "docs/ENGINE_EXPANSION.md; docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md",
+      "findings": "F5,F7",
+      "proposal": "Surface learned routines with current inputs, switches and pause reasons. Turn earned convenience into explicit controls, with execution still governed by real resources and safe boundaries.",
+      "cost": "Small presentation slice; avoid an extra scheduler."
+    }
+  ],
+  "gaps": [
+    "runtime pacing and balance",
+    "desktop and accessibility use",
+    "full feature catalogue and vendor code",
+    "historical many-author process; shallow history only",
+    "Profectus boards outside assigned scope"
+  ]
+}

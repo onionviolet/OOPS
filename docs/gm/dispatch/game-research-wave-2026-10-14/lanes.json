@@ -116,5 +116,20 @@
    "text": "COMPLETE"
   },
   "cwd": "/Users/weiwei/code/province-war"
+ },
+ "vagrus-2": {
+  "out": "docs/research/vagrus/pass-2026-10-14/",
+  "gate": null,
+  "cwd": null
+ },
+ "tale-of-immortal-2": {
+  "out": "docs/research/tale-of-immortal/pass-2026-10-14/",
+  "gate": null,
+  "cwd": null
+ },
+ "your-chronicle-2": {
+  "out": "docs/research/your-chronicle/pass-2026-10-14/",
+  "gate": null,
+  "cwd": null
  }
 }

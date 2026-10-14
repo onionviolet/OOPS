@@ -1,0 +1,155 @@
+--- a/docs/research/FUTURE_ACQUISITION_QUEUE_2026-10-13.md
++++ b/docs/research/FUTURE_ACQUISITION_QUEUE_2026-10-13.md
+@@ -1,70 +1,100 @@
+-# Future download and decompile queue
++# Future download and source-read queue
+ 
+-2026-10-13. Type: QUEUE, proposal only. Lists reference games that have no research lane yet, or whose lane names a follow-up pass. Being listed does not authorize a purchase, download, install or decompile; each one needs Weibao's go-ahead. Follow [reverse-engineering tool fit](REVERSE_ENGINEERING_TOOL_FIT_2026-10-13.md): run a pass only to answer a named mechanic question, not to have a full export.
++Proposed refresh, 2026-10-14. Type: QUEUE. This is a routing and evidence-depth owner, not a completed-audit count or gameplay selection. See [coverage refresh](coverage-refresh-2026-10-14/REPORT.md). Entries and installed state are a timestamped snapshot and must be refreshed before execution.
+ 
+-Engine and build notes marked *unverified* are my own background knowledge, not checked this session. Confirm them before choosing a route.
++## Standing authorization and boundaries
+ 
+-## Standing task (Weibao, 2026-10-13)
++Weibao's 2026-10-13 standing task authorizes read-only source reading or decompilation of every queued game he already owns, and rerunning inventory when purchases, installs, queue entries or tools change. His 2026-10-14 wave direction also authorizes the dispatched free-source and partial-lane research listed below. No additional go-ahead is needed for those assigned read-only passes. Buying, installing, logging in, accepting terms, launching a game or touching saves is separate and is not authorized by this queue.
+ 
+-Decompile or source-read every queued game Weibao already owns. Re-run the local inventory and do this again whenever things change: a new purchase, a new install, a new queue entry or a new local tool. Owned games need no further go-ahead for a read-only local pass. Buying a game still needs his explicit yes. Each pass still answers a named mechanic question and saves a lane under `docs/research/<game>/`; raw decompiled code and assets stay out of git.
++Each pass answers a named mechanic question and writes its assigned research lane. Raw code, game data and assets remain outside git under the lane's private research area. No code or assets are copied into YAIRPG. Follow [tool fit](REVERSE_ENGINEERING_TOOL_FIT_2026-10-13.md) and the [wave rules](../gm/dispatch/game-research-wave-2026-10-14/COMMON.md). Public/client/community evidence must remain distinct from proprietary/server source and runtime proof.
+ 
+-**Last inventory run, 2026-10-13:** none of the 12 queued paid games is owned or installed, so no decompile pass ran. Installed games already have lanes. Local RE tools: Ghidra 12.1.4 (Homebrew, with keg-only openjdk@21), `strings`, `otool`. Not installed: dotnet, ILSpy/ilspycmd, a runnable Cpp2IL, AssetRipper, Java decompilers, UndertaleModTool. A .NET or Unity pass would first need dotnet plus ilspycmd.
++## Local inventory and tools, 2026-10-14
+ 
+-**Inventory run, 2026-10-14 17:00:** newly owned on Steam: Academagia, Heaven's Vault, Immortal Life, The Scroll of Taiwu, Warsim and Idle Reincarnator; Hearts of Iron IV and 100 Space Cats are installed. Only Idle Reincarnator and HoI4 have payloads; the rest are Windows-only and install through the macSteam `notproton` compatibility tool (Taiwu so far has only its soundtrack DLC). `ilspycmd` 11.1 is now installed with dotnet SDK 10 in `~/.dotnet`. Lanes and gates: [game research wave](../gm/dispatch/game-research-wave-2026-10-14/runs/SESSIONS.md).
++One Steam library root was found. Thirteen manifests were read: eleven games plus VTube Studio and Steamworks redistributables. Each has StateFlags 4 and a common/installdir directory. That proves local metadata and path presence, not account entitlement or readable Windows payloads.
+ 
+-**Free titles to consider** (on the account, not installed; Windows-only, so they need CrossOver or a Windows host plus a download go-ahead):
++| Game | Current route / status |
++| --- | --- |
++| Hogwarts Legacy | Installed build 20773316; bounded data/Blueprint/native pass [complete](hogwarts-legacy/CHECKPOINT.md), with explicit unread limits |
++| Your Chronicle | Installed build 25001959; [finite source pass complete](your-chronicle/CHECKPOINT.md) |
++| Vagrus | Installed build 25598304; [finite source pass complete](vagrus/CHECKPOINT.md) |
++| Hearts of Iron IV | Build 25205862; `hoi4` dispatched, static script/DLC audit in flight |
++| Idle Reincarnator | Build 21173502; `idle-reincarnator` dispatched, static Godot audit in flight |
++| Academagia | Build 2453605; web dossier complete; binary audit gated because no matching Windows executable was found |
++| Heaven's Vault | Build 4220136; lane gated because no matching Windows executable was found |
++| Immortal Life | Build 17861603; lane gated because no matching Windows executable was found |
++| The Scroll of Taiwu | Build 25845203; lane gated because no matching Windows executable was found |
++| Warsim | Build 25097075; lane gated because no matching Windows executable was found |
++| 100 Space Cats | Build 19025398; no lane, explicitly not dispatched because no named mechanic question exists |
+ 
+-| Rank | Game | Question it would answer |
+-|---:|---|---|
+-| 1 | Legends of Idleon | How each new world introduces a distinct system across one character roster |
+-| 2 | NGU IDLE | How 10+ parallel progression systems unlock in order and stay legible across rebirths |
+-| 3 | CivIdle | Age/tech prestige and production-chain offline catch-up. Official source is public ([fishpondstudio/CivIdle](https://github.com/fishpondstudio/CivIdle), GPL-3.0), so no install is needed; lane `cividle` started 2026-10-13 |
+-| 4 | Reverend Insanity playtest | How a licensed cultivation-novel adaptation turns Gu rules into game state; access may have closed |
++NGU IDLE has no local manifest. `~/Games/yair-windows` is absent. Among Us, Roblox and VitaMahjong are present under `/Applications` with no research lane found. These three are local game candidates, not verified purchased titles. 100 Space Cats has an older explicit owned statement; this refresh did not query current account entitlement. Uninstalled ownership cannot be established from these roots alone.
+ 
+-## Short list
++Tool presence checked: `~/.dotnet/dotnet`, `~/.dotnet/tools/ilspycmd`, and `/opt/homebrew/bin/ghidraRun`. COMMON/session registry record SDK 10.0.402, ILSpy 11.1.0.9782 and Ghidra 12.1.4. Presence was checked without executing them. The old missing-.NET/ILSpy statement is obsolete. Other tools are not claimed installed or absent by this inventory.
+ 
+-**Decompile (closed builds, each needs a purchase go-ahead):**
++## Current wave, in flight
+ 
+-1. **Academagia**: exact exam, roll and event tables for a Harry Potter school year. .NET 4.0, ILSpy. Run only if its P2 or P4 is accepted.
+-2. **The Scroll of Taiwu**: inheritance, sects and a deep cultivation life sim. Unity *unverified*.
+-3. **Magical Diaries**: a second magic-school life sim to cross-check Academagia. Unity *unverified*.
+-4. **Idle Reincarnator**: the only found idler with several realms inside one reincarnation loop. Engine *unverified*.
+-5. **Heaven's Vault**: knowledge-as-progress. Its ink story scripts may be readable without decompiling *unverified*.
++[SESSIONS.md](../gm/dispatch/game-research-wave-2026-10-14/runs/SESSIONS.md) owns session IDs. [lanes.json](../gm/dispatch/game-research-wave-2026-10-14/lanes.json) owns paths and gates. Dispatched does not mean complete. A waiting lane is in flight as coordination work, not a verified running process.
+ 
+-**More, no decompile needed (public play, wikis or source):**
++| Lane | Question / route | State |
++| --- | --- | --- |
++| hoi4 | Decisions, focus trees, institutions, war and DLC-gated script rules | Dispatched |
++| idle-reincarnator | Multi-realm reincarnation and Godot implementation | Dispatched |
++| academagia-decompile | Exact exams, rolls and event data beyond web dossier | Gated on actual Windows payload |
++| heavens-vault | Knowledge progress and translation/story state | Gated on actual Windows payload |
++| immortal-life | Cultivation life-sim rules | Gated on actual Windows payload |
++| taiwu | Inheritance, sects and cultivation life-sim rules | Gated on actual Windows payload |
++| warsim | Text kingdom breadth and scope management | Gated on actual Windows payload |
++| ngu-idle | Parallel progression and rebirth legibility | Gated on installed manifest and Windows payload |
++| path-idle-cultivator | Implementation beyond the previous page-only/obfuscated-bundle boundary | Dispatched; old advice to avoid deobfuscation is superseded by this assigned investigation |
++| discworld-2 | Remaining guild/help/wiki and taskmaster/skill/world behavior gaps | Dispatched |
++| kol-2 | Path-rule differences and prior wiki/data gaps | Dispatched |
++| idle-depth | Immortality Idle hells/battle/activities plus Groundhog Life later-build gaps | Dispatched; two output directories |
++| idleon | Roster-wide progression and new-world systems | Dispatched; public-source route, no install implied |
++| free-text-worlds | Ultima Ratio Regum; Iron Realms/Achaea; Godville; Progress Quest; Reverend Insanity playtest existence and public mechanics | Dispatched; separate game findings under one lane |
++| prestige-community | Prestige Tree/community layer conventions and prior framework gaps | Dispatched |
++| coverage-refresh | Coverage, inventory and exact queue reconciliation | Docs-only refresh delivered; checkpoint owns validation |
++| adoption-reaudit | Prior research adoption and remaining evidence gaps | Dispatched |
++| pw-intake | Province War can refer to and use relevant audits | Gated on HOI4 COMPLETE checkpoint; output belongs to Province War |
+ 
+-1. **Kingdom of Loathing**: 20 years of text-RPG variety.
+-2. **Discworld MUD**: a licensed book world run as a living game.
+-3. **Super Robot Wars**: how dozens of franchise canons share one campaign.
+-4. **The Modding Tree**: open-source framework for layered prestige.
+-5. **Cultivation idlers** (Cycle of the First Dawn, Path of the Idle Cultivator, Infinite Dao): browser builds, read the JS.
++No gated-launch receipt was present in watch.state.json when checked. Gates can open after this snapshot; refresh the registry rather than assuming they stayed closed.
+ 
+-## Follow-ups from the 2026-10-13 lanes
++## Existing dossiers and remaining depth
+ 
+-| Game | Lane | Pass value | Route | Gate |
+-|---|---|---|---|---|
+-| Academagia | [academagia](academagia/CHECKPOINT.md) | Moderate, only if its P2 (exams) or P4 (adventures) is accepted | Buy ($15.99, Steam 533480); ILSpy on .NET 4.0 assemblies plus the 2010 mod-tool data | Purchase decision |
+-| Groundhog Life | [groundhog-life](groundhog-life/CHECKPOINT.md) | Low; already read from public JS | Optional static read of the remaining ~3k lines of the later build | None beyond time |
+-| Immortality Idle | [immortality-idle](immortality-idle/CHECKPOINT.md) | Low to moderate; full source is public | Read unread areas (hells, battle, activities) if F11/F12 is wanted | None; no license, so ideas only |
++These are logged, not “unlogged candidates.” Complete means the bounded pass, not every formula or game system. More source is read for named questions, not to maximize export size.
+ 
+-## Unlogged candidates, ranked by expected design payoff
++| Reference | Saved evidence / unread follow-up |
++| --- | --- |
++| [CivIdle](cividle/CHECKPOINT.md) | Core loop, prestige and saves complete; most upgrades/Great People, transport planner, server and conquest unread. Public source, no install needed |
++| [Kingdom of Loathing](kingdom-of-loathing/CHECKPOINT.md) | KoLmafia source/data complete at selected scope; wiki/server boundaries remain; deeper pass in flight |
++| [Discworld MUD](discworld-mud/CHECKPOINT.md) | PARTIAL official-help audit; deeper pass in flight |
++| [Super Robot Wars](super-robot-wars/CHECKPOINT.md) | Series/system web pass complete; exact character conditions and route charts unread |
++| [Modding Tree](modding-tree/CHECKPOINT.md) | TMT/PT core complete; Profectus/community partial; deeper pass in flight |
++| [Cultivation idlers](cultivation-idlers/CHECKPOINT.md) | Cycle of the First Dawn, Infinite Dao, Idle Xanxia static passes complete; Cycle later systems remain; Path was page-only, now dispatched |
++| [Immortality Idle](immortality-idle/CHECKPOINT.md) | Bounded source-only pass complete; hells/battle/activities follow-up in flight. No license established; ideas only |
++| [Groundhog Life](groundhog-life/CHECKPOINT.md) | Public build complete, later build partial; later-build follow-up in idle-depth |
++| [Academagia](academagia/CHECKPOINT.md) | Web-only research complete; binary lane gated, not a new purchase request based on old price text |
++| [Outer Wilds](outer-wilds/CHECKPOINT.md) | Community-code/schema and developer-design pass delivered; exact vanilla completeness and DLC rules remain qualified |
++| [Majora's Mask](majoras-mask/CHECKPOINT.md) | Bounded N64 static schedule/reset pass complete; full NPC census and MM3D internals unread |
++| [Hogwarts games](hogwarts-games/CHECKPOINT.md) | Mystery/Legacy bounded public-page pass complete; separate Legacy shipped-data pass supersedes its old intake limitation |
++| [BitLife](bitlife/CHECKPOINT.md) | Public-page pass delivered; formulas, source and platform parity unread |
++| [Trimps / Antimatter Dimensions](trimps-antimatter/CHECKPOINT.md) | Bounded static reset/retention/automation pass complete; exact later rules and runtime pacing unread |
++| [Noita](noita/CHECKPOINT.md) | Requested script/data audit complete in revision 3; native engine remains opaque |
+ 
+-| Rank | Game | Why | Likely route |
+-|---:|---|---|---|
+-| 1 | Kingdom of Loathing | Text RPG that stayed varied for 20 years; item, skill and class breadth | Public wiki and play; no decompile |
+-| 2 | Discworld MUD | Licensed book world run as a living text game for decades; canon as world events | Public play, help files and wiki; no decompile |
+-| 3 | Super Robot Wars series | Dozens of franchises per game with canon beats kept while the player diverges | Public wikis and scenario guides; console games, no decompile |
+-| 4 | Idle Reincarnator | Multi-realm reincarnation idler (Steam, June 2025) | Buy; engine *unverified* |
+-| 5 | The Scroll of Taiwu | Deep cultivation life sim with inheritance and sects | Buy; Unity *unverified*, ILSpy if Mono |
+-| 6 | Magical Diaries | Magic-school life sim; second Harry Potter-adjacent reference after Academagia | Buy; Unity *unverified* |
+-| 7 | Immortal Life | Cultivation life sim | Buy; engine *unverified* |
+-| 8 | Heaven's Vault | Knowledge-as-progress through translation | Buy; inkle game, Unity plus ink *unverified* |
+-| 9 | The Modding Tree / Prestige Tree | Framework for layered prestige | Open source; read directly |
+-| 10 | Cultivation idlers: Cycle of the First Dawn, Idle Xianxia, Path of the Idle Cultivator, Infinite Dao, Xianxia Simulator | Cultivation-world loop variants | Browser builds where public; read JS. Idle Xianxia is on Steam early access |
+-| 11 | Iron Realms MUDs (Achaea and others) | Text-world professions, politics, housing and economies at scale | Public play and help files |
+-| 12 | Warsim: Realm of Aslona | Huge single-developer text kingdom sim; scope management | Buy; engine *unverified* |
+-| 13 | Ultima Ratio Regum | Procedural history and culture generation | Free download; engine *unverified* |
+-| 14 | Songs of Syx, Stoneshard, Starsector | Systems-breadth references | Buy; Starsector data and Java are moddable *unverified* |
+-| 15 | Godville, Progress Quest | Zero-player idle extremes | Public play; Progress Quest source is public *unverified* |
++Prior source/depth gates remain: Streets of Rogue original gameplay traces, Eldyn remote/server logic, Erenshor/Matchless payloads, Factorio broader native repair/use goal, ACS deeper priorities, demo/older Achra/Soulash/Magic Research 2 scope, opaque DF/ONI/Kenshi systems, Upload Labs automation payloads and Citizen Sleeper numerical graphs. This queue does not convert them into new active assignments.
+ 
+-The 2026-10-13 candidate list and scope-comparison discussion happened in chat. This file is now the owner of that queue.
++## Remaining acquisition and identification candidates
++
++No current entitlement, engine, price or availability claim is inferred from an older candidate row. Verify those facts before choosing a route. No purchase is authorized here.
++
++| Candidate | Named question / status |
++| --- | --- |
++| Magical Diaries | Second magic-school life sim for school/exam comparison. SESSIONS records not owned; no lane dispatched; engine unverified |
++| Songs of Syx, Stoneshard, Starsector | Systems breadth; SESSIONS records not owned, no lanes dispatched; routes unverified |
++| Iron Realms, Ultima Ratio Regum, Godville, Progress Quest, Reverend Insanity playtest | Already assigned to free-text-worlds; await that checkpoint rather than duplicating acquisition |
++| Cycle of the First Dawn later systems; Xianxia Simulator; other cultivation-idler variants | Preserve named unread systems/title identity checks; do not confuse Idle Xanxia with Idle Xianxia |
++| Roadwarden, 80 Days, Spiritfarer | No direct lane found; historical library-cache leads only |
++| Cell to Singularity, Children of Orc, Hereafter | Historical library-cache leads; identity/premise and ownership not refreshed |
++| Bannerlord, Stellaris, Terra Invicta, Endless Legend 2 | Historical large-game later list; not active lanes or newly verified entitlement |
++| Among Us, Roblox, VitaMahjong | Local bundles, no lanes; establish a useful mechanic question before assigning |
++| 100 Space Cats | Installed, no lane. Coordinator explicitly deferred for lack of named mechanic question |
++
++PROPOSALS remain unselected gameplay. Applying this queue refresh does not alter canon-first world priority, desktop-first UI or the one-realm/one-prestige first milestone.

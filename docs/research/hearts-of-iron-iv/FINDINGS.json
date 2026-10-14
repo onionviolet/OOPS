@@ -1,0 +1,258 @@
+{
+  "schema_version": 1,
+  "lane": "hoi4",
+  "date": "2026-10-14",
+  "status": "PARTIAL",
+  "source": {
+    "steam_app": 394360,
+    "build_id": "25205862",
+    "install_root": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Hearts of Iron IV",
+    "selected_hashed_files": 5393,
+    "counts_scope": "installed declaration positions; includes inactive/debug/DLC content"
+  },
+  "counts": {
+    "common/national_focus": {
+      "files": 81,
+      "trees": 67,
+      "focus_definitions": 10333,
+      "shared_focus_definitions": 335
+    },
+    "events": {
+      "files": 128,
+      "country_event": 6251,
+      "triggered_only": 6565,
+      "hidden": 184,
+      "mtth": 375,
+      "options": 11547,
+      "news_event": 677,
+      "unit_leader_event": 33,
+      "operative_leader_event": 7,
+      "state_event": 6,
+      "unique_ids": 6974,
+      "duplicate_id_declarations": 0
+    },
+    "common/decisions": {
+      "files": 145,
+      "category_blocks": 705,
+      "decision_definitions": 4148,
+      "timed_missions": 443,
+      "timed_removals": 2124,
+      "category_definitions": 597,
+      "unique_ids": 4148,
+      "duplicate_id_declarations": 0
+    },
+    "common/scripted_effects": {
+      "files": 52,
+      "top_level_definitions": 1542
+    },
+    "common/scripted_triggers": {
+      "files": 54,
+      "top_level_definitions": 926
+    },
+    "common/ideas": {
+      "files": 213,
+      "idea_definitions": 6508
+    },
+    "common/dynamic_modifiers": {
+      "files": 11,
+      "top_level_definitions": 679
+    },
+    "common/on_actions": {
+      "files": 17,
+      "hook_blocks": 337
+    },
+    "common/technologies": {
+      "files": 13,
+      "technology_definitions": 552
+    },
+    "common/ai_strategy_plans": {
+      "files": 128,
+      "top_level_definitions": 376
+    },
+    "common/characters": {
+      "files": 232,
+      "character_definitions": 5404
+    },
+    "common/doctrines": {
+      "files": 22,
+      "top_level_definitions": 125
+    }
+  },
+  "additional_counts": {
+    "on_action_unique_hook_names": 117,
+    "doctrine_folders": 4,
+    "grand_doctrines": 12,
+    "tracks": 14,
+    "subdoctrines": 95,
+    "dlc_zip_files": 2,
+    "dlc_zip_rule_members": 0
+  },
+  "findings": [
+    {
+      "id": "H-F1",
+      "evidence_label": "SHOWN",
+      "claim": "Authored content composes scoped focuses, decisions, missions, events, macros and lifecycle hooks.",
+      "sources": [
+        "common/national_focus/generic.txt:18",
+        "common/decisions/GER.txt:92",
+        "common/on_actions/00_on_actions.txt:1"
+      ]
+    },
+    {
+      "id": "H-F2",
+      "evidence_label": "SHOWN",
+      "claim": "Offer initiation, delayed response and resulting relation are separate steps.",
+      "sources": [
+        "common/national_focus/germany.txt:14968",
+        "events/Germany.txt:234",
+        "events/Germany.txt:476"
+      ]
+    },
+    {
+      "id": "H-F3",
+      "evidence_label": "STATED",
+      "claim": "Decision admission, target selection, visibility and availability have different evaluation cadences.",
+      "sources": [
+        "common/decisions/_documentation.md:6"
+      ]
+    },
+    {
+      "id": "H-F4",
+      "evidence_label": "STATED",
+      "claim": "Dynamic modifier addition refreshes cooldown; removal must match optional target scope.",
+      "sources": [
+        "documentation/effects_documentation.md:1153",
+        "documentation/effects_documentation.md:5978"
+      ]
+    },
+    {
+      "id": "H-F5",
+      "evidence_label": "SHOWN",
+      "claim": "This install exposes production-family switching, seven resources including coal, and energy parameters.",
+      "sources": [
+        "common/defines/00_defines.lua:624",
+        "common/resources/00_resources.txt:38"
+      ]
+    },
+    {
+      "id": "H-F6",
+      "evidence_label": "STATED",
+      "claim": "Installed doctrines use grand doctrines, tracks, subdoctrines and mastery.",
+      "sources": [
+        "common/doctrines/_documentation.md:1"
+      ]
+    },
+    {
+      "id": "H-F7",
+      "evidence_label": "SHOWN",
+      "claim": "Script history chooses alternate starting technologies and OOB by DLC.",
+      "sources": [
+        "history/countries/GER - Germany.txt:103"
+      ]
+    },
+    {
+      "id": "H-F8",
+      "evidence_label": "INFERRED",
+      "claim": "Script content gating does not establish safe missing-DLC/mod save restoration.",
+      "sources": [
+        "integrated_dlc/dlc023_man_the_guns/dlc023.dlc:1",
+        "SAVE_SHAPE.md"
+      ]
+    },
+    {
+      "id": "H-F9",
+      "evidence_label": "SHOWN",
+      "claim": "A startup/lifecycle script contains a set-flag then not-flag check; unreachable behavior is inferred, untested.",
+      "sources": [
+        "common/on_actions/00_on_actions.txt:384"
+      ]
+    },
+    {
+      "id": "H-F10",
+      "evidence_label": "INFERRED",
+      "claim": "Existing YAIRPG simulation/condition/registry/chain owners are better adaptation seams than a new universal engine.",
+      "sources": [
+        "src/simulation.js:418",
+        "src/simulation.js:463",
+        "src/simulation_contracts.js:27",
+        "docs/research/ABSTRACTION_INVENTORY_2026-10-14.md"
+      ]
+    }
+  ],
+  "proposals": [
+    {
+      "id": "H-P1",
+      "status": "PROPOSAL",
+      "packets": [
+        "H-I1"
+      ]
+    },
+    {
+      "id": "H-P2",
+      "status": "PROPOSAL",
+      "packets": [
+        "H-I2"
+      ]
+    },
+    {
+      "id": "H-P3",
+      "status": "PROPOSAL",
+      "packets": [
+        "H-I3"
+      ]
+    },
+    {
+      "id": "H-P4",
+      "status": "PROPOSAL",
+      "packets": [
+        "H-I4"
+      ]
+    },
+    {
+      "id": "H-P5",
+      "status": "PROPOSAL",
+      "packets": [
+        "H-I1",
+        "H-I5"
+      ]
+    },
+    {
+      "id": "H-P6",
+      "status": "PROPOSAL",
+      "packets": [
+        "H-I3"
+      ]
+    },
+    {
+      "id": "H-P7",
+      "status": "PROPOSAL",
+      "packets": [
+        "H-I6"
+      ]
+    },
+    {
+      "id": "H-P8",
+      "status": "PROPOSAL",
+      "packets": [
+        "H-I7"
+      ]
+    }
+  ],
+  "verification": {
+    "source_read": true,
+    "structural_census": true,
+    "game_launch": false,
+    "private_saves_read": false,
+    "binary_engine_read": false,
+    "runtime_tests": false,
+    "build": false,
+    "browser": false,
+    "committed": false,
+    "province_war_registered": false
+  },
+  "gaps": [
+    "complete current save schema and missing-DLC/mod restore",
+    "native production/research/supply/AI evaluator formulas and behavior",
+    "exhaustive semantic reading of every authored chain and MIO/faction branch"
+  ]
+}

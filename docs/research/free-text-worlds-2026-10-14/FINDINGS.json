@@ -1,0 +1,38 @@
+{
+  "lane": "free-text-worlds",
+  "date": "2026-10-14",
+  "status": "PARTIAL",
+  "profiles": [
+    {
+      "target": "ultima-ratio-regum",
+      "findings": "ultima-ratio-regum/FINDINGS.json",
+      "report": "ultima-ratio-regum/REPORT.md"
+    },
+    {
+      "target": "iron-realms",
+      "findings": "iron-realms/FINDINGS.json",
+      "report": "iron-realms/REPORT.md"
+    },
+    {
+      "target": "godville",
+      "findings": "godville/FINDINGS.json",
+      "report": "godville/REPORT.md"
+    },
+    {
+      "target": "progress-quest",
+      "findings": "progress-quest/FINDINGS.json",
+      "report": "progress-quest/REPORT.md"
+    },
+    {
+      "target": "reverend-insanity",
+      "findings": "reverend-insanity/FINDINGS.json",
+      "report": "reverend-insanity/REPORT.md"
+    }
+  ],
+  "scope": "Static source and public documents only; no runtime or owner changes",
+  "top_proposals": [
+    "FT-P1",
+    "FT-P2",
+    "FT-P3"
+  ]
+}
