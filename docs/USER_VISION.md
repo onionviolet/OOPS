@@ -68,6 +68,76 @@ compiled to data, lints over hand ledgers, browser proof per slice) in part 10
 of the considerations doc. It is a proposal; the completion standard stays the
 owner of what "complete" means.
 
+> more to consider? save accordingly Different starts, other stuff and more? Accessing such mechanics and more/? what were the 5 priority worlds? more to consider?
+
+The five priority worlds named earlier: Harry Potter, D&D, A Soldier's Life,
+TTKS and Mother of Learning, widened to LOTM/Circle of Inevitability, Shadow
+Slave and other book worlds. This round adds how the player reaches starts, AUs,
+copies and other mechanics (routes, gating, the start picker, mid-run access)
+and a deeper start catalogue for those eight worlds, as parts 11 and 12 of the
+considerations doc.
+
+> more to consider? Making options to chose and more earned? more to consider? Path to obtain cheats and more? Researching? subtle skills? macro and micro and meso stuff? save accordingly
+
+Added as parts 13 (earned options and cheat acquisition paths) and 14 (in-game
+research, subtle skills, and micro, meso and macro scales with their joins).
+Earned options keep a Default + Dial so a player who wants everything open can
+still have it, per the "everything possible, reasonably" direction.
+
+> more to consider? Expanding each possibility and more?  MOre to consider? One off jokes and stuff could be hints towards real worlds and stuff? more to consider? save accordingly
+
+Added as parts 15 (throwaway jokes, rumors and gags that can later prove to be
+real pointers toward existing worlds, mechanics or sealed truths, without ever
+stating a sealed truth) and 16 (each possibility family from this round expanded
+into many forms with look-alike pairs, per the one-idea-many-forms method).
+
+> We can expand on this 'Nothing carries across lives except the heir.' That doesnt have to be the case, more to consider? Prior stuff can be changed to better fit future capabiltiies? also consider stuff in proto23 that we can absorb?
+
+Recorded direction: the current code's heir-only carryover is an implementation
+state, not a design limit. Earlier designs and code may be revised to fit future
+capabilities, with the usual save compatibility decision for each change.
+Accepted rules (for example RULES_FROM_SCRATCH's "no free carries") still hold
+until Weibao revises them, so carries come through an in-world source with a
+cost. Added as parts 17 (cross-life carryover forms and a retrofit list for
+systems that fight the future direction, with a separate "needs Weibao" list)
+and 18 (Proto23 mechanics not yet absorbed).
+
+> more to consider? save accordingly Dialogue actions with impact and more? making friends with people? relatshionship stuff and more?
+
+Added as parts 19 (dialogue actions and their micro, meso and macro impact,
+conversation form, per-world talk) and 20 (relationship model, making friends,
+what bonds do, bonds across worlds and lives, people UI).
+
+> more to consider? save accordingly Renoun? other subtle stuff? "cheats" for stuff and more? Idea of unlocking game features as 'cheats' or is that unnecissary and be in the base game, more to consider? There are so many ways this can go, more to consider? Deeper stuff and more?
+
+Claude's proposed default, not yet accepted: quality-of-life and interface
+features live in the base game and unlock through play, Proto23 style; "cheat"
+keeps its lore meaning of breaking a world's own rules; a feature can also be
+framed as an in-world cheat or tool where a world gives a reason, with the
+sandbox opening everything. Added as parts 21 (renown and subtle social
+details), 22 (game features as unlocks or cheats, with framings and dials) and
+23 (a deeper synthesis: shared primitives, tensions as dials, ways each big
+direction can go, duplicates, and one connected first arc).
+
+> more to consider? save accordingly, Titles can be power, achivement, and much more, and it matters dependingly? More to consider? price stuff should make sense, consider godville, thigns can be cheaper because of fear too, it all depends and more?
+
+Direction recorded: a title can be power, an achievement, an office, an epithet,
+a brand and more, and what it means depends on world, observer, place and time.
+Prices should make sense and explain themselves; fear, respect, pity, suspicion,
+scarcity and other causes can each move a price either way or close a shop.
+Godville is a named reference. Added as parts 24 (titles) and 25 (prices and
+economy, with Godville lessons).
+
+> more to consider? Length of play? Heir, if any, first character's death? Death being greatly exagerated? other stuff and more? moRe to conisder?save accordingly
+
+Recorded: an heir is optional ("if any"), so a life can end with no heir and the
+game still continues somehow; the first character's death, its timing and
+framing, is its own design question; and death can be exaggerated (presumed,
+faked, rumored, reversed or not sticking by world lore). Added as parts 26
+(death, heirs, heirless endings, exaggerated death, funerals and estates) and
+27 (length of play: sessions, lives, lineages and worlds, pacing, lifespan,
+content budget and local-only measurement).
+
 > deprioritize fallout, we want to put book worlds and anime worlds and more at higher priorirty
 
 Direction recorded: Fallout moves to the back of the world order. Its existing
@@ -1959,6 +2029,18 @@ fuutr”. Design answers live in the [UI owner](THEMATIC_UI_AND_INFORMATION_DESI
 world UI card, mold-not-copy). Execution runs as the
 [until-done goal](gm/dispatch/vivid-proto23-flow-2026-10-13/GOAL.md).
 
+## Ability coverage and habits, 2026-10-13
+
+Weibao asked whether ability implementations and variations had all been
+considered. The answer and gap list (AB1-AB5) live in
+[ability authoring](worlds/ABILITY_AUTHORING.md#coverage-check-and-open-angles-2026-10-13).
+He then asked: “expand AB1, save accordingly, more to consider? Dont make it too
+complex”. AB1 became [habits](worlds/ABILITY_AUTHORING.md#ab1-expanded-habits-proposal-2026-10-13):
+one-line when/use/on rules read top to bottom, earned through in-world means,
+shared with NPC and enemy behavior. Simplicity is part of the request: a list,
+not a programming language. Angles H1-H8 are proposals; nothing is selected
+for a build.
+
 Next pick, 2026-10-13: “go with the crafting screen one, same until done setup
 Consider Proto 23 parity and dpeth and more? like the revealing ones and more?
 More to consider? Missing stuff and more? Making everything little thing
@@ -1967,14 +2049,227 @@ every presentation choice should be adjustable in its existing owner.
 [Considerations CP/D/RV/M/AJ](research/proto23/CRAFTING_SCREEN_AND_ADJUSTABILITY_CONSIDERATIONS_2026-10-13.md);
 execution in [the crafting goal](gm/dispatch/crafting-screen-2026-10-13/GOAL.md).
 
+Follow-up: “more to consider? save accordingly Making it complex if people
+want but people if its not complext if people dont want that”. Habits now have
+[depth levels D0-D4](worlds/ABILITY_AUTHORING.md#depth-on-request-2026-10-13):
+hands off, styles, simple list, advanced, expert. Interface depth is the
+player's choice; capacity stays in-world. Simple must stay good enough for
+ordinary content. Angles C1-C6 are proposals; applying the same depth levels
+to other systems (C6) is unselected.
 Follow-up: “also do the settings pass after crafting, consider improvable
 aspects too”. Settings pass (AJ1-AJ7, AJ12 plus improvements to shipped
 features) runs as its own until-done goal after the crafting goal.
 
+Complexity question: “more to consider? Are we adding too much complexity
+versus the base game? More to consider? save accordingly”. Answer and rules
+live in [the complexity check](worlds/ABILITY_AUTHORING.md#complexity-check-against-the-base-game-2026-10-13):
+habits are low risk if they extend base stances and stay invisible when off;
+the larger risk is design running ahead of playable slices. The smallest proof
+is now stance habits. Rules and angles X1-X5 are proposals.
+
+Emergence follow-up: “more to consider? Creating set of simple rules and
+possibilities that builds into complext things? more to consider? save
+accordingly”. Saved as [simple rules that build into complex things](worlds/ABILITY_AUTHORING.md#simple-rules-that-build-into-complex-things-2026-10-13):
+a four-piece kernel (verbs, tags, triggers, rules) under abilities, habits,
+enemy behavior and world laws, which folds AB2-AB5 into one grammar.
+Angles SR1-SR8 are proposals; nothing is selected for a build.
+
+Second “more to consider? save accordingly” on the kernel added
+[SR9-SR15](worlds/ABILITY_AUTHORING.md#more-to-consider-simple-rules-second-pass-2026-10-13):
+discovery-gated habit words, scale, social tags, paying loops softened by
+existing base-game pressure, a designer bench, chains as stories and honest
+backfires. Proposals only.
+
+Foundations follow-up: “more to consider? Other things that need similar
+implementations and more? ... Did we setup ground/foundational stuff for like
+abilitity variations and more? and ways of progression and stuff? Types of
+cheats? other stuff? save accordingly”. Answer saved as
+[foundations check and shared pattern](worlds/ABILITY_AUTHORING.md#foundations-check-and-other-systems-that-share-the-pattern-2026-10-13):
+what exists in source per area, the gaps, systems that reuse the kernel and
+habit list, progression and cheats indexed by kernel piece, and SP1-SP6.
+Proposals only.
+
+Senses, world progression and system cheats: “more to consider? I mean ability
+variation ans like different typese of the same sense or observation and more?
+World progression? Maybe types of cheats can be ways to add entire systems to
+worlds, oor would that be too easy or something? more to conisder? save
+accordingly”. Saved in [ability authoring](worlds/ABILITY_AUTHORING.md#one-sense-many-versions-2026-10-13):
+a sense as a tag filter with dials, world progression lines, and system cheats
+as holder-scoped kernel bundles that stay interesting through frame-not-content,
+collision, reaction, price and scope. Angles SN1-SN3, WP1-WP2, CS1-CS3 are
+proposals.
+
+Next “more to consider? save accordingly” added
+[SN4-SN7, WP3-WP6 and CS4-CS7](worlds/ABILITY_AUTHORING.md#more-to-consider-senses-world-progression-system-cheats-second-pass-2026-10-13):
+medium-specific wording, stale sightings, borrowed senses, tuned decoys; world
+bars moved by others, falling, unlocking and persisting across lives; rival
+systems, world fit, losing a system and its voice. Proposals only.
 Then: “more to consider for the settings and crafting? Panels for cheats and
 other stuff and more?” Palette saved as ST/CR/CH/PN/PK in the
 [considerations](research/proto23/CRAFTING_SCREEN_AND_ADJUSTABILITY_CONSIDERATIONS_2026-10-13.md#more-to-consider-settings-crafting-cheat-panels-and-other-panels-2026-10-13);
 running goals keep their scope.
+
+> Lets ponder foundational ideas and more? like wether some functions should exist by default or earned as cheats, stuff like game functions such as relationship stuff and more? more to consider?
+
+Claude's proposal, not accepted: ask "default or earned" per layer, not per
+function. The world always simulates a function (NPCs remember you from day
+one); ordinary verbs come from this life's body, place, role and law; seeing
+more is a setting or play; scale and upkeep are earned reach; breaking a
+world's rule is a cheat. Added as
+[part 28](worlds/world-depth-2026-10-13/28_FOUNDATIONAL_FUNCTIONS.md)
+(layer stack, default sources, lost functions, life functions inventory,
+social foundations, rules as content, placement test).
+
+> stuff required for relationship stuff and more?
+
+Claude's proposal, not accepted: the relationship store already exists; the
+missing pieces are one store instead of two, distinct person identity,
+schedules, a drift clock, per-person temperament, more writers and readers,
+typed ties and obligations, carriers across resets and a save decision.
+Teaching, trade, hiring, marriage, heirs, reputation and institutions share
+that spine. Added as
+[part 29](worlds/world-depth-2026-10-13/29_RELATIONSHIP_PREREQUISITES.md).
+
+> more to consider? Send out codex to audit and expand accordingly?
+>
+> more to consider while codex runs?
+
+Codex audit and expansion of part 29 dispatched
+([runs](gm/dispatch/relationship-prereqs-2026-10-14/runs/SESSIONS.md)).
+While it ran, Claude added CQ1-CQ15 in a
+[holding addendum](gm/dispatch/relationship-prereqs-2026-10-14/CLAUDE_ADDENDUM.md),
+to merge into part 29 after the run. Proposals only.
+
+> more to consider? CQ1 makes sense, make relevant to history and time period and sutff and more tho, fit the lore? More to consider? Send out codex accordingly, expand on ideas and more accordingly?
+
+Accepted direction (CQ1): life-stage boundaries for work, school, law,
+inheritance, service and coming of age fit each world, era and lore. Fixed
+floor kept by Claude, not a dial: romance and partner content needs both
+people 18+ by body age; lore betrothals stay offscreen contract ties until
+then. CQ16-CQ18 added. Second Codex run dispatched for part 30 (life stages
+and custom by world and era) and addendum expansion.
+
+> more to consider while codex runs? Consider appearances can be deceiving and more? Other stuff and more?
+
+Claude added DV1-DV25 in
+[addendum 2](gm/dispatch/relationship-prereqs-2026-10-14/CLAUDE_ADDENDUM_2.md):
+true versus shown layers for people, items and places, reveals, deception
+both ways, rumor and memory. DV1 tightens the fixed floor: romance needs
+18+ body age and adult appearance; claimed, soul or species age never
+unlocks it. Other rows are proposals.
+
+> more to consider while codex runs? Save and expand accordingly?
+
+Codex audit of part 29 finished: 6 confirmed, 9 wrong Have claims corrected
+([AUDIT](gm/dispatch/relationship-prereqs-2026-10-14/AUDIT.md)), 64 rows
+added (RZ, RFM, RI, RAU, RCL, RUI, RHE, RPW). RFM6 aligned to the fixed age
+floor. Claude added BK1-BK23 in
+[addendum 3](gm/dispatch/relationship-prereqs-2026-10-14/CLAUDE_ADDENDUM_3.md):
+bonds as power, social conflict, rituals, teaching lineages. Proposals only.
+
+Lifestages Codex run finished: [part 30](worlds/world-depth-2026-10-13/30_LIFE_STAGES_AND_CUSTOM.md)
+(106 rows, world and era ladders with source labels) and CQ19-CQ32. All three
+Claude addenda merged into part 29 sections 12-14 (174 rows). Fixed floor
+held throughout: both people 18+ by body age and adult in appearance.
+
+> more to consider? other stuff and more? save and extend accordingly Send out codex as usesful?
+
+Claude added [part 31](worlds/world-depth-2026-10-13/31_INNER_LIFE_HOUSEHOLD_COMMUNITY.md)
+(IL1-IL30: inner life, household, community; moods follow the food pattern,
+bonus not death spiral). Two Codex lanes dispatched: part 32 social spine
+(synthesis, dedupe, contradictions, build order) and part 33 institutions
+and communities by world. Proposals only.
+
+> more to consider? other stuff and more? save and extend accordingly Send out codex as usesful? (repeated)
+
+Claude added [part 34](worlds/world-depth-2026-10-13/34_VALUES_CONSCIENCE_AND_LEISURE.md)
+(VL1-VL26: values per person, no single karma bar, conscience, leisure).
+Third Codex lane dispatched: part 35 health, injury, illness, medicine and
+death by world. Proposals only.
+
+> more to consider? other stuff and more? save and extend accordingly Send out codex as usesful? Subtle micro stuff too?
+
+Claude added [part 36](worlds/world-depth-2026-10-13/36_MICRO_MOMENTS_AND_SMALL_SIGNALS.md)
+(MC1-MC48 small signals). Fourth Codex lane dispatched: part 37 micro
+texture by world from sources, with a feasibility check of part 36 against
+code. Proposals only.
+
+> more to consider? other stuff and more? save and extend accordingly Send out codex as usesful? Subtle micro stuff too? (repeated)
+
+Claude added [part 38](worlds/world-depth-2026-10-13/38_PATTERNS_HABITS_AND_QUIET_SYSTEMS.md)
+(HB1-HB32: patterns, habits, tiny progress, quiet systems). No new Codex
+lane: four were running; the next useful one extends the part 32 spine
+over parts 33-38 once its lane finishes. Proposals only.
+
+> more to consider? other stuff and more? save and extend accordingly Send out codex as usesful? Subtle stuff too? Overarching stuff? Implementation considerations and more?
+
+Spine lane finished: [part 32](worlds/world-depth-2026-10-13/32_SOCIAL_SPINE.md)
+(66 rows, Village-first build order SSB1-SSB10, 12 tensions, 6 gaps).
+Claude added [part 39](worlds/world-depth-2026-10-13/39_OVERARCHING_PRINCIPLES.md)
+(OA1-OA30: principles, fixed lines, joins, risks). Codex lane dispatched
+for part 40 implementation considerations grounded in code. Proposals only.
+
+> Weaponcrafting, runestuff, other stuff and more? more to consider? other stuff and more? Cheats that would show stuff like these and more? MOre to consider save and extend accordingly Send out codex as usesful? Subtle stuff too? Overarching stuff? Implementation implciations and more? Abstaction thats needed?
+
+Institutions (part 33, 132 rows) and health (part 35, 87 rows) lanes
+finished and are indexed. Claude added
+[part 41](worlds/world-depth-2026-10-13/41_WEAPONCRAFT_RUNES_AND_REVEAL_CHEATS.md)
+(WR weapons, RU runes, RV reveal cheats, AX shared item abstraction),
+linking existing crafting owners rather than restating them. Codex lane
+dispatched for part 42: weapons and runes by world plus an item-model code
+audit. Proposals only.
+
+> more to consider? other stuff and more? Cheats that would show stuff like these and more? MOre to consider save and extend accordingly Send out codex as usesful? Subtle stuff too? Overarching stuff? Implementation implciations and more? Abstaction thats needed? Merging, commiting or pushing?
+
+Part 42 lane stopped as a duplicate of the parallel weaponcraft-runes lanes
+R1 and R3; part 41 marked to fold into the primary weaponcraft palette.
+Micro lane finished (part 37, 150 rows). Claude added
+[part 43](worlds/world-depth-2026-10-13/43_REVEAL_CHEATS_FOR_LIFE_SYSTEMS.md)
+(LR1-LR22 reveal cheats for life systems). Committed this session's own
+files as e07fc507 (parts 29-39, 41 and the dispatch folder) without other
+sessions' staged or edited files; not pushed or merged.
+
+## Food benefits and Famine consideration, 2026-10-13
+
+> Maybe food stuff but one wont die from hunger? more to consider? how does proto23 do? what about just making it a boost for eating and no boost if not which is effectivally a penalty for not eating, more to consider?
+>
+> I see, I guess we can keep it like that, having famine be a skill too?
+
+Accepted ordinary-play direction, interpreting “keep it like that” against the
+preceding recommendation: retain useful meal benefits and comfortable unfed
+play, without hunger death. Food bonus wording alone does not make feeding
+optional if balance assumes continuous eating. Existing default-off hunger
+source remains unchanged; this discussion does not authorize a silent save
+conversion or mandatory hunger across worlds.
+
+Famine is part of the requested skill direction, inspired by Proto23's
+adaptation to going without nourishment. **Passive progression is required:**
+while the character is underfed and eligible game time advances, Famine can
+gain XP without exertion, combat, clicks or an active-play prerequisite.
+The game is an idle RPG. A very slow but positive passive rate is a permissible
+balance proposal; withholding all passive XP until the player performs an
+action is not. Exact rate, underfed threshold, effects and interaction with
+the optional hunger penalty remain unselected. Offline accrual follows an
+explicit future clock decision, rather than being assumed implemented.
+Benefits should fit the body/world and its actual needs. Do not infer
+acceptance of Proto23's severe effectiveness curve, its complete milestone
+list or a universal starvation-to-power system. Famine is not implemented.
+
+Weibao's correction and follow-up:
+
+> The game is meant to be an idle rpg so it should be able to level up passibely lmao
+>
+> We should save that structure accordingly? The passive aspects and more? We could make it really hard to get famine xp from passive starvation or something, but we would not be gating it, more to consider?
+
+Superseded agent proposal, preserved as history: require relevant active
+exertion while underfed. Weibao rejected that active-only restriction.
+Passive progression should be considered across applicable systems, not
+just Famine; this does not grant every skill unconditional XP or invent new
+world rules. Relevant sustained conditions or queued activity can supply
+progress without player presence. Detailed consideration is linked below.
+
+[Design considerations and checked Proto23 source](HUNGER_AND_BODILY_NEEDS_CONSIDERATIONS_2026-10-13.md)
+own proposals and evidence. No new runtime or human play acceptance.
 
 Cheat acquisition, 2026-10-13: “optional start, more to consider for
 acquiring cheats?” then “make it an optional start, keep everything possible,
@@ -2002,11 +2297,113 @@ Then: “more to consider for cheat types per world? multiversal cheats? cheat
 rarity and more? mroe to consider? hiding ui? integrations and more? send out
 codex accordingly”. Dispatched as three Codex docs workers in
 [cheat-considerations-2026-10-13](gm/dispatch/cheat-considerations-2026-10-13/).
+Then: “cosider best gameplay intro flow? More to consider? Cheats options
+other stuff and more?” Palette IF1-IF10 (flow beats), CR1-CR10 (creation
+screen), TE1-TE9 (teaching without a tutorial), CO1-CO12 (cheat and advantage
+choice in the flow), OP1-OP8 (start options), XS1-XS9, plus findings F1-F5 on
+the current opening, in
+[intro flow considerations](INTRO_FLOW_CONSIDERATIONS_2026-10-13.md).
+Proposals only; vanilla opening and discovery-gated menus stay the accepted
+constraints.
+Then: “more to consider for the intro flow? Random start? random world start?
+more to consider? UI considerations and more?” Palette RW1-RW12 (landing in an
+unknown world), RX1-RX12 (rolling mechanics), RP1-RP8, UI1-UI14 (laptop
+intro UI), MI1-MI7 in the same doc's round 2. Correction: round 1 had made
+Village the first-life opening; realigned with the accepted random-entry
+decision (Village stays a chosen start).
+Then: “how to connect for relevant world starts and more? more to consider?”
+Round 3 of the intro doc: a per-world start record joining the shared intro
+(WC1-WC12, built on the existing pack `starts[]`/`admission` shape), links
+between starts (WL1-WL7), relevance per world type (WF1-WF8), qualification
+and fallback (WQ1-WQ7), WM1-WM7.
+Then: “more to consider for start records and linked starts? Save
+accordingly”. Round 4 of the intro doc: record composition and lifecycle
+(SR1-SR10), other start sources (SG1-SG9), link kinds (LK1-LK10), link rules
+(LG1-LG9), player-facing start map and notices (LV1-LV7), SX1-SX6.
+Then: “more to consider for layered records and start sources? Send codex to
+try and work accordingly?” Round 5 (LY1-LY12 layer mechanics, SS1-SS10 more
+sources) in the intro doc, and a Codex lane
+[start-records-2026-10-13](gm/dispatch/start-records-2026-10-13/GOAL.md)
+tries the first layered-record slice in its own worktree branch.
 Then: “more to consider for the status window stage 1? Make a prompt to
 audit”. Stage 1 palette (S1, S1P, S1U, S1V, S1S) in
 [CHEAT_LIBRARY](CHEAT_LIBRARY.md#more-to-consider-status-window-stage-1-2026-10-13);
 audit prompt at
 [AUDIT_PROMPT.md](gm/dispatch/cheat-status-window-2026-10-13/AUDIT_PROMPT.md).
+Then (2026-10-14): “more to consider for linked starts and start sources?
+audit different starts ... starting as a villian ... what happens to other
+selves? do they just not exist?” Round 6 of the intro doc: start-kind audit
+SA1-SA24 with coverage, villain-start angles VS1-VS14 (beyond B3/V1-V9),
+other selves OS1-OS15 (default: past lives keep existing as NPCs, summarized
+when far; other versions exist only where a world's premise says so), and
+LS1-LS10.
+Then: “more to consider for villain starts and other selves? Send out idea
+stuff accordingly? we can find source material for starting as x y z
+accordingly? like the latest downloaded trash of the counts family? ... Send
+out codex agents accordingly”. Five Codex lanes in
+[start-sources-2026-10-14](gm/dispatch/start-sources-2026-10-14/COMMON.md)
+(Lout of Count's Family vols 1-9 full read in three readers, start-as-X
+source catalog, villain/other-selves ideas doc); round 7 in the intro doc.
+Then: “more to consider for other selves and villain starts? Should there be
+no other selves? ... Send out other codex accordingly?” Round 8 in the intro
+doc: proposal to treat "no other selves" as the ordinary-world default and a
+reachable mode (NS1-NS10, spectrum dial None/Implied/Present/Playable), with
+earlier characters kept as separate people; OM1-OM8, VM1-VM8; two more Codex
+lanes (identity laws per world, games reference).
+Then: “Little to no interaction with the past selfs or bodies? or make them
+not exist? ... what makes sense for story worlds and more? I guess they would
+just be npc”. Stated lean (2026-10-14): past selves and former bodies become
+ordinary NPCs with little to no special interaction; not existing stays
+reachable. Round 9 of the intro doc: PN1-PN10, interaction dial IX0-IX5
+(IX2 background NPC as persistent-world default), story worlds BW1-BW8
+(fresh canon per life by default, continue a changed branch by choice),
+PX1-PX7.
+Then: “more to consider for story world timelines and branches?” Round 10
+of the intro doc: anchors and canon versions TA1-TA7, branch lifecycle
+TB1-TB10, timeline UI TU1-TU6, TX1-TX8; world-side rules stay owned by
+TIMELINES_AND_DIVERGENCE.
+Then: “more to consider for branch lifecycle and anchors?” Round 11 of the
+intro doc: anchors AH1-AH12 (kinds, density, derived snapshots, evidence,
+role fit, unlocks, crossover) and branch lifecycle BR1-BR15 (states, forks,
+checkpoints, strict/relaxed, offline time to the active branch only,
+export/import, content updates).
+Then: “more to consider for derived snapshots and offline branch time? Other
+stuff and more? send codex accordingly”. Round 12 of the intro doc (DV1-DV12,
+OT1-OT10, MX1-MX4) and two Codex lanes in
+[derived-snapshots-2026-10-14](gm/dispatch/derived-snapshots-2026-10-14/GOAL.md).
+
+Then (2026-10-14): “Procedural story generation?” followed by “Extend
+accordingly, I meant generation/creating content and more? extend stuff and
+more consider book worlds cannon and more? more to consider?” and “send out
+codex accordingly”. Dispatched five docs-only Codex lanes P12-P16 (quests and
+arcs, canon and divergence, history and legends, text/dialogue/authoring
+pipeline, more angles) in
+[procgen wave 1](gm/dispatch/procgen-2026-10-13/PLAN.md). Proposals only; no
+generator is selected by this request.
+Then: “more to consider for branch overrides and canon events? Exent and
+consider accordingly? send out codex agents accordingly?” Round 13 of the
+intro doc (OV1-OV12, CV1-CV12) and lanes in
+[canon-events-2026-10-14](gm/dispatch/canon-events-2026-10-14/COMMON.md):
+two canon event graph pilots (Mother of Learning, Fated Villain) and a
+queued override-kinds code lane.
+Then: “more to consider? other stuff and more? Save and expand accordingly?”
+Saved root palette
+[procedural story and content considerations](PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md)
+(A story craft, B more content, C book canon, D story as power, E player
+control and idle, F quality) and launched P17 (story as a power source) and P18
+(headless story QA). Proposals only.
+
+Then (2026-10-14): “Constitution, genetics, little stuff and more? Expanding
+on ideas and more? physiques? Gender and more?” Saved as
+[bodies in finer detail](GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md#bodies-in-finer-detail-2026-10-14)
+(G17-G25). Proposals only.
+Then: “more to consider for canon event motives and substitutes? Save and
+extend accordingly, more to consider in general?” Round 14 of the intro doc:
+motives MT1-MT10, substitutes SP1-SP10 (reusing E2 casting), GE1-GE7.
+Then: “more to consider? other stuff and more? Save and extend accordingly,
+use codex as needed and more?” Round 2 of the same palette (G social web, H
+places, I conflict, J economy, K creative-director tools, L other) and lanes
+P19-P22. Proposals only.
 
 Then (2026-10-14): “familliars, pets, other stuff and more? More to consider,
 expansions and more?” Saved root palette
@@ -2119,6 +2516,7 @@ beasts, BJ arc shapes, J23-J27 cheats). C1 source pass folded into section H
 Paradise BEINGS_PETS_AND_BODIES now linked. New lanes C6 (owner map and
 overlaps) and C7 (bond craft from books). Proposals only.
 Then: “more to consider? other stuff and more? save and extend accordingly
+## Merge before dispatch, 2026-10-14
 Send out codex as usesful? MAking things more procedural? How to do stuff
 like "create soap" or like "create nuclear bomb" and more?” Saved as
 [procedural invention, round 5](TECHNOLOGY_AND_PROGRESSION.md#making-anything-procedural-invention-round-5-2026-10-14)
@@ -4390,6 +4788,23 @@ other sessions; weapon/rune work is canonical in the UI-at-scale session's
 palette (R1-R3), so WR1-WR4 here were stopped as duplicates. Story round 11 saved
 (BN story-reveal cheats, BO one knowledge layer, BP story abstractions, BQ
 implementation). Finished lane reports committed; push awaits Weibao's yes.
+Then the same request again (with "Merging, commiting or pushing?"). The
+weaponcraft request had reached three sessions; saved as a consolidation in
+[weaponcraft round 2](WEAPONCRAFT_RUNES_AND_INSCRIPTION_CONSIDERATIONS_2026-10-14.md#round-2-consolidation-and-whats-still-new-2026-10-14)
+(crosswalk, P6 owner correction, WX1-WX9, CR16-CR22, SU15-SU21). Duplicate
+lanes R1/R3 stopped. Proposals only.
+Then: “Considering comic worlds and stuff and more? ... Cheats that would show
+stuff like these ... Subtle stuff too? Overarching stuff? Implementation
+implciations ... Abstaction thats needed? Merging, commiting or pushing?” Round 3
+of the crafting palette (CM comic making, CX making-reveal cheats, SU subtle, OA
+overarching, II implementation, AB abstractions) and lanes CR5 (sourced comic
+making) and CR6 (crafting wave 2 build packet). The general comic palette is owned
+by another session. Proposals only.
+Then (procgen session): “Considering comic worlds ... Abstaction thats needed?
+Merging, commiting or pushing?” Saved as [procedural generation round 2](PROCEDURAL_GENERATION_STATUS_2026-10-13.md#round-2-comics-lens-cheats-subtle-overarching-implications-abstractions-2026-10-14)
+(CG1-CG8, GL1-GL10, GS1-GS8, GO1-GO7, GI1-GI6, GA1-GA8), generation angle
+only. Committed a30d022a/4307e64a and pushed origin; lanes GX1-GX4 (docs)
+and GX5 (per-save mixture appearances, code) sent. Proposals only.
 
 Then (2026-10-14): “save as core audit to repeat in the future too”. Saved
 [companions core audit](audits/COMPANIONS_CORE_AUDIT.md) (triggers, lane

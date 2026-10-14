@@ -30,6 +30,20 @@ FA13 current source passes ten focused contract checks. Native optional enrollme
 
 ## Standing priorities and document authority
 
+**Food direction (2026-10-13):** useful meal benefits, comfortable unfed
+ordinary play and no hunger death. Famine is requested as an adaptation
+skill with passive underfed XP and no active-play requirement. Slow positive
+XP is a balance option; exact rates/effects remain proposals, not implemented
+gameplay. Applicable systems should support idle progression through sustained
+conditions or queued activity; not every skill gains unconditional XP. The
+existing default-off hunger code is unchanged. [User direction](docs/USER_VISION.md#food-benefits-and-famine-consideration-2026-10-13)
+and [source/design note](docs/HUNGER_AND_BODILY_NEEDS_CONSIDERATIONS_2026-10-13.md)
+separate the accepted direction from unresolved mechanics.
+
+**Merge before dispatch (2026-10-14):** finished, gate-passing branches are
+merged promptly, and each coordinator runs a merge sweep of its finished work
+before launching the next wave. [User vision](docs/USER_VISION.md#merge-before-dispatch-2026-10-14).
+
 **Desktop/laptop UI is primary; mobile optimization is deferred unless Weibao
 requests it.** Use screen width and height for useful independent panels and
 visible routine actions at comfortable text size. The accepted direction and
@@ -46,7 +60,9 @@ Naruto and similar, by source coverage), plus similar story sources. Fallout,
 Skyrim and Elden Ring are deprioritized: their existing work stays but is not
 active, and their paused dump queues stay paused. The tier comes
 with easy parallel/AU variants, including relationship and start-point AUs, that
-reuse existing content and seams. Order, not scope. Direction in [User vision](docs/USER_VISION.md#world-depth-and-canon-first-world-priority-2026-10-13);
+reuse existing content and seams. Order, not scope. Earlier designs and code
+may be revised to fit future capabilities (2026-10-13), each with a save
+compatibility decision; heir-only carryover is current code, not a design limit. Direction in [User vision](docs/USER_VISION.md#world-depth-and-canon-first-world-priority-2026-10-13);
 proposals in [World depth considerations](docs/worlds/WORLD_DEPTH_CONSIDERATIONS_2026-10-13.md).
 
 User vision preserves goals and original requests; this summary surfaces current
