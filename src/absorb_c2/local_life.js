@@ -39,7 +39,7 @@ const result = s => ({state:s,native:{money:0,items:[],skillXp:{}},messages:[]})
 const addXp = (p,id,n) => {p.native.skillXp[id]=(p.native.skillXp[id]||0)+n;};
 const roll = rng => {const n=rng();if(!Number.isFinite(n)||n<0||n>=1)throw new Error('Chance input must be in [0, 1).');return n;};
 
-export function advanceLocalLife(raw,c,rng=Math.random) {
+export function advanceLocalLife(raw,c,rng=()=>{throw new Error("Local life needs a saved random stream.");}) {
     const s=normalizeLocalLife(raw),p=result(s);
     if(!natural(c.clock)) return p;
     const delta=s.lastClock==null?0:Math.max(0,c.clock-s.lastClock);
