@@ -163,7 +163,7 @@
     "N29_offline": "out of scope"
   },
   "next_tranche": 4,
-  "next_scope": "step3 adaptation/encounters/growth; main merge; P15 last; final full/native gate",
+  "next_scope": "merge current codex/gameplay-foundations; P15 last; final full/native gate",
   "p18_question": "answered resume4: future native earned local skill XP, optional counter/no backfill, labelled150000 proposal threshold",
   "gate_policy": "resume5: build+focused per step; one full/native gate after all steps, current main merge, P15 last",
   "steps": [
@@ -195,6 +195,23 @@
       "focused": {
         "tests": 53,
         "pass": 53,
+        "fail": 0
+      },
+      "native": "OPEN final gate",
+      "merge_ready": false,
+      "commit": "f52344c7"
+    },
+    {
+      "step": 3,
+      "scope": [
+        "p23-world-adaptation",
+        "p23-encounter-profiles",
+        "p23-growth-profile"
+      ],
+      "build": "PASS",
+      "focused": {
+        "tests": 60,
+        "pass": 60,
         "fail": 0
       },
       "native": "OPEN final gate",

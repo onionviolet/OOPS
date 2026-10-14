@@ -1,4 +1,4 @@
-import {PROTO23_IDS as I, PROTO23_LOCATIONS as L, PROTO23_FOOTPRINTS as footprints, PROTO23_FRONTIER,
+import {PROTO23_IDS as I, PROTO23_LOCATIONS as L, PROTO23_OPTIONAL_NATIVE_LOCATIONS, PROTO23_FOOTPRINTS as footprints, PROTO23_FRONTIER,
     PROTO23_SOURCE_SNAPSHOT, PROTO23_SOURCE_HASH, PROTO23_INITIAL_FACTS, proto23Definitions} from './proto23_world_content.js';
 import {createRealmConnection, realmConnectionBinding, validateRealmConnectionBinding} from './realm_connections.js';
 import {validateWorldRecords, planWorldClock} from './world_instances.js';
@@ -9,7 +9,7 @@ const shape = (v, keys, label) => assert(v && typeof v === 'object' && !Array.is
 const same = (a, b) => JSON.stringify(a) === JSON.stringify(b);
 const prefix = key => key.startsWith(I.prefix);
 export const PROTO23_VISIT_CAPACITY = 128;
-export const proto23LocationWorld = Object.fromEntries(Object.values(L).map(id => [id, I.world]));
+export const proto23LocationWorld = Object.fromEntries([...Object.values(L), ...PROTO23_OPTIONAL_NATIVE_LOCATIONS].map(id => [id, I.world]));
 export function createProto23Connections() {return [createRealmConnection({id: 'proto23.entry', revision: 1,
     from: PROTO23_FRONTIER, to: footprints[0].endpoint, kind: 'physical', controllerId: 'player', bidirectional: true,
     duration: 0, lifetime: null, requirements: {id: 'proto23.entry.approval', revision: 1, operations: ['passage'], bodyForms: ['human'], costs: []},

@@ -1,3 +1,6 @@
+import {validateMistglassEnvelope} from './absorb_p23/host_joins/world_adaptation.js';
+import {validateGrowthEnvelope} from './absorb_p23/host_joins/growth_profile.js';
+import {validateTrainingEnvelope} from './absorb_p23/host_joins/encounter_profiles.js';
 import {validateTrancheFourEnvelope} from './absorb_p23/host_joins/tranche_four.js';
 import {validateKnownDetailEnvelope} from './absorb_p23/host_joins/known_detail.js';
 import {validateLongLifeEnvelope} from './absorb_p23/host_joins/long_life.js';
@@ -55,6 +58,9 @@ export function validateSaveEnvelope(original, currentVersion) {
     validateTrancheOneEnvelope(original);
     validateTrancheTwoEnvelope(original);
     validateTrancheThreeEnvelope(original);
+    validateGrowthEnvelope(original);
+    validateMistglassEnvelope(original);
+    validateTrainingEnvelope(original);
     validateTrancheFourEnvelope(original);
     validateMixtureEnvelope(original);
     if(Object.hasOwn(original, "cheats"))validateCheatState(original.cheats);

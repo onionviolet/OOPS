@@ -8,6 +8,8 @@ export const PROTO23_IDS = Object.freeze({prefix: 'proto23.', group: 'proto23', 
     shop: 'proto23.visitor.shop', quest: 'proto23.visitor.local_life', site: 'proto23.cottage.station',
     dojo: 'proto23.dojo.station', situation: 'proto23.visitor_branch'});
 export const PROTO23_LOCATIONS = Object.freeze({center: 'Proto23 Village Center', dojo: 'Proto23 Dojo lobby', cottage: 'Proto23 visitor cottage'});
+// Optional host locations do not change schema-1 native footprints or generated visitor moves.
+export const PROTO23_OPTIONAL_NATIVE_LOCATIONS = Object.freeze(['Proto23 reed-circle training']);
 const key = id => JSON.stringify({id});
 export const PROTO23_KEYS = Object.freeze({bed: key('Proto23 plain bed'), hearth: key('Proto23 cottage hearth'),
     bookstand: key('Proto23 bookstand'), notes: key('Proto23 annotated practice notebook'), log: key('Rough wood log'),

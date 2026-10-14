@@ -1,3 +1,4 @@
+import {validateAdaptation} from './absorb_p23/world_adaptation/index.js';
 import {validateReadingState} from './absorb_p23/reading/runtime.js';
 import {reconcileSystemsWorkshop} from './systems_workshop_runtime.js';
 import {nativeEquipmentSnapshot} from './native_equipment_transaction.js';
@@ -143,10 +144,11 @@ export function validateExpansionState(state, registry) {
         "Invalid expansion clock or random state.");
     check(state.schema !== AUDIT_REMAINDER_ENGINE_SCHEMA || state.auditRemainder != null || state.causalStories != null || state.motherOfLearning?.schema === 1 || state.proto23Village?.schema === 1,
         'Expansion11 requires its actual optional audit, causal, Cyoria or Proto23 owner.');
-    check([state.realmPrototype,state.featureDestination,state.nestedCampaign,state.bookWorldCampaign,state.motherOfLearning,state.proto23Village]
+    check([state.realmPrototype,state.featureDestination,state.nestedCampaign,state.bookWorldCampaign,state.motherOfLearning,state.proto23Village,state.mistglassRealm]
         .filter(owner=>owner?.activeVisitId!=null).length<=1,'One controlled native body requires one active retained-world visit.');
     validateAuditRemainderProjects(state,registry);
     validateReadingState(state.p23Reading,state.clock);
+    validateAdaptation(state.worldAdaptation);
     validateChronicle(state.chronicle, state.clock);
     validateSimulationState(state.simulation, state, registry?.simulation);
     validateSystemsWorkshop(state);

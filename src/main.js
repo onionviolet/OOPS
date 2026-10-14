@@ -1,3 +1,12 @@
+import {mistglassProfile as MISTGLASS,mistglassContent} from './absorb_p23/world_adaptation/index.js';
+import {MISTGLASS_LOCATION,MISTGLASS_KEEPER,registerMistglassNative,mistglassContext,stageMistglassTravel,stageMistglassTeaching,stageMistglassTrial,stageMistglassAdvance,stageMistglassRestock,mistglassNextBoundary,knownMistglassView} from './absorb_p23/host_joins/world_adaptation.js';
+import {createMistglassPanel} from './absorb_p23/host_joins/world_adaptation_ui.js';
+import {PROFILE,enrollGrowth,validateGrowthState,growthView,consumeTonic,setBackground,advanceBackground,settleAward,quoteTonicAcquisition} from './absorb_p23/growth_profile/profile.js';
+import {GROWTH_COUNTER_ID,GROWTH_COUNTER_TEMPLATE,GROWTH_TONIC_KEY,growthLearned,growthFlatSource,noHealGrowthVitals,GROWTH_EARNED_THRESHOLD,validateGrowthEarned,readNativeSkillXP,observeGrowthEarned,freezeEarnedGrowth} from './absorb_p23/host_joins/growth_profile.js';
+import {createGrowthPanel} from './absorb_p23/host_joins/growth_profile_ui.js';
+import {PROFILE_ID, ENEMY_ID, AREA_ID, WORLD_ID, readProfileState, beginAttempt, previewExchange, planExchange, planSettlement, finishAttempt} from './absorb_p23/encounter_profiles/profile.js';
+import {registerTrainingProfile,trainingEnemy,trainingEnemyKey,initialTrainingEncounter} from './absorb_p23/host_joins/encounter_profiles.js';
+import {createTrainingPanel} from './absorb_p23/host_joins/encounter_profiles_ui.js';
 import {normalizeFieldFamiliarity,fieldAction,advanceFieldFamiliarity,fieldView} from './absorb_p23/field_familiarity/index.js';
 import {normalizeMarketLife,planMarketTrade,planMarketDelivery,marketLifeView} from './absorb_p23/market_life/market_life.js';
 import {LEISURE_PERSON,createLeisureMemory,startLeisureRound,settleLeisureRound,respondToEda,revisitEda,rememberNativeDefeat,leisureMemoryView} from './absorb_p23/leisure_memory/index.js';
@@ -503,6 +512,182 @@ item_templates[REST_MEAL] ||= new OtherItem({id:REST_MEAL,name:REST_MEAL,value:4
 item_templates[SALVAGE.tool] ||= new Tool({id:SALVAGE.tool,name:SALVAGE.tool,value:30,quality:100,equip_slot:'sickle',description:'Portable leatherwork requires quality 60 and a usable native condition.'});
 inventoryTemplates.Basic.unshift(new TradeItemGroup({items:[new TradeItem({item_name:ANTHOLOGY,count:[2],chance:1}),new TradeItem({item_name:SALVAGE.tool,count:[2],quality:[60,60],chance:1}),new TradeItem({item_name:SALVAGE.tool,count:[1],quality:[59,59],chance:1})]}));
 let p23Salvage,readingSalvagePanel;
+let p23Growth,p23GrowthEarned,growthPanel,p23GrowthCounter;
+let mistglassKeeper,mistglassPanel;
+function nativeMistglassContext(state=expansionState,location=current_location?.id){return mistglassContext(state,{body:currentNativeBody(),alive:character.is_alive&&!active_effects.Recovering,location,effectsEnabled:document.documentElement.dataset.effects!=='off'});}
+function mistglassCanAct(){return workLedgerCanWrite()&&character.is_alive&&!active_effects.Recovering&&!current_combat&&!current_activity&&!current_dialogue&&!current_game_action&&!is_sleeping&&!is_reading&&!is_in_trade()&&nativeActionReasons(expansionState).length===0;}
+function refreshMistglassStock(){
+    if(!workLedgerCanWrite()||expansionState.actors.player.worldId!==MISTGLASS.worldId||current_location.id!==MISTGLASS_LOCATION)throw Error('Visit the actual conservatory keeper in the writable game.');
+    const plan=p23Plan();if(!stageMistglassRestock(plan))return false;
+    persistExpansion(plan,{[MISTGLASS_KEEPER]:{category:'trader',id:MISTGLASS_KEEPER}},{[MISTGLASS_KEEPER]:mistglassKeeper.getTradeInventory()});return true;
+}
+function actMistglass(id){
+    if(!mistglassCanAct())throw Error('Finish current native work before this conservatory choice.');
+    if(!expansionState.simulation?.people.player)throw Error('Choose Follow local people and work first.');
+    const plan=p23Plan(),inside=expansionState.actors.player.worldId===MISTGLASS.worldId;
+    if(id==='trade'){if(!inside||current_location.id!==MISTGLASS_LOCATION)throw Error('Visit the keeper first.');window.startTrade(MISTGLASS_KEEPER);return;}
+    if(id==='enter'){
+        const first=!plan.state.mistglassRealm;stageMistglassTravel(plan,'enter',{fromLocation:current_location.id});
+        if(first)stageMistglassRestock(plan,{forceInitial:true});
+    }else if(id==='exit')stageMistglassTravel(plan,'exit');
+    else if(id==='learn')stageMistglassTeaching(plan,nativeMistglassContext(plan.state),expeditionRegistry,{quoteXP:p00NativeSkillXP});
+    else if(id==='trial'){
+        if(!skills.Meditation.canGainXP(get_context()))throw Error('Learn native Meditation before purification.');
+        const key=Object.entries(character.getItems()).find(([,r])=>r.item.id===MISTGLASS.doseItemId&&r.count>0)?.[0];
+        if(!key)throw Error('Buy a Cloudseed dose from the keeper.');assertNativeItemDisposition(expansionState,key);
+        stageMistglassTrial(plan,nativeMistglassContext(plan.state),expeditionRegistry,{doseKey:key,quoteXP:p00NativeSkillXP});
+    }else throw Error('Unknown conservatory choice.');
+    persistExpansion(plan,{[MISTGLASS_KEEPER]:{category:'trader',id:MISTGLASS_KEEPER}},{[MISTGLASS_KEEPER]:mistglassKeeper.getTradeInventory()});mistglassPanel?.render();
+}
+function mistglassFrame(){
+    const inside=expansionState.actors.player.worldId===MISTGLASS.worldId,c=nativeMistglassContext(),key=Object.entries(character.getItems()).find(([,r])=>r.item.id===MISTGLASS.doseItemId&&r.count>0)?.[0],known=knownMistglassView(expansionState,c,key);
+    const raw=expansionState.simulation?.conditions?.player?.[MISTGLASS.blockedConditionId],actions=[];
+    if(inside){actions.push({id:'exit',label:'Return to Village'},{id:'trade',label:'Trade with conservatory keeper'});
+        if(!known.enrolled)actions.push({id:'learn',label:'Learn the conservatory method (explicit opt-in)'});
+        else actions.push({id:'trial',label:'Purify one paid Cloudseed dose',enabled:known.preview.eligible&&skills.Meditation.canGainXP(get_context()),reason:!skills.Meditation.canGainXP(get_context())?'Learn native Meditation first.':known.preview.reasons.join(' ')});
+    }else if(expansionState.actors.player.worldId==='base.frontier'&&current_location?.id==='Village')actions.push({id:'enter',label:'Enter Mistglass conservatory',enabled:!!expansionState.simulation?.people.player,reason:'Choose Follow local people and work first.'});
+    return {visible:inside||actions.length>0,inside,view:known.view,preview:known.preview,rawRemaining:Math.max(0,(raw?.expiresAt||0)-expansionState.clock),disabled:!mistglassCanAct(),actions};
+}
+
+function growthIdentity(state=expansionState) {
+    const actual=currentNativeBody(),body=state.simulation?.people.player?.body;
+    return {worldId:state.actors.player.worldId,profileId:PROFILE.id,bodyId:body?.id||actual.id,
+        bodySupported:!!body&&body.id===actual.id&&body.form==='human'&&actual.form==='human'&&body.ownerId==='player'&&body.controllerId==='player'&&actual.ownerId==='player'&&actual.controllerId==='player'};
+}
+function growthContext(state=expansionState) {
+    const identity=growthIdentity(state),stats=character.getFullStats(),known=growthLearned(state);
+    const native=proto23Native.read(expansionState),joined=proto23Context(state,{...expeditionContext(),proto23Native:native});
+    const supported=identity.bodySupported&&joined.facts['proto23.playerSupported']===true;
+    const available=supported&&!!current_location?.canBeStarted(get_context());
+    // This is the profile-specific native eligibility owner. It keeps the
+    // original Literacy availability and current native body/preparation rules.
+    const eligible=available&&skills.Literacy.canGainXP(get_context())&&character.is_alive===true&&!active_effects.Recovering;
+    let ownedReading=false;
+    if(is_reading&&is_reading!==ANTHOLOGY&&book_stats[is_reading]&&!item_templates[is_reading].isFinished()) {
+        const key=JSON.stringify({id:is_reading});try{assertNativeItemDisposition(state,key);ownedReading=(character.getItems()[key]?.count||0)>0;}catch{}
+    }
+    const conflict=!!(current_combat||current_activity||current_game_action||current_dialogue||is_sleeping||is_in_trade()||nativeOccupationReason()||nativeActionReasons(state).length);
+    return {...identity,clock:state.clock,known,nativeAlive:character.is_alive===true,ownsSave:ownsSave&&!importProbeToken,
+        saveBlocked:!!(foundationSaveBlocked||expansionError||lifeStorageFailure||is_loading_error),nativeEligible:eligible,
+        idle:!conflict&&!is_reading,shopEligible:eligible&&current_location.id===PROTO23_LOCATIONS.center&&state.actors.player.facts['proto23.stewardMet']===true&&p23GrowthCounter.getAvailabilityComponent().canBeStarted(get_context()),
+        conditionEligible:eligible,resourcesEligible:stats.health>1,
+        occupation:{kind:is_reading?'reading':'idle',jobId:is_reading?`native.book.${is_reading}`:'none',eligible:ownedReading&&!conflict},
+        conflictingAction:conflict,bodyConflict:!supported,resourceConflict:!!active_effects.Recovering};
+}
+function recordGrowthNativeGrant(before,after) {
+    if(restoringNativeSave||!p23Growth)return;
+    const sequence=expansionState.sequence+1;
+    const result=observeGrowthEarned(p23GrowthEarned,p23Growth,growthContext(),{before,after,sequence});
+    if(!result.counted)return;
+    // Ordinary native XP is saved by its existing native caller. Craft/combat
+    // own these bindings in their rollback boundary until their save is durable.
+    expansionState.sequence=sequence;p23GrowthEarned=result.counter;p23Growth=result.profile;
+}
+function stageGrowthNativeGrants(plan) {
+    if(!p23Growth||!plan.gameplay?.player?.skills)return;
+    const before=readNativeSkillXP(character.getLevelableComponent().skill_progress);
+    const after=Object.fromEntries(Object.entries(plan.gameplay.player.skills).map(([id,p])=>[id,p.xp]));
+    const profile=plan.nativePatch?.p23_growth_profile||p23Growth;
+    const counter=plan.nativePatch?.p23_growth_earned||p23GrowthEarned;
+    const sequence=Math.max(plan.state.sequence,expansionState.sequence+1);
+    const result=observeGrowthEarned(counter,profile,growthContext(plan.state),{before,after,sequence});
+    if(!result.counted)return;
+    plan.state.sequence=sequence;
+    plan.nativePatch={...plan.nativePatch,p23_growth_profile:result.profile,p23_growth_earned:result.counter};
+}
+function publishGrowthProjection(source=growthFlatSource(p23Growth,growthIdentity()),preserve=true) {
+    const stats=character.getFullStats(),vitals={health:stats.health,stamina:stats.stamina};
+    character.getLevelableComponent().stats.flat.p23_growth_profile={...source};
+    character.updateStatsAndDisplay();
+    if(preserve){stats.health=Math.max(0,Math.min(stats.max_health,vitals.health));stats.stamina=Math.max(0,Math.min(stats.max_stamina,vitals.stamina));update_displayed_health();update_displayed_stamina();}
+}
+function stageGrowthForPublication(plan) {
+    let next=Object.hasOwn(plan.nativePatch||{},'p23_growth_profile')?plan.nativePatch.p23_growth_profile:p23Growth;
+    if(p23Growth!==undefined&&next===p23Growth&&plan.state.clock>p23Growth.background.lastClock) {
+        const context=growthContext(plan.state),elapsed=plan.state.clock-p23Growth.background.lastClock;
+        // Every eligible interval must be one actually played native minute.
+        // Larger travel/rest advances and a changed location only move the anchor.
+        context.occupation.eligible&&=elapsed===1&&plan.state.actors.player.worldId===expansionState.actors.player.worldId&&!plan.nativeLocation;
+        const sequence=plan.state.sequence+1,result=advanceBackground(p23Growth,context,sequence);
+        next=result.next;if(result.eligible&&result.minutes===1)plan.state.sequence=sequence;
+        plan.nativePatch={...plan.nativePatch,p23_growth_profile:next};
+    }
+    if(next===undefined)return;
+    validateGrowthState(next);
+    const source=growthFlatSource(next,growthIdentity(plan.state)),stats=character.getLevelableComponent().stats;
+    const native=noHealGrowthVitals(stats.flat.p23_growth_profile||{},source,stats,plan.native);
+    if(Object.keys(native).length)plan.native=native;
+    plan.p00GrowthSource=source;
+}
+function stageTonicPurchase(context) {
+    // Copy the native commercial owner, then run its existing template/restock
+    // method. Only the durable ownership publication changes the live counter.
+    const candidate=new TraderComponent({name:p23GrowthCounter.name,inventory_template:GROWTH_COUNTER_TEMPLATE,profit_margin:1,refresh_time:p23GrowthCounter.refresh_time,is_unlocked:true});
+    candidate.last_refresh=p23GrowthCounter.last_refresh;
+    candidate.addToInventory(Object.entries(readInventoryOwner(p23GrowthCounter.getTradeInventory())).map(([item_key,count])=>({item_key,count})));
+    candidate.refresh(get_context());
+    const stock=readInventoryOwner(candidate.getTradeInventory()),margin=candidate.getProfitMargin(current_location.market_region);
+    const nativePrice=Math.ceil(getItemFromKey(GROWTH_TONIC_KEY).getValue()*margin);
+    if(nativePrice!==PROFILE.tonicPrice)throw Error('The native tonic quote changed. Review the counter before buying.');
+    const acquisition=quoteTonicAcquisition(p23Growth,context,{money:character.money,stockCount:stock[GROWTH_TONIC_KEY]||0});
+    const quote=()=>({vendorId:GROWTH_COUNTER_ID,region:current_location.market_region,buy:[{item_key:acquisition.itemKey,count:1}],sell:[],buyValue:nativePrice,sellValue:0,money:character.money,
+        margin,player:readInventoryOwner(character.getItems()),vendor:stock,market:structuredClone(loot_sold_count),sequence:expansionState.sequence});
+    const skill=skills.Haggling,xp=skill.canGainXP(get_context())?Math.round(nativePrice/10*config.global_xp_multiplier*character.getSkillXPGain('Haggling')*(character.xp_multiplier??1)*100)/100:0;
+    const plan=stageNativeTrade({state:expansionState,gameplay:gameplaySnapshot(),owners:{player:readInventoryOwner(character.getItems()),vendor:stock},money:character.money,market:loot_sold_count,itemLog:item_log.items,quote:quote(),currentQuote:quote(),xp,getItem:getItemFromKey});
+    plan.nativePatch={...plan.nativePatch,[`npcs/${GROWTH_COUNTER_ID}/trader/last_refresh`]:candidate.last_refresh};
+    const previous=plan.absorbPublish;plan.absorbPublish=()=>{previous?.();p23GrowthCounter.last_refresh=candidate.last_refresh;};
+    persistExpansion(plan,{vendor:{category:'trader',id:GROWTH_COUNTER_ID}},{vendor:p23GrowthCounter.getTradeInventory()});
+}
+function actGrowth(action,sequence) {
+    if(sequence!==expansionState.sequence)throw Error('Study controls changed. Review the current offer.');
+    if(!workLedgerCanWrite())throw Error('Restore writable saving before study conditioning.');
+    const context=growthContext();
+    if(action==='buy')return stageTonicPurchase(context);
+    const state=structuredClone(expansionState),gameplay=gameplaySnapshot();let next;
+    if(action==='enroll'){
+        if(p23Growth!==undefined)throw Error('This profile is already enrolled.');
+        if(!context.idle)throw Error('Finish current work before enrolling.');
+        next=enrollGrowth(context);
+    } else {
+        if(p23Growth===undefined)throw Error('Explicitly enroll in the learned method first.');
+        if(action==='consume'){
+            assertNativeItemDisposition(state,GROWTH_TONIC_KEY);
+            const result=consumeTonic(p23Growth,context,{sequence:state.sequence+1,inventoryCount:gameplay.player.inventory[GROWTH_TONIC_KEY]||0});
+            if(result.itemCost)applyGameplayEffect(gameplay,{type:'item',key:GROWTH_TONIC_KEY,amount:result.itemCost},'player',true);next=result.next;
+        } else if(action==='background')next=setBackground(p23Growth,context,!p23Growth.background.enabled).next;
+        else if(action==='settle')next=settleAward(p23Growth,context,8).next;
+        else throw Error('Unknown study conditioning choice.');
+    }
+    state.sequence++;
+    const earned=freezeEarnedGrowth(p23GrowthEarned,next,context,state.sequence);
+    next=earned.profile;
+    const nativePatch={p23_growth_profile:next};
+    if(earned.counter!==undefined)nativePatch.p23_growth_earned=earned.counter;
+    if(action==='enroll')nativePatch[`availabilities/trader/${GROWTH_COUNTER_ID}`]=1;
+    persistExpansion({state,gameplay,external:{money:character.money},nativePatch});
+    if(action==='enroll')p23GrowthCounter.getAvailabilityComponent().is_unlocked=true;
+    growthPanel?.render();
+}
+function growthFrame() {
+    if(!growthLearned(expansionState))return {visible:false,sequence:expansionState.sequence,lines:[],actions:[]};
+    const c=growthContext(),view=p23Growth&&growthView(p23Growth,c),actions=[],lines=[];
+    const unavailable=!c.bodySupported||c.worldId!==PROFILE.worldId;
+    if(unavailable)return {visible:true,sequence:expansionState.sequence,lines:['This known method is dormant in the current body or world. Saved progress is retained.'],actions};
+    const disabled=!c.ownsSave||c.saveBlocked?'Restore writable saving.':!c.nativeEligible?'Current native body, place or preparation blocks study conditioning.':'';
+    if(!p23Growth){lines.push('You learned the optional visitor method. Enrollment is a separate choice; background starts off.');actions.push({id:'enroll',label:'Enroll in study conditioning',reason:disabled||(!c.idle?'Finish current work.':'')});}
+    else {
+        lines.push(`Study conditioning level ${view.level}; ${view.totalXP} local XP; next total ${view.nextTotalXP??'beyond current numeric storage'}; ${view.pendingXP} pending XP.`);
+        lines.push(`Earned local native skill XP since enrollment: ${(p23GrowthEarned?.earnedUnits||0)/100} / ${GROWTH_EARNED_THRESHOLD} (proposal threshold). Older XP is not backfilled. ${p23GrowthEarned?.awardedUnits ? `${p23GrowthEarned.awardedUnits/(GROWTH_EARNED_THRESHOLD*100)} threshold rewards frozen. `:''}Each further150000 genuinely earned XP can fund another reward after pending work settles.`);
+        lines.push(`${view.tonics} tonics consumed. Each adds 2 permanent raw max-health to this profile, with no healing.`);
+        lines.push(`Background ${p23Growth.background.enabled?'on':'off'}: ${view.background.reason}`);
+        actions.push({id:'background',label:`Turn background conditioning ${p23Growth.background.enabled?'off':'on'}`,reason:!c.ownsSave||c.saveBlocked?'Restore writable saving.':!p23Growth.background.enabled?disabled:''});
+        if(view.pendingXP)actions.push({id:'settle',label:'Settle pending XP: next eight steps',reason:!c.ownsSave||c.saveBlocked?'Restore writable saving.':!c.nativeAlive?'A living supported body is required.':''});
+        actions.push({id:'buy',label:'Buy one native tonic at the visitor counter: 25 coins',reason:disabled||(!c.idle||!c.shopEligible?'Use the known visitor counter while free at Village Center.':'')});
+        actions.push({id:'consume',label:'Consume one owned tonic: +2 max-health, no healing',reason:disabled||(!c.idle?'Finish current work.':!(character.getItems()[GROWTH_TONIC_KEY]?.count>0)?'Carry your own tonic.':'')});
+    }
+    return {visible:true,sequence:expansionState.sequence,lines,actions};
+}
+
 function studyContext(state=expansionState,gameplay=gameplaySnapshot()) {
     const body=currentNativeBody(),current=state.p23Reading?.current;
     const held=key=>{try{assertNativeItemDisposition(state,key);return gameplay.player.inventory[key]>0;}catch{return false;}};
@@ -599,6 +784,130 @@ let p23CombatOptions;
 let combatOptionsPanel;
 let p23EscapeDestination=null;
 let p23FaintDeparture=null;
+let p23EncounterProfile, p23EncounterReceipt, trainingPanel;
+function trainingContext({allowFainted=false}={}) {
+    const state=expansionState,body=currentNativeBody(),person=state.simulation?.people.player,visit=activeProto23Visit(state);
+    const at=current_location?.id,health=character.getFullStats().health;
+    let custodyReady=true;
+    for(const item of Object.values(character.getEquipment()).filter(Boolean)) {
+        try {assertNativeItemDisposition(state,item.getInventoryKey());} catch {custodyReady=false;}
+    }
+    const eligible=workLedgerCanWrite()&&!!state.proto23Village&&!!visit&&state.actors.player.worldId===WORLD_ID&&
+        [PROTO23_LOCATIONS.dojo,AREA_ID].includes(at)&&person?.location===at&&person.life==='alive'&&person.inventory==='native'&&
+        body.id==='native.player.body'&&body.form==='human'&&body.ownerId==='player'&&body.controllerId==='player'&&
+        person.body?.id===body.id&&person.body?.form===body.form&&(person.body?.hands??0)>=2&&person.body?.mobile===true&&
+        custodyReady&&nativeActionReasons(state).length===0&&!current_activity&&!current_game_action&&!current_dialogue&&!is_reading&&!is_sleeping&&!is_in_trade()&&
+        (allowFainted||(character.is_alive===true&&health>0&&!active_effects.Recovering));
+    return {worldId:state.actors.player.worldId,locationId:at,nativeEligible:eligible};
+}
+function trainingTravelMinutes() {
+    const edge=locations[PROTO23_LOCATIONS.dojo].connected_locations.find(row=>row.location===locations[AREA_ID]);
+    if(!edge||!Number.isFinite(edge.travel_time)||edge.travel_time<0)throw Error('The actual dojo route is unavailable.');
+    const paths=new Pathfinder();
+    return Math.max(1,Math.round(edge.travel_time*paths.get_total_skills_modifier(edge.travel_time_skills||['Running'])));
+}
+function trainingTravelPlan(to,{profile,encounter,allowFainted=false}={}) {
+    const live=trainingContext({allowFainted});
+    if(!live.nativeEligible)throw Error('Use your actual supported independent visitor body at this dojo rung.');
+    const source=current_location.id;
+    if(!((source===PROTO23_LOCATIONS.dojo&&to===AREA_ID)||(source===AREA_ID&&to===PROTO23_LOCATIONS.dojo)))throw Error('Use the actual dojo training route.');
+    const state=structuredClone(expansionState),minutes=trainingTravelMinutes();
+    const plan=advanceChroniclePlan({state,external:{money:character.money},gameplay:gameplaySnapshot()},minutes,true);
+    if(plan.state.clock-state.clock!==minutes)throw Error('Finish the current native decision before taking the dojo route.');
+    if(plan.state.sequence>=Number.MAX_SAFE_INTEGER)throw Error('Native sequence exhausted.');
+    plan.state.sequence++;plan.state.simulation.people.player.location=to;plan.nativeLocation=to;
+    plan.nativePatch={...plan.nativePatch,'current location':to,native_encounter:encounter??null,
+        [`availabilities/location/${AREA_ID}`]:1,...(profile===undefined?{}:{p23EncounterProfile:profile})};
+    return plan;
+}
+function actTraining(id) {
+    if(id==='defensive'||id==='normal') {
+        if(current_location.id!==AREA_ID||!current_combat||!trainingContext().nativeEligible||!stances[id]?.isUnlocked())throw Error('Choose an available native stance in the actual training fight.');
+        change_stance({stance_id:id});trainingPanel?.render();return;
+    }
+    if(id==='enter') {
+        if(current_location.id!==PROTO23_LOCATIONS.dojo||current_combat||character.getFullStats().health<=1)throw Error('Enter this optional rung from the actual dojo lobby with a living free body.');
+        const anchor=expansionState,plan=trainingTravelPlan(AREA_ID),profile=readProfileState(p23EncounterProfile);
+        if(profile.pending)throw Error('Finish or leave the actual pending training attempt first.');
+        const seed=Math.floor(drawUnit(plan.state,scopedStream(STREAMS.encounter,WORLD_ID),`${PROFILE_ID}:${profile.nextAttempt}`)*0x100000000)>>>0;
+        const next=beginAttempt(profile,{seed,worldId:WORLD_ID,locationId:AREA_ID,nativeEligible:true});
+        plan.nativePatch.p23EncounterProfile=next;plan.nativePatch.native_encounter=initialTrainingEncounter(next,Enemy);
+        if(expansionState!==anchor)throw Error('The actual training admission changed.');
+        persistExpansion(plan);trainingPanel?.render();return;
+    }
+    if(id==='leave') {
+        if(current_location.id!==AREA_ID||!p23EncounterProfile?.pending||!trainingContext().nativeEligible)throw Error('Leave your actual live training attempt.');
+        if(current_combat) {
+            runP23CombatExchange(current_combat,()=>{
+                p23EncounterProfile=finishAttempt(p23EncounterProfile,{...trainingContext(),abandon:true});
+                p23EscapeDestination=PROTO23_LOCATIONS.dojo;
+                return {ended:true};
+            });
+        } else {
+            const profile=finishAttempt(p23EncounterProfile,{...trainingContext(),abandon:true});
+            persistExpansion(trainingTravelPlan(PROTO23_LOCATIONS.dojo,{profile,encounter:null}));
+        }
+        trainingPanel?.render();return;
+    }
+    throw Error('Unknown reed-circle training choice.');
+}
+function trainingFrame() {
+    const at=current_location?.id,world=expansionState.actors.player.worldId;
+    if(world!==WORLD_ID||![PROTO23_LOCATIONS.dojo,AREA_ID].includes(at))return {visible:false,lines:[],actions:[]};
+    const profile=p23EncounterProfile===undefined?null:readProfileState(p23EncounterProfile),pending=profile?.pending;
+    const lines=['Optional repeatable native rung, levels 1–3. Each actual clear returns to this dojo; enter again to repeat.'];
+    if(pending) {
+        const preview=previewExchange(profile,{worldId:WORLD_ID,locationId:AREA_ID,nativeEligible:true});
+        lines.push(`Construct level ${pending.level}. Next intent: ${preview.move||'ordinary strike'}. ${preview.counterHint}`);
+        lines.push(`Exchange ${pending.exchange}. ${pending.offBalance?'Off balance: your AP against this construct is ×0.8 until its next exchange.':'Footing steady.'}`);
+    }
+    if(profile)lines.push(`${profile.completed} actual clears; next attempt ${profile.nextAttempt}.`);
+    if(p23EncounterReceipt)lines.push(`Native receipt ${p23EncounterReceipt.eventId}: level ${p23EncounterReceipt.level}; ${p23EncounterReceipt.loot.length?p23EncounterReceipt.loot.map(row=>`${row.count} ${row.item_id}`).join(', '):'no area drop'}.`);
+    const actions=at===PROTO23_LOCATIONS.dojo?[{id:'enter',label:'Enter the optional reed-circle rung · native dojo travel'}]:[
+        {id:'defensive',label:'Use Defensive Measures',disabled:!stances.defensive.isUnlocked()||!current_combat},
+        {id:'normal',label:'Use normal stance',disabled:!current_combat},
+        {id:'leave',label:'Leave alive for the dojo · no training rewards'}];
+    if(!stances.defensive.isUnlocked())lines.push('Defensive Measures is still locked. Learn it through your existing native route; this rung grants no stance.');
+    return {visible:true,lines,actions,disabled:!trainingContext().nativeEligible||(at===PROTO23_LOCATIONS.dojo&&!!current_combat)};
+}
+function trainingHooks() {
+    const matching=(combat,target)=>combat===current_combat&&!combat.is_special_combat&&p23EncounterProfile?.pending&&!p23EncounterProfile.pending.settled&&
+        current_location.id===AREA_ID&&combat.defenders.length===1&&target===combat.defenders[0]&&target.rngKey===trainingEnemyKey(p23EncounterProfile.pending.attempt);
+    return {
+        admitExchange:({combat,fighter,is_attacker,targets})=>trainingContext().nativeEligible&&matching(combat,combat.defenders[0])&&
+            (is_attacker?fighter===character&&targets.every(t=>t===combat.defenders[0]):fighter===combat.defenders[0]&&targets.every(t=>t===character)),
+        previewExchange:()=>trainingPanel?.render(),
+        beforeExchange:({combat,fighter,is_attacker})=>{
+            if(is_attacker)return;
+            if(!matching(combat,fighter))throw Error('The native training exchange changed.');
+            const plan=planExchange(p23EncounterProfile,{...trainingContext(),stanceId:current_stance.id});
+            p23EncounterProfile=plan.state;
+            if(plan.message)nativeCraftMessage(plan.message,'notification');
+        },
+        attackPointsMultiplier:({combat,fighter,target})=>fighter===character&&matching(combat,target)&&p23EncounterProfile.pending.offBalance?0.8:1,
+        planDefeat:({combat,fighter,target,dropChanceModifier})=>{
+            if(fighter!==character||!matching(combat,target)||target.getFullStats().health>0)throw Error('A matching real native construct defeat is required.');
+            const expected=p23EncounterProfile,pending=expected.pending;
+            const plan=planSettlement(expected,{...trainingContext(),eventId:`p23.reed-circle:${pending.attempt}:kill`,rank:target.rank,defeated:true,dropChanceModifier});
+            if(plan.duplicate)return plan;
+            const loot=[...target.get_loot({drop_chance_modifier:dropChanceModifier}),...plan.loot];
+            for(const row of loot)if(!item_templates[row.item_id]||!Number.isSafeInteger(row.count)||row.count<=0)throw Error('Training settlement has an unsupported native item.');
+            return {...plan,loot,areaLoot:plan.loot,expected,pending:{...pending}};
+        },
+        afterDefeat:({combat,fighter,target,settlement,dropChanceModifier})=>{
+            if(settlement?.duplicate)return;
+            if(!settlement||settlement.expected!==p23EncounterProfile||fighter!==character||target!==combat.defenders[0])throw Error('The native training settlement quote changed.');
+            const zone=locations[AREA_ID];if(zone.enemy_groups_killed>=Number.MAX_SAFE_INTEGER)throw Error('Training group cursor exhausted.');
+            p23EncounterProfile=finishAttempt(settlement.state,trainingContext());zone.enemy_groups_killed++;
+            p23EncounterReceipt={schema:1,eventId:settlement.eventId,attempt:settlement.pending.attempt,seed:settlement.pending.seed,
+                level:settlement.pending.level,clock:expansionState.clock,completed:p23EncounterProfile.completed,dropChanceModifier,loot:structuredClone(settlement.areaLoot)};
+            do_quest_event({quest_event_type:'clear',quest_event_target:AREA_ID,quest_event_count:1});
+            nativeCraftMessage(`Native receipt ${settlement.eventId}: level ${settlement.pending.level} training clear. Return to the dojo to repeat.`,'notification');
+            p23EscapeDestination=PROTO23_LOCATIONS.dojo;
+        },
+    };
+}
+
 function livingFrame(){
     if(p23LivingGear===undefined)return {rows:[],attackMultiplier:1,lightBonus:0,disabled:true};
     const owner=livingOwner(),assertDisposition=key=>{assertNativeItemDisposition(expansionState,key);assertNativeItemDisposition(expansionState,canonicalDurabilityKey(key));};
@@ -690,6 +999,16 @@ const molNative=createMolNativeBindings({NPC,NPCRegistry,SafeLocation,locations,
 molNative.register();
 const proto23Native=createProto23NativeBindings({NPC,NPCRegistry,SafeLocation,locations,availabilities,InventoryComponent,inventories,TraderComponent,Quest,QuestTask,quests,activeQuests:active_quests,Game_Time,getItemFromKey,getNativeContext:get_context,getCurrentLocation:()=>current_location?.id||null,getNativeBody:currentNativeBody});
 proto23Native.register();
+item_templates[PROFILE.tonicId] ||= new OtherItem({id:PROFILE.tonicId,name:PROFILE.tonicId,value:PROFILE.tonicPrice,saturates_market:false,description:'Optional learned visitor tonic: +2 raw max-health on the enrolled body, no healing.'});
+inventoryTemplates[GROWTH_COUNTER_TEMPLATE]=[new TradeItemGroup({items:[new TradeItem({item_name:PROFILE.tonicId,count:[4],chance:1})]})];
+p23GrowthCounter=new TraderComponent({name:'Proto23 visitor tonic counter',inventory_template:GROWTH_COUNTER_TEMPLATE,profit_margin:1,refresh_time:4,is_unlocked:false});
+NPCRegistry.add(GROWTH_COUNTER_ID,new NPC({name:'Proto23 visitor tonic counter',trader:p23GrowthCounter,is_unlocked:false,description:'A separate visitor tonic counter at the known Village Center.'}));
+registerTrainingProfile({locations,enemyTemplates:enemy_templates,Enemy,CombatZone});
+registerMistglassNative(expeditionRegistry);
+item_templates[MISTGLASS.doseItemId] ||= new OtherItem({id:MISTGLASS.doseItemId,name:mistglassContent.dose.label,description:mistglassContent.dose.description,value:3,saturates_market:false});
+mistglassKeeper=new TraderComponent({name:'conservatory keeper',inventory_template:'Basic',profit_margin:1,is_unlocked:true,played_minute_refresh:refreshMistglassStock});
+NPCRegistry.add(MISTGLASS_KEEPER,new NPC({name:'conservatory keeper',trader:mistglassKeeper,is_unlocked:true,description:'Keeper of the optional Mistglass conservatory.'}));
+locations[MISTGLASS_LOCATION]=new SafeLocation({id:MISTGLASS_LOCATION,name:'Mistglass conservatory',description:'An original optional conservatory. Native played exposure feeds its learned condensate method.',npcs:[MISTGLASS_KEEPER],market_region:locations.Village.market_region,is_under_roof:true,is_unlocked:true});
 function nativeCareFrame() {
     return {clock:expansionState.clock,calendarMinute:calendarMinutes(current_game_time),underRoof:current_location?.is_under_roof===true,
         battleRunning:!!current_combat,effects:Object.fromEntries(Object.entries(active_effects).map(([id,e])=>[id,{duration:e.duration}]))};
@@ -949,7 +1268,7 @@ function createPacingStatusPanel() {
     const panel=document.createElement('details');panel.id='pacing_status_panel';panel.className='expedition_panel';
     const title=document.createElement('summary');title.textContent='Optional pacing';const text=document.createElement('p');panel.append(title,text);
     const render=()=>{const host=document.getElementById('location_actions_div');if(panel.parentElement!==host)host.append(panel);
-        panel.hidden=!!current_dialogue||!!current_combat;text.textContent=pacingStatus(getPacingState(),homePacingContext()).replace('Total XP ×','Base pacing XP ×')+` Native XP ×${getPacingEffects(homePacingContext()).efficiency.toFixed(5)}. `+exposureStatus(p23Exposure,p00ExposureContext(),Object.keys(skills).filter(id=>nativeSkillDiscovery(skills[id],character)));p23ExposurePanel?.render();householdPanel?.render();livingGearPanel?.render();combatOptionsPanel?.render();};
+        panel.hidden=!!current_dialogue||!!current_combat;text.textContent=pacingStatus(getPacingState(),homePacingContext()).replace('Total XP ×','Base pacing XP ×')+` Native XP ×${getPacingEffects(homePacingContext()).efficiency.toFixed(5)}. `+exposureStatus(p23Exposure,p00ExposureContext(),Object.keys(skills).filter(id=>nativeSkillDiscovery(skills[id],character)));p23ExposurePanel?.render();householdPanel?.render();livingGearPanel?.render();combatOptionsPanel?.render();trainingPanel?.render();};
     render();return {render};
 }
 
@@ -1273,6 +1592,8 @@ function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}) {
         const result=observeReadingClock(plan.state.p23Reading,context);
         stageReadingResult(plan,result,{books:nativeBooksSnapshot(),quoteXP:p00NativeSkillXP});
     }
+    stageMistglassAdvance(plan,nativeMistglassContext(),expeditionRegistry,{quoteXP:p00NativeSkillXP});
+    if(plan.nativeLocation || plan.state.actors.player.worldId!==expansionState.actors.player.worldId)stageMistglassAdvance(plan,nativeMistglassContext(plan.state,plan.nativeLocation||current_location?.id),expeditionRegistry,{quoteXP:p00NativeSkillXP});
     stageP00Time(plan);
     // Non-person pack inventories are native registry owners. Their contents
     // publish through the existing ownership transaction after durable saving.
@@ -1391,6 +1712,8 @@ function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}) {
         applyGameplayEffect(future, {type: "xp", skill: p.xpSkill, amount: Math.max(...p.rewards) * p.xpPerPoint}, "player");
         prepareGameplayPublication(future, {actors: actorBindings, skills, getItemFromKey, unlockAdapter});
     }
+    stageGrowthNativeGrants(plan);
+    stageGrowthForPublication(plan);
     const nativePublications=[tidemarkNative.stage(plan),nestedNative.stage(plan),paradiseNative.stage(plan),molNative.stage(plan),proto23Native.stage(plan),causalNative.stage(plan),prepareContextualBalmNative(expansionState,plan,{activeEffects:active_effects,itemTemplates:item_templates,effectTemplates:effect_templates,ActiveEffect,refresh:()=>{update_displayed_effects();character.addActiveEffectBonus(active_effects);character.updateStatsAndDisplay();}})];
     const nativePublication={write:envelope=>nativePublications.forEach(p=>p.write(envelope)),publish:()=>nativePublications.forEach(p=>p.publish())};
     try {persistExpansionPlan(plan, {createSave: create_save, storage: lifeSaveStorage, bindings: stagedGameplay.bindings, ownershipBindings, unlockPublication, equipmentPublication, nativePublication,
@@ -1433,12 +1756,18 @@ function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}) {
         if(plan.p00EffectPublication.resetRain)rain_counter=0;character.addActiveEffectBonus(active_effects);character.updateStatsAndDisplay();update_displayed_effects();}
     if(expansionState.chronicle?.life.endedAt != null) character.is_alive = false;
     if(plan.nativePatch?.combatOptions){p23CombatOptions=structuredClone(plan.nativePatch.combatOptions);if(current_combat&&!current_combat.is_special_combat){current_combat.combatOptions=combatRuntime();current_combat.nextCombatEvent=()=>current_combat.combatOptions.snapshot().lastEvent+1;current_combat.nativeExchangeHost=runP23CombatExchange;}}
+    if(Object.hasOwn(plan.nativePatch||{},'p23EncounterProfile'))p23EncounterProfile=readProfileState(plan.nativePatch.p23EncounterProfile);
+    if(Object.hasOwn(plan.nativePatch||{},'native_encounter'))pendingNativeEncounter=plan.nativePatch.native_encounter;
+    if(plan.nativePatch?.[`availabilities/location/${AREA_ID}`]===1)locations[AREA_ID].getAvailabilityComponent().is_unlocked=true;
     if(plan.nativePatch?.p23_living_gear)p23LivingGear=structuredClone(plan.nativePatch.p23_living_gear);
     if(plan.nativePatch?.equipment_durability)durability.load(plan.nativePatch.equipment_durability);
     if(plan.nativePatch?.p23_salvage)p23Salvage=loadSalvage(plan.nativePatch.p23_salvage);
     if(plan.nativePatch?.['character/titles'])character.titles=structuredClone(plan.nativePatch['character/titles']);
     if(plan.nativePatch?.['character/long_life_worn'])character.long_life_worn=validateWornTitle(plan.nativePatch['character/long_life_worn'],character.titles);
     if(plan.nativePatch?.['character/titles'] || plan.nativePatch?.['character/long_life_worn'])character.setTitleBonus(longLifeTitleBonuses(character.titles,character.long_life_worn));
+    if(Object.hasOwn(plan.nativePatch||{},'p23_growth_profile'))p23Growth=structuredClone(plan.nativePatch.p23_growth_profile);
+    if(Object.hasOwn(plan.nativePatch||{},'p23_growth_earned'))p23GrowthEarned=structuredClone(plan.nativePatch.p23_growth_earned);
+    if(plan.nativePatch?.[`availabilities/trader/${GROWTH_COUNTER_ID}`]===1)p23GrowthCounter.getAvailabilityComponent().is_unlocked=true;
     publishStudy(plan);
     if(plan.absorbPublish)plan.absorbPublish();
     publishP23Activity(plan);
@@ -1446,6 +1775,7 @@ function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}) {
     unlockPublication.publish();
     if(plan.revealLesson)log_message('Handling twenty Golmoon leaves taught you a preparation. Review it in Learned preparations.','notification');
     equipmentPublication.publish();
+    if(plan.p00GrowthSource)publishGrowthProjection(plan.p00GrowthSource);
     publishNativeVitals(plan.native,character);
     projectNativePeopleBodies();
     ownershipPublication?.publish();
@@ -1493,6 +1823,7 @@ function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}) {
         partyPanel?.render(); exchangePanel?.render(); observationPanel?.render(); pocketRealmPanel?.render();skillExpansionPanel?.render();originalFrontierPanel?.render();featureExpansionPanel?.render();foundationInteractionPanel?.render();causalStoryPanel?.render();
         backlogPanel?.render();replacementRecognitionPanel?.render();backlogOpeningPanel?.render();repositoryPanel?.render();inkPanel?.render();nestedInkPanels?.render();
         knownRoutesPanel?.render();adventureNotebook?.render();livingGearPanel?.render();combatOptionsPanel?.render();localLifePanel?.render();practicePanel?.render();updateWorkspace();fortControls?.render();pacingPanel?.render();pacingStatusPanel?.render();durabilityPanel?.render();elementalPanel?.render();livingGearPanel?.render();combatOptionsPanel?.render();householdPanel?.render();
+        growthPanel?.render();mistglassPanel?.render();
         expansionQuests?.render();
         trancheFourPanel?.render();lifeRecordPanel?.render();
         characterBio?.render();
@@ -1503,6 +1834,7 @@ function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}) {
 }
 
 function commitNativeTrade(quote, currentQuote) {
+    if(quote.vendorId===GROWTH_COUNTER_ID)throw Error('Use the exact funded tonic purchase in Study conditioning.');
     if(simulationOccupiesActor(expansionState) || waitingSimulationChoice(expansionState)) throw new Error("Finish your living-world work or decision before trading.");
     if(expansionState.pending.some(job => job.context.actorId === "player") || activePractice(expansionState.actors.player)) throw new Error("Finish your expedition or technique drill before trading.");
     for(const item of quote.sell) assertNativeItemDisposition(expansionState,item.item_key);
@@ -2679,6 +3011,10 @@ function change_current_location(location_key) {
  * @param {Boolean} params.skip_combat used to not call start_combat function, used in loading as it's only called after 'PLAY' button is clicked
  */
 function change_location({location_id, event, skip_travel_time = false, do_quest_events = true, skip_combat = false,realm_move=false}) {
+    if(!realm_move&&!restoringNativeSave&&current_location?.id===MISTGLASS_LOCATION&&location_id!==MISTGLASS_LOCATION){log_message('Use Return to Village to close this retained visit.','notification');return;}
+    if(!realm_move&&!restoringNativeSave&&location_id===MISTGLASS_LOCATION&&current_location?.id!==MISTGLASS_LOCATION)return actMistglass('enter');
+    if(!realm_move&&!restoringNativeSave&&current_location?.id===AREA_ID&&location_id===PROTO23_LOCATIONS.dojo)return actTraining('leave');
+    if(!realm_move&&!restoringNativeSave&&current_location?.id===PROTO23_LOCATIONS.dojo&&location_id===AREA_ID)return actTraining('enter');
     if(!restoringNativeSave&&!realm_move&&location_id!==current_location?.id)interruptP23NativeWork();
     if(!restoringNativeSave&&location_id!==current_location?.id){const row=expansionState.p23Reading?.current;if(row?.kind==='rest')actStudy('cancelRest');else if(row?.status==='active')actStudy('stopRead');}
     if(!realm_move&&!restoringNativeSave&&optionalPackState.structured&&location_id!==current_location?.id&&!optionalPackState.structured.locationIds.includes(location_id)){log_message('Continue through your local routes.','notification');return;}
@@ -4215,15 +4551,16 @@ function set_new_combat({enemies} = {}) {
     pendingNativeEncounter = null;
     if(savedEncounter && !enemies) {
         enemies=savedEncounter.enemies.map(row=>{
-            const e=new Enemy({...enemy_templates[row.template],stats:{...row.stats}});
+            const e=current_location.id===AREA_ID?trainingEnemy(p23EncounterProfile,Enemy,row):new Enemy({...enemy_templates[row.template],stats:{...row.stats}});
             e.init();Object.assign(e.getFullStats(),row.full);e.is_alive=row.alive;
             e.rngKey=row.key;e.encounterKey=savedEncounter.key;e.templateKey=row.template;return e;
         });
     }
+    if(current_location.id===AREA_ID&&!savedEncounter&&!enemies)throw Error('Restore the durably admitted native training encounter.');
     enemies ||= current_location.get_next_enemies();
     if(!savedEncounter&&p23CombatOptions?.phase==='escaped')p23CombatOptions={...p23CombatOptions,phase:'active'};
 
-    current_combat = new Combat({attackers: [character], defenders: enemies, savedEncounter,nativeExchangeHost:runP23CombatExchange,combatOptions:p23CombatOptions===undefined?undefined:combatRuntime(),nextCombatEvent:()=>{const n=current_combat.combatOptions.snapshot().lastEvent;if(n>=Number.MAX_SAFE_INTEGER)throw Error('Combat event cursor exhausted.');return n+1;}});
+    current_combat = new Combat({attackers: [character], defenders: enemies, savedEncounter,encounterProfile:current_location.id===AREA_ID?{id:PROFILE_ID,dropChanceModifier:1}:undefined,encounterHooks:current_location.id===AREA_ID?trainingHooks():undefined,nativeExchangeHost:runP23CombatExchange,combatOptions:p23CombatOptions===undefined?undefined:combatRuntime(),nextCombatEvent:()=>{const n=current_combat.combatOptions.snapshot().lastEvent;if(n>=Number.MAX_SAFE_INTEGER)throw Error('Combat event cursor exhausted.');return n+1;}});
     // A durable technique observation can occur after the last kill but before
     // the zone clear. Resume that boundary without awarding the kill twice.
     if(savedEncounter && p23CombatOptions&&['exchange-break','encounter-break'].includes(p23CombatOptions.phase)){current_combat.showPausedCombatOptions();combatOptionsPanel?.render();return;}
@@ -4299,12 +4636,13 @@ function runP23CombatExchange(combat,resolve) {
     let transaction,scope;
     try {
         validateCombatOptions(combat.combatOptions?.snapshot());if(p23LivingGear!==undefined)createLivingGear(p23LivingGear);
-        transaction=beginNativeCraftTransaction({owners:[expansionState,character,character.getItems(),character.getLevelableComponent(),character.getEquipment(),character.getBioComponent(),...combat.defenders,...combat.defenders.map(enemy=>enemy.getLevelableComponent()),item_log,game_stats,global_flags,availabilities,enemy_killcount,favourite_consumables,favourite_items,favourite_locations,
+        transaction=beginNativeCraftTransaction({owners:[expansionState,character,character.getItems(),character.getLevelableComponent(),character.getEquipment(),character.getBioComponent(),...combat.defenders,...combat.defenders.map(enemy=>enemy.getLevelableComponent()),...(current_location.id===AREA_ID?[locations[AREA_ID],locations[AREA_ID].getAvailabilityComponent()]:[]),item_log,game_stats,global_flags,availabilities,enemy_killcount,favourite_consumables,favourite_items,favourite_locations,
             ...Object.values(skills).map(skill=>skill.getAvailabilityComponent()),which_skills_affect_skill,active_effects,...nativeCraftQuestOwners(quests,active_quests)],
-            bindings:[{get:()=>p23DropObservations,set:v=>{p23DropObservations=v;}},{get:()=>expansionState,set:v=>{expansionState=v;}},{get:()=>p23LivingGear,set:v=>{p23LivingGear=v;}},{get:()=>p23CombatOptions,set:v=>{p23CombatOptions=v;}},{get:()=>current_combat,set:v=>{current_combat=v;}},{get:()=>current_location,set:v=>{current_location=v;}},{get:()=>pathfinder,set:v=>{pathfinder=v;}},{get:()=>travel_times,set:v=>{travel_times=v;}}]});
+            bindings:[{get:()=>p23Growth,set:v=>{p23Growth=v;}},{get:()=>p23GrowthEarned,set:v=>{p23GrowthEarned=v;}},{get:()=>p23EncounterProfile,set:v=>{p23EncounterProfile=v;}},{get:()=>p23EncounterReceipt,set:v=>{p23EncounterReceipt=v;}},{get:()=>pendingNativeEncounter,set:v=>{pendingNativeEncounter=v;}},{get:()=>p23DropObservations,set:v=>{p23DropObservations=v;}},{get:()=>expansionState,set:v=>{expansionState=v;}},{get:()=>p23LivingGear,set:v=>{p23LivingGear=v;}},{get:()=>p23CombatOptions,set:v=>{p23CombatOptions=v;}},{get:()=>current_combat,set:v=>{current_combat=v;}},{get:()=>current_location,set:v=>{current_location=v;}},{get:()=>pathfinder,set:v=>{pathfinder=v;}},{get:()=>travel_times,set:v=>{travel_times=v;}}]});
         scope={transaction,messages:[]};nativeP23Scope=scope;nativeCraftScopes.push(scope);
         nativeP23Transaction=transaction;nativeLivingStrike=true;result=resolve();
         if(combat.combatOptions)p23CombatOptions=combat.combatOptions.snapshot();
+        if((p23EscapeDestination||p23FaintDeparture)&&current_location.id===AREA_ID&&p23EncounterProfile?.pending)p23EncounterProfile=finishAttempt(p23EncounterProfile,{...trainingContext({allowFainted:true}),abandon:true});
         if(p23EscapeDestination||p23FaintDeparture){
             const destination=p23EscapeDestination||p23FaintDeparture.destination,paths=new Pathfinder();paths.fill_connections(locations);
             const minutes=paths.find_shortest_paths(current_location.id)[destination];
@@ -4312,15 +4650,16 @@ function runP23CombatExchange(combat,resolve) {
             const plan=advanceChroniclePlan({state:expansionState,external:{money:character.money},gameplay:gameplaySnapshot()},minutes,true);
             if(plan.state.clock-expansionState.clock!==minutes)throw Error('Finish the pending local decision before escaping.');
             plan.nativeLocation=destination;plan.nativePatch={...plan.nativePatch,'current location':destination,native_encounter:null};
-            if(p23CombatOptions!==undefined){if(p23FaintDeparture)p23CombatOptions={...p23CombatOptions,phase:'active',selected:null,breakRequested:false};plan.nativePatch.combatOptions=p23CombatOptions;}
+            if(p23CombatOptions!==undefined){if(p23FaintDeparture||current_location.id===AREA_ID)p23CombatOptions={...p23CombatOptions,phase:'active',selected:null,breakRequested:false};plan.nativePatch.combatOptions=p23CombatOptions;}
             if(p23FaintDeparture){add_active_effect('Recovering',2);if(p23FaintDeparture.sleep)plan.nativePatch.is_sleeping=true;stageP23Defeat(plan);}
+            if(current_location.id===AREA_ID){plan.nativePatch.p23EncounterProfile=p23EncounterProfile;plan.state.simulation.people.player.location=destination;}
             persistExpansion(plan);if(p23FaintDeparture?.sleep)start_sleeping();
         }else{
             const text=create_save();if(!text)throw Error('Native combat save could not be constructed.');
             validateSaveEnvelope(JSON.parse(text),game_version);
             lifeSaveStorage.setItem(is_on_dev()?dev_save_key:save_key,text,()=>transaction.markDurable());
         }
-        character.addActiveEffectBonus(active_effects);character.updateStatsAndDisplay();livingGearPanel?.render();combatOptionsPanel?.render();
+        character.addActiveEffectBonus(active_effects);character.updateStatsAndDisplay();livingGearPanel?.render();combatOptionsPanel?.render();trainingPanel?.render();
         return result;
     }catch(error){
         nativeP23Scope=null;
@@ -4438,7 +4777,7 @@ function kill_player({is_combat = true}) {
     if(nativeLivingStrike&&is_combat){
         game_stats.total_deaths++;log_message('%HeroName% has lost consciousness','hero_defeat');
         const sleep=!!(game_options.auto_return_to_bed&&last_location_with_bed&&(!optionalPackState.structured||optionalPackState.structured.locationIds.includes(last_location_with_bed)));
-        p23FaintDeparture={destination:sleep?last_location_with_bed:current_location.parent_location.id,sleep};return;
+        p23FaintDeparture=current_location.id===AREA_ID?{destination:PROTO23_LOCATIONS.dojo,sleep:false}:{destination:sleep?last_location_with_bed:current_location.parent_location.id,sleep};return;
     }
     if(is_combat) {
         if(p23Leisure){const plan=p23Plan();stageP23Defeat(plan,game_stats.total_deaths+1);persistExpansion(plan);}
@@ -4505,7 +4844,10 @@ function add_xp_to_skill({skill, xp_to_add = 1, should_info = true, use_bonus = 
     if(!is_from_loading && !restoringNativeSave && use_bonus) xp_to_add *= furnitureSkillMultiplier(readFurnitureBonuses(), skill.skill_id);
 
     if(!is_from_loading&&!restoringNativeSave)xp_to_add*=getPacingEffects(homePacingContext()).efficiency;
+    const growthNativeBefore=!is_from_loading&&!restoringNativeSave&&p23Growth?readNativeSkillXP(character.getLevelableComponent().skill_progress):null;
     let {leveled, prev_name, new_name, was_hidden, message, unlocks} = character.addXPToSkill({skill, xp_to_add, should_info, use_bonus, add_to_parent, cap_gained_xp, is_from_loading, do_quest_events});
+
+    if(growthNativeBefore)recordGrowthNativeGrant(growthNativeBefore,readNativeSkillXP(character.getLevelableComponent().skill_progress));
 
     const is_visible = skill.visibility_treshold <= skill.getTotalXP();
 
@@ -4859,7 +5201,7 @@ function use_recipe(target, amount=1){
         const transaction=beginNativeCraftTransaction({owners:[expansionState.streams,character,character.getItems(),character.getLevelableComponent(),item_log,game_stats,global_flags,availabilities,
             ...Object.values(skills).map(skill=>skill.getAvailabilityComponent()),which_skills_affect_skill,favourite_consumables,favourite_items,favourite_locations,active_effects,
             ...nativeCraftQuestOwners(quests,active_quests)],
-            bindings:[{get:()=>fortSupply,set:v=>{fortSupply=v;}},{get:()=>workLedger,set:v=>{workLedger=v;}},
+            bindings:[{get:()=>p23Growth,set:v=>{p23Growth=v;}},{get:()=>p23GrowthEarned,set:v=>{p23GrowthEarned=v;}},{get:()=>expansionState,set:v=>{expansionState=v;}},{get:()=>fortSupply,set:v=>{fortSupply=v;}},{get:()=>workLedger,set:v=>{workLedger=v;}},
                 {get:()=>pathfinder,set:v=>{pathfinder=v;}},{get:()=>travel_times,set:v=>{travel_times=v;}},{get:()=>current_location,set:v=>{current_location=v;}}]});
         scope={transaction,messages:[]};nativeCraftScopes.push(scope);
         return execute_native_recipe(target,amount);
@@ -5809,7 +6151,7 @@ function create_save({forExport = false} = {}) {
         });
         
         save_data["current location"] = current_location.id;
-        save_data.native_encounter = current_combat?.snapshot(current_location.id) || pendingNativeEncounter;
+        save_data.native_encounter = current_location.id===AREA_ID&&!p23EncounterProfile?.pending?null:(current_combat?.snapshot(current_location.id) || pendingNativeEncounter);
 
         save_data["locations"] = {};
         Object.keys(locations).forEach(function(key) { 
@@ -5992,7 +6334,11 @@ function create_save({forExport = false} = {}) {
         if(expansionState.p23Reading?.current?.kind==='rest')delete save_data.is_sleeping;
         if(p23DropObservations!==undefined)save_data.p23_drop_observations=structuredClone(p23DropObservations);
         if(loadedDisplayPreferences!==undefined || localStorage.getItem(DISPLAY_KEY)!==null)save_data.display_preferences=exportDisplayPreferences();
+        if(p23EncounterProfile!==undefined)save_data.p23EncounterProfile=readProfileState(p23EncounterProfile);
+        if(p23EncounterReceipt!==undefined)save_data.p23EncounterReceipt=structuredClone(p23EncounterReceipt);
         if(p23Salvage!==undefined)save_data.p23_salvage=structuredClone(p23Salvage);
+        if(p23Growth!==undefined)save_data.p23_growth_profile=structuredClone(p23Growth);
+        if(p23GrowthEarned!==undefined)save_data.p23_growth_earned=structuredClone(p23GrowthEarned);
         if(p23LivingGear!==undefined)save_data.p23_living_gear=structuredClone(p23LivingGear);
         if(p23CombatOptions!==undefined)save_data.combatOptions=current_combat?.combatOptions?.snapshot()||structuredClone(p23CombatOptions);
         save_data.fort_supply=structuredClone(fortSupply);
@@ -6126,9 +6472,14 @@ function load(save_data) {
             p23Repeat=Object.hasOwn(save_data,'absorb_repeat_search')?normalizeRepeatSearch(save_data.absorb_repeat_search):undefined;
             fortSupply=migrateFortSupply(save_data);
             durability.load(save_data.equipment_durability);
+            p23EncounterProfile=Object.hasOwn(save_data,'p23EncounterProfile')?readProfileState(save_data.p23EncounterProfile):undefined;
+            p23EncounterReceipt=save_data.p23EncounterReceipt===undefined?undefined:structuredClone(save_data.p23EncounterReceipt);
+            locations[AREA_ID].getAvailabilityComponent().is_unlocked=p23EncounterProfile!==undefined;
             validateCombatOptions(save_data.combatOptions);p23CombatOptions=save_data.combatOptions===undefined?undefined:structuredClone(save_data.combatOptions);
             p23LivingGear=save_data.p23_living_gear===undefined?undefined:livingOwnerFromSave(save_data);
             p23Salvage=save_data.p23_salvage===undefined?undefined:loadSalvage(save_data.p23_salvage);
+            p23Growth=save_data.p23_growth_profile===undefined?undefined:structuredClone(validateGrowthState(save_data.p23_growth_profile));
+            p23GrowthEarned=save_data.p23_growth_earned===undefined?undefined:structuredClone(validateGrowthEarned(save_data.p23_growth_earned));
             p23Exposure=validateExposure(save_data.p23_exposure);household=save_data.household===undefined?undefined:structuredClone(save_data.household);
             setPacingState(save_data.pacing_e1);pacingMinute=calendarMinutes(save_data["current time"]);
             if(localLife.lastClock==null)localLife.lastClock=calendarMinutes(save_data["current time"]);
@@ -7583,6 +7934,7 @@ function load(save_data) {
 
         set_loading_screen_progress("Hiding from the vet");
 
+        publishGrowthProjection(growthFlatSource(p23Growth,growthIdentity()),false);
         if(save_data.character.hp_to_full == null || save_data.character.hp_to_full >= full_stats.max_health) {
             full_stats.health = 1;
         } else {
@@ -8006,6 +8358,7 @@ function update_timer(time_in_minutes, source = null) {
     let minutes = time_in_minutes ?? (expansionState.p23Reading?.current?.kind==='rest' ? longRestClockRequest(expansionState.p23Reading,studyContext()) : is_sleeping ? config.time_speedup_when_sleeping : 1);
     if(p23Leisure?.pending&&p23Leisure.pending.due>expansionState.clock)minutes=Math.min(minutes,p23Leisure.pending.due-expansionState.clock);
     if(p23Leisure?.pending&&p23Leisure.pending.due<=expansionState.clock){try{persistExpansion(p23Plan());}catch(error){log_message(error.message,'notification');return 0;}}
+    minutes=mistglassNextBoundary(expansionState,expansionState.clock+minutes)-expansionState.clock;
     if(minutes === 0) return 0;
     if(usesJoinedClock()) {
         if(importProbeToken || !ownsSave || expansionError || foundationSaveBlocked || is_loading_error || expansionState.chronicle?.life.endedAt != null) return 0;
@@ -9282,8 +9635,11 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
     p23ExposurePanel=mountExposurePanel({host:document.getElementById('options_choices'),getState:()=>p23Exposure,getContext:p00ExposureContext,
         getKnownSkills:()=>Object.keys(skills).filter(id=>nativeSkillDiscovery(skills[id],character)),onChange:changeP00Exposure});
     combatOptionsPanel=createCombatOptionsPanel({read:tacticsFrame,act:actTactic});
+    trainingPanel=createTrainingPanel({read:trainingFrame,act:actTraining});
     livingGearPanel=createLivingGearPanel({read:livingFrame,spend:spendLivingCinders});
     readingSalvagePanel=createReadingSalvagePanel({read:studyFrame,act:(id,row)=>id==='identify'?identifySalvageCopy(row.key):id==='salvage'?craftSalvage(row.recipe,row.itemKey,row.toolKey):actStudy(id)});
+    mistglassPanel=createMistglassPanel({host:document.getElementById('location_actions_div'),read:mistglassFrame,act:actMistglass});
+    growthPanel=createGrowthPanel({read:growthFrame,act:actGrowth});
     householdPanel=createHouseholdPanel({host:document.getElementById('location_actions_div'),read:p00HouseholdFrame,act:actP00Household});
     durabilityPanel=createDurabilityPanel();
     elementalPanel=createElementalPanel();

@@ -55,6 +55,7 @@ class Combat {
         combatOptions,
         nextCombatEvent,
         encounterProfile,
+        encounterHooks,
         nativeExchangeHost,
     }) {
         this.attackers = attackers;
@@ -66,6 +67,7 @@ class Combat {
         this.is_ended = false;
         this.actionAdapter = actionAdapter;
         this.nativeExchangeHost = nativeExchangeHost;
+        this.encounterHooks = encounterHooks;
         validateEncounterCombatProfile(encounterProfile);
         if(combatOptions && (this.is_special_combat || actionAdapter || typeof nextCombatEvent !== 'function')) {
             throw new Error('Tactics require normal native combat and a saved host event cursor.');
@@ -75,7 +77,7 @@ class Combat {
         this.encounterProfile = encounterProfile ? {...encounterProfile} : undefined;
         this.rngKey = savedEncounter?.key || defenders[0]?.encounterKey || (actionAdapter ? null : `combat:${gameOrdinal(STREAMS.combat)}`);
         if(savedEncounter) {this.#turns=structuredClone(savedEncounter.turns);
-            if(!combatOptions||combatOptions.snapshot().phase==='active')this.#resume=structuredClone(savedEncounter.loops);}
+            if(encounterHooks||!combatOptions||combatOptions.snapshot().phase==='active')this.#resume=structuredClone(savedEncounter.loops);}
     }
 
     snapshot(locationId) {
@@ -178,6 +180,7 @@ class Combat {
             this.#startFighter(i,true);
             update_displayed_health_of_fighter({fighter_index: i, is_attacker: true});
         }
+        if(this.encounterHooks)this.#resume=undefined;
     }
 
     /**
@@ -234,6 +237,7 @@ class Combat {
             actual_cooldown = base_cooldown / fighter.getStaminaMultiplier();
         }
 
+        this.encounterHooks?.previewExchange?.({combat:this,fighter,is_attacker});
         let attack_power = fighter.getAttackPower();
         //do_character_attack_loop({base_cooldown, actual_cooldown, attack_power, targets, target_count});
         this.doAttackLoop({fighter_index, is_attacker, base_cooldown, actual_cooldown, attack_power, targets, target_count, is_new: true});
@@ -295,6 +299,9 @@ class Combat {
         const fighter=(is_attacker?this.attackers:this.defenders)[fighter_index];
         delete this.#pendingLoops[`${is_attacker?'attackers':'defenders'}:${fighter_index}`];
         let leveled = false;
+        if(this.encounterHooks?.admitExchange?.({combat:this,fighter,is_attacker,targets}) === false) {
+            this.clearAllAttackLoops();return {paused:true,duplicate:true};
+        }
 
         const tactic = fighter.tags?.main_character && this.combatOptions
             ? this.combatOptions.beforeExchange(this.nextCombatEvent(), {combat: this, fighter, targets}) : {kind: 'attack'};
@@ -302,6 +309,7 @@ class Combat {
             this.clearAllAttackLoops();
             return {paused:true};
         }
+        this.encounterHooks?.beforeExchange?.({combat:this,fighter,is_attacker,targets});
         // Throw replaces this paid native swing, and goes through the same strike/defeat path.
         const exchangeTargets = tactic.kind === 'throw' ? targets.slice(0, 1) : targets;
 
@@ -435,7 +443,7 @@ class Combat {
             }
         } else { // HAS NO SHIELD
             const hit_chance = 
-                get_hit_chance(fighter.getFullStats().attack_points * hit_chance_modifier, target.getFullStats().agility * evasion_chance_modifier * Math.sqrt(target.getFullStats().intuition ?? 1));
+                get_hit_chance(fighter.getFullStats().attack_points * hit_chance_modifier * (this.encounterHooks?.attackPointsMultiplier?.({combat:this,fighter,target}) ?? 1), target.getFullStats().agility * evasion_chance_modifier * Math.sqrt(target.getFullStats().intuition ?? 1));
 
             const xp_to_add = target.isWearingArmor() ? fighter.xp_value : fighter.xp_value * 1.5;
 
@@ -517,6 +525,10 @@ class Combat {
                 kill_player({is_combat: true});
                 return;
             } else {
+                const dropChanceModifier = this.encounterHooks?.planDefeat ? accessoryDropModifier(1/target_count**0.6667) * (this.encounterProfile?.dropChanceModifier ?? 1) : undefined;
+                // Preflight before death hooks, defeat XP, loot and kill progress.
+                const settlement = this.encounterHooks?.planDefeat?.({combat:this,fighter,target,dropChanceModifier});
+                if(settlement?.duplicate) return;
                 if(fighter.tags.main_character) {
                     target.on_death(fighter);
                 }
@@ -527,7 +539,7 @@ class Combat {
                 if(!this.is_special_combat && fighter.tags.main_character && target.get_loot) {
                     add_xp_to_character(target.xp_value * target_count_xp_modifier, true);
 
-                    let loot = target.get_loot({drop_chance_modifier: accessoryDropModifier(1/target_count**0.6667) * (this.encounterProfile?.dropChanceModifier ?? 1)});
+                    let loot = settlement ? settlement.loot : target.get_loot({drop_chance_modifier: accessoryDropModifier(1/target_count**0.6667) * (this.encounterProfile?.dropChanceModifier ?? 1)});
                     observedDrops=loot.map(row=>({item_id:row.item_id,count:row.count}));
                     if(loot.length > 0) {
                         process_current_loot({loot_list: loot, is_combat: true});
@@ -537,6 +549,7 @@ class Combat {
                 }
                 
                 kill_target({fighter_index, target_index, is_target_an_attacker: !is_attacker, observedDrops});
+                this.encounterHooks?.afterDefeat?.({combat:this,fighter,target,settlement,dropChanceModifier});
                 this.clearAttackLoop({fighter_index: target_index, is_attacker: !is_attacker});
             }
         } else {
