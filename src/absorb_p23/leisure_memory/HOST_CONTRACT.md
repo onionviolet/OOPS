@@ -113,3 +113,7 @@ Old absent save and unsupported family import rejected before mutation; inject
 write failure to prove all-or-nothing costs/RNG/biography. Preserve user saves.
 Human play/taste follows native technical acceptance. This lane cannot satisfy
 these gates before P00 supplies a native integrated candidate.
+
+## P00 seeded-stream reconciliation (draft, 2026-10-14)
+
+The joined native host now owns per-save seeded streams. P00 supplies the legacy reducer a nonzero uint drawn once from the detached `interaction:p23.leisure@base.frontier` stream at paid start. The reducer retains its xorshift transformation and frozen pending seed/face validation. P00 persists stream receipt, pending draw, native costs and donor purse together; reducer `rng` output does not overwrite the unrelated global legacy cursor. Settlement, help, revisit, restore and views consume no stream draw. This supersedes only the earlier request to advance global `expansion.rng`; it introduces no new random engine.

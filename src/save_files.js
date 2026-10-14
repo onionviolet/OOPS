@@ -1,3 +1,4 @@
+import {validateTrancheFourEnvelope} from './absorb_p23/host_joins/tranche_four.js';
 import {validateKnownDetailEnvelope} from './absorb_p23/host_joins/known_detail.js';
 import {validateLongLifeEnvelope} from './absorb_p23/host_joins/long_life.js';
 import {validateTrancheThreeEnvelope} from './absorb_p23/host_joins/tranche_three.js';
@@ -54,6 +55,7 @@ export function validateSaveEnvelope(original, currentVersion) {
     validateTrancheOneEnvelope(original);
     validateTrancheTwoEnvelope(original);
     validateTrancheThreeEnvelope(original);
+    validateTrancheFourEnvelope(original);
     validateMixtureEnvelope(original);
     if(Object.hasOwn(original, "cheats"))validateCheatState(original.cheats);
     if(original.customization!=null)validateCustomizationState(original.customization);

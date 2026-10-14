@@ -163,7 +163,7 @@
     "N29_offline": "out of scope"
   },
   "next_tranche": 4,
-  "next_scope": "step2 field/market/leisure/search; step3 adaptation/encounters/growth; main merge; P15; final full/native gate",
+  "next_scope": "step3 adaptation/encounters/growth; main merge; P15 last; final full/native gate",
   "p18_question": "answered resume4: future native earned local skill XP, optional counter/no backfill, labelled150000 proposal threshold",
   "gate_policy": "resume5: build+focused per step; one full/native gate after all steps, current main merge, P15 last",
   "steps": [
@@ -177,6 +177,24 @@
       "focused": {
         "tests": 24,
         "pass": 24,
+        "fail": 0
+      },
+      "native": "OPEN final gate",
+      "merge_ready": false,
+      "commit": "646ca999"
+    },
+    {
+      "step": 2,
+      "scope": [
+        "p23-field-familiarity",
+        "p23-market-life",
+        "p23-leisure-memory",
+        "p23-repeat-search"
+      ],
+      "build": "PASS",
+      "focused": {
+        "tests": 53,
+        "pass": 53,
         "fail": 0
       },
       "native": "OPEN final gate",

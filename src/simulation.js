@@ -75,6 +75,7 @@ export function enrollSimulation(state, registry, context, expectedSequence = st
 }
 
 export function simulationOccupiesActor(state, actorId = "player", exceptPursuit = null) {
+    if(actorId === "player" && state.actors.player.facts["p23.leisure.pendingRound"])return true;
     if(actorId === "player" && state.actors.player.facts["original_frontier.travel.remaining"] > 0) return true;
     if(causalStoryOccupiesActor(state,actorId)) return true;
     return !!state.simulation && (pursuitReservesActor(state,actorId,exceptPursuit) || Object.entries(state.simulation.sessions).some(([id,s]) => (s.participants || [id]).includes(actorId)) || state.simulation.jobs.some(j => (j.participants || [j.actorId]).includes(actorId)) || state.simulation.people[actorId]?.life !== "alive" && !!state.simulation.people[actorId]);

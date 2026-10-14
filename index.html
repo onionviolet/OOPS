@@ -1006,6 +1006,7 @@
             let in_trade = false;
             let in_storage = false;
             let total_price;
+            window.addEventListener("native-trade-total",event=>{total_price=event.detail;update_displayed_total_price(total_price);check_trade_cost();});
             const trade_price_value = document.getElementById("trade_price_value");
             let trader_sorting = "name";
             let storage_sorting = "name";

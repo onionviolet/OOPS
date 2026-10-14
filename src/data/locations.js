@@ -394,6 +394,8 @@ const favourite_locations = {};
         }),
     });
 
+    for(const id of ['scouting','lunar_gathering'])locations.Village.activities[id]=new LocationActivity({activity_name:id,starting_text:id==='scouting'?'Scout familiar ground':'Search the moonlit herb bed',is_unlocked:false,skill_xp_per_tick:0,gained_skills:{},working_period:1});
+
     locations["Shack"] = new SafeLocation({
         connected_locations: [{location: locations["Village"], custom_text: "Go outside to [Village]", travel_time: 10}],
         description: "This small shack was the only spare building in the village. It's surprisingly tidy",

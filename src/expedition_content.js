@@ -1,3 +1,4 @@
+import {trancheFourDefinitions} from './absorb_p23/host_joins/tranche_four.js';
 import {foundationInteractionSources} from './foundation_interaction_content.js';
 import {crushSocialWorkPlans} from './crush_social_content.js';
 import {factorioRetortPlanDefinitions} from './factorio_retort_content.js';
@@ -41,9 +42,9 @@ export const expeditionRegistry = createContentRegistry({
     simulation: {
         ...simulationDefinitions,
         situations:[...simulationDefinitions.situations,...systemsWorkshopDefinitions.situations],
-        people:[...simulationDefinitions.people,...systemsWorkshopDefinitions.people],
+        people:[...simulationDefinitions.people,...systemsWorkshopDefinitions.people,...trancheFourDefinitions.people],
         controllers:[...simulationDefinitions.controllers,...systemsWorkshopDefinitions.controllers],
-        commands:[...simulationDefinitions.commands,...systemsWorkshopDefinitions.commands],
+        commands:[...simulationDefinitions.commands,...systemsWorkshopDefinitions.commands,...trancheFourDefinitions.commands],
     },
     worlds: [...proto23Worlds,...molWorlds,...paradiseWorlds,...nestedWorlds,TIDEMARK_WORLD,{id:"pocket.folded_glasshouse",label:"Folded Glasshouse",publicName:"Folded Glasshouse",continuityLabel:"Original contained workshop",provenance:"Original optional persistent pocket prototype; native isolation checks deferred."},{id: "base.frontier", label: "YAIRPG: Parallel Frontier", publicName: "Frontier", continuity: "branch", sourceWorld: "YAIRPG",
         continuityLabel: "YAIRPG · Branch dimension",
