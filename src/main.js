@@ -395,6 +395,7 @@ let titlesPanel;
 let title_check_ticks = 0;
 import {createVillageLives, advanceVillageLives, addVillageRecruit} from './npc_lives.js';
 import {createVillageLivesPanel} from './npc_lives_ui.js';
+import {restoreGeneratedPeople, generatedPeopleSnapshot, registerGeneratedPeople} from './generated_people_ui.js';
 import {createVillageCareer, migrateVillageCareer, beginVillageShift, finishVillageShift, resolveVillageKit, promoteVillageCareer, CAREER_RANKS, WATCHCRAFT_BOOK, WATCHCRAFT_READING, WATCHCRAFT_PRACTICE, issueWatchcraft, practiceWatchcraft, watchcraftPresentation, villageShiftBonus, assignVillageRecruit, beginVillageTeaching, beginRecruitSolo, advanceVillageMentor, villageTeachingCost, villageTeachingStipend, resolveIonaTuition, villageTeachingBusy, beginTessaInstruction, advanceTessaInstruction, COVER_PAYMENT, SOLO_PAYMENT} from './village_career.js';
 import {createVillageCareerControls} from './village_career_ui.js';
 let customization = defaultCustomizationState();
@@ -433,6 +434,7 @@ const lifeSaveStorage = {setItem(key, serialized, onDurable) {
     villageCareerControls?.render();
     lifeRecord = next;
     npcLives = nextNpc;
+    restoreGeneratedPeople(save);
     lifeRecordPanel?.render();
     villageLivesPanel?.render();
 }};
@@ -5186,6 +5188,8 @@ function create_save({forExport = false} = {}) {
         save_data.customization=structuredClone(customization);
         save_data.fork_schema = 1;
         save_data.life_record = observeLifeSave(lifeRecord, {...save_data, expansion: expansionState});
+        const generatedSnapshot=generatedPeopleSnapshot(calendarMinutes(current_game_time));
+        if(generatedSnapshot)save_data.generated_people=generatedSnapshot;
         if(npcLives) save_data.npc_lives = advanceVillageLives(npcLives, current_game_time.year);
         save_data.expansion = recordRouteReading(expansionState, item_templates[ROUTE_NOTES].isFinished());
         tidemarkNative.snapshot(save_data,expansionState);
@@ -5304,6 +5308,7 @@ function load(save_data) {
             refreshCustomization();
             workLedgerPanel?.render();
             lifeRecord = migrateLifeRecord(save_data);
+            restoreGeneratedPeople(save_data);
             npcLives = save_data.npc_lives == null ? null : advanceVillageLives(save_data.npc_lives, save_data["current time"].year);
             expansionState = initializeExpedition(loadExpansionState(save_data.expansion, expeditionRegistry, expansionState.rng));
             validateGameAbsorptionAssay(expansionState,expeditionRegistry,{gameplay:{player:{inventory:Object.fromEntries(Object.entries(save_data.character.inventory || {}).map(([key,row])=>[key,row.count]))}}});
@@ -8352,6 +8357,14 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
         mentor:choice=>writeVillageCareer(choice),resolve:choice=>writeVillageCareer(choice),promote:()=>writeVillageCareer('promote'),
         notes:()=>writeVillageCareer('notes'),tutor:()=>writeVillageCareer('tutor'),readNotes:()=>start_reading(WATCHCRAFT_BOOK),
         practice:()=>start_activity('meditating')});
+    registerGeneratedPeople({read:()=>({at:calendarMinutes(current_game_time),seed:expansionState.rng,
+        inVillage:current_location?.id==='Village'&&expansionState.actors.player.worldId==='base.frontier',
+        canWrite:ownsSave&&!foundationSaveBlocked&&!importProbeToken&&!is_loading_error&&!lifeStorageFailure,
+        busy:!!(nativeOccupationReason()||current_activity||current_game_action||current_combat||current_dialogue||is_sleeping||is_reading||is_in_trade())}),
+        save:create_save,persist:serialized=>lifeSaveStorage.setItem(is_on_dev()?dev_save_key:save_key,serialized),
+        authoredNames:[...expeditionRegistry.simulation.people.values()].map(p=>p.label||p.name||p.id),
+        itemKey:id=>item_templates[id].getInventoryKey(),canSupply:key=>canConsumeNativeCraftingItem(key)&&character.getItems()[key]?.count>=1,
+        publishSupply:key=>{character.removeFromInventory([{item_key:key,item_count:1}]);update_displayed_character_inventory();},publishReward:add_money_to_character});
     villageLivesPanel = createVillageLivesPanel({read:()=>({state:npcLives,inVillage:current_location?.id==='Village' && expansionState.actors.player.worldId==='base.frontier',canWrite:ownsSave&&!foundationSaveBlocked&&!importProbeToken}),meet:()=>{
         if(npcLives || !ownsSave || foundationSaveBlocked || importProbeToken || current_location?.id!=='Village' || expansionState.actors.player.worldId!=='base.frontier')throw new Error("Meet your neighbors in Village when your life can be saved.");
         const serialized=create_save();if(!serialized)throw new Error("This meeting could not be remembered.");

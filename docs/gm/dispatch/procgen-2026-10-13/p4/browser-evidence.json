@@ -1,0 +1,20 @@
+{
+  "date": "2026-10-13",
+  "label": "NATURAL",
+  "profile": "/private/tmp/procgen-p4-profile-final",
+  "viewports": [
+    "1366x768",
+    "1600x1000"
+  ],
+  "met": 2,
+  "goalPaid": true,
+  "nativeBreadRemoved": true,
+  "oneTraitDiscovered": true,
+  "otherTraitsHidden": true,
+  "settled": true,
+  "saveReloadExact": true,
+  "exportLiteralImportExact": true,
+  "pageErrors": [],
+  "bundleSha256": "b24aecde4d8f91e357da1cf08b0e43646a4fb1a88bf587fd67991cdd996bf8b2",
+  "nativeHourlyBehavior": "OPEN: 90 played minutes retained the same visible actions; transition not established"
+}

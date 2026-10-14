@@ -27,6 +27,8 @@ import {validateVillageCareer, WATCHCRAFT_BOOK, WATCHCRAFT_READING, WATCHCRAFT_P
 
 import {validateLifeRecord} from './life_record.js';
 import {validateVillageLives} from './npc_lives.js';
+import {validateGeneratedPeople} from './generated_people.js';
+import {calendarMinutes} from './world_rhythm.js';
 
 const object = (value, label) => {
     if(!value || typeof value !== "object" || Array.isArray(value)) throw new Error(`${label} must be an object.`);
@@ -54,6 +56,7 @@ export function validateSaveEnvelope(original, currentVersion) {
         if(original.village_career.loan?.status==='active' && (original['current location']!=='Village' || original.current_activity?.activity_id!=='patrolling'))throw new Error('Active Village career must have its native patrol.');
     }
     if(original.life_record != null) validateLifeRecord(original.life_record);
+    if(original.generated_people != null) {validateGeneratedPeople(original.generated_people);if(original.generated_people.lastMinute>calendarMinutes(original['current time']))throw Error('Generated people are ahead of this calendar.');}
     if(original.npc_lives != null) {validateVillageLives(original.npc_lives);if(original.npc_lives.lastYear > original["current time"]?.year)throw new Error("Village lives are ahead of this calendar.");}
     const parts = version => {
         if(typeof version !== "string" || !/^v\d+(\.\d+){1,4}$/.test(version)) throw new Error("Unrecognized save version.");
