@@ -1,0 +1,349 @@
+# Modular production chains: harvesting to crafting and beyond
+
+Claude (root), 2026-10-14. A palette, not a spec. Nothing here is selected for a
+build. Request: "modularity at every level and more? from harvesting, to
+extracting resources to crafting and more? procedural rules and more? Use more
+to consider" (recorded in [USER_VISION](USER_VISION.md)).
+
+Standing rules apply: true properties work whether known or not, reload never
+rerolls, no fixed "once" limits, sealed secrets by ID only, same rules for NPCs
+and player, comfortable idle play, desktop first, one realm for the first
+milestone.
+
+## What already exists (read first, not restated)
+
+Each stage of the chain already has an owner. What is missing is the chain
+itself: one shape that every stage shares, so harvesting, refining, making,
+using and salvaging plug together.
+
+| Owner | Covers |
+|---|---|
+| [Gathering and resource uses](GATHERING_AND_RESOURCE_USES.md) | Five resource families, what makes finds differ |
+| [Materials and alchemy audit](PROCEDURAL_MATERIALS_AND_ALCHEMY_AUDIT_2026-10-13.md) | Five records (material, batch, process, product, knowledge), `resolveBatch` contract |
+| [P8 resources](gm/dispatch/procgen-2026-10-13/p8/REPORT.md) | Deposits, yields, ecology, logistics, idle gathering |
+| [P6 creation systems](gm/dispatch/procgen-2026-10-13/p6/REPORT.md) | Smithing, cooking, repair/salvage, buildings, M1-M11 domains |
+| [Crafting and consumables](PROCEDURAL_CRAFTING_AND_CONSUMABLES_CONSIDERATIONS_2026-10-14.md) | CO-PR palette, II1-II7, AB1-AB7 |
+| [Weaponcraft and runes](WEAPONCRAFT_RUNES_AND_INSCRIPTION_CONSIDERATIONS_2026-10-14.md) | Item identity, inscription grammar |
+| [Generation foundation rules](GENERATION_FOUNDATION_RULES_2026-10-14.md) | GR1-GR17, GA1-GA10 (address, draw, table, overlay) |
+| [World core kit](worlds/WORLD_CORE_KIT_2026-10-14.md) | K2 world laws, K9 items and craft, AX1-AX19 |
+| [Rules from scratch](RULES_FROM_SCRATCH.md) | No free carries, no generic conversion |
+
+## Findings from the live code (verified 2026-10-14, `codex/gameplay-foundations`)
+
+| Code | Finding | Consequence |
+|---|---|---|
+| MDF1 | `src/tag_store.js` (TagRegistry, TagStore, `tagFacts`) has **zero importers** outside its test. | GR7 "tables select by tag query" has a built engine and no reader yet (GR12). A chain is a natural first reader. |
+| MDF2 | `src/rules.js` (`evaluateRule`, all/any/not, eq/gte/lte) has **one consumer**, `action_legibility.js`. It already returns `known` and `reasons`. | A good seed for rule modules: it separates "unknown" from "false" and explains failures. It lacks tag selectors, effects and priority. |
+| MDF3 | Making lives in **at least seven parallel paths**: `crafting_recipes.js` (2126 lines, upstream), `mixture_state.js`/`mixture_native.js` (P2), `alloy_equipment.js`, `field_workshop.js`, `artifact_workshop_*`, `systems_workshop_*`, `world_completion_materials_*`. `native_craft_transaction.js` is used only by `main.js`. | Every new chain stage added per path multiplies save code and balance passes. The fix is a shared operation shape, not merging the paths in one sweep. |
+| MDF4 | Mixture ingredients are a fixed list (II6), and gathering hooks into recipes through `registerMixtureGathering`. | Harvest output is coupled to one consumer. A material catalogue keyed by tags decouples them. |
+
+## ML. Modularity at every level
+
+The same few ideas repeat at every scale: a thing has **properties**, **tags**,
+**slots** that accept other things, **condition** that wears, and a
+**provenance** trail. If each level uses that shape, a new level costs data,
+not code.
+
+| Code | Level | Examples | What modularity buys |
+|---|---|---|---|
+| ML1 | Substance | Iron, mana essence, sugar, venom, qi | Properties combine by rule, not by recipe list |
+| ML2 | Material batch | 3 kg wet hide, a vial of tincture | Quantity, purity, contaminants, age |
+| ML3 | Part | Blade, grip, lens, rune plate, gear | Swappable; each carries its own material and quality |
+| ML4 | Item | Sword, potion, lantern | Assembly of parts in slots; stats derive from parts |
+| ML5 | Assembly | Cart, armor set, golem, ritual circle | Items as parts; failure of one part degrades, not deletes |
+| ML6 | Structure | Forge, greenhouse, wall, ship | Rooms and fixtures as slots; a station is a structure that unlocks operations |
+| ML7 | Site | Mine, farm, village workshop row | Structures plus a resource node plus workers |
+| ML8 | Network | Trade route, guild supply, sect pill pavilion | Sites joined by transport and contracts |
+| ML9 | Living bodies | Monster parts, nonhuman starts, constructs, grafts | Bodies are assemblies too; organs and limbs are parts (links the [nonhuman starts](worlds/NONHUMAN_STARTS_ENGINE_REQUIREMENTS_2026-10-14.md) and [genetics](GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md) palettes) |
+| ML10 | Techniques and spells | Rune sequences, pill formulas, martial forms | A technique is an assembly of moves or glyphs in slots, so the same slot rules apply to invention |
+
+Cross-level rules worth deciding once:
+
+- **ML-A Stats roll up, rules roll down.** An item's stats derive from parts; a
+  world law applies down to every part it selects.
+- **ML-B Break and salvage follow the tree.** Breaking an assembly yields its
+  parts at reduced condition, not a generic "scrap".
+- **ML-C Identity stays shallow.** Only gameplay-relevant state forms a stack
+  key (P3 rule). Otherwise modular parts explode inventory into unique items.
+
+## MS. The chain as stages
+
+Every stage is one **operation**: inputs, actor, tool or station, conditions,
+time, outputs, byproducts, waste, knowledge. Harvesting is an operation whose
+input is a living thing or the ground. Crafting is the same operation with
+batches as input.
+
+| Code | Stage | Distinct pressure |
+|---|---|---|
+| MS1 | Survey and find | Knowledge gate: you cannot harvest what you cannot see (spirit sense, prospecting, appraisal cheats) |
+| MS2 | Access and claim | Ownership, permits, guild rights, monster lairs, sect territory |
+| MS3 | Harvest and extract | Method choice changes yield and quality: pick vs uproot, mine vs blast, kill vs milk vs shear |
+| MS4 | Stabilize and preserve | Freshness clocks; drying, salting, sealing, spirit jade boxes |
+| MS5 | Transport and store | Weight, volume, spoilage, theft, storage rings that break "no free carries" only by world rule |
+| MS6 | Process and refine | Crush, smelt, distill, tan, spin, ferment, purify; each yields intermediates and byproducts |
+| MS7 | Intermediate goods | Ingots, thread, reagents, planks: the tradable middle layer |
+| MS8 | Assemble | Parts into slots (ML3-ML5) |
+| MS9 | Finish and empower | Temper, enchant, inscribe, consecrate, awaken |
+| MS10 | Use | Consume, wield, install, feed |
+| MS11 | Maintain and repair | Wear by use and by time; repair is an operation with parts as input |
+| MS12 | Salvage, recycle, waste | Back to parts or substances; waste with consequences (slag, curse residue, pollution) |
+| MS13 | Return to the world | Regrowth, depletion, ecology shifts (P8) |
+
+The chain closes into a loop at MS12-MS13. Byproducts from MS6 should feed
+some other chain (GR12: no output without a reader), or count as waste with a
+cost.
+
+## MV. A small verb set
+
+Operations draw from a short list of physical verbs, so a new recipe is a
+sequence, not new code. Worlds add verbs through rule modules.
+
+| Code | Verbs | Notes |
+|---|---|---|
+| MV1 | Cut, crush, grind, shape | Change form and surface; tool quality matters |
+| MV2 | Heat, cool, burn | Need fuel (P6 M1); temperature bands matter |
+| MV3 | Dissolve, mix, separate, filter, distill | P2 mixture already covers mix |
+| MV4 | Join, bind, sew, weld | Assembly verbs; joints are weak points |
+| MV5 | Wait, age, ferment, grow, cure | Time as an ingredient; idle-friendly |
+| MV6 | Infuse, inscribe, refine qi, consecrate | Power-system verbs; per-world |
+| MV7 | Observe, test, assay | Produce knowledge, not goods (GR5) |
+
+## MR. Procedural rules
+
+"Procedural rules" can mean three different things. All three fit one module
+shape: **selector** (tag query) + **effect** + **priority** + **scope** + 
+**knowledge status** + **receipt**.
+
+| Code | Kind | Examples |
+|---|---|---|
+| MR1 | **World laws as modules** | "Cold iron disrupts fae", "impurities accumulate in pills", "metals remember their smith" (K2). Each world loads a set; overlays (GA4) add or remove by world, region, person or item |
+| MR2 | **Generated rules per save** | Which herbs react, which ore veins carry spirit, which beast part cures which sickness. Drawn from a rule grammar at a stable address (GR2), frozen on reveal (GR3). Discovering them is the science loop. Some may be sealed secrets |
+| MR3 | **Social rules** | Guild monopolies, taboos, sumptuary laws, sect bans on certain pills. Same module, enforced by institutions (K7) instead of physics |
+| MR4 | **Rules about rules** | Priority and conflict policy: specific beats general, world beats core, later overlay beats earlier, ties need an explicit order. A rule that forbids beats a rule that permits unless stated |
+| MR5 | **Discovered rule knowledge** | The player learns a rule partly ("seems to work at night") with confidence; truth applies regardless (AB3 observer-scoped knowledge) |
+| MR6 | **Player-made rules** | Late game: formations, wards, domains, laws of a pocket realm (`pocket_realm_rules.js` exists) that patch chain operations inside an area |
+| MR7 | **Cheats that edit rules** | Rewriting a local law, "everything I touch is pure", a system shop that sells rule overrides. Scoped and receipted so saves stay coherent |
+
+Rule evaluation must stay pure (`rules.js` already promises this): no spending,
+no draws, no saved writes.
+
+## MX. And more: other chains with the same shape
+
+| Code | Chain | Stages that map |
+|---|---|---|
+| MX1 | Food | Forage, hunt, farm, butcher, cook, preserve, eat; ties to hunger |
+| MX2 | Energy | Fuel, mana, qi, electricity: harvest, store, transmit, spend |
+| MX3 | Monster parts | Kill or tame, dismantle, cure, refine into cores, pills, gear |
+| MX4 | Information | Observe, record, copy, translate, publish, rumor decay |
+| MX5 | Knowledge | Experiment, theory, technique, teaching, lineage |
+| MX6 | People and labor | Recruit, train, assign, rest, retire; workers are actors on operations (AB4) |
+| MX7 | Bodies and lineage | Breeding, grafting, cultivation as refining the self |
+| MX8 | Souls and essences | Where a world permits: harvest, bind, refine, release |
+| MX9 | Money and credit | Mint, lend, tax, debase; prices as a chain output, not a constant |
+| MX10 | Construction | Quarry, haul, build, maintain, demolish, reuse stone |
+
+## MT. Subtle interactions
+
+| Code | Detail | Why it matters |
+|---|---|---|
+| MT1 | **Units and conservation** | Mass in, mass out plus waste. Without it, chains become "generic conversion" that rules-from-scratch rejects |
+| MT2 | **Byproduct pressure** | Every refine step makes extras. Unread byproducts bloat saves; read ones create economies |
+| MT3 | **Tools are a chain too** | Making a better pick needs a pick. Bootstrap order must be reachable from a fresh start in every world |
+| MT4 | **Quality propagates, with a cap** | Bad inputs cap output; great skill cannot fully rescue them. Avoid multiplying quality across ten stages into nonsense |
+| MT5 | **Time per stage** | Idle catch-up should resolve a whole chain in closed form per stage, not tick by tick (GR17, performance doc) |
+| MT6 | **Bottleneck legibility** | With modular chains the player must see which stage stalls and why |
+| MT7 | **Seasons and place** | Harvest windows, regional laws, station location (crafting RX) |
+| MT8 | **Depletion and regrowth** | Nodes recover on game time; over-harvest changes ecology and NPC reactions |
+| MT9 | **NPC chains compete** | NPC makers buy the same ore (GR13), so shortages are real |
+| MT10 | **Old saves** | Items crafted before parts existed need a migration: treat them as single-part assemblies |
+
+## MC. Cheats and debug views
+
+| Code | Tool | Kind |
+|---|---|---|
+| MC1 | **Chain inspector**: pick any item, see its provenance tree back to the harvest | Read only |
+| MC2 | **Operation receipt**: "yield 62% because tool worn, wet season, rule MR2-7" | Read only (AX15) |
+| MC3 | **Rule trace**: which modules matched, priority, what each changed | Read only |
+| MC4 | **Material sandbox**: run operations on a scratch copy; no spend, no draw advance | Isolated (TL1) |
+| MC5 | **Pin a generated rule** to test a chain path (GA5) | Mutating, receipted |
+| MC6 | In-fiction cheats: appraisal eye, system crafting menu, "see every vein" | Gameplay |
+
+## MA. Abstractions (earn it twice, AXR1)
+
+| Code | Abstraction | Earned by | Maps to |
+|---|---|---|---|
+| MA1 | **Operation** (generalizes the audit's Process record): inputs, actor, station, verbs, conditions, time, outputs, byproducts, waste, knowledge | Harvest, refine, mix, repair, salvage | Audit P2 process, AB4 maker actor |
+| MA2 | **Slot and part**: typed slots on an item, assembly or body | Weapons, armor, constructs, bodies, techniques | Weaponcraft identity, AB1 |
+| MA3 | **Rule module**: selector, effect, priority, scope, knowledge, receipt | World laws, generated rules, social rules, cheats | Extend `rules.js`; GA4 overlay; K2 |
+| MA4 | **Material catalogue on tags** | Gathering, mixture, smithing, cooking | II6, GA3, gives `tag_store.js` its reader |
+| MA5 | **Chain plan**: a saved sequence of operations for idle automation | Automation (crafting AU), NPC workshops, staff | Later; earns its place only after MA1 has three users |
+
+Do not build a universal crafting engine first. MA1 and MA4 earn their keep on
+the first proof; MA2, MA3 and MA5 wait for second consumers.
+
+## MI. Implementation implications
+
+| Code | Implication |
+|---|---|
+| MI1 | Route new stages through the existing staging and publication seam (II4, `stageMixtureAction`/`commitMixturePlan`), not new per-path save code |
+| MI2 | Leave `crafting_recipes.js` (upstream) alone; wrap its outputs as single-part items at the boundary, preserving attribution |
+| MI3 | Harvest yields become batches with tags (MA4), so gathering stops calling one consumer directly (MDF4) |
+| MI4 | Rule evaluation reads facts from batches and stations; rule effects are applied by the operation resolver, never by the rule evaluator |
+| MI5 | Persistence: any new batch or part field needs a migration or an explicit compatibility decision (AGENTS.md safety) |
+| MI6 | Verification follows GR16 per generated rule set: seed sweep, golden snapshot, save/reload/import gives the same next value |
+
+## Smallest playable proof (proposal)
+
+One Village chain end to end, inside the first milestone's realm:
+**harvest herb (method choice) -> dry it (wait verb, freshness) -> mix (existing
+P2) -> drink -> rinse and reuse the vial (salvage)**, with one generated rule
+(MR2) and one world law (MR1) shown in the receipt (MC2) and the chain
+inspector (MC1). That proves MA1 and MA4, gives `tag_store.js` its first reader,
+and touches harvest, process, use and salvage without new families.
+
+## Risks
+
+| Code | Risk | Guard |
+|---|---|---|
+| MRK1 | Abstraction before consumers | MA build order above; GR12 |
+| MRK2 | Inventory explosion from modular parts | ML-C shallow identity |
+| MRK3 | Chain tedium in an idle game | Chain plans (MA5) and one-click repeat after first manual run |
+| MRK4 | Rule conflicts that nobody can explain | MR4 policy plus MC3 trace |
+| MRK5 | Seven making paths diverge further | MI1 shared seam for every new stage |
+
+## LATER / DELEGATE (suggested, not dispatched)
+
+| Code | Unit | Level | Done check |
+|---|---|---|---|
+| MD-L1 | Build the smallest proof above on `codex/gameplay-foundations` | Strong, medium-high effort (cross-system, persistence) | Rebuilt browser run at 1366x768: harvest, dry, mix, drink, salvage; save/reload/import keeps batches and rule; GR16 tests pass |
+| MD-L2 | Map the seven making paths (MDF3) to MA1 operation fields: what each already has, what is missing | Balanced, medium | Table in this doc's fold section, one row per path, file and function cited |
+| MD-L3 | Draft the rule module schema extending `rules.js` with tag selectors, effects and MR4 priority, tests only | Balanced, medium | Pure tests: conflict ordering, unknown vs false, receipt reasons |
+| MD-L4 | Per-world chain sketches for three existing worlds (which verbs, laws and MR2 grammars each adds) | Balanced, medium | One table per world, linked from K9 |
+
+## Round 2 (2026-10-14): more to consider, lanes sent
+
+Request: "Send out more to consider, consider accordingly and more?"
+
+### Correction first
+
+Round 1 missed an owner. The [harvest modules wave](gm/dispatch/harvest-modules-2026-10-14/PLAN.md)
+(HM1-HM11, same day) already covers the harvest end of this chain:
+
+- **HV2** (done, docs) wrote the [modular harvest model](gm/dispatch/harvest-modules-2026-10-14/hv2/MODEL.md):
+  one operation contract (source, part template, operation, output batch,
+  observation), body-plan templates, harvest verbs, four grade axes and five
+  ranked build slices B1-B5. That contract **is** the owner of what round 1
+  called MA1 for the source side. MA1 now means "extend HV2 M1 downstream to
+  refine, assemble, repair and salvage", not a second operation shape.
+- **HV1** (code, still running on `proc/hv1-carcass`, not merged) builds wolf-rat
+  carcass processing in `src/harvest.js` with graded parts.
+- So MS1-MS5 and MV1 defer to HV2 and P8. Round 1's smallest proof should start
+  from HV1's carcass or a plant adapter (HV2 B3), not a fresh harvest path.
+
+### FL. Chains are graphs, not lines
+
+| Code | Shape | Consideration |
+|---|---|---|
+| FL1 | **Split** | One input, many outputs (carcass to hide, meat, bone; crude oil to fractions). Every branch needs a reader or a waste cost (GR12) |
+| FL2 | **Merge** | Tanning needs hide (creature chain) plus bark (plant chain) plus lime (mineral chain). Cross-chain inputs are where chains become an economy |
+| FL3 | **Loop** | Catalysts, solvents, molds and reusable vials return. Loss per loop is a tunable per world |
+| FL4 | **Substitution** | Slots accept by tag query, so oak bark or a generated bark both tan. Substitutes shift quality, not just yes or no |
+| FL5 | **Depth budget per world** | A village world has short chains; a tech or alchemy world has deep ones. Depth is a world adjective, not a global constant |
+| FL6 | **Cascade** | One shortage propagates downstream. The player should see which upstream stage starved |
+
+### SR. Scale changes the representation
+
+| Code | Regime | Representation |
+|---|---|---|
+| SR1 | Hand work | Individual specimens and parts with full provenance |
+| SR2 | Workshop | Batches with averaged grade and a sampled provenance |
+| SR3 | Manufactory or sect pavilion | Rates per game day, closed-form catch-up (GR17) |
+| SR4 | Industry, nation, magic mass production | Flows and stockpiles summarized per site or network (ML7-ML8) |
+
+Rule: the same chemistry and laws apply at every regime; only resolution changes
+(P32 level of detail). Moving down a regime (inspecting one item from a flow)
+promotes an address to a frozen record (GR3, GR4).
+
+### AG. Who does each stage
+
+| Code | Actor | Notes |
+|---|---|---|
+| AG1 | Player hands | Skill XP, full choice, slowest |
+| AG2 | Hired worker, apprentice, companion | Wages, loyalty, their own skill; AB4 maker actor |
+| AG3 | Market | Buying an intermediate is outsourcing a stage; provenance becomes "bought from X" |
+| AG4 | Commission | A named NPC runs the stage under their own rules, can cheat or steal |
+| AG5 | Construct, golem, automaton | Built in the same chain (ML5); maintenance is its own chain |
+| AG6 | Cheat or system | Skips stages at a declared cost (CS below) |
+
+### KS. Knowledge per stage
+
+| Code | Consideration |
+|---|---|
+| KS1 | **Tacit versus written.** A recipe tells the steps; know-how sets quality. Reading a manual raises the floor, practice raises the cap |
+| KS2 | **Trade secrets.** A guild or sect hides one stage. The product is visible, the step is not |
+| KS3 | **Reverse engineering.** Salvage (MS12) can reveal parts and hint at rules; this is a discovery route, not a free recipe |
+| KS4 | **Copy drift.** Copied recipes lose detail per copy unless the copier understands it (links crafting KN) |
+| KS5 | **Stage-specific skills feed broad ones.** Skinning feeds Butchering; smelting feeds Smithing (HV2 SKILLS covers the harvest side) |
+
+### MR round 2. More rule kinds
+
+| Code | Rule kind | Example |
+|---|---|---|
+| MR8 | **Conservation laws** | Equivalent exchange in an alchemy world (public franchise rule, not sealed); mass and energy accounting by default |
+| MR9 | **Local fields** | Formations, holy ground, dead-magic zones and ley lines change operation results by place |
+| MR10 | **Timed rules** | Moon phase, season, festival, eclipse windows |
+| MR11 | **Spreading rules** | A discovered technique spreads to NPC makers over game time, changing prices and competition |
+| MR12 | **Exploits as play** | A solo player finding a loop that breaks the economy is a find, not a bug, unless it breaks saves. Limits are per-world adjectives |
+| MR13 | **Rule cost budget** | Rule matching is indexed by tag and route (audit P3), never every rule against every batch every tick |
+
+### GC. Generating the chains themselves
+
+| Code | Consideration |
+|---|---|
+| GC1 | A generated material brings generated processing needs (a generated ore needs a flux, a temperature band, a by-product) |
+| GC2 | **Solvability lint.** Every generated material must have at least one reachable chain from a fresh start in its world, or fall back (GR6). Count fallbacks |
+| GC3 | **No dead ends by accident.** A generated byproduct with no reader is either given one or marked waste with a cost |
+| GC4 | Chain shape freezes on reveal (GR3); unseen materials may regenerate on table revisions |
+
+### CS. Cheats that skip or reshape stages
+
+| Code | Cheat | Declared cost |
+|---|---|---|
+| CS1 | System crafting menu: one click, no stages | Loses byproducts, stage knowledge and stage XP |
+| CS2 | Inventory pocket space | Breaks MS5 transport limits only by its own world rule; capacity has a cost curve |
+| CS3 | "Perfect harvest" touch | Completeness max, but leaves a trace (NPCs notice) |
+| CS4 | Rule rewrite in an area (MR7) | Scoped, timed, receipted; leaving the area ends it |
+| CS5 | Chain sight: see the whole graph for any item | Information only (MC1 in fiction) |
+
+### OP. Overarching principles (proposal)
+
+| Code | Principle |
+|---|---|
+| OP1 | Each stage offers a real choice, or it is automatable after the first manual run |
+| OP2 | Depth must earn its tedium: a stage exists because it changes an outcome |
+| OP3 | Everything is traceable back to a source, an actor and a rule |
+| OP4 | Every output has a reader or a declared waste cost |
+| OP5 | Same law at every scale and for every actor (SR, GR13) |
+
+### MT round 2. Subtle details
+
+| Code | Detail |
+|---|---|
+| MT11 | Integer units with remainders kept, never rounded away; partial batches persist |
+| MT12 | Containers are items with identity; a potion without a vial does not exist |
+| MT13 | Units differ by world (jin, stones, ingots); conversion lives in the catalogue, display uses the world's unit |
+| MT14 | Byproduct naming should reveal origin ("rat-hide shavings") so the player can trace them |
+| MT15 | A failed operation still produces something: ruined batch, slag, lesson (KS) |
+
+### Lanes dispatched (round 2)
+
+Folder: `docs/gm/dispatch/modular-chains-2026-10-14/`. Docs only, one writer per
+lane folder. Session ids in `SESSIONS.md` there.
+
+| Lane | Question | Effort |
+|---|---|---|
+| PC1 | Crosswalk: the seven making paths (MDF3), HV1 `src/harvest.js` and P2 mixture mapped onto HV2 M1 roles extended downstream; owners round 1 and 2 missed | medium |
+| PC2 | Procedural rule modules: schema extending `src/rules.js`, conflict policy (MR4), per-save rule grammars (MR2), social and local rules, discovery, cheats, test table, first reader | high |
+| PC3 | Assembly at every level: slots and parts across items, structures, sites, bodies and techniques, reconciled with weaponcraft identity, P6 buildings, CR1 bodies and genetics | medium |
+| PC4 | Idle chains and references: automation, logistics, bottleneck display, closed-form catch-up and NPC competition, from games such as Factorio, Dwarf Fortress, RimWorld, Vintage Story, GregTech, Oxygen Not Included and Melvor | medium |
+| PC5 | Per-world chains and stress journeys: four existing worlds (one comic) walked end to end; contradictions across HV2, materials audit, crafting palette and this doc | medium |
