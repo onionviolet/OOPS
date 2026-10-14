@@ -281,6 +281,7 @@ import {createExpansionState, loadExpansionState, commitAction, advanceSimulatio
 import {beginFieldWorkshop} from "./field_workshop.js";
 import {createFieldPanel} from "./field_ui.js";
 import {expeditionRegistry, initializeExpedition, SURVEY_KIT_KEY, SURVEY_ROPE_KEY} from "./expedition_content.js";
+import {defaultCheatState, validateCheatState} from './cheat_cards.js';
 import {loadContentPacks, emptyPackState, validatePackState, enterPack, leavePack, actPack, cancelPack, advancePackSettlement, preparePackSave, packSaveState} from './content_packs.js';
 import {syncAuthoredRegistration, applyAuthoredState, resetAuthoredState, AUTHORED_WORLD_ID} from './authored_site.js';
 import {createAuthoredSiteUI} from './authored_site_ui.js';
@@ -298,6 +299,7 @@ const structuredPacks=new Map();
 const initialStructuredDefinition=()=>foundationProbeEnabled&&structuredPacks.get(FOUNDATION_START_PACK_ID)||structuredPacks.get(LIVELIHOOD_PACK_ID)||[...structuredPacks.values()][0];
 const packDefinitionsForSave=()=>new Map([...optionalPacks,...structuredPacks]);
 let structuredPanel,structuredNotice='',suspendedStructuredSave=null;
+let cheatState=defaultCheatState();
 let optionalPackState=emptyPackState();
 let optionalPackPanel;
 import "./data/expedition_items.js";
@@ -411,6 +413,7 @@ const lifeSaveStorage = {setItem(key, serialized, onDurable) {
     customization=customizationFromSave(save);
     refreshCustomization();
     workLedgerPanel?.render();
+    cheatState=validateCheatState(save.cheats??defaultCheatState());
     optionalPackState=validatePackState(save.content_packs??emptyPackState());
     optionalPackPanel?.render();
     villageCareerControls?.render();
@@ -5160,6 +5163,7 @@ function create_save({forExport = false} = {}) {
         save_data.pacing_e1=getPacingState();
         save_data.fort_supply=structuredClone(fortSupply);
         save_data.absorb_local_life=structuredClone(localLife);
+        save_data.cheats = validateCheatState(cheatState);
         save_data.content_packs = packSaveState(optionalPackState,packDefinitionsForSave());
         save_data.village_career = structuredClone(villageCareer);
         save_data.work_ledger=structuredClone(workLedger);
@@ -5268,6 +5272,7 @@ function load(save_data) {
             syncAuthoredSite(save_data.content_packs?.authored?.draft??null);
             save_data = preparePackSave(save_data,packDefinitionsForSave());
             save_data = validateSaveEnvelope(save_data, game_version);
+            cheatState=validateCheatState(save_data.cheats??defaultCheatState());
             optionalPackState=validatePackState(save_data.content_packs??emptyPackState());
             localLife=normalizeLocalLife(save_data.absorb_local_life);
             fortSupply=migrateFortSupply(save_data);
