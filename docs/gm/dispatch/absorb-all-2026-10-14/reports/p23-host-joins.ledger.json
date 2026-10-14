@@ -1,0 +1,81 @@
+{
+  "schema": 1,
+  "lane": "p23-host-joins",
+  "date": "2026-10-14",
+  "status": "merged-candidate; waiting for four test fixture scope; no native tranche started",
+  "base_head": "43b01f95112b5a4017d0cd426d414ae553abeadc",
+  "candidate_head": "be0e594527dd2f7e50314fa6ab3d910adb89481f",
+  "session": "01a138ea-def0-77c0-b800-f4ade39f33af",
+  "port": 18834,
+  "viewport": {
+    "width": 1366,
+    "height": 768
+  },
+  "merge_ready_lanes": [],
+  "tranches": [],
+  "merged_lanes": [
+    "p23-long-life",
+    "p23-exposure",
+    "p23-household",
+    "p23-living-gear",
+    "p23-reread",
+    "p23-combat-options",
+    "p23-field-familiarity",
+    "p23-salvage",
+    "p23-market-life",
+    "p23-leisure-memory",
+    "p23-known-detail",
+    "p23-world-adaptation",
+    "p23-repeat-search",
+    "p23-save-time-options",
+    "p23-encounter-profiles",
+    "p23-growth-profile"
+  ],
+  "excluded_lane": "air-wider",
+  "actual_full": {
+    "tests": 974,
+    "pass": 965,
+    "fail": 9,
+    "cancelled": 0,
+    "skipped": 0,
+    "duration_ms": 12028.141
+  },
+  "proposed_fixture_slice": {
+    "tests": 43,
+    "pass": 43,
+    "fail": 0
+  },
+  "proposed_substitution_full": {
+    "tests": 974,
+    "pass": 974,
+    "fail": 0,
+    "actual_npm_gate": false
+  },
+  "native": {
+    "status": "PASS baseline only; no P00 feature joins",
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "location": "Village",
+    "savedLocation": "Village",
+    "nativeCombatRestore": true,
+    "encounterKey": "Infested field:1",
+    "bundleSha256": "2ff397f1a6cd86eacf4f10e173e8bd49eae71e3572e779fddaf40eeea2126eeb",
+    "pageErrors": []
+  },
+  "blocker": {
+    "type": "exclusive-write-scope",
+    "requested_paths": [
+      "tests/p23-combat-options.test.js",
+      "tests/p23-market-life.test.js",
+      "tests/p23-long-life.test.js",
+      "tests/p23_life_loops.test.js"
+    ],
+    "proposal": "checks/p23-host-joins/proposed-fixture-updates.patch",
+    "approval": "pending"
+  },
+  "persistent_families": "host joins OPEN; absent-state/preflight/native import not implemented by P00",
+  "remaining_acceptance": "native technical tranche gates then Weibao play/taste",
+  "push": false
+}

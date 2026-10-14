@@ -1,0 +1,13 @@
+{
+  "status": "PASS baseline only; no P00 feature joins",
+  "viewport": {
+    "width": 1366,
+    "height": 768
+  },
+  "location": "Village",
+  "savedLocation": "Village",
+  "nativeCombatRestore": true,
+  "encounterKey": "Infested field:1",
+  "bundleSha256": "2ff397f1a6cd86eacf4f10e173e8bd49eae71e3572e779fddaf40eeea2126eeb",
+  "pageErrors": []
+}

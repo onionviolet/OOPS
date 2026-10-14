@@ -1,0 +1,268 @@
+TAP version 13
+# Subtest: old saves absent; unsupported or malformed tactics reject before host mutation
+ok 1 - old saves absent; unsupported or malformed tactics reject before host mutation
+  ---
+  duration_ms: 0.650667
+  type: 'test'
+  ...
+# Subtest: paid throw can repeat with distinct native events, duplicate is inert
+ok 2 - paid throw can repeat with distinct native events, duplicate is inert
+  ---
+  duration_ms: 0.172125
+  type: 'test'
+  ...
+# Subtest: missing ammo and denied custody preserve selected tactic and inventory
+ok 3 - missing ammo and denied custody preserve selected tactic and inventory
+  ---
+  duration_ms: 0.066375
+  type: 'test'
+  ...
+# Subtest: smoke pays a real item and calls escape without any kill reward; no replay
+ok 4 - smoke pays a real item and calls escape without any kill reward; no replay
+  ---
+  duration_ms: 0.358292
+  type: 'test'
+  ...
+# Subtest: lure offers one authored opportunity per payment, can repeat, never pays a kill
+ok 5 - lure offers one authored opportunity per payment, can repeat, never pays a kill
+  ---
+  duration_ms: 0.072375
+  type: 'test'
+  ...
+# Subtest: pending tactic, break request and paused phase survive exact JSON export/import
+ok 6 - pending tactic, break request and paused phase survive exact JSON export/import
+  ---
+  duration_ms: 0.156375
+  type: 'test'
+  ...
+# Subtest: victory break resumes the pending native round once
+ok 7 - victory break resumes the pending native round once
+  ---
+  duration_ms: 0.059208
+  type: 'test'
+  ...
+# Subtest: noncombat throwing training pays again per occurrence and uses native XP host
+ok 8 - noncombat throwing training pays again per occurrence and uses native XP host
+  ---
+  duration_ms: 0.117166
+  type: 'test'
+  ...
+# Subtest: P16 drop profile is optional and validates before mutation
+ok 9 - P16 drop profile is optional and validates before mutation
+  ---
+  duration_ms: 0.290667
+  type: 'test'
+  ...
+# Subtest: actual native strike hits armor with single projectile, misses with native hit roll
+ok 10 - actual native strike hits armor with single projectile, misses with native hit roll
+  ---
+  duration_ms: 2.367667
+  type: 'test'
+  ...
+# Subtest: actual native defeat awards once, duplicate dead target does not repay
+ok 11 - actual native defeat awards once, duplicate dead target does not repay
+  ---
+  duration_ms: 0.446
+  type: 'test'
+  ...
+# Subtest: actual cooldown exchange consumes ammo, then break prevents scheduling another swing
+ok 12 - actual cooldown exchange consumes ammo, then break prevents scheduling another swing
+  ---
+  duration_ms: 0.671708
+  type: 'test'
+  ...
+# Subtest: actual smoke exchange never invokes native damage or loot settlement
+ok 13 - actual smoke exchange never invokes native damage or loot settlement
+  ---
+  duration_ms: 0.419666
+  type: 'test'
+  ...
+# Subtest: actual victory break keeps next encounter pending until one explicit resume
+ok 14 - actual victory break keeps next encounter pending until one explicit resume
+  ---
+  duration_ms: 0.36725
+  type: 'test'
+  ...
+# Subtest: R51 native independent cooldowns retain a 4:1 speed ratio without a burst engine
+ok 15 - R51 native independent cooldowns retain a 4:1 speed ratio without a burst engine
+  ---
+  duration_ms: 0.579167
+  type: 'test'
+  ...
+# Subtest: earned domestic counters cross thresholds without capping repeat progression
+ok 16 - earned domestic counters cross thresholds without capping repeat progression
+  ---
+  duration_ms: 0.779208
+  type: 'test'
+  ...
+# Subtest: missing counters do not invent domestic history or expose unavailable goals
+ok 17 - missing counters do not invent domestic history or expose unavailable goals
+  ---
+  duration_ms: 0.308875
+  type: 'test'
+  ...
+# Subtest: odd settled outcome is one recognition, not a restriction on subsequent fights
+ok 18 - odd settled outcome is one recognition, not a restriction on subsequent fights
+  ---
+  duration_ms: 0.12225
+  type: 'test'
+  ...
+# Subtest: every old bonus is preserved verbatim, including worn mode
+ok 19 - every old bonus is preserved verbatim, including worn mode
+  ---
+  duration_ms: 0.275
+  type: 'test'
+  ...
+# Subtest: worn payoff is optional, additive, collection derived and stable through serialization
+ok 20 - worn payoff is optional, additive, collection derived and stable through serialization
+  ---
+  duration_ms: 0.214834
+  type: 'test'
+  ...
+# Subtest: optional state preflight rejects unsupported schema/unheld/invalid selection without mutation
+ok 21 - optional state preflight rejects unsupported schema/unheld/invalid selection without mutation
+  ---
+  duration_ms: 0.12425
+  type: 'test'
+  ...
+# Subtest: training registration preflights conflicts and preserves unrelated milestone data
+ok 22 - training registration preflights conflicts and preserves unrelated milestone data
+  ---
+  duration_ms: 0.130916
+  type: 'test'
+  ...
+# Subtest: training projection names only known skills and never settles XP
+ok 23 - training projection names only known skills and never settles XP
+  ---
+  duration_ms: 0.062292
+  type: 'test'
+  ...
+# Subtest: native milestone awards once, repeat training progresses, XP reconstruction restores exact rate
+ok 24 - native milestone awards once, repeat training progresses, XP reconstruction restores exact rate
+  ---
+  duration_ms: 38.354709
+  type: 'test'
+  ...
+# Subtest: old saves remain empty; unsupported and inconsistent records reject before mutation
+ok 25 - old saves remain empty; unsupported and inconsistent records reject before mutation
+  ---
+  duration_ms: 1.116708
+  type: 'test'
+  ...
+# Subtest: two favor occurrences provide useful coupons without random draws or lifetime limits
+ok 26 - two favor occurrences provide useful coupons without random draws or lifetime limits
+  ---
+  duration_ms: 0.353333
+  type: 'test'
+  ...
+# Subtest: duplicate and older transactions are no-ops; fresh coupon cannot fund its own earning purchase
+ok 27 - duplicate and older transactions are no-ops; fresh coupon cannot fund its own earning purchase
+  ---
+  duration_ms: 0.107417
+  type: 'test'
+  ...
+# Subtest: native delivery changes notice and exact bread price; no passive drift or wall-clock replay
+ok 28 - native delivery changes notice and exact bread price; no passive drift or wall-clock replay
+  ---
+  duration_ms: 0.212458
+  type: 'test'
+  ...
+# Subtest: JSON restore retains occurrences, coupons and index exactly; projection never changes state
+ok 29 - JSON restore retains occurrences, coupons and index exactly; projection never changes state
+  ---
+  duration_ms: 0.156
+  type: 'test'
+  ...
+# Subtest: known-only notice and Effects-off suppress cues without freezing economy
+ok 30 - known-only notice and Effects-off suppress cues without freezing economy
+  ---
+  duration_ms: 0.12475
+  type: 'test'
+  ...
+# Subtest: small baskets keep a one-coin floor; selling gives no coupon or purchase subsidy
+ok 31 - small baskets keep a one-coin floor; selling gives no coupon or purchase subsidy
+  ---
+  duration_ms: 0.056458
+  type: 'test'
+  ...
+# Subtest: invalid baskets, incomplete deliveries and overflow cannot mutate caller state
+ok 32 - invalid baskets, incomplete deliveries and overflow cannot mutate caller state
+  ---
+  duration_ms: 0.126416
+  type: 'test'
+  ...
+# Subtest: native stock chance/count, restock boundary and earned markup remain unchanged
+ok 33 - native stock chance/count, restock boundary and earned markup remain unchanged
+  ---
+  duration_ms: 11.843375
+  type: 'test'
+  ...
+# Subtest: native sales cause saturation; purchases and recovery reduce it without inflation
+ok 34 - native sales cause saturation; purchases and recovery reduce it without inflation
+  ---
+  duration_ms: 4.4925
+  type: 'test'
+  ...
+# Subtest: life-loop schema upgrades old accounts without inventing historical time or purchases
+ok 35 - life-loop schema upgrades old accounts without inventing historical time or purchases
+  ---
+  duration_ms: 1.115542
+  type: 'test'
+  ...
+# Subtest: home minutes count only observed home steps and settled purchase quantities feed public titles
+ok 36 - home minutes count only observed home steps and settled purchase quantities feed public titles
+  ---
+  duration_ms: 0.490833
+  type: 'test'
+  ...
+# Subtest: watch gates accept window, pays once at evening and permits later days without catch-up pay
+ok 37 - watch gates accept window, pays once at evening and permits later days without catch-up pay
+  ---
+  duration_ms: 0.244833
+  type: 'test'
+  ...
+# Subtest: watch interrupted by work or travel never pays; saved active state resumes without replay
+ok 38 - watch interrupted by work or travel never pays; saved active state resumes without replay
+  ---
+  duration_ms: 0.202084
+  type: 'test'
+  ...
+# Subtest: weekly restock uses saved calendar claim, next opening and no stockpiling missed weeks
+ok 39 - weekly restock uses saved calendar claim, next opening and no stockpiling missed weeks
+  ---
+  duration_ms: 0.246291
+  type: 'test'
+  ...
+# Subtest: chance visitor is rolled only on arrival, retained on meeting and pamphlet unlocks ordered relay
+ok 40 - chance visitor is rolled only on arrival, retained on meeting and pamphlet unlocks ordered relay
+  ---
+  duration_ms: 0.224458
+  type: 'test'
+  ...
+# Subtest: search reports remaining finds and exhaustion; bleeding exposure trains Iron skin only on played ticks
+ok 41 - search reports remaining finds and exhaustion; bleeding exposure trains Iron skin only on played ticks
+  ---
+  duration_ms: 0.082416
+  type: 'test'
+  ...
+# Subtest: title cue shares discovery policy but never responds to restored rows or duplicates
+ok 42 - title cue shares discovery policy but never responds to restored rows or duplicates
+  ---
+  duration_ms: 0.098208
+  type: 'test'
+  ...
+# Subtest: parcel relays remain repeatable with explicit restart and three handoffs per pay
+ok 43 - parcel relays remain repeatable with explicit restart and three handoffs per pay
+  ---
+  duration_ms: 0.203542
+  type: 'test'
+  ...
+1..43
+# tests 43
+# suites 0
+# pass 43
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 123.268083

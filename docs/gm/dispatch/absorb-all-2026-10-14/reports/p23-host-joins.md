@@ -1,0 +1,69 @@
+# P00 host joins checkpoint, 2026-10-14
+
+**Candidate merged; integration tranches NOT STARTED. No lane is merge-ready.**
+
+F1: Live clean worktree started at `43b01f95112b5a4017d0cd426d414ae553abeadc`, branch `absorb-all/p23-host-joins`. `runs/SESSIONS.md` names P00 session `01a138ea-def0-77c0-b800-f4ade39f33af`; coordinator prompt reserves port18834 and supplies exclusive shared-file ownership after wave1. No listener before own server. COMMON and INTEGRATION read. PROJECT summary, USER_VISION desktop/authority direction, LIFE_SIM_NORTH_STAR proposal status and lane reports/contracts reviewed for candidate merge recovery. No feature rule copied from Proto23. No air-wider merge, push, main-checkout game edit, source library/user-save access or package installation.
+
+F2: All sixteen requested branches merged sequentially. Candidate HEAD `be0e594527dd2f7e50314fa6ab3d910adb89481f`. Additive code conflicts retain both title discovery feedback and P01 callbacks; combat retains procgen saved encounters/turn cursors/keyed draws plus P06 optional tactics inputs and duplicate-target guard; display settings retain staged opening plus P11 number format. Report conflicts preserve later main-tip evidence IDs, exact hashes and handoff status. No feature lane module changed.
+
+F3: Build PASS. Actual full `npm test -- --test-concurrency=2`: **974 tests,965 pass,9 fail,0 cancelled/skipped**,12028.141ms. Six P06 VM combat checks fail `gameOrdinal is not defined`; after binding that seam the same fixture also needs wave1 `combatHitText`. One P09 trader fixture fails `Per-save random streams are not bound.` Two P01/C2 title checks expect catalogs from before both lanes were combined. These are observed integration fixture failures, not a passing gate or an unrelated timeout attribution.
+
+Q1: The assignment limits test writes to `tests/p23-host-joins*.test.js` and says other named owners are read-only. Four failing fixture owners are outside that list: `tests/p23-combat-options.test.js`, `tests/p23-market-life.test.js`, `tests/p23-long-life.test.js`, `tests/p23_life_loops.test.js`. Narrow authorization to update those four fixtures was requested asynchronously; no answer received at this checkpoint. They remain untouched. Proposed exact patch: [proposed-fixture-updates.patch](../checks/p23-host-joins/proposed-fixture-updates.patch). This is the current source-gate blocker, before native tranche verification. No new product permission is requested.
+
+E1: Proposed patch verified in temporary P00-owned test copies: **43/43 pass**,0 fail/cancelled/skipped,123.268083ms. Full suite with just those four proposed copies substituted for their original fixture files: **974/974 pass**,0 fail/cancelled/skipped,28577.822292ms. This is substitution evidence, NOT a passing actual npm test. The patch moves controlled combat/trader doubles to the seeded-stream seam, supplies actual wave1 hit text, and includes the additive title catalog. It does not change production RNG or feature rules. Temporary copies removed after proof; reproducible patch and exact logs retained.
+
+E2: Fresh-origin installed headless Chrome,1366x768 on reserved port18834: native PLAY/hero creation, Village Save/reload, elder route, real Infested field combat, saved native encounter+streams and reload back into that encounter PASS,0 page errors. Local/served rebuilt bundle SHA256 `2ff397f1a6cd86eacf4f10e173e8bd49eae71e3572e779fddaf40eeea2126eeb`. This is candidate baseline compatibility only. No P00 feature controls, changed-positive module gameplay, Export/literal Import, pending/settled family proof or taste acceptance claimed. Mobile deferred. Own server closed after checks; build-generated dist/index changes restored to their clean pre-build bytes and excluded from commit.
+
+Harness history: first baseline attempt called nonexistent pause_button and timed out; removed that harness call. First combat-restore attempt used the fresh-safe-zone helper, which waits for a location dropdown unavailable in combat; changed only harness restore to PLAY then native location wait. Final candidate baseline smoke passes. These failures are not gameplay proof and are not hidden.
+
+## Per-row candidate dispositions
+
+Rows remain implemented-unverified; merging source is not adoption/native evidence.
+
+| Lane | Packet rows | Current disposition | Merge-ready |
+| --- | --- | --- | --- |
+| p23-long-life | R07, N03, N24 | merged candidate module; native host joins OPEN | no |
+| p23-exposure | R09, R10, N01 | merged candidate module; native host joins OPEN | no |
+| p23-household | R15, R63, N08 | merged candidate module; native host joins OPEN | no |
+| p23-living-gear | R12, R33, N10 | merged candidate module; native host joins OPEN | no |
+| p23-reread | R26, R48, N17, N21 | merged candidate module; native host joins OPEN | no |
+| p23-combat-options | R23, R50, R51, N14 | merged candidate module; native host joins OPEN | no |
+| p23-field-familiarity | R04, R37, R59 | merged candidate module; native host joins OPEN | no |
+| p23-salvage | R24, N05, N06, N07 | merged candidate module; native host joins OPEN | no |
+| p23-market-life | R43, R68, N15, N18, N20 | merged candidate module; native host joins OPEN | no |
+| p23-leisure-memory | N16, N22, N23 | merged candidate module; native host joins OPEN | no |
+| p23-known-detail | R35, N12, N13, N19, N25, N26, N27 | merged candidate module; native host joins OPEN | no |
+| p23-world-adaptation | R13, N02 | merged candidate module; native host joins OPEN | no |
+| p23-repeat-search | P14 replenishment packet | merged candidate module; native host joins OPEN | no |
+| p23-save-time-options | N28, N29 | merged candidate module; native host joins OPEN | no |
+| p23-encounter-profiles | R34, R60, N09, N11 | merged candidate module; native host joins OPEN | no |
+| p23-growth-profile | R21, N04, N30 | merged candidate module; native host joins OPEN | no |
+
+Optional absent save families must stay absent; unsupported schema preflight, ownership/CAS, known-only text and Effects-off remain mandatory. No compatibility decision beyond lane contracts was implemented in this checkpoint. Seeded streams stay the randomness owner; deterministic feature modules introduce no Math.random call.
+
+## Tranche queue and next concrete action
+
+No `P00 tranche N:` commit exists because no tranche passed its native gate. Merge commits only assemble a candidate. Once fixture scope is resolved, apply the reviewed patch and run the actual full suite, then begin exposure/household shared joins against the existing atomic native publisher. Continue the instructed gear/combat,reading/salvage,field/market/leisure,detail/adaptation tranches, including auxiliary P01/P14/P15/P16/P18 contracts in their relevant tranche. Each needs its own rebuilt native pending/settled persistence and old-save/rejection controls before listing any lane merge-ready. All sixteen lanes currently have native gates OPEN. Remaining human acceptance after technical gates is Weibao's play/taste.
+
+## Exact merge commits
+
+```
+be0e5945 Merge branch 'absorb-all/p23-growth-profile' into absorb-all/p23-host-joins
+7d85d589 Merge branch 'absorb-all/p23-encounter-profiles' into absorb-all/p23-host-joins
+2926fb36 Merge branch 'absorb-all/p23-save-time-options' into absorb-all/p23-host-joins
+10bc2612 Merge branch 'absorb-all/p23-repeat-search' into absorb-all/p23-host-joins
+911108e8 Merge branch 'absorb-all/p23-world-adaptation' into absorb-all/p23-host-joins
+93b96bb1 Merge branch 'absorb-all/p23-known-detail' into absorb-all/p23-host-joins
+6c53b885 Merge branch 'absorb-all/p23-leisure-memory' into absorb-all/p23-host-joins
+2ea5d438 Merge branch 'absorb-all/p23-market-life' into absorb-all/p23-host-joins
+64dc2d87 Merge branch 'absorb-all/p23-salvage' into absorb-all/p23-host-joins
+e919437c Merge branch 'absorb-all/p23-field-familiarity' into absorb-all/p23-host-joins
+9d2a0e65 Merge branch 'absorb-all/p23-combat-options' into absorb-all/p23-host-joins
+c8ace399 Merge branch 'absorb-all/p23-reread' into absorb-all/p23-host-joins
+ca3492ad Merge branch 'absorb-all/p23-living-gear' into absorb-all/p23-host-joins
+957dace4 Merge branch 'absorb-all/p23-household' into absorb-all/p23-host-joins
+85cace1a Merge branch 'absorb-all/p23-exposure' into absorb-all/p23-host-joins
+468b24dc Merge branch 'absorb-all/p23-long-life' into absorb-all/p23-host-joins
+```
+
+Evidence: [checks directory](../checks/p23-host-joins/). No new host runtime edits were started on this failing actual baseline.
