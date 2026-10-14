@@ -1,7 +1,15 @@
+import {simulationValidationMemo} from './simulation_render.js';
 // Retired prototype content stays recoverable without registering playable content.
 const RETIRED_IDS = new Set(["Jade Hollow", "Dewleaf", "Dewleaf tea", "Meridian pellet"]);
 
 function retiredKey(key) {
+    const memo = simulationValidationMemo(retiredKey);
+    if(!memo) return classifyRetiredKey(key);
+    if(!memo.has(key)) memo.set(key, classifyRetiredKey(key));
+    return memo.get(key);
+}
+
+function classifyRetiredKey(key) {
     if(RETIRED_IDS.has(key)) return true;
     try { return RETIRED_IDS.has(JSON.parse(key)?.id); } catch { return false; }
 }

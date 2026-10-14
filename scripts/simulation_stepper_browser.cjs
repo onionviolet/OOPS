@@ -26,6 +26,7 @@ async function open(browser, hooks, initial, setup) {
  if(setup)await page.evaluate(setup);
  return {page,context};
 }
+function sameSave(a,b,label){assert.deepEqual(a,b,label);assert.equal(JSON.stringify(a),JSON.stringify(b),label+' serialized bytes');}
 function clean(s) {delete s.saved_at;delete s.last_rewarded_export;return s;}
 async function snapshot(page) {return clean(await page.evaluate(()=>{saveProgress();return JSON.parse(localStorage.getItem('save data'));}));}
 (async()=>{const browser=await chromium.launch({headless:true,channel:'chrome'});
@@ -49,12 +50,12 @@ try {
   const resumedReference=await snapshot(real.page);
   await real.context.close();
   const stepped=await open(browser,true,scenario.seed,scenario.setup);
-  assert.deepEqual(await snapshot(stepped.page),initial,scenario.id+' initial');
+  sameSave(await snapshot(stepped.page),initial,scenario.id+' initial');
   await stepped.page.evaluate(()=>{for(const n of [-1,1.5,NaN,Infinity]){let rejected=false;try{advanceTicks(n);}catch(e){rejected=e instanceof RangeError;}if(!rejected)throw Error('Invalid tick count accepted');}if(advanceTicks(0).ticks!==0)throw Error('Zero advanced');});
   const started=performance.now();const count=await stepped.page.evaluate(n=>advanceTicks(n),scenario.n);const ms=performance.now()-started;
   const b=await snapshot(stepped.page);
   fs.writeFileSync(`${out}/${scenario.id}-real.json`,JSON.stringify(a,null,2));fs.writeFileSync(`${out}/${scenario.id}-step.json`,JSON.stringify(b,null,2));
-  assert.deepEqual(b,a,scenario.id+' real speed-1 vs step');
+  sameSave(b,a,scenario.id+' real speed-1 vs step');
   assert.equal(count.ticks,scenario.n);
   if(scenario.id==='timed-action')assert.ok(count.callbacks>500,'action interval really ran');
   if(scenario.id==='timed-job')assert.ok(b.current_activity.earnings>0,'paid working period settled');
@@ -62,7 +63,7 @@ try {
   if(scenario.id==='idle')assert.equal(count.autosaves,0);
   results.push({id:scenario.id,ticks:scenario.n,callbacks:count.callbacks,stepMs:Math.round(ms)});console.log(results.at(-1));
   await stepped.page.evaluate(()=>proofClock.advance(1000));
-  assert.deepEqual(await snapshot(stepped.page),resumedReference,scenario.id+' resume at speed 1');
+  sameSave(await snapshot(stepped.page),resumedReference,scenario.id+' resume at speed 1');
   await stepped.page.screenshot({path:`${out}/${scenario.id}.png`});
   await stepped.context.close();
  }
