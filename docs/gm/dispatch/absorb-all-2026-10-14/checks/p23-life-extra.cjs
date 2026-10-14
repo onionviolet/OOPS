@@ -8,8 +8,9 @@ async function save(){await p.evaluate(()=>saveProgress());return p.evaluate(()=
 await open();const base=await save();let s=structuredClone(base);s['current location']='Shack';s.locations.Shack.is_unlocked=true;s.absorb_local_life.lastClock=null;s.absorb_local_life.lastLocation='Shack';s.absorb_local_life.visitorPending=false;
 await open(s);await p.evaluate(()=>{window.__rng=Math.random;Math.random=()=>.999;});
 async function travel(to){await p.locator('#location_actions_div').getByText('Move somewhere else',{exact:false}).first().click();await p.locator(`.action_travel[data-travel="${to}"]`).first().click();await R.waitLocation(p,to);}
-await travel('Village');assert.equal((await save()).absorb_local_life.visitorMet,false);await travel('Shack');await p.evaluate(()=>Math.random=()=>0);await travel('Village');await p.evaluate(()=>Math.random=window.__rng);assert.equal((await save()).absorb_local_life.visitorMet,true);
-out.push({check:'actual visit roll: miss, revisit, meeting retained',result:'PASS'});
+await travel('Village');// Since procgen the arrival roll draws from the saved local-life stream, not Math.random: repeat real arrivals (40% each).
+let arrivals=0;for(;arrivals<30&&!(await save()).absorb_local_life.visitorMet;arrivals++){await travel('Shack');await travel('Village');}assert.equal((await save()).absorb_local_life.visitorMet,true,'visitor met within '+arrivals+' arrivals');await travel('Shack');await travel('Village');assert.equal((await save()).absorb_local_life.visitorMet,true,'meeting retained after another arrival');
+out.push({check:'actual seeded visit rolls on real arrivals, meeting retained',result:'PASS'});
 // Controlled actual native combat, using rebuilt combatants and disposable high-health fixture. No claim
 // of naturally earning this high-tier route or surviving the entire encounter.
 await p.evaluate(async()=>{const m=await import(document.querySelector('script[src*="dist/bundle.js"]').src);window.__main=m;m.process_rewards({rewards:{locations:[{location:'Mysterious gate'}]},source_type:'test',source_name:'disposable browser fixture'});m.change_location({location_id:'Mysterious gate',skip_travel_time:true});const stats=m.current_combat.attackers[0].getFullStats();stats.max_health=100000;stats.health=100000;window.__rng=Math.random;Math.random=()=>0;});
