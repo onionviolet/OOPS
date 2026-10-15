@@ -5,6 +5,7 @@ import fs from 'node:fs';
 import {persistExpansionPlan} from '../src/expansion_persistence.js';
 import {observeLifeSave,createLifeRecord} from '../src/life_record.js';
 import {advanceVillageLives,createVillageLives} from '../src/npc_lives.js';
+import {createDurableSaveWriter} from '../src/save_files.js';
 
 // Exercise the actual native owner, including the enrolled single-write branch.
 const source=fs.readFileSync(new URL('../src/main.js',import.meta.url),'utf8');
@@ -18,6 +19,10 @@ function host({enrolled=false,fail=false,bootError=null}={}) {
     const context=vm.createContext({JSON,structuredClone,observeLifeSave,createLifeRecord,advanceVillageLives,
         authorityBootError:bootError,authorityBootPending:false,authorityEnrolled:()=>enrolled,
         nativeAuthority:{commitPreparedSave:bytes=>write('authority',bytes)},localStorage:{},writeGuardedSave:(_,key,bytes)=>write(key,bytes),
+        // The real D3 writer over the same stub, so unchanged-write skipping is exercised too.
+        durableSaves:createDurableSaveWriter({getItem:()=>null},(_,key,bytes)=>write(key,bytes)),
+        // A visible tab (D4): panels render now; the panel list itself lives outside this owner.
+        deferWhileHidden:()=>false,renderSavedPanels(){},
         nativeP23Transaction:{status:'pending',markDurable(){events.push('durable');this.status='durable';}},
         migrateVillageCareer:()=>{events.push('publish');return {};},migrateWorkLedger:x=>structuredClone(x),customizationFromSave:x=>structuredClone(x.customization),
         refreshCustomization(){},update_displayed_crafting_recipes(){},validateCheatState:x=>x,defaultCheatState:()=>({}),validatePackState:x=>x,emptyPackState:()=>({}),restoreGeneratedPeople(){},
