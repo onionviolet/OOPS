@@ -29,7 +29,7 @@ import {validateBookCareState} from './book_care_facts.js';
 import {reconcileBookCareRuntime} from './book_care_runtime.js';
 import {validateFieldCareState} from './field_care_facts.js';
 import {validateStatusCareState} from './status_care_facts.js';
-import {advanceAuditRemainder,retainAuditRemainderWindows,auditRemainderSimulationContexts} from './audit_remainder_runtime.js';
+import {advanceAuditRemainder,retainAuditRemainderWindows,auditRemainderSimulationContexts,auditRemainderNonceWindow,enterAuditRemainderMinute} from './audit_remainder_runtime.js';
 import {validateCausalStories} from './causal_story_core.js';
 import {causalStorySimulationContexts, nextCausalStoryBoundary, reconcileCausalStoryPlan} from './causal_story_host.js';
 import {validateAuditRemainderProjects} from './audit_remainder_facts.js';
@@ -645,6 +645,7 @@ export function advanceSimulation(state, registry, minutes, external = {}, gamep
     const loreContexts=()=>({...simulationContexts,player:{...simulationContexts.player,external:budgets,gameplay:owned,vitals:simulationPlan.vitals,equipment:simulationPlan.equipment}});
     const target = next.clock + minutes;
     let stoppedAtChoice = false, boundaries = 0;
+    const nonceWindow = auditRemainderNonceWindow(next);
     while(true) {
         if(next.chronicle && next.chronicle.life.endedAt !== null) break;
         if(["dead", "departed"].includes(next.simulation?.people.player?.life)) break;
@@ -656,8 +657,9 @@ export function advanceSimulation(state, registry, minutes, external = {}, gamep
         for(const o of Object.values(next.opportunities)) if(o.status === "scheduled" || o.status === "available") times = Math.min(times, o.status === "scheduled" ? o.due : o.expires);
         const boundary = Math.min(nextContainerBoundary(next,registry,{...simulationContexts,player:{...simulationContexts.player,inventoryOwners:{...simulationContexts.player?.inventoryOwners,...simulationPlan.ownership}}}),times, nextChronicleBoundary(next.chronicle), nextSimulationBoundary(next,{skipLoreJobs:!lorePracticeTimersSupported(next,loreContexts()),skipCompletionJobs:!worldCompletionTimersSupported(next,loreContexts()),skipCompletionCropChecks:!worldCompletionCropClockSupported(next,loreContexts().player)}), nextLorePracticeBoundary(next,loreContexts()), nextWorldCompletionBoundary(next,loreContexts()), nextCausalStoryBoundary(next), nextRealmActivityBoundary(next), nextTidemarkBoundary(next), nextNestedCampaignBoundary(next), nextParadiseBoundary(next), nextMolBoundary(next),nextProto23Boundary(next), workPlanNextBoundary(next));
         const clockBoundary = Number.isFinite(boundary)?Math.max(next.clock,boundary):null;
-        if(boundary > target) {retainOriginalFrontierWindow(next,next.clock,target);retainRepositoryAbsorptionWindows(next,next.clock,target);retainAuditRemainderWindows(next,next.clock,target);retainLorePracticeWindows(next,next.clock,target,loreContexts());retainWorldCompletionWindows(next,next.clock,target,loreContexts()); next.clock = target; syncRealmClock(next,clockBoundary); syncTidemarkClock(next); syncNestedCampaignClock(next); syncParadiseClock(next); syncMolClock(next);syncProto23Clock(next); expireRealmObservation(next); next.chronicle = advanceChronicle(next.chronicle, next.clock); break;}
+        if(boundary > target) {retainOriginalFrontierWindow(next,next.clock,target);retainRepositoryAbsorptionWindows(next,next.clock,target);retainAuditRemainderWindows(next,next.clock,target);retainLorePracticeWindows(next,next.clock,target,loreContexts());retainWorldCompletionWindows(next,next.clock,target,loreContexts()); enterAuditRemainderMinute(next,nonceWindow,target); next.clock = target; syncRealmClock(next,clockBoundary); syncTidemarkClock(next); syncNestedCampaignClock(next); syncParadiseClock(next); syncMolClock(next);syncProto23Clock(next); expireRealmObservation(next); next.chronicle = advanceChronicle(next.chronicle, next.clock); break;}
         retainOriginalFrontierWindow(next,next.clock,Math.max(next.clock,boundary));retainRepositoryAbsorptionWindows(next,next.clock,Math.max(next.clock,boundary));retainAuditRemainderWindows(next,next.clock,Math.max(next.clock,boundary));retainLorePracticeWindows(next,next.clock,Math.max(next.clock,boundary),loreContexts());retainWorldCompletionWindows(next,next.clock,Math.max(next.clock,boundary),loreContexts());
+        enterAuditRemainderMinute(next,nonceWindow,boundary);
         next.clock = Math.max(next.clock, boundary);
         syncRealmClock(next,clockBoundary); syncTidemarkClock(next); syncNestedCampaignClock(next); syncParadiseClock(next); syncMolClock(next);syncProto23Clock(next);
         expireRealmObservation(next);
@@ -671,11 +673,11 @@ export function advanceSimulation(state, registry, minutes, external = {}, gamep
         next.chronicle = advanceChronicle(next.chronicle, next.clock);
         advanceNativeContainerClocks(simulationPlan,registry,simulationContexts);
         advanceSimulationBoundary(simulationPlan, registry,proto23SimulationContexts(next, worldCompletionSimulationContexts(next,lorePracticeSimulationContexts(next,causalStorySimulationContexts(next,auditRemainderSimulationContexts(next,molSimulationContexts(next,paradiseSimulationContexts(next,nestedChainSimulationContexts(next,nestedSimulationContexts(next,tidemarkSimulationContexts(next,realmSimulationContexts(next,simulationContexts))))))))))));
-        advanceAuditRemainder(state,simulationPlan,registry,{...simulationContexts.player,actorId:"player",external:budgets,gameplay:owned,vitals:simulationPlan.vitals,equipment:simulationPlan.equipment});
+        advanceAuditRemainder(state,simulationPlan,registry,{...simulationContexts.player,actorId:"player",external:budgets,gameplay:owned,vitals:simulationPlan.vitals,equipment:simulationPlan.equipment},nonceWindow);
         reconcileLorePractice(state,simulationPlan,registry,{...simulationContexts,player:{...simulationContexts.player,external:budgets,gameplay:owned,vitals:simulationPlan.vitals,equipment:simulationPlan.equipment}});
         if(++boundaries >= 512) break; // Return unspent time; never skip causal work.
     }
-    advanceAuditRemainder(state,simulationPlan,registry,{...simulationContexts.player,actorId:"player",external:budgets,gameplay:owned,vitals:simulationPlan.vitals,equipment:simulationPlan.equipment});
+    advanceAuditRemainder(state,simulationPlan,registry,{...simulationContexts.player,actorId:"player",external:budgets,gameplay:owned,vitals:simulationPlan.vitals,equipment:simulationPlan.equipment},nonceWindow);
     reconcileCausalStoryPlan(state,simulationPlan,registry,causalStorySimulationContexts(next,simulationContexts));
     reconcileLorePractice(state,simulationPlan,registry,{...simulationContexts,player:{...simulationContexts.player,external:budgets,gameplay:owned,vitals:simulationPlan.vitals,equipment:simulationPlan.equipment}});
     reconcileBookCareRuntime(state,simulationPlan,registry);
