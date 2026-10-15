@@ -1,0 +1,9 @@
+{
+  "sourceOnly": false,
+  "literal": "/private/tmp/p01-pending-1600-1792027353109.txt",
+  "exportFullEnvelopeExact": true,
+  "reloadStockJobAndRowsExact": true,
+  "literalImportBytesExact": true,
+  "importStockJobAndRowsExact": true,
+  "rows": "Holds and cost\nVial: 1 River bellleaf (1 free, 0 left); 1 Spring water (2 free, 1 left). Buy missing: 0 coins; purse 70. No mixing fee. Queue 4 totals: 4 River bellleaf (short 2); 4 Spring water (short 1). Buy missing: 18 coins. One batch held at a time. Totals include held.\nCurrent blocker\nMix: Ready. Queue: The mixing vessel is busy. Cancel or finish its batch first.\nWork\n3 game minutes left; 4 batches incl. current; 3 minutes/batch; 12 minutes total if supplied. Held: 1 River bellleaf, 1 Spring water.\nLast result\nLatest finished mix: unavailable. Consumed inputs and completion time: unavailable."
+}

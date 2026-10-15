@@ -1,0 +1,20 @@
+import assert from 'node:assert/strict';
+import {stageMixtureAction} from '../../../../../../src/mixture_native.js';
+import {mixtureKey} from '../../../../../../src/mixture_state.js';
+const inputs={'River bellleaf':1,'Spring water':1};
+const base={owner:null,seed:7,inventory:Object.fromEntries(Object.keys(inputs).map(id=>[JSON.stringify({id}),{count:2}])),money:100,clock:0};
+function act(context,request){const plan=stageMixtureAction({...context,request});context.owner=plan.state;context.inventory=plan.inventory;context.money=plan.money;return plan;}
+act(base,{type:'mix',inputs,process:'steep'});
+const product=Object.values(base.owner.products)[0];
+act(base,{type:'use',key:mixtureKey(product)});
+act(base,{type:'learn',product:product.id});
+const completed=structuredClone(base),stopped=structuredClone(base);
+act(completed,{type:'repeat',product:product.id,count:1});
+act(stopped,{type:'repeat',product:product.id,count:2});
+completed.clock=stopped.clock=3;
+const success=act(completed,{type:'advance'}),shortage=act(stopped,{type:'advance'});
+assert.equal(success.message,'Timed batch completed.');
+assert.equal(shortage.message,'Timed batch completed. Repeat stopped: Shortage: River bellleaf.');
+assert.deepEqual(completed,stopped);
+assert.deepEqual(JSON.parse(JSON.stringify(completed)),JSON.parse(JSON.stringify(stopped)));
+console.log(JSON.stringify({checks:4,passed:4,sourceOnly:true,completedMessage:success.message,stoppedMessage:shortage.message,retainedContextsIdentical:true,serializedContextsIdentical:true},null,2));

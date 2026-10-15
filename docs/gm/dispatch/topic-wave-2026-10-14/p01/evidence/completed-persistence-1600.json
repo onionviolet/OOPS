@@ -1,0 +1,9 @@
+{
+  "sourceOnly": false,
+  "literal": "/private/tmp/p01-completed-1600-1792027370705.txt",
+  "exportFullEnvelopeExact": true,
+  "reloadStockJobAndRowsExact": true,
+  "literalImportBytesExact": true,
+  "importStockJobAndRowsExact": true,
+  "rows": "Holds and cost\nVial: 1 River bellleaf (0 free, short 1); 1 Spring water (1 free, 0 left). Buy missing: 8 coins; purse 70. No mixing fee. Queue 3 totals: 3 River bellleaf (short 3); 3 Spring water (short 2). Buy missing: 28 coins. One batch held at a time.\nCurrent blocker\nMix: Next batch needs 1 River bellleaf; you have 0 (missing 1). Queue: Next batch needs 1 River bellleaf; you have 0 (missing 1).\nWork\nQueue finished or stopped. 3 game minutes/batch; mix one vial is immediate. Current reason: Next batch needs 1 River bellleaf; you have 0 (missing 1).\nLast result\nLatest finished mix: unavailable. Consumed inputs and completion time: unavailable."
+}

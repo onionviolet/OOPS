@@ -1,0 +1,9 @@
+{
+  "checks": 4,
+  "passed": 4,
+  "sourceOnly": true,
+  "completedMessage": "Timed batch completed.",
+  "stoppedMessage": "Timed batch completed. Repeat stopped: Shortage: River bellleaf.",
+  "retainedContextsIdentical": true,
+  "serializedContextsIdentical": true
+}

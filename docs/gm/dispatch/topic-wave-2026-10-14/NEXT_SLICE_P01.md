@@ -1,6 +1,6 @@
-# Next slice: work feedback on the Village mixing panel (P01, not dispatched)
+# Next slice: work feedback on the Village mixing panel (P01, dispatched)
 
-Status: ready to run once Weibao says go. Written 2026-10-14 by root from
+Status: dispatched on Weibao's "send next part", 2026-10-14. Written 2026-10-14 by root from
 [chains round 5](../../../MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md#next-playable-slice-p01-work-feedback-on-the-village-mixing-panel),
 the synthesis packet [P01](../../../research/cross-game-synthesis-2026-10-14/PACKETS.md#p01)
 and TW-S touches S01-S04 and S06. This file is the authority for the slice's
@@ -13,7 +13,7 @@ reviews ownership, wording and browser evidence. Weibao judges feel.
 
 At the Village mixing counter, a player can always see, side by side: what
 the next mix will hold and cost, what actually stops it (in player words),
-how long the current work takes and why a queued run stopped, and what the
+how long the current work takes and the current reason a next batch cannot start, and what the
 last finished mix really produced. Projection only: **no new save field**, no
 reward, no new work engine.
 
@@ -46,8 +46,8 @@ reward, no new work engine.
      show a raw evaluator or exception string as player knowledge; unknown
      failures read "Can't mix right now" plus the retained notice.
   3. **Work:** minutes left, batches queued, minutes per batch, total time
-     left, and, when a queued run stops early, which input ran out (from the
-     state the run actually stopped on).
+     left, when no queue is running, "Queue finished or stopped" and the current blocker
+     from current stock and quote, explicitly labelled current. Never claim the historical stop cause.
   4. **Last result:** the latest finished product, inputs consumed and when,
      from retained records. If the record lacks a field, show it as
      unavailable; never rebuild it from prose.
@@ -64,7 +64,7 @@ reward, no new work engine.
   with any pre-existing failures named.
 - Fresh-origin Playwright on the rebuilt bundle at **1366x768** and
   **1600x1000**: buy inputs with coins, mix one vial, queue a learned method
-  until an input runs out (stop reason names it), replenish and resume,
+  until an input runs out (current blocker names it), replenish and resume,
   cancel mid-job (held inputs return, rows update), trigger a stale quote
   (refused, nothing paid), reopen the panel repeatedly (no stock or time
   change). All four rows readable with the Mix control visible without
@@ -81,3 +81,11 @@ reward, no new work engine.
 - Another live writer holds a listed file.
 - The panel cannot fit the four rows at 1366x768 without a layout change
   beyond this panel.
+
+## Coordinator clarification, 2026-10-14
+
+Root Claude explicitly narrowed the work row after the retained-state stop
+reproduction at `4fda8929`: use current truthful state and blocker rather than a
+historical stop cause. No new save field. Retained stop cause remains a LATER
+optional-revision proposal; record the exact missing fact, intended writer and
+absent-means-unknown compatibility in the P01 report. Other gates stand.

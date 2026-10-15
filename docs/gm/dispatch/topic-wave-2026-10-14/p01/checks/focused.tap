@@ -1,0 +1,130 @@
+TAP version 13
+# Subtest: next and queued cost reconcile to free stock, first hold and shopping route
+ok 1 - next and queued cost reconcile to free stock, first hold and shopping route
+  ---
+  duration_ms: 2.160542
+  type: 'test'
+  ...
+# Subtest: missing input gives needed, owned and missing amounts
+ok 2 - missing input gives needed, owned and missing amounts
+  ---
+  duration_ms: 0.349917
+  type: 'test'
+  ...
+# Subtest: busy vessel blocks queue while immediate mixing remains allowed by native engine
+ok 3 - busy vessel blocks queue while immediate mixing remains allowed by native engine
+  ---
+  duration_ms: 0.381333
+  type: 'test'
+  ...
+# Subtest: unlearned method and invalid batch counts have player words
+ok 4 - unlearned method and invalid batch counts have player words
+  ---
+  duration_ms: 0.182292
+  type: 'test'
+  ...
+# Subtest: stale quote and changed responsive method refuse without raw evaluator strings
+ok 5 - stale quote and changed responsive method refuse without raw evaluator strings
+  ---
+  duration_ms: 0.270833
+  type: 'test'
+  ...
+# Subtest: known invalid selections are mapped; unknown failure and unavailable frame remain generic
+ok 6 - known invalid selections are mapped; unknown failure and unavailable frame remain generic
+  ---
+  duration_ms: 0.218875
+  type: 'test'
+  ...
+# Subtest: stopped queue labels current blocker and follows replenished stock, no history claim
+ok 7 - stopped queue labels current blocker and follows replenished stock, no history claim
+  ---
+  duration_ms: 0.592917
+  type: 'test'
+  ...
+# Subtest: missing completion receipt stays unavailable, first acquisition is labelled separately
+ok 8 - missing completion receipt stays unavailable, first acquisition is labelled separately
+  ---
+  duration_ms: 0.391
+  type: 'test'
+  ...
+# Subtest: requirement projection keeps a hidden OR alternative private
+ok 9 - requirement projection keeps a hidden OR alternative private
+  ---
+  duration_ms: 0.709042
+  type: 'test'
+  ...
+# Subtest: known unmet requirement projects through existing disclosure contract
+ok 10 - known unmet requirement projects through existing disclosure contract
+  ---
+  duration_ms: 0.465708
+  type: 'test'
+  ...
+# Subtest: projection is deterministic and leaves the full frame, owner and quote byte-identical
+ok 11 - projection is deterministic and leaves the full frame, owner and quote byte-identical
+  ---
+  duration_ms: 0.340708
+  type: 'test'
+  ...
+# Subtest: queue totals count held inputs once, separate from free stock
+ok 12 - queue totals count held inputs once, separate from free stock
+  ---
+  duration_ms: 0.148541
+  type: 'test'
+  ...
+# Subtest: an acquisition at the latest transaction identifies that finished product, consumption still unavailable
+ok 13 - an acquisition at the latest transaction identifies that finished product, consumption still unavailable
+  ---
+  duration_ms: 0.349083
+  type: 'test'
+  ...
+# Subtest: identical products stack and different products separate without result templates
+ok 14 - identical products stack and different products separate without result templates
+  ---
+  duration_ms: 15.520083
+  type: 'test'
+  ...
+# Subtest: paid acquisition spends real purse; shortage/cancellation/failed write leave draws and stock intact
+ok 15 - paid acquisition spends real purse; shortage/cancellation/failed write leave draws and stock intact
+  ---
+  duration_ms: 47.171958
+  type: 'test'
+  ...
+# Subtest: experiment learns only after use and repeat reserves/refunds actual exact inputs
+ok 16 - experiment learns only after use and repeat reserves/refunds actual exact inputs
+  ---
+  duration_ms: 32.140083
+  type: 'test'
+  ...
+# Subtest: timed method survives reload, completes once and stops on shortage
+ok 17 - timed method survives reload, completes once and stops on shortage
+  ---
+  duration_ms: 2.101375
+  type: 'test'
+  ...
+# Subtest: latest dose replaces one family and durable publication retains consumed-product effect
+ok 18 - latest dose replaces one family and durable publication retains consumed-product effect
+  ---
+  duration_ms: 2.305084
+  type: 'test'
+  ...
+# Subtest: native chest split/merge and vendor sale preserve exact generated identities and draws
+ok 19 - native chest split/merge and vendor sale preserve exact generated identities and draws
+  ---
+  duration_ms: 1976.127667
+  type: 'test'
+  ...
+# Subtest: failed durable experiment publishes no consumed vial, learning, effect or draw changes
+ok 20 - failed durable experiment publishes no consumed vial, learning, effect or draw changes
+  ---
+  duration_ms: 1.116875
+  type: 'test'
+  ...
+1..20
+# tests 20
+# suites 0
+# pass 20
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2551.960167
