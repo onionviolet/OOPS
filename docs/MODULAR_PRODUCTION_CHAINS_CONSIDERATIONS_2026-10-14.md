@@ -452,16 +452,16 @@ and two fired [rerun triggers](audits/MODULAR_CHAINS_CORE_AUDIT.md#rerun-trigger
 
 | Code | Source | Angle for chains | Owner it touches |
 |---|---|---|---|
-| GW1 | HoI4 production lines | Efficiency that grows with a steady line and partly survives a switch (H-P3), matches re-audit U02 same-batch continuity | P6 workshops, T5 repeat order |
+| GW1 | HoI4 production lines | Efficiency that grows with a steady line and partly survives a switch (H-P3), matches re-audit U02 same-batch continuity. *Corrected round 5 (FC2): retention constants shown, native evaluator unread* | P6 workshops, T5 repeat order |
 | GW2 | Vagrus trip quotes | Quote a chain's full cost before committing: inputs, wages, supplies, delay reserve | T2 inspector, receipts |
 | GW3 | Idleon | Show rate and blocker beside each queued step, and a receipt for settled work | PC4 idle chains |
 | GW4 | Immortal Life | Skilled work earns trial applications; shared repairs unlock services | HV2 roles, maintenance (X18) |
 | GW5 | Taiwu village and manuals | Damaged inputs stay useful (a torn manual teaches part of a skill), mirrors X6 accounting | Salvage, knowledge |
-| GW6 | Warsim generators | One faction trait read by economy, diplomacy and descriptions; name pools reused across roles | GR rule modules, procgen |
+| GW6 | Warsim generators | One faction trait read by economy, diplomacy and descriptions; name pools reused across roles. *Corrected round 5 (FC2): a proposed multi-reader proof, not shown by table breadth* | GR rule modules, procgen |
 | GW7 | KoL | Rules that check the actual action taken, not a flag set beside it | PC2 rule readers |
 | GW8 | Prestige Tree community | A layer contract (identity, clock, persistence, reset effect) as the module boundary | R3-1 saved-domain registry |
-| GW9 | URR | Culture traits that make recognition useful (who makes what, where) | Materials provenance |
-| GW10 | Re-audit U01 | Toolkit energy and recycling as a chain stage | HV2, salvage |
+| GW9 | URR | Culture traits that make recognition useful (who makes what, where). *Corrected round 5 (FC2): objects shown; usefulness is UR-P1's proposal* | Materials provenance |
+| GW10 | Re-audit U01 | Toolkit energy and recycling as a chain stage. *Corrected round 5 (FC2): source not ready for acquisition, admission, sacrifice or completion* | HV2, salvage |
 
 ### Modularity at every level, consistency check (new)
 
@@ -483,3 +483,49 @@ existing micro rows.
 Dispatch: [topic wave 2026-10-14](gm/dispatch/topic-wave-2026-10-14/COMMON.md).
 TW-C (chains, triggers and sources), TW-L (levels consistency), TW-S (little
 stuff routing). Docs only, two owned files each.
+
+## Round 5 (2026-10-14): TW-C, TW-L, TW-S and synthesis returns folded
+
+Request (Weibao, 2026-10-14): "Fold the topic-wave and synthesis returns into
+the four root palettes, corrections first, then pick the next playable slice."
+Sources: [TW-C](gm/dispatch/topic-wave-2026-10-14/tw-c/OUTPUT.md), [TW-L](gm/dispatch/topic-wave-2026-10-14/tw-l/OUTPUT.md),
+[TW-S](gm/dispatch/topic-wave-2026-10-14/tw-s/OUTPUT.md), [cross-game synthesis](research/cross-game-synthesis-2026-10-14/REPORT.md).
+
+### Corrections (root was wrong or overstated)
+
+| Code | Root claim | Correction | Source |
+|---|---|---|---|
+| FC1 | X19 and round 4 TR2: HV1 and T3 branch state | HV1, T2 and T3 are all on HEAD (T3 merge `9c4602a9`). PC1-P15's branch-only notes are dated history | TW-C01 |
+| FC2 | GW1, GW6, GW9, GW10 as evidence | GW1 retention constants shown, native evaluator unread; GW6 a proposed multi-reader proof; GW9 objects shown, usefulness proposed; GW10 source not ready. Marked in place | TW-C02 |
+| FC3 | T4 "cut, dry, match, kit" as one line | The graph branches: cut, wet, dry, sound, then fitting or kit. Matching is not a kit prerequisite. First plan uses the useful dry to kit branch | TW-C03 |
+| FC4 | T5 needs a repeat-order engine | P2's learned finite repeat and the audited kit reserve already overlap it; T5 must name one unmet target-order gap and extend those owners | TW-C04 |
+| FC5 | MDF1 "tag store has zero readers" | One domain reader now: Village mixing builds a tag registry that `rule_modules.js` reads. One consumer, not two; no general material catalogue on this basis | TW-L01 |
+| FC6 | ML-R4c "rule readers by scope" | Only `mixture_rules.js` reads `rule_modules.js` in production, fixed to world plus generated per-save law at Village `mix@2`, selecting declared inputs to one dose response. Institution, knowledge and NPC channels are test fixtures, not live readers. No extraction, drying, tanning or distilling reader exists | TW-C14 to C17, TW-L04 |
+| FC7 | Mixing controls as missing little stuff | Mixing already renders stock, held inputs, remaining batches, cancel and stale-quote refusal (`src/mixture_ui.js`, `src/mixture_native.js`). Touches extend them | TW-S-C2 |
+
+### Shared verdict holds, now with live evidence
+
+TW-L ranks the shared pieces that already have two real consumers: rule
+predicates (`rules.js`), seeded decisions (`seeded_streams.js`) and
+world-instance records (`world_instances.js`); counted acquisition is the
+runner-up. Domain reducers stay separate. New rule: demand across imagined
+worlds earns a candidate, two distinct real callers earn a landing (TW-L45).
+
+### Chain picks after T3 (proposal, ranked by TW-C)
+
+1. T4 narrowed to dry, kit, useful use. 2. T5 only for its unmet gap.
+3. One usable preserve or refine lot from one source family. 4. Exact-copy
+salvage to a useful recovered input. 5. A second procedural reader (one local
+drying law) after T4. Causal catch-up, multi-maker allocation and full
+distilling stay reachable later; none gates T4.
+
+### Next playable slice: P01 work feedback on the Village mixing panel
+
+Picked this round (proposal; build needs Weibao's go-ahead). Why first: the
+synthesis ranks it 1 for payoff and 1 for seam reuse; TW-S puts four of its
+top five touches here (blocker beside the action, batch cost with held and net
+spend, one rate line with units, the input or capacity that stopped work);
+it sits on the just-merged T3 reader and T2 inspector; it adds no save field.
+Ready prompt: [NEXT_SLICE_P01](gm/dispatch/topic-wave-2026-10-14/NEXT_SLICE_P01.md).
+T4 follows it, and the technology NEXT_SLICE (craft cue plus village
+sentence) can run after or beside it on disjoint files.

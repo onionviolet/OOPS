@@ -1728,14 +1728,38 @@ and the source files before anything is added.
 | BW1 | Taiwu | Succession with explicit transfer channels: what passes by blood, by teaching, by item, by legacy points | B3 successor, RL3 |
 | BW2 | Taiwu, Tale of Immortal | Constitution and root tables as data: how many, how rolled, how they gate methods | G-rows on constitutions |
 | BW3 | Tale of Immortal | Preparation, advancement quality and failure recovery as separate rules at a breakthrough | Body milestones |
-| BW4 | Immortal Life | Lifespan, aging and what a breakthrough does to it | ST-E aging dials |
-| BW5 | Idle Reincarnator, Your Chronicle | Traits rolled per life, with a reset preview by carryover type (body, soul, account) | RL2, RL5 |
+| BW4 | Immortal Life | Lifespan, aging and what a breakthrough does to it. *Corrected round 13 (FB2): no lifespan or next-life schema found; `Marry` is cohabitation* | ST-E aging dials |
+| BW5 | Idle Reincarnator, Your Chronicle | Traits rolled per life, with a reset preview by carryover type (body, soul, account). *Corrected round 13 (FB1): neither rolls birth traits; keep the reset preview* | RL2, RL5 |
 | BW6 | Taiwu, Tale of Immortal, Immortal Life | How sex and gender appear in marriage, heirs, dual or gendered methods and NPC autonomy; what a world dial would change | SG3-SG10 |
 | BW7 | Warsim | Procedural races and their traits reused across systems | Nonhuman starts, B6 grammar |
-| BW8 | Path of the Idle Cultivator | Main and secondary cultivation methods as body slots | ML9 bodies as assemblies |
+| BW8 | Path of the Idle Cultivator | Main and secondary cultivation methods as body slots. *Corrected round 13 (FB3): paths, three physiques and dantian roots are separate layers; a path is not an anatomical slot* | ML9 bodies as assemblies |
 
 Physiques: BW2 and BW8 are the physique angle; the lane maps any physique
 tables found (strength, build, meridians) to the existing body record.
 Little stuff: body-relevant small touches go through lane TW-S.
 
 Lanes: [topic wave 2026-10-14](gm/dispatch/topic-wave-2026-10-14/COMMON.md) TW-B, TW-L, TW-S. No build.
+
+## Round 13: TW-B fold, 2026-10-14
+
+User prompt: "Fold the topic-wave and synthesis returns into the four root
+palettes, corrections first, then pick the next playable slice."
+Source: [TW-B](gm/dispatch/topic-wave-2026-10-14/tw-b/OUTPUT.md).
+
+| Code | Correction | Source |
+|---|---|---|
+| FB1 | BW5: neither Idle Reincarnator nor Your Chronicle rolls birth traits; Your Chronicle's class talent is computed, with two reset depths. Keep the reset preview with source-specific carriers. Marked in place | TW-B01 |
+| FB2 | BW4 and BW6: Immortal Life's traced defeat, recovery and realm advance reuse the actor; no lifespan or next-life schema found in the bounded search; `Marry` is cohabitation, not marriage or heirs. Not proof of absence elsewhere | TW-B02 |
+| FB3 | BW8 joined three layers: registered main and secondary paths (stats, lifespan), a separate registry of three physiques, and generated innate elemental roots in dantian slots. A path is not an anatomical slot | TW-B03 |
+
+Picks folded (TW-B, ranked): split path, physique and root configuration using
+the shown three-physique and five-primary-root evidence (TW-B03, B05); keep
+body, identity, address, partner choice and method gates separate, with the
+ambiguous-address seam recorded for a selected UI or save slice (TW-B08, B10);
+carry explicit transfer operations and frozen roll results through existing
+heir, body and save owners before any new generator (TW-B04, B12). Gender
+coverage across seven sources is in the lane file as recovered, contradictions
+included.
+
+No body slice is picked this round; the next playable slice is P01 (chains
+round 5). Body work stays proposals behind it.
