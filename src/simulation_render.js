@@ -58,3 +58,22 @@ export function endSimulationRenderBatch(frameKey) {
     const work = [...refreshes.values()]; refreshes.clear();
     withSimulationFrame(frameKey, () => {for(const render of work) render();});
 }
+// A hidden document keeps ticking, simulating and saving; only display refreshes wait.
+// Each skipped refresh (latest per key) runs once in the visibilitychange task that
+// reveals the document, before its first visible frame paints.
+const hiddenRefreshes = new Map();
+let revealBound = false;
+export const documentHidden = () => typeof document !== 'undefined' && document.hidden === true;
+export function deferWhileHidden(key, refresh) {
+    if(!documentHidden()) return false;
+    hiddenRefreshes.set(key, refresh);
+    if(!revealBound) {revealBound = true; document.addEventListener('visibilitychange', revealHiddenRefreshes);}
+    return true;
+}
+export function revealHiddenRefreshes() {
+    if(documentHidden()) return;
+    const work = [...hiddenRefreshes.values()]; hiddenRefreshes.clear();
+    for(const refresh of work) {
+        try {refresh();} catch(error) {console.error('A display could not refresh after the tab became visible.', error);}
+    }
+}

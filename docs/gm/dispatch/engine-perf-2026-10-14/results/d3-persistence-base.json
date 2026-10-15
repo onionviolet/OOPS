@@ -1,0 +1,18 @@
+{
+ "stepper": {
+  "ticks": 120,
+  "autosaves": 1,
+  "writes": 121
+ },
+ "storedMatchesLive": true,
+ "killReloadIdentical": true,
+ "explicitSave": 2,
+ "importDiff": [],
+ "importIdentical": true,
+ "flushOnHidden": {
+  "writes": 0,
+  "playtimeBefore": 216,
+  "playtimeAfter": 216
+ },
+ "errors": []
+}

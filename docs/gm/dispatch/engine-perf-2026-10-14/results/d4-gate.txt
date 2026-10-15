@@ -1,0 +1,40 @@
+[  0s] base 7504a1e46a; head = working tree; fixtures fresh,mid,crowded; idle 15s; det 8 game min
+[  4s] built and serving http://127.0.0.1:58833/ http://127.0.0.1:58834/
+[  5s] node ticks {"fresh":{"nodeTickMs":0.55,"nodeTickMedianMs":1.14},"mid":{"nodeTickMs":8.97,"nodeTickMedianMs":14.32},"crowded":{"nodeTickMs":15.05,"nodeTickMedianMs":19.33}}
+[ 32s] fresh idle {"wallMs":15004,"taskBusyPct":6.9,"scriptBusyPct":3.4,"layoutsPerSec":4,"styleRecalcsPerSec":72.2,"longTasks":0,"longTaskMaxMs":0,"storageWritesPerMin":60,"storageKBPerMin":6932,"heapMB":32.3,"domNodes":23306,"listeners":1587}
+[ 57s] mid idle {"wallMs":15005,"taskBusyPct":25.9,"scriptBusyPct":22.4,"layoutsPerSec":6.5,"styleRecalcsPerSec":67.9,"longTasks":14,"longTaskMaxMs":295,"storageWritesPerMin":52,"storageKBPerMin":7373,"heapMB":62.4,"domNodes":16851,"listeners":1592}
+[ 84s] crowded idle {"wallMs":15003,"taskBusyPct":47.2,"scriptBusyPct":41.8,"layoutsPerSec":125.8,"styleRecalcsPerSec":176.2,"longTasks":10,"longTaskMaxMs":569,"storageWritesPerMin":44,"storageKBPerMin":24963,"heapMB":78.9,"domNodes":42913,"listeners":1525}
+[ 95s] fresh det identical minute 1921->1929
+[109s] mid det identical minute 1932->1940
+[125s] crowded det identical minute 1932->1940
+fixture  metric                 value      budget          
+fresh    nodeTickMs             0.55       1          pass 
+fresh    taskBusyPct            6.9        13         pass 
+fresh    scriptBusyPct          3.4        7          pass 
+fresh    layoutsPerSec          4          90         pass 
+fresh    longTasks              0          2          pass 
+fresh    storageWritesPerMin    60         62         pass 
+fresh    storageKBPerMin        6932       8200       pass 
+fresh    det identical          true       true       pass 
+fresh    page errors            0          0          pass 
+mid      nodeTickMs             8.97       12         pass 
+mid      taskBusyPct            25.9       58         pass 
+mid      scriptBusyPct          22.4       53         pass 
+mid      layoutsPerSec          6.5        70         pass 
+mid      longTasks              14         14         pass 
+mid      storageWritesPerMin    52         62         pass 
+mid      storageKBPerMin        7373       7700       pass 
+mid      det identical          true       true       pass 
+mid      page errors            0          0          pass 
+crowded  nodeTickMs             15.05      17         pass 
+crowded  taskBusyPct            47.2       78         pass 
+crowded  scriptBusyPct          41.8       72         pass 
+crowded  layoutsPerSec          125.8      188        pass 
+crowded  longTasks              10         12         pass 
+crowded  storageWritesPerMin    44         62         pass 
+crowded  storageKBPerMin        24963      25500      pass 
+crowded  det identical          true       true       pass 
+crowded  page errors            0          0          pass 
+
+PASS  base 7504a1e46a  125s  load 115.2 188.6 265.6  report /private/tmp/claude-501/-Users-weiwei-code-yet-another-idle-rpg--claude-worktrees-wave-a-loop-53c42e/65ad1ebd-1f71-4816-8cb1-e2a492b0fcb1/scratchpad/d4-gate.json
+  WARNING: 1-min load above 18 cores during the run; browser numbers are unreliable. Rerun on a quiet host before acting on a FAIL.
