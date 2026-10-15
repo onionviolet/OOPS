@@ -1,0 +1,625 @@
+{
+  "situations": [
+    {
+      "id": "field.lp1.lesson",
+      "revision": 1,
+      "label": "Village lever-setting lesson",
+      "context": {
+        "worldId": "base.frontier",
+        "instanceId": "frontier.main",
+        "continuityId": "frontier.branch",
+        "eraId": "frontier.present",
+        "regionId": "frontier.village"
+      },
+      "initialPhase": "demonstrated",
+      "phases": [
+        "demonstrated",
+        "explained",
+        "learned"
+      ],
+      "privateTruth": {
+        "ordinaryTimber": true
+      },
+      "participants": [
+        "player",
+        "oldCraftsman"
+      ]
+    }
+  ],
+  "powers": [
+    {
+      "id": "field.lp1.lever",
+      "revision": 1,
+      "label": "Lever-setting",
+      "model": "practice",
+      "capacity": 1,
+      "execution": {
+        "all": [
+          {
+            "fact": "lp1.body",
+            "op": "eq",
+            "value": true,
+            "reason": "Lever work needs two usable hands and a mobile body. Let tender hands recover or use a supported body."
+          },
+          {
+            "fact": "knowledge.field.lp1.method.understood",
+            "op": "eq",
+            "value": true,
+            "reason": "Complete the lever-setting practice with the craftsman first."
+          }
+        ],
+        "reason": "Lever work needs two usable hands and a mobile body. Let tender hands recover or use a supported body. Complete the lever-setting practice with the craftsman first."
+      }
+    }
+  ],
+  "commands": [
+    {
+      "revision": 1,
+      "worldId": "base.frontier",
+      "actorId": "player",
+      "group": "field",
+      "uiSection": "lever",
+      "location": "Village",
+      "visibleWhen": {
+        "fact": "actor.field.introduced",
+        "op": "eq",
+        "value": true
+      },
+      "costs": [
+        {
+          "type": "item",
+          "key": "{\"id\":\"Rough wood log\"}",
+          "amount": -1
+        },
+        {
+          "type": "vital",
+          "key": "stamina",
+          "amount": -3
+        }
+      ],
+      "effects": [
+        {
+          "type": "item",
+          "key": "{\"id\":\"Prepared survey kit\"}",
+          "amount": 1
+        }
+      ],
+      "id": "field.lp1.hand",
+      "label": "Free wedged timber by hand · 1 log + 3 stamina · 6 min",
+      "duration": 6,
+      "cancellation": "refund",
+      "requires": {
+        "all": [
+          {
+            "fact": "location",
+            "op": "eq",
+            "value": "Village",
+            "reason": "Return to the Village timber stack."
+          },
+          {
+            "fact": "lp1.body",
+            "op": "eq",
+            "value": true,
+            "reason": "Lever work needs two usable hands and a mobile body. Let tender hands recover or use a supported body."
+          }
+        ],
+        "reason": "Return to the Village timber stack. Lever work needs two usable hands and a mobile body. Let tender hands recover or use a supported body."
+      },
+      "completionRequires": {
+        "all": [
+          {
+            "fact": "location",
+            "op": "eq",
+            "value": "Village",
+            "reason": "Return to the Village timber stack."
+          },
+          {
+            "fact": "lp1.body",
+            "op": "eq",
+            "value": true,
+            "reason": "Lever work needs two usable hands and a mobile body. Let tender hands recover or use a supported body."
+          }
+        ],
+        "reason": "Return to the Village timber stack. Lever work needs two usable hands and a mobile body. Let tender hands recover or use a supported body."
+      },
+      "completionFailure": "refund",
+      "description": "Known task: free and sort your wedged timber into one Prepared survey kit. Hand work takes six minutes. Each new supplied log allows another job."
+    },
+    {
+      "revision": 1,
+      "worldId": "base.frontier",
+      "actorId": "player",
+      "group": "field",
+      "uiSection": "lever",
+      "location": "Village",
+      "visibleWhen": {
+        "fact": "actor.field.introduced",
+        "op": "eq",
+        "value": true
+      },
+      "costs": [],
+      "effects": [
+        {
+          "type": "situation",
+          "situationId": "field.lp1.lesson",
+          "operation": "begin"
+        },
+        {
+          "type": "knowledge",
+          "key": "field.lp1.demonstration",
+          "stage": "seen",
+          "value": "In Village, the old craftsman demonstrates a pivot beside the wedged timber: brace the near end, then lift the far end. He offers instruction when willing and available.",
+          "basis": {
+            "kind": "instruction",
+            "attributedTo": "oldCraftsman",
+            "situationId": "field.lp1.lesson"
+          }
+        }
+      ],
+      "id": "field.lp1.demonstrate",
+      "label": "Ask the craftsman to demonstrate lever-setting",
+      "once": true,
+      "targetId": "oldCraftsman",
+      "coLocated": true,
+      "participants": [
+        "$actor",
+        "$target"
+      ],
+      "requires": {
+        "all": [
+          {
+            "fact": "location",
+            "op": "eq",
+            "value": "Village",
+            "reason": "Return to the Village timber stack."
+          },
+          {
+            "fact": "lp1.body",
+            "op": "eq",
+            "value": true,
+            "reason": "Lever work needs two usable hands and a mobile body. Let tender hands recover or use a supported body."
+          },
+          {
+            "all": [
+              {
+                "fact": "village.craftsmanMet",
+                "op": "eq",
+                "value": true
+              },
+              {
+                "fact": "target.life",
+                "op": "eq",
+                "value": "alive"
+              },
+              {
+                "fact": "village.craftsmanIrritated",
+                "op": "eq",
+                "value": false,
+                "reason": "Let the craftsman settle before asking for instruction."
+              },
+              {
+                "fact": "village.teacherHours",
+                "op": "eq",
+                "value": true,
+                "reason": "The craftsman teaches between 08:00 and 18:00."
+              },
+              {
+                "fact": "lp1.teacher",
+                "op": "eq",
+                "value": true,
+                "reason": "The craftsman needs usable hands and must be here in Village."
+              }
+            ],
+            "reason": "Let the craftsman settle before asking for instruction. The craftsman teaches between 08:00 and 18:00. The craftsman needs usable hands and must be here in Village."
+          }
+        ],
+        "reason": "Return to the Village timber stack. Lever work needs two usable hands and a mobile body. Let tender hands recover or use a supported body. Let the craftsman settle before asking for instruction. The craftsman teaches between 08:00 and 18:00. The craftsman needs usable hands and must be here in Village."
+      },
+      "description": "A free safe demonstration, with the craftsman present. Watching alone grants no usable method."
+    },
+    {
+      "revision": 1,
+      "worldId": "base.frontier",
+      "actorId": "player",
+      "group": "field",
+      "uiSection": "lever",
+      "location": "Village",
+      "visibleWhen": {
+        "all": [
+          {
+            "fact": "actor.field.introduced",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "knowledge.field.lp1.demonstration.seen",
+            "op": "eq",
+            "value": true
+          }
+        ],
+        "reason": ""
+      },
+      "costs": [],
+      "effects": [
+        {
+          "type": "situation",
+          "situationId": "field.lp1.lesson",
+          "operation": "advance",
+          "expected": [
+            "demonstrated"
+          ],
+          "phase": "explained"
+        },
+        {
+          "type": "knowledge",
+          "key": "field.lp1.rule",
+          "stage": "understood",
+          "value": "The old craftsman checked your explanation in Village: the brace stays near the pivot, your hands lift the far end, and you stop if the timber slips. Paid supported practice is still needed.",
+          "basis": {
+            "kind": "instruction",
+            "attributedTo": "oldCraftsman",
+            "situationId": "field.lp1.lesson"
+          }
+        }
+      ],
+      "id": "field.lp1.explain",
+      "label": "Explain the rule: brace near the pivot, lift the far end",
+      "once": true,
+      "targetId": "oldCraftsman",
+      "coLocated": true,
+      "participants": [
+        "$actor",
+        "$target"
+      ],
+      "requires": {
+        "all": [
+          {
+            "fact": "location",
+            "op": "eq",
+            "value": "Village",
+            "reason": "Return to the Village timber stack."
+          },
+          {
+            "fact": "lp1.body",
+            "op": "eq",
+            "value": true,
+            "reason": "Lever work needs two usable hands and a mobile body. Let tender hands recover or use a supported body."
+          },
+          {
+            "all": [
+              {
+                "fact": "village.craftsmanMet",
+                "op": "eq",
+                "value": true
+              },
+              {
+                "fact": "target.life",
+                "op": "eq",
+                "value": "alive"
+              },
+              {
+                "fact": "village.craftsmanIrritated",
+                "op": "eq",
+                "value": false,
+                "reason": "Let the craftsman settle before asking for instruction."
+              },
+              {
+                "fact": "village.teacherHours",
+                "op": "eq",
+                "value": true,
+                "reason": "The craftsman teaches between 08:00 and 18:00."
+              },
+              {
+                "fact": "lp1.teacher",
+                "op": "eq",
+                "value": true,
+                "reason": "The craftsman needs usable hands and must be here in Village."
+              }
+            ],
+            "reason": "Let the craftsman settle before asking for instruction. The craftsman teaches between 08:00 and 18:00. The craftsman needs usable hands and must be here in Village."
+          },
+          {
+            "fact": "knowledge.field.lp1.demonstration.seen",
+            "op": "eq",
+            "value": true
+          }
+        ],
+        "reason": "Return to the Village timber stack. Lever work needs two usable hands and a mobile body. Let tender hands recover or use a supported body. Let the craftsman settle before asking for instruction. The craftsman teaches between 08:00 and 18:00. The craftsman needs usable hands and must be here in Village."
+      }
+    },
+    {
+      "revision": 1,
+      "worldId": "base.frontier",
+      "actorId": "player",
+      "group": "field",
+      "uiSection": "lever",
+      "location": "Village",
+      "visibleWhen": {
+        "all": [
+          {
+            "fact": "actor.field.introduced",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "knowledge.field.lp1.rule.seen",
+            "op": "eq",
+            "value": true
+          }
+        ],
+        "reason": ""
+      },
+      "costs": [
+        {
+          "type": "resource",
+          "native": true,
+          "key": "money",
+          "amount": -1
+        },
+        {
+          "type": "vital",
+          "key": "stamina",
+          "amount": -1
+        }
+      ],
+      "effects": [
+        {
+          "type": "power",
+          "powerId": "field.lp1.lever",
+          "operation": "learn"
+        },
+        {
+          "type": "situation",
+          "situationId": "field.lp1.lesson",
+          "operation": "advance",
+          "expected": [
+            "explained"
+          ],
+          "phase": "learned"
+        },
+        {
+          "type": "knowledge",
+          "key": "field.lp1.method",
+          "stage": "understood",
+          "value": "The old craftsman taught you lever-setting in Village after your pivot explanation and three minutes of supervised practice. You spent one coin and one stamina. You can now free timber with a spare log as a lever; actual hands and the held tool remain required.",
+          "basis": {
+            "kind": "instruction",
+            "attributedTo": "oldCraftsman",
+            "situationId": "field.lp1.lesson"
+          }
+        }
+      ],
+      "id": "field.lp1.practice",
+      "label": "Practice lever-setting with the craftsman · 1 coin + 1 stamina · 3 min",
+      "once": true,
+      "targetId": "oldCraftsman",
+      "coLocated": true,
+      "participants": [
+        "$actor",
+        "$target"
+      ],
+      "duration": 3,
+      "cancellation": "refund",
+      "reservationReturns": 1,
+      "requires": {
+        "all": [
+          {
+            "fact": "location",
+            "op": "eq",
+            "value": "Village",
+            "reason": "Return to the Village timber stack."
+          },
+          {
+            "fact": "lp1.body",
+            "op": "eq",
+            "value": true,
+            "reason": "Lever work needs two usable hands and a mobile body. Let tender hands recover or use a supported body."
+          },
+          {
+            "all": [
+              {
+                "fact": "village.craftsmanMet",
+                "op": "eq",
+                "value": true
+              },
+              {
+                "fact": "target.life",
+                "op": "eq",
+                "value": "alive"
+              },
+              {
+                "fact": "village.craftsmanIrritated",
+                "op": "eq",
+                "value": false,
+                "reason": "Let the craftsman settle before asking for instruction."
+              },
+              {
+                "fact": "village.teacherHours",
+                "op": "eq",
+                "value": true,
+                "reason": "The craftsman teaches between 08:00 and 18:00."
+              },
+              {
+                "fact": "lp1.teacher",
+                "op": "eq",
+                "value": true,
+                "reason": "The craftsman needs usable hands and must be here in Village."
+              }
+            ],
+            "reason": "Let the craftsman settle before asking for instruction. The craftsman teaches between 08:00 and 18:00. The craftsman needs usable hands and must be here in Village."
+          },
+          {
+            "fact": "knowledge.field.lp1.rule.understood",
+            "op": "eq",
+            "value": true,
+            "reason": "Watch the demonstration, then explain the pivot rule."
+          }
+        ],
+        "reason": "Return to the Village timber stack. Lever work needs two usable hands and a mobile body. Let tender hands recover or use a supported body. Let the craftsman settle before asking for instruction. The craftsman teaches between 08:00 and 18:00. The craftsman needs usable hands and must be here in Village. Watch the demonstration, then explain the pivot rule."
+      },
+      "completionRequires": {
+        "all": [
+          {
+            "fact": "location",
+            "op": "eq",
+            "value": "Village",
+            "reason": "Return to the Village timber stack."
+          },
+          {
+            "fact": "lp1.body",
+            "op": "eq",
+            "value": true,
+            "reason": "Lever work needs two usable hands and a mobile body. Let tender hands recover or use a supported body."
+          },
+          {
+            "all": [
+              {
+                "fact": "village.craftsmanMet",
+                "op": "eq",
+                "value": true
+              },
+              {
+                "fact": "target.life",
+                "op": "eq",
+                "value": "alive"
+              },
+              {
+                "fact": "village.craftsmanIrritated",
+                "op": "eq",
+                "value": false,
+                "reason": "Let the craftsman settle before asking for instruction."
+              },
+              {
+                "fact": "village.teacherHours",
+                "op": "eq",
+                "value": true,
+                "reason": "The craftsman teaches between 08:00 and 18:00."
+              },
+              {
+                "fact": "lp1.teacher",
+                "op": "eq",
+                "value": true,
+                "reason": "The craftsman needs usable hands and must be here in Village."
+              }
+            ],
+            "reason": "Let the craftsman settle before asking for instruction. The craftsman teaches between 08:00 and 18:00. The craftsman needs usable hands and must be here in Village."
+          },
+          {
+            "fact": "knowledge.field.lp1.rule.understood",
+            "op": "eq",
+            "value": true,
+            "reason": "Watch the demonstration, then explain the pivot rule."
+          }
+        ],
+        "reason": "Return to the Village timber stack. Lever work needs two usable hands and a mobile body. Let tender hands recover or use a supported body. Let the craftsman settle before asking for instruction. The craftsman teaches between 08:00 and 18:00. The craftsman needs usable hands and must be here in Village. Watch the demonstration, then explain the pivot rule."
+      },
+      "completionCoLocated": true,
+      "completionFailure": "refund",
+      "description": "Untimed choice, then three played minutes of supervised practice. Teacher attention is reserved. Cancellation or lost support refunds costs and teaches nothing."
+    },
+    {
+      "revision": 1,
+      "worldId": "base.frontier",
+      "actorId": "player",
+      "group": "field",
+      "uiSection": "lever",
+      "location": "Village",
+      "visibleWhen": {
+        "fact": "actor.field.introduced",
+        "op": "eq",
+        "value": true
+      },
+      "costs": [
+        {
+          "type": "item",
+          "key": "{\"id\":\"Rough wood log\"}",
+          "amount": -2
+        },
+        {
+          "type": "vital",
+          "key": "stamina",
+          "amount": -1
+        }
+      ],
+      "effects": [
+        {
+          "type": "item",
+          "key": "{\"id\":\"Rough wood log\"}",
+          "amount": 1,
+          "reservationReturn": true
+        },
+        {
+          "type": "item",
+          "key": "{\"id\":\"Prepared survey kit\"}",
+          "amount": 1
+        }
+      ],
+      "id": "field.lp1.lever_work",
+      "label": "Free wedged timber with lever-setting · 1 log + spare log lever + 1 stamina · 2 min",
+      "duration": 2,
+      "cancellation": "refund",
+      "reservationReturns": 1,
+      "automatable": true,
+      "powerId": "field.lp1.lever",
+      "requires": {
+        "all": [
+          {
+            "all": [
+              {
+                "fact": "location",
+                "op": "eq",
+                "value": "Village",
+                "reason": "Return to the Village timber stack."
+              },
+              {
+                "fact": "lp1.body",
+                "op": "eq",
+                "value": true,
+                "reason": "Lever work needs two usable hands and a mobile body. Let tender hands recover or use a supported body."
+              },
+              {
+                "fact": "knowledge.field.lp1.method.understood",
+                "op": "eq",
+                "value": true,
+                "reason": "Complete the lever-setting practice with the craftsman first."
+              }
+            ],
+            "reason": "Return to the Village timber stack. Lever work needs two usable hands and a mobile body. Let tender hands recover or use a supported body. Complete the lever-setting practice with the craftsman first."
+          },
+          {
+            "fact": "lp1.tool",
+            "op": "eq",
+            "value": true,
+            "reason": "Carry a second Rough wood log as your lever, alongside the log being worked. The lever is held during work and returned."
+          }
+        ],
+        "reason": "Return to the Village timber stack. Lever work needs two usable hands and a mobile body. Let tender hands recover or use a supported body. Complete the lever-setting practice with the craftsman first. Carry a second Rough wood log as your lever, alongside the log being worked. The lever is held during work and returned."
+      },
+      "completionRequires": {
+        "all": [
+          {
+            "fact": "location",
+            "op": "eq",
+            "value": "Village",
+            "reason": "Return to the Village timber stack."
+          },
+          {
+            "fact": "lp1.body",
+            "op": "eq",
+            "value": true,
+            "reason": "Lever work needs two usable hands and a mobile body. Let tender hands recover or use a supported body."
+          },
+          {
+            "fact": "knowledge.field.lp1.method.understood",
+            "op": "eq",
+            "value": true,
+            "reason": "Complete the lever-setting practice with the craftsman first."
+          }
+        ],
+        "reason": "Return to the Village timber stack. Lever work needs two usable hands and a mobile body. Let tender hands recover or use a supported body. Complete the lever-setting practice with the craftsman first."
+      },
+      "completionFailure": "refund",
+      "description": "Same known task, one kit. Reserve two actual carried logs: one becomes the kit, the other stays held as the lever and returns. Two minutes and one stamina. Each idle repeat checks support and reserves fresh inputs."
+    }
+  ]
+}
