@@ -1,0 +1,108 @@
+{
+  "viewport": {
+    "width": 1366,
+    "height": 768
+  },
+  "setup": "Disposable controlled pre-LP6 fixture; no tutorial acquisition claim.",
+  "checks": [
+    {
+      "id": "fresh-absence",
+      "unseenPartnerHidden": true,
+      "noLp6State": true
+    },
+    {
+      "id": "favor-pending-reload-export-literal-import",
+      "kits": 0,
+      "logs": 17,
+      "waiting": true,
+      "jobs": [
+        "party.lp6.help"
+      ],
+      "history": "unanswered"
+    },
+    {
+      "id": "helped-waiting-reload-export-literal-import",
+      "kits": 0,
+      "logs": 17,
+      "waiting": true,
+      "jobs": [],
+      "history": "helped"
+    },
+    {
+      "id": "boundary-waiting-reload-export-literal-import",
+      "kits": 0,
+      "logs": 17,
+      "waiting": true,
+      "jobs": [],
+      "history": "helped"
+    },
+    {
+      "id": "boundary-return",
+      "lioLocation": "Village",
+      "packingRestored": true
+    },
+    {
+      "id": "helped-packing-pending-reload-export-literal-import",
+      "kits": 0,
+      "logs": 16,
+      "waiting": true,
+      "jobs": [
+        "party.lp6.pack_shared"
+      ],
+      "history": "helped"
+    },
+    {
+      "id": "helped-completed-reload-export-literal-import",
+      "kits": 1,
+      "logs": 16,
+      "waiting": false,
+      "jobs": [],
+      "history": "helped"
+    },
+    {
+      "id": "helped-useful-kit",
+      "kitsBefore": 0,
+      "kitsAfter": 1,
+      "logsBefore": 17,
+      "logsAfter": 16,
+      "lioStaminaBefore": 12,
+      "lioStaminaAfter": 11
+    },
+    {
+      "id": "declined-waiting-reload-export-literal-import",
+      "kits": 1,
+      "logs": 17,
+      "waiting": true,
+      "jobs": [],
+      "history": "declined"
+    },
+    {
+      "id": "declined-packing-pending-reload-export-literal-import",
+      "kits": 1,
+      "logs": 16,
+      "waiting": true,
+      "jobs": [
+        "party.lp6.pack_solo"
+      ],
+      "history": "declined"
+    },
+    {
+      "id": "declined-completed-reload-export-literal-import",
+      "kits": 2,
+      "logs": 16,
+      "waiting": false,
+      "jobs": [],
+      "history": "declined"
+    },
+    {
+      "id": "declined-useful-kit",
+      "kitsBefore": 1,
+      "kitsAfter": 2,
+      "logsBefore": 17,
+      "logsAfter": 16,
+      "lioStaminaBefore": 12,
+      "lioStaminaAfter": 12
+    }
+  ],
+  "errors": []
+}

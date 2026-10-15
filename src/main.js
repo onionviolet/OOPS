@@ -8142,7 +8142,7 @@ const saveOwnership = acquireSaveOwnership().then(owned => {
     chroniclePanel?.render(true);
     villagePanel?.render(true);
     simulationPanel?.render(); pursuitPanel?.render(); fieldPanel?.render(); promisePanel?.render(); crushSocialPanel?.render(); managementPanel?.render(); bodyPanel?.render(); townPanel?.render();
-    frontierCampaignPanel?.render();
+    frontierCampaignPanel?.render();partyPanel?.render();
     featureExpansionPanel?.render();foundationInteractionPanel?.render();
     knownRoutesPanel?.render();adventureNotebook?.render(); worldEventFeed?.render();
     awakenOptionalStart();

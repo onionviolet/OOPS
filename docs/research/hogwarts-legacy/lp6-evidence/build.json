@@ -1,0 +1,10 @@
+{
+  "bundle_sha256": "576ad84d9bd57d7b4d6199c07c7753eccd9ce59f464234b700e831e506a8166e",
+  "bytes": 5295439,
+  "served_match": true,
+  "origin": "http://127.0.0.1:8199/",
+  "viewport": {
+    "width": 1366,
+    "height": 768
+  }
+}
