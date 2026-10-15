@@ -1,0 +1,10 @@
+{
+ "_status": "PROPOSAL 2026-10-14. Ceilings from gate runs on head 8abd3882 (base 7f8b8567), host load 27-125 on 18 cores (not quiet): max observed x about 1.25 (busy %, layouts/s, KB/min), x1.3 on best-of-15 with a 1 ms floor (Node tick), +3 (long tasks). Ratchet down after a perf lane lands: rerun twice and set max observed x 1.25.",
+ "_noise": "Run-to-run spread seen: busy % +-10% relative, layouts/s +-7%, long tasks +-2, Node tick best-of-15 +-15%; longTaskMaxMs (+-30%) is reported, not budgeted, storage writes/min 32-44 on mid/crowded (ticks fall behind under long tasks). det identity and page errors are exact.",
+ "_units": "nodeTickMs = best of 15 advanceSimulation(1 minute) calls in Node after 3 warmups (median also reported); busy % = CDP TaskDuration or ScriptDuration share of a 15 s idle window after 4 s warmup; layoutsPerSec = CDP LayoutCount rate; longTasks = PerformanceObserver longtask count in the window; storage = Storage.setItem calls and UTF-16 KB per wall minute.",
+ "fixtures": {
+  "fresh": {"nodeTickMs": 1, "taskBusyPct": 13, "scriptBusyPct": 7, "layoutsPerSec": 90, "longTasks": 2, "storageWritesPerMin": 62, "storageKBPerMin": 8200},
+  "mid": {"nodeTickMs": 12, "taskBusyPct": 58, "scriptBusyPct": 53, "layoutsPerSec": 70, "longTasks": 14, "storageWritesPerMin": 62, "storageKBPerMin": 7700},
+  "crowded": {"nodeTickMs": 17, "taskBusyPct": 78, "scriptBusyPct": 72, "layoutsPerSec": 188, "longTasks": 12, "storageWritesPerMin": 62, "storageKBPerMin": 25500}
+ }
+}

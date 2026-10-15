@@ -5,7 +5,8 @@ import assert from 'node:assert/strict';
 import {advanceSimulation,validateExpansionState} from '../src/expansion_engine.js';
 import {commitSimulationCommand} from '../src/simulation.js';
 import {expeditionRegistry as registry} from '../src/expedition_content.js';
-const seed=JSON.parse(fs.readFileSync(process.env.YAIRPG_PROFILE_SEED || '/Users/weiwei/.codex/visualizations/2026/10/04/01a1051c-ed9f-7a92-81fb-53403489e007/promise-delivery-proof/generated-help-save.json','utf8'));
+// Committed synthetic seed (scripts/perf/gen_fixtures.mjs); never a personal save.
+const seed=JSON.parse(fs.readFileSync(process.env.YAIRPG_PROFILE_SEED || new URL('../tests/fixtures/perf/mid.json',import.meta.url),'utf8'));
 const wood=JSON.stringify({id:'Rough wood log'}),kit=JSON.stringify({id:'Prepared survey kit'});
 let p={state:seed.expansion,external:{money:1000},gameplay:{player:{inventory:{[wood]:1000},skills:{},reputation:{}}}};
 p.state.simulation.knowledge.player.workbench={stage:'understood',value:'Generated benchmark qualification',at:p.state.clock,cause:'fixture:qualification'};
