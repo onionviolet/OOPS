@@ -6,7 +6,7 @@ import {validateStoryletState} from './storylet_deck.js';
 import {validateLoreHistory} from './lore_history_state.js';
 import {nativeEquipmentSnapshot} from './native_equipment_transaction.js';
 import {nextContainerBoundary} from './structured_container_runtime.js';
-import {advanceNativeContainerClocks} from './simulation_effects.js';
+import {advanceNativeContainerClocks,cloneData} from './simulation_effects.js';
 import {validateManagementState} from './management/validation.js';
 import {validateSteamAbsorptionState} from './steam_absorption_facts.js';
 import {validateContextualBalmState} from './contextual_balm_facts.js';
@@ -69,7 +69,7 @@ export const FEATURE_ENGINE_SCHEMA = 6;
 export const NESTED_ENGINE_SCHEMA = 7;
 export const CONTINUED_LIFE_ENGINE_SCHEMA = 8;
 const scopes = ["campaign", "journey", "world", "actor", "scenario", "external"];
-const clone = value => structuredClone(value);
+const clone = cloneData;
 const object = value => value && typeof value === "object" && !Array.isArray(value);
 const id = value => typeof value === "string" && /^[a-z][a-z0-9_.:-]*$/i.test(value) &&
     !["__proto__", "constructor", "prototype"].includes(value);

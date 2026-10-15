@@ -27,7 +27,7 @@ import {remainderConsequencesExistingCommandGate} from './audit_remainder_conseq
 import {advanceWorkPlansBoundary} from './feature_expansion_work_plan.js';
 import {activePractice} from "./techniques.js";
 import {assert, natural, copy, stableId, meets, createSimulationState, validateSimulationState} from "./simulation_contracts.js";
-import {person, participant, simulationFacts, applySimulationEffects, refundCosts, inventory, advanceNativeContainerClocks,resolveSimulationCostKeys} from "./simulation_effects.js";
+import {cloneData, person, participant, simulationFacts, applySimulationEffects, refundCosts, inventory, advanceNativeContainerClocks,resolveSimulationCostKeys} from "./simulation_effects.js";
 import {previewPowerModel, resolveEffectAmount} from "./power_models.js";
 import {prepareSimulationEffects, resolveOutcomeWeights} from "./simulation_resolution.js";
 import {pursuitReservesActor,nextPursuitBoundary,advancePursuits} from "./pursuit.js";
@@ -39,7 +39,16 @@ const ruleReason = (rule, facts) => meets(rule, facts) ? [] : [rule?.reason || "
 const log = (s, clock, text, cause) => {s.log.push({at: clock, text, cause}); s.log = s.log.slice(-100);};
 const hash = (seed, id) => {let n = seed; for(const ch of id) n = Math.imul(n ^ ch.charCodeAt(0), 16777619) >>> 0; return n || 1;};
 function draw(check) {let n = check.rng; n ^= n << 13; n ^= n >>> 17; n ^= n << 5; check.rng = n >>> 0; return check.rng / 0x100000000;}
-function plan(state, context) {return {state: copy(state), external: copy(context.external || {}), gameplay: copy(context.gameplay || {}), vitals: copy(context.vitals || {}), equipment: copy(context.equipment || {}), acquisitions: [], unlocks: [], gameplayBefore: copy(context.gameplay || {})};}
+// gameplayBefore is the caller's read-only input snapshot. Plans never write it,
+// so it is shared instead of deep-copying the native inventory a second time.
+function plan(state, context) {return {state: cloneData(state), external: cloneData(context.external || {}), gameplay: cloneData(context.gameplay || {}), vitals: cloneData(context.vitals || {}), equipment: cloneData(context.equipment || {}), acquisitions: [], unlocks: [], gameplayBefore: context.gameplay || {}};}
+// A throwaway validation candidate: every mutable slice is copied, the read-only
+// gameplayBefore snapshot is shared.
+function trial(out) {
+    const candidate = {};
+    for(const key of Object.keys(out)) candidate[key] = key === "gameplayBefore" ? out[key] : cloneData(out[key]);
+    return candidate;
+}
 function currentCausalStoryContexts(out, contexts) {
     if(!out.state.causalStories) return contexts;
     const current = Object.fromEntries(Object.entries(contexts).map(([id,c]) => [id,{...c,
@@ -86,7 +95,10 @@ function commandParticipants(d, context, s) {
 }
 export function waitingSimulationChoice(state) {return Object.values(state.simulation?.events || {}).find(e => e.actorId === "player" && e.mode === "decision" && e.nonBlocking !== true && e.status === "open" && e.discoveredBy.includes("player"));}
 
-export function previewSimulationCommand(state, registry, commandId, context) {
+export function previewSimulationCommand(state, registry, commandId, context) {return previewCommand(state, registry, commandId, context, true);}
+// startCommand repeats the same cost, claim and outcome trial on its own plan and
+// throws on any failure, so its internal quote skips the counterfactual copy.
+function previewCommand(state, registry, commandId, context, rehearse) {
     const d = registry.simulation.commands.get(commandId); assert(d, "Unknown living-world command.");
     if(d.group==='proto23' && context.proto23Host!==true)return {visible:false,eligible:false,reasons:['Use the current Proto23 visitor controls.']};
     const s=state.simulation, facts = simulationFacts(state, {...context,targetId:s?.people[context.targetId] ? context.targetId : null}, registry), p = person(state, context.actorId);
@@ -131,18 +143,20 @@ export function previewSimulationCommand(state, registry, commandId, context) {
         if(owned) {model = previewPowerModel(power, owned, d, {state, context, facts}); reasons.push(...model.reasons);}
         if(power.worlds && !power.worlds.includes(state.actors[context.actorId].worldId)) reasons.push("This world does not support the power's local rule or fuel.");
     }
-    const test = plan(state, context);
+    const test = rehearse ? plan(state, context) : null;
     const resolve = effects => (alloyTechniqueEffects(d, effects, facts, value => resolveEffectAmount(value, facts, model || {})) || []).map(e => e.amount != null ? {...e, amount: resolveEffectAmount(e.amount, facts, model || {})} : copy(e));
     let costs = [], effects = [], weights = null;
     try {
-        costs = resolveSimulationCostKeys(test,resolve(d.costs),context); effects = resolve(d.effects); if(d.outcomes) weights = resolveOutcomeWeights(d.outcomes, facts, model || {});
+        costs = resolveSimulationCostKeys(test || {state, gameplay: context.gameplay || {}},resolve(d.costs),context); effects = resolve(d.effects); if(d.outcomes) weights = resolveOutcomeWeights(d.outcomes, facts, model || {});
+        if(rehearse) {
         applySimulationEffects(test, costs, context, registry, "preview", {spending: true});
         if(d.claim && !s.claims[d.claim]) applySimulationEffects(test,[{type:"claim",operation:"acquire",key:d.claim}],context,registry,"preview");
         for(const [index,possible] of (d.outcomes || [{effects:[]}]).entries()) {
             if(weights && weights[index] === 0) continue;
-            const candidate = copy(test);
+            const candidate = trial(test);
             applySimulationEffects(candidate,prepareSimulationEffects([...effects,...(possible.effects || [])],facts,registry,"preview",model || {}),context,registry,"preview");
             validateSimulationState(candidate.state.simulation,candidate.state,registry.simulation);
+        }
         }
     }
     catch(error) {reasons.push(error.message);}
@@ -168,7 +182,7 @@ function startCommand(out, registry, commandId, context, immediatePreview, conte
     lorePracticeAdmissionGuard(state,d,context);
     // Scheduler callers just computed this preview synchronously on this same
     // plan. Reuse it only here, before any mutation; never cache a player quote.
-    const preview = immediatePreview || previewSimulationCommand(state, registry, commandId, {...context, external: out.external, gameplay: out.gameplay});
+    const preview = immediatePreview || previewCommand(state, registry, commandId, {...context, external: out.external, gameplay: out.gameplay}, false);
     assert(preview.eligible, preview.reasons.join(" ") || "This command is hidden.");
     foundationInteractionProbeGuard(state,d,context);
     admitFoundationInteraction(state,[...(d.effects||[]),...(d.outcomes||[]).flatMap(o=>o.effects||[])],context);
@@ -176,7 +190,11 @@ function startCommand(out, registry, commandId, context, immediatePreview, conte
     if(d.group === "pursuit")s.schema=Math.max(s.schema,2);
     if(context.actorId === "player" && context.facts?.location) s.people.player.location = context.facts.location;
     const frozenContext = {actorId: context.actorId, targetId: context.targetId || null, partyIds: copy(s.party)};
-    const facts = simulationFacts(state, context, registry);
+    // Frozen effects read facts only through formula amounts (preview effects are
+    // already resolved). Build them here, before costs, only when one exists.
+    const formula = [...preview.effects, ...(d.outcomes || []).flatMap(o => o.effects || [])].some(e => e?.amount != null && typeof e.amount !== "number");
+    if(!formula && context.targetId) person(state, context.targetId);
+    const facts = formula ? simulationFacts(state, context, registry) : {};
     applySimulationEffects(out, preview.costs, context, registry, cause, {spending: true});
     recordRemainderSupplyCommandCommit(state,d.id,context.actorId,cause);
     if(d.claim) applySimulationEffects(out, [{type: "claim", operation: "acquire", key: d.claim}], context, registry, cause);
@@ -206,7 +224,7 @@ function startCommand(out, registry, commandId, context, immediatePreview, conte
     // Freeze all outcomes with positive weight from the same pre-cost facts.
     for(const [index, possible] of (d.outcomes || [{effects: []}]).entries()) {
         if(preview.weights && preview.weights[index] === 0) continue;
-        const candidate = copy(out);
+        const candidate = trial(out);
         applySimulationEffects(candidate, prepareSimulationEffects([...preview.effects, ...(possible.effects || [])], facts, registry, cause, preview.model || {}), context, registry, cause);
         validateSimulationState(candidate.state.simulation, candidate.state, registry.simulation);
     }
@@ -480,7 +498,7 @@ export function advanceSimulationBoundary(out, registry, contexts = {}) {
     const loreSupported=lorePracticeTimersSupported(state,{...contexts,player:{...contexts.player,gameplay:out.gameplay,vitals:out.vitals,equipment:out.equipment}});
     const wcSupported=worldCompletionTimersSupported(state,{...contexts,player:{...contexts.player,gameplay:out.gameplay,vitals:out.vitals,equipment:out.equipment}});
     for(const j of s.jobs.filter(j => j.due <= state.clock && (loreSupported || !/^lore\.(?:work|warning)\./.test(j.commandId)) && (wcSupported || !j.commandId.startsWith("world.completion."))).sort((a,b) => a.due - b.due || a.sequence - b.sequence)) {
-        const beforeJob=j.commandId.startsWith("world.completion.")?copy(state):null;
+        const beforeJob=j.commandId.startsWith("world.completion.")?cloneData(state):null;
         s.jobs = s.jobs.filter(job => job.id !== j.id); completeJob(out, j, registry, contexts,beforeJob); work++;
     }
     reconcileRemainderConsequences(out,registry,contexts.player || {});
