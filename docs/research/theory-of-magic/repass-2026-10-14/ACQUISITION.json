@@ -1,0 +1,39 @@
+{
+  "lineages": {
+    "original": {
+      "pin": "35437ed4869856220d17ea9564b339cd02b03035",
+      "repository": "https://gitlab.com/justin.lacy/arcanum.git",
+      "counts": {
+        "spells": 263,
+        "skills": 72,
+        "tasks": 226,
+        "monsters": 280
+      },
+      "summon_spell_records": 28,
+      "loaded_catalogues": 54,
+      "license": "MIT, copyright 2020 Justin Lacy",
+      "raw_root": "/Users/weiwei/.codex/research/theory-of-magic/repass-2026-10-14/original",
+      "source_clean": true
+    },
+    "community": {
+      "pin": "a2632d2edf3e07e9168fff81167b11f2792e9197",
+      "repository": "https://gitlab.com/mathiashjelm/arcanum.git",
+      "counts": {
+        "spells": 295,
+        "skills": 72,
+        "tasks": 267,
+        "monsters": 331
+      },
+      "summon_spell_records": 64,
+      "loaded_catalogues": 64,
+      "license": "MIT, copyright 2020 Justin Lacy",
+      "raw_root": "/Users/weiwei/.codex/research/theory-of-magic/repass-2026-10-14/community",
+      "source_clean": true
+    }
+  },
+  "private_receipts": "../private/repass-2026-10-14/ACQUISITION.json",
+  "historical_files_checked": 594,
+  "historical_mismatches": 0,
+  "source_files_preserved": 126,
+  "evidence": "static source only"
+}

@@ -1,0 +1,132 @@
+{
+  "schema": 1,
+  "lane": "P2 caves-of-qud",
+  "date": "2026-10-14",
+  "state": "COMPLETE_CONNECTED_STATIC_RESEARCH_GATE",
+  "gate": {
+    "connected_response_chain": true,
+    "changed_predicate": true,
+    "actual_action_consumer_located": true,
+    "early_failure_and_fallback_located": true,
+    "inner_failure_return_boundary_located": true,
+    "native_and_serialized_unknowns_explicit": true
+  },
+  "source_pin": {
+    "version": "2.0.211.56",
+    "assembly_sha256": "2cc28fba5a86221e27bfdcaa5f5a91a2e249fd474814dce7cff25a9a649b8589",
+    "dmg_sha256": "b9af64f66987fb1942dff2b4a8e841d5ef2b565c6fe7136d52604fad06a13fd4",
+    "prior_version_hash_match": true,
+    "tool": "ilspycmd 11.1.0.9782",
+    "prior_tool": "ilspycmd 9.1.0.7988",
+    "old_generated_addresses_reused": false
+  },
+  "source_license": {
+    "game": "Proprietary supplied GOG payload. Bundled EULA points to GOG User Agreement; no open-source reuse/redistribution grant inferred.",
+    "tool": "ILSpy MIT, recorded in local package nuspec",
+    "dotnet": "MIT framework; local LICENSE and third-party notices remain in ~/.dotnet"
+  },
+  "preservation": {
+    "index": "../private/README.md",
+    "manifest": "../private/repass-2026-10-14/MANIFEST.json",
+    "manifest_sha256": "e1c51483f15d3076febc6660dfd73c6a8efb38c8885088e7192de9a7b3a9b01e",
+    "private": {
+      "evidence_groups": 22,
+      "complete_method_blocks": 67,
+      "full_types_copy_hash_matched": 47,
+      "full_xml_copy_hash_matched": 19,
+      "original_dossier_unchanged": [
+        "VALIDATION.json",
+        "FINDINGS.json",
+        "INTAKE.json",
+        "NPC_FINDINGS.json",
+        "REPORT.md"
+      ],
+      "selected_blueprint_records": 32,
+      "selected_duplicate_id_conflicts": 0,
+      "decision_rows": 12,
+      "local_links_verified": 20,
+      "private_ignored": true,
+      "tracked_private_files": 0,
+      "no_inline_decompiler_errors": true,
+      "assembly_version_hash_match": true,
+      "mount_ejected": true,
+      "yair_owner_drift": [],
+      "private_manifest_files": 167,
+      "private_manifest_logical_bytes": 7183854
+    },
+    "bulk_path": "/Users/weiwei/.codex/research/caves-of-qud/repass-2026-10-14",
+    "bulk_measured": {
+      "expanded": {
+        "files": 679,
+        "logical_bytes": 1372737135
+      },
+      "input": {
+        "files": 614,
+        "logical_bytes": 109671470
+      },
+      "decompiled": {
+        "files": 104,
+        "logical_bytes": 2168513
+      }
+    }
+  },
+  "reviewed": {
+    "evidence_groups": 22,
+    "complete_decoded_method_blocks": 67,
+    "connected_goal": "Brain -> Kill -> current body/equipment/ability gates -> cold cast or missile -> rejection/fallback or delayed reload",
+    "conditional_static_cases": 5,
+    "comparison": "Add same-phase nonhostile combatant to first eligible burst area while firing line stays clear",
+    "later_anatomy_liquid_notes": "Reconciled completed QB/QL paths, added AI eligibility consumer joins; no repeat whole-system audit",
+    "retention_not_semantic_coverage": true
+  },
+  "unknowns": [
+    "Actual spawned/equipped/loaded actor state and random selection",
+    "Dynamic event/mod vetoes and blueprint bake",
+    "Actual hits/damage/temperature/freeze and movement outcomes",
+    "Whole-save goal reacquisition, equipment/magazine/socket identity and cold-field group restoration",
+    "Derived active-item status rebuild and source-game failure atomicity",
+    "Other abilities/items/quests/dialogues and later versions/Pets"
+  ],
+  "boundaries": {
+    "installer_scripts_executed": false,
+    "game_installed": false,
+    "game_launched": false,
+    "game_built": false,
+    "saves_accessed": false,
+    "yair_source_changed": false,
+    "committed": false,
+    "purchased": false,
+    "implemented_or_accepted": false
+  },
+  "outputs": [
+    "REPORT.md",
+    "CHECKPOINT.md",
+    "COVERAGE.json"
+  ],
+  "checks": {
+    "evidence_groups": 22,
+    "complete_method_blocks": 67,
+    "full_types_copy_hash_matched": 47,
+    "full_xml_copy_hash_matched": 19,
+    "original_dossier_unchanged": [
+      "VALIDATION.json",
+      "FINDINGS.json",
+      "INTAKE.json",
+      "NPC_FINDINGS.json",
+      "REPORT.md"
+    ],
+    "selected_blueprint_records": 32,
+    "selected_duplicate_id_conflicts": 0,
+    "decision_rows": 12,
+    "local_links_verified": 20,
+    "private_ignored": true,
+    "tracked_private_files": 0,
+    "no_inline_decompiler_errors": true,
+    "assembly_version_hash_match": true,
+    "mount_ejected": true,
+    "yair_owner_drift": [],
+    "private_manifest_files": 167,
+    "private_manifest_logical_bytes": 7183854
+  },
+  "errors": []
+}

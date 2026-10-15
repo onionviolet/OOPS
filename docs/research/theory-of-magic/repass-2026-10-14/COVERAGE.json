@@ -1,0 +1,178 @@
+{
+  "date": "2026-10-14",
+  "task": "P4 Theory of Magic",
+  "status": "PASS_STATIC_SELECTED_CHAIN",
+  "acceptance_gate": {
+    "connected_data_to_consumer": true,
+    "numerical_factors_located": true,
+    "original_community_differences_qualified": true,
+    "blocked_action": true,
+    "runner_offline_exception_same_consumer": true,
+    "full_relevant_tables_and_authored_curves_preserved": true,
+    "runtime_verified": false
+  },
+  "lineages": {
+    "original": {
+      "pin": "35437ed4869856220d17ea9564b339cd02b03035",
+      "repository": "https://gitlab.com/justin.lacy/arcanum.git",
+      "counts": {
+        "spells": 263,
+        "skills": 72,
+        "tasks": 226,
+        "monsters": 280
+      },
+      "summon_spell_records": 28,
+      "loaded_catalogues": 54,
+      "license": "MIT, copyright 2020 Justin Lacy",
+      "raw_root": "/Users/weiwei/.codex/research/theory-of-magic/repass-2026-10-14/original",
+      "source_clean": true
+    },
+    "community": {
+      "pin": "a2632d2edf3e07e9168fff81167b11f2792e9197",
+      "repository": "https://gitlab.com/mathiashjelm/arcanum.git",
+      "counts": {
+        "spells": 295,
+        "skills": 72,
+        "tasks": 267,
+        "monsters": 331
+      },
+      "summon_spell_records": 64,
+      "loaded_catalogues": 64,
+      "license": "MIT, copyright 2020 Justin Lacy",
+      "raw_root": "/Users/weiwei/.codex/research/theory-of-magic/repass-2026-10-14/community",
+      "source_clean": true
+    }
+  },
+  "private_index": "../private/repass-2026-10-14/README.md",
+  "source_hashes": "../private/repass-2026-10-14/SOURCE_MANIFEST.json",
+  "trace": "../private/repass-2026-10-14/DECODED_CALL_FLOW.md",
+  "factor_map": "../private/repass-2026-10-14/FACTORS.json",
+  "ordered_chain": "../private/repass-2026-10-14/CHAIN.json",
+  "table_unit": "complete declaration records from core and modules declared by data/modules.json; no effective-runtime or semantic-completion count",
+  "shown": [
+    "selected source declarations and consumers at exact pins",
+    "payment and queued result flow",
+    "source XP scaler and training completion call sites",
+    "per-lineage authored curves and default constructors",
+    "blocked action and dt affordability predicates"
+  ],
+  "stated": [
+    "author descriptions identify vigor as exertion resource and martial as weapon skill; text is kept private"
+  ],
+  "inferred": [
+    "joined acquisition/use/training/unlock path",
+    "independent curve and resource arithmetic",
+    "XP award does not call the skill completion setter on this route",
+    "fine/coarse admission counterexample",
+    "original next spell arcana surcharge from constructor"
+  ],
+  "unverified": [
+    "exact user build",
+    "native or browser gameplay",
+    "rendered UI at any viewport",
+    "real pacing and balance",
+    "save reload import",
+    "all spell damage, minion combat/productivity and summon lifetime behavior",
+    "whole-game offline equivalence",
+    "all other catalogue semantics"
+  ],
+  "named_unread_catalogues": {
+    "original": [
+      "data/modules/patrons.json",
+      "data/modules/puppeteer.json",
+      "data/modules/combattutorial.json",
+      "data/modules/shian.json",
+      "data/modules/sackmakers.json",
+      "data/modules/ritualist.json",
+      "data/modules/reedburgh.json",
+      "data/modules/extramats.json",
+      "data/modules/extraaction.json",
+      "data/modules/debug.json",
+      "data/modules/legacy.json",
+      "data/modules/timerip.json",
+      "data/modules/pyromancer.json",
+      "data/modules/experimental.json",
+      "data/modules/shopkeeping.json",
+      "data/modules/debitomancy.json",
+      "data/modules/furniture_upgrades.json",
+      "data/modules/duelist.json",
+      "data/modules/swordplay.json",
+      "data/modules/companions.json",
+      "data/modules/contributors.json",
+      "data/modules/winter.json",
+      "data/modules/priest.json"
+    ],
+    "community": [
+      "data/modules/patrons.json",
+      "data/modules/puppeteer.json",
+      "data/modules/combattutorial.json",
+      "data/modules/shian.json",
+      "data/modules/sackmakers.json",
+      "data/modules/reedburgh.json",
+      "data/modules/extraaction.json",
+      "data/modules/seasonal/halloween/legacy/legacy_halloween.json",
+      "data/modules/seasonal/winter/legacy/legacy_winter.json",
+      "data/modules/seasonal/fool/legacy/legacy_fool.json",
+      "data/modules/seasonal/beltane/legacy/legacy_beltane.json",
+      "data/modules/timerip.json",
+      "data/modules/shopkeeping.json",
+      "data/modules/debitomancy.json",
+      "data/modules/furniture_upgrades.json",
+      "data/modules/duelist.json",
+      "data/modules/swordplay.json",
+      "data/modules/companions.json",
+      "data/modules/contributors.json",
+      "data/modules/learning.json",
+      "data/modules/classline/shadow.json",
+      "data/modules/pyromancer.json",
+      "data/modules/priest.json",
+      "data/modules/equipment/armors.json",
+      "data/modules/equipment/caster.json",
+      "data/modules/equipment/crafting.json",
+      "data/modules/equipment/jewelry.json",
+      "data/modules/hallgloss.json",
+      "data/modules/questing.json",
+      "data/modules/sublimation.json"
+    ]
+  },
+  "bounds": {
+    "no_source_edits": true,
+    "no_npm_or_dependencies": true,
+    "no_build": true,
+    "no_game_install_or_launch": true,
+    "no_save_access": true,
+    "no_commit": true,
+    "only_authorized_paths_written": true
+  },
+  "historical_hashes": {
+    "checked": 594,
+    "mismatches": 0
+  },
+  "license": "Both pins: MIT, copyright 2020 Justin Lacy. Full license preserved. No code copied into YAIR.",
+  "named_not_loaded_data_files": {
+    "original": [
+      "data/defeatstat.json",
+      "data/modules/cthulhu.json",
+      "data/modules/familiars.json",
+      "data/modules/halloween.json",
+      "data/modules/spring.json",
+      "data/modules/targettesting.json",
+      "data/places.json",
+      "data/professions.json"
+    ],
+    "community": [
+      "data/modules/cthulhu.json",
+      "data/modules/familiars.json",
+      "data/modules/ritualist.json",
+      "data/modules/seasonal/beltane/beltane.json",
+      "data/modules/seasonal/fool/fool.json",
+      "data/modules/seasonal/halloween/halloween.json",
+      "data/modules/seasonal/halloween/halloween_shapeshifting.json",
+      "data/modules/seasonal/winter/winter.json",
+      "data/modules/spring.json",
+      "data/places.json",
+      "data/professions.json",
+      "data/titles.json"
+    ]
+  }
+}

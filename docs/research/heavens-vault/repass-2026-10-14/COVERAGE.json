@@ -1,0 +1,172 @@
+{
+  "schema": 1,
+  "game": "heavens-vault",
+  "lane": "P1",
+  "date": "2026-10-14",
+  "status": "SELECTED_STATIC_AUDIT_DELIVERED",
+  "executed_semantics": "UNVERIFIED_AND_NOT_AUTHORIZED",
+  "question": "When does translation or confidence change alter an actual dialogue choice and its later remembered result?",
+  "entry": "ArtefactTranslationSolved",
+  "chain": [
+    "offer_autefacts_to_huang",
+    "show_autefact_to_huang",
+    "remark_on_translation_to_huang",
+    "showing_uncertain_translation",
+    "learn_word",
+    "note_learned_word",
+    "host learning and procedural timeline consumers",
+    "show_autefact_to_huang.finished",
+    "autefactsToShowToHuang later exclusion"
+  ],
+  "selected_case": "WOODEN_SWORD fixed-item parameterized exchange; no runtime instance or generated phrase assumed",
+  "outcomes": [
+    {
+      "id": "B05",
+      "status": "SHOWN_STATIC",
+      "predicate": "hasTranslation(item) && !ArtefactTranslationSolved(item)",
+      "true": "inscribed offer text",
+      "false": "object/provenance offer text",
+      "convergence": "both choices go to same show exchange"
+    },
+    {
+      "id": "B10-B11",
+      "status": "SHOWN_STATIC",
+      "predicate": "solved, else not spaced, else spaced uncertain",
+      "outcomes": [
+        "confident commentary and measure change",
+        "unknown-word exposure or empty return",
+        "wrong/correct-unconfirmed arbitration or empty return"
+      ]
+    },
+    {
+      "id": "B15-B21",
+      "status": "SHOWN_STATIC",
+      "predicate": "wordToConfirm != empty and KNOW_WORD false",
+      "mutation": "host dictionary learns word; timeline attributed to source",
+      "later_consumers": [
+        "KNOW_WORD",
+        "UNCONFIRMED_CORRECT_WORD",
+        "TranslationModel.Translated",
+        "inscription-menu SOLVABLE check"
+      ]
+    },
+    {
+      "id": "B07",
+      "status": "SHOWN_STATIC",
+      "alternative": "show nothing; no show/learn/archive changes; prior menu-generation recent-offer changes distinguished"
+    },
+    {
+      "id": "B29-B32",
+      "status": "SHOWN_STATIC",
+      "alternative": "give or keep; distinct inventory/measure/timeline changes; later exclusion tests having shown rather than donated"
+    }
+  ],
+  "preservation": {
+    "selected_containers": 72,
+    "tokens": 8434,
+    "text_tokens": 606,
+    "choice_points": 12,
+    "input_files": 50,
+    "condition_expressions": 518,
+    "literal_destinations_resolved": 1500,
+    "variable_redirects": 12,
+    "external_occurrences": 34,
+    "selected_phrase_rows": 1,
+    "selected_phrases": 17,
+    "selected_recursive_words": 66,
+    "note": "These are preservation/locator counts, not executed paths or whole-scene semantic review."
+  },
+  "private_index": "../private/repass-2026-10-14/README.md",
+  "private_branch_record": "../private/repass-2026-10-14/BRANCH_RECORD.md",
+  "source_hashes": "../private/repass-2026-10-14/SOURCE_HASHES.json",
+  "full_table_families": [
+    "GameData: atoms,words,reverseEquivalences,inscriptionDatabase",
+    "clues.entries",
+    "timelineEvents.entries",
+    "storyLocations.entries",
+    "ages",
+    "Ink listDefs"
+  ],
+  "boundaries": [
+    {
+      "id": "G1",
+      "kind": "runtime_state",
+      "status": "OPEN",
+      "locator": "StoryScript:498-547 -> Game.InscriptionForItem -> Player dictionaries/inscriptions",
+      "gap": "Actual inscription linked to item, phrase, guesses, known flags and host random results; source bodies available."
+    },
+    {
+      "id": "G2",
+      "kind": "callback_order",
+      "status": "OPEN",
+      "locator": "TranslationGameController.StartTranslation -> TranslationGameStory queue -> StorySequencer.ContinueTranslationNarrativeAt -> PreviouslyBrokenIntoWords; showing_uncertain_translation reload return clears global",
+      "gap": "Exact native queue/tunnel/resume timing not executed."
+    },
+    {
+      "id": "G3",
+      "kind": "other_item_branches",
+      "status": "OUTSIDE_SELECTED_CASE",
+      "locator": "show_autefact_to_huang item switch and find_comparable_translation",
+      "gap": "Other bespoke examination chains and dynamic library comparison not audited as full routes."
+    },
+    {
+      "id": "G4",
+      "kind": "serialization_and_native",
+      "status": "OPEN",
+      "locator": "Player.saveList; presenter panel callbacks; GOTO scene instruction",
+      "gap": "Persistence intent is read; game launch, UI timing, saved-state roundtrip and navigation remain prohibited/unrun."
+    },
+    {
+      "id": "G5",
+      "kind": "authoring_line_identity",
+      "status": "UNAVAILABLE_IN_INPUT",
+      "locator": "compiled core TextAsset path ID51",
+      "gap": "Original authoring source line numbers absent; exact JSON token/choice pointers preserved instead."
+    }
+  ],
+  "missing_external_body": null,
+  "missing_word_row": "Exact token private in selected-weapon-join.json; source skip/fallback handling preserved, no play outcome inferred.",
+  "licenses": [
+    {
+      "source": "retained commercial game core,data,C#",
+      "license": "proprietary; redistribution grant not established",
+      "storage": "ignored private only"
+    },
+    {
+      "source": "local public Ink checkout 35c63e52f1d36060930dc7ed3cfba38ea224b528",
+      "license": "MIT",
+      "role": "format reference, not runtime parity"
+    },
+    {
+      "source": "retained resources TextAsset LICENSE/COPYING",
+      "license": "CC0-1.0 within the notices scope; not story license"
+    }
+  ],
+  "authorization": {
+    "allowed_writes": [
+      "this output directory",
+      "game private reference folder",
+      "game scratch research workspace"
+    ],
+    "source_edits": false,
+    "ink_execution": false,
+    "game_execution": false,
+    "save_access": false,
+    "install": false,
+    "commit": false,
+    "accepted_YAIR_design_change": false
+  },
+  "validation": {
+    "token_identity": true,
+    "literal_paths": true,
+    "condition_slice_identity": true,
+    "all_external_bindings_located": true,
+    "source_sha256": true,
+    "prior_manifest_matches": 40,
+    "complete_table_bytes": true,
+    "selected_rows_exact": true,
+    "private_ignored": true,
+    "private_tracked_files": 0,
+    "public_links_style": "see private VALIDATION.json"
+  }
+}

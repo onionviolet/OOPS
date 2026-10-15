@@ -1,0 +1,13 @@
+# P2 checkpoint, 2026-10-14
+
+Status: static research gate complete; artifact validation passed. Owner: dispatched P2 process77873. Initial ps inspection identified this P2 invocation and no other Qud lane. Unrelated live lanes and dirty state preserved. No successor or implementation selected.
+
+Recovered the supplied base DMG by read-only hdiutil attach and pkgutil --expand-full. Installer scripts were expanded as bytes, never executed. Main DLL version2.0.211.56 and SHA256 exactly match prior intake; DMG hash matches too. Image disk7 was ejected. Existing ILSpy11.1 was reused; old9.1 generated ranges/hashes were not reused. Bulk input and expansion remain at ~/.codex/research/caves-of-qud/repass-2026-10-14/.
+
+Connected chain: Brain observation/acquisition -> Kill current validation -> actual body-slot missile equipment / loaded-stock gate / activated ability gate -> sampled cold cast -> changed collateral predicate refusal -> conditional next firearm or all-failed pursuit Step. Explicit inner missile false versus outer true and next-turn reload boundary retained. Full actor/weapon/field inheritance records support the conditional fixture; no spawn/equip/order state was invented as native evidence.
+
+Private ../private/repass-2026-10-14/ retains47 complete targeted types,22 evidence groups/67 complete decoded method/property blocks,14 full object-definition XML files plus five complete XML/JSON tables,32 selected/ancestor records, selected exact text locators, five conditional cases and12 perception/eligibility/consequence rows. The later completed body/liquid audits are indexed and reconciled; not rerun as whole-system audits. Failed guessed type names and XML normalization repair remain in provenance; failed exports are not evidence.
+
+Final public artifacts: REPORT.md, this CHECKPOINT.md, COVERAGE.json. Next on restart: read COVERAGE.json and private MANIFEST/VALIDATION. If validation incomplete, verify source/method hashes, XML/JSON/CSV structure, links and private ignore/tracking. Do not repeat recovery or semantic trace unless one of those inputs changed.
+
+OPEN: source-game execution, actual spawned equipment/load/order, dynamic handlers/mods, hit/movement/thermal outcomes, full save restoration of goals/equipment/magazine/socket/field identity and derived statuses. Brain writer/ability entry fields are source-inspected, not round-trip proof. No game install/launch/build/saves, YAIR source changes, commits, purchases or accepted design changes. Static research completion closes none of those gates. All six ranked YAIR proposals remain unselected; one realm/one prestige, canon-first and desktop/laptop-first direction preserved.
