@@ -10,7 +10,26 @@ const decode=s=>JSON.parse(Buffer.from(s.trim().replace(/^YAIR-UTF8-1:/,''),'bas
 (async()=>{
  const browser=await chromium.launch({channel:'chrome',headless:true});const contexts=[],gates=[],errors=[],loaded=[];
  const context=await browser.newContext({viewport:{width:1366,height:768}});contexts.push(context);
- await context.addInitScript(k=>{const write=Storage.prototype.setItem;Storage.prototype.setItem=function(name,bytes){const result=write.call(this,name,bytes);if(name===k)write.call(sessionStorage,'p15-proof-write-count',String(Number(sessionStorage.getItem('p15-proof-write-count')||0)+1));return result;};document.addEventListener('click',event=>{if(event.target?.id==='native_authority_undo')sessionStorage.setItem('p15-proof-before-undo',localStorage.getItem(k));},true);},key);
+ // Persist the trace across native reloads. No game bytes are changed by instrumentation.
+ await context.addInitScript(k=>{
+  const write=Storage.prototype.setItem;
+  document.addEventListener('click',event=>{
+   const id=event.target?.closest('button,input')?.id;
+   if(id)write.call(sessionStorage,'p15-proof-action',JSON.stringify({id,at:Date.now()}));
+   if(id==='native_authority_undo')write.call(sessionStorage,'p15-proof-before-undo',localStorage.getItem(k));
+  },true);
+  Storage.prototype.setItem=function(name,bytes){
+   if(name!==k||this!==localStorage)return write.call(this,name,bytes);
+   const trace=JSON.parse(sessionStorage.getItem('p15-proof-writes')||'[]');
+   const row={key:name,length:bytes.length,utf8Bytes:new TextEncoder().encode(bytes).length,
+    timestamp:new Date().toISOString(),stack:new Error('authority write').stack,
+    action:JSON.parse(sessionStorage.getItem('p15-proof-action')||'null'),revision:JSON.parse(bytes).revision};
+   try{const result=write.call(this,name,bytes);row.success=true;return result;}
+   catch(error){row.success=false;row.error=error.message;throw error;}
+   finally{trace.push(row);write.call(sessionStorage,'p15-proof-writes',JSON.stringify(trace));
+    if(row.success)write.call(sessionStorage,'p15-proof-write-count',String(Number(sessionStorage.getItem('p15-proof-write-count')||0)+1));}
+  };
+ },key);
  const page=await context.newPage();page.on('pageerror',e=>errors.push(e.message));page.on('response',r=>{if(r.status()===200&&r.url().startsWith(base)&&new URL(r.url()).pathname===new URL('dist/bundle.js',base).pathname)loaded.push(r.body().then(sha));});
  const all=()=>page.evaluate(()=>Object.fromEntries(Object.keys(localStorage).sort().map(k=>[k,localStorage.getItem(k)])));
  const read=()=>page.evaluate(k=>JSON.parse(localStorage.getItem(k)),key);
@@ -52,5 +71,5 @@ const decode=s=>JSON.parse(Buffer.from(s.trim().replace(/^YAIR-UTF8-1:/,''),'bas
   // Explicit native Hard Reset uses fresh native producer and retains authority.
   const beforeReset=await read();n=await beforeWrites();page.once('dialog',d=>d.accept('reset'));await Promise.all([page.waitForNavigation({waitUntil:'domcontentloaded',timeout:90000}),page.evaluate(()=>window.hardReset())]);await countSince(n);const reset=await read();assert.ok(reset);assert.equal(reset.previous,null);assert.equal(reset.revision,beforeReset.revision+1);assert.equal((await all())['save data'],original['save data']);gates.push('explicit Hard Reset writes one fresh native authority and keeps original legacy bytes');
   await play();await page.screenshot({path:path.join(out,'desktop.png')});assert.deepEqual(errors,[]);const served=await page.request.get(new URL('dist/bundle.js',base).href);assert.equal(served.status(),200);const hash=sha(await served.body());assert.deepEqual([...new Set(await Promise.all(loaded))],[hash]);fs.writeFileSync(path.join(out,'result.json'),JSON.stringify({lane:'p15-save-time-options',status:'PASS',viewport:'1366x768',bundleSha256:hash,currentMainOldClientBundleSha256:sha(await oldResponse.body()),gates,legacyHashes,pageErrors:errors},null,2));console.log('P15 native PASS '+out);
- }catch(error){fs.writeFileSync(path.join(out,'failure.json'),JSON.stringify({error:error.stack,gates,pageErrors:errors},null,2));throw error;}finally{for(const c of contexts)await c.close().catch(()=>{});await browser.close();}
+ }catch(error){fs.writeFileSync(path.join(out,'failure.json'),JSON.stringify({error:error.stack,gates,pageErrors:errors},null,2));throw error;}finally{fs.writeFileSync(path.join(out,'authority-writes.json'),JSON.stringify(await page.evaluate(()=>JSON.parse(sessionStorage.getItem('p15-proof-writes')||'[]')).catch(()=>[]),null,2));for(const c of contexts)await c.close().catch(()=>{});await browser.close();}
 })().catch(e=>{console.error(e);process.exitCode=1;});
