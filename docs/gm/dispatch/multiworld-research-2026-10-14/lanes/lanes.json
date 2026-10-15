@@ -52,5 +52,93 @@
    ],
    "timeout_hours": 24
   }
+ },
+ "lib-rimworld-deep": {
+  "out": "docs/research/rimworld/pass-2026-10-14-deep/",
+  "gate": null
+ },
+ "lib-bannerlord": {
+  "out": "docs/research/mount-and-blade-2-bannerlord/",
+  "gate": {
+   "kind": "steam_name",
+   "names": [
+    "bannerlord"
+   ]
+  }
+ },
+ "lib-stellaris": {
+  "out": "docs/research/stellaris/",
+  "gate": {
+   "kind": "steam_name",
+   "names": [
+    "stellaris"
+   ]
+  }
+ },
+ "lib-roadwarden": {
+  "out": "docs/research/roadwarden/",
+  "gate": {
+   "kind": "steam_name",
+   "names": [
+    "roadwarden"
+   ]
+  }
+ },
+ "lib-80-days": {
+  "out": "docs/research/80-days/",
+  "gate": {
+   "kind": "steam_name",
+   "names": [
+    "80 days"
+   ]
+  }
+ },
+ "lib-spiritfarer": {
+  "out": "docs/research/spiritfarer/",
+  "gate": {
+   "kind": "steam_name",
+   "names": [
+    "spiritfarer"
+   ]
+  }
+ },
+ "lib-terra-invicta": {
+  "out": "docs/research/terra-invicta/",
+  "gate": {
+   "kind": "steam_name",
+   "names": [
+    "terra invicta"
+   ]
+  }
+ },
+ "lib-endless-legend-2": {
+  "out": "docs/research/endless-legend-2/",
+  "gate": {
+   "kind": "steam_name",
+   "names": [
+    "endless legend"
+   ]
+  }
+ },
+ "lib-cell-to-singularity": {
+  "out": "docs/research/cell-to-singularity/",
+  "gate": {
+   "kind": "steam_name",
+   "names": [
+    "cell to singularity"
+   ]
+  }
+ },
+ "lib-uqm": {
+  "out": "docs/research/ur-quan-masters/",
+  "gate": {
+   "kind": "manual"
+  }
+ },
+ "lib-naev": {
+  "out": "docs/research/naev/",
+  "gate": {
+   "kind": "manual"
+  }
  }
 }
