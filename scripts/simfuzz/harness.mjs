@@ -271,6 +271,40 @@ function responsesOf(enc) {
     return [...ids];
 }
 
+// First differing leaf paths between two values (for failure messages).
+export function diffPaths(a, b, limit = 6, at = '', out = []) {
+    if (out.length >= limit) return out;
+    if (a === b) return out;
+    const oa = a !== null && typeof a === 'object', ob = b !== null && typeof b === 'object';
+    if (!oa || !ob || Array.isArray(a) !== Array.isArray(b)) { out.push(`${at || '.'}: ${JSON.stringify(a)?.slice(0, 60)} vs ${JSON.stringify(b)?.slice(0, 60)}`); return out; }
+    if (Array.isArray(a) && a.length !== b.length) { out.push(`${at}: length ${a.length} vs ${b.length}`); }
+    for (const k of new Set([...Object.keys(a), ...Object.keys(b)])) diffPaths(a[k], b[k], limit, at + '.' + k, out);
+    return out;
+}
+
+// First failing requirement leaf of a simulation command, as "fact op value
+// (now: actual)". Hidden commands report their visibleWhen leaf.
+export function explainRequires(E, plan, row, ctx) {
+    if (row.kind !== 'sim') return null;
+    if (!plan.state.simulation) return 'simulation not enrolled';
+    const d = E.registry.simulation.commands.get(row.id), people = plan.state.simulation.people;
+    if (d.actorId && d.actorId !== 'player') return `issued by ${d.actorId}${people[d.actorId] ? '' : ' (not spawned)'}`;
+    if (d.targetId && !people[d.targetId]) return `target ${d.targetId} not spawned`;
+    const facts = E.sim.simulationFacts(plan.state, {...ctx, targetId: d.targetId || null}, E.registry);
+    const leaf = (rule) => {
+        if (!rule) return null;
+        if (rule.all) { for (const c of rule.all) { const f = leaf(c); if (f) return f; } return null; }
+        if (rule.any) { const fs = rule.any.map(leaf); return fs.every(Boolean) ? `any(${fs.slice(0, 2).join(' | ')}${fs.length > 2 ? ' | ...' : ''})` : null; }
+        if (rule.not) return leaf(rule.not) ? null : `not(${JSON.stringify(rule.not).slice(0, 60)})`;
+        const v = facts[rule.fact];
+        const ok = rule.op === 'eq' ? v === rule.value : rule.op === 'gte' ? v >= rule.value : rule.op === 'lte' ? v <= rule.value : false;
+        return ok ? null : `${rule.fact} ${rule.op} ${JSON.stringify(rule.value)} (now: ${JSON.stringify(v) ?? 'unset'})`;
+    };
+    const hidden = leaf(d.visibleWhen);
+    if (hidden) return 'hidden: ' + hidden;
+    return leaf(d.requires);
+}
+
 // ---------- invariants ----------
 const NEG_OK = /(axes|delta|offset|trust|affinity|mood|attitude|relation|stance|balance|score|modifier|bias|drift)/i;
 function scanNumbers(value, pathStr, out, limit = 8) {
@@ -560,14 +594,14 @@ export function runSeed(E, catalog, {seed, steps, policy = policyForSeed(seed), 
             catch (e) { fail(step, 'advance-threw', e.message, {action: `advance ${n}`}); continue; }
             pure(step, prev, prevHash, `advance ${n}`);
             try { T('guards', () => publicationGate(E, prev, out, ctx)); }
-            catch (e) { res.guarded[`advance`] = (res.guarded.advance || 0) + 1; res.rejected['advance'] ||= e.message.slice(0, 160); continue; }
+            catch (e) { const g = e.message.match(/publication guard (\w+)/)?.[1] || '?'; res.guarded[g] = (res.guarded[g] || 0) + 1; res.rejected['advance'] ||= e.message.slice(0, 160); continue; }
             if (splitEvery && step % splitEvery === 0 && n > 1 && n <= splitMax) {
                 res.splitChecks++;
                 try { T('split', () => {
                     let p = prev;
                     for (let i = 0; i < n; i++) { const o = advance(E, p, 1, ctx); p = {state: o.state, external: o.external, gameplay: o.gameplay}; }
                     const a = hash(durable({state: out.state, external: out.external, gameplay: out.gameplay})), b = hash(durable(p));
-                    if (a !== b) fail(step, 'split-jump', `advance ${n} != ${n} x advance 1 (clock ${out.state.clock} vs ${p.state.clock}, seq ${out.state.sequence} vs ${p.state.sequence}, rng ${out.state.rng} vs ${p.state.rng})`, {action: `advance ${n}`, minutes: n});
+                    if (a !== b) fail(step, 'split-jump', `advance ${n} != ${n} x advance 1; jump vs split: ${diffPaths(durable({state: out.state, external: out.external, gameplay: out.gameplay}), durable(p)).join('; ')}`, {action: `advance ${n}`, minutes: n});
                 }); } catch (e) { fail(step, 'split-jump', 'split advance threw: ' + e.message, {action: `advance ${n}`}); }
             }
             plan = accept(step, prev, out, `advance ${n}`);
@@ -615,7 +649,7 @@ export function runSeed(E, catalog, {seed, steps, policy = policyForSeed(seed), 
         }
         pure(step, prev, prevHash, row.key);
         try { T('guards', () => publicationGate(E, prev, out, ctx)); }
-        catch (e) { res.guarded[row.key] = (res.guarded[row.key] || 0) + 1; res.rejected[row.key] = e.message.slice(0, 160); continue; }
+        catch (e) { const g = e.message.match(/publication guard (\w+)/)?.[1] || '?'; res.guarded[g] = (res.guarded[g] || 0) + 1; res.rejected[row.key] = e.message.slice(0, 160); continue; }
         try { plan = accept(step, prev, out, row.key); }
         catch (e) { fail(step, 'plan-shape', e.message, {action: row.key}); continue; }
         res.committed.add(row.key); res.commits++;
@@ -654,7 +688,10 @@ function adversarialStep(E, catalog, plan, ctx, R, res, step, fail, pure) {
     res.adversarial.tried++;
     try {
         if (kind === 'minutes') {
-            const bad = R.pick([-1, 0.5, NaN, Infinity, Number.MAX_SAFE_INTEGER]);
+            // Once a seed has recorded an accepted huge advance, stop repeating it:
+            // each one runs the engine's whole 512-boundary budget.
+            const huge = res.adversarial.accepted.some(a => a.kind === 'minutes') ? [] : [Number.MAX_SAFE_INTEGER];
+            const bad = R.pick([-1, 0.5, NaN, Infinity, ...huge]);
             advance(E, plan, bad, ctx);
             accepted = true; err = `advanceSimulation accepted minutes=${bad}`;
         } else if (kind === 'unknown') {
