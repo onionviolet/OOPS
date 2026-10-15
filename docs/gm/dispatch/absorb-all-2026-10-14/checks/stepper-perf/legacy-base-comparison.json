@@ -1,0 +1,14 @@
+{
+  "viewport": [
+    1366,
+    768
+  ],
+  "oldClient": "27764108efb9eb30ea6aa98658753a639100746f",
+  "base": "9dd86b5a",
+  "oldClientMeadowHay": 1,
+  "baseMeadowHayAbsent": true,
+  "candidateMeadowHayAbsent": true,
+  "canonicalBytesEqual": true,
+  "stateSha256": "852d99ebdaac3aa394df9f4633903536de374220e80d791774b037ddbbb2432e",
+  "errors": []
+}
