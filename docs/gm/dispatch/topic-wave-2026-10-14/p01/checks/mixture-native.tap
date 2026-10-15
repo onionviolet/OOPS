@@ -1,0 +1,52 @@
+TAP version 13
+# Subtest: identical products stack and different products separate without result templates
+ok 1 - identical products stack and different products separate without result templates
+  ---
+  duration_ms: 2.832625
+  type: 'test'
+  ...
+# Subtest: paid acquisition spends real purse; shortage/cancellation/failed write leave draws and stock intact
+ok 2 - paid acquisition spends real purse; shortage/cancellation/failed write leave draws and stock intact
+  ---
+  duration_ms: 0.602458
+  type: 'test'
+  ...
+# Subtest: experiment learns only after use and repeat reserves/refunds actual exact inputs
+ok 3 - experiment learns only after use and repeat reserves/refunds actual exact inputs
+  ---
+  duration_ms: 0.917042
+  type: 'test'
+  ...
+# Subtest: timed method survives reload, completes once and stops on shortage
+ok 4 - timed method survives reload, completes once and stops on shortage
+  ---
+  duration_ms: 0.892
+  type: 'test'
+  ...
+# Subtest: latest dose replaces one family and durable publication retains consumed-product effect
+ok 5 - latest dose replaces one family and durable publication retains consumed-product effect
+  ---
+  duration_ms: 1.12925
+  type: 'test'
+  ...
+# Subtest: native chest split/merge and vendor sale preserve exact generated identities and draws
+ok 6 - native chest split/merge and vendor sale preserve exact generated identities and draws
+  ---
+  duration_ms: 173.4815
+  type: 'test'
+  ...
+# Subtest: failed durable experiment publishes no consumed vial, learning, effect or draw changes
+ok 7 - failed durable experiment publishes no consumed vial, learning, effect or draw changes
+  ---
+  duration_ms: 0.39775
+  type: 'test'
+  ...
+1..7
+# tests 7
+# suites 0
+# pass 7
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 244.761917
