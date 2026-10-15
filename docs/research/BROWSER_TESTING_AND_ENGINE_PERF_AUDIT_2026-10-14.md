@@ -544,3 +544,43 @@ Still open:
 - Unapplied patch proposals to lane A's files: B's WB-V3 (pass the registry
   into persistence validation) and G's `wave-g-render/lane-a-structured.patch`.
 - Not merged into `absorb-all/integration` or `master`.
+
+## Simfuzz F1 fixed, 2026-10-14 night
+
+What was wrong: `advanceAuditRemainder` bumped `state.sequence` at most once
+per `advanceSimulation` call, always compared against the call's input state.
+N one-minute calls ended N-1 higher than one N-minute call.
+
+What the nonce protects: every quote and command carries `expectedSequence`;
+the per-minute bump makes a quote from before a played minute stale before
+receipts join that minute. Receipts compare `simulation:<n>` causes against
+`state.sequence` only as an upper bound, so larger values stay valid.
+
+Rule now (`src/audit_remainder_runtime.js`): each played minute window
+(w, w+1] gets one bump at its first check unless something else already bumped
+in that window. `advanceSimulation` keeps one window anchor per call and calls
+`enterAuditRemainderMinute` before every clock move, which adds one bump per
+skipped event-free minute. The end-of-call and main.js calls are no-ops once
+the minute is bumped. One-minute ticks are unchanged (same sequence and save
+hash, old vs new, 20 ticks on the combat-fit fixture). Long jumps (fast-forward,
+offline catch-up, `advanceSimulation(N)`) now add one per minute instead of one
+per call.
+
+Compatibility decision: no migration. `sequence` is a monotonic nonce; old
+saves load and continue, and only future increments change.
+
+Checks:
+- `node scripts/simfuzz/run.mjs --repro 33 --stop-at 440`: no split-vs-jump.
+- Full simfuzz (50 seeds x 2000 steps + 17 reruns, 4 workers): 0 invariant
+  failure groups, 17/17 determinism reruns identical.
+- New `tests/audit_remainder_nonce_split.test.js`: event-free window, a window
+  with a finished paid job, and other bumps before and after the nonce check;
+  the first two fail on the old rule.
+- `fast_forward.mjs` on the developed workshop save: fastForward(60),
+  advanceTicks(60) and 60 single ticks byte-identical. (That save has the audit
+  remainder closed, so this is a regression guard, not an F1 proof.)
+- `node --test`: 1741 tests (tests, tests/headless, tests/simfuzz), 0 fail, 3 todo.
+- Rebuilt bundle, fresh origin 1366×768, `?test_hooks=1`, port 57594:
+  `systems_workshop_browser.cjs` 10/10, `village_browser.cjs` passes.
+
+Not covered: a browser run with the audit remainder open (no such fixture).
