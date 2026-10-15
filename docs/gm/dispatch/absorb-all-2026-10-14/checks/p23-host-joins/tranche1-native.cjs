@@ -4,7 +4,9 @@ const __p00Fs = require('fs'), __p00Path = require('path');
 if (!process.env.URL) throw new Error('Set URL to the served native build origin.');
 const __p00Base = new URL(process.env.URL);
 if (!/^https?:$/.test(__p00Base.protocol)) throw new Error('URL must use HTTP or HTTPS.');
+__p00Base.search='';__p00Base.hash='';
 const __p00URL = __p00Base.href.replace(/\/?$/, '/');
+const testURL=new URL('?test_hooks=1',__p00URL).href;
 const fixtureDir = __p00Path.join(__dirname, 'fixtures');
 const __p00ProofRoot = process.env.YAIRPG_PROOF_DIR || require('os').tmpdir();
 __p00Fs.mkdirSync(__p00ProofRoot, {recursive: true});
@@ -18,8 +20,8 @@ const hash=x=>crypto.createHash('sha256').update(x).digest('hex');
 (async()=>{const browser=await chromium.launch({channel:'chrome',headless:true});
 const ctx=await browser.newContext({viewport:{width:1366,height:768},acceptDownloads:true});const p=await ctx.newPage();p.setDefaultTimeout(12000);const errors=[];p.on('pageerror',e=>errors.push(e.message));p.on('console',m=>{if(m.type()==='error')console.log('browser-error',m.text().slice(0,400));});
 const save=async()=>{await p.locator('#save_button').click();const s=await p.evaluate(()=>JSON.parse(localStorage.getItem('save data')));fs.writeFileSync(path.join(out,'tranche1-working.json'),JSON.stringify(s));return s;};
-const played=async n=>{const start=(await save()).expansion.clock;for(let i=0;i<n*4+4;i++){await p.waitForTimeout(1100);const tick=await save();if(tick.expansion.clock>=start+n)return;}console.log('stopped',await p.locator('#message_log').innerText().catch(()=>''),await p.locator('#p23_household_panel').innerText().catch(()=>''));await p.screenshot({path:path.join(out,'tranche1-stopped.png')});throw Error('Native played clock did not advance');};
-const play=async()=>{await p.locator('#loading_screen_play_button:not(.none_display)').click({noWaitAfter:true});};
+const played=async n=>{const start=(await save()).expansion.clock;for(let i=0;i<n*4+4;i++){await p.evaluate(()=>advanceTicks(1));const tick=await save();if(tick.expansion.clock>=start+n)return;}console.log('stopped',await p.locator('#message_log').innerText().catch(()=>''),await p.locator('#p23_household_panel').innerText().catch(()=>''));await p.screenshot({path:path.join(out,'tranche1-stopped.png')});throw Error('Native played clock did not advance');};
+const play=async()=>{await p.locator('#loading_screen_play_button:not(.none_display)').click({noWaitAfter:true});await p.evaluate(()=>simulationTestHooks.pause());};
 const families=s=>({exposure:s.p23_exposure,household:s.household,clock:s.expansion.clock,xp:s.levels.person.main_character.skill_xp,items:s.inventories.person.main_character,money:s.character.money,effects:s.active_effects});
 async function roundtrip(tag){const before=await save();await p.reload({waitUntil:'domcontentloaded'});assert.deepEqual(families(await p.evaluate(()=>JSON.parse(localStorage.getItem('save data')))),families(before));await play();
  const downloadP=p.waitForEvent('download');await p.locator('#save_to_file_button').click();const d=await downloadP;const file=path.join(out,`tranche1-${tag}.save.txt`);await d.saveAs(file);
@@ -29,7 +31,7 @@ async function roundtrip(tag){const before=await save();await p.reload({waitUnti
  results.push({gate:tag+' native Save/reload/Export/literal-file Import exact stored envelope before resumed played callbacks',status:'PASS'});return downloaded;}
 
 try{
- await p.goto(base,{waitUntil:'domcontentloaded'});await R.startFresh(p);const served=await p.request.get(base+'dist/bundle.js');const local=fs.readFileSync('dist/bundle.js');assert.equal(hash(await served.body()),hash(local));
+ await p.goto(testURL,{waitUntil:'domcontentloaded'});await R.startFresh(p);await p.evaluate(()=>simulationTestHooks.pause());const served=await p.request.get(base+'dist/bundle.js');const local=fs.readFileSync('dist/bundle.js');assert.equal(hash(await served.body()),hash(local));
  const baseline=await save();
  if(!resume){assert.equal(baseline.household,undefined);assert.equal(baseline.p23_exposure,undefined);results.push({gate:'old optional absence in fresh native envelope',status:'PASS'});
  // Only baseline prerequisites are configured. No feature state, clocks, event
@@ -62,7 +64,7 @@ try{
  await roundtrip('settled');
  await p.locator('#options_button').click();await p.locator('[data-pacing-option="weatherEnabled"]').uncheck();await p.locator('#options_button').click();
  await p.evaluate(()=>window.start_sleeping());
- for(let i=0;i<240;i++){await p.waitForTimeout(1100);const earned=await save();if((earned.levels.person.main_character.skill_xp.Famine||0)>=10)break;if(i%40===0)console.log('native passive sleep progress',i,earned.levels.person.main_character.skill_xp.Famine);}
+ for(let i=0;i<240;i++){await p.evaluate(()=>advanceTicks(1));const earned=await save();if((earned.levels.person.main_character.skill_xp.Famine||0)>=10)break;if(i%40===0)console.log('native passive sleep progress',i,earned.levels.person.main_character.skill_xp.Famine);}
  await p.evaluate(()=>window.end_sleeping());const earned=await save();assert.ok(earned.levels.person.main_character.skill_xp.Famine>=10);
  await p.locator('#pacing_status_panel summary').click();assert.match(await p.locator('#pacing_status_panel').innerText(),/Native XP ×0\.80125/);
  results.push({gate:'real underfed played sleep earns Famine level 1 and useful native hunger efficiency reduction',status:'PASS'});
@@ -73,7 +75,7 @@ try{
  await Promise.all([p.waitForNavigation({waitUntil:'domcontentloaded'}),p.locator('#saved_file_input').setInputFiles(file)]);await play();
  if(!finish){
  await p.locator('#options_button').click();await p.locator('[data-pacing-option="weatherEnabled"]').uncheck();await p.locator('#options_button').click();await p.evaluate(()=>window.start_sleeping());
- for(let i=0;i<240;i++){await p.waitForTimeout(1100);if(((await save()).levels.person.main_character.skill_xp.Famine||0)>=10)break;}
+ for(let i=0;i<240;i++){await p.evaluate(()=>advanceTicks(1));if(((await save()).levels.person.main_character.skill_xp.Famine||0)>=10)break;}
  await p.evaluate(()=>window.end_sleeping());assert.ok((await save()).levels.person.main_character.skill_xp.Famine>=10);await p.locator('#pacing_status_panel summary').click();assert.match(await p.locator('#pacing_status_panel').innerText(),/Native XP ×0\.80125/);
  await p.locator('#options_button').click();await p.locator('[data-pacing-option="weatherEnabled"]').check();await p.locator('#options_button').click();
  await p.locator('#p23_household_panel summary').click();await p.locator('[data-household-action="light"]').click();await p.locator('[data-household-action="close_vent"]').click();await played(1);
@@ -100,5 +102,5 @@ if(!finish){
   results.push({gate:field+' unsupported optional schema rejects without native storage mutation in the actual native import handler',status:'PASS'});
  }
  await p.screenshot({path:path.join(out,'tranche1-desktop.png')});assert.deepEqual(errors,[]);
- fs.writeFileSync(path.join(out,'tranche1-native.json'),JSON.stringify({status:'PASS',viewport:[1366,768],bundleSha256:hash(local),clock:'Actual worker-backed native played timers; no synthetic clock or engine/debug advancement',prerequisites:'explicit supported old-envelope fixture: native home access,5 logs,200 coins,Wet and underfed pacing; feature state/cursors/XP absent',results,pageErrors:errors},null,2));
+ fs.writeFileSync(path.join(out,'tranche1-native.json'),JSON.stringify({status:'PASS',viewport:[1366,768],bundleSha256:hash(local),clock:'Paused native engine callbacks, advanced explicitly with advanceTicks; no wall-time snapshot races',prerequisites:'explicit supported old-envelope fixture: native home access,5 logs,200 coins,Wet and underfed pacing; feature state/cursors/XP absent',results,pageErrors:errors},null,2));
 }finally{await ctx.close();await browser.close();}})().catch(e=>{console.error(e);fs.writeFileSync(path.join(out,'tranche1-native-failure.json'),JSON.stringify({error:String(e),results},null,2));process.exitCode=1});
