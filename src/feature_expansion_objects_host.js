@@ -1,3 +1,4 @@
+import {LEVER_PRACTICE_BRACE} from './lever_practice_supply.js';
 import {FEATURE_OBJECT_IDS as I, FEATURE_OBJECT_KEYS as K, featureObjectDefinitions} from './feature_expansion_objects.js';
 import {enrollSimulation, commitSimulationCommand, previewSimulationCommand, simulationFacts, simulationOccupiesActor} from './simulation.js';
 import {assert, meets, validateSimulationState} from './simulation_contracts.js';
@@ -63,6 +64,7 @@ export function fittingChoiceRecords(state, context = {}) {
     const held = ['sharp', 'dull', 'broad', 'broadDull', 'fine', 'fineDull'].filter(v => ownCount(state, context, 'player', K[v]) > 0);
     const method = state.simulation?.knowledge?.player?.['feature_objects.method']?.stage === 'understood' ? 'Grain matching learned; actual source, fine guide and sound wood still required.' : 'Grain matching not learned. Refitting never teaches it.';
     return [{id: 'fitting.choice', text: `PROPOSAL · One log + one sap refits one owned sharp knife. Stat choice: cutting yield 2 → 3. Function choice: yield 2 plus support for learned Grain matching. Rarity: Common for both. Item level: 1, fixed. Learned method: ${method}`},
+        {id: 'fitting.practice_supply', text: `PROPOSAL · Lever practice braces: ${inventory[LEVER_PRACTICE_BRACE] || 0} carried. Bind one from 1 sound stave + 1 sap in this shared slot, 2 played minutes + 1 stamina. Automatically collected on completion; the craftsman's supervised lever-setting practice consumes 1. No offline production.`},
         {id: 'fitting.stock', text: `Owned materials: ${inventory[K.log] || 0} logs · ${inventory[K.sap] || 0} sap · ${inventory[K.wet] || 0} wet staves · ${inventory[K.sound] || 0} sound staves · ${inventory[K.matched] || 0} matched staves. Fitting bench: ${Object.keys(state.simulation?.sites?.[I.site]?.reservations || {}).length}/1 slots occupied.`},
         ...held.map(v => ({id: `fitting.tool.${v}`, text: `${JSON.parse(K[v]).id}: ${ownCount(state, context, 'player', K[v])} carried · cutting yield ${v.startsWith('broad') ? 3 : 2} · ${v.startsWith('fine') ? 'Fine guide supports the separately learned method.' : 'No fine guide.'} ${['dull', 'broadDull', 'fineDull'].includes(v) ? 'Dulled: restore the edge before cutting.' : 'Sharp.'}`}))];
 }

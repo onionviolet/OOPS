@@ -1,5 +1,6 @@
 // Original, reversible functional objects proposal. Importing definitions never
 // enrolls people, creates native stock, teaches a method or advances time.
+import {LEVER_PRACTICE_BRACE, leverPracticeBraceItem} from './lever_practice_supply.js';
 import {dryingRewardDefinition} from './earned_drying_tracker.js';
 export const FEATURE_OBJECT_IDS = Object.freeze({
     world: 'base.frontier', group: 'feature_objects', miri: 'feature_objects.miri',
@@ -9,6 +10,7 @@ export const FEATURE_OBJECT_IDS = Object.freeze({
 });
 const I = FEATURE_OBJECT_IDS;
 export const FEATURE_OBJECT_ITEMS = Object.freeze([
+    leverPracticeBraceItem,
     {id: 'Field fitting knife', description: 'A sharp, held fitting tool. One cutting batch dulls it; it is not a weapon or an equipped stat bonus.', value: 6, kind: 'tool', condition: 'sharp'},
     {id: 'Dulled field fitting knife', description: 'The same fitting tool after cutting. Restore its edge before another cutting batch.', value: 4, kind: 'tool', condition: 'dulled'},
     {id: 'Fine field fitting knife', description: 'A sharp fitting knife with a narrow, refitted guide. Learned grain matching needs this guide; ordinary cuts still work.', value: 9, kind: 'tool', condition: 'sharp'},
@@ -160,6 +162,11 @@ export const featureObjectDefinitions = {
             visibleWhen: introduced, requires: all(introduced, live, lender), costs: [money(-2), {type: 'transfer', from: I.miri, to: 'player', key: K.sound, count: 1}],
             effects: [coins(2), know('materialPurchase', 'Eda handed over one actual Sound repair stave for two coins. Her stock decreased by one; it does not replenish on revisit.', 'seen', 'player', I.miri)]}),
         ...returns, ...repairs, ...refits, ...materialChoices, broadCut, broadRepair, ...cutBatches, ...matchBatches, ...kitBatches,
+        command({id: 'feature_objects.lever_practice_brace', label: 'PROPOSAL · Bind one lever practice brace · 1 sound stave + 1 sap + 1 stamina · 2 min',
+            duration: 2, cancellation: 'refund', siteId: I.site, visibleWhen: introduced,
+            requires: live, ...timed(live), costs: [item(K.sound, -1), item(K.sap, -1), stamina(-1)],
+            effects: [item(LEVER_PRACTICE_BRACE, 1)],
+            description: 'Use Eda\'s one shared fitting slot. Two played minutes bind your owned sound stave and sap into exactly one Lever practice brace, collected automatically on completion. The craftsman consumes it during supervised lever-setting practice. Cancellation or lost support returns inputs and collects nothing. Each fresh batch needs fresh stock; no offline production.'}),
         command(dryingRewardDefinition),
         ...[['shade', 6, 2, null], ['braced', 4, 1, 'braced'], ['shelf', 2, 1, 'sealed']].map(([route, duration, effort, joint]) => command({id: `feature_objects.dry_${route}`, label: `${route === 'shade' ? 'Dry in the ordinary sheltered rack' : route === 'braced' ? 'Dry along your braced clear working strip' : 'Use your sealed drying shelf'} · ${duration} min`,
             duration, cancellation: 'refund', siteId: I.site, visibleWhen: all(introduced, ...(joint ? [eq(`actor.feature_objects.${joint === 'sealed' ? 'sealed' : 'braced'}`)] : [])),
