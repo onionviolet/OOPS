@@ -98,10 +98,10 @@ export function waitingSimulationChoice(state) {return Object.values(state.simul
 export function previewSimulationCommand(state, registry, commandId, context) {return previewCommand(state, registry, commandId, context, true);}
 // startCommand repeats the same cost, claim and outcome trial on its own plan and
 // throws on any failure, so its internal quote skips the counterfactual copy.
-function previewCommand(state, registry, commandId, context, rehearse) {
+function previewCommand(state, registry, commandId, context, rehearse, knownFacts = null) {
     const d = registry.simulation.commands.get(commandId); assert(d, "Unknown living-world command.");
     if(d.group==='proto23' && context.proto23Host!==true)return {visible:false,eligible:false,reasons:['Use the current Proto23 visitor controls.']};
-    const s=state.simulation, facts = simulationFacts(state, {...context,targetId:s?.people[context.targetId] ? context.targetId : null}, registry), p = person(state, context.actorId);
+    const s=state.simulation, facts = knownFacts || simulationFacts(state, {...context,targetId:s?.people[context.targetId] ? context.targetId : null}, registry), p = person(state, context.actorId);
     const reasons = [...ruleReason(d.requires, facts)];
     if(d.group === "original_frontier" && !facts["originalFrontier.clockSupported"]) reasons.push("This local work has no supported clock or contact while you are in another realm.");
     if(d.actorId && d.actorId !== context.actorId) reasons.push("This command belongs to another actor.");
@@ -479,12 +479,40 @@ export function previewSimulationResponse(state, registry, choice, context) {
     return {eligible: reasons.length === 0, reasons};
 }
 
+// One pass, no intermediate arrays. Math.min per value keeps the exact result of
+// the former spread (NaN and -0 included) and the same filters.
+const lorePendingJob = /^lore\.(?:work|warning)\./;
 export function nextSimulationBoundary(state,{skipLoreJobs=false,skipCompletionJobs=false,skipCompletionCropChecks=false}={}) {
     const s = state.simulation; if(!s) return Infinity;
-    return Math.min(nextStoryletBoundary(state),nextFoundationInteractionBoundary(state),nextPursuitBoundary(state), ...s.jobs.filter(j=>(!skipLoreJobs||!/^lore\.(?:work|warning)\./.test(j.commandId))&&(!skipCompletionJobs||!j.commandId.startsWith("world.completion."))).map(j => j.due), ...Object.values(s.checks).filter(c=>!skipCompletionCropChecks||!["remainder_consequences.frost_warning","remainder_consequences.frost_settlement"].includes(c.definitionId)).map(c => c.due), ...Object.values(s.controllers).filter(c => s.people[c.actorId].life === "alive"&&(!skipCompletionJobs||c.definitionId!=="world.completion.learning.neri_controller")).map(c => c.due),
-        ...Object.values(s.events).filter(e => e.status === "open" && e.expiresAt != null && (e.nonBlocking === true || e.mode !== "decision" || e.actorId !== "player" || !e.discoveredBy.includes("player"))).map(e => e.expiresAt),
-        ...Object.values(s.conditions).flatMap(cs => Object.values(cs).flatMap(c => [c.expiresAt != null && c.expiresAt > state.clock ? c.expiresAt : Infinity, c.nextTick ?? Infinity])),
-        ...Object.values(s.people).filter(p => p.life === "alive" && p.lifePolicy).map(p => p.bornAt + p.lifePolicy.lifespan));
+    let at = Math.min(nextStoryletBoundary(state),nextFoundationInteractionBoundary(state),nextPursuitBoundary(state));
+    for(const j of s.jobs) if((!skipLoreJobs||!lorePendingJob.test(j.commandId))&&(!skipCompletionJobs||!j.commandId.startsWith("world.completion."))) at = Math.min(at, j.due);
+    for(const c of Object.values(s.checks)) if(!skipCompletionCropChecks||!["remainder_consequences.frost_warning","remainder_consequences.frost_settlement"].includes(c.definitionId)) at = Math.min(at, c.due);
+    for(const c of Object.values(s.controllers)) if(s.people[c.actorId].life === "alive"&&(!skipCompletionJobs||c.definitionId!=="world.completion.learning.neri_controller")) at = Math.min(at, c.due);
+    for(const e of Object.values(s.events)) if(e.status === "open" && e.expiresAt != null && (e.nonBlocking === true || e.mode !== "decision" || e.actorId !== "player" || !e.discoveredBy.includes("player"))) at = Math.min(at, e.expiresAt);
+    for(const cs of Object.values(s.conditions)) for(const c of Object.values(cs)) at = Math.min(at, c.expiresAt != null && c.expiresAt > state.clock ? c.expiresAt : Infinity, c.nextTick ?? Infinity);
+    for(const p of Object.values(s.people)) if(p.life === "alive" && p.lifePolicy) at = Math.min(at, p.bornAt + p.lifePolicy.lifespan);
+    return at;
+}
+// previewCommand adds these reasons from state alone, so the quote is ineligible
+// whatever the facts say. Controllers read only eligibility and skip the facts
+// projection (the costly part of a quote) when one of them already applies.
+function surelyIneligible(state, registry, commandId, context) {
+    const d = registry.simulation.commands.get(commandId), s = state.simulation, p = s?.people[context.actorId], a = state.actors[context.actorId];
+    if(!d || !p || !a) return false;
+    if(d.actorId && d.actorId !== context.actorId || d.actorDefinitionId && d.actorDefinitionId !== p.definitionId) return true;
+    if(d.worldId && a.worldId !== d.worldId || d.location && (context.facts?.location || p.location) !== d.location || d.targetId && d.targetId !== context.targetId) return true;
+    if(context.busy || state.pending.some(j => j.context.actorId === context.actorId) || activePractice(a) || simulationOccupiesActor(state, context.actorId)) return true;
+    if(d.once && a.completed[d.id] || d.claim && s.claims[d.claim]) return true;
+    return !!d.siteId && (!s.sites[d.siteId] || Object.keys(s.sites[d.siteId].reservations).length >= s.sites[d.siteId].capacity);
+}
+// Registry controller definitions are deep-frozen, so their candidate order is
+// computed once per definition instead of re-serializing ties every boundary.
+const controllerOrders = new WeakMap();
+function controllerOrder(d) {
+    if(!Object.isFrozen(d) || !Object.isFrozen(d.actions)) return [...d.actions].sort((a,b) => b.priority - a.priority || JSON.stringify(a).localeCompare(JSON.stringify(b)));
+    let order = controllerOrders.get(d);
+    if(!order) controllerOrders.set(d, order = [...d.actions].sort((a,b) => b.priority - a.priority || JSON.stringify(a).localeCompare(JSON.stringify(b))));
+    return order;
 }
 // Called by the existing common-clock scheduler. Jobs settle before expiring
 // offers, event checks and actor decisions, then eligible routines reserve inputs.
@@ -550,12 +578,21 @@ export function advanceSimulationBoundary(out, registry, contexts = {}) {
     for(const [id,c] of Object.entries(s.controllers).sort(([a],[b]) => a.localeCompare(b))) if(s.people[c.actorId].life === "alive" && c.due <= state.clock) {
         const d = registry.simulation.controllers.get(c.definitionId || id); assert(d, "Unsupported actor controller."); c.due += c.interval; work++;
         if(s.people[c.actorId].life !== "alive") continue;
-        for(const candidate of [...d.actions].sort((a,b) => b.priority - a.priority || JSON.stringify(a).localeCompare(JSON.stringify(b)))) {
+        // Nothing mutates state until a candidate acts (then the scan stops), so
+        // facts for one target are built once and reused by later candidates.
+        const scanFacts = new Map();
+        const targetFacts = ctx => {
+            const targetId = s.people[ctx.targetId] ? ctx.targetId : null;
+            if(!scanFacts.has(targetId)) scanFacts.set(targetId, simulationFacts(state, {...ctx, targetId}, registry));
+            return {...scanFacts.get(targetId)};
+        };
+        for(const candidate of controllerOrder(d)) {
             const kind = candidate.kind || "command";
             const ctx = {...contexts[c.actorId], actorId: c.actorId, targetId: candidate.targetId || null, gameplay: out.gameplay, external: out.external, vitals: out.vitals, equipment: out.equipment};
-            if(candidate.when && !meets(candidate.when, simulationFacts(state, ctx, registry))) continue;
+            if(candidate.when && !meets(candidate.when, ctx.targetId && !s.people[ctx.targetId] ? simulationFacts(state, ctx, registry) : targetFacts(ctx))) continue;
             if(kind === "command") {
-                const preview = previewSimulationCommand(state, registry, candidate.commandId, ctx);
+                if(surelyIneligible(state, registry, candidate.commandId, ctx)) continue;
+                const preview = previewCommand(state, registry, candidate.commandId, ctx, true, targetFacts(ctx));
                 if(!preview.eligible) continue;
                 startCommand(out, registry, candidate.commandId, ctx, preview, contexts);
             } else {
