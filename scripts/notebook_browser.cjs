@@ -1,12 +1,12 @@
 // Isolated rebuilt UI proof. All fixtures are newly generated or agent-created.
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path');
 const {openNotebook}=require('./ui_helpers.cjs');
-const {chromium}=require(process.env.YAIRPG_PLAYWRIGHT || 'playwright');
+const {launchChrome,waitForPage}=require('./ui_helpers.cjs');
 const url=process.env.YAIRPG_PROOF_URL || 'http://127.0.0.1:18503/';
 const output=process.env.YAIRPG_PROOF_DIR || '/tmp/yairpg-notebook-proof';fs.mkdirSync(output,{recursive:true});
 (async()=>{
  const errors=[],warnings=[],findings=[];
- const browser=await chromium.launch({headless:true,executablePath:process.env.YAIRPG_CHROME});
+ const browser=await launchChrome();try{
  const open=async fixture=>{const context=await browser.newContext({viewport:{width:1600,height:1100}});
   if(fixture)await context.addInitScript(data=>{if(!localStorage.getItem('save data'))localStorage.setItem('save data',JSON.stringify(data));},fixture);
   const page=await context.newPage();page.setDefaultTimeout(12000);page.on('pageerror',e=>errors.push(e.stack));page.on('console',m=>{if(['warning','error'].includes(m.type()))warnings.push(m.text());});
@@ -19,7 +19,7 @@ const output=process.env.YAIRPG_PROOF_DIR || '/tmp/yairpg-notebook-proof';fs.mkd
  assert.equal(await page.locator('#adventure_notebook').isVisible(),false); assert.equal(await page.locator('#journal_show_notebook').isVisible(),false);
  assert.equal(await page.locator('#world_identity_note').isVisible(),false);
  assert.ok(!((await page.locator('#world_identity_note').getAttribute('title')) || '').includes('YAIRPG'));
- await page.getByText('Talk to someone',{exact:false}).click();await page.locator('[data-dialogue="villageElder"]').click();await page.locator('[data-textline="hello"]').click();await page.locator('.end_dialogue_button').click();
+ await page.getByRole('button',{name:'Talk to someone'}).click();await page.locator('[data-dialogue="villageElder"]').click();await page.locator('[data-textline="hello"]').click();await page.locator('.end_dialogue_button').click();
  await openNotebook(page); await page.locator('#adventure_notebook').waitFor({state:'visible'});
  assert.equal(await tab(page,'here').getAttribute('aria-selected'),'true');assert.equal(await page.locator('#chronicle_panel').isVisible(),false);
  const base=await save(page);await page.screenshot({path:path.join(output,'village-here.png'),fullPage:true});
@@ -32,9 +32,9 @@ const output=process.env.YAIRPG_PROOF_DIR || '/tmp/yairpg-notebook-proof';fs.mkd
  await page.locator('#technique_panel summary').click();
  assert.ok(!/Rat-step|Proficiency|Execution needs/.test(await page.locator('#technique_panel').innerText()));
  await page.getByRole('button',{name:'Observe a wolf rat at the field edge',exact:true}).click();
- await page.waitForFunction(()=>JSON.parse(localStorage.getItem('save data')).expansion.actors.player.techniques['frontier.rat_step']?.observed);
+ await waitForPage(page, ()=>JSON.parse(localStorage.getItem('save data')).expansion.actors.player.techniques['frontier.rat_step']?.observed);
  await page.getByRole('button',{name:'Study the Rat-step pattern',exact:true}).click();
- await page.waitForFunction(()=>JSON.parse(localStorage.getItem('save data')).expansion.actors.player.techniques['frontier.rat_step']?.understood);
+ await waitForPage(page, ()=>JSON.parse(localStorage.getItem('save data')).expansion.actors.player.techniques['frontier.rat_step']?.understood);
  await page.getByRole('button',{name:'Practice Rat-step slowly',exact:true}).click();const pending=await save(page);
  assert.equal(await tab(page,'practice').getAttribute('aria-selected'),'true');
  await page.reload();await page.getByText('PLAY',{exact:true}).click();assert.equal(await tab(page,'practice').getAttribute('aria-selected'),'true');
@@ -68,5 +68,5 @@ const output=process.env.YAIRPG_PROOF_DIR || '/tmp/yairpg-notebook-proof';fs.mkd
  ({page,context}=await open(known));assert.equal(await page.locator('#world_identity_note').textContent(),'Frontier · Branch dimension');
  await page.evaluate(()=>window.saveProgress());await page.reload();await page.getByText('PLAY',{exact:true}).click();assert.equal(await page.locator('#world_identity_note').textContent(),'Frontier · Branch dimension');
  findings.push('Generated independent discovery flags reveal world name and branch separately; native Save/reload retains both learned facts. No live reveal event or automatic discovery is added.');
- const result={url,fingerprint,findings,errors,warnings,generatedSavesOnly:true};fs.writeFileSync(path.join(output,'result.json'),JSON.stringify(result,null,2));console.log(JSON.stringify(result,null,2));assert.deepEqual(errors,[]);await browser.close();
+ const result={url,fingerprint,findings,errors,warnings,generatedSavesOnly:true};fs.writeFileSync(path.join(output,'result.json'),JSON.stringify(result,null,2));console.log(JSON.stringify(result,null,2));assert.deepEqual(errors,[]);}finally{await browser.close().catch(()=>{});}
 })().catch(e=>{console.error(e);process.exit(1);});

@@ -3,13 +3,13 @@ const assert = require('node:assert/strict');
 const {openNotebook} = require('./ui_helpers.cjs');
 const fs = require('node:fs');
 const path = require('node:path');
-const {chromium} = require(process.env.YAIRPG_PLAYWRIGHT || 'playwright');
+const {launchChrome,waitForPage}=require('./ui_helpers.cjs');
 const url = process.env.YAIRPG_PROOF_URL || 'http://127.0.0.1:18503/';
 const output = process.env.YAIRPG_PROOF_DIR || '/tmp/yairpg-town-proof';
 fs.mkdirSync(output, {recursive:true});
 (async () => {
     const errors = [], warnings = [], failedRequests = [], findings = [];
-    const browser = await chromium.launch({headless:true, executablePath:process.env.YAIRPG_CHROME});
+    const browser = await launchChrome();try{
     const open = async fixture => {
         const context = await browser.newContext({viewport:{width:1600,height:1100}});
         if(fixture) await context.addInitScript(data => {if(!localStorage.getItem('save data')) localStorage.setItem('save data',JSON.stringify(data));},fixture);
@@ -29,7 +29,7 @@ fs.mkdirSync(output, {recursive:true});
     const fingerprint = await page.evaluate(() => performance.getEntriesByType('resource').find(e => e.name.includes('/dist/bundle.js?version='))?.name);
     assert.ok(fingerprint.endsWith(fs.readFileSync('index.html','utf8').match(/dist\/bundle\.js\?version=[^&"]+/)[0]));
     assert.equal(await page.locator('#town_panel').isVisible(),false);
-    await page.getByText('Talk to someone',{exact:false}).click(); await page.locator('[data-dialogue="villageElder"]').click();
+    await page.getByRole('button',{name:'Talk to someone'}).click(); await page.locator('[data-dialogue="villageElder"]').click();
     await page.locator('[data-textline="hello"]').click(); await page.locator('.end_dialogue_button').click();
     const base = await save(page); assert.equal(base.expansion.actors.player.facts['town.joined'],false);
     assert.equal(await page.locator('#expansion_quest_list').isVisible(),false);
@@ -56,7 +56,7 @@ fs.mkdirSync(output, {recursive:true});
     assert.match(await page.locator('#town_quest_details').textContent(), /Checking Forest road/);
     assert.ok(!(await page.locator('#town_quest_details').textContent()).includes('mud'));
     await reload(page); const resumed = await save(page); assert.equal(resumed.expansion.pending[0].due,pending.expansion.pending[0].due);
-    await page.waitForFunction(() => JSON.parse(localStorage.getItem('save data')).expansion.actors.player.facts['town.worked']);
+    await waitForPage(page, () => JSON.parse(localStorage.getItem('save data')).expansion.actors.player.facts['town.worked']);
     assert.equal(await page.locator('[data-town-action="town.timber"]').isVisible(),false);
     await travel(page,'Town outskirts'); await travel(page,'Town square'); await panel(page); await click(page,'town.settle');
     const paid = await save(page); assert.equal(paid.character.money,36); assert.equal(paid.inventories.person.main_character[kit].count,1);
@@ -94,12 +94,12 @@ fs.mkdirSync(output, {recursive:true});
     ({page,context} = await open(timberFixture)); await panel(page); await click(page,'town.timber'); await page.locator('[data-town-cancel]').click();
     assert.equal((await save(page)).inventories.person.main_character[wood].count,3);
     await click(page,'town.timber'); const reserved = await save(page); assert.equal(reserved.inventories.person.main_character[wood].count,1);
-    await reload(page); await page.waitForFunction(() => JSON.parse(localStorage.getItem('save data')).expansion.actors.player.facts['town.worked']);
+    await reload(page); await waitForPage(page, () => JSON.parse(localStorage.getItem('save data')).expansion.actors.player.facts['town.worked']);
     const timberDone = await save(page); assert.equal(timberDone.inventories.person.main_character[wood].count,1); assert.equal(timberDone.expansion.actors.player.facts['town.approach'],'timber');
     findings.push('The timber alternative reserves actual gathered logs, refunds cancellation, resumes through reload and consumes its materials once.');
     const result = {url,fingerprint,findings,errors,warnings,failedRequests,generatedSavesOnly:true};
     fs.writeFileSync(path.join(output,'result.json'),JSON.stringify(result,null,2));
     console.log(JSON.stringify(result,null,2));
     assert.deepEqual(errors,[]); assert.deepEqual(warnings,[]);
-    await browser.close();
+    }finally{await browser.close().catch(()=>{});}
 })().catch(e=>{console.error(e);process.exit(1);});

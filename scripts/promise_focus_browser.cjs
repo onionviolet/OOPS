@@ -1,9 +1,9 @@
 const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict');
-const {chromium}=require(process.env.YAIRPG_PLAYWRIGHT || 'playwright');const {openNotebook}=require('./ui_helpers.cjs');
+const {launchChrome,waitForPage}=require('./ui_helpers.cjs');const {openNotebook}=require('./ui_helpers.cjs');
 const url=process.env.YAIRPG_PROOF_URL || 'http://127.0.0.1:18625/',out=process.env.YAIRPG_PROOF_DIR || '/tmp/yairpg-promise-focus';fs.mkdirSync(out,{recursive:true});
 const seedPath='/Users/weiwei/.codex/visualizations/2026/10/04/01a1051c-ed9f-7a92-81fb-53403489e007/promise-delivery-proof/generated-help-save.json';
 (async()=>{
- const browser=await chromium.launch({headless:true,executablePath:process.env.YAIRPG_CHROME || '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'});const errors=[],findings=[];let page;
+ const browser=await launchChrome();const errors=[],findings=[];let page;
  try{
   const seed=JSON.parse(fs.readFileSync(seedPath,'utf8'));
   for(const mode of ['cancel','completion','instant']){

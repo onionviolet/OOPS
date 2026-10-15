@@ -1,6 +1,6 @@
 // Rebuilt body/condition/NPC proof using only a separate generated native save.
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path');
-const {chromium}=require(process.env.YAIRPG_PLAYWRIGHT || 'playwright');
+const {launchChrome,waitForPage}=require('./ui_helpers.cjs');
 const {openNotebook}=require('./ui_helpers.cjs');
 const url=process.env.YAIRPG_PROOF_URL || 'http://127.0.0.1:18503/';
 const output=process.env.YAIRPG_PROOF_DIR || '/tmp/yairpg-body-proof';fs.mkdirSync(output,{recursive:true});
@@ -9,7 +9,7 @@ const wood=JSON.stringify({id:'Rough wood log'}),kit=JSON.stringify({id:'Prepare
 fixture.character.money=30;fixture.inventories.person.main_character[wood]={count:5};fixture['current location']='Village';
 fixture.availabilities.person.oldCraftsman=1;fixture.availabilities.dialogue.oldCraftsman=1;fixture.availabilities.location.Shack|=1;
 (async()=>{
- const browser=await chromium.launch({headless:true,executablePath:process.env.YAIRPG_CHROME}),errors=[],warnings=[],findings=[];
+ const browser=await launchChrome(),errors=[],warnings=[],findings=[];try{
  const open=async()=>{const context=await browser.newContext({viewport:{width:1600,height:1100}});await context.addInitScript(s=>{if(!localStorage.getItem('save data'))localStorage.setItem('save data',JSON.stringify(s));},fixture);
   const page=await context.newPage();page.setDefaultTimeout(16000);page.on('pageerror',e=>errors.push(e.stack));page.on('console',m=>{if(['warning','error'].includes(m.type()))warnings.push(m.text());});await page.goto(url);await page.getByText('PLAY',{exact:true}).click();return {page,context};};
  const save=async page=>{await page.evaluate(()=>window.saveProgress());return page.evaluate(()=>JSON.parse(localStorage.getItem('save data')));};
@@ -21,11 +21,11 @@ fixture.availabilities.person.oldCraftsman=1;fixture.availabilities.dialogue.old
    await page.locator(`[data-simulation="${id}"]`).click();await page.locator('[data-notebook-view="practice"]').click();
   }else await page.locator(`[data-body-command="${id}"]`).click();
  };
- const finish=page=>page.waitForFunction(()=>{const s=JSON.parse(localStorage.getItem('save data')).expansion;return !!s.simulation && !s.simulation.jobs.some(j=>j.actorId==='player');});
+ const finish=page=>waitForPage(page, ()=>{const s=JSON.parse(localStorage.getItem('save data')).expansion;return !!s.simulation && !s.simulation.jobs.some(j=>j.actorId==='player');});
  const reload=async page=>{await page.reload();await page.getByText('PLAY',{exact:true}).click();await panel(page);};
  let {page,context}=await open();const fingerprint=await page.evaluate(()=>performance.getEntriesByType('resource').find(e=>e.name.includes('/dist/bundle.js?version='))?.name);
  assert.ok(fingerprint.endsWith(fs.readFileSync('index.html','utf8').match(/dist\/bundle\.js\?version=[^&"]+/)[0]));
- await page.getByText('Talk to someone',{exact:false}).click();await page.locator('[data-dialogue="oldCraftsman"]').click();await page.locator('[data-textline="hello"]').click();await page.locator('.end_dialogue_button').click();
+ await page.getByRole('button',{name:'Talk to someone'}).click();await page.locator('[data-dialogue="oldCraftsman"]').click();await page.locator('[data-textline="hello"]').click();await page.locator('.end_dialogue_button').click();
  const original=await save(page),quests=structuredClone(original.quests),profile=structuredClone(original.character.bio);await panel(page);
  assert.equal(original.expansion.simulation,null);await click(page,'body.begin');const begun=await save(page);
  assert.equal(begun.expansion.actors.player.facts['body.enrolled'],true);assert.equal(begun.expansion.chronicle,null);assert.equal(begun.character.money,30);
@@ -75,5 +75,5 @@ fixture.availabilities.person.oldCraftsman=1;fixture.availabilities.dialogue.old
  assert.equal(await page.locator('[data-body-command="body.begin"]').isVisible(),true);assert.ok((await page.locator('#body_panel').textContent()).includes('saving failed'));
  await reload(page);assert.equal((await save(page)).expansion.simulation,null);
  findings.push('Injected storage failure leaves exact original bytes, no partial local-service enrollment, trait or resource publication. Reload restores the original optional body choice.');
- const result={url,fingerprint,findings,errors,warnings,generatedSavesOnly:true};fs.writeFileSync(path.join(output,'result.json'),JSON.stringify(result,null,2));console.log(JSON.stringify(result,null,2));assert.deepEqual(errors,[]);await browser.close();
+ const result={url,fingerprint,findings,errors,warnings,generatedSavesOnly:true};fs.writeFileSync(path.join(output,'result.json'),JSON.stringify(result,null,2));console.log(JSON.stringify(result,null,2));assert.deepEqual(errors,[]);}finally{await browser.close().catch(()=>{});}
 })().catch(e=>{console.error(e);process.exit(1);});

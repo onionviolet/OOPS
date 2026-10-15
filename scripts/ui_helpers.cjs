@@ -65,6 +65,16 @@ async function advanceGameMinutes(page, minutes) {
     }, minutes);
 }
 
+/** Drop-in for page.waitForTimeout(ms) where the sleep only waits for game time (render ticks included).
+ * dev-stepped: runs the ticks that ms would have produced at the current tickrate. natural-pace: really sleeps. */
+async function waitGameTime(page, ms) {
+    if(realTimers()) return page.waitForTimeout(ms);
+    return page.evaluate(ms => {
+        if(typeof advanceTicks !== 'function') throw new Error('Dev stepping needs a localhost ?test_hooks=1 URL.');
+        advanceTicks(Math.max(1, Math.round(ms / 1000 * simulationTestHooks.tickrate())), {render:true});
+    }, ms);
+}
+
 /** Step the engine one tick at a time until predicate(arg) holds in the page. */
 async function stepUntil(page, predicate, arg, {maxMinutes = 3600, timeout} = {}) {
     if(realTimers()) return waitForPage(page, predicate, arg, timeout ? {timeout} : {});
@@ -78,4 +88,4 @@ async function stepUntil(page, predicate, arg, {maxMinutes = 3600, timeout} = {}
 }
 
 module.exports = {openNotebook, SYSTEM_CHROME, loadPlaywright, chromeExecutable, launchChrome, runBrowser,
-    waitForPage, waitForSave, timeMode, withTestHooks, advanceGameMinutes, stepUntil};
+    waitForPage, waitForSave, timeMode, withTestHooks, advanceGameMinutes, stepUntil, waitGameTime};

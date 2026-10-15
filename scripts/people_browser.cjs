@@ -1,11 +1,11 @@
 // Rebuilt browser proof using only fresh contexts and explicitly generated saves.
 const assert = require('node:assert/strict'), fs = require('node:fs'), path = require('node:path');
-const {chromium} = require(process.env.YAIRPG_PLAYWRIGHT || 'playwright');
+const {launchChrome,waitForPage}=require('./ui_helpers.cjs');
 const {openNotebook} = require('./ui_helpers.cjs');
 const url = process.env.YAIRPG_PROOF_URL || 'http://127.0.0.1:18549/';
 const output = process.env.YAIRPG_PROOF_DIR || '/tmp/yairpg-people-proof'; fs.mkdirSync(output, {recursive:true});
 (async () => {
-    const browser = await chromium.launch({headless:true, executablePath:process.env.YAIRPG_CHROME});
+    const browser = await launchChrome();try{
     const errors = [], findings = [];
     const open = async fixture => {
         const context = await browser.newContext({viewport:{width:1600,height:1100}});
@@ -23,7 +23,7 @@ const output = process.env.YAIRPG_PROOF_DIR || '/tmp/yairpg-people-proof'; fs.mk
     assert.ok(fingerprint.endsWith(fs.readFileSync(process.env.YAIRPG_BUILD_INDEX || 'index.html', 'utf8').match(/dist\/bundle\.js\?version=[^&"]+/)[0]));
     assert.equal(await page.locator('#journal_show_notebook').isVisible(), false);
     assert.equal(await page.locator('[data-known-person]').count(), 0);
-    await page.getByText('Talk to someone', {exact:false}).click(); await page.locator('[data-dialogue="villageElder"]').click();
+    await page.getByRole('button',{name:'Talk to someone'}).click(); await page.locator('[data-dialogue="villageElder"]').click();
     await page.locator('[data-textline="hello"]').click();
     await people(page); assert.equal(await page.locator('[data-known-person="villageElder"]').isVisible(), true);
     assert.equal(await page.locator('#chronicle_panel').isVisible(), false);
@@ -89,5 +89,5 @@ const output = process.env.YAIRPG_PROOF_DIR || '/tmp/yairpg-people-proof'; fs.mk
     findings.push('The optional permit does not introduce the clerk. The actual office briefing does, revealing the agreed work without settlement or later-ledger spoilers.');
     const result = {url, fingerprint, findings, errors, generatedSavesOnly:true};
     fs.writeFileSync(path.join(output, 'result.json'), JSON.stringify(result, null, 2)); console.log(JSON.stringify(result, null, 2));
-    assert.deepEqual(errors, []); await browser.close();
+    assert.deepEqual(errors, []); }finally{await browser.close().catch(()=>{});}
 })().catch(e => {console.error(e); process.exit(1);});

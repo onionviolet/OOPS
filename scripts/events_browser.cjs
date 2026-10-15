@@ -1,16 +1,16 @@
 // Rebuilt browser proof on a disposable origin, using newly generated saves only.
 const assert=require('node:assert/strict'), fs=require('node:fs'), path=require('node:path');
 const {pathToFileURL}=require('node:url');
-const {chromium}=require(process.env.YAIRPG_PLAYWRIGHT || 'playwright');
+const {launchChrome,waitForPage,waitGameTime,withTestHooks}=require('./ui_helpers.cjs');
 const {openNotebook}=require('./ui_helpers.cjs');
-const url=process.env.YAIRPG_PROOF_URL || 'http://127.0.0.1:18533/';
+const url=withTestHooks(process.env.YAIRPG_PROOF_URL || 'http://127.0.0.1:18533/');
 const output=process.env.YAIRPG_PROOF_DIR || '/tmp/yairpg-events-proof';
 fs.mkdirSync(output,{recursive:true});
 (async()=>{
     const {advanceSimulation}=await import(pathToFileURL(path.resolve('src/expansion_engine.js')));
     const {expeditionRegistry}=await import(pathToFileURL(path.resolve('src/expedition_content.js')));
     const {Game_Time}=await import(pathToFileURL(path.resolve('src/game_time.js')));
-    const browser=await chromium.launch({headless:true,executablePath:process.env.YAIRPG_CHROME});
+    const browser=await launchChrome();
     const errors=[],findings=[];
     try {
         const open=async fixture=>{
@@ -33,7 +33,7 @@ fs.mkdirSync(output,{recursive:true});
         const fingerprint=await page.evaluate(()=>performance.getEntriesByType('resource').find(e=>e.name.includes('/dist/bundle.js?version='))?.name);
         assert.ok(fingerprint.endsWith(fs.readFileSync('index.html','utf8').match(/dist\/bundle\.js\?version=[^&"]+/)[0]));
         assert.equal(await page.locator('#world_event_feed').isVisible(),false);
-        await page.getByText('Talk to someone',{exact:false}).click();await page.locator('[data-dialogue="villageElder"]').click();
+        await page.getByRole('button',{name:'Talk to someone'}).click();await page.locator('[data-dialogue="villageElder"]').click();
         await page.locator('[data-textline="hello"]').click();await page.locator('.end_dialogue_button').click();
         const base=await save(page);
         await people(page);await page.locator('#chronicle_panel summary').click();await page.locator('[data-chronicle="begin-open"]').click();
@@ -43,7 +43,7 @@ fs.mkdirSync(output,{recursive:true});
         await page.locator('#journal_show_quests').click();await card(page,'chronicle:cartographer').getByRole('button').click();
         assert.equal(await page.locator('[data-notebook-view="people"]').getAttribute('aria-selected'),'true');
         assert.equal(await page.locator('#chronicle_panel').evaluate(n=>n.open),true);
-        await card(page,'chronicle:cartographer').getByRole('button').focus();await page.waitForTimeout(1250);
+        await card(page,'chronicle:cartographer').getByRole('button').focus();await waitGameTime(page, 1250);
         assert.equal(await page.evaluate(()=>document.activeElement.closest('[data-world-event]')?.dataset.worldEvent),'chronicle:cartographer');
         await page.locator('#message_show_events').click();assert.equal(await page.locator('#world_event_feed').isVisible(),false);
         await page.locator('#message_show_events').click();assert.equal(await page.locator('#world_event_feed').isVisible(),true);
@@ -59,8 +59,8 @@ fs.mkdirSync(output,{recursive:true});
         const attended=await save(page);assert.equal(attended.expansion.chronicle.knowledge.routeSignals,true);
         assert.equal(attended.expansion.chronicle.events.cartographer.status,'resolved');
         assert.equal(await card(page,'chronicle:cartographer').count(),0);
-        await page.locator('#world_event_feed > details > summary').click();
-        assert.match(await page.locator('#world_event_feed ol').textContent(),/cartographer explains route signals/);
+        await page.locator('#world_event_feed > details:not([id]) > summary').click();
+        assert.match(await page.locator('#world_event_feed > details:not([id]) > ol').textContent(),/cartographer explains route signals/);
         const encoded=await page.evaluate(()=>window.save_to_file());
         await Promise.all([page.waitForNavigation({waitUntil:'domcontentloaded'}),page.locator('#saved_file_input').setInputFiles({name:'generated-events.txt',mimeType:'text/plain',buffer:Buffer.from(encoded)})]);
         await page.getByText('PLAY',{exact:true}).click();const imported=await save(page);
@@ -74,7 +74,7 @@ fs.mkdirSync(output,{recursive:true});
         await card(page,'chronicle:reports').getByRole('button').click();await page.locator('[data-chronicle="hear"]').click();
         const heard=await save(page);assert.equal(heard.expansion.chronicle.events.cartographer.heard,true);
         assert.equal(await card(page,'chronicle:reports').count(),0);
-        assert.match(await page.locator('#world_event_feed ol').textContent(),/visiting group has already departed/);
+        assert.match(await page.locator('#world_event_feed > details:not([id]) > ol').textContent(),/visiting group has already departed/);
         findings.push('A missed briefing advertises an available report after its delay; its actual aftermath appears only after the player hears it.');await context.close();
 
         const ready=structuredClone(base), wood=JSON.stringify({id:'Rough wood log'}), kit=JSON.stringify({id:'Prepared survey kit'});

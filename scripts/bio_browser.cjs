@@ -1,12 +1,12 @@
 // A prior generated browser discovery plus generated native XP, never personal saves.
 const assert=require('node:assert/strict'), fs=require('node:fs'), path=require('node:path');
-const {chromium}=require(process.env.YAIRPG_PLAYWRIGHT || 'playwright');
+const {launchChrome,waitForPage}=require('./ui_helpers.cjs');
 const {openNotebook}=require('./ui_helpers.cjs');
 const url=process.env.YAIRPG_PROOF_URL || 'http://127.0.0.1:18503/';
 const output=process.env.YAIRPG_PROOF_DIR || '/tmp/yairpg-bio-proof'; fs.mkdirSync(output,{recursive:true});
 const fixture=process.env.YAIRPG_BIO_FIXTURE || '/Users/weiwei/.codex/visualizations/2026/10/03/01a10034-a55a-7643-b09e-e504af3f2b38/bio-review/generated-bio-review.json';
 (async()=>{
- const browser=await chromium.launch({headless:true,executablePath:process.env.YAIRPG_CHROME}), errors=[], findings=[];
+ const browser=await launchChrome(), errors=[], findings=[];try{
  const open=async data=>{const context=await browser.newContext({viewport:{width:1600,height:1100}});await context.addInitScript(s=>{if(!localStorage.getItem('save data'))localStorage.setItem('save data',JSON.stringify(s));},data);
   const page=await context.newPage();page.setDefaultTimeout(12000);page.on('pageerror',e=>errors.push(e.stack));await page.goto(url);await page.getByText('PLAY',{exact:true}).click();return {page,context};};
  const save=async page=>{await page.evaluate(()=>window.saveProgress());return page.evaluate(()=>JSON.parse(localStorage.getItem('save data')));};
@@ -47,5 +47,5 @@ const fixture=process.env.YAIRPG_BIO_FIXTURE || '/Users/weiwei/.codex/visualizat
  await page.getByRole('button',{name:'Open practice notes',exact:true}).click();assert.equal(await page.locator('#notebook_box_div').isVisible(),true);
  assert.equal(await page.locator('[data-notebook-view="practice"]').getAttribute('aria-selected'),'true');
  findings.push('A generated observed technique remains observation, rather than ownership or execution. Bio opens its actual Notebook Practice view without adding progress.');
- const result={url,fingerprint,findings,errors,generatedSavesOnly:true};fs.writeFileSync(path.join(output,'result.json'),JSON.stringify(result,null,2));console.log(JSON.stringify(result,null,2));assert.deepEqual(errors,[]);await browser.close();
+ const result={url,fingerprint,findings,errors,generatedSavesOnly:true};fs.writeFileSync(path.join(output,'result.json'),JSON.stringify(result,null,2));console.log(JSON.stringify(result,null,2));assert.deepEqual(errors,[]);}finally{await browser.close().catch(()=>{});}
 })().catch(e=>{console.error(e);process.exit(1);});
