@@ -338,7 +338,7 @@ fill_availability_methods();
 registerFortContent({locations,item_templates,book_stats,quests,availabilities,SafeLocation,CombatZone,Book,BookData,Quest,QuestTask});
 
 import {prepareFoundationSave, retainRetiredContent} from "./save_compatibility.js";
-import {writeGuardedSave, encodeSaveFile, decodeSaveFile, importSaveFile, validateSaveEnvelope} from "./save_files.js";
+import {writeGuardedSave, encodeSaveFile, decodeSaveFile, importSaveFile, validateSaveEnvelope, createDurableSaveWriter} from "./save_files.js";
 import {freshNativeSave, preflightImport, installImportProbe} from "./import_probe.js";
 import {restoreSavedReputation, shouldReplayReputation} from "./reputation_state.js";
 import {hasEarnedClear} from "./clear_state.js";
@@ -567,8 +567,10 @@ let villageLivesPanel;
 let lifeRecord = createLifeRecord();
 let lifeRecordPanel;
 let lifeStorageFailure = false;
+// Skips rewriting an unchanged life; see the D3 decision in save_files.js.
+const durableSaves = createDurableSaveWriter(() => localStorage);
 // Shared save writes stage life observations and publish them only after success.
-const lifeSaveStorage = {setItem(key, serialized, onDurable) {
+const lifeSaveStorage = {setItem(key, serialized, onDurable, {force = false} = {}) {
     const save = JSON.parse(serialized);
     const next = observeLifeSave(save.life_record ?? createLifeRecord(), save);
     save.life_record = next;
@@ -576,8 +578,8 @@ const lifeSaveStorage = {setItem(key, serialized, onDurable) {
     if(nextNpc) save.npc_lives = nextNpc;
     if(authorityBootError)throw authorityBootError;
     if(authorityBootPending)throw Error('The enrolled save is awaiting complete native preflight.');
-    if(authorityEnrolled())nativeAuthority.commitPreparedSave(JSON.stringify(save));
-    else writeGuardedSave(localStorage, key, JSON.stringify(save));
+    if(authorityEnrolled()){durableSaves.forget();nativeAuthority.commitPreparedSave(JSON.stringify(save));}
+    else durableSaves.write(key, save, {force});
     onDurable?.();
     if(nativeP23Transaction?.status==='pending')nativeP23Transaction.markDurable();
     villageCareer = migrateVillageCareer(save);
@@ -6630,7 +6632,7 @@ function save_to_file() {
         }
         const serialized = create_save({forExport:true});
         let encoded = encodeSaveFile(serialized);
-        try {lifeSaveStorage.setItem(is_on_dev() ? dev_save_key : save_key, serialized);}
+        try {lifeSaveStorage.setItem(is_on_dev() ? dev_save_key : save_key, serialized, undefined, {force:true});}
         catch(error) {log_message(error.message + " Your exported file can still be kept.", "message_critical"); return encoded;}
         if(authorityEnrolled()){const root=nativeAuthority.read();encoded=encodeSaveFile(JSON.stringify({p23_native_authority_export:1,release:root.release,current:root.current,previous:root.previous}));}
         save_counter = 0;
@@ -6652,7 +6654,7 @@ function save_to_localStorage({key, is_manual}) {
     if(importProbeToken || !ownsSave || authorityOperationBusy || authorityBootError || authorityBootPending) return;
     const save = create_save();
     if(save) {
-        try {lifeSaveStorage.setItem(key, save);}
+        try {lifeSaveStorage.setItem(key, save, undefined, {force:is_manual===true});}
         catch(error) {log_message(error.message, "message_critical");return undefined;}
         if(is_manual) {
             log_message("Saved the game manually");
@@ -10138,6 +10140,15 @@ if(is_on_dev()) {
         `<img id = "hits_counter" src="https://hitscounter.dev/api/hit?label=dummy+hit+counter&color=%23084298&message=&style=flat&tz=UTC">`
     );
 }
+
+// Page exit or a hidden tab stores counters that unchanged autosaves skipped.
+function flushDurableSaves() {
+    if(importProbeToken || !ownsSave || foundationSaveBlocked || is_loading_error || lifeStorageFailure || authorityEnrolled()) return;
+    try {durableSaves.flush();} catch(error) {console.error('Skipped save counters could not be stored.', error);}
+}
+window.addEventListener('pagehide', flushDurableSaves);
+window.addEventListener('beforeunload', flushDurableSaves);
+document.addEventListener('visibilitychange', () => {if(document.hidden) flushDurableSaves();});
 
 if(testHooksEnabled) {
     window.advanceTicks = advanceTicks;
