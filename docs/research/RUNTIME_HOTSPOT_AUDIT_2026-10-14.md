@@ -229,3 +229,22 @@ WB-G1, gates on head `1d29e7af`, MEASURED:
 WB-G2, acceptance against the dispatch: crowded `advance_60` 0.08x and `commit` 0.19x (target 0.3x) **met**. Validate per write 0.79x **not met**; 0.34x on the expansion part needs WB-V3 in lane A. Scheduler equality, det on developed and crowded, the Node suite and the workshop check **met**.
 
 WB-N1, next levers, INFERRED from the profiles: (1) the facts projection is now the engine's main cost (about 2.8 ms per build on mid, about 40 module builders merged into about 1,200 keys for every actor); a namespace-lazy or per-owner cached projection would cut ticks, previews and render together, but it changes ownership across those modules. (2) `jsonData` in `simulation_contracts.js` walks every saved value with `Object.entries` and an array `includes` per key. (3) `world_completion_materials_content.js` rebuilds its validation definitions on every facts call. (4) Encounter responses rehearse on a full plan copy before answering.
+## ER1-F4 / ER1-F8 result, 2026-10-14 night
+
+Branch `claude/wave-g-render-887951` on `7504a1e4`. Details, method and raw rows:
+[wave-g-render RESULTS](../gm/dispatch/engine-perf-2026-10-14/wave-g-render/RESULTS.md).
+MEASURED, dev-stepped, interleaved, host load 100-640:
+
+- Inventory was forcing a layout per row (`innerText` read after the previous
+  row's tooltip replacement) and replacing every tooltip each publication:
+  65-90 ms and 1154 nodes churned per tick on crowded. Now 2-4 ms and 0 nodes.
+- Expedition, village, chronicle, work ledger, item log: state JSON signatures
+  replaced by state identity/sequence/clock (chronicle keeps its exact signature),
+  changed-row DOM sync. Churn 38/44/4 nodes per tick → 0/2/0. Panel text, textContent
+  and outerHTML byte-identical to base at fixed ticks and after interactions.
+- The structured pack's 250 ms poll (80-160 ms per tick on crowded, all in
+  `main.js` `readStructuredCampaign`) remains until lane A applies the
+  [proposed patch](../gm/dispatch/engine-perf-2026-10-14/wave-g-render/LANE_A_PATCH.md).
+  Owned-module time per tick, this branch alone: crowded 0.58-0.73x, developed
+  0.53-1.13x (structured dominates). With the patch (scratch build): crowded
+  0.03-0.05x, developed 0.19-0.30x.

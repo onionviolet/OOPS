@@ -1,0 +1,33 @@
+--- a/src/main.js
++++ b/src/main.js
+@@ -58,7 +58,7 @@
+ import {mountKnownMethodChains,mountKnownNumber,formatKnownNumber} from './absorb_p23/known_detail/presentation.js';
+ import {createKnownItemHotkeys,mountKnownItemBinding,mountKnownItemHotkeyList} from './absorb_p23/known_detail/hotkeys.js';
+ import {skillExpansionPresentation} from './skill_expansion_host.js';
+-import {setNativeObservedDropReader} from './display.js';
++import {setNativeObservedDropReader,inventoryDisplayRevision} from './display.js';
+ let p23DropObservations,loadedDisplayPreferences;
+ 
+ import {structuredLifeEnded,reconcileStructuredLifePlan,structuredLifeView,archiveStructuredLife,publishIndependentStructuredLife,listStructuredLifeArchives} from './structured_life_runtime.js';
+@@ -1941,7 +1941,7 @@
+         knownRoutesPanel?.render();adventureNotebook?.render();livingGearPanel?.render();combatOptionsPanel?.render();localLifePanel?.render();practicePanel?.render();updateWorkspace();fortControls?.render();pacingPanel?.render();pacingStatusPanel?.render();durabilityPanel?.render();elementalPanel?.render();livingGearPanel?.render();combatOptionsPanel?.render();householdPanel?.render();
+         growthPanel?.render();mistglassPanel?.render();
+         expansionQuests?.render();
+-        trancheFourPanel?.render();lifeRecordPanel?.render();
++        trancheFourPanel?.render();lifeRecordPanel?.render();structuredPanel?.render();
+         characterBio?.render();
+         titlesPanel?.render();
+         if(plan.p00EarnedTitles){for(const id of plan.p00EarnedTitles)log_message(`Title earned: ${title_by_id[id].name}. ${title_by_id[id].text}`,'level_up');titlesPanel?.announce(plan.p00EarnedTitles);}
+@@ -9744,7 +9744,11 @@
+ 
+ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
+     harvestPanel=createHarvestPanel({container:document.getElementById('location_actions_div'),read:()=>({state:harvestOwner,context:harvestContext(),writable:harvestWritable(),ready:harvestReady()}),readInspector:()=>({harvest:harvestOwner,mixtures:getMixtureOwner(),ruleTrace:getMixtureOwner()?.ruleLaws?.receipts?.[getMixtureOwner()?.ruleLaws?.lastReceipt]?.trace,expansion:expansionState,inventory:character.getItems(),clock:calendarMinutes(current_game_time),handling:{context:harvestContext(),ready:harvestReady(),automaticReady:harvestWritable()&&harvestAutomaticReady()}}),act:actHarvest,developer:is_on_dev()||new URLSearchParams(location.search).get("harvest-inspector")==="1"});
+-    if(structuredPacks.size)structuredPanel=createStructuredPackPanel({read:readStructuredCampaign,command:commandStructuredCampaign});
++    // The panel renders inside each publication frame; between publications its poll reads only after this token moves.
++    if(structuredPacks.size)structuredPanel=createStructuredPackPanel({read:readStructuredCampaign,command:commandStructuredCampaign,
++        changed:()=>[expansionState,optionalPackState,structuredNotice,ownsSave,foundationSaveBlocked,expansionError,importProbeToken,current_location?.id,
++            current_activity,current_game_action,current_combat,current_dialogue,is_sleeping,is_reading,is_in_trade(),feedbackClockPauseReason(),
++            character.money,inventoryDisplayRevision(),!!active_effects.Recovering]});
+     optionalPackPanel=createContentPackPanel({definitions:optionalPacks,always:true,
+         read:()=>({state:optionalPackState,pauseReason:feedbackClockPauseReason(),canEnter:ownsSave&&current_location?.id==='Village'&&!nativeOccupationReason()&&!current_activity&&!current_game_action&&!current_combat&&!current_dialogue&&!is_sleeping&&!is_reading&&!is_in_trade(),canAct:ownsSave&&!foundationSaveBlocked&&!lifeStorageFailure,
+             reference:villageCareer.rank>=1&&!villageCareer.loan&&!villageCareer.debt}),command:commandOptionalPack});
