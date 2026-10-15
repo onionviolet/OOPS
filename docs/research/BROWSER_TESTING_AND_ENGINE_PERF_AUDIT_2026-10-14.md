@@ -234,3 +234,33 @@ In [tools/](../gm/dispatch/engine-perf-2026-10-14/tools/), all read-only:
 - `calls.cjs`: precise-coverage call counts per source function.
 - `backlog_check.cjs`: visible backlog state through the native elder greeting.
 - `sample.sh`: personal vs automated Chrome CPU and renderer sampler.
+
+## AF1 + AF2 result, 2026-10-14 night
+
+Branch `claude/engine-perf-core-5a93e1`, rebased onto `absorb-all/integration`
+`6e5f190f`. Interleaved A/B against that tip's build, host load 22-29, so read
+the ratios, not the absolute times. [Raw results](../gm/dispatch/engine-perf-2026-10-14/results/)
+(`af12-*`).
+
+- **AF1 done.** The fast path now lives in `classifyRetiredKey`; the always-on
+  `Map` is gone and integration's batch memo is the only cache. MEASURED on the
+  developed fixture (3734 keys, 19 start with `{`): one save walk costs 19.7 ms
+  without the fast path, 0.67 ms with it and no cache, 0.77 ms with the `Map`,
+  0.69 ms with the batch memo. The fast path is the whole win; a second cache
+  adds nothing.
+- **AF2 done.** `simulation_render.js` owns the frame: `withSimulationFrame(key, run)`
+  and `framedSimulationRead(key, name, build, copy)`. `persistExpansion` opens
+  one per publication, and `endSimulationRenderBatch(expansionState)` flushes the
+  dev-stepping batch's coalesced renders inside one, so both paths share builder
+  reuse. Rules unchanged: one build per pass, a copy per caller, reuse ends when
+  the key (expansion state identity) changes; nested frames restore the outer one.
+  The frame wraps renders only, never ticks, because gameplay mutates
+  non-expansion state (body, activity) between reads of the same expansion state.
+- **Checks.** Full suite 1706 tests, 1703 pass, 0 fail, 3 todo (tip: 1702 /
+  1699 / 0 / 3; +4 frame tests). Systems workshop browser 10/10 on both builds.
+  `det.cjs` 20 game minutes from the workshop's `natural-final-save.json`
+  (clock 66 → 86): durable save byte-identical to the tip build, two reps.
+- **Idle JS-busy, tip → branch.** Fresh, per 15 s: 2.09 / 1.67 s → 0.62 / 0.58 s
+  (about −68%). Developed, per 20 game minutes (about 30 s): 14.6 / 16.2 s →
+  12.2 / 12.9 s (about −20%). `simulationFacts` is now 74.5% of developed
+  JS-busy, so D1 (preview fan-out) is next and can build on `framedSimulationRead`.

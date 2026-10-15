@@ -17,7 +17,7 @@ import {stageTitleRecognition} from './absorb_p23/host_joins/long_life.js';
 import {installTrainingLink,trainingView} from './absorb_p23/long_life/training.js';
 import {validateWornTitle,selectWornTitle,wornTitleView,longLifeTitleBonuses} from './absorb_p23/long_life/worn.js';
 import {engineTimeout,engineInterval,clearEngineInterval,engineNow,stepping,testHooksEnabled,pauseEngine,resumeEngine,runEngineTicks} from './simulation_clock.js';
-import {deferSimulationRender,beginSimulationRenderBatch,endSimulationRenderBatch} from './simulation_render.js';
+import {deferSimulationRender,beginSimulationRenderBatch,endSimulationRenderBatch,framedSimulationRead,withSimulationFrame} from './simulation_render.js';
 import {ANTHOLOGY,ANTHOLOGY_KEY,REST_MEAL,REST_KEY,REGISTRATIONS} from './absorb_p23/reading/content.js';
 import {planReadingCommand,observeReadingClock,longRestClockRequest} from './absorb_p23/reading/runtime.js';
 import {readingPresentation} from './absorb_p23/reading/presentation.js';
@@ -1636,19 +1636,12 @@ function validateNativeGameplayReferences(definitions) {
     }
 }
 
-// One publication's panel renders read the same unchanged world, so each context
-// builder runs once per pass. Every caller gets its own top-level and facts copy;
-// any expansion write ends the frame's reuse.
-let readFrame=null;
+// Context builders reuse one build per pass over an unchanged world (simulation_render.js).
+// Every caller gets its own top-level and facts copy of the shared build.
+const copyFramedContext=c=>c.facts?{...c,facts:{...c.facts}}:{...c};
 function framedRead(name,build){
-    if(!readFrame||readFrame.state!==expansionState)return build();
-    if(!readFrame.values.has(name))readFrame.values.set(name,build());
-    const value=readFrame.values.get(name),copy=c=>c.facts?{...c,facts:{...c.facts}}:{...c};
-    return name==='simulationNativeContexts'?Object.fromEntries(Object.entries(value).map(([id,c])=>[id,copy(c)])):copy(value);
-}
-function withReadFrame(render){
-    const outer=readFrame;readFrame={state:expansionState,values:new Map()};
-    try{return render();}finally{readFrame=outer;}
+    return framedSimulationRead(expansionState,name,build,name==='simulationNativeContexts'
+        ?value=>Object.fromEntries(Object.entries(value).map(([id,c])=>[id,copyFramedContext(c)])):copyFramedContext);
 }
 function simulationNativeContexts(){return framedRead('simulationNativeContexts',buildSimulationNativeContexts);}
 function buildSimulationNativeContexts() {
@@ -1937,7 +1930,7 @@ function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}) {
         if(plan.calendar && (p23LivingGear!==undefined||previousNight !== is_night(current_game_time))) {character.addActiveEffectBonus(active_effects);character.updateStatsAndDisplay();}
         if(townAccess.length && current_location.tags.safe_zone) update_displayed_normal_location(current_location);
         renderWorldIdentity();
-        withReadFrame(()=>{
+        withSimulationFrame(expansionState,()=>{
         expeditionPanel?.render(); techniquePanel?.render(); chroniclePanel?.render(); villagePanel?.render(); simulationPanel?.render(); systemsWorkshopPanel?.render(); townPanel?.render();
         pursuitPanel?.render();
         bodyPanel?.render();
@@ -9181,7 +9174,7 @@ function advanceTicks(n, {render = false} = {}) {
             if(savedAt && (key === backup_key || key === dev_backup_key)) update_backup_load_button(savedAt);
         }
         for(const reset of restore) reset();
-        if(!render) endSimulationRenderBatch();
+        if(!render) endSimulationRenderBatch(expansionState);
     }
 }
 
