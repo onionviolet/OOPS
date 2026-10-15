@@ -1,14 +1,21 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {expeditionRegistry} from '../src/expedition_content.js';
+import {expeditionRegistry as currentRegistry} from '../src/expedition_content.js';
 import {advanceSimulation,loadExpansionState} from '../src/expansion_engine.js';
 import {previewSimulationCommand,commitSimulationCommand,setSimulationProgram,cancelSimulationJob} from '../src/simulation.js';
 import {createFieldFixture,fieldContext} from '../scripts/field_fixtures.mjs';
 import {LEVER_WOOD as wood,LEVER_KIT as kit} from '../src/lever_lesson.js';
+// Frozen LP1 definitions from 277c8ffd exercise compatibility, not the new LP2 path.
+import {readFileSync} from 'node:fs';
+const v1=JSON.parse(readFileSync(new URL('./fixtures/lp1-lesson-v1.json',import.meta.url)));
+const commands=new Map(currentRegistry.simulation.commands), situations=new Map(currentRegistry.simulation.situations);
+for(const d of v1.commands)commands.set(d.id,d);
+for(const d of v1.situations)situations.set(d.id,d);
+const expeditionRegistry={...currentRegistry,simulation:{...currentRegistry.simulation,commands,situations}};
 const ctx=p=>fieldContext(p);
 const act=(p,id)=>commitSimulationCommand(p.state,expeditionRegistry,{id:`field.lp1.${id}`,targetId:['demonstrate','explain','practice'].includes(id)?'oldCraftsman':null},{...ctx(p),targetId:['demonstrate','explain','practice'].includes(id)?'oldCraftsman':null});
-const tick=(p,n,extra={})=>advanceSimulation(p.state,expeditionRegistry,n,p.external,p.gameplay,{player:{facts:ctx(p).facts,vitals:ctx(p).vitals.player,...extra}});
-const reload=p=>({...p,state:loadExpansionState(JSON.parse(JSON.stringify(p.state)),expeditionRegistry)});
+const tick=(p,n,extra={})=>advanceSimulation(p.state,currentRegistry,n,p.external,p.gameplay,{player:{facts:ctx(p).facts,vitals:ctx(p).vitals.player,...extra}});
+const reload=p=>({...p,state:loadExpansionState(JSON.parse(JSON.stringify(p.state)),currentRegistry)});
 const ready=()=>act(act(createFieldFixture(),'demonstrate'),'explain');
 const learned=()=>tick(act(ready(),'practice'),3);
 
