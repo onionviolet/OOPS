@@ -1,0 +1,56 @@
+{
+ "mw-hyperrogue": {
+  "out": "docs/research/hyperrogue/",
+  "gate": null
+ },
+ "mw-siralim": {
+  "out": "docs/research/siralim-ultimate/",
+  "gate": null
+ },
+ "mw-remnant2": {
+  "out": "docs/research/remnant-2/",
+  "gate": {
+   "kind": "steam_name",
+   "names": [
+    "remnant ii"
+   ]
+  }
+ },
+ "mw-kingdom-hearts": {
+  "out": "docs/research/kingdom-hearts/",
+  "gate": {
+   "kind": "steam_name",
+   "names": [
+    "kingdom hearts"
+   ]
+  }
+ },
+ "mw-the-strange": {
+  "out": "docs/research/the-strange-tabletop/",
+  "gate": null
+ },
+ "mw-muds": {
+  "out": "docs/research/multi-realm-muds/",
+  "gate": null
+ },
+ "mw-multiverse-idle-ui": {
+  "out": "docs/research/multiverse-idle/",
+  "gate": null
+ },
+ "mw-audit": {
+  "out": "docs/research/multiworld-synthesis-2026-10-14/",
+  "gate": {
+   "kind": "lanes_done",
+   "lanes": [
+    "mw-hyperrogue",
+    "mw-siralim",
+    "mw-the-strange",
+    "mw-muds",
+    "mw-multiverse-idle-ui",
+    "mw-remnant2",
+    "mw-kingdom-hearts"
+   ],
+   "timeout_hours": 24
+  }
+ }
+}
