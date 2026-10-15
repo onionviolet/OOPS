@@ -1,0 +1,59 @@
+{
+  "viewport": [
+    1366,
+    768
+  ],
+  "excluded": [
+    "saved_at",
+    "last_rewarded_export"
+  ],
+  "results": [
+    {
+      "id": "idle",
+      "ticks": 12,
+      "callbacks": 12,
+      "stepMs": 218
+    },
+    {
+      "id": "work",
+      "ticks": 12,
+      "callbacks": 12,
+      "stepMs": 167
+    },
+    {
+      "id": "combat",
+      "ticks": 12,
+      "callbacks": 1444,
+      "stepMs": 424
+    },
+    {
+      "id": "timed-action",
+      "ticks": 65,
+      "callbacks": 665,
+      "stepMs": 430
+    },
+    {
+      "id": "timed-job",
+      "ticks": 125,
+      "callbacks": 125,
+      "stepMs": 898
+    },
+    {
+      "id": "autosave-boundary",
+      "ticks": 65,
+      "callbacks": 65,
+      "stepMs": 409
+    },
+    {
+      "id": "household-save-boundary",
+      "ticks": 65,
+      "callbacks": 65,
+      "stepMs": 505
+    }
+  ],
+  "errors": [],
+  "normalSmoke": true,
+  "oldSaveLoad": true,
+  "referenceCommit": "9dd86b5a",
+  "referenceBundleSha256": "cbda4592f8d09bbb102dfecc5262d0752ba119a397712d4e5efb7cec9a19ece7"
+}

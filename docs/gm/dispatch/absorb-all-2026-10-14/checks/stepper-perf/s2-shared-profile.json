@@ -1,0 +1,34 @@
+{
+  "viewport": [
+    1366,
+    768
+  ],
+  "bundleSha256": "12244f3db372a8043f28bacb6a1771952aabd22145ddedf58fa5b71fc818a501",
+  "ticks": 1000,
+  "runs": [
+    {
+      "id": "idle",
+      "run": 1,
+      "ticks": 1000,
+      "ms": 6577.79999999702,
+      "ticksPerSecond": 152.02651342401,
+      "callbacks": 1000,
+      "errors": [],
+      "host": {
+        "at": "2026-10-15T00:50:17.103Z",
+        "loadavg": [
+          62.76123046875,
+          122.8212890625,
+          87.6416015625
+        ],
+        "cores": 18,
+        "freeMiB": 90
+      },
+      "quiet": null,
+      "stateSha256": "5377f2e3418684747b8fa9bdc4b0087f4c296f35e4c8afc59bc903f9c6f67638"
+    }
+  ],
+  "medians": {
+    "idle": 152.02651342401
+  }
+}
