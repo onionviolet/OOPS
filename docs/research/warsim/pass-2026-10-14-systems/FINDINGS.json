@@ -1,0 +1,217 @@
+{
+  "schema_version": 1,
+  "lane": "ds-warsim",
+  "date": "2026-10-14",
+  "status": "PARTIAL",
+  "app_id": 659540,
+  "build_id": "25097075",
+  "exe_sha256": "93d159754192876538b175b1a50a515e256806dce9f03e2d7f50a32880686e5f",
+  "systems": [
+    {
+      "id": "S01",
+      "name": "directed diplomacy updates",
+      "evidence": "shown selected static rules; interpretation labeled inferred in SYSTEMS.md",
+      "status": "partial",
+      "sources": [
+        "0x140a3d55d"
+      ],
+      "detail": "SYSTEMS.md#s01-directed-diplomacy-updates"
+    },
+    {
+      "id": "S02",
+      "name": "noble rosters as generated persistent records",
+      "evidence": "shown selected static rules; interpretation labeled inferred in SYSTEMS.md",
+      "status": "partial",
+      "sources": [
+        "0x140a6e235"
+      ],
+      "detail": "SYSTEMS.md#s02-noble-rosters-as-generated-persistent-records"
+    },
+    {
+      "id": "S03",
+      "name": "adventuring groups",
+      "evidence": "shown selected static rules; interpretation labeled inferred in SYSTEMS.md",
+      "status": "partial",
+      "sources": [
+        "0x140a7ee0d",
+        "0x140a7fdf0",
+        "0x140a8087f"
+      ],
+      "detail": "SYSTEMS.md#s03-adventuring-groups"
+    },
+    {
+      "id": "S04",
+      "name": "recruit offers and champion slots",
+      "evidence": "shown selected static rules; interpretation labeled inferred in SYSTEMS.md",
+      "status": "partial",
+      "sources": [
+        "0x140c8397f",
+        "0x1408cc2a2"
+      ],
+      "detail": "SYSTEMS.md#s04-recruit-offers-and-champion-slots"
+    },
+    {
+      "id": "S05",
+      "name": "council attendance and staff consequences",
+      "evidence": "shown selected static rules; interpretation labeled inferred in SYSTEMS.md",
+      "status": "partial",
+      "sources": [
+        "0x140c97075",
+        "0x140b7a3cc"
+      ],
+      "detail": "SYSTEMS.md#s05-council-attendance-and-staff-consequences"
+    },
+    {
+      "id": "S06",
+      "name": "monster care joins stock, training and public reaction",
+      "evidence": "shown selected static rules; interpretation labeled inferred in SYSTEMS.md",
+      "status": "partial",
+      "sources": [
+        "0x140b0e92d",
+        "0x140b0f4c0",
+        "0x140a11f60..0x140a11f74"
+      ],
+      "detail": "SYSTEMS.md#s06-monster-care-joins-stock-training-and-public-reaction"
+    },
+    {
+      "id": "S07",
+      "name": "monster combat reads generated abilities",
+      "evidence": "shown selected static rules; interpretation labeled inferred in SYSTEMS.md",
+      "status": "partial",
+      "sources": [
+        "0x140b12035",
+        "0x140fc2900",
+        "0x140fc2930",
+        "0x140fc29b8",
+        "0x140fc2988",
+        "0x140fc2a98",
+        "0x140fc2990",
+        "0x140fc29a8"
+      ],
+      "detail": "SYSTEMS.md#s07-monster-combat-reads-generated-abilities"
+    },
+    {
+      "id": "S08",
+      "name": "Protofolk community states and immediate loot",
+      "evidence": "shown selected static rules; interpretation labeled inferred in SYSTEMS.md",
+      "status": "partial",
+      "sources": [
+        "0x140bca87a",
+        "0x140bd2313..0x140bd244a",
+        "0x140bd43e0..0x140bd4517"
+      ],
+      "detail": "SYSTEMS.md#s08-protofolk-community-states-and-immediate-loot"
+    },
+    {
+      "id": "S09",
+      "name": "nomad camps reuse local culture and a shared activity",
+      "evidence": "shown selected static rules; interpretation labeled inferred in SYSTEMS.md",
+      "status": "partial",
+      "sources": [
+        "0x140a8792c"
+      ],
+      "detail": "SYSTEMS.md#s09-nomad-camps-reuse-local-culture-and-a-shared-activity"
+    },
+    {
+      "id": "S10",
+      "name": "traveling duel with alternate recruitment route",
+      "evidence": "shown selected static rules; interpretation labeled inferred in SYSTEMS.md",
+      "status": "partial",
+      "sources": [
+        "0x140be93e8"
+      ],
+      "detail": "SYSTEMS.md#s10-traveling-duel-with-alternate-recruitment-route"
+    },
+    {
+      "id": "S11",
+      "name": "children\u2019s gang resolution",
+      "evidence": "shown selected static rules; interpretation labeled inferred in SYSTEMS.md",
+      "status": "partial",
+      "sources": [
+        "0x140ad68de"
+      ],
+      "detail": "SYSTEMS.md#s11-childrens-gang-resolution"
+    },
+    {
+      "id": "S12",
+      "name": "neighborhood events and quiet draw mass",
+      "evidence": "shown selected static rules; interpretation labeled inferred in SYSTEMS.md",
+      "status": "partial",
+      "sources": [
+        "0x140ac9695"
+      ],
+      "detail": "SYSTEMS.md#s12-neighborhood-events-and-quiet-draw-mass"
+    },
+    {
+      "id": "S13",
+      "name": "tutoring is selectable explanation depth",
+      "evidence": "shown selected static rules; interpretation labeled inferred in SYSTEMS.md",
+      "status": "partial",
+      "sources": [
+        "0x140b9f584"
+      ],
+      "detail": "SYSTEMS.md#s13-tutoring-is-selectable-explanation-depth"
+    },
+    {
+      "id": "S14",
+      "name": "initial faction budgets and procedural clan names",
+      "evidence": "shown selected static rules; interpretation labeled inferred in SYSTEMS.md",
+      "status": "partial",
+      "sources": [
+        "0x1409285bd",
+        "0x14092b410",
+        "0x1408f7835"
+      ],
+      "detail": "SYSTEMS.md#s14-initial-faction-budgets-and-procedural-clan-names"
+    },
+    {
+      "id": "S15",
+      "name": "battle aftermath and renewable availability",
+      "evidence": "shown selected static rules; interpretation labeled inferred in SYSTEMS.md",
+      "status": "partial",
+      "sources": [
+        "0x140c872d1",
+        "0x140a15265",
+        "0x140a11fa7",
+        "0x140a13d2c..67"
+      ],
+      "detail": "SYSTEMS.md#s15-battle-aftermath-and-renewable-availability"
+    }
+  ],
+  "counts": {
+    "families": 32,
+    "helpers": 143,
+    "tables": 255,
+    "inherited_unread": 28,
+    "new_rea_outputs": 12,
+    "new_direct_outputs": 9,
+    "native_text_ids": 3315,
+    "new_extras_text_files": 38,
+    "small_touches": 24
+  },
+  "proposal_ids": [
+    "WS-P01",
+    "WS-P02",
+    "WS-P03",
+    "WS-P04",
+    "WS-P05",
+    "WS-P06",
+    "WS-P07",
+    "WS-P08"
+  ],
+  "packet_ids": [
+    "WS-I1",
+    "WS-I2",
+    "WS-I3"
+  ],
+  "ownerless_family_established": false,
+  "mapping": "FAMILY_MAP.json; thematic proposals not accepted decisions",
+  "evidence_layers": {
+    "source": "native bytes/tables, selected rules and writer/reference joins",
+    "runtime": "not_run_prohibited",
+    "persistence": "static_only_full_runtime_gate_open",
+    "yairpg": "no_runtime_edits",
+    "installation": "existing_payload_hash_verified_no_install"
+  },
+  "unread": "CHECKPOINT.md U01-U20 plus every individual partial/unread node in FAMILY_MAP.json"
+}

@@ -1,0 +1,183 @@
+{
+  "lane": "fs-sapiens",
+  "date": "2026-10-14",
+  "game": "Sapiens",
+  "app_id": 1060230,
+  "build_id": "19991669",
+  "route": "Installed macOS Lua source, read-only",
+  "lua_files": 481,
+  "source_sha256_manifest": "/Users/weiwei/.codex/research/fs-sapiens/extract/HASHES.txt",
+  "verification": "source only; no runtime or save access",
+  "findings": [
+    {
+      "id": "F1",
+      "packet": "RT",
+      "claim": "Object-linked practical investigation accumulates tribe-wide discovery; final product can gate breakthrough.",
+      "evidence": [
+        "scripts/common/research.lua:130",
+        "scripts/common/planHelper.lua:339",
+        "scripts/server/serverSapienSkills.lua:257",
+        "scripts/server/serverWorld.lua:1344",
+        "scripts/server/sapienAI/activeOrderAI.lua:1295"
+      ],
+      "basis": "shown",
+      "runtime_verified": false
+    },
+    {
+      "id": "F2",
+      "packet": "P03",
+      "claim": "Work teaches the acting sapien; concurrent discoverers may receive skill progress. No interpersonal teaching route found.",
+      "evidence": [
+        "scripts/common/skillLearning.lua",
+        "scripts/common/skill.lua:278",
+        "scripts/server/serverSapienSkills.lua:310",
+        "scripts/server/serverWorld.lua:1556"
+      ],
+      "basis": "shown",
+      "runtime_verified": false
+    },
+    {
+      "id": "F3",
+      "packet": "P04",
+      "claim": "Tribe discovery, actor skill, role permission, storage ownership/use and immediate plan feasibility are separate.",
+      "evidence": [
+        "scripts/common/skill.lua:341",
+        "scripts/common/planHelper.lua:2094",
+        "scripts/server/planManager.lua:182",
+        "scripts/server/serverSapienSkills.lua:98"
+      ],
+      "basis": "shown",
+      "runtime_verified": false
+    },
+    {
+      "id": "F4",
+      "packet": "CH",
+      "claim": "Drying uses world-time evolution; firing, threshing and cooking use worker build/action sequences.",
+      "evidence": [
+        "scripts/common/evolvingObject.lua:64",
+        "scripts/server/serverEvolvingObject.lua:27",
+        "scripts/common/craftable.lua:50",
+        "scripts/common/craftable.lua:2751",
+        "scripts/common/craftable.lua:2973"
+      ],
+      "basis": "shown",
+      "runtime_verified": false
+    },
+    {
+      "id": "F5",
+      "packet": "P01",
+      "claim": "Typed plan blockers project missing inputs, tools, facilities and allowed roles; actor idle text is less diagnostic and no work receipt is proved.",
+      "evidence": [
+        "scripts/server/planManager.lua:182",
+        "scripts/mainThread/ui/hubUIUtilities.lua:202",
+        "scripts/mainThread/orderStatus.lua:getStatusText"
+      ],
+      "basis": "shown",
+      "runtime_verified": false
+    },
+    {
+      "id": "F6",
+      "packet": "A04",
+      "claim": "Lua persists discovery state to players database and delegates object saves to a native bridge; a discovery-key migration is explicit.",
+      "evidence": [
+        "scripts/server/serverWorld.lua:920",
+        "scripts/server/serverWorld.lua:1195",
+        "scripts/server/serverGOM.lua:3324"
+      ],
+      "basis": "shown",
+      "runtime_verified": false
+    },
+    {
+      "id": "F7",
+      "packet": "A01",
+      "claim": "Conversation is distance/time-gated vocal interactions and gestures, not a shown paid-choice dialogue tree.",
+      "evidence": [
+        "scripts/common/social.lua:46",
+        "scripts/common/social.lua:92",
+        "scripts/common/vocal.lua"
+      ],
+      "basis": "shown",
+      "runtime_verified": false
+    },
+    {
+      "id": "F8",
+      "packet": "A07",
+      "claim": "Mod loader composes onload hooks by load order and tracks resource/localization additions and overrides.",
+      "evidence": [
+        "scripts/common/modManager.lua:24",
+        "scripts/common/modManager.lua:273"
+      ],
+      "basis": "shown",
+      "runtime_verified": false
+    }
+  ],
+  "negative_claim_limit": "Interpersonal teaching not found in Lua search/read, not proven absent from native engine.",
+  "proposals": [
+    {
+      "id": "S-P1",
+      "disposition": "Adapt",
+      "packet": "P01",
+      "proposal": "Project typed blockers beside current work",
+      "owner": "docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md",
+      "current_seam": "src/feature_expansion_work_plan.js:workPlanView; src/action_legibility.js:projectKnownActionRequirements",
+      "cost": "Low, if projection only",
+      "findings": "F5",
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "S-P2",
+      "disposition": "Adapt",
+      "packet": "P04 / P03",
+      "proposal": "Show knowledge, permission, held means and present use separately",
+      "owner": "docs/TECHNOLOGY_AND_PROGRESSION.md",
+      "current_seam": "src/techniques.js:techniqueFacts; src/simulation.js:previewSimulationCommand",
+      "cost": "Low to medium, retain current actor owners",
+      "findings": "F2/F3",
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "S-P3",
+      "disposition": "Trial",
+      "packet": "CH",
+      "proposal": "One dry-to-kit lot preserves progress across storage changes",
+      "owner": "docs/MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md",
+      "current_seam": "Existing T4 dry-to-kit proposal and job/stock owners",
+      "cost": "Medium, interruption and persistence proof required",
+      "findings": "F4",
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "S-P4",
+      "disposition": "Trial",
+      "packet": "RT",
+      "proposal": "One investigation must reach a useful product before confirming knowledge",
+      "owner": "docs/RESEARCH_CULTIVATION_PATHS.md",
+      "current_seam": "Existing technique observation/understanding/practice and paid trial records",
+      "cost": "Medium, evidence provenance and a native useful application",
+      "findings": "F1",
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "S-P5",
+      "disposition": "Adapt",
+      "packet": "P03",
+      "proposal": "Support paid practice without equating assigned role to mastery",
+      "owner": "docs/worlds/SKILL_MECHANISMS_AND_MEANS_2026-10-13.md",
+      "current_seam": "src/audited_workshop_lesson.js; src/techniques.js",
+      "cost": "Medium, teacher and self-study routes retain different costs",
+      "findings": "F2/F3",
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "S-P6",
+      "disposition": "Park",
+      "packet": "CH / P02",
+      "proposal": "Return and reuse the same empty container through processing",
+      "owner": "docs/MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md",
+      "current_seam": "Current held input, stock and custody receipts",
+      "cost": "Medium, container identity/conservation before more recipes",
+      "findings": "F4",
+      "status": "PROPOSAL"
+    }
+  ]
+}

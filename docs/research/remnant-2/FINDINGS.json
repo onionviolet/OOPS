@@ -1,0 +1,261 @@
+{
+  "lane": "mw-remnant2",
+  "date": "2026-10-15",
+  "status": "PARTIAL",
+  "build": "16320528",
+  "sources": {
+    "B1": "Installed Steam app 1282100, build 16320528, depot 1282101 manifest 3402363259625448228. Index hashes: ~/.codex/research/mw-remnant2/notes/source-index-hashes.json.",
+    "B2": "~/.codex/research/mw-remnant2/notes/paths.txt and iostore-list.txt; full IoStore path census, names only.",
+    "B3": "~/.codex/research/mw-remnant2/extract/parsed2/Remnant2/Content/Campaign_Main/Quest_Campaign_Main.uasset.json; functions ActivateFirstValidWorld, IsWorldValid, ActivateWorldWaypoint, WorldBossDefeated. Quest default object is partial.",
+    "B4": "~/.codex/research/mw-remnant2/extract/parsed2/Remnant2/Content/World_{Fae,Jungle,Nerud}/Quests/Quest_AdventureMode/Quest_AdventureMode_*.uasset.json; RemnantQuestSubQuest. Wrapper defaults partial.",
+    "B5": "~/.codex/research/mw-remnant2/extract/parsed3/Remnant2/Content/World_*/**/TileSet_*.uasset.json; TileSet exports with no logged object read errors.",
+    "B6": "~/.codex/research/mw-remnant2/extract/parsed/Remnant2/Content/World_Base/Items/Archetypes/{Alchemist,Challenger,Engineer}/Archetype_*.uasset.json; definition exports, unlock tables partial.",
+    "B7": "~/.codex/research/mw-remnant2/extract/parsed4/Remnant2/Content/World_Nerud/Environments/Blueprint/{BP_Nerud_DeathFog,Action_DeathFog_BuildUpHandler}.uasset.json; overlap events and action bytecode.",
+    "B8": "~/.codex/research/mw-remnant2/extract/parsed6/ and parsed7/; EventTree graph, conditions, dialogue/lore text. Many objects partial, see package-audit.json.",
+    "B9": "~/.codex/research/mw-remnant2/extract/parsed3/Remnant2/Content/World_Jungle/Characters/Pan_Wolf/Blueprints/Char_Pan_Wolf_Dialogue_StateMachine.uasset.json; 45 exports, conditions and state transitions.",
+    "B10": "~/.codex/research/mw-remnant2/extract/parsed2/Remnant2/Content/UI/UI_Dialogue/{Dialog_Dialogue,Widget_Dialogue}.uasset.json and parsed4/.../Widget_DialogueOption.uasset.json; widgets/bytecode only, not rendered.",
+    "P1": "https://www.remnantgame.com/en/news/article/11537003 (developer Archetypes Breakdown, 2023 design statement).",
+    "P2": "https://news.xbox.com/en-us/2023/07/28/gunfire-games-answers-all-our-remnant-ii-questions/ (David Adams interview, launch-era generation design).",
+    "T1": "https://github.com/Razzmatazzz/RemnantSaveGuardian/tree/501b6ff2e070af34f1cf387c9f17942153a2c158/RemnantSaveGuardian ; inspected RemnantSave.cs, RemnantCharacter.cs, RemnantWorldEvent.cs, GameInfo.cs. Third-party reader, not engine source."
+  },
+  "findings": [
+    {
+      "id": "R2-F01",
+      "evidence": "shown",
+      "claim": "Install gate passes for build 16320528.",
+      "sources": [
+        "B1"
+      ],
+      "kit": [
+        "K1"
+      ]
+    },
+    {
+      "id": "R2-F02",
+      "evidence": "stated",
+      "claim": "Generation is hierarchical: biome order, storyline, local content. Launch-era statement, not current DLC count.",
+      "sources": [
+        "P2"
+      ],
+      "kit": [
+        "K4",
+        "K5",
+        "K12"
+      ]
+    },
+    {
+      "id": "R2-F03",
+      "evidence": "shown",
+      "claim": "Campaign ActivateFirstValidWorld tests instantiated subquests in World1/2/3 order and activates the first valid waypoint; this is activation, not random selection.",
+      "sources": [
+        "B3"
+      ],
+      "kit": [
+        "K5",
+        "K17"
+      ]
+    },
+    {
+      "id": "R2-F04",
+      "evidence": "shown",
+      "claim": "Adventure wrapper subquest tags pair Story with Fae, Jungle or Nerud; native matching implementation unread.",
+      "sources": [
+        "B4"
+      ],
+      "kit": [
+        "K12",
+        "K17"
+      ]
+    },
+    {
+      "id": "R2-F05",
+      "evidence": "shown",
+      "claim": "A local fog volume has overlap actions and stop-action exit instructions.",
+      "sources": [
+        "B7"
+      ],
+      "kit": [
+        "K2",
+        "K10",
+        "K22"
+      ]
+    },
+    {
+      "id": "R2-F06",
+      "evidence": "stated",
+      "claim": "Archetype progression is independent, unlockable and ordered in dual configuration.",
+      "sources": [
+        "P1"
+      ],
+      "kit": [
+        "K3",
+        "K15"
+      ]
+    },
+    {
+      "id": "R2-F07",
+      "evidence": "shown",
+      "claim": "Archetype definitions link engram, archetype UI, trait type and stat table; some unlock tables fail decoding.",
+      "sources": [
+        "B6"
+      ],
+      "kit": [
+        "K3",
+        "K9"
+      ]
+    },
+    {
+      "id": "R2-F08",
+      "evidence": "shown",
+      "claim": "EventTree exports contain choice, item condition, event trigger, reward, removal and cooldown types. Many records partial.",
+      "sources": [
+        "B8"
+      ],
+      "kit": [
+        "K6",
+        "K11",
+        "K12"
+      ]
+    },
+    {
+      "id": "R2-F09",
+      "evidence": "shown",
+      "claim": "Bark state machine reads speaking/cinematic tags, combat, health, range and LOS conditions.",
+      "sources": [
+        "B9"
+      ],
+      "kit": [
+        "K19",
+        "K23",
+        "K32"
+      ]
+    },
+    {
+      "id": "R2-F10",
+      "evidence": "shown",
+      "claim": "Third-party save reader has compressed profile/world files and mode-specific event parsing. It does not prove game migrations or corruption recovery.",
+      "sources": [
+        "T1"
+      ],
+      "kit": [
+        "K18",
+        "K33"
+      ]
+    },
+    {
+      "id": "R2-F11",
+      "evidence": "inferred",
+      "claim": "Remnant supports a shared portable combat build more directly than distinct metaphysical power conversion or transferable NPC authority.",
+      "sources": [
+        "B6",
+        "P1",
+        "P2"
+      ],
+      "kit": [
+        "K2",
+        "K3",
+        "K7",
+        "K15"
+      ]
+    }
+  ],
+  "proposals": [
+    {
+      "id": "R2-P01",
+      "title": "Preview a crossing or reroll by carrier",
+      "status": "PROPOSAL",
+      "kit": [
+        "K15",
+        "K17",
+        "K18"
+      ],
+      "synthesis": "P05, P23",
+      "owner": "docs/worlds/MULTIVERSE_STRUCTURES.md; docs/research/START_AND_BRANCH_INTEGRATION_MAP_2026-10-14.md"
+    },
+    {
+      "id": "R2-P02",
+      "title": "Give a place a rule that changes a real action",
+      "status": "PROPOSAL",
+      "kit": [
+        "K2",
+        "K5",
+        "K10",
+        "K13",
+        "K22"
+      ],
+      "synthesis": "P14",
+      "owner": "docs/worlds/WORLD_CORE_KIT_SUCCESSOR_2026-10-14.md; world law and combat owners"
+    },
+    {
+      "id": "R2-P03",
+      "title": "Grow several earned faculties on one traveler",
+      "status": "PROPOSAL",
+      "kit": [
+        "K3",
+        "K9",
+        "K15"
+      ],
+      "synthesis": "P03, P09, P17",
+      "owner": "docs/worlds/ABILITY_AUTHORING.md; docs/TECHNOLOGY_AND_PROGRESSION.md"
+    },
+    {
+      "id": "R2-P04",
+      "title": "Make a local conversation settle a real transaction",
+      "status": "PROPOSAL",
+      "kit": [
+        "K6",
+        "K7",
+        "K11",
+        "K12",
+        "K29"
+      ],
+      "synthesis": "P19, P24",
+      "owner": "docs/research/cross-game-synthesis-2026-10-14/PACKETS.md#p19"
+    },
+    {
+      "id": "R2-P05",
+      "title": "Arbitrate ambient speech before emitting it",
+      "status": "PROPOSAL",
+      "kit": [
+        "K6",
+        "K19",
+        "K23",
+        "K32"
+      ],
+      "synthesis": "P21, P25",
+      "owner": "docs/research/cross-game-synthesis-2026-10-14/PACKETS.md#p21"
+    },
+    {
+      "id": "R2-P06",
+      "title": "Pin a generated visit recipe with required roles",
+      "status": "PROPOSAL",
+      "kit": [
+        "K4",
+        "K5",
+        "K12",
+        "K17",
+        "K18",
+        "K33",
+        "K34"
+      ],
+      "synthesis": "NEW local packet; extends P15 and P16",
+      "owner": "docs/worlds/MULTIVERSE_STRUCTURES.md; docs/research/START_AND_BRANCH_INTEGRATION_MAP_2026-10-14.md"
+    }
+  ],
+  "counts": {
+    "packages": 266,
+    "exports": 28408,
+    "packages_with_read_errors": 161,
+    "logged_error_objects_per_package": 2361,
+    "types": 251,
+    "dialogue_reference_exports": 19957,
+    "hashed_files": 284
+  },
+  "gaps": [
+    "No validated AES key for encrypted pak index",
+    "usmap build match unknown; object errors",
+    "Native generation weights, seeds and exclusion policy unread",
+    "Travel/reroll/relationship retention matrix unverified",
+    "Runtime prohibited"
+  ]
+}

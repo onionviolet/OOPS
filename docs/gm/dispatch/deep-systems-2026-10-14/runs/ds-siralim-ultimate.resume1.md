@@ -1,0 +1,1 @@
+Your previous run stopped on a model capacity error after writing SYSTEMS.md, FAMILY_MAP.json and CHECKPOINT.md. Continue from CHECKPOINT.md: finish REPORT.md, SMALL_TOUCHES.md and TOOLING.md, update CHECKPOINT, same rules and output dir. End with the short final message.

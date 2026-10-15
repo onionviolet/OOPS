@@ -1,0 +1,539 @@
+{
+  "snapshot": "1.7.4979 rev109",
+  "proof": "static source/data only",
+  "systems": [
+    {
+      "code": "S01",
+      "name": "Body parts become usable capacities",
+      "family": "body",
+      "status": "deep-selected-static",
+      "evidence": "shown",
+      "kit": [
+        "K2",
+        "K3",
+        "K10",
+        "K22"
+      ],
+      "packets": [
+        "P04",
+        "P15",
+        "P17"
+      ],
+      "owners": [
+        "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md",
+        "docs/worlds/NONHUMAN_STARTS_ENGINE_REQUIREMENTS_2026-10-14.md"
+      ],
+      "topics": [
+        "G17",
+        "G22",
+        "G37",
+        "G60"
+      ],
+      "sources": [
+        "Verse.PawnCapacityUtility",
+        "RimWorld.PawnCapacityWorker_Manipulation",
+        "RimWorld.PawnCapacityWorker_Moving",
+        "Verse.HediffSet",
+        "Verse.Hediff",
+        "Verse.Pawn_HealthTracker"
+      ],
+      "owner_gap": false
+    },
+    {
+      "code": "S02",
+      "name": "Treatment, disease severity and acquired immunity",
+      "family": "body",
+      "status": "deep-selected-static",
+      "evidence": "shown",
+      "kit": [
+        "K8",
+        "K11",
+        "K22",
+        "K26"
+      ],
+      "packets": [
+        "P03",
+        "P04",
+        "P13"
+      ],
+      "owners": [
+        "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md",
+        "docs/LIFE_SIM_NORTH_STAR.md"
+      ],
+      "topics": [
+        "G31/HI2/HI4",
+        "G37"
+      ],
+      "sources": [
+        "RimWorld.TendUtility",
+        "Verse.ImmunityRecord",
+        "Verse.ImmunityHandler",
+        "Verse.HediffComp_Immunizable",
+        "Verse.HediffComp_TendDuration",
+        "Verse.Pawn_HealthTracker"
+      ],
+      "owner_gap": false
+    },
+    {
+      "code": "S03",
+      "name": "Substances, tolerance, dependency and use policy",
+      "family": "body",
+      "status": "deep-selected-static",
+      "evidence": "shown",
+      "kit": [
+        "K3",
+        "K8",
+        "K22",
+        "K26"
+      ],
+      "packets": [
+        "P04",
+        "P08",
+        "P13",
+        "P17"
+      ],
+      "owners": [
+        "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md",
+        "docs/PROCEDURAL_CRAFTING_AND_CONSUMABLES_CONSIDERATIONS_2026-10-14.md"
+      ],
+      "topics": [
+        "G36",
+        "G56",
+        "G68"
+      ],
+      "sources": [
+        "RimWorld.CompDrug",
+        "RimWorld.Hediff_Addiction",
+        "RimWorld.DrugStatsUtility",
+        "RimWorld.Need_Chemical",
+        "RimWorld.IngestionOutcomeDoer_GiveHediff",
+        "RimWorld.Pawn_DrugPolicyTracker"
+      ],
+      "owner_gap": false
+    },
+    {
+      "code": "S04",
+      "name": "Relationships, romance and family references",
+      "family": "social",
+      "status": "deep-selected-static",
+      "evidence": "shown",
+      "kit": [
+        "K6",
+        "K8",
+        "K22",
+        "K24"
+      ],
+      "packets": [
+        "P06",
+        "P12",
+        "P15",
+        "P19"
+      ],
+      "owners": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md",
+        "docs/worlds/DIALOGUE_AND_INTERACTIONS.md"
+      ],
+      "topics": [
+        "G27",
+        "G40",
+        "G61",
+        "G64"
+      ],
+      "sources": [
+        "RimWorld.InteractionWorker_RomanceAttempt",
+        "RimWorld.LovePartnerRelationUtility",
+        "RimWorld.Pawn_RelationsTracker"
+      ],
+      "owner_gap": false
+    },
+    {
+      "code": "S05",
+      "name": "Mood pressure, break selection and recovery",
+      "family": "social",
+      "status": "deep-selected-static",
+      "evidence": "shown",
+      "kit": [
+        "K6",
+        "K22",
+        "K26",
+        "K32"
+      ],
+      "packets": [
+        "P10",
+        "P12",
+        "P13",
+        "P25"
+      ],
+      "owners": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md"
+      ],
+      "topics": [
+        "G44",
+        "G65"
+      ],
+      "sources": [
+        "Verse.AI.MentalBreaker",
+        "Verse.AI.MentalStateHandler"
+      ],
+      "owner_gap": false
+    },
+    {
+      "code": "S06",
+      "name": "Companion training, retained learning and command means",
+      "family": "companions",
+      "status": "deep-selected-static",
+      "evidence": "shown",
+      "kit": [
+        "K3",
+        "K6",
+        "K13",
+        "K15",
+        "K26"
+      ],
+      "packets": [
+        "P03",
+        "P04",
+        "P06",
+        "P25"
+      ],
+      "owners": [
+        "docs/COMPANIONS_FAMILIARS_AND_PETS_CONSIDERATIONS_2026-10-14.md",
+        "docs/worlds/NONHUMAN_BONDS_AND_PARTIES_2026-10-14.md"
+      ],
+      "topics": [
+        "Companions A2/C3/C10/D1",
+        "G59"
+      ],
+      "sources": [
+        "RimWorld.Pawn_TrainingTracker",
+        "RimWorld.TrainableDef",
+        "RimWorld.TrainableUtility",
+        "RimWorld.WorkGiver_Train",
+        "RimWorld.JobDriver_Train",
+        "RimWorld.Toils_Interpersonal"
+      ],
+      "owner_gap": false
+    },
+    {
+      "code": "S07",
+      "name": "Titles, favor and faction service permits",
+      "family": "institutions",
+      "status": "deep-selected-static",
+      "evidence": "shown",
+      "kit": [
+        "K6",
+        "K7",
+        "K8",
+        "K15",
+        "K24"
+      ],
+      "packets": [
+        "P04",
+        "P07",
+        "P13",
+        "P18"
+      ],
+      "owners": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/worlds/NONHUMAN_SOCIETY_LAW_AND_ECONOMY_2026-10-14.md"
+      ],
+      "topics": [
+        "Institutions/services",
+        "Technology TL4"
+      ],
+      "sources": [
+        "RimWorld.Pawn_RoyaltyTracker",
+        "RimWorld.FactionPermit",
+        "RimWorld.RoyalTitlePermitDef",
+        "RimWorld.RoyalTitlePermitWorker",
+        "RimWorld.RoyalTitlePermitWorker_CallAid"
+      ],
+      "owner_gap": false
+    },
+    {
+      "code": "S08",
+      "name": "Learned powers, focus, heat and casting effects",
+      "family": "powers",
+      "status": "deep-selected-static",
+      "evidence": "shown",
+      "kit": [
+        "K2",
+        "K3",
+        "K10",
+        "K15",
+        "K22"
+      ],
+      "packets": [
+        "P04",
+        "P05",
+        "P17"
+      ],
+      "owners": [
+        "docs/worlds/ABILITY_AUTHORING.md",
+        "docs/TECHNOLOGY_AND_PROGRESSION.md",
+        "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md"
+      ],
+      "topics": [
+        "G11/G32/G43",
+        "Power resource/control"
+      ],
+      "sources": [
+        "RimWorld.Pawn_PsychicEntropyTracker",
+        "RimWorld.Psycast",
+        "RimWorld.Ability",
+        "Verse.Hediff_Psylink"
+      ],
+      "owner_gap": false
+    },
+    {
+      "code": "S09",
+      "name": "Trade quotes, settlement stock and restocking",
+      "family": "economy",
+      "status": "deep-selected-static",
+      "evidence": "shown",
+      "kit": [
+        "K7",
+        "K8",
+        "K9",
+        "K29"
+      ],
+      "packets": [
+        "P02",
+        "P07",
+        "P18"
+      ],
+      "owners": [
+        "docs/MEANS_AND_APPRAISAL.md",
+        "docs/MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md"
+      ],
+      "topics": [
+        "Production ML8",
+        "Technology TL5"
+      ],
+      "sources": [
+        "RimWorld.Tradeable",
+        "RimWorld.TradeUtility",
+        "RimWorld.TradeDeal",
+        "RimWorld.Planet.Settlement_TraderTracker"
+      ],
+      "owner_gap": false
+    },
+    {
+      "code": "S10",
+      "name": "Caravan logistics, needs and conditional passive foraging",
+      "family": "world simulation",
+      "status": "deep-selected-static",
+      "evidence": "shown",
+      "kit": [
+        "K5",
+        "K6",
+        "K8",
+        "K26",
+        "K28"
+      ],
+      "packets": [
+        "P06",
+        "P08",
+        "P13",
+        "P18"
+      ],
+      "owners": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/COMPANIONS_FAMILIARS_AND_PETS_CONSIDERATIONS_2026-10-14.md",
+        "docs/ENGINE_EXPANSION.md"
+      ],
+      "topics": [
+        "Companions A3/G",
+        "Production ML8"
+      ],
+      "sources": [
+        "RimWorld.Planet.Caravan_NeedsTracker",
+        "RimWorld.Planet.Caravan_ForageTracker",
+        "RimWorld.Planet.ForagedFoodPerDayCalculator",
+        "RimWorld.Planet.Caravan_PathFollower"
+      ],
+      "owner_gap": false
+    },
+    {
+      "code": "S11",
+      "name": "Diplomacy uses goodwill, situations and relation hysteresis",
+      "family": "institutions",
+      "status": "deep-selected-static",
+      "evidence": "shown",
+      "kit": [
+        "K6",
+        "K7",
+        "K12",
+        "K24",
+        "K29"
+      ],
+      "packets": [
+        "P07",
+        "P10",
+        "P12",
+        "P19"
+      ],
+      "owners": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/worlds/NONHUMAN_SOCIETY_LAW_AND_ECONOMY_2026-10-14.md"
+      ],
+      "topics": [
+        "Institution rights/law",
+        "G64"
+      ],
+      "sources": [
+        "RimWorld.Faction",
+        "RimWorld.FactionRelation",
+        "RimWorld.GoodwillSituationManager"
+      ],
+      "owner_gap": false
+    },
+    {
+      "code": "S12",
+      "name": "Cultivation, harvest yield and ecological admission",
+      "family": "world simulation",
+      "status": "deep-selected-static",
+      "evidence": "shown",
+      "kit": [
+        "K8",
+        "K9",
+        "K13",
+        "K28",
+        "K29"
+      ],
+      "packets": [
+        "P02",
+        "P08",
+        "P13",
+        "P14"
+      ],
+      "owners": [
+        "docs/GATHERING_AND_RESOURCE_USES.md",
+        "docs/MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md"
+      ],
+      "topics": [
+        "Production ML1/ML2/ML7",
+        "G43"
+      ],
+      "sources": [
+        "RimWorld.Plant",
+        "RimWorld.PlantProperties",
+        "RimWorld.PlantUtility",
+        "RimWorld.WildPlantSpawner"
+      ],
+      "owner_gap": false
+    },
+    {
+      "code": "S13",
+      "name": "Infrastructure power separates output, stored reserve and service",
+      "family": "production",
+      "status": "deep-selected-static",
+      "evidence": "shown",
+      "kit": [
+        "K8",
+        "K9",
+        "K13",
+        "K25"
+      ],
+      "packets": [
+        "P02",
+        "P04",
+        "P08",
+        "P17"
+      ],
+      "owners": [
+        "docs/TECHNOLOGY_AND_PROGRESSION.md",
+        "docs/MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md"
+      ],
+      "topics": [
+        "TL3/TL4",
+        "Production ML5/ML6/ML8"
+      ],
+      "sources": [
+        "RimWorld.PowerNet",
+        "RimWorld.CompPowerTrader",
+        "RimWorld.CompPowerBattery",
+        "RimWorld.CompPower"
+      ],
+      "owner_gap": true
+    },
+    {
+      "code": "S14",
+      "name": "Content patches, inheritance and resolved definitions",
+      "family": "content authoring",
+      "status": "deep-selected-static",
+      "evidence": "shown",
+      "kit": [
+        "K1",
+        "K2",
+        "K18",
+        "K33",
+        "K34"
+      ],
+      "packets": [
+        "P16",
+        "P22"
+      ],
+      "owners": [
+        "docs/ENGINE_AUTHORING.md",
+        "docs/GENERATION_FOUNDATION_RULES_2026-10-14.md"
+      ],
+      "topics": [
+        "GR1-GR17",
+        "Typed content overlays"
+      ],
+      "sources": [
+        "Verse.LoadedModManager",
+        "Verse.XmlInheritance",
+        "Verse.PatchOperationSequence",
+        "Verse.PatchOperationConditional",
+        "Verse.DirectXmlLoader"
+      ],
+      "owner_gap": false
+    },
+    {
+      "code": "S15",
+      "name": "Quest generation compiles choices into saved runtime parts",
+      "family": "events and dialogue",
+      "status": "deep-selected-static",
+      "evidence": "shown",
+      "kit": [
+        "K6",
+        "K11",
+        "K12",
+        "K18",
+        "K23",
+        "K32"
+      ],
+      "packets": [
+        "P10",
+        "P12",
+        "P16",
+        "P19",
+        "P20",
+        "P24"
+      ],
+      "owners": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/worlds/DIALOGUE_AND_INTERACTIONS.md",
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "topics": [
+        "Causal event graph",
+        "Generated story content"
+      ],
+      "sources": [
+        "RimWorld.QuestGen.QuestGen",
+        "RimWorld.QuestGen.Slate",
+        "RimWorld.QuestGen.QuestNode_Sequence",
+        "RimWorld.QuestGen.QuestNode_RandomNode",
+        "RimWorld.QuestGen.QuestNode_Delay",
+        "RimWorld.QuestGen.QuestNode_End",
+        "RimWorld.QuestScriptDef"
+      ],
+      "owner_gap": false
+    }
+  ]
+}

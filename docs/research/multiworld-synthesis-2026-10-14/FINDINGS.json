@@ -1,0 +1,816 @@
+{
+  "lane": "mw-audit",
+  "dispatch_date": "2026-10-14",
+  "inspection_date": "2026-10-15",
+  "status": "COMPLETE",
+  "scope": "finite documentation audit/synthesis; source completeness remains partial",
+  "gameplay_verified": false,
+  "shown_checks": 35,
+  "inference_checks": 35,
+  "audit": [
+    {
+      "id": "HR-S01",
+      "lane": "mw-hyperrogue",
+      "kind": "shown_check",
+      "claim": "F1",
+      "summary": "95 land declarations include technical states",
+      "locator": "content.cpp:1059 onward; anchored LAND/ITEM/MONSTER/WALL census",
+      "result": "CONFIRM: independently counted 95/155/180/121. These are declarations, not accessible-world counts."
+    },
+    {
+      "id": "HR-S02",
+      "lane": "mw-hyperrogue",
+      "kind": "shown_check",
+      "claim": "F2",
+      "summary": "Availability and unlock are separate",
+      "locator": "landlock.cpp:241-276",
+      "result": "CONFIRM: ACCONLY calls isLandIngame; landUnlocked is separate. Do not infer adjacency from availability."
+    },
+    {
+      "id": "HR-S03",
+      "lane": "mw-hyperrogue",
+      "kind": "shown_check",
+      "claim": "F5",
+      "summary": "Generation relation is not a universal carried-power veto",
+      "locator": "orbgen.cpp:216-249; pcmove.cpp:1872-1879",
+      "result": "CONFIRM scoped split: getOLR classifies relations; movecost separately drains departing Power-land orbs to two, except Fire."
+    },
+    {
+      "id": "HR-S04",
+      "lane": "mw-hyperrogue",
+      "kind": "shown_check",
+      "claim": "F11",
+      "summary": "Memory saving has explicit conditional guards",
+      "locator": "savemem.cpp:90-114, save_memory",
+      "result": "QUALIFY: inspected guards establish mode/land dependence. They alone do not prove every distant map is erased or a full save recovery contract."
+    },
+    {
+      "id": "HR-S05",
+      "lane": "mw-hyperrogue",
+      "kind": "shown_check",
+      "claim": "F14",
+      "summary": "Forbidden-history call uses prior tile item",
+      "locator": "inventory.cpp:679-688",
+      "result": "CONFIRM syntax: it is old tile item, activation uses orbmap[uni]. Defect remains INFERRED, no runtime reproduction."
+    },
+    {
+      "id": "HR-I01",
+      "lane": "mw-hyperrogue",
+      "kind": "inference_check",
+      "claim": "HR-P1",
+      "summary": "Two places can change a carried tool action",
+      "basis": "HR-S03; P14",
+      "result": "SUPPORTED proposal. Requires one paid native action and a useful control, not land-name changes."
+    },
+    {
+      "id": "HR-I02",
+      "lane": "mw-hyperrogue",
+      "kind": "inference_check",
+      "claim": "HR-P2",
+      "summary": "Per-carrier travel preview",
+      "basis": "HR-S03; P05/P17",
+      "result": "SUPPORTED extension; the source-specific drain is not a universal YAIRPG penalty."
+    },
+    {
+      "id": "HR-I03",
+      "lane": "mw-hyperrogue",
+      "kind": "inference_check",
+      "claim": "HR-P3 / HR-N1",
+      "summary": "A border can interact through shared objects",
+      "basis": "HR F3/F4 sources; P14/P15",
+      "result": "PLAUSIBLE, more expensive than a local law. Both edge consumers and conflict order must be authored; not proof all worlds share physics."
+    },
+    {
+      "id": "HR-I04",
+      "lane": "mw-hyperrogue",
+      "kind": "inference_check",
+      "claim": "HR-P6",
+      "summary": "Practice modes can use distinct clocks",
+      "basis": "HR F9; P13/P14",
+      "result": "QUALIFY: source modes differ; no new action mode or offline policy is accepted by this analogy."
+    },
+    {
+      "id": "HR-I05",
+      "lane": "mw-hyperrogue",
+      "kind": "inference_check",
+      "claim": "F14 defect interpretation",
+      "summary": "Prior-item call is an actual bug",
+      "basis": "HR-S05",
+      "result": "UNPROVEN runtime defect. Keep apparent mismatch wording; do not mark fixed, exploitable or complete enforcement."
+    },
+    {
+      "id": "SU-S01",
+      "lane": "mw-siralim",
+      "kind": "shown_check",
+      "claim": "SU-F01",
+      "summary": "Archive index lacks CODE",
+      "locator": "extract/archive-index.json:chunks; extract/nm-arm64.txt",
+      "result": "CONFIRM extracted directory has no CODE; native script symbols corroborate compiled route. Marker 17 alone is insufficient."
+    },
+    {
+      "id": "SU-S02",
+      "lane": "mw-siralim",
+      "kind": "shown_check",
+      "claim": "SU-F10",
+      "summary": "Localization is structured separately from native code",
+      "locator": "extract/localization/*.csv; localization-census.json",
+      "result": "CONFIRM 24 CSV files with language columns. These are text rows, not reachable mechanics or entity counts."
+    },
+    {
+      "id": "SU-S03",
+      "lane": "mw-siralim",
+      "kind": "shown_check",
+      "claim": "SU-F13/a",
+      "summary": "SetFusion includes rendering work",
+      "locator": "extract/native/gml_Script_scr_SetFusion.c:959-1107,1461",
+      "result": "CONFIRM surface/sprite/palette calls. Name alone cannot establish semantic fusion ownership."
+    },
+    {
+      "id": "SU-S04",
+      "lane": "mw-siralim",
+      "kind": "shown_check",
+      "claim": "SU-F13/b",
+      "summary": "AddTrait works on global extra_traits",
+      "locator": "extract/native/gml_Script_scr_AddTrait.c:63-95",
+      "result": "CONFIRM global owner and indexed append branch. No per-creature trait cap follows."
+    },
+    {
+      "id": "SU-S05",
+      "lane": "mw-siralim",
+      "kind": "shown_check",
+      "claim": "SU-F13/c",
+      "summary": "Hidden and travel properties have separate writes",
+      "locator": "extract/native/gml_Script_scr_RealmGetProperties.c:1240-1319",
+      "result": "CONFIRM distinct hiddenrealmprops/values and telerealmprops/values setters. Their complete later consumers remain unread."
+    },
+    {
+      "id": "SU-I01",
+      "lane": "mw-siralim",
+      "kind": "inference_check",
+      "claim": "SU-F12",
+      "summary": "Expedition pattern can inform persistent settings",
+      "basis": "SU-F02/F07; nested-world owner",
+      "result": "SUPPORTED with limit: Siralim is not proof of durable resident/stock histories. Preserve OD5 same-world history."
+    },
+    {
+      "id": "SU-I02",
+      "lane": "mw-siralim",
+      "kind": "inference_check",
+      "claim": "SU-P02",
+      "summary": "Source/lifetime/usability inspector",
+      "basis": "SU-S02/S05; P04/P11",
+      "result": "SUPPORTED view proposal. Derive from real owners; text fields do not supply runtime truth."
+    },
+    {
+      "id": "SU-I03",
+      "lane": "mw-siralim",
+      "kind": "inference_check",
+      "claim": "SU-P04",
+      "summary": "Trigger encounter needs termination policy",
+      "basis": "SU-F06; P14/P16",
+      "result": "QUALIFY: codex limits are STATED and internally inconsistent. Author a local policy; no inferred shared queue or lifetime cap."
+    },
+    {
+      "id": "SU-I04",
+      "lane": "mw-siralim",
+      "kind": "inference_check",
+      "claim": "SU-P05",
+      "summary": "Favor grants service separately from currency",
+      "basis": "codex.csv:151-153; P07/P18",
+      "result": "SUPPORTED stated distinction, not a full social simulation. Retain opportunity without importing numeric grind."
+    },
+    {
+      "id": "SU-I05",
+      "lane": "mw-siralim",
+      "kind": "inference_check",
+      "claim": "SU-P06",
+      "summary": "Trip material can fund useful home refit",
+      "basis": "codex.csv:168-171; P02/P12",
+      "result": "PLAUSIBLE YAIRPG design. No inspected Siralim hub transaction/durable-return proof."
+    },
+    {
+      "id": "R2-S01",
+      "lane": "mw-remnant2",
+      "kind": "shown_check",
+      "claim": "R2-F03",
+      "summary": "First valid world activation is ordered",
+      "locator": "extract/parsed2/.../Campaign_Main/Quest_Campaign_Main.uasset.json:ActivateFirstValidWorld",
+      "result": "CONFIRM World1/2/3 validity calls each branch to activation and jump to return. No random selection shown in this function."
+    },
+    {
+      "id": "R2-S02",
+      "lane": "mw-remnant2",
+      "kind": "shown_check",
+      "claim": "R2-F04",
+      "summary": "Adventure wrapper tags pair Story and biome",
+      "locator": "extract/parsed2/.../World_Fae/Quests/Quest_AdventureMode/Quest_AdventureMode_Fae.uasset.json:Quest_GEN_VARIABLE",
+      "result": "CONFIRM Fae sample has Story/Fae. This sample does not independently audit the Jungle/Nerud siblings or native matching."
+    },
+    {
+      "id": "R2-S03",
+      "lane": "mw-remnant2",
+      "kind": "shown_check",
+      "claim": "R2-F05",
+      "summary": "Fog has overlap and exit action plumbing",
+      "locator": "extract/parsed4/.../World_Nerud/Environments/Blueprint/BP_Nerud_DeathFog.uasset.json",
+      "result": "CONFIRM event/function exports support local exposure handling; numerical hazard and whole cleanup chain remain conditional/unrun."
+    },
+    {
+      "id": "R2-S04",
+      "lane": "mw-remnant2",
+      "kind": "shown_check",
+      "claim": "R2-F07",
+      "summary": "Archetype definition links its dependencies",
+      "locator": "extract/parsed/.../Archetypes/Alchemist/Archetype_Alchemist.uasset.json:Default__Archetype_Alchemist_C",
+      "result": "CONFIRM EngramItem, RemnantArchetype, Type and StatTable references. Links do not prove unlock-table decode or payment."
+    },
+    {
+      "id": "R2-S05",
+      "lane": "mw-remnant2",
+      "kind": "shown_check",
+      "claim": "R2-F09",
+      "summary": "Barks check actor conditions",
+      "locator": "extract/parsed3/.../Pan_Wolf/Blueprints/Char_Pan_Wolf_Dialogue_StateMachine.uasset.json",
+      "result": "CONFIRM 45 exports; speaking/cinematic tags, combat, health, range and HasLOS conditions. No measured arbitration quality claimed."
+    },
+    {
+      "id": "R2-I01",
+      "lane": "mw-remnant2",
+      "kind": "inference_check",
+      "claim": "R2-F11",
+      "summary": "Portable combat build is stronger evidence than metaphysical conversion",
+      "basis": "R2-S04; P1/P2 in lane ledger",
+      "result": "SUPPORTED bounded comparison; no universal power transfer or NPC jurisdiction claim."
+    },
+    {
+      "id": "R2-I02",
+      "lane": "mw-remnant2",
+      "kind": "inference_check",
+      "claim": "R2-P01",
+      "summary": "Crossing/reroll can preview carrier terms",
+      "basis": "R2-S01/S02; P05",
+      "result": "QUALIFY: SaveGuardian is third-party. Cannot use it as proof of engine save atomicity; avoid requiring profile P23."
+    },
+    {
+      "id": "R2-I03",
+      "lane": "mw-remnant2",
+      "kind": "inference_check",
+      "claim": "R2-P02",
+      "summary": "Hazard should alter an action with mitigation",
+      "basis": "R2-S03; P14",
+      "result": "SUPPORTED local proposal; exact values, mitigation and exit cleanup need YAIRPG source/native checks."
+    },
+    {
+      "id": "R2-I04",
+      "lane": "mw-remnant2",
+      "kind": "inference_check",
+      "claim": "R2-P04",
+      "summary": "Conversation can settle a transaction",
+      "basis": "R2-F08; P19/P24",
+      "result": "PLAUSIBLE: graph node types are incomplete evidence of execution order. One existing narrative host, no inferred transaction engine."
+    },
+    {
+      "id": "R2-I05",
+      "lane": "mw-remnant2",
+      "kind": "inference_check",
+      "claim": "R2-P06",
+      "summary": "Generated recipe should pin required/optional roles",
+      "basis": "R2-S01/S02; developer P2; P15/P16",
+      "result": "QUALIFY: ordered activation is not generator selection. Required-role validation and revision pinning are our proposed contract, not recovered Remnant algorithm."
+    },
+    {
+      "id": "KH-S01",
+      "lane": "mw-kingdom-hearts",
+      "kind": "shown_check",
+      "claim": "F1",
+      "summary": "Conditional members are a separate table",
+      "locator": "extract/decoded/memt.json; repos/OpenKh/OpenKh.Kh2/SystemData/Memt.cs:72-92",
+      "result": "CONFIRM 37 rows, each 18 members; world/story/area fields. Native selection/fallback priority is not independently executed."
+    },
+    {
+      "id": "KH-S02",
+      "lane": "mw-kingdom-hearts",
+      "kind": "shown_check",
+      "claim": "F2",
+      "summary": "Command restrictions are distinct from members",
+      "locator": "repos/OpenKh/OpenKh.Kh2/SystemData/Cmd.cs:43-85; extract/decoded/03system-cmd.bin",
+      "result": "CONFIRM flags and DisableForm field separate from member schema. Full actor/body semantics remain interpretation."
+    },
+    {
+      "id": "KH-S03",
+      "lane": "mw-kingdom-hearts",
+      "kind": "shown_check",
+      "claim": "F3",
+      "summary": "Growth rows are distinct from manifestations",
+      "locator": "extract/decoded/lvup.json; extract/openkh-decoded/bonuses.json,summons.json",
+      "result": "CONFIRM 13 characters each 99 levels, 179 bonus rows, four summon definitions. The 45-form-row subclaim was not independently recounted here."
+    },
+    {
+      "id": "KH-S04",
+      "lane": "mw-kingdom-hearts",
+      "kind": "shown_check",
+      "claim": "F6",
+      "summary": "Selected room/event corpus is large",
+      "locator": "extract/openkh-decoded/*.script.txt,*.event.xml",
+      "result": "CONFIRM counted 749 script files and 951 event XML files. Counts prove emitted artifacts, not all semantic decodes or reachable story coverage."
+    },
+    {
+      "id": "KH-S05",
+      "lane": "mw-kingdom-hearts",
+      "kind": "shown_check",
+      "claim": "F8",
+      "summary": "KH1 selected room resource census",
+      "locator": "extract/decoded/kh1-room-resources.json",
+      "result": "CONFIRM 239 entries with room/archive/resource fields. Resource presence alone cannot prove local combat/body rules."
+    },
+    {
+      "id": "KH-I01",
+      "lane": "mw-kingdom-hearts",
+      "kind": "inference_check",
+      "claim": "F10 / KH-P01",
+      "summary": "Earned state and local usability should be separate",
+      "basis": "KH-S01/S02/S03; P04/P05",
+      "result": "SUPPORTED design split; data separation does not prove an authoritative runtime transaction."
+    },
+    {
+      "id": "KH-I02",
+      "lane": "mw-kingdom-hearts",
+      "kind": "inference_check",
+      "claim": "KH-P02",
+      "summary": "Changed revisit retains real history",
+      "basis": "KH F5; P10/P12",
+      "result": "QUALIFY: selected room programs demonstrate episode projection, not persistent economic/NPC state. OD5 supplies YAIRPG requirement."
+    },
+    {
+      "id": "KH-I03",
+      "lane": "mw-kingdom-hearts",
+      "kind": "inference_check",
+      "claim": "KH-P03",
+      "summary": "Appearance, body and permission can have separate fields",
+      "basis": "KH-S01/S02; P14/P16",
+      "result": "SUPPORTED fixture proposal. A model swap alone does not establish actual body or controller change."
+    },
+    {
+      "id": "KH-I04",
+      "lane": "mw-kingdom-hearts",
+      "kind": "inference_check",
+      "claim": "KH-P04",
+      "summary": "Learned function elsewhere makes return useful",
+      "basis": "KH F4; S14/S15 authored messages; P03",
+      "result": "PLAUSIBLE but STATED requirement, evaluator unread. Do not infer equivalent methods accepted by KH."
+    },
+    {
+      "id": "KH-I05",
+      "lane": "mw-kingdom-hearts",
+      "kind": "inference_check",
+      "claim": "KH-P05",
+      "summary": "Companion identity survives local availability changes",
+      "basis": "KH-S01; P06/P12",
+      "result": "PLAUSIBLE YAIRPG extension. Member overlay is not personal memory, custody or consent proof."
+    },
+    {
+      "id": "TS-S01",
+      "lane": "mw-the-strange",
+      "kind": "shown_check",
+      "claim": "F10",
+      "summary": "Cypher entries split effect and world form",
+      "locator": "extract/S13.txt:426-479",
+      "result": "CONFIRM Earth/Ardeyn/Ruk form rows adjacent to effects. No digital identity/consumption algorithm follows."
+    },
+    {
+      "id": "TS-S02",
+      "lane": "mw-the-strange",
+      "kind": "shown_check",
+      "claim": "F11",
+      "summary": "Artifacts declare operating law and depletion",
+      "locator": "extract/S13.txt:133-143,160-185",
+      "result": "CONFIRM sampled artifact entry fields. Cross-law failure timing and all-item exceptions remain unread."
+    },
+    {
+      "id": "TS-S03",
+      "lane": "mw-the-strange",
+      "kind": "shown_check",
+      "claim": "F12",
+      "summary": "Samurai Sky supports conditional magic",
+      "locator": "extract/S13.txt:146-151, printed p48",
+      "result": "CONFIRM lunar condition over ordinary physics. No exact lunar evaluator/formula supplied."
+    },
+    {
+      "id": "TS-S04",
+      "lane": "mw-the-strange",
+      "kind": "shown_check",
+      "claim": "F13",
+      "summary": "Origin taxonomy includes emergence",
+      "locator": "extract/S13.txt:42-99",
+      "result": "CONFIRM fictional/mythological distinction and emergent discussion. No automatic YAIRPG world generator is demonstrated."
+    },
+    {
+      "id": "TS-S05",
+      "lane": "mw-the-strange",
+      "kind": "shown_check",
+      "claim": "F15",
+      "summary": "Gate influence sustains foreign abilities",
+      "locator": "extract/S10.txt:590-604,719-722",
+      "result": "CONFIRM adventure-specific support from Hum/gate and local range. Do not generalize the exception to all gates."
+    },
+    {
+      "id": "TS-I01",
+      "lane": "mw-the-strange",
+      "kind": "inference_check",
+      "claim": "MWTS-P01",
+      "summary": "Different passage modes deserve distinct carry terms",
+      "basis": "TS F02/F07/F08; S01 official article; P05",
+      "result": "SUPPORTED proposal, not universal translation. YAIRPG may retain unchanged powers through suitable means."
+    },
+    {
+      "id": "TS-I02",
+      "lane": "mw-the-strange",
+      "kind": "inference_check",
+      "claim": "MWTS-P02",
+      "summary": "One traveler plus local-form history",
+      "basis": "TS F03/F05/F06; S02 article; P05/P16",
+      "result": "SUPPORTED for this source model. One shared injury pool is source-specific, not mandatory across all YAIRPG bodies/lives."
+    },
+    {
+      "id": "TS-I03",
+      "lane": "mw-the-strange",
+      "kind": "inference_check",
+      "claim": "MWTS-P03",
+      "summary": "One consumable survives appearance changes without duplication",
+      "basis": "TS-S01; P16/P17",
+      "result": "SUPPORTED architecture inference; tabletop description contains no save transaction algorithm."
+    },
+    {
+      "id": "TS-I04",
+      "lane": "mw-the-strange",
+      "kind": "inference_check",
+      "claim": "MWTS-P04",
+      "summary": "Conditional law should drive actual action eligibility",
+      "basis": "TS-S03/S05; P14",
+      "result": "SUPPORTED bounded leaf. Numeric support window and exception order still need original authorship."
+    },
+    {
+      "id": "TS-I05",
+      "lane": "mw-the-strange",
+      "kind": "inference_check",
+      "claim": "MWTS-P06",
+      "summary": "Small personal world can be authored as a kit card",
+      "basis": "TS F16; P15/P22",
+      "result": "RESTRICT: creation/maintenance rules unread. Reuse kit authoring only; do not claim source costs, complete construction system or a new world priority."
+    },
+    {
+      "id": "MD-S01",
+      "lane": "mw-muds",
+      "kind": "shown_check",
+      "claim": "MW-F11/a",
+      "summary": "Room tutorial uses common setup",
+      "locator": "extract/3k-room.txt:27-134",
+      "result": "CONFIRM inherited room, create, realm and light setup. Public teaching example, not inspected server implementation."
+    },
+    {
+      "id": "MD-S02",
+      "lane": "mw-muds",
+      "kind": "shown_check",
+      "claim": "MW-F11/b",
+      "summary": "Hidden exit differs from blocked exit",
+      "locator": "extract/3k-room.txt:430-442",
+      "result": "CONFIRM explicit explanation and separate dirfunc guard concept. This is a second concrete subclaim within F11."
+    },
+    {
+      "id": "MD-S03",
+      "lane": "mw-muds",
+      "kind": "shown_check",
+      "claim": "MW-F12",
+      "summary": "Monster tutorial adds authored behavior",
+      "locator": "extract/3k-monster.txt:100-172,255-469",
+      "result": "CONFIRM level, idle/combat chat and specials in tutorial. No full live NPC AI inferred."
+    },
+    {
+      "id": "MD-S04",
+      "lane": "mw-muds",
+      "kind": "shown_check",
+      "claim": "MW-F13",
+      "summary": "Reset population must be authored",
+      "locator": "extract/3k-put.txt:17-32,313-359",
+      "result": "CONFIRM create/reset distinction and guarded population. Reset loop is not retained death or changed-history proof."
+    },
+    {
+      "id": "MD-S05",
+      "lane": "mw-muds",
+      "kind": "shown_check",
+      "claim": "MW-F19",
+      "summary": "Web help has its own client implementation",
+      "locator": "extract/3k-main-js.html:508-636",
+      "result": "CONFIRM focus/keyboard modal and topic fetch with success envelope. It is website help, not an NPC dialogue API."
+    },
+    {
+      "id": "MD-I01",
+      "lane": "mw-muds",
+      "kind": "inference_check",
+      "claim": "MW-F20",
+      "summary": "Retained capability plus local admission is best adaptation",
+      "basis": "MW-F02/F05/F09; P03/P04",
+      "result": "SUPPORTED inference from stated rules, no universal server transfer contract established."
+    },
+    {
+      "id": "MD-I02",
+      "lane": "mw-muds",
+      "kind": "inference_check",
+      "claim": "MW-P1",
+      "summary": "Conditional transit can have safe inspection",
+      "basis": "MW-F03; P04/P13/P14",
+      "result": "PLAUSIBLE: transport guides disagree. Safe inspection is YAIRPG design, not proved MUD behavior."
+    },
+    {
+      "id": "MD-I03",
+      "lane": "mw-muds",
+      "kind": "inference_check",
+      "claim": "MW-P2",
+      "summary": "Cumulative training can coexist with local requirements",
+      "basis": "MW-F05/F08/F09; P03/P07",
+      "result": "QUALIFY: RetroMUD constrained multiguild differs from 3K professions/Ascended. No unlimited multiclass or lossless switching claim."
+    },
+    {
+      "id": "MD-I04",
+      "lane": "mw-muds",
+      "kind": "inference_check",
+      "claim": "MW-P4",
+      "summary": "Ownership/use/retention deserve separate preview",
+      "basis": "MW-F07/F17; P05/P24",
+      "result": "SUPPORTED distinction. Do not import reboot losses or autoload restrictions into old YAIRPG saves."
+    },
+    {
+      "id": "MD-I05",
+      "lane": "mw-muds",
+      "kind": "inference_check",
+      "claim": "MW-P5",
+      "summary": "A local deed changes return service",
+      "basis": "MW-F06/F18; P07/P12",
+      "result": "PLAUSIBLE extension: faction reputation/help does not prove NPC personal memory or companion passage."
+    },
+    {
+      "id": "MI-S01",
+      "lane": "mw-multiverse-idle-ui",
+      "kind": "shown_check",
+      "claim": "MI-F01",
+      "summary": "Stable shell visible across screens",
+      "locator": "extract/S01.jpg,S02.jpg,S03.jpg",
+      "result": "CONFIRM visual inspection: left traveler/nav, center workspace, right help/quest/system. Screenshots do not establish controller architecture."
+    },
+    {
+      "id": "MI-S02",
+      "lane": "mw-multiverse-idle-ui",
+      "kind": "shown_check",
+      "claim": "MI-F02",
+      "summary": "Roster exposes world origin and set",
+      "locator": "extract/S01.jpg",
+      "result": "CONFIRM nine named origin filters plus All; selected ally class, bonus and set progress. No relationship continuity or provenance mechanics proved."
+    },
+    {
+      "id": "MI-S03",
+      "lane": "mw-multiverse-idle-ui",
+      "kind": "shown_check",
+      "claim": "MI-F03",
+      "summary": "Named destination modifiers differ",
+      "locator": "extract/S03.jpg,S05.jpg",
+      "result": "CONFIRM Celestia/Naturia names and rewards; Naturia distinguishes zone from enemy effects. Real modifier consumers unread."
+    },
+    {
+      "id": "MI-S04",
+      "lane": "mw-multiverse-idle-ui",
+      "kind": "shown_check",
+      "claim": "MI-F04",
+      "summary": "Training places rates/caps near values",
+      "locator": "extract/S02.jpg",
+      "result": "CONFIRM milestone, resets, speed, active slots and offline stamina labels. No catch-up computation or return receipt demonstrated."
+    },
+    {
+      "id": "MI-S05",
+      "lane": "mw-multiverse-idle-ui",
+      "kind": "shown_check",
+      "claim": "MI-F05",
+      "summary": "Skill acquisition and use costs differ",
+      "locator": "extract/S06.jpg",
+      "result": "CONFIRM purchase cost/requirements separate from mana/cooldown. It is a tile list, not a proven dependency graph."
+    },
+    {
+      "id": "MI-I01",
+      "lane": "mw-multiverse-idle-ui",
+      "kind": "inference_check",
+      "claim": "MI-F10",
+      "summary": "Shared trained traveler/team across destinations",
+      "basis": "MI-S01/S03; store description",
+      "result": "PLAUSIBLE only. Images show several states, not a tested transfer or simultaneous simulation."
+    },
+    {
+      "id": "MI-I02",
+      "lane": "mw-multiverse-idle-ui",
+      "kind": "inference_check",
+      "claim": "MI-P01",
+      "summary": "Adjacent work/receipt/explanation helps current slice",
+      "basis": "MI-S01/S04; P01/P04",
+      "result": "SUPPORTED UI proposal; no tested usability gain. Use existing Proto23 composition/log rules."
+    },
+    {
+      "id": "MI-I03",
+      "lane": "mw-multiverse-idle-ui",
+      "kind": "inference_check",
+      "claim": "MI-P03",
+      "summary": "Origin-filtered list should include custody/usability",
+      "basis": "MI-S02; P05/P16",
+      "result": "QUALIFY: origin filters shown; custody and cross-world support are YAIRPG additions. New presentation leaf, not new state store."
+    },
+    {
+      "id": "MI-I04",
+      "lane": "mw-multiverse-idle-ui",
+      "kind": "inference_check",
+      "claim": "MI-P06",
+      "summary": "Return summary splits allowance and earned work",
+      "basis": "MI-S04; P13",
+      "result": "SUPPORTED desired distinction; source screenshot proves neither offline result nor current save correctness. OD4 now accepts chosen routine progress."
+    },
+    {
+      "id": "MI-I05",
+      "lane": "mw-multiverse-idle-ui",
+      "kind": "inference_check",
+      "claim": "MI desktop fit trial",
+      "summary": "Proposed 220/800/310 column widths fit 1366",
+      "basis": "REPORT desktop arithmetic; 1920x1080 captures",
+      "result": "UNVERIFIED layout. Width sums are not readability or 768px height proof; no scaling claim accepted. UI owner decides within current log/center composition."
+    }
+  ],
+  "corrections": [
+    {
+      "id": "C1",
+      "lane": "All lanes",
+      "summary": "Delivery checkpoints are all PARTIAL, not blocked installs. Remnant II and KH delivered installed-byte reads; their own build pins remain dated lane evidence, not a new live install verification."
+    },
+    {
+      "id": "C2",
+      "lane": "HR",
+      "summary": "REPORT and FINDINGS reuse F3/F4/F5 for different summaries. Audit IDs here cite FINDINGS IDs; downstream references must name file plus ID. No audit correction was applied to lane files."
+    },
+    {
+      "id": "C3",
+      "lane": "SU",
+      "summary": "Mixed shown+stated labels must be split by clause. Realm behavior and favor text are descriptions; archive/chunk/native/table evidence proves only the inspected structures. Five shown checks here use structural subclaims, including three from SU-F13."
+    },
+    {
+      "id": "C4",
+      "lane": "R2",
+      "summary": "Every parsed claim stays conditional on the unvalidated build match of Mappings.usmap. Successful JSON emission or no logged error is not a complete schema validation. ActivateFirstValidWorld is activation, not random selection."
+    },
+    {
+      "id": "C5",
+      "lane": "KH",
+      "summary": "Room/member/model changes are not evidence of retained local stock, consent or personal memory. SaveData is tool-side schema, not Steam-container compatibility. Census counts remain selected artifacts, not campaign count."
+    },
+    {
+      "id": "C6",
+      "lane": "TS",
+      "summary": "SHOWN means inspected rules/examples, not a software implementation. Public preview does not establish full personal-recursion creation rules. Translation and unchanged physical passage are distinct source options."
+    },
+    {
+      "id": "C7",
+      "lane": "MD",
+      "summary": "Only four FINDINGS IDs are labeled SHOWN. Five concrete claims were checked by splitting F11 into room setup and hidden-exit semantics. Tutorial and web-client code do not become current server source; RetroMUD mechanics remain STATED."
+    },
+    {
+      "id": "C8",
+      "lane": "MI",
+      "summary": "Screenshots establish visible information only. Retain no-map/no-parallel-world/no-save-proof limits. 1920x1080 media or arithmetic scaling cannot pass YAIRPG 1366x768 gate."
+    },
+    {
+      "id": "C9",
+      "lane": "All earlier lanes",
+      "summary": "Current 2026-10-15 OD2/OD4/OD5/OD6/OD7 accepted direction supersedes older unresolved/default wording: memories/base cheat between lives, chosen away routines with stops, paused inactive worlds, means-based returns/fresh versions, continuing self and causal world stories. These are accepted goals, not implemented semantics. Across-life and across-world retention remain different contracts."
+    },
+    {
+      "id": "C10",
+      "lane": "TS/HR/MD/R2 UI routing",
+      "summary": "Older lane UI suggestions cannot replace accepted Proto23 composition or occupy another panel. Follow UI_RULES: surface/home, shared components/controller, log intact, bottom Back/Esc. Unaccepted features stay in Projects until promoted."
+    }
+  ],
+  "packets": [
+    {
+      "id": "MWA-P01",
+      "rank": 1,
+      "title": "Current work explains its useful result",
+      "mapping": "P01/P04",
+      "kit": "K13/K14/K34",
+      "owner": "Production-chain task owner; docs/MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md; docs/UI_RULES.md",
+      "save_compatibility": "Projection over retained job/preview/receipt. Add no state; if a needed receipt is missing, stop and assign that native owner.",
+      "desktop_gate": "Routine at current place/work home. At 1366x768 populated save, current work, paid action, stop, result and cause visible with log intact.",
+      "done_check": "One ordinary paid mixing/work action changes actual stock, retained receipt matches, blocked control spends nothing, reload still shows true state.",
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "MWA-P02",
+      "rank": 2,
+      "title": "A local rule changes one useful verb",
+      "mapping": "P14/P04",
+      "kit": "K2/K5/K10/K13/K15",
+      "owner": "Selected world law/card owner; docs/RULES_FROM_SCRATCH.md; docs/worlds/ABILITY_AUTHORING.md",
+      "save_compatibility": "One opt-in rule over existing world/clock/body inputs. New saved cause/job requires version/default or explicit compatibility. No new universal rule store.",
+      "desktop_gate": "Place service or routine at actual in-world location; show known rule, available action and useful alternative together.",
+      "done_check": "Same carried method has two authored local outcomes; preview/manual/queue agree; departure removes only scoped support, no copied stock or erased learning.",
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "MWA-P03",
+      "rank": 3,
+      "title": "Earned learning and present usability are visible separately",
+      "mapping": "P03/P04/P17",
+      "kit": "K3/K9/K11/K14/K15",
+      "owner": "Ability/means owner; docs/worlds/ABILITY_AUTHORING.md; docs/MEANS_AND_APPRAISAL.md",
+      "save_compatibility": "Use existing capability and resource owners. No extra unlocked/owned mirror. Preserve old earned records; version genuinely new acquisition state.",
+      "desktop_gate": "Reference detail beside a real place action; earned/source/body/fuel/support reasons fit at 1366x768.",
+      "done_check": "Use an earned method for useful output, lose only local support, restore eligibility via supported means without duplicate XP or items.",
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "MWA-P04",
+      "rank": 4,
+      "title": "A paid conversation changes the next local opportunity",
+      "mapping": "P19/P07/P24",
+      "kit": "K6/K7/K11/K12/K20/K29",
+      "owner": "Current Ink/native-host and selected institution owners; docs/CHARACTERS_AND_WORLD_EVENTS.md",
+      "save_compatibility": "Keep cursor, pending effect and receipt coherent in existing envelope; explicit version/default for new dialogue state. No second engine.",
+      "desktop_gate": "Place service in existing center conversation home, shared Back/Esc; choice, cost and outcome visible.",
+      "done_check": "Known condition admits paid choice; refusal costs nothing; useful service changes; interrupt before/after commitment and save/reload/import without double debit/grant.",
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "MWA-P05",
+      "rank": 5,
+      "title": "Return finds the place actually changed",
+      "mapping": "P12/P10",
+      "kit": "K5/K6/K12/K16/K18/K29",
+      "owner": "Nested-world and selected world instance owners; docs/worlds/MULTIVERSE_STRUCTURES.md",
+      "save_compatibility": "Keep native instance ID, stock, people and receipt authoritative. New revision/default only where needed. Revisit never rerolls existing instance.",
+      "desktop_gate": "Place scene at existing center home; one known changed service/route and return reason, tall log retained.",
+      "done_check": "Change one useful place, depart and return to exact instance; stock spent, relationship and settled reward survive reload/import. Fresh-version control gets distinct ID.",
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "MWA-P06",
+      "rank": 6,
+      "title": "Known crossing terms quote each actual carrier",
+      "mapping": "P05/P04/P18",
+      "kit": "K4/K9/K11/K15/K18",
+      "owner": "Crossing/persistence owners; docs/worlds/MULTIVERSE_STRUCTURES.md; docs/research/START_AND_BRANCH_INTEGRATION_MAP_2026-10-14.md",
+      "save_compatibility": "Stage actor/body, resources, goods/custody, obligations and destination together through one publisher. Old routes unchanged; version new terms; failed write keeps departure. No prerequisite P23 profile migration.",
+      "desktop_gate": "Threshold screen with destination, known keep/suppress/convert/leave terms, cost and bottom Back/Esc at 1366x768.",
+      "done_check": "Preview\u2192commit\u2192useful arrival\u2192return. Stale quote and failed write spend nothing; endpoint save/reload/export/literal import preserve exact carriers and once-only settlement.",
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "MWA-P07",
+      "rank": 7,
+      "title": "An origin-filtered list preserves selection and useful comparison",
+      "mapping": "P04/P05/P16; NEW presentation leaf MI-P03",
+      "kit": "K6/K9/K11/K14/K15/K30",
+      "owner": "Inventory/companion and shared UI owners; docs/UI_RULES.md",
+      "save_compatibility": "Derived origin/custody/usability projection, no new traveler save store; persistent preferences only through existing layout compatibility.",
+      "desktop_gate": "Reference at Inventory/People home; filter/count, list/selected detail, current usability and pinned Back/Esc at 1366x768.",
+      "done_check": "Filter a populated list, inspect actual item/actor, execute one legal useful action, return to same selection/scroll; unknown entries absent from DOM/accessibility.",
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "MWA-P08",
+      "rank": 8,
+      "title": "A settled routine returns an exact bounded work summary",
+      "mapping": "P13/P01/P24",
+      "kit": "K8/K18/K26/K32/K33",
+      "owner": "Offline-time and native work owners; docs/research/OFFLINE_TIME_AND_BRANCH_CLOCK_AUDIT_2026-10-14.md",
+      "save_compatibility": "OD4 goal accepted, rates/caps/executor unselected. Explicit clock/version/default and active/inactive binding; old saves unchanged until a selected compatible policy.",
+      "desktop_gate": "Return summary in obligations/reference home; elapsed work, supplies, stop reason and next choice visible, no surprise auto-choice.",
+      "done_check": "One chosen routine consumes exact means and grants exact result until first choice/shortage, inactive instance pauses, repeated load/import cannot replay catch-up.",
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "MWA-P09",
+      "rank": 9,
+      "title": "One authored override has explicit fallback and revision checks",
+      "mapping": "P16/P22",
+      "kit": "K1/K17/K18/K33/K34",
+      "owner": "World-kit/structured-pack validation owner; docs/ENGINE_AUTHORING.md",
+      "save_compatibility": "Validate immutable definitions without replacing native state. Pin revision; incompatible/missing content has recoverable rejection. Two real callers before shared abstraction.",
+      "desktop_gate": "Authoring reference/Projects home only if a UI is selected; 1366x768 errors name one known fix and Back. Native selected consumer still has its own UI gate.",
+      "done_check": "Reject missing action, ambiguous override and stale revision before publication; one valid variant reaches useful native action and survives compatible reload/import.",
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "MWA-P10",
+      "rank": 10,
+      "title": "Neighboring rules interact at one real boundary",
+      "mapping": "P14/P15; NEW interaction leaf HR-N1",
+      "kit": "K2/K5/K9/K13/K15/K29",
+      "owner": "Selected local world and boundary-rule owner; docs/RULES_FROM_SCRATCH.md",
+      "save_compatibility": "Persist actual shared object/cause, not a second local copy. Declare scope/order and conservative transfer/refund terms; version changed meanings.",
+      "desktop_gate": "Place service or threshold at actual border; known interaction and safe useful alternative readable without page scroll.",
+      "done_check": "Move/use one conserved object at edge, see causally different useful result; reverse/leave/reload/import retains exact object and aftermath, no leak into unrelated place.",
+      "status": "PROPOSAL"
+    }
+  ]
+}

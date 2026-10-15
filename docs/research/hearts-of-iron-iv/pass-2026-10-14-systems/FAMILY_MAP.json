@@ -1,0 +1,5104 @@
+{
+  "schema_version": 1,
+  "game": "hearts-of-iron-iv",
+  "lane": "ds-hearts-of-iron-iv",
+  "date": "2026-10-14",
+  "status": "PARTIAL",
+  "inventory_source": "../aspects-2026-10-14/SYSTEM_INVENTORY.md",
+  "scope": "Every common rule-family and nested row plus other build surfaces and prior checkpoint obligations. Nested counts overlap. Families are research buckets, not inferred C++ classes.",
+  "mapping_policy": "K codes and P01-P25 are design proposal routes. Related owner does not establish implementation or acceptance. Dedicated gap means no exact owner located in the read design surfaces, not proof none exists anywhere.",
+  "systems": [
+    {
+      "id": "I001",
+      "system": "abilities",
+      "source": "common/abilities",
+      "family": "combat",
+      "size_signal": "6 direct / 6 recursive files; 15,713 bytes",
+      "prior_coverage": "Prior representative dossier",
+      "status": "prior_representative",
+      "section": "prior representative read",
+      "world_core_kit": [
+        "K10"
+      ],
+      "synthesis_packets": [
+        "P14"
+      ],
+      "topic_palettes": [
+        "docs/worlds/WORLD_CORE_KIT_2026-10-14.md"
+      ],
+      "owner_paths": [
+        "docs/worlds/WORLD_CORE_KIT_2026-10-14.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "full alternatives and native contracts unread"
+      ]
+    },
+    {
+      "id": "I002",
+      "system": "acclimatation",
+      "source": "common/acclimatation.txt",
+      "family": "body",
+      "size_signal": "1 file; 3,052 bytes",
+      "prior_coverage": "UNDOCUMENTED semantics; inventory only",
+      "status": "representative_deep_read",
+      "section": "S10",
+      "world_core_kit": [
+        "K2",
+        "K5",
+        "K6",
+        "K10",
+        "K22",
+        "K28"
+      ],
+      "synthesis_packets": [
+        "P09",
+        "P14",
+        "P17"
+      ],
+      "topic_palettes": [
+        "docs/HUNGER_AND_BODILY_NEEDS_CONSIDERATIONS_2026-10-13.md",
+        "docs/SKILLS_AND_TALENTS.md",
+        "docs/worlds/WORLD_CORE_KIT_2026-10-14.md"
+      ],
+      "owner_paths": [
+        "docs/HUNGER_AND_BODILY_NEEDS_CONSIDERATIONS_2026-10-13.md",
+        "docs/SKILLS_AND_TALENTS.md",
+        "docs/worlds/WORLD_CORE_KIT_2026-10-14.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "native evaluation and serialized instance fields unverified",
+        "unread country-specific alternatives"
+      ]
+    },
+    {
+      "id": "I003",
+      "system": "aces",
+      "source": "common/aces",
+      "family": "combat",
+      "size_signal": "1 direct / 1 recursive files; 2,015 bytes",
+      "prior_coverage": "UNDOCUMENTED semantics; inventory only",
+      "status": "small_definition_read",
+      "section": "SYSTEMS cheap closures",
+      "world_core_kit": [
+        "K10"
+      ],
+      "synthesis_packets": [
+        "P14"
+      ],
+      "topic_palettes": [
+        "docs/worlds/WORLD_CORE_KIT_2026-10-14.md"
+      ],
+      "owner_paths": [
+        "docs/worlds/WORLD_CORE_KIT_2026-10-14.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "native behavior/save internals not established"
+      ]
+    },
+    {
+      "id": "I004",
+      "system": "achievements",
+      "source": "common/achievements.txt",
+      "family": "authoring",
+      "size_signal": "1 file; 154,385 bytes",
+      "prior_coverage": "Prior representative dossier",
+      "status": "prior_representative",
+      "section": "prior representative read",
+      "world_core_kit": [
+        "K18"
+      ],
+      "synthesis_packets": [
+        "P16"
+      ],
+      "topic_palettes": [
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_paths": [
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "full alternatives and native contracts unread"
+      ]
+    },
+    {
+      "id": "I005",
+      "system": "ai areas",
+      "source": "common/ai_areas",
+      "family": "AI",
+      "size_signal": "1 direct / 1 recursive files; 6,723 bytes",
+      "prior_coverage": "UNDOCUMENTED semantics; inventory only",
+      "status": "unread",
+      "section": "inventory only",
+      "world_core_kit": [
+        "K6"
+      ],
+      "synthesis_packets": [
+        "P25"
+      ],
+      "topic_palettes": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md"
+      ],
+      "owner_paths": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "semantics not deep-read in this pass"
+      ]
+    },
+    {
+      "id": "I006",
+      "system": "ai attitudes",
+      "source": "common/ai_attitudes.txt",
+      "family": "AI",
+      "size_signal": "1 file; 943 bytes",
+      "prior_coverage": "UNDOCUMENTED semantics; inventory only",
+      "status": "empty_definition",
+      "section": "SYSTEMS cheap closures",
+      "world_core_kit": [
+        "K6"
+      ],
+      "synthesis_packets": [
+        "P25"
+      ],
+      "topic_palettes": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md"
+      ],
+      "owner_paths": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "native behavior/save internals not established"
+      ]
+    },
+    {
+      "id": "I007",
+      "system": "ai equipment",
+      "source": "common/ai_equipment",
+      "family": "AI",
+      "size_signal": "23 direct / 23 recursive files; 831,280 bytes",
+      "prior_coverage": "UNDOCUMENTED semantics; inventory only",
+      "status": "representative_deep_read",
+      "section": "S14",
+      "world_core_kit": [
+        "K6",
+        "K9",
+        "K10"
+      ],
+      "synthesis_packets": [
+        "P08",
+        "P15",
+        "P25"
+      ],
+      "topic_palettes": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/ENGINE_EXPANSION.md"
+      ],
+      "owner_paths": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/ENGINE_EXPANSION.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "native evaluation and serialized instance fields unverified",
+        "unread country-specific alternatives"
+      ]
+    },
+    {
+      "id": "I008",
+      "system": "ai faction theaters",
+      "source": "common/ai_faction_theaters",
+      "family": "AI",
+      "size_signal": "2 direct / 2 recursive files; 23,733 bytes",
+      "prior_coverage": "UNDOCUMENTED semantics; inventory only",
+      "status": "unread",
+      "section": "inventory only",
+      "world_core_kit": [
+        "K6"
+      ],
+      "synthesis_packets": [
+        "P25"
+      ],
+      "topic_palettes": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md"
+      ],
+      "owner_paths": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "semantics not deep-read in this pass"
+      ]
+    },
+    {
+      "id": "I009",
+      "system": "ai focuses",
+      "source": "common/ai_focuses",
+      "family": "AI",
+      "size_signal": "8 direct / 8 recursive files; 14,052 bytes",
+      "prior_coverage": "UNDOCUMENTED semantics; inventory only",
+      "status": "unread",
+      "section": "inventory only",
+      "world_core_kit": [
+        "K6"
+      ],
+      "synthesis_packets": [
+        "P25"
+      ],
+      "topic_palettes": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md"
+      ],
+      "owner_paths": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "semantics not deep-read in this pass"
+      ]
+    },
+    {
+      "id": "I010",
+      "system": "ai navy",
+      "source": "common/ai_navy",
+      "family": "AI",
+      "size_signal": "1 direct / 26 recursive files; 42,468 bytes",
+      "prior_coverage": "Prior representative dossier",
+      "status": "prior_representative",
+      "section": "prior representative read",
+      "world_core_kit": [
+        "K6"
+      ],
+      "synthesis_packets": [
+        "P25"
+      ],
+      "topic_palettes": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md"
+      ],
+      "owner_paths": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "full alternatives and native contracts unread"
+      ]
+    },
+    {
+      "id": "I011",
+      "system": "ai navy/fleet",
+      "source": "common/ai_navy/fleet",
+      "family": "AI",
+      "size_signal": "8 direct / 8 recursive files; 4,840 bytes",
+      "prior_coverage": "Prior representative dossier",
+      "status": "prior_representative",
+      "section": "prior representative read",
+      "world_core_kit": [
+        "K6"
+      ],
+      "synthesis_packets": [
+        "P25"
+      ],
+      "topic_palettes": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md"
+      ],
+      "owner_paths": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "full alternatives and native contracts unread"
+      ]
+    },
+    {
+      "id": "I012",
+      "system": "ai navy/goals",
+      "source": "common/ai_navy/goals",
+      "family": "AI",
+      "size_signal": "8 direct / 8 recursive files; 11,214 bytes",
+      "prior_coverage": "Prior representative dossier",
+      "status": "prior_representative",
+      "section": "prior representative read",
+      "world_core_kit": [
+        "K6"
+      ],
+      "synthesis_packets": [
+        "P25"
+      ],
+      "topic_palettes": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md"
+      ],
+      "owner_paths": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "full alternatives and native contracts unread"
+      ]
+    },
+    {
+      "id": "I013",
+      "system": "ai navy/taskforce",
+      "source": "common/ai_navy/taskforce",
+      "family": "AI",
+      "size_signal": "9 direct / 9 recursive files; 22,609 bytes",
+      "prior_coverage": "Prior representative dossier",
+      "status": "prior_representative",
+      "section": "prior representative read",
+      "world_core_kit": [
+        "K6"
+      ],
+      "synthesis_packets": [
+        "P25"
+      ],
+      "topic_palettes": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md"
+      ],
+      "owner_paths": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "full alternatives and native contracts unread"
+      ]
+    },
+    {
+      "id": "I014",
+      "system": "ai personalities",
+      "source": "common/ai_personalities.txt",
+      "family": "AI",
+      "size_signal": "1 file; 19 bytes",
+      "prior_coverage": "UNDOCUMENTED semantics; inventory only",
+      "status": "empty_definition",
+      "section": "SYSTEMS cheap closures",
+      "world_core_kit": [
+        "K6"
+      ],
+      "synthesis_packets": [
+        "P25"
+      ],
+      "topic_palettes": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md"
+      ],
+      "owner_paths": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "native behavior/save internals not established"
+      ]
+    },
+    {
+      "id": "I015",
+      "system": "ai strategy",
+      "source": "common/ai_strategy",
+      "family": "AI",
+      "size_signal": "50 direct / 50 recursive files; 560,230 bytes",
+      "prior_coverage": "Prior representative dossier",
+      "status": "prior_representative",
+      "section": "prior representative read",
+      "world_core_kit": [
+        "K6"
+      ],
+      "synthesis_packets": [
+        "P25"
+      ],
+      "topic_palettes": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md"
+      ],
+      "owner_paths": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "full alternatives and native contracts unread"
+      ]
+    },
+    {
+      "id": "I016",
+      "system": "ai strategy plans",
+      "source": "common/ai_strategy_plans",
+      "family": "AI",
+      "size_signal": "128 direct / 128 recursive files; 817,776 bytes",
+      "prior_coverage": "Prior representative dossier",
+      "status": "prior_representative",
+      "section": "prior representative read",
+      "world_core_kit": [
+        "K6"
+      ],
+      "synthesis_packets": [
+        "P25"
+      ],
+      "topic_palettes": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md"
+      ],
+      "owner_paths": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "full alternatives and native contracts unread"
+      ]
+    },
+    {
+      "id": "I017",
+      "system": "ai templates",
+      "source": "common/ai_templates",
+      "family": "AI",
+      "size_signal": "16 direct / 16 recursive files; 105,568 bytes",
+      "prior_coverage": "Prior representative dossier",
+      "status": "prior_representative",
+      "section": "prior representative read",
+      "world_core_kit": [
+        "K6"
+      ],
+      "synthesis_packets": [
+        "P25"
+      ],
+      "topic_palettes": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md"
+      ],
+      "owner_paths": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "full alternatives and native contracts unread"
+      ]
+    },
+    {
+      "id": "I018",
+      "system": "alerts",
+      "source": "common/alerts.txt",
+      "family": "UI",
+      "size_signal": "1 file; 2,972 bytes",
+      "prior_coverage": "UNDOCUMENTED semantics; inventory only",
+      "status": "metadata_read",
+      "section": "SYSTEMS cheap closures",
+      "world_core_kit": [
+        "K14"
+      ],
+      "synthesis_packets": [
+        "P01"
+      ],
+      "topic_palettes": [
+        "docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md"
+      ],
+      "owner_paths": [
+        "docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "native behavior/save internals not established"
+      ]
+    },
+    {
+      "id": "I019",
+      "system": "autonomous states",
+      "source": "common/autonomous_states",
+      "family": "social",
+      "size_signal": "21 direct / 21 recursive files; 32,040 bytes",
+      "prior_coverage": "UNDOCUMENTED semantics; inventory only",
+      "status": "representative_deep_read",
+      "section": "S03",
+      "world_core_kit": [
+        "K7",
+        "K16"
+      ],
+      "synthesis_packets": [
+        "P07",
+        "P14",
+        "P18"
+      ],
+      "topic_palettes": [
+        "docs/worlds/NONHUMAN_SOCIETY_LAW_AND_ECONOMY_2026-10-14.md",
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md"
+      ],
+      "owner_paths": [
+        "docs/worlds/NONHUMAN_SOCIETY_LAW_AND_ECONOMY_2026-10-14.md",
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md"
+      ],
+      "owner_coverage": "thematic_only",
+      "dedicated_owner_gap": true,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "native evaluation and serialized instance fields unverified",
+        "unread country-specific alternatives"
+      ]
+    },
+    {
+      "id": "I020",
+      "system": "bookmarks",
+      "source": "common/bookmarks",
+      "family": "authoring",
+      "size_signal": "2 direct / 2 recursive files; 59,531 bytes",
+      "prior_coverage": "UNDOCUMENTED semantics; inventory only",
+      "status": "representative_read",
+      "section": "SYSTEMS cheap closures",
+      "world_core_kit": [
+        "K18"
+      ],
+      "synthesis_packets": [
+        "P16"
+      ],
+      "topic_palettes": [
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_paths": [
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "native behavior/save internals not established"
+      ]
+    },
+    {
+      "id": "I021",
+      "system": "bop",
+      "source": "common/bop",
+      "family": "social",
+      "size_signal": "10 direct / 10 recursive files; 86,279 bytes",
+      "prior_coverage": "Prior representative dossier",
+      "status": "prior_representative",
+      "section": "prior representative read",
+      "world_core_kit": [
+        "K6",
+        "K7"
+      ],
+      "synthesis_packets": [
+        "P07",
+        "P15"
+      ],
+      "topic_palettes": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md"
+      ],
+      "owner_paths": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "full alternatives and native contracts unread"
+      ]
+    },
+    {
+      "id": "I022",
+      "system": "buildings",
+      "source": "common/buildings",
+      "family": "economy",
+      "size_signal": "2 direct / 2 recursive files; 34,274 bytes",
+      "prior_coverage": "Prior representative dossier",
+      "status": "prior_representative",
+      "section": "prior representative read",
+      "world_core_kit": [
+        "K8",
+        "K9"
+      ],
+      "synthesis_packets": [
+        "P02",
+        "P18"
+      ],
+      "topic_palettes": [
+        "docs/MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md"
+      ],
+      "owner_paths": [
+        "docs/MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "full alternatives and native contracts unread"
+      ]
+    },
+    {
+      "id": "I023",
+      "system": "characters",
+      "source": "common/characters",
+      "family": "social",
+      "size_signal": "233 direct / 233 recursive files; 2,917,746 bytes",
+      "prior_coverage": "Prior representative dossier",
+      "status": "prior_representative",
+      "section": "prior representative read",
+      "world_core_kit": [
+        "K6",
+        "K7"
+      ],
+      "synthesis_packets": [
+        "P07",
+        "P15"
+      ],
+      "topic_palettes": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md"
+      ],
+      "owner_paths": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "full alternatives and native contracts unread"
+      ]
+    },
+    {
+      "id": "I024",
+      "system": "collections",
+      "source": "common/collections",
+      "family": "social",
+      "size_signal": "3 direct / 3 recursive files; 20,766 bytes",
+      "prior_coverage": "UNDOCUMENTED semantics; inventory only",
+      "status": "representative_deep_read",
+      "section": "S02",
+      "world_core_kit": [
+        "K7",
+        "K12"
+      ],
+      "synthesis_packets": [
+        "P07",
+        "P10",
+        "P12",
+        "P16"
+      ],
+      "topic_palettes": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/worlds/NONHUMAN_SOCIETY_LAW_AND_ECONOMY_2026-10-14.md"
+      ],
+      "owner_paths": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/worlds/NONHUMAN_SOCIETY_LAW_AND_ECONOMY_2026-10-14.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "native evaluation and serialized instance fields unverified",
+        "unread country-specific alternatives"
+      ]
+    },
+    {
+      "id": "I025",
+      "system": "combat tactics",
+      "source": "common/combat_tactics.txt",
+      "family": "combat",
+      "size_signal": "1 file; 18,634 bytes",
+      "prior_coverage": "Prior representative dossier",
+      "status": "prior_representative",
+      "section": "prior representative read",
+      "world_core_kit": [
+        "K10"
+      ],
+      "synthesis_packets": [
+        "P14"
+      ],
+      "topic_palettes": [
+        "docs/worlds/WORLD_CORE_KIT_2026-10-14.md"
+      ],
+      "owner_paths": [
+        "docs/worlds/WORLD_CORE_KIT_2026-10-14.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "full alternatives and native contracts unread"
+      ]
+    },
+    {
+      "id": "I026",
+      "system": "continuous focus",
+      "source": "common/continuous_focus",
+      "family": "time",
+      "size_signal": "1 direct / 1 recursive files; 9,036 bytes",
+      "prior_coverage": "UNDOCUMENTED semantics; inventory only",
+      "status": "representative_deep_read",
+      "section": "S15",
+      "world_core_kit": [
+        "K7",
+        "K8",
+        "K13",
+        "K26"
+      ],
+      "synthesis_packets": [
+        "P06",
+        "P08",
+        "P13"
+      ],
+      "topic_palettes": [
+        "docs/ENGINE_EXPANSION.md",
+        "docs/LIFE_SIM_NORTH_STAR.md"
+      ],
+      "owner_paths": [
+        "docs/ENGINE_EXPANSION.md",
+        "docs/LIFE_SIM_NORTH_STAR.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "native evaluation and serialized instance fields unverified",
+        "unread country-specific alternatives"
+      ]
+    },
+    {
+      "id": "I027",
+      "system": "countries",
+      "source": "common/countries",
+      "family": "social",
+      "size_signal": "442 direct / 442 recursive files; 96,056 bytes",
+      "prior_coverage": "UNDOCUMENTED semantics; inventory only",
+      "status": "unread",
+      "section": "inventory only",
+      "world_core_kit": [
+        "K6",
+        "K7"
+      ],
+      "synthesis_packets": [
+        "P07",
+        "P15"
+      ],
+      "topic_palettes": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md"
+      ],
+      "owner_paths": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "semantics not deep-read in this pass"
+      ]
+    },
+    {
+      "id": "I028",
+      "system": "country leader",
+      "source": "common/country_leader",
+      "family": "companions",
+      "size_signal": "4 direct / 4 recursive files; 417,561 bytes",
+      "prior_coverage": "UNDOCUMENTED semantics; inventory only",
+      "status": "representative_deep_read",
+      "section": "S09",
+      "world_core_kit": [
+        "K6",
+        "K7",
+        "K10"
+      ],
+      "synthesis_packets": [
+        "P06",
+        "P09",
+        "P15"
+      ],
+      "topic_palettes": [
+        "docs/SKILLS_AND_TALENTS.md",
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md"
+      ],
+      "owner_paths": [
+        "docs/SKILLS_AND_TALENTS.md",
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "native evaluation and serialized instance fields unverified",
+        "unread country-specific alternatives"
+      ]
+    },
+    {
+      "id": "I029",
+      "system": "country tag aliases",
+      "source": "common/country_tag_aliases",
+      "family": "authoring",
+      "size_signal": "1 direct / 1 recursive files; 4,576 bytes",
+      "prior_coverage": "UNDOCUMENTED semantics; inventory only",
+      "status": "author_contract_read",
+      "section": "SYSTEMS cheap closures",
+      "world_core_kit": [
+        "K18"
+      ],
+      "synthesis_packets": [
+        "P16"
+      ],
+      "topic_palettes": [
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_paths": [
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "native behavior/save internals not established"
+      ]
+    },
+    {
+      "id": "I030",
+      "system": "country tags",
+      "source": "common/country_tags",
+      "family": "social",
+      "size_signal": "2 direct / 2 recursive files; 14,501 bytes",
+      "prior_coverage": "UNDOCUMENTED semantics; inventory only",
+      "status": "unread",
+      "section": "inventory only",
+      "world_core_kit": [
+        "K6",
+        "K7"
+      ],
+      "synthesis_packets": [
+        "P07",
+        "P15"
+      ],
+      "topic_palettes": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md"
+      ],
+      "owner_paths": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "semantics not deep-read in this pass"
+      ]
+    },
+    {
+      "id": "I031",
+      "system": "decisions",
+      "source": "common/decisions",
+      "family": "events",
+      "size_signal": "89 direct / 146 recursive files; 6,808,627 bytes",
+      "prior_coverage": "Prior representative dossier",
+      "status": "prior_representative",
+      "section": "prior representative read",
+      "world_core_kit": [
+        "K12"
+      ],
+      "synthesis_packets": [
+        "P10",
+        "P12",
+        "P19"
+      ],
+      "topic_palettes": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md"
+      ],
+      "owner_paths": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "full alternatives and native contracts unread"
+      ]
+    },
+    {
+      "id": "I032",
+      "system": "decisions/categories",
+      "source": "common/decisions/categories",
+      "family": "events",
+      "size_signal": "57 direct / 57 recursive files; 195,105 bytes",
+      "prior_coverage": "Prior representative dossier",
+      "status": "prior_representative",
+      "section": "prior representative read",
+      "world_core_kit": [
+        "K12"
+      ],
+      "synthesis_packets": [
+        "P10",
+        "P12",
+        "P19"
+      ],
+      "topic_palettes": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md"
+      ],
+      "owner_paths": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "full alternatives and native contracts unread"
+      ]
+    },
+    {
+      "id": "I033",
+      "system": "defines",
+      "source": "common/defines",
+      "family": "authoring",
+      "size_signal": "3 direct / 3 recursive files; 498,278 bytes",
+      "prior_coverage": "Prior representative dossier",
+      "status": "prior_representative",
+      "section": "prior representative read",
+      "world_core_kit": [
+        "K18"
+      ],
+      "synthesis_packets": [
+        "P16"
+      ],
+      "topic_palettes": [
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_paths": [
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "full alternatives and native contracts unread"
+      ]
+    },
+    {
+      "id": "I034",
+      "system": "difficulty settings",
+      "source": "common/difficulty_settings",
+      "family": "authoring",
+      "size_signal": "1 direct / 1 recursive files; 1,134 bytes",
+      "prior_coverage": "UNDOCUMENTED semantics; inventory only",
+      "status": "representative_read",
+      "section": "SYSTEMS cheap closures",
+      "world_core_kit": [
+        "K18"
+      ],
+      "synthesis_packets": [
+        "P16"
+      ],
+      "topic_palettes": [
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_paths": [
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "native behavior/save internals not established"
+      ]
+    },
+    {
+      "id": "I035",
+      "system": "doctrines",
+      "source": "common/doctrines",
+      "family": "knowledge",
+      "size_signal": "1 direct / 27 recursive files; 210,019 bytes",
+      "prior_coverage": "Prior representative dossier",
+      "status": "prior_representative",
+      "section": "prior representative read",
+      "world_core_kit": [
+        "K3",
+        "K11"
+      ],
+      "synthesis_packets": [
+        "P03",
+        "P04"
+      ],
+      "topic_palettes": [
+        "docs/TECHNOLOGY_AND_PROGRESSION.md"
+      ],
+      "owner_paths": [
+        "docs/TECHNOLOGY_AND_PROGRESSION.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "full alternatives and native contracts unread"
+      ]
+    },
+    {
+      "id": "I036",
+      "system": "doctrines/folders",
+      "source": "common/doctrines/folders",
+      "family": "knowledge",
+      "size_signal": "2 direct / 2 recursive files; 1,993 bytes",
+      "prior_coverage": "Prior representative dossier",
+      "status": "prior_representative",
+      "section": "prior representative read",
+      "world_core_kit": [
+        "K3",
+        "K11"
+      ],
+      "synthesis_packets": [
+        "P03",
+        "P04"
+      ],
+      "topic_palettes": [
+        "docs/TECHNOLOGY_AND_PROGRESSION.md"
+      ],
+      "owner_paths": [
+        "docs/TECHNOLOGY_AND_PROGRESSION.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "full alternatives and native contracts unread"
+      ]
+    },
+    {
+      "id": "I037",
+      "system": "doctrines/grand doctrines",
+      "source": "common/doctrines/grand_doctrines",
+      "family": "knowledge",
+      "size_signal": "5 direct / 5 recursive files; 36,977 bytes",
+      "prior_coverage": "Prior representative dossier",
+      "status": "prior_representative",
+      "section": "prior representative read",
+      "world_core_kit": [
+        "K3",
+        "K11"
+      ],
+      "synthesis_packets": [
+        "P03",
+        "P04"
+      ],
+      "topic_palettes": [
+        "docs/TECHNOLOGY_AND_PROGRESSION.md"
+      ],
+      "owner_paths": [
+        "docs/TECHNOLOGY_AND_PROGRESSION.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "full alternatives and native contracts unread"
+      ]
+    },
+    {
+      "id": "I038",
+      "system": "doctrines/subdoctrines",
+      "source": "common/doctrines/subdoctrines",
+      "family": "knowledge",
+      "size_signal": "1 direct / 14 recursive files; 161,787 bytes",
+      "prior_coverage": "Prior representative dossier",
+      "status": "prior_representative",
+      "section": "prior representative read",
+      "world_core_kit": [
+        "K3",
+        "K11"
+      ],
+      "synthesis_packets": [
+        "P03",
+        "P04"
+      ],
+      "topic_palettes": [
+        "docs/TECHNOLOGY_AND_PROGRESSION.md"
+      ],
+      "owner_paths": [
+        "docs/TECHNOLOGY_AND_PROGRESSION.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "full alternatives and native contracts unread"
+      ]
+    },
+    {
+      "id": "I039",
+      "system": "doctrines/subdoctrines/air",
+      "source": "common/doctrines/subdoctrines/air",
+      "family": "knowledge",
+      "size_signal": "4 direct / 4 recursive files; 26,036 bytes",
+      "prior_coverage": "Prior representative dossier",
+      "status": "prior_representative",
+      "section": "prior representative read",
+      "world_core_kit": [
+        "K3",
+        "K11"
+      ],
+      "synthesis_packets": [
+        "P03",
+        "P04"
+      ],
+      "topic_palettes": [
+        "docs/TECHNOLOGY_AND_PROGRESSION.md"
+      ],
+      "owner_paths": [
+        "docs/TECHNOLOGY_AND_PROGRESSION.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "full alternatives and native contracts unread"
+      ]
+    },
+    {
+      "id": "I040",
+      "system": "doctrines/subdoctrines/land",
+      "source": "common/doctrines/subdoctrines/land",
+      "family": "knowledge",
+      "size_signal": "4 direct / 4 recursive files; 82,681 bytes",
+      "prior_coverage": "Prior representative dossier",
+      "status": "prior_representative",
+      "section": "prior representative read",
+      "world_core_kit": [
+        "K3",
+        "K11"
+      ],
+      "synthesis_packets": [
+        "P03",
+        "P04"
+      ],
+      "topic_palettes": [
+        "docs/TECHNOLOGY_AND_PROGRESSION.md"
+      ],
+      "owner_paths": [
+        "docs/TECHNOLOGY_AND_PROGRESSION.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "full alternatives and native contracts unread"
+      ]
+    },
+    {
+      "id": "I041",
+      "system": "doctrines/subdoctrines/sea",
+      "source": "common/doctrines/subdoctrines/sea",
+      "family": "knowledge",
+      "size_signal": "4 direct / 4 recursive files; 34,776 bytes",
+      "prior_coverage": "Prior representative dossier",
+      "status": "prior_representative",
+      "section": "prior representative read",
+      "world_core_kit": [
+        "K3",
+        "K11"
+      ],
+      "synthesis_packets": [
+        "P03",
+        "P04"
+      ],
+      "topic_palettes": [
+        "docs/TECHNOLOGY_AND_PROGRESSION.md"
+      ],
+      "owner_paths": [
+        "docs/TECHNOLOGY_AND_PROGRESSION.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "full alternatives and native contracts unread"
+      ]
+    },
+    {
+      "id": "I042",
+      "system": "doctrines/subdoctrines/special forces",
+      "source": "common/doctrines/subdoctrines/special_forces",
+      "family": "knowledge",
+      "size_signal": "1 direct / 1 recursive files; 15,435 bytes",
+      "prior_coverage": "Prior representative dossier",
+      "status": "prior_representative",
+      "section": "prior representative read",
+      "world_core_kit": [
+        "K3",
+        "K11"
+      ],
+      "synthesis_packets": [
+        "P03",
+        "P04"
+      ],
+      "topic_palettes": [
+        "docs/TECHNOLOGY_AND_PROGRESSION.md"
+      ],
+      "owner_paths": [
+        "docs/TECHNOLOGY_AND_PROGRESSION.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "full alternatives and native contracts unread"
+      ]
+    },
+    {
+      "id": "I043",
+      "system": "doctrines/tracks",
+      "source": "common/doctrines/tracks",
+      "family": "knowledge",
+      "size_signal": "5 direct / 5 recursive files; 7,363 bytes",
+      "prior_coverage": "Prior representative dossier",
+      "status": "prior_representative",
+      "section": "prior representative read",
+      "world_core_kit": [
+        "K3",
+        "K11"
+      ],
+      "synthesis_packets": [
+        "P03",
+        "P04"
+      ],
+      "topic_palettes": [
+        "docs/TECHNOLOGY_AND_PROGRESSION.md"
+      ],
+      "owner_paths": [
+        "docs/TECHNOLOGY_AND_PROGRESSION.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "full alternatives and native contracts unread"
+      ]
+    },
+    {
+      "id": "I044",
+      "system": "dynamic modifiers",
+      "source": "common/dynamic_modifiers",
+      "family": "authoring",
+      "size_signal": "11 direct / 11 recursive files; 488,438 bytes",
+      "prior_coverage": "Prior representative dossier",
+      "status": "prior_representative",
+      "section": "prior representative read",
+      "world_core_kit": [
+        "K18"
+      ],
+      "synthesis_packets": [
+        "P16"
+      ],
+      "topic_palettes": [
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_paths": [
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "full alternatives and native contracts unread"
+      ]
+    },
+    {
+      "id": "I045",
+      "system": "equipment groups",
+      "source": "common/equipment_groups",
+      "family": "economy",
+      "size_signal": "2 direct / 2 recursive files; 10,109 bytes",
+      "prior_coverage": "UNDOCUMENTED semantics; inventory only",
+      "status": "representative_deep_read",
+      "section": "S01",
+      "world_core_kit": [
+        "K7",
+        "K9",
+        "K11"
+      ],
+      "synthesis_packets": [
+        "P02",
+        "P04",
+        "P06",
+        "P09",
+        "P16"
+      ],
+      "topic_palettes": [
+        "docs/MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md",
+        "docs/TECHNOLOGY_AND_PROGRESSION.md"
+      ],
+      "owner_paths": [
+        "docs/MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md",
+        "docs/TECHNOLOGY_AND_PROGRESSION.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "native evaluation and serialized instance fields unverified",
+        "unread country-specific alternatives"
+      ]
+    },
+    {
+      "id": "I046",
+      "system": "event modifiers",
+      "source": "common/event_modifiers.txt",
+      "family": "authoring",
+      "size_signal": "1 file; 0 bytes",
+      "prior_coverage": "UNDOCUMENTED semantics; inventory only",
+      "status": "empty_placeholder",
+      "section": "SYSTEMS cheap closures",
+      "world_core_kit": [
+        "K18"
+      ],
+      "synthesis_packets": [
+        "P16"
+      ],
+      "topic_palettes": [
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_paths": [
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "native behavior/save internals not established"
+      ]
+    },
+    {
+      "id": "I047",
+      "system": "factions",
+      "source": "common/factions",
+      "family": "social",
+      "size_signal": "1 direct / 30 recursive files; 422,935 bytes",
+      "prior_coverage": "Prior representative dossier",
+      "status": "representative_deep_read",
+      "section": "S02",
+      "world_core_kit": [
+        "K7",
+        "K12"
+      ],
+      "synthesis_packets": [
+        "P07",
+        "P10",
+        "P12",
+        "P16"
+      ],
+      "topic_palettes": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/worlds/NONHUMAN_SOCIETY_LAW_AND_ECONOMY_2026-10-14.md"
+      ],
+      "owner_paths": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/worlds/NONHUMAN_SOCIETY_LAW_AND_ECONOMY_2026-10-14.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "native evaluation and serialized instance fields unverified",
+        "unread country-specific alternatives"
+      ]
+    },
+    {
+      "id": "I048",
+      "system": "factions/goals",
+      "source": "common/factions/goals",
+      "family": "social",
+      "size_signal": "4 direct / 4 recursive files; 334,775 bytes",
+      "prior_coverage": "Prior representative dossier",
+      "status": "representative_deep_read",
+      "section": "S02",
+      "world_core_kit": [
+        "K7",
+        "K12"
+      ],
+      "synthesis_packets": [
+        "P07",
+        "P10",
+        "P12",
+        "P16"
+      ],
+      "topic_palettes": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/worlds/NONHUMAN_SOCIETY_LAW_AND_ECONOMY_2026-10-14.md"
+      ],
+      "owner_paths": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/worlds/NONHUMAN_SOCIETY_LAW_AND_ECONOMY_2026-10-14.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "native evaluation and serialized instance fields unverified",
+        "unread country-specific alternatives"
+      ]
+    },
+    {
+      "id": "I049",
+      "system": "factions/icons",
+      "source": "common/factions/icons",
+      "family": "social",
+      "size_signal": "1 direct / 1 recursive files; 703 bytes",
+      "prior_coverage": "Prior representative dossier",
+      "status": "representative_deep_read",
+      "section": "S02",
+      "world_core_kit": [
+        "K7",
+        "K12"
+      ],
+      "synthesis_packets": [
+        "P07",
+        "P10",
+        "P12",
+        "P16"
+      ],
+      "topic_palettes": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/worlds/NONHUMAN_SOCIETY_LAW_AND_ECONOMY_2026-10-14.md"
+      ],
+      "owner_paths": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/worlds/NONHUMAN_SOCIETY_LAW_AND_ECONOMY_2026-10-14.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "native evaluation and serialized instance fields unverified",
+        "unread country-specific alternatives"
+      ]
+    },
+    {
+      "id": "I050",
+      "system": "factions/member upgrades",
+      "source": "common/factions/member_upgrades",
+      "family": "social",
+      "size_signal": "1 direct / 2 recursive files; 651 bytes",
+      "prior_coverage": "Prior representative dossier",
+      "status": "representative_deep_read",
+      "section": "S02",
+      "world_core_kit": [
+        "K7",
+        "K12"
+      ],
+      "synthesis_packets": [
+        "P07",
+        "P10",
+        "P12",
+        "P16"
+      ],
+      "topic_palettes": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/worlds/NONHUMAN_SOCIETY_LAW_AND_ECONOMY_2026-10-14.md"
+      ],
+      "owner_paths": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/worlds/NONHUMAN_SOCIETY_LAW_AND_ECONOMY_2026-10-14.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "native evaluation and serialized instance fields unverified",
+        "unread country-specific alternatives"
+      ]
+    },
+    {
+      "id": "I051",
+      "system": "factions/member upgrades/member groups",
+      "source": "common/factions/member_upgrades/member_groups",
+      "family": "social",
+      "size_signal": "1 direct / 1 recursive files; 413 bytes",
+      "prior_coverage": "Prior representative dossier",
+      "status": "representative_deep_read",
+      "section": "S02",
+      "world_core_kit": [
+        "K7",
+        "K12"
+      ],
+      "synthesis_packets": [
+        "P07",
+        "P10",
+        "P12",
+        "P16"
+      ],
+      "topic_palettes": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/worlds/NONHUMAN_SOCIETY_LAW_AND_ECONOMY_2026-10-14.md"
+      ],
+      "owner_paths": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/worlds/NONHUMAN_SOCIETY_LAW_AND_ECONOMY_2026-10-14.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "native evaluation and serialized instance fields unverified",
+        "unread country-specific alternatives"
+      ]
+    },
+    {
+      "id": "I052",
+      "system": "factions/rules",
+      "source": "common/factions/rules",
+      "family": "social",
+      "size_signal": "9 direct / 10 recursive files; 34,051 bytes",
+      "prior_coverage": "Prior representative dossier",
+      "status": "representative_deep_read",
+      "section": "S02",
+      "world_core_kit": [
+        "K7",
+        "K12"
+      ],
+      "synthesis_packets": [
+        "P07",
+        "P10",
+        "P12",
+        "P16"
+      ],
+      "topic_palettes": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/worlds/NONHUMAN_SOCIETY_LAW_AND_ECONOMY_2026-10-14.md"
+      ],
+      "owner_paths": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/worlds/NONHUMAN_SOCIETY_LAW_AND_ECONOMY_2026-10-14.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "native evaluation and serialized instance fields unverified",
+        "unread country-specific alternatives"
+      ]
+    },
+    {
+      "id": "I053",
+      "system": "factions/rules/groups",
+      "source": "common/factions/rules/groups",
+      "family": "social",
+      "size_signal": "1 direct / 1 recursive files; 5,260 bytes",
+      "prior_coverage": "Prior representative dossier",
+      "status": "representative_deep_read",
+      "section": "S02",
+      "world_core_kit": [
+        "K7",
+        "K12"
+      ],
+      "synthesis_packets": [
+        "P07",
+        "P10",
+        "P12",
+        "P16"
+      ],
+      "topic_palettes": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/worlds/NONHUMAN_SOCIETY_LAW_AND_ECONOMY_2026-10-14.md"
+      ],
+      "owner_paths": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/worlds/NONHUMAN_SOCIETY_LAW_AND_ECONOMY_2026-10-14.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "native evaluation and serialized instance fields unverified",
+        "unread country-specific alternatives"
+      ]
+    },
+    {
+      "id": "I054",
+      "system": "factions/templates",
+      "source": "common/factions/templates",
+      "family": "social",
+      "size_signal": "10 direct / 10 recursive files; 38,958 bytes",
+      "prior_coverage": "Prior representative dossier",
+      "status": "representative_deep_read",
+      "section": "S02",
+      "world_core_kit": [
+        "K7",
+        "K12"
+      ],
+      "synthesis_packets": [
+        "P07",
+        "P10",
+        "P12",
+        "P16"
+      ],
+      "topic_palettes": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/worlds/NONHUMAN_SOCIETY_LAW_AND_ECONOMY_2026-10-14.md"
+      ],
+      "owner_paths": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/worlds/NONHUMAN_SOCIETY_LAW_AND_ECONOMY_2026-10-14.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "native evaluation and serialized instance fields unverified",
+        "unread country-specific alternatives"
+      ]
+    },
+    {
+      "id": "I055",
+      "system": "factions/upgrades",
+      "source": "common/factions/upgrades",
+      "family": "social",
+      "size_signal": "1 direct / 2 recursive files; 0 bytes",
+      "prior_coverage": "Prior representative dossier",
+      "status": "empty_placeholder",
+      "section": "S02",
+      "world_core_kit": [
+        "K7",
+        "K12"
+      ],
+      "synthesis_packets": [
+        "P07",
+        "P10",
+        "P12",
+        "P16"
+      ],
+      "topic_palettes": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/worlds/NONHUMAN_SOCIETY_LAW_AND_ECONOMY_2026-10-14.md"
+      ],
+      "owner_paths": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/worlds/NONHUMAN_SOCIETY_LAW_AND_ECONOMY_2026-10-14.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "no implementation inferred from empty files"
+      ]
+    },
+    {
+      "id": "I056",
+      "system": "factions/upgrades/groups",
+      "source": "common/factions/upgrades/groups",
+      "family": "social",
+      "size_signal": "1 direct / 1 recursive files; 0 bytes",
+      "prior_coverage": "Prior representative dossier",
+      "status": "empty_placeholder",
+      "section": "S02",
+      "world_core_kit": [
+        "K7",
+        "K12"
+      ],
+      "synthesis_packets": [
+        "P07",
+        "P10",
+        "P12",
+        "P16"
+      ],
+      "topic_palettes": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/worlds/NONHUMAN_SOCIETY_LAW_AND_ECONOMY_2026-10-14.md"
+      ],
+      "owner_paths": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/worlds/NONHUMAN_SOCIETY_LAW_AND_ECONOMY_2026-10-14.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "no implementation inferred from empty files"
+      ]
+    },
+    {
+      "id": "I057",
+      "system": "focus inlay windows",
+      "source": "common/focus_inlay_windows",
+      "family": "UI",
+      "size_signal": "7 direct / 7 recursive files; 54,095 bytes",
+      "prior_coverage": "UNDOCUMENTED semantics; inventory only",
+      "status": "author_contract_read",
+      "section": "SYSTEMS cheap closures",
+      "world_core_kit": [
+        "K14"
+      ],
+      "synthesis_packets": [
+        "P01"
+      ],
+      "topic_palettes": [
+        "docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md"
+      ],
+      "owner_paths": [
+        "docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "native behavior/save internals not established"
+      ]
+    },
+    {
+      "id": "I058",
+      "system": "frontend",
+      "source": "common/frontend",
+      "family": "UI",
+      "size_signal": "0 direct / 1 recursive files; 1,919 bytes",
+      "prior_coverage": "UNDOCUMENTED semantics; inventory only",
+      "status": "metadata_read",
+      "section": "SYSTEMS cheap closures",
+      "world_core_kit": [
+        "K14"
+      ],
+      "synthesis_packets": [
+        "P01"
+      ],
+      "topic_palettes": [
+        "docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md"
+      ],
+      "owner_paths": [
+        "docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "native behavior/save internals not established"
+      ]
+    },
+    {
+      "id": "I059",
+      "system": "frontend/backgrounds",
+      "source": "common/frontend/backgrounds",
+      "family": "UI",
+      "size_signal": "1 direct / 1 recursive files; 1,919 bytes",
+      "prior_coverage": "UNDOCUMENTED semantics; inventory only",
+      "status": "metadata_read",
+      "section": "SYSTEMS cheap closures",
+      "world_core_kit": [
+        "K14"
+      ],
+      "synthesis_packets": [
+        "P01"
+      ],
+      "topic_palettes": [
+        "docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md"
+      ],
+      "owner_paths": [
+        "docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "native behavior/save internals not established"
+      ]
+    },
+    {
+      "id": "I060",
+      "system": "game rules",
+      "source": "common/game_rules",
+      "family": "authoring",
+      "size_signal": "1 direct / 1 recursive files; 86,017 bytes",
+      "prior_coverage": "Prior representative dossier",
+      "status": "prior_representative",
+      "section": "prior representative read",
+      "world_core_kit": [
+        "K18"
+      ],
+      "synthesis_packets": [
+        "P16"
+      ],
+      "topic_palettes": [
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_paths": [
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "full alternatives and native contracts unread"
+      ]
+    },
+    {
+      "id": "I061",
+      "system": "generation",
+      "source": "common/generation",
+      "family": "identity",
+      "size_signal": "1 direct / 1 recursive files; 1,448 bytes",
+      "prior_coverage": "UNDOCUMENTED semantics; inventory only",
+      "status": "small_definition_read",
+      "section": "SYSTEMS cheap closures",
+      "world_core_kit": [
+        "K4",
+        "K6",
+        "K20"
+      ],
+      "synthesis_packets": [
+        "P15"
+      ],
+      "topic_palettes": [
+        "docs/GENERATION_FOUNDATION_RULES_2026-10-14.md"
+      ],
+      "owner_paths": [
+        "docs/GENERATION_FOUNDATION_RULES_2026-10-14.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "native behavior/save internals not established"
+      ]
+    },
+    {
+      "id": "I062",
+      "system": "graphicalculturetype",
+      "source": "common/graphicalculturetype.txt",
+      "family": "UI",
+      "size_signal": "1 file; 245 bytes",
+      "prior_coverage": "UNDOCUMENTED semantics; inventory only",
+      "status": "unread",
+      "section": "inventory only",
+      "world_core_kit": [
+        "K14"
+      ],
+      "synthesis_packets": [
+        "P01"
+      ],
+      "topic_palettes": [
+        "docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md"
+      ],
+      "owner_paths": [
+        "docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "semantics not deep-read in this pass"
+      ]
+    },
+    {
+      "id": "I063",
+      "system": "idea tags",
+      "source": "common/idea_tags",
+      "family": "authoring",
+      "size_signal": "1 direct / 1 recursive files; 2,994 bytes",
+      "prior_coverage": "UNDOCUMENTED semantics; inventory only",
+      "status": "metadata_read",
+      "section": "SYSTEMS cheap closures",
+      "world_core_kit": [
+        "K18"
+      ],
+      "synthesis_packets": [
+        "P16"
+      ],
+      "topic_palettes": [
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_paths": [
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "native behavior/save internals not established"
+      ]
+    },
+    {
+      "id": "I064",
+      "system": "ideas",
+      "source": "common/ideas",
+      "family": "social",
+      "size_signal": "213 direct / 213 recursive files; 2,527,636 bytes",
+      "prior_coverage": "Prior representative dossier",
+      "status": "prior_representative",
+      "section": "prior representative read",
+      "world_core_kit": [
+        "K6",
+        "K7"
+      ],
+      "synthesis_packets": [
+        "P07",
+        "P15"
+      ],
+      "topic_palettes": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md"
+      ],
+      "owner_paths": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "full alternatives and native contracts unread"
+      ]
+    },
+    {
+      "id": "I065",
+      "system": "ideologies",
+      "source": "common/ideologies",
+      "family": "social",
+      "size_signal": "1 direct / 1 recursive files; 5,602 bytes",
+      "prior_coverage": "Prior representative dossier",
+      "status": "prior_representative",
+      "section": "prior representative read",
+      "world_core_kit": [
+        "K6",
+        "K7"
+      ],
+      "synthesis_packets": [
+        "P07",
+        "P15"
+      ],
+      "topic_palettes": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md"
+      ],
+      "owner_paths": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "full alternatives and native contracts unread"
+      ]
+    },
+    {
+      "id": "I066",
+      "system": "intelligence agencies",
+      "source": "common/intelligence_agencies",
+      "family": "knowledge",
+      "size_signal": "1 direct / 1 recursive files; 15,780 bytes",
+      "prior_coverage": "UNDOCUMENTED semantics; inventory only",
+      "status": "representative_deep_read",
+      "section": "S06",
+      "world_core_kit": [
+        "K7",
+        "K9",
+        "K11"
+      ],
+      "synthesis_packets": [
+        "P04",
+        "P06",
+        "P07"
+      ],
+      "topic_palettes": [
+        "docs/TECHNOLOGY_AND_PROGRESSION.md",
+        "docs/MEANS_AND_APPRAISAL.md"
+      ],
+      "owner_paths": [
+        "docs/TECHNOLOGY_AND_PROGRESSION.md",
+        "docs/MEANS_AND_APPRAISAL.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "native evaluation and serialized instance fields unverified",
+        "unread country-specific alternatives"
+      ]
+    },
+    {
+      "id": "I067",
+      "system": "intelligence agency upgrades",
+      "source": "common/intelligence_agency_upgrades",
+      "family": "knowledge",
+      "size_signal": "2 direct / 2 recursive files; 10,342 bytes",
+      "prior_coverage": "UNDOCUMENTED semantics; inventory only",
+      "status": "representative_deep_read",
+      "section": "S06",
+      "world_core_kit": [
+        "K7",
+        "K9",
+        "K11"
+      ],
+      "synthesis_packets": [
+        "P04",
+        "P06",
+        "P07"
+      ],
+      "topic_palettes": [
+        "docs/TECHNOLOGY_AND_PROGRESSION.md",
+        "docs/MEANS_AND_APPRAISAL.md"
+      ],
+      "owner_paths": [
+        "docs/TECHNOLOGY_AND_PROGRESSION.md",
+        "docs/MEANS_AND_APPRAISAL.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "native evaluation and serialized instance fields unverified",
+        "unread country-specific alternatives"
+      ]
+    },
+    {
+      "id": "I068",
+      "system": "map modes",
+      "source": "common/map_modes",
+      "family": "UI",
+      "size_signal": "1 direct / 1 recursive files; 3,256 bytes",
+      "prior_coverage": "UNDOCUMENTED semantics; inventory only",
+      "status": "author_contract_read",
+      "section": "SYSTEMS cheap closures",
+      "world_core_kit": [
+        "K14"
+      ],
+      "synthesis_packets": [
+        "P01"
+      ],
+      "topic_palettes": [
+        "docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md"
+      ],
+      "owner_paths": [
+        "docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "native behavior/save internals not established"
+      ]
+    },
+    {
+      "id": "I069",
+      "system": "medals",
+      "source": "common/medals",
+      "family": "identity",
+      "size_signal": "1 direct / 1 recursive files; 40,732 bytes",
+      "prior_coverage": "UNDOCUMENTED semantics; inventory only",
+      "status": "representative_deep_read",
+      "section": "S13",
+      "world_core_kit": [
+        "K6",
+        "K7",
+        "K16",
+        "K18"
+      ],
+      "synthesis_packets": [
+        "P12",
+        "P15",
+        "P16",
+        "P23"
+      ],
+      "topic_palettes": [
+        "docs/LIFE_SIM_NORTH_STAR.md",
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/ENGINE_SAVES_AND_SCALE_REVIEW_2026-10-11.md"
+      ],
+      "owner_paths": [
+        "docs/LIFE_SIM_NORTH_STAR.md",
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/ENGINE_SAVES_AND_SCALE_REVIEW_2026-10-11.md"
+      ],
+      "owner_coverage": "thematic_only",
+      "dedicated_owner_gap": true,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "native evaluation and serialized instance fields unverified",
+        "unread country-specific alternatives"
+      ]
+    },
+    {
+      "id": "I070",
+      "system": "military industrial organization",
+      "source": "common/military_industrial_organization",
+      "family": "economy",
+      "size_signal": "0 direct / 63 recursive files; 978,147 bytes",
+      "prior_coverage": "Prior representative dossier",
+      "status": "representative_deep_read",
+      "section": "S01",
+      "world_core_kit": [
+        "K7",
+        "K9",
+        "K11"
+      ],
+      "synthesis_packets": [
+        "P02",
+        "P04",
+        "P06",
+        "P09",
+        "P16"
+      ],
+      "topic_palettes": [
+        "docs/MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md",
+        "docs/TECHNOLOGY_AND_PROGRESSION.md"
+      ],
+      "owner_paths": [
+        "docs/MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md",
+        "docs/TECHNOLOGY_AND_PROGRESSION.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "native evaluation and serialized instance fields unverified",
+        "unread country-specific alternatives"
+      ]
+    },
+    {
+      "id": "I071",
+      "system": "military industrial organization/ai bonus weights",
+      "source": "common/military_industrial_organization/ai_bonus_weights",
+      "family": "economy",
+      "size_signal": "2 direct / 2 recursive files; 3,436 bytes",
+      "prior_coverage": "Prior representative dossier",
+      "status": "representative_deep_read",
+      "section": "S01",
+      "world_core_kit": [
+        "K7",
+        "K9",
+        "K11"
+      ],
+      "synthesis_packets": [
+        "P02",
+        "P04",
+        "P06",
+        "P09",
+        "P16"
+      ],
+      "topic_palettes": [
+        "docs/MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md",
+        "docs/TECHNOLOGY_AND_PROGRESSION.md"
+      ],
+      "owner_paths": [
+        "docs/MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md",
+        "docs/TECHNOLOGY_AND_PROGRESSION.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "native evaluation and serialized instance fields unverified",
+        "unread country-specific alternatives"
+      ]
+    },
+    {
+      "id": "I072",
+      "system": "military industrial organization/organizations",
+      "source": "common/military_industrial_organization/organizations",
+      "family": "economy",
+      "size_signal": "56 direct / 56 recursive files; 956,604 bytes",
+      "prior_coverage": "Prior representative dossier",
+      "status": "representative_deep_read",
+      "section": "S01",
+      "world_core_kit": [
+        "K7",
+        "K9",
+        "K11"
+      ],
+      "synthesis_packets": [
+        "P02",
+        "P04",
+        "P06",
+        "P09",
+        "P16"
+      ],
+      "topic_palettes": [
+        "docs/MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md",
+        "docs/TECHNOLOGY_AND_PROGRESSION.md"
+      ],
+      "owner_paths": [
+        "docs/MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md",
+        "docs/TECHNOLOGY_AND_PROGRESSION.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "native evaluation and serialized instance fields unverified",
+        "unread country-specific alternatives"
+      ]
+    },
+    {
+      "id": "I073",
+      "system": "military industrial organization/policies",
+      "source": "common/military_industrial_organization/policies",
+      "family": "economy",
+      "size_signal": "5 direct / 5 recursive files; 18,107 bytes",
+      "prior_coverage": "Prior representative dossier",
+      "status": "representative_deep_read",
+      "section": "S01",
+      "world_core_kit": [
+        "K7",
+        "K9",
+        "K11"
+      ],
+      "synthesis_packets": [
+        "P02",
+        "P04",
+        "P06",
+        "P09",
+        "P16"
+      ],
+      "topic_palettes": [
+        "docs/MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md",
+        "docs/TECHNOLOGY_AND_PROGRESSION.md"
+      ],
+      "owner_paths": [
+        "docs/MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md",
+        "docs/TECHNOLOGY_AND_PROGRESSION.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "native evaluation and serialized instance fields unverified",
+        "unread country-specific alternatives"
+      ]
+    },
+    {
+      "id": "I074",
+      "system": "modifier definitions",
+      "source": "common/modifier_definitions",
+      "family": "authoring",
+      "size_signal": "2 direct / 2 recursive files; 1,695 bytes",
+      "prior_coverage": "UNDOCUMENTED semantics; inventory only",
+      "status": "metadata_read",
+      "section": "SYSTEMS cheap closures",
+      "world_core_kit": [
+        "K18"
+      ],
+      "synthesis_packets": [
+        "P16"
+      ],
+      "topic_palettes": [
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_paths": [
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "native behavior/save internals not established"
+      ]
+    },
+    {
+      "id": "I075",
+      "system": "modifiers",
+      "source": "common/modifiers",
+      "family": "authoring",
+      "size_signal": "5 direct / 5 recursive files; 21,688 bytes",
+      "prior_coverage": "UNDOCUMENTED semantics; inventory only",
+      "status": "unread",
+      "section": "inventory only",
+      "world_core_kit": [
+        "K18"
+      ],
+      "synthesis_packets": [
+        "P16"
+      ],
+      "topic_palettes": [
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_paths": [
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "semantics not deep-read in this pass"
+      ]
+    },
+    {
+      "id": "I076",
+      "system": "msgrdk achievements",
+      "source": "common/msgrdk_achievements.json",
+      "family": "authoring",
+      "size_signal": "1 file; 8,486 bytes",
+      "prior_coverage": "UNDOCUMENTED semantics; inventory only",
+      "status": "unread",
+      "section": "inventory only",
+      "world_core_kit": [
+        "K18"
+      ],
+      "synthesis_packets": [
+        "P16"
+      ],
+      "topic_palettes": [
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_paths": [
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "semantics not deep-read in this pass"
+      ]
+    },
+    {
+      "id": "I077",
+      "system": "mtth",
+      "source": "common/mtth",
+      "family": "authoring",
+      "size_signal": "1 direct / 1 recursive files; 213 bytes",
+      "prior_coverage": "UNDOCUMENTED semantics; inventory only",
+      "status": "commented_contract_only",
+      "section": "SYSTEMS cheap closures",
+      "world_core_kit": [
+        "K18"
+      ],
+      "synthesis_packets": [
+        "P16"
+      ],
+      "topic_palettes": [
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_paths": [
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "native behavior/save internals not established"
+      ]
+    },
+    {
+      "id": "I078",
+      "system": "names",
+      "source": "common/names",
+      "family": "identity",
+      "size_signal": "1 direct / 1 recursive files; 467,759 bytes",
+      "prior_coverage": "UNDOCUMENTED semantics; inventory only",
+      "status": "representative_read",
+      "section": "SYSTEMS cheap closures",
+      "world_core_kit": [
+        "K4",
+        "K6",
+        "K20"
+      ],
+      "synthesis_packets": [
+        "P15"
+      ],
+      "topic_palettes": [
+        "docs/GENERATION_FOUNDATION_RULES_2026-10-14.md"
+      ],
+      "owner_paths": [
+        "docs/GENERATION_FOUNDATION_RULES_2026-10-14.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "native behavior/save internals not established"
+      ]
+    },
+    {
+      "id": "I079",
+      "system": "national focus",
+      "source": "common/national_focus",
+      "family": "events",
+      "size_signal": "81 direct / 81 recursive files; 14,189,444 bytes",
+      "prior_coverage": "Prior representative dossier",
+      "status": "prior_representative",
+      "section": "prior representative read",
+      "world_core_kit": [
+        "K12"
+      ],
+      "synthesis_packets": [
+        "P10",
+        "P12",
+        "P19"
+      ],
+      "topic_palettes": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md"
+      ],
+      "owner_paths": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "full alternatives and native contracts unread"
+      ]
+    },
+    {
+      "id": "I080",
+      "system": "occupation laws",
+      "source": "common/occupation_laws",
+      "family": "social",
+      "size_signal": "1 direct / 1 recursive files; 26,271 bytes",
+      "prior_coverage": "UNDOCUMENTED semantics; inventory only",
+      "status": "representative_deep_read",
+      "section": "S04",
+      "world_core_kit": [
+        "K7",
+        "K8",
+        "K9"
+      ],
+      "synthesis_packets": [
+        "P02",
+        "P07",
+        "P18"
+      ],
+      "topic_palettes": [
+        "docs/worlds/NONHUMAN_SOCIETY_LAW_AND_ECONOMY_2026-10-14.md",
+        "docs/MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md"
+      ],
+      "owner_paths": [
+        "docs/worlds/NONHUMAN_SOCIETY_LAW_AND_ECONOMY_2026-10-14.md",
+        "docs/MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "native evaluation and serialized instance fields unverified",
+        "unread country-specific alternatives"
+      ]
+    },
+    {
+      "id": "I081",
+      "system": "on actions",
+      "source": "common/on_actions",
+      "family": "events",
+      "size_signal": "18 direct / 18 recursive files; 822,549 bytes",
+      "prior_coverage": "Prior representative dossier",
+      "status": "prior_representative",
+      "section": "prior representative read",
+      "world_core_kit": [
+        "K12"
+      ],
+      "synthesis_packets": [
+        "P10",
+        "P12",
+        "P19"
+      ],
+      "topic_palettes": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md"
+      ],
+      "owner_paths": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "full alternatives and native contracts unread"
+      ]
+    },
+    {
+      "id": "I082",
+      "system": "operation phases",
+      "source": "common/operation_phases",
+      "family": "events",
+      "size_signal": "17 direct / 17 recursive files; 30,800 bytes",
+      "prior_coverage": "New deep read (representative)",
+      "status": "prior_representative",
+      "section": "prior representative read",
+      "world_core_kit": [
+        "K12"
+      ],
+      "synthesis_packets": [
+        "P10",
+        "P12",
+        "P19"
+      ],
+      "topic_palettes": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md"
+      ],
+      "owner_paths": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "full alternatives and native contracts unread"
+      ]
+    },
+    {
+      "id": "I083",
+      "system": "operation tokens",
+      "source": "common/operation_tokens",
+      "family": "knowledge",
+      "size_signal": "2 direct / 2 recursive files; 2,310 bytes",
+      "prior_coverage": "UNDOCUMENTED semantics; inventory only",
+      "status": "representative_deep_read",
+      "section": "S07",
+      "world_core_kit": [
+        "K5",
+        "K7",
+        "K11",
+        "K23"
+      ],
+      "synthesis_packets": [
+        "P04",
+        "P11",
+        "P20"
+      ],
+      "topic_palettes": [
+        "docs/MEANS_AND_APPRAISAL.md",
+        "docs/worlds/DIALOGUE_AND_INTERACTIONS.md"
+      ],
+      "owner_paths": [
+        "docs/MEANS_AND_APPRAISAL.md",
+        "docs/worlds/DIALOGUE_AND_INTERACTIONS.md"
+      ],
+      "owner_coverage": "thematic_only",
+      "dedicated_owner_gap": true,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "native evaluation and serialized instance fields unverified",
+        "unread country-specific alternatives"
+      ]
+    },
+    {
+      "id": "I084",
+      "system": "operations",
+      "source": "common/operations",
+      "family": "events",
+      "size_signal": "7 direct / 7 recursive files; 116,452 bytes",
+      "prior_coverage": "New deep read (representative)",
+      "status": "prior_representative",
+      "section": "prior representative read",
+      "world_core_kit": [
+        "K12"
+      ],
+      "synthesis_packets": [
+        "P10",
+        "P12",
+        "P19"
+      ],
+      "topic_palettes": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md"
+      ],
+      "owner_paths": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "full alternatives and native contracts unread"
+      ]
+    },
+    {
+      "id": "I085",
+      "system": "opinion modifiers",
+      "source": "common/opinion_modifiers",
+      "family": "social",
+      "size_signal": "13 direct / 13 recursive files; 50,937 bytes",
+      "prior_coverage": "Prior representative dossier",
+      "status": "prior_representative",
+      "section": "prior representative read",
+      "world_core_kit": [
+        "K6",
+        "K7"
+      ],
+      "synthesis_packets": [
+        "P07",
+        "P15"
+      ],
+      "topic_palettes": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md"
+      ],
+      "owner_paths": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "full alternatives and native contracts unread"
+      ]
+    },
+    {
+      "id": "I086",
+      "system": "peace conference",
+      "source": "common/peace_conference",
+      "family": "social",
+      "size_signal": "0 direct / 36 recursive files; 150,788 bytes",
+      "prior_coverage": "UNDOCUMENTED semantics; inventory only",
+      "status": "representative_deep_read",
+      "section": "S12",
+      "world_core_kit": [
+        "K7",
+        "K12",
+        "K16"
+      ],
+      "synthesis_packets": [
+        "P12",
+        "P18",
+        "P19",
+        "P24"
+      ],
+      "topic_palettes": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/worlds/DIALOGUE_AND_INTERACTIONS.md"
+      ],
+      "owner_paths": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/worlds/DIALOGUE_AND_INTERACTIONS.md"
+      ],
+      "owner_coverage": "thematic_only",
+      "dedicated_owner_gap": true,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "native evaluation and serialized instance fields unverified",
+        "unread country-specific alternatives"
+      ]
+    },
+    {
+      "id": "I087",
+      "system": "peace conference/ai peace",
+      "source": "common/peace_conference/ai_peace",
+      "family": "social",
+      "size_signal": "16 direct / 16 recursive files; 87,252 bytes",
+      "prior_coverage": "UNDOCUMENTED semantics; inventory only",
+      "status": "representative_deep_read",
+      "section": "S12",
+      "world_core_kit": [
+        "K7",
+        "K12",
+        "K16"
+      ],
+      "synthesis_packets": [
+        "P12",
+        "P18",
+        "P19",
+        "P24"
+      ],
+      "topic_palettes": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/worlds/DIALOGUE_AND_INTERACTIONS.md"
+      ],
+      "owner_paths": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/worlds/DIALOGUE_AND_INTERACTIONS.md"
+      ],
+      "owner_coverage": "thematic_only",
+      "dedicated_owner_gap": true,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "native evaluation and serialized instance fields unverified",
+        "unread country-specific alternatives"
+      ]
+    },
+    {
+      "id": "I088",
+      "system": "peace conference/categories",
+      "source": "common/peace_conference/categories",
+      "family": "social",
+      "size_signal": "1 direct / 1 recursive files; 1,158 bytes",
+      "prior_coverage": "UNDOCUMENTED semantics; inventory only",
+      "status": "representative_deep_read",
+      "section": "S12",
+      "world_core_kit": [
+        "K7",
+        "K12",
+        "K16"
+      ],
+      "synthesis_packets": [
+        "P12",
+        "P18",
+        "P19",
+        "P24"
+      ],
+      "topic_palettes": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/worlds/DIALOGUE_AND_INTERACTIONS.md"
+      ],
+      "owner_paths": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/worlds/DIALOGUE_AND_INTERACTIONS.md"
+      ],
+      "owner_coverage": "thematic_only",
+      "dedicated_owner_gap": true,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "native evaluation and serialized instance fields unverified",
+        "unread country-specific alternatives"
+      ]
+    },
+    {
+      "id": "I089",
+      "system": "peace conference/cost modifiers",
+      "source": "common/peace_conference/cost_modifiers",
+      "family": "social",
+      "size_signal": "19 direct / 19 recursive files; 62,378 bytes",
+      "prior_coverage": "UNDOCUMENTED semantics; inventory only",
+      "status": "representative_deep_read",
+      "section": "S12",
+      "world_core_kit": [
+        "K7",
+        "K12",
+        "K16"
+      ],
+      "synthesis_packets": [
+        "P12",
+        "P18",
+        "P19",
+        "P24"
+      ],
+      "topic_palettes": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/worlds/DIALOGUE_AND_INTERACTIONS.md"
+      ],
+      "owner_paths": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/worlds/DIALOGUE_AND_INTERACTIONS.md"
+      ],
+      "owner_coverage": "thematic_only",
+      "dedicated_owner_gap": true,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "native evaluation and serialized instance fields unverified",
+        "unread country-specific alternatives"
+      ]
+    },
+    {
+      "id": "I090",
+      "system": "profile backgrounds",
+      "source": "common/profile_backgrounds",
+      "family": "UI",
+      "size_signal": "1 direct / 1 recursive files; 1,699 bytes",
+      "prior_coverage": "UNDOCUMENTED semantics; inventory only",
+      "status": "metadata_read",
+      "section": "SYSTEMS cheap closures",
+      "world_core_kit": [
+        "K14"
+      ],
+      "synthesis_packets": [
+        "P01"
+      ],
+      "topic_palettes": [
+        "docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md"
+      ],
+      "owner_paths": [
+        "docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "native behavior/save internals not established"
+      ]
+    },
+    {
+      "id": "I091",
+      "system": "profile pictures",
+      "source": "common/profile_pictures",
+      "family": "UI",
+      "size_signal": "1 direct / 1 recursive files; 6,678 bytes",
+      "prior_coverage": "UNDOCUMENTED semantics; inventory only",
+      "status": "metadata_read",
+      "section": "SYSTEMS cheap closures",
+      "world_core_kit": [
+        "K14"
+      ],
+      "synthesis_packets": [
+        "P01"
+      ],
+      "topic_palettes": [
+        "docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md"
+      ],
+      "owner_paths": [
+        "docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "native behavior/save internals not established"
+      ]
+    },
+    {
+      "id": "I092",
+      "system": "raids",
+      "source": "common/raids",
+      "family": "events",
+      "size_signal": "9 direct / 10 recursive files; 267,891 bytes",
+      "prior_coverage": "UNDOCUMENTED semantics; inventory only",
+      "status": "representative_deep_read",
+      "section": "S11",
+      "world_core_kit": [
+        "K5",
+        "K6",
+        "K10",
+        "K12"
+      ],
+      "synthesis_packets": [
+        "P04",
+        "P06",
+        "P10",
+        "P18"
+      ],
+      "topic_palettes": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/MEANS_AND_APPRAISAL.md"
+      ],
+      "owner_paths": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/MEANS_AND_APPRAISAL.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "native evaluation and serialized instance fields unverified",
+        "unread country-specific alternatives"
+      ]
+    },
+    {
+      "id": "I093",
+      "system": "raids/categories",
+      "source": "common/raids/categories",
+      "family": "events",
+      "size_signal": "1 direct / 1 recursive files; 1,243 bytes",
+      "prior_coverage": "UNDOCUMENTED semantics; inventory only",
+      "status": "representative_deep_read",
+      "section": "S11",
+      "world_core_kit": [
+        "K5",
+        "K6",
+        "K10",
+        "K12"
+      ],
+      "synthesis_packets": [
+        "P04",
+        "P06",
+        "P10",
+        "P18"
+      ],
+      "topic_palettes": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/MEANS_AND_APPRAISAL.md"
+      ],
+      "owner_paths": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/MEANS_AND_APPRAISAL.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "native evaluation and serialized instance fields unverified",
+        "unread country-specific alternatives"
+      ]
+    },
+    {
+      "id": "I094",
+      "system": "region colors",
+      "source": "common/region_colors.txt",
+      "family": "UI",
+      "size_signal": "1 file; 4,805 bytes",
+      "prior_coverage": "UNDOCUMENTED semantics; inventory only",
+      "status": "unread",
+      "section": "inventory only",
+      "world_core_kit": [
+        "K14"
+      ],
+      "synthesis_packets": [
+        "P01"
+      ],
+      "topic_palettes": [
+        "docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md"
+      ],
+      "owner_paths": [
+        "docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "semantics not deep-read in this pass"
+      ]
+    },
+    {
+      "id": "I095",
+      "system": "resistance activity",
+      "source": "common/resistance_activity",
+      "family": "world simulation",
+      "size_signal": "1 direct / 1 recursive files; 12,546 bytes",
+      "prior_coverage": "UNDOCUMENTED semantics; inventory only",
+      "status": "representative_deep_read",
+      "section": "S05",
+      "world_core_kit": [
+        "K7",
+        "K8",
+        "K12",
+        "K29",
+        "K32"
+      ],
+      "synthesis_packets": [
+        "P10",
+        "P12",
+        "P13"
+      ],
+      "topic_palettes": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/ENGINE_EXPANSION.md"
+      ],
+      "owner_paths": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/ENGINE_EXPANSION.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "native evaluation and serialized instance fields unverified",
+        "unread country-specific alternatives"
+      ]
+    },
+    {
+      "id": "I096",
+      "system": "resistance compliance modifiers",
+      "source": "common/resistance_compliance_modifiers",
+      "family": "world simulation",
+      "size_signal": "2 direct / 2 recursive files; 5,365 bytes",
+      "prior_coverage": "UNDOCUMENTED semantics; inventory only",
+      "status": "representative_deep_read",
+      "section": "S05",
+      "world_core_kit": [
+        "K7",
+        "K8",
+        "K12",
+        "K29",
+        "K32"
+      ],
+      "synthesis_packets": [
+        "P10",
+        "P12",
+        "P13"
+      ],
+      "topic_palettes": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/ENGINE_EXPANSION.md"
+      ],
+      "owner_paths": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/ENGINE_EXPANSION.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "native evaluation and serialized instance fields unverified",
+        "unread country-specific alternatives"
+      ]
+    },
+    {
+      "id": "I097",
+      "system": "resources",
+      "source": "common/resources",
+      "family": "economy",
+      "size_signal": "2 direct / 2 recursive files; 717 bytes",
+      "prior_coverage": "Prior representative dossier",
+      "status": "prior_representative",
+      "section": "prior representative read",
+      "world_core_kit": [
+        "K8",
+        "K9"
+      ],
+      "synthesis_packets": [
+        "P02",
+        "P18"
+      ],
+      "topic_palettes": [
+        "docs/MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md"
+      ],
+      "owner_paths": [
+        "docs/MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "full alternatives and native contracts unread"
+      ]
+    },
+    {
+      "id": "I098",
+      "system": "ribbons",
+      "source": "common/ribbons",
+      "family": "identity",
+      "size_signal": "1 direct / 1 recursive files; 19,893 bytes",
+      "prior_coverage": "UNDOCUMENTED semantics; inventory only",
+      "status": "representative_deep_read",
+      "section": "S13",
+      "world_core_kit": [
+        "K6",
+        "K7",
+        "K16",
+        "K18"
+      ],
+      "synthesis_packets": [
+        "P12",
+        "P15",
+        "P16",
+        "P23"
+      ],
+      "topic_palettes": [
+        "docs/LIFE_SIM_NORTH_STAR.md",
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/ENGINE_SAVES_AND_SCALE_REVIEW_2026-10-11.md"
+      ],
+      "owner_paths": [
+        "docs/LIFE_SIM_NORTH_STAR.md",
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/ENGINE_SAVES_AND_SCALE_REVIEW_2026-10-11.md"
+      ],
+      "owner_coverage": "thematic_only",
+      "dedicated_owner_gap": true,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "native evaluation and serialized instance fields unverified",
+        "unread country-specific alternatives"
+      ]
+    },
+    {
+      "id": "I099",
+      "system": "scientist traits",
+      "source": "common/scientist_traits",
+      "family": "knowledge",
+      "size_signal": "2 direct / 2 recursive files; 5,750 bytes",
+      "prior_coverage": "UNDOCUMENTED semantics; inventory only",
+      "status": "representative_deep_read",
+      "section": "S08",
+      "world_core_kit": [
+        "K6",
+        "K9",
+        "K11"
+      ],
+      "synthesis_packets": [
+        "P03",
+        "P06",
+        "P09",
+        "P15"
+      ],
+      "topic_palettes": [
+        "docs/worlds/SKILL_MECHANISMS_AND_MEANS_2026-10-13.md",
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md"
+      ],
+      "owner_paths": [
+        "docs/worlds/SKILL_MECHANISMS_AND_MEANS_2026-10-13.md",
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "native evaluation and serialized instance fields unverified",
+        "unread country-specific alternatives"
+      ]
+    },
+    {
+      "id": "I100",
+      "system": "scorers",
+      "source": "common/scorers",
+      "family": "AI",
+      "size_signal": "0 direct / 4 recursive files; 30,540 bytes",
+      "prior_coverage": "UNDOCUMENTED semantics; inventory only",
+      "status": "representative_deep_read",
+      "section": "S14",
+      "world_core_kit": [
+        "K6",
+        "K9",
+        "K10"
+      ],
+      "synthesis_packets": [
+        "P08",
+        "P15",
+        "P25"
+      ],
+      "topic_palettes": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/ENGINE_EXPANSION.md"
+      ],
+      "owner_paths": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/ENGINE_EXPANSION.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "native evaluation and serialized instance fields unverified",
+        "unread country-specific alternatives"
+      ]
+    },
+    {
+      "id": "I101",
+      "system": "scorers/country",
+      "source": "common/scorers/country",
+      "family": "AI",
+      "size_signal": "4 direct / 4 recursive files; 30,540 bytes",
+      "prior_coverage": "UNDOCUMENTED semantics; inventory only",
+      "status": "representative_deep_read",
+      "section": "S14",
+      "world_core_kit": [
+        "K6",
+        "K9",
+        "K10"
+      ],
+      "synthesis_packets": [
+        "P08",
+        "P15",
+        "P25"
+      ],
+      "topic_palettes": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/ENGINE_EXPANSION.md"
+      ],
+      "owner_paths": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/ENGINE_EXPANSION.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "native evaluation and serialized instance fields unverified",
+        "unread country-specific alternatives"
+      ]
+    },
+    {
+      "id": "I102",
+      "system": "script constants",
+      "source": "common/script_constants",
+      "family": "authoring",
+      "size_signal": "5 direct / 5 recursive files; 13,438 bytes",
+      "prior_coverage": "UNDOCUMENTED semantics; inventory only",
+      "status": "unread",
+      "section": "inventory only",
+      "world_core_kit": [
+        "K18"
+      ],
+      "synthesis_packets": [
+        "P16"
+      ],
+      "topic_palettes": [
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_paths": [
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "semantics not deep-read in this pass"
+      ]
+    },
+    {
+      "id": "I103",
+      "system": "script enums",
+      "source": "common/script_enums.txt",
+      "family": "authoring",
+      "size_signal": "1 file; 17,183 bytes",
+      "prior_coverage": "UNDOCUMENTED semantics; inventory only",
+      "status": "unread",
+      "section": "inventory only",
+      "world_core_kit": [
+        "K18"
+      ],
+      "synthesis_packets": [
+        "P16"
+      ],
+      "topic_palettes": [
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_paths": [
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "semantics not deep-read in this pass"
+      ]
+    },
+    {
+      "id": "I104",
+      "system": "scripted diplomatic actions",
+      "source": "common/scripted_diplomatic_actions",
+      "family": "authoring",
+      "size_signal": "1 direct / 1 recursive files; 3,227 bytes",
+      "prior_coverage": "UNDOCUMENTED semantics; inventory only",
+      "status": "commented_contract_only",
+      "section": "SYSTEMS cheap closures",
+      "world_core_kit": [
+        "K18"
+      ],
+      "synthesis_packets": [
+        "P16"
+      ],
+      "topic_palettes": [
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_paths": [
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "native behavior/save internals not established"
+      ]
+    },
+    {
+      "id": "I105",
+      "system": "scripted effects",
+      "source": "common/scripted_effects",
+      "family": "authoring",
+      "size_signal": "52 direct / 52 recursive files; 1,881,905 bytes",
+      "prior_coverage": "Prior representative dossier",
+      "status": "prior_representative",
+      "section": "prior representative read",
+      "world_core_kit": [
+        "K18"
+      ],
+      "synthesis_packets": [
+        "P16"
+      ],
+      "topic_palettes": [
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_paths": [
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "full alternatives and native contracts unread"
+      ]
+    },
+    {
+      "id": "I106",
+      "system": "scripted guis",
+      "source": "common/scripted_guis",
+      "family": "authoring",
+      "size_signal": "18 direct / 18 recursive files; 14,233 bytes",
+      "prior_coverage": "New deep read (representative)",
+      "status": "prior_representative",
+      "section": "prior representative read",
+      "world_core_kit": [
+        "K18"
+      ],
+      "synthesis_packets": [
+        "P16"
+      ],
+      "topic_palettes": [
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_paths": [
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "full alternatives and native contracts unread"
+      ]
+    },
+    {
+      "id": "I107",
+      "system": "scripted localisation",
+      "source": "common/scripted_localisation",
+      "family": "authoring",
+      "size_signal": "42 direct / 42 recursive files; 24,556,066 bytes",
+      "prior_coverage": "New deep read (representative)",
+      "status": "prior_representative",
+      "section": "prior representative read",
+      "world_core_kit": [
+        "K18"
+      ],
+      "synthesis_packets": [
+        "P16"
+      ],
+      "topic_palettes": [
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_paths": [
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "full alternatives and native contracts unread"
+      ]
+    },
+    {
+      "id": "I108",
+      "system": "scripted triggers",
+      "source": "common/scripted_triggers",
+      "family": "authoring",
+      "size_signal": "54 direct / 54 recursive files; 636,122 bytes",
+      "prior_coverage": "Prior representative dossier",
+      "status": "prior_representative",
+      "section": "prior representative read",
+      "world_core_kit": [
+        "K18"
+      ],
+      "synthesis_packets": [
+        "P16"
+      ],
+      "topic_palettes": [
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_paths": [
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "full alternatives and native contracts unread"
+      ]
+    },
+    {
+      "id": "I109",
+      "system": "special projects",
+      "source": "common/special_projects",
+      "family": "authoring",
+      "size_signal": "1 direct / 17 recursive files; 330,832 bytes",
+      "prior_coverage": "New deep read (representative)",
+      "status": "prior_representative",
+      "section": "prior representative read",
+      "world_core_kit": [
+        "K18"
+      ],
+      "synthesis_packets": [
+        "P16"
+      ],
+      "topic_palettes": [
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_paths": [
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "full alternatives and native contracts unread"
+      ]
+    },
+    {
+      "id": "I110",
+      "system": "special projects/project tags",
+      "source": "common/special_projects/project_tags",
+      "family": "authoring",
+      "size_signal": "1 direct / 1 recursive files; 344 bytes",
+      "prior_coverage": "New deep read (representative)",
+      "status": "prior_representative",
+      "section": "prior representative read",
+      "world_core_kit": [
+        "K18"
+      ],
+      "synthesis_packets": [
+        "P16"
+      ],
+      "topic_palettes": [
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_paths": [
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "full alternatives and native contracts unread"
+      ]
+    },
+    {
+      "id": "I111",
+      "system": "special projects/projects",
+      "source": "common/special_projects/projects",
+      "family": "authoring",
+      "size_signal": "7 direct / 7 recursive files; 221,169 bytes",
+      "prior_coverage": "New deep read (representative)",
+      "status": "prior_representative",
+      "section": "prior representative read",
+      "world_core_kit": [
+        "K18"
+      ],
+      "synthesis_packets": [
+        "P16"
+      ],
+      "topic_palettes": [
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_paths": [
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "full alternatives and native contracts unread"
+      ]
+    },
+    {
+      "id": "I112",
+      "system": "special projects/prototype rewards",
+      "source": "common/special_projects/prototype_rewards",
+      "family": "authoring",
+      "size_signal": "6 direct / 6 recursive files; 81,961 bytes",
+      "prior_coverage": "New deep read (representative)",
+      "status": "prior_representative",
+      "section": "prior representative read",
+      "world_core_kit": [
+        "K18"
+      ],
+      "synthesis_packets": [
+        "P16"
+      ],
+      "topic_palettes": [
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_paths": [
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "full alternatives and native contracts unread"
+      ]
+    },
+    {
+      "id": "I113",
+      "system": "special projects/specialization",
+      "source": "common/special_projects/specialization",
+      "family": "authoring",
+      "size_signal": "2 direct / 2 recursive files; 2,516 bytes",
+      "prior_coverage": "New deep read (representative)",
+      "status": "prior_representative",
+      "section": "prior representative read",
+      "world_core_kit": [
+        "K18"
+      ],
+      "synthesis_packets": [
+        "P16"
+      ],
+      "topic_palettes": [
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_paths": [
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "full alternatives and native contracts unread"
+      ]
+    },
+    {
+      "id": "I114",
+      "system": "state category",
+      "source": "common/state_category",
+      "family": "economy",
+      "size_signal": "13 direct / 13 recursive files; 1,450 bytes",
+      "prior_coverage": "Prior representative dossier",
+      "status": "prior_representative",
+      "section": "prior representative read",
+      "world_core_kit": [
+        "K8",
+        "K9"
+      ],
+      "synthesis_packets": [
+        "P02",
+        "P18"
+      ],
+      "topic_palettes": [
+        "docs/MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md"
+      ],
+      "owner_paths": [
+        "docs/MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "full alternatives and native contracts unread"
+      ]
+    },
+    {
+      "id": "I115",
+      "system": "strategic locations",
+      "source": "common/strategic_locations",
+      "family": "world simulation",
+      "size_signal": "2 direct / 2 recursive files; 783 bytes",
+      "prior_coverage": "UNDOCUMENTED semantics; inventory only",
+      "status": "small_definition_read",
+      "section": "SYSTEMS cheap closures",
+      "world_core_kit": [
+        "K5"
+      ],
+      "synthesis_packets": [
+        "P14"
+      ],
+      "topic_palettes": [
+        "docs/worlds/WORLD_CORE_KIT_2026-10-14.md"
+      ],
+      "owner_paths": [
+        "docs/worlds/WORLD_CORE_KIT_2026-10-14.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "native behavior/save internals not established"
+      ]
+    },
+    {
+      "id": "I116",
+      "system": "synchronized dynamic tokens",
+      "source": "common/synchronized_dynamic_tokens",
+      "family": "authoring",
+      "size_signal": "1 direct / 1 recursive files; 1,528 bytes",
+      "prior_coverage": "UNDOCUMENTED semantics; inventory only",
+      "status": "metadata_read",
+      "section": "SYSTEMS cheap closures",
+      "world_core_kit": [
+        "K18"
+      ],
+      "synthesis_packets": [
+        "P16"
+      ],
+      "topic_palettes": [
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_paths": [
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "native behavior/save internals not established"
+      ]
+    },
+    {
+      "id": "I117",
+      "system": "technologies",
+      "source": "common/technologies",
+      "family": "knowledge",
+      "size_signal": "13 direct / 13 recursive files; 429,740 bytes",
+      "prior_coverage": "Prior representative dossier",
+      "status": "prior_representative",
+      "section": "prior representative read",
+      "world_core_kit": [
+        "K3",
+        "K11"
+      ],
+      "synthesis_packets": [
+        "P03",
+        "P04"
+      ],
+      "topic_palettes": [
+        "docs/TECHNOLOGY_AND_PROGRESSION.md"
+      ],
+      "owner_paths": [
+        "docs/TECHNOLOGY_AND_PROGRESSION.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "full alternatives and native contracts unread"
+      ]
+    },
+    {
+      "id": "I118",
+      "system": "technology sharing",
+      "source": "common/technology_sharing",
+      "family": "knowledge",
+      "size_signal": "11 direct / 11 recursive files; 34,355 bytes",
+      "prior_coverage": "Prior representative dossier",
+      "status": "prior_representative",
+      "section": "prior representative read",
+      "world_core_kit": [
+        "K3",
+        "K11"
+      ],
+      "synthesis_packets": [
+        "P03",
+        "P04"
+      ],
+      "topic_palettes": [
+        "docs/TECHNOLOGY_AND_PROGRESSION.md"
+      ],
+      "owner_paths": [
+        "docs/TECHNOLOGY_AND_PROGRESSION.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "full alternatives and native contracts unread"
+      ]
+    },
+    {
+      "id": "I119",
+      "system": "technology tags",
+      "source": "common/technology_tags",
+      "family": "knowledge",
+      "size_signal": "1 direct / 1 recursive files; 5,378 bytes",
+      "prior_coverage": "UNDOCUMENTED semantics; inventory only",
+      "status": "metadata_read",
+      "section": "SYSTEMS cheap closures",
+      "world_core_kit": [
+        "K3",
+        "K11"
+      ],
+      "synthesis_packets": [
+        "P03",
+        "P04"
+      ],
+      "topic_palettes": [
+        "docs/TECHNOLOGY_AND_PROGRESSION.md"
+      ],
+      "owner_paths": [
+        "docs/TECHNOLOGY_AND_PROGRESSION.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "native behavior/save internals not established"
+      ]
+    },
+    {
+      "id": "I120",
+      "system": "terrain",
+      "source": "common/terrain",
+      "family": "body",
+      "size_signal": "1 direct / 1 recursive files; 7,470 bytes",
+      "prior_coverage": "UNDOCUMENTED semantics; inventory only",
+      "status": "representative_deep_read",
+      "section": "S10",
+      "world_core_kit": [
+        "K2",
+        "K5",
+        "K6",
+        "K10",
+        "K22",
+        "K28"
+      ],
+      "synthesis_packets": [
+        "P09",
+        "P14",
+        "P17"
+      ],
+      "topic_palettes": [
+        "docs/HUNGER_AND_BODILY_NEEDS_CONSIDERATIONS_2026-10-13.md",
+        "docs/SKILLS_AND_TALENTS.md",
+        "docs/worlds/WORLD_CORE_KIT_2026-10-14.md"
+      ],
+      "owner_paths": [
+        "docs/HUNGER_AND_BODILY_NEEDS_CONSIDERATIONS_2026-10-13.md",
+        "docs/SKILLS_AND_TALENTS.md",
+        "docs/worlds/WORLD_CORE_KIT_2026-10-14.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "native evaluation and serialized instance fields unverified",
+        "unread country-specific alternatives"
+      ]
+    },
+    {
+      "id": "I121",
+      "system": "timed activities",
+      "source": "common/timed_activities",
+      "family": "authoring",
+      "size_signal": "1 direct / 1 recursive files; 68 bytes",
+      "prior_coverage": "UNDOCUMENTED semantics; inventory only",
+      "status": "small_definition_read",
+      "section": "SYSTEMS cheap closures",
+      "world_core_kit": [
+        "K18"
+      ],
+      "synthesis_packets": [
+        "P16"
+      ],
+      "topic_palettes": [
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_paths": [
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "native behavior/save internals not established"
+      ]
+    },
+    {
+      "id": "I122",
+      "system": "triggered modifiers",
+      "source": "common/triggered_modifiers.txt",
+      "family": "authoring",
+      "size_signal": "1 file; 0 bytes",
+      "prior_coverage": "UNDOCUMENTED semantics; inventory only",
+      "status": "empty_placeholder",
+      "section": "SYSTEMS cheap closures",
+      "world_core_kit": [
+        "K18"
+      ],
+      "synthesis_packets": [
+        "P16"
+      ],
+      "topic_palettes": [
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_paths": [
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "native behavior/save internals not established"
+      ]
+    },
+    {
+      "id": "I123",
+      "system": "unit leader",
+      "source": "common/unit_leader",
+      "family": "companions",
+      "size_signal": "13 direct / 13 recursive files; 104,397 bytes",
+      "prior_coverage": "UNDOCUMENTED semantics; inventory only",
+      "status": "representative_deep_read",
+      "section": "S09",
+      "world_core_kit": [
+        "K6",
+        "K7",
+        "K10"
+      ],
+      "synthesis_packets": [
+        "P06",
+        "P09",
+        "P15"
+      ],
+      "topic_palettes": [
+        "docs/SKILLS_AND_TALENTS.md",
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md"
+      ],
+      "owner_paths": [
+        "docs/SKILLS_AND_TALENTS.md",
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "native evaluation and serialized instance fields unverified",
+        "unread country-specific alternatives"
+      ]
+    },
+    {
+      "id": "I124",
+      "system": "unit medals",
+      "source": "common/unit_medals",
+      "family": "identity",
+      "size_signal": "1 direct / 1 recursive files; 39,961 bytes",
+      "prior_coverage": "UNDOCUMENTED semantics; inventory only",
+      "status": "representative_deep_read",
+      "section": "S13",
+      "world_core_kit": [
+        "K6",
+        "K7",
+        "K16",
+        "K18"
+      ],
+      "synthesis_packets": [
+        "P12",
+        "P15",
+        "P16",
+        "P23"
+      ],
+      "topic_palettes": [
+        "docs/LIFE_SIM_NORTH_STAR.md",
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/ENGINE_SAVES_AND_SCALE_REVIEW_2026-10-11.md"
+      ],
+      "owner_paths": [
+        "docs/LIFE_SIM_NORTH_STAR.md",
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/ENGINE_SAVES_AND_SCALE_REVIEW_2026-10-11.md"
+      ],
+      "owner_coverage": "thematic_only",
+      "dedicated_owner_gap": true,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "native evaluation and serialized instance fields unverified",
+        "unread country-specific alternatives"
+      ]
+    },
+    {
+      "id": "I125",
+      "system": "unit tags",
+      "source": "common/unit_tags",
+      "family": "authoring",
+      "size_signal": "1 direct / 1 recursive files; 1,315 bytes",
+      "prior_coverage": "UNDOCUMENTED semantics; inventory only",
+      "status": "metadata_read",
+      "section": "SYSTEMS cheap closures",
+      "world_core_kit": [
+        "K18"
+      ],
+      "synthesis_packets": [
+        "P16"
+      ],
+      "topic_palettes": [
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_paths": [
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "native behavior/save internals not established"
+      ]
+    },
+    {
+      "id": "I126",
+      "system": "units",
+      "source": "common/units",
+      "family": "combat",
+      "size_signal": "45 direct / 297 recursive files; 3,097,727 bytes",
+      "prior_coverage": "Prior representative dossier",
+      "status": "prior_representative",
+      "section": "prior representative read",
+      "world_core_kit": [
+        "K10"
+      ],
+      "synthesis_packets": [
+        "P14"
+      ],
+      "topic_palettes": [
+        "docs/worlds/WORLD_CORE_KIT_2026-10-14.md"
+      ],
+      "owner_paths": [
+        "docs/worlds/WORLD_CORE_KIT_2026-10-14.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "full alternatives and native contracts unread"
+      ]
+    },
+    {
+      "id": "I127",
+      "system": "units/codenames operatives",
+      "source": "common/units/codenames_operatives",
+      "family": "identity",
+      "size_signal": "14 direct / 14 recursive files; 6,352 bytes",
+      "prior_coverage": "Prior representative dossier",
+      "status": "prior_representative",
+      "section": "prior representative read",
+      "world_core_kit": [
+        "K4",
+        "K6",
+        "K20"
+      ],
+      "synthesis_packets": [
+        "P15"
+      ],
+      "topic_palettes": [
+        "docs/GENERATION_FOUNDATION_RULES_2026-10-14.md"
+      ],
+      "owner_paths": [
+        "docs/GENERATION_FOUNDATION_RULES_2026-10-14.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "full alternatives and native contracts unread"
+      ]
+    },
+    {
+      "id": "I128",
+      "system": "units/critical parts",
+      "source": "common/units/critical_parts",
+      "family": "combat",
+      "size_signal": "1 direct / 1 recursive files; 6,949 bytes",
+      "prior_coverage": "Prior representative dossier",
+      "status": "prior_representative",
+      "section": "prior representative read",
+      "world_core_kit": [
+        "K10"
+      ],
+      "synthesis_packets": [
+        "P14"
+      ],
+      "topic_palettes": [
+        "docs/worlds/WORLD_CORE_KIT_2026-10-14.md"
+      ],
+      "owner_paths": [
+        "docs/worlds/WORLD_CORE_KIT_2026-10-14.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "full alternatives and native contracts unread"
+      ]
+    },
+    {
+      "id": "I129",
+      "system": "units/equipment",
+      "source": "common/units/equipment",
+      "family": "economy",
+      "size_signal": "46 direct / 52 recursive files; 579,148 bytes",
+      "prior_coverage": "Prior representative dossier",
+      "status": "prior_representative",
+      "section": "prior representative read",
+      "world_core_kit": [
+        "K8",
+        "K9"
+      ],
+      "synthesis_packets": [
+        "P02",
+        "P18"
+      ],
+      "topic_palettes": [
+        "docs/MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md"
+      ],
+      "owner_paths": [
+        "docs/MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "full alternatives and native contracts unread"
+      ]
+    },
+    {
+      "id": "I130",
+      "system": "units/equipment/modules",
+      "source": "common/units/equipment/modules",
+      "family": "economy",
+      "size_signal": "3 direct / 3 recursive files; 160,830 bytes",
+      "prior_coverage": "Prior representative dossier",
+      "status": "prior_representative",
+      "section": "prior representative read",
+      "world_core_kit": [
+        "K8",
+        "K9"
+      ],
+      "synthesis_packets": [
+        "P02",
+        "P18"
+      ],
+      "topic_palettes": [
+        "docs/MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md"
+      ],
+      "owner_paths": [
+        "docs/MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "full alternatives and native contracts unread"
+      ]
+    },
+    {
+      "id": "I131",
+      "system": "units/equipment/upgrades",
+      "source": "common/units/equipment/upgrades",
+      "family": "economy",
+      "size_signal": "3 direct / 3 recursive files; 6,401 bytes",
+      "prior_coverage": "Prior representative dossier",
+      "status": "prior_representative",
+      "section": "prior representative read",
+      "world_core_kit": [
+        "K8",
+        "K9"
+      ],
+      "synthesis_packets": [
+        "P02",
+        "P18"
+      ],
+      "topic_palettes": [
+        "docs/MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md"
+      ],
+      "owner_paths": [
+        "docs/MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "full alternatives and native contracts unread"
+      ]
+    },
+    {
+      "id": "I132",
+      "system": "units/names",
+      "source": "common/units/names",
+      "family": "identity",
+      "size_signal": "8 direct / 8 recursive files; 219,904 bytes",
+      "prior_coverage": "Prior representative dossier",
+      "status": "prior_representative",
+      "section": "prior representative read",
+      "world_core_kit": [
+        "K4",
+        "K6",
+        "K20"
+      ],
+      "synthesis_packets": [
+        "P15"
+      ],
+      "topic_palettes": [
+        "docs/GENERATION_FOUNDATION_RULES_2026-10-14.md"
+      ],
+      "owner_paths": [
+        "docs/GENERATION_FOUNDATION_RULES_2026-10-14.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "full alternatives and native contracts unread"
+      ]
+    },
+    {
+      "id": "I133",
+      "system": "units/names divisions",
+      "source": "common/units/names_divisions",
+      "family": "identity",
+      "size_signal": "100 direct / 100 recursive files; 1,700,106 bytes",
+      "prior_coverage": "Prior representative dossier",
+      "status": "prior_representative",
+      "section": "prior representative read",
+      "world_core_kit": [
+        "K4",
+        "K6",
+        "K20"
+      ],
+      "synthesis_packets": [
+        "P15"
+      ],
+      "topic_palettes": [
+        "docs/GENERATION_FOUNDATION_RULES_2026-10-14.md"
+      ],
+      "owner_paths": [
+        "docs/GENERATION_FOUNDATION_RULES_2026-10-14.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "full alternatives and native contracts unread"
+      ]
+    },
+    {
+      "id": "I134",
+      "system": "units/names railway guns",
+      "source": "common/units/names_railway_guns",
+      "family": "identity",
+      "size_signal": "11 direct / 11 recursive files; 7,981 bytes",
+      "prior_coverage": "Prior representative dossier",
+      "status": "prior_representative",
+      "section": "prior representative read",
+      "world_core_kit": [
+        "K4",
+        "K6",
+        "K20"
+      ],
+      "synthesis_packets": [
+        "P15"
+      ],
+      "topic_palettes": [
+        "docs/GENERATION_FOUNDATION_RULES_2026-10-14.md"
+      ],
+      "owner_paths": [
+        "docs/GENERATION_FOUNDATION_RULES_2026-10-14.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "full alternatives and native contracts unread"
+      ]
+    },
+    {
+      "id": "I135",
+      "system": "units/names ships",
+      "source": "common/units/names_ships",
+      "family": "identity",
+      "size_signal": "65 direct / 65 recursive files; 431,432 bytes",
+      "prior_coverage": "Prior representative dossier",
+      "status": "prior_representative",
+      "section": "prior representative read",
+      "world_core_kit": [
+        "K4",
+        "K6",
+        "K20"
+      ],
+      "synthesis_packets": [
+        "P15"
+      ],
+      "topic_palettes": [
+        "docs/GENERATION_FOUNDATION_RULES_2026-10-14.md"
+      ],
+      "owner_paths": [
+        "docs/GENERATION_FOUNDATION_RULES_2026-10-14.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "full alternatives and native contracts unread"
+      ]
+    },
+    {
+      "id": "I136",
+      "system": "units/unit modifiers",
+      "source": "common/units/unit_modifiers",
+      "family": "combat",
+      "size_signal": "1 direct / 1 recursive files; 4,277 bytes",
+      "prior_coverage": "Prior representative dossier",
+      "status": "prior_representative",
+      "section": "prior representative read",
+      "world_core_kit": [
+        "K10"
+      ],
+      "synthesis_packets": [
+        "P14"
+      ],
+      "topic_palettes": [
+        "docs/worlds/WORLD_CORE_KIT_2026-10-14.md"
+      ],
+      "owner_paths": [
+        "docs/worlds/WORLD_CORE_KIT_2026-10-14.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "full alternatives and native contracts unread"
+      ]
+    },
+    {
+      "id": "I137",
+      "system": "wargoals",
+      "source": "common/wargoals",
+      "family": "combat",
+      "size_signal": "1 direct / 1 recursive files; 2,981 bytes",
+      "prior_coverage": "UNDOCUMENTED semantics; inventory only",
+      "status": "unread",
+      "section": "inventory only",
+      "world_core_kit": [
+        "K10"
+      ],
+      "synthesis_packets": [
+        "P14"
+      ],
+      "topic_palettes": [
+        "docs/worlds/WORLD_CORE_KIT_2026-10-14.md"
+      ],
+      "owner_paths": [
+        "docs/worlds/WORLD_CORE_KIT_2026-10-14.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "semantics not deep-read in this pass"
+      ]
+    },
+    {
+      "id": "I138",
+      "system": "weather",
+      "source": "common/weather.txt",
+      "family": "world simulation",
+      "size_signal": "1 file; 5,606 bytes",
+      "prior_coverage": "Prior representative dossier",
+      "status": "prior_representative",
+      "section": "prior representative read",
+      "world_core_kit": [
+        "K5"
+      ],
+      "synthesis_packets": [
+        "P14"
+      ],
+      "topic_palettes": [
+        "docs/worlds/WORLD_CORE_KIT_2026-10-14.md"
+      ],
+      "owner_paths": [
+        "docs/worlds/WORLD_CORE_KIT_2026-10-14.md"
+      ],
+      "owner_coverage": "related_design_owner",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "live K1-K34 tables, PACKETS owner links and named palette sections; not runtime acceptance",
+      "remaining": [
+        "full alternatives and native contracts unread"
+      ]
+    },
+    {
+      "id": "I139",
+      "system": "events/",
+      "source": "events/",
+      "family": "events",
+      "size_signal": "see prior SYSTEM_INVENTORY",
+      "prior_coverage": "prior inventory/checkpoint",
+      "status": "prior_representative",
+      "section": "CHECKPOINT",
+      "world_core_kit": [
+        "K12"
+      ],
+      "synthesis_packets": [
+        "P10",
+        "P19"
+      ],
+      "topic_palettes": [
+        "docs/worlds/WORLD_CORE_KIT_2026-10-14.md"
+      ],
+      "owner_paths": [
+        "docs/worlds/WORLD_CORE_KIT_2026-10-14.md"
+      ],
+      "owner_coverage": "thematic_only",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "thematic K/packet route only",
+      "remaining": [
+        "bounded native/source/runtime evidence needed; see CHECKPOINT"
+      ]
+    },
+    {
+      "id": "I140",
+      "system": "history/",
+      "source": "history/",
+      "family": "world simulation",
+      "size_signal": "see prior SYSTEM_INVENTORY",
+      "prior_coverage": "prior inventory/checkpoint",
+      "status": "prior_representative",
+      "section": "CHECKPOINT",
+      "world_core_kit": [
+        "K4"
+      ],
+      "synthesis_packets": [
+        "P15"
+      ],
+      "topic_palettes": [
+        "docs/worlds/WORLD_CORE_KIT_2026-10-14.md"
+      ],
+      "owner_paths": [
+        "docs/worlds/WORLD_CORE_KIT_2026-10-14.md"
+      ],
+      "owner_coverage": "thematic_only",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "thematic K/packet route only",
+      "remaining": [
+        "bounded native/source/runtime evidence needed; see CHECKPOINT"
+      ]
+    },
+    {
+      "id": "I141",
+      "system": "localisation/english/",
+      "source": "localisation/english/",
+      "family": "UI",
+      "size_signal": "see prior SYSTEM_INVENTORY",
+      "prior_coverage": "prior inventory/checkpoint",
+      "status": "prior_representative",
+      "section": "CHECKPOINT",
+      "world_core_kit": [
+        "K14"
+      ],
+      "synthesis_packets": [
+        "P21"
+      ],
+      "topic_palettes": [
+        "docs/worlds/WORLD_CORE_KIT_2026-10-14.md"
+      ],
+      "owner_paths": [
+        "docs/worlds/WORLD_CORE_KIT_2026-10-14.md"
+      ],
+      "owner_coverage": "thematic_only",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "thematic K/packet route only",
+      "remaining": [
+        "bounded native/source/runtime evidence needed; see CHECKPOINT"
+      ]
+    },
+    {
+      "id": "I142",
+      "system": "interface/",
+      "source": "interface/",
+      "family": "UI",
+      "size_signal": "see prior SYSTEM_INVENTORY",
+      "prior_coverage": "prior inventory/checkpoint",
+      "status": "prior_representative",
+      "section": "CHECKPOINT",
+      "world_core_kit": [
+        "K14"
+      ],
+      "synthesis_packets": [
+        "P01"
+      ],
+      "topic_palettes": [
+        "docs/worlds/WORLD_CORE_KIT_2026-10-14.md"
+      ],
+      "owner_paths": [
+        "docs/worlds/WORLD_CORE_KIT_2026-10-14.md"
+      ],
+      "owner_coverage": "thematic_only",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "thematic K/packet route only",
+      "remaining": [
+        "bounded native/source/runtime evidence needed; see CHECKPOINT"
+      ]
+    },
+    {
+      "id": "I143",
+      "system": "tutorial/",
+      "source": "tutorial/",
+      "family": "UI",
+      "size_signal": "see prior SYSTEM_INVENTORY",
+      "prior_coverage": "prior inventory/checkpoint",
+      "status": "prior_representative",
+      "section": "CHECKPOINT",
+      "world_core_kit": [
+        "K14"
+      ],
+      "synthesis_packets": [
+        "P01"
+      ],
+      "topic_palettes": [
+        "docs/worlds/WORLD_CORE_KIT_2026-10-14.md"
+      ],
+      "owner_paths": [
+        "docs/worlds/WORLD_CORE_KIT_2026-10-14.md"
+      ],
+      "owner_coverage": "thematic_only",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "thematic K/packet route only",
+      "remaining": [
+        "bounded native/source/runtime evidence needed; see CHECKPOINT"
+      ]
+    },
+    {
+      "id": "I144",
+      "system": "script/",
+      "source": "script/",
+      "family": "authoring",
+      "size_signal": "see prior SYSTEM_INVENTORY",
+      "prior_coverage": "prior inventory/checkpoint",
+      "status": "prior_representative",
+      "section": "CHECKPOINT",
+      "world_core_kit": [
+        "K18"
+      ],
+      "synthesis_packets": [
+        "P16"
+      ],
+      "topic_palettes": [
+        "docs/worlds/WORLD_CORE_KIT_2026-10-14.md"
+      ],
+      "owner_paths": [
+        "docs/worlds/WORLD_CORE_KIT_2026-10-14.md"
+      ],
+      "owner_coverage": "thematic_only",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "thematic K/packet route only",
+      "remaining": [
+        "bounded native/source/runtime evidence needed; see CHECKPOINT"
+      ]
+    },
+    {
+      "id": "I145",
+      "system": "tests/",
+      "source": "tests/",
+      "family": "authoring",
+      "size_signal": "see prior SYSTEM_INVENTORY",
+      "prior_coverage": "prior inventory/checkpoint",
+      "status": "prior_representative",
+      "section": "CHECKPOINT",
+      "world_core_kit": [
+        "K18"
+      ],
+      "synthesis_packets": [
+        "P16"
+      ],
+      "topic_palettes": [
+        "docs/worlds/WORLD_CORE_KIT_2026-10-14.md"
+      ],
+      "owner_paths": [
+        "docs/worlds/WORLD_CORE_KIT_2026-10-14.md"
+      ],
+      "owner_coverage": "thematic_only",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "thematic K/packet route only",
+      "remaining": [
+        "bounded native/source/runtime evidence needed; see CHECKPOINT"
+      ]
+    },
+    {
+      "id": "I146",
+      "system": "documentation/",
+      "source": "documentation/",
+      "family": "authoring",
+      "size_signal": "see prior SYSTEM_INVENTORY",
+      "prior_coverage": "prior inventory/checkpoint",
+      "status": "representative_read",
+      "section": "CHECKPOINT",
+      "world_core_kit": [
+        "K18"
+      ],
+      "synthesis_packets": [
+        "P16"
+      ],
+      "topic_palettes": [
+        "docs/worlds/WORLD_CORE_KIT_2026-10-14.md"
+      ],
+      "owner_paths": [
+        "docs/worlds/WORLD_CORE_KIT_2026-10-14.md"
+      ],
+      "owner_coverage": "thematic_only",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "thematic K/packet route only",
+      "remaining": [
+        "bounded native/source/runtime evidence needed; see CHECKPOINT"
+      ]
+    },
+    {
+      "id": "I147",
+      "system": "map/",
+      "source": "map/",
+      "family": "world simulation",
+      "size_signal": "see prior SYSTEM_INVENTORY",
+      "prior_coverage": "prior inventory/checkpoint",
+      "status": "unread",
+      "section": "CHECKPOINT",
+      "world_core_kit": [
+        "K5"
+      ],
+      "synthesis_packets": [
+        "P18"
+      ],
+      "topic_palettes": [
+        "docs/worlds/WORLD_CORE_KIT_2026-10-14.md"
+      ],
+      "owner_paths": [
+        "docs/worlds/WORLD_CORE_KIT_2026-10-14.md"
+      ],
+      "owner_coverage": "thematic_only",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "thematic K/packet route only",
+      "remaining": [
+        "bounded native/source/runtime evidence needed; see CHECKPOINT"
+      ]
+    },
+    {
+      "id": "I148",
+      "system": "sound/",
+      "source": "sound/",
+      "family": "UI",
+      "size_signal": "see prior SYSTEM_INVENTORY",
+      "prior_coverage": "prior inventory/checkpoint",
+      "status": "unread",
+      "section": "CHECKPOINT",
+      "world_core_kit": [
+        "K14"
+      ],
+      "synthesis_packets": [
+        "P21"
+      ],
+      "topic_palettes": [
+        "docs/worlds/WORLD_CORE_KIT_2026-10-14.md"
+      ],
+      "owner_paths": [
+        "docs/worlds/WORLD_CORE_KIT_2026-10-14.md"
+      ],
+      "owner_coverage": "thematic_only",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "thematic K/packet route only",
+      "remaining": [
+        "bounded native/source/runtime evidence needed; see CHECKPOINT"
+      ]
+    },
+    {
+      "id": "I149",
+      "system": "native combat/search/supply/modifier evaluators",
+      "source": "native combat/search/supply/modifier evaluators",
+      "family": "combat",
+      "size_signal": "see prior SYSTEM_INVENTORY",
+      "prior_coverage": "prior inventory/checkpoint",
+      "status": "unread_native",
+      "section": "CHECKPOINT",
+      "world_core_kit": [
+        "K10"
+      ],
+      "synthesis_packets": [],
+      "topic_palettes": [
+        "docs/worlds/WORLD_CORE_KIT_2026-10-14.md"
+      ],
+      "owner_paths": [
+        "docs/worlds/WORLD_CORE_KIT_2026-10-14.md"
+      ],
+      "owner_coverage": "thematic_only",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "thematic K/packet route only",
+      "remaining": [
+        "bounded native/source/runtime evidence needed; see CHECKPOINT"
+      ]
+    },
+    {
+      "id": "I150",
+      "system": "native interpreter/tick/order/RNG",
+      "source": "native interpreter/tick/order/RNG",
+      "family": "authoring",
+      "size_signal": "see prior SYSTEM_INVENTORY",
+      "prior_coverage": "prior inventory/checkpoint",
+      "status": "unread_native",
+      "section": "CHECKPOINT",
+      "world_core_kit": [
+        "K18"
+      ],
+      "synthesis_packets": [
+        "P13",
+        "P24"
+      ],
+      "topic_palettes": [
+        "docs/worlds/WORLD_CORE_KIT_2026-10-14.md"
+      ],
+      "owner_paths": [
+        "docs/worlds/WORLD_CORE_KIT_2026-10-14.md"
+      ],
+      "owner_coverage": "thematic_only",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "thematic K/packet route only",
+      "remaining": [
+        "bounded native/source/runtime evidence needed; see CHECKPOINT"
+      ]
+    },
+    {
+      "id": "I151",
+      "system": "native serializer/migration/autosave",
+      "source": "native serializer/migration/autosave",
+      "family": "save",
+      "size_signal": "see prior SYSTEM_INVENTORY",
+      "prior_coverage": "prior inventory/checkpoint",
+      "status": "unread_native",
+      "section": "CHECKPOINT",
+      "world_core_kit": [
+        "K18"
+      ],
+      "synthesis_packets": [
+        "P16",
+        "P23",
+        "P24"
+      ],
+      "topic_palettes": [
+        "docs/ENGINE_SAVES_AND_SCALE_REVIEW_2026-10-11.md"
+      ],
+      "owner_paths": [
+        "docs/ENGINE_SAVES_AND_SCALE_REVIEW_2026-10-11.md"
+      ],
+      "owner_coverage": "thematic_only",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "thematic K/packet route only",
+      "remaining": [
+        "bounded native/source/runtime evidence needed; see CHECKPOINT"
+      ]
+    },
+    {
+      "id": "I152",
+      "system": "native mod loader/DLC restoration",
+      "source": "native mod loader/DLC restoration",
+      "family": "save",
+      "size_signal": "see prior SYSTEM_INVENTORY",
+      "prior_coverage": "prior inventory/checkpoint",
+      "status": "unread_native",
+      "section": "CHECKPOINT",
+      "world_core_kit": [
+        "K18"
+      ],
+      "synthesis_packets": [
+        "P22"
+      ],
+      "topic_palettes": [
+        "docs/ENGINE_SAVES_AND_SCALE_REVIEW_2026-10-11.md"
+      ],
+      "owner_paths": [
+        "docs/ENGINE_SAVES_AND_SCALE_REVIEW_2026-10-11.md"
+      ],
+      "owner_coverage": "thematic_only",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "thematic K/packet route only",
+      "remaining": [
+        "bounded native/source/runtime evidence needed; see CHECKPOINT"
+      ]
+    },
+    {
+      "id": "I153",
+      "system": "bundled browser/CEF/SDK/TBB/launcher/crash reporter",
+      "source": "bundled browser/CEF/SDK/TBB/launcher/crash reporter",
+      "family": "supporting build",
+      "size_signal": "see prior SYSTEM_INVENTORY",
+      "prior_coverage": "prior inventory/checkpoint",
+      "status": "inventory_only",
+      "section": "CHECKPOINT",
+      "world_core_kit": [
+        "K18"
+      ],
+      "synthesis_packets": [],
+      "topic_palettes": [
+        "docs/worlds/WORLD_CORE_KIT_2026-10-14.md"
+      ],
+      "owner_paths": [
+        "docs/worlds/WORLD_CORE_KIT_2026-10-14.md"
+      ],
+      "owner_coverage": "thematic_only",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "thematic K/packet route only",
+      "remaining": [
+        "bounded native/source/runtime evidence needed; see CHECKPOINT"
+      ]
+    },
+    {
+      "id": "I154",
+      "system": "compiled shaders/textures/music/portraits",
+      "source": "compiled shaders/textures/music/portraits",
+      "family": "UI",
+      "size_signal": "see prior SYSTEM_INVENTORY",
+      "prior_coverage": "prior inventory/checkpoint",
+      "status": "inventory_only",
+      "section": "CHECKPOINT",
+      "world_core_kit": [
+        "K14"
+      ],
+      "synthesis_packets": [],
+      "topic_palettes": [
+        "docs/worlds/WORLD_CORE_KIT_2026-10-14.md"
+      ],
+      "owner_paths": [
+        "docs/worlds/WORLD_CORE_KIT_2026-10-14.md"
+      ],
+      "owner_coverage": "thematic_only",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "thematic K/packet route only",
+      "remaining": [
+        "bounded native/source/runtime evidence needed; see CHECKPOINT"
+      ]
+    },
+    {
+      "id": "I155",
+      "system": "DLC descriptors",
+      "source": "DLC descriptors",
+      "family": "authoring",
+      "size_signal": "see prior SYSTEM_INVENTORY",
+      "prior_coverage": "prior inventory/checkpoint",
+      "status": "prior_representative",
+      "section": "CHECKPOINT",
+      "world_core_kit": [
+        "K17",
+        "K18"
+      ],
+      "synthesis_packets": [
+        "P22"
+      ],
+      "topic_palettes": [
+        "docs/worlds/WORLD_CORE_KIT_2026-10-14.md"
+      ],
+      "owner_paths": [
+        "docs/worlds/WORLD_CORE_KIT_2026-10-14.md"
+      ],
+      "owner_coverage": "thematic_only",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "thematic K/packet route only",
+      "remaining": [
+        "bounded native/source/runtime evidence needed; see CHECKPOINT"
+      ]
+    },
+    {
+      "id": "I156",
+      "system": "offline wall-clock handling",
+      "source": "offline wall-clock handling",
+      "family": "time",
+      "size_signal": "see prior SYSTEM_INVENTORY",
+      "prior_coverage": "prior inventory/checkpoint",
+      "status": "unread_native",
+      "section": "CHECKPOINT",
+      "world_core_kit": [
+        "K18"
+      ],
+      "synthesis_packets": [
+        "P13"
+      ],
+      "topic_palettes": [
+        "docs/worlds/WORLD_CORE_KIT_2026-10-14.md"
+      ],
+      "owner_paths": [
+        "docs/worlds/WORLD_CORE_KIT_2026-10-14.md"
+      ],
+      "owner_coverage": "thematic_only",
+      "dedicated_owner_gap": false,
+      "owner_mapping_evidence": "thematic K/packet route only",
+      "remaining": [
+        "bounded native/source/runtime evidence needed; see CHECKPOINT"
+      ]
+    }
+  ],
+  "deep_systems": [
+    {
+      "id": "S01",
+      "name": "Industrial organizations learn through assigned work",
+      "family": "economy",
+      "world_core_kit": [
+        "K7",
+        "K9",
+        "K11"
+      ],
+      "synthesis_packets": [
+        "P02",
+        "P04",
+        "P06",
+        "P09",
+        "P16"
+      ],
+      "owner_paths": [
+        "docs/MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md",
+        "docs/TECHNOLOGY_AND_PROGRESSION.md"
+      ],
+      "dedicated_owner_gap": false
+    },
+    {
+      "id": "S02",
+      "name": "Faction constitutions, shared goals and contribution",
+      "family": "social",
+      "world_core_kit": [
+        "K7",
+        "K12"
+      ],
+      "synthesis_packets": [
+        "P07",
+        "P10",
+        "P12",
+        "P16"
+      ],
+      "owner_paths": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/worlds/NONHUMAN_SOCIETY_LAW_AND_ECONOMY_2026-10-14.md"
+      ],
+      "dedicated_owner_gap": false
+    },
+    {
+      "id": "S03",
+      "name": "Autonomy is a bundle of rights and transfers",
+      "family": "social",
+      "world_core_kit": [
+        "K7",
+        "K16"
+      ],
+      "synthesis_packets": [
+        "P07",
+        "P14",
+        "P18"
+      ],
+      "owner_paths": [
+        "docs/worlds/NONHUMAN_SOCIETY_LAW_AND_ECONOMY_2026-10-14.md",
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md"
+      ],
+      "dedicated_owner_gap": true
+    },
+    {
+      "id": "S04",
+      "name": "Occupation laws require ongoing material support",
+      "family": "social",
+      "world_core_kit": [
+        "K7",
+        "K8",
+        "K9"
+      ],
+      "synthesis_packets": [
+        "P02",
+        "P07",
+        "P18"
+      ],
+      "owner_paths": [
+        "docs/worlds/NONHUMAN_SOCIETY_LAW_AND_ECONOMY_2026-10-14.md",
+        "docs/MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md"
+      ],
+      "dedicated_owner_gap": false
+    },
+    {
+      "id": "S05",
+      "name": "Resistance, compliance and causal local incidents",
+      "family": "world simulation",
+      "world_core_kit": [
+        "K7",
+        "K8",
+        "K12",
+        "K29",
+        "K32"
+      ],
+      "synthesis_packets": [
+        "P10",
+        "P12",
+        "P13"
+      ],
+      "owner_paths": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/ENGINE_EXPANSION.md"
+      ],
+      "dedicated_owner_gap": false
+    },
+    {
+      "id": "S06",
+      "name": "Agency departments trade capacity for capabilities",
+      "family": "knowledge",
+      "world_core_kit": [
+        "K7",
+        "K9",
+        "K11"
+      ],
+      "synthesis_packets": [
+        "P04",
+        "P06",
+        "P07"
+      ],
+      "owner_paths": [
+        "docs/TECHNOLOGY_AND_PROGRESSION.md",
+        "docs/MEANS_AND_APPRAISAL.md"
+      ],
+      "dedicated_owner_gap": false
+    },
+    {
+      "id": "S07",
+      "name": "Information networks and targeted access tokens",
+      "family": "knowledge",
+      "world_core_kit": [
+        "K5",
+        "K7",
+        "K11",
+        "K23"
+      ],
+      "synthesis_packets": [
+        "P04",
+        "P11",
+        "P20"
+      ],
+      "owner_paths": [
+        "docs/MEANS_AND_APPRAISAL.md",
+        "docs/worlds/DIALOGUE_AND_INTERACTIONS.md"
+      ],
+      "dedicated_owner_gap": true
+    },
+    {
+      "id": "S08",
+      "name": "Scientists have roles, specialties and support work",
+      "family": "knowledge",
+      "world_core_kit": [
+        "K6",
+        "K9",
+        "K11"
+      ],
+      "synthesis_packets": [
+        "P03",
+        "P06",
+        "P09",
+        "P15"
+      ],
+      "owner_paths": [
+        "docs/worlds/SKILL_MECHANISMS_AND_MEANS_2026-10-13.md",
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md"
+      ],
+      "dedicated_owner_gap": false
+    },
+    {
+      "id": "S09",
+      "name": "Leader learning distinguishes practice from appointments",
+      "family": "companions",
+      "world_core_kit": [
+        "K6",
+        "K7",
+        "K10"
+      ],
+      "synthesis_packets": [
+        "P06",
+        "P09",
+        "P15"
+      ],
+      "owner_paths": [
+        "docs/SKILLS_AND_TALENTS.md",
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md"
+      ],
+      "dedicated_owner_gap": false
+    },
+    {
+      "id": "S10",
+      "name": "Climate acclimatization is separate from terrain mastery",
+      "family": "body",
+      "world_core_kit": [
+        "K2",
+        "K5",
+        "K6",
+        "K10",
+        "K22",
+        "K28"
+      ],
+      "synthesis_packets": [
+        "P09",
+        "P14",
+        "P17"
+      ],
+      "owner_paths": [
+        "docs/HUNGER_AND_BODILY_NEEDS_CONSIDERATIONS_2026-10-13.md",
+        "docs/SKILLS_AND_TALENTS.md",
+        "docs/worlds/WORLD_CORE_KIT_2026-10-14.md"
+      ],
+      "dedicated_owner_gap": false
+    },
+    {
+      "id": "S11",
+      "name": "Raids prepare, launch and resolve distinct consequences",
+      "family": "events",
+      "world_core_kit": [
+        "K5",
+        "K6",
+        "K10",
+        "K12"
+      ],
+      "synthesis_packets": [
+        "P04",
+        "P06",
+        "P10",
+        "P18"
+      ],
+      "owner_paths": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/MEANS_AND_APPRAISAL.md"
+      ],
+      "dedicated_owner_gap": false
+    },
+    {
+      "id": "S12",
+      "name": "Negotiated settlements use a staged world view",
+      "family": "social",
+      "world_core_kit": [
+        "K7",
+        "K12",
+        "K16"
+      ],
+      "synthesis_packets": [
+        "P12",
+        "P18",
+        "P19",
+        "P24"
+      ],
+      "owner_paths": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/worlds/DIALOGUE_AND_INTERACTIONS.md"
+      ],
+      "dedicated_owner_gap": true
+    },
+    {
+      "id": "S13",
+      "name": "Awards separate service effects from profile milestones",
+      "family": "identity",
+      "world_core_kit": [
+        "K6",
+        "K7",
+        "K16",
+        "K18"
+      ],
+      "synthesis_packets": [
+        "P12",
+        "P15",
+        "P16",
+        "P23"
+      ],
+      "owner_paths": [
+        "docs/LIFE_SIM_NORTH_STAR.md",
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/ENGINE_SAVES_AND_SCALE_REVIEW_2026-10-11.md"
+      ],
+      "dedicated_owner_gap": true
+    },
+    {
+      "id": "S14",
+      "name": "NPC scorers select targets before role-specific designs",
+      "family": "AI",
+      "world_core_kit": [
+        "K6",
+        "K9",
+        "K10"
+      ],
+      "synthesis_packets": [
+        "P08",
+        "P15",
+        "P25"
+      ],
+      "owner_paths": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/ENGINE_EXPANSION.md"
+      ],
+      "dedicated_owner_gap": false
+    },
+    {
+      "id": "S15",
+      "name": "Continuous focus is paid maintained intent",
+      "family": "time",
+      "world_core_kit": [
+        "K7",
+        "K8",
+        "K13",
+        "K26"
+      ],
+      "synthesis_packets": [
+        "P06",
+        "P08",
+        "P13"
+      ],
+      "owner_paths": [
+        "docs/ENGINE_EXPANSION.md",
+        "docs/LIFE_SIM_NORTH_STAR.md"
+      ],
+      "dedicated_owner_gap": false
+    }
+  ]
+}

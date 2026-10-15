@@ -1,0 +1,248 @@
+{
+  "schema_version": 1,
+  "lane": "mw-kingdom-hearts",
+  "dispatch_date": "2026-10-14",
+  "status": "PARTIAL",
+  "source_commit": "7a3b945c538d32c6a285128c98aefba093f52ceb",
+  "evidence_legend": {
+    "shown": "Inspected bytes/source, not exercised gameplay",
+    "stated": "Format docs or authored native text",
+    "inferred": "Interpretation/proposal"
+  },
+  "findings": [
+    {
+      "id": "F1",
+      "evidence": "shown",
+      "claim": "Conditional world/area/story member rows project local actors without defining character growth.",
+      "sources": [
+        "S06"
+      ],
+      "kit": [
+        "K2",
+        "K6",
+        "K14",
+        "K15",
+        "K22"
+      ],
+      "synthesis_packets": [
+        "P14",
+        "P16"
+      ]
+    },
+    {
+      "id": "F2",
+      "evidence": "shown",
+      "claim": "Local model bindings, command form masks and mission flags are separate datasets.",
+      "sources": [
+        "S06",
+        "S07",
+        "S12"
+      ],
+      "kit": [
+        "K2",
+        "K3",
+        "K10",
+        "K13"
+      ],
+      "synthesis_packets": [
+        "P04",
+        "P14"
+      ]
+    },
+    {
+      "id": "F3",
+      "evidence": "shown",
+      "claim": "13 characters x 99 levels, 45 form rows, 179 bonus rows and four summon definitions in native KH2 tables.",
+      "sources": [
+        "S08"
+      ],
+      "kit": [
+        "K3",
+        "K9",
+        "K18"
+      ],
+      "synthesis_packets": [
+        "P05",
+        "P16"
+      ]
+    },
+    {
+      "id": "F4",
+      "evidence": "stated",
+      "claim": "Atlantica return text asks for drive capacity 5, Magnera and Thundaga. Exact evaluator unread.",
+      "sources": [
+        "S14",
+        "S15"
+      ],
+      "kit": [
+        "K3",
+        "K5",
+        "K12",
+        "K13"
+      ],
+      "synthesis_packets": [
+        "P03",
+        "P04",
+        "P14"
+      ]
+    },
+    {
+      "id": "F5",
+      "evidence": "shown",
+      "claim": "World progression selects changed room programs; LM flag 34 changes room 2 EVT program to 2.",
+      "sources": [
+        "S09",
+        "S10"
+      ],
+      "kit": [
+        "K5",
+        "K12",
+        "K16",
+        "K29"
+      ],
+      "synthesis_packets": [
+        "P10",
+        "P12"
+      ]
+    },
+    {
+      "id": "F6",
+      "evidence": "shown",
+      "claim": "749 room scripts, 951 event records and 22 English message lists decoded; text and event predicates are different evidence.",
+      "sources": [
+        "S10",
+        "S11"
+      ],
+      "kit": [
+        "K6",
+        "K12",
+        "K20",
+        "K23"
+      ],
+      "synthesis_packets": [
+        "P19",
+        "P20",
+        "P21"
+      ]
+    },
+    {
+      "id": "F7",
+      "evidence": "stated",
+      "claim": "Clear Gummi routes to connect worlds; native worldpoint has 54 populated slots of 512. Full route graph unread.",
+      "sources": [
+        "S09",
+        "S14"
+      ],
+      "kit": [
+        "K4",
+        "K5",
+        "K11",
+        "K15"
+      ],
+      "synthesis_packets": [
+        "P04",
+        "P05"
+      ]
+    },
+    {
+      "id": "F8",
+      "evidence": "shown",
+      "claim": "239 KH1 room resource lists indexed, including local Atlantica/Halloween cast variants. Executable rules remain partial.",
+      "sources": [
+        "S04"
+      ],
+      "kit": [
+        "K1",
+        "K6",
+        "K14",
+        "K22"
+      ],
+      "synthesis_packets": [
+        "P16"
+      ]
+    },
+    {
+      "id": "F9",
+      "evidence": "shown",
+      "claim": "339 selected AI/mission BDX entries decode successfully; musical mission calls completion/failure traps from signals. Trap bodies unread.",
+      "sources": [
+        "S12"
+      ],
+      "kit": [
+        "K10",
+        "K12",
+        "K13",
+        "K34"
+      ],
+      "synthesis_packets": [
+        "P10",
+        "P19"
+      ]
+    },
+    {
+      "id": "F10",
+      "evidence": "inferred",
+      "claim": "A stable traveler benefits from separate earned state, local manifestation, permission and retained episode state. This is a proposal, not a YAIRPG source change.",
+      "sources": [
+        "S06",
+        "S07",
+        "S08",
+        "S13"
+      ],
+      "kit": [
+        "K2",
+        "K3",
+        "K15",
+        "K18"
+      ],
+      "synthesis_packets": [
+        "P04",
+        "P05",
+        "P14",
+        "P16"
+      ]
+    }
+  ],
+  "proposals": [
+    {
+      "id": "KH-P01",
+      "status": "PROPOSAL",
+      "global_packet_added": false
+    },
+    {
+      "id": "KH-P02",
+      "status": "PROPOSAL",
+      "global_packet_added": false
+    },
+    {
+      "id": "KH-P03",
+      "status": "PROPOSAL",
+      "global_packet_added": false
+    },
+    {
+      "id": "KH-P04",
+      "status": "PROPOSAL",
+      "global_packet_added": false
+    },
+    {
+      "id": "KH-P05",
+      "status": "PROPOSAL",
+      "global_packet_added": false
+    },
+    {
+      "id": "KH-P06",
+      "status": "PROPOSAL",
+      "global_packet_added": false
+    },
+    {
+      "id": "KH-P07",
+      "status": "PROPOSAL",
+      "global_packet_added": false
+    },
+    {
+      "id": "KH-P08",
+      "status": "PROPOSAL",
+      "global_packet_added": false
+    }
+  ]
+}

@@ -1,0 +1,328 @@
+{
+  "status": "PARTIAL",
+  "findings": [
+    {
+      "id": "DS01",
+      "title": "Making an item: materials, process and finish",
+      "status": "deep_bounded",
+      "evidence": "shown source/data; interpretation inferred; native unverified",
+      "primary_source": "GameLogic.dll/Academagia.GameSystems/ArtificingSystem.cs",
+      "digest": "SYSTEMS.md#ds01--making-an-item-materials-process-and-finish",
+      "world_core_kit": [
+        "K9",
+        "K13"
+      ],
+      "synthesis_packets": [
+        "P02",
+        "P18",
+        "P17"
+      ],
+      "topic_owners": [
+        "docs/MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md",
+        "docs/PROCEDURAL_CRAFTING_AND_CONSUMABLES_CONSIDERATIONS_2026-10-14.md",
+        "docs/WEAPONCRAFT_RUNES_AND_INSCRIPTION_CONSIDERATIONS_2026-10-14.md"
+      ]
+    },
+    {
+      "id": "DS02",
+      "title": "Enchantment: fit, stored components and manufactured abilities",
+      "status": "deep_bounded",
+      "evidence": "shown source/data; interpretation inferred; native unverified",
+      "primary_source": "GameLogic.dll/Academagia.GameSystems/EnchantSystem.cs",
+      "digest": "SYSTEMS.md#ds02--enchantment-fit-stored-components-and-manufactured-abilities",
+      "world_core_kit": [
+        "K9",
+        "K13"
+      ],
+      "synthesis_packets": [
+        "P02",
+        "P18",
+        "P17"
+      ],
+      "topic_owners": [
+        "docs/MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md",
+        "docs/PROCEDURAL_CRAFTING_AND_CONSUMABLES_CONSIDERATIONS_2026-10-14.md",
+        "docs/WEAPONCRAFT_RUNES_AND_INSCRIPTION_CONSIDERATIONS_2026-10-14.md"
+      ]
+    },
+    {
+      "id": "DS03",
+      "title": "Familiars: an actual actor with a bond",
+      "status": "deep_bounded",
+      "evidence": "shown source/data; interpretation inferred; native unverified",
+      "primary_source": "GameLogic.dll/Academagia.GameSystems/FamiliarSystem.cs",
+      "digest": "SYSTEMS.md#ds03--familiars-an-actual-actor-with-a-bond",
+      "world_core_kit": [
+        "K6",
+        "K3"
+      ],
+      "synthesis_packets": [
+        "P06",
+        "P09"
+      ],
+      "topic_owners": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/LIFE_SIM_NORTH_STAR.md"
+      ]
+    },
+    {
+      "id": "DS04",
+      "title": "Creation: background choices execute real effects",
+      "status": "deep_bounded",
+      "evidence": "shown source/data; interpretation inferred; native unverified",
+      "primary_source": "GameLogic.dll/Academagia.GameSystems/CharacterCreationSystem.cs",
+      "digest": "SYSTEMS.md#ds04--creation-background-choices-execute-real-effects",
+      "world_core_kit": [
+        "K4",
+        "K6"
+      ],
+      "synthesis_packets": [
+        "P15",
+        "P05"
+      ],
+      "topic_owners": [
+        "docs/LIFE_SIM_NORTH_STAR.md",
+        "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md",
+        "docs/STARTS_ENDINGS_AND_RANDOMNESS_PALETTE.md"
+      ]
+    },
+    {
+      "id": "DS05",
+      "title": "Gifts: preference, refusal and custody",
+      "status": "deep_bounded",
+      "evidence": "shown source/data; interpretation inferred; native unverified",
+      "primary_source": "GameLogic.dll/Academagia.GameSystems/GiftSystem.cs",
+      "digest": "SYSTEMS.md#ds05--gifts-preference-refusal-and-custody",
+      "world_core_kit": [
+        "K6",
+        "K7"
+      ],
+      "synthesis_packets": [
+        "P07",
+        "P06",
+        "P19"
+      ],
+      "topic_owners": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/worlds/DIALOGUE_AND_INTERACTIONS.md"
+      ]
+    },
+    {
+      "id": "DS06",
+      "title": "Emotions: separate entry, exit and effect lifetime",
+      "status": "deep_bounded",
+      "evidence": "shown source/data; interpretation inferred; native unverified",
+      "primary_source": "GameLogic.dll/Academagia.GameSystems/EmotionSystem.cs",
+      "digest": "SYSTEMS.md#ds06--emotions-separate-entry-exit-and-effect-lifetime",
+      "world_core_kit": [
+        "K6",
+        "K8"
+      ],
+      "synthesis_packets": [
+        "P17",
+        "P25"
+      ],
+      "topic_owners": [
+        "docs/LIFE_SIM_NORTH_STAR.md",
+        "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md",
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md"
+      ]
+    },
+    {
+      "id": "DS07",
+      "title": "Astrology: persistent cycles plus saved daily noise",
+      "status": "deep_bounded",
+      "evidence": "shown source/data; interpretation inferred; native unverified",
+      "primary_source": "GameLogic.dll/Academagia.GameSystems/AstrologySystem.cs",
+      "digest": "SYSTEMS.md#ds07--astrology-persistent-cycles-plus-saved-daily-noise",
+      "world_core_kit": [
+        "K2",
+        "K5",
+        "K8",
+        "K12"
+      ],
+      "synthesis_packets": [
+        "P13",
+        "P10",
+        "P14"
+      ],
+      "topic_owners": [
+        "docs/LIFE_SIM_NORTH_STAR.md",
+        "docs/TIMELINES_AND_DIVERGENCE.md",
+        "docs/worlds/WORLD_CORE_KIT_2026-10-14.md"
+      ]
+    },
+    {
+      "id": "DS08",
+      "title": "Weather: daily memory and authored overrides",
+      "status": "deep_bounded",
+      "evidence": "shown source/data; interpretation inferred; native unverified",
+      "primary_source": "GameLogic.dll/Academagia.GameSystems/WeatherSystem.cs",
+      "digest": "SYSTEMS.md#ds08--weather-daily-memory-and-authored-overrides",
+      "world_core_kit": [
+        "K2",
+        "K5",
+        "K8",
+        "K12"
+      ],
+      "synthesis_packets": [
+        "P13",
+        "P10",
+        "P14"
+      ],
+      "topic_owners": [
+        "docs/LIFE_SIM_NORTH_STAR.md",
+        "docs/TIMELINES_AND_DIVERGENCE.md",
+        "docs/worlds/WORLD_CORE_KIT_2026-10-14.md"
+      ]
+    },
+    {
+      "id": "DS09",
+      "title": "Shops and delayed delivery",
+      "status": "deep_bounded",
+      "evidence": "shown source/data; interpretation inferred; native unverified",
+      "primary_source": "GameLogic.dll/Academagia.GameSystems/PurchaseSystem.cs",
+      "digest": "SYSTEMS.md#ds09--shops-and-delayed-delivery",
+      "world_core_kit": [
+        "K8",
+        "K9"
+      ],
+      "synthesis_packets": [
+        "P18",
+        "P02"
+      ],
+      "topic_owners": [
+        "docs/MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md",
+        "docs/MEANS_AND_APPRAISAL.md"
+      ]
+    },
+    {
+      "id": "DS10",
+      "title": "Charges: current amount, capacity and use history",
+      "status": "deep_bounded",
+      "evidence": "shown source/data; interpretation inferred; native unverified",
+      "primary_source": "GameLogic.dll/Academagia.GameSystems/ChargeSystem.cs",
+      "digest": "SYSTEMS.md#ds10--charges-current-amount-capacity-and-use-history",
+      "world_core_kit": [
+        "K3",
+        "K13"
+      ],
+      "synthesis_packets": [
+        "P04",
+        "P09",
+        "P17"
+      ],
+      "topic_owners": [
+        "docs/worlds/ABILITY_AUTHORING.md",
+        "docs/ENGINE_EXPANSION.md"
+      ]
+    },
+    {
+      "id": "DS11",
+      "title": "Ability and effect lifetime: waiting is a real state",
+      "status": "deep_bounded",
+      "evidence": "shown source/data; interpretation inferred; native unverified",
+      "primary_source": "GameLogic.dll/Academagia.GameSystems/AbilitySystem.cs",
+      "digest": "SYSTEMS.md#ds11--ability-and-effect-lifetime-waiting-is-a-real-state",
+      "world_core_kit": [
+        "K3",
+        "K13"
+      ],
+      "synthesis_packets": [
+        "P04",
+        "P09",
+        "P17"
+      ],
+      "topic_owners": [
+        "docs/worlds/ABILITY_AUTHORING.md",
+        "docs/ENGINE_EXPANSION.md"
+      ]
+    },
+    {
+      "id": "DS12",
+      "title": "Vendetta: entry selector, directed offenses and symmetric conflict",
+      "status": "deep_bounded",
+      "evidence": "shown source/data; interpretation inferred; native unverified",
+      "primary_source": "GameLogic.dll/Academagia.GameSystems/VendettaSystem.cs",
+      "digest": "SYSTEMS.md#ds12--vendetta-entry-selector-directed-offenses-and-symmetric-conflict",
+      "world_core_kit": [
+        "K6",
+        "K7"
+      ],
+      "synthesis_packets": [
+        "P07",
+        "P06",
+        "P19"
+      ],
+      "topic_owners": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/worlds/DIALOGUE_AND_INTERACTIONS.md"
+      ]
+    },
+    {
+      "id": "DS13",
+      "title": "Merit rewards: a shared race with tie handling",
+      "status": "deep_bounded",
+      "evidence": "shown source/data; interpretation inferred; native unverified",
+      "primary_source": "GameLogic.dll/Academagia.GameSystems/CompeteSystem.cs",
+      "digest": "SYSTEMS.md#ds13--merit-rewards-a-shared-race-with-tie-handling",
+      "world_core_kit": [
+        "K6",
+        "K7"
+      ],
+      "synthesis_packets": [
+        "P07",
+        "P06",
+        "P19"
+      ],
+      "topic_owners": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/worlds/DIALOGUE_AND_INTERACTIONS.md"
+      ]
+    },
+    {
+      "id": "DS14",
+      "title": "Knowledge: revelation, temporary information and leverage",
+      "status": "deep_bounded",
+      "evidence": "shown source/data; interpretation inferred; native unverified",
+      "primary_source": "GameLogic.dll/Academagia.GameSystems/InformationSystem.cs",
+      "digest": "SYSTEMS.md#ds14--knowledge-revelation-temporary-information-and-leverage",
+      "world_core_kit": [
+        "K11",
+        "K3"
+      ],
+      "synthesis_packets": [
+        "P03",
+        "P04",
+        "P11"
+      ],
+      "topic_owners": [
+        "docs/MEANS_AND_APPRAISAL.md",
+        "docs/TECHNOLOGY_AND_PROGRESSION.md",
+        "docs/worlds/SKILL_MECHANISMS_AND_MEANS_2026-10-13.md"
+      ]
+    },
+    {
+      "id": "DS15",
+      "title": "Action execution and recurring world effects",
+      "status": "deep_bounded",
+      "evidence": "shown source/data; interpretation inferred; native unverified",
+      "primary_source": "GameLogic.dll/Academagia.GameSystems/ActionSystem.cs",
+      "digest": "SYSTEMS.md#ds15--action-execution-and-recurring-world-effects",
+      "world_core_kit": [
+        "K3",
+        "K13"
+      ],
+      "synthesis_packets": [
+        "P04",
+        "P09",
+        "P17"
+      ],
+      "topic_owners": [
+        "docs/worlds/ABILITY_AUTHORING.md",
+        "docs/ENGINE_EXPANSION.md"
+      ]
+    }
+  ],
+  "limits": "UNREAD.md; CHECKPOINT.md; no gameplay or accepted YAIRPG change"
+}

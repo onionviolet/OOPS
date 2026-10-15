@@ -1,0 +1,140 @@
+{
+  "lane": "fs-kittens",
+  "date": "2026-10-14",
+  "status": "PARTIAL",
+  "feature_questions": "all answered",
+  "repository": "https://github.com/nuclear-unicorn/kittensgame",
+  "pinned_commit": "781e379f79f1e7512d168849cba21ed111502644",
+  "fetched_head": "781e379f79f1e7512d168849cba21ed111502644",
+  "head_delta": false,
+  "findings": [
+    {
+      "code": "F1",
+      "packet": "P01",
+      "answer": "Build/craft shortages name the resource and held/required quantity, with ETA only for positive net rate; cap is an asterisk and optional limited highlight, not a numeric cap explanation. ETA can still appear for an unreachable cost.",
+      "sources": [
+        "core.js:1324 _createPriceLineModel",
+        "core.js:1595 renderPrices",
+        "js/resources.js:1060 isStorageLimited"
+      ],
+      "confidence": "shown (controlled browser price fixtures) + stated (source)",
+      "takeaway": "Display exact deficit and cap value; suppress unreachable ETAs."
+    },
+    {
+      "code": "F2",
+      "packet": "P01",
+      "answer": "Production causes are split across worker counts, resource rate stacks, converter warning color and starvation logs; no shared cause-plus-next-action receipt was found. Cap clips stock gain rather than stopping all production.",
+      "sources": [
+        "js/village.js:420 update",
+        "js/workshop.js:2889 craftByEngineers",
+        "core.js:2101 BuildingBtn.update",
+        "game.js:4769 rate tooltip",
+        "js/resources.js:650 addRes"
+      ],
+      "confidence": "stated (source); next-action absence inferred from bounded inspected paths",
+      "takeaway": "Project named causes and supported remedies from existing jobs without copying hunger death."
+    },
+    {
+      "code": "F3",
+      "packet": "P04",
+      "answer": "Tech unlocked/researched, building unlockable/unlocked/val/on, current affordability and storage limitation are separate fields/evaluators. UI uses visibility, completed labels, enabled state and optional limited highlight; it is not a general actor permission system.",
+      "sources": [
+        "js/science.js:2689 TechButtonController",
+        "js/buildings.js:2828 isUnlocked",
+        "core.js:717 updateEnabled",
+        "core.js:2446 BuildingNotStackableBtnController"
+      ],
+      "confidence": "shown (controlled tech model matrix) + stated (source)",
+      "takeaway": "Keep learned, permitted, owned and usable states distinct; reuse observer-safe admission."
+    },
+    {
+      "code": "F4",
+      "packet": "P02",
+      "answer": "Catnip funds kitten upkeep, wood refinement and fields/pastures; wood funds smelter inputs, beams and buildings. One resource pool pays all uses. Rate tooltips and separate cost tooltips expose the tradeoff, but do not quote all destinations side by side.",
+      "sources": [
+        "js/village.js:811 getResConsumption",
+        "js/workshop.js:2116 crafts",
+        "js/buildings.js:350 field/:1071 smelter",
+        "game.js:3873 rate stack"
+      ],
+      "confidence": "stated (source); side-by-side gap inferred",
+      "takeaway": "Quote two useful destinations against one held stock on the existing desktop panel."
+    },
+    {
+      "code": "F5",
+      "packet": "P01",
+      "answer": "Queue ETA rejects cap/nonpositive-rate waits and reads structured purchase reasons, while tooltip ETA does not suppress above-cap estimates. Neither inspected path supplies a complete visible cause-plus-remedy receipt.",
+      "sources": [
+        "js/time.js:2048",
+        "js/time.js:2684"
+      ],
+      "confidence": "stated (source)",
+      "takeaway": "Reuse actual scheduler reason and feasibility facts for the visible blocker."
+    }
+  ],
+  "proposals": [
+    {
+      "code": "K-P1",
+      "rank": 1,
+      "disposition": "Adapt",
+      "title": "Truthful shortage/cap/rate row",
+      "packet": "P01",
+      "owners": "docs/UI_AT_SCALE_CONSIDERATIONS_2026-10-14.md; docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md",
+      "scope": "Extend current workPlanView and disclosed cost projections with held, missing, cap and rate basis. No ETA when cap blocks or net rate is zero/negative. Low cost if authoritative rate/cap already exist; otherwise omit ETA. No new save bytes initially."
+    },
+    {
+      "code": "K-P2",
+      "rank": 2,
+      "disposition": "Adapt",
+      "title": "Cause and next useful action",
+      "packet": "P01",
+      "owners": "same P01 UI owners",
+      "scope": "For one Village job project the actual input/cap/worker/slot cause and a supported remedy beside the resume control. Derive from current admission, keep last actual receipt separate. Medium cost: link remedies to real commands and observer knowledge."
+    },
+    {
+      "code": "K-P3",
+      "rank": 3,
+      "disposition": "Adapt",
+      "title": "Two destinations for one stock",
+      "packet": "P02",
+      "owners": "docs/MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md; docs/ENGINE_EXPANSION.md",
+      "scope": "Use current mixing or kit stock with two useful routes, held/reserved/available and each quote together. Kittens demonstrates common stock competition, not this stronger side-by-side UI. Medium cost: one real alternative consumer and stale-quote refusal."
+    },
+    {
+      "code": "K-P4",
+      "rank": 4,
+      "disposition": "Adapt",
+      "title": "Learned versus usable status",
+      "packet": "P04",
+      "owners": "docs/TECHNOLOGY_AND_PROGRESSION.md; docs/ENGINE_AUTHORING.md",
+      "scope": "Project discovery, permission, possession and current admission independently over one known action. Removing a tool never removes learning. Low projection cost; explicit scoped permission only if the current model lacks it."
+    },
+    {
+      "code": "K-P5",
+      "rank": 5,
+      "disposition": "Trial",
+      "title": "Explain recipe ingredients only when known",
+      "packet": "P01/P04",
+      "owners": "docs/ENGINE_AUTHORING.md; P01 UI owners",
+      "scope": "Expandable missing ingredient tree can help a known multi-stage kit recipe. Expand only disclosed recipes, use whole craft units and show the actual smallest required batch. Medium cost; park until a real nested recipe needs it."
+    },
+    {
+      "code": "K-P6",
+      "rank": 6,
+      "disposition": "Park",
+      "title": "Catch-up reports by subsystem",
+      "packet": "P01",
+      "owners": "docs/ENGINE_EXPANSION.md",
+      "scope": "A future offline summary should name applied interval and actual results/stop boundaries. Do not assume Kittens redshift reproduces online starvation or random events. Higher cost and separate from current feedback slice."
+    }
+  ],
+  "verification": {
+    "source": true,
+    "browser": "five controlled price + five tech fixtures, no page errors",
+    "viewport": "1366x768",
+    "natural_progression": false,
+    "save_reload_import": false,
+    "offline_parity": false,
+    "yairpg_edits": false
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "lane": "ds-hearts-of-iron-iv",
+  "date": "2026-10-14",
+  "status": "PARTIAL",
+  "source": {
+    "steam_app": 394360,
+    "build_id": "25205862",
+    "captured_files": 286,
+    "captured_bytes": 5472798,
+    "matches_prior": true
+  },
+  "evidence_policy": {
+    "shown": "inspected declarations/bytes",
+    "stated": "shipped docs/comments",
+    "inferred": "deduction or adaptation; not runtime proof"
+  },
+  "deep_system_count": 15,
+  "inventory_rows": 156,
+  "common_taxonomy_rows": 138,
+  "small_touches": 36,
+  "corrections": [
+    "collections are typed queries",
+    "MIO task-capacity feature disabled in defines",
+    "empty faction upgrades differ from actual member contributions",
+    "author docs contain scope/unit/ratio contradictions"
+  ],
+  "owner_gaps": [
+    "S03",
+    "S07",
+    "S12",
+    "S13"
+  ],
+  "systems": "SYSTEMS.md",
+  "family_map": "FAMILY_MAP.json",
+  "unread": "CHECKPOINT.md",
+  "implemented_gameplay": false,
+  "native_save_verified": false
+}

@@ -1,0 +1,126 @@
+{
+  "lane": "fs-vintage-story",
+  "date": "2026-10-14",
+  "status": "PARTIAL",
+  "evidence_meaning": {
+    "shown": "static source read",
+    "stated": "official wiki documentation",
+    "inferred": "bounded interpretation, not tested"
+  },
+  "pins": {
+    "vssurvivalmod": "849fa8cad9e392368566efc7474e73db6404a145",
+    "vsessentialsmod": "06673b67318e002332b6aa8b3d0308f11d2aba99",
+    "vsapi": "63d33f70018c606fb0f70ead900fe90625fbd7b2"
+  },
+  "findings": [
+    {
+      "id": "F1",
+      "summary": "Barrel recipes distinguish exact-ratio inputs from minimum/partial-consumption inputs.",
+      "sources": [
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5"
+      ],
+      "level": "shown",
+      "packet": "CH/P01",
+      "limits": "Paid game assets and native runtime not inspected; see REPORT feature table for stated vanilla examples."
+    },
+    {
+      "id": "F2",
+      "summary": "Transition time and random duration samples live on each stack; inventory callbacks apply condition rates.",
+      "sources": [
+        "T1",
+        "T2",
+        "T3",
+        "T4"
+      ],
+      "level": "shown",
+      "packet": "CH",
+      "limits": "Paid game assets and native runtime not inspected; see REPORT feature table for stated vanilla examples."
+    },
+    {
+      "id": "F3",
+      "summary": "Smithing shape travels with removed work; clay form state persists in place.",
+      "sources": [
+        "W1",
+        "W2",
+        "W3",
+        "W4",
+        "W5"
+      ],
+      "level": "shown",
+      "packet": "CH",
+      "limits": "Paid game assets and native runtime not inspected; see REPORT feature table for stated vanilla examples."
+    },
+    {
+      "id": "F4",
+      "summary": "Handbook inverse recipe links and live station blockers are separate mechanisms.",
+      "sources": [
+        "H1",
+        "H2",
+        "W1",
+        "B5"
+      ],
+      "level": "shown",
+      "packet": "P02/P01/P04",
+      "limits": "Paid game assets and native runtime not inspected; see REPORT feature table for stated vanilla examples."
+    },
+    {
+      "id": "F5",
+      "summary": "Grid assembly has explicit optional attribute policies; universal retained subparts are unproven.",
+      "sources": [
+        "K1",
+        "K2",
+        "K3",
+        "T1"
+      ],
+      "level": "shown",
+      "packet": "CH/P02",
+      "limits": "Paid game assets and native runtime not inspected; see REPORT feature table for stated vanilla examples."
+    }
+  ],
+  "proposals": [
+    {
+      "id": "P1",
+      "rank": 1,
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "P2",
+      "rank": 2,
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "P3",
+      "rank": 3,
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "P4",
+      "rank": 4,
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "P5",
+      "rank": 5,
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "P6",
+      "rank": 6,
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "P7",
+      "rank": 7,
+      "status": "PROPOSAL"
+    }
+  ],
+  "gaps": [
+    "Paid recipe JSON, dialogue/localization and content flags unavailable",
+    "No native UI/play or save roundtrip",
+    "Whole-game engine/save and broader source inventory not deeply audited"
+  ]
+}

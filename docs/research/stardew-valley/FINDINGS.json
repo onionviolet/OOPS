@@ -1,0 +1,205 @@
+{
+  "lane": "fs-stardew",
+  "date": "2026-10-14",
+  "status": "PARTIAL",
+  "game": "Stardew Valley",
+  "buildid": "16826371",
+  "target_buildid": "16826371",
+  "assembly_version": "1.6.15.24356",
+  "basis": "static installed source and pure data decoding; no runtime or save access",
+  "parsed_files": [
+    {
+      "file": "Data/Bundles.xnb",
+      "rows": 31,
+      "bytes_consumed": 2961
+    },
+    {
+      "file": "Data/CraftingRecipes.xnb",
+      "rows": 150,
+      "bytes_consumed": 9025
+    },
+    {
+      "file": "Data/Objects.xnb",
+      "rows": 807,
+      "bytes_consumed": 167905
+    },
+    {
+      "file": "Data/Machines.xnb",
+      "rows": 39,
+      "bytes_consumed": 30832
+    },
+    {
+      "file": "Data/NPCGiftTastes.xnb",
+      "rows": 39,
+      "bytes_consumed": 10705
+    },
+    {
+      "file": "Data/CookingRecipes.xnb",
+      "rows": 81,
+      "bytes_consumed": 4102
+    },
+    {
+      "file": "Data/Characters.xnb",
+      "rows": 48,
+      "bytes_consumed": 27994
+    },
+    {
+      "file": "Data/Shops.xnb",
+      "rows": 77,
+      "bytes_consumed": 121676
+    },
+    {
+      "file": "Data/mail.xnb",
+      "rows": 179,
+      "bytes_consumed": 44885
+    },
+    {
+      "file": "Data/TV/CookingChannel.xnb",
+      "rows": 32,
+      "bytes_consumed": 9227
+    },
+    {
+      "file": "Data/Events/Saloon.xnb",
+      "rows": 12,
+      "bytes_consumed": 21342
+    },
+    {
+      "file": "Data/Events/Town.xnb",
+      "rows": 28,
+      "bytes_consumed": 74642
+    },
+    {
+      "file": "Data/Events/Farm.xnb",
+      "rows": 27,
+      "bytes_consumed": 24109
+    },
+    {
+      "file": "Characters/Dialogue/Abigail.xnb",
+      "rows": 150,
+      "bytes_consumed": 17513
+    },
+    {
+      "file": "Characters/Dialogue/Gus.xnb",
+      "rows": 38,
+      "bytes_consumed": 4891
+    },
+    {
+      "file": "Characters/Dialogue/Caroline.xnb",
+      "rows": 52,
+      "bytes_consumed": 6756
+    }
+  ],
+  "findings": [
+    {
+      "id": "F1",
+      "label": "SHOWN",
+      "claim": "One parsnip has five useful destinations but separate quote surfaces.",
+      "sources": [
+        "Data/Objects:24",
+        "Data/CookingRecipes:Parsnip Soup",
+        "Data/Bundles:Pantry/0,Pantry/3",
+        "Object.PlaceInMachine",
+        "Farm.shipItem",
+        "NPC.receiveGift",
+        "ProfileMenu"
+      ]
+    },
+    {
+      "id": "F2",
+      "label": "SHOWN",
+      "claim": "Machine admission consumes inputs and holds output plus input snapshot; cask has distinct aging/extraction.",
+      "sources": [
+        "Object.PlaceInMachine/OutputMachine/CheckForActionOnMachine/performToolAction",
+        "Objects.Cask",
+        "Data/Machines"
+      ]
+    },
+    {
+      "id": "F3",
+      "label": "SHOWN",
+      "claim": "Conditioned events and dialogue can spend money or reduce relationship points; callbacks do not prove staged atomic choices.",
+      "sources": [
+        "Preconditions",
+        "Event.DefaultCommands.Money",
+        "Event.answerDialogue",
+        "Dialogue.chooseResponse",
+        "NPC.receiveGift",
+        "Data/Events/Farm:3917587"
+      ]
+    },
+    {
+      "id": "F4",
+      "label": "SHOWN",
+      "claim": "Recipe knowledge persists separately from current ingredients and is acquired via level, TV, mail and shops.",
+      "sources": [
+        "Farmer",
+        "CraftingRecipe",
+        "Menus.LevelUpMenu",
+        "Objects.TV",
+        "Menus.LetterViewerMenu",
+        "Item.LearnRecipe",
+        "Data/Shops"
+      ]
+    },
+    {
+      "id": "F5",
+      "label": "SHOWN",
+      "claim": "Machine job fields and structured relationship records are included in declared save schema.",
+      "sources": [
+        "Object XML fields",
+        "Objects.Cask XML fields",
+        "Farmer.friendshipData",
+        "Friendship",
+        "SaveGame"
+      ]
+    }
+  ],
+  "proposals": [
+    {
+      "id": "SD-P1",
+      "rank": 1,
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "SD-P2",
+      "rank": 2,
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "SD-P3",
+      "rank": 3,
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "SD-P4",
+      "rank": 4,
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "SD-P5",
+      "rank": 5,
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "SD-P6",
+      "rank": 6,
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "SD-P7",
+      "rank": 7,
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "SD-P8",
+      "rank": 8,
+      "status": "PROPOSAL"
+    }
+  ],
+  "gaps": [
+    "friendship-recipe mail enqueue timing",
+    "unselected events/dialogue/tables",
+    "full save migrations and field-level runtime roundtrip",
+    "native/UI/save roundtrip prohibited by lane scope"
+  ]
+}

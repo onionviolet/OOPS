@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "required_artifacts": 14,
+  "aspects_keys": 12,
+  "local_links_checked": 12,
+  "source_hashes_verified": 3685,
+  "small_touches": 24,
+  "private_ignored": true,
+  "errors": [],
+  "runtime_executed": false
+}

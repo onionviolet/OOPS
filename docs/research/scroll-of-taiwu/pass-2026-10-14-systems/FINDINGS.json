@@ -1,0 +1,591 @@
+{
+  "lane": "ds-scroll-of-taiwu",
+  "date": "2026-10-14",
+  "status": "PARTIAL",
+  "claims": [
+    {
+      "id": "S01",
+      "title": "Heredity has separate genome and aptitude models",
+      "basis": "shown selected code and schema; inferred YAIRPG mapping",
+      "summary": "**SHOWN data.** `N:GameData.Domains.Character.Genome.cs` stores 256 two-bit loci in 64 bytes, arranged as two 32-byte halves. Serialize/Deserialize copy exactly 64 bytes. `B:Character.cs:OfflineCreateGenome` uses the father's pregnancy-time genome snapshot when present; `N:GenomeHelper.Inherit` makes a random missing parent, or a wholly random genome if neither exists. `PregnantState` is a separate record from the resulting child.",
+      "detail": "SYSTEMS.md",
+      "sources": [
+        {
+          "path": "/Users/weiwei/.codex/research/ds-scroll-of-taiwu/extract/GameData.Domains.Character.Genome.cs",
+          "symbol": "Inherit",
+          "line": 81,
+          "sha256": "f40d56b3f7ce6938357e74741ad0e5dab2b1729fa387791163ee2e8ef9ea3132"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/ds-scroll-of-taiwu/extract/GameData.Domains.Character.Creation.CharacterCreation.cs",
+          "symbol": "GetParentValues",
+          "line": 54,
+          "sha256": "ed126233eba238820c02fc9becc8d3938c2151861400cc1fea20146a212f278e"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/taiwu/extract/Character.cs",
+          "symbol": "CalcGrowingSectGradeAndAssignWeights",
+          "line": 23076,
+          "sha256": "3a44a68a3b57886f6f6249d56ffc738d34dab93789eca6fb9bc408b8dc6625f9"
+        }
+      ],
+      "K": [
+        "K4",
+        "K6",
+        "K18"
+      ],
+      "P": [
+        "P15",
+        "P16"
+      ],
+      "runtime_verified": false,
+      "save_roundtrip_verified": false,
+      "status": "mechanism_partial"
+    },
+    {
+      "id": "S02",
+      "title": "Pregnancy snapshots ancestry while social parenthood stays separate",
+      "basis": "shown selected code and schema; inferred YAIRPG mapping",
+      "summary": "**SHOWN data/rules.** `N:PregnantState.cs` serializes mother/father feature snapshots, FatherId, FatherGenome, relation flags, ExpectedBirthDate and IsHuman. CheckPregnant first requires valid reproductive roles, no blocking feature198 and no pregnancy lock. It uses base chance60, or20 in the coercive source branch, times both fertility values divided10000. It rejects a parent when `fertility/divisor < existing child relation count`, divisor20 if either actor is Taiwu, otherwise40. For NPC village actors, homeless count can further divide the chance. These are source facts, not proposed YAIR rules or caps.",
+      "detail": "SYSTEMS.md",
+      "sources": [
+        {
+          "path": "/Users/weiwei/.codex/research/ds-scroll-of-taiwu/extract/GameData.Domains.Character.PregnantState.cs",
+          "symbol": "CheckPregnant",
+          "line": 53,
+          "sha256": "6b4fddee8c8fd0481c325bbfe3d5ceeee06499869ce9a7bcfe3c2f6b50b74df1"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/taiwu/extract/CharacterDomain.cs",
+          "symbol": "ParallelUpdatePregnantState",
+          "line": 22747,
+          "sha256": "9b9510f199168f1ab37c2c84a116ca5669583348611b641ec958cb5b36a67ef6"
+        }
+      ],
+      "K": [
+        "K6",
+        "K8",
+        "K12",
+        "K18"
+      ],
+      "P": [
+        "P15",
+        "P10",
+        "P20"
+      ],
+      "runtime_verified": false,
+      "save_roundtrip_verified": false,
+      "status": "mechanism_partial"
+    },
+    {
+      "id": "S03",
+      "title": "Population pressure is a world rule with protected actors",
+      "basis": "shown selected code and schema; inferred YAIRPG mapping",
+      "summary": "**SHOWN model.** `B:CharacterDomain.CalcCharacterBelongStatDict` counts normal generated actors by settlement, excluding protected categories, in actual-age bands below16,16..39,40..69,70+. `PostAdvanceMonthCalcDarkAsh` compares adult+middle+old counts against `PopulationThreshold * random.Next(100,125) * world population factor /10000`. Children are not included in that threshold comparison. It gets a per-settlement, per-grade plan from Organization.GetSettlementDarkAshTriple.",
+      "detail": "SYSTEMS.md",
+      "sources": [
+        {
+          "path": "/Users/weiwei/.codex/research/taiwu/extract/CharacterDomain.cs",
+          "symbol": "PostAdvanceMonthCalcDarkAsh",
+          "line": 7762,
+          "sha256": "9b9510f199168f1ab37c2c84a116ca5669583348611b641ec958cb5b36a67ef6"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/taiwu/extract/CharacterDomain.cs",
+          "symbol": "MarkExceedPopulationsNew",
+          "line": 7617,
+          "sha256": "9b9510f199168f1ab37c2c84a116ca5669583348611b641ec958cb5b36a67ef6"
+        }
+      ],
+      "K": [
+        "K2",
+        "K6",
+        "K8",
+        "K12"
+      ],
+      "P": [
+        "P14",
+        "P25",
+        "P13"
+      ],
+      "runtime_verified": false,
+      "save_roundtrip_verified": false,
+      "status": "mechanism_partial"
+    },
+    {
+      "id": "S04",
+      "title": "Manufacture has quote, paid queue, countdown and collection stages",
+      "basis": "shown selected code and schema; inferred YAIRPG mapping",
+      "summary": "**SHOWN model.** `N:Config.MakeItemSubTypeItem.cs` defines Time, ResourceTotalCount, six material maxima, Result, life-skill/refining and wood/metal/jade/fabric effects. MaterialItem supplies grade, RequiredLifeSkillType and required resources. `N:MakeItemData.cs` serializes product type/list, LeftTime, material mix, ToolKey, MaterialKey and EquipmentEffectId, keyed by BuildingBlockKey in BuildingDomain.",
+      "detail": "SYSTEMS.md",
+      "sources": [
+        {
+          "path": "/Users/weiwei/.codex/research/taiwu/extract/BuildingDomain.cs",
+          "symbol": "StartMakeItem",
+          "line": 8156,
+          "sha256": "1741bb40b689b2eb171e9b12945f6a9d18cc68b43d5bc7858c61333c4176d19e"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/taiwu/extract/BuildingDomain.cs",
+          "symbol": "UpdateMakingProgressOnMonthChange",
+          "line": 8434,
+          "sha256": "1741bb40b689b2eb171e9b12945f6a9d18cc68b43d5bc7858c61333c4176d19e"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/ds-scroll-of-taiwu/extract/GameData.Domains.Building.MakeItemData.cs",
+          "symbol": "Serialize",
+          "line": 4,
+          "sha256": "457ea96c19c3fb48e56f4a19bbafef66d873e15555aa61fc39047c5719668ae3"
+        }
+      ],
+      "K": [
+        "K9",
+        "K8",
+        "K18"
+      ],
+      "P": [
+        "P01",
+        "P02",
+        "P18",
+        "P16"
+      ],
+      "runtime_verified": false,
+      "save_roundtrip_verified": false,
+      "status": "mechanism_partial"
+    },
+    {
+      "id": "S05",
+      "title": "Repair and salvage read the object's history",
+      "basis": "shown selected code and schema; inferred YAIRPG mapping",
+      "summary": "**SHOWN rules.** `N:ItemTemplateHelper.GetRepairNeedResources` computes each of six resources as retained material mix[i] times grade-base requirement times1.0 if durability==0, else0.5, truncated to int. Repair-required attainment similarly uses full grade requirement for broken items and half otherwise, rounded via Convert.ToInt16. Cost is not proportional to each missing durability point. GetRepairNeedResourceCount sums the basket and multiplies5. The optional targetDurability parameter on `D:ItemDomain.GetRepairItemNeedResourceCount` is not used by that body.",
+      "detail": "SYSTEMS.md",
+      "sources": [
+        {
+          "path": "/Users/weiwei/.codex/research/ds-scroll-of-taiwu/extract/GameData.Domains.Item.ItemTemplateHelper.cs",
+          "symbol": "GetRepairNeedResources",
+          "line": 921,
+          "sha256": "463ae6e34f479c6c4ae451d7fe12ebd750bdbd7ab9cbf2b619a2dd4a18c5eeb8"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/taiwu/extract/BuildingDomain.cs",
+          "symbol": "RepairItemOptional",
+          "line": 8563,
+          "sha256": "1741bb40b689b2eb171e9b12945f6a9d18cc68b43d5bc7858c61333c4176d19e"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/taiwu-2/extract/GameData.Domains.Item.ItemDomain.cs",
+          "symbol": "DisassembleItem",
+          "line": 2237,
+          "sha256": "e59bd91437ba25ccd00461b794e5ba631f64742e3139843929ea7162525681c2"
+        }
+      ],
+      "K": [
+        "K9",
+        "K8"
+      ],
+      "P": [
+        "P02",
+        "P18",
+        "P09"
+      ],
+      "runtime_verified": false,
+      "save_roundtrip_verified": false,
+      "status": "mechanism_partial"
+    },
+    {
+      "id": "S06",
+      "title": "Artisan commissions are named contracts tied to civic conditions",
+      "basis": "shown selected code and schema; inferred YAIRPG mapping",
+      "summary": "**SHOWN data.** `N:ArtisanOrder.cs` stores artisan/subscriber IDs, skill/subtype, progress/delta, production and debate fields, destination storage and site identity. `D:ExtraDomain.CreateArtisanOrder` makes the contract, records the order and transfers ProductionPool.GetCreateOrderPrice from subscriber to artisan if a pool exists. This body alone does not establish an affordability guard or rollback.",
+      "detail": "SYSTEMS.md",
+      "sources": [
+        {
+          "path": "/Users/weiwei/.codex/research/taiwu-2/extract/ExtraDomain.cs",
+          "symbol": "GetArtisanOrderDelta",
+          "line": 4100,
+          "sha256": "703e923dc65430ea4a7e68b0df941501e5a4b2ceb3bc8b00c74f70afdb1b5b08"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/taiwu-2/extract/ExtraDomain.cs",
+          "symbol": "FinishArtisanOrder",
+          "line": 3761,
+          "sha256": "703e923dc65430ea4a7e68b0df941501e5a4b2ceb3bc8b00c74f70afdb1b5b08"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/ds-scroll-of-taiwu/extract/GameData.Domains.Building.ArtisanOrder.cs",
+          "symbol": "Serialize",
+          "line": 2,
+          "sha256": "1a3f7eea9ff1ee1ef8fb91345ec5aa40ad310bc49cdeb83167b9a57e631e347c"
+        }
+      ],
+      "K": [
+        "K6",
+        "K8",
+        "K9"
+      ],
+      "P": [
+        "P06",
+        "P01",
+        "P02",
+        "P18"
+      ],
+      "runtime_verified": false,
+      "save_roundtrip_verified": false,
+      "status": "mechanism_partial"
+    },
+    {
+      "id": "S07",
+      "title": "Treatment separates injury, poison load, potency and identification",
+      "basis": "shown selected code and schema; inferred YAIRPG mapping",
+      "summary": "**SHOWN data/rules.** `B:Character.cs:ApplyMedicineInstantEffect` dispatches distinct outer/inner injury, health, qi-disorder, poison detox/application and parasite effects. Injuries use body-part arrays, not just HP. With no explicit target list, CalcMedicineEffect_RecoverInjury considers positive wounds no greater than the medicine's threshold, chooses highest severities first and random ties without repeats, bounded by recovery-times. The explicit-target overload applies the modified value to each supplied body part; do not assume it repeats that selector's threshold check.",
+      "detail": "SYSTEMS.md",
+      "sources": [
+        {
+          "path": "/Users/weiwei/.codex/research/taiwu/extract/Character.cs",
+          "symbol": "CalcChangedPoisoned",
+          "line": 3118,
+          "sha256": "3a44a68a3b57886f6f6249d56ffc738d34dab93789eca6fb9bc408b8dc6625f9"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/taiwu/extract/Character.cs",
+          "symbol": "CalcMedicineEffect_RecoverInjury",
+          "line": 7368,
+          "sha256": "3a44a68a3b57886f6f6249d56ffc738d34dab93789eca6fb9bc408b8dc6625f9"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/taiwu-2/extract/GameData.Domains.Item.ItemDomain.cs",
+          "symbol": "SetAttachedPoisons",
+          "line": 4192,
+          "sha256": "e59bd91437ba25ccd00461b794e5ba631f64742e3139843929ea7162525681c2"
+        }
+      ],
+      "K": [
+        "K9",
+        "K10",
+        "K11"
+      ],
+      "P": [
+        "P04",
+        "P11",
+        "P17"
+      ],
+      "runtime_verified": false,
+      "save_roundtrip_verified": false,
+      "status": "mechanism_partial"
+    },
+    {
+      "id": "S08",
+      "title": "Meals are timed item effects rather than one hunger scalar",
+      "basis": "shown selected code and schema; inferred YAIRPG mapping",
+      "summary": "**SHOWN model.** `N:EatingItems.cs` stores nine ItemKeys and nine short durations, exactly90 serialized bytes. CalcMaxEatingSlotsCount is integer `maxVitality/10` clamped3..9; storage capacity is not current available capacity. Valid consumed items include multiple kinds through IsValid, not nine ordinary food-only slots. `N:FoodItem.cs` and MedicineItem distinguish instant effects, duration and ongoing property changes.",
+      "detail": "SYSTEMS.md",
+      "sources": [
+        {
+          "path": "/Users/weiwei/.codex/research/ds-scroll-of-taiwu/extract/GameData.Domains.Character.EatingItems.cs",
+          "symbol": "UpdateDurations",
+          "line": 213,
+          "sha256": "6d38ba8a5696b6fa9360b93488a8af0f5e36ff6ad4b44c350423ada4587f685f"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/taiwu/extract/Character.cs",
+          "symbol": "ApplyFoodInstantEffect",
+          "line": 6887,
+          "sha256": "3a44a68a3b57886f6f6249d56ffc738d34dab93789eca6fb9bc408b8dc6625f9"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/ds-scroll-of-taiwu/extract/GameData.Domains.Character.EatingItemsHelper.cs",
+          "symbol": "GetCharacterPropertyBonus",
+          "line": 96,
+          "sha256": "a0567d76bc40f9610912e1937911e33e9b19935288769984ad918a6f317db14d"
+        }
+      ],
+      "K": [
+        "K8",
+        "K9",
+        "K3"
+      ],
+      "P": [
+        "P13",
+        "P17",
+        "P04"
+      ],
+      "runtime_verified": false,
+      "save_roundtrip_verified": false,
+      "status": "mechanism_partial"
+    },
+    {
+      "id": "S09",
+      "title": "Companions retain identities and personal equipment plans",
+      "basis": "shown selected code and schema; inferred YAIRPG mapping",
+      "summary": "**SHOWN model.** `B:TaiwuDomain` keeps ordinary group IDs, special/gear groups, combat slots, equipment records and manual-change flags. Base maximum10 exists but is not a YAIR cap. `JoinGroup` first applies the equipment plan, detaches any prior leader, unbinds adventure hiding and converts temporary/random enemy identities where needed. Fixed-template companions take a distinct special-group route and return early.",
+      "detail": "SYSTEMS.md",
+      "sources": [
+        {
+          "path": "/Users/weiwei/.codex/research/taiwu/extract/TaiwuDomain.cs",
+          "symbol": "JoinGroup",
+          "line": 12023,
+          "sha256": "f4b8b448b13aa5d41ae6d3d9aea1ded87d14340dc669b57706d4d8063761d35f"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/taiwu/extract/TaiwuDomain.cs",
+          "symbol": "LeaveGroup",
+          "line": 12121,
+          "sha256": "f4b8b448b13aa5d41ae6d3d9aea1ded87d14340dc669b57706d4d8063761d35f"
+        }
+      ],
+      "K": [
+        "K6",
+        "K7",
+        "K5",
+        "K16"
+      ],
+      "P": [
+        "P06",
+        "P15",
+        "P05"
+      ],
+      "runtime_verified": false,
+      "save_roundtrip_verified": false,
+      "status": "mechanism_partial"
+    },
+    {
+      "id": "S10",
+      "title": "Law connects disclosure, jurisdiction, sentences and escape",
+      "basis": "shown selected code and schema; inferred YAIRPG mapping",
+      "summary": "**SHOWN model.** `N:SettlementPrison.cs` serializes LastBreakInDate, Prisoners and Bounties; SettlementPrisoner extends detention with punishment severity/type and spouse context. `B:OrganizationDomain.OnSectMemberCrimeMadePublic` requires valid punishment, matching current settlement and eligible actor state, then resolves sect jurisdiction or the region's governing sect. Disclosure is an input, not universal omniscience. Behavior-dependent escape-punishment chance and special type41 affect referral.",
+      "detail": "SYSTEMS.md",
+      "sources": [
+        {
+          "path": "/Users/weiwei/.codex/research/taiwu/extract/Sect.cs",
+          "symbol": "UpdatePrisonOnAdvanceMonth",
+          "line": 928,
+          "sha256": "24b4859c5419ba62d945ed10128454c175b9d76c53a4211cb6bc2c52005e7b70"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/taiwu/extract/Sect.cs",
+          "symbol": "CalcKidnappedCharacterResistance",
+          "line": 994,
+          "sha256": "24b4859c5419ba62d945ed10128454c175b9d76c53a4211cb6bc2c52005e7b70"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/ds-scroll-of-taiwu/extract/GameData.Domains.Organization.SettlementPrison.cs",
+          "symbol": "Serialize",
+          "line": 2,
+          "sha256": "31d3e0972af74f061b7d0c22bf9bc8a0385a42014f78754c81c2db06db2fb7c1"
+        }
+      ],
+      "K": [
+        "K7",
+        "K6",
+        "K12"
+      ],
+      "P": [
+        "P07",
+        "P12",
+        "P10",
+        "P25"
+      ],
+      "runtime_verified": false,
+      "save_roundtrip_verified": false,
+      "status": "mechanism_partial"
+    },
+    {
+      "id": "S11",
+      "title": "Treasury rights combine custody, preferences and recurring allowance",
+      "basis": "shown selected code and schema; inferred YAIRPG mapping",
+      "summary": "**SHOWN data.** `N:SettlementTreasury.cs` serializes guard IDs/templates, resource basket, inventory, liked/disliked subtypes, contributions and layer index. NeedCommit and `_memberUsedPresetContributions` are not serialized by the inspected codec. GetMemberContribution is actual contribution + monthly role allowance - used allowance. Spending consumes remaining preset allowance before actual contribution; positive deltas add actual contribution. Actual contribution addition clamps to int range.",
+      "detail": "SYSTEMS.md",
+      "sources": [
+        {
+          "path": "/Users/weiwei/.codex/research/ds-scroll-of-taiwu/extract/GameData.Domains.Organization.SettlementTreasury.cs",
+          "symbol": "OfflineChangeContribution",
+          "line": 346,
+          "sha256": "c1a0f009b86b099f902f2654d26e217525168252cc8073b1510bc82fb351c625"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/taiwu/extract/Settlement.cs",
+          "symbol": "UpdateTreasuryOnAdvanceMonth",
+          "line": 1223,
+          "sha256": "1d7245c965c22cf6196cfb9dc6cfa2f2e3f800d737c9e459fc13704aba4cbf3d"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/taiwu/extract/OrganizationDomain.cs",
+          "symbol": "ConfirmSettlementTreasuryOperation",
+          "line": 5509,
+          "sha256": "41210cf33c7d62769baa53579d9833eec2c6496df8f868e9a9f01637771bc495"
+        }
+      ],
+      "K": [
+        "K7",
+        "K8",
+        "K9",
+        "K18"
+      ],
+      "P": [
+        "P07",
+        "P18",
+        "P16"
+      ],
+      "runtime_verified": false,
+      "save_roundtrip_verified": false,
+      "status": "mechanism_partial"
+    },
+    {
+      "id": "S12",
+      "title": "Trade stock, prices and caravan income have different state",
+      "basis": "shown selected code and schema; inferred YAIRPG mapping",
+      "summary": "**SHOWN model/price.** `N:MerchantData.cs` serializes merchant template/type, money, seven inventory bands and per-item PriceChangeData. GetItemSoldPrice computes `max(0, srcPrice*(20 +20*favorChangeRate/100 + preference)/100 * (50+durabilityRate/2)/100)`, preserving integer operation order. Preference by behavior0..4 is +10/+5/0/+5/+10 for liked subtype and -20/-10/0/-10/-20 for disliked. This is one sell-price helper, not a complete bid/ask model.",
+      "detail": "SYSTEMS.md",
+      "sources": [
+        {
+          "path": "/Users/weiwei/.codex/research/ds-scroll-of-taiwu/extract/GameData.Domains.Merchant.MerchantData.cs",
+          "symbol": "GetItemSoldPrice",
+          "line": 154,
+          "sha256": "4931407c2c1c58ce6468d0e8f74512809e47bca15b5e9ddf1c8946c0ae13eaaa"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/taiwu-2-aspects/extract/GameData.Domains.Merchant.MerchantDomain.cs",
+          "symbol": "UpdateCaravansMove",
+          "line": 138,
+          "sha256": "3714ffacd3277bca35ae94a10071c80c211b700d4591a5d9240b0dfdd1f2a6a5"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/taiwu-2-aspects/extract/GameData.Domains.Merchant.MerchantDomain.cs",
+          "symbol": "OnCaravanArrive",
+          "line": 1919,
+          "sha256": "3714ffacd3277bca35ae94a10071c80c211b700d4591a5d9240b0dfdd1f2a6a5"
+        }
+      ],
+      "K": [
+        "K8",
+        "K5",
+        "K7"
+      ],
+      "P": [
+        "P18",
+        "P13",
+        "P12"
+      ],
+      "runtime_verified": false,
+      "save_roundtrip_verified": false,
+      "status": "mechanism_partial"
+    },
+    {
+      "id": "S13",
+      "title": "Debate turns practical knowledge into public consequences",
+      "basis": "shown selected code and schema; inferred YAIRPG mapping",
+      "summary": "**SHOWN model.** `N:DebateGame.cs` serializes skill type, turn state, round, both players, grid, pawns, node effects, activated strategies, comments, spectators, operation history and game-over/AI flags. `B:TaiwuDomain.DebateGameInitialize` derives bases from each actor's life-skill attainment times a configured random percentage, filters unlocked strategy cards by chosen skill categories, creates the grid and relations with spectators, then initializes AI. This is a tactical game, not a dialogue sentiment roll.",
+      "detail": "SYSTEMS.md",
+      "sources": [
+        {
+          "path": "/Users/weiwei/.codex/research/taiwu/extract/TaiwuDomain.cs",
+          "symbol": "DebateGameNextState",
+          "line": 7303,
+          "sha256": "f4b8b448b13aa5d41ae6d3d9aea1ded87d14340dc669b57706d4d8063761d35f"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/taiwu/extract/TaiwuDomain.cs",
+          "symbol": "DebateGameOver",
+          "line": 7498,
+          "sha256": "f4b8b448b13aa5d41ae6d3d9aea1ded87d14340dc669b57706d4d8063761d35f"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/ds-scroll-of-taiwu/extract/GameData.Domains.Taiwu.Debate.DebateGame.cs",
+          "symbol": "Serialize",
+          "line": 4,
+          "sha256": "e49fa2a097d95fe8f7ffc143f6394383511d4bcb45d3c0fb4ac10ef563ba1dee"
+        }
+      ],
+      "K": [
+        "K10",
+        "K11",
+        "K6",
+        "K14"
+      ],
+      "P": [
+        "P09",
+        "P19",
+        "P21",
+        "P24"
+      ],
+      "runtime_verified": false,
+      "save_roundtrip_verified": false,
+      "status": "mechanism_partial"
+    },
+    {
+      "id": "S14",
+      "title": "A powerful artifact creates a world process around its holder",
+      "basis": "shown selected code and schema; inferred YAIRPG mapping",
+      "summary": "**SHOWN data.** `N:LegendaryBookDomain.cs` stores14 owner slots, shocked-month counters, consumed/hidden actor sets, contestants, previous owners and loadout presets. `_charBookTypes` and item/adventure lookups are rebuilt/initialized caches. This family was previously only named or touched during succession.",
+      "detail": "SYSTEMS.md",
+      "sources": [
+        {
+          "path": "/Users/weiwei/.codex/research/ds-scroll-of-taiwu/extract/GameData.Domains.LegendaryBook.LegendaryBookDomain.cs",
+          "symbol": "CreateLegendaryBooksAccordingToXiangshuProgress",
+          "line": 236,
+          "sha256": "e085231dbb3902a3d47554182f853a725aeabe79336bc9bc073ad701882c4eaf"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/ds-scroll-of-taiwu/extract/GameData.Domains.LegendaryBook.LegendaryBookDomain.cs",
+          "symbol": "UpdateOwnerStatus",
+          "line": 330,
+          "sha256": "e085231dbb3902a3d47554182f853a725aeabe79336bc9bc073ad701882c4eaf"
+        }
+      ],
+      "K": [
+        "K3",
+        "K9",
+        "K12",
+        "K16"
+      ],
+      "P": [
+        "P10",
+        "P12",
+        "P17",
+        "P25"
+      ],
+      "runtime_verified": false,
+      "save_roundtrip_verified": false,
+      "status": "mechanism_partial"
+    },
+    {
+      "id": "S15",
+      "title": "Navigation policy differs for player movement and trade routes",
+      "basis": "shown selected code and schema; inferred YAIRPG mapping",
+      "summary": "**SHOWN model/rules.** `N:MapDomain.CalcBlockTravelRoute` chooses full versus born-state route dictionaries according to merchant flag, world-function4 and area. It expands area routes and runs AStarMap using block MoveCost. Merchant paths deliberately visit settlements in regular areas, sorted from the current block with the destination deferred; they are not simply shortest player paths. Cross-area edge entry/exit is selected separately.",
+      "detail": "SYSTEMS.md",
+      "sources": [
+        {
+          "path": "/Users/weiwei/.codex/research/ds-scroll-of-taiwu/extract/GameData.Domains.Map.MapDomain.cs",
+          "symbol": "CalcBlockTravelRoute",
+          "line": 3422,
+          "sha256": "f782c204814b2b98eb9cba668072faa5a7a446d03e3ab24601f257fd70a33906"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/ds-scroll-of-taiwu/extract/GameData.Domains.Map.MapDomain.cs",
+          "symbol": "Move",
+          "line": 344,
+          "sha256": "f782c204814b2b98eb9cba668072faa5a7a446d03e3ab24601f257fd70a33906"
+        }
+      ],
+      "K": [
+        "K5",
+        "K6",
+        "K8",
+        "K12"
+      ],
+      "P": [
+        "P13",
+        "P14",
+        "P25"
+      ],
+      "runtime_verified": false,
+      "save_roundtrip_verified": false,
+      "status": "mechanism_partial"
+    }
+  ],
+  "inventory_records": 359,
+  "new_extracted_types": 25,
+  "unread_owner": "CHECKPOINT.md",
+  "private_work_root": "/Users/weiwei/.codex/research/ds-scroll-of-taiwu"
+}

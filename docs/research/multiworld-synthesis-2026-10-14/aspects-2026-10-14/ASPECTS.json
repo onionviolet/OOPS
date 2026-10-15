@@ -1,0 +1,194 @@
+{
+  "A01": {
+    "status": "partial",
+    "sources": [
+      "../../hyperrogue/aspects-2026-10-14/ASPECTS.json#A01",
+      "../../siralim-ultimate/aspects-2026-10-14/ASPECTS.json#A01",
+      "../../remnant-2/aspects-2026-10-14/ASPECTS.json#A01",
+      "../../kingdom-hearts/aspects-2026-10-14/ASPECTS.json#A01",
+      "../../the-strange-tabletop/aspects-2026-10-14/ASPECTS.json#A01",
+      "../../multi-realm-muds/aspects-2026-10-14/ASPECTS.json#A01",
+      "../../multiverse-idle/aspects-2026-10-14/ASPECTS.json#A01"
+    ],
+    "summary": "Conditional delivery does not prove atomic choice settlement. R2 graphs are partial, KH message/event families split, Strange is human-run; MUD website help is separate from NPC talk.",
+    "yairpg": [
+      "K6/K11/K20/K23; P19/P21/P24"
+    ]
+  },
+  "A02": {
+    "status": "partial",
+    "sources": [
+      "../../hyperrogue/aspects-2026-10-14/ASPECTS.json#A02",
+      "../../siralim-ultimate/aspects-2026-10-14/ASPECTS.json#A02",
+      "../../remnant-2/aspects-2026-10-14/ASPECTS.json#A02",
+      "../../kingdom-hearts/aspects-2026-10-14/ASPECTS.json#A02",
+      "../../the-strange-tabletop/aspects-2026-10-14/ASPECTS.json#A02",
+      "../../multi-realm-muds/aspects-2026-10-14/ASPECTS.json#A02",
+      "../../multiverse-idle/aspects-2026-10-14/ASPECTS.json#A02"
+    ],
+    "summary": "Episode selection, retained aftermath and presentation cursor must be distinguished; current authored/simulation mix follows OD7.",
+    "yairpg": [
+      "K12/K16/K29/K32; P10/P12/P19"
+    ]
+  },
+  "A03": {
+    "status": "partial",
+    "sources": [
+      "../../hyperrogue/aspects-2026-10-14/ASPECTS.json#A03",
+      "../../siralim-ultimate/aspects-2026-10-14/ASPECTS.json#A03",
+      "../../remnant-2/aspects-2026-10-14/ASPECTS.json#A03",
+      "../../kingdom-hearts/aspects-2026-10-14/ASPECTS.json#A03",
+      "../../the-strange-tabletop/aspects-2026-10-14/ASPECTS.json#A03",
+      "../../multi-realm-muds/aspects-2026-10-14/ASPECTS.json#A03",
+      "../../multiverse-idle/aspects-2026-10-14/ASPECTS.json#A03"
+    ],
+    "summary": "Evidence spans C++, YYC, Unreal exports, KH third-party formats, tabletop, LPC examples and media. No common engine is implied.",
+    "yairpg": [
+      "K18/K33/K34; P16/P22"
+    ]
+  },
+  "A04": {
+    "status": "partial",
+    "sources": [
+      "../../hyperrogue/aspects-2026-10-14/ASPECTS.json#A04",
+      "../../siralim-ultimate/aspects-2026-10-14/ASPECTS.json#A04",
+      "../../remnant-2/aspects-2026-10-14/ASPECTS.json#A04",
+      "../../kingdom-hearts/aspects-2026-10-14/ASPECTS.json#A04",
+      "../../the-strange-tabletop/aspects-2026-10-14/ASPECTS.json#A04",
+      "../../multi-realm-muds/aspects-2026-10-14/ASPECTS.json#A04",
+      "../../multiverse-idle/aspects-2026-10-14/ASPECTS.json#A04"
+    ],
+    "summary": "Map resume, profile schema, autoload, local gear abeyance and persistent lived world have different guarantees. No lane supplies whole YAIRPG durable transition proof.",
+    "yairpg": [
+      "K15/K18/K33; P05/P23/P24"
+    ]
+  },
+  "A05": {
+    "status": "partial",
+    "sources": [
+      "../../hyperrogue/aspects-2026-10-14/ASPECTS.json#A05",
+      "../../siralim-ultimate/aspects-2026-10-14/ASPECTS.json#A05",
+      "../../remnant-2/aspects-2026-10-14/ASPECTS.json#A05",
+      "../../kingdom-hearts/aspects-2026-10-14/ASPECTS.json#A05",
+      "../../the-strange-tabletop/aspects-2026-10-14/ASPECTS.json#A05",
+      "../../multi-realm-muds/aspects-2026-10-14/ASPECTS.json#A05",
+      "../../multiverse-idle/aspects-2026-10-14/ASPECTS.json#A05"
+    ],
+    "summary": "R2 bark conditions and MUD monster examples support scoped behavior, not complete autonomous people or companion memory.",
+    "yairpg": [
+      "K6/K10/K26; P21/P25"
+    ]
+  },
+  "A06": {
+    "status": "partial",
+    "sources": [
+      "../../hyperrogue/aspects-2026-10-14/ASPECTS.json#A06",
+      "../../siralim-ultimate/aspects-2026-10-14/ASPECTS.json#A06",
+      "../../remnant-2/aspects-2026-10-14/ASPECTS.json#A06",
+      "../../kingdom-hearts/aspects-2026-10-14/ASPECTS.json#A06",
+      "../../the-strange-tabletop/aspects-2026-10-14/ASPECTS.json#A06",
+      "../../multi-realm-muds/aspects-2026-10-14/ASPECTS.json#A06",
+      "../../multiverse-idle/aspects-2026-10-14/ASPECTS.json#A06"
+    ],
+    "summary": "MI adjacent workspace/details is useful; current Proto23/UI_RULES govern composition. No source image passes 1366x768 native gate.",
+    "yairpg": [
+      "K14/K30/K34; P01/P04; MI-P03"
+    ]
+  },
+  "A07": {
+    "status": "partial",
+    "sources": [
+      "../../hyperrogue/aspects-2026-10-14/ASPECTS.json#A07",
+      "../../siralim-ultimate/aspects-2026-10-14/ASPECTS.json#A07",
+      "../../remnant-2/aspects-2026-10-14/ASPECTS.json#A07",
+      "../../kingdom-hearts/aspects-2026-10-14/ASPECTS.json#A07",
+      "../../the-strange-tabletop/aspects-2026-10-14/ASPECTS.json#A07",
+      "../../multi-realm-muds/aspects-2026-10-14/ASPECTS.json#A07",
+      "../../multiverse-idle/aspects-2026-10-14/ASPECTS.json#A07"
+    ],
+    "summary": "Definitions, references, conditional overrides, source provenance and native instance owners need different lifetimes and validation.",
+    "yairpg": [
+      "K1/K17/K33/K34; P16/P22"
+    ]
+  },
+  "A08": {
+    "status": "partial",
+    "sources": [
+      "../../hyperrogue/aspects-2026-10-14/ASPECTS.json#A08",
+      "../../siralim-ultimate/aspects-2026-10-14/ASPECTS.json#A08",
+      "../../remnant-2/aspects-2026-10-14/ASPECTS.json#A08",
+      "../../kingdom-hearts/aspects-2026-10-14/ASPECTS.json#A08",
+      "../../the-strange-tabletop/aspects-2026-10-14/ASPECTS.json#A08",
+      "../../multi-realm-muds/aspects-2026-10-14/ASPECTS.json#A08",
+      "../../multiverse-idle/aspects-2026-10-14/ASPECTS.json#A08"
+    ],
+    "summary": "Source caps, depth curves, thresholds and trigger limits are local policies, not universal solo limits or conversion ratios.",
+    "yairpg": [
+      "K2/K3/K10; P14/P17"
+    ]
+  },
+  "A09": {
+    "status": "partial",
+    "sources": [
+      "../../hyperrogue/aspects-2026-10-14/ASPECTS.json#A09",
+      "../../siralim-ultimate/aspects-2026-10-14/ASPECTS.json#A09",
+      "../../remnant-2/aspects-2026-10-14/ASPECTS.json#A09",
+      "../../kingdom-hearts/aspects-2026-10-14/ASPECTS.json#A09",
+      "../../the-strange-tabletop/aspects-2026-10-14/ASPECTS.json#A09",
+      "../../multi-realm-muds/aspects-2026-10-14/ASPECTS.json#A09",
+      "../../multiverse-idle/aspects-2026-10-14/ASPECTS.json#A09"
+    ],
+    "summary": "Modes, local calendars and wall-time are different. OD4 accepts chosen routine progress and paused inactive worlds; rates/executors remain open.",
+    "yairpg": [
+      "K8/K18/K26/K28/K32; P13"
+    ]
+  },
+  "A10": {
+    "status": "partial",
+    "sources": [
+      "../../hyperrogue/aspects-2026-10-14/ASPECTS.json#A10",
+      "../../siralim-ultimate/aspects-2026-10-14/ASPECTS.json#A10",
+      "../../remnant-2/aspects-2026-10-14/ASPECTS.json#A10",
+      "../../kingdom-hearts/aspects-2026-10-14/ASPECTS.json#A10",
+      "../../the-strange-tabletop/aspects-2026-10-14/ASPECTS.json#A10",
+      "../../multi-realm-muds/aspects-2026-10-14/ASPECTS.json#A10",
+      "../../multiverse-idle/aspects-2026-10-14/ASPECTS.json#A10"
+    ],
+    "summary": "Useful known arrival facts and persistent unlock routes should lead to an actual first action without exposing hidden state.",
+    "yairpg": [
+      "K4/K11/K14/K30; P04/P19"
+    ]
+  },
+  "A11": {
+    "status": "partial",
+    "sources": [
+      "../../hyperrogue/aspects-2026-10-14/ASPECTS.json#A11",
+      "../../siralim-ultimate/aspects-2026-10-14/ASPECTS.json#A11",
+      "../../remnant-2/aspects-2026-10-14/ASPECTS.json#A11",
+      "../../kingdom-hearts/aspects-2026-10-14/ASPECTS.json#A11",
+      "../../the-strange-tabletop/aspects-2026-10-14/ASPECTS.json#A11",
+      "../../multi-realm-muds/aspects-2026-10-14/ASPECTS.json#A11",
+      "../../multiverse-idle/aspects-2026-10-14/ASPECTS.json#A11"
+    ],
+    "summary": "Twenty-four optional touches are routed in SMALL_TOUCHES; preserve causal logs, list bearings and real source explanations.",
+    "yairpg": [
+      "K14/K23/K30; P01/P20"
+    ]
+  },
+  "A12": {
+    "status": "partial",
+    "sources": [
+      "../../hyperrogue/aspects-2026-10-14/ASPECTS.json#A12",
+      "../../siralim-ultimate/aspects-2026-10-14/ASPECTS.json#A12",
+      "../../remnant-2/aspects-2026-10-14/ASPECTS.json#A12",
+      "../../kingdom-hearts/aspects-2026-10-14/ASPECTS.json#A12",
+      "../../the-strange-tabletop/aspects-2026-10-14/ASPECTS.json#A12",
+      "../../multi-realm-muds/aspects-2026-10-14/ASPECTS.json#A12",
+      "../../multiverse-idle/aspects-2026-10-14/ASPECTS.json#A12"
+    ],
+    "summary": "Patrons, guilds, local manifestations, projects and collections inform separate models; no universal career/reputation/party system inferred.",
+    "yairpg": [
+      "K7/K8/K9/K13/K25; P02/P06/P07"
+    ]
+  }
+}

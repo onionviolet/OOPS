@@ -1,0 +1,118 @@
+{
+  "lane": "fs-zomboid",
+  "date": "2026-10-14",
+  "status": "PARTIAL",
+  "game": "Project Zomboid",
+  "steam_app": 108600,
+  "build_id": "25485521",
+  "source_version": "42.21",
+  "install": {
+    "state_flags": 4,
+    "size_on_disk": 10529753899,
+    "download_complete": true
+  },
+  "source_root": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/ProjectZomboid/Project Zomboid.app/Contents/Java",
+  "raw_archive": "/Users/weiwei/.codex/research/fs-zomboid/extract/plain-source.zip",
+  "hashes": "/Users/weiwei/.codex/research/fs-zomboid/extract/HASHES.txt",
+  "findings": [
+    {
+      "id": "F1",
+      "packet": "P03",
+      "basis": "shown",
+      "claim": "Books retain band multipliers without direct XP; media uses normal XP and recipe learning is separate.",
+      "sources": [
+        "ISReadABook",
+        "XPSystem_SkillBook",
+        "ISRadioInteractions.doSkill",
+        "IsoGameCharacter.XP.AddXP"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "F2",
+      "packet": "P04",
+      "basis": "shown",
+      "claim": "Actor recipe knowledge survives reference loss; present skill/input/station checks are distinct, with recipe-at-hand exception.",
+      "sources": [
+        "IsoGameCharacter.knownRecipes",
+        "CraftRecipeManager.isValidRecipeForCharacter",
+        "CraftRecipe.couldBenefitFromRecipeAtHand"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "F3",
+      "packet": "CH",
+      "basis": "shown",
+      "claim": "Drying is an unattended environment reader; sampled kiln and forge chains use CraftBench actions.",
+      "sources": [
+        "DryingCraftLogic",
+        "recipes_leather_prep.txt",
+        "entity_forge_i.txt",
+        "entity_kiln_small.txt"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "F4",
+      "packet": "BD",
+      "basis": "shown",
+      "claim": "Named trait/stat/part fields have different concrete readers; human genetics was not established.",
+      "sources": [
+        "ISBaseTimedAction.adjustMaxTime",
+        "ISHealthPanel",
+        "Moodle.Update",
+        "BodyPart"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "F5",
+      "packet": "P01",
+      "basis": "shown",
+      "claim": "Generic action validity is boolean; drying supplies stronger causal stop/pause feedback.",
+      "sources": [
+        "LuaTimedActionNew.valid",
+        "ISHandcraftAction.start",
+        "DryingCraftLogic.doProgressTooltip"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "F6",
+      "packet": "P03",
+      "basis": "shown",
+      "claim": "Media cutoff is pre-award, and new known line GUID is retained before effect checks.",
+      "sources": [
+        "ISRadioInteractions.checkPlayer",
+        "ISRadioInteractions.doSkill"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "F7",
+      "packet": "CH",
+      "basis": "shown",
+      "claim": "Pending craft stores recipe ID/version, elapsed time and consumed-input state; mismatches invalidate it.",
+      "sources": [
+        "CraftRecipeData.save/load",
+        "DryingCraftLogic.save/load"
+      ],
+      "runtime_verified": false
+    }
+  ],
+  "proposals": [
+    "ZP1",
+    "ZP2",
+    "ZP3",
+    "ZP4",
+    "ZP5",
+    "ZP6",
+    "ZP7"
+  ],
+  "gaps": [
+    "G1 runtime deliberately forbidden",
+    "G2 multiplayer transport/full cancellation/global persistence unread",
+    "G3 wider dialogue/AI/world systems partial"
+  ]
+}

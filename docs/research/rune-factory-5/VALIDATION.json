@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "required_artifacts": 11,
+  "json_parse": "all output JSON valid",
+  "aspects": 12,
+  "feature_answers": 5,
+  "proposals": 6,
+  "small_touches": 26,
+  "private_tables": 282,
+  "skills": 39,
+  "skill_actions": 411,
+  "item_joins": 1174,
+  "private_ignore": true,
+  "local_links": "exist",
+  "private_hashes": "all verified",
+  "event_pack_bytes": "exact match against raw TextAsset",
+  "game_executed": false,
+  "saves_accessed": false,
+  "lane_evidence_status": "PARTIAL"
+}

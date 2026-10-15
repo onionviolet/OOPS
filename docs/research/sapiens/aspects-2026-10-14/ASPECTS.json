@@ -1,0 +1,151 @@
+{
+  "A01": {
+    "status": "covered",
+    "sources": [
+      "scripts/common/social.lua",
+      "scripts/common/vocal.lua",
+      "scripts/server/sapienAI/startOrderAI.lua"
+    ],
+    "summary": "Distance and time select vocal interactions and gestures; voice varies by life stage/sex in the shown route. No paid-choice conversation tree shown.",
+    "yairpg": [
+      "DIALOGUE_AND_INTERACTIONS: small conditional barks; keep paid choices separate."
+    ]
+  },
+  "A02": {
+    "status": "partial",
+    "sources": [
+      "scripts/server/serverStoryEvents.lua",
+      "scripts/server/serverTutorialState.lua",
+      "scripts/mainThread/ui/discoveryUI.lua"
+    ],
+    "summary": "World/tribe events are timed with retries; tutorial and discovery notices recall real state. Broader narrative content unread.",
+    "yairpg": [
+      "CHARACTERS_AND_WORLD_EVENTS: retain scheduled event state and useful results."
+    ]
+  },
+  "A03": {
+    "status": "covered",
+    "sources": [
+      "scripts/common/typeMaps.lua",
+      "scripts/common/modManager.lua",
+      "scripts/server/planManager.lua",
+      "scripts/server/sapienAI/activeOrderAI.lua"
+    ],
+    "summary": "Lua modules split common, server, logic, globe and main threads; native mj/bridge APIs supply engine services. Indexed tables define content; callbacks refresh dependent availability.",
+    "yairpg": [
+      "ENGINE_AUTHORING: data definitions, state and projections have different owners."
+    ]
+  },
+  "A04": {
+    "status": "partial",
+    "sources": [
+      "scripts/server/serverWorld.lua:1195",
+      "scripts/server/serverWorld.lua:920",
+      "scripts/server/serverGOM.lua:3324",
+      "scripts/server/serverEvolvingObject.lua"
+    ],
+    "summary": "Discovery state goes to players database; objects to native bridge; 0.4 discovery migration and type-map compatibility checks are visible. Byte format, atomicity, autosave cadence, corruption recovery, offline time and actual reload unread/unverified.",
+    "yairpg": [
+      "ENGINE_SAVES_AND_SCALE_REVIEW: migration must preserve knowledge/assignment and stage progress."
+    ]
+  },
+  "A05": {
+    "status": "partial",
+    "sources": [
+      "scripts/server/sapienAI/startOrderAI.lua",
+      "scripts/server/sapienAI/activeOrderAI.lua",
+      "scripts/server/planManager.lua"
+    ],
+    "summary": "AI distinguishes needs, plans, paths and action execution; shared typed plan feasibility is separate from individual work choice. Full utility ordering and AI tribes unread.",
+    "yairpg": [
+      "ENGINE_EXPANSION: one admission truth with independent worker availability."
+    ]
+  },
+  "A06": {
+    "status": "partial",
+    "sources": [
+      "scripts/mainThread/ui/hubUIUtilities.lua",
+      "scripts/mainThread/orderStatus.lua",
+      "scripts/mainThread/ui/discoveryUI.lua"
+    ],
+    "summary": "Blockers format counted inputs, facilities and assignment; active status names actions; discoveries queue notices. Screen layout, keyboard reachability and native rendering unverified.",
+    "yairpg": [
+      "THEMATIC_UI: parallel current work/means/blocker at desktop 1366x768."
+    ]
+  },
+  "A07": {
+    "status": "covered",
+    "sources": [
+      "scripts/common/modManager.lua",
+      "scripts/common/typeMaps.lua",
+      "scripts/common/research.lua",
+      "scripts/common/craftable.lua"
+    ],
+    "summary": "Lua registration tables, stable indexed maps, localization and ordered onload hooks support content/mod authoring; loader reports errors. Runtime API and mod execution not tested.",
+    "yairpg": [
+      "ENGINE_AUTHORING: validate references and preserve stable saved IDs, no donor loader port."
+    ]
+  },
+  "A08": {
+    "status": "partial",
+    "sources": [
+      "scripts/server/serverSapienSkills.lua:getIncrement",
+      "scripts/common/skill.lua",
+      "scripts/server/serverWorld.lua:1556",
+      "scripts/common/craftable.lua"
+    ],
+    "summary": "Skill completion base 400; traits and research phase multipliers alter rates; active fellow researchers receive randomized skill progress. Full balance/RNG/pity not audited.",
+    "yairpg": [
+      "SKILLS_AND_TALENTS: count actual paid practice, separate grant policy."
+    ]
+  },
+  "A09": {
+    "status": "partial",
+    "sources": [
+      "scripts/server/serverEvolvingObject.lua",
+      "scripts/server/serverStoryEvents.lua",
+      "scripts/common/gameConstants.lua"
+    ],
+    "summary": "World-time callbacks schedule earliest pile evolution and event retries; action updates use speed multipliers. Pause=0/play=1/fast=3 constants shown. Offline and clock rollback semantics unread.",
+    "yairpg": [
+      "MODULAR_PRODUCTION_CHAINS: declare passive versus staffed time and interruption."
+    ]
+  },
+  "A10": {
+    "status": "covered",
+    "sources": [
+      "scripts/server/serverTutorialState.lua",
+      "scripts/common/gameConstants.lua",
+      "scripts/common/planHelper.lua:339",
+      "scripts/mainThread/ui/discoveryUI.lua"
+    ],
+    "summary": "Tutorial counters are saved and notified; discovery dependencies gate investigations and reveal useful outputs. These are source behaviors, not a played tutorial.",
+    "yairpg": [
+      "TECHNOLOGY_AND_PROGRESSION: reveal from earned useful actions, avoid hidden prerequisite leaks."
+    ]
+  },
+  "A11": {
+    "status": "covered",
+    "sources": [
+      "scripts/mainThread/ui/hubUIUtilities.lua",
+      "scripts/mainThread/ui/discoveryUI.lua",
+      "scripts/common/social.lua"
+    ],
+    "summary": "Counted shortages, specific facilities, breakthrough queue, action naming and conditional barks provide grounded feedback. Twenty-six original touches saved.",
+    "yairpg": [
+      "THEMATIC_UI: exact current feedback before additional cosmetic work."
+    ]
+  },
+  "A12": {
+    "status": "partial",
+    "sources": [
+      "scripts/common/planHelper.lua:2094",
+      "scripts/server/serverStorageArea.lua",
+      "scripts/server/serverTribe.lua"
+    ],
+    "summary": "Storage ownership/local overrides/alliance permissions and container chains are identified. Broader diplomacy, economy, genetics, disease, transport and achievements are inventoried but unread.",
+    "yairpg": [
+      "MEANS_AND_APPRAISAL: possession does not grant permission; custody survives processing."
+    ]
+  }
+}

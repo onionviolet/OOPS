@@ -1,0 +1,111 @@
+{
+  "lane": "fs-potionomics",
+  "date": "2026-10-14",
+  "status": "PARTIAL",
+  "steam_app": 1874490,
+  "build": "21042632",
+  "install_complete": true,
+  "launched": false,
+  "evidence_layer": "static installed assets and decoded Blueprint bytecode; no gameplay",
+  "findings": [
+    {
+      "id": "F1",
+      "packet": "P19",
+      "answer": "Patience pays for cards; stress, closer and interest checks precede ordinary patience failure. Price combines multiple percentage sources. Stress persists; direct future offer or friendship penalty unproved.",
+      "evidence": [
+        "Blueprints/BP_PlayerController.CheckIsCardGameOver_Haggle",
+        "Blueprints/BP_PlayerController.CGV2CI_GetCurrentPotionPriceInfo",
+        "Blueprints/BP_PlayerController.StoreStressStats",
+        "Blueprints/BP_BarterSystem.ExecuteUbergraph_BP_BarterSystem"
+      ],
+      "status": "shown",
+      "gaps": [
+        "Direct persistent relationship/offer consequence",
+        "Exhaustive effect interactions"
+      ]
+    },
+    {
+      "id": "F2",
+      "packet": "P02",
+      "answer": "Five magimin channels, twenty recipe vectors, separate tier/star/stability and multiple consumers; shared-stock destinations are not proven to be compared simultaneously.",
+      "evidence": [
+        "Data/DT_Ingredients",
+        "Data/DT_PotionPurity",
+        "Data/DT_Potions",
+        "Data/DT_CauldronStability",
+        "Potionomics/UI/Brewing/WBP_CauldronPieChart"
+      ],
+      "status": "shown",
+      "gaps": [
+        "Native stability formula and RNG weights",
+        "Runtime desktop layout"
+      ]
+    },
+    {
+      "id": "F3",
+      "packet": "P03",
+      "answer": "Relationship points gate rank scenes; GiveCard and GiveCoupon grant practical unlocks; learned library and equipped deck are distinct.",
+      "evidence": [
+        "Data/Relationships/DT_Relationships",
+        "Data/Dialogue/Relationships/Mint/DT_Dialogue_MintRel01",
+        "Data/Dialogue/Relationships/Roxanne/DT_Dialogue_RoxanneRel01",
+        "Potionomics/System/SaveLoad/BPL_SaveLoad.GenerateUnlockedCardsFromRelationships"
+      ],
+      "status": "shown",
+      "gaps": [
+        "Equivalent manual/study route not established",
+        "Runtime usable deck demonstration excluded"
+      ]
+    },
+    {
+      "id": "F4",
+      "packet": "P01",
+      "answer": "Quote target, tier/stars, base price, capacity, stability and duration; completion/collection reports actual quality. Two overnight segments are stated in installed text.",
+      "evidence": [
+        "Data/DT_Potions",
+        "Data/DT_CauldronCraftResults",
+        "Potionomics/UI/Brewing/WBP_PotionToBeBrewed",
+        "Potionomics/UI/Brewing/WBP_ActiveCauldron",
+        "Localization/Game/en/Game.locres:ST_LoadingScreenTips.LoadingScreenTips_24"
+      ],
+      "status": "shown_and_stated",
+      "gaps": [
+        "Native overnight reducer",
+        "Exact final quantity and random settlement",
+        "Durable collection idempotency"
+      ]
+    }
+  ],
+  "proposals": [
+    {
+      "id": "PO1",
+      "rank": 1,
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "PO2",
+      "rank": 2,
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "PO3",
+      "rank": 3,
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "PO4",
+      "rank": 4,
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "PO5",
+      "rank": 5,
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "PO6",
+      "rank": 6,
+      "status": "PROPOSAL"
+    }
+  ]
+}

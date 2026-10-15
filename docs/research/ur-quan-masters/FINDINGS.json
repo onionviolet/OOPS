@@ -1,0 +1,500 @@
+{
+  "lane": "lib-uqm",
+  "date": "2026-10-14",
+  "status": "PARTIAL",
+  "evidence_scope": "Pinned official source; selected semantic traces and complete dialogue/module census; no native execution or installed-build parity",
+  "source": {
+    "url": "https://sourceforge.net/p/sc2/uqm/",
+    "git": "https://git.code.sf.net/p/sc2/uqm",
+    "revision": "a0d90e239b3a8e3dcb9d732fd76a385aac2593e5",
+    "local_root": "/Users/weiwei/.codex/research/lib-uqm/repos/uqm"
+  },
+  "counts": {
+    "dialogue_tables": 27,
+    "phrase_entries": 3451,
+    "comm_modules": 27,
+    "response_sites": 937,
+    "npcphrase_sites": 1758,
+    "comm_lines": 23346,
+    "sites_indexed": 4790
+  },
+  "sources": [
+    {
+      "id": "S01",
+      "path": "sc2/src/uqm/comm.c",
+      "symbols": "SelectResponse, DoResponsePhrase, HailAlien"
+    },
+    {
+      "id": "S02",
+      "path": "sc2/src/uqm/commglue.h",
+      "symbols": "Response, PHRASE_ENABLED, DISABLE_PHRASE, NPCPhrase_cb"
+    },
+    {
+      "id": "S03",
+      "path": "sc2/src/uqm/comm/spathi/spathic.c",
+      "symbols": "SpathiOnPluto, SpathiAllies, Intro"
+    },
+    {
+      "id": "S04",
+      "path": "sc2/src/uqm/comm/melnorm/melnorm.c",
+      "symbols": "HasTech, GrantTech, GetNextTechForSale, DeltaCredit, AlienRaces, DoBuy, DoSell, DoRescue"
+    },
+    {
+      "id": "S05",
+      "path": "sc2/src/uqm/comm/syreen/syreenc.c",
+      "symbols": "NormalSyreen, Intro"
+    },
+    {
+      "id": "S06",
+      "path": "sc2/src/uqm/hyper.c",
+      "symbols": "fuel_ticks, ARILOU_SPACE_SIDE, portal_pt, MoveSIS"
+    },
+    {
+      "id": "S07",
+      "path": "sc2/src/uqm/planets/pstarmap.c",
+      "symbols": "UpdateFuelRequirement, known_strength, known_loc"
+    },
+    {
+      "id": "S08",
+      "path": "sc2/src/uqm/planets/scan.c",
+      "symbols": "getLandingFuelNeeded, isNodeRetrieved, setNodeRetrieved"
+    },
+    {
+      "id": "S09",
+      "path": "sc2/src/uqm/planets/lander.c",
+      "symbols": "pickupMineralNode, DeltaLanderCrew, GetHazardChance, PlanetSide"
+    },
+    {
+      "id": "S10",
+      "path": "sc2/src/uqm/comm/starbas/starbas.c",
+      "symbols": "CheckBulletins, ByeBye, SellMinerals"
+    },
+    {
+      "id": "S11",
+      "path": "sc2/src/uqm/clock.c",
+      "symbols": "AddEvent, ValidateEvent, GameClockTick, MoveGameClockDays"
+    },
+    {
+      "id": "S12",
+      "path": "sc2/src/uqm/gameev.c",
+      "symbols": "AddInitialGameEvents, EventHandler, arilou_entrance_event, arilou_exit_event, check_race_growth"
+    },
+    {
+      "id": "S13",
+      "path": "sc2/src/uqm/save.c",
+      "symbols": "SaveGame, SaveGameState, SaveSisState, SaveEvents, SaveStarInfo"
+    },
+    {
+      "id": "S14",
+      "path": "sc2/src/uqm/load.c",
+      "symbols": "LoadGame, LoadGameState"
+    },
+    {
+      "id": "S15",
+      "path": "sc2/src/uqm/state.c",
+      "symbols": "GetPlanetInfo, PutPlanetInfo, ScanRetrieveMask"
+    },
+    {
+      "id": "S16",
+      "path": "sc2/src/uqm/planets/generate/genspa.c",
+      "symbols": "GenerateSpathi_generatePlanets, GenerateSpathi_generateOrbital"
+    },
+    {
+      "id": "S17",
+      "path": "sc2/src/uqm/planets/generate/gendefault.c",
+      "symbols": "GenerateDefault_generateOrbital, ScanSeed"
+    },
+    {
+      "id": "S18",
+      "path": "sc2/src/uqm/ships/arilou/arilou.c",
+      "symbols": "arilou_intelligence, arilou_preprocess, init_arilou"
+    },
+    {
+      "id": "S19",
+      "path": "sc2/src/uqm/ships/spathi/spathi.c",
+      "symbols": "spathi_intelligence"
+    },
+    {
+      "id": "S20",
+      "path": "sc2/src/uqm/comm/orz/orzc.c",
+      "symbols": "ORZ_MANNER, ORZ_VISITS, Intro"
+    },
+    {
+      "id": "S21",
+      "path": "sc2/src/uqm/comm/arilou/arilouc.c",
+      "symbols": "ArilouHome, PORTAL_KEY_ON_SHIP, PORTAL_SPAWNER_ON_SHIP"
+    },
+    {
+      "id": "S22",
+      "path": "sc2/src/uqm/sis.h",
+      "symbols": "SIS_STATE, NUM_MODULE_SLOTS, MAX_BUILT_SHIPS"
+    },
+    {
+      "id": "S23",
+      "path": "sc2/src/uqm/outfit.c",
+      "symbols": "ModuleSlots, ModuleCost, FuelOnBoard"
+    },
+    {
+      "id": "S24",
+      "path": "sc2/src/uqm/shipyard.c",
+      "symbols": "CheckAlliance, CrewCost"
+    },
+    {
+      "id": "S25",
+      "path": "sc2/src/uqm/comm/zoqfot/zoqfotc.c",
+      "symbols": "NPCPhrase_cb, ZOQFOTPIK_CONVERSATION_PHRASES"
+    },
+    {
+      "id": "S26",
+      "path": "sc2/src/uqm/comm/slyhome/slyhome.c",
+      "symbols": "Intro, HELLO_1, HELLO_2"
+    },
+    {
+      "id": "S27",
+      "path": "sc2/content/base/comm/orz/orz.txt",
+      "symbols": "#(phrase-id) records"
+    },
+    {
+      "id": "S28",
+      "path": "sc2/src/uqm/gameev.h",
+      "symbols": "NUM_EVENTS"
+    },
+    {
+      "id": "S29",
+      "path": "sc2/src/uqm/planets/devices.c",
+      "symbols": "PORTAL_SPAWNER_DEVICE, PORTAL_FUEL_COST, PORTAL_COUNTER"
+    },
+    {
+      "id": "S30",
+      "path": "sc2/src/uqm/starcon.c",
+      "symbols": "Starcon2Main, on_battle_frame, CurrentActivity"
+    }
+  ],
+  "findings": [
+    {
+      "id": "F1",
+      "label": "SHOWN",
+      "claim": "Conversation is a C callback graph over stable phrase references, not a generic dialogue-tree asset. Local phrase suppression and durable game flags have different lifetimes.",
+      "sources": [
+        "S01",
+        "S02",
+        "S03"
+      ],
+      "aspects": [
+        "A01",
+        "A03",
+        "A04"
+      ],
+      "kit": [
+        "K6",
+        "K20",
+        "K18"
+      ],
+      "synthesis_packets": [
+        "P19",
+        "P24"
+      ]
+    },
+    {
+      "id": "F2",
+      "label": "SHOWN",
+      "claim": "Alien voice joins distinct wording, response intents, repeated-visit greetings, authored stance and portrait/music/animation definitions. It is more than replacing a species name in a neutral template.",
+      "sources": [
+        "S03",
+        "S20",
+        "S25",
+        "S26",
+        "S27"
+      ],
+      "aspects": [
+        "A01",
+        "A06",
+        "A11"
+      ],
+      "kit": [
+        "K6",
+        "K14",
+        "K20",
+        "K27",
+        "K31"
+      ],
+      "synthesis_packets": [
+        "P19",
+        "P21"
+      ]
+    },
+    {
+      "id": "F3",
+      "label": "SHOWN",
+      "claim": "Melnorme information purchases can set knowledge flags consumed by another encounter; Syreen talk separates learned suspicion from carrying physical evidence.",
+      "sources": [
+        "S04",
+        "S05"
+      ],
+      "aspects": [
+        "A01",
+        "A02",
+        "A12"
+      ],
+      "kit": [
+        "K11",
+        "K23",
+        "K30"
+      ],
+      "synthesis_packets": [
+        "P11",
+        "P19"
+      ]
+    },
+    {
+      "id": "F4",
+      "label": "SHOWN",
+      "claim": "Progress carried between places includes the same flagship fuel/cargo/modules, escort queue, technology availability, known information and authored alliances. The inspected loop centers expedition capability rather than a unified character XP currency.",
+      "sources": [
+        "S04",
+        "S13",
+        "S22",
+        "S23",
+        "S24"
+      ],
+      "aspects": [
+        "A04",
+        "A08",
+        "A12"
+      ],
+      "kit": [
+        "K3",
+        "K7",
+        "K9",
+        "K15"
+      ],
+      "synthesis_packets": [
+        "P04",
+        "P07",
+        "P17"
+      ]
+    },
+    {
+      "id": "F5",
+      "label": "SHOWN",
+      "claim": "Planets change expedition choices through landing fuel, weather/tectonic/temperature hazard chances, cargo limits and authored generation overrides. They do not each replace the game engine or power rules.",
+      "sources": [
+        "S08",
+        "S09",
+        "S16",
+        "S17"
+      ],
+      "aspects": [
+        "A08",
+        "A11",
+        "A12"
+      ],
+      "kit": [
+        "K2",
+        "K5",
+        "K9",
+        "K28"
+      ],
+      "synthesis_packets": [
+        "P14",
+        "P15",
+        "P18"
+      ]
+    },
+    {
+      "id": "F6",
+      "label": "SHOWN",
+      "claim": "HyperSpace travel spends fuel with displacement accounting; the map estimates destination fuel and depicts known influence. QuasiSpace changes fuel behavior and maps exits to different coordinates.",
+      "sources": [
+        "S06",
+        "S07"
+      ],
+      "aspects": [
+        "A06",
+        "A08",
+        "A12"
+      ],
+      "kit": [
+        "K2",
+        "K5",
+        "K15"
+      ],
+      "synthesis_packets": [
+        "P14",
+        "P18"
+      ]
+    },
+    {
+      "id": "F7",
+      "label": "SHOWN",
+      "claim": "Surface nodes are generated from scan seeds and retrieval is tracked separately in masks; planet state is read/written and saved with the campaign. A regenerated layout need not mean restored stock.",
+      "sources": [
+        "S08",
+        "S15",
+        "S17",
+        "S13"
+      ],
+      "aspects": [
+        "A03",
+        "A04",
+        "A07"
+      ],
+      "kit": [
+        "K9",
+        "K18",
+        "K29",
+        "K33"
+      ],
+      "synthesis_packets": [
+        "P12",
+        "P15",
+        "P16"
+      ]
+    },
+    {
+      "id": "F8",
+      "label": "SHOWN",
+      "claim": "Minerals exchange for resource units at the starbase, biological data and new special-world reports for Melnorme credits, then credits for fuel, technology and information. Different acquisitions feed distinct buyers and useful outputs.",
+      "sources": [
+        "S04",
+        "S10",
+        "S23"
+      ],
+      "aspects": [
+        "A08",
+        "A12"
+      ],
+      "kit": [
+        "K8",
+        "K9",
+        "K13"
+      ],
+      "synthesis_packets": [
+        "P02",
+        "P18"
+      ]
+    },
+    {
+      "id": "F9",
+      "label": "SHOWN",
+      "claim": "Calendar events are ordered by authored dates and call C handlers. Portal recurrence, fleet changes and delayed local consequences happen through those handlers, not a universal autonomous NPC planner.",
+      "sources": [
+        "S11",
+        "S12",
+        "S28"
+      ],
+      "aspects": [
+        "A02",
+        "A05",
+        "A09"
+      ],
+      "kit": [
+        "K5",
+        "K7",
+        "K12",
+        "K32"
+      ],
+      "synthesis_packets": [
+        "P10",
+        "P13",
+        "P25"
+      ]
+    },
+    {
+      "id": "F10",
+      "label": "SHOWN",
+      "claim": "Starbase bulletins read actual flags, remember delivery and support repetition; some non-repeat bulletin branches also grant escorts, so repeating text must be kept separate from repeating a grant.",
+      "sources": [
+        "S10"
+      ],
+      "aspects": [
+        "A01",
+        "A02",
+        "A11"
+      ],
+      "kit": [
+        "K12",
+        "K23",
+        "K29"
+      ],
+      "synthesis_packets": [
+        "P19",
+        "P20"
+      ]
+    },
+    {
+      "id": "F11",
+      "label": "SHOWN",
+      "claim": "The tagged binary save includes carrier, flags, queues, clock/events, planet and group state. The inspected writer opens the destination with wb and deletes it on detected I/O failure; load mutates global state before full completion. These functions do not demonstrate atomic safe restore.",
+      "sources": [
+        "S13",
+        "S14",
+        "S15"
+      ],
+      "aspects": [
+        "A04"
+      ],
+      "kit": [
+        "K18",
+        "K33"
+      ],
+      "synthesis_packets": [
+        "P16",
+        "P24"
+      ]
+    },
+    {
+      "id": "F12",
+      "label": "SHOWN",
+      "claim": "Species ship implementations specialize tactical behavior over shared controls. Arilou AI considers imminent threats and energy for teleport use; Spathi AI conditions a rear-directed special on relative facing and approach. This is bounded tactical AI, not evidence of social daily lives.",
+      "sources": [
+        "S18",
+        "S19"
+      ],
+      "aspects": [
+        "A05",
+        "A08",
+        "A12"
+      ],
+      "kit": [
+        "K3",
+        "K10",
+        "K13"
+      ],
+      "synthesis_packets": [
+        "P25"
+      ]
+    },
+    {
+      "id": "F13",
+      "label": "SHOWN",
+      "claim": "The inspected default mineral path truncates accepted cargo to free hold space, then marks the node retrieved without retaining a remainder quantity. Depletion persistence alone does not prove conservation.",
+      "sources": [
+        "S08",
+        "S09",
+        "S17"
+      ],
+      "aspects": [
+        "A08",
+        "A12"
+      ],
+      "kit": [
+        "K9",
+        "K18"
+      ],
+      "synthesis_packets": [
+        "P02",
+        "P15"
+      ]
+    }
+  ],
+  "new_candidates": [
+    "UQM-N1"
+  ],
+  "gaps": [
+    "All reachable predicate combinations and all dialogue prose not semantically reviewed",
+    "Whole tactical AI and combat balance not audited",
+    "Installed Free Stars build not compared",
+    "No game launch, build or native persistence test"
+  ]
+}

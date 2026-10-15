@@ -1,0 +1,2581 @@
+{
+  "schema": 1,
+  "lane": "ds-naev",
+  "pin": "f8982244800e86553217a2dba555a0f41c2b87ba",
+  "status": "PARTIAL",
+  "evidence": "static source only",
+  "scope": "All 30 original module rows and 21 original semantic rows retained; fifteen deep leaves plus explicit residual leaves. This is a source inventory, not a claim of all emergent mechanics.",
+  "owner_mapping": "Proposed document routing; broad coverage is not implemented consumer coverage. No dedicated owner means no specialist found among consulted owners, not an exhaustive repository absence proof.",
+  "systems": [
+    {
+      "id": "MODULE-dat-LICENSE",
+      "name": "Asset/code attribution",
+      "kind": "module",
+      "family": "social events time and AI",
+      "prior_status": "undocumented",
+      "status": "unread",
+      "sources": [
+        "dat/LICENSE"
+      ],
+      "kit": [
+        "K6",
+        "K7",
+        "K12",
+        "K18"
+      ],
+      "packets": [
+        "P10",
+        "P19",
+        "P25"
+      ],
+      "palettes": [
+        "CHARACTERS_AND_WORLD_EVENTS.md",
+        "worlds/DIALOGUE_AND_INTERACTIONS.md"
+      ],
+      "owner_coverage": "mapped",
+      "deep_traces": []
+    },
+    {
+      "id": "MODULE-dat-ai",
+      "name": "Shared AI, faction combat/scan/hail/retreat policies",
+      "kind": "module",
+      "family": "body power and combat",
+      "prior_status": "partial",
+      "status": "sampled-this-pass",
+      "sources": [
+        "dat/ai"
+      ],
+      "kit": [
+        "K3",
+        "K9",
+        "K10",
+        "K22"
+      ],
+      "packets": [
+        "P09",
+        "P14",
+        "P17"
+      ],
+      "palettes": [
+        "worlds/ABILITY_AUTHORING.md",
+        "GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md"
+      ],
+      "owner_coverage": "mapped",
+      "deep_traces": [
+        "DS04"
+      ]
+    },
+    {
+      "id": "MODULE-dat-asteroids",
+      "name": "Asteroid/mining fields",
+      "kind": "module",
+      "family": "economy production and resources",
+      "prior_status": "undocumented",
+      "status": "sampled-this-pass",
+      "sources": [
+        "dat/asteroids"
+      ],
+      "kit": [
+        "K8",
+        "K9",
+        "K29"
+      ],
+      "packets": [
+        "P02",
+        "P12",
+        "P18"
+      ],
+      "palettes": [
+        "MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md"
+      ],
+      "owner_coverage": "mapped",
+      "deep_traces": [
+        "DS07"
+      ]
+    },
+    {
+      "id": "MODULE-dat-bkg",
+      "name": "Background scenes",
+      "kind": "module",
+      "family": "presentation infrastructure",
+      "prior_status": "undocumented",
+      "status": "unread",
+      "sources": [
+        "dat/bkg"
+      ],
+      "kit": [
+        "K14",
+        "K19"
+      ],
+      "packets": [
+        "P16"
+      ],
+      "palettes": [
+        "THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md"
+      ],
+      "owner_coverage": "no dedicated native rendering/audio owner found; broad UI owner only",
+      "deep_traces": []
+    },
+    {
+      "id": "MODULE-dat-commodities",
+      "name": "Goods and regional price inputs",
+      "kind": "module",
+      "family": "authoring and tools",
+      "prior_status": "sampled",
+      "status": "prior-partial",
+      "sources": [
+        "dat/commodities"
+      ],
+      "kit": [
+        "K33",
+        "K34"
+      ],
+      "packets": [
+        "P16",
+        "P22"
+      ],
+      "palettes": [
+        "ENGINE_AUTHORING.md"
+      ],
+      "owner_coverage": "mapped",
+      "deep_traces": []
+    },
+    {
+      "id": "MODULE-dat-damagetype",
+      "name": "Damage types and interactions",
+      "kind": "module",
+      "family": "body power and combat",
+      "prior_status": "undocumented",
+      "status": "sampled-this-pass",
+      "sources": [
+        "dat/damagetype"
+      ],
+      "kit": [
+        "K3",
+        "K9",
+        "K10",
+        "K22"
+      ],
+      "packets": [
+        "P09",
+        "P14",
+        "P17"
+      ],
+      "palettes": [
+        "worlds/ABILITY_AUTHORING.md",
+        "GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md"
+      ],
+      "owner_coverage": "mapped",
+      "deep_traces": [
+        "DS13"
+      ]
+    },
+    {
+      "id": "MODULE-dat-difficulty",
+      "name": "Difficulty presets",
+      "kind": "module",
+      "family": "body power and combat",
+      "prior_status": "undocumented",
+      "status": "unread",
+      "sources": [
+        "dat/difficulty"
+      ],
+      "kit": [
+        "K3",
+        "K9",
+        "K10",
+        "K22"
+      ],
+      "packets": [
+        "P09",
+        "P14",
+        "P17"
+      ],
+      "palettes": [
+        "worlds/ABILITY_AUTHORING.md",
+        "GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md"
+      ],
+      "owner_coverage": "mapped",
+      "deep_traces": []
+    },
+    {
+      "id": "MODULE-dat-effects",
+      "name": "Status/visual effect definitions",
+      "kind": "module",
+      "family": "body power and combat",
+      "prior_status": "undocumented",
+      "status": "sampled-this-pass",
+      "sources": [
+        "dat/effects"
+      ],
+      "kit": [
+        "K3",
+        "K9",
+        "K10",
+        "K22"
+      ],
+      "packets": [
+        "P09",
+        "P14",
+        "P17"
+      ],
+      "palettes": [
+        "worlds/ABILITY_AUTHORING.md",
+        "GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md"
+      ],
+      "owner_coverage": "mapped",
+      "deep_traces": [
+        "DS13"
+      ]
+    },
+    {
+      "id": "MODULE-dat-events",
+      "name": "Triggered events, news, discoveries, bioship manager, scripted people",
+      "kind": "module",
+      "family": "body power and combat",
+      "prior_status": "partial",
+      "status": "sampled-this-pass",
+      "sources": [
+        "dat/events"
+      ],
+      "kit": [
+        "K3",
+        "K9",
+        "K10",
+        "K22"
+      ],
+      "packets": [
+        "P09",
+        "P14",
+        "P17"
+      ],
+      "palettes": [
+        "worlds/ABILITY_AUTHORING.md",
+        "GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md"
+      ],
+      "owner_coverage": "mapped",
+      "deep_traces": [
+        "DS02",
+        "DS03",
+        "DS06",
+        "DS08",
+        "DS09",
+        "DS10",
+        "DS14"
+      ]
+    },
+    {
+      "id": "MODULE-dat-factions",
+      "name": "Faction identities, standing, spawn scheduler and equipment",
+      "kind": "module",
+      "family": "information and UI",
+      "prior_status": "partial",
+      "status": "prior-partial",
+      "sources": [
+        "dat/factions"
+      ],
+      "kit": [
+        "K14",
+        "K23"
+      ],
+      "packets": [
+        "P01",
+        "P20",
+        "P21"
+      ],
+      "palettes": [
+        "THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md"
+      ],
+      "owner_coverage": "mapped",
+      "deep_traces": []
+    },
+    {
+      "id": "MODULE-dat-gui",
+      "name": "HUD variants and slim helper files",
+      "kind": "module",
+      "family": "information and UI",
+      "prior_status": "partial",
+      "status": "prior-partial",
+      "sources": [
+        "dat/gui"
+      ],
+      "kit": [
+        "K14",
+        "K23"
+      ],
+      "packets": [
+        "P01",
+        "P20",
+        "P21"
+      ],
+      "palettes": [
+        "THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md"
+      ],
+      "owner_coverage": "mapped",
+      "deep_traces": []
+    },
+    {
+      "id": "MODULE-dat-lua-repl",
+      "name": "Development REPL directory",
+      "kind": "module",
+      "family": "authoring and tools",
+      "prior_status": "undocumented",
+      "status": "unread",
+      "sources": [
+        "dat/lua-repl"
+      ],
+      "kit": [
+        "K33",
+        "K34"
+      ],
+      "packets": [
+        "P16",
+        "P22"
+      ],
+      "palettes": [
+        "ENGINE_AUTHORING.md"
+      ],
+      "owner_coverage": "mapped",
+      "deep_traces": []
+    },
+    {
+      "id": "MODULE-dat-map_decorator",
+      "name": "Map annotations",
+      "kind": "module",
+      "family": "world simulation and travel",
+      "prior_status": "undocumented",
+      "status": "unread",
+      "sources": [
+        "dat/map_decorator"
+      ],
+      "kit": [
+        "K5",
+        "K7",
+        "K28"
+      ],
+      "packets": [
+        "P04",
+        "P13",
+        "P14"
+      ],
+      "palettes": [
+        "worlds/WORLD_CORE_KIT_2026-10-14.md",
+        "worlds/MULTIVERSE_STRUCTURES.md"
+      ],
+      "owner_coverage": "mapped",
+      "deep_traces": []
+    },
+    {
+      "id": "MODULE-dat-missions",
+      "name": "Missions, campaigns, tutorials, cargo, bounties, races and project work",
+      "kind": "module",
+      "family": "economy production and resources",
+      "prior_status": "partial",
+      "status": "sampled-this-pass",
+      "sources": [
+        "dat/missions"
+      ],
+      "kit": [
+        "K8",
+        "K9",
+        "K29"
+      ],
+      "packets": [
+        "P02",
+        "P12",
+        "P18"
+      ],
+      "palettes": [
+        "MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md"
+      ],
+      "owner_coverage": "mapped",
+      "deep_traces": [
+        "DS08"
+      ]
+    },
+    {
+      "id": "MODULE-dat-naevpedia",
+      "name": "In-game reference and lore",
+      "kind": "module",
+      "family": "social events time and AI",
+      "prior_status": "undocumented",
+      "status": "sampled-this-pass",
+      "sources": [
+        "dat/naevpedia"
+      ],
+      "kit": [
+        "K6",
+        "K7",
+        "K12",
+        "K18"
+      ],
+      "packets": [
+        "P10",
+        "P19",
+        "P25"
+      ],
+      "palettes": [
+        "CHARACTERS_AND_WORLD_EVENTS.md",
+        "worlds/DIALOGUE_AND_INTERACTIONS.md"
+      ],
+      "owner_coverage": "mapped",
+      "deep_traces": [
+        "DS10"
+      ]
+    },
+    {
+      "id": "MODULE-dat-outfits",
+      "name": "Weapons, support modules, powers and equipment effects",
+      "kind": "module",
+      "family": "body power and combat",
+      "prior_status": "partial",
+      "status": "prior-partial",
+      "sources": [
+        "dat/outfits"
+      ],
+      "kit": [
+        "K3",
+        "K9",
+        "K10",
+        "K22"
+      ],
+      "packets": [
+        "P09",
+        "P14",
+        "P17"
+      ],
+      "palettes": [
+        "worlds/ABILITY_AUTHORING.md",
+        "GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md"
+      ],
+      "owner_coverage": "mapped",
+      "deep_traces": []
+    },
+    {
+      "id": "MODULE-dat-scripts",
+      "name": "VN, common campaign helpers, bioship progression, equipment optimization, minigames, escort and UI libraries",
+      "kind": "module",
+      "family": "body power and combat",
+      "prior_status": "partial",
+      "status": "sampled-this-pass",
+      "sources": [
+        "dat/scripts"
+      ],
+      "kit": [
+        "K3",
+        "K9",
+        "K10",
+        "K22"
+      ],
+      "packets": [
+        "P09",
+        "P14",
+        "P17"
+      ],
+      "palettes": [
+        "worlds/ABILITY_AUTHORING.md",
+        "GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md"
+      ],
+      "owner_coverage": "mapped",
+      "deep_traces": [
+        "DS01",
+        "DS04",
+        "DS05",
+        "DS06",
+        "DS07",
+        "DS08",
+        "DS10"
+      ]
+    },
+    {
+      "id": "MODULE-dat-shaders",
+      "name": "Render shaders",
+      "kind": "module",
+      "family": "presentation infrastructure",
+      "prior_status": "undocumented",
+      "status": "unread",
+      "sources": [
+        "dat/shaders"
+      ],
+      "kit": [
+        "K14",
+        "K19"
+      ],
+      "packets": [
+        "P16"
+      ],
+      "palettes": [
+        "THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md"
+      ],
+      "owner_coverage": "no dedicated native rendering/audio owner found; broad UI owner only",
+      "deep_traces": []
+    },
+    {
+      "id": "MODULE-dat-ships",
+      "name": "Hull stats, slots, intrinsic equipment and ship scripts",
+      "kind": "module",
+      "family": "body power and combat",
+      "prior_status": "partial",
+      "status": "prior-partial",
+      "sources": [
+        "dat/ships"
+      ],
+      "kit": [
+        "K3",
+        "K9",
+        "K10",
+        "K22"
+      ],
+      "packets": [
+        "P09",
+        "P14",
+        "P17"
+      ],
+      "palettes": [
+        "worlds/ABILITY_AUTHORING.md",
+        "GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md"
+      ],
+      "owner_coverage": "mapped",
+      "deep_traces": []
+    },
+    {
+      "id": "MODULE-dat-slots",
+      "name": "Equipment slot properties",
+      "kind": "module",
+      "family": "body power and combat",
+      "prior_status": "undocumented",
+      "status": "unread",
+      "sources": [
+        "dat/slots"
+      ],
+      "kit": [
+        "K3",
+        "K9",
+        "K10",
+        "K22"
+      ],
+      "packets": [
+        "P09",
+        "P14",
+        "P17"
+      ],
+      "palettes": [
+        "worlds/ABILITY_AUTHORING.md",
+        "GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md"
+      ],
+      "owner_coverage": "mapped",
+      "deep_traces": []
+    },
+    {
+      "id": "MODULE-dat-snd",
+      "name": "Audio metadata",
+      "kind": "module",
+      "family": "presentation infrastructure",
+      "prior_status": "undocumented",
+      "status": "unread",
+      "sources": [
+        "dat/snd"
+      ],
+      "kit": [
+        "K14",
+        "K19"
+      ],
+      "packets": [
+        "P16"
+      ],
+      "palettes": [
+        "THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md"
+      ],
+      "owner_coverage": "no dedicated native rendering/audio owner found; broad UI owner only",
+      "deep_traces": []
+    },
+    {
+      "id": "MODULE-dat-spfx",
+      "name": "Special effect scripts",
+      "kind": "module",
+      "family": "presentation infrastructure",
+      "prior_status": "undocumented",
+      "status": "unread",
+      "sources": [
+        "dat/spfx"
+      ],
+      "kit": [
+        "K14",
+        "K19"
+      ],
+      "packets": [
+        "P16"
+      ],
+      "palettes": [
+        "THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md"
+      ],
+      "owner_coverage": "no dedicated native rendering/audio owner found; broad UI owner only",
+      "deep_traces": []
+    },
+    {
+      "id": "MODULE-dat-spob",
+      "name": "Physical place records and landing/service/transport scripts",
+      "kind": "module",
+      "family": "world simulation and travel",
+      "prior_status": "partial",
+      "status": "sampled-this-pass",
+      "sources": [
+        "dat/spob"
+      ],
+      "kit": [
+        "K5",
+        "K7",
+        "K28"
+      ],
+      "packets": [
+        "P04",
+        "P13",
+        "P14"
+      ],
+      "palettes": [
+        "worlds/WORLD_CORE_KIT_2026-10-14.md",
+        "worlds/MULTIVERSE_STRUCTURES.md"
+      ],
+      "owner_coverage": "mapped",
+      "deep_traces": [
+        "DS14"
+      ]
+    },
+    {
+      "id": "MODULE-dat-spob_virtual",
+      "name": "Virtual presence sources",
+      "kind": "module",
+      "family": "world simulation and travel",
+      "prior_status": "undocumented",
+      "status": "unread",
+      "sources": [
+        "dat/spob_virtual"
+      ],
+      "kit": [
+        "K5",
+        "K7",
+        "K28"
+      ],
+      "packets": [
+        "P04",
+        "P13",
+        "P14"
+      ],
+      "palettes": [
+        "worlds/WORLD_CORE_KIT_2026-10-14.md",
+        "worlds/MULTIVERSE_STRUCTURES.md"
+      ],
+      "owner_coverage": "mapped",
+      "deep_traces": []
+    },
+    {
+      "id": "MODULE-dat-ssys",
+      "name": "Star systems, topology and local environment",
+      "kind": "module",
+      "family": "world simulation and travel",
+      "prior_status": "undocumented",
+      "status": "unread",
+      "sources": [
+        "dat/ssys"
+      ],
+      "kit": [
+        "K5",
+        "K7",
+        "K28"
+      ],
+      "packets": [
+        "P04",
+        "P13",
+        "P14"
+      ],
+      "palettes": [
+        "worlds/WORLD_CORE_KIT_2026-10-14.md",
+        "worlds/MULTIVERSE_STRUCTURES.md"
+      ],
+      "owner_coverage": "mapped",
+      "deep_traces": []
+    },
+    {
+      "id": "MODULE-dat-tech",
+      "name": "Technology/store catalogues",
+      "kind": "module",
+      "family": "knowledge technology and reveal",
+      "prior_status": "partial",
+      "status": "prior-partial",
+      "sources": [
+        "dat/tech"
+      ],
+      "kit": [
+        "K9",
+        "K11",
+        "K30"
+      ],
+      "packets": [
+        "P04",
+        "P11",
+        "P16"
+      ],
+      "palettes": [
+        "TECHNOLOGY_AND_PROGRESSION.md",
+        "MEANS_AND_APPRAISAL.md"
+      ],
+      "owner_coverage": "mapped",
+      "deep_traces": []
+    },
+    {
+      "id": "MODULE-dat-trails",
+      "name": "Ship trails",
+      "kind": "module",
+      "family": "presentation infrastructure",
+      "prior_status": "undocumented",
+      "status": "unread",
+      "sources": [
+        "dat/trails"
+      ],
+      "kit": [
+        "K14",
+        "K19"
+      ],
+      "packets": [
+        "P16"
+      ],
+      "palettes": [
+        "THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md"
+      ],
+      "owner_coverage": "no dedicated native rendering/audio owner found; broad UI owner only",
+      "deep_traces": []
+    },
+    {
+      "id": "MODULE-dat-unidiff",
+      "name": "Named persistent world modifications",
+      "kind": "module",
+      "family": "social events time and AI",
+      "prior_status": "sampled",
+      "status": "prior-partial",
+      "sources": [
+        "dat/unidiff"
+      ],
+      "kit": [
+        "K6",
+        "K7",
+        "K12",
+        "K18"
+      ],
+      "packets": [
+        "P10",
+        "P19",
+        "P25"
+      ],
+      "palettes": [
+        "CHARACTERS_AND_WORLD_EVENTS.md",
+        "worlds/DIALOGUE_AND_INTERACTIONS.md"
+      ],
+      "owner_coverage": "mapped",
+      "deep_traces": []
+    },
+    {
+      "id": "MODULE-dat-utils",
+      "name": "Lua utility libraries",
+      "kind": "module",
+      "family": "authoring and tools",
+      "prior_status": "undocumented",
+      "status": "unread",
+      "sources": [
+        "dat/utils"
+      ],
+      "kit": [
+        "K33",
+        "K34"
+      ],
+      "packets": [
+        "P16",
+        "P22"
+      ],
+      "palettes": [
+        "ENGINE_AUTHORING.md"
+      ],
+      "owner_coverage": "mapped",
+      "deep_traces": []
+    },
+    {
+      "id": "MODULE-src-",
+      "name": "Engine, native APIs, UI, save/load, plugins",
+      "kind": "module",
+      "family": "save and compatibility",
+      "prior_status": "partial",
+      "status": "sampled-this-pass",
+      "sources": [
+        "src/"
+      ],
+      "kit": [
+        "K18",
+        "K33"
+      ],
+      "packets": [
+        "P23",
+        "P24"
+      ],
+      "palettes": [
+        "ENGINE_SAVES_AND_SCALE_REVIEW_2026-10-11.md"
+      ],
+      "owner_coverage": "mapped",
+      "deep_traces": [
+        "DS01",
+        "DS02",
+        "DS03",
+        "DS04",
+        "DS05",
+        "DS06",
+        "DS07",
+        "DS09",
+        "DS11",
+        "DS12",
+        "DS13",
+        "DS15"
+      ]
+    },
+    {
+      "id": "NV-I01",
+      "name": "Mission availability, board generation, accept/finish, markers/OSD, cargo and scene claims: mission.c, nlua_misn.c, claim.c",
+      "kind": "semantic",
+      "family": "economy production and resources",
+      "prior_status": "Documented core; all campaign content unread",
+      "status": "prior-partial",
+      "sources": [],
+      "kit": [
+        "K8",
+        "K9",
+        "K29"
+      ],
+      "packets": [
+        "P02",
+        "P12",
+        "P18"
+      ],
+      "palettes": [
+        "MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md"
+      ],
+      "owner_coverage": "mapped",
+      "deep_traces": []
+    },
+    {
+      "id": "NV-I02",
+      "name": "Event trigger dispatch, event saving and hooks: event.c, hook.c",
+      "kind": "semantic",
+      "family": "social events time and AI",
+      "prior_status": "Documented core; full callbacks unread",
+      "status": "prior-partial",
+      "sources": [],
+      "kit": [
+        "K6",
+        "K7",
+        "K12",
+        "K18"
+      ],
+      "packets": [
+        "P10",
+        "P19",
+        "P25"
+      ],
+      "palettes": [
+        "CHARACTERS_AND_WORLD_EVENTS.md",
+        "worlds/DIALOGUE_AND_INTERACTIONS.md"
+      ],
+      "owner_coverage": "mapped",
+      "deep_traces": []
+    },
+    {
+      "id": "NV-I03",
+      "name": "VN speech/menu/jump/callback state sequence and keyboard/log: scripts/vn/vn.lua",
+      "kind": "semantic",
+      "family": "world simulation and travel",
+      "prior_status": "A01; complete speaker graph unread",
+      "status": "prior-partial",
+      "sources": [],
+      "kit": [
+        "K5",
+        "K7",
+        "K28"
+      ],
+      "packets": [
+        "P04",
+        "P13",
+        "P14"
+      ],
+      "palettes": [
+        "worlds/WORLD_CORE_KIT_2026-10-14.md",
+        "worlds/MULTIVERSE_STRUCTURES.md"
+      ],
+      "owner_coverage": "mapped",
+      "deep_traces": []
+    },
+    {
+      "id": "NV-I04",
+      "name": "Personal flags, shipvars, assets, mission history, news, eligible hooks, diff persistence: save.c/player.c/nxml_lua.c",
+      "kind": "semantic",
+      "family": "save and compatibility",
+      "prior_status": "A04; load fault behavior partial",
+      "status": "extended-partial",
+      "sources": [],
+      "kit": [
+        "K18",
+        "K33"
+      ],
+      "packets": [
+        "P23",
+        "P24"
+      ],
+      "palettes": [
+        "ENGINE_SAVES_AND_SCALE_REVIEW_2026-10-11.md"
+      ],
+      "owner_coverage": "mapped",
+      "deep_traces": [
+        "DS01",
+        "DS02",
+        "DS03",
+        "DS06",
+        "DS08",
+        "DS13",
+        "DS15"
+      ]
+    },
+    {
+      "id": "NV-I05",
+      "name": "Port services, landing, permission/bribe, purchase license/reputation: spob Lua and ship XML",
+      "kind": "semantic",
+      "family": "authoring and tools",
+      "prior_status": "NV-D2/NV-D4; all ports unread",
+      "status": "prior-partial",
+      "sources": [],
+      "kit": [
+        "K33",
+        "K34"
+      ],
+      "packets": [
+        "P16",
+        "P22"
+      ],
+      "palettes": [
+        "ENGINE_AUTHORING.md"
+      ],
+      "owner_coverage": "mapped",
+      "deep_traces": []
+    },
+    {
+      "id": "NV-I06",
+      "name": "Faction standing source rules, local/global reputation and caps",
+      "kind": "semantic",
+      "family": "social events time and AI",
+      "prior_status": "NV-D4; not a relationship simulation",
+      "status": "prior-partial",
+      "sources": [],
+      "kit": [
+        "K6",
+        "K7",
+        "K12",
+        "K18"
+      ],
+      "packets": [
+        "P10",
+        "P19",
+        "P25"
+      ],
+      "palettes": [
+        "CHARACTERS_AND_WORLD_EVENTS.md",
+        "worlds/DIALOGUE_AND_INTERACTIONS.md"
+      ],
+      "owner_coverage": "mapped",
+      "deep_traces": []
+    },
+    {
+      "id": "NV-I07",
+      "name": "Fleet spawn/presence and NPC equipment optimization",
+      "kind": "semantic",
+      "family": "companions custody and recovery",
+      "prior_status": "A05; optimizer internals undocumented",
+      "status": "extended-partial",
+      "sources": [],
+      "kit": [
+        "K6",
+        "K9",
+        "K18"
+      ],
+      "packets": [
+        "P04",
+        "P06",
+        "P25"
+      ],
+      "palettes": [
+        "COMPANIONS_FAMILIARS_AND_PETS_CONSIDERATIONS_2026-10-14.md",
+        "CHARACTERS_AND_WORLD_EVENTS.md"
+      ],
+      "owner_coverage": "mapped",
+      "deep_traces": [
+        "DS05"
+      ]
+    },
+    {
+      "id": "NV-I08",
+      "name": "Combat AI, scan/hail/bribe/retreat/formation",
+      "kind": "semantic",
+      "family": "body power and combat",
+      "prior_status": "A05; combat algorithms partial",
+      "status": "extended-partial",
+      "sources": [],
+      "kit": [
+        "K3",
+        "K9",
+        "K10",
+        "K22"
+      ],
+      "packets": [
+        "P09",
+        "P14",
+        "P17"
+      ],
+      "palettes": [
+        "worlds/ABILITY_AUTHORING.md",
+        "GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md"
+      ],
+      "owner_coverage": "mapped",
+      "deep_traces": [
+        "DS04",
+        "DS12"
+      ]
+    },
+    {
+      "id": "NV-I09",
+      "name": "Flow capacity, regen, charge, power tiers and activation",
+      "kind": "semantic",
+      "family": "body power and combat",
+      "prior_status": "NV-D2; charge persistence unverified",
+      "status": "prior-partial",
+      "sources": [],
+      "kit": [
+        "K3",
+        "K9",
+        "K10",
+        "K22"
+      ],
+      "packets": [
+        "P09",
+        "P14",
+        "P17"
+      ],
+      "palettes": [
+        "worlds/ABILITY_AUTHORING.md",
+        "GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md"
+      ],
+      "owner_coverage": "mapped",
+      "deep_traces": []
+    },
+    {
+      "id": "NV-I10",
+      "name": "Bioship income growth, stages, skills, intrinsic restoration",
+      "kind": "semantic",
+      "family": "body power and combat",
+      "prior_status": "NV-D2; full skill tree unread",
+      "status": "extended-partial",
+      "sources": [],
+      "kit": [
+        "K3",
+        "K9",
+        "K10",
+        "K22"
+      ],
+      "packets": [
+        "P09",
+        "P14",
+        "P17"
+      ],
+      "palettes": [
+        "worlds/ABILITY_AUTHORING.md",
+        "GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md"
+      ],
+      "owner_coverage": "mapped",
+      "deep_traces": [
+        "DS06"
+      ]
+    },
+    {
+      "id": "NV-I11",
+      "name": "Terraforming work, cumulative supplies, stage changes and service access",
+      "kind": "semantic",
+      "family": "economy production and resources",
+      "prior_status": "NV-D3; full narrative partial",
+      "status": "prior-partial",
+      "sources": [],
+      "kit": [
+        "K8",
+        "K9",
+        "K29"
+      ],
+      "packets": [
+        "P02",
+        "P12",
+        "P18"
+      ],
+      "palettes": [
+        "MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md"
+      ],
+      "owner_coverage": "mapped",
+      "deep_traces": []
+    },
+    {
+      "id": "NV-I12",
+      "name": "Commodity pricing and cargo/rush contracts",
+      "kind": "semantic",
+      "family": "economy production and resources",
+      "prior_status": "A08/NV-D4; supply conservation unproved",
+      "status": "extended-partial",
+      "sources": [],
+      "kit": [
+        "K8",
+        "K9",
+        "K29"
+      ],
+      "packets": [
+        "P02",
+        "P12",
+        "P18"
+      ],
+      "palettes": [
+        "MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md"
+      ],
+      "owner_coverage": "mapped",
+      "deep_traces": [
+        "DS01",
+        "DS15"
+      ]
+    },
+    {
+      "id": "NV-I13",
+      "name": "Runtime dt, calendar/time conversion, deadlines and transient timers",
+      "kind": "semantic",
+      "family": "social events time and AI",
+      "prior_status": "A09; full pause/transition matrix unread",
+      "status": "prior-partial",
+      "sources": [],
+      "kit": [
+        "K6",
+        "K7",
+        "K12",
+        "K18"
+      ],
+      "packets": [
+        "P10",
+        "P19",
+        "P25"
+      ],
+      "palettes": [
+        "CHARACTERS_AND_WORLD_EVENTS.md",
+        "worlds/DIALOGUE_AND_INTERACTIONS.md"
+      ],
+      "owner_coverage": "mapped",
+      "deep_traces": []
+    },
+    {
+      "id": "NV-I14",
+      "name": "Tutorial progression and discoveries",
+      "kind": "semantic",
+      "family": "knowledge technology and reveal",
+      "prior_status": "A10; remaining tutorial routes unread",
+      "status": "extended-partial",
+      "sources": [],
+      "kit": [
+        "K9",
+        "K11",
+        "K30"
+      ],
+      "packets": [
+        "P04",
+        "P11",
+        "P16"
+      ],
+      "palettes": [
+        "TECHNOLOGY_AND_PROGRESSION.md",
+        "MEANS_AND_APPRAISAL.md"
+      ],
+      "owner_coverage": "mapped",
+      "deep_traces": [
+        "DS08",
+        "DS09",
+        "DS10"
+      ]
+    },
+    {
+      "id": "NV-I15",
+      "name": "Logs, faction news, contextual HUD and power descriptions",
+      "kind": "semantic",
+      "family": "body power and combat",
+      "prior_status": "A02/A06; no visual proof",
+      "status": "prior-partial",
+      "sources": [],
+      "kit": [
+        "K3",
+        "K9",
+        "K10",
+        "K22"
+      ],
+      "packets": [
+        "P09",
+        "P14",
+        "P17"
+      ],
+      "palettes": [
+        "worlds/ABILITY_AUTHORING.md",
+        "GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md"
+      ],
+      "owner_coverage": "mapped",
+      "deep_traces": []
+    },
+    {
+      "id": "NV-I16",
+      "name": "Plugins, metadata dependency graph, Lua checks and dev editors",
+      "kind": "semantic",
+      "family": "authoring and tools",
+      "prior_status": "A07; full editor/plugin precedence unread",
+      "status": "prior-partial",
+      "sources": [],
+      "kit": [
+        "K33",
+        "K34"
+      ],
+      "packets": [
+        "P16",
+        "P22"
+      ],
+      "palettes": [
+        "ENGINE_AUTHORING.md"
+      ],
+      "owner_coverage": "mapped",
+      "deep_traces": []
+    },
+    {
+      "id": "NV-I17",
+      "name": "Fleet/deployment/capture/escort/repair",
+      "kind": "semantic",
+      "family": "companions custody and recovery",
+      "prior_status": "Inventory only, undocumented behavior",
+      "status": "extended-partial",
+      "sources": [],
+      "kit": [
+        "K6",
+        "K9",
+        "K18"
+      ],
+      "packets": [
+        "P04",
+        "P06",
+        "P25"
+      ],
+      "palettes": [
+        "COMPANIONS_FAMILIARS_AND_PETS_CONSIDERATIONS_2026-10-14.md",
+        "CHARACTERS_AND_WORLD_EVENTS.md"
+      ],
+      "owner_coverage": "mapped",
+      "deep_traces": [
+        "DS01",
+        "DS02",
+        "DS03",
+        "DS04"
+      ]
+    },
+    {
+      "id": "NV-I18",
+      "name": "Asteroids/mining, map/safelanes, jump/hypergate/wormhole travel and nebula",
+      "kind": "semantic",
+      "family": "economy production and resources",
+      "prior_status": "Inventory only, undocumented behavior",
+      "status": "extended-partial",
+      "sources": [],
+      "kit": [
+        "K8",
+        "K9",
+        "K29"
+      ],
+      "packets": [
+        "P02",
+        "P12",
+        "P18"
+      ],
+      "palettes": [
+        "MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md"
+      ],
+      "owner_coverage": "mapped",
+      "deep_traces": [
+        "DS07",
+        "DS14"
+      ]
+    },
+    {
+      "id": "NV-I19",
+      "name": "Damage/status effects, weapons, stealth/detection and difficulty",
+      "kind": "semantic",
+      "family": "body power and combat",
+      "prior_status": "Inventory only beyond Chakra/AI sample",
+      "status": "extended-partial",
+      "sources": [],
+      "kit": [
+        "K3",
+        "K9",
+        "K10",
+        "K22"
+      ],
+      "packets": [
+        "P09",
+        "P14",
+        "P17"
+      ],
+      "palettes": [
+        "worlds/ABILITY_AUTHORING.md",
+        "GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md"
+      ],
+      "owner_coverage": "mapped",
+      "deep_traces": [
+        "DS12",
+        "DS13"
+      ]
+    },
+    {
+      "id": "NV-I20",
+      "name": "Racing, minigames, achievements/collections and encyclopedia",
+      "kind": "semantic",
+      "family": "knowledge technology and reveal",
+      "prior_status": "Inventory only; achievements framework not established",
+      "status": "extended-partial",
+      "sources": [],
+      "kit": [
+        "K9",
+        "K11",
+        "K30"
+      ],
+      "packets": [
+        "P04",
+        "P11",
+        "P16"
+      ],
+      "palettes": [
+        "TECHNOLOGY_AND_PROGRESSION.md",
+        "MEANS_AND_APPRAISAL.md"
+      ],
+      "owner_coverage": "mapped",
+      "deep_traces": [
+        "DS07",
+        "DS10"
+      ]
+    },
+    {
+      "id": "NV-I21",
+      "name": "Render/audio/physics/input/localization/development console",
+      "kind": "semantic",
+      "family": "presentation infrastructure",
+      "prior_status": "Inventory only, not a gameplay audit",
+      "status": "prior-partial",
+      "sources": [],
+      "kit": [
+        "K14",
+        "K19"
+      ],
+      "packets": [
+        "P16"
+      ],
+      "palettes": [
+        "THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md"
+      ],
+      "owner_coverage": "no dedicated native rendering/audio owner found; broad UI owner only",
+      "deep_traces": []
+    },
+    {
+      "id": "DS01",
+      "name": "Fleet deployment and cargo custody",
+      "kind": "deep-leaf",
+      "family": "companions and logistics",
+      "prior_status": "named or partial",
+      "status": "source-traced",
+      "sources": [
+        "src/player_fleet.c",
+        "src/player.c",
+        "src/escort.h",
+        "dat/scripts/player_escorts.lua"
+      ],
+      "kit": [
+        "K6",
+        "K9",
+        "K18"
+      ],
+      "packets": [
+        "P04",
+        "P06",
+        "P18",
+        "P24"
+      ],
+      "palettes": [
+        "COMPANIONS_FAMILIARS_AND_PETS_CONSIDERATIONS_2026-10-14.md",
+        "MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md"
+      ],
+      "owner_coverage": "mapped",
+      "deep_traces": [
+        "DS01"
+      ],
+      "remaining_gap": "Full capacity UI admission, cargo discard quantities, deployed death settlement and every fleet API remain unread. Source-traced allocation is not a tested stock invariant."
+    },
+    {
+      "id": "DS02",
+      "name": "Capture is a pending recovery process",
+      "kind": "deep-leaf",
+      "family": "custody and recovery",
+      "prior_status": "named or partial",
+      "status": "source-traced",
+      "sources": [
+        "dat/board.lua",
+        "dat/events/capture.lua",
+        "src/player.c",
+        "src/hook.c"
+      ],
+      "kit": [
+        "K9",
+        "K10",
+        "K18",
+        "K29"
+      ],
+      "packets": [
+        "P04",
+        "P12",
+        "P18",
+        "P24"
+      ],
+      "palettes": [
+        "MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md",
+        "LIFE_SIM_NORTH_STAR.md"
+      ],
+      "owner_coverage": "mapped",
+      "deep_traces": [
+        "DS02"
+      ],
+      "remaining_gap": "No crash-atomic capture/payment claim. loot_mod upstream derivation and all capture blockers outside is_capturable remain partial."
+    },
+    {
+      "id": "DS03",
+      "name": "Deferred repair preserves an impaired asset",
+      "kind": "deep-leaf",
+      "family": "production and recovery",
+      "prior_status": "named or partial",
+      "status": "source-traced",
+      "sources": [
+        "dat/events/ship_repairs.lua",
+        "dat/events/capture.lua",
+        "src/player.c"
+      ],
+      "kit": [
+        "K8",
+        "K9",
+        "K18",
+        "K22"
+      ],
+      "packets": [
+        "P04",
+        "P12",
+        "P18",
+        "P19"
+      ],
+      "palettes": [
+        "MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md",
+        "GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md"
+      ],
+      "owner_coverage": "mapped",
+      "deep_traces": [
+        "DS03"
+      ],
+      "remaining_gap": "Repair does not clear repair_cost in this script; absence of the marker removes it from eligible ships. Missing or corrupt quote behavior and interrupted payment are unverified."
+    },
+    {
+      "id": "DS04",
+      "name": "Convoy contracts, survival and orders",
+      "kind": "deep-leaf",
+      "family": "companions and events",
+      "prior_status": "named or partial",
+      "status": "source-traced",
+      "sources": [
+        "dat/scripts/escort.lua",
+        "dat/scripts/player_escorts.lua",
+        "dat/ai/core/control/escort.lua",
+        "src/hook.c"
+      ],
+      "kit": [
+        "K5",
+        "K6",
+        "K12",
+        "K18"
+      ],
+      "packets": [
+        "P06",
+        "P08",
+        "P25",
+        "P24"
+      ],
+      "palettes": [
+        "COMPANIONS_FAMILIARS_AND_PETS_CONSIDERATIONS_2026-10-14.md",
+        "CHARACTERS_AND_WORLD_EVENTS.md"
+      ],
+      "owner_coverage": "mapped",
+      "deep_traces": [
+        "DS04"
+      ],
+      "remaining_gap": "All callers, autonomous combat plans, relationship memory, hireling wages and guaranteed exact reload equipment remain open. No generic hireling economy was located in selected helpers."
+    },
+    {
+      "id": "DS05",
+      "name": "NPC equipment as constrained choice",
+      "kind": "deep-leaf",
+      "family": "AI and authoring",
+      "prior_status": "named or partial",
+      "status": "source-traced",
+      "sources": [
+        "dat/scripts/equipopt/optimize.lua",
+        "dat/scripts/equipopt/templates/miner.lua",
+        "dat/scripts/equipopt/params.lua",
+        "src/player.c"
+      ],
+      "kit": [
+        "K6",
+        "K9",
+        "K10",
+        "K34"
+      ],
+      "packets": [
+        "P15",
+        "P16",
+        "P25"
+      ],
+      "palettes": [
+        "TECHNOLOGY_AND_PROGRESSION.md",
+        "GENERATION_FOUNDATION_RULES_2026-10-14.md"
+      ],
+      "owner_coverage": "mapped",
+      "deep_traces": [
+        "DS05"
+      ],
+      "remaining_gap": "All faction templates, exact solver backend behavior and fallback spaceworthiness remain unread/unexecuted."
+    },
+    {
+      "id": "DS06",
+      "name": "Bioship skill graph and respecialization",
+      "kind": "deep-leaf",
+      "family": "body and progression",
+      "prior_status": "named or partial",
+      "status": "source-traced",
+      "sources": [
+        "dat/scripts/bioship.lua",
+        "dat/scripts/bioship/skills.lua",
+        "dat/scripts/bioship/intrinsics.lua",
+        "dat/events/bioship.lua",
+        "src/player.c"
+      ],
+      "kit": [
+        "K3",
+        "K9",
+        "K18",
+        "K22",
+        "K33"
+      ],
+      "packets": [
+        "P05",
+        "P09",
+        "P16",
+        "P17"
+      ],
+      "palettes": [
+        "GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md",
+        "worlds/NONHUMAN_TRANSFORMATION_AND_BODY_CHANGE_2026-10-14.md"
+      ],
+      "owner_coverage": "mapped",
+      "deep_traces": [
+        "DS06"
+      ],
+      "remaining_gap": "All individual skill effects and replacement dependency cases remain partial. No breeding, genome, child or family-lineage implementation is established by these files."
+    },
+    {
+      "id": "DS07",
+      "name": "Mining method, yield and optional timing interaction",
+      "kind": "deep-leaf",
+      "family": "production and world resources",
+      "prior_status": "named or partial",
+      "status": "source-traced",
+      "sources": [
+        "src/asteroid.c",
+        "dat/asteroids/types/iron-nickel.xml",
+        "dat/asteroids/groups/typeA_standard.xml",
+        "dat/scripts/minigames/mining.lua",
+        "dat/scripts/minigames/mining/core.lua",
+        "src/player.c"
+      ],
+      "kit": [
+        "K5",
+        "K9",
+        "K11",
+        "K13"
+      ],
+      "packets": [
+        "P02",
+        "P04",
+        "P09",
+        "P18"
+      ],
+      "palettes": [
+        "MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md",
+        "TECHNOLOGY_AND_PROGRESSION.md"
+      ],
+      "owner_coverage": "mapped",
+      "deep_traces": [
+        "DS07"
+      ],
+      "remaining_gap": "Gatherable lifetime/pickup rules and drill callback conversion of bonus to actual stock remain unread. No claim zero-yield roll is protected by pity."
+    },
+    {
+      "id": "DS08",
+      "name": "POI leads, scanner trails and fixed reward identity",
+      "kind": "deep-leaf",
+      "family": "knowledge and events",
+      "prior_status": "named or partial",
+      "status": "source-traced",
+      "sources": [
+        "dat/scripts/common/poi.lua",
+        "dat/missions/neutral/poi.lua",
+        "dat/events/poi_generator.lua",
+        "dat/events/poi_enter.lua"
+      ],
+      "kit": [
+        "K5",
+        "K11",
+        "K12",
+        "K18",
+        "K30"
+      ],
+      "packets": [
+        "P04",
+        "P10",
+        "P11",
+        "P15",
+        "P24"
+      ],
+      "palettes": [
+        "TECHNOLOGY_AND_PROGRESSION.md",
+        "STARTS_ENDINGS_AND_RANDOMNESS_PALETTE.md"
+      ],
+      "owner_coverage": "mapped",
+      "deep_traces": [
+        "DS08"
+      ],
+      "remaining_gap": "All reward modules, stringguess algorithms, fresh-load trail behavior and interruption atomicity remain open. Source override contradicts reading generated risk as actual encounter difficulty."
+    },
+    {
+      "id": "DS09",
+      "name": "Discovery records are more than map knowledge",
+      "kind": "deep-leaf",
+      "family": "knowledge and presentation",
+      "prior_status": "named or partial",
+      "status": "source-traced",
+      "sources": [
+        "dat/events/discovery.lua",
+        "src/hook.c",
+        "src/save.c"
+      ],
+      "kit": [
+        "K11",
+        "K14",
+        "K19",
+        "K23",
+        "K30"
+      ],
+      "packets": [
+        "P04",
+        "P10",
+        "P11",
+        "P21"
+      ],
+      "palettes": [
+        "MEANS_AND_APPRAISAL.md",
+        "THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md"
+      ],
+      "owner_coverage": "mapped",
+      "deep_traces": [
+        "DS09"
+      ],
+      "remaining_gap": "Runtime cinematics retry and competing discoveries not reproduced. This source uses one-time flavour flags; YAIRPG should not copy a lifetime event restriction onto recurring useful content."
+    },
+    {
+      "id": "DS10",
+      "name": "Knowledge-gated reference pages",
+      "kind": "deep-leaf",
+      "family": "knowledge and UI",
+      "prior_status": "named or partial",
+      "status": "source-traced",
+      "sources": [
+        "dat/naevpedia/readme.markdown",
+        "dat/scripts/naevpedia.lua",
+        "dat/events/naevpedia.lua"
+      ],
+      "kit": [
+        "K11",
+        "K14",
+        "K30",
+        "K34"
+      ],
+      "packets": [
+        "P01",
+        "P04",
+        "P11",
+        "P16"
+      ],
+      "palettes": [
+        "MEANS_AND_APPRAISAL.md",
+        "TECHNOLOGY_AND_PROGRESSION.md"
+      ],
+      "owner_coverage": "mapped",
+      "deep_traces": [
+        "DS10"
+      ],
+      "remaining_gap": "All page gates, search/accessibility and widget side effects remain partial; no rendered desktop evidence."
+    },
+    {
+      "id": "DS11",
+      "name": "Technology catalogues are local supply, not research",
+      "kind": "deep-leaf",
+      "family": "technology and institutions",
+      "prior_status": "named or partial",
+      "status": "source-traced",
+      "sources": [
+        "src/tech.c",
+        "src/unidiff.c",
+        "src/save.c",
+        "src/player.c"
+      ],
+      "kit": [
+        "K7",
+        "K8",
+        "K9",
+        "K11",
+        "K33"
+      ],
+      "packets": [
+        "P04",
+        "P07",
+        "P16",
+        "P22"
+      ],
+      "palettes": [
+        "TECHNOLOGY_AND_PROGRESSION.md",
+        "MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md"
+      ],
+      "owner_coverage": "mapped",
+      "deep_traces": [
+        "DS11"
+      ],
+      "remaining_gap": "All nested conditional combinations, cyclic-group handling and every shop purchase validator remain unread."
+    },
+    {
+      "id": "DS12",
+      "name": "Sensing, scanning and stealth are different states",
+      "kind": "deep-leaf",
+      "family": "knowledge and combat",
+      "prior_status": "named or partial",
+      "status": "source-traced",
+      "sources": [
+        "src/pilot_ew.c",
+        "src/player.c"
+      ],
+      "kit": [
+        "K10",
+        "K11",
+        "K24",
+        "K30"
+      ],
+      "packets": [
+        "P04",
+        "P11",
+        "P17",
+        "P25"
+      ],
+      "palettes": [
+        "MEANS_AND_APPRAISAL.md",
+        "TECHNOLOGY_AND_PROGRESSION.md"
+      ],
+      "owner_coverage": "mapped",
+      "deep_traces": [
+        "DS12"
+      ],
+      "remaining_gap": "Every nearby-breaker exception, weapon lock-on/accuracy model and post-scan knowledge memory remain partial."
+    },
+    {
+      "id": "DS13",
+      "name": "Timed effects and typed damage",
+      "kind": "deep-leaf",
+      "family": "body and combat",
+      "prior_status": "named or partial",
+      "status": "source-traced",
+      "sources": [
+        "src/effect.c",
+        "src/damagetype.rs",
+        "dat/damagetype/kinetic.toml",
+        "dat/effects/plasma_burn.xml",
+        "src/player.c"
+      ],
+      "kit": [
+        "K3",
+        "K10",
+        "K18",
+        "K22"
+      ],
+      "packets": [
+        "P14",
+        "P16",
+        "P17",
+        "P24"
+      ],
+      "palettes": [
+        "worlds/ABILITY_AUTHORING.md",
+        "GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md"
+      ],
+      "owner_coverage": "mapped",
+      "deep_traces": [
+        "DS13"
+      ],
+      "remaining_gap": "All effects, damage application overflow, disable/stress, heat, difficulty presets and lingering injury remain partial."
+    },
+    {
+      "id": "DS14",
+      "name": "Gates and wormholes have distinct travel contracts",
+      "kind": "deep-leaf",
+      "family": "world and travel",
+      "prior_status": "named or partial",
+      "status": "source-traced",
+      "sources": [
+        "dat/spob/lua/lib/hypergate.lua",
+        "dat/spob/lua/lib/wormhole.lua",
+        "dat/events/hypergate.lua",
+        "dat/events/wormhole.lua"
+      ],
+      "kit": [
+        "K5",
+        "K7",
+        "K15",
+        "K18"
+      ],
+      "packets": [
+        "P04",
+        "P05",
+        "P13",
+        "P18",
+        "P24"
+      ],
+      "palettes": [
+        "worlds/MULTIVERSE_STRUCTURES.md",
+        "STARTS_ENDINGS_AND_RANDOMNESS_PALETTE.md"
+      ],
+      "owner_coverage": "mapped",
+      "deep_traces": [
+        "DS14"
+      ],
+      "remaining_gap": "Ordinary jump/fuel admission, all wrappers, transport fleets, hypergate construction and interrupted crossing remain unread."
+    },
+    {
+      "id": "DS15",
+      "name": "Price motion and remembered market samples",
+      "kind": "deep-leaf",
+      "family": "economy and knowledge",
+      "prior_status": "named or partial",
+      "status": "source-traced",
+      "sources": [
+        "src/economy.c",
+        "src/tech.c",
+        "src/player.c"
+      ],
+      "kit": [
+        "K5",
+        "K8",
+        "K11",
+        "K23"
+      ],
+      "packets": [
+        "P01",
+        "P11",
+        "P13",
+        "P18"
+      ],
+      "palettes": [
+        "MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md",
+        "TECHNOLOGY_AND_PROGRESSION.md"
+      ],
+      "owner_coverage": "mapped",
+      "deep_traces": [
+        "DS15"
+      ],
+      "remaining_gap": "Every initialization coefficient and trading UI accounting, recursive reference cycles, actual purchase quantity curves and restock semantics remain partial."
+    },
+    {
+      "id": "R01",
+      "name": "Full campaign dialogue and relationship branches",
+      "kind": "residual-leaf",
+      "family": "information and UI",
+      "prior_unread": "U1",
+      "status": "unread",
+      "why": "233 mission and 119 event headers are indexed; selected scenes only.",
+      "kit": [
+        "K14",
+        "K23"
+      ],
+      "packets": [
+        "P01",
+        "P20",
+        "P21"
+      ],
+      "palettes": [
+        "THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md"
+      ],
+      "owner_coverage": "mapped",
+      "deep_traces": []
+    },
+    {
+      "id": "R02",
+      "name": "Combat AI planner and formations",
+      "kind": "residual-leaf",
+      "family": "body power and combat",
+      "prior_unread": "U2",
+      "status": "partial",
+      "why": "Equipment and escort interface traced, all combat decisions not read.",
+      "kit": [
+        "K3",
+        "K9",
+        "K10",
+        "K22"
+      ],
+      "packets": [
+        "P09",
+        "P14",
+        "P17"
+      ],
+      "palettes": [
+        "worlds/ABILITY_AUTHORING.md",
+        "GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md"
+      ],
+      "owner_coverage": "mapped",
+      "deep_traces": []
+    },
+    {
+      "id": "R03",
+      "name": "Faction standing local/global caps and all ports",
+      "kind": "residual-leaf",
+      "family": "world simulation and travel",
+      "prior_unread": "U2",
+      "status": "partial",
+      "why": "Prior sampled rules retained; full factions/ports not traced.",
+      "kit": [
+        "K5",
+        "K7",
+        "K28"
+      ],
+      "packets": [
+        "P04",
+        "P13",
+        "P14"
+      ],
+      "palettes": [
+        "worlds/WORLD_CORE_KIT_2026-10-14.md",
+        "worlds/MULTIVERSE_STRUCTURES.md"
+      ],
+      "owner_coverage": "mapped",
+      "deep_traces": []
+    },
+    {
+      "id": "R04",
+      "name": "Fleet spawning and virtual presence",
+      "kind": "residual-leaf",
+      "family": "companions custody and recovery",
+      "prior_unread": "U2",
+      "status": "partial",
+      "why": "Prior scheduler sample; virtual source equations unread.",
+      "kit": [
+        "K6",
+        "K9",
+        "K18"
+      ],
+      "packets": [
+        "P04",
+        "P06",
+        "P25"
+      ],
+      "palettes": [
+        "COMPANIONS_FAMILIARS_AND_PETS_CONSIDERATIONS_2026-10-14.md",
+        "CHARACTERS_AND_WORLD_EVENTS.md"
+      ],
+      "owner_coverage": "mapped",
+      "deep_traces": []
+    },
+    {
+      "id": "R05",
+      "name": "Safelanes and route optimization",
+      "kind": "residual-leaf",
+      "family": "world simulation and travel",
+      "prior_unread": "U2",
+      "status": "unread",
+      "why": "Native modules inventoried only.",
+      "kit": [
+        "K5",
+        "K7",
+        "K28"
+      ],
+      "packets": [
+        "P04",
+        "P13",
+        "P14"
+      ],
+      "palettes": [
+        "worlds/WORLD_CORE_KIT_2026-10-14.md",
+        "worlds/MULTIVERSE_STRUCTURES.md"
+      ],
+      "owner_coverage": "mapped",
+      "deep_traces": []
+    },
+    {
+      "id": "R06",
+      "name": "Ordinary jumps and fuel admission",
+      "kind": "residual-leaf",
+      "family": "world simulation and travel",
+      "prior_unread": "U2",
+      "status": "unread",
+      "why": "Special transit traced; ordinary travel contract incomplete.",
+      "kit": [
+        "K5",
+        "K7",
+        "K28"
+      ],
+      "packets": [
+        "P04",
+        "P13",
+        "P14"
+      ],
+      "palettes": [
+        "worlds/WORLD_CORE_KIT_2026-10-14.md",
+        "worlds/MULTIVERSE_STRUCTURES.md"
+      ],
+      "owner_coverage": "mapped",
+      "deep_traces": []
+    },
+    {
+      "id": "R07",
+      "name": "Nebula damage and environmental simulation",
+      "kind": "residual-leaf",
+      "family": "body power and combat",
+      "prior_unread": "U2",
+      "status": "unread",
+      "why": "POI volatility gate and optimizer constraint only.",
+      "kit": [
+        "K3",
+        "K9",
+        "K10",
+        "K22"
+      ],
+      "packets": [
+        "P09",
+        "P14",
+        "P17"
+      ],
+      "palettes": [
+        "worlds/ABILITY_AUTHORING.md",
+        "GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md"
+      ],
+      "owner_coverage": "mapped",
+      "deep_traces": []
+    },
+    {
+      "id": "R08",
+      "name": "Racing",
+      "kind": "residual-leaf",
+      "family": "optional activities",
+      "prior_unread": "U2",
+      "status": "unread",
+      "why": "No detailed race course or payout trace.",
+      "kit": [
+        "K8",
+        "K13"
+      ],
+      "packets": [
+        "P14"
+      ],
+      "palettes": [
+        "LIFE_SIM_NORTH_STAR.md"
+      ],
+      "owner_coverage": "no dedicated race/minigame owner found; broad life owner only",
+      "deep_traces": []
+    },
+    {
+      "id": "R09",
+      "name": "Other minigames and lock puzzle",
+      "kind": "residual-leaf",
+      "family": "optional activities",
+      "prior_unread": "U2",
+      "status": "partial",
+      "why": "Mining core and stringguess call boundary read, puzzle algorithms unread.",
+      "kit": [
+        "K8",
+        "K13"
+      ],
+      "packets": [
+        "P14"
+      ],
+      "palettes": [
+        "LIFE_SIM_NORTH_STAR.md"
+      ],
+      "owner_coverage": "no dedicated race/minigame owner found; broad life owner only",
+      "deep_traces": []
+    },
+    {
+      "id": "R10",
+      "name": "Achievements and collections framework",
+      "kind": "residual-leaf",
+      "family": "knowledge technology and reveal",
+      "prior_unread": "U2",
+      "status": "not-established",
+      "why": "Not established, do not mark absent from directory names.",
+      "kit": [
+        "K9",
+        "K11",
+        "K30"
+      ],
+      "packets": [
+        "P04",
+        "P11",
+        "P16"
+      ],
+      "palettes": [
+        "TECHNOLOGY_AND_PROGRESSION.md",
+        "MEANS_AND_APPRAISAL.md"
+      ],
+      "owner_coverage": "mapped",
+      "deep_traces": []
+    },
+    {
+      "id": "R11",
+      "name": "All claim release and chapter mismatch",
+      "kind": "residual-leaf",
+      "family": "social events time and AI",
+      "prior_unread": "U3",
+      "status": "unread",
+      "why": "Prior source anomaly retained; no reproduction permitted.",
+      "kit": [
+        "K6",
+        "K7",
+        "K12",
+        "K18"
+      ],
+      "packets": [
+        "P10",
+        "P19",
+        "P25"
+      ],
+      "palettes": [
+        "CHARACTERS_AND_WORLD_EVENTS.md",
+        "worlds/DIALOGUE_AND_INTERACTIONS.md"
+      ],
+      "owner_coverage": "mapped",
+      "deep_traces": []
+    },
+    {
+      "id": "R12",
+      "name": "Save migration order and corrupt missing-content behavior",
+      "kind": "residual-leaf",
+      "family": "save and compatibility",
+      "prior_unread": "U4",
+      "status": "partial",
+      "why": "No synthetic loader execution; selected serialization only.",
+      "kit": [
+        "K18",
+        "K33"
+      ],
+      "packets": [
+        "P23",
+        "P24"
+      ],
+      "palettes": [
+        "ENGINE_SAVES_AND_SCALE_REVIEW_2026-10-11.md"
+      ],
+      "owner_coverage": "mapped",
+      "deep_traces": []
+    },
+    {
+      "id": "R13",
+      "name": "Flow charge through load and swapping",
+      "kind": "residual-leaf",
+      "family": "body power and combat",
+      "prior_unread": "U4",
+      "status": "unread",
+      "why": "Prior open edge unchanged.",
+      "kit": [
+        "K3",
+        "K9",
+        "K10",
+        "K22"
+      ],
+      "packets": [
+        "P09",
+        "P14",
+        "P17"
+      ],
+      "palettes": [
+        "worlds/ABILITY_AUTHORING.md",
+        "GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md"
+      ],
+      "owner_coverage": "mapped",
+      "deep_traces": []
+    },
+    {
+      "id": "R14",
+      "name": "Arbitrary VN cursor and unsupported mem userdata",
+      "kind": "residual-leaf",
+      "family": "save and compatibility",
+      "prior_unread": "U4",
+      "status": "partial",
+      "why": "Serialization omissions known; universal restoration unproved.",
+      "kit": [
+        "K18",
+        "K33"
+      ],
+      "packets": [
+        "P23",
+        "P24"
+      ],
+      "palettes": [
+        "ENGINE_SAVES_AND_SCALE_REVIEW_2026-10-11.md"
+      ],
+      "owner_coverage": "mapped",
+      "deep_traces": []
+    },
+    {
+      "id": "R15",
+      "name": "Actual HUD audio keyboard and accessibility",
+      "kind": "residual-leaf",
+      "family": "presentation infrastructure",
+      "prior_unread": "U5",
+      "status": "unread",
+      "why": "No launch allowed; source motifs only.",
+      "kit": [
+        "K14",
+        "K19"
+      ],
+      "packets": [
+        "P16"
+      ],
+      "palettes": [
+        "THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md"
+      ],
+      "owner_coverage": "no dedicated native rendering/audio owner found; broad UI owner only",
+      "deep_traces": []
+    },
+    {
+      "id": "R16",
+      "name": "Codeberg canonical head comparison",
+      "kind": "residual-leaf",
+      "family": "social events time and AI",
+      "prior_unread": "U6",
+      "status": "unread",
+      "why": "No fetch needed to audit retained pin.",
+      "kit": [
+        "K6",
+        "K7",
+        "K12",
+        "K18"
+      ],
+      "packets": [
+        "P10",
+        "P19",
+        "P25"
+      ],
+      "palettes": [
+        "CHARACTERS_AND_WORLD_EVENTS.md",
+        "worlds/DIALOGUE_AND_INTERACTIONS.md"
+      ],
+      "owner_coverage": "mapped",
+      "deep_traces": []
+    },
+    {
+      "id": "R17",
+      "name": "YAIRPG implementation desktop and persistence acceptance",
+      "kind": "residual-leaf",
+      "family": "save and compatibility",
+      "prior_unread": "U7",
+      "status": "unread",
+      "why": "Research only; owner/writer recovery required before a later build.",
+      "kit": [
+        "K18",
+        "K33"
+      ],
+      "packets": [
+        "P23",
+        "P24"
+      ],
+      "palettes": [
+        "ENGINE_SAVES_AND_SCALE_REVIEW_2026-10-11.md"
+      ],
+      "owner_coverage": "mapped",
+      "deep_traces": []
+    },
+    {
+      "id": "R18",
+      "name": "Difficulty presets and weapon heat/disable/accuracy",
+      "kind": "residual-leaf",
+      "family": "body power and combat",
+      "prior_unread": "U2",
+      "status": "partial",
+      "why": "Damage helper and effect policy traced, full combat unread.",
+      "kit": [
+        "K3",
+        "K9",
+        "K10",
+        "K22"
+      ],
+      "packets": [
+        "P09",
+        "P14",
+        "P17"
+      ],
+      "palettes": [
+        "worlds/ABILITY_AUTHORING.md",
+        "GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md"
+      ],
+      "owner_coverage": "mapped",
+      "deep_traces": []
+    },
+    {
+      "id": "R19",
+      "name": "Plugin override precedence and dev editors",
+      "kind": "residual-leaf",
+      "family": "authoring and tools",
+      "prior_unread": "U2",
+      "status": "partial",
+      "why": "Prior partial authoring trace; full precedence/editor audit not done.",
+      "kit": [
+        "K33",
+        "K34"
+      ],
+      "packets": [
+        "P16",
+        "P22"
+      ],
+      "palettes": [
+        "ENGINE_AUTHORING.md"
+      ],
+      "owner_coverage": "mapped",
+      "deep_traces": []
+    },
+    {
+      "id": "R20",
+      "name": "Render shaders physics audio localization input console",
+      "kind": "residual-leaf",
+      "family": "presentation infrastructure",
+      "prior_unread": "U5",
+      "status": "unread",
+      "why": "No benefit to deeper native engine reading for chosen gameplay questions.",
+      "kit": [
+        "K14",
+        "K19"
+      ],
+      "packets": [
+        "P16"
+      ],
+      "palettes": [
+        "THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md"
+      ],
+      "owner_coverage": "no dedicated native rendering/audio owner found; broad UI owner only",
+      "deep_traces": []
+    },
+    {
+      "id": "R21",
+      "name": "Full tutorial routes and discovered map flags",
+      "kind": "residual-leaf",
+      "family": "knowledge technology and reveal",
+      "prior_unread": "U1",
+      "status": "partial",
+      "why": "Discovery event read, tutorial curriculum and all map serialization not read.",
+      "kit": [
+        "K9",
+        "K11",
+        "K30"
+      ],
+      "packets": [
+        "P04",
+        "P11",
+        "P16"
+      ],
+      "palettes": [
+        "TECHNOLOGY_AND_PROGRESSION.md",
+        "MEANS_AND_APPRAISAL.md"
+      ],
+      "owner_coverage": "mapped",
+      "deep_traces": []
+    },
+    {
+      "id": "R22",
+      "name": "Hypergate construction and transport fleets",
+      "kind": "residual-leaf",
+      "family": "companions custody and recovery",
+      "prior_unread": "U2",
+      "status": "partial",
+      "why": "Gate travel does not close construction or faction fleet transport.",
+      "kit": [
+        "K6",
+        "K9",
+        "K18"
+      ],
+      "packets": [
+        "P04",
+        "P06",
+        "P25"
+      ],
+      "palettes": [
+        "COMPANIONS_FAMILIARS_AND_PETS_CONSIDERATIONS_2026-10-14.md",
+        "CHARACTERS_AND_WORLD_EVENTS.md"
+      ],
+      "owner_coverage": "mapped",
+      "deep_traces": []
+    },
+    {
+      "id": "R23",
+      "name": "All bioship skills and replaced-skill effects",
+      "kind": "residual-leaf",
+      "family": "authoring and tools",
+      "prior_unread": "U2/U4",
+      "status": "partial",
+      "why": "Graph and respec traced; every leaf not read.",
+      "kit": [
+        "K33",
+        "K34"
+      ],
+      "packets": [
+        "P16",
+        "P22"
+      ],
+      "palettes": [
+        "ENGINE_AUTHORING.md"
+      ],
+      "owner_coverage": "mapped",
+      "deep_traces": []
+    },
+    {
+      "id": "R24",
+      "name": "All POI reward modules and named personal NPC events",
+      "kind": "residual-leaf",
+      "family": "social events time and AI",
+      "prior_unread": "U1/U2",
+      "status": "partial",
+      "why": "Selection/callback contract traced; all personal stories not read.",
+      "kit": [
+        "K6",
+        "K7",
+        "K12",
+        "K18"
+      ],
+      "packets": [
+        "P10",
+        "P19",
+        "P25"
+      ],
+      "palettes": [
+        "CHARACTERS_AND_WORLD_EVENTS.md",
+        "worlds/DIALOGUE_AND_INTERACTIONS.md"
+      ],
+      "owner_coverage": "mapped",
+      "deep_traces": []
+    },
+    {
+      "id": "R25",
+      "name": "Full commodity initialization and trading stock semantics",
+      "kind": "residual-leaf",
+      "family": "economy production and resources",
+      "prior_unread": "U2",
+      "status": "partial",
+      "why": "Periodic model/sample save traced; complete purchase UI and conservation not proved.",
+      "kit": [
+        "K8",
+        "K9",
+        "K29"
+      ],
+      "packets": [
+        "P02",
+        "P12",
+        "P18"
+      ],
+      "palettes": [
+        "MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md"
+      ],
+      "owner_coverage": "mapped",
+      "deep_traces": []
+    },
+    {
+      "id": "R26",
+      "name": "Asset attribution and individual licenses",
+      "kind": "residual-leaf",
+      "family": "authoring and tools",
+      "prior_unread": "U2",
+      "status": "unread",
+      "why": "Prior general license routing retained, assets submodule absent.",
+      "kit": [
+        "K33",
+        "K34"
+      ],
+      "packets": [
+        "P16",
+        "P22"
+      ],
+      "palettes": [
+        "ENGINE_AUTHORING.md"
+      ],
+      "owner_coverage": "mapped",
+      "deep_traces": []
+    },
+    {
+      "id": "R27",
+      "name": "Body reproduction genetics and lineage",
+      "kind": "residual-leaf",
+      "family": "body and lineage",
+      "prior_unread": "new",
+      "status": "not-established",
+      "why": "Not established in sampled source; no claim of whole-game absence.",
+      "kit": [
+        "K22"
+      ],
+      "packets": [
+        "P16"
+      ],
+      "palettes": [
+        "GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md"
+      ],
+      "owner_coverage": "mapped",
+      "deep_traces": []
+    },
+    {
+      "id": "R28",
+      "name": "Autonomous households research and production chains",
+      "kind": "residual-leaf",
+      "family": "economy production and resources",
+      "prior_unread": "new",
+      "status": "not-established",
+      "why": "Prices/catalogues/growth are not proof of those simulations.",
+      "kit": [
+        "K8",
+        "K9",
+        "K29"
+      ],
+      "packets": [
+        "P02",
+        "P12",
+        "P18"
+      ],
+      "palettes": [
+        "MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md"
+      ],
+      "owner_coverage": "mapped",
+      "deep_traces": []
+    }
+  ]
+}

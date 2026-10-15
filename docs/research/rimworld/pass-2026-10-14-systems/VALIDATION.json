@@ -1,0 +1,28 @@
+{
+  "status": "PASS",
+  "scope": "Artifact/source/hash checks only; no donor execution, compilation, UI, save roundtrip or YAIRPG acceptance",
+  "metrics": {
+    "definition_families": 254,
+    "inventory_rows": 363,
+    "deep_routes": 15,
+    "small_touches": 30,
+    "prior_unread_rows": 42,
+    "successful_exports": 68,
+    "failed_exports": [
+      "RimWorld.InteractionWorker_Train"
+    ],
+    "decompiler_markers": [],
+    "extract_hashes_verified": 314,
+    "raw_defs": 14084,
+    "selected_raw_records": 1178,
+    "selected_xml_files": 243,
+    "statuses": {
+      "prior-partial": 69,
+      "partial-selected-consumers": 36,
+      "indexed-only": 243,
+      "deep-selected-static": 15
+    },
+    "specific_owner_gap_rows": 50
+  },
+  "errors": []
+}

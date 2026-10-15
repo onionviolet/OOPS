@@ -1,0 +1,182 @@
+{
+  "A01": {
+    "status": "covered",
+    "sources": [
+      "sc2/src/uqm/comm.c::SelectResponse, DoResponsePhrase, HailAlien",
+      "sc2/src/uqm/commglue.h::Response, PHRASE_ENABLED, DISABLE_PHRASE, NPCPhrase_cb",
+      "sc2/src/uqm/comm/spathi/spathic.c::SpathiOnPluto, SpathiAllies, Intro",
+      "sc2/src/uqm/comm/melnorm/melnorm.c::HasTech, GrantTech, GetNextTechForSale, DeltaCredit, AlienRaces, DoBuy, DoSell, DoRescue",
+      "sc2/src/uqm/comm/syreen/syreenc.c::NormalSyreen, Intro",
+      "sc2/src/uqm/comm/orz/orzc.c::ORZ_MANNER, ORZ_VISITS, Intro",
+      "sc2/src/uqm/comm/zoqfot/zoqfotc.c::NPCPhrase_cb, ZOQFOTPIK_CONVERSATION_PHRASES",
+      "sc2/content/base/comm/orz/orz.txt::#(phrase-id) records"
+    ],
+    "summary": "SHOWN: per-species C functions register stable phrase references and response callbacks. Selection calls the retained callback, then that callback queues NPC phrases, mutates selected flags and offers the next responses. Loaded phrase text has encounter-local suppression; durable manner/visit/knowledge flags select later meetings. LOCDATA binds portrait/font/music and ambient/talk animation data. Text tables contain both player and alien speech. Multi-speaker Zoq-Fot-Pik uses separate queued speaker callbacks; it is not one generic NPC voice.",
+    "yairpg": [
+      "INFERRED: deepen P19 through speaker purpose, evidence and an actual paid consequence using existing scoped Ink. K6/K20/K31; dialogue owner. Keep disposable exhaustion distinct from retained memory."
+    ],
+    "unread": "Full predicate reachability and every line were not semantically reviewed. See DIALOGUE_SYSTEMS.md and private call-site index."
+  },
+  "A02": {
+    "status": "covered",
+    "sources": [
+      "sc2/src/uqm/comm/syreen/syreenc.c::NormalSyreen, Intro",
+      "sc2/src/uqm/comm/starbas/starbas.c::CheckBulletins, ByeBye, SellMinerals",
+      "sc2/src/uqm/clock.c::AddEvent, ValidateEvent, GameClockTick, MoveGameClockDays",
+      "sc2/src/uqm/gameev.c::AddInitialGameEvents, EventHandler, arilou_entrance_event, arilou_exit_event, check_race_growth"
+    ],
+    "summary": "SHOWN: evidence-dependent talk, surface discovery reports, starbase briefings and dated fleet events distribute the story. CheckBulletins reads flags and CurBulletinMask/STARBASE_BULLETS; repeat and first-delivery paths differ. The event dispatcher changes world facts independently of opening the next conversation.",
+    "yairpg": [
+      "INFERRED: P20/P12 can give one sourced return report with a changed local consumer. K12/K23/K29; characters/events owner. Do not turn a global truth flag directly into every speaker's knowledge."
+    ],
+    "unread": "All ending and discovery-report branches remain unread."
+  },
+  "A03": {
+    "status": "covered",
+    "sources": [
+      "sc2/src/uqm/comm.c::SelectResponse, DoResponsePhrase, HailAlien",
+      "sc2/src/uqm/commglue.h::Response, PHRASE_ENABLED, DISABLE_PHRASE, NPCPhrase_cb",
+      "sc2/src/uqm/clock.c::AddEvent, ValidateEvent, GameClockTick, MoveGameClockDays",
+      "sc2/src/uqm/gameev.c::AddInitialGameEvents, EventHandler, arilou_entrance_event, arilou_exit_event, check_race_growth",
+      "sc2/src/uqm/planets/generate/genspa.c::GenerateSpathi_generatePlanets, GenerateSpathi_generateOrbital",
+      "sc2/src/uqm/planets/generate/gendefault.c::GenerateDefault_generateOrbital, ScanSeed",
+      "sc2/src/uqm/starcon.c::Starcon2Main, on_battle_frame, CurrentActivity"
+    ],
+    "summary": "SHOWN: native C modules, global campaign state, queues, function-pointer descriptors and resource IDs supply the inspected runtime. starcon.c:Starcon2Main routes CurrentActivity; its timestep path calls GameClockTick. GenerateFunctions provides per-system hooks over defaults. Official gameev.c switches an event selector to C handlers. Dialogue text is external, but its branching logic is compiled C.",
+    "yairpg": [
+      "INFERRED: retain YAIRPG definition/instance/host separation, P16 and the typed adapter proposed by START_AND_BRANCH_INTEGRATION_MAP. K18/K33/K34. A source pattern does not justify porting global mutable state."
+    ],
+    "unread": "Rendering/audio backend performance and all activity transitions are unread. Preliminary mirror Lua experiments are not official-main architecture."
+  },
+  "A04": {
+    "status": "partial",
+    "sources": [
+      "sc2/src/uqm/save.c::SaveGame, SaveGameState, SaveSisState, SaveEvents, SaveStarInfo",
+      "sc2/src/uqm/load.c::LoadGame, LoadGameState",
+      "sc2/src/uqm/state.c::GetPlanetInfo, PutPlanetInfo, ScanRetrieveMask"
+    ],
+    "summary": "SHOWN: save.h defines a versioned magic and tagged Summary, GlobalState, GameState, Events, queue, scan and group chunks. Carrier resources/slots, event clock, fleets, scanned-node masks and groups persist. The loader has a legacy path, and summary-only reading returns before the full load. SaveGame opens the final slot with wb, then deletes on detected I/O failure; LoadGame assigns SIS state and clears queues before later reads.",
+    "yairpg": [
+      "INFERRED: K18/K33, P16/P24 should preserve the complete native owner envelope and stage restoration before publication. Tags and a legacy loader do not prove failure-safe persistence."
+    ],
+    "unread": "Legacy-format migration internals, exhaustive malformed-input behavior and power-loss/crash recovery were not tested. Offline wall-time catch-up is not established by the inspected save/clock path."
+  },
+  "A05": {
+    "status": "partial",
+    "sources": [
+      "sc2/src/uqm/gameev.c::AddInitialGameEvents, EventHandler, arilou_entrance_event, arilou_exit_event, check_race_growth",
+      "sc2/src/uqm/ships/arilou/arilou.c::arilou_intelligence, arilou_preprocess, init_arilou",
+      "sc2/src/uqm/ships/spathi/spathi.c::spathi_intelligence"
+    ],
+    "summary": "SHOWN: species combat AI specializes shared ship_intelligence using enemy trajectory, relative facing, energy and cooldown state. Arilou can react to imminent threats using its teleport special; Spathi controls its rear special through geometry. Fleet growth/missions are scripted calendar handlers.",
+    "yairpg": [
+      "INFERRED: P25, K10/K12 can borrow small explicit tactical policies, while local social schedules need their own evidence. Do not claim whole-NPC planner or player/NPC rule parity."
+    ],
+    "unread": "Most ship AIs, cyborg.c base evaluation and encounter ecology are inventoried but unread in depth."
+  },
+  "A06": {
+    "status": "covered",
+    "sources": [
+      "sc2/src/uqm/comm.c::SelectResponse, DoResponsePhrase, HailAlien",
+      "sc2/src/uqm/planets/pstarmap.c::UpdateFuelRequirement, known_strength, known_loc",
+      "sc2/src/uqm/planets/scan.c::getLandingFuelNeeded, isNodeRetrieved, setNodeRetrieved",
+      "sc2/src/uqm/comm/starbas/starbas.c::CheckBulletins, ByeBye, SellMinerals"
+    ],
+    "summary": "SHOWN: map destination fuel estimate, fuel-range display, known fleet influence, orbit scans, landing fuel display, contextual response list, conversation summary and cargo sale feedback expose different horizons. RefreshResponses scrolls a response region; input routes select/cancel to choice/summary actions. Sprite and typography behavior are source paths, not observed screenshots.",
+    "yairpg": [
+      "INFERRED: P01/P18/P19 should show context, actual means and available next action together. K5/K14. Future YAIRPG target is 1366x768 desktop, prose scrolling locally; mobile deferred."
+    ],
+    "unread": "No native visual, keyboard usability, accessibility or current installed display was verified."
+  },
+  "A07": {
+    "status": "partial",
+    "sources": [
+      "sc2/src/uqm/commglue.h::Response, PHRASE_ENABLED, DISABLE_PHRASE, NPCPhrase_cb",
+      "sc2/src/uqm/planets/generate/genspa.c::GenerateSpathi_generatePlanets, GenerateSpathi_generateOrbital",
+      "sc2/src/uqm/planets/generate/gendefault.c::GenerateDefault_generateOrbital, ScanSeed",
+      "sc2/content/base/comm/orz/orz.txt::#(phrase-id) records"
+    ],
+    "summary": "SHOWN: phrase IDs in strings.h pair with external #(id) text entries; C callbacks own conditions and state changes. resinst.h and LOCDATA bind content resources. Default planet generation is selectively replaced through GenerateFunctions. Packed and loose resource handling exists under sc2/src/libs/resource and file; it was inventoried only.",
+    "yairpg": [
+      "INFERRED: P16/P22 and K1/K33/K34 can lint response IDs, external text references, state keys and local overrides. Reuse current YAIRPG schema/Ink validators."
+    ],
+    "unread": "Full addon precedence, all resource pack formats and a stable mod API were not audited. Compiled authoring cost is higher than adding text alone."
+  },
+  "A08": {
+    "status": "covered",
+    "sources": [
+      "sc2/src/uqm/comm/melnorm/melnorm.c::HasTech, GrantTech, GetNextTechForSale, DeltaCredit, AlienRaces, DoBuy, DoSell, DoRescue",
+      "sc2/src/uqm/hyper.c::fuel_ticks, ARILOU_SPACE_SIDE, portal_pt, MoveSIS",
+      "sc2/src/uqm/planets/scan.c::getLandingFuelNeeded, isNodeRetrieved, setNodeRetrieved",
+      "sc2/src/uqm/planets/lander.c::pickupMineralNode, DeltaLanderCrew, GetHazardChance, PlanetSide",
+      "sc2/src/uqm/sis.h::SIS_STATE, NUM_MODULE_SLOTS, MAX_BUILT_SHIPS",
+      "sc2/src/uqm/outfit.c::ModuleSlots, ModuleCost, FuelOnBoard"
+    ],
+    "summary": "SHOWN: landingFuel=min(2*SurfaceGravity,3*FUEL_TANK_SCALE); integer travel estimates; per-hazard chance tables; cargo/module/escort limits; technology prices and ownership-aware offers; distinct RU and Melnorme-credit loops. Shield checks can still allow crew damage at the inspected 5 percent failure branch. These are source formulas, not measured balance.",
+    "yairpg": [
+      "INFERRED: P17/P18 and K5/K8/K9/K28 should quote units and useful limits; exposure/protection and acquisition currency stay distinct. Adapt relationships, not UQM numerical tuning."
+    ],
+    "unread": "No global equilibrium, expected crew-loss simulation, RNG distribution audit or all combat curves."
+  },
+  "A09": {
+    "status": "covered",
+    "sources": [
+      "sc2/src/uqm/clock.c::AddEvent, ValidateEvent, GameClockTick, MoveGameClockDays",
+      "sc2/src/uqm/gameev.c::AddInitialGameEvents, EventHandler, arilou_entrance_event, arilou_exit_event, check_race_growth"
+    ],
+    "summary": "SHOWN: day/month/year with Gregorian leap-year handling, absolute/relative event validation, a date-sorted queue, immediate handling for relative zero delay, played ticks and explicit MoveGameClockDays. The recurring portal opens through an event and schedules closure; closure schedules the next monthly opening. Certain local fleet events defer while the player is in that system.",
+    "yairpg": [
+      "INFERRED: P10/P13 and K12/K32 can state entry cadence, due consequences and same-boundary policy explicitly. Keep the nested-world owner's local/transit/absence clocks distinct."
+    ],
+    "unread": "No browser-closed progression inferred. Whole-game pause/rate behavior and every event ordering combination were not executed."
+  },
+  "A10": {
+    "status": "partial",
+    "sources": [
+      "sc2/src/uqm/comm/spathi/spathic.c::SpathiOnPluto, SpathiAllies, Intro",
+      "sc2/src/uqm/comm/melnorm/melnorm.c::HasTech, GrantTech, GetNextTechForSale, DeltaCredit, AlienRaces, DoBuy, DoSell, DoRescue",
+      "sc2/src/uqm/comm/starbas/starbas.c::CheckBulletins, ByeBye, SellMinerals"
+    ],
+    "summary": "SHOWN: early Spathi contact supports stepped questions; Melnorme procedure flags gate first explanations of fuel/tech/information commerce; zero-credit purchase attempts explain the trade loop; starbase talk supplies equipment and strategic advice. Available options depend on retained progress.",
+    "yairpg": [
+      "INFERRED: P04/P19 and K4/K11 expose a useful next action when the player first has the means, with repeatable explanation. Avoid hiding routine work behind an entire conversation replay."
+    ],
+    "unread": "Whole fresh-game tutorial ordering, failed-start recovery and all reveal leaks were not reviewed."
+  },
+  "A11": {
+    "status": "covered",
+    "sources": [
+      "sc2/src/uqm/comm.c::SelectResponse, DoResponsePhrase, HailAlien",
+      "sc2/src/uqm/comm/spathi/spathic.c::SpathiOnPluto, SpathiAllies, Intro",
+      "sc2/src/uqm/comm/melnorm/melnorm.c::HasTech, GrantTech, GetNextTechForSale, DeltaCredit, AlienRaces, DoBuy, DoSell, DoRescue",
+      "sc2/src/uqm/planets/lander.c::pickupMineralNode, DeltaLanderCrew, GetHazardChance, PlanetSide",
+      "sc2/src/uqm/comm/starbas/starbas.c::CheckBulletins, ByeBye, SellMinerals",
+      "sc2/src/uqm/comm/orz/orzc.c::ORZ_MANNER, ORZ_VISITS, Intro",
+      "sc2/src/uqm/comm/zoqfot/zoqfotc.c::NPCPhrase_cb, ZOQFOTPIK_CONVERSATION_PHRASES",
+      "sc2/src/uqm/comm/slyhome/slyhome.c::Intro, HELLO_1, HELLO_2"
+    ],
+    "summary": "SHOWN: varying return greetings, speech colors/music/portraits, group banter, dynamic number speech, cargo unloading that can be sped up, distinct full-hold sound, pickup amount/name feedback, summary access and remembered news make a sparse screen feel specific. Voice evidence is text and source, not listened audio.",
+    "yairpg": [
+      "INFERRED: K14/K19/K20/K27/K31 and P19/P21 benefit from one or two touches per local identity. Keep reward logic outside repaint and audio callbacks."
+    ],
+    "unread": "Twenty-eight individually sourced options are in SMALL_TOUCHES.md; none implemented."
+  },
+  "A12": {
+    "status": "covered",
+    "sources": [
+      "sc2/src/uqm/comm/melnorm/melnorm.c::HasTech, GrantTech, GetNextTechForSale, DeltaCredit, AlienRaces, DoBuy, DoSell, DoRescue",
+      "sc2/src/uqm/hyper.c::fuel_ticks, ARILOU_SPACE_SIDE, portal_pt, MoveSIS",
+      "sc2/src/uqm/planets/lander.c::pickupMineralNode, DeltaLanderCrew, GetHazardChance, PlanetSide",
+      "sc2/src/uqm/gameev.c::AddInitialGameEvents, EventHandler, arilou_entrance_event, arilou_exit_event, check_race_growth",
+      "sc2/src/uqm/sis.h::SIS_STATE, NUM_MODULE_SLOTS, MAX_BUILT_SHIPS",
+      "sc2/src/uqm/outfit.c::ModuleSlots, ModuleCost, FuelOnBoard",
+      "sc2/src/uqm/shipyard.c::CheckAlliance, CrewCost",
+      "sc2/src/uqm/planets/devices.c::PORTAL_SPAWNER_DEVICE, PORTAL_FUEL_COST, PORTAL_COUNTER"
+    ],
+    "summary": "SHOWN: expedition refit, allied escort supply, landing risk, a second information economy, unique device possession, travel-layer exits and global fleet politics form connected progression. A device reward can become a real traversal consumer: planets/devices.c requires HyperSpace and enough fuel before setting PORTAL_COUNTER.",
+    "yairpg": [
+      "INFERRED: K7/K8/K9/K13/K15, P07/P18 and new candidate UQM-N1 provide connected growth between journeys. Keep carriers, permission, knowledge, currency and item possession separate."
+    ],
+    "unread": "Super Melee, netplay, complete ending logic and unrelated subsystems are catalogued, not audited. This source does not establish world-to-world innate-power conversion."
+  }
+}

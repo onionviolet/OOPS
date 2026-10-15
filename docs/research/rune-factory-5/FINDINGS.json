@@ -1,0 +1,283 @@
+{
+  "game": "Rune Factory 5",
+  "lane": "fs-rune-factory-5",
+  "date": "2026-10-14",
+  "status": "PARTIAL",
+  "mode": "owned installed build, static read only",
+  "evidence_meaning": {
+    "shown": "asset values or metadata declarations read",
+    "stated": "source descriptions; not used to assert runtime mechanics",
+    "inferred": "relationship or behavior suggested by names/data, native execution unverified"
+  },
+  "tooling": {
+    "dumper": "Il2CppDumper",
+    "commit": "4741d46ba9cd6159c5d853eb9d6fc48b4bfa2b1a",
+    "sdk": "10.0.402",
+    "target": "net10.0",
+    "metadata_version": "24.4",
+    "unity_reader": "UnityPy 1.25.4"
+  },
+  "counts": {
+    "recovered_types": 12898,
+    "selected_game_range_definitions": 4892,
+    "master_objects": 462,
+    "master_data_assets": 280,
+    "master_type_tree_errors": 0,
+    "items": 1174,
+    "strengthening_rows": 1152,
+    "recipes_including_empty": 663,
+    "skill_actions": 411,
+    "skills": 39,
+    "xp_curves": 5,
+    "xp_entries_each_curve": 99,
+    "event_unlock_rows": 2628,
+    "subevent_rows": 204,
+    "english_event_pack_bytes": 22952998,
+    "english_offset_entries": 23778
+  },
+  "findings": [
+    {
+      "id": "F1",
+      "question": "P02 shared item destinations",
+      "status": "shown",
+      "answer": "Item identity joins separate destination rules: recipe sources/category groups, strengthening effects, NPC gift preferences and shipping price data. Runtime eligibility/composition inferred.",
+      "sources": [
+        "ItemDataTableArray",
+        "RecipeData",
+        "CraftGenreDataTableArray",
+        "CraftTypeTableArray",
+        "ItemStrengtheningDataTableArray",
+        "NpcStatusDataTable",
+        "ItemData"
+      ],
+      "packets": [
+        "P02"
+      ],
+      "gap": [
+        "G1",
+        "G5"
+      ]
+    },
+    {
+      "id": "F2",
+      "question": "P03/P09 use XP and level unlocks",
+      "status": "partial",
+      "answer": "411 action rows name up to three XP recipients; 39 skill definitions reference five 99-entry curves plus parameters/RP/caps. Exact per-level functional unlock callers and >99 math unread.",
+      "sources": [
+        "SkillActionDataTableArray",
+        "SkillDataTableArray",
+        "SkillLevelupTypeDataTableArray",
+        "SkillManager"
+      ],
+      "packets": [
+        "P03",
+        "P09",
+        "P04"
+      ],
+      "gap": [
+        "G1",
+        "G2"
+      ]
+    },
+    {
+      "id": "F3",
+      "question": "P19 conditions and paid/failable choice",
+      "status": "partial",
+      "answer": "204 subevents and 2628 event-unlock records expose conditions; refusal/date/gift/talk states are retained in NPC schemas. Full English binary pack acquired, exact paid/failure branch not decoded.",
+      "sources": [
+        "SubEventData",
+        "EventUnlockData",
+        "NpcSaveParameter",
+        "NpcDateSaveParameter",
+        "ConditionsForLoverJudgment",
+        "CommandList",
+        "Eng/Event/pack.bytes",
+        "AdvIndexData"
+      ],
+      "packets": [
+        "P19"
+      ],
+      "gap": [
+        "G3"
+      ]
+    },
+    {
+      "id": "F4",
+      "question": "P01 helper results and blockers",
+      "status": "partial",
+      "answer": "Assignments, work state, progress and daily flags are separate. Result-add/end-check method names and work constants exist; concrete receipts/blocker UI unread.",
+      "sources": [
+        "FarmSupportMonsterData",
+        "FriendMonsterStatusData",
+        "FarmSupportMonsterController",
+        "FarmMonsterWorkState",
+        "ConstFarm"
+      ],
+      "packets": [
+        "P01"
+      ],
+      "gap": [
+        "G4"
+      ]
+    },
+    {
+      "id": "F5",
+      "question": "A04 crafted item and relationship saves",
+      "status": "partial",
+      "answer": "Crafted-item keyed provenance/levels/co-worker context and detailed NPC state coexist with ignored derived-stat properties and versioned binary reader/writer interfaces. Exact bytes, migration and reconstruction unread.",
+      "sources": [
+        "RF5SaveData",
+        "RF5ItemData",
+        "RF5NpcData",
+        "ItemStorageData",
+        "EquipItemData",
+        "SynthesisItemData",
+        "NpcSaveParameter",
+        "SaveDataHeader",
+        "SaveDataFooter"
+      ],
+      "packets": [
+        "A04",
+        "P02",
+        "P19"
+      ],
+      "gap": [
+        "G5"
+      ]
+    }
+  ],
+  "proposals": [
+    {
+      "id": "RF-P1",
+      "rank": 1,
+      "title": "One stock, useful destination quotes",
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "RF-P2",
+      "rank": 2,
+      "title": "Useful work teaches one application",
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "RF-P3",
+      "rank": 3,
+      "title": "Retain social attempts independently of affinity",
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "RF-P4",
+      "rank": 4,
+      "title": "Helper assignment, phase, real receipt and blocker",
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "RF-P5",
+      "rank": 5,
+      "title": "Crafted-item causal provenance",
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "RF-P6",
+      "rank": 6,
+      "title": "Knowledge, permission, ownership and affordability separated",
+      "status": "PROPOSAL"
+    }
+  ],
+  "gaps": [
+    {
+      "id": "G1",
+      "unread": "SkillManager native bodies and dispatch callers",
+      "why": "Metadata recovers declarations, not native logic; exact RP/XP cadence, high-level extrapolation and rounding need native reconstruction."
+    },
+    {
+      "id": "G2",
+      "unread": "Complete per-level functional unlock consumers",
+      "why": "Table thresholds are distinct from permission. NeedSkillLevel may govern cost; complete caller trace not performed."
+    },
+    {
+      "id": "G3",
+      "unread": "Binary English event commands and paid/failure branch",
+      "why": "Full pack/index acquired; ScriptWork/AdvMain bytecode parser not reconstructed."
+    },
+    {
+      "id": "G4",
+      "unread": "Helper output destination, exact blockers, player feedback",
+      "why": "Only fields, constants and method names read. Native consumer and UI trace required; game launch prohibited."
+    },
+    {
+      "id": "G5",
+      "unread": "Save writer/formatter wire bytes, migration and corruption behavior",
+      "why": "Declarations recovered; no native-body reconstruction, synthetic roundtrip or personal save access."
+    },
+    {
+      "id": "G6",
+      "unread": "Remaining behavior tables, full NPC schedules, lottery byte files, all other languages/media",
+      "why": "Master tables preserved; catalog inventory broad. Detailed consumers and unsampled bundles outside feature question scope."
+    }
+  ],
+  "inputs": [
+    {
+      "path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rune Factory 5/GameAssembly.dll",
+      "bytes": 53017600,
+      "sha256": "764b181903e6740f6bf6e1ca8500d8fc822ba96de2b3ab829d4da0669f570a5d"
+    },
+    {
+      "path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rune Factory 5/Rune Factory 5_Data/il2cpp_data/Metadata/global-metadata.dat",
+      "bytes": 17516248,
+      "sha256": "1d108a3aba4643f6bdfe927d7dd6109e946205d59bd27d70a392d82911018554"
+    },
+    {
+      "path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rune Factory 5/Rune Factory 5_Data/StreamingAssets/aa/catalog.json",
+      "bytes": 50028340,
+      "sha256": "91a6ba2cf8d0cee9fe2ffe19353df4629ada186c9d479231a2227db1b5877f76"
+    },
+    {
+      "path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rune Factory 5/Rune Factory 5_Data/resources.assets",
+      "bytes": 1394272,
+      "sha256": "6de0a22f02adf3ba8ee414cc96c66503b8459a4e2bc32a7d8b2e777d94c66f11"
+    },
+    {
+      "path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rune Factory 5/Rune Factory 5_Data/StreamingAssets/aa/StandaloneWindows64/382aa2501e16ef256258fc102a8fcea5.bundle",
+      "bytes": 932176,
+      "sha256": "69580da3266dd5aed9574f9a948796f88b69dea63cc57152a7f1b41de4296d8a"
+    },
+    {
+      "path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rune Factory 5/Rune Factory 5_Data/StreamingAssets/aa/StandaloneWindows64/e5a7b3a52fcb2b3e585bf6f3e9e93ff2.bundle",
+      "bytes": 5529497,
+      "sha256": "a30a813b9a78904ba661bd2e1b7ae23b7e5e107e070014d35f16ff5f87478aed"
+    },
+    {
+      "path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rune Factory 5/Rune Factory 5_Data/StreamingAssets/aa/StandaloneWindows64/2a7ffd6c74027741cd44253e7638237a.bundle",
+      "bytes": 192191,
+      "sha256": "b171304cf9d6e98f59b3601742293e8237e795a6b2448f5f3310eb61ecc46564"
+    },
+    {
+      "path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rune Factory 5/Rune Factory 5_Data/StreamingAssets/aa/StandaloneWindows64/85e23e8af32064aa314a2943ea4b0bba.bundle",
+      "bytes": 2321,
+      "sha256": "adf3e429792d4406f782d245ed2b2145538459b670a44d453a1d3a0f6accfeb9"
+    },
+    {
+      "path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rune Factory 5/Rune Factory 5_Data/StreamingAssets/aa/StandaloneWindows64/756bd277b6286f474fb3fc5fcda5f03b.bundle",
+      "bytes": 2370,
+      "sha256": "3156afa26d2f789d3f3f63c517d2f84109287657eb0e21c8fa774b00be611751"
+    }
+  ],
+  "artifacts": {
+    "report": "REPORT.md",
+    "packets": "IMPLEMENTATION_PACKETS.md",
+    "touches": "SMALL_TOUCHES.md",
+    "tooling": "TOOLING.md",
+    "checkpoint": "CHECKPOINT.md",
+    "aspects": "aspects-2026-10-14/ASPECTS.json",
+    "private": "private/fs-rune-factory-5/README.md"
+  },
+  "not_claimed": [
+    "game execution",
+    "native method logic reconstruction",
+    "save roundtrip",
+    "YAIRPG implementation",
+    "rebuilt browser gameplay",
+    "human acceptance"
+  ]
+}

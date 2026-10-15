@@ -1,0 +1,347 @@
+# Discovered system inventory
+
+Source snapshot: 1,395 Lua files, 1,004 script-tree files, 3,685 files including translations/radio across captured trees; 969 `craftRecipe` blocks. Counts are file signals, not completeness scores. Every discovered file-bearing source directory is below. A directory can contain several semantic systems; this inventory does not claim all build systems have been decoded. Undocumented means not read beyond discovery/counting. Missing asset/native directories are outside the source-text slice.
+
+| Source area / subsystem | Files directly grouped here | Lane coverage |
+|---|---:|---|
+| `lua/client` | 3 | undocumented beyond inventory |
+| `lua/client/BuildingObjects` | 3 | undocumented beyond inventory |
+| `lua/client/Camping` | 3 | undocumented beyond inventory |
+| `lua/client/Chat` | 2 | undocumented beyond inventory |
+| `lua/client/Context` | 8 | undocumented beyond inventory |
+| `lua/client/DebugUIs` | 152 | undocumented beyond inventory |
+| `lua/client/Entity` | 62 | sampled; see feature digests/aspects |
+| `lua/client/Farming` | 7 | undocumented beyond inventory |
+| `lua/client/FeedingTrough` | 4 | undocumented beyond inventory |
+| `lua/client/Fishing` | 5 | undocumented beyond inventory |
+| `lua/client/Fluids` | 5 | undocumented beyond inventory |
+| `lua/client/Foraging` | 11 | undocumented beyond inventory |
+| `lua/client/Hotbar` | 2 | undocumented beyond inventory |
+| `lua/client/ISUI` | 265 | undocumented beyond inventory |
+| `lua/client/JoyPad` | 3 | undocumented beyond inventory |
+| `lua/client/LastStand` | 12 | undocumented beyond inventory |
+| `lua/client/Map` | 2 | undocumented beyond inventory |
+| `lua/client/Mining` | 1 | undocumented beyond inventory |
+| `lua/client/Moveables` | 1 | undocumented beyond inventory |
+| `lua/client/Music` | 3 | undocumented beyond inventory |
+| `lua/client/OptionScreens` | 51 | undocumented beyond inventory |
+| `lua/client/PZAPI` | 20 | undocumented beyond inventory |
+| `lua/client/RadioCom` | 27 | undocumented beyond inventory |
+| `lua/client/RainBarrel` | 2 | undocumented beyond inventory |
+| `lua/client/RecordedMedia` | 1 | undocumented beyond inventory |
+| `lua/client/Seasons` | 1 | undocumented beyond inventory |
+| `lua/client/SurvivalGuide` | 1 | undocumented beyond inventory |
+| `lua/client/Tests` | 4 | undocumented beyond inventory |
+| `lua/client/TimedActions` | 24 | undocumented beyond inventory |
+| `lua/client/Traps` | 2 | undocumented beyond inventory |
+| `lua/client/Tutorial` | 6 | undocumented beyond inventory |
+| `lua/client/Vehicles` | 29 | undocumented beyond inventory |
+| `lua/client/XpSystem` | 7 | sampled; see feature digests/aspects |
+| `lua/client/erosion` | 3 | undocumented beyond inventory |
+| `lua/server` | 8 | undocumented beyond inventory |
+| `lua/server/Animal` | 2 | undocumented beyond inventory |
+| `lua/server/BuildRecipeCode` | 1 | undocumented beyond inventory |
+| `lua/server/BuildingObjects` | 37 | undocumented beyond inventory |
+| `lua/server/BuildingRooms` | 4 | undocumented beyond inventory |
+| `lua/server/Camping` | 7 | undocumented beyond inventory |
+| `lua/server/Climate` | 1 | undocumented beyond inventory |
+| `lua/server/CraftRecipeCode` | 1 | undocumented beyond inventory |
+| `lua/server/Farming` | 10 | undocumented beyond inventory |
+| `lua/server/FeedingTrough` | 4 | undocumented beyond inventory |
+| `lua/server/FireFighting` | 2 | undocumented beyond inventory |
+| `lua/server/Fishing` | 1 | undocumented beyond inventory |
+| `lua/server/Foraging` | 1 | undocumented beyond inventory |
+| `lua/server/HealthSystem` | 1 | undocumented beyond inventory |
+| `lua/server/Items` | 31 | undocumented beyond inventory |
+| `lua/server/Map` | 17 | undocumented beyond inventory |
+| `lua/server/NPCs` | 1 | undocumented beyond inventory |
+| `lua/server/NewSelectionSystem` | 1 | undocumented beyond inventory |
+| `lua/server/Professions` | 1 | undocumented beyond inventory |
+| `lua/server/RainBarrel` | 3 | undocumented beyond inventory |
+| `lua/server/RandomizedWorldContent` | 3 | undocumented beyond inventory |
+| `lua/server/Seasons` | 2 | undocumented beyond inventory |
+| `lua/server/Traps` | 7 | undocumented beyond inventory |
+| `lua/server/Vehicles` | 7 | undocumented beyond inventory |
+| `lua/server/WorldGen` | 133 | undocumented beyond inventory |
+| `lua/server/XpSystem` | 3 | sampled; see feature digests/aspects |
+| `lua/server/Zombies` | 1 | undocumented beyond inventory |
+| `lua/server/metazones` | 3 | undocumented beyond inventory |
+| `lua/server/radio` | 2 | undocumented beyond inventory |
+| `lua/shared` | 10 | undocumented beyond inventory |
+| `lua/shared/BodyDragging` | 1 | undocumented beyond inventory |
+| `lua/shared/BuildingObjects` | 10 | undocumented beyond inventory |
+| `lua/shared/Camping` | 7 | undocumented beyond inventory |
+| `lua/shared/DebugCommands` | 2 | undocumented beyond inventory |
+| `lua/shared/Definitions` | 31 | undocumented beyond inventory |
+| `lua/shared/Entity` | 6 | sampled; see feature digests/aspects |
+| `lua/shared/Farming` | 7 | undocumented beyond inventory |
+| `lua/shared/FeedingTrough` | 3 | undocumented beyond inventory |
+| `lua/shared/Fishing` | 6 | undocumented beyond inventory |
+| `lua/shared/Fluids` | 4 | sampled; see feature digests/aspects |
+| `lua/shared/Foraging` | 30 | sampled; see feature digests/aspects |
+| `lua/shared/Items` | 3 | undocumented beyond inventory |
+| `lua/shared/Logs` | 2 | undocumented beyond inventory |
+| `lua/shared/Moveables` | 4 | undocumented beyond inventory |
+| `lua/shared/NPCs` | 5 | undocumented beyond inventory |
+| `lua/shared/PrintMedia` | 1 | undocumented beyond inventory |
+| `lua/shared/ProceduralBasements` | 1 | undocumented beyond inventory |
+| `lua/shared/RadioCom` | 2 | sampled; see feature digests/aspects |
+| `lua/shared/RecordedMedia` | 2 | sampled; see feature digests/aspects |
+| `lua/shared/Sandbox` | 6 | undocumented beyond inventory |
+| `lua/shared/SoundBanks` | 1 | undocumented beyond inventory |
+| `lua/shared/StashDescriptions` | 11 | undocumented beyond inventory |
+| `lua/shared/TimedActions` | 183 | sampled; see feature digests/aspects |
+| `lua/shared/Translate` | 1279 | undocumented beyond inventory |
+| `lua/shared/Traps` | 5 | undocumented beyond inventory |
+| `lua/shared/Util` | 9 | undocumented beyond inventory |
+| `lua/shared/Vehicles` | 22 | undocumented beyond inventory |
+| `radio` | 1 | undocumented beyond inventory |
+| `scripts/entities/admin` | 1 | undocumented beyond inventory |
+| `scripts/entities/agricultural/workstations` | 8 | undocumented beyond inventory |
+| `scripts/entities/animals/workstations` | 6 | undocumented beyond inventory |
+| `scripts/entities/appliances/workstations` | 4 | undocumented beyond inventory |
+| `scripts/entities/barricades` | 3 | undocumented beyond inventory |
+| `scripts/entities/blacksmith/workstations` | 11 | undocumented beyond inventory |
+| `scripts/entities/fences_low` | 3 | undocumented beyond inventory |
+| `scripts/entities/furniture` | 52 | undocumented beyond inventory |
+| `scripts/entities/misc` | 3 | undocumented beyond inventory |
+| `scripts/entities/outdoors` | 23 | undocumented beyond inventory |
+| `scripts/entities/stairs` | 3 | undocumented beyond inventory |
+| `scripts/entities/walls` | 66 | undocumented beyond inventory |
+| `scripts/generated` | 22 | undocumented beyond inventory |
+| `scripts/generated/TEMPORARY_TESTING_new_items` | 1 | undocumented beyond inventory |
+| `scripts/generated/characters` | 2 | undocumented beyond inventory |
+| `scripts/generated/entities/admin` | 1 | undocumented beyond inventory |
+| `scripts/generated/entities/agricultural/craftRecipes` | 2 | sampled; see feature digests/aspects |
+| `scripts/generated/entities/agricultural/workstations` | 15 | sampled; see feature digests/aspects |
+| `scripts/generated/entities/animals/craftRecipes` | 4 | sampled; see feature digests/aspects |
+| `scripts/generated/entities/animals/workstations` | 6 | sampled; see feature digests/aspects |
+| `scripts/generated/entities/appliances/workstations` | 7 | undocumented beyond inventory |
+| `scripts/generated/entities/barricades` | 3 | undocumented beyond inventory |
+| `scripts/generated/entities/blacksmith/craftRecipes` | 15 | sampled; see feature digests/aspects |
+| `scripts/generated/entities/blacksmith/workstations` | 13 | sampled; see feature digests/aspects |
+| `scripts/generated/entities/fences_low` | 3 | undocumented beyond inventory |
+| `scripts/generated/entities/furniture` | 52 | undocumented beyond inventory |
+| `scripts/generated/entities/misc` | 3 | undocumented beyond inventory |
+| `scripts/generated/entities/outdoors` | 24 | undocumented beyond inventory |
+| `scripts/generated/entities/pottery/cratRecipes` | 3 | sampled; see feature digests/aspects |
+| `scripts/generated/entities/pottery/workstations` | 6 | sampled; see feature digests/aspects |
+| `scripts/generated/entities/stairs` | 3 | undocumented beyond inventory |
+| `scripts/generated/entities/walls` | 66 | undocumented beyond inventory |
+| `scripts/generated/items` | 15 | sampled; see feature digests/aspects |
+| `scripts/generated/physics` | 1 | undocumented beyond inventory |
+| `scripts/generated/recipes` | 43 | undocumented beyond inventory |
+| `scripts/generated/sounds` | 4 | undocumented beyond inventory |
+| `scripts/generated/sounds/animals` | 22 | undocumented beyond inventory |
+| `scripts/generated/sounds/objects` | 44 | undocumented beyond inventory |
+| `scripts/generated/sounds/player` | 26 | undocumented beyond inventory |
+| `scripts/generated/sounds/vehicles` | 18 | undocumented beyond inventory |
+| `scripts/generated/sounds/weapons` | 32 | undocumented beyond inventory |
+| `scripts/generated/sounds/zombies` | 4 | undocumented beyond inventory |
+| `scripts/generated/vehicles` | 139 | undocumented beyond inventory |
+| `scripts/generated/vehicles/burntAndSmashedVehicles` | 32 | undocumented beyond inventory |
+| `scripts/generated/vehicles/professionVehicles` | 85 | undocumented beyond inventory |
+| `scripts/generated/vehicles/professionVehicles_General` | 24 | undocumented beyond inventory |
+| `scripts/generated/vehicles/regionalPoliceVehicles` | 12 | undocumented beyond inventory |
+| `scripts/generated/weapons/firearm/fx` | 1 | undocumented beyond inventory |
+| `scripts/ragdolls` | 4 | undocumented beyond inventory |
+| `scripts/xui` | 5 | undocumented beyond inventory |
+| `scripts/xui/defaultskin` | 59 | undocumented beyond inventory |
+
+## Java class areas
+
+Package prefixes group all installed zombie classes to expose remaining breadth. Count includes inner classes; only selected feature classes were decompiled.
+
+| Area | Class count | Coverage |
+|---|---:|---|
+| `zombie/AchievementManager$Holder.class` | 1 | undocumented beyond inventory |
+| `zombie/AchievementManager.class` | 1 | undocumented beyond inventory |
+| `zombie/AmbientSoundManager$Ambient.class` | 1 | undocumented beyond inventory |
+| `zombie/AmbientSoundManager.class` | 1 | undocumented beyond inventory |
+| `zombie/AmbientStreamManager$1.class` | 1 | undocumented beyond inventory |
+| `zombie/AmbientStreamManager$Ambient.class` | 1 | undocumented beyond inventory |
+| `zombie/AmbientStreamManager$AmbientLoop.class` | 1 | undocumented beyond inventory |
+| `zombie/AmbientStreamManager$WorldSoundEmitter.class` | 1 | undocumented beyond inventory |
+| `zombie/AmbientStreamManager.class` | 1 | undocumented beyond inventory |
+| `zombie/AttackType.class` | 1 | undocumented beyond inventory |
+| `zombie/AttackTypeModifier.class` | 1 | undocumented beyond inventory |
+| `zombie/BaseAmbientStreamManager.class` | 1 | undocumented beyond inventory |
+| `zombie/BaseSoundManager.class` | 1 | undocumented beyond inventory |
+| `zombie/ChunkMapFilenames.class` | 1 | undocumented beyond inventory |
+| `zombie/CollisionManager$Contact.class` | 1 | undocumented beyond inventory |
+| `zombie/CollisionManager$PolygonCollisionResult.class` | 1 | undocumented beyond inventory |
+| `zombie/CollisionManager$l_ResolveContacts.class` | 1 | undocumented beyond inventory |
+| `zombie/CollisionManager$s_performance.class` | 1 | undocumented beyond inventory |
+| `zombie/CollisionManager.class` | 1 | undocumented beyond inventory |
+| `zombie/CombatManager$1.class` | 1 | undocumented beyond inventory |
+| `zombie/CombatManager$CalcHitListGrappleReusables.class` | 1 | undocumented beyond inventory |
+| `zombie/CombatManager$HitChanceData.class` | 1 | undocumented beyond inventory |
+| `zombie/CombatManager$Holder.class` | 1 | undocumented beyond inventory |
+| `zombie/CombatManager$LOSVisitor.class` | 1 | undocumented beyond inventory |
+| `zombie/CombatManager$TargetHitList.class` | 1 | undocumented beyond inventory |
+| `zombie/CombatManager$WindowVisitor.class` | 1 | undocumented beyond inventory |
+| `zombie/CombatManager.class` | 1 | undocumented beyond inventory |
+| `zombie/DebugFileWatcher$1.class` | 1 | undocumented beyond inventory |
+| `zombie/DebugFileWatcher$IOnInitListener.class` | 1 | undocumented beyond inventory |
+| `zombie/DebugFileWatcher.class` | 1 | undocumented beyond inventory |
+| `zombie/DummyAmbientStreamManager.class` | 1 | undocumented beyond inventory |
+| `zombie/DummySoundManager.class` | 1 | undocumented beyond inventory |
+| `zombie/EffectsManager$Holder.class` | 1 | undocumented beyond inventory |
+| `zombie/EffectsManager$ModelInstanceEffect.class` | 1 | undocumented beyond inventory |
+| `zombie/EffectsManager.class` | 1 | undocumented beyond inventory |
+| `zombie/FPSTracking.class` | 1 | undocumented beyond inventory |
+| `zombie/FileGuidPair.class` | 1 | undocumented beyond inventory |
+| `zombie/FileGuidTable.class` | 1 | undocumented beyond inventory |
+| `zombie/FliesSound$ChunkData.class` | 1 | undocumented beyond inventory |
+| `zombie/FliesSound$ChunkLevelData.class` | 1 | undocumented beyond inventory |
+| `zombie/FliesSound$FadeEmitter.class` | 1 | undocumented beyond inventory |
+| `zombie/FliesSound$PlayerData.class` | 1 | undocumented beyond inventory |
+| `zombie/FliesSound.class` | 1 | undocumented beyond inventory |
+| `zombie/GameProfileRecording$Row.class` | 1 | undocumented beyond inventory |
+| `zombie/GameProfileRecording$Span.class` | 1 | undocumented beyond inventory |
+| `zombie/GameProfileRecording.class` | 1 | undocumented beyond inventory |
+| `zombie/GameProfiler$ProfileArea.class` | 1 | undocumented beyond inventory |
+| `zombie/GameProfiler$RecordingFrame.class` | 1 | undocumented beyond inventory |
+| `zombie/GameProfiler.class` | 1 | undocumented beyond inventory |
+| `zombie/GameSounds$BankPreviewSound.class` | 1 | undocumented beyond inventory |
+| `zombie/GameSounds$FilePreviewSound.class` | 1 | undocumented beyond inventory |
+| `zombie/GameSounds$IPreviewSound.class` | 1 | undocumented beyond inventory |
+| `zombie/GameSounds.class` | 1 | undocumented beyond inventory |
+| `zombie/GameTime$AnimTimer.class` | 1 | undocumented beyond inventory |
+| `zombie/GameTime.class` | 1 | undocumented beyond inventory |
+| `zombie/GameWindow$OSValidator.class` | 1 | undocumented beyond inventory |
+| `zombie/GameWindow$StringUTF.class` | 1 | undocumented beyond inventory |
+| `zombie/GameWindow$TexturePack.class` | 1 | undocumented beyond inventory |
+| `zombie/GameWindow$s_performance.class` | 1 | undocumented beyond inventory |
+| `zombie/GameWindow.class` | 1 | undocumented beyond inventory |
+| `zombie/GitVersion.class` | 1 | undocumented beyond inventory |
+| `zombie/HiddenFromLua.class` | 1 | undocumented beyond inventory |
+| `zombie/IndieGL.class` | 1 | undocumented beyond inventory |
+| `zombie/LoadGridsquarePerformanceWorkaround$ItemPicker.class` | 1 | undocumented beyond inventory |
+| `zombie/LoadGridsquarePerformanceWorkaround.class` | 1 | undocumented beyond inventory |
+| `zombie/LocaleManager.class` | 1 | undocumented beyond inventory |
+| `zombie/LootRespawn.class` | 1 | undocumented beyond inventory |
+| `zombie/Lua` | 30 | selected classes read |
+| `zombie/MainThread.class` | 1 | undocumented beyond inventory |
+| `zombie/MainThreadQueueException.class` | 1 | undocumented beyond inventory |
+| `zombie/MainThreadQueueItem.class` | 1 | undocumented beyond inventory |
+| `zombie/MapCollisionData$IPathResult.class` | 1 | undocumented beyond inventory |
+| `zombie/MapCollisionData$MCDThread.class` | 1 | undocumented beyond inventory |
+| `zombie/MapCollisionData$PathTask.class` | 1 | undocumented beyond inventory |
+| `zombie/MapCollisionData$Sync.class` | 1 | undocumented beyond inventory |
+| `zombie/MapCollisionData.class` | 1 | undocumented beyond inventory |
+| `zombie/MapGroups$MapDirectory.class` | 1 | undocumented beyond inventory |
+| `zombie/MapGroups$MapGroup.class` | 1 | undocumented beyond inventory |
+| `zombie/MapGroups.class` | 1 | undocumented beyond inventory |
+| `zombie/MovingObjectUpdateScheduler.class` | 1 | undocumented beyond inventory |
+| `zombie/MovingObjectUpdateSchedulerUpdateBucket.class` | 1 | undocumented beyond inventory |
+| `zombie/PersistentOutfits$Data.class` | 1 | undocumented beyond inventory |
+| `zombie/PersistentOutfits$DataList.class` | 1 | undocumented beyond inventory |
+| `zombie/PersistentOutfits$IOutfitter.class` | 1 | undocumented beyond inventory |
+| `zombie/PersistentOutfits.class` | 1 | undocumented beyond inventory |
+| `zombie/PredicatedFileWatcher$GenericPredicatedFileWatcherCallback.class` | 1 | undocumented beyond inventory |
+| `zombie/PredicatedFileWatcher$IPredicatedDataPacketFileWatcherCallback.class` | 1 | undocumented beyond inventory |
+| `zombie/PredicatedFileWatcher$IPredicatedFileWatcherCallback.class` | 1 | undocumented beyond inventory |
+| `zombie/PredicatedFileWatcher.class` | 1 | undocumented beyond inventory |
+| `zombie/ReanimatedPlayers.class` | 1 | undocumented beyond inventory |
+| `zombie/SandboxOptions$Basement.class` | 1 | undocumented beyond inventory |
+| `zombie/SandboxOptions$BooleanSandboxOption.class` | 1 | undocumented beyond inventory |
+| `zombie/SandboxOptions$DoubleSandboxOption.class` | 1 | undocumented beyond inventory |
+| `zombie/SandboxOptions$EnumSandboxOption.class` | 1 | undocumented beyond inventory |
+| `zombie/SandboxOptions$IntegerSandboxOption.class` | 1 | undocumented beyond inventory |
+| `zombie/SandboxOptions$Map.class` | 1 | undocumented beyond inventory |
+| `zombie/SandboxOptions$MultiplierConfig.class` | 1 | undocumented beyond inventory |
+| `zombie/SandboxOptions$SandboxOption.class` | 1 | undocumented beyond inventory |
+| `zombie/SandboxOptions$StringSandboxOption.class` | 1 | undocumented beyond inventory |
+| `zombie/SandboxOptions$StrongEnumSandboxOption.class` | 1 | undocumented beyond inventory |
+| `zombie/SandboxOptions$ZombieConfig.class` | 1 | undocumented beyond inventory |
+| `zombie/SandboxOptions$ZombieLore.class` | 1 | undocumented beyond inventory |
+| `zombie/SandboxOptions.class` | 1 | undocumented beyond inventory |
+| `zombie/ShaderStackEntry.class` | 1 | undocumented beyond inventory |
+| `zombie/SharedDescriptors$Descriptor.class` | 1 | undocumented beyond inventory |
+| `zombie/SharedDescriptors$DescriptorList.class` | 1 | undocumented beyond inventory |
+| `zombie/SharedDescriptors.class` | 1 | undocumented beyond inventory |
+| `zombie/SlowMotionMultiplier.class` | 1 | undocumented beyond inventory |
+| `zombie/SoundAssetManager.class` | 1 | undocumented beyond inventory |
+| `zombie/SoundManager$1.class` | 1 | undocumented beyond inventory |
+| `zombie/SoundManager$AmbientSoundEffect.class` | 1 | undocumented beyond inventory |
+| `zombie/SoundManager$ImpactSound.class` | 1 | undocumented beyond inventory |
+| `zombie/SoundManager$Music.class` | 1 | undocumented beyond inventory |
+| `zombie/SoundManager.class` | 1 | undocumented beyond inventory |
+| `zombie/SystemDisabler.class` | 1 | undocumented beyond inventory |
+| `zombie/TimeDebugger.class` | 1 | undocumented beyond inventory |
+| `zombie/UnitTests.class` | 1 | undocumented beyond inventory |
+| `zombie/UpdateSchedulerSimulationLevel.class` | 1 | undocumented beyond inventory |
+| `zombie/UsedFromLua.class` | 1 | undocumented beyond inventory |
+| `zombie/VirtualZombieManager.class` | 1 | undocumented beyond inventory |
+| `zombie/WorldSoundFlags.class` | 1 | undocumented beyond inventory |
+| `zombie/WorldSoundManager$ResultBiggestSound.class` | 1 | undocumented beyond inventory |
+| `zombie/WorldSoundManager$WorldSound.class` | 1 | undocumented beyond inventory |
+| `zombie/WorldSoundManager.class` | 1 | undocumented beyond inventory |
+| `zombie/ZombieSpawnRecorder.class` | 1 | undocumented beyond inventory |
+| `zombie/ZomboidBitFlag.class` | 1 | undocumented beyond inventory |
+| `zombie/ZomboidFileSystem$IWalkFilesVisitor.class` | 1 | undocumented beyond inventory |
+| `zombie/ZomboidFileSystem$PZFolder.class` | 1 | undocumented beyond inventory |
+| `zombie/ZomboidFileSystem$PZModFolder.class` | 1 | undocumented beyond inventory |
+| `zombie/ZomboidFileSystem$UnitTests$TestPredicate.class` | 1 | undocumented beyond inventory |
+| `zombie/ZomboidFileSystem$UnitTests.class` | 1 | undocumented beyond inventory |
+| `zombie/ZomboidFileSystem.class` | 1 | undocumented beyond inventory |
+| `zombie/ZomboidGlobals.class` | 1 | undocumented beyond inventory |
+| `zombie/ai` | 119 | undocumented beyond inventory |
+| `zombie/arch.class` | 1 | undocumented beyond inventory |
+| `zombie/asset` | 20 | undocumented beyond inventory |
+| `zombie/audio` | 164 | undocumented beyond inventory |
+| `zombie/basements` | 11 | undocumented beyond inventory |
+| `zombie/buildingRooms` | 6 | undocumented beyond inventory |
+| `zombie/characterTextures` | 4 | undocumented beyond inventory |
+| `zombie/characters` | 321 | selected classes read |
+| `zombie/chat` | 28 | undocumented beyond inventory |
+| `zombie/combat` | 9 | undocumented beyond inventory |
+| `zombie/commands` | 77 | undocumented beyond inventory |
+| `zombie/config` | 9 | undocumented beyond inventory |
+| `zombie/core` | 733 | selected classes read |
+| `zombie/creative` | 1 | undocumented beyond inventory |
+| `zombie/debug` | 120 | undocumented beyond inventory |
+| `zombie/entity` | 300 | selected classes read |
+| `zombie/erosion` | 52 | undocumented beyond inventory |
+| `zombie/fileSystem` | 26 | undocumented beyond inventory |
+| `zombie/fireFighting` | 1 | undocumented beyond inventory |
+| `zombie/gameStates` | 45 | undocumented beyond inventory |
+| `zombie/gizmo` | 18 | undocumented beyond inventory |
+| `zombie/globalObjects` | 14 | undocumented beyond inventory |
+| `zombie/input` | 21 | undocumented beyond inventory |
+| `zombie/interfaces` | 6 | undocumented beyond inventory |
+| `zombie/inventory` | 73 | undocumented beyond inventory |
+| `zombie/iso` | 628 | undocumented beyond inventory |
+| `zombie/jsig.class` | 1 | undocumented beyond inventory |
+| `zombie/meta` | 1 | undocumented beyond inventory |
+| `zombie/modding` | 3 | undocumented beyond inventory |
+| `zombie/network` | 601 | undocumented beyond inventory |
+| `zombie/pathfind` | 123 | undocumented beyond inventory |
+| `zombie/popman` | 33 | undocumented beyond inventory |
+| `zombie/pot` | 6 | undocumented beyond inventory |
+| `zombie/profanity` | 18 | undocumented beyond inventory |
+| `zombie/pzexe.class` | 1 | undocumented beyond inventory |
+| `zombie/radio` | 32 | selected classes read |
+| `zombie/randomizedWorld` | 157 | undocumented beyond inventory |
+| `zombie/sandbox` | 7 | undocumented beyond inventory |
+| `zombie/savefile` | 15 | undocumented beyond inventory |
+| `zombie/scripting` | 385 | selected classes read |
+| `zombie/seams` | 6 | undocumented beyond inventory |
+| `zombie/seating` | 7 | undocumented beyond inventory |
+| `zombie/spnetwork` | 10 | undocumented beyond inventory |
+| `zombie/spriteModel` | 3 | undocumented beyond inventory |
+| `zombie/statistics` | 8 | undocumented beyond inventory |
+| `zombie/text` | 17 | undocumented beyond inventory |
+| `zombie/tileDepth` | 40 | undocumented beyond inventory |
+| `zombie/ui` | 78 | undocumented beyond inventory |
+| `zombie/util` | 201 | undocumented beyond inventory |
+| `zombie/vehicleNetworkSound` | 10 | undocumented beyond inventory |
+| `zombie/vehicleSound` | 19 | undocumented beyond inventory |
+| `zombie/vehicles` | 145 | undocumented beyond inventory |
+| `zombie/viewCone` | 3 | undocumented beyond inventory |
+| `zombie/vispoly` | 12 | undocumented beyond inventory |
+| `zombie/world` | 38 | undocumented beyond inventory |
+| `zombie/worldMap` | 146 | undocumented beyond inventory |
+
+Highest-payoff extra reads: practical object research, fluid transfers and seasonal foraging. See [DEEPER_SYSTEMS.md](DEEPER_SYSTEMS.md). Remaining broad systems include autonomous AI, vehicles, agriculture, world generation, loot distribution, networking, native physics/audio and global save recovery. They are not feature completion requirements for this lane.

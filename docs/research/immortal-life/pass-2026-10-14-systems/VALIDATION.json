@@ -1,0 +1,31 @@
+{
+  "status": "PASS",
+  "research_status": "PARTIAL",
+  "required_outputs_present": true,
+  "deep_systems": 15,
+  "families": 22,
+  "inventory_entries": 499,
+  "textassets": 296,
+  "services": 203,
+  "inventory_status_counts": {
+    "inventory_only": 374,
+    "prior_partial": 65,
+    "partial_static_deep": 36,
+    "format_review": 5,
+    "partial_static_native": 19
+  },
+  "native_entries": 100,
+  "native_failures": [],
+  "selected_address_citation_errors": [],
+  "broken_links": [],
+  "small_touches": 24,
+  "hash_artifacts": 118,
+  "private_logical_bytes": 180800944,
+  "prior_files_read": 30,
+  "original_hashes_match_prior": true,
+  "game_launched": false,
+  "personal_saves_accessed": false,
+  "yairpg_source_changed": false,
+  "prior_work_areas_read_only": true,
+  "limits": "Structural research artifact checks, not game/runtime/save acceptance. Owner mappings are proposals. No whole-program mechanism or absence proof."
+}

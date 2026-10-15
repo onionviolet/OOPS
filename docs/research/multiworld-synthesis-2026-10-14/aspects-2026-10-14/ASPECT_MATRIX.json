@@ -1,0 +1,1261 @@
+{
+  "HR": {
+    "A01": {
+      "status": "partial",
+      "sources": [
+        "complex2.cpp:333-519",
+        "pcmove.cpp:1109,1355",
+        "complex.cpp:princess"
+      ],
+      "summary": "Camelot uses state-conditioned ambient speech and named knights; Grail/radius/mode facts choose messages. A small cursor cycles available remarks. Movement transfers name identity. Princess rescue has separate scoped state, not a general conversation engine. Whole speech corpus and every princess branch remain unread.",
+      "yairpg": [
+        "K6/K20/K31, P21: original acknowledgements read real local achievement.",
+        "K6/K11, P19: add a useful conversation consumer only if a chosen slice needs it."
+      ]
+    },
+    "A02": {
+      "status": "partial",
+      "sources": [
+        "yendor.cpp:yendorinfo,check,collected",
+        "complex.cpp:princess",
+        "help.cpp:generateHelpForLand"
+      ],
+      "summary": "Narrative arrives through help, action messages, objective paths, rescue and local acknowledgement. Yendor key-to-orb records carry quest progress and closure. No general novel-scale canon clock or career journal was established by this pass; full rescue narrative remains unread.",
+      "yairpg": [
+        "K11/K12/K16, P12: objective state and caused aftermath need distinct owners.",
+        "K5/K15: neighboring lands are regions, not automatically separate worlds."
+      ]
+    },
+    "A03": {
+      "status": "covered",
+      "sources": [
+        "hyper.cpp",
+        "content.cpp",
+        "classes.cpp:663",
+        "landgen.cpp:giantLandSwitch",
+        "environment.cpp:836",
+        "pcmove.cpp:589"
+      ],
+      "summary": "C++ module set with X-macro metadata and code-driven rule consumers. A tiling graph underlies local generation. Turn processing orders environment and actors; shmup has an elapsed-time executor. Movement keeps reversible mutations and delayed committed effects. Coverage is architecture for this lane, not every engine module.",
+      "yairpg": [
+        "K2/K13/K34, P14/P16: validate the actual consumers of a local law.",
+        "Start/branch IR1-IR4: use typed native effects rather than porting globals."
+      ]
+    },
+    "A04": {
+      "status": "partial",
+      "sources": [
+        "system.cpp:applyBoxes,saveStats,loadsave,load_last_save",
+        "game.cpp:teleportToLand,activateSafety",
+        "savemem.cpp:96",
+        "config.cpp"
+      ],
+      "summary": "Versioned append score records and positional numeric boxes preserve selected run fields; Safety regeneration and separate settings/map-stream paths have different lifetimes. Faraway-memory cleanup can discard terrain history. No complete save graph, atomicity, migration matrix, corruption recovery or offline-reward guarantee was established.",
+      "yairpg": [
+        "K18/K33, P16/P24: definitions, run ledgers and actual retained world state differ.",
+        "P23: retain YAIRPG complete native envelope; do not replace it with score-box reconstruction."
+      ]
+    },
+    "A05": {
+      "status": "partial",
+      "sources": [
+        "monstermove.cpp",
+        "passable.cpp:353,494",
+        "environment.cpp:computePathdist,monstersTurn",
+        "content.cpp:NATIVE",
+        "complex.cpp:hive,dragon,kraken"
+      ],
+      "summary": "Movement/path and monster classes have local legalities, segmented bodies, pace and hostility exceptions. Witch/golem pursuit is limited by region; cave and electricity consumers also read creatures. NATIVE classifies local reward relevance separately from AI. No comprehensive planner, autonomous career schedule or general social faction life was shown.",
+      "yairpg": [
+        "K10/K13/K15, P14: imported creatures retain actual movement/body constraints.",
+        "K6/K7, P25: do not infer a general NPC society from tactical actors."
+      ]
+    },
+    "A06": {
+      "status": "partial",
+      "sources": [
+        "help.cpp:378,788",
+        "hud.cpp",
+        "checkmove.cpp:moveissue",
+        "inventory.cpp:616",
+        "yendor.cpp:tactic menus"
+      ],
+      "summary": "Context help combines metadata, requirements and special rules; HUD shows run resources; movement issues explain named causes; mode menus separate local records. Source structure inspected, no display or keyboard usability exercised. Public help is more omniscient than YAIRPG character knowledge.",
+      "yairpg": [
+        "K11/K14/K30, P04: project actual command blockers into a known local rule panel at 1366x768.",
+        "Keep useful desktop panels independent; mobile deferred."
+      ]
+    },
+    "A07": {
+      "status": "partial",
+      "sources": [
+        "content.cpp:header",
+        "classes.cpp:663",
+        "landgen.cpp",
+        "wfcgen.cpp",
+        "mapeditor.cpp",
+        "hyper.cpp"
+      ],
+      "summary": "Content metadata is centralized with stable enum-order guidance, but new mechanics need C++ consumers. Eclectic City calls WFC generation and repairs mixed borders. Editors, pattern tools and devmods are found, not fully audited. No universal data-only mod API or load-order contract is established.",
+      "yairpg": [
+        "K1/K33/K34, P16/P22: compile/lint references and preserve revisions.",
+        "A catalog row is not implemented local law."
+      ]
+    },
+    "A08": {
+      "status": "partial",
+      "sources": [
+        "hyper.h:458-479",
+        "landgen.cpp:49,190,313,1054",
+        "orbgen.cpp:orbprizefun",
+        "complex2.cpp:variant"
+      ],
+      "summary": "Treasure and kills feed distinct spawn formulas; PT substitutes mode-dependent rates, custom lists scale them and chaos multiplies some rates. big_unlock changes unlock thresholds. Trait bits jointly affect hazards and reward rates. No full RNG audit, simulated balance or big-number progression was performed.",
+      "yairpg": [
+        "K3/K10/K13/K34, P14/P17: show the selected local cost rather than normalizing all power systems.",
+        "Keep source balance numbers as examples, not accepted YAIRPG rates."
+      ]
+    },
+    "A09": {
+      "status": "covered",
+      "sources": [
+        "environment.cpp:836",
+        "orbs.cpp:87,132",
+        "shmup.cpp:2638-2775",
+        "complex.cpp:heat,clearing"
+      ],
+      "summary": "Normal play advances turn phases; power use/decay and Speed alter consumers. Shmup advances clamped elapsed simulation with focus/pause handling, projectile motion and periodic environment updates. This bounded scheduling read shows distinct play clocks, not browser-closed catch-up or a lived calendar.",
+      "yairpg": [
+        "K18/K26/K28/K32, P13: explicit local clock and absence policy.",
+        "Do not turn real-time rendering delta into idle job rewards."
+      ]
+    },
+    "A10": {
+      "status": "partial",
+      "sources": [
+        "landlock.cpp:276,323",
+        "orbgen.cpp:35",
+        "help.cpp:788",
+        "tour.cpp",
+        "yendor.cpp:987"
+      ],
+      "summary": "Treasure/kills unlock regions and powers; local orb availability commonly grows into hub and foreign availability. Per-land help explains requirements. Tactics depends largely on prior accomplishment; Yendor Challenge follows a normal victory. Guided tour exists but was not followed.",
+      "yairpg": [
+        "K4/K11/K13, P04/P09: earned use can teach a local grammar.",
+        "Retain default/dial access for YAIRPG solo options; no universal mode qualification."
+      ]
+    },
+    "A11": {
+      "status": "partial",
+      "sources": [
+        "help.cpp",
+        "checkmove.cpp",
+        "complex.cpp:tortoise",
+        "complex2.cpp:camelot",
+        "items.cpp:pickup sounds"
+      ],
+      "summary": "State-aware warnings, dynamic help, matching cues, contextual speech, named actors and distinct pickup sounds make rules legible. Sound/graphics implementation symbols were inspected; perceived quality, accessibility and timing were not tested. 28 original touches are proposed in SMALL_TOUCHES.",
+      "yairpg": [
+        "K14/K19/K20/K30, P04/P15/P21: give each cue a real state reader.",
+        "Visual and human-feel acceptance stay open until a selected UI change is rebuilt and exercised."
+      ]
+    },
+    "A12": {
+      "status": "partial",
+      "sources": [
+        "achievement.cpp:126",
+        "yendor.cpp:tactic,yendor",
+        "inventory.cpp",
+        "complex2.cpp:dice",
+        "landlock.cpp:90"
+      ],
+      "summary": "Mode-qualified achievements, consecutive-run scoring, stored orb activation economy, sentient-die orientation puzzles and specialized land structures reuse content under different rules. Full optional subsystem and achievement catalogs were not behaviorally audited. OSM forbidden-history assignment has an apparent prior-tile-item mismatch, with runtime consequences untested.",
+      "yairpg": [
+        "K16/K17/K34, P14/P15: reusable content supports several chosen rule sets.",
+        "Do not copy competitive restrictions into ordinary solo play."
+      ]
+    }
+  },
+  "SU": {
+    "A01": {
+      "status": "partial",
+      "sources": [
+        "localization/dialog.csv:269 records",
+        "localization/dialog_story.csv:892 records",
+        "localization/overworld.csv:122-185,364-371"
+      ],
+      "summary": "SHOWN: tagged localized cells, speaker/scene ID families, substitution tokens and separate choice/result lines. STATED: god menus offer donation, shop and blessings; local clocks offer several actions. No evidence of one universal graph format. Native dialogue flag tests, speaker portraits and relationship-gated dispatch are unread.",
+      "yairpg": [
+        "K6/K7/K20/K31; extend P19 using existing Ink host and native typed responses. Preserve full lines privately with IDs; text alone never grants standing."
+      ]
+    },
+    "A02": {
+      "status": "partial",
+      "sources": [
+        "localization/dialog_story.csv",
+        "localization/lore.csv:1376 records",
+        "localization/quests.csv:1062 records",
+        "game.ios ROOM prelude/ending/boss templates"
+      ],
+      "summary": "SHOWN: story dialogue, lore and quest name/description families are separate authoring channels. Quests include 121 empty English cells, so raw row count overstates written narrative. STATED: a random realm quest gates the next expedition; lore and codex explain systems. Full schedule, closure and journal consumers unread.",
+      "yairpg": [
+        "K11/K12/K16/K23; extend P10/P12/P20 with distinct occurrence, reveal, record and reward state. No canon event graph is inferred from text IDs."
+      ]
+    },
+    "A03": {
+      "status": "covered",
+      "sources": [
+        "game.ios chunk directory",
+        "extract/nm-arm64.txt",
+        "extract/function-index.json",
+        "NATIVE_TRACE.md"
+      ],
+      "summary": "SHOWN: GameMaker FORM archive with no VM CODE chunk and a dual-architecture Mach-O executable retaining compiled GML names. 5785 SCPT records coexist with native bodies. GMLive, Scribble/text and other library names are present; shipping a development helper is not proof of supported player modding. Named database, battle, inventory and serializer families separate concerns. Fifteen selected bodies returned pseudocode across two bounded batches; the save Step target timed out. NATIVE_TRACE records type/boundary limits.",
+      "yairpg": [
+        "K18/K33/K34; extend P16. Keep definitions, instances, localization and execution evidence distinct; no engine port."
+      ]
+    },
+    "A04": {
+      "status": "partial",
+      "sources": [
+        "game.ios STRG:31617-31754",
+        "native scr_SaveGame/scr_LoadGame and save_*/load_* names",
+        "NATIVE_TRACE.md"
+      ],
+      "summary": "SHOWN: save-related string keys include format/version labels, realm properties, hidden properties, fusion, castle, gods, projects, wardrobe and macros. Named serializers exist for creatures, items, quests, projects, decorations and stats. NATIVE_TRACE gives the bounded decoded method evidence. These alone do not prove atomic writes, migration, backup restore, rejection or successful roundtrip. No personal save was read. SHOWN follow-up: save Create copies files conditionally and prepares stepped/asynchronous state; save Step timed out. Crash-safe replacement and recovery remain unproved.",
+      "yairpg": [
+        "K15/K18/K33; extend P05/P16/P24. Persist authored identity and actual carriers; exact old-save compatibility and failed-write recovery need native proof."
+      ]
+    },
+    "A05": {
+      "status": "partial",
+      "sources": [
+        "localization/codex.csv:155-159",
+        "native scr_MacroProcess/scr_MacroIsLegal/scr_HandleMacro names",
+        "native bc_* names"
+      ],
+      "summary": "STATED: optional player-assigned macros evaluate up to 20 ordered condition/action lines and stop on an accepted line. A chosen spell still needs its equipped gem. SHOWN: legality and process methods are separate names. Enemy target weights, lawful player/NPC parity and autonomous local lives are unread. Compiler/text-engine macros are not battle AI and are counted separately in the inventory.",
+      "yairpg": [
+        "K6/K10/K26; extend P08 with one bounded supported routine and lawful refusal. Do not infer an idle or offline planner."
+      ]
+    },
+    "A06": {
+      "status": "partial",
+      "sources": [
+        "localization/ui.csv:35-85,422-423,476,606-632,827-841",
+        "localization/codex.csv:186,189,192"
+      ],
+      "summary": "SHOWN/STATED: inspect source labels, filters, comparison identifiers, battle history and travel previews support a huge build space. Conditional detail shares the battle information area. Native draw bodies and a real desktop screenshot were not inspected; no claim about screen density, mouse tooltips or live readability.",
+      "yairpg": [
+        "K11/K14/K30/K34; extend P04/P11. Proposed target 1366x768, adjacent summary/detail/actions, desktop first; mobile deferred."
+      ]
+    },
+    "A07": {
+      "status": "partial",
+      "sources": [
+        "Contents/Resources/localization/*.csv",
+        "native scr_Database* families",
+        "localization/localization_combiner.py/chunks.py/translated_remover.py file presence"
+      ],
+      "summary": "SHOWN: stable text tags, notes and language columns in 24 CSVs; compiled Database families for creatures, perks, traits/passives, gems, materials and props. Three shipping Python helpers were detected and not executed. Localization has schema differences such as a misspelled language header in lore. Public mod API, load order and mechanics editor are unread, not established by GMLive presence.",
+      "yairpg": [
+        "K1/K20/K33/K34; extend P16/P22 with validation of referenced IDs and text keys before activating content."
+      ]
+    },
+    "A08": {
+      "status": "partial",
+      "sources": [
+        "localization/codex.csv:145-147,190-193,205-214",
+        "native scr_GetEnemyLevelByRealmLevel name",
+        "NATIVE_TRACE.md"
+      ],
+      "summary": "STATED: separate depth/instability, source-specific trait stacking, stat floor/diminishing growth and explicit combat action ceilings. Fusion help averages base stats. Startup ordering prose has a numbering conflict. The selected enemy-level body now yields a qualified inferred nonlinear depth curve with difficulty/mode terms (N12). Fusion body preserves specific identity fields (N11). Exact derived stats, rounding helper semantics, event thresholds and economy RNG remain incomplete. Do not substitute community formulas for this installed build.",
+      "yairpg": [
+        "K2/K3/K9/K10/K34; SU-P04 is a new local extension to P14/P16, with explicit stop policy and retained causal history."
+      ]
+    },
+    "A09": {
+      "status": "partial",
+      "sources": [
+        "localization/codex.csv:181,190-193",
+        "game.ios STRG playtime/settings fields",
+        "localization/ui.csv battle speed identifiers"
+      ],
+      "summary": "STATED: battle timeline orders turns; event limits are per turn/battle, while effects can be presented sequentially. SHOWN: Step/Alarm-style object events and battle speed/playtime names. Wall-time catch-up, away settlement, calendar and aging were not traced. Decorative clocks are not evidence of a time engine.",
+      "yairpg": [
+        "K12/K26/K32; P13 stays separate. Retain YAIRPG explicit frozen-absence policy unless a supported routine is selected; no browser-closed harm."
+      ]
+    },
+    "A10": {
+      "status": "partial",
+      "sources": [
+        "localization/ui.csv:836-841,979-1016",
+        "localization/codex.csv:145,150,195,226-235",
+        "localization/projects.csv"
+      ],
+      "summary": "STATED: basic/advanced specialization views, warning text, projects, depth frontier and later systems stage complexity. The installed Otherworld help names depth 30. Tutorial gates and exact progression predicates remain native gaps. Opening role is described as later changeable.",
+      "yairpg": [
+        "K3/K4/K11/K13; extend P03/P04. Reveal when a real function is reachable, keep acquired later alternatives reachable and distinguish disclosure from permission."
+      ]
+    },
+    "A11": {
+      "status": "covered",
+      "sources": [
+        "SMALL_TOUCHES.md:ST01-ST24",
+        "localization/overworld.csv:364-405",
+        "localization/ui.csv:35-85,606-632"
+      ],
+      "summary": "24 individually sourced touches cover truthful blockers, uncertainty, source badges, context-preserving queries, local collecting, home projects and reversible previews. This is bounded coverage of observed text, not live animation or accessibility testing.",
+      "yairpg": [
+        "K9/K11/K14/K19/K25/K27; route small touches to existing consumers and prove their useful effects separately."
+      ]
+    },
+    "A12": {
+      "status": "partial",
+      "sources": [
+        "localization/codex.csv:168-171,197-198,220-235",
+        "localization/cards.csv/projects.csv/achievements.csv",
+        "game.ios ROOM Nether templates"
+      ],
+      "summary": "SHOWN/STATED: castle decoration, utility NPCs, crafting, collections, relics, guilds, bounties, ascension, projects, side-room minigames and multiple currencies. Localization counts are size signals only. Full minigame rules, money flows, collection bonuses and mastery retention are unread.",
+      "yairpg": [
+        "K7/K8/K9/K13/K16/K25; extend P02/P07/P12/P18 with one useful home or institution loop, not the entire source economy."
+      ]
+    }
+  },
+  "R2": {
+    "A01": {
+      "status": "partial",
+      "sources": [
+        "B8",
+        "B9",
+        "B10"
+      ],
+      "summary": "EventTree graph types include choices, line records, speakers, item conditions, variable conditions and effect nodes. The 127 EventTree filename attempts retain available text/keys/IDs privately; many objects fail schema reads. A separate 45-export bark state machine has health, range, LOS, combat and speaking/cinematic conditions.",
+      "yairpg": [
+        "K6/K11/K23: adapt one useful conditional conversation through P19.",
+        "K19/K32: keep ambient arbitration under P21 separate from transaction state."
+      ]
+    },
+    "A02": {
+      "status": "partial",
+      "sources": [
+        "B3",
+        "B8"
+      ],
+      "summary": "Campaign and story bytecode activate/complete objectives, trigger dialogue and invoke rewards. Lore items and objective text have localization keys. Outcomes and closure are not fully reconstructed.",
+      "yairpg": [
+        "K12/K16/K29: pair changed objectives with local aftermath via P12.",
+        "K11/K23: report a sourced discovery rather than omniscient roll knowledge via P11."
+      ]
+    },
+    "A03": {
+      "status": "partial",
+      "sources": [
+        "B1",
+        "B3",
+        "B5",
+        "B7"
+      ],
+      "summary": "UE5 IoStore payload includes cooked Blueprint generated classes, Kismet bytecode, component-based quests, data tables and native module references. Selected scripts call Engine, Remnant, GunfireRuntime and GunfireSaveSystem. Full C++ behavior is unread.",
+      "yairpg": [
+        "K2/K13/K34: inspect actual command effects before creating abstractions.",
+        "K33: use typed content definitions and real consumers, extending P16."
+      ]
+    },
+    "A04": {
+      "status": "partial",
+      "sources": [
+        "B3",
+        "B4",
+        "T1"
+      ],
+      "summary": "Campaign bytecode references SaveGame-marked fields and CommitSave; wrappers own persistence components. Third-party reader distinguishes profile/world saves and decompresses zlib chunks. This does not establish native atomicity, migrations or recovery.",
+      "yairpg": [
+        "K18/K33: retain carrier ownership and native effects together, P05/P24.",
+        "Profile wrapper P23 stays separate and unaccepted."
+      ]
+    },
+    "A05": {
+      "status": "partial",
+      "sources": [
+        "B9",
+        "B2"
+      ],
+      "summary": "Bark state machine directly reads actor context. The index contains 371 state-machine suffix matches and AIData/EQS asset families. Planner scoring, general schedules, faction law and player/NPC parity remain unread.",
+      "yairpg": [
+        "K6/K10: reuse lawful action consumers before P25 planning.",
+        "K19/K23: one bounded bark selector is sufficient for a first P21 leaf."
+      ]
+    },
+    "A06": {
+      "status": "partial",
+      "sources": [
+        "B10"
+      ],
+      "summary": "Dialogue option widgets, trait widgets and shared inspect-data structures were exported. Focus/tooltip bindings and widget hierarchies are inspectable, with partial records. No screen was rendered, so desktop density, keyboard behavior and accessibility are unverified.",
+      "yairpg": [
+        "K14: translate useful choice clarity onto the accepted Proto23 frame.",
+        "Use UI_RULES at 1366\u00d7768; no proposed adoption of Remnant screen composition."
+      ]
+    },
+    "A07": {
+      "status": "partial",
+      "sources": [
+        "B2",
+        "B4",
+        "B5",
+        "B8"
+      ],
+      "summary": "Cooked assets separate story wrappers, subquest filters, tiles, spawn tables, actions, event trees and speakers. Modding API, source editor workflow, effective patch resolution and validation rules remain unread.",
+      "yairpg": [
+        "K33/K34: add offline validation only for a selected real content consumer, P16/P22.",
+        "R2-P06 pins a visit recipe; do not copy source schemas wholesale."
+      ]
+    },
+    "A08": {
+      "status": "partial",
+      "sources": [
+        "B6",
+        "B2"
+      ],
+      "summary": "Independent archetype training is stated and data-backed. XP parameters appear in BP_Archetype, but no full formula or applied curve was traced. Unlock DataTables and trinket defaults show schema errors. Weighted generation, pity and exact scaling remain unread.",
+      "yairpg": [
+        "K3/K10: distinguish earned knowledge and usable power via P03/P17.",
+        "K34: require valid rows and a traced consumer before borrowing formulas."
+      ]
+    },
+    "A09": {
+      "status": "partial",
+      "sources": [
+        "B7",
+        "B9",
+        "B3"
+      ],
+      "summary": "Selected hazard bytecode reads GetTimeSeconds, elapsed differences, threshold checks and timers; bark conditions use state elapsed time. Quest scripts include Delay/timer calls. Offline time, civil calendar and broad away simulation are unread.",
+      "yairpg": [
+        "K22/K32: pause local timed consequences at the chosen owner boundary.",
+        "P13 remains separately scoped; no browser-closed aging or new catch-up rule."
+      ]
+    },
+    "A10": {
+      "status": "partial",
+      "sources": [
+        "B6",
+        "P1",
+        "B8"
+      ],
+      "summary": "Developer states starting archetype does not foreclose later earned archetypes; data separates engrams, archetype definitions and unlock tables. Item/quest conditions show staged eligibility. Exact tutorial ordering is unread.",
+      "yairpg": [
+        "K3/K4/K11: distinguish initial means from future reachable options.",
+        "Use existing P04 disclosure and P03 learning, no forced universal unlock gate."
+      ]
+    },
+    "A11": {
+      "status": "partial",
+      "sources": [
+        "B5",
+        "B7",
+        "B9"
+      ],
+      "summary": "Local tile music, context-sensitive speech and hazard cleanup are concrete authored details. Feedback timing and sound quality were not heard or played. SMALL_TOUCHES has 24 original adaptation proposals with evidence labels.",
+      "yairpg": [
+        "K19/K23/K32: select one fitting small touch, P21.",
+        "K2/K22: leaving a local condition should clean up its temporary effect."
+      ]
+    },
+    "A12": {
+      "status": "partial",
+      "sources": [
+        "B2",
+        "B3",
+        "T1"
+      ],
+      "summary": "Payload also contains account award, crafting/item, economy, relic, prism/event and survival-mode families. Only selected reward calls and reader ownership were read. DLC4/SurvivalMode folders prove payload presence, not enabled modes, entitlements or live features.",
+      "yairpg": [
+        "K8/K9/K18: separate account unlocks, carried goods and local receipts.",
+        "P02/P18 are possible future consumers; no broad economy expansion selected."
+      ]
+    }
+  },
+  "KH": {
+    "A01": {
+      "status": "partial",
+      "sources": [
+        "S10",
+        "S11",
+        "S12"
+      ],
+      "summary": "SHOWN: room entities have talk bindings, global libretto has 1,285 definitions/1,486 boxes, and 16,258 English messages were decoded. Talk IDs, text IDs and scene subtitle/audio tracks are different layers. STATED: docs describe the linkage. Most per-NPC conditions, portrait/speaker joins and branching choices remain unread. Libretto format and reader disagree on termination/version details, so capture counts do not validate every dialogue sequence.",
+      "yairpg": [
+        "K6/K20/K23/K31; extend P19/P20/P21 through current Ink/knowledge/feed owners. Preserve stable text/response IDs; do not infer relationship simulation from a spoken line."
+      ]
+    },
+    "A02": {
+      "status": "covered",
+      "sources": [
+        "S09",
+        "S10",
+        "S14"
+      ],
+      "summary": "SHOWN: progression changes room programs and map/access flags; 951 event tracks decoded. EPSD supplies 45 title/summary rows, journal/world-map text states return reasons. LM flag 34 changes EVT program for room 2. STATED: the format docs explain event selection and recap. This is authored conditional progression, not proof of free-running canon simulation.",
+      "yairpg": [
+        "K12/K16/K23/K29/K32; extend P10/P12/P20. Select changed scenes from real retained world facts and keep causal aftermath distinct from replay."
+      ]
+    },
+    "A03": {
+      "status": "covered",
+      "sources": [
+        "S03",
+        "S07",
+        "S09",
+        "S10",
+        "S12"
+      ],
+      "summary": "SHOWN: PC HED name-hash index addresses PKG payloads; original assets can have encrypted/compressed data plus remaster assets. KH2 typed BAR containers separate definition tables, room scripts, spawn records, event timelines and AI bytecode. 339 BDX records decoded; musical mission signals call shared mission traps. Tool parsers are not the original engine, and the native main loop/trap bodies are unread.",
+      "yairpg": [
+        "K1/K2/K33/K34; extend P16/P22. Preserve definition/instance/presentation lifetimes, explicit command/effect adapters and validated references."
+      ]
+    },
+    "A04": {
+      "status": "partial",
+      "sources": [
+        "S13"
+      ],
+      "summary": "SHOWN tool source: save factory identifies magic/version; FM schema exposes story flags, room program selections, visited flags, character arrays, inventory, Drive forms and per-world party. Checksum writing exists; IsValid is a magic check, not full semantic corruption validation. No personal save, platform container, autosave/atomicity, migration or recovery path was tested. Some schema fields carry uncertain/wrong comments.",
+      "yairpg": [
+        "K15/K18/K33; extend P16/P24. Preserve the complete native envelope and explicit compatibility decisions; a foreign checksum does not prove safe publication."
+      ]
+    },
+    "A05": {
+      "status": "partial",
+      "sources": [
+        "S10",
+        "S12",
+        "S13"
+      ],
+      "summary": "SHOWN: 46 AI-type entries in selected room ARDs; 339 total selected room/mission BDX records decoded. AI format has triggers/work/stack/temp memory; character save definitions expose battle/ability styles. Read LM musical callback and swimming-tutorial mission code, which dispatch shared completion/failure/tutorial traps. Most enemy/partner planners and native trap implementations are unread. No autonomous schedules or social parity established.",
+      "yairpg": [
+        "K6/K10/K26; extends P06/P25 only as an audit route. Do not call a scripted guest an autonomous resident; start with a lawful bounded contribution."
+      ]
+    },
+    "A06": {
+      "status": "partial",
+      "sources": [
+        "S07",
+        "S10",
+        "S14",
+        "S15"
+      ],
+      "summary": "SHOWN/STATED: Arif contains command selector/navigation-map item/music, Ftst has nine 19-world color palettes, mission header has pause/help and feedback bindings, messages explain return requirements. Native UI was never displayed, so legibility, keyboard behavior, layout/accessibility and actual animation are unread.",
+      "yairpg": [
+        "K11/K14/K19; extend P01/P04/P20. Desktop 1366x768 proposal keeps useful separate panels for current action, retained growth and known local restriction. Mobile deferred."
+      ]
+    },
+    "A07": {
+      "status": "covered",
+      "sources": [
+        "S02",
+        "S06",
+        "S10",
+        "S12"
+      ],
+      "summary": "SHOWN: OpenKH parsers/editor/CLI source supports typed BAR records, room-script compile/decompile, message conversion, BDX decode/encode and package tools. Built IdxImg, SpawnScript and MsgTool; decoded content read-only. OpenKH is community tooling, not evidence of an official mod API or original designer pipeline. Load-order/patch execution not exercised.",
+      "yairpg": [
+        "K1/K17/K33/K34; extend P16/P22. Validate conditional precedence and fallback semantics; do not copy a foreign archive schema into production."
+      ]
+    },
+    "A08": {
+      "status": "partial",
+      "sources": [
+        "S07",
+        "S08",
+        "S12"
+      ],
+      "summary": "SHOWN: 13x99 growth rows, three ability-order fields, 45 form rows, 20 progress-conditioned world-level rows, 179 bonus rows, 535 item definitions/151 stat entries, 430 treasures and 303 mission flag headers. STATED: docs explain enabled battle-level contributions and restriction bits. Damage/RNG/form XP award/pity/native scaling formulas unread.",
+      "yairpg": [
+        "K3/K9/K10; extend P03/P14/P17. Keep global learning, function, local danger and encounter restrictions distinct rather than one universal level number."
+      ]
+    },
+    "A09": {
+      "status": "partial",
+      "sources": [
+        "S10",
+        "S12",
+        "S13"
+      ],
+      "summary": "SHOWN: cutscene commands use frames; selected tutorial BDX halts while waiting for mission state; mission format supports timers, and save schema has world timers. None establishes idle catch-up, aging, world clock ratios or browser-closed progression. Native pause/frame-rate/timer readers remain unread.",
+      "yairpg": [
+        "K12/K18/K26/K32; extend P10/P13/P24. Keep presentation time separate from joined/local simulation clocks. No automatic offline loss/gain proposal."
+      ]
+    },
+    "A10": {
+      "status": "covered",
+      "sources": [
+        "S10",
+        "S12",
+        "S14",
+        "S15"
+      ],
+      "summary": "SHOWN: LM02_MS101 main trigger opens tutorial text ID 17820; callback signal 34 differentiates message IDs and can open 17822, then lock/exit the mission. STATED local text teaches body-specific movement; map/journal states later ability requirements. Native trap internals and complete tutorial order unread.",
+      "yairpg": [
+        "K3/K4/K11/K13; extend P03/P04. Teach the current body and give a known useful return reason, while keeping discovery/access/ownership separate."
+      ]
+    },
+    "A11": {
+      "status": "covered",
+      "sources": [
+        "S06",
+        "S07",
+        "S10",
+        "S14",
+        "S15"
+      ],
+      "summary": "SHOWN/STATED: local costumes, high-poly scene variants, area music pairs, text palettes, distinct arrival entrances, mission start/finish/fail sounds, optional replay mission names and local movement prompts. These are data-backed touches, not observed game feel. Thirty original applications are in SMALL_TOUCHES.",
+      "yairpg": [
+        "K14/K19/K20/K27/K32; extend P01/P12/P14/P21. Match flavor and feedback to the retained local state without inventing new consequences."
+      ]
+    },
+    "A12": {
+      "status": "partial",
+      "sources": [
+        "S07",
+        "S08",
+        "S09",
+        "S14"
+      ],
+      "summary": "SHOWN: shop inventories, synthesis-related tables/resources, Gummi assets/text, puzzle-piece save flags, summons/forms and route/key chunks. STATED: route clearing connects worlds; summon text describes party exchange. Exact Gummi graph/warp/ship formulas, synthesis evaluators, collections and remaining collection titles unread. No evidence for a simulated career or universal relationship currency.",
+      "yairpg": [
+        "K5/K8/K9/K13/K15; extend P02/P04/P05/P14. Distinct travel activity may link worlds, while local careers need their own grounded systems."
+      ]
+    }
+  },
+  "TS": {
+    "A01": {
+      "status": "partial",
+      "sources": [
+        {
+          "id": "S10",
+          "url": "https://assetteam.montecookgames.com/wp-content/uploads/The-Hum-MCG-Asset-Team-Adventure.pdf"
+        }
+      ],
+      "summary": "Human-run scenes contain small-talk topics, NPC motives, conditional reactions to what the PCs say, and different information after the fight. Printed pp.10-12: first conversation, interrupted conversation, aftermath. No executable dialogue graph, speaker portrait data or exhaustive line inventory was inspected.",
+      "implementation": "Printed scene headings, bullet responses and parenthetical GM conditions; a human GM interprets them. Private original text is retained in the official PDF, not copied into the repo.",
+      "evidence": "shown public structure; stated rules; inferred YAIRPG uses",
+      "yairpg": [
+        "K6/K11/K23/K31: useful contact remembers witnessed help; MWTS-P05 extends P19."
+      ]
+    },
+    "A02": {
+      "status": "partial",
+      "sources": [
+        {
+          "id": "S10",
+          "url": "https://assetteam.montecookgames.com/wp-content/uploads/The-Hum-MCG-Asset-Team-Adventure.pdf"
+        },
+        {
+          "id": "S13",
+          "url": "https://www.montecookgames.com/store/product/encyclopedia-of-impossible-things-free-preview/"
+        }
+      ],
+      "summary": "The Hum links investigation, party, crisis, gate crossing and rescue through places and motives. Information can come through a specialist spirit ability or a living witness. The preview frames item lore as an institutional dossier.",
+      "implementation": "Authored read-aloud blocks, pacing notes and conditional GM guidance; not a quest-state machine or journal format.",
+      "evidence": "shown public structure; stated rules; inferred YAIRPG uses",
+      "yairpg": [
+        "K11/K12/K29: causal information routes and useful aftermath; P11/P12/P19."
+      ]
+    },
+    "A03": {
+      "status": "partial",
+      "sources": [
+        {
+          "id": "S01",
+          "url": "https://www.montecookgames.com/translation-between-worlds/"
+        },
+        {
+          "id": "S12",
+          "url": "https://csol.montecookgames.com/wp-content/uploads/2025/10/Cypher-System-Reference-Document-2025-08-22.docx"
+        }
+      ],
+      "summary": "A tabletop game resolved by people, with common task resolution and character components. No digital engine, event bus, tick loop, source classes or runtime performance mechanism exists in this inspected corpus.",
+      "implementation": "Rule procedures, sheets, item templates and GM rulings. A software transition transaction is this lane's inference, not decompiled code.",
+      "evidence": "shown public structure; stated rules; inferred YAIRPG uses",
+      "yairpg": [
+        "K2/K3/K15: separate crossing procedure from destination rules; MWTS-P01."
+      ]
+    },
+    "A04": {
+      "status": "partial",
+      "sources": [
+        {
+          "id": "S02",
+          "url": "https://www.montecookgames.com/your-game-bodies-in-translation-gear-and-foci-vs-stat-pools-in-the-strange/"
+        },
+        {
+          "id": "S01",
+          "url": "https://www.montecookgames.com/translation-between-worlds/"
+        }
+      ],
+      "summary": "Local form choices, prior position, equipment in abeyance and current Pools persist conceptually. The sources describe continuity, not serialization.",
+      "implementation": "Human character sheets/GM records; no authoritative digital save, autosave, schema version, migration or corruption handler inspected. Software persistence is not present in these materials.",
+      "evidence": "shown public structure; stated rules; inferred YAIRPG uses",
+      "yairpg": [
+        "K18/K33: retain actor continuity and real local holdings with explicit migration; MWTS-P02."
+      ]
+    },
+    "A05": {
+      "status": "partial",
+      "sources": [
+        {
+          "id": "S10",
+          "url": "https://assetteam.montecookgames.com/wp-content/uploads/The-Hum-MCG-Asset-Team-Adventure.pdf"
+        }
+      ],
+      "summary": "The Hum gives actors goals, encounter tactics and fallback survivor leadership. This is not autonomous simulation or proof of NPC/player rule parity.",
+      "implementation": "GM-controlled motives and tactics in encounter prose; no planner, schedule tables or utility code.",
+      "evidence": "shown public structure; stated rules; inferred YAIRPG uses",
+      "yairpg": [
+        "K6/K10/K12: a contact's motive and a threat's purpose change responses; P25 is a comparison, not a planner implementation."
+      ]
+    },
+    "A06": {
+      "status": "partial",
+      "sources": [
+        {
+          "id": "S05",
+          "url": "https://www.montecookgames.com/store/product/the-strange-cypher-deck-pdf/"
+        },
+        {
+          "id": "S10",
+          "url": "https://assetteam.montecookgames.com/wp-content/uploads/The-Hum-MCG-Asset-Team-Adventure.pdf"
+        }
+      ],
+      "summary": "Focus handouts are given at the crossing; cypher cards can represent form and power. Paper layout and staged disclosure are the observed information surfaces.",
+      "implementation": "Printed focus sheets and human handoff; advertised card counts. No desktop UI, tooltip, keyboard navigation or comparative screen measurement.",
+      "evidence": "shown public structure; stated rules; inferred YAIRPG uses",
+      "yairpg": [
+        "K14/K30: use adjacent desktop traveler/local panels at 1366x768; MWTS-P07, later rebuilt proof needed."
+      ]
+    },
+    "A07": {
+      "status": "partial",
+      "sources": [
+        {
+          "id": "S03",
+          "url": "https://www.montecookgames.com/earth-and-recursions/"
+        },
+        {
+          "id": "S06",
+          "url": "https://www.montecookgames.com/store/product/encyclopedia-of-impossible-things/"
+        },
+        {
+          "id": "S12",
+          "url": "https://csol.montecookgames.com/wp-content/uploads/2025/10/Cypher-System-Reference-Document-2025-08-22.docx"
+        },
+        {
+          "id": "S13",
+          "url": "https://www.montecookgames.com/store/product/encyclopedia-of-impossible-things-free-preview/"
+        },
+        {
+          "id": "S14",
+          "url": "https://www.montecookgames.com/wp-content/uploads/2015/03/NU-CHAR-OPS-FOCI1.jpg"
+        }
+      ],
+      "summary": "Fiction can seed worlds, deliberate creation exists, and emergent worlds develop. Generic CSRD supplies custom-focus authoring guidance. Personal-recursion rules/sheet are advertised but actual construction mechanics are unread.",
+      "implementation": "Human-authored world descriptions, item Origin/Law/Level/Effect/Depletion templates and custom-focus guidelines. No mod API, load order or automatic validator.",
+      "evidence": "shown public structure; stated rules; inferred YAIRPG uses",
+      "yairpg": [
+        "K1/K2/K17/K34: original kit cards with explicit consumers and provenance; MWTS-P06."
+      ]
+    },
+    "A08": {
+      "status": "partial",
+      "sources": [
+        {
+          "id": "S12",
+          "url": "https://csol.montecookgames.com/wp-content/uploads/2025/10/Cypher-System-Reference-Document-2025-08-22.docx"
+        },
+        {
+          "id": "S13",
+          "url": "https://www.montecookgames.com/store/product/encyclopedia-of-impossible-things-free-preview/"
+        }
+      ],
+      "summary": "Generic CSRD target number is three times difficulty; skill/assets/Effort can ease tasks. Cyphers are single-use; artifacts can have item-specific depletion checks. Preview includes varying levels and durations.",
+      "implementation": "d20 task procedure, item-specific dice and resource costs. No seeding, universal pity or big-number arithmetic. Generic 2025 text is not substituted for 2014 Strange.",
+      "evidence": "shown public structure; stated rules; inferred YAIRPG uses",
+      "yairpg": [
+        "K3/K9/K10: separate current reserve, support and function; P17/MWTS-P03."
+      ]
+    },
+    "A09": {
+      "status": "partial",
+      "sources": [
+        {
+          "id": "S04",
+          "url": "https://www.montecookgames.com/using-numenera-character-options-for-the-strange/"
+        },
+        {
+          "id": "S10",
+          "url": "https://assetteam.montecookgames.com/wp-content/uploads/The-Hum-MCG-Asset-Team-Adventure.pdf"
+        },
+        {
+          "id": "S13",
+          "url": "https://www.montecookgames.com/store/product/encyclopedia-of-impossible-things-free-preview/"
+        }
+      ],
+      "summary": "Normal nearby recursions are described as chronologically synchronized. The Hum has event/pacing cues; Samurai Sky supports magic at certain lunar phases.",
+      "implementation": "Human scene order, local fictional time and conditional law. No offline catch-up or software scheduler. Exact core translation/acclimation durations are not recovered here.",
+      "evidence": "shown public structure; stated rules; inferred YAIRPG uses",
+      "yairpg": [
+        "K8/K15/K28/K32: declare local/time/away policy separately; P13/MWTS-P04."
+      ]
+    },
+    "A10": {
+      "status": "partial",
+      "sources": [
+        {
+          "id": "S10",
+          "url": "https://assetteam.montecookgames.com/wp-content/uploads/The-Hum-MCG-Asset-Team-Adventure.pdf"
+        },
+        {
+          "id": "S01",
+          "url": "https://www.montecookgames.com/translation-between-worlds/"
+        }
+      ],
+      "summary": "The Hum uses pregens and staged local focus sheets, letting the first crossing explain changed capabilities in play. Basic local knowledge can be granted by translation.",
+      "implementation": "GM gives a relevant handout when needed and explains arrival context. No automated tutorial unlock detector inspected.",
+      "evidence": "shown public structure; stated rules; inferred YAIRPG uses",
+      "yairpg": [
+        "K4/K11/K14: show known arrival facts and a usable first action; MWTS-P07."
+      ]
+    },
+    "A11": {
+      "status": "partial",
+      "sources": [
+        {
+          "id": "S10",
+          "url": "https://assetteam.montecookgames.com/wp-content/uploads/The-Hum-MCG-Asset-Team-Adventure.pdf"
+        },
+        {
+          "id": "S13",
+          "url": "https://www.montecookgames.com/store/product/encyclopedia-of-impossible-things-free-preview/"
+        },
+        {
+          "id": "S05",
+          "url": "https://www.montecookgames.com/store/product/the-strange-cypher-deck-pdf/"
+        }
+      ],
+      "summary": "Ordinary-looking objects can conceal portable powers; local forms and outfit changes communicate world context. Readable handouts lower lookup cost.",
+      "implementation": "Narrative descriptions and paper artifacts. No sound implementation, animation/VFX code or accessibility testing.",
+      "evidence": "shown public structure; stated rules; inferred YAIRPG uses",
+      "yairpg": [
+        "K9/K14/K19/K20: 24 optional details in SMALL_TOUCHES, with inference labels."
+      ]
+    },
+    "A12": {
+      "status": "partial",
+      "sources": [
+        {
+          "id": "S02",
+          "url": "https://www.montecookgames.com/your-game-bodies-in-translation-gear-and-foci-vs-stat-pools-in-the-strange/"
+        },
+        {
+          "id": "S03",
+          "url": "https://www.montecookgames.com/earth-and-recursions/"
+        },
+        {
+          "id": "S04",
+          "url": "https://www.montecookgames.com/using-numenera-character-options-for-the-strange/"
+        },
+        {
+          "id": "S13",
+          "url": "https://www.montecookgames.com/store/product/encyclopedia-of-impossible-things-free-preview/"
+        }
+      ],
+      "summary": "Local social standing, wealth, equipment abeyance, emergence, shared injury and inapposite passage are the distinctive additional systems. Full local careers and personal-recursion growth remain outside read coverage.",
+      "implementation": "Rules and templates adjudicated by people, not a hidden digital metaprogression engine.",
+      "evidence": "shown public structure; stated rules; inferred YAIRPG uses",
+      "yairpg": [
+        "K6/K7/K8/K15/K22/K25: local ties and real retained goods; MWTS-P02/P05/P06."
+      ]
+    }
+  },
+  "MD": {
+    "A01": {
+      "status": "partial",
+      "sources": [
+        "https://www.retromud.org/proxy/helpxml?=Basics/world_guide",
+        "https://3k.org/resources/primer/examples/monster.html",
+        "https://3k.org/support/help/fetch-help.php?topic=ask"
+      ],
+      "summary": "RetroMUD states guide topics and walkthrough help; complete NPC line conditions are unread. 3K shows idle/combat text pools and describes complex-monster reactions, but publishes no reaction graph here. The player ask command is not an NPC graph.",
+      "implementation": "Published guide topic list, load_chat/load_a_chat example and distinct complex-monster class description. Complete line IDs/conditions and relationship-gated dialogue were not exposed.",
+      "yairpg": [
+        "K6/K11/K20/K31; P19/P21: keep helpful topic guidance and contextual speech distinct from a causal choice."
+      ],
+      "games": [
+        "RetroMUD",
+        "3Kingdoms"
+      ]
+    },
+    "A02": {
+      "status": "partial",
+      "sources": [
+        "https://3k.org/realms/index.php",
+        "https://3k.org/support/help/fetch-help.php?topic=skillquests",
+        "https://newbie.retromud.org/gameplay/progression"
+      ],
+      "summary": "RetroMUD level quests reward advancement preparation and exploration. 3K publishes realm quest examples and a skillquest lookup command. Neither read set reveals a full branching journal or global timeline.",
+      "implementation": "Public quest descriptions and help command interface only. No event tables, quest scripts, canon clock or full endings corpus.",
+      "yairpg": [
+        "K11/K12/K16; P10/P12: bind actual eligibility, intervention and aftermath instead of equating a list with an event engine."
+      ],
+      "games": [
+        "RetroMUD",
+        "3Kingdoms"
+      ]
+    },
+    "A03": {
+      "status": "partial",
+      "sources": [
+        "https://3k.org/resources/primer/examples/room.html",
+        "https://3k.org/resources/primer/examples/monster.html",
+        "https://3k.org/resources/primer/examples/put_it_together.html",
+        "https://3k.org/resources/primer/coding/advanced.html",
+        "https://www.retromud.org/scripts/retromud.js",
+        "https://www.retromud.org/proxy/helpxml?=Pantheon/wizzing"
+      ],
+      "summary": "3K publishes LPC library examples and scheduling guidance; the site identifies LDMud. RetroMUD help names a mudlib and its site JS routes public help. RetroMUD server architecture and both deployed runtimes remain unread.",
+      "implementation": "Room/monster inheritance, create/reset, heartbeat/call_out examples are shown tutorial code. Website routing is shown JS; neither is a server checkout.",
+      "yairpg": [
+        "K18/K33/K34; P16/P22: reuse common primitives and explicit local configuration without assuming all world rules are global."
+      ],
+      "games": [
+        "RetroMUD",
+        "3Kingdoms"
+      ]
+    },
+    "A04": {
+      "status": "partial",
+      "sources": [
+        "https://3k.org/support/help/fetch-help.php?topic=save",
+        "https://3k.org/support/help/fetch-help.php?topic=milestones",
+        "https://3k.org/support/help/fetch-help.php?topic=autoload",
+        "https://www.retromud.org/proxy/helpxml?=Equipment/threading",
+        "https://newbie.retromud.org/gameplay/equipment",
+        "https://newbie.retromud.org/gameplay/progression"
+      ],
+      "summary": "RetroMUD distinguishes carried/threaded gear and storage, plus reincarnation loss. 3K distinguishes player saves from conditional equipment retention and special autoload events. Exact formats and safe restore internals are unread for both.",
+      "implementation": "Help contracts only: no serializers, migrations, atomic writes or corruption paths. Character persistence cannot stand in for complete object-instance retention.",
+      "yairpg": [
+        "K9/K15/K18/K33; P05/P16/P24: preview per carrier and preserve identity, custody and exact retained instance state."
+      ],
+      "games": [
+        "RetroMUD",
+        "3Kingdoms"
+      ]
+    },
+    "A05": {
+      "status": "partial",
+      "sources": [
+        "https://3k.org/resources/primer/examples/monster.html",
+        "https://3k.org/resources/primer/coding/advanced.html",
+        "https://www.retromud.org/proxy/helpxml?=Basics/world_guide"
+      ],
+      "summary": "3K describes aggression, fleeing, reactions and weighted specials; examples show local text/special configuration. RetroMUD offers a guide and practical environmental threats, with no AI scripts. No autonomous society planner was recovered.",
+      "implementation": "Standard monster sample; complex-monster behavior is stated only. No schedules, beliefs or player/NPC universal parity proof.",
+      "yairpg": [
+        "K6/K10/K26; P21/P25: one useful lawful NPC behavior before a full planner."
+      ],
+      "games": [
+        "RetroMUD",
+        "3Kingdoms"
+      ]
+    },
+    "A06": {
+      "status": "partial",
+      "sources": [
+        "https://3k.org/support/help/index.php",
+        "https://3k.org/design/script/script_main.js",
+        "https://www.retromud.org/scripts/retromud.js",
+        "https://newbie.retromud.org/gameplay/world-transport"
+      ],
+      "summary": "Public web UI exposes categorized help, keyboard modal focus, loading/error states and command references. RetroMUD serves history-based help navigation; clients are recommended, not inspected. Native desktop game screens were not captured.",
+      "implementation": "Shown public website DOM/JS only. No claim about live client panel density, screen-reader behavior or keyboard acceptance.",
+      "yairpg": [
+        "K11/K14/K30; P04: target a 1366x768 known-readiness view with independent panels; mobile deferred."
+      ],
+      "games": [
+        "RetroMUD",
+        "3Kingdoms"
+      ]
+    },
+    "A07": {
+      "status": "partial",
+      "sources": [
+        "https://3k.org/resources/primer/coding/wizzing.html",
+        "https://3k.org/resources/primer/coding/codestyle.html",
+        "https://3k.org/resources/primer/examples/room.html",
+        "https://3k.org/support/help/fetch-help.php?topic=arealist",
+        "https://www.retromud.org/proxy/helpxml?=Pantheon/wizzing"
+      ],
+      "summary": "3K describes common bases, sponsor and staff reviews, player-board testing and live catalogue entry. RetroMUD states sponsor/writing/coding requirements. These are controlled server authoring paths, not a public end-user mod API.",
+      "implementation": "Published LPC examples/style guide and staff workflow. Full review tools and RetroMUD area templates remain unread.",
+      "yairpg": [
+        "K1/K33/K34; P16/P22: small functional area cards and repair/approval status, using existing structured packs."
+      ],
+      "games": [
+        "RetroMUD",
+        "3Kingdoms"
+      ]
+    },
+    "A08": {
+      "status": "partial",
+      "sources": [
+        "https://www.retromud.org/proxy/helpxml?=Worlds/homeworld_bonuses",
+        "https://www.retromud.org/proxy/helpxml?=Guilds/paths_of_power",
+        "https://newbie.retromud.org/gameplay/equipment",
+        "https://3k.org/resources/primer/examples/monster.html",
+        "https://3k.org/support/help/fetch-help.php?topic=professions"
+      ],
+      "summary": "RetroMUD documents homeworld bonuses, guild-tier limits, aptitude and equipment constraints. 3K describes level-derived defaults and weighted specials plus profession categories. Published example values are not live global balance.",
+      "implementation": "No actual level curve, stat derivation, RNG seeding, pity or numerical precision implementation read. Formula consumers and full area challenge ranges unread.",
+      "yairpg": [
+        "K2/K3/K9/K10; P14/P17: source-specific costs and supports, not forced balance between all traditions."
+      ],
+      "games": [
+        "RetroMUD",
+        "3Kingdoms"
+      ]
+    },
+    "A09": {
+      "status": "partial",
+      "sources": [
+        "https://newbie.retromud.org/gameplay/world-transport",
+        "https://newbie.retromud.org/gameplay/equipment",
+        "https://3k.org/resources/primer/coding/advanced.html",
+        "https://3k.org/resources/primer/examples/put_it_together.html",
+        "https://3k.org/support/help/fetch-help.php?topic=save"
+      ],
+      "summary": "RetroMUD has local daylight transport and reboot retention rules. 3K distinguishes heartbeats, delayed callbacks, reset and save cadence. Browser-closed idle simulation and per-world time ratios are not established.",
+      "implementation": "3K examples document normally two-second rounds and callback limits. No full scheduler or persisted timer audit.",
+      "yairpg": [
+        "K5/K18/K26/K28; P08/P13: explicit clocks, actual actor and finite jobs; unsupported offline absence stays frozen."
+      ],
+      "games": [
+        "RetroMUD",
+        "3Kingdoms"
+      ]
+    },
+    "A10": {
+      "status": "partial",
+      "sources": [
+        "https://newbie.retromud.org/gameplay/character-creation",
+        "https://newbie.retromud.org/gameplay/world-transport",
+        "https://www.retromud.org/proxy/helpxml?=Basics/world_guide",
+        "https://3k.org/guilds/index.php",
+        "https://3k.org/support/help/fetch-help.php?topic=milestones"
+      ],
+      "summary": "RetroMUD has race/guild fit guidance, guide topics and temporary travel support. 3K gates guilds/realm access and introduces professions/housing later. No native tutorial sequence was exercised.",
+      "implementation": "Guides/help only, with old/new transport threshold conflicts retained. Newbie survival aids are not evidence every start has equal difficulty.",
+      "yairpg": [
+        "K4/K11/K14; P04: show useful next means and warn before support changes without imposing permanent once-only locks."
+      ],
+      "games": [
+        "RetroMUD",
+        "3Kingdoms"
+      ]
+    },
+    "A11": {
+      "status": "partial",
+      "sources": [
+        "https://www.retromud.org/proxy/helpxml?=Equipment/threading",
+        "https://newbie.retromud.org/gameplay/equipment",
+        "https://3k.org/resources/primer/examples/room.html",
+        "https://3k.org/resources/primer/examples/monster.html",
+        "https://3k.org/design/script/script_main.js"
+      ],
+      "summary": "RetroMUD has keep markers, ownership examination and practical equipment summaries. 3K shows noun aliases, different look/search answers, audience text and focused help. 32 touches are inventoried, not implemented.",
+      "implementation": "Source hooks linked in SMALL_TOUCHES; no measured accessibility or feel acceptance.",
+      "yairpg": [
+        "K9/K14/K19/K30; P04/P21: small legibility improvements tied to real actions and actor knowledge."
+      ],
+      "games": [
+        "RetroMUD",
+        "3Kingdoms"
+      ]
+    },
+    "A12": {
+      "status": "partial",
+      "sources": [
+        "https://newbie.retromud.org/gameplay/progression",
+        "https://3k.org/support/help/fetch-help.php?topic=professions",
+        "https://3k.org/support/help/fetch-help.php?topic=reputation",
+        "https://3k.org/support/help/fetch-help.php?topic=ascended",
+        "https://3k.org/support/help/index.php"
+      ],
+      "summary": "Guild conduct credit, layered professions, faction reputation, advanced embodiment and listed minigames broaden play. Crafting, housing, markets and minigame rules were not deeply audited in this lane.",
+      "implementation": "Reputation/profession/Ascended help read; remaining help-index entries are identification only. No inferred inventory of server modules.",
+      "yairpg": [
+        "K7/K8/K15/K24/K25/K29; P07: concrete local rights and alternative solo services, not a universal MMO institution model."
+      ],
+      "games": [
+        "RetroMUD",
+        "3Kingdoms"
+      ]
+    }
+  },
+  "MI": {
+    "A01": {
+      "status": "unread",
+      "sources": [
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4122910/3d28194e3955e9c81f40d4568c429403c92308e3/ss_3d28194e3955e9c81f40d4568c429403c92308e3.1920x1080.jpg?t=1789512680",
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4122910/e00ddf0b591c63e6a7a76f1e474943aab8551d94/ss_e00ddf0b591c63e6a7a76f1e474943aab8551d94.1920x1080.jpg?t=1789512680"
+      ],
+      "summary": "Help, goal text and ally flavor are visible; no conversation graph, barks or relationship-gated dialogue is established. Implementation: No binary or dialogue tables; line IDs, conditions and state effects unread.",
+      "yairpg": [
+        "K6/K20/K31; do not mistake inspector flavor for NPC conversation."
+      ]
+    },
+    "A02": {
+      "status": "partial",
+      "sources": [
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4122910/3d28194e3955e9c81f40d4568c429403c92308e3/ss_3d28194e3955e9c81f40d4568c429403c92308e3.1920x1080.jpg?t=1789512680",
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4122910/e00ddf0b591c63e6a7a76f1e474943aab8551d94/ss_e00ddf0b591c63e6a7a76f1e474943aab8551d94.1920x1080.jpg?t=1789512680",
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4122910/ebc9b5373b80181458ebde399109e22095b6dc35/ss_ebc9b5373b80181458ebde399109e22095b6dc35.1920x1080.jpg?t=1789512680"
+      ],
+      "summary": "Quest log/completed tabs and system history appear beside context help. This is interface-level narrative guidance, not a proven branching journal. Implementation: Quest completion dispatch, retained journal data and scheduling unread.",
+      "yairpg": [
+        "K11/K12/K14; reuse P20 for sourced reports and keep help separate from caused events."
+      ]
+    },
+    "A03": {
+      "status": "partial",
+      "sources": [
+        "https://kappagames.itch.io/multiverse-idle"
+      ],
+      "summary": "Official Itch metadata says Godot. No shipped engine revision or language verified. Implementation: PCK/scenes/resources/scripts are a conditional inspection route, not observed files. Tick/event architecture unread.",
+      "yairpg": [
+        "K18/K34; inspect before selecting a recovery tool; no engine migration proposal."
+      ]
+    },
+    "A04": {
+      "status": "partial",
+      "sources": [
+        "https://kappagames.itch.io/multiverse-idle/devlog/1326738/play-the-multiverse-idle-demo-on-steam",
+        "https://kappagames.itch.io/multiverse-idle/devlog/1318579/play-the-multiverse-idle-demo",
+        "https://kappagames.itch.io/multiverse-idle/devlog/1121838/v02-the-great-balance-patch",
+        "https://www.reddit.com/r/incremental_games/comments/1qeqz0u/web_itch_demo_out_for_multiverse_idle_an/"
+      ],
+      "summary": "Developer withdrew web build and claims Steam autosaves work; v0.2 required a fresh game. Historical players reported lost progress. Implementation: Serialization format, version fields, commit ordering, backup and rejection behavior unread.",
+      "yairpg": [
+        "K18/K33; retain YAIRPG complete native envelope and compatibility decision; P13/P16, no borrowed serializer."
+      ]
+    },
+    "A05": {
+      "status": "partial",
+      "sources": [
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4122910/ebc9b5373b80181458ebde399109e22095b6dc35/ss_ebc9b5373b80181458ebde399109e22095b6dc35.1920x1080.jpg?t=1789512680",
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4122910/83dce1439a886648a42afdad8e57be7ea2ec020a/ss_83dce1439a886648a42afdad8e57be7ea2ec020a.1920x1080.jpg?t=1789512680",
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4122910/b2fdfdd17852c74c1e2b67384b3d8052564bae52/ss_b2fdfdd17852c74c1e2b67384b3d8052564bae52.1920x1080.jpg?t=1789512680",
+        "https://kappagames.itch.io/multiverse-idle/devlog/1121838/v02-the-great-balance-patch"
+      ],
+      "summary": "Automated battles and class-specific allies are presented; world-specific enemy rosters visible. No autonomous civilian life established. Implementation: Targeting, steering, attack timers and enemy-skill evaluators unread.",
+      "yairpg": [
+        "K6/K10; team composition may inform combat inspection, not NPC planning P25 implementation."
+      ]
+    },
+    "A06": {
+      "status": "covered",
+      "sources": [
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4122910/3d28194e3955e9c81f40d4568c429403c92308e3/ss_3d28194e3955e9c81f40d4568c429403c92308e3.1920x1080.jpg?t=1789512680",
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4122910/e00ddf0b591c63e6a7a76f1e474943aab8551d94/ss_e00ddf0b591c63e6a7a76f1e474943aab8551d94.1920x1080.jpg?t=1789512680",
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4122910/ebc9b5373b80181458ebde399109e22095b6dc35/ss_ebc9b5373b80181458ebde399109e22095b6dc35.1920x1080.jpg?t=1789512680",
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4122910/83dce1439a886648a42afdad8e57be7ea2ec020a/ss_83dce1439a886648a42afdad8e57be7ea2ec020a.1920x1080.jpg?t=1789512680",
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4122910/b2fdfdd17852c74c1e2b67384b3d8052564bae52/ss_b2fdfdd17852c74c1e2b67384b3d8052564bae52.1920x1080.jpg?t=1789512680",
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4122910/cf4cb1fb8e94f6b5dfe0bb7040817df4b8a87d4b/ss_cf4cb1fb8e94f6b5dfe0bb7040817df4b8a87d4b.1920x1080.jpg?t=1789512680"
+      ],
+      "summary": "Six full-size images establish stable rails, center workspaces, contextual inspectors, split goal/system panes, filtered roster, caps/rates and acquisition/use costs. Map and offline dialog remain unread. Implementation: Exact anchors, Control scene hierarchy, tooltip sharing, keyboard focus and localization unread. Visible rendering only.",
+      "yairpg": [
+        "K14; MI-P01/02/03, adapt at 1366\u00d7768 with comfortable text; fresh rebuilt route required later."
+      ]
+    },
+    "A07": {
+      "status": "unread",
+      "sources": [
+        "https://kappagames.itch.io/multiverse-idle"
+      ],
+      "summary": "Godot attribution alone says nothing about a mod API or designer workflow. Implementation: No game resources, authoring tables, editors, loader order or validators available in this pass.",
+      "yairpg": [
+        "K1/K34; no foreign schema proposed."
+      ]
+    },
+    "A08": {
+      "status": "partial",
+      "sources": [
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4122910/e00ddf0b591c63e6a7a76f1e474943aab8551d94/ss_e00ddf0b591c63e6a7a76f1e474943aab8551d94.1920x1080.jpg?t=1789512680",
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4122910/b2fdfdd17852c74c1e2b67384b3d8052564bae52/ss_b2fdfdd17852c74c1e2b67384b3d8052564bae52.1920x1080.jpg?t=1789512680",
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4122910/cf4cb1fb8e94f6b5dfe0bb7040817df4b8a87d4b/ss_cf4cb1fb8e94f6b5dfe0bb7040817df4b8a87d4b.1920x1080.jpg?t=1789512680",
+        "https://kappagames.itch.io/multiverse-idle/devlog/1121838/v02-the-great-balance-patch",
+        "https://www.reddit.com/r/incremental_games/comments/1qeqz0u/web_itch_demo_out_for_multiverse_idle_an/"
+      ],
+      "summary": "Caps, milestones, reset counts, costs, cooldowns, chances and quantity ranges are shown. Developer explains main/secondary stats; v0.2 patch revises scaling. Implementation: Exact formulas, rounding, RNG, seeds, pity and numeric representation unread.",
+      "yairpg": [
+        "K3/K10; P01/P04 shared breakdowns, preserve local units and source-qualified knowledge."
+      ]
+    },
+    "A09": {
+      "status": "partial",
+      "sources": [
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4122910/e00ddf0b591c63e6a7a76f1e474943aab8551d94/ss_e00ddf0b591c63e6a7a76f1e474943aab8551d94.1920x1080.jpg?t=1789512680",
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4122910/cf4cb1fb8e94f6b5dfe0bb7040817df4b8a87d4b/ss_cf4cb1fb8e94f6b5dfe0bb7040817df4b8a87d4b.1920x1080.jpg?t=1789512680",
+        "https://www.reddit.com/r/incremental_games/comments/1qeqz0u/web_itch_demo_out_for_multiverse_idle_an/"
+      ],
+      "summary": "Training rate, accelerated training, offline-stamina meter and skill cooldowns visible; developer discusses web minimized-window progress issue. Implementation: Elapsed ledger, caps, catch-up recipients and time commit algorithm unread. No offline return summary viewed.",
+      "yairpg": [
+        "K18/K26/K32; P13 must retain frozen branch policy and decision stop boundaries."
+      ]
+    },
+    "A10": {
+      "status": "partial",
+      "sources": [
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4122910/e00ddf0b591c63e6a7a76f1e474943aab8551d94/ss_e00ddf0b591c63e6a7a76f1e474943aab8551d94.1920x1080.jpg?t=1789512680",
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4122910/cf4cb1fb8e94f6b5dfe0bb7040817df4b8a87d4b/ss_cf4cb1fb8e94f6b5dfe0bb7040817df4b8a87d4b.1920x1080.jpg?t=1789512680",
+        "https://kappagames.itch.io/multiverse-idle",
+        "https://kappagames.itch.io/multiverse-idle/devlog/1121838/v02-the-great-balance-patch"
+      ],
+      "summary": "Goal panel and limited versus fuller navigation shown in different captures. Patch states tutorial-gated Ally/Gear access. Old user missed next world. Implementation: Exact unlock order and eligibility handlers unread; screenshots are not a recorded progression sequence.",
+      "yairpg": [
+        "K4/K11/K14; MI-P04 discovery and current usability stay distinct."
+      ]
+    },
+    "A11": {
+      "status": "covered",
+      "sources": [
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4122910/3d28194e3955e9c81f40d4568c429403c92308e3/ss_3d28194e3955e9c81f40d4568c429403c92308e3.1920x1080.jpg?t=1789512680",
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4122910/e00ddf0b591c63e6a7a76f1e474943aab8551d94/ss_e00ddf0b591c63e6a7a76f1e474943aab8551d94.1920x1080.jpg?t=1789512680",
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4122910/ebc9b5373b80181458ebde399109e22095b6dc35/ss_ebc9b5373b80181458ebde399109e22095b6dc35.1920x1080.jpg?t=1789512680",
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4122910/b2fdfdd17852c74c1e2b67384b3d8052564bae52/ss_b2fdfdd17852c74c1e2b67384b3d8052564bae52.1920x1080.jpg?t=1789512680",
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4122910/cf4cb1fb8e94f6b5dfe0bb7040817df4b8a87d4b/ss_cf4cb1fb8e94f6b5dfe0bb7040817df4b8a87d4b.1920x1080.jpg?t=1789512680",
+        "https://kappagames.itch.io/multiverse-idle"
+      ],
+      "summary": "26 scoped adaptations recorded in SMALL_TOUCHES: persistent identity, meaningful inspector groups, capacity, trigger labels and practical discoverability. Implementation: Visual feedback is shown; animation, audio, key bindings and accessibility behavior untested.",
+      "yairpg": [
+        "K14/K19/K23; source supports ideas, not shipped accessibility proof."
+      ]
+    },
+    "A12": {
+      "status": "partial",
+      "sources": [
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4122910/3d28194e3955e9c81f40d4568c429403c92308e3/ss_3d28194e3955e9c81f40d4568c429403c92308e3.1920x1080.jpg?t=1789512680",
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4122910/83dce1439a886648a42afdad8e57be7ea2ec020a/ss_83dce1439a886648a42afdad8e57be7ea2ec020a.1920x1080.jpg?t=1789512680",
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4122910/cf4cb1fb8e94f6b5dfe0bb7040817df4b8a87d4b/ss_cf4cb1fb8e94f6b5dfe0bb7040817df4b8a87d4b.1920x1080.jpg?t=1789512680",
+        "https://kappagames.itch.io/multiverse-idle/devlog/1121838/v02-the-great-balance-patch"
+      ],
+      "summary": "Formation/pets slots, artifacts/dust, set progress, Siege, rank and rebirth labels expand inventory of possible systems. Implementation: Pet behavior, rebirth consumers, economy sinks and complete content corpus unread; labels are not execution proof.",
+      "yairpg": [
+        "K3/K9/K10/K15/K16; only adapt a system with a real current native consumer."
+      ]
+    }
+  }
+}

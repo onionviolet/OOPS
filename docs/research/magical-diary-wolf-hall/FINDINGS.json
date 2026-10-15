@@ -1,0 +1,175 @@
+{
+  "lane": "fs-magical-diary",
+  "date": "2026-10-14",
+  "status": "PARTIAL",
+  "evidence_scope": "source reconstruction only; no game execution",
+  "findings": [
+    {
+      "id": "F1",
+      "packet": "P03",
+      "label": "shown",
+      "summary": "Five-slot weekly plan and stress-mediated study/class gains",
+      "sources": [
+        "game/classes.rpy:classroll, do_study_roll",
+        "game/wolfhall.rpy:standard_scheduler"
+      ]
+    },
+    {
+      "id": "F2",
+      "packet": "P03",
+      "label": "shown",
+      "summary": "Successful class learns one threshold-eligible unknown spell; learned spell has real target/cost consumer",
+      "sources": [
+        "game/classes.rpy:learnt_cutscene, magic_class_after_roll",
+        "modules/wolfhall.py:Breeze",
+        "game/spells.rpy:cast_spell"
+      ]
+    },
+    {
+      "id": "F3",
+      "packet": "P03/P04",
+      "label": "shown",
+      "summary": "Sampled exams assess objective, method and side effects instead of a universal grade roll",
+      "sources": [
+        "game/week4.rpy:542-590",
+        "game/exam5.rpy:166-200",
+        "game/exam7.rpy:501-530"
+      ]
+    },
+    {
+      "id": "F4",
+      "packet": "P19",
+      "label": "shown",
+      "summary": "Money/stress preparation has later deterministic stat and relationship consequences",
+      "sources": [
+        "game/week9.rpy:nov_2_bookstore, nov_2_library_poems"
+      ]
+    },
+    {
+      "id": "F5",
+      "packet": "P19",
+      "label": "shown",
+      "summary": "Failed relationship attempts change the current choice set and earlier refusal changes later route eligibility",
+      "sources": [
+        "game/week16.rpy:dec_20_assembly_choice",
+        "game/flags.rpy:on_damien_path"
+      ]
+    },
+    {
+      "id": "F6",
+      "packet": "P04",
+      "label": "shown",
+      "summary": "Physical access, permission, knowledge and capacity are distinct in authored scenes; generic ownership unproven",
+      "sources": [
+        "game/week24.rpy:1465-1499",
+        "game/week19.rpy:1084-1119",
+        "game/spells.rpy:cast_spell"
+      ]
+    },
+    {
+      "id": "F7",
+      "packet": "A04",
+      "label": "shown",
+      "summary": "Custom text serializer overrides generic RenPy save, compresses/base64 .whs and disables auto-1",
+      "sources": [
+        "game/nopickles.rpy:nopickle_save, renpy_loadsave_load",
+        "nopickles.py:safeload"
+      ]
+    }
+  ],
+  "comparison": {
+    "label": "inferred",
+    "source": "../academagia/decompile-2026-10-14/REPORT.md",
+    "wolf_hall_better": "Compact curriculum with direct field spell use and authored relationship consequences",
+    "academagia_better": "Separate preparation, subject breadth, cohort exams and institutional social simulation"
+  },
+  "proposals": [
+    {
+      "id": "MD-P1",
+      "title": "One learned method, several real uses",
+      "status": "PROPOSAL",
+      "packet": "P03",
+      "owners": [
+        "docs/worlds/SKILL_MECHANISMS_AND_MEANS_2026-10-13.md",
+        "docs/SKILLS_AND_TALENTS.md"
+      ],
+      "disposition": "Adapt",
+      "cost": "Moderate: one knowledge consumer and two acquisition paths; no general school simulator."
+    },
+    {
+      "id": "MD-P2",
+      "title": "Assess the solution and its side effects",
+      "status": "PROPOSAL",
+      "packet": "P03/P04",
+      "owners": [
+        "docs/ENGINE_AUTHORING.md",
+        "school-world design"
+      ],
+      "disposition": "Trial",
+      "cost": "Moderate: one original assessment with two methods and a truthful result receipt."
+    },
+    {
+      "id": "MD-P3",
+      "title": "Paid preparation changes a later conversation",
+      "status": "PROPOSAL",
+      "packet": "P19",
+      "owners": [
+        "docs/worlds/DIALOGUE_AND_INTERACTIONS.md",
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md"
+      ],
+      "disposition": "Adapt",
+      "cost": "Low to moderate: one existing staged dialogue host and a later useful continuation."
+    },
+    {
+      "id": "MD-P4",
+      "title": "Separate access rules from physical barriers",
+      "status": "PROPOSAL",
+      "packet": "P04",
+      "owners": [
+        "docs/TECHNOLOGY_AND_PROGRESSION.md",
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "disposition": "Adapt",
+      "cost": "Low where existing admission facts suffice; optional scoped issuer state only if missing."
+    },
+    {
+      "id": "MD-P5",
+      "title": "Keep relationship quality and route commitment distinct",
+      "status": "PROPOSAL",
+      "packet": "P19",
+      "owners": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/worlds/DIALOGUE_AND_INTERACTIONS.md"
+      ],
+      "disposition": "Park broader model; trial one scene",
+      "cost": "Moderate; avoid importing the source fixed route lock or hidden score grind."
+    },
+    {
+      "id": "MD-P6",
+      "title": "Use a weekly plan with honest failure receipts",
+      "status": "PROPOSAL",
+      "packet": "P03",
+      "owners": [
+        "docs/ENGINE_EXPANSION.md",
+        "docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md"
+      ],
+      "disposition": "Trial",
+      "cost": "Moderate UI/scheduler integration. Do not add source calendar restrictions or manual daily chores as universal gates."
+    }
+  ],
+  "static_counts": {
+    "scripts": 66,
+    "lines": 86006,
+    "labels": 964,
+    "menus": 365,
+    "conditions": 5081
+  },
+  "direct_spell_subclass_blocks": 85,
+  "payload": {
+    "game_marker": "WolfHall-1.1.10",
+    "engine": "6.99.12.2 +SPIKY",
+    "scripts": 66,
+    "modules_decompiled": 7,
+    "modules_installed": 39
+  }
+}

@@ -1,0 +1,141 @@
+{
+  "A01": {
+    "status": "partial",
+    "sources": [
+      "data/tfc/patchouli_books/field_guide/book.json; assets/tfc/patchouli_books/field_guide/en_us/entries/{mechanics/leather_making,getting_started/pit_kiln,the_world/climate}.json; compat/patchouli/component/SealedBarrelComponent.java; compat/jei/JEIIntegration.java:208-355; compat/jei/transfer/{BarrelTransferInfo,FluidIgnoringRecipeTransferHandler}.java"
+    ],
+    "summary": "No dialogue tree or conversation class found in bounded chain names; guide prose is authored instructional text. This is not a whole-mod NPC dialogue audit.",
+    "yairpg": [
+      "Keep instructional pages separate from state-changing dialogue; P19 remains unsupported."
+    ]
+  },
+  "A02": {
+    "status": "partial",
+    "sources": [
+      "data/tfc/patchouli_books/field_guide/book.json; assets/tfc/patchouli_books/field_guide/en_us/entries/{mechanics/leather_making,getting_started/pit_kiln,the_world/climate}.json; compat/patchouli/component/SealedBarrelComponent.java; compat/jei/JEIIntegration.java:208-355; compat/jei/transfer/{BarrelTransferInfo,FluidIgnoringRecipeTransferHandler}.java"
+    ],
+    "summary": "Field guide delivers linked chain explanations and anchored recipe pages; broader narrative and advancement behavior unread.",
+    "yairpg": [
+      "Route instructions to codex/knowledge owner, not a fabricated learning event."
+    ]
+  },
+  "A03": {
+    "status": "covered",
+    "sources": [
+      "data/tfc/recipes/barrel/*.json; common/recipes/BarrelRecipe.java, SealedBarrelRecipe.java; common/blockentities/BarrelBlockEntity.java:108-126,249-282,380-408",
+      "data/tfc/recipes/scraping/*_soaked_hide.json; tags/blocks/scraping_surface.json; common/blocks/devices/ScrapingBlock.java:44-78; common/blockentities/ScrapingBlockEntity.java:40-68",
+      "common/blockentities/PitKilnBlockEntity.java:32-99,163-208,232-253; data/tfc/recipes/heating/{brick,fired_fire_brick,pickaxe_head_mold,ceramic_jug}.json; common/recipes/HeatingRecipe.java:149",
+      "common/recipes/KnappingRecipe.java; common/container/KnappingContainer.java; data/tfc/tfc/knapping_types/clay.json; common/items/MoldItem.java:106-173; data/tfc/recipes/casting/copper_pickaxe_head.json",
+      "data/tfc/patchouli_books/field_guide/book.json; assets/tfc/patchouli_books/field_guide/en_us/entries/{mechanics/leather_making,getting_started/pit_kiln,the_world/climate}.json; compat/patchouli/component/SealedBarrelComponent.java; compat/jei/JEIIntegration.java:208-355; compat/jei/transfer/{BarrelTransferInfo,FluidIgnoringRecipeTransferHandler}.java"
+    ],
+    "summary": "Forge Java station entities execute custom JSON recipes; item capabilities retain heat/fluids/bonus; custom JEI and Patchouli adapters present these recipes. Heating uses item-indexed recipe cache.",
+    "yairpg": [
+      "Domain reducers can share definitions without a universal production engine."
+    ]
+  },
+  "A04": {
+    "status": "partial",
+    "sources": [
+      "data/tfc/recipes/barrel/*.json; common/recipes/BarrelRecipe.java, SealedBarrelRecipe.java; common/blockentities/BarrelBlockEntity.java:108-126,249-282,380-408",
+      "data/tfc/recipes/scraping/*_soaked_hide.json; tags/blocks/scraping_surface.json; common/blocks/devices/ScrapingBlock.java:44-78; common/blockentities/ScrapingBlockEntity.java:40-68",
+      "common/blockentities/PitKilnBlockEntity.java:32-99,163-208,232-253; data/tfc/recipes/heating/{brick,fired_fire_brick,pickaxe_head_mold,ceramic_jug}.json; common/recipes/HeatingRecipe.java:149",
+      "common/recipes/KnappingRecipe.java; common/container/KnappingContainer.java; data/tfc/tfc/knapping_types/clay.json; common/items/MoldItem.java:106-173; data/tfc/recipes/casting/copper_pickaxe_head.json",
+      "data/tfc/recipes/crafting/metal/pickaxe/copper.json; common/recipes/outputs/CopyForgingBonusModifier.java; common/capabilities/forge/ForgingBonus.java; ForgeEventHandler.java:463,787; mixin/ItemStackMixin.java:17",
+      "util/calendar/{Calendar,ServerCalendar,CalendarEventHandler}.java; util/climate/OverworldClimateModel.java:87-99; config/CommonConfig.java:26-29; config/ServerConfig.java:220-225"
+    ],
+    "summary": "NBT saves barrel recipe/timestamps, scraping bit mask, pit fuel/lit tick, mold tank/heat, forging ordinal and calendar clocks. Migration/rejection and native reload unread.",
+    "yairpg": [
+      "Save accepted job identity and committed state; rederive display caches."
+    ]
+  },
+  "A05": {
+    "status": "unread",
+    "sources": [],
+    "summary": "Animal AI and husbandry beyond this assigned processing slice are unread.",
+    "yairpg": [
+      "Do not claim seasonal animal schedules or genetics from chain data."
+    ]
+  },
+  "A06": {
+    "status": "partial",
+    "sources": [
+      "data/tfc/patchouli_books/field_guide/book.json; assets/tfc/patchouli_books/field_guide/en_us/entries/{mechanics/leather_making,getting_started/pit_kiln,the_world/climate}.json; compat/patchouli/component/SealedBarrelComponent.java; compat/jei/JEIIntegration.java:208-355; compat/jei/transfer/{BarrelTransferInfo,FluidIgnoringRecipeTransferHandler}.java"
+    ],
+    "summary": "Guide pages, JEI catalysts/transfers, rendered sealed duration and inventory calendar/climate tabs are source-read. Dependency visuals and desktop play unread.",
+    "yairpg": [
+      "P04 readiness needs explicit fluid/station conditions; TFC item transfer omits fluid validation."
+    ]
+  },
+  "A07": {
+    "status": "covered",
+    "sources": [
+      "data/tfc/recipes/barrel/*.json; common/recipes/BarrelRecipe.java, SealedBarrelRecipe.java; common/blockentities/BarrelBlockEntity.java:108-126,249-282,380-408",
+      "common/recipes/KnappingRecipe.java; common/container/KnappingContainer.java; data/tfc/tfc/knapping_types/clay.json; common/items/MoldItem.java:106-173; data/tfc/recipes/casting/copper_pickaxe_head.json",
+      "data/tfc/patchouli_books/field_guide/book.json; assets/tfc/patchouli_books/field_guide/en_us/entries/{mechanics/leather_making,getting_started/pit_kiln,the_world/climate}.json; compat/patchouli/component/SealedBarrelComponent.java; compat/jei/JEIIntegration.java:208-355; compat/jei/transfer/{BarrelTransferInfo,FluidIgnoringRecipeTransferHandler}.java"
+    ],
+    "summary": "Recipes, input tags and knapping type policies are JSON; serializers and component adapters are Java. Guide recipe IDs refer to runtime recipes.",
+    "yairpg": [
+      "One stable authored recipe can feed display and actual admission."
+    ]
+  },
+  "A08": {
+    "status": "partial",
+    "sources": [
+      "data/tfc/recipes/barrel/*.json; common/recipes/BarrelRecipe.java, SealedBarrelRecipe.java; common/blockentities/BarrelBlockEntity.java:108-126,249-282,380-408",
+      "common/blockentities/PitKilnBlockEntity.java:32-99,163-208,232-253; data/tfc/recipes/heating/{brick,fired_fire_brick,pickaxe_head_mold,ceramic_jug}.json; common/recipes/HeatingRecipe.java:149",
+      "common/recipes/KnappingRecipe.java; common/container/KnappingContainer.java; data/tfc/tfc/knapping_types/clay.json; common/items/MoldItem.java:106-173; data/tfc/recipes/casting/copper_pickaxe_head.json",
+      "data/tfc/recipes/crafting/metal/pickaxe/copper.json; common/recipes/outputs/CopyForgingBonusModifier.java; common/capabilities/forge/ForgingBonus.java; ForgeEventHandler.java:463,787; mixin/ItemStackMixin.java:17"
+    ],
+    "summary": "Integer batch ratios, heat ramp and casting break probability read; forging ordinal maps to configured speed/damage/durability factors. Whole balance not audited.",
+    "yairpg": [
+      "Separate material identity, capacity, workmanship and heat."
+    ]
+  },
+  "A09": {
+    "status": "covered",
+    "sources": [
+      "data/tfc/recipes/barrel/*.json; common/recipes/BarrelRecipe.java, SealedBarrelRecipe.java; common/blockentities/BarrelBlockEntity.java:108-126,249-282,380-408",
+      "common/blocks/devices/DryingBricksBlock.java:61-72,151-174; common/blockentities/TickCounterBlockEntity.java; config/ServerConfig.java:317-327",
+      "common/blockentities/PitKilnBlockEntity.java:32-99,163-208,232-253; data/tfc/recipes/heating/{brick,fired_fire_brick,pickaxe_head_mold,ceramic_jug}.json; common/recipes/HeatingRecipe.java:149",
+      "util/calendar/{Calendar,ServerCalendar,CalendarEventHandler}.java; util/climate/OverworldClimateModel.java:87-99; config/CommonConfig.java:26-29; config/ServerConfig.java:220-225"
+    ],
+    "summary": "Processing clock differs from seasonal clock; sleep jumps both; barrel catch-up processes completion order; pot catch-up consumes fuel; brick completion is random-tick sampled.",
+    "yairpg": [
+      "Choose clock policy per job, and make causal interruption explicit."
+    ]
+  },
+  "A10": {
+    "status": "partial",
+    "sources": [
+      "data/tfc/patchouli_books/field_guide/book.json; assets/tfc/patchouli_books/field_guide/en_us/entries/{mechanics/leather_making,getting_started/pit_kiln,the_world/climate}.json; compat/patchouli/component/SealedBarrelComponent.java; compat/jei/JEIIntegration.java:208-355; compat/jei/transfer/{BarrelTransferInfo,FluidIgnoringRecipeTransferHandler}.java"
+    ],
+    "summary": "Relevant guide entries are read_by_default; progress hidden in book metadata. No learned-recipe filter found in TFC JEI registration.",
+    "yairpg": [
+      "Instruction availability does not prove learned capability; use YAIRPG knowledge state."
+    ]
+  },
+  "A11": {
+    "status": "covered",
+    "sources": [
+      "data/tfc/recipes/scraping/*_soaked_hide.json; tags/blocks/scraping_surface.json; common/blocks/devices/ScrapingBlock.java:44-78; common/blockentities/ScrapingBlockEntity.java:40-68",
+      "common/recipes/KnappingRecipe.java; common/container/KnappingContainer.java; data/tfc/tfc/knapping_types/clay.json; common/items/MoldItem.java:106-173; data/tfc/recipes/casting/copper_pickaxe_head.json",
+      "data/tfc/recipes/crafting/metal/pickaxe/copper.json; common/recipes/outputs/CopyForgingBonusModifier.java; common/capabilities/forge/ForgingBonus.java; ForgeEventHandler.java:463,787; mixin/ItemStackMixin.java:17",
+      "data/tfc/patchouli_books/field_guide/book.json; assets/tfc/patchouli_books/field_guide/en_us/entries/{mechanics/leather_making,getting_started/pit_kiln,the_world/climate}.json; compat/patchouli/component/SealedBarrelComponent.java; compat/jei/JEIIntegration.java:208-355; compat/jei/transfer/{BarrelTransferInfo,FluidIgnoringRecipeTransferHandler}.java"
+    ],
+    "summary": "Partial scraping textures, mold molten/solid refusal, quality tooltip and guide links give local feedback.",
+    "yairpg": [
+      "Touches T01-T26 are selective proposals, not a checklist."
+    ]
+  },
+  "A12": {
+    "status": "partial",
+    "sources": [
+      "common/blocks/devices/DryingBricksBlock.java:61-72,151-174; common/blockentities/TickCounterBlockEntity.java; config/ServerConfig.java:317-327",
+      "util/calendar/{Calendar,ServerCalendar,CalendarEventHandler}.java; util/climate/OverworldClimateModel.java:87-99; config/CommonConfig.java:26-29; config/ServerConfig.java:220-225"
+    ],
+    "summary": "Climate model interpolates month/day/latitude/elevation; rain changes brick drying. Other systems inventoried but unread.",
+    "yairpg": [
+      "Only climate-consuming processing rules get climate effects."
+    ]
+  }
+}

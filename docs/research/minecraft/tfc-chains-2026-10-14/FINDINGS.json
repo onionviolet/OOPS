@@ -1,0 +1,112 @@
+{
+  "lane": "fs-tfc-chains",
+  "version": "3.2.27 Forge 1.20.1",
+  "verification": "local data and decompile only; no game launch",
+  "findings": [
+    {
+      "id": "F1",
+      "question": "CH barrels",
+      "answer": "Hide stages use 300/400/500 mB per small/medium/large hide and 8000 ticks each; tannin uses 1 tagged log per 1000 mB water, 8000 ticks. Brining uses 125 mB per food, 4000 ticks. Brine is instant 9 saltwater:1 vinegar; limewater is instant 1 flux or lime:500 mB water. Lye is a pot job (5 ash:1000 mB water, 600 C, 2000 ticks), then barrel bleaching uses 25 mB/item for 1000 ticks. Early unseal resets hide/brining elapsed time with inputs unchanged before completion.",
+      "evidence": [
+        "E1",
+        "E2"
+      ],
+      "label": "shown",
+      "packets": [
+        "CH",
+        "P01"
+      ],
+      "yairpg": "Quote chemical supply separately from timed treatment."
+    },
+    {
+      "id": "F2",
+      "question": "CH leather",
+      "answer": "Raw hide -> limewater barrel -> soaked hide -> knife on log-supported 4x4 scraping surface -> scraped hide -> water barrel -> prepared hide -> tannin barrel -> 1/2/3 leather by size. Each barrel stage is 8000 ticks; scraping completes all 16 cells, with no elapsed timer.",
+      "evidence": [
+        "E1",
+        "E3"
+      ],
+      "label": "shown; guide stated",
+      "packets": [
+        "CH"
+      ],
+      "yairpg": "Keep intermediate goods and manual work distinct."
+    },
+    {
+      "id": "F3",
+      "question": "CH drying and firing",
+      "answer": "No core drying-mat or separate kiln class found in this payload. Mud bricks dry after >24000 ticks and a random tick, reset in rain or when wet bricks are added. Ceramic bricks/pottery fire via heating recipes, commonly 1399 C; pit kiln burns 8000 ticks, ramps to 1400 C and converts at the threshold before burnout. Invalid enclosure/fire cancels firing, consumes loaded fuel, retains current contents.",
+      "evidence": [
+        "E4",
+        "E5"
+      ],
+      "label": "shown; absence scoped to search",
+      "packets": [
+        "CH",
+        "P01"
+      ],
+      "yairpg": "Use different reset, pause and cancel policies by stage."
+    },
+    {
+      "id": "F4",
+      "question": "Kit-making",
+      "answer": "Knapping matches material type plus removed-cell pattern; clay uses five balls and consumption-after-complete policy. Unfired molds are fired, filled with matching molten metal, cooled, then opened. Copper pick head needs 100 mB and its mold always breaks. Head + wooden rod crafts the metal-specific tool and explicitly copies forging bonus from the head.",
+      "evidence": [
+        "E6",
+        "E7"
+      ],
+      "label": "shown",
+      "packets": [
+        "CH",
+        "P04"
+      ],
+      "yairpg": "A functional part carries selected properties into assembly."
+    },
+    {
+      "id": "F5",
+      "question": "P02/P04 guide/viewer",
+      "answer": "Guide chain entries are read_by_default and the book hides progress. TFC registers recipe categories, catalysts and station-specific transfers, not a learned-recipe ledger here. Sealed barrels refuse modification. FluidIgnoringRecipeTransferHandler excludes fluid slots, so transfer success is not full craftability. Exact JEI missing-item visuals belong to the unread JEI dependency.",
+      "evidence": [
+        "E8"
+      ],
+      "label": "shown; separation conclusion inferred",
+      "packets": [
+        "P02",
+        "P04"
+      ],
+      "yairpg": "Separate guide visibility, station access, inventory and fluid readiness; show competing uses in YAIRPG as a proposal."
+    },
+    {
+      "id": "F6",
+      "question": "G5 climate/calendar",
+      "answer": "Monthly/daily temperature changes supply availability and precipitation, but inspected hide recipes have no temperature or season predicate. Brick drying directly checks rain. Pit heating uses its own ramp, not ambient temperature. Processing getTicks uses playerTime; sleep/time jumps also advance playerTime. Default month length is eight days and empty-server time stops by default.",
+      "evidence": [
+        "E4",
+        "E5",
+        "E9"
+      ],
+      "label": "shown; indirect supply link stated/inferred",
+      "packets": [
+        "CH",
+        "P04"
+      ],
+      "yairpg": "Only attach climate to stages whose predicates consume it; name the processing clock."
+    }
+  ],
+  "sources": {
+    "E1": "data/tfc/recipes/barrel/*.json; common/recipes/BarrelRecipe.java, SealedBarrelRecipe.java; common/blockentities/BarrelBlockEntity.java:108-126,249-282,380-408",
+    "E2": "data/tfc/recipes/pot/lye.json; common/blockentities/PotBlockEntity.java:108-178",
+    "E3": "data/tfc/recipes/scraping/*_soaked_hide.json; tags/blocks/scraping_surface.json; common/blocks/devices/ScrapingBlock.java:44-78; common/blockentities/ScrapingBlockEntity.java:40-68",
+    "E4": "common/blocks/devices/DryingBricksBlock.java:61-72,151-174; common/blockentities/TickCounterBlockEntity.java; config/ServerConfig.java:317-327",
+    "E5": "common/blockentities/PitKilnBlockEntity.java:32-99,163-208,232-253; data/tfc/recipes/heating/{brick,fired_fire_brick,pickaxe_head_mold,ceramic_jug}.json; common/recipes/HeatingRecipe.java:149",
+    "E6": "common/recipes/KnappingRecipe.java; common/container/KnappingContainer.java; data/tfc/tfc/knapping_types/clay.json; common/items/MoldItem.java:106-173; data/tfc/recipes/casting/copper_pickaxe_head.json",
+    "E7": "data/tfc/recipes/crafting/metal/pickaxe/copper.json; common/recipes/outputs/CopyForgingBonusModifier.java; common/capabilities/forge/ForgingBonus.java; ForgeEventHandler.java:463,787; mixin/ItemStackMixin.java:17",
+    "E8": "data/tfc/patchouli_books/field_guide/book.json; assets/tfc/patchouli_books/field_guide/en_us/entries/{mechanics/leather_making,getting_started/pit_kiln,the_world/climate}.json; compat/patchouli/component/SealedBarrelComponent.java; compat/jei/JEIIntegration.java:208-355; compat/jei/transfer/{BarrelTransferInfo,FluidIgnoringRecipeTransferHandler}.java",
+    "E9": "util/calendar/{Calendar,ServerCalendar,CalendarEventHandler}.java; util/climate/OverworldClimateModel.java:87-99; config/CommonConfig.java:26-29; config/ServerConfig.java:220-225"
+  },
+  "gaps": [
+    "Native UI/play and save reload unexercised by lane rules",
+    "JEI and Patchouli external dependency internals unread",
+    "Broad animal AI/husbandry, migration and worldgen outside bounded chain read"
+  ]
+}

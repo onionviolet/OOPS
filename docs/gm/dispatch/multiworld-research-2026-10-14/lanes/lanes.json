@@ -140,5 +140,9 @@
   "gate": {
    "kind": "manual"
   }
+ },
+ "lib-zhutian": {
+  "out": "docs/research/zhutian-shuabao-lu/",
+  "gate": null
  }
 }

@@ -1,0 +1,620 @@
+{
+  "schema_version": 1,
+  "lane": "ds-immortal-life",
+  "date": "2026-10-14",
+  "status": "PARTIAL",
+  "binary_sha256": "82294aa03035a9d2179ee87a2d5cc96f3b9fb0ff2930a64efd7986161b457f4a",
+  "evidence_scope": "Static installed data, schemas and 100 selected native entries. No source-game execution or YAIRPG implementation.",
+  "findings": [
+    {
+      "id": "D01",
+      "title": "crop life cycle",
+      "status": "partial_static",
+      "evidence_label": "shown with explicit stated and inferred qualifications in SYSTEMS",
+      "account": "SYSTEMS.md#d01",
+      "sources": [
+        "Crop",
+        "SeedQuality",
+        "InsectPest",
+        "AutoWater",
+        "Seed",
+        "PlantLand",
+        "PlantController"
+      ],
+      "native_addresses": [
+        "0x1803C2D00",
+        "0x1803BCF00",
+        "0x1803C1FE0",
+        "0x1803C2580",
+        "0x18056FAA0"
+      ],
+      "owner_mapping": {
+        "id": "S07",
+        "family": "farming and environment",
+        "kit": [
+          "K8",
+          "K9",
+          "K28"
+        ],
+        "packets": [
+          "P01",
+          "P02",
+          "P08"
+        ],
+        "topic_owners": [
+          "docs/MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md"
+        ]
+      },
+      "limits": "See section and CHECKPOINT unread table; no played/save durability claim."
+    },
+    {
+      "id": "D02",
+      "title": "elemental plant formations",
+      "status": "partial_static",
+      "evidence_label": "shown with explicit stated and inferred qualifications in SYSTEMS",
+      "account": "SYSTEMS.md#d02",
+      "sources": [
+        "MagicPlant",
+        "MagicPlantDecoration",
+        "MagicPlantController",
+        "MagicPlantManager"
+      ],
+      "native_addresses": [
+        "0x180322250",
+        "0x180323220",
+        "0x18031CA90",
+        "0x18031CA20"
+      ],
+      "owner_mapping": {
+        "id": "S07",
+        "family": "farming and environment",
+        "kit": [
+          "K8",
+          "K9",
+          "K28"
+        ],
+        "packets": [
+          "P01",
+          "P02",
+          "P08"
+        ],
+        "topic_owners": [
+          "docs/MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md"
+        ]
+      },
+      "limits": "See section and CHECKPOINT unread table; no played/save durability claim."
+    },
+    {
+      "id": "D03",
+      "title": "silk husbandry",
+      "status": "partial_static",
+      "evidence_label": "shown with explicit stated and inferred qualifications in SYSTEMS",
+      "account": "SYSTEMS.md#d03",
+      "sources": [
+        "CanFangSetting",
+        "CanToJian",
+        "JianToSi",
+        "SangYeConfig",
+        "CanSaveData",
+        "CanStateData"
+      ],
+      "native_addresses": [
+        "0x1808210C0",
+        "0x180358020",
+        "0x1803582E0",
+        "0x180357A40",
+        "0x180100F90",
+        "0x1808216E0"
+      ],
+      "owner_mapping": {
+        "id": "S13",
+        "family": "animals and companion services",
+        "kit": [
+          "K6",
+          "K9",
+          "K22"
+        ],
+        "packets": [
+          "P06",
+          "P08",
+          "P18"
+        ],
+        "topic_owners": [
+          "docs/MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md",
+          "docs/COMPANIONS_FAMILIARS_AND_PETS_CONSIDERATIONS_2026-10-14.md"
+        ]
+      },
+      "limits": "See section and CHECKPOINT unread table; no played/save durability claim."
+    },
+    {
+      "id": "D04",
+      "title": "hive landscape production",
+      "status": "partial_static",
+      "evidence_label": "shown with explicit stated and inferred qualifications in SYSTEMS",
+      "account": "SYSTEMS.md#d04",
+      "sources": [
+        "Honey",
+        "HoneyPlant",
+        "HoneyStar",
+        "HiveConfig",
+        "HiveSaveData"
+      ],
+      "native_addresses": [
+        "0x1806CFE50",
+        "0x1806CFB70",
+        "0x18081BAF0",
+        "0x18081ECE0"
+      ],
+      "owner_mapping": {
+        "id": "S13",
+        "family": "animals and companion services",
+        "kit": [
+          "K6",
+          "K9",
+          "K22"
+        ],
+        "packets": [
+          "P06",
+          "P08",
+          "P18"
+        ],
+        "topic_owners": [
+          "docs/MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md",
+          "docs/COMPANIONS_FAMILIARS_AND_PETS_CONSIDERATIONS_2026-10-14.md"
+        ]
+      },
+      "limits": "See section and CHECKPOINT unread table; no played/save durability claim."
+    },
+    {
+      "id": "D05",
+      "title": "workstation production",
+      "status": "partial_static",
+      "evidence_label": "shown with explicit stated and inferred qualifications in SYSTEMS",
+      "account": "SYSTEMS.md#d05",
+      "sources": [
+        "ProductionTool",
+        "BuildProduction",
+        "ProductionBuildingController"
+      ],
+      "native_addresses": [
+        "0x180821E30",
+        "0x180822940",
+        "0x18081F140",
+        "0x1808216E0",
+        "0x180820630"
+      ],
+      "owner_mapping": {
+        "id": "S12",
+        "family": "workshops and construction",
+        "kit": [
+          "K9",
+          "K25"
+        ],
+        "packets": [
+          "P01",
+          "P02",
+          "P04"
+        ],
+        "topic_owners": [
+          "docs/MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md",
+          "docs/TECHNOLOGY_AND_PROGRESSION.md"
+        ]
+      },
+      "limits": "See section and CHECKPOINT unread table; no played/save durability claim."
+    },
+    {
+      "id": "D06",
+      "title": "workshop fabrication",
+      "status": "partial_static",
+      "evidence_label": "shown with explicit stated and inferred qualifications in SYSTEMS",
+      "account": "SYSTEMS.md#d06",
+      "sources": [
+        "Build",
+        "Decoration",
+        "WorkShopController"
+      ],
+      "native_addresses": [
+        "0x180504E40",
+        "0x180504A30",
+        "0x180505E20",
+        "0x1805050A0",
+        "0x180506B70",
+        "0x180506DF0"
+      ],
+      "owner_mapping": {
+        "id": "S12",
+        "family": "workshops and construction",
+        "kit": [
+          "K9",
+          "K25"
+        ],
+        "packets": [
+          "P01",
+          "P02",
+          "P04"
+        ],
+        "topic_owners": [
+          "docs/MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md",
+          "docs/TECHNOLOGY_AND_PROGRESSION.md"
+        ]
+      },
+      "limits": "See section and CHECKPOINT unread table; no played/save durability claim."
+    },
+    {
+      "id": "D07",
+      "title": "specialist delegation",
+      "status": "partial_static",
+      "evidence_label": "shown with explicit stated and inferred qualifications in SYSTEMS",
+      "account": "SYSTEMS.md#d07",
+      "sources": [
+        "Delegation",
+        "DelegationController"
+      ],
+      "native_addresses": [
+        "0x180638AE0",
+        "0x180638100",
+        "0x180637890",
+        "0x180638A60",
+        "0x18064AC80",
+        "0x180638700"
+      ],
+      "owner_mapping": {
+        "id": "S16",
+        "family": "institutions and delegation",
+        "kit": [
+          "K7",
+          "K8"
+        ],
+        "packets": [
+          "P06",
+          "P07",
+          "P13"
+        ],
+        "topic_owners": [
+          "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+          "docs/TECHNOLOGY_AND_PROGRESSION.md"
+        ]
+      },
+      "limits": "See section and CHECKPOINT unread table; no played/save durability claim."
+    },
+    {
+      "id": "D08",
+      "title": "process blessings",
+      "status": "partial_static",
+      "evidence_label": "shown with explicit stated and inferred qualifications in SYSTEMS",
+      "account": "SYSTEMS.md#d08",
+      "sources": [
+        "Pray",
+        "GodnessLevel",
+        "GodnessManager"
+      ],
+      "native_addresses": [
+        "0x180544CA0",
+        "0x180543E60",
+        "0x180543EA0",
+        "0x180543B90",
+        "0x1807B9E50",
+        "0x1807B9FE0",
+        "0x1805446E0"
+      ],
+      "owner_mapping": {
+        "id": "S17",
+        "family": "belief and process blessings",
+        "kit": [
+          "K21",
+          "K3"
+        ],
+        "packets": [
+          "P17",
+          "P09"
+        ],
+        "topic_owners": [
+          "docs/worlds/ABILITY_AUTHORING.md"
+        ]
+      },
+      "limits": "See section and CHECKPOINT unread table; no played/save durability claim."
+    },
+    {
+      "id": "D09",
+      "title": "companion growth and commerce",
+      "status": "partial_static",
+      "evidence_label": "shown with explicit stated and inferred qualifications in SYSTEMS",
+      "account": "SYSTEMS.md#d09",
+      "sources": [
+        "Pet",
+        "PetController",
+        "PetManager"
+      ],
+      "native_addresses": [
+        "0x1807CC090",
+        "0x1807CCB80",
+        "0x1807CC7C0",
+        "0x1807CC2E0",
+        "0x1807CC2F0",
+        "0x180564040"
+      ],
+      "owner_mapping": {
+        "id": "S13",
+        "family": "animals and companion services",
+        "kit": [
+          "K6",
+          "K9",
+          "K22"
+        ],
+        "packets": [
+          "P06",
+          "P08",
+          "P18"
+        ],
+        "topic_owners": [
+          "docs/MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md",
+          "docs/COMPANIONS_FAMILIARS_AND_PETS_CONSIDERATIONS_2026-10-14.md"
+        ]
+      },
+      "limits": "See section and CHECKPOINT unread table; no played/save durability claim."
+    },
+    {
+      "id": "D10",
+      "title": "housing construction",
+      "status": "partial_static",
+      "evidence_label": "shown with explicit stated and inferred qualifications in SYSTEMS",
+      "account": "SYSTEMS.md#d10",
+      "sources": [
+        "Room",
+        "RoomStyle",
+        "RoomController",
+        "BuildingController"
+      ],
+      "native_addresses": [
+        "0x18052D1F0",
+        "0x18052CEB0",
+        "0x1802B31E0",
+        "0x18052D5A0"
+      ],
+      "owner_mapping": {
+        "id": "S14",
+        "family": "housing and placement",
+        "kit": [
+          "K25",
+          "K8"
+        ],
+        "packets": [
+          "P04",
+          "P07"
+        ],
+        "topic_owners": [
+          "docs/MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md",
+          "docs/CHARACTERS_AND_WORLD_EVENTS.md"
+        ]
+      },
+      "limits": "See section and CHECKPOINT unread table; no played/save durability claim."
+    },
+    {
+      "id": "D11",
+      "title": "fixed and rotating shops",
+      "status": "partial_static",
+      "evidence_label": "shown with explicit stated and inferred qualifications in SYSTEMS",
+      "account": "SYSTEMS.md#d11",
+      "sources": [
+        "Shop",
+        "NoFixedShop",
+        "NoFixedItem",
+        "NoFixedItems",
+        "ShopController",
+        "NoFixedShopController"
+      ],
+      "native_addresses": [
+        "0x18046CA70",
+        "0x18046C970",
+        "0x1803373B0",
+        "0x1803382B0",
+        "0x180336B90"
+      ],
+      "owner_mapping": {
+        "id": "S15",
+        "family": "economy and custody",
+        "kit": [
+          "K8",
+          "K9"
+        ],
+        "packets": [
+          "P02",
+          "P18"
+        ],
+        "topic_owners": [
+          "docs/MEANS_AND_APPRAISAL.md",
+          "docs/MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md"
+        ]
+      },
+      "limits": "See section and CHECKPOINT unread table; no played/save durability claim."
+    },
+    {
+      "id": "D12",
+      "title": "seasonal procurement",
+      "status": "partial_static",
+      "evidence_label": "shown with explicit stated and inferred qualifications in SYSTEMS",
+      "account": "SYSTEMS.md#d12",
+      "sources": [
+        "OrderTask",
+        "OrderTaskController"
+      ],
+      "native_addresses": [
+        "0x180414570",
+        "0x180414AD0",
+        "0x180414A60"
+      ],
+      "owner_mapping": {
+        "id": "S15",
+        "family": "economy and custody",
+        "kit": [
+          "K8",
+          "K9"
+        ],
+        "packets": [
+          "P02",
+          "P18"
+        ],
+        "topic_owners": [
+          "docs/MEANS_AND_APPRAISAL.md",
+          "docs/MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md"
+        ]
+      },
+      "limits": "See section and CHECKPOINT unread table; no played/save durability claim."
+    },
+    {
+      "id": "D13",
+      "title": "barter and knowledge unlocks",
+      "status": "partial_static",
+      "evidence_label": "shown with explicit stated and inferred qualifications in SYSTEMS",
+      "account": "SYSTEMS.md#d13",
+      "sources": [
+        "ExchangeShop",
+        "ExchangeShopController"
+      ],
+      "native_addresses": [
+        "0x180497730",
+        "0x1804984E0",
+        "0x180498680"
+      ],
+      "owner_mapping": {
+        "id": "S15",
+        "family": "economy and custody",
+        "kit": [
+          "K8",
+          "K9"
+        ],
+        "packets": [
+          "P02",
+          "P18"
+        ],
+        "topic_owners": [
+          "docs/MEANS_AND_APPRAISAL.md",
+          "docs/MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md"
+        ]
+      },
+      "limits": "See section and CHECKPOINT unread table; no played/save durability claim."
+    },
+    {
+      "id": "D14",
+      "title": "fishing and records",
+      "status": "partial_static",
+      "evidence_label": "shown with explicit stated and inferred qualifications in SYSTEMS",
+      "account": "SYSTEMS.md#d14",
+      "sources": [
+        "Fishing",
+        "FishingPoint",
+        "FishingQTE",
+        "FishingRod",
+        "FishingRule",
+        "FishingController",
+        "FishingRuleManager"
+      ],
+      "native_addresses": [
+        "0x1805F3FD0",
+        "0x1805F3E50",
+        "0x1805F3DA0",
+        "0x1805ECBD0",
+        "0x1805ED180"
+      ],
+      "owner_mapping": {
+        "id": "S18",
+        "family": "fishing",
+        "kit": [
+          "K9",
+          "K13"
+        ],
+        "packets": [
+          "P09",
+          "P11"
+        ],
+        "topic_owners": [
+          "docs/GATHERING_AND_RESOURCE_USES.md"
+        ]
+      },
+      "limits": "See section and CHECKPOINT unread table; no played/save durability claim."
+    },
+    {
+      "id": "D15",
+      "title": "trigger scheduling and remembered events",
+      "status": "partial_static",
+      "evidence_label": "shown with explicit stated and inferred qualifications in SYSTEMS",
+      "account": "SYSTEMS.md#d15",
+      "sources": [
+        "Trigger",
+        "TriggerManager"
+      ],
+      "native_addresses": [
+        "0x1807AA490",
+        "0x1807AA770",
+        "0x1807AA3C0"
+      ],
+      "owner_mapping": {
+        "id": "S02",
+        "family": "events and correspondence",
+        "kit": [
+          "K12",
+          "K23"
+        ],
+        "packets": [
+          "P10",
+          "P12",
+          "P20"
+        ],
+        "topic_owners": [
+          "docs/CHARACTERS_AND_WORLD_EVENTS.md"
+        ]
+      },
+      "limits": "See section and CHECKPOINT unread table; no played/save durability claim."
+    }
+  ],
+  "prior_corrections": [
+    "C1 delegation units and chosen package",
+    "C2 trigger scheduler and initialization",
+    "C3 four plain formats plus partial Decorate",
+    "C4 buff decrement only, injury duration still partial",
+    "C5 process doubling and critical getter, combination still partial"
+  ],
+  "proposals": [
+    {
+      "id": "RP1",
+      "status": "unselected",
+      "packet": "IP1"
+    },
+    {
+      "id": "RP2",
+      "status": "unselected",
+      "packet": "IP2"
+    },
+    {
+      "id": "RP3",
+      "status": "unselected",
+      "packet": "IP3"
+    },
+    {
+      "id": "RP4",
+      "status": "unselected",
+      "packet": "IP4"
+    },
+    {
+      "id": "RP5",
+      "status": "unselected",
+      "packet": "IP5"
+    },
+    {
+      "id": "RP6",
+      "status": "unselected",
+      "packet": "IP6"
+    },
+    {
+      "id": "RP7",
+      "status": "unselected",
+      "packet": "IP7"
+    },
+    {
+      "id": "RP8",
+      "status": "unselected",
+      "packet": "IP8"
+    }
+  ],
+  "unread_owner": "CHECKPOINT.md U01-U34"
+}

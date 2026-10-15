@@ -1,0 +1,102 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "check": "required outputs present",
+      "passed": true
+    },
+    {
+      "check": "359 unique inventory records",
+      "passed": true
+    },
+    {
+      "check": "306 exact original table names",
+      "passed": true
+    },
+    {
+      "check": "21 exact original domain names",
+      "passed": true
+    },
+    {
+      "check": "17 exact original backend module names",
+      "passed": true
+    },
+    {
+      "check": "all rows carry family status and owner mapping",
+      "passed": true
+    },
+    {
+      "check": "owner files exist",
+      "passed": true
+    },
+    {
+      "check": "fifteen unique deep system sections",
+      "passed": true
+    },
+    {
+      "check": "40 exact symbol anchors and current extract hashes",
+      "passed": true
+    },
+    {
+      "check": "25 successful static type extractions",
+      "passed": true
+    },
+    {
+      "check": "314 unique MakeItemSubType constructors",
+      "passed": true
+    },
+    {
+      "check": "all prior artifact bytes unchanged",
+      "passed": true
+    },
+    {
+      "check": "no em dashes in prose",
+      "passed": true
+    },
+    {
+      "check": "30 touches and five packets",
+      "passed": true
+    },
+    {
+      "check": "local markdown links resolve",
+      "passed": true
+    },
+    {
+      "check": "all25 inherited unread rows reconciled",
+      "passed": true
+    },
+    {
+      "check": "PARTIAL and fresh unread retained",
+      "passed": true
+    },
+    {
+      "check": "no raw game source in repo output",
+      "passed": true
+    },
+    {
+      "check": "all new extract hashes match",
+      "passed": true
+    }
+  ],
+  "missing_links": [],
+  "work_area_bytes": 1230075,
+  "coverage": {
+    "tables": 306,
+    "domains": 21,
+    "modules": 17,
+    "deep_systems": 15,
+    "records": 359,
+    "new_types": 25,
+    "source_anchors": 40,
+    "touches": 30
+  },
+  "not_tested": [
+    "game execution",
+    "YAIRPG implementation",
+    "UI",
+    "save/reload/import",
+    "crash consistency",
+    "performance",
+    "human acceptance"
+  ]
+}

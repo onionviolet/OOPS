@@ -1,0 +1,692 @@
+{
+  "schema_version": 1,
+  "lane": "ds-hyperrogue",
+  "status": "PARTIAL",
+  "source_pin": "c7c9a2993b43ee2f4bbac422e565d18fdd98f886",
+  "evidence_boundary": "static_only_no_game_or_save_execution",
+  "counts": {
+    "deep_systems": 15,
+    "inventory_records": 289,
+    "small_touches": 30
+  },
+  "findings": [
+    {
+      "id": "DS01",
+      "name": "Rescue as an escort state machine",
+      "evidence": "shown_static_with_limits",
+      "summary": "`princess::info` stores id, original prison pointer, alternate-map pointer, best escort distance, best player approach, frozen rug value, current companion cell and last safe together-turn. Global flags distinguish current rescue, historical rescue, challenge, warning and revival threshold. These are scoped quest records, not a universal person schema.",
+      "rules": "Distance sentinels are OUT_OF_PRISON=200 and OUT_OF_PALACE=250. `setdist` only advances bestdist when newdist is larger and below ALTDIST_ERROR. Reaching 250 marks saved/everSaved and increments the saved-princess item; challenge reaching 200 records the frozen score. `playernear` freezes rug value when bestnear crosses from >100 to <=100. `save` removes an untracked or barely progressed companion (bestdist<=3), otherwise advances it to 200 outside Euclidean mode. An unarmed companion's successful revenge attack changes its type to armed in `movegolems`. Safe adjacency produces a hug only when turncount > together+20, then updates together. The safety test scans neighboring active enemies. Revival searches a passable cell and restores an armed companion with palaceHP(), reusing an escaped record where possible.",
+      "sources": [
+        "complex.cpp:503-816",
+        "monstermove.cpp:1630-1785",
+        "system.cpp:1258-1265",
+        "system.cpp:1879-1880"
+      ],
+      "remaining": "Closed: unread rescue milestone, revenge, revival and source speech bodies. Open: all prison generation alternatives, princess_ai gate search, every death/mode caller and native roundtrip.",
+      "kit": [
+        "K6",
+        "K10",
+        "K12",
+        "K16",
+        "K18",
+        "K29"
+      ],
+      "packets": [
+        "P06",
+        "P12",
+        "P25"
+      ],
+      "owners": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/worlds/WORLD_CORE_KIT_2026-10-14.md"
+      ],
+      "topic_palettes": [
+        "body:MT4",
+        "kit:KW1",
+        "kit:KW4"
+      ],
+      "owner_gap": false
+    },
+    {
+      "id": "DS02",
+      "name": "Ambient speech, acknowledgement and named knights",
+      "evidence": "shown_static_with_limits",
+      "summary": "Camelot has knight_names, a map from cell pointer to name-pool index and a scalar knighted value. `knight_name` assigns a random pool index lazily; indices can repeat. Princess speech and knight flavor each have one function-static msgid, shared across callers of that function, captured by changes for rollback.",
+      "rules": "Knight flavor wraps at 32 and skips ineligible slots until one matches; princess speech wraps at 127. These bounds are cursor spaces, not line counts. Knight conditions read Grail found, radius versus newRoundTableRadius, geometry, tactics/peace/full-game flags and treasure/rescue progress. Round-table acknowledgement computes destination radial distance minus player radial distance: leaving with a found Grail sets knighted to current table radius; other directions/history choose other acknowledgement. Princess lines gate on palace/dungeon membership, distance <20, >=20 or >=70, armed state and peace. Mouse cues use missing record, rescue progress, missing companion, then distance bands >120, >90, >60 and >30 in that order.",
+      "sources": [
+        "complex2.cpp:333-519",
+        "complex.cpp:706-816",
+        "pcmove.cpp:1109",
+        "pcmove.cpp:1355"
+      ],
+      "remaining": "Closed: default Camelot/princess selection bodies. Open: translations, every talk trigger and persistence of incidental presentation state. The prior wording about stable knight IDs needs this narrower lifetime.",
+      "kit": [
+        "K6",
+        "K7",
+        "K11",
+        "K20",
+        "K31"
+      ],
+      "packets": [
+        "P19",
+        "P21",
+        "P15"
+      ],
+      "owners": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/worlds/WORLD_CORE_KIT_SUCCESSOR_2026-10-14.md"
+      ],
+      "topic_palettes": [
+        "kit:KW1",
+        "kit:KW2",
+        "technology:FT5"
+      ],
+      "owner_gap": false
+    },
+    {
+      "id": "DS03",
+      "name": "Companion utility and lawful pathfinding",
+      "evidence": "shown_static_with_limits",
+      "summary": "Transient pathdata owns a shared path queue and clears pathdist on destruction. golems is a work list containing multiple friendly species. Each candidate uses monster type, current cell, neighbor, attack flags, pathdist, hazard and plate facts. These are local utility scores, not jobs or a social planner.",
+      "rules": "`movegolems` skips stunned actors, compares stayvalue against each neighbor's movevalue, gathers ties and picks one with hrand_elt. Princess distance penalty is d for d<=3, else 10*d; pressure plates and trapdoors subtract 5. Tame bomberbirds remap approaching distance 1 to 5 or distance 2 to 4 when starting farther away. Mouse policy stays within prison radius 150 and biases toward the player when pathdist is 4..19, otherwise points toward the prison. `computePathdist` gives princesses friend/boat/chain movement flags and bomberbirds flying/friend flags; creatures and visibility block search. Orb-used state is restored after evaluating candidates. Empathy plus Slaying admits crush and can pay the actual powers on chosen attacks. Speed's extra phase can move allies via Empathy.",
+      "sources": [
+        "environment.cpp:82-304",
+        "monstermove.cpp:1500-1785",
+        "environment.cpp:836-869"
+      ],
+      "remaining": "Closed: selected friend chooser and path lifetime. Open: every stayvalue/movevalue branch, all princess gate-plate planning, and broad hostile AI. No offscreen household simulation shown.",
+      "kit": [
+        "K6",
+        "K10",
+        "K13",
+        "K15"
+      ],
+      "packets": [
+        "P06",
+        "P25",
+        "P08"
+      ],
+      "owners": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/worlds/ABILITY_AUTHORING.md"
+      ],
+      "topic_palettes": [
+        "kit:KW1",
+        "body:MT1"
+      ],
+      "owner_gap": false
+    },
+    {
+      "id": "DS04",
+      "name": "Attack grammar, stun and combat aftermath",
+      "evidence": "shown_static_with_limits",
+      "summary": "An attack supplies source/target cells, source/target monster type and AF_* flags. Target cell holds HP, stun duration and orientation; global kills keeps history. Admission, stun-versus-kill, mutation and flavor/achievement readers are distinct functions.",
+      "rules": "`canAttack` rejects a must-kill attack if it only stuns; friend/enemy filters precede type counters. Dice accept magic/crush; ordinary bulls require magic, horns, sword-into or crush. Worm bodies are immune except named exceptions; a segmented body cannot attack itself or its mounted player through the inspected same-head check. Shield checking can use next-turn state. `attackJustStuns`: weak always stuns; horns use hornStuns; arrow traps use arrow_stuns; skeleton sword can kill; crush/magic/fall/eat/gun/psi bypass ordinary stuns; otherwise stunnable && HP>1. `stunMonster` sets at least the species delay, not a blanket additive delay. Examples: princess 6, fat guard 2, vizier 0, terracotta min(oldStun+8-HP,7). Arrow trap adds 3 capped at 7. HP drops on nonweak hits except explicitly exempt durable species.",
+      "sources": [
+        "attack.cpp:82-181",
+        "attack.cpp:391-438",
+        "attack.cpp:478-550",
+        "attack.cpp:1007-1062"
+      ],
+      "remaining": "Closed: central admission and stun formulas. Open: complete killMonster terrain side effects, attack flags Cartesian product, all counters and player defeat modes.",
+      "kit": [
+        "K2",
+        "K3",
+        "K10",
+        "K22",
+        "K29"
+      ],
+      "packets": [
+        "P14",
+        "P17",
+        "P12"
+      ],
+      "owners": [
+        "docs/worlds/ABILITY_AUTHORING.md",
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md"
+      ],
+      "topic_palettes": [
+        "body:MT1",
+        "kit:KW3"
+      ],
+      "owner_gap": false
+    },
+    {
+      "id": "DS05",
+      "name": "Segmented bodies and mounted movement",
+      "evidence": "shown_static_with_limits",
+      "summary": "Dragon head/tail occupy linked cells. mondir points along the body; each segment has HP/stun. findhead searches reverse links, bounded by iteration_limit. Kraken tentacles point to a neighboring head and carry their own HP. Shared target/whichturn fields serve Domination, not a private plan per dragon.",
+      "rules": "Dragon totalhp sums linked segment HP until the terminal NODIR or bound; kraken totalhp sums adjacent tentacle HP. Pullback/pullfront transfer monster/HP and stun segments to 2 while updating mounted movement. bodypart classifies positions from chain order for drawing. Dragon kill traverses the chain, increments a head kill, clears bodies and attempts flame duration 5. Eligible fire cells receive alternating treasure, with an accumulating outside-Dragon-land penalty. Kraken kill clears the head and surrounding tentacles, creates its treasure only in native Kraken land when item-free, and handles Stone/Undeath effects.",
+      "sources": [
+        "complex.cpp:2648-2834",
+        "complex.cpp:2983-3129",
+        "attack.cpp:478-505"
+      ],
+      "remaining": "Closed: representative dragon/kraken structural rules. Open: all spawn/attack/mount branches, worm/hexsnake bodies and transformed-body restore. Lineage remains unsupported by this evidence.",
+      "kit": [
+        "K3",
+        "K6",
+        "K10",
+        "K22",
+        "K15"
+      ],
+      "packets": [
+        "P14",
+        "P06",
+        "P15"
+      ],
+      "owners": [
+        "docs/worlds/NONHUMAN_BODY_AUTHORING_2026-10-14.md",
+        "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md"
+      ],
+      "topic_palettes": [
+        "body:MT1",
+        "body:MT4",
+        "body:MT5"
+      ],
+      "owner_gap": false
+    },
+    {
+      "id": "DS06",
+      "name": "Mine knowledge, marking and reveal radius",
+      "evidence": "shown_static_with_limits",
+      "summary": "Wall types separate hidden mine, unknown safe cell and open cell. Minefield landparam bit 1 records a mine mark; bit 2 records safe marking. An item itself can establish safe status. The mark command has extension hooks and rejects wrong land, items and noncandidate walls.",
+      "rules": "`uncoverMines` has a just_checking route and recursive bounded reveal. Unknown safe cells open on mutation; recursive propagation needs lev>0, no adjacent real mines and either adjacent unknown empty safe candidates or an already open neighbor. At root, known mine-only remaining neighbors can receive the mine-mark bit. Reveal radius is 3 for closed/bounded play; otherwise 0 before first egg outside tactics, 1 below 20 eggs, 2 below 30, else 3. Non-normal gravity prevents ordinary uncover/explosion; Aether is marked only if checking finds relevant hidden state. Explosion requires actual mine wall and an actor that does not ignore plates. In bounded Minesweeper, zero unknown cells records victory_time; teleport charge becomes 0 on fire, else 1.",
+      "sources": [
+        "complex2.cpp:520-668",
+        "mapeffects.cpp:544-549"
+      ],
+      "remaining": "Closed: mine namespace reveal/mark/status rules and explosion admission. Open: all mine generation probabilities, full visual number display and protection interactions.",
+      "kit": [
+        "K5",
+        "K11",
+        "K14",
+        "K30"
+      ],
+      "packets": [
+        "P04",
+        "P11",
+        "P15"
+      ],
+      "owners": [
+        "docs/MEANS_AND_APPRAISAL.md",
+        "docs/TECHNOLOGY_AND_PROGRESSION.md"
+      ],
+      "topic_palettes": [
+        "technology:FT5",
+        "kit:KW4"
+      ],
+      "owner_gap": false
+    },
+    {
+      "id": "DS07",
+      "name": "Thermal simulation, fire and finite transformations",
+      "evidence": "shown_static_with_limits",
+      "summary": "HEAT(c) is local cell storage with land-specific baseline; pending hmods is indexed by current map cells. offscreen_heat/offscreen_fire retain work lists; newfires batches ignition until scanning finishes. Fire duration is wparam; Dry Forest accumulated heating uses landparam.",
+      "rules": "Absolute heat is HEAT-.6 in Cocytus and HEAT-.4 in Ice/Blizzard/Eclectic; displayed Celsius is absheat*60. Speed halves process rate. Player input is +/-1.2*xrate (Winter chooses negative), with PURE factor 1.7, turn mode /1.5 and Cocytus shmup /3. Neighbor diffusion uses (absoluteNeighbor-absoluteSelf)/divby; divby starts 10 and doubles for S7>10, Archimedean and 3D. Cells apply accumulated hmod*rate after the scan. Ice walls melt above .4; frozen lakes melt above .6 in Cocytus else .4. Lakes freeze below -.4 in Cocytus else .4, except greater sharks. Offscreen heat decays by 1-rate/10 until magnitude <.01 becomes zero. Dry Forest neighbors ignite at accumulated heat >=1 for a standard tree, >=10 otherwise. New fire duration is half the queued source value; useup decrements duration and transforms at zero. Temporary floor becomes chasm; temporary/burning bridge or Brownian terrain becomes water.",
+      "sources": [
+        "complex.cpp:2073-2375",
+        "mapeffects.cpp:143-159",
+        "environment.cpp:836-895"
+      ],
+      "remaining": "Closed: thermal diffusion, thresholds, core fire staging and timeout mutation. Open: all burnable item rules, wind transport, every geometry and offscreen queue reconstruction.",
+      "kit": [
+        "K2",
+        "K5",
+        "K9",
+        "K13",
+        "K28",
+        "K29"
+      ],
+      "packets": [
+        "P02",
+        "P13",
+        "P14",
+        "P17"
+      ],
+      "owners": [
+        "docs/MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md",
+        "docs/TECHNOLOGY_AND_PROGRESSION.md"
+      ],
+      "topic_palettes": [
+        "chains:FC6",
+        "chains:ML-R4c",
+        "body:MT2"
+      ],
+      "owner_gap": false
+    },
+    {
+      "id": "DS08",
+      "name": "Tides, hazard phases and truthful countdowns",
+      "evidence": "shown_static_with_limits",
+      "summary": "A lazily built tide[200] array and tidalsize define the repeated cycle; two current phases select wet, shallow and dry cells. Local landparam is the shore threshold. Chaos uses separate sea/land distance bytes and derived CHAOSPARAM. Lava uses windmap phase.",
+      "rules": "Cycle construction starts with five 1s, repeats 1..3 three times, 4..6 twice, 7..19 once, 20..22 twice and 23..25 three times. The final loop appends 27-tide[i] while 2*i<current tidalsize; current size grows, so it appends the entire initial 48 entries, giving 96 total. Clock index is turncount or floor(shmup curtime/600). phase2 is phase-1 if either neighboring phase is lower, otherwise phase. Peace compresses both to 5+floor(phase/6). Ocean t>=phase is sea/boat, else t>=phase2 is shallow, else dry/stranded. Chaos distances relax to a fixed point through recalcTide; when both distances are 1 t=15, otherwise t=1+floor(29*(landdist-1)/(seadist+landdist-2)). Lava phase=(windmap+(clock+t)*4)&255, with clock shmup/400 or turncount; values <96 are magma. Normal help searches at most 1000 future turns for a wet/dry change.",
+      "sources": [
+        "mapeffects.cpp:646-750",
+        "environment.cpp:827-874",
+        "help.cpp:969-991"
+      ],
+      "remaining": "Closed: tide construction and clock mapping. Open: all chaos/geometry boundary convergence and native pause/resume. Formula count derived by a separate static arithmetic check, not game execution.",
+      "kit": [
+        "K2",
+        "K5",
+        "K14",
+        "K28",
+        "K32"
+      ],
+      "packets": [
+        "P13",
+        "P04",
+        "P10"
+      ],
+      "owners": [
+        "docs/ENGINE_EXPANSION.md",
+        "docs/worlds/WORLD_CORE_KIT_SUCCESSOR_2026-10-14.md"
+      ],
+      "topic_palettes": [
+        "body:MT2",
+        "kit:KW3"
+      ],
+      "owner_gap": false
+    },
+    {
+      "id": "DS09",
+      "name": "Hive conflict and local traces",
+      "evidence": "shown_static_with_limits",
+      "summary": "buginfo holds cell plus distance per bug color; color-specific queues, delayed outsider queues and bugtomove tuples are rebuilt per move. Persistent spatial pheromone-like traces use landparam. Counts and death lists are local resolution aids.",
+      "rules": "Enemy detection ignores same color and ivy; player is enemy when visible and outside peace. hivehard=RoyalJelly+hardness_empty; Luck quarters nonzero hardness before the hrand(200)<h color bias. Outsider invasion offset=max(0,4-floor((RoyalJelly+10)/20)). Moves sort by distance then number of good moves after shuffle. Adjacent attack quality 2 beats approaching 1 and equal-distance 0, with hazard/rose/peace penalties. Hive trace decreases by 1 when >1 outside wax walls; successful movement adds 5 to source/destination while values <90, and no admissible move adds 3. Trace causes exploration of extra nearby cells. Commented queen promotion is not active behavior.",
+      "sources": [
+        "complex.cpp:1702-1970"
+      ],
+      "remaining": "Closed: central hive target and action rules. Open: bug-city generation, entire offscreen budget, every species and peace/mode branch.",
+      "kit": [
+        "K6",
+        "K7",
+        "K10",
+        "K29"
+      ],
+      "packets": [
+        "P25",
+        "P12",
+        "P15"
+      ],
+      "owners": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/GENERATION_FOUNDATION_RULES_2026-10-14.md"
+      ],
+      "topic_palettes": [
+        "kit:KW3",
+        "body:MT1"
+      ],
+      "owner_gap": false
+    },
+    {
+      "id": "DS10",
+      "name": "Committed ambushes and delayed awakening",
+      "evidence": "shown_static_with_limits",
+      "summary": "Terracotta stores dormant state in wall and countdown wparam. Ambush tracks current distance/ambushed/fixed_size plus actual dog/guard cells. A celllister provides the bounded reachable ring used for placement.",
+      "rules": "randterra is compile-time false. Each eligible adjacency check decrements wparam; at zero, wall becomes empty and a 7-HP warrior appears. Racing suppresses it; shmup checks an extra neighbor ring. Hunting pickup ambush size=min(min(qty,max(33-qty,6)),15); other items have explicitly authored sizes, with a restricted branch when an active nearby nonfriendly non-slow nonmultitile monster exists. Ambush is deferred with LATE, converts nearby guards, collects an eligible outer ring, caps dogs at ring size and spaces them at (randomShift+floor(N*i/gaps))%N. Killing a guard activates other guards and calls ambush(...,7). Give-up detection is enabled only for hunting count >5 and <=22 and reads converging marked approaches.",
+      "sources": [
+        "complex2.cpp:670-919"
+      ],
+      "remaining": "Closed: selected ambush and terracotta bodies. Open: all pickup callers, geometry placement edge cases, complete give-up behavior and runtime fairness.",
+      "kit": [
+        "K10",
+        "K12",
+        "K29",
+        "K32"
+      ],
+      "packets": [
+        "P10",
+        "P12",
+        "P24"
+      ],
+      "owners": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/worlds/WORLD_CORE_KIT_SUCCESSOR_2026-10-14.md"
+      ],
+      "topic_palettes": [
+        "kit:KW3",
+        "body:MT2"
+      ],
+      "owner_gap": false
+    },
+    {
+      "id": "DS11",
+      "name": "Sentient dice as stateful objects",
+      "evidence": "shown_static_with_limits",
+      "summary": "die_structure contains face adjacency, reverse spin table, hardness distance, face counts and rotational order. Five authored shapes are d4/d6/d8/d12/d20. Per-cell die_data stores shape pointer, current face val, orientation dir and mirrored bit. Happy is +1 at last face, -1 at first, 0 otherwise.",
+      "rules": "Hardness starts at 99 except final face 0, then repeated adjacency relaxation yields minimum roll distance to the desired face. Legal roll requires gcd(targetDegree,faceSides)!=1 and (currentDir-moveDir*faceSides)%sourceDegree==0. roll_effect finds outgoing face index with modular arithmetic, follows the side adjacency, maps reverse spin and XORs mirroredness across the edge; orientation is normalized modulo targetDegree*newFaceSides. generate_specific selects face values in an authored hardness interval and compatible directions. Pushing an animated die is admitted only if projected top is the highest face, unless Slaying takes the alternative attack branch. Orientation is transferred with map rollback support.",
+      "sources": [
+        "complex2.cpp:919-1208",
+        "pcmove.cpp:843-868",
+        "mapeditor.cpp:1202-1211",
+        "mapeditor.cpp:1422-1435"
+      ],
+      "remaining": "Closed: data/roll/admission and explicit map migration fields. Open: full reward/anger lifecycle, all Chaos swap cases and all visual preview traversal.",
+      "kit": [
+        "K2",
+        "K9",
+        "K10",
+        "K11",
+        "K30"
+      ],
+      "packets": [
+        "P15",
+        "P14",
+        "P16"
+      ],
+      "owners": [
+        "docs/GENERATION_FOUNDATION_RULES_2026-10-14.md",
+        "docs/worlds/NONHUMAN_BODY_AUTHORING_2026-10-14.md"
+      ],
+      "topic_palettes": [
+        "body:MT1",
+        "body:MT4",
+        "kit:KW4"
+      ],
+      "owner_gap": false
+    },
+    {
+      "id": "DS12",
+      "name": "Ranged path preview and reload work",
+      "evidence": "shown_static_with_limits",
+      "summary": "Weapon/style selects blade or crossbow and bull/geodesic/geometric path style. bowpoint has prev/next cellwalkers and FIRST/LAST/COPIED flags. bowpath, its cell-index projection and target_at are temporary targeting data. items[itCrossbow] is the reload counter.",
+      "rules": "loading_time is 3 for bull style, 4 otherwise. Shooting assigns this counter before resolution; power reduction decrements it each applicable action, except skipping in warped space. Blocking checks allow Aether bypass; ordinary walls block except mirror/cloud/nonblocking cases. Path creation forks copied bolts through mirror images and records their provenance. Shooting uses AF_BOW plus Speed/Slaying/Weakness flags, shared attack admission and reverse-order pushes. `have_bow_target` temporarily preserves preview containers, initializes changes, tries the real shooting path and rolls back. Auto path requires score >=10000, a source targeting heuristic rather than probability of hit.",
+      "sources": [
+        "crossbow.cpp:26-117",
+        "crossbow.cpp:217-278",
+        "crossbow.cpp:383-539",
+        "pcmove.cpp:323-345",
+        "orbs.cpp:230-235",
+        "system.cpp:1042-1049"
+      ],
+      "remaining": "Closed: reload and selected targeting/rollback consumers. Open: all style optimization, mirror recursion, extra achievements and live targeting UX.",
+      "kit": [
+        "K3",
+        "K10",
+        "K14",
+        "K26"
+      ],
+      "packets": [
+        "P04",
+        "P08",
+        "P14",
+        "P17"
+      ],
+      "owners": [
+        "docs/worlds/ABILITY_AUTHORING.md",
+        "docs/ENGINE_EXPANSION.md"
+      ],
+      "topic_palettes": [
+        "kit:KW4",
+        "body:MT2"
+      ],
+      "owner_gap": false
+    },
+    {
+      "id": "DS13",
+      "name": "Map topology persistence and versioned restoration",
+      "evidence": "shown_static_with_limits",
+      "summary": "mapstream assigns numeric cell IDs and a cellbyid array, with relative spin for reconstruction. A nonroot cell references an earlier neighboring parent and edge orientations, not a raw pointer. Geometry/config, item and kill arrays, cells, drawing shapes, phases, turncount and optional hooks have distinct stream sections.",
+      "rules": "save_start chooses gamestart for specified geometries, otherwise the current heptagon root. Breadth-like discovery visits neighboring cells except laNone/laMemory and optional portal exclusions; a missing earlier parent throws. Each cell writes land, monster/direction, wall, item, generation distance, wall/land parameter, stun and HP plus explicit tortoise/die extras and mirror boundary metadata. A -1 sentinel ends cell records and a player cell ID follows. Load bounds-checks item/monster counts, remaps relative spin, handles version-specific fields and resets some timers/flags before restoring later phases; it marks the loaded map cheater=1. Map versions >10505 and <11000 normalize to 11005. Multi-map portals and dual state have separate dispatch. This is editor-map persistence, not ordinary competitive Safety continuation.",
+      "sources": [
+        "mapeditor.cpp:818-878",
+        "mapeditor.cpp:1131-1306",
+        "mapeditor.cpp:1326-1580",
+        "mapeditor.cpp:1608-1697",
+        "system.cpp:1316-1447"
+      ],
+      "remaining": "Closed: prior unread core map cell format and selected migration/default branches. Open: complete geometry codecs, external hook consumers, all historic versions, corruption/atomicity and runtime roundtrip.",
+      "kit": [
+        "K18",
+        "K29",
+        "K33",
+        "K34"
+      ],
+      "packets": [
+        "P16",
+        "P23",
+        "P24"
+      ],
+      "owners": [
+        "docs/ENGINE_SAVES_AND_SCALE_REVIEW_2026-10-11.md",
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "topic_palettes": [
+        "kit:KW4",
+        "body:MT4",
+        "body:MT5"
+      ],
+      "owner_gap": false
+    },
+    {
+      "id": "DS14",
+      "name": "Example-driven generation and repair",
+      "evidence": "shown_static_with_limits",
+      "summary": "wfc_data maps a vector of central/neighborhood wall types to a short weight. probs is the sampled dictionary; built-in Eclectic patterns are compressed static data. centers is a scheduled work vector; per-degree caches hold adapted patterns.",
+      "rules": "load_probs samples explored neighborhoods with mpdist<=7 and no chasm, retaining patterns with at least one nonempty wall; rotations contribute integer 42/degree (hexagonal odd rotations skipped). Compression canonicalizes rotated neighborhoods. agree requires matching degree and every already-fixed wall parameter. Each iteration chooses minimum weighted Shannon entropy sum(w/total*log(total/w)), samples a compatible pattern by weight and writes the center plus same-land nonbarrier neighbors. Renumeration inserts/removes neighbor entries for another degree, with a charged/grounded adjacency guard. Empty compatible sets yield no weighted choice in this loop; no global backtracking proof follows. Eclectic generation schedules at distance stage 8 and invokes at 7, then repairs roses, boundary charge/sandstone and some palace enclosure cases.",
+      "sources": [
+        "wfcgen.cpp:5-112",
+        "wfcgen.cpp:145-240",
+        "landgen.cpp:2636-2684"
+      ],
+      "remaining": "Closed: full compact WFC module algorithm and Eclectic callers, excluding opaque built-in dictionary decoding. Open: dictionary census, constraint dead-end rates and all repair consumers.",
+      "kit": [
+        "K1",
+        "K2",
+        "K5",
+        "K33",
+        "K34"
+      ],
+      "packets": [
+        "P15",
+        "P16",
+        "P22"
+      ],
+      "owners": [
+        "docs/ENGINE_AUTHORING.md",
+        "docs/GENERATION_FOUNDATION_RULES_2026-10-14.md"
+      ],
+      "topic_palettes": [
+        "chains:FC6",
+        "kit:KW4"
+      ],
+      "owner_gap": true
+    },
+    {
+      "id": "DS15",
+      "name": "Playable lessons with reversible presentation state",
+      "evidence": "shown_static_with_limits",
+      "summary": "slide has name, currently unused numeric ID, flags, help text and a callback taking presmode. Presentation modes include start/frame/stop/key/restart/help and geometry changes. Shared globals track current slide, text visibility, tour value and help. A vector of restorers records temporary variable backups.",
+      "rules": "slide_backup captures the old value and pushes a restore callback; slide_restore_all runs callbacks in reverse order. Canvas lessons push game state and pop it at stop. Geometry controls test slide LEGAL flags and land validity before creating a temporary alternate game. Tutorial rescue control offers teleport, then Aether, then Flash when canmove stays false. Slides can grant demonstration resources through key callbacks. Frame/key/next-land hooks route presentation behavior; initialize_slides walks until FINALSLIDE. This is authored interactive presentation, not a retained learning/XP engine.",
+      "sources": [
+        "tour.cpp:20-164",
+        "tour.cpp:337-455",
+        "tour.cpp:602-646",
+        "tour.cpp:646-1135"
+      ],
+      "remaining": "Closed: presentation schema, callback lifecycle, recovery controls and default slide authoring structure. Open: every callback's cleanup correctness, extra registered slideshows, accessibility and live lesson feel.",
+      "kit": [
+        "K4",
+        "K11",
+        "K14",
+        "K34"
+      ],
+      "packets": [
+        "P03",
+        "P04",
+        "P14"
+      ],
+      "owners": [
+        "docs/ENGINE_AUTHORING.md",
+        "docs/worlds/WORLD_CORE_KIT_SUCCESSOR_2026-10-14.md"
+      ],
+      "topic_palettes": [
+        "technology:CN14",
+        "kit:KW1",
+        "kit:KW2"
+      ],
+      "owner_gap": false
+    }
+  ],
+  "proposals": [
+    {
+      "id": "HRD-P1",
+      "title": "One useful process reads the actual local condition",
+      "status": "unselected_proposal",
+      "evidence": "inferred",
+      "sources": [
+        "DS07",
+        "DS08"
+      ],
+      "kit": [
+        "K2",
+        "K8",
+        "K9",
+        "K13",
+        "K28"
+      ],
+      "packets": [
+        "P01",
+        "P02",
+        "P13"
+      ],
+      "owner": "docs/MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md"
+    },
+    {
+      "id": "HRD-P2",
+      "title": "A companion outcome changes the next useful action",
+      "status": "unselected_proposal",
+      "evidence": "inferred",
+      "sources": [
+        "DS01",
+        "DS03"
+      ],
+      "kit": [
+        "K6",
+        "K10",
+        "K12",
+        "K16",
+        "K29"
+      ],
+      "packets": [
+        "P06",
+        "P12",
+        "P25"
+      ],
+      "owner": "docs/CHARACTERS_AND_WORLD_EVENTS.md"
+    },
+    {
+      "id": "HRD-P3",
+      "title": "Tentative marks remain separate from learned facts",
+      "status": "unselected_proposal",
+      "evidence": "inferred",
+      "sources": [
+        "DS06",
+        "DS02"
+      ],
+      "kit": [
+        "K11",
+        "K14",
+        "K23",
+        "K30"
+      ],
+      "packets": [
+        "P04",
+        "P11",
+        "P21"
+      ],
+      "owner": "docs/TECHNOLOGY_AND_PROGRESSION.md"
+    },
+    {
+      "id": "HRD-P4",
+      "title": "Acknowledgement reads aftermath and keeps person identity",
+      "status": "unselected_proposal",
+      "evidence": "inferred",
+      "sources": [
+        "DS02",
+        "DS09"
+      ],
+      "kit": [
+        "K6",
+        "K20",
+        "K29",
+        "K31"
+      ],
+      "packets": [
+        "P12",
+        "P15",
+        "P21"
+      ],
+      "owner": "docs/CHARACTERS_AND_WORLD_EVENTS.md"
+    },
+    {
+      "id": "HRD-P5",
+      "title": "One body property changes a verb and its evidence",
+      "status": "unselected_proposal",
+      "evidence": "inferred",
+      "sources": [
+        "DS05",
+        "DS11",
+        "DS04"
+      ],
+      "kit": [
+        "K3",
+        "K10",
+        "K22",
+        "K30"
+      ],
+      "packets": [
+        "P14",
+        "P15",
+        "P16"
+      ],
+      "owner": "docs/worlds/NONHUMAN_BODY_AUTHORING_2026-10-14.md"
+    },
+    {
+      "id": "HRD-P6",
+      "title": "A telegraphed event starts only on committed conduct",
+      "status": "unselected_proposal",
+      "evidence": "inferred",
+      "sources": [
+        "DS10",
+        "DS08"
+      ],
+      "kit": [
+        "K10",
+        "K12",
+        "K29",
+        "K32"
+      ],
+      "packets": [
+        "P10",
+        "P12",
+        "P24"
+      ],
+      "owner": "docs/CHARACTERS_AND_WORLD_EVENTS.md"
+    },
+    {
+      "id": "HRD-P7",
+      "title": "Save contract lists more than scalar fields",
+      "status": "unselected_proposal",
+      "evidence": "inferred",
+      "sources": [
+        "DS13",
+        "DS14",
+        "DS15"
+      ],
+      "kit": [
+        "K18",
+        "K33",
+        "K34"
+      ],
+      "packets": [
+        "P16",
+        "P23",
+        "P24"
+      ],
+      "owner": "docs/ENGINE_SAVES_AND_SCALE_REVIEW_2026-10-11.md"
+    }
+  ]
+}

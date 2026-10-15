@@ -1,0 +1,180 @@
+{
+  "A01": {
+    "status": "partial",
+    "sources": [
+      "SubEventData",
+      "EventUnlockData",
+      "NpcStatusDataTable",
+      "AdvIndexData",
+      "ScriptWork",
+      "AdvMain"
+    ],
+    "summary": "SHOWN: event predicates, gift preferences, choice/gold/conditional command names and saved talk/refusal state. English event pack and all offsets saved. UNREAD: binary commands and exact dialogue branches, including a paid/failable choice. No prose transcript has been fabricated.",
+    "yairpg": [
+      "P19 dialogue owner: retain meaningful attempts independently of affinity; use current scoped Ink host."
+    ]
+  },
+  "A02": {
+    "status": "partial",
+    "sources": [
+      "UILoveEventConvTextData",
+      "UIMainEventConvTextData",
+      "UISubEventConvTextData",
+      "ScenarioTalkData",
+      "EventFlagProgressData",
+      "SeriousEventScriptsData"
+    ],
+    "summary": "SHOWN: character/flag/step/text-ID arrays, scenario talk masks and grouped event script references. Story scheduling and closure are INFERRED until the event readers and pack commands are decoded.",
+    "yairpg": [
+      "Characters/world-events owner: keep event prerequisites, active step and remembered result separate."
+    ]
+  },
+  "A03": {
+    "status": "covered",
+    "sources": [
+      "GameAssembly.dll",
+      "global-metadata.dat",
+      "StreamingAssets/aa/catalog.json",
+      "master bundle 382aa2501e16ef256258fc102a8fcea5.bundle",
+      "SkillManager",
+      "FarmSupportMonsterController"
+    ],
+    "summary": "SHOWN: Windows Unity IL2CPP, metadata 24.4; Addressables catalog, ScriptableObject-style tables, action/skill managers, helper state controller, separate save owners. 12,898 recovered types, 4,892 definitions in selected game TypeDef range; 280 master data objects read. The type range is not an assembly count. Native methods and whole tick/event topology remain unread.",
+    "yairpg": [
+      "ENGINE_AUTHORING: keep definition IDs, instance state and text resources separate; reuse current domain reducers."
+    ]
+  },
+  "A04": {
+    "status": "partial",
+    "sources": [
+      "RF5SaveData",
+      "RF5ItemData",
+      "EquipItemData",
+      "NpcSaveParameter",
+      "NpcDateSaveParameter",
+      "SaveDataHeader",
+      "SaveDataFooter",
+      "SaveDataManager"
+    ],
+    "summary": "SHOWN: binary writer entry points, versioned readers 0000..0007, header version/options and footer lengths/sum. Keyed item source and upgrade provenance coexist with ignored calculated-stat properties. Relationship records preserve refusal, talk, gifts and pending date. MessagePack formatters exist. Exact byte format, encryption, corruption handling, migration and roundtrip are UNREAD. No saves accessed.",
+    "yairpg": [
+      "Save review owner: retain causal item inputs and pending social state under an explicit content/rule revision; do not copy donor wire format."
+    ]
+  },
+  "A05": {
+    "status": "partial",
+    "sources": [
+      "NpcLifeCycleTable Date_001 and Def_000_h1",
+      "FarmSupportMonsterController",
+      "FarmMonsterWorkState",
+      "FriendNPCBehaviorDataTable",
+      "MonsterBehaviorDataTableArray"
+    ],
+    "summary": "SHOWN: two sampled NPC schedules keyed by time/weather and helper work phases/target fields; master behavior tables preserved. Autonomous work routing and stop rules are INFERRED from method names. Full schedule corpus and behavior consumer bodies are UNREAD.",
+    "yairpg": [
+      "P01 work/UI owners: assignment, phase and receipt are different facts. Avoid a new population simulation."
+    ]
+  },
+  "A06": {
+    "status": "partial",
+    "sources": [
+      "SkillUINameData",
+      "SkillUIDiscriptData",
+      "ItemDetailFullText",
+      "ItemParameterTextFormat",
+      "UILoveEventConvTextData",
+      "UIStrengthening"
+    ],
+    "summary": "SHOWN: separate localized names/descriptions, stat text formats, event-summary references and upgrade UI class names. Screen arrangement, keyboard access and feedback visibility are UNREAD because no game was run.",
+    "yairpg": [
+      "Desktop UI owner: place held stock, destination quotes and useful effects together at 1366x768; mobile deferred."
+    ]
+  },
+  "A07": {
+    "status": "partial",
+    "sources": [
+      "catalog.json",
+      "CraftGenreDataTableArray",
+      "CraftTypeTableArray",
+      "RecipeData",
+      "SerializedItemDataTable",
+      "ScriptWork"
+    ],
+    "summary": "SHOWN: data tables, category groups and localized binary event packs support authored content separation. No supported mod API, editor workflow or load-order guarantee was established. Missing evidence does not mean those features are absent.",
+    "yairpg": [
+      "ENGINE_AUTHORING: validate stable IDs and category membership; do not adopt a generic foreign scripting engine."
+    ]
+  },
+  "A08": {
+    "status": "partial",
+    "sources": [
+      "SkillActionDataTableArray",
+      "SkillDataTableArray",
+      "SkillLevelupTypeDataTableArray",
+      "ItemDataTable",
+      "DualWorkDataTableArray",
+      "ConstFarm"
+    ],
+    "summary": "SHOWN: authored XP grants, five 99-entry curves, 28 skill caps at 999 and 11 at 99, price-curve indices, co-work lottery/gauge parameters and helper work constants. Exact formulas, RNG source, rounding and high-level extrapolation are UNREAD.",
+    "yairpg": [
+      "Skills/production owners: disclose units and distinguish coefficients from actual results. Treat donor numbers as references, not chosen balance."
+    ]
+  },
+  "A09": {
+    "status": "partial",
+    "sources": [
+      "TimeConst",
+      "EventUnlockData",
+      "NpcDateSaveParameter",
+      "FarmSupportMonsterData",
+      "NpcLifeCycleTable samples"
+    ],
+    "summary": "SHOWN: a time-speed multiplier field, event time windows, date start/deadline, helper work time and schedule data. Pause rules, native clock units and offline catch-up are UNREAD. No offline-time behavior is claimed.",
+    "yairpg": [
+      "Calendar/work owners: retain explicit deadlines and work progress without inventing catch-up or aging."
+    ]
+  },
+  "A10": {
+    "status": "partial",
+    "sources": [
+      "RecipeData.RecipeRelease",
+      "RecipePanShopDataTableArray",
+      "RecipePanCountDataTableArray",
+      "OrderMasterDataTable",
+      "SkillManager.OrderFlagCheck"
+    ],
+    "summary": "SHOWN: recipe-release IDs, builder-gated recipe-pan shop quantities, order prerequisites/rewards and a skill-order check entry point. Full tutorial/unlock sequencing is UNREAD. Recipe skill field and discovery flag are separate data.",
+    "yairpg": [
+      "P03/P04 skills owner: show known, permitted, held and affordable states separately."
+    ]
+  },
+  "A11": {
+    "status": "partial",
+    "sources": [
+      "NpcStatusDataTable",
+      "BirthTalkData",
+      "ScenarioTalkData",
+      "DualSmithActorDataTableArray",
+      "SkillUIDiscriptData"
+    ],
+    "summary": "SHOWN: birthday/scenario talk masks, personal gift sets, partner contribution data and skill descriptions. Runtime animation, audio timing and accessibility are UNREAD. SMALL_TOUCHES contains 26 explicitly proposed YAIRPG ideas, not observed UI claims.",
+    "yairpg": [
+      "Dialogue/item UI owners: preserve personal context and causal attribution when each has a real consumer."
+    ]
+  },
+  "A12": {
+    "status": "partial",
+    "sources": [
+      "CropDataTableArray",
+      "OrderMasterDataTable",
+      "DualWorkDataTableArray",
+      "DualSmithActorDataTableArray",
+      "Fishing master tables",
+      "Festival master tables"
+    ],
+    "summary": "SHOWN: crop growth/season/soil parameter fields, multi-family orders, co-work data, fishing and festival table assets. Most native consumers are UNREAD. The full 280-table inventory identifies preserved but undigested systems.",
+    "yairpg": [
+      "Production/characters owners: co-work provenance and knowledge-supply routes are useful optional leaves, not new milestone requirements."
+    ]
+  }
+}

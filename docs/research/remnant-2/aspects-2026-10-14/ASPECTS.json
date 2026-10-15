@@ -1,0 +1,155 @@
+{
+  "A01": {
+    "status": "partial",
+    "sources": [
+      "B8",
+      "B9",
+      "B10"
+    ],
+    "summary": "EventTree graph types include choices, line records, speakers, item conditions, variable conditions and effect nodes. The 127 EventTree filename attempts retain available text/keys/IDs privately; many objects fail schema reads. A separate 45-export bark state machine has health, range, LOS, combat and speaking/cinematic conditions.",
+    "yairpg": [
+      "K6/K11/K23: adapt one useful conditional conversation through P19.",
+      "K19/K32: keep ambient arbitration under P21 separate from transaction state."
+    ]
+  },
+  "A02": {
+    "status": "partial",
+    "sources": [
+      "B3",
+      "B8"
+    ],
+    "summary": "Campaign and story bytecode activate/complete objectives, trigger dialogue and invoke rewards. Lore items and objective text have localization keys. Outcomes and closure are not fully reconstructed.",
+    "yairpg": [
+      "K12/K16/K29: pair changed objectives with local aftermath via P12.",
+      "K11/K23: report a sourced discovery rather than omniscient roll knowledge via P11."
+    ]
+  },
+  "A03": {
+    "status": "partial",
+    "sources": [
+      "B1",
+      "B3",
+      "B5",
+      "B7"
+    ],
+    "summary": "UE5 IoStore payload includes cooked Blueprint generated classes, Kismet bytecode, component-based quests, data tables and native module references. Selected scripts call Engine, Remnant, GunfireRuntime and GunfireSaveSystem. Full C++ behavior is unread.",
+    "yairpg": [
+      "K2/K13/K34: inspect actual command effects before creating abstractions.",
+      "K33: use typed content definitions and real consumers, extending P16."
+    ]
+  },
+  "A04": {
+    "status": "partial",
+    "sources": [
+      "B3",
+      "B4",
+      "T1"
+    ],
+    "summary": "Campaign bytecode references SaveGame-marked fields and CommitSave; wrappers own persistence components. Third-party reader distinguishes profile/world saves and decompresses zlib chunks. This does not establish native atomicity, migrations or recovery.",
+    "yairpg": [
+      "K18/K33: retain carrier ownership and native effects together, P05/P24.",
+      "Profile wrapper P23 stays separate and unaccepted."
+    ]
+  },
+  "A05": {
+    "status": "partial",
+    "sources": [
+      "B9",
+      "B2"
+    ],
+    "summary": "Bark state machine directly reads actor context. The index contains 371 state-machine suffix matches and AIData/EQS asset families. Planner scoring, general schedules, faction law and player/NPC parity remain unread.",
+    "yairpg": [
+      "K6/K10: reuse lawful action consumers before P25 planning.",
+      "K19/K23: one bounded bark selector is sufficient for a first P21 leaf."
+    ]
+  },
+  "A06": {
+    "status": "partial",
+    "sources": [
+      "B10"
+    ],
+    "summary": "Dialogue option widgets, trait widgets and shared inspect-data structures were exported. Focus/tooltip bindings and widget hierarchies are inspectable, with partial records. No screen was rendered, so desktop density, keyboard behavior and accessibility are unverified.",
+    "yairpg": [
+      "K14: translate useful choice clarity onto the accepted Proto23 frame.",
+      "Use UI_RULES at 1366\u00d7768; no proposed adoption of Remnant screen composition."
+    ]
+  },
+  "A07": {
+    "status": "partial",
+    "sources": [
+      "B2",
+      "B4",
+      "B5",
+      "B8"
+    ],
+    "summary": "Cooked assets separate story wrappers, subquest filters, tiles, spawn tables, actions, event trees and speakers. Modding API, source editor workflow, effective patch resolution and validation rules remain unread.",
+    "yairpg": [
+      "K33/K34: add offline validation only for a selected real content consumer, P16/P22.",
+      "R2-P06 pins a visit recipe; do not copy source schemas wholesale."
+    ]
+  },
+  "A08": {
+    "status": "partial",
+    "sources": [
+      "B6",
+      "B2"
+    ],
+    "summary": "Independent archetype training is stated and data-backed. XP parameters appear in BP_Archetype, but no full formula or applied curve was traced. Unlock DataTables and trinket defaults show schema errors. Weighted generation, pity and exact scaling remain unread.",
+    "yairpg": [
+      "K3/K10: distinguish earned knowledge and usable power via P03/P17.",
+      "K34: require valid rows and a traced consumer before borrowing formulas."
+    ]
+  },
+  "A09": {
+    "status": "partial",
+    "sources": [
+      "B7",
+      "B9",
+      "B3"
+    ],
+    "summary": "Selected hazard bytecode reads GetTimeSeconds, elapsed differences, threshold checks and timers; bark conditions use state elapsed time. Quest scripts include Delay/timer calls. Offline time, civil calendar and broad away simulation are unread.",
+    "yairpg": [
+      "K22/K32: pause local timed consequences at the chosen owner boundary.",
+      "P13 remains separately scoped; no browser-closed aging or new catch-up rule."
+    ]
+  },
+  "A10": {
+    "status": "partial",
+    "sources": [
+      "B6",
+      "P1",
+      "B8"
+    ],
+    "summary": "Developer states starting archetype does not foreclose later earned archetypes; data separates engrams, archetype definitions and unlock tables. Item/quest conditions show staged eligibility. Exact tutorial ordering is unread.",
+    "yairpg": [
+      "K3/K4/K11: distinguish initial means from future reachable options.",
+      "Use existing P04 disclosure and P03 learning, no forced universal unlock gate."
+    ]
+  },
+  "A11": {
+    "status": "partial",
+    "sources": [
+      "B5",
+      "B7",
+      "B9"
+    ],
+    "summary": "Local tile music, context-sensitive speech and hazard cleanup are concrete authored details. Feedback timing and sound quality were not heard or played. SMALL_TOUCHES has 24 original adaptation proposals with evidence labels.",
+    "yairpg": [
+      "K19/K23/K32: select one fitting small touch, P21.",
+      "K2/K22: leaving a local condition should clean up its temporary effect."
+    ]
+  },
+  "A12": {
+    "status": "partial",
+    "sources": [
+      "B2",
+      "B3",
+      "T1"
+    ],
+    "summary": "Payload also contains account award, crafting/item, economy, relic, prism/event and survival-mode families. Only selected reward calls and reader ownership were read. DLC4/SurvivalMode folders prove payload presence, not enabled modes, entitlements or live features.",
+    "yairpg": [
+      "K8/K9/K18: separate account unlocks, carried goods and local receipts.",
+      "P02/P18 are possible future consumers; no broad economy expansion selected."
+    ]
+  }
+}

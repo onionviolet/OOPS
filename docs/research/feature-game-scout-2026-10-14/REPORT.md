@@ -50,7 +50,7 @@ At most 5 per primary feature. Most rows also serve a second feature, listed aft
 | 3 | **Stardew Valley** | P02 / CH, P19 | One crop or fish goes to sale, gift, bundle, cooking or artisan processing (keg, jar, dehydrator, cask). How are those destinations quoted and how do machine timers hold an input? How do heart events gate on conditions? | .NET, `ilspycmd` on the game DLL (wiki decompile steps, stated); data as JSON after XNB unpack | macOS native, 413150 (inferred) | ~1 GB | ~$14.99 |
 | 4 | **Kingdom Come: Deliverance** | P03 / P04, CH | Reading is locked until a scribe teaches it; book volumes need skill 0, 5, 10, 15; paid trainers give one level once per five levels; alchemy is a manual staged recipe and later autobrew (all stated). How are these tables shaped? | CryEngine; game data in `.pak` zip archives with XML tables and Lua (stated by modding tool pages). `unzip` reads them | Windows only, 379430 (shown). Force `notproton` | ~40 to 85 GB (inferred, large) | ~$29.99 |
 | 5 | **Roadwarden** | P19 / P04, P01 | Choices cost coin, time of day, appearance or trust, topics unlock from what you learned, and failure reroutes later scenes (inferred from design, stated "time-constrained" in prior scout). How are the condition and cost checks written per line? | Ren'Py; `.rpyc` via unrpyc (needs `pip install unrpyc` into a venv; archives may need an `.rpa` extractor) | macOS native, 1155970 (shown) | ~1 GB | $10.99 list (shown) |
-| 6 | **Sapiens** | RT / P03, CH | Discovery by investigating an object (branch to fire, stone to knapping, hay to thatch, stated in guide), skills learned by assigned work. How are investigation, tribe-wide knowledge and individual skill kept apart? | Custom engine with Lua game scripts readable in the install folder (inferred; a Lua console mod exists, shown) | Windows only (inferred), 1060230 (inferred). Force `notproton` | ~2 GB | ~$24.99 (inferred) |
+| 6 | **Sapiens** | RT / P03, CH | Discovery by investigating an object (branch to fire, stone to knapping, hay to thatch, stated in guide), skills learned by assigned work. How are investigation, tribe-wide knowledge and individual skill kept apart? | Custom engine with about 481 plain Lua scripts in `Sapiens.app/Contents/Resources/GameResources/` (shown after install) | **Corrected:** macOS native, 1060230 (shown in appmanifest). No `notproton` needed | 0.43 GB (shown) | ~$24.99 (inferred) |
 | 8 | **Torment: Tides of Numenera** | P19 | Dialogue checks let you spend Effort from Might, Speed or Intellect pools to lower difficulty, the slider shows the deduction, pools stay spent until rest (stated). How do conversation nodes record the spend and branch on failure? | Unity Mono, `ilspycmd` on Assembly-CSharp; conversation data in assets (inferred) | macOS native (inferred), 272270 (shown) | ~20 to 40 GB | ~$19.99 to $44.99 (check) |
 | 10 | **Ostranauts** | P04 / BD, P19 | Every verb is an interaction with CondTrigger requirements on actor and target; conditions sit on crew, items and rooms (stated by wiki). How does it split "can see the action", "allowed" and "able now"? How do social interactions spend status? | Plain JSON in `StreamingAssets/data` (stated); Unity Mono for C# (stated BepInEx route) | Windows only (inferred), 1022980 (shown). Force `notproton` | ~3 GB | ~$24.99 (inferred) |
 | 12 | **Captain of Industry** | P01 / CH, P02 | How does a stopped machine report the exact cause (missing input, full output, no workers, no power, maintenance), and how do refining and distillation chains with byproducts route outputs? | Unity Mono, `ilspycmd`; C# mods exist (stated, CaptainOfCheats) | Windows only (inferred), 1594320 (shown). Force `notproton` | ~5 GB | ~$34.99 (inferred) |
@@ -137,3 +137,46 @@ From [feature game scout](feature-game-scout-2026-10-14/REPORT.md). Purchase nee
 ## Checks and limits
 
 Read the AGENTS.md and CLAUDE.md rules, the queue, the coverage refresh, the tool-fit note, the P01 to P04 and P19 packets, and chain round 5. Ran standard web searches (no extended) and the local manifest listing. Not done: no store pages opened for live prices or disk sizes, no ownership check beyond installed manifests, no game files read. App ids marked inferred and the Sapiens platform and Lua route should be confirmed on the store page before a purchase decision. Nothing committed; only this folder was written.
+
+## Round 2 (2026-10-14 20:55): lanes sent, RimWorld, more to consider
+
+Weibao, 2026-10-14: "send out the free game stuff accordingly, using codex, some of the steam ones are installing, did we consider rimworld yet? more to consider?"
+
+### Corrections first
+
+| Code | Was | Now |
+|---|---|---|
+| C1 | Sapiens Windows only, Lua inferred | macOS native with about 481 plain Lua files (shown in the install) |
+| C2 | No candidate installed | Installed since: Sapiens, Stardew Valley, Project Zomboid, Potionomics, Magical Diary: Wolf Hall, Rune Factory 5 (appmanifests, StateFlags 4, shown). Ownership of these six is now shown |
+| C3 | Potionomics engine unknown | Unreal Engine (an `Engine/` folder and `Manifest_NonUFSFiles_Win64.txt` are shown), not Unity |
+
+### Lanes sent
+
+Ten Codex lanes, registry in [SESSIONS.md](../../gm/dispatch/feature-scout-2026-10-14/SESSIONS.md), brief in [FEATURES.md](../../gm/dispatch/feature-scout-2026-10-14/FEATURES.md). Free: Vintage Story source, TerraFirmaCraft chains, Kittens Game. Installed: Stardew, Sapiens, Project Zomboid, Potionomics, Magical Diary, Rune Factory 5. Plus a RimWorld feature pass (below). Magical Diary and Rune Factory 5 were not in this scout's list but are installed and unlaned, so they got lanes with the same feature questions.
+
+### RimWorld
+
+Yes, it was considered, and excluded from the install list only because it already has a dossier. Shown: [rimworld](../rimworld/COVERAGE.json) read five paths from a private ILSpy export of 1.6.4871 (jobs, needs and health, social memory, storyteller, materials and production). That export is gone, and backfill lane `bf-rimworld` waits for a Steam install. Two things were missed: (1) the same 1.6.4871 rev588 DMG is still in `~/Downloads` (shown), so no reinstall is needed; (2) the dossier never answered the scout's features: job and bill failure reasons (P01), material competition between bills (P02), research and techprints (RT), skill learning and teaching (P03), and genes, body and gender fields (BD). Lane `fs-rimworld-features` now covers those from the DMG.
+
+### More to consider
+
+**ACT NOW (done this round)**
+
+- M1. Only `docs/research/*/private/` is gitignored (shown in `.gitignore` line 41). A `private/` one level deeper, such as `rimworld/feature-pass-2026-10-14/private/`, would be committed raw. FEATURES.md now sends every lane's raw details to `docs/research/<game>/private/<lane>/`. A current untracked scan found no nested private folders.
+- M2. Report corrected for Sapiens (C1).
+
+**ACCOUNT FOR NOW**
+
+- M3. bf-rimworld and fs-rimworld-features would extract the same build twice. The fs lane keeps its extract reusable at `~/.codex/research/fs-rimworld-features/extract/`. PROPOSAL for the backfill owner: point bf-rimworld at that extract or the DMG instead of gating on Steam. Not edited here, because `lanes.json` belongs to the game research wave.
+- M4. Potionomics is Unreal (C3). Its lane picks the route from what is installed. UE pak reading needs a user-local tool such as a CUE4Parse-based reader, and logic in Blueprints may stay partly opaque, so expect PARTIAL.
+- M5. Rune Factory 5 is IL2CPP. Cpp2IL was "not runnable" earlier, so names may recover only through an Il2CppDumper or Cpp2IL source build. Expect table-level answers marked inferred.
+- M6. Merge before dispatch: these lanes only write docs, create no branches and run nothing in `src/`, so no merge sweep was needed for them. The root session's code-branch sweep is unchanged.
+- M7. Commits: lanes do not commit. The root session commits the ten output dirs plus this dispatch folder after each CHECKPOINT says COMPLETE or PARTIAL.
+
+**LATER / DELEGATE (suggested, not dispatched)**
+
+- M8. Fold the feature answers into the PACKETS.md "Source comparisons" lines (P01, P02, P03, P04, P19) once lanes return. That belongs to the cross-game synthesis owner. Suggested: one Codex medium-effort lane; done when each packet cites at least one new donor with a shown claim.
+- M9. The Sims 4 is free but needs Weibao's own EA login and a 30 to 50 GB install. Once he links it, one lane covers BD (gender fields) and P03 (skill books and classes).
+- M10. Paid rows still waiting on a purchase decision: KCD, Roadwarden, Torment: Tides of Numenera, Ostranauts, Captain of Industry, Morrowind, Niche and Obra Dinn. Of these, Roadwarden ($10.99, Ren'Py, the same route as the Magical Diary lane) is the cheapest add for P19.
+- M11. Queue edits E1 and E2 should now mark Stardew, Sapiens, Zomboid and Potionomics as owned and laned, and add Magical Diary and Rune Factory 5 as owned and laned. That is still a proposal; the queue is untouched.
+- M12. Disk: the six installs use about 25 GB (shown with `du`). Extracts in `~/.codex/research/fs-*` add more; RF5 and Potionomics assets could be several GB. Lanes are told to export only what their questions need.
