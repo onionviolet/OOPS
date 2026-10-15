@@ -1,0 +1,11 @@
+{
+  "dist/bundle.js": {
+    "sha256": "34bfa991908ee7ffd5257a455778376333eec6daa710eeb2ea423c48020da462",
+    "servedMatches": true
+  },
+  "dist/bundle.js.map": {
+    "sha256": "bb45c713da26c76bebbdc637669082f62cef231f03bd7493aeeed26f0b123f00",
+    "servedMatches": true
+  },
+  "indexBundle": "dist/bundle.js?version=v0.6-34bfa991908e"
+}

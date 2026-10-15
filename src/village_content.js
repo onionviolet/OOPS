@@ -23,6 +23,11 @@ const action = definition => ({worldId: "base.frontier", group: "village", revis
 const done = (label, effects) => [{id: "done", label, chance: 1, effects}];
 
 export const villageActions = [
+    action({id: "village.record_waypost_chapter", label: "Record the waypost account · keep learning and access",
+        description: "Proposal: after returning the token and understanding the route, record this story chapter. Review the known opportunities above. Nothing expires, no time passes and no reward is issued. Daily teaching and bench orders continue independently.",
+        visibleWhen: {all: [discovered, eq("village.waypostChapterOpen", true)]},
+        requires: {all: [village, routeKnown, eq("actor.village.tokenReturned", true, "Return the known surveyor's token first.")]},
+        outcomes: done("Waypost account recorded; learned methods and known opportunities remain", [fact("village.waypostChapterClosed", true)])}),
     action({id: "village.waypost", label: "Investigate the disused waypost", duration: 3,
         description: "Search the sheltered side of the marker. No supplies required; six Perception XP on completion. This is a single search.",
         requires: {all: [village, eq("village.elderMet", true, "Speak to the Village elder first.")]},
