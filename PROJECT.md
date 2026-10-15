@@ -678,3 +678,22 @@ and shared-owner dependencies. All internal workers/proof browsers are released;
 no successor or further implementation runs until explicit human resumption.
 The whole source/world horizon remains open, and isolated foundation/UI/customization
 returns require their own narrow integration and acceptance gates.
+
+## Absorb-all wave proposals, 2026-10-14
+
+Weibao asked to absorb everything open from Proto23, the Air worktrees,
+upstream dev and the fork networks, reaudit the rejected/parked rows and unpark
+what fits. Landed as reversible proposals awaiting play/taste:
+Air systems workshop; upstream dev town unlock (fee now debited); fork resurvey
+(42 forks) with known clear milestones, bestiary sources and loot estimates;
+opt-in Frontier Fort chain (Schoko, MIT); Proto23 reveal chain (staged opening
+off by default), Village life loops, UI polish and sixteen further Proto23
+lanes joined natively (exposure, household, living gear, combat choices,
+rereading, salvage, titles, known detail, field familiarity, market, leisure,
+repeat search, adaptation, encounters, growth); air-wider structured
+abilities, outings and true death (private candidate co-loaded; localhost
+`?structured_candidate=p06_air_wider_v1`); natural-play reachability fixes.
+Opt-in Undo uses a single-key save authority: enrolled games need this build or
+later; old saves gain only empty counter records. A localhost-only
+`advanceTicks` stepper (`?test_hooks=1`) speeds checks with byte-identical results.
+[Integration record and evidence](docs/gm/dispatch/absorb-all-2026-10-14/INTEGRATION.md).
