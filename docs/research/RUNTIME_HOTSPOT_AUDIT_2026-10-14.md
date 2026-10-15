@@ -165,3 +165,86 @@ ER1-B9, interpretation: serialization stayed much cheaper than envelope validati
 | ER1-Q4 | Any future save batching, queue or RNG repair needs its owning compatibility contract and failed-write/save/reload/import proof; no such change was made here. |
 
 Source hash snapshot stayed unchanged across the final audit check for its listed key inputs; see [snapshot](../gm/dispatch/engine-runtime-2026-10-14/ER1/source-snapshot.json). Live shared files can change later. No tests, build, browser play, install, commit or push was run for this read-only lane.
+
+## 2026-10-14 result: wave-B state lane (clones, validation, scheduler)
+
+Branch `claude/wave-b-state-f96892`, base `7504a1e4` (engine-perf-wave). Owned files: `src/expansion_engine.js`, `src/simulation.js`, `src/simulation_effects.js`. Commits: `62a5b39a` (step 1, clones and facts), `ae882ae7` (step 2, validation memo), `1d29e7af` (step 3, scheduler). Tools: [wave-b-state](../gm/dispatch/engine-perf-2026-10-14/wave-b-state/).
+
+WB-M1, method, MEASURED, **ratios provisional** until the coordinator's quiet-host rerun before merge: host load averages 85 to 380 during this lane, so every ratio below is **process CPU time** (`process.cpuUsage`, user plus system) medians with base (`git archive 7504a1e4`) and head run back to back on the same inputs. Wall timings under this load were not comparable. Each tool prints SHA-1 hashes of every operation's full output; base and head hashes matched on every row.
+
+WB-F1, what the profiles showed, MEASURED: on crowded commit, 76% of CPU was the full facts projection (`buildSimulationFacts`, about 1,200 to 2,300 keys from about 40 module fact builders), rebuilt six or more times per command; `structuredClone` was 20%. On crowded `advance_60`, 78% was facts rebuilt once per settled job, although literal job effects never read facts. The scheduler's own scans were under 2%. The spike result holds: copying and recomputation dominate, not scheduling data structures.
+
+### Step 1: clones and duplicate work (ER1-F3)
+
+WB-S1, change, READ from the diff:
+- `commitSimulationCommand` no longer rehearses its own quote on a second full plan copy. `startCommand` applies the same costs, claim and outcome candidates to its own plan and throws on any failure, so the internal quote skips the counterfactual copy. Public `previewSimulationCommand` still rehearses.
+- Validation candidates copy every mutable slice and share the read-only `gameplayBefore` snapshot. Plans share the caller's `gameplay` input as `gameplayBefore` instead of deep-copying the native inventory twice (no caller writes it; `main.js` never reads it).
+- `applySimulationEffects` and `startCommand` build facts only when an effect amount is a formula; the identity guards those builds performed (`Enroll the living-world services first`, unknown target) still run.
+- `cloneData` replaces whole-plan `structuredClone` in plans, trials and `expansion_engine`'s `clone`: same result for plain JSON data, aliases and cycles preserved, anything non-plain delegated to `structuredClone` (so its result and errors are unchanged).
+
+WB-S2, not done: copy-on-write or structural sharing of untouched slices. About 40 modules mutate plan state in place, so sharing a slice between input and output is only safe behind a Proxy or deep freeze. A Proxy breaks `structuredClone` at every `copy()` call site; freezing breaks callers and tests that mutate returned states. Both need an ownership change across those modules, outside this lane.
+
+### Step 2: validation (ER1-F1)
+
+WB-V1, change: `validateExpansionState(state, registry, {full})` answers a repeat from private snapshots (last four) of content that already passed under the **same registry object**. Equality is exact: key order, `NaN`, `-0` and undefined versus absent count; non-plain data never matches; a state mutated in place after validation is validated again (tests in `tests/expansion_validation_memo.test.js`). `loadExpansionState` always runs the full walk, so load and import guarantees are unchanged.
+
+WB-V2, why not slice-incremental, MEASURED and READ: the per-write cost is about 40 module validators, most reading `state.clock`, `state.simulation` and actors across slices; `jsonData` in `simulation_contracts.js` alone was about a third of validation on the real crowded fixture. Skipping a validator soundly needs its exact inputs unchanged, and every tick changes the clock and simulation. Identity memos are unsound because states are mutated in place after validation (`main.js:683`, tests, the ER1 benchmark itself). A content fingerprint by `JSON.stringify` is unsound too: `Infinity` where `null` is legal has the same JSON. So new content still gets one full walk.
+
+WB-V3, lane A patch proposals (not applied; lane A owns these files):
+- `src/expansion_persistence.js:8`: accept `registry` in the options and call `validateExpansionState(plan.state, registry)`; pass `expeditionRegistry` from `main.js:1833`. This is a stronger check than today and hits the engine's memo.
+- `src/save_files.js:106`: let `validateSaveEnvelope(original, currentVersion, {expansionRegistry} = {})` call `validateExpansionState(save.expansion, expansionRegistry)`; the persistence `validateEnvelope` closure in `main.js` passes `expeditionRegistry`. Import keeps calling it without the option and still gets `loadExpansionState`'s full walk.
+- `src/main.js:2024`: unchanged; it hits the memo once the two calls above pass the same registry.
+
+### Step 3: scheduler (ER1-F7)
+
+WB-C1, change: one-pass minima in `nextSimulationBoundary` and `advanceSimulation` (Math.min per value, so `NaN` and `-0` results match the old spread); controller candidate order cached per deep-frozen registry definition; one facts build per controller target per scan, handed to the quote; controllers skip quoting when a facts-free rule in the quote (occupied, completed once, wrong place, actor, world or target, held claim, full or missing site) already makes it ineligible.
+
+WB-C2, not done: a persistent heap or clock buckets for jobs, checks and opportunities. Jobs are pushed and removed in place by many modules, so an index would go stale unless every one of them maintains it. Due jobs keep per-job removal: `completeJob` must see the exact remaining list, so a single up-front partition would change causal results. With 64 to 128 jobs that filter measured under 1%.
+
+### Results
+
+WB-R1, ER1 synthetic fixtures (`state_bench.mjs`, adapted from ER1-B1 `benchmark.mjs`), CPU ms medians of 9 after 3 warmups, base -> head:
+
+| Operation | Fresh | Mid | Crowded | Crowded ratio |
+| --- | --- | --- | --- | --- |
+| advance_60 | 4.53 -> 0.47 | 133.85 -> 4.52 | 538.04 -> 42.15 | 0.08x |
+| commit | 18.23 -> 2.53 | 24.96 -> 4.86 | 427.25 -> 81.71 | 0.19x |
+| preview | 5.62 -> 2.25 | 18.55 -> 5.21 | 185.93 -> 77.44 | 0.42x |
+| advance_1 | 1.02 -> 0.43 | 4.83 -> 2.34 | 40.83 -> 29.08 | 0.71x |
+| validate_expansion, same object repeated | 0.19 -> 0.02 | 2.82 -> 0.17 | 13.30 -> 3.16 | 0.24x (memo hit) |
+| validate_envelope | 0.82 -> 0.59 | 3.86 -> 2.22 | 27.59 -> 22.96 | 0.83x |
+
+WB-R2, validation per durable write on the committed perf fixtures (`write_validation.mjs`: 10 successive tick outputs, each a fresh deep copy; engine validation with registry, persistence without, then `validateSaveEnvelope`), CPU ms: crowded 31.6 -> 25.1 (0.79x), mid 7.0 -> 6.4. The three expansion validations with the registry passed through (WB-V3 applied) measured crowded 29.3 -> 9.9 (0.34x), mid 3.5 -> 1.8. The 0.3x per-write target is **not met** in this lane; WB-V3 brings the expansion part to about 0.34x, and the rest is new-content validation (WB-V2) plus non-expansion envelope validators.
+
+WB-R3, 64 active hired helpers on mid (`helper_tick.mjs`), CPU ms base -> head: hiring 64 helpers 1689 -> 322; one-minute tick 1468 -> 491 (0.33x); 12-minute jump 7464 -> 3232 (0.43x). Output hashes identical. Remaining cost: one facts build per controller per boundary (about 2.8 ms each, nearly all in the module fact builders) and encounter-response rehearsals on full plan copies.
+
+WB-R4, `scripts/scheduler_profile.mjs` (mid, 64 helpers): head output deep-equal to base for the one-minute tick, the 12-minute jump and the bounded 10000-minute request (`YAIRPG_SCHEDULER_COMPARE`); split matches jump; `exactOwners` true. Its wall timings ran under different load and are not compared.
+
+WB-G1, gates on head `1d29e7af`, MEASURED:
+- `node --test --test-concurrency=2 tests/*.test.js`: 1713 tests, 1710 pass, 0 fail, 3 todo. An earlier full run during load about 330 had one timeout in `invention_planner_fuzz.test.js` (2 s worker budget, module untouched here); it passed in this run.
+- `scripts/perf/gate.mjs --base 7504a1e4 --det-minutes 20`: det byte-identical over 20 game minutes on fresh, mid and crowded; no page errors. One budget miss, mid `storageKBPerMin` 7941 > 7700 at load 106 to 225. An interleaved base/head idle rerun on the same kept builds (two reps each) gave equal storage (base 7362 and 7371, head 7373 and 7374 KB/min at 52 writes/min), so it is load noise, not a regression. The same rerun showed mid script-busy base 25.5% -> head 22.0% and 19.6%.
+- Developed fixture (the systems workshop's natural final save, clock 66 -> 86, normalized like `gen_fixtures.mjs`): det byte-identical over 20 game minutes, no errors.
+- `scripts/systems_workshop_browser.cjs` against the rebuilt head bundle (fresh origin, 1366x768, dev-stepped): 10/10 cases, no page errors.
+
+WB-G2, acceptance against the dispatch: crowded `advance_60` 0.08x and `commit` 0.19x (target 0.3x) **met**. Validate per write 0.79x **not met**; 0.34x on the expansion part needs WB-V3 in lane A. Scheduler equality, det on developed and crowded, the Node suite and the workshop check **met**.
+
+WB-N1, next levers, INFERRED from the profiles: (1) the facts projection is now the engine's main cost (about 2.8 ms per build on mid, about 40 module builders merged into about 1,200 keys for every actor); a namespace-lazy or per-owner cached projection would cut ticks, previews and render together, but it changes ownership across those modules. (2) `jsonData` in `simulation_contracts.js` walks every saved value with `Object.entries` and an array `includes` per key. (3) `world_completion_materials_content.js` rebuilds its validation definitions on every facts call. (4) Encounter responses rehearse on a full plan copy before answering.
+## ER1-F4 / ER1-F8 result, 2026-10-14 night
+
+Branch `claude/wave-g-render-887951` on `7504a1e4`. Details, method and raw rows:
+[wave-g-render RESULTS](../gm/dispatch/engine-perf-2026-10-14/wave-g-render/RESULTS.md).
+MEASURED, dev-stepped, interleaved, host load 100-640:
+
+- Inventory was forcing a layout per row (`innerText` read after the previous
+  row's tooltip replacement) and replacing every tooltip each publication:
+  65-90 ms and 1154 nodes churned per tick on crowded. Now 2-4 ms and 0 nodes.
+- Expedition, village, chronicle, work ledger, item log: state JSON signatures
+  replaced by state identity/sequence/clock (chronicle keeps its exact signature),
+  changed-row DOM sync. Churn 38/44/4 nodes per tick → 0/2/0. Panel text, textContent
+  and outerHTML byte-identical to base at fixed ticks and after interactions.
+- The structured pack's 250 ms poll (80-160 ms per tick on crowded, all in
+  `main.js` `readStructuredCampaign`) remains until lane A applies the
+  [proposed patch](../gm/dispatch/engine-perf-2026-10-14/wave-g-render/LANE_A_PATCH.md).
+  Owned-module time per tick, this branch alone: crowded 0.58-0.73x, developed
+  0.53-1.13x (structured dominates). With the patch (scratch build): crowded
+  0.03-0.05x, developed 0.19-0.30x.

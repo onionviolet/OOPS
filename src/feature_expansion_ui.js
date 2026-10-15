@@ -2,6 +2,7 @@
 // existing durable publisher; this panel owns only focus and transient notices.
 import {isFeatureBattleSchema} from './feature_expansion_battle.js';
 import {createActionLegibilityList} from './action_legibility_ui.js';
+import {rendered,shownOrDeferred} from './panel_reveal.js';
 const node = (tag, text = '', className = '') => {
     const n = document.createElement(tag); n.textContent = text; n.className = className; return n;
 };
@@ -33,6 +34,8 @@ export function createFeatureExpansionPanel({read, command, present}) {
         row.append(button, description, terms, reasons); section.actions.append(row); return entry;
     }
     function render() {
+        // In an unrendered container nothing shows; compute when it is revealed.
+        if(!shownOrDeferred(render, () => rendered(element.parentElement))) return;
         const snapshot = read(), view = present(snapshot), enabled = snapshot.canWrite && !snapshot.error;
         battle.hidden=!isFeatureBattleSchema(snapshot.state.simulation?.sessions.player?.nativeBattle?.schema);
         if(!view.visible && !element.hidden && element.contains(document.activeElement)) focus();

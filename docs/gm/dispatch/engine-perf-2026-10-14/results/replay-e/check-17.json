@@ -1,0 +1,24 @@
+{
+  "adapter": "engine.expedition",
+  "seed": 17,
+  "commands": 1000,
+  "kinds": {
+    "advance": 848,
+    "action": 10,
+    "travel": 130,
+    "sim": 6,
+    "cancel": 1,
+    "respond": 5
+  },
+  "rejected": {},
+  "clock": 22357,
+  "recordingsIdentical": true,
+  "finalBytes": 39850,
+  "finals": [
+    "458bfb375fc5769426961555dce33ca297d88b0d564405eca24b9f0db22aa54b",
+    "458bfb375fc5769426961555dce33ca297d88b0d564405eca24b9f0db22aa54b",
+    "458bfb375fc5769426961555dce33ca297d88b0d564405eca24b9f0db22aa54b",
+    "458bfb375fc5769426961555dce33ca297d88b0d564405eca24b9f0db22aa54b"
+  ],
+  "byteIdentical": true
+}

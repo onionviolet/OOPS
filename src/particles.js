@@ -1,4 +1,7 @@
 "use strict";
+// Cosmetic randomness only: particle position, size, opacity and drift are
+// never saved or read by gameplay, so they stay on Math.random, apart from the
+// per-save seeded streams.
 
 class BackgroundParticle {
     constructor({canvas, size}) {

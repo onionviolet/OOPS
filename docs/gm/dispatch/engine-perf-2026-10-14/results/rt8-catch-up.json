@@ -1,0 +1,22 @@
+{
+ "playAt": 685.0999999940395,
+ "catchUp": {
+  "ticks": 480,
+  "callbacks": 480,
+  "autosaves": 1,
+  "slices": 257,
+  "maxSliceMs": 37.1,
+  "wallMs": 6888
+ },
+ "longTasksFromPlay": 1,
+ "longTaskMaxMs": 121,
+ "lt": [
+  [
+   7494,
+   121
+  ]
+ ],
+ "gameMinutes": 480,
+ "realTimeFactor": 70,
+ "errors": []
+}

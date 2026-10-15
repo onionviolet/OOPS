@@ -1,11 +1,12 @@
 // Bounded synthetic baseline. Profiling does not change runtime save policy.
 const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict');
 const {performance}=require('node:perf_hooks');
-const {chromium}=require(process.env.YAIRPG_PLAYWRIGHT || 'playwright');
+const {chromium}=(()=>{for(const c of [process.env.YAIRPG_PLAYWRIGHT,'playwright',path.join(require('node:os').homedir(),'.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright')].filter(Boolean)){try{return require(c);}catch{}}throw new Error('Playwright not found; set YAIRPG_PLAYWRIGHT.');})();
 const {openNotebook}=require('./ui_helpers.cjs');
 const url=process.env.YAIRPG_PROOF_URL || 'http://127.0.0.1:18624/';
-const out=process.env.YAIRPG_PROFILE_DIR || '/tmp/yairpg-engine-profile';
-const proof=process.env.YAIRPG_PROFILE_SEED || '/tmp/yairpg-promise-proof/generated-help-save.json';
+const out=process.env.YAIRPG_PROFILE_DIR || path.join(require('node:os').tmpdir(),'yairpg-engine-profile');
+// Committed synthetic seed (scripts/perf/gen_fixtures.mjs); never a personal save.
+const proof=process.env.YAIRPG_PROFILE_SEED || path.join(__dirname,'../tests/fixtures/perf/mid.json');
 fs.mkdirSync(out,{recursive:true});
 const summary=values=>{
  const s=[...values].sort((a,b)=>a-b);
@@ -38,7 +39,8 @@ const wood=JSON.stringify({id:'Rough wood log'});
  // Only registered ordinary template IDs; no equipment/components are guessed.
  const materialIds=[...fs.readFileSync('src/items.js','utf8').matchAll(/item_templates\["([^"]+)"\]\s*=\s*new (?:Material|OtherItem|UsableItem)\(/g)].map(m=>m[1]);
  for(const id of materialIds)crowded.inventories.person.main_character[JSON.stringify({id})] ||= {count:1};
- const browser=await chromium.launch({headless:true,...(process.env.YAIRPG_CHROME ? {executablePath:process.env.YAIRPG_CHROME} : {})});
+ const chrome=process.env.YAIRPG_CHROME || ['/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'].find(p=>fs.existsSync(p));
+ const browser=await chromium.launch({headless:true,...(chrome ? {executablePath:chrome} : {})});
  const report={environment:{node:process.version,browser:await browser.version(),platform:process.platform,arch:process.arch,url,headless:true},
   worldCase:'WE01/WE02 and MoL original three-person learning/workshop contrast; current visitor/field/helper proxies only. No academy world or canonical magic/loop is implemented.',
   browser:[],pure:[],errors:[],warnings:[]};
@@ -54,7 +56,7 @@ const wood=JSON.stringify({id:'Rough wood log'});
    if(PerformanceObserver.supportedEntryTypes.includes('longtask'))new PerformanceObserver(list=>window.profile.longTasks.push(...list.getEntries().map(e=>({start:e.startTime,ms:e.duration})))).observe({type:'longtask',buffered:true});
   },fixture);
   const page=await context.newPage();page.setDefaultTimeout(30000);
-  page.on('pageerror',e=>report.errors.push(e.stack));page.on('console',m=>{if(['warning','error'].includes(m.type()))report.warnings.push(m.text());});
+  page.on('pageerror',e=>report.errors.push(e.stack));page.on('console',m=>{if(['warning','error'].includes(m.type())&&!m.location()?.url?.includes('/private_packs/'))report.warnings.push(m.text());}); // optional gitignored packs 404 by design
   const nav=performance.now();await page.goto(url);const domReadyMs=performance.now()-nav;
   const hydrate=performance.now();await page.getByText('PLAY',{exact:true}).click();
   if(await page.getByText('Confirm',{exact:true}).isVisible())await page.getByText('Confirm',{exact:true}).click();

@@ -147,6 +147,10 @@ test('actual victory break keeps next encounter pending until one explicit resum
 });
 test('R51 native independent cooldowns retain a 4:1 speed ratio without a burst engine', () => {
     const n = native(0, 0, 30, undefined, [4, 1]); n.combat.start();
-    assert.equal(n.calls.delays[0] / n.calls.delays[1], 4);
-    assert.equal(n.calls.delays[1], 1000 / 60);
+    // The first timer per fighter is due at its 59th sub-tick; the 60th swings one sub-tick later.
+    assert.ok(Math.abs(n.calls.delays[0] / n.calls.delays[1] - 4) < 1e-6);
+    assert.ok(Math.abs(n.calls.delays[1] - 59 * 1000 / 60) < 1e-3);
+    // This stub runs it early, so drift correction stretches the last sub-tick by its 10 ms cap.
+    n.calls.timers[1]();
+    assert.equal(n.calls.delays[2], 1000 / 60 + 10);
 });

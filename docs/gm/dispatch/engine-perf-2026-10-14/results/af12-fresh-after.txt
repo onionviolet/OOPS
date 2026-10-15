@@ -1,0 +1,75 @@
+total 15136 ms; JS-busy 624 ms (pct of busy below)
+
+## self by file
+  13765ms 2206.6% (idle)
+    747ms 119.7% (program)
+     82ms  13.1% src/workspace_layout.js
+     59ms   9.4% src/main.js
+     38ms   6.0% (garbage collector)
+     29ms   4.6% querySelectorAll
+     23ms   3.7% src/simulation_contracts.js
+     21ms   3.3% src/book_world_paradise_actions.js
+     18ms   2.8% src/book_world_mol_actions.js
+     16ms   2.6% src/proto23_world_actions.js
+     13ms   2.1% src/save_compatibility.js
+     13ms   2.1% src/world_completion_facts.js
+     12ms   1.9% src/workspace_views.js
+     12ms   1.9% src/expansion_persistence.js
+     10ms   1.6% src/titles_ui.js
+      9ms   1.5% src/display.js
+      9ms   1.4% src/audit_remainder_facts.js
+      8ms   1.3% src/feature_expansion_nested_host.js
+      8ms   1.2% src/work_ledger_system.js
+      8ms   1.2% src/original_frontier_facts.js
+      7ms   1.2% querySelector
+      7ms   1.1% src/feature_expansion_nested_life.js
+      6ms   1.0% src/expansion_engine.js
+      6ms   1.0% src/gameplay_publication.js
+      6ms   1.0% src/feature_expansion_book_host.js
+
+## inclusive by function
+  15136ms 2426.3% (root)
+  13765ms 2206.6% (idle)
+    747ms 119.7% (program)
+    577ms  92.5% w.onmessage
+    424ms  67.9% src/main.js:8672 
+    423ms  67.8% src/main.js:8693 simulateTick
+    392ms  62.8% src/main.js:8569 update_timer
+    369ms  59.1% src/main.js:1700 persistExpansion
+    207ms  33.2% src/simulation_render.js:20 withSimulationFrame
+    206ms  33.0% src/main.js:1933 
+    132ms  21.2% src/workspace_layout.js:137 updateWorkspace
+    124ms  19.9% src/workspace_layout.js:159 state
+    123ms  19.8% src/simulation_render.js:24 framedSimulationRead
+    116ms  18.5% src/main.js:1642 framedRead
+    102ms  16.4% src/feature_expansion_refinements_host.js:32 refinementPresentation
+     93ms  14.9% src/workspace_views.js:39 b
+     79ms  12.7% src/expansion_persistence.js:7 persistExpansionPlan
+     64ms  10.3% src/main.js:1646 simulationNativeContexts
+     64ms  10.2% src/main.js:1647 buildSimulationNativeContexts
+     63ms  10.1% src/main.js:2402 buildFeatureWaveContext
+     61ms   9.8% src/workspace_layout.js:215 presentationScale
+     60ms   9.6% src/workspace_layout.js:216 floatAvailable
+     56ms   8.9% src/feature_expansion_ui.js:35 render
+     56ms   8.9% src/main.js:9799 snapshot
+     54ms   8.6% src/known_routes_ui.js:55 render
+     54ms   8.6% src/main.js:9836 snapshot
+     46ms   7.4% src/main.js:2401 featureWaveContext
+     43ms   6.9% src/feature_expansion_subtlety_host.js:110 presentation
+     39ms   6.2% src/world_completion_facts.js:15 worldCompletionFacts
+     39ms   6.2% src/world_completion_facts.js:22 worldCompletionContext
+     39ms   6.2% src/feature_expansion_subtlety_host.js:115 d
+     39ms   6.2% src/feature_expansion_book_host.js:168 preview
+     39ms   6.2% src/backlog_expansion_host.js:68 previewBacklogAction
+     38ms   6.1% src/backlog_expansion_host.js:39 prepare
+     38ms   6.0% (garbage collector)
+     37ms   5.9% src/simulation_effects.js:86 simulationFacts
+     35ms   5.7% src/main.js:2541 campaignContext
+     35ms   5.7% src/main.js:2542 buildCampaignContext
+     34ms   5.4% src/simulation.js:50 enrollSimulation
+     29ms   4.6% querySelectorAll
+     29ms   4.6% src/simulation_effects.js:175 applySimulationEffects
+     26ms   4.2% src/world_completion_runtime.js:15 worldCompletionSimulationContexts
+     26ms   4.2% src/main.js:571 setItem
+     26ms   4.1% src/main.js:1834 data
+     26ms   4.1% src/main.js:2489 backlogContext

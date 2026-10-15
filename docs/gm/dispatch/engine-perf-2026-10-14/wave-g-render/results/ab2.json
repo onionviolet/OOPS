@@ -1,0 +1,292 @@
+[
+ {
+  "rep": 0,
+  "fx": "developed",
+  "variant": "base",
+  "load0": 424.1,
+  "load1": 533.8,
+  "wall": 30836,
+  "perTickMineMs": 15.41,
+  "perTickBusyMs": 335.7,
+  "byModulePerTick": {
+   "village_ui": 0.93,
+   "expedition_ui": 2.08,
+   "inventory": 2.22,
+   "itemlog": 0.05,
+   "structured_pack_ui": 10.06,
+   "work_ledger_ui": 0.07
+  },
+  "churnPerTick": {
+   "work_ledger": 0,
+   "inventory": 66,
+   "itemlog": 4,
+   "expedition": 38,
+   "village": 44
+  },
+  "errors": []
+ },
+ {
+  "rep": 0,
+  "fx": "developed",
+  "variant": "head",
+  "load0": 533.8,
+  "load1": 616.6,
+  "wall": 30193,
+  "perTickMineMs": 7.97,
+  "perTickBusyMs": 366.6,
+  "byModulePerTick": {
+   "inventory": 0.4,
+   "expedition_ui": 0.89,
+   "village_ui": 0.15,
+   "structured_pack_ui": 5.58,
+   "itemlog": 0.75,
+   "work_ledger_ui": 0.18
+  },
+  "churnPerTick": {
+   "work_ledger": 0,
+   "expedition": 0,
+   "village": 2
+  },
+  "errors": []
+ },
+ {
+  "rep": 0,
+  "fx": "developed",
+  "variant": "headA",
+  "load0": 616.6,
+  "load1": 568,
+  "wall": 29817,
+  "perTickMineMs": 2.88,
+  "perTickBusyMs": 369,
+  "byModulePerTick": {
+   "expedition_ui": 2.83,
+   "itemlog": 0.04,
+   "work_ledger_ui": 0.01
+  },
+  "churnPerTick": {
+   "work_ledger": 0,
+   "expedition": 0,
+   "village": 2
+  },
+  "errors": []
+ },
+ {
+  "rep": 0,
+  "fx": "crowded",
+  "variant": "base",
+  "load0": 568,
+  "load1": 575.5,
+  "wall": 37800,
+  "perTickMineMs": 208.03,
+  "perTickBusyMs": 1007.6,
+  "byModulePerTick": {
+   "structured_pack_ui": 130.37,
+   "work_ledger_ui": 0.3,
+   "inventory": 73.34,
+   "village_ui": 0.57,
+   "expedition_ui": 3.46
+  },
+  "churnPerTick": {
+   "work_ledger": 0,
+   "inventory": 1154,
+   "itemlog": 4,
+   "expedition": 38,
+   "village": 44
+  },
+  "errors": []
+ },
+ {
+  "rep": 0,
+  "fx": "crowded",
+  "variant": "head",
+  "load0": 575.5,
+  "load1": 511.6,
+  "wall": 35274,
+  "perTickMineMs": 132.03,
+  "perTickBusyMs": 870.8,
+  "byModulePerTick": {
+   "structured_pack_ui": 121.4,
+   "work_ledger_ui": 1.96,
+   "inventory": 3.55,
+   "expedition_ui": 3.49,
+   "village_ui": 1.64
+  },
+  "churnPerTick": {
+   "work_ledger": 0,
+   "expedition": 0,
+   "village": 2
+  },
+  "errors": []
+ },
+ {
+  "rep": 0,
+  "fx": "crowded",
+  "variant": "headA",
+  "load0": 511.6,
+  "load1": 605.8,
+  "wall": 37427,
+  "perTickMineMs": 7.63,
+  "perTickBusyMs": 806.2,
+  "byModulePerTick": {
+   "village_ui": 1.79,
+   "inventory": 1.19,
+   "work_ledger_ui": 0.92,
+   "expedition_ui": 3.73
+  },
+  "churnPerTick": {
+   "work_ledger": 0,
+   "expedition": 0,
+   "village": 2
+  },
+  "errors": []
+ },
+ {
+  "rep": 1,
+  "fx": "developed",
+  "variant": "headA",
+  "load0": 605.8,
+  "load1": 639,
+  "wall": 29000,
+  "perTickMineMs": 5.7,
+  "perTickBusyMs": 356.6,
+  "byModulePerTick": {
+   "work_ledger_ui": 0.67,
+   "expedition_ui": 1.01,
+   "chronicle_ui": 0.02,
+   "village_ui": 1.23,
+   "inventory": 2.67,
+   "structured_pack_ui": 0.12
+  },
+  "churnPerTick": {
+   "work_ledger": 0,
+   "expedition": 0,
+   "village": 2
+  },
+  "errors": []
+ },
+ {
+  "rep": 1,
+  "fx": "developed",
+  "variant": "head",
+  "load0": 639,
+  "load1": 605.7,
+  "wall": 29446,
+  "perTickMineMs": 17.44,
+  "perTickBusyMs": 390.8,
+  "byModulePerTick": {
+   "expedition_ui": 3.56,
+   "village_ui": 1.6,
+   "inventory": 1.66,
+   "structured_pack_ui": 9.63,
+   "work_ledger_ui": 0.94,
+   "itemlog": 0.04
+  },
+  "churnPerTick": {
+   "work_ledger": 0,
+   "expedition": 0,
+   "village": 2
+  },
+  "errors": []
+ },
+ {
+  "rep": 1,
+  "fx": "developed",
+  "variant": "base",
+  "load0": 605.7,
+  "load1": 444.5,
+  "wall": 27571,
+  "perTickMineMs": 19.3,
+  "perTickBusyMs": 375.7,
+  "byModulePerTick": {
+   "structured_pack_ui": 12.88,
+   "work_ledger_ui": 0.49,
+   "expedition_ui": 1.42,
+   "village_ui": 1.41,
+   "inventory": 3.04,
+   "itemlog": 0.07
+  },
+  "churnPerTick": {
+   "work_ledger": 0,
+   "inventory": 66,
+   "itemlog": 4,
+   "expedition": 38,
+   "village": 44
+  },
+  "errors": []
+ },
+ {
+  "rep": 1,
+  "fx": "crowded",
+  "variant": "headA",
+  "load0": 444.5,
+  "load1": 290.5,
+  "wall": 33983,
+  "perTickMineMs": 7.37,
+  "perTickBusyMs": 731.3,
+  "byModulePerTick": {
+   "work_ledger_ui": 0.4,
+   "structured_pack_ui": 0.18,
+   "expedition_ui": 1.61,
+   "village_ui": 1.6,
+   "chronicle_ui": 0.05,
+   "inventory": 3.54
+  },
+  "churnPerTick": {
+   "work_ledger": 0,
+   "expedition": 0,
+   "village": 2
+  },
+  "errors": []
+ },
+ {
+  "rep": 1,
+  "fx": "crowded",
+  "variant": "head",
+  "load0": 290.5,
+  "load1": 242.7,
+  "wall": 34958,
+  "perTickMineMs": 136.89,
+  "perTickBusyMs": 915.4,
+  "byModulePerTick": {
+   "structured_pack_ui": 130.63,
+   "work_ledger_ui": 0.7,
+   "expedition_ui": 1.07,
+   "village_ui": 1.33,
+   "chronicle_ui": 0.11,
+   "inventory": 3.04
+  },
+  "churnPerTick": {
+   "work_ledger": 0,
+   "expedition": 0,
+   "village": 2
+  },
+  "errors": []
+ },
+ {
+  "rep": 1,
+  "fx": "crowded",
+  "variant": "base",
+  "load0": 242.7,
+  "load1": 228.1,
+  "wall": 38523,
+  "perTickMineMs": 255.81,
+  "perTickBusyMs": 1142.2,
+  "byModulePerTick": {
+   "structured_pack_ui": 157.72,
+   "work_ledger_ui": 1.8,
+   "expedition_ui": 2.65,
+   "village_ui": 2.81,
+   "chronicle_ui": 0.11,
+   "inventory": 90.65,
+   "itemlog": 0.07
+  },
+  "churnPerTick": {
+   "work_ledger": 0,
+   "inventory": 1154,
+   "itemlog": 4,
+   "expedition": 38,
+   "village": 44
+  },
+  "errors": []
+ }
+]

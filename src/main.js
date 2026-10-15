@@ -18,7 +18,7 @@ import {installTrainingLink,trainingView} from './absorb_p23/long_life/training.
 import {validateWornTitle,selectWornTitle,wornTitleView,longLifeTitleBonuses} from './absorb_p23/long_life/worn.js';
 import {engineTimeout,engineInterval,clearEngineInterval,engineNow,stepping,testHooksEnabled,pauseEngine,resumeEngine,runEngineTicks} from './simulation_clock.js';
 import {createPlanningReadFrame} from './planning_read_frame.js';
-import {deferSimulationRender,beginSimulationRenderBatch,endSimulationRenderBatch} from './simulation_render.js';
+import {deferSimulationRender,beginSimulationRenderBatch,endSimulationRenderBatch,framedSimulationRead,withSimulationFrame,deferWhileHidden} from './simulation_render.js';
 import {ANTHOLOGY,ANTHOLOGY_KEY,REST_MEAL,REST_KEY,REGISTRATIONS} from './absorb_p23/reading/content.js';
 import {planReadingCommand,observeReadingClock,longRestClockRequest} from './absorb_p23/reading/runtime.js';
 import {readingPresentation} from './absorb_p23/reading/presentation.js';
@@ -341,7 +341,7 @@ fill_availability_methods();
 registerFortContent({locations,item_templates,book_stats,quests,availabilities,SafeLocation,CombatZone,Book,BookData,Quest,QuestTask});
 
 import {prepareFoundationSave, retainRetiredContent} from "./save_compatibility.js";
-import {writeGuardedSave, encodeSaveFile, decodeSaveFile, importSaveFile, validateSaveEnvelope} from "./save_files.js";
+import {writeGuardedSave, encodeSaveFile, decodeSaveFile, importSaveFile, validateSaveEnvelope, createDurableSaveWriter} from "./save_files.js";
 import {freshNativeSave, preflightImport, installImportProbe} from "./import_probe.js";
 import {restoreSavedReputation, shouldReplayReputation} from "./reputation_state.js";
 import {hasEarnedClear} from "./clear_state.js";
@@ -570,20 +570,23 @@ let villageLivesPanel;
 let lifeRecord = createLifeRecord();
 let lifeRecordPanel;
 let lifeStorageFailure = false;
+// Skips rewriting an unchanged life; see the D3 decision in save_files.js.
+const durableSaves = createDurableSaveWriter(() => localStorage);
 // Shared save writes stage life observations and publish them only after success.
 const lifeSaveStorage = {
-    setItem(key, serialized, onDurable) {return this.setEnvelope(key, JSON.parse(serialized), onDurable);},
+    setItem(key, serialized, onDurable, options) {return this.setEnvelope(key, JSON.parse(serialized), onDurable, options);},
     // The caller transfers a detached envelope. Only the top-level life fields
     // are replaced here; staged domains remain read-only until publication.
-    setEnvelope(key, save, onDurable) {
+    // force: an explicit save writes even when only wall-clock fields changed (D3).
+    setEnvelope(key, save, onDurable, {force = false} = {}) {
     const next = observeLifeSave(save.life_record ?? createLifeRecord(), save);
     save.life_record = next;
     const nextNpc = save.npc_lives == null ? null : advanceVillageLives(save.npc_lives, save['current time'].year);
     if(nextNpc) save.npc_lives = nextNpc;
     if(authorityBootError)throw authorityBootError;
     if(authorityBootPending)throw Error('The enrolled save is awaiting complete native preflight.');
-    if(authorityEnrolled())nativeAuthority.commitPreparedSave(JSON.stringify(save));
-    else writeGuardedSave(localStorage, key, JSON.stringify(save));
+    if(authorityEnrolled()){durableSaves.forget();nativeAuthority.commitPreparedSave(JSON.stringify(save));}
+    else durableSaves.write(key, save, {force});
     onDurable?.();
     if(nativeP23Transaction?.status==='pending')nativeP23Transaction.markDurable();
     villageCareer = migrateVillageCareer(save);
@@ -592,17 +595,15 @@ const lifeSaveStorage = {
     if(previousRules?.revision!==workLedger.rules.revision||previousConnection!==workLedger.connection||previousPrecision!==workLedger.precisionKnown||previousAssist!==workLedger.assistUnlocked)update_displayed_crafting_recipes();
     customization=customizationFromSave(save);
     refreshCustomization();
-    workLedgerPanel?.render();
     cheatState=validateCheatState(save.cheats??defaultCheatState());
     optionalPackState=validatePackState(save.content_packs??emptyPackState());
-    optionalPackPanel?.render();
-    villageCareerControls?.render();
     lifeRecord = next;
     npcLives = nextNpc;
     restoreGeneratedPeople(save);
-    lifeRecordPanel?.render();
-    villageLivesPanel?.render();
+    if(!deferWhileHidden(renderSavedPanels,renderSavedPanels))renderSavedPanels();
 }};
+// Display-only panels that follow each durable save.
+function renderSavedPanels(){workLedgerPanel?.render();optionalPackPanel?.render();villageCareerControls?.render();lifeRecordPanel?.render();villageLivesPanel?.render();}
 
 let expansionState = initializeExpedition(createExpansionState(crypto.getRandomValues(new Uint32Array(1))[0]));
 ensureStreams(expansionState);
@@ -1642,9 +1643,17 @@ function validateNativeGameplayReferences(definitions) {
     }
 }
 
+// Context builders reuse one build per pass over an unchanged world (simulation_render.js).
+// Every caller gets its own top-level and facts copy of the shared build.
+const copyFramedContext=c=>c.facts?{...c,facts:{...c.facts}}:{...c};
+function framedRead(name,build){
+    return framedSimulationRead(expansionState,name,build,name==='simulationNativeContexts'
+        ?value=>Object.fromEntries(Object.entries(value).map(([id,c])=>[id,copyFramedContext(c)])):copyFramedContext);
+}
+// An explicit planning frame (stepper planning) wins; otherwise a render pass's frame.
 function simulationNativeContexts(readFrame) {
     if(readFrame)return readFrame.read(simulationNativeContexts,()=>buildSimulationNativeContexts(readFrame),{mutable:true});
-    return buildSimulationNativeContexts();
+    return framedRead('simulationNativeContexts',()=>buildSimulationNativeContexts());
 }
 function buildSimulationNativeContexts(readFrame) {
     const contexts=tidemarkSimulationContexts(expansionState,realmSimulationContexts(expansionState,nativeGameplay.contexts(expansionState,!!(current_activity || current_game_action || current_combat || current_dialogue || is_sleeping || is_reading || is_in_trade()))));
@@ -1678,7 +1687,7 @@ function projectNativePeopleBodies() {
 }
 function expeditionContext(readFrame) {
     if(readFrame)return readFrame.read(expeditionContext,()=>buildExpeditionContext());
-    return buildExpeditionContext();
+    return framedRead('expeditionContext',buildExpeditionContext);
 }
 function buildExpeditionContext() {
     const gameplay = gameplaySnapshot();
@@ -1926,15 +1935,7 @@ function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}, readF
         if(!which_skills_affect_skill[target].includes(id)) which_skills_affect_skill[target].push(id);
     }
     try {
-        update_displayed_money();
-        if(plan.calendar) update_displayed_time();
-        if(plan.native) {update_displayed_stamina(); update_displayed_health();}
-        update_displayed_character_inventory();
-        if(is_storage_open()) {
-            update_displayed_storage_inventory();
-            stampStorageRequests();
-        }
-        update_displayed_item_log();
+        if(!deferWhileHidden(renderPublishedDisplays,renderPublishedDisplays))renderPublishedDisplays(plan);
         for(const id of publication.changes) {
             if(skills[id].visibility_treshold <= skills[id].getTotalXP()) {
                 create_new_skill_bar(skills[id]);
@@ -1945,7 +1946,24 @@ function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}, readF
         if(publication.changes.length) character.updateStatsAndDisplay();
         if(plan.calendar && (p23LivingGear!==undefined||previousNight !== is_night(current_game_time))) {character.addActiveEffectBonus(active_effects);character.updateStatsAndDisplay();}
         if(townAccess.length && current_location.tags.safe_zone) update_displayed_normal_location(current_location);
-        renderWorldIdentity();
+        if(!deferWhileHidden(renderPublicationPanels,renderPublicationPanels))renderPublicationPanels();
+        if(plan.p00EarnedTitles){for(const id of plan.p00EarnedTitles)log_message(`Title earned: ${title_by_id[id].name}. ${title_by_id[id].text}`,'level_up');titlesPanel?.announce(plan.p00EarnedTitles);}
+    } catch(error) {console.error("Saved expedition display could not refresh; reload to restore it.", error);}
+    if(plan.calendar) awakenOptionalStart();
+}
+
+// Display-only refreshes after a publication. A reveal (no plan) refreshes all of them.
+function renderPublishedDisplays(plan) {
+    if(!plan || plan.calendar) update_displayed_time();
+    if(!plan || plan.native) {update_displayed_stamina(); update_displayed_health();}
+    update_displayed_character_inventory();
+    if(is_storage_open()) {update_displayed_storage_inventory(); stampStorageRequests();}
+    update_displayed_item_log();
+    renderWorldIdentity();
+}
+// The publication render batch: display only, one frame over the published state.
+function renderPublicationPanels() {
+    withSimulationFrame(expansionState,()=>{
         expeditionPanel?.render(); techniquePanel?.render(); chroniclePanel?.render(); villagePanel?.render(); simulationPanel?.render(); systemsWorkshopPanel?.render(); townPanel?.render();
         pursuitPanel?.render();
         bodyPanel?.render();
@@ -1959,10 +1977,8 @@ function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}, readF
         trancheFourPanel?.render();lifeRecordPanel?.render();
         characterBio?.render();
         titlesPanel?.render();
-        if(plan.p00EarnedTitles){for(const id of plan.p00EarnedTitles)log_message(`Title earned: ${title_by_id[id].name}. ${title_by_id[id].text}`,'level_up');titlesPanel?.announce(plan.p00EarnedTitles);}
         worldEventFeed?.render();
-    } catch(error) {console.error("Saved expedition display could not refresh; reload to restore it.", error);}
-    if(plan.calendar) awakenOptionalStart();
+    });
 }
 
 function commitNativeTrade(quote, currentQuote) {
@@ -2437,7 +2453,7 @@ function actFoundationInteraction(command){
 }
 function featureWaveContext(readFrame){
     if(readFrame)return readFrame.read(featureWaveContext,()=>buildFeatureWaveContext(readFrame));
-    return buildFeatureWaveContext();
+    return framedRead('featureWaveContext',()=>buildFeatureWaveContext());
 }
 function buildFeatureWaveContext(readFrame){
     const bookCurrent=paradiseContext(expansionState,referenceGameplayContext(expansionState,expeditionRegistry,nestedLifeContext(expansionState,nestedChainContext(expansionState,nestedContext(expansionState,repositoryAbsorptionContext(expansionState,expeditionRegistry,featurePowerContext(expansionState,tidemarkContext(expansionState,societyContext(expansionState,featureObjectContext(expansionState,expeditionRegistry,campaignContext(readFrame)))))))))));
@@ -2578,7 +2594,11 @@ function planParadiseAction(state,registry,command,context,sequence){
     return stageParadiseCarrierClock(plan,{...context,nativeAlive:character.is_alive===true},plan.paradiseAdvanceBy,
         (draft,minutes)=>advanceChroniclePlan(draft,minutes,true),syncParadiseClock);
 }
-function campaignContext(readFrame) {
+function campaignContext(readFrame){
+    if(readFrame)return buildCampaignContext(readFrame);
+    return framedRead('campaignContext',()=>buildCampaignContext());
+}
+function buildCampaignContext(readFrame) {
     return {...expeditionContext(readFrame),destinationNative:tidemarkNative.read(expansionState),nestedNative:nestedNative.read(expansionState),paradiseNative:paradiseNative.read(expansionState),molNative:molNative.read(expansionState),proto23Native:proto23Native.read(expansionState),causalStoryNative:causalNative.read(expansionState),...nativeCampaignLocationOwners(),equipment:Object.fromEntries(Object.entries(simulationNativeContexts(readFrame)).filter(([,c])=>c.equipment).map(([id,c])=>[id,c.equipment])),nativeAlive:character.is_alive===true,busy:!!(current_activity || current_game_action || current_combat || current_dialogue || is_sleeping || is_reading || is_in_trade()),
         vitals:Object.fromEntries(Object.entries(simulationNativeContexts(readFrame)).map(([id,c])=>[id,c.vitals]))};
 }
@@ -4642,6 +4662,16 @@ function end_dialogue() {
 
 function reload_normal_location() {
     update_displayed_normal_location(current_location);
+    renderTickPanels();
+}
+function renderExportReward() {
+    document.getElementById("save_to_file_button").classList.toggle("export_button_with_reward", Date.now() - last_rewarded_export > config.time_between_export_rewards);
+    update_export_button_tooltip(Date.now() - last_rewarded_export, config.time_between_export_rewards);
+}
+function renderEffectDisplays() {update_displayed_effect_durations(); update_displayed_effects();}
+function renderClockPanels() {expeditionPanel?.render(); techniquePanel?.render(); chroniclePanel?.render(); villagePanel?.render(); simulationPanel?.render();}
+// Display-only panel refreshes that every tick repeats.
+function renderTickPanels() {
     trancheFourPanel?.render();furniturePanel?.render();localLifePanel?.render();practicePanel?.render();updateWorkspace();fortControls?.render();pacingPanel?.render();pacingStatusPanel?.render();durabilityPanel?.render();elementalPanel?.render();livingGearPanel?.render();combatOptionsPanel?.render();householdPanel?.render();
 }
 
@@ -6657,7 +6687,7 @@ function save_to_file() {
         }
         const serialized = create_save({forExport:true});
         let encoded = encodeSaveFile(serialized);
-        try {lifeSaveStorage.setItem(is_on_dev() ? dev_save_key : save_key, serialized);}
+        try {lifeSaveStorage.setItem(is_on_dev() ? dev_save_key : save_key, serialized, undefined, {force:true});}
         catch(error) {log_message(error.message + " Your exported file can still be kept.", "message_critical"); return encoded;}
         if(authorityEnrolled()){const root=nativeAuthority.read();encoded=encodeSaveFile(JSON.stringify({p23_native_authority_export:1,release:root.release,current:root.current,previous:root.previous}));}
         save_counter = 0;
@@ -6679,7 +6709,7 @@ function save_to_localStorage({key, is_manual}) {
     if(importProbeToken || !ownsSave || authorityOperationBusy || authorityBootError || authorityBootPending) return;
     const save = create_save();
     if(save) {
-        try {lifeSaveStorage.setItem(key, save);}
+        try {lifeSaveStorage.setItem(key, save, undefined, {force:is_manual===true});}
         catch(error) {log_message(error.message, "message_critical");return undefined;}
         if(is_manual) {
             log_message("Saved the game manually");
@@ -8650,7 +8680,7 @@ function update_timer(time_in_minutes, source = null) {
             tickHarvest(consumed);
             if(was_night !== is_night(current_game_time)) character.updateStatsAndDisplay();
             if(nativeLifeEnded()) {if(current_combat) end_combat(); character.is_alive = false;}
-            expeditionPanel?.render(); techniquePanel?.render(); chroniclePanel?.render(); villagePanel?.render(); simulationPanel?.render();
+            if(!deferWhileHidden(renderClockPanels,renderClockPanels))renderClockPanels();
             return consumed;
         } catch(error) {
             console.error("Joined clock paused:", error); log_message(`Progress paused: ${error.message}`, "notification");
@@ -8737,16 +8767,10 @@ function simulateTick() {
         let were_stats_updated = false;
         const prev_day = current_game_time.day_count;
         const advancedMinutes = update_timer();
-        trancheFourPanel?.render();furniturePanel?.render();localLifePanel?.render();practicePanel?.render();updateWorkspace();fortControls?.render();pacingPanel?.render();pacingStatusPanel?.render();durabilityPanel?.render();elementalPanel?.render();livingGearPanel?.render();combatOptionsPanel?.render();householdPanel?.render();
+        if(!deferWhileHidden(renderTickPanels,renderTickPanels))renderTickPanels();
         if(!advancedMinutes || nativeLifeEnded()) {awakenOptionalStart(); return;}
 
-        if(Date.now() - last_rewarded_export > config.time_between_export_rewards) {
-            document.getElementById("save_to_file_button").classList.add("export_button_with_reward");
-        } else {
-            document.getElementById("save_to_file_button").classList.remove("export_button_with_reward");
-        }
-
-        update_export_button_tooltip(Date.now() - last_rewarded_export, config.time_between_export_rewards);
+        if(!deferWhileHidden(renderExportReward,renderExportReward))renderExportReward();
 
         const curr_day = current_game_time.day_count;
         if(curr_day > prev_day) {
@@ -8761,8 +8785,7 @@ function simulateTick() {
 
         //update effect durations and displays;
         were_stats_updated = were_stats_updated || (!usesJoinedClock() && update_effect_durations({time_in_minutes: 1}));
-        update_displayed_effect_durations();
-        update_displayed_effects();
+        if(!deferWhileHidden(renderEffectDisplays,renderEffectDisplays))renderEffectDisplays();
 
         const optionalWeather=getPacingEffects(homePacingContext());
         const new_temperature = get_current_temperature_smoothed()+basePacingEffects(homePacingContext()).temperatureOffset;
@@ -8852,7 +8875,8 @@ function simulateTick() {
 
         }
         // Weather duration and XP consequence change even at a stable temperature.
-        update_displayed_temperature(optionalWeather);
+        const showTemperature=()=>update_displayed_temperature(optionalWeather);
+        if(!deferWhileHidden(update_displayed_temperature,showTemperature))showTemperature();
         current_temperature = new_temperature;
 
         //add cold status if applicable
@@ -9188,13 +9212,11 @@ function simulateTick() {
 }
 
 
-/** Advance the actual engine timers synchronously; never a second simulation. */
 let stepperRenderSuppressed=false;
-function advanceTicks(n, {render = false} = {}) {
-    if(!testHooksEnabled) throw new Error('Test hooks are disabled.');
-    if(!Number.isSafeInteger(n) || n < 0 || n > 1000000) throw new RangeError('Ticks must be an integer from 0 to 1000000.');
+// One stepper batch: autosaves coalesce to one per key and, unless render is set,
+// panel renders coalesce to one flush. Returns the close function.
+function openStepperBatch(render) {
     if(stepperSaves) throw new Error('Cannot nest advanceTicks.');
-    if(n === 0) return {ticks:0, callbacks:0, autosaves:0};
     const restore = [];
     stepperSaves = new Set();
     if(!render) {
@@ -9209,19 +9231,72 @@ function advanceTicks(n, {render = false} = {}) {
             restore.push(() => {panel.render = original;});
         }
     }
-    let result;
-    try {result = runEngineTicks(n); return result;}
-    finally {
+    return () => {
         const saves = stepperSaves; stepperSaves = null;
-        if(result) result.autosaves = saves.size;
         for(const key of saves) {
             const savedAt = save_to_localStorage({key});
             if(savedAt && (key === backup_key || key === dev_backup_key)) update_backup_load_button(savedAt);
         }
         stepperRenderSuppressed=false;
         for(const reset of restore) reset();
-        if(!render) endSimulationRenderBatch();
+        if(!render) endSimulationRenderBatch(expansionState);
+        return saves.size;
+    };
+}
+const checkTickCount = n => {
+    if(!testHooksEnabled) throw new Error('Test hooks are disabled.');
+    if(!Number.isSafeInteger(n) || n < 0 || n > 1000000) throw new RangeError('Ticks must be an integer from 0 to 1000000.');
+};
+/** Advance the actual engine timers synchronously; never a second simulation. */
+function advanceTicks(n, {render = false} = {}) {
+    checkTickCount(n);
+    if(fastForwarding) throw new Error('Cannot nest advanceTicks.');
+    if(n === 0) return {ticks:0, callbacks:0, autosaves:0};
+    const close = openStepperBatch(render);
+    let result;
+    try {result = runEngineTicks(n); return result;}
+    finally {
+        const autosaves = close();
+        if(result) result.autosaves = autosaves;
     }
+}
+// RT8: the same stepper, one tick at a time, yielding between slices so no task runs
+// long. The engine stays paused across yields, so live timers never interleave and the
+// result is byte-identical to advanceTicks(n) or n single ticks. Input during a
+// forward is not blocked; it interleaves like input between single ticks.
+let fastForwarding = null;
+const yieldToBrowser = () => globalThis.scheduler?.yield ? globalThis.scheduler.yield() : new Promise(resolve => {
+    const channel = new MessageChannel(); channel.port1.onmessage = () => {channel.port1.close(); resolve();}; channel.port2.postMessage(0);
+});
+function fastForward(n, {sliceMs = 30, onProgress} = {}) {
+    checkTickCount(n);
+    if(fastForwarding || stepperSaves) return Promise.reject(new Error('Cannot nest fastForward.'));
+    if(!Number.isFinite(sliceMs) || sliceMs <= 0) return Promise.reject(new RangeError('sliceMs must be positive.'));
+    const run = async () => {
+        // Outside a run, stepping() is true exactly while the engine is paused.
+        const started = performance.now(), wasPaused = stepping();
+        let ticks = 0, callbacks = 0, slices = 0, maxSliceMs = 0, autosaves = 0, close = null;
+        pauseEngine();
+        try {
+            close = openStepperBatch(false);
+            while(ticks < n) {
+                // Yield first, so not even the first slice joins the caller's task.
+                await yieldToBrowser();
+                const sliceStart = performance.now();
+                let count = 0, elapsed = 0;
+                // Stop before a tick that would likely cross the slice budget.
+                do {callbacks += runEngineTicks(1).callbacks; ticks++; count++; elapsed = performance.now() - sliceStart;}
+                while(ticks < n && elapsed + elapsed / count < sliceMs);
+                slices++; maxSliceMs = Math.max(maxSliceMs, elapsed);
+                onProgress?.({ticks, total: n});
+            }
+        } finally {
+            try {if(close) autosaves = close();}
+            finally {if(!wasPaused) resumeEngine(); fastForwarding = null;}
+        }
+        return {ticks, callbacks, autosaves, slices, maxSliceMs: +maxSliceMs.toFixed(1), wallMs: Math.round(performance.now() - started)};
+    };
+    return fastForwarding = run();
 }
 
 /** Lifetime counters that titles read; all derived from existing saved state. */
@@ -9296,6 +9371,12 @@ function run() {
         
     start_date = Date.now();
     update();
+    // RT8 test hook: replay ticks away (one game minute each while awake) through the sliced
+    // stepper. No player offline policy exists yet; who gets time away stays a design decision.
+    const catchUp = testHooksEnabled ? Number(new URLSearchParams(location.search).get('catch_up_ticks')) : 0;
+    if(Number.isSafeInteger(catchUp) && catchUp > 0) {
+        window.catchUpResult = fastForward(catchUp).catch(error => {console.error('Catch-up stopped:', error); throw error;});
+    }
 
     if(game_options.change_background_color) {
         set_light_based_background_color(!current_location.is_under_roof);
@@ -9841,7 +9922,8 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
     const renderKnownMinutes=()=>{const formatted=formatKnownNumber(expansionState.clock,getDisplaySetting('numberFormat')),summary=knownMinutes.element.querySelector('summary'),exact=knownMinutes.element.querySelector('p');
         if(summary.textContent!==formatted.text)summary.textContent=formatted.text;summary.setAttribute('aria-label',`${formatted.text}; expand for exact value`);if(exact.textContent!==`Exact value: ${formatted.exact}`)exact.textContent=`Exact value: ${formatted.exact}`;};
     subscribeDisplaySettings(renderKnownMinutes);renderKnownMinutes();
-    setInterval(()=>{knownMethods.render();renderKnownMinutes();},1000);
+    const refreshKnown=()=>{knownMethods.render();renderKnownMinutes();};
+    setInterval(()=>{if(!deferWhileHidden(refreshKnown,refreshKnown))refreshKnown();},1000);
 
     featureExpansionPanel=createFeatureExpansionPanel({read:()=>({...readProgression(),context:featureWaveContext(),battleView:featureBattleHost.view(),battleRunning:featureBattleHost.isRunning(),notice:featureBattleHost.pauseReason(),canWrite:ownsSave&&!foundationSaveBlocked&&!importProbeToken}),command:actFeatureExpansion,present:snapshot=>refinementPresentation(snapshot,expeditionRegistry,{base:featureWavePresentation,relayHost,referenceDeskHost,replacementContext:backlogContext})});
     if(foundationProbeEnabled)foundationInteractionPanel=createFoundationInteractionPanel({registry:expeditionRegistry,enabled:true,read:()=>({state:expansionState,context:expeditionContext(),enabled:ownsSave&&!foundationSaveBlocked&&!importProbeToken&&!nativeOccupationReason(),error:expansionError}),command:actFoundationInteraction});
@@ -9926,7 +10008,8 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
         effects:getCustomizationSettings(customization,'location',{season:current_game_time.getSeason()}).effects
     })});
     refreshCustomization();
-    setInterval(()=>{quietPlaceDetail.render();workLedgerPanel?.render();customizationPanel?.refresh();if(!workspaceOwns(customizationHost)&&!customizationHost.isConnected)document.getElementById('location_actions_div')?.append(customizationHost);workLedgerAuthor?.refresh();},250);
+    const pollDisplays=()=>{quietPlaceDetail.render();workLedgerPanel?.render();customizationPanel?.refresh();if(!workspaceOwns(customizationHost)&&!customizationHost.isConnected)document.getElementById('location_actions_div')?.append(customizationHost);workLedgerAuthor?.refresh();};
+    setInterval(()=>{if(!deferWhileHidden(pollDisplays,pollDisplays))pollDisplays();},250);
     villageCareerControls = createVillageCareerControls({read:()=>({state:villageCareer,study:watchcraftPresentation(villageCareer,watchcraftKnown()),hasNotes:!!character.getItems()[item_templates[WATCHCRAFT_BOOK].getInventoryKey()],
         visible:current_location?.id==='Village' && expansionState.actors.player.worldId==='base.frontier' && !current_dialogue && !current_combat && !is_sleeping && !is_reading && !is_in_trade() && !current_game_action,
         canWrite:ownsSave&&!foundationSaveBlocked&&!importProbeToken,
@@ -10093,7 +10176,8 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
             reason:optionalPackState.packs.authored_site?.active?'Return to the Village from the site to change it.':''}),
         apply:draft=>commandAuthoredSite('apply',draft),reset:()=>commandAuthoredSite('reset'),openSite:()=>openWorkspaceModule('optional-worlds'),
         download:(name,text)=>{const url=URL.createObjectURL(new Blob([text],{type:'application/json'})),a=document.createElement('a');a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),0);}});
-    setInterval(()=>authoredSiteEditor.refresh(),500);
+    const refreshSiteEditor=()=>authoredSiteEditor.refresh();
+    setInterval(()=>{if(!deferWhileHidden(refreshSiteEditor,refreshSiteEditor))refreshSiteEditor();},500);
     registerWorkspaceModule({id:'customization-sites',title:'Original site',node:authoredHost,home:'center'});
     mountWorkspace();
     refreshCustomization();
@@ -10176,8 +10260,18 @@ if(is_on_dev()) {
     );
 }
 
+// Page exit or a hidden tab stores counters that unchanged autosaves skipped.
+function flushDurableSaves() {
+    if(importProbeToken || !ownsSave || foundationSaveBlocked || is_loading_error || lifeStorageFailure || authorityEnrolled()) return;
+    try {durableSaves.flush();} catch(error) {console.error('Skipped save counters could not be stored.', error);}
+}
+window.addEventListener('pagehide', flushDurableSaves);
+window.addEventListener('beforeunload', flushDurableSaves);
+document.addEventListener('visibilitychange', () => {if(document.hidden) flushDurableSaves();});
+
 if(testHooksEnabled) {
     window.advanceTicks = advanceTicks;
+    window.fastForward = fastForward;
     window.simulationTestHooks = Object.freeze({pause:pauseEngine,resume:resumeEngine,snapshot:()=>JSON.parse(create_save()),tickrate:()=>tickrate});
 }
 

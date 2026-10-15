@@ -2,6 +2,7 @@ import {LIFE_LESSONS,lifeExperienceView,lifeGrave} from './life_experience.js';
 import {ageYears, lifespanDeadline, responseCost} from "./chronicle.js";
 import {Game_Time, format_time} from "./game_time.js";
 import {knownPeopleView} from "./people_knowledge.js";
+import {setText, syncChildren} from "./dom_sync.js";
 
 export function createChroniclePanel({read, command, duty, cancelDuty, exportSave, reset, beginHeir, heirPreview,beginIndependent,archiveExports=[]}) {
     const node = (tag, text = "") => {const n = document.createElement(tag); n.textContent = text; return n;};
@@ -12,7 +13,7 @@ export function createChroniclePanel({read, command, duty, cancelDuty, exportSav
     const life = node("p"), relation = node("p"), encounter = node("p"), controls = node("div"), events = node("div"), history = node("ol");
     const inheritance = node("p"); inheritance.id = "chronicle_inheritance";
     body.append(life, inheritance, relation, encounter, controls, events, history);
-    let notice = "", signature, focusEnded = false;
+    let notice = "", signature, focusEnded = false, lastChronicle, chronicleJSON, lastSmall;
     const buttons = new Map();
     const add = (id, label, action) => {
         const b = node("button", label); b.type = "button"; b.dataset.chronicle = id;
@@ -72,39 +73,46 @@ export function createChroniclePanel({read, command, duty, cancelDuty, exportSav
     function render(force = false) {
         if(!panel.isConnected) document.getElementById("location_actions_div").append(panel);
         const {structuredLife:localEnd,state, context, enabled, error, occupied, dutyJob, canWrite, pauseReason} = read(), c = state.chronicle;
-        const sig = JSON.stringify([localEnd,c, context.location, context.stamina, context.ratStep, enabled, occupied, dutyJob, error, pauseReason, notice]);
+        // Same signature as before (chronicle JSON plus the small fields); the chronicle
+        // is serialized again only when a new chronicle object is published.
+        const small = JSON.stringify([localEnd, context.location, context.stamina, context.ratStep, enabled, occupied, dutyJob, error, pauseReason, notice]);
+        if(!force && c === lastChronicle && small === lastSmall && signature !== undefined) return;
+        if(c !== lastChronicle || chronicleJSON === undefined) {lastChronicle = c; chronicleJSON = JSON.stringify(c);}
+        lastSmall = small;
+        const sig = chronicleJSON + "\u0000" + small;
         if(!force && sig === signature) return; signature = sig;
-        status.textContent = error || pauseReason || notice || "Only played game time advances your age.";
+        setText(status, error || pauseReason || notice || "Only played game time advances your age.");
         if(!c) {
-            life.textContent = "Enrollment starts a new adult age record now; old saves are not retroactively aged. Mortal mode ends the life at 80 game years and pauses play. Choose once; ordinary combat defeat still means fainting.";
-            relation.textContent = enabled ? "You have met the elder. Invitations and age tracking begin when you enroll." : "Meet the Village elder, finish current work and return to Village to enroll."; encounter.textContent = "";
+            setText(life, "Enrollment starts a new adult age record now; old saves are not retroactively aged. Mortal mode ends the life at 80 game years and pauses play. Choose once; ordinary combat defeat still means fainting.");
+            setText(relation, enabled ? "You have met the elder. Invitations and age tracking begin when you enroll." : "Meet the Village elder, finish current work and return to Village to enroll."); setText(encounter, "");
         } else {
             const remaining = Math.max(0, lifespanDeadline(c) - state.clock);
-            life.textContent = `Age ${ageYears(c).toFixed(3)} · ${format_time({time:{minutes:state.clock-c.enrolledAt}}) || "0m"} elapsed · ` +
-                (c.life.mode === "open" ? "No old-age ending in this life" : `Mortal lifespan ${c.life.lifespan} years · ${(remaining / (360 * 24 * 60)).toFixed(3)} years remaining`);
-            relation.textContent = knownPeopleView(state, {"village.elderMet":true}).find(p => p.id === "villageElder").details.join(" ");
+            setText(life, `Age ${ageYears(c).toFixed(3)} · ${format_time({time:{minutes:state.clock-c.enrolledAt}}) || "0m"} elapsed · ` +
+                (c.life.mode === "open" ? "No old-age ending in this life" : `Mortal lifespan ${c.life.lifespan} years · ${(remaining / (360 * 24 * 60)).toFixed(3)} years remaining`));
+            setText(relation, knownPeopleView(state, {"village.elderMet":true}).find(p => p.id === "villageElder").details.join(" "));
             const s = c.session;
-            encounter.textContent = s ? `${s.intent === "spar" ? "Agreed challenge" : "Hostile attack; elder attempts restraint"} · turn ${s.turn + 1}/16 · stamina ${context.stamina.toFixed(1)} · your control pressure ${s.heroPosture.toFixed(1)}/${c.elder.profile.control} · elder pressure ${s.elderPosture.toFixed(1)}/${c.elder.profile.posture} · ` +
+            setText(encounter, s ? `${s.intent === "spar" ? "Agreed challenge" : "Hostile attack; elder attempts restraint"} · turn ${s.turn + 1}/16 · stamina ${context.stamina.toFixed(1)} · your control pressure ${s.heroPosture.toFixed(1)}/${c.elder.profile.control} · elder pressure ${s.elderPosture.toFixed(1)}/${c.elder.profile.posture} · ` +
                 (s.phase === "recovery" ? "Recovery opening: a separate counterattack or withdrawal." : s.cue === "tracking" ? "His hand tracks the committed approach. Movement may be followed; guard is available." : "A broad sweep leaves a movement opening; reaction and stamina still matter.") +
-                (s.policy === "manual" ? " Time waits for your response; each exchange spends one game minute." : ` Prepared policy: ${s.policy}.`) : "";
+                (s.policy === "manual" ? " Time waits for your response; each exchange spends one game minute." : ` Prepared policy: ${s.policy}.`) : "");
         }
-        for(const [id,b] of buttons) {b.hidden = true; b.disabled = !!error || !canWrite;}
-        const show = (id, disabled = false) => {const b = buttons.get(id); b.hidden = false; b.disabled ||= disabled;};
+        // Decide every control first, then write only what changed.
+        const want = new Map([...buttons.keys()].map(id => [id, {hidden: true, disabled: !!error || !canWrite}]));
+        const show = (id, disabled = false) => {const b = want.get(id); b.hidden = false; b.disabled ||= disabled;};
         const h = c?.life.experience?.inheritance, from = c?.life.experience?.inheritedFrom;
         const n = (k, word) => `${k} ${word}${k === 1 ? "" : "s"}`;
-        inheritance.textContent = h ? `Generation ${c.life.experience.generation}. ${h.recipient === "apprentice" ? "Apprentice" : "Next of kin"} of ${from.name}. Received ${n(h.money, "coin")}, ${n(h.belongings, "belonging")}, ${n(h.chest, "stored good")}${h.home ? ", the Shack" : ""}; ${n(h.papers.length, "written paper")}; ${n(h.obligations.length, "open obligation")}.`
-            : from ? `Generation ${c.life.experience.generation}. Heir of ${from.name}, begun under the earlier one-lesson rule.` : "";
+        setText(inheritance, h ? `Generation ${c.life.experience.generation}. ${h.recipient === "apprentice" ? "Apprentice" : "Next of kin"} of ${from.name}. Received ${n(h.money, "coin")}, ${n(h.belongings, "belonging")}, ${n(h.chest, "stored good")}${h.home ? ", the Shack" : ""}; ${n(h.papers.length, "written paper")}; ${n(h.obligations.length, "open obligation")}.`
+            : from ? `Generation ${c.life.experience.generation}. Heir of ${from.name}, begun under the earlier one-lesson rule.` : "");
         if(!c) {show("begin-open", !enabled); show("begin-mortal", !enabled);}
         else if(c.life.endedAt === null) {
             const r = c.relationships.villageElder, s = c.session, available = enabled && !occupied;
             if(s) {
                 for(const id of ["guard", "step", "rat-step", "strike", "withdraw", "manual", "auto-guard", "auto-footwork"]) show(id);
-                for(const id of ["guard", "step", "rat-step"]) buttons.get(id).disabled ||= s.phase !== "cue";
-                buttons.get("rat-step").disabled ||= !s.ratStep;
+                for(const id of ["guard", "step", "rat-step"]) want.get(id).disabled ||= s.phase !== "cue";
+                want.get("rat-step").disabled ||= !s.ratStep;
                 for(const id of ["guard","step","rat-step","strike"]) {
                     const cost = responseCost(c,id);
-                    buttons.get(id).textContent = `${({guard:"Guard",step:"Ordinary sidestep","rat-step":"Earned Rat-step",strike:"Strike / counter"})[id]} · ${cost.toFixed(1)} stamina`;
-                    buttons.get(id).disabled ||= context.stamina < cost;
+                    setText(buttons.get(id), `${({guard:"Guard",step:"Ordinary sidestep","rat-step":"Earned Rat-step",strike:"Strike / counter"})[id]} · ${cost.toFixed(1)} stamina`);
+                    want.get(id).disabled ||= context.stamina < cost;
                 }
             } else {
                 const living=lifeExperienceView(c);
@@ -126,20 +134,21 @@ export function createChroniclePanel({read, command, duty, cancelDuty, exportSav
                 if(r.ties.grievance) show("settle", !available || context.money < 3);
             }
         }
-        events.replaceChildren(...(c ? Object.values(c.events).map(e => node("p", `${e.label} · ${e.place} · ${e.status === "missed" && !e.heard ? "window closed; aftermath not yet heard" : e.status} · ` +
+        for(const [id, b] of buttons) {const w = want.get(id); if(b.hidden !== w.hidden) b.hidden = w.hidden; if(b.disabled !== w.disabled) b.disabled = w.disabled;}
+        syncChildren(events, (c ? Object.values(c.events).map(e => node("p", `${e.label} · ${e.place} · ${e.status === "missed" && !e.heard ? "window closed; aftermath not yet heard" : e.status} · ` +
             (e.status === "scheduled" ? `opens ${moment(c,e.opensAt)}; closes ${moment(c,e.closesAt)}` : e.status === "open" ? `closes ${moment(c,e.closesAt)} (${e.closesAt - state.clock} game minutes)` : e.status === "resolved" ? `resolved ${moment(c,e.settledAt)}` : `window ended ${moment(c,e.closesAt)}`))) : []));
-        history.replaceChildren(...(c ? c.log.slice(-8).reverse().map(m => node("li", m.text)) : []));
+        syncChildren(history, c ? c.log.slice(-8).reverse().map(m => node("li", m.text)) : []);
         const ended = !!localEnd || !!c && c.life.endedAt !== null;
-        endDescription.textContent=localEnd?.description||"Old age ended this mortal life. Game time and activities have stopped. Your possessions, learned knowledge and chronicle are still saved.";
+        setText(endDescription, localEnd?.description||"Old age ended this mortal life. Game time and activities have stopped. Your possessions, learned knowledge and chronicle are still saved.");
         independentButton.hidden=!localEnd||!beginIndependent;independentButton.disabled=!canWrite;resetButton.hidden=!!localEnd;graveText.hidden=bequestText.hidden=legacyHelp.hidden=!!localEnd;
         end.hidden = !ended; document.getElementById("main_content").inert = ended;
         heirButton.hidden=!beginHeir||!!localEnd&&c?.life.endedAt==null;
-        legacyHelp.textContent=beginHeir ? 'An heir begins with their own body, skills and starting things. They also receive what this life actually left behind:' : 'What this life left behind waits for someone to claim it. Export these memories to keep the whole life.';
-        if(ended&&!localEnd){const grave=lifeGrave(c,context.heroName);graveText.textContent=`A quiet grave. ${grave.epitaph}`;
+        setText(legacyHelp, beginHeir ? 'An heir begins with their own body, skills and starting things. They also receive what this life actually left behind:' : 'What this life left behind waits for someone to claim it. Export these memories to keep the whole life.');
+        if(ended&&!localEnd){const grave=lifeGrave(c,context.heroName);setText(graveText, `A quiet grave. ${grave.epitaph}`);
             let lines;try{lines=heirPreview?heirPreview():[];}catch(e){lines=[e.message];}
-            bequestText.replaceChildren(...lines.map(t=>node('li',t)));}
-        if(localEnd)endHeading.textContent=localEnd.label;
-        else if(ended) endHeading.textContent = `${context.heroName || "Your character"}’s life ended at ${lifeExperienceView(c).age}`;
+            syncChildren(bequestText, lines.map(t=>node('li',t)));}
+        if(localEnd)setText(endHeading, localEnd.label);
+        else if(ended) setText(endHeading, `${context.heroName || "Your character"}’s life ended at ${lifeExperienceView(c).age}`);
         if(ended && !focusEnded) {focusEnded = true; exportButton.focus();}
     }
     render(); return {panel, render};

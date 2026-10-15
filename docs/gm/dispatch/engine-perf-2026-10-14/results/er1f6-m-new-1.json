@@ -1,0 +1,21 @@
+{
+ "url": "http://127.0.0.1:49490/index.html",
+ "wallMs": 20215,
+ "jsBusyMs": 4011,
+ "jsBusyPct": 19.8,
+ "taskBusyPct": 22.5,
+ "scriptMs": 3880,
+ "layoutMs": 42,
+ "styleMs": 84,
+ "timerCallbacksPerSec": 4.9,
+ "timersSetPerSec": 4.9,
+ "rafPerSec": 4.8,
+ "longTasks": 20,
+ "longTaskMaxMs": 953,
+ "kills": [
+  0,
+  0
+ ],
+ "inCombatAtEnd": true,
+ "errors": []
+}
