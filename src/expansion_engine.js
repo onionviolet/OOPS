@@ -630,8 +630,11 @@ export function commitAction(state, registry, actionId, context, expectedSequenc
     return {state: next, external, gameplay, acquisitions, gameplayBefore: clone(context.gameplay || {}), preview, commitment: clone(job)};
 }
 
+// About two million game years. An advance may not end past it, so a corrupt
+// duration cannot leave a clock with no safe-integer room to advance again.
+export const MAX_SIMULATION_CLOCK = 2 ** 40;
 export function advanceSimulation(state, registry, minutes, external = {}, gameplay = {}, simulationContexts = {}) {
-    check(integer(minutes) && Number.isSafeInteger(state.clock + minutes), "Invalid simulation duration.");
+    check(integer(minutes) && state.clock + minutes <= MAX_SIMULATION_CLOCK, "Invalid simulation duration.");
     validateBudget(external);
     validateGameplaySnapshot(gameplay);
     const next = clone(state), budgets = clone(external), owned = clone(gameplay);
