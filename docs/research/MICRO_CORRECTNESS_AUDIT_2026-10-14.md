@@ -141,3 +141,21 @@ The new classes are distribution bias, post-durable exceptions and mutation by
 read-only helpers. F9/F11 do not justify automatic balance changes. Scope remains
 research only. Browser behavior, whole-game replay, source-to-bundle parity,
 save/reload/import of a repaired candidate and director acceptance are unrun.
+
+## Lane E follow-up: seeded sites and replay (2026-10-14)
+
+Implemented on `claude/wave-e-replay-37566f`; the full inventory and evidence are
+in [REPLAY_LANE_E](../gm/dispatch/engine-perf-2026-10-14/REPLAY_LANE_E.md).
+P1 streams (7b787fdd) had already moved ER9-R4 to R8 and R10's local-life
+default. This lane moved the new guardian bleed hook (`enemies.js:285`) to the
+combat stream and made the `combat_math.js` default throw instead of drawing
+Math.random. `misc.js` `random_range`, `display.js` and `particles.js` are
+labeled cosmetic or unbound fallback. The ten `main.js` lines are cosmetic
+text, click and ambient-log picks; a label patch is proposed to its owner.
+
+**Compatibility decision:** saves without `expansion.streams` or a stream
+cell load unchanged. Streams derive lazily from the save's `expansion.rng`;
+the legacy cursor does not move; no format version or migration. Outcome
+distributions are unchanged. Whole-engine replay (`scripts/replay/`) now
+records save + seed + clock-stamped command log and compares canonical
+durable JSON byte for byte.
