@@ -1,15 +1,14 @@
 // Rebuilt game, fresh contexts, generated saves only. No personal save access.
 const assert = require('node:assert/strict'), fs = require('node:fs'), path = require('node:path');
-const {chromium} = require(process.env.YAIRPG_PLAYWRIGHT || 'playwright');
-const {openNotebook} = require('./ui_helpers.cjs');
+const {openNotebook, runBrowser, waitForPage} = require('./ui_helpers.cjs');
+// Natural pace only: dev stepping raced live test-hooks timers at the commission/interrupt step.
 const url = process.env.YAIRPG_PROOF_URL || 'http://127.0.0.1:18744/';
 const output = process.env.YAIRPG_PROOF_DIR || '/tmp/yairpg-everyday-proof';
 fs.mkdirSync(output, {recursive: true});
-(async () => {
+runBrowser(async browser => {
     const errors = [], warnings = [], findings = [];
-    const browser = await chromium.launch({headless: true, ...(process.env.YAIRPG_CHROME ? {executablePath: process.env.YAIRPG_CHROME} : {})});
     const open = async fixture => {
-        const context = await browser.newContext({viewport: {width: 1600, height: 1100}});
+        const context = await browser.newContext({viewport: {width: 1366, height: 768}});
         if(fixture) await context.addInitScript(data => {if(!localStorage.getItem('save data')) localStorage.setItem('save data', JSON.stringify(data));}, fixture);
         const page = await context.newPage(); page.setDefaultTimeout(14000);
         page.on('pageerror', e => {errors.push(e.stack); console.error(e.stack);});
@@ -33,25 +32,25 @@ fs.mkdirSync(output, {recursive: true});
     let {page, context} = await open();
     const fingerprint = await page.evaluate(() => performance.getEntriesByType('resource').find(e => e.name.includes('/dist/bundle.js?version='))?.name);
     assert.ok(fingerprint.endsWith(fs.readFileSync('index.html','utf8').match(/dist\/bundle\.js\?version=[^&"]+/)[0]));
-    await page.getByText('Talk to someone', {exact:false}).click(); await page.locator('[data-dialogue="villageElder"]').click();
+    await page.getByRole('button', {name: 'Talk to someone'}).click(); await page.locator('[data-dialogue="villageElder"]').click();
     await page.locator('[data-textline="hello"]').click(); await page.locator('.end_dialogue_button').click(); await panel(page);
-    await village(page, 'village.waypost'); await page.waitForFunction(() => document.querySelector('[data-village-read]')?.hidden === false);
+    await village(page, 'village.waypost'); await waitForPage(page, () => document.querySelector('[data-village-read]')?.hidden === false);
     await page.locator('[data-village-bridge="inspect"]').click();
-    await page.waitForFunction(() => document.querySelector('#expedition_panel')?.textContent.includes('Anchor points known'));
+    await waitForPage(page, () => document.querySelector('#expedition_panel')?.textContent.includes('Anchor points known'));
     const found = await save(page); assert.equal(found.expansion.simulation, null); await context.close();
     const ready = structuredClone(found); ready.character.money = 30; ready.inventories.person.main_character[wood] = {count: 6};
     ready.availabilities.person.oldCraftsman |= 1; ready.availabilities.dialogue.oldCraftsman |= 1; ready.availabilities.location.Shack |= 1;
     ({page,context} = await open(ready));
-    await page.getByText('Talk to someone', {exact:false}).click(); await page.locator('[data-dialogue="oldCraftsman"]').click();
+    await page.getByRole('button', {name: 'Talk to someone'}).click(); await page.locator('[data-dialogue="oldCraftsman"]').click();
     await page.locator('[data-textline="hello"]').click(); await page.locator('.end_dialogue_button').click(); await panel(page);
     const prepared = await save(page);
     await village(page, 'village.route_lesson'); const tuition = await save(page);
     assert.equal(tuition.character.money, 28); assert.ok(tuition.expansion.pending.some(j => j.actionId === 'village.route_lesson'));
-    await reload(page); await page.waitForFunction(() => document.querySelector('#village_panel')?.innerText.includes("craftsman's explanation"));
+    await reload(page); await waitForPage(page, () => document.querySelector('#village_panel')?.innerText.includes("craftsman's explanation"));
     const taught = await save(page); assert.equal(taught.expansion.actors.player.facts['village.routeOrigin'], 'teacher');
     assert.equal(taught.books['Weathered route notes'], undefined); assert.equal(taught.levels.person.main_character.skill_xp.Literacy || 0, 0);
     assert.equal(taught.expansion.simulation, null); await shot(page, 'taught-route.png');
-    await page.locator('[data-village-read]').click(); await page.waitForFunction(() => document.querySelector('[data-village-read]')?.hidden === true);
+    await page.locator('[data-village-read]').click(); await waitForPage(page, () => document.querySelector('[data-village-read]')?.hidden === true);
     const alsoRead = await save(page); assert.equal(alsoRead.expansion.actors.player.facts['village.routeOrigin'], 'teacher');
     assert.equal(alsoRead.books['Weathered route notes'].accumulated_time, 4); const literacy = alsoRead.levels.person.main_character.skill_xp.Literacy;
     const encoded = await page.evaluate(() => window.save_to_file());
@@ -63,15 +62,15 @@ fs.mkdirSync(output, {recursive: true});
 
     const field = structuredClone(prepared); delete field.inventories.person.main_character[notes]; field.levels.person.main_character.skill_xp.Perception = 1000;
     ({page,context} = await open(field)); await panel(page); await village(page,'village.route_deduction'); await reload(page);
-    await page.waitForFunction(() => document.querySelector('#village_panel')?.innerText.includes('your own comparison'));
+    await waitForPage(page, () => document.querySelector('#village_panel')?.innerText.includes('your own comparison'));
     const deduced = await save(page); assert.equal(deduced.expansion.actors.player.facts['village.routeOrigin'],'field');
     assert.equal(deduced.inventories.person.main_character[notes],undefined); assert.equal(deduced.books['Weathered route notes'],undefined);
     assert.equal(deduced.levels.person.main_character.skill_xp.Literacy || 0,0);
     await page.evaluate(() => window.change_location({location_id:'Shack'})); await panel(page); await village(page,'village.route_board');
-    await page.waitForFunction(() => document.querySelector('#village_panel')?.innerText.includes("route board shows"));
+    await waitForPage(page, () => document.querySelector('#village_panel')?.innerText.includes("route board shows"));
     assert.equal((await save(page)).expansion.actors.player.facts['village.board'],true);
     await page.evaluate(() => window.change_location({location_id:'Village'})); await panel(page); await village(page,'village.dry_bank');
-    await page.waitForFunction(() => document.querySelector('#expedition_panel')?.textContent.includes('Guide: ready'));
+    await waitForPage(page, () => document.querySelector('#expedition_panel')?.textContent.includes('Guide: ready'));
     assert.equal((await save(page)).expansion.worlds['base.frontier'].facts.crossing,'unrepaired');
     await shot(page,'field-route-without-book.png'); await context.close(); findings.push('Generated trained Perception and missing-book fixture uses field deduction and the real dry-bank survey without new book progress or Literacy.');
 
@@ -88,26 +87,26 @@ fs.mkdirSync(output, {recursive: true});
     assert.equal(settled.expansion.simulation.relationships.oldCraftsman.player.axes.respect,0);
     assert.ok(settled.expansion.simulation.relationships.oldCraftsman.player.memories.some(m => m.text.includes('Interrupted')));
     assert.equal(settled.character.reputation.Village,prepared.character.reputation.Village);
-    await page.waitForFunction(() => !JSON.parse(localStorage.getItem('save data')).expansion.simulation.jobs.some(j => j.actorId === 'oldCraftsman'));
+    await waitForPage(page, () => !JSON.parse(localStorage.getItem('save data')).expansion.simulation.jobs.some(j => j.actorId === 'oldCraftsman'));
     assert.equal((await save(page)).inventories.person.oldCraftsman[wood].count,1);
-    await panel(page); await page.waitForFunction(() => !document.querySelector('[data-village-action="village.route_lesson"]').disabled);
+    await panel(page); await waitForPage(page, () => !document.querySelector('[data-village-action="village.route_lesson"]').disabled);
     await shot(page,'settled-conversation.png'); await context.close(); findings.push('Known working preferences, actual commission/interruption, saved moods, teacher refusal, real player-to-NPC apology material, retained memory and resumed teaching pass.');
 
     ({page,context} = await open(irritated)); await panel(page,true); await social(page,'village.give_space'); await reload(page,true);
-    await page.waitForFunction(() => document.querySelector('#workshop_personal_detail')?.innerText.includes('willing to talk'));
+    await waitForPage(page, () => document.querySelector('#workshop_personal_detail')?.innerText.includes('willing to talk'));
     const waited = await save(page); assert.equal(waited.inventories.person.main_character[wood].count,irritated.inventories.person.main_character[wood].count);
     assert.equal(waited.expansion.simulation.conditions.oldCraftsman['mood.irritated'],undefined);
     await context.close(); findings.push('A saved three-minute quiet alternative resolves the same mood without payment or deleting the earlier interruption memory.');
 
     ({page,context} = await open(irritated)); await page.evaluate(() => window.change_location({location_id:'Shack'})); await panel(page,true);
-    await social(page,'village.quiet_break'); await page.waitForFunction(() => !!JSON.parse(localStorage.getItem('save data')).expansion.simulation.conditions.player['mood.reassured']);
+    await social(page,'village.quiet_break'); await waitForPage(page, () => !!JSON.parse(localStorage.getItem('save data')).expansion.simulation.conditions.player['mood.reassured']);
     const calm = await save(page); assert.equal(calm.expansion.simulation.relationships.oldCraftsman.player.axes.respect,-1);
     assert.ok(calm.expansion.simulation.conditions.oldCraftsman['mood.irritated']); await panel(page); await shot(page,'quiet-shack.png'); await context.close();
     findings.push('Native travel and a quiet home break settle the player independently of the NPC mood/memory, with contextual Shack writing.');
 
     const late = structuredClone(prepared); late['current time'].hour = 10; late['current time'].minute = 0;
     ({page,context} = await open(late)); await panel(page); await village(page,'village.chalk_copy'); await reload(page);
-    await page.waitForFunction(() => document.querySelector('#village_panel')?.innerText.includes("chalk copy explains"));
+    await waitForPage(page, () => document.querySelector('#village_panel')?.innerText.includes("chalk copy explains"));
     const copied = await save(page); assert.equal(copied.character.money,29); assert.ok(copied.expansion.actors.player.sources['village.morning_signs']);
     assert.equal(copied.expansion.actors.player.facts['village.chalkRead'],true); await context.close();
     findings.push('A missed morning meeting has a real two-minute/one-coin finite fallback; pending reload preserves cost and gives the same temporary preparation.');
@@ -115,11 +114,12 @@ fs.mkdirSync(output, {recursive: true});
     ({page,context} = await open(prepared)); await panel(page); const bytes = await page.evaluate(() => localStorage.getItem('save data'));
     await page.evaluate(() => {Storage.prototype.setItem = function() {throw new DOMException('Injected quota','QuotaExceededError');};});
     await village(page,'village.route_lesson'); assert.equal(await page.evaluate(() => localStorage.getItem('save data')),bytes);
-    assert.ok((await page.locator('#village_panel').innerText()).includes('saving failed')); await reload(page);
+    // Quota errors show the storage-full notice (73519a0a), not the generic 'saving failed' text.
+    assert.ok((await page.locator('#village_panel').innerText()).includes('Your browser has no room for this life')); await reload(page);
     assert.equal((await save(page)).expansion.actors.player.facts['village.routeKnown'],false); await context.close();
     findings.push('Failed durable teaching publishes no tuition, job or learned route; reload restores the unlearned state.');
     assert.deepEqual(errors,[]); assert.deepEqual(warnings,[]);
-    fs.writeFileSync(path.join(output,'result.json'),JSON.stringify({url,fingerprint,findings,errors,warnings,generatedSavesOnly:true},null,2));
+    fs.writeFileSync(path.join(output,'result.json'),JSON.stringify({url,fingerprint,timeMode:'natural-pace',findings,errors,warnings,generatedSavesOnly:true},null,2));
     fs.writeFileSync(path.join(output,'review-save.json'),JSON.stringify(prepared));
-    console.log(JSON.stringify({url,fingerprint,findings,errors,warnings},null,2)); await browser.close();
-})().catch(e => {console.error(e); process.exit(1);});
+    console.log(JSON.stringify({url,fingerprint,timeMode:'natural-pace',findings,errors,warnings},null,2));
+}).catch(e => {console.error(e); process.exitCode = 1;});

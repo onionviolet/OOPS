@@ -1,11 +1,11 @@
 const {engineWait}=require('./simulation_check_helpers.cjs');
 // Disposable fresh origins only. Native controls earn inputs; no dev grants.
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path');
-const {chromium}=require('/Users/weiwei/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
+const {launchChrome,timeMode}=require('./ui_helpers.cjs');
 const URL=process.env.YAIRPG_PROOF_URL||'http://127.0.0.1:18950/?test_hooks=1';
 const OUT=process.env.YAIRPG_PROOF_DIR||'/tmp/systems-workshop-proof';fs.mkdirSync(OUT,{recursive:true});
 const SW='systems_workshop',K=id=>JSON.stringify({id}),P=SW+'.provider',N=SW+'.apprentice';
-(async()=>{const errors=[],cases=[];const browser=await chromium.launch({headless:true,executablePath:'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'});
+(async()=>{const errors=[],cases=[];const browser=await launchChrome();
  let page,context;
  const start=async fixture=>{if(!fixture&&process.env.YAIRPG_START_FIXTURE)fixture=JSON.parse(fs.readFileSync(process.env.YAIRPG_START_FIXTURE,'utf8'));context=await browser.newContext({viewport:{width:1366,height:768}});if(fixture)await context.addInitScript(d=>{if(!sessionStorage.getItem('workshop-fixture-seeded')){localStorage.setItem('save data',JSON.stringify(d));sessionStorage.setItem('workshop-fixture-seeded','1');}},fixture);page=await context.newPage();page.setDefaultTimeout(30000);page.on('pageerror',e=>errors.push(e.message));await page.goto(URL);await play();return page;};
  const play=async()=>{await page.getByText('PLAY',{exact:true}).click({noWaitAfter:true});if(await page.getByText('Confirm',{exact:true}).isVisible())await page.getByText('Confirm',{exact:true}).click({noWaitAfter:true});await panel();if(process.env.YAIRPG_REAL_TIMERS!=='1')await page.evaluate(()=>simulationTestHooks.pause());};
@@ -40,6 +40,6 @@ const SW='systems_workshop',K=id=>JSON.stringify({id}),P=SW+'.provider',N=SW+'.a
  s=await save();const downloadPromise=page.waitForEvent('download');await page.locator('#save_to_file_button').click();const download=await downloadPromise;await download.saveAs(path.join(OUT,'natural-final-save.txt'));const payload=fs.readFileSync(path.join(OUT,'natural-final-save.txt'),'utf8');await reload();const after=await save();for(const key of ['upgraded','learned','modelApplied','rationUsed','parcelUsed','wagerUsed','renCollected'])assert.equal(flag(after,key),flag(s,key));
  if(process.env.YAIRPG_REAL_TIMERS!=='1')await page.evaluate(()=>simulationTestHooks.resume());const importedLoad=page.waitForEvent('load');await page.locator('#saved_file_input').setInputFiles({name:'disposable-workshop.txt',mimeType:'text/plain',buffer:Buffer.from(payload)});await importedLoad;await play();const imported=await save();assert.deepEqual(imported.expansion.actors.player.resources,s.expansion.actors.player.resources);assert.equal(flag(imported,'draw'),flag(s,'draw'));assert.equal(imported.expansion.simulation.owners[N][K('Rough wood log')],1);cases.push('SYS-R08 native save/reload and actual file-input import preserve grants, stream, settled outcome, permanent carrier and NPC custody');
  await page.screenshot({path:path.join(OUT,'natural-finished.png'),fullPage:true});fs.writeFileSync(path.join(OUT,'natural-final-save.json'),JSON.stringify(imported));
- assert.deepEqual(errors,[]);fs.writeFileSync(path.join(OUT,'NATIVE_PROOF.json'),JSON.stringify({url:URL,bundle,cases,errors,naturalInputs:true,devGrants:false,finalClock:imported.expansion.clock},null,2));console.log(JSON.stringify({cases:cases.length,errors,candidateURL:URL}));
+ assert.deepEqual(errors,[]);fs.writeFileSync(path.join(OUT,'NATIVE_PROOF.json'),JSON.stringify({url:URL,bundle,timeMode:timeMode(),cases,errors,naturalInputs:true,devGrants:false,finalClock:imported.expansion.clock},null,2));console.log(JSON.stringify({cases:cases.length,timeMode:timeMode(),errors,candidateURL:URL}));
  }catch(e){if(page){fs.writeFileSync(path.join(OUT,'failure-ui.txt'),await page.locator('body').innerText());await page.screenshot({path:path.join(OUT,'failure.png'),fullPage:true});fs.writeFileSync(path.join(OUT,'failure-errors.json'),JSON.stringify(errors));}throw e;}finally{await browser.close();}
-})();
+})().catch(e=>{console.error(e);process.exitCode=1;});
