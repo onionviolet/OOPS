@@ -18,3 +18,4 @@ Resume: `python3 launch.py --resume hl <session>`
 | lp4 (resume, port 8202) | 01a13c6f-3576-7ba3-808a-c9824ad2c586 | 2026-10-14 |
 | lp2 (from 277c8ffd) | 01a13cf2-79d5-7f32-ac4f-f87408342783 | 2026-10-14 |
 | lp3 (from 277c8ffd) | 01a13cf2-819b-7d50-b1f0-85a15fb89f66 | 2026-10-14 |
+| lp23merge (hl-integration) | 01a13d03-8eea-7843-9329-67f673052a55 | 2026-10-14 |

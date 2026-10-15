@@ -1,7 +1,7 @@
 """Detached Codex launcher (setsid double fork). Usage: launch.py hl | launch.py --resume hl SESSION_ID [ADDENDUM.md]"""
 import os,sys,pathlib,time
 CODEX='/Users/weiwei/MacTransferArchive/Application-staging/ChatGPT.app/Contents/Resources/codex-cli/CodexCLI.app/Contents/MacOS/codex'
-REPO='/Users/weiwei/code/yet-another-idle-rpg';WT={f'lp{n}':REPO+f'/.claude/worktrees/hl-lp{n}' for n in range(1,9)};PROMPTS={'lp1':'LP1_ASSIGNMENT.md','deep':'DEEP_ASSIGNMENT.md','similar':'SIMILAR_ASSIGNMENT.md',**{f'lp{n}':f'LP{n}_ASSIGNMENT.md' for n in range(2,9)}};HERE=pathlib.Path(__file__).resolve().parent
+REPO='/Users/weiwei/code/yet-another-idle-rpg';WT={**{f'lp{n}':REPO+f'/.claude/worktrees/hl-lp{n}' for n in range(1,9)},'lp23merge':REPO+'/.claude/worktrees/hl-integration'};PROMPTS={'lp1':'LP1_ASSIGNMENT.md','deep':'DEEP_ASSIGNMENT.md','similar':'SIMILAR_ASSIGNMENT.md','lp23merge':'LP23_MERGE_ASSIGNMENT.md',**{f'lp{n}':f'LP{n}_ASSIGNMENT.md' for n in range(2,9)}};HERE=pathlib.Path(__file__).resolve().parent
 LOGS=HERE/'runs'
 def spawn(lane,argv):
  LOGS.mkdir(parents=True,exist_ok=True);log=LOGS/f'{lane}.log'
