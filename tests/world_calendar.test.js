@@ -95,17 +95,19 @@ test('W33.T6 actual host publication seam emits only after storage success and b
     const end = source.indexOf('    if(plan.pacingNext)', start);
     const seam = source.slice(start, end);
     const lines = [], next = view(1080), log = createCalendarLog(text => lines.push(text));
+    let invalidations = 0;
     log.commit(view()); lines.length = 0;
     const context = {plan: {state: {clock: 1080}}, create_save() {}, lifeSaveStorage: {}, stagedGameplay: {bindings: {}},
         ownershipBindings: {}, unlockPublication: {}, equipmentPublication: {}, nativePublication: {},
         validateSaveEnvelope() {}, game_version: 'test', is_on_dev: () => true, dev_save_key: 'dev', save_key: 'save',
         current_combat: null, expansionState: {clock: 0}, nextLocalCalendar: next, localDateLog: log,
+        readFrame: {invalidate() {invalidations++;assert.equal(context.expansionState.clock, 0);}},
         persistExpansionPlan() {throw Error('storage failed');}};
     assert.throws(() => vm.runInNewContext(`(function(){${seam}})()`, context), /storage failed/);
-    assert.equal(context.expansionState.clock, 0); assert.equal(lines.length, 0);
+    assert.equal(context.expansionState.clock, 0); assert.equal(lines.length, 0); assert.equal(invalidations, 0);
     context.persistExpansionPlan = () => {};
     vm.runInNewContext(`(function(){${seam}})()`, context);
-    assert.equal(context.expansionState.clock, 1080); assert.equal(lines.length, 1);
+    assert.equal(context.expansionState.clock, 1080); assert.equal(lines.length, 1); assert.equal(invalidations, 1);
     assert.ok(end < source.indexOf('for(const message of plan.localLifeResult.messages)', end));
     const display = readFileSync(new URL('../src/display.js', import.meta.url), 'utf8');
     assert.match(display, /if\(details.safeText\) message.textContent = message_to_add/);
