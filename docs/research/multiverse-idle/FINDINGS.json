@@ -1,0 +1,191 @@
+{
+  "lane": "mw-multiverse-idle-ui",
+  "date": "2026-10-14",
+  "status": "PARTIAL",
+  "source_appid": 4122910,
+  "native_played": false,
+  "sources": {
+    "E01": "https://store.steampowered.com/app/4122910/Multiverse_Idle/",
+    "E02": "https://kappagames.itch.io/multiverse-idle",
+    "E03": "https://kappagames.itch.io/multiverse-idle/devlog/1326738/play-the-multiverse-idle-demo-on-steam",
+    "E04": "https://kappagames.itch.io/multiverse-idle/devlog/1318579/play-the-multiverse-idle-demo",
+    "E05": "https://kappagames.itch.io/multiverse-idle/devlog/1121838/v02-the-great-balance-patch",
+    "E06": "https://www.reddit.com/r/incremental_games/comments/1qeqz0u/web_itch_demo_out_for_multiverse_idle_an/",
+    "E07": "https://steamcommunity.com/app/4122910/discussions/",
+    "E08": "https://store.steampowered.com/api/appdetails?appids=4122910&l=english",
+    "E09": "https://api.steampowered.com/ISteamNews/GetNewsForApp/v2/?appid=4122910&count=30&maxlength=0",
+    "E10": "https://docs.godotengine.org/en/stable/tutorials/export/exporting_pcks.html",
+    "E11": "https://github.com/GDRETools/gdsdecomp",
+    "S01": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4122910/3d28194e3955e9c81f40d4568c429403c92308e3/ss_3d28194e3955e9c81f40d4568c429403c92308e3.1920x1080.jpg?t=1789512680",
+    "S02": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4122910/e00ddf0b591c63e6a7a76f1e474943aab8551d94/ss_e00ddf0b591c63e6a7a76f1e474943aab8551d94.1920x1080.jpg?t=1789512680",
+    "S03": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4122910/ebc9b5373b80181458ebde399109e22095b6dc35/ss_ebc9b5373b80181458ebde399109e22095b6dc35.1920x1080.jpg?t=1789512680",
+    "S04": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4122910/83dce1439a886648a42afdad8e57be7ea2ec020a/ss_83dce1439a886648a42afdad8e57be7ea2ec020a.1920x1080.jpg?t=1789512680",
+    "S05": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4122910/b2fdfdd17852c74c1e2b67384b3d8052564bae52/ss_b2fdfdd17852c74c1e2b67384b3d8052564bae52.1920x1080.jpg?t=1789512680",
+    "S06": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4122910/cf4cb1fb8e94f6b5dfe0bb7040817df4b8a87d4b/ss_cf4cb1fb8e94f6b5dfe0bb7040817df4b8a87d4b.1920x1080.jpg?t=1789512680"
+  },
+  "findings": [
+    {
+      "id": "MI-F01",
+      "evidence": "shown",
+      "sources": [
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4122910/3d28194e3955e9c81f40d4568c429403c92308e3/ss_3d28194e3955e9c81f40d4568c429403c92308e3.1920x1080.jpg?t=1789512680",
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4122910/e00ddf0b591c63e6a7a76f1e474943aab8551d94/ss_e00ddf0b591c63e6a7a76f1e474943aab8551d94.1920x1080.jpg?t=1789512680",
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4122910/ebc9b5373b80181458ebde399109e22095b6dc35/ss_ebc9b5373b80181458ebde399109e22095b6dc35.1920x1080.jpg?t=1789512680",
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4122910/83dce1439a886648a42afdad8e57be7ea2ec020a/ss_83dce1439a886648a42afdad8e57be7ea2ec020a.1920x1080.jpg?t=1789512680",
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4122910/b2fdfdd17852c74c1e2b67384b3d8052564bae52/ss_b2fdfdd17852c74c1e2b67384b3d8052564bae52.1920x1080.jpg?t=1789512680",
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4122910/cf4cb1fb8e94f6b5dfe0bb7040817df4b8a87d4b/ss_cf4cb1fb8e94f6b5dfe0bb7040817df4b8a87d4b.1920x1080.jpg?t=1789512680"
+      ],
+      "summary": "Stable desktop shell retains character/build/navigation at left, workspace center, contextual help or inspector at right above quest and system panes.",
+      "kit": [
+        "K14"
+      ],
+      "synthesis": "P01"
+    },
+    {
+      "id": "MI-F02",
+      "evidence": "shown",
+      "sources": [
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4122910/3d28194e3955e9c81f40d4568c429403c92308e3/ss_3d28194e3955e9c81f40d4568c429403c92308e3.1920x1080.jpg?t=1789512680"
+      ],
+      "summary": "World-origin roster filtering and selected-ally set progress expose provenance in the same workspace as formation and bonuses.",
+      "kit": [
+        "K6",
+        "K14",
+        "K15"
+      ],
+      "synthesis": "NEW MI-P03"
+    },
+    {
+      "id": "MI-F03",
+      "evidence": "shown",
+      "sources": [
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4122910/ebc9b5373b80181458ebde399109e22095b6dc35/ss_ebc9b5373b80181458ebde399109e22095b6dc35.1920x1080.jpg?t=1789512680",
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4122910/b2fdfdd17852c74c1e2b67384b3d8052564bae52/ss_b2fdfdd17852c74c1e2b67384b3d8052564bae52.1920x1080.jpg?t=1789512680"
+      ],
+      "summary": "Named worlds differ in enemy/reward presentation; Naturia capture also names zone and enemy modifiers. Actual modifier consumers and world-law breadth are unread.",
+      "kit": [
+        "K2",
+        "K9",
+        "K10",
+        "K13"
+      ],
+      "synthesis": "P14"
+    },
+    {
+      "id": "MI-F04",
+      "evidence": "shown",
+      "sources": [
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4122910/e00ddf0b591c63e6a7a76f1e474943aab8551d94/ss_e00ddf0b591c63e6a7a76f1e474943aab8551d94.1920x1080.jpg?t=1789512680"
+      ],
+      "summary": "Training projects rates, next milestones, caps, reset count and active slot capacity together. Offline stamina is visible, but elapsed-time math and return receipts are not.",
+      "kit": [
+        "K3",
+        "K14",
+        "K26"
+      ],
+      "synthesis": "P01/P13"
+    },
+    {
+      "id": "MI-F05",
+      "evidence": "shown",
+      "sources": [
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4122910/cf4cb1fb8e94f6b5dfe0bb7040817df4b8a87d4b/ss_cf4cb1fb8e94f6b5dfe0bb7040817df4b8a87d4b.1920x1080.jpg?t=1789512680"
+      ],
+      "summary": "Skill inspector separates acquisition prerequisites and price from execution mana and cooldown. A graph-shaped tree is not shown.",
+      "kit": [
+        "K3",
+        "K11",
+        "K14"
+      ],
+      "synthesis": "P04"
+    },
+    {
+      "id": "MI-F06",
+      "evidence": "stated",
+      "sources": [
+        "https://kappagames.itch.io/multiverse-idle",
+        "https://www.reddit.com/r/incremental_games/comments/1qeqz0u/web_itch_demo_out_for_multiverse_idle_an/"
+      ],
+      "summary": "Historical users missed world unlocks and save/options controls; developer acknowledged visibility and web save issues. These are dated reports, not current Steam reproduction.",
+      "kit": [
+        "K14",
+        "K18"
+      ],
+      "synthesis": "P04/P13"
+    },
+    {
+      "id": "MI-F07",
+      "evidence": "stated",
+      "sources": [
+        "https://kappagames.itch.io/multiverse-idle/devlog/1326738/play-the-multiverse-idle-demo-on-steam",
+        "https://kappagames.itch.io/multiverse-idle/devlog/1318579/play-the-multiverse-idle-demo",
+        "https://kappagames.itch.io/multiverse-idle/devlog/1121838/v02-the-great-balance-patch"
+      ],
+      "summary": "Web demo was withdrawn; Steam demo announcement claims autosaves and skills working. Older v0.2 explicitly requires restart from v0.1 and changes ally cap.",
+      "kit": [
+        "K18",
+        "K33"
+      ],
+      "synthesis": "P16"
+    },
+    {
+      "id": "MI-F08",
+      "evidence": "shown",
+      "sources": [
+        "https://store.steampowered.com/app/4122910/Multiverse_Idle/",
+        "https://store.steampowered.com/api/appdetails?appids=4122910&l=english"
+      ],
+      "summary": "Base game is listed coming soon, free; demo app ID 4330370 is offered. Ownership or purchase is not a prerequisite for public-media research.",
+      "kit": [
+        "K1"
+      ],
+      "synthesis": "none"
+    },
+    {
+      "id": "MI-F09",
+      "evidence": "stated",
+      "sources": [
+        "https://kappagames.itch.io/multiverse-idle"
+      ],
+      "summary": "Official Itch metadata identifies Godot; precise engine revision, script language and executable packaging remain unknown.",
+      "kit": [
+        "K34"
+      ],
+      "synthesis": "none"
+    },
+    {
+      "id": "MI-F10",
+      "evidence": "inferred",
+      "sources": [
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4122910/3d28194e3955e9c81f40d4568c429403c92308e3/ss_3d28194e3955e9c81f40d4568c429403c92308e3.1920x1080.jpg?t=1789512680",
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4122910/ebc9b5373b80181458ebde399109e22095b6dc35/ss_ebc9b5373b80181458ebde399109e22095b6dc35.1920x1080.jpg?t=1789512680",
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4122910/b2fdfdd17852c74c1e2b67384b3d8052564bae52/ss_b2fdfdd17852c74c1e2b67384b3d8052564bae52.1920x1080.jpg?t=1789512680",
+        "https://store.steampowered.com/app/4122910/Multiverse_Idle/"
+      ],
+      "summary": "Source suggests a shared trained player/team moving through battle destinations, not demonstrated jurisdiction-aware item/power/relationship carryover or parallel world simulation.",
+      "kit": [
+        "K2",
+        "K15",
+        "K17",
+        "K18"
+      ],
+      "synthesis": "P05/P14"
+    },
+    {
+      "id": "MI-F11",
+      "evidence": "shown",
+      "sources": [
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4122910/3d28194e3955e9c81f40d4568c429403c92308e3/ss_3d28194e3955e9c81f40d4568c429403c92308e3.1920x1080.jpg?t=1789512680",
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4122910/e00ddf0b591c63e6a7a76f1e474943aab8551d94/ss_e00ddf0b591c63e6a7a76f1e474943aab8551d94.1920x1080.jpg?t=1789512680",
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4122910/ebc9b5373b80181458ebde399109e22095b6dc35/ss_ebc9b5373b80181458ebde399109e22095b6dc35.1920x1080.jpg?t=1789512680",
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4122910/cf4cb1fb8e94f6b5dfe0bb7040817df4b8a87d4b/ss_cf4cb1fb8e94f6b5dfe0bb7040817df4b8a87d4b.1920x1080.jpg?t=1789512680"
+      ],
+      "summary": "System logs contain repeated defeat/daily-reset messages while contextual help remains extensive; a screenshot can show information density without proving attention quality.",
+      "kit": [
+        "K14",
+        "K23"
+      ],
+      "synthesis": "P01/P20"
+    }
+  ]
+}

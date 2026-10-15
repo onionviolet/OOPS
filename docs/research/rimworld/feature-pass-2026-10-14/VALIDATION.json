@@ -1,0 +1,12 @@
+{
+  "status": "pass_for_artifact_integrity_only",
+  "json": "valid",
+  "required_files": 10,
+  "aspect_keys": 12,
+  "source_paths": "all non-glob paths exist",
+  "hashes_verified": 1990,
+  "small_touches": 30,
+  "runtime": "not_run_prohibited",
+  "checkout_writes": "lane output directory only",
+  "limitations": "feature questions source-answered; whole aspects partial"
+}

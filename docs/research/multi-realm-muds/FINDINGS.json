@@ -1,0 +1,639 @@
+{
+  "lane": "mw-muds",
+  "date": "2026-10-14",
+  "scope": "Public pages only; no play, no server source; shown examples are published tutorials or website code",
+  "findings": [
+    {
+      "id": "MW-F01",
+      "game": "both",
+      "evidence": "stated",
+      "title": "Shared traveler, different places",
+      "summary": "RetroMUD describes one Gifted One traveling six worlds. 3K connects Fantasy, Science and Chaos through Pinnacle. Neither overview establishes a universal import/suppression system.",
+      "sources": [
+        {
+          "id": "retro-home",
+          "url": "https://www.retromud.org/frames/main_home.html",
+          "private_capture": "/Users/weiwei/.codex/research/mw-muds/extract/retro-home.html"
+        },
+        {
+          "id": "3k-realms",
+          "url": "https://3k.org/realms/index.php",
+          "private_capture": "/Users/weiwei/.codex/research/mw-muds/extract/3k-realms.html"
+        }
+      ],
+      "kit": [
+        "K2",
+        "K5",
+        "K15"
+      ],
+      "synthesis_packets": [
+        "P14",
+        "P05"
+      ],
+      "adoption": "PROPOSAL_ONLY"
+    },
+    {
+      "id": "MW-F02",
+      "game": "RetroMUD",
+      "evidence": "stated",
+      "title": "World identity changes useful means",
+      "summary": "Perdow is dark; Raji needs flight or transport; Wysoom involves water and drowning. Race vision, anatomy, equipment slots and spell aptitude affect suitability. Jungle heat and underwater weapon culture are world-page descriptions, not tested item modifiers.",
+      "sources": [
+        {
+          "id": "retro-helpxml-started",
+          "url": "https://www.retromud.org/proxy/helpxml?=Basics/getting_started",
+          "private_capture": "/Users/weiwei/.codex/research/mw-muds/extract/retro-helpxml-started.html"
+        },
+        {
+          "id": "retro-creation",
+          "url": "https://newbie.retromud.org/gameplay/character-creation",
+          "private_capture": "/Users/weiwei/.codex/research/mw-muds/extract/retro-creation.html"
+        },
+        {
+          "id": "retro-sosel",
+          "url": "https://www.retromud.org/frames/planet/sosel.html",
+          "private_capture": "/Users/weiwei/.codex/research/mw-muds/extract/retro-sosel.html"
+        },
+        {
+          "id": "retro-wysoom",
+          "url": "https://www.retromud.org/frames/planet/wysoom.html",
+          "private_capture": "/Users/weiwei/.codex/research/mw-muds/extract/retro-wysoom.html"
+        }
+      ],
+      "kit": [
+        "K2",
+        "K9",
+        "K22",
+        "K30"
+      ],
+      "synthesis_packets": [
+        "P04",
+        "P14",
+        "P17"
+      ],
+      "adoption": "PROPOSAL_ONLY"
+    },
+    {
+      "id": "MW-F03",
+      "game": "RetroMUD",
+      "evidence": "stated",
+      "title": "Travel is a local verb",
+      "summary": "Transport includes daylight pods, shifting portals, guarded shafts, virtue statues and ships. Some destinations or locations change; local time and alignment can matter. Help and newbie guide disagree on some statue details.",
+      "sources": [
+        {
+          "id": "retro-transportxml",
+          "url": "https://www.retromud.org/proxy/helpxml?=Movement/interplanetary_transport",
+          "private_capture": "/Users/weiwei/.codex/research/mw-muds/extract/retro-transportxml.html"
+        },
+        {
+          "id": "retro-newtransport",
+          "url": "https://newbie.retromud.org/gameplay/world-transport",
+          "private_capture": "/Users/weiwei/.codex/research/mw-muds/extract/retro-newtransport.html"
+        }
+      ],
+      "kit": [
+        "K5",
+        "K11",
+        "K21",
+        "K28"
+      ],
+      "synthesis_packets": [
+        "P04",
+        "P13",
+        "P14"
+      ],
+      "adoption": "PROPOSAL_ONLY"
+    },
+    {
+      "id": "MW-F04",
+      "game": "RetroMUD",
+      "evidence": "stated",
+      "title": "Homeworld affinity is mechanical",
+      "summary": "Homeworld help lists a 3% skill/spell bonus, lower overworld endurance costs and better merchant/stable prices, with similar penalties on the opposing planet. Opposing-world pairing and stacking algorithm were not recovered.",
+      "sources": [
+        {
+          "id": "retro-worldbonuses",
+          "url": "https://www.retromud.org/proxy/helpxml?=Worlds/homeworld_bonuses",
+          "private_capture": "/Users/weiwei/.codex/research/mw-muds/extract/retro-worldbonuses.html"
+        }
+      ],
+      "kit": [
+        "K2",
+        "K3",
+        "K8",
+        "K15"
+      ],
+      "synthesis_packets": [
+        "P14",
+        "P17"
+      ],
+      "adoption": "PROPOSAL_ONLY"
+    },
+    {
+      "id": "MW-F05",
+      "game": "RetroMUD",
+      "evidence": "stated",
+      "title": "Multiguild growth is cumulative but constrained",
+      "summary": "Adventurer levels bound guild levels; the usual path is 20 primary, 14 secondary, then 9-level tertiaries. Prior guilds determine later choices. Paths of power adds early-secondary eligibility after primary level 14 and a double-secondary wish route, not unlimited free class accumulation.",
+      "sources": [
+        {
+          "id": "retro-helpxml-started",
+          "url": "https://www.retromud.org/proxy/helpxml?=Basics/getting_started",
+          "private_capture": "/Users/weiwei/.codex/research/mw-muds/extract/retro-helpxml-started.html"
+        },
+        {
+          "id": "retro-paths",
+          "url": "https://www.retromud.org/proxy/helpxml?=Guilds/paths_of_power",
+          "private_capture": "/Users/weiwei/.codex/research/mw-muds/extract/retro-paths.html"
+        },
+        {
+          "id": "retro-progression",
+          "url": "https://newbie.retromud.org/gameplay/progression",
+          "private_capture": "/Users/weiwei/.codex/research/mw-muds/extract/retro-progression.html"
+        }
+      ],
+      "kit": [
+        "K3",
+        "K7",
+        "K13",
+        "K15"
+      ],
+      "synthesis_packets": [
+        "P03",
+        "P04",
+        "P07"
+      ],
+      "adoption": "PROPOSAL_ONLY"
+    },
+    {
+      "id": "MW-F06",
+      "game": "RetroMUD",
+      "evidence": "stated",
+      "title": "Training access and standing have local owners",
+      "summary": "Training belongs to the relevant guild training room. Dues/credit support services and can change through conduct toward allies/enemies. Reincarnation can change race and guilds with losses; it is not ordinary world travel.",
+      "sources": [
+        {
+          "id": "retro-progression",
+          "url": "https://newbie.retromud.org/gameplay/progression",
+          "private_capture": "/Users/weiwei/.codex/research/mw-muds/extract/retro-progression.html"
+        },
+        {
+          "id": "retro-creation",
+          "url": "https://newbie.retromud.org/gameplay/character-creation",
+          "private_capture": "/Users/weiwei/.codex/research/mw-muds/extract/retro-creation.html"
+        }
+      ],
+      "kit": [
+        "K3",
+        "K7",
+        "K24",
+        "K29"
+      ],
+      "synthesis_packets": [
+        "P03",
+        "P07",
+        "P05"
+      ],
+      "adoption": "PROPOSAL_ONLY"
+    },
+    {
+      "id": "MW-F07",
+      "game": "RetroMUD",
+      "evidence": "stated",
+      "title": "Item retention differs from ownership and use",
+      "summary": "Threading ties equipment use to one character and enables autoload retention; loaned equipment still needs safe custody before reboot. The guide gives carried threaded gear, castle strongboxes and newbie inns as distinct reboot storage routes.",
+      "sources": [
+        {
+          "id": "retro-threading",
+          "url": "https://www.retromud.org/proxy/helpxml?=Equipment/threading",
+          "private_capture": "/Users/weiwei/.codex/research/mw-muds/extract/retro-threading.html"
+        },
+        {
+          "id": "retro-equipment",
+          "url": "https://newbie.retromud.org/gameplay/equipment",
+          "private_capture": "/Users/weiwei/.codex/research/mw-muds/extract/retro-equipment.html"
+        }
+      ],
+      "kit": [
+        "K9",
+        "K15",
+        "K18",
+        "K25"
+      ],
+      "synthesis_packets": [
+        "P05",
+        "P16",
+        "P24"
+      ],
+      "adoption": "PROPOSAL_ONLY"
+    },
+    {
+      "id": "MW-F08",
+      "game": "3Kingdoms",
+      "evidence": "stated",
+      "title": "Guild choice, professions and Ascended are different layers",
+      "summary": "Guilds define powers and playstyle. Professions add minor, specialization and major benefits. Ascended explicitly permits retaining the mortal guild at high-mortal level 90+. No read source proves arbitrary simultaneous membership or lossless guild switching.",
+      "sources": [
+        {
+          "id": "3k-guilds",
+          "url": "https://3k.org/guilds/index.php",
+          "private_capture": "/Users/weiwei/.codex/research/mw-muds/extract/3k-guilds.html"
+        },
+        {
+          "id": "3k-guild-help",
+          "url": "https://3k.org/support/help/fetch-help.php?topic=guilds",
+          "private_capture": "/Users/weiwei/.codex/research/mw-muds/extract/3k-guild-help.html"
+        },
+        {
+          "id": "3k-professions",
+          "url": "https://3k.org/support/help/fetch-help.php?topic=professions",
+          "private_capture": "/Users/weiwei/.codex/research/mw-muds/extract/3k-professions.html"
+        },
+        {
+          "id": "3k-ascended",
+          "url": "https://3k.org/support/help/fetch-help.php?topic=ascended",
+          "private_capture": "/Users/weiwei/.codex/research/mw-muds/extract/3k-ascended.html"
+        }
+      ],
+      "kit": [
+        "K3",
+        "K7",
+        "K13",
+        "K22"
+      ],
+      "synthesis_packets": [
+        "P03",
+        "P07",
+        "P04"
+      ],
+      "adoption": "PROPOSAL_ONLY"
+    },
+    {
+      "id": "MW-F09",
+      "game": "3Kingdoms",
+      "evidence": "stated",
+      "title": "Power systems differ in mechanism, not just damage name",
+      "summary": "Mage help describes summons and physical/equipment tradeoffs; Cyborg help uses installed interfaces and constitution admission; Sii uses merged consciousness and prepared bodies. Whether every power functions identically in all three realms remains unread.",
+      "sources": [
+        {
+          "id": "3k-mage",
+          "url": "https://3k.org/support/help/fetch-help.php?topic=mage",
+          "private_capture": "/Users/weiwei/.codex/research/mw-muds/extract/3k-mage.html"
+        },
+        {
+          "id": "3k-cyborg",
+          "url": "https://3k.org/support/help/fetch-help.php?topic=cyborg",
+          "private_capture": "/Users/weiwei/.codex/research/mw-muds/extract/3k-cyborg.html"
+        },
+        {
+          "id": "3k-sii",
+          "url": "https://3k.org/support/help/fetch-help.php?topic=sii",
+          "private_capture": "/Users/weiwei/.codex/research/mw-muds/extract/3k-sii.html"
+        }
+      ],
+      "kit": [
+        "K2",
+        "K3",
+        "K9",
+        "K15",
+        "K22"
+      ],
+      "synthesis_packets": [
+        "P04",
+        "P14",
+        "P17"
+      ],
+      "adoption": "PROPOSAL_ONLY"
+    },
+    {
+      "id": "MW-F10",
+      "game": "3Kingdoms",
+      "evidence": "stated",
+      "title": "Realm breadth is not proven law separation",
+      "summary": "The realm page advertises over 250 Fantasy areas and realm quest totals of 42/9/27. The milestone help places realm access at level 5. These are published counts and rules, not a live census or evidence of magic/technology suppression at borders.",
+      "sources": [
+        {
+          "id": "3k-realms",
+          "url": "https://3k.org/realms/index.php",
+          "private_capture": "/Users/weiwei/.codex/research/mw-muds/extract/3k-realms.html"
+        },
+        {
+          "id": "3k-milestones",
+          "url": "https://3k.org/support/help/fetch-help.php?topic=milestones",
+          "private_capture": "/Users/weiwei/.codex/research/mw-muds/extract/3k-milestones.html"
+        }
+      ],
+      "kit": [
+        "K1",
+        "K4",
+        "K5",
+        "K12"
+      ],
+      "synthesis_packets": [
+        "P04",
+        "P14"
+      ],
+      "adoption": "PROPOSAL_ONLY"
+    },
+    {
+      "id": "MW-F11",
+      "game": "3Kingdoms",
+      "evidence": "shown",
+      "title": "Public room example separates discovery from admission",
+      "summary": "The primer inherits the common room base, sets realm/light, adds inspect/search targets and exits. A hidden exit is still traversable; separate dirfuncs can guard movement. The tutorial also has a search-message naming discrepancy.",
+      "sources": [
+        {
+          "id": "3k-room",
+          "url": "https://3k.org/resources/primer/examples/room.html",
+          "private_capture": "/Users/weiwei/.codex/research/mw-muds/extract/3k-room.html"
+        }
+      ],
+      "kit": [
+        "K5",
+        "K11",
+        "K34"
+      ],
+      "synthesis_packets": [
+        "P04",
+        "P16"
+      ],
+      "adoption": "PROPOSAL_ONLY"
+    },
+    {
+      "id": "MW-F12",
+      "game": "3Kingdoms",
+      "evidence": "shown",
+      "title": "Common monsters retain authored behavior",
+      "summary": "The public example inherits a monster base and sets a level; documentation says defaults derive armor, weapon strength, HP and XP. Idle/combat chatter and weighted specials add local behavior. Complex-monster reactions are described but their implementation is absent.",
+      "sources": [
+        {
+          "id": "3k-monster",
+          "url": "https://3k.org/resources/primer/examples/monster.html",
+          "private_capture": "/Users/weiwei/.codex/research/mw-muds/extract/3k-monster.html"
+        }
+      ],
+      "kit": [
+        "K6",
+        "K10",
+        "K19",
+        "K34"
+      ],
+      "synthesis_packets": [
+        "P16",
+        "P21",
+        "P25"
+      ],
+      "adoption": "PROPOSAL_ONLY"
+    },
+    {
+      "id": "MW-F13",
+      "game": "3Kingdoms",
+      "evidence": "shown",
+      "title": "Area reset is authored and distinct from initial load",
+      "summary": "The sample puts guarded population in reset rather than create. Documentation says the driver calls create then reset on first load, and later reset does not repopulate anything without authored code. This is not persistent death or whole-world aftermath.",
+      "sources": [
+        {
+          "id": "3k-put",
+          "url": "https://3k.org/resources/primer/examples/put_it_together.html",
+          "private_capture": "/Users/weiwei/.codex/research/mw-muds/extract/3k-put.html"
+        }
+      ],
+      "kit": [
+        "K12",
+        "K16",
+        "K18",
+        "K33"
+      ],
+      "synthesis_packets": [
+        "P12",
+        "P16",
+        "P24"
+      ],
+      "adoption": "PROPOSAL_ONLY"
+    },
+    {
+      "id": "MW-F14",
+      "game": "3Kingdoms",
+      "evidence": "stated",
+      "title": "Review and maintenance scale area contributions",
+      "summary": "The wizard guide recommends a 1-3 room first area, sponsor review, staff review and player-board testing before live linking. Arealist filters realm, author, fixer, closed/defunct, repaired and approved states. An area list is not automatically a coverage score.",
+      "sources": [
+        {
+          "id": "3k-wizzing",
+          "url": "https://3k.org/resources/primer/coding/wizzing.html",
+          "private_capture": "/Users/weiwei/.codex/research/mw-muds/extract/3k-wizzing.html"
+        },
+        {
+          "id": "3k-arealist",
+          "url": "https://3k.org/support/help/fetch-help.php?topic=arealist",
+          "private_capture": "/Users/weiwei/.codex/research/mw-muds/extract/3k-arealist.html"
+        },
+        {
+          "id": "3k-style",
+          "url": "https://3k.org/resources/primer/coding/codestyle.html",
+          "private_capture": "/Users/weiwei/.codex/research/mw-muds/extract/3k-style.html"
+        }
+      ],
+      "kit": [
+        "K1",
+        "K33",
+        "K34"
+      ],
+      "synthesis_packets": [
+        "P22",
+        "P16"
+      ],
+      "adoption": "PROPOSAL_ONLY"
+    },
+    {
+      "id": "MW-F15",
+      "game": "RetroMUD",
+      "evidence": "stated",
+      "title": "Public builder policy is much thinner",
+      "summary": "Wizzing help requires coding/writing skill, a sponsor, prior player experience and area progress. It describes restrictive staff/player separation. No full area template, numeric level-band rules or review implementation was exposed in the read set.",
+      "sources": [
+        {
+          "id": "retro-wizzing",
+          "url": "https://www.retromud.org/proxy/helpxml?=Pantheon/wizzing",
+          "private_capture": "/Users/weiwei/.codex/research/mw-muds/extract/retro-wizzing.html"
+        }
+      ],
+      "kit": [
+        "K1",
+        "K34"
+      ],
+      "synthesis_packets": [
+        "P22"
+      ],
+      "adoption": "PROPOSAL_ONLY"
+    },
+    {
+      "id": "MW-F16",
+      "game": "3Kingdoms",
+      "evidence": "stated",
+      "title": "Timed work requires explicit actor and bounded scheduling",
+      "summary": "Advanced primer describes normally two-second heartbeats, dormant NPCs, delayed callbacks and CPU limits. It warns that this_player is usually absent in a heartbeat and gives staggered blessing work as a load example. These are documentation examples, not measured server traces.",
+      "sources": [
+        {
+          "id": "3k-advanced",
+          "url": "https://3k.org/resources/primer/coding/advanced.html",
+          "private_capture": "/Users/weiwei/.codex/research/mw-muds/extract/3k-advanced.html"
+        }
+      ],
+      "kit": [
+        "K6",
+        "K18",
+        "K26",
+        "K34"
+      ],
+      "synthesis_packets": [
+        "P06",
+        "P08",
+        "P13",
+        "P25"
+      ],
+      "adoption": "PROPOSAL_ONLY"
+    },
+    {
+      "id": "MW-F17",
+      "game": "3Kingdoms",
+      "evidence": "stated",
+      "title": "Saving a character does not promise every item survives",
+      "summary": "Save help describes 15-minute autosave and saves on quit/death. Milestones says ordinary self-acquired gear stops autoloading at 61 with exceptions. Autoload-boot help describes a special reward, excludes bag contents and warns of random/crafted item differences. Disk format, atomicity and current exception list are unread.",
+      "sources": [
+        {
+          "id": "3k-save",
+          "url": "https://3k.org/support/help/fetch-help.php?topic=save",
+          "private_capture": "/Users/weiwei/.codex/research/mw-muds/extract/3k-save.html"
+        },
+        {
+          "id": "3k-milestones",
+          "url": "https://3k.org/support/help/fetch-help.php?topic=milestones",
+          "private_capture": "/Users/weiwei/.codex/research/mw-muds/extract/3k-milestones.html"
+        },
+        {
+          "id": "3k-autoload",
+          "url": "https://3k.org/support/help/fetch-help.php?topic=autoload",
+          "private_capture": "/Users/weiwei/.codex/research/mw-muds/extract/3k-autoload.html"
+        }
+      ],
+      "kit": [
+        "K9",
+        "K15",
+        "K18",
+        "K33"
+      ],
+      "synthesis_packets": [
+        "P05",
+        "P16",
+        "P24"
+      ],
+      "adoption": "PROPOSAL_ONLY"
+    },
+    {
+      "id": "MW-F18",
+      "game": "3Kingdoms",
+      "evidence": "stated",
+      "title": "Relationship and profession history are separate",
+      "summary": "Reputation help records contacted factions and their view of the player. It does not establish personal NPC memory, counterpart identity across realms or companions crossing portals.",
+      "sources": [
+        {
+          "id": "3k-reputation",
+          "url": "https://3k.org/support/help/fetch-help.php?topic=reputation",
+          "private_capture": "/Users/weiwei/.codex/research/mw-muds/extract/3k-reputation.html"
+        }
+      ],
+      "kit": [
+        "K6",
+        "K7",
+        "K15",
+        "K29"
+      ],
+      "synthesis_packets": [
+        "P07",
+        "P11"
+      ],
+      "adoption": "PROPOSAL_ONLY"
+    },
+    {
+      "id": "MW-F19",
+      "game": "3Kingdoms",
+      "evidence": "shown",
+      "title": "Help delivery is an inspectable web implementation",
+      "summary": "Website JS requests a public topic endpoint and renders a returned success/content envelope in a keyboard-focused help modal. The ask help topic is player messaging, not an NPC dialogue API. Server conversation graphs remain unread.",
+      "sources": [
+        {
+          "id": "3k-main-js",
+          "url": "https://3k.org/design/script/script_main.js",
+          "private_capture": "/Users/weiwei/.codex/research/mw-muds/extract/3k-main-js.html"
+        },
+        {
+          "id": "3k-help",
+          "url": "https://3k.org/support/help/index.php",
+          "private_capture": "/Users/weiwei/.codex/research/mw-muds/extract/3k-help.html"
+        },
+        {
+          "id": "3k-ask",
+          "url": "https://3k.org/support/help/fetch-help.php?topic=ask",
+          "private_capture": "/Users/weiwei/.codex/research/mw-muds/extract/3k-ask.html"
+        }
+      ],
+      "kit": [
+        "K11",
+        "K14",
+        "K20",
+        "K23"
+      ],
+      "synthesis_packets": [
+        "P04",
+        "P19",
+        "P20"
+      ],
+      "adoption": "PROPOSAL_ONLY"
+    },
+    {
+      "id": "MW-F20",
+      "game": "both",
+      "evidence": "inferred",
+      "title": "Best transfer pattern is retained capability plus local admission",
+      "summary": "These sources suggest carrying training and identity while checking local body, fuel, equipment, access and standing separately. A YAIRPG crossing contract must be authored in its existing owners; the MUD pages do not prove it is already solved.",
+      "sources": [
+        {
+          "id": "retro-creation",
+          "url": "https://newbie.retromud.org/gameplay/character-creation",
+          "private_capture": "/Users/weiwei/.codex/research/mw-muds/extract/retro-creation.html"
+        },
+        {
+          "id": "retro-paths",
+          "url": "https://www.retromud.org/proxy/helpxml?=Guilds/paths_of_power",
+          "private_capture": "/Users/weiwei/.codex/research/mw-muds/extract/retro-paths.html"
+        },
+        {
+          "id": "3k-sii",
+          "url": "https://3k.org/support/help/fetch-help.php?topic=sii",
+          "private_capture": "/Users/weiwei/.codex/research/mw-muds/extract/3k-sii.html"
+        },
+        {
+          "id": "3k-ascended",
+          "url": "https://3k.org/support/help/fetch-help.php?topic=ascended",
+          "private_capture": "/Users/weiwei/.codex/research/mw-muds/extract/3k-ascended.html"
+        }
+      ],
+      "kit": [
+        "K2",
+        "K3",
+        "K7",
+        "K15",
+        "K18"
+      ],
+      "synthesis_packets": [
+        "P03",
+        "P04",
+        "P05",
+        "P07",
+        "P14"
+      ],
+      "adoption": "PROPOSAL_ONLY"
+    }
+  ]
+}

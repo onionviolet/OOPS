@@ -1,0 +1,106 @@
+{
+  "status": "PARTIAL",
+  "evidence_kind": "installed_files_and_recovered_source_not_runtime",
+  "source": {
+    "version": "1.7.4979 rev109",
+    "steam_build": "25947168",
+    "branch": "unstable",
+    "assembly_sha256": "a97a01c4319414414c0ca39f3565215e83300dc608dc94b69a27720095b4e751",
+    "prior_steam_build": null,
+    "prior_version": "1.6.4871 rev573",
+    "payload_changed": true
+  },
+  "findings": [
+    {
+      "id": "F1",
+      "kind": "shown",
+      "summary": "Installed unstable payload differs from prior DMG; no historical Steam build for numeric comparison.",
+      "sources": [
+        "Version.txt",
+        "Steam appmanifest_294100.acf",
+        "../INTAKE.json"
+      ]
+    },
+    {
+      "id": "F3",
+      "kind": "shown",
+      "summary": "Current host is .NET 10 Waylith with Unity compatibility; retained domain/Verse code uses legacy Unity API names.",
+      "sources": [
+        "RimWorld.runtimeconfig.json",
+        "source/RimWorldWaylith.Program.cs",
+        "source/RimWorldWaylith.Bootstrap.cs"
+      ]
+    },
+    {
+      "id": "F5",
+      "kind": "shown",
+      "summary": "Dialogue has generated social logs and explicit actionable faction node trees.",
+      "sources": [
+        "source/RimWorld.Pawn_InteractionsTracker.cs",
+        "source/RimWorld.FactionDialogMaker.cs",
+        "source/Verse.PlayLogEntry_Interaction.cs"
+      ]
+    },
+    {
+      "id": "F7",
+      "kind": "shown",
+      "summary": "Save framework stages XML/reference/post-load processing, compatibility and file rotation, without demonstrated crash safety.",
+      "sources": [
+        "source/Verse.SafeSaver.cs",
+        "source/Verse.ScribeLoader.cs",
+        "source/Verse.BackCompatibility.cs"
+      ]
+    },
+    {
+      "id": "F8",
+      "kind": "shown",
+      "summary": "Quest parts persist activation/deadlines; outcome/cleanup/history are separate.",
+      "sources": [
+        "source/RimWorld.Quest.cs",
+        "source/RimWorld.QuestPartActivable.cs"
+      ]
+    }
+  ],
+  "proposals": [
+    {
+      "id": "P1",
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "P2",
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "P3",
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "P4",
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "P5",
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "P6",
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "P7",
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "P8",
+      "status": "PROPOSAL"
+    }
+  ],
+  "counts": {
+    "raw_defs": 14084,
+    "def_families": 254,
+    "english_rows": 8223,
+    "xml_files": 1676
+  },
+  "runtime_run": false,
+  "user_saves_read": false
+}

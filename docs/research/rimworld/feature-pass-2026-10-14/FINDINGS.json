@@ -1,0 +1,443 @@
+{
+  "lane": "fs-rimworld-features",
+  "date": "2026-10-14",
+  "status": "feature_answers_complete_aspects_partial",
+  "verification": "shown_in_recovered_source_and_supplied_raw_xml_not_runtime",
+  "source": {
+    "assembly_sha256": "3e6dff19784a4c6e8e8d03e28e415ab6f39a583546c54c3584858854d681d050",
+    "payload_version": "1.6.4871 rev573",
+    "filename_revision": "rev588",
+    "decompiler": "11.1.0.9782",
+    "modules": [
+      "Core",
+      "Royalty",
+      "Biotech",
+      "Ideology",
+      "Anomaly",
+      "Odyssey"
+    ]
+  },
+  "findings": [
+    {
+      "id": "F1",
+      "question": "P01",
+      "status": "shown",
+      "summary": "Failure text is one last reason; explicit checks coexist with silent null returns; missing inputs are unmet searchable requirements.",
+      "evidence": [
+        {
+          "finding": "F1",
+          "path": "Verse.AI/JobFailReason.cs",
+          "sha256": "05d95b2522977d39d7c700e8b229b2a63e8ff5b22627986cdacbbc16e9ea9e38",
+          "file_lines": 36,
+          "review": "selected methods/sections or search hits as cited in report; not whole-file coverage"
+        },
+        {
+          "finding": "F1",
+          "path": "RimWorld/FloatMenuOptionProvider_WorkGivers.cs",
+          "sha256": "f05e9f1b76d69cff7f2f28e33a0cbcfa2bdeff30f3f967f943b135f892b3968a",
+          "file_lines": 256,
+          "review": "selected methods/sections or search hits as cited in report; not whole-file coverage"
+        },
+        {
+          "finding": "F1",
+          "path": "RimWorld/WorkGiver_DoBill.cs",
+          "sha256": "a365ea7fb96ff59d2e4488c886b106679198e01dc3967a45f41a7db9c26fccdc",
+          "file_lines": 729,
+          "review": "selected methods/sections or search hits as cited in report; not whole-file coverage"
+        }
+      ]
+    },
+    {
+      "id": "F2",
+      "question": "P02",
+      "status": "shown",
+      "summary": "Bench bill order, actor priorities and hauling priority are distinct; filters/reservations constrain shared stock; target counters have branch-specific units.",
+      "evidence": [
+        {
+          "finding": "F2",
+          "path": "RimWorld/BillStack.cs",
+          "sha256": "b0688b0fd408b09da746f45b7cec023f050314e34b8adae6c3ddb752d9d1bb3b",
+          "file_lines": 174,
+          "review": "selected methods/sections or search hits as cited in report; not whole-file coverage"
+        },
+        {
+          "finding": "F2",
+          "path": "RimWorld/Bill_Production.cs",
+          "sha256": "0881bb3ba1111a7aa16f7d05d91d882847341dfb8cf108eb004c500a5738aba4",
+          "file_lines": 468,
+          "review": "selected methods/sections or search hits as cited in report; not whole-file coverage"
+        },
+        {
+          "finding": "F2",
+          "path": "RimWorld/Dialog_BillConfig.cs",
+          "sha256": "79c6afd4eaa0768baedc012e10ae99d89c515bc6206dea3ec829690c3d84038d",
+          "file_lines": 602,
+          "review": "selected methods/sections or search hits as cited in report; not whole-file coverage"
+        },
+        {
+          "finding": "F2",
+          "path": "Verse/RecipeWorkerCounter.cs",
+          "sha256": "dc0d44c166c2797cb39df826fa69f881519b6bc5b4d0cc300dcbafaca3bf9b39",
+          "file_lines": 183,
+          "review": "selected methods/sections or search hits as cited in report; not whole-file coverage"
+        },
+        {
+          "finding": "F2",
+          "path": "RimWorld/StoreUtility.cs",
+          "sha256": "b8241150a63e38993de851bdb82d06a8c6fbbb3359f1fdfb92b70bec3b5b960d",
+          "file_lines": 403,
+          "review": "selected methods/sections or search hits as cited in report; not whole-file coverage"
+        }
+      ]
+    },
+    {
+      "id": "F3",
+      "question": "RT",
+      "status": "shown",
+      "summary": "Techprints and prerequisite/bench/analysis/inspection gates support unlock and progress, not a theory revision ledger in the inspected path.",
+      "evidence": [
+        {
+          "finding": "F3",
+          "path": "Verse/ResearchProjectDef.cs",
+          "sha256": "47d832633b07dd873fa76f0e81e34a331514cbe8861a984b5316bf352e2494f9",
+          "file_lines": 696,
+          "review": "selected methods/sections or search hits as cited in report; not whole-file coverage"
+        },
+        {
+          "finding": "F3",
+          "path": "RimWorld/ResearchManager.cs",
+          "sha256": "59cf276e5b1dd8c9625aa8ccdd572310c233f6a1ee262bd5eb7bafb53f544bc5",
+          "file_lines": 579,
+          "review": "selected methods/sections or search hits as cited in report; not whole-file coverage"
+        },
+        {
+          "finding": "F3",
+          "path": "RimWorld/WorkGiver_Researcher.cs",
+          "sha256": "70386fd75158a989a92fda39ef9c25e8ea237d1eaea0d51a52f1e770e67c8a62",
+          "file_lines": 66,
+          "review": "selected methods/sections or search hits as cited in report; not whole-file coverage"
+        },
+        {
+          "finding": "F3",
+          "path": "RimWorld/JobDriver_Research.cs",
+          "sha256": "9c779ea73f89eef91508024ed4a79aad9a007db297eea40c1aa713ae78db3cae",
+          "file_lines": 53,
+          "review": "selected methods/sections or search hits as cited in report; not whole-file coverage"
+        },
+        {
+          "finding": "F3",
+          "path": "RimWorld/JobDriver_ApplyTechprint.cs",
+          "sha256": "e6b3dd97461a1758b289bf15e592adc12c8a789f8715f207a73879a5ceef0ed8",
+          "file_lines": 59,
+          "review": "selected methods/sections or search hits as cited in report; not whole-file coverage"
+        },
+        {
+          "finding": "F3",
+          "path": "RimWorld/ReadingOutcomeDoerGainResearch.cs",
+          "sha256": "56cc7369e921be1b2c9911d93d76edc5340bc12a21eb43c7c9a1351c6ae991c0",
+          "file_lines": 200,
+          "review": "selected methods/sections or search hits as cited in report; not whole-file coverage"
+        },
+        {
+          "finding": "F3",
+          "path": "RimWorld/MainTabWindow_Research.cs",
+          "sha256": "3a249ae44c8448cc4646f8b1a77e03046899161a64259b082a083f973562864d",
+          "file_lines": 1604,
+          "review": "selected methods/sections or search hits as cited in report; not whole-file coverage"
+        }
+      ]
+    },
+    {
+      "id": "F4",
+      "question": "P03",
+      "status": "shown",
+      "summary": "Passion and actor rates multiply skill XP; daily saturation slows, not stops; child learning need/growth and skill XP are separate.",
+      "evidence": [
+        {
+          "finding": "F4",
+          "path": "RimWorld/SkillRecord.cs",
+          "sha256": "be0c0ac1f216f46ddf727c711d2caef5da919d87f59b1872ff694fbc7488d77f",
+          "file_lines": 433,
+          "review": "selected methods/sections or search hits as cited in report; not whole-file coverage"
+        },
+        {
+          "finding": "F4",
+          "path": "RimWorld/Pawn_SkillTracker.cs",
+          "sha256": "c97fd0e6e904e9ec53347c9e40358db25be532407f6f55f70d9414d6cc51e520",
+          "file_lines": 183,
+          "review": "selected methods/sections or search hits as cited in report; not whole-file coverage"
+        },
+        {
+          "finding": "F4",
+          "path": "RimWorld/Need_Learning.cs",
+          "sha256": "3160bd823cb18b6dfac22937bfd3eac44d8c0b95fba6b6410d0821cbc9a22eb6",
+          "file_lines": 131,
+          "review": "selected methods/sections or search hits as cited in report; not whole-file coverage"
+        },
+        {
+          "finding": "F4",
+          "path": "RimWorld/Pawn_LearningTracker.cs",
+          "sha256": "d0c76e56ab05be4038c2bf6fac4e4ec38432d8d3353470795a52005b92a875cc",
+          "file_lines": 65,
+          "review": "selected methods/sections or search hits as cited in report; not whole-file coverage"
+        },
+        {
+          "finding": "F4",
+          "path": "Verse/Pawn_AgeTracker.cs",
+          "sha256": "55359a5e4461081174d2f8637acd47aaad602368a74a5240c74fb857e10cb6bc",
+          "file_lines": 822,
+          "review": "selected methods/sections or search hits as cited in report; not whole-file coverage"
+        },
+        {
+          "finding": "F4",
+          "path": "RimWorld/LearningUtility.cs",
+          "sha256": "37c5aa43998c81d5e02156053d7ba33231436d95b9048dbbcab4126a359d5e05",
+          "file_lines": 70,
+          "review": "selected methods/sections or search hits as cited in report; not whole-file coverage"
+        },
+        {
+          "finding": "F4",
+          "path": "RimWorld/JobDriver_Lessongiving.cs",
+          "sha256": "65cfd6b70d12b4f9d4257348d5afbabf2411aff180dade8ef712189922cb328c",
+          "file_lines": 99,
+          "review": "selected methods/sections or search hits as cited in report; not whole-file coverage"
+        },
+        {
+          "finding": "F4",
+          "path": "RimWorld/JobDriver_Lessontaking.cs",
+          "sha256": "1b8bc0dcb38ed70c1952f013b78b521702a82c3e38c490d2d1b6161081092f81",
+          "file_lines": 77,
+          "review": "selected methods/sections or search hits as cited in report; not whole-file coverage"
+        },
+        {
+          "finding": "F4",
+          "path": "RimWorld/JobDriver_Workwatching.cs",
+          "sha256": "fc1e1c1ccc4676175a89c157f81d88d3b73927e6499d6e0faa39481a56162893",
+          "file_lines": 95,
+          "review": "selected methods/sections or search hits as cited in report; not whole-file coverage"
+        },
+        {
+          "finding": "F4",
+          "path": "RimWorld/BookOutcomeDoerGainSkillExp.cs",
+          "sha256": "f61e92ad6a2339ddd86b163796c363f198583033abec57cea651ccfd296ed6ba",
+          "file_lines": 145,
+          "review": "selected methods/sections or search hits as cited in report; not whole-file coverage"
+        }
+      ]
+    },
+    {
+      "id": "F5",
+      "question": "BD",
+      "status": "shown",
+      "summary": "Gender, body/head shape, health, genes and xenotype label are distinct saved fields with named couplings and readers.",
+      "evidence": [
+        {
+          "finding": "F5",
+          "path": "Verse/Pawn.cs",
+          "sha256": "c35e418c424fb129ee15953b1698fa8f5513582d77d017af26e584d0aca6c2ba",
+          "file_lines": 4789,
+          "review": "selected methods/sections or search hits as cited in report; not whole-file coverage"
+        },
+        {
+          "finding": "F5",
+          "path": "RimWorld/Pawn_StoryTracker.cs",
+          "sha256": "6201e508a12c52e165590406d9ab2bfed499c4c29b0ffb87441ef987599d63a9",
+          "file_lines": 464,
+          "review": "selected methods/sections or search hits as cited in report; not whole-file coverage"
+        },
+        {
+          "finding": "F5",
+          "path": "RimWorld/Pawn_GeneTracker.cs",
+          "sha256": "d37d8a3e4b7b0cdc6678b18b6d789dcd1573b3a00c7fb7f3e3ce9f7df113462a",
+          "file_lines": 1410,
+          "review": "selected methods/sections or search hits as cited in report; not whole-file coverage"
+        },
+        {
+          "finding": "F5",
+          "path": "Verse/Gene.cs",
+          "sha256": "4fd776c419abf6a64a3a0021db139b4b487108d9ff61b62cf3b226b752b2cbc3",
+          "file_lines": 173,
+          "review": "selected methods/sections or search hits as cited in report; not whole-file coverage"
+        },
+        {
+          "finding": "F5",
+          "path": "Verse/GeneDef.cs",
+          "sha256": "49ca06d058a294bc9837f4ce1aac461d97f2bfd77327f89e4a9d4da9273c61e2",
+          "file_lines": 816,
+          "review": "selected methods/sections or search hits as cited in report; not whole-file coverage"
+        },
+        {
+          "finding": "F5",
+          "path": "Verse/PawnRenderNode_Body.cs",
+          "sha256": "13fde3698d41eb92279f0e42671663fb487cb7b3e61633ee9411f6069d70c1fb",
+          "file_lines": 41,
+          "review": "selected methods/sections or search hits as cited in report; not whole-file coverage"
+        },
+        {
+          "finding": "F5",
+          "path": "Verse/PawnRenderNode_Head.cs",
+          "sha256": "9e8e58a4a04f61ba1f9c9c5d4daebc49ee0f355cda9a374121a04f8e4661ea65",
+          "file_lines": 34,
+          "review": "selected methods/sections or search hits as cited in report; not whole-file coverage"
+        },
+        {
+          "finding": "F5",
+          "path": "Verse/HediffSet.cs",
+          "sha256": "8827fe0cf7ca719644ce2879d091d51ea97809f4806760a72f5f2e29de3a3a83",
+          "file_lines": 1391,
+          "review": "selected methods/sections or search hits as cited in report; not whole-file coverage"
+        },
+        {
+          "finding": "F5",
+          "path": "RimWorld/PregnancyUtility.cs",
+          "sha256": "c0c6b2de7818a79319457cf49e00cf864380a136e9de43aa08ed97b2c6580ef7",
+          "file_lines": 760,
+          "review": "selected methods/sections or search hits as cited in report; not whole-file coverage"
+        },
+        {
+          "finding": "F5",
+          "path": "RimWorld/GeneUtility.cs",
+          "sha256": "09c42cff3f03d66d5925c87c8c23712293de0c9523bf59b74ada7bd99aaea730",
+          "file_lines": 649,
+          "review": "selected methods/sections or search hits as cited in report; not whole-file coverage"
+        },
+        {
+          "finding": "F5",
+          "path": "RimWorld/Gene_Hemogen.cs",
+          "sha256": "4d98f6e301c232fe0fc273b911fc51bdee89cdae342fdebff0fe3ffeb2b02a83",
+          "file_lines": 99,
+          "review": "selected methods/sections or search hits as cited in report; not whole-file coverage"
+        }
+      ]
+    },
+    {
+      "id": "F6",
+      "question": "prior dossier",
+      "status": "shown",
+      "summary": "Jobs expanded; four other paths reconfirmed at sampled endpoints only. Correct missing-material and product-counter wording.",
+      "evidence": [
+        {
+          "finding": "F6",
+          "path": "RimWorld/Need_Food.cs",
+          "sha256": "f17cbaf82d8792108557f869db585fdd6ac26c0ebb537e8acf04173179e7c4cd",
+          "file_lines": 226,
+          "review": "selected methods/sections or search hits as cited in report; not whole-file coverage"
+        },
+        {
+          "finding": "F6",
+          "path": "RimWorld/Pawn_InteractionsTracker.cs",
+          "sha256": "82a3977955b41c90cf232afb7db353a4fbcc0e4bc0c202b68ad87978f921d5d0",
+          "file_lines": 487,
+          "review": "selected methods/sections or search hits as cited in report; not whole-file coverage"
+        },
+        {
+          "finding": "F6",
+          "path": "RimWorld/Thought_MemorySocial.cs",
+          "sha256": "3a929367139cbebc900d403400a6c324b60f3ce1af5786b4d66da29a7132348d",
+          "file_lines": 86,
+          "review": "selected methods/sections or search hits as cited in report; not whole-file coverage"
+        },
+        {
+          "finding": "F6",
+          "path": "RimWorld/InteractionWorker_Insult.cs",
+          "sha256": "9a53be7fbfe76b5c9f3edc2b5186cd61e45a4b3dc2fbead3fbbe8f03d3c56fee",
+          "file_lines": 17,
+          "review": "selected methods/sections or search hits as cited in report; not whole-file coverage"
+        },
+        {
+          "finding": "F6",
+          "path": "RimWorld/StorytellerComp_RandomMain.cs",
+          "sha256": "0e6489e447a59ffedf2ec138d0c52a44dd6f0ec58e32b1d0a04750cd4d7403ee",
+          "file_lines": 59,
+          "review": "selected methods/sections or search hits as cited in report; not whole-file coverage"
+        },
+        {
+          "finding": "F6",
+          "path": "RimWorld/Storyteller.cs",
+          "sha256": "2d252032a7e13b250c72bc97e0514c4441174ce9e895f28b6db8b986daf17297",
+          "file_lines": 417,
+          "review": "selected methods/sections or search hits as cited in report; not whole-file coverage"
+        },
+        {
+          "finding": "F6",
+          "path": "RimWorld/IncidentWorker_ColdSnap.cs",
+          "sha256": "c73ff870e80d84060bc41e624a30db738ba57e916e6c4dcec12e83eac4bc6d10",
+          "file_lines": 24,
+          "review": "selected methods/sections or search hits as cited in report; not whole-file coverage"
+        },
+        {
+          "finding": "F6",
+          "path": "RimWorld/GameCondition_ColdSnap.cs",
+          "sha256": "e41cd28d5814d804e120bd53a0ce5ef634bec1030b46284f2e6871078fb581cc",
+          "file_lines": 13,
+          "review": "selected methods/sections or search hits as cited in report; not whole-file coverage"
+        },
+        {
+          "finding": "F6",
+          "path": "RimWorld/Plant.cs",
+          "sha256": "4b0d69c4136423e496490a23276e7c98c8dd053e2fb27c705d282c5d2c8e3f09",
+          "file_lines": 1252,
+          "review": "selected methods/sections or search hits as cited in report; not whole-file coverage"
+        },
+        {
+          "finding": "F6",
+          "path": "Verse/GenRecipe.cs",
+          "sha256": "41cb19d602f388137484b15bc4126fbcdebad63013c34f8432cabff5b28337e3",
+          "file_lines": 127,
+          "review": "selected methods/sections or search hits as cited in report; not whole-file coverage"
+        },
+        {
+          "finding": "F6",
+          "path": "RimWorld/Verb_MeleeAttackDamage.cs",
+          "sha256": "7f6c28a34c8e9ea4bd189c8b6df36dfb9d3b0848c79b2faecb18d2981c3d0ac1",
+          "file_lines": 115,
+          "review": "selected methods/sections or search hits as cited in report; not whole-file coverage"
+        }
+      ]
+    }
+  ],
+  "proposals": [
+    {
+      "id": "RWP1",
+      "rank": 1,
+      "status": "proposal_only"
+    },
+    {
+      "id": "RWP2",
+      "rank": 2,
+      "status": "proposal_only"
+    },
+    {
+      "id": "RWP3",
+      "rank": 3,
+      "status": "proposal_only"
+    },
+    {
+      "id": "RWP4",
+      "rank": 4,
+      "status": "proposal_only"
+    },
+    {
+      "id": "RWP5",
+      "rank": 5,
+      "status": "proposal_only"
+    },
+    {
+      "id": "RWP6",
+      "rank": 6,
+      "status": "proposal_only"
+    },
+    {
+      "id": "RWP7",
+      "rank": 7,
+      "status": "proposal_only"
+    }
+  ],
+  "gaps": [
+    "no runtime or UI proof permitted",
+    "whole aspect coverage incomplete",
+    "effective XML inheritance/mod activation untested",
+    "all prior 54 files not reread"
+  ],
+  "private_details": "/Users/weiwei/.codex/research/fs-rimworld-features/notes"
+}

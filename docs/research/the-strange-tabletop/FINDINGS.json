@@ -1,0 +1,383 @@
+{
+  "lane": "mw-the-strange",
+  "date": "2026-10-14",
+  "status": "PARTIAL",
+  "scope": "public primary-source tabletop research; proposals only",
+  "source_manifest": "SOURCES.md",
+  "findings": [
+    {
+      "id": "F01",
+      "evidence": "stated",
+      "claim": "Recursions have local operating laws and can be seeded by fiction or made deliberately. Fictional origin does not make the place unreal.",
+      "sources": [
+        {
+          "id": "S03",
+          "url": "https://www.montecookgames.com/earth-and-recursions/"
+        }
+      ],
+      "kit": [
+        "K1",
+        "K2",
+        "K17"
+      ],
+      "synthesis": "P14",
+      "implemented": false
+    },
+    {
+      "id": "F02",
+      "evidence": "stated",
+      "claim": "Translation changes body, clothing, local context knowledge and usually focus. It is a distinct crossing procedure.",
+      "sources": [
+        {
+          "id": "S01",
+          "url": "https://www.montecookgames.com/translation-between-worlds/"
+        }
+      ],
+      "kit": [
+        "K4",
+        "K15",
+        "K20",
+        "K22"
+      ],
+      "synthesis": "P05",
+      "implemented": false
+    },
+    {
+      "id": "F03",
+      "evidence": "stated",
+      "claim": "Descriptor and type remain while a destination-appropriate focus generally replaces access to the previous focus.",
+      "sources": [
+        {
+          "id": "S02",
+          "url": "https://www.montecookgames.com/your-game-bodies-in-translation-gear-and-foci-vs-stat-pools-in-the-strange/"
+        }
+      ],
+      "kit": [
+        "K3",
+        "K15"
+      ],
+      "synthesis": "P14",
+      "implemented": false
+    },
+    {
+      "id": "F04",
+      "evidence": "stated",
+      "claim": "A draggable focus is an explicit option; not every focus must change on travel.",
+      "sources": [
+        {
+          "id": "S01",
+          "url": "https://www.montecookgames.com/translation-between-worlds/"
+        }
+      ],
+      "kit": [
+        "K3",
+        "K15"
+      ],
+      "synthesis": "P14",
+      "implemented": false
+    },
+    {
+      "id": "F05",
+      "evidence": "stated",
+      "claim": "Ordinary gear goes into abeyance for its world and returns on revisit; cyphers are the stated exception. This is not an export/import copy of every inventory.",
+      "sources": [
+        {
+          "id": "S02",
+          "url": "https://www.montecookgames.com/your-game-bodies-in-translation-gear-and-foci-vs-stat-pools-in-the-strange/"
+        }
+      ],
+      "kit": [
+        "K9",
+        "K15",
+        "K18"
+      ],
+      "synthesis": "P05",
+      "implemented": false
+    },
+    {
+      "id": "F06",
+      "evidence": "stated",
+      "claim": "One set of current stat Pools persists across translation, subject to focus modifiers. Injured travelers remain injured.",
+      "sources": [
+        {
+          "id": "S02",
+          "url": "https://www.montecookgames.com/your-game-bodies-in-translation-gear-and-foci-vs-stat-pools-in-the-strange/"
+        }
+      ],
+      "kit": [
+        "K3",
+        "K15",
+        "K22"
+      ],
+      "synthesis": "P17",
+      "implemented": false
+    },
+    {
+      "id": "F07",
+      "evidence": "stated",
+      "claim": "An inapposite gate carries the existing form and equipment without translation or granted local knowledge. Local laws can undermine foreign equipment.",
+      "sources": [
+        {
+          "id": "S01",
+          "url": "https://www.montecookgames.com/translation-between-worlds/"
+        }
+      ],
+      "kit": [
+        "K2",
+        "K5",
+        "K15",
+        "K11"
+      ],
+      "synthesis": "P05",
+      "implemented": false
+    },
+    {
+      "id": "F08",
+      "evidence": "stated",
+      "claim": "Return generally restores the prior local form and departure position; crossing away does not by itself escape a local prison permanently.",
+      "sources": [
+        {
+          "id": "S01",
+          "url": "https://www.montecookgames.com/translation-between-worlds/"
+        }
+      ],
+      "kit": [
+        "K5",
+        "K15",
+        "K18"
+      ],
+      "synthesis": "P05",
+      "implemented": false
+    },
+    {
+      "id": "F09",
+      "evidence": "stated",
+      "claim": "Noble standing, contacts, retainer and wealth benefits do not generally cross jurisdiction. Financial skill can remain when local wealth does not.",
+      "sources": [
+        {
+          "id": "S04",
+          "url": "https://www.montecookgames.com/using-numenera-character-options-for-the-strange/"
+        }
+      ],
+      "kit": [
+        "K6",
+        "K7",
+        "K8",
+        "K15"
+      ],
+      "synthesis": "P07",
+      "implemented": false
+    },
+    {
+      "id": "F10",
+      "evidence": "shown",
+      "claim": "Cypher entries distinguish an effect from Earth, Ardeyn and Ruk forms; the deck also separates form cards and power cards.",
+      "sources": [
+        {
+          "id": "S13",
+          "url": "https://www.montecookgames.com/store/product/encyclopedia-of-impossible-things-free-preview/"
+        },
+        {
+          "id": "S05",
+          "url": "https://www.montecookgames.com/store/product/the-strange-cypher-deck-pdf/"
+        }
+      ],
+      "kit": [
+        "K9",
+        "K14",
+        "K15"
+      ],
+      "synthesis": "P16",
+      "implemented": false
+    },
+    {
+      "id": "F11",
+      "evidence": "shown",
+      "claim": "Artifact entries include origin, operating law, level, effect and depletion. Some permit more than one law. Complete cross-law failure timing remains unread.",
+      "sources": [
+        {
+          "id": "S13",
+          "url": "https://www.montecookgames.com/store/product/encyclopedia-of-impossible-things-free-preview/"
+        }
+      ],
+      "kit": [
+        "K2",
+        "K9",
+        "K15"
+      ],
+      "synthesis": "P04",
+      "implemented": false
+    },
+    {
+      "id": "F12",
+      "evidence": "shown",
+      "claim": "Samurai Sky has Standard Physics normally and magic under specified lunar conditions. A law can be conditional rather than a single permanent world label.",
+      "sources": [
+        {
+          "id": "S13",
+          "url": "https://www.montecookgames.com/store/product/encyclopedia-of-impossible-things-free-preview/"
+        }
+      ],
+      "kit": [
+        "K2",
+        "K9",
+        "K28"
+      ],
+      "synthesis": "P14",
+      "implemented": false
+    },
+    {
+      "id": "F13",
+      "evidence": "shown",
+      "claim": "The preview distinguishes fictional, mythological and emergent artifacts; evolved recursions need not reproduce their source fiction exactly.",
+      "sources": [
+        {
+          "id": "S13",
+          "url": "https://www.montecookgames.com/store/product/encyclopedia-of-impossible-things-free-preview/"
+        }
+      ],
+      "kit": [
+        "K1",
+        "K9",
+        "K17"
+      ],
+      "synthesis": "P15",
+      "implemented": false
+    },
+    {
+      "id": "F14",
+      "evidence": "shown",
+      "claim": "The Hum uses staged focus handouts, known arrival facts, NPC motives, conversation conditions and substitute information channels. This is human-run authoring, not a dialogue engine.",
+      "sources": [
+        {
+          "id": "S10",
+          "url": "https://assetteam.montecookgames.com/wp-content/uploads/The-Hum-MCG-Asset-Team-Adventure.pdf"
+        }
+      ],
+      "kit": [
+        "K6",
+        "K11",
+        "K12",
+        "K14",
+        "K30"
+      ],
+      "synthesis": "P19",
+      "implemented": false
+    },
+    {
+      "id": "F15",
+      "evidence": "shown",
+      "claim": "The Hum ties imported creature abilities to a nearby active gate influence, providing a scoped exception to normal loss of support.",
+      "sources": [
+        {
+          "id": "S10",
+          "url": "https://assetteam.montecookgames.com/wp-content/uploads/The-Hum-MCG-Asset-Team-Adventure.pdf"
+        }
+      ],
+      "kit": [
+        "K2",
+        "K10",
+        "K15"
+      ],
+      "synthesis": "P14",
+      "implemented": false
+    },
+    {
+      "id": "F16",
+      "evidence": "stated",
+      "claim": "Publisher listing confirms personal-recursion rules and a maintenance/design sheet exist; the actual construction procedure, costs and limits are unread.",
+      "sources": [
+        {
+          "id": "S06",
+          "url": "https://www.montecookgames.com/store/product/encyclopedia-of-impossible-things/"
+        }
+      ],
+      "kit": [
+        "K17",
+        "K25",
+        "K34"
+      ],
+      "synthesis": "NEW MWTS-P06",
+      "implemented": false
+    },
+    {
+      "id": "F17",
+      "evidence": "shown",
+      "claim": "The generic CSRD defines task target as three times difficulty and distinguishes single-use cyphers from artifacts with depletion checks. Do not silently substitute its current rules for 2014 Strange.",
+      "sources": [
+        {
+          "id": "S12",
+          "url": "https://csol.montecookgames.com/wp-content/uploads/2025/10/Cypher-System-Reference-Document-2025-08-22.docx"
+        }
+      ],
+      "kit": [
+        "K3",
+        "K9",
+        "K10"
+      ],
+      "synthesis": "P16",
+      "implemented": false
+    },
+    {
+      "id": "F18",
+      "evidence": "stated",
+      "claim": "Publisher conversion guidance describes synchronized chronology for normal matter and nearby recursions, with exceptional creation history and optional alternate timelines. World absence is not inherently frozen.",
+      "sources": [
+        {
+          "id": "S04",
+          "url": "https://www.montecookgames.com/using-numenera-character-options-for-the-strange/"
+        }
+      ],
+      "kit": [
+        "K8",
+        "K15",
+        "K17",
+        "K28"
+      ],
+      "synthesis": "P13",
+      "implemented": false
+    },
+    {
+      "id": "F19",
+      "evidence": "shown",
+      "claim": "Official conversion table assigns distinct foci to Magic, Standard Physics, Mad Science and Psionics, with a separate special-consideration group. It is not the complete core focus list.",
+      "sources": [
+        {
+          "id": "S04",
+          "url": "https://www.montecookgames.com/using-numenera-character-options-for-the-strange/"
+        },
+        {
+          "id": "S14",
+          "url": "https://www.montecookgames.com/wp-content/uploads/2015/03/NU-CHAR-OPS-FOCI1.jpg"
+        }
+      ],
+      "kit": [
+        "K2",
+        "K3",
+        "K15"
+      ],
+      "synthesis": "P14",
+      "implemented": false
+    },
+    {
+      "id": "F20",
+      "evidence": "shown",
+      "claim": "Preview power-source cypher can restore a depleted artifact; prison cypher creates a pocket destination/key with inapposite-style transfer. Item-specific exceptions matter.",
+      "sources": [
+        {
+          "id": "S13",
+          "url": "https://www.montecookgames.com/store/product/encyclopedia-of-impossible-things-free-preview/",
+          "printed_page": 123
+        }
+      ],
+      "kit": [
+        "K2",
+        "K5",
+        "K9",
+        "K15"
+      ],
+      "synthesis": "P04/P16",
+      "implemented": false
+    }
+  ]
+}

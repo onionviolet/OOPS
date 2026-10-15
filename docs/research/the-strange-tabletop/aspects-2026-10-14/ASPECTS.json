@@ -1,0 +1,250 @@
+{
+  "A01": {
+    "status": "partial",
+    "sources": [
+      {
+        "id": "S10",
+        "url": "https://assetteam.montecookgames.com/wp-content/uploads/The-Hum-MCG-Asset-Team-Adventure.pdf"
+      }
+    ],
+    "summary": "Human-run scenes contain small-talk topics, NPC motives, conditional reactions to what the PCs say, and different information after the fight. Printed pp.10-12: first conversation, interrupted conversation, aftermath. No executable dialogue graph, speaker portrait data or exhaustive line inventory was inspected.",
+    "implementation": "Printed scene headings, bullet responses and parenthetical GM conditions; a human GM interprets them. Private original text is retained in the official PDF, not copied into the repo.",
+    "evidence": "shown public structure; stated rules; inferred YAIRPG uses",
+    "yairpg": [
+      "K6/K11/K23/K31: useful contact remembers witnessed help; MWTS-P05 extends P19."
+    ]
+  },
+  "A02": {
+    "status": "partial",
+    "sources": [
+      {
+        "id": "S10",
+        "url": "https://assetteam.montecookgames.com/wp-content/uploads/The-Hum-MCG-Asset-Team-Adventure.pdf"
+      },
+      {
+        "id": "S13",
+        "url": "https://www.montecookgames.com/store/product/encyclopedia-of-impossible-things-free-preview/"
+      }
+    ],
+    "summary": "The Hum links investigation, party, crisis, gate crossing and rescue through places and motives. Information can come through a specialist spirit ability or a living witness. The preview frames item lore as an institutional dossier.",
+    "implementation": "Authored read-aloud blocks, pacing notes and conditional GM guidance; not a quest-state machine or journal format.",
+    "evidence": "shown public structure; stated rules; inferred YAIRPG uses",
+    "yairpg": [
+      "K11/K12/K29: causal information routes and useful aftermath; P11/P12/P19."
+    ]
+  },
+  "A03": {
+    "status": "partial",
+    "sources": [
+      {
+        "id": "S01",
+        "url": "https://www.montecookgames.com/translation-between-worlds/"
+      },
+      {
+        "id": "S12",
+        "url": "https://csol.montecookgames.com/wp-content/uploads/2025/10/Cypher-System-Reference-Document-2025-08-22.docx"
+      }
+    ],
+    "summary": "A tabletop game resolved by people, with common task resolution and character components. No digital engine, event bus, tick loop, source classes or runtime performance mechanism exists in this inspected corpus.",
+    "implementation": "Rule procedures, sheets, item templates and GM rulings. A software transition transaction is this lane's inference, not decompiled code.",
+    "evidence": "shown public structure; stated rules; inferred YAIRPG uses",
+    "yairpg": [
+      "K2/K3/K15: separate crossing procedure from destination rules; MWTS-P01."
+    ]
+  },
+  "A04": {
+    "status": "partial",
+    "sources": [
+      {
+        "id": "S02",
+        "url": "https://www.montecookgames.com/your-game-bodies-in-translation-gear-and-foci-vs-stat-pools-in-the-strange/"
+      },
+      {
+        "id": "S01",
+        "url": "https://www.montecookgames.com/translation-between-worlds/"
+      }
+    ],
+    "summary": "Local form choices, prior position, equipment in abeyance and current Pools persist conceptually. The sources describe continuity, not serialization.",
+    "implementation": "Human character sheets/GM records; no authoritative digital save, autosave, schema version, migration or corruption handler inspected. Software persistence is not present in these materials.",
+    "evidence": "shown public structure; stated rules; inferred YAIRPG uses",
+    "yairpg": [
+      "K18/K33: retain actor continuity and real local holdings with explicit migration; MWTS-P02."
+    ]
+  },
+  "A05": {
+    "status": "partial",
+    "sources": [
+      {
+        "id": "S10",
+        "url": "https://assetteam.montecookgames.com/wp-content/uploads/The-Hum-MCG-Asset-Team-Adventure.pdf"
+      }
+    ],
+    "summary": "The Hum gives actors goals, encounter tactics and fallback survivor leadership. This is not autonomous simulation or proof of NPC/player rule parity.",
+    "implementation": "GM-controlled motives and tactics in encounter prose; no planner, schedule tables or utility code.",
+    "evidence": "shown public structure; stated rules; inferred YAIRPG uses",
+    "yairpg": [
+      "K6/K10/K12: a contact's motive and a threat's purpose change responses; P25 is a comparison, not a planner implementation."
+    ]
+  },
+  "A06": {
+    "status": "partial",
+    "sources": [
+      {
+        "id": "S05",
+        "url": "https://www.montecookgames.com/store/product/the-strange-cypher-deck-pdf/"
+      },
+      {
+        "id": "S10",
+        "url": "https://assetteam.montecookgames.com/wp-content/uploads/The-Hum-MCG-Asset-Team-Adventure.pdf"
+      }
+    ],
+    "summary": "Focus handouts are given at the crossing; cypher cards can represent form and power. Paper layout and staged disclosure are the observed information surfaces.",
+    "implementation": "Printed focus sheets and human handoff; advertised card counts. No desktop UI, tooltip, keyboard navigation or comparative screen measurement.",
+    "evidence": "shown public structure; stated rules; inferred YAIRPG uses",
+    "yairpg": [
+      "K14/K30: use adjacent desktop traveler/local panels at 1366x768; MWTS-P07, later rebuilt proof needed."
+    ]
+  },
+  "A07": {
+    "status": "partial",
+    "sources": [
+      {
+        "id": "S03",
+        "url": "https://www.montecookgames.com/earth-and-recursions/"
+      },
+      {
+        "id": "S06",
+        "url": "https://www.montecookgames.com/store/product/encyclopedia-of-impossible-things/"
+      },
+      {
+        "id": "S12",
+        "url": "https://csol.montecookgames.com/wp-content/uploads/2025/10/Cypher-System-Reference-Document-2025-08-22.docx"
+      },
+      {
+        "id": "S13",
+        "url": "https://www.montecookgames.com/store/product/encyclopedia-of-impossible-things-free-preview/"
+      },
+      {
+        "id": "S14",
+        "url": "https://www.montecookgames.com/wp-content/uploads/2015/03/NU-CHAR-OPS-FOCI1.jpg"
+      }
+    ],
+    "summary": "Fiction can seed worlds, deliberate creation exists, and emergent worlds develop. Generic CSRD supplies custom-focus authoring guidance. Personal-recursion rules/sheet are advertised but actual construction mechanics are unread.",
+    "implementation": "Human-authored world descriptions, item Origin/Law/Level/Effect/Depletion templates and custom-focus guidelines. No mod API, load order or automatic validator.",
+    "evidence": "shown public structure; stated rules; inferred YAIRPG uses",
+    "yairpg": [
+      "K1/K2/K17/K34: original kit cards with explicit consumers and provenance; MWTS-P06."
+    ]
+  },
+  "A08": {
+    "status": "partial",
+    "sources": [
+      {
+        "id": "S12",
+        "url": "https://csol.montecookgames.com/wp-content/uploads/2025/10/Cypher-System-Reference-Document-2025-08-22.docx"
+      },
+      {
+        "id": "S13",
+        "url": "https://www.montecookgames.com/store/product/encyclopedia-of-impossible-things-free-preview/"
+      }
+    ],
+    "summary": "Generic CSRD target number is three times difficulty; skill/assets/Effort can ease tasks. Cyphers are single-use; artifacts can have item-specific depletion checks. Preview includes varying levels and durations.",
+    "implementation": "d20 task procedure, item-specific dice and resource costs. No seeding, universal pity or big-number arithmetic. Generic 2025 text is not substituted for 2014 Strange.",
+    "evidence": "shown public structure; stated rules; inferred YAIRPG uses",
+    "yairpg": [
+      "K3/K9/K10: separate current reserve, support and function; P17/MWTS-P03."
+    ]
+  },
+  "A09": {
+    "status": "partial",
+    "sources": [
+      {
+        "id": "S04",
+        "url": "https://www.montecookgames.com/using-numenera-character-options-for-the-strange/"
+      },
+      {
+        "id": "S10",
+        "url": "https://assetteam.montecookgames.com/wp-content/uploads/The-Hum-MCG-Asset-Team-Adventure.pdf"
+      },
+      {
+        "id": "S13",
+        "url": "https://www.montecookgames.com/store/product/encyclopedia-of-impossible-things-free-preview/"
+      }
+    ],
+    "summary": "Normal nearby recursions are described as chronologically synchronized. The Hum has event/pacing cues; Samurai Sky supports magic at certain lunar phases.",
+    "implementation": "Human scene order, local fictional time and conditional law. No offline catch-up or software scheduler. Exact core translation/acclimation durations are not recovered here.",
+    "evidence": "shown public structure; stated rules; inferred YAIRPG uses",
+    "yairpg": [
+      "K8/K15/K28/K32: declare local/time/away policy separately; P13/MWTS-P04."
+    ]
+  },
+  "A10": {
+    "status": "partial",
+    "sources": [
+      {
+        "id": "S10",
+        "url": "https://assetteam.montecookgames.com/wp-content/uploads/The-Hum-MCG-Asset-Team-Adventure.pdf"
+      },
+      {
+        "id": "S01",
+        "url": "https://www.montecookgames.com/translation-between-worlds/"
+      }
+    ],
+    "summary": "The Hum uses pregens and staged local focus sheets, letting the first crossing explain changed capabilities in play. Basic local knowledge can be granted by translation.",
+    "implementation": "GM gives a relevant handout when needed and explains arrival context. No automated tutorial unlock detector inspected.",
+    "evidence": "shown public structure; stated rules; inferred YAIRPG uses",
+    "yairpg": [
+      "K4/K11/K14: show known arrival facts and a usable first action; MWTS-P07."
+    ]
+  },
+  "A11": {
+    "status": "partial",
+    "sources": [
+      {
+        "id": "S10",
+        "url": "https://assetteam.montecookgames.com/wp-content/uploads/The-Hum-MCG-Asset-Team-Adventure.pdf"
+      },
+      {
+        "id": "S13",
+        "url": "https://www.montecookgames.com/store/product/encyclopedia-of-impossible-things-free-preview/"
+      },
+      {
+        "id": "S05",
+        "url": "https://www.montecookgames.com/store/product/the-strange-cypher-deck-pdf/"
+      }
+    ],
+    "summary": "Ordinary-looking objects can conceal portable powers; local forms and outfit changes communicate world context. Readable handouts lower lookup cost.",
+    "implementation": "Narrative descriptions and paper artifacts. No sound implementation, animation/VFX code or accessibility testing.",
+    "evidence": "shown public structure; stated rules; inferred YAIRPG uses",
+    "yairpg": [
+      "K9/K14/K19/K20: 24 optional details in SMALL_TOUCHES, with inference labels."
+    ]
+  },
+  "A12": {
+    "status": "partial",
+    "sources": [
+      {
+        "id": "S02",
+        "url": "https://www.montecookgames.com/your-game-bodies-in-translation-gear-and-foci-vs-stat-pools-in-the-strange/"
+      },
+      {
+        "id": "S03",
+        "url": "https://www.montecookgames.com/earth-and-recursions/"
+      },
+      {
+        "id": "S04",
+        "url": "https://www.montecookgames.com/using-numenera-character-options-for-the-strange/"
+      },
+      {
+        "id": "S13",
+        "url": "https://www.montecookgames.com/store/product/encyclopedia-of-impossible-things-free-preview/"
+      }
+    ],
+    "summary": "Local social standing, wealth, equipment abeyance, emergence, shared injury and inapposite passage are the distinctive additional systems. Full local careers and personal-recursion growth remain outside read coverage.",
+    "implementation": "Rules and templates adjudicated by people, not a hidden digital metaprogression engine.",
+    "evidence": "shown public structure; stated rules; inferred YAIRPG uses",
+    "yairpg": [
+      "K6/K7/K8/K15/K22/K25: local ties and real retained goods; MWTS-P02/P05/P06."
+    ]
+  }
+}

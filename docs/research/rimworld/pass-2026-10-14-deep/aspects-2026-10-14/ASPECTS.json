@@ -1,0 +1,158 @@
+{
+  "A01": {
+    "status": "partial",
+    "sources": [
+      "~/.codex/research/lib-rimworld-deep/extract/source/RimWorld.CompStudyUnlocks.cs",
+      "~/.codex/research/lib-rimworld-deep/extract/source/RimWorld.RitualOutcomeEffectWorker_FromQuality.cs"
+    ],
+    "summary": "SHOWN static unless explicitly prior: Prior 1.7 aspect pass traces social grammar and faction choices. This deep pass adds study-note participant attribution and ritual participant memories, not a new conversation tree. Full builders/portraits remain unread.",
+    "yairpg": [
+      "INFERRED PROPOSAL: K6/K11/K20/K23; P19/P20/P21; keep events separate from wording."
+    ]
+  },
+  "A02": {
+    "status": "covered",
+    "sources": [
+      "~/.codex/research/lib-rimworld-deep/extract/source/RimWorld.CompStudyUnlocks.cs",
+      "~/.codex/research/lib-rimworld-deep/extract/source/RimWorld.RitualOutcomeEffectWorker_FromQuality.cs",
+      "~/.codex/research/lib-rimworld-deep/extract/source/RimWorld.StoryState.cs"
+    ],
+    "summary": "SHOWN static unless explicitly prior: Study thresholds create dated retained notes; ritual outcomes send sourced reports; successful incidents update history. Prior quest lifecycle is reused as prior evidence, not retraced for every script.",
+    "yairpg": [
+      "INFERRED PROPOSAL: K11/K12/K21/K23; P11/P12/P20; reading does not repeat the consequence."
+    ]
+  },
+  "A03": {
+    "status": "covered",
+    "sources": [
+      "~/.codex/research/lib-rimworld-deep/extract/source/Verse.TickManager.cs",
+      "~/.codex/research/lib-rimworld-deep/extract/source/RimWorld.StudyManager.cs",
+      "~/.codex/research/lib-rimworld-deep/extract/source/Verse.GenRecipe.cs"
+    ],
+    "summary": "SHOWN static unless explicitly prior: Current managed domain classes use Defs, worker/components, object trackers, staged toils and one tick manager. Independent XML census covers 14,084 raw Def children/254 families. Prior aspect host/.NET 10 Waylith finding is inherited; the gameplay decompile route succeeds here.",
+    "yairpg": [
+      "INFERRED PROPOSAL: K1/K18/K33/K34; P16/P22; definitions, instances and projections differ."
+    ]
+  },
+  "A04": {
+    "status": "partial",
+    "sources": [
+      "~/.codex/research/lib-rimworld-deep/extract/source/RimWorld.Pawn_GeneTracker.cs",
+      "~/.codex/research/lib-rimworld-deep/extract/source/RimWorld.Planet.Gravship.cs",
+      "~/.codex/research/lib-rimworld-deep/extract/source/RimWorld.CompStudyUnlocks.cs",
+      "~/.codex/research/lib-rimworld-deep/extract/source/RimWorld.Bill_Production.cs",
+      "~/.codex/research/lib-rimworld-deep/extract/source/RimWorld.StoryState.cs"
+    ],
+    "summary": "SHOWN static unless explicitly prior: Deep bodies retain separate gene channels; ship serializes objects and coordinates; study saves thresholds/notes; bills save intent; StoryState saves successful history. Framework recovery is prior evidence. No roundtrip or migration execution.",
+    "yairpg": [
+      "INFERRED PROPOSAL: K18/K33; P05/P23/P24; existing native envelope remains authoritative."
+    ]
+  },
+  "A05": {
+    "status": "covered",
+    "sources": [
+      "~/.codex/research/lib-rimworld-deep/extract/source/RimWorld.JobGiver_Work.cs",
+      "~/.codex/research/lib-rimworld-deep/extract/source/RimWorld.WorkGiver_DoBill.cs",
+      "~/.codex/research/lib-rimworld-deep/extract/source/RimWorld.JobDriver_StudyInteract.cs",
+      "~/.codex/research/lib-rimworld-deep/extract/source/RimWorld.LearningGiver_Workwatching.cs"
+    ],
+    "summary": "SHOWN static unless explicitly prior: Work selector consumes priorities, targets and reservations; study jobs reserve subject/platform; workwatching and lessons require actual means. Full faction/group AI, pathfinding and all escape behavior remain unread.",
+    "yairpg": [
+      "INFERRED PROPOSAL: K6/K8/K13; P01/P06/P25; share lawful action predicates."
+    ]
+  },
+  "A06": {
+    "status": "partial",
+    "sources": [
+      "~/.codex/research/lib-rimworld-deep/extract/source/RimWorld.Bill_Production.cs",
+      "~/.codex/research/lib-rimworld-deep/extract/source/RimWorld.WorkGiver_DoBill.cs",
+      "~/.codex/research/lib-rimworld-deep/extract/source/RimWorld.Need_Learning.cs",
+      "~/.codex/research/lib-rimworld-deep/extract/source/RimWorld.ChoiceLetter_GrowthMoment.cs"
+    ],
+    "summary": "SHOWN static unless explicitly prior: Source has stock/repeat controls, forced-menu fail reasons, learning need/desire icons, growth choices, retained study letters and ritual reports. Several automatic job failures have no detailed reason. Native appearance and accessibility unrun.",
+    "yairpg": [
+      "INFERRED PROPOSAL: K14/K30/K34; P01/P04; 1366x768 useful context/action/reason view, mobile deferred."
+    ]
+  },
+  "A07": {
+    "status": "covered",
+    "sources": [
+      "~/.codex/research/lib-rimworld-deep/extract/source/Verse.GeneDef.cs",
+      "~/.codex/research/lib-rimworld-deep/extract/source/RimWorld.MemeDef.cs",
+      "~/.codex/research/lib-rimworld-deep/extract/source/RimWorld.PreceptDef.cs",
+      "~/.codex/research/lib-rimworld-deep/extract/source/RimWorld.PlanetLayerDef.cs",
+      "~/.codex/research/lib-rimworld-deep/extract/source/Verse.ResearchProjectDef.cs"
+    ],
+    "summary": "SHOWN static unless explicitly prior: Gene/xenotype, precept/meme, knowledge/research, recipes, layer and storyteller records configure consumers. Raw census includes abstract/inherited rows; drug recipeMaker adds generated recipes beyond explicit RecipeDef rows. Effective mod activation/patch resolution unrun.",
+    "yairpg": [
+      "INFERRED PROPOSAL: K1/K2/K33/K34; P16/P22; count authoring declarations separately from resolved content."
+    ]
+  },
+  "A08": {
+    "status": "covered",
+    "sources": [
+      "~/.codex/research/lib-rimworld-deep/extract/source/RimWorld.PregnancyUtility.cs",
+      "~/.codex/research/lib-rimworld-deep/extract/source/RimWorld.GrowthUtility.cs",
+      "~/.codex/research/lib-rimworld-deep/extract/source/Verse.ContainmentUtility.cs",
+      "~/.codex/research/lib-rimworld-deep/extract/source/RimWorld.StorytellerUtilityPopulation.cs",
+      "~/.codex/research/lib-rimworld-deep/extract/source/RimWorld.StorytellerComp.cs"
+    ],
+    "summary": "SHOWN static unless explicitly prior: Inheritance chances and bounded metabolic retries, tier thresholds, containment margin curves, stock hysteresis, population intent, threat budget and final event weight are distinct numeric models. None is a universal YAIRPG budget.",
+    "yairpg": [
+      "INFERRED PROPOSAL: K3/K10/K22/K32; P08/P10/P17; label units, relative weights and intervals."
+    ]
+  },
+  "A09": {
+    "status": "covered",
+    "sources": [
+      "~/.codex/research/lib-rimworld-deep/extract/source/Verse.TickManager.cs",
+      "~/.codex/research/lib-rimworld-deep/extract/source/RimWorld.Planet.Gravship.cs",
+      "~/.codex/research/lib-rimworld-deep/extract/source/RimWorld.CompStudiable.cs",
+      "~/.codex/research/lib-rimworld-deep/extract/source/Verse.Pawn_AgeTracker.cs",
+      "~/.codex/research/lib-rimworld-deep/extract/source/RimWorld.IncidentCycleUtility.cs"
+    ],
+    "summary": "SHOWN static unless explicitly prior: Loaded maps share game ticks; gravship travel consumes tick intervals; study has completion/cooldown; growth uses biological age; incidents use MTB or seeded cycles. Browser-closed catch-up and independent universe clocks are not shown.",
+    "yairpg": [
+      "INFERRED PROPOSAL: K5/K18/K26/K32; P13; declare consumed and inactive-clock policy."
+    ]
+  },
+  "A10": {
+    "status": "partial",
+    "sources": [
+      "~/.codex/research/lib-rimworld-deep/extract/source/RimWorld.CompStudiable.cs",
+      "~/.codex/research/lib-rimworld-deep/extract/source/RimWorld.CompStudyUnlocks.cs",
+      "~/.codex/research/lib-rimworld-deep/extract/source/RimWorld.ChoiceLetter_GrowthMoment.cs",
+      "~/.codex/research/lib-rimworld-deep/extract/source/RimWorld.OrbitLayer.cs"
+    ],
+    "summary": "SHOWN static unless explicitly prior: Study admission and resolved note thresholds reveal subject information; monolith level can gate study; childhood milestones broaden options; orbit selection requires a world object. Full tutorial progression and every DLC introduction unread.",
+    "yairpg": [
+      "INFERRED PROPOSAL: K4/K11/K14/K30; P03/P04; reveal by actual route, no hidden alternative leak."
+    ]
+  },
+  "A11": {
+    "status": "covered",
+    "sources": [
+      "~/.codex/research/lib-rimworld-deep/extract/source/RimWorld.Bill_Production.cs",
+      "~/.codex/research/lib-rimworld-deep/extract/source/RimWorld.Precept_Role.cs",
+      "~/.codex/research/lib-rimworld-deep/extract/source/RimWorld.CompStudyUnlocks.cs",
+      "~/.codex/research/lib-rimworld-deep/extract/source/RimWorld.Storyteller.cs"
+    ],
+    "summary": "SHOWN static unless explicitly prior: Thirty-six sourced proposal rows in SMALL_TOUCHES distinguish pauses, counts, known blockers, role grants, note retention, departure disposition and successful occurrence. Intended affordances are source evidence only.",
+    "yairpg": [
+      "INFERRED PROPOSAL: K14/K21/K25/K26; source whole-game presentation remains unrun."
+    ]
+  },
+  "A12": {
+    "status": "partial",
+    "sources": [
+      "~/.codex/research/lib-rimworld-deep/extract/source/RimWorld.Planet.Gravship.cs",
+      "~/.codex/research/lib-rimworld-deep/extract/source/RimWorld.Pawn_GeneTracker.cs",
+      "~/.codex/research/lib-rimworld-deep/extract/source/RimWorld.Ideo.cs",
+      "~/.codex/research/lib-rimworld-deep/extract/source/RimWorld.CompHoldingPlatformTarget.cs"
+    ],
+    "summary": "SHOWN static unless explicitly prior: This delta covers mobile spatial homes, genetics, childhood development, institution rules, containment and study. Royalty, combat/body/medicine breadth, detailed economy, all world generation and mod internals remain inventoried or prior evidence.",
+    "yairpg": [
+      "INFERRED PROPOSAL: K2/K3/K7/K9/K15/K22/K25; NEW RW-D2/RW-D3/RW-D4 subcases, broader options stay reachable."
+    ]
+  }
+}

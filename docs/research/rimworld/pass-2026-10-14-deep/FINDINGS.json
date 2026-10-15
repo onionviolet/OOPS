@@ -1,0 +1,418 @@
+{
+  "lane": "lib-rimworld-deep",
+  "version": "1.7.4979 rev109",
+  "steam_build": "25947168",
+  "assembly_sha256": "a97a01c4319414414c0ca39f3565215e83300dc608dc94b69a27720095b4e751",
+  "findings": [
+    {
+      "id": "F1",
+      "title": "Odyssey transports a retained household, not a fresh colony",
+      "system": "Odyssey",
+      "evidence_class": "shown",
+      "scope": "static decompiled 1.7.4979 and installed raw XML; no runtime",
+      "summary": "Gravship captures actual pawns/things and spatial context, carries serialized story history and restores them into a destination map. GenerateGravship despawns original objects; placement respawns them. This supports identity continuity without rerolling an arrival body.",
+      "sources": [
+        "~/.codex/research/lib-rimworld-deep/extract/source/RimWorld.Planet.Gravship.cs",
+        "~/.codex/research/lib-rimworld-deep/extract/source/RimWorld.GravshipUtility.cs",
+        "~/.codex/research/lib-rimworld-deep/extract/source/RimWorld.GravshipPlacementUtility.cs"
+      ],
+      "kit": [
+        "K5",
+        "K15",
+        "K18",
+        "K25"
+      ],
+      "synthesis": [
+        "P05",
+        "P16",
+        "P23"
+      ],
+      "yairpg_status": "PROPOSAL ONLY",
+      "new_packets": []
+    },
+    {
+      "id": "F2",
+      "title": "Layer laws change routes and incident admission",
+      "system": "Odyssey",
+      "evidence_class": "shown",
+      "scope": "static decompiled 1.7.4979 and installed raw XML; no runtime",
+      "summary": "Surface and Orbit are concrete PlanetLayerDef records; an abstract orbit base is the third raw row. Orbit disallows caravans, requires incident/arrival/game-condition whitelists and changes range scaling. IncidentWorker consumes the layer allow/deny rules; VacuumUtility reads biome vacuum plus pawn protection. These are different places under one game, not demonstrated metaphysical multiverses.",
+      "sources": [
+        "~/.codex/research/lib-rimworld-deep/extract/source/RimWorld.PlanetLayerDef.cs",
+        "~/.codex/research/lib-rimworld-deep/extract/source/RimWorld.IncidentWorker.cs",
+        "~/.codex/research/lib-rimworld-deep/extract/source/Verse.VacuumUtility.cs",
+        "~/.codex/research/lib-rimworld-deep/extract/source/RimWorld.GravshipUtility.cs"
+      ],
+      "kit": [
+        "K2",
+        "K5",
+        "K10",
+        "K15",
+        "K28"
+      ],
+      "synthesis": [
+        "P04",
+        "P14"
+      ],
+      "yairpg_status": "PROPOSAL ONLY",
+      "new_packets": []
+    },
+    {
+      "id": "F3",
+      "title": "Keeping the departure map is conditional",
+      "system": "Odyssey",
+      "evidence_class": "shown",
+      "scope": "static decompiled 1.7.4979 and installed raw XML; no runtime",
+      "summary": "TakeoffEnded abandons a map without a grav anchor; the anchored branch updates bill destinations. AbandonMap processes left-behind pawns. TickManager.DoSingleTick iterates loaded maps and advances one shared world clock. Multiple active maps do not imply frozen independent branches or automatic preservation of every departure.",
+      "sources": [
+        "~/.codex/research/lib-rimworld-deep/extract/source/Verse.WorldComponent_GravshipController.cs",
+        "~/.codex/research/lib-rimworld-deep/extract/source/RimWorld.GravshipUtility.cs",
+        "~/.codex/research/lib-rimworld-deep/extract/source/Verse.TickManager.cs"
+      ],
+      "kit": [
+        "K5",
+        "K15",
+        "K18",
+        "K32"
+      ],
+      "synthesis": [
+        "P05",
+        "P13",
+        "P23"
+      ],
+      "yairpg_status": "PROPOSAL ONLY",
+      "new_packets": []
+    },
+    {
+      "id": "F4",
+      "title": "Inheritance reads germline, expression reads active genes",
+      "system": "Biotech",
+      "evidence_class": "shown",
+      "scope": "static decompiled 1.7.4979 and installed raw XML; no runtime",
+      "summary": "Pawn_GeneTracker stores endogenes and xenogenes separately; pregnancy samples Endogenes, with 0.5 single-parent and 1.0 shared-gene base chances, prerequisite removal and up to 50 metabolic-range attempts. Gene.Active can be false through override, age or mutation state. Owning a gene is distinct from expressing or transmitting it.",
+      "sources": [
+        "~/.codex/research/lib-rimworld-deep/extract/source/RimWorld.Pawn_GeneTracker.cs",
+        "~/.codex/research/lib-rimworld-deep/extract/source/RimWorld.PregnancyUtility.cs",
+        "~/.codex/research/lib-rimworld-deep/extract/source/Verse.Gene.cs",
+        "~/.codex/research/lib-rimworld-deep/extract/source/Verse.GeneDef.cs"
+      ],
+      "kit": [
+        "K3",
+        "K4",
+        "K15",
+        "K22"
+      ],
+      "synthesis": [
+        "P04",
+        "P05"
+      ],
+      "yairpg_status": "PROPOSAL ONLY",
+      "new_packets": [
+        "RW-D2"
+      ]
+    },
+    {
+      "id": "F5",
+      "title": "Learning quality broadens childhood choices",
+      "system": "Biotech",
+      "evidence_class": "shown",
+      "scope": "static decompiled 1.7.4979 and installed raw XML; no runtime",
+      "summary": "Need_Learning feeds growth points through Pawn_AgeTracker; GrowthUtility defines nine tiers and growth birthdays 7/10/13. Tier changes trait/passion choices and gains. A pending growth letter suspends further point gain until resolution. Learning desires, lesson availability and observing actual adult work are separate readers.",
+      "sources": [
+        "~/.codex/research/lib-rimworld-deep/extract/source/RimWorld.Need_Learning.cs",
+        "~/.codex/research/lib-rimworld-deep/extract/source/Verse.Pawn_AgeTracker.cs",
+        "~/.codex/research/lib-rimworld-deep/extract/source/RimWorld.GrowthUtility.cs",
+        "~/.codex/research/lib-rimworld-deep/extract/source/RimWorld.ChoiceLetter_GrowthMoment.cs",
+        "~/.codex/research/lib-rimworld-deep/extract/source/RimWorld.LearningGiver_Lessontaking.cs",
+        "~/.codex/research/lib-rimworld-deep/extract/source/RimWorld.LearningGiver_Workwatching.cs"
+      ],
+      "kit": [
+        "K3",
+        "K6",
+        "K8",
+        "K22",
+        "K26"
+      ],
+      "synthesis": [
+        "P03",
+        "P06",
+        "P09"
+      ],
+      "yairpg_status": "PROPOSAL ONLY",
+      "new_packets": []
+    },
+    {
+      "id": "F6",
+      "title": "Ideology is a bundle read by several systems",
+      "system": "Ideology",
+      "evidence_class": "shown",
+      "scope": "static decompiled 1.7.4979 and installed raw XML; no runtime",
+      "summary": "MemeDef constrains precepts and rituals; Ideo caches derived needs, roles, thoughts and buildables. StatWorker directly reads precept offsets/factors and role effects. Role work restrictions and temporary abilities have assignment/unassignment notifications. One belief therefore changes several verbs rather than only a faction score.",
+      "sources": [
+        "~/.codex/research/lib-rimworld-deep/extract/source/RimWorld.MemeDef.cs",
+        "~/.codex/research/lib-rimworld-deep/extract/source/RimWorld.PreceptDef.cs",
+        "~/.codex/research/lib-rimworld-deep/extract/source/RimWorld.Ideo.cs",
+        "~/.codex/research/lib-rimworld-deep/extract/source/RimWorld.StatWorker.cs",
+        "~/.codex/research/lib-rimworld-deep/extract/source/RimWorld.Precept_Role.cs",
+        "~/.codex/research/lib-rimworld-deep/extract/source/RimWorld.Precept_RoleSingle.cs"
+      ],
+      "kit": [
+        "K2",
+        "K7",
+        "K8",
+        "K21",
+        "K24"
+      ],
+      "synthesis": [
+        "P07",
+        "P04"
+      ],
+      "yairpg_status": "PROPOSAL ONLY",
+      "new_packets": []
+    },
+    {
+      "id": "F7",
+      "title": "Rituals have admission, participation, outcome and memory",
+      "system": "Ideology",
+      "evidence_class": "shown",
+      "scope": "static decompiled 1.7.4979 and installed raw XML; no runtime",
+      "summary": "Precept_Ritual distinguishes anytime/date/event obligations and repeat penalties. Behavior checks start eligibility. Quality-based outcome workers weight eligible outcomes, apply extra effects and source-attributed memories, and send a report. This is not one prayer button with a fixed reward.",
+      "sources": [
+        "~/.codex/research/lib-rimworld-deep/extract/source/RimWorld.Precept_Ritual.cs",
+        "~/.codex/research/lib-rimworld-deep/extract/source/RimWorld.RitualBehaviorWorker.cs",
+        "~/.codex/research/lib-rimworld-deep/extract/source/RimWorld.RitualOutcomeEffectWorker_FromQuality.cs"
+      ],
+      "kit": [
+        "K7",
+        "K12",
+        "K21",
+        "K29",
+        "K32"
+      ],
+      "synthesis": [
+        "P07",
+        "P10",
+        "P12"
+      ],
+      "yairpg_status": "PROPOSAL ONLY",
+      "new_packets": []
+    },
+    {
+      "id": "F8",
+      "title": "Anomaly keeps subject progress, notes and research distinct",
+      "system": "Anomaly",
+      "evidence_class": "shown",
+      "scope": "static decompiled 1.7.4979 and installed raw XML; no runtime",
+      "summary": "CompStudiable owns subject progress and study cooldown/interactions. CompStudyUnlocks keeps resolved thresholds, next note index and retained letters. StudyManager routes knowledge to ResearchManager category projects; overflow follows an authored category link. A generic creature codex count is not the whole unlock path.",
+      "sources": [
+        "~/.codex/research/lib-rimworld-deep/extract/source/RimWorld.CompStudiable.cs",
+        "~/.codex/research/lib-rimworld-deep/extract/source/RimWorld.CompStudyUnlocks.cs",
+        "~/.codex/research/lib-rimworld-deep/extract/source/RimWorld.StudyManager.cs",
+        "~/.codex/research/lib-rimworld-deep/extract/source/RimWorld.ResearchManager.cs"
+      ],
+      "kit": [
+        "K3",
+        "K9",
+        "K11",
+        "K13",
+        "K18"
+      ],
+      "synthesis": [
+        "P03",
+        "P11",
+        "P20"
+      ],
+      "yairpg_status": "PROPOSAL ONLY",
+      "new_packets": [
+        "RW-D3"
+      ]
+    },
+    {
+      "id": "F9",
+      "title": "Containment changes study yield and escape timing",
+      "system": "Anomaly",
+      "evidence_class": "shown",
+      "scope": "static decompiled 1.7.4979 and installed raw XML; no runtime",
+      "summary": "CurrentlyStudiable checks subject state, enabled flag, frequency and applicable platform/prison rules. Containment mode must permit study. ContainmentUtility compares holding strength with required strength and uses separate curves for study yield and escape interval; cold, movement and captivity duration can change escape intervals.",
+      "sources": [
+        "~/.codex/research/lib-rimworld-deep/extract/source/RimWorld.CompStudiable.cs",
+        "~/.codex/research/lib-rimworld-deep/extract/source/RimWorld.CompHoldingPlatformTarget.cs",
+        "~/.codex/research/lib-rimworld-deep/extract/source/Verse.ContainmentUtility.cs",
+        "~/.codex/research/lib-rimworld-deep/extract/source/RimWorld.JobDriver_StudyInteract.cs"
+      ],
+      "kit": [
+        "K2",
+        "K9",
+        "K10",
+        "K11",
+        "K22"
+      ],
+      "synthesis": [
+        "P03",
+        "P04",
+        "P17"
+      ],
+      "yairpg_status": "PROPOSAL ONLY",
+      "new_packets": []
+    },
+    {
+      "id": "F10",
+      "title": "Bills express inventory goals with hysteresis",
+      "system": "Work",
+      "evidence_class": "shown",
+      "scope": "static decompiled 1.7.4979 and installed raw XML; no runtime",
+      "summary": "Bill_Production supports repeat count, forever and target count. Target mode counts qualifying stock, can pause at target and resume at a lower threshold. Product counting is scoped by map/storage/filter/equipment settings. ShouldDoNow can mutate paused state, so it is not a pure projection API.",
+      "sources": [
+        "~/.codex/research/lib-rimworld-deep/extract/source/RimWorld.Bill_Production.cs",
+        "~/.codex/research/lib-rimworld-deep/extract/source/Verse.RecipeWorkerCounter.cs",
+        "~/.codex/research/lib-rimworld-deep/extract/source/RimWorld.Pawn_WorkSettings.cs"
+      ],
+      "kit": [
+        "K8",
+        "K9",
+        "K13",
+        "K18",
+        "K26"
+      ],
+      "synthesis": [
+        "P01",
+        "P08",
+        "P02"
+      ],
+      "yairpg_status": "PROPOSAL ONLY",
+      "new_packets": []
+    },
+    {
+      "id": "F11",
+      "title": "Blocker feedback is contextual and incomplete",
+      "system": "Work",
+      "evidence_class": "shown",
+      "scope": "static decompiled 1.7.4979 and installed raw XML; no runtime",
+      "summary": "WorkGiver_DoBill checks usability/reservation, skill, worker/bill restrictions and ingredients. Missing-material details are gathered for the forced menu path; ordinary AI can defer a failed search by 500-600 ticks. Several early exits have no specific reason. A null job is not a durable human explanation.",
+      "sources": [
+        "~/.codex/research/lib-rimworld-deep/extract/source/RimWorld.WorkGiver_DoBill.cs",
+        "~/.codex/research/lib-rimworld-deep/extract/source/RimWorld.JobGiver_Work.cs",
+        "~/.codex/research/lib-rimworld-deep/extract/source/RimWorld.Pawn_WorkSettings.cs"
+      ],
+      "kit": [
+        "K8",
+        "K9",
+        "K14",
+        "K34"
+      ],
+      "synthesis": [
+        "P01",
+        "P04",
+        "P25"
+      ],
+      "yairpg_status": "PROPOSAL ONLY",
+      "new_packets": []
+    },
+    {
+      "id": "F12",
+      "title": "Production separates recipe, actual ingredients and completion",
+      "system": "Work",
+      "evidence_class": "shown",
+      "scope": "static decompiled 1.7.4979 and installed raw XML; no runtime",
+      "summary": "GenRecipe has ordinary products and special butchery/smelting handlers. Meal ingredients use nutrition values; drug recipes can be generated from ThingDef recipeMaker/costList instead of standalone RecipeDef rows. Toils_Recipe creates products, consumes ingredients and notifies bill completion before placing/hauling results. This mutable donor flow is not a YAIRPG atomic-save contract.",
+      "sources": [
+        "~/.codex/research/lib-rimworld-deep/extract/source/Verse.GenRecipe.cs",
+        "~/.codex/research/lib-rimworld-deep/extract/source/Verse.AI.Toils_Recipe.cs",
+        "~/.codex/research/lib-rimworld-deep/extract/source/Verse.RecipeWorker.cs",
+        "~/.codex/research/lib-rimworld-deep/extract/source/Verse.AI.JobDriver_DoBill.cs"
+      ],
+      "kit": [
+        "K8",
+        "K9",
+        "K13",
+        "K18"
+      ],
+      "synthesis": [
+        "P02",
+        "P08",
+        "P18"
+      ],
+      "yairpg_status": "PROPOSAL ONLY",
+      "new_packets": []
+    },
+    {
+      "id": "F13",
+      "title": "Storyteller stages have distinct failure semantics",
+      "system": "Storyteller",
+      "evidence_class": "shown",
+      "scope": "static decompiled 1.7.4979 and installed raw XML; no runtime",
+      "summary": "Storyteller ticks incident queue and samples components each 1000 ticks. RandomMain samples mean-time timing and weighted categories; OnOffCycle uses a seeded interval calendar. Eligibility and weights are separate. TryFire rechecks eligibility and records history only after TryExecute succeeds.",
+      "sources": [
+        "~/.codex/research/lib-rimworld-deep/extract/source/RimWorld.Storyteller.cs",
+        "~/.codex/research/lib-rimworld-deep/extract/source/RimWorld.StorytellerComp.cs",
+        "~/.codex/research/lib-rimworld-deep/extract/source/RimWorld.StorytellerComp_RandomMain.cs",
+        "~/.codex/research/lib-rimworld-deep/extract/source/RimWorld.StorytellerComp_OnOffCycle.cs",
+        "~/.codex/research/lib-rimworld-deep/extract/source/RimWorld.IncidentCycleUtility.cs",
+        "~/.codex/research/lib-rimworld-deep/extract/source/RimWorld.StoryState.cs"
+      ],
+      "kit": [
+        "K10",
+        "K12",
+        "K18",
+        "K32",
+        "K34"
+      ],
+      "synthesis": [
+        "P10",
+        "P12",
+        "P13"
+      ],
+      "yairpg_status": "PROPOSAL ONLY",
+      "new_packets": []
+    },
+    {
+      "id": "F14",
+      "title": "Population intent is a soft selection pressure",
+      "system": "Storyteller",
+      "evidence_class": "shown",
+      "scope": "static decompiled 1.7.4979 and installed raw XML; no runtime",
+      "summary": "AdjustedPopulation weights babies, children, prisoners and slaves differently, includes borrowed colonists, and has a quest-aware variant. Population intent reads the storyteller curve and applies adaptation only to positive intent. Final incident weight also includes current-population curve, incident factors and recent repetition penalties. This is not a fixed colony cap.",
+      "sources": [
+        "~/.codex/research/lib-rimworld-deep/extract/source/RimWorld.StorytellerUtilityPopulation.cs",
+        "~/.codex/research/lib-rimworld-deep/extract/source/RimWorld.StorytellerComp.cs",
+        "~/.codex/research/lib-rimworld-deep/extract/source/RimWorld.StoryWatcher_PopAdaptation.cs"
+      ],
+      "kit": [
+        "K6",
+        "K10",
+        "K12",
+        "K32"
+      ],
+      "synthesis": [
+        "P10",
+        "P06"
+      ],
+      "yairpg_status": "PROPOSAL ONLY",
+      "new_packets": []
+    },
+    {
+      "id": "F15",
+      "title": "Threat budget and population recruitment pressure differ",
+      "system": "Storyteller",
+      "evidence_class": "shown",
+      "scope": "static decompiled 1.7.4979 and installed raw XML; no runtime",
+      "summary": "DefaultThreatPointsNow combines target wealth, eligible pawn contributions, health/age adjustments, random range, adaptation, difficulty and days passed. This differs from population intent and per-incident weight. A carrier with retained story state can preserve pacing history across moves without implying every destination has the same threats.",
+      "sources": [
+        "~/.codex/research/lib-rimworld-deep/extract/source/RimWorld.StorytellerUtility.cs",
+        "~/.codex/research/lib-rimworld-deep/extract/source/RimWorld.Planet.Gravship.cs"
+      ],
+      "kit": [
+        "K10",
+        "K12",
+        "K15",
+        "K32"
+      ],
+      "synthesis": [
+        "P10",
+        "P14"
+      ],
+      "yairpg_status": "PROPOSAL ONLY",
+      "new_packets": []
+    }
+  ]
+}

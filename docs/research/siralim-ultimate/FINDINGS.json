@@ -1,0 +1,898 @@
+{
+  "lane": "mw-siralim",
+  "date": "2026-10-14",
+  "status": "PARTIAL",
+  "scope": "installed data and selected static native research; no game execution",
+  "source_build": "20548371",
+  "private_root": "/Users/weiwei/.codex/research/mw-siralim",
+  "findings": [
+    {
+      "id": "SU-F01",
+      "title": "YYC, not VM",
+      "evidence_class": "shown",
+      "summary": "No CODE chunk in game.ios; native arm64 retains gml_Script and gml_Object bodies. GEN8 bytecode format marker 17 alone does not make this VM.",
+      "sources": [
+        "game.ios chunk directory",
+        "extract/archive-index.json",
+        "extract/nm-arm64.txt"
+      ],
+      "kit": [
+        "K1",
+        "K34"
+      ],
+      "synthesis_packets": [
+        "P16"
+      ],
+      "remaining_gap": "Selected native bodies only; no full decompilation."
+    },
+    {
+      "id": "SU-F02",
+      "title": "Place grammar over shared machinery",
+      "evidence_class": "shown+stated",
+      "summary": "30 realm names use one generic realm room with authored objects, creature pools and patron interfaces.",
+      "sources": [
+        "localization/vocabulary.csv:386-415",
+        "localization/codex.csv:143-150",
+        "game.ios ROOM/OBJT"
+      ],
+      "kit": [
+        "K2",
+        "K5",
+        "K10",
+        "K13"
+      ],
+      "synthesis_packets": [
+        "P14"
+      ],
+      "remaining_gap": "Complete per-realm pool/object/condition join unread."
+    },
+    {
+      "id": "SU-F03",
+      "title": "Depth and instability are different axes",
+      "evidence_class": "stated",
+      "summary": "Depth changes enemy/reward strength and frontier unlocks; optional instability changes properties, fusion and encounter mixing.",
+      "sources": [
+        "localization/codex.csv:145-147",
+        "localization/ui.csv:606-632",
+        "NATIVE_TRACE.md:N12"
+      ],
+      "kit": [
+        "K2",
+        "K10",
+        "K14"
+      ],
+      "synthesis_packets": [
+        "P14"
+      ],
+      "remaining_gap": "Enemy-level curve recovered as static inference in N12; loot and complete spawn application unread."
+    },
+    {
+      "id": "SU-F04",
+      "title": "Travel quotes known unknowns",
+      "evidence_class": "shown+stated",
+      "summary": "Shrine labels include costs, enemy level, fused race, active properties, hidden count and expected creature list.",
+      "sources": [
+        "localization/ui.csv:606-632"
+      ],
+      "kit": [
+        "K5",
+        "K11",
+        "K14",
+        "K15"
+      ],
+      "synthesis_packets": [
+        "P04",
+        "P05",
+        "P11"
+      ],
+      "remaining_gap": "No live desktop proof."
+    },
+    {
+      "id": "SU-F05",
+      "title": "Trait sources remain meaningful",
+      "evidence_class": "stated",
+      "summary": "Innate and fusion traits combine with artifact and temporary gains; artifact slots have typed recovery rules.",
+      "sources": [
+        "localization/codex.csv:132-142,211-214",
+        "localization/ui.csv:35-56,527-533"
+      ],
+      "kit": [
+        "K3",
+        "K9",
+        "K15"
+      ],
+      "synthesis_packets": [
+        "P04",
+        "P16"
+      ],
+      "remaining_gap": "Full purchase/fusion eligibility and mutation chain incomplete."
+    },
+    {
+      "id": "SU-F06",
+      "title": "Local limits bound chains",
+      "evidence_class": "stated",
+      "summary": "Help describes startup phases and per-turn/battle action limits with Calm Mode and relic exceptions; its battle-start numbering is inconsistent.",
+      "sources": [
+        "localization/codex.csv:190-193"
+      ],
+      "kit": [
+        "K3",
+        "K10",
+        "K18",
+        "K34"
+      ],
+      "synthesis_packets": [
+        "P14",
+        "P16"
+      ],
+      "remaining_gap": "Exact queue ordering and limit enforcement unread; do not impose lifetime caps."
+    },
+    {
+      "id": "SU-F07",
+      "title": "Continuing home links expeditions",
+      "evidence_class": "stated",
+      "summary": "Castle supports creature management, refit, projects and custom decoration between realms.",
+      "sources": [
+        "localization/codex.csv:168-171"
+      ],
+      "kit": [
+        "K8",
+        "K9",
+        "K13",
+        "K25"
+      ],
+      "synthesis_packets": [
+        "P02",
+        "P06",
+        "P12"
+      ],
+      "remaining_gap": "Hub job execution and durable return not exercised."
+    },
+    {
+      "id": "SU-F08",
+      "title": "Standing, currency and local benefit differ",
+      "evidence_class": "stated",
+      "summary": "Patron favor unlocks shops; patron emblems are spendable; blessings act in the corresponding realm.",
+      "sources": [
+        "localization/codex.csv:148,151-154,198"
+      ],
+      "kit": [
+        "K7",
+        "K8",
+        "K15",
+        "K21"
+      ],
+      "synthesis_packets": [
+        "P05",
+        "P07",
+        "P18"
+      ],
+      "remaining_gap": "Not evidence of full interpersonal or cross-world social simulation."
+    },
+    {
+      "id": "SU-F09",
+      "title": "All acquired roles stay reachable",
+      "evidence_class": "stated",
+      "summary": "Projects unlock later specializations and wardrobe switching; anointments import selected perks.",
+      "sources": [
+        "localization/codex.csv:195,235",
+        "localization/ui.csv:827-841"
+      ],
+      "kit": [
+        "K3",
+        "K4",
+        "K15",
+        "K33"
+      ],
+      "synthesis_packets": [
+        "P03",
+        "P16"
+      ],
+      "remaining_gap": "Exact loadout retention and exceptions need consumers."
+    },
+    {
+      "id": "SU-F10",
+      "title": "Structured text, compiled mechanics",
+      "evidence_class": "shown",
+      "summary": "24 localization CSVs with stable tags and language columns are distinct from named native Database functions.",
+      "sources": [
+        "Contents/Resources/localization/*.csv",
+        "extract/localization-census.json",
+        "extract/function-index.json"
+      ],
+      "kit": [
+        "K1",
+        "K20",
+        "K33",
+        "K34"
+      ],
+      "synthesis_packets": [
+        "P16",
+        "P22"
+      ],
+      "remaining_gap": "Text counts are not reachable entity counts or executable rules."
+    },
+    {
+      "id": "SU-F11",
+      "title": "Build-qualified threshold correction",
+      "evidence_class": "stated",
+      "summary": "Installed codex places Otherworld Portals at realm depth 30; earlier external descriptions differ.",
+      "sources": [
+        "localization/codex.csv:150"
+      ],
+      "kit": [
+        "K1",
+        "K5",
+        "K33"
+      ],
+      "synthesis_packets": [
+        "P11"
+      ],
+      "remaining_gap": "Actual spawn predicate unread."
+    },
+    {
+      "id": "SU-F12",
+      "title": "Persistent setting is not a fresh dungeon",
+      "evidence_class": "inferred",
+      "summary": "Use Siralim for expedition/build patterns, while preserving YAIRPG persistent instance, resident, stock, custody and history requirements.",
+      "sources": [
+        "REALMS_AND_CARRY.md",
+        "docs/gm/dispatch/NESTED_WORLDS_AND_DEEP_TROPE_CHAINS_2026_10_05.md",
+        "src/world_instances.js:createWorldInstance/createWorldVisit/planWorldDeparture"
+      ],
+      "kit": [
+        "K5",
+        "K15",
+        "K17",
+        "K18",
+        "K29"
+      ],
+      "synthesis_packets": [
+        "P05",
+        "P12",
+        "P14"
+      ],
+      "remaining_gap": "No native Siralim persistent-society claim."
+    },
+    {
+      "id": "SU-F13",
+      "title": "Native names can conceal a different responsibility",
+      "evidence_class": "shown",
+      "summary": "SetFusion handles visual palette/surface caches; AddTrait is a unique global extra_traits list helper. Neither proves the semantic fusion transaction or per-creature trait limit. Realm generation writes separate hidden and pre-entry property/value arrays.",
+      "sources": [
+        "NATIVE_TRACE.md:N2,N7,N8",
+        "extract/native/gml_Script_scr_SetFusion.c",
+        "extract/native/gml_Script_scr_AddTrait.c",
+        "extract/native/gml_Script_scr_RealmGetProperties.c"
+      ],
+      "kit": [
+        "K3",
+        "K9",
+        "K11",
+        "K34"
+      ],
+      "synthesis_packets": [
+        "P04",
+        "P16"
+      ],
+      "remaining_gap": "scr_Fuse normal path now inspected in N11; base-stat/trait realization, UI payment, full custody and combat limit/queue consumers remain unread."
+    },
+    {
+      "id": "SU-F14",
+      "title": "Semantic fusion retains specific identity and revises roster owners",
+      "evidence_class": "shown+inferred",
+      "summary": "scr_Fuse records both parents, averages XP through a rounding helper, retains primary control/identity fields and calls stable/item helpers plus UpdateCreature. Enemy-level helper separately exposes nonlinear depth scaling. Neither proves complete payment/custody/durability.",
+      "sources": [
+        "NATIVE_TRACE.md:N11-N12",
+        "extract/native/gml_Script_scr_Fuse.c",
+        "extract/native/gml_Script_scr_GetEnemyLevelByRealmLevel.c"
+      ],
+      "kit": [
+        "K3",
+        "K9",
+        "K15",
+        "K18"
+      ],
+      "synthesis_packets": [
+        "P05",
+        "P14",
+        "P16"
+      ],
+      "remaining_gap": "Constructor/update consumers, UI admission/payment and complete return persistence."
+    }
+  ],
+  "localization_census": {
+    "accessories.csv": {
+      "rows": 388,
+      "columns": [
+        "Tag",
+        "Notes",
+        "English",
+        "Japanese",
+        "German",
+        "French",
+        "Spanish",
+        "Portuguese",
+        "Russian",
+        "Italian",
+        "Chinese (Traditional)",
+        "Chinese (Simplified)",
+        "Korean",
+        "Polish",
+        "Ukrainian",
+        "Dutch",
+        "Turkish"
+      ],
+      "empty_english": 0,
+      "unique_tags": 388
+    },
+    "achievements.csv": {
+      "rows": 10570,
+      "columns": [
+        "Tag",
+        "Notes",
+        "English",
+        "Japanese",
+        "German",
+        "French",
+        "Spanish",
+        "Portuguese",
+        "Russian",
+        "Italian",
+        "Chinese (Traditional)",
+        "Chinese (Simplified)",
+        "Korean",
+        "Polish",
+        "Ukrainian",
+        "Dutch",
+        "Turkish"
+      ],
+      "empty_english": 0,
+      "unique_tags": 10570
+    },
+    "battle.csv": {
+      "rows": 256,
+      "columns": [
+        "Tag",
+        "Notes",
+        "English",
+        "Japanese",
+        "German",
+        "French",
+        "Spanish",
+        "Portuguese",
+        "Russian",
+        "Italian",
+        "Chinese (Traditional)",
+        "Chinese (Simplified)",
+        "Korean",
+        "Polish",
+        "Ukrainian",
+        "Dutch",
+        "Turkish"
+      ],
+      "empty_english": 0,
+      "unique_tags": 256
+    },
+    "bosses.csv": {
+      "rows": 597,
+      "columns": [
+        "Tag",
+        "Notes",
+        "English",
+        "Japanese",
+        "German",
+        "French",
+        "Spanish",
+        "Portuguese",
+        "Russian",
+        "Italian",
+        "Chinese (Traditional)",
+        "Chinese (Simplified)",
+        "Korean",
+        "Polish",
+        "Ukrainian",
+        "Dutch",
+        "Turkish"
+      ],
+      "empty_english": 0,
+      "unique_tags": 597
+    },
+    "cards.csv": {
+      "rows": 465,
+      "columns": [
+        "Tag",
+        "Notes",
+        "English",
+        "Japanese",
+        "German",
+        "French",
+        "Spanish",
+        "Portuguese",
+        "Russian",
+        "Italian",
+        "Chinese (Traditional)",
+        "Chinese (Simplified)",
+        "Korean",
+        "Polish",
+        "Ukrainian",
+        "Dutch",
+        "Turkish"
+      ],
+      "empty_english": 0,
+      "unique_tags": 465
+    },
+    "codex.csv": {
+      "rows": 341,
+      "columns": [
+        "Tag",
+        "Notes",
+        "English",
+        "Japanese",
+        "German",
+        "French",
+        "Spanish",
+        "Portuguese",
+        "Russian",
+        "Italian",
+        "Chinese (Traditional)",
+        "Chinese (Simplified)",
+        "Korean",
+        "Polish",
+        "Ukrainian",
+        "Dutch",
+        "Turkish"
+      ],
+      "empty_english": 0,
+      "unique_tags": 341
+    },
+    "creatures.csv": {
+      "rows": 1612,
+      "columns": [
+        "Tag",
+        "Notes",
+        "English",
+        "Japanese",
+        "German",
+        "French",
+        "Spanish",
+        "Portuguese",
+        "Russian",
+        "Italian",
+        "Chinese (Traditional)",
+        "Chinese (Simplified)",
+        "Korean",
+        "Polish",
+        "Ukrainian",
+        "Dutch",
+        "Turkish"
+      ],
+      "empty_english": 0,
+      "unique_tags": 1585
+    },
+    "decorations.csv": {
+      "rows": 2775,
+      "columns": [
+        "Tag",
+        "Notes",
+        "English",
+        "Japanese",
+        "German",
+        "French",
+        "Spanish",
+        "Portuguese",
+        "Russian",
+        "Italian",
+        "Chinese (Traditional)",
+        "Chinese (Simplified)",
+        "Korean",
+        "Polish",
+        "Ukrainian",
+        "Dutch",
+        "Turkish"
+      ],
+      "empty_english": 0,
+      "unique_tags": 2770
+    },
+    "dialog.csv": {
+      "rows": 269,
+      "columns": [
+        "Tag",
+        "Notes",
+        "English",
+        "Japanese",
+        "German",
+        "French",
+        "Spanish",
+        "Portuguese",
+        "Russian",
+        "Italian",
+        "Chinese (Traditional)",
+        "Chinese (Simplified)",
+        "Korean",
+        "Polish",
+        "Ukrainian",
+        "Dutch",
+        "Turkish"
+      ],
+      "empty_english": 0,
+      "unique_tags": 269
+    },
+    "dialog_story.csv": {
+      "rows": 892,
+      "columns": [
+        "Tag",
+        "Notes",
+        "English",
+        "Japanese",
+        "German",
+        "French",
+        "Spanish",
+        "Portuguese",
+        "Russian",
+        "Italian",
+        "Chinese (Traditional)",
+        "Chinese (Simplified)",
+        "Korean",
+        "Polish",
+        "Ukrainian",
+        "Dutch",
+        "Turkish"
+      ],
+      "empty_english": 0,
+      "unique_tags": 892
+    },
+    "items.csv": {
+      "rows": 3220,
+      "columns": [
+        "Tag",
+        "Notes",
+        "English",
+        "Japanese",
+        "German",
+        "French",
+        "Spanish",
+        "Portuguese",
+        "Russian",
+        "Italian",
+        "Chinese (Traditional)",
+        "Chinese (Simplified)",
+        "Korean",
+        "Polish",
+        "Ukrainian",
+        "Dutch",
+        "Turkish"
+      ],
+      "empty_english": 0,
+      "unique_tags": 3220
+    },
+    "lore.csv": {
+      "rows": 1376,
+      "columns": [
+        "Tag",
+        "Notes",
+        "English",
+        "Japanese",
+        "German",
+        "French",
+        "Spanish",
+        "Portugeuse",
+        "Russian",
+        "Italian",
+        "Chinese (Traditional)",
+        "Chinese (Simplified)",
+        "Korean",
+        "Polish",
+        "Ukrainian",
+        "Dutch",
+        "Turkish"
+      ],
+      "empty_english": 0,
+      "unique_tags": 1376
+    },
+    "masters.csv": {
+      "rows": 312,
+      "columns": [
+        "Tag",
+        "Notes",
+        "English",
+        "Japanese",
+        "German",
+        "French",
+        "Spanish",
+        "Portuguese",
+        "Russian",
+        "Italian",
+        "Chinese (Traditional)",
+        "Chinese (Simplified)",
+        "Korean",
+        "Polish",
+        "Ukrainian",
+        "Dutch",
+        "Turkish"
+      ],
+      "empty_english": 0,
+      "unique_tags": 312
+    },
+    "misc.csv": {
+      "rows": 80,
+      "columns": [
+        "Tag",
+        "Notes",
+        "English",
+        "Japanese",
+        "German",
+        "French",
+        "Spanish",
+        "Portuguese",
+        "Russian",
+        "Italian",
+        "Chinese (Traditional)",
+        "Chinese (Simplified)",
+        "Korean",
+        "Polish",
+        "Ukrainian",
+        "Dutch",
+        "Turkish"
+      ],
+      "empty_english": 0,
+      "unique_tags": 80
+    },
+    "overworld.csv": {
+      "rows": 431,
+      "columns": [
+        "Tag",
+        "Notes",
+        "English",
+        "Japanese",
+        "German",
+        "French",
+        "Spanish",
+        "Portuguese",
+        "Russian",
+        "Italian",
+        "Chinese (Traditional)",
+        "Chinese (Simplified)",
+        "Korean",
+        "Polish",
+        "Ukrainian",
+        "Dutch",
+        "Turkish"
+      ],
+      "empty_english": 0,
+      "unique_tags": 431
+    },
+    "perks.csv": {
+      "rows": 1322,
+      "columns": [
+        "Tag",
+        "Notes",
+        "English",
+        "Japanese",
+        "German",
+        "French",
+        "Spanish",
+        "Portuguese",
+        "Russian",
+        "Italian",
+        "Chinese (Traditional)",
+        "Chinese (Simplified)",
+        "Korean",
+        "Polish",
+        "Ukrainian",
+        "Dutch",
+        "Turkish"
+      ],
+      "empty_english": 0,
+      "unique_tags": 1322
+    },
+    "personality.csv": {
+      "rows": 1120,
+      "columns": [
+        "Tag",
+        "Notes",
+        "English",
+        "Japanese",
+        "German",
+        "French",
+        "Spanish",
+        "Portuguese",
+        "Russian",
+        "Italian",
+        "Chinese (Traditional)",
+        "Chinese (Simplified)",
+        "Korean",
+        "Polish",
+        "Ukrainian",
+        "Dutch",
+        "Turkish"
+      ],
+      "empty_english": 0,
+      "unique_tags": 1120
+    },
+    "projects.csv": {
+      "rows": 258,
+      "columns": [
+        "Tag",
+        "Notes",
+        "English",
+        "Japanese",
+        "German",
+        "French",
+        "Spanish",
+        "Portuguese",
+        "Russian",
+        "Italian",
+        "Chinese (Traditional)",
+        "Chinese (Simplified)",
+        "Korean",
+        "Polish",
+        "Ukrainian",
+        "Dutch",
+        "Turkish"
+      ],
+      "empty_english": 0,
+      "unique_tags": 258
+    },
+    "quests.csv": {
+      "rows": 1062,
+      "columns": [
+        "Tag",
+        "Notes",
+        "English",
+        "Japanese",
+        "German",
+        "French",
+        "Spanish",
+        "Portuguese",
+        "Russian",
+        "Italian",
+        "Chinese (Traditional)",
+        "Chinese (Simplified)",
+        "Korean",
+        "Polish",
+        "Ukrainian",
+        "Dutch",
+        "Turkish"
+      ],
+      "empty_english": 121,
+      "unique_tags": 1044
+    },
+    "skins.csv": {
+      "rows": 834,
+      "columns": [
+        "Tag",
+        "Notes",
+        "English",
+        "Japanese",
+        "German",
+        "French",
+        "Spanish",
+        "Portuguese",
+        "Russian",
+        "Italian",
+        "Chinese (Traditional)",
+        "Chinese (Simplified)",
+        "Korean",
+        "Polish",
+        "Ukrainian",
+        "Dutch",
+        "Turkish"
+      ],
+      "empty_english": 0,
+      "unique_tags": 793
+    },
+    "spells.csv": {
+      "rows": 1494,
+      "columns": [
+        "Tag",
+        "Notes",
+        "English",
+        "Japanese",
+        "German",
+        "French",
+        "Spanish",
+        "Portuguese",
+        "Russian",
+        "Italian",
+        "Chinese (Traditional)",
+        "Chinese (Simplified)",
+        "Korean",
+        "Polish",
+        "Ukrainian",
+        "Dutch",
+        "Turkish"
+      ],
+      "empty_english": 0,
+      "unique_tags": 1494
+    },
+    "traits.csv": {
+      "rows": 4341,
+      "columns": [
+        "Tag",
+        "Notes",
+        "English",
+        "Japanese",
+        "German",
+        "French",
+        "Spanish",
+        "Portuguese",
+        "Russian",
+        "Italian",
+        "Chinese (Traditional)",
+        "Chinese (Simplified)",
+        "Korean",
+        "Polish",
+        "Ukrainian",
+        "Dutch",
+        "Turkish"
+      ],
+      "empty_english": 0,
+      "unique_tags": 4257
+    },
+    "ui.csv": {
+      "rows": 3073,
+      "columns": [
+        "Tag",
+        "Notes",
+        "English",
+        "Japanese",
+        "German",
+        "French",
+        "Spanish",
+        "Portuguese",
+        "Russian",
+        "Italian",
+        "Chinese (Traditional)",
+        "Chinese (Simplified)",
+        "Korean",
+        "Polish",
+        "Ukrainian",
+        "Dutch",
+        "Turkish"
+      ],
+      "empty_english": 0,
+      "unique_tags": 3073
+    },
+    "vocabulary.csv": {
+      "rows": 480,
+      "columns": [
+        "Tag",
+        "Notes",
+        "English",
+        "Japanese",
+        "German",
+        "French",
+        "Spanish",
+        "Portuguese",
+        "Russian",
+        "Italian",
+        "Chinese (Traditional)",
+        "Chinese (Simplified)",
+        "Korean",
+        "Polish",
+        "Ukrainian",
+        "Dutch",
+        "Turkish"
+      ],
+      "empty_english": 0,
+      "unique_tags": 479
+    }
+  },
+  "implementation": "PROPOSALS ONLY",
+  "native_first_batch": {
+    "resolved": 10,
+    "failed": 0,
+    "evidence": "~/.codex/research/mw-siralim/notes/rea-bounded-native.json",
+    "limits": "symbol-range restricted seed decode; uncertain types and unwind tails; selected normal-path observations only"
+  },
+  "native_followup": {
+    "returned": 5,
+    "failed": 1,
+    "total_returned": 15,
+    "total_targets": 16,
+    "failed_target": "gml_Object_obj_savegame_Step_0",
+    "failure": "Ghidra decompile timeout under 30-second per-function policy",
+    "evidence": "~/.codex/research/mw-siralim/notes/rea-followup-native.json"
+  }
+}

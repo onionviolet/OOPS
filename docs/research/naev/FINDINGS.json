@@ -1,0 +1,503 @@
+{
+  "schema": 1,
+  "lane": "lib-naev",
+  "date": "2026-10-14",
+  "status": "PARTIAL",
+  "source": {
+    "repository": "https://github.com/naev/naev",
+    "commit": "f8982244800e86553217a2dba555a0f41c2b87ba",
+    "kind": "static source",
+    "runtime_verified": false
+  },
+  "census": {
+    "counts": {
+      "dat/LICENSE": 3,
+      "dat/ai": 87,
+      "dat/asteroids": 26,
+      "dat/bkg": 33,
+      "dat/commodities": 24,
+      "dat/damagetype": 9,
+      "dat/difficulty": 5,
+      "dat/effects": 44,
+      "dat/events": 205,
+      "dat/factions": 123,
+      "dat/gui": 7,
+      "dat/lua-repl": 0,
+      "dat/map_decorator": 9,
+      "dat/missions": 261,
+      "dat/naevpedia": 65,
+      "dat/outfits": 564,
+      "dat/scripts": 261,
+      "dat/shaders": 213,
+      "dat/ships": 170,
+      "dat/slots": 14,
+      "dat/snd": 2,
+      "dat/spfx": 29,
+      "dat/spob": 1380,
+      "dat/spob_virtual": 50,
+      "dat/ssys": 554,
+      "dat/tech": 135,
+      "dat/trails": 34,
+      "dat/unidiff": 46,
+      "dat/utils": 68,
+      "src files": 478
+    },
+    "mission_headers": 233,
+    "event_headers": 119,
+    "mission_unique": 181,
+    "event_unique": 54,
+    "xml_documents": 2889,
+    "parse_errors": [],
+    "file_count": 5539,
+    "bytes": 93344977
+  },
+  "findings": [
+    {
+      "id": "NV-F01",
+      "evidence": "shown",
+      "title": "Regions differ through composed affordances",
+      "finding": "Faction XML binds AI, spawn, standing and equipment; space-object scripts enforce landing rules; ship XML adds purchase conditions, licenses, slots and built-in technology. This is a shared universe of systems and places, not evidence for parallel universes or automatic power conversion.",
+      "kit": [
+        "K2",
+        "K5",
+        "K7",
+        "K9",
+        "K15"
+      ],
+      "synthesis": [
+        "P04",
+        "P07",
+        "P14"
+      ],
+      "sources": [
+        {
+          "path": "dat/factions/sirius.xml",
+          "url": "https://github.com/naev/naev/blob/f8982244800e86553217a2dba555a0f41c2b87ba/dat/factions/sirius.xml"
+        },
+        {
+          "path": "dat/spob/lua/lib/spob.lua",
+          "url": "https://github.com/naev/naev/blob/f8982244800e86553217a2dba555a0f41c2b87ba/dat/spob/lua/lib/spob.lua"
+        },
+        {
+          "path": "dat/spob/lua/empire_mil_restricted.lua",
+          "url": "https://github.com/naev/naev/blob/f8982244800e86553217a2dba555a0f41c2b87ba/dat/spob/lua/empire_mil_restricted.lua"
+        },
+        {
+          "path": "dat/ships/sirius/sirius_fidelity.xml",
+          "url": "https://github.com/naev/naev/blob/f8982244800e86553217a2dba555a0f41c2b87ba/dat/ships/sirius/sirius_fidelity.xml"
+        }
+      ]
+    },
+    {
+      "id": "NV-F02",
+      "evidence": "shown",
+      "title": "Mission authoring splits metadata and behavior",
+      "finding": "Lua mission files embed XML headers for location, chance, faction, conditions, predecessor and uniqueness. C loads and filters the headers; Lua create/accept/land and hooks own actual content behavior. Mission reservations can refuse conflicting scenes.",
+      "kit": [
+        "K12",
+        "K18",
+        "K34"
+      ],
+      "synthesis": [
+        "P10",
+        "P22"
+      ],
+      "sources": [
+        {
+          "path": "src/mission.c",
+          "url": "https://github.com/naev/naev/blob/f8982244800e86553217a2dba555a0f41c2b87ba/src/mission.c"
+        },
+        {
+          "path": "src/claim.c",
+          "url": "https://github.com/naev/naev/blob/f8982244800e86553217a2dba555a0f41c2b87ba/src/claim.c"
+        },
+        {
+          "path": "dat/missions/empire/emp_cargo00.lua",
+          "url": "https://github.com/naev/naev/blob/f8982244800e86553217a2dba555a0f41c2b87ba/dat/missions/empire/emp_cargo00.lua"
+        }
+      ]
+    },
+    {
+      "id": "NV-F03",
+      "evidence": "shown",
+      "title": "Selection is not one weighted story draw",
+      "finding": "missions_genList treats chance=960 as nine rolls at 0.60, before filtering and creation success; these may generate several cargo offers. It sorts resulting offers by priority with lower values first. events_trigger loops all matching events with individual probability/uniqueness/conditions; it does not choose one winner. The missions_run path has different chance handling.",
+      "kit": [
+        "K12",
+        "K32",
+        "K34"
+      ],
+      "synthesis": [
+        "P10"
+      ],
+      "sources": [
+        {
+          "path": "src/mission.c",
+          "url": "https://github.com/naev/naev/blob/f8982244800e86553217a2dba555a0f41c2b87ba/src/mission.c"
+        },
+        {
+          "path": "src/event.c",
+          "url": "https://github.com/naev/naev/blob/f8982244800e86553217a2dba555a0f41c2b87ba/src/event.c"
+        },
+        {
+          "path": "dat/missions/neutral/cargo.lua",
+          "url": "https://github.com/naev/naev/blob/f8982244800e86553217a2dba555a0f41c2b87ba/dat/missions/neutral/cargo.lua"
+        }
+      ]
+    },
+    {
+      "id": "NV-F04",
+      "evidence": "shown",
+      "title": "Careers can begin with a service and leave real access",
+      "finding": "Empire Recruitment selects a landable Empire destination, offers refusal, accepts a parcel delivery, then on destination landing sets es_cargo, pays credits, changes standing and writes a shipping log before successful finish. Reputation, mission completion, access flag and log have distinct consumers.",
+      "kit": [
+        "K6",
+        "K7",
+        "K8",
+        "K12",
+        "K29"
+      ],
+      "synthesis": [
+        "P07",
+        "P12",
+        "P19"
+      ],
+      "sources": [
+        {
+          "path": "dat/missions/empire/emp_cargo00.lua",
+          "url": "https://github.com/naev/naev/blob/f8982244800e86553217a2dba555a0f41c2b87ba/dat/missions/empire/emp_cargo00.lua"
+        },
+        {
+          "path": "dat/missions/empire/es_cargo.lua",
+          "url": "https://github.com/naev/naev/blob/f8982244800e86553217a2dba555a0f41c2b87ba/dat/missions/empire/es_cargo.lua"
+        },
+        {
+          "path": "dat/scripts/common/empire.lua",
+          "url": "https://github.com/naev/naev/blob/f8982244800e86553217a2dba555a0f41c2b87ba/dat/scripts/common/empire.lua"
+        }
+      ]
+    },
+    {
+      "id": "NV-F05",
+      "evidence": "shown",
+      "title": "Personal learning and usable apparatus are distinct",
+      "finding": "Sirius Awakening sets sirius_psychic after the conversation even if the player declines coordinates. A Flow-capable ship or amplifier is still requested for the trial. Fidelity has an intrinsic amplifier. flow.recalculate and Seeking Chakra read actual ship equipment, capacity, target and current Flow, not just the personal flag. This does not prove every power is usable in every ship.",
+      "kit": [
+        "K3",
+        "K9",
+        "K11",
+        "K15"
+      ],
+      "synthesis": [
+        "P04",
+        "P09",
+        "P17"
+      ],
+      "sources": [
+        {
+          "path": "dat/missions/sirius/sirius_awakening.lua",
+          "url": "https://github.com/naev/naev/blob/f8982244800e86553217a2dba555a0f41c2b87ba/dat/missions/sirius/sirius_awakening.lua"
+        },
+        {
+          "path": "dat/ships/sirius/sirius_fidelity.xml",
+          "url": "https://github.com/naev/naev/blob/f8982244800e86553217a2dba555a0f41c2b87ba/dat/ships/sirius/sirius_fidelity.xml"
+        },
+        {
+          "path": "dat/ships/lua/lib/flow.lua",
+          "url": "https://github.com/naev/naev/blob/f8982244800e86553217a2dba555a0f41c2b87ba/dat/ships/lua/lib/flow.lua"
+        },
+        {
+          "path": "dat/outfits/flow/abilities/seeking_chakra.lua",
+          "url": "https://github.com/naev/naev/blob/f8982244800e86553217a2dba555a0f41c2b87ba/dat/outfits/flow/abilities/seeking_chakra.lua"
+        }
+      ]
+    },
+    {
+      "id": "NV-F06",
+      "evidence": "shown",
+      "title": "Bioship growth belongs to the particular ship",
+      "finding": "Bioship Manager reads and writes biostage, bioshipexp and skill shipvars, listens for ship swaps, income and landing, and restores stage/skill intrinsics. Positive pay while flying a bioship produces XP; negative payments do not. Growth rate depends on ship faction, large payments have diminishing returns, and stage is capped. This is income-linked growth, not proof of combat-only XP.",
+      "kit": [
+        "K3",
+        "K9",
+        "K15",
+        "K18"
+      ],
+      "synthesis": [
+        "P09",
+        "P16",
+        "P17",
+        "P24"
+      ],
+      "sources": [
+        {
+          "path": "dat/events/bioship.lua",
+          "url": "https://github.com/naev/naev/blob/f8982244800e86553217a2dba555a0f41c2b87ba/dat/events/bioship.lua"
+        },
+        {
+          "path": "dat/scripts/bioship.lua",
+          "url": "https://github.com/naev/naev/blob/f8982244800e86553217a2dba555a0f41c2b87ba/dat/scripts/bioship.lua"
+        },
+        {
+          "path": "src/player.c",
+          "url": "https://github.com/naev/naev/blob/f8982244800e86553217a2dba555a0f41c2b87ba/src/player.c"
+        }
+      ]
+    },
+    {
+      "id": "NV-F07",
+      "evidence": "shown",
+      "title": "Supply work changes the destination itself",
+      "finding": "Antlejos keeps cumulative supplied volume and a development stage. Completion of a delivery adds supplies and can replace the active universe diff with the next stage. Stage XML changes real services, tech access, population and presentation. Stage one adds refueling; stage nine includes shops, jobs and a shipyard. This is authored development, not autonomous colony simulation.",
+      "kit": [
+        "K5",
+        "K8",
+        "K12",
+        "K16",
+        "K29"
+      ],
+      "synthesis": [
+        "P02",
+        "P12",
+        "P16"
+      ],
+      "sources": [
+        {
+          "path": "dat/scripts/common/antlejos.lua",
+          "url": "https://github.com/naev/naev/blob/f8982244800e86553217a2dba555a0f41c2b87ba/dat/scripts/common/antlejos.lua"
+        },
+        {
+          "path": "dat/missions/neutral/antlejos/ant_supplies.lua",
+          "url": "https://github.com/naev/naev/blob/f8982244800e86553217a2dba555a0f41c2b87ba/dat/missions/neutral/antlejos/ant_supplies.lua"
+        },
+        {
+          "path": "dat/unidiff/antlejosv_1.xml",
+          "url": "https://github.com/naev/naev/blob/f8982244800e86553217a2dba555a0f41c2b87ba/dat/unidiff/antlejosv_1.xml"
+        },
+        {
+          "path": "dat/unidiff/antlejosv_9.xml",
+          "url": "https://github.com/naev/naev/blob/f8982244800e86553217a2dba555a0f41c2b87ba/dat/unidiff/antlejosv_9.xml"
+        },
+        {
+          "path": "src/unidiff.c",
+          "url": "https://github.com/naev/naev/blob/f8982244800e86553217a2dba555a0f41c2b87ba/src/unidiff.c"
+        }
+      ]
+    },
+    {
+      "id": "NV-F08",
+      "evidence": "shown",
+      "title": "The living universe combines spawned traffic and authored outcomes",
+      "finding": "Faction spawn libraries choose fleets under a presence budget and delay subsequent spawns. Shared AI receives faction-specific retreat, aggression, formations, scans and hails. Sirius and Za'lek differ materially; Za'lek drones have separate exceptions. This does not establish persistent lives, households or a full off-screen economy.",
+      "kit": [
+        "K6",
+        "K7",
+        "K10",
+        "K24"
+      ],
+      "synthesis": [
+        "P25",
+        "P14"
+      ],
+      "sources": [
+        {
+          "path": "dat/factions/spawn/lib/common.lua",
+          "url": "https://github.com/naev/naev/blob/f8982244800e86553217a2dba555a0f41c2b87ba/dat/factions/spawn/lib/common.lua"
+        },
+        {
+          "path": "dat/ai/sirius.lua",
+          "url": "https://github.com/naev/naev/blob/f8982244800e86553217a2dba555a0f41c2b87ba/dat/ai/sirius.lua"
+        },
+        {
+          "path": "dat/ai/zalek.lua",
+          "url": "https://github.com/naev/naev/blob/f8982244800e86553217a2dba555a0f41c2b87ba/dat/ai/zalek.lua"
+        },
+        {
+          "path": "dat/factions/equip/zalek.lua",
+          "url": "https://github.com/naev/naev/blob/f8982244800e86553217a2dba555a0f41c2b87ba/dat/factions/equip/zalek.lua"
+        }
+      ]
+    },
+    {
+      "id": "NV-F09",
+      "evidence": "shown",
+      "title": "Persistence has explicit omissions and recovery costs",
+      "finding": "save_data serializes world diffs, player, missions, saved events, news, variables, faction state, eligible hooks and logs. Supported Lua mem values persist but functions do not. Timer and pilot hooks are excluded. Autosave rotates backups, then writes the target XML directly at a code-commented vulnerable step. Missing mission definitions are recorded as failed and skipped during load. This is not atomic commit or lossless missing-content suspension.",
+      "kit": [
+        "K18",
+        "K33"
+      ],
+      "synthesis": [
+        "P24",
+        "P23"
+      ],
+      "sources": [
+        {
+          "path": "src/save.c",
+          "url": "https://github.com/naev/naev/blob/f8982244800e86553217a2dba555a0f41c2b87ba/src/save.c"
+        },
+        {
+          "path": "src/nxml_lua.c",
+          "url": "https://github.com/naev/naev/blob/f8982244800e86553217a2dba555a0f41c2b87ba/src/nxml_lua.c"
+        },
+        {
+          "path": "src/hook.c",
+          "url": "https://github.com/naev/naev/blob/f8982244800e86553217a2dba555a0f41c2b87ba/src/hook.c"
+        },
+        {
+          "path": "src/mission.c",
+          "url": "https://github.com/naev/naev/blob/f8982244800e86553217a2dba555a0f41c2b87ba/src/mission.c"
+        },
+        {
+          "path": "dat/save_updater.lua",
+          "url": "https://github.com/naev/naev/blob/f8982244800e86553217a2dba555a0f41c2b87ba/dat/save_updater.lua"
+        },
+        {
+          "path": "dat/events/updater.lua",
+          "url": "https://github.com/naev/naev/blob/f8982244800e86553217a2dba555a0f41c2b87ba/dat/events/updater.lua"
+        }
+      ]
+    },
+    {
+      "id": "NV-F10",
+      "evidence": "shown",
+      "title": "Dialogue is executable state sequencing",
+      "finding": "VN builds states for speech, menus, labels, jumps and functions. Dynamic menus regenerate options on entry; choices log the visible selected text. vn.func schedules a callback or runs it immediately when the VN is already started. vn.run executes synchronously through the Love adapter. Rewards can occur inside callbacks or after the scene returns. No mid-dialogue cursor-save guarantee was established.",
+      "kit": [
+        "K6",
+        "K12",
+        "K14",
+        "K18"
+      ],
+      "synthesis": [
+        "P19",
+        "P24"
+      ],
+      "sources": [
+        {
+          "path": "dat/scripts/vn/vn.lua",
+          "url": "https://github.com/naev/naev/blob/f8982244800e86553217a2dba555a0f41c2b87ba/dat/scripts/vn/vn.lua"
+        },
+        {
+          "path": "dat/missions/empire/emp_cargo00.lua",
+          "url": "https://github.com/naev/naev/blob/f8982244800e86553217a2dba555a0f41c2b87ba/dat/missions/empire/emp_cargo00.lua"
+        },
+        {
+          "path": "dat/missions/sirius/sirius_awakening.lua",
+          "url": "https://github.com/naev/naev/blob/f8982244800e86553217a2dba555a0f41c2b87ba/dat/missions/sirius/sirius_awakening.lua"
+        }
+      ]
+    },
+    {
+      "id": "NV-F11",
+      "evidence": "shown",
+      "title": "Trade differentiates places without proving supply simulation",
+      "finding": "Food XML declares base price, class/faction/population modifiers and period. economy_getPriceAtTime uses a base plus system and place sinusoidal terms, clamped to at least one credit. Cargo reward uses tier, route length, risk and price, deliberately independent of cargo amount. Do not describe this as simulated goods scarcity or a general production chain.",
+      "kit": [
+        "K5",
+        "K8",
+        "K9"
+      ],
+      "synthesis": [
+        "P18",
+        "P14"
+      ],
+      "sources": [
+        {
+          "path": "dat/commodities/food.xml",
+          "url": "https://github.com/naev/naev/blob/f8982244800e86553217a2dba555a0f41c2b87ba/dat/commodities/food.xml"
+        },
+        {
+          "path": "src/economy.c",
+          "url": "https://github.com/naev/naev/blob/f8982244800e86553217a2dba555a0f41c2b87ba/src/economy.c"
+        },
+        {
+          "path": "dat/missions/neutral/cargo.lua",
+          "url": "https://github.com/naev/naev/blob/f8982244800e86553217a2dba555a0f41c2b87ba/dat/missions/neutral/cargo.lua"
+        }
+      ]
+    },
+    {
+      "id": "NV-F12",
+      "evidence": "inferred",
+      "title": "Chapter guard needs a focused upstream check",
+      "finding": "mission_meetConditionals returns 0 both for successful checks and for a chapter-regex mismatch; mission_meetReq negates it. events_trigger instead continues on chapter mismatch. At this pin the code appears inconsistent with the mission comment. No runtime reproduction or upstream issue search was performed, so this is a source anomaly, not a confirmed player-visible bug.",
+      "kit": [
+        "K12",
+        "K34"
+      ],
+      "synthesis": [
+        "P10",
+        "P22"
+      ],
+      "sources": [
+        {
+          "path": "src/mission.c",
+          "url": "https://github.com/naev/naev/blob/f8982244800e86553217a2dba555a0f41c2b87ba/src/mission.c"
+        },
+        {
+          "path": "src/event.c",
+          "url": "https://github.com/naev/naev/blob/f8982244800e86553217a2dba555a0f41c2b87ba/src/event.c"
+        }
+      ]
+    }
+  ],
+  "proposals": [
+    {
+      "id": "NV-P01",
+      "rank": 1,
+      "title": "Adapt P10 with a complete offer lifecycle",
+      "status": "PROPOSAL",
+      "synthesis": "P10, P22",
+      "kit": "K12, K18, K34"
+    },
+    {
+      "id": "NV-P02",
+      "rank": 2,
+      "title": "Show the carrier and current support for one earned power",
+      "status": "PROPOSAL",
+      "synthesis": "P04, P09, P17",
+      "kit": "K3, K9, K15, K18"
+    },
+    {
+      "id": "NV-P03",
+      "rank": 3,
+      "title": "Let paid local work unlock one useful changed place",
+      "status": "PROPOSAL",
+      "synthesis": "P12, P02, P16",
+      "kit": "K5, K8, K12, K16, K29"
+    },
+    {
+      "id": "NV-P04",
+      "rank": 4,
+      "title": "Separate local landing permission from membership and possessions",
+      "status": "PROPOSAL",
+      "synthesis": "P04, P07, P14",
+      "kit": "K5, K7, K9, K24"
+    },
+    {
+      "id": "NV-P05",
+      "rank": 5,
+      "title": "Keep relationship, completion and the public log separate",
+      "status": "PROPOSAL",
+      "synthesis": "P19, P11, P12",
+      "kit": "K6, K7, K11, K12, K23, K31"
+    },
+    {
+      "id": "NV-P06",
+      "rank": 6,
+      "title": "Lint lifecycle data and restore only supported pending state",
+      "status": "PROPOSAL",
+      "synthesis": "P22, P24",
+      "kit": "K18, K33, K34"
+    },
+    {
+      "id": "NV-P07",
+      "rank": 7,
+      "title": "Give one local actor a distinct lawful operating pattern",
+      "status": "PROPOSAL",
+      "synthesis": "P25, P14",
+      "kit": "K6, K7, K10, K24"
+    }
+  ]
+}

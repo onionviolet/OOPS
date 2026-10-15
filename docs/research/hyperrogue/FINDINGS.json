@@ -1,0 +1,431 @@
+{
+  "schema_version": 1,
+  "lane": "mw-hyperrogue",
+  "date": "2026-10-14",
+  "status": "PARTIAL",
+  "source": {
+    "url": "https://github.com/zenorogue/hyperrogue",
+    "commit": "c7c9a2993b43ee2f4bbac422e565d18fdd98f886",
+    "method": "static C++ source reading",
+    "license": "GPL-2.0-or-later per hyper.cpp header",
+    "executed": false
+  },
+  "counts": {
+    "land_declarations": 95,
+    "item_declarations": 155,
+    "monster_declarations": 180,
+    "wall_declarations": 121
+  },
+  "findings": [
+    {
+      "id": "F1",
+      "title": "Content and land census",
+      "evidence": "shown",
+      "sources": [
+        {
+          "locator": "content.cpp:1059",
+          "url": "https://github.com/zenorogue/hyperrogue/blob/c7c9a2993b43ee2f4bbac422e565d18fdd98f886/content.cpp#L1059"
+        },
+        {
+          "locator": "classes.cpp:663",
+          "url": "https://github.com/zenorogue/hyperrogue/blob/c7c9a2993b43ee2f4bbac422e565d18fdd98f886/classes.cpp#L663"
+        }
+      ],
+      "claim": "95 land declarations include technical and special identities; behaviors span metadata and C++ consumers.",
+      "kit": [
+        "K1",
+        "K2",
+        "K34"
+      ],
+      "synthesis_packets": [
+        "P14",
+        "P16"
+      ]
+    },
+    {
+      "id": "F2",
+      "title": "Unlock and placement differ",
+      "evidence": "shown",
+      "sources": [
+        {
+          "locator": "landlock.cpp:241",
+          "url": "https://github.com/zenorogue/hyperrogue/blob/c7c9a2993b43ee2f4bbac422e565d18fdd98f886/landlock.cpp#L241"
+        },
+        {
+          "locator": "landlock.cpp:276",
+          "url": "https://github.com/zenorogue/hyperrogue/blob/c7c9a2993b43ee2f4bbac422e565d18fdd98f886/landlock.cpp#L276"
+        },
+        {
+          "locator": "landlock.cpp:590",
+          "url": "https://github.com/zenorogue/hyperrogue/blob/c7c9a2993b43ee2f4bbac422e565d18fdd98f886/landlock.cpp#L590"
+        }
+      ],
+      "claim": "Availability, prerequisites, adjacency weighting and border generation are separate decisions.",
+      "kit": [
+        "K4",
+        "K5",
+        "K15"
+      ],
+      "synthesis_packets": [
+        "P04",
+        "P14"
+      ]
+    },
+    {
+      "id": "F3",
+      "title": "Land laws change actions",
+      "evidence": "shown",
+      "sources": [
+        {
+          "locator": "landgen.cpp:1020",
+          "url": "https://github.com/zenorogue/hyperrogue/blob/c7c9a2993b43ee2f4bbac422e565d18fdd98f886/landgen.cpp#L1020"
+        },
+        {
+          "locator": "complex.cpp:2073",
+          "url": "https://github.com/zenorogue/hyperrogue/blob/c7c9a2993b43ee2f4bbac422e565d18fdd98f886/complex.cpp#L2073"
+        },
+        {
+          "locator": "complex.cpp:2377",
+          "url": "https://github.com/zenorogue/hyperrogue/blob/c7c9a2993b43ee2f4bbac422e565d18fdd98f886/complex.cpp#L2377"
+        },
+        {
+          "locator": "environment.cpp:836",
+          "url": "https://github.com/zenorogue/hyperrogue/blob/c7c9a2993b43ee2f4bbac422e565d18fdd98f886/environment.cpp#L836"
+        }
+      ],
+      "claim": "Heat and cave growth consume actual state and foreign properties.",
+      "kit": [
+        "K2",
+        "K10",
+        "K13",
+        "K15"
+      ],
+      "synthesis_packets": [
+        "P14",
+        "P15"
+      ]
+    },
+    {
+      "id": "F4",
+      "title": "Borders have special semantics",
+      "evidence": "shown",
+      "sources": [
+        {
+          "locator": "barriers.cpp:293",
+          "url": "https://github.com/zenorogue/hyperrogue/blob/c7c9a2993b43ee2f4bbac422e565d18fdd98f886/barriers.cpp#L293"
+        },
+        {
+          "locator": "barriers.cpp:667",
+          "url": "https://github.com/zenorogue/hyperrogue/blob/c7c9a2993b43ee2f4bbac422e565d18fdd98f886/barriers.cpp#L667"
+        },
+        {
+          "locator": "bigstuff.cpp:759",
+          "url": "https://github.com/zenorogue/hyperrogue/blob/c7c9a2993b43ee2f4bbac422e565d18fdd98f886/bigstuff.cpp#L759"
+        }
+      ],
+      "claim": "Sea, elemental, haunted and mirror separators differ; topology is generated over a tiling graph.",
+      "kit": [
+        "K2",
+        "K5",
+        "K15"
+      ],
+      "synthesis_packets": [
+        "P14",
+        "HR-N1"
+      ]
+    },
+    {
+      "id": "F5",
+      "title": "Spawn suitability differs from carried use",
+      "evidence": "shown",
+      "sources": [
+        {
+          "locator": "orbgen.cpp:216",
+          "url": "https://github.com/zenorogue/hyperrogue/blob/c7c9a2993b43ee2f4bbac422e565d18fdd98f886/orbgen.cpp#L216"
+        },
+        {
+          "locator": "inventory.cpp:616",
+          "url": "https://github.com/zenorogue/hyperrogue/blob/c7c9a2993b43ee2f4bbac422e565d18fdd98f886/inventory.cpp#L616"
+        },
+        {
+          "locator": "pcmove.cpp:1872",
+          "url": "https://github.com/zenorogue/hyperrogue/blob/c7c9a2993b43ee2f4bbac422e565d18fdd98f886/pcmove.cpp#L1872"
+        }
+      ],
+      "claim": "getOLR is not a universal carried-power veto; actual effects and explicit departure drains matter.",
+      "kit": [
+        "K3",
+        "K9",
+        "K15"
+      ],
+      "synthesis_packets": [
+        "P04",
+        "P05",
+        "P17"
+      ]
+    },
+    {
+      "id": "F6",
+      "title": "Carry ledgers span lands",
+      "evidence": "shown",
+      "sources": [
+        {
+          "locator": "items.cpp:collectItem",
+          "url": "https://github.com/zenorogue/hyperrogue/blob/c7c9a2993b43ee2f4bbac422e565d18fdd98f886/items.cpp"
+        },
+        {
+          "locator": "orbs.cpp:87",
+          "url": "https://github.com/zenorogue/hyperrogue/blob/c7c9a2993b43ee2f4bbac422e565d18fdd98f886/orbs.cpp#L87"
+        },
+        {
+          "locator": "landlock.cpp:223",
+          "url": "https://github.com/zenorogue/hyperrogue/blob/c7c9a2993b43ee2f4bbac422e565d18fdd98f886/landlock.cpp#L223"
+        }
+      ],
+      "claim": "Treasure, kills, active orb charges and scoped companion state are distinct carriers.",
+      "kit": [
+        "K3",
+        "K9",
+        "K15",
+        "K18"
+      ],
+      "synthesis_packets": [
+        "P05",
+        "P17"
+      ]
+    },
+    {
+      "id": "F7",
+      "title": "Yendor is a key/return quest",
+      "evidence": "shown",
+      "sources": [
+        {
+          "locator": "yendor.cpp:243",
+          "url": "https://github.com/zenorogue/hyperrogue/blob/c7c9a2993b43ee2f4bbac422e565d18fdd98f886/yendor.cpp#L243"
+        },
+        {
+          "locator": "yendor.cpp:665",
+          "url": "https://github.com/zenorogue/hyperrogue/blob/c7c9a2993b43ee2f4bbac422e565d18fdd98f886/yendor.cpp#L665"
+        },
+        {
+          "locator": "hyper.h:581",
+          "url": "https://github.com/zenorogue/hyperrogue/blob/c7c9a2993b43ee2f4bbac422e565d18fdd98f886/hyper.h#L581"
+        }
+      ],
+      "claim": "A particular orb owns key/path progress; successful pickup grants powers and records victory.",
+      "kit": [
+        "K5",
+        "K12",
+        "K13",
+        "K16"
+      ],
+      "synthesis_packets": [
+        "P12",
+        "P14"
+      ]
+    },
+    {
+      "id": "F8",
+      "title": "Hyperstone predicate has exceptions",
+      "evidence": "shown",
+      "sources": [
+        {
+          "locator": "landlock.cpp:323",
+          "url": "https://github.com/zenorogue/hyperrogue/blob/c7c9a2993b43ee2f4bbac422e565d18fdd98f886/landlock.cpp#L323"
+        },
+        {
+          "locator": "landlock.cpp:347",
+          "url": "https://github.com/zenorogue/hyperrogue/blob/c7c9a2993b43ee2f4bbac422e565d18fdd98f886/landlock.cpp#L347"
+        }
+      ],
+      "claim": "Current valid land rewards at R10, with named exclusions, duplicate handling and mode overrides.",
+      "kit": [
+        "K11",
+        "K13",
+        "K16"
+      ],
+      "synthesis_packets": [
+        "P04",
+        "P14"
+      ]
+    },
+    {
+      "id": "F9",
+      "title": "Modes change rule consumers",
+      "evidence": "shown",
+      "sources": [
+        {
+          "locator": "landlock.cpp:90",
+          "url": "https://github.com/zenorogue/hyperrogue/blob/c7c9a2993b43ee2f4bbac422e565d18fdd98f886/landlock.cpp#L90"
+        },
+        {
+          "locator": "yendor.cpp:726",
+          "url": "https://github.com/zenorogue/hyperrogue/blob/c7c9a2993b43ee2f4bbac422e565d18fdd98f886/yendor.cpp#L726"
+        },
+        {
+          "locator": "classes.cpp:land_tac",
+          "url": "https://github.com/zenorogue/hyperrogue/blob/c7c9a2993b43ee2f4bbac422e565d18fdd98f886/classes.cpp"
+        },
+        {
+          "locator": "shmup.cpp:2638",
+          "url": "https://github.com/zenorogue/hyperrogue/blob/c7c9a2993b43ee2f4bbac422e565d18fdd98f886/shmup.cpp#L2638"
+        }
+      ],
+      "claim": "Chaos placement, tactics scoring windows and real-time shmup execution are distinct.",
+      "kit": [
+        "K4",
+        "K10",
+        "K17",
+        "K18"
+      ],
+      "synthesis_packets": [
+        "P13",
+        "P14"
+      ]
+    },
+    {
+      "id": "F10",
+      "title": "Achievement qualification is separate",
+      "evidence": "shown",
+      "sources": [
+        {
+          "locator": "achievement.cpp:126",
+          "url": "https://github.com/zenorogue/hyperrogue/blob/c7c9a2993b43ee2f4bbac422e565d18fdd98f886/achievement.cpp#L126"
+        }
+      ],
+      "claim": "Mode/geometry filters govern achievements, not universal access to play.",
+      "kit": [
+        "K11",
+        "K16",
+        "K17"
+      ],
+      "synthesis_packets": [
+        "P04",
+        "P14"
+      ]
+    },
+    {
+      "id": "F11",
+      "title": "Run resume is not retained world history",
+      "evidence": "shown",
+      "sources": [
+        {
+          "locator": "system.cpp:1169",
+          "url": "https://github.com/zenorogue/hyperrogue/blob/c7c9a2993b43ee2f4bbac422e565d18fdd98f886/system.cpp#L1169"
+        },
+        {
+          "locator": "system.cpp:1316",
+          "url": "https://github.com/zenorogue/hyperrogue/blob/c7c9a2993b43ee2f4bbac422e565d18fdd98f886/system.cpp#L1316"
+        },
+        {
+          "locator": "game.cpp:244",
+          "url": "https://github.com/zenorogue/hyperrogue/blob/c7c9a2993b43ee2f4bbac422e565d18fdd98f886/game.cpp#L244"
+        },
+        {
+          "locator": "savemem.cpp:96",
+          "url": "https://github.com/zenorogue/hyperrogue/blob/c7c9a2993b43ee2f4bbac422e565d18fdd98f886/savemem.cpp#L96"
+        }
+      ],
+      "claim": "Selected ledgers resume into generated space; remote map history can be removed.",
+      "kit": [
+        "K18",
+        "K29",
+        "K33"
+      ],
+      "synthesis_packets": [
+        "P16",
+        "P23",
+        "P24"
+      ]
+    },
+    {
+      "id": "F12",
+      "title": "Identity has practical readers",
+      "evidence": "shown",
+      "sources": [
+        {
+          "locator": "complex.cpp:2550",
+          "url": "https://github.com/zenorogue/hyperrogue/blob/c7c9a2993b43ee2f4bbac422e565d18fdd98f886/complex.cpp#L2550"
+        },
+        {
+          "locator": "landgen.cpp:1839",
+          "url": "https://github.com/zenorogue/hyperrogue/blob/c7c9a2993b43ee2f4bbac422e565d18fdd98f886/landgen.cpp#L1839"
+        },
+        {
+          "locator": "complex2.cpp:280",
+          "url": "https://github.com/zenorogue/hyperrogue/blob/c7c9a2993b43ee2f4bbac422e565d18fdd98f886/complex2.cpp#L280"
+        }
+      ],
+      "claim": "Environment bits support matching, visual cues and hazard construction, rather than names alone.",
+      "kit": [
+        "K1",
+        "K9",
+        "K11",
+        "K30"
+      ],
+      "synthesis_packets": [
+        "P15"
+      ]
+    },
+    {
+      "id": "F13",
+      "title": "Local conditioned speech",
+      "evidence": "shown",
+      "sources": [
+        {
+          "locator": "complex2.cpp:333",
+          "url": "https://github.com/zenorogue/hyperrogue/blob/c7c9a2993b43ee2f4bbac422e565d18fdd98f886/complex2.cpp#L333"
+        },
+        {
+          "locator": "complex.cpp:503",
+          "url": "https://github.com/zenorogue/hyperrogue/blob/c7c9a2993b43ee2f4bbac422e565d18fdd98f886/complex.cpp#L503"
+        }
+      ],
+      "claim": "Camelot speech reads Grail/radius state; scoped rescue is not a general relationship simulation.",
+      "kit": [
+        "K6",
+        "K11",
+        "K20",
+        "K31"
+      ],
+      "synthesis_packets": [
+        "P19",
+        "P21"
+      ]
+    },
+    {
+      "id": "F14",
+      "title": "Orb Strategy warning and history mismatch",
+      "evidence": "shown source / inferred defect, runtime untested",
+      "sources": [
+        {
+          "locator": "inventory.cpp:678-688",
+          "url": "https://github.com/zenorogue/hyperrogue/blob/c7c9a2993b43ee2f4bbac422e565d18fdd98f886/inventory.cpp#L678"
+        },
+        {
+          "locator": "complex.cpp:644",
+          "url": "https://github.com/zenorogue/hyperrogue/blob/c7c9a2993b43ee2f4bbac422e565d18fdd98f886/complex.cpp#L644"
+        }
+      ],
+      "claim": "Activation saves prior tile item as it, activates orbmap[uni], but calls getOLR(it, ...) for usedForbidden. Rescue achievement reads usedForbidden. Do not claim verified complete enforcement.",
+      "kit": [
+        "K14",
+        "K18",
+        "K34"
+      ],
+      "synthesis_packets": [
+        "P04",
+        "P24"
+      ]
+    }
+  ],
+  "gaps": [
+    "Every land-by-orb and monster exception consumer not traced end to end",
+    "All geometry and optional build modules not deeply audited",
+    "Full historical save recovery and map-stream roundtrip unread",
+    "No runtime, balance or visual verification"
+  ],
+  "new_leaf_ids": [
+    "HR-N1"
+  ]
+}

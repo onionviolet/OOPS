@@ -1,0 +1,225 @@
+{
+  "A01": {
+    "status": "partial",
+    "sources": [
+      "https://www.retromud.org/proxy/helpxml?=Basics/world_guide",
+      "https://3k.org/resources/primer/examples/monster.html",
+      "https://3k.org/support/help/fetch-help.php?topic=ask"
+    ],
+    "summary": "RetroMUD states guide topics and walkthrough help; complete NPC line conditions are unread. 3K shows idle/combat text pools and describes complex-monster reactions, but publishes no reaction graph here. The player ask command is not an NPC graph.",
+    "implementation": "Published guide topic list, load_chat/load_a_chat example and distinct complex-monster class description. Complete line IDs/conditions and relationship-gated dialogue were not exposed.",
+    "yairpg": [
+      "K6/K11/K20/K31; P19/P21: keep helpful topic guidance and contextual speech distinct from a causal choice."
+    ],
+    "games": [
+      "RetroMUD",
+      "3Kingdoms"
+    ]
+  },
+  "A02": {
+    "status": "partial",
+    "sources": [
+      "https://3k.org/realms/index.php",
+      "https://3k.org/support/help/fetch-help.php?topic=skillquests",
+      "https://newbie.retromud.org/gameplay/progression"
+    ],
+    "summary": "RetroMUD level quests reward advancement preparation and exploration. 3K publishes realm quest examples and a skillquest lookup command. Neither read set reveals a full branching journal or global timeline.",
+    "implementation": "Public quest descriptions and help command interface only. No event tables, quest scripts, canon clock or full endings corpus.",
+    "yairpg": [
+      "K11/K12/K16; P10/P12: bind actual eligibility, intervention and aftermath instead of equating a list with an event engine."
+    ],
+    "games": [
+      "RetroMUD",
+      "3Kingdoms"
+    ]
+  },
+  "A03": {
+    "status": "partial",
+    "sources": [
+      "https://3k.org/resources/primer/examples/room.html",
+      "https://3k.org/resources/primer/examples/monster.html",
+      "https://3k.org/resources/primer/examples/put_it_together.html",
+      "https://3k.org/resources/primer/coding/advanced.html",
+      "https://www.retromud.org/scripts/retromud.js",
+      "https://www.retromud.org/proxy/helpxml?=Pantheon/wizzing"
+    ],
+    "summary": "3K publishes LPC library examples and scheduling guidance; the site identifies LDMud. RetroMUD help names a mudlib and its site JS routes public help. RetroMUD server architecture and both deployed runtimes remain unread.",
+    "implementation": "Room/monster inheritance, create/reset, heartbeat/call_out examples are shown tutorial code. Website routing is shown JS; neither is a server checkout.",
+    "yairpg": [
+      "K18/K33/K34; P16/P22: reuse common primitives and explicit local configuration without assuming all world rules are global."
+    ],
+    "games": [
+      "RetroMUD",
+      "3Kingdoms"
+    ]
+  },
+  "A04": {
+    "status": "partial",
+    "sources": [
+      "https://3k.org/support/help/fetch-help.php?topic=save",
+      "https://3k.org/support/help/fetch-help.php?topic=milestones",
+      "https://3k.org/support/help/fetch-help.php?topic=autoload",
+      "https://www.retromud.org/proxy/helpxml?=Equipment/threading",
+      "https://newbie.retromud.org/gameplay/equipment",
+      "https://newbie.retromud.org/gameplay/progression"
+    ],
+    "summary": "RetroMUD distinguishes carried/threaded gear and storage, plus reincarnation loss. 3K distinguishes player saves from conditional equipment retention and special autoload events. Exact formats and safe restore internals are unread for both.",
+    "implementation": "Help contracts only: no serializers, migrations, atomic writes or corruption paths. Character persistence cannot stand in for complete object-instance retention.",
+    "yairpg": [
+      "K9/K15/K18/K33; P05/P16/P24: preview per carrier and preserve identity, custody and exact retained instance state."
+    ],
+    "games": [
+      "RetroMUD",
+      "3Kingdoms"
+    ]
+  },
+  "A05": {
+    "status": "partial",
+    "sources": [
+      "https://3k.org/resources/primer/examples/monster.html",
+      "https://3k.org/resources/primer/coding/advanced.html",
+      "https://www.retromud.org/proxy/helpxml?=Basics/world_guide"
+    ],
+    "summary": "3K describes aggression, fleeing, reactions and weighted specials; examples show local text/special configuration. RetroMUD offers a guide and practical environmental threats, with no AI scripts. No autonomous society planner was recovered.",
+    "implementation": "Standard monster sample; complex-monster behavior is stated only. No schedules, beliefs or player/NPC universal parity proof.",
+    "yairpg": [
+      "K6/K10/K26; P21/P25: one useful lawful NPC behavior before a full planner."
+    ],
+    "games": [
+      "RetroMUD",
+      "3Kingdoms"
+    ]
+  },
+  "A06": {
+    "status": "partial",
+    "sources": [
+      "https://3k.org/support/help/index.php",
+      "https://3k.org/design/script/script_main.js",
+      "https://www.retromud.org/scripts/retromud.js",
+      "https://newbie.retromud.org/gameplay/world-transport"
+    ],
+    "summary": "Public web UI exposes categorized help, keyboard modal focus, loading/error states and command references. RetroMUD serves history-based help navigation; clients are recommended, not inspected. Native desktop game screens were not captured.",
+    "implementation": "Shown public website DOM/JS only. No claim about live client panel density, screen-reader behavior or keyboard acceptance.",
+    "yairpg": [
+      "K11/K14/K30; P04: target a 1366x768 known-readiness view with independent panels; mobile deferred."
+    ],
+    "games": [
+      "RetroMUD",
+      "3Kingdoms"
+    ]
+  },
+  "A07": {
+    "status": "partial",
+    "sources": [
+      "https://3k.org/resources/primer/coding/wizzing.html",
+      "https://3k.org/resources/primer/coding/codestyle.html",
+      "https://3k.org/resources/primer/examples/room.html",
+      "https://3k.org/support/help/fetch-help.php?topic=arealist",
+      "https://www.retromud.org/proxy/helpxml?=Pantheon/wizzing"
+    ],
+    "summary": "3K describes common bases, sponsor and staff reviews, player-board testing and live catalogue entry. RetroMUD states sponsor/writing/coding requirements. These are controlled server authoring paths, not a public end-user mod API.",
+    "implementation": "Published LPC examples/style guide and staff workflow. Full review tools and RetroMUD area templates remain unread.",
+    "yairpg": [
+      "K1/K33/K34; P16/P22: small functional area cards and repair/approval status, using existing structured packs."
+    ],
+    "games": [
+      "RetroMUD",
+      "3Kingdoms"
+    ]
+  },
+  "A08": {
+    "status": "partial",
+    "sources": [
+      "https://www.retromud.org/proxy/helpxml?=Worlds/homeworld_bonuses",
+      "https://www.retromud.org/proxy/helpxml?=Guilds/paths_of_power",
+      "https://newbie.retromud.org/gameplay/equipment",
+      "https://3k.org/resources/primer/examples/monster.html",
+      "https://3k.org/support/help/fetch-help.php?topic=professions"
+    ],
+    "summary": "RetroMUD documents homeworld bonuses, guild-tier limits, aptitude and equipment constraints. 3K describes level-derived defaults and weighted specials plus profession categories. Published example values are not live global balance.",
+    "implementation": "No actual level curve, stat derivation, RNG seeding, pity or numerical precision implementation read. Formula consumers and full area challenge ranges unread.",
+    "yairpg": [
+      "K2/K3/K9/K10; P14/P17: source-specific costs and supports, not forced balance between all traditions."
+    ],
+    "games": [
+      "RetroMUD",
+      "3Kingdoms"
+    ]
+  },
+  "A09": {
+    "status": "partial",
+    "sources": [
+      "https://newbie.retromud.org/gameplay/world-transport",
+      "https://newbie.retromud.org/gameplay/equipment",
+      "https://3k.org/resources/primer/coding/advanced.html",
+      "https://3k.org/resources/primer/examples/put_it_together.html",
+      "https://3k.org/support/help/fetch-help.php?topic=save"
+    ],
+    "summary": "RetroMUD has local daylight transport and reboot retention rules. 3K distinguishes heartbeats, delayed callbacks, reset and save cadence. Browser-closed idle simulation and per-world time ratios are not established.",
+    "implementation": "3K examples document normally two-second rounds and callback limits. No full scheduler or persisted timer audit.",
+    "yairpg": [
+      "K5/K18/K26/K28; P08/P13: explicit clocks, actual actor and finite jobs; unsupported offline absence stays frozen."
+    ],
+    "games": [
+      "RetroMUD",
+      "3Kingdoms"
+    ]
+  },
+  "A10": {
+    "status": "partial",
+    "sources": [
+      "https://newbie.retromud.org/gameplay/character-creation",
+      "https://newbie.retromud.org/gameplay/world-transport",
+      "https://www.retromud.org/proxy/helpxml?=Basics/world_guide",
+      "https://3k.org/guilds/index.php",
+      "https://3k.org/support/help/fetch-help.php?topic=milestones"
+    ],
+    "summary": "RetroMUD has race/guild fit guidance, guide topics and temporary travel support. 3K gates guilds/realm access and introduces professions/housing later. No native tutorial sequence was exercised.",
+    "implementation": "Guides/help only, with old/new transport threshold conflicts retained. Newbie survival aids are not evidence every start has equal difficulty.",
+    "yairpg": [
+      "K4/K11/K14; P04: show useful next means and warn before support changes without imposing permanent once-only locks."
+    ],
+    "games": [
+      "RetroMUD",
+      "3Kingdoms"
+    ]
+  },
+  "A11": {
+    "status": "partial",
+    "sources": [
+      "https://www.retromud.org/proxy/helpxml?=Equipment/threading",
+      "https://newbie.retromud.org/gameplay/equipment",
+      "https://3k.org/resources/primer/examples/room.html",
+      "https://3k.org/resources/primer/examples/monster.html",
+      "https://3k.org/design/script/script_main.js"
+    ],
+    "summary": "RetroMUD has keep markers, ownership examination and practical equipment summaries. 3K shows noun aliases, different look/search answers, audience text and focused help. 32 touches are inventoried, not implemented.",
+    "implementation": "Source hooks linked in SMALL_TOUCHES; no measured accessibility or feel acceptance.",
+    "yairpg": [
+      "K9/K14/K19/K30; P04/P21: small legibility improvements tied to real actions and actor knowledge."
+    ],
+    "games": [
+      "RetroMUD",
+      "3Kingdoms"
+    ]
+  },
+  "A12": {
+    "status": "partial",
+    "sources": [
+      "https://newbie.retromud.org/gameplay/progression",
+      "https://3k.org/support/help/fetch-help.php?topic=professions",
+      "https://3k.org/support/help/fetch-help.php?topic=reputation",
+      "https://3k.org/support/help/fetch-help.php?topic=ascended",
+      "https://3k.org/support/help/index.php"
+    ],
+    "summary": "Guild conduct credit, layered professions, faction reputation, advanced embodiment and listed minigames broaden play. Crafting, housing, markets and minigame rules were not deeply audited in this lane.",
+    "implementation": "Reputation/profession/Ascended help read; remaining help-index entries are identification only. No inferred inventory of server modules.",
+    "yairpg": [
+      "K7/K8/K15/K24/K25/K29; P07: concrete local rights and alternative solo services, not a universal MMO institution model."
+    ],
+    "games": [
+      "RetroMUD",
+      "3Kingdoms"
+    ]
+  }
+}

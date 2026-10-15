@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "checked_at": "2026-10-14T22:26:34.665377-04:00",
+  "checks": [
+    "Required files exist",
+    "Twelve fixed aspect keys and valid statuses/fields",
+    "20 unique source-linked findings with kit and synthesis maps",
+    "24 small touches and seven namespaced packet headings",
+    "Relative Markdown links resolve; no em dashes",
+    "14 captured source hashes match manifest"
+  ],
+  "errors": [],
+  "findings": 20,
+  "aspects": 12,
+  "small_touches": 24,
+  "packets": 7,
+  "sources": 14,
+  "work_area_bytes": 26531746,
+  "output_bytes_before_receipt": 81370,
+  "scope": "document schema, links and source integrity only; no gameplay verification"
+}
