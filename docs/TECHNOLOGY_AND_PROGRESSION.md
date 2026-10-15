@@ -1896,17 +1896,44 @@ against the existing rows instead of restating them.
 | Code | Source | Angle | Likely existing row to extend |
 |---|---|---|---|
 | RW1 | HoI4 research | Ahead-of-time penalty: research is possible early but costs more; bonuses as consumable boosts | Roadmap and diffusion steps |
-| RW2 | HoI4 doctrines and variants | A tech unlocks a design space (variants, templates), not one item | Invention planner |
+| RW2 | HoI4 doctrines and variants | A tech unlocks a design space (variants, templates), not one item. *Corrected round 13 (FT1): two mechanisms, XP-bought doctrine policy versus tech-unlocked design capability* | Invention planner |
 | RW3 | Academagia | Preparation is separate from practical skill; term curricula and assessment results persist | School worlds, teaching |
 | RW4 | Taiwu | Reading and comprehension of manuals, partial and damaged copies, teacher goodwill separate from institutional access | Knowledge carriers |
 | RW5 | Heaven's Vault | Evidence-backed guesses that can be corrected; the notebook compares related evidence | Anomaly log (step 2) |
-| RW6 | Discworld MUD | Use-based growth (taskmaster) with challenge-based practice that still supports queued idle work | Skill growth owners |
+| RW6 | Discworld MUD | Use-based growth (taskmaster) with challenge-based practice that still supports queued idle work. *Corrected round 13 (FT3): historical code shown, current help stated, queued idle is our adaptation* | Skill growth owners |
 | RW7 | KoL | New discovery routes for existing skills, rather than new skills | Discovery and teaching |
 | RW8 | Immortality Idle, Path of the Idle Cultivator | Techniques that change how an action behaves; technique history and refinement | Technique programs (X9) |
 | RW9 | Prestige Tree community | Explain slowed progress with the current effect, threshold and earned relief | Legibility |
-| RW10 | CivIdle, HoI4 | Age or era gates as a world dial, not a global ladder | Per-world tech dials |
+| RW10 | CivIdle, HoI4 | Age or era gates as a world dial, not a global ladder. *Corrected round 13 (FT2): CivIdle derives age from tech; HoI4 uses a soft early cost; neither is a hard era ladder* | Per-world tech dials |
 
 Little stuff: tech-relevant small touches from the wave (study notes, "you
 almost understand" lines, research receipts) go through lane TW-S.
 
 No build. Lanes: [topic wave 2026-10-14](gm/dispatch/topic-wave-2026-10-14/COMMON.md) TW-T, TW-L, TW-S.
+
+## TW-T fold, round 13, 2026-10-14
+
+Weibao: "Fold the topic-wave and synthesis returns into the four root
+palettes, corrections first, then pick the next playable slice."
+Source: [TW-T](gm/dispatch/topic-wave-2026-10-14/tw-t/OUTPUT.md).
+
+| Code | Correction | Source |
+|---|---|---|
+| FT1 | RW2 joined two mechanisms: XP-bought doctrine policy (active bonuses retract on change) and tech-unlocked design capability (persists). Marked in place | TW-T01 |
+| FT2 | RW10: CivIdle derives age from the furthest tech column; HoI4 has start years and a soft ahead-of-time cost. Keep derived era, soft early cost and hard prerequisites separate | TW-T02 |
+| FT3 | RW6: the taskmaster is historical code, current help is stated, a queued idle version is our adaptation | TW-T03 |
+| FT4 | Two build orders disagree: round 9's numbered list versus round 11 CN14. **CN14 governs**: 1 craft cue plus village sentence (NEXT_SLICE, unchanged), 2 anomaly log with evidence store, 3 teach one cue, 4 glass roadmap plus RC2, 5 one diffusion consequence. Round 9's numbers are history | TW-T04 |
+| FT5 | IM2 said no evidence owner exists. Actor knowledge already stores stage, value, time, cause and basis (`src/simulation_effects.js:282-286`, read by `src/people_knowledge.js`). Step 2 extends it; no second store | TW-T05 |
+
+Picks folded (TW-T, ranked): FT5 seam first for step 2; step 2 adds
+source-backed comparison and revision for one anomaly, with repeated practice
+kept separate from independent confirmation (TW-T10, T19); an inconclusive
+investigation still teaches (TW-T17); evidence identities carry into step 5
+(TW-T21). New rows TW-T16 to T22 (experiment phases, study batches and
+reference copies, notebook retrieval returns evidence not answers, book custody
+versus reader learning) are extensions of existing rows, kept in the lane file.
+
+Slice: the next playable slice overall is P01 on Village mixing (see
+[chains round 5](MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md#next-playable-slice-p01-work-feedback-on-the-village-mixing-panel)).
+NEXT_SLICE stays ready and touches disjoint files, so it can follow or run
+beside it.

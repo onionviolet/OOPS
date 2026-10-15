@@ -1,0 +1,59 @@
+{
+  "lane": "academagia-2-aspects",
+  "status": "PARTIAL",
+  "date": "2026-10-14",
+  "aspectFile": "ASPECTS.json",
+  "aspectStatuses": {
+    "A01": "partial",
+    "A02": "covered",
+    "A03": "covered",
+    "A04": "partial",
+    "A05": "covered",
+    "A06": "partial",
+    "A07": "covered",
+    "A08": "covered",
+    "A09": "covered",
+    "A10": "partial",
+    "A11": "partial",
+    "A12": "partial"
+  },
+  "priority": [
+    "A01",
+    "A03",
+    "A04"
+  ],
+  "deeperSystems": {
+    "D1": "NPC scheduling and learned confidence/preferences",
+    "D2": "Saved research reserve and breakthrough perks",
+    "D3": "Pheme multiplicity, knowledge and spell interception"
+  },
+  "proposals": [
+    "P1",
+    "P2",
+    "P3",
+    "P4",
+    "P5"
+  ],
+  "counts": {
+    "tableTypes": 112,
+    "registeredSystems": 48,
+    "serializedRootSystems": 47,
+    "namedSystemClasses": 61,
+    "namespaceModules": 57,
+    "privateTextRecordsAcrossLayers": 61533,
+    "retainedTextFieldsAcrossLayers": 159499
+  },
+  "privateWork": "/Users/weiwei/.codex/research/academagia-aspects",
+  "rawReferenceIndex": "PRIVATE_REFERENCE_INDEX.md",
+  "verification": "VERIFICATION.json",
+  "gameExecuted": false,
+  "userSavesAccessed": false,
+  "implemented": false,
+  "gaps": [
+    "native UI and creation/onboarding",
+    "all save migration/corruption behavior",
+    "per-line speakers, barks, rumor-generation flow",
+    "all non-top-three formulas",
+    "prior adventure narrative/crosswalk gaps"
+  ]
+}

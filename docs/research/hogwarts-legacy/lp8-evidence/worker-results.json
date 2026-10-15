@@ -1,0 +1,9 @@
+{
+  "timer": "Unmodified shipped HackTimer worker, natural wall time; no virtual clock or timer route override.",
+  "beforeClock": 15,
+  "afterClock": 21,
+  "beforeCompleted": 1,
+  "afterCompleted": 2,
+  "rewardClaims": 0,
+  "pageErrors": []
+}

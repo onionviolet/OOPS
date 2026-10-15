@@ -1,0 +1,14 @@
+{
+  "repository": "https://github.com/baileyholl/Ars-Nouveau",
+  "commit": "fd8c9520722bb96a3e75febaf770d7078db5ac43",
+  "local_clone": "/Users/weiwei/.codex/research/ars-nouveau/repos/Ars-Nouveau",
+  "version": "5.13.3",
+  "minecraft": "1.21.1",
+  "acquired_utc": "2026-10-15T00:05:30.825042+00:00",
+  "mode": "shallow clone, detached HEAD; no build or execution",
+  "license": "LGPL-3.0 code; textures/models All Rights Reserved per README",
+  "tree": "a16e721e388885c859d7873c533ec18285ffdbe0",
+  "commit_time": "2026-10-03T22:02:31-05:00",
+  "commit_subject": "chore: disable starbuncle campaign",
+  "origin_url": "https://github.com/baileyholl/Ars-Nouveau.git"
+}

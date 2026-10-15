@@ -1,0 +1,252 @@
+{
+  "schema": 1,
+  "task": "P3",
+  "date": "2026-10-14",
+  "status": "COMPLETE_STATIC_WITH_NAMED_ASSET_GAPS",
+  "question": "How do current time, scene and quest facts select one additional NPC schedule/dialogue, and what survives deliberate reset?",
+  "actor": "ACTOR_EN_NB",
+  "pin": "bf6bd9d0d3a90fe2f8960e034fbfd328e8bdef22",
+  "source": {
+    "repository": "https://github.com/zeldaret/mm",
+    "retained_clone": "/Users/weiwei/.codex/research/bf-public-other/repos/mm",
+    "lineage": "community N64 US reconstruction",
+    "license": "No root game-source LICENSE/COPYING or reuse grant established; tool licenses are separate. Reference only, no code incorporated.",
+    "source_changed": false,
+    "source_acquisition": false,
+    "private_snapshot": "../private/repass-2026-10-14/README.md",
+    "manifest": "../private/repass-2026-10-14/MANIFEST.json"
+  },
+  "authority": {
+    "instructions": "COMMON.md and P3 reaudit boundary",
+    "project_direction": "Research and deep saves; proposals only; no accepted world priority, implementation or persistence changes.",
+    "ownership": "Only this P3 process 78057 matched game lane; parent identity verified. Mixed dirty tree preserved."
+  },
+  "evidence_levels": {
+    "shown": "Source consumers, complete selected definitions, flag mutations, later reads and allowlist entries.",
+    "stated": "README platform/asset limits and community syntax provenance.",
+    "inferred": "Own finite predicate model, focus-based speakers and ranked YAIR proposals.",
+    "not_proved": [
+      "ROM bytecode identity",
+      "native route reachability/presentation",
+      "full localized text/choice semantics",
+      "flash publication/crash safety",
+      "MM3D behavior",
+      "YAIR implementation/gameplay/human acceptance"
+    ]
+  },
+  "coverage": {
+    "schedule_leaves": 16,
+    "message_programs": 3,
+    "message_commands": 154,
+    "message_edges": 228,
+    "unique_direct_message_ids": 28,
+    "command_handlers": 25,
+    "notebook_rows": 55,
+    "persistence_rows": 100,
+    "source_files": 34,
+    "source_bytes": 2622336
+  },
+  "graph_closure": {
+    "schedule_leaf_paths": 16,
+    "message_command_nodes": 154,
+    "message_structural_edges": 228,
+    "unresolved_direct_edges_without_consumer_or_gap": 0,
+    "named_route_joins": 17,
+    "ordered_branch_cases": 20,
+    "complete_selected_notebook_timeline_rows": 4,
+    "boundary_case_inputs": 8,
+    "analytical_predicate_inputs": 1179648,
+    "scope": "Selected actor schedule and all three message programs, plus necessary external writer/time/item/history/reset consumers. Structural branch possibilities include defaults and waits; asset-level message controls remain G1."
+  },
+  "findings": [
+    {
+      "id": "F1",
+      "evidence": "shown",
+      "summary": "Present day, scene, time and quest state choose a result."
+    },
+    {
+      "id": "F2",
+      "evidence": "shown",
+      "summary": "Current quest mutation and actor co-presence are joined to selection and acceptance."
+    },
+    {
+      "id": "F3",
+      "evidence": "shown; speaker focus inferred",
+      "summary": "Complete selected message programs, return override, refusal and wait paths preserved."
+    },
+    {
+      "id": "F4",
+      "evidence": "shown",
+      "summary": "Current predicate clears; separate completion guards persist and prevent repeated awards."
+    },
+    {
+      "id": "F5",
+      "evidence": "shown",
+      "summary": "Notebook recording, ownership, timeline bars and actual eligibility have separate consumers."
+    }
+  ],
+  "boundaries": [
+    {
+      "id": "W1",
+      "kind": "missed window",
+      "scene": "0x61",
+      "day": 2,
+      "predicate": "weekEventReg[50] & 0x20",
+      "before_raw_tick": 33441,
+      "after_raw_tick": 33442,
+      "before_result": 2,
+      "after_result": 1,
+      "qualification": "Companion live when result entered; no return override; active message action does not re-evaluate schedule."
+    },
+    {
+      "id": "R1",
+      "kind": "deliberate cycle reset",
+      "clears": [
+        "50:0x20",
+        "EVENTINF_42",
+        "EVENTINF_43",
+        "scene collectible 0x0C"
+      ],
+      "retains": [
+        "50:0x02",
+        "50:0x04",
+        "66:0x01",
+        "67:0x20",
+        "71:0x02",
+        "71:0x04"
+      ],
+      "later_consumer": "retained completion check bypasses another award; current route predicate must be established again"
+    }
+  ],
+  "gaps": [
+    {
+      "id": "G1",
+      "type": "missing asset",
+      "input": "extracted/n64-us/text/message_data.h plus encoded message/ROM segment",
+      "status": "OPEN",
+      "impact": "full prose, actual choice labels/count/end types/embedded next-text controls unavailable"
+    },
+    {
+      "id": "G2",
+      "type": "missing asset",
+      "input": "declared story texture/palette payload",
+      "status": "OPEN",
+      "impact": "full content and presentation unavailable"
+    },
+    {
+      "id": "G3",
+      "type": "missing asset",
+      "input": "scene 0x61/0x10 spawn, entrance and cutscene camera payloads",
+      "status": "OPEN",
+      "impact": "native actor co-presence and transition wiring unproved"
+    },
+    {
+      "id": "G4",
+      "type": "missing asset",
+      "input": "actor/player/item animation and notebook/item-object payloads",
+      "status": "OPEN",
+      "impact": "duration, visual fidelity and native UI unproved"
+    },
+    {
+      "id": "G5",
+      "type": "missing generated input",
+      "input": "selected generated schedule .inc and original bytecode",
+      "status": "OPEN",
+      "impact": "compiled identity and runtime schedule unproved"
+    }
+  ],
+  "deep_saves": {
+    "index": "../private/repass-2026-10-14/README.md",
+    "ignore_rule": ".gitignore:41:/docs/research/*/private/",
+    "full_source_files": 34,
+    "full_source_bytes": 2622336,
+    "complete_selected_schedule": true,
+    "complete_selected_message_programs": true,
+    "full_localized_dialogue": false,
+    "speaker_strings_available": false,
+    "speaker_focus_inference_preserved": true,
+    "text_fields_for_missing_prose": "null; G1",
+    "full_notebook_definition_table": true,
+    "full_week_event_allowlist": true,
+    "source_sha256_and_git_blobs": true,
+    "analysis_helpers_preserved": true
+  },
+  "proposals": [
+    {
+      "id": "P1",
+      "rank": 1,
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "P2",
+      "rank": 2,
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "P3",
+      "rank": 3,
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "P4",
+      "rank": 4,
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "P5",
+      "rank": 5,
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "P6",
+      "rank": 6,
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "P7",
+      "rank": 7,
+      "status": "PROPOSAL"
+    }
+  ],
+  "small_touches": [
+    {
+      "id": "T1",
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "T2",
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "T3",
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "T4",
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "T5",
+      "status": "PROPOSAL"
+    }
+  ],
+  "verification": {
+    "receipt": "../private/repass-2026-10-14/VERIFICATION.json",
+    "game_executed": false,
+    "game_built": false,
+    "rom_acquired": false,
+    "installed": false,
+    "saves_accessed": false,
+    "src_edited": false,
+    "committed": false,
+    "pushed": false,
+    "mm3d_parity_claimed": false
+  },
+  "remaining_scope": [
+    "Other actors and whole-game schedules",
+    "Full message/scene/object asset recovery outside no-ROM boundary",
+    "Whole-save/crash recovery census",
+    "MM3D",
+    "Any future authorized YAIR implementation and native acceptance"
+  ]
+}

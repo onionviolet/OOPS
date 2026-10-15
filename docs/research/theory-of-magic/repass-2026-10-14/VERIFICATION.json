@@ -1,0 +1,779 @@
+{
+  "date": "2026-10-14",
+  "status": "PASS",
+  "method": "file hashes, JSON source-pointer verification, source anchors and independent Python arithmetic; no upstream execution",
+  "source_copies_checked": 126,
+  "full_family_rows_checked": 1806,
+  "locator_entries_checked": 104,
+  "historical_hash_entries_checked": 594,
+  "private_files_ignored": 152,
+  "checks": [
+    {
+      "check": "JSON parsing",
+      "pass": true,
+      "detail": "89 JSON artifacts parsed"
+    },
+    {
+      "check": "source SHA-256 original/source/CONTRIBUTORS",
+      "pass": true,
+      "detail": "606 bytes"
+    },
+    {
+      "check": "source SHA-256 original/source/LICENSE",
+      "pass": true,
+      "detail": "1090 bytes"
+    },
+    {
+      "check": "source SHA-256 original/source/README.md",
+      "pass": true,
+      "detail": "5224 bytes"
+    },
+    {
+      "check": "source SHA-256 original/source/data/events.json",
+      "pass": true,
+      "detail": "10017 bytes"
+    },
+    {
+      "check": "source SHA-256 original/source/data/furniture.json",
+      "pass": true,
+      "detail": "31024 bytes"
+    },
+    {
+      "check": "source SHA-256 original/source/data/hall.json",
+      "pass": true,
+      "detail": "7585 bytes"
+    },
+    {
+      "check": "source SHA-256 original/source/data/modules.json",
+      "pass": true,
+      "detail": "800 bytes"
+    },
+    {
+      "check": "source SHA-256 original/source/data/modules/combattutorial.json",
+      "pass": true,
+      "detail": "4145 bytes"
+    },
+    {
+      "check": "source SHA-256 original/source/data/modules/companions.json",
+      "pass": true,
+      "detail": "5475 bytes"
+    },
+    {
+      "check": "source SHA-256 original/source/data/modules/debitomancy.json",
+      "pass": true,
+      "detail": "9668 bytes"
+    },
+    {
+      "check": "source SHA-256 original/source/data/modules/debug.json",
+      "pass": true,
+      "detail": "2411 bytes"
+    },
+    {
+      "check": "source SHA-256 original/source/data/modules/duelist.json",
+      "pass": true,
+      "detail": "9803 bytes"
+    },
+    {
+      "check": "source SHA-256 original/source/data/modules/extraaction.json",
+      "pass": true,
+      "detail": "2814 bytes"
+    },
+    {
+      "check": "source SHA-256 original/source/data/modules/martial.json",
+      "pass": true,
+      "detail": "18981 bytes"
+    },
+    {
+      "check": "source SHA-256 original/source/data/modules/patrons.json",
+      "pass": true,
+      "detail": "9211 bytes"
+    },
+    {
+      "check": "source SHA-256 original/source/data/modules/priest.json",
+      "pass": true,
+      "detail": "8082 bytes"
+    },
+    {
+      "check": "source SHA-256 original/source/data/modules/puppeteer.json",
+      "pass": true,
+      "detail": "56950 bytes"
+    },
+    {
+      "check": "source SHA-256 original/source/data/modules/pyromancer.json",
+      "pass": true,
+      "detail": "36595 bytes"
+    },
+    {
+      "check": "source SHA-256 original/source/data/modules/reedburgh.json",
+      "pass": true,
+      "detail": "26273 bytes"
+    },
+    {
+      "check": "source SHA-256 original/source/data/modules/ritualist.json",
+      "pass": true,
+      "detail": "24646 bytes"
+    },
+    {
+      "check": "source SHA-256 original/source/data/modules/sackmakers.json",
+      "pass": true,
+      "detail": "4292 bytes"
+    },
+    {
+      "check": "source SHA-256 original/source/data/modules/shian.json",
+      "pass": true,
+      "detail": "10897 bytes"
+    },
+    {
+      "check": "source SHA-256 original/source/data/modules/shopkeeping.json",
+      "pass": true,
+      "detail": "9723 bytes"
+    },
+    {
+      "check": "source SHA-256 original/source/data/modules/swordplay.json",
+      "pass": true,
+      "detail": "16775 bytes"
+    },
+    {
+      "check": "source SHA-256 original/source/data/modules/timerip.json",
+      "pass": true,
+      "detail": "28605 bytes"
+    },
+    {
+      "check": "source SHA-256 original/source/data/modules/winter.json",
+      "pass": true,
+      "detail": "45471 bytes"
+    },
+    {
+      "check": "source SHA-256 original/source/data/monsters.json",
+      "pass": true,
+      "detail": "67618 bytes"
+    },
+    {
+      "check": "source SHA-256 original/source/data/player.json",
+      "pass": true,
+      "detail": "2439 bytes"
+    },
+    {
+      "check": "source SHA-256 original/source/data/resources.json",
+      "pass": true,
+      "detail": "11506 bytes"
+    },
+    {
+      "check": "source SHA-256 original/source/data/skills.json",
+      "pass": true,
+      "detail": "18563 bytes"
+    },
+    {
+      "check": "source SHA-256 original/source/data/spells.json",
+      "pass": true,
+      "detail": "69290 bytes"
+    },
+    {
+      "check": "source SHA-256 original/source/data/tags.json",
+      "pass": true,
+      "detail": "6037 bytes"
+    },
+    {
+      "check": "source SHA-256 original/source/data/tasks.json",
+      "pass": true,
+      "detail": "67260 bytes"
+    },
+    {
+      "check": "source SHA-256 original/source/data/upgrades.json",
+      "pass": true,
+      "detail": "53534 bytes"
+    },
+    {
+      "check": "source SHA-256 original/source/src/composites/tagset.js",
+      "pass": true,
+      "detail": "5278 bytes"
+    },
+    {
+      "check": "source SHA-256 original/source/src/dataLoader.js",
+      "pass": true,
+      "detail": "10661 bytes"
+    },
+    {
+      "check": "source SHA-256 original/source/src/events.js",
+      "pass": true,
+      "detail": "10799 bytes"
+    },
+    {
+      "check": "source SHA-256 original/source/src/game.js",
+      "pass": true,
+      "detail": "30993 bytes"
+    },
+    {
+      "check": "source SHA-256 original/source/src/inventories/minions.js",
+      "pass": true,
+      "detail": "4129 bytes"
+    },
+    {
+      "check": "source SHA-256 original/source/src/items/base.js",
+      "pass": true,
+      "detail": "19279 bytes"
+    },
+    {
+      "check": "source SHA-256 original/source/src/items/gdata.js",
+      "pass": true,
+      "detail": "13842 bytes"
+    },
+    {
+      "check": "source SHA-256 original/source/src/items/resource.js",
+      "pass": true,
+      "detail": "2243 bytes"
+    },
+    {
+      "check": "source SHA-256 original/source/src/items/skill.js",
+      "pass": true,
+      "detail": "2218 bytes"
+    },
+    {
+      "check": "source SHA-256 original/source/src/items/spell.js",
+      "pass": true,
+      "detail": "2547 bytes"
+    },
+    {
+      "check": "source SHA-256 original/source/src/items/task.js",
+      "pass": true,
+      "detail": "5894 bytes"
+    },
+    {
+      "check": "source SHA-256 original/source/src/modules/module.js",
+      "pass": true,
+      "detail": "5217 bytes"
+    },
+    {
+      "check": "source SHA-256 original/source/src/modules/parsing.js",
+      "pass": true,
+      "detail": "7768 bytes"
+    },
+    {
+      "check": "source SHA-256 original/source/src/modules/runner.js",
+      "pass": true,
+      "detail": "13413 bytes"
+    },
+    {
+      "check": "source SHA-256 original/source/src/techTree.js",
+      "pass": true,
+      "detail": "6799 bytes"
+    },
+    {
+      "check": "source SHA-256 original/source/src/ui/items/skill.vue",
+      "pass": true,
+      "detail": "1415 bytes"
+    },
+    {
+      "check": "source SHA-256 original/source/src/ui/itemsBase.js",
+      "pass": true,
+      "detail": "399 bytes"
+    },
+    {
+      "check": "source SHA-256 original/source/src/ui/main.vue",
+      "pass": true,
+      "detail": "10470 bytes"
+    },
+    {
+      "check": "source SHA-256 original/source/src/ui/sections/skills.vue",
+      "pass": true,
+      "detail": "3322 bytes"
+    },
+    {
+      "check": "source SHA-256 original/source/src/ui/sections/spells.vue",
+      "pass": true,
+      "detail": "4331 bytes"
+    },
+    {
+      "check": "source SHA-256 original/source/src/ui/spellbook.vue",
+      "pass": true,
+      "detail": "2103 bytes"
+    },
+    {
+      "check": "source SHA-256 original/source/src/util/jsonLoader.js",
+      "pass": true,
+      "detail": "2195 bytes"
+    },
+    {
+      "check": "source SHA-256 original/source/src/util/objecty.js",
+      "pass": true,
+      "detail": "19041 bytes"
+    },
+    {
+      "check": "source SHA-256 original/source/src/util/util.js",
+      "pass": true,
+      "detail": "10986 bytes"
+    },
+    {
+      "check": "source SHA-256 original/source/src/values/mods/mod.js",
+      "pass": true,
+      "detail": "7753 bytes"
+    },
+    {
+      "check": "source SHA-256 original/source/src/values/rvals/rvalue.js",
+      "pass": true,
+      "detail": "3388 bytes"
+    },
+    {
+      "check": "source SHA-256 original/source/src/values/rvals/scaler.js",
+      "pass": true,
+      "detail": "1070 bytes"
+    },
+    {
+      "check": "source SHA-256 original/source/src/values/rvals/stat.js",
+      "pass": true,
+      "detail": "5941 bytes"
+    },
+    {
+      "check": "source SHA-256 community/source/CONTRIBUTORS",
+      "pass": true,
+      "detail": "590 bytes"
+    },
+    {
+      "check": "source SHA-256 community/source/LICENSE",
+      "pass": true,
+      "detail": "1090 bytes"
+    },
+    {
+      "check": "source SHA-256 community/source/README.md",
+      "pass": true,
+      "detail": "4724 bytes"
+    },
+    {
+      "check": "source SHA-256 community/source/data/events.json",
+      "pass": true,
+      "detail": "11985 bytes"
+    },
+    {
+      "check": "source SHA-256 community/source/data/furniture.json",
+      "pass": true,
+      "detail": "30409 bytes"
+    },
+    {
+      "check": "source SHA-256 community/source/data/modules.json",
+      "pass": true,
+      "detail": "1113 bytes"
+    },
+    {
+      "check": "source SHA-256 community/source/data/modules/classline/shadow.json",
+      "pass": true,
+      "detail": "68083 bytes"
+    },
+    {
+      "check": "source SHA-256 community/source/data/modules/combattutorial.json",
+      "pass": true,
+      "detail": "4429 bytes"
+    },
+    {
+      "check": "source SHA-256 community/source/data/modules/companions.json",
+      "pass": true,
+      "detail": "5185 bytes"
+    },
+    {
+      "check": "source SHA-256 community/source/data/modules/contributors.json",
+      "pass": true,
+      "detail": "2260 bytes"
+    },
+    {
+      "check": "source SHA-256 community/source/data/modules/debitomancy.json",
+      "pass": true,
+      "detail": "13852 bytes"
+    },
+    {
+      "check": "source SHA-256 community/source/data/modules/duelist.json",
+      "pass": true,
+      "detail": "12121 bytes"
+    },
+    {
+      "check": "source SHA-256 community/source/data/modules/equipment/caster.json",
+      "pass": true,
+      "detail": "8423 bytes"
+    },
+    {
+      "check": "source SHA-256 community/source/data/modules/extraaction.json",
+      "pass": true,
+      "detail": "2971 bytes"
+    },
+    {
+      "check": "source SHA-256 community/source/data/modules/martial.json",
+      "pass": true,
+      "detail": "20490 bytes"
+    },
+    {
+      "check": "source SHA-256 community/source/data/modules/patrons.json",
+      "pass": true,
+      "detail": "10842 bytes"
+    },
+    {
+      "check": "source SHA-256 community/source/data/modules/priest.json",
+      "pass": true,
+      "detail": "10073 bytes"
+    },
+    {
+      "check": "source SHA-256 community/source/data/modules/puppeteer.json",
+      "pass": true,
+      "detail": "65298 bytes"
+    },
+    {
+      "check": "source SHA-256 community/source/data/modules/pyromancer.json",
+      "pass": true,
+      "detail": "40581 bytes"
+    },
+    {
+      "check": "source SHA-256 community/source/data/modules/questing.json",
+      "pass": true,
+      "detail": "4809 bytes"
+    },
+    {
+      "check": "source SHA-256 community/source/data/modules/reedburgh.json",
+      "pass": true,
+      "detail": "29518 bytes"
+    },
+    {
+      "check": "source SHA-256 community/source/data/modules/sackmakers.json",
+      "pass": true,
+      "detail": "6043 bytes"
+    },
+    {
+      "check": "source SHA-256 community/source/data/modules/shian.json",
+      "pass": true,
+      "detail": "13085 bytes"
+    },
+    {
+      "check": "source SHA-256 community/source/data/modules/shopkeeping.json",
+      "pass": true,
+      "detail": "11174 bytes"
+    },
+    {
+      "check": "source SHA-256 community/source/data/modules/sublimation.json",
+      "pass": true,
+      "detail": "2753 bytes"
+    },
+    {
+      "check": "source SHA-256 community/source/data/modules/swordplay.json",
+      "pass": true,
+      "detail": "19600 bytes"
+    },
+    {
+      "check": "source SHA-256 community/source/data/modules/timerip.json",
+      "pass": true,
+      "detail": "31940 bytes"
+    },
+    {
+      "check": "source SHA-256 community/source/data/monsters.json",
+      "pass": true,
+      "detail": "88383 bytes"
+    },
+    {
+      "check": "source SHA-256 community/source/data/player.json",
+      "pass": true,
+      "detail": "2611 bytes"
+    },
+    {
+      "check": "source SHA-256 community/source/data/resources.json",
+      "pass": true,
+      "detail": "11329 bytes"
+    },
+    {
+      "check": "source SHA-256 community/source/data/skills.json",
+      "pass": true,
+      "detail": "17228 bytes"
+    },
+    {
+      "check": "source SHA-256 community/source/data/spells.json",
+      "pass": true,
+      "detail": "117335 bytes"
+    },
+    {
+      "check": "source SHA-256 community/source/data/tags.json",
+      "pass": true,
+      "detail": "12108 bytes"
+    },
+    {
+      "check": "source SHA-256 community/source/data/tasks.json",
+      "pass": true,
+      "detail": "99713 bytes"
+    },
+    {
+      "check": "source SHA-256 community/source/data/upgrades.json",
+      "pass": true,
+      "detail": "88284 bytes"
+    },
+    {
+      "check": "source SHA-256 community/source/src/changes.js",
+      "pass": true,
+      "detail": "781 bytes"
+    },
+    {
+      "check": "source SHA-256 community/source/src/composites/tagset.js",
+      "pass": true,
+      "detail": "5228 bytes"
+    },
+    {
+      "check": "source SHA-256 community/source/src/dataLoader.js",
+      "pass": true,
+      "detail": "11007 bytes"
+    },
+    {
+      "check": "source SHA-256 community/source/src/events.js",
+      "pass": true,
+      "detail": "13954 bytes"
+    },
+    {
+      "check": "source SHA-256 community/source/src/game.js",
+      "pass": true,
+      "detail": "36913 bytes"
+    },
+    {
+      "check": "source SHA-256 community/source/src/inventories/minions.js",
+      "pass": true,
+      "detail": "4129 bytes"
+    },
+    {
+      "check": "source SHA-256 community/source/src/items/base.js",
+      "pass": true,
+      "detail": "19600 bytes"
+    },
+    {
+      "check": "source SHA-256 community/source/src/items/gdata.js",
+      "pass": true,
+      "detail": "14893 bytes"
+    },
+    {
+      "check": "source SHA-256 community/source/src/items/resource.js",
+      "pass": true,
+      "detail": "2224 bytes"
+    },
+    {
+      "check": "source SHA-256 community/source/src/items/skill.js",
+      "pass": true,
+      "detail": "2060 bytes"
+    },
+    {
+      "check": "source SHA-256 community/source/src/items/spell.js",
+      "pass": true,
+      "detail": "3386 bytes"
+    },
+    {
+      "check": "source SHA-256 community/source/src/items/task.js",
+      "pass": true,
+      "detail": "6376 bytes"
+    },
+    {
+      "check": "source SHA-256 community/source/src/modules/module.js",
+      "pass": true,
+      "detail": "5145 bytes"
+    },
+    {
+      "check": "source SHA-256 community/source/src/modules/parsing.js",
+      "pass": true,
+      "detail": "11620 bytes"
+    },
+    {
+      "check": "source SHA-256 community/source/src/modules/runner.js",
+      "pass": true,
+      "detail": "16458 bytes"
+    },
+    {
+      "check": "source SHA-256 community/source/src/techTree.js",
+      "pass": true,
+      "detail": "5952 bytes"
+    },
+    {
+      "check": "source SHA-256 community/source/src/ui/items/skill.vue",
+      "pass": true,
+      "detail": "2317 bytes"
+    },
+    {
+      "check": "source SHA-256 community/source/src/ui/itemsBase.js",
+      "pass": true,
+      "detail": "3052 bytes"
+    },
+    {
+      "check": "source SHA-256 community/source/src/ui/main.vue",
+      "pass": true,
+      "detail": "14643 bytes"
+    },
+    {
+      "check": "source SHA-256 community/source/src/ui/sections/skills.vue",
+      "pass": true,
+      "detail": "3936 bytes"
+    },
+    {
+      "check": "source SHA-256 community/source/src/ui/sections/spells.vue",
+      "pass": true,
+      "detail": "12355 bytes"
+    },
+    {
+      "check": "source SHA-256 community/source/src/ui/spellschool.vue",
+      "pass": true,
+      "detail": "3264 bytes"
+    },
+    {
+      "check": "source SHA-256 community/source/src/util/jsonLoader.js",
+      "pass": true,
+      "detail": "2214 bytes"
+    },
+    {
+      "check": "source SHA-256 community/source/src/util/objecty.js",
+      "pass": true,
+      "detail": "18696 bytes"
+    },
+    {
+      "check": "source SHA-256 community/source/src/util/util.js",
+      "pass": true,
+      "detail": "11378 bytes"
+    },
+    {
+      "check": "source SHA-256 community/source/src/values/mods/mod.js",
+      "pass": true,
+      "detail": "7691 bytes"
+    },
+    {
+      "check": "source SHA-256 community/source/src/values/rvals/rvalue.js",
+      "pass": true,
+      "detail": "3681 bytes"
+    },
+    {
+      "check": "source SHA-256 community/source/src/values/rvals/scaler.js",
+      "pass": true,
+      "detail": "1106 bytes"
+    },
+    {
+      "check": "source SHA-256 community/source/src/values/rvals/stat.js",
+      "pass": true,
+      "detail": "6188 bytes"
+    },
+    {
+      "check": "original spells complete rows and IDs",
+      "pass": true,
+      "detail": "263 exact source rows verified through pointers; unique IDs"
+    },
+    {
+      "check": "original skills complete rows and IDs",
+      "pass": true,
+      "detail": "72 exact source rows verified through pointers; unique IDs"
+    },
+    {
+      "check": "original tasks complete rows and IDs",
+      "pass": true,
+      "detail": "226 exact source rows verified through pointers; unique IDs"
+    },
+    {
+      "check": "original monsters complete rows and IDs",
+      "pass": true,
+      "detail": "280 exact source rows verified through pointers; unique IDs"
+    },
+    {
+      "check": "original selected IDs",
+      "pass": true,
+      "detail": "one definition per chain ID"
+    },
+    {
+      "check": "original pin",
+      "pass": true,
+      "detail": "35437ed4869856220d17ea9564b339cd02b03035"
+    },
+    {
+      "check": "original clean source",
+      "pass": true,
+      "detail": "read-only detached source snapshot"
+    },
+    {
+      "check": "community spells complete rows and IDs",
+      "pass": true,
+      "detail": "295 exact source rows verified through pointers; unique IDs"
+    },
+    {
+      "check": "community skills complete rows and IDs",
+      "pass": true,
+      "detail": "72 exact source rows verified through pointers; unique IDs"
+    },
+    {
+      "check": "community tasks complete rows and IDs",
+      "pass": true,
+      "detail": "267 exact source rows verified through pointers; unique IDs"
+    },
+    {
+      "check": "community monsters complete rows and IDs",
+      "pass": true,
+      "detail": "331 exact source rows verified through pointers; unique IDs"
+    },
+    {
+      "check": "community selected IDs",
+      "pass": true,
+      "detail": "one definition per chain ID"
+    },
+    {
+      "check": "community pin",
+      "pass": true,
+      "detail": "a2632d2edf3e07e9168fff81167b11f2792e9197"
+    },
+    {
+      "check": "community clean source",
+      "pass": true,
+      "detail": "read-only detached source snapshot"
+    },
+    {
+      "check": "fresh method/data locators",
+      "pass": true,
+      "detail": "104 locator entries checked"
+    },
+    {
+      "check": "historical intake",
+      "pass": true,
+      "detail": "594 exact file-size/hash matches"
+    },
+    {
+      "check": "private files ignored",
+      "pass": true,
+      "detail": "152 files"
+    },
+    {
+      "check": "local Markdown links",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "check": "required deliverables",
+      "pass": true,
+      "detail": "all 3 required files"
+    },
+    {
+      "check": "proposal count",
+      "pass": true,
+      "detail": "8 ranked PROPOSAL rows"
+    },
+    {
+      "check": "no em dashes",
+      "pass": true,
+      "detail": "authored output only, source text preserved"
+    },
+    {
+      "check": "community curve arithmetic",
+      "pass": true,
+      "detail": "level 1 threshold 33; level 2 threshold 38"
+    },
+    {
+      "check": "original curve arithmetic",
+      "pass": true,
+      "detail": "50, 67.5, 91.125"
+    },
+    {
+      "check": "connected ledger",
+      "pass": true,
+      "detail": "threshold crossed on payable training update; declared entry fixture"
+    },
+    {
+      "check": "fine coarse admission counterexample",
+      "pass": true,
+      "detail": "same runner costs: 0.0144 fits, 0.0288 does not"
+    },
+    {
+      "check": "existing tracked dossier unchanged",
+      "pass": true,
+      "detail": []
+    }
+  ],
+  "runtime_tests": "not run, outside authorization",
+  "authoritative_limit": "static selected-chain gate only; all native behavior remains unverified"
+}

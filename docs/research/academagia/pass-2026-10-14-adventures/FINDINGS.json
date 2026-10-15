@@ -1,0 +1,200 @@
+{
+  "lane": "academagia-2",
+  "date": "2026-10-14",
+  "status": "PARTIAL",
+  "method": "reuse prior passive extraction read-only; installed code source trace; exhaustive mechanical graph census; no execution",
+  "profileCounts": {
+    "base": {
+      "nodes": 1555,
+      "roots": 237,
+      "edges": 6402,
+      "investigations": 1190,
+      "exits": 4065,
+      "structurallyReachedFromRoots": 1516,
+      "notStructurallyReached": 39,
+      "unconditionalRootGates": 1,
+      "choiceRollCounts": {
+        "1": 4361,
+        "0": 894
+      },
+      "effectVerbs": {
+        "Expand": 5699,
+        "Add": 1200,
+        "Increase": 588,
+        "Inform": 159,
+        "Remove": 22,
+        "Reprimand": 3,
+        "Damage": 2,
+        "Favor": 3,
+        "Give": 2,
+        "Equip": 1,
+        "Set": 894
+      },
+      "failureEffectVerbs": {
+        "Expand": 3509,
+        "Add": 57,
+        "Reprimand": 99,
+        "Increase": 61,
+        "Damage": 47,
+        "Inform": 30,
+        "Remove": 8
+      },
+      "nodeTypes": {
+        "Court": 1,
+        "Ending": 1,
+        "Default": 1552,
+        "Introduction": 1
+      }
+    },
+    "Content": {
+      "nodes": 3022,
+      "roots": 383,
+      "edges": 11463,
+      "investigations": 1630,
+      "exits": 7809,
+      "structurallyReachedFromRoots": 3005,
+      "notStructurallyReached": 17,
+      "unconditionalRootGates": 12,
+      "choiceRollCounts": {
+        "1": 6930,
+        "0": 2509
+      },
+      "effectVerbs": {
+        "Expand": 11665,
+        "Add": 1936,
+        "Increase": 814,
+        "Inform": 702,
+        "Remove": 136,
+        "Reprimand": 12,
+        "Damage": 2,
+        "Favor": 3,
+        "Give": 2,
+        "Set": 930
+      },
+      "failureEffectVerbs": {
+        "Expand": 6410,
+        "Add": 229,
+        "Reprimand": 155,
+        "Remove": 109,
+        "Inform": 153,
+        "Increase": 78,
+        "Damage": 43
+      },
+      "nodeTypes": {
+        "Court": 1,
+        "Ending": 1,
+        "Default": 3019,
+        "Introduction": 1
+      }
+    },
+    "Summer": {
+      "nodes": 3030,
+      "roots": 384,
+      "edges": 11503,
+      "investigations": 1632,
+      "exits": 7856,
+      "structurallyReachedFromRoots": 3013,
+      "notStructurallyReached": 17,
+      "unconditionalRootGates": 12,
+      "choiceRollCounts": {
+        "1": 6955,
+        "0": 2533
+      },
+      "effectVerbs": {
+        "Expand": 11828,
+        "Add": 1951,
+        "Increase": 816,
+        "Inform": 707,
+        "Remove": 136,
+        "Reprimand": 12,
+        "Damage": 2,
+        "Favor": 3,
+        "Give": 2,
+        "Set": 930
+      },
+      "failureEffectVerbs": {
+        "Expand": 6448,
+        "Add": 231,
+        "Reprimand": 155,
+        "Remove": 109,
+        "Inform": 154,
+        "Increase": 78,
+        "Damage": 43
+      },
+      "nodeTypes": {
+        "Court": 1,
+        "Ending": 1,
+        "Default": 3027,
+        "Introduction": 1
+      }
+    },
+    "decoderIdConvention": "little-endian GUID bytes as hex, not Guid.ToString"
+  },
+  "findings": [
+    {
+      "code": "F1",
+      "label": "inferred from shown data",
+      "summary": "Every Adventure record and linked choice mapped mechanically for base and both no-deletion patch profiles",
+      "digest": "ADVENTURE_GRAMMAR.md"
+    },
+    {
+      "code": "F2",
+      "label": "shown fields and inferred scene paraphrases",
+      "summary": "44 club-named stages and 176 choices mapped; Bookworms loops/skips and Rimbal consent exits retained",
+      "digest": "CLUB_PATHS.md"
+    },
+    {
+      "code": "F3",
+      "label": "shown",
+      "summary": "Bookworms requires Library Knowledge child skill >=2 and grants sorting-job access; Rimbal uses inclusive date window",
+      "digest": "CLUB_PATHS.md"
+    },
+    {
+      "code": "F4",
+      "label": "shown",
+      "summary": "Benefits compare max roll power against a separate threshold; zero is unconditional",
+      "digest": "ADVENTURE_GRAMMAR.md"
+    },
+    {
+      "code": "F5",
+      "label": "shown",
+      "summary": "ContextDateDuration is absent from end-date computation; GetComplications returns empty list",
+      "digest": "ADVENTURE_GRAMMAR.md"
+    },
+    {
+      "code": "F6",
+      "label": "shown algorithm, inferred shipped profile behavior",
+      "summary": "Ordered modified-body replacement/new records/resource overwrite; shipped List<Guid> deletion object fails string[] type test and returns null",
+      "digest": "PATCH_MERGING.md"
+    }
+  ],
+  "proposals": [
+    "P1",
+    "P2",
+    "P3",
+    "P4",
+    "P5",
+    "P6",
+    "P7",
+    "P8"
+  ],
+  "priorFindings": [
+    "D07",
+    "D15",
+    "D16"
+  ],
+  "gaps": [
+    "Manual paraphrase of all non-club narrative branches and choice intentions",
+    "Organizations without club in adventure authoring names",
+    "258-page wiki crosswalk",
+    "Live selected profile/cache and playable reachability excluded by COMMON",
+    "Combined Content and Summer profile counts not reconstructed"
+  ],
+  "verificationFile": "VERIFICATION.json",
+  "workArea": "/Users/weiwei/.codex/research/academagia-2",
+  "priorWorkReadOnly": "/Users/weiwei/.codex/research/academagia-decompile",
+  "rawProseInRepo": false,
+  "gameExecuted": false,
+  "savesAccessed": false,
+  "implemented": false
+}

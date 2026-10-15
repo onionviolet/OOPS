@@ -1,0 +1,5 @@
+{
+  "status": "PASS",
+  "checks": "Native skill levels/XP, character XP, money, inventory and completion counters match the earned Export after load, reload and two literal Imports",
+  "woodworking": 6
+}

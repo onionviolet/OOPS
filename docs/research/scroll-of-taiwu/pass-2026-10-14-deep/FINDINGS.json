@@ -1,0 +1,314 @@
+{
+  "lane": "taiwu-2",
+  "date": "2026-10-14",
+  "status": "PARTIAL",
+  "evidence_root": "/Users/weiwei/.codex/research/taiwu-2/extract",
+  "prior_evidence_root": "/Users/weiwei/.codex/research/taiwu/extract",
+  "evidence_mode": "static managed bodies and compiled data; no execution",
+  "claims": [
+    {
+      "id": "F1",
+      "system": "NPC autonomy",
+      "basis": "shown",
+      "claim": "Ranked goals and weighted regressive action planning coexist with separate social/demographic passes.",
+      "evidence": [
+        "GameData.ActionPlanning.MonthlyAI.CharacterGoalData.cs:GetPriority",
+        "GameData.ActionPlanning.MonthlyAI.CharacterPlanningAgent.cs:CharacterPlanningAgent",
+        "GameData.ActionPlanning.dll.cs:WeightBasedPathfinder",
+        "prior:Character.cs:PeriAdvanceMonth_RelationsUpdate"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "F2",
+      "system": "inheritance",
+      "basis": "shown",
+      "claim": "Normal frontend pays remaining legacy points before successor confirmation; channel transfer policies differ.",
+      "evidence": [
+        "Game.Views.LegacyPassing.ViewLegacy.cs:ConfirmInherit",
+        "prior:TaiwuDomain.cs:TransferTaiwuData",
+        "ExtraDomain.cs:TransferTaiwuProficiency"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "F3",
+      "system": "information",
+      "basis": "shown",
+      "claim": "TransferInformation copies then removes the destination secret-knowledge key; ordinary information moves.",
+      "evidence": [
+        "InformationDomain.cs:TransferInformation",
+        "InformationDomain.cs:EditCharacterKnownSecret"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "F4",
+      "system": "teaching",
+      "basis": "shown",
+      "claim": "Main teaching route composes institution, calendar, alertness, punishment, prior-study and school branches.",
+      "evidence": [
+        "Package.CharacterInteraction_Main.cs:TaiwuEvent_a9d0bcd8e3784ee996a61e5b9db17371",
+        "GameData.Domains.TaiwuEvent.EventHelper.EventHelper.cs:LearnTargetCombatSkillDependSectApprovingRate",
+        "Scripts.CharacterInteraction_Main.json"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "F5",
+      "system": "adventures",
+      "basis": "shown",
+      "claim": "Protobuf authored data carries event instruction bytes; custom host-bound interpreter and node/map state drive events.",
+      "evidence": [
+        "AdventureDataCompiler.cs:Compile",
+        "GameData.Domains.Adventure.AdventureInstructionAdaptor.cs:Check",
+        "AdventureDomain.cs:EnterMajorEvent",
+        "CompDevLib.Interpreter.dll.cs:Interpreter"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "F6",
+      "system": "study",
+      "basis": "shown",
+      "claim": "Active reading defaults cost one time and three intelligence; batch progress and physical/reference knowledge differ.",
+      "evidence": [
+        "GlobalConfig.cs:ActiveReadingTimeCost",
+        "prior:TaiwuDomain.cs:ActiveReadOnce",
+        "GameData.Domains.Item.ItemDomain.cs:GetPageIncompleteState"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "F7",
+      "system": "force",
+      "basis": "shown",
+      "claim": "Per-art and current-force clamps are separate; elemental benefit/disorder and allocated reserve have separate consumers.",
+      "evidence": [
+        "CombatSkill.cs:GetTotalObtainableNeili",
+        "prior:CombatSkillDomain.cs:ApplyLoopingNeiliModify",
+        "prior:Character.cs:CalcMaxNeili",
+        "NeiliProportionHelper.cs:GetNeiliType"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "F8",
+      "system": "marriage",
+      "basis": "shown",
+      "claim": "Local marriage and restricted distant marriage have executable state mutation, not only profiles.",
+      "evidence": [
+        "prior:Character.cs:ApplyBecomeHusbandOrWife",
+        "prior:CharacterDomain.cs:ProcessDistantMarriage"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "F9",
+      "system": "tables",
+      "basis": "shown",
+      "claim": "Nine additional config tables have complete constructor-ID enumeration; semantic coverage remains partial.",
+      "evidence": [
+        "table_audit.json"
+      ],
+      "runtime_verified": false
+    }
+  ],
+  "table_counts": {
+    "Legacy": {
+      "rows": 749,
+      "unique": 749,
+      "min": 0,
+      "max": 748,
+      "groups": {
+        "-1": 732,
+        "568": 5,
+        "573": 6,
+        "707": 3,
+        "710": 3
+      },
+      "permanently_unique": 36,
+      "cost_range": [
+        -1000,
+        3500
+      ]
+    },
+    "LegacyPointType": {
+      "rows": 8,
+      "unique": 8,
+      "min": 0,
+      "max": 7
+    },
+    "NeiliType": {
+      "rows": 36,
+      "unique": 36,
+      "min": 0,
+      "max": 35
+    },
+    "SkillBreakPageEffect": {
+      "rows": 10,
+      "unique": 10,
+      "min": 0,
+      "max": 9
+    },
+    "WorldCreation": {
+      "rows": 15,
+      "unique": 15,
+      "min": 0,
+      "max": 14
+    },
+    "WorldState": {
+      "rows": 57,
+      "unique": 57,
+      "min": 0,
+      "max": 56
+    },
+    "PlanningGoal": {
+      "rows": 276,
+      "unique": 276,
+      "min": 0,
+      "max": 275
+    },
+    "PlanningAction": {
+      "rows": 389,
+      "unique": 389,
+      "min": 0,
+      "max": 388
+    },
+    "AdventureGenerateCondition": {
+      "rows": 93,
+      "unique": 93,
+      "min": 0,
+      "max": 92
+    }
+  },
+  "script_counts": [
+    {
+      "package": "CharacterInteraction_Study",
+      "scripts": 74,
+      "instructions": 112,
+      "bytes": 7934
+    },
+    {
+      "package": "CharacterInteraction_Main",
+      "scripts": 124,
+      "instructions": 341,
+      "bytes": 14672
+    },
+    {
+      "package": "TaiwuLegacyPassing",
+      "scripts": 11,
+      "instructions": 19,
+      "bytes": 790
+    },
+    {
+      "package": "SectBuildingInteraction",
+      "scripts": 11,
+      "instructions": 14,
+      "bytes": 898
+    },
+    {
+      "package": "Adventure_Interaction",
+      "scripts": 45,
+      "instructions": 210,
+      "bytes": 7626
+    }
+  ],
+  "proposals": [
+    {
+      "id": "P1",
+      "title": "Give a named NPC a real need and several lawful or world-fitting means, with a visible reason for the chosen plan.",
+      "owners": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/ENGINE_EXPANSION.md"
+      ],
+      "status": "PROPOSAL",
+      "acceptance": "One NPC lacks a page, seeks a known teacher, pays time, can be refused and retains progress."
+    },
+    {
+      "id": "P2",
+      "title": "Keep the physical manual, known page variants, comprehension and useful practice separate.",
+      "owners": [
+        "docs/SKILLS_AND_TALENTS.md",
+        "docs/ENGINE_EXPANSION.md"
+      ],
+      "status": "PROPOSAL",
+      "acceptance": "A damaged copy plus a matching reference changes study and later use without silently repairing the object."
+    },
+    {
+      "id": "P3",
+      "title": "Specify succession per channel, including pending work and private knowledge, with explicit move/copy/merge/reset policies.",
+      "owners": [
+        "docs/SELVES_AND_ECHOES.md",
+        "docs/RULES_FROM_SCRATCH.md"
+      ],
+      "status": "PROPOSAL",
+      "acceptance": "A successor receives the selected channels, keeps their own bonds and cannot duplicate settlement on reload/import."
+    },
+    {
+      "id": "P4",
+      "title": "Compose teaching access from actual social, institutional, knowledge and availability predicates.",
+      "owners": [
+        "docs/LIFE_SIM_NORTH_STAR.md",
+        "docs/ENGINE_EXPANSION.md"
+      ],
+      "status": "PROPOSAL",
+      "acceptance": "Two teachers can give different concrete refusal reasons and each has a reachable alternate route."
+    },
+    {
+      "id": "P5",
+      "title": "Author an adventure with separate eligibility, entry cost, branch state, exit and world aftermath.",
+      "owners": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/WANDERING_ZONES_AND_INSIGHT.md"
+      ],
+      "status": "PROPOSAL",
+      "acceptance": "A paid branch changes a later visit; leaving and completing settle different authored consequences."
+    },
+    {
+      "id": "P6",
+      "title": "Let a local coalition form, lose members and respond to a public act through jurisdiction.",
+      "owners": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/ENGINE_EXPANSION.md"
+      ],
+      "status": "PROPOSAL",
+      "acceptance": "One witnessed act changes support and duties only for the actors/institution that know it."
+    },
+    {
+      "id": "P7",
+      "title": "Keep force reserve, method-earned capacity and allocated benefits distinct.",
+      "owners": [
+        "docs/SKILLS_AND_TALENTS.md",
+        "docs/ENGINE_EXPANSION.md"
+      ],
+      "status": "PROPOSAL",
+      "acceptance": "Two methods change useful outcomes differently, with a visible recovery/improvement route."
+    }
+  ],
+  "comparison": {
+    "basis": "stated local dossier findings; comparative inference",
+    "sources": [
+      "docs/research/tale-of-immortal/pass-2026-10-14/REPORT.md",
+      "docs/research/immortal-life/REPORT.md"
+    ]
+  },
+  "gaps": [
+    "all955 technique/all319 building row semantics and effect consumers",
+    "all dialogue/service costs and final book exchange settlement",
+    "all legacy/world-setting effects and award callers",
+    "all transfer listeners, cross-archive and death relation cleanup",
+    "genetics and population replenishment",
+    "complete blueprint/reward semantics",
+    "runtime, saves, compatibility and visual acceptance"
+  ],
+  "excluded": [
+    "game launch",
+    "game assembly execution",
+    "save access",
+    "YAIRPG implementation",
+    "staging",
+    "commit",
+    "push"
+  ]
+}

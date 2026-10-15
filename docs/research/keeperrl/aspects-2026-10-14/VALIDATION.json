@@ -1,0 +1,54 @@
+{
+  "lane": "bf-roguelike-src",
+  "checked_at_utc": "2026-10-14T22:41:53.223472+00:00",
+  "result": "PASS_source_and_artifact_checks",
+  "groups": [
+    {
+      "folder": "nethack",
+      "games": [
+        "nethack"
+      ],
+      "required_files": 13,
+      "aspect_keys": 12,
+      "source_ranges": 30,
+      "source_files_verified_against_git": 17,
+      "small_touches": 20,
+      "checks": "JSON schema/parse, per-game sources, file presence, local links, source bounds/SHA256/pinned Git bytes, no em dash",
+      "game_execution": false
+    },
+    {
+      "folder": "dcss-dda-depth",
+      "games": [
+        "crawl",
+        "cdda"
+      ],
+      "required_files": 13,
+      "aspect_keys": 12,
+      "source_ranges": 57,
+      "source_files_verified_against_git": 28,
+      "small_touches": 40,
+      "checks": "JSON schema/parse, per-game sources, file presence, local links, source bounds/SHA256/pinned Git bytes, no em dash",
+      "game_execution": false
+    },
+    {
+      "folder": "keeperrl",
+      "games": [
+        "keeperrl"
+      ],
+      "required_files": 13,
+      "aspect_keys": 12,
+      "source_ranges": 36,
+      "source_files_verified_against_git": 19,
+      "small_touches": 20,
+      "checks": "JSON schema/parse, per-game sources, file presence, local links, source bounds/SHA256/pinned Git bytes, no em dash",
+      "game_execution": false
+    }
+  ],
+  "extract_hashes_checked": 74,
+  "disk_kib": 441244,
+  "runtime_build_browser_save_tests": "not run; research only",
+  "main_checkout_writer_scope": "only the three assigned aspects-2026-10-14 directories",
+  "agents_spawned": 0,
+  "installs": [],
+  "commits_or_pushes": []
+}

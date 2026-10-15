@@ -1,0 +1,31 @@
+{
+  "status": "PASS",
+  "validated_utc": "2026-10-15T00:14:38.318555+00:00",
+  "checks": {
+    "source_head_matches_pin": true,
+    "source_detached": true,
+    "source_clean": true,
+    "manifest_commit_matches": true,
+    "snapshot_files_hash_and_source_bytes": 3304,
+    "snapshot_path_unique": true,
+    "valid_json_files": 1829,
+    "all_registry_classes_exact": true,
+    "unique_85_glyphs": true,
+    "unique_85_recipe_outputs": true,
+    "derived_default_costs_tiers_recipe_xp": 85,
+    "starter_set_exact": true,
+    "csv_matches_ids_and_costs": true,
+    "source_locator_references": 107,
+    "all_private_files_ignored": true,
+    "no_tracked_private_files": true,
+    "no_em_dash_REPORT.md": true,
+    "no_em_dash_CHECKPOINT.md": true,
+    "no_em_dash_README.md": true,
+    "local_markdown_links_exist": 26,
+    "report_proposals_7": true,
+    "coverage_counts_match": true
+  },
+  "scope": "Research artifact/source integrity only. No source-game or YAIR build, tests, gameplay, saves or acceptance.",
+  "snapshot_manifest_sha256": "8f82eec51acd5a94fdbd6aa57ed661ab10494a6a84515b5fa91c7a0574021e5f",
+  "source_pin": "fd8c9520722bb96a3e75febaf770d7078db5ac43"
+}

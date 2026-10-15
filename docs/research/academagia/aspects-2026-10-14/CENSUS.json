@@ -1,0 +1,771 @@
+{
+  "tableCounts": {
+    "base": {
+      "Ability": 2753,
+      "Action": 511,
+      "ActionType": 54,
+      "Adventure": 1555,
+      "Affinity": 141,
+      "AIEffect": 3387,
+      "AIGoal": 0,
+      "Article": 0,
+      "Attribute": 1470,
+      "Background": 117,
+      "BackgroundType": 9,
+      "Benefit": 15231,
+      "BreedType": 77,
+      "CalendarEffect": 360,
+      "CalendarWeather": 360,
+      "Catalog": 125,
+      "CharacterSkill": 1316,
+      "Clazz": 17,
+      "ClazzPerk": 170,
+      "ClazzSkill": 1192,
+      "Clique": 0,
+      "CliqueName": 98,
+      "College": 7,
+      "CompeteSkill": 0,
+      "Complication": 1068,
+      "ComplicationType": 114,
+      "Constellation": 39,
+      "ConstellationAbility": 269,
+      "Continuance": 6567,
+      "DateAM": 360,
+      "Display": 0,
+      "DuelEffect": 0,
+      "Effect": 47202,
+      "EffectCondition": 59546,
+      "Emotion": 45,
+      "Enchantment": 9,
+      "EnchantmentAbility": 10,
+      "Exit": 7592,
+      "Familiar": 111,
+      "FamiliarType": 26,
+      "FavorEffect": 47,
+      "ForceEffect": 12297,
+      "GambitEffect": 0,
+      "Geas": 0,
+      "GiftPreference": 124,
+      "GoalAIGoal": 415,
+      "GoalAITable": 83,
+      "Ingredient": 1464,
+      "Instructor": 21,
+      "InterestsAITable": 83,
+      "Investigation": 2251,
+      "Investiture": 0,
+      "Item": 1265,
+      "ItemAbility": 1122,
+      "ItemInstance": 935,
+      "ItemType": 113,
+      "Location": 452,
+      "LocationType": 10,
+      "Lore": 4113,
+      "Memory": 1640,
+      "Merit": 34,
+      "Monster": 16,
+      "MonsterSkill": 91,
+      "MonsterType": 22,
+      "Music": 12,
+      "NamedText": 0,
+      "NewspaperIssue": 20,
+      "Nickname": 0,
+      "PersistEntityRef": 0,
+      "PersonalAITable": 83,
+      "Personality": 85,
+      "PersonalityPreference": 813,
+      "Pheme": 629,
+      "PhemeEffect": 1201,
+      "PhemeSpellType": 2156,
+      "Player": 0,
+      "Portrait": 28,
+      "Prerequisite": 31050,
+      "PrerequisiteItem": 6784,
+      "Recipe": 1265,
+      "ReferenceColumn": 257,
+      "ReferenceTable": 59,
+      "Region": 5,
+      "RelationshipRumorDescription": 0,
+      "Roll": 11338,
+      "RollBonus": 148,
+      "RollContext": 0,
+      "RollEffectRelation": 1263,
+      "RollInitiator": 12740,
+      "RollTarget": 12740,
+      "RumorDefaultDescription": 1,
+      "RumorDescription": 2,
+      "SelectionItem": 137310,
+      "Skill": 364,
+      "SkillLevelThreshold": 6540,
+      "SkillPerk": 6986,
+      "SkillRumorDescription": 0,
+      "Sound": 0,
+      "Spell": 639,
+      "SpellType": 714,
+      "Story": 0,
+      "StoryActor": 3632,
+      "StoryActorLink": 28779,
+      "Student": 83,
+      "StudiesAITable": 84,
+      "Topic": 290,
+      "University": 1,
+      "VendettaAIGoal": 199,
+      "VendettaAITable": 83,
+      "Visualization": 1547,
+      "WeatherType": 10,
+      "WeatherTypeChance": 874
+    },
+    "Content": {
+      "Ability": 3288,
+      "Action": 551,
+      "ActionType": 54,
+      "Adventure": 3022,
+      "Affinity": 155,
+      "AIEffect": 3556,
+      "AIGoal": 0,
+      "Article": 0,
+      "Attribute": 1540,
+      "Background": 147,
+      "BackgroundType": 9,
+      "Benefit": 26053,
+      "BreedType": 81,
+      "CalendarEffect": 360,
+      "CalendarWeather": 360,
+      "Catalog": 129,
+      "CharacterSkill": 1399,
+      "Clazz": 17,
+      "ClazzPerk": 193,
+      "ClazzSkill": 1192,
+      "Clique": 0,
+      "CliqueName": 103,
+      "College": 7,
+      "CompeteSkill": 0,
+      "Complication": 1548,
+      "ComplicationType": 114,
+      "Constellation": 39,
+      "ConstellationAbility": 269,
+      "Continuance": 11708,
+      "DateAM": 360,
+      "Display": 0,
+      "DuelEffect": 0,
+      "Effect": 65257,
+      "EffectCondition": 79199,
+      "Emotion": 55,
+      "Enchantment": 9,
+      "EnchantmentAbility": 10,
+      "Exit": 12838,
+      "Familiar": 117,
+      "FamiliarType": 29,
+      "FavorEffect": 47,
+      "ForceEffect": 13895,
+      "GambitEffect": 0,
+      "Geas": 0,
+      "GiftPreference": 125,
+      "GoalAIGoal": 435,
+      "GoalAITable": 87,
+      "Ingredient": 1464,
+      "Instructor": 21,
+      "InterestsAITable": 87,
+      "Investigation": 2826,
+      "Investiture": 0,
+      "Item": 1475,
+      "ItemAbility": 1349,
+      "ItemInstance": 996,
+      "ItemType": 114,
+      "Location": 547,
+      "LocationType": 10,
+      "Lore": 4748,
+      "Memory": 2120,
+      "Merit": 36,
+      "Monster": 16,
+      "MonsterSkill": 91,
+      "MonsterType": 22,
+      "Music": 12,
+      "NamedText": 0,
+      "NewspaperIssue": 20,
+      "Nickname": 0,
+      "PersistEntityRef": 0,
+      "PersonalAITable": 87,
+      "Personality": 89,
+      "PersonalityPreference": 823,
+      "Pheme": 664,
+      "PhemeEffect": 1286,
+      "PhemeSpellType": 2229,
+      "Player": 0,
+      "Portrait": 28,
+      "Prerequisite": 45554,
+      "PrerequisiteItem": 9659,
+      "Recipe": 1475,
+      "ReferenceColumn": 276,
+      "ReferenceTable": 77,
+      "Region": 5,
+      "RelationshipRumorDescription": 0,
+      "Roll": 15034,
+      "RollBonus": 148,
+      "RollContext": 0,
+      "RollEffectRelation": 1439,
+      "RollInitiator": 16445,
+      "RollTarget": 16445,
+      "RumorDefaultDescription": 1,
+      "RumorDescription": 2,
+      "SelectionItem": 181523,
+      "Skill": 386,
+      "SkillLevelThreshold": 7070,
+      "SkillPerk": 7964,
+      "SkillRumorDescription": 0,
+      "Sound": 0,
+      "Spell": 679,
+      "SpellType": 753,
+      "Story": 0,
+      "StoryActor": 6666,
+      "StoryActorLink": 39738,
+      "Student": 87,
+      "StudiesAITable": 88,
+      "Topic": 321,
+      "University": 1,
+      "VendettaAIGoal": 204,
+      "VendettaAITable": 87,
+      "Visualization": 1764,
+      "WeatherType": 10,
+      "WeatherTypeChance": 874
+    },
+    "Summer": {
+      "Ability": 3288,
+      "Action": 552,
+      "ActionType": 54,
+      "Adventure": 3030,
+      "Affinity": 155,
+      "AIEffect": 3556,
+      "AIGoal": 0,
+      "Article": 0,
+      "Attribute": 1540,
+      "Background": 147,
+      "BackgroundType": 9,
+      "Benefit": 26269,
+      "BreedType": 81,
+      "CalendarEffect": 360,
+      "CalendarWeather": 360,
+      "Catalog": 129,
+      "CharacterSkill": 1399,
+      "Clazz": 17,
+      "ClazzPerk": 193,
+      "ClazzSkill": 1192,
+      "Clique": 0,
+      "CliqueName": 103,
+      "College": 7,
+      "CompeteSkill": 0,
+      "Complication": 1549,
+      "ComplicationType": 114,
+      "Constellation": 39,
+      "ConstellationAbility": 269,
+      "Continuance": 11749,
+      "DateAM": 360,
+      "Display": 0,
+      "DuelEffect": 0,
+      "Effect": 65516,
+      "EffectCondition": 79463,
+      "Emotion": 55,
+      "Enchantment": 9,
+      "EnchantmentAbility": 10,
+      "Exit": 12897,
+      "Familiar": 117,
+      "FamiliarType": 29,
+      "FavorEffect": 47,
+      "ForceEffect": 13900,
+      "GambitEffect": 0,
+      "Geas": 0,
+      "GiftPreference": 125,
+      "GoalAIGoal": 435,
+      "GoalAITable": 87,
+      "Ingredient": 1464,
+      "Instructor": 21,
+      "InterestsAITable": 87,
+      "Investigation": 2828,
+      "Investiture": 0,
+      "Item": 1475,
+      "ItemAbility": 1349,
+      "ItemInstance": 997,
+      "ItemType": 114,
+      "Location": 547,
+      "LocationType": 10,
+      "Lore": 4748,
+      "Memory": 2127,
+      "Merit": 36,
+      "Monster": 16,
+      "MonsterSkill": 91,
+      "MonsterType": 22,
+      "Music": 12,
+      "NamedText": 0,
+      "NewspaperIssue": 20,
+      "Nickname": 0,
+      "PersistEntityRef": 0,
+      "PersonalAITable": 87,
+      "Personality": 89,
+      "PersonalityPreference": 823,
+      "Pheme": 664,
+      "PhemeEffect": 1286,
+      "PhemeSpellType": 2229,
+      "Player": 0,
+      "Portrait": 28,
+      "Prerequisite": 45678,
+      "PrerequisiteItem": 9758,
+      "Recipe": 1475,
+      "ReferenceColumn": 276,
+      "ReferenceTable": 77,
+      "Region": 5,
+      "RelationshipRumorDescription": 0,
+      "Roll": 15059,
+      "RollBonus": 148,
+      "RollContext": 0,
+      "RollEffectRelation": 1439,
+      "RollInitiator": 16470,
+      "RollTarget": 16470,
+      "RumorDefaultDescription": 1,
+      "RumorDescription": 2,
+      "SelectionItem": 182257,
+      "Skill": 386,
+      "SkillLevelThreshold": 7050,
+      "SkillPerk": 7962,
+      "SkillRumorDescription": 0,
+      "Sound": 0,
+      "Spell": 679,
+      "SpellType": 753,
+      "Story": 0,
+      "StoryActor": 6679,
+      "StoryActorLink": 39849,
+      "Student": 87,
+      "StudiesAITable": 88,
+      "Topic": 319,
+      "University": 1,
+      "VendettaAIGoal": 204,
+      "VendettaAITable": 87,
+      "Visualization": 1764,
+      "WeatherType": 10,
+      "WeatherTypeChance": 874
+    }
+  },
+  "dialogue": {
+    "base": {
+      "byTableAndField": {
+        "Ability": {
+          "_description": 2751
+        },
+        "Action": {
+          "_description": 510
+        },
+        "Adventure": {
+          "_text": 1555
+        },
+        "Background": {
+          "_description": 117
+        },
+        "Catalog": {
+          "_description": 113
+        },
+        "Clazz": {
+          "_description": 17
+        },
+        "College": {
+          "_description": 7
+        },
+        "Complication": {
+          "_text": 1068
+        },
+        "Constellation": {
+          "_description": 39
+        },
+        "Emotion": {
+          "_description": 45
+        },
+        "Exit": {
+          "_text": 7592,
+          "_successText": 7592,
+          "_failureText": 7592,
+          "_description": 7453,
+          "_sacrificeText": 783
+        },
+        "Familiar": {
+          "_description": 110,
+          "_storyPersonalityDescription": 1
+        },
+        "Instructor": {
+          "_description": 21
+        },
+        "Investigation": {
+          "_text": 2251,
+          "_successText": 2251,
+          "_failureText": 2251,
+          "_description": 2251,
+          "_sacrificeText": 1
+        },
+        "Item": {
+          "_description": 1265,
+          "_storyPhysicalDescription": 103,
+          "_storyActionDescription": 4
+        },
+        "Location": {
+          "_description": 452
+        },
+        "Lore": {
+          "_text": 4111
+        },
+        "Memory": {
+          "_description": 1537
+        },
+        "Monster": {
+          "_description": 16,
+          "_storyPhysicalDescription": 1
+        },
+        "Personality": {
+          "_description": 1
+        },
+        "Pheme": {
+          "_description": 628,
+          "_storyAnecdotalDescription": 18
+        },
+        "RumorDescription": {
+          "_text": 2
+        },
+        "Skill": {
+          "_description": 306
+        },
+        "Spell": {
+          "_description": 639
+        },
+        "Student": {
+          "_description": 83,
+          "_secretDescription": 25
+        },
+        "Topic": {
+          "_description": 4
+        }
+      },
+      "totalFields": 55566,
+      "actorAnchorOccurrences": 28791,
+      "dialogueRegistryTablePresent": false
+    },
+    "Content": {
+      "byTableAndField": {
+        "Ability": {
+          "_description": 3286
+        },
+        "Action": {
+          "_description": 550
+        },
+        "Adventure": {
+          "_text": 3022
+        },
+        "Background": {
+          "_description": 147
+        },
+        "Catalog": {
+          "_description": 126
+        },
+        "Clazz": {
+          "_description": 17
+        },
+        "College": {
+          "_description": 7
+        },
+        "Complication": {
+          "_text": 1548
+        },
+        "Constellation": {
+          "_description": 39
+        },
+        "Emotion": {
+          "_description": 55
+        },
+        "Exit": {
+          "_text": 12838,
+          "_successText": 12838,
+          "_failureText": 12838,
+          "_description": 12743,
+          "_sacrificeText": 783
+        },
+        "Familiar": {
+          "_description": 117,
+          "_storyPersonalityDescription": 1
+        },
+        "Instructor": {
+          "_description": 21
+        },
+        "Investigation": {
+          "_text": 2826,
+          "_successText": 2826,
+          "_failureText": 2826,
+          "_description": 2824,
+          "_sacrificeText": 1
+        },
+        "Item": {
+          "_description": 1474,
+          "_storyPhysicalDescription": 103,
+          "_storyActionDescription": 4
+        },
+        "Location": {
+          "_description": 547
+        },
+        "Lore": {
+          "_text": 4746
+        },
+        "Memory": {
+          "_description": 1634
+        },
+        "Monster": {
+          "_description": 16,
+          "_storyPhysicalDescription": 1
+        },
+        "Personality": {
+          "_description": 1
+        },
+        "Pheme": {
+          "_description": 664,
+          "_storyAnecdotalDescription": 18
+        },
+        "RumorDescription": {
+          "_text": 2
+        },
+        "Skill": {
+          "_description": 329
+        },
+        "Spell": {
+          "_description": 679
+        },
+        "Student": {
+          "_description": 87,
+          "_secretDescription": 25
+        },
+        "Topic": {
+          "_description": 5
+        }
+      },
+      "totalFields": 82614,
+      "actorAnchorOccurrences": 39505,
+      "dialogueRegistryTablePresent": false
+    },
+    "Summer": {
+      "byTableAndField": {
+        "Ability": {
+          "_description": 3286
+        },
+        "Action": {
+          "_description": 551
+        },
+        "Adventure": {
+          "_text": 3030
+        },
+        "Background": {
+          "_description": 147
+        },
+        "Catalog": {
+          "_description": 126
+        },
+        "Clazz": {
+          "_description": 17
+        },
+        "College": {
+          "_description": 7
+        },
+        "Complication": {
+          "_text": 1549
+        },
+        "Constellation": {
+          "_description": 39
+        },
+        "Emotion": {
+          "_description": 55
+        },
+        "Exit": {
+          "_text": 12897,
+          "_successText": 12897,
+          "_failureText": 12897,
+          "_description": 12809,
+          "_sacrificeText": 783
+        },
+        "Familiar": {
+          "_description": 117,
+          "_storyPersonalityDescription": 1
+        },
+        "Instructor": {
+          "_description": 21
+        },
+        "Investigation": {
+          "_text": 2828,
+          "_successText": 2828,
+          "_failureText": 2828,
+          "_description": 2828,
+          "_sacrificeText": 1
+        },
+        "Item": {
+          "_description": 1474,
+          "_storyPhysicalDescription": 103,
+          "_storyActionDescription": 4
+        },
+        "Location": {
+          "_description": 547
+        },
+        "Lore": {
+          "_text": 4746
+        },
+        "Memory": {
+          "_description": 1634
+        },
+        "Monster": {
+          "_description": 16,
+          "_storyPhysicalDescription": 1
+        },
+        "Personality": {
+          "_description": 1
+        },
+        "Pheme": {
+          "_description": 664,
+          "_storyAnecdotalDescription": 18
+        },
+        "RumorDescription": {
+          "_text": 2
+        },
+        "Skill": {
+          "_description": 329
+        },
+        "Spell": {
+          "_description": 679
+        },
+        "Student": {
+          "_description": 87,
+          "_secretDescription": 25
+        },
+        "Topic": {
+          "_description": 5
+        }
+      },
+      "totalFields": 82877,
+      "actorAnchorOccurrences": 39613,
+      "dialogueRegistryTablePresent": false
+    }
+  },
+  "privateReferenceCorpora": {
+    "base": {
+      "records": 25241,
+      "nonemptyTextFields": 57100,
+      "bytes": 12956459
+    },
+    "Content-modified": {
+      "records": 8312,
+      "nonemptyTextFields": 21878,
+      "bytes": 5658112
+    },
+    "Content-new": {
+      "records": 9531,
+      "nonemptyTextFields": 28444,
+      "bytes": 7191121
+    },
+    "The Blush of Summer-modified": {
+      "records": 8847,
+      "nonemptyTextFields": 23364,
+      "bytes": 6003758
+    },
+    "The Blush of Summer-new": {
+      "records": 9602,
+      "nonemptyTextFields": 28713,
+      "bytes": 7284849
+    }
+  },
+  "registeredSystems": [
+    "DateAndTimeSystem",
+    "SystemObjects",
+    "ResolvingSystem",
+    "ActionScheduler",
+    "ActionSystem",
+    "AbilitySystem",
+    "AllowanceSystem",
+    "ArtificingSystem",
+    "AstrologySystem",
+    "PrerequisiteSystem",
+    "CharacterSystem",
+    "ChargeSystem",
+    "ClazzSystem",
+    "CliqueSystem",
+    "CompeteSystem",
+    "EffectSystem",
+    "EmotionSystem",
+    "EnchantSystem",
+    "ExamSystem",
+    "InformationSystem",
+    "InventorySystem",
+    "GiftSystem",
+    "GraduationSystem",
+    "PurchaseSystem",
+    "PreventSystem",
+    "SpellSystem",
+    "StorySystem",
+    "SkillSystem",
+    "StressSystem",
+    "WeatherSystem",
+    "FamiliarSystem",
+    "FavorSystem",
+    "FeedbackSystem",
+    "LockSystem",
+    "MonsterSystem",
+    "VisitSystem",
+    "RimbalSystem",
+    "RelationshipSystem",
+    "ReprimandSystem",
+    "ResearchSystem",
+    "RollSystem",
+    "VendettaSystem",
+    "DeusExMachinaSystem",
+    "AISystem",
+    "CombatSystem",
+    "DuelSystem",
+    "StatisticSystem",
+    "CharacterCreationSystem"
+  ],
+  "serializedSystemOrder": [
+    "ActionScheduler",
+    "ActionSystem",
+    "AbilitySystem",
+    "ArtificingSystem",
+    "AstrologySystem",
+    "CharacterCreationSystem",
+    "CharacterSystem",
+    "ChargeSystem",
+    "ClazzSystem",
+    "CliqueSystem",
+    "CombatSystem",
+    "CompeteSystem",
+    "DateAndTimeSystem",
+    "DeusExMachinaSystem",
+    "DuelSystem",
+    "EffectSystem",
+    "EnchantSystem",
+    "EmotionSystem",
+    "ExamSystem",
+    "FamiliarSystem",
+    "FavorSystem",
+    "FeedbackSystem",
+    "GiftSystem",
+    "GraduationSystem",
+    "InformationSystem",
+    "InventorySystem",
+    "LockSystem",
+    "MonsterSystem",
+    "PrerequisiteSystem",
+    "PreventSystem",
+    "PurchaseSystem",
+    "SpellSystem",
+    "StatisticSystem",
+    "StressSystem",
+    "StorySystem",
+    "SystemObjects",
+    "SkillSystem",
+    "RimbalSystem",
+    "RelationshipSystem",
+    "ReprimandSystem",
+    "ResearchSystem",
+    "RollSystem",
+    "VendettaSystem",
+    "VisitSystem",
+    "WeatherSystem",
+    "ResolvingSystem",
+    "AISystem"
+  ]
+}

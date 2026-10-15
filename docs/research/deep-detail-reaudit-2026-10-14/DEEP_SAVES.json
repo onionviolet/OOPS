@@ -1,0 +1,303 @@
+[
+  {
+    "game": "heavens-vault",
+    "private_index": "docs/research/heavens-vault/private/README.md",
+    "snapshot": "docs/research/heavens-vault/private/deep-detail-2026-10-14",
+    "copied_files": 1311,
+    "copied_bytes": 15746784,
+    "generated_files": 7,
+    "generated_bytes": 50312264,
+    "manifest_sha256": "28d4c467be5be01aeba485d6521a8c2edd8fd0f12761ddeb52e024b2cce4a929",
+    "ignore_rule": ".gitignore:41:/docs/research/*/private/\tdocs/research/heavens-vault/private/probe",
+    "derived_counts": {
+      "story_text_records": 64021,
+      "story_control_records": 191015,
+      "table_array_counts": {
+        "sharedassets0.assets__50__timelineEvents.txt": {
+          "entries": 302
+        },
+        "resources.assets__2075__GameData.txt": {
+          "atoms": 43,
+          "words": 867,
+          "inscriptionDatabase": 58
+        },
+        "sharedassets0.assets__47__ages.txt": {
+          "entries": 8
+        },
+        "sharedassets0.assets__48__clues.txt": {
+          "entries": 101
+        },
+        "sharedassets0.assets__49__storyLocations.txt": {
+          "entries": 17
+        }
+      },
+      "limits": "Structural traversal, not an interpreted branch graph. Speaker, dynamic expression conditions, externals and actual reachability unresolved. Full ordered original program preserved."
+    }
+  },
+  {
+    "game": "ngu-idle",
+    "private_index": "docs/research/ngu-idle/private/README.md",
+    "snapshot": "docs/research/ngu-idle/private/deep-detail-2026-10-14",
+    "copied_files": 342,
+    "copied_bytes": 3211838,
+    "generated_files": 0,
+    "generated_bytes": 0,
+    "manifest_sha256": "6b36e4061d39c1ba9730d469d2838e41fd01e5b7884a9e8e73d55bd712c814d2",
+    "ignore_rule": ".gitignore:41:/docs/research/*/private/\tdocs/research/ngu-idle/private/probe",
+    "derived_counts": {}
+  },
+  {
+    "game": "idle-reincarnator",
+    "private_index": "docs/research/idle-reincarnator/private/README.md",
+    "snapshot": "docs/research/idle-reincarnator/private/deep-detail-2026-10-14",
+    "copied_files": 544,
+    "copied_bytes": 7845055,
+    "generated_files": 0,
+    "generated_bytes": 0,
+    "manifest_sha256": "2721344b5d0e7dd182c4bf9943ca4ed896174538d04170cae6405299d296048b",
+    "ignore_rule": ".gitignore:41:/docs/research/*/private/\tdocs/research/idle-reincarnator/private/probe",
+    "derived_counts": {}
+  },
+  {
+    "game": "legends-of-idleon",
+    "private_index": "docs/research/legends-of-idleon/private/README.md",
+    "snapshot": "docs/research/legends-of-idleon/private/deep-detail-2026-10-14",
+    "copied_files": 80,
+    "copied_bytes": 28214676,
+    "generated_files": 8,
+    "generated_bytes": 597907,
+    "manifest_sha256": "497ac5d8534f9466e3c1bce9953661232523c660ec7b4ab6366448c576c2ba1c",
+    "ignore_rule": ".gitignore:41:/docs/research/*/private/\tdocs/research/legends-of-idleon/private/probe",
+    "derived_counts": {
+      "normalized_wiki_tables": [
+        {
+          "file": "tables/wiki-Module:Laboratory_data.json.json",
+          "root_keys": [
+            "_generated",
+            "_tables"
+          ]
+        },
+        {
+          "file": "tables/wiki-Module:CoralReef_data.json.json",
+          "root_keys": [
+            "_generated",
+            "_tables"
+          ]
+        },
+        {
+          "file": "tables/wiki-Module:Research_data.json.json",
+          "root_keys": [
+            "_generated",
+            "_tables"
+          ]
+        },
+        {
+          "file": "tables/wiki-Module:Mechanics_data.json.json",
+          "root_keys": [
+            "_generated",
+            "_tables"
+          ]
+        },
+        {
+          "file": "tables/wiki-Module:Spelunking_data.json.json",
+          "root_keys": [
+            "_generated",
+            "_tables"
+          ]
+        },
+        {
+          "file": "tables/wiki-Module:Alchemy_data.json.json",
+          "root_keys": [
+            "_generated",
+            "cauldrons",
+            "vialLevels",
+            "_tables"
+          ]
+        },
+        {
+          "file": "tables/wiki-Module:Divinity_data.json.json",
+          "root_keys": [
+            "_generated",
+            "_tables"
+          ]
+        },
+        {
+          "file": "tables/wiki-Module:Construction_data.json.json",
+          "root_keys": [
+            "_generated",
+            "_tables"
+          ]
+        }
+      ],
+      "limits": "Wiki generator dataset; version/build parity with official client not established. Full official client also retained."
+    }
+  },
+  {
+    "game": "vagrus",
+    "private_index": "docs/research/vagrus/private/README.md",
+    "snapshot": "docs/research/vagrus/private/deep-detail-2026-10-14",
+    "copied_files": 1516,
+    "copied_bytes": 51559165,
+    "generated_files": 0,
+    "generated_bytes": 0,
+    "manifest_sha256": "fc926e3e3f682a1f52bb4eaa675a456ae248abce855a610bf3842b84302626a5",
+    "ignore_rule": ".gitignore:41:/docs/research/*/private/\tdocs/research/vagrus/private/probe",
+    "derived_counts": {}
+  },
+  {
+    "game": "your-chronicle",
+    "private_index": "docs/research/your-chronicle/private/README.md",
+    "snapshot": "docs/research/your-chronicle/private/deep-detail-2026-10-14",
+    "copied_files": 248,
+    "copied_bytes": 11143574,
+    "generated_files": 0,
+    "generated_bytes": 0,
+    "manifest_sha256": "37b1fc35b4c78480c68bf0bf795c547651e01d0b58fcf6bdfb31b79d8ac916f3",
+    "ignore_rule": ".gitignore:41:/docs/research/*/private/\tdocs/research/your-chronicle/private/probe",
+    "derived_counts": {}
+  },
+  {
+    "game": "tale-of-immortal",
+    "private_index": "docs/research/tale-of-immortal/private/README.md",
+    "snapshot": "docs/research/tale-of-immortal/private/deep-detail-2026-10-14",
+    "copied_files": 36,
+    "copied_bytes": 9632472,
+    "generated_files": 0,
+    "generated_bytes": 0,
+    "manifest_sha256": "09293ed6fa7547a77186216802a429a2895d99556de867ae38ffc2cd2c73a5bf",
+    "ignore_rule": ".gitignore:41:/docs/research/*/private/\tdocs/research/tale-of-immortal/private/probe",
+    "derived_counts": {}
+  },
+  {
+    "game": "groundhog-life",
+    "private_index": "docs/research/groundhog-life/private/README.md",
+    "snapshot": "docs/research/groundhog-life/private/deep-detail-2026-10-14",
+    "copied_files": 3,
+    "copied_bytes": 1017365,
+    "generated_files": 0,
+    "generated_bytes": 0,
+    "manifest_sha256": "04dc034e93d1898a6c66126225a83689c360ba8d5af3bc7e793faac3bce47e4a",
+    "ignore_rule": ".gitignore:41:/docs/research/*/private/\tdocs/research/groundhog-life/private/probe",
+    "derived_counts": {}
+  },
+  {
+    "game": "immortality-idle",
+    "private_index": "docs/research/immortality-idle/private/README.md",
+    "snapshot": "docs/research/immortality-idle/private/deep-detail-2026-10-14",
+    "copied_files": 229,
+    "copied_bytes": 1751248,
+    "generated_files": 0,
+    "generated_bytes": 0,
+    "manifest_sha256": "3cc00c00c5a901e882f1093cc160e5b249b0ca222fd594d4371592f29e36d87c",
+    "ignore_rule": ".gitignore:41:/docs/research/*/private/\tdocs/research/immortality-idle/private/probe",
+    "derived_counts": {}
+  },
+  {
+    "game": "cultivation-idlers",
+    "private_index": "docs/research/cultivation-idlers/private/README.md",
+    "snapshot": "docs/research/cultivation-idlers/private/deep-detail-2026-10-14",
+    "copied_files": 112,
+    "copied_bytes": 35877133,
+    "generated_files": 0,
+    "generated_bytes": 0,
+    "manifest_sha256": "0bd7b7d70cf819730e2fe8d7b5ae8ed8a159892a8672f08b15c3a1a4ade460ba",
+    "ignore_rule": ".gitignore:41:/docs/research/*/private/\tdocs/research/cultivation-idlers/private/probe",
+    "derived_counts": {}
+  },
+  {
+    "game": "cividle",
+    "private_index": "docs/research/cividle/private/README.md",
+    "snapshot": "docs/research/cividle/private/deep-detail-2026-10-14",
+    "copied_files": 352,
+    "copied_bytes": 5560224,
+    "generated_files": 0,
+    "generated_bytes": 0,
+    "manifest_sha256": "5cec9adcebe19853e4144f233cfc1704aadc287695e2154f279a97997bcde3d9",
+    "ignore_rule": ".gitignore:41:/docs/research/*/private/\tdocs/research/cividle/private/probe",
+    "derived_counts": {}
+  },
+  {
+    "game": "modding-tree",
+    "private_index": "docs/research/modding-tree/private/README.md",
+    "snapshot": "docs/research/modding-tree/private/deep-detail-2026-10-14",
+    "copied_files": 483,
+    "copied_bytes": 5514543,
+    "generated_files": 0,
+    "generated_bytes": 0,
+    "manifest_sha256": "0b93afe32cb7a63dc96e9fc9234af6187ba6ee248ecfa30a9c3e11b41704452a",
+    "ignore_rule": ".gitignore:41:/docs/research/*/private/\tdocs/research/modding-tree/private/probe",
+    "derived_counts": {}
+  },
+  {
+    "game": "majoras-mask",
+    "private_index": "docs/research/majoras-mask/private/README.md",
+    "snapshot": "docs/research/majoras-mask/private/deep-detail-2026-10-14",
+    "copied_files": 1835,
+    "copied_bytes": 22933520,
+    "generated_files": 0,
+    "generated_bytes": 0,
+    "manifest_sha256": "c395cdfd67118fa42d61a0d2305a25707f98ef46cc90bd35bcc7e2f53955e5a6",
+    "ignore_rule": ".gitignore:41:/docs/research/*/private/\tdocs/research/majoras-mask/private/probe",
+    "derived_counts": {}
+  },
+  {
+    "game": "trimps-antimatter",
+    "private_index": "docs/research/trimps-antimatter/private/README.md",
+    "snapshot": "docs/research/trimps-antimatter/private/deep-detail-2026-10-14",
+    "copied_files": 759,
+    "copied_bytes": 8331869,
+    "generated_files": 0,
+    "generated_bytes": 0,
+    "manifest_sha256": "e181ddeedec4992624ba78cd4c4a835674b88a04bcf090cd1dc79c3028bdf1c3",
+    "ignore_rule": ".gitignore:41:/docs/research/*/private/\tdocs/research/trimps-antimatter/private/probe",
+    "derived_counts": {}
+  },
+  {
+    "game": "kingdom-of-loathing",
+    "private_index": "docs/research/kingdom-of-loathing/private/README.md",
+    "snapshot": "docs/research/kingdom-of-loathing/private/deep-detail-2026-10-14",
+    "copied_files": 1435,
+    "copied_bytes": 22433147,
+    "generated_files": 0,
+    "generated_bytes": 0,
+    "manifest_sha256": "1c75d7c369455b21e2d4a32af0fdddef4781e1f4d5e6724d306732f6da2e6246",
+    "ignore_rule": ".gitignore:41:/docs/research/*/private/\tdocs/research/kingdom-of-loathing/private/probe",
+    "derived_counts": {}
+  },
+  {
+    "game": "free-text-worlds-2026-10-14",
+    "private_index": "docs/research/free-text-worlds-2026-10-14/private/README.md",
+    "snapshot": "docs/research/free-text-worlds-2026-10-14/private/deep-detail-2026-10-14",
+    "copied_files": 17,
+    "copied_bytes": 186546822,
+    "generated_files": 0,
+    "generated_bytes": 0,
+    "manifest_sha256": "2096a9fd4bfad534980ca22429291f28e0bb0de6f827bb72a6985d5911080e59",
+    "ignore_rule": ".gitignore:41:/docs/research/*/private/\tdocs/research/free-text-worlds-2026-10-14/private/probe",
+    "derived_counts": {}
+  },
+  {
+    "game": "hearts-of-iron-iv",
+    "private_index": "docs/research/hearts-of-iron-iv/private/README.md",
+    "snapshot": "docs/research/hearts-of-iron-iv/private/deep-detail-2026-10-14",
+    "copied_files": 554,
+    "copied_bytes": 21150818,
+    "generated_files": 0,
+    "generated_bytes": 0,
+    "manifest_sha256": "4760f7d76ea2e4585e4ec14ff944b9378850c408964bbc510d9e4b8c3d17e328",
+    "ignore_rule": ".gitignore:41:/docs/research/*/private/\tdocs/research/hearts-of-iron-iv/private/probe",
+    "derived_counts": {}
+  },
+  {
+    "game": "outer-wilds",
+    "private_index": "docs/research/outer-wilds/private/README.md",
+    "snapshot": "docs/research/outer-wilds/private/deep-detail-2026-10-14",
+    "copied_files": 15,
+    "copied_bytes": 76155,
+    "generated_files": 0,
+    "generated_bytes": 0,
+    "manifest_sha256": "714d5bdcca6c1f98df067d709c67696c1e3087fe82c1086f6f387bdb3a706bb1",
+    "ignore_rule": ".gitignore:41:/docs/research/*/private/\tdocs/research/outer-wilds/private/probe",
+    "derived_counts": {}
+  }
+]

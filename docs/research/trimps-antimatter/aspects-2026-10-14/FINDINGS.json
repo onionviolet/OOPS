@@ -1,0 +1,333 @@
+{
+  "lane": "bf-idle-src",
+  "date": "2026-10-14",
+  "method": "fresh static source/data/declaration inspection",
+  "corrections": "Both hashes match the earlier pass. No selected reset/perk/automation finding was contradicted. Extend A01: AD has a real authored celestial speech system with requirements, saved quoteBits, speaker styling and replay history. It is linear gated speech, not player-choice dialogue. Trimps has story/combat logs and instructional voices. Prior license-header/text mismatch remains; no code reuse is proposed.",
+  "aspects": {
+    "A01": {
+      "status": "covered",
+      "sources": [
+        "https://github.com/IvarK/AntimatterDimensionsSourceCode/blob/5409e320cecef96a917cca1dfb68f1f183e499ca/src/core/celestials/quotes.js",
+        "https://github.com/IvarK/AntimatterDimensionsSourceCode/tree/5409e320cecef96a917cca1dfb68f1f183e499ca/src/core/secret-formula/celestials/quotes",
+        "https://github.com/Trimps/Trimps.github.io/blob/b9edb1dfee270ebf81bef8d934dc71276bf8d963/updates.js"
+      ],
+      "summary": "Shown: AD CelQuotes wraps authored line arrays, requirements and per-celestial saved bits; Quote queues presentation and history. QuoteLine carries speaker display and optional animated word replacement/background blends. Trimps instructional voices and story logs are threshold/caller-driven text. No reply-choice/relationship tree established.",
+      "yairpg": [
+        "PROPOSAL: Separate earned dialogue eligibility, witnessed speech and replay history. Owner: docs/worlds/PROGRESSION_AND_ASSEMBLY.md; src/data/dialogues.js; src/life_record.js."
+      ]
+    },
+    "A02": {
+      "status": "covered",
+      "sources": [
+        "https://github.com/IvarK/AntimatterDimensionsSourceCode/blob/5409e320cecef96a917cca1dfb68f1f183e499ca/src/components/CelestialQuoteHistory.vue",
+        "https://github.com/IvarK/AntimatterDimensionsSourceCode/blob/5409e320cecef96a917cca1dfb68f1f183e499ca/src/core/celestials/quotes.js",
+        "https://github.com/Trimps/Trimps.github.io/blob/b9edb1dfee270ebf81bef8d934dc71276bf8d963/updates.js",
+        "https://github.com/Trimps/Trimps.github.io/blob/b9edb1dfee270ebf81bef8d934dc71276bf8d963/config.js"
+      ],
+      "summary": "Shown: AD revisits unlocked speeches; Trimps categorizes Story/Combat/Notices and retains log filter settings. Threshold-triggered narration describes changing layers. Complete story corpus and closure not read.",
+      "yairpg": [
+        "PROPOSAL: Give a known scene a reread route while leaving unseen text out. Owner: docs/worlds/PROGRESSION_AND_ASSEMBLY.md; src/data/dialogues.js; src/life_record.js."
+      ]
+    },
+    "A03": {
+      "status": "covered",
+      "sources": [
+        "https://github.com/IvarK/AntimatterDimensionsSourceCode/blob/5409e320cecef96a917cca1dfb68f1f183e499ca/package.json",
+        "https://github.com/IvarK/AntimatterDimensionsSourceCode/blob/5409e320cecef96a917cca1dfb68f1f183e499ca/src/core/event-hub.js",
+        "https://github.com/IvarK/AntimatterDimensionsSourceCode/blob/5409e320cecef96a917cca1dfb68f1f183e499ca/src/core/automator/parser.js",
+        "https://github.com/Trimps/Trimps.github.io/blob/b9edb1dfee270ebf81bef8d934dc71276bf8d963/main.js",
+        "https://github.com/Trimps/Trimps.github.io/blob/b9edb1dfee270ebf81bef8d934dc71276bf8d963/objects.js"
+      ],
+      "summary": "Shown: AD Vue components, ES-module state/mechanics, EventHub and a Chevrotain-based Automator lexer/parser/compiler/backend. Trimps browser globals divide definitions, main logic, updates and UI. These are different architectures despite shared idle loops.",
+      "yairpg": [
+        "PROPOSAL: Prefer a small existing plan vocabulary before selecting a full script language. Owner: src/feature_expansion_work_plan.js; src/simulation.js."
+      ]
+    },
+    "A04": {
+      "status": "covered",
+      "sources": [
+        "https://github.com/IvarK/AntimatterDimensionsSourceCode/blob/5409e320cecef96a917cca1dfb68f1f183e499ca/src/core/storage/serializer.js",
+        "https://github.com/IvarK/AntimatterDimensionsSourceCode/blob/5409e320cecef96a917cca1dfb68f1f183e499ca/src/core/storage/storage.js",
+        "https://github.com/IvarK/AntimatterDimensionsSourceCode/blob/5409e320cecef96a917cca1dfb68f1f183e499ca/src/core/storage/migrations.js",
+        "https://github.com/Trimps/Trimps.github.io/blob/b9edb1dfee270ebf81bef8d934dc71276bf8d963/main.js"
+      ],
+      "summary": "Shown: AD encodes JSON with compression/base64/text markers and typed conversion, stores slots and timed backup records, checks/patches player shape and controls offline processing. Trimps strips authored/derived fields from cloned JSON, LZ-base64 stores/exports and refuses newer/beta-incompatible saves before main reset. Some invalid old saves reach reset before deeper checks. No universal rollback/error safety proven; all migrations unread.",
+      "yairpg": [
+        "PROPOSAL: Separate parse, compatibility review and state replacement; retain a last-good route. Owner: src/save_files.js; src/save_compatibility.js."
+      ]
+    },
+    "A05": {
+      "status": "partial",
+      "sources": [
+        "https://github.com/Trimps/Trimps.github.io/blob/b9edb1dfee270ebf81bef8d934dc71276bf8d963/main.js",
+        "https://github.com/Trimps/Trimps.github.io/blob/b9edb1dfee270ebf81bef8d934dc71276bf8d963/objects.js",
+        "https://github.com/IvarK/AntimatterDimensionsSourceCode/tree/5409e320cecef96a917cca1dfb68f1f183e499ca/src/core/autobuyers"
+      ],
+      "summary": "Shown: Trimps workers/breeding/fights and AD autobuyers are policy/timer machines. Celestial speeches do not establish simulated daily NPC lives. Full enemy/autobuyer strategies remain unread.",
+      "yairpg": [
+        "PROPOSAL: Name policies as automation and avoid presenting counters as individual lives. Owner: src/npc_lives.js; world CAMPAIGN.md."
+      ]
+    },
+    "A06": {
+      "status": "covered",
+      "sources": [
+        "https://github.com/Trimps/Trimps.github.io/blob/b9edb1dfee270ebf81bef8d934dc71276bf8d963/ScreenReader.html",
+        "https://github.com/Trimps/Trimps.github.io/blob/b9edb1dfee270ebf81bef8d934dc71276bf8d963/updates.js",
+        "https://github.com/IvarK/AntimatterDimensionsSourceCode/tree/5409e320cecef96a917cca1dfb68f1f183e499ca/src/components/tabs",
+        "https://github.com/IvarK/AntimatterDimensionsSourceCode/tree/5409e320cecef96a917cca1dfb68f1f183e499ca/src/components/modals"
+      ],
+      "summary": "Shown: Trimps has a separate screen-reader surface and story/combat summaries; AD tab/page/modal components include save, script and quote history. Existence is not accessibility conformance. Actual desktop layout unrun.",
+      "yairpg": [
+        "PROPOSAL: At 1440x900, make current policy, local rule and actual result visible together. Owner: docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md."
+      ]
+    },
+    "A07": {
+      "status": "covered",
+      "sources": [
+        "https://github.com/IvarK/AntimatterDimensionsSourceCode/tree/5409e320cecef96a917cca1dfb68f1f183e499ca/src/core/secret-formula",
+        "https://github.com/IvarK/AntimatterDimensionsSourceCode/blob/5409e320cecef96a917cca1dfb68f1f183e499ca/src/core/automator/lexer.js",
+        "https://github.com/IvarK/AntimatterDimensionsSourceCode/blob/5409e320cecef96a917cca1dfb68f1f183e499ca/src/core/automator/parser.js",
+        "https://github.com/Trimps/Trimps.github.io/blob/b9edb1dfee270ebf81bef8d934dc71276bf8d963/config.js"
+      ],
+      "summary": "Shown: code registries for formulas/quotes/challenges; AD DSL tokens create autocomplete metadata and parser rules bind command structure. This is a native script interface, not a public content-mod loader. All grammar/editor roundtrip detail partial.",
+      "yairpg": [
+        "PROPOSAL: Give a finite native routine a validated command set and explicit unsupported operations. Owner: src/feature_expansion_work_plan.js; src/simulation.js."
+      ]
+    },
+    "A08": {
+      "status": "partial",
+      "sources": [
+        "https://github.com/IvarK/AntimatterDimensionsSourceCode/blob/5409e320cecef96a917cca1dfb68f1f183e499ca/src/core/constants.js",
+        "https://github.com/IvarK/AntimatterDimensionsSourceCode/blob/5409e320cecef96a917cca1dfb68f1f183e499ca/src/core/storage/serializer.js",
+        "https://github.com/Trimps/Trimps.github.io/blob/b9edb1dfee270ebf81bef8d934dc71276bf8d963/decimal.min.js",
+        "https://github.com/Trimps/Trimps.github.io/blob/b9edb1dfee270ebf81bef8d934dc71276bf8d963/config.js"
+      ],
+      "summary": "Shown: Decimal-related large-number handling and authored exponential/reset formulas; saves need numeric reconstruction/patching. Full probability, pity and every balance curve remain unread; earlier Void seed/drop findings retained at same pin.",
+      "yairpg": [
+        "PROPOSAL: Use domain-specific display formats without silently changing units or clipping persistence. Owner: docs/TECHNOLOGY_AND_PROGRESSION.md."
+      ]
+    },
+    "A09": {
+      "status": "partial",
+      "sources": [
+        "https://github.com/IvarK/AntimatterDimensionsSourceCode/blob/5409e320cecef96a917cca1dfb68f1f183e499ca/src/core/storage/storage.js",
+        "https://github.com/IvarK/AntimatterDimensionsSourceCode/blob/5409e320cecef96a917cca1dfb68f1f183e499ca/src/core/automator/automator-backend.js",
+        "https://github.com/Trimps/Trimps.github.io/blob/b9edb1dfee270ebf81bef8d934dc71276bf8d963/main.js"
+      ],
+      "summary": "Shown: AD offline ticks have bounds and backup triggers; Automator runtime step state is distinct from text. Trimps has a real-time offline processor alongside normal loop. Exact replay fidelity and all timer interactions remain unread.",
+      "yairpg": [
+        "PROPOSAL: Persist plan position only with an explicit restart/revalidation policy. Owner: src/feature_expansion_work_plan.js; src/simulation.js."
+      ]
+    },
+    "A10": {
+      "status": "covered",
+      "sources": [
+        "https://github.com/IvarK/AntimatterDimensionsSourceCode/blob/5409e320cecef96a917cca1dfb68f1f183e499ca/src/core/tutorial.js",
+        "https://github.com/IvarK/AntimatterDimensionsSourceCode/blob/5409e320cecef96a917cca1dfb68f1f183e499ca/src/core/automator/automator-points.js",
+        "https://github.com/Trimps/Trimps.github.io/blob/b9edb1dfee270ebf81bef8d934dc71276bf8d963/config.js"
+      ],
+      "summary": "Shown: tutorial/reveal gates and earned automation stages. Later rule systems can disallow already-earned commands, as earlier Nameless/Pelle findings show.",
+      "yairpg": [
+        "PROPOSAL: Keep an owned tool visible when a local rule blocks its use and name the rule. Owner: src/native_discovery_policy.js; src/observation_channels.js."
+      ]
+    },
+    "A11": {
+      "status": "covered",
+      "sources": [
+        "https://github.com/IvarK/AntimatterDimensionsSourceCode/blob/5409e320cecef96a917cca1dfb68f1f183e499ca/src/core/celestials/quotes.js",
+        "https://github.com/IvarK/AntimatterDimensionsSourceCode/blob/5409e320cecef96a917cca1dfb68f1f183e499ca/src/components/modals/cloud/CloudSaveConflictModal.vue",
+        "https://github.com/Trimps/Trimps.github.io/blob/b9edb1dfee270ebf81bef8d934dc71276bf8d963/updates.js"
+      ],
+      "summary": "Shown: smoothed celestial background blends, speech history, save-conflict UI, log filters and accessible summary fields. No clinical photosensitivity or accessibility assurance follows.",
+      "yairpg": [
+        "PROPOSAL: Offer reduced-motion and readable logs without losing content access. Owner: docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md."
+      ]
+    },
+    "A12": {
+      "status": "partial",
+      "sources": [
+        "https://github.com/Trimps/Trimps.github.io/blob/b9edb1dfee270ebf81bef8d934dc71276bf8d963/playerSpire.js",
+        "https://github.com/Trimps/Trimps.github.io/blob/b9edb1dfee270ebf81bef8d934dc71276bf8d963/objects.js",
+        "https://github.com/IvarK/AntimatterDimensionsSourceCode/tree/5409e320cecef96a917cca1dfb68f1f183e499ca/src/core/celestials",
+        "https://github.com/IvarK/AntimatterDimensionsSourceCode/tree/5409e320cecef96a917cca1dfb68f1f183e499ca/src/core/secret-formula"
+      ],
+      "summary": "Shown inventory: Trimps maps/Portal/perks/heirlooms/bones/Spire/mutations; AD challenges/studies/Glyphs/Reality/Celestial economies/Automator. Full endgame combinations remain unread. No extra YAIR prestige layer selected.",
+      "yairpg": [
+        "PROPOSAL: Make a later local challenge change action rules, not just add a bigger number. Owner: docs/worlds/ABILITY_AUTHORING.md."
+      ]
+    }
+  },
+  "proposals": [
+    {
+      "id": "P1",
+      "title": "Witnessed speech history",
+      "owner": "docs/worlds/PROGRESSION_AND_ASSEMBLY.md; src/data/dialogues.js; src/life_record.js",
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "P2",
+      "title": "World-aware blocked routine",
+      "owner": "src/feature_expansion_work_plan.js; src/simulation.js",
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "P3",
+      "title": "Pre-replacement compatibility review",
+      "owner": "src/save_files.js; src/save_compatibility.js",
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "P4",
+      "title": "Finite command diagnostics",
+      "owner": "docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md",
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "P5",
+      "title": "Optional rule-changing local trial",
+      "owner": "docs/worlds/ABILITY_AUTHORING.md",
+      "status": "PROPOSAL"
+    }
+  ],
+  "small_touches": [
+    {
+      "id": "T01",
+      "idea": "PROPOSAL: Separate earned dialogue eligibility, witnessed speech and replay history. Owner: docs/worlds/PROGRESSION_AND_ASSEMBLY.md; src/data/dialogues.js; src/life_record.js.",
+      "inspiration": "A01",
+      "source_status": "covered"
+    },
+    {
+      "id": "T02",
+      "idea": "PROPOSAL: Give a known scene a reread route while leaving unseen text out. Owner: docs/worlds/PROGRESSION_AND_ASSEMBLY.md; src/data/dialogues.js; src/life_record.js.",
+      "inspiration": "A02",
+      "source_status": "covered"
+    },
+    {
+      "id": "T03",
+      "idea": "PROPOSAL: Prefer a small existing plan vocabulary before selecting a full script language. Owner: src/feature_expansion_work_plan.js; src/simulation.js.",
+      "inspiration": "A03",
+      "source_status": "covered"
+    },
+    {
+      "id": "T04",
+      "idea": "PROPOSAL: Separate parse, compatibility review and state replacement; retain a last-good route. Owner: src/save_files.js; src/save_compatibility.js.",
+      "inspiration": "A04",
+      "source_status": "covered"
+    },
+    {
+      "id": "T05",
+      "idea": "PROPOSAL: Name policies as automation and avoid presenting counters as individual lives. Owner: src/npc_lives.js; world CAMPAIGN.md.",
+      "inspiration": "A05",
+      "source_status": "partial"
+    },
+    {
+      "id": "T06",
+      "idea": "PROPOSAL: At 1440x900, make current policy, local rule and actual result visible together. Owner: docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md.",
+      "inspiration": "A06",
+      "source_status": "covered"
+    },
+    {
+      "id": "T07",
+      "idea": "PROPOSAL: Give a finite native routine a validated command set and explicit unsupported operations. Owner: src/feature_expansion_work_plan.js; src/simulation.js.",
+      "inspiration": "A07",
+      "source_status": "covered"
+    },
+    {
+      "id": "T08",
+      "idea": "PROPOSAL: Use domain-specific display formats without silently changing units or clipping persistence. Owner: docs/TECHNOLOGY_AND_PROGRESSION.md.",
+      "inspiration": "A08",
+      "source_status": "partial"
+    },
+    {
+      "id": "T09",
+      "idea": "PROPOSAL: Persist plan position only with an explicit restart/revalidation policy. Owner: src/feature_expansion_work_plan.js; src/simulation.js.",
+      "inspiration": "A09",
+      "source_status": "partial"
+    },
+    {
+      "id": "T10",
+      "idea": "PROPOSAL: Keep an owned tool visible when a local rule blocks its use and name the rule. Owner: src/native_discovery_policy.js; src/observation_channels.js.",
+      "inspiration": "A10",
+      "source_status": "covered"
+    },
+    {
+      "id": "T11",
+      "idea": "PROPOSAL: Offer reduced-motion and readable logs without losing content access. Owner: docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md.",
+      "inspiration": "A11",
+      "source_status": "covered"
+    },
+    {
+      "id": "T12",
+      "idea": "PROPOSAL: Make a later local challenge change action rules, not just add a bigger number. Owner: docs/worlds/ABILITY_AUTHORING.md.",
+      "inspiration": "A12",
+      "source_status": "partial"
+    },
+    {
+      "id": "T13",
+      "idea": "PROPOSAL: Show a scene as encountered only after its delivery route succeeds. Owner: docs/worlds/PROGRESSION_AND_ASSEMBLY.md; src/data/dialogues.js; src/life_record.js.",
+      "inspiration": "A01/A02",
+      "source_status": "inferred adaptation, not a source feature claim"
+    },
+    {
+      "id": "T14",
+      "idea": "PROPOSAL: Keep a known scene available for rereading without replaying its reward. Owner: docs/worlds/PROGRESSION_AND_ASSEMBLY.md; src/data/dialogues.js; src/life_record.js.",
+      "inspiration": "A02/A04",
+      "source_status": "inferred adaptation, not a source feature claim"
+    },
+    {
+      "id": "T15",
+      "idea": "PROPOSAL: Show the last successful save time separately from a failed attempt. Owner: src/save_files.js; src/save_compatibility.js.",
+      "inspiration": "A04",
+      "source_status": "inferred adaptation, not a source feature claim"
+    },
+    {
+      "id": "T16",
+      "idea": "PROPOSAL: Give a restored backup a visible loss-of-recent-progress notice. Owner: src/save_files.js; src/save_compatibility.js.",
+      "inspiration": "A04",
+      "source_status": "inferred adaptation, not a source feature claim"
+    },
+    {
+      "id": "T17",
+      "idea": "PROPOSAL: Preserve the intended work target when a missing input pauses it. Owner: src/feature_expansion_work_plan.js; src/simulation.js.",
+      "inspiration": "A03/A09",
+      "source_status": "inferred adaptation, not a source feature claim"
+    },
+    {
+      "id": "T18",
+      "idea": "PROPOSAL: Label a rate estimate as projected and a settlement as actual. Owner: docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md.",
+      "inspiration": "A08/A09",
+      "source_status": "inferred adaptation, not a source feature claim"
+    },
+    {
+      "id": "T19",
+      "idea": "PROPOSAL: Expose the source of one active modifier beside its effect. Owner: docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md.",
+      "inspiration": "A06/A08",
+      "source_status": "inferred adaptation, not a source feature claim"
+    },
+    {
+      "id": "T20",
+      "idea": "PROPOSAL: Keep owned, assigned and currently usable support distinct in one local row. Owner: src/npc_lives.js; world CAMPAIGN.md.",
+      "inspiration": "A05/A12",
+      "source_status": "inferred adaptation, not a source feature claim"
+    }
+  ],
+  "unread": "All speech callsites and full catalogue counts, full Automator grammar/editor parity, AD migration history, Trimps offline internals/late systems and accessibility conformance remain unread. Steam installs/decompile add no useful static evidence for this pass.",
+  "runtime_exercised": false,
+  "game_installs": [],
+  "source_pins": [
+    {
+      "name": "trimps",
+      "url": "https://github.com/Trimps/Trimps.github.io.git",
+      "exit": 0,
+      "log": "Cloning into '/Users/weiwei/.codex/research/bf-idle-src/repos/trimps'...\n",
+      "commit": "b9edb1dfee270ebf81bef8d934dc71276bf8d963"
+    },
+    {
+      "name": "antimatter",
+      "url": "https://github.com/IvarK/AntimatterDimensionsSourceCode.git",
+      "exit": 0,
+      "log": "Cloning into '/Users/weiwei/.codex/research/bf-idle-src/repos/antimatter'...\n",
+      "commit": "5409e320cecef96a917cca1dfb68f1f183e499ca"
+    }
+  ]
+}

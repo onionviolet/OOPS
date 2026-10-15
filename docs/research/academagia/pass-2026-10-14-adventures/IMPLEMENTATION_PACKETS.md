@@ -1,0 +1,18 @@
+# Proposed implementation packets
+
+All packets are **PROPOSALS**, not accepted scope or permission to write shared owners. Source code, narrative and assets must not be copied. Use the live owner when accepting a packet; this research is evidence, not a competing specification. Preserve reasonable alternate routes and source-specific repeat/revisit policies.
+
+| Packet | Bounded visible outcome | Owning system | Dependencies | Acceptance evidence | Deferred scope |
+|---|---|---|---|---|---|
+| P1 / institution path | One original school group offers a work route, an incident and a usable reward | CHARACTERS_AND_WORLD_EVENTS; school campaign | Existing actor facts, jobs and rewards | Natural acquire -> perform -> incident -> consequence; a declined route remains reachable under its authored policy | All clubs, global membership formula |
+| P2 / failure continuity | Two approaches lead to a later stage with different causal state after failure | ENGINE_EXPANSION; campaign | Check outcome and effect receipts | Fresh natural success and failure runs show distinct cost/knowledge and useful next play | Universal fail-forward policy |
+| P3 / expertise options | Three relevant solutions, one supported by a companion's specific skill | ABILITY_AUTHORING; party | Existing companion contract or separately accepted party slice | Exact contributor/skill shown, companion changes a useful solution, absent contributor fails to supply it | Full clique AI, all social formulas |
+| P4 / access consumer | An earned access fact unlocks one job or practice action with useful output | ENGINE_EXPANSION; institution | Native action registry and state | Before/after menu, earned job execution, output and later use; save/reload/import retain access | Global access registry retrofit |
+| P5 / pending stages | A planned return shows start/end and a causal missed-window or reschedule outcome | ENGINE_EXPANSION; calendar | Persisted stage/date state | Boundary times and reload show exact dates and useful next choice, including missed window | Full term simulation |
+| P6 / content overlays | Offline comparison of one original base profile and two ordered patches | World authoring and ENGINE_EXPANSION | Actual existing authoring seam assessed first | Stable-ID replacement, list replacement, deletion error, order differences and dangling links demonstrated without loading saves | Live mod UI, arbitrary schema plugins |
+| P7 / outcome and bonus | One check succeeds, with an earned bonus separately tied to degree or evidence | ABILITY_AUTHORING; rewards | Clear outcome record and reward consumer | Success and bonus predicates shown separately; boundary case yields success with no bonus; earned output usable | Universal formula change |
+| P8 / desktop institution view | Work queue, active story and expertise remain independently visible at 1440×900 | THEMATIC_UI_AND_INFORMATION_DESIGN | Accepted P1 or existing real content | Rebuild and fresh desktop origin; readable layout, visible primary actions, screenshot with useful facts, director feel gate separate | Mobile optimization |
+
+For every persisted packet, test a natural positive change through save, reload, export and literal import, with migration or an explicit compatibility decision. Protect user saves. Do not substitute a unit count for playable proof. If a proposed seam does not exist, assess it and report the gap before claiming integration. One playable slice precedes the next.
+
+P6 should start as an offline authoring check if accepted. The source's deletion representation mismatch and unused duration are things to detect, not source bugs to reproduce as YAIRPG rules. P2 must preserve the failed act's effects; reaching the same stage must not erase its cost.

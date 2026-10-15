@@ -1,0 +1,174 @@
+{
+  "A01": {
+    "status": "covered",
+    "sources": [
+      "StoryScript.cs:738-851,1179-1475",
+      "ScriptParser.cs:56-141",
+      "DialogueLine.cs",
+      "StoryMoment.cs",
+      "DEEPER_SYSTEMS.md:D1; own private extract dialogue/helper samples listed in TOOLING.md"
+    ],
+    "summary": "SHOWN: compiled Ink produces lines and choices. The host parses speaker, optional manner and tags, then creates typed moments. Manners include silent, away, closeup, frozen, linger, recipient and a named pose; emotion can come from emoticon tags. Player dialogue, NPC dialogue, remarks, object actions and travel actions are different choice sets. Every choice retains its Ink index. Choosing advances the Ink story and clears pending moments. Knowledge and recently acquired information are host bindings, so conversation can react to interpretation and recency. This is authored conditional conversation, not generated free-text dialogue. All relationship-specific lines and portrait assets are unread.",
+    "yairpg": [
+      "PROPOSAL: docs/DIALOGUE_AND_INTERACTIONS.md and docs/ENGINE_EXPANSION.md should separate speaker, delivery, eligible response and committed consequence; a notebook correction should change an actual response without imposing a universal plot lock."
+    ]
+  },
+  "A02": {
+    "status": "covered",
+    "sources": [
+      "TimelineDatabase.cs",
+      "TimelineEventData.cs",
+      "TimelineEvent.cs",
+      "StoryCatchupSplashScreenPage.cs",
+      "../STORY_AND_HISTORY.md",
+      "../DATA_CENSUS.md"
+    ],
+    "summary": "SHOWN: 302 timeline rows can unlock, remove, confirm and notify through knowledge states. Thirty rows have a title function and forty a description function. The timeline is revisable evidence, with uncertain titles and upgrade links. Catchup UI lays out and animates attributed lines and allows manual scrolling. Individual stories, all recap-selection rules and endings remain unread. A linked timeline card is not proof of a causally simulated history.",
+    "yairpg": [
+      "PROPOSAL: docs/TIMELINES_AND_DIVERGENCE.md should retain occurrence time, discovery time and revisions; docs/DIALOGUE_AND_INTERACTIONS.md can use attributed resumptions rather than an omniscient recap."
+    ]
+  },
+  "A03": {
+    "status": "covered",
+    "sources": [
+      "StoryScript.cs:753-841,1179-1475",
+      "Ink.Runtime/Story.cs",
+      "StorySequencer.cs",
+      "SaveThread.cs",
+      "SYSTEM_INDEX.json"
+    ],
+    "summary": "SHOWN: Unity Mono host with a shipped Ink runtime, compiled story format 19, minimum format 18. 1,299 C# files include engine helpers and middleware, not 1,299 gameplay systems. StoryScript evaluates ContinueAsync with a millisecond budget and yields while busy, parses output into StoryMoment objects, then exposes readiness/choice events. StorySequencer handles presentation and physical actions. Save events coordinate double buffers and background state. This is a presentation/host/interpreter split, not one idle tick over every NPC.",
+    "yairpg": [
+      "PROPOSAL: docs/ENGINE_EXPANSION.md should keep content evaluation, typed effects and UI rendering separate; preserve an unresolved choice when evaluation yields."
+    ]
+  },
+  "A04": {
+    "status": "covered",
+    "sources": [
+      "Game.cs:72-87,1208-1420,1601-1640",
+      "SaveThread.cs",
+      "CryptSaving.cs",
+      "Saver.cs",
+      "Player.cs:278-300",
+      "StoryScript.cs:1440-1475",
+      "StorySequencer.cs:2708-2724"
+    ],
+    "summary": "SHOWN: save version 2 accepts versions 1..2; v1 upgrades river-travel knowledge. The logical stream contains version, metadata, state information, host data and Ink JSON, separated by blank lines. Desktop wrapper uses HV magic/version bytes and XOR-obfuscated BinaryWriter string data, with a legacy plain-text fallback. The main thread captures Ink state, then a low-priority thread writes host data under a lock. Story moments are copied/double-buffered. Player has 20 explicit save fields including lexicon, inscriptions, tutorial state, river knowledge and timeline state; lookup dictionaries can be rebuilt from saved lists. Autosave waits for a stable choice and rejects routing, translation, pending presentation and invalid-position states. Temp write deletes the old destination before move, with optional scene backup; this is not proof of crash-atomic replacement. Broken/incompatible-save handling preserves a renamed copy. No actual save was opened. No offline catch-up was established.",
+    "yairpg": [
+      "PROPOSAL: docs/ENGINE_EXPANSION.md should persist committed state plus unresolved player decisions, derive indexes on load, and distinguish save requested from write completed; save compatibility must be explicit."
+    ]
+  },
+  "A05": {
+    "status": "partial",
+    "sources": [
+      "StoryCharacter.cs",
+      "AmbientPoseChooser.cs",
+      "StoryScript.cs:1310-1400",
+      "StorySequencer.cs"
+    ],
+    "summary": "SHOWN: characters have roles, walking/turning, facing, speaking and frame/pose state. AmbientPoseChooser alternates random wait/pose durations and can gate poses by speech and closeup. NPC dialogue is a distinct authored choice category. These are visible-behavior and staging systems. No autonomous household economy, goal planner or complete NPC schedule was established; navigation and every actor controller are unread.",
+    "yairpg": [
+      "PROPOSAL: docs/CHARACTERS_AND_WORLD_EVENTS.md should distinguish ambient presentation, authored reactions and autonomous state-changing activity."
+    ]
+  },
+  "A06": {
+    "status": "partial",
+    "sources": [
+      "DialogueController.cs",
+      "DialogueChoicePicker.cs",
+      "UserSettings.cs",
+      "StoryCatchupSplashScreenPage.cs",
+      "PlannerController.cs",
+      "../RIVERS_AND_PACING.md"
+    ],
+    "summary": "SHOWN: separate dialogue/narration views and choice picker coexist with world presentation. The planner changes pacing settings. Settings declare independent audio channels, text speed/size, subtitle, vibration, mouse and wheel controls. Catchup supports manual scroll. Source fields do not prove every setting is exposed or accessible, nor establish actual desktop layout quality. Screens, input routes and all tooltips were not run.",
+    "yairpg": [
+      "PROPOSAL: docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md should show evidence, current interpretation and consequence together at 1440x900; mobile work remains deferred."
+    ]
+  },
+  "A07": {
+    "status": "partial",
+    "sources": [
+      "extract/textassets/INDEX.json in prior private area",
+      "ScriptParser.cs",
+      "StoryScript.cs:871-916",
+      "TimelineDatabase.cs",
+      "GameData.cs"
+    ],
+    "summary": "SHOWN: compiled Ink TextAsset plus JSON databases supply authored content. The parser handles dialogue, narration, scene control, timeline and translation instructions; unexpected unmarked text is logged. Validate calls and Ink error logging exist. Original Ink source, build-time validation and a supported mod API/load order are unread or unestablished. Compiled JSON readability alone does not establish mod support.",
+    "yairpg": [
+      "PROPOSAL: docs/DIALOGUE_AND_INTERACTIONS.md and docs/ENGINE_EXPANSION.md can validate stable scene IDs, speakers, conditions and typed consequences before a content module is registered."
+    ]
+  },
+  "A08": {
+    "status": "partial",
+    "sources": [
+      "Translation/PlayerTutorialManager.cs",
+      "PlayerTutorialItem.cs",
+      "Game.cs",
+      "../KNOWLEDGE.md",
+      "../RIVERS_AND_PACING.md"
+    ],
+    "summary": "SHOWN: translation distinguishes guesses, confirmed words and rejected alternatives. Prior source pass shows translated clues improve site search using a 0.85 residual-uncertainty factor. Route preference cost is separate from estimated physical travel time. Tutorial counters use small integers; no universal big-number economy or pity scheme was established. Full word generation, seeded RNG and all balance settings remain unread.",
+    "yairpg": [
+      "PROPOSAL: docs/emergent/E7_OBSERVATION_AND_MYSTERY.md should reward independent evidence, not repeated reopening; docs/MEANS_AND_APPRAISAL.md can distinguish a quote from certainty."
+    ]
+  },
+  "A09": {
+    "status": "partial",
+    "sources": [
+      "StoryPacer.cs",
+      "StoryPacerSettings.cs",
+      "StoryScript.cs:753-841",
+      "AmbientPoseChooser.cs",
+      "../RIVERS_AND_PACING.md"
+    ],
+    "summary": "SHOWN: frame-budgeted story evaluation, presentation pacing, random ambient timers and estimated route durations are separate clocks. Pacer switches among named indoor/outdoor/space modes and a planner setting, easing toward the target. The river host schedules approach cues and conditional skipping. No general offline/aging simulation was found in this readset, and a lack of evidence is not proof of absence.",
+    "yairpg": [
+      "PROPOSAL: docs/TIME_KEEPERS_AND_VARIANTS.md and docs/ENGINE_EXPANSION.md should separate simulation deadlines, text animation and compute budgets; queued travel must preserve real authored interruptions."
+    ]
+  },
+  "A10": {
+    "status": "covered",
+    "sources": [
+      "Translation/PlayerTutorialManager.cs",
+      "PlayerTutorialItem.cs",
+      "Player.cs:278-300,400-430",
+      "SpaceGameTutorialState.cs"
+    ],
+    "summary": "SHOWN: 17 named translation learning items track practiced counts and learned state; required counts vary from 1 to 5 in this table. Practice marks learned at threshold under the save lock. Player persists translationTutorialState and checks learned flags in translation support paths. The space tutorial has separate state. These are mechanic-specific learning records, not proof that every story unlock follows this sequence.",
+    "yairpg": [
+      "PROPOSAL: docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md should retire help per demonstrated action and allow later reference; help completion should not impose a permanent capability ceiling."
+    ]
+  },
+  "A11": {
+    "status": "covered",
+    "sources": [
+      "DialogueLine.cs",
+      "ScriptParser.cs:56-141",
+      "AmbientPoseChooser.cs",
+      "UserSettings.cs",
+      "StoryCatchupSplashScreenPage.cs",
+      "../SMALL_TOUCHES.md"
+    ],
+    "summary": "SHOWN: recipient-facing lines, nonverbal choices, lingering delivery, emotion tags, speech-aware poses, paced recaps, manual recap scrolling, separate audio channels and adjustable input sensitivity are discrete implementation hooks. Source presence is distinct from experienced polish or full accessibility. See SMALL_TOUCHES for original proposals, not claims of shipped YAIR behavior.",
+    "yairpg": [
+      "PROPOSAL: docs/DIALOGUE_AND_INTERACTIONS.md can preserve nonverbal responses and addressed recipient; the UI owner can retain readable manual recap controls."
+    ]
+  },
+  "A12": {
+    "status": "partial",
+    "sources": [
+      "Game.cs:184,352",
+      "StoryScript.cs:738-746",
+      "AchievementInstruction.cs",
+      "Translation/",
+      "SpaceGame/",
+      "../DATA_CENSUS.md"
+    ],
+    "summary": "SHOWN: language construction and inscription matching, artefact/clue discovery, graded location knowledge, route planning, timeline and achievement instructions extend beyond dialogue. StartSceneAt passes a saved completion count to an Ink new-game-plus variable when present. That proves a repeat-run hook, not the full retention/reset contract. All achievement conditions, ruin generation, oxygen hazards and repeat-run content remain unread.",
+    "yairpg": [
+      "PROPOSAL: docs/TIMELINES_AND_DIVERGENCE.md and docs/ENGINE_EXPANSION.md should specify continuity by state category before adapting any repeat-run design."
+    ]
+  }
+}

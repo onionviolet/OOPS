@@ -166,3 +166,7 @@ INFERRED ranking for later selection, drawn from intro and lane suggestions. The
 | 10 / P10 | Compare one-subject avatar with independent copy on one workshop case; bind occupant fate, custody and recognition. | NS/OM, OX1-OX4, IL31-IL35; intro R8/R9; ideas S2/S4; [identity suggestions](worlds/IDENTITY_LAWS_BY_WORLD_2026-10-14.md#suggestions-at-most-five). Catalog RN7/RN8/RN10 are separate body/object/shared-host research, not exact equivalents. |
 
 Other catalog RN4/RN6/RN9 and OS follow-up scenes remain [research leads](research/START_AS_X_SOURCE_CATALOG_2026-10-14.md#ranked-read-next-at-most-ten), not added first-slice assignments. Lane S/P/RN codes are local; links distinguish them from this index's P1-P10.
+
+## Premise hooks, 2026-10-14
+
+Research, proposals only. [Premise hook audit](research/PREMISE_HOOK_AUDIT_2026-10-14.md) owns the H1-H6 hook grammar for comedic and ironic openings (the dragon egg raised by an unsuspecting snake), pattern families PD/PC/PS/PY/PV/PK, engine pieces PE1-PE12 mapped onto E, NK, GR, P1 and V1/V3, per-world fit and five suggestions S1-S5 for a first generator slice on the Village probe. Works: [premise hook source catalog](research/PREMISE_HOOK_SOURCE_CATALOG_2026-10-14.md). Direction: [USER_VISION](USER_VISION.md#premise-hooks-and-a-premise-generator-2026-10-14). Its S/RN codes are local to those files.

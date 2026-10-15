@@ -1,0 +1,684 @@
+{
+  "lane": "bf-roguelike-src",
+  "date": "2026-10-14",
+  "status": "source_aspect_pass_with_explicit_unread_catalogues",
+  "games": {
+    "nethack": {
+      "pin": {
+        "commit": "49b203ed83334c8a0f05024212f98675e51432cb",
+        "remote": "https://github.com/NetHack/NetHack.git",
+        "files": 1383
+      },
+      "tree": "257f2f35d63d9b43bdec43c854038be2d1e5b6b4",
+      "corrections": [
+        "C1: The old FOLLOWUP_SOURCE.md claim that the fieldcraft inventory label adapter is absent is stale against the current checkout. src/nethack_fieldcraft_item_view.js now defines projectFieldcraftItemView, with an explicit completed-work and knowledge predicate. This is source presence only; this lane did not test its host integration or browser behavior.",
+        "C2: The new NetHack pin differs from the old 8898570da710513f38d81ed973f834863b795217. The current quest pager explicitly caches a private Lua interpreter and supports fallbacks and message-history synopsis. The old reports did not audit this route or saves, so these extend their coverage rather than overturning their item/pet/conduct conclusions."
+      ],
+      "aspects": {
+        "A01": {
+          "status": "covered",
+          "summary": "Shown: quest.c chooses stable message IDs from quest status, location, capability, alignment and carried quest-object state. First meeting changes met_leader; assignment changes got_quest; completion records qcompleted and identifies the object. questpgr.c loads questtext[role][id] from quest.lua, falls back to common text, selects a random array entry or a text field, expands names/pronouns, and selects message/window/menu output. sounds.c supplies directional chat with body, choking, underwater and perception checks. This is authored state-based conversation, not a general player-response graph; no portrait model was found in this inspected route.",
+          "yairpg": [
+            "PROPOSAL: Keep text ID, eligibility and committed consequence separate in src/data/dialogues.js and src/models/dialogue_action.js; let actor state explain a refusal before any cost."
+          ],
+          "sources": [
+            {
+              "game": "nethack",
+              "path": "src/quest.c",
+              "lines": [
+                270,
+                460
+              ],
+              "url": "https://github.com/NetHack/NetHack/blob/49b203ed83334c8a0f05024212f98675e51432cb/src/quest.c#L270-L460",
+              "sha256": "80cb4460fde88dac798fe79f3d759435eb49b1416ff1c0b283aacad74303830a",
+              "line_count": 523,
+              "evidence_kind": "shown source, except documentation statements labeled in prose"
+            },
+            {
+              "game": "nethack",
+              "path": "src/questpgr.c",
+              "lines": [
+                470,
+                684
+              ],
+              "url": "https://github.com/NetHack/NetHack/blob/49b203ed83334c8a0f05024212f98675e51432cb/src/questpgr.c#L470-L684",
+              "sha256": "be91f9b49f2126d6f089ec23fa24e1d4c3d6bf65d471a3c0c5f0ff94aae5777f",
+              "line_count": 684,
+              "evidence_kind": "shown source, except documentation statements labeled in prose"
+            },
+            {
+              "game": "nethack",
+              "path": "dat/quest.lua",
+              "lines": [
+                1,
+                35
+              ],
+              "url": "https://github.com/NetHack/NetHack/blob/49b203ed83334c8a0f05024212f98675e51432cb/dat/quest.lua#L1-L35",
+              "sha256": "aefcdc300ecf72483693161d0a5673680180c50beade5a71346e2ebc29949bac",
+              "line_count": 3105,
+              "evidence_kind": "shown source, except documentation statements labeled in prose"
+            },
+            {
+              "game": "nethack",
+              "path": "src/sounds.c",
+              "lines": [
+                1259,
+                1345
+              ],
+              "url": "https://github.com/NetHack/NetHack/blob/49b203ed83334c8a0f05024212f98675e51432cb/src/sounds.c#L1259-L1345",
+              "sha256": "3e27fad807054210c8c261026ac95dccacb8d3e66859879f2864c4aaef005bcc",
+              "line_count": 2231,
+              "evidence_kind": "shown source, except documentation statements labeled in prose"
+            }
+          ]
+        },
+        "A02": {
+          "status": "covered",
+          "summary": "Shown: quest delivery can keep a short synopsis in message history even when the long passage used a separate window. Quest milestones use livelog_printf, while saved gamelog lines retain text and structure. Rumors and oracle consultation form separate hint delivery paths; those were located but their complete eligibility and payment branches remain unread. A recap is therefore a projection over past events, not proof that the player learned every fact in a long passage.",
+          "yairpg": [
+            "PROPOSAL: Add authored short recaps to existing event/Notebook receipts in src/simulation_ui.js; keep long reading separate from routine action space."
+          ],
+          "sources": [
+            {
+              "game": "nethack",
+              "path": "src/questpgr.c",
+              "lines": [
+                594,
+                646
+              ],
+              "url": "https://github.com/NetHack/NetHack/blob/49b203ed83334c8a0f05024212f98675e51432cb/src/questpgr.c#L594-L646",
+              "sha256": "be91f9b49f2126d6f089ec23fa24e1d4c3d6bf65d471a3c0c5f0ff94aae5777f",
+              "line_count": 684,
+              "evidence_kind": "shown source, except documentation statements labeled in prose"
+            },
+            {
+              "game": "nethack",
+              "path": "src/quest.c",
+              "lines": [
+                320,
+                370
+              ],
+              "url": "https://github.com/NetHack/NetHack/blob/49b203ed83334c8a0f05024212f98675e51432cb/src/quest.c#L320-L370",
+              "sha256": "80cb4460fde88dac798fe79f3d759435eb49b1416ff1c0b283aacad74303830a",
+              "line_count": 523,
+              "evidence_kind": "shown source, except documentation statements labeled in prose"
+            },
+            {
+              "game": "nethack",
+              "path": "src/save.c",
+              "lines": [
+                239,
+                266
+              ],
+              "url": "https://github.com/NetHack/NetHack/blob/49b203ed83334c8a0f05024212f98675e51432cb/src/save.c#L239-L266",
+              "sha256": "382664163cdb43d68c8838a3c807c0dc668be55e579b0075ac0a5f42a7312800",
+              "line_count": 1227,
+              "evidence_kind": "shown source, except documentation statements labeled in prose"
+            }
+          ]
+        },
+        "A03": {
+          "status": "covered",
+          "summary": "Shown: C99 gameplay is split among command/item/monster/level modules, with Lua dungeon, special-level and quest data. moveloop_core consumes hero movement, advances monsters while the hero lacks a movement allowance, then replenishes movement and runs once-per-turn effects. UI calls go through window operations. The quest interpreter is lazily initialized, sandbox configured and cached, so parsing does not recur for every line. Configuration-dependent ports and save backends remain distinct.",
+          "yairpg": [
+            "PROPOSAL: Preserve a single committed simulation clock in src/simulation.js and expose typed content adapters rather than adding a second clock for dialogue or crafting."
+          ],
+          "sources": [
+            {
+              "game": "nethack",
+              "path": "README",
+              "lines": [
+                25,
+                45
+              ],
+              "url": "https://github.com/NetHack/NetHack/blob/49b203ed83334c8a0f05024212f98675e51432cb/README#L25-L45",
+              "sha256": "0985a95859404393f322d866c320b05e094d890873fe69f9c676cd37794ee613",
+              "line_count": 153,
+              "evidence_kind": "shown source, except documentation statements labeled in prose"
+            },
+            {
+              "game": "nethack",
+              "path": "src/allmain.c",
+              "lines": [
+                173,
+                290
+              ],
+              "url": "https://github.com/NetHack/NetHack/blob/49b203ed83334c8a0f05024212f98675e51432cb/src/allmain.c#L173-L290",
+              "sha256": "7f338eed25dbf6d66300f9a19642d8e5fb0afab5b34225d6d468c7b2fbb056b5",
+              "line_count": 1046,
+              "evidence_kind": "shown source, except documentation statements labeled in prose"
+            },
+            {
+              "game": "nethack",
+              "path": "src/questpgr.c",
+              "lines": [
+                470,
+                523
+              ],
+              "url": "https://github.com/NetHack/NetHack/blob/49b203ed83334c8a0f05024212f98675e51432cb/src/questpgr.c#L470-L523",
+              "sha256": "be91f9b49f2126d6f089ec23fa24e1d4c3d6bf65d471a3c0c5f0ff94aae5777f",
+              "line_count": 684,
+              "evidence_kind": "shown source, except documentation statements labeled in prose"
+            },
+            {
+              "game": "nethack",
+              "path": "dat/dungeon.lua",
+              "lines": [
+                1,
+                65
+              ],
+              "url": "https://github.com/NetHack/NetHack/blob/49b203ed83334c8a0f05024212f98675e51432cb/dat/dungeon.lua#L1-L65",
+              "sha256": "7b97470d9f7cae1d20a36c4455145cc52f0aac660bb002e43824474f22734112",
+              "line_count": 333,
+              "evidence_kind": "shown source, except documentation statements labeled in prose"
+            },
+            {
+              "game": "nethack",
+              "path": "dat/Mon-strt.lua",
+              "lines": [
+                1,
+                65
+              ],
+              "url": "https://github.com/NetHack/NetHack/blob/49b203ed83334c8a0f05024212f98675e51432cb/dat/Mon-strt.lua#L1-L65",
+              "sha256": "7238bfb145f0df243f8db62b3ab643d580d8abb47d4a568240c3a05b8add7e9c",
+              "line_count": 108,
+              "evidence_kind": "shown source, except documentation statements labeled in prose"
+            }
+          ]
+        },
+        "A04": {
+          "status": "covered",
+          "summary": "Shown: save.c writes version/player identity, current level, global state and remaining level records through NHFILE/Sfo helpers, then converts/compresses as configured. Global state includes turns, flags, character, quest state, inventory and global timers. restore.c rebuilds object links and worn equipment, recomputes class probabilities and hero_seq, and restores quest state. version.c rejects unsupported version/configuration/entity-count combinations. A failed restgamestate branch frees loaded level data and deletes the save file, so rejection is not uniformly nondestructive. Checkpoint/recovery code exists; this lane did not test crash recovery or all file formats.",
+          "yairpg": [
+            "PROPOSAL: In src/save_compatibility.js and src/native_storage_transaction.js, validate a candidate before publication, preserve the old artifact on rejection, and explicitly restore actor/task references. Do not adopt the destructive restore branch."
+          ],
+          "sources": [
+            {
+              "game": "nethack",
+              "path": "src/save.c",
+              "lines": [
+                160,
+                305
+              ],
+              "url": "https://github.com/NetHack/NetHack/blob/49b203ed83334c8a0f05024212f98675e51432cb/src/save.c#L160-L305",
+              "sha256": "382664163cdb43d68c8838a3c807c0dc668be55e579b0075ac0a5f42a7312800",
+              "line_count": 1227,
+              "evidence_kind": "shown source, except documentation statements labeled in prose"
+            },
+            {
+              "game": "nethack",
+              "path": "src/restore.c",
+              "lines": [
+                600,
+                730
+              ],
+              "url": "https://github.com/NetHack/NetHack/blob/49b203ed83334c8a0f05024212f98675e51432cb/src/restore.c#L600-L730",
+              "sha256": "97d755dc1734b05b21ebba3eeda136207d9ff3c7905c5b363818773d2624737a",
+              "line_count": 1688,
+              "evidence_kind": "shown source, except documentation statements labeled in prose"
+            },
+            {
+              "game": "nethack",
+              "path": "src/restore.c",
+              "lines": [
+                790,
+                862
+              ],
+              "url": "https://github.com/NetHack/NetHack/blob/49b203ed83334c8a0f05024212f98675e51432cb/src/restore.c#L790-L862",
+              "sha256": "97d755dc1734b05b21ebba3eeda136207d9ff3c7905c5b363818773d2624737a",
+              "line_count": 1688,
+              "evidence_kind": "shown source, except documentation statements labeled in prose"
+            },
+            {
+              "game": "nethack",
+              "path": "src/version.c",
+              "lines": [
+                374,
+                421
+              ],
+              "url": "https://github.com/NetHack/NetHack/blob/49b203ed83334c8a0f05024212f98675e51432cb/src/version.c#L374-L421",
+              "sha256": "4cfc962902248b8b0047df32530d929ef336d6f5bfa4c44c5c90637c087c80a5",
+              "line_count": 874,
+              "evidence_kind": "shown source, except documentation statements labeled in prose"
+            },
+            {
+              "game": "nethack",
+              "path": "src/timeout.c",
+              "lines": [
+                2655,
+                2745
+              ],
+              "url": "https://github.com/NetHack/NetHack/blob/49b203ed83334c8a0f05024212f98675e51432cb/src/timeout.c#L2655-L2745",
+              "sha256": "5ad1269558cb2522f448c5bf2f6ba5ab40c891653082b759f01ae0033a424021",
+              "line_count": 2777,
+              "evidence_kind": "shown source, except documentation statements labeled in prose"
+            }
+          ]
+        },
+        "A05": {
+          "status": "partial",
+          "summary": "Shown in the inspected dispatch: ordinary monster movement can route tame actors to dog_move, while defensive item selection is a separate path. The earlier pet-food report remains a selected-source baseline. Newly located monmove/muse branches show that allies and enemies are rule-bearing actors with inventory use, not flat player bonuses. Full defensive-item choice, all pet goals, pathfinding and off-level catch-up were not semantically reread in this pass.",
+          "yairpg": [
+            "PROPOSAL: Extend the existing companion/controller owner in src/simulation_resolution.js with one visible, funded service; do not invent mandatory hidden starvation upkeep."
+          ],
+          "sources": [
+            {
+              "game": "nethack",
+              "path": "src/monmove.c",
+              "lines": [
+                1760,
+                1780
+              ],
+              "url": "https://github.com/NetHack/NetHack/blob/49b203ed83334c8a0f05024212f98675e51432cb/src/monmove.c#L1760-L1780",
+              "sha256": "f475d9b0d60a3e65d2b363834e3e0edf2f647caee533d8a73640e2fc94dd638e",
+              "line_count": 2398,
+              "evidence_kind": "shown source, except documentation statements labeled in prose"
+            },
+            {
+              "game": "nethack",
+              "path": "src/monmove.c",
+              "lines": [
+                785,
+                805
+              ],
+              "url": "https://github.com/NetHack/NetHack/blob/49b203ed83334c8a0f05024212f98675e51432cb/src/monmove.c#L785-L805",
+              "sha256": "f475d9b0d60a3e65d2b363834e3e0edf2f647caee533d8a73640e2fc94dd638e",
+              "line_count": 2398,
+              "evidence_kind": "shown source, except documentation statements labeled in prose"
+            }
+          ]
+        },
+        "A06": {
+          "status": "partial",
+          "summary": "Shown: directional chat can produce a shop price quote without a separate negotiation tree; discovery updates inventory; long quest passages select a reading window and keep a concise history entry. dat/help maps ordinary verbs and discovery commands to keys. Source exposes a map/status/message/inventory-oriented port interface. Actual port composition, font size, mouse behavior and laptop usability were not observed.",
+          "yairpg": [
+            "PROPOSAL: Use independent desktop panels for item facts, action costs and recent receipts in src/display.js, governed by docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md. Mobile remains deferred."
+          ],
+          "sources": [
+            {
+              "game": "nethack",
+              "path": "src/sounds.c",
+              "lines": [
+                1259,
+                1302
+              ],
+              "url": "https://github.com/NetHack/NetHack/blob/49b203ed83334c8a0f05024212f98675e51432cb/src/sounds.c#L1259-L1302",
+              "sha256": "3e27fad807054210c8c261026ac95dccacb8d3e66859879f2864c4aaef005bcc",
+              "line_count": 2231,
+              "evidence_kind": "shown source, except documentation statements labeled in prose"
+            },
+            {
+              "game": "nethack",
+              "path": "src/o_init.c",
+              "lines": [
+                440,
+                493
+              ],
+              "url": "https://github.com/NetHack/NetHack/blob/49b203ed83334c8a0f05024212f98675e51432cb/src/o_init.c#L440-L493",
+              "sha256": "f78eedb733aec727cda4a30097e99ed9bf33c6cc35b5b8bde437e46b9e77d695",
+              "line_count": 1221,
+              "evidence_kind": "shown source, except documentation statements labeled in prose"
+            },
+            {
+              "game": "nethack",
+              "path": "src/questpgr.c",
+              "lines": [
+                594,
+                646
+              ],
+              "url": "https://github.com/NetHack/NetHack/blob/49b203ed83334c8a0f05024212f98675e51432cb/src/questpgr.c#L594-L646",
+              "sha256": "be91f9b49f2126d6f089ec23fa24e1d4c3d6bf65d471a3c0c5f0ff94aae5777f",
+              "line_count": 684,
+              "evidence_kind": "shown source, except documentation statements labeled in prose"
+            },
+            {
+              "game": "nethack",
+              "path": "dat/help",
+              "lines": [
+                155,
+                195
+              ],
+              "url": "https://github.com/NetHack/NetHack/blob/49b203ed83334c8a0f05024212f98675e51432cb/dat/help#L155-L195",
+              "sha256": "3d4fb64efc31a3ad05c5ea850d74ee59094028dcab6ce234027c6d38c57bc836",
+              "line_count": 214,
+              "evidence_kind": "shown source, except documentation statements labeled in prose"
+            }
+          ]
+        },
+        "A07": {
+          "status": "partial",
+          "summary": "Shown: dungeon.lua defines branch topology and special-level locations. Mon-strt.lua uses a des API for terrain, regions, stairs and placement. quest.lua stores authored text and synopsis fields with replacement codes; C still owns most quest transitions. Adding text is easier than introducing a new effect or rule. The cached pager handles missing-table errors and a small fallback map. This is not evidence of a supported arbitrary mod load order or full sandbox security audit.",
+          "yairpg": [
+            "PROPOSAL: Content owners should validate IDs, required fallbacks and effect references before loading a world; preserve original content and attribution rather than porting Lua or text."
+          ],
+          "sources": [
+            {
+              "game": "nethack",
+              "path": "dat/dungeon.lua",
+              "lines": [
+                1,
+                65
+              ],
+              "url": "https://github.com/NetHack/NetHack/blob/49b203ed83334c8a0f05024212f98675e51432cb/dat/dungeon.lua#L1-L65",
+              "sha256": "7b97470d9f7cae1d20a36c4455145cc52f0aac660bb002e43824474f22734112",
+              "line_count": 333,
+              "evidence_kind": "shown source, except documentation statements labeled in prose"
+            },
+            {
+              "game": "nethack",
+              "path": "dat/Mon-strt.lua",
+              "lines": [
+                1,
+                65
+              ],
+              "url": "https://github.com/NetHack/NetHack/blob/49b203ed83334c8a0f05024212f98675e51432cb/dat/Mon-strt.lua#L1-L65",
+              "sha256": "7238bfb145f0df243f8db62b3ab643d580d8abb47d4a568240c3a05b8add7e9c",
+              "line_count": 108,
+              "evidence_kind": "shown source, except documentation statements labeled in prose"
+            },
+            {
+              "game": "nethack",
+              "path": "dat/quest.lua",
+              "lines": [
+                1,
+                35
+              ],
+              "url": "https://github.com/NetHack/NetHack/blob/49b203ed83334c8a0f05024212f98675e51432cb/dat/quest.lua#L1-L35",
+              "sha256": "aefcdc300ecf72483693161d0a5673680180c50beade5a71346e2ebc29949bac",
+              "line_count": 3105,
+              "evidence_kind": "shown source, except documentation statements labeled in prose"
+            },
+            {
+              "game": "nethack",
+              "path": "src/questpgr.c",
+              "lines": [
+                470,
+                594
+              ],
+              "url": "https://github.com/NetHack/NetHack/blob/49b203ed83334c8a0f05024212f98675e51432cb/src/questpgr.c#L470-L594",
+              "sha256": "be91f9b49f2126d6f089ec23fa24e1d4c3d6bf65d471a3c0c5f0ff94aae5777f",
+              "line_count": 684,
+              "evidence_kind": "shown source, except documentation statements labeled in prose"
+            }
+          ]
+        },
+        "A08": {
+          "status": "partial",
+          "summary": "Shown: rnd.c distinguishes core and display random sequences in the ISAAC64 configuration and supplies a separate display generator in the fallback configuration. rn2 is a bounded integer draw; rnl applies a Luck-dependent adjustment. This is state-based luck, not evidence of universal pity. The main loop guards against turn-counter growth to one billion. Complete damage, growth, prices and all platform RNG configurations remain unread.",
+          "yairpg": [
+            "PROPOSAL: Keep cosmetic flavor selection away from simulation RNG in src/simulation_contracts.js; a deterministic save/reload comparison must include the relevant random state."
+          ],
+          "sources": [
+            {
+              "game": "nethack",
+              "path": "src/rnd.c",
+              "lines": [
+                1,
+                130
+              ],
+              "url": "https://github.com/NetHack/NetHack/blob/49b203ed83334c8a0f05024212f98675e51432cb/src/rnd.c#L1-L130",
+              "sha256": "78563042acf344fff6bf984b7a1157afe37a1a4fabfe70105495d31e76a3275b",
+              "line_count": 312,
+              "evidence_kind": "shown source, except documentation statements labeled in prose"
+            },
+            {
+              "game": "nethack",
+              "path": "src/allmain.c",
+              "lines": [
+                245,
+                270
+              ],
+              "url": "https://github.com/NetHack/NetHack/blob/49b203ed83334c8a0f05024212f98675e51432cb/src/allmain.c#L245-L270",
+              "sha256": "7f338eed25dbf6d66300f9a19642d8e5fb0afab5b34225d6d468c7b2fbb056b5",
+              "line_count": 1046,
+              "evidence_kind": "shown source, except documentation statements labeled in prose"
+            }
+          ]
+        },
+        "A09": {
+          "status": "covered",
+          "summary": "Shown: time is action/movement based. Turns advance when both sides exhaust movement allowances. run_timers removes due entries from an ordered list before invoking callbacks. Global and level timer ranges serialize separately; restore can adjust ghost-level deadlines and later relink object pointers. Real play-duration bookkeeping is separate from turn state. No general wall-clock offline progression is established by this trace.",
+          "yairpg": [
+            "PROPOSAL: In src/simulation.js, save due time plus subject identity and distinguish inactive-area simulation from browser-closed catch-up. Applicable passive YAIR progression remains required by its own owner."
+          ],
+          "sources": [
+            {
+              "game": "nethack",
+              "path": "src/allmain.c",
+              "lines": [
+                173,
+                290
+              ],
+              "url": "https://github.com/NetHack/NetHack/blob/49b203ed83334c8a0f05024212f98675e51432cb/src/allmain.c#L173-L290",
+              "sha256": "7f338eed25dbf6d66300f9a19642d8e5fb0afab5b34225d6d468c7b2fbb056b5",
+              "line_count": 1046,
+              "evidence_kind": "shown source, except documentation statements labeled in prose"
+            },
+            {
+              "game": "nethack",
+              "path": "src/timeout.c",
+              "lines": [
+                2210,
+                2255
+              ],
+              "url": "https://github.com/NetHack/NetHack/blob/49b203ed83334c8a0f05024212f98675e51432cb/src/timeout.c#L2210-L2255",
+              "sha256": "5ad1269558cb2522f448c5bf2f6ba5ab40c891653082b759f01ae0033a424021",
+              "line_count": 2777,
+              "evidence_kind": "shown source, except documentation statements labeled in prose"
+            },
+            {
+              "game": "nethack",
+              "path": "src/timeout.c",
+              "lines": [
+                2655,
+                2745
+              ],
+              "url": "https://github.com/NetHack/NetHack/blob/49b203ed83334c8a0f05024212f98675e51432cb/src/timeout.c#L2655-L2745",
+              "sha256": "5ad1269558cb2522f448c5bf2f6ba5ab40c891653082b759f01ae0033a424021",
+              "line_count": 2777,
+              "evidence_kind": "shown source, except documentation statements labeled in prose"
+            },
+            {
+              "game": "nethack",
+              "path": "src/restore.c",
+              "lines": [
+                618,
+                642
+              ],
+              "url": "https://github.com/NetHack/NetHack/blob/49b203ed83334c8a0f05024212f98675e51432cb/src/restore.c#L618-L642",
+              "sha256": "97d755dc1734b05b21ebba3eeda136207d9ff3c7905c5b363818773d2624737a",
+              "line_count": 1688,
+              "evidence_kind": "shown source, except documentation statements labeled in prose"
+            }
+          ]
+        },
+        "A10": {
+          "status": "partial",
+          "summary": "Shown: dat/help gives command reference; discovery state separates observed objects from identified types and can update the inventory after learning. Quest acceptance checks capability and state and can reject with a reason-bearing message ID. This supports learning through use and contextual refusal. A full guided tutorial or a complete reveal catalogue was not read, so neither is claimed absent.",
+          "yairpg": [
+            "PROPOSAL: Extend the existing fieldcraft learning projection only where a concrete receipt needs a native consumer; do not reimplement the now-present vial view."
+          ],
+          "sources": [
+            {
+              "game": "nethack",
+              "path": "dat/help",
+              "lines": [
+                155,
+                195
+              ],
+              "url": "https://github.com/NetHack/NetHack/blob/49b203ed83334c8a0f05024212f98675e51432cb/dat/help#L155-L195",
+              "sha256": "3d4fb64efc31a3ad05c5ea850d74ee59094028dcab6ce234027c6d38c57bc836",
+              "line_count": 214,
+              "evidence_kind": "shown source, except documentation statements labeled in prose"
+            },
+            {
+              "game": "nethack",
+              "path": "src/o_init.c",
+              "lines": [
+                440,
+                493
+              ],
+              "url": "https://github.com/NetHack/NetHack/blob/49b203ed83334c8a0f05024212f98675e51432cb/src/o_init.c#L440-L493",
+              "sha256": "f78eedb733aec727cda4a30097e99ed9bf33c6cc35b5b8bde437e46b9e77d695",
+              "line_count": 1221,
+              "evidence_kind": "shown source, except documentation statements labeled in prose"
+            },
+            {
+              "game": "nethack",
+              "path": "src/quest.c",
+              "lines": [
+                320,
+                370
+              ],
+              "url": "https://github.com/NetHack/NetHack/blob/49b203ed83334c8a0f05024212f98675e51432cb/src/quest.c#L320-L370",
+              "sha256": "80cb4460fde88dac798fe79f3d759435eb49b1416ff1c0b283aacad74303830a",
+              "line_count": 523,
+              "evidence_kind": "shown source, except documentation statements labeled in prose"
+            }
+          ]
+        },
+        "A11": {
+          "status": "covered",
+          "summary": "Shown: message-history synopses, pronoun/name substitution, shop price quoting through chat, explicit underwater/choking refusal, distinct observed/identified flags and a display RNG are small mechanisms with clear owners. The pager converts long messages into a reading window. These are source details; their timing and visual feel are unplayed. Twenty specific adaptations and their source aspects are in SMALL_TOUCHES.md.",
+          "yairpg": [
+            "PROPOSAL: Add precise contextual feedback in src/display.js and src/simulation_ui.js without substituting flavor for a real committed outcome."
+          ],
+          "sources": [
+            {
+              "game": "nethack",
+              "path": "src/questpgr.c",
+              "lines": [
+                198,
+                230
+              ],
+              "url": "https://github.com/NetHack/NetHack/blob/49b203ed83334c8a0f05024212f98675e51432cb/src/questpgr.c#L198-L230",
+              "sha256": "be91f9b49f2126d6f089ec23fa24e1d4c3d6bf65d471a3c0c5f0ff94aae5777f",
+              "line_count": 684,
+              "evidence_kind": "shown source, except documentation statements labeled in prose"
+            },
+            {
+              "game": "nethack",
+              "path": "src/questpgr.c",
+              "lines": [
+                594,
+                646
+              ],
+              "url": "https://github.com/NetHack/NetHack/blob/49b203ed83334c8a0f05024212f98675e51432cb/src/questpgr.c#L594-L646",
+              "sha256": "be91f9b49f2126d6f089ec23fa24e1d4c3d6bf65d471a3c0c5f0ff94aae5777f",
+              "line_count": 684,
+              "evidence_kind": "shown source, except documentation statements labeled in prose"
+            },
+            {
+              "game": "nethack",
+              "path": "src/sounds.c",
+              "lines": [
+                1259,
+                1302
+              ],
+              "url": "https://github.com/NetHack/NetHack/blob/49b203ed83334c8a0f05024212f98675e51432cb/src/sounds.c#L1259-L1302",
+              "sha256": "3e27fad807054210c8c261026ac95dccacb8d3e66859879f2864c4aaef005bcc",
+              "line_count": 2231,
+              "evidence_kind": "shown source, except documentation statements labeled in prose"
+            },
+            {
+              "game": "nethack",
+              "path": "src/rnd.c",
+              "lines": [
+                60,
+                90
+              ],
+              "url": "https://github.com/NetHack/NetHack/blob/49b203ed83334c8a0f05024212f98675e51432cb/src/rnd.c#L60-L90",
+              "sha256": "78563042acf344fff6bf984b7a1157afe37a1a4fabfe70105495d31e76a3275b",
+              "line_count": 312,
+              "evidence_kind": "shown source, except documentation statements labeled in prose"
+            }
+          ]
+        },
+        "A12": {
+          "status": "partial",
+          "summary": "Shown: conduct encoding derives bits from causal counters and explicitly notes that unattempted Sokoban and completed/violated play cannot be represented well by one bit. Identification, quest access, companion services, shops and environment interactions are distinct subsystems. Broader religion, bones, polymorph, wish parsing, billing and level generation are inventoried rather than fully read here.",
+          "yairpg": [
+            "PROPOSAL: Extend src/nethack_fieldcraft_feats.js only after checking current consumers; model attempt participation and result separately, allow later attempts, and avoid a permanent solo-player lock."
+          ],
+          "sources": [
+            {
+              "game": "nethack",
+              "path": "src/topten.c",
+              "lines": [
+                411,
+                455
+              ],
+              "url": "https://github.com/NetHack/NetHack/blob/49b203ed83334c8a0f05024212f98675e51432cb/src/topten.c#L411-L455",
+              "sha256": "f718393324418c36ac8935da66c45450ac6b8f6b0f9f49638744bfabb937e317",
+              "line_count": 1487,
+              "evidence_kind": "shown source, except documentation statements labeled in prose"
+            },
+            {
+              "game": "nethack",
+              "path": "src/o_init.c",
+              "lines": [
+                440,
+                493
+              ],
+              "url": "https://github.com/NetHack/NetHack/blob/49b203ed83334c8a0f05024212f98675e51432cb/src/o_init.c#L440-L493",
+              "sha256": "f78eedb733aec727cda4a30097e99ed9bf33c6cc35b5b8bde437e46b9e77d695",
+              "line_count": 1221,
+              "evidence_kind": "shown source, except documentation statements labeled in prose"
+            }
+          ]
+        }
+      },
+      "proposals": [
+        {
+          "id": "PN1",
+          "title": "Explain one useful conversation refusal",
+          "owner": "src/data/dialogues.js; src/components/dialogue_component.js; src/models/dialogue_action.js",
+          "design": "Use an existing actor/action and its real eligibility to select a short reason and an earned alternate reply. Keep every reasonable route reachable after its condition changes. Medium scope; no general dialogue engine.",
+          "gate": "Preview twice without mutation, commit an eligible exchange once, recheck a lost prerequisite, and retain the exact outcome after save/reload/import.",
+          "status": "PROPOSAL, not accepted or implemented",
+          "compatibility": "Future owner must reread current state and choose saved-field defaults/migration before implementation. Existing run state must not be retroactively enrolled."
+        },
+        {
+          "id": "PN2",
+          "title": "Preserve a short recap beside full quest text",
+          "owner": "src/simulation_ui.js; existing Notebook/event content owner",
+          "design": "Attach an authored synopsis to an existing committed milestone, separately from its full passage. Show it in a desktop history panel; reading itself gives no new reward. Low to medium scope.",
+          "gate": "Earn the milestone, close/reopen text and reload; one correct recap remains and no duplicate material reward occurs.",
+          "status": "PROPOSAL, not accepted or implemented",
+          "compatibility": "Future owner must reread current state and choose saved-field defaults/migration before implementation. Existing run state must not be retroactively enrolled."
+        },
+        {
+          "id": "PN3",
+          "title": "Keep timer subject and area together",
+          "owner": "src/simulation.js; src/simulation_contracts.js",
+          "design": "Give one existing delayed actor/material job an explicit saved subject and area scope, only if current schema lacks it. Missing or moved subjects pause/refuse instead of silently settling elsewhere. Medium scope.",
+          "gate": "Save pending work, leave its area, reload and import; settle exactly once at the declared owner or show a stable reason for pause.",
+          "status": "PROPOSAL, not accepted or implemented",
+          "compatibility": "Future owner must reread current state and choose saved-field defaults/migration before implementation. Existing run state must not be retroactively enrolled."
+        },
+        {
+          "id": "PN4",
+          "title": "Protect the old artifact on rejected restore",
+          "owner": "src/save_compatibility.js; src/native_storage_transaction.js",
+          "design": "Audit existing candidate publication before changing it. Extend only a concrete uncovered failure: malformed candidate, unknown schema or unresolved actor links. Do not copy NetHack's destructive restore edge.",
+          "gate": "A rejected candidate changes neither current state nor last-good save; valid generated save/reload/literal Import retain all relevant identities.",
+          "status": "PROPOSAL, not accepted or implemented",
+          "compatibility": "Future owner must reread current state and choose saved-field defaults/migration before implementation. Existing run state must not be retroactively enrolled."
+        },
+        {
+          "id": "PN5",
+          "title": "Retain participation beside a voluntary conduct result",
+          "owner": "src/nethack_fieldcraft_feats.js; src/frontier_campaign.js",
+          "design": "Reuse current feat receipts for one eligible repeatable activity with not-entered, active, met, broken and withdrawn distinctions. Do not re-add the now-present vial label view or impose a fixed solo-player attempt limit. Medium scope.",
+          "gate": "Unentered preview earns nothing; a committed violation affects only that attempt; a later eligible attempt can close successfully and persists exactly.",
+          "status": "PROPOSAL, not accepted or implemented",
+          "compatibility": "Future owner must reread current state and choose saved-field defaults/migration before implementation. Existing run state must not be retroactively enrolled."
+        }
+      ]
+    }
+  },
+  "runtime_verified": false,
+  "installs": [],
+  "builds": [],
+  "commercial_build_parity": false
+}

@@ -2953,3 +2953,21 @@ untouched.
 > save and extend accordingly Send out codex as useful?' for each aspect?
 
 Topic wave 2026-10-14 recorded: one round per existing root (modular chains round 4, technology round 12, genetics round 12, world core kit successor round 16), each built on the day's 21 game passes as new evidence. Lanes TW-C, TW-T, TW-B, TW-K, TW-L (modularity at every level, consistency) and TW-S (little stuff routing) are in the [topic wave dispatch](gm/dispatch/topic-wave-2026-10-14/COMMON.md). The finished chain-build T3 rule reader (with the T2 inspector) was merged first under the merge-before-dispatch rule. Proposals only.
+
+Topic wave fold, 2026-10-14: Weibao asked to "Fold the topic-wave and synthesis returns into the four root palettes, corrections first, then pick the next playable slice." Corrections FC1-FC7 (chains round 5), FT1-FT5 (technology round 13, CN14 build order governs), FB1-FB3 (genetics round 13) and FK1-FK4 (world kit round 17) were folded, with in-place markers on overstated rows. Picked next playable slice (proposal, build awaits his go-ahead): P01 work feedback on the Village mixing panel, [NEXT_SLICE_P01](gm/dispatch/topic-wave-2026-10-14/NEXT_SLICE_P01.md).
+
+## Premise hooks and a premise generator, 2026-10-14
+
+> Some fun starting premisies and generator/engine, like those tiktoks, one premis was an egg that was kicked around by two divine dragons, presumably their sibling, but then it fell down onto earth, the two dragons assumed the egg would die but it felll into a snakes nest, and survived but the snake didnt notice anything off and raised them.... Funny openings like these and more, amybe we need an tiktok audit?
+
+Follow-up:
+
+> send into new chat accordingly, considering specific stuff and more, books with these premicies and more?
+
+Requested direction: comedic and ironic opening premises, plus a generator that
+composes them, sit on top of the existing start-kind taxonomy, nonhuman starts
+and Village start probe. Evidence and pattern catalog:
+[premise hook audit](research/PREMISE_HOOK_AUDIT_2026-10-14.md) and
+[premise hook source catalog](research/PREMISE_HOOK_SOURCE_CATALOG_2026-10-14.md).
+Proposals only; every reasonable premise stays reachable rather than chosen
+either/or. Randomized premise truths follow the sealed-secrets rule.

@@ -1,0 +1,319 @@
+{
+  "lane": "bf-idle-src",
+  "date": "2026-10-14",
+  "method": "fresh static source/data/declaration inspection",
+  "corrections": "No contradiction of the prior bounded core-loop findings was found at the identical revision. Qualify F15: the deserializer computes expected/actual checksum metadata and returns the parsed save; rejection depends on callers. Legacy transport fields explicitly bypass mismatch comparison. A checksum is not authentication. In-flight goods are refunded into a cloned save, not settled in the live city by serialization.",
+  "aspects": {
+    "A01": {
+      "status": "absent",
+      "sources": [
+        "https://github.com/fishpondstudio/CivIdle/blob/e15fe039ed5c0794df05e52258bc9663761a140a/src/scripts/ui/ChatPanel.tsx",
+        "https://github.com/fishpondstudio/CivIdle/blob/e15fe039ed5c0794df05e52258bc9663761a140a/src/scripts/logic/Tutorial.ts",
+        "https://github.com/fishpondstudio/CivIdle/tree/e15fe039ed5c0794df05e52258bc9663761a140a/shared/definitions"
+      ],
+      "summary": "No authored NPC conversation graph found in inspected definition/logic families. Shown: ChatPanel is player multiplayer communication, and tutorial steps are instruction records. A player chat history is not NPC dialogue or relationship AI. This scoped absence does not certify every network feature.",
+      "yairpg": [
+        "PROPOSAL: Keep multiplayer-like notices separate from an NPC conversation record. Owner: docs/worlds/PROGRESSION_AND_ASSEMBLY.md; src/data/dialogues.js; src/life_record.js."
+      ]
+    },
+    "A02": {
+      "status": "partial",
+      "sources": [
+        "https://github.com/fishpondstudio/CivIdle/blob/e15fe039ed5c0794df05e52258bc9663761a140a/shared/definitions/PatchNotes.ts",
+        "https://github.com/fishpondstudio/CivIdle/blob/e15fe039ed5c0794df05e52258bc9663761a140a/src/scripts/logic/Tutorial.ts",
+        "https://github.com/fishpondstudio/CivIdle/blob/e15fe039ed5c0794df05e52258bc9663761a140a/src/scripts/ui/RebirthConfirm.tsx"
+      ],
+      "summary": "Shown: named historic people/cities, tutorial milestones, patch notes and rebirth history frame civilization progress. No story campaign journal was found in inspected core; all wonder flavor/localization remains unread.",
+      "yairpg": [
+        "PROPOSAL: Use a dated local achievement record without inventing witnessed scenes. Owner: docs/worlds/PROGRESSION_AND_ASSEMBLY.md; src/data/dialogues.js; src/life_record.js."
+      ]
+    },
+    "A03": {
+      "status": "covered",
+      "sources": [
+        "https://github.com/fishpondstudio/CivIdle/blob/e15fe039ed5c0794df05e52258bc9663761a140a/package.json",
+        "https://github.com/fishpondstudio/CivIdle/blob/e15fe039ed5c0794df05e52258bc9663761a140a/shared/logic/Update.ts",
+        "https://github.com/fishpondstudio/CivIdle/blob/e15fe039ed5c0794df05e52258bc9663761a140a/shared/logic/TickLogic.ts",
+        "https://github.com/fishpondstudio/CivIdle/blob/e15fe039ed5c0794df05e52258bc9663761a140a/src/scripts/logic/ClientUpdate.tsx"
+      ],
+      "summary": "Shown: shared TypeScript definitions/logic, React client UI, Pixi render utilities and RPC/server surfaces. Tick caches/multipliers are rebuilt; transient transport/source caches differ from saved city/meta. Author data mixes registries and closures. Server implementation is inventory-only.",
+      "yairpg": [
+        "PROPOSAL: Derive visible bonuses from named sources in the existing simulation. Owner: src/feature_expansion_work_plan.js; src/simulation.js."
+      ]
+    },
+    "A04": {
+      "status": "covered",
+      "sources": [
+        "https://github.com/fishpondstudio/CivIdle/blob/e15fe039ed5c0794df05e52258bc9663761a140a/shared/logic/GameStateLogic.ts",
+        "https://github.com/fishpondstudio/CivIdle/blob/e15fe039ed5c0794df05e52258bc9663761a140a/src/scripts/MigrateSavedGame.ts",
+        "https://github.com/fishpondstudio/CivIdle/blob/e15fe039ed5c0794df05e52258bc9663761a140a/src/scripts/utilities/BrowserStorage.ts",
+        "https://github.com/fishpondstudio/CivIdle/blob/e15fe039ed5c0794df05e52258bc9663761a140a/src/scripts/Global.tsx",
+        "https://github.com/fishpondstudio/CivIdle/blob/e15fe039ed5c0794df05e52258bc9663761a140a/src/scripts/ui/SaveCorruptedPage.tsx"
+      ],
+      "summary": "Shown: JSON Map/Set replacer/reviver, city/options split, cloned transit refunds and wyhash metadata. Deserialize calculates checksum without throwing on mismatch and exempts two legacy transport shapes. MigrateSavedGame repairs shapes and uses flags for some one-time repairs. BrowserStorage wraps IndexedDB transactions. Global queues writes and selects Steam compressed file, mobile preferences or browser IndexedDB; local load returns parsed state or null on failure. Complete RPC checksum handling/corruption recovery remains partial.",
+      "yairpg": [
+        "PROPOSAL: Declare transit snapshot policy and review checksum mismatch behavior at every loader. Owner: src/save_files.js; src/save_compatibility.js."
+      ]
+    },
+    "A05": {
+      "status": "partial",
+      "sources": [
+        "https://github.com/fishpondstudio/CivIdle/blob/e15fe039ed5c0794df05e52258bc9663761a140a/shared/logic/TransportSourcePlanner.ts",
+        "https://github.com/fishpondstudio/CivIdle/blob/e15fe039ed5c0794df05e52258bc9663761a140a/shared/logic/Update.ts"
+      ],
+      "summary": "Shown: deterministic source planning and priority production, not individual NPC planners. Sources are indexed by material, distance and current storage order. Multiplayer/server and conquest behavior remain unread.",
+      "yairpg": [
+        "PROPOSAL: An institutional production queue can use explicit priorities without claiming autonomous worker lives. Owner: src/npc_lives.js; world CAMPAIGN.md."
+      ]
+    },
+    "A06": {
+      "status": "covered",
+      "sources": [
+        "https://github.com/fishpondstudio/CivIdle/tree/e15fe039ed5c0794df05e52258bc9663761a140a/src/scripts/ui",
+        "https://github.com/fishpondstudio/CivIdle/blob/e15fe039ed5c0794df05e52258bc9663761a140a/src/scripts/ui/BuildingStorageComponent.tsx",
+        "https://github.com/fishpondstudio/CivIdle/blob/e15fe039ed5c0794df05e52258bc9663761a140a/src/scripts/ui/TutorialModal.tsx"
+      ],
+      "summary": "Shown: tile/city panels, research/rebirth pages, resource/storage views, progress/tutorial modals and chat windows. Selection-dependent pages differ from global flow totals. Actual desktop rendering/accessibility remains untested.",
+      "yairpg": [
+        "PROPOSAL: At 1440x900, keep local work and city totals in separate useful panels. Owner: docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md."
+      ]
+    },
+    "A07": {
+      "status": "covered",
+      "sources": [
+        "https://github.com/fishpondstudio/CivIdle/blob/e15fe039ed5c0794df05e52258bc9663761a140a/shared/definitions/BuildingDefinitions.ts",
+        "https://github.com/fishpondstudio/CivIdle/blob/e15fe039ed5c0794df05e52258bc9663761a140a/shared/logic/CalculateTierAndPrice.ts",
+        "https://github.com/fishpondstudio/CivIdle/blob/e15fe039ed5c0794df05e52258bc9663761a140a/shared/logic/Config.ts"
+      ],
+      "summary": "Shown: TypeScript registries mix data with callbacks; startup asserts enforce recipe/unlock consistency, while a fixpoint derives tier/prices. No public mod load-order API established.",
+      "yairpg": [
+        "PROPOSAL: Add author-time recipe reachability checks to the technology owner if selected. Owner: docs/TECHNOLOGY_AND_PROGRESSION.md."
+      ]
+    },
+    "A08": {
+      "status": "partial",
+      "sources": [
+        "https://github.com/fishpondstudio/CivIdle/blob/e15fe039ed5c0794df05e52258bc9663761a140a/shared/logic/CalculateTierAndPrice.ts",
+        "https://github.com/fishpondstudio/CivIdle/blob/e15fe039ed5c0794df05e52258bc9663761a140a/shared/logic/RebirthLogic.ts",
+        "https://github.com/fishpondstudio/CivIdle/blob/e15fe039ed5c0794df05e52258bc9663761a140a/shared/logic/TechLogic.ts"
+      ],
+      "summary": "Shown: input-value price propagation, exponential tech/level costs, harmonic in-run people and permanent-copy level costs. These are balancing rules, not measured wait times. Happiness and all wonder interactions remain unread.",
+      "yairpg": [
+        "PROPOSAL: Expose marginal cost and source-labelled diminishing bonuses. Owner: docs/TECHNOLOGY_AND_PROGRESSION.md."
+      ]
+    },
+    "A09": {
+      "status": "covered",
+      "sources": [
+        "https://github.com/fishpondstudio/CivIdle/blob/e15fe039ed5c0794df05e52258bc9663761a140a/src/scripts/Bootstrap.tsx",
+        "https://github.com/fishpondstudio/CivIdle/blob/e15fe039ed5c0794df05e52258bc9663761a140a/src/scripts/rpc/RPCClient.tsx",
+        "https://github.com/fishpondstudio/CivIdle/blob/e15fe039ed5c0794df05e52258bc9663761a140a/shared/logic/TransportSourcePlanner.ts"
+      ],
+      "summary": "Shown: absence time is bounded across server/client timestamps; selected share is normal-tick replay and rest is Warp reserve. Planner reset clears current tick sources, while distance caches have separate invalidation. Exact all invalidation callers remain partial.",
+      "yairpg": [
+        "PROPOSAL: Keep absence policy and cache freshness separate; no YAIR offline policy change follows. Owner: src/feature_expansion_work_plan.js; src/simulation.js."
+      ]
+    },
+    "A10": {
+      "status": "covered",
+      "sources": [
+        "https://github.com/fishpondstudio/CivIdle/blob/e15fe039ed5c0794df05e52258bc9663761a140a/src/scripts/logic/Tutorial.ts",
+        "https://github.com/fishpondstudio/CivIdle/blob/e15fe039ed5c0794df05e52258bc9663761a140a/shared/logic/FeatureLogic.ts"
+      ],
+      "summary": "Shown: tutorial entries bind text/video/DOM selector to a current/target predicate. Research unlocks controls such as priority and stockpiling. UI tips are driven by actual progress, not a timer alone.",
+      "yairpg": [
+        "PROPOSAL: Tie instruction completion to an actual action result. Owner: src/native_discovery_policy.js; src/observation_channels.js."
+      ]
+    },
+    "A11": {
+      "status": "covered",
+      "sources": [
+        "https://github.com/fishpondstudio/CivIdle/blob/e15fe039ed5c0794df05e52258bc9663761a140a/src/scripts/ui/SaveCorruptedPage.tsx",
+        "https://github.com/fishpondstudio/CivIdle/blob/e15fe039ed5c0794df05e52258bc9663761a140a/src/scripts/logic/Tutorial.ts",
+        "https://github.com/fishpondstudio/CivIdle/blob/e15fe039ed5c0794df05e52258bc9663761a140a/shared/logic/TickLogic.ts"
+      ],
+      "summary": "Shown: corruption page, tutorial videos, tracked source flags on bonuses and single ordered stall reason. Playback, localization and accessibility behavior are unrun.",
+      "yairpg": [
+        "PROPOSAL: Show the source of a multiplier and distinguish work stopped from work disabled. Owner: docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md."
+      ]
+    },
+    "A12": {
+      "status": "partial",
+      "sources": [
+        "https://github.com/fishpondstudio/CivIdle/blob/e15fe039ed5c0794df05e52258bc9663761a140a/shared/definitions/CityDefinitions.ts",
+        "https://github.com/fishpondstudio/CivIdle/blob/e15fe039ed5c0794df05e52258bc9663761a140a/shared/definitions/UpgradeDefinitions.ts",
+        "https://github.com/fishpondstudio/CivIdle/blob/e15fe039ed5c0794df05e52258bc9663761a140a/src/scripts/ui/ChatPanel.tsx"
+      ],
+      "summary": "Shown inventory: cities, wonders, traditions/religions, Great People, Age Wisdom, market/RPC/chat and achievement surfaces. Only selected city/meta paths were previously covered. Full trading, upgrades, conquest and server validation remain unread.",
+      "yairpg": [
+        "PROPOSAL: Treat a local institution and its durable rewards as distinct from city reset state. Owner: docs/TECHNOLOGY_AND_PROGRESSION.md."
+      ]
+    }
+  },
+  "proposals": [
+    {
+      "id": "P1",
+      "title": "Predicate-based local tutorial",
+      "owner": "src/native_discovery_policy.js; src/observation_channels.js",
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "P2",
+      "title": "Bonus source ledger",
+      "owner": "docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md",
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "P3",
+      "title": "Recipe graph author checks",
+      "owner": "docs/TECHNOLOGY_AND_PROGRESSION.md",
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "P4",
+      "title": "Explicit transit snapshot policy",
+      "owner": "src/save_files.js; src/save_compatibility.js",
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "P5",
+      "title": "Priority and named stall view",
+      "owner": "src/feature_expansion_work_plan.js; src/simulation.js",
+      "status": "PROPOSAL"
+    }
+  ],
+  "small_touches": [
+    {
+      "id": "T01",
+      "idea": "PROPOSAL: Keep multiplayer-like notices separate from an NPC conversation record. Owner: docs/worlds/PROGRESSION_AND_ASSEMBLY.md; src/data/dialogues.js; src/life_record.js.",
+      "inspiration": "A01",
+      "source_status": "absent"
+    },
+    {
+      "id": "T02",
+      "idea": "PROPOSAL: Use a dated local achievement record without inventing witnessed scenes. Owner: docs/worlds/PROGRESSION_AND_ASSEMBLY.md; src/data/dialogues.js; src/life_record.js.",
+      "inspiration": "A02",
+      "source_status": "partial"
+    },
+    {
+      "id": "T03",
+      "idea": "PROPOSAL: Derive visible bonuses from named sources in the existing simulation. Owner: src/feature_expansion_work_plan.js; src/simulation.js.",
+      "inspiration": "A03",
+      "source_status": "covered"
+    },
+    {
+      "id": "T04",
+      "idea": "PROPOSAL: Declare transit snapshot policy and review checksum mismatch behavior at every loader. Owner: src/save_files.js; src/save_compatibility.js.",
+      "inspiration": "A04",
+      "source_status": "covered"
+    },
+    {
+      "id": "T05",
+      "idea": "PROPOSAL: An institutional production queue can use explicit priorities without claiming autonomous worker lives. Owner: src/npc_lives.js; world CAMPAIGN.md.",
+      "inspiration": "A05",
+      "source_status": "partial"
+    },
+    {
+      "id": "T06",
+      "idea": "PROPOSAL: At 1440x900, keep local work and city totals in separate useful panels. Owner: docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md.",
+      "inspiration": "A06",
+      "source_status": "covered"
+    },
+    {
+      "id": "T07",
+      "idea": "PROPOSAL: Add author-time recipe reachability checks to the technology owner if selected. Owner: docs/TECHNOLOGY_AND_PROGRESSION.md.",
+      "inspiration": "A07",
+      "source_status": "covered"
+    },
+    {
+      "id": "T08",
+      "idea": "PROPOSAL: Expose marginal cost and source-labelled diminishing bonuses. Owner: docs/TECHNOLOGY_AND_PROGRESSION.md.",
+      "inspiration": "A08",
+      "source_status": "partial"
+    },
+    {
+      "id": "T09",
+      "idea": "PROPOSAL: Keep absence policy and cache freshness separate; no YAIR offline policy change follows. Owner: src/feature_expansion_work_plan.js; src/simulation.js.",
+      "inspiration": "A09",
+      "source_status": "covered"
+    },
+    {
+      "id": "T10",
+      "idea": "PROPOSAL: Tie instruction completion to an actual action result. Owner: src/native_discovery_policy.js; src/observation_channels.js.",
+      "inspiration": "A10",
+      "source_status": "covered"
+    },
+    {
+      "id": "T11",
+      "idea": "PROPOSAL: Show the source of a multiplier and distinguish work stopped from work disabled. Owner: docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md.",
+      "inspiration": "A11",
+      "source_status": "covered"
+    },
+    {
+      "id": "T12",
+      "idea": "PROPOSAL: Treat a local institution and its durable rewards as distinct from city reset state. Owner: docs/TECHNOLOGY_AND_PROGRESSION.md.",
+      "inspiration": "A12",
+      "source_status": "partial"
+    },
+    {
+      "id": "T13",
+      "idea": "PROPOSAL: Show a scene as encountered only after its delivery route succeeds. Owner: docs/worlds/PROGRESSION_AND_ASSEMBLY.md; src/data/dialogues.js; src/life_record.js.",
+      "inspiration": "A01/A02",
+      "source_status": "inferred adaptation, not a source feature claim"
+    },
+    {
+      "id": "T14",
+      "idea": "PROPOSAL: Keep a known scene available for rereading without replaying its reward. Owner: docs/worlds/PROGRESSION_AND_ASSEMBLY.md; src/data/dialogues.js; src/life_record.js.",
+      "inspiration": "A02/A04",
+      "source_status": "inferred adaptation, not a source feature claim"
+    },
+    {
+      "id": "T15",
+      "idea": "PROPOSAL: Show the last successful save time separately from a failed attempt. Owner: src/save_files.js; src/save_compatibility.js.",
+      "inspiration": "A04",
+      "source_status": "inferred adaptation, not a source feature claim"
+    },
+    {
+      "id": "T16",
+      "idea": "PROPOSAL: Give a restored backup a visible loss-of-recent-progress notice. Owner: src/save_files.js; src/save_compatibility.js.",
+      "inspiration": "A04",
+      "source_status": "inferred adaptation, not a source feature claim"
+    },
+    {
+      "id": "T17",
+      "idea": "PROPOSAL: Preserve the intended work target when a missing input pauses it. Owner: src/feature_expansion_work_plan.js; src/simulation.js.",
+      "inspiration": "A03/A09",
+      "source_status": "inferred adaptation, not a source feature claim"
+    },
+    {
+      "id": "T18",
+      "idea": "PROPOSAL: Label a rate estimate as projected and a settlement as actual. Owner: docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md.",
+      "inspiration": "A08/A09",
+      "source_status": "inferred adaptation, not a source feature claim"
+    },
+    {
+      "id": "T19",
+      "idea": "PROPOSAL: Expose the source of one active modifier beside its effect. Owner: docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md.",
+      "inspiration": "A06/A08",
+      "source_status": "inferred adaptation, not a source feature claim"
+    },
+    {
+      "id": "T20",
+      "idea": "PROPOSAL: Keep owned, assigned and currently usable support distinct in one local row. Owner: src/npc_lives.js; world CAMPAIGN.md.",
+      "inspiration": "A05/A12",
+      "source_status": "inferred adaptation, not a source feature claim"
+    }
+  ],
+  "unread": "Server/RPC save rejection joins, network trade/conquest, all wonder/upgrade/happiness effects and transport invalidation callers remain unread. No install adds static evidence.",
+  "runtime_exercised": false,
+  "game_installs": [],
+  "source_pins": [
+    {
+      "name": "cividle",
+      "url": "https://github.com/fishpondstudio/CivIdle.git",
+      "exit": 0,
+      "log": "Cloning into '/Users/weiwei/.codex/research/bf-idle-src/repos/cividle'...\n",
+      "commit": "e15fe039ed5c0794df05e52258bc9663761a140a"
+    }
+  ]
+}

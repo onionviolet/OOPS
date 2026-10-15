@@ -1,0 +1,64 @@
+{
+  "status": "PASS",
+  "method": "schema/count/path/local-link/extract-integrity checks, not runtime behavior",
+  "games": [
+    {
+      "game": "bitburner",
+      "aspect_rows": 12,
+      "proposals": 5,
+      "touches": 20,
+      "required_files": 10,
+      "source_reference_gaps": []
+    },
+    {
+      "game": "cividle",
+      "aspect_rows": 12,
+      "proposals": 5,
+      "touches": 20,
+      "required_files": 10,
+      "source_reference_gaps": []
+    },
+    {
+      "game": "open-idle-games-2026-10-09",
+      "aspect_rows": 12,
+      "proposals": 5,
+      "touches": 20,
+      "required_files": 10,
+      "source_reference_gaps": []
+    },
+    {
+      "game": "theory-of-magic",
+      "aspect_rows": 12,
+      "proposals": 5,
+      "touches": 20,
+      "required_files": 10,
+      "source_reference_gaps": []
+    },
+    {
+      "game": "trimps-antimatter",
+      "aspect_rows": 12,
+      "proposals": 5,
+      "touches": 20,
+      "required_files": 10,
+      "source_reference_gaps": []
+    },
+    {
+      "game": "cultivation-idlers",
+      "aspect_rows": 12,
+      "proposals": 5,
+      "touches": 20,
+      "required_files": 10,
+      "source_reference_gaps": []
+    },
+    {
+      "game": "melvor-idle",
+      "aspect_rows": 12,
+      "proposals": 5,
+      "touches": 20,
+      "required_files": 10,
+      "source_reference_gaps": []
+    }
+  ],
+  "hashes_matched": 8364,
+  "errors": []
+}

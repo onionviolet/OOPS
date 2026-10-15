@@ -43,6 +43,8 @@ import {createHouseholdPanel} from './absorb_p23/host_joins/tranche_one_ui.js';
 import {STREAMS,ensureStreams,bindGameStreams,gameKeyedRandom,gameRandom,gameRandomRange,drawUnit,scopedStream,seededRecipe,validateNativeEncounter,streamSeed} from "./seeded_streams.js";
 import {GRADED_IDS,createHarvest,validateHarvest,supportedHarvest,drawSpecimen,addCarcass,beginHarvest,cancelHarvest,advanceHarvest,consumedHarvestQuality,gradedKey} from './harvest.js';
 import {createHarvestPanel} from './harvest_ui.js';
+import {validateHabitat,planHabitatAction} from './habitat_care.js';
+import {createHabitatPanel} from './habitat_care_ui.js';
 import {setProductAppearanceOwner} from './product_appearance_view.js';
 import {resolveWorldCalendar, createCalendarLog} from './world_calendar.js';
 import {worldWeatherWords} from './world_weather_display.js';
@@ -2115,6 +2117,29 @@ function commandOptionalPack(id,action) {
 }
 
 let harvestOwner=null;
+let habitatOwner=null;
+let habitatPanel;
+function habitatContext(){return {owner:habitatOwner,clock:calendarMinutes(current_game_time),
+    money:character.money,inventory:Object.fromEntries(Object.entries(character.getItems()).map(([k,r])=>[k,r.count])),
+    location:current_location?.id,world:expansionState.actors.player.worldId,
+    ready:harvestReady()&&!nativeActionReasons(expansionState).length,inDialogue:!!current_dialogue,inCombat:!!current_combat};}
+function actHabitat(action){
+    const plan=planHabitatAction(habitatOwner,action,habitatContext());
+    for(const row of plan.items)if(row.amount<0)assertNativeItemDisposition(expansionState,row.key);
+    const transaction=beginNativeCraftTransaction({owners:[character,character.getItems(),item_log,favourite_items,favourite_consumables],
+        bindings:[{get:()=>habitatOwner,set:v=>{habitatOwner=v;}}]});
+    try{
+        habitatOwner=plan.state;character.money=plan.money;
+        for(const row of plan.items){
+            if(row.amount<0)character.removeFromInventory([{item_key:row.key,item_count:-row.amount}]);
+            else character.addToInventory([{item_key:row.key,count:row.amount}]);
+        }
+        const serialized=create_save();if(!serialized)throw Error('Could not save meadow pen care.');
+        validateSaveEnvelope(JSON.parse(serialized),game_version);
+        lifeSaveStorage.setItem(is_on_dev()?dev_save_key:save_key,serialized,()=>transaction.markDurable());
+    }catch(e){if(transaction.status==='pending')transaction.rollback();throw e;}
+    finally{update_displayed_character_inventory();update_displayed_money();update_displayed_crafting_recipes();habitatPanel?.render();}
+}
 let harvestPanel;
 function harvestContext(){
     const weapon=character.getEquipment().weapon;
@@ -6348,6 +6373,7 @@ function create_save({forExport = false} = {}) {
         
         save_data["current location"] = current_location.id;
         if(harvestOwner)save_data.harvest=structuredClone(validateHarvest(harvestOwner,calendarMinutes(current_game_time)));
+        if(habitatOwner)save_data.meadow_pen=structuredClone(validateHabitat(habitatOwner,calendarMinutes(current_game_time)));
         save_data.native_encounter = current_location.id===AREA_ID&&!p23EncounterProfile?.pending?null:(current_combat?.snapshot(current_location.id) || pendingNativeEncounter);
 
         save_data["locations"] = {};
@@ -6664,6 +6690,7 @@ function load(save_data) {
             loadedDisplayPreferences=save_data.display_preferences;
             setMixtureOwner(save_data.mixtures);
             harvestOwner=save_data.harvest==null?null:structuredClone(validateHarvest(save_data.harvest,calendarMinutes(save_data["current time"])));
+            habitatOwner=save_data.meadow_pen==null?null:structuredClone(validateHabitat(save_data.meadow_pen,calendarMinutes(save_data['current time'])));
             cheatState=validateCheatState(save_data.cheats??defaultCheatState());
             optionalPackState=validatePackState(save_data.content_packs??emptyPackState());
             localLife=normalizeLocalLife(save_data.absorb_local_life);
@@ -9364,7 +9391,7 @@ const saveOwnership = acquireSaveOwnership().then(owned => {
     chroniclePanel?.render(true);
     villagePanel?.render(true);
     simulationPanel?.render(); pursuitPanel?.render(); fieldPanel?.render(); promisePanel?.render(); crushSocialPanel?.render(); managementPanel?.render(); bodyPanel?.render(); townPanel?.render();
-    frontierCampaignPanel?.render();
+    frontierCampaignPanel?.render();partyPanel?.render();
     featureExpansionPanel?.render();foundationInteractionPanel?.render();
     knownRoutesPanel?.render();adventureNotebook?.render();livingGearPanel?.render();combatOptionsPanel?.render(); worldEventFeed?.render();
     trancheFourPanel?.render();trainingPanel?.render();growthPanel?.render();mistglassPanel?.render();readingSalvagePanel?.render();titlesPanel?.render();updateWorkspace();
@@ -9730,6 +9757,7 @@ update_displayed_equipment();
 sort_displayed_inventory({sort_by: "name", target: "character"});
 
 if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
+    habitatPanel=createHabitatPanel({parent:document.getElementById('location_actions_div'),read:habitatContext,act:actHabitat});
     harvestPanel=createHarvestPanel({container:document.getElementById('location_actions_div'),read:()=>({state:harvestOwner,context:harvestContext(),writable:harvestWritable(),ready:harvestReady()}),readInspector:()=>({harvest:harvestOwner,mixtures:getMixtureOwner(),ruleTrace:getMixtureOwner()?.ruleLaws?.receipts?.[getMixtureOwner()?.ruleLaws?.lastReceipt]?.trace,expansion:expansionState,inventory:character.getItems(),clock:calendarMinutes(current_game_time),handling:{context:harvestContext(),ready:harvestReady(),automaticReady:harvestWritable()&&harvestAutomaticReady()}}),act:actHarvest,developer:is_on_dev()||new URLSearchParams(location.search).get("harvest-inspector")==="1"});
     if(structuredPacks.size)structuredPanel=createStructuredPackPanel({read:readStructuredCampaign,command:commandStructuredCampaign});
     optionalPackPanel=createContentPackPanel({definitions:optionalPacks,always:true,

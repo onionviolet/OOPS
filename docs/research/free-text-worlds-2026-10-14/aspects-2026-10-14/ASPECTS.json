@@ -1,0 +1,554 @@
+{
+  "A01": {
+    "status": "partial",
+    "summary": "URR SHOWN: first_talking_message derives appearance/equipment text from an NPC; conversation_ending_class_statement chooses role-specific closure variants. Its built-in conversation guide STATES range, sleep, politeness, topic knowledge and title-gated book questions; those guide statements are not full predicate implementation proof. Achaea STATED: GREET starts NPC interaction; loyal denizens accept commands, village witnesses affect reputation. Godville STATED: diary and optional godvoice/influence, not a conventional NPC tree. PQ SHOWN: generated task/plot prose, no branching dialogue graph found in inspected core. Gu: dialogue corpus and conditions unread.",
+    "sources": [
+      {
+        "kind": "shown",
+        "path": "/Users/weiwei/.codex/research/asp-text/extract/urr-first_talking_message.dis.txt",
+        "locator": "URR0104d.py bytecode, first_talking_message, original first line 807797",
+        "revision": "official 0.10.4d; prior CRC-verified PyInstaller entry"
+      },
+      {
+        "kind": "shown",
+        "path": "/Users/weiwei/.codex/research/asp-text/extract/urr-conversation_ending_class_statement.dis.txt",
+        "locator": "URR0104d.py bytecode, conversation_ending_class_statement, original first line 180895",
+        "revision": "official 0.10.4d; prior CRC-verified PyInstaller entry"
+      },
+      {
+        "kind": "shown",
+        "path": "/Users/weiwei/.codex/research/asp-text/extract/urr-conversations_diagram.dis.txt",
+        "locator": "URR0104d.py bytecode, conversations_diagram, original first line 18757",
+        "revision": "official 0.10.4d; prior CRC-verified PyInstaller entry"
+      },
+      {
+        "kind": "stated",
+        "url": "https://www.achaea.com/game-help?what=denizens",
+        "locator": "7.1 DENIZENS, current public help",
+        "revision": "2026-10-14 read; dated posts retain their own date"
+      },
+      {
+        "kind": "shown",
+        "path": "/Users/weiwei/.codex/research/free-text-worlds/extract/pq-main.js",
+        "url": "https://progressquest.com/play/main.js",
+        "locator": "InterplotCinematic, Dequeue",
+        "revision": "prior official 2026-10-14 capture, re-read static bytes"
+      },
+      {
+        "kind": "stated",
+        "url": "https://store.steampowered.com/app/3443480/",
+        "locator": "prior captured store; B站蛊道求真",
+        "revision": "2026-10-14 read; dated posts retain their own date"
+      },
+      {
+        "kind": "stated",
+        "url": "https://store.steampowered.com/app/4218540/",
+        "locator": "prior captured store; LIHAONAN",
+        "revision": "2026-10-14 read; dated posts retain their own date"
+      }
+    ],
+    "yairpg": [
+      {
+        "status": "PROPOSAL",
+        "takeaway": "Use actor facts for description and role-aware replies; unlock inquiries from learned facts rather than universal NPC omniscience.",
+        "owner": "docs/worlds/DIALOGUE_AND_INTERACTIONS.md"
+      }
+    ]
+  },
+  "A02": {
+    "status": "partial",
+    "summary": "URR SHOWN prior History routine composes dated prose from civilization/religion facts; new closure/introduction routines ground speech in NPC fields. PQ SHOWN queues task and plot beats with nested bars. Godville STATED diary/hero ID update on achievements. Achaea STATED NPC quest rewards and social memory. Gu store mentions story tasks but no journal/branch code. None establishes a complete narrative catalogue.",
+    "sources": [
+      {
+        "kind": "shown",
+        "path": "/Users/weiwei/.codex/research/asp-text/extract/urr-first_talking_message.dis.txt",
+        "locator": "URR0104d.py bytecode, first_talking_message, original first line 807797",
+        "revision": "official 0.10.4d; prior CRC-verified PyInstaller entry"
+      },
+      {
+        "kind": "shown",
+        "path": "/Users/weiwei/.codex/research/free-text-worlds/extract/pq-main.js",
+        "url": "https://progressquest.com/play/main.js",
+        "locator": "InterplotCinematic, CompleteQuest",
+        "revision": "prior official 2026-10-14 capture, re-read static bytes"
+      },
+      {
+        "kind": "stated",
+        "url": "https://godvillegame.com/blog/",
+        "locator": "April 5, June 9, July 17 and August 28 2026 developer posts",
+        "revision": "2026-10-14 read; dated posts retain their own date"
+      },
+      {
+        "kind": "stated",
+        "url": "https://www.achaea.com/game-help?what=denizens",
+        "locator": "7.1 DENIZENS, current public help",
+        "revision": "2026-10-14 read; dated posts retain their own date"
+      },
+      {
+        "kind": "stated",
+        "url": "https://store.steampowered.com/app/3443480/",
+        "locator": "prior captured store; B站蛊道求真",
+        "revision": "2026-10-14 read; dated posts retain their own date"
+      },
+      {
+        "kind": "stated",
+        "url": "https://store.steampowered.com/app/4218540/",
+        "locator": "prior captured store; LIHAONAN",
+        "revision": "2026-10-14 read; dated posts retain their own date"
+      }
+    ],
+    "yairpg": [
+      {
+        "status": "PROPOSAL",
+        "takeaway": "Render histories and return summaries from committed events; preserve source facts outside funny text.",
+        "owner": "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md"
+      }
+    ]
+  },
+  "A03": {
+    "status": "partial",
+    "summary": "URR SHOWN: large Python 3.7 PyInstaller entry and libtcod calls; recovered index has 1,041 code objects. New static save routines use shelve and spatial chunks. PQ SHOWN: JavaScript/jQuery client, worker sends 50 ms tick, page owns simulation, config.js holds RNG/content/storage. Achaea/Godville server internals unavailable. Gu engine remains unread despite store art/tags.",
+    "sources": [
+      {
+        "kind": "shown",
+        "path": "/Users/weiwei/.codex/research/asp-text/extract/urr-new_save.dis.txt",
+        "locator": "URR0104d.py bytecode, new_save, original first line 85860",
+        "revision": "official 0.10.4d; prior CRC-verified PyInstaller entry"
+      },
+      {
+        "kind": "shown",
+        "path": "/Users/weiwei/.codex/research/asp-text/extract/urr-new_load_game.dis.txt",
+        "locator": "URR0104d.py bytecode, new_load_game, original first line 1113539",
+        "revision": "official 0.10.4d; prior CRC-verified PyInstaller entry"
+      },
+      {
+        "kind": "shown",
+        "path": "/Users/weiwei/.codex/research/free-text-worlds/extract/pq-clock.js",
+        "url": "https://progressquest.com/play/clock.js",
+        "locator": "worker start/stop",
+        "revision": "prior official 2026-10-14 capture, re-read static bytes"
+      },
+      {
+        "kind": "shown",
+        "path": "/Users/weiwei/.codex/research/free-text-worlds/extract/pq-config.js",
+        "url": "https://progressquest.com/play/config.js",
+        "locator": "Alea, storage adapters",
+        "revision": "prior official 2026-10-14 capture, re-read static bytes"
+      }
+    ],
+    "yairpg": [
+      {
+        "status": "PROPOSAL",
+        "takeaway": "Separate source/clock/storage boundaries; server marketing and package symbols do not establish gameplay architecture.",
+        "owner": "docs/ENGINE_EXPANSION.md"
+      }
+    ]
+  },
+  "A04": {
+    "status": "partial",
+    "summary": "URR SHOWN: new_save stores Outside and Buildings in per-coordinate shelves, replacing unloaded maps with a saved sentinel; new_load retrieves those fields. quit_save2 writes a central world shelf including Worlddata, Schedule, Tracker, Time, Player, Unlocks and Squares, with version metadata elsewhere in the flow. new_load_game recalculates path maps. Exact migration, corruption rejection and RNG restoration unread. PQ SHOWN: JSON roster, UTF-8-safe base64 export/import, SaveGame stores stamp and Alea state, LoadGame resumes and patches renamed spells. Achaea/Godville/Gu save internals unread; automatic server activity is not proof of an offline formula.",
+    "sources": [
+      {
+        "kind": "shown",
+        "path": "/Users/weiwei/.codex/research/asp-text/extract/urr-new_save.dis.txt",
+        "locator": "URR0104d.py bytecode, new_save, original first line 85860",
+        "revision": "official 0.10.4d; prior CRC-verified PyInstaller entry"
+      },
+      {
+        "kind": "shown",
+        "path": "/Users/weiwei/.codex/research/asp-text/extract/urr-new_load.dis.txt",
+        "locator": "URR0104d.py bytecode, new_load, original first line 88757",
+        "revision": "official 0.10.4d; prior CRC-verified PyInstaller entry"
+      },
+      {
+        "kind": "shown",
+        "path": "/Users/weiwei/.codex/research/asp-text/extract/urr-quit_save2.dis.txt",
+        "locator": "URR0104d.py bytecode, quit_save2, original first line 85272",
+        "revision": "official 0.10.4d; prior CRC-verified PyInstaller entry"
+      },
+      {
+        "kind": "shown",
+        "path": "/Users/weiwei/.codex/research/asp-text/extract/urr-new_load_game.dis.txt",
+        "locator": "URR0104d.py bytecode, new_load_game, original first line 1113539",
+        "revision": "official 0.10.4d; prior CRC-verified PyInstaller entry"
+      },
+      {
+        "kind": "shown",
+        "path": "/Users/weiwei/.codex/research/free-text-worlds/extract/pq-main.js",
+        "url": "https://progressquest.com/play/main.js",
+        "locator": "SaveGame, LoadGame",
+        "revision": "prior official 2026-10-14 capture, re-read static bytes"
+      },
+      {
+        "kind": "shown",
+        "path": "/Users/weiwei/.codex/research/free-text-worlds/extract/pq-roster.js",
+        "url": "https://progressquest.com/play/roster.js",
+        "locator": "b64_stringify, dropGuy",
+        "revision": "prior official 2026-10-14 capture, re-read static bytes"
+      }
+    ],
+    "yairpg": [
+      {
+        "status": "PROPOSAL",
+        "takeaway": "Separate committed world state, derived path/UI state and recoverable chunk state; preserve pending task and RNG context together.",
+        "owner": "docs/ENGINE_SAVES_AND_SCALE_REVIEW_2026-10-11.md"
+      }
+    ]
+  },
+  "A05": {
+    "status": "partial",
+    "summary": "URR SHOWN: Schedule.next_turn pops the current turn bucket; day/night gates affect crowd handling. NPC.do_turn checks role, place, task and AI state; the merchant branch places or withdraws actual shop items. Full planner, knowledge flow and sleep admission remain partial. Achaea STATED: loyal orders and witness propagation can change village reaction; server rule implementation unread. Godville STATED auto hero behavior with optional intervention. PQ SHOWN automatic routine transitions, not deep NPC lives. Gu AI unread.",
+    "sources": [
+      {
+        "kind": "shown",
+        "path": "/Users/weiwei/.codex/research/asp-text/extract/urr-NPC.do_turn.dis.txt",
+        "locator": "URR0104d.py bytecode, NPC.do_turn, original first line 188587",
+        "revision": "official 0.10.4d; prior CRC-verified PyInstaller entry"
+      },
+      {
+        "kind": "shown",
+        "path": "/Users/weiwei/.codex/research/asp-text/extract/urr-Schedule.next_turn.dis.txt",
+        "locator": "URR0104d.py bytecode, Schedule.next_turn, original first line 145657",
+        "revision": "official 0.10.4d; prior CRC-verified PyInstaller entry"
+      },
+      {
+        "kind": "shown",
+        "path": "/Users/weiwei/.codex/research/asp-text/extract/urr-meet_up_with_changing_npc.dis.txt",
+        "locator": "URR0104d.py bytecode, meet_up_with_changing_npc, original first line 151437",
+        "revision": "official 0.10.4d; prior CRC-verified PyInstaller entry"
+      },
+      {
+        "kind": "stated",
+        "url": "https://www.achaea.com/game-help?what=denizens",
+        "locator": "7.1 DENIZENS, current public help",
+        "revision": "2026-10-14 read; dated posts retain their own date"
+      },
+      {
+        "kind": "stated",
+        "url": "https://godvillegame.com/blog/",
+        "locator": "April 5, June 9, July 17 and August 28 2026 developer posts",
+        "revision": "2026-10-14 read; dated posts retain their own date"
+      },
+      {
+        "kind": "shown",
+        "path": "/Users/weiwei/.codex/research/free-text-worlds/extract/pq-main.js",
+        "url": "https://progressquest.com/play/main.js",
+        "locator": "Dequeue",
+        "revision": "prior official 2026-10-14 capture, re-read static bytes"
+      }
+    ],
+    "yairpg": [
+      {
+        "status": "PROPOSAL",
+        "takeaway": "Define actor knowledge and witnessed social events with real causes; keep automatic routines distinct from autonomous planning.",
+        "owner": "docs/CHARACTERS_AND_WORLD_EVENTS.md"
+      }
+    ]
+  },
+  "A06": {
+    "status": "partial",
+    "summary": "URR SHOWN tcod guide and render calls, appearance messages and save-progress display. PQ SHOWN multiple task/XP/quest/plot bars and roster export/import controls. Godville STATED contextual help, special-enemy icons, one-event alerts and discoverable zones. Achaea text commands/help documented. Gu desktop layout unverified. No UI was exercised.",
+    "sources": [
+      {
+        "kind": "shown",
+        "path": "/Users/weiwei/.codex/research/asp-text/extract/urr-conversations_diagram.dis.txt",
+        "locator": "URR0104d.py bytecode, conversations_diagram, original first line 18757",
+        "revision": "official 0.10.4d; prior CRC-verified PyInstaller entry"
+      },
+      {
+        "kind": "shown",
+        "path": "/Users/weiwei/.codex/research/asp-text/extract/urr-quit_save2.dis.txt",
+        "locator": "URR0104d.py bytecode, quit_save2, original first line 85272",
+        "revision": "official 0.10.4d; prior CRC-verified PyInstaller entry"
+      },
+      {
+        "kind": "shown",
+        "path": "/Users/weiwei/.codex/research/free-text-worlds/extract/pq-roster.js",
+        "url": "https://progressquest.com/play/roster.js",
+        "locator": "loadGames",
+        "revision": "prior official 2026-10-14 capture, re-read static bytes"
+      },
+      {
+        "kind": "stated",
+        "url": "https://godvillegame.com/blog/",
+        "locator": "April 5, June 9, July 17 and August 28 2026 developer posts",
+        "revision": "2026-10-14 read; dated posts retain their own date"
+      },
+      {
+        "kind": "stated",
+        "url": "https://www.achaea.com/game-help?what=denizens",
+        "locator": "7.1 DENIZENS, current public help",
+        "revision": "2026-10-14 read; dated posts retain their own date"
+      }
+    ],
+    "yairpg": [
+      {
+        "status": "PROPOSAL",
+        "takeaway": "At 1440x900 with 1366x768 follow-up, show task, location, project and causal log together; mobile optimization deferred.",
+        "owner": "docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md"
+      }
+    ]
+  },
+  "A07": {
+    "status": "partial",
+    "summary": "URR shipped monolithic recovered bytecode is not a supported mod API. PQ config arrays and queue strings drive names/tasks; storage and render code are ordinary JS. Godville STATED community Ideabox review supplies new text/monsters/quests. Achaea prior help lists creative trades and permissions, not public server modding. Gu store Workshop badge is not a read authoring API.",
+    "sources": [
+      {
+        "kind": "shown",
+        "path": "/Users/weiwei/.codex/research/free-text-worlds/extract/pq-config.js",
+        "url": "https://progressquest.com/play/config.js",
+        "locator": "K.* arrays",
+        "revision": "prior official 2026-10-14 capture, re-read static bytes"
+      },
+      {
+        "kind": "shown",
+        "path": "/Users/weiwei/.codex/research/free-text-worlds/extract/pq-main.js",
+        "url": "https://progressquest.com/play/main.js",
+        "locator": "Q, InterplotCinematic",
+        "revision": "prior official 2026-10-14 capture, re-read static bytes"
+      },
+      {
+        "kind": "stated",
+        "url": "https://godvillegame.com/blog/",
+        "locator": "April 5, June 9, July 17 and August 28 2026 developer posts",
+        "revision": "2026-10-14 read; dated posts retain their own date"
+      },
+      {
+        "kind": "stated",
+        "url": "https://store.steampowered.com/app/3443480/",
+        "locator": "prior captured store; B站蛊道求真",
+        "revision": "2026-10-14 read; dated posts retain their own date"
+      },
+      {
+        "kind": "stated",
+        "url": "https://store.steampowered.com/app/4218540/",
+        "locator": "prior captured store; LIHAONAN",
+        "revision": "2026-10-14 read; dated posts retain their own date"
+      }
+    ],
+    "yairpg": [
+      {
+        "status": "PROPOSAL",
+        "takeaway": "Use small validated variant pools with predicates and factual references; keep submission review distinct from automatic acceptance.",
+        "owner": "docs/ENGINE_AUTHORING.md"
+      }
+    ]
+  },
+  "A08": {
+    "status": "partial",
+    "summary": "PQ SHOWN: Alea retains four state values; Random(n) uses uint32 modulo n, named-monster selection takes closest level among five samples. This is not a pity guarantee or unbiased sampling proof. URR prior generators use pools/constraints and RNG calls; whole-world deterministic replay unread. Achaea lesson costs and commodity prices stated, matching algorithm unread. Godville/Gu precise numeric systems unread.",
+    "sources": [
+      {
+        "kind": "shown",
+        "path": "/Users/weiwei/.codex/research/free-text-worlds/extract/pq-config.js",
+        "url": "https://progressquest.com/play/config.js",
+        "locator": "Alea.state, Random",
+        "revision": "prior official 2026-10-14 capture, re-read static bytes"
+      },
+      {
+        "kind": "shown",
+        "path": "/Users/weiwei/.codex/research/free-text-worlds/extract/pq-main.js",
+        "url": "https://progressquest.com/play/main.js",
+        "locator": "NamedMonster",
+        "revision": "prior official 2026-10-14 capture, re-read static bytes"
+      },
+      {
+        "kind": "shown",
+        "path": "/Users/weiwei/.codex/research/asp-text/extract/urr-new_save.dis.txt",
+        "locator": "URR0104d.py bytecode, new_save, original first line 85860",
+        "revision": "official 0.10.4d; prior CRC-verified PyInstaller entry"
+      }
+    ],
+    "yairpg": [
+      {
+        "status": "PROPOSAL",
+        "takeaway": "Keep authoritative random outcomes addressed and persisted; flavor sampling must not invent authority or imply fair odds.",
+        "owner": "docs/GENERATION_FOUNDATION_RULES_2026-10-14.md"
+      }
+    ]
+  },
+  "A09": {
+    "status": "partial",
+    "summary": "PQ SHOWN: worker ticks every 50 ms; page delta capped to 100 ms; saved stamp is not replayed as absence in LoadGame. URR central shelf stores Time and Schedule; Time.take_turn changes calendar and travel-supply state, while recalculated path data differs from retained clock state. Its starvation/death branches are source behavior, not proposed YAIRPG policy. Full scheduler integration remains partial. Godville STATED daily anomalies and auto activity but exact simulation clock unread. Achaea public help states reputation decays over game time. Gu feeding/cooldown schedules unread.",
+    "sources": [
+      {
+        "kind": "shown",
+        "path": "/Users/weiwei/.codex/research/free-text-worlds/extract/pq-clock.js",
+        "url": "https://progressquest.com/play/clock.js",
+        "locator": "tick interval",
+        "revision": "prior official 2026-10-14 capture, re-read static bytes"
+      },
+      {
+        "kind": "shown",
+        "path": "/Users/weiwei/.codex/research/free-text-worlds/extract/pq-main.js",
+        "url": "https://progressquest.com/play/main.js",
+        "locator": "Timer1Timer, LoadGame",
+        "revision": "prior official 2026-10-14 capture, re-read static bytes"
+      },
+      {
+        "kind": "shown",
+        "path": "/Users/weiwei/.codex/research/asp-text/extract/urr-quit_save2.dis.txt",
+        "locator": "URR0104d.py bytecode, quit_save2, original first line 85272",
+        "revision": "official 0.10.4d; prior CRC-verified PyInstaller entry"
+      },
+      {
+        "kind": "shown",
+        "path": "/Users/weiwei/.codex/research/asp-text/extract/urr-Time.take_turn.dis.txt",
+        "locator": "URR0104d.py bytecode, Time.take_turn, original first line 832490",
+        "revision": "official 0.10.4d; prior CRC-verified PyInstaller entry"
+      },
+      {
+        "kind": "stated",
+        "url": "https://www.achaea.com/game-help?what=denizens",
+        "locator": "7.1 DENIZENS, current public help",
+        "revision": "2026-10-14 read; dated posts retain their own date"
+      },
+      {
+        "kind": "stated",
+        "url": "https://godvillegame.com/blog/",
+        "locator": "April 5, June 9, July 17 and August 28 2026 developer posts",
+        "revision": "2026-10-14 read; dated posts retain their own date"
+      }
+    ],
+    "yairpg": [
+      {
+        "status": "PROPOSAL",
+        "takeaway": "An idle summary should report actual elapsed work, blockers and remaining budget; do not invent offline catch-up from continuous progression.",
+        "owner": "docs/TIMELINES_AND_DIVERGENCE.md"
+      }
+    ]
+  },
+  "A10": {
+    "status": "partial",
+    "summary": "URR built-in guide describes topic families and knowledge-gated questions. PQ roster separates creation/resume/export; tutorial flow outside captured core remains unread. Godville contextual help can be disabled and zones reveal through experience/influence. Achaea public help is command-oriented. Gu only store feature promises, no onboarding code.",
+    "sources": [
+      {
+        "kind": "shown",
+        "path": "/Users/weiwei/.codex/research/asp-text/extract/urr-conversations_diagram.dis.txt",
+        "locator": "URR0104d.py bytecode, conversations_diagram, original first line 18757",
+        "revision": "official 0.10.4d; prior CRC-verified PyInstaller entry"
+      },
+      {
+        "kind": "shown",
+        "path": "/Users/weiwei/.codex/research/free-text-worlds/extract/pq-roster.js",
+        "url": "https://progressquest.com/play/roster.js",
+        "locator": "load",
+        "revision": "prior official 2026-10-14 capture, re-read static bytes"
+      },
+      {
+        "kind": "stated",
+        "url": "https://godvillegame.com/blog/",
+        "locator": "April 5, June 9, July 17 and August 28 2026 developer posts",
+        "revision": "2026-10-14 read; dated posts retain their own date"
+      },
+      {
+        "kind": "stated",
+        "url": "https://www.achaea.com/game-help?what=denizens",
+        "locator": "7.1 DENIZENS, current public help",
+        "revision": "2026-10-14 read; dated posts retain their own date"
+      }
+    ],
+    "yairpg": [
+      {
+        "status": "PROPOSAL",
+        "takeaway": "Reveal complexity through useful inquiry and observed effects, with direct context help and readable fallback.",
+        "owner": "docs/worlds/DIALOGUE_AND_INTERACTIONS.md"
+      }
+    ]
+  },
+  "A11": {
+    "status": "covered",
+    "summary": "Bounded SHOWN/STATED examples: URR role-aware closure, gear-derived appearance, chunk save progress and derived path rebuild; PQ RNG continuation, UTF-8-safe export, duplicate-name overwrite prompt, file drop import, spelling migration and nested horizons; Godville optional contextual help, selected completion alert and special monster feed icons; Achaea group reputation shaped by witnesses. Gu quality-of-life details remain unread.",
+    "sources": [
+      {
+        "kind": "shown",
+        "path": "/Users/weiwei/.codex/research/asp-text/extract/urr-first_talking_message.dis.txt",
+        "locator": "URR0104d.py bytecode, first_talking_message, original first line 807797",
+        "revision": "official 0.10.4d; prior CRC-verified PyInstaller entry"
+      },
+      {
+        "kind": "shown",
+        "path": "/Users/weiwei/.codex/research/asp-text/extract/urr-quit_save2.dis.txt",
+        "locator": "URR0104d.py bytecode, quit_save2, original first line 85272",
+        "revision": "official 0.10.4d; prior CRC-verified PyInstaller entry"
+      },
+      {
+        "kind": "shown",
+        "path": "/Users/weiwei/.codex/research/free-text-worlds/extract/pq-main.js",
+        "url": "https://progressquest.com/play/main.js",
+        "locator": "LoadGame spell patch",
+        "revision": "prior official 2026-10-14 capture, re-read static bytes"
+      },
+      {
+        "kind": "shown",
+        "path": "/Users/weiwei/.codex/research/free-text-worlds/extract/pq-roster.js",
+        "url": "https://progressquest.com/play/roster.js",
+        "locator": "dropGuy, loadGames",
+        "revision": "prior official 2026-10-14 capture, re-read static bytes"
+      },
+      {
+        "kind": "stated",
+        "url": "https://godvillegame.com/blog/",
+        "locator": "April 5, June 9, July 17 and August 28 2026 developer posts",
+        "revision": "2026-10-14 read; dated posts retain their own date"
+      },
+      {
+        "kind": "stated",
+        "url": "https://www.achaea.com/game-help?what=denizens",
+        "locator": "7.1 DENIZENS, current public help",
+        "revision": "2026-10-14 read; dated posts retain their own date"
+      }
+    ],
+    "yairpg": [
+      {
+        "status": "PROPOSAL",
+        "takeaway": "Spend polish on recoverable progress, clear causal feedback and optional detail; keep hero humor separate from the event record.",
+        "owner": "docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md"
+      }
+    ]
+  },
+  "A12": {
+    "status": "partial",
+    "summary": "URR prior culture/religion/heresy/history/art constraints; Achaea mining, commodity listings, title/permissions, offices and trades; Godville anomaly discovery and hero records; PQ inventory-selling-gear loops; Gu promised raising/use/refinement/killer-move distinction. Iron Realms siblings are not interchangeable: Aetolia overview and Lusternia political help sampled; Imperian/Starmourn catalogue only.",
+    "sources": [
+      {
+        "kind": "shown",
+        "path": "/Users/weiwei/.codex/research/free-text-worlds/extract/pq-main.js",
+        "url": "https://progressquest.com/play/main.js",
+        "locator": "Dequeue",
+        "revision": "prior official 2026-10-14 capture, re-read static bytes"
+      },
+      {
+        "kind": "stated",
+        "url": "https://www.achaea.com/game-help?what=mines-and-mining",
+        "locator": "public help",
+        "revision": "2026-10-14 read; dated posts retain their own date"
+      },
+      {
+        "kind": "stated",
+        "url": "https://godvillegame.com/blog/",
+        "locator": "April 5, June 9, July 17 and August 28 2026 developer posts",
+        "revision": "2026-10-14 read; dated posts retain their own date"
+      },
+      {
+        "kind": "stated",
+        "url": "https://store.steampowered.com/app/3443480/",
+        "locator": "prior captured store; B站蛊道求真",
+        "revision": "2026-10-14 read; dated posts retain their own date"
+      },
+      {
+        "kind": "stated",
+        "url": "https://store.steampowered.com/app/4218540/",
+        "locator": "prior captured store; LIHAONAN",
+        "revision": "2026-10-14 read; dated posts retain their own date"
+      }
+    ],
+    "yairpg": [
+      {
+        "status": "PROPOSAL",
+        "takeaway": "Province War may cite Achaea holdings, workers, storage and jurisdiction; solo demand and conflict remain an original proposed design.",
+        "owner": "docs/CHARACTERS_AND_WORLD_EVENTS.md"
+      }
+    ]
+  }
+}

@@ -1,0 +1,335 @@
+{
+  "schema_version": 1,
+  "source": "Ars Nouveau",
+  "date": "2026-10-14",
+  "status": "STATIC_SOURCE_PASS_COMPLETE",
+  "named_question": "How learned glyphs compose utility spells and how magical helpers turn useful verbs into unattended work",
+  "commit": "fd8c9520722bb96a3e75febaf770d7078db5ac43",
+  "mod_version": "5.13.3",
+  "minecraft_version": "1.21.1",
+  "source_pin": "SOURCE_PIN.json",
+  "report": "REPORT.md",
+  "private_index": "private/README.md",
+  "evidence_labels": {
+    "shown": "Inspected static source consumer, not runtime",
+    "stated": "Authored guide/description",
+    "inferred": "Derived consequence or YAIR proposal"
+  },
+  "preservation": {
+    "files": 3304,
+    "bytes": 12551943,
+    "sha256_manifest": "private/MANIFEST.json",
+    "glyphs": 85,
+    "forms": 5,
+    "effects": 67,
+    "augments": 13,
+    "glyph_recipes": 85,
+    "guide_documents": 256,
+    "categories": {
+      "locale_json": 30,
+      "advancement_json": 347,
+      "loot_json": 186,
+      "recipe_json": 717,
+      "tags_json": 218,
+      "java": 1480
+    },
+    "scope": "All Java and repository text/data families; no media or game installs"
+  },
+  "covered": [
+    {
+      "id": "E1",
+      "source_classes": [
+        "APIRegistry",
+        "GlyphRegistry",
+        "GlyphRecipeProvider",
+        "GlyphRecipe",
+        "ScribesTile",
+        "PacketSetScribeRecipe",
+        "Glyph",
+        "ANPlayerDataCap",
+        "SpellBook",
+        "GuiSpellBook"
+      ],
+      "source_locators": "private/SOURCE_LOCATORS.json#E1",
+      "status": "SELECTED_STATIC_CONSUMERS_READ; complete reference files preserved"
+    },
+    {
+      "id": "E2",
+      "source_classes": [
+        "Spell",
+        "SpellContext",
+        "SpellResolver",
+        "SpellStats",
+        "AbstractSpellPart",
+        "AbstractCastMethod",
+        "AbstractEffect",
+        "AbstractAugment",
+        "StandardSpellValidator",
+        "GlyphKnownValidator",
+        "GlyphMaxTierValidator",
+        "ActionAugmentationPolicyValidator",
+        "AugmentCompatibilityValidator",
+        "GlyphOccurrencesPolicyValidator",
+        "InvalidCombinationValidator",
+        "EffectDelay",
+        "DelayedSpellEvent",
+        "EffectReset"
+      ],
+      "source_locators": "private/SOURCE_LOCATORS.json#E2",
+      "status": "SELECTED_STATIC_CONSUMERS_READ; complete reference files preserved"
+    },
+    {
+      "id": "E3",
+      "source_classes": [
+        "ManaUtil",
+        "ManaCap",
+        "ManaCapEvents",
+        "ServerConfig",
+        "PlayerCaster",
+        "LivingCaster",
+        "TileCaster"
+      ],
+      "source_locators": "private/SOURCE_LOCATORS.json#E3",
+      "status": "SELECTED_STATIC_CONSUMERS_READ; complete reference files preserved"
+    },
+    {
+      "id": "E4",
+      "source_classes": [
+        "MethodTouch",
+        "MethodSelf",
+        "MethodProjectile",
+        "EffectHarvest",
+        "EffectGrow",
+        "EffectBreak",
+        "EffectSmelt",
+        "EffectCrush",
+        "EffectCraft",
+        "EffectPlaceBlock",
+        "EffectLeap",
+        "EffectBlink",
+        "EnchantedFallingBlock",
+        "BlockUtil"
+      ],
+      "source_locators": "private/SOURCE_LOCATORS.json#E4",
+      "status": "SELECTED_STATIC_CONSUMERS_READ; complete reference files preserved"
+    },
+    {
+      "id": "E5",
+      "source_classes": [
+        "BasicSpellTurret",
+        "BasicSpellTurretTile",
+        "TimerSpellTurretTile",
+        "EntitySpellResolver",
+        "SourceUtil",
+        "AgronomicSourcelinkTile",
+        "SourcelinkEventQueue",
+        "SourcelinkTile",
+        "ANFakePlayer",
+        "ANEventBus"
+      ],
+      "source_locators": "private/SOURCE_LOCATORS.json#E5",
+      "status": "SELECTED_STATIC_CONSUMERS_READ; complete reference files preserved"
+    },
+    {
+      "id": "E6",
+      "source_classes": [
+        "RitualBinding",
+        "FamiliarScript",
+        "PacketSummonFamiliar",
+        "FamiliarEntity",
+        "FamiliarEvents",
+        "FamiliarStarbuncle",
+        "FamiliarWhirlisprig",
+        "FamiliarAmethystGolem",
+        "FamiliarWixie",
+        "FamiliarDrygmy",
+        "FamiliarBookwyrm"
+      ],
+      "source_locators": "private/SOURCE_LOCATORS.json#E6",
+      "status": "SELECTED_STATIC_CONSUMERS_READ; complete reference files preserved"
+    },
+    {
+      "id": "E7",
+      "source_classes": [
+        "Starbuncle",
+        "StarbyTransportBehavior",
+        "StarbyListBehavior",
+        "DecideStarbyActionState",
+        "TravelToPosState",
+        "HarvestBerryState",
+        "TakeItemState",
+        "DepositItemState",
+        "FindItemState",
+        "ItemScroll"
+      ],
+      "source_locators": "private/SOURCE_LOCATORS.json#E7",
+      "status": "SELECTED_STATIC_CONSUMERS_READ; complete reference files preserved"
+    },
+    {
+      "id": "E8",
+      "source_classes": [
+        "AmethystGolem",
+        "AmethystGolemCharm",
+        "BuddingConversionRegistry",
+        "BuddingConversionRecipe",
+        "ConvertBuddingGoal",
+        "GrowClusterGoal",
+        "HarvestClusterGoal",
+        "PickupAmethystGoal",
+        "DepositAmethystGoal"
+      ],
+      "source_locators": "private/SOURCE_LOCATORS.json#E8",
+      "status": "SELECTED_STATIC_CONSUMERS_READ; complete reference files preserved"
+    },
+    {
+      "id": "E9",
+      "source_classes": [
+        "EntityWixie",
+        "WixieCauldronTile",
+        "FindNextItemGoal",
+        "FindPotionGoal",
+        "CompleteCraftingGoal",
+        "CraftingManager",
+        "PotionCraftingManager"
+      ],
+      "source_locators": "private/SOURCE_LOCATORS.json#E9",
+      "status": "SELECTED_STATIC_CONSUMERS_READ; complete reference files preserved"
+    },
+    {
+      "id": "E10",
+      "source_classes": [
+        "Whirlisprig",
+        "WhirlisprigTile",
+        "InspectPlantGoal",
+        "BonemealGoal",
+        "EntityDrygmy",
+        "DrygmyTile",
+        "CollectEssenceGoal",
+        "SummoningTile",
+        "Config",
+        "EffectAnimate",
+        "AnimBlockSummon"
+      ],
+      "source_locators": "private/SOURCE_LOCATORS.json#E10",
+      "status": "SELECTED_STATIC_CONSUMERS_READ; complete reference files preserved"
+    }
+  ],
+  "connected_traces": [
+    {
+      "id": "T1",
+      "chain": "glyph recipe -> XP/ingredients -> glyph item -> persistent unlock -> authoring -> resolver -> Harvest -> drop/reset",
+      "contrary": "insufficient XP, duplicate/disabled glyph, immature crop, validation/no mana"
+    },
+    {
+      "id": "T2",
+      "chain": "Self form -> entity hit -> Leap -> movement",
+      "contrary": "target/config-specific grounded/exclusion restrictions; not all delivery forms interchangeable"
+    },
+    {
+      "id": "T3",
+      "chain": "stored spell/UUID -> timer -> Source extraction -> turret target -> resolver -> crop effect",
+      "contrary": "off/zero timer, fuel shortage, unsupported form, target event/ineffective effect"
+    },
+    {
+      "id": "T4",
+      "chain": "Starbuncle valid destination -> berry target -> travel/revalidate -> harvest -> carry -> deposit -> repeat",
+      "contrary": "filter/full storage, shades, unloaded/invalid destination, unreachable path/backoff"
+    },
+    {
+      "id": "T5",
+      "chain": "golem home -> scan recipe/tags -> convert/grow/harvest -> pickup -> home deposit",
+      "contrary": "missing home, no eligible targets, cooldown, held stock, output remainder"
+    },
+    {
+      "id": "T6",
+      "chain": "Wixie source charge -> recipe selection -> needed input extraction -> completion guard -> output/remainders -> next recipe",
+      "contrary": "no Source, missing ingredients, off acquisition path, invalid recipe"
+    },
+    {
+      "id": "T7",
+      "chain": "Whirlisprig inspected grove -> scored progress -> Source -> filtered sampled output",
+      "contrary": "no suitable plant, zero integer score gain, insufficient Source, denied output/full storage"
+    },
+    {
+      "id": "T8",
+      "chain": "Drygmy home/population -> living-target channel -> progress -> Source -> loot/XP generation -> reset",
+      "contrary": "home off, target absent/dead, blacklist, fuel shortage; full storage risk"
+    },
+    {
+      "id": "T9",
+      "chain": "binding ritual -> script -> player familiar ownership -> summon/owner -> mana reservation/support",
+      "contrary": "duplicate script, canceled summon event, absent owner terminates entity"
+    }
+  ],
+  "not_claimed": [
+    "Runtime Minecraft behavior",
+    "All 85 glyph effects semantically audited",
+    "All combat/rituals/lore",
+    "External protection-mod guarantees",
+    "Addons or other versions",
+    "Offline wall-clock catch-up",
+    "Dynamic persistence/cancellation/overflow verification",
+    "YAIR implementation or merge state",
+    "Human acceptance"
+  ],
+  "blockers": [],
+  "proposals": [
+    {
+      "id": "P1",
+      "status": "PROPOSAL_UNACCEPTED"
+    },
+    {
+      "id": "P2",
+      "status": "PROPOSAL_UNACCEPTED"
+    },
+    {
+      "id": "P3",
+      "status": "PROPOSAL_UNACCEPTED"
+    },
+    {
+      "id": "P4",
+      "status": "PROPOSAL_UNACCEPTED"
+    },
+    {
+      "id": "P5",
+      "status": "PROPOSAL_UNACCEPTED"
+    },
+    {
+      "id": "P6",
+      "status": "PROPOSAL_UNACCEPTED"
+    },
+    {
+      "id": "P7",
+      "status": "PROPOSAL_UNACCEPTED"
+    }
+  ],
+  "authority": [
+    "../../USER_VISION.md",
+    "../../../PROJECT.md",
+    "../../MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md",
+    "../../gm/dispatch/hogwarts-legacy-decompile-2026-10-14/LP1_ASSIGNMENT.md"
+  ],
+  "boundaries": {
+    "writes": "Only dossier and ~/.codex/research/ars-nouveau",
+    "no_competing_lane": "ps showed own Ars PID 78447, no other Ars lane at start",
+    "clone_only_no_build": true,
+    "user_saves_accessed": false,
+    "game_installed_or_launched": false,
+    "yair_source_edited": false,
+    "committed": false,
+    "published": false
+  },
+  "validation": "VALIDATION.json",
+  "depth_notes": {
+    "E1": "Selected acquisition/knowledge/authoring consumers read; complete unlock/advancement corpus preserved.",
+    "E2": "Resolver, local augment/cost order and standard policy read; delay/reset paths bounded, all glyph effects not audited.",
+    "E3": "Mana baseline, event/attribute order and tick consumer read; all equipment/addon modifiers not audited.",
+    "E4": "Selected crop, break, movement and processing operations read; external Minecraft consumers not cloned/built.",
+    "E5": "Basic/timer turret and agronomic generation route read; other turret/ritual variants retained but not full audit.",
+    "E6": "Binding/script/owner/reservation and Starbuncle/Whirlisprig familiar support read; other familiar bodies preserved, not fully traced.",
+    "E7": "Transport decision, berry, take/deposit/remainder, path and filters read; other Starbuncle modes retained.",
+    "E8": "Home scan and selected convert/grow/harvest/pickup/deposit bodies read; external budding-block randomTick and addon recipes remain external.",
+    "E9": "Selected ingredient gathering and crafting completion read; complete brewing/save/cancel bodies preserved, dynamic replay untested.",
+    "E10": "Grove and living-population production/progress consumers read; complete ambient/combat variants not semantically audited."
+  }
+}

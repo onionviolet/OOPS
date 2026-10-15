@@ -1,0 +1,141 @@
+# Hogwarts Legacy: A01–A12
+
+## Corrections and qualifications
+
+**C1:** Full dialogue was unread in the original report but selected graph/text structure is now covered by the deep lane and this fresh sample. Do not keep treating all dialogue as unavailable. This is not full condition/effect coverage.
+
+**C2:** H7's narrow negative score-ledger/task search cannot support “there is no HousePoints data.” Fresh `SocialActionDefinition.HousePoints` has 25 nonzero rows. No running ledger or reachable competition is established.
+
+**C3:** `Dynamic` does not imply an empty user-save template. Shipped defaults include StatsDynamic 1,363, AmbientChatterTopicsDynamic 89, KnowledgeDynamic 16 and UIQuickActionsDynamic 220. Schema/default rows do not prove user-save contents.
+
+**C4:** Original extracts from the old Mac were lost, but today's retained work area contains reacquired files. All seven fresh DB/text/config files hash-match those retained copies. Today's recovered subset is usable, not a complete archive.
+
+**C5:** The current build contains ModSupport and per-save mod UI/text, so a pak-only modding description would be incomplete. Load order and validation remain unread.
+
+2026-10-14, installed build 20773316, static read only. Sources without full paths are tables in fresh `PhoenixShipData.sqlite`; `notes/` paths resolve under `/Users/weiwei/.codex/research/bf-hogwarts/`. Package paths are relative to Phoenix/Content except Plugins. SHOWN, STATED, INFERRED and INHERITED are defined in REPORT. Original/deep reports remain unchanged. All twelve rows have an answer, including explicit unread boundaries.
+
+## A01: Dialogue and conversation
+
+Status: **partial**. Sources: `Phoenix/Content/Localization/WIN64/SUB-enUS.bin`, `Cinematics/Missions/ZSI/CONV_ZSI_01_02_CloseConv_SG.uasset`, `Cinematics/Missions/ZSR/ZSR_Bronze/CIN_Mission_ZSR_01_OpeningConvo_SG.uasset`, `AcknowledgementRules`, `EavesdropConversations`, `../deep/DIALOGUE_DIGEST.md`.
+
+SHOWN: SUB is an AVAFDICT dictionary with 34,955 entries. Fresh ZSI and ZSR graphs export SceneRigScriptNode_Dialogue with separate DialogueID/CharacterID and next-node references. The sample has 38 dialogue-node exports, 26 exact SUB joins and 13 distinct joined IDs. Duplicate representations and imported variants make export counts unsuitable as counts of spoken lines. The other 12 exports have no exact join in this analysis; their original properties remain private, rather than guessed.
+
+SHOWN: the ZSR graph separates IsVisible and IsSelectable through Bool_DialogueArticyCondition and Bool_DialogueArticy_Selectable, with EventID/DialogueLineID lookup references. Choice preview, branch icon/display providers and graph edges are distinct objects. DA_ConversationPresets has 127 exports for placement, distance and transform policies; it is not a portrait catalog. No generated-text mechanism was established.
+
+SHOWN: 219 acknowledgement rules separate VO event, priority-like Score, RuleType, NPCType, Cooldown, MaxCount and exclusive-mission permission. There are 215 eavesdrop conversation records, 45 participant definitions, ten location records and 89 shipped ambient topic defaults. MissionSteps contains 661 PlayDialogue and 97 EvalConversationResult rows. INHERITED deep D17 traces conditional reward selection and a native branch-used flag, without proving every line's fact write. Relationship_Scripts.bin remains only partly decoded by the other lane. Exact condition expressions, relationship-gated effects, portrait binding, dialogue interruption/resume and every choice consequence remain unread.
+
+PROPOSALS: P1: event-specific ambient acknowledgement; owner docs/worlds/DIALOGUE_AND_INTERACTIONS.md; P5: separate known/visible/selectable/result states; same owner.
+
+## A02: Narrative delivery
+
+Status: **covered**. Sources: `MissionDefinition`, `MissionSteps`, `MissionTaskTypes`, `RichPaperDefinition`, `MailDynamic`, `MAIN-enUS.bin`.
+
+SHOWN: 725 mission definitions and 15,886 typed steps separate objectives/journal/failure text keys from task IDs, arguments, flags and named jump destinations. These include development and subordinate records, not 725 playable quests. MissionTaskTypes has 155 definitions, 104 marked IsAction. This is a data-authored instruction grammar with code consumers, not plain journal prose.
+
+SHOWN: RichPaperDefinition has 334 rows across a 20-type vocabulary with image/header/body/footer references. Some values are direct authoring strings or placeholders, so not every field resolves to localization or shipped playable content. MailDynamic is an empty template with sender, mission, sent/read minute, noticed/state, attached container, criticality, autoplay and priority fields. SendMail has 66 mission uses and EvalReadMail eight. INFERRED: receipt of a letter, noticing it, reading it and claiming its attachment are different state concerns. Exact scheduling, attachment transactions, all narrative branches and closure remain outside covered structural scope.
+
+PROPOSALS: P4: original letter with separate delivery/read/claim facts; dialogue and quest authoring owners.
+
+## A03: Implementation architecture
+
+Status: **partial**. Sources: `../TOOLING.md`, `../BLUEPRINT_PASS.md`, `Phoenix/Config/DefaultGame.ini`, `notes/save-call-index.json`, `MissionTaskTypes`.
+
+SHOWN: Phoenix uses a cooked Unreal package layout, IoStore .utoc/.ucas plus pak containers, native /Script/Phoenix functions, Blueprint bytecode, DataAssets, behavior trees and SQLite content. GAME_HogwartsLegacy is the existing parser's UE4.27-specific variant, not an independent proof of every original engine patch. Fresh Ship has 530 tables and Game 633, both integrity_check=ok. DefaultGame stages SQLiteDB as UFS content. Graph functions call native lock/stat/save managers rather than implementing all behavior in data.
+
+SHOWN: fresh save/load widget bytecode references Hermes binding helpers; this is evidence of an event mechanism at those call sites, not a full event-bus contract. Conversation graphs use TimeRig/SceneRig objects and Articy lookup providers. INHERITED prior Blueprint flows and deep AI graphs establish selected native/Blueprint/data joins. Full module boundaries, main-loop order, per-frame work, thread safety, caching and performance remain unread. No generic engine architecture or performance trick is inferred from filenames.
+
+PROPOSALS: P2: declarative content plus explicit owned consumers; docs/ENGINE_AUTHORING.md; P3: one existing persistence publication path; save review owner.
+
+## A04: Save and persistence
+
+Status: **partial**. Sources: `Gameplay/Blueprints/Utilities/BP_AutosaveTrigger.uasset`, `Gameplay/Blueprints/Utilities/BP_AutosaveComponent.uasset`, `Gameplay/Blueprints/Interfaces/BPI_SaveRestore.uasset`, `UI/Menus/Settings/UI_BP_Settings_SaveLoad.uasset`, `Plugins/ModSupport/Content/UI/Data/UI_BP_ModTutorialSaveGame.uasset`, `StatsDynamic`, `SDK Phoenix_classes.h USaveManager (unmatched build)`.
+
+SHOWN: five fresh save-related packages parse with 36, 9, 4, 88 and 2 exports respectively. BP_AutosaveTrigger.TriggerSave conditionally updates a respawn transform, calls SetLock and SetStats, checks PersistentData.BP_DoesCharacterExistYet and reaches SaveManager.BP_AutoSaveGame with literal byte 3. The unmatched SDK names reason 3 AUTO_SAVE_ALWAYS, but its enum interpretation is not independently build-matched here. The Blueprint call itself is current-build evidence.
+
+SHOWN: SetLock reaches LockManagerInterface.SetLock and SetStats reaches StatsManager.SetStat. ProcessTargetActors checks interface support, invokes OnRestoreFromSave, and has actor-destruction and dynamic-object-volume disable/enable routes. BPI_SaveRestore declares both OnRestoreFromSave and OnCheckpointReset. These restore routes are not the serializer. The mod tutorial SaveGame subclass declares three tutorial-completion booleans, which does not establish the campaign save format.
+
+SHOWN: dynamic tables distinguish conversation played-count/properties, transient stats, schedules, mail, tutorial queue, story-graph state and event persistence. Some have defaults; many are empty. STATED: MAIN distinguishes unavailable manual saves from possible autosaves, save/load failure, copying an unmodded save to a mod save, and mod repair warnings. This is UI intent, not demonstrated repair. Unmatched SDK declarations expose pre/post-save/load delegates, reason-based blocking and OnDBVersionCheck(SaveVersion,SaveChangeList); they are naming leads only.
+
+UNREAD: actual save container/DB embedding, version number, migrations, serializer whitelist, compression/checksum, atomic writes, autosave ring/interval, old-build rejection, corruption recovery and wall-clock/offline policy. No user saves were accessed, and no synthetic file was passed to the game. A shipped SQLite database is not itself proof of SQLite user saves.
+
+PROPOSALS: P3: separate save request, durable completion and restore; docs/ENGINE_SAVES_AND_SCALE_REVIEW_2026-10-11.md; P7: explicit content-version compatibility preview; authoring/save owners.
+
+## A05: AI and NPC behavior
+
+Status: **partial**. Sources: `../deep/AI_DIGEST.md`, `EnemyDefinition`, `EnemyAttackSelectionData`, `EnemyPerceptionScores`, `ActivityDefinition`, `Schedule_Overland`, `SocialStationActionChoices`.
+
+SHOWN fresh tables confirm 158 enemy definitions, 51 attack-selection records, three target-score profiles, 1,320 activity definitions and 618 Overland schedules. SocialStationActionChoices adds 301 authored station choices keyed by occupancy/action/activity, read further below. Different role, target knowledge, selected attack and permission to attack are separate schema concerns.
+
+INHERITED deep D9–D15 decodes the shared enemy tree/blackboard, injected wander overrides, perception profiles, attack tickets, companions and vivarium trees. The 157-export enemy root is not a count of unique behaviors. Stored subtype attack budgets vary by difficulty; their final mixed-group execution is not proved. Spell cast/impact noise joins six noise definitions, but propagation through walls is unread. Schedules can be overridden by mission steps; a full attendance/school-term simulation does not follow. Social and crime tables can be dormant. Native arbitration, rumor propagation, full autonomy and shared player/NPC rule execution remain unread.
+
+PROPOSALS: P6: actual station occupancy and completion release; docs/ENGINE_AUTHORING.md; P8: only witnessed local responses; HP brief/dialogue owners.
+
+## A06: UI and information design
+
+Status: **partial**. Sources: `UIInputActions`, `UIKeyBindingsDynamic`, `UIQuickActionsDynamic`, `UIKnowledgeCategories`, `MAIN-enUS.bin`, `UI_BP_Settings_SaveLoad.uasset`.
+
+SHOWN: 24 UI action rows, 42 key-binding defaults, 220 quick-action defaults and 34 knowledge UI categories separate command bindings, layouts, button IDs and contextual data. Quick-action rows distinguish SpellID from InventoryItemID/storage. Fresh save widget includes button events, menu-transition checks, visibility state and native restart references. INHERITED talent/loom widget exports connect displayed choices to native actions.
+
+STATED: MAIN supplies keyboard/controller variants, tutorials, subtitles and accessibility controls. A string does not establish reachable controls, focus order or successful rebinding. UNREAD: actual desktop composition, tooltip density, simultaneous panels, number formatting, notifications in motion and screen-reader support. Native launch is excluded, so there is no fresh screenshot, target-viewport claim or keyboard usability claim. Later YAIRPG UI proposals target 1440 × 900, then 1366 × 768 fit, with mobile deferred.
+
+PROPOSALS: P5: keep visible-but-blocked choices readable with actual reasons; dialogue/UI owners.
+
+## A07: Content authoring and modding
+
+Status: **partial**. Sources: `MissionTaskTypes`, `KnowledgeFactTypes`, `KnowledgeSubjectTables`, `RichPaperDefinition`, `Plugins/ModSupport`, `MAIN-enUS.bin`.
+
+SHOWN: typed mission tasks/keywords, lock definitions, subject-to-table mappings, field-level knowledge records, localized text keys and graph providers form several authoring layers. Blueprint/native code consumes them. No full editor source or validation pipeline is included in the installed build. KnowledgeFactTypes has 103 field descriptors and KnowledgeSubjectTables eleven definition mappings.
+
+SHOWN: the current content index contains ModSupport plugin assets, and a fresh tutorial SaveGame class tracks install/save/activation tutorial completion separately. STATED: the mod browser describes copying an unmodded save, selecting mods for saves, version incompatibility, config errors and repairs. This corrects any assumption that the inspected build only offers loose pak replacement. UNREAD: official editor/API implementation, plugin dependency resolution, mod load precedence, conflict merging, code sandboxing and actual validation/rejection logic. No mod installed, enabled or tested.
+
+PROPOSALS: P7: authoring revision and per-run compatibility are explicit; docs/ENGINE_AUTHORING.md; P2: field-level reveal metadata rather than duplicated UI truth; authoring owner.
+
+## A08: Balance and numbers
+
+Status: **partial**. Sources: `ExperienceActions`, `ExperienceLevels`, `EnemyDifficultyScaling`, `GearPowerStats`, `KnowledgeActions`, `LootCategories`, `../REA_TRIAL.md`, `../deep/EXTRAS_DIGEST.md`.
+
+SHOWN: 115 experience-action rows, 40 level thresholds, 500 gear-power stat records, difficulty-dependent damage/parry/ticket settings and weighted loot categories store separate balance inputs. KnowledgeActions has 42 rows: all KnowledgePoints and CompanionBondingPoints are zero, while twelve ExperiencePoints entries are nonzero. That qualifies the tempting claim that this schema proves a live numeric knowledge/friendship ladder.
+
+INHERITED native talent purchase trace supports a one-point first purchase; later deep native reports were not newly re-executed here. Tables do not establish final modifier stacking, random sampling, seed persistence, bad-luck protection or final merchant price. The crime severity table uses very large thresholds in its own domain; this is not an incremental big-number system. UNREAD: RNG algorithm/seeding, pity, exact full XP/loot/economy consumers and overflow policy.
+
+PROPOSALS: P2: knowledge discovery, reward and competence remain separate; authoring/HP owners.
+
+## A09: Time and scheduling
+
+Status: **partial**. Sources: `ActivityDefinition`, `Schedule_Overland`, `AcknowledgementRules`, `MailDynamic`, `BrewingSiteDynamic`, `PlantDefinition`, `NurturingCreatureDynamic`, `../deep/EXTRAS_DIGEST.md`.
+
+SHOWN: schedules, mission season actions, production durations, sent/read mail minutes and acknowledgement cooldowns occupy different domains. AcknowledgementRules stores thirteen distinct cooldown values; no time unit is assumed for that column. Prior exact production data uses explicit seconds where established. The deep event table describes cooldowns, time-of-day/weather/mission eligibility and persistence separately.
+
+INFERRED: daily availability, story season, letter delivery, cooldown and active production should not become a single progress timer. UNREAD: global tick ordering, queue fairness, paused/menu time, wall-clock catch-up, aging and offline production. Wait-for-night and season tasks do not prove aging or automatic school-year progression. Existing LP5 results are separate YAIRPG evidence, not evidence about Legacy's native scheduler.
+
+PROPOSALS: P1: configurable cooldown within a relevant event context; dialogue owner; P3: explicitly choose played-time versus away-time semantics for any later slice; save/simulation owners.
+
+## A10: Onboarding and reveal
+
+Status: **partial**. Sources: `MissionSteps`, `MissionTaskTypes`, `LockDefinition`, `KnowledgeFacts`, `TutorialQueuePersistenceDynamic`, `MAIN-enUS.bin`.
+
+SHOWN: mission grammar includes InitializeTutorial, PlayTutorial, EvalWaitForTutorial and GrantKnowledge. Fresh steps contain nine InitializeTutorial, 57 PlayTutorial and 19 GrantKnowledge uses. A declared evaluator need not be used in the shipped steps. Locks and typed mission steps stage prerequisites independently of tutorial text. TutorialQueuePersistenceDynamic is an empty shipped template, not verified tutorial durability.
+
+SHOWN: KnowledgeFacts stores 987 subject/column/level/lock records. The same subject can expose selected fields at different knowledge levels. INFERRED: knowing an actor, knowing one fact about them and owning their associated ability are separate. UNREAD: full reveal order, exact tutorial queue scheduling/deduplication and every skipped/failed tutorial route.
+
+PROPOSALS: P2: reveal known fields without granting the mechanic; authoring/HP owners; P5: let a known unmet prerequisite be legible; dialogue/UI owners.
+
+## A11: Little touches
+
+Status: **covered**. Sources: `AcknowledgementRules`, `EavesdropConversations`, `RichPaperDefinition`, `MAIN-enUS.bin`, `DA_ConversationPresets.uasset`, `UI_BP_ModTutorialSaveGame.uasset`.
+
+SHOWN: acknowledgement cooldown/mission controls limit contextual speech; eavesdrop records name up to four participants and a location; conversation presets account for placement/distance; rich paper has image and three text regions. Separate tutorial-completion booleans are shipped for mod install/save/activation. STATED: the interface names subtitle settings, audio visualization, camera shake, high contrast/color controls, arachnophobia options and minigame auto-solve. Actual completeness and accessibility effectiveness were not played.
+
+The covered claim is the static reference/touch inventory in SMALL_TOUCHES, not experiential polish. Twenty-six original YAIRPG proposals link each idea to a concrete source and owner. No imported prose, sound or assets are proposed.
+
+PROPOSALS: P1: acknowledgement tied to a specific witnessed cause; dialogue owner; Keep comfort/input alternatives independent of earned lesson evidence; existing UI owner.
+
+## A12: Other systems
+
+Status: **partial**. Sources: `SYSTEM_INVENTORY.md`, `DEEPER_SYSTEMS.md`, `CrimeEnforcementMatrix`, `SocialActionDefinition`, `AchievementChallenges`, `BroomRaceDefinition`, `CollectionItems`, `TransfigurationObjects`.
+
+SHOWN: the complete table census includes crime/investigation, social action semantics, station occupancy, knowledge, acknowledgement, letters, travel, economy, encounters, collections, achievements, duelling feats, broom racing, room placement, creature breeding/appearance, care production and map/puzzle families. Representative counts: 36 crime enforcement rows, 178 social actions, 400 social-action semantic rows, five broom-race definitions, 24 challenge groups, 640 collection items and 310 transfiguration objects. Counts may include tests, defaults or inaccessible content.
+
+DEEPER_SYSTEMS examines three underexplained families. SYSTEM_INVENTORY supplies every discovered table from both databases and top-level asset families; it does not claim all map actors, native modules or plugin internals were read. UNREAD: full minigame scoring/physics, working crime enforcement, rumor transmission, every map secret, achievements in play and all content reachability. No finding creates a required new YAIRPG subsystem.
+
+PROPOSALS: P6: finite shared activity capacity; authoring/simulation owners; P8: a bounded local response only if later selected; HP brief/dialogue owners.

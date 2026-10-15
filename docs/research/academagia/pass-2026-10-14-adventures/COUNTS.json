@@ -1,0 +1,127 @@
+{
+  "base": {
+    "nodes": 1555,
+    "roots": 237,
+    "edges": 6402,
+    "investigations": 1190,
+    "exits": 4065,
+    "structurallyReachedFromRoots": 1516,
+    "notStructurallyReached": 39,
+    "unconditionalRootGates": 1,
+    "choiceRollCounts": {
+      "1": 4361,
+      "0": 894
+    },
+    "effectVerbs": {
+      "Expand": 5699,
+      "Add": 1200,
+      "Increase": 588,
+      "Inform": 159,
+      "Remove": 22,
+      "Reprimand": 3,
+      "Damage": 2,
+      "Favor": 3,
+      "Give": 2,
+      "Equip": 1,
+      "Set": 894
+    },
+    "failureEffectVerbs": {
+      "Expand": 3509,
+      "Add": 57,
+      "Reprimand": 99,
+      "Increase": 61,
+      "Damage": 47,
+      "Inform": 30,
+      "Remove": 8
+    },
+    "nodeTypes": {
+      "Court": 1,
+      "Ending": 1,
+      "Default": 1552,
+      "Introduction": 1
+    }
+  },
+  "Content": {
+    "nodes": 3022,
+    "roots": 383,
+    "edges": 11463,
+    "investigations": 1630,
+    "exits": 7809,
+    "structurallyReachedFromRoots": 3005,
+    "notStructurallyReached": 17,
+    "unconditionalRootGates": 12,
+    "choiceRollCounts": {
+      "1": 6930,
+      "0": 2509
+    },
+    "effectVerbs": {
+      "Expand": 11665,
+      "Add": 1936,
+      "Increase": 814,
+      "Inform": 702,
+      "Remove": 136,
+      "Reprimand": 12,
+      "Damage": 2,
+      "Favor": 3,
+      "Give": 2,
+      "Set": 930
+    },
+    "failureEffectVerbs": {
+      "Expand": 6410,
+      "Add": 229,
+      "Reprimand": 155,
+      "Remove": 109,
+      "Inform": 153,
+      "Increase": 78,
+      "Damage": 43
+    },
+    "nodeTypes": {
+      "Court": 1,
+      "Ending": 1,
+      "Default": 3019,
+      "Introduction": 1
+    }
+  },
+  "Summer": {
+    "nodes": 3030,
+    "roots": 384,
+    "edges": 11503,
+    "investigations": 1632,
+    "exits": 7856,
+    "structurallyReachedFromRoots": 3013,
+    "notStructurallyReached": 17,
+    "unconditionalRootGates": 12,
+    "choiceRollCounts": {
+      "1": 6955,
+      "0": 2533
+    },
+    "effectVerbs": {
+      "Expand": 11828,
+      "Add": 1951,
+      "Increase": 816,
+      "Inform": 707,
+      "Remove": 136,
+      "Reprimand": 12,
+      "Damage": 2,
+      "Favor": 3,
+      "Give": 2,
+      "Set": 930
+    },
+    "failureEffectVerbs": {
+      "Expand": 6448,
+      "Add": 231,
+      "Reprimand": 155,
+      "Remove": 109,
+      "Inform": 154,
+      "Increase": 78,
+      "Damage": 43
+    },
+    "nodeTypes": {
+      "Court": 1,
+      "Ending": 1,
+      "Default": 3027,
+      "Introduction": 1
+    }
+  },
+  "decoderIdConvention": "little-endian GUID bytes as hex, not Guid.ToString"
+}

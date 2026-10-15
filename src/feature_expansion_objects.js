@@ -1,5 +1,6 @@
 // Original, reversible functional objects proposal. Importing definitions never
 // enrolls people, creates native stock, teaches a method or advances time.
+import {dryingRewardDefinition} from './earned_drying_tracker.js';
 export const FEATURE_OBJECT_IDS = Object.freeze({
     world: 'base.frontier', group: 'feature_objects', miri: 'feature_objects.miri',
     situation: 'feature_objects.sluice', site: 'feature_objects.fitting_bench',
@@ -12,6 +13,8 @@ export const FEATURE_OBJECT_ITEMS = Object.freeze([
     {id: 'Dulled field fitting knife', description: 'The same fitting tool after cutting. Restore its edge before another cutting batch.', value: 4, kind: 'tool', condition: 'dulled'},
     {id: 'Fine field fitting knife', description: 'A sharp fitting knife with a narrow, refitted guide. Learned grain matching needs this guide; ordinary cuts still work.', value: 9, kind: 'tool', condition: 'sharp'},
     {id: 'Dulled fine field fitting knife', description: 'A dulled guided fitting knife. Sharpen it without discarding its refitted guide.', value: 7, kind: 'tool', condition: 'dulled'},
+    {id: 'Broad field fitting knife', description: 'PROPOSAL: Common rarity, fixed item level 1. Cutting yield 3 wet staves per log instead of 2. The broad back recovers an extra usable strip; it cannot support Grain matching. Cutting dulls it.', value: 9, kind: 'tool', condition: 'sharp'},
+    {id: 'Dulled broad field fitting knife', description: 'The broad fitting knife after cutting. Restore its edge with one sap and one stamina. Common rarity, fixed item level 1; its cutting yield remains 3 once sharp.', value: 7, kind: 'tool', condition: 'dulled'},
     {id: 'Wet repair stave', description: 'A real cut stave that still holds moisture. Pressure and a learned method cannot make it dry.', value: 1, kind: 'material'},
     {id: 'Sound repair stave', description: 'A dried stave. It can brace a joint, supply grain matching, or become an actual survey kit.', value: 2, kind: 'material'},
     {id: 'Matched repair stave', description: 'One sound stave cut along its inspected grain. It fits the Village sluice joint without crushing the seal.', value: 4, kind: 'material'},
@@ -21,6 +24,7 @@ const key = id => JSON.stringify({id});
 export const FEATURE_OBJECT_KEYS = Object.freeze({
     sharp: key('Field fitting knife'), dull: key('Dulled field fitting knife'),
     fine: key('Fine field fitting knife'), fineDull: key('Dulled fine field fitting knife'),
+    broad: key('Broad field fitting knife'), broadDull: key('Dulled broad field fitting knife'),
     wet: key('Wet repair stave'), sound: key('Sound repair stave'), matched: key('Matched repair stave'),
     log: key('Rough wood log'), sap: key('Tree sap'), kit: key('Prepared survey kit'),
 });
@@ -55,7 +59,7 @@ const contact = requires => ({...timed(all(requires, lender)), completionCoLocat
 // item. Borrowed transformations use only supported custody/item effects, in
 // order: return, transform under actual owner, reloan under the same loan ID.
 function toolUse(variant, borrowed = false) {
-    const worn = variant === 'fine' ? 'fineDull' : 'dull';
+    const worn = variant === 'broad' ? 'broadDull' : variant === 'fine' ? 'fineDull' : 'dull';
     return borrowed ? {costs: [], effects: [custody(variant, true), item(K[variant], -1, I.miri), item(K[worn], 1, I.miri, true), custody(worn)]}
         : {costs: [item(K[variant], -1)], effects: [item(K[worn], 1, 'player', true)]};
 }
@@ -97,6 +101,24 @@ const refits = [['sharp', 'fine'], ['dull', 'fineDull']].map(([from, to]) => com
         know('refit', 'You fitted an actual narrow guide from one log and one sap to your own knife. The sharp or dull edge condition was preserved. This provides a tool, not Grain matching knowledge or a new source.')],
     description: 'Refitting changes an owned tool into one corresponding fine tool. Return a loan before choosing this permanent change; no borrowed object is silently appropriated.'}));
 
+// LP7 reuses the existing one-slot bench, exact native item transformations and
+// scheduler. Older refit definitions remain unchanged for accepted saved jobs.
+const materialChoices = [['broad', 'stat', 'Broad back: cutting yield 2 → 3', 'Cutting yield increases from two to three wet staves for the same log, effort and time. Grain matching remains unavailable.'],
+    ['fine', 'function', 'Fine guide: enable learned Grain matching', 'Cutting yield stays two. This guide supports the existing Grain matching task only after its separate lesson, source and joint inspection.']]
+    .map(([to, kind, label, effect]) => command({id: `feature_objects.choose_${kind}`, label: `PROPOSAL · ${label} · 1 log + 1 sap + 3 min`,
+        duration: 3, cancellation: 'refund', siteId: I.site, visibleWhen: introduced,
+        requires: all(live, own('sharp')), ...timed(live),
+        costs: [item(K.sharp, -1), item(K.log, -1), item(K.sap, -1), stamina(-1)],
+        effects: [item(K[to], 1, 'player', true), know(`choice_${kind}`, `Your owned sharp fitting knife, one Rough wood log and one Tree sap became one ${to === 'broad' ? 'Broad' : 'Fine'} field fitting knife. ${effect} Rarity: Common. Item level: 1 (fixed). Learned method: unchanged.`)],
+        description: `One material choice at Eda's single fitting slot. ${effect} Rarity: Common; item level: 1 (fixed); learned method: separate. Cancellation restores the exact knife, log, sap and effort. An existing broad or fine knife cannot stack this refit.`}));
+const broadCut = knifeBatch('cut', 'Cut one actual log into three wet staves · yield stat 3', 'broad', false,
+    [item(K.log, -1), stamina(-2)], [item(K.wet, 3), know('broad_cut', 'Your broad knife recovered three actual Wet repair staves from one Rough wood log, with the ordinary two stamina and four minutes. Cutting yield 3 replaced the ordinary yield 2. The knife dulled; drying and Grain matching remain separate.')],
+    4, [], 'The broad back improves the cutting-yield stat by one. It provides no fine guide or learned method.');
+const broadRepair = command({id: 'feature_objects.repair_broad', label: 'Restore the broad knife edge · 1 sap + 1 stamina',
+    visibleWhen: all(introduced, own('broadDull')), requires: all(live, own('broadDull')),
+    costs: [item(K.broadDull, -1), item(K.sap, -1), stamina(-1)], effects: [item(K.broad, 1, 'player', true),
+        know('broad_restored', 'One actual sap and one stamina restored your broad edge. Its cutting yield remains three; no refit or method was awarded.')]});
+
 export const featureObjectSources = [{id: I.method, revision: 1, label: 'Learned Grain matching', kind: 'knowledge', grants: [],
     bioDetail: 'An instructed, practiced fitting method. It needs sound wood, the fine guide and usable hands; remembered explanation is not a tool.'}];
 export const featureObjectDefinitions = {
@@ -137,7 +159,8 @@ export const featureObjectDefinitions = {
         command({id: 'feature_objects.buy_sound', label: 'Buy Eda\'s one actual sound stave · 2 coins', targetId: I.miri, coLocated: true, participants: ['$target'],
             visibleWhen: introduced, requires: all(introduced, live, lender), costs: [money(-2), {type: 'transfer', from: I.miri, to: 'player', key: K.sound, count: 1}],
             effects: [coins(2), know('materialPurchase', 'Eda handed over one actual Sound repair stave for two coins. Her stock decreased by one; it does not replenish on revisit.', 'seen', 'player', I.miri)]}),
-        ...returns, ...repairs, ...refits, ...cutBatches, ...matchBatches, ...kitBatches,
+        ...returns, ...repairs, ...refits, ...materialChoices, broadCut, broadRepair, ...cutBatches, ...matchBatches, ...kitBatches,
+        command(dryingRewardDefinition),
         ...[['shade', 6, 2, null], ['braced', 4, 1, 'braced'], ['shelf', 2, 1, 'sealed']].map(([route, duration, effort, joint]) => command({id: `feature_objects.dry_${route}`, label: `${route === 'shade' ? 'Dry in the ordinary sheltered rack' : route === 'braced' ? 'Dry along your braced clear working strip' : 'Use your sealed drying shelf'} · ${duration} min`,
             duration, cancellation: 'refund', siteId: I.site, visibleWhen: all(introduced, ...(joint ? [eq(`actor.feature_objects.${joint === 'sealed' ? 'sealed' : 'braced'}`)] : [])),
             requires: all(introduced, live, ...(joint ? [eq('world.feature_objects.joint', joint)] : [])), ...timed(live), costs: [item(K.wet, -1), stamina(-effort)],

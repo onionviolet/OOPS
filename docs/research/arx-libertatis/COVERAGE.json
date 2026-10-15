@@ -1,0 +1,143 @@
+{
+  "schema_version": 1,
+  "game": "Arx Fatalis / Arx Libertatis",
+  "pass": "source-2026-10-14",
+  "status": "COMPLETE_SOURCE_ONLY",
+  "named_question": "How learned rune vocabulary changes light/access/environment, separately from drawn recognition and spell effects",
+  "source": {
+    "url": "https://github.com/arx/ArxLibertatis",
+    "commit": "5b95e4c5ca9d583f1b11c085326979772645e0f3",
+    "clone": "/Users/weiwei/.codex/research/arx-libertatis/repos/ArxLibertatis",
+    "detached": true,
+    "license": "GPL-3.0-or-later with original additional terms; see private/licenses.json"
+  },
+  "authority_read": [
+    "AGENTS.md",
+    "PROJECT.md",
+    "docs/USER_VISION.md deep-save rule",
+    "docs/research/deep-detail-reaudit-2026-10-14/REPORT.md common boundary",
+    "docs/research/hogwarts-legacy/SIMILAR_GAMES.md G06/R2",
+    "docs/gm/dispatch/hogwarts-legacy-decompile-2026-10-14/LP1_ASSIGNMENT.md",
+    "docs/worlds/ABILITY_AUTHORING.md",
+    "src/techniques.js"
+  ],
+  "ownership": {
+    "local_records": "NO_MATCH_IN_INSPECTED_RECORDS",
+    "steam_current_entitlement": "UNVERIFIED_SIGNED_OUT",
+    "gog_current_entitlement": "UNVERIFIED_LOGIN_REQUIRED",
+    "commercial_data": "UNAVAILABLE",
+    "details": "private/ownership-check.json"
+  },
+  "coverage": [
+    {
+      "area": "rune learning/storage/book discovery",
+      "status": "SHOWN_SOURCE",
+      "notes": "handler, flags, availability consumers; commercial acquisition invocations missing"
+    },
+    {
+      "area": "draw input and both rune recognizers",
+      "status": "SHOWN_SOURCE",
+      "notes": "complete pattern exports, connected sampling/matching/ID flow; no native execution"
+    },
+    {
+      "area": "all spell definitions",
+      "status": "EXTRACTED_COMPLETE_PINNED_TABLES",
+      "notes": "50 records, UI definitions, runtime factories and costs; selected utility semantics audited"
+    },
+    {
+      "area": "mana, upkeep, refusals and precast",
+      "status": "SHOWN_SOURCE",
+      "notes": "actual payment order, natural recovery, stored/current level distinction"
+    },
+    {
+      "area": "light, reach, levitation, barrier and counter consumers",
+      "status": "SHOWN_SOURCE",
+      "notes": "typed effects to world flags/collision/light state/script events"
+    },
+    {
+      "area": "specific door puzzles, rune acquisition scenes and teleport destination",
+      "status": "BLOCKED_MISSING_COMMERCIAL_SCRIPTS_ASSETS",
+      "notes": "event plumbing shown, authored receivers absent"
+    },
+    {
+      "area": "commercial localized UI and dialogue text",
+      "status": "BLOCKED_MISSING_LOC_PAK_SPEECH",
+      "notes": "100 spell UI references preserved with null text; no commercial dialogue export claimed"
+    },
+    {
+      "area": "rune/precast serialization",
+      "status": "SHOWN_SOURCE_ONLY",
+      "notes": "source reads, no save access or native roundtrip; full active-effect persistence unreviewed"
+    },
+    {
+      "area": "YAIR mapping",
+      "status": "PROPOSAL_ONLY",
+      "notes": "8 ranked proposals and 4 small touches; no new standing requirements"
+    }
+  ],
+  "private_artifacts": {
+    "index": "private/README.md",
+    "runes_json": "private/runes.json",
+    "runes_csv": "private/runes.csv",
+    "spells_json": "private/spells.json",
+    "spells_csv": "private/spells.csv",
+    "methods": "private/spell-methods.jsonl",
+    "notes": "private/CALL_NOTES.md",
+    "flows": "private/flows.json",
+    "hashes": "private/source-manifest.json",
+    "localisation": "private/ui-localisation-keys.json",
+    "validation": "private/validation.json"
+  },
+  "counts": {
+    "commit": "5b95e4c5ca9d583f1b11c085326979772645e0f3",
+    "runes": 21,
+    "script_learnable_runes": 20,
+    "spell_enum_entries": 50,
+    "named_spell_definitions": 50,
+    "spell_book_definitions": 50,
+    "effect_factories": 50,
+    "upfront_cost_cases": 50,
+    "alt_patterns": 35,
+    "legacy_branches": 33,
+    "legacy_codes": 216,
+    "spell_methods": 175,
+    "ui_keys": 100,
+    "source_files": 64,
+    "snapshot_bytes": 1190455,
+    "checks": [
+      "all 50 enum entries join name, recipe, effect factory and upfront cost",
+      "49 book recipes equal recognition recipes; fake_summon has a hidden book row but no rune recipe in allSpells",
+      "all recipe runes exist in 21-row rune table",
+      "each effect class has one captured Launch method",
+      "private source copies SHA256 recorded"
+    ],
+    "execution": "static extraction and consistency only, no C++ build or game execution",
+    "legacy_normal_rune_codes": 98,
+    "legacy_cheat_only_codes": 118
+  },
+  "execution": {
+    "static_extraction": true,
+    "consistency_validation": true,
+    "engine_build": false,
+    "game_install_or_launch": false,
+    "game_data_download": false,
+    "purchase": false,
+    "save_access": false,
+    "yair_source_change": false,
+    "yair_build_or_gameplay": false,
+    "human_acceptance": false,
+    "commit_or_push": false
+  },
+  "remaining_authoritative_gates": [
+    "Commercial data needed for authored door/acquisition/dialogue claims; no acquisition authorized",
+    "Native Arx evidence needed for recognition feel, actual traversal and puzzle behavior",
+    "Any selected YAIR proposal requires its own authorized slice, rebuilt desktop play and relevant persistence gates"
+  ],
+  "generated_at_utc": "2026-10-15T00:13:03.252273+00:00",
+  "artifact_validation": {
+    "status": "PASS",
+    "static_check_count": 341,
+    "file": "private/validation.json",
+    "not_native_game_tests": true
+  }
+}

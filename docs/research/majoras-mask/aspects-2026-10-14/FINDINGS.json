@@ -1,0 +1,160 @@
+{
+  "lane": "bf-public-other",
+  "date": "2026-10-14",
+  "game": "majoras-mask",
+  "status": "PARTIAL",
+  "evidence": "static public routes",
+  "corrections": [
+    "C1: Attribution refinement to the prior REPORT F1/F2: readable scheduleScripts.schl is a community reconstruction language. The shipped system is bytecode interpreted by z_schedule.c; the fresh documentation explicitly says Nintendo did not use this higher-level language. Timetable behavior remains supported.",
+    "C2: No fresh contradiction found for the prior core reset/notebook distinction. The fresh flash-save read extends F4/F7 with checksum and backup behavior. The prior report did not cover corrupt-save recovery.",
+    "C3: No MM3D claim was refreshed. Prior remake claims remain historical wiki-level observations, not findings from this N64 source pass."
+  ],
+  "findings": [
+    {
+      "id": "A01",
+      "status": "covered",
+      "summary": "Shown: z_msgevent.c runs bytecode with a saved instruction position, handler/size tables, conditional branches, callback waits and text IDs. CheckTextChoice selects offsets for three choices; commands can change rupees, items, week flags and notebook events. Anju's 0x28BA onward exchange alternates actor focus, waits on text/callbacks, records both people, then marks the encounter heard. This is authored dialogue, not generated prose. Full localized prose and a portrait census are unread without extracted message assets.",
+      "sources": [
+        "https://github.com/zeldaret/mm/blob/bf6bd9d0d3a90fe2f8960e034fbfd328e8bdef22/src/code/z_msgevent.c",
+        "https://github.com/zeldaret/mm/blob/bf6bd9d0d3a90fe2f8960e034fbfd328e8bdef22/src/overlays/actors/ovl_En_An/z_en_an.c",
+        "https://github.com/zeldaret/mm/blob/bf6bd9d0d3a90fe2f8960e034fbfd328e8bdef22/assets/text/message_data_static.c"
+      ]
+    },
+    {
+      "id": "A02",
+      "status": "covered",
+      "summary": "Shown: notebook_table.h has 20 person rows and 35 event rows. Person rows bind photo identifiers, text IDs and met flags; event rows bind icon, current-color flag, message IDs and recorded-history flag. Message_BombersNotebookProcessEventQueue deduplicates stored events, sets history even when presentation is gated, and displays a notebook message only when the notebook is owned. Narrative recollection and present quest fulfillment have separate flags.",
+      "sources": [
+        "https://github.com/zeldaret/mm/blob/bf6bd9d0d3a90fe2f8960e034fbfd328e8bdef22/include/tables/notebook_table.h",
+        "https://github.com/zeldaret/mm/blob/bf6bd9d0d3a90fe2f8960e034fbfd328e8bdef22/src/code/z_sram_NES.c",
+        "https://github.com/zeldaret/mm/blob/bf6bd9d0d3a90fe2f8960e034fbfd328e8bdef22/src/code/z_message.c"
+      ]
+    },
+    {
+      "id": "A03",
+      "status": "covered",
+      "summary": "Shown: native C actor overlays and shared PlayState. Play_UpdateMain calls actor, message, interface, camera and environment updates with pause/transition gates. Play_Update has a separate notebook-open path rather than running ordinary world updates behind it. Schedule and message event interpreters are separate from actor action functions. This is bounded architecture coverage; OS/audio/render scheduling is indexed but not semantically audited.",
+      "sources": [
+        "https://github.com/zeldaret/mm/blob/bf6bd9d0d3a90fe2f8960e034fbfd328e8bdef22/src/code/z_play.c",
+        "https://github.com/zeldaret/mm/blob/bf6bd9d0d3a90fe2f8960e034fbfd328e8bdef22/src/code/z_msgevent.c",
+        "https://github.com/zeldaret/mm/blob/bf6bd9d0d3a90fe2f8960e034fbfd328e8bdef22/src/code/z_schedule.c"
+      ]
+    },
+    {
+      "id": "A04",
+      "status": "covered",
+      "summary": "Shown: Save/SaveContext memory is copied into flash buffers; save signatures and a checksum select valid main/backup data. The checked validation branch tries the backup after a bad primary, then clears its buffer if both fail. Song-of-Time reset masks scene/week flags through explicit persistence tables and resets selected clock, inventory and quest fields. Owl and cycle save paths differ. Not shown: a versioned migration scheme or offline catch-up. The whole save-field census remains partial.",
+      "sources": [
+        "https://github.com/zeldaret/mm/blob/bf6bd9d0d3a90fe2f8960e034fbfd328e8bdef22/src/code/z_sram_NES.c"
+      ]
+    },
+    {
+      "id": "A05",
+      "status": "covered",
+      "summary": "Shown: conditional schedule bytecode checks time, day, flags and scene, returning a result/time window. Anju maps that result to actor behavior and routes; the promise and pendant facts choose later presence. This is an authored routine selector. It does not demonstrate autonomous goals or a global off-screen relationship simulation.",
+      "sources": [
+        "https://github.com/zeldaret/mm/blob/bf6bd9d0d3a90fe2f8960e034fbfd328e8bdef22/src/code/z_schedule.c",
+        "https://github.com/zeldaret/mm/blob/bf6bd9d0d3a90fe2f8960e034fbfd328e8bdef22/src/overlays/actors/ovl_En_An/scheduleScripts.schl",
+        "https://github.com/zeldaret/mm/blob/bf6bd9d0d3a90fe2f8960e034fbfd328e8bdef22/src/overlays/actors/ovl_En_An/z_en_an.c"
+      ]
+    },
+    {
+      "id": "A06",
+      "status": "partial",
+      "summary": "Shown: the notebook maps people and events to photos, icons and current/history flags. Play_Update allows L/B/Start to close it and clears message state. The world-update path changes while it is open. Actual screen layout, readable type size, controller feel and accessibility were not exercised; no desktop remake UI is inferred from N64 data.",
+      "sources": [
+        "https://github.com/zeldaret/mm/blob/bf6bd9d0d3a90fe2f8960e034fbfd328e8bdef22/include/tables/notebook_table.h",
+        "https://github.com/zeldaret/mm/blob/bf6bd9d0d3a90fe2f8960e034fbfd328e8bdef22/src/code/z_play.c"
+      ]
+    },
+    {
+      "id": "A07",
+      "status": "covered",
+      "summary": "Stated by repository docs: .schl was invented by the community for reading/modifying bytecode. Shown: actor schedule files, macro message scripts and notebook tables localize authoring by subsystem. The checkout's generated message_data.enc.h is referenced, not acquired as a full text catalogue. No official mod API or Nintendo content editor was established.",
+      "sources": [
+        "https://github.com/zeldaret/mm/blob/bf6bd9d0d3a90fe2f8960e034fbfd328e8bdef22/docs/schedule_scripting_language.md",
+        "https://github.com/zeldaret/mm/blob/bf6bd9d0d3a90fe2f8960e034fbfd328e8bdef22/src/overlays/actors/ovl_En_An/scheduleScripts.schl",
+        "https://github.com/zeldaret/mm/blob/bf6bd9d0d3a90fe2f8960e034fbfd328e8bdef22/assets/text/message_data_static.c"
+      ]
+    },
+    {
+      "id": "A08",
+      "status": "partial",
+      "summary": "Shown: schedule ranges subtract one from the end before an inclusive comparison, giving an exclusive authored end. qrand.c uses a seeded 32-bit recurrence and constructs [0,1) floats from integer bits. Three-day reset count saturates at 999. No checked consumer establishes pity, saved RNG continuity or a full economy curve; those remain unread.",
+      "sources": [
+        "https://github.com/zeldaret/mm/blob/bf6bd9d0d3a90fe2f8960e034fbfd328e8bdef22/src/code/z_schedule.c",
+        "https://github.com/zeldaret/mm/blob/bf6bd9d0d3a90fe2f8960e034fbfd328e8bdef22/src/boot/libc64/qrand.c",
+        "https://github.com/zeldaret/mm/blob/bf6bd9d0d3a90fe2f8960e034fbfd328e8bdef22/src/code/z_sram_NES.c"
+      ]
+    },
+    {
+      "id": "A09",
+      "status": "covered",
+      "summary": "Shown: environment clock advance is conditional on pause, game-over, dialogue exceptions, transition, frame advance and cutscene state. Anju's route reads the shared phase, not a real-world timer. No offline simulation is established. Prior Double Time and slowdown details are retained as prior evidence, not newly expanded here.",
+      "sources": [
+        "https://github.com/zeldaret/mm/blob/bf6bd9d0d3a90fe2f8960e034fbfd328e8bdef22/src/code/z_kankyo.c",
+        "https://github.com/zeldaret/mm/blob/bf6bd9d0d3a90fe2f8960e034fbfd328e8bdef22/src/overlays/actors/ovl_En_An/scheduleScripts.schl"
+      ]
+    },
+    {
+      "id": "A10",
+      "status": "partial",
+      "summary": "Shown: notebook ownership gates the queued event text, while event-history recording is independent. Met flags govern person recognition; readable schedule knowledge is earned through encounters. The full introductory cycle, tutorial ordering and every mask reveal are unread.",
+      "sources": [
+        "https://github.com/zeldaret/mm/blob/bf6bd9d0d3a90fe2f8960e034fbfd328e8bdef22/include/tables/notebook_table.h",
+        "https://github.com/zeldaret/mm/blob/bf6bd9d0d3a90fe2f8960e034fbfd328e8bdef22/src/code/z_message.c"
+      ]
+    },
+    {
+      "id": "A11",
+      "status": "covered",
+      "summary": "Shown: focus-to-child/self commands keep a multi-person exchange legible; decide/cancel/error sounds have distinct handlers; notebook writes play a separate sound. Event dedup prevents repeated notices for already-recorded history. This is static feedback code, not a measured feel/accessibility claim.",
+      "sources": [
+        "https://github.com/zeldaret/mm/blob/bf6bd9d0d3a90fe2f8960e034fbfd328e8bdef22/src/code/z_msgevent.c",
+        "https://github.com/zeldaret/mm/blob/bf6bd9d0d3a90fe2f8960e034fbfd328e8bdef22/src/code/z_message.c"
+      ]
+    },
+    {
+      "id": "A12",
+      "status": "partial",
+      "summary": "Shown: reset code also handles equipment downgrade, consumables, bottle contents, scene clear state and minigame-related registers. The checkout exposes inventory, shops, combat, transformations, cutscenes, audio and effects as additional subsystems in the inventory. Only reset-boundary interactions were inspected; their full catalogs and mechanics remain unread.",
+      "sources": [
+        "https://github.com/zeldaret/mm/blob/bf6bd9d0d3a90fe2f8960e034fbfd328e8bdef22/src/code/z_sram_NES.c",
+        "https://github.com/zeldaret/mm/blob/bf6bd9d0d3a90fe2f8960e034fbfd328e8bdef22/README.md"
+      ]
+    }
+  ],
+  "proposals": [
+    {
+      "id": "P1",
+      "title": "Dialogue effect and interruption receipts",
+      "owner": "docs/worlds/DIALOGUE_AND_INTERACTIONS.md",
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "P2",
+      "title": "Field-by-field reset preview",
+      "owner": "docs/ENGINE_SAVES_AND_SCALE_REVIEW_2026-10-11.md",
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "P3",
+      "title": "Remembered versus current appointment display",
+      "owner": "docs/worlds/WORLD_SECRETS_AND_DISCOVERY.md",
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "P4",
+      "title": "Conditional NPC destination after a promise",
+      "owner": "docs/TIMELINES_AND_DIVERGENCE.md",
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "P5",
+      "title": "Validated backup recovery receipt",
+      "owner": "docs/ENGINE_SAVES_AND_SCALE_REVIEW_2026-10-11.md",
+      "status": "PROPOSAL"
+    }
+  ],
+  "gaps": "Full NPC/message catalog, all save fields, MM3D, gameplay/UI feel, original Nintendo editor and complete off-screen simulation remain unread. No ROM/assets were extracted."
+}

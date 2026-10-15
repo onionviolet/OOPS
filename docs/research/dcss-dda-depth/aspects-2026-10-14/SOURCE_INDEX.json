@@ -1,0 +1,706 @@
+{
+  "crawl": {
+    "pin": {
+      "commit": "c4298273a49c6601be4e1c9b79d4aba43f9aa603",
+      "remote": "https://github.com/crawl/crawl.git",
+      "files": 11505
+    },
+    "tree": "dcc678a6d7f0378ef96ea4ee6f6549c738a7c5f8",
+    "sources": [
+      {
+        "game": "crawl",
+        "path": "crawl-ref/source/mon-speak.cc",
+        "lines": [
+          337,
+          445
+        ],
+        "url": "https://github.com/crawl/crawl/blob/c4298273a49c6601be4e1c9b79d4aba43f9aa603/crawl-ref/source/mon-speak.cc#L337-L445",
+        "sha256": "7ef74afe3ae89fbb44426be0718051e1a28afc3fb81b87c4cd4c695defb5298f",
+        "line_count": 878,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "crawl",
+        "path": "crawl-ref/source/mon-speak.cc",
+        "lines": [
+          827,
+          878
+        ],
+        "url": "https://github.com/crawl/crawl/blob/c4298273a49c6601be4e1c9b79d4aba43f9aa603/crawl-ref/source/mon-speak.cc#L827-L878",
+        "sha256": "7ef74afe3ae89fbb44426be0718051e1a28afc3fb81b87c4cd4c695defb5298f",
+        "line_count": 878,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "crawl",
+        "path": "crawl-ref/docs/develop/monster_speech.txt",
+        "lines": [
+          1,
+          45
+        ],
+        "url": "https://github.com/crawl/crawl/blob/c4298273a49c6601be4e1c9b79d4aba43f9aa603/crawl-ref/docs/develop/monster_speech.txt#L1-L45",
+        "sha256": "2071b472fbb26742c59639372fb212fd1a7a3fbdb63e4e371873c3f5df8e58e2",
+        "line_count": 923,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "crawl",
+        "path": "crawl-ref/source/notes.cc",
+        "lines": [
+          89,
+          108
+        ],
+        "url": "https://github.com/crawl/crawl/blob/c4298273a49c6601be4e1c9b79d4aba43f9aa603/crawl-ref/source/notes.cc#L89-L108",
+        "sha256": "fb5b7e1893d671232382fe842627baa9879d50db25bdaa8575aed8deaa71598c",
+        "line_count": 601,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "crawl",
+        "path": "crawl-ref/source/notes.cc",
+        "lines": [
+          550,
+          585
+        ],
+        "url": "https://github.com/crawl/crawl/blob/c4298273a49c6601be4e1c9b79d4aba43f9aa603/crawl-ref/source/notes.cc#L550-L585",
+        "sha256": "fb5b7e1893d671232382fe842627baa9879d50db25bdaa8575aed8deaa71598c",
+        "line_count": 601,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "crawl",
+        "path": "crawl-ref/source/hints.cc",
+        "lines": [
+          65,
+          100
+        ],
+        "url": "https://github.com/crawl/crawl/blob/c4298273a49c6601be4e1c9b79d4aba43f9aa603/crawl-ref/source/hints.cc#L65-L100",
+        "sha256": "f7925a3599951a44773b4696a8d37f7485d049947a00affa160f7e8963f5b294",
+        "line_count": 2407,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "crawl",
+        "path": "crawl-ref/source/mon-act.cc",
+        "lines": [
+          2827,
+          2870
+        ],
+        "url": "https://github.com/crawl/crawl/blob/c4298273a49c6601be4e1c9b79d4aba43f9aa603/crawl-ref/source/mon-act.cc#L2827-L2870",
+        "sha256": "70416c8168c490771d63cd4f6776c07bc0ed196a242dba79ba2648809daa10bf",
+        "line_count": 4368,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "crawl",
+        "path": "crawl-ref/source/random.cc",
+        "lines": [
+          20,
+          100
+        ],
+        "url": "https://github.com/crawl/crawl/blob/c4298273a49c6601be4e1c9b79d4aba43f9aa603/crawl-ref/source/random.cc#L20-L100",
+        "sha256": "3452858e5575254935644223bfdf73da2068d829a39ffd7e82698341a1ed1ac2",
+        "line_count": 548,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "crawl",
+        "path": "crawl-ref/source/files.cc",
+        "lines": [
+          2651,
+          2712
+        ],
+        "url": "https://github.com/crawl/crawl/blob/c4298273a49c6601be4e1c9b79d4aba43f9aa603/crawl-ref/source/files.cc#L2651-L2712",
+        "sha256": "3fe3c8753c3e776aaf14da6be8327ac6d2a1e1ac9e275619579121989c4eede5",
+        "line_count": 4112,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "crawl",
+        "path": "crawl-ref/source/files.cc",
+        "lines": [
+          3214,
+          3275
+        ],
+        "url": "https://github.com/crawl/crawl/blob/c4298273a49c6601be4e1c9b79d4aba43f9aa603/crawl-ref/source/files.cc#L3214-L3275",
+        "sha256": "3fe3c8753c3e776aaf14da6be8327ac6d2a1e1ac9e275619579121989c4eede5",
+        "line_count": 4112,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "crawl",
+        "path": "crawl-ref/source/files.cc",
+        "lines": [
+          3370,
+          3400
+        ],
+        "url": "https://github.com/crawl/crawl/blob/c4298273a49c6601be4e1c9b79d4aba43f9aa603/crawl-ref/source/files.cc#L3370-L3400",
+        "sha256": "3fe3c8753c3e776aaf14da6be8327ac6d2a1e1ac9e275619579121989c4eede5",
+        "line_count": 4112,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "crawl",
+        "path": "crawl-ref/source/tag-version.h",
+        "lines": [
+          15,
+          65
+        ],
+        "url": "https://github.com/crawl/crawl/blob/c4298273a49c6601be4e1c9b79d4aba43f9aa603/crawl-ref/source/tag-version.h#L15-L65",
+        "sha256": "d384db6a9ab881b9d0c889dcf974bb26a848e7b3f0b5fdc02ec75bc7ae66c1d2",
+        "line_count": 498,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "crawl",
+        "path": "crawl-ref/source/tags.cc",
+        "lines": [
+          748,
+          775
+        ],
+        "url": "https://github.com/crawl/crawl/blob/c4298273a49c6601be4e1c9b79d4aba43f9aa603/crawl-ref/source/tags.cc#L748-L775",
+        "sha256": "28a7d8225380a11290ce30fb94e01e1da0f0239a851042d11ed2331c72cf9308",
+        "line_count": 9173,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "crawl",
+        "path": "crawl-ref/source/tags.cc",
+        "lines": [
+          1301,
+          1340
+        ],
+        "url": "https://github.com/crawl/crawl/blob/c4298273a49c6601be4e1c9b79d4aba43f9aa603/crawl-ref/source/tags.cc#L1301-L1340",
+        "sha256": "28a7d8225380a11290ce30fb94e01e1da0f0239a851042d11ed2331c72cf9308",
+        "line_count": 9173,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "crawl",
+        "path": "crawl-ref/source/random.cc",
+        "lines": [
+          20,
+          60
+        ],
+        "url": "https://github.com/crawl/crawl/blob/c4298273a49c6601be4e1c9b79d4aba43f9aa603/crawl-ref/source/random.cc#L20-L60",
+        "sha256": "3452858e5575254935644223bfdf73da2068d829a39ffd7e82698341a1ed1ac2",
+        "line_count": 548,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "crawl",
+        "path": "crawl-ref/source/mon-speak.cc",
+        "lines": [
+          337,
+          395
+        ],
+        "url": "https://github.com/crawl/crawl/blob/c4298273a49c6601be4e1c9b79d4aba43f9aa603/crawl-ref/source/mon-speak.cc#L337-L395",
+        "sha256": "7ef74afe3ae89fbb44426be0718051e1a28afc3fb81b87c4cd4c695defb5298f",
+        "line_count": 878,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "crawl",
+        "path": "crawl-ref/source/travel.cc",
+        "lines": [
+          590,
+          625
+        ],
+        "url": "https://github.com/crawl/crawl/blob/c4298273a49c6601be4e1c9b79d4aba43f9aa603/crawl-ref/source/travel.cc#L590-L625",
+        "sha256": "2a37acff4bd851b1ec025feb3d96968825a2c77fb9d154a6ad45879ca4f78a01",
+        "line_count": 5469,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "crawl",
+        "path": "crawl-ref/source/describe.cc",
+        "lines": [
+          121,
+          145
+        ],
+        "url": "https://github.com/crawl/crawl/blob/c4298273a49c6601be4e1c9b79d4aba43f9aa603/crawl-ref/source/describe.cc#L121-L145",
+        "sha256": "c99e5e50cda0495270f0407bccb23c19d7e663fc90c8097dd851255e7297f979",
+        "line_count": 8221,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "crawl",
+        "path": "crawl-ref/docs/develop/monster_speech.txt",
+        "lines": [
+          113,
+          155
+        ],
+        "url": "https://github.com/crawl/crawl/blob/c4298273a49c6601be4e1c9b79d4aba43f9aa603/crawl-ref/docs/develop/monster_speech.txt#L113-L155",
+        "sha256": "2071b472fbb26742c59639372fb212fd1a7a3fbdb63e4e371873c3f5df8e58e2",
+        "line_count": 923,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "crawl",
+        "path": "crawl-ref/source/random.cc",
+        "lines": [
+          108,
+          130
+        ],
+        "url": "https://github.com/crawl/crawl/blob/c4298273a49c6601be4e1c9b79d4aba43f9aa603/crawl-ref/source/random.cc#L108-L130",
+        "sha256": "3452858e5575254935644223bfdf73da2068d829a39ffd7e82698341a1ed1ac2",
+        "line_count": 548,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "crawl",
+        "path": "crawl-ref/source/random.cc",
+        "lines": [
+          20,
+          130
+        ],
+        "url": "https://github.com/crawl/crawl/blob/c4298273a49c6601be4e1c9b79d4aba43f9aa603/crawl-ref/source/random.cc#L20-L130",
+        "sha256": "3452858e5575254935644223bfdf73da2068d829a39ffd7e82698341a1ed1ac2",
+        "line_count": 548,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "crawl",
+        "path": "crawl-ref/source/skills.cc",
+        "lines": [
+          1270,
+          1320
+        ],
+        "url": "https://github.com/crawl/crawl/blob/c4298273a49c6601be4e1c9b79d4aba43f9aa603/crawl-ref/source/skills.cc#L1270-L1320",
+        "sha256": "dd49af7f70f94dc0f4549ac65e286f40c9978dd6f0b63721eb61e6b4aabd2907",
+        "line_count": 2884,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "crawl",
+        "path": "crawl-ref/source/timed-effects.cc",
+        "lines": [
+          424,
+          486
+        ],
+        "url": "https://github.com/crawl/crawl/blob/c4298273a49c6601be4e1c9b79d4aba43f9aa603/crawl-ref/source/timed-effects.cc#L424-L486",
+        "sha256": "1edcfd408b473ac4aee204b5dcbce78af515e606ed2b450cfd7da9054f0af90d",
+        "line_count": 1285,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "crawl",
+        "path": "crawl-ref/source/hints.cc",
+        "lines": [
+          276,
+          285
+        ],
+        "url": "https://github.com/crawl/crawl/blob/c4298273a49c6601be4e1c9b79d4aba43f9aa603/crawl-ref/source/hints.cc#L276-L285",
+        "sha256": "f7925a3599951a44773b4696a8d37f7485d049947a00affa160f7e8963f5b294",
+        "line_count": 2407,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "crawl",
+        "path": "crawl-ref/source/skills.cc",
+        "lines": [
+          1280,
+          1305
+        ],
+        "url": "https://github.com/crawl/crawl/blob/c4298273a49c6601be4e1c9b79d4aba43f9aa603/crawl-ref/source/skills.cc#L1280-L1305",
+        "sha256": "dd49af7f70f94dc0f4549ac65e286f40c9978dd6f0b63721eb61e6b4aabd2907",
+        "line_count": 2884,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      }
+    ]
+  },
+  "cdda": {
+    "pin": {
+      "commit": "ef31b1fc84c640f97a5547a5b76a6ba5e9e97847",
+      "remote": "https://github.com/CleverRaven/Cataclysm-DDA.git",
+      "files": 10429
+    },
+    "tree": "0498596292d79e59d0b0a23e2ce86e148abdc1dd",
+    "sources": [
+      {
+        "game": "cdda",
+        "path": "src/npctalk.cpp",
+        "lines": [
+          8497,
+          8528
+        ],
+        "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/ef31b1fc84c640f97a5547a5b76a6ba5e9e97847/src/npctalk.cpp#L8497-L8528",
+        "sha256": "65482e1fbe5536f667afd7e3945a1e55e3434c6799f76e7dd949c5602d871924",
+        "line_count": 9652,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "cdda",
+        "path": "src/npctalk.cpp",
+        "lines": [
+          8988,
+          9134
+        ],
+        "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/ef31b1fc84c640f97a5547a5b76a6ba5e9e97847/src/npctalk.cpp#L8988-L9134",
+        "sha256": "65482e1fbe5536f667afd7e3945a1e55e3434c6799f76e7dd949c5602d871924",
+        "line_count": 9652,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "cdda",
+        "path": "src/npctalk.cpp",
+        "lines": [
+          9168,
+          9374
+        ],
+        "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/ef31b1fc84c640f97a5547a5b76a6ba5e9e97847/src/npctalk.cpp#L9168-L9374",
+        "sha256": "65482e1fbe5536f667afd7e3945a1e55e3434c6799f76e7dd949c5602d871924",
+        "line_count": 9652,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "cdda",
+        "path": "src/npctalk.cpp",
+        "lines": [
+          9375,
+          9472
+        ],
+        "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/ef31b1fc84c640f97a5547a5b76a6ba5e9e97847/src/npctalk.cpp#L9375-L9472",
+        "sha256": "65482e1fbe5536f667afd7e3945a1e55e3434c6799f76e7dd949c5602d871924",
+        "line_count": 9652,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "cdda",
+        "path": "data/json/npcs/Backgrounds/evacuee_2.json",
+        "lines": [
+          1,
+          44
+        ],
+        "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/ef31b1fc84c640f97a5547a5b76a6ba5e9e97847/data/json/npcs/Backgrounds/evacuee_2.json#L1-L44",
+        "sha256": "c69e777093bafe0ba545c141111ded3806de76296fe7c909d866876ad25ea9e0",
+        "line_count": 52,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "cdda",
+        "path": "src/mission.cpp",
+        "lines": [
+          46,
+          108
+        ],
+        "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/ef31b1fc84c640f97a5547a5b76a6ba5e9e97847/src/mission.cpp#L46-L108",
+        "sha256": "1e20a42072861dfca5d5bd25f3a52f00f972704de5f6827e3b3a38f89307b8fd",
+        "line_count": 1022,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "cdda",
+        "path": "src/game_io.cpp",
+        "lines": [
+          601,
+          640
+        ],
+        "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/ef31b1fc84c640f97a5547a5b76a6ba5e9e97847/src/game_io.cpp#L601-L640",
+        "sha256": "1e1767bd017e4731470a4c61eaa667fa6d5de38b79dc9f514cb2894faddaaca2",
+        "line_count": 981,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "cdda",
+        "path": "src/game_io.cpp",
+        "lines": [
+          734,
+          780
+        ],
+        "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/ef31b1fc84c640f97a5547a5b76a6ba5e9e97847/src/game_io.cpp#L734-L780",
+        "sha256": "1e1767bd017e4731470a4c61eaa667fa6d5de38b79dc9f514cb2894faddaaca2",
+        "line_count": 981,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "cdda",
+        "path": "src/init.cpp",
+        "lines": [
+          151,
+          185
+        ],
+        "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/ef31b1fc84c640f97a5547a5b76a6ba5e9e97847/src/init.cpp#L151-L185",
+        "sha256": "6b4b6d0f604ea0a3649a463bd687a63aefe618c5522120315e07ce13ef4d06f9",
+        "line_count": 1059,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "cdda",
+        "path": "src/init.cpp",
+        "lines": [
+          523,
+          586
+        ],
+        "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/ef31b1fc84c640f97a5547a5b76a6ba5e9e97847/src/init.cpp#L523-L586",
+        "sha256": "6b4b6d0f604ea0a3649a463bd687a63aefe618c5522120315e07ce13ef4d06f9",
+        "line_count": 1059,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "cdda",
+        "path": "src/init.cpp",
+        "lines": [
+          798,
+          820
+        ],
+        "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/ef31b1fc84c640f97a5547a5b76a6ba5e9e97847/src/init.cpp#L798-L820",
+        "sha256": "6b4b6d0f604ea0a3649a463bd687a63aefe618c5522120315e07ce13ef4d06f9",
+        "line_count": 1059,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "cdda",
+        "path": "src/do_turn.cpp",
+        "lines": [
+          533,
+          627
+        ],
+        "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/ef31b1fc84c640f97a5547a5b76a6ba5e9e97847/src/do_turn.cpp#L533-L627",
+        "sha256": "b70dd25098beb8e0649cd34d83d5b8d03fa104ffba75a71b6b0b8700b90a8939",
+        "line_count": 818,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "cdda",
+        "path": "src/event_bus.cpp",
+        "lines": [
+          60,
+          100
+        ],
+        "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/ef31b1fc84c640f97a5547a5b76a6ba5e9e97847/src/event_bus.cpp#L60-L100",
+        "sha256": "440586593fcb8d7eb5e8672769cbc67a81e773f8490b2183c55ea41d9c3b7322",
+        "line_count": 181,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "cdda",
+        "path": "src/savegame.cpp",
+        "lines": [
+          84,
+          164
+        ],
+        "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/ef31b1fc84c640f97a5547a5b76a6ba5e9e97847/src/savegame.cpp#L84-L164",
+        "sha256": "b86a9361108e3d6a0770f45e74e103ef2099cedd602ea6e0317388866c5ad5cb",
+        "line_count": 2162,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "cdda",
+        "path": "src/savegame.cpp",
+        "lines": [
+          199,
+          328
+        ],
+        "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/ef31b1fc84c640f97a5547a5b76a6ba5e9e97847/src/savegame.cpp#L199-L328",
+        "sha256": "b86a9361108e3d6a0770f45e74e103ef2099cedd602ea6e0317388866c5ad5cb",
+        "line_count": 2162,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "cdda",
+        "path": "src/game_io.cpp",
+        "lines": [
+          885,
+          949
+        ],
+        "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/ef31b1fc84c640f97a5547a5b76a6ba5e9e97847/src/game_io.cpp#L885-L949",
+        "sha256": "1e1767bd017e4731470a4c61eaa667fa6d5de38b79dc9f514cb2894faddaaca2",
+        "line_count": 981,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "cdda",
+        "path": "src/npcmove.cpp",
+        "lines": [
+          1910,
+          1960
+        ],
+        "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/ef31b1fc84c640f97a5547a5b76a6ba5e9e97847/src/npcmove.cpp#L1910-L1960",
+        "sha256": "73809a377d66a70431021c3b12247b6511ad06aca508397eff0ae117d1f3970d",
+        "line_count": 7842,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "cdda",
+        "path": "src/do_turn.cpp",
+        "lines": [
+          620,
+          627
+        ],
+        "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/ef31b1fc84c640f97a5547a5b76a6ba5e9e97847/src/do_turn.cpp#L620-L627",
+        "sha256": "b70dd25098beb8e0649cd34d83d5b8d03fa104ffba75a71b6b0b8700b90a8939",
+        "line_count": 818,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "cdda",
+        "path": "src/panels.cpp",
+        "lines": [
+          57,
+          168
+        ],
+        "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/ef31b1fc84c640f97a5547a5b76a6ba5e9e97847/src/panels.cpp#L57-L168",
+        "sha256": "9f6b2fd516664c9a45c0fbefe954ed9500c3397db1b56935be8fcf9fe3f5de99",
+        "line_count": 887,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "cdda",
+        "path": "src/npctalk.cpp",
+        "lines": [
+          9375,
+          9420
+        ],
+        "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/ef31b1fc84c640f97a5547a5b76a6ba5e9e97847/src/npctalk.cpp#L9375-L9420",
+        "sha256": "65482e1fbe5536f667afd7e3945a1e55e3434c6799f76e7dd949c5602d871924",
+        "line_count": 9652,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "cdda",
+        "path": "src/init.cpp",
+        "lines": [
+          954,
+          975
+        ],
+        "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/ef31b1fc84c640f97a5547a5b76a6ba5e9e97847/src/init.cpp#L954-L975",
+        "sha256": "6b4b6d0f604ea0a3649a463bd687a63aefe618c5522120315e07ce13ef4d06f9",
+        "line_count": 1059,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "cdda",
+        "path": "src/npctalk.cpp",
+        "lines": [
+          8988,
+          9035
+        ],
+        "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/ef31b1fc84c640f97a5547a5b76a6ba5e9e97847/src/npctalk.cpp#L8988-L9035",
+        "sha256": "65482e1fbe5536f667afd7e3945a1e55e3434c6799f76e7dd949c5602d871924",
+        "line_count": 9652,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "cdda",
+        "path": "src/npctalk.cpp",
+        "lines": [
+          9375,
+          9438
+        ],
+        "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/ef31b1fc84c640f97a5547a5b76a6ba5e9e97847/src/npctalk.cpp#L9375-L9438",
+        "sha256": "65482e1fbe5536f667afd7e3945a1e55e3434c6799f76e7dd949c5602d871924",
+        "line_count": 9652,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "cdda",
+        "path": "doc/JSON/NPCs.md",
+        "lines": [
+          1,
+          35
+        ],
+        "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/ef31b1fc84c640f97a5547a5b76a6ba5e9e97847/doc/JSON/NPCs.md#L1-L35",
+        "sha256": "efcf4e788e99516969fb4d5c376989a693b5406bbd4eef4bfd71a9c2d02fb1d3",
+        "line_count": 1574,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "cdda",
+        "path": "data/json/recipes/practice/mechanics.json",
+        "lines": [
+          1,
+          53
+        ],
+        "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/ef31b1fc84c640f97a5547a5b76a6ba5e9e97847/data/json/recipes/practice/mechanics.json#L1-L53",
+        "sha256": "68fc30cfa2bf33aa708ce3e10a71db264be1fa4e48009909509e237e57388477",
+        "line_count": 53,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "cdda",
+        "path": "src/rng.cpp",
+        "lines": [
+          200,
+          220
+        ],
+        "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/ef31b1fc84c640f97a5547a5b76a6ba5e9e97847/src/rng.cpp#L200-L220",
+        "sha256": "291c06f255be4990953c3cfa293fb319a489166768bb9f12be2d33406d52333c",
+        "line_count": 234,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "cdda",
+        "path": "src/effect_on_condition.cpp",
+        "lines": [
+          235,
+          335
+        ],
+        "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/ef31b1fc84c640f97a5547a5b76a6ba5e9e97847/src/effect_on_condition.cpp#L235-L335",
+        "sha256": "5aa53fc8b761ebc2fdfd9be0ab0f207a147bb914e1e3cdbd8d79b57b3c7bea07",
+        "line_count": 637,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "cdda",
+        "path": "src/savegame.cpp",
+        "lines": [
+          142,
+          164
+        ],
+        "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/ef31b1fc84c640f97a5547a5b76a6ba5e9e97847/src/savegame.cpp#L142-L164",
+        "sha256": "b86a9361108e3d6a0770f45e74e103ef2099cedd602ea6e0317388866c5ad5cb",
+        "line_count": 2162,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "cdda",
+        "path": "src/savegame.cpp",
+        "lines": [
+          309,
+          322
+        ],
+        "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/ef31b1fc84c640f97a5547a5b76a6ba5e9e97847/src/savegame.cpp#L309-L322",
+        "sha256": "b86a9361108e3d6a0770f45e74e103ef2099cedd602ea6e0317388866c5ad5cb",
+        "line_count": 2162,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "cdda",
+        "path": "src/gamemode_tutorial.cpp",
+        "lines": [
+          70,
+          130
+        ],
+        "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/ef31b1fc84c640f97a5547a5b76a6ba5e9e97847/src/gamemode_tutorial.cpp#L70-L130",
+        "sha256": "7e9919eb0bc6175735f9430a27524e32992e1f6321ceb77c3ee79a6ab73aa9d0",
+        "line_count": 384,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "cdda",
+        "path": "src/npctalk.cpp",
+        "lines": [
+          9199,
+          9245
+        ],
+        "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/ef31b1fc84c640f97a5547a5b76a6ba5e9e97847/src/npctalk.cpp#L9199-L9245",
+        "sha256": "65482e1fbe5536f667afd7e3945a1e55e3434c6799f76e7dd949c5602d871924",
+        "line_count": 9652,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "cdda",
+        "path": "src/npcmove.cpp",
+        "lines": [
+          1910,
+          1940
+        ],
+        "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/ef31b1fc84c640f97a5547a5b76a6ba5e9e97847/src/npcmove.cpp#L1910-L1940",
+        "sha256": "73809a377d66a70431021c3b12247b6511ad06aca508397eff0ae117d1f3970d",
+        "line_count": 7842,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      }
+    ]
+  }
+}

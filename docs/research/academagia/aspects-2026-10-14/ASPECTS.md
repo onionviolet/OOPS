@@ -1,0 +1,179 @@
+# Academagia aspect pass, 2026-10-14
+
+Source-only pass using prior read-only extraction plus three targeted UI type reads. **Shown** means inspected code/data; **inferred** means reconstruction or design meaning; **PROPOSAL** remains unaccepted. Covered means the aspect-level source path is documented, not every method or played outcome. No game launch, user save/cache access, install change or YAIRPG implementation occurred.
+
+Priority detail: [save and architecture](SAVE_AND_ARCHITECTURE.md); [three deeper systems](DEEPER_SYSTEMS.md); [inventory](SYSTEM_INVENTORY.md); [private reference routing](PRIVATE_REFERENCE_INDEX.md). Full text remains outside Git. Every row includes evidence and one or two proposed owner takeaways.
+
+## A01 / Dialogue and conversation
+
+Status: partial.
+
+Shown: conversations are embedded in HTML-like Story text and branching Adventure/Exit/Investigation records. No separate Dialogue or Conversation table appears in the 112-type runtime registry. A whole-build absence of other dialogue helpers is not claimed. Entry and choice gates can reference skills, knowledge, memories, relationships, owned actions and dates through the common prerequisite resolver. Text branches are chosen by StoryResult, not a free-text conversation model.
+
+FlowDocExtractor selects default, success or failure text, parses an XML content wrapper with optional title/monogram images, converts HTML to XAML and resolves actor, lore or direct entity hyperlinks. Outcome-specific actor-link lists can differ. GetActorText supports manual selected display properties and random actor text. Storyline shows the supplied exit list, returns the chosen Exit/sacrifice actor and releases the synchronous command wait. State changes occur in StorySystem effects and continuances, rather than the prose renderer.
+
+Portrait/Visualization records and actor references exist, but a resolved mention is not automatically a dialogue speaker or a talking portrait. Per-line speaker attribution, all relationship-gated dialogue examples, bark/small-talk selection and complete dynamic text variants remain unread. Saved text fields are counted as text fields, not dialogue lines. Full private text with IDs and context references is retained in the reference corpus; no raw writing is placed here.
+
+Sources: `Academagia.UI.dll: FlowDocExtractor.RunExtractDocument/GetLinkProps; Storyline.FillExitsList/ContinueStory (new targeted decompile)`; `GameLogic.dll/Academagia.GameSystems/StorySystem.cs: GetActorText/GetResolvedActor/ExecuteExit/GetPossibleExits`; `ContentModel.dll/ContentModel/Story.cs, StoryActorLink.cs; Adventure/Exit/Investigation/Prerequisite/SelectionItem tables`.
+
+Takeaways:
+- PROPOSAL: CHARACTERS_AND_WORLD_EVENTS and world campaign owners: keep speaker/subject, visible line condition and consequential choice separate so actor references do not impersonate speaker metadata.
+- PROPOSAL: THEMATIC_UI_AND_INFORMATION_DESIGN: link a mentioned person or lore fact to a useful inspection panel while keeping the active choice visible on desktop.
+
+## A02 / Narrative delivery
+
+Status: covered.
+
+Shown: narrative arrives as scenes, investigations, outcome text, timed continuations, lore and authored reference records. The earlier pass maps all mechanical Adventure stages and both outcome links. A pending stage has a saved date window and its own entry gate; root candidates are tracked separately. Failures can advance a chain with changed effects. Successful investigations and played random-event IDs persist.
+
+FeedbackSystem keeps general-time action feedback by date/phase and separate duel/Rimbal dictionaries. Its inspected save method writes general feedback, not those other dictionaries. Storyline can append a new FlowDocument section and mark the newest section. That visible document is not the persistent story ledger. The registry includes Article, NamedText and NewspaperIssue types, but both Article and NamedText have zero rows in these profiles. Twenty NewspaperIssue rows exist; their complete delivery path and any actual populated articles are unread. Memories and Lore have records. Schema presence is not delivered story content. Scene presence does not prove it is reached in a player's run.
+
+Sources: `Prior pass-2026-10-14-adventures/ADVENTURE_GRAMMAR.md, CLUB_PATHS.md and structural ledgers`; `GameLogic.dll/Academagia.GameSystems/StorySystem.cs and FeedbackSystem.cs`; `Adventure, Continuance, Lore, Memory, NamedText, NewspaperIssue, Article tables`.
+
+Takeaways:
+- PROPOSAL: ENGINE_EXPANSION/chronicle: persist the story fact and consequence separately from the formatted log.
+- PROPOSAL: world campaign owners: make letters, notices and routine jobs lead to authored incidents with useful later consequences.
+
+## A03 / Implementation architecture
+
+Status: covered.
+
+Shown: managed .NET, Windows WPF app/UI, data-model and storage assemblies, typed GameLogic systems and shared command contracts. Repository creates 48 registered systems; the root serializer orders 47 systems. The source inventory finds 61 named System/controller/scheduler classes and 57 namespace directories across six decompiled assemblies, with inherited UI type names separately retained. These are size signals, not 61 independent gameplay features.
+
+Runtime content uses 112 custom-binary GUID-indexed types. Firebird/NHibernate belong to authoring infrastructure. XML trees and numeric selection paths bind effect subjects/targets; System.Linq.Dynamic handles stored selection expressions. Effects use typed implementations. No general Lua/JS VM is shown in these reviewed routes.
+
+NextDay processes planned phases and daily effects, refreshes stats/schedules, reduces live-object memory and starts NPC scheduling in a BackgroundWorker. Saves wait for it with ManualResetEvent. CommandDispatcher routes UI commands through WPF and supports a synchronous choice handshake. Weak handles, string caches and available-action caches are shown; no runtime speed measurement was made. SAVE_AND_ARCHITECTURE gives the full trace.
+
+Sources: `GameLogic.dll/Academagia.Storage/Repository.cs, RootObject.cs, RootDB.cs`; `GameLogic.dll/Academagia.GameSystems/GameController.cs; Common.dll/Academagia.Common.Commands/CommandDispatcher.cs`; `GameLogic.dll/Academagia.Resolving.Strategy/ResolveStrategyEx.cs; Storage.dll/Storage.Publish/CustomSerializer.cs`.
+
+Takeaways:
+- PROPOSAL: ENGINE_EXPANSION: keep typed content/effect contracts and an observable simulation step; persist consequences and rebuild caches.
+- PROPOSAL: world-authoring owners: validate selection paths and downstream consumers before calling a data row a feature.
+
+## A04 / Save and persistence
+
+Status: partial.
+
+Shown: .ams is ZIP-packed temporary output. It contains content/mod/version metadata, 24 mutable content-type streams, dynamic typed/GUID game-object streams and fixed-order system streams. Static selected content/resources are cache dependencies. Metadata uses the BinaryFormatter helper while records use custom readers. Load allocates references, overlays saved mutable objects, restores systems and refreshes statistics/media.
+
+Version-aware readers exist for slots, autocomplete, character stats, clique fields and story ancestry. Saved assembly version and content version are separate. Missing content identity/mods can reject a load. SaveGame deletes the previous destination before packing its replacement; there is no atomic publish shown. A result under 1,000 bytes retains temporary files and reports damage, but larger files do not get a checksum/read-back in this method.
+
+Term-ending autosave uses a unique wall-clock-date filename after waiting for AI scheduling. Ordinary NextDay does not invoke that method in the reviewed source. Full save UI/settings frequency, every historical migration and live corruption recovery remain unverified. No offline catch-up appears in these load/day paths. No user saves/cache were read. See SAVE_AND_ARCHITECTURE for saved versus derived fields.
+
+Sources: `GameLogic.dll/Academagia.Storage/RepositorySerializer.cs: SaveGame/SaveGameToFolder/LoadGameFromFolder`; `GameLogic.dll/RepositoryCache/GameInfo.cs, GameCache.cs; Storage.dll/Storage.Publish/CustomSerializer.cs`; `GameLogic.dll/Academagia.Scheduler/ActionScheduler.cs; GameSystems/StorySystem.cs, CharacterSystem.cs, CliqueSystem.cs, ResearchSystem.cs, GameController.cs`.
+
+Takeaways:
+- PROPOSAL: ENGINE_EXPANSION/persistence: preserve stable earned facts, pending work, content profile and AI memory; use explicit compatibility handling.
+- PROPOSAL: persistence owner: validate a replacement and publish atomically while retaining a recoverable prior save.
+
+## A05 / AI and NPC behavior
+
+Status: covered.
+
+Shown: NPCs have authored personal/interests/studies/goals/vendetta sources and persisted state bags. The scheduler uses their owned actions and common prerequisites, respects controlled/special slots and mostly replaces resting slots. Tables select desired effects/goals; confidence and personality preferences rank matching action methods; erraticity can choose randomly. Result feedback changes confidence and adapted effect/goal weights.
+
+This is a bounded authored adaptive selector, not proof of a general long-horizon planner or a complete autonomous economy. Hostile/vendetta responses have separate priority and chance routes. Clique dynamics were documented by the prior lane; full vendetta/duel-combat AI is still only partly read. D1 explains the schedule and learning flow and one null-return discrepancy.
+
+Sources: `GameLogic.dll/Academagia.AI/AISystem.cs, AIStateBag.cs, AIHelper.cs, AIOptionState.cs`; `GameLogic.dll/Academagia.Scheduler/ActionScheduler.cs`; `Student, PersonalAITable, StudiesAITable, InterestsAITable, GoalAITable, VendettaAITable, AIEffect, PersonalityPreference tables`.
+
+Takeaways:
+- PROPOSAL: CHARACTERS_AND_WORLD_EVENTS: give recurring actors persisted intent, method confidence and recent causal results using their actual available rules.
+- PROPOSAL: ENGINE_EXPANSION: separate scheduled appointments, external control and discretionary activity when advancing NPC time.
+
+## A06 / UI and information design
+
+Status: partial.
+
+Shown: a WPF story document, choice list, context links, page controls, sacrifice control and font-size updates. The renderer can append sections and highlight the latest section. MainWindow processes keyboard/shortcut commands and scheduler slot commands. InformationSystem decides which properties a viewer knows, so a UI can expose names and descriptions while hiding more detailed facts until Full information.
+
+The prior type census names scheduler/calendar, inventory, information, character, feedback, save and other views. Three UI classes were source-read here, not the full layout/XAML or every tooltip. No native screenshot, readability, simultaneous panel count, zoom behavior or accessibility claim was verified. This row is partial for layout and interaction behavior.
+
+Sources: `New private UI extract Storyline.cs, FlowDocExtractor.cs and StoryLineDataContext.cs`; `Prior notes/UI-types.txt and Academagia.exe/Academagia/MainWindow.xaml.cs`; `GameLogic.dll/Academagia.GameSystems/InformationSystem.cs`.
+
+Takeaways:
+- PROPOSAL: THEMATIC_UI_AND_INFORMATION_DESIGN: target 1440×900 with separate story, useful choices and entity-inspection surfaces; mobile deferred.
+- PROPOSAL: knowledge/UI owners: show known facts and explained unknowns without treating every underlying field as public knowledge.
+
+## A07 / Content authoring and modding
+
+Status: covered.
+
+Shown: designer content is typed data, XML selection trees, prerequisites, roll/effect relations, perks and linked story records. Firebird/NHibernate and validators are present in authoring storage. Shipped content uses custom header/data streams; mods are ZIP-like .mdm packages with new/modified data, metadata, deletion objects and resources. Selected mod order matters to merge and cache identity.
+
+Modified bodies replace serialized fields, new rows append and resources overwrite. The installed reader accepts string[] deletions while shipped files encode List<Guid>, so the source-compatible profile ignores those lists. The prior pass preserves intended-deletion and reader-compatible counts separately. A usable public editor UI/API was not acquired; no editor or mod was executed. Data schema and reader behavior are covered, interactive authoring workflow remains unread.
+
+Sources: `Prior PATCH_MERGING.md and decompile TOOLING.md`; `Storage.dll/Storage.Publish/CustomSerializer.cs, ModPublicator.cs, DBLoader.cs; Storage.SelectionTree.Xml.*`; `GameLogic.dll/Academagia.Storage/RepositorySerializer.cs; Storage/PrerequisiteItemValidator.cs and related validator types`.
+
+Takeaways:
+- PROPOSAL: world-authoring owners: keep stable IDs, explicit replace/append/remove operations and versioned content fingerprints.
+- PROPOSAL: ENGINE_EXPANSION: lint dangling links, inert fields and unlocks without consumers before accepting a content profile.
+
+## A08 / Balance and numbers
+
+Status: covered.
+
+Shown: standard integer rolls, strict normal success comparisons, specific skill/attribute bonuses, rerolls and context exceptions; course grades have independent preparation and subject competence. Benefit power thresholds differ from check thresholds. The existing roll/exam digest owns exact formulas rather than duplicating them here.
+
+RandomGenerator constructs a System.Random seed from wall-clock second × minute; its class has no save-state writer. Stable replay across reload is not established. Its integer calls catch invalid-range failures with fallback values. No general pity system was found in reviewed roll/event routes. Research reserve is cumulative work, not RNG pity. Numbers are primarily bounded integers/standard numeric values; no arbitrary-precision idle-number library is shown by this source pass.
+
+Sources: `Prior ROLLS_AND_EXAMS.md and CLASS_TABLES.md`; `GameLogic.dll/Academagia.Storage/RandomGenerator.cs; GameSystems/ResearchSystem.cs and SpellSystem.cs`; `Roll, SkillLevelThreshold, Benefit, Clazz, PhemeEffect tables`.
+
+Takeaways:
+- PROPOSAL: ENGINE_EXPANSION: distinguish chance, accumulated work, outcome degree and separate bonus rewards.
+- PROPOSAL: simulation/persistence owners: persist important random outcomes or an explicit replay state rather than depending on wall-clock seeding.
+
+## A09 / Time and scheduling
+
+Status: covered.
+
+Shown: 360 authored dates, three planned daily slots plus internal night processing, ordinary/duel/Rimbal timers and duration conditions. Calendar gains are generated and persisted. Pending story windows are saved, and expired entries leave the availability list. Schedule generation is explicit day advancement, not wall-clock idle play.
+
+The prior adventure pass found that ContextDateDuration is read but omitted from the inspected relative end-date calculation; use the actual method instead of claiming an authored number is a working window. No offline elapsed-time catch-up is shown in the reviewed load/NextDay path. Aging beyond this term and every cooldown policy remain unread.
+
+Sources: `Prior EVENTS_AND_CALENDAR.md and ADVENTURE_GRAMMAR.md`; `GameLogic.dll/Academagia.GameSystems/GameController.cs, DateAndTimeSystem.cs`; `Academagia.DateAndTime timers; Academagia.Scheduler/ActionScheduler.cs; CalendarEffect/DateAM/Continuance tables`.
+
+Takeaways:
+- PROPOSAL: ENGINE_EXPANSION: retain distinct world calendar, work queue and temporary-effect clocks when they differ.
+- PROPOSAL: calendar/event owners: show pending opportunity dates and causal reschedule/revisit options while preserving accepted idle routes.
+
+## A10 / Onboarding and reveal
+
+Status: partial.
+
+Shown: introduction-kind and tutorial Adventure records exist; StorySystem has an introduction start route. MainWindow runs a welcome/introduction timer and storyboard. Character information initialization reveals owned skills, known spells/components, public locations and relevant actions, and learning/discovery can reveal more useful records.
+
+The complete creation pages, beginner step sequence, staged visibility of every feature and actual first-run experience remain unread. A welcome animation or an introduction record is not proof of clear onboarding. Source-level ownership and reveal hooks are covered; native UX acceptance is absent.
+
+Sources: `Academagia.exe/Academagia/MainWindow.xaml.cs: LoadWelcomeContainer`; `GameLogic.dll/Academagia.GameSystems/StorySystem.cs: StartInitiateStory`; `AdventureType.Introduction; InformationSystem.InitializeCharacter; Tutorial Adventure records`.
+
+Takeaways:
+- PROPOSAL: school/world owners: introduce one useful routine and its consequence before exposing wider institutional paths.
+- PROPOSAL: knowledge/ability owners: tie a discovery to the useful action it reveals, with director-enabled alternatives remaining reachable.
+
+## A11 / Little touches
+
+Status: partial.
+
+Shown: context hyperlinks, appended story sections with newest-section marker, story title/monogram images, font-size updates, page navigation, general action feedback and background OGG music playlist work. MainWindow accepts scheduler/shortcut commands. MediaSystem has fade/tail parameters and a music-enable preference.
+
+These are implementation touches, not claims about sound quality, perceived responsiveness, screen-reader support, controller usability or absence of friction. Those experiential/accessibility details remain unread without native use. SMALL_TOUCHES proposes original applications rather than copied flavor text.
+
+Sources: `New Storyline.cs and FlowDocExtractor.cs`; `GameLogic.dll/Academagia.GameSystems/MediaSystem.cs and FeedbackSystem.cs`; `Academagia.exe/Academagia/MainWindow.xaml.cs; Portrait/Visualization/Music tables`.
+
+Takeaways:
+- PROPOSAL: THEMATIC_UI_AND_INFORMATION_DESIGN: keep the newest consequence easy to locate in a long history.
+- PROPOSAL: feedback/settings owners: provide useful action receipts, readable text controls and independent audio preference.
+
+## A12 / Other systems
+
+Status: partial.
+
+Shown: Rimbal is a distinct sports-game subsystem with team play types, roles, possession/ball position, rounds, current-game state and derived cached skill/captain data. DuelSystem schedules rivals' duels; information can unlock actions, topics, components, spells and visitation context. GameController has seven college-completion Steam achievement identifiers.
+
+The inventory also finds crafting/artifice, enchantment, gifts/affinities, astrology/constellations, charges, shops/purchases, familiars, discipline, merit and vendetta. Many full formulas/content ladders remain undocumented and are marked as such. D2 covers research and D3 selected spell interactions, not all combat. Steam achievement calls are source evidence, not a verified account unlock. No cross-year metaprogression is established by this Year 1 build.
+
+Sources: `GameLogic.dll/Academagia.GameSystems/RimbalSystem.cs, DuelSystem.cs, InformationSystem.cs, GameController.cs`; `Academagia.Rimbal and Academagia.CombatAndDuel namespaces`; `Item/Recipe/Enchantment/Ingredient/GiftPreference/Merit/Geas/Constellation tables`.
+
+Takeaways:
+- PROPOSAL: institution/world owners: let a minigame or craft route have its own meaningful roles and rewards rather than a generic skill roll everywhere.
+- PROPOSAL: character/knowledge owners: connect information acquisition to a useful consumer without flattening it into universal friendship points.

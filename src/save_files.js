@@ -8,6 +8,7 @@ import {validateTrancheThreeEnvelope} from './absorb_p23/host_joins/tranche_thre
 import {validateTrancheOneEnvelope} from './absorb_p23/host_joins/tranche_one.js';
 import {validateTrancheTwoEnvelope} from './absorb_p23/host_joins/tranche_two.js';
 import {validateHarvestEnvelope} from './harvest.js';
+import {validateHabitat} from './habitat_care.js';
 import {validateProductAppearanceEnvelope} from './product_appearance_state.js';
 import {validateStreams,validateNativeEncounter} from "./seeded_streams.js";
 import {validateMixtureEnvelope} from './mixture_state.js';
@@ -66,6 +67,7 @@ export function validateSaveEnvelope(original, currentVersion) {
     validateMistglassEnvelope(original);
     validateTrainingEnvelope(original);
     validateTrancheFourEnvelope(original);
+    if(original.meadow_pen!=null)validateHabitat(original.meadow_pen,calendarMinutes(original['current time']));
     validateHarvestEnvelope(original,original["current time"]?calendarMinutes(original["current time"]):Number.MAX_SAFE_INTEGER);
     validateMixtureEnvelope(original);
     validateProductAppearanceEnvelope(original);

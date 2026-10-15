@@ -1,0 +1,229 @@
+{
+  "A01": {
+    "status": "partial",
+    "sources": [
+      "../CONTENT_AND_SCOPE_DIGEST.md",
+      "../pass-2026-10-14-rea/EVENT_DISPATCH_DIGEST.md",
+      "PRIVATE_REFERENCE_INDEX.md"
+    ],
+    "summary": "SHOWN: 33 local Talk.txt pools contain 2,630 physical lines. Five further dialogue/flavor pools are Advice (265), Jest (290), ArenaInsults (138), GnomeInsults (378) and Ruffian (49). All 38 pools have native literal-path references. This pass retains their full text privately, with build/path/line IDs, hashes and reference-site addresses. Reference counts measure literal loading sites, not visits, player options or executed lines.",
+    "yairpg": [
+      {
+        "owner": "docs/worlds/DIALOGUE_AND_INTERACTIONS.md",
+        "proposal": "P1: give each original line a stable ID, eligibility facts, speaker and explicit effects; keep repeatable conversation routes reachable."
+      },
+      {
+        "owner": "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "proposal": "Resolve a petition transaction before its acknowledgment; show recipient consequences only when a real consumer applies them."
+      }
+    ]
+  },
+  "A02": {
+    "status": "partial",
+    "sources": [
+      "../GENERATION_DIGEST.md",
+      "../pass-2026-10-14-rea/EVENT_DISPATCH_DIGEST.md",
+      "DEEPER_SYSTEMS.md#d3-quest-composition"
+    ],
+    "summary": "SHOWN: HeroBackground selects authored story rows; mercenary and champion/adventurer story strings are written to saves. This is retained generated prose, not proof that those lives occurred. The annual path clears battle-report strings, calls CombatPhase, appends mercenary battle logs and later calls TurnReport. Text receipts and retained state have different lifecycles.",
+    "yairpg": [
+      {
+        "owner": "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "proposal": "Use fact-linked report entries with origin/action/outcome IDs instead of treating generated biography as earned history."
+      },
+      {
+        "owner": "docs/GENERATION_FOUNDATION_RULES_2026-10-14.md",
+        "proposal": "P3: generate a quest description from real item/place/person records only when those records have objective and reward consumers."
+      }
+    ]
+  },
+  "A03": {
+    "status": "partial",
+    "sources": [
+      "../TOOLING.md",
+      "../pass-2026-10-14-rea/REA_TRIAL.md",
+      "TOOLING.md"
+    ],
+    "summary": "SHOWN: Warsim.exe is a PE32+ x86-64 Windows console C++ program with COFF symbols, MinGW/libstdc++ markers and no CLR directory. Tables are plain text; selected readers use getline with periods and stoi. The observed helpers share many fixed globals for context, random scratch state and outputs. No managed engine, embedded script interpreter or external event bus was established by these reads.",
+    "yairpg": [
+      {
+        "owner": "docs/GENERATION_FOUNDATION_RULES_2026-10-14.md",
+        "proposal": "Keep identity, eligibility and effects in the existing generation kit; avoid a parallel scratch-global resolver."
+      },
+      {
+        "owner": "docs/ENGINE_EXPANSION.md",
+        "proposal": "Separate annual refresh, deployment, opponent resolution and reports with explicit state owners and order."
+      }
+    ]
+  },
+  "A04": {
+    "status": "partial",
+    "sources": [
+      "../pass-2026-10-14-rea/SAVE_FORMAT_DIGEST.md",
+      "DEEPER_SYSTEMS.md",
+      "PRIVATE_REFERENCE_INDEX.md"
+    ],
+    "summary": "SHOWN: SaveGame at 0x14078fc02 writes a positional period-delimited text stream. The previous scan retained 1,903 named writes: 1,454 integer writes and 449 string writes, with 1,901 distinct names because Spymaster and MonsterChallenge recur. The ENDOFFILE sentinel gives the regular reader its expected 1,904th token. LoadGame at 0x140767166 counts tokens and compares with 0x770, unless SkipLoad bypasses that check, then parses positions using getline/stoi. Later count-dependent compatibility branches exist. This is not a keyed or explicit versioned schema.",
+    "yairpg": [
+      {
+        "owner": "docs/research/PROFILE_AND_BRANCH_SAVE_SHAPE_2026-10-14.md",
+        "proposal": "P2: audit the complete persistence boundary, including generated companions/recipes, and preserve identity plus required generator version state."
+      },
+      {
+        "owner": "docs/ENGINE_EXPANSION.md",
+        "proposal": "Validate save/reload and literal import against changed monster, relation and petition facts before claiming retention."
+      }
+    ]
+  },
+  "A05": {
+    "status": "partial",
+    "sources": [
+      "../GENERATION_DIGEST.md",
+      "DEEPER_SYSTEMS.md#d2-directed-starting-relations",
+      "SYSTEM_INVENTORY.md"
+    ],
+    "summary": "SHOWN: KingdomGenerator and MercGenerator reuse race, identity and presentation helpers. Fixed faction/unit slots and EnemyCombatPhase exist; separate DiplomacyRelation and IndieDiplo helpers are cataloged. The new initial relation writer makes independent directed entries with hard-coded bias inputs, not a symmetric matrix. Five positive results set bandit truce flags. D2 records the exact random helper.",
+    "yairpg": [
+      {
+        "owner": "docs/research/SIMULATION_AND_NPC_ARCHITECTURE_2026-10-14.md",
+        "proposal": "Model directed beliefs/relations separately from treaties and truce flags; add real consumers before describing faction agency."
+      },
+      {
+        "owner": "docs/ENGINE_EXPANSION.md",
+        "proposal": "Province War opponents should resolve budgets and losses through the actual economy/combat owners."
+      }
+    ]
+  },
+  "A06": {
+    "status": "partial",
+    "sources": [
+      "../KINGDOM_LOOPS_DIGEST.md",
+      "TOOLING.md",
+      "../pass-2026-10-14-rea/PROVINCE_WAR_FIT.md"
+    ],
+    "summary": "SHOWN: native console output uses numeric choice helpers, printed menus, colors, ASCII portraits/graphics, clear-screen and pause calls. main sets console output code page 437. Helpers include KingdomStatsBar, CurrentGoldBar, TroopCountReport, KingdomReport and battle graphics. These are source-visible surfaces, not observed desktop screenshots.",
+    "yairpg": [
+      {
+        "owner": "docs/ENGINE_EXPANSION.md",
+        "proposal": "Make labor, deployment and affordability readable in one desktop decision view."
+      },
+      {
+        "owner": "docs/worlds/DIALOGUE_AND_INTERACTIONS.md",
+        "proposal": "Preserve speaker and transaction context while a dialogue choice is open."
+      }
+    ]
+  },
+  "A07": {
+    "status": "partial",
+    "sources": [
+      "../CONTENT_AND_SCOPE_DIGEST.md",
+      "../pass-2026-10-14-rea/NAME_AND_LORE_DIGEST.md",
+      "DEEPER_SYSTEMS.md"
+    ],
+    "summary": "SHOWN: the prior metadata inventory has 255 Data/Extras text files, including 217 Data files and 38 Extras files. This pass retains 190 selected Data files privately and excludes 27 settings, portrait, dynamic roster, recipe or relation files. The exclusions preserve personal state boundaries; they are not proof the files are unused.",
+    "yairpg": [
+      {
+        "owner": "docs/GENERATION_FOUNDATION_RULES_2026-10-14.md",
+        "proposal": "Give each content family a documented schema, stable row ID, validation and a real native consumer."
+      },
+      {
+        "owner": "docs/worlds/DIALOGUE_AND_INTERACTIONS.md",
+        "proposal": "Validate advisor eligibility pools before selection and keep original authored text separate from effect rules."
+      }
+    ]
+  },
+  "A08": {
+    "status": "partial",
+    "sources": [
+      "../pass-2026-10-14-rea/ECONOMY_AND_BATTLE_DIGEST.md",
+      "../pass-2026-10-14-rea/EVENT_DISPATCH_DIGEST.md",
+      "DEEPER_SYSTEMS.md"
+    ],
+    "summary": "SHOWN: prior arithmetic reads recover selected labor-based harvest, wages/desertion, recruitment transfers, living-unit casualty sampling, survivor return and arena settlement. They remain selected formulas, not a full balance model. Damage thresholds use strict boundaries; modifier order and integer rounding matter. The new monster curve spends 100 XP and adds newLevel+1 strength per level; D1 gives its caller gate and closed form.",
+    "yairpg": [
+      {
+        "owner": "docs/ENGINE_EXPANSION.md",
+        "proposal": "Keep power, head count, damage budget, loss and returned population distinct; specify rounding/order at boundaries."
+      },
+      {
+        "owner": "docs/GENERATION_FOUNDATION_RULES_2026-10-14.md",
+        "proposal": "Use existing addressed RNG and record eligibility/quiet outcomes instead of copying mutable global draw order."
+      }
+    ]
+  },
+  "A09": {
+    "status": "partial",
+    "sources": [
+      "TOOLING.md",
+      "../pass-2026-10-14-rea/EVENT_DISPATCH_DIGEST.md",
+      "../pass-2026-10-14-rea/SAVE_FORMAT_DIGEST.md"
+    ],
+    "summary": "SHOWN: an inspected main path calls RefreshPhase, increments Year, resolves CombatPhase then EnemyCombatPhase and TurnReport, with a Gameover exit before the last report. Autosave occurs earlier on its eligible path. The opening samples clock and seeds from wall time; that does not make game years real-time ticks.",
+    "yairpg": [
+      {
+        "owner": "docs/research/OFFLINE_TIME_AND_BRANCH_CLOCK_AUDIT_2026-10-14.md",
+        "proposal": "Keep action time, annual resolution and away time under explicit clock owners; do not infer a missed year from wall time alone."
+      },
+      {
+        "owner": "docs/ENGINE_EXPANSION.md",
+        "proposal": "Make refresh, wages, losses and report order observable in one annual receipt."
+      }
+    ]
+  },
+  "A10": {
+    "status": "partial",
+    "sources": [
+      "SYSTEM_INVENTORY.md",
+      "../pass-2026-10-14-rea/EVENT_DISPATCH_DIGEST.md"
+    ],
+    "summary": "SHOWN: MainMenu, DifficultyChoice, Choice/Choice2 and many conditional local-content routes exist. Selected petition policy flags alter eligibility and selected annual loading state bypasses opening work. These facts show gated routes, not a recovered tutorial sequence.",
+    "yairpg": [
+      {
+        "owner": "docs/worlds/DIALOGUE_AND_INTERACTIONS.md",
+        "proposal": "Explain a known refusal and an available next action where the player makes the choice."
+      },
+      {
+        "owner": "docs/ENGINE_EXPANSION.md",
+        "proposal": "Reveal one playable decision loop through actual state and consequences, then expose deeper options through discovery."
+      }
+    ]
+  },
+  "A11": {
+    "status": "partial",
+    "sources": [
+      "../SMALL_TOUCHES.md",
+      "DEEPER_SYSTEMS.md#d1-monster-assembly-and-growth",
+      "PRIVATE_REFERENCE_INDEX.md"
+    ],
+    "summary": "SHOWN: color and ASCII face/monster art routines, reaction variants, local talk pools, contextual jokes/insults, explicit level/strength/XP receipts, sound functions and quiet-display controls are present. MonsterLeveller respects Ascii, SoundMute and MonsterUpNoSplit in selected presentation paths. The last suppresses a pause, not the XP/strength transaction.",
+    "yairpg": [
+      {
+        "owner": "docs/worlds/DIALOGUE_AND_INTERACTIONS.md",
+        "proposal": "Keep acknowledgment and stable identity in quiet/delegated outcomes without requiring repetitive pauses."
+      },
+      {
+        "owner": "docs/ENGINE_EXPANSION.md",
+        "proposal": "Pair growth feedback with exact XP spent and strength gained, derived from the applied transaction."
+      }
+    ]
+  },
+  "A12": {
+    "status": "partial",
+    "sources": [
+      "SYSTEM_INVENTORY.md",
+      "DEEPER_SYSTEMS.md",
+      "../pass-2026-10-14-rea/ECONOMY_AND_BATTLE_DIGEST.md"
+    ],
+    "summary": "SHOWN as inventory: arena/tournaments/champion recruitment, dice and brawling, drinking competitions, bard/entertainment, nomad/protofolk/dune travelers, kids hideout, council/staff, monster pit/training, raids/invasions/skirmishes, faction generation, black market and exploration. Some live in helpers, others in main menus and local tables. The complete symbol/table inventory keeps all observed families reachable for later reading rather than equating unselected with absent.",
+    "yairpg": [
+      {
+        "owner": "docs/ENGINE_EXPANSION.md",
+        "proposal": "Let side activities feed an existing training, social or resource owner rather than build isolated rewards."
+      },
+      {
+        "owner": "docs/GENERATION_FOUNDATION_RULES_2026-10-14.md",
+        "proposal": "Choose the next deeper system by reachable consequence and missing reader, not table count."
+      }
+    ]
+  }
+}

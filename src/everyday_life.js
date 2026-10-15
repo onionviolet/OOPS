@@ -1,5 +1,7 @@
 // Read models and authored social content use the existing actor/condition
 // engine. No mood currency, hidden rolls, retroactive history or second clock.
+import {recurringWindow} from './world_rhythm.js';
+export const TEACHER_WINDOW = Object.freeze({period: 1440, opens: 480, closes: 1080});
 export const IRRITATED = "mood.irritated";
 export const UNSETTLED = "mood.unsettled";
 export const REASSURED = "mood.reassured";
@@ -52,7 +54,8 @@ export function everydayFacts(state, {hour = 8} = {}) {
         "village.craftsmanIrritated": !!activeMood(state, "oldCraftsman", IRRITATED),
         "village.playerUnsettled": !!activeMood(state, "player", UNSETTLED),
         "village.playerReassured": !!activeMood(state, "player", REASSURED),
-        "village.teacherHours": hour >= 8 && hour < 18,
+        "village.teacherHours": recurringWindow(TEACHER_WINDOW, hour * 60).open,
+        "village.waypostChapterOpen": !state.actors.player.facts["village.waypostChapterClosed"],
         "village.craftsmanPresent": !p || p.life === "alive" && p.location === "Village"};
 }
 

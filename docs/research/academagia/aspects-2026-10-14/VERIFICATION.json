@@ -1,0 +1,47 @@
+{
+  "status": "PASS",
+  "scope": "passive artifact/schema/source consistency; no native game execution",
+  "aspects": 12,
+  "dataTypesPerProfile": 112,
+  "registeredSystems": 48,
+  "serializedRootSystems": 47,
+  "systemClasses": 61,
+  "namespaceModules": 57,
+  "targetedUiTypes": 3,
+  "privateTextCorpora": {
+    "base": {
+      "records": 25241,
+      "textFields": 57100,
+      "status": "PASS"
+    },
+    "Content-modified": {
+      "records": 8312,
+      "textFields": 21878,
+      "status": "PASS"
+    },
+    "Content-new": {
+      "records": 9531,
+      "textFields": 28444,
+      "status": "PASS"
+    },
+    "The Blush of Summer-modified": {
+      "records": 8847,
+      "textFields": 23364,
+      "status": "PASS"
+    },
+    "The Blush of Summer-new": {
+      "records": 9602,
+      "textFields": 28713,
+      "status": "PASS"
+    }
+  },
+  "totalTextRecordsAcrossLayers": 61533,
+  "totalRetainedFieldsAcrossLayers": 159499,
+  "rawWritingInCommittedDocs": false,
+  "notProven": [
+    "runtime save/load, corruption, migration",
+    "native UI readability and interaction",
+    "dialogue speaker/bark attribution",
+    "all deeper-system formulas"
+  ]
+}

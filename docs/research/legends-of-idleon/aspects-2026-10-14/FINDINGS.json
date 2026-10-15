@@ -1,0 +1,226 @@
+{
+  "lane": "asp-idle",
+  "game": "legends-of-idleon",
+  "date": "2026-10-14",
+  "status": "PARTIAL",
+  "evidence_boundary": "Static source/data only; no launch, save/account access or gameplay proof",
+  "findings": [
+    {
+      "id": "A01",
+      "aspect": "Dialogue and conversation",
+      "status": "partial",
+      "summary": "SHOWN: N.js uses DialogueDefGET definitions plus NPCdialogue, QuestStatus and QuestComplete maps. NPCdialogue is saved with a character suffix. _customBlock_QuestComplete checks AccountWideQuests and propagates selected quest completion/dialogue states to other roster members; not all conversation history is account-wide. _customBlock_DialogueETC wraps text with language/font branches and explicit break markers, then creates a dialogue actor. Full speaker/portrait definitions, every line/condition and choice graph remain unread.",
+      "sources": [
+        "/Users/weiwei/.codex/research/idleon/extract/N.js:NPCdialogue,DialogueDefGET,_customBlock_QuestComplete,_customBlock_DialogueETC",
+        "/Users/weiwei/.codex/research/asp-idle/extract/idleon/save-dispatch.txt"
+      ],
+      "yairpg": [
+        {
+          "proposal": "Give each actor private conversation history, with explicit shared quest effects rather than copied knowledge.",
+          "owner": "docs/CHARACTERS_AND_WORLD_EVENTS.md"
+        }
+      ]
+    },
+    {
+      "id": "A02",
+      "aspect": "Narrative delivery",
+      "status": "partial",
+      "summary": "SHOWN: quest helper entries refer to dialogue-definition quest IDs; completion maps and status maps are separate persisted objects. QuestComplete also joins achievements and named special cases. This links conversation to tasks and rewards; sequential quest text is not proof of an autonomous story planner. Whole world story chronology and all quest payout branches remain unread.",
+      "sources": [
+        "/Users/weiwei/.codex/research/idleon/extract/N.js:_customBlock_RemoveQuestFromHelper,_customBlock_QuestComplete,QuestHelperMenu"
+      ],
+      "yairpg": [
+        {
+          "proposal": "Keep a durable task receipt tied to the exact quest and speaker, and distinguish completion from active tracking.",
+          "owner": "docs/CHARACTERS_AND_WORLD_EVENTS.md"
+        }
+      ]
+    },
+    {
+      "id": "A03",
+      "aspect": "Implementation architecture",
+      "status": "covered",
+      "summary": "SHOWN: shipped web bundle contains Haxe/Stencyl/OpenFL/Lime runtime and 251 distinct scripts.* registrations. Event behavior classes use shared engine gameAttributes, custom block helpers and actor/scene callbacks. Generic names like ActorEvents_266 conceal substantial feature logic. Browser cloud functions bridge through window.React.createElement calls. Script registrations are not 251 independent gameplay systems, and downloaded JavaScript was never executed.",
+      "sources": [
+        "/Users/weiwei/.codex/research/idleon/extract/N.js:scripts.ActorEvents_266,scripts.* registration,lime,com.stencyl",
+        "/Users/weiwei/.codex/research/asp-idle/extract/idleon/classes.json"
+      ],
+      "yairpg": [
+        {
+          "proposal": "Document state ownership across event handlers before splitting a system into new modules.",
+          "owner": "docs/ENGINE_AUTHORING.md"
+        }
+      ]
+    },
+    {
+      "id": "A04",
+      "aspect": "Save and persistence",
+      "status": "partial",
+      "summary": "SHOWN: save dispatch calls beginSave, emits CSver=33.05 and typed scalar/list/map/JSON/sparse-list entries, including account-wide stock and character-suffixed fields. NPCdialogue, QuestComplete, QuestStatus and helper entries use the active character suffix. The bridge hands data to host React functions; the inspected bundle alone does not reveal the full server format, durability, rollback or conflict rules. Load waits for status flags, requests time, loads data and runs AddNewStuff initialization. Complete migration/corruption handling remains unread. No account, save or cloud request executed.",
+      "sources": [
+        "/Users/weiwei/.codex/research/idleon/extract/N.js:beginSave,addSaveEntryMap,loadStatus,_customEvent_AddNewStuff",
+        "/Users/weiwei/.codex/research/asp-idle/extract/idleon/save-dispatch.txt",
+        "/Users/weiwei/.codex/research/asp-idle/extract/idleon/cloud-load.txt"
+      ],
+      "yairpg": [
+        {
+          "proposal": "Persist actor-local state and shared services with explicit scopes and schema versions; do not infer server guarantees from a client serializer.",
+          "owner": "docs/ENGINE_SAVES_AND_SCALE_REVIEW_2026-10-11.md"
+        }
+      ]
+    },
+    {
+      "id": "A05",
+      "aspect": "AI and NPC behavior",
+      "status": "partial",
+      "summary": "SHOWN: actor/scene behaviors manage combat, movement, dialogue and work; prior source shows roster assignments and AFK calculations. NPC conversation progress is mostly state-machine data; general resident schedules, utility planning and faction AI were not established. Full combat actor transitions and server behavior remain unread.",
+      "sources": [
+        "/Users/weiwei/.codex/research/idleon/extract/N.js:PlayerDATABASE,NPCdialogue,scripts.ActorEvents_1,scripts.SceneEvents_112",
+        "../ROSTER_AND_SCOPE_DIGEST.md"
+      ],
+      "yairpg": [
+        {
+          "proposal": "Make an actor assignment consume actual availability before letting it produce shared benefits.",
+          "owner": "docs/CHARACTERS_AND_WORLD_EVENTS.md"
+        }
+      ]
+    },
+    {
+      "id": "A06",
+      "aspect": "UI and information design",
+      "status": "partial",
+      "summary": "SHOWN/STATED: roster task icons, elapsed time, AFK rate screens and Quick Reference entries connect many local boards. Dialogue wrapper uses pixel-width/font rules and hard-break syntax, not a general responsive text system. Prior wiki descriptions cover capacities, detection odds and contributions. No current runtime screenshot, accessibility audit or desktop usability acceptance was performed.",
+      "sources": [
+        "/Users/weiwei/.codex/research/idleon/extract/N.js:_event_cardQuickRef,_customBlock_DialogueETC",
+        "../AFK_AND_LEGIBILITY_DIGEST.md"
+      ],
+      "yairpg": [
+        {
+          "proposal": "Use wide desktop space for activity, shared stock and output destination, then verify at 1366x768 and 1920x1080; mobile deferred.",
+          "owner": "docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md"
+        }
+      ]
+    },
+    {
+      "id": "A07",
+      "aspect": "Content authoring and modding",
+      "status": "partial",
+      "summary": "SHOWN: generated definition maps, custom lists, actor events and scripts custom blocks combine data and procedural content. The official bundle is readable shipped implementation, not a public reusable source license or supported mod API. No public mod/load-order contract was verified. Wiki generated tables are secondary decoded references and may differ from the frozen bundle.",
+      "sources": [
+        "/Users/weiwei/.codex/research/idleon/extract/N.js:DialogueDefGET,CustomMaps,CustomLists",
+        "../SOURCE_LEDGER.md"
+      ],
+      "yairpg": [
+        {
+          "proposal": "Keep declarative content readable but validate every referenced consumer and field.",
+          "owner": "docs/ENGINE_AUTHORING.md"
+        }
+      ]
+    },
+    {
+      "id": "A08",
+      "aspect": "Balance and numbers",
+      "status": "partial",
+      "summary": "SHOWN: AFK uses activity-specific calculations with elapsed seconds, hourly performance and modifiers; selected combat starts at a 40 percent base in this bundle, correcting an old wiki page. JS number arithmetic and Math functions are pervasive; display abbreviations do not establish arbitrary-precision state. Probability modifier order, complete caps and bad-luck protection remain partial.",
+      "sources": [
+        "/Users/weiwei/.codex/research/idleon/extract/N.js:_customBlock_AFKgainrates,_customBlock_HourlyKillRate",
+        "../AFK_AND_LEGIBILITY_DIGEST.md"
+      ],
+      "yairpg": [
+        {
+          "proposal": "Show the base, additive and multiplicative parts of one rate from the same authoritative calculation.",
+          "owner": "docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md"
+        }
+      ]
+    },
+    {
+      "id": "A09",
+      "aspect": "Time and scheduling",
+      "status": "partial",
+      "summary": "SHOWN: cloud loading requests time, updates GlobalTime and passes elapsed time into AwayTimers; separate per-character PlayerAwayTime participates in assignment settlement. Background production differs from the active character task and capped stores. The AddNewStuff/load sequence is visible but full crash/replay settlement and server time authority remain unread.",
+      "sources": [
+        "/Users/weiwei/.codex/research/idleon/extract/N.js:loadStatus,requestTime,GlobalTime,_customBlock_AwayTimers,PlayerAwayTime",
+        "../AFK_AND_LEGIBILITY_DIGEST.md"
+      ],
+      "yairpg": [
+        {
+          "proposal": "Keep claim time, activity elapsed time and storage saturation distinct in a receipt.",
+          "owner": "docs/ENGINE_EXPANSION.md"
+        }
+      ]
+    },
+    {
+      "id": "A10",
+      "aspect": "Onboarding and reveal",
+      "status": "partial",
+      "summary": "SHOWN/STATED: seven-world progression adds distinct production webs; character slots depend on shared class levels, with eleven available in the prior pinned wiki/table. Quick Reference is unlocked selectively. Later Research/Divinity effects can relieve old station occupancy. Exact displayed divine-name/effect-ID mapping remains unresolved, so the qualitative relief pattern is stronger than any selected name binding.",
+      "sources": [
+        "/Users/weiwei/.codex/research/idleon/extract/N.js:NewCharLvReq,GodsInfo,_event_cardQuickRef",
+        "../WORLD_SYSTEMS_DIGEST.md",
+        "../ROSTER_AND_SCOPE_DIGEST.md"
+      ],
+      "yairpg": [
+        {
+          "proposal": "Earn tools/services that reduce routine maintenance without creating free bodies or removing funded prerequisites.",
+          "owner": "docs/TECHNOLOGY_AND_PROGRESSION.md"
+        }
+      ]
+    },
+    {
+      "id": "A11",
+      "aspect": "Little touches",
+      "status": "partial",
+      "summary": "SHOWN/STATED: task icons, storage capacities, rate previews, remote reference, language-aware dialogue wrapping, quest tracking and character-specific conversation state all help a growing roster remain inspectable. These do not prove the maintenance load is pleasant or every menu is remote-operable. Twenty-four proposal-sized touches are recorded separately.",
+      "sources": [
+        "/Users/weiwei/.codex/research/idleon/extract/N.js:_customBlock_DialogueETC,QuestHelperMenu,_event_cardQuickRef",
+        "../SMALL_TOUCHES.md"
+      ],
+      "yairpg": [
+        {
+          "proposal": "Show what changed and where to act next instead of making players check every board.",
+          "owner": "docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md"
+        }
+      ]
+    },
+    {
+      "id": "A12",
+      "aspect": "Other systems",
+      "status": "partial",
+      "summary": "SHOWN/STATED: gathering/manufacture, Alchemy, Construction, Worship, Trapping, Cooking, Breeding, Laboratory, Divinity, Sailing, Gaming, Farming, Sneaking, Summoning, Research, Spelunking and later reef/jelly systems coexist with classes, quests, achievements, storage, shops and collections. Source symbol inventory extends beyond the prior seven-world digest; finding a handler is not semantic coverage of all of its branches.",
+      "sources": [
+        "/Users/weiwei/.codex/research/idleon/extract/N.js",
+        "../WORLD_SYSTEMS_DIGEST.md",
+        "SYSTEM_INVENTORY.md"
+      ],
+      "yairpg": [
+        {
+          "proposal": "Trace one complete producer-to-consumer chain and its maintenance costs before adding a new board.",
+          "owner": "docs/ENGINE_AUTHORING.md"
+        }
+      ]
+    }
+  ],
+  "unread": [
+    {
+      "gap": "Full dialogue definitions/line graph, portrait bindings and all quest effects",
+      "reason": "Selected client consumers read, not all definitions or event branches"
+    },
+    {
+      "gap": "Server save format, corruption/replay/conflict and full migrations",
+      "reason": "Host/cloud behavior lies beyond inspected client bridge; no login authorized"
+    },
+    {
+      "gap": "Full W7 and other newly inventoried handlers",
+      "reason": "Source census extends prior dossier but handler presence is not semantic coverage"
+    },
+    {
+      "gap": "Divine displayed name/effect mapping and optimal roster",
+      "reason": "Prior contradiction retained; source/API descriptions do not prove optimal play"
+    },
+    {
+      "gap": "Current UI and actual settlement",
+      "reason": "No-login/no-play hard rule"
+    }
+  ],
+  "source_unit_count": 488
+}

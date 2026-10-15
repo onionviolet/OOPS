@@ -1,0 +1,112 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "check": "fixed twelve aspect keys",
+      "passed": true
+    },
+    {
+      "check": "A01 schema",
+      "passed": true
+    },
+    {
+      "check": "A02 schema",
+      "passed": true
+    },
+    {
+      "check": "A03 schema",
+      "passed": true
+    },
+    {
+      "check": "A04 schema",
+      "passed": true
+    },
+    {
+      "check": "A05 schema",
+      "passed": true
+    },
+    {
+      "check": "A06 schema",
+      "passed": true
+    },
+    {
+      "check": "A07 schema",
+      "passed": true
+    },
+    {
+      "check": "A08 schema",
+      "passed": true
+    },
+    {
+      "check": "A09 schema",
+      "passed": true
+    },
+    {
+      "check": "A10 schema",
+      "passed": true
+    },
+    {
+      "check": "A11 schema",
+      "passed": true
+    },
+    {
+      "check": "A12 schema",
+      "passed": true
+    },
+    {
+      "check": "all aspect evidence locators and symbols",
+      "passed": true
+    },
+    {
+      "check": "858 private language files",
+      "passed": true
+    },
+    {
+      "check": "every preserved language file matches installed source bytes",
+      "passed": true
+    },
+    {
+      "check": "selected linkage 1108 records 554 event IDs",
+      "passed": true
+    },
+    {
+      "check": "selected generated class coverage",
+      "passed": true
+    },
+    {
+      "check": "selected script-bearing records",
+      "passed": true
+    },
+    {
+      "check": "metadata census 21 domains 306 tables 17 modules",
+      "passed": true
+    },
+    {
+      "check": "all discovered table identifiers in public inventory",
+      "passed": true
+    },
+    {
+      "check": "local links and prose punctuation",
+      "passed": true
+    },
+    {
+      "check": "all new extract hashes",
+      "passed": true
+    },
+    {
+      "check": "required artifacts and PARTIAL checkpoint",
+      "passed": true
+    },
+    {
+      "check": "no raw game code or dialogue files in public output",
+      "passed": true
+    }
+  ],
+  "not_tested": [
+    "runtime",
+    "visual layout",
+    "save/reload/import",
+    "crash/power loss",
+    "full semantic corpus review"
+  ]
+}

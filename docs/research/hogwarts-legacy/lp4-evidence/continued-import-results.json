@@ -1,0 +1,22 @@
+{
+  "status": "passed",
+  "url": "http://127.0.0.1:8202/",
+  "viewport": {
+    "width": 1366,
+    "height": 768
+  },
+  "bundleSha256": "bbb7321af4ed38183c1c06ae4e034c330bfc3ef5e2b8b25ad93753fb719cc975",
+  "earnedSnapshotSha256": "6f7770f1384fae853d19f9510d6e3f9e44f09b4adca24d4752a32626d003fbec",
+  "checks": [
+    "exact earlier UI-earned wool/cloth/pen checkpoint imported into a fresh writable origin",
+    "post-import native two-coin hay purchase succeeds without replaying wool or cloth",
+    "new paid stock and old earned output survive another Export/literal file Import; controls remain writable"
+  ],
+  "finalStock": {
+    "hay": 1,
+    "wool": 0,
+    "cloth": 1,
+    "collectedBatches": 2
+  },
+  "errors": []
+}

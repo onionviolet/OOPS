@@ -1,0 +1,236 @@
+{
+  "lane": "asp-idle",
+  "game": "ngu-idle",
+  "date": "2026-10-14",
+  "status": "PARTIAL",
+  "evidence_boundary": "Static source/data only; no launch, save/account access or gameplay proof",
+  "findings": [
+    {
+      "id": "A01",
+      "aspect": "Dialogue and conversation",
+      "status": "partial",
+      "summary": "SHOWN: BossNameStory pairs a boss name with a Unity TextAsset; BossController.updateText selects bossProperties by bossID, with separate difficulty and terminal branches. Newly extracted assets contain 301 boss entries, of which 19 are zero bytes. This is indexed encounter prose, not evidence of a relationship dialogue graph. Dialogue-like combat barks are also embedded in EnemyAI. Portrait sprites live in separate player/boss arrays. Full scene references, all barks and any conversation system outside these readers remain unread.",
+      "sources": [
+        "/Users/weiwei/.codex/research/ngu-idle/extract/assembly/BossNameStory.cs",
+        "/Users/weiwei/.codex/research/ngu-idle/extract/assembly/BossController.cs:updateText",
+        "/Users/weiwei/.codex/research/ngu-idle/extract/assembly/EnemyAI.cs",
+        "/Users/weiwei/.codex/research/asp-idle/extract/ngu-text/INDEX.json"
+      ],
+      "yairpg": [
+        {
+          "proposal": "Attach encounter prose to stable encounter IDs and state; do not infer choices from a text panel.",
+          "owner": "docs/CHARACTERS_AND_WORLD_EVENTS.md"
+        }
+      ]
+    },
+    {
+      "id": "A02",
+      "aspect": "Narrative delivery",
+      "status": "partial",
+      "summary": "SHOWN: Boss text is replayed by encounter selection; boss progress and rebirth provide the ordering. resources.assets supplies 27 other TextAssets including feature help, PatchNotes and SplashSubtitle. The 301-entry roster is an asset census, not 301 fully authored conversations; empty entries and the code fallback must stay visible in coverage. Selected early/middle/end entries were inspected privately; whole narrative continuity and scene-to-text mapping remain unread.",
+      "sources": [
+        "/Users/weiwei/.codex/research/ngu-idle/extract/assembly/BossController.cs:updateText",
+        "/Users/weiwei/.codex/research/asp-idle/extract/ngu-text/INDEX.json"
+      ],
+      "yairpg": [
+        {
+          "proposal": "Keep a readable encounter history separate from discovery state and current access.",
+          "owner": "docs/CHARACTERS_AND_WORLD_EVENTS.md"
+        }
+      ]
+    },
+    {
+      "id": "A03",
+      "aspect": "Implementation architecture",
+      "status": "covered",
+      "summary": "SHOWN: Unity managed C# export contains 342 .cs files. Character is a central state/controller hub with many feature controllers and serializable model objects. Start schedules updateCharacter at 0.5 seconds and updateHP at 0.02 seconds; BossController schedules fight at 0.02 seconds; frame Update also handles controls and feature work. This is several cadences, not a universal one-second tick. Inspector references and scenes supply part of the configuration; no rebuilt-source or runtime equivalence is claimed.",
+      "sources": [
+        "/Users/weiwei/.codex/research/ngu-idle/extract/assembly/Character.cs:Start,Update",
+        "/Users/weiwei/.codex/research/ngu-idle/extract/assembly/BossController.cs:Start",
+        "/Users/weiwei/.codex/research/ngu-idle/extract/assembly/PlayerData.cs"
+      ],
+      "yairpg": [
+        {
+          "proposal": "Use explicit activity clock semantics and one authoritative projection per feature.",
+          "owner": "docs/ENGINE_EXPANSION.md"
+        }
+      ]
+    },
+    {
+      "id": "A04",
+      "aspect": "Save and persistence",
+      "status": "partial",
+      "summary": "SHOWN: BinaryFormatterExtensions serializes PlayerData and the outer SaveData to base64 binary. SaveData contains playerData plus an MD5 checksum; ImportExport.loadData checks the inner text hash and rejects future build versions, then runs many version/null repair branches. PlayerData contains typed subsystem objects and lastTime, not just currencies. OpenFileDialog rejects very old/broken saves on selected routes, autosaves after a first 60-second interval then every 30 seconds, and has 1800-second standalone backup scheduling. Platform-specific local/cloud paths and exception handlers differ. All version branches, atomicity, recovery selection and Steam cloud execution are not fully traced. No personal save was read or deserialized.",
+      "sources": [
+        "/Users/weiwei/.codex/research/ngu-idle/extract/assembly/BinaryFormatterExtensions.cs",
+        "/Users/weiwei/.codex/research/ngu-idle/extract/assembly/SaveData.cs",
+        "/Users/weiwei/.codex/research/ngu-idle/extract/assembly/PlayerData.cs",
+        "/Users/weiwei/.codex/research/ngu-idle/extract/assembly/ImportExport.cs:loadData",
+        "/Users/weiwei/.codex/research/ngu-idle/extract/assembly/OpenFileDialog.cs:autoSaveTime,Update,backupSaveSteam"
+      ],
+      "yairpg": [
+        {
+          "proposal": "Use a versioned data-only envelope, explicit migrations and independently checked backup recovery; a checksum does not establish schema validity.",
+          "owner": "docs/ENGINE_SAVES_AND_SCALE_REVIEW_2026-10-11.md"
+        }
+      ]
+    },
+    {
+      "id": "A05",
+      "aspect": "AI and NPC behavior",
+      "status": "partial",
+      "summary": "SHOWN: EnemyAI.doAction dispatches seven named AI enum modes: normal, poison, charger, exploder, paralyze, rapid and grower, with default regular attack. Timers, enemy stats and status state govern attacks; special enemies add separate branches. This is combat behavior, not evidence of autonomous resident lives, factions or utility planning. Special encounter consumers and full move sets remain unread.",
+      "sources": [
+        "/Users/weiwei/.codex/research/ngu-idle/extract/assembly/EnemyAI.cs:doAction,resetAI",
+        "/Users/weiwei/.codex/research/ngu-idle/extract/assembly/AI.cs"
+      ],
+      "yairpg": [
+        {
+          "proposal": "Give an opponent a visible action pattern and real counter before adding a resident planner.",
+          "owner": "docs/CHARACTERS_AND_WORLD_EVENTS.md"
+        }
+      ]
+    },
+    {
+      "id": "A06",
+      "aspect": "UI and information design",
+      "status": "partial",
+      "summary": "SHOWN/SOURCE: feature controller pages, tooltips, progress bars, number formatting and keyboard conditions. PRIOR IMAGE: the earlier dossier inspected a historical 1680x1050 official screenshot with stats and feature rails and one main page. No new visual claim is made; Unity scene layout/scaling is unread. Source page swapping should not be generalized into a claim that many systems are visible together.",
+      "sources": [
+        "/Users/weiwei/.codex/research/ngu-idle/extract/assembly/Character.cs:Update",
+        "/Users/weiwei/.codex/research/ngu-idle/extract/assembly/NumberOutput.cs",
+        "../UI_DIGEST.md"
+      ],
+      "yairpg": [
+        {
+          "proposal": "Trial independent routine panels at 1366x768 and 1920x1080, with useful actions visible; mobile deferred.",
+          "owner": "docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md"
+        }
+      ]
+    },
+    {
+      "id": "A07",
+      "aspect": "Content authoring and modding",
+      "status": "partial",
+      "summary": "SHOWN: content is mixed C# logic, serializable models, inspector lists and TextAssets. BossNameStory is a simple authoring seam, while feature balance and unlock conditions often sit directly in controllers. No supported public mod API was established by this pass; absence of a selected mod reader does not prove no mod tooling exists. Scene authoring and validation are unread.",
+      "sources": [
+        "/Users/weiwei/.codex/research/ngu-idle/extract/assembly/BossNameStory.cs",
+        "/Users/weiwei/.codex/research/ngu-idle/extract/assembly/BossController.cs",
+        "/Users/weiwei/.codex/research/ngu-idle/extract/assembly/ButtonShower.cs",
+        "/Users/weiwei/.codex/research/asp-idle/extract/ngu-text/INDEX.json"
+      ],
+      "yairpg": [
+        {
+          "proposal": "Validate ID references and fallback text separately from balancing code.",
+          "owner": "docs/ENGINE_AUTHORING.md"
+        }
+      ]
+    },
+    {
+      "id": "A08",
+      "aspect": "Balance and numbers",
+      "status": "partial",
+      "summary": "SHOWN: PlayerData mixes float, double, int and long. UnityEngine.Random is seeded from DateTime ticks in Character; selected combat damage uses a 0.8 to 1.2 random factor. Inventory has saved RNG-state fields and migration repair, so a single global-seed claim would be wrong. NumberOutput handles display, not arbitrary-precision simulation. Whole formula order, overflow behavior and pity protection remain unread.",
+      "sources": [
+        "/Users/weiwei/.codex/research/ngu-idle/extract/assembly/PlayerData.cs",
+        "/Users/weiwei/.codex/research/ngu-idle/extract/assembly/Character.cs:Start",
+        "/Users/weiwei/.codex/research/ngu-idle/extract/assembly/EnemyAI.cs:baseDamage",
+        "/Users/weiwei/.codex/research/ngu-idle/extract/assembly/ImportExport.cs:loadData",
+        "/Users/weiwei/.codex/research/ngu-idle/extract/assembly/NumberOutput.cs"
+      ],
+      "yairpg": [
+        {
+          "proposal": "Keep exact quantities and display rounding distinct, and save RNG streams where replay requires them.",
+          "owner": "docs/ENGINE_SAVES_AND_SCALE_REVIEW_2026-10-11.md"
+        }
+      ]
+    },
+    {
+      "id": "A09",
+      "aspect": "Time and scheduling",
+      "status": "partial",
+      "summary": "SHOWN: Character.addOfflineProgress fans elapsed seconds into named per-system offline methods and builds a results message. Some timers advance before challenge early returns, so no-offline-progress text does not mean every timer freezes. Training, adventure, inventory, fruit, NGU, beards, hacks, wishes, cards and cooking have separate handlers. Resource fill time affects later growth. Full elapsed-time acquisition, caps, all formulas and duplicate settlement handling remain unread.",
+      "sources": [
+        "/Users/weiwei/.codex/research/ngu-idle/extract/assembly/Character.cs:addOfflineProgress",
+        "/Users/weiwei/.codex/research/ngu-idle/extract/assembly/OfflineProgressSplashScreen.cs"
+      ],
+      "yairpg": [
+        {
+          "proposal": "Preview and settle eligible activities separately; show timers that advance even when production does not.",
+          "owner": "docs/ENGINE_EXPANSION.md"
+        }
+      ]
+    },
+    {
+      "id": "A10",
+      "aspect": "Onboarding and reveal",
+      "status": "covered",
+      "summary": "SHOWN: prior unlock source trace distinguishes current-run boss gates from permanent item-use flags; some pages appear before operational unlock. TutorialPanel and per-feature help provide guidance. Readiness and access are different predicates; rebirth can remove current access without erasing a learned system. Full first-run user experience is untested.",
+      "sources": [
+        "/Users/weiwei/.codex/research/ngu-idle/extract/assembly/ButtonShower.cs",
+        "/Users/weiwei/.codex/research/ngu-idle/extract/assembly/TutorialPanel.cs",
+        "../UNLOCKS_DIGEST.md"
+      ],
+      "yairpg": [
+        {
+          "proposal": "Distinguish known, available and funded in unlock explanations, without revealing sealed destinations.",
+          "owner": "docs/TECHNOLOGY_AND_PROGRESSION.md"
+        }
+      ]
+    },
+    {
+      "id": "A11",
+      "aspect": "Little touches",
+      "status": "partial",
+      "summary": "SHOWN: offline receipt narration, boss portraits, readiness colors, target completion, custom number display and named backup files give feedback around large numbers. These are source observations, not accessibility or usability acceptance. See SMALL_TOUCHES for 24 bounded candidates. Full font scaling, assistive technology and reduced motion behavior remain unread.",
+      "sources": [
+        "/Users/weiwei/.codex/research/ngu-idle/extract/assembly/OfflineProgressSplashScreen.cs",
+        "/Users/weiwei/.codex/research/ngu-idle/extract/assembly/NumberOutput.cs",
+        "/Users/weiwei/.codex/research/ngu-idle/extract/assembly/OpenFileDialog.cs",
+        "../SMALL_TOUCHES.md"
+      ],
+      "yairpg": [
+        {
+          "proposal": "Show a useful receipt and a concrete next action when routine work completes.",
+          "owner": "docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md"
+        }
+      ]
+    },
+    {
+      "id": "A12",
+      "aspect": "Other systems",
+      "status": "partial",
+      "summary": "SHOWN/PRIOR: achievements, bestiary/portraits, item sets, ITOPOD perks, quests, diggers, fruit, beards, hacks, wishes, cards, cooking, daily rewards and arbitrary purchases are distinct model/controller families. SYSTEM_INVENTORY lists every recovered C# source unit so undocumented families remain findable. The selected prior pass covered unlock/reset/UI, not all collection and economy consumers.",
+      "sources": [
+        "/Users/weiwei/.codex/research/ngu-idle/extract/assembly/PlayerData.cs",
+        "../REPORT.md",
+        "SYSTEM_INVENTORY.md"
+      ],
+      "yairpg": [
+        {
+          "proposal": "Give a surplus output a useful competing destination before adding another currency.",
+          "owner": "docs/ENGINE_AUTHORING.md"
+        }
+      ]
+    }
+  ],
+  "unread": [
+    {
+      "gap": "Serialized scene/portrait bindings and layout",
+      "reason": "TextAssets exported; MonoBehaviour reference arrays and screen scaling not decoded"
+    },
+    {
+      "gap": "Full story/bark/AI continuity",
+      "reason": "301 text entries inventoried, selected entries read; not every prose/AI branch reviewed"
+    },
+    {
+      "gap": "Every migration/platform/cloud and offline consumer",
+      "reason": "Selected source paths traced; no whole call graph or permitted runtime"
+    },
+    {
+      "gap": "Current UI, gameplay, saves and malformed import execution",
+      "reason": "No-launch/no-save hard rule"
+    }
+  ],
+  "source_unit_count": 670
+}

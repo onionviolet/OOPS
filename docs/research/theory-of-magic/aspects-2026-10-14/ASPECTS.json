@@ -1,0 +1,158 @@
+{
+  "A01": {
+    "status": "partial",
+    "sources": [
+      "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/data/events.json",
+      "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/data/quests.json",
+      "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/src/items/gevent.js",
+      "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/src/events.js"
+    ],
+    "summary": "Shown: event/quest descriptions and encounter narration emit log messages; GEvent unlock can change state/loot through the item mechanism. No speaker/portrait/reply-tree schema established in inspected families. All quest and encounter records remain unread.",
+    "yairpg": [
+      "PROPOSAL: Use a narrated work consequence with a real state receipt rather than assuming every event is a conversation. Owner: docs/worlds/PROGRESSION_AND_ASSEMBLY.md; src/data/dialogues.js; src/life_record.js."
+    ]
+  },
+  "A02": {
+    "status": "covered",
+    "sources": [
+      "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/src/log.js",
+      "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/src/events.js",
+      "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/data/events.json",
+      "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/data/titles.json"
+    ],
+    "summary": "Shown: typed log categories record unlocks, loot, titles, combat, retreat and events. Unlock buffering can bundle multiple items into one summary with details. This supports progression narrative, not a full branching social campaign.",
+    "yairpg": [
+      "PROPOSAL: Bundle related unlock notices while keeping individual known facts inspectable. Owner: docs/worlds/PROGRESSION_AND_ASSEMBLY.md; src/data/dialogues.js; src/life_record.js."
+    ]
+  },
+  "A03": {
+    "status": "covered",
+    "sources": [
+      "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/package.json",
+      "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/src/game.js",
+      "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/src/dataLoader.js",
+      "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/src/gameState.js",
+      "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/src/events.js"
+    ],
+    "summary": "Shown: Vue reactive state, JSON data loader, typed item classes, inventories/composites/modules, and game/system event buses. Main update evaluates tech tree then timed state updates. Content merges into instantiated objects rather than being only hard-coded UI.",
+    "yairpg": [
+      "PROPOSAL: Extend existing registries and one simulation clock; avoid a parallel wizard engine. Owner: docs/TECHNOLOGY_AND_PROGRESSION.md."
+    ]
+  },
+  "A04": {
+    "status": "covered",
+    "sources": [
+      "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/src/gameState.js",
+      "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/src/modules/profile.js",
+      "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/src/modules/persist/persist.js",
+      "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/src/modules/persist/persist-db.js",
+      "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/src/modules/persist/persistLocal.js",
+      "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/src/index.js"
+    ],
+    "summary": "Shown: JSON state stores version, persistent character ID, lastUpdate, item state, slot IDs, gear, combat and exploration. Profile saves active characters separately from Hall. IndexedDB stores chars/Hall; localStorage is marked fallback. Index exports character or full Hall and routes imported shape accordingly. Legacy resave exists; no all-version semantic migration, quota safety or atomic multi-character import proved.",
+    "yairpg": [
+      "PROPOSAL: Keep character identity, shared meta and authored definitions separate in persistence. Owner: src/save_files.js; src/save_compatibility.js."
+    ]
+  },
+  "A05": {
+    "status": "partial",
+    "sources": [
+      "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/src/composites/combat.js",
+      "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/src/inventories/minions.js",
+      "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/data/monsters.json"
+    ],
+    "summary": "Shown: combat uses actors, actions and target selection; minions distinguish owned inventory from active allies, keep rules and capacity. Full target policy, spells and autonomous NPC schedules unread.",
+    "yairpg": [
+      "PROPOSAL: Distinguish a recruited ally from one assigned to the current fight. Owner: src/npc_lives.js; world CAMPAIGN.md."
+    ]
+  },
+  "A06": {
+    "status": "covered",
+    "sources": [
+      "https://gitlab.com/mathiashjelm/arcanum/-/tree/a2632d2edf3e07e9168fff81167b11f2792e9197/src/ui/panes",
+      "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/src/ui/components/filterbox.vue",
+      "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/src/ui/hall/hall.vue",
+      "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/src/ui/items/skill.vue"
+    ],
+    "summary": "Shown: separate resource/running panes, filters, skill progress and Hall switching. Reactive item state powers progress/capacity views. Desktop layout/keyboard use not exercised.",
+    "yairpg": [
+      "PROPOSAL: At 1440x900, keep work, resource capacity and known study options independently visible. Owner: docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md."
+    ]
+  },
+  "A07": {
+    "status": "covered",
+    "sources": [
+      "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/src/dataLoader.js",
+      "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/src/techTree.js",
+      "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/data/modules.json",
+      "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/src/modules/parsing.js"
+    ],
+    "summary": "Shown: JSON catalogues, module selection and parser/tech-tree instantiate requirements and values; runtime classes supply behavior. Full extension ordering and validation rules remain partial. No arbitrary public mod-loader contract established.",
+    "yairpg": [
+      "PROPOSAL: Author techniques with IDs, explicit prerequisites and named effect consumers. Owner: docs/TECHNOLOGY_AND_PROGRESSION.md."
+    ]
+  },
+  "A08": {
+    "status": "partial",
+    "sources": [
+      "https://gitlab.com/mathiashjelm/arcanum/-/tree/a2632d2edf3e07e9168fff81167b11f2792e9197/src/values",
+      "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/src/items/skill.js",
+      "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/data/resources.json",
+      "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/data/furniture.json"
+    ],
+    "summary": "Shown: value/property/stat classes and authored resource caps/skill/furniture modifiers. Furniture changes useful tasks/capacity, not only flavor. Every growth curve, combat modifier and RNG policy remains unread.",
+    "yairpg": [
+      "PROPOSAL: Make a bench change one actual task or capacity with a named source. Owner: docs/TECHNOLOGY_AND_PROGRESSION.md."
+    ]
+  },
+  "A09": {
+    "status": "covered",
+    "sources": [
+      "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/src/game.js",
+      "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/src/timer.js",
+      "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/src/modules/runner.js"
+    ],
+    "summary": "Shown: oversized wall-clock delta banks overflow in offlinetime; turbo consumes that store with coarse ticks and a fractional remainder. Tech-tree reevaluation occurs between coarse updates. This is not a proven exact fine-tick replay or unlimited offline production.",
+    "yairpg": [
+      "PROPOSAL: Document coarse versus fine time semantics before choosing an absence policy. Owner: src/feature_expansion_work_plan.js; src/simulation.js."
+    ]
+  },
+  "A10": {
+    "status": "covered",
+    "sources": [
+      "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/src/techTree.js",
+      "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/data/classes.json",
+      "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/data/tasks.json",
+      "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/data/modules/combattutorial.json"
+    ],
+    "summary": "Shown: prerequisites progressively unlock tasks/classes/furnishings; combat tutorial is a named module. Complete early-to-late class closure unread.",
+    "yairpg": [
+      "PROPOSAL: Teach a technique by ordinary work, a useful object and a visible unlock. Owner: src/native_discovery_policy.js; src/observation_channels.js."
+    ]
+  },
+  "A11": {
+    "status": "covered",
+    "sources": [
+      "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/src/events.js",
+      "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/src/ui/components/filterbox.vue",
+      "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/src/ui/panes/running.vue"
+    ],
+    "summary": "Shown: grouped unlock logs, filter/hide controls, progress and stop/rest/resume feedback. No measured accessibility or animation claim.",
+    "yairpg": [
+      "PROPOSAL: Let a blocked task explain its missing stock and retain its intended target. Owner: docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md."
+    ]
+  },
+  "A12": {
+    "status": "partial",
+    "sources": [
+      "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/src/modules/hall.js",
+      "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/src/composites/explore.js",
+      "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/src/modules/itemgen.js",
+      "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/data/spells.json"
+    ],
+    "summary": "Shown inventory: Hall, combat/minions, exploration, spells/loadouts, generated equipment, enchantments, housing, professions, potions, resources, titles and modules. Hall does not force destruction of the previous character. Full magic/combat and seasonal modules remain unread.",
+    "yairpg": [
+      "PROPOSAL: Keep learned method, crafted carrier and current equipped function distinct. Owner: docs/worlds/ABILITY_AUTHORING.md."
+    ]
+  }
+}

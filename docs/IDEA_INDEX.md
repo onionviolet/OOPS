@@ -18,6 +18,15 @@ Remaining gaps, in order:
 
 ## How ideas are kept
 
+## Premise hooks and generator, 2026-10-14
+
+Requested direction (quotes in [User vision](USER_VISION.md#premise-hooks-and-a-premise-generator-2026-10-14)):
+funny, ironic openings like the dragon egg raised by an unsuspecting snake,
+and a generator for them. [Premise hook audit](research/PREMISE_HOOK_AUDIT_2026-10-14.md)
+owns the hook grammar (H1-H6), pattern catalog, engine gaps, world fit and
+first-slice suggestions; [premise hook source catalog](research/PREMISE_HOOK_SOURCE_CATALOG_2026-10-14.md)
+owns the works. Linked from the [intro and starts index](INTRO_AND_STARTS_INDEX_2026-10-14.md). Proposals only.
+
 ## Topic wave over chains, technology, bodies and world kit, 2026-10-14
 
 Topic wave 2026-10-14 index entry: rounds appended to [modular chains](MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md#round-4-2026-10-14-the-game-research-wave-as-new-evidence-triggers-rerun) (GW1-GW10, ML-R4), [technology](TECHNOLOGY_AND_PROGRESSION.md#game-research-wave-as-evidence-round-12-2026-10-14) (RW1-RW10), [genetics](GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md#round-12-game-research-wave-as-evidence-2026-10-14) (BW1-BW8) and a new [world core kit successor root](worlds/WORLD_CORE_KIT_SUCCESSOR_2026-10-14.md) (KW1-KW6). Lanes in the [topic wave dispatch](gm/dispatch/topic-wave-2026-10-14/COMMON.md). Proposals only.

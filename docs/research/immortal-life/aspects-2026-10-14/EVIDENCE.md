@@ -1,0 +1,18 @@
+# Private reference archive
+
+Full source text is retained outside the public repo. This aspects folder is the only newly writable repo path; bulk data stays in private work areas under the standing deep-detail rule. Nothing here authorizes copying dialogue/assets into YAIRPG gameplay.
+
+| Location | What it holds | Integrity and limits |
+|---|---|---|
+| [New private root](/Users/weiwei/.codex/research/immortal-life-aspects-2026-10-14/) | Aspect scripts, manifests, selected native output and newly recovered graphs | Own new workspace; TOOLING describes the route |
+| [Dialogue graphs](/Users/weiwei/.codex/research/immortal-life-aspects-2026-10-14/extract/dialogue/INDEX.json) | All1,261 catalogue dialogue assets as complete serialized JSON: full text, node IDs, choices, conditions, effect scripts, links, speaker fields, portrait references, audio cues and editor layout | Installed asset-bundle hash in INDEX; no game launch |
+| [Dialogue line index](/Users/weiwei/.codex/research/immortal-life-aspects-2026-10-14/extract/dialogue/LINES.json) |6,050 full word records linked to graph ID/name and GUID | Portraits are references; image/audio bytes were not exported |
+| [Conditions](/Users/weiwei/.codex/research/immortal-life-aspects-2026-10-14/extract/dialogue/CONDITIONS.json) and [scripts](/Users/weiwei/.codex/research/immortal-life-aspects-2026-10-14/extract/dialogue/SCRIPTS.json) | Full expressions, choice IDs and commands with continuations | Conditions remain graph-local; not a flattened assertion that every line has one path condition |
+| [Graph audit](/Users/weiwei/.codex/research/immortal-life-aspects-2026-10-14/extract/dialogue/STRUCTURAL_ISSUES.json) |97 unresolved outgoing-reference records | No missing begin nodes; unresolved exits are not automatically bugs |
+| [Table manifest](/Users/weiwei/.codex/research/immortal-life-aspects-2026-10-14/extract/table-inventory.json) |296 names, path IDs, sizes, row/root counts, complete top-level field sets, SHA256 and original extract paths |291 parse; five original gaps retained without repair |
+| [Priority tables](/Users/weiwei/.codex/research/immortal-life-aspects-2026-10-14/extract/priority-tables.json) | Full dialogue/localization, NPC, quest/trigger/letter and selected deeper-system tables, copied as parsed data for reference | Does not replace the original full296-file corpus |
+| [Native output](/Users/weiwei/.codex/research/immortal-life-aspects-2026-10-14/notes/native.txt) and [annotated methods](/Users/weiwei/.codex/research/immortal-life-aspects-2026-10-14/notes/functions/) |40 selected entry decompilations for save, dialogue and D1-D3, exact address selection and generic metadata notes | Shared generic/no-op display names must not be mistaken for unique managed callers |
+| [Prior full data/type corpus](/Users/weiwei/.codex/research/immortal-life/extract/) | All296 raw TextAssets, including19,775 localization rows, dump.cs, script.json, DummyDll/type declarations and original hashes | Reused read-only; old declarations are not executable C# bodies |
+| [Prior native corpus](/Users/weiwei/.codex/research/immortal-life-2/) |80 successful unique selected native entries, REA envelopes, original input hashes, timing and prior failed-query logs | Reused read-only; prior unresolved gaps remain explicit |
+
+MessageSO definitions and264 PaperBird references were preserved from schemas/tables. A targeted assets-bundle probe returned no matching letter graphs; a resources probe likewise returned none and recorded46,197 MonoBehaviour type-tree errors. These are extraction limits, not proof of missing letter content. No personal save files were enumerated or read. See CHECKPOINT for next reads.

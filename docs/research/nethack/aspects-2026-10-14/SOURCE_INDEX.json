@@ -1,0 +1,372 @@
+{
+  "nethack": {
+    "pin": {
+      "commit": "49b203ed83334c8a0f05024212f98675e51432cb",
+      "remote": "https://github.com/NetHack/NetHack.git",
+      "files": 1383
+    },
+    "tree": "257f2f35d63d9b43bdec43c854038be2d1e5b6b4",
+    "sources": [
+      {
+        "game": "nethack",
+        "path": "src/quest.c",
+        "lines": [
+          270,
+          460
+        ],
+        "url": "https://github.com/NetHack/NetHack/blob/49b203ed83334c8a0f05024212f98675e51432cb/src/quest.c#L270-L460",
+        "sha256": "80cb4460fde88dac798fe79f3d759435eb49b1416ff1c0b283aacad74303830a",
+        "line_count": 523,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "nethack",
+        "path": "src/questpgr.c",
+        "lines": [
+          470,
+          684
+        ],
+        "url": "https://github.com/NetHack/NetHack/blob/49b203ed83334c8a0f05024212f98675e51432cb/src/questpgr.c#L470-L684",
+        "sha256": "be91f9b49f2126d6f089ec23fa24e1d4c3d6bf65d471a3c0c5f0ff94aae5777f",
+        "line_count": 684,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "nethack",
+        "path": "dat/quest.lua",
+        "lines": [
+          1,
+          35
+        ],
+        "url": "https://github.com/NetHack/NetHack/blob/49b203ed83334c8a0f05024212f98675e51432cb/dat/quest.lua#L1-L35",
+        "sha256": "aefcdc300ecf72483693161d0a5673680180c50beade5a71346e2ebc29949bac",
+        "line_count": 3105,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "nethack",
+        "path": "src/sounds.c",
+        "lines": [
+          1259,
+          1345
+        ],
+        "url": "https://github.com/NetHack/NetHack/blob/49b203ed83334c8a0f05024212f98675e51432cb/src/sounds.c#L1259-L1345",
+        "sha256": "3e27fad807054210c8c261026ac95dccacb8d3e66859879f2864c4aaef005bcc",
+        "line_count": 2231,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "nethack",
+        "path": "src/questpgr.c",
+        "lines": [
+          594,
+          646
+        ],
+        "url": "https://github.com/NetHack/NetHack/blob/49b203ed83334c8a0f05024212f98675e51432cb/src/questpgr.c#L594-L646",
+        "sha256": "be91f9b49f2126d6f089ec23fa24e1d4c3d6bf65d471a3c0c5f0ff94aae5777f",
+        "line_count": 684,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "nethack",
+        "path": "src/quest.c",
+        "lines": [
+          320,
+          370
+        ],
+        "url": "https://github.com/NetHack/NetHack/blob/49b203ed83334c8a0f05024212f98675e51432cb/src/quest.c#L320-L370",
+        "sha256": "80cb4460fde88dac798fe79f3d759435eb49b1416ff1c0b283aacad74303830a",
+        "line_count": 523,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "nethack",
+        "path": "src/save.c",
+        "lines": [
+          239,
+          266
+        ],
+        "url": "https://github.com/NetHack/NetHack/blob/49b203ed83334c8a0f05024212f98675e51432cb/src/save.c#L239-L266",
+        "sha256": "382664163cdb43d68c8838a3c807c0dc668be55e579b0075ac0a5f42a7312800",
+        "line_count": 1227,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "nethack",
+        "path": "README",
+        "lines": [
+          25,
+          45
+        ],
+        "url": "https://github.com/NetHack/NetHack/blob/49b203ed83334c8a0f05024212f98675e51432cb/README#L25-L45",
+        "sha256": "0985a95859404393f322d866c320b05e094d890873fe69f9c676cd37794ee613",
+        "line_count": 153,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "nethack",
+        "path": "src/allmain.c",
+        "lines": [
+          173,
+          290
+        ],
+        "url": "https://github.com/NetHack/NetHack/blob/49b203ed83334c8a0f05024212f98675e51432cb/src/allmain.c#L173-L290",
+        "sha256": "7f338eed25dbf6d66300f9a19642d8e5fb0afab5b34225d6d468c7b2fbb056b5",
+        "line_count": 1046,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "nethack",
+        "path": "src/questpgr.c",
+        "lines": [
+          470,
+          523
+        ],
+        "url": "https://github.com/NetHack/NetHack/blob/49b203ed83334c8a0f05024212f98675e51432cb/src/questpgr.c#L470-L523",
+        "sha256": "be91f9b49f2126d6f089ec23fa24e1d4c3d6bf65d471a3c0c5f0ff94aae5777f",
+        "line_count": 684,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "nethack",
+        "path": "dat/dungeon.lua",
+        "lines": [
+          1,
+          65
+        ],
+        "url": "https://github.com/NetHack/NetHack/blob/49b203ed83334c8a0f05024212f98675e51432cb/dat/dungeon.lua#L1-L65",
+        "sha256": "7b97470d9f7cae1d20a36c4455145cc52f0aac660bb002e43824474f22734112",
+        "line_count": 333,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "nethack",
+        "path": "dat/Mon-strt.lua",
+        "lines": [
+          1,
+          65
+        ],
+        "url": "https://github.com/NetHack/NetHack/blob/49b203ed83334c8a0f05024212f98675e51432cb/dat/Mon-strt.lua#L1-L65",
+        "sha256": "7238bfb145f0df243f8db62b3ab643d580d8abb47d4a568240c3a05b8add7e9c",
+        "line_count": 108,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "nethack",
+        "path": "src/save.c",
+        "lines": [
+          160,
+          305
+        ],
+        "url": "https://github.com/NetHack/NetHack/blob/49b203ed83334c8a0f05024212f98675e51432cb/src/save.c#L160-L305",
+        "sha256": "382664163cdb43d68c8838a3c807c0dc668be55e579b0075ac0a5f42a7312800",
+        "line_count": 1227,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "nethack",
+        "path": "src/restore.c",
+        "lines": [
+          600,
+          730
+        ],
+        "url": "https://github.com/NetHack/NetHack/blob/49b203ed83334c8a0f05024212f98675e51432cb/src/restore.c#L600-L730",
+        "sha256": "97d755dc1734b05b21ebba3eeda136207d9ff3c7905c5b363818773d2624737a",
+        "line_count": 1688,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "nethack",
+        "path": "src/restore.c",
+        "lines": [
+          790,
+          862
+        ],
+        "url": "https://github.com/NetHack/NetHack/blob/49b203ed83334c8a0f05024212f98675e51432cb/src/restore.c#L790-L862",
+        "sha256": "97d755dc1734b05b21ebba3eeda136207d9ff3c7905c5b363818773d2624737a",
+        "line_count": 1688,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "nethack",
+        "path": "src/version.c",
+        "lines": [
+          374,
+          421
+        ],
+        "url": "https://github.com/NetHack/NetHack/blob/49b203ed83334c8a0f05024212f98675e51432cb/src/version.c#L374-L421",
+        "sha256": "4cfc962902248b8b0047df32530d929ef336d6f5bfa4c44c5c90637c087c80a5",
+        "line_count": 874,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "nethack",
+        "path": "src/timeout.c",
+        "lines": [
+          2655,
+          2745
+        ],
+        "url": "https://github.com/NetHack/NetHack/blob/49b203ed83334c8a0f05024212f98675e51432cb/src/timeout.c#L2655-L2745",
+        "sha256": "5ad1269558cb2522f448c5bf2f6ba5ab40c891653082b759f01ae0033a424021",
+        "line_count": 2777,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "nethack",
+        "path": "src/monmove.c",
+        "lines": [
+          1760,
+          1780
+        ],
+        "url": "https://github.com/NetHack/NetHack/blob/49b203ed83334c8a0f05024212f98675e51432cb/src/monmove.c#L1760-L1780",
+        "sha256": "f475d9b0d60a3e65d2b363834e3e0edf2f647caee533d8a73640e2fc94dd638e",
+        "line_count": 2398,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "nethack",
+        "path": "src/monmove.c",
+        "lines": [
+          785,
+          805
+        ],
+        "url": "https://github.com/NetHack/NetHack/blob/49b203ed83334c8a0f05024212f98675e51432cb/src/monmove.c#L785-L805",
+        "sha256": "f475d9b0d60a3e65d2b363834e3e0edf2f647caee533d8a73640e2fc94dd638e",
+        "line_count": 2398,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "nethack",
+        "path": "src/sounds.c",
+        "lines": [
+          1259,
+          1302
+        ],
+        "url": "https://github.com/NetHack/NetHack/blob/49b203ed83334c8a0f05024212f98675e51432cb/src/sounds.c#L1259-L1302",
+        "sha256": "3e27fad807054210c8c261026ac95dccacb8d3e66859879f2864c4aaef005bcc",
+        "line_count": 2231,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "nethack",
+        "path": "src/o_init.c",
+        "lines": [
+          440,
+          493
+        ],
+        "url": "https://github.com/NetHack/NetHack/blob/49b203ed83334c8a0f05024212f98675e51432cb/src/o_init.c#L440-L493",
+        "sha256": "f78eedb733aec727cda4a30097e99ed9bf33c6cc35b5b8bde437e46b9e77d695",
+        "line_count": 1221,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "nethack",
+        "path": "dat/help",
+        "lines": [
+          155,
+          195
+        ],
+        "url": "https://github.com/NetHack/NetHack/blob/49b203ed83334c8a0f05024212f98675e51432cb/dat/help#L155-L195",
+        "sha256": "3d4fb64efc31a3ad05c5ea850d74ee59094028dcab6ce234027c6d38c57bc836",
+        "line_count": 214,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "nethack",
+        "path": "src/questpgr.c",
+        "lines": [
+          470,
+          594
+        ],
+        "url": "https://github.com/NetHack/NetHack/blob/49b203ed83334c8a0f05024212f98675e51432cb/src/questpgr.c#L470-L594",
+        "sha256": "be91f9b49f2126d6f089ec23fa24e1d4c3d6bf65d471a3c0c5f0ff94aae5777f",
+        "line_count": 684,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "nethack",
+        "path": "src/rnd.c",
+        "lines": [
+          1,
+          130
+        ],
+        "url": "https://github.com/NetHack/NetHack/blob/49b203ed83334c8a0f05024212f98675e51432cb/src/rnd.c#L1-L130",
+        "sha256": "78563042acf344fff6bf984b7a1157afe37a1a4fabfe70105495d31e76a3275b",
+        "line_count": 312,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "nethack",
+        "path": "src/allmain.c",
+        "lines": [
+          245,
+          270
+        ],
+        "url": "https://github.com/NetHack/NetHack/blob/49b203ed83334c8a0f05024212f98675e51432cb/src/allmain.c#L245-L270",
+        "sha256": "7f338eed25dbf6d66300f9a19642d8e5fb0afab5b34225d6d468c7b2fbb056b5",
+        "line_count": 1046,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "nethack",
+        "path": "src/timeout.c",
+        "lines": [
+          2210,
+          2255
+        ],
+        "url": "https://github.com/NetHack/NetHack/blob/49b203ed83334c8a0f05024212f98675e51432cb/src/timeout.c#L2210-L2255",
+        "sha256": "5ad1269558cb2522f448c5bf2f6ba5ab40c891653082b759f01ae0033a424021",
+        "line_count": 2777,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "nethack",
+        "path": "src/restore.c",
+        "lines": [
+          618,
+          642
+        ],
+        "url": "https://github.com/NetHack/NetHack/blob/49b203ed83334c8a0f05024212f98675e51432cb/src/restore.c#L618-L642",
+        "sha256": "97d755dc1734b05b21ebba3eeda136207d9ff3c7905c5b363818773d2624737a",
+        "line_count": 1688,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "nethack",
+        "path": "src/questpgr.c",
+        "lines": [
+          198,
+          230
+        ],
+        "url": "https://github.com/NetHack/NetHack/blob/49b203ed83334c8a0f05024212f98675e51432cb/src/questpgr.c#L198-L230",
+        "sha256": "be91f9b49f2126d6f089ec23fa24e1d4c3d6bf65d471a3c0c5f0ff94aae5777f",
+        "line_count": 684,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "nethack",
+        "path": "src/rnd.c",
+        "lines": [
+          60,
+          90
+        ],
+        "url": "https://github.com/NetHack/NetHack/blob/49b203ed83334c8a0f05024212f98675e51432cb/src/rnd.c#L60-L90",
+        "sha256": "78563042acf344fff6bf984b7a1157afe37a1a4fabfe70105495d31e76a3275b",
+        "line_count": 312,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "nethack",
+        "path": "src/topten.c",
+        "lines": [
+          411,
+          455
+        ],
+        "url": "https://github.com/NetHack/NetHack/blob/49b203ed83334c8a0f05024212f98675e51432cb/src/topten.c#L411-L455",
+        "sha256": "f718393324418c36ac8935da66c45450ac6b8f6b0f9f49638744bfabb937e317",
+        "line_count": 1487,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      }
+    ]
+  }
+}

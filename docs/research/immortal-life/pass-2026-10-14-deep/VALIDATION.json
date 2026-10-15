@@ -1,0 +1,67 @@
+{
+  "status": "PARTIAL",
+  "required_outputs_present": true,
+  "missing": [],
+  "broken_markdown_links": [],
+  "findings": 12,
+  "small_touches": 24,
+  "rea_successful_unique_entries": 80,
+  "retained_failed_top_level_items": [
+    {
+      "file": "rea-batch4-16.json",
+      "address": "0x1802B1590"
+    },
+    {
+      "file": "rea-batch4-16.json",
+      "address": "0x1800FBD10"
+    },
+    {
+      "file": "rea-batch4-16.json",
+      "address": "0x180809220"
+    },
+    {
+      "file": "rea-batch4-16.json",
+      "address": "0x180806A10"
+    },
+    {
+      "file": "rea-batch4-8.json",
+      "address": "0x1805322E0"
+    },
+    {
+      "file": "rea-batch4-8.json",
+      "address": "0x180532410"
+    },
+    {
+      "file": "rea-batch4-8.json",
+      "address": "0x180532C00"
+    },
+    {
+      "file": "rea-batch4-8.json",
+      "address": "0x1803D4D10"
+    },
+    {
+      "file": "rea-batch4-8.json",
+      "address": "0x1802E7490"
+    },
+    {
+      "file": "rea-batch4-8.json",
+      "address": "0x1802E7490"
+    },
+    {
+      "file": "rea-batch4-8.json",
+      "address": "0x180325AE0"
+    },
+    {
+      "file": "rea-batch4-8.json",
+      "address": "0x1803D4CD0"
+    }
+  ],
+  "failed_items_note": "Supplementary failed attempt preserved; successes counted only by ok status. Failed4 archive also retained.",
+  "direct_function_records": 24,
+  "direct_failures": 0,
+  "private_logical_bytes": 186134936,
+  "raw_game_code_in_repository": false,
+  "gameplay_run": false,
+  "save_access": false,
+  "hash_manifest": "/Users/weiwei/.codex/research/immortal-life-2/extract/HASHES.txt"
+}
