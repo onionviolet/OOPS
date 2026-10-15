@@ -1,0 +1,599 @@
+{
+  "viewport": {
+    "width": 1366,
+    "height": 768
+  },
+  "entry": "earned R1 stock and progress; initial native time controlled to 08:00 for the teacher window",
+  "timer": "Playwright clock runs normal native timers; no inventory or lesson injection",
+  "collection": "automatic on batch completion, same native transaction as completion receipt",
+  "checks": [
+    {
+      "id": "hand-old-save-no-stock-or-batch",
+      "detail": {
+        "logs": 95,
+        "sap": 3
+      }
+    },
+    {
+      "id": "hand-controlled-teacher-window",
+      "detail": {
+        "time": {
+          "year": 999,
+          "month": 4,
+          "day": 4,
+          "hour": 8,
+          "minute": 1,
+          "day_count": 4
+        }
+      }
+    },
+    {
+      "id": "hand-missing-owned-ingredient-refused",
+      "detail": {}
+    },
+    {
+      "id": "hand-real-cutting-and-drying",
+      "detail": {
+        "wet": 1,
+        "sound": 1
+      }
+    },
+    {
+      "id": "hand-owned-inputs-and-shared-slot",
+      "detail": {
+        "sound": 1,
+        "sapSpent": 1,
+        "duration": 2
+      }
+    },
+    {
+      "id": "hand-batch-pending-save-reload-export-literal-import",
+      "detail": {
+        "clock": 17,
+        "money": 94,
+        "inventory": {
+          "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+            "count": 1
+          },
+          "{\"id\":\"Stale bread\"}": {
+            "count": 5
+          },
+          "{\"id\":\"Old pickaxe\",\"quality\":100}": {
+            "count": 1
+          },
+          "{\"id\":\"Old sickle\",\"quality\":100}": {
+            "count": 1
+          },
+          "{\"id\":\"Old shovel\",\"quality\":100}": {
+            "count": 1
+          },
+          "{\"id\":\"Rough wood log\"}": {
+            "count": 94
+          },
+          "{\"id\":\"Tree sap\"}": {
+            "count": 2
+          },
+          "{\"id\":\"Dulled field fitting knife\"}": {
+            "count": 1
+          },
+          "{\"id\":\"Wet repair stave\"}": {
+            "count": 1
+          },
+          "{\"id\":\"Sound repair stave\"}": {
+            "count": 1
+          }
+        }
+      }
+    },
+    {
+      "id": "hand-completion-collects-one",
+      "detail": {
+        "braces": 1
+      }
+    },
+    {
+      "id": "hand-batch-collected-save-reload-export-literal-import",
+      "detail": {
+        "clock": 19,
+        "money": 94,
+        "inventory": {
+          "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+            "count": 1
+          },
+          "{\"id\":\"Stale bread\"}": {
+            "count": 5
+          },
+          "{\"id\":\"Old pickaxe\",\"quality\":100}": {
+            "count": 1
+          },
+          "{\"id\":\"Old sickle\",\"quality\":100}": {
+            "count": 1
+          },
+          "{\"id\":\"Old shovel\",\"quality\":100}": {
+            "count": 1
+          },
+          "{\"id\":\"Rough wood log\"}": {
+            "count": 94
+          },
+          "{\"id\":\"Tree sap\"}": {
+            "count": 2
+          },
+          "{\"id\":\"Dulled field fitting knife\"}": {
+            "count": 1
+          },
+          "{\"id\":\"Wet repair stave\"}": {
+            "count": 1
+          },
+          "{\"id\":\"Sound repair stave\"}": {
+            "count": 1
+          },
+          "{\"id\":\"Lever practice brace\"}": {
+            "count": 1
+          }
+        }
+      }
+    },
+    {
+      "id": "hand-repeated-import-no-recollection",
+      "detail": {
+        "braces": 1
+      }
+    },
+    {
+      "id": "hand-one-evidence-save-reload-export-literal-import",
+      "detail": {
+        "clock": 28,
+        "money": 94,
+        "inventory": {
+          "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+            "count": 1
+          },
+          "{\"id\":\"Stale bread\"}": {
+            "count": 5
+          },
+          "{\"id\":\"Old pickaxe\",\"quality\":100}": {
+            "count": 1
+          },
+          "{\"id\":\"Old sickle\",\"quality\":100}": {
+            "count": 1
+          },
+          "{\"id\":\"Old shovel\",\"quality\":100}": {
+            "count": 1
+          },
+          "{\"id\":\"Rough wood log\"}": {
+            "count": 93
+          },
+          "{\"id\":\"Tree sap\"}": {
+            "count": 2
+          },
+          "{\"id\":\"Dulled field fitting knife\"}": {
+            "count": 1
+          },
+          "{\"id\":\"Wet repair stave\"}": {
+            "count": 1
+          },
+          "{\"id\":\"Sound repair stave\"}": {
+            "count": 1
+          },
+          "{\"id\":\"Lever practice brace\"}": {
+            "count": 1
+          },
+          "{\"id\":\"Prepared survey kit\"}": {
+            "count": 1
+          }
+        }
+      }
+    },
+    {
+      "id": "hand-evidence-return-rule-with-owned-brace",
+      "detail": {
+        "order": [
+          "hand",
+          "demonstrate"
+        ],
+        "handKitsAdded": 1,
+        "noMethod": true
+      }
+    },
+    {
+      "id": "hand-practice-pending-save-reload-export-literal-import",
+      "detail": {
+        "clock": 32,
+        "money": 93,
+        "inventory": {
+          "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+            "count": 1
+          },
+          "{\"id\":\"Stale bread\"}": {
+            "count": 5
+          },
+          "{\"id\":\"Old pickaxe\",\"quality\":100}": {
+            "count": 1
+          },
+          "{\"id\":\"Old sickle\",\"quality\":100}": {
+            "count": 1
+          },
+          "{\"id\":\"Old shovel\",\"quality\":100}": {
+            "count": 1
+          },
+          "{\"id\":\"Rough wood log\"}": {
+            "count": 93
+          },
+          "{\"id\":\"Tree sap\"}": {
+            "count": 2
+          },
+          "{\"id\":\"Dulled field fitting knife\"}": {
+            "count": 1
+          },
+          "{\"id\":\"Wet repair stave\"}": {
+            "count": 1
+          },
+          "{\"id\":\"Sound repair stave\"}": {
+            "count": 1
+          },
+          "{\"id\":\"Prepared survey kit\"}": {
+            "count": 1
+          }
+        }
+      }
+    },
+    {
+      "id": "hand-downstream-consumption-and-learning",
+      "detail": {
+        "braces": 0,
+        "learned": true,
+        "coinSpent": 1
+      }
+    },
+    {
+      "id": "hand-learned-method-useful-result",
+      "detail": {
+        "kitsAdded": 1
+      }
+    },
+    {
+      "id": "hand-practice-complete-save-reload-export-literal-import",
+      "detail": {
+        "clock": 38,
+        "money": 93,
+        "inventory": {
+          "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+            "count": 1
+          },
+          "{\"id\":\"Stale bread\"}": {
+            "count": 5
+          },
+          "{\"id\":\"Old pickaxe\",\"quality\":100}": {
+            "count": 1
+          },
+          "{\"id\":\"Old sickle\",\"quality\":100}": {
+            "count": 1
+          },
+          "{\"id\":\"Old shovel\",\"quality\":100}": {
+            "count": 1
+          },
+          "{\"id\":\"Rough wood log\"}": {
+            "count": 92
+          },
+          "{\"id\":\"Tree sap\"}": {
+            "count": 2
+          },
+          "{\"id\":\"Dulled field fitting knife\"}": {
+            "count": 1
+          },
+          "{\"id\":\"Wet repair stave\"}": {
+            "count": 1
+          },
+          "{\"id\":\"Sound repair stave\"}": {
+            "count": 1
+          },
+          "{\"id\":\"Prepared survey kit\"}": {
+            "count": 2
+          }
+        }
+      }
+    },
+    {
+      "id": "hand-no-duplicate-practice-or-output",
+      "detail": {}
+    },
+    {
+      "id": "demonstrate-old-save-no-stock-or-batch",
+      "detail": {
+        "logs": 95,
+        "sap": 3
+      }
+    },
+    {
+      "id": "demonstrate-controlled-teacher-window",
+      "detail": {
+        "time": {
+          "year": 999,
+          "month": 4,
+          "day": 4,
+          "hour": 8,
+          "minute": 1,
+          "day_count": 4
+        }
+      }
+    },
+    {
+      "id": "demonstrate-missing-owned-ingredient-refused",
+      "detail": {}
+    },
+    {
+      "id": "demonstrate-real-cutting-and-drying",
+      "detail": {
+        "wet": 1,
+        "sound": 1
+      }
+    },
+    {
+      "id": "demonstrate-owned-inputs-and-shared-slot",
+      "detail": {
+        "sound": 1,
+        "sapSpent": 1,
+        "duration": 2
+      }
+    },
+    {
+      "id": "demonstrate-batch-pending-save-reload-export-literal-import",
+      "detail": {
+        "clock": 17,
+        "money": 94,
+        "inventory": {
+          "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+            "count": 1
+          },
+          "{\"id\":\"Stale bread\"}": {
+            "count": 5
+          },
+          "{\"id\":\"Old pickaxe\",\"quality\":100}": {
+            "count": 1
+          },
+          "{\"id\":\"Old sickle\",\"quality\":100}": {
+            "count": 1
+          },
+          "{\"id\":\"Old shovel\",\"quality\":100}": {
+            "count": 1
+          },
+          "{\"id\":\"Rough wood log\"}": {
+            "count": 94
+          },
+          "{\"id\":\"Tree sap\"}": {
+            "count": 2
+          },
+          "{\"id\":\"Dulled field fitting knife\"}": {
+            "count": 1
+          },
+          "{\"id\":\"Wet repair stave\"}": {
+            "count": 1
+          },
+          "{\"id\":\"Sound repair stave\"}": {
+            "count": 1
+          }
+        }
+      }
+    },
+    {
+      "id": "demonstrate-completion-collects-one",
+      "detail": {
+        "braces": 1
+      }
+    },
+    {
+      "id": "demonstrate-batch-collected-save-reload-export-literal-import",
+      "detail": {
+        "clock": 19,
+        "money": 94,
+        "inventory": {
+          "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+            "count": 1
+          },
+          "{\"id\":\"Stale bread\"}": {
+            "count": 5
+          },
+          "{\"id\":\"Old pickaxe\",\"quality\":100}": {
+            "count": 1
+          },
+          "{\"id\":\"Old sickle\",\"quality\":100}": {
+            "count": 1
+          },
+          "{\"id\":\"Old shovel\",\"quality\":100}": {
+            "count": 1
+          },
+          "{\"id\":\"Rough wood log\"}": {
+            "count": 94
+          },
+          "{\"id\":\"Tree sap\"}": {
+            "count": 2
+          },
+          "{\"id\":\"Dulled field fitting knife\"}": {
+            "count": 1
+          },
+          "{\"id\":\"Wet repair stave\"}": {
+            "count": 1
+          },
+          "{\"id\":\"Sound repair stave\"}": {
+            "count": 1
+          },
+          "{\"id\":\"Lever practice brace\"}": {
+            "count": 1
+          }
+        }
+      }
+    },
+    {
+      "id": "demonstrate-repeated-import-no-recollection",
+      "detail": {
+        "braces": 1
+      }
+    },
+    {
+      "id": "demonstrate-one-evidence-save-reload-export-literal-import",
+      "detail": {
+        "clock": 22,
+        "money": 94,
+        "inventory": {
+          "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+            "count": 1
+          },
+          "{\"id\":\"Stale bread\"}": {
+            "count": 5
+          },
+          "{\"id\":\"Old pickaxe\",\"quality\":100}": {
+            "count": 1
+          },
+          "{\"id\":\"Old sickle\",\"quality\":100}": {
+            "count": 1
+          },
+          "{\"id\":\"Old shovel\",\"quality\":100}": {
+            "count": 1
+          },
+          "{\"id\":\"Rough wood log\"}": {
+            "count": 94
+          },
+          "{\"id\":\"Tree sap\"}": {
+            "count": 2
+          },
+          "{\"id\":\"Dulled field fitting knife\"}": {
+            "count": 1
+          },
+          "{\"id\":\"Wet repair stave\"}": {
+            "count": 1
+          },
+          "{\"id\":\"Sound repair stave\"}": {
+            "count": 1
+          },
+          "{\"id\":\"Lever practice brace\"}": {
+            "count": 1
+          }
+        }
+      }
+    },
+    {
+      "id": "demonstrate-evidence-return-rule-with-owned-brace",
+      "detail": {
+        "order": [
+          "demonstrate",
+          "hand"
+        ],
+        "handKitsAdded": 1,
+        "noMethod": true
+      }
+    },
+    {
+      "id": "demonstrate-practice-pending-save-reload-export-literal-import",
+      "detail": {
+        "clock": 32,
+        "money": 93,
+        "inventory": {
+          "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+            "count": 1
+          },
+          "{\"id\":\"Stale bread\"}": {
+            "count": 5
+          },
+          "{\"id\":\"Old pickaxe\",\"quality\":100}": {
+            "count": 1
+          },
+          "{\"id\":\"Old sickle\",\"quality\":100}": {
+            "count": 1
+          },
+          "{\"id\":\"Old shovel\",\"quality\":100}": {
+            "count": 1
+          },
+          "{\"id\":\"Rough wood log\"}": {
+            "count": 93
+          },
+          "{\"id\":\"Tree sap\"}": {
+            "count": 2
+          },
+          "{\"id\":\"Dulled field fitting knife\"}": {
+            "count": 1
+          },
+          "{\"id\":\"Wet repair stave\"}": {
+            "count": 1
+          },
+          "{\"id\":\"Sound repair stave\"}": {
+            "count": 1
+          },
+          "{\"id\":\"Prepared survey kit\"}": {
+            "count": 1
+          }
+        }
+      }
+    },
+    {
+      "id": "demonstrate-downstream-consumption-and-learning",
+      "detail": {
+        "braces": 0,
+        "learned": true,
+        "coinSpent": 1
+      }
+    },
+    {
+      "id": "demonstrate-learned-method-useful-result",
+      "detail": {
+        "kitsAdded": 1
+      }
+    },
+    {
+      "id": "demonstrate-practice-complete-save-reload-export-literal-import",
+      "detail": {
+        "clock": 38,
+        "money": 93,
+        "inventory": {
+          "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+            "count": 1
+          },
+          "{\"id\":\"Stale bread\"}": {
+            "count": 5
+          },
+          "{\"id\":\"Old pickaxe\",\"quality\":100}": {
+            "count": 1
+          },
+          "{\"id\":\"Old sickle\",\"quality\":100}": {
+            "count": 1
+          },
+          "{\"id\":\"Old shovel\",\"quality\":100}": {
+            "count": 1
+          },
+          "{\"id\":\"Rough wood log\"}": {
+            "count": 92
+          },
+          "{\"id\":\"Tree sap\"}": {
+            "count": 2
+          },
+          "{\"id\":\"Dulled field fitting knife\"}": {
+            "count": 1
+          },
+          "{\"id\":\"Wet repair stave\"}": {
+            "count": 1
+          },
+          "{\"id\":\"Sound repair stave\"}": {
+            "count": 1
+          },
+          "{\"id\":\"Prepared survey kit\"}": {
+            "count": 2
+          }
+        }
+      }
+    },
+    {
+      "id": "demonstrate-no-duplicate-practice-or-output",
+      "detail": {}
+    },
+    {
+      "id": "demonstrate-no-page-errors",
+      "detail": []
+    },
+    {
+      "id": "demonstrate-rebuilt-served-bundle",
+      "detail": {
+        "sha256": "836d97ca8e0bb72d99af1253048b5bd741911295753988ac1c41440eaa59a2eb"
+      }
+    }
+  ],
+  "errors": []
+}

@@ -20,7 +20,7 @@ const ready=()=>act(act(createFieldFixture(),'demonstrate'),'explain');
 const learned=()=>tick(act(ready(),'practice'),3);
 
 test('LP1 same known task before and after: actual time, costs and teacher provenance',()=>{
- let p=fixture();
+ let p=createFieldFixture();
  assert.match(previewSimulationCommand(p.state,expeditionRegistry,'field.lp1.lever_work',ctx(p)).reasons.join(' '),/practice/);
  let hand=act(p,'hand');hand=tick(hand,6); assert.equal(hand.gameplay.player.inventory[wood],19);assert.equal(hand.gameplay.player.inventory[kit],1);
  p=act(act(p,'demonstrate'),'explain');assert.equal(p.state.simulation.knowledge.player['field.lp1.method'],undefined);

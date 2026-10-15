@@ -6,15 +6,18 @@ import {advanceSimulation,loadExpansionState} from '../src/expansion_engine.js';
 import {commitSimulationCommand,previewSimulationCommand,cancelSimulationJob} from '../src/simulation.js';
 import {createFieldFixture,fieldContext} from '../scripts/field_fixtures.mjs';
 import {leverTaskRecord,leverBlockers,LEVER} from '../src/lever_lesson.js';
+import {LEVER_PRACTICE_BRACE as brace} from '../src/lever_practice_supply.js';
 const context=p=>fieldContext(p);
 const act=(p,id,r=registry)=>commitSimulationCommand(p.state,r,{id:`field.lp1.${id}`,targetId:id==='hand'?null:'oldCraftsman'},{...context(p),targetId:id==='hand'?null:'oldCraftsman'});
 const tick=(p,n)=>advanceSimulation(p.state,registry,n,p.external,p.gameplay,{player:{facts:context(p).facts,vitals:context(p).vitals.player}});
 const reload=p=>({...structuredClone(p),state:loadExpansionState(JSON.parse(JSON.stringify(p.state)),registry)});
 const quote=(p,id)=>previewSimulationCommand(p.state,registry,`field.lp1.${id}`,{...context(p),targetId:'oldCraftsman'});
-const evidence=(order)=>{let p=createFieldFixture();for(const id of order)p=id==='hand'?tick(act(p,id),6):act(p,id);return p;};
+// LP2 isolates the evidence policy with LP3's actual practice input supplied.
+const supplied=()=>{const p=createFieldFixture();p.gameplay.player.inventory[brace]=1;return p;};
+const evidence=(order)=>{let p=supplied();for(const id of order)p=id==='hand'?tick(act(p,id),6):act(p,id);return p;};
 const ready=()=>act(act(evidence(['hand','demonstrate']),'return'),'explain');
 for(const order of [['hand','demonstrate'],['demonstrate','hand']])test(`LP2 ${order.join(' then ')} keeps evidence, return, practice and learning separate`,()=>{
- let p=createFieldFixture();assert.match(leverTaskRecord(p.state).next,/Either order/);
+ let p=supplied();assert.match(leverTaskRecord(p.state).next,/Either order/);
  p=act(p,order[0]);if(order[0]==='hand')p=tick(p,6);
  assert.equal(quote(p,'return').eligible,false);assert.equal(quote(p,'practice').eligible,false);
  assert.equal(p.state.simulation.powers.player?.[LEVER],undefined);
@@ -25,13 +28,15 @@ for(const order of [['hand','demonstrate'],['demonstrate','hand']])test(`LP2 ${o
  assert.equal(p.state.simulation.knowledge.player['field.lp1.method'],undefined);
  const money=p.external.money,stock=structuredClone(p.gameplay);
  p=act(p,'return');assert.deepEqual(p.gameplay,stock);assert.equal(p.external.money,money);
+ assert.equal(quote(p,'practice').eligible,false); // Return alone does not check the rule.
  assert.match(leverTaskRecord(p.state).next,/Explain/);assert.throws(()=>act(p,'return'),/completed/);
  p=act(p,'explain');assert.equal(leverTaskRecord(p.state).learned,false);
  p=act(p,'practice');assert.equal(p.external.money,money-1);assert.match(leverTaskRecord(p.state).practice,/progress/);
  p=reload(p);assert.equal(leverTaskRecord(p.state).learned,false);p=tick(p,3);
  assert.equal(leverTaskRecord(p.state).learned,true);assert.equal(p.state.simulation.powers.player[LEVER].owned,true);
  const learned=reload(p);p=tick(learned,8);assert.deepEqual(p.state.simulation.knowledge.player,learned.state.simulation.knowledge.player);
- assert.equal(p.state.actors.player.completed['field.lp1.practice'],1);assert.deepEqual(p.gameplay,stock);assert.equal(p.external.money,money-1);
+ const consumed=structuredClone(stock);delete consumed.player.inventory[brace];
+ assert.equal(p.state.actors.player.completed['field.lp1.practice'],1);assert.deepEqual(p.gameplay,consumed);assert.equal(p.external.money,money-1);
  assert.throws(()=>act(p,'practice'),/completed/);
 });
 test('LP2 pending hand work is not evidence; cancellation and failed practice grant no learning',()=>{
@@ -56,4 +61,9 @@ test('LP2 current loader preserves absent, demonstrated, explained, paid-pending
  p=act(p,'practice',oldRegistry);assert.equal(p.state.simulation.jobs[0].revision,1);const pending=reload(p);assert.deepEqual(pending.state,p.state);
  p=tick(pending,3);assert.equal(leverTaskRecord(p.state).learned,true);assert.equal(p.external.money,99);assert.deepEqual(reload(p).state,p.state);
  assert.throws(()=>act(reload(p),'practice'),/completed/);
+ assert.equal(p.gameplay.player.inventory[brace],undefined);
+ // An LP1-earned method remains useful through the current command, without a back-charge.
+ const worked=tick(act(reload(p),'lever_work'),2);
+ assert.equal(worked.state.actors.player.completed['field.lp1.lever_work'],1);
+ assert.equal(worked.gameplay.player.inventory[brace],undefined);
 });

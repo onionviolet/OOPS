@@ -15,7 +15,8 @@ const supply=p=>commitFeatureObjectCommand(p.state,registry,{id:batch},ctx(p));
 const lesson=(p,id,r=registry)=>commitSimulationCommand(p.state,r,{id:`field.lp1.${id}`,targetId:'oldCraftsman'},{...ctx(p),targetId:'oldCraftsman'});
 function opened(){let p=beginFeatureObjects(createFieldFixture().state,registry,ctx(createFieldFixture()));p.gameplay.player.inventory[K.sound]=2;p.gameplay.player.inventory[K.sap]=2;return p;}
 const count=(p,k)=>p.gameplay.player.inventory[k]||0;
-const ready=p=>lesson(lesson(p,'demonstrate'),'explain');
+// LP3 isolates supply/refunds after earning LP2's real evidence and return.
+const ready=p=>lesson(lesson(tick(lesson(lesson(p,'demonstrate'),'hand'),6),'return'),'explain');
 test('LP3 real batch reserves materials, effort and the existing single slot; completion collects exactly one',()=>{
  const p=opened(),pending=supply(p),job=pending.state.simulation.jobs[0];
  assert.equal(count(pending,K.sound),1);assert.equal(count(pending,K.sap),1);assert.equal(count(pending,brace),0);assert.equal(pending.native.staminaToFull,1);
