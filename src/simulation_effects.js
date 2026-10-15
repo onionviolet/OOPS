@@ -55,6 +55,7 @@ import {prepareSimulationEffects, deriveSimulationSeed} from "./simulation_resol
 import {applyEnergyEffect} from "./energy_resources.js";
 import {canonicalDurabilityKey} from './absorb_e2/durability.js';
 import {applyPursuitEffect,pursuitContact} from "./pursuit.js";
+import {framedSimulationFacts} from './simulation_render.js';
 
 export const participant = (value, context) => value === "$target" ? context.targetId : value === "$actor" || value == null ? context.actorId : value;
 export function person(state, id) {assert(state.simulation?.people[id] && state.actors[id], `Unknown simulation participant ${id}.`); return state.simulation.people[id];}
@@ -84,6 +85,9 @@ export function resolveSimulationCostKeys(plan,costs,context) {
     });
 }
 export function simulationFacts(state, context, registry) {
+    return framedSimulationFacts(state, context, registry, () => buildSimulationFacts(state, context, registry));
+}
+function buildSimulationFacts(state, context, registry) {
     const s = state.simulation, actor = context.actorId, a = state.actors[actor];
     assert(s && a, "Enroll the living-world services first.");
     const referenceFacts = referenceGameplayFacts(state, context, registry);

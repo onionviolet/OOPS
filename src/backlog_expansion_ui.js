@@ -1,5 +1,6 @@
 import {backlogActions, backlogView, previewBacklogAction} from './backlog_expansion_host.js';
 import {projectActionLegibility} from './action_legibility.js';
+import {rendered,shownOrDeferred} from './panel_reveal.js';
 const node = (tag,text = '') => {const n = document.createElement(tag);n.textContent = text;return n;};
 const strings = value => Array.isArray(value) ? value.filter(v => typeof v === 'string') : [];
 
@@ -38,9 +39,9 @@ export function createBacklogExpansionPanel({registry,read,command,parent,openin
         const publicRecords=view.sections.flatMap(section=>strings(section?.records));
         const next=JSON.stringify(publicRecords);
         if(next!==signature) {signature=next;records.replaceChildren(...publicRecords.map(text=>node('p',text)));}
-        // A hidden panel shows no control, so it skips the per-action staged previews;
-        // the first render after it opens computes them before anything is visible.
-        if(!panel.hidden) for(const control of controls.values()) {
+        // A hidden, closed or unrendered panel shows no control, so it skips the per-action
+        // staged previews; the render that reveals it computes them before anything paints.
+        if(!panel.hidden && shownOrDeferred(render,()=>panel.open&&rendered(panel.parentElement))) for(const control of controls.values()) {
             const isOpening=control.action.id==='backlog.body.origin_reedling';
             control.row.hidden=opening ? !isOpening : isOpening;
             if(control.row.hidden) continue;
