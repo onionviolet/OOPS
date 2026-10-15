@@ -2,6 +2,7 @@ import {alloyEquipmentFacts} from "./alloy_equipment.js";
 import {previewSimulationCommand, previewSimulationResponse, simulationOccupiesActor} from "./simulation.js";
 import {fieldWorkshopView} from "./field_workshop.js";
 import {energyView} from "./energy_resources.js";
+import {leverBlockers} from './lever_lesson.js';
 const node = (tag,text="",className="") => {const n=document.createElement(tag);n.textContent=text;n.className=className;return n;};
 export function createFieldPanel({registry,read,command}) {
     const panel=node("details","","expedition_panel");panel.id="field_panel";panel.append(node("summary","Field association & workshop"));
@@ -10,7 +11,7 @@ export function createFieldPanel({registry,read,command}) {
     const groups=new Map(),controls=new Map();let notice="",eventSignature="",sessionSignature="";
     const run=c=>{try{command(c);notice="Progress saved.";}catch(e){notice=e.message;}render();};
     const button=(label,id,c)=>{const b=node("button",label);b.type="button";b.dataset.fieldCommand=id;b.addEventListener("click",()=>run(c));return b;};
-    for(const [id,label] of [["association","Association"],["methods","Methods & recovery"],["workshop","Project & production"],["road","Road aftermath"],["assessment","Assessment"]]) {
+    for(const [id,label] of [["association","Association"],["lever","Wedged timber & lever lesson · PROPOSAL"],["methods","Methods & recovery"],["workshop","Project & production"],["road","Road aftermath"],["assessment","Assessment"]]) {
         const group=node("details","","notebook_preparation");group.append(node("summary",label));group.open=id==="association";body.append(group);groups.set(id,group);
     }
     const begin=button("Ask about a shared field workshop","field.begin",{type:"field_begin"});groups.get("association").append(begin);
@@ -20,7 +21,9 @@ export function createFieldPanel({registry,read,command}) {
     }
     const cancel=button("Cancel your field work · return reserved inputs","cancel",{type:"cancel"});body.append(cancel);
     const repeat=button("Make up to 3 focus kits · stop when inputs or energy run short","routine",{type:"program",id:"field.pack_focus",count:3});groups.get("workshop").append(repeat);
-    const pause=button("Pause after the current kit","pause",{type:"pause"}),resume=button("Resume the remaining kit target","resume",{type:"resume"});groups.get("workshop").append(pause,resume);
+    const leverRepeat=button("Queue 3 lever jobs · stop if support or logs run short","lever_routine",{type:"program",id:"field.lp1.lever_work",count:3});groups.get("lever").append(leverRepeat);
+    const leverRecord=node("p");groups.get("lever").append(leverRecord);
+    const pause=button("Pause after the current field job","pause",{type:"pause"}),resume=button("Resume the remaining field jobs","resume",{type:"resume"});groups.get("workshop").append(pause,resume);
     function render() {
         const snapshot=read(),{state,context,enabled,error}=snapshot,s=state.simulation,f=state.actors.player.facts,view=fieldWorkshopView(state);
         const job=s?.jobs.find(j=>j.actorId === "player" && registry.simulation.commands.get(j.commandId)?.group === "field");
@@ -34,6 +37,11 @@ export function createFieldPanel({registry,read,command}) {
             try{preview=s ? previewSimulationCommand(state,registry,id,{...context,targetId:d.targetId || null}) : null;}catch(e){preview={visible:false,eligible:false,reasons:[e.message]};}
             c.card.hidden=!view.introduced || !preview?.visible || !!(d.once && state.actors.player.completed[id]) || d.location !== context.facts.location || !!(d.claim && s.claims[d.claim]);
             c.b.disabled=!enabled || !!error || !preview?.eligible;c.reason.textContent=c.b.disabled && !c.card.hidden ? preview?.reasons.join(" ") || error || "Finish your current activity first." : "";c.reason.hidden=!c.reason.textContent;
+            if(id.startsWith('field.lp1.') && c.b.disabled && !c.card.hidden) {
+                const reasons=[...leverBlockers(state,context,id),...(preview?.reasons || []).filter(r=>r!==d.requires?.reason)];
+                c.reason.textContent=reasons.join(' ') || error || 'Finish your current activity first.';
+                c.reason.hidden=false;
+            }
             if(c.card.hidden && document.activeElement === c.b)groups.get(d.uiSection || "workshop").querySelector("summary").focus();
         }
         const alloy = alloyEquipmentFacts(state, context)["equipment.springsteel.equipped"];
@@ -46,8 +54,17 @@ export function createFieldPanel({registry,read,command}) {
         status.textContent=error || (job ? `${job.label} · ${job.due-state.clock} min remaining` : notice);status.hidden=!status.textContent;
         cancel.hidden=!job || job.cancellation === "none";cancel.disabled=!!error;
         cancel.textContent=job?.cancellation === "forfeit" ? "Cancel your field work · spent inputs are forfeited" : "Cancel your field work · return reserved inputs";
+        leverRepeat.hidden=!s?.knowledge.player?.['field.lp1.method'];
+        leverRepeat.disabled=!enabled || !!error || !s || !previewSimulationCommand(state,registry,'field.lp1.lever_work',context).eligible;
+        const lesson=s?.knowledge.player?.['field.lp1.method'];
+        leverRecord.hidden=!view.introduced;
+        leverRecord.textContent=lesson ? `Learned from the old craftsman in Village at played minute ${lesson.at}. Routine lever work stays useful; it still needs your body and carried lever.` : 'Known timber task: hand work costs 6 minutes and 3 stamina. Lever-setting needs a demonstration, your pivot explanation and 3 minutes of paid practice.';
         const program=s?.programs.player,isFieldProgram=program?.commandId.startsWith("field.");
         repeat.hidden=!view.facility || !ownEnergies.some(e=>e.id === "field.focus");repeat.disabled=!enabled || !!error || !s || !previewSimulationCommand(state,registry,"field.pack_focus",context).eligible;
+        if(program?.commandId==='field.lp1.lever_work') {
+            status.textContent+=(status.textContent?' · ':'')+`Lever queue: ${program.remaining} jobs left; ${program.status}. ${program.reason||''}`;
+            status.hidden=false;
+        }
         pause.hidden=!isFieldProgram || program.status !== "running";resume.hidden=!isFieldProgram || program.status !== "paused" || !program.remaining;pause.disabled=!!error;resume.disabled=!!error || !enabled || simulationOccupiesActor(state);
         const offers=Object.values(s?.events || {}).filter(e=>e.actorId === "player" && e.status === "open" && e.discoveredBy.includes("player") && registry.simulation.events.get(e.definitionId)?.group === "field");
         const signature=JSON.stringify([offers.map(e=>[e.id,e.expiresAt,e.status]),enabled,error,state.sequence]);
