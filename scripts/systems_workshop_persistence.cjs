@@ -4,7 +4,7 @@ const {chromium}=require('/Users/weiwei/.cache/codex-runtimes/codex-primary-runt
 const URL=process.env.YAIRPG_PROOF_URL||'http://127.0.0.1:18701/',OUT=process.env.YAIRPG_PROOF_DIR||'/tmp/systems-workshop-proof';
 (async()=>{const b=await chromium.launch({headless:true,executablePath:'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'});try{
  const c=await b.newContext({viewport:{width:1366,height:768}}),fixture=JSON.parse(fs.readFileSync(OUT+'/natural-final-save.json'));await c.addInitScript(d=>{if(!localStorage.getItem('save data'))localStorage.setItem('save data',JSON.stringify(d));},fixture);
- const p=await c.newPage(),errors=[];p.on('pageerror',e=>errors.push(e.message));const play=async()=>p.getByText('PLAY',{exact:true}).click();await p.goto(URL);await play();
+ const p=await c.newPage(),errors=[];p.on('pageerror',e=>errors.push(e.message));const play=async()=>{await p.getByText('PLAY',{exact:true}).click();if(new URL(URL).searchParams.get('test_hooks')==='1'){await p.waitForFunction(()=>typeof simulationTestHooks==='object');await p.evaluate(()=>simulationTestHooks.pause());}};await p.goto(URL);await play();
  const save=async()=>{await p.evaluate(()=>window.saveProgress());return p.evaluate(()=>JSON.parse(localStorage.getItem('save data')));};
  const exact=s=>{assert.deepEqual(s.expansion.actors,fixture.expansion.actors);for(const k of ['owners','knowledge','claims','titles','seed'])assert.deepEqual(s.expansion.simulation[k],fixture.expansion.simulation[k]);assert.deepEqual(s.inventories,fixture.inventories);assert.equal(s.character.money,fixture.character.money);};
  exact(await save());await p.reload();await play();exact(await save());
