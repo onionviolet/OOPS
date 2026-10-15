@@ -1,0 +1,27 @@
+{
+  "status": "care and persistence passed",
+  "viewport": {
+    "width": 1366,
+    "height": 768
+  },
+  "url": "http://127.0.0.1:8202/",
+  "bundleSha256": "bbb7321af4ed38183c1c06ae4e034c330bfc3ef5e2b8b25ad93753fb719cc975",
+  "checks": [
+    "fresh save has no pen, animal or material grant",
+    "old absent state survives native reload and Export/literal file Import without LP4 assets",
+    "paid site and animal; unattended time produces nothing; missing feed reason",
+    "finite feed consumed; fed alone produces nothing",
+    "pending Save/reload retains exact care owner",
+    "pending Export/literal file Import retains care without stock grant",
+    "readiness remains while care expires and welfare stays safe",
+    "collected Export/literal file Import cannot duplicate wool or cycle"
+  ],
+  "layout": {
+    "horizontalOverflow": false,
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    }
+  },
+  "errors": []
+}

@@ -1,0 +1,109 @@
+{
+  "status": "stopped at 24-attempt test budget, not a gameplay cap",
+  "reason": "unchanged native probabilistic Wool cloth recipe produced no cloth in this additional fresh replay",
+  "attempts": [
+    {
+      "inputWool": 5,
+      "cloth": 0
+    },
+    {
+      "inputWool": 5,
+      "cloth": 0
+    },
+    {
+      "inputWool": 5,
+      "cloth": 0
+    },
+    {
+      "inputWool": 5,
+      "cloth": 0
+    },
+    {
+      "inputWool": 5,
+      "cloth": 0
+    },
+    {
+      "inputWool": 5,
+      "cloth": 0
+    },
+    {
+      "inputWool": 5,
+      "cloth": 0
+    },
+    {
+      "inputWool": 5,
+      "cloth": 0
+    },
+    {
+      "inputWool": 5,
+      "cloth": 0
+    },
+    {
+      "inputWool": 5,
+      "cloth": 0
+    },
+    {
+      "inputWool": 5,
+      "cloth": 0
+    },
+    {
+      "inputWool": 5,
+      "cloth": 0
+    },
+    {
+      "inputWool": 5,
+      "cloth": 0
+    },
+    {
+      "inputWool": 5,
+      "cloth": 0
+    },
+    {
+      "inputWool": 5,
+      "cloth": 0
+    },
+    {
+      "inputWool": 5,
+      "cloth": 0
+    },
+    {
+      "inputWool": 5,
+      "cloth": 0
+    },
+    {
+      "inputWool": 5,
+      "cloth": 0
+    },
+    {
+      "inputWool": 5,
+      "cloth": 0
+    },
+    {
+      "inputWool": 5,
+      "cloth": 0
+    },
+    {
+      "inputWool": 5,
+      "cloth": 0
+    },
+    {
+      "inputWool": 5,
+      "cloth": 0
+    },
+    {
+      "inputWool": 5,
+      "cloth": 0
+    },
+    {
+      "inputWool": 5,
+      "cloth": 0
+    }
+  ],
+  "finalStock": {
+    "wool": 0,
+    "cloth": 0,
+    "collectedBatches": 24,
+    "money": 24
+  },
+  "pageErrors": []
+}

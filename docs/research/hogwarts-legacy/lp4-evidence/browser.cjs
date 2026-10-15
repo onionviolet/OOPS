@@ -1,0 +1,54 @@
+// Run from the worktree after npm run build, with its own server on the assigned port.
+const fs=require('node:fs'),path=require('node:path'),http=require('node:http'),os=require('node:os');
+const assert=require('node:assert/strict'),{createHash}=require('node:crypto');
+const {chromium}=require('/Users/weiwei/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
+const {startFresh}=require(path.resolve('docs/gm/dispatch/vivid-proto23-flow-2026-10-13/checks/routes.cjs'));
+const URL=process.env.LP4_URL||'http://127.0.0.1:8202/';
+const out=path.resolve('docs/research/hogwarts-legacy/lp4-evidence');
+const hash=b=>createHash('sha256').update(b).digest('hex');
+const get=url=>new Promise((resolve,reject)=>http.get(url,r=>{const chunks=[];r.on('data',b=>chunks.push(b));r.on('end',()=>resolve(Buffer.concat(chunks)));r.on('error',reject);}).on('error',reject));
+const stock=(s,id)=>s.inventories?.person?.main_character?.[JSON.stringify({id})]?.count||0;
+(async()=>{
+    const expected=hash(fs.readFileSync('dist/bundle.js')),served=hash(await get(URL+'dist/bundle.js'));
+    assert.equal(served,expected,'Assigned port is serving another build. Leave the other worker intact.');
+    const browser=await chromium.launch({headless:true,executablePath:'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'});
+    const context=await browser.newContext({viewport:{width:1366,height:768},acceptDownloads:true}),page=await context.newPage();
+    page.setDefaultTimeout(15000);const errors=[],checks=[];page.on('pageerror',e=>errors.push(e.message));
+    const save=async()=>{await page.waitForFunction(()=>document.querySelector('#workspace_current_work')?.textContent.includes('Saving available.'));await page.locator('#save_button').click();return page.evaluate(()=>JSON.parse(localStorage.getItem('save data')));};
+    const open=async()=>{const p=page.locator('#meadow_pen_panel');await p.locator('summary').first().click();await p.scrollIntoViewIfNeeded();};
+    const button=id=>page.locator(`[data-habitat="${id}"]`);
+    const fact=id=>page.locator(`[data-habitat-fact="${id}"]`);
+    const shot=async name=>{await page.locator('#meadow_pen_panel').scrollIntoViewIfNeeded();await page.screenshot({path:path.join(out,name+'.png')});};
+    const exportFile=async name=>{const download=page.waitForEvent('download');await page.locator('#save_to_file_button').click();const file=path.join(os.tmpdir(),`hl-lp4-${process.pid}-${name}.txt`);await(await download).saveAs(file);return file;};
+    const importFile=async file=>{await Promise.all([page.waitForEvent('domcontentloaded'),page.locator('#saved_file_input').setInputFiles(file)]);await startFresh(page);await open();};
+    try{
+        await page.goto(URL,{waitUntil:'domcontentloaded'});await startFresh(page);await open();
+        const old=await save();assert.equal(Object.hasOwn(old,'meadow_pen'),false);checks.push('fresh save has no pen, animal or material grant');
+        const oldFile=await exportFile('absent');await page.reload({waitUntil:'domcontentloaded'});await startFresh(page);await open();assert.equal(Object.hasOwn(await save(),'meadow_pen'),false);
+        await importFile(oldFile);assert.equal(Object.hasOwn(await save(),'meadow_pen'),false);assert.equal(stock(await save(),'Meadow hay'),0);assert.equal(stock(await save(),'Wool'),0);fs.unlinkSync(oldFile);checks.push('old absent state survives native reload and Export/literal file Import without LP4 assets');
+        await button('build').click();await button('adopt').click();
+        assert.equal((await save()).character.money,old.character.money-30);
+        assert.equal(await button('feed').isDisabled(),true);assert.match(await button('feed').getAttribute('title'),/actual Meadow hay/);
+        await page.waitForTimeout(7000);assert.match(await fact('harvest').innerText(),/0\/6/);await shot('01-unattended');checks.push('paid site and animal; unattended time produces nothing; missing feed reason');
+        await button('buy_feed').click();assert.equal(stock(await save(),'Meadow hay'),1);
+        await button('feed').click();assert.equal(stock(await save(),'Meadow hay'),0);
+        await page.waitForTimeout(2000);assert.match(await fact('harvest').innerText(),/0\/6/);checks.push('finite feed consumed; fed alone produces nothing');
+        await button('attend').click();await page.waitForTimeout(1500);
+        const pending=await save(),pendingFile=await exportFile('pending');await shot('02-cared-pending');
+        await page.reload({waitUntil:'domcontentloaded'});await startFresh(page);await open();
+        assert.deepEqual((await save()).meadow_pen,pending.meadow_pen);checks.push('pending Save/reload retains exact care owner');
+        await importFile(pendingFile);assert.deepEqual((await save()).meadow_pen,pending.meadow_pen);checks.push('pending Export/literal file Import retains care without stock grant');
+        await page.waitForFunction(()=>/Harvest: ready/.test(document.querySelector('[data-habitat-fact="harvest"]')?.textContent));
+        await page.waitForTimeout(13000);assert.match(await fact('care').innerText(),/needs hay; needs attention/);assert.match(await fact('welfare').innerText(),/Safe/);
+        assert.match(await fact('harvest').innerText(),/ready, 5 Wool/);await shot('03-ready-care-expired');checks.push('readiness remains while care expires and welfare stays safe');
+        await button('collect').click();const collected=await save();assert.equal(stock(collected,'Wool'),5);assert.equal(collected.meadow_pen.collected,1);
+        assert.equal(await button('collect').isDisabled(),true);
+        const collectedFile=await exportFile('collected');await importFile(collectedFile);
+        const loaded=await save();assert.equal(stock(loaded,'Wool'),5);assert.equal(loaded.meadow_pen.collected,1);assert.equal(await button('collect').isDisabled(),true);await shot('04-collected-imported');checks.push('collected Export/literal file Import cannot duplicate wool or cycle');
+        assert.deepEqual(errors,[]);
+        const layout=await page.evaluate(()=>({horizontalOverflow:document.documentElement.scrollWidth>innerWidth,viewport:{width:innerWidth,height:innerHeight}}));assert.equal(layout.horizontalOverflow,false);
+        fs.writeFileSync(path.join(out,'browser-results.json'),JSON.stringify({status:'care and persistence passed',viewport:{width:1366,height:768},url:URL,bundleSha256:expected,checks,layout,errors},null,2));
+        fs.unlinkSync(pendingFile);fs.unlinkSync(collectedFile);
+        console.log(JSON.stringify({checks,errors,bundleSha256:expected},null,2));
+    }finally{await browser.close();}
+})().catch(e=>{console.error(e);process.exitCode=1;});

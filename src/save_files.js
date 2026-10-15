@@ -1,4 +1,5 @@
 import {validateHarvestEnvelope} from './harvest.js';
+import {validateHabitat} from './habitat_care.js';
 import {validateProductAppearanceEnvelope} from './product_appearance_state.js';
 import {validateStreams,validateNativeEncounter} from "./seeded_streams.js";
 import {validateMixtureEnvelope} from './mixture_state.js';
@@ -49,6 +50,7 @@ const number = (value, label, minimum = 0) => {
 
 export function validateSaveEnvelope(original, currentVersion) {
     object(original, "Save");
+    if(original.meadow_pen!=null)validateHabitat(original.meadow_pen,calendarMinutes(original['current time']));
     validateHarvestEnvelope(original,original["current time"]?calendarMinutes(original["current time"]):Number.MAX_SAFE_INTEGER);
     validateMixtureEnvelope(original);
     validateProductAppearanceEnvelope(original);
