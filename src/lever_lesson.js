@@ -1,4 +1,5 @@
 // LP1 original proposal. Existing field UI and simulation scheduler own all work.
+import {LEVER_PRACTICE_BRACE} from './lever_practice_supply.js';
 import {bodyFacts} from './body_progression.js';
 export const LEVER = 'field.lp1.lever';
 export const LEVER_WOOD = JSON.stringify({id:'Rough wood log'});
@@ -37,13 +38,13 @@ export const leverDefinitions = {
         command({id:'field.lp1.explain',label:'Explain the rule: brace near the pivot, lift the far end',once:true,...contact,
             visibleWhen:all(known,eq('knowledge.field.lp1.demonstration.seen')),requires:all(location,body,teacher,eq('knowledge.field.lp1.demonstration.seen')),
             effects:[{type:'situation',situationId:scene,operation:'advance',expected:['demonstrated'],phase:'explained'},know('rule','understood','The old craftsman checked your explanation in Village: the brace stays near the pivot, your hands lift the far end, and you stop if the timber slips. Paid supported practice is still needed.')]}),
-        command({id:'field.lp1.practice',label:'Practice lever-setting with the craftsman · 1 coin + 1 stamina · 3 min',once:true,...contact,duration:3,cancellation:'refund',reservationReturns:1,
+        command({id:'field.lp1.practice',label:'Practice lever-setting with the craftsman · 1 practice brace + 1 coin + 1 stamina · 3 min',once:true,...contact,duration:3,cancellation:'refund',reservationReturns:1,
             visibleWhen:all(known,eq('knowledge.field.lp1.rule.seen')),requires:all(location,body,teacher,rule),
             completionRequires:all(location,body,teacher,rule),completionCoLocated:true,completionFailure:'refund',
-            costs:[{type:'resource',native:true,key:'money',amount:-1},stamina(-1)],
+            costs:[{type:'item',key:LEVER_PRACTICE_BRACE,amount:-1},{type:'resource',native:true,key:'money',amount:-1},stamina(-1)],
             effects:[{type:'power',powerId:LEVER,operation:'learn'},{type:'situation',situationId:scene,operation:'advance',expected:['explained'],phase:'learned'},
-                know('method','understood','The old craftsman taught you lever-setting in Village after your pivot explanation and three minutes of supervised practice. You spent one coin and one stamina. You can now free timber with a spare log as a lever; actual hands and the held tool remain required.')],
-            description:'Untimed choice, then three played minutes of supervised practice. Teacher attention is reserved. Cancellation or lost support refunds costs and teaches nothing.'}),
+                know('method','understood','The old craftsman taught you lever-setting in Village after your pivot explanation and three minutes of supervised practice. You used one Lever practice brace and spent one coin and one stamina. You can now free timber with a spare log as a lever; actual hands and the held tool remain required.')],
+            description:'Untimed choice, then three played minutes of supervised practice. Supply one Lever practice brace from Eda’s Fitting tools & materials bench (one sound stave + one sap, two minutes); it is used up in practice. Teacher attention is reserved. Cancellation or lost support refunds costs and teaches nothing.'}),
         command({id:'field.lp1.lever_work',label:'Free wedged timber with lever-setting · 1 log + spare log lever + 1 stamina · 2 min',duration:2,cancellation:'refund',reservationReturns:1,automatable:true,powerId:LEVER,
             requires:all(support,tool),completionRequires:support,completionFailure:'refund',costs:[item(-2),stamina(-1)],
             effects:[item(1,true),{type:'item',key:LEVER_KIT,amount:1}],

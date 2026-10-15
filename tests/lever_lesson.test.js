@@ -5,15 +5,17 @@ import {advanceSimulation,loadExpansionState} from '../src/expansion_engine.js';
 import {previewSimulationCommand,commitSimulationCommand,setSimulationProgram,cancelSimulationJob} from '../src/simulation.js';
 import {createFieldFixture,fieldContext} from '../scripts/field_fixtures.mjs';
 import {LEVER_WOOD as wood,LEVER_KIT as kit} from '../src/lever_lesson.js';
+import {LEVER_PRACTICE_BRACE as brace} from '../src/lever_practice_supply.js';
+const fixture=()=>{const p=createFieldFixture();p.gameplay.player.inventory[brace]=1;return p;};
 const ctx=p=>fieldContext(p);
 const act=(p,id)=>commitSimulationCommand(p.state,expeditionRegistry,{id:`field.lp1.${id}`,targetId:['demonstrate','explain','practice'].includes(id)?'oldCraftsman':null},{...ctx(p),targetId:['demonstrate','explain','practice'].includes(id)?'oldCraftsman':null});
 const tick=(p,n,extra={})=>advanceSimulation(p.state,expeditionRegistry,n,p.external,p.gameplay,{player:{facts:ctx(p).facts,vitals:ctx(p).vitals.player,...extra}});
 const reload=p=>({...p,state:loadExpansionState(JSON.parse(JSON.stringify(p.state)),expeditionRegistry)});
-const ready=()=>act(act(createFieldFixture(),'demonstrate'),'explain');
+const ready=()=>act(act(fixture(),'demonstrate'),'explain');
 const learned=()=>tick(act(ready(),'practice'),3);
 
 test('LP1 same known task before and after: actual time, costs and teacher provenance',()=>{
- let p=createFieldFixture();
+ let p=fixture();
  assert.match(previewSimulationCommand(p.state,expeditionRegistry,'field.lp1.lever_work',ctx(p)).reasons.join(' '),/practice/);
  let hand=act(p,'hand');hand=tick(hand,6); assert.equal(hand.gameplay.player.inventory[wood],19);assert.equal(hand.gameplay.player.inventory[kit],1);
  p=act(act(p,'demonstrate'),'explain');assert.equal(p.state.simulation.knowledge.player['field.lp1.method'],undefined);
