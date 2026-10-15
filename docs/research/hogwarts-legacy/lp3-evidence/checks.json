@@ -1,0 +1,52 @@
+{
+  "source_commit": "404ebb05",
+  "build": {
+    "command": "npm run build",
+    "passed": true,
+    "ink_diagnostics": 0
+  },
+  "focused_affected": {
+    "command": "node --test tests/lp3_practice_supply.test.js tests/lever_lesson.test.js tests/lp7_material_choice.test.js tests/field_workshop.test.js",
+    "tests": 30,
+    "passed": 30,
+    "failed": 0,
+    "duration_ms": 2591.359
+  },
+  "full": {
+    "command": "npm test",
+    "tests": 1471,
+    "passed": 1468,
+    "failed": 0,
+    "skipped": 0,
+    "todo": 3,
+    "duration_ms": 68228.603958
+  },
+  "existing_todos": [
+    "legacy native combat default RNG: src/combat_math.js:34,44; src/models/combat.js:160,323,351,377 # TODO",
+    "legacy local-life search/contact default RNG: src/absorb_c2/local_life.js:42 # TODO",
+    "legacy encounter, loot, craft, market and gather RNG: src/models/location.js:344; src/enemies.js:170; src/main.js:4224,4694,7503; src/components/trader_component.js:117 # TODO"
+  ],
+  "browser": {
+    "groups_passed": 17,
+    "page_errors": 0,
+    "viewport": "1366x768",
+    "served_bundle_sha256": "f0bd147c75f1295483568c3facf3344c7a4a2928bdc446c39183da5c320b3422",
+    "actual_export_pending_jobs": {
+      "batch": {
+        "clock": 18,
+        "due": 19
+      },
+      "practice": {
+        "clock": 23,
+        "due": 25
+      }
+    }
+  },
+  "earned_ui_capture": {
+    "command": "node docs/research/hogwarts-legacy/lp3-evidence/capture.cjs",
+    "passed": true,
+    "braces": 0,
+    "lesson_completions": 1,
+    "survey_kits": 1
+  }
+}
