@@ -1,6 +1,11 @@
 # Stepper performance lane, 2026-10-14
 
 Branch `absorb-all/stepper-perf`, base `9dd86b5a`, port 18980.
+Status: source changes committed; **7/7 byte comparisons pass**, corrected full
+suite **1705 passed, zero failures, three existing TODOs**. Required final gate
+**RESULT FAIL** against the newer current-main client; details below. Throughput
+targets remain OPEN.
+
 Desktop target: 1366x768. Visible outcome: existing final panels and gameplay
 remain the same after synchronous advancement. Mobile optimization and product
 UI redesign remain deferred. No mechanics or taste decisions are introduced.
@@ -73,9 +78,38 @@ browser run hit an out-of-scope local panel name during a temporary panel audit;
 that entry was removed before the panel commit, and both subsequent complete
 seven-case runs pass. No gameplay repair was needed.
 
-V3. Full `npm test` and all required native save/reload/literal-import groups
-will be run by the required final gate once, using the then-current
-`codex/gameplay-foundations` old client. Gate RESULT is pending.
+V3. Required `FINAL_GATE.sh` ran **once**, with `OUT=/tmp/stepper-perf-final-gate`,
+`MAXPAR=2` and old client `27764108efb9eb30ea6aa98658753a639100746f` (then-current
+`codex/gameplay-foundations`). **RESULT FAIL**, exit 1. Build passes. Final browser
+outcomes: **46/47 PASS**, **38/39 groups PASS**. All P00 groups pass, including
+P15's native one-write/enrollment/capture/paid trade/Undo/reload/literal import
+journey on the gate's built-in retry. Fort restoration also passes on built-in
+retry. [Exact receipt](../checks/stepper-perf/final-gate.json); full logs at the OUT
+path. The gate script itself was not rerun.
+
+V4. Two harness defects were corrected without runtime changes: W33.T6's
+extracted publication seam needed its new `readFrame` local in the VM fixture
+(`cb9f7d60`, seven calendar checks pass); Fort restoration read its export from
+its source directory rather than the gate's proof directory (`98cfc5b5`).
+The initial gate suite was 1704 passed, one failed, three TODOs, due solely to the
+calendar fixture. After correction, the full package glob rerun via
+`npm test -- --test-concurrency=2` passes **1705/1705 non-TODO tests**, zero
+failures, three existing TODOs, 160930.81 ms (1708 total). Six new focused checks
+also pass 6/6. [Full-suite receipt](../checks/stepper-perf/npm-final.json). The
+separate passing rerun does not rewrite the original gate RESULT.
+
+V5. The sole remaining browser failure is `workshop-legacy`: the newer old
+client saves `availabilities.item.Meadow hay=1`, while this base has no such
+content. It fails both the first attempt and built-in retry. `27764108` registers
+that item in `src/items.js` and habitat care; `9dd86b5a` does not. An independent
+fresh-origin load of the same real old-client export into the untouched base
+bundle and candidate produces **identical canonical serialized envelopes**,
+with that key absent in both and zero page errors.
+[Baseline comparison](../checks/stepper-perf/legacy-base-comparison.json).
+This compatibility failure exists on the base, rather than being introduced by
+the performance changes. Adding content or changing its saved availability here
+would violate this lane's byte/gameplay constraint, so it is reported rather
+than repaired.
 
 ## Integration and remaining acceptance
 
@@ -85,8 +119,10 @@ function edits. The new optional read-frame argument keeps existing callers
 compatible. `save_compatibility.js` retains sim-stepper's classifier memo. No
 branches were merged and nothing was pushed.
 
-A1. Human acceptance remains whether the faster checks feel useful and return
-the same results. Absolute throughput targets and quiet-machine certification
-are open performance limits, not newly invented gameplay requirements. Unrun
-native gates will be named in the final receipt; implementation alone is not
-native acceptance.
+A1. The remaining authoritative integration gate is compatibility with the
+current-main old client. The coordinator should preserve its newer content while
+integrating these focused performance commits, then run its integration gate.
+This lane is **not gate-certified for merge** because its required run returned
+FAIL. No changed runtime path is left implemented-unverified by these checks;
+the outstanding performance limits are the 1000/200 targets and an attributable
+quiet-host measurement. No new human fiction/balance decision is introduced.
