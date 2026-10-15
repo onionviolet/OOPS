@@ -6,7 +6,7 @@ import {validateStoryletState} from './storylet_deck.js';
 import {validateLoreHistory} from './lore_history_state.js';
 import {nativeEquipmentSnapshot} from './native_equipment_transaction.js';
 import {nextContainerBoundary} from './structured_container_runtime.js';
-import {advanceNativeContainerClocks} from './simulation_effects.js';
+import {advanceNativeContainerClocks,cloneData} from './simulation_effects.js';
 import {validateManagementState} from './management/validation.js';
 import {validateSteamAbsorptionState} from './steam_absorption_facts.js';
 import {validateContextualBalmState} from './contextual_balm_facts.js';
@@ -69,7 +69,7 @@ export const FEATURE_ENGINE_SCHEMA = 6;
 export const NESTED_ENGINE_SCHEMA = 7;
 export const CONTINUED_LIFE_ENGINE_SCHEMA = 8;
 const scopes = ["campaign", "journey", "world", "actor", "scenario", "external"];
-const clone = value => structuredClone(value);
+const clone = cloneData;
 const object = value => value && typeof value === "object" && !Array.isArray(value);
 const id = value => typeof value === "string" && /^[a-z][a-z0-9_.:-]*$/i.test(value) &&
     !["__proto__", "constructor", "prototype"].includes(value);
@@ -140,8 +140,40 @@ function validateBudget(value) {
         amount <= Number.MAX_SAFE_INTEGER, "Invalid external resource budget.");
 }
 
-export function validateExpansionState(state, registry) {
-    if([1, 2, 3, 4].includes(state?.schema)) return validateExpansionState(migrateExpansionState(state), registry);
+// Repeat validation of identical content (one write validates the same state in
+// the engine, persistence and the envelope check) answers from private snapshots
+// of content that already passed under the same registry object. Equality is
+// exact: key order, NaN, -0 and undefined-versus-absent all count, and anything
+// that is not plain JSON-shaped data never matches. Load, import and tests can
+// demand a full walk with {full: true}.
+const validatedSnapshots = [];
+function sameData(a, b) {
+    if(typeof a !== "object" || a === null || typeof b !== "object" || b === null) return Object.is(a, b);
+    const proto = Object.getPrototypeOf(a);
+    if(proto !== Object.getPrototypeOf(b) || proto !== Object.prototype && proto !== Array.prototype) return false;
+    const ka = Object.keys(a), kb = Object.keys(b);
+    if(ka.length !== kb.length || proto === Array.prototype && a.length !== b.length) return false;
+    for(let i = 0; i < ka.length; i++) if(ka[i] !== kb[i] || !sameData(a[ka[i]], b[ka[i]])) return false;
+    return true;
+}
+function validatedBefore(state, registry) {
+    try {return validatedSnapshots.some(entry => entry.registry === registry && sameData(state, entry.snapshot));}
+    catch {return false;} // e.g. a cyclic value: take the full walk instead.
+}
+function rememberValidated(state, registry) {
+    try {validatedSnapshots.unshift({registry, snapshot: clone(state)});} catch {return;}
+    validatedSnapshots.length = Math.min(validatedSnapshots.length, 4);
+}
+
+export function validateExpansionState(state, registry, {full = false} = {}) {
+    if([1, 2, 3, 4].includes(state?.schema)) return validateExpansionState(migrateExpansionState(state), registry, {full});
+    if(!full && validatedBefore(state, registry)) return state;
+    fullyValidateExpansionState(state, registry);
+    rememberValidated(state, registry);
+    return state;
+}
+
+function fullyValidateExpansionState(state, registry) {
     check(object(state) && [ENGINE_SCHEMA,FEATURE_ENGINE_SCHEMA,NESTED_ENGINE_SCHEMA,CONTINUED_LIFE_ENGINE_SCHEMA,REFERENCE_ENGINE_SCHEMA,BOOK_WORLD_ENGINE_SCHEMA,AUDIT_REMAINDER_ENGINE_SCHEMA].includes(state.schema), "This expansion save needs a compatible engine schema.");
     check(integer(state.sequence) && integer(state.clock) && integer(state.rng) && state.rng > 0 && state.rng <= 0xffffffff,
         "Invalid expansion clock or random state.");
@@ -280,7 +312,7 @@ function migrateExpansionState(saved) {
 export function loadExpansionState(saved, registry, seed = 1) {
     const state = saved == null ? createExpansionState(seed)
         : [1, 2, 3, 4].includes(saved.schema) ? migrateExpansionState(saved) : clone(saved);
-    return validateExpansionState(migrateCoolingRefinementSituation(state), registry);
+    return validateExpansionState(migrateCoolingRefinementSituation(state), registry, {full: true});
 }
 
 function validateCost(cost) {
@@ -614,10 +646,12 @@ export function advanceSimulation(state, registry, minutes, external = {}, gamep
         if(next.chronicle && next.chronicle.life.endedAt !== null) break;
         if(["dead", "departed"].includes(next.simulation?.people.player?.life)) break;
         if(Object.values(next.opportunities).some(o => o.status === "available" && o.blocking) || waitingSimulationChoice(next) || next.simulation?.sessions.player) {stoppedAtChoice = true; break;}
-        const times = [...next.pending.map(job => job.due), ...Object.values(next.opportunities)
-            .filter(o => o.status === "scheduled" || o.status === "available")
-            .map(o => o.status === "scheduled" ? o.due : o.expires)];
-        const boundary = Math.min(nextContainerBoundary(next,registry,{...simulationContexts,player:{...simulationContexts.player,inventoryOwners:{...simulationContexts.player?.inventoryOwners,...simulationPlan.ownership}}}),...times, nextChronicleBoundary(next.chronicle), nextSimulationBoundary(next,{skipLoreJobs:!lorePracticeTimersSupported(next,loreContexts()),skipCompletionJobs:!worldCompletionTimersSupported(next,loreContexts()),skipCompletionCropChecks:!worldCompletionCropClockSupported(next,loreContexts().player)}), nextLorePracticeBoundary(next,loreContexts()), nextWorldCompletionBoundary(next,loreContexts()), nextCausalStoryBoundary(next), nextRealmActivityBoundary(next), nextTidemarkBoundary(next), nextNestedCampaignBoundary(next), nextParadiseBoundary(next), nextMolBoundary(next),nextProto23Boundary(next), workPlanNextBoundary(next));
+        // Same minimum as spreading every due time, without the arrays; retained
+        // expired opportunities are skipped in this one pass.
+        let times = Infinity;
+        for(const job of next.pending) times = Math.min(times, job.due);
+        for(const o of Object.values(next.opportunities)) if(o.status === "scheduled" || o.status === "available") times = Math.min(times, o.status === "scheduled" ? o.due : o.expires);
+        const boundary = Math.min(nextContainerBoundary(next,registry,{...simulationContexts,player:{...simulationContexts.player,inventoryOwners:{...simulationContexts.player?.inventoryOwners,...simulationPlan.ownership}}}),times, nextChronicleBoundary(next.chronicle), nextSimulationBoundary(next,{skipLoreJobs:!lorePracticeTimersSupported(next,loreContexts()),skipCompletionJobs:!worldCompletionTimersSupported(next,loreContexts()),skipCompletionCropChecks:!worldCompletionCropClockSupported(next,loreContexts().player)}), nextLorePracticeBoundary(next,loreContexts()), nextWorldCompletionBoundary(next,loreContexts()), nextCausalStoryBoundary(next), nextRealmActivityBoundary(next), nextTidemarkBoundary(next), nextNestedCampaignBoundary(next), nextParadiseBoundary(next), nextMolBoundary(next),nextProto23Boundary(next), workPlanNextBoundary(next));
         const clockBoundary = Number.isFinite(boundary)?Math.max(next.clock,boundary):null;
         if(boundary > target) {retainOriginalFrontierWindow(next,next.clock,target);retainRepositoryAbsorptionWindows(next,next.clock,target);retainAuditRemainderWindows(next,next.clock,target);retainLorePracticeWindows(next,next.clock,target,loreContexts());retainWorldCompletionWindows(next,next.clock,target,loreContexts()); next.clock = target; syncRealmClock(next,clockBoundary); syncTidemarkClock(next); syncNestedCampaignClock(next); syncParadiseClock(next); syncMolClock(next);syncProto23Clock(next); expireRealmObservation(next); next.chronicle = advanceChronicle(next.chronicle, next.clock); break;}
         retainOriginalFrontierWindow(next,next.clock,Math.max(next.clock,boundary));retainRepositoryAbsorptionWindows(next,next.clock,Math.max(next.clock,boundary));retainAuditRemainderWindows(next,next.clock,Math.max(next.clock,boundary));retainLorePracticeWindows(next,next.clock,Math.max(next.clock,boundary),loreContexts());retainWorldCompletionWindows(next,next.clock,Math.max(next.clock,boundary),loreContexts());

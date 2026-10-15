@@ -57,6 +57,36 @@ import {canonicalDurabilityKey} from './absorb_e2/durability.js';
 import {applyPursuitEffect,pursuitContact} from "./pursuit.js";
 import {framedSimulationFacts} from './simulation_render.js';
 
+// structuredClone-equivalent deep copy for the JSON-shaped plan data (state,
+// gameplay, budgets), about twice as fast on large saves. Shared references and
+// cycles map to one copy, as structuredClone does. Anything that is not a plain
+// object or plain array (Map, Date, null prototype, class instance, function)
+// goes through structuredClone itself, so its result and errors are unchanged.
+const plainObject = Object.prototype, plainArray = Array.prototype;
+export function cloneData(value) {
+    if(typeof value !== "object" || value === null) return typeof value === "function" ? structuredClone(value) : value;
+    const seen = new Map();
+    const visit = v => {
+        if(typeof v !== "object" || v === null) return typeof v === "function" ? structuredClone(v) : v;
+        let c = seen.get(v);
+        if(c !== undefined) return c;
+        const proto = Object.getPrototypeOf(v);
+        if(proto === plainArray) {
+            const n = v.length; c = new Array(n); seen.set(v, c);
+            for(let i = 0; i < n; i++) if(i in v) c[i] = visit(v[i]);
+            if(Object.keys(v).length !== n) {c = structuredClone(v); seen.set(v, c);}
+            return c;
+        }
+        if(proto !== plainObject) {c = structuredClone(v); seen.set(v, c); return c;}
+        c = {}; seen.set(v, c);
+        for(const k of Object.keys(v)) {
+            if(k === "__proto__") Object.defineProperty(c, k, {value: visit(v[k]), writable: true, enumerable: true, configurable: true});
+            else c[k] = visit(v[k]);
+        }
+        return c;
+    };
+    return visit(value);
+}
 export const participant = (value, context) => value === "$target" ? context.targetId : value === "$actor" || value == null ? context.actorId : value;
 export function person(state, id) {assert(state.simulation?.people[id] && state.actors[id], `Unknown simulation participant ${id}.`); return state.simulation.people[id];}
 export function inventory(plan, id) {
@@ -176,11 +206,20 @@ export function effectContext(e, context) {
     out.actor ??= context.actorId;
     return out;
 }
+// Effect preparation reads facts only for formula amounts. Literal amounts (most
+// job settlements) skip the full facts projection; its own guards still run.
+function effectFacts(plan, effects, context, registry) {
+    const state = plan.state;
+    if((effects || []).some(e => e?.amount != null && typeof e.amount !== "number")) return simulationFacts(state, {...context, vitals: plan.vitals}, registry);
+    assert(state.simulation && state.actors[context.actorId], "Enroll the living-world services first.");
+    if(context.targetId) person(state, context.targetId);
+    return {};
+}
 export function applySimulationEffects(plan, effects, context, registry, cause, {spending = false} = {}) {
     assert(stableId(cause), "Effects need a durable cause.");
     const state = plan.state, s = state.simulation;
     const expanded = [];
-    for(const e of prepareSimulationEffects(effects, simulationFacts(state, {...context, vitals: plan.vitals},registry), registry, cause)) {
+    for(const e of prepareSimulationEffects(effects, effectFacts(plan, effects, context, registry), registry, cause)) {
         const roster = context.partyIds || s.party;
         const actors = e.actor === "$party" ? roster : [e.actor];
         const targets = e.target === "$party" ? roster : [e.target];
