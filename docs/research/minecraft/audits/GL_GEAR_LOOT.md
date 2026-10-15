@@ -12,9 +12,11 @@ Method: first pass was data plus class constant-pool strings (no Java runtime).
 A second pass read the decompiled sources under
 `docs/research/minecraft/private/decomp/<target>/src/` (Bountiful is Kotlin `.kt`).
 Entries GL51 to GL58 below are code-confirmed and carry class and method anchors;
-where they correct a first-pass entry the old entry is marked superseded. Still
-unread: Silent Gear grading maths, Tinkers modifier effects, Apotheosis affix
-selection beyond weights, the Treasure2 wishing-well price.
+where they correct a first-pass entry the old entry is marked superseded. A third
+pass (same day) read Apotheosis affix selection, reforging and augmenting, the
+Silent Gear grader and wear recalculation, Tetra honing and settling, four Tinkers
+modifiers and the Treasure2 wishing well (GL59 to GL66). Full formulas with
+file:line anchors: `private/audits/gl/pass2_code.md`.
 
 ## Headline findings
 
@@ -85,15 +87,17 @@ selection beyond weights, the Treasure2 wishing-well price.
 - **GL12 (shown). Damage-state traits.** A family of traits changes stats as the
   item wears: Sharp and Jagged and Eroded gain output as durability falls, Soft and
   Crushing lose it, Accelerate gains speed, Organic loses magic damage, Renew heals
-  slowly. The advancement text says stats are recalculated when an item crosses a
-  damage threshold. This is growth-by-wear: use changes the tool without a level.
+  slowly. Stats are recalculated when an item crosses a damage threshold (shown in
+  code: ten equal steps by default, GL61). This is growth-by-wear: use changes the
+  tool without a level.
 - **GL13 (shown/stated; corrected by GL51). Synergy.** Synergistic adds 4 percent
   per level to a synergy multiplier that applies when the base value is above 100
   percent; Crude reduces it, Rustic raises it when it is at or below 100 percent.
   The first-pass guess that synergy rewards matching families across the whole
   tool was wrong: it is computed only for compound (mixed) materials. See GL51.
-- **GL14 (shown). Grading and repair.** Materials can be graded E up to SSS and MAX
-  in a material grader using tiered catalyst dust (three tiers); star-charged
+- **GL14 (shown; grading maths in GL60). Grading and repair.** Materials can be graded E up to SSS and MAX
+  in a material grader using tiered catalyst dust (five tier slots in code, three
+  filled in shipped data); star-charged
   materials get a large boost from a starlight charger; a configuration flag
   controls whether parts can be graded at all. Repair uses kits filled with
   materials and a per-part repair efficiency. Broken gear stays as a broken item
@@ -142,14 +146,14 @@ selection beyond weights, the Treasure2 wishing-well price.
   stat scalars, tool level and efficiency. Iron: durability 250, integrity cost 2,
   gain 5, magic capacity 84, iron tier, efficiency 6. The workbench blocks any craft
   that exceeds integrity. This is a conservation law that forces trade-offs.
-- **GL21 (shown/stated). Honing and settling are growth by use.** Honing progress
-  accrues as the item is used; when it fills, one major module can be honed for a
-  small stat gain, five levels per stat (swing speed, damage, durability, efficiency,
-  tier steps), at a workbench. Honing adds integrity use. Settling slowly converts a
-  module's integrity cost down or gain up through use, with a durability penalty
-  stated. Gilding (gold nuggets plus experience, five scroll levels) raises magic
-  capacity. Exceeding magic capacity makes repair cost experience and risks
-  destabilization of magical improvements.
+- **GL21 (shown in code, GL62; gilding and magic capacity still stated). Honing and
+  settling are growth by use.** Honing is a use countdown sized by the tool's
+  integrity use; when it reaches zero one hone schematic can be applied at a
+  workbench for a small stat gain, five levels per stat, with later levels costing
+  integrity. Settling is a separate per-module countdown that adds integrity back
+  to heavy modules. Gilding (gold nuggets plus experience, five scroll levels)
+  raises magic capacity. Exceeding magic capacity makes repair cost experience and
+  risks destabilization of magical improvements (stated, not read in code).
 - **GL22 (shown). Synergies** are listed pairs of modules/improvements that unlock a
   tool action or named variant (two specific modules make a javelin; two
   improvements together add a shovel action). Data count is small (a few per
@@ -170,7 +174,8 @@ selection beyond weights, the Treasure2 wishing-well price.
   min and max per rarity (overheal common 0.05 to 0.10 up to mythic 0.15 to 0.25);
   absent rarities mean the affix cannot roll there (executing exists only at epic
   and mythic). Each carries a weight and a "quality" bonus that scales with luck
-  (confirmed in code, GL55).
+  (confirmed in code, GL55). How the affix is picked and where in the range it
+  lands is in GL59.
 - **GL25 (shown). World tier gating.** Haven, frontier, ascent, summit, pinnacle.
   Each tier has its own weight table for rarity (haven: 600 common, 360 uncommon,
   40 rare; pinnacle: 650 epic, 250 mythic, 100 rare), gem purity (haven mostly
@@ -190,10 +195,11 @@ selection beyond weights, the Treasure2 wishing-well price.
   and a "unique" flag.
 - **GL27 (shown). Cost ladder.** Reforging: levels 2 / 5 / 15 / 30 / 50, materials
   1 / 2 / 2 / 2 / 3, sigils 0 / 1 / 2 / 4 / 5 from common to mythic; only the full
-  table handles epic and up (stated: second and third offered options cost double
-  and triple). Augmenting (end-game): upgrade an affix 25% for 2 sigils and 225
-  levels, reroll for 1 sigil and 175 levels (stated). Salvage: affixed items return
-  1 to 4 of their rarity material; gems return gem dust (1 to 2 cracked up to
+  table handles epic and up (second and third offered options cost double and
+  triple: shown in code, GL63). Augmenting (end-game): upgrade an affix by a quarter
+  of its range for 2 sigils and 225 levels, reroll one affix for 1 sigil and 175
+  levels (shown in code, GL64). Salvage: affixed items return
+  1 to 4 of their rarity material, with the maximum scaled down by wear (GL64); gems return gem dust (1 to 2 cracked up to
   5 to 10 perfect). Gem cutting up a purity: flawless costs 9 dust plus 27 rare
   shards, 9 epic sands and 3 mythic pearls; cracked costs 1 dust plus 3 scrap and
   1 fabric. The sum shows a deliberate sink: each step costs several times the
@@ -248,9 +254,9 @@ selection beyond weights, the Treasure2 wishing-well price.
   48% / 24% on common / uncommon; thief's 60% / 45% / 30% on common to scarce.
   Keys can break (flag per key) and fail separately (chat strings show "key broke",
   "key failed", "doesn't fit"). Sneak-use applies a key. A key ring holds keys.
-- **GL35 (stated). Cost to remove locks.** A chest thrown into a wishing well loses
-  every lock "for a price" (the price is code). Wishing wells pay by coin or gem
-  rarity. Clover blocks convert nearby stone-family blocks into wells.
+- **GL35 (stated; price and pick logic shown in GL66). Cost to remove locks.** A
+  chest thrown into a wishing well loses every lock "for a price": the price is the
+  well itself plus a blast (GL66). Wishing wells pay by coin or gem rarity. Clover blocks convert nearby stone-family blocks into wells.
   Mimic and bound-soul mobs guard chests.
 
 ### Lootr (N18)
@@ -405,6 +411,116 @@ selection beyond weights, the Treasure2 wishing-well price.
   applied to each worn armor piece, subject to a per-source check. So N42 is
   confirmed: humanoid golems consume real equipment durability.
 
+### Third pass (code, same day)
+
+- **GL59 (shown). Apotheosis affix selection** (`loot/LootController#createLootItem`,
+  `#getAvailableAffixes`; `loot/LootRule.AffixLootRule#execute`). Generation wipes
+  the item's affixes, then runs the rarity's rule list (a per-category override
+  can replace it). Each affix rule names a type (stat, basic effect, ability).
+  Eligible affixes: that type, the item's loot category is in the affix's category
+  set, the affix defines values for this rarity, and neither the affix nor any
+  affix already on the item lists the other as exclusive. Each eligible affix is
+  weighted by world tier plus luck times quality (GL55); zero weight drops it. One
+  weighted pick per rule. The pick gets a level drawn uniformly from 0 to 1, and its
+  value is the rarity's min-to-max range read at that level (`AttributeAffix`; the
+  tooltip shows the min and max as the bounds; linear reading of the range is
+  inferred because the step-function class sits in a library that was not
+  decompiled). If nothing is eligible the rule adds nothing and logs an error. Other
+  rules: chance and select (branching), socket roll (only ever raises the count),
+  durability bonus (uniform in range). The item's name takes the first shuffled
+  affix as prefix and the second as suffix. The loot category is the first
+  category, by priority, that accepts the item; items with no category cannot
+  take affixes.
+- **GL60 (shown). Silent Gear grader** (`api/part/MaterialGrade#selectWithCatalyst`,
+  `#selectRandom`; `block/grader/GraderBlockEntity#tick`, `#tryGradeMaterial`;
+  `GradeMaterialModifier#modifyProperties`). Grade bonus percents: E 1, D 2, C 3,
+  B 4, A 5, S 10, SS 15, SSS 25, MAX 30. One catalyst is spent per 5-second attempt.
+  The rolled grade is a rounded normal draw, standard deviation 1.5, centred on C
+  for a tier 1 catalyst and one grade higher per extra tier, clamped E to MAX. The
+  result is kept only if it beats the current grade; otherwise the catalyst is lost
+  and the material stays as it was, so grades only ratchet up. Tier 1 gives C or
+  better about 63 percent of the time and S or better about 5 percent; tier 3 gives
+  S or better about 37 percent (my calculation from the formula). Five catalyst
+  tiers exist in code; shipped data fills tiers 1 to 3 (glowing, blazing, glittery
+  dust). Effect: each graded stat modifier gains its own size times the bonus
+  percent. Graded stats are durability, harvest speed, attack, magic and ranged
+  damage, armor stats and enchantment value; tier, speeds, reach and rarity are
+  not graded. Part grading (off by default) grades the part's lowest material.
+  Alloys (compound materials) cannot be graded.
+- **GL61 (shown; settles GL12). Silent Gear wear recalculation**
+  (`util/GearHelper#attemptDamage`, `#getDamageFactor`;
+  `NumberPropertyModifierTraitEffect.StatMod#getAddedValue`). Durability is cut
+  into 10 equal steps by default (config). Crossing a step recalculates the whole
+  item, plays a damage sound and fires an advancement trigger. Wear traits add
+  multiplier * trait level * worn fraction * base value. Jagged 5 on a nearly worn
+  tool adds roughly 83 percent attack; Soft 5 removes up to 75 percent harvest
+  speed. By default a tool stops at 1 durability as "broken" rather than vanishing.
+- **GL62 (shown; flips GL21). Tetra honing and settling**
+  (`items/modular/IModularItem#getHoningLimit`, `#tickHoningProgression`;
+  `module/ItemModuleMajor#tickProgression`, `#getSettleLimit`, `#getSettleMaxCount`;
+  `blocks/workbench/WorkbenchTile`; `ConfigSchematic`). Uses needed to hone =
+  (family base + family multiplier * integrity used) * (1 - workable percent).
+  Defaults: sword 110 + 65 per integrity point, double-headed tool 140 + 75, single
+  head 120 + 60, bow, crossbow and shield 48 + 32. So a sword using 3 integrity needs
+  305 uses. Workable (from copper or flint material) cuts that by 15 or 25 percent.
+  Uses are weighted: a block broken 1, a block interaction 2, an ability 1 on fail
+  and 2 on success, a shield block half the damage, serving as a crafting tool
+  10 + 5 per tool level. At zero the item shows "hone available"; a hone schematic
+  is refused until then. Applying one resets the countdown; any other workbench
+  change keeps the fraction done and rescales it to the new limit. Hone levels
+  chain (each needs the previous one and a hammer): a sword blade's damage hone
+  gives +0.5, +1, +1.5, +2, +3 attack at integrity 0, -1, -1, -2, -2. So honing
+  spends integrity, which makes heavier builds hone slower and leaves less room for
+  hones. Settling, per major module: uses needed = (270 + half the module's
+  durability) times max(3 * times settled, 1). Modules with integrity -4 or worse
+  (or +6 or better) may settle to their cap; other nonzero modules once. Each settle
+  adds +1, then +2 integrity. An "arrested" improvement stops it. The first pass's
+  "durability penalty" for settling is not in this code (stated text only).
+- **GL63 (shown). Apotheosis reforging** (`affix/reforging/ReforgingMenu#slotsChanged`,
+  `#getSigilCost`, `#updateSeed`, `ReforgingResultSlot#onTake`). The rarity
+  material inserted sets the output rarity, so a reforge can move an item to a
+  different rarity. Three previews are full re-generations under that rarity's
+  rules: every old affix is replaced; sockets and socketed gems are left alone (the
+  socket rule only raises counts; inferred that gems survive because nothing clears
+  them). Option 1, 2, 3 cost 1x, 2x, 3x the recipe's sigils, materials and levels.
+  The previews come from a per-player saved seed mixed with the item id and option
+  slot, and that seed only changes after a take, so closing and reopening the table
+  shows the same three options. Experience is charged as points, not raw levels.
+- **GL64 (shown). Apotheosis augmenting and salvage**
+  (`affix/augmenting/AugmentingMenu#clickMenuButton`, `#canAugment`;
+  `LootController#getAlternativeAffixes`; `SalvagingMenu#getSalvageCounts`).
+  Upgrade: +0.25 to one affix's level, capped at the standard top of its range (1.0),
+  so at most four upgrades from zero; costs 2 sigils and 225 levels' worth of XP.
+  Reroll: pick one affix; it is swapped for a weighted pick among same-type affixes
+  that fit the item, rarity, tier and luck and are compatible with the rest; the new
+  one gets a fresh random level; all other affixes stay; costs 1 sigil and 175
+  levels. Salvage: count is uniform between min and a max that is scaled by the
+  item's remaining durability, never below min.
+- **GL65 (shown). Tinkers modifier effects** (data modules plus
+  `IncrementalModifierEntry#scaleLevel`, `ReduceToolDamageModule#reduceDamage`,
+  `SeveringModifier#processLoot`). A part-filled level counts as its fraction (a
+  sharpness level half fed counts as 0.5). Sharpness +0.75 attack per level. Haste
+  +4 mining speed per level, and on armor +10 percent mining speed per level.
+  Reinforced: chance to ignore each point of tool damage is 25, 45, 60, 70, 75
+  percent for levels 1 to 5, then 50 + 5 per level; off when unbreakable. Severing:
+  on a player kill with no head already dropped, chance = level * (5 percent + 1 per
+  looting level), doubled on rare mobs. Most modifiers are data modules (stat boost,
+  attribute, damage reduction) over a small set of hook types, with Java only for
+  odd cases.
+- **GL66 (shown). Treasure2 wishing well** (`wishable/IWishableHandler#isValidLocation`,
+  `#doWishable`; `WishableHandler#generateLoot`; `TreasureChestBlockItem#onEntityItemUpdate`).
+  A well is detected when an item in water has at least 2 well blocks in the 3 by 3
+  around it (at its level or one below). Each coin or gem in the stack is one wish.
+  Wish rarity comes from the item (copper common, silver uncommon, gold and some
+  gems scarce, onyx, ruby, white pearl rare, sapphire and black pearl epic). One
+  wishable table of that rarity is chosen, all its pools are rolled, and exactly one
+  item is picked uniformly from the result. Rarities with no table pay a random key
+  of that rarity. Lock strip: a locked chest dropped in a well removes every lock,
+  but the connected well blocks within 5 blocks turn back into plain stone (the well
+  is used up), an entity spawns (read as a lightning bolt; inferred from the
+  obfuscated id), and a strength 4 explosion that breaks blocks goes off. The price
+  is the well and the blast, not coins.
+
 ## Donor questions
 
 - **N15 (Bountiful).** Answered, code-confirmed (GL53). Offers are generated from
@@ -422,7 +538,8 @@ selection beyond weights, the Treasure2 wishing-well price.
 - **N41 (Treasure2).** Access is decoupled from custody by lock category,
   key category and rarity bands, with master keys and probabilistic picks (GL34).
   The object stays where it is; only the access test changes. The wishing-well
-  lock strip is a priced access reset.
+  lock strip is a priced access reset; the price is the well itself plus a blast
+  (GL66).
 - **N42 (Modular Golems).** Material and part weights give distinct roles
   (dog = fast attacker, metal = tank, humanoid = equipment bearer); slots gate
   upgrades; some upgrades waive slot cost; recycle turns a death into a repair
@@ -497,31 +614,43 @@ encounters), `field_workshop.js`, `absorb_e2/durability.js`. Related design:
 
 | Target | Read | Coverage |
 |---|---|---|
-| Silent Gear | materials (141, tabulated), parts, traits (descriptions + samples), lang, salvage/gear recipe lists | data fully, code not; patchouli guide entries absent from jar |
-| Tetra | modules, materials (metal, sample), schematics, improvements, synergies, lang | data partly (structures, loot, item effects not read); honing math is code |
-| Tinkers' Construct | tool definitions (all 46), materials (all 263 listed), modifiers (JSON stubs), modifier recipes (all), lang not read | data fully for stats/slots; modifier effects are code; smeltery and book not read |
-| Apotheosis | rarities, purity weights, 99 affixes (catalogued), 21 gems, tier augments, loot entries, reforge/salvage/cutting/infusion, progression, book entries | data fully; spawner, enchanting, potion systems out of scope; selection maths code |
+| Silent Gear | materials (141, tabulated), parts, traits (descriptions + samples), lang, salvage/gear recipe lists | data fully; code read for synergy, stat blend, grader, wear recalculation (GL51, GL52, GL60, GL61); patchouli guide entries absent from jar |
+| Tetra | modules, materials (metal, sample), schematics, improvements, synergies, lang | data partly (structures, loot, item effects not read); honing and settling code read (GL62) |
+| Tinkers' Construct | tool definitions (all 46), materials (all 263 listed), modifiers (JSON modules), modifier recipes (all), lang not read | data fully for stats/slots; stat build code and four modifiers read (GL52, GL65); smeltery and book not read |
+| Apotheosis | rarities, purity weights, 99 affixes (catalogued), 21 gems, tier augments, loot entries, reforge/salvage/cutting/infusion, progression, book entries | data fully; affix selection, reforging, augmenting, salvage code read (GL55, GL59, GL63, GL64); gem and socket code not read; spawner, enchanting, potion systems out of scope |
 | Modular Golems | materials (all), part filters, upgrade descriptions, book entries (golem/materials), advancements named | data mostly; upgrade recipes not tabulated; durability wear confirmed in code (GL58) |
-| Treasure2 | rarity weights/orders, chest tables, lock/key book, wells, mobs book | data mostly; worldgen, structures not read |
+| Treasure2 | rarity weights/orders, chest tables, lock/key book, wells, mobs book | data mostly; wishing well code read (GL66); key, lock pick and chest code, worldgen, structures not read |
 | Lootr | config string tables, tags, advancements, loot table list | config fully, store and filler code read (GL56, GL57) |
 | Bountiful | decrees, pools (census), lang, config names | data fully; Kotlin generator read (GL53) |
 | Gateways | all 9 gateway files, recipes, census of types | data fully; wave runner code read (GL54) |
 
 ## Gaps
 
-- Formerly unread formulas are now confirmed (GL51 to GL58). Still unread:
-  Silent Gear grader maths, Tinkers modifier effect code, Apotheosis affix
-  selection and reforging roll code, Treasure2 well price and pick logic.
-- Silent Gear and Tetra guide books are missing from the jars or not in data;
-  stated text came from lang files.
-- Treasure2 and Tetra world loot (ruins, forged ruins) not audited.
-- Remaining inferred rows: GL12 threshold recalculation (stated by advancement
-  text only) and GL21 honing maths (Tetra source not read).
+Still unread, with the reason each is open:
+
+- Placebo `StepFunction` and `EnchantmentUtils` (Apotheosis value curve and XP
+  charge): they live in the Placebo library, which is not in the decompile set.
+  GL59 and GL63 label the linear range and XP-points reading as inferred.
+- Apotheosis gem socketing, gem cutting and the Malice and Supremacy upgrades in
+  code: out of the priority list for this pass; data costs are in GL26 and GL27.
+- Treasure2 key use, key breakage and lock-pick roll code: GL34 odds are stated in
+  the in-game book only; not on this pass's priority list.
+- Tinkers modifiers beyond the four in GL65 (222 exist), Overslime capacity and
+  the "overworked" bonus: sampled, not exhaustive.
+- Tetra gilding and magic capacity destabilisation (GL21): stated text only; the
+  code path was not traced this pass.
+- Silent Gear starlight charger and repair-kit maths: not on the priority list.
+- Silent Gear and Tetra guide books are missing from the jars; stated text came
+  from lang files.
+- Treasure2 and Tetra world loot (ruins, forged ruins): data not audited.
+- GL18's "no native tool XP in this build" remains inferred (no leveling module
+  seen, but the full modifier set was not read).
 
 ## Private deep tables
 
 `docs/research/minecraft/private/audits/gl/` (gitignored): `silentgear_materials.tsv`,
 `tinkers_tools.txt`, `tinkers_modifier_recipes.txt`, `apotheosis_tables.txt`,
 `treasure2_tables.txt`, `lootr_config.txt`, `bountiful_gateways_census.txt`,
-`gateways_waves.txt`, `golem_materials.txt`. Unpacked jars (no class files) are in
+`gateways_waves.txt`, `golem_materials.txt`, `code_formulas.txt`,
+`pass2_code.md` (third-pass formulas with file:line anchors). Unpacked jars (no class files) are in
 `docs/research/minecraft/private/extract/<target>/`.

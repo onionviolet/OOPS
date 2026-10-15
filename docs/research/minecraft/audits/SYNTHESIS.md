@@ -8,7 +8,7 @@ or an accepted decision: each idea needs a fitting world, actor and moment.
 
 | Lane | Audit | Scope |
 |---|---|---|
-| DC | [DC_SOURCE_IDENTITY](DC_SOURCE_IDENTITY.md) | License and source route ledger; 38 JARs decompiled |
+| DC | [DC_SOURCE_IDENTITY](DC_SOURCE_IDENTITY.md) | License and source route ledger; 38 JARs decompiled, plus 146 embedded JARs in pass 2 |
 | GL | [GL_GEAR_LOOT](GL_GEAR_LOOT.md) | Part tools, affixes, golems, keyed and per-player loot, bounties, wave trials |
 | TA | [TA_TECH_AUTOMATION](TA_TECH_AUTOMATION.md) | Power models, upkeep, logic networks, chemistry |
 | EP | [EP_PACK_PROGRESSION](EP_PACK_PROGRESSION.md) | Quest graph shapes, stage gating, script rewrites |
@@ -59,19 +59,69 @@ Convergence across unrelated mods is the strongest signal in this pass.
   graph shape ranges from wide and shallow (E6) to braided with hub quests
   (Moni) (EP15).
 
+## Pass 2 code read (2026-10-14)
+
+A second pass decompiled the embedded JARs and read the code each lane had
+listed as unread. Lane audits were updated in place; claims below are shown in
+code unless marked.
+
+- **X10. The outcome is fixed before the player sees the roll.** Apotheosis
+  reforge options are seeded per player and change only after one is taken, so
+  reopening the table does not reroll (GL63); Prominence lootboxes pick the
+  prize before the spin animation (WC50). Silent Gear grades only go up and a
+  failed attempt still eats the catalyst (GL60); bee breeding can never make
+  temper worse (WC64). Fits fair-randomness rules in `src/` loot and crafting
+  owners.
+- **X11. One local capacity shared by good and bad residue.** Thaumcraft 6 flux
+  and vis compete for the same chunk cap and rifts open above 75 percent of it
+  (MR14, MR15); Blightfall cleans one chunk at a time and its taint spread runs
+  about 200 times the default rate (WC38 to WC41); Nature's Aura deficit (MR7).
+  Extends X8.
+- **X12. Affinity from several buckets on one ladder.** Primal Magick
+  attunement adds permanent, induced and temporary buckets against thresholds
+  of 30, 60 and 90, unlocking passive perks only (MR10 to MR12). Pairs with X4.
+- **Corrections to pass 1.** Primal Magick attunement is a real mechanic
+  (MR10); Thaumcraft 6 taint spreads from live seeds, not as a biome (MR16);
+  Tetra settling restores integrity rather than costing durability (GL62);
+  Treasure2 lock stripping costs the well plus an explosion, not coins (GL35,
+  GL66); Occultism idle workers pause seconds, not minutes (SR9, SR21); Malum
+  stone ward reads as an 80 percent cut, not 20 (SR20; one uncertain reading,
+  SRG13).
+- **Blightfall campaign decoded.** The HQM file parsed fully: 420 quests and
+  513 prerequisites in ten NPC trees joined through the Scout, with a
+  spendable supply budget and reputation that pushes curing over killing (WC44
+  to WC46). Table in `private/audits/wc/blightfall_hqm_decoded.tsv`.
+
 ## Gaps that limit this pass
 
 - **G1.** Vault Hunters and Ultimate Alchemy are manifest-only; the core
   `the_vault` mod is not on disk. Fetching it is new acquisition and needs
   Weibao's yes.
-- **G2.** Embedded JARs in Cabricality (11), Prominence II (37) and Blightfall
-  are not decompiled; Blightfall's binary quest file is only partly decoded.
-- **G3.** Unread code is listed per lane (Silent Gear grader, Apotheosis affix
-  rolls, Tetra honing, Primal Magick attunement, Thaumcraft flux, Botania
-  spreader rates, Create trains, PneumaticCraft drones, Goety spell mapping,
-  TFC climate, MineColonies builder and guard).
+- **G2. Closed in pass 2.** All 141 embedded JARs were decompiled (Blightfall
+  93, Cabricality 11, Prominence II 37), plus 5 nested ones (four inside
+  Prominent-GLOBAL, RebornCore inside TechReborn). Three hold no classes (a
+  native library and two datapack jars); one is Kotlin. The other 28 nested
+  jars are libraries and stay packed. The Forge server jar in Blightfall was
+  skipped as loader code. Blightfall's quest file is fully decoded (WC44).
+- **G3. Closed in pass 2 for every listed item.** Each lane read its code and
+  rewrote its own Gaps list: GL59 to GL66, MR10 to MR20, TA12 to TA21, SR18 to
+  SR25, WC38 to WC65, EP16 to EP19. Still unread, by reason:
+  - Missing from the corpus: the Placebo library behind Apotheosis value
+    curves and XP charge (GL59, GL63 keep those inferred); Puffish Skills and
+    Eldritch End for Prominence (not embedded); Embers 1.4.7 has no steam
+    engine code at all.
+  - Scope or time, readable later: Primal Magick shards, Thaumcraft warp
+    events past tier 32, Create train physics, single drone actions, MI
+    nuclear and fusion, Goety altar rituals and lich form, TFC husbandry and
+    crops, MineColonies ranged and druid guards, Prominence mythic challenges
+    and weekly quests.
+  - Needs play or a source build (ruled out): Malum stone ward and the
+    Biomancy decomposer cache (SRG13), Botania lossless burst reach (inferred
+    from tick counts).
 - **G4.** GTNH and Cabricality recipe logic lives in mod code outside their
-  archives.
+  archives. Pass 2 confirmed it for Cabricality: the pack's own mod is a
+  Modrinth download listed in the index, not one of its 11 embedded JARs
+  (EP16).
 - **G5.** Several sources are branch heads whose version string matches, not
   tags (Spectrum, Eidolon, Crossroads, Embers); Malum's public branch is newer
   than the jar.
