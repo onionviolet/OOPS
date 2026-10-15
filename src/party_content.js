@@ -1,3 +1,4 @@
+import {partnerCommands} from './party_partner_content.js';
 import {PARTY_HELPER,PARTY_METHOD} from './native_battle_contracts.js';
 const wood=JSON.stringify({id:'Rough wood log'}),kit=JSON.stringify({id:'Prepared survey kit'});
 const eq=(fact,value=true)=>({fact,op:'eq',value});
@@ -8,7 +9,7 @@ export const partyDefinitions={
     people:[{id:PARTY_HELPER,revision:1,label:'Lio, association porter',worldId:'base.frontier',location:'Village',inventory:'simulation',provision:false,
         resources:{brace_effort:4,coins:0},vitals:{health:28,max_health:28,stamina:12,max_stamina:12},
         body:{can_brace:true,attack:3,agility:6,dexterity:8,intuition:7,attack_speed:1.2,defense:3,crit_rate:0,crit_multiplier:1,attack_count:1}}],
-    commands:[
+    commands:[...partnerCommands,
         command({id:'party.meet',label:'Meet Lio, the association porter',once:true,visibleWhen:eq('actor.field.member'),requires:eq('actor.field.member'),
             effects:[{type:'spawn',personId:PARTY_HELPER,definitionId:PARTY_HELPER},fact('party.met'),fact('party.willing',true,PARTY_HELPER),
                 {type:'item',actor:PARTY_HELPER,key:kit,amount:1},{type:'source',actor:PARTY_HELPER,sourceId:PARTY_METHOD,operation:'grant',origin:'trained',awakened:true,active:true},

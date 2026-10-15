@@ -1,0 +1,100 @@
+{
+  "fixture": "existing disposable craft_ready.save.txt; lesson/task state earned through UI; final body/idle control supplies three logs",
+  "results": [
+    {
+      "id": "old-save-and-known-task",
+      "detail": {
+        "logs": 2,
+        "method": false,
+        "slowMinutes": 6
+      }
+    },
+    {
+      "id": "native-hand-result",
+      "detail": {
+        "logs": 1,
+        "kits": 1,
+        "jobDuration": 6
+      }
+    },
+    {
+      "id": "pending-reload",
+      "detail": {
+        "id": "simulation:67",
+        "due": 52,
+        "coinSpent": 1
+      }
+    },
+    {
+      "id": "pending-literal-import",
+      "detail": {
+        "exactJob": true
+      }
+    },
+    {
+      "id": "native-lesson",
+      "detail": {
+        "teacher": "oldCraftsman",
+        "at": 52,
+        "location": "Village",
+        "duration": 3
+      }
+    },
+    {
+      "id": "native-fast-result",
+      "detail": {
+        "duration": 2,
+        "logsSpent": 1,
+        "leverReturned": 1,
+        "kitsGained": 1
+      }
+    },
+    {
+      "id": "native-tool-failure",
+      "detail": {
+        "logs": 1,
+        "reason": "Carry a second Rough wood log"
+      }
+    },
+    {
+      "id": "learned-literal-import",
+      "detail": {
+        "exactKnowledge": true,
+        "noDuplicateKit": true,
+        "noDuplicateLesson": true
+      }
+    },
+    {
+      "id": "native-body-failure",
+      "detail": {
+        "cause": "paid grip drill caused sore hands",
+        "reason": "Let tender hands recover",
+        "carriedLogs": 3,
+        "methodRetained": true
+      }
+    },
+    {
+      "id": "native-idle-repeat",
+      "detail": {
+        "kitsBefore": 2,
+        "kitsAfter": 4,
+        "queueStatus": "paused"
+      }
+    },
+    {
+      "id": "desktop-fit",
+      "detail": {
+        "viewports": [
+          "1366x768",
+          "1440x900"
+        ]
+      }
+    },
+    {
+      "id": "browser-errors",
+      "detail": {
+        "count": 0
+      }
+    }
+  ]
+}

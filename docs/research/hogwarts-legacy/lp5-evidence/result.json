@@ -1,0 +1,25 @@
+{
+  "url": "http://127.0.0.1:8198/",
+  "viewport": "1366x768",
+  "fingerprint": "http://127.0.0.1:8198/dist/bundle.js?version=v0.6-34bfa991908e",
+  "checks": [
+    "native waypost discovery on fresh origin",
+    "old profile absent chapter field",
+    "normal daily teacher window",
+    "real supplied commission consumes 2 logs and 1 coin",
+    "order override refuses lesson",
+    "pending-order save/reload/Export/literal Import",
+    "scheduler completion restores teaching",
+    "real kit collected once",
+    "paid lesson costs 2 coins",
+    "pending lesson persistence",
+    "story phase advances without stock/method/reward changes",
+    "completed chapter save/reload/Export/literal Import",
+    "daily 18:00 closure independent of chapter and learned method"
+  ],
+  "fixtures": [
+    "craftsman availability + 4 logs + 30 coins after native waypost discovery",
+    "earned final profile calendar 17:59 for daily close"
+  ],
+  "errors": []
+}

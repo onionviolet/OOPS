@@ -1,0 +1,114 @@
+{
+  "viewport": {
+    "width": 1366,
+    "height": 768
+  },
+  "origin": "http://127.0.0.1:8201/",
+  "fixture": "Workshop/body introduction and three logs are controlled prerequisites. No qualifying drying receipts or player sap were seeded.",
+  "results": [
+    {
+      "id": "B1_unseen",
+      "detail": {
+        "trackerAbsent": true,
+        "rewardAbsent": true
+      }
+    },
+    {
+      "id": "B2_inspection",
+      "detail": {
+        "completed": 0,
+        "repeatViews": 3,
+        "paidJointInspection": true
+      }
+    },
+    {
+      "id": "B3_real_inputs",
+      "detail": {
+        "logsBefore": 3,
+        "logsAfter": 2,
+        "wet": 2,
+        "knifeDulled": true,
+        "money": 96
+      }
+    },
+    {
+      "id": "B4_pending_cancel",
+      "detail": {
+        "completed": 0,
+        "wetRefunded": 2
+      }
+    },
+    {
+      "id": "B5_first_action",
+      "detail": {
+        "completed": 1,
+        "collected": 0,
+        "wet": 1,
+        "sound": 1,
+        "sap": 0,
+        "edaSap": 2
+      }
+    },
+    {
+      "id": "B6_pending_reload_literal_import",
+      "detail": {
+        "completed": 1,
+        "collected": 0,
+        "wet": 0,
+        "sound": 1,
+        "sap": 0,
+        "edaSap": 2
+      }
+    },
+    {
+      "id": "B7_second_action",
+      "detail": {
+        "completed": 2,
+        "collected": 0,
+        "wet": 0,
+        "sound": 2,
+        "sap": 0,
+        "edaSap": 2
+      }
+    },
+    {
+      "id": "B8_finite_reward",
+      "detail": {
+        "completed": 2,
+        "collected": 1,
+        "wet": 0,
+        "sound": 2,
+        "sap": 1,
+        "edaSap": 1
+      }
+    },
+    {
+      "id": "B9_collected_reload_repeated_literal_import",
+      "detail": {
+        "completed": 2,
+        "collected": 1,
+        "wet": 0,
+        "sound": 2,
+        "sap": 1,
+        "edaSap": 1,
+        "imports": 2
+      }
+    },
+    {
+      "id": "B10_useful_local_consumer",
+      "detail": {
+        "sapSpent": 1,
+        "ownedSharpKnife": 1,
+        "completed": 2
+      }
+    },
+    {
+      "id": "B11_old_save",
+      "detail": {
+        "lp8StateAbsent": true,
+        "stockUnchanged": true
+      }
+    }
+  ],
+  "pageErrors": []
+}

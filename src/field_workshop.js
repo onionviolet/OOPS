@@ -1,3 +1,4 @@
+import {leverDefinitions} from './lever_lesson.js';
 import {compileSiteProject, projectView} from "./site_projects.js";
 import {compileSituation} from "./scene_definitions.js";
 import {enrollSimulation, commitSimulationCommand} from "./simulation.js";
@@ -40,12 +41,14 @@ const roadScene = {id:"field.road",revision:1,worldId,phases:[
     {id:"detour",delay:1,mode:"ambient",public:false,label:"The association takes the longer road"}
 ]};
 export const fieldDefinitions = {
+    situations:leverDefinitions.situations,
     energies:[{id:focus,revision:1,label:"Measured focus",capacity:4,output:1,control:2,efficiencyNumerator:1,efficiencyDenominator:2,strainLimit:2,strainPerUse:1},
         {id:drive,revision:1,label:"Breath drive",capacity:6,output:3,control:1,efficiencyNumerator:1,efficiencyDenominator:1,strainLimit:3,strainPerUse:1}],
     people:[{id:"fieldSurveyor",revision:1,label:"Association pathfinder",provision:false,worldId,location:"Village road",inventory:"simulation",resources:{focus:1}}],
     sites:[{id:"field.route",revision:1,label:"Workshop approach",capacity:1},{id:"field.assembly",revision:1,label:"Field workshop",capacity:1}],
-    powers:[{id:method,revision:1,label:"Load-bearing Step",model:"practice",capacity:1,masteryBands:[{at:2,capacity:3}],execution:member}],
+    powers:[...leverDefinitions.powers,{id:method,revision:1,label:"Load-bearing Step",model:"practice",capacity:1,masteryBands:[{at:2,capacity:3}],execution:member}],
     commands:[
+        ...leverDefinitions.commands,
         command({id:"field.begin",label:"Ask about a shared field workshop",once:true,uiSection:"association",requires:eq("village.craftsmanMet",true),
             effects:[af("field.introduced"),af("field.member",false),af("field.method",false),af("field.facility",false),
                 wf("project.field.workshop.started",false),...fieldProject.phases.map(p=>wf(`project.field.workshop.${p.id}`,false)),wf(roadKey,"quiet"),
