@@ -1700,7 +1700,7 @@ function buildExpeditionContext() {
             kits: gameplay.player.inventory[SURVEY_KIT_KEY] || 0, rope: gameplay.player.inventory[SURVEY_ROPE_KEY] || 0}}));
 }
 
-function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}) {
+function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}, readFrame = null) {
     plan.p00WasRest ||= expansionState.p23Reading?.current?.kind==='rest';
     if(plan.state.p23Reading && !plan.p00StudyCommand){
         const context=studyContext(plan.state,plan.gameplay||gameplaySnapshot());
@@ -1738,7 +1738,7 @@ function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}) {
     else if(plan.state.referenceGameplay)plan.state.schema=9;
     if(plan.state.causalStories){const current=gameplaySnapshot();plan.gameplay={...current,...plan.gameplay};}
     if(plan.state.causalStories&&plan.nativeLocation)plan.state.simulation.people.player.location=plan.nativeLocation;
-    const readFrame=stepperRenderSuppressed?createPlanningReadFrame():null;
+    readFrame ??= stepperRenderSuppressed?createPlanningReadFrame():null;
     const causalContexts=simulationNativeContexts(readFrame);
     if(plan.state.causalStories){
         const currentVitals=Object.fromEntries(Object.entries(causalContexts).filter(([,c])=>c.vitals).map(([id,c])=>[id,c.vitals]));
@@ -2262,8 +2262,8 @@ function chronicleContext() {
             blockStrength: character.hasShield() ? character.getBlockStrength() * (stance.block_strength || 1) : 0,
             staminaMultiplier: 1 / stats.stamina_efficiency, strikeMultiplier: current_stance.stamina_cost}};
 }
-function advanceChroniclePlan(plan, minutes, travel = false) {
-    const nativeContexts = simulationNativeContexts(); nativeContexts.player.facts = expeditionContext().facts;
+function advanceChroniclePlan(plan, minutes, travel = false, readFrame = null) {
+    const nativeContexts = simulationNativeContexts(readFrame); nativeContexts.player.facts = expeditionContext(readFrame).facts;
     let advanced = advanceSimulation(plan.state, expeditionRegistry, minutes, plan.external, plan.gameplay, nativeContexts);
     // A scheduler work budget never pays the rest of a journey. Drain its
     // remainder with the same owners, stopping at an actual waiting choice.
@@ -8616,9 +8616,10 @@ function update_timer(time_in_minutes, source = null) {
         try {
             const response = expansionState.chronicle && automaticResponse(expansionState.chronicle);
             const pendingJourney=expansionState.actors.player.facts['original_frontier.travel.remaining']>0;
-            const plan = response ? makeChroniclePlan({type: "respond", action: response}) : pendingJourney ? advanceFrontierJourney({state:expansionState,external:{money:character.money},gameplay:gameplaySnapshot()},minutes) : advanceChroniclePlan({state: expansionState, external: {money: character.money}, gameplay: gameplaySnapshot()}, minutes, source === "travel");
+            const readFrame=stepperRenderSuppressed&&!response&&!pendingJourney?createPlanningReadFrame():null;
+            const plan = response ? makeChroniclePlan({type: "respond", action: response}) : pendingJourney ? advanceFrontierJourney({state:expansionState,external:{money:character.money},gameplay:gameplaySnapshot()},minutes) : advanceChroniclePlan({state: expansionState, external: {money: character.money}, gameplay: gameplaySnapshot()}, minutes, source === "travel",readFrame);
             const consumed = plan.state.clock - expansionState.clock;
-            persistExpansion(plan);
+            persistExpansion(plan,{}, {},readFrame);
             tickHarvest(consumed);
             if(was_night !== is_night(current_game_time)) character.updateStatsAndDisplay();
             if(nativeLifeEnded()) {if(current_combat) end_combat(); character.is_alive = false;}
@@ -8634,7 +8635,8 @@ function update_timer(time_in_minutes, source = null) {
         }
     }
     if(importProbeToken||!ownsSave||foundationSaveBlocked||expansionError||is_loading_error)return 0;
-    try{persistExpansion(advanceChroniclePlan({state:expansionState,external:{money:character.money},gameplay:gameplaySnapshot()},minutes,source==='travel'));}
+    const readFrame=stepperRenderSuppressed?createPlanningReadFrame():null;
+    try{persistExpansion(advanceChroniclePlan({state:expansionState,external:{money:character.money},gameplay:gameplaySnapshot()},minutes,source==='travel',readFrame),{}, {},readFrame);}
     catch(error){console.error('Native clock paused:',error);log_message(error.message,'notification');return 0;}
     refreshCustomization();
 
