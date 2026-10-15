@@ -1,0 +1,24 @@
+{
+ "label": "final-fresh",
+ "windows": [
+  {
+   "sec": 15,
+   "layoutsPerSec": 3,
+   "stylePerSec": 18,
+   "layoutMs": 9,
+   "styleMs": 12,
+   "scriptMs": 1956,
+   "busyPct": 13.5
+  },
+  {
+   "sec": 15,
+   "layoutsPerSec": 3,
+   "stylePerSec": 17.8,
+   "layoutMs": 9,
+   "styleMs": 12,
+   "scriptMs": 1977,
+   "busyPct": 14
+  }
+ ],
+ "errors": []
+}
