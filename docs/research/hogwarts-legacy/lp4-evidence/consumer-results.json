@@ -1,0 +1,40 @@
+{
+  "status": "passed",
+  "priorCraftingContext": "controlled: only global_flags.is_crafting_unlocked enabled",
+  "viewport": {
+    "width": 1366,
+    "height": 768
+  },
+  "url": "http://127.0.0.1:8202/",
+  "bundleSha256": "bbb7321af4ed38183c1c06ae4e034c330bfc3ef5e2b8b25ad93753fb719cc975",
+  "checks": [
+    "eight real seconds closed: exact persisted care owner, no catch-up wool; only resumed native ticks advance progress",
+    "actual Village departure, travel and field work advance supported production; expired care preserves ready wool and safe welfare",
+    "controlled prior-context fixture changes only global_flags.is_crafting_unlocked; literal native import retains earned pen, stock and money",
+    "habitat Wool consumed by actual native recipe and produced useful Wool cloth",
+    "consumed product Save/reload/Export/literal file Import preserves remaining wool, cloth and collection count without duplication"
+  ],
+  "attempts": [
+    {
+      "inputWool": 5,
+      "cloth": 0
+    },
+    {
+      "inputWool": 5,
+      "cloth": 1
+    }
+  ],
+  "finalStock": {
+    "wool": 0,
+    "cloth": 1,
+    "collectedBatches": 2
+  },
+  "layout": {
+    "horizontalOverflow": false,
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    }
+  },
+  "errors": []
+}
