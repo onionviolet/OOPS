@@ -225,7 +225,9 @@ function resizeDivider(index, delta, persist = true) {
 }
 function presentationScale() { return owner.root.offsetWidth ? owner.root.getBoundingClientRect().width/owner.root.offsetWidth : 1; }
 function floatAvailable() {
-    const scale=presentationScale(), toolbarBottom=owner.toolbar.getBoundingClientRect().bottom/scale;
+    const scale=presentationScale(), toolbar=owner.toolbar.getBoundingClientRect();
+    // The toolbar caps floats only while it sits above them; docked in the footer bar it does not.
+    const toolbarBottom=toolbar.top<window.innerHeight/2 ? toolbar.bottom/scale : 0;
     const footer=document.getElementById('bottom_panel_div')?.getBoundingClientRect();
     const bottom=(footer && footer.top>0 && footer.top<window.innerHeight ? footer.top : window.innerHeight)/scale-8;
     return {top:Math.max(8,toolbarBottom+6),bottom};
