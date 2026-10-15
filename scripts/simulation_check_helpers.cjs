@@ -1,6 +1,6 @@
 // Predicates are the same browser predicates as waitForFunction. Only time changes.
 async function engineWait(page, predicate, arg, options = {}) {
-    if(process.env.YAIRPG_REAL_TIMERS === '1') return page.waitForFunction(predicate,arg,options);
+    if(process.env.YAIRPG_REAL_TIMERS === '1') return page.waitForFunction(predicate,arg,{polling:250,...options});
     const source = predicate.toString();
     for(let i=0;i<3600;i++) {
         const result = await page.evaluate(({source,arg}) => {
