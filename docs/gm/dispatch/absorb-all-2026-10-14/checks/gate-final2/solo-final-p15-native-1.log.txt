@@ -1,0 +1,15 @@
+AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+15 !== 14
+
+    at /Users/weiwei/code/yair-absorb-all-20261014/integration/docs/gm/dispatch/absorb-all-2026-10-14/checks/p23-host-joins/final-p15-native.cjs:53:329
+    at runNextTicks (node:internal/process/task_queues:64:5)
+    at process.processImmediate (node:internal/timers:452:9)
+    at process.callbackTrampoline (node:internal/async_hooks:130:17) {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: 15,
+  expected: 14,
+  operator: 'strictEqual',
+  diff: 'simple'
+}

@@ -1,0 +1,105 @@
+AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
++ actual - expected
+... Skipped lines
+
+  {
++   clock: 1,
+-   clock: 0,
+    effects: {
++     'Household smoke': {
++       affected_by_travel: true,
++       base_xp_value: 0,
++       description: 'An explicitly chosen smoky hearth. Ventilate or step outside to clear it.',
++       duration: 2,
++       effects: {
++         bonus_skill_levels: {},
++         stats: {}
++       },
++       group_tags: {},
++       name: 'Household smoke',
++       potency: 0,
++       tags: {
++         debuff: true,
++         effect: true
++       }
++     },
+      Wet: {
+        affected_by_travel: true,
+        base_xp_value: 1,
+        description: null,
++       duration: 29,
+-       duration: 30,
+        effects: {
+          bonus_skill_levels: {},
+          stats: {
+            cold_tolerance: {
+              flat: -5
+...
+    },
++   exposure: {
++     coldRemainder: 0,
++     cursor: 1,
++     famineRemainder: 0,
++     hazardousEnabled: false,
++     phase: 'gust',
++     remaining: 6,
++     schema: 1
++   },
+-   exposure: undefined,
+    household: {
+      animal: {
+        adopted: false,
++       ageMinutes: 1,
+-       ageMinutes: 0,
+        bond: 10,
+        gifts: 0,
+        id: 'household.moss',
+        interactions: 1,
+        lastGiftAt: 0,
+        lastInteraction: 0,
+        metAt: 0,
++       mood: 'sheltering'
+-       mood: 'curious'
+      },
+      hearth: {
++       dryProgress: 1,
++       fuelMinutes: 19,
++       smoke: 1,
+-       dryProgress: 0,
+-       fuelMinutes: 20,
+-       smoke: 0,
+        smokeOptIn: true,
+        ventilated: false
+      },
+      homeId: 'base.frontier:Shack',
++     lastClock: 1,
++     lastSequence: 6,
+-     lastClock: 0,
+-     lastSequence: 5,
+      schema: 1
+    },
+    items: {
+      '{"id":"Cheap leather pants","quality":40}': {
+        count: 1
+...
+      Evasion: 0,
++     Famine: 0.01,
+-     Famine: 0,
+      Farming: 0,
+      Fishing: 0,
+      Forging: 0,
+      Fortitude: 0,
+      Gluttony: 0,
+
+    at roundtrip (/Users/weiwei/code/yair-absorb-all-20261014/integration/docs/gm/dispatch/absorb-all-2026-10-14/checks/p23-host-joins/tranche1-native.cjs:24:111)
+    at runNextTicks (node:internal/process/task_queues:64:5)
+    at process.processImmediate (node:internal/timers:452:9)
+    at process.callbackTrampoline (node:internal/async_hooks:130:17)
+    at async /Users/weiwei/code/yair-absorb-all-20261014/integration/docs/gm/dispatch/absorb-all-2026-10-14/checks/p23-host-joins/tranche1-native.cjs:52:2 {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: [Object],
+  expected: [Object],
+  operator: 'deepStrictEqual',
+  diff: 'simple'
+}

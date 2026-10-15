@@ -1,0 +1,14 @@
+You are lane `sim-stepper` of the absorb-all wave. Follow `/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/absorb-all-2026-10-14/COMMON.md`. Worktree `/Users/weiwei/code/yair-absorb-all-20261014/sim-stepper`, branch `absorb-all/sim-stepper`, based on P00's tranche-3 commit `b0fba727` (it already contains the per-tick joins for exposure/household/gear/combat/reading/salvage). Port 18950. P00 (`p23-host-joins`) is still editing `src/main.js` in parallel: keep your change minimal and mechanical (wrap the existing tick body in `simulateTick()` in place, add the stepper beside it, avoid moving or reformatting other lines) so the coordinator can merge it over P00's later commits. Do not merge other branches.
+
+Goal (Weibao, 2026-10-14: make tests faster by simulating or changing the engine): a deterministic fast-forward for tests and dev play, so browser checks and long natural-play runs stop waiting on real timers.
+
+Current state: `src/main.js` runs the game loop as a self-rescheduling `setTimeout(..., 1000/tickrate - time_adjustment)` with drift correction from `Date`, plus a separate `game_action_interval` (`setInterval(game_action_tick, game_action_period())`). Upstream's dev-only `set_game_speed` goes to 1000x but timers clamp near 4 ms and every tick re-renders, so the practical ceiling is low.
+
+Build:
+1. Extract the per-tick body into a named `simulateTick()` (and the action tick into one call path) with no behavior change at speed 1. The real loop calls it exactly as before.
+2. Add `advanceTicks(n, {render=false})`: runs `simulateTick()` plus due action ticks synchronously n times, suppresses per-tick DOM work behind one flag, then renders once. It must reuse the real tick path, not a parallel simulation, and respect autosave cadence (no save per tick; one save at the end only if the normal loop would have saved).
+3. Expose it only where dev helpers are exposed today (`config.enable_dev_mode`) and on localhost/127.0.0.1 behind a query flag such as `?test_hooks=1`; never in a normal player build path. Not saved; no save-format change.
+4. Determinism: procgen seeded streams already key draws; confirm `advanceTicks(N)` from a fixed save yields identical state to N real ticks at speed 1 (compare `create_save()` output, excluding wall-clock fields you name explicitly).
+5. Convert two slow existing checks to use it (workshop browser and Fort route) and report before/after runtime. Write a short `docs/gm/dispatch/absorb-all-2026-10-14/checks/SIM_STEPPER.md` usage note for future harness authors.
+
+Gates: build; full `npm test`; equivalence test (step vs real ticks) for at least idle work, combat and a timed job; the two converted checks pass at 1366x768; normal play unchanged without the flag (a fresh-origin smoke and an old-save load). Persistence untouched; say so. Commit on your branch, report at `reports/sim-stepper.md`. Weibao's acceptance gate is only that tests got faster with identical results.

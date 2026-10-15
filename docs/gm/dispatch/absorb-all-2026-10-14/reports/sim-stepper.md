@@ -1,5 +1,9 @@
 # Performance follow-up, 2026-10-14
 
+Evidence commit: `78749564` on `absorb-all/sim-stepper`. Preserved benchmark
+bundles: `/tmp/sim-stepper-before/bundle.js` and
+`/tmp/sim-stepper-after/bundle.js` (each has its matching `.map`).
+
 Correctness remains passing; speed acceptance remains OPEN. Profile-driven
 retirement-key caching and batched log layout improve provisional median
 throughput from about 20 ticks/s to 170–207 ticks/s. The 1000 ticks/s idle/work

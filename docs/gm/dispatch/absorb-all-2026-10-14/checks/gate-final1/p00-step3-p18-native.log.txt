@@ -1,0 +1,13 @@
+AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+4998 !== 4973
+
+    at /Users/weiwei/code/yair-absorb-all-20261014/integration/docs/gm/dispatch/absorb-all-2026-10-14/checks/p23-host-joins/step3-p18-native.cjs:6:518
+    at async nativeGate (/Users/weiwei/code/yair-absorb-all-20261014/integration/docs/gm/dispatch/absorb-all-2026-10-14/checks/p23-host-joins/lib/native-step3-helper.inc:34:6) {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: 4998,
+  expected: 4973,
+  operator: 'strictEqual',
+  diff: 'simple'
+}

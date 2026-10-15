@@ -106,3 +106,15 @@ Checked on main tip `2aaf07ad` with the real manifest: all nine packs load (200)
 zero page or console errors with and without the candidate query; the P4 native
 route, pending and final literal-file import pass at 1366x768. Lethal candidate
 content is omitted. To uninstall, restore the manifest backup and remove the folder.
+
+# Pass 3: wave 2 (2026-10-14)
+
+Merged onto main `59b02ab6`: P00 `p23-host-joins` (16 Proto23 lanes joined natively; opt-in single-key Undo authority P15), `sim-stepper` (deterministic `advanceTicks`, localhost `?test_hooks=1` only, dev mode stays off), `reach-fixes` (natural-play A1-A9), `int-fix` (2 real fixes: stable P18 controls, paid workshop work in primary actions; 6 harness updates, none weakened), `gate-determinism` (paused-engine snapshots; P15 trace proves the extra write is the scheduled tick autosave, one write per Save/Import/Undo), `stepper-perf` (planning read frame, lighter persistence path, P00 panels batched; 1.6-1.9x idle/work under equal load, combat unchanged, 7/7 byte-equal).
+
+Merge resolutions: stepper's `simulateTick()` early exits are plain `return` (two converted, plus P15's backup branch); habitat save line kept beside P00's encounter line; save validators combined.
+
+Final gate (`FINAL_GATE.sh`, MAXPAR=3, old client `ad89c04e`, real private packs): build pass; npm test 1742/1743, the one failure `alloy_equipment.test.js:118` is its 60 s fixture-child limit under load average ~200 and passes 5/5 alone in 5 s; all 47 browser checks pass, three on isolated retry under load (life-loops, p00 field-familiarity, p00 tranche2 gear). Workshop boundaries passed first try (its earlier hot-renderer retry did not recur).
+
+Old saves: gain two documented empty counter bags and zero-XP level records for P00's registered NPCs; no items, stock, purse or knowledge. Undo opt-in makes that game need this build or later.
+
+Known flakes (follow-up L3): tick-window assertions under heavy host load. Open: natural-play pass 2 with the stepper; stepper speed targets (1000/200 ticks/s); Weibao's play/taste on every proposal.

@@ -1,0 +1,70 @@
+native passive sleep progress 0 0.85
+native passive sleep progress 40 3.61
+native passive sleep progress 80 6.31
+native passive sleep progress 120 9.01
+AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
++ actual - expected
+... Skipped lines
+
+  {
++   clock: 1023,
+-   clock: 1022,
+    effects: {},
+    exposure: {
+      coldRemainder: 0,
++     cursor: 1023,
+-     cursor: 1022,
+      famineRemainder: 0,
+      hazardousEnabled: false,
+      phase: 'gust',
+      remaining: 3,
+      schema: 1
+...
+        adopted: true,
++       ageMinutes: 1023,
+-       ageMinutes: 1022,
+        bond: 40,
+        gifts: 1,
+        id: 'household.moss',
+        interactions: 4,
+        lastGiftAt: 79,
+...
+        dryProgress: 0,
++       fuelMinutes: 1,
+-       fuelMinutes: 2,
+        smoke: 0,
+        smokeOptIn: true,
+        ventilated: false
+      },
+      homeId: 'base.frontier:Shack',
++     lastClock: 1023,
++     lastSequence: 255,
+-     lastClock: 1022,
+-     lastSequence: 254,
+      schema: 1
+    },
+    items: {
+      '{"id":"Cheap leather pants","quality":40}': {
+        count: 1
+...
+      Evasion: 0,
++     Famine: 10.23,
+-     Famine: 10.22,
+      Farming: 0,
+      Fishing: 0,
+      Forging: 0,
+      Fortitude: 0,
+      Gluttony: 0,
+
+    at roundtrip (/Users/weiwei/code/yair-absorb-all-20261014/integration/docs/gm/dispatch/absorb-all-2026-10-14/checks/p23-host-joins/tranche1-native.cjs:28:9)
+    at runNextTicks (node:internal/process/task_queues:64:5)
+    at process.processImmediate (node:internal/timers:452:9)
+    at process.callbackTrampoline (node:internal/async_hooks:130:17)
+    at async /Users/weiwei/code/yair-absorb-all-20261014/integration/docs/gm/dispatch/absorb-all-2026-10-14/checks/p23-host-joins/tranche1-native.cjs:90:2 {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: [Object],
+  expected: [Object],
+  operator: 'deepStrictEqual',
+  diff: 'simple'
+}

@@ -1,0 +1,3 @@
+[Audit report](</Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/absorb-all-2026-10-14/reports/natural-play.md>) complete, with screenshots, JSON evidence and ten ranked fixes.
+
+Early loops, reading, workshop and candidate routes were reached naturally. Investigate, herbs, completed relay, Town and Fort remain unverified. No grants, fixed RNG, source edits or commits. Dev override disposed; server closed.

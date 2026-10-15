@@ -1,0 +1,5 @@
+page.waitForFunction: Timeout 30000ms exceeded.
+    at /Users/weiwei/code/yair-absorb-all-20261014/integration/docs/gm/dispatch/p23-ui-polish-2026-10-14/browser.cjs:51:155 {
+  log: [],
+  name: 'TimeoutError'
+}

@@ -1,0 +1,29 @@
+AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
++ actual - expected
+... Skipped lines
+
+  {
+    inventory: {
+      '{"id":"ABC for kids"}': {
+        count: 1
+      },
+...
+        enabled: false,
++       lastClock: 14
+-       lastClock: 13
+      },
+      bodyId: 'native.player.body',
+      level: 0,
+      profileId: 'p23.visitor.study_body',
+      schema: 1,
+
+    at roundtrip (/Users/weiwei/code/yair-absorb-all-20261014/integration/docs/gm/dispatch/absorb-all-2026-10-14/checks/p23-host-joins/lib/native-step3-helper.inc:26:134)
+    at async /Users/weiwei/code/yair-absorb-all-20261014/integration/docs/gm/dispatch/absorb-all-2026-10-14/checks/p23-host-joins/step3-p18-native.cjs:9:1254
+    at async nativeGate (/Users/weiwei/code/yair-absorb-all-20261014/integration/docs/gm/dispatch/absorb-all-2026-10-14/checks/p23-host-joins/lib/native-step3-helper.inc:34:6) {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: [Object],
+  expected: [Object],
+  operator: 'deepStrictEqual',
+  diff: 'simple'
+}

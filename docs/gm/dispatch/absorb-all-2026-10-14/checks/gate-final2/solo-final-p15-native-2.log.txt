@@ -1,0 +1,14 @@
+AssertionError [ERR_ASSERTION]: one physical authority write
+
+2 !== 1
+
+    at countSince (/Users/weiwei/code/yair-absorb-all-20261014/integration/docs/gm/dispatch/absorb-all-2026-10-14/checks/p23-host-joins/final-p15-native.cjs:21:35)
+    at async save (/Users/weiwei/code/yair-absorb-all-20261014/integration/docs/gm/dispatch/absorb-all-2026-10-14/checks/p23-host-joins/final-p15-native.cjs:22:95)
+    at async /Users/weiwei/code/yair-absorb-all-20261014/integration/docs/gm/dispatch/absorb-all-2026-10-14/checks/p23-host-joins/final-p15-native.cjs:36:347 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: 2,
+  expected: 1,
+  operator: 'strictEqual',
+  diff: 'simple'
+}

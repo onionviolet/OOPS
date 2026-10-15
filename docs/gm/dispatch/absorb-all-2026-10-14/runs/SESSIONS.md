@@ -43,3 +43,13 @@ Pending: p23-host-joins (P00) launches on absorb-all/integration after wave 1 me
 ## Integration pass 1 (2026-10-14)
 
 Merged via `absorb-all/integration`: air-workshop, upstream-dev, fork-resurvey, fork-fort, p23-ui-polish, p23-reveal-chain, p23-life-loops. Record: [INTEGRATION.md](../INTEGRATION.md). Wave-2 p23 lanes wait for P00 (`p23-host-joins`), which launches on the merged tip.
+
+| p23-host-joins (P00) | 01a138ea-def0-77c0-b800-f4ade39f33af | launched on 43b01f95 after pass 1 |
+
+- 2026-10-14 14:45: coordinator approved Q2 (opt-in single-key Undo authority, implemented last, conditions in p23-host-joins.resume2.md) and resumed P00. Tranche 1 merge held: the P00 branch also carries unverified edits to live files (models/combat.js, titles.js, durability.js, skills.js, display_settings.js) from lanes whose tranches are still OPEN; merge after those tranches pass.
+| sim-stepper | 01a13c69-69f1-77e0-8a91-86bd0394d721 | launched 17:55 |
+| natural-play | 01a13c69-6a08-77a2-a243-eae41b28ec01 | launched 17:55 |
+| reach-fixes | 01a13c9b-9b4a-7601-8e09-8074d0100841 | launched 18:50 on 78e3c70a |
+| int-fix | 01a13cc9-1afb-7343-83db-d4c6d1dcaa6b | launched 19:39 on integration fc1b1696 |
+| stepper-perf | 01a13d04-2013-7b11-bf96-9b1c874707ce | launched 20:44 on 9dd86b5a |
+| gate-determinism | 01a13d08-b09d-79e1-b724-8e9a6155a1a8 | launched 20:49 on integration 9dd86b5a |

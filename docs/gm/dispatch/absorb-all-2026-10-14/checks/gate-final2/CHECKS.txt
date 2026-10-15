@@ -1,0 +1,60 @@
+FAIL air-wider-p2 (exit 1, /private/tmp/claude-501/-Users-weiwei-code-yet-another-idle-rpg/4ccba8a0-e617-4c65-acff-f0b65bdf3042/scratchpad/gate-final2/air-wider-p2.log)
+FAIL life-loops (exit 1, /private/tmp/claude-501/-Users-weiwei-code-yet-another-idle-rpg/4ccba8a0-e617-4c65-acff-f0b65bdf3042/scratchpad/gate-final2/life-loops.log)
+FAIL p00-final-p01-long-life (exit 1, /private/tmp/claude-501/-Users-weiwei-code-yet-another-idle-rpg/4ccba8a0-e617-4c65-acff-f0b65bdf3042/scratchpad/gate-final2/p00-final-p01-long-life.log)
+FAIL p00-final-p14-repeat-search (exit 1, /private/tmp/claude-501/-Users-weiwei-code-yet-another-idle-rpg/4ccba8a0-e617-4c65-acff-f0b65bdf3042/scratchpad/gate-final2/p00-final-p14-repeat-search.log)
+FAIL p00-final-p15-native (exit 1, /private/tmp/claude-501/-Users-weiwei-code-yet-another-idle-rpg/4ccba8a0-e617-4c65-acff-f0b65bdf3042/scratchpad/gate-final2/p00-final-p15-native.log)
+FAIL p00-step3-p18-native (exit 1, /private/tmp/claude-501/-Users-weiwei-code-yet-another-idle-rpg/4ccba8a0-e617-4c65-acff-f0b65bdf3042/scratchpad/gate-final2/p00-step3-p18-native.log)
+FAIL p00-tranche1-native (exit 1, /private/tmp/claude-501/-Users-weiwei-code-yet-another-idle-rpg/4ccba8a0-e617-4c65-acff-f0b65bdf3042/scratchpad/gate-final2/p00-tranche1-native.log)
+FAIL workshop-bounds (exit 1, /private/tmp/claude-501/-Users-weiwei-code-yet-another-idle-rpg/4ccba8a0-e617-4c65-acff-f0b65bdf3042/scratchpad/gate-final2/workshop-bounds.log)
+PASS air-wider-p1
+PASS air-wider-p1 (retry)
+PASS air-wider-p2 (retry)
+PASS air-wider-p3
+PASS air-wider-p3 (retry)
+PASS air-wider-p4
+PASS air-wider-p4 (retry)
+PASS fork-fort
+PASS fork-fort-restore
+PASS fork-resurvey
+PASS life-loops (retry)
+PASS life-loops-extra
+PASS life-loops-extra (retry)
+PASS p00-final-p01-long-life (retry)
+PASS p00-final-p07-field-familiarity
+PASS p00-final-p09-market-life
+PASS p00-final-p10-leisure-memory
+PASS p00-final-p11-consumable-native
+PASS p00-final-p11-known-detail
+PASS p00-final-p11-producers-native
+PASS p00-final-p14-repeat-search (retry)
+PASS p00-final-p15-native (retry)
+PASS p00-merged-smoke
+PASS p00-step3-p12-native
+PASS p00-step3-p16-native
+PASS p00-tranche1-guards
+PASS p00-tranche2-armored-native
+PASS p00-tranche2-combat-native
+PASS p00-tranche2-custody-native
+PASS p00-tranche2-faint-native
+PASS p00-tranche2-gear-native
+PASS p00-tranche2-guards
+PASS p00-tranche2-miss-native
+PASS p00-tranche2-practice-native
+PASS p00-tranche3-copy-controls
+PASS p00-tranche3-guards
+PASS p00-tranche3-reading-controls
+PASS p00-tranche3-reading-native
+PASS p00-tranche3-salvage-native
+PASS p00-tranche3-salvage-repeat-native
+PASS reach-fixes
+PASS reveal-chain
+PASS sim-stepper-equivalence
+PASS ui-polish
+PASS upstream-dev
+PASS workshop
+PASS workshop (retry)
+PASS workshop-bounds (retry)
+PASS workshop-legacy
+PASS workshop-legacy (retry)
+PASS workshop-persist
+PASS workshop-persist (retry)

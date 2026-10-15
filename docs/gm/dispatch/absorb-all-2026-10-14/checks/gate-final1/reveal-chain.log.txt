@@ -1,0 +1,26 @@
+PASS fresh-default-and-first-fight
+PASS optional-staged-opening
+PASS unfamiliar-wallet-display-and-earned-denominations
+PASS real-running-level-and-blocked-action
+travel measured [
+  { minutes: 10, stamina: 0 },
+  { minutes: 8, stamina: 1.9723865877712043 }
+]
+PASS run-travel-time-and-stamina
+AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+
+  assert(!(await pick(p)).includes('Practiced actions'))
+
+    at /Users/weiwei/code/yair-absorb-all-20261014/integration/docs/gm/dispatch/absorb-all-2026-10-14/checks/reveal-browser.cjs:27:323
+    at runNextTicks (node:internal/process/task_queues:64:5)
+    at process.processImmediate (node:internal/timers:452:9)
+    at process.callbackTrampoline (node:internal/async_hooks:130:17)
+    at async record (/Users/weiwei/code/yair-absorb-all-20261014/integration/docs/gm/dispatch/absorb-all-2026-10-14/checks/reveal-browser.cjs:15:30)
+    at async /Users/weiwei/code/yair-absorb-all-20261014/integration/docs/gm/dispatch/absorb-all-2026-10-14/checks/reveal-browser.cjs:27:1 {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: false,
+  expected: true,
+  operator: '==',
+  diff: 'simple'
+}

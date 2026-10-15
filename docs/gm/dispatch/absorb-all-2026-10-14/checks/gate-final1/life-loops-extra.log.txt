@@ -1,0 +1,5 @@
+page.waitForFunction: Timeout 5000ms exceeded.
+    at /Users/weiwei/code/yair-absorb-all-20261014/integration/docs/gm/dispatch/absorb-all-2026-10-14/checks/p23-life-extra.cjs:17:9 {
+  log: [],
+  name: 'TimeoutError'
+}

@@ -1,0 +1,36 @@
+AssertionError [ERR_ASSERTION]: inventories
++ actual - expected
+... Skipped lines
+
+  {
+    book_world_campaign: {
+      'book.paradise.goa.stock': {},
+      'book.paradise.hub.stock': {}
+    },
+...
+      'nested.saltworks.keeper': {},
++     'p23.mistglass.keeper': {},
++     'p23.study.tonic_counter': {},
+      'proto23.guest_steward': {},
+      'proto23.handling_tutor': {},
+      'tidemark.keeper': {},
+      'tidemark.wright': {},
+      catCafeTrader: {},
+...
+      'nested.saltworks.shop': {},
++     'p23.mistglass.keeper': {},
++     'p23.study.tonic_counter': {},
+      'proto23.visitor.shop': {},
+      'tidemark.wright': {},
+      catCafeTrader: {},
+      nekomimiTrader: {},
+      suspiciousTrader: {},
+
+    at /Users/weiwei/code/yair-absorb-all-20261014/integration/scripts/upstream_dev_browser.cjs:10:243 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: [Object],
+  expected: [Object],
+  operator: 'deepStrictEqual',
+  diff: 'simple'
+}
