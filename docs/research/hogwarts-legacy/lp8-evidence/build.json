@@ -1,0 +1,10 @@
+{
+  "port": 8201,
+  "viewport": {
+    "width": 1366,
+    "height": 768
+  },
+  "bundleSha256": "3d4f803edfae1c388fcf5e2ff82940c332716afa7d463408ddb1156fd7cb0b16",
+  "servedSha256": "3d4f803edfae1c388fcf5e2ff82940c332716afa7d463408ddb1156fd7cb0b16",
+  "match": true
+}
