@@ -12,3 +12,9 @@ Merged first (merge before dispatch): chain-build T3 with T2 as `9c4602a9` (buil
 | tw-s | little stuff routing | 01a13c82-af6b-7fc3-b19e-b9338e9e2bb5 |
 
 Resume: `python3 runs/launch.py <lane> <lane>.prompt.md <session id>`.
+
+## P01 slice build (2026-10-14)
+
+Weibao: "send next part". Lane `p01` builds [NEXT_SLICE_P01](../NEXT_SLICE_P01.md) in worktree `/Users/weiwei/code/yair-p01-mixing`, branch `slice/p01-mixing-feedback` from `215af66c`, port 22470. Session `01a13cec-a179-7b72-ac56-77c4d7d4e075`. Prompt: `p01.prompt.md`. Merge after its gates pass.
+
+Feature game scout runs as a separate Claude session (feature-game-scout), output `docs/research/feature-game-scout-2026-10-14/`.
