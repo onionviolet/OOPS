@@ -29,7 +29,7 @@ Weibao: "send out one for rimworld too, other items in my library that are worth
 | lib-terra-invicta | Terra Invicta | on install (Windows) | |
 | lib-endless-legend-2 | ENDLESS Legend 2 | on install (Windows) | |
 | lib-cell-to-singularity | Cell to Singularity | on install (macOS) | |
-| lib-uqm | The Ur-Quan Masters | manual (open source, no install) | |
-| lib-naev | Naev | manual (open source, no install) | |
+| lib-uqm | The Ur-Quan Masters | started 2026-10-14 (open source) | 01a13d6c-3235-7221-9286-1903d97aadf3 |
+| lib-naev | Naev | started 2026-10-14 (open source) | 01a13d6c-325a-7893-aa1f-f7209888d2b0 |
 
 Considered and skipped: ARK: Survival Evolved (creature breeding and mutations are relevant, but the install is very large for the disk left), multiplayer shooters and live-service games, VR titles, casino and adult titles. The watcher was restarted with these lanes; its 24 h auditor timeout restarted at 22:22.
