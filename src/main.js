@@ -17,6 +17,7 @@ import {stageTitleRecognition} from './absorb_p23/host_joins/long_life.js';
 import {installTrainingLink,trainingView} from './absorb_p23/long_life/training.js';
 import {validateWornTitle,selectWornTitle,wornTitleView,longLifeTitleBonuses} from './absorb_p23/long_life/worn.js';
 import {engineTimeout,engineInterval,clearEngineInterval,engineNow,stepping,testHooksEnabled,pauseEngine,resumeEngine,runEngineTicks} from './simulation_clock.js';
+import {createPlanningReadFrame} from './planning_read_frame.js';
 import {deferSimulationRender,beginSimulationRenderBatch,endSimulationRenderBatch} from './simulation_render.js';
 import {ANTHOLOGY,ANTHOLOGY_KEY,REST_MEAL,REST_KEY,REGISTRATIONS} from './absorb_p23/reading/content.js';
 import {planReadingCommand,observeReadingClock,longRestClockRequest} from './absorb_p23/reading/runtime.js';
@@ -1639,7 +1640,11 @@ function validateNativeGameplayReferences(definitions) {
     }
 }
 
-function simulationNativeContexts() {
+function simulationNativeContexts(readFrame) {
+    if(readFrame)return readFrame.read(simulationNativeContexts,()=>buildSimulationNativeContexts(readFrame),{mutable:true});
+    return buildSimulationNativeContexts();
+}
+function buildSimulationNativeContexts(readFrame) {
     const contexts=tidemarkSimulationContexts(expansionState,realmSimulationContexts(expansionState,nativeGameplay.contexts(expansionState,!!(current_activity || current_game_action || current_combat || current_dialogue || is_sleeping || is_reading || is_in_trade()))));
     const evidence=frontierNativeEvidence(),causalFrame=causalNative.read(expansionState);
     for(const id of Object.keys(expansionState.simulation?.people || {player:true})) contexts[id]={...contexts[id],nativeSkillLevels:evidence.nativeSkillLevels,nativeZoneCounts:evidence.nativeZoneCounts,destinationNative:tidemarkNative.read(expansionState),nestedNative:nestedNative.read(expansionState),paradiseNative:paradiseNative.read(expansionState),molNative:molNative.read(expansionState),proto23Native:proto23Native.read(expansionState),causalStoryNative:causalFrame,...nativeCampaignLocationOwners(),
@@ -1648,7 +1653,7 @@ function simulationNativeContexts() {
     Object.assign(contexts.player.facts,structuredEquipmentView().facts);
     Object.assign(contexts.player.facts,techniqueFacts(expansionState.actors.player,expeditionRegistry,contexts.player));
     const gameplay=gameplaySnapshot(),vitals=Object.fromEntries(Object.entries(contexts).map(([id,c])=>[id,c.vitals]));
-    for(const [id,c] of Object.entries(contexts))Object.assign(c,{managementPlayerLocation:current_location?.id,managementPlayerAlive:character.is_alive===true,actorId:id,worldId:expansionState.actors[id].worldId,nativeBody:id==='player'?currentNativeBody():null,nativeCareFrame:nativeCareFrame(),gameplay,vitalsByActor:vitals,nativeAlive:character.is_alive===true,nativeReady:!active_effects.Recovering,inventoryOwners:structuredInventoryOwners(),structuredNative:optionalPackState.structured?{...optionalPackState.structured,bound:true}:null,remainderLivelihoodClock:{calendarMinute:calendarMinutes(current_game_time),clock:expansionState.clock},facts:{...c.facts,...(id==="player"?{"skill.Crafting":character.getTotalSkillLevel("Crafting")}:{}),"weather.raining":getPacingEffects(homePacingContext()).raining,...(id==='player'?{"village.shackUnlocked":!!locations.Shack.getAvailabilityComponent().getStatus().is_unlocked,"village.craftsmanMet":metVillageElder()&&expeditionContext().facts["village.craftsmanMet"],"village.craftsmanPresent":expansionState.simulation?.people.oldCraftsman?.life==='alive'&&expansionState.simulation.people.oldCraftsman.location==='Village'}:{})}});
+    for(const [id,c] of Object.entries(contexts))Object.assign(c,{managementPlayerLocation:current_location?.id,managementPlayerAlive:character.is_alive===true,actorId:id,worldId:expansionState.actors[id].worldId,nativeBody:id==='player'?currentNativeBody():null,nativeCareFrame:nativeCareFrame(),gameplay,vitalsByActor:vitals,nativeAlive:character.is_alive===true,nativeReady:!active_effects.Recovering,inventoryOwners:structuredInventoryOwners(),structuredNative:optionalPackState.structured?{...optionalPackState.structured,bound:true}:null,remainderLivelihoodClock:{calendarMinute:calendarMinutes(current_game_time),clock:expansionState.clock},facts:{...c.facts,...(id==="player"?{"skill.Crafting":character.getTotalSkillLevel("Crafting")}:{}),"weather.raining":getPacingEffects(homePacingContext()).raining,...(id==='player'?{"village.shackUnlocked":!!locations.Shack.getAvailabilityComponent().getStatus().is_unlocked,"village.craftsmanMet":metVillageElder()&&expeditionContext(readFrame).facts["village.craftsmanMet"],"village.craftsmanPresent":expansionState.simulation?.people.oldCraftsman?.life==='alive'&&expansionState.simulation.people.oldCraftsman.location==='Village'}:{})}});
     const joined=nestedChainSimulationContexts(expansionState,nestedSimulationContexts(expansionState,contexts));
     for(const [id,c] of Object.entries(joined))joined[id]=nestedLifeContext(expansionState,c);
     return proto23SimulationContexts(expansionState,worldCompletionSimulationContexts(expansionState,lorePracticeSimulationContexts(expansionState,causalStorySimulationContexts(expansionState,auditRemainderSimulationContexts(expansionState,molSimulationContexts(expansionState,paradiseSimulationContexts(expansionState,joined)))))));
@@ -1669,7 +1674,11 @@ function projectNativePeopleBodies() {
         stats.stamina = Math.max(0, Math.min(stats.max_stamina, p.vitals.stamina));
     }
 }
-function expeditionContext() {
+function expeditionContext(readFrame) {
+    if(readFrame)return readFrame.read(expeditionContext,()=>buildExpeditionContext());
+    return buildExpeditionContext();
+}
+function buildExpeditionContext() {
     const gameplay = gameplaySnapshot();
     const evidence=frontierNativeEvidence();
     return originalFrontierContext(expansionState,expeditionRegistry,skillExpansionContext(expansionState,{nativeBody:currentNativeBody(),nativeAlive:character.is_alive===true,nativeCareFrame:nativeCareFrame(),equipment:readNativeEquipment({player:character}),actorId: "player", worldId: expansionState.actors.player.worldId, external: {money: character.money}, gameplay,...evidence,
@@ -1729,7 +1738,8 @@ function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}) {
     else if(plan.state.referenceGameplay)plan.state.schema=9;
     if(plan.state.causalStories){const current=gameplaySnapshot();plan.gameplay={...current,...plan.gameplay};}
     if(plan.state.causalStories&&plan.nativeLocation)plan.state.simulation.people.player.location=plan.nativeLocation;
-    const causalContexts=simulationNativeContexts();
+    const readFrame=stepperRenderSuppressed?createPlanningReadFrame():null;
+    const causalContexts=simulationNativeContexts(readFrame);
     if(plan.state.causalStories){
         const currentVitals=Object.fromEntries(Object.entries(causalContexts).filter(([,c])=>c.vitals).map(([id,c])=>[id,c.vitals]));
         plan.vitals={...currentVitals,...plan.vitals};
@@ -1741,8 +1751,8 @@ function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}) {
     if(plan.nativeLocation)causalContexts.player.facts={...causalContexts.player.facts,location:plan.nativeLocation};
     reconcileCausalStoryPlan(expansionState,plan,expeditionRegistry,causalContexts);
     reconcileSystemsWorkshop(expansionState,plan,{chest:plan.ownership?.chest||readInventoryOwner(player_storage.getItems())});
-    advanceReferenceGameplay(expansionState,plan,expeditionRegistry,featureWaveContext());
-    advanceAuditRemainder(expansionState,plan,expeditionRegistry,featureWaveContext());
+    advanceReferenceGameplay(expansionState,plan,expeditionRegistry,featureWaveContext(readFrame));
+    advanceAuditRemainder(expansionState,plan,expeditionRegistry,featureWaveContext(readFrame));
     reconcileBookCareRuntime(expansionState,plan,expeditionRegistry);
     reconcileParadiseCampaignDepthRuntime(expansionState,plan,expeditionRegistry);
     reconcileLorePractice(expansionState,plan,expeditionRegistry,causalContexts);
@@ -1751,7 +1761,7 @@ function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}) {
     retainNestedCarrierReceipt(plan);
     retainParadiseCarrierReceipt(plan);
     assertBacklogPublication(expansionState,plan);
-    assertQualifiedOfficePlan(expansionState,plan,{id:plan.backlogCommand},backlogContext());
+    assertQualifiedOfficePlan(expansionState,plan,{id:plan.backlogCommand},backlogContext(readFrame));
     if(plan.state.auditRemainder||plan.state.causalStories||plan.state.motherOfLearning||plan.state.proto23Village)plan.state.schema=11;
     else if(plan.state.bookWorldCampaign)plan.state.schema=10;
     else if(plan.state.referenceGameplay)plan.state.schema=9;
@@ -1766,10 +1776,10 @@ function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}) {
     syncProto23Clock(plan.state);
     validateRelayState(plan.state,expeditionRegistry,plan);
     validateFeatureObjectState(plan.state,expeditionRegistry,plan);
-    reconcileStatusCareNative(expansionState,plan,expeditionContext());
-    reconcileFieldCareNative(expansionState,plan,expeditionContext());
-    stageContextualBalmEffectRequest(expansionState,plan,expeditionContext());
-    reconcileWorldCompletionPlan(plan,expeditionRegistry,{player:{...expeditionContext(),external:plan.external,gameplay:plan.gameplay,vitals:plan.vitals||expeditionContext().vitals,equipment:plan.equipment||expeditionContext().equipment}});
+    reconcileStatusCareNative(expansionState,plan,expeditionContext(readFrame));
+    reconcileFieldCareNative(expansionState,plan,expeditionContext(readFrame));
+    stageContextualBalmEffectRequest(expansionState,plan,expeditionContext(readFrame));
+    reconcileWorldCompletionPlan(plan,expeditionRegistry,{player:{...expeditionContext(readFrame),external:plan.external,gameplay:plan.gameplay,vitals:plan.vitals||expeditionContext(readFrame).vitals,equipment:plan.equipment||expeditionContext(readFrame).equipment}});
     reconcileStructuredLifePlan(plan,optionalPackState.structured,{deaths:game_stats.total_deaths});
     const nextLocalCalendar = resolveWorldCalendar(plan.state, plan.calendar ?? current_game_time);
     const previousNight = is_night(current_game_time);
@@ -1779,6 +1789,7 @@ function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}) {
         if(active && !Object.hasOwn(skills, active[1].practice.xpSkill)) throw new Error("Unsupported saved practice skill.");
     }
     stageRevealKnowledge(plan,readInventoryOwner(character.getItems()),character.money);
+    readFrame?.invalidate(); // Staged actor bindings begin a new read phase.
     const stagedGameplay = nativeGameplay.stageBindings(plan.gameplay,plan.state);
     const actorBindings = stagedGameplay.actors;
     const unlockAdapter = unlocks => [
@@ -1805,8 +1816,8 @@ function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}) {
     // Check pending native rewards before accepting reserved costs, not only at
     // completion. Unsupported milestone unlocks reject this command safely.
     if(plan.commitment) {
-        const nativeContexts = simulationNativeContexts();
-        nativeContexts.player.facts = expeditionContext().facts;
+        const nativeContexts = simulationNativeContexts(readFrame);
+        nativeContexts.player.facts = expeditionContext(readFrame).facts;
         for(const [id,c] of Object.entries(nativeContexts)){c.vitals=plan.vitals?.[id]||c.vitals;}
         const stagedVitals=Object.fromEntries(Object.entries(nativeContexts).filter(([,c])=>c.vitals).map(([id,c])=>[id,c.vitals]));
         for(const c of Object.values(nativeContexts))c.vitalsByActor=stagedVitals;
@@ -1824,6 +1835,7 @@ function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}) {
     stageGrowthForPublication(plan);
     const nativePublications=[tidemarkNative.stage(plan),nestedNative.stage(plan),paradiseNative.stage(plan),molNative.stage(plan),proto23Native.stage(plan),causalNative.stage(plan),prepareContextualBalmNative(expansionState,plan,{activeEffects:active_effects,itemTemplates:item_templates,effectTemplates:effect_templates,ActiveEffect,refresh:()=>{update_displayed_effects();character.addActiveEffectBonus(active_effects);character.updateStatsAndDisplay();}})];
     const nativePublication={write:envelope=>nativePublications.forEach(p=>p.write(envelope)),publish:()=>nativePublications.forEach(p=>p.publish())};
+    readFrame?.invalidate(); // Life observations publish through the durable owner.
     try {persistExpansionPlan(plan, {createSave: create_save, storage: lifeSaveStorage, bindings: stagedGameplay.bindings, ownershipBindings, unlockPublication, equipmentPublication, nativePublication,
         validateEnvelope: data => validateSaveEnvelope(data, game_version), key: is_on_dev() ? dev_save_key : save_key});}
     catch(error) {
@@ -1836,6 +1848,7 @@ function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}) {
     if(plan.reloadRequired) {foundationSaveBlocked = true; window.location.reload(); return;}
     // Every owned domain is durable before native state is published. Rendering
     // happens afterward and never applies rewards.
+    readFrame?.invalidate();
     expansionState = plan.state;
     localDateLog.commit(nextLocalCalendar);
     if(plan.pacingNext){setPacingState(plan.pacingNext);pacingMinute=plan.pacingTarget;pacingPanel?.render();pacingStatusPanel?.render();durabilityPanel?.render();elementalPanel?.render();livingGearPanel?.render();combatOptionsPanel?.render();householdPanel?.render();}
@@ -1878,16 +1891,23 @@ function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}) {
     if(Object.hasOwn(plan.nativePatch||{},'p23_growth_earned'))p23GrowthEarned=structuredClone(plan.nativePatch.p23_growth_earned);
     if(plan.nativePatch?.[`availabilities/trader/${GROWTH_COUNTER_ID}`]===1)p23GrowthCounter.getAvailabilityComponent().is_unlocked=true;
     publishStudy(plan);
+    readFrame?.invalidate();
     if(plan.absorbPublish)plan.absorbPublish();
     publishP23Activity(plan);
+    readFrame?.invalidate();
     publication.publish();
+    readFrame?.invalidate();
     unlockPublication.publish();
     if(plan.revealLesson)log_message('Handling twenty Golmoon leaves taught you a preparation. Review it in Learned preparations.','notification');
+    readFrame?.invalidate();
     equipmentPublication.publish();
     if(plan.p00GrowthSource)publishGrowthProjection(plan.p00GrowthSource);
+    readFrame?.invalidate();
     publishNativeVitals(plan.native,character);
     projectNativePeopleBodies();
+    readFrame?.invalidate();
     ownershipPublication?.publish();
+    readFrame?.invalidate();
     nativePublication.publish();
     if(plan.statusCareNative?.resetRain)rain_counter=0;
     refreshStatusCareStats();
@@ -2390,8 +2410,12 @@ function actFoundationInteraction(command){
     persistExpansion(plan);foundationInteractionPanel?.render();
     return plan;
 }
-function featureWaveContext(){
-    const bookCurrent=paradiseContext(expansionState,referenceGameplayContext(expansionState,expeditionRegistry,nestedLifeContext(expansionState,nestedChainContext(expansionState,nestedContext(expansionState,repositoryAbsorptionContext(expansionState,expeditionRegistry,featurePowerContext(expansionState,tidemarkContext(expansionState,societyContext(expansionState,featureObjectContext(expansionState,expeditionRegistry,campaignContext()))))))))));
+function featureWaveContext(readFrame){
+    if(readFrame)return readFrame.read(featureWaveContext,()=>buildFeatureWaveContext(readFrame));
+    return buildFeatureWaveContext();
+}
+function buildFeatureWaveContext(readFrame){
+    const bookCurrent=paradiseContext(expansionState,referenceGameplayContext(expansionState,expeditionRegistry,nestedLifeContext(expansionState,nestedChainContext(expansionState,nestedContext(expansionState,repositoryAbsorptionContext(expansionState,expeditionRegistry,featurePowerContext(expansionState,tidemarkContext(expansionState,societyContext(expansionState,featureObjectContext(expansionState,expeditionRegistry,campaignContext(readFrame)))))))))));
     const current=paradiseCampaignContext(expansionState,molContext(expansionState,bookCurrent));
     const joined=coolingRefinementContext(expansionState,expeditionRegistry,contextualBalmContext(expansionState,gameAbsorptionAssayContext(expansionState,expeditionRegistry,factorioRetortContext(expansionState,expeditionRegistry,proto23Context(expansionState,worldCompletionContext(expansionState,auditRemainderContext(expansionState,expeditionRegistry,auditedWorkshopContext(expansionState,expeditionRegistry,nethackFieldcraftContext(expansionState,expeditionRegistry,current)))))))));
     return steamAbsorptionContext(expansionState,expeditionRegistry,joined);
@@ -2477,11 +2501,11 @@ function actCausalStory(command){
     const plan=commitCausalStoryCommand(expansionState,expeditionRegistry,command,currentCausalContext(),command.sequence??expansionState.sequence);
     persistExpansion(plan);causalStoryPanel?.render();
 }
-function backlogContext(){
+function backlogContext(readFrame){
     const nativeOtherInventories=[];
     for(const [category,owners] of Object.entries(inventories))for(const [id,inventory] of Object.entries(owners))if(category!=='person'||id!=='main_character')
         nativeOtherInventories.push(Object.fromEntries(Object.entries(inventory.getItems()).map(([key,row])=>[key,row.count])));
-    return bookNativeContext(expansionState,backlogNativeContext(expansionState,{...featureWaveContext(),wallNowMs:Date.now(),nativeOtherInventories},
+    return bookNativeContext(expansionState,backlogNativeContext(expansionState,{...featureWaveContext(readFrame),wallNowMs:Date.now(),nativeOtherInventories},
         {character,locationId:current_location?.id,heroCreated:global_flags.is_hero_created,creationPanelOpen:config.do_hero_creation&&!global_flags.is_hero_created,freshNativeGame:!hasLoadedNativeSave&&!importProbeToken,gameStats:game_stats}),{character,locationId:current_location?.id});
 }
 function assertFeatureWriter(){
@@ -2529,9 +2553,9 @@ function planParadiseAction(state,registry,command,context,sequence){
     return stageParadiseCarrierClock(plan,{...context,nativeAlive:character.is_alive===true},plan.paradiseAdvanceBy,
         (draft,minutes)=>advanceChroniclePlan(draft,minutes,true),syncParadiseClock);
 }
-function campaignContext() {
-    return {...expeditionContext(),destinationNative:tidemarkNative.read(expansionState),nestedNative:nestedNative.read(expansionState),paradiseNative:paradiseNative.read(expansionState),molNative:molNative.read(expansionState),proto23Native:proto23Native.read(expansionState),causalStoryNative:causalNative.read(expansionState),...nativeCampaignLocationOwners(),equipment:Object.fromEntries(Object.entries(simulationNativeContexts()).filter(([,c])=>c.equipment).map(([id,c])=>[id,c.equipment])),nativeAlive:character.is_alive===true,busy:!!(current_activity || current_game_action || current_combat || current_dialogue || is_sleeping || is_reading || is_in_trade()),
-        vitals:Object.fromEntries(Object.entries(simulationNativeContexts()).map(([id,c])=>[id,c.vitals]))};
+function campaignContext(readFrame) {
+    return {...expeditionContext(readFrame),destinationNative:tidemarkNative.read(expansionState),nestedNative:nestedNative.read(expansionState),paradiseNative:paradiseNative.read(expansionState),molNative:molNative.read(expansionState),proto23Native:proto23Native.read(expansionState),causalStoryNative:causalNative.read(expansionState),...nativeCampaignLocationOwners(),equipment:Object.fromEntries(Object.entries(simulationNativeContexts(readFrame)).filter(([,c])=>c.equipment).map(([id,c])=>[id,c.equipment])),nativeAlive:character.is_alive===true,busy:!!(current_activity || current_game_action || current_combat || current_dialogue || is_sleeping || is_reading || is_in_trade()),
+        vitals:Object.fromEntries(Object.entries(simulationNativeContexts(readFrame)).map(([id,c])=>[id,c.vitals]))};
 }
 function advanceFrontierJourney(plan,minutes){
     const f=plan.state.actors.player.facts,remaining=f['original_frontier.travel.remaining'];
@@ -9136,6 +9160,7 @@ function simulateTick() {
 
 
 /** Advance the actual engine timers synchronously; never a second simulation. */
+let stepperRenderSuppressed=false;
 function advanceTicks(n, {render = false} = {}) {
     if(!testHooksEnabled) throw new Error('Test hooks are disabled.');
     if(!Number.isSafeInteger(n) || n < 0 || n > 1000000) throw new RangeError('Ticks must be an integer from 0 to 1000000.');
@@ -9145,6 +9170,7 @@ function advanceTicks(n, {render = false} = {}) {
     stepperSaves = new Set();
     if(!render) {
         beginSimulationRenderBatch();
+        stepperRenderSuppressed=true;
         for(const panel of [adventureNotebook,backlogOpeningPanel,backlogPanel,bodyPanel,causalStoryPanel,characterBio,chroniclePanel,combatOptionsPanel,crushSocialPanel,durabilityPanel,elementalPanel,exchangePanel,expansionQuests,expeditionPanel,featureExpansionPanel,fieldPanel,fortControls,foundationInteractionPanel,frontierCampaignPanel,furniturePanel,householdPanel,inkPanel,knownRoutesPanel,lifeRecordPanel,livingGearPanel,localLifePanel,managementPanel,nestedInkPanels,observationPanel,optionalPackPanel,originalFrontierPanel,p23ExposurePanel,pacingPanel,pacingStatusPanel,partyPanel,pocketRealmPanel,practicePanel,promisePanel,pursuitPanel,readingSalvagePanel,replacementRecognitionPanel,repositoryPanel,simulationPanel,skillExpansionPanel,statusWindow,structuredPanel,systemsWorkshopPanel,techniquePanel,titlesPanel,townPanel,villageCareerControls,villageLivesPanel,villagePanel,workLedgerPanel,worldEventFeed]) {
             if(!panel?.render) continue;
             const original = panel.render;
@@ -9163,6 +9189,7 @@ function advanceTicks(n, {render = false} = {}) {
             const savedAt = save_to_localStorage({key});
             if(savedAt && (key === backup_key || key === dev_backup_key)) update_backup_load_button(savedAt);
         }
+        stepperRenderSuppressed=false;
         for(const reset of restore) reset();
         if(!render) endSimulationRenderBatch();
     }
