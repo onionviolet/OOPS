@@ -3,7 +3,7 @@ const fs=require('node:fs'),path=require('node:path'),http=require('node:http'),
 const assert=require('node:assert/strict'),{createHash}=require('node:crypto');
 const {chromium}=require('/Users/weiwei/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
 const {startFresh}=require(path.resolve('docs/gm/dispatch/vivid-proto23-flow-2026-10-13/checks/routes.cjs'));
-const URL=process.env.LP4_URL||'http://127.0.0.1:8197/';
+const URL=process.env.LP4_URL||'http://127.0.0.1:8202/';
 const out=path.resolve('docs/research/hogwarts-legacy/lp4-evidence');
 const hash=b=>createHash('sha256').update(b).digest('hex');
 const get=url=>new Promise((resolve,reject)=>http.get(url,r=>{const chunks=[];r.on('data',b=>chunks.push(b));r.on('end',()=>resolve(Buffer.concat(chunks)));r.on('error',reject);}).on('error',reject));
@@ -14,7 +14,7 @@ const stock=(s,id)=>s.inventories?.person?.main_character?.[JSON.stringify({id})
     const browser=await chromium.launch({headless:true,executablePath:'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'});
     const context=await browser.newContext({viewport:{width:1366,height:768},acceptDownloads:true}),page=await context.newPage();
     page.setDefaultTimeout(15000);const errors=[],checks=[];page.on('pageerror',e=>errors.push(e.message));
-    const save=async()=>{await page.locator('#save_button').click();return page.evaluate(()=>JSON.parse(localStorage.getItem('save data')));};
+    const save=async()=>{await page.waitForFunction(()=>document.querySelector('#workspace_current_work')?.textContent.includes('Saving available.'));await page.locator('#save_button').click();return page.evaluate(()=>JSON.parse(localStorage.getItem('save data')));};
     const open=async()=>{const p=page.locator('#meadow_pen_panel');await p.locator('summary').first().click();await p.scrollIntoViewIfNeeded();};
     const button=id=>page.locator(`[data-habitat="${id}"]`);
     const fact=id=>page.locator(`[data-habitat-fact="${id}"]`);
@@ -24,6 +24,8 @@ const stock=(s,id)=>s.inventories?.person?.main_character?.[JSON.stringify({id})
     try{
         await page.goto(URL,{waitUntil:'domcontentloaded'});await startFresh(page);await open();
         const old=await save();assert.equal(Object.hasOwn(old,'meadow_pen'),false);checks.push('fresh save has no pen, animal or material grant');
+        const oldFile=await exportFile('absent');await page.reload({waitUntil:'domcontentloaded'});await startFresh(page);await open();assert.equal(Object.hasOwn(await save(),'meadow_pen'),false);
+        await importFile(oldFile);assert.equal(Object.hasOwn(await save(),'meadow_pen'),false);assert.equal(stock(await save(),'Meadow hay'),0);assert.equal(stock(await save(),'Wool'),0);fs.unlinkSync(oldFile);checks.push('old absent state survives native reload and Export/literal file Import without LP4 assets');
         await button('build').click();await button('adopt').click();
         assert.equal((await save()).character.money,old.character.money-30);
         assert.equal(await button('feed').isDisabled(),true);assert.match(await button('feed').getAttribute('title'),/actual Meadow hay/);
@@ -44,7 +46,8 @@ const stock=(s,id)=>s.inventories?.person?.main_character?.[JSON.stringify({id})
         const collectedFile=await exportFile('collected');await importFile(collectedFile);
         const loaded=await save();assert.equal(stock(loaded,'Wool'),5);assert.equal(loaded.meadow_pen.collected,1);assert.equal(await button('collect').isDisabled(),true);await shot('04-collected-imported');checks.push('collected Export/literal file Import cannot duplicate wool or cycle');
         assert.deepEqual(errors,[]);
-        fs.writeFileSync(path.join(out,'browser-results.json'),JSON.stringify({status:'care and persistence passed; native Wool cloth consumer still requires exercise',viewport:{width:1366,height:768},url:URL,bundleSha256:expected,checks,errors},null,2));
+        const layout=await page.evaluate(()=>({horizontalOverflow:document.documentElement.scrollWidth>innerWidth,viewport:{width:innerWidth,height:innerHeight}}));assert.equal(layout.horizontalOverflow,false);
+        fs.writeFileSync(path.join(out,'browser-results.json'),JSON.stringify({status:'care and persistence passed',viewport:{width:1366,height:768},url:URL,bundleSha256:expected,checks,layout,errors},null,2));
         fs.unlinkSync(pendingFile);fs.unlinkSync(collectedFile);
         console.log(JSON.stringify({checks,errors,bundleSha256:expected},null,2));
     }finally{await browser.close();}

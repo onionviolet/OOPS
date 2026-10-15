@@ -9,7 +9,7 @@ export function createHabitatPanel({parent,read,act}){
         node('p','Policy: feeding and brushing each last 12 played minutes. Six minutes of overlapping care produce one batch of 5 Wool. Progress pauses without support; at most one batch waits. Collection starts a new care cycle. Welfare stays safe in the shelter even when routine care lapses.'),
         node('p','Away policy: the open game’s native calendar advances care and production while you work or travel elsewhere. Closed-game wall time adds nothing. No offline feed use, harm, automatic collection or stock. Ready wool remains available when care expires.'));
     body.append(node('p','Original LP4 proposal. One sheltered, drained grass pen with clean water and one fleece sheep. Feed and brush for one wool batch.'),status,controls,policy,
-        node('p','Use the wool: after the craftsman teaches Crafting, open Crafting → Crafting → Wool cloth (5 Wool per attempt). Native skill, station and success chance apply. Cloth supplies wool clothing recipes.'),notice);
+        node('p','Use the wool: after the craftsman teaches Crafting, open Crafting → Tinkering → Wool cloth (5 Wool per attempt). Native skill, station and success chance apply. Cloth supplies wool clothing recipes.'),notice);
     panel.append(body);parent.append(panel);let message='',signature='';
     const buttons=new Map();
     for(const [action,label]of [['build',`Obtain sheltered pen · ${H.buildCost} coins`],['adopt',`Adopt fleece sheep · ${H.adoptCost} coins`],['buy_feed',`Buy 1 Meadow hay · ${H.feedCost} coins`],['feed','Feed sheep · consume 1 Meadow hay'],['attend','Brush and inspect sheep'],['collect',`Collect ready wool · ${H.yield} Wool`]]){
