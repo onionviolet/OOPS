@@ -56,6 +56,9 @@ so native 250 ms polls run between ticks), 20 ticks, panels opened, CPU sampling
 200 µs, interleaved per rep. `head` = this branch. `head+A` = this branch plus the
 [lane A patch](LANE_A_PATCH.md), built in a scratch tree only. Host load (1-min)
 was 100-640 throughout: shared 18-core host with other lanes, not quiet.
+Primary evidence is load-independent: DOM churn and the read/layout causes found
+in the profiles. Time ratios below are provisional until rerun on a quiet host
+through the shared test queue (wave-f-checks `scripts/test_queue.mjs`).
 
 Per-tick ms in owned modules (inclusive), final code (`results/ab3.json`):
 
