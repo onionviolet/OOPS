@@ -8,7 +8,7 @@ invariants after every step.
 node scripts/simfuzz/run.mjs                       # 50 seeds x 2000 steps, 4 workers, writes the report
 node scripts/simfuzz/run.mjs --seeds 6 --steps 300 --no-report
 node scripts/simfuzz/run.mjs --repro 17 --stop-at 412   # trace one seed up to a step
-node --test --test-concurrency=2 tests/simfuzz/    # smoke: 3 seeds x 120 steps
+node --test --test-concurrency=2 tests/simfuzz/*.test.js    # smoke: 3 seeds x 120 steps
 ```
 
 Options: `--seeds` `--steps` `--from` (first seed) `--workers` (default 4; the

@@ -1,5 +1,5 @@
 // Fast smoke for the engine simulation fuzzer (scripts/simfuzz/).
-//   node --test --test-concurrency=2 tests/simfuzz/
+//   node --test --test-concurrency=2 tests/simfuzz/*.test.js
 // Three seeds, one per policy and fixture, short runs. Known open defects from
 // the full report are listed in known_failures.json; anything else fails.
 import test from 'node:test';

@@ -622,6 +622,12 @@ export function runSeed(E, catalog, {seed, steps, policy = policyForSeed(seed), 
         counts.set(row.key, (counts.get(row.key) || 0) + 1);
         if (trace) res.events.push(`${step} ${row.key} clock=${plan.state.clock} seq=${plan.state.sequence}`);
     }
+    // Every run ends with a round-trip of its final state.
+    if (roundTripEvery) {
+        res.roundTrips++;
+        try { const msg = T('roundtrip', () => roundTrip(E, plan, save)); if (msg) fail(res.steps, 'roundtrip', msg, {action: 'final state'}); }
+        catch (e) { fail(res.steps, 'roundtrip', 'reload threw: ' + e.message, {action: 'final state'}); }
+    }
     if (sweep === 'ends') { const ctx = ctxFor(plan); T('sweep', () => sweepAll(plan, ctx)); }
     res.finalHash = hash(durable(plan));
     res.finalClock = plan.state.clock;
