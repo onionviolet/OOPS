@@ -130,19 +130,26 @@ function syncRestore(module, state, known, eligible, classic) {
     let restore = owner.picker.querySelector(`[data-module="${state.id}"]`);
     if (!known) { restore?.remove(); return; }
     if (!restore) { restore = button(`Open ${module.title}`, 'restore', state.id); owner.picker.append(restore); }
-    restore.disabled = !eligible; if (!classic) restore.textContent = `${state.hidden ? 'Show' : 'Open'} ${module.title}`;
+    setProp(restore, 'disabled', !eligible); if (!classic) setText(restore, `${state.hidden ? 'Show' : 'Open'} ${module.title}`);
     const reason = eligible ? '' : (module.unavailableReason?.() || 'Not available here right now');
     if (restore.title !== reason) { restore.title = reason; if (reason) restore.setAttribute('aria-description', reason); else restore.removeAttribute('aria-description'); }
 }
+// An unchanged pass writes nothing: each setter touches the DOM only when the value differs,
+// so idle ticks leave style and layout clean (E5 layout churn, 2026-10-14).
+const setStyle=(node,name,value)=>{if(node.style.getPropertyValue(name)!==value)node.style.setProperty(name,value);};
+const setText=(node,text)=>{if(node.textContent!==text)node.textContent=text;};
+const setAttr=(node,name,value)=>{if(node.getAttribute(name)!==value)node.setAttribute(name,value);};
+const setProp=(node,key,value)=>{if(node[key]!==value)node[key]=value;};
+const setData=(node,key,value)=>{if(node.dataset[key]!==value)node.dataset[key]=value;};
 export function updateWorkspace() {
     if(deferSimulationRender(updateWorkspace, updateWorkspace)) return;
     if (!owner) return;
     revealArmed(); // start the settle clock on the first pass after the start screen closes
     const focused = document.activeElement; const counts = {};
-    ['left','center','right'].forEach((d,i) => owner.board.style.setProperty(`--workspace-${d}`, `${owner.layout.columns[i]}fr`));
-    owner.board.hidden = owner.layout.mode === 'classic'; owner.root.dataset.density = owner.layout.density; owner.toolbar.querySelector('[data-workspace-action="density"]').value = owner.layout.density;
-    const preset = owner.toolbar.querySelector('[data-workspace-action="preset"]'); if (owner.layout.mode === 'classic') preset.value = 'Classic'; else if (preset.value === 'Classic') preset.value = 'Workspace'; owner.root.dataset.workspaceMode = owner.layout.mode; owner.root.dataset.workspaceContext=owner.context||'play';
-    owner.root.dataset.editorReflow=String(owner.context==='authoring'&&(['customization','customization-effects','customization-rules'].some(id=>parseFloat(getComputedStyle(registry.get(id)?.node||owner.root).fontSize)>20)||window.innerWidth/presentationScale()<1100));
+    ['left','center','right'].forEach((d,i) => setStyle(owner.board, `--workspace-${d}`, `${owner.layout.columns[i]}fr`));
+    setProp(owner.board, 'hidden', owner.layout.mode === 'classic'); setData(owner.root, 'density', owner.layout.density); setProp(owner.toolbar.querySelector('[data-workspace-action="density"]'), 'value', owner.layout.density);
+    const preset = owner.toolbar.querySelector('[data-workspace-action="preset"]'); if (owner.layout.mode === 'classic') setProp(preset, 'value', 'Classic'); else if (preset.value === 'Classic') preset.value = 'Workspace'; setData(owner.root, 'workspaceMode', owner.layout.mode); setData(owner.root, 'workspaceContext', owner.context||'play');
+    setData(owner.root, 'editorReflow', String(owner.context==='authoring'&&(['customization','customization-effects','customization-rules'].some(id=>parseFloat(getComputedStyle(registry.get(id)?.node||owner.root).fontSize)>20)||window.innerWidth/presentationScale()<1100)));
     if (owner.layout.mode === 'classic') {
         owner.layout.modules.forEach(state => {
             const module = registry.get(state.id); makeShell(module);
@@ -162,7 +169,7 @@ export function updateWorkspace() {
         if (module.node.parentNode !== module.body) module.body.append(module.node);
         const shell = module.shell; const eligible = module.eligible() !== false, known = moduleKnown(module, eligible); labelShell(module, known);
         // Undiscovered shells wait outside the labelled docks, so no dock label or text names them.
-        if (!known) { shell.hidden = true; if (shell.parentNode !== owner.vault) owner.vault.append(shell); syncRestore(module, state, known, eligible, false); return; }
+        if (!known) { setProp(shell, 'hidden', true); if (shell.parentNode !== owner.vault) owner.vault.append(shell); syncRestore(module, state, known, eligible, false); return; }
         // Reach A2 proposal: restore the vital dock only on combat entry, not every render.
         if (state.id === 'combat') {
             if (eligible && !module.wasInCombat) {
@@ -171,32 +178,36 @@ export function updateWorkspace() {
             }
             module.wasInCombat = eligible;
         }
-        shell.hidden = state.hidden || !eligible; shell.classList.toggle('workspace-floating', state.dock === 'float' && !owner.narrow); shell.classList.toggle('workspace-collapsed', state.collapsed);
-        shell.style.setProperty('--workspace-width', `${state.width}px`); shell.style.setProperty('--workspace-height', `${state.height}px`);
-        shell.dataset.pinned = String(state.pinned);
-        shell.querySelectorAll('[data-resize], [data-workspace-action=width], [data-workspace-action=height]').forEach(grip => {grip.disabled=state.pinned;});
-        const available=floatAvailable(); shell.style.setProperty('--workspace-float-max-height', `${Math.max(48,available.bottom-available.top)}px`);
-        const bounds=floatBounds(shell,state.width);
-        shell.style.left = `${Math.max(bounds.left,Math.min(state.x,bounds.right))}px`;
-        shell.style.top = `${Math.max(bounds.top,Math.min(state.y,bounds.bottom))}px`;
-        if(owner.gesture?.kind==='move' && owner.gesture.active && owner.gesture.id===state.id && state.dock==='float') {shell.style.left=`${owner.gesture.x}px`;shell.style.top=`${owner.gesture.y}px`;}
-        if (state.dock !== 'float' || owner.narrow) { shell.style.left = ''; shell.style.top = ''; }
+        const floating = state.dock === 'float' && !owner.narrow;
+        setProp(shell, 'hidden', state.hidden || !eligible); shell.classList.toggle('workspace-floating', floating); shell.classList.toggle('workspace-collapsed', state.collapsed);
+        setStyle(shell, '--workspace-width', `${state.width}px`); setStyle(shell, '--workspace-height', `${state.height}px`);
+        setData(shell, 'pinned', String(state.pinned));
+        shell.querySelectorAll('[data-resize], [data-workspace-action=width], [data-workspace-action=height]').forEach(grip => setProp(grip, 'disabled', state.pinned));
+        // Float bounds read layout, so only floating shells pay for them; docked shells keep no offsets.
+        if (floating) {
+            const available=floatAvailable(); setStyle(shell, '--workspace-float-max-height', `${Math.max(48,available.bottom-available.top)}px`);
+            const bounds=floatBounds(shell,state.width), dragging=owner.gesture?.kind==='move' && owner.gesture.active && owner.gesture.id===state.id;
+            setStyle(shell, 'left', `${dragging ? owner.gesture.x : Math.max(bounds.left,Math.min(state.x,bounds.right))}px`);
+            setStyle(shell, 'top', `${dragging ? owner.gesture.y : Math.max(bounds.top,Math.min(state.y,bounds.bottom))}px`);
+        } else { setStyle(shell, 'left', ''); setStyle(shell, 'top', ''); }
         const d = owner.narrow ? 'center' : state.dock, destination = owner.context==='authoring' && ['current-work','customization-preview'].includes(state.id) ? owner.contextBar : owner.docks[d], key=destination===owner.contextBar?'context':d,index=counts[key]||0;counts[key]=index+1;
         if (destination.children[index] !== shell) destination.insertBefore(shell, destination.children[index] || null);
-        module.body.hidden = state.collapsed;
-        shell.querySelector('.workspace-module-header > strong').setAttribute('aria-expanded', String(!state.collapsed));
-        shell.querySelector('[data-workspace-action="hide"]').disabled = module.critical; shell.querySelector('[data-workspace-action="collapse"]').disabled = module.critical;
-        shell.querySelector('[data-workspace-action="collapse"]').textContent = state.collapsed ? 'Expand' : 'Collapse'; shell.querySelector('[data-workspace-action="collapse"]').setAttribute('aria-expanded', String(!state.collapsed));
-        shell.querySelector('[data-workspace-action="pin"]').textContent = state.pinned ? 'Unpin' : 'Pin'; shell.querySelector('[data-workspace-action="pin"]').setAttribute('aria-pressed', String(state.pinned));
-        shell.querySelector('[data-workspace-action="dock"]').value = state.dock;
-        ['width', 'height'].forEach(d => shell.querySelector(`[data-workspace-action="${d}"]`).value = state[d]);
-        ['handle', 'dock', 'earlier', 'later', 'float-left', 'float-right', 'float-up', 'float-down'].forEach(a => shell.querySelector(`[data-workspace-action="${a}"]`).disabled = state.pinned);
+        setProp(module.body, 'hidden', state.collapsed);
+        setAttr(shell.querySelector('.workspace-module-header > strong'), 'aria-expanded', String(!state.collapsed));
+        const collapse = shell.querySelector('[data-workspace-action="collapse"]'), pin = shell.querySelector('[data-workspace-action="pin"]');
+        setProp(shell.querySelector('[data-workspace-action="hide"]'), 'disabled', module.critical); setProp(collapse, 'disabled', module.critical);
+        setText(collapse, state.collapsed ? 'Expand' : 'Collapse'); setAttr(collapse, 'aria-expanded', String(!state.collapsed));
+        setText(pin, state.pinned ? 'Unpin' : 'Pin'); setAttr(pin, 'aria-pressed', String(state.pinned));
+        setProp(shell.querySelector('[data-workspace-action="dock"]'), 'value', state.dock);
+        ['width', 'height'].forEach(d => setProp(shell.querySelector(`[data-workspace-action="${d}"]`), 'value', String(state[d])));
+        ['handle', 'dock', 'earlier', 'later', 'float-left', 'float-right', 'float-up', 'float-down'].forEach(a => setProp(shell.querySelector(`[data-workspace-action="${a}"]`), 'disabled', state.pinned));
         syncRestore(module, state, known, eligible, false);
     });
     owner.board.querySelectorAll('[data-divider]').forEach(divider=>{
         const index=Number(divider.dataset.divider), share=owner.layout.columns.slice(0,index+1).reduce((a,b)=>a+b,0);
-        divider.style.left=`calc(${share*100}% + ${6+index*12-24*share}px)`;
-        divider.style.top='0px';divider.style.height='100%';
+        const left=`calc(${share*100}% + ${6+index*12-24*share}px)`; // calc() reserializes, so compare what was written
+        if(divider.workspaceLeft!==left){divider.workspaceLeft=left;divider.style.left=left;}
+        setStyle(divider,'top','0px');setStyle(divider,'height','100%');
     });
     if (focused?.isConnected && document.activeElement !== focused && !focused.closest('[hidden]')) focused.focus({ preventScroll: true });
 }
@@ -294,6 +305,8 @@ function watchStartScreen() {
         const open = getComputedStyle(screen).visibility !== 'hidden'; document.documentElement.dataset.startScreen = open ? 'open' : 'closed';
         // The game behind the start screen leaves the tab order until PLAY.
         const game = document.getElementById('main_content'); if (game) game.inert = open;
+        // The title's infinite size animation relaid the page every frame behind the closed screen (E5).
+        const author = document.getElementById('loading_screen_author'); if (author) author.style.animationPlayState = open ? '' : 'paused';
         if (open && !play.classList.contains('none_display') && !play.dataset.focused) { play.dataset.focused = 'true'; play.focus({ preventScroll: true }); }
     };
     const observer = new MutationObserver(sync); observer.observe(screen, { attributes: true, attributeFilter: ['style', 'class'] }); observer.observe(play, { attributes: true, attributeFilter: ['class'] }); sync();
