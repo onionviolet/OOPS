@@ -142,7 +142,7 @@ function refreshConditionRows() {
         const text = conditionText(equipmentDurability, character, item);
         if(!text) { label?.remove(); continue; }
         if(!label) { label = document.createElement('span'); label.dataset.itemCondition = ''; row.append(label); }
-        label.textContent = text;
+        if(label.textContent !== text) label.textContent = text;
     }
 }
 
@@ -1723,8 +1723,13 @@ function update_displayed_trader_inventory({item_key, trader_sorting="name", sor
  * @param {Object} data
  * @param {Boolean} data.is_trade whethere player is in trade, affecting whether displayed price be basic or trade-specific
  */
+// Bumped on every displayed-inventory refresh; native inventory changes all pass
+// through here, so pollers can use it as a cheap change token.
+let inventory_display_revision = 0;
+export function inventoryDisplayRevision() {return inventory_display_revision;}
 function update_displayed_character_inventory({item_key, equip_slot, character_sorting, sorting_direction="asc", was_anything_new_added=false, is_trade=false, skip_sorting=false} = {}) {
     if(deferSimulationRender(update_displayed_character_inventory, () => update_displayed_character_inventory({character_sorting, sorting_direction, is_trade}))) return;
+    inventory_display_revision++;
     if(document.getElementById("crafting_window").style.display === "block") apply_crafting_filter();
     //removal of unneeded divs
 
@@ -1832,33 +1837,41 @@ function update_displayed_character_inventory({item_key, equip_slot, character_s
                 was_anything_new_added = true;
             } else {
                 //in display, just update it
-                let div_count = Number.parseInt(item_divs[inventory_key].getElementsByClassName("item_count")[0].innerText.replace("x",""));
+                // textContent, not innerText: reading innerText after the previous
+                // row's writes forced a layout per row. Rows are written only where
+                // their count, name, tooltip or price actually changed.
+                const count_span = item_divs[inventory_key].getElementsByClassName("item_count")[0];
+                let div_count = Number.parseInt(count_span.textContent.replace("x",""));
                 if(Number.isNaN(div_count)) {
                     div_count = 0;
                 }
                 if(div_count != item_count) {
                     if(item_count > 1) {
-                        item_divs[inventory_key].getElementsByClassName("item_count")[0].innerText = ` x${item_count}`;
+                        count_span.textContent = ` x${item_count}`;
                     } else {
-                        item_divs[inventory_key].getElementsByClassName("item_count")[0].innerText = ``;
+                        count_span.textContent = ``;
                     }
                 }
 
                 // A newly learned identity can change a retained vial row even
                 // when its quantity did not change. Keys/counts stay untouched.
                 const fieldcraft_view=nativeItemView(character.getItems()[inventory_key].item);
-                if(fieldcraft_view.charge!==null){const label=item_divs[inventory_key].querySelector(".item_name");if(label)label.textContent=fieldcraft_view.name;}
+                if(fieldcraft_view.charge!==null){const label=item_divs[inventory_key].querySelector(".item_name");if(label&&label.textContent!==fieldcraft_view.name)label.textContent=fieldcraft_view.name;}
                 //overwrite tooltip (for displayed prices)
                 const tooltip_div = item_divs[inventory_key].querySelector(".item_tooltip");
-                tooltip_div.replaceWith(create_item_tooltip(character.getItems()[inventory_key].item, {}, is_trade));
+                const next_tooltip = create_item_tooltip(character.getItems()[inventory_key].item, {}, is_trade);
+                if(!tooltip_div.isEqualNode(next_tooltip)) tooltip_div.replaceWith(next_tooltip);
 
                 //grab and update price div, do it for all as trading can affect prices of multiple items
                 if(!character.getItems()[inventory_key].item.tags.unsellable) {
                     const price_span = item_divs[inventory_key].getElementsByClassName("item_value")[0];
-                    if(is_trade) {
-                        set_HTML(price_span, `${format_money(round_item_price(character.getItems()[inventory_key].item.getValue({region: current_location.market_region})), true)}`);
-                    } else {
-                        set_HTML(price_span, `${format_money(round_item_price(character.getItems()[inventory_key].item.getBaseValue()), true)}`);
+                    const price_html = is_trade
+                        ? `${format_money(round_item_price(character.getItems()[inventory_key].item.getValue({region: current_location.market_region})), true)}`
+                        : `${format_money(round_item_price(character.getItems()[inventory_key].item.getBaseValue()), true)}`;
+                    if(price_span.__item_value_html !== price_html || price_span.innerHTML !== price_span.__item_value_rendered) {
+                        set_HTML(price_span, price_html);
+                        price_span.__item_value_html = price_html;
+                        price_span.__item_value_rendered = price_span.innerHTML;
                     }
                 }
             }
@@ -4449,8 +4462,6 @@ function update_displayed_reputation() {
 function update_displayed_item_log() {
     if(deferSimulationRender(update_displayed_item_log, () => update_displayed_item_log(...arguments))) return;
 
-    set_HTML(data_entry_divs.item_log,`<div id='item_log_header'>Item log</div>`)
-
     let html_content = "<table id='item_log_table'><tr><th>Item</th><th>Best</th><th>Total</th><th>Known bestiary sources</th></tr>";
 
     Object.values(item_log.items).forEach(item => {
@@ -4483,7 +4494,13 @@ function update_displayed_item_log() {
 
     html_content += "</table>";
 
-    insert_HTML(data_entry_divs.item_log, html_content);
+    // An unchanged log keeps its nodes; a change rebuilds the same markup as before.
+    const log_div = data_entry_divs.item_log;
+    if(log_div.__item_log_html === html_content && log_div.childNodes.length === 2 && log_div.lastChild === log_div.__item_log_table) return;
+    set_HTML(log_div,`<div id='item_log_header'>Item log</div>`)
+    insert_HTML(log_div, html_content);
+    log_div.__item_log_html = html_content;
+    log_div.__item_log_table = log_div.lastChild;
 }
 
 

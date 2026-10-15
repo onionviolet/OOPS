@@ -165,3 +165,23 @@ ER1-B9, interpretation: serialization stayed much cheaper than envelope validati
 | ER1-Q4 | Any future save batching, queue or RNG repair needs its owning compatibility contract and failed-write/save/reload/import proof; no such change was made here. |
 
 Source hash snapshot stayed unchanged across the final audit check for its listed key inputs; see [snapshot](../gm/dispatch/engine-runtime-2026-10-14/ER1/source-snapshot.json). Live shared files can change later. No tests, build, browser play, install, commit or push was run for this read-only lane.
+
+## ER1-F4 / ER1-F8 result, 2026-10-14 night
+
+Branch `claude/wave-g-render-887951` on `7504a1e4`. Details, method and raw rows:
+[wave-g-render RESULTS](../gm/dispatch/engine-perf-2026-10-14/wave-g-render/RESULTS.md).
+MEASURED, dev-stepped, interleaved, host load 100-640:
+
+- Inventory was forcing a layout per row (`innerText` read after the previous
+  row's tooltip replacement) and replacing every tooltip each publication:
+  65-90 ms and 1154 nodes churned per tick on crowded. Now 2-4 ms and 0 nodes.
+- Expedition, village, chronicle, work ledger, item log: state JSON signatures
+  replaced by state identity/sequence/clock (chronicle keeps its exact signature),
+  changed-row DOM sync. Churn 38/44/4 nodes per tick → 0/2/0. Panel text, textContent
+  and outerHTML byte-identical to base at fixed ticks and after interactions.
+- The structured pack's 250 ms poll (80-160 ms per tick on crowded, all in
+  `main.js` `readStructuredCampaign`) remains until lane A applies the
+  [proposed patch](../gm/dispatch/engine-perf-2026-10-14/wave-g-render/LANE_A_PATCH.md).
+  Owned-module time per tick, this branch alone: crowded 0.58-0.73x, developed
+  0.53-1.13x (structured dominates). With the patch (scratch build): crowded
+  0.03-0.05x, developed 0.19-0.30x.
