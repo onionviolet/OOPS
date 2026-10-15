@@ -13,7 +13,7 @@ UI redesign remain deferred. No mechanics or taste decisions are introduced.
 | S2 planning reads | Explicit frame passed through existing native, expedition, feature and campaign builders; local to one unchanged `render:false` planning phase. Read-only contexts share snapshots; amended actor contexts receive independent copies. Clears before staging bindings, life-owner entry and native/expansion publication. Ordinary native clock planning can carry the same frame to persistence before those boundaries. | `87a957a2`, `97aa7041` |
 | S3 P00 panels | Adds tranche-four, growth, training, Mistglass and harvest to the existing deferred-render batch. Household, living gear, combat options and exposure were already present at this base and are retained. Storylets render through the batched parent simulation panel. | `9cae94a0` |
 | S4 retirement traversal | Final profiling retained save preparation as a cost. Suppressed-render traversal reuses a path cursor and copies only paths actually retained. Keeps input detachment, ordered retirement entries, failure behavior and all checks. | `93c7291d` |
-| S5 further validator caching | Rejected for this lane: mutable envelope validation and durable native writes still dominate; caching or skipping them would weaken current save/transaction guarantees. No gameplay or save-byte change made to chase the target. | Report only |
+| S5 further validator/checkpoint caching | Rejected for this lane: mutable envelope validation and durable native writes still dominate; caching or skipping them would weaken current save/transaction guarantees. No gameplay or save-byte change made to chase the target. | Report only |
 
 F1. Optional-domain absence, save schemas and migration behavior are unchanged.
 No player save was touched. An enrolled save still makes one authority commit,
@@ -45,7 +45,11 @@ F3. Final idle profile: 1000 ticks in 6866.5 ms. Inclusive costs are overlapping
 `persistExpansionPlan` 3344.49 ms, `validateSaveEnvelope` 1454.72 ms,
 `featureWaveContext` 1157.31 ms and `simulationNativeContexts` 953.96 ms.
 [Final resolved profile](../checks/stepper-perf/after-profile-top.json) and raw
-Chrome captures preserve the evidence. Durable writes/full validation remain
+Chrome captures preserve the evidence. The final 200-tick combat profile identifies
+native transaction `capture` as the largest self cost (1101.37 ms). It snapshots
+mutable descriptors for failed-strike rollback; caching those snapshots or
+skipping its owner set would change failure guarantees, so it was not altered.
+Durable writes/full validation remain
 mandatory; they cannot be certified within a 1 ms budget on this measured host.
 
 ## Verification

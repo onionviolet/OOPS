@@ -16,7 +16,9 @@ V2. `after.cpuprofile` is the final 1000-tick idle Chrome CDP profile at a
 source map. Inclusive timings overlap. Intermediate profiles: `s1` after the
 native object adapter; `s2` the discarded all-context-copy variant; `s2-shared`
 after sharing read-only snapshots; `s3` after the missing panels were batched.
-Do not compare their wall times as isolated speed trials.
+Do not compare their wall times as isolated speed trials. `combat-after.cpuprofile`
+is the final 200-tick combat capture; native rollback descriptor capture dominates
+its self time. Mutable rollback checkpoints were not cached or narrowed.
 
 V3. `equivalence.json` records seven baseline-native-timer versus candidate
 stepper comparisons, including the next resumed live tick and a household
