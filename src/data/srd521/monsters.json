@@ -1,0 +1,2297 @@
+[
+  {
+    "schema": 1,
+    "id": "srd521.monster.cat",
+    "kind": "monster",
+    "name": "Cat",
+    "revision": 1,
+    "source": {
+      "document": "SRD",
+      "edition": "5.2.1",
+      "heading": "Monsters / Cat",
+      "page": 346,
+      "url": "https://www.dndbeyond.com/srd",
+      "textSha256": "4456eaa81743ed341c13f19d1d7ced344a6adcbb15367941875ee45cd3f2e562"
+    },
+    "licence": "CC-BY-4.0",
+    "attribution": "This work includes material from the System Reference Document 5.2.1 (“SRD 5.2.1”) by Wizards of the Coast LLC, available at https://www.dndbeyond.com/srd. The SRD 5.2.1 is licensed under the Creative Commons Attribution 4.0 International License, available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+    "status": "needs_ruling",
+    "rulings": [
+      {
+        "id": "srd521.monster.cat.q1",
+        "question": "How does the movement adapter substitute Dexterity for Strength when calculating Cat jump distance?"
+      }
+    ],
+    "unmodeled": [
+      "Dexterity-based jump distance is not typed."
+    ],
+    "function": {
+      "doesWhat": [
+        "creature_attacks"
+      ],
+      "carrier": "creature",
+      "needs": [],
+      "scale": {
+        "basis": "challenge_rating",
+        "steps": []
+      }
+    },
+    "effects": [
+      {
+        "id": "scratch",
+        "target": {
+          "kind": "creature",
+          "count": 1,
+          "disposition": "any",
+          "requiresSight": false,
+          "sizes": [],
+          "creatureTypes": []
+        },
+        "area": null,
+        "range": {
+          "kind": "distance",
+          "feet": 5,
+          "longFeet": 5
+        },
+        "castingTime": {
+          "unit": "action",
+          "value": 1,
+          "trigger": null,
+          "ritual": false
+        },
+        "resolution": {
+          "kind": "attack",
+          "mode": "melee",
+          "bonus": 4
+        },
+        "damage": [
+          {
+            "type": "slashing",
+            "dice": {
+              "count": 0,
+              "sides": 4,
+              "bonus": 1,
+              "ability": null
+            },
+            "instances": 1
+          }
+        ],
+        "healing": null,
+        "conditions": [],
+        "duration": {
+          "unit": "instant",
+          "value": 0,
+          "ends": []
+        },
+        "concentration": false,
+        "components": {
+          "verbal": false,
+          "somatic": false,
+          "materials": []
+        },
+        "rules": [],
+        "notes": [
+          "Scratch"
+        ]
+      }
+    ],
+    "monster": {
+      "cr": "0",
+      "sizes": [
+        "tiny"
+      ],
+      "type": "beast",
+      "alignment": "unaligned",
+      "ac": 12,
+      "hp": {
+        "average": 2,
+        "dice": {
+          "count": 1,
+          "sides": 4,
+          "bonus": 0,
+          "ability": null
+        }
+      },
+      "initiative": 2,
+      "abilities": {
+        "str": {
+          "score": 3,
+          "save": -4
+        },
+        "dex": {
+          "score": 15,
+          "save": 4
+        },
+        "con": {
+          "score": 10,
+          "save": 0
+        },
+        "int": {
+          "score": 3,
+          "save": -4
+        },
+        "wis": {
+          "score": 12,
+          "save": 1
+        },
+        "cha": {
+          "score": 7,
+          "save": -2
+        }
+      },
+      "speed": [
+        {
+          "mode": "walk",
+          "feet": 40
+        },
+        {
+          "mode": "climb",
+          "feet": 40
+        }
+      ],
+      "skills": [
+        {
+          "name": "perception",
+          "bonus": 3
+        },
+        {
+          "name": "stealth",
+          "bonus": 4
+        }
+      ],
+      "senses": {
+        "passivePerception": 13,
+        "darkvision": 60,
+        "blindsight": 0
+      },
+      "languages": [],
+      "gear": [],
+      "immunities": [],
+      "multiattack": [],
+      "recharge": [],
+      "xp": 10,
+      "proficiencyBonus": 2
+    }
+  },
+  {
+    "schema": 1,
+    "id": "srd521.monster.bandit",
+    "kind": "monster",
+    "name": "Bandit",
+    "revision": 1,
+    "source": {
+      "document": "SRD",
+      "edition": "5.2.1",
+      "heading": "Monsters / Bandit",
+      "page": 261,
+      "url": "https://www.dndbeyond.com/srd",
+      "textSha256": "4456eaa81743ed341c13f19d1d7ced344a6adcbb15367941875ee45cd3f2e562"
+    },
+    "licence": "CC-BY-4.0",
+    "attribution": "This work includes material from the System Reference Document 5.2.1 (“SRD 5.2.1”) by Wizards of the Coast LLC, available at https://www.dndbeyond.com/srd. The SRD 5.2.1 is licensed under the Creative Commons Attribution 4.0 International License, available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+    "status": "supported",
+    "rulings": [],
+    "unmodeled": [],
+    "function": {
+      "doesWhat": [
+        "creature_attacks"
+      ],
+      "carrier": "creature",
+      "needs": [],
+      "scale": {
+        "basis": "challenge_rating",
+        "steps": []
+      }
+    },
+    "effects": [
+      {
+        "id": "scimitar",
+        "target": {
+          "kind": "creature",
+          "count": 1,
+          "disposition": "any",
+          "requiresSight": false,
+          "sizes": [],
+          "creatureTypes": []
+        },
+        "area": null,
+        "range": {
+          "kind": "distance",
+          "feet": 5,
+          "longFeet": 5
+        },
+        "castingTime": {
+          "unit": "action",
+          "value": 1,
+          "trigger": null,
+          "ritual": false
+        },
+        "resolution": {
+          "kind": "attack",
+          "mode": "melee",
+          "bonus": 3
+        },
+        "damage": [
+          {
+            "type": "slashing",
+            "dice": {
+              "count": 1,
+              "sides": 6,
+              "bonus": 1,
+              "ability": null
+            },
+            "instances": 1
+          }
+        ],
+        "healing": null,
+        "conditions": [],
+        "duration": {
+          "unit": "instant",
+          "value": 0,
+          "ends": []
+        },
+        "concentration": false,
+        "components": {
+          "verbal": false,
+          "somatic": false,
+          "materials": []
+        },
+        "rules": [],
+        "notes": [
+          "Scimitar"
+        ]
+      },
+      {
+        "id": "light_crossbow",
+        "target": {
+          "kind": "creature",
+          "count": 1,
+          "disposition": "any",
+          "requiresSight": false,
+          "sizes": [],
+          "creatureTypes": []
+        },
+        "area": null,
+        "range": {
+          "kind": "distance",
+          "feet": 80,
+          "longFeet": 320
+        },
+        "castingTime": {
+          "unit": "action",
+          "value": 1,
+          "trigger": null,
+          "ritual": false
+        },
+        "resolution": {
+          "kind": "attack",
+          "mode": "ranged",
+          "bonus": 3
+        },
+        "damage": [
+          {
+            "type": "piercing",
+            "dice": {
+              "count": 1,
+              "sides": 8,
+              "bonus": 1,
+              "ability": null
+            },
+            "instances": 1
+          }
+        ],
+        "healing": null,
+        "conditions": [],
+        "duration": {
+          "unit": "instant",
+          "value": 0,
+          "ends": []
+        },
+        "concentration": false,
+        "components": {
+          "verbal": false,
+          "somatic": false,
+          "materials": []
+        },
+        "rules": [],
+        "notes": [
+          "Light Crossbow"
+        ]
+      }
+    ],
+    "monster": {
+      "cr": "1/8",
+      "sizes": [
+        "medium",
+        "small"
+      ],
+      "type": "humanoid",
+      "alignment": "neutral",
+      "ac": 12,
+      "hp": {
+        "average": 11,
+        "dice": {
+          "count": 2,
+          "sides": 8,
+          "bonus": 2,
+          "ability": null
+        }
+      },
+      "initiative": 1,
+      "abilities": {
+        "str": {
+          "score": 11,
+          "save": 0
+        },
+        "dex": {
+          "score": 12,
+          "save": 1
+        },
+        "con": {
+          "score": 12,
+          "save": 1
+        },
+        "int": {
+          "score": 10,
+          "save": 0
+        },
+        "wis": {
+          "score": 10,
+          "save": 0
+        },
+        "cha": {
+          "score": 10,
+          "save": 0
+        }
+      },
+      "speed": [
+        {
+          "mode": "walk",
+          "feet": 30
+        }
+      ],
+      "skills": [],
+      "senses": {
+        "passivePerception": 10,
+        "darkvision": 0,
+        "blindsight": 0
+      },
+      "languages": [
+        "common",
+        "thieves_cant"
+      ],
+      "gear": [
+        "leather_armor",
+        "light_crossbow",
+        "scimitar"
+      ],
+      "immunities": [],
+      "multiattack": [],
+      "recharge": [],
+      "xp": 25,
+      "proficiencyBonus": 2
+    }
+  },
+  {
+    "schema": 1,
+    "id": "srd521.monster.wolf",
+    "kind": "monster",
+    "name": "Wolf",
+    "revision": 1,
+    "source": {
+      "document": "SRD",
+      "edition": "5.2.1",
+      "heading": "Monsters / Wolf",
+      "page": 364,
+      "url": "https://www.dndbeyond.com/srd",
+      "textSha256": "4456eaa81743ed341c13f19d1d7ced344a6adcbb15367941875ee45cd3f2e562"
+    },
+    "licence": "CC-BY-4.0",
+    "attribution": "This work includes material from the System Reference Document 5.2.1 (“SRD 5.2.1”) by Wizards of the Coast LLC, available at https://www.dndbeyond.com/srd. The SRD 5.2.1 is licensed under the Creative Commons Attribution 4.0 International License, available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+    "status": "needs_ruling",
+    "rulings": [
+      {
+        "id": "srd521.monster.wolf.q1",
+        "question": "How will the predicate adapter require both a hit and eligible size for Prone, and a nearby non-Incapacitated ally for Pack Tactics?"
+      }
+    ],
+    "unmodeled": [
+      "Compound hit-and-size condition and Pack Tactics ally eligibility require predicates."
+    ],
+    "function": {
+      "doesWhat": [
+        "creature_attacks"
+      ],
+      "carrier": "creature",
+      "needs": [],
+      "scale": {
+        "basis": "challenge_rating",
+        "steps": []
+      }
+    },
+    "effects": [
+      {
+        "id": "bite",
+        "target": {
+          "kind": "creature",
+          "count": 1,
+          "disposition": "any",
+          "requiresSight": false,
+          "sizes": [],
+          "creatureTypes": []
+        },
+        "area": null,
+        "range": {
+          "kind": "distance",
+          "feet": 5,
+          "longFeet": 5
+        },
+        "castingTime": {
+          "unit": "action",
+          "value": 1,
+          "trigger": null,
+          "ritual": false
+        },
+        "resolution": {
+          "kind": "attack",
+          "mode": "melee",
+          "bonus": 4
+        },
+        "damage": [
+          {
+            "type": "piercing",
+            "dice": {
+              "count": 1,
+              "sides": 6,
+              "bonus": 2,
+              "ability": null
+            },
+            "instances": 1
+          }
+        ],
+        "healing": null,
+        "conditions": [
+          {
+            "id": "prone",
+            "operation": "apply",
+            "when": "target_medium_or_smaller",
+            "duration": {
+              "unit": "source",
+              "value": 0,
+              "ends": []
+            }
+          }
+        ],
+        "duration": {
+          "unit": "instant",
+          "value": 0,
+          "ends": []
+        },
+        "concentration": false,
+        "components": {
+          "verbal": false,
+          "somatic": false,
+          "materials": []
+        },
+        "rules": [],
+        "notes": [
+          "Bite",
+          "Prone applies only on a hit against a Medium or smaller creature. Pack Tactics: advantage if a non-Incapacitated ally is within 5 feet of the target."
+        ]
+      }
+    ],
+    "monster": {
+      "cr": "1/4",
+      "sizes": [
+        "medium"
+      ],
+      "type": "beast",
+      "alignment": "unaligned",
+      "ac": 12,
+      "hp": {
+        "average": 11,
+        "dice": {
+          "count": 2,
+          "sides": 8,
+          "bonus": 2,
+          "ability": null
+        }
+      },
+      "initiative": 2,
+      "abilities": {
+        "str": {
+          "score": 14,
+          "save": 2
+        },
+        "dex": {
+          "score": 15,
+          "save": 2
+        },
+        "con": {
+          "score": 12,
+          "save": 1
+        },
+        "int": {
+          "score": 3,
+          "save": -4
+        },
+        "wis": {
+          "score": 12,
+          "save": 1
+        },
+        "cha": {
+          "score": 6,
+          "save": -2
+        }
+      },
+      "speed": [
+        {
+          "mode": "walk",
+          "feet": 40
+        }
+      ],
+      "skills": [
+        {
+          "name": "perception",
+          "bonus": 5
+        },
+        {
+          "name": "stealth",
+          "bonus": 4
+        }
+      ],
+      "senses": {
+        "passivePerception": 15,
+        "darkvision": 60,
+        "blindsight": 0
+      },
+      "languages": [],
+      "gear": [],
+      "immunities": [],
+      "multiattack": [],
+      "recharge": [],
+      "xp": 50,
+      "proficiencyBonus": 2
+    }
+  },
+  {
+    "schema": 1,
+    "id": "srd521.monster.black_bear",
+    "kind": "monster",
+    "name": "Black Bear",
+    "revision": 1,
+    "source": {
+      "document": "SRD",
+      "edition": "5.2.1",
+      "heading": "Monsters / Black Bear",
+      "page": 345,
+      "url": "https://www.dndbeyond.com/srd",
+      "textSha256": "4456eaa81743ed341c13f19d1d7ced344a6adcbb15367941875ee45cd3f2e562"
+    },
+    "licence": "CC-BY-4.0",
+    "attribution": "This work includes material from the System Reference Document 5.2.1 (“SRD 5.2.1”) by Wizards of the Coast LLC, available at https://www.dndbeyond.com/srd. The SRD 5.2.1 is licensed under the Creative Commons Attribution 4.0 International License, available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+    "status": "supported",
+    "rulings": [],
+    "unmodeled": [],
+    "function": {
+      "doesWhat": [
+        "creature_attacks"
+      ],
+      "carrier": "creature",
+      "needs": [],
+      "scale": {
+        "basis": "challenge_rating",
+        "steps": []
+      }
+    },
+    "effects": [
+      {
+        "id": "rend",
+        "target": {
+          "kind": "creature",
+          "count": 1,
+          "disposition": "any",
+          "requiresSight": false,
+          "sizes": [],
+          "creatureTypes": []
+        },
+        "area": null,
+        "range": {
+          "kind": "distance",
+          "feet": 5,
+          "longFeet": 5
+        },
+        "castingTime": {
+          "unit": "action",
+          "value": 1,
+          "trigger": null,
+          "ritual": false
+        },
+        "resolution": {
+          "kind": "attack",
+          "mode": "melee",
+          "bonus": 4
+        },
+        "damage": [
+          {
+            "type": "slashing",
+            "dice": {
+              "count": 1,
+              "sides": 6,
+              "bonus": 2,
+              "ability": null
+            },
+            "instances": 1
+          }
+        ],
+        "healing": null,
+        "conditions": [],
+        "duration": {
+          "unit": "instant",
+          "value": 0,
+          "ends": []
+        },
+        "concentration": false,
+        "components": {
+          "verbal": false,
+          "somatic": false,
+          "materials": []
+        },
+        "rules": [],
+        "notes": [
+          "Rend"
+        ]
+      }
+    ],
+    "monster": {
+      "cr": "1/2",
+      "sizes": [
+        "medium"
+      ],
+      "type": "beast",
+      "alignment": "unaligned",
+      "ac": 11,
+      "hp": {
+        "average": 19,
+        "dice": {
+          "count": 3,
+          "sides": 8,
+          "bonus": 6,
+          "ability": null
+        }
+      },
+      "initiative": 1,
+      "abilities": {
+        "str": {
+          "score": 15,
+          "save": 2
+        },
+        "dex": {
+          "score": 12,
+          "save": 1
+        },
+        "con": {
+          "score": 14,
+          "save": 2
+        },
+        "int": {
+          "score": 2,
+          "save": -4
+        },
+        "wis": {
+          "score": 12,
+          "save": 1
+        },
+        "cha": {
+          "score": 7,
+          "save": -2
+        }
+      },
+      "speed": [
+        {
+          "mode": "walk",
+          "feet": 30
+        },
+        {
+          "mode": "climb",
+          "feet": 30
+        },
+        {
+          "mode": "swim",
+          "feet": 30
+        }
+      ],
+      "skills": [
+        {
+          "name": "perception",
+          "bonus": 5
+        }
+      ],
+      "senses": {
+        "passivePerception": 15,
+        "darkvision": 60,
+        "blindsight": 0
+      },
+      "languages": [],
+      "gear": [],
+      "immunities": [],
+      "multiattack": [
+        {
+          "effectId": "rend",
+          "count": 2
+        }
+      ],
+      "recharge": [],
+      "xp": 100,
+      "proficiencyBonus": 2
+    }
+  },
+  {
+    "schema": 1,
+    "id": "srd521.monster.brown_bear",
+    "kind": "monster",
+    "name": "Brown Bear",
+    "revision": 1,
+    "source": {
+      "document": "SRD",
+      "edition": "5.2.1",
+      "heading": "Monsters / Brown Bear",
+      "page": 346,
+      "url": "https://www.dndbeyond.com/srd",
+      "textSha256": "4456eaa81743ed341c13f19d1d7ced344a6adcbb15367941875ee45cd3f2e562"
+    },
+    "licence": "CC-BY-4.0",
+    "attribution": "This work includes material from the System Reference Document 5.2.1 (“SRD 5.2.1”) by Wizards of the Coast LLC, available at https://www.dndbeyond.com/srd. The SRD 5.2.1 is licensed under the Creative Commons Attribution 4.0 International License, available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+    "status": "needs_ruling",
+    "rulings": [
+      {
+        "id": "srd521.monster.brown_bear.q1",
+        "question": "How will the condition predicate require both a hit and a Large-or-smaller creature before granting Prone?"
+      }
+    ],
+    "unmodeled": [
+      "Compound hit-and-size predicate is not typed."
+    ],
+    "function": {
+      "doesWhat": [
+        "creature_attacks"
+      ],
+      "carrier": "creature",
+      "needs": [],
+      "scale": {
+        "basis": "challenge_rating",
+        "steps": []
+      }
+    },
+    "effects": [
+      {
+        "id": "bite",
+        "target": {
+          "kind": "creature",
+          "count": 1,
+          "disposition": "any",
+          "requiresSight": false,
+          "sizes": [],
+          "creatureTypes": []
+        },
+        "area": null,
+        "range": {
+          "kind": "distance",
+          "feet": 5,
+          "longFeet": 5
+        },
+        "castingTime": {
+          "unit": "action",
+          "value": 1,
+          "trigger": null,
+          "ritual": false
+        },
+        "resolution": {
+          "kind": "attack",
+          "mode": "melee",
+          "bonus": 5
+        },
+        "damage": [
+          {
+            "type": "piercing",
+            "dice": {
+              "count": 1,
+              "sides": 8,
+              "bonus": 3,
+              "ability": null
+            },
+            "instances": 1
+          }
+        ],
+        "healing": null,
+        "conditions": [],
+        "duration": {
+          "unit": "instant",
+          "value": 0,
+          "ends": []
+        },
+        "concentration": false,
+        "components": {
+          "verbal": false,
+          "somatic": false,
+          "materials": []
+        },
+        "rules": [],
+        "notes": [
+          "Bite"
+        ]
+      },
+      {
+        "id": "claw",
+        "target": {
+          "kind": "creature",
+          "count": 1,
+          "disposition": "any",
+          "requiresSight": false,
+          "sizes": [],
+          "creatureTypes": []
+        },
+        "area": null,
+        "range": {
+          "kind": "distance",
+          "feet": 5,
+          "longFeet": 5
+        },
+        "castingTime": {
+          "unit": "action",
+          "value": 1,
+          "trigger": null,
+          "ritual": false
+        },
+        "resolution": {
+          "kind": "attack",
+          "mode": "melee",
+          "bonus": 5
+        },
+        "damage": [
+          {
+            "type": "slashing",
+            "dice": {
+              "count": 1,
+              "sides": 4,
+              "bonus": 3,
+              "ability": null
+            },
+            "instances": 1
+          }
+        ],
+        "healing": null,
+        "conditions": [
+          {
+            "id": "prone",
+            "operation": "apply",
+            "when": "target_large_or_smaller",
+            "duration": {
+              "unit": "source",
+              "value": 0,
+              "ends": []
+            }
+          }
+        ],
+        "duration": {
+          "unit": "instant",
+          "value": 0,
+          "ends": []
+        },
+        "concentration": false,
+        "components": {
+          "verbal": false,
+          "somatic": false,
+          "materials": []
+        },
+        "rules": [],
+        "notes": [
+          "Claw",
+          "Prone only on a hit against a Large or smaller creature."
+        ]
+      }
+    ],
+    "monster": {
+      "cr": "1",
+      "sizes": [
+        "large"
+      ],
+      "type": "beast",
+      "alignment": "unaligned",
+      "ac": 11,
+      "hp": {
+        "average": 22,
+        "dice": {
+          "count": 3,
+          "sides": 10,
+          "bonus": 6,
+          "ability": null
+        }
+      },
+      "initiative": 1,
+      "abilities": {
+        "str": {
+          "score": 17,
+          "save": 3
+        },
+        "dex": {
+          "score": 12,
+          "save": 1
+        },
+        "con": {
+          "score": 15,
+          "save": 2
+        },
+        "int": {
+          "score": 2,
+          "save": -4
+        },
+        "wis": {
+          "score": 13,
+          "save": 1
+        },
+        "cha": {
+          "score": 7,
+          "save": -2
+        }
+      },
+      "speed": [
+        {
+          "mode": "walk",
+          "feet": 40
+        },
+        {
+          "mode": "climb",
+          "feet": 30
+        }
+      ],
+      "skills": [
+        {
+          "name": "perception",
+          "bonus": 3
+        }
+      ],
+      "senses": {
+        "passivePerception": 13,
+        "darkvision": 60,
+        "blindsight": 0
+      },
+      "languages": [],
+      "gear": [],
+      "immunities": [],
+      "multiattack": [
+        {
+          "effectId": "bite",
+          "count": 1
+        },
+        {
+          "effectId": "claw",
+          "count": 1
+        }
+      ],
+      "recharge": [],
+      "xp": 200,
+      "proficiencyBonus": 2
+    }
+  },
+  {
+    "schema": 1,
+    "id": "srd521.monster.ogre",
+    "kind": "monster",
+    "name": "Ogre",
+    "revision": 1,
+    "source": {
+      "document": "SRD",
+      "edition": "5.2.1",
+      "heading": "Monsters / Ogre",
+      "page": 312,
+      "url": "https://www.dndbeyond.com/srd",
+      "textSha256": "4456eaa81743ed341c13f19d1d7ced344a6adcbb15367941875ee45cd3f2e562"
+    },
+    "licence": "CC-BY-4.0",
+    "attribution": "This work includes material from the System Reference Document 5.2.1 (“SRD 5.2.1”) by Wizards of the Coast LLC, available at https://www.dndbeyond.com/srd. The SRD 5.2.1 is licensed under the Creative Commons Attribution 4.0 International License, available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+    "status": "needs_ruling",
+    "rulings": [
+      {
+        "id": "srd521.monster.ogre.q1",
+        "question": "How will melee and thrown Javelin use share the same three actual javelins, including recovery after throwing?"
+      }
+    ],
+    "unmodeled": [
+      "Shared finite javelin ammunition and recovery are not stock-bound."
+    ],
+    "function": {
+      "doesWhat": [
+        "creature_attacks"
+      ],
+      "carrier": "creature",
+      "needs": [],
+      "scale": {
+        "basis": "challenge_rating",
+        "steps": []
+      }
+    },
+    "effects": [
+      {
+        "id": "greatclub",
+        "target": {
+          "kind": "creature",
+          "count": 1,
+          "disposition": "any",
+          "requiresSight": false,
+          "sizes": [],
+          "creatureTypes": []
+        },
+        "area": null,
+        "range": {
+          "kind": "distance",
+          "feet": 5,
+          "longFeet": 5
+        },
+        "castingTime": {
+          "unit": "action",
+          "value": 1,
+          "trigger": null,
+          "ritual": false
+        },
+        "resolution": {
+          "kind": "attack",
+          "mode": "melee",
+          "bonus": 6
+        },
+        "damage": [
+          {
+            "type": "bludgeoning",
+            "dice": {
+              "count": 2,
+              "sides": 8,
+              "bonus": 4,
+              "ability": null
+            },
+            "instances": 1
+          }
+        ],
+        "healing": null,
+        "conditions": [],
+        "duration": {
+          "unit": "instant",
+          "value": 0,
+          "ends": []
+        },
+        "concentration": false,
+        "components": {
+          "verbal": false,
+          "somatic": false,
+          "materials": []
+        },
+        "rules": [],
+        "notes": [
+          "Greatclub"
+        ]
+      },
+      {
+        "id": "javelin_melee",
+        "target": {
+          "kind": "creature",
+          "count": 1,
+          "disposition": "any",
+          "requiresSight": false,
+          "sizes": [],
+          "creatureTypes": []
+        },
+        "area": null,
+        "range": {
+          "kind": "distance",
+          "feet": 5,
+          "longFeet": 5
+        },
+        "castingTime": {
+          "unit": "action",
+          "value": 1,
+          "trigger": null,
+          "ritual": false
+        },
+        "resolution": {
+          "kind": "attack",
+          "mode": "melee",
+          "bonus": 6
+        },
+        "damage": [
+          {
+            "type": "piercing",
+            "dice": {
+              "count": 2,
+              "sides": 6,
+              "bonus": 4,
+              "ability": null
+            },
+            "instances": 1
+          }
+        ],
+        "healing": null,
+        "conditions": [],
+        "duration": {
+          "unit": "instant",
+          "value": 0,
+          "ends": []
+        },
+        "concentration": false,
+        "components": {
+          "verbal": false,
+          "somatic": false,
+          "materials": []
+        },
+        "rules": [],
+        "notes": [
+          "Javelin (melee)"
+        ]
+      },
+      {
+        "id": "javelin_ranged",
+        "target": {
+          "kind": "creature",
+          "count": 1,
+          "disposition": "any",
+          "requiresSight": false,
+          "sizes": [],
+          "creatureTypes": []
+        },
+        "area": null,
+        "range": {
+          "kind": "distance",
+          "feet": 30,
+          "longFeet": 120
+        },
+        "castingTime": {
+          "unit": "action",
+          "value": 1,
+          "trigger": null,
+          "ritual": false
+        },
+        "resolution": {
+          "kind": "attack",
+          "mode": "ranged",
+          "bonus": 6
+        },
+        "damage": [
+          {
+            "type": "piercing",
+            "dice": {
+              "count": 2,
+              "sides": 6,
+              "bonus": 4,
+              "ability": null
+            },
+            "instances": 1
+          }
+        ],
+        "healing": null,
+        "conditions": [],
+        "duration": {
+          "unit": "instant",
+          "value": 0,
+          "ends": []
+        },
+        "concentration": false,
+        "components": {
+          "verbal": false,
+          "somatic": false,
+          "materials": []
+        },
+        "rules": [],
+        "notes": [
+          "Javelin (ranged)"
+        ]
+      }
+    ],
+    "monster": {
+      "cr": "2",
+      "sizes": [
+        "large"
+      ],
+      "type": "giant",
+      "alignment": "chaotic_evil",
+      "ac": 11,
+      "hp": {
+        "average": 68,
+        "dice": {
+          "count": 8,
+          "sides": 10,
+          "bonus": 24,
+          "ability": null
+        }
+      },
+      "initiative": -1,
+      "abilities": {
+        "str": {
+          "score": 19,
+          "save": 4
+        },
+        "dex": {
+          "score": 8,
+          "save": -1
+        },
+        "con": {
+          "score": 16,
+          "save": 3
+        },
+        "int": {
+          "score": 5,
+          "save": -3
+        },
+        "wis": {
+          "score": 7,
+          "save": -2
+        },
+        "cha": {
+          "score": 7,
+          "save": -2
+        }
+      },
+      "speed": [
+        {
+          "mode": "walk",
+          "feet": 40
+        }
+      ],
+      "skills": [],
+      "senses": {
+        "passivePerception": 8,
+        "darkvision": 60,
+        "blindsight": 0
+      },
+      "languages": [
+        "common",
+        "giant"
+      ],
+      "gear": [
+        "greatclub",
+        "javelin_x3"
+      ],
+      "immunities": [],
+      "multiattack": [],
+      "recharge": [],
+      "xp": 450,
+      "proficiencyBonus": 2
+    }
+  },
+  {
+    "schema": 1,
+    "id": "srd521.monster.guard_captain",
+    "kind": "monster",
+    "name": "Guard Captain",
+    "revision": 1,
+    "source": {
+      "document": "SRD",
+      "edition": "5.2.1",
+      "heading": "Monsters / Guard Captain",
+      "page": 296,
+      "url": "https://www.dndbeyond.com/srd",
+      "textSha256": "4456eaa81743ed341c13f19d1d7ced344a6adcbb15367941875ee45cd3f2e562"
+    },
+    "licence": "CC-BY-4.0",
+    "attribution": "This work includes material from the System Reference Document 5.2.1 (“SRD 5.2.1”) by Wizards of the Coast LLC, available at https://www.dndbeyond.com/srd. The SRD 5.2.1 is licensed under the Creative Commons Attribution 4.0 International License, available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+    "status": "needs_ruling",
+    "rulings": [
+      {
+        "id": "srd521.monster.guard_captain.q1",
+        "question": "How will Multiattack choose two Longsword/Javelin attacks in any combination while sharing six javelins across modes?"
+      }
+    ],
+    "unmodeled": [
+      "Two-attack choice among weapons and finite thrown stock are not typed."
+    ],
+    "function": {
+      "doesWhat": [
+        "creature_attacks"
+      ],
+      "carrier": "creature",
+      "needs": [],
+      "scale": {
+        "basis": "challenge_rating",
+        "steps": []
+      }
+    },
+    "effects": [
+      {
+        "id": "longsword",
+        "target": {
+          "kind": "creature",
+          "count": 1,
+          "disposition": "any",
+          "requiresSight": false,
+          "sizes": [],
+          "creatureTypes": []
+        },
+        "area": null,
+        "range": {
+          "kind": "distance",
+          "feet": 5,
+          "longFeet": 5
+        },
+        "castingTime": {
+          "unit": "action",
+          "value": 1,
+          "trigger": null,
+          "ritual": false
+        },
+        "resolution": {
+          "kind": "attack",
+          "mode": "melee",
+          "bonus": 6
+        },
+        "damage": [
+          {
+            "type": "slashing",
+            "dice": {
+              "count": 2,
+              "sides": 10,
+              "bonus": 4,
+              "ability": null
+            },
+            "instances": 1
+          }
+        ],
+        "healing": null,
+        "conditions": [],
+        "duration": {
+          "unit": "instant",
+          "value": 0,
+          "ends": []
+        },
+        "concentration": false,
+        "components": {
+          "verbal": false,
+          "somatic": false,
+          "materials": []
+        },
+        "rules": [],
+        "notes": [
+          "Longsword",
+          "Multiattack: two Longsword or Javelin attacks in any combination."
+        ]
+      },
+      {
+        "id": "javelin_melee",
+        "target": {
+          "kind": "creature",
+          "count": 1,
+          "disposition": "any",
+          "requiresSight": false,
+          "sizes": [],
+          "creatureTypes": []
+        },
+        "area": null,
+        "range": {
+          "kind": "distance",
+          "feet": 5,
+          "longFeet": 5
+        },
+        "castingTime": {
+          "unit": "action",
+          "value": 1,
+          "trigger": null,
+          "ritual": false
+        },
+        "resolution": {
+          "kind": "attack",
+          "mode": "melee",
+          "bonus": 6
+        },
+        "damage": [
+          {
+            "type": "piercing",
+            "dice": {
+              "count": 3,
+              "sides": 6,
+              "bonus": 4,
+              "ability": null
+            },
+            "instances": 1
+          }
+        ],
+        "healing": null,
+        "conditions": [],
+        "duration": {
+          "unit": "instant",
+          "value": 0,
+          "ends": []
+        },
+        "concentration": false,
+        "components": {
+          "verbal": false,
+          "somatic": false,
+          "materials": []
+        },
+        "rules": [],
+        "notes": [
+          "Javelin (melee)"
+        ]
+      },
+      {
+        "id": "javelin_ranged",
+        "target": {
+          "kind": "creature",
+          "count": 1,
+          "disposition": "any",
+          "requiresSight": false,
+          "sizes": [],
+          "creatureTypes": []
+        },
+        "area": null,
+        "range": {
+          "kind": "distance",
+          "feet": 30,
+          "longFeet": 120
+        },
+        "castingTime": {
+          "unit": "action",
+          "value": 1,
+          "trigger": null,
+          "ritual": false
+        },
+        "resolution": {
+          "kind": "attack",
+          "mode": "ranged",
+          "bonus": 6
+        },
+        "damage": [
+          {
+            "type": "piercing",
+            "dice": {
+              "count": 3,
+              "sides": 6,
+              "bonus": 4,
+              "ability": null
+            },
+            "instances": 1
+          }
+        ],
+        "healing": null,
+        "conditions": [],
+        "duration": {
+          "unit": "instant",
+          "value": 0,
+          "ends": []
+        },
+        "concentration": false,
+        "components": {
+          "verbal": false,
+          "somatic": false,
+          "materials": []
+        },
+        "rules": [],
+        "notes": [
+          "Javelin (ranged)"
+        ]
+      }
+    ],
+    "monster": {
+      "cr": "4",
+      "sizes": [
+        "medium",
+        "small"
+      ],
+      "type": "humanoid",
+      "alignment": "neutral",
+      "ac": 18,
+      "hp": {
+        "average": 75,
+        "dice": {
+          "count": 10,
+          "sides": 8,
+          "bonus": 30,
+          "ability": null
+        }
+      },
+      "initiative": 4,
+      "abilities": {
+        "str": {
+          "score": 18,
+          "save": 4
+        },
+        "dex": {
+          "score": 14,
+          "save": 2
+        },
+        "con": {
+          "score": 16,
+          "save": 3
+        },
+        "int": {
+          "score": 12,
+          "save": 1
+        },
+        "wis": {
+          "score": 14,
+          "save": 2
+        },
+        "cha": {
+          "score": 13,
+          "save": 1
+        }
+      },
+      "speed": [
+        {
+          "mode": "walk",
+          "feet": 30
+        }
+      ],
+      "skills": [
+        {
+          "name": "athletics",
+          "bonus": 6
+        },
+        {
+          "name": "perception",
+          "bonus": 4
+        }
+      ],
+      "senses": {
+        "passivePerception": 14,
+        "darkvision": 0,
+        "blindsight": 0
+      },
+      "languages": [
+        "common"
+      ],
+      "gear": [
+        "breastplate",
+        "javelin_x6",
+        "longsword",
+        "shield"
+      ],
+      "immunities": [],
+      "multiattack": [],
+      "recharge": [],
+      "xp": 1100,
+      "proficiencyBonus": 2
+    }
+  },
+  {
+    "schema": 1,
+    "id": "srd521.monster.hill_giant",
+    "kind": "monster",
+    "name": "Hill Giant",
+    "revision": 1,
+    "source": {
+      "document": "SRD",
+      "edition": "5.2.1",
+      "heading": "Monsters / Hill Giant",
+      "page": 298,
+      "url": "https://www.dndbeyond.com/srd",
+      "textSha256": "4456eaa81743ed341c13f19d1d7ced344a6adcbb15367941875ee45cd3f2e562"
+    },
+    "licence": "CC-BY-4.0",
+    "attribution": "This work includes material from the System Reference Document 5.2.1 (“SRD 5.2.1”) by Wizards of the Coast LLC, available at https://www.dndbeyond.com/srd. The SRD 5.2.1 is licensed under the Creative Commons Attribution 4.0 International License, available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+    "status": "needs_ruling",
+    "rulings": [
+      {
+        "id": "srd521.monster.hill_giant.q1",
+        "question": "How will the adapter choose any two attacks and enforce both hit and size before applying Tree Club Prone?"
+      }
+    ],
+    "unmodeled": [
+      "Multiattack choice and compound hit/size are not typed."
+    ],
+    "function": {
+      "doesWhat": [
+        "creature_attacks"
+      ],
+      "carrier": "creature",
+      "needs": [],
+      "scale": {
+        "basis": "challenge_rating",
+        "steps": []
+      }
+    },
+    "effects": [
+      {
+        "id": "tree_club",
+        "target": {
+          "kind": "creature",
+          "count": 1,
+          "disposition": "any",
+          "requiresSight": false,
+          "sizes": [],
+          "creatureTypes": []
+        },
+        "area": null,
+        "range": {
+          "kind": "distance",
+          "feet": 10,
+          "longFeet": 10
+        },
+        "castingTime": {
+          "unit": "action",
+          "value": 1,
+          "trigger": null,
+          "ritual": false
+        },
+        "resolution": {
+          "kind": "attack",
+          "mode": "melee",
+          "bonus": 8
+        },
+        "damage": [
+          {
+            "type": "bludgeoning",
+            "dice": {
+              "count": 3,
+              "sides": 8,
+              "bonus": 5,
+              "ability": null
+            },
+            "instances": 1
+          }
+        ],
+        "healing": null,
+        "conditions": [
+          {
+            "id": "prone",
+            "operation": "apply",
+            "when": "target_large_or_smaller",
+            "duration": {
+              "unit": "source",
+              "value": 0,
+              "ends": []
+            }
+          }
+        ],
+        "duration": {
+          "unit": "instant",
+          "value": 0,
+          "ends": []
+        },
+        "concentration": false,
+        "components": {
+          "verbal": false,
+          "somatic": false,
+          "materials": []
+        },
+        "rules": [],
+        "notes": [
+          "Tree Club",
+          "Prone only on a hit against a Large or smaller creature. Multiattack: two Tree Club/Trash Lob attacks in any combination."
+        ]
+      },
+      {
+        "id": "trash_lob",
+        "target": {
+          "kind": "creature",
+          "count": 1,
+          "disposition": "any",
+          "requiresSight": false,
+          "sizes": [],
+          "creatureTypes": []
+        },
+        "area": null,
+        "range": {
+          "kind": "distance",
+          "feet": 60,
+          "longFeet": 240
+        },
+        "castingTime": {
+          "unit": "action",
+          "value": 1,
+          "trigger": null,
+          "ritual": false
+        },
+        "resolution": {
+          "kind": "attack",
+          "mode": "ranged",
+          "bonus": 8
+        },
+        "damage": [
+          {
+            "type": "bludgeoning",
+            "dice": {
+              "count": 2,
+              "sides": 10,
+              "bonus": 5,
+              "ability": null
+            },
+            "instances": 1
+          }
+        ],
+        "healing": null,
+        "conditions": [
+          {
+            "id": "poisoned",
+            "operation": "apply",
+            "when": "hit",
+            "duration": {
+              "unit": "round",
+              "value": 1,
+              "ends": [
+                "end_of_target_next_turn"
+              ]
+            }
+          }
+        ],
+        "duration": {
+          "unit": "instant",
+          "value": 0,
+          "ends": []
+        },
+        "concentration": false,
+        "components": {
+          "verbal": false,
+          "somatic": false,
+          "materials": []
+        },
+        "rules": [],
+        "notes": [
+          "Trash Lob"
+        ]
+      }
+    ],
+    "monster": {
+      "cr": "5",
+      "sizes": [
+        "huge"
+      ],
+      "type": "giant",
+      "alignment": "chaotic_evil",
+      "ac": 13,
+      "hp": {
+        "average": 105,
+        "dice": {
+          "count": 10,
+          "sides": 12,
+          "bonus": 40,
+          "ability": null
+        }
+      },
+      "initiative": 2,
+      "abilities": {
+        "str": {
+          "score": 21,
+          "save": 5
+        },
+        "dex": {
+          "score": 8,
+          "save": -1
+        },
+        "con": {
+          "score": 19,
+          "save": 4
+        },
+        "int": {
+          "score": 5,
+          "save": -3
+        },
+        "wis": {
+          "score": 9,
+          "save": -1
+        },
+        "cha": {
+          "score": 6,
+          "save": -2
+        }
+      },
+      "speed": [
+        {
+          "mode": "walk",
+          "feet": 40
+        }
+      ],
+      "skills": [
+        {
+          "name": "perception",
+          "bonus": 2
+        }
+      ],
+      "senses": {
+        "passivePerception": 12,
+        "darkvision": 0,
+        "blindsight": 0
+      },
+      "languages": [
+        "giant"
+      ],
+      "gear": [],
+      "immunities": [],
+      "multiattack": [],
+      "recharge": [],
+      "xp": 1800,
+      "proficiencyBonus": 3
+    }
+  },
+  {
+    "schema": 1,
+    "id": "srd521.monster.troll",
+    "kind": "monster",
+    "name": "Troll",
+    "revision": 1,
+    "source": {
+      "document": "SRD",
+      "edition": "5.2.1",
+      "heading": "Monsters / Troll",
+      "page": 333,
+      "url": "https://www.dndbeyond.com/srd",
+      "textSha256": "4456eaa81743ed341c13f19d1d7ced344a6adcbb15367941875ee45cd3f2e562"
+    },
+    "licence": "CC-BY-4.0",
+    "attribution": "This work includes material from the System Reference Document 5.2.1 (“SRD 5.2.1”) by Wizards of the Coast LLC, available at https://www.dndbeyond.com/srd. The SRD 5.2.1 is licensed under the Creative Commons Attribution 4.0 International License, available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+    "status": "needs_ruling",
+    "rulings": [
+      {
+        "id": "srd521.monster.troll.q1",
+        "question": "Which turn scheduler and body adapter coordinate regeneration suppression, death, four-per-rest limb spawning/Exhaustion and half-Speed Charge?"
+      }
+    ],
+    "unmodeled": [
+      "Regeneration/death ordering, autonomous severed limbs and Charge movement are not typed."
+    ],
+    "function": {
+      "doesWhat": [
+        "creature_attacks"
+      ],
+      "carrier": "creature",
+      "needs": [],
+      "scale": {
+        "basis": "challenge_rating",
+        "steps": []
+      }
+    },
+    "effects": [
+      {
+        "id": "rend",
+        "target": {
+          "kind": "creature",
+          "count": 1,
+          "disposition": "any",
+          "requiresSight": false,
+          "sizes": [],
+          "creatureTypes": []
+        },
+        "area": null,
+        "range": {
+          "kind": "distance",
+          "feet": 10,
+          "longFeet": 10
+        },
+        "castingTime": {
+          "unit": "action",
+          "value": 1,
+          "trigger": null,
+          "ritual": false
+        },
+        "resolution": {
+          "kind": "attack",
+          "mode": "melee",
+          "bonus": 7
+        },
+        "damage": [
+          {
+            "type": "slashing",
+            "dice": {
+              "count": 2,
+              "sides": 6,
+              "bonus": 4,
+              "ability": null
+            },
+            "instances": 1
+          }
+        ],
+        "healing": null,
+        "conditions": [],
+        "duration": {
+          "unit": "instant",
+          "value": 0,
+          "ends": []
+        },
+        "concentration": false,
+        "components": {
+          "verbal": false,
+          "somatic": false,
+          "materials": []
+        },
+        "rules": [],
+        "notes": [
+          "Rend",
+          "Regenerate 15 HP at turn start, suppressed next turn by Acid or Fire. Dies only when starting a turn at zero HP without regeneration. Loathsome Limbs 4/day: end any turn Bloodied after 15+ Slashing damage that turn severs a limb into Troll Limb, acting after troll. One Exhaustion per missing limb; regenerate limbs on next HP gain."
+        ]
+      },
+      {
+        "id": "charge",
+        "target": {
+          "kind": "self",
+          "count": 1,
+          "disposition": "any",
+          "requiresSight": false,
+          "sizes": [],
+          "creatureTypes": []
+        },
+        "area": null,
+        "range": {
+          "kind": "self",
+          "feet": 0,
+          "longFeet": 0
+        },
+        "castingTime": {
+          "unit": "bonus_action",
+          "value": 1,
+          "trigger": null,
+          "ritual": false
+        },
+        "resolution": {
+          "kind": "none"
+        },
+        "damage": [],
+        "healing": null,
+        "conditions": [],
+        "duration": {
+          "unit": "instant",
+          "value": 0,
+          "ends": []
+        },
+        "concentration": false,
+        "components": {
+          "verbal": false,
+          "somatic": false,
+          "materials": []
+        },
+        "rules": [],
+        "notes": [
+          "Move up to half Speed straight toward a visible enemy."
+        ]
+      }
+    ],
+    "monster": {
+      "cr": "5",
+      "sizes": [
+        "large"
+      ],
+      "type": "giant",
+      "alignment": "chaotic_evil",
+      "ac": 15,
+      "hp": {
+        "average": 94,
+        "dice": {
+          "count": 9,
+          "sides": 10,
+          "bonus": 45,
+          "ability": null
+        }
+      },
+      "initiative": 1,
+      "abilities": {
+        "str": {
+          "score": 18,
+          "save": 4
+        },
+        "dex": {
+          "score": 13,
+          "save": 1
+        },
+        "con": {
+          "score": 20,
+          "save": 5
+        },
+        "int": {
+          "score": 7,
+          "save": -2
+        },
+        "wis": {
+          "score": 9,
+          "save": -1
+        },
+        "cha": {
+          "score": 7,
+          "save": -2
+        }
+      },
+      "speed": [
+        {
+          "mode": "walk",
+          "feet": 30
+        }
+      ],
+      "skills": [
+        {
+          "name": "perception",
+          "bonus": 5
+        }
+      ],
+      "senses": {
+        "passivePerception": 15,
+        "darkvision": 60,
+        "blindsight": 0
+      },
+      "languages": [
+        "giant"
+      ],
+      "gear": [],
+      "immunities": [],
+      "multiattack": [
+        {
+          "effectId": "rend",
+          "count": 3
+        }
+      ],
+      "recharge": [],
+      "xp": 1800,
+      "proficiencyBonus": 3
+    }
+  },
+  {
+    "schema": 1,
+    "id": "srd521.monster.young_red_dragon",
+    "kind": "monster",
+    "name": "Young Red Dragon",
+    "revision": 1,
+    "source": {
+      "document": "SRD",
+      "edition": "5.2.1",
+      "heading": "Monsters / Young Red Dragon",
+      "page": 318,
+      "url": "https://www.dndbeyond.com/srd",
+      "textSha256": "4456eaa81743ed341c13f19d1d7ced344a6adcbb15367941875ee45cd3f2e562"
+    },
+    "licence": "CC-BY-4.0",
+    "attribution": "This work includes material from the System Reference Document 5.2.1 (“SRD 5.2.1”) by Wizards of the Coast LLC, available at https://www.dndbeyond.com/srd. The SRD 5.2.1 is licensed under the Creative Commons Attribution 4.0 International License, available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+    "status": "supported",
+    "rulings": [],
+    "unmodeled": [],
+    "function": {
+      "doesWhat": [
+        "creature_attacks"
+      ],
+      "carrier": "creature",
+      "needs": [],
+      "scale": {
+        "basis": "challenge_rating",
+        "steps": []
+      }
+    },
+    "effects": [
+      {
+        "id": "rend",
+        "target": {
+          "kind": "creature",
+          "count": 1,
+          "disposition": "any",
+          "requiresSight": false,
+          "sizes": [],
+          "creatureTypes": []
+        },
+        "area": null,
+        "range": {
+          "kind": "distance",
+          "feet": 10,
+          "longFeet": 10
+        },
+        "castingTime": {
+          "unit": "action",
+          "value": 1,
+          "trigger": null,
+          "ritual": false
+        },
+        "resolution": {
+          "kind": "attack",
+          "mode": "melee",
+          "bonus": 10
+        },
+        "damage": [
+          {
+            "type": "slashing",
+            "dice": {
+              "count": 2,
+              "sides": 6,
+              "bonus": 6,
+              "ability": null
+            },
+            "instances": 1
+          },
+          {
+            "type": "fire",
+            "dice": {
+              "count": 1,
+              "sides": 6,
+              "bonus": 0,
+              "ability": null
+            },
+            "instances": 1
+          }
+        ],
+        "healing": null,
+        "conditions": [],
+        "duration": {
+          "unit": "instant",
+          "value": 0,
+          "ends": []
+        },
+        "concentration": false,
+        "components": {
+          "verbal": false,
+          "somatic": false,
+          "materials": []
+        },
+        "rules": [],
+        "notes": [
+          "Rend"
+        ]
+      },
+      {
+        "id": "fire_breath",
+        "target": {
+          "kind": "area",
+          "count": null,
+          "disposition": "any",
+          "requiresSight": false,
+          "sizes": [],
+          "creatureTypes": []
+        },
+        "area": {
+          "shape": "cone",
+          "feet": 30,
+          "origin": "self"
+        },
+        "range": {
+          "kind": "self",
+          "feet": 0,
+          "longFeet": 0
+        },
+        "castingTime": {
+          "unit": "action",
+          "value": 1,
+          "trigger": null,
+          "ritual": false
+        },
+        "resolution": {
+          "kind": "save",
+          "ability": "dex",
+          "dc": 17,
+          "success": "half_damage",
+          "repeat": "none"
+        },
+        "damage": [
+          {
+            "type": "fire",
+            "dice": {
+              "count": 16,
+              "sides": 6,
+              "bonus": 0,
+              "ability": null
+            },
+            "instances": 1
+          }
+        ],
+        "healing": null,
+        "conditions": [],
+        "duration": {
+          "unit": "instant",
+          "value": 0,
+          "ends": []
+        },
+        "concentration": false,
+        "components": {
+          "verbal": false,
+          "somatic": false,
+          "materials": []
+        },
+        "rules": [],
+        "notes": []
+      }
+    ],
+    "monster": {
+      "cr": "10",
+      "sizes": [
+        "large"
+      ],
+      "type": "dragon_chromatic",
+      "alignment": "chaotic_evil",
+      "ac": 18,
+      "hp": {
+        "average": 178,
+        "dice": {
+          "count": 17,
+          "sides": 10,
+          "bonus": 85,
+          "ability": null
+        }
+      },
+      "initiative": 4,
+      "abilities": {
+        "str": {
+          "score": 23,
+          "save": 6
+        },
+        "dex": {
+          "score": 10,
+          "save": 4
+        },
+        "con": {
+          "score": 21,
+          "save": 5
+        },
+        "int": {
+          "score": 14,
+          "save": 2
+        },
+        "wis": {
+          "score": 11,
+          "save": 4
+        },
+        "cha": {
+          "score": 19,
+          "save": 4
+        }
+      },
+      "speed": [
+        {
+          "mode": "walk",
+          "feet": 40
+        },
+        {
+          "mode": "climb",
+          "feet": 40
+        },
+        {
+          "mode": "fly",
+          "feet": 80
+        }
+      ],
+      "skills": [
+        {
+          "name": "perception",
+          "bonus": 8
+        },
+        {
+          "name": "stealth",
+          "bonus": 4
+        }
+      ],
+      "senses": {
+        "passivePerception": 18,
+        "darkvision": 120,
+        "blindsight": 30
+      },
+      "languages": [
+        "common",
+        "draconic"
+      ],
+      "gear": [],
+      "immunities": [
+        "fire"
+      ],
+      "multiattack": [
+        {
+          "effectId": "rend",
+          "count": 3
+        }
+      ],
+      "recharge": [
+        {
+          "effectId": "fire_breath",
+          "die": 6,
+          "minimum": 5
+        }
+      ],
+      "xp": 5900,
+      "proficiencyBonus": 4
+    }
+  }
+]

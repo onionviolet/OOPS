@@ -1,0 +1,1587 @@
+[
+  {
+    "schema": 1,
+    "id": "srd521.condition.blinded",
+    "kind": "condition",
+    "name": "Blinded",
+    "revision": 1,
+    "source": {
+      "document": "SRD",
+      "edition": "5.2.1",
+      "heading": "Rules Glossary / Blinded",
+      "page": 177,
+      "url": "https://www.dndbeyond.com/srd",
+      "textSha256": "4456eaa81743ed341c13f19d1d7ced344a6adcbb15367941875ee45cd3f2e562"
+    },
+    "licence": "CC-BY-4.0",
+    "attribution": "This work includes material from the System Reference Document 5.2.1 (“SRD 5.2.1”) by Wizards of the Coast LLC, available at https://www.dndbeyond.com/srd. The SRD 5.2.1 is licensed under the Creative Commons Attribution 4.0 International License, available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+    "status": "supported",
+    "rulings": [],
+    "unmodeled": [],
+    "function": {
+      "doesWhat": [
+        "remove_sight",
+        "impair_attacks"
+      ],
+      "carrier": "body",
+      "needs": [],
+      "scale": {
+        "basis": "fixed",
+        "steps": []
+      }
+    },
+    "effects": [
+      {
+        "id": "main",
+        "target": {
+          "kind": "self",
+          "count": 1,
+          "disposition": "any",
+          "requiresSight": false,
+          "sizes": [],
+          "creatureTypes": []
+        },
+        "area": null,
+        "range": {
+          "kind": "self",
+          "feet": 0,
+          "longFeet": 0
+        },
+        "castingTime": {
+          "unit": "passive",
+          "value": 0,
+          "trigger": null,
+          "ritual": false
+        },
+        "resolution": {
+          "kind": "none"
+        },
+        "damage": [],
+        "healing": null,
+        "conditions": [],
+        "duration": {
+          "unit": "source",
+          "value": 0,
+          "ends": []
+        },
+        "concentration": false,
+        "components": {
+          "verbal": false,
+          "somatic": false,
+          "materials": []
+        },
+        "rules": [
+          {
+            "op": "block",
+            "subject": "sight",
+            "value": true,
+            "when": "always"
+          },
+          {
+            "op": "roll",
+            "subject": "sight_check",
+            "value": "auto_fail",
+            "when": "always"
+          },
+          {
+            "op": "roll",
+            "subject": "incoming_attack",
+            "value": "advantage",
+            "when": "always"
+          },
+          {
+            "op": "roll",
+            "subject": "outgoing_attack",
+            "value": "disadvantage",
+            "when": "always"
+          }
+        ],
+        "notes": []
+      }
+    ]
+  },
+  {
+    "schema": 1,
+    "id": "srd521.condition.charmed",
+    "kind": "condition",
+    "name": "Charmed",
+    "revision": 1,
+    "source": {
+      "document": "SRD",
+      "edition": "5.2.1",
+      "heading": "Rules Glossary / Charmed",
+      "page": 178,
+      "url": "https://www.dndbeyond.com/srd",
+      "textSha256": "4456eaa81743ed341c13f19d1d7ced344a6adcbb15367941875ee45cd3f2e562"
+    },
+    "licence": "CC-BY-4.0",
+    "attribution": "This work includes material from the System Reference Document 5.2.1 (“SRD 5.2.1”) by Wizards of the Coast LLC, available at https://www.dndbeyond.com/srd. The SRD 5.2.1 is licensed under the Creative Commons Attribution 4.0 International License, available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+    "status": "supported",
+    "rulings": [],
+    "unmodeled": [],
+    "function": {
+      "doesWhat": [
+        "prevent_harm_to_source",
+        "ease_source_social_checks"
+      ],
+      "carrier": "body",
+      "needs": [],
+      "scale": {
+        "basis": "fixed",
+        "steps": []
+      }
+    },
+    "effects": [
+      {
+        "id": "main",
+        "target": {
+          "kind": "self",
+          "count": 1,
+          "disposition": "any",
+          "requiresSight": false,
+          "sizes": [],
+          "creatureTypes": []
+        },
+        "area": null,
+        "range": {
+          "kind": "self",
+          "feet": 0,
+          "longFeet": 0
+        },
+        "castingTime": {
+          "unit": "passive",
+          "value": 0,
+          "trigger": null,
+          "ritual": false
+        },
+        "resolution": {
+          "kind": "none"
+        },
+        "damage": [],
+        "healing": null,
+        "conditions": [],
+        "duration": {
+          "unit": "source",
+          "value": 0,
+          "ends": []
+        },
+        "concentration": false,
+        "components": {
+          "verbal": false,
+          "somatic": false,
+          "materials": []
+        },
+        "rules": [
+          {
+            "op": "block",
+            "subject": "harm_source",
+            "value": true,
+            "when": "always"
+          },
+          {
+            "op": "roll",
+            "subject": "social_source_check",
+            "value": "advantage",
+            "when": "always"
+          }
+        ],
+        "notes": []
+      }
+    ]
+  },
+  {
+    "schema": 1,
+    "id": "srd521.condition.deafened",
+    "kind": "condition",
+    "name": "Deafened",
+    "revision": 1,
+    "source": {
+      "document": "SRD",
+      "edition": "5.2.1",
+      "heading": "Rules Glossary / Deafened",
+      "page": 181,
+      "url": "https://www.dndbeyond.com/srd",
+      "textSha256": "4456eaa81743ed341c13f19d1d7ced344a6adcbb15367941875ee45cd3f2e562"
+    },
+    "licence": "CC-BY-4.0",
+    "attribution": "This work includes material from the System Reference Document 5.2.1 (“SRD 5.2.1”) by Wizards of the Coast LLC, available at https://www.dndbeyond.com/srd. The SRD 5.2.1 is licensed under the Creative Commons Attribution 4.0 International License, available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+    "status": "supported",
+    "rulings": [],
+    "unmodeled": [],
+    "function": {
+      "doesWhat": [
+        "remove_hearing"
+      ],
+      "carrier": "body",
+      "needs": [],
+      "scale": {
+        "basis": "fixed",
+        "steps": []
+      }
+    },
+    "effects": [
+      {
+        "id": "main",
+        "target": {
+          "kind": "self",
+          "count": 1,
+          "disposition": "any",
+          "requiresSight": false,
+          "sizes": [],
+          "creatureTypes": []
+        },
+        "area": null,
+        "range": {
+          "kind": "self",
+          "feet": 0,
+          "longFeet": 0
+        },
+        "castingTime": {
+          "unit": "passive",
+          "value": 0,
+          "trigger": null,
+          "ritual": false
+        },
+        "resolution": {
+          "kind": "none"
+        },
+        "damage": [],
+        "healing": null,
+        "conditions": [],
+        "duration": {
+          "unit": "source",
+          "value": 0,
+          "ends": []
+        },
+        "concentration": false,
+        "components": {
+          "verbal": false,
+          "somatic": false,
+          "materials": []
+        },
+        "rules": [
+          {
+            "op": "block",
+            "subject": "hearing",
+            "value": true,
+            "when": "always"
+          },
+          {
+            "op": "roll",
+            "subject": "hearing_check",
+            "value": "auto_fail",
+            "when": "always"
+          }
+        ],
+        "notes": []
+      }
+    ]
+  },
+  {
+    "schema": 1,
+    "id": "srd521.condition.exhaustion",
+    "kind": "condition",
+    "name": "Exhaustion",
+    "revision": 1,
+    "source": {
+      "document": "SRD",
+      "edition": "5.2.1",
+      "heading": "Rules Glossary / Exhaustion",
+      "page": 181,
+      "url": "https://www.dndbeyond.com/srd",
+      "textSha256": "4456eaa81743ed341c13f19d1d7ced344a6adcbb15367941875ee45cd3f2e562"
+    },
+    "licence": "CC-BY-4.0",
+    "attribution": "This work includes material from the System Reference Document 5.2.1 (“SRD 5.2.1”) by Wizards of the Coast LLC, available at https://www.dndbeyond.com/srd. The SRD 5.2.1 is licensed under the Creative Commons Attribution 4.0 International License, available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+    "status": "needs_ruling",
+    "rulings": [
+      {
+        "id": "srd521.condition.exhaustion.q1",
+        "question": "Which level-counter, rest and death adapters will preserve the 5.2.1 penalties, six-level death and per-rest recovery?"
+      }
+    ],
+    "unmodeled": [
+      "Stacked levels, Long Rest recovery and death transition lack opcodes."
+    ],
+    "function": {
+      "doesWhat": [
+        "stack_d20_and_speed_penalties",
+        "death_at_six"
+      ],
+      "carrier": "body",
+      "needs": [],
+      "scale": {
+        "basis": "exhaustion_level",
+        "steps": []
+      }
+    },
+    "effects": [
+      {
+        "id": "main",
+        "target": {
+          "kind": "self",
+          "count": 1,
+          "disposition": "any",
+          "requiresSight": false,
+          "sizes": [],
+          "creatureTypes": []
+        },
+        "area": null,
+        "range": {
+          "kind": "self",
+          "feet": 0,
+          "longFeet": 0
+        },
+        "castingTime": {
+          "unit": "passive",
+          "value": 0,
+          "trigger": null,
+          "ritual": false
+        },
+        "resolution": {
+          "kind": "none"
+        },
+        "damage": [],
+        "healing": null,
+        "conditions": [],
+        "duration": {
+          "unit": "source",
+          "value": 0,
+          "ends": []
+        },
+        "concentration": false,
+        "components": {
+          "verbal": false,
+          "somatic": false,
+          "materials": []
+        },
+        "rules": [],
+        "notes": [
+          "Each level subtracts 2 from D20 Tests and 5 feet from Speed; six levels cause death. A Long Rest removes one level; zero ends the condition."
+        ]
+      }
+    ]
+  },
+  {
+    "schema": 1,
+    "id": "srd521.condition.frightened",
+    "kind": "condition",
+    "name": "Frightened",
+    "revision": 1,
+    "source": {
+      "document": "SRD",
+      "edition": "5.2.1",
+      "heading": "Rules Glossary / Frightened",
+      "page": 182,
+      "url": "https://www.dndbeyond.com/srd",
+      "textSha256": "4456eaa81743ed341c13f19d1d7ced344a6adcbb15367941875ee45cd3f2e562"
+    },
+    "licence": "CC-BY-4.0",
+    "attribution": "This work includes material from the System Reference Document 5.2.1 (“SRD 5.2.1”) by Wizards of the Coast LLC, available at https://www.dndbeyond.com/srd. The SRD 5.2.1 is licensed under the Creative Commons Attribution 4.0 International License, available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+    "status": "supported",
+    "rulings": [],
+    "unmodeled": [],
+    "function": {
+      "doesWhat": [
+        "impair_checks_near_fear",
+        "prevent_approach"
+      ],
+      "carrier": "body",
+      "needs": [],
+      "scale": {
+        "basis": "fixed",
+        "steps": []
+      }
+    },
+    "effects": [
+      {
+        "id": "main",
+        "target": {
+          "kind": "self",
+          "count": 1,
+          "disposition": "any",
+          "requiresSight": false,
+          "sizes": [],
+          "creatureTypes": []
+        },
+        "area": null,
+        "range": {
+          "kind": "self",
+          "feet": 0,
+          "longFeet": 0
+        },
+        "castingTime": {
+          "unit": "passive",
+          "value": 0,
+          "trigger": null,
+          "ritual": false
+        },
+        "resolution": {
+          "kind": "none"
+        },
+        "damage": [],
+        "healing": null,
+        "conditions": [],
+        "duration": {
+          "unit": "source",
+          "value": 0,
+          "ends": []
+        },
+        "concentration": false,
+        "components": {
+          "verbal": false,
+          "somatic": false,
+          "materials": []
+        },
+        "rules": [
+          {
+            "op": "roll",
+            "subject": "ability_check",
+            "value": "disadvantage",
+            "when": "source_visible"
+          },
+          {
+            "op": "roll",
+            "subject": "outgoing_attack",
+            "value": "disadvantage",
+            "when": "source_visible"
+          },
+          {
+            "op": "block",
+            "subject": "approach_source",
+            "value": true,
+            "when": "always"
+          }
+        ],
+        "notes": [
+          "Approach restriction concerns willing movement."
+        ]
+      }
+    ]
+  },
+  {
+    "schema": 1,
+    "id": "srd521.condition.grappled",
+    "kind": "condition",
+    "name": "Grappled",
+    "revision": 1,
+    "source": {
+      "document": "SRD",
+      "edition": "5.2.1",
+      "heading": "Rules Glossary / Grappled",
+      "page": 182,
+      "url": "https://www.dndbeyond.com/srd",
+      "textSha256": "4456eaa81743ed341c13f19d1d7ced344a6adcbb15367941875ee45cd3f2e562"
+    },
+    "licence": "CC-BY-4.0",
+    "attribution": "This work includes material from the System Reference Document 5.2.1 (“SRD 5.2.1”) by Wizards of the Coast LLC, available at https://www.dndbeyond.com/srd. The SRD 5.2.1 is licensed under the Creative Commons Attribution 4.0 International License, available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+    "status": "needs_ruling",
+    "rulings": [
+      {
+        "id": "srd521.condition.grappled.q1",
+        "question": "How will grapple source/range, free appendage, escape DC and size-based drag cost bind to actor and movement records?"
+      }
+    ],
+    "unmodeled": [
+      "Dragging, escape checks, hand custody and source-linked termination are not typed."
+    ],
+    "function": {
+      "doesWhat": [
+        "immobilize",
+        "restrict_attacks",
+        "permit_source_drag"
+      ],
+      "carrier": "body",
+      "needs": [],
+      "scale": {
+        "basis": "fixed",
+        "steps": []
+      }
+    },
+    "effects": [
+      {
+        "id": "main",
+        "target": {
+          "kind": "self",
+          "count": 1,
+          "disposition": "any",
+          "requiresSight": false,
+          "sizes": [],
+          "creatureTypes": []
+        },
+        "area": null,
+        "range": {
+          "kind": "self",
+          "feet": 0,
+          "longFeet": 0
+        },
+        "castingTime": {
+          "unit": "passive",
+          "value": 0,
+          "trigger": null,
+          "ritual": false
+        },
+        "resolution": {
+          "kind": "none"
+        },
+        "damage": [],
+        "healing": null,
+        "conditions": [],
+        "duration": {
+          "unit": "source",
+          "value": 0,
+          "ends": []
+        },
+        "concentration": false,
+        "components": {
+          "verbal": false,
+          "somatic": false,
+          "materials": []
+        },
+        "rules": [
+          {
+            "op": "speed",
+            "subject": "all",
+            "value": 0,
+            "when": "always"
+          },
+          {
+            "op": "block",
+            "subject": "speed_increase",
+            "value": true,
+            "when": "always"
+          },
+          {
+            "op": "roll",
+            "subject": "outgoing_attack",
+            "value": "disadvantage",
+            "when": "target_not_source"
+          }
+        ],
+        "notes": [
+          "Dragging costs one extra foot per foot except for Tiny targets or targets at least two sizes smaller. Action escape uses Athletics or Acrobatics against escape DC. Ends when grappler is Incapacitated, range is exceeded, or source releases without an action."
+        ]
+      }
+    ]
+  },
+  {
+    "schema": 1,
+    "id": "srd521.condition.incapacitated",
+    "kind": "condition",
+    "name": "Incapacitated",
+    "revision": 1,
+    "source": {
+      "document": "SRD",
+      "edition": "5.2.1",
+      "heading": "Rules Glossary / Incapacitated",
+      "page": 184,
+      "url": "https://www.dndbeyond.com/srd",
+      "textSha256": "4456eaa81743ed341c13f19d1d7ced344a6adcbb15367941875ee45cd3f2e562"
+    },
+    "licence": "CC-BY-4.0",
+    "attribution": "This work includes material from the System Reference Document 5.2.1 (“SRD 5.2.1”) by Wizards of the Coast LLC, available at https://www.dndbeyond.com/srd. The SRD 5.2.1 is licensed under the Creative Commons Attribution 4.0 International License, available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+    "status": "supported",
+    "rulings": [],
+    "unmodeled": [],
+    "function": {
+      "doesWhat": [
+        "block_actions_and_speech",
+        "break_concentration",
+        "impair_initiative"
+      ],
+      "carrier": "body",
+      "needs": [],
+      "scale": {
+        "basis": "fixed",
+        "steps": []
+      }
+    },
+    "effects": [
+      {
+        "id": "main",
+        "target": {
+          "kind": "self",
+          "count": 1,
+          "disposition": "any",
+          "requiresSight": false,
+          "sizes": [],
+          "creatureTypes": []
+        },
+        "area": null,
+        "range": {
+          "kind": "self",
+          "feet": 0,
+          "longFeet": 0
+        },
+        "castingTime": {
+          "unit": "passive",
+          "value": 0,
+          "trigger": null,
+          "ritual": false
+        },
+        "resolution": {
+          "kind": "none"
+        },
+        "damage": [],
+        "healing": null,
+        "conditions": [],
+        "duration": {
+          "unit": "source",
+          "value": 0,
+          "ends": []
+        },
+        "concentration": false,
+        "components": {
+          "verbal": false,
+          "somatic": false,
+          "materials": []
+        },
+        "rules": [
+          {
+            "op": "block",
+            "subject": "action",
+            "value": true,
+            "when": "always"
+          },
+          {
+            "op": "block",
+            "subject": "bonus_action",
+            "value": true,
+            "when": "always"
+          },
+          {
+            "op": "block",
+            "subject": "reaction",
+            "value": true,
+            "when": "always"
+          },
+          {
+            "op": "block",
+            "subject": "speech",
+            "value": true,
+            "when": "always"
+          },
+          {
+            "op": "break_concentration",
+            "subject": "self",
+            "value": true,
+            "when": "always"
+          },
+          {
+            "op": "roll",
+            "subject": "initiative",
+            "value": "disadvantage",
+            "when": "always"
+          }
+        ],
+        "notes": []
+      }
+    ]
+  },
+  {
+    "schema": 1,
+    "id": "srd521.condition.invisible",
+    "kind": "condition",
+    "name": "Invisible",
+    "revision": 1,
+    "source": {
+      "document": "SRD",
+      "edition": "5.2.1",
+      "heading": "Rules Glossary / Invisible",
+      "page": 184,
+      "url": "https://www.dndbeyond.com/srd",
+      "textSha256": "4456eaa81743ed341c13f19d1d7ced344a6adcbb15367941875ee45cd3f2e562"
+    },
+    "licence": "CC-BY-4.0",
+    "attribution": "This work includes material from the System Reference Document 5.2.1 (“SRD 5.2.1”) by Wizards of the Coast LLC, available at https://www.dndbeyond.com/srd. The SRD 5.2.1 is licensed under the Creative Commons Attribution 4.0 International License, available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+    "status": "supported",
+    "rulings": [],
+    "unmodeled": [],
+    "function": {
+      "doesWhat": [
+        "conceal_body_and_equipment",
+        "alter_attacks_and_initiative"
+      ],
+      "carrier": "body",
+      "needs": [],
+      "scale": {
+        "basis": "fixed",
+        "steps": []
+      }
+    },
+    "effects": [
+      {
+        "id": "main",
+        "target": {
+          "kind": "self",
+          "count": 1,
+          "disposition": "any",
+          "requiresSight": false,
+          "sizes": [],
+          "creatureTypes": []
+        },
+        "area": null,
+        "range": {
+          "kind": "self",
+          "feet": 0,
+          "longFeet": 0
+        },
+        "castingTime": {
+          "unit": "passive",
+          "value": 0,
+          "trigger": null,
+          "ritual": false
+        },
+        "resolution": {
+          "kind": "none"
+        },
+        "damage": [],
+        "healing": null,
+        "conditions": [],
+        "duration": {
+          "unit": "source",
+          "value": 0,
+          "ends": []
+        },
+        "concentration": false,
+        "components": {
+          "verbal": false,
+          "somatic": false,
+          "materials": []
+        },
+        "rules": [
+          {
+            "op": "roll",
+            "subject": "initiative",
+            "value": "advantage",
+            "when": "always"
+          },
+          {
+            "op": "block",
+            "subject": "seen_targeting",
+            "value": true,
+            "when": "observer_cannot_see"
+          },
+          {
+            "op": "roll",
+            "subject": "incoming_attack",
+            "value": "disadvantage",
+            "when": "observer_cannot_see"
+          },
+          {
+            "op": "roll",
+            "subject": "outgoing_attack",
+            "value": "advantage",
+            "when": "observer_cannot_see"
+          }
+        ],
+        "notes": [
+          "Equipment worn or carried shares concealment. Seeing the invisible creature bypasses targeting and attack benefits."
+        ]
+      }
+    ]
+  },
+  {
+    "schema": 1,
+    "id": "srd521.condition.paralyzed",
+    "kind": "condition",
+    "name": "Paralyzed",
+    "revision": 1,
+    "source": {
+      "document": "SRD",
+      "edition": "5.2.1",
+      "heading": "Rules Glossary / Paralyzed",
+      "page": 186,
+      "url": "https://www.dndbeyond.com/srd",
+      "textSha256": "4456eaa81743ed341c13f19d1d7ced344a6adcbb15367941875ee45cd3f2e562"
+    },
+    "licence": "CC-BY-4.0",
+    "attribution": "This work includes material from the System Reference Document 5.2.1 (“SRD 5.2.1”) by Wizards of the Coast LLC, available at https://www.dndbeyond.com/srd. The SRD 5.2.1 is licensed under the Creative Commons Attribution 4.0 International License, available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+    "status": "supported",
+    "rulings": [],
+    "unmodeled": [],
+    "function": {
+      "doesWhat": [
+        "immobilize",
+        "incapacitate",
+        "fail_physical_saves",
+        "enable_close_criticals"
+      ],
+      "carrier": "body",
+      "needs": [],
+      "scale": {
+        "basis": "fixed",
+        "steps": []
+      }
+    },
+    "effects": [
+      {
+        "id": "main",
+        "target": {
+          "kind": "self",
+          "count": 1,
+          "disposition": "any",
+          "requiresSight": false,
+          "sizes": [],
+          "creatureTypes": []
+        },
+        "area": null,
+        "range": {
+          "kind": "self",
+          "feet": 0,
+          "longFeet": 0
+        },
+        "castingTime": {
+          "unit": "passive",
+          "value": 0,
+          "trigger": null,
+          "ritual": false
+        },
+        "resolution": {
+          "kind": "none"
+        },
+        "damage": [],
+        "healing": null,
+        "conditions": [],
+        "duration": {
+          "unit": "source",
+          "value": 0,
+          "ends": []
+        },
+        "concentration": false,
+        "components": {
+          "verbal": false,
+          "somatic": false,
+          "materials": []
+        },
+        "rules": [
+          {
+            "op": "grant_condition",
+            "subject": "incapacitated",
+            "value": true,
+            "when": "always"
+          },
+          {
+            "op": "speed",
+            "subject": "all",
+            "value": 0,
+            "when": "always"
+          },
+          {
+            "op": "block",
+            "subject": "speed_increase",
+            "value": true,
+            "when": "always"
+          },
+          {
+            "op": "roll",
+            "subject": "str_save",
+            "value": "auto_fail",
+            "when": "always"
+          },
+          {
+            "op": "roll",
+            "subject": "dex_save",
+            "value": "auto_fail",
+            "when": "always"
+          },
+          {
+            "op": "roll",
+            "subject": "incoming_attack",
+            "value": "advantage",
+            "when": "always"
+          },
+          {
+            "op": "critical_hit",
+            "subject": "incoming_hit",
+            "value": true,
+            "when": "attacker_within_5"
+          }
+        ],
+        "notes": []
+      }
+    ]
+  },
+  {
+    "schema": 1,
+    "id": "srd521.condition.petrified",
+    "kind": "condition",
+    "name": "Petrified",
+    "revision": 1,
+    "source": {
+      "document": "SRD",
+      "edition": "5.2.1",
+      "heading": "Rules Glossary / Petrified",
+      "page": 186,
+      "url": "https://www.dndbeyond.com/srd",
+      "textSha256": "4456eaa81743ed341c13f19d1d7ced344a6adcbb15367941875ee45cd3f2e562"
+    },
+    "licence": "CC-BY-4.0",
+    "attribution": "This work includes material from the System Reference Document 5.2.1 (“SRD 5.2.1”) by Wizards of the Coast LLC, available at https://www.dndbeyond.com/srd. The SRD 5.2.1 is licensed under the Creative Commons Attribution 4.0 International License, available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+    "status": "needs_ruling",
+    "rulings": [
+      {
+        "id": "srd521.condition.petrified.q1",
+        "question": "Which body and equipment adapter applies the tenfold weight and stopped aging while retaining nonmagical equipment identity?"
+      }
+    ],
+    "unmodeled": [
+      "Body/equipment material conversion, weight and aging are descriptive only."
+    ],
+    "function": {
+      "doesWhat": [
+        "transform_body_and_nonmagical_equipment",
+        "immobilize",
+        "resist_damage"
+      ],
+      "carrier": "body",
+      "needs": [],
+      "scale": {
+        "basis": "fixed",
+        "steps": []
+      }
+    },
+    "effects": [
+      {
+        "id": "main",
+        "target": {
+          "kind": "self",
+          "count": 1,
+          "disposition": "any",
+          "requiresSight": false,
+          "sizes": [],
+          "creatureTypes": []
+        },
+        "area": null,
+        "range": {
+          "kind": "self",
+          "feet": 0,
+          "longFeet": 0
+        },
+        "castingTime": {
+          "unit": "passive",
+          "value": 0,
+          "trigger": null,
+          "ritual": false
+        },
+        "resolution": {
+          "kind": "none"
+        },
+        "damage": [],
+        "healing": null,
+        "conditions": [],
+        "duration": {
+          "unit": "source",
+          "value": 0,
+          "ends": []
+        },
+        "concentration": false,
+        "components": {
+          "verbal": false,
+          "somatic": false,
+          "materials": []
+        },
+        "rules": [
+          {
+            "op": "grant_condition",
+            "subject": "incapacitated",
+            "value": true,
+            "when": "always"
+          },
+          {
+            "op": "speed",
+            "subject": "all",
+            "value": 0,
+            "when": "always"
+          },
+          {
+            "op": "block",
+            "subject": "speed_increase",
+            "value": true,
+            "when": "always"
+          },
+          {
+            "op": "roll",
+            "subject": "str_save",
+            "value": "auto_fail",
+            "when": "always"
+          },
+          {
+            "op": "roll",
+            "subject": "dex_save",
+            "value": "auto_fail",
+            "when": "always"
+          },
+          {
+            "op": "roll",
+            "subject": "incoming_attack",
+            "value": "advantage",
+            "when": "always"
+          },
+          {
+            "op": "resistance",
+            "subject": "all",
+            "value": true,
+            "when": "always"
+          },
+          {
+            "op": "condition_immunity",
+            "subject": "poisoned",
+            "value": true,
+            "when": "always"
+          }
+        ],
+        "notes": [
+          "Weight becomes ten times normal; aging stops. Poisoned condition immunity does not grant Poison damage immunity."
+        ]
+      }
+    ]
+  },
+  {
+    "schema": 1,
+    "id": "srd521.condition.poisoned",
+    "kind": "condition",
+    "name": "Poisoned",
+    "revision": 1,
+    "source": {
+      "document": "SRD",
+      "edition": "5.2.1",
+      "heading": "Rules Glossary / Poisoned",
+      "page": 186,
+      "url": "https://www.dndbeyond.com/srd",
+      "textSha256": "4456eaa81743ed341c13f19d1d7ced344a6adcbb15367941875ee45cd3f2e562"
+    },
+    "licence": "CC-BY-4.0",
+    "attribution": "This work includes material from the System Reference Document 5.2.1 (“SRD 5.2.1”) by Wizards of the Coast LLC, available at https://www.dndbeyond.com/srd. The SRD 5.2.1 is licensed under the Creative Commons Attribution 4.0 International License, available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+    "status": "supported",
+    "rulings": [],
+    "unmodeled": [],
+    "function": {
+      "doesWhat": [
+        "impair_attacks_and_checks"
+      ],
+      "carrier": "body",
+      "needs": [],
+      "scale": {
+        "basis": "fixed",
+        "steps": []
+      }
+    },
+    "effects": [
+      {
+        "id": "main",
+        "target": {
+          "kind": "self",
+          "count": 1,
+          "disposition": "any",
+          "requiresSight": false,
+          "sizes": [],
+          "creatureTypes": []
+        },
+        "area": null,
+        "range": {
+          "kind": "self",
+          "feet": 0,
+          "longFeet": 0
+        },
+        "castingTime": {
+          "unit": "passive",
+          "value": 0,
+          "trigger": null,
+          "ritual": false
+        },
+        "resolution": {
+          "kind": "none"
+        },
+        "damage": [],
+        "healing": null,
+        "conditions": [],
+        "duration": {
+          "unit": "source",
+          "value": 0,
+          "ends": []
+        },
+        "concentration": false,
+        "components": {
+          "verbal": false,
+          "somatic": false,
+          "materials": []
+        },
+        "rules": [
+          {
+            "op": "roll",
+            "subject": "outgoing_attack",
+            "value": "disadvantage",
+            "when": "always"
+          },
+          {
+            "op": "roll",
+            "subject": "ability_check",
+            "value": "disadvantage",
+            "when": "always"
+          }
+        ],
+        "notes": []
+      }
+    ]
+  },
+  {
+    "schema": 1,
+    "id": "srd521.condition.prone",
+    "kind": "condition",
+    "name": "Prone",
+    "revision": 1,
+    "source": {
+      "document": "SRD",
+      "edition": "5.2.1",
+      "heading": "Rules Glossary / Prone",
+      "page": 186,
+      "url": "https://www.dndbeyond.com/srd",
+      "textSha256": "4456eaa81743ed341c13f19d1d7ced344a6adcbb15367941875ee45cd3f2e562"
+    },
+    "licence": "CC-BY-4.0",
+    "attribution": "This work includes material from the System Reference Document 5.2.1 (“SRD 5.2.1”) by Wizards of the Coast LLC, available at https://www.dndbeyond.com/srd. The SRD 5.2.1 is licensed under the Creative Commons Attribution 4.0 International License, available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+    "status": "needs_ruling",
+    "rulings": [
+      {
+        "id": "srd521.condition.prone.q1",
+        "question": "How will movement spending implement crawl and half-Speed standing, including the zero-Speed prohibition?"
+      }
+    ],
+    "unmodeled": [
+      "Crawl-only movement and spending movement to stand have no opcode."
+    ],
+    "function": {
+      "doesWhat": [
+        "restrict_movement_to_crawl",
+        "impair_attacks"
+      ],
+      "carrier": "body",
+      "needs": [],
+      "scale": {
+        "basis": "fixed",
+        "steps": []
+      }
+    },
+    "effects": [
+      {
+        "id": "main",
+        "target": {
+          "kind": "self",
+          "count": 1,
+          "disposition": "any",
+          "requiresSight": false,
+          "sizes": [],
+          "creatureTypes": []
+        },
+        "area": null,
+        "range": {
+          "kind": "self",
+          "feet": 0,
+          "longFeet": 0
+        },
+        "castingTime": {
+          "unit": "passive",
+          "value": 0,
+          "trigger": null,
+          "ritual": false
+        },
+        "resolution": {
+          "kind": "none"
+        },
+        "damage": [],
+        "healing": null,
+        "conditions": [],
+        "duration": {
+          "unit": "source",
+          "value": 0,
+          "ends": []
+        },
+        "concentration": false,
+        "components": {
+          "verbal": false,
+          "somatic": false,
+          "materials": []
+        },
+        "rules": [
+          {
+            "op": "roll",
+            "subject": "outgoing_attack",
+            "value": "disadvantage",
+            "when": "always"
+          },
+          {
+            "op": "roll",
+            "subject": "incoming_attack",
+            "value": "advantage",
+            "when": "attacker_within_5"
+          },
+          {
+            "op": "roll",
+            "subject": "incoming_attack",
+            "value": "disadvantage",
+            "when": "attacker_beyond_5"
+          }
+        ],
+        "notes": [
+          "Standing costs half Speed, rounded down, and is impossible at Speed 0; standing ends this condition."
+        ]
+      }
+    ]
+  },
+  {
+    "schema": 1,
+    "id": "srd521.condition.restrained",
+    "kind": "condition",
+    "name": "Restrained",
+    "revision": 1,
+    "source": {
+      "document": "SRD",
+      "edition": "5.2.1",
+      "heading": "Rules Glossary / Restrained",
+      "page": 187,
+      "url": "https://www.dndbeyond.com/srd",
+      "textSha256": "4456eaa81743ed341c13f19d1d7ced344a6adcbb15367941875ee45cd3f2e562"
+    },
+    "licence": "CC-BY-4.0",
+    "attribution": "This work includes material from the System Reference Document 5.2.1 (“SRD 5.2.1”) by Wizards of the Coast LLC, available at https://www.dndbeyond.com/srd. The SRD 5.2.1 is licensed under the Creative Commons Attribution 4.0 International License, available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+    "status": "supported",
+    "rulings": [],
+    "unmodeled": [],
+    "function": {
+      "doesWhat": [
+        "immobilize",
+        "impair_attacks_and_dexterity_saves"
+      ],
+      "carrier": "body",
+      "needs": [],
+      "scale": {
+        "basis": "fixed",
+        "steps": []
+      }
+    },
+    "effects": [
+      {
+        "id": "main",
+        "target": {
+          "kind": "self",
+          "count": 1,
+          "disposition": "any",
+          "requiresSight": false,
+          "sizes": [],
+          "creatureTypes": []
+        },
+        "area": null,
+        "range": {
+          "kind": "self",
+          "feet": 0,
+          "longFeet": 0
+        },
+        "castingTime": {
+          "unit": "passive",
+          "value": 0,
+          "trigger": null,
+          "ritual": false
+        },
+        "resolution": {
+          "kind": "none"
+        },
+        "damage": [],
+        "healing": null,
+        "conditions": [],
+        "duration": {
+          "unit": "source",
+          "value": 0,
+          "ends": []
+        },
+        "concentration": false,
+        "components": {
+          "verbal": false,
+          "somatic": false,
+          "materials": []
+        },
+        "rules": [
+          {
+            "op": "speed",
+            "subject": "all",
+            "value": 0,
+            "when": "always"
+          },
+          {
+            "op": "block",
+            "subject": "speed_increase",
+            "value": true,
+            "when": "always"
+          },
+          {
+            "op": "roll",
+            "subject": "incoming_attack",
+            "value": "advantage",
+            "when": "always"
+          },
+          {
+            "op": "roll",
+            "subject": "outgoing_attack",
+            "value": "disadvantage",
+            "when": "always"
+          },
+          {
+            "op": "roll",
+            "subject": "dex_save",
+            "value": "disadvantage",
+            "when": "always"
+          }
+        ],
+        "notes": []
+      }
+    ]
+  },
+  {
+    "schema": 1,
+    "id": "srd521.condition.stunned",
+    "kind": "condition",
+    "name": "Stunned",
+    "revision": 1,
+    "source": {
+      "document": "SRD",
+      "edition": "5.2.1",
+      "heading": "Rules Glossary / Stunned",
+      "page": 189,
+      "url": "https://www.dndbeyond.com/srd",
+      "textSha256": "4456eaa81743ed341c13f19d1d7ced344a6adcbb15367941875ee45cd3f2e562"
+    },
+    "licence": "CC-BY-4.0",
+    "attribution": "This work includes material from the System Reference Document 5.2.1 (“SRD 5.2.1”) by Wizards of the Coast LLC, available at https://www.dndbeyond.com/srd. The SRD 5.2.1 is licensed under the Creative Commons Attribution 4.0 International License, available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+    "status": "supported",
+    "rulings": [],
+    "unmodeled": [],
+    "function": {
+      "doesWhat": [
+        "incapacitate",
+        "fail_physical_saves",
+        "expose_to_attacks"
+      ],
+      "carrier": "body",
+      "needs": [],
+      "scale": {
+        "basis": "fixed",
+        "steps": []
+      }
+    },
+    "effects": [
+      {
+        "id": "main",
+        "target": {
+          "kind": "self",
+          "count": 1,
+          "disposition": "any",
+          "requiresSight": false,
+          "sizes": [],
+          "creatureTypes": []
+        },
+        "area": null,
+        "range": {
+          "kind": "self",
+          "feet": 0,
+          "longFeet": 0
+        },
+        "castingTime": {
+          "unit": "passive",
+          "value": 0,
+          "trigger": null,
+          "ritual": false
+        },
+        "resolution": {
+          "kind": "none"
+        },
+        "damage": [],
+        "healing": null,
+        "conditions": [],
+        "duration": {
+          "unit": "source",
+          "value": 0,
+          "ends": []
+        },
+        "concentration": false,
+        "components": {
+          "verbal": false,
+          "somatic": false,
+          "materials": []
+        },
+        "rules": [
+          {
+            "op": "grant_condition",
+            "subject": "incapacitated",
+            "value": true,
+            "when": "always"
+          },
+          {
+            "op": "roll",
+            "subject": "str_save",
+            "value": "auto_fail",
+            "when": "always"
+          },
+          {
+            "op": "roll",
+            "subject": "dex_save",
+            "value": "auto_fail",
+            "when": "always"
+          },
+          {
+            "op": "roll",
+            "subject": "incoming_attack",
+            "value": "advantage",
+            "when": "always"
+          }
+        ],
+        "notes": []
+      }
+    ]
+  },
+  {
+    "schema": 1,
+    "id": "srd521.condition.unconscious",
+    "kind": "condition",
+    "name": "Unconscious",
+    "revision": 1,
+    "source": {
+      "document": "SRD",
+      "edition": "5.2.1",
+      "heading": "Rules Glossary / Unconscious",
+      "page": 191,
+      "url": "https://www.dndbeyond.com/srd",
+      "textSha256": "4456eaa81743ed341c13f19d1d7ced344a6adcbb15367941875ee45cd3f2e562"
+    },
+    "licence": "CC-BY-4.0",
+    "attribution": "This work includes material from the System Reference Document 5.2.1 (“SRD 5.2.1”) by Wizards of the Coast LLC, available at https://www.dndbeyond.com/srd. The SRD 5.2.1 is licensed under the Creative Commons Attribution 4.0 International License, available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+    "status": "needs_ruling",
+    "rulings": [
+      {
+        "id": "srd521.condition.unconscious.q1",
+        "question": "How will removal of Unconscious retain Prone without retaining Incapacitated or other temporary grants?"
+      }
+    ],
+    "unmodeled": [
+      "Prone must outlive Unconscious; grant lifetimes are not typed."
+    ],
+    "function": {
+      "doesWhat": [
+        "incapacitate",
+        "drop_held_stock",
+        "remove_awareness",
+        "enable_close_criticals"
+      ],
+      "carrier": "body",
+      "needs": [],
+      "scale": {
+        "basis": "fixed",
+        "steps": []
+      }
+    },
+    "effects": [
+      {
+        "id": "main",
+        "target": {
+          "kind": "self",
+          "count": 1,
+          "disposition": "any",
+          "requiresSight": false,
+          "sizes": [],
+          "creatureTypes": []
+        },
+        "area": null,
+        "range": {
+          "kind": "self",
+          "feet": 0,
+          "longFeet": 0
+        },
+        "castingTime": {
+          "unit": "passive",
+          "value": 0,
+          "trigger": null,
+          "ritual": false
+        },
+        "resolution": {
+          "kind": "none"
+        },
+        "damage": [],
+        "healing": null,
+        "conditions": [],
+        "duration": {
+          "unit": "source",
+          "value": 0,
+          "ends": []
+        },
+        "concentration": false,
+        "components": {
+          "verbal": false,
+          "somatic": false,
+          "materials": []
+        },
+        "rules": [
+          {
+            "op": "grant_condition",
+            "subject": "incapacitated",
+            "value": true,
+            "when": "always"
+          },
+          {
+            "op": "speed",
+            "subject": "all",
+            "value": 0,
+            "when": "always"
+          },
+          {
+            "op": "block",
+            "subject": "speed_increase",
+            "value": true,
+            "when": "always"
+          },
+          {
+            "op": "roll",
+            "subject": "str_save",
+            "value": "auto_fail",
+            "when": "always"
+          },
+          {
+            "op": "roll",
+            "subject": "dex_save",
+            "value": "auto_fail",
+            "when": "always"
+          },
+          {
+            "op": "roll",
+            "subject": "incoming_attack",
+            "value": "advantage",
+            "when": "always"
+          },
+          {
+            "op": "grant_condition",
+            "subject": "prone",
+            "value": true,
+            "when": "always"
+          },
+          {
+            "op": "drop_held",
+            "subject": "self",
+            "value": true,
+            "when": "always"
+          },
+          {
+            "op": "unaware",
+            "subject": "self",
+            "value": true,
+            "when": "always"
+          },
+          {
+            "op": "critical_hit",
+            "subject": "incoming_hit",
+            "value": true,
+            "when": "attacker_within_5"
+          }
+        ],
+        "notes": []
+      }
+    ]
+  }
+]
