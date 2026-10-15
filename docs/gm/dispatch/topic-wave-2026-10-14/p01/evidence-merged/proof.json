@@ -1,0 +1,56 @@
+{
+  "results": [
+    {
+      "viewport": "1366x768",
+      "buildHash": "cbdfad2bde28f22d9b07078cf1fd168531abb8a681c7a4408ce7067d050e6103",
+      "checks": [
+        "initial-all-rows-and-mix-visible",
+        "paid-inputs-32-coins",
+        "one-vial-paid-inputs",
+        "pending-all-rows-and-mix-visible",
+        "import-pending-all-rows-and-mix-visible",
+        "pending-save-reload-export-literal-import",
+        "timed-repeat-stops-on-actual-shortage",
+        "completed-all-rows-and-mix-visible",
+        "import-completed-all-rows-and-mix-visible",
+        "completed-save-reload-export-literal-import",
+        "replenish-resume",
+        "cancel-after-played-tick",
+        "cancel-exact-held-refund",
+        "unknown-error-safe-retained-notice-no-payment",
+        "forced-stale-selection-zero-payment",
+        "reopen-stock-time-and-owner-unchanged",
+        "final-all-rows-and-mix-visible",
+        "zero-page-errors"
+      ],
+      "errors": [],
+      "implementedUnverified": []
+    },
+    {
+      "viewport": "1600x1000",
+      "buildHash": "cbdfad2bde28f22d9b07078cf1fd168531abb8a681c7a4408ce7067d050e6103",
+      "checks": [
+        "initial-all-rows-and-mix-visible",
+        "paid-inputs-32-coins",
+        "one-vial-paid-inputs",
+        "pending-all-rows-and-mix-visible",
+        "import-pending-all-rows-and-mix-visible",
+        "pending-save-reload-export-literal-import",
+        "timed-repeat-stops-on-actual-shortage",
+        "completed-all-rows-and-mix-visible",
+        "import-completed-all-rows-and-mix-visible",
+        "completed-save-reload-export-literal-import",
+        "replenish-resume",
+        "cancel-after-played-tick",
+        "cancel-exact-held-refund",
+        "unknown-error-safe-retained-notice-no-payment",
+        "forced-stale-selection-zero-payment",
+        "reopen-stock-time-and-owner-unchanged",
+        "final-all-rows-and-mix-visible",
+        "zero-page-errors"
+      ],
+      "errors": [],
+      "implementedUnverified": []
+    }
+  ]
+}
