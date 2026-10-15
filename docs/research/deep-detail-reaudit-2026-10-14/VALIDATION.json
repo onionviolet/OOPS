@@ -1,0 +1,41 @@
+{
+  "date": "2026-10-14T18:25:11.324234-04:00",
+  "status": "PASS",
+  "checks": {
+    "unique_game_ids": true,
+    "ledger_count": true,
+    "all_rows_have_required_fields": true,
+    "all_rows_have_source_bindings": true,
+    "live_lane_exclusions": true,
+    "required_outputs": true,
+    "every_private_file_ignored": true,
+    "no_tracked_private_files": true,
+    "no_private_copies_in_live_lane": true,
+    "local_markdown_links": true,
+    "ten_dispatch_prompts": true,
+    "no_table_placeholder": true,
+    "coverage_refresh_game_routes_represented": true,
+    "new_game_routes_represented": true
+  },
+  "counts": {
+    "copied_files": 9871,
+    "generated_files": 15,
+    "copied_bytes": 438546408,
+    "generated_bytes": 50910171
+  },
+  "private_snapshot_dossiers": 18,
+  "private_files_ignore_checked": 9940,
+  "failures": [],
+  "failed_checks": [],
+  "broken_links": [],
+  "unrun": [
+    "new game decompile",
+    "game launch",
+    "YAIR tests/build/browser",
+    "player saves",
+    "install/uninstall",
+    "commit/push",
+    "human acceptance"
+  ],
+  "claim_limit": "Research artifact/copy checks only. No whole-game semantics, gameplay or proposal adoption proved."
+}

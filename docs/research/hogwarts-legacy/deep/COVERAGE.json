@@ -1,0 +1,1076 @@
+{
+  "date": "2026-10-14",
+  "lane": "hogwarts-legacy-deep",
+  "build": "20773316",
+  "status": "static pass delivered; remaining native, global dialogue and runtime gaps explicit",
+  "labels": {
+    "SHOWN": "installed data or decoded static code",
+    "STATED": "shipped text",
+    "INFERRED": "cross-file interpretation"
+  },
+  "questions": [
+    {
+      "id": "D1",
+      "group": "XP",
+      "topic": "cumulative thresholds",
+      "status": "answered_native_static",
+      "native_chains": [
+        "N1"
+      ],
+      "evidence": [
+        "ExperienceLevels.ExperienceLevel,PointsForNextLevel"
+      ],
+      "labels": [
+        "SHOWN",
+        "INFERRED"
+      ],
+      "answer": "SHOWN + INFERRED: thresholds are cumulative. Level 2 begins at 500; level 3 at 1030; level 40 at 74,000.",
+      "detail": "[XP digest](XP_DIGEST.md), native AddExperience, cache load and range lookup",
+      "proposal_refs": [
+        "LP8",
+        "NP1"
+      ],
+      "remaining": "Loader fragment has type/boundary warnings; no live boundary crossing."
+    },
+    {
+      "id": "D2",
+      "group": "XP",
+      "topic": "award consumer and challenge exhaustion",
+      "status": "answered_selected_native_path",
+      "native_chains": [
+        "N1",
+        "N2"
+      ],
+      "evidence": [
+        "ExperienceActions.ExperienceAction,ExperiencePoints",
+        "AchievementChallenges.ChallengeID,ProgressExperience",
+        "AchievementCriteria.AchievementID,Occurances"
+      ],
+      "labels": [
+        "SHOWN"
+      ],
+      "answer": "SHOWN: a matching, eligible, not-already-complete challenge criterion forwards ProgressExperience to ExperienceActions and AddExperience. The final qualifying event can pay; later exhausted work skips that path.",
+      "detail": "[XP digest](XP_DIGEST.md), `0x1429caf70 -> 0x142d738b0`",
+      "proposal_refs": [
+        "LP8",
+        "NP1"
+      ],
+      "remaining": "Other sources can still pay; not every evaluation rule/caller traced."
+    },
+    {
+      "id": "D3",
+      "group": "XP",
+      "topic": "talent cadence, gear level and difficulty multiplier",
+      "status": "partial_native_and_data",
+      "native_chains": [
+        "N1"
+      ],
+      "evidence": [
+        "GearPowerLevels.PlayerLevel,ExpectedGearLevel",
+        "EnemyDifficultyScaling.Difficulty"
+      ],
+      "labels": [
+        "SHOWN",
+        "INFERRED"
+      ],
+      "answer": "SHOWN + INFERRED: increasing levels grant `new - max(old,4)` talent points when the perk manager exists. Gear level ranges are separate. A player XP modifier exists.",
+      "detail": "[XP digest](XP_DIGEST.md), `0x142d6c270 -> 0x143110180`; GearPowerLevels",
+      "proposal_refs": [
+        "LP7",
+        "NP1"
+      ],
+      "remaining": "No unconditional equal-XP-across-difficulty claim; all upstream modifier assignments unread."
+    },
+    {
+      "id": "D4",
+      "group": "combat",
+      "topic": "shield category/tag predicate",
+      "status": "answered_native_predicate",
+      "native_chains": [
+        "N3"
+      ],
+      "evidence": [
+        "Data/DA_GameplayTagLibrary.uasset"
+      ],
+      "labels": [
+        "SHOWN"
+      ],
+      "answer": "SHOWN: shield query uses tag membership and defense state, including distinct breaker and Control/Forceful/HeavyDamage tags.",
+      "detail": "[Combat digest](COMBAT_SHIELD_DIGEST.md), N3",
+      "proposal_refs": [
+        "NP2"
+      ],
+      "remaining": "Query acceptance is not every shield-removal caller."
+    },
+    {
+      "id": "D5",
+      "group": "combat",
+      "topic": "Stupefy Hard exception",
+      "status": "answered_native_selected_exception",
+      "native_chains": [
+        "N3"
+      ],
+      "evidence": [
+        "Data/DA_GameplayTagLibrary.uasset",
+        "MAIN-enUS::LoadingScreen_Combat11"
+      ],
+      "labels": [
+        "SHOWN",
+        "STATED"
+      ],
+      "answer": "SHOWN + STATED: the StupefySpecialPopup bypass is gated out at Hard=3.",
+      "detail": "[Combat digest](COMBAT_SHIELD_DIGEST.md), current reflection/enum/difficulty bindings",
+      "proposal_refs": [
+        "NP2"
+      ],
+      "remaining": "Does not remove every other possible matching-tag/bypass route."
+    },
+    {
+      "id": "D6",
+      "group": "combat",
+      "topic": "damage formula inputs and consumer",
+      "status": "partial_native_preparation",
+      "native_chains": [
+        "N4"
+      ],
+      "evidence": [
+        "SpellDefinition.DamageCharacter",
+        "GearPowerStats.DamageMultiplier,DamageReductionPercentage",
+        "EnemyDifficultyScaling.DamageScale",
+        "NPCLevelScaling.HealthModLevel,DamageModLevel"
+      ],
+      "labels": [
+        "SHOWN"
+      ],
+      "answer": "SHOWN: damage preparation separates base/instigator, tags/breakers and target; final amount is delegated through target state.",
+      "detail": "[Combat digest](COMBAT_SHIELD_DIGEST.md), N4; spell/gear/scaling/modifier assets",
+      "proposal_refs": [
+        "LP7",
+        "NP2"
+      ],
+      "remaining": "Final target-side virtual implementation and modifier order OPEN."
+    },
+    {
+      "id": "D7",
+      "group": "combat",
+      "topic": "stagger, shield break and recovery states",
+      "status": "partial_data_states",
+      "native_chains": [
+        "N3",
+        "N4"
+      ],
+      "evidence": [
+        "EnemyDefenseParams.RecoverHitLimit,RecoverTimeInReaction,EscapeHitLimit,EscapeHitTime",
+        "Pawn/NPC/Enemy/BehaviorTree/BB_EnemyAI.uasset"
+      ],
+      "labels": [
+        "SHOWN"
+      ],
+      "answer": "SHOWN: shields, reactions, recovery/escape limits and attack state are distinct.",
+      "detail": "[Combat digest](COMBAT_SHIELD_DIGEST.md); EnemyDefenseParams, BB_EnemyAI, tag library",
+      "proposal_refs": [
+        "NP2"
+      ],
+      "remaining": "Exact stagger/break/recovery transition arithmetic OPEN."
+    },
+    {
+      "id": "D8",
+      "group": "combat",
+      "topic": "combo, Ancient Magic meter gain and spend",
+      "status": "partial_native_meter",
+      "native_chains": [
+        "N5"
+      ],
+      "evidence": [
+        "Pawn/Player/BP_Biped_Player.uasset"
+      ],
+      "labels": [
+        "SHOWN"
+      ],
+      "answer": "SHOWN: named focus gains feed an additive clamped meter; ordinary finisher spending negates its separate cost. Combo and focus are different state.",
+      "detail": "[Combat digest](COMBAT_SHIELD_DIGEST.md), N5, BP_Biped_Player",
+      "proposal_refs": [
+        "NP5"
+      ],
+      "remaining": "Full orb callback, inherited combo thresholds and all refusal routes OPEN; S1 private."
+    },
+    {
+      "id": "D9",
+      "group": "AI",
+      "topic": "archetype trees and blackboards",
+      "status": "partial_asset_roles",
+      "native_chains": [],
+      "evidence": [
+        "Pawn/NPC/Enemy/BehaviorTree/BT_EnemyAI.uasset",
+        "EnemyAttackSelectionData.AttackName",
+        "EnemyAttackSelectionWeights.State"
+      ],
+      "labels": [
+        "SHOWN"
+      ],
+      "answer": "SHOWN: shared AI root/blackboard plus species overrides, attack suitability and role presets.",
+      "detail": "[AI digest](AI_DIGEST.md); full root/tree exports",
+      "proposal_refs": [
+        "NP3"
+      ],
+      "remaining": "Override tables are not complete tactics or a live archetype census."
+    },
+    {
+      "id": "D10",
+      "group": "AI",
+      "topic": "sight, hearing, cast/impact noise and perception scores",
+      "status": "partial_data_profiles",
+      "native_chains": [],
+      "evidence": [
+        "SpellDefinition.CastNoise,ImpactNoise",
+        "Noise.Noise,Intensity,Radius",
+        "EnemyPerceptionScores.Type",
+        "Pawn/NPC/Enemy/Perception/DA_IndoorStealth_TargetSense.uasset"
+      ],
+      "labels": [
+        "SHOWN"
+      ],
+      "answer": "SHOWN: cast/impact noise joins a radius/intensity table; target scoring differs from sight/hearing profiles.",
+      "detail": "[AI digest](AI_DIGEST.md); SpellDefinition, Noise, EnemyPerceptionScores",
+      "proposal_refs": [
+        "NP4"
+      ],
+      "remaining": "Event propagation/attenuation and universal hearing behavior OPEN."
+    },
+    {
+      "id": "D11",
+      "group": "AI",
+      "topic": "stealth fill, decay and memory",
+      "status": "partial_curve_data",
+      "native_chains": [],
+      "evidence": [
+        "Pawn/NPC/Enemy/Perception/FC_EnterAwareRate.uasset",
+        "Pawn/NPC/Enemy/Perception/FC_EnterAlertRate.uasset",
+        "Pawn/NPC/Enemy/Perception/FC_ExitAwareRate.uasset",
+        "Pawn/NPC/Enemy/Perception/FC_ExitAlertRate.uasset"
+      ],
+      "labels": [
+        "SHOWN"
+      ],
+      "answer": "SHOWN: awareness/alert entry/exit curves, memory and state transitions are separately authored.",
+      "detail": "[AI digest](AI_DIGEST.md); target-sense profile and four curves",
+      "proposal_refs": [
+        "NP4"
+      ],
+      "remaining": "Exact native per-frame fill/decay integration OPEN."
+    },
+    {
+      "id": "D12",
+      "group": "AI",
+      "topic": "attack tokens and coordination",
+      "status": "partial_data_and_flow",
+      "native_chains": [],
+      "evidence": [
+        "EnemySubtypeData.SubtypeID,NumTicketsEasy,NumTicketsMedium,NumTicketsHard",
+        "EnemyAttackParams.AttackTicket",
+        "EnemyAggressivenessParams.TicketWeight",
+        "Pawn/NPC/Enemy/BehaviorTree/Trees/ChooseAttack/BT_Enemy_ChooseAttack.uasset"
+      ],
+      "labels": [
+        "SHOWN",
+        "INFERRED"
+      ],
+      "answer": "SHOWN + INFERRED: attack suitability and execution permission are separate; tickets have budgets, cooldowns and aggression weights.",
+      "detail": "[AI digest](AI_DIGEST.md); ticket tables, blackboard, choose/publish flow",
+      "proposal_refs": [
+        "NP3"
+      ],
+      "remaining": "Full native arbiter, tie-breaking and simultaneous-attacker guarantees OPEN."
+    },
+    {
+      "id": "D13",
+      "group": "AI",
+      "topic": "companion follow/assist/wait boundaries",
+      "status": "partial_flow",
+      "native_chains": [],
+      "evidence": [
+        "Pawn/NPC/Enemy/BehaviorTree/Trees/BT_CompanionAI_FollowPlayer.uasset",
+        "CharacterDefinition.CompanionLock",
+        "first-pass BLUEPRINT_PASS B8/B9"
+      ],
+      "labels": [
+        "SHOWN"
+      ],
+      "answer": "SHOWN: companion follow/repath/wait, quest/area controls and target scoring have separate seams.",
+      "detail": "[AI digest](AI_DIGEST.md); new follow tree and first-pass B8/B9",
+      "proposal_refs": [
+        "LP6"
+      ],
+      "remaining": "Not a freely summonable roster or complete assist/navigation proof."
+    },
+    {
+      "id": "D14",
+      "group": "AI",
+      "topic": "NPC schedules and QL6 overrides",
+      "status": "partial_typed_tasks",
+      "native_chains": [],
+      "evidence": [
+        "Schedule_Overland.CharacterID,ActivityID,Priority,ScheduleKeys",
+        "MissionTaskTypes.TaskTypeID",
+        "MissionSteps.TaskTypeID,Keyword1..11"
+      ],
+      "labels": [
+        "SHOWN"
+      ],
+      "answer": "SHOWN: add/replace/remove schedule overrides have typed arguments and distinct mission uses.",
+      "detail": "[AI digest](AI_DIGEST.md); MissionTaskTypes/Steps, schedules",
+      "proposal_refs": [
+        "LP5"
+      ],
+      "remaining": "Complete override priority/restore arbitration unplayed and untraced."
+    },
+    {
+      "id": "D15",
+      "group": "AI",
+      "topic": "vivarium creature behavior",
+      "status": "partial_creature_trees",
+      "native_chains": [],
+      "evidence": [
+        "Pawn/NPC/Creature/BehaviorTree/Trees/",
+        "Pawn/NPC/Creature/Fwooper/DT_Fwooper_BehaviorTreeTable.uasset",
+        "NurturingCreatureDynamic.NeedMet_Fed,NeedMet_Interaction,Happiness,ByproductCooldownProgress"
+      ],
+      "labels": [
+        "SHOWN"
+      ],
+      "answer": "SHOWN: creature trees separate feeding, nurture, toys, exploration, social conflict, parent-following and flight.",
+      "detail": "[AI digest](AI_DIGEST.md); shared trees and species override samples",
+      "proposal_refs": [
+        "LP4"
+      ],
+      "remaining": "Care-product Boolean/timer consumption and offline simulation OPEN."
+    },
+    {
+      "id": "D16",
+      "group": "dialogue",
+      "topic": "line/choice/condition storage",
+      "status": "answered_structure_partial_conditions",
+      "native_chains": [
+        "N6"
+      ],
+      "evidence": [
+        "Cinematics/Missions/ZSR/ZSR_Bronze/CIN_Mission_ZSR_01_OpeningConvo_SG.uasset",
+        "SUB-enUS.bin",
+        "Relationship_Scripts.bin"
+      ],
+      "labels": [
+        "SHOWN"
+      ],
+      "answer": "SHOWN: lines carry IDs/speakers; graph choices have separate visibility/selectability references.",
+      "detail": "[Dialogue digest](DIALOGUE_DIGEST.md); selected graphs, MAIN/SUB",
+      "proposal_refs": [
+        "LP2",
+        "NP6"
+      ],
+      "remaining": "CONV global evaluator grammar not decoded."
+    },
+    {
+      "id": "D17",
+      "group": "dialogue",
+      "topic": "choice facts, branches and rewards",
+      "status": "partial_native_and_mission",
+      "native_chains": [
+        "N6"
+      ],
+      "evidence": [
+        "MissionSteps[COM_07].TaskTypeID,Keyword1,Keyword2,GotoStepNickname",
+        "MissionRewards[COM_07].RewardNickname,RewardID,Quantity",
+        "ConversationThreadDynamic.PropertyName,IntegerValue,StringValue"
+      ],
+      "labels": [
+        "SHOWN",
+        "INFERRED"
+      ],
+      "answer": "SHOWN + INFERRED: mission consumers can branch on conversation results and choose reward variants; used-branch state is a separate native write.",
+      "detail": "[Dialogue digest](DIALOGUE_DIGEST.md), COM_07, N6",
+      "proposal_refs": [
+        "LP6",
+        "NP6"
+      ],
+      "remaining": "Per-line Boolean writer, flag polarity and universal relationship effects OPEN."
+    },
+    {
+      "id": "D18",
+      "group": "dialogue",
+      "topic": "speaker, quest and schedule gates",
+      "status": "partial_gates",
+      "native_chains": [
+        "N6"
+      ],
+      "evidence": [
+        "ConversationExclusiveDynamic.CharacterID,EventNamePattern,RegisteredByMission",
+        "MissionSteps.TaskTypeID",
+        "Schedule_Overland.ScheduleKeys"
+      ],
+      "labels": [
+        "SHOWN",
+        "INFERRED"
+      ],
+      "answer": "SHOWN + INFERRED: speaker, registration/exclusivity, quest state and schedule availability are distinct gates.",
+      "detail": "[Dialogue digest](DIALOGUE_DIGEST.md); conversation templates and mission tasks",
+      "proposal_refs": [
+        "LP5",
+        "LP6"
+      ],
+      "remaining": "Complete scheduler/conversation arbitration and all conditions OPEN."
+    },
+    {
+      "id": "D19",
+      "group": "extras",
+      "topic": "QL1 accessibility/input",
+      "status": "stated_and_selected_data",
+      "native_chains": [],
+      "evidence": [
+        "MAIN-enUS::InputAction_Minigame_Autosolve,Menu_ArachnophobiaMode_desc,AudioVisualizer_desc",
+        "UIInputActions",
+        "Data/ControlMapper/Watchers/"
+      ],
+      "labels": [
+        "SHOWN",
+        "STATED"
+      ],
+      "answer": "STATED + SHOWN: input/accessibility alternatives have text keys and selected distinct input assets.",
+      "detail": "[Extras digest](EXTRAS_DIGEST.md), QL1",
+      "proposal_refs": [
+        "LP1",
+        "LP2"
+      ],
+      "remaining": "Labels are not universal minigame auto-solve or runtime accessibility proof."
+    },
+    {
+      "id": "D20",
+      "group": "extras",
+      "topic": "QL2 shop stock and prices",
+      "status": "partial_base_prices",
+      "native_chains": [],
+      "evidence": [
+        "VendorStocks.VendorID,ContainerID",
+        "LootCategories.CategoryID,RollType",
+        "LootContainerContents.LootCategoryID,ContainerID,ItemRollCount",
+        "VirtualContainerContents.VContainerID,ItemID",
+        "ItemDefinition.EconomyValue,SellPrice,Sellable"
+      ],
+      "labels": [
+        "SHOWN"
+      ],
+      "answer": "SHOWN: vendor categories generate stock through nested container records; pricing/sell flags are separate.",
+      "detail": "[Extras digest](EXTRAS_DIGEST.md), QL2",
+      "proposal_refs": [
+        "LP3"
+      ],
+      "remaining": "Final checkout/resale/discount and restock formulas OPEN."
+    },
+    {
+      "id": "D21",
+      "group": "extras",
+      "topic": "QL3 cosmetics versus strength",
+      "status": "answered_data_separation",
+      "native_chains": [],
+      "evidence": [
+        "GearAppearanceItems.GearAppearanceID",
+        "GearItems.GearAppearanceID,NumGeneralAbilities",
+        "GearPowerLevels",
+        "GearPowerStats"
+      ],
+      "labels": [
+        "SHOWN"
+      ],
+      "answer": "SHOWN: gear appearance IDs are separate from gear/power/trait records.",
+      "detail": "[Extras digest](EXTRAS_DIGEST.md), QL3",
+      "proposal_refs": [
+        "LP7"
+      ],
+      "remaining": "Complete transmog UI and exceptional unlocks unread."
+    },
+    {
+      "id": "D22",
+      "group": "extras",
+      "topic": "QL5 purchase alternatives",
+      "status": "partial_joins",
+      "native_chains": [],
+      "evidence": [
+        "VendorStocks",
+        "LootContainerContents",
+        "VirtualContainerContents",
+        "PotionDefinition.LockID,Ingredient1,TimeToBrewSec",
+        "TransfigurationObjects"
+      ],
+      "labels": [
+        "SHOWN",
+        "INFERRED"
+      ],
+      "answer": "SHOWN + INFERRED: finished goods, ingredients, recipe ownership and station placement are separate purchase/production options.",
+      "detail": "[Extras digest](EXTRAS_DIGEST.md), QL5",
+      "proposal_refs": [
+        "LP3"
+      ],
+      "remaining": "Not every route/lock is proved reachable."
+    },
+    {
+      "id": "D23",
+      "group": "extras",
+      "topic": "QL7 transient versus saved",
+      "status": "partial_shipped_schema",
+      "native_chains": [],
+      "evidence": [
+        "StatsDynamic.StatID,Value,Transient",
+        "EnemyPersistenceDynamic",
+        "ConversationDynamic",
+        "WorldEventsPersistenceDynamic"
+      ],
+      "labels": [
+        "SHOWN"
+      ],
+      "answer": "SHOWN: shipped schemas distinguish transient stats, enemy persistence, schedules, conversations and events.",
+      "detail": "[Extras digest](EXTRAS_DIGEST.md), QL7",
+      "proposal_refs": [
+        "LP4",
+        "LP5"
+      ],
+      "remaining": "Templates/callbacks are not a verified serializer or user save."
+    },
+    {
+      "id": "D24",
+      "group": "extras",
+      "topic": "QL8 localization joins",
+      "status": "full_text_retention_partial_joins",
+      "native_chains": [],
+      "evidence": [
+        "MAIN-enUS.bin",
+        "SUB-enUS.bin",
+        "SceneRigScriptNode_Dialogue.DialogueID,CharacterID"
+      ],
+      "labels": [
+        "SHOWN"
+      ],
+      "answer": "SHOWN: MAIN mechanical keys and SUB line IDs have different joins; explicit graph speakers outrank key-prefix hints.",
+      "detail": "[Extras digest](EXTRAS_DIGEST.md), QL8; private joined records",
+      "proposal_refs": [
+        "LP2",
+        "LP8"
+      ],
+      "remaining": "Most subtitle IDs have no selected full graph/effect join."
+    },
+    {
+      "id": "D25",
+      "group": "extras",
+      "topic": "economy faucets and sinks",
+      "status": "partial_economy",
+      "native_chains": [],
+      "evidence": [
+        "MissionRewards.RewardID,Quantity",
+        "VirtualContainerContents.ItemID,ItemQuantity",
+        "ItemDefinition.EconomyValue",
+        "GearTraitRecipeDefinition",
+        "GearStatUpgrade"
+      ],
+      "labels": [
+        "SHOWN"
+      ],
+      "answer": "SHOWN: currency-bearing rewards/containers, purchased goods and material transformations have distinct sources and sinks.",
+      "detail": "[Extras digest](EXTRAS_DIGEST.md); rewards, loot, item economy, recipes",
+      "proposal_refs": [
+        "LP3",
+        "LP7"
+      ],
+      "remaining": "Not an exhaustive reachable economy or infinite-farm proof."
+    },
+    {
+      "id": "D26",
+      "group": "extras",
+      "topic": "mission task grammar and chaining",
+      "status": "partial_typed_grammar",
+      "native_chains": [],
+      "evidence": [
+        "MissionTaskTypes.TaskTypeID,Keyword1Type,IsAction,StepEvaluationIgnores",
+        "MissionSteps.MissionID,Step,Flags,StepNickname,GotoStepNickname,TaskUID"
+      ],
+      "labels": [
+        "SHOWN"
+      ],
+      "answer": "SHOWN: quest tasks form a typed action/evaluator grammar with named jumps, arguments, text keys and flags.",
+      "detail": "[Extras digest](EXTRAS_DIGEST.md); 155 types, 15,886 step rows",
+      "proposal_refs": [
+        "LP2",
+        "LP5"
+      ],
+      "remaining": "Complete native flag/group scheduling semantics OPEN."
+    },
+    {
+      "id": "D27",
+      "group": "extras",
+      "topic": "world event/random encounter spawning",
+      "status": "partial_spawn_data",
+      "native_chains": [],
+      "evidence": [
+        "Levels/WorldEvents/DataAssets/DT_WorldEventDataTable.uasset",
+        "EncounterInstance",
+        "EncounterSpawnZones",
+        "EncounterInclusions",
+        "EncounterExclusions",
+        "EncounterScoreModifier"
+      ],
+      "labels": [
+        "SHOWN"
+      ],
+      "answer": "SHOWN: world events declare eligibility, probability, instance/cooldown/persistence and location constraints; combat encounters have separate budget/spawn-zone data.",
+      "detail": "[Extras digest](EXTRAS_DIGEST.md); 85 event definitions and encounter tables",
+      "proposal_refs": [
+        "NP7"
+      ],
+      "remaining": "Counts include archived/test data; director sampling and map reachability OPEN."
+    },
+    {
+      "id": "D28",
+      "group": "extras",
+      "topic": "difficulty settings and mechanics",
+      "status": "answered_data_inputs",
+      "native_chains": [],
+      "evidence": [
+        "EnemyDifficultyScaling",
+        "EnemyVulnerableDamageMods",
+        "EnemySubtypeData",
+        "EncounterScoreModifier"
+      ],
+      "labels": [
+        "SHOWN"
+      ],
+      "answer": "SHOWN: difficulty varies attack/ticket/timing/defense/vulnerability inputs, with health scale 1 in all four inspected difficulty rows.",
+      "detail": "[Extras digest](EXTRAS_DIGEST.md); EnemyDifficultyScaling and related tables",
+      "proposal_refs": [
+        "NP2",
+        "NP3"
+      ],
+      "remaining": "Stored inputs do not establish final order, universal health equality or XP policy."
+    }
+  ],
+  "cheap_question_map": {
+    "QL1": [
+      "D19"
+    ],
+    "QL2": [
+      "D20"
+    ],
+    "QL3": [
+      "D21"
+    ],
+    "QL4": [
+      "D10",
+      "D11"
+    ],
+    "QL5": [
+      "D22"
+    ],
+    "QL6": [
+      "D14"
+    ],
+    "QL7": [
+      "D23"
+    ],
+    "QL8": [
+      "D24"
+    ]
+  },
+  "native_chains": [
+    {
+      "id": "N1",
+      "topic": "XP award/ranges/talent rewards",
+      "rea": "initial_selected_success; follow-up startup timeout",
+      "direct": "selected comparison and fallback",
+      "addresses": [
+        "0x1436365c0",
+        "0x142d6c270",
+        "0x143636b10",
+        "0x142d738b0",
+        "0x142d775d0",
+        "0x142d89db0",
+        "0x142d7cdf2",
+        "0x143110180"
+      ],
+      "exe_sha256": "b713e88e0034cb23562b7ffeba6febe5d6a679578215cb595e1644cfc56245a1",
+      "build": "20773316",
+      "tools": {
+        "REA": "6.4.0 bb540826d65316c164d2de8ba4ef10f81a8ad073; declared bounded-import patch",
+        "Ghidra": "12.1.4 PUBLIC",
+        "JDK": "21.0.12.1"
+      },
+      "private_notes": "../private/native/deep/CHAIN_NOTES.md"
+    },
+    {
+      "id": "N2",
+      "topic": "challenge progress/exhaustion",
+      "rea": "follow-up startup timeout; no procedure evidence",
+      "direct": "selected fallback",
+      "addresses": [
+        "0x14353ebc0",
+        "0x1429caf70",
+        "0x1429d78be",
+        "0x1429cab50"
+      ],
+      "exe_sha256": "b713e88e0034cb23562b7ffeba6febe5d6a679578215cb595e1644cfc56245a1",
+      "build": "20773316",
+      "tools": {
+        "REA": "6.4.0 bb540826d65316c164d2de8ba4ef10f81a8ad073; declared bounded-import patch",
+        "Ghidra": "12.1.4 PUBLIC",
+        "JDK": "21.0.12.1"
+      },
+      "private_notes": "../private/native/deep/CHAIN_NOTES.md"
+    },
+    {
+      "id": "N3",
+      "topic": "shields/Hard exception",
+      "rea": "initial parent body success; follow-up startup timeout",
+      "direct": "selected comparison and helper fallback",
+      "addresses": [
+        "0x1437fb4c0",
+        "0x1432f1930",
+        "0x142b91da0",
+        "0x142b91200",
+        "0x142c809e0",
+        "0x1431ca230",
+        "0x1437b24d0"
+      ],
+      "exe_sha256": "b713e88e0034cb23562b7ffeba6febe5d6a679578215cb595e1644cfc56245a1",
+      "build": "20773316",
+      "tools": {
+        "REA": "6.4.0 bb540826d65316c164d2de8ba4ef10f81a8ad073; declared bounded-import patch",
+        "Ghidra": "12.1.4 PUBLIC",
+        "JDK": "21.0.12.1"
+      },
+      "private_notes": "../private/native/deep/CHAIN_NOTES.md"
+    },
+    {
+      "id": "N4",
+      "topic": "damage preparation",
+      "rea": "initial body success; follow-up timeout",
+      "direct": "preparation fallback; final virtual implementation unresolved",
+      "addresses": [
+        "0x1437fb5c0",
+        "0x1432f1a90",
+        "0x143032550",
+        "0x14303e520",
+        "0x14303d730"
+      ],
+      "exe_sha256": "b713e88e0034cb23562b7ffeba6febe5d6a679578215cb595e1644cfc56245a1",
+      "build": "20773316",
+      "tools": {
+        "REA": "6.4.0 bb540826d65316c164d2de8ba4ef10f81a8ad073; declared bounded-import patch",
+        "Ghidra": "12.1.4 PUBLIC",
+        "JDK": "21.0.12.1"
+      },
+      "private_notes": "../private/native/deep/CHAIN_NOTES.md"
+    },
+    {
+      "id": "N5",
+      "topic": "focus/combo/spend",
+      "rea": "initial selected success; follow-up startup timeout",
+      "direct": "adjustment comparison, by-name/spend fallback",
+      "addresses": [
+        "0x142ad3650",
+        "0x142ad38e0",
+        "0x143585140",
+        "0x143585160",
+        "0x1435896f0",
+        "0x142ad2a10",
+        "0x142ad7890"
+      ],
+      "exe_sha256": "b713e88e0034cb23562b7ffeba6febe5d6a679578215cb595e1644cfc56245a1",
+      "build": "20773316",
+      "tools": {
+        "REA": "6.4.0 bb540826d65316c164d2de8ba4ef10f81a8ad073; declared bounded-import patch",
+        "Ghidra": "12.1.4 PUBLIC",
+        "JDK": "21.0.12.1"
+      },
+      "private_notes": "../private/native/deep/CHAIN_NOTES.md"
+    },
+    {
+      "id": "N6",
+      "topic": "conversation options/used state",
+      "rea": "used state success; options follow-up timeout",
+      "direct": "used-state comparison and option enumeration fallback",
+      "addresses": [
+        "0x1435cad40",
+        "0x142d0eb30",
+        "0x1435ca030",
+        "0x142cfecf0"
+      ],
+      "exe_sha256": "b713e88e0034cb23562b7ffeba6febe5d6a679578215cb595e1644cfc56245a1",
+      "build": "20773316",
+      "tools": {
+        "REA": "6.4.0 bb540826d65316c164d2de8ba4ef10f81a8ad073; declared bounded-import patch",
+        "Ghidra": "12.1.4 PUBLIC",
+        "JDK": "21.0.12.1"
+      },
+      "private_notes": "../private/native/deep/CHAIN_NOTES.md"
+    }
+  ],
+  "preservation": {
+    "tables_ship": 530,
+    "tables_game": 633,
+    "main_entries": 18889,
+    "sub_entries": 34955,
+    "new_packages_parsed": 143,
+    "new_graph_line_ids": 113,
+    "graph_ids_joined_to_SUB": 80,
+    "graph_only_ids": 33,
+    "graph_only_with_embedded_text": 21,
+    "global_condition_expressions_decoded": false,
+    "full_CONV_binary_retained": true,
+    "archive_index": "../private/README.md",
+    "raw_workspace": "~/.codex/research/hogwarts-legacy/",
+    "raw_executable_retained": true
+  },
+  "checks": {
+    "date": "2026-10-14",
+    "original_extracts_checked": 62,
+    "original_extracts_unchanged": true,
+    "extract_files": 351,
+    "extract_bytes": 489350291,
+    "db_integrity": {
+      "PhoenixGameData.sqlite": "ok",
+      "PhoenixShipData.sqlite": "ok"
+    },
+    "install_inventory_unchanged": true,
+    "install_inventory": [
+      {
+        "file": "global.ucas",
+        "unchanged": true
+      },
+      {
+        "file": "global.utoc",
+        "unchanged": true
+      },
+      {
+        "file": "pakchunk0-WindowsNoEditor.pak",
+        "unchanged": true
+      },
+      {
+        "file": "pakchunk0-WindowsNoEditor.ucas",
+        "unchanged": true
+      },
+      {
+        "file": "pakchunk0-WindowsNoEditor.utoc",
+        "unchanged": true
+      },
+      {
+        "file": "pakchunk0optional-WindowsNoEditor.pak",
+        "unchanged": true
+      },
+      {
+        "file": "pakchunk0optional-WindowsNoEditor.ucas",
+        "unchanged": true
+      },
+      {
+        "file": "pakchunk0optional-WindowsNoEditor.utoc",
+        "unchanged": true
+      },
+      {
+        "file": "pakchunk1-WindowsNoEditor.pak",
+        "unchanged": true
+      },
+      {
+        "file": "pakchunk1-WindowsNoEditor.ucas",
+        "unchanged": true
+      },
+      {
+        "file": "pakchunk1-WindowsNoEditor.utoc",
+        "unchanged": true
+      },
+      {
+        "file": "pakchunk10-WindowsNoEditor.pak",
+        "unchanged": true
+      },
+      {
+        "file": "pakchunk10-WindowsNoEditor.ucas",
+        "unchanged": true
+      },
+      {
+        "file": "pakchunk10-WindowsNoEditor.utoc",
+        "unchanged": true
+      },
+      {
+        "file": "pakchunk10optional-WindowsNoEditor.pak",
+        "unchanged": true
+      },
+      {
+        "file": "pakchunk10optional-WindowsNoEditor.ucas",
+        "unchanged": true
+      },
+      {
+        "file": "pakchunk10optional-WindowsNoEditor.utoc",
+        "unchanged": true
+      },
+      {
+        "file": "pakchunk11-WindowsNoEditor.pak",
+        "unchanged": true
+      },
+      {
+        "file": "pakchunk11-WindowsNoEditor.ucas",
+        "unchanged": true
+      },
+      {
+        "file": "pakchunk11-WindowsNoEditor.utoc",
+        "unchanged": true
+      },
+      {
+        "file": "pakchunk9-WindowsNoEditor.pak",
+        "unchanged": true
+      },
+      {
+        "file": "pakchunk9-WindowsNoEditor.ucas",
+        "unchanged": true
+      },
+      {
+        "file": "pakchunk9-WindowsNoEditor.utoc",
+        "unchanged": true
+      }
+    ],
+    "parsed": [
+      {
+        "root": "asset-json",
+        "attempted": 100,
+        "parsed": 100,
+        "failed": []
+      },
+      {
+        "root": "asset-json-more",
+        "attempted": 32,
+        "parsed": 32,
+        "failed": []
+      },
+      {
+        "root": "asset-json-final",
+        "attempted": 11,
+        "parsed": 11,
+        "failed": []
+      }
+    ],
+    "direct": [
+      {
+        "file": "direct-award.txt",
+        "addresses": [
+          "0x1429ccd50",
+          "0x1429cf9d0",
+          "0x1429cbbd0",
+          "0x142c809e0"
+        ],
+        "failed": false
+      },
+      {
+        "file": "direct-follow.txt",
+        "addresses": [
+          "0x142d89db0",
+          "0x142ad7840",
+          "0x14303d730",
+          "0x143032550",
+          "0x14303e520",
+          "0x142ad7890",
+          "0x1429cab50",
+          "0x1429d66b0",
+          "0x1435896f0",
+          "0x142ad38e0",
+          "0x142cfecf0"
+        ],
+        "failed": false
+      },
+      {
+        "file": "direct-knowledge.txt",
+        "addresses": [
+          "0x1429caf70"
+        ],
+        "failed": false
+      },
+      {
+        "file": "direct-shield-helper.txt",
+        "addresses": [
+          "0x142b91200",
+          "0x142c4e880"
+        ],
+        "failed": false
+      },
+      {
+        "file": "direct-spot.txt",
+        "addresses": [
+          "0x142d6c270",
+          "0x142d775d0",
+          "0x142b91da0",
+          "0x142ad3650",
+          "0x142d0eb30"
+        ],
+        "failed": false
+      },
+      {
+        "file": "direct-xp-load.txt",
+        "addresses": [
+          "0x142d7cdf2",
+          "0x1429d78be",
+          "0x1429f17f0",
+          "0x1429f3990",
+          "0x1431ca230"
+        ],
+        "failed": false
+      }
+    ],
+    "current_exe_sha256": "b713e88e0034cb23562b7ffeba6febe5d6a679578215cb595e1644cfc56245a1",
+    "archived_exe_matches": true,
+    "objdump_version": [
+      "Apple LLVM version 21.0.0",
+      "  Optimized build.",
+      ""
+    ],
+    "game_launched": false,
+    "saves_accessed": false,
+    "new_installs": false,
+    "direct_project_exe_sha256": "b713e88e0034cb23562b7ffeba6febe5d6a679578215cb595e1644cfc56245a1",
+    "direct_project_matches_current_exe": true
+  },
+  "proposal_status": "PROPOSALS only; LP mappings refine prior proposals; no accepted direction changed",
+  "new_ranked_proposals": [
+    "NP1",
+    "NP2",
+    "NP3",
+    "NP4",
+    "NP5",
+    "NP6",
+    "NP7"
+  ],
+  "uninstall_readiness": {
+    "ready": false,
+    "gaps": [
+      "unselected conversation/scene graphs",
+      "unselected ability/modifier/AI-task packages",
+      "streamed event and map actor packages",
+      "complete container archive not retained"
+    ],
+    "do_not_uninstall": true
+  },
+  "boundaries": {
+    "game_launched": false,
+    "injectors_run": false,
+    "user_saves_accessed": false,
+    "source_edits": false,
+    "committed": false,
+    "staged": false,
+    "runtime_acceptance": "not run by authorization",
+    "sealed_S1": "private; no hidden progression gate disclosure"
+  },
+  "first_pass_reconciliation": {
+    "C03": "D4/D5/D7/D8 deepen predicate/meter; full spell wiring/combos still open",
+    "C06": "D2 selected native action and exhaustion path",
+    "C07": "D1 cumulative consumer established",
+    "C08": "prior data retained; not a new full roster audit",
+    "C09": "D3 level-gain cadence traced; respec/upgrade paths still open",
+    "C13": "D6 adds preparation; final stacking still open",
+    "C17_C18": "D15 creature behaviors; offline/care consumers still open",
+    "C22_C24": "D13/D14/D18 deepen actor/task/availability boundaries",
+    "C25": "D16/D17 deepen structure and selected reward branch; global expressions open",
+    "C28_C29": "D4-D12 deepen tags, profiles, tokens and data; complete native AI/damage still open",
+    "C33": "D8 ordinary meter consumer; S1 hidden route remains private and incomplete",
+    "other_first_pass_limits": "preserved in ../CHECKPOINT.md; not silently closed"
+  }
+}
