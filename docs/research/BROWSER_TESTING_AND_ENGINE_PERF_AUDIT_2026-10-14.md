@@ -429,3 +429,68 @@ developed fixture, load 27-37. [Raw results](../gm/dispatch/engine-perf-2026-10-
 - **Caught on the way.** The first wiring captured `localStorage` at module load;
   the alloy equipment fixture swaps the global storage after import, so its test
   failed. The writer now takes a storage getter, as the direct calls did.
+
+## RT8 fast-forward result, 2026-10-14 night
+
+Commit after D3 `8b329076` on the same branch. Developed fixture, load 11-27.
+[Raw results](../gm/dispatch/engine-perf-2026-10-14/results/) (`rt8-*`).
+
+- **API (dev/test only, behind `testHooksEnabled`).** `window.fastForward(n,
+  {sliceMs = 30, onProgress})` returns a promise of `{ticks, callbacks,
+  autosaves, slices, maxSliceMs, wallMs}`. It pauses the engine, opens the same
+  stepper batch as `advanceTicks` (`openStepperBatch` in `src/main.js`: panel
+  renders and autosaves coalesce), then runs `runEngineTicks(1)` repeatedly,
+  yielding (`scheduler.yield`, else a `MessageChannel` task) before every slice
+  and ending a slice before a tick that would likely cross `sliceMs`. The engine
+  stays paused across yields, so no live timer interleaves; one coalesced render
+  and autosave flush at the end, then the engine resumes if it was running.
+  Nesting with `advanceTicks` or itself is refused. One tick is one game minute
+  while awake (six while sleeping), so `n` counts ticks.
+- **Catch-up.** `?test_hooks=1&catch_up_ticks=N` replays N ticks through
+  `fastForward` right after PLAY; the promise is `window.catchUpResult`. The game
+  has no offline time today: `away_ledger.js` is not wired in and
+  [USER_VISION](../USER_VISION.md) keeps offline execution deferred, so who gets
+  time away stays Weibao's design decision. This hook is the mechanism for that
+  later policy and for harness checks, not a player-facing grant.
+- **8 game hours (480 ticks), developed fixture:**
+
+  | Path | Wall | vs real time (480 s) | Long tasks | Max slice | Identity |
+  | --- | --- | --- | --- | --- | --- |
+  | `fastForward(480)` | 6.98 s | 69× | 0 | 39.7 ms | durable save and stored bytes = `advanceTicks(480)` |
+  | `advanceTicks(480)` (one task) | 7.03 s | 68× | the whole run | n/a | reference |
+  | Reload + `catch_up_ticks=480` | 6.89 s | 70× | 1 at PLAY (121 ms) | 37.1 ms | 480 game minutes |
+
+  `fastForward(60)` equals 60 separate `advanceTicks(1)` calls byte for byte.
+  The one long task after a catch-up reload is the PLAY/load handler; it appears
+  the same with `catch_up_ticks=1` (133-150 ms), so the forward adds none.
+  An earlier run at load 20 measured 8.4 s (57×). The 50× margin is thin
+  on a loaded host: per-tick cost (staging plus a full durable write) sets the
+  speed, and slicing cannot split a single tick.
+- **Checks.** Full suite 1730 tests, 1727 pass, 0 fail, 3 todo. Systems
+  workshop browser 10/10 (dev-stepped through the refactored `advanceTicks`,
+  22 s). det 20 game minutes: byte-identical to D3. Idle A/B unchanged (task
+  busy 12.0/12.0% vs 11.9/12.1%). Reveal check still identical. Perf gate
+  `--base 8b329076`: det identical on all three fixtures; FAIL on
+  `storageKBPerMin` for mid and crowded (same budget artifact as D3, 141.8 and
+  567 KB per write unchanged) and crowded `longTasks` 13 vs ceiling 12, inside
+  the gate's stated ±2 noise, with task busy lower than D3's run (29.2 vs 33.5%).
+- **Not done here.** ER1-F9's within-plan drain (`advanceChroniclePlan` paying
+  repeated 512-boundary budgets for one long command such as a journey) still
+  runs in one task. Yielding there needs the async locked-plan design (compute
+  the drain in slices over a frozen base, publish once, redo if the base
+  changed), which touches every synchronous caller. Proposal, not started.
+- **Proposals.** A player-facing "skip ahead" or offline catch-up UI on top of
+  `fastForward` (progress from `onProgress`, input blocked while it runs) is a
+  proposal only. Harness lane: a `fastForward(page, n)` wrapper in
+  `scripts/ui_helpers.cjs` next to `advanceGameMinutes`, so checks that wait on
+  many game minutes stop holding one long task.
+
+### Tools added
+
+In [tools/](../gm/dispatch/engine-perf-2026-10-14/tools/), all resolve the repo
+root from their own path and build into an OS temp dir:
+`vis.mjs` (hidden-tab emulation), `ab_hidden.mjs` (interleaved A/B, visible and
+hidden), `reveal.mjs`, `det_hidden.mjs`, `d3_persistence.mjs`,
+`fast_forward.mjs`, `catch_up.mjs`, `workshop_at.mjs` (workshop check against
+any build), `prof_hidden.mjs`, `callers.cjs` (profile caller chains),
+`savediff.mjs` (which save paths change per write).

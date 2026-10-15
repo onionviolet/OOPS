@@ -9154,12 +9154,10 @@ function simulateTick() {
 }
 
 
-/** Advance the actual engine timers synchronously; never a second simulation. */
-function advanceTicks(n, {render = false} = {}) {
-    if(!testHooksEnabled) throw new Error('Test hooks are disabled.');
-    if(!Number.isSafeInteger(n) || n < 0 || n > 1000000) throw new RangeError('Ticks must be an integer from 0 to 1000000.');
+// One stepper batch: autosaves coalesce to one per key and, unless render is set,
+// panel renders coalesce to one flush. Returns the close function.
+function openStepperBatch(render) {
     if(stepperSaves) throw new Error('Cannot nest advanceTicks.');
-    if(n === 0) return {ticks:0, callbacks:0, autosaves:0};
     const restore = [];
     stepperSaves = new Set();
     if(!render) {
@@ -9173,18 +9171,71 @@ function advanceTicks(n, {render = false} = {}) {
             restore.push(() => {panel.render = original;});
         }
     }
-    let result;
-    try {result = runEngineTicks(n); return result;}
-    finally {
+    return () => {
         const saves = stepperSaves; stepperSaves = null;
-        if(result) result.autosaves = saves.size;
         for(const key of saves) {
             const savedAt = save_to_localStorage({key});
             if(savedAt && (key === backup_key || key === dev_backup_key)) update_backup_load_button(savedAt);
         }
         for(const reset of restore) reset();
         if(!render) endSimulationRenderBatch(expansionState);
+        return saves.size;
+    };
+}
+const checkTickCount = n => {
+    if(!testHooksEnabled) throw new Error('Test hooks are disabled.');
+    if(!Number.isSafeInteger(n) || n < 0 || n > 1000000) throw new RangeError('Ticks must be an integer from 0 to 1000000.');
+};
+/** Advance the actual engine timers synchronously; never a second simulation. */
+function advanceTicks(n, {render = false} = {}) {
+    checkTickCount(n);
+    if(fastForwarding) throw new Error('Cannot nest advanceTicks.');
+    if(n === 0) return {ticks:0, callbacks:0, autosaves:0};
+    const close = openStepperBatch(render);
+    let result;
+    try {result = runEngineTicks(n); return result;}
+    finally {
+        const autosaves = close();
+        if(result) result.autosaves = autosaves;
     }
+}
+// RT8: the same stepper, one tick at a time, yielding between slices so no task runs
+// long. The engine stays paused across yields, so live timers never interleave and the
+// result is byte-identical to advanceTicks(n) or n single ticks. Input during a
+// forward is not blocked; it interleaves like input between single ticks.
+let fastForwarding = null;
+const yieldToBrowser = () => globalThis.scheduler?.yield ? globalThis.scheduler.yield() : new Promise(resolve => {
+    const channel = new MessageChannel(); channel.port1.onmessage = () => {channel.port1.close(); resolve();}; channel.port2.postMessage(0);
+});
+function fastForward(n, {sliceMs = 30, onProgress} = {}) {
+    checkTickCount(n);
+    if(fastForwarding || stepperSaves) return Promise.reject(new Error('Cannot nest fastForward.'));
+    if(!Number.isFinite(sliceMs) || sliceMs <= 0) return Promise.reject(new RangeError('sliceMs must be positive.'));
+    const run = async () => {
+        // Outside a run, stepping() is true exactly while the engine is paused.
+        const started = performance.now(), wasPaused = stepping();
+        let ticks = 0, callbacks = 0, slices = 0, maxSliceMs = 0, autosaves = 0, close = null;
+        pauseEngine();
+        try {
+            close = openStepperBatch(false);
+            while(ticks < n) {
+                // Yield first, so not even the first slice joins the caller's task.
+                await yieldToBrowser();
+                const sliceStart = performance.now();
+                let count = 0, elapsed = 0;
+                // Stop before a tick that would likely cross the slice budget.
+                do {callbacks += runEngineTicks(1).callbacks; ticks++; count++; elapsed = performance.now() - sliceStart;}
+                while(ticks < n && elapsed + elapsed / count < sliceMs);
+                slices++; maxSliceMs = Math.max(maxSliceMs, elapsed);
+                onProgress?.({ticks, total: n});
+            }
+        } finally {
+            try {if(close) autosaves = close();}
+            finally {if(!wasPaused) resumeEngine(); fastForwarding = null;}
+        }
+        return {ticks, callbacks, autosaves, slices, maxSliceMs: +maxSliceMs.toFixed(1), wallMs: Math.round(performance.now() - started)};
+    };
+    return fastForwarding = run();
 }
 
 /** Lifetime counters that titles read; all derived from existing saved state. */
@@ -9259,6 +9310,12 @@ function run() {
         
     start_date = Date.now();
     update();
+    // RT8 test hook: replay ticks away (one game minute each while awake) through the sliced
+    // stepper. No player offline policy exists yet; who gets time away stays a design decision.
+    const catchUp = testHooksEnabled ? Number(new URLSearchParams(location.search).get('catch_up_ticks')) : 0;
+    if(Number.isSafeInteger(catchUp) && catchUp > 0) {
+        window.catchUpResult = fastForward(catchUp).catch(error => {console.error('Catch-up stopped:', error); throw error;});
+    }
 
     if(game_options.change_background_color) {
         set_light_based_background_color(!current_location.is_under_roof);
@@ -10152,6 +10209,7 @@ document.addEventListener('visibilitychange', () => {if(document.hidden) flushDu
 
 if(testHooksEnabled) {
     window.advanceTicks = advanceTicks;
+    window.fastForward = fastForward;
     window.simulationTestHooks = Object.freeze({pause:pauseEngine,resume:resumeEngine,snapshot:()=>JSON.parse(create_save()),tickrate:()=>tickrate});
 }
 
