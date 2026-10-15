@@ -1,0 +1,447 @@
+{
+  "schema_version": 1,
+  "lane": "ds-siralim-ultimate",
+  "build": "20548371",
+  "status": "PARTIAL",
+  "findings": [
+    {
+      "id": "DS-F01",
+      "system_section": "D01",
+      "title": "Knowledge opens multiple targeted acquisition paths",
+      "evidence_class": "shown+stated",
+      "sources": [
+        "N19/N20; codex knowledge/Mana; UI Hunt, Assassination and candle tags",
+        "SYSTEMS.md:D01"
+      ],
+      "summary": "Two rank readers and seven numeric thresholds; selection of current consumer unjoined.",
+      "kit": [
+        "K9",
+        "K11",
+        "K13"
+      ],
+      "synthesis_packets": [
+        "P03",
+        "P04",
+        "P11"
+      ],
+      "topic_palettes": [
+        "docs/TECHNOLOGY_AND_PROGRESSION.md",
+        "docs/MEANS_AND_APPRAISAL.md"
+      ],
+      "status": "partial",
+      "implementation": "PROPOSAL ONLY"
+    },
+    {
+      "id": "DS-F02",
+      "system_section": "D02",
+      "title": "Project instances retain real progress and completion",
+      "evidence_class": "shown+stated",
+      "sources": [
+        "N17/N21-N24; projects.csv",
+        "SYSTEMS.md:D02"
+      ],
+      "summary": "Twelve serialized fields; capacity starts at one with four completion increments; payout/spawn consumer unjoined.",
+      "kit": [
+        "K8",
+        "K9",
+        "K13",
+        "K25"
+      ],
+      "synthesis_packets": [
+        "P02",
+        "P06",
+        "P18",
+        "P16"
+      ],
+      "topic_palettes": [
+        "docs/MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md",
+        "docs/TECHNOLOGY_AND_PROGRESSION.md"
+      ],
+      "status": "partial",
+      "implementation": "PROPOSAL ONLY"
+    },
+    {
+      "id": "DS-F03",
+      "system_section": "D03",
+      "title": "Recovery commands have distinct outputs and destruction rules",
+      "evidence_class": "stated",
+      "sources": [
+        "ui refinery choices; codex unsocketing",
+        "SYSTEMS.md:D03"
+      ],
+      "summary": "Item/material custody and exact yields unread.",
+      "kit": [
+        "K7",
+        "K8",
+        "K21",
+        "K29"
+      ],
+      "synthesis_packets": [
+        "P07",
+        "P18",
+        "P14"
+      ],
+      "topic_palettes": [
+        "docs/LIFE_SIM_NORTH_STAR.md",
+        "docs/MEANS_AND_APPRAISAL.md"
+      ],
+      "status": "partial",
+      "implementation": "PROPOSAL ONLY"
+    },
+    {
+      "id": "DS-F04",
+      "system_section": "D04",
+      "title": "Personality joins growth policy and authored voice",
+      "evidence_class": "shown+stated",
+      "sources": [
+        "N29; codex personality; personality.csv",
+        "SYSTEMS.md:D04"
+      ],
+      "summary": "Biome-21 rate exception shown; named context, voice selection callers and final stat rounding unread.",
+      "kit": [
+        "K1",
+        "K20",
+        "K33",
+        "K34"
+      ],
+      "synthesis_packets": [
+        "P16",
+        "P22"
+      ],
+      "topic_palettes": [
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "status": "partial",
+      "implementation": "PROPOSAL ONLY"
+    },
+    {
+      "id": "DS-F05",
+      "system_section": "D05",
+      "title": "Fusion retains primary identity through several owners",
+      "evidence_class": "shown+stated",
+      "sources": [
+        "Prior scr_Fuse body; N16; codex fusion",
+        "SYSTEMS.md:D05"
+      ],
+      "summary": "Constructor/update, complete payment and equipment identity still unread.",
+      "kit": [
+        "K3",
+        "K6",
+        "K15",
+        "K22"
+      ],
+      "synthesis_packets": [
+        "P05",
+        "P15",
+        "P16",
+        "P21"
+      ],
+      "topic_palettes": [
+        "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md",
+        "docs/COMPANIONS_FAMILIARS_AND_PETS_CONSIDERATIONS_2026-10-14.md"
+      ],
+      "status": "partial",
+      "implementation": "PROPOSAL ONLY"
+    },
+    {
+      "id": "DS-F06",
+      "system_section": "D06",
+      "title": "Cooking contains a pair-and-style lookup, reachability uncertain",
+      "evidence_class": "shown+stated",
+      "sources": [
+        "N25; STRG 37652-37684",
+        "SYSTEMS.md:D06"
+      ],
+      "summary": "28 candidate rows with fallback ID 28; menu reachability and persistence unjoined.",
+      "kit": [
+        "K8",
+        "K9",
+        "K13",
+        "K25"
+      ],
+      "synthesis_packets": [
+        "P02",
+        "P06",
+        "P18",
+        "P16"
+      ],
+      "topic_palettes": [
+        "docs/MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md",
+        "docs/TECHNOLOGY_AND_PROGRESSION.md"
+      ],
+      "status": "partial",
+      "implementation": "PROPOSAL ONLY"
+    },
+    {
+      "id": "DS-F07",
+      "system_section": "D07",
+      "title": "Decoration fields retain authored NPC presentation",
+      "evidence_class": "shown+stated",
+      "sources": [
+        "N18; codex castle",
+        "SYSTEMS.md:D07"
+      ],
+      "summary": "Paired name/text/placement fields; no autonomous social lives proved.",
+      "kit": [
+        "K6",
+        "K12",
+        "K16",
+        "K20",
+        "K23",
+        "K31"
+      ],
+      "synthesis_packets": [
+        "P10",
+        "P12",
+        "P19",
+        "P20",
+        "P21",
+        "P24"
+      ],
+      "topic_palettes": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "status": "partial",
+      "implementation": "PROPOSAL ONLY"
+    },
+    {
+      "id": "DS-F08",
+      "system_section": "D08",
+      "title": "Favor, emblems and local blessings have separate roles",
+      "evidence_class": "stated",
+      "sources": [
+        "codex gods/realm blessings; prior biome god body",
+        "SYSTEMS.md:D08"
+      ],
+      "summary": "Exact standing/reward curves and durable patron changes unread.",
+      "kit": [
+        "K7",
+        "K8",
+        "K21",
+        "K29"
+      ],
+      "synthesis_packets": [
+        "P07",
+        "P18",
+        "P14"
+      ],
+      "topic_palettes": [
+        "docs/LIFE_SIM_NORTH_STAR.md",
+        "docs/MEANS_AND_APPRAISAL.md"
+      ],
+      "status": "partial",
+      "implementation": "PROPOSAL ONLY"
+    },
+    {
+      "id": "DS-F09",
+      "system_section": "D09",
+      "title": "Bounties compose risk and selective cross-role rewards",
+      "evidence_class": "shown+stated+inferred",
+      "sources": [
+        "N26; codex guilds/anointments",
+        "SYSTEMS.md:D09"
+      ],
+      "summary": "Reputation helpers infer floor(rep/1000) and 1000*level; awards and pending-choice publication unread.",
+      "kit": [
+        "K7",
+        "K8",
+        "K21",
+        "K29"
+      ],
+      "synthesis_packets": [
+        "P07",
+        "P18",
+        "P14"
+      ],
+      "topic_palettes": [
+        "docs/LIFE_SIM_NORTH_STAR.md",
+        "docs/MEANS_AND_APPRAISAL.md"
+      ],
+      "status": "partial",
+      "implementation": "PROPOSAL ONLY"
+    },
+    {
+      "id": "DS-F10",
+      "system_section": "D10",
+      "title": "Prophecy line eligibility differs from task and payout",
+      "evidence_class": "shown+stated+inferred",
+      "sources": [
+        "N27/N28; UI prophecy; codex relics",
+        "SYSTEMS.md:D10"
+      ],
+      "summary": "Nonzero completed lines allows turn-in; achievement term in task Piety; board/total settlement unread.",
+      "kit": [
+        "K6",
+        "K12",
+        "K16",
+        "K20",
+        "K23",
+        "K31"
+      ],
+      "synthesis_packets": [
+        "P10",
+        "P12",
+        "P19",
+        "P20",
+        "P21",
+        "P24"
+      ],
+      "topic_palettes": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "status": "partial",
+      "implementation": "PROPOSAL ONLY"
+    },
+    {
+      "id": "DS-F11",
+      "system_section": "D11",
+      "title": "Card uniqueness, quantity and achievement rewards differ",
+      "evidence_class": "shown+stated",
+      "sources": [
+        "cards.csv; codex cards/achievements; native helper names",
+        "SYSTEMS.md:D11"
+      ],
+      "summary": "Drop odds, set thresholds and cache invalidation unread.",
+      "kit": [
+        "K3",
+        "K9",
+        "K10",
+        "K13"
+      ],
+      "synthesis_packets": [
+        "P09",
+        "P14",
+        "P16",
+        "P17"
+      ],
+      "topic_palettes": [
+        "docs/worlds/ABILITY_AUTHORING.md",
+        "docs/TRIALS_AND_TRIBULATIONS.md"
+      ],
+      "status": "partial",
+      "implementation": "PROPOSAL ONLY"
+    },
+    {
+      "id": "DS-F12",
+      "system_section": "D12",
+      "title": "Race mastery and specialization ascension are distinct histories",
+      "evidence_class": "stated",
+      "sources": [
+        "codex masters and Gate of the Gods; masters.csv",
+        "SYSTEMS.md:D12"
+      ],
+      "summary": "Exact damage coefficients, occurrence flags and durable role history unread.",
+      "kit": [
+        "K3",
+        "K9",
+        "K10",
+        "K13"
+      ],
+      "synthesis_packets": [
+        "P09",
+        "P14",
+        "P16",
+        "P17"
+      ],
+      "topic_palettes": [
+        "docs/worlds/ABILITY_AUTHORING.md",
+        "docs/TRIALS_AND_TRIBULATIONS.md"
+      ],
+      "status": "partial",
+      "implementation": "PROPOSAL ONLY"
+    },
+    {
+      "id": "DS-F13",
+      "system_section": "D13",
+      "title": "Text channels do not establish event state publication",
+      "evidence_class": "shown+stated",
+      "sources": [
+        "dialog/dialog_story/lore/quests.csv; NPC/flag symbols",
+        "SYSTEMS.md:D13"
+      ],
+      "summary": "Realm perk-point help needs frontier qualifier; full dialogue eligibility and save joins unread.",
+      "kit": [
+        "K6",
+        "K12",
+        "K16",
+        "K20",
+        "K23",
+        "K31"
+      ],
+      "synthesis_packets": [
+        "P10",
+        "P12",
+        "P19",
+        "P20",
+        "P21",
+        "P24"
+      ],
+      "topic_palettes": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "status": "partial",
+      "implementation": "PROPOSAL ONLY"
+    },
+    {
+      "id": "DS-F14",
+      "system_section": "D14",
+      "title": "Macros are optional instructions over battle actions",
+      "evidence_class": "shown+stated",
+      "sources": [
+        "codex macros; UI arena; native macro and game object names",
+        "SYSTEMS.md:D14"
+      ],
+      "summary": "No offline planner, social autonomy, native queue closure or side-game odds established.",
+      "kit": [
+        "K10",
+        "K11",
+        "K14",
+        "K26",
+        "K30",
+        "K34"
+      ],
+      "synthesis_packets": [
+        "P01",
+        "P04",
+        "P08",
+        "P25"
+      ],
+      "topic_palettes": [
+        "docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md",
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "status": "partial",
+      "implementation": "PROPOSAL ONLY"
+    },
+    {
+      "id": "DS-F15",
+      "system_section": "D15",
+      "title": "Domain fields are stronger evidence than save-shaped strings",
+      "evidence_class": "shown",
+      "sources": [
+        "N16-N18; prior save Create/wrappers",
+        "SYSTEMS.md:D15"
+      ],
+      "summary": "Whole-save completion/recovery/roundtrip still OPEN; note load/save field-list asymmetry is not a reproduced bug.",
+      "kit": [
+        "K15",
+        "K18",
+        "K33"
+      ],
+      "synthesis_packets": [
+        "P05",
+        "P16",
+        "P23",
+        "P24"
+      ],
+      "topic_palettes": [
+        "docs/ENGINE_SAVES_AND_SCALE_REVIEW_2026-10-11.md"
+      ],
+      "status": "partial",
+      "implementation": "PROPOSAL ONLY"
+    }
+  ]
+}

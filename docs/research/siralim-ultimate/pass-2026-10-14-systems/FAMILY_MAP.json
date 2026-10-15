@@ -1,0 +1,5174 @@
+{
+  "schema_version": 1,
+  "lane": "ds-siralim-ultimate",
+  "date": "2026-10-14",
+  "build": "20548371",
+  "scope": "Every row in prior SYSTEM_INVENTORY, all U1-U8 prior gaps, plus semantic splits found here. Not an exhaustive whole-game claim.",
+  "status": "PARTIAL",
+  "mapping_status": "PROPOSALS, not selected ownership or runtime coverage",
+  "families": [
+    "knowledge",
+    "production",
+    "body_companion",
+    "institution_economy",
+    "events_dialogue",
+    "combat_progression",
+    "world_home",
+    "ui_automation",
+    "authoring",
+    "save"
+  ],
+  "systems": [
+    {
+      "id": "SU-I001",
+      "system": "`accessories.csv`",
+      "family": "body_companion",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 9,
+        "inventory_columns": [
+          "388",
+          "0",
+          "Inventory only; mechanics unread"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D04",
+      "kit": [
+        "K3",
+        "K6",
+        "K15",
+        "K22"
+      ],
+      "synthesis_packets": [
+        "P05",
+        "P15",
+        "P16",
+        "P21"
+      ],
+      "topic_palettes": [
+        "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md",
+        "docs/COMPANIONS_FAMILIARS_AND_PETS_CONSIDERATIONS_2026-10-14.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I002",
+      "system": "`achievements.csv`",
+      "family": "combat_progression",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 10,
+        "inventory_columns": [
+          "10570",
+          "0",
+          "Inventory only; mechanics unread"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D12",
+      "kit": [
+        "K3",
+        "K9",
+        "K10",
+        "K13"
+      ],
+      "synthesis_packets": [
+        "P09",
+        "P14",
+        "P16",
+        "P17"
+      ],
+      "topic_palettes": [
+        "docs/worlds/ABILITY_AUTHORING.md",
+        "docs/TRIALS_AND_TRIBULATIONS.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I003",
+      "system": "`battle.csv`",
+      "family": "combat_progression",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 11,
+        "inventory_columns": [
+          "256",
+          "0",
+          "Inventory only; mechanics unread"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D12",
+      "kit": [
+        "K3",
+        "K9",
+        "K10",
+        "K13"
+      ],
+      "synthesis_packets": [
+        "P09",
+        "P14",
+        "P16",
+        "P17"
+      ],
+      "topic_palettes": [
+        "docs/worlds/ABILITY_AUTHORING.md",
+        "docs/TRIALS_AND_TRIBULATIONS.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I004",
+      "system": "`bosses.csv`",
+      "family": "combat_progression",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 12,
+        "inventory_columns": [
+          "597",
+          "0",
+          "Inventory only; mechanics unread"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D12",
+      "kit": [
+        "K3",
+        "K9",
+        "K10",
+        "K13"
+      ],
+      "synthesis_packets": [
+        "P09",
+        "P14",
+        "P16",
+        "P17"
+      ],
+      "topic_palettes": [
+        "docs/worlds/ABILITY_AUTHORING.md",
+        "docs/TRIALS_AND_TRIBULATIONS.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I005",
+      "system": "`cards.csv`",
+      "family": "combat_progression",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 13,
+        "inventory_columns": [
+          "465",
+          "0",
+          "Inventory only; mechanics unread"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D12",
+      "kit": [
+        "K3",
+        "K9",
+        "K10",
+        "K13"
+      ],
+      "synthesis_packets": [
+        "P09",
+        "P14",
+        "P16",
+        "P17"
+      ],
+      "topic_palettes": [
+        "docs/worlds/ABILITY_AUTHORING.md",
+        "docs/TRIALS_AND_TRIBULATIONS.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I006",
+      "system": "`codex.csv`",
+      "family": "authoring",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 14,
+        "inventory_columns": [
+          "341",
+          "0",
+          "A01-A12"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D13",
+      "kit": [
+        "K1",
+        "K20",
+        "K33",
+        "K34"
+      ],
+      "synthesis_packets": [
+        "P16",
+        "P22"
+      ],
+      "topic_palettes": [
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I007",
+      "system": "`creatures.csv`",
+      "family": "authoring",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 15,
+        "inventory_columns": [
+          "1612",
+          "0",
+          "A08"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D13",
+      "kit": [
+        "K1",
+        "K20",
+        "K33",
+        "K34"
+      ],
+      "synthesis_packets": [
+        "P16",
+        "P22"
+      ],
+      "topic_palettes": [
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I008",
+      "system": "`decorations.csv`",
+      "family": "world_home",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 16,
+        "inventory_columns": [
+          "2775",
+          "0",
+          "Inventory only; mechanics unread"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D07",
+      "kit": [
+        "K2",
+        "K5",
+        "K8",
+        "K14",
+        "K19",
+        "K25",
+        "K28"
+      ],
+      "synthesis_packets": [
+        "P05",
+        "P12",
+        "P14"
+      ],
+      "topic_palettes": [
+        "docs/worlds/WORLD_CORE_KIT_SUCCESSOR_2026-10-14.md",
+        "docs/LIFE_SIM_NORTH_STAR.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I009",
+      "system": "`dialog.csv`",
+      "family": "events_dialogue",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 17,
+        "inventory_columns": [
+          "269",
+          "0",
+          "A01"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D13",
+      "kit": [
+        "K6",
+        "K12",
+        "K16",
+        "K20",
+        "K23",
+        "K31"
+      ],
+      "synthesis_packets": [
+        "P10",
+        "P12",
+        "P19",
+        "P20",
+        "P21",
+        "P24"
+      ],
+      "topic_palettes": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I010",
+      "system": "`dialog_story.csv`",
+      "family": "events_dialogue",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 18,
+        "inventory_columns": [
+          "892",
+          "0",
+          "A01/A02"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D13",
+      "kit": [
+        "K6",
+        "K12",
+        "K16",
+        "K20",
+        "K23",
+        "K31"
+      ],
+      "synthesis_packets": [
+        "P10",
+        "P12",
+        "P19",
+        "P20",
+        "P21",
+        "P24"
+      ],
+      "topic_palettes": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I011",
+      "system": "`items.csv`",
+      "family": "authoring",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 19,
+        "inventory_columns": [
+          "3220",
+          "0",
+          "Inventory only; mechanics unread"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D13",
+      "kit": [
+        "K1",
+        "K20",
+        "K33",
+        "K34"
+      ],
+      "synthesis_packets": [
+        "P16",
+        "P22"
+      ],
+      "topic_palettes": [
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I012",
+      "system": "`lore.csv`",
+      "family": "events_dialogue",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 20,
+        "inventory_columns": [
+          "1376",
+          "0",
+          "A02"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D13",
+      "kit": [
+        "K6",
+        "K12",
+        "K16",
+        "K20",
+        "K23",
+        "K31"
+      ],
+      "synthesis_packets": [
+        "P10",
+        "P12",
+        "P19",
+        "P20",
+        "P21",
+        "P24"
+      ],
+      "topic_palettes": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I013",
+      "system": "`masters.csv`",
+      "family": "combat_progression",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 21,
+        "inventory_columns": [
+          "312",
+          "0",
+          "Inventory only; mechanics unread"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D12",
+      "kit": [
+        "K3",
+        "K9",
+        "K10",
+        "K13"
+      ],
+      "synthesis_packets": [
+        "P09",
+        "P14",
+        "P16",
+        "P17"
+      ],
+      "topic_palettes": [
+        "docs/worlds/ABILITY_AUTHORING.md",
+        "docs/TRIALS_AND_TRIBULATIONS.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I014",
+      "system": "`misc.csv`",
+      "family": "authoring",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 22,
+        "inventory_columns": [
+          "80",
+          "0",
+          "Inventory only; mechanics unread"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D13",
+      "kit": [
+        "K1",
+        "K20",
+        "K33",
+        "K34"
+      ],
+      "synthesis_packets": [
+        "P16",
+        "P22"
+      ],
+      "topic_palettes": [
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I015",
+      "system": "`overworld.csv`",
+      "family": "authoring",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 23,
+        "inventory_columns": [
+          "431",
+          "0",
+          "A01/A12"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D13",
+      "kit": [
+        "K1",
+        "K20",
+        "K33",
+        "K34"
+      ],
+      "synthesis_packets": [
+        "P16",
+        "P22"
+      ],
+      "topic_palettes": [
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I016",
+      "system": "`perks.csv`",
+      "family": "combat_progression",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 24,
+        "inventory_columns": [
+          "1322",
+          "0",
+          "A08/build digest"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D12",
+      "kit": [
+        "K3",
+        "K9",
+        "K10",
+        "K13"
+      ],
+      "synthesis_packets": [
+        "P09",
+        "P14",
+        "P16",
+        "P17"
+      ],
+      "topic_palettes": [
+        "docs/worlds/ABILITY_AUTHORING.md",
+        "docs/TRIALS_AND_TRIBULATIONS.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I017",
+      "system": "`personality.csv`",
+      "family": "body_companion",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 25,
+        "inventory_columns": [
+          "1120",
+          "0",
+          "Inventory only; mechanics unread"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D04",
+      "kit": [
+        "K3",
+        "K6",
+        "K15",
+        "K22"
+      ],
+      "synthesis_packets": [
+        "P05",
+        "P15",
+        "P16",
+        "P21"
+      ],
+      "topic_palettes": [
+        "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md",
+        "docs/COMPANIONS_FAMILIARS_AND_PETS_CONSIDERATIONS_2026-10-14.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I018",
+      "system": "`projects.csv`",
+      "family": "production",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 26,
+        "inventory_columns": [
+          "258",
+          "0",
+          "A12"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D02",
+      "kit": [
+        "K8",
+        "K9",
+        "K13",
+        "K25"
+      ],
+      "synthesis_packets": [
+        "P02",
+        "P06",
+        "P18",
+        "P16"
+      ],
+      "topic_palettes": [
+        "docs/MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md",
+        "docs/TECHNOLOGY_AND_PROGRESSION.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I019",
+      "system": "`quests.csv`",
+      "family": "events_dialogue",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 27,
+        "inventory_columns": [
+          "1062",
+          "121",
+          "A02"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D13",
+      "kit": [
+        "K6",
+        "K12",
+        "K16",
+        "K20",
+        "K23",
+        "K31"
+      ],
+      "synthesis_packets": [
+        "P10",
+        "P12",
+        "P19",
+        "P20",
+        "P21",
+        "P24"
+      ],
+      "topic_palettes": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I020",
+      "system": "`skins.csv`",
+      "family": "body_companion",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 28,
+        "inventory_columns": [
+          "834",
+          "0",
+          "Inventory only; mechanics unread"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D04",
+      "kit": [
+        "K3",
+        "K6",
+        "K15",
+        "K22"
+      ],
+      "synthesis_packets": [
+        "P05",
+        "P15",
+        "P16",
+        "P21"
+      ],
+      "topic_palettes": [
+        "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md",
+        "docs/COMPANIONS_FAMILIARS_AND_PETS_CONSIDERATIONS_2026-10-14.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I021",
+      "system": "`spells.csv`",
+      "family": "combat_progression",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 29,
+        "inventory_columns": [
+          "1494",
+          "0",
+          "Inventory only; mechanics unread"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D12",
+      "kit": [
+        "K3",
+        "K9",
+        "K10",
+        "K13"
+      ],
+      "synthesis_packets": [
+        "P09",
+        "P14",
+        "P16",
+        "P17"
+      ],
+      "topic_palettes": [
+        "docs/worlds/ABILITY_AUTHORING.md",
+        "docs/TRIALS_AND_TRIBULATIONS.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I022",
+      "system": "`traits.csv`",
+      "family": "authoring",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 30,
+        "inventory_columns": [
+          "4341",
+          "0",
+          "A08/build digest"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D13",
+      "kit": [
+        "K1",
+        "K20",
+        "K33",
+        "K34"
+      ],
+      "synthesis_packets": [
+        "P16",
+        "P22"
+      ],
+      "topic_palettes": [
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I023",
+      "system": "`ui.csv`",
+      "family": "ui_automation",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 31,
+        "inventory_columns": [
+          "3073",
+          "0",
+          "A06/A10/A11"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D14",
+      "kit": [
+        "K10",
+        "K11",
+        "K14",
+        "K26",
+        "K30",
+        "K34"
+      ],
+      "synthesis_packets": [
+        "P01",
+        "P04",
+        "P08",
+        "P25"
+      ],
+      "topic_palettes": [
+        "docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md",
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I024",
+      "system": "`vocabulary.csv`",
+      "family": "authoring",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 32,
+        "inventory_columns": [
+          "480",
+          "0",
+          "Inventory only; mechanics unread"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D13",
+      "kit": [
+        "K1",
+        "K20",
+        "K33",
+        "K34"
+      ],
+      "synthesis_packets": [
+        "P16",
+        "P22"
+      ],
+      "topic_palettes": [
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I025",
+      "system": "Battle events",
+      "family": "combat_progression",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 40,
+        "inventory_columns": [
+          "46 named native symbols, `gml_Script_bc_Event`",
+          "A03/A08; exact dispatcher unread"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D12",
+      "kit": [
+        "K3",
+        "K9",
+        "K10",
+        "K13"
+      ],
+      "synthesis_packets": [
+        "P09",
+        "P14",
+        "P16",
+        "P17"
+      ],
+      "topic_palettes": [
+        "docs/worlds/ABILITY_AUTHORING.md",
+        "docs/TRIALS_AND_TRIBULATIONS.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I026",
+      "system": "Battle reactions",
+      "family": "combat_progression",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 41,
+        "inventory_columns": [
+          "13 named native symbols, `gml_Script_bc_On`",
+          "A03/A08; bodies unread"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D12",
+      "kit": [
+        "K3",
+        "K9",
+        "K10",
+        "K13"
+      ],
+      "synthesis_packets": [
+        "P09",
+        "P14",
+        "P16",
+        "P17"
+      ],
+      "topic_palettes": [
+        "docs/worlds/ABILITY_AUTHORING.md",
+        "docs/TRIALS_AND_TRIBULATIONS.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I027",
+      "system": "Other battle mechanics",
+      "family": "combat_progression",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 42,
+        "inventory_columns": [
+          "230 named native symbols, `gml_Script_bc_`",
+          "Inventory; overlaps events/reactions, not additive"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D12",
+      "kit": [
+        "K3",
+        "K9",
+        "K10",
+        "K13"
+      ],
+      "synthesis_packets": [
+        "P09",
+        "P14",
+        "P16",
+        "P17"
+      ],
+      "topic_palettes": [
+        "docs/worlds/ABILITY_AUTHORING.md",
+        "docs/TRIALS_AND_TRIBULATIONS.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I028",
+      "system": "Inventory and artifact/gem/item APIs",
+      "family": "authoring",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 43,
+        "inventory_columns": [
+          "156 named native symbols, `gml_Script_inv_`",
+          "A06/A08; full body audit unread"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D13",
+      "kit": [
+        "K1",
+        "K20",
+        "K33",
+        "K34"
+      ],
+      "synthesis_packets": [
+        "P16",
+        "P22"
+      ],
+      "topic_palettes": [
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I029",
+      "system": "Saved domain encoders",
+      "family": "save",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 44,
+        "inventory_columns": [
+          "9 named native symbols, `gml_Script_save_`",
+          "A04; separate from whole-save atomicity"
+        ],
+        "new_reads": [
+          "Creature",
+          "Project",
+          "Decoration"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "partial_native",
+      "deep_section": "D15",
+      "kit": [
+        "K15",
+        "K18",
+        "K33"
+      ],
+      "synthesis_packets": [
+        "P05",
+        "P16",
+        "P23",
+        "P24"
+      ],
+      "topic_palettes": [
+        "docs/ENGINE_SAVES_AND_SCALE_REVIEW_2026-10-11.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "Three of nine named domain helpers per direction read; six others and whole-save publication remain open."
+    },
+    {
+      "id": "SU-I030",
+      "system": "Saved domain decoders",
+      "family": "save",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 45,
+        "inventory_columns": [
+          "9 named native symbols, `gml_Script_load_`",
+          "A04; migrations/recovery unread"
+        ],
+        "new_reads": [
+          "Creature",
+          "Project",
+          "Decoration"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "partial_native",
+      "deep_section": "D15",
+      "kit": [
+        "K15",
+        "K18",
+        "K33"
+      ],
+      "synthesis_packets": [
+        "P05",
+        "P16",
+        "P23",
+        "P24"
+      ],
+      "topic_palettes": [
+        "docs/ENGINE_SAVES_AND_SCALE_REVIEW_2026-10-11.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "Three of nine named domain helpers per direction read; six others and whole-save publication remain open."
+    },
+    {
+      "id": "SU-I031",
+      "system": "Battle macro control",
+      "family": "ui_automation",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 46,
+        "inventory_columns": [
+          "14 named native symbols, `gml_Script_scr_(?:Macro",
+          "HandleMacro)`",
+          "A05; help read, full native flow unread"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D14",
+      "kit": [
+        "K10",
+        "K11",
+        "K14",
+        "K26",
+        "K30",
+        "K34"
+      ],
+      "synthesis_packets": [
+        "P01",
+        "P04",
+        "P08",
+        "P25"
+      ],
+      "topic_palettes": [
+        "docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md",
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I032",
+      "system": "Realm properties and boosts",
+      "family": "world_home",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 47,
+        "inventory_columns": [
+          "16 named native symbols, `gml_Script_scr_(?:Realm",
+          "AddRealm",
+          "CountRealm",
+          "ResetRealm",
+          "GetRandomRealm)`",
+          "Realm digest/NATIVE_TRACE"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D07",
+      "kit": [
+        "K2",
+        "K5",
+        "K8",
+        "K14",
+        "K19",
+        "K25",
+        "K28"
+      ],
+      "synthesis_packets": [
+        "P05",
+        "P12",
+        "P14"
+      ],
+      "topic_palettes": [
+        "docs/worlds/WORLD_CORE_KIT_SUCCESSOR_2026-10-14.md",
+        "docs/LIFE_SIM_NORTH_STAR.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I033",
+      "system": "Biome identity and pools",
+      "family": "world_home",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 48,
+        "inventory_columns": [
+          "6 named native symbols, `gml_Script_scr_(?:Biome",
+          "GodBiome",
+          "SetBiome",
+          "GetRaceArrayByRealm",
+          "GetRandomBiome)`",
+          "Realm digest/NATIVE_TRACE"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D07",
+      "kit": [
+        "K2",
+        "K5",
+        "K8",
+        "K14",
+        "K19",
+        "K25",
+        "K28"
+      ],
+      "synthesis_packets": [
+        "P05",
+        "P12",
+        "P14"
+      ],
+      "topic_palettes": [
+        "docs/worlds/WORLD_CORE_KIT_SUCCESSOR_2026-10-14.md",
+        "docs/LIFE_SIM_NORTH_STAR.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I034",
+      "system": "Fusion",
+      "family": "body_companion",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 49,
+        "inventory_columns": [
+          "5 named native symbols, `gml_Script_scr_.*Fusion`",
+          "Build digest/NATIVE_TRACE"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D04",
+      "kit": [
+        "K3",
+        "K6",
+        "K15",
+        "K22"
+      ],
+      "synthesis_packets": [
+        "P05",
+        "P15",
+        "P16",
+        "P21"
+      ],
+      "topic_palettes": [
+        "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md",
+        "docs/COMPANIONS_FAMILIARS_AND_PETS_CONSIDERATIONS_2026-10-14.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I035",
+      "system": "God favor, boss, altar and shop support",
+      "family": "institution_economy",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 50,
+        "inventory_columns": [
+          "29 named native symbols, `gml_Script_scr_.*God`",
+          "A12; complete economy unread"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D08",
+      "kit": [
+        "K7",
+        "K8",
+        "K21",
+        "K29"
+      ],
+      "synthesis_packets": [
+        "P07",
+        "P18",
+        "P14"
+      ],
+      "topic_palettes": [
+        "docs/LIFE_SIM_NORTH_STAR.md",
+        "docs/MEANS_AND_APPRAISAL.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I036",
+      "system": "Quest helpers",
+      "family": "events_dialogue",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 51,
+        "inventory_columns": [
+          "17 named native symbols, `gml_Script_scr_.*Quest`",
+          "A02; full gate graph unread"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D13",
+      "kit": [
+        "K6",
+        "K12",
+        "K16",
+        "K20",
+        "K23",
+        "K31"
+      ],
+      "synthesis_packets": [
+        "P10",
+        "P12",
+        "P19",
+        "P20",
+        "P21",
+        "P24"
+      ],
+      "topic_palettes": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I037",
+      "system": "Text engine Scribble",
+      "family": "ui_automation",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 52,
+        "inventory_columns": [
+          "389 named native symbols, `gml_Script_.*[Ss]cribble`",
+          "A03; library detected, not adopted"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D14",
+      "kit": [
+        "K10",
+        "K11",
+        "K14",
+        "K26",
+        "K30",
+        "K34"
+      ],
+      "synthesis_packets": [
+        "P01",
+        "P04",
+        "P08",
+        "P25"
+      ],
+      "topic_palettes": [
+        "docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md",
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I038",
+      "system": "GMLive/compiler parser support",
+      "family": "authoring",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 53,
+        "inventory_columns": [
+          "246 named native symbols, `gml_Script_.*(?:GMLive",
+          "gml_parser",
+          "ast_gml)`",
+          "A03/A07; not a player mod API"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D13",
+      "kit": [
+        "K1",
+        "K20",
+        "K33",
+        "K34"
+      ],
+      "synthesis_packets": [
+        "P16",
+        "P22"
+      ],
+      "topic_palettes": [
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I039",
+      "system": "`scr_DatabaseNPCs`",
+      "family": "events_dialogue",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 61,
+        "inventory_columns": [
+          "`0x0000000104e97a64`",
+          "Inventory only"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D13",
+      "kit": [
+        "K6",
+        "K12",
+        "K16",
+        "K20",
+        "K23",
+        "K31"
+      ],
+      "synthesis_packets": [
+        "P10",
+        "P12",
+        "P19",
+        "P20",
+        "P21",
+        "P24"
+      ],
+      "topic_palettes": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I040",
+      "system": "`scr_DatabaseCards`",
+      "family": "combat_progression",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 62,
+        "inventory_columns": [
+          "`0x0000000102332928`",
+          "Inventory only"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D12",
+      "kit": [
+        "K3",
+        "K9",
+        "K10",
+        "K13"
+      ],
+      "synthesis_packets": [
+        "P09",
+        "P14",
+        "P16",
+        "P17"
+      ],
+      "topic_palettes": [
+        "docs/worlds/ABILITY_AUTHORING.md",
+        "docs/TRIALS_AND_TRIBULATIONS.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I041",
+      "system": "`scr_DatabaseFlags`",
+      "family": "events_dialogue",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 63,
+        "inventory_columns": [
+          "`0x0000000103508e24`",
+          "Inventory only"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D13",
+      "kit": [
+        "K6",
+        "K12",
+        "K16",
+        "K20",
+        "K23",
+        "K31"
+      ],
+      "synthesis_packets": [
+        "P10",
+        "P12",
+        "P19",
+        "P20",
+        "P21",
+        "P24"
+      ],
+      "topic_palettes": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I042",
+      "system": "`scr_DatabaseMusic`",
+      "family": "world_home",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 64,
+        "inventory_columns": [
+          "`0x0000000103909a08`",
+          "Inventory only"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D07",
+      "kit": [
+        "K2",
+        "K5",
+        "K8",
+        "K14",
+        "K19",
+        "K25",
+        "K28"
+      ],
+      "synthesis_packets": [
+        "P05",
+        "P12",
+        "P14"
+      ],
+      "topic_palettes": [
+        "docs/worlds/WORLD_CORE_KIT_SUCCESSOR_2026-10-14.md",
+        "docs/LIFE_SIM_NORTH_STAR.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I043",
+      "system": "`scr_DatabasePerks`",
+      "family": "combat_progression",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 65,
+        "inventory_columns": [
+          "`0x0000000103b1e410`",
+          "Inventory only"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D12",
+      "kit": [
+        "K3",
+        "K9",
+        "K10",
+        "K13"
+      ],
+      "synthesis_packets": [
+        "P09",
+        "P14",
+        "P16",
+        "P17"
+      ],
+      "topic_palettes": [
+        "docs/worlds/ABILITY_AUTHORING.md",
+        "docs/TRIALS_AND_TRIBULATIONS.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I044",
+      "system": "`scr_DatabaseRunes`",
+      "family": "combat_progression",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 66,
+        "inventory_columns": [
+          "`0x0000000103f4b9a0`",
+          "Inventory only"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D12",
+      "kit": [
+        "K3",
+        "K9",
+        "K10",
+        "K13"
+      ],
+      "synthesis_packets": [
+        "P09",
+        "P14",
+        "P16",
+        "P17"
+      ],
+      "topic_palettes": [
+        "docs/worlds/ABILITY_AUTHORING.md",
+        "docs/TRIALS_AND_TRIBULATIONS.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I045",
+      "system": "`scr_DatabaseSkins`",
+      "family": "body_companion",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 67,
+        "inventory_columns": [
+          "`0x0000000103f53ff4`",
+          "Inventory only"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D04",
+      "kit": [
+        "K3",
+        "K6",
+        "K15",
+        "K22"
+      ],
+      "synthesis_packets": [
+        "P05",
+        "P15",
+        "P16",
+        "P21"
+      ],
+      "topic_palettes": [
+        "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md",
+        "docs/COMPANIONS_FAMILIARS_AND_PETS_CONSIDERATIONS_2026-10-14.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I046",
+      "system": "`scr_DatabaseStats`",
+      "family": "combat_progression",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 68,
+        "inventory_columns": [
+          "`0x00000001047ac1dc`",
+          "Inventory only"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D12",
+      "kit": [
+        "K3",
+        "K9",
+        "K10",
+        "K13"
+      ],
+      "synthesis_packets": [
+        "P09",
+        "P14",
+        "P16",
+        "P17"
+      ],
+      "topic_palettes": [
+        "docs/worlds/ABILITY_AUTHORING.md",
+        "docs/TRIALS_AND_TRIBULATIONS.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I047",
+      "system": "`scr_DatabaseTiers`",
+      "family": "combat_progression",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 69,
+        "inventory_columns": [
+          "`0x00000001047ac558`",
+          "Inventory only"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D12",
+      "kit": [
+        "K3",
+        "K9",
+        "K10",
+        "K13"
+      ],
+      "synthesis_packets": [
+        "P09",
+        "P14",
+        "P16",
+        "P17"
+      ],
+      "topic_palettes": [
+        "docs/worlds/ABILITY_AUTHORING.md",
+        "docs/TRIALS_AND_TRIBULATIONS.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I048",
+      "system": "`scr_DatabaseWalls`",
+      "family": "world_home",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 70,
+        "inventory_columns": [
+          "`0x00000001047e6d9c`",
+          "Inventory only"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D07",
+      "kit": [
+        "K2",
+        "K5",
+        "K8",
+        "K14",
+        "K19",
+        "K25",
+        "K28"
+      ],
+      "synthesis_packets": [
+        "P05",
+        "P12",
+        "P14"
+      ],
+      "topic_palettes": [
+        "docs/worlds/WORLD_CORE_KIT_SUCCESSOR_2026-10-14.md",
+        "docs/LIFE_SIM_NORTH_STAR.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I049",
+      "system": "`scr_DatabaseColors`",
+      "family": "authoring",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 71,
+        "inventory_columns": [
+          "`0x0000000102332a38`",
+          "Inventory only"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D13",
+      "kit": [
+        "K1",
+        "K20",
+        "K33",
+        "K34"
+      ],
+      "synthesis_packets": [
+        "P16",
+        "P22"
+      ],
+      "topic_palettes": [
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I050",
+      "system": "`scr_DatabaseFloors`",
+      "family": "world_home",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 72,
+        "inventory_columns": [
+          "`0x0000000103508f34`",
+          "Inventory only"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D07",
+      "kit": [
+        "K2",
+        "K5",
+        "K8",
+        "K14",
+        "K19",
+        "K25",
+        "K28"
+      ],
+      "synthesis_packets": [
+        "P05",
+        "P12",
+        "P14"
+      ],
+      "topic_palettes": [
+        "docs/worlds/WORLD_CORE_KIT_SUCCESSOR_2026-10-14.md",
+        "docs/LIFE_SIM_NORTH_STAR.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I051",
+      "system": "`scr_DatabaseQuests`",
+      "family": "events_dialogue",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 73,
+        "inventory_columns": [
+          "`0x0000000103eccdec`",
+          "Inventory only"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D13",
+      "kit": [
+        "K6",
+        "K12",
+        "K16",
+        "K20",
+        "K23",
+        "K31"
+      ],
+      "synthesis_packets": [
+        "P10",
+        "P12",
+        "P19",
+        "P20",
+        "P21",
+        "P24"
+      ],
+      "topic_palettes": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I052",
+      "system": "`scr_DatabaseTitles`",
+      "family": "authoring",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 74,
+        "inventory_columns": [
+          "`0x00000001047d71a0`",
+          "Inventory only"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D13",
+      "kit": [
+        "K1",
+        "K20",
+        "K33",
+        "K34"
+      ],
+      "synthesis_packets": [
+        "P16",
+        "P22"
+      ],
+      "topic_palettes": [
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I053",
+      "system": "`scr_DatabaseCooking`",
+      "family": "production",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 75,
+        "inventory_columns": [
+          "`0x0000000102336254`",
+          "Inventory only"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D02",
+      "kit": [
+        "K8",
+        "K9",
+        "K13",
+        "K25"
+      ],
+      "synthesis_packets": [
+        "P02",
+        "P06",
+        "P18",
+        "P16"
+      ],
+      "topic_palettes": [
+        "docs/MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md",
+        "docs/TECHNOLOGY_AND_PROGRESSION.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I054",
+      "system": "`scr_DatabaseWeather`",
+      "family": "world_home",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 76,
+        "inventory_columns": [
+          "`0x00000001047eb050`",
+          "Inventory only"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D07",
+      "kit": [
+        "K2",
+        "K5",
+        "K8",
+        "K14",
+        "K19",
+        "K25",
+        "K28"
+      ],
+      "synthesis_packets": [
+        "P05",
+        "P12",
+        "P14"
+      ],
+      "topic_palettes": [
+        "docs/worlds/WORLD_CORE_KIT_SUCCESSOR_2026-10-14.md",
+        "docs/LIFE_SIM_NORTH_STAR.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I055",
+      "system": "`scr_DatabaseBreeding`",
+      "family": "body_companion",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 77,
+        "inventory_columns": [
+          "`0x0000000102332818`",
+          "Inventory only"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D04",
+      "kit": [
+        "K3",
+        "K6",
+        "K15",
+        "K22"
+      ],
+      "synthesis_packets": [
+        "P05",
+        "P15",
+        "P16",
+        "P21"
+      ],
+      "topic_palettes": [
+        "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md",
+        "docs/COMPANIONS_FAMILIARS_AND_PETS_CONSIDERATIONS_2026-10-14.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I056",
+      "system": "`scr_DatabaseCreature`",
+      "family": "body_companion",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 78,
+        "inventory_columns": [
+          "`0x000000010233ecb4`",
+          "Inventory only"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D04",
+      "kit": [
+        "K3",
+        "K6",
+        "K15",
+        "K22"
+      ],
+      "synthesis_packets": [
+        "P05",
+        "P15",
+        "P16",
+        "P21"
+      ],
+      "topic_palettes": [
+        "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md",
+        "docs/COMPANIONS_FAMILIARS_AND_PETS_CONSIDERATIONS_2026-10-14.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I057",
+      "system": "`scr_DatabaseGodShops`",
+      "family": "institution_economy",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 79,
+        "inventory_columns": [
+          "`0x0000000103513d3c`",
+          "Inventory only"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D08",
+      "kit": [
+        "K7",
+        "K8",
+        "K21",
+        "K29"
+      ],
+      "synthesis_packets": [
+        "P07",
+        "P18",
+        "P14"
+      ],
+      "topic_palettes": [
+        "docs/LIFE_SIM_NORTH_STAR.md",
+        "docs/MEANS_AND_APPRAISAL.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I058",
+      "system": "`scr_DatabasePassives`",
+      "family": "combat_progression",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 80,
+        "inventory_columns": [
+          "`0x0000000103927f04`",
+          "Inventory only"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D12",
+      "kit": [
+        "K3",
+        "K9",
+        "K10",
+        "K13"
+      ],
+      "synthesis_packets": [
+        "P09",
+        "P14",
+        "P16",
+        "P17"
+      ],
+      "topic_palettes": [
+        "docs/worlds/ABILITY_AUTHORING.md",
+        "docs/TRIALS_AND_TRIBULATIONS.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I059",
+      "system": "`scr_DatabaseProjects`",
+      "family": "production",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 81,
+        "inventory_columns": [
+          "`0x0000000103d9a33c`",
+          "Inventory only"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D02",
+      "kit": [
+        "K8",
+        "K9",
+        "K13",
+        "K25"
+      ],
+      "synthesis_packets": [
+        "P02",
+        "P06",
+        "P18",
+        "P16"
+      ],
+      "topic_palettes": [
+        "docs/MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md",
+        "docs/TECHNOLOGY_AND_PROGRESSION.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I060",
+      "system": "`scr_DatabaseCreature2`",
+      "family": "body_companion",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 82,
+        "inventory_columns": [
+          "`0x000000010252e14c`",
+          "Inventory only"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D04",
+      "kit": [
+        "K3",
+        "K6",
+        "K15",
+        "K22"
+      ],
+      "synthesis_packets": [
+        "P05",
+        "P15",
+        "P16",
+        "P21"
+      ],
+      "topic_palettes": [
+        "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md",
+        "docs/COMPANIONS_FAMILIARS_AND_PETS_CONSIDERATIONS_2026-10-14.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I061",
+      "system": "`scr_DatabaseCreature3`",
+      "family": "body_companion",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 83,
+        "inventory_columns": [
+          "`0x00000001026f02a0`",
+          "Inventory only"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D04",
+      "kit": [
+        "K3",
+        "K6",
+        "K15",
+        "K22"
+      ],
+      "synthesis_packets": [
+        "P05",
+        "P15",
+        "P16",
+        "P21"
+      ],
+      "topic_palettes": [
+        "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md",
+        "docs/COMPANIONS_FAMILIARS_AND_PETS_CONSIDERATIONS_2026-10-14.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I062",
+      "system": "`scr_DatabaseCreature4`",
+      "family": "body_companion",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 84,
+        "inventory_columns": [
+          "`0x00000001028c4e9c`",
+          "Inventory only"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D04",
+      "kit": [
+        "K3",
+        "K6",
+        "K15",
+        "K22"
+      ],
+      "synthesis_packets": [
+        "P05",
+        "P15",
+        "P16",
+        "P21"
+      ],
+      "topic_palettes": [
+        "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md",
+        "docs/COMPANIONS_FAMILIARS_AND_PETS_CONSIDERATIONS_2026-10-14.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I063",
+      "system": "`scr_DatabaseMaterials`",
+      "family": "production",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 85,
+        "inventory_columns": [
+          "`0x0000000103513e4c`",
+          "Inventory only"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D02",
+      "kit": [
+        "K8",
+        "K9",
+        "K13",
+        "K25"
+      ],
+      "synthesis_packets": [
+        "P02",
+        "P06",
+        "P18",
+        "P16"
+      ],
+      "topic_palettes": [
+        "docs/MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md",
+        "docs/TECHNOLOGY_AND_PROGRESSION.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I064",
+      "system": "`scr_DatabasePassives2`",
+      "family": "combat_progression",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 86,
+        "inventory_columns": [
+          "`0x00000001039af9b8`",
+          "Inventory only"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D12",
+      "kit": [
+        "K3",
+        "K9",
+        "K10",
+        "K13"
+      ],
+      "synthesis_packets": [
+        "P09",
+        "P14",
+        "P16",
+        "P17"
+      ],
+      "topic_palettes": [
+        "docs/worlds/ABILITY_AUTHORING.md",
+        "docs/TRIALS_AND_TRIBULATIONS.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I065",
+      "system": "`scr_DatabasePassives3`",
+      "family": "combat_progression",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 87,
+        "inventory_columns": [
+          "`0x0000000103aff598`",
+          "Inventory only"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D12",
+      "kit": [
+        "K3",
+        "K9",
+        "K10",
+        "K13"
+      ],
+      "synthesis_packets": [
+        "P09",
+        "P14",
+        "P16",
+        "P17"
+      ],
+      "topic_palettes": [
+        "docs/worlds/ABILITY_AUTHORING.md",
+        "docs/TRIALS_AND_TRIBULATIONS.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I066",
+      "system": "`scr_DatabaseSpellGems`",
+      "family": "combat_progression",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 88,
+        "inventory_columns": [
+          "`0x00000001040e9e18`",
+          "Inventory only"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D12",
+      "kit": [
+        "K3",
+        "K9",
+        "K10",
+        "K13"
+      ],
+      "synthesis_packets": [
+        "P09",
+        "P14",
+        "P16",
+        "P17"
+      ],
+      "topic_palettes": [
+        "docs/worlds/ABILITY_AUTHORING.md",
+        "docs/TRIALS_AND_TRIBULATIONS.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I067",
+      "system": "`scr_DatabaseMaterials2`",
+      "family": "production",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 89,
+        "inventory_columns": [
+          "`0x00000001036bb0b8`",
+          "Inventory only"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D02",
+      "kit": [
+        "K8",
+        "K9",
+        "K13",
+        "K25"
+      ],
+      "synthesis_packets": [
+        "P02",
+        "P06",
+        "P18",
+        "P16"
+      ],
+      "topic_palettes": [
+        "docs/MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md",
+        "docs/TECHNOLOGY_AND_PROGRESSION.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I068",
+      "system": "`scr_DatabaseMaterials3`",
+      "family": "production",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 90,
+        "inventory_columns": [
+          "`0x00000001038c688c`",
+          "Inventory only"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D02",
+      "kit": [
+        "K8",
+        "K9",
+        "K13",
+        "K25"
+      ],
+      "synthesis_packets": [
+        "P02",
+        "P06",
+        "P18",
+        "P16"
+      ],
+      "topic_palettes": [
+        "docs/MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md",
+        "docs/TECHNOLOGY_AND_PROGRESSION.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I069",
+      "system": "`scr_DatabaseSpellGems2`",
+      "family": "combat_progression",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 91,
+        "inventory_columns": [
+          "`0x00000001042f2f94`",
+          "Inventory only"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D12",
+      "kit": [
+        "K3",
+        "K9",
+        "K10",
+        "K13"
+      ],
+      "synthesis_packets": [
+        "P09",
+        "P14",
+        "P16",
+        "P17"
+      ],
+      "topic_palettes": [
+        "docs/worlds/ABILITY_AUTHORING.md",
+        "docs/TRIALS_AND_TRIBULATIONS.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I070",
+      "system": "`scr_DatabaseSpellGems3`",
+      "family": "combat_progression",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 92,
+        "inventory_columns": [
+          "`0x00000001044e6948`",
+          "Inventory only"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D12",
+      "kit": [
+        "K3",
+        "K9",
+        "K10",
+        "K13"
+      ],
+      "synthesis_packets": [
+        "P09",
+        "P14",
+        "P16",
+        "P17"
+      ],
+      "topic_palettes": [
+        "docs/worlds/ABILITY_AUTHORING.md",
+        "docs/TRIALS_AND_TRIBULATIONS.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I071",
+      "system": "`scr_DatabaseSpellGems4`",
+      "family": "combat_progression",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 93,
+        "inventory_columns": [
+          "`0x00000001047040f4`",
+          "Inventory only"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D12",
+      "kit": [
+        "K3",
+        "K9",
+        "K10",
+        "K13"
+      ],
+      "synthesis_packets": [
+        "P09",
+        "P14",
+        "P16",
+        "P17"
+      ],
+      "topic_palettes": [
+        "docs/worlds/ABILITY_AUTHORING.md",
+        "docs/TRIALS_AND_TRIBULATIONS.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I072",
+      "system": "`scr_DatabaseSpellGems5`",
+      "family": "combat_progression",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 94,
+        "inventory_columns": [
+          "`0x0000000104785760`",
+          "Inventory only"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D12",
+      "kit": [
+        "K3",
+        "K9",
+        "K10",
+        "K13"
+      ],
+      "synthesis_packets": [
+        "P09",
+        "P14",
+        "P16",
+        "P17"
+      ],
+      "topic_palettes": [
+        "docs/worlds/ABILITY_AUTHORING.md",
+        "docs/TRIALS_AND_TRIBULATIONS.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I073",
+      "system": "`scr_DatabaseAccessories`",
+      "family": "body_companion",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 95,
+        "inventory_columns": [
+          "`0x0000000101430840`",
+          "Inventory only"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D04",
+      "kit": [
+        "K3",
+        "K6",
+        "K15",
+        "K22"
+      ],
+      "synthesis_packets": [
+        "P05",
+        "P15",
+        "P16",
+        "P21"
+      ],
+      "topic_palettes": [
+        "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md",
+        "docs/COMPANIONS_FAMILIARS_AND_PETS_CONSIDERATIONS_2026-10-14.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I074",
+      "system": "`scr_DatabaseBackgrounds`",
+      "family": "world_home",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 96,
+        "inventory_columns": [
+          "`0x00000001023151b0`",
+          "Inventory only"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D07",
+      "kit": [
+        "K2",
+        "K5",
+        "K8",
+        "K14",
+        "K19",
+        "K25",
+        "K28"
+      ],
+      "synthesis_packets": [
+        "P05",
+        "P12",
+        "P14"
+      ],
+      "topic_palettes": [
+        "docs/worlds/WORLD_CORE_KIT_SUCCESSOR_2026-10-14.md",
+        "docs/LIFE_SIM_NORTH_STAR.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I075",
+      "system": "`scr_DatabaseDecorations`",
+      "family": "world_home",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 97,
+        "inventory_columns": [
+          "`0x0000000102b2913c`",
+          "Inventory only"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D07",
+      "kit": [
+        "K2",
+        "K5",
+        "K8",
+        "K14",
+        "K19",
+        "K25",
+        "K28"
+      ],
+      "synthesis_packets": [
+        "P05",
+        "P12",
+        "P14"
+      ],
+      "topic_palettes": [
+        "docs/worlds/WORLD_CORE_KIT_SUCCESSOR_2026-10-14.md",
+        "docs/LIFE_SIM_NORTH_STAR.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I076",
+      "system": "`scr_DatabaseAchievements`",
+      "family": "combat_progression",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 98,
+        "inventory_columns": [
+          "`0x0000000101ea0400`",
+          "Inventory only"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D12",
+      "kit": [
+        "K3",
+        "K9",
+        "K10",
+        "K13"
+      ],
+      "synthesis_packets": [
+        "P09",
+        "P14",
+        "P16",
+        "P17"
+      ],
+      "topic_palettes": [
+        "docs/worlds/ABILITY_AUTHORING.md",
+        "docs/TRIALS_AND_TRIBULATIONS.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I077",
+      "system": "`scr_DatabaseDecorations2`",
+      "family": "world_home",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 99,
+        "inventory_columns": [
+          "`0x0000000102dec080`",
+          "Inventory only"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D07",
+      "kit": [
+        "K2",
+        "K5",
+        "K8",
+        "K14",
+        "K19",
+        "K25",
+        "K28"
+      ],
+      "synthesis_packets": [
+        "P05",
+        "P12",
+        "P14"
+      ],
+      "topic_palettes": [
+        "docs/worlds/WORLD_CORE_KIT_SUCCESSOR_2026-10-14.md",
+        "docs/LIFE_SIM_NORTH_STAR.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I078",
+      "system": "`scr_DatabaseDecorations3`",
+      "family": "world_home",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 100,
+        "inventory_columns": [
+          "`0x0000000103005c38`",
+          "Inventory only"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D07",
+      "kit": [
+        "K2",
+        "K5",
+        "K8",
+        "K14",
+        "K19",
+        "K25",
+        "K28"
+      ],
+      "synthesis_packets": [
+        "P05",
+        "P12",
+        "P14"
+      ],
+      "topic_palettes": [
+        "docs/worlds/WORLD_CORE_KIT_SUCCESSOR_2026-10-14.md",
+        "docs/LIFE_SIM_NORTH_STAR.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I079",
+      "system": "`scr_DatabaseDecorations4`",
+      "family": "world_home",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 101,
+        "inventory_columns": [
+          "`0x00000001032897f8`",
+          "Inventory only"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D07",
+      "kit": [
+        "K2",
+        "K5",
+        "K8",
+        "K14",
+        "K19",
+        "K25",
+        "K28"
+      ],
+      "synthesis_packets": [
+        "P05",
+        "P12",
+        "P14"
+      ],
+      "topic_palettes": [
+        "docs/worlds/WORLD_CORE_KIT_SUCCESSOR_2026-10-14.md",
+        "docs/LIFE_SIM_NORTH_STAR.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I080",
+      "system": "`scr_DatabaseAchievements1`",
+      "family": "combat_progression",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 102,
+        "inventory_columns": [
+          "`0x0000000101ea0510`",
+          "Inventory only"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D12",
+      "kit": [
+        "K3",
+        "K9",
+        "K10",
+        "K13"
+      ],
+      "synthesis_packets": [
+        "P09",
+        "P14",
+        "P16",
+        "P17"
+      ],
+      "topic_palettes": [
+        "docs/worlds/ABILITY_AUTHORING.md",
+        "docs/TRIALS_AND_TRIBULATIONS.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I081",
+      "system": "`scr_DatabaseAchievements2`",
+      "family": "combat_progression",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 103,
+        "inventory_columns": [
+          "`0x0000000101fb5628`",
+          "Inventory only"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D12",
+      "kit": [
+        "K3",
+        "K9",
+        "K10",
+        "K13"
+      ],
+      "synthesis_packets": [
+        "P09",
+        "P14",
+        "P16",
+        "P17"
+      ],
+      "topic_palettes": [
+        "docs/worlds/ABILITY_AUTHORING.md",
+        "docs/TRIALS_AND_TRIBULATIONS.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I082",
+      "system": "`scr_DatabaseAchievements3`",
+      "family": "combat_progression",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 104,
+        "inventory_columns": [
+          "`0x0000000102023e90`",
+          "Inventory only"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D12",
+      "kit": [
+        "K3",
+        "K9",
+        "K10",
+        "K13"
+      ],
+      "synthesis_packets": [
+        "P09",
+        "P14",
+        "P16",
+        "P17"
+      ],
+      "topic_palettes": [
+        "docs/worlds/ABILITY_AUTHORING.md",
+        "docs/TRIALS_AND_TRIBULATIONS.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I083",
+      "system": "`scr_DatabaseAchievements4`",
+      "family": "combat_progression",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 105,
+        "inventory_columns": [
+          "`0x00000001020907fc`",
+          "Inventory only"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D12",
+      "kit": [
+        "K3",
+        "K9",
+        "K10",
+        "K13"
+      ],
+      "synthesis_packets": [
+        "P09",
+        "P14",
+        "P16",
+        "P17"
+      ],
+      "topic_palettes": [
+        "docs/worlds/ABILITY_AUTHORING.md",
+        "docs/TRIALS_AND_TRIBULATIONS.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I084",
+      "system": "`scr_DatabaseAchievements5`",
+      "family": "combat_progression",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 106,
+        "inventory_columns": [
+          "`0x00000001020fa664`",
+          "Inventory only"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D12",
+      "kit": [
+        "K3",
+        "K9",
+        "K10",
+        "K13"
+      ],
+      "synthesis_packets": [
+        "P09",
+        "P14",
+        "P16",
+        "P17"
+      ],
+      "topic_palettes": [
+        "docs/worlds/ABILITY_AUTHORING.md",
+        "docs/TRIALS_AND_TRIBULATIONS.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I085",
+      "system": "`scr_DatabaseAchievements6`",
+      "family": "combat_progression",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 107,
+        "inventory_columns": [
+          "`0x000000010216b498`",
+          "Inventory only"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D12",
+      "kit": [
+        "K3",
+        "K9",
+        "K10",
+        "K13"
+      ],
+      "synthesis_packets": [
+        "P09",
+        "P14",
+        "P16",
+        "P17"
+      ],
+      "topic_palettes": [
+        "docs/worlds/ABILITY_AUTHORING.md",
+        "docs/TRIALS_AND_TRIBULATIONS.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I086",
+      "system": "`scr_DatabaseAchievements7`",
+      "family": "combat_progression",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 108,
+        "inventory_columns": [
+          "`0x00000001021d3dfc`",
+          "Inventory only"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D12",
+      "kit": [
+        "K3",
+        "K9",
+        "K10",
+        "K13"
+      ],
+      "synthesis_packets": [
+        "P09",
+        "P14",
+        "P16",
+        "P17"
+      ],
+      "topic_palettes": [
+        "docs/worlds/ABILITY_AUTHORING.md",
+        "docs/TRIALS_AND_TRIBULATIONS.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I087",
+      "system": "`scr_DatabaseAchievements8`",
+      "family": "combat_progression",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 109,
+        "inventory_columns": [
+          "`0x0000000102240ba8`",
+          "Inventory only"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D12",
+      "kit": [
+        "K3",
+        "K9",
+        "K10",
+        "K13"
+      ],
+      "synthesis_packets": [
+        "P09",
+        "P14",
+        "P16",
+        "P17"
+      ],
+      "topic_palettes": [
+        "docs/worlds/ABILITY_AUTHORING.md",
+        "docs/TRIALS_AND_TRIBULATIONS.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I088",
+      "system": "`scr_DatabaseAchievements9`",
+      "family": "combat_progression",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 110,
+        "inventory_columns": [
+          "`0x00000001022a9df0`",
+          "Inventory only"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D12",
+      "kit": [
+        "K3",
+        "K9",
+        "K10",
+        "K13"
+      ],
+      "synthesis_packets": [
+        "P09",
+        "P14",
+        "P16",
+        "P17"
+      ],
+      "topic_palettes": [
+        "docs/worlds/ABILITY_AUTHORING.md",
+        "docs/TRIALS_AND_TRIBULATIONS.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I089",
+      "system": "`scr_DatabaseAchievements10`",
+      "family": "combat_progression",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 111,
+        "inventory_columns": [
+          "`0x0000000101f0c6f4`",
+          "Inventory only"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D12",
+      "kit": [
+        "K3",
+        "K9",
+        "K10",
+        "K13"
+      ],
+      "synthesis_packets": [
+        "P09",
+        "P14",
+        "P16",
+        "P17"
+      ],
+      "topic_palettes": [
+        "docs/worlds/ABILITY_AUTHORING.md",
+        "docs/TRIALS_AND_TRIBULATIONS.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I090",
+      "system": "`scr_DatabaseAchievements11`",
+      "family": "combat_progression",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 112,
+        "inventory_columns": [
+          "`0x0000000101f8fd2c`",
+          "Inventory only"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D12",
+      "kit": [
+        "K3",
+        "K9",
+        "K10",
+        "K13"
+      ],
+      "synthesis_packets": [
+        "P09",
+        "P14",
+        "P16",
+        "P17"
+      ],
+      "topic_palettes": [
+        "docs/worlds/ABILITY_AUTHORING.md",
+        "docs/TRIALS_AND_TRIBULATIONS.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I091",
+      "system": "`scr_DatabaseAchievementMain`",
+      "family": "combat_progression",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 113,
+        "inventory_columns": [
+          "`0x00000001018129f0`",
+          "Inventory only"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D12",
+      "kit": [
+        "K3",
+        "K9",
+        "K10",
+        "K13"
+      ],
+      "synthesis_packets": [
+        "P09",
+        "P14",
+        "P16",
+        "P17"
+      ],
+      "topic_palettes": [
+        "docs/worlds/ABILITY_AUTHORING.md",
+        "docs/TRIALS_AND_TRIBULATIONS.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I092",
+      "system": "`scr_DatabaseAchievementFulfillment`",
+      "family": "combat_progression",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 114,
+        "inventory_columns": [
+          "`0x0000000101461d60`",
+          "Inventory only"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D12",
+      "kit": [
+        "K3",
+        "K9",
+        "K10",
+        "K13"
+      ],
+      "synthesis_packets": [
+        "P09",
+        "P14",
+        "P16",
+        "P17"
+      ],
+      "topic_palettes": [
+        "docs/worlds/ABILITY_AUTHORING.md",
+        "docs/TRIALS_AND_TRIBULATIONS.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I093",
+      "system": "Object resources",
+      "family": "authoring",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 120,
+        "inventory_columns": [
+          "1160 OBJT records",
+          "Full private index; selected encounter/menu identities read"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D13",
+      "kit": [
+        "K1",
+        "K20",
+        "K33",
+        "K34"
+      ],
+      "synthesis_packets": [
+        "P16",
+        "P22"
+      ],
+      "topic_palettes": [
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I094",
+      "system": "Script resources",
+      "family": "authoring",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 121,
+        "inventory_columns": [
+          "5785 SCPT records",
+          "Full private index; includes wrappers and libraries"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D13",
+      "kit": [
+        "K1",
+        "K20",
+        "K33",
+        "K34"
+      ],
+      "synthesis_packets": [
+        "P16",
+        "P22"
+      ],
+      "topic_palettes": [
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I095",
+      "system": "Native GML bodies",
+      "family": "authoring",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 122,
+        "inventory_columns": [
+          "8648 named script/object bodies",
+          "Full private index; selected targets only"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D13",
+      "kit": [
+        "K1",
+        "K20",
+        "K33",
+        "K34"
+      ],
+      "synthesis_packets": [
+        "P16",
+        "P22"
+      ],
+      "topic_palettes": [
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I096",
+      "system": "Generated realms",
+      "family": "world_home",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 123,
+        "inventory_columns": [
+          "One generic `realm` ROOM",
+          "Shared template, full generator unread"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D07",
+      "kit": [
+        "K2",
+        "K5",
+        "K8",
+        "K14",
+        "K19",
+        "K25",
+        "K28"
+      ],
+      "synthesis_packets": [
+        "P05",
+        "P12",
+        "P14"
+      ],
+      "topic_palettes": [
+        "docs/worlds/WORLD_CORE_KIT_SUCCESSOR_2026-10-14.md",
+        "docs/LIFE_SIM_NORTH_STAR.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I097",
+      "system": "Boss rooms",
+      "family": "combat_progression",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 124,
+        "inventory_columns": [
+          "30 named `boss_` templates",
+          "Inventory only"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D12",
+      "kit": [
+        "K3",
+        "K9",
+        "K10",
+        "K13"
+      ],
+      "synthesis_packets": [
+        "P09",
+        "P14",
+        "P16",
+        "P17"
+      ],
+      "topic_palettes": [
+        "docs/worlds/ABILITY_AUTHORING.md",
+        "docs/TRIALS_AND_TRIBULATIONS.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I098",
+      "system": "Nether side rooms",
+      "family": "world_home",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 125,
+        "inventory_columns": [
+          "30 named templates",
+          "Treasure, risk, cards, valves, projects, knowledge, relics and taverns; mechanics mostly unread"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D07",
+      "kit": [
+        "K2",
+        "K5",
+        "K8",
+        "K14",
+        "K19",
+        "K25",
+        "K28"
+      ],
+      "synthesis_packets": [
+        "P05",
+        "P12",
+        "P14"
+      ],
+      "topic_palettes": [
+        "docs/worlds/WORLD_CORE_KIT_SUCCESSOR_2026-10-14.md",
+        "docs/LIFE_SIM_NORTH_STAR.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I099",
+      "system": "Castle/service rooms",
+      "family": "world_home",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 126,
+        "inventory_columns": [
+          "`castle_throneroom`, `castle_TEMPLATE`, smith/enchant, tutorial, arena",
+          "A12; home utility stated"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D07",
+      "kit": [
+        "K2",
+        "K5",
+        "K8",
+        "K14",
+        "K19",
+        "K25",
+        "K28"
+      ],
+      "synthesis_packets": [
+        "P05",
+        "P12",
+        "P14"
+      ],
+      "topic_palettes": [
+        "docs/worlds/WORLD_CORE_KIT_SUCCESSOR_2026-10-14.md",
+        "docs/LIFE_SIM_NORTH_STAR.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I100",
+      "system": "Realm-specific objects",
+      "family": "world_home",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 127,
+        "inventory_columns": [
+          "Lab machines/parts, Hive games, Gallery art, cocoons, rituals",
+          "Realm digest; not every object condition decoded"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D07",
+      "kit": [
+        "K2",
+        "K5",
+        "K8",
+        "K14",
+        "K19",
+        "K25",
+        "K28"
+      ],
+      "synthesis_packets": [
+        "P05",
+        "P12",
+        "P14"
+      ],
+      "topic_palettes": [
+        "docs/worlds/WORLD_CORE_KIT_SUCCESSOR_2026-10-14.md",
+        "docs/LIFE_SIM_NORTH_STAR.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I101",
+      "system": "Menu/filter/inspect",
+      "family": "ui_automation",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 128,
+        "inventory_columns": [
+          "`obj_filter`, inventory/achievement/quest filters, battle creature/menu objects",
+          "A06; draw/input execution unrun"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D14",
+      "kit": [
+        "K10",
+        "K11",
+        "K14",
+        "K26",
+        "K30",
+        "K34"
+      ],
+      "synthesis_packets": [
+        "P01",
+        "P04",
+        "P08",
+        "P25"
+      ],
+      "topic_palettes": [
+        "docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md",
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I102",
+      "system": "Audio and atmosphere",
+      "family": "world_home",
+      "origin": "prior_inventory",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/aspects-2026-10-14/SYSTEM_INVENTORY.md",
+        "line": 129,
+        "inventory_columns": [
+          "Realm-named OGG loops/cues, weather table, text libraries",
+          "Resource presence; no audio playback or mechanical climate proof"
+        ]
+      },
+      "prior_status": "named_or_partial",
+      "status": "inventoried_body_unread",
+      "deep_section": "D07",
+      "kit": [
+        "K2",
+        "K5",
+        "K8",
+        "K14",
+        "K19",
+        "K25",
+        "K28"
+      ],
+      "synthesis_packets": [
+        "P05",
+        "P12",
+        "P14"
+      ],
+      "topic_palettes": [
+        "docs/worlds/WORLD_CORE_KIT_SUCCESSOR_2026-10-14.md",
+        "docs/LIFE_SIM_NORTH_STAR.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I103",
+      "system": "Knowledge ranks and Mana recruitment",
+      "family": "knowledge",
+      "origin": "semantic_split",
+      "evidence": {
+        "file": "SYSTEMS.md",
+        "section": "D01"
+      },
+      "prior_status": "named_or_partial",
+      "status": "partial_native",
+      "deep_section": "D01",
+      "kit": [
+        "K9",
+        "K11",
+        "K13"
+      ],
+      "synthesis_packets": [
+        "P03",
+        "P04",
+        "P11"
+      ],
+      "topic_palettes": [
+        "docs/TECHNOLOGY_AND_PROGRESSION.md",
+        "docs/MEANS_AND_APPRAISAL.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I104",
+      "system": "Targeted Hunt and Assassination missions",
+      "family": "knowledge",
+      "origin": "semantic_split",
+      "evidence": {
+        "file": "SYSTEMS.md",
+        "section": "D01"
+      },
+      "prior_status": "named_or_partial",
+      "status": "partial_native",
+      "deep_section": "D01",
+      "kit": [
+        "K9",
+        "K11",
+        "K13"
+      ],
+      "synthesis_packets": [
+        "P03",
+        "P04",
+        "P11"
+      ],
+      "topic_palettes": [
+        "docs/TECHNOLOGY_AND_PROGRESSION.md",
+        "docs/MEANS_AND_APPRAISAL.md"
+      ],
+      "owner_coverage": "partial",
+      "owner_gap": "Knowledge/production join mapped; no dedicated target-acquisition owner confirmed.",
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I105",
+      "system": "Divination Candle encounter targeting",
+      "family": "knowledge",
+      "origin": "semantic_split",
+      "evidence": {
+        "file": "SYSTEMS.md",
+        "section": "D01"
+      },
+      "prior_status": "named_or_partial",
+      "status": "partial_native",
+      "deep_section": "D01",
+      "kit": [
+        "K9",
+        "K11",
+        "K13"
+      ],
+      "synthesis_packets": [
+        "P03",
+        "P04",
+        "P11"
+      ],
+      "topic_palettes": [
+        "docs/TECHNOLOGY_AND_PROGRESSION.md",
+        "docs/MEANS_AND_APPRAISAL.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I106",
+      "system": "Active project capacity and completion",
+      "family": "production",
+      "origin": "semantic_split",
+      "evidence": {
+        "file": "SYSTEMS.md",
+        "section": "D02"
+      },
+      "prior_status": "named_or_partial",
+      "status": "partial_native",
+      "deep_section": "D02",
+      "kit": [
+        "K8",
+        "K9",
+        "K13",
+        "K25"
+      ],
+      "synthesis_packets": [
+        "P02",
+        "P06",
+        "P18",
+        "P16"
+      ],
+      "topic_palettes": [
+        "docs/MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md",
+        "docs/TECHNOLOGY_AND_PROGRESSION.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I107",
+      "system": "Repeatable missions and specialization unlocks",
+      "family": "authoring",
+      "origin": "semantic_split",
+      "evidence": {
+        "file": "SYSTEMS.md",
+        "section": "D02"
+      },
+      "prior_status": "named_or_partial",
+      "status": "partial_native",
+      "deep_section": "D02",
+      "kit": [
+        "K1",
+        "K20",
+        "K33",
+        "K34"
+      ],
+      "synthesis_packets": [
+        "P16",
+        "P22"
+      ],
+      "topic_palettes": [
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I108",
+      "system": "Refinery salvage and currency conversion",
+      "family": "institution_economy",
+      "origin": "semantic_split",
+      "evidence": {
+        "file": "SYSTEMS.md",
+        "section": "D03"
+      },
+      "prior_status": "named_or_partial",
+      "status": "partial_text_or_prior_native",
+      "deep_section": "D03",
+      "kit": [
+        "K7",
+        "K8",
+        "K21",
+        "K29"
+      ],
+      "synthesis_packets": [
+        "P07",
+        "P18",
+        "P14"
+      ],
+      "topic_palettes": [
+        "docs/LIFE_SIM_NORTH_STAR.md",
+        "docs/MEANS_AND_APPRAISAL.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I109",
+      "system": "Artifact slots, upgrading and unsocket recovery",
+      "family": "authoring",
+      "origin": "semantic_split",
+      "evidence": {
+        "file": "SYSTEMS.md",
+        "section": "D03"
+      },
+      "prior_status": "named_or_partial",
+      "status": "partial_text_or_prior_native",
+      "deep_section": "D03",
+      "kit": [
+        "K1",
+        "K20",
+        "K33",
+        "K34"
+      ],
+      "synthesis_packets": [
+        "P16",
+        "P22"
+      ],
+      "topic_palettes": [
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I110",
+      "system": "Spell inscriptions, upgrading and property compatibility",
+      "family": "combat_progression",
+      "origin": "semantic_split",
+      "evidence": {
+        "file": "SYSTEMS.md",
+        "section": "D03"
+      },
+      "prior_status": "named_or_partial",
+      "status": "partial_text_or_prior_native",
+      "deep_section": "D03",
+      "kit": [
+        "K3",
+        "K9",
+        "K10",
+        "K13"
+      ],
+      "synthesis_packets": [
+        "P09",
+        "P14",
+        "P16",
+        "P17"
+      ],
+      "topic_palettes": [
+        "docs/worlds/ABILITY_AUTHORING.md",
+        "docs/TRIALS_AND_TRIBULATIONS.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I111",
+      "system": "Creature personalities and retroactive growth",
+      "family": "authoring",
+      "origin": "semantic_split",
+      "evidence": {
+        "file": "SYSTEMS.md",
+        "section": "D04"
+      },
+      "prior_status": "named_or_partial",
+      "status": "partial_native",
+      "deep_section": "D04",
+      "kit": [
+        "K1",
+        "K20",
+        "K33",
+        "K34"
+      ],
+      "synthesis_packets": [
+        "P16",
+        "P22"
+      ],
+      "topic_palettes": [
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I112",
+      "system": "Race/personality speech dispatch",
+      "family": "body_companion",
+      "origin": "semantic_split",
+      "evidence": {
+        "file": "SYSTEMS.md",
+        "section": "D04"
+      },
+      "prior_status": "named_or_partial",
+      "status": "partial_native",
+      "deep_section": "D04",
+      "kit": [
+        "K3",
+        "K6",
+        "K15",
+        "K22"
+      ],
+      "synthesis_packets": [
+        "P05",
+        "P15",
+        "P16",
+        "P21"
+      ],
+      "topic_palettes": [
+        "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md",
+        "docs/COMPANIONS_FAMILIARS_AND_PETS_CONSIDERATIONS_2026-10-14.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I113",
+      "system": "Creature fusion and primary identity",
+      "family": "body_companion",
+      "origin": "semantic_split",
+      "evidence": {
+        "file": "SYSTEMS.md",
+        "section": "D05"
+      },
+      "prior_status": "named_or_partial",
+      "status": "partial_text_or_prior_native",
+      "deep_section": "D05",
+      "kit": [
+        "K3",
+        "K6",
+        "K15",
+        "K22"
+      ],
+      "synthesis_packets": [
+        "P05",
+        "P15",
+        "P16",
+        "P21"
+      ],
+      "topic_palettes": [
+        "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md",
+        "docs/COMPANIONS_FAMILIARS_AND_PETS_CONSIDERATIONS_2026-10-14.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I114",
+      "system": "Breeding entry point and recipe remnants",
+      "family": "body_companion",
+      "origin": "semantic_split",
+      "evidence": {
+        "file": "SYSTEMS.md",
+        "section": "D05"
+      },
+      "prior_status": "named_or_partial",
+      "status": "partial_text_or_prior_native",
+      "deep_section": "D05",
+      "kit": [
+        "K3",
+        "K6",
+        "K15",
+        "K22"
+      ],
+      "synthesis_packets": [
+        "P05",
+        "P15",
+        "P16",
+        "P21"
+      ],
+      "topic_palettes": [
+        "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md",
+        "docs/COMPANIONS_FAMILIARS_AND_PETS_CONSIDERATIONS_2026-10-14.md"
+      ],
+      "owner_coverage": "partial",
+      "owner_gap": "No reachable breeding loop established; genetics palette is only conceptual routing.",
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I115",
+      "system": "Cooking combinations and recipe discovery",
+      "family": "production",
+      "origin": "semantic_split",
+      "evidence": {
+        "file": "SYSTEMS.md",
+        "section": "D06"
+      },
+      "prior_status": "named_or_partial",
+      "status": "partial_native",
+      "deep_section": "D06",
+      "kit": [
+        "K8",
+        "K9",
+        "K13",
+        "K25"
+      ],
+      "synthesis_packets": [
+        "P02",
+        "P06",
+        "P18",
+        "P16"
+      ],
+      "topic_palettes": [
+        "docs/MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md",
+        "docs/TECHNOLOGY_AND_PROGRESSION.md"
+      ],
+      "owner_coverage": "partial",
+      "owner_gap": "Experimental discovery lifecycle only partially covered; source reachability unresolved.",
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I116",
+      "system": "Castle service placement and custom NPC speech",
+      "family": "events_dialogue",
+      "origin": "semantic_split",
+      "evidence": {
+        "file": "SYSTEMS.md",
+        "section": "D07"
+      },
+      "prior_status": "named_or_partial",
+      "status": "partial_text_or_prior_native",
+      "deep_section": "D07",
+      "kit": [
+        "K6",
+        "K12",
+        "K16",
+        "K20",
+        "K23",
+        "K31"
+      ],
+      "synthesis_packets": [
+        "P10",
+        "P12",
+        "P19",
+        "P20",
+        "P21",
+        "P24"
+      ],
+      "topic_palettes": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I117",
+      "system": "Patron favor, emblems and local blessings",
+      "family": "institution_economy",
+      "origin": "semantic_split",
+      "evidence": {
+        "file": "SYSTEMS.md",
+        "section": "D08"
+      },
+      "prior_status": "named_or_partial",
+      "status": "partial_text_or_prior_native",
+      "deep_section": "D08",
+      "kit": [
+        "K7",
+        "K8",
+        "K21",
+        "K29"
+      ],
+      "synthesis_packets": [
+        "P07",
+        "P18",
+        "P14"
+      ],
+      "topic_palettes": [
+        "docs/LIFE_SIM_NORTH_STAR.md",
+        "docs/MEANS_AND_APPRAISAL.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I118",
+      "system": "Guild bounty runes and risk/reward choice",
+      "family": "institution_economy",
+      "origin": "semantic_split",
+      "evidence": {
+        "file": "SYSTEMS.md",
+        "section": "D09"
+      },
+      "prior_status": "named_or_partial",
+      "status": "partial_native",
+      "deep_section": "D09",
+      "kit": [
+        "K7",
+        "K8",
+        "K21",
+        "K29"
+      ],
+      "synthesis_packets": [
+        "P07",
+        "P18",
+        "P14"
+      ],
+      "topic_palettes": [
+        "docs/LIFE_SIM_NORTH_STAR.md",
+        "docs/MEANS_AND_APPRAISAL.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I119",
+      "system": "Anointment cross-role capability equipment",
+      "family": "combat_progression",
+      "origin": "semantic_split",
+      "evidence": {
+        "file": "SYSTEMS.md",
+        "section": "D09"
+      },
+      "prior_status": "named_or_partial",
+      "status": "partial_native",
+      "deep_section": "D09",
+      "kit": [
+        "K3",
+        "K9",
+        "K10",
+        "K13"
+      ],
+      "synthesis_packets": [
+        "P09",
+        "P14",
+        "P16",
+        "P17"
+      ],
+      "topic_palettes": [
+        "docs/worlds/ABILITY_AUTHORING.md",
+        "docs/TRIALS_AND_TRIBULATIONS.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I120",
+      "system": "Prophecy tasks, lines and turn-in choice",
+      "family": "events_dialogue",
+      "origin": "semantic_split",
+      "evidence": {
+        "file": "SYSTEMS.md",
+        "section": "D10"
+      },
+      "prior_status": "named_or_partial",
+      "status": "partial_native",
+      "deep_section": "D10",
+      "kit": [
+        "K6",
+        "K12",
+        "K16",
+        "K20",
+        "K23",
+        "K31"
+      ],
+      "synthesis_packets": [
+        "P10",
+        "P12",
+        "P19",
+        "P20",
+        "P21",
+        "P24"
+      ],
+      "topic_palettes": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I121",
+      "system": "Relic ranks, attunement and Reliquary upgrades",
+      "family": "combat_progression",
+      "origin": "semantic_split",
+      "evidence": {
+        "file": "SYSTEMS.md",
+        "section": "D10"
+      },
+      "prior_status": "named_or_partial",
+      "status": "partial_native",
+      "deep_section": "D10",
+      "kit": [
+        "K3",
+        "K9",
+        "K10",
+        "K13"
+      ],
+      "synthesis_packets": [
+        "P09",
+        "P14",
+        "P16",
+        "P17"
+      ],
+      "topic_palettes": [
+        "docs/worlds/ABILITY_AUTHORING.md",
+        "docs/TRIALS_AND_TRIBULATIONS.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I122",
+      "system": "Card distinct membership, duplicates and synergy",
+      "family": "combat_progression",
+      "origin": "semantic_split",
+      "evidence": {
+        "file": "SYSTEMS.md",
+        "section": "D11"
+      },
+      "prior_status": "named_or_partial",
+      "status": "partial_text_or_prior_native",
+      "deep_section": "D11",
+      "kit": [
+        "K3",
+        "K9",
+        "K10",
+        "K13"
+      ],
+      "synthesis_packets": [
+        "P09",
+        "P14",
+        "P16",
+        "P17"
+      ],
+      "topic_palettes": [
+        "docs/worlds/ABILITY_AUTHORING.md",
+        "docs/TRIALS_AND_TRIBULATIONS.md"
+      ],
+      "owner_coverage": "partial",
+      "owner_gap": "No dedicated collection-synergy policy confirmed in read owners.",
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I123",
+      "system": "Achievement fulfillment and Piety multiplier",
+      "family": "combat_progression",
+      "origin": "semantic_split",
+      "evidence": {
+        "file": "SYSTEMS.md",
+        "section": "D11"
+      },
+      "prior_status": "named_or_partial",
+      "status": "partial_text_or_prior_native",
+      "deep_section": "D11",
+      "kit": [
+        "K3",
+        "K9",
+        "K10",
+        "K13"
+      ],
+      "synthesis_packets": [
+        "P09",
+        "P14",
+        "P16",
+        "P17"
+      ],
+      "topic_palettes": [
+        "docs/worlds/ABILITY_AUTHORING.md",
+        "docs/TRIALS_AND_TRIBULATIONS.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I124",
+      "system": "Creature race Mastery and depth occurrence",
+      "family": "combat_progression",
+      "origin": "semantic_split",
+      "evidence": {
+        "file": "SYSTEMS.md",
+        "section": "D12"
+      },
+      "prior_status": "named_or_partial",
+      "status": "partial_text_or_prior_native",
+      "deep_section": "D12",
+      "kit": [
+        "K3",
+        "K9",
+        "K10",
+        "K13"
+      ],
+      "synthesis_packets": [
+        "P09",
+        "P14",
+        "P16",
+        "P17"
+      ],
+      "topic_palettes": [
+        "docs/worlds/ABILITY_AUTHORING.md",
+        "docs/TRIALS_AND_TRIBULATIONS.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I125",
+      "system": "Gate of the Gods and specialization ascension",
+      "family": "combat_progression",
+      "origin": "semantic_split",
+      "evidence": {
+        "file": "SYSTEMS.md",
+        "section": "D12"
+      },
+      "prior_status": "named_or_partial",
+      "status": "partial_text_or_prior_native",
+      "deep_section": "D12",
+      "kit": [
+        "K3",
+        "K9",
+        "K10",
+        "K13"
+      ],
+      "synthesis_packets": [
+        "P09",
+        "P14",
+        "P16",
+        "P17"
+      ],
+      "topic_palettes": [
+        "docs/worlds/ABILITY_AUTHORING.md",
+        "docs/TRIALS_AND_TRIBULATIONS.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I126",
+      "system": "Nether Boss tiers and keys",
+      "family": "combat_progression",
+      "origin": "semantic_split",
+      "evidence": {
+        "file": "SYSTEMS.md",
+        "section": "D12"
+      },
+      "prior_status": "named_or_partial",
+      "status": "partial_text_or_prior_native",
+      "deep_section": "D12",
+      "kit": [
+        "K3",
+        "K9",
+        "K10",
+        "K13"
+      ],
+      "synthesis_packets": [
+        "P09",
+        "P14",
+        "P16",
+        "P17"
+      ],
+      "topic_palettes": [
+        "docs/worlds/ABILITY_AUTHORING.md",
+        "docs/TRIALS_AND_TRIBULATIONS.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I127",
+      "system": "Realm quests and perk-point frontier qualifier",
+      "family": "events_dialogue",
+      "origin": "semantic_split",
+      "evidence": {
+        "file": "SYSTEMS.md",
+        "section": "D13"
+      },
+      "prior_status": "named_or_partial",
+      "status": "partial_text_or_prior_native",
+      "deep_section": "D13",
+      "kit": [
+        "K6",
+        "K12",
+        "K16",
+        "K20",
+        "K23",
+        "K31"
+      ],
+      "synthesis_packets": [
+        "P10",
+        "P12",
+        "P19",
+        "P20",
+        "P21",
+        "P24"
+      ],
+      "topic_palettes": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I128",
+      "system": "Story dialogue, barks, lore and flags",
+      "family": "events_dialogue",
+      "origin": "semantic_split",
+      "evidence": {
+        "file": "SYSTEMS.md",
+        "section": "D13"
+      },
+      "prior_status": "named_or_partial",
+      "status": "partial_text_or_prior_native",
+      "deep_section": "D13",
+      "kit": [
+        "K6",
+        "K12",
+        "K16",
+        "K20",
+        "K23",
+        "K31"
+      ],
+      "synthesis_packets": [
+        "P10",
+        "P12",
+        "P19",
+        "P20",
+        "P21",
+        "P24"
+      ],
+      "topic_palettes": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I129",
+      "system": "Local events and free-play occurrence reuse",
+      "family": "authoring",
+      "origin": "semantic_split",
+      "evidence": {
+        "file": "SYSTEMS.md",
+        "section": "D13"
+      },
+      "prior_status": "named_or_partial",
+      "status": "partial_text_or_prior_native",
+      "deep_section": "D13",
+      "kit": [
+        "K1",
+        "K20",
+        "K33",
+        "K34"
+      ],
+      "synthesis_packets": [
+        "P16",
+        "P22"
+      ],
+      "topic_palettes": [
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I130",
+      "system": "Battle macro line processing and legality",
+      "family": "ui_automation",
+      "origin": "semantic_split",
+      "evidence": {
+        "file": "SYSTEMS.md",
+        "section": "D14"
+      },
+      "prior_status": "named_or_partial",
+      "status": "partial_text_or_prior_native",
+      "deep_section": "D14",
+      "kit": [
+        "K10",
+        "K11",
+        "K14",
+        "K26",
+        "K30",
+        "K34"
+      ],
+      "synthesis_packets": [
+        "P01",
+        "P04",
+        "P08",
+        "P25"
+      ],
+      "topic_palettes": [
+        "docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md",
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I131",
+      "system": "Arena draft, four modes and temporary roster",
+      "family": "body_companion",
+      "origin": "semantic_split",
+      "evidence": {
+        "file": "SYSTEMS.md",
+        "section": "D14"
+      },
+      "prior_status": "named_or_partial",
+      "status": "partial_text_or_prior_native",
+      "deep_section": "D14",
+      "kit": [
+        "K3",
+        "K6",
+        "K15",
+        "K22"
+      ],
+      "synthesis_packets": [
+        "P05",
+        "P15",
+        "P16",
+        "P21"
+      ],
+      "topic_palettes": [
+        "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md",
+        "docs/COMPANIONS_FAMILIARS_AND_PETS_CONSIDERATIONS_2026-10-14.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I132",
+      "system": "Gambling side games, odds and payout",
+      "family": "authoring",
+      "origin": "semantic_split",
+      "evidence": {
+        "file": "SYSTEMS.md",
+        "section": "D14"
+      },
+      "prior_status": "named_or_partial",
+      "status": "partial_text_or_prior_native",
+      "deep_section": "D14",
+      "kit": [
+        "K1",
+        "K20",
+        "K33",
+        "K34"
+      ],
+      "synthesis_packets": [
+        "P16",
+        "P22"
+      ],
+      "topic_palettes": [
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_coverage": "partial",
+      "owner_gap": "No dedicated minigame odds/payout owner found; trials/UI are adjacent only.",
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I133",
+      "system": "Item sets, source labels and collection filters",
+      "family": "ui_automation",
+      "origin": "semantic_split",
+      "evidence": {
+        "file": "SYSTEMS.md",
+        "section": "D14"
+      },
+      "prior_status": "named_or_partial",
+      "status": "partial_text_or_prior_native",
+      "deep_section": "D14",
+      "kit": [
+        "K10",
+        "K11",
+        "K14",
+        "K26",
+        "K30",
+        "K34"
+      ],
+      "synthesis_packets": [
+        "P01",
+        "P04",
+        "P08",
+        "P25"
+      ],
+      "topic_palettes": [
+        "docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md",
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I134",
+      "system": "Field serialization and derived state",
+      "family": "save",
+      "origin": "semantic_split",
+      "evidence": {
+        "file": "SYSTEMS.md",
+        "section": "D15"
+      },
+      "prior_status": "named_or_partial",
+      "status": "partial_native",
+      "deep_section": "D15",
+      "kit": [
+        "K15",
+        "K18",
+        "K33"
+      ],
+      "synthesis_packets": [
+        "P05",
+        "P16",
+        "P23",
+        "P24"
+      ],
+      "topic_palettes": [
+        "docs/ENGINE_SAVES_AND_SCALE_REVIEW_2026-10-11.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "Creature/project/decoration paired fields read. Whole-save Step/completion, scalar defaults, remaining domains and recovery unread."
+    },
+    {
+      "id": "SU-I135",
+      "system": "Whole-save publication, versions and recovery",
+      "family": "save",
+      "origin": "semantic_split",
+      "evidence": {
+        "file": "SYSTEMS.md",
+        "section": "D15"
+      },
+      "prior_status": "named_or_partial",
+      "status": "partial_native",
+      "deep_section": "D15",
+      "kit": [
+        "K15",
+        "K18",
+        "K33"
+      ],
+      "synthesis_packets": [
+        "P05",
+        "P16",
+        "P23",
+        "P24"
+      ],
+      "topic_palettes": [
+        "docs/ENGINE_SAVES_AND_SCALE_REVIEW_2026-10-11.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "Creature/project/decoration paired fields read. Whole-save Step/completion, scalar defaults, remaining domains and recovery unread."
+    },
+    {
+      "id": "SU-I136",
+      "system": "Offline time, calendar and aging evidence gaps",
+      "family": "authoring",
+      "origin": "semantic_split",
+      "evidence": {
+        "file": "SYSTEMS.md",
+        "section": "D15"
+      },
+      "prior_status": "named_or_partial",
+      "status": "partial_native",
+      "deep_section": "D15",
+      "kit": [
+        "K1",
+        "K20",
+        "K33",
+        "K34"
+      ],
+      "synthesis_packets": [
+        "P16",
+        "P22"
+      ],
+      "topic_palettes": [
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "Creature/project/decoration paired fields read. Whole-save Step/completion, scalar defaults, remaining domains and recovery unread."
+    },
+    {
+      "id": "SU-I137",
+      "system": "Persistent societies and resident autonomy evidence gap",
+      "family": "authoring",
+      "origin": "semantic_split",
+      "evidence": {
+        "file": "SYSTEMS.md",
+        "section": "D13"
+      },
+      "prior_status": "named_or_partial",
+      "status": "partial_text_or_prior_native",
+      "deep_section": "D13",
+      "kit": [
+        "K1",
+        "K20",
+        "K33",
+        "K34"
+      ],
+      "synthesis_packets": [
+        "P16",
+        "P22"
+      ],
+      "topic_palettes": [
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I138",
+      "system": "Fortune reward streak and party-wipe reset",
+      "family": "authoring",
+      "origin": "semantic_split",
+      "evidence": {
+        "file": "SYSTEMS.md",
+        "section": "D11"
+      },
+      "prior_status": "named_or_partial",
+      "status": "partial_text_or_prior_native",
+      "deep_section": "D11",
+      "kit": [
+        "K1",
+        "K20",
+        "K33",
+        "K34"
+      ],
+      "synthesis_packets": [
+        "P16",
+        "P22"
+      ],
+      "topic_palettes": [
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I139",
+      "system": "Full 30-realm enemy pool, object and quest join",
+      "family": "events_dialogue",
+      "origin": "prior_unread",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/CHECKPOINT.md",
+        "id": "U1",
+        "why": "Pool constructor and biome/name/patron functions decoded, but constant-initializer-to-name map and all spawn/quest conditions not joined. Read named initializers and selected realm generator/object consumers."
+      },
+      "prior_status": "unread",
+      "status": "partial",
+      "deep_section": "D13",
+      "kit": [
+        "K6",
+        "K12",
+        "K16",
+        "K20",
+        "K23",
+        "K31"
+      ],
+      "synthesis_packets": [
+        "P10",
+        "P12",
+        "P19",
+        "P20",
+        "P21",
+        "P24"
+      ],
+      "topic_palettes": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I140",
+      "system": "Exact fusion base-stat/trait realization, admission, payment and complete custody",
+      "family": "body_companion",
+      "origin": "prior_unread",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/CHECKPOINT.md",
+        "id": "U2",
+        "why": "`scr_Fuse` normal path decoded, but `scr_Creature`, `scr_UpdateCreature`, rounding and inventory/stable helpers and UI payment caller not closed. No transaction, no-duplication or full rounding proof."
+      },
+      "prior_status": "unread",
+      "status": "partial",
+      "deep_section": "D04",
+      "kit": [
+        "K3",
+        "K6",
+        "K15",
+        "K22"
+      ],
+      "synthesis_packets": [
+        "P05",
+        "P15",
+        "P16",
+        "P21"
+      ],
+      "topic_palettes": [
+        "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md",
+        "docs/COMPANIONS_FAMILIARS_AND_PETS_CONSIDERATIONS_2026-10-14.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I141",
+      "system": "Trait dispatch, limit resets, Calm/relic exemptions and startup numbering conflict",
+      "family": "combat_progression",
+      "origin": "prior_unread",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/CHECKPOINT.md",
+        "id": "U3",
+        "why": "Installed help and event/reaction names read; actual `bc_Event*`/`bc_On*` queue consumers not traced. Global `scr_AddTrait` does not enforce the described per-creature cap."
+      },
+      "prior_status": "unread",
+      "status": "partial",
+      "deep_section": "D12",
+      "kit": [
+        "K3",
+        "K9",
+        "K10",
+        "K13"
+      ],
+      "synthesis_packets": [
+        "P09",
+        "P14",
+        "P16",
+        "P17"
+      ],
+      "topic_palettes": [
+        "docs/worlds/ABILITY_AUTHORING.md",
+        "docs/TRIALS_AND_TRIBULATIONS.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I142",
+      "system": "Save field publication and completion",
+      "family": "save",
+      "origin": "prior_unread",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/CHECKPOINT.md",
+        "id": "U4",
+        "why": "`obj_savegame_Step_0` at `0x10599277c`, about 261,492 bytes to next symbol, timed out under the final 30-second budget. Create/wrapper/async setup does not prove complete serialized retention. Split into selected helpers or bounded control-flow regions."
+      },
+      "prior_status": "unread",
+      "status": "partial",
+      "deep_section": "D15",
+      "kit": [
+        "K15",
+        "K18",
+        "K33"
+      ],
+      "synthesis_packets": [
+        "P05",
+        "P16",
+        "P23",
+        "P24"
+      ],
+      "topic_palettes": [
+        "docs/ENGINE_SAVES_AND_SCALE_REVIEW_2026-10-11.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "Creature/project/decoration paired fields read. Whole-save Step/completion, scalar defaults, remaining domains and recovery unread."
+    },
+    {
+      "id": "SU-I143",
+      "system": "Migration, corrupt-file rejection, backup selection and recovery",
+      "family": "save",
+      "origin": "prior_unread",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/CHECKPOINT.md",
+        "id": "U5",
+        "why": "`scr_LoadMain`, per-domain serializers and async completion remain unread. File copy activity in Create is not proof of crash-safe recovery. No personal saves were inspected."
+      },
+      "prior_status": "unread",
+      "status": "partial",
+      "deep_section": "D15",
+      "kit": [
+        "K15",
+        "K18",
+        "K33"
+      ],
+      "synthesis_packets": [
+        "P05",
+        "P16",
+        "P23",
+        "P24"
+      ],
+      "topic_palettes": [
+        "docs/ENGINE_SAVES_AND_SCALE_REVIEW_2026-10-11.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "Creature/project/decoration paired fields read. Whole-save Step/completion, scalar defaults, remaining domains and recovery unread."
+    },
+    {
+      "id": "SU-I144",
+      "system": "Complete dialogue eligibility, flag writes, speaker/portrait and relationship graph",
+      "family": "events_dialogue",
+      "origin": "prior_unread",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/CHECKPOINT.md",
+        "id": "U6",
+        "why": "All full text/IDs retained; only explicit menu choices/errors and selected scene structures read. Follow native speaker/menu/object callers, preserving original lines privately."
+      },
+      "prior_status": "unread",
+      "status": "partial",
+      "deep_section": "D13",
+      "kit": [
+        "K6",
+        "K12",
+        "K16",
+        "K20",
+        "K23",
+        "K31"
+      ],
+      "synthesis_packets": [
+        "P10",
+        "P12",
+        "P19",
+        "P20",
+        "P21",
+        "P24"
+      ],
+      "topic_palettes": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I145",
+      "system": "All minigame rules, collection modifiers, crafting sinks, loot weights and odds",
+      "family": "production",
+      "origin": "prior_unread",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/CHECKPOINT.md",
+        "id": "U7",
+        "why": "Tables and subsystem names inventoried; only bounded representative systems analyzed. Narrow by a concrete downstream decision."
+      },
+      "prior_status": "unread",
+      "status": "partial",
+      "deep_section": "D02",
+      "kit": [
+        "K8",
+        "K9",
+        "K13",
+        "K25"
+      ],
+      "synthesis_packets": [
+        "P02",
+        "P06",
+        "P18",
+        "P16"
+      ],
+      "topic_palettes": [
+        "docs/MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md",
+        "docs/TECHNOLOGY_AND_PROGRESSION.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "See CHECKPOINT unread ledger and SYSTEMS section. Native symbol presence is not a decoded rule."
+    },
+    {
+      "id": "SU-I146",
+      "system": "Live desktop controls/layout, rendered comparisons, source-game save roundtrip and persistent-society behavior",
+      "family": "save",
+      "origin": "prior_unread",
+      "evidence": {
+        "file": "docs/research/siralim-ultimate/CHECKPOINT.md",
+        "id": "U8",
+        "why": "Game execution is prohibited by dispatch. Static data cannot establish these. No UI/native play or independent-world society parity is claimed."
+      },
+      "prior_status": "unread",
+      "status": "partial",
+      "deep_section": "D15",
+      "kit": [
+        "K15",
+        "K18",
+        "K33"
+      ],
+      "synthesis_packets": [
+        "P05",
+        "P16",
+        "P23",
+        "P24"
+      ],
+      "topic_palettes": [
+        "docs/ENGINE_SAVES_AND_SCALE_REVIEW_2026-10-11.md"
+      ],
+      "owner_coverage": "mapped_proposal",
+      "owner_gap": null,
+      "remaining": "Creature/project/decoration paired fields read. Whole-save Step/completion, scalar defaults, remaining domains and recovery unread."
+    }
+  ],
+  "finalized": "2026-10-15",
+  "native_evidence": {
+    "additional_returned": 18,
+    "prior_returned": 15,
+    "scope": "Selected normal paths, not whole-game or runtime coverage",
+    "receipt": "~/.codex/research/ds-siralim-ultimate/notes/rea-followup-native.json"
+  }
+}

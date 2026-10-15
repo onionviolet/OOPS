@@ -1,0 +1,219 @@
+{
+  "lane": "lib-zhutian",
+  "date": "2026-10-15",
+  "status": "PARTIAL",
+  "evidence_map": "SOURCES.md",
+  "archive_sha256": "7082f6193695ef4a2efaf2848436e5c54838a8920a0b366cbc1650fd0c7815c0",
+  "runtime_exercised": false,
+  "findings": [
+    {
+      "id": "F01",
+      "evidence": "shown",
+      "claim": "Construct 3 in NW.js, not RPG Maker or Electron",
+      "sources": [
+        "S01"
+      ],
+      "kit": [
+        "K18",
+        "K34"
+      ]
+    },
+    {
+      "id": "F02",
+      "evidence": "shown",
+      "claim": "13 nonzero plane definitions, plus separate otherworld/divine-world structures; table rows alone do not prove reachability",
+      "sources": [
+        "S03 S15"
+      ],
+      "kit": [
+        "K1",
+        "K5",
+        "K17"
+      ]
+    },
+    {
+      "id": "F03",
+      "evidence": "stated",
+      "claim": "Each plane has local town services, factions, currency types, material yields and difficulty; currency types can be shared",
+      "sources": [
+        "S04 bz[1,35:38], [5,35], [6,35]"
+      ],
+      "kit": [
+        "K2",
+        "K7",
+        "K8",
+        "K9"
+      ]
+    },
+    {
+      "id": "F04",
+      "evidence": "shown",
+      "claim": "Enter-plane handler records current plane in save[36,1,0], clears otherworld slot save[88,1,0], changes map and resets encounter selectors",
+      "sources": [
+        "S05"
+      ],
+      "kit": [
+        "K5",
+        "K15",
+        "K18"
+      ]
+    },
+    {
+      "id": "F05",
+      "evidence": "inferred",
+      "claim": "Shared actor/item/career tables and selection handlers support a roster traveling between themed destinations; exhaustive retention and companion consent are unproved",
+      "sources": [
+        "S05 S10"
+      ],
+      "kit": [
+        "K3",
+        "K6",
+        "K9",
+        "K15"
+      ]
+    },
+    {
+      "id": "F06",
+      "evidence": "stated",
+      "claim": "Career changes make incompatible learned skill types ineffective; local service access, learning and current usability differ",
+      "sources": [
+        "S04 bz[6,17], [5,36], [7,18]"
+      ],
+      "kit": [
+        "K3",
+        "K7",
+        "K15"
+      ]
+    },
+    {
+      "id": "F07",
+      "evidence": "shown",
+      "claim": "Drop consumer uses named weighted drop/no-drop tables; common item branch clamps boosted weights against 10000, with a separate 100-scale material branch",
+      "sources": [
+        "S06"
+      ],
+      "kit": [
+        "K9",
+        "K13",
+        "K34"
+      ]
+    },
+    {
+      "id": "F08",
+      "evidence": "stated",
+      "claim": "Plane 3 has the endless tower, plane 4 beast hunting, plane 8 rebirth, plane 10 an abyss rift",
+      "sources": [
+        "S04 bz[1,41:43], [1,61]"
+      ],
+      "kit": [
+        "K5",
+        "K13",
+        "K16"
+      ]
+    },
+    {
+      "id": "F09",
+      "evidence": "shown",
+      "claim": "Rebirth compares tier, level, destiny-slot and material requirements, then increments tier and level in the inspected successful branch",
+      "sources": [
+        "S11"
+      ],
+      "kit": [
+        "K3",
+        "K16",
+        "K18"
+      ]
+    },
+    {
+      "id": "F10",
+      "evidence": "stated",
+      "claim": "Antique shop sells plane equipment for home cash; company research and buildings support further growth and expeditions",
+      "sources": [
+        "S04 bz[1,23:32], S12"
+      ],
+      "kit": [
+        "K8",
+        "K9",
+        "K25",
+        "K26"
+      ]
+    },
+    {
+      "id": "F11",
+      "evidence": "shown",
+      "claim": "Normal and backup saves serialize Construct arrays to LocalStorage or NW.js files using slot metadata; disk and LocalStorage routes are conditional",
+      "sources": [
+        "S07"
+      ],
+      "kit": [
+        "K18",
+        "K33"
+      ]
+    },
+    {
+      "id": "F12",
+      "evidence": "shown",
+      "claim": "Base-time and auto-combat groups exist; battle speed is stated to leave city management time unchanged; closed-app catch-up remains unread",
+      "sources": [
+        "S08 S14 S04 bz[2,34]"
+      ],
+      "kit": [
+        "K8",
+        "K26",
+        "K32"
+      ]
+    },
+    {
+      "id": "F13",
+      "evidence": "shown",
+      "claim": "Dialogue executor joins text, speaker and portrait with typewriter rendering and special-event handling; full branch/condition semantics remain partial",
+      "sources": [
+        "S09"
+      ],
+      "kit": [
+        "K6",
+        "K12",
+        "K14",
+        "K20"
+      ]
+    },
+    {
+      "id": "F14",
+      "evidence": "shown",
+      "claim": "Package declares a resizable 2016x1136 window and a 2560x1440 main layout; native 1366x768 legibility is untested",
+      "sources": [
+        "S01 S02"
+      ],
+      "kit": [
+        "K14",
+        "K30"
+      ]
+    },
+    {
+      "id": "F15",
+      "evidence": "shown",
+      "claim": "Plane progress reader clamps packed progress to 0..1001 and derives a 1..10 difficulty and within-band 1..100 floor",
+      "sources": [
+        "S13"
+      ],
+      "kit": [
+        "K5",
+        "K11",
+        "K18"
+      ]
+    },
+    {
+      "id": "F16",
+      "evidence": "inferred",
+      "claim": "This source is strongest for acquisition and useful homeward loops; it does not establish simulated resident lives or persistent interpersonal cross-world history",
+      "sources": [
+        "S03 S09 S10 S12"
+      ],
+      "kit": [
+        "K6",
+        "K12",
+        "K29"
+      ]
+    }
+  ]
+}
