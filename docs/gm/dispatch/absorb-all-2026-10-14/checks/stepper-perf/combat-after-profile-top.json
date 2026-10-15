@@ -1,0 +1,248 @@
+{
+  "namedCosts": [
+    {
+      "function": "persistExpansionPlan",
+      "site": "../src/expansion_persistence.js:7:17",
+      "selfMs": 120.46,
+      "totalMs": 623.48
+    },
+    {
+      "function": "validateSaveEnvelope",
+      "site": "../src/save_files.js:59:17",
+      "selfMs": 22.12,
+      "totalMs": 553.26
+    },
+    {
+      "function": "create_save",
+      "site": "../src/main.js:6306:10",
+      "selfMs": 151.52,
+      "totalMs": 323.35
+    },
+    {
+      "function": "featureWaveContext",
+      "site": "../src/main.js:2413:10",
+      "selfMs": 1.27,
+      "totalMs": 196.15
+    },
+    {
+      "function": "setItem",
+      "site": "../src/main.js:573:5",
+      "selfMs": 56.28,
+      "totalMs": 186.6
+    },
+    {
+      "function": "simulationNativeContexts",
+      "site": "../src/main.js:1643:10",
+      "selfMs": 0,
+      "totalMs": 169.94
+    },
+    {
+      "function": "setItem",
+      "site": "(V8):0:0",
+      "selfMs": 67.29,
+      "totalMs": 67.29
+    },
+    {
+      "function": "retiredKey",
+      "site": "../src/save_compatibility.js:5:10",
+      "selfMs": 17.98,
+      "totalMs": 30.09
+    },
+    {
+      "function": "classifyRetiredKey",
+      "site": "../src/save_compatibility.js:12:10",
+      "selfMs": 7.08,
+      "totalMs": 7.08
+    },
+    {
+      "function": "is_message_log_near_bottom",
+      "site": "../src/display.js:163:10",
+      "selfMs": 1.29,
+      "totalMs": 1.29
+    }
+  ],
+  "topSelf": [
+    {
+      "function": "capture",
+      "site": "../src/native_craft_transaction.js:7:14",
+      "selfMs": 1101.37,
+      "totalMs": 1101.37
+    },
+    {
+      "function": "prepareFoundationSave",
+      "site": "../src/save_compatibility.js:17:17",
+      "selfMs": 173.49,
+      "totalMs": 261.92
+    },
+    {
+      "function": "create_save",
+      "site": "../src/main.js:6306:10",
+      "selfMs": 151.52,
+      "totalMs": 323.35
+    },
+    {
+      "function": "persistExpansionPlan",
+      "site": "../src/expansion_persistence.js:7:17",
+      "selfMs": 120.46,
+      "totalMs": 623.48
+    },
+    {
+      "function": "(program)",
+      "site": "(V8):0:0",
+      "selfMs": 107.25,
+      "totalMs": 107.25
+    },
+    {
+      "function": "setEnvelope",
+      "site": "../src/main.js:576:5",
+      "selfMs": 87.25,
+      "totalMs": 225.3
+    },
+    {
+      "function": "read",
+      "site": "../src/planning_read_frame.js:7:9",
+      "selfMs": 76.58,
+      "totalMs": 306.95
+    },
+    {
+      "function": "(garbage collector)",
+      "site": "(V8):0:0",
+      "selfMs": 69.76,
+      "totalMs": 69.76
+    },
+    {
+      "function": "setItem",
+      "site": "(V8):0:0",
+      "selfMs": 67.29,
+      "totalMs": 67.29
+    },
+    {
+      "function": "runP23CombatExchange",
+      "site": "../src/main.js:4851:10",
+      "selfMs": 65.53,
+      "totalMs": 1990.14
+    },
+    {
+      "function": "visit",
+      "site": "../src/mixture_state.js:104:14",
+      "selfMs": 63.32,
+      "totalMs": 63.32
+    },
+    {
+      "function": "visit",
+      "site": "../src/harvest.js:102:14",
+      "selfMs": 59.66,
+      "totalMs": 59.66
+    },
+    {
+      "function": "detachBatched",
+      "site": "../src/save_compatibility.js:63:27",
+      "selfMs": 56.5,
+      "totalMs": 86.59
+    },
+    {
+      "function": "setItem",
+      "site": "../src/main.js:573:5",
+      "selfMs": 56.28,
+      "totalMs": 186.6
+    },
+    {
+      "function": "encode",
+      "site": "(V8):0:0",
+      "selfMs": 43.28,
+      "totalMs": 43.28
+    }
+  ],
+  "topTotal": [
+    {
+      "function": "(root)",
+      "site": "(V8):0:0",
+      "selfMs": 0,
+      "totalMs": 3545.51
+    },
+    {
+      "function": "(anonymous)",
+      "site": "(V8):1:2",
+      "selfMs": 0,
+      "totalMs": 3318.89
+    },
+    {
+      "function": "evaluate",
+      "site": "(V8):305:11",
+      "selfMs": 0,
+      "totalMs": 3318.89
+    },
+    {
+      "function": "(anonymous)",
+      "site": "(V8):1:1",
+      "selfMs": 0,
+      "totalMs": 3318.89
+    },
+    {
+      "function": "advanceTicks",
+      "site": "../src/main.js:9166:10",
+      "selfMs": 0,
+      "totalMs": 3318.89
+    },
+    {
+      "function": "runEngineTicks",
+      "site": "../src/simulation_clock.js:62:17",
+      "selfMs": 3.02,
+      "totalMs": 3207.32
+    },
+    {
+      "function": "(anonymous)",
+      "site": "../src/models/combat.js:266:66",
+      "selfMs": 3.99,
+      "totalMs": 2031.61
+    },
+    {
+      "function": "runP23CombatExchange",
+      "site": "../src/main.js:4851:10",
+      "selfMs": 65.53,
+      "totalMs": 1990.14
+    },
+    {
+      "function": "(anonymous)",
+      "site": "../src/main.js:8688:19",
+      "selfMs": 1.26,
+      "totalMs": 1172.68
+    },
+    {
+      "function": "simulateTick",
+      "site": "../src/main.js:8709:10",
+      "selfMs": 19.37,
+      "totalMs": 1170.16
+    },
+    {
+      "function": "beginNativeCraftTransaction",
+      "site": "../src/native_craft_transaction.js:4:17",
+      "selfMs": 3.79,
+      "totalMs": 1108.92
+    },
+    {
+      "function": "update_timer",
+      "site": "../src/main.js:8583:10",
+      "selfMs": 0,
+      "totalMs": 1107.21
+    },
+    {
+      "function": "capture",
+      "site": "../src/native_craft_transaction.js:7:14",
+      "selfMs": 1101.37,
+      "totalMs": 1101.37
+    },
+    {
+      "function": "persistExpansion",
+      "site": "../src/main.js:1703:10",
+      "selfMs": 11.34,
+      "totalMs": 925.39
+    },
+    {
+      "function": "persistExpansionPlan",
+      "site": "../src/expansion_persistence.js:7:17",
+      "selfMs": 120.46,
+      "totalMs": 623.48
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "tests": 1708,
+  "pass": 1705,
+  "fail": 0,
+  "todo": 3,
+  "durationMs": 160930.810083,
+  "command": "npm test -- --test-concurrency=2",
+  "exitCode": 0,
+  "log": "/tmp/stepper-perf-npm-final.log"
+}

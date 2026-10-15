@@ -1,0 +1,248 @@
+{
+  "namedCosts": [
+    {
+      "function": "featureWaveContext",
+      "site": "../src/main.js:2393:10",
+      "selfMs": 5.14,
+      "totalMs": 3377.21
+    },
+    {
+      "function": "persistExpansionPlan",
+      "site": "../src/expansion_persistence.js:7:17",
+      "selfMs": 597.82,
+      "totalMs": 3345.5
+    },
+    {
+      "function": "simulationNativeContexts",
+      "site": "../src/main.js:1642:10",
+      "selfMs": 62.64,
+      "totalMs": 1579.64
+    },
+    {
+      "function": "validateSaveEnvelope",
+      "site": "../src/save_files.js:59:17",
+      "selfMs": 27.2,
+      "totalMs": 1465.83
+    },
+    {
+      "function": "create_save",
+      "site": "../src/main.js:6282:10",
+      "selfMs": 230.25,
+      "totalMs": 614.02
+    },
+    {
+      "function": "setItem",
+      "site": "(V8):0:0",
+      "selfMs": 130.59,
+      "totalMs": 130.59
+    },
+    {
+      "function": "retiredKey",
+      "site": "../src/save_compatibility.js:5:10",
+      "selfMs": 49.75,
+      "totalMs": 74.98
+    },
+    {
+      "function": "classifyRetiredKey",
+      "site": "../src/save_compatibility.js:12:10",
+      "selfMs": 13.37,
+      "totalMs": 13.37
+    },
+    {
+      "function": "is_message_log_near_bottom",
+      "site": "../src/display.js:163:10",
+      "selfMs": 6.6,
+      "totalMs": 6.6
+    },
+    {
+      "function": "setItem",
+      "site": "../src/main.js:572:5",
+      "selfMs": 0,
+      "totalMs": 1.16
+    }
+  ],
+  "topSelf": [
+    {
+      "function": "persistExpansionPlan",
+      "site": "../src/expansion_persistence.js:7:17",
+      "selfMs": 597.82,
+      "totalMs": 3345.5
+    },
+    {
+      "function": "prepareFoundationSave",
+      "site": "../src/save_compatibility.js:17:17",
+      "selfMs": 374.6,
+      "totalMs": 703.98
+    },
+    {
+      "function": "worldCompletionFacts",
+      "site": "../src/world_completion_facts.js:15:17",
+      "selfMs": 353.3,
+      "totalMs": 1104.65
+    },
+    {
+      "function": "simulateTick",
+      "site": "../src/main.js:8683:10",
+      "selfMs": 328.79,
+      "totalMs": 8864.56
+    },
+    {
+      "function": "auditRemainderCombinedFacts",
+      "site": "../src/audit_remainder_facts.js:12:17",
+      "selfMs": 327.37,
+      "totalMs": 461.08
+    },
+    {
+      "function": "frontierNativeEvidence",
+      "site": "../src/main.js:1657:10",
+      "selfMs": 297.34,
+      "totalMs": 336.49
+    },
+    {
+      "function": "detach",
+      "site": "../src/save_compatibility.js:50:20",
+      "selfMs": 254.61,
+      "totalMs": 329.59
+    },
+    {
+      "function": "structuredClone",
+      "site": "(V8):0:0",
+      "selfMs": 244.35,
+      "totalMs": 244.35
+    },
+    {
+      "function": "copy",
+      "site": "../src/simulation_contracts.js:17:17",
+      "selfMs": 230.87,
+      "totalMs": 292.98
+    },
+    {
+      "function": "create_save",
+      "site": "../src/main.js:6282:10",
+      "selfMs": 230.25,
+      "totalMs": 614.02
+    },
+    {
+      "function": "visit",
+      "site": "../src/harvest.js:102:14",
+      "selfMs": 176.37,
+      "totalMs": 176.37
+    },
+    {
+      "function": "setEnvelope",
+      "site": "../src/main.js:575:5",
+      "selfMs": 175.56,
+      "totalMs": 498.14
+    },
+    {
+      "function": "(program)",
+      "site": "(V8):0:0",
+      "selfMs": 172.2,
+      "totalMs": 172.2
+    },
+    {
+      "function": "originalFrontierFacts",
+      "site": "../src/original_frontier_facts.js:7:17",
+      "selfMs": 163.54,
+      "totalMs": 175.66
+    },
+    {
+      "function": "visit",
+      "site": "../src/mixture_state.js:104:14",
+      "selfMs": 149.32,
+      "totalMs": 149.32
+    }
+  ],
+  "topTotal": [
+    {
+      "function": "(root)",
+      "site": "(V8):0:0",
+      "selfMs": 0,
+      "totalMs": 9393.3
+    },
+    {
+      "function": "(anonymous)",
+      "site": "(V8):1:2",
+      "selfMs": 0,
+      "totalMs": 8964.3
+    },
+    {
+      "function": "evaluate",
+      "site": "(V8):305:11",
+      "selfMs": 0,
+      "totalMs": 8964.3
+    },
+    {
+      "function": "(anonymous)",
+      "site": "(V8):1:1",
+      "selfMs": 0,
+      "totalMs": 8964.3
+    },
+    {
+      "function": "advanceTicks",
+      "site": "../src/main.js:9139:10",
+      "selfMs": 0,
+      "totalMs": 8964.3
+    },
+    {
+      "function": "runEngineTicks",
+      "site": "../src/simulation_clock.js:62:17",
+      "selfMs": 1.47,
+      "totalMs": 8870.42
+    },
+    {
+      "function": "(anonymous)",
+      "site": "../src/main.js:8662:19",
+      "selfMs": 4.39,
+      "totalMs": 8868.95
+    },
+    {
+      "function": "simulateTick",
+      "site": "../src/main.js:8683:10",
+      "selfMs": 328.79,
+      "totalMs": 8864.56
+    },
+    {
+      "function": "update_timer",
+      "site": "../src/main.js:8559:10",
+      "selfMs": 8.58,
+      "totalMs": 8335.61
+    },
+    {
+      "function": "persistExpansion",
+      "site": "../src/main.js:1694:10",
+      "selfMs": 32.27,
+      "totalMs": 7572.23
+    },
+    {
+      "function": "featureWaveContext",
+      "site": "../src/main.js:2393:10",
+      "selfMs": 5.14,
+      "totalMs": 3377.21
+    },
+    {
+      "function": "persistExpansionPlan",
+      "site": "../src/expansion_persistence.js:7:17",
+      "selfMs": 597.82,
+      "totalMs": 3345.5
+    },
+    {
+      "function": "simulationNativeContexts",
+      "site": "../src/main.js:1642:10",
+      "selfMs": 62.64,
+      "totalMs": 1579.64
+    },
+    {
+      "function": "data",
+      "site": "../src/main.js:1828:27",
+      "selfMs": 2.53,
+      "totalMs": 1473.83
+    },
+    {
+      "function": "validateSaveEnvelope",
+      "site": "../src/save_files.js:59:17",
+      "selfMs": 27.2,
+      "totalMs": 1465.83
+    }
+  ]
+}

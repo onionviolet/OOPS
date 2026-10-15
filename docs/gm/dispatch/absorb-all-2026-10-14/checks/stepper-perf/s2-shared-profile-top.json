@@ -1,0 +1,248 @@
+{
+  "namedCosts": [
+    {
+      "function": "persistExpansionPlan",
+      "site": "../src/expansion_persistence.js:7:17",
+      "selfMs": 522.35,
+      "totalMs": 3156.79
+    },
+    {
+      "function": "validateSaveEnvelope",
+      "site": "../src/save_files.js:59:17",
+      "selfMs": 43.59,
+      "totalMs": 1364.32
+    },
+    {
+      "function": "featureWaveContext",
+      "site": "../src/main.js:2413:10",
+      "selfMs": 2.51,
+      "totalMs": 1116.2
+    },
+    {
+      "function": "simulationNativeContexts",
+      "site": "../src/main.js:1643:10",
+      "selfMs": 1.27,
+      "totalMs": 993.77
+    },
+    {
+      "function": "create_save",
+      "site": "../src/main.js:6306:10",
+      "selfMs": 255.26,
+      "totalMs": 633.05
+    },
+    {
+      "function": "setItem",
+      "site": "(V8):0:0",
+      "selfMs": 131.52,
+      "totalMs": 131.52
+    },
+    {
+      "function": "retiredKey",
+      "site": "../src/save_compatibility.js:5:10",
+      "selfMs": 54.43,
+      "totalMs": 80.74
+    },
+    {
+      "function": "classifyRetiredKey",
+      "site": "../src/save_compatibility.js:12:10",
+      "selfMs": 13.03,
+      "totalMs": 13.03
+    },
+    {
+      "function": "finish_batched_message_log",
+      "site": "../src/display.js:158:10",
+      "selfMs": 0.81,
+      "totalMs": 0.81
+    },
+    {
+      "function": "setItem",
+      "site": "../src/main.js:573:5",
+      "selfMs": 0,
+      "totalMs": 0.63
+    }
+  ],
+  "topSelf": [
+    {
+      "function": "persistExpansionPlan",
+      "site": "../src/expansion_persistence.js:7:17",
+      "selfMs": 522.35,
+      "totalMs": 3156.79
+    },
+    {
+      "function": "read",
+      "site": "../src/planning_read_frame.js:7:9",
+      "selfMs": 379.42,
+      "totalMs": 1500.56
+    },
+    {
+      "function": "prepareFoundationSave",
+      "site": "../src/save_compatibility.js:17:17",
+      "selfMs": 373.01,
+      "totalMs": 673.19
+    },
+    {
+      "function": "simulateTick",
+      "site": "../src/main.js:8707:10",
+      "selfMs": 293.22,
+      "totalMs": 6360.14
+    },
+    {
+      "function": "create_save",
+      "site": "../src/main.js:6306:10",
+      "selfMs": 255.26,
+      "totalMs": 633.05
+    },
+    {
+      "function": "detach",
+      "site": "../src/save_compatibility.js:50:20",
+      "selfMs": 218.12,
+      "totalMs": 298.86
+    },
+    {
+      "function": "visit",
+      "site": "../src/harvest.js:102:14",
+      "selfMs": 173.29,
+      "totalMs": 173.29
+    },
+    {
+      "function": "setEnvelope",
+      "site": "../src/main.js:576:5",
+      "selfMs": 172.48,
+      "totalMs": 479.03
+    },
+    {
+      "function": "(program)",
+      "site": "(V8):0:0",
+      "selfMs": 143.5,
+      "totalMs": 143.5
+    },
+    {
+      "function": "visit",
+      "site": "../src/mixture_state.js:104:14",
+      "selfMs": 138.19,
+      "totalMs": 138.19
+    },
+    {
+      "function": "setItem",
+      "site": "(V8):0:0",
+      "selfMs": 131.52,
+      "totalMs": 131.52
+    },
+    {
+      "function": "auditRemainderCombinedFacts",
+      "site": "../src/audit_remainder_facts.js:12:17",
+      "selfMs": 123.73,
+      "totalMs": 194.35
+    },
+    {
+      "function": "worldCompletionFacts",
+      "site": "../src/world_completion_facts.js:15:17",
+      "selfMs": 115.85,
+      "totalMs": 453.32
+    },
+    {
+      "function": "availability_id",
+      "site": "../src/main.js:6421:63",
+      "selfMs": 102.11,
+      "totalMs": 108.34
+    },
+    {
+      "function": "frontierNativeEvidence",
+      "site": "../src/main.js:1662:10",
+      "selfMs": 100.58,
+      "totalMs": 128.56
+    }
+  ],
+  "topTotal": [
+    {
+      "function": "(root)",
+      "site": "(V8):0:0",
+      "selfMs": 0,
+      "totalMs": 6772.15
+    },
+    {
+      "function": "(anonymous)",
+      "site": "(V8):1:2",
+      "selfMs": 0,
+      "totalMs": 6469.51
+    },
+    {
+      "function": "evaluate",
+      "site": "(V8):305:11",
+      "selfMs": 0,
+      "totalMs": 6469.51
+    },
+    {
+      "function": "(anonymous)",
+      "site": "(V8):1:1",
+      "selfMs": 0,
+      "totalMs": 6469.51
+    },
+    {
+      "function": "advanceTicks",
+      "site": "../src/main.js:9164:10",
+      "selfMs": 2.54,
+      "totalMs": 6469.51
+    },
+    {
+      "function": "runEngineTicks",
+      "site": "../src/simulation_clock.js:62:17",
+      "selfMs": 0.93,
+      "totalMs": 6364.91
+    },
+    {
+      "function": "(anonymous)",
+      "site": "../src/main.js:8686:19",
+      "selfMs": 1.29,
+      "totalMs": 6363.98
+    },
+    {
+      "function": "simulateTick",
+      "site": "../src/main.js:8707:10",
+      "selfMs": 293.22,
+      "totalMs": 6360.14
+    },
+    {
+      "function": "update_timer",
+      "site": "../src/main.js:8583:10",
+      "selfMs": 13.07,
+      "totalMs": 5856.18
+    },
+    {
+      "function": "persistExpansion",
+      "site": "../src/main.js:1703:10",
+      "selfMs": 36.29,
+      "totalMs": 5099.99
+    },
+    {
+      "function": "persistExpansionPlan",
+      "site": "../src/expansion_persistence.js:7:17",
+      "selfMs": 522.35,
+      "totalMs": 3156.79
+    },
+    {
+      "function": "read",
+      "site": "../src/planning_read_frame.js:7:9",
+      "selfMs": 379.42,
+      "totalMs": 1500.56
+    },
+    {
+      "function": "data",
+      "site": "../src/main.js:1840:27",
+      "selfMs": 6.18,
+      "totalMs": 1379.45
+    },
+    {
+      "function": "validateSaveEnvelope",
+      "site": "../src/save_files.js:59:17",
+      "selfMs": 43.59,
+      "totalMs": 1364.32
+    },
+    {
+      "function": "featureWaveContext",
+      "site": "../src/main.js:2413:10",
+      "selfMs": 2.51,
+      "totalMs": 1116.2
+    }
+  ]
+}

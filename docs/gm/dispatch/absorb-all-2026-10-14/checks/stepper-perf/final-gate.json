@@ -1,0 +1,213 @@
+{
+  "command": "OUT=/tmp/stepper-perf-final-gate MAXPAR=2 FINAL_GATE.sh <worktree> 27764108efb9eb30ea6aa98658753a639100746f",
+  "runs": 1,
+  "out": "/tmp/stepper-perf-final-gate",
+  "exitCode": 1,
+  "result": "FAIL",
+  "oldClient": "27764108efb9eb30ea6aa98658753a639100746f",
+  "initialNpm": {
+    "pass": 1704,
+    "fail": 1,
+    "todo": 3,
+    "failure": "W33.T6 extracted calendar publication fixture lacked readFrame; fixed by cb9f7d60"
+  },
+  "browserFinalPass": 46,
+  "browserFinalFail": 1,
+  "browserChecks": {
+    "fork-fort": {
+      "result": "PASS",
+      "line": "PASS fork-fort (retry)"
+    },
+    "fork-fort-restore": {
+      "result": "PASS",
+      "line": "PASS fork-fort-restore (retry)"
+    },
+    "life-loops": {
+      "result": "PASS",
+      "line": "PASS life-loops"
+    },
+    "life-loops-extra": {
+      "result": "PASS",
+      "line": "PASS life-loops-extra"
+    },
+    "p00-final-p01-long-life": {
+      "result": "PASS",
+      "line": "PASS p00-final-p01-long-life"
+    },
+    "p00-final-p07-field-familiarity": {
+      "result": "PASS",
+      "line": "PASS p00-final-p07-field-familiarity"
+    },
+    "p00-final-p09-market-life": {
+      "result": "PASS",
+      "line": "PASS p00-final-p09-market-life"
+    },
+    "p00-final-p10-leisure-memory": {
+      "result": "PASS",
+      "line": "PASS p00-final-p10-leisure-memory"
+    },
+    "p00-final-p11-consumable-native": {
+      "result": "PASS",
+      "line": "PASS p00-final-p11-consumable-native"
+    },
+    "p00-final-p11-known-detail": {
+      "result": "PASS",
+      "line": "PASS p00-final-p11-known-detail"
+    },
+    "p00-final-p11-producers-native": {
+      "result": "PASS",
+      "line": "PASS p00-final-p11-producers-native"
+    },
+    "p00-final-p14-repeat-search": {
+      "result": "PASS",
+      "line": "PASS p00-final-p14-repeat-search"
+    },
+    "p00-final-p15-native": {
+      "result": "PASS",
+      "line": "PASS p00-final-p15-native (retry)"
+    },
+    "p00-merged-smoke": {
+      "result": "PASS",
+      "line": "PASS p00-merged-smoke"
+    },
+    "p00-step3-p12-native": {
+      "result": "PASS",
+      "line": "PASS p00-step3-p12-native"
+    },
+    "p00-step3-p16-native": {
+      "result": "PASS",
+      "line": "PASS p00-step3-p16-native"
+    },
+    "p00-step3-p18-native": {
+      "result": "PASS",
+      "line": "PASS p00-step3-p18-native"
+    },
+    "p00-tranche1-guards": {
+      "result": "PASS",
+      "line": "PASS p00-tranche1-guards"
+    },
+    "p00-tranche1-native": {
+      "result": "PASS",
+      "line": "PASS p00-tranche1-native"
+    },
+    "p00-tranche2-armored-native": {
+      "result": "PASS",
+      "line": "PASS p00-tranche2-armored-native"
+    },
+    "p00-tranche2-combat-native": {
+      "result": "PASS",
+      "line": "PASS p00-tranche2-combat-native"
+    },
+    "p00-tranche2-custody-native": {
+      "result": "PASS",
+      "line": "PASS p00-tranche2-custody-native"
+    },
+    "p00-tranche2-faint-native": {
+      "result": "PASS",
+      "line": "PASS p00-tranche2-faint-native"
+    },
+    "p00-tranche2-gear-native": {
+      "result": "PASS",
+      "line": "PASS p00-tranche2-gear-native"
+    },
+    "p00-tranche2-guards": {
+      "result": "PASS",
+      "line": "PASS p00-tranche2-guards"
+    },
+    "p00-tranche2-miss-native": {
+      "result": "PASS",
+      "line": "PASS p00-tranche2-miss-native"
+    },
+    "p00-tranche2-practice-native": {
+      "result": "PASS",
+      "line": "PASS p00-tranche2-practice-native"
+    },
+    "p00-tranche3-copy-controls": {
+      "result": "PASS",
+      "line": "PASS p00-tranche3-copy-controls"
+    },
+    "p00-tranche3-guards": {
+      "result": "PASS",
+      "line": "PASS p00-tranche3-guards"
+    },
+    "p00-tranche3-reading-controls": {
+      "result": "PASS",
+      "line": "PASS p00-tranche3-reading-controls"
+    },
+    "p00-tranche3-reading-native": {
+      "result": "PASS",
+      "line": "PASS p00-tranche3-reading-native"
+    },
+    "p00-tranche3-salvage-native": {
+      "result": "PASS",
+      "line": "PASS p00-tranche3-salvage-native"
+    },
+    "p00-tranche3-salvage-repeat-native": {
+      "result": "PASS",
+      "line": "PASS p00-tranche3-salvage-repeat-native"
+    },
+    "ui-polish": {
+      "result": "PASS",
+      "line": "PASS ui-polish"
+    },
+    "reach-fixes": {
+      "result": "PASS",
+      "line": "PASS reach-fixes"
+    },
+    "fork-resurvey": {
+      "result": "PASS",
+      "line": "PASS fork-resurvey"
+    },
+    "reveal-chain": {
+      "result": "PASS",
+      "line": "PASS reveal-chain"
+    },
+    "sim-stepper-equivalence": {
+      "result": "PASS",
+      "line": "PASS sim-stepper-equivalence"
+    },
+    "upstream-dev": {
+      "result": "PASS",
+      "line": "PASS upstream-dev"
+    },
+    "air-wider-p1": {
+      "result": "PASS",
+      "line": "PASS air-wider-p1"
+    },
+    "air-wider-p2": {
+      "result": "PASS",
+      "line": "PASS air-wider-p2"
+    },
+    "air-wider-p3": {
+      "result": "PASS",
+      "line": "PASS air-wider-p3"
+    },
+    "air-wider-p4": {
+      "result": "PASS",
+      "line": "PASS air-wider-p4"
+    },
+    "workshop": {
+      "result": "PASS",
+      "line": "PASS workshop (retry)"
+    },
+    "workshop-bounds": {
+      "result": "PASS",
+      "line": "PASS workshop-bounds (retry)"
+    },
+    "workshop-persist": {
+      "result": "PASS",
+      "line": "PASS workshop-persist (retry)"
+    },
+    "workshop-legacy": {
+      "result": "FAIL",
+      "line": "FAIL workshop-legacy (exit 1, /tmp/stepper-perf-final-gate/workshop-legacy.log)"
+    }
+  },
+  "groupsPass": 38,
+  "groupsFail": 1,
+  "retriedGroups": [
+    "group-fort",
+    "group-p00-18919",
+    "group-workshop"
+  ]
+}

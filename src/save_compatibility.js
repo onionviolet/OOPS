@@ -57,7 +57,22 @@ export function prepareFoundationSave(original) {
             } else detach(node[key], childPath);
         }
     };
-    detach(save);
+    // Suppressed rendering already scopes the pure classifier memo. Reuse a
+    // traversal cursor there, allocating paths only for actual retired entries.
+    // Each retained path owns its copy; sibling traversal cannot change it.
+    const detachBatched = (node, path = []) => {
+        if(!node || typeof node !== "object" || Array.isArray(node)) return;
+        for(const key of Object.keys(node)) {
+            path.push(key);
+            if(retiredKey(key)) {
+                keep([...path], node[key]);
+                delete node[key];
+            } else detachBatched(node[key], path);
+            path.pop();
+        }
+    };
+    if(simulationValidationMemo(retiredKey)) detachBatched(save);
+    else detach(save);
     return {save, retired};
 }
 

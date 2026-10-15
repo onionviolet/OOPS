@@ -46,6 +46,9 @@ export function persistExpansionPlan(plan, {createSave, storage, key, bindings, 
     nativePublication?.write(envelope);
     if(validateEnvelope) validateEnvelope(envelope);
     const committed = JSON.stringify(envelope);
-    storage.setItem(key, committed);
+    // Native life-save ownership can consume the already detached envelope.
+    // Keep the serialized return and validation point identical to string stores.
+    if(storage.setEnvelope) storage.setEnvelope(key, envelope);
+    else storage.setItem(key, committed);
     return committed;
 }
