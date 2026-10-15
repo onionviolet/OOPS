@@ -434,6 +434,8 @@ function obscure_name_to_type(item_id) {
 
 function create_floating_effect(text, pos) {
     const effect_elem = document.createElement("div");
+    // Cosmetic randomness (offset and path): never saved, never gameplay, so it
+    // stays on Math.random and cannot shift a seeded stream.
     pos.x = pos.x + Math.random()*80-40;
 
     effect_elem.style.top = pos.y + "px";
