@@ -2,8 +2,13 @@
 const fs=require('fs'),path=require('path'),os=require('os'),assert=require('assert/strict'),crypto=require('crypto');
 const {chromium}=require('/Users/weiwei/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
 if(!process.env.URL)throw Error('Set URL to rebuilt native origin with .proof-old/ current-main client.');
-const base=new URL(process.env.URL).href.replace(/\/?$/,'/'),oldURL=new URL('.proof-old/',base).href,key='yairpg:p23:native-authority:1:live';
+const origin=new URL(process.env.URL);origin.search='';origin.hash='';const base=origin.href.replace(/\/?$/,'/'),testURL=new URL('?test_hooks=1',base).href,oldURL=new URL('.proof-old/',base).href,key='yairpg:p23:native-authority:1:live';
 const root=process.env.YAIRPG_PROOF_DIR||os.tmpdir();fs.mkdirSync(root,{recursive:true});const out=fs.mkdtempSync(path.join(root,'p15-native-'));
+const sourceMap=new (require('module').SourceMap)(JSON.parse(fs.readFileSync('dist/bundle.js.map','utf8')));
+const tickCallLine=fs.readFileSync('src/main.js','utf8').split('\n').findIndex(line=>line.includes('const advancedMinutes = update_timer();'))+1;
+assert.ok(tickCallLine>0,'mapped native tick caller exists');
+const operationWrites=[];
+const callers=row=>[...row.stack.matchAll(/bundle\.js[^\n]*?:(\d+):(\d+)/g)].map(m=>sourceMap.findEntry(+m[1]-1,+m[2]-1)).map(e=>({source:e.originalSource,line:e.originalLine+1,name:e.name}));
 const sha=s=>crypto.createHash('sha256').update(s).digest('hex');
 const encode=s=>'YAIR-UTF8-1:'+Buffer.from(JSON.stringify(s)).toString('base64');
 const decode=s=>JSON.parse(Buffer.from(s.trim().replace(/^YAIR-UTF8-1:/,''),'base64').toString('utf8'));
@@ -33,11 +38,18 @@ const decode=s=>JSON.parse(Buffer.from(s.trim().replace(/^YAIR-UTF8-1:/,''),'bas
  const page=await context.newPage();page.on('pageerror',e=>errors.push(e.message));page.on('response',r=>{if(r.status()===200&&r.url().startsWith(base)&&new URL(r.url()).pathname===new URL('dist/bundle.js',base).pathname)loaded.push(r.body().then(sha));});
  const all=()=>page.evaluate(()=>Object.fromEntries(Object.keys(localStorage).sort().map(k=>[k,localStorage.getItem(k)])));
  const read=()=>page.evaluate(k=>JSON.parse(localStorage.getItem(k)),key);
- const play=async()=>{const p=page.locator('#loading_screen_play_button:not(.none_display)');await p.waitFor({state:'visible',timeout:90000});await p.click();const confirm=page.locator('#hero_creation_panel_confirmation');if(await confirm.isVisible())await confirm.click();};
+ const play=async()=>{const p=page.locator('#loading_screen_play_button:not(.none_display)');await p.waitFor({state:'visible',timeout:90000});await p.click();const confirm=page.locator('#hero_creation_panel_confirmation');if(await confirm.isVisible())await confirm.click();if(new URL(page.url()).searchParams.has('test_hooks'))await page.evaluate(()=>simulationTestHooks.pause());};
  const open=async()=>{if(await page.evaluate(()=>document.documentElement.style.getPropertyValue('--options_display')!=='block'))await page.locator('#options_button').click();const box=page.locator('#native_save_authority');await box.waitFor();if(!await box.evaluate(n=>n.open))await box.locator('summary').click();};
- const change=async id=>{const before=(await read())?.revision||0;await open();await page.locator('#'+id).click();await page.waitForFunction(({k,r})=>JSON.parse(localStorage.getItem(k))?.revision>r,{k:key,r:before},{timeout:90000});await page.evaluate(()=>window.closeOptions());};
+ const change=async id=>{const before=(await read())?.revision||0;await open();await page.locator('#'+id).click();await page.waitForFunction(({k,r})=>{const root=JSON.parse(localStorage.getItem(k));return root?.revision>r&&document.getElementById('native_save_authority_status').textContent.includes('revision '+root.revision+'.');},{k:key,r:before},{timeout:90000});await page.evaluate(()=>window.closeOptions());};
  const beforeWrites=()=>page.evaluate(()=>Number(sessionStorage.getItem('p15-proof-write-count')||0));
- const countSince=async n=>assert.equal(await page.evaluate(n=>Number(sessionStorage.getItem('p15-proof-write-count')||0)-n,n),1,'one physical authority write');
+ const countSince=async n=>{
+  const rows=(await page.evaluate(()=>JSON.parse(sessionStorage.getItem('p15-proof-writes')||'[]'))).filter(r=>r.success).slice(n);
+  // A timer's own durable publication is a distinct save, never part of a UI operation.
+  // Classify by the mapped caller, rather than a broad Playwright time window.
+  const operation=rows.filter(r=>!callers(r).some(f=>f.source==='../src/main.js'&&f.line===tickCallLine));
+  operationWrites.push({afterWrite:n,writes:operation.map(r=>({revision:r.revision,callers:callers(r)})),independentTickWrites:rows.length-operation.length});
+  assert.equal(operation.length,1,'one physical authority write per operation; '+JSON.stringify(rows.map(r=>({...r,callers:callers(r)}))));
+ };
  const save=async()=>{const n=await beforeWrites();await page.locator('#save_button').click();await countSince(n);return read();};
  const reload=async()=>{await page.reload({waitUntil:'domcontentloaded'});return read();};
  const importFile=async file=>{const n=await beforeWrites();await Promise.all([page.waitForNavigation({waitUntil:'domcontentloaded',timeout:90000}),page.locator('#saved_file_input').setInputFiles(file)]);await countSince(n);return read();};
@@ -46,9 +58,9 @@ const decode=s=>JSON.parse(Buffer.from(s.trim().replace(/^YAIR-UTF8-1:/,''),'bas
   await page.goto(oldURL);await play();await page.locator('#save_button').click();const original=await all();assert.ok(original['save data']);assert.equal(original[key],undefined);fs.writeFileSync(path.join(out,'current-main-old.save.txt'),encode(JSON.parse(original['save data'])));
   // Freeze genuine old-client storage before entering this build. No manufactured game envelope.
   await page.goto(new URL('style.css',base).href,{waitUntil:'domcontentloaded'});await page.evaluate(state=>{localStorage.clear();for(const [k,v]of Object.entries(state))localStorage.setItem(k,v);},original);
-  await page.goto(base,{waitUntil:'domcontentloaded'});assert.equal(await page.evaluate(k=>localStorage.getItem(k),key),null);assert.equal((await all())['save data'],original['save data']);gates.push('current-main old client fresh native Save loads unchanged, no implicit enrollment');await play();
+  await page.goto(testURL,{waitUntil:'domcontentloaded'});assert.equal(await page.evaluate(k=>localStorage.getItem(k),key),null);assert.equal((await all())['save data'],original['save data']);gates.push('current-main old client fresh native Save loads unchanged, no implicit enrollment');await play();
   await open();assert.match(await page.locator('#native_save_authority').innerText(),/need this build or later/);
-  const preEnrollment=await page.evaluate(()=>{const before=Object.fromEntries(Object.keys(localStorage).map(k=>[k,localStorage.getItem(k)]));document.getElementById('native_authority_enroll').click();return before;}),legacyHashes=Object.fromEntries(Object.entries(preEnrollment).map(([k,v])=>[k,sha(v)]));let n=0;await page.waitForFunction(k=>localStorage.getItem(k)!==null,key,{timeout:90000});assert.equal(await beforeWrites(),1);await page.evaluate(()=>window.closeOptions());
+  const preEnrollment=await page.evaluate(()=>{const before=Object.fromEntries(Object.keys(localStorage).map(k=>[k,localStorage.getItem(k)]));document.getElementById('native_authority_enroll').click();return before;}),legacyHashes=Object.fromEntries(Object.entries(preEnrollment).map(([k,v])=>[k,sha(v)]));let n=0;await page.waitForFunction(k=>localStorage.getItem(k)!==null,key,{timeout:90000});await countSince(0);await page.waitForFunction(()=>/Enrolled, revision/.test(document.getElementById('native_save_authority_status').textContent));await page.evaluate(()=>window.closeOptions());
   const enrolled=await all();for(const [k,v]of Object.entries(preEnrollment))assert.equal(enrolled[k],v,'legacy bytes unchanged: '+k);fs.writeFileSync(path.join(out,'legacy-hashes.json'),JSON.stringify(legacyHashes,null,2));gates.push('explicit enrollment one write; every prior localStorage key byte-identical');
   n=await beforeWrites();await change('native_authority_capture');await countSince(n);const captured=await read();assert.equal(captured.previous,captured.current);
   // Native paid custody change, then exact rollback. Trade is real stock and money.
@@ -70,6 +82,6 @@ const decode=s=>JSON.parse(Buffer.from(s.trim().replace(/^YAIR-UTF8-1:/,''),'bas
   gates.push('present corrupt and unsupported authority reject loudly, no fallback or localStorage mutation, actual preserved-legacy recovery download');
   // Explicit native Hard Reset uses fresh native producer and retains authority.
   const beforeReset=await read();n=await beforeWrites();page.once('dialog',d=>d.accept('reset'));await Promise.all([page.waitForNavigation({waitUntil:'domcontentloaded',timeout:90000}),page.evaluate(()=>window.hardReset())]);await countSince(n);const reset=await read();assert.ok(reset);assert.equal(reset.previous,null);assert.equal(reset.revision,beforeReset.revision+1);assert.equal((await all())['save data'],original['save data']);gates.push('explicit Hard Reset writes one fresh native authority and keeps original legacy bytes');
-  await play();await page.screenshot({path:path.join(out,'desktop.png')});assert.deepEqual(errors,[]);const served=await page.request.get(new URL('dist/bundle.js',base).href);assert.equal(served.status(),200);const hash=sha(await served.body());assert.deepEqual([...new Set(await Promise.all(loaded))],[hash]);fs.writeFileSync(path.join(out,'result.json'),JSON.stringify({lane:'p15-save-time-options',status:'PASS',viewport:'1366x768',bundleSha256:hash,currentMainOldClientBundleSha256:sha(await oldResponse.body()),gates,legacyHashes,pageErrors:errors},null,2));console.log('P15 native PASS '+out);
- }catch(error){fs.writeFileSync(path.join(out,'failure.json'),JSON.stringify({error:error.stack,gates,pageErrors:errors},null,2));throw error;}finally{fs.writeFileSync(path.join(out,'authority-writes.json'),JSON.stringify(await page.evaluate(()=>JSON.parse(sessionStorage.getItem('p15-proof-writes')||'[]')).catch(()=>[]),null,2));for(const c of contexts)await c.close().catch(()=>{});await browser.close();}
+  await play();await page.screenshot({path:path.join(out,'desktop.png')});assert.deepEqual(errors,[]);const served=await page.request.get(new URL('dist/bundle.js',base).href);assert.equal(served.status(),200);const hash=sha(await served.body());assert.deepEqual([...new Set(await Promise.all(loaded))],[hash]);fs.writeFileSync(path.join(out,'result.json'),JSON.stringify({lane:'p15-save-time-options',status:'PASS',viewport:'1366x768',bundleSha256:hash,currentMainOldClientBundleSha256:sha(await oldResponse.body()),gates,operationWrites,legacyHashes,pageErrors:errors},null,2));console.log('P15 native PASS '+out);
+ }catch(error){fs.writeFileSync(path.join(out,'failure.json'),JSON.stringify({error:error.stack,gates,pageErrors:errors},null,2));throw error;}finally{fs.writeFileSync(path.join(out,'authority-writes.json'),JSON.stringify((await page.evaluate(()=>JSON.parse(sessionStorage.getItem('p15-proof-writes')||'[]')).catch(()=>[])).map(r=>({...r,callers:callers(r)})),null,2));for(const c of contexts)await c.close().catch(()=>{});await browser.close();}
 })().catch(e=>{console.error(e);process.exitCode=1;});
