@@ -1,12 +1,12 @@
 // Generated saves and isolated browser contexts. Never read personal saves.
 const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict');
-const {chromium}=require(process.env.YAIRPG_PLAYWRIGHT || 'playwright');
+const {launchChrome,waitForPage,waitGameTime,withTestHooks}=require('./ui_helpers.cjs');
 const {openNotebook}=require('./ui_helpers.cjs');
-const url=process.env.YAIRPG_PROOF_URL || 'http://127.0.0.1:18624/',out=process.env.YAIRPG_PROOF_DIR || '/tmp/yairpg-promise-proof';
+const url=withTestHooks(process.env.YAIRPG_PROOF_URL || 'http://127.0.0.1:18624/'),out=process.env.YAIRPG_PROOF_DIR || '/tmp/yairpg-promise-proof';
 fs.mkdirSync(out,{recursive:true});
 const wood=JSON.stringify({id:'Rough wood log'}),sid='promise.visitor',visitor='promiseVisitor';
 (async()=>{
- const browser=await chromium.launch({headless:true,...(process.env.YAIRPG_CHROME ? {executablePath:process.env.YAIRPG_CHROME} : {})});
+ const browser=await launchChrome();
  const errors=[],warnings=[],findings=[];let page,context,fingerprint;
  const open=async fixture=>{
   context=await browser.newContext({viewport:{width:1500,height:1050}});
@@ -20,12 +20,12 @@ const wood=JSON.stringify({id:'Rough wood log'}),sid='promise.visitor',visitor='
  const panel=async()=>{await openNotebook(page);await page.locator('[data-notebook-view="people"]').click();await page.locator('#promise_panel').evaluate(n=>{n.open=true;});};
  const click=async id=>{await panel();await page.locator('#promise_panel [data-promise-command="'+id+'"]').click();};
  const reload=async()=>{await page.reload();await page.getByText('PLAY',{exact:true}).click();await panel();};
- const phase=async value=>page.waitForFunction(([id,v])=>JSON.parse(localStorage.getItem('save data')).expansion.simulation?.situations?.[id]?.phase === v,[sid,value]);
+ const phase=async value=>waitForPage(page, ([id,v])=>JSON.parse(localStorage.getItem('save data')).expansion.simulation?.situations?.[id]?.phase === v,[sid,value]);
  try{
   await open();assert.equal(await page.locator('#promise_panel').isVisible(),false);
   fingerprint=await page.evaluate(()=>performance.getEntriesByType('resource').find(e=>e.name.includes('/dist/bundle.js?version='))?.name);
   assert.ok(fingerprint.endsWith(fs.readFileSync('index.html','utf8').match(/dist\/bundle\.js\?version=[^&"]+/)[0]));
-  await page.getByText('Talk to someone',{exact:false}).click();await page.locator('[data-dialogue="villageElder"]').click();
+  await page.getByRole('button',{name:'Talk to someone'}).click();await page.locator('[data-dialogue="villageElder"]').click();
   await page.locator('[data-textline="hello"]').click();await page.locator('.end_dialogue_button').click();
   const base=await save();assert.equal(base.expansion.simulation,null);
   const legacyEncoded=await page.evaluate(()=>window.save_to_file());
@@ -38,7 +38,7 @@ const wood=JSON.stringify({id:'Rough wood log'}),sid='promise.visitor',visitor='
    await open(fixture);await click('promise.begin');const start=await save(),born=start.expansion.simulation.people[visitor].bornAt,quests=structuredClone(start.quests);
    assert.equal(start.expansion.simulation.schema,3);assert.equal(start.expansion.simulation.knowledge.player['promise.claim'].basis.kind,'recollection');
    assert.doesNotMatch(await page.locator('body').innerText(),/Rowan|identification_mistake|frontier\.branch|playerMadePromise/);
-   await page.locator('[data-promise-command="promise.help"]').focus();await page.waitForTimeout(1100);assert.equal(await page.locator('[data-promise-command="promise.help"]').evaluate(n=>n === document.activeElement),true);
+   await page.locator('[data-promise-command="promise.help"]').focus();await waitGameTime(page, 1100);assert.equal(await page.locator('[data-promise-command="promise.help"]').evaluate(n=>n === document.activeElement),true);
    await page.screenshot({path:path.join(out,route+'-claim.png'),fullPage:true});
    if(route === 'evidence' || route === 'help'){
     await click(route === 'evidence' ? 'promise.investigate' : 'promise.help');
@@ -67,10 +67,10 @@ const wood=JSON.stringify({id:'Rough wood log'}),sid='promise.visitor',visitor='
    if(route === 'help'){
     await click('promise.hear_bracing');const recalled=await save();assert.equal(recalled.expansion.actors.player.sources['promise.bracing_control'],undefined);
     assert.equal(await page.locator('[data-promise-command="promise.pack_brace"]').isVisible(),false);
-    await click('promise.lesson');await reload();await page.waitForFunction(()=>!!JSON.parse(localStorage.getItem('save data')).expansion.actors.player.sources['promise.bracing_control']);
+    await click('promise.lesson');await reload();await waitForPage(page, ()=>!!JSON.parse(localStorage.getItem('save data')).expansion.actors.player.sources['promise.bracing_control']);
     const kit=JSON.stringify({id:'Prepared survey kit'});
     const beforeCancel=await save();await click('promise.pack_brace');await click('cancel');const refunded=await save();assert.equal(refunded.inventories.person.main_character[wood].count,beforeCancel.inventories.person.main_character[wood].count);
-    for(let n=1;n<=2;n++){await click('promise.pack_brace');await reload();await page.waitForFunction(([kit,n])=>JSON.parse(localStorage.getItem('save data')).inventories.person.main_character[kit]?.count === n,[kit,n]);}
+    for(let n=1;n<=2;n++){await click('promise.pack_brace');await reload();await waitForPage(page, ([kit,n])=>JSON.parse(localStorage.getItem('save data')).inventories.person.main_character[kit]?.count === n,[kit,n]);}
     helpSave=await save();assert.equal(helpSave.inventories.person.main_character[wood].count,2);assert.equal(helpSave.expansion.actors.player.completed['promise.pack_brace'],2);
     await panel();await page.locator('#promise_panel').scrollIntoViewIfNeeded();await page.screenshot({path:path.join(out,'learned-bracing.png'),fullPage:true});
     findings.push('Recalled description grants no control. A saved paid lesson earns trained control; cancellation returns the reserved log/stamina; two saved native kit productions consume two real logs and actual stamina.');
