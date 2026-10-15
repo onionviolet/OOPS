@@ -519,3 +519,28 @@ hidden), `reveal.mjs`, `det_hidden.mjs`, `d3_persistence.mjs`,
 `fast_forward.mjs`, `catch_up.mjs`, `workshop_at.mjs` (workshop check against
 any build), `prof_hidden.mjs`, `callers.cjs` (profile caller chains),
 `savediff.mjs` (which save paths change per write).
+
+## Wave 2 merge, 2026-10-14 night
+
+Weibao: "merge, no need to rerun for now". Merged into `claude/engine-perf-wave`:
+lanes A (loop: D4, D3, RT8), B (state), C (headless), D (simfuzz), E (replay),
+G (render), H (startup measurement only) and I (combat). Lane F (browser checks)
+had no commits and is not included. Only the two audit docs conflicted, both
+append-only; both sides were kept. No `src/` conflicts.
+
+Merge-correctness checks (no perf reruns, by request):
+- esbuild build OK.
+- `node --test` (tests, tests/headless, tests/simfuzz): 1737 tests, 1734 pass,
+  0 fail, 3 todo.
+- Rebuilt fresh-origin 1366×768, `?test_hooks=1`: `systems_workshop_browser.cjs`
+  10/10, no page errors, 33 s dev-stepped; `village_browser.cjs` passes.
+
+Still open:
+- Every wave 2 time ratio is provisional until a quiet-host rerun.
+- Simfuzz F1 (`state.sequence` depends on time chunking, `audit_remainder_runtime.js:25`)
+  and F2 (an unbounded advance can soft-brick a fresh save) are unfixed. Under F1,
+  byte-identity claims hold only for identical chunking, or while the audit
+  remainder owner is closed.
+- Unapplied patch proposals to lane A's files: B's WB-V3 (pass the registry
+  into persistence validation) and G's `wave-g-render/lane-a-structured.patch`.
+- Not merged into `absorb-all/integration` or `master`.
