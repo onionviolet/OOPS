@@ -264,3 +264,51 @@ the ratios, not the absolute times. [Raw results](../gm/dispatch/engine-perf-202
   (about −68%). Developed, per 20 game minutes (about 30 s): 14.6 / 16.2 s →
   12.2 / 12.9 s (about −20%). `simulationFacts` is now 74.5% of developed
   JS-busy, so D1 (preview fan-out) is next and can build on `framedSimulationRead`.
+
+## D1 result, 2026-10-14 night
+
+Branch `claude/engine-perf-d1` (commit `5855d076`) on `claude/engine-perf-core-5a93e1`
+`951792ba`. Interleaved A/B against `951792ba`'s build, fixture: the AF1+AF2
+developed save (workshop `natural-final-save.json`, clock 66). Host load 10-25
+for the developed A/B, spikes to 95-335 during later checks.
+[Raw results](../gm/dispatch/engine-perf-2026-10-14/results/) (`d1-*`).
+
+- **D1a done.** `simulationFacts` inside a publication frame goes through
+  `framedSimulationFacts` (`src/simulation_render.js`). Reuse needs the frame's
+  own state (identity), the same `sequence`, `clock` and registry, the same
+  actor and target, and a context that matches field by field two levels deep
+  against a snapshot taken at build time. Context identity is never the key.
+  Each caller gets a shallow copy; no fact value is an object (checked on the
+  fixture), so that copy is complete. Plan copies inside previews have other
+  identities and always build. MEASURED purity: an instrumented build rebuilt
+  on every hit and compared JSON, 3707 hits, 198 misses, 0 mismatches.
+- **D1b done.** `src/panel_reveal.js`: a panel whose container is not rendered,
+  or whose `<details>` body is closed, skips its previews and re-renders in the
+  MutationObserver microtask after the DOM change that reveals it (before
+  paint). Applied to Known routes (container), the feature panel (container),
+  the systems workshop (closed panel and its closed "later" group) and the
+  backlog panel (closed or container, on top of its hidden skip). Summaries are
+  static text; the feature panel and Known routes still compute while closed but
+  shown, because their own `hidden` depends on the full presentation.
+- **D1c not done.** (a)+(b) met the target without it.
+- **Calls per idle tick, base → head.** `simulationFacts` 447 builds → 241
+  calls with 36 builds. `previewSimulationCommand` 300 → 192. Nested previews
+  132 → 66, Tidemark 42 → 21, `refinementPresentation` 2 → 1.
+- **Developed idle JS-busy per 20 game minutes, base → head.** Rep 1: 10.64 →
+  3.78 s (0.36×). Rep 2: 9.11 → 3.29 s (0.36×). (a) alone measured 0.53×.
+- **Fresh idle JS-busy per 15 s, base → head.** 0.55 → 0.39 s; 0.84 → 0.55 s
+  (head rep 2 under load 95). Not worse.
+- **det.** 20 game minutes from the fixture (minute 1986 → 2006, clock 86):
+  durable save byte-identical to base, two reps.
+- **Checks.** Full suite 1710 tests, 1707 pass, 0 fail, 3 todo (base 1706 /
+  1703 / 0 / 3; +4 tests: framed facts reuse and rebuild rules, real facts
+  equality and isolation, observer reveal). Harness-branch systems workshop
+  browser check 10/10 on head (dev-stepped; its summary clicks exercise the
+  reveal path), village check passes. Perf gate (`claude/engine-perf-gate-853189`,
+  `--base 951792ba`): PASS on fresh, mid and crowded, det identical on all
+  three; load 206 during the run, so its browser numbers are flagged unreliable.
+- **Acceptance backlog.** Container reveal through the workspace (a Known
+  routes module discovered or moved out of a hidden dock) is unit-tested only,
+  not exercised in a browser. The remaining developed cost is the feature
+  panel's closed-but-shown presentation and dry-run facts on plan copies
+  (`applySimulationEffects`). D4 and D3 can start on these files now.
