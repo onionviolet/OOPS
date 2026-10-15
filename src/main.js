@@ -568,8 +568,11 @@ let lifeRecord = createLifeRecord();
 let lifeRecordPanel;
 let lifeStorageFailure = false;
 // Shared save writes stage life observations and publish them only after success.
-const lifeSaveStorage = {setItem(key, serialized, onDurable) {
-    const save = JSON.parse(serialized);
+const lifeSaveStorage = {
+    setItem(key, serialized, onDurable) {return this.setEnvelope(key, JSON.parse(serialized), onDurable);},
+    // The caller transfers a detached envelope. Only the top-level life fields
+    // are replaced here; staged domains remain read-only until publication.
+    setEnvelope(key, save, onDurable) {
     const next = observeLifeSave(save.life_record ?? createLifeRecord(), save);
     save.life_record = next;
     const nextNpc = save.npc_lives == null ? null : advanceVillageLives(save.npc_lives, save['current time'].year);
