@@ -33,3 +33,7 @@ Weibao: "send out one for rimworld too, other items in my library that are worth
 | lib-naev | Naev | started 2026-10-14 (open source) | 01a13d6c-325a-7893-aa1f-f7209888d2b0 |
 
 Considered and skipped: ARK: Survival Evolved (creature breeding and mutations are relevant, but the install is very large for the disk left), multiplayer shooters and live-service games, VR titles, casino and adult titles. The watcher was restarted with these lanes; its 24 h auditor timeout restarted at 22:22.
+
+## Remnant II deeper pass (2026-10-15)
+
+Weibao: "What about remmenant 2 decompilation and more?" The first pass ended PARTIAL on three blockers: no validated AES key for the encrypted pak, no build-matched mappings (161 of 266 parsed outputs logged read errors), and native world selection unread. `mw-remnant2-deep` resumes the same session (01a13dfa-0d3b-7240-b0d3-da66afa8117b) with a static-only plan ([prompt](mw-remnant2.deep1.md)): key from public build lists or a static scan of the shipping executable, build-matched or statically derived mappings, REA on world and story selection, then the wider tables, dialogue and save format. Output `docs/research/remnant-2/pass-2026-10-15-deep/`; the key stays private.
