@@ -1,0 +1,204 @@
+{
+  "viewport": {
+    "width": 1366,
+    "height": 768
+  },
+  "entry": "unchanged earned R1 natural-prerequisite checkpoint",
+  "timer": "Playwright virtual clock runs the normal one-minute-per-tick gameplay scheduler",
+  "checks": [
+    {
+      "id": "old-save-no-lp7-stock-or-activation",
+      "detail": {
+        "logs": 95,
+        "sap": 3
+      }
+    },
+    {
+      "id": "baseline-cut-output-2",
+      "detail": {
+        "wet": 2,
+        "logs": 94
+      }
+    },
+    {
+      "id": "recipe-consumption-and-single-slot",
+      "detail": {
+        "logs": 93,
+        "sap": 1,
+        "slot": 1
+      }
+    },
+    {
+      "id": "stat-pending-save-reload-export-literal-import",
+      "detail": {
+        "clock": 13,
+        "money": 96,
+        "inventory": {
+          "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+            "count": 1
+          },
+          "{\"id\":\"Stale bread\"}": {
+            "count": 5
+          },
+          "{\"id\":\"Old pickaxe\",\"quality\":100}": {
+            "count": 1
+          },
+          "{\"id\":\"Old sickle\",\"quality\":100}": {
+            "count": 1
+          },
+          "{\"id\":\"Old shovel\",\"quality\":100}": {
+            "count": 1
+          },
+          "{\"id\":\"Rough wood log\"}": {
+            "count": 93
+          },
+          "{\"id\":\"Tree sap\"}": {
+            "count": 1
+          },
+          "{\"id\":\"Wet repair stave\"}": {
+            "count": 2
+          }
+        }
+      }
+    },
+    {
+      "id": "stat-output-3-and-no-method",
+      "detail": {
+        "wetBefore": 2,
+        "wetAfter": 5
+      }
+    },
+    {
+      "id": "stat-complete-save-reload-export-literal-import",
+      "detail": {
+        "clock": 22,
+        "money": 96,
+        "inventory": {
+          "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+            "count": 1
+          },
+          "{\"id\":\"Stale bread\"}": {
+            "count": 5
+          },
+          "{\"id\":\"Old pickaxe\",\"quality\":100}": {
+            "count": 1
+          },
+          "{\"id\":\"Old sickle\",\"quality\":100}": {
+            "count": 1
+          },
+          "{\"id\":\"Old shovel\",\"quality\":100}": {
+            "count": 1
+          },
+          "{\"id\":\"Rough wood log\"}": {
+            "count": 92
+          },
+          "{\"id\":\"Tree sap\"}": {
+            "count": 1
+          },
+          "{\"id\":\"Wet repair stave\"}": {
+            "count": 5
+          },
+          "{\"id\":\"Dulled broad field fitting knife\"}": {
+            "count": 1
+          }
+        }
+      }
+    },
+    {
+      "id": "function-pending-save-reload-export-literal-import",
+      "detail": {
+        "clock": 13,
+        "money": 96,
+        "inventory": {
+          "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+            "count": 1
+          },
+          "{\"id\":\"Stale bread\"}": {
+            "count": 5
+          },
+          "{\"id\":\"Old pickaxe\",\"quality\":100}": {
+            "count": 1
+          },
+          "{\"id\":\"Old sickle\",\"quality\":100}": {
+            "count": 1
+          },
+          "{\"id\":\"Old shovel\",\"quality\":100}": {
+            "count": 1
+          },
+          "{\"id\":\"Rough wood log\"}": {
+            "count": 93
+          },
+          "{\"id\":\"Tree sap\"}": {
+            "count": 1
+          },
+          "{\"id\":\"Wet repair stave\"}": {
+            "count": 2
+          }
+        }
+      }
+    },
+    {
+      "id": "guide-does-not-grant-learning",
+      "detail": {
+        "guide": 1
+      }
+    },
+    {
+      "id": "function-useful-output",
+      "detail": {
+        "matched": 1,
+        "method": "understood"
+      }
+    },
+    {
+      "id": "function-complete-save-reload-export-literal-import",
+      "detail": {
+        "clock": 35,
+        "money": 93,
+        "inventory": {
+          "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+            "count": 1
+          },
+          "{\"id\":\"Stale bread\"}": {
+            "count": 5
+          },
+          "{\"id\":\"Old pickaxe\",\"quality\":100}": {
+            "count": 1
+          },
+          "{\"id\":\"Old sickle\",\"quality\":100}": {
+            "count": 1
+          },
+          "{\"id\":\"Old shovel\",\"quality\":100}": {
+            "count": 1
+          },
+          "{\"id\":\"Rough wood log\"}": {
+            "count": 93
+          },
+          "{\"id\":\"Tree sap\"}": {
+            "count": 1
+          },
+          "{\"id\":\"Wet repair stave\"}": {
+            "count": 2
+          },
+          "{\"id\":\"Dulled fine field fitting knife\"}": {
+            "count": 1
+          },
+          "{\"id\":\"Matched repair stave\"}": {
+            "count": 1
+          }
+        }
+      }
+    },
+    {
+      "id": "no-page-errors",
+      "detail": []
+    },
+    {
+      "id": "rebuilt-served-bundle",
+      "detail": {
+        "sha256": "1142c2ead0583d93c27c69d907f658ea3a51a4b2c04f8237ea0b00bcaeed184c"
+      }
+    }
+  ],
+  "errors": []
+}

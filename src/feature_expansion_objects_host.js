@@ -40,7 +40,7 @@ export function featureObjectFacts(state, context = {}, registry) {
         !Object.values(s?.custody || {}).some(c => c.holder === I.miri && [K.sound, K.fine].includes(c.key));
     const held = s?.custody?.[I.loan];
     f['featureObjects.loanAbsent'] = !held && state.actors?.player?.facts?.['feature_objects.depositHeld'] !== true;
-    for(const variant of variants) {
+    for(const variant of [...variants, 'broad', 'broadDull']) {
         const count = ownCount(state, context, 'player', K[variant]);
         const encumbered = Object.values(s?.custody || {}).some(c => c.holder === 'player' && c.key === K[variant]);
         const equipped = Object.values(context.equipment?.player || s?.equipment?.player || {}).includes(K[variant]);
@@ -53,6 +53,16 @@ export function featureObjectFacts(state, context = {}, registry) {
 
 export function featureObjectContext(state, registry, context) {
     return {...context, facts: {...context.facts, ...featureObjectFacts(state, context, registry)}};
+}
+
+export function fittingChoiceRecords(state, context = {}) {
+    if(state.actors?.player?.facts?.['feature_objects.introduced'] !== true) return [];
+    const inventory = context.gameplay?.player?.inventory || {};
+    const held = ['sharp', 'dull', 'broad', 'broadDull', 'fine', 'fineDull'].filter(v => ownCount(state, context, 'player', K[v]) > 0);
+    const method = state.simulation?.knowledge?.player?.['feature_objects.method']?.stage === 'understood' ? 'Grain matching learned; actual source, fine guide and sound wood still required.' : 'Grain matching not learned. Refitting never teaches it.';
+    return [{id: 'fitting.choice', text: `PROPOSAL · One log + one sap refits one owned sharp knife. Stat choice: cutting yield 2 → 3. Function choice: yield 2 plus support for learned Grain matching. Rarity: Common for both. Item level: 1, fixed. Learned method: ${method}`},
+        {id: 'fitting.stock', text: `Owned materials: ${inventory[K.log] || 0} logs · ${inventory[K.sap] || 0} sap · ${inventory[K.wet] || 0} wet staves · ${inventory[K.sound] || 0} sound staves · ${inventory[K.matched] || 0} matched staves. Fitting bench: ${Object.keys(state.simulation?.sites?.[I.site]?.reservations || {}).length}/1 slots occupied.`},
+        ...held.map(v => ({id: `fitting.tool.${v}`, text: `${JSON.parse(K[v]).id}: ${ownCount(state, context, 'player', K[v])} carried · cutting yield ${v.startsWith('broad') ? 3 : 2} · ${v.startsWith('fine') ? 'Fine guide supports the separately learned method.' : 'No fine guide.'} ${['dull', 'broadDull', 'fineDull'].includes(v) ? 'Dulled: restore the edge before cutting.' : 'Sharp.'}`}))];
 }
 
 export function beginFeatureObjects(state, registry, context, expectedSequence = state.sequence) {

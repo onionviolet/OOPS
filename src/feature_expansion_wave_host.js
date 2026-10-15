@@ -14,7 +14,7 @@ import {statusCarePresentation} from './status_care_host.js';
 import {auditRemainderPresentation} from './audit_remainder_host.js';
 import {auditRemainderFacts} from './audit_remainder_state.js';
 import {artifactWorkshopPresentation} from './artifact_workshop_host.js';
-import {featureObjectPresentation} from './feature_expansion_objects_host.js';
+import {featureObjectPresentation, fittingChoiceRecords} from './feature_expansion_objects_host.js';
 import {societyPresentation} from './feature_expansion_society_host.js';
 import {tidemarkPresentation} from './feature_expansion_destination_host.js';
 import {featurePowerPresentation} from './feature_expansion_powers_host.js';
@@ -47,9 +47,11 @@ export function featureWavePresentation(snapshot,registry) {
     const objects=featureObjectPresentation(state,registry,context);
     if(objects.visible) {
         const work=featureWorkControls(state,registry,['feature_objects'],context);
-        const actions=objects.introduced?projectFeatureCommands(state,registry,context,{groups:['feature_objects']}):[];
+        // Keep old refit IDs registered for exact saved jobs; the new pair is
+        // the single visible material choice, without a duplicate guide offer.
+        const actions=objects.introduced?projectFeatureCommands(state,registry,context,{groups:['feature_objects']}).filter(a=>!['feature_objects.refit_sharp','feature_objects.refit_dull'].includes(a.id)):[];
         if(objects.canBegin)actions.unshift(button('objects-begin','Meet Eda, the sluice fitter',{type:'objects_begin'}));
-        sections.push({id:'objects',label:'Fitting tools & materials',description:objects.loan?`${objects.loan.label} remains borrowed from Eda. Return its current physical variant to reclaim the deposit.`:'Use, borrow, maintain and fit actual tools and materials.',...work,actions:[...actions,...work.actions],records:featureRecordedKnowledge(state,['feature_objects.'])});
+        sections.push({id:'objects',label:'Fitting tools & materials',description:objects.loan?`${objects.loan.label} remains borrowed from Eda. Return its current physical variant to reclaim the deposit.`:'Use, borrow, maintain and fit actual tools and materials.',...work,actions:[...actions,...work.actions],records:[...fittingChoiceRecords(state,context),...featureRecordedKnowledge(state,['feature_objects.'])]});
     }
     const society=societyPresentation(state,registry,context);
     if(society.visible) {
