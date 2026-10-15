@@ -5,8 +5,10 @@ if(!process.env.URL)throw Error('Set URL to rebuilt native origin with .proof-ol
 const origin=new URL(process.env.URL);origin.search='';origin.hash='';const base=origin.href.replace(/\/?$/,'/'),testURL=new URL('?test_hooks=1',base).href,oldURL=new URL('.proof-old/',base).href,key='yairpg:p23:native-authority:1:live';
 const root=process.env.YAIRPG_PROOF_DIR||os.tmpdir();fs.mkdirSync(root,{recursive:true});const out=fs.mkdtempSync(path.join(root,'p15-native-'));
 const sourceMap=new (require('module').SourceMap)(JSON.parse(fs.readFileSync('dist/bundle.js.map','utf8')));
-const tickCallLine=fs.readFileSync('src/main.js','utf8').split('\n').findIndex(line=>line.includes('const advancedMinutes = update_timer();'))+1;
-assert.ok(tickCallLine>0,'mapped native tick caller exists');
+const mainLines=fs.readFileSync('src/main.js','utf8').split('\n');
+const tickStart=mainLines.findIndex(line=>line.startsWith('function simulateTick()'))+1;
+const tickEnd=mainLines.findIndex(line=>line.startsWith('function advanceTicks('))+1;
+assert.ok(tickStart>0&&tickEnd>tickStart,'mapped native tick caller exists');
 const operationWrites=[];
 const callers=row=>[...row.stack.matchAll(/bundle\.js[^\n]*?:(\d+):(\d+)/g)].map(m=>sourceMap.findEntry(+m[1]-1,+m[2]-1)).map(e=>({source:e.originalSource,line:e.originalLine+1,name:e.name}));
 const sha=s=>crypto.createHash('sha256').update(s).digest('hex');
@@ -46,7 +48,7 @@ const decode=s=>JSON.parse(Buffer.from(s.trim().replace(/^YAIR-UTF8-1:/,''),'bas
   const rows=(await page.evaluate(()=>JSON.parse(sessionStorage.getItem('p15-proof-writes')||'[]'))).filter(r=>r.success).slice(n);
   // A timer's own durable publication is a distinct save, never part of a UI operation.
   // Classify by the mapped caller, rather than a broad Playwright time window.
-  const operation=rows.filter(r=>!callers(r).some(f=>f.source==='../src/main.js'&&f.line===tickCallLine));
+  const operation=rows.filter(r=>!callers(r).some(f=>f.source==='../src/main.js'&&f.line>=tickStart&&f.line<tickEnd));
   operationWrites.push({afterWrite:n,writes:operation.map(r=>({revision:r.revision,callers:callers(r)})),independentTickWrites:rows.length-operation.length});
   assert.equal(operation.length,1,'one physical authority write per operation; '+JSON.stringify(rows.map(r=>({...r,callers:callers(r)}))));
  };
