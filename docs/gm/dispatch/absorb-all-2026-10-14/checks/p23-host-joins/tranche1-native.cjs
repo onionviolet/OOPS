@@ -21,7 +21,7 @@ const hash=x=>crypto.createHash('sha256').update(x).digest('hex');
 const ctx=await browser.newContext({viewport:{width:1366,height:768},acceptDownloads:true});const p=await ctx.newPage();p.setDefaultTimeout(12000);const errors=[];p.on('pageerror',e=>errors.push(e.message));p.on('console',m=>{if(m.type()==='error')console.log('browser-error',m.text().slice(0,400));});
 const save=async()=>{await p.locator('#save_button').click();const s=await p.evaluate(()=>JSON.parse(localStorage.getItem('save data')));fs.writeFileSync(path.join(out,'tranche1-working.json'),JSON.stringify(s));return s;};
 const played=async n=>{const start=(await save()).expansion.clock;for(let i=0;i<n*4+4;i++){await p.evaluate(()=>advanceTicks(1));const tick=await save();if(tick.expansion.clock>=start+n)return;}console.log('stopped',await p.locator('#message_log').innerText().catch(()=>''),await p.locator('#p23_household_panel').innerText().catch(()=>''));await p.screenshot({path:path.join(out,'tranche1-stopped.png')});throw Error('Native played clock did not advance');};
-const play=async()=>{await p.locator('#loading_screen_play_button:not(.none_display)').click({noWaitAfter:true});await p.evaluate(()=>simulationTestHooks.pause());};
+const play=async()=>{await p.locator('#loading_screen_play_button:not(.none_display)').click({noWaitAfter:true});await p.evaluate(()=>{simulationTestHooks.pause();advanceTicks(1,{render:true});});};
 const families=s=>({exposure:s.p23_exposure,household:s.household,clock:s.expansion.clock,xp:s.levels.person.main_character.skill_xp,items:s.inventories.person.main_character,money:s.character.money,effects:s.active_effects});
 async function roundtrip(tag){const before=await save();await p.reload({waitUntil:'domcontentloaded'});assert.deepEqual(families(await p.evaluate(()=>JSON.parse(localStorage.getItem('save data')))),families(before));await play();
  const downloadP=p.waitForEvent('download');await p.locator('#save_to_file_button').click();const d=await downloadP;const file=path.join(out,`tranche1-${tag}.save.txt`);await d.saveAs(file);
@@ -31,7 +31,7 @@ async function roundtrip(tag){const before=await save();await p.reload({waitUnti
  results.push({gate:tag+' native Save/reload/Export/literal-file Import exact stored envelope before resumed played callbacks',status:'PASS'});return downloaded;}
 
 try{
- await p.goto(testURL,{waitUntil:'domcontentloaded'});await R.startFresh(p);await p.evaluate(()=>simulationTestHooks.pause());const served=await p.request.get(base+'dist/bundle.js');const local=fs.readFileSync('dist/bundle.js');assert.equal(hash(await served.body()),hash(local));
+ await p.goto(testURL,{waitUntil:'domcontentloaded'});await R.startFresh(p);await p.evaluate(()=>{simulationTestHooks.pause();advanceTicks(1,{render:true});});const served=await p.request.get(base+'dist/bundle.js');const local=fs.readFileSync('dist/bundle.js');assert.equal(hash(await served.body()),hash(local));
  const baseline=await save();
  if(!resume){assert.equal(baseline.household,undefined);assert.equal(baseline.p23_exposure,undefined);results.push({gate:'old optional absence in fresh native envelope',status:'PASS'});
  // Only baseline prerequisites are configured. No feature state, clocks, event
@@ -56,7 +56,7 @@ try{
  results.push({gate:'played underfed passive XP, paid fuel, Wet drying and opted-in smoke',status:'PASS'});
  await p.locator('#p23_household_panel summary').click();await act('ventilate');s=await save();assert.equal(s.active_effects['Household smoke'],undefined);
  await played(3);await act('pet');await played(5);await act('pet');s=await save();assert.equal(s.household.animal.bond,30);
- await p.evaluate(()=>window.start_sleeping());const sleepingStart=await save();await played(5);const sleepingEnd=await save();await p.evaluate(()=>window.end_sleeping());
+ await p.evaluate(()=>window.start_sleeping());const sleepingStart=await save();await played(5);const sleepingEnd=await save();await p.evaluate(()=>{window.end_sleeping();advanceTicks(1,{render:true});});
  const sleepSpeed=Number(fs.readFileSync('src/config.js','utf8').match(/time_speedup_when_sleeping:\s*(\d+)/)[1]);const sleepTicks=(sleepingEnd.expansion.clock-sleepingStart.expansion.clock)/sleepSpeed;
  assert.ok(Number.isInteger(sleepTicks)&&sleepTicks>0);assert.ok(Math.abs((sleepingStart.character.hp_to_full-sleepingEnd.character.hp_to_full)-5.46*sleepTicks)<.001);
  results.push({gate:'actual sleeping multiplies native recovery once by adopted household and owned furnishing comfort',status:'PASS'});
@@ -65,7 +65,7 @@ try{
  await p.locator('#options_button').click();await p.locator('[data-pacing-option="weatherEnabled"]').uncheck();await p.locator('#options_button').click();
  await p.evaluate(()=>window.start_sleeping());
  for(let i=0;i<240;i++){await p.evaluate(()=>advanceTicks(1));const earned=await save();if((earned.levels.person.main_character.skill_xp.Famine||0)>=10)break;if(i%40===0)console.log('native passive sleep progress',i,earned.levels.person.main_character.skill_xp.Famine);}
- await p.evaluate(()=>window.end_sleeping());const earned=await save();assert.ok(earned.levels.person.main_character.skill_xp.Famine>=10);
+ await p.evaluate(()=>{window.end_sleeping();advanceTicks(1,{render:true});});const earned=await save();assert.ok(earned.levels.person.main_character.skill_xp.Famine>=10);
  await p.locator('#pacing_status_panel summary').click();assert.match(await p.locator('#pacing_status_panel').innerText(),/Native XP ×0\.80125/);
  results.push({gate:'real underfed played sleep earns Famine level 1 and useful native hunger efficiency reduction',status:'PASS'});
  await p.locator('#options_button').click();await p.locator('[data-pacing-option="weatherEnabled"]').check();await p.locator('#options_button').click();
@@ -76,7 +76,7 @@ try{
  if(!finish){
  await p.locator('#options_button').click();await p.locator('[data-pacing-option="weatherEnabled"]').uncheck();await p.locator('#options_button').click();await p.evaluate(()=>window.start_sleeping());
  for(let i=0;i<240;i++){await p.evaluate(()=>advanceTicks(1));if(((await save()).levels.person.main_character.skill_xp.Famine||0)>=10)break;}
- await p.evaluate(()=>window.end_sleeping());assert.ok((await save()).levels.person.main_character.skill_xp.Famine>=10);await p.locator('#pacing_status_panel summary').click();assert.match(await p.locator('#pacing_status_panel').innerText(),/Native XP ×0\.80125/);
+ await p.evaluate(()=>{window.end_sleeping();advanceTicks(1,{render:true});});assert.ok((await save()).levels.person.main_character.skill_xp.Famine>=10);await p.locator('#pacing_status_panel summary').click();assert.match(await p.locator('#pacing_status_panel').innerText(),/Native XP ×0\.80125/);
  await p.locator('#options_button').click();await p.locator('[data-pacing-option="weatherEnabled"]').check();await p.locator('#options_button').click();
  await p.locator('#p23_household_panel summary').click();await p.locator('[data-household-action="light"]').click();await p.locator('[data-household-action="close_vent"]').click();await played(1);
  }
