@@ -586,3 +586,16 @@ Choose one bounded packet and confirm the precise missing consumer in current so
 **Source comparisons:** [Theory of Magic](../theory-of-magic/aspects-2026-10-14/ASPECTS.json) (A04; deeper D2), [KeeperRL](../keeperrl/aspects-2026-10-14/ASPECTS.json) (A04; deeper D2), [Idle Xanxia](../cultivation-idlers/aspects-2026-10-14/ASPECTS.json) (A04; deeper D3), [Antimatter Dimensions](../trimps-antimatter/aspects-2026-10-14/ASPECTS.json) (A04; deeper D3).
 
 **Unpark reachability:** U18a, U19. Wider variants remain separate selectable options, not hidden completion gates.
+
+## Added donors from the feature scout (folded 2026-10-15)
+
+Weibao, 2026-10-15: "Fold and commit and push accordingly". The [feature scout fold proposal](../feature-game-scout-2026-10-14/FOLD_PROPOSAL.md)
+section 2 adds shown donors per packet; each packet's source comparisons now include them.
+
+| Packet | Added donors | Strongest new evidence | Gap no donor closed |
+|---|---|---|---|
+| P01 | RimWorld, Project Zomboid, Kittens Game, Sapiens, Potionomics | Zomboid's drying tooltip names the pause cause and keeps progress | No durable last-result receipt shown |
+| P03 | Project Zomboid, RimWorld, Stardew Valley, Potionomics, Magical Diary | Learned XP or recipes stay on the actor after the book | Sapiens shows no teaching route |
+| P19 | Magical Diary, Potionomics, Stardew Valley | Wolf Hall's paid poetry prep is read by a later scene | Rune Factory 5's paid branch unread |
+| P02 | Stardew Valley, Potionomics, RimWorld, Rune Factory 5 | One parsnip, five shown destinations | No donor quotes destinations side by side |
+| P04 | Kittens Game, Project Zomboid, Sapiens, Magical Diary | Kittens splits unlocked, researched, affordable and storage-limited | Only Sapiens shows an ownership layer |

@@ -1763,3 +1763,16 @@ included.
 
 No body slice is picked this round; the next playable slice is P01 (chains
 round 5). Body work stays proposals behind it.
+
+## Round 14: feature scout and deep systems fold, 2026-10-15
+
+Weibao, 2026-10-15: "Fold and commit and push accordingly".
+
+| Code | Finding | Source | Extends |
+|---|---|---|---|
+| FB4 | Separate saved fields (RimWorld: gender, body and head type, health conditions, gene tracker; xenotype is a definition plus gene lists, not the whole body) and named trait readers (Project Zomboid: each trait lists what reads it). Both lanes warn that separate storage does not prove independent behavior | FOLD_PROPOSAL FS8 | G19, SG3-SG10, TW-B08 |
+| FB5 | Functional body consequences, treatment and recovery (RimWorld DS-P1, DS-P2) | RimWorld deep systems | Body milestones, accepted forgiving recovery (OD12) |
+| FB6 | Inherited, installed and active faculties kept separate (RimWorld RW-D2); several earned faculties on one traveler (Remnant II R2-P03) | RimWorld deep pass, Remnant II | ML9, BW8 split (FB3) |
+
+Accepted direction OD6 (one continuing self) and OD12 (forgiving recovery)
+govern these rows; they stay proposals.

@@ -2971,3 +2971,5 @@ and Village start probe. Evidence and pattern catalog:
 [premise hook source catalog](research/PREMISE_HOOK_SOURCE_CATALOG_2026-10-14.md).
 Proposals only; every reasonable premise stays reachable rather than chosen
 either/or. Randomized premise truths follow the sealed-secrets rule.
+
+Research fold, 2026-10-15: Weibao asked to "Fold and commit and push accordingly". The multi-world audit and synthesis (world kit round 18, FK5-FK10), feature scout (chains round 6, FS1-FS9; technology round 14; genetics round 14; synthesis packet donors) and deep systems sweep (companions DSC1-DSC5 and the rows above) were folded into their owners as proposals. Many sources agree that a local rule should change one useful verb (MWA-P02), the next multi-world build candidate, not dispatched.

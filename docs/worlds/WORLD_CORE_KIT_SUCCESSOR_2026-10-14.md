@@ -68,3 +68,43 @@ The next playable slice is P01 work feedback on Village mixing (chains round
 5). For the kit, NX12 still holds: fidelity in the two playing worlds before
 breadth; a W37 mechanical reader re-checked against current source is the
 kit's next build candidate (TW-K-S3).
+
+## Round 18: multi-world research folded (2026-10-15)
+
+Weibao, 2026-10-15: "Fold and commit and push accordingly". Sources: [multi-world audit](../research/multiworld-synthesis-2026-10-14/AUDIT.md),
+[synthesis](../research/multiworld-synthesis-2026-10-14/REPORT.md) and [packets](../research/multiworld-synthesis-2026-10-14/PACKETS.md),
+over HyperRogue, Siralim Ultimate, Remnant II, Kingdom Hearts HD 1.5+2.5, The Strange,
+RetroMUD and 3 Kingdoms, Multiverse Idle (UI), with Naev, Ur-Quan Masters and the
+deep systems sweep as supporting evidence.
+
+### Corrections (audit, 70 checks: 34 confirmed, 17 supported, 8 qualified, none refuted)
+
+| Code | Correction | Source |
+|---|---|---|
+| FK5 | Remnant II claims stay conditional on an unvalidated mappings file; `ActivateFirstValidWorld` is activation, not random world selection | Audit C4 |
+| FK6 | Kingdom Hearts room, party and model changes do not show retained local stock, consent or personal memory; its save schema is the tool's, not proof of the Steam container | Audit C5 |
+| FK7 | The Strange: SHOWN means inspected rules and examples, not software. Translation and unchanged physical passage are two separate crossing options | Audit C6 |
+| FK8 | Multiverse Idle screenshots show visible information only; 1920x1080 media cannot pass the 1366x768 gate | Audit C8 |
+| FK9 | Accepted direction OD2 to OD24 (2026-10-15) supersedes older open wording in lane proposals: memories and base cheat carry between lives, chosen away routines with stops, paused inactive worlds, means-based returns, one continuing self | Audit C9; PROJECT.md |
+| FK10 | Lane UI ideas cannot replace the accepted Proto23 composition. New features start in the Projects drawer (UR2), places have keepers (UR4), panels register their own node (UR8) | Audit C10; [UI rules](../UI_RULES.md) |
+
+### What many worlds agree on (ranked, proposals; packets MWA-P01 to P10)
+
+| Rank | Pattern | Seen in | Kit parts |
+|---|---|---|---|
+| 1 | Current work explains its useful result | Multiverse Idle, RimWorld, Naev; delivered for Village mixing as P01 (`838f8052`) | K13, K14, K34 |
+| 2 | **A local rule changes one useful verb** | HyperRogue (land laws, orb drain), Siralim (realm properties), Remnant II (world hazards), Kingdom Hearts (world forms), The Strange (recursion laws) | K2, K5, K10, K13, K15 |
+| 3 | Earned learning and present usability shown separately | Kingdom Hearts, Naev, RimWorld, MUD multiclassing | K3, K9, K11, K14, K15 |
+| 4 | A paid conversation changes the next local opportunity | Ur-Quan Masters, Naev, Magical Diary | K6, K7, K11, K12, K20, K29 |
+| 5 | Return finds the place actually changed | Kingdom Hearts revisits, MUD realms | K5, K6, K12, K16, K18, K29 |
+| 6 | Crossing quotes what happens to each carried thing | HyperRogue, Siralim, The Strange, Remnant II | K4, K9, K11, K15, K18 |
+
+Ranks 7 to 10 (origin-filtered lists, settled-routine summaries, one authored
+override with fallback, neighbouring rules meeting at one boundary) stay in the
+packets file.
+
+### Build note
+
+Next multi-world build candidate: MWA-P02 on the merged T3 rule reader, in a
+world that already plays, behind the Projects drawer until Weibao promotes it,
+and off files the UI queue (NAV, TRIAGE, APOTHECARY) owns. Not dispatched.

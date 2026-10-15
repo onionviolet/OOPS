@@ -18,6 +18,10 @@ Remaining gaps, in order:
 
 ## How ideas are kept
 
+## Research fold across owners, 2026-10-15
+
+Research fold 2026-10-15 index entry: [world kit round 18](worlds/WORLD_CORE_KIT_SUCCESSOR_2026-10-14.md#round-18-multi-world-research-folded-2026-10-15) (multi-world, MWA ranks), [chains round 6](MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md#round-6-2026-10-15-feature-scout-and-deep-systems-sweep-folded) (FS1-FS9), technology round 14 (FT6-FT8), genetics round 14 (FB4-FB6), companions DSC1-DSC5, and added packet donors in the [cross-game synthesis](research/cross-game-synthesis-2026-10-14/PACKETS.md). Proposals only.
+
 ## Premise hooks and generator, 2026-10-14
 
 Requested direction (quotes in [User vision](USER_VISION.md#premise-hooks-and-a-premise-generator-2026-10-14)):

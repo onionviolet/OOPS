@@ -529,3 +529,35 @@ it sits on the just-merged T3 reader and T2 inspector; it adds no save field.
 Ready prompt: [NEXT_SLICE_P01](gm/dispatch/topic-wave-2026-10-14/NEXT_SLICE_P01.md).
 T4 follows it, and the technology NEXT_SLICE (craft cue plus village
 sentence) can run after or beside it on disjoint files.
+
+## Round 6 (2026-10-15): feature scout and deep systems sweep folded
+
+Weibao, 2026-10-15: "Fold and commit and push accordingly". Sources: [feature scout fold proposal](research/feature-game-scout-2026-10-14/FOLD_PROPOSAL.md)
+section 3 (codes FS1 to FS9 adopted as written there) and the
+[deep systems sweep](gm/dispatch/deep-systems-2026-10-14/runs/SESSIONS.md).
+
+### Corrections and cautions
+
+| Code | Correction | Source |
+|---|---|---|
+| FS1 | One interruption rule for all stages is wrong. TerraFirmaCraft shows three policies in one mod (early unseal resets elapsed time with inputs kept; rain resets wet brick drying; an invalid pit kiln burns fuel and keeps contents). Vintage Story blocks early barrel opening. Give each stage its own declared policy | FOLD_PROPOSAL FS1 |
+| FS2 | Round 5 pick 5 "one local drying law" must attach climate only to stages whose predicate reads it; TFC hides ignore season, only brick drying checks rain | FS2 |
+
+### New evidence that shapes T4 (dry, kit, useful use)
+
+| Code | Constraint for T4 | Source |
+|---|---|---|
+| FS3 | Progress belongs to the lot: settle elapsed change, then move | Vintage Story |
+| FS4 | Passive change (drying on world time) is separate from staffed work (firing, cooking); containers return | Sapiens |
+| FS5 | Real branch points by method, job-specific clocks, weather-sensitive racks | Project Zomboid |
+| FS6 | Name consumed inputs, recoverable custody and uncollected output separately; choose cancel rules explicitly | Stardew Valley |
+| FS7 | A part carries selected properties into the kit; declare a per-part output contract | TFC, Vintage Story |
+
+### Deep systems sweep, chain-relevant picks
+
+Production custody and layouts that change output (Immortal Life RP1, RP3);
+retained crafting receipts, material-based repair and salvage, commissions
+shaped by local conditions (Taiwu D1 to D3); material-to-tool production
+(Academagia DS-P1); deferred repair (Naev P1); useful processes that respond to
+local conditions (HyperRogue HRD-P1). These extend T4, salvage (pick 4) and the
+second processing reader (pick 5); none changes the round 5 order.

@@ -1598,3 +1598,19 @@ era, never one universal pet tariff.
    them. Running as Codex lane C1.
 4. **Decide the mind spectrum (O1) per species early** in any world that adds
    companions, since consent, law and dialogue all read it.
+
+## Deep systems sweep fold (2026-10-15)
+
+Weibao, 2026-10-15: "Fold and commit and push accordingly". Five of nine deep systems lanes ranked a companion pick in their top three,
+independently. Proposals; [sweep sessions](gm/dispatch/deep-systems-2026-10-14/runs/SESSIONS.md).
+
+| Code | Pick | Source |
+|---|---|---|
+| DSC1 | Companions practice and get better at useful work | Warsim WS-P01 |
+| DSC2 | Companion expertise contributes named skill to the player's work | Academagia DS-P2 |
+| DSC3 | Useful trained companions (training, bonding, tasks) | RimWorld DS-P3 |
+| DSC4 | Companion outcomes change later actions | HyperRogue HRD-P2 |
+| DSC5 | Bounded companion tasks; retained specialist errands | Naev P3; Immortal Life RP2 |
+
+These extend the existing companion economy and collaborator rows (synthesis
+P06, named work with opportunity costs) rather than adding a new system.

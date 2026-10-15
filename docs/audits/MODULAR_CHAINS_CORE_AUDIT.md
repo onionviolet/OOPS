@@ -30,3 +30,4 @@ Prompts and shared rules live in [`gm/dispatch/modular-chains-2026-10-14/`](../g
 | 2026-10-14 | 3 | PC1-PC5 folded | X1-X19 corrections, shared verdict (no universal engine), top picks T1-T5, R3-1 to R3-5 |
 | 2026-10-14 | 4 | TW-C, TW-L, TW-S ([topic wave](../gm/dispatch/topic-wave-2026-10-14/COMMON.md)) | Triggers TR1 (HV1 merged) and TR2 (T3 rule reader merged); game wave evidence GW1-GW10; levels consistency ML-R4a-c |
 | 2026-10-14 | 5 | TW-C, TW-L, TW-S folded | FC1-FC7 corrections; shared pieces with two real callers (rules, seeded decisions, world instances); next slice P01 on Village mixing ([prompt](../gm/dispatch/topic-wave-2026-10-14/NEXT_SLICE_P01.md)) |
+| 2026-10-15 | 6 | feature scout, deep systems sweep folded | FS1-FS9 stage-specific interruption policies and lot-carried progress constrain T4; production picks from Immortal Life, Taiwu, Academagia, Naev, HyperRogue |

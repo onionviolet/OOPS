@@ -1937,3 +1937,16 @@ Slice: the next playable slice overall is P01 on Village mixing (see
 [chains round 5](MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md#next-playable-slice-p01-work-feedback-on-the-village-mixing-panel)).
 NEXT_SLICE stays ready and touches disjoint files, so it can follow or run
 beside it.
+
+## Feature scout and deep systems fold, round 14, 2026-10-15
+
+Weibao, 2026-10-15: "Fold and commit and push accordingly".
+
+| Code | Finding | Source | Extends |
+|---|---|---|---|
+| FT6 | Evidence-gated unlocks are well shown (Sapiens: eligible action, tools, materials, tribe knowledge outlives the investigator; RimWorld: techprints, bench, hidden prerequisites and books are separate gates). Uncertainty and revision are **not** shown by either; keep Heaven's Vault and P11 as the revision donors | FOLD_PROPOSAL FS9 | Step 2 anomaly log |
+| FT7 | Study a subject into useful knowledge (RimWorld Anomaly and Biotech), specialists learn through useful workshop work (HoI4 HDS-P1), useful knowledge routes (Siralim DS-P01) | Deep systems sweep, RimWorld deep pass | Step 3 teach one cue |
+| FT8 | Learned powers kept separate from their apparatus and fuel (Naev NV-P02); earned learning versus present usability (multi-world MWA-P03) | Naev, multi-world synthesis | X9, RW7, RW8 |
+
+The CN14 build order is unchanged; NEXT_SLICE stays ready and must now follow
+[UI rules](UI_RULES.md) UR2 (new features start in the Projects drawer).
