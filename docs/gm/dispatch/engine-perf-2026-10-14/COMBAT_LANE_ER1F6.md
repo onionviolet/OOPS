@@ -41,8 +41,12 @@ Busy combat, 20 s windows (`tools/combat_measure.cjs`, `tools/combat_share.cjs`)
 | new 1 | 4011 ms | 4.9 | 42 | 3 ms | 811 ms | 20 (953 ms) |
 | new 2 | 4903 ms | 4.7 | 73 | 4 ms | 1201 ms | 20 (1636 ms) |
 
-- Timer callbacks: 0.04x (gate 0.1x). Combat loop machinery: 0.03x.
-- Page JS-busy: 0.72x. The 0.4x gate is not reachable from `combat.js`:
+Primary evidence is load-independent: timer callbacks per second and outcome identity.
+Time ratios below are provisional (host load 160-535 on 18 cores); rerun them
+through the shared test queue on a quiet host before treating them as final.
+
+- Timer callbacks: 0.04x (gate 0.1x). Combat loop machinery: 0.03x (provisional).
+- Page JS-busy: 0.72x (provisional). The 0.4x gate is not reachable from `combat.js`:
   the loop machinery was about 2% of busy-combat JS (140 of 6200 ms). The rest is the per-tick
   `update_timer -> persistExpansion` path (about 60%) and the per-swing
   `runP23CombatExchange` durable save (about 15%), both in `main.js`.
