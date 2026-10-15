@@ -17,7 +17,7 @@ import {stageTitleRecognition} from './absorb_p23/host_joins/long_life.js';
 import {installTrainingLink,trainingView} from './absorb_p23/long_life/training.js';
 import {validateWornTitle,selectWornTitle,wornTitleView,longLifeTitleBonuses} from './absorb_p23/long_life/worn.js';
 import {engineTimeout,engineInterval,clearEngineInterval,engineNow,stepping,testHooksEnabled,pauseEngine,resumeEngine,runEngineTicks} from './simulation_clock.js';
-import {deferSimulationRender,beginSimulationRenderBatch,endSimulationRenderBatch,framedSimulationRead,withSimulationFrame} from './simulation_render.js';
+import {deferSimulationRender,beginSimulationRenderBatch,endSimulationRenderBatch,framedSimulationRead,withSimulationFrame,deferWhileHidden} from './simulation_render.js';
 import {ANTHOLOGY,ANTHOLOGY_KEY,REST_MEAL,REST_KEY,REGISTRATIONS} from './absorb_p23/reading/content.js';
 import {planReadingCommand,observeReadingClock,longRestClockRequest} from './absorb_p23/reading/runtime.js';
 import {readingPresentation} from './absorb_p23/reading/presentation.js';
@@ -586,17 +586,15 @@ const lifeSaveStorage = {setItem(key, serialized, onDurable) {
     if(previousRules?.revision!==workLedger.rules.revision||previousConnection!==workLedger.connection||previousPrecision!==workLedger.precisionKnown||previousAssist!==workLedger.assistUnlocked)update_displayed_crafting_recipes();
     customization=customizationFromSave(save);
     refreshCustomization();
-    workLedgerPanel?.render();
     cheatState=validateCheatState(save.cheats??defaultCheatState());
     optionalPackState=validatePackState(save.content_packs??emptyPackState());
-    optionalPackPanel?.render();
-    villageCareerControls?.render();
     lifeRecord = next;
     npcLives = nextNpc;
     restoreGeneratedPeople(save);
-    lifeRecordPanel?.render();
-    villageLivesPanel?.render();
+    if(!deferWhileHidden(renderSavedPanels,renderSavedPanels))renderSavedPanels();
 }};
+// Display-only panels that follow each durable save.
+function renderSavedPanels(){workLedgerPanel?.render();optionalPackPanel?.render();villageCareerControls?.render();lifeRecordPanel?.render();villageLivesPanel?.render();}
 
 let expansionState = initializeExpedition(createExpansionState(crypto.getRandomValues(new Uint32Array(1))[0]));
 ensureStreams(expansionState);
@@ -1910,15 +1908,7 @@ function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}) {
         if(!which_skills_affect_skill[target].includes(id)) which_skills_affect_skill[target].push(id);
     }
     try {
-        update_displayed_money();
-        if(plan.calendar) update_displayed_time();
-        if(plan.native) {update_displayed_stamina(); update_displayed_health();}
-        update_displayed_character_inventory();
-        if(is_storage_open()) {
-            update_displayed_storage_inventory();
-            stampStorageRequests();
-        }
-        update_displayed_item_log();
+        if(!deferWhileHidden(renderPublishedDisplays,renderPublishedDisplays))renderPublishedDisplays(plan);
         for(const id of publication.changes) {
             if(skills[id].visibility_treshold <= skills[id].getTotalXP()) {
                 create_new_skill_bar(skills[id]);
@@ -1929,8 +1919,24 @@ function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}) {
         if(publication.changes.length) character.updateStatsAndDisplay();
         if(plan.calendar && (p23LivingGear!==undefined||previousNight !== is_night(current_game_time))) {character.addActiveEffectBonus(active_effects);character.updateStatsAndDisplay();}
         if(townAccess.length && current_location.tags.safe_zone) update_displayed_normal_location(current_location);
-        renderWorldIdentity();
-        withSimulationFrame(expansionState,()=>{
+        if(!deferWhileHidden(renderPublicationPanels,renderPublicationPanels))renderPublicationPanels();
+        if(plan.p00EarnedTitles){for(const id of plan.p00EarnedTitles)log_message(`Title earned: ${title_by_id[id].name}. ${title_by_id[id].text}`,'level_up');titlesPanel?.announce(plan.p00EarnedTitles);}
+    } catch(error) {console.error("Saved expedition display could not refresh; reload to restore it.", error);}
+    if(plan.calendar) awakenOptionalStart();
+}
+
+// Display-only refreshes after a publication. A reveal (no plan) refreshes all of them.
+function renderPublishedDisplays(plan) {
+    if(!plan || plan.calendar) update_displayed_time();
+    if(!plan || plan.native) {update_displayed_stamina(); update_displayed_health();}
+    update_displayed_character_inventory();
+    if(is_storage_open()) {update_displayed_storage_inventory(); stampStorageRequests();}
+    update_displayed_item_log();
+    renderWorldIdentity();
+}
+// The publication render batch: display only, one frame over the published state.
+function renderPublicationPanels() {
+    withSimulationFrame(expansionState,()=>{
         expeditionPanel?.render(); techniquePanel?.render(); chroniclePanel?.render(); villagePanel?.render(); simulationPanel?.render(); systemsWorkshopPanel?.render(); townPanel?.render();
         pursuitPanel?.render();
         bodyPanel?.render();
@@ -1944,11 +1950,8 @@ function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}) {
         trancheFourPanel?.render();lifeRecordPanel?.render();
         characterBio?.render();
         titlesPanel?.render();
-        if(plan.p00EarnedTitles){for(const id of plan.p00EarnedTitles)log_message(`Title earned: ${title_by_id[id].name}. ${title_by_id[id].text}`,'level_up');titlesPanel?.announce(plan.p00EarnedTitles);}
         worldEventFeed?.render();
-        });
-    } catch(error) {console.error("Saved expedition display could not refresh; reload to restore it.", error);}
-    if(plan.calendar) awakenOptionalStart();
+    });
 }
 
 function commitNativeTrade(quote, currentQuote) {
@@ -4603,6 +4606,16 @@ function end_dialogue() {
 
 function reload_normal_location() {
     update_displayed_normal_location(current_location);
+    renderTickPanels();
+}
+function renderExportReward() {
+    document.getElementById("save_to_file_button").classList.toggle("export_button_with_reward", Date.now() - last_rewarded_export > config.time_between_export_rewards);
+    update_export_button_tooltip(Date.now() - last_rewarded_export, config.time_between_export_rewards);
+}
+function renderEffectDisplays() {update_displayed_effect_durations(); update_displayed_effects();}
+function renderClockPanels() {expeditionPanel?.render(); techniquePanel?.render(); chroniclePanel?.render(); villagePanel?.render(); simulationPanel?.render();}
+// Display-only panel refreshes that every tick repeats.
+function renderTickPanels() {
     trancheFourPanel?.render();furniturePanel?.render();localLifePanel?.render();practicePanel?.render();updateWorkspace();fortControls?.render();pacingPanel?.render();pacingStatusPanel?.render();durabilityPanel?.render();elementalPanel?.render();livingGearPanel?.render();combatOptionsPanel?.render();householdPanel?.render();
 }
 
@@ -8608,7 +8621,7 @@ function update_timer(time_in_minutes, source = null) {
             tickHarvest(consumed);
             if(was_night !== is_night(current_game_time)) character.updateStatsAndDisplay();
             if(nativeLifeEnded()) {if(current_combat) end_combat(); character.is_alive = false;}
-            expeditionPanel?.render(); techniquePanel?.render(); chroniclePanel?.render(); villagePanel?.render(); simulationPanel?.render();
+            if(!deferWhileHidden(renderClockPanels,renderClockPanels))renderClockPanels();
             return consumed;
         } catch(error) {
             console.error("Joined clock paused:", error); log_message(`Progress paused: ${error.message}`, "notification");
@@ -8694,16 +8707,10 @@ function simulateTick() {
         let were_stats_updated = false;
         const prev_day = current_game_time.day_count;
         const advancedMinutes = update_timer();
-        trancheFourPanel?.render();furniturePanel?.render();localLifePanel?.render();practicePanel?.render();updateWorkspace();fortControls?.render();pacingPanel?.render();pacingStatusPanel?.render();durabilityPanel?.render();elementalPanel?.render();livingGearPanel?.render();combatOptionsPanel?.render();householdPanel?.render();
+        if(!deferWhileHidden(renderTickPanels,renderTickPanels))renderTickPanels();
         if(!advancedMinutes || nativeLifeEnded()) {awakenOptionalStart(); return;}
 
-        if(Date.now() - last_rewarded_export > config.time_between_export_rewards) {
-            document.getElementById("save_to_file_button").classList.add("export_button_with_reward");
-        } else {
-            document.getElementById("save_to_file_button").classList.remove("export_button_with_reward");
-        }
-
-        update_export_button_tooltip(Date.now() - last_rewarded_export, config.time_between_export_rewards);
+        if(!deferWhileHidden(renderExportReward,renderExportReward))renderExportReward();
 
         const curr_day = current_game_time.day_count;
         if(curr_day > prev_day) {
@@ -8718,8 +8725,7 @@ function simulateTick() {
 
         //update effect durations and displays;
         were_stats_updated = were_stats_updated || (!usesJoinedClock() && update_effect_durations({time_in_minutes: 1}));
-        update_displayed_effect_durations();
-        update_displayed_effects();
+        if(!deferWhileHidden(renderEffectDisplays,renderEffectDisplays))renderEffectDisplays();
 
         const optionalWeather=getPacingEffects(homePacingContext());
         const new_temperature = get_current_temperature_smoothed()+basePacingEffects(homePacingContext()).temperatureOffset;
@@ -8809,7 +8815,8 @@ function simulateTick() {
 
         }
         // Weather duration and XP consequence change even at a stable temperature.
-        update_displayed_temperature(optionalWeather);
+        const showTemperature=()=>update_displayed_temperature(optionalWeather);
+        if(!deferWhileHidden(update_displayed_temperature,showTemperature))showTemperature();
         current_temperature = new_temperature;
 
         //add cold status if applicable
@@ -9794,7 +9801,8 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
     const renderKnownMinutes=()=>{const formatted=formatKnownNumber(expansionState.clock,getDisplaySetting('numberFormat')),summary=knownMinutes.element.querySelector('summary'),exact=knownMinutes.element.querySelector('p');
         if(summary.textContent!==formatted.text)summary.textContent=formatted.text;summary.setAttribute('aria-label',`${formatted.text}; expand for exact value`);if(exact.textContent!==`Exact value: ${formatted.exact}`)exact.textContent=`Exact value: ${formatted.exact}`;};
     subscribeDisplaySettings(renderKnownMinutes);renderKnownMinutes();
-    setInterval(()=>{knownMethods.render();renderKnownMinutes();},1000);
+    const refreshKnown=()=>{knownMethods.render();renderKnownMinutes();};
+    setInterval(()=>{if(!deferWhileHidden(refreshKnown,refreshKnown))refreshKnown();},1000);
 
     featureExpansionPanel=createFeatureExpansionPanel({read:()=>({...readProgression(),context:featureWaveContext(),battleView:featureBattleHost.view(),battleRunning:featureBattleHost.isRunning(),notice:featureBattleHost.pauseReason(),canWrite:ownsSave&&!foundationSaveBlocked&&!importProbeToken}),command:actFeatureExpansion,present:snapshot=>refinementPresentation(snapshot,expeditionRegistry,{base:featureWavePresentation,relayHost,referenceDeskHost,replacementContext:backlogContext})});
     if(foundationProbeEnabled)foundationInteractionPanel=createFoundationInteractionPanel({registry:expeditionRegistry,enabled:true,read:()=>({state:expansionState,context:expeditionContext(),enabled:ownsSave&&!foundationSaveBlocked&&!importProbeToken&&!nativeOccupationReason(),error:expansionError}),command:actFoundationInteraction});
@@ -9879,7 +9887,8 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
         effects:getCustomizationSettings(customization,'location',{season:current_game_time.getSeason()}).effects
     })});
     refreshCustomization();
-    setInterval(()=>{quietPlaceDetail.render();workLedgerPanel?.render();customizationPanel?.refresh();if(!workspaceOwns(customizationHost)&&!customizationHost.isConnected)document.getElementById('location_actions_div')?.append(customizationHost);workLedgerAuthor?.refresh();},250);
+    const pollDisplays=()=>{quietPlaceDetail.render();workLedgerPanel?.render();customizationPanel?.refresh();if(!workspaceOwns(customizationHost)&&!customizationHost.isConnected)document.getElementById('location_actions_div')?.append(customizationHost);workLedgerAuthor?.refresh();};
+    setInterval(()=>{if(!deferWhileHidden(pollDisplays,pollDisplays))pollDisplays();},250);
     villageCareerControls = createVillageCareerControls({read:()=>({state:villageCareer,study:watchcraftPresentation(villageCareer,watchcraftKnown()),hasNotes:!!character.getItems()[item_templates[WATCHCRAFT_BOOK].getInventoryKey()],
         visible:current_location?.id==='Village' && expansionState.actors.player.worldId==='base.frontier' && !current_dialogue && !current_combat && !is_sleeping && !is_reading && !is_in_trade() && !current_game_action,
         canWrite:ownsSave&&!foundationSaveBlocked&&!importProbeToken,
@@ -10046,7 +10055,8 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
             reason:optionalPackState.packs.authored_site?.active?'Return to the Village from the site to change it.':''}),
         apply:draft=>commandAuthoredSite('apply',draft),reset:()=>commandAuthoredSite('reset'),openSite:()=>openWorkspaceModule('optional-worlds'),
         download:(name,text)=>{const url=URL.createObjectURL(new Blob([text],{type:'application/json'})),a=document.createElement('a');a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),0);}});
-    setInterval(()=>authoredSiteEditor.refresh(),500);
+    const refreshSiteEditor=()=>authoredSiteEditor.refresh();
+    setInterval(()=>{if(!deferWhileHidden(refreshSiteEditor,refreshSiteEditor))refreshSiteEditor();},500);
     registerWorkspaceModule({id:'customization-sites',title:'Original site',node:authoredHost,home:'center'});
     mountWorkspace();
     refreshCustomization();

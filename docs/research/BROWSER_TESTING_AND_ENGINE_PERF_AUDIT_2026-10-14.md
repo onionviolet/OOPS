@@ -312,3 +312,61 @@ for the developed A/B, spikes to 95-335 during later checks.
   not exercised in a browser. The remaining developed cost is the feature
   panel's closed-but-shown presentation and dry-run facts on plan copies
   (`applySimulationEffects`). D4 and D3 can start on these files now.
+
+## D4 result, 2026-10-14 night
+
+Branch `claude/wave-a-loop-53c42e` on `claude/engine-perf-wave` `7504a1e4`.
+Interleaved A/B against `7504a1e4`'s build on the developed fixture (workshop
+`natural-final-save.json`, clock 66). Host load 226-422 during the A/B, so read
+ratios, not absolute times. [Raw results](../gm/dispatch/engine-perf-2026-10-14/results/) (`d4-*`).
+
+- **Seam.** `deferWhileHidden(key, refresh)` in `src/simulation_render.js`. While
+  `document.hidden`, a display refresh is remembered (latest per key) instead of
+  run. The `visibilitychange` that reveals the document runs each one once, in
+  that task, before the first visible frame paints.
+- **What waits while hidden** (`src/main.js`): the publication render batch
+  (`renderPublicationPanels`, still inside one frame), the publication's own
+  display refreshes (time, vitals, inventory, storage stamps, item log, world
+  identity), the per-tick panel list, the clock panels `update_timer` repeats
+  after each joined-clock publication, the panels after each durable save, the
+  export reward button, effect and temperature displays, and the 250 ms, 500 ms
+  and 1 s display polls in `main.js`.
+- **What still runs:** ticks, simulation, staging, durable saves, log messages,
+  title announcements, `refreshCustomization` (gameplay reads its
+  `data-effects` attribute), and the structured pack panel's 250 ms poll
+  (it dispatches repeated work, so it is gameplay).
+- **Headless caveat.** Headless Chrome never reports a background tab as
+  hidden, so the checks override `document.hidden`/`visibilityState` in an init
+  script and fire a real `visibilitychange`. A real hidden tab also stops rAF,
+  so it can only cost less.
+- **Hidden vs visible, head build, per 20 s window:**
+
+  | Rep | Visible task busy | Hidden task busy | Ratio per wall second | Ratio per tick | Long tasks visible → hidden |
+  | --- | --- | --- | --- | --- | --- |
+  | 1 | 25.2% | 6.7% | 0.27× | 0.22× | 17 → 4 (max 62 ms) |
+  | 2 | 29.5% | 4.9% | 0.17× | 0.14× | 17 → 0 |
+
+  The hidden page runs about 25% more ticks per window (63 vs 51 durable
+  writes per minute), because visible long tasks delay the next tick; per tick
+  is the fairer engine ratio. Base build hidden: 26.0% and 23.7% (no change).
+  **Target ≤ 0.2× met in rep 2 only.** The rest is gameplay staging: context
+  builds in `persistExpansion` and `advanceChroniclePlan` (about 45% of hidden
+  JS-busy) plus two polls outside this lane's files (below).
+- **Reveal.** 30 deterministic ticks (`advanceTicks(30,{render:true})`) on an
+  always-visible page and on a hidden page, then reveal: `#main_content` text
+  stale before the reveal, identical line for line to the visible page right
+  after it, saves identical. Rendered stepping cost 8.1 s visible vs 1.2 s hidden.
+- **det.** 20 game minutes natural ticks, base visible vs head hidden (minute
+  1986 → 2006, clock 86): byte-identical.
+- **Checks.** Full suite 1724 tests, 1721 pass, 0 fail, 3 todo (+3 hidden-seam
+  tests). Systems workshop browser 10/10 (dev-stepped, 38 s). Perf gate
+  `--base 7504a1e4`: PASS on fresh, mid and crowded, det identical on all three
+  (load 115-265, browser numbers flagged unreliable).
+- **Patch proposals, not this lane's files.** `src/workspace_views.js` runs its
+  250 ms render (`updateWorkspace`) while hidden: about 7% of hidden JS-busy.
+  `src/structured_pack_ui.js` reads the full structured projection every 250 ms
+  even with no repetition pending: about 10%. Both could skip while
+  `documentHidden()` and re-render on reveal (`deferWhileHidden`), the pack
+  panel only when no repetition is active.
+- **Acceptance backlog.** A real background tab in headed Chrome (rAF and timer
+  throttling on top of the skip) was not exercised.
