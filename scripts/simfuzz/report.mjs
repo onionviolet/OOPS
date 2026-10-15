@@ -64,6 +64,11 @@ export async function writeReport({results, seeds, steps, workers, wall, from = 
         const g = byGroup[row.group] ||= {total: 0, eligible: 0, committed: 0, route: row.route};
         g.total++; if (eligible.has(row.key) || committed.has(row.key)) g.eligible++; if (committed.has(row.key)) g.committed++;
     }
+    const guarded = {};
+    for (const r of main) for (const [k, v] of Object.entries(r.guarded || {})) {
+        const why = (r.rejected?.[k] || '').match(/publication guard (\w+)/)?.[1] || '?';
+        guarded[why] = (guarded[why] || 0) + v;
+    }
     const layerErrors = {};
     for (const r of main) for (const [k, v] of Object.entries(r.layerErrors || {})) layerErrors[k] = (layerErrors[k] || 0) + v;
 
@@ -90,6 +95,7 @@ export async function writeReport({results, seeds, steps, workers, wall, from = 
     L.push(`- Ever eligible: ${[...new Set([...eligible, ...committed])].length}. Committed at least once: ${committed.size}. Never eligible: ${catalog.filter(r => status(r) === 'never eligible').length}.`);
     for (const [fx, set] of Object.entries(initial)) L.push(`- Eligible at the start of fixture \`${fx}\` (full sweep, step 1): ${set.size}.`);
     L.push(`- Invariant failure groups: ${groups.size}. Determinism reruns: ${determinism.filter(d => d.equal).length}/${determinism.length} identical.`);
+    if (Object.keys(guarded).length) L.push(`- Plans refused by main.js publication guards (counted as host rejections, not failures): ${Object.entries(guarded).map(([k, v]) => `${k} x${v}`).join(', ')}.`);
     if (E.loadErrors.length) L.push(`- Harness import gaps: ${E.loadErrors.join('; ')}.`);
     if (Object.keys(layerErrors).length) L.push(`- Context layers that threw on the synthetic context (skipped, harness gap): ${Object.entries(layerErrors).map(([k, v]) => `${k} x${v}`).join(', ')}.`);
     L.push('');
@@ -132,7 +138,7 @@ export async function writeReport({results, seeds, steps, workers, wall, from = 
         statusCounts: catalog.reduce((a, r) => (a[status(r)] = (a[status(r)] || 0) + 1, a), {}),
         commands: Object.fromEntries(catalog.map(r => [r.key, status(r)])),
         failures: [...groups.values()].map(g => ({kind: g.kind, signature: g.sig, count: g.count, seeds: [...g.seeds], repro: {seed: g.best.seed, step: g.best.step}, action: g.best.action, detail: g.best.detail})),
-        determinism, policies, timing, layerErrors, loadErrors: E.loadErrors};
+        determinism, policies, timing, guarded, layerErrors, loadErrors: E.loadErrors};
     fs.writeFileSync(path.join(dir, 'results.json'), JSON.stringify(json, null, 1) + '\n');
     return ['REPORT.md', 'COMMANDS.md', 'results.json'].map(f => path.join(dir, f));
 }

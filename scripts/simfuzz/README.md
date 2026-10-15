@@ -64,6 +64,17 @@ same context layers as main.js `buildFeatureWaveContext`, in order. A layer that
 throws is skipped and counted as a harness gap in the report. Facts that need
 the live native game (skill levels, zone access, weather) are fixed values.
 Advances pass per-actor simulation contexts shaped like `simulationNativeContexts`.
+Equipment comes from the fixture envelope (Item.createInventoryKey codec) and
+stays fixed: the harness has no native item registry to publish changes into.
+
+Every accepted plan then passes main.js `persistExpansion`'s final publication
+guards (`assertBacklogPublication`, `validateAuditRemainderNative`,
+`validateGameAbsorptionAssay`, `assertQualifiedOfficePlan`). A plan they refuse
+is never saved by the game, so the harness drops it and counts a host
+rejection. The rest of `persistExpansion` (native publication, reconcilers,
+schema bump) is lane C's headless runner, not this harness.
+The save round-trip writes the synthetic money, bags and full vitals into the
+envelope before `decodeSaveFile`, as the host's publication would.
 
 ## Policies
 

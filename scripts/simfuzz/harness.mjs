@@ -127,12 +127,21 @@ export async function loadEngine() {
         const fn = await pick(f, n);
         if (fn) openers[k] = (s, r, c) => call(fn, s, r, c);
     }
+    // main.js persistExpansion's final publication guards: a plan they refuse is
+    // never saved, so the harness treats it as a host rejection.
+    const guards = [];
+    for (const [f, n, call] of [
+        ['backlog_expansion_host.js', 'assertBacklogPublication', (fn, prev, plan) => fn(prev.state, plan)],
+        ['audit_remainder_facts.js', 'validateAuditRemainderNative', (fn, prev, plan) => fn(plan.state, plan.gameplay)],
+        ['game_absorption_assay_facts.js', 'validateGameAbsorptionAssay', (fn, prev, plan, reg) => fn(plan.state, reg, plan)],
+        ['feature_expansion_book_host.js', 'assertQualifiedOfficePlan', (fn, prev, plan, reg, ctx) => fn(prev.state, plan, {id: plan.backlogCommand}, ctx)],
+    ]) { const fn = await pick(f, n); if (fn) guards.push({name: n, check: (prev, plan, reg, ctx) => call(fn, prev, plan, reg, ctx)}); }
     const layers = [];
     for (const [f, n, withRegistry] of CONTEXT_LAYERS) {
         const fn = await pick(f, n);
         if (fn) layers.push({name: n, fn, withRegistry});
     }
-    return {engine, sim, registry: content.expeditionRegistry, saveFiles, backlog, workPlan, frame: render.withSimulationFrame, hosts, openers, layers, loadErrors};
+    return {engine, sim, registry: content.expeditionRegistry, saveFiles, backlog, workPlan, frame: render.withSimulationFrame, hosts, openers, layers, guards, loadErrors};
 }
 
 // ---------- seeded RNG (independent of the engine's own state.rng) ----------
@@ -170,7 +179,12 @@ export function fixturePlan(E, name) {
     for (const [id, p] of Object.entries(state.simulation?.people || {}))
         if (id !== 'player' && p.inventory === 'native') gameplay[id] = {inventory: inv(id), skills: {}, reputation: {}};
     const location = save['current location'] || 'Village';
-    return {save, plan: {state, external: {money: save.character?.money ?? 0}, gameplay}, location};
+    // Equipment keys use the native Item.createInventoryKey codec, as
+    // validateBacklogEnvelope reads them, so context and envelope agree.
+    const equipmentKey = item => JSON.stringify({...(item.components ? {components: item.components} : {id: item.id}), ...(item.quality ? {quality: item.quality} : {})});
+    const equipment = {player: Object.fromEntries(Object.entries(save.character?.equipment || {}).filter(([, i]) => i).map(([slot, i]) => [slot, equipmentKey(i)]))};
+    for (const [id, slots] of Object.entries(save.npc_equipment || {})) if (gameplay[id]) equipment[id] = Object.fromEntries(Object.entries(slots).filter(([, k]) => k));
+    return {save, plan: {state, external: {money: save.character?.money ?? 0}, gameplay, equipment}, location};
 }
 
 const VITALS = Object.freeze({health: 60, max_health: 60, stamina: 40, max_stamina: 40});
@@ -181,7 +195,7 @@ export function baseContext(E, plan, location, extra = {}) {
     const inv = plan.gameplay.player?.inventory || {};
     return {
         actorId: 'player', worldId: plan.state.actors.player.worldId, external: plan.external, gameplay: plan.gameplay,
-        vitals: vitalsByActor, vitalsByActor, equipment: {}, nativeAlive: true, nativeReady: true, busy: false, targetId: null,
+        vitals: vitalsByActor, vitalsByActor, equipment: plan.equipment || {}, nativeAlive: true, nativeReady: true, busy: false, targetId: null,
         facts: {location, strength: 10, agility: 10, perception: 5, climbing: 0, 'day.hour': 9, calendarMinute: 9 * 60,
             'weather.raining': false, 'weather.damp': false, 'village.circleOpen': true, 'village.briefingActive': false,
             'village.elderMet': true, 'village.craftsmanMet': true, 'village.shackUnlocked': true, 'village.notesRead': false,
@@ -313,7 +327,15 @@ export function checkInvariants(E, prev, plan) {
 
 // save -> stringify -> decode/validate -> load -> equal
 export function roundTrip(E, plan, save) {
-    const envelope = {...save, expansion: plan.state, character: {...save.character, money: plan.external.money}};
+    // Publish the synthetic native snapshot into the envelope the way the
+    // host would: money, player and native NPC bags (counts), full vitals.
+    const inventories = structuredClone(save.inventories || {});
+    const bag = (old = {}, counts = {}) => Object.fromEntries(Object.entries(counts).filter(([, c]) => c > 0).map(([k, c]) => [k, {...(old[k] || {}), count: c}]));
+    inventories.person ||= {};
+    inventories.person.main_character = bag(inventories.person.main_character, plan.gameplay.player?.inventory);
+    for (const [id, g] of Object.entries(plan.gameplay)) if (id !== 'player') inventories.person[id] = bag(inventories.person[id], g.inventory);
+    const envelope = {...save, expansion: plan.state, inventories,
+        character: {...save.character, money: plan.external.money, hp_to_full: 0, stamina_to_full: 0}};
     const text = JSON.stringify(envelope);
     const encoded = E.saveFiles.encodeSaveFile(text);
     const decoded = E.saveFiles.decodeSaveFile(encoded, save['game version']);
@@ -332,7 +354,8 @@ function seqOf(plan) { return plan.state.sequence; }
 // The registry definitions are frozen; a returned plan must not alias them.
 function normalizePlan(out, prev) {
     if (!out || !out.state) throw new Error('host returned no plan');
-    return {state: out.state, external: out.external || prev.external, gameplay: out.gameplay || prev.gameplay};
+    // Equipment stays the fixture's: the harness has no native item registry to publish changes into.
+    return {state: out.state, external: out.external || prev.external, gameplay: out.gameplay || prev.gameplay, equipment: prev.equipment};
 }
 
 export function previewEligible(E, plan, row, ctx) {
@@ -459,6 +482,16 @@ export function staticCandidates(E, catalog, plan, ctx) {
     });
 }
 
+// Throws the first publication guard's refusal for this plan, if any.
+export function publicationGate(E, prev, out, ctx) {
+    const plan = {...out, equipment: out.equipment || prev.equipment || {}, vitals: out.vitals || ctx.vitalsByActor,
+        gameplay: out.gameplay || prev.gameplay, external: out.external || prev.external};
+    for (const g of E.guards) {
+        try { g.check(prev, plan, E.registry, ctx); }
+        catch (e) { throw new Error(`publication guard ${g.name}: ${e.message}`); }
+    }
+}
+
 // ---------- the fuzz run ----------
 export const POLICIES = ['random', 'greedy', 'adversarial'];
 export const policyForSeed = seed => POLICIES[seed % 3];
@@ -470,7 +503,7 @@ export function runSeed(E, catalog, {seed, steps, policy = policyForSeed(seed), 
     const {save, plan: start, location} = fixturePlan(E, fixture);
     let plan = start;
     const res = {seed, policy, fixture, steps: 0, eligible: new Set(), committed: new Set(), attempted: new Set(),
-        rejected: {}, previewThrew: {}, initialEligible: new Set(), failures: [], layerErrors: {}, adversarial: {tried: 0, rejected: 0, accepted: []},
+        rejected: {}, guarded: {}, previewThrew: {}, initialEligible: new Set(), failures: [], layerErrors: {}, adversarial: {tried: 0, rejected: 0, accepted: []},
         advances: 0, minutes: 0, roundTrips: 0, splitChecks: 0, commits: 0, events: [], timing: {}};
     const T = (k, f) => { const t = performance.now(); try { return f(); } finally { res.timing[k] = (res.timing[k] || 0) + performance.now() - t; } };
     const fail = (step, kind, detail, extra = {}) => {
@@ -526,6 +559,8 @@ export function runSeed(E, catalog, {seed, steps, policy = policyForSeed(seed), 
             try { out = T('advance', () => advance(E, plan, n, ctx)); }
             catch (e) { fail(step, 'advance-threw', e.message, {action: `advance ${n}`}); continue; }
             pure(step, prev, prevHash, `advance ${n}`);
+            try { T('guards', () => publicationGate(E, prev, out, ctx)); }
+            catch (e) { res.guarded[`advance`] = (res.guarded.advance || 0) + 1; res.rejected['advance'] ||= e.message.slice(0, 160); continue; }
             if (splitEvery && step % splitEvery === 0 && n > 1 && n <= splitMax) {
                 res.splitChecks++;
                 try { T('split', () => {
@@ -579,6 +614,8 @@ export function runSeed(E, catalog, {seed, steps, policy = policyForSeed(seed), 
             continue;
         }
         pure(step, prev, prevHash, row.key);
+        try { T('guards', () => publicationGate(E, prev, out, ctx)); }
+        catch (e) { res.guarded[row.key] = (res.guarded[row.key] || 0) + 1; res.rejected[row.key] = e.message.slice(0, 160); continue; }
         try { plan = accept(step, prev, out, row.key); }
         catch (e) { fail(step, 'plan-shape', e.message, {action: row.key}); continue; }
         res.committed.add(row.key); res.commits++;
