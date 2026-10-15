@@ -1,0 +1,82 @@
+{
+  "fixture": "existing disposable craft_ready.save.txt, craftsman access and two logs supplied; both complete LP2 paths earned through UI",
+  "viewport": "1366x768",
+  "results": [
+    {
+      "id": "rebuilt-served-bytes",
+      "detail": {
+        "sha256": "f280e82fa2f3a5cfb0bf43739ff74fc02dac4fee21c47de192969dfff674694d"
+      }
+    },
+    {
+      "id": "hand-one-evidence-reload-import",
+      "detail": {
+        "noMethod": true,
+        "exactState": true
+      }
+    },
+    {
+      "id": "hand-returned-import",
+      "detail": {
+        "returnOnce": true,
+        "noReward": true,
+        "noMethod": true
+      }
+    },
+    {
+      "id": "hand-pending-reload-import",
+      "detail": {
+        "jobFrozen": true,
+        "noMethod": true,
+        "coinsSpent": 1
+      }
+    },
+    {
+      "id": "hand-learned-import",
+      "detail": {
+        "methodAt": 13,
+        "teacher": "oldCraftsman",
+        "noDuplicateReward": true,
+        "kits": 1
+      }
+    },
+    {
+      "id": "demonstrate-one-evidence-reload-import",
+      "detail": {
+        "noMethod": true,
+        "exactState": true
+      }
+    },
+    {
+      "id": "demonstrate-returned-import",
+      "detail": {
+        "returnOnce": true,
+        "noReward": true,
+        "noMethod": true
+      }
+    },
+    {
+      "id": "demonstrate-pending-reload-import",
+      "detail": {
+        "jobFrozen": true,
+        "noMethod": true,
+        "coinsSpent": 1
+      }
+    },
+    {
+      "id": "demonstrate-learned-import",
+      "detail": {
+        "methodAt": 13,
+        "teacher": "oldCraftsman",
+        "noDuplicateReward": true,
+        "kits": 1
+      }
+    },
+    {
+      "id": "browser-errors",
+      "detail": {
+        "count": 0
+      }
+    }
+  ]
+}
