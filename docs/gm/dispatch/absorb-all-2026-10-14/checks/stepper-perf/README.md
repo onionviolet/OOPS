@@ -25,7 +25,12 @@ stepper comparisons, including the next resumed live tick and a household
 fuel burn across a due autosave. Combat transcript and batched log layout
 assertions are retained. Full disposable saves and screenshots are under
 `/tmp/stepper-perf-equivalence-final`, not player saves. Final gate metadata is
-in `final-gate.json`; full gate logs remain at its `out` path.
+in `final-gate.json`; full gate logs remain at its `out` path. Its raw RESULT is FAIL: the initial
+calendar VM fixture failed (subsequently fixed), and current-main legacy
+availability is not supported by this older base. `npm-final.json` records the
+corrected full suite. `legacy-base-comparison.json` proves the availability loss
+is byte-identical on the untouched base and candidate. P15 and Fort restoration
+passed the gate's built-in retries; no second gate script run was made.
 
 Reproduction (serve this worktree at 127.0.0.1:18980):
 

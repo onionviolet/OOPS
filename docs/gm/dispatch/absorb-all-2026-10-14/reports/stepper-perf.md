@@ -9,6 +9,8 @@ targets remain OPEN.
 Desktop target: 1366x768. Visible outcome: existing final panels and gameplay
 remain the same after synchronous advancement. Mobile optimization and product
 UI redesign remain deferred. No mechanics or taste decisions are introduced.
+Evidence is in the [lane worktree checks](/Users/weiwei/code/yair-absorb-all-20261014/stepper-perf/docs/gm/dispatch/absorb-all-2026-10-14/checks/stepper-perf/README.md)
+until integration; the relative evidence links resolve in that worktree.
 
 ## Changes and ownership
 
@@ -123,6 +125,6 @@ A1. The remaining authoritative integration gate is compatibility with the
 current-main old client. The coordinator should preserve its newer content while
 integrating these focused performance commits, then run its integration gate.
 This lane is **not gate-certified for merge** because its required run returned
-FAIL. No changed runtime path is left implemented-unverified by these checks;
-the outstanding performance limits are the 1000/200 targets and an attributable
+FAIL. Verification covers the recorded seven canonical comparisons and native groups.
+The outstanding performance limits are the 1000/200 targets and an attributable
 quiet-host measurement. No new human fiction/balance decision is introduced.
