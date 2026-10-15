@@ -312,3 +312,29 @@ for the developed A/B, spikes to 95-335 during later checks.
   not exercised in a browser. The remaining developed cost is the feature
   panel's closed-but-shown presentation and dry-run facts on plan copies
   (`applySimulationEffects`). D4 and D3 can start on these files now.
+
+## Wave 2 dispatch: faster engine, simulate everything, 2026-10-14 night
+
+Weibao asked how to make the engine much faster and able to test and simulate
+everything, and to send out all of it. Merge sweep first: `claude/engine-perf-wave`
+= D1 chain (first pass, AF1+AF2, D1) + layout + harness + perf gate. The gate
+branch's stale first-pass copies resolved to the rebased versions. Build OK; full suite
+1707 pass, 0 fail, 3 todo. Not merged into `absorb-all/integration`
+(coordinator-owned). Lanes start from the wave branch with disjoint files:
+
+| Lane | Work | Owns |
+| --- | --- | --- |
+| A loop | D4 hidden-tab render skip → D3 unchanged-write skip (loses at most playtime counters) → RT8 fast-forward/catch-up with yielding | `main.js`, persistence, `save_files.js`, `simulation_render.js` |
+| B state | Structural sharing instead of whole-state clones, incremental validation, scheduler due index | `expansion_engine.js`, `simulation.js`, `simulation_effects.js` |
+| C headless | Full-game Node runner (native + expansion) with real save/import paths | `scripts/headless/`, `tests/headless/` |
+| D simfuzz | Seeded engine bots over every registered command; invariants; coverage and repro seeds | `scripts/simfuzz/`, `tests/simfuzz/` |
+| E replay | `Math.random` → named streams outside core files; command-log record/replay | non-core `src/` RNG sites, `scripts/replay/` |
+| F checks | Migrate every browser check; cross-session test/browser queue | `scripts/*.cjs`, `scripts/test_queue.mjs` |
+| G render | Narrow render signatures, keyed rows, inventory/item log | five panel modules, `display.js` inventory/log functions |
+| H startup | Parse/boot/load measurement; esbuild splitting, lazy JSON/Ink | `build.js`, new loaders |
+| I combat | Deadline-scheduled attacks, rAF bars, outcome-identical replay | `src/models/combat.js` |
+
+Shared gates for every lane: interleaved A/B with host load recorded, `det.cjs`
+byte-identity where state is involved, `node --test` with 0 failures, the systems
+workshop browser check passing 10/10. Edits to files another lane owns come back as
+patch proposals. The long-session scaling lane (D5) is still running separately.
