@@ -23,3 +23,14 @@ Checks on the merged tree:
 Not included: LP4 (browser check still running on port 8202 after a port
 clash), LP2/LP3 (launch after this lands). Remaining gate: Weibao's play
 and taste.
+
+## LP4 follow-up merge
+
+LP4 finished its browser acceptance on port 8202 (`4a030ee3`). Merged onto
+the landed tip plus later docs commits (d40b80cb). Conflict: src/main.js
+panel init (kept the newer harvest panel line and added LP4's habitat
+panel line). npm test: 1473 tests, 1470 pass, 0 fail, 3 todo. LP4's
+browser script on the merged build: all checks, errors []. LP1's script
+as regression: 12 PASS. LP4 report note: a fresh chance replay spent 120
+wool over 24 failed ordinary cloth recipes (existing recipe odds, not LP4
+logic); flagged for balance.
