@@ -1,0 +1,543 @@
+[
+ {
+  "name": "1366x768-14 idle: companions beside actions, ticks move nothing, no overflow",
+  "g": {
+   "overlap": false,
+   "rows": "307px 371px",
+   "fit": "true",
+   "combat": "false",
+   "records": true,
+   "skills": true,
+   "recordsRegion": "actions",
+   "recordsTitle": "Journal",
+   "actionsOrder": [
+    "village-scene",
+    "current-work",
+    "local-actions",
+    "pane-navigation",
+    "records",
+    "skills"
+   ],
+   "log": [
+    955,
+    39,
+    394,
+    682
+   ],
+   "invRow": [
+    23,
+    420,
+    337,
+    20
+   ],
+   "action": [
+    381,
+    444,
+    318,
+    26
+   ],
+   "paneTab": [
+    373,
+    690,
+    113,
+    28
+   ],
+   "page": {
+    "w": 1366,
+    "h": 768,
+    "vw": 1366,
+    "vh": 768
+   }
+  }
+ },
+ {
+  "name": "1366x768-14 combat: Journal yields, top row fits, ticks move nothing",
+  "g": {
+   "overlap": false,
+   "rows": "304px 374px",
+   "fit": "true",
+   "combat": "true",
+   "records": false,
+   "skills": false,
+   "recordsRegion": "actions",
+   "recordsTitle": "Journal",
+   "actionsOrder": [
+    "village-scene",
+    "current-work",
+    "local-actions",
+    "pane-navigation"
+   ],
+   "log": [
+    955,
+    39,
+    394,
+    682
+   ],
+   "invRow": [
+    23,
+    417,
+    337,
+    20
+   ],
+   "action": null,
+   "paneTab": [
+    373,
+    690,
+    141,
+    28
+   ],
+   "page": {
+    "w": 1366,
+    "h": 768,
+    "vw": 1366,
+    "vh": 768
+   }
+  }
+ },
+ {
+  "name": "1366x768-14 NX33: every known panel has a route; Herbal experiments opens from More panels",
+  "box": {
+   "x": 995.3125,
+   "y": 0.296875,
+   "width": 168,
+   "height": 27
+  }
+ },
+ {
+  "name": "1366x768-14 GU2: a composition measure stays within one frame with 500 inventory rows (DOM proxy)",
+  "timing": {
+   "rows": 500,
+   "count": 5,
+   "max": 0.7000000178813934,
+   "mean": 0.5399999976158142
+  }
+ },
+ {
+  "name": "1366x768-21 idle: companions beside actions, ticks move nothing, no overflow",
+  "g": {
+   "overlap": false,
+   "rows": "387px 291px",
+   "fit": "true",
+   "combat": "false",
+   "records": true,
+   "skills": true,
+   "recordsRegion": "actions",
+   "recordsTitle": "Journal",
+   "actionsOrder": [
+    "village-scene",
+    "current-work",
+    "local-actions",
+    "pane-navigation",
+    "records",
+    "skills"
+   ],
+   "log": [
+    955,
+    39,
+    394,
+    682
+   ],
+   "invRow": [
+    23,
+    526,
+    337,
+    29
+   ],
+   "action": [
+    381,
+    535,
+    307,
+    34
+   ],
+   "paneTab": [
+    373,
+    685,
+    112,
+    33
+   ],
+   "page": {
+    "w": 1366,
+    "h": 768,
+    "vw": 1366,
+    "vh": 768
+   }
+  }
+ },
+ {
+  "name": "1366x768-21 combat: Journal yields, top row fits, ticks move nothing",
+  "g": {
+   "overlap": false,
+   "rows": "412px 266px",
+   "fit": "true",
+   "combat": "true",
+   "records": false,
+   "skills": false,
+   "recordsRegion": "actions",
+   "recordsTitle": "Journal",
+   "actionsOrder": [
+    "village-scene",
+    "current-work",
+    "local-actions",
+    "pane-navigation"
+   ],
+   "log": [
+    955,
+    39,
+    394,
+    682
+   ],
+   "invRow": [
+    23,
+    551,
+    337,
+    29
+   ],
+   "action": null,
+   "paneTab": [
+    373,
+    685,
+    140,
+    33
+   ],
+   "page": {
+    "w": 1366,
+    "h": 768,
+    "vw": 1366,
+    "vh": 768
+   }
+  }
+ },
+ {
+  "name": "1366x768-21 NX33: every known panel has a route; Herbal experiments opens from More panels",
+  "box": {
+   "x": 995.3125,
+   "y": 0.296875,
+   "width": 168,
+   "height": 27
+  }
+ },
+ {
+  "name": "1366x768-21 GU2: a composition measure stays within one frame with 500 inventory rows (DOM proxy)",
+  "timing": {
+   "rows": 500,
+   "count": 5,
+   "max": 0.9000000059604645,
+   "mean": 0.5200000047683716
+  }
+ },
+ {
+  "name": "1920x1080-21 idle: companions beside actions, ticks move nothing, no overflow",
+  "g": {
+   "overlap": false,
+   "rows": "429px 559px",
+   "fit": "true",
+   "combat": "false",
+   "records": true,
+   "skills": true,
+   "recordsRegion": "actions",
+   "recordsTitle": "Journal",
+   "actionsOrder": [
+    "village-scene",
+    "current-work",
+    "local-actions",
+    "pane-navigation",
+    "records",
+    "skills"
+   ],
+   "log": [
+    1402,
+    39,
+    501,
+    994
+   ],
+   "invRow": [
+    23,
+    570,
+    489,
+    29
+   ],
+   "action": [
+    535,
+    579,
+    487,
+    34
+   ],
+   "paneTab": [
+    527,
+    997,
+    170,
+    33
+   ],
+   "page": {
+    "w": 1920,
+    "h": 1080,
+    "vw": 1920,
+    "vh": 1080
+   }
+  }
+ },
+ {
+  "name": "1920x1080-21 combat: Journal yields, top row fits, ticks move nothing",
+  "g": {
+   "overlap": false,
+   "rows": "497px 491px",
+   "fit": "true",
+   "combat": "true",
+   "records": false,
+   "skills": false,
+   "recordsRegion": "actions",
+   "recordsTitle": "Journal",
+   "actionsOrder": [
+    "village-scene",
+    "current-work",
+    "local-actions",
+    "pane-navigation"
+   ],
+   "log": [
+    1402,
+    39,
+    501,
+    994
+   ],
+   "invRow": [
+    23,
+    638,
+    489,
+    29
+   ],
+   "action": null,
+   "paneTab": [
+    527,
+    997,
+    213,
+    33
+   ],
+   "page": {
+    "w": 1920,
+    "h": 1080,
+    "vw": 1920,
+    "vh": 1080
+   }
+  }
+ },
+ {
+  "name": "1920x1080-21 NX33: every known panel has a route; Herbal experiments opens from More panels",
+  "box": {
+   "x": 995.3125,
+   "y": 0.296875,
+   "width": 168,
+   "height": 27
+  }
+ },
+ {
+  "name": "1920x1080-21 GU2: a composition measure stays within one frame with 500 inventory rows (DOM proxy)",
+  "timing": {
+   "rows": 500,
+   "count": 5,
+   "max": 0.7000000178813934,
+   "mean": 0.6000000059604644
+  }
+ },
+ {
+  "name": "Journal nav opens the companion in the center and Back returns it (CZ7)",
+  "open": true,
+  "g": {
+   "overlap": false,
+   "rows": "307px 371px",
+   "fit": "true",
+   "combat": "false",
+   "records": true,
+   "skills": true,
+   "recordsRegion": "actions",
+   "recordsTitle": "Journal",
+   "actionsOrder": [
+    "village-scene",
+    "current-work",
+    "local-actions",
+    "pane-navigation",
+    "records",
+    "skills"
+   ],
+   "log": [
+    955,
+    39,
+    394,
+    682
+   ],
+   "invRow": [
+    23,
+    420,
+    337,
+    20
+   ],
+   "action": [
+    381,
+    444,
+    318,
+    26
+   ],
+   "paneTab": [
+    373,
+    690,
+    113,
+    28
+   ],
+   "page": {
+    "w": 1366,
+    "h": 768,
+    "vw": 1366,
+    "vh": 768
+   }
+  }
+ },
+ {
+  "name": "manual hide of the Journal companion survives reload (WX11, CZ6)",
+  "g": {
+   "overlap": false,
+   "rows": "307px 371px",
+   "fit": "true",
+   "combat": "false",
+   "records": false,
+   "skills": true,
+   "recordsRegion": "actions",
+   "recordsTitle": "Journal",
+   "actionsOrder": [
+    "village-scene",
+    "current-work",
+    "local-actions",
+    "pane-navigation",
+    "skills"
+   ],
+   "log": [
+    955,
+    39,
+    394,
+    682
+   ],
+   "invRow": [
+    23,
+    420,
+    337,
+    20
+   ],
+   "action": [
+    381,
+    444,
+    318,
+    26
+   ],
+   "paneTab": [
+    373,
+    690,
+    113,
+    28
+   ],
+   "page": {
+    "w": 1366,
+    "h": 768,
+    "vw": 1366,
+    "vh": 768
+   }
+  }
+ },
+ {
+  "name": "an older saved parity layout gains the companions once (CZ6)",
+  "g": {
+   "overlap": false,
+   "rows": "307px 371px",
+   "fit": "true",
+   "combat": "false",
+   "records": true,
+   "skills": true,
+   "recordsRegion": "actions",
+   "recordsTitle": "Journal",
+   "actionsOrder": [
+    "skills",
+    "records",
+    "village-scene",
+    "local-actions",
+    "pane-navigation",
+    "current-work"
+   ],
+   "log": [
+    955,
+    39,
+    394,
+    682
+   ],
+   "invRow": [
+    23,
+    420,
+    337,
+    20
+   ],
+   "action": [
+    381,
+    444,
+    318,
+    26
+   ],
+   "paneTab": [
+    373,
+    690,
+    113,
+    28
+   ],
+   "page": {
+    "w": 1366,
+    "h": 768,
+    "vw": 1366,
+    "vh": 768
+   }
+  }
+ },
+ {
+  "name": "a fresh character with no journal yet shows no Journal companion (CZ5)",
+  "g": {
+   "overlap": false,
+   "rows": "307px 371px",
+   "fit": "true",
+   "combat": "false",
+   "records": false,
+   "skills": false,
+   "recordsRegion": null,
+   "recordsTitle": "",
+   "actionsOrder": [
+    "village-scene",
+    "current-work",
+    "local-actions",
+    "pane-navigation"
+   ],
+   "log": [
+    955,
+    39,
+    394,
+    682
+   ],
+   "invRow": [
+    23,
+    420,
+    337,
+    20
+   ],
+   "action": [
+    381,
+    444,
+    559,
+    26
+   ],
+   "paneTab": [
+    373,
+    690,
+    141,
+    28
+   ],
+   "page": {
+    "w": 1366,
+    "h": 768,
+    "vw": 1366,
+    "vh": 768
+   }
+  }
+ }
+]

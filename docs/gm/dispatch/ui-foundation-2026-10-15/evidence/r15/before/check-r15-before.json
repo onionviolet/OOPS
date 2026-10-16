@@ -1,0 +1,18 @@
+[
+ {
+  "tag": "1366x768-14",
+  "fail": "1366x768-14: shell tags differ from native\n+ actual - expected\n\n+ []\n- [\n-   'open'\n- ]\n"
+ },
+ {
+  "tag": "1366x768-17.5",
+  "fail": "1366x768-17.5: shell tags differ from native\n+ actual - expected\n\n+ []\n- [\n-   'open'\n- ]\n"
+ },
+ {
+  "tag": "1366x768-21",
+  "fail": "1366x768-21: shell tags differ from native\n+ actual - expected\n\n+ []\n- [\n-   'open'\n- ]\n"
+ },
+ {
+  "tag": "1920x1080-21",
+  "fail": "1920x1080-21: shell tags differ from native\n+ actual - expected\n\n+ []\n- [\n-   'open'\n- ]\n"
+ }
+]

@@ -5,7 +5,7 @@ round plan accordingly? Aren't we iterating on ideas? r14 is the best thus far b
 working to finetune accordingly? More to consider? everything that I mentioned?"
 
 Planning only. No source, build, save, dispatch or commit follows from this file. Codes: **NX**
-(findings), **IT** (iteration rules), **WB** (workbench studies), **R15+** (native rounds). All
+(findings), **IT** (iteration rules), **WB** (workbench studies), **PX** (panel-extension proposals), **R15+** (native rounds). All
 unused elsewhere in this dispatch. Everything here is a proposal until Weibao plays it.
 
 ## What was wrong with the plan's shape
@@ -22,12 +22,12 @@ schedule becomes a ranked queue of small rounds.
 | Code | Rule | Replaces |
 | --- | --- | --- |
 | IT1 | **Baseline = best candidate so far.** R14 now. Each round freezes before/after on top of the previous round, as R14 did | W6 acceptance gate |
-| IT2 | **Rolling review.** Weibao plays any candidate when he likes. His feedback becomes a tune item in the next round or the next polish round; it never stalls the queue. Rejecting a round reverts only that round's owned paths | "Review backlog" constraint |
+| IT2 | **Rolling review.** Weibao plays any candidate when he likes. His feedback becomes a tune item in the next round or the next polish round; awaiting visual review does not stall the queue. A failed changed technical gate prevents promoting that candidate. Rejecting a round removes its owned changes, preserving later and unrelated edits; check dependent rounds before reversing a shared seam (NX20) | "Review backlog" constraint |
 | IT3 | **One gap per round, presentation before save.** A save-touching round runs alone, with migration and save/reload/export/import checks | Part-sized bundles |
 | IT4 | **The queue is a ranking, not a contract.** A regression or Weibao's feedback jumps the queue; evidence from a round can reorder the rest (UI_NEXT method: frequency × impact × low reversible cost) | Fixed Part order |
 | IT5 | **Each round reports at most five "what to look at" items**, keeps the inherited regression sweep and the three desktop targets (1366×768 at 14/21px, 1920×1080 at 21px) | — |
 | IT6 | **New ideas land in the next unstarted round's brief** or a workbench study. A new Part only when a new surface appears | New consideration rounds growing the doc |
-| IT7 | **Polish round every three or four rounds:** consistency debt in surfaces already touched (number format V18, placeholder glyphs F16/W5, row anatomy F20, tokens VC2) plus accumulated tune items | Deferred "finish slice" |
+| IT7 | **Polish round every three or four improvement rounds:** consistency debt in surfaces already touched (number format V18, placeholder glyphs F16/W5, row anatomy F20, tokens VC2) plus accumulated tune items. Bring the first checkpoint forward after R18, rather than waiting through R20; keep existing round IDs as planning references (NX21) | Deferred "finish slice" |
 | IT8 | **Mockups go through the shared workbench** ([MOCKUP_SYSTEM](../../../../MOCKUP_SYSTEM.md) MW1–MW7) and run in parallel with native rounds, since they touch no production source | Static PNG sets per lane |
 | IT9 | **Runtime rounds name their seam** ([ARCHITECTURE_RULES](../../../../ARCHITECTURE_RULES.md) AR1, AR14, AR15): new UI code lives in its own module and registers; check the modular-seams reservation before editing `main.js`, `display.js` or `save_files.js` | Ad hoc edits in core files |
 
@@ -36,31 +36,35 @@ schedule becomes a ranked queue of small rounds.
 Order follows how often a player meets the surface, then impact, then cost. Executor: strong model,
 high effort for every native round unless noted; Codex or Claude by availability.
 
+**Renumbered 2026-10-16 (R16, then R17):** the shell-default/density/composition round took R16 and the approved structural layout-spec + Step 0 round took R17, so each round queued before them moved up by two (old R16 inventory tabs is now R18, old R18 opponent board is R20, old R21 polish is R23, old R27 knowledge slice is R29). Links elsewhere in this plan that name the old numbers mean the same rounds.
+
 | Round | One gap | Detail and codes | Save? | What it needs first |
 | --- | --- | --- | --- | --- |
-| **R15** | **Combat place descriptor restored**: type tags back in the combat header, focusable, hover/focus/Enter tooltip parity, Esc | Part 2 descriptor subset, L2/SF243, NX4 | No | Nothing. Fixes a known R14 regression |
-| R16 | Inventory category tabs with native counts, Favorites kept, stable known tabs, explicit clear filter | UI_NEXT P2, Part 1, UX13, L4, NX2 (panel-scoped preference); fixtures include a fight in progress at 21px (WR11) | No | WB1 strip placement helps, not required |
-| R17 | Inventory rows and item detail anatomy; selection by item key | Part 1, L5, L6, UX14, NX10 (500-row tick time); detail as hover, pinned or inspector per WB1 pick (WR24) | No | R16 |
-| R18 | Opponent board sized by count (1, 2–4, 5–8, 9+ rows), defeated stay identifiable, cards read through an all-known projection shape | Part 2 board, B1, UX17, R2, W4 | No | WB2 helps |
-| R19 | Combat log: per-encounter letters on events, dealt/taken tokens, quieter misses, ×N collapse of equivalent lines, custom palettes | Part 2 log, R1/W3/IL55, C2, C3, A5, UX18; milestone lines distinct (B6) | No | IT9 seam for the combat-text change |
-| R20 | Reports category tabs replace the hidden Filters menu; full place inspection (date, weather, temperature grouped) | K8, SF230; temperature links to its native cold/heat effect (B7) | No | R19 |
-| R21 | **Polish 1** (IT7) plus Weibao's tune items from R15–R20; empty-state lines for discovered but empty routes (F16, WR61) | VC2, V18, F16 | No | — |
-| R22 | You panel: Standard/All attribute sets, gear inline vs Equipment tab | Part 3, IL56, NX11; done check measures the selected tab's facts visible without scrolling at 1366×768 14/17.5/21px (WR42) | No | — |
-| R23 | Status-effect chips (countdown only for known duration), derived-stat breakdowns, bar text backing | Part 3, X1–X3, V19, V21, UX21 | No | R22 |
-| R24 | Activity clarity on mining and foraging: readiness, cycle, yields known, output home; inspect elsewhere without cancelling | Part 7, AVE6; evaluate `action_legibility_ui` first. Second consumer: the existing management crop flow (`src/management/shipping_farming.js`), presentation only (WR77) | No | Projection agreement only (complexity A1) |
-| R25 | **Idle Focus / Around you clean-up:** services show native ready/keeper facts, place prose shortened with a full-reading route, known connected places as a list with travel time (Part 9 list baseline MP6) | UI_NEXT P4, P9S1–P9S2, WR19 | No | Travel quote check (P9F4) for exact times; otherwise label as quoted |
-| R26 | **Polish 2:** plus Climb lessons if still wanted (stat identity colors L1, exchange dividers) | IT7, WR49 | No | — |
-| R27 | **Knowledge slice:** namespaced `bestiary_knowledge` save slice through the domain registry, LR8 migration, LR1 learn-by-fighting, first-sight impressions (LR9) | Part 4, KL20–KL28, NX5, AR2, AR6 | **Yes**, runs alone | Docs-only route freeze (NX5, NX6); modular-seams M2 registry if landed, else an explicit compatibility note. Strongest model |
-| R28 | One hover popup owner: provenance per fact, learn-more hints, log subjects, Bestiary | Part 4, LR10, L9, SF250 | No (reads R27) | R27 |
-| R29+ | Learning routes one per round: Perception (LR2), creature books (LR3), examine (LR4), testimony/butchering (LR6) | Round 11 LR table | Maybe | R28 |
+| **R15** | **Combat place descriptor restored**: type tags back in the combat header, focusable, hover/focus/Enter tooltip parity, Esc | Part 2 descriptor subset, L2/SF243, NX4 | No | Nothing. Fixes a known R14 regression **Status 2026-10-16:** technically complete, visual acceptance open ([report](../R15_REPORT.md)) |
+| **R16** | **Shell default, density pass, idle and combat compositions** (Weibao's "core first" feedback, IT4 jump): parity shell opens when no presentation is stored; chrome sized to content; top row follows content; Journal and Skills companions beside the actions; Around you as rows | Feedback: core first; WX2–WX7, WX10, WX11, CZ1–CZ9, CTL9/CTL18 subset | No (browser-local layout spec 1) | Nothing. **Status 2026-10-16:** technically complete, visual acceptance open ([report](../R16_REPORT.md)) |
+| **R17** | **Structural layout spec + Step 0** (approved 2026-10-16): the game looks identical before and after at the three targets; `shell_composition.js` decisions (top-row rule, `companionsFor`) become per-context UIE20 spec data with the measuring host kept as the fit engine; R16c's region-height block lifts out whole; preview page and bundle on the existing factory panel contract | [Ground-up restructure](#ground-up-restructure-more-to-consider-2026-10-16) GU1–GU6 (GU5 proposal), GU8; NX37, NX38, PV2–PV4, PV8 | No (browser-local layout identity mapped or shell layout reset with a notice, GU6) | R16 landed (done); engine merge landed (ae42e850e), so registry projections are available per GU8. **Status 2026-10-16:** technically complete, preview review open ([report](../R17_REPORT.md)); includes R17a, a fix to the R16c top-row ratchet, kept as a separate step |
+| R18 | Inventory category tabs with native counts, Favorites kept, stable known tabs, explicit clear filter | UI_NEXT P2, Part 1, UX13, L4, NX2 (panel-scoped preference); fixtures include a fight in progress at 21px (WR11) | No | WB1 strip placement helps, not required |
+| R19 | Inventory rows and item detail anatomy; selection by item key | Part 1, L5, L6, UX14, NX10 (500-row tick time); detail as hover, pinned or inspector per WB1 pick (WR24) | No | R18 |
+| R20 | Opponent board sized by count (1, 2–4, 5–8, 9+ rows), defeated stay identifiable, cards read a public projection shape; all-known is a labelled fixture case, alongside unknown/partial readings (NX22) | Part 2 board, B1, UX17, R2, W4 | No | WB2 helps; R29 still owns learning/persistence |
+| R23 | **Polish 1, brought forward after R20** (IT7): inventory/combat whole-journey review, Weibao's available tune items, empty-state lines for discovered but empty routes (F16, WR61) | VC2, V18, F16, NX21, NX23 | No | R15–R20; ID retained so existing links remain valid |
+| R21 | Combat log: per-encounter letters on events, dealt/taken tokens, quieter misses, ×N collapse of equivalent lines, custom palettes | Part 2 log, R1/W3/IL55, C2, C3, A5, UX18; milestone lines distinct (B6) | No | IT9 seam for the combat-text change |
+| R22 | Reports category tabs replace the hidden Filters menu; full place inspection (date, weather, temperature grouped) | K8, SF230; temperature links to its native cold/heat effect (B7) | No | R21 |
+| R24 | You panel: Standard/All attribute sets, gear inline vs Equipment tab | Part 3, IL56, NX11; done check measures the selected tab's facts visible without scrolling at 1366×768 14/17.5/21px (WR42) | No | — |
+| R25 | Status-effect chips (countdown only for known duration), derived-stat breakdowns, bar text backing | Part 3, X1–X3, V19, V21, UX21 | No | R24 |
+| R26 | Activity clarity on mining and foraging: readiness, cycle, yields known, output home; inspect elsewhere without cancelling | Part 7, AVE6; evaluate `action_legibility_ui` first. Second consumer: the existing management crop flow (`src/management/shipping_farming.js`), presentation only (WR77) | No | Projection agreement only (complexity A1) |
+| R27 | **Idle Focus / Around you clean-up:** services show native ready/keeper facts, place prose shortened with a full-reading route, known connected places as a list with travel time (Part 9 list baseline MP6) | UI_NEXT P4, P9S1–P9S2, WR19 | No | Travel quote check (P9F4) for exact times; otherwise label as quoted |
+| R28 | **Polish 2:** plus Climb lessons if still wanted (stat identity colors L1, exchange dividers) | IT7, WR49 | No | — |
+| R29 | **Knowledge slice:** namespaced `bestiary_knowledge` save slice through the domain registry, LR8 migration, LR1 learn-by-fighting, first-sight impressions (LR9) | Part 4, KL20–KL28, NX5, AR2, AR6 | **Yes**, runs alone | Docs-only route freeze (NX5, NX6); modular-seams M2 registry if landed, else an explicit compatibility note. Strongest model |
+| R30 | One hover popup owner: provenance per fact, learn-more hints, log subjects, Bestiary | Part 4, LR10, L9, SF250 | No (reads R29) | R29 |
+| R31+ | Learning routes one per round: Perception (LR2), creature books (LR3), examine (LR4), testimony/butchering (LR6) | Round 11 LR table | Maybe | R30 |
 | R3x | Footer: truthful save state, Save/Export/Import, Settings, Help, About/Credits; freed space for every-minute facts only if WB3 shows one (M9) | Part 5 footer, UX16 | No | — (can move earlier) |
 | R3x | View placement: which views open where (local vs center vs bottom tabs), Proto23 bottom-tab center views kept | UR41, WR21, WR32 | No | WB7 |
-| R3x | Control strips for Skills, Crafting and other panels, once Inventory and Reports prove a shared strip | UX24, WR64 | No | R16, R20 |
+| R3x | Control strips for Skills, Crafting and other panels, once Inventory and Reports prove a shared strip | UX24, WR64 | No | R18, R22 |
 | R3x | Trip tally from recorded events | B11, P9 | No | Reopen when an event projection exists for visits |
 | R3x | Navigation from the WB3 result | UX7–UX12 | No | WB3 + Weibao's pick |
 | R3x | Pursuits box with pins stored by one existing owner | Part 5, NX3, UX20, R5 | **Yes**, runs alone | Footer round |
-| Later | Sense of place native slice (Village + one route) as a diagram, building on R25's list; place knowledge from exploring, being told and bought maps (WR93) | Part 9, P9E1, CX1–CX8 | No | WB4 + travel quote check (P9F4) |
-| Later | Cheat host pilot on the status-window card | Part 10, NX7 | No | WB5 + R28 popup owner |
+| Later | Sense of place native slice (Village + one route) as a diagram, building on R27's list; place knowledge from exploring, being told and bought maps (WR93) | Part 9, P9E1, CX1–CX8 | No | WB4 + travel quote check (P9F4) |
+| Later | Cheat host pilot on the status-window card | Part 10, NX7 | No | WB5 + R30 popup owner |
 | Later | Special monsters, enemy effects; one real site | Parts 6, 8 | Content | Reopen when enemy tags/effects have a producer (content owner: enemy data in `src/data/`) or Weibao picks a site journey |
 
 ## Workbench studies (parallel, no production source)
@@ -177,3 +181,530 @@ Read NEXT_PARTS in full, the complexity review, Part 9 direction, room-to-world,
 openness headings, `knowledge.md` route lines, R14 report/checkpoint, UI_NEXT ranking, MOCKUP_SYSTEM,
 ARCHITECTURE_RULES and the modular-seams checkpoint. NX2, NX3 and NX11 come from reading
 `src/display_settings.js` and `src/main.js:6661,6794,8578`; nothing was run. NX4's count is a grep.
+
+## Further consideration: extensible panels and smaller iteration costs, 2026-10-16
+
+Weibao: "more to consider based on that?", clarified as:
+"UI extension and additions? like narrowing a bannel to fit another useful panel?
+Modulizing everything underneath to allow better iterations and implementatio and
+improvemets and more?"
+
+The desired outcome is an extensible screen backed by replaceable modules. The
+specific layouts, contracts and sequence below are proposals. This remains a
+planning pass, not authorization to launch rounds or restructure runtime code.
+Apply **AD6–AD8, AD32, AD34, AD36; UR6–UR17, UR41–UR58; AR1–AR16**.
+Target: 1366×768 at 14/21px and 1920×1080 at 21px; inspect 17.5px when a width
+threshold changes the result. Mobile, a framework migration and an unrestricted
+nested docking editor remain outside this proposed first slice.
+
+### ACT NOW: plan corrections completed
+
+| Code | Evidence and consequence | Correction |
+| --- | --- | --- |
+| NX20 | **stated:** IT2 promised reversal by owned paths, while NX9 says rounds repeatedly share UI files. **Inferred:** restoring a whole file could erase later rounds or another writer's work. R14 already records frozen builds and source hashes in `R14_CHECKPOINT.md` and `R14_REPORT.md`. | IT2 now reverses owned changes with dependent-round review. Before a future round, retain source patch/input identity and frozen review assets; a commit is a separate authorized action, not a prerequisite to preserving a baseline. NX16's commit recommendation is not an added gate. Save-changing reversals retain their compatibility decision. |
+| NX21 | **stated:** IT7 said polish every three or four rounds, but R15–R20 contained six improvements before R21. | Move the existing R21 checkpoint after R18, retaining IDs for reference. Review one connected inventory/combat journey there. Later polish cadence follows delivered improvement rounds, not the numeric labels. |
+| NX22 | **stated:** R18 specified an all-known projection; AD8 and `knowledge.md` KL24/KL25 require learned opponent numbers with scoped exceptions. **Inferred:** an all-known fixture could accidentally become the renderer's production default. | R18 now names a public projection with unknown/partial/all-known fixture cases. Missing knowledge does not mean all-known. R27 still owns learning and persistence; before it lands, report inherited native disclosure as legacy behavior, not completed AD8 behavior. Add no new truth reads to populate cards. Unknown fixtures prove rendering capability, not an integrated knowledge system. |
+
+### ACCOUNT FOR NOW: make extensions fit the screen and the code
+
+| Code | Source observation and implication | Proposed default, dial and reason | First consumer and observable done check |
+| --- | --- | --- | --- |
+| PX1 | **stated:** `src/workspace_state.js:6–7,16–20` normalizes three column shares and module dimensions. `src/workspace_layout.js:297–307` resizes a docked panel by changing its whole column; floating panels have independent widths. **Inferred:** narrowing just You does not necessarily free a side-by-side slot beside You. | Distinguish a column resize from a local split. Reuse the current mover for column changes. Where one panel needs a companion, compare a local two-pane composition inside the same registered home against a stacked/tabbed companion. Extend the layout owner only if that actual comparison needs a missing capability. No new global mover per feature. | WB9 compares You + existing Equipment comparison in one area while Inventory and the full-height log remain useful. Record which sibling widths changed. A dock slider moving every sibling is not evidence of independent local resizing. **Improved 2026-10-16:** WB9 starts from the shipped Crafting beside/below split (NX25), then adds You + Equipment comparison as the second case; both are layout-spec entries (NX29), not separate movers |
+| PX2 | **stated:** `definePanel` accepts identity/home/eligibility/settings, but no content-derived width requirements (`src/panel_kit.js:7–12`); workspace uses generic clamps. **Inferred:** being resizable does not establish that a panel remains useful when narrowed. | For each touched panel, describe essential visible facts, preferred/minimum useful width at the selected text size, compact/expanded composition and overflow route. Start with local measured styles and shared tokens; promote common metadata only when a second consumer uses it. A compact form rearranges facts and moves detail to an explicit route rather than silently dropping the current action or shrinking text. | WB9 records readable content and control reachability at each proposed width. If two useful minima do not fit, stack, tab or expand the companion with a visible return path. Available width, not viewport width alone, decides the form. **Improved 2026-10-16:** widths are UIE20 spec fields per text size; PX6 applies them through container queries on the panel shell |
+| PX3 | **stated:** `src/workspace_views.js` already registers `equipment-comparison` and `current-work`; UR11 protects status/current work/log, UR41 gives views appropriate homes. **Inferred:** adding a permanent new box for every feature would reproduce the earlier crowded screen. | Add panels when simultaneous reading changes a decision: equipment comparison beside an item, known route context beside travel, or ingredients beside a recipe. Reuse existing panels/projections first. Default to a stable optional companion slot for the current task, with an explicit open/close action; context can recommend it without rearranging a pending click. Keep its previous occupant reachable. | First pilot uses Equipment comparison, not a new domain. Compare simultaneous facts gained against displaced facts, scroll and repeated switching. Opening/closing the companion preserves current work, selection and log follow state. No automatic new default for existing saved layouts. **Improved 2026-10-16:** first pilot is the craft detail dial generalized to a per-shell slot (NX25); Equipment comparison is the second consumer that proves reuse |
+| PX4 | **stated:** workspace already separates state, layout, navigation and disclosure; `panel_kit` registers panels. However, `parityRegion()` and `makeShellLayout()` in `src/workspace_layout.js:16–43` encode specific feature IDs, and `src/ui/combat_display.js:7` still imports `main.js`. **Inferred:** files called modules do not yet imply replaceable feature boundaries. | Keep domain state/commands/public projection with their domain; keep view rendering/local selection with the panel; let the workspace own placement and lifecycle; keep appearance in shared components/tokens. Inject narrow operations into a view. Move existing structure in a separate behavior-preserving round (AR9) before altering that seam's behavior. Trace the modular-seams owner before choosing registration changes. | Extract only the touched inventory/comparison seam first. A second panel should reuse placement/inspection behavior without another feature-ID branch in the layout host or another import from `main.js`. Count core files and bespoke joins touched, not extracted files. Register/unregister/reopen checks cover cleanup and duplicate handlers. **Improved 2026-10-16:** the view contract is the existing factory `create…Panel({container, read, command})` (NX37); "replaceable" is measured by mounting in preview without `main.js` in its import closure (PV1) |
+| PX5 | **stated:** `workspace_state.js:16–23` reconstructs layout from currently registered IDs; `unregisterWorkspaceModule()` normalizes and saves the remaining layout (`workspace_layout.js:474–478`). **Inferred:** using unregister for temporary absence can discard remembered placement; splitting/renaming a module can also strand preferences. | Keep stable IDs for existing homes. Temporary undiscovery/ineligibility uses the existing visibility policy, not destructive unregister as a hiding shortcut. When a real split changes layout identity, explicitly map the old layout to the new one or document a scoped reset, preserving unrelated preferences. Move an existing owned node or render read-only companions; do not clone command-bearing DOM. | Existing custom layout → enable companion → hide/reopen → reload preserves positions/pins and one working command route. Missing/undiscovered content stays unnamed. If a save envelope changes, use the save round gate; browser layout compatibility still needs checking when gameplay saves do not change. **Improved 2026-10-16:** layout identity maps live in the UIE20 spec with a spec version; preview never writes layout keys (PV3) |
+
+These are design constraints for selected extensions, not a demand to modularize
+the entire application before R15. Reuse the related engine proposals
+[UIE1–UIE12](../../../../ENGINE_EXPANSION.md#ui-engine-support-for-design-and-iteration-2026-10-16)
+for refresh, projection, navigation and cleanup instead of inventing another UI
+runtime here.
+
+### Whole-screen checks and feedback applicability
+
+**NX23, ACCOUNT FOR NOW.** **Stated:** R16/R18 already stress Inventory and
+combat separately; UR57 and UIE12 require changing-state journeys. **Inferred:**
+a separately successful narrow panel can crowd its neighbor or hide the facts
+needed for an action. Use one shared synthetic journey: fight in progress →
+filter inventory → inspect/compare an item → return/resume. For a future
+companion pilot, also open/close it during this journey. Measure useful facts
+visible together, switching/scroll cost and retained subject/focus. Pick the
+relevant transition (item disappears, opponent count crosses a layout threshold,
+or companion opens), rather than taking the full Cartesian product of all
+stress fixtures. This is a selected scenario within existing completion gates,
+not another full suite. No inspection step should run a gameplay command.
+
+**NX24, ACCOUNT FOR NOW.** **Stated:** MW2 permits a focused pane study only
+when its question does not depend on surrounding composition. **Inferred:** WB1
+and WB2 alone cannot answer PX1–PX3. Record each study's baseline, fixture,
+text size, layout variant and the journey its comparison can answer. Feedback
+on an earlier candidate stays attached to that candidate; check whether its
+reported problem still exists before carrying a fix into a changed layout.
+Shared tokens do not prove a workbench adapter matches the current native shell.
+
+### LATER / DELEGATE: bounded extensions, no dispatch
+
+| Candidate | Level / effort | Trigger and done check |
+| --- | --- | --- |
+| **WB9: whole-screen companion study** | Balanced design/tracing, medium effort | Next UI-extension study. Show baseline, narrower-summary + Equipment comparison, and stacked/tabbed alternative on identical state at the target sizes. Explain displaced content and choose a reversible proposed default. Keep real/simulated/absent parts explicit. Feeds the next unstarted relevant brief under IT6; does not block R15. **Improved 2026-10-16:** run natively on the preview host once Step 0 exists; before that, as a native round candidate on the craft split (NX25) |
+| **Native companion pilot** | Strong, high effort if shared placement/lifecycle changes; balanced, medium for a view-local adapter | After WB9 resolves a material layout question and implementation is authorized. One useful Equipment comparison journey on a rebuilt origin, stable return/focus and existing layout compatibility. Existing required build/test/browser gates apply; human visual acceptance stays distinct. |
+| **Second-consumer proof** | Balanced, medium effort; strong review if command/save ownership changes | After the pilot, only when another real task needs a companion. Reuse the seam for known route context or ingredient inspection. Demonstrate fewer core joins and retained domain-specific rules. If reuse still needs host-specific branches, revise that seam before generalizing. |
+
+### Settled without asking and evidence limits
+
+Already answered: extensibility is wanted, the Proto23 composition remains the
+baseline, desktop comes first, and AR rules favor progressive domain boundaries.
+Derived: narrowness must be judged by useful content at actual text size, and
+layout state must stay separate from gameplay authority. Reversible proposal:
+Equipment comparison is the first companion study because it already exists.
+Uncertainty requiring evidence: the best split, minimum widths and native parity
+behavior require WB9 and rebuilt browser exercise. No consequential preference
+question is required to save these proposals; none of the sizes/layouts is
+presented as accepted.
+
+This pass read current source and docs, corrected the queue and appended these
+considerations only. No runtime, tests, build, browser, personal save, dispatch,
+commit or push was performed. Documentation checks below cover this edit only;
+historical verification above retains its original scope.
+
+Documentation verification: a Python comparison against the pre-edit snapshot
+confirmed all prior lines retained except the four intended queue/rule rows and
+the code declaration; one R21 queue entry follows R18; NX20–NX24, PX1–PX5 and WB9
+are present; all 14 local linked files exist. No runtime check was needed for
+this planning-only edit.
+
+## Further consideration, round 2: extension seams already in the layout host, 2026-10-16
+
+Weibao repeated the same question ("UI extension and additions? like narrowing a bannel to fit
+another useful panel? Modulizing everything underneath ...") with `/more-to-consider`. Per AGENTS.md
+a repeat means expand: this round adds angles the first pass (PX1–PX5, NX20–NX24, WB9) did not
+cover, found by reading `src/workspace_layout.js`, `src/panel_kit.js`, `styles/crafting_detail.css`
+and the `main.js` URL switches. Planning only, same targets and deferrals as round 1. Codes
+continue: NX25, PX6–PX10.
+
+### ACT NOW: correction to round 1
+
+| Code | Evidence | Correction |
+| --- | --- | --- |
+| NX25 | **stated:** a local split with a placement choice already ships. Crafting detail sits `beside` or `below` its list (`workspace_layout.js:151–153`, `styles/crafting_detail.css:67–69`), stored under its own key `yairpg.craft-detail.v1` and applied as a root attribute `data-craft-detail-place`. Round 1 called Equipment comparison the first companion because "it already exists" but missed this working precedent | WB9 adds Crafting beside/below as the **existing baseline** for a local split. The companion pilot generalizes that dial when Equipment comparison becomes its second consumer, instead of building a fresh mechanism. **Inferred risk:** the dial lives on `document.documentElement`, so a second panel with its own placement would share one global attribute; scope it to the panel's shell when generalizing |
+
+### ACCOUNT FOR NOW: seams a narrow or added panel will hit
+
+| Code | Source observation and implication | Proposed default, dial and reason | Observable done check |
+| --- | --- | --- | --- |
+| PX6 | **stated:** the only width switch is the viewport query `(max-width: 1000px)` (`workspace_layout.js:428`), which swaps the whole layout and its storage key. **Inferred:** text size does not move the viewport, so at 1366×768 and 21px every column keeps the "wide" form with far fewer characters per line; a narrowed panel never learns it is narrow | Default: each panel's compact/expanded form follows its **own inline size** (CSS container queries on the panel shell, thresholds in `rem`/`ch` so text size shifts them). Keep the 1000px whole-layout switch as is (mobile stays deferred). Dial: a panel may declare no compact form and fall back to scroll | The same panel at the same column width shows the same form at 1366 and 1920; at 21px it switches to compact at a wider column than at 14px. No JS resize loop added per panel |
+| PX7 | **stated:** `makePreset` (`workspace_layout.js:107`) hard-codes about 20 module IDs in two orders (narrow and wide) plus a separate "context" ID set; `parityRegion()` (lines 38–43) is a third list. A panel missing from them sorts to position 999. **Inferred:** every new panel needs a layout-host edit, which is the bespoke join PX4 wants to stop counting up | Default: `definePanel` accepts a placement hint (region, order weight, context flag) as data; presets read hints, with the current lists kept as overrides until each ID migrates. The move is structural only (AR9): its own round, no behavior change | Before/after preset output is identical for every existing ID. A test panel registered with a hint lands in its declared region with zero edits to `workspace_layout.js` **Improved 2026-10-16:** implemented as UIE20 spec content, not `definePanel` hints (NX29) |
+| PX8 | **stated:** besides gameplay-saved `DISPLAY_SETTINGS` (NX2) and browser-local panel settings, the layout host keeps five ad hoc `localStorage` keys: shell, layout, composition, colors, craft detail (`workspace_layout.js:10–13, 96, 148–153`). **Inferred:** each new companion or form dial adds another key and another hand-written validator | Default: new panel-local dials go through `registerPanelSettings` (browser-local, not exported). An old key migrates only when its round touches it: read it once, write the new setting, then stop reading it. Never put layout dials into global `DISPLAY_SETTINGS` (that changes the save envelope, NX2) | An existing `below` craft-detail choice survives the move and a reload. Export/import of a gameplay save is byte-unchanged by layout dials **Improved 2026-10-16:** spec references panel settings; migration of the five keys happens only for keys a round touches |
+| PX9 | **stated:** one build can already show two presentations: `selectShell` with `yairpg.presentation.proto23-shell.v1` toggles the shell, and localhost-only `structured_candidate` and probe URL params gate candidates (`main.js:373–376`). **Inferred:** IT2's rolling review is cheaper if Weibao can flip R(n−1) and R(n) on the same save in the same build | Default: a round whose change is a presentation swap may ship its old form behind a localhost-only candidate param for side-by-side review. Reason and cost: switches left in place become permanent branches, so each one expires at the next polish round (IT7), deleted on promote or reject | Both forms render from identical state on a fresh origin. The polish round's report lists live switches; the count does not grow from one polish round to the next **Improved 2026-10-16:** for presentation swaps, a preview link over the same fixture is the cheaper first choice; an in-game switch only when the swap needs live ticks (PV5) |
+| PX10 | **inferred:** a companion opened beside its subject must keep a sensible keyboard path. If placement uses CSS `order` or grid placement that differs from DOM order, Tab and screen-reader order no longer match what is seen. UIE4 covers selection survival, not tab order | Default: insert the companion's node right after its subject in the DOM; placement CSS only changes geometry, never reading order | Tab from the subject's last control reaches the companion's first control; Esc or close returns focus to the subject |
+
+### LATER / DELEGATE
+
+| Candidate | Level / effort | Trigger and done check |
+| --- | --- | --- |
+| **Generic panel contract sweep** | Balanced, medium | Once PX2 minimum widths and PX7 hints exist as data. One sweep iterates every registered panel: register, render at its declared minimum width at 14/21px, hide and reopen, unregister, then checks no leaked handlers and no undiscovered label text (UIE9, UIE12, UI rules). This is the first concrete use of the round-1 LATER reopen trigger for the ~150 `check-r*.cjs` scripts; it replaces per-round panel lifecycle checks, not journey checks |
+| **Placement-hint migration** | Balanced, small to medium | After PX7's structural round. Move one ID set per touched round from the hard-coded lists to hints; done when `makePreset` has no feature IDs left |
+
+### Evidence limits
+
+Read only: the files named above plus round 1 and UIE1–UIE16 headings in
+[ENGINE_EXPANSION](../../../../ENGINE_EXPANSION.md). Nothing was built, run or opened in a
+browser. PX6's "fewer characters at 21px" is inferred from the viewport query, not measured.
+No round, dispatch, commit or push follows from this section.
+
+## Joint schedule with the modular engine plan, 2026-10-16
+
+Weibao: "ajudt other pklans accordingly? combining engine plan with round 15 to work together?
+more to conisder?" This section is the one place where UI rounds and the modular-seams engine lane
+are sequenced together. The [modular brief](../../modular-seams-2026-10-16/BRIEF.md) (MP12) and
+[ENGINE_EXPANSION UI round 4](../../../../ENGINE_EXPANSION.md#round-4-joint-schedule-with-ui-round-15-2026-10-16)
+point here instead of keeping their own copy. Planning only: no run, merge, dispatch or commit.
+
+### Live state the schedule rests on (shown, 2026-10-16 11:30)
+
+| Code | Evidence | Consequence |
+| --- | --- | --- |
+| NX26 | **shown:** commit `a595d4768` "UI R13+R14 baseline, UI rules and mockup workbench" holds the R13/R14 source hunks, `UI_RULES.md` and `MOCKUP_SYSTEM.md` | **NX16 resolved.** IT1's frozen baseline exists in git; the engine lane receives it on its next `git merge codex/gameplay-foundations` |
+| NX27 | **shown:** `codex/modular-seams` (`3b24c469c`) is not an ancestor of HEAD; `src/domain_registry.js` and `scripts/check_architecture.mjs` do not exist on this branch | IT9's `check:arch`, R27's "M2 registry if landed" and UIE13's open refresh are **not available to UI rounds yet**. Every UI dependency on them waits on one merge, which is Weibao's call (brief: "the merge back is Weibao's or the coordinator's call") **Resolved 2026-10-16:** the engine lane merged `codex/modular-seams` into this branch (HEAD `ae42e850e`); `domain_registry.js` and `npm run check:arch` now exist here |
+| NX28 | **shown:** the shared tree carries other sessions' uncommitted edits to `main.js`, `save_files.js`, `simulation*.js`; the lane merges only the committed branch | A UI round that edits `main.js` or `display.js` adds merge reconciliation on top of that. UI rounds keep those files at zero lines where possible and at registration lines otherwise (AR1, IT9) |
+| NX17 | still **shown:** `ARCHITECTURE_RULES.md`, the modular BRIEF, CHECKPOINT and `runs/launch.py` remain staged deletions with the files on disk | Unchanged. Any UI or engine commit uses explicit pathspecs |
+
+### ACT NOW: overlaps between the two plans, resolved in the docs
+
+| Code | Overlap | Resolution |
+| --- | --- | --- |
+| NX29 | Two layout-data proposals: PX7 placement hints on `definePanel` and UIE20's layout spec (regions, slots, companions, minimum useful width) | **One owner: UIE20.** PX7's hints become the spec's first content (region and order per panel, replacing the lists in `makePreset`/`parityRegion`). PX2/PX6 widths are spec fields; PX6's container-width forms are how the spec is applied in CSS. PX8 dials are panel settings the spec refers to. No separate hint mechanism is built |
+| NX30 | UIE24 Step 0 makes `crafting_detail.js` the first real view; the stopped M3 lane owns the crafting home (`crafting_home.js`, `crafting_domain.js`) on its branch | **One writer on crafting UI at a time.** Step 0 starts after M3 is fixed and merged, or Step 0 picks its first view only after checking that lane's M3 diff does not touch `crafting_detail.js` and its styles. NX25's beside/below dial then becomes the first companion the spec expresses, which is also UIE26's trigger |
+| NX31 | UIE25 converts the touched panel inside each round; IT3 says one gap per round | Conversion is how the round lands its gap, not a second gap. Default: convert in the same round. Dial: if conversion would cost more than the gap itself, the round ships its gap unconverted and the panel converts on its next touch. The report says which happened |
+| NX32 | UIE13 proposes one open/publication refresh through `deferSimulationRender`; R16–R18 add panels and tabs that must be correct when opened while paused (UIE1) | Before the merge, UI rounds add no per-panel open-redraw timers or second refresh path; they reuse the existing render batching. After the merge, shell panels register on the same hook |
+
+### Joint sequence (proposal)
+
+Two writers run in parallel only on disjoint files: the engine lane in its own worktree, UI rounds
+in the shared checkout.
+
+| Step | Engine lane (`codex/modular-seams` worktree) | UI rounds (shared checkout) | Gate between them |
+| --- | --- | --- | --- |
+| J1 | MP2 recovery, then the M3 fix in the brief's order: UIE15 harness check, UIE13 open refresh, UIE14 first failing reason | **R15** combat descriptor (`ui_tokens.css`, combat header; no `main.js`) | None. Disjoint files |
+| J2 | **Merge of passed rounds** (proposal): M1 and M2 already passed per the lane report. Merging them without waiting for M3 makes `check:arch` and the registry available sooner. Needs Weibao's yes and a re-run of M1/M2 gates on the current base, since inputs changed | Rounds keep going | Weibao's merge decision |
+| J3 | M3 completes its retained gate, then merges by the same decision | R16 inventory tabs, without conversion if Step 0 has not landed | — |
+| J4 | — (no lane writer on UI files) | **UIE24 Step 0**, structural round run alone, reserves `workspace_layout.js`, `panel_kit.js`, `src/ui/preview/`, `prototypes/workbench/`. Absorbs PX7 for the IDs it moves | After J3 (NX30). If J2/J3 land quickly, run Step 0 **before R16** so Inventory is not rebuilt twice. **Amended by NX40:** Step 0 can start with an existing factory panel and no longer waits for M3 |
+| J5 | M4 (one cause crossing pursuits), separately recorded | R17, R18, R21 polish with UIE25 conversion; WB9 as a native companion pilot on the craft beside/below dial (NX25, UIE26) | M4 and any UI round never share a file in one step |
+| J6 | MP8–MP10 only on triggers | **Pursuits box** waits for M4's pursuit projection and its quote/receipt path; **R24 activity clarity** reuses M4's path if landed, else `action_legibility` projections; **R27 knowledge** uses the merged registry (drop the "else compatibility note" fallback once J2 lands) | R27 and the pursuits box each run alone (save) |
+
+### Shared verification, not a second suite
+
+- One scenario library: the M1 kept Playwright save scenario (new game, actions, Save, reload,
+  Export, Import) is the save tail of NX23's journey (fight → filter inventory → inspect → return).
+  UI save rounds and engine rounds call the same script.
+- After J2, every UI round also runs `npm run check:arch`; the baseline only shrinks. The existing
+  `src/ui/combat_display.js` import of `main.js` is a baseline entry: R15 and R19 add none, and
+  removing it is its own structural change (AR9).
+- After Step 0, a converted panel's done check adds the UIE25 preview render; screenshots at the
+  three targets from fixtures can then replace that panel's round-specific `check-r*.cjs` capture.
+
+### More to consider for the joint plan
+
+| Code | Consideration | Disposition |
+| --- | --- | --- |
+| NX33 | **inferred:** the lane brief's "out of scope" excludes UI beyond the M3 crafting home, and this plan excludes engine work from UI rounds. Nothing yet owns a defect that sits on the seam (a stale panel caused by a missing registry refresh) | ACCOUNT FOR NOW: a seam defect goes to whichever writer owns the file that changes; the reporting side files it in this section's table, not in a new doc |
+| NX34 | **inferred:** UIE17 projections and AR8 domain projections are the same object once a domain registers `projection`. Two shapes for one panel would drift | ACCOUNT FOR NOW: a registered domain's `projection` **is** the panel's view model; UI rounds add fields there rather than building a view-only model beside it |
+| NX35 | **inferred:** UIE23 fixture capture exports projections from a live session. Before Step 0, R16–R18 build fixtures by hand (FX00) | ACCOUNT FOR NOW: keep hand fixtures in the projection's shape so capture can replace them later without rewriting checks |
+| NX36 | **stated:** the brief requires the lane to record a reconciliation note for shared dirty files at merge | LATER: when a UI round edits a file in the lane's reserved set (`main.js`, `display.js`, `save_files.js`), the round's report lists it so the lane's next merge sees it |
+
+## Addressing the round 3 blockers and costs, 2026-10-16
+
+Weibao pasted the round 3 answer ([UIE17–UIE26](../../../../ENGINE_EXPANSION.md#round-3-one-renderer-for-the-game-and-its-mockups-2026-10-16):
+why mockups do not look like the real game) and asked: "how can we address these too?" Each
+blocker and cost it named now has a remedy, the round that lands it and a measurable done check.
+A source pass changed two of round 3's premises (NX37, NX38). Proposals only; no source, build,
+dispatch or commit.
+
+### ACT NOW: corrections from source (stated, read 2026-10-16)
+
+| Code | Evidence | Correction |
+| --- | --- | --- |
+| NX37 | Round 3 says one panel (`crafting_detail.js`) "already works the right way". **Stated:** 49 `src/*_ui.js` feature panels already use an injected factory, `create…Panel({registry, read, command})` or `({container, read, act})`, and none import `main.js` or `display.js` | The problem is concentrated in the **core screen** (`display.js` panels, `village_workspace.js`, shell CSS), not in every panel. Adopt the existing factory as the view contract rather than a new `render(root, model, handlers)` signature: `read()` returns the model, `command`/`act` carries intents (UIE18, UIE19). `renderCraftingDetail(root, model, handlers)` stays as the stateless inner form a factory may call |
+| NX38 | **Stated:** the factory panels have two gaps. `read()` often returns raw state (`createBodyPanel` reads `state.simulation` and `context.facts`, `src/body_ui.js:18`), and panels mount themselves into legacy homes (`document.getElementById("location_actions_div")`, `body_ui.js:20`, `expedition_ui.js:14,60`) | Raw-state panels mount fine in preview over **hand-made** fixtures. UIE23's capture button is limited to panels whose `read()` is an observer-safe projection: capturing raw state could copy sealed truth into a fixture file (sealed-secrets rule). A panel becomes capturable when its round gives it a projection and an injected `container` from the layout spec |
+| NX39 | The pasted report flagged three USER_VISION lines missing against HEAD. **Shown:** a line diff finds one real change. The carryover paragraph was reworded to point at [RULES_FROM_SCRATCH](../../../../RULES_FROM_SCRATCH.md#what-no-free-carries-and-no-generic-conversion-meant); the other flagged block (Subsystem ladders, Part 9, Architecture rules) was moved, not lost | Done: the replaced wording is restored in USER_VISION, marked as superseded 2026-10-16 history beside the new text (AGENTS.md: preserve superseded wording as dated history) |
+
+### ACCOUNT FOR NOW: one remedy per blocker
+
+| Code | Blocker (measured 2026-10-16) | Remedy and round | Done check (count only shrinks) |
+| --- | --- | --- | --- |
+| NX40 | **Preview needs a first real panel.** Round 3 picked crafting detail, which waits on M3 (NX30) | Step 0 mounts one or two existing factory panels **not owned by M3** first (for example a location-actions panel) plus the placeholder boxes. Crafting detail joins once M3 merges. A separate preview entry (its own HTML page and `src/ui/preview/` entry bundled by `build.js`) avoids touching `main.js`, which the lane reserves | Step 0 no longer waits for J3. The game bundle is byte-identical in behavior; preview shows real factory panels from fixtures **Improved 2026-10-16:** preview build reuses the `scripts/build_nethack_preview.mjs` pattern (second bundle, fingerprint, receipt) rather than editing `build.js` (PV2) |
+| NX41 | **Shell is a CSS skin:** `styles/ui_tokens.css` has 1,405 lines, 758 `#main_content` selectors, 90 `display:none` declarations and 27 distinct legacy `#…_div` IDs | Each round that converts a panel replaces that panel's legacy-ID selectors with slot and component selectors from the layout spec (UIE20, UIE26). No big-bang CSS rewrite. NX4's route check and NX19's parse check stay in the sweep | The UI sweep prints the three counts; a round may not raise them. Done for a region when the spec owns it and it has zero legacy selectors |
+| NX42 | **Workspace reads legacy DOM:** `src/village_workspace.js` reads `#enemies_left_div`, `#clear_count_div`, `#location_description_div` (twice), `#temperature_tooltip`, and `#main_content` 12 times | Each value becomes a projection field when its round touches it: place tags and description in **R15** (descriptor), enemies-left and clear count in **R18** (opponent board), temperature in **R20** (place inspection). `#main_content` lookups go when Step 0 hands the workspace its root | One fewer legacy read per touching round; preview of that region needs no legacy DOM |
+| NX43 | **`main.js` importers:** 12 modules, including `display.js` and `src/ui/combat_display.js` | Not a UI-round job. Lane M1 already moves `display.js`'s imports to a leaf and handles mechanical others; UI rounds get that through J2. Until then, UI rounds add no `main.js` import; R19 removes `combat_display.js`'s import as its own structural step if M1 left it (AR9) | After J2, `check:arch` baseline lists no UI file the rounds touched **Improved 2026-10-16:** R15 cannot convert: `combat_display.js` pulls 580 modules including `main.js` and `display.js` (PV1); R15 ships its gap unconverted (NX31 dial) |
+| NX44 | **`display.js`:** 6,716 lines, 358 `document.` references | No rewrite. A touching round first moves the panel's code out as a structural step (same behavior, own commit), then changes behavior: Inventory in R16/R17, opponents in R18, log in R19, You in R22. The moved panel takes the factory form (NX37) | `display.js` line count drops for every converted panel; check:arch reports it after J2 |
+
+### ACCOUNT FOR NOW: the two costs round 3 named
+
+| Code | Cost | Remedy | Done check |
+| --- | --- | --- | --- |
+| NX45 | **Two users for one data shape** (game and preview) | Each projection carries a `version` and a declared field list. The preview host validates a fixture against it, so a stale fixture fails as a fixture error rather than drawing a blank panel. A round that changes a projection updates its fixtures in the same change; one owner, the panel's domain. Hand fixtures follow the projection shape now (NX35) | Changing a projection without its fixture fails the preview check **Improved 2026-10-16:** projection `version` is not a save version; it never enters the save envelope |
+| NX46 | **Tick cost if panels redraw whole** | Keep the existing batching (`deferSimulationRender`, UIE3) and memo keys that cover every input (UIE16). Preview gives a cheap benchmark: render the 500-row, 9-opponent fixtures N times without ticks. Add a keyed-row helper only if that number regresses (round 3's own condition) | Each converted panel records render time at its stress fixture; NX10's tick measurement stays the in-game check |
+
+### What this changes in the joint schedule
+
+- J4 Step 0 is no longer blocked on M3 (NX40). It still runs alone and still reserves the layout
+  files, so it fits between R15 and R16 whenever Weibao wants the preview.
+- The conversion load per round (UIE25, NX31) is smaller than round 3 estimated for factory panels
+  and larger for the `display.js` panels in R16–R22; the structural step (NX44) is where that cost
+  goes.
+- Nothing here needs the lane merge except NX43's `check:arch` report.
+
+## Improved ideas and preview feasibility, 2026-10-16
+
+Weibao: "improve all the ideas accordingly, and then /more-to-consider". Earlier rows are improved
+in place: each changed row ends with **Improved 2026-10-16** and keeps its original text (PX1–PX5,
+PX7–PX9, NX40, NX43, NX45, WB9 here; UIE18, UIE22–UIE25 in
+[ENGINE_EXPANSION round 3](../../../../ENGINE_EXPANSION.md#round-3-one-renderer-for-the-game-and-its-mockups-2026-10-16)).
+New codes PV1–PV8. Proposals only.
+
+### How the ideas fit now
+
+1. **Contract:** the existing panel factory `create…Panel({container, read, command})`; `read()`
+   becomes an observer-safe projection when its round touches it (NX37, NX38, UIE17–UIE19).
+2. **Layout data:** one UIE20 spec holds regions, slots, companions, order and minimum useful
+   widths per text size; PX2, PX6, PX7 and PX8 are fields or uses of it (NX29).
+3. **Preview:** a separate page and bundle, storage stubbed, mounting real factory panels over
+   fixtures (UIE22, NX40, PV2, PV3).
+4. **Convert by touch, gated by import closure:** a panel converts when its round touches it and
+   its closure is free of `main.js` and `display.js` (UIE25, NX31, NX44, PV1).
+5. **Companion:** the shipped Crafting beside/below split becomes the first spec slot; Equipment
+   comparison proves reuse second (NX25, PX1, PX3, WB9).
+
+### Feasibility measured (shown: esbuild metafile over each entry, nothing executed)
+
+| Entry | Modules in closure | Includes `main.js` / `display.js` |
+| --- | --- | --- |
+| `crafting_detail.js` | 2 | no / no |
+| `action_legibility_ui.js` | 1 | no / no |
+| `event_feed_ui.js`, `harvest_ui.js`, `village_workspace.js` | 11, 16, 12 | no / no |
+| `workspace_layout.js`, `panel_kit.js` | 5, 6 | no / no |
+| `body_ui.js`, `expedition_ui.js`, `exchange_ui.js` | 242–243 (simulation closure) | no / no |
+| `src/ui/combat_display.js` | 580 | **yes / yes** |
+
+### More to consider (PV)
+
+| Code | Evidence | Disposition |
+| --- | --- | --- |
+| PV1 | **shown**, table above. The workspace, panel kit and most factory panels already bundle without the game core; the combat display does not | **ACCOUNT FOR NOW.** Import closure is the objective "can this panel preview?" test. A small script printing each registered panel's closure joins the UI sweep; after J2 it can fold into `check:arch`. R15 ships unconverted; combat converts after the lane cuts its `main.js` import |
+| PV2 | **stated:** `scripts/build_nethack_preview.mjs` already builds a second bundle (`dist/nethack-fieldcraft-preview.js`) with a fingerprinted HTML entry and a hash receipt; `dist/` is tracked and `dist/bundle.js` is already dirty from other sessions | **ACCOUNT FOR NOW.** The preview build copies that script's pattern with its own entry. Default: the preview bundle is a local dev artifact and stays out of git, so shared-branch `dist/` churn does not grow. Dial: track it only when Weibao wants a hosted review link |
+| PV3 | **stated:** the workspace writes layout to `localStorage` on change (`workspace_layout.js:96`), and the game stores saves there too. **Inferred:** a preview page on the same origin as the game would share those keys | **ACCOUNT FOR NOW, Step 0 done check.** Preview runs with injected in-memory storage (or its own port/origin). After a preview session, the game's layout and save keys are byte-identical. Personal saves stay untouched by rule |
+| PV4 | **inferred:** the 242-module simulation closure has not been checked for import-time side effects (timers, storage, globals) | **ACCOUNT FOR NOW, Step 0.** Preview boot asserts zero timers registered and zero storage writes before any panel mounts; any module with import-time effects is listed and wrapped, not silently imported |
+| PV5 | **stated:** R14 served a per-round demo page (`r14-demo.html`) and comparison page; PX9 proposes in-game switches | **ACCOUNT FOR NOW.** Once preview exists, a round's review artifact is a preview link per fixture, before and after; this replaces per-round demo pages and most in-game switches. IT2 rolling review becomes "open these links" |
+| PV6 | **stated:** browser checks load Playwright from a Codex runtime path through `YAIRPG_PLAYWRIGHT` (`prototypes/workbench/check.cjs:1`); `node_modules` has only esbuild and inkjs, no DOM library | **ACCOUNT FOR NOW.** Renderer checks run in the preview page through the same Playwright resolver; no new dependency. **Risk:** if that runtime path moves, every UI check breaks at once. LATER: one shared resolver helper for all check scripts (balanced, small; done when every UI check resolves Playwright from one place) |
+| PV7 | **stated:** `origin` is a public fork (AGENTS.md); sealed secrets must not reach Weibao outside their discovery route | **ACCOUNT FOR NOW.** Committed fixtures carry observer-safe content only. Fixtures for sealed worlds live in gitignored private paths; fixture file names and IDs follow the NX6 leak matrix |
+| PV8 | **inferred:** preview screenshots mislead if preview uses different text size, palette or density than the game (NX24) | **ACCOUNT FOR NOW.** Preview applies the real display-setting defaults and actual text size through the same tokens, never the user's stored preferences. Done check: a converted panel's preview at 21px matches its native screenshot geometry at the target viewport |
+
+### LATER / DELEGATE
+
+| Candidate | Level / effort | Trigger and done check |
+| --- | --- | --- |
+| Closure report script (PV1) | Balanced, small | Before Step 0. Lists each registered panel and whether its closure reaches `main.js`/`display.js`; output pasted in the Step 0 report |
+| Step 0 with PV2–PV4 and PV8 built in | Strong, medium to large (unchanged from UIE24) | After R15 or whenever Weibao wants the preview; runs alone. Done adds: storage keys unchanged after preview, zero import-time timers/writes, preview geometry matches native for its first factory panel |
+
+### Evidence limits
+
+Closure counts come from an esbuild metafile build of each file with `write: false`; no module
+was executed. PV3 and PV4 are inferred from source reading. Nothing was built into `dist/`, run
+in a browser, committed or dispatched.
+
+## Whole-screen composition: narrowing to fit useful panels everywhere, 2026-10-16
+
+Weibao, with a screenshot of the classic layout on a fresh character
+([saved](../evidence/wx-classic-fresh-weibao-2026-10-16.webp)): "how narrowing panels to fit
+other useful panels and how the whole screen works together, beyond just You and Equipment.
+/more-to-consider Update and save accordingly". Codes WX1–WX14, unused elsewhere. Proposals only.
+Target stays 1366×768 at 14/21px and 1920×1080 at 21px; the screenshot's viewport is unknown
+(image 2000×941), so its proportions are evidence of the pattern, not measurements at a target.
+
+### What the screenshot shows (shown, read by eye)
+
+| Region | Content on a fresh Village character | Rough unused share |
+| --- | --- | --- |
+| Hero and stats, with Stats/Equipment/Tools tabs | Dense: bars, 12 stat cells, active effects | Little |
+| Inventory/Combat, with sort and category strips | Purse line and 3 items | About 85% of the list |
+| Time/weather and Village description | Seven lines of place prose | About a third |
+| Actions | Six buttons | About 40% below them |
+| Quests/Bestiary/Anthology/Data | One quest, "Hide completed" | About 85% |
+| Combat/Environmental/Character skills, Skills/Stances/Magic tabs | Three collapsed groups | About 75% |
+| Log, with Levels/Events/Crafting/Combat/Loot/BGM tabs | Empty | All, until play starts |
+
+Roughly half the screen is empty. Late in a run the same frames overflow (500 items, many
+quests, a full log). Slack is a property of **state**, not of the layout.
+
+### ACT NOW: correction to the plan's picture of the screen
+
+| Code | Evidence | Correction |
+| --- | --- | --- |
+| WX1 | **stated:** the R14 parity grid is five regions, `"player player focus log" / "inventory actions actions log"`, columns `336fr 110fr 446fr 379fr` (`styles/ui_tokens.css:641–643`). The classic layout in the screenshot has a fourth column of records (Quests/Bestiary/Anthology/Data over Skills/Stances/Magic) visible alongside play; in the shell, those open as center views or bottom tabs (WR21, WR32) | Earlier rounds (PX1–PX10, WB9) reasoned only about the shell. Whole-screen composition has two baselines: classic shows records **simultaneously**, the shell shows them **on demand**. The open question is which records earn simultaneous space in which context, not only how to fit a companion next to You. WB9 now covers both baselines |
+
+### ACCOUNT FOR NOW: how the whole screen works together
+
+| Code | Consideration | Proposed default, dial and reason | Observable done check |
+| --- | --- | --- | --- |
+| WX2 | **Shorten before narrowing.** The slack in the screenshot is vertical: short lists in tall frames. Narrowing a column costs line length for stat labels, item names and log lines at 21px; shortening a panel inside its column costs nothing when the panel is sparse | Default order of levers: (1) stack a companion under a sparse panel in the same column, (2) merge two sparse panels into one tab set, (3) change column widths. Dial: a world or context with wide content (maps, opponent boards) may start at lever 3 | WB9 reports which lever each proposal used and the line length of the narrowest text at 21px |
+| WX3 | **Height follows content within limits.** Workspace modules store a fixed `height` (40–1000px, `workspace_state.js:11,19`); the shell rows are fixed (`min(304px,45%)` / `1fr`) | Each panel declares minimum, preferred and maximum useful height in rem (UIE20 fields, beside PX2's widths). Inside a column, panels take at least their minimum; slack goes first to the panel whose content overflows, then to the column's companion slot. A sparse panel shrinks to its content plus its empty-state line (UR32) | Fresh fixture: no panel shows more than a set share of empty frame. Populated fixture: no panel overflows while another in its column has slack |
+| WX4 | **Re-compose only at stable moments.** UR52 forbids a tick, count update or discovery moving a pending target. Content-driven heights would move buttons every time an item arrives | Re-compose on context change (enter or leave combat, travel, open a center view), on explicit actions (open, close, pin, resize) and on a panel's first content after being empty. Never on ticks. Between those moments a growing list scrolls inside its frame | Under a pending click, 30 ticks with items arriving move no target (NX10 fixture) |
+| WX5 | **Each panel declares how it yields.** "Narrow X to fit Y" generalizes into a yield behavior per panel, stored in the layout spec: *never* (status bars, current work, log: UR11), *compact form* (place prose → title and first line with a full-reading route, R25; stats → Standard set, R22), *collapse to header*, *move to tab or center view* | When space is short, panels yield in a per-context order. Nothing disappears silently: a yielded panel keeps a visible header, tab or count (UR13) | A test context with all yield kinds: each yielded panel stays reachable in one action with focus returning |
+| WX6 | **Compositions are per context.** Already visible: col 1 switches Inventory↔Combat. In combat the opponent board (R18, sized by count) needs the place panel's height; at a merchant, stock and purse matter; at a quest giver, the quest detail | The spec holds a small set of context compositions (idle in a place, combat, travel, merchant/work, reading). Each names the companions it recommends and the yield order. Reuse `setWorkspaceContext` and the existing preset path rather than a second context system | Entering and leaving combat restores the idle composition, scroll positions and selection exactly (UIE4) |
+| WX7 | **Companions per column, from existing views.** Candidates the screenshot suggests, all reusing panels that exist: under a short inventory, item detail or Equipment comparison (WR24, R17); under a short action list, current work when active, otherwise the selected action's preview (known destinations with travel times for Move/Fast travel, R25 list baseline); under a short quest list, the selected quest's steps; under collapsed skills, the selected skill's next unlock | A companion appears only when it changes a decision now (PX3) and follows the shared selected subject, not its own selection (UIE4). The idle default recommends; it never replaces a panel the player opened | Per companion: facts gained against facts displaced at the three targets, on fresh and populated fixtures |
+| WX8 | **The log keeps its column.** The empty fresh log is the biggest single slack, but UR11 says never shrink or crowd it, and it fills within minutes of play | The fresh log shows a one-line empty state (UR32) and keeps its width. Its slack is not lent to other panels. Dial: none proposed; changing this needs Weibao's word against UR11 | Log width identical across all compositions and contexts |
+| WX9 | **Text size removes slack.** At 1366×768 and 21px the screen has far less spare height than this screenshot. A stacked companion that fits at 14px may not fit at 21px | Evaluate fits in rem at the actual text size (PX6). If minimum heights do not fit, the companion becomes a tab in that column or a center view with a return path (UR41) instead of squeezing | Same fixture at 14px stacks, at 21px tabs; both reach the same facts in at most one action |
+| WX10 | **Records: simultaneous or on demand.** Classic shows quests and skills alongside play; the shell moved them to center views. Early on both are sparse; late on, quests matter while travelling and skills while training | Default: records stay on demand in the shell (current baseline). A records companion earns simultaneous space in contexts where it drives the next action: the active quest's next step while travelling or idle, the trained skill's progress while training. Show the one relevant line, not the whole records column | Idle and travel fixtures show the active quest step without opening Quests; the full Quests view stays one action away |
+| WX11 | **Manual choices win.** Players resize, pin and collapse (PX5, UR17, UR58) | Automatic composition applies only to unpinned, unresized panels; a manual change sticks for that context until reset. A "Reset this layout" action restores the context default | Pin a panel, change context twice: the pinned panel never moves |
+| WX12 | **Width shares from content, per context.** The shell's fixed column fractions give the actions column 110fr; classic gives every column the same share. Action labels are short at 14px and wrap at 21px; stats need label plus value; the log wants long lines | Column shares become per-context spec values with minimum useful widths (PX2), measured at 21px first, since that is where wrapping starts | No action label, stat row or log line wraps at 1366×768 21px in the idle and combat compositions |
+
+### LATER / DELEGATE
+
+| Candidate | Level / effort | Trigger and done check |
+| --- | --- | --- |
+| **WX13: slack map in the sweep** | Balanced, small | Before the next layout-changing round. For each region at each target, record content height against frame height on three fixtures: fresh (this screenshot's state), populated, combat. Output one table per round. This turns "the screen works together" into a number each round can only improve or explain |
+| **WX14: WB9 widened to whole-screen compositions** | Balanced design and tracing, medium | Replaces WB9's You + Equipment scope. Compare, on identical state, the classic and shell baselines with: idle (item detail under inventory, current work or route list under actions, active quest line), combat (opponent board takes place height, Stances foreground), merchant. Report levers used (WX2), yield order (WX5), slack map (WX13) and the 21px fallback (WX9). Feeds the context-compositions round below; picks nothing for Weibao |
+| **Context-compositions round** | Strong, high (shared placement and lifecycle) | After Step 0 (the layout spec exists) and the companion pilot. Adds the idle and combat compositions only; merchant, travel and reading follow as their rounds touch them. Existing build, test and rebuilt browser gates at the three targets; WX4 stability check; save and import untouched (layout stays browser-local, NX2) |
+
+### How this changes the queue
+
+- R17 (item detail), R18 (opponent board), R22 (You sets) and R25 (place prose, route list)
+  already build the compact forms and companions WX5–WX7 need; their briefs add the yield
+  behavior and min/preferred heights as spec fields once Step 0 exists.
+- R21 polish adds UR32 empty-state lines for a fresh Quests list, skills groups and log (WX8).
+- WB9 becomes WX14. The context-compositions round sits after the companion pilot, before the
+  R3x footer and navigation rounds.
+
+### Evidence limits
+
+The table above is read by eye from Weibao's screenshot at an unknown viewport. The shell grid
+and module height fields are read from source. Nothing was built, measured in a browser,
+committed or dispatched.
+
+## Every little control, 2026-10-16
+
+Weibao: "what to consider based on this and more? Every little menu considerations?
+/more-to-consider". The same classic screenshot (WX), control by control. Codes CTL1–CTL24,
+unused elsewhere. The [census](census.md) already lists every control site (CN rows) and
+R14_FOLLOWUP F18–F20 covers control strips; this round adds what each control **means, owns and
+risks**. Proposals only; "classic" is the screenshot's layout, "shell" is R14.
+
+### ACT NOW: facts that change earlier assumptions (stated from source)
+
+| Code | Evidence | Consequence |
+| --- | --- | --- |
+| CTL1 | `index.html` has 66 `<div … onclick>` controls and one `<button … onclick>`. Sort strips, category tabs, journal tabs, Skills/Stances/Magic and log filters are all clickable divs | In classic, most small controls cannot be reached by Tab or announced as buttons. Every strip round must check what the shell already wrapped before claiming keyboard parity (UR53). A count that only shrinks joins the WX13 sweep |
+| CTL2 | The log row (`message_show_*`, `index.html:680–695`) is a set of **independent show/hide toggles**, all highlighted by default, not tabs. "BGM" calls `showBackgroundMessages()`: background messages, not music. The shell relabels the row to Growth, Events, Crafting, Combat, Loot, World (`src/proto23_shell.js:118`) | Two names for one control across baselines, and a classic label that reads as a music switch. R20's "Reports category tabs" must decide tabs (one at a time) versus toggles (several at once); today's behavior is toggles. The label set should be one vocabulary in both baselines |
+| CTL3 | Each skill group has a leading chevron that collapses it and trailing ⌄ ⌃ that **move the group down or up** (`src/display.js:5320–5345`); the order is saved in the game save (`save_data.skill_category_order`, `main.js:6488`) | The same chevron shape means "collapse" and "reorder". A player trying to collapse can reorder instead, and the change persists in the save |
+| CTL4 | "Hide completed" (`save_data.are_finished_quests_hidden`, `main.js:6478`), "Hide max level skills" and combat autoswitch (`game_options`, saved as `save_data.options`, `main.js:6666`) live in the **gameplay save** | NX2 said panel settings are browser-local. Classic's small toggles are not: they travel with export/import. Moving any of them to panel settings is a save change needing a migration or compatibility note (UR17, UR58) |
+| CTL5 | Two "favorite" ideas: the star (Favs category) and `favourite_consumables`, which drives the row's **auto** toggle (auto-use) (`display.js:2232–2242`); generated vials have no auto toggle | Labels must keep them apart: star = "keep in Favorites", auto = "use automatically when needed". Hover or detail says when auto fires and from which stack |
+
+### ACCOUNT FOR NOW: control by control
+
+| Code | Control (screenshot) | Consideration | Proposed default and dial | Round |
+| --- | --- | --- | --- | --- |
+| CTL6 | Bars: xp, stamina, mana, hp | "0/0 mana" shows a resource this character does not have yet; "42/42stamina" lacks a space; white text on bright green and red at 21px | Show a bar once the character has the resource (world-dependent, as ranks are, E6); format numbers per V18; check contrast on every bar color | R22, R23 |
+| CTL7 | Stat table: AP, EP, Atk power, Crit mult | Abbreviations without explanation; derived values without breakdown | Hover and focus give the full name and the breakdown (UR47, X2) | R23 |
+| CTL8 | "Active effects: 2" | A count with no route to the effects | The count opens or scrolls to the effect chips; chips show countdown only for known duration (UX21) | R23 |
+| CTL9 | Stats / Equipment / Tools tabs | Tabs under the panel, matching F18; "Tools" names a mechanism | Selected state readable without color; label by content if "Tools" is unclear to a new player (UR10) | R22 |
+| CTL10 | Inventory / Combat tab | Combat greyed outside a fight; `disable_combat_autoswitch` exists, so by default the panel switches itself when a fight starts | Autoswitch fires only when no click is pending and no item is selected (UR52); otherwise show a visible "Fight started" cue on the Combat tab. The existing option stays the player's dial | R16 fixture "fight in progress" |
+| CTL11 | Purse "10C 2W" | Coin letters by color only; unit names unexplained | Hover gives coin names and total in the smallest unit; color is never the only cue | R21 polish |
+| CTL12 | Item row: star, slot tag, name, quality %, [use]/[equip], auto, price | Bracket text works as buttons but is not one (CTL1); "[50%]" unexplained; prices of two widths break the column | Real buttons with the bracket look kept if Weibao likes it; quality % gets a hover; prices right-aligned with tabular numerals (F20, L5) | R17 |
+| CTL13 | Sort by name / value / type | Sorting by a value the player has not learned **leaks it through order**. Re-sorting while loot arrives moves rows under the pointer | Sort uses displayed (known) values only, unknown last; re-sort at stable moments (WX4); selected row follows by item key (UX14). Clicking the active sort again reverses it, shown by an arrow | R16 |
+| CTL14 | All / Equipment / Usable / Other / Favs | No counts; an empty category looks the same as an unknown one | Native counts, and a known-empty category stays in place with "None yet" (UX13, UR52) | R16 |
+| CTL15 | Header: date, season, weekday, Day, weather icon, temperature | Dense one line; "24/04/999" order is ambiguous; ticking clock can shift text | Tabular numerals so ticks never shift layout; hover explains the date order; temperature links to its effect (B7) | R20 |
+| CTL16 | ☆ before the place name | A star with an untraced purpose sits next to the star that means Favorites | Trace its function before R25. If it pins the place, its label says so, and it does not share the Favorites glyph without sharing the meaning | R25 |
+| CTL17 | Action buttons with icons | Clear, by destination (UR10). New discoveries could insert a button above a pending click | New actions append or animate in only at stable moments (WX4); a disabled action says why; number-key shortcuts are a LATER option | R24, R25 |
+| CTL18 | Quests / Bestiary / Anthology / Data, then "= Quests =" | Four tabs wrap so Data sits alone on a second row; the heading repeats the selected tab; Notebook appears only when discovered (good) | One row that wraps by available width (PX6); drop the duplicated heading or make it the selected subject's title | Records view round (R3x view placement) |
+| CTL19 | "Hide completed" | Hides finished quests, saved in the game save (CTL4) | Keep its save home; show "N completed hidden" so hiding is visible | R3x records |
+| CTL20 | Skill groups: collapse chevron plus ⌄ ⌃ reorder (CTL3) | Same glyph, two meanings; reorder persists | Collapse keeps the chevron; reorder uses labelled Move up/Move down, or moves into layout editing like the workspace's Pin. Existing saved orders load unchanged | R3x control strips |
+| CTL21 | Hide max level skills; Sort by name / level / progress | Progress and level sorts reorder while skills train, moving rows under the pointer | Re-sort on stable moments only; while a row is hovered or selected the order holds (UR52) | R3x control strips |
+| CTL22 | Skills / Stances / Magic | Magic shows before magic exists for this character | Tabs appear on discovery, like Notebook; a known-but-empty tab says how to fill it (UR32) | R3x control strips |
+| CTL23 | Log filters (CTL2) | Toggling a category off can hide a new unlock or a combat death | Show "N new hidden" on an off filter; milestone lines (B6) ignore filters or flag themselves | R19, R20 |
+| CTL24 | Checkboxes at 21px | Small white squares; label and box are separate targets | Shared checkbox component with the label as part of the target, sized from tokens | R21 polish |
+
+### Cross-cutting
+
+- **One control primitive.** Strips, tabs, toggles and row buttons become one shared component
+  family with selected/pressed state, keyboard path and token sizes (UR53, UX24). Each round
+  converts the controls it touches; CTL1's count only shrinks.
+- **Every control declares its state owner** (UR58): save (CTL4, skill order), browser (layout,
+  panel settings) or none (transient). The census gains a "state owner" column the next time it
+  is regenerated; no control changes owner without a compatibility note.
+- **No control reorders under the pointer.** Sorts, discovery and autoswitch wait for stable
+  moments (WX4); this is the most repeated risk in this pass (CTL10, CTL13, CTL17, CTL21).
+- **No control leaks knowledge through order, count or presence** (CTL13, CTL22; KL17 leak
+  matrix).
+
+### LATER / DELEGATE
+
+| Candidate | Level / effort | Trigger and done check |
+| --- | --- | --- |
+| Census "state owner" and "real button" columns | Balanced, small | Next census regeneration. Every CN row names save/browser/none and whether its control is a real button |
+| Number-key shortcuts for actions | Balanced, small | After CTL1 conversion of the action list. Keys never fire while typing; shown on hover |
+
+### Evidence limits
+
+Read from `index.html`, `src/display.js`, `src/main.js` and `src/proto23_shell.js` at the lines
+cited; CTL16's star was not traced. Nothing was run, built or committed.
+
+## Feedback: core first, 2026-10-16
+
+Weibao after R15 (quote in USER_VISION): things look big for no reason, and the core changes and
+more panels he asked for are missing. **Stated:** only R15 is implemented; WX, CTL, PX and Step 0
+are plans. **Stated:** the shell is opt-in (`workspace_layout.js:11–15`, keys default off), so the
+default screen is classic, where R1–R15 changes do not show.
+
+Proposed reorder (IT4: feedback jumps the queue), done by the strongest session:
+
+1. **Which screen is the baseline.** Decide whether the redesigned shell becomes the default or the
+   core work lands in classic too. This needs Weibao's pick; everything below follows it.
+2. **Density pass (new round, before R16):** controls and frames sized to content: oversized tab
+   strips, action buttons and empty frames shrink; heights follow content within limits (WX2, WX3,
+   CTL9, CTL14, CTL18, CTL22). Done check: slack map (WX13) at the three targets on fresh and
+   populated fixtures, no text below current minimum size.
+3. **Whole-screen composition, natively (WX5–WX7, WX10):** companions under sparse panels using
+   existing views (item detail, route list, active quest line, current work), yield order per
+   panel, idle and combat compositions. This replaces the WB9/WX14 study as the next step.
+4. Then R16 onward as queued.
+
+## More panels and a cohesive screen, 2026-10-16
+
+Weibao during R16, with a classic-layout screenshot (four columns: You and stats over Inventory;
+place prose over actions; Quests/Bestiary/Anthology/Data over Skills/Stances/Magic; log):
+"Incorporating and adding panels to make things more cohesive? So like more panels? Changing the
+around you to be more visually better? more to consider?" Codes CZ1–CZ10, unused elsewhere.
+Applied in R16c (see [R16 report](../R16_REPORT.md)); proposals beyond that stay proposals.
+
+### ACT NOW (taken into R16c)
+
+| Code | Evidence | Disposition |
+| --- | --- | --- |
+| CZ1 | **stated:** `records` (`journal_div`) and `skills` (`skills_and_stances_div`) are registered workspace modules (`main.js:10183–10184`). `makeShellLayout` hides every ID missing from its order list (`workspace_layout.js`), so the shell shows them only as center views from the top nav | "More panels" first means **placing panels that already exist**, not new domains (PX3). R16c gives them a companion slot in the shell |
+| CZ2 | **shown** (R16 probe, 1366×768 21px, populated fixture): Around you draws each person/thing as a padded card (8/10px) with the role on a second line; five entries take 344px and the place prose is cut after one line | R16c restyles them as hairline rows, name and role on one line where it fits, and keeps the prose readable below (UR46: grouping and alignment, not smaller text) |
+
+### ACCOUNT FOR NOW
+
+| Code | Consideration | Proposed default, dial and reason |
+| --- | --- | --- |
+| CZ3 | **Where a companion goes.** The bottom actions region is the widest bottom frame, and in every fixture its actions use less than its width | Companion column inside the actions region, beside current work and the action list; the place header and the bottom pane tabs span both. Dial: a context may put its companion elsewhere when that frame is the sparse one (WX7) |
+| CZ4 | **Which companion, per context** | Idle: Journal (quests) over Skills. Combat: Skills only, so Stances sit beside the fight (WX6). Merchant, travel and reading compositions follow when their rounds touch them |
+| CZ5 | **Undiscovered panels stay unnamed** (UR52, CTL22) | The companion column appears only when one of its modules is discovered; otherwise the actions use the full width |
+| CZ6 | **Saved shell layouts hide records/skills** | One browser-local layout upgrade (spec version) unhides them once; a later manual hide wins (WX11, UR17). No game-save change |
+| CZ7 | **One node, one home** (UR8, PX5) | The Journal and Skills nav buttons still expand the same module into the center; Back returns it to the companion slot |
+| CZ8 | **Text size decides the form** (WX9, PX6) | Companion width follows content in `rem`; if the action list would drop below its minimum useful width, the companion yields first |
+| CZ9 | **Cohesion is shared anatomy** | Companion panels use the same header, hairline row and tab look as Inventory and Reports (UR30, F20); no per-panel styling |
+
+### LATER / DELEGATE
+
+| Candidate | Level / effort | Trigger and done check |
+| --- | --- | --- |
+| CZ10: a records column of its own at wide viewports (classic's fourth column) | Strong, medium | After R16c is reviewed. At 1920×1080 21px, a fifth column keeps every action label and log line unwrapped (WX12) |
+| Active quest line in the place header (WX10) | Balanced, small | When R16c's companion is hidden at small sizes; the one-line quest step stays visible |
+| Around you: full place reading route and known-route list | Balanced, medium | R25 as queued (renumbered in the R16 report) |
+
+## Ground-up restructure: more to consider, 2026-10-16
+
+Weibao: "Will UI be restructured from ground up for more adaptability and more?" then
+`/more-to-consider`. Answer given: not as briefed; the core-ui session (R16a–c) is incremental, and
+the ground-up structure (UIE17–UIE26) is convert-as-you-touch. Recommendation: insert the layout
+spec and Step 0 as one structural round **after R16c lands and before further composition work**.
+Codes GU1–GU8. Read live at 15:57: `R16_CHECKPOINT.md`, `src/shell_composition.js` (101 lines,
+uncommitted, core-ui's).
+
+| Code | Evidence | Disposition |
+| --- | --- | --- |
+| GU1 | **stated:** `shell_composition.js` already splits pure decisions (`topRowHeight`, `companionsFor({combat, available})`) from a measuring host that re-composes only on stable signals (attribute changes with real old/new difference, text size, resize, explicit layout actions, a short start-screen settle) | **ACCOUNT FOR NOW.** This is the seed of the UIE20 spec, not a competitor. The structural round turns `companionsFor`'s hard-coded choices and the top-row rule into spec data per context; the measuring host stays as the "fit" engine. No rewrite of R16c needed |
+| GU2 | **stated:** `contentExtent` walks every descendant of a region with `getBoundingClientRect` and `getComputedStyle` on each measure | **ACCOUNT FOR NOW, R16c done check.** Measure time at the 500-row inventory fixture (NX10). If a measure costs more than a frame, measure only the regions whose stable signal changed, or read declared heights from the spec instead (WX3) |
+| GU3 | **inferred:** R16b changes frame heights and chrome in `ui_tokens.css` against legacy `#main_content` selectors (NX41) | **ACCOUNT FOR NOW.** Token and control sizing survives a spec move; region-height rules will move into the spec round. Keep R16b's height rules grouped in one block so the structural round can lift them out whole |
+| GU4 | **stated:** R16a keeps any stored presentation choice; the keys are browser-local | **ACT NOW (tell Weibao).** If his own browser already stored "classic", shell-default will not show for him. R16's report must say how to switch (Layout menu → presentation) and whether his browser had a stored choice cannot be known from here |
+| GU5 | **inferred:** with the shell as default, classic remains selectable. Every future UI change could be asked to work in both | **ACCOUNT FOR NOW, proposal.** Classic is frozen: kept working, regression-checked, no new features. New panels and compositions target the shell and spec only. Reason: halves verification; cost: classic users see no improvements. Needs Weibao's word only if he plays classic |
+| GU6 | **inferred:** moving region layout into a spec changes the identity of stored shell layouts (`shellLayoutKey`, version 1 module lists) | **ACCOUNT FOR NOW, structural round.** Map stored shell layouts to the spec, or reset only the shell layout with a visible notice, preserving other preferences (PX5, UR17). Browser-local, not a save change |
+| GU7 | **inferred:** "adaptability" also means worlds can bring panels. A world pack loader session exists; the spec's regions and slots are the natural address for world-provided panels and skins (THEMATIC_UI, cheat looks WB5) | **LATER.** Slots addressable by data from a world pack, no code per world. Trigger: the first world pack that ships a panel. Done check: a test pack adds a companion to one slot with zero edits to the layout host |
+| GU8 | **stated:** views become projection-driven (UIE17); the registry's `projection` is unmerged (NX27, NX34) | **ACCOUNT FOR NOW.** The structural round uses `read()` injection (existing factory form, NX37) and swaps to registry projections after the engine-lane merge; it does not wait for that merge |
+
+Proposed order for core-ui after R16c: **structural round "spec + Step 0"** (game identical before and
+after at the three targets; GU1, GU3, GU6; PV2–PV4, PV8), then context compositions extended through
+the spec, then the queue. **Approved 2026-10-16** (Weibao: "Yes: tell core-ui to add the structural spec + Step 0 round after R16c lands, with GU1–GU6 as constraints, and to tell me how to switch if my browser stored classic."); sent to the core-ui session.
+
+## Parallel next parts after R17: more to consider, 2026-10-16
+
+Weibao: "start next part in parallel, /more-to-consider first". Codes PP1–PP8. Read live: the
+renumbered queue above, `src/combat_focus.js`, `src/village_workspace.js`, git status, the stopped
+core-ui turn.
+
+| Code | Evidence | Disposition |
+| --- | --- | --- |
+| PP1 | **shown:** core-ui's last turn stopped on "Maximum 5 dev servers per folder reached"; two were this session's R15 servers | **ACT NOW, done:** both stopped. Parallel sessions in one folder share five server slots |
+| PP2 | **shown:** R15–R17 are uncommitted in the shared checkout, mixed with other sessions' dirty files; `npm run build` rewrites `dist/bundle.js`, `index.html` and now `build.js`-driven outputs for everyone | **ACT NOW, needs Weibao's yes.** Two UI writers in one checkout would build each other's half-finished edits into their evidence, and race on `dist/`. Committing R15–R17 (own paths only, partial hunks for `index.html`, `build.js`, `package.json`) lets each parallel session run in its **own git worktree** with its own build, servers and evidence |
+| PP3 | **stated:** shared hot files: `styles/ui_tokens.css` (every round), `src/layout_spec.js` (composition), `src/proto23_shell.js` (inventory tools, You, popovers), `src/village_workspace.js` (place header, opponent cards), `src/display.js` (inventory, log, stats) | **ACCOUNT FOR NOW.** Pair rounds by disjoint owners. New round CSS goes in its own stylesheet (`styles/<round-area>.css`), not `ui_tokens.css`, so worktree merges stay clean (own-your-node, AR1) |
+| PP4 | **stated:** inventory render lives in `display.js` and the shell's inventory tools in `proto23_shell.js`; opponent cards live in `village_workspace.js` and read the native combat DOM through `readNativeCombatFocus` (`src/combat_focus.js:10`) | **R18 (inventory tabs) and R20 (opponent board) can run in parallel:** different panels, different source files. Shared touch points: one stylesheet link each in `index.html`, and R20's count-sized board may change `layout_spec.js` top-row data; R18 does not touch the spec |
+| PP5 | **stated:** `src/ui/combat_display.js` imports `main.js` (580-module closure, PV1); opponent cards read native DOM instead of a public projection (NX22, NX42) | **Engine lane, in parallel:** cut the combat display's `main.js` import (structural, AR9) and publish an observer-safe opponent projection through the merged registry. R20 starts on `read()` injection and swaps to the projection when it lands (GU8). Engine works in its worktree; reconciliation at merge |
+| PP6 | **inferred:** R19 (rows/detail) depends on R18; R21/R22 (log, Reports) share `display.js` log code with each other; R24/R25 (You) share `proto23_shell.js` with R18's tools | Not in this parallel wave. Next wave pairs R21 (log) with R24 (You) once R18 lands |
+| PP7 | **stated:** the R16 visual review is still open; R20 is where the oversized combat cards Weibao flagged get fixed | R20 is the higher-value parallel UI round; R18 is the queue's next round. Both proceed; his R16 feedback becomes tune items (IT2) |
+| PP8 | **inferred:** three writers merging back into `codex/gameplay-foundations` | Merge order: engine structural first (smallest UI surface), then R18, then R20; each re-runs check-r13–r17 and `check:arch` on the merged base. Merges and commits stay Weibao's call |
+
+**Proposed wave:** engine-lane (combat import cut + opponent projection, its worktree), core-ui
+(R18 inventory tabs, new worktree), new session (R20 opponent board, new worktree). Prerequisite:
+PP2 commit.

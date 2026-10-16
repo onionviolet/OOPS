@@ -1,0 +1,78 @@
+[
+ {
+  "tag": "fresh-1366x768-14",
+  "diff": {
+   "pixels": 0,
+   "box": null
+  },
+  "geoEqual": true,
+  "errors": {
+   "before": [],
+   "after": []
+  }
+ },
+ {
+  "tag": "fresh-1366x768-21",
+  "fail": "fresh-1366x768-21: 5960 pixels differ in [1067,734,1279,761] and the before build is stable there"
+ },
+ {
+  "tag": "fresh-1920x1080-21",
+  "fail": "fresh-1920x1080-21: geometry differs"
+ },
+ {
+  "tag": "populated-1366x768-14",
+  "diff": {
+   "pixels": 0,
+   "box": null
+  },
+  "geoEqual": true,
+  "errors": {
+   "before": [],
+   "after": []
+  }
+ },
+ {
+  "tag": "populated-1366x768-21",
+  "fail": "populated-1366x768-21: geometry differs"
+ },
+ {
+  "tag": "populated-1920x1080-21",
+  "diff": {
+   "pixels": 0,
+   "box": null
+  },
+  "geoEqual": true,
+  "errors": {
+   "before": [],
+   "after": []
+  }
+ },
+ {
+  "tag": "combat-1366x768-14",
+  "fail": "page.goto: Timeout 25000ms exceeded."
+ },
+ {
+  "tag": "combat-1366x768-21",
+  "diff": {
+   "pixels": 0,
+   "box": null
+  },
+  "geoEqual": true,
+  "errors": {
+   "before": [],
+   "after": []
+  }
+ },
+ {
+  "tag": "combat-1920x1080-21",
+  "diff": {
+   "pixels": 0,
+   "box": null
+  },
+  "geoEqual": true,
+  "errors": {
+   "before": [],
+   "after": []
+  }
+ }
+]

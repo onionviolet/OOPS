@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>YAIRPG shell preview</title>
+        <!-- Same stylesheets, same order, as index.html; scripts/build_ui_preview.mjs adds versions. -->
+        <link rel="stylesheet" href="styles/settled_text_effects.css">
+        <link rel="stylesheet" href="styles/customization.css">
+        <link rel="stylesheet" href="styles/workspace.css?version=080232f17190">
+        <link rel="stylesheet" href="styles/workspace_discovery.css">
+        <link rel="stylesheet" href="styles/display_settings.css">
+        <link rel="stylesheet" href="styles/status_window.css">
+        <link rel="stylesheet" href="style.css?version=29c0cb16f1c2">
+        <link rel="stylesheet" href="styles/action_legibility.css">
+        <link rel="stylesheet" href="styles/crafting_detail.css">
+        <link rel="stylesheet" href="styles/component_themes.css">
+        <link rel="stylesheet" href="styles/start_probe.css">
+        <link rel="stylesheet" href="styles/ui_tokens.css?version=62315ae3acec">
+        <link rel="stylesheet" href="styles/shell_layout.css?version=8023113547f6">
+        <link rel="stylesheet" href="styles/ui_preview.css?version=9a66635ebab5">
+        <script>
+            // R17 preview safety, before any module loads. PV3: storage lives in memory, so this page
+            // never reads or writes the game's saves or layout keys on this origin. PV4: timers,
+            // animation frames and storage writes are counted; main.js records the import-time totals.
+            (() => {
+                const probe = window.__preview = {phase: 'import', timers: 0, writes: 0};
+                const memory = () => { const map = new Map(); return {
+                    getItem: k => map.has(String(k)) ? map.get(String(k)) : null,
+                    setItem: (k, v) => { probe.writes++; map.set(String(k), String(v)); },
+                    removeItem: k => { probe.writes++; map.delete(String(k)); },
+                    clear: () => { probe.writes++; map.clear(); },
+                    key: i => [...map.keys()][i] ?? null,
+                    get length() { return map.size; },
+                }; };
+                Object.defineProperty(window, 'localStorage', {value: memory(), configurable: true});
+                Object.defineProperty(window, 'sessionStorage', {value: memory(), configurable: true});
+                for (const name of ['setTimeout', 'setInterval', 'requestAnimationFrame']) {
+                    const original = window[name].bind(window);
+                    window[name] = (...args) => { probe.timers++; return original(...args); };
+                }
+            })();
+        </script>
+        <script type="module" src="dist/ui-preview.js?version=ff372be26993"></script>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    </head>
+    <body>
+        <!-- src/ui/preview/main.js creates the preview bar and the shell root. -->
+    </body>
+</html>

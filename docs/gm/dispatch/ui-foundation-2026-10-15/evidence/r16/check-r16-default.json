@@ -1,0 +1,82 @@
+[
+ {
+  "name": "fresh origin opens the parity shell and writes nothing",
+  "presentation": "proto23-shell",
+  "parity": "r3",
+  "menu": "proto23-parity",
+  "keys": {
+   "parity": null,
+   "shell": null
+  }
+ },
+ {
+  "name": "stored classic choice stays classic",
+  "presentation": "",
+  "parity": "",
+  "menu": "existing",
+  "keys": {
+   "parity": "off",
+   "shell": "off"
+  }
+ },
+ {
+  "name": "stored plain shell choice stays plain shell",
+  "presentation": "proto23-shell",
+  "parity": "",
+  "menu": "proto23-shell",
+  "keys": {
+   "parity": "off",
+   "shell": "on"
+  }
+ },
+ {
+  "name": "stored parity choice stays parity",
+  "presentation": "proto23-shell",
+  "parity": "r3",
+  "menu": "proto23-parity",
+  "keys": {
+   "parity": "on",
+   "shell": null
+  }
+ },
+ {
+  "name": "Layout menu switches default to classic and the choice survives reload",
+  "after": {
+   "presentation": "",
+   "parity": "",
+   "menu": "existing",
+   "keys": {
+    "parity": "off",
+    "shell": "off"
+   }
+  },
+  "reloaded": {
+   "presentation": "",
+   "parity": "",
+   "menu": "existing",
+   "keys": {
+    "parity": "off",
+    "shell": "off"
+   }
+  },
+  "back": {
+   "presentation": "proto23-shell",
+   "parity": "r3",
+   "menu": "proto23-parity",
+   "keys": {
+    "parity": "on",
+    "shell": "off"
+   }
+  }
+ },
+ {
+  "name": "narrow viewport (mobile deferred) opens without page errors",
+  "presentation": "proto23-shell",
+  "parity": "",
+  "menu": "proto23-parity",
+  "keys": {
+   "parity": null,
+   "shell": null
+  }
+ }
+]

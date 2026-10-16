@@ -19,18 +19,18 @@ try{for(const [w,h,f] of [[1366,768,14],[1366,768,17.5],[1366,768,21],[1920,1080
  await T.pick(p,'Roasted purified rat meat');d=await detail(p);
  assert(d.reqs.includes('Unfamiliar material: have 0, need 1'));const leak=await p.evaluate(()=>{const w=document.getElementById('crafting_window');return /Belmart/i.test(w.innerHTML)||[...w.querySelectorAll('*')].some(n=>[...n.attributes].some(a=>/Belmart/i.test(a.value)));});assert(!leak,'no Belmart in crafting DOM');
  assert.equal(d.state,'blocked');assert.equal(d.attempts,'Can craft now: 0 attempts');
- await p.locator('[data-craft-commit]').click({noWaitAfter:true,force:true});await p.waitForTimeout(150);d=await detail(p);assert(/data-craft-req/.test(d.active||''),'blocked Craft focuses the missing requirement');
+ await p.locator('#crafting_window [data-craft-commit]').click({noWaitAfter:true,force:true});await p.waitForTimeout(150);d=await detail(p);assert(/data-craft-req/.test(d.active||''),'blocked Craft focuses the missing requirement');
  assert.deepEqual(await facts(p),s0,'blocked attempt and inspection change nothing');ok(`${tag} unknown + blocked`,{reqs:d.reqs,reason:d.reason});
  // Related link and local return with list scroll.
  await T.pick(p,'Roasted rat meat');const list=p.locator('.crafting_recipe_list:visible');await list.evaluate(n=>n.scrollTop=0);const scroll0=await list.evaluate(n=>n.scrollTop);
- await p.locator('[data-craft-related="Roasted purified rat meat"]').click({noWaitAfter:true});await p.waitForTimeout(150);d=await detail(p);
+ await p.locator('#crafting_window [data-craft-related="Roasted purified rat meat"]').click({noWaitAfter:true});await p.waitForTimeout(150);d=await detail(p);
  assert.equal(d.title,'Roasted purified rat meat');assert.equal(d.back,'← Back to Roasted rat meat');assert.equal(await T.row(p,'Roasted purified rat meat').getAttribute('aria-selected'),'true');
- await p.locator('[data-craft-back]').click({noWaitAfter:true});await p.waitForTimeout(150);d=await detail(p);
+ await p.locator('#crafting_window [data-craft-back]').click({noWaitAfter:true});await p.waitForTimeout(150);d=await detail(p);
  assert.equal(d.title,'Roasted rat meat');assert.equal(d.back,null);assert.equal(await list.evaluate(n=>n.scrollTop),scroll0);assert(/Roasted rat meat/.test(d.active||''),'focus returns to the original row');
  assert.deepEqual(await facts(p),s0,'related navigation changes nothing');ok(`${tag} related + back`);
  await T.shot(p,`journey-${tag}-ready`);
  // Explicit native Craft 1 once; receipt must match measured native deltas.
- await p.locator('[data-craft-commit]').click({noWaitAfter:true});await p.waitForTimeout(250);const s1=await facts(p);d=await detail(p);
+ await p.locator('#crafting_window [data-craft-commit]').click({noWaitAfter:true});await p.waitForTimeout(250);const s1=await facts(p);d=await detail(p);
  const made=(s1.inv['Roasted rat meat']||0)-(s0.inv['Roasted rat meat']||0),used=s0.inv['Rat meat chunks']-(s1.inv['Rat meat chunks']||0),xp=s1.xp-s0.xp;
  assert.equal(used,2);assert(xp>0);
  if(made>0)assert.equal(d.receipt,`Made ${made} Roasted rat meat from 2 Rat meat chunks (+${Math.round(xp*10)/10} XP)`);else assert.equal(d.receipt,`Failed: 2 Rat meat chunks used, nothing made (+${Math.round(xp*10)/10} XP)`);

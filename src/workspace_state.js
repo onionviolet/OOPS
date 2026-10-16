@@ -13,7 +13,7 @@ export function defaultModule(id, index = 0) {
 export function normalizeLayout(raw, ids) {
     const source = raw?.version === WORKSPACE_VERSION && Array.isArray(raw.modules) ? raw.modules : [];
     const known = new Map(source.filter(v => v && typeof v.id === 'string').map(v => [v.id, v]));
-    return { version: WORKSPACE_VERSION, mode: raw?.mode === 'dock' ? 'dock' : 'classic', columns: normalizeColumns(raw?.columns), density: ['compact','comfortable','inspection'].includes(raw?.density) ? raw.density : 'comfortable', modules: [...new Set(ids)].map((id, index) => {
+    return { version: WORKSPACE_VERSION, mode: raw?.mode === 'dock' ? 'dock' : 'classic', columns: normalizeColumns(raw?.columns), density: ['compact','comfortable','inspection'].includes(raw?.density) ? raw.density : 'comfortable', ...(Number.isInteger(raw?.spec) && raw.spec > 0 ? { spec: Math.min(raw.spec, 1000) } : {}), modules: [...new Set(ids)].map((id, index) => {
         const base = defaultModule(id, index), value = known.get(id) || {};
         return { ...base, dock: DOCKS.includes(value.dock) ? value.dock : base.dock,
             order: clamp(value.order, 0, 1000, index), width: clamp(value.width, 260, 1000, 400), height: clamp(value.height, 40, 1000, 460),
@@ -38,7 +38,7 @@ export function presetLayout(name, ids) {
     return result;
 }
 export function changeModule(layout, id, patch) {
-    return normalizeLayout({ version: WORKSPACE_VERSION, mode: layout.mode, density: layout.density, columns: layout.columns, modules: layout.modules.map(v => v.id === id ? { ...v, ...patch, id } : v) }, layout.modules.map(v => v.id));
+    return normalizeLayout({ version: WORKSPACE_VERSION, mode: layout.mode, density: layout.density, columns: layout.columns, spec: layout.spec, modules: layout.modules.map(v => v.id === id ? { ...v, ...patch, id } : v) }, layout.modules.map(v => v.id));
 }
 export function reorderModule(layout, id, delta) {
     const modules = layout.modules.map(v => ({ ...v }));
@@ -48,6 +48,6 @@ export function reorderModule(layout, id, delta) {
     const local = neighbors.findIndex(v => v.id === id), target = neighbors[local + delta];
     if (!target) return layout;
     const order = modules[index].order; modules[index].order = target.order; target.order = order;
-    return normalizeLayout({ version: WORKSPACE_VERSION, mode: layout.mode, density: layout.density, columns: layout.columns, modules }, modules.map(v => v.id));
+    return normalizeLayout({ version: WORKSPACE_VERSION, mode: layout.mode, density: layout.density, columns: layout.columns, spec: layout.spec, modules }, modules.map(v => v.id));
 }
 export function layoutStorageKey(narrow) { return `yairpg.workspace.v${WORKSPACE_VERSION}.${narrow ? 'narrow' : 'desktop'}`; }

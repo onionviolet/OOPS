@@ -988,6 +988,11 @@ body { font-family: var(--ui-font); font-size: var(--ui-type-body); }
 #main_content.workspace-active[data-parity="r3"] .scene-location-header > strong {font-weight:600;overflow-wrap:anywhere;}
 #main_content.workspace-active[data-parity="r3"] .scene-conditions {text-align:right;}
 #main_content.workspace-active[data-parity="r3"] .scene-calendar {grid-column:1/-1;font-size:.85em;color:var(--p23-muted);}
+/* R15: native place types are inspection triggers in the place header (hover, focus, Enter, Esc). */
+#main_content.workspace-active[data-parity="r3"] .scene-place-tags {grid-column:1/-1;display:flex;flex-wrap:wrap;gap:.3em;font-size:.85em;}
+#main_content.workspace-active[data-parity="r3"] .scene-place-tags[hidden] {display:none;}
+#main_content.workspace-active[data-parity="r3"] .shell-place-tag {font:inherit;color:var(--p23-text);background:transparent;border:1px solid var(--p23-line);border-radius:var(--ui-radius);padding:0 .35em;line-height:1.35;cursor:help;text-decoration:underline dotted;text-underline-offset:2px;}
+#main_content.workspace-active[data-parity="r3"] .shell-place-tag:focus-visible {outline:2px solid var(--workspace-focus);outline-offset:1px;}
 #main_content.workspace-active[data-parity="r3"][data-parity-combat="true"] .scene-location-header {padding:0;}
 #main_content.workspace-active[data-parity="r3"] .scene-location-header > .scene-conditions {color:var(--p23-quantity);}
 #main_content.workspace-active[data-parity="r3"][data-shell-custom-palette="true"] .scene-location-header > span {color:var(--shell-user-text);}
@@ -1403,3 +1408,46 @@ body:has(#main_content[data-parity="r3"]) #workspace_navigation > button[hidden]
 /* R13 dedupe (U1: repeated Expand controls): panel controls appear when you point at or
    tab into a panel, keeping their space so nothing shifts. Layout editing shows them all. */
 #main_content.workspace-active[data-parity="r3"]:not([data-layout-editing="true"]) .parity-region .workspace-module:not(:hover):not(:focus-within) > .workspace-module-header > :is([data-workspace-action="expand"],[data-workspace-action="collapse"]) {visibility:hidden;}
+
+/* R16b density pass (Weibao, 2026-10-16: "things look big for no reason"). Chrome follows the
+   text size with tighter padding and line-height; text sizes are unchanged (UR34, UR46) and the
+   log column keeps its width (UR11). Nothing here depends on ticks (UR52). */
+@media (min-width:1001px) {
+#main_content.workspace-active[data-parity="r3"] .parity-region .workspace-module-header {min-height:0;padding:0 4px;}
+#main_content.workspace-active[data-parity="r3"] .parity-region .workspace-module-header > :is(strong,small) {line-height:1.3;}
+#main_content.workspace-active[data-parity="r3"] .parity-region .workspace-module-header > button {min-height:0;}
+#main_content.workspace-active[data-parity="r3"] #basic_character_info_div #character_name_div {line-height:1.3;}
+#main_content.workspace-active[data-parity="r3"] #basic_character_info_div #character_name_field {height:1.3em;line-height:1.3;}
+#main_content.workspace-active[data-parity="r3"] #proto23_character > .shell-attributes-open,
+#main_content.workspace-active[data-parity="r3"] .shell-gear-disclosure > summary {padding:.05em .4em;margin:0;line-height:1.3;}
+/* Inventory: three short tool rows, then hairline item rows. */
+#main_content.workspace-active[data-parity="r3"] .parity-inventory-controls {padding:1px 3px;}
+#main_content.workspace-active[data-parity="r3"] .parity-inventory-controls > :is(select,button) {line-height:1.25;padding-top:0;padding-bottom:0;}
+#main_content.workspace-active[data-parity="r3"] #inventory_div > .ui-list-tools {padding:.1em 0;align-items:center;}
+#main_content.workspace-active[data-parity="r3"] #inventory_div > .ui-list-tools input {line-height:1.25;padding:0 .25em;height:auto;min-height:0;}
+#main_content.workspace-active[data-parity="r3"] #inventory_content_div > .inventory_item_control {padding-top:.04em;padding-bottom:.04em;}
+/* Place header: name, place types and conditions on one line; date with the local tabs on the
+   next. The tags and tabs keep their nodes and keyboard order; only geometry changes. */
+#main_content.workspace-active[data-parity="r3"] #village_scene {display:grid;grid-template-columns:auto minmax(0,1fr) auto;column-gap:.5em;align-items:center;padding:.1em .3em;border-bottom:1px solid var(--p23-line);font-size:var(--shell-context-size,var(--ui-type-body));line-height:1.25;}
+#main_content.workspace-active[data-parity="r3"] #village_scene > .scene-location-header {display:contents;}
+#main_content.workspace-active[data-parity="r3"] #village_scene .scene-location-header > strong {grid-column:1;grid-row:1;}
+#main_content.workspace-active[data-parity="r3"] #village_scene .scene-place-tags {grid-column:2;grid-row:1;align-self:center;}
+#main_content.workspace-active[data-parity="r3"] #village_scene .scene-conditions {grid-column:3;grid-row:1;}
+#main_content.workspace-active[data-parity="r3"] #village_scene .scene-calendar {grid-column:1/3;grid-row:2;align-self:center;}
+#main_content.workspace-active[data-parity="r3"] #village_scene > .scene-local-tabs {grid-column:3;grid-row:2;justify-self:end;padding:0;border:0;gap:.2em;font-size:.85em;}
+#main_content.workspace-active[data-parity="r3"] #village_scene > .scene-local-tabs > button {padding:0 .3em;line-height:1.3;}
+#main_content.workspace-active[data-parity="r3"] .workspace-module[data-module="current-work"] > .workspace-module-body {padding-top:0;padding-bottom:0;}
+/* Bottom pane tabs and log tools: one text line plus a thin pad. */
+#main_content.workspace-active[data-parity="r3"] #workspace_pane_navigation > :is(button,select) {padding:.08em .4em;line-height:1.3;}
+#main_content.workspace-active[data-parity="r3"] .shell-log-tools > :is(button,select) {padding:.05em .3em;line-height:1.3;min-height:0;}
+/* CZ2: Around you as hairline rows; name and role share a line where they fit. */
+#main_content.workspace-active[data-parity="r3"] .shell-place-overview {padding:.15em .1em;line-height:1.3;}
+#main_content.workspace-active[data-parity="r3"] .shell-nearby {gap:0 .8em;grid-template-columns:repeat(auto-fill,minmax(min(100%,13em),1fr));}
+#main_content.workspace-active[data-parity="r3"] .shell-nearby > button {flex-direction:row;flex-wrap:wrap;align-items:baseline;column-gap:.45em;padding:.15em .1em;line-height:1.3;}
+#main_content.workspace-active[data-parity="r3"] .shell-nearby > button:hover {background:var(--p23-hover-fill);}
+#main_content.workspace-active[data-parity="r3"] .shell-place-overview > p {margin:.35em .1em .3em;font-style:italic;line-height:1.35;}
+/* NX33 (engine lane, 2026-10-16): with the shell as default, every known panel needs a route. The
+   existing "More panels…" select ends the top nav; same node and handler, shell look. */
+body:has(#main_content[data-parity="r3"]) #workspace_navigation > select {display:block!important;max-width:12em;font-size:var(--shell-context-size,var(--ui-type-body));padding:0 .4em;color:var(--p23-text);background:transparent;border:0;border-right:1px solid var(--p23-quiet-line);border-bottom:1px solid var(--p23-quiet-line);border-radius:0;}
+body:has(#main_content[data-parity="r3"]) #workspace_navigation > select > option {background:var(--p23-context);color:var(--p23-text);}
+}

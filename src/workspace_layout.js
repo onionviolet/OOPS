@@ -1,5 +1,7 @@
 import {centerModes} from './center_modes.js';
 import {deferSimulationRender} from './simulation_render.js';
+import {createShellComposition} from './shell_composition.js';
+import {regionFor,shellOrder,companionPanels} from './layout_spec.js';
 import { getDisplaySettings, getDisplaySetting, replaceDisplaySettings, effectsCap } from './display_settings.js';
 import { normalizeLayout, parseLayout, presetLayout, changeModule, reorderModule, layoutStorageKey, normalizeColumns } from './workspace_state.js';
 const registry = new Map();
@@ -9,14 +11,24 @@ let owner;
 let requestedComposition=false;
 const compositionKey=narrow=>`${layoutStorageKey(narrow)}.composition`;
 const PARITY_KEY='yairpg.presentation.proto23-parity.v1';
-const paritySelected=()=>{try{return localStorage.getItem(PARITY_KEY)==='on';}catch{return false;}};
 const SHELL_KEY='yairpg.presentation.proto23-shell.v1';
+// R16 (Weibao, 2026-10-16): the parity shell is the default when this browser stored no
+// presentation choice. A stored choice, including classic ('existing'), is kept (UR17, UR58).
+function storedPresentation(){try{const parity=localStorage.getItem(PARITY_KEY),shell=localStorage.getItem(SHELL_KEY);
+    if(parity==='on')return 'proto23-parity';if(shell==='on')return 'proto23-shell';
+    return parity===null&&shell===null?'proto23-parity':'existing';}catch{return 'proto23-parity';}}
+const paritySelected=()=>storedPresentation()==='proto23-parity';
 const shellLayoutKey=(narrow,parity=owner?.parity)=>`${layoutStorageKey(narrow)}.${parity?'proto23-parity':'proto23-shell'}`;
-function shellSelected(){try{return localStorage.getItem(SHELL_KEY)==='on';}catch{return false;}}
+function shellSelected(){return storedPresentation()!=='existing';}
 function makeShellLayout(narrow,{fresh=false}={}){
     let saved;try{if(!fresh)saved=JSON.parse(localStorage.getItem(shellLayoutKey(narrow)));}catch{}
     const layout=saved?.version===1?withDefaults(saved):makePreset('Workspace',narrow);
-    if(!saved){layout.columns=[.263,.435,.302];const order=['vitals','shell-character','combat-controls','shell-inventory-tools','belongings','focus','shell-detail','time','location','village-scene','current-work','combat','local-actions','pane-navigation','messages','shell-log-tools'];
+    // R16c (CZ1, CZ6): the parity shell places the existing Journal and Skills panels as
+    // companions. Layout spec 1 unhides them once in an older saved layout; a later manual
+    // hide is kept (WX11, UR17). Browser-local layout only; the game save is untouched.
+    const companions=owner?.parity?companionPanels():[];
+    if(saved&&companions.length&&(saved.spec||0)<1){layout.modules.forEach(v=>{if(companions.includes(v.id))v.hidden=false;});layout.spec=1;}
+    if(!saved){layout.columns=[.263,.435,.302];const order=shellOrder({parity:companions.length>0});if(companions.length)layout.spec=1;
         layout.modules.forEach(v=>{v.hidden=!order.includes(v.id);if(v.id==='shell-character'){v.dock='left';v.height=190;}if(v.id==='shell-detail'){v.dock='center';v.height=210;}});
         layout.modules.sort((a,b)=>(order.includes(a.id)?order.indexOf(a.id):999)-(order.includes(b.id)?order.indexOf(b.id):999));layout.modules.forEach((v,i)=>v.order=i);}
     return layout;
@@ -35,14 +47,8 @@ function selectShell(on,parity=false){
 }
 // A composition map changes destinations inside this sole registry/mover. The
 // native nodes, shell IDs, expansion return paths and command owners stay intact.
-function parityRegion(id){
-    if(['vitals','shell-character'].includes(id))return 'player';
-    if(id==='focus')return 'focus';
-    if(id==='shell-detail')return registry.get('combat')?.eligible()?'actions':'focus';
-    if(['belongings','combat-controls','shell-inventory-tools'].includes(id))return 'inventory';
-    if(['messages','shell-log-tools'].includes(id))return 'log';
-    return 'actions';
-}
+// Regions come from the layout spec (R17).
+const parityRegion=id=>regionFor(id,{combat:!!registry.get('combat')?.eligible()});
 const el = (tag, cls, text) => { const node = document.createElement(tag); if (cls) node.className = cls; if (text) node.textContent = text; return node; };
 function button(label, action, id) { const b = el('button', '', label); b.type = 'button'; b.dataset.workspaceAction = action; if (id) b.dataset.module = id; return b; }
 export function workspaceOwns(node) { return !!owner && [...registry.values()].some(v => v.node === node); }
@@ -251,9 +257,10 @@ export function updateWorkspace() {
         }
         const composed=owner.root.dataset.workspaceComposition==='proto23';
         const core=['shell-inventory-tools','shell-character','shell-detail','vitals','combat-controls','shell-inventory-tools','belongings','focus','time','location','village-scene','current-work','combat','stance','local-actions','pane-navigation','messages','shell-log-tools'];
-        const parked=composed&&!state.pinned&&!core.includes(state.id);
+        const parked=composed&&!state.pinned&&!core.includes(state.id)&&!(owner.parity&&companionPanels().includes(state.id));
         setData(shell,'compositionParked',String(parked));
         if(known&&['vitals','belongings'].includes(state.id))setProperty(shell.querySelector('.workspace-module-header > strong'),'textContent',composed?(state.id==='vitals'?'You':'Inventory'):module.title);
+        if(known&&companionPanels().includes(state.id))setProperty(shell.querySelector('.workspace-module-header > strong'),'textContent',owner.parity?(state.id==='records'?'Journal':'Skills'):module.title);
         if(known&&state.id==='vitals'){
             const race=document.getElementById('character_race_div');
             const visibleRace=race?[...race.childNodes].filter(n=>n.nodeType===3).map(n=>n.textContent).join('').replace(/^[^:]*:\s*/,'').trim():'';
@@ -431,6 +438,7 @@ export function mountWorkspace({ root = document.getElementById('main_content') 
     presentation.value=owner.shell?(owner.parity?'proto23-parity':'proto23-shell'):'existing';
     root.classList.add('workspace-active'); root.prepend(toolbar,contextBar,board);
     function listen(target, name, handler) { target.addEventListener(name, handler); owner.cleanup.push(() => target.removeEventListener(name, handler)); }
+    const composition=createShellComposition({root,board,regions});owner.cleanup.push(()=>{composition.destroy();root.style.removeProperty('--shell-top-row');delete root.dataset.shellFit;delete root.dataset.shellCompanions;});
     listen(root, 'click', e => { if (e.target.closest('[data-workspace-action]')?.tagName !== 'SELECT' && e.target.closest('[data-workspace-action]')?.tagName !== 'INPUT') action(e); const floating = e.target.closest('.workspace-floating'); if (floating) { owner.front = (owner.front || 200) + 1; floating.style.zIndex = owner.front; } });
     listen(document, 'pointerdown', e => {
         root.querySelectorAll('.workspace-module-controls[open], .workspace-picker[open], .workspace-transfer[open], .workspace-layout-menu[open]').forEach(details => {if(!details.contains(e.target))details.open=false;});

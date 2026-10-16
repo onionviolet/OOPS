@@ -9,6 +9,8 @@ import {readNativeCombatFocus} from './combat_focus.js';
 import {mountProto23Shell} from './proto23_shell.js';
 import {mountWorkspaceNavigation} from './workspace_navigation.js';
 import {createVillageWorkspace} from './village_workspace.js';
+import {projectPlaceTypes} from './place_types_projection.js';
+import {get_location_type_penalty} from './models/location.js';
 import {projectsHome,openProjects} from './projects_drawer.js';
 import {generatedPeopleView} from './generated_people.js';
 import {mistglassProfile as MISTGLASS,mistglassContent} from './absorb_p23/world_adaptation/index.js';
@@ -321,7 +323,7 @@ import { end_activity_animation,
          insert_HTML,
         } from "./display.js";
 import { update_displayed_fighters_stats, update_displayed_health_of_fighter, } from "./ui/combat_display.js";
-import { compare_game_version, crafting_tags_to_skills, get_component_name, is_a_older_than_b, get_item_mapping, skill_consumable_tags, rtp, write_availability_status, npc_key_mapping, format_working_time } from "./misc.js";
+import { compare_game_version, crafting_tags_to_skills, get_component_name, is_a_older_than_b, get_item_mapping, skill_consumable_tags, rtp, write_availability_status, npc_key_mapping, format_working_time, stat_names } from "./misc.js";
 import { stances } from "./combat_stances.js";
 import { registerMixtureGathering, recipes, get_recipe_xp_value, get_component_stats } from "./crafting_recipes.js";
 import { game_version, get_game_version } from "./game_version.js";
@@ -10029,7 +10031,7 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
         const actions=[...people.map(p=>({id:`talk:${p.id}`,target:p.id,label:p.met?`Talk with ${p.name}`:'Meet traveler',disabled:busy,reason:busy?'Finish your current work or conversation first.':''})),...things.map(t=>({id:t.id,target:t.id,label:t.id==='projects'?'Open Projects':`Open ${t.name}`,disabled:t.id!=='projects'&&busy,reason:busy?'Finish your current work or conversation first.':''}))];
         const weatherNode=document.getElementById('weather_div'),weatherLabel=weatherNode?.querySelector('.material-icons')?.textContent.trim()==='ac_unit'?'Snow':is_raining()?'Rain':'Dry',temperatureText=weatherNode?.querySelector('span:not(.material-icons):not(.temperature_tooltip)')?.textContent||'';
         const enemies=readNativeCombatFocus(current_combat?.defenders_ui_slot),enemy=enemies[0]||null;
-        return {inVillage,place:current_location?.name||current_location?.id||'',clock:`${current_location?.name||current_location?.id} · ${current_game_time.toString()} · ${current_game_time.getTimeOfDaySimple()} · ${weatherLabel} · ${temperatureText}`,people,things,actions,dialogue:current_dialogue||current_trader,enemy,enemies,history:expansionState,services:inVillage?[{id:'waypost-clerk',name:'Waypost supply clerk',role:'Supply clerk',met:true,traits:[],relationship:null}]:[]};
+        return {inVillage,place:current_location?.name||current_location?.id||'',placeTypes:projectPlaceTypes(current_location?.types,{stageOf:(type,stage)=>location_types[type]?.stages?.[stage],penalty:get_location_type_penalty,statName:stat=>stat_names[stat]??stat}),clock:`${current_location?.name||current_location?.id} · ${current_game_time.toString()} · ${current_game_time.getTimeOfDaySimple()} · ${weatherLabel} · ${temperatureText}`,people,things,actions,dialogue:current_dialogue||current_trader,enemy,enemies,history:expansionState,services:inVillage?[{id:'waypost-clerk',name:'Waypost supply clerk',role:'Supply clerk',met:true,traits:[],relationship:null}]:[]};
     },act:id=>{
         if(id==='mixing'){document.getElementById('village_mixing_open')?.click();return;}
         if(id==='crafting'){window.openCraftingWindow();return;}

@@ -1,0 +1,41 @@
+[
+ {
+  "tag": "populated-1366x768-21",
+  "diff": {
+   "pixels": 0,
+   "box": null
+  },
+  "geoEqual": true,
+  "errors": {
+   "before": [],
+   "after": []
+  }
+ },
+ {
+  "tag": "populated-1920x1080-21",
+  "diff": {
+   "pixels": 2338,
+   "box": [
+    1037,
+    817,
+    1388,
+    862
+   ]
+  },
+  "geoEqual": true,
+  "errors": {
+   "before": [],
+   "after": []
+  },
+  "noise": {
+   "pixels": 2338,
+   "box": [
+    1037,
+    817,
+    1388,
+    862
+   ]
+  },
+  "noisy": true
+ }
+]

@@ -22,7 +22,7 @@ export function createVillageWorkspace({read,act}) {
     const scene=node('section');scene.id='village_scene';
     const clock=node('p'),people=node('div'),things=node('div'),groups=node('div');
     people.className='scene-chips';things.className='scene-chips';
-    clock.className='scene-location-header';const placeName=node('strong'),conditions=node('span'),calendar=node('span');conditions.className='scene-conditions';calendar.className='scene-calendar';clock.append(placeName,conditions,calendar);
+    clock.className='scene-location-header';const placeName=node('strong'),conditions=node('span'),calendar=node('span'),placeTags=node('span');conditions.className='scene-conditions';calendar.className='scene-calendar';placeTags.className='scene-place-tags';clock.append(placeName,conditions,placeTags,calendar);
     const placeTabs=node('nav');placeTabs.className='scene-local-tabs';placeTabs.setAttribute('aria-label','Location sections');let placeTab='actions';for(const [id,label]of [['actions','Actions'],['people','People'],['things','Things'],['options','Options']]){const b=node('button',label);b.type='button';b.dataset.placeTab=id;b.onclick=()=>{placeTab=id;render();};placeTabs.append(b);}scene.append(clock,placeTabs,people,things,groups);
     const focus=node('section');focus.id='current_focus';focus.setAttribute('aria-live','polite');
     const enemyView=node('div');enemyView.className='combat-focus-view';
@@ -107,13 +107,22 @@ export function createVillageWorkspace({read,act}) {
     document.addEventListener('keydown',leaveSubject);
     function chip(row,kind){const b=node('button',row.name);b.type='button';
         b.dataset.sceneFocus=row.id;b.onclick=()=>choose(row.id);return b;}
+    // R15: native place types return to the place header. Rebuild only when the facts change,
+    // so a focused tag keeps focus through ticks.
+    function renderPlaceTags(types){
+        const signature=JSON.stringify(types);if(placeTags.dataset.signature===signature)return;placeTags.dataset.signature=signature;
+        const focused=placeTags.contains(document.activeElement)?document.activeElement.dataset.placeType:null;
+        placeTags.replaceChildren(...types.map(type=>{const b=node('button',type.label);b.type='button';b.className='shell-place-tag';b.dataset.placeType=type.id;b.placeTypeView=type;b.setAttribute('aria-label',`Place type: ${type.label}`);return b;}));
+        placeTags.hidden=!types.length;if(focused)placeTags.querySelector(`[data-place-type="${CSS.escape(focused)}"]`)?.focus();
+    }
     function render(){
         const frame=read();if(frame.place!==lastPlace){selected=null;lastPlace=frame.place;placeTab='actions';}
         const view=projectVillageScene({overview:{title:frame.place,clockText:frame.clock,people:frame.people,things:frame.things,actions:frame.actions}});
         // This adapter reads the existing public native clock projection. It does
         // not compute weather/season or alter their world rules.
         const parity=document.getElementById('main_content').dataset.parity==='r3';
-        if(parity&&!clock.contains(placeName))clock.replaceChildren(placeName,conditions,calendar);
+        if(parity&&!clock.contains(placeName))clock.replaceChildren(placeName,conditions,placeTags,calendar);
+        renderPlaceTags(frame.placeTypes||[]);
         const parts=view.clockText.split(' · '),date=parts[1]||'',season=date.split(',')[1]?.trim();
         setText(placeName,frame.place);
         const conditionRows=[['season',season],['weather',parts[3]],['temperature',parts[4]]].filter(([,value])=>value);

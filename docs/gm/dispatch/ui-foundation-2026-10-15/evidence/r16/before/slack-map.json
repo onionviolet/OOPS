@@ -1,0 +1,1929 @@
+[
+ {
+  "tag": "fresh-1366x768-14",
+  "presentation": "proto23-shell",
+  "combat": "false",
+  "font": 14,
+  "regions": {
+   "player": {
+    "x": 17,
+    "y": 39,
+    "w": 467,
+    "h": 292,
+    "slack": 8,
+    "slackShare": 0.03,
+    "modules": [
+     {
+      "id": "vitals",
+      "h": 118,
+      "w": 461,
+      "used": 116,
+      "slack": 2,
+      "overflow": 0
+     },
+     {
+      "id": "shell-character",
+      "h": 168,
+      "w": 461,
+      "used": 168,
+      "slack": 0,
+      "overflow": 11
+     }
+    ]
+   },
+   "focus": {
+    "x": 488,
+    "y": 39,
+    "w": 463,
+    "h": 292,
+    "slack": 6,
+    "slackShare": 0.02,
+    "modules": [
+     {
+      "id": "focus",
+      "h": 286,
+      "w": 457,
+      "used": 286,
+      "slack": 0,
+      "overflow": 50
+     }
+    ]
+   },
+   "inventory": {
+    "x": 17,
+    "y": 335,
+    "w": 349,
+    "h": 386,
+    "slack": 243,
+    "slackShare": 0.63,
+    "modules": [
+     {
+      "id": "shell-inventory-tools",
+      "h": 27,
+      "w": 343,
+      "used": 24,
+      "slack": 3,
+      "overflow": 0
+     },
+     {
+      "id": "belongings",
+      "h": 354,
+      "w": 343,
+      "used": 119,
+      "slack": 235,
+      "overflow": 0
+     }
+    ]
+   },
+   "actions": {
+    "x": 370,
+    "y": 335,
+    "w": 581,
+    "h": 386,
+    "slack": 16,
+    "slackShare": 0.04,
+    "modules": [
+     {
+      "id": "village-scene",
+      "h": 74,
+      "w": 575,
+      "used": 70,
+      "slack": 4,
+      "overflow": 0
+     },
+     {
+      "id": "current-work",
+      "h": 33,
+      "w": 575,
+      "used": 27,
+      "slack": 6,
+      "overflow": 0
+     },
+     {
+      "id": "local-actions",
+      "h": 243,
+      "w": 575,
+      "used": 243,
+      "slack": 0,
+      "overflow": 0
+     },
+     {
+      "id": "pane-navigation",
+      "h": 30,
+      "w": 575,
+      "used": 30,
+      "slack": 0,
+      "overflow": 0
+     }
+    ]
+   },
+   "log": {
+    "x": 955,
+    "y": 39,
+    "w": 394,
+    "h": 682,
+    "slack": 540,
+    "slackShare": 0.79,
+    "modules": [
+     {
+      "id": "messages",
+      "h": 619,
+      "w": 388,
+      "used": 85,
+      "slack": 534,
+      "overflow": 0
+     },
+     {
+      "id": "shell-log-tools",
+      "h": 57,
+      "w": 388,
+      "used": 57,
+      "slack": 0,
+      "overflow": 0
+     }
+    ]
+   }
+  },
+  "controlCount": 56,
+  "tallControls": [
+   {
+    "t": "Village mixing counterMi",
+    "h": 66,
+    "w": 206
+   },
+   {
+    "t": "ProjectsRead optional pr",
+    "h": 66,
+    "w": 206
+   },
+   {
+    "t": "village elderVillage nei",
+    "h": 49,
+    "w": 206
+   },
+   {
+    "t": "village traderMerchant",
+    "h": 49,
+    "w": 206
+   },
+   {
+    "t": "weapon · Empty",
+    "h": 40,
+    "w": 115
+   },
+   {
+    "t": "off-hand · Empty",
+    "h": 40,
+    "w": 115
+   },
+   {
+    "t": "Here",
+    "h": 30,
+    "w": 141
+   },
+   {
+    "t": "Crafting",
+    "h": 30,
+    "w": 165
+   },
+   {
+    "t": "Mixing",
+    "h": 30,
+    "w": 153
+   },
+   {
+    "t": "?",
+    "h": 30,
+    "w": 116
+   }
+  ],
+  "invRows": 2,
+  "logW": 394,
+  "page": {
+   "scrollW": 1366,
+   "scrollH": 768,
+   "w": 1366,
+   "h": 768
+  },
+  "errors": []
+ },
+ {
+  "tag": "fresh-1366x768-21",
+  "presentation": "proto23-shell",
+  "combat": "false",
+  "font": 14,
+  "regions": {
+   "player": {
+    "x": 17,
+    "y": 39,
+    "w": 467,
+    "h": 368,
+    "slack": 8,
+    "slackShare": 0.02,
+    "modules": [
+     {
+      "id": "vitals",
+      "h": 159,
+      "w": 461,
+      "used": 157,
+      "slack": 2,
+      "overflow": 0
+     },
+     {
+      "id": "shell-character",
+      "h": 203,
+      "w": 461,
+      "used": 203,
+      "slack": 0,
+      "overflow": 221
+     }
+    ]
+   },
+   "focus": {
+    "x": 488,
+    "y": 39,
+    "w": 463,
+    "h": 368,
+    "slack": 6,
+    "slackShare": 0.02,
+    "modules": [
+     {
+      "id": "focus",
+      "h": 362,
+      "w": 457,
+      "used": 362,
+      "slack": 0,
+      "overflow": 252
+     }
+    ]
+   },
+   "inventory": {
+    "x": 17,
+    "y": 411,
+    "w": 349,
+    "h": 311,
+    "slack": 106,
+    "slackShare": 0.34,
+    "modules": [
+     {
+      "id": "shell-inventory-tools",
+      "h": 35,
+      "w": 343,
+      "used": 32,
+      "slack": 3,
+      "overflow": 0
+     },
+     {
+      "id": "belongings",
+      "h": 269,
+      "w": 343,
+      "used": 173,
+      "slack": 96,
+      "overflow": 0
+     }
+    ]
+   },
+   "actions": {
+    "x": 370,
+    "y": 411,
+    "w": 581,
+    "h": 311,
+    "slack": 16,
+    "slackShare": 0.05,
+    "modules": [
+     {
+      "id": "village-scene",
+      "h": 90,
+      "w": 575,
+      "used": 86,
+      "slack": 4,
+      "overflow": 0
+     },
+     {
+      "id": "current-work",
+      "h": 33,
+      "w": 575,
+      "used": 27,
+      "slack": 6,
+      "overflow": 0
+     },
+     {
+      "id": "local-actions",
+      "h": 137,
+      "w": 575,
+      "used": 137,
+      "slack": 0,
+      "overflow": 118
+     },
+     {
+      "id": "pane-navigation",
+      "h": 45,
+      "w": 575,
+      "used": 45,
+      "slack": 0,
+      "overflow": 0
+     }
+    ]
+   },
+   "log": {
+    "x": 955,
+    "y": 39,
+    "w": 394,
+    "h": 682,
+    "slack": 480,
+    "slackShare": 0.7,
+    "modules": [
+     {
+      "id": "messages",
+      "h": 591,
+      "w": 388,
+      "used": 117,
+      "slack": 474,
+      "overflow": 0
+     },
+     {
+      "id": "shell-log-tools",
+      "h": 85,
+      "w": 388,
+      "used": 85,
+      "slack": 0,
+      "overflow": 0
+     }
+    ]
+   }
+  },
+  "controlCount": 51,
+  "tallControls": [
+   {
+    "t": "Village mixing counterMi",
+    "h": 129,
+    "w": 197
+   },
+   {
+    "t": "ProjectsRead optional pr",
+    "h": 129,
+    "w": 197
+   },
+   {
+    "t": "village elderVillage nei",
+    "h": 74,
+    "w": 197
+   },
+   {
+    "t": "village traderMerchant",
+    "h": 74,
+    "w": 197
+   },
+   {
+    "t": "Weekly market: next open",
+    "h": 63,
+    "w": 542
+   },
+   {
+    "t": "head · Empty",
+    "h": 59,
+    "w": 115
+   },
+   {
+    "t": "torso · Empty",
+    "h": 59,
+    "w": 115
+   },
+   {
+    "t": "arms · Empty",
+    "h": 59,
+    "w": 115
+   },
+   {
+    "t": "ring · Empty",
+    "h": 59,
+    "w": 115
+   },
+   {
+    "t": "weapon · Empty",
+    "h": 59,
+    "w": 115
+   },
+   {
+    "t": "off-hand · Empty",
+    "h": 59,
+    "w": 115
+   },
+   {
+    "t": "legs · Empty",
+    "h": 59,
+    "w": 115
+   }
+  ],
+  "invRows": 2,
+  "logW": 394,
+  "page": {
+   "scrollW": 1366,
+   "scrollH": 768,
+   "w": 1366,
+   "h": 768
+  },
+  "errors": []
+ },
+ {
+  "tag": "fresh-1920x1080-21",
+  "presentation": "proto23-shell",
+  "combat": "false",
+  "font": 14,
+  "regions": {
+   "player": {
+    "x": 17,
+    "y": 39,
+    "w": 629,
+    "h": 410,
+    "slack": 7,
+    "slackShare": 0.02,
+    "modules": [
+     {
+      "id": "vitals",
+      "h": 159,
+      "w": 623,
+      "used": 157,
+      "slack": 2,
+      "overflow": 0
+     },
+     {
+      "id": "shell-character",
+      "h": 246,
+      "w": 623,
+      "used": 246,
+      "slack": 0,
+      "overflow": 99
+     }
+    ]
+   },
+   "focus": {
+    "x": 652,
+    "y": 39,
+    "w": 745,
+    "h": 410,
+    "slack": 6,
+    "slackShare": 0.01,
+    "modules": [
+     {
+      "id": "focus",
+      "h": 404,
+      "w": 739,
+      "used": 404,
+      "slack": 0,
+      "overflow": 58
+     }
+    ]
+   },
+   "inventory": {
+    "x": 17,
+    "y": 455,
+    "w": 501,
+    "h": 578,
+    "slack": 373,
+    "slackShare": 0.65,
+    "modules": [
+     {
+      "id": "shell-inventory-tools",
+      "h": 35,
+      "w": 495,
+      "used": 32,
+      "slack": 3,
+      "overflow": 0
+     },
+     {
+      "id": "belongings",
+      "h": 536,
+      "w": 495,
+      "used": 173,
+      "slack": 363,
+      "overflow": 0
+     }
+    ]
+   },
+   "actions": {
+    "x": 524,
+    "y": 455,
+    "w": 873,
+    "h": 578,
+    "slack": 16,
+    "slackShare": 0.03,
+    "modules": [
+     {
+      "id": "village-scene",
+      "h": 90,
+      "w": 867,
+      "used": 86,
+      "slack": 4,
+      "overflow": 0
+     },
+     {
+      "id": "current-work",
+      "h": 33,
+      "w": 867,
+      "used": 27,
+      "slack": 6,
+      "overflow": 0
+     },
+     {
+      "id": "local-actions",
+      "h": 404,
+      "w": 867,
+      "used": 404,
+      "slack": 0,
+      "overflow": 0
+     },
+     {
+      "id": "pane-navigation",
+      "h": 45,
+      "w": 867,
+      "used": 45,
+      "slack": 0,
+      "overflow": 0
+     }
+    ]
+   },
+   "log": {
+    "x": 1402,
+    "y": 39,
+    "w": 501,
+    "h": 994,
+    "slack": 792,
+    "slackShare": 0.8,
+    "modules": [
+     {
+      "id": "messages",
+      "h": 903,
+      "w": 495,
+      "used": 117,
+      "slack": 786,
+      "overflow": 0
+     },
+     {
+      "id": "shell-log-tools",
+      "h": 85,
+      "w": 495,
+      "used": 85,
+      "slack": 0,
+      "overflow": 0
+     }
+    ]
+   }
+  },
+  "controlCount": 57,
+  "tallControls": [
+   {
+    "t": "Village mixing counterMi",
+    "h": 99,
+    "w": 338
+   },
+   {
+    "t": "ProjectsRead optional pr",
+    "h": 99,
+    "w": 338
+   },
+   {
+    "t": "village elderVillage nei",
+    "h": 74,
+    "w": 338
+   },
+   {
+    "t": "village traderMerchant",
+    "h": 74,
+    "w": 338
+   },
+   {
+    "t": "weapon · Empty",
+    "h": 63,
+    "w": 156
+   },
+   {
+    "t": "off-hand · Empty",
+    "h": 63,
+    "w": 156
+   },
+   {
+    "t": "Here",
+    "h": 45,
+    "w": 213
+   },
+   {
+    "t": "Crafting",
+    "h": 45,
+    "w": 248
+   },
+   {
+    "t": "Mixing",
+    "h": 45,
+    "w": 231
+   },
+   {
+    "t": "?",
+    "h": 45,
+    "w": 175
+   },
+   {
+    "t": "Attributes ›",
+    "h": 42,
+    "w": 311
+   },
+   {
+    "t": "Open optional target-dic",
+    "h": 42,
+    "w": 330
+   }
+  ],
+  "invRows": 2,
+  "logW": 501,
+  "page": {
+   "scrollW": 1920,
+   "scrollH": 1080,
+   "w": 1920,
+   "h": 1080
+  },
+  "errors": []
+ },
+ {
+  "tag": "populated-1366x768-14",
+  "presentation": "proto23-shell",
+  "combat": "false",
+  "font": 14,
+  "regions": {
+   "player": {
+    "x": 17,
+    "y": 39,
+    "w": 467,
+    "h": 292,
+    "slack": 8,
+    "slackShare": 0.03,
+    "modules": [
+     {
+      "id": "vitals",
+      "h": 118,
+      "w": 461,
+      "used": 116,
+      "slack": 2,
+      "overflow": 0
+     },
+     {
+      "id": "shell-character",
+      "h": 168,
+      "w": 461,
+      "used": 168,
+      "slack": 0,
+      "overflow": 11
+     }
+    ]
+   },
+   "focus": {
+    "x": 488,
+    "y": 39,
+    "w": 463,
+    "h": 292,
+    "slack": 6,
+    "slackShare": 0.02,
+    "modules": [
+     {
+      "id": "focus",
+      "h": 286,
+      "w": 457,
+      "used": 286,
+      "slack": 0,
+      "overflow": 122
+     }
+    ]
+   },
+   "inventory": {
+    "x": 17,
+    "y": 335,
+    "w": 349,
+    "h": 386,
+    "slack": 8,
+    "slackShare": 0.02,
+    "modules": [
+     {
+      "id": "shell-inventory-tools",
+      "h": 27,
+      "w": 343,
+      "used": 24,
+      "slack": 3,
+      "overflow": 0
+     },
+     {
+      "id": "belongings",
+      "h": 354,
+      "w": 343,
+      "used": 354,
+      "slack": 0,
+      "overflow": 289
+     }
+    ]
+   },
+   "actions": {
+    "x": 370,
+    "y": 335,
+    "w": 581,
+    "h": 386,
+    "slack": 16,
+    "slackShare": 0.04,
+    "modules": [
+     {
+      "id": "village-scene",
+      "h": 74,
+      "w": 575,
+      "used": 70,
+      "slack": 4,
+      "overflow": 0
+     },
+     {
+      "id": "current-work",
+      "h": 33,
+      "w": 575,
+      "used": 27,
+      "slack": 6,
+      "overflow": 0
+     },
+     {
+      "id": "local-actions",
+      "h": 243,
+      "w": 575,
+      "used": 243,
+      "slack": 0,
+      "overflow": 138
+     },
+     {
+      "id": "pane-navigation",
+      "h": 30,
+      "w": 575,
+      "used": 30,
+      "slack": 0,
+      "overflow": 0
+     }
+    ]
+   },
+   "log": {
+    "x": 955,
+    "y": 39,
+    "w": 394,
+    "h": 682,
+    "slack": 540,
+    "slackShare": 0.79,
+    "modules": [
+     {
+      "id": "messages",
+      "h": 619,
+      "w": 388,
+      "used": 85,
+      "slack": 534,
+      "overflow": 0
+     },
+     {
+      "id": "shell-log-tools",
+      "h": 57,
+      "w": 388,
+      "used": 57,
+      "slack": 0,
+      "overflow": 0
+     }
+    ]
+   }
+  },
+  "controlCount": 61,
+  "tallControls": [
+   {
+    "t": "Village mixing counterMi",
+    "h": 66,
+    "w": 206
+   },
+   {
+    "t": "Crafting stationsUse the",
+    "h": 66,
+    "w": 206
+   },
+   {
+    "t": "ProjectsRead optional pr",
+    "h": 66,
+    "w": 206
+   },
+   {
+    "t": "village elderVillage nei",
+    "h": 49,
+    "w": 206
+   },
+   {
+    "t": "village traderMerchant",
+    "h": 49,
+    "w": 206
+   },
+   {
+    "t": "weapon · Empty",
+    "h": 40,
+    "w": 115
+   },
+   {
+    "t": "off-hand · Empty",
+    "h": 40,
+    "w": 115
+   },
+   {
+    "t": "Here",
+    "h": 30,
+    "w": 113
+   },
+   {
+    "t": "Skills",
+    "h": 30,
+    "w": 114
+   },
+   {
+    "t": "Crafting",
+    "h": 30,
+    "w": 136
+   },
+   {
+    "t": "Mixing",
+    "h": 30,
+    "w": 124
+   },
+   {
+    "t": "?",
+    "h": 30,
+    "w": 87
+   }
+  ],
+  "invRows": 13,
+  "logW": 394,
+  "page": {
+   "scrollW": 1366,
+   "scrollH": 768,
+   "w": 1366,
+   "h": 768
+  },
+  "errors": []
+ },
+ {
+  "tag": "populated-1366x768-21",
+  "presentation": "proto23-shell",
+  "combat": "false",
+  "font": 14,
+  "regions": {
+   "player": {
+    "x": 17,
+    "y": 39,
+    "w": 467,
+    "h": 368,
+    "slack": 8,
+    "slackShare": 0.02,
+    "modules": [
+     {
+      "id": "vitals",
+      "h": 159,
+      "w": 461,
+      "used": 157,
+      "slack": 2,
+      "overflow": 0
+     },
+     {
+      "id": "shell-character",
+      "h": 203,
+      "w": 461,
+      "used": 203,
+      "slack": 0,
+      "overflow": 221
+     }
+    ]
+   },
+   "focus": {
+    "x": 488,
+    "y": 39,
+    "w": 463,
+    "h": 368,
+    "slack": 6,
+    "slackShare": 0.02,
+    "modules": [
+     {
+      "id": "focus",
+      "h": 362,
+      "w": 457,
+      "used": 362,
+      "slack": 0,
+      "overflow": 385
+     }
+    ]
+   },
+   "inventory": {
+    "x": 17,
+    "y": 411,
+    "w": 349,
+    "h": 311,
+    "slack": 10,
+    "slackShare": 0.03,
+    "modules": [
+     {
+      "id": "shell-inventory-tools",
+      "h": 35,
+      "w": 343,
+      "used": 32,
+      "slack": 3,
+      "overflow": 0
+     },
+     {
+      "id": "belongings",
+      "h": 269,
+      "w": 343,
+      "used": 269,
+      "slack": 0,
+      "overflow": 679
+     }
+    ]
+   },
+   "actions": {
+    "x": 370,
+    "y": 411,
+    "w": 581,
+    "h": 311,
+    "slack": 16,
+    "slackShare": 0.05,
+    "modules": [
+     {
+      "id": "village-scene",
+      "h": 90,
+      "w": 575,
+      "used": 86,
+      "slack": 4,
+      "overflow": 0
+     },
+     {
+      "id": "current-work",
+      "h": 33,
+      "w": 575,
+      "used": 27,
+      "slack": 6,
+      "overflow": 0
+     },
+     {
+      "id": "local-actions",
+      "h": 137,
+      "w": 575,
+      "used": 137,
+      "slack": 0,
+      "overflow": 304
+     },
+     {
+      "id": "pane-navigation",
+      "h": 45,
+      "w": 575,
+      "used": 45,
+      "slack": 0,
+      "overflow": 0
+     }
+    ]
+   },
+   "log": {
+    "x": 955,
+    "y": 39,
+    "w": 394,
+    "h": 682,
+    "slack": 449,
+    "slackShare": 0.66,
+    "modules": [
+     {
+      "id": "messages",
+      "h": 591,
+      "w": 388,
+      "used": 148,
+      "slack": 443,
+      "overflow": 0
+     },
+     {
+      "id": "shell-log-tools",
+      "h": 85,
+      "w": 388,
+      "used": 85,
+      "slack": 0,
+      "overflow": 0
+     }
+    ]
+   }
+  },
+  "controlCount": 55,
+  "tallControls": [
+   {
+    "t": "Village mixing counterMi",
+    "h": 129,
+    "w": 197
+   },
+   {
+    "t": "Crafting stationsUse the",
+    "h": 129,
+    "w": 197
+   },
+   {
+    "t": "ProjectsRead optional pr",
+    "h": 124,
+    "w": 197
+   },
+   {
+    "t": "village elderVillage nei",
+    "h": 74,
+    "w": 197
+   },
+   {
+    "t": "village traderMerchant",
+    "h": 74,
+    "w": 197
+   },
+   {
+    "t": "Visiting courier: read r",
+    "h": 63,
+    "w": 542
+   },
+   {
+    "t": "Weekly market: next open",
+    "h": 63,
+    "w": 542
+   },
+   {
+    "t": "head · Empty",
+    "h": 59,
+    "w": 115
+   },
+   {
+    "t": "torso · Empty",
+    "h": 59,
+    "w": 115
+   },
+   {
+    "t": "arms · Empty",
+    "h": 59,
+    "w": 115
+   },
+   {
+    "t": "ring · Empty",
+    "h": 59,
+    "w": 115
+   },
+   {
+    "t": "weapon · Empty",
+    "h": 59,
+    "w": 115
+   }
+  ],
+  "invRows": 5,
+  "logW": 394,
+  "page": {
+   "scrollW": 1366,
+   "scrollH": 768,
+   "w": 1366,
+   "h": 768
+  },
+  "errors": []
+ },
+ {
+  "tag": "populated-1920x1080-21",
+  "presentation": "proto23-shell",
+  "combat": "false",
+  "font": 14,
+  "regions": {
+   "player": {
+    "x": 17,
+    "y": 39,
+    "w": 629,
+    "h": 410,
+    "slack": 7,
+    "slackShare": 0.02,
+    "modules": [
+     {
+      "id": "vitals",
+      "h": 159,
+      "w": 623,
+      "used": 157,
+      "slack": 2,
+      "overflow": 0
+     },
+     {
+      "id": "shell-character",
+      "h": 246,
+      "w": 623,
+      "used": 246,
+      "slack": 0,
+      "overflow": 99
+     }
+    ]
+   },
+   "focus": {
+    "x": 652,
+    "y": 39,
+    "w": 745,
+    "h": 410,
+    "slack": 6,
+    "slackShare": 0.01,
+    "modules": [
+     {
+      "id": "focus",
+      "h": 404,
+      "w": 739,
+      "used": 404,
+      "slack": 0,
+      "overflow": 165
+     }
+    ]
+   },
+   "inventory": {
+    "x": 17,
+    "y": 455,
+    "w": 501,
+    "h": 578,
+    "slack": 12,
+    "slackShare": 0.02,
+    "modules": [
+     {
+      "id": "shell-inventory-tools",
+      "h": 35,
+      "w": 495,
+      "used": 32,
+      "slack": 3,
+      "overflow": 0
+     },
+     {
+      "id": "belongings",
+      "h": 536,
+      "w": 495,
+      "used": 534,
+      "slack": 2,
+      "overflow": 412
+     }
+    ]
+   },
+   "actions": {
+    "x": 524,
+    "y": 455,
+    "w": 873,
+    "h": 578,
+    "slack": 16,
+    "slackShare": 0.03,
+    "modules": [
+     {
+      "id": "village-scene",
+      "h": 90,
+      "w": 867,
+      "used": 86,
+      "slack": 4,
+      "overflow": 0
+     },
+     {
+      "id": "current-work",
+      "h": 33,
+      "w": 867,
+      "used": 27,
+      "slack": 6,
+      "overflow": 0
+     },
+     {
+      "id": "local-actions",
+      "h": 404,
+      "w": 867,
+      "used": 404,
+      "slack": 0,
+      "overflow": 37
+     },
+     {
+      "id": "pane-navigation",
+      "h": 45,
+      "w": 867,
+      "used": 45,
+      "slack": 0,
+      "overflow": 0
+     }
+    ]
+   },
+   "log": {
+    "x": 1402,
+    "y": 39,
+    "w": 501,
+    "h": 994,
+    "slack": 792,
+    "slackShare": 0.8,
+    "modules": [
+     {
+      "id": "messages",
+      "h": 903,
+      "w": 495,
+      "used": 117,
+      "slack": 786,
+      "overflow": 0
+     },
+     {
+      "id": "shell-log-tools",
+      "h": 85,
+      "w": 495,
+      "used": 85,
+      "slack": 0,
+      "overflow": 0
+     }
+    ]
+   }
+  },
+  "controlCount": 61,
+  "tallControls": [
+   {
+    "t": "Village mixing counterMi",
+    "h": 99,
+    "w": 338
+   },
+   {
+    "t": "Crafting stationsUse the",
+    "h": 99,
+    "w": 338
+   },
+   {
+    "t": "ProjectsRead optional pr",
+    "h": 99,
+    "w": 338
+   },
+   {
+    "t": "village elderVillage nei",
+    "h": 74,
+    "w": 338
+   },
+   {
+    "t": "village traderMerchant",
+    "h": 74,
+    "w": 338
+   },
+   {
+    "t": "weapon · Empty",
+    "h": 63,
+    "w": 156
+   },
+   {
+    "t": "off-hand · Empty",
+    "h": 63,
+    "w": 156
+   },
+   {
+    "t": "Here",
+    "h": 45,
+    "w": 170
+   },
+   {
+    "t": "Skills",
+    "h": 45,
+    "w": 172
+   },
+   {
+    "t": "Crafting",
+    "h": 45,
+    "w": 205
+   },
+   {
+    "t": "Mixing",
+    "h": 45,
+    "w": 187
+   },
+   {
+    "t": "?",
+    "h": 45,
+    "w": 132
+   }
+  ],
+  "invRows": 13,
+  "logW": 501,
+  "page": {
+   "scrollW": 1920,
+   "scrollH": 1080,
+   "w": 1920,
+   "h": 1080
+  },
+  "errors": []
+ },
+ {
+  "tag": "combat-1366x768-14",
+  "presentation": "proto23-shell",
+  "combat": "true",
+  "font": 14,
+  "regions": {
+   "player": {
+    "x": 17,
+    "y": 39,
+    "w": 467,
+    "h": 304,
+    "slack": 8,
+    "slackShare": 0.03,
+    "modules": [
+     {
+      "id": "vitals",
+      "h": 118,
+      "w": 461,
+      "used": 116,
+      "slack": 2,
+      "overflow": 0
+     },
+     {
+      "id": "shell-character",
+      "h": 180,
+      "w": 461,
+      "used": 180,
+      "slack": 0,
+      "overflow": 11
+     }
+    ]
+   },
+   "focus": {
+    "x": 488,
+    "y": 39,
+    "w": 463,
+    "h": 304,
+    "slack": 60,
+    "slackShare": 0.2,
+    "modules": [
+     {
+      "id": "focus",
+      "h": 298,
+      "w": 457,
+      "used": 244,
+      "slack": 54,
+      "overflow": 0
+     }
+    ]
+   },
+   "inventory": {
+    "x": 17,
+    "y": 347,
+    "w": 349,
+    "h": 374,
+    "slack": 8,
+    "slackShare": 0.02,
+    "modules": [
+     {
+      "id": "shell-inventory-tools",
+      "h": 27,
+      "w": 343,
+      "used": 24,
+      "slack": 3,
+      "overflow": 0
+     },
+     {
+      "id": "belongings",
+      "h": 342,
+      "w": 343,
+      "used": 342,
+      "slack": 0,
+      "overflow": 301
+     }
+    ]
+   },
+   "actions": {
+    "x": 370,
+    "y": 347,
+    "w": 581,
+    "h": 374,
+    "slack": 29,
+    "slackShare": 0.08,
+    "modules": [
+     {
+      "id": "village-scene",
+      "h": 102,
+      "w": 575,
+      "used": 98,
+      "slack": 4,
+      "overflow": 0
+     },
+     {
+      "id": "current-work",
+      "h": 37,
+      "w": 575,
+      "used": 32,
+      "slack": 5,
+      "overflow": 0
+     },
+     {
+      "id": "local-actions",
+      "h": 199,
+      "w": 575,
+      "used": 185,
+      "slack": 14,
+      "overflow": 0
+     },
+     {
+      "id": "pane-navigation",
+      "h": 30,
+      "w": 575,
+      "used": 30,
+      "slack": 0,
+      "overflow": 0
+     }
+    ]
+   },
+   "log": {
+    "x": 955,
+    "y": 39,
+    "w": 394,
+    "h": 682,
+    "slack": 568,
+    "slackShare": 0.83,
+    "modules": [
+     {
+      "id": "messages",
+      "h": 619,
+      "w": 388,
+      "used": 57,
+      "slack": 562,
+      "overflow": 0
+     },
+     {
+      "id": "shell-log-tools",
+      "h": 57,
+      "w": 388,
+      "used": 57,
+      "slack": 0,
+      "overflow": 0
+     }
+    ]
+   }
+  },
+  "controlCount": 51,
+  "tallControls": [
+   {
+    "t": "weapon · Empty",
+    "h": 40,
+    "w": 115
+   },
+   {
+    "t": "off-hand · Empty",
+    "h": 40,
+    "w": 115
+   },
+   {
+    "t": "← Village",
+    "h": 34,
+    "w": 100
+   },
+   {
+    "t": "Here",
+    "h": 30,
+    "w": 141
+   },
+   {
+    "t": "Crafting",
+    "h": 30,
+    "w": 165
+   },
+   {
+    "t": "Mixing",
+    "h": 30,
+    "w": 153
+   },
+   {
+    "t": "?",
+    "h": 30,
+    "w": 116
+   }
+  ],
+  "invRows": 12,
+  "logW": 394,
+  "page": {
+   "scrollW": 1366,
+   "scrollH": 768,
+   "w": 1366,
+   "h": 768
+  },
+  "errors": []
+ },
+ {
+  "tag": "combat-1366x768-21",
+  "presentation": "proto23-shell",
+  "combat": "true",
+  "font": 14,
+  "regions": {
+   "player": {
+    "x": 17,
+    "y": 39,
+    "w": 467,
+    "h": 420,
+    "slack": 8,
+    "slackShare": 0.02,
+    "modules": [
+     {
+      "id": "vitals",
+      "h": 159,
+      "w": 461,
+      "used": 157,
+      "slack": 2,
+      "overflow": 0
+     },
+     {
+      "id": "shell-character",
+      "h": 255,
+      "w": 461,
+      "used": 255,
+      "slack": 0,
+      "overflow": 221
+     }
+    ]
+   },
+   "focus": {
+    "x": 488,
+    "y": 39,
+    "w": 463,
+    "h": 420,
+    "slack": 24,
+    "slackShare": 0.06,
+    "modules": [
+     {
+      "id": "focus",
+      "h": 414,
+      "w": 457,
+      "used": 396,
+      "slack": 18,
+      "overflow": 0
+     }
+    ]
+   },
+   "inventory": {
+    "x": 17,
+    "y": 463,
+    "w": 349,
+    "h": 258,
+    "slack": 15,
+    "slackShare": 0.06,
+    "modules": [
+     {
+      "id": "shell-inventory-tools",
+      "h": 35,
+      "w": 343,
+      "used": 32,
+      "slack": 3,
+      "overflow": 0
+     },
+     {
+      "id": "belongings",
+      "h": 217,
+      "w": 343,
+      "used": 211,
+      "slack": 6,
+      "overflow": 732
+     }
+    ]
+   },
+   "actions": {
+    "x": 370,
+    "y": 463,
+    "w": 581,
+    "h": 258,
+    "slack": 17,
+    "slackShare": 0.07,
+    "modules": [
+     {
+      "id": "village-scene",
+      "h": 111,
+      "w": 575,
+      "used": 111,
+      "slack": 0,
+      "overflow": 7
+     },
+     {
+      "id": "current-work",
+      "h": 37,
+      "w": 575,
+      "used": 32,
+      "slack": 5,
+      "overflow": 0
+     },
+     {
+      "id": "local-actions",
+      "h": 60,
+      "w": 575,
+      "used": 53,
+      "slack": 7,
+      "overflow": 0
+     },
+     {
+      "id": "pane-navigation",
+      "h": 45,
+      "w": 575,
+      "used": 45,
+      "slack": 0,
+      "overflow": 0
+     }
+    ]
+   },
+   "log": {
+    "x": 955,
+    "y": 39,
+    "w": 394,
+    "h": 682,
+    "slack": 522,
+    "slackShare": 0.77,
+    "modules": [
+     {
+      "id": "messages",
+      "h": 591,
+      "w": 388,
+      "used": 75,
+      "slack": 516,
+      "overflow": 0
+     },
+     {
+      "id": "shell-log-tools",
+      "h": 85,
+      "w": 388,
+      "used": 85,
+      "slack": 0,
+      "overflow": 0
+     }
+    ]
+   }
+  },
+  "controlCount": 49,
+  "tallControls": [
+   {
+    "t": "head · Empty",
+    "h": 59,
+    "w": 115
+   },
+   {
+    "t": "torso · Empty",
+    "h": 59,
+    "w": 115
+   },
+   {
+    "t": "arms · Empty",
+    "h": 59,
+    "w": 115
+   },
+   {
+    "t": "ring · Empty",
+    "h": 59,
+    "w": 115
+   },
+   {
+    "t": "weapon · Empty",
+    "h": 59,
+    "w": 115
+   },
+   {
+    "t": "off-hand · Empty",
+    "h": 59,
+    "w": 115
+   },
+   {
+    "t": "legs · Empty",
+    "h": 59,
+    "w": 115
+   },
+   {
+    "t": "feet · Empty",
+    "h": 59,
+    "w": 115
+   },
+   {
+    "t": "amulet · Empty",
+    "h": 59,
+    "w": 115
+   },
+   {
+    "t": "artifact · Empty",
+    "h": 59,
+    "w": 115
+   },
+   {
+    "t": "cape · Empty",
+    "h": 59,
+    "w": 115
+   },
+   {
+    "t": "1 · Starving wolf rat",
+    "h": 48,
+    "w": 141
+   }
+  ],
+  "invRows": 4,
+  "logW": 394,
+  "page": {
+   "scrollW": 1366,
+   "scrollH": 768,
+   "w": 1366,
+   "h": 768
+  },
+  "errors": []
+ },
+ {
+  "tag": "combat-1920x1080-21",
+  "presentation": "proto23-shell",
+  "combat": "true",
+  "font": 14,
+  "regions": {
+   "player": {
+    "x": 17,
+    "y": 39,
+    "w": 629,
+    "h": 497,
+    "slack": 8,
+    "slackShare": 0.02,
+    "modules": [
+     {
+      "id": "vitals",
+      "h": 159,
+      "w": 623,
+      "used": 157,
+      "slack": 2,
+      "overflow": 0
+     },
+     {
+      "id": "shell-character",
+      "h": 332,
+      "w": 623,
+      "used": 332,
+      "slack": 0,
+      "overflow": 99
+     }
+    ]
+   },
+   "focus": {
+    "x": 652,
+    "y": 39,
+    "w": 745,
+    "h": 497,
+    "slack": 154,
+    "slackShare": 0.31,
+    "modules": [
+     {
+      "id": "focus",
+      "h": 491,
+      "w": 739,
+      "used": 343,
+      "slack": 148,
+      "overflow": 0
+     }
+    ]
+   },
+   "inventory": {
+    "x": 17,
+    "y": 542,
+    "w": 501,
+    "h": 491,
+    "slack": 9,
+    "slackShare": 0.02,
+    "modules": [
+     {
+      "id": "shell-inventory-tools",
+      "h": 35,
+      "w": 495,
+      "used": 32,
+      "slack": 3,
+      "overflow": 0
+     },
+     {
+      "id": "belongings",
+      "h": 450,
+      "w": 495,
+      "used": 450,
+      "slack": 0,
+      "overflow": 499
+     }
+    ]
+   },
+   "actions": {
+    "x": 524,
+    "y": 542,
+    "w": 873,
+    "h": 491,
+    "slack": 24,
+    "slackShare": 0.05,
+    "modules": [
+     {
+      "id": "village-scene",
+      "h": 111,
+      "w": 867,
+      "used": 111,
+      "slack": 0,
+      "overflow": 7
+     },
+     {
+      "id": "current-work",
+      "h": 37,
+      "w": 867,
+      "used": 32,
+      "slack": 5,
+      "overflow": 0
+     },
+     {
+      "id": "local-actions",
+      "h": 293,
+      "w": 867,
+      "used": 279,
+      "slack": 14,
+      "overflow": 0
+     },
+     {
+      "id": "pane-navigation",
+      "h": 45,
+      "w": 867,
+      "used": 45,
+      "slack": 0,
+      "overflow": 0
+     }
+    ]
+   },
+   "log": {
+    "x": 1402,
+    "y": 39,
+    "w": 501,
+    "h": 994,
+    "slack": 834,
+    "slackShare": 0.84,
+    "modules": [
+     {
+      "id": "messages",
+      "h": 903,
+      "w": 495,
+      "used": 75,
+      "slack": 828,
+      "overflow": 0
+     },
+     {
+      "id": "shell-log-tools",
+      "h": 85,
+      "w": 495,
+      "used": 85,
+      "slack": 0,
+      "overflow": 0
+     }
+    ]
+   }
+  },
+  "controlCount": 55,
+  "tallControls": [
+   {
+    "t": "weapon · Empty",
+    "h": 63,
+    "w": 156
+   },
+   {
+    "t": "off-hand · Empty",
+    "h": 63,
+    "w": 156
+   },
+   {
+    "t": "Here",
+    "h": 45,
+    "w": 213
+   },
+   {
+    "t": "Crafting",
+    "h": 45,
+    "w": 248
+   },
+   {
+    "t": "Mixing",
+    "h": 45,
+    "w": 231
+   },
+   {
+    "t": "?",
+    "h": 45,
+    "w": 175
+   },
+   {
+    "t": "Attributes ›",
+    "h": 42,
+    "w": 311
+   },
+   {
+    "t": "Filters",
+    "h": 42,
+    "w": 150
+   },
+   {
+    "t": "Follow: smartFollow: alw",
+    "h": 42,
+    "w": 225
+   },
+   {
+    "t": "Latest",
+    "h": 42,
+    "w": 120
+   },
+   {
+    "t": "Stop combat log",
+    "h": 42,
+    "w": 375
+   },
+   {
+    "t": "Clear",
+    "h": 42,
+    "w": 120
+   }
+  ],
+  "invRows": 11,
+  "logW": 501,
+  "page": {
+   "scrollW": 1920,
+   "scrollH": 1080,
+   "w": 1920,
+   "h": 1080
+  },
+  "errors": []
+ }
+]

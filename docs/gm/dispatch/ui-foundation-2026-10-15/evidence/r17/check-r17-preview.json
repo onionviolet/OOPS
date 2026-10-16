@@ -1,0 +1,379 @@
+[
+ {
+  "name": "1366x768-14 preview boots: real panels, placeholders labelled, zero import-time timers and storage writes (PV4)",
+  "report": {
+   "fixture": "village",
+   "size": 14,
+   "spec": 1,
+   "real": [
+    "village-scene",
+    "focus",
+    "current-work"
+   ],
+   "regions": {
+    "village-scene": "actions",
+    "focus": "focus",
+    "current-work": "actions"
+   },
+   "placeholders": [
+    "vitals",
+    "shell-character",
+    "shell-inventory-tools",
+    "belongings",
+    "local-actions",
+    "pane-navigation",
+    "records",
+    "skills",
+    "messages",
+    "shell-log-tools"
+   ],
+   "importTimers": 0,
+   "importWrites": 0,
+   "acted": []
+  },
+  "vis": {
+   "scene": true,
+   "focus": true,
+   "work": true,
+   "parity": "r3",
+   "companions": "records skills",
+   "placeholders": 10,
+   "page": {
+    "w": 1366,
+    "h": 768
+   }
+  }
+ },
+ {
+  "name": "1366x768-14 PV8: real panels match the native shell's geometry at the same text size",
+  "preview": {
+   "font": "14px",
+   "focusRegion": 463,
+   "actionsRegion": 581,
+   "sceneHeader": [
+    575,
+    49
+   ],
+   "nearby": [
+    [
+     210,
+     28
+    ],
+    [
+     210,
+     28
+    ],
+    [
+     210,
+     54
+    ],
+    [
+     210,
+     54
+    ],
+    [
+     210,
+     54
+    ]
+   ],
+   "prose": [
+    429,
+    132
+   ],
+   "placeName": "Village",
+   "calendar": "01/04/999 08:01, Mon · ☼ Day",
+   "heading": "Around you"
+  },
+  "native": {
+   "font": "14px",
+   "focusRegion": 463,
+   "actionsRegion": 581,
+   "sceneHeader": [
+    575,
+    49
+   ],
+   "nearby": [
+    [
+     210,
+     28
+    ],
+    [
+     210,
+     28
+    ],
+    [
+     210,
+     54
+    ],
+    [
+     210,
+     54
+    ],
+    [
+     210,
+     54
+    ]
+   ],
+   "prose": [
+    429,
+    132
+   ],
+   "placeName": "Village",
+   "calendar": "01/04/999 08:01, Mon · ☼ Day",
+   "heading": "Around you"
+  }
+ },
+ {
+  "name": "1366x768-21 preview boots: real panels, placeholders labelled, zero import-time timers and storage writes (PV4)",
+  "report": {
+   "fixture": "village",
+   "size": 21,
+   "spec": 1,
+   "real": [
+    "village-scene",
+    "focus",
+    "current-work"
+   ],
+   "regions": {
+    "village-scene": "actions",
+    "focus": "focus",
+    "current-work": "actions"
+   },
+   "placeholders": [
+    "vitals",
+    "shell-character",
+    "shell-inventory-tools",
+    "belongings",
+    "local-actions",
+    "pane-navigation",
+    "records",
+    "skills",
+    "messages",
+    "shell-log-tools"
+   ],
+   "importTimers": 0,
+   "importWrites": 0,
+   "acted": []
+  },
+  "vis": {
+   "scene": true,
+   "focus": true,
+   "work": true,
+   "parity": "r3",
+   "companions": "records skills",
+   "placeholders": 10,
+   "page": {
+    "w": 1366,
+    "h": 768
+   }
+  }
+ },
+ {
+  "name": "1366x768-21 PV8: real panels match the native shell's geometry at the same text size",
+  "preview": {
+   "font": "21px",
+   "focusRegion": 463,
+   "actionsRegion": 581,
+   "sceneHeader": [
+    575,
+    59
+   ],
+   "nearby": [
+    [
+     424,
+     35
+    ],
+    [
+     424,
+     35
+    ],
+    [
+     424,
+     57
+    ],
+    [
+     424,
+     57
+    ],
+    [
+     424,
+     35
+    ]
+   ],
+   "prose": [
+    420,
+    283
+   ],
+   "placeName": "Village",
+   "calendar": "01/04/999 08:01, Mon · ☼ Day",
+   "heading": "Around you"
+  },
+  "native": {
+   "font": "21px",
+   "focusRegion": 463,
+   "actionsRegion": 581,
+   "sceneHeader": [
+    575,
+    59
+   ],
+   "nearby": [
+    [
+     424,
+     35
+    ],
+    [
+     424,
+     35
+    ],
+    [
+     424,
+     57
+    ],
+    [
+     424,
+     57
+    ],
+    [
+     424,
+     35
+    ]
+   ],
+   "prose": [
+    420,
+    283
+   ],
+   "placeName": "Village",
+   "calendar": "01/04/999 08:01, Mon · ☼ Day",
+   "heading": "Around you"
+  }
+ },
+ {
+  "name": "1920x1080-21 preview boots: real panels, placeholders labelled, zero import-time timers and storage writes (PV4)",
+  "report": {
+   "fixture": "village",
+   "size": 21,
+   "spec": 1,
+   "real": [
+    "village-scene",
+    "focus",
+    "current-work"
+   ],
+   "regions": {
+    "village-scene": "actions",
+    "focus": "focus",
+    "current-work": "actions"
+   },
+   "placeholders": [
+    "vitals",
+    "shell-character",
+    "shell-inventory-tools",
+    "belongings",
+    "local-actions",
+    "pane-navigation",
+    "records",
+    "skills",
+    "messages",
+    "shell-log-tools"
+   ],
+   "importTimers": 0,
+   "importWrites": 0,
+   "acted": []
+  },
+  "vis": {
+   "scene": true,
+   "focus": true,
+   "work": true,
+   "parity": "r3",
+   "companions": "records skills",
+   "placeholders": 10,
+   "page": {
+    "w": 1920,
+    "h": 1080
+   }
+  }
+ },
+ {
+  "name": "1920x1080-21 PV8: real panels match the native shell's geometry at the same text size",
+  "preview": {
+   "font": "21px",
+   "focusRegion": 745,
+   "actionsRegion": 873,
+   "sceneHeader": [
+    867,
+    59
+   ],
+   "nearby": [
+    [
+     344,
+     35
+    ],
+    [
+     344,
+     35
+    ],
+    [
+     344,
+     57
+    ],
+    [
+     344,
+     57
+    ],
+    [
+     344,
+     57
+    ]
+   ],
+   "prose": [
+    702,
+    170
+   ],
+   "placeName": "Village",
+   "calendar": "01/04/999 08:01, Mon · ☼ Day",
+   "heading": "Around you"
+  },
+  "native": {
+   "font": "21px",
+   "focusRegion": 745,
+   "actionsRegion": 873,
+   "sceneHeader": [
+    867,
+    59
+   ],
+   "nearby": [
+    [
+     344,
+     35
+    ],
+    [
+     344,
+     35
+    ],
+    [
+     344,
+     57
+    ],
+    [
+     344,
+     57
+    ],
+    [
+     344,
+     57
+    ]
+   ],
+   "prose": [
+    702,
+    170
+   ],
+   "placeName": "Village",
+   "calendar": "01/04/999 08:01, Mon · ☼ Day",
+   "heading": "Around you"
+  }
+ },
+ {
+  "name": "PV3: a preview session leaves the game's storage on this origin byte-identical",
+  "previewWrites": 4,
+  "keys": 5
+ }
+]

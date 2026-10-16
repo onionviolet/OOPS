@@ -3,6 +3,7 @@ import {getDisplaySetting,setDisplaySettings} from './display_settings.js';
 import {centerModes} from './center_modes.js';
 import {definePanel} from './panel_kit.js';
 import {expandWorkspaceModule,updateWorkspace} from './workspace_layout.js';
+import {placeTypeEffectText} from './place_types_projection.js';
 const node=(tag,text,cls)=>{const n=document.createElement(tag);if(text!=null)n.textContent=text;if(cls)n.className=cls;return n;};
 // Preserve native tooltip content and markup; add presentation roles to its
 // existing lines, never synthesize item facts from names or hidden templates.
@@ -124,7 +125,7 @@ export function mountProto23Shell({read}) {
     function hideContext(){clearTimeout(contextTimer);if(contextPreview.matches(':popover-open'))contextPreview.hidePopover();contextSource?.removeAttribute('aria-describedby');contextSource=null;contextSignature='';}
     function showContext(source,interactive=false){
         if(!active()||document.getElementById('main_content').dataset.parity!=='r3')return;
-        contextPreview.dataset.interactive=String(interactive||source.dataset.contextPreview==='effects');clearTimeout(contextTimer);const attributeRow=source.dataset.attributePreview?attributeInspector.getRows().find(row=>row.id===source.dataset.attributePreview):null;const nextSignature=attributeRow?JSON.stringify(attributeRow):source.logDescription||source.dataset.contextPreview==='effects'&&document.getElementById('effects_tooltip')?.innerHTML||source.dataset.effectAnchor==='opponent-name'&&document.getElementById('current_focus').textContent||source.innerHTML+source.title;if(contextSource===source&&contextSignature===nextSignature&&contextPreview.matches(':popover-open'))return;contextSignature=nextSignature;hidePreview();contextSource?.removeAttribute('aria-describedby');contextSource=source;
+        contextPreview.dataset.interactive=String(interactive||source.dataset.contextPreview==='effects');clearTimeout(contextTimer);const attributeRow=source.dataset.attributePreview?attributeInspector.getRows().find(row=>row.id===source.dataset.attributePreview):null;const nextSignature=attributeRow?JSON.stringify(attributeRow):source.logDescription||source.dataset.contextPreview==='effects'&&document.getElementById('effects_tooltip')?.innerHTML||source.dataset.effectAnchor==='opponent-name'&&document.getElementById('current_focus').textContent||source.placeTypeView&&JSON.stringify(source.placeTypeView)||source.innerHTML+source.title;if(contextSource===source&&contextSignature===nextSignature&&contextPreview.matches(':popover-open'))return;contextSignature=nextSignature;hidePreview();contextSource?.removeAttribute('aria-describedby');contextSource=source;
         contextPreview.replaceChildren();
         if(attributeRow){contextPreview.append(attributeExplanation(attributeRow));
         }else if(source.logDescription){const saved=node('div');saved.innerHTML=source.logDescription;contextPreview.append(descriptionCopy(saved),node('small','Description recorded with this event.'));
@@ -134,6 +135,9 @@ export function mountProto23Shell({read}) {
             for(const effect of native.querySelectorAll('.active_effect_tooltip')){const copy=descriptionCopy(effect);if(effect.dataset.effectKind)copy.prepend(node('small',effect.dataset.effectKind==='debuff'?'Debuff':effect.dataset.effectKind==='buff'?'Buff':'Condition','context-effect-kind'));contextPreview.append(copy);}
         }else if(source.dataset.effectAnchor==='opponent-name'){
             const focus=document.getElementById('current_focus');contextPreview.append(node('strong',source.textContent),node('p',focus.querySelector('.combat-focus-view > p')?.textContent||''),node('p',[...focus.querySelectorAll('dl > div')].map(n=>[...n.children].map(c=>c.textContent).join(': ')).join(' · ')),node('small','Native compatibility readout. Knowledge and appraisal depend on the world and observer. Inspection does not change attack targeting.'));
+        }else if(source.placeTypeView){
+            const type=source.placeTypeView;contextPreview.append(node('strong',`Place type: ${type.label}`),node('p',type.description));
+            for(const effect of type.effects)contextPreview.append(node('p',placeTypeEffectText(effect)));
         }else if(source.classList.contains('notice-panel-link')){
             contextPreview.append(node('strong','Related panel'),node('p','Open shows the current related panel. Hover an underlined subject for its recorded description.'));
         }else{
@@ -156,7 +160,7 @@ export function mountProto23Shell({read}) {
         contextPreview.style.top=Math.max(8,box.bottom+h+8<innerHeight?box.bottom+6:box.top-h-6)+'px';
         source.setAttribute('aria-describedby',contextPreview.id);
     }
-    const contextSelector='[data-attribute-preview],[data-native-stat],[data-effect-anchor=opponent-name],.shell-effects-summary,.combat-focus-view dl > div,.enemy-card dl > div,.combat-focus-choices button,.log-subject,.shell-stat-record,#character_health_div,#character_stamina_div,#character_xp_div';
+    const contextSelector='.shell-place-tag,[data-attribute-preview],[data-native-stat],[data-effect-anchor=opponent-name],.shell-effects-summary,.combat-focus-view dl > div,.enemy-card dl > div,.combat-focus-choices button,.log-subject,.shell-stat-record,#character_health_div,#character_stamina_div,#character_xp_div';
     const contextEnter=event=>{const source=event.target.closest(contextSelector);if(source&&!source.contains(event.relatedTarget))showContext(source);};
     const contextLeave=event=>{const source=event.target.closest(contextSelector);if(source&&!source.contains(event.relatedTarget)){clearTimeout(contextTimer);contextTimer=setTimeout(hideContext,180);}};
     for(const type of ['mouseover','focusin'])document.addEventListener(type,contextEnter);
@@ -164,7 +168,7 @@ export function mountProto23Shell({read}) {
     contextPreview.addEventListener('mouseenter',()=>clearTimeout(contextTimer));contextPreview.addEventListener('mouseleave',()=>{contextTimer=setTimeout(hideContext,180);});
     const contextDismiss=event=>{if(event.key==='Escape'&&contextPreview.matches(':popover-open')){hideContext();event.preventDefault();event.stopImmediatePropagation();}};
     document.addEventListener('keydown',contextDismiss,true);
-    document.addEventListener('click',event=>{const subject=event.target.closest('.log-subject');if(subject){showContext(subject,true);return;}if(!contextPreview.contains(event.target)&&event.target!==effectsSummary)hideContext();});
+    document.addEventListener('click',event=>{const subject=event.target.closest('.log-subject,.shell-place-tag');if(subject){showContext(subject,true);return;}if(!contextPreview.contains(event.target)&&event.target!==effectsSummary)hideContext();});
 
     const preview=node('aside',null,'shell-item-preview');preview.id='shell_item_preview';
     preview.setAttribute('popover','manual');preview.setAttribute('aria-label','Item preview');
@@ -253,10 +257,14 @@ export function mountProto23Shell({read}) {
         const focused=document.activeElement?.closest('.shell-secondary-stat');secondary.hidden=true;
         const module=player.closest('.workspace-module'),siblings=[...region.children],following=siblings.slice(siblings.indexOf(module)+1).filter(n=>n.checkVisibility()).reduce((sum,n)=>sum+n.getBoundingClientRect().height,0),available=region.getBoundingClientRect().bottom-player.getBoundingClientRect().bottom-following-8;
         secondaryGrid.dataset.columns=String(cols);for(const record of secondaryRecords.values())record.button.hidden=true;
+        // R16c: declare the height every candidate row would take, so the shell composition can
+        // give You that room at a stable moment; this fit still yields rows when it cannot.
+        const want=candidates.length?Math.ceil(font*1.6*(1+Math.ceil(candidates.length/cols))):0;if(secondary.dataset.fitWant!==String(want))secondary.dataset.fitWant=String(want);
         if(available<font*1.5||!candidates.length){root.dataset.secondaryShown='0';if(focused)details.focus({preventScroll:true});if(contextSource?.closest('.shell-secondary-stats'))hideContext();return;}
         secondary.hidden=false;for(const[id]of candidates)secondaryRecords.get(id).button.hidden=false;
         secondaryHeading.textContent='Secondary';
         const headingHeight=secondaryHeading.getBoundingClientRect().height,rowHeight=Math.max(...candidates.map(([id])=>secondaryRecords.get(id).button.getBoundingClientRect().height));
+        const measured=String(Math.ceil(headingHeight+4+Math.ceil(candidates.length/cols)*rowHeight));if(secondary.dataset.fitWant!==measured)secondary.dataset.fitWant=measured;
         const count=Math.min(candidates.length,Math.max(0,Math.floor((available-headingHeight-4)/rowHeight))*cols),shown=new Set(candidates.slice(0,count).map(([id])=>id));
         if(count&&focused&&candidates.some(([id])=>id===focused.dataset.attributePreview)&&!shown.has(focused.dataset.attributePreview)){shown.delete([...shown].at(-1));shown.add(focused.dataset.attributePreview);}
         for(const[id,record]of secondaryRecords)record.button.hidden=!shown.has(id);

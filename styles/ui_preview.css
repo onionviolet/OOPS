@@ -1,0 +1,11 @@
+/* R17 preview page only (ui-preview.html). Placeholder frames and the preview bar; shared tokens. */
+#preview_bar {position:fixed;top:0;left:0;right:0;z-index:5;display:flex;flex-wrap:nowrap;white-space:nowrap;overflow:hidden;align-items:center;gap:.6em;padding:.25em 1em;background:var(--p23-inventory-fill);color:var(--p23-text);border-bottom:1px solid var(--p23-quiet-line);}
+#preview_bar > select {font:inherit;color:var(--p23-text);background:var(--p23-context);border:1px solid var(--p23-quiet-line);}
+#preview_status {color:var(--p23-muted);font-size:.9em;overflow:hidden;text-overflow:ellipsis;}
+/* The section keeps its native font size (Local actions is the text-size source); only the label
+   and skeleton rows follow the shell size. */
+[data-preview-placeholder] {box-sizing:border-box;padding:.2em .4em;border:1px dashed var(--p23-quiet-line);color:var(--p23-muted);}
+[data-preview-placeholder] > * {font-size:var(--shell-context-size,var(--ui-type-body));line-height:1.3;}
+.preview-placeholder-label {margin:0 0 .2em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.preview-placeholder-label > strong {color:var(--p23-text);font-weight:600;}
+.preview-skeleton-row {height:1.3em;margin:.15em 0;background:var(--p23-track);opacity:.6;}

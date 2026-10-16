@@ -1,0 +1,44 @@
+/* Shell layout: region heights and companion placement for the parity shell (R16c), lifted whole
+   out of ui_tokens.css in R17 (GU3). Layout data lives in src/layout_spec.js; the fit engine is
+   src/shell_composition.js. Linked right after ui_tokens.css so cascade order is unchanged.
+   Token and control sizing stays in ui_tokens.css. */
+
+/* R16c whole-screen composition. The top row follows its content (src/shell_composition.js, measured
+   only at stable moments, WX3/WX4); Attributes, a selected item and an open combat readout keep
+   their own rules.
+   Companions (CZ3–CZ5): the existing Journal and Skills panels sit beside the actions, idle
+   shows both, a fight shows Skills (Stances). They yield to an item detail or a center view. */
+@media (min-width:1001px) {
+#main_content.workspace-active[data-parity="r3"][data-shell-fit="true"]:not([data-shell-stats-open="true"]):not([data-parity-item="true"]):not(:has(.combat-readout[open])) .workspace-board {grid-template-rows:minmax(0,var(--shell-top-row)) minmax(0,1fr)!important;}
+#main_content.workspace-active[data-parity="r3"]:is([data-shell-companions~="records"],[data-shell-companions~="skills"]):not([data-parity-item="true"]):not(:has(#location_related_div.center-mode-open)) [data-region="actions"] {
+ display:grid;grid-template-columns:minmax(0,1fr) minmax(0,clamp(calc(var(--shell-context-size,var(--ui-type-body))*12),42%,calc(var(--shell-context-size,var(--ui-type-body))*24)));grid-template-rows:auto auto minmax(0,1fr) minmax(0,1fr) auto;
+}
+#main_content.workspace-active[data-parity="r3"] [data-region="actions"] > .workspace-module[data-module="village-scene"] {grid-row:1;grid-column:1/-1;}
+#main_content.workspace-active[data-parity="r3"] [data-region="actions"] > .workspace-module[data-module="current-work"] {grid-row:2;grid-column:1;}
+#main_content.workspace-active[data-parity="r3"] [data-region="actions"] > .workspace-module[data-module="local-actions"] {grid-row:3/5;grid-column:1;}
+#main_content.workspace-active[data-parity="r3"] [data-region="actions"] > .workspace-module[data-module="pane-navigation"] {grid-row:5;grid-column:1/-1;}
+/* A companion shows only when the latched list names it (src/shell_composition.js). */
+#main_content.workspace-active[data-parity="r3"] [data-region="actions"] > .workspace-module:is([data-module="records"],[data-module="skills"]) {display:none!important;}
+#main_content.workspace-active[data-parity="r3"][data-shell-companions~="records"]:not([data-parity-item="true"]):not(:has(#location_related_div.center-mode-open)) [data-region="actions"] > .workspace-module[data-module="records"]:not([hidden]),
+#main_content.workspace-active[data-parity="r3"][data-shell-companions~="skills"]:not([data-parity-item="true"]):not(:has(#location_related_div.center-mode-open)) [data-region="actions"] > .workspace-module[data-module="skills"]:not([hidden]) {
+ display:flex!important;flex-direction:column;min-height:0;border-left:1px solid var(--p23-line)!important;
+}
+#main_content.workspace-active[data-parity="r3"] [data-region="actions"] > .workspace-module:is([data-module="records"],[data-module="skills"]) {grid-column:2;grid-row:2/5;}
+#main_content.workspace-active[data-parity="r3"][data-shell-companions~="records"][data-shell-companions~="skills"] [data-region="actions"] > .workspace-module[data-module="records"] {grid-row:2/4;}
+#main_content.workspace-active[data-parity="r3"][data-shell-companions~="records"][data-shell-companions~="skills"] [data-region="actions"] > .workspace-module[data-module="skills"] {grid-row:4/5;}
+#main_content.workspace-active[data-parity="r3"] [data-region="actions"] > .workspace-module:is([data-module="records"],[data-module="skills"]) > .workspace-module-body {flex:1 1 0;min-height:0;overflow:auto;}
+/* CZ9: companion panels use the shell's tab and row look at the shell text size. Native nodes,
+   click handlers and saved choices (Hide completed, skill sort) are unchanged. */
+#main_content.workspace-active[data-parity="r3"] [data-region="actions"] :is(#journal_div,#skills_and_stances_div) {font-size:var(--shell-context-size,var(--ui-type-body));line-height:1.3;padding:0 .2em;background:transparent!important;border:0;box-shadow:none;}
+#main_content.workspace-active[data-parity="r3"] [data-region="actions"] :is(#journal_control_div,#skill_and_stance_control_div,#skill_sorting_buttons) {display:flex;flex-wrap:wrap;gap:0 .2em;margin:0;border-bottom:1px solid var(--p23-quiet-line);}
+#main_content.workspace-active[data-parity="r3"] [data-region="actions"] :is(#journal_control_div,#skill_and_stance_control_div,#skill_sorting_buttons) > :is(div,button) {width:auto;float:none;flex:0 0 auto;font:inherit;font-size:.9em;min-height:0;margin:0;padding:.05em .3em;color:var(--p23-text);background:transparent!important;border:0!important;border-bottom:2px solid transparent!important;box-shadow:none;outline:0;cursor:pointer;}
+#main_content.workspace-active[data-parity="r3"] [data-region="actions"] :is(#journal_control_div,#skill_and_stance_control_div,#skill_sorting_buttons) > :is(div,button):focus-visible {outline:2px solid var(--workspace-focus);outline-offset:-2px;}
+#main_content.workspace-active[data-parity="r3"] [data-region="actions"] :is(#journal_control_div,#skill_and_stance_control_div,#skill_sorting_buttons) > .active_selection_button {border-bottom-color:var(--p23-quantity)!important;}
+#main_content.workspace-active[data-parity="r3"] [data-region="actions"] #journal_control_div > [hidden] {display:none;}
+#main_content.workspace-active[data-parity="r3"] [data-region="actions"] #quests_header {display:none;}
+/* UR42: the top nav already names every Journal tab. Beside the actions the companion shows the
+   quest list without its tab strip; another tab chosen elsewhere brings the strip back. */
+#main_content.workspace-active[data-parity="r3"] [data-region="actions"] #journal_control_div:has(> #journal_show_quests.active_selection_button) {display:none;}
+#main_content.workspace-active[data-parity="r3"] [data-region="actions"] :is(#quest_hiding_div,#skill_hiding_div) {font-size:.85em;color:var(--p23-muted);padding:.1em 0;}
+#main_content.workspace-active[data-parity="r3"] [data-region="actions"] :is(#journal_content_div,#skills_and_stances_content_div) {font-size:inherit;}
+}

@@ -1,0 +1,294 @@
+[
+ {
+  "tag": "1366x768-14",
+  "combat": "true",
+  "native": [
+   {
+    "label": "open",
+    "tip": "A completely open area where attacks can come from any directionEP x0.75"
+   }
+  ],
+  "tags": [
+   "open"
+  ],
+  "box": {
+   "x": 483.765625,
+   "y": 351.390625,
+   "width": 39.8125,
+   "height": 28
+  },
+  "focusOpen": true,
+  "popoverText": "Place type: openA completely open area where attacks can come from any directionEP x0.75",
+  "escClosed": true,
+  "focusKept": true,
+  "enterOpen": true,
+  "hoverOpen": true,
+  "focusAfterTicks": true,
+  "page": {
+   "scrollW": 1366,
+   "scrollH": 768,
+   "w": 1366,
+   "h": 768
+  },
+  "parse": {
+   "written": 879,
+   "parsed": 879,
+   "balanced": true
+  },
+  "hiddenModules": [
+   "herbal-experiments",
+   "status-window",
+   "known-routes",
+   "village-travelers",
+   "village-neighbors",
+   "world-events",
+   "reading-reference",
+   "learned-preparations",
+   "combat-controls",
+   "shell-detail",
+   "time",
+   "location",
+   "combat",
+   "records",
+   "skills",
+   "stance",
+   "preparation",
+   "equipment-comparison",
+   "optional-worlds",
+   "beginning",
+   "patrol",
+   "projects",
+   "notebook",
+   "known-people",
+   "memories",
+   "practice-actions",
+   "ledger",
+   "customization",
+   "customization-effects",
+   "customization-rules",
+   "customization-preview",
+   "customization-sites",
+   "continuation"
+  ],
+  "errors": []
+ },
+ {
+  "tag": "1366x768-17.5",
+  "combat": "true",
+  "native": [
+   {
+    "label": "open",
+    "tip": "A completely open area where attacks can come from any directionEP x0.75"
+   }
+  ],
+  "tags": [
+   "open"
+  ],
+  "box": {
+   "x": 511.46875,
+   "y": 395.75,
+   "width": 49.265625,
+   "height": 28
+  },
+  "focusOpen": true,
+  "popoverText": "Place type: openA completely open area where attacks can come from any directionEP x0.75",
+  "escClosed": true,
+  "focusKept": true,
+  "enterOpen": true,
+  "hoverOpen": true,
+  "focusAfterTicks": true,
+  "page": {
+   "scrollW": 1366,
+   "scrollH": 768,
+   "w": 1366,
+   "h": 768
+  },
+  "parse": {
+   "written": 879,
+   "parsed": 879,
+   "balanced": true
+  },
+  "hiddenModules": [
+   "herbal-experiments",
+   "status-window",
+   "known-routes",
+   "village-travelers",
+   "village-neighbors",
+   "world-events",
+   "reading-reference",
+   "learned-preparations",
+   "combat-controls",
+   "shell-detail",
+   "time",
+   "location",
+   "combat",
+   "records",
+   "skills",
+   "stance",
+   "preparation",
+   "equipment-comparison",
+   "optional-worlds",
+   "beginning",
+   "patrol",
+   "projects",
+   "notebook",
+   "known-people",
+   "memories",
+   "practice-actions",
+   "ledger",
+   "customization",
+   "customization-effects",
+   "customization-rules",
+   "customization-preview",
+   "customization-sites",
+   "continuation"
+  ],
+  "errors": []
+ },
+ {
+  "tag": "1366x768-21",
+  "combat": "true",
+  "native": [
+   {
+    "label": "open",
+    "tip": "A completely open area where attacks can come from any directionEP x0.75"
+   }
+  ],
+  "tags": [
+   "open"
+  ],
+  "box": {
+   "x": 539.171875,
+   "y": 460.09375,
+   "width": 58.703125,
+   "height": 28
+  },
+  "focusOpen": true,
+  "popoverText": "Place type: openA completely open area where attacks can come from any directionEP x0.75",
+  "escClosed": true,
+  "focusKept": true,
+  "enterOpen": true,
+  "hoverOpen": true,
+  "focusAfterTicks": true,
+  "page": {
+   "scrollW": 1366,
+   "scrollH": 768,
+   "w": 1366,
+   "h": 768
+  },
+  "parse": {
+   "written": 879,
+   "parsed": 879,
+   "balanced": true
+  },
+  "hiddenModules": [
+   "herbal-experiments",
+   "status-window",
+   "known-routes",
+   "village-travelers",
+   "village-neighbors",
+   "world-events",
+   "reading-reference",
+   "learned-preparations",
+   "combat-controls",
+   "shell-detail",
+   "time",
+   "location",
+   "combat",
+   "records",
+   "skills",
+   "stance",
+   "preparation",
+   "equipment-comparison",
+   "optional-worlds",
+   "beginning",
+   "patrol",
+   "projects",
+   "notebook",
+   "known-people",
+   "memories",
+   "practice-actions",
+   "ledger",
+   "customization",
+   "customization-effects",
+   "customization-rules",
+   "customization-preview",
+   "customization-sites",
+   "continuation"
+  ],
+  "errors": []
+ },
+ {
+  "tag": "1920x1080-21",
+  "combat": "true",
+  "native": [
+   {
+    "label": "open",
+    "tip": "A completely open area where attacks can come from any directionEP x0.75"
+   }
+  ],
+  "tags": [
+   "open"
+  ],
+  "box": {
+   "x": 692.78125,
+   "y": 547.09375,
+   "width": 58.703125,
+   "height": 28
+  },
+  "focusOpen": true,
+  "popoverText": "Place type: openA completely open area where attacks can come from any directionEP x0.75",
+  "escClosed": true,
+  "focusKept": true,
+  "enterOpen": true,
+  "hoverOpen": true,
+  "focusAfterTicks": true,
+  "page": {
+   "scrollW": 1920,
+   "scrollH": 1080,
+   "w": 1920,
+   "h": 1080
+  },
+  "parse": {
+   "written": 879,
+   "parsed": 879,
+   "balanced": true
+  },
+  "hiddenModules": [
+   "herbal-experiments",
+   "status-window",
+   "known-routes",
+   "village-travelers",
+   "village-neighbors",
+   "world-events",
+   "reading-reference",
+   "learned-preparations",
+   "combat-controls",
+   "shell-detail",
+   "time",
+   "location",
+   "combat",
+   "records",
+   "skills",
+   "stance",
+   "preparation",
+   "equipment-comparison",
+   "optional-worlds",
+   "beginning",
+   "patrol",
+   "projects",
+   "notebook",
+   "known-people",
+   "memories",
+   "practice-actions",
+   "ledger",
+   "customization",
+   "customization-effects",
+   "customization-rules",
+   "customization-preview",
+   "customization-sites",
+   "continuation"
+  ],
+  "errors": []
+ }
+]
