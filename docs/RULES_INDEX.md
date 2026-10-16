@@ -68,6 +68,7 @@ open here too.
 | Cheats | Rulebook 5, 11; AD26, AD28–AD30, AD11 | [CHEAT_COSMOLOGY](CHEAT_COSMOLOGY.md), [CHEAT_LIBRARY](CHEAT_LIBRARY.md) |
 | Starts and entry | AD23, Rulebook 8 | [Intro and starts index](INTRO_AND_STARTS_INDEX_2026-10-14.md) |
 | Goals, story, rivals, threats | AD2, AD24–AD25, AD6 | [CHARACTERS_AND_WORLD_EVENTS](CHARACTERS_AND_WORLD_EVENTS.md), [RIVALS_IDENTITIES_AND_FATE](RIVALS_IDENTITIES_AND_FATE.md), [TIMELINES_AND_DIVERGENCE](TIMELINES_AND_DIVERGENCE.md) |
+| Activity depth and scope (fishing, farming, ranching, gathering, jobs) | CX1–CX8, AD33, MR18, MR29; SSD10–SSD14 as proposed vocabulary | [Subsystem scope ladders](SUBSYSTEM_SCOPE_LADDERS_2026-10-16.md), [complexity review](gm/dispatch/ui-foundation-2026-10-15/next-parts/IMPLEMENTATION_COMPLEXITY_REVIEW_2026-10-16.md) |
 | Economy, trade, property | AD27, AD31, MR5, SR15, SR19 | [Requests and markets](gm/dispatch/procgen-2026-10-13/p11/REQUESTS_AND_MARKETS.md) |
 | NPCs, companions, social systems | AD6, AD33 (NPC-heavy work deprioritized), MR23 | [Companions audit](audits/COMPANIONS_CORE_AUDIT.md) |
 | Saves and persistence | Rulebook 9, AR6, MR3, MR30, MR33, SR22, AGENTS safety | Migration or explicit compatibility decision required |

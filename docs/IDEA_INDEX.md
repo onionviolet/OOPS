@@ -375,6 +375,7 @@ The shared owner retains five connected considerations and links to existing kno
 | ID | Idea family | Detail owner and present boundary |
 |---|---|---|
 | I37 | Gatherable variety, selective acquisition, renewable/finite sites, connected uses and resource demand | [Gathering and resource uses](GATHERING_AND_RESOURCE_USES.md) deepens I01/I12-I13/I19/I24/I34-I36 through five resource families and an optional willow outing. Design requested; concrete catalogue, ecology and implementation remain proposed |
+| I37a | Scope ladders for fishing, farming, ranching and other activities | [Subsystem scope ladders](SUBSYSTEM_SCOPE_LADDERS_2026-10-16.md) SSD1–SSD110 (2026-10-16): six dials (space, stock, time, actors, knowledge, consumers), pools and promotion instead of individuals, impossible scopes with achievable versions and a deferral register under CX1–CX8. Proposals; no slice selected |
 
 [Broader character interactions](CHARACTERS_AND_WORLD_EVENTS.md#broader-character-interactions-2026-10-02) refines I14-I19/I20/I23/I37 with commissions, loans, teaching, shared outings, personal bonds and negotiated conflict. Weibao explicitly chose design breadth before a playable example. This adds no gameplay or implementation order and keeps current playable acceptance in place.
 

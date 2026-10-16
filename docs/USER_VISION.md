@@ -3105,3 +3105,18 @@ or claude.md?", then approval to fold repo-rule memories. Shared guidance now li
 where both agents read it: AGENTS.md (rules index upkeep, design framing, research
 lens, shared-tree rules) and [shared worktree practice](gm/SHARED_WORKTREE_PRACTICE.md).
 No separate CODEX.md: Codex reads AGENTS.md and CLAUDE.md imports it.
+
+### Subsystem scope ladders, 2026-10-16
+
+Weibao:
+
+> for like the part 9 complexity and scope stuff, send similar complexity scoping for subsystems and more? like for fishing, Farming, ranching, other possible actions and more?
+
+Requested: Part 9-style complexity and scope guidance for activity subsystems.
+Answered as proposals in
+[subsystem scope ladders](SUBSYSTEM_SCOPE_LADDERS_2026-10-16.md): six dials
+per subsystem (space, stock, time, actors, knowledge, consumers), per-subsystem
+ladders for fishing, farming and ranching, a compact table for fifteen other
+activities, shared primitives (pools, condition tags, promotion, lazy catch-up),
+impossible scopes with achievable versions and a deferral register under the
+accepted CX1–CX8. Planning only; no slice or build order selected.
