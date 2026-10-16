@@ -1,0 +1,341 @@
+# Browser testing and engine performance audit, 2026-10-14
+
+Audit of automated Chrome checks and idle engine cost, followed on Weibao's
+same-day direction ("lets just work on foundational engine stuff that would
+make runs use less cpu, run faster") by three engine fixes on branch
+`claude/engine-perf` (worktree `.claude/worktrees/engine-perf`). The fixes are
+uncommitted. Raw results and reusable tools live in
+[the dispatch folder](../gm/dispatch/engine-perf-2026-10-14/).
+
+Builds on the [runtime hotspot audit](RUNTIME_HOTSPOT_AUDIT_2026-10-14.md)
+(ER1, source-read and Node timings under load 695) and the
+[engine considerations](../ENGINE_RUNTIME_PERFORMANCE_AND_STACK_CONSIDERATIONS_2026-10-14.md)
+PF1-PF8. This pass adds browser CPU profiles, call counts and before/after
+measurements.
+
+## Verification states
+
+| State | Result |
+| --- | --- |
+| Source edit | 3 files, +42/-6 lines, worktree only |
+| Engine tests | Full `node --test` 1435 tests: 1432 pass, 0 fail, 3 todo; base commit identical |
+| Browser evidence | Rebuilt bundle, fresh origin, 1366×768 headless Chrome 155: idle profile A/B ×3, renderer metrics A/B, `systems_workshop_browser.cjs` 10/10 cases both builds, scratch backlog check identical visible state both builds |
+| Native gameplay | Systems workshop native route only. Village check could not start (see T6) |
+| Persistence | Save format unchanged. Workshop check covers save/reload/import on the after build |
+| Human acceptance | None. Committed: no. Deployed: no |
+
+## Measurement setup
+
+- Host: Apple M5 Pro, 18 cores, 64 GB, macOS. Chrome 155 headless via
+  Playwright 1.62.1 from the Codex runtime path.
+- Before and after builds come from the same commit `7f8b8567`, each built with
+  esbuild into its own directory and served on its own private port
+  (18978/18979). Fresh `newContext` per run.
+- Workload: fresh game, PLAY, then idle. This is the cheapest state, so any
+  per-tick cost here is overhead that every check and every player pays.
+- Load caveat: the first runs saw load average 230-430 from concurrent Codex
+  lanes. The final A/B ran at load 6-30. Contended numbers are labeled.
+
+## What the automated browsers cost (A1, A4)
+
+- **T1 MEASURED.** 10-minute sample at 5 s intervals: automated (Playwright)
+  Chrome averaged **424% CPU (about 4.2 cores), peak 912%**, with about 15
+  renderers. Personal Chrome had 50 renderers and averaged 22%. Renderer count
+  does not predict cost; what the pages do does.
+  [Samples](../gm/dispatch/engine-perf-2026-10-14/results/chrome-samples-10min.log).
+- **T2 MEASURED.** One idle fresh game page kept **12-14% of a core** busy before
+  the fixes (quiet host), 27-41% under contention. Each automated check page
+  pays this for its whole runtime, on top of its own work.
+- **T3 MEASURED.** Phase cost on a quiet host: launch 0.23 s, new page 0.14 s,
+  load 0.28 s, PLAY to first save 1.9 s, screenshot 0.05-0.07 s, browser close
+  0.15 s. Under load 400 the same phases took 3.0 s, 2.1 s, 1.4 s, 3.5 s and
+  **14.9 s to close**. Launch and teardown are cheap; contention, not
+  fresh-browser isolation, makes them slow. Browser reuse is not worth its
+  isolation risk.
+- **T4 MEASURED.** esbuild bundle takes 0.8 s, Ink check 3.7 s wall. The rebuilt
+  bundle was byte-identical to tracked `dist/bundle.js`. Repeated builds are not a
+  bottleneck.
+
+## Harness findings (A1, A2, A5)
+
+- **T5 MEASURED, correction needed.** `absorb-all/FINAL_GATE.sh` leaks its
+  servers. `serve()` adds to `PIDS` inside `group(){ ( ... ) & }` subshells, so
+  the `EXIT` trap's array never sees them. Eight `http.server` processes on
+  18701-18706, 18840 and 18901 (cwd `yair-absorb-all-20261014/integration`)
+  were still running, reparented to launchd, 55 minutes later. `serve()` also
+  runs `lsof -ti:$port | xargs kill`, which kills any other run's server on the
+  same fixed port. Fix: write PIDs to a file per group or use `kill 0` on the
+  process group, and allocate free ports instead of killing occupants.
+  Accept when no gate-started server outlives the gate and two concurrent
+  gates both pass.
+- **T6 MEASURED.** Browser executable choice is inconsistent. Some scripts pin
+  system Chrome (`systems_workshop_browser.cjs`). Others use Playwright's
+  bundled Chromium, which is not installed (`village_browser.cjs` fails at launch
+  on both builds). One shared launcher in `scripts/ui_helpers.cjs` with a
+  `finally` close would fix both this and T8.
+- **T7 MEASURED.** The dominant wait idiom costs CPU. 83 `waitForFunction`
+  calls in `scripts/`, none set `polling`, so they run every animation frame,
+  and most of them `JSON.parse` the full save. With the predicate active,
+  renderer script time rose 0.53 → 0.81 s per 15 s (+50%) at the default rAF
+  polling, against 0.50 s at `polling:250`. 33 fixed `waitForTimeout` sleeps
+  (mostly 1.1-1.2 s, up to 6.5 s) add wall time.
+- **T8 READ.** 10 of 31 `*_browser.cjs` scripts have no `finally`, so a thrown
+  assertion can leave Chrome running until Node exits.
+- **T9 MEASURED.** Concurrent full suites. At 18:19, four `node --test` full
+  suites ran at once, two with no concurrency cap (default
+  `availableParallelism-1` = 17 workers). Every lane prompt requires a full
+  `npm test`. The suite takes 52 s with 4 workers on a quiet host. A shared
+  queue (one full suite at a time, focused slices per lane) would cut peak load.
+  HYPOTHESIS on the size of the win.
+- **T10 READ.** `scripts/engine_profile.cjs` and `scripts/scheduler_profile.mjs`
+  default to seed saves under `/tmp` and an old Codex visualization path. Both
+  are missing, so neither runs as-is. They need committed synthetic fixtures (PF1).
+- **T11 READ.** Fresh origins already come from `browser.newContext()`. A new
+  port per run is not needed for storage freshness, only to avoid two servers
+  sharing one port.
+
+## Engine findings (A3)
+
+CPU profile of an idle fresh game, mapped back through the source map
+([before](../gm/dispatch/engine-perf-2026-10-14/results/profile-before1.txt)):
+about 90% of JS time runs under the per-minute timer, and 81% inside
+`persistExpansion` (`src/main.js`). Precise-coverage call counts show the
+publication pass rebuilding the same contexts again and again.
+
+| Code | Hotspot (before) | Evidence |
+| --- | --- | --- |
+| E1 | `retiredKey` in `src/save_compatibility.js` throws and catches a `JSON.parse` error on every plain key of every save walk | 21-23% of idle JS time. Confirms ER1-F2 |
+| E2 | Backlog panel render runs a full staged `prepare` + `enrollSimulation` for every action, every tick, even while the panel is hidden | 30% of idle JS time |
+| E3 | Context fan-out: per tick `worldCompletionFacts` ×98, `expeditionContext` ×89, `simulationNativeContexts` ×72, `campaignContext` ×30, `featureWaveContext` ×20, for one `persistExpansion` | Coverage call counts over 10 ticks |
+| E4 | Full save envelope written about once per second (1.7 MB of UTF-16 per 15 s) while the expansion clock stays 0 | `setItem` counter. Unchanged by these fixes |
+| E5 | About 70 layouts and 170 style recalcs per second while idle; DOM swings 11k-27k nodes under load | CDP metrics. Matches ER1-F5 (250 ms workspace poll) |
+
+### Fixes applied (uncommitted, worktree)
+
+1. **E1.** `retiredKey` parses only keys whose first non-whitespace character is
+   `{`. Results are cached in a bounded `Map` (cleared at 50k keys). The
+   behavior is exact: a non-object JSON value has no `id`, so it could never
+   match a retired id.
+2. **E2.** A hidden backlog panel skips its per-action previews. The render that
+   reveals the panel computes them before anything is visible. Focus fallback
+   for a hidden panel is unchanged.
+3. **E3.** A read frame around the publication render batch in
+   `persistExpansion`. Inside it, `expeditionContext`, `simulationNativeContexts`,
+   `campaignContext` and `featureWaveContext` build once. Every caller still gets
+   its own copy of the top level and `facts`. The frame drops reuse the moment
+   `expansionState` changes, and outside the batch nothing is cached. A grep found
+   no `src/` consumer writing into a context's `gameplay`, `vitals`,
+   `equipment`, `external` or `facts`.
+
+### Result (quiet host, same commit, fresh origin)
+
+| Idle fresh game, per 15 s | Before | After |
+| --- | --- | --- |
+| Renderer main-thread busy | 12.0-13.6% | 7.3-8.4% |
+| Script time | 1315-1493 ms | 531-557 ms |
+| Profiled JS-busy (two pairs) | 2237 / 1561 ms | 611 / 545 ms |
+| Long tasks over 50 ms | 14 | 0 |
+| Layouts / storage writes | ~1035 / 15 | ~1095 / 15 (unchanged) |
+| Page errors | 0 | 0 |
+
+Under load 230 the first fix pair alone cut JS-busy 4104 → 2835 ms.
+Systems workshop native check: 10/10 both builds, 88 s → 84 s wall (one run
+each, within noise).
+
+## Ranked next improvements
+
+| Rank | Change | Benefit | Correctness risk | Effort | Acceptance check |
+| --- | --- | --- | --- | --- | --- |
+| 1 | **Merge E1-E3** after review | MEASURED about 60% less idle script time, long tasks 14 → 0 | Low. Exact key logic; frame scoped to read-only renders | Done; merge only | Full suite + workshop check on the merged tree; `tools/baseline.cjs` idle script time at most 0.6× base |
+| 2 | **Shared launcher and wait helper** (T6, T7, T8): system Chrome, `finally` close, `waitForSave(pred)` with `polling:250` reading one parsed save | MEASURED −35% page script time during waits; no leaked browsers | Low (test-only) | Small, then migrate scripts as lanes touch them | Village check launches; injected throw leaves no Chrome child |
+| 3 | **Gate hygiene** (T5, T9): PID tracking per group, free-port allocation, one full-suite slot at a time | Removes orphan servers and cross-run kills. Load reduction is HYPOTHESIS | Low | Small | No gate server outlives its gate; two gates in parallel pass |
+| 4 | **Skip unchanged durable writes** (E4): no full envelope write when the serialized plan equals the last durable write | HYPOTHESIS: most of the remaining per-tick validate/stringify/`setItem` | Medium. Needs ER1-F1's recovery decision (crash-loss window) | Medium | Idle `storageWrites` near 0 with unchanged clock; reload after kill restores the same state |
+| 5 | **Layout churn** (E5): workspace update only on layout/eligibility change (ER1-F5) | HYPOTHESIS: most of 70 layouts/s idle | Low-medium (focus, scroll) | Small-medium | Idle layouts/s down ≥5×; panel focus and scroll survive ticks |
+
+Also useful, lower priority: extend the read frame to `backlogContext` and the
+250 ms poll batch; virtualize or key the visible backlog previews (still
+expensive once the panel is open); committed synthetic fixtures for the
+profile scripts (T10, PF1); a URL-flag perf overlay (PF3) built from
+`tools/baseline.cjs` metrics.
+
+## More to consider: deeper pass, 2026-10-14 evening
+
+Requested follow-up ("further and deeper improvements?"). Same builds and
+ports, quiet host (load 6-8). Fixture: the developed save from the workshop
+check (clock 81, 4 people, 97 KB), loaded into a fresh origin.
+
+### New measurements
+
+- **M1 MEASURED. A developed save costs about 3× a fresh one, and the first
+  fixes barely touch it.** Idle JS-busy was 10.2 s per 27 s (about 37% of a
+  core) before and 8.7 s after (−14%). The cost moves from saving to previews.
+  Per tick: **300 `previewSimulationCommand`** and **about 450
+  `simulationFacts`** calls for one `persistExpansion`. `simulationFacts` is
+  74% of JS time and `previewSimulationCommand` 64% (inclusive). Callers are
+  `refinementPresentation`, `featureWavePresentation`, nested and Tidemark
+  previews, known routes and the systems workshop. Each panel dry-runs every
+  command each tick to set button state, and `simulationFacts` (which takes
+  no command id) is rebuilt for every one.
+  [Profiles](../gm/dispatch/engine-perf-2026-10-14/results/).
+- **M2 MEASURED. Determinism holds.** Starting from the developed save, after
+  exactly 20 game minutes (expansion clock 81 → 101) the durable save matches
+  byte for byte between builds, minus `saved_at` and `total_playtime`. Stream
+  cursors and RNG state are included. No page errors.
+  (`tools/det.cjs <url> <save.json> <out.json> <minutes>`.)
+- **M3 MEASURED. Merge path.** The `src` patch applies cleanly onto
+  `absorb-all/integration` (`git apply --check -3`). That branch adds an
+  overlapping seam: `src/simulation_render.js` (sim-stepper lane, `1806ec91`,
+  `67c7f15c`) memoizes `retiredKey` and coalesces renders only inside dev-stepping
+  batches. It complements, and does not replace, the always-on fast path
+  and read frame.
+
+### ACCOUNT FOR NOW
+
+- **AF1. Merge order.** Merge integration first (merge-before-dispatch), then
+  rebase `claude/engine-perf`. Put the fast path inside integration's
+  `classifyRetiredKey` and keep one cache owner, not two.
+- **AF2. One frame seam.** `withReadFrame` (`main.js`) and
+  `begin/endSimulationRenderBatch` (`simulation_render.js`) both mean "one pass
+  over an unchanged world". Converge them in `simulation_render.js` before a
+  third copy appears. The publication frame and dev-stepping batch would then
+  share builder reuse and render coalescing.
+- **AF3. Accept on developed saves.** Fresh-game numbers flatter any change.
+  Performance acceptance needs a developed fixture and `det.cjs`
+  byte-identity, besides the fresh baseline.
+
+### LATER / DELEGATE, ranked by measured share
+
+| Rank | Idea | Evidence / status | Risk | Done check |
+| --- | --- | --- | --- | --- |
+| D1 | **Preview fan-out.** (a) Within a frame, reuse `simulationFacts` per (state, actor, target, context version). Callers build fresh `{...context}` objects, so key on a frame-issued context version, not identity. (b) Skip previews for panels that are hidden or inside closed `<details>`, generalizing the backlog fix. (c) Recompute previews only when `state.sequence`, clock or a native version counter changes | MEASURED 64-74% of developed idle. Gain HYPOTHESIS: well over half | Medium: facts must stay pure; closed summaries must not show stale counts | Developed-save idle JS-busy ≤ 0.4× after-build; `det.cjs` identical; workshop 10/10 |
+| D2 | **Adopt the sim-stepper dev tick in browser checks** instead of waiting one wall second per game minute | READ: exists on integration. Checks spend most wall time waiting on game minutes at about 0.4 cores each. Gain HYPOTHESIS: large wall-time and CPU-time cut per check | Low for checks that claim mechanics. Natural-pace evidence stays a separate label | Same check, same assertions, wall time ≤ 0.3× |
+| D3 | Skip unchanged durable writes (E4) | Needs ER1-F1 recovery decision | Medium | As rank 4 above |
+| D4 | **Background-tab cost.** The minute timer runs through a Worker (`w.onmessage`), so browsers do not throttle it. A backgrounded play tab on a developed save keeps paying about 37% of a core. Pause-and-catch-up (RT8, PF7) or a render-skip while `document.hidden` (simulation continues, DOM work stops) | READ + M1 inference | Low for render-skip; catch-up needs RT8's exact-remainder rule | Hidden-tab JS-busy ≤ 0.2× visible; reveal shows the current state |
+| D5 | **Long-session scaling** with the dev stepper: profile at clock 10k/100k (claims, causes, receipts, logs) plus offline catch-up wall time and yielding (ER1-F9) | Not measured | n/a | Table of tick ms vs clock; no long task during catch-up |
+| D6 | **Standing perf gate**: committed synthetic fresh/mid/crowded saves (T10, PF1), `baseline.cjs` + `det.cjs` with budgets (PF2), URL-flag overlay (PF3) | Tools exist here; fixtures do not | Low | One command prints budget pass/fail per fixture |
+
+Angles that did not change the decision: renderer count and Chrome flags (T1),
+browser reuse (T3), build speed (T4), `retiredKey` cache bound (50k string
+keys).
+
+## Leave-alone list
+
+- Fewer renderers, `--single-process` or disabled site isolation: T1 shows
+  count is not the cost.
+- Browser reuse across checks: launch costs 0.23 s; isolation is worth more.
+- Headed vs headless: all automated runs are already headless.
+
+## Reusable tools
+
+In [tools/](../gm/dispatch/engine-perf-2026-10-14/tools/), all read-only:
+
+- `baseline.cjs <url> <out.json> [sec]`: phase timings, CDP renderer metrics per window, storage write counter, rAF vs 250 ms polling.
+- `profile.cjs` + `mapprof.cjs`: idle CPU profile mapped to `src/` file and function.
+- `calls.cjs`: precise-coverage call counts per source function.
+- `backlog_check.cjs`: visible backlog state through the native elder greeting.
+- `sample.sh`: personal vs automated Chrome CPU and renderer sampler.
+
+## D5 result: long-session scaling, 2026-10-14
+
+Measurement lane only; no `src/` change. Raw rows, tick logs and scripts are in
+[scaling/](../gm/dispatch/engine-perf-2026-10-14/scaling/) (`drive.cjs`,
+`measure.cjs`, `results/`). Fixture: the workshop check's `natural-final-save.json`
+(clock 84, 175 KB storage). Driver: `advanceTicks` from the sim-stepper
+(`67c7f15c`) on a scratch esbuild bundle, fresh origin, 1366×768 Chrome.
+`measure.cjs` used a scratch copy that also exposes `progress_time`.
+
+Confounds. Host load was 19 at the start and 200-360 by the end (other lanes), so
+the tick-cost numbers above ~85k clock are contaminated; early numbers are the
+usable ones. The idle and active runs overlapped. Node-only tick cost was NOT
+measured: `main.js` is browser-only and `advanceSimulation` needs its native
+registry, so every per-tick number is in-browser (MEASURED, includes publication
+and render batching, excludes the one durable save per batch).
+
+### Clock vs bytes vs cost (MEASURED)
+
+| Clock | Idle save | Active save | Idle ms/tick | Active ms/tick | `saveProgress` | Idle JS-busy, live 20 s* | Reload to PLAY ready |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 84 (start) | 175.2 KB | 175.2 KB | n/a | n/a | n/a | n/a | n/a |
+| 1k | 176.1 KB | 182.7 KB | 16-23 | ~55 | 1.7-2.7 ms | 57% (contended) | 1.6 s |
+| 10k | 176.8 KB | 183.4 KB | 16-18 | ~51 | 2.7-3.9 ms | 62% (contended) | 1.8 s |
+| 30k | 176.2 KB | 182.8 KB | ~19 | ~63 | n/a | n/a | n/a |
+| 100k | 176.8 KB | 182.8 KB | 17-20 | 41-73 (73-148 after 85k, load 200+) | 2.8-4.7 ms | 70% (contended) | 1.7 s |
+
+*Includes 1 s real-time ticks with rendering, on a host at load ~20-30. Treat as an
+upper bound; the uncontended developed-save figure from M1 is ~37%.
+
+4 MiB guard headroom: 4.02 MB free at the start. It reads 3.84 MB from clock 10k
+on because the origin total also holds a second key of about the same size (INFERRED:
+the autosave backup copy). Save plus backup uses about 4.4% of the budget at 100k.
+
+Active workload (synthetic, not a player): every 10 ticks, click one enabled
+`data-*` control per panel family (skips cancel/reset/option/etc.). It stalled
+early: state stopped changing after about clock 3k (money and options exhausted),
+so this run proves the engine bounds what that loop reaches, not that every
+player path is bounded.
+
+### Offline catch-up (MEASURED, with one READ)
+
+- **No wall-clock replay exists.** Reloading a save aged 8 h left the expansion clock
+  unchanged (1022→1022, 10022→10022, 100024→100024). `src/away_ledger.js`
+  (`computeAway`) has no importer. READ.
+- **Reload cost** is boot only: load event 0.08-0.10 s, PLAY-ready 1.6-2.8 s, longest
+  main-thread task 1.3-2.1 s, flat from 1k to 100k.
+- **A single long time skip is one synchronous task** (`progress_time({value, source:'travel'})`
+  drains the 512-boundary budgets in a loop, `src/main.js:2242`; budget at
+  `src/expansion_engine.js:639`). Full requested time was consumed every time:
+
+| Skip | At 1k | At 10k | At 100k |
+| --- | --- | --- | --- |
+| 1 h | 0.7 s | 0.8 s | 1.3 s |
+| 8 h | 1.6 s | 1.6 s | 3.2 s |
+| 24 h | 3.6 s | 3.8 s | 6.3 s |
+| 72 h | 10.0 s | 10.1 s | 12.7 s |
+
+  About 2.3 ms per game minute, linear, with no yielding. The longest task equals the
+  whole skip. This is ER1-F9 confirmed as real but only reachable through long
+  commitments (travel, sleep, long jobs), not through reloading.
+
+### Growth sources (save part sizes, JSON chars)
+
+Over 100k minutes the developed save grew 1.6 KB idle (+0.9%) and 7.6 KB active
+(+4.3%). Nothing grew after about clock 3k. Parts that moved in the active run:
+`simulation.people` 776→965 (generated people), `simulation.log` 6037→6229,
+`inventories` 2472→2664, `item_log` 1803→2118, `life_record` 387→816, `streams`
+3241→3445. `claims`, `causes` and `receipts` are not top-level parts of this save and
+did not appear.
+
+| Rank | Source | Evidence | Bounded? |
+| --- | --- | --- | --- |
+| G1 | `life_record.recent` + `years` | +429 B active | Yes, READ: `recent ≤ 64`, `years ≤ 200`, old years fold (`src/life_record.js:15,43`) |
+| G2 | `simulation.log` | +192 B | Yes, READ: `slice(-100)` (`src/simulation.js:39`); `history` `slice(-100)` (`src/expansion_engine.js:544,671`) |
+| G3 | `simulation.people` (generated NPCs) | +189 B | NOT FOUND: no cap located in a grep of `simulation.js`; grows per generated person. Not proven unbounded; this run created about 3 |
+
+`item_log` (+315 B) is the discovered-item set, bounded by the item catalog
+(INFERRED, not read to the cap).
+
+### Verdict
+
+- **Does the save grow without bound?** Not in anything exercised. Idle: no. Active
+  mashing: no after 3k. Open: player-driven content paths this loop could not reach
+  (`simulation.people` generation, `knowledge`, `events`, `situations`, claims/causes)
+  are unmeasured at depth.
+- **Does tick cost grow with clock?** Idle: no (17-20 ms at 1k and 100k). Active: flat
+  to 60k, the rise after 85k coincides with host load 200+ and is not attributable.
+- **Next lane: neither save-write nor catch-up.** Save write is 2-5 ms. The measurable
+  costs are the flat per-tick overhead (D1) and the unyielded long skip.
+
+### Recommendations (at most three)
+
+1. **Yield or chunk long skips.** Drain `progress_time` skips of more than about 60
+   minutes in slices that return to the event loop, keeping exact remainder and one
+   durable publish. Done check: a 72 h skip on the 100k fixture leaves no main-thread task
+   over 100 ms and produces a byte-identical durable save to the synchronous path
+   (`det.cjs`).
+2. **Commit this driver as the long-session gate.** Done check: one command runs the
+   fixture to clock 10k and fails if save size grows more than 5% or median ms/tick
+   exceeds 1.5× the 1k value, on a host at load under 8.
+3. **Close the unmeasured paths.** Extend the active loop with a native-route script that
+   keeps generating people and knowledge (the workshop's natural route). Done check:
+   per-part growth table to 30k with each growing part either capped in source or
+   flagged.

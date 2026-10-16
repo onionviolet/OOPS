@@ -1,0 +1,240 @@
+{
+ "url": "http://127.0.0.1:19178/?test_hooks=1",
+ "checkpoints": [
+  {
+   "target": 1000,
+   "advanceWallS": 15,
+   "clock": 1000,
+   "saveStorageBytes": 176096,
+   "saveProgressMs": [
+    2.7,
+    2.7,
+    2.3,
+    1.9,
+    1.7
+   ],
+   "stringifyParseMs": {
+    "parse": 0.4,
+    "stringify": 0.3
+   },
+   "idle": {
+    "wallMs": 20002,
+    "busyPct": 57,
+    "scriptMs": 10642,
+    "storageWrites": 20,
+    "storageKB": 3439,
+    "storageMs": 2,
+    "longTasks": 20,
+    "heapMB": 51,
+    "nodes": 13965
+   },
+   "reload": [
+    {
+     "hoursAway": 0,
+     "loadMs": 76,
+     "playReadyMs": 1629,
+     "clockAfter": 1022,
+     "clockBefore": 1022,
+     "longTaskMaxMs": 1258,
+     "longTasks": 3
+    },
+    {
+     "hoursAway": 8,
+     "loadMs": 78,
+     "playReadyMs": 1630,
+     "clockAfter": 1022,
+     "clockBefore": 1022,
+     "longTaskMaxMs": 1295,
+     "longTasks": 3
+    }
+   ],
+   "drain": [
+    {
+     "ms": 706,
+     "advanced": 60,
+     "err": null,
+     "hours": 1,
+     "requested": 60
+    },
+    {
+     "ms": 1551,
+     "advanced": 480,
+     "err": null,
+     "hours": 8,
+     "requested": 480
+    },
+    {
+     "ms": 3573,
+     "advanced": 1440,
+     "err": null,
+     "hours": 24,
+     "requested": 1440
+    },
+    {
+     "ms": 9961,
+     "advanced": 4320,
+     "err": null,
+     "hours": 72,
+     "requested": 4320
+    }
+   ]
+  },
+  {
+   "target": 10000,
+   "advanceWallS": 149,
+   "clock": 10000,
+   "saveStorageBytes": 177678,
+   "saveProgressMs": [
+    3.9,
+    2.8,
+    2.8,
+    2.7,
+    2.7
+   ],
+   "stringifyParseMs": {
+    "parse": 0.4,
+    "stringify": 0.3
+   },
+   "idle": {
+    "wallMs": 20001,
+    "busyPct": 61.7,
+    "scriptMs": 11568,
+    "storageWrites": 20,
+    "storageKB": 3462,
+    "storageMs": 2,
+    "longTasks": 20,
+    "heapMB": 71,
+    "nodes": 16035
+   },
+   "reload": [
+    {
+     "hoursAway": 0,
+     "loadMs": 86,
+     "playReadyMs": 1786,
+     "clockAfter": 10022,
+     "clockBefore": 10022,
+     "longTaskMaxMs": 1396,
+     "longTasks": 3
+    },
+    {
+     "hoursAway": 8,
+     "loadMs": 83,
+     "playReadyMs": 1645,
+     "clockAfter": 10022,
+     "clockBefore": 10022,
+     "longTaskMaxMs": 1294,
+     "longTasks": 3
+    }
+   ],
+   "drain": [
+    {
+     "ms": 846,
+     "advanced": 60,
+     "err": null,
+     "hours": 1,
+     "requested": 60
+    },
+    {
+     "ms": 1585,
+     "advanced": 480,
+     "err": null,
+     "hours": 8,
+     "requested": 480
+    },
+    {
+     "ms": 3750,
+     "advanced": 1440,
+     "err": null,
+     "hours": 24,
+     "requested": 1440
+    },
+    {
+     "ms": 10095,
+     "advanced": 4320,
+     "err": null,
+     "hours": 72,
+     "requested": 4320
+    }
+   ]
+  },
+  {
+   "target": 100000,
+   "advanceWallS": 1894,
+   "clock": 100000,
+   "saveStorageBytes": 177642,
+   "saveProgressMs": [
+    4.7,
+    3.7,
+    3.2,
+    2.9,
+    2.8
+   ],
+   "stringifyParseMs": {
+    "parse": 0.3,
+    "stringify": 0.4
+   },
+   "idle": {
+    "wallMs": 20001,
+    "busyPct": 69.9,
+    "scriptMs": 13224,
+    "storageWrites": 21,
+    "storageKB": 3643,
+    "storageMs": 2,
+    "longTasks": 22,
+    "heapMB": 37,
+    "nodes": 13231
+   },
+   "reload": [
+    {
+     "hoursAway": 0,
+     "loadMs": 103,
+     "playReadyMs": 1716,
+     "clockAfter": 100024,
+     "clockBefore": 100024,
+     "longTaskMaxMs": 1345,
+     "longTasks": 3
+    },
+    {
+     "hoursAway": 8,
+     "loadMs": 89,
+     "playReadyMs": 2810,
+     "clockAfter": 100024,
+     "clockBefore": 100024,
+     "longTaskMaxMs": 2119,
+     "longTasks": 3
+    }
+   ],
+   "drain": [
+    {
+     "ms": 1324,
+     "advanced": 60,
+     "err": null,
+     "hours": 1,
+     "requested": 60
+    },
+    {
+     "ms": 3246,
+     "advanced": 480,
+     "err": null,
+     "hours": 8,
+     "requested": 480
+    },
+    {
+     "ms": 6330,
+     "advanced": 1440,
+     "err": null,
+     "hours": 24,
+     "requested": 1440
+    },
+    {
+     "ms": 12674,
+     "advanced": 4320,
+     "err": null,
+     "hours": 72,
+     "requested": 4320
+    }
+   ]
+  }
+ ],
+ "errors": []
+}
