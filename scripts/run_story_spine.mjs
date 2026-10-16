@@ -5,10 +5,10 @@ import {planStoryRequest} from '../src/story_requests.js';
 import {advanceSimulation,loadExpansionState} from '../src/expansion_engine.js';
 import {respondSimulationEvent,waitingSimulationChoice} from '../src/simulation.js';
 import {validateStoryletState} from '../src/storylet_deck.js';
-export function runSeededStory(seed=43,{chunk=3600,reload=false,minutes=3600}={}) {
- const f=spineFixture(seed);let envelope=planStoryRequest(f.envelope,{action:'raise'}).envelope;const request=envelope.generated_people.storyRequests.requests[0];
+export function runSeededStory(seed=43,{chunk=3600,reload=false,minutes=3600,revision=2}={}) {
+ const f=spineFixture(seed,{revision});let envelope=planStoryRequest(f.envelope,{action:'raise'}).envelope;const request=envelope.generated_people.storyRequests.requests[0];
  envelope=planStoryRequest(envelope,{action:'take',id:request.id}).envelope;
- envelope.inventories.person.main_character[JSON.stringify({id:request.item})]={count:1};
+ envelope.inventories.person.main_character[JSON.stringify({id:request.item})]={count:request.quantity};
  envelope=planStoryRequest(envelope,{action:'deliver',id:request.id,itemKey:JSON.stringify({id:request.item})}).envelope;
  let out={state:envelope.expansion,external:{money:envelope.character.money},gameplay:structuredClone(f.context.gameplay)},budgetReturns=0,calls=0;
  function advanceTo(target){
@@ -23,6 +23,6 @@ export function runSeededStory(seed=43,{chunk=3600,reload=false,minutes=3600}={}
  advanceTo(60);const event=Object.values(out.state.simulation.events).find(e=>e.definitionId==='village.remembered_supply'&&e.status==='open');assert.ok(event,'Actual deed must make an aftermath eligible.');
  out=respondSimulationEvent(out.state,f.registry,event.id,'listen',{...f.context,external:out.external,gameplay:out.gameplay});
  advanceTo(minutes);assert.equal(waitingSimulationChoice(out.state),undefined);
- return {seed,projection:{receipts:out.state.loreHistory.receipts,draws:out.state.streams,decks:out.state.simulation.decks,money:out.external.money,inventory:out.gameplay.player.inventory,skills:out.gameplay.player.skills,clock:out.state.clock},budgetReturns,calls};
+ return {seed,revision,projection:{people:envelope.generated_people,request:envelope.generated_people.storyRequests.requests[0],receipts:out.state.loreHistory.receipts,draws:out.state.streams,decks:out.state.simulation.decks,money:out.external.money,inventory:out.gameplay.player.inventory,skills:out.gameplay.player.skills,clock:out.state.clock},budgetReturns,calls};
 }
-if(process.argv[1]&&import.meta.url===pathToFileURL(process.argv[1]).href){const a=runSeededStory(),b=runSeededStory();assert.deepEqual(a,b);console.log(JSON.stringify({label:'SOURCE',seed:a.seed,playedMinutes:a.projection.clock,receipts:a.projection.receipts.length,budgetReturns:a.budgetReturns,calls:a.calls,sameSeedExact:true}));}
+if(process.argv[1]&&import.meta.url===pathToFileURL(process.argv[1]).href){const a=runSeededStory(),b=runSeededStory();assert.deepEqual(a,b);console.log(JSON.stringify({label:'SOURCE',seed:a.seed,playedMinutes:a.projection.clock,receipts:a.projection.receipts.length,budgetReturns:a.budgetReturns,calls:a.calls,generationRevision:a.revision,requestRevision:a.projection.request.revision,sameSeedExact:true}));}

@@ -52,11 +52,12 @@ import {GRADED_IDS,createHarvest,validateHarvest,supportedHarvest,drawSpecimen,a
 import {createHarvestPanel} from './harvest_ui.js';
 import {validateHabitat,planHabitatAction} from './habitat_care.js';
 import {createHabitatPanel} from './habitat_care_ui.js';
+import {buildVillageObtainability,villageTablesFromNative} from './village_obtainability.js';
 import {setProductAppearanceOwner} from './product_appearance_view.js';
 import {resolveWorldCalendar, createCalendarLog} from './world_calendar.js';
 import {worldWeatherWords} from './world_weather_display.js';
 const mixtureSeed=()=>streamSeed(expansionState,STREAMS.craft,"village.mixtures@1");
-const generatedPeopleSeed=()=>streamSeed(expansionState,scopedStream("world.people"),"village.generated_people@1");
+const generatedPeopleSeed=()=>streamSeed(expansionState,scopedStream("world.people"),"village.generated_people@2");
 import {getMixtureOwner,setMixtureOwner,MIXTURE_ID} from './mixture_state.js';
 import {stageMixtureAction,commitMixturePlan} from './mixture_native.js';
 import {createMixturePanel} from './mixture_ui.js';
@@ -10027,14 +10028,15 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
         mentor:choice=>writeVillageCareer(choice),resolve:choice=>writeVillageCareer(choice),promote:()=>writeVillageCareer('promote'),
         notes:()=>writeVillageCareer('notes'),tutor:()=>writeVillageCareer('tutor'),readNotes:()=>start_reading(WATCHCRAFT_BOOK),
         practice:()=>start_activity('meditating')});
-    registerGeneratedPeople({read:()=>({at:calendarMinutes(current_game_time),seed:generatedPeopleSeed(),expansion:expansionState,
+    const travelerSupplyIndex=()=>buildVillageObtainability(villageTablesFromNative({items:item_templates,trader:traders['village trader'],stock:inventoryTemplates[traders['village trader'].inventory_template],inventory:character.getItems(),activities:locations.Village.activities,enemies:Object.fromEntries(Object.entries(enemy_templates).filter(([id])=>/wolf rat/i.test(id)).map(([id,e])=>[id,{loot_list:e.loot_list,knownKills:enemy_killcount[id]||0}])),recipes,craftingKnown:global_flags.is_crafting_unlocked,gatheringKnown:global_flags.is_gathering_unlocked,tools:Object.fromEntries(Object.entries(locations.Village.activities).map(([id,a])=>[id,!!character.getEquipment()[activities[a.activity_name]?.required_tool_type]])),season:current_game_time.getSeason()}));
+    registerGeneratedPeople({read:()=>({supplyIndex:travelerSupplyIndex(),money:character.money,season:current_game_time.getSeason(),at:calendarMinutes(current_game_time),seed:generatedPeopleSeed(),expansion:expansionState,
         inVillage:current_location?.id==='Village'&&expansionState.actors.player.worldId==='base.frontier',
         canWrite:ownsSave&&!foundationSaveBlocked&&!importProbeToken&&!is_loading_error&&!lifeStorageFailure,
         busy:!!(nativeOccupationReason()||current_activity||current_game_action||current_combat||current_dialogue||is_sleeping||is_reading||is_in_trade())}),
         save:create_save,persist:serialized=>{const saved=JSON.parse(serialized);validateSaveEnvelope(saved,game_version);lifeSaveStorage.setItem(is_on_dev()?dev_save_key:save_key,serialized);expansionState=saved.expansion;simulationPanel?.render();},
         authoredNames:[...expeditionRegistry.simulation.people.values()].map(p=>p.label||p.name||p.id),
-        itemKey:id=>item_templates[id].getInventoryKey(),canSupply:key=>canConsumeNativeCraftingItem(key)&&character.getItems()[key]?.count>=1,
-        publishSupply:key=>{character.removeFromInventory([{item_key:key,item_count:1}]);update_displayed_character_inventory();},publishReward:add_money_to_character});
+        itemKey:id=>item_templates[id].getInventoryKey(),canSupply:(key,quantity=1)=>canConsumeNativeCraftingItem(key)&&character.getItems()[key]?.count>=quantity,
+        publishSupply:(key,quantity=1)=>{character.removeFromInventory([{item_key:key,item_count:quantity}]);update_displayed_character_inventory();},publishReward:add_money_to_character});
     villageLivesPanel = createVillageLivesPanel({read:()=>({state:npcLives,inVillage:current_location?.id==='Village' && expansionState.actors.player.worldId==='base.frontier',canWrite:ownsSave&&!foundationSaveBlocked&&!importProbeToken}),meet:()=>{
         if(npcLives || !ownsSave || foundationSaveBlocked || importProbeToken || current_location?.id!=='Village' || expansionState.actors.player.worldId!=='base.frontier')throw new Error("Meet your neighbors in Village when your life can be saved.");
         const serialized=create_save();if(!serialized)throw new Error("This meeting could not be remembered.");
