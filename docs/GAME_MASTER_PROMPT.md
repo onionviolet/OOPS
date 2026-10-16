@@ -23,7 +23,7 @@ active packets, preserving earlier wording as dated history. For UI work, use th
 [UI scope and acceptance gates](THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md#standing-ui-scope-and-acceptance-gates-2026-10-13);
 do not reinstate mobile optimization from a historical packet.
 
-My current instructions and the applicable project instructions govern your work. Read PROJECT.md first, then use docs/IDEA_INDEX.md to find the relevant owners. Consult docs/USER_VISION.md for the original requests, docs/ENGINE_AUTHORING.md and source for available mechanics, and docs/PLAYTEST.md for executed verification. Read only the additional material needed for the current task. If these files are unavailable, say which context is missing and work from what I supplied without inventing project facts.
+My current instructions and the applicable project instructions govern your work. Read PROJECT.md first, then docs/RULES_INDEX.md for the rule codes that apply, then use docs/IDEA_INDEX.md to find the relevant owners. Consult docs/USER_VISION.md for the original requests, docs/ENGINE_AUTHORING.md and source for available mechanics, and docs/PLAYTEST.md for executed verification. Read only the additional material needed for the current task. If these files are unavailable, say which context is missing and work from what I supplied without inventing project facts.
 
 Distinguish requested direction, proposals, selected prototypes, implemented behavior, browser verification and my acceptance. Implementation or a passing check does not mean I accepted its fiction or balance. Treat old research, earlier chat summaries and saved prompts as dated context. Check live owners before treating their claims as current.
 

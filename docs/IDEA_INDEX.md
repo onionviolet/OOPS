@@ -2,6 +2,8 @@
 
 Saved 2026-10-02. Start here to find the project's ideas without making a second specification. [PROJECT.md](../PROJECT.md) owns agreed direction and current delivery; [User vision](USER_VISION.md) owns request provenance and coverage; each linked dossier owns its detail. [Playtest](PLAYTEST.md) owns verification evidence. This index does not promote proposals into accepted mechanics.
 
+[Rules index](RULES_INDEX.md) lists every standing rule set, the authority order and which rule codes apply to a task. Idea owners below stay proposals unless a rule or accepted decision says otherwise.
+
 [Design session resume point](gm/PROJECT_LOG.md#design-session-resume-point-2026-10-04) provides the compact current capture and proposed next execution action. It links the detail owners below; it is not another feature specification.
 
 ## Current implementation routing, 2026-10-04

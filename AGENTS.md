@@ -28,6 +28,15 @@ When direction changes, update its owner and PROJECT.md's summary, reconcile
 affected active instructions, and preserve superseded wording as dated history.
 Handoffs link to owners rather than copying another competing specification.
 
+Start every task at the [rules index](docs/RULES_INDEX.md) (2026-10-16): its
+router names the rule codes that apply to the task, and AD1–AD35 restate the
+accepted direction for aspects without their own rulebook. Cite codes in task
+records and handoffs. The rulebooks below keep their own detail. Keep the index
+current in the same change: a new or changed rulebook updates its register and
+router rows, and a new or changed accepted decision updates its AD line. Lane
+briefs and task packets name the codes they apply. Shared guidance lives here and
+in the repo docs, not in one agent's private memory.
+
 Making systems (potions, cooking, smithing, runes, enchanting, formations,
 constructs and other crafts) follow [making rules](docs/MAKING_RULES.md)
 MR1–MR36 (2026-10-15): truth stays separate from knowledge and chance, free
@@ -53,6 +62,36 @@ learn the implementation.
 Make reasonable reversible prototype choices, label them as proposals and show
 the playable result. Record accepted decisions in PROJECT.md.
 
+## Design framing
+
+- **Everything is possible, reasonably** ([Rulebook 1](docs/RULES_FROM_SCRATCH.md#the-rulebook-accepted-2026-10-10), AD5).
+  Do not ask Weibao to pick between reasonable design options; his answer has
+  consistently been "both, depending on the world". Propose the default and the
+  conditions yourself, and ask only about build order, first-slice defaults,
+  save compatibility, effort or anything irreversible. No either/or open
+  questions in docs or replies.
+- **Write constraints as default, dial and reason** (the in-world reason and
+  cost), not never/always/only. No design line holds for every world, though one
+  world may have true absolutes as its lore. Balance is not forced; pushback
+  needs an in-world agent with a reason. Sweep new docs for blanket claims before
+  reporting. Do not call agent proposals "accepted"
+  ([audit of 24 such slips](docs/DESIGN_DEFAULTS_AUDIT.md)).
+- **Idea docs are palettes, not specs.** Tiers and tables are illustrative; pick
+  what fits a given world and character at a given time.
+- **Limits are adjectives** (how often, how much, how sure), set per world, never
+  a fixed "once". Weibao is essentially the only player: no anti-cheat or exploit
+  hardening beyond save integrity (AD22, [limits](docs/ABUSE_AND_LIMITS.md#limits-are-adjectives)).
+- **Many worlds are Weibao's own direction.** Raise sequencing as a practical
+  risk, never as scope drift by earlier agents.
+- **Repeated "more to consider" on one idea means expand it.** Each round finds
+  a genuinely new angle and saves it in the owner; suggestions go in a separate
+  short list, never as a reason to stop. Run the `more-to-consider` skill (Claude
+  and Codex both have it) and save each round in the owning palette as ACT NOW
+  (done), ACCOUNT FOR NOW and LATER/DELEGATE (with level, effort and done check).
+  Full topic rounds with lanes use `topic-expansion-audit`; repeatable audits such
+  as the [world core kit](docs/audits/WORLD_CORE_KIT_CORE_AUDIT.md) extend their
+  root doc with a new round and never restart codes.
+
 ## Scope
 
 Keep the first milestone to one realm and one prestige layer, while preserving
@@ -74,6 +113,17 @@ flows and native notes. Store them in gitignored
 `docs/research/<source>/private/` (bulk raw data may stay in
 `~/.codex/research/<source>/`). Committed docs still paraphrase and link
 there; gameplay stays original unless a direct adaptation is requested.
+
+Audits and research use the unbiased lens: report what a source actually does,
+including contradictions with project ideas; label claims shown, stated or
+inferred; do not rank sources or turn one source into a general rule. Standing
+task (2026-10-13): source-read or decompile every game in the
+[acquisition queue](docs/research/FUTURE_ACQUISITION_QUEUE_2026-10-13.md) that
+Weibao already owns, read-only, and repeat when his library, the queue or local
+tools change; buying needs his yes. Repeatable topic audits live in
+`docs/audits/*_CORE_AUDIT.md` with the
+[topic audit playbook](docs/audits/TOPIC_EXPANSION_AUDIT_PLAYBOOK.md); fold a
+method that worked into its playbook rather than leaving it in one run report.
 
 Finish one playable slice before starting the next. A wave ends
 at a checkpoint where Weibao can play it, not when a context or batch boundary
@@ -124,6 +174,18 @@ and recover after a context restart from its refresh protocol and the task's
 saved checkpoint. Check live files and running workers before resuming writes.
 One writer per file area; hand off ownership explicitly. A context refresh
 continues the authorized task and grants no new scope.
+
+Several Claude and Codex sessions share this checkout and branch. Follow
+[shared worktree practice](docs/gm/SHARED_WORKTREE_PRACTICE.md):
+
+- Edit shared docs (USER_VISION, PROJECT, IDEA_INDEX) from disk, hunk only, and
+  run its zero-loss check before committing.
+- Commit only your own paths from a fresh HEAD with a guarded branch update;
+  never stash, reset or force. Push waits for Weibao's yes.
+- Merge finished, gate-passing lanes before dispatching a new wave, and check
+  for same-day owner docs on the same topic.
+- Detach long Codex runs in their own process group, record session IDs and
+  PIDs, and stop processes by PID, group or port, never `pkill -f`.
 
 ## Reporting
 
