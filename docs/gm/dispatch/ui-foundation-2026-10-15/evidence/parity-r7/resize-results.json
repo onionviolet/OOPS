@@ -1,0 +1,37 @@
+{
+  "auto": [
+    {
+      "w": 1366,
+      "h": 768,
+      "mode": "compact",
+      "gear": false
+    },
+    {
+      "w": 1920,
+      "h": 1080,
+      "mode": "panels",
+      "gear": true
+    },
+    {
+      "w": 2560,
+      "h": 1440,
+      "mode": "panels",
+      "gear": true
+    },
+    {
+      "w": 3600,
+      "h": 1906,
+      "mode": "panels",
+      "gear": true
+    },
+    {
+      "w": 1366,
+      "h": 768,
+      "mode": "compact",
+      "gear": false
+    }
+  ],
+  "manualOverridesKept": true,
+  "gameplayExact": true,
+  "errors": []
+}

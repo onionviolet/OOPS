@@ -1,0 +1,21 @@
+{
+  "dist/bundle.js.map": true,
+  "dist/bundle.js": true,
+  "dist/nethack-fieldcraft-preview.js": true,
+  "dist/nethack-fieldcraft-preview.js.map": true,
+  "dist/INKJS_NOTICE.txt": true,
+  "dist/INKJS_AUTHORS.txt": true,
+  "styles/customization.css": true,
+  "styles/settled_text_effects.css": true,
+  "styles/display_settings.css": true,
+  "styles/start_probe.css": true,
+  "styles/workspace_discovery.css": true,
+  "styles/component_themes.css": true,
+  "styles/ui_tokens.css": true,
+  "styles/crafting_detail.css": true,
+  "styles/action_legibility.css": true,
+  "styles/workspace.css": true,
+  "styles/status_window.css": true,
+  "index.html": true,
+  "style.css": true
+}

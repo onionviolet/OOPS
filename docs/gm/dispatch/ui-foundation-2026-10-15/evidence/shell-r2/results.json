@@ -1,0 +1,232 @@
+[
+  {
+    "name": "shell-composition-1366",
+    "detail": {
+      "height": 768,
+      "width": 1366,
+      "h": 768,
+      "w": 1366,
+      "regions": [
+        {
+          "id": "inventory_content_div",
+          "visible": 245,
+          "content": 567
+        },
+        {
+          "id": "center_mode_content",
+          "visible": 230,
+          "content": 358
+        }
+      ],
+      "log": 564
+    }
+  },
+  {
+    "name": "native-equip-and-takeoff-1366",
+    "detail": {
+      "equipment": true,
+      "inventoryRestored": true
+    }
+  },
+  {
+    "name": "native-use-1366",
+    "detail": {
+      "before": 3,
+      "after": 2
+    }
+  },
+  {
+    "name": "native-stats-equipment-compare-1366",
+    "detail": {}
+  },
+  {
+    "name": "read-and-history-1366",
+    "detail": {
+      "scroll": 29,
+      "readingPreserved": true
+    }
+  },
+  {
+    "name": "person-service-and-wayback-1366",
+    "detail": {}
+  },
+  {
+    "name": "shell-composition-1440",
+    "detail": {
+      "height": 900,
+      "width": 1440,
+      "h": 900,
+      "w": 1440,
+      "regions": [
+        {
+          "id": "inventory_content_div",
+          "visible": 394,
+          "content": 567
+        }
+      ],
+      "log": 696
+    }
+  },
+  {
+    "name": "native-equip-and-takeoff-1440",
+    "detail": {
+      "equipment": true,
+      "inventoryRestored": true
+    }
+  },
+  {
+    "name": "native-use-1440",
+    "detail": {
+      "before": 3,
+      "after": 2
+    }
+  },
+  {
+    "name": "native-stats-equipment-compare-1440",
+    "detail": {}
+  },
+  {
+    "name": "read-and-history-1440",
+    "detail": {
+      "scroll": 0,
+      "readingPreserved": true
+    }
+  },
+  {
+    "name": "person-service-and-wayback-1440",
+    "detail": {}
+  },
+  {
+    "name": "shell-composition-1920",
+    "detail": {
+      "height": 1080,
+      "width": 1920,
+      "h": 1080,
+      "w": 1920,
+      "regions": [],
+      "log": 904
+    }
+  },
+  {
+    "name": "native-equip-and-takeoff-1920",
+    "detail": {
+      "equipment": true,
+      "inventoryRestored": true
+    }
+  },
+  {
+    "name": "native-use-1920",
+    "detail": {
+      "before": 3,
+      "after": 2
+    }
+  },
+  {
+    "name": "native-stats-equipment-compare-1920",
+    "detail": {}
+  },
+  {
+    "name": "read-and-history-1920",
+    "detail": {
+      "scroll": 0,
+      "readingPreserved": true
+    }
+  },
+  {
+    "name": "person-service-and-wayback-1920",
+    "detail": {}
+  },
+  {
+    "name": "old-layout-exact-and-reversible",
+    "detail": {
+      "rawExact": true,
+      "pinCollapse": true
+    }
+  },
+  {
+    "name": "save-reload-export-literal-import",
+    "detail": {
+      "characterInventoryBooksExact": true
+    }
+  },
+  {
+    "name": "actual-text-1.25",
+    "detail": {
+      "height": 768,
+      "width": 1366,
+      "h": 768,
+      "w": 1366,
+      "regions": [
+        {
+          "id": "inventory_content_div",
+          "visible": 187,
+          "content": 567
+        },
+        {
+          "id": "center_mode_content",
+          "visible": 222,
+          "content": 637
+        }
+      ],
+      "log": 554,
+      "fonts": {
+        "character": "17.5px",
+        "item": "17.5px",
+        "actions": "17.5px"
+      }
+    }
+  },
+  {
+    "name": "actual-text-1.5",
+    "detail": {
+      "height": 768,
+      "width": 1366,
+      "h": 768,
+      "w": 1366,
+      "regions": [
+        {
+          "id": "inventory_content_div",
+          "visible": 82,
+          "content": 567
+        },
+        {
+          "id": "center_mode_content",
+          "visible": 218,
+          "content": 708
+        }
+      ],
+      "log": 544,
+      "fonts": {
+        "character": "21px",
+        "item": "21px",
+        "actions": "21px"
+      }
+    }
+  },
+  {
+    "name": "live-combat-focus-log-expand-return",
+    "detail": {
+      "height": 768,
+      "width": 1366,
+      "h": 768,
+      "w": 1366,
+      "regions": [
+        {
+          "id": "time",
+          "visible": 40,
+          "content": 43
+        },
+        {
+          "id": "center_mode_content",
+          "visible": 100,
+          "content": 119
+        }
+      ],
+      "log": 564
+    }
+  },
+  {
+    "name": "fresh-opening",
+    "detail": {}
+  }
+]

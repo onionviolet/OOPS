@@ -1,0 +1,26 @@
+{
+  "createdAt": "2026-10-15T14:35:15.143548+00:00",
+  "authorizedBy": "Latest direct Weibao request in R3 chat for a fresh UI chat and next playable parity pass",
+  "status": "released",
+  "sourceWriterThreadId": "01a13ffc-dd13-7c81-b87a-cc235dbb8c82",
+  "previousWriterThreadId": "01a13e70-6c75-7630-b105-26b861da80ca",
+  "previousWriterState": "R3 runtime UI explicitly released; this new instruction authorizes the fresh pass",
+  "scope": "R4_FRESH_PARITY.md; workspace layout/views/state, shell/combat-focus UI, panel/component presentation, shared styles and affected UI tests, new R4 report/evidence. Sole build window only after live recovery.",
+  "excludedFiles": [
+    "src/main.js",
+    "src/save_files.js",
+    "src/simulation_clock.js",
+    "src/continuation_*.js",
+    "tests/continuation_*",
+    "active crafting/fishing and direction areas",
+    "PROJECT.md",
+    "docs/USER_VISION.md",
+    "docs/UI_RULES.md",
+    "R2/R3 reports/evidence/frozen outputs"
+  ],
+  "authorityDocsOwner": "root coordinator 01a13dce-7254-7fd1-9059-6e77e4e900dc",
+  "queueState": "held; do not restart",
+  "sourceState": "Shared dirty checkout; R3 and quiet-continuation transfers inspected as released. Recover newer live reservations before edits.",
+  "acceptance": "Rebuilt visible/native/save/import/old-layout proof, source/R3/R4 comparison and playable preview; human visual acceptance OPEN",
+  "releaseEvidence": "R4_REPORT.md; final-integrity.json; no successor dispatched; visual/default-inspection choice OPEN"
+}

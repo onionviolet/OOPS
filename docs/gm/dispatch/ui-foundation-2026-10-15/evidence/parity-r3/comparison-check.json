@@ -1,0 +1,162 @@
+{
+  "views": [
+    {
+      "view": "inventory",
+      "images": [
+        {
+          "src": "source-crafting.png",
+          "natural": [
+            1366,
+            768
+          ]
+        },
+        {
+          "src": "../shell-r2/inventory-detail-1366.png",
+          "natural": [
+            1366,
+            768
+          ]
+        },
+        {
+          "src": "inventory-1366.png",
+          "natural": [
+            1366,
+            768
+          ]
+        }
+      ]
+    },
+    {
+      "view": "focus",
+      "images": [
+        {
+          "src": "source-actions.png",
+          "natural": [
+            1366,
+            768
+          ]
+        },
+        {
+          "src": "../shell-r2/focus-1366.png",
+          "natural": [
+            1366,
+            768
+          ]
+        },
+        {
+          "src": "focus-1366.png",
+          "natural": [
+            1366,
+            768
+          ]
+        }
+      ]
+    },
+    {
+      "view": "stats",
+      "images": [
+        {
+          "src": "source-skills.png",
+          "natural": [
+            1366,
+            768
+          ]
+        },
+        {
+          "src": "../shell-r2/stats-1366.png",
+          "natural": [
+            1366,
+            768
+          ]
+        },
+        {
+          "src": "stats-1366.png",
+          "natural": [
+            1366,
+            768
+          ]
+        }
+      ]
+    },
+    {
+      "view": "bars",
+      "images": [
+        {
+          "src": "source-actions.png",
+          "natural": [
+            1366,
+            768
+          ]
+        },
+        {
+          "src": "../shell-r2/village-1366.png",
+          "natural": [
+            1366,
+            768
+          ]
+        },
+        {
+          "src": "village-1366.png",
+          "natural": [
+            1366,
+            768
+          ]
+        }
+      ]
+    },
+    {
+      "view": "combat",
+      "images": [
+        {
+          "src": "source-actions.png",
+          "natural": [
+            1366,
+            768
+          ]
+        },
+        {
+          "src": "../shell-r2/combat.png",
+          "natural": [
+            1366,
+            768
+          ]
+        },
+        {
+          "src": "combat-21.png",
+          "natural": [
+            1366,
+            768
+          ]
+        }
+      ]
+    },
+    {
+      "view": "large",
+      "images": [
+        {
+          "src": "source-crafting.png",
+          "natural": [
+            1366,
+            768
+          ]
+        },
+        {
+          "src": "../shell-r2/actual-text-1.5.png",
+          "natural": [
+            1366,
+            768
+          ]
+        },
+        {
+          "src": "text-21.png",
+          "natural": [
+            1366,
+            768
+          ]
+        }
+      ]
+    }
+  ],
+  "unscaled1366": true,
+  "versionToggles": true
+}

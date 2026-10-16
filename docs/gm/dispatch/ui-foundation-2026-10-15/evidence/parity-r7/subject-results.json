@@ -1,0 +1,152 @@
+[
+  {
+    "font": 14,
+    "subjects": [
+      {
+        "kind": "skill",
+        "text": "Combat",
+        "description": "<strong>Combat</strong><p>Overall combat ability</p><p>Multiplies AP by 1.012</p><p>Level 1 · 1.16 / 108 XP</p><strong>Earned milestones</strong><p>lvl 1: +1 hp</p>"
+      },
+      {
+        "kind": "skill",
+        "text": "Combat",
+        "description": "<strong>Combat</strong><p>Overall combat ability</p><p>Multiplies AP by 1.012</p><p>Level 1 · 1.16 / 108 XP</p><strong>Earned milestones</strong><p>lvl 1: +1 hp</p>"
+      },
+      {
+        "kind": "milestone",
+        "text": "new milestone",
+        "description": "<strong>Earned skill milestones</strong><p>lvl 1: +1 hp</p>"
+      },
+      {
+        "kind": "item",
+        "text": "Giant crab claw",
+        "description": "<b>Giant crab claw</b><br>A large claw of a crab in pristine condition, still sharp and strong enough to take a finger off<br><br>Material type: miscellaneous<br><br>Value: 10<span class=\"coin coin_copper\">C</span> [originally 10<span class=\"coin coin_copper\">C</span>]"
+      },
+      {
+        "kind": "skill",
+        "text": "Pest killer",
+        "description": "<strong>Pest killer</strong><p>Small enemies might not seem very dangerous, but it's not that easy to hit them!</p><p>Multiplies AP against small-type enemies by 1.012</p><p>Level 1 · 0.53 / 180 XP</p><strong>Earned milestones</strong><p>lvl 1: x1.05 Combat xp gain</p>"
+      },
+      {
+        "kind": "skill",
+        "text": "Pest killer",
+        "description": "<strong>Pest killer</strong><p>Small enemies might not seem very dangerous, but it's not that easy to hit them!</p><p>Multiplies AP against small-type enemies by 1.012</p><p>Level 1 · 0.53 / 180 XP</p><strong>Earned milestones</strong><p>lvl 1: x1.05 Combat xp gain</p>"
+      },
+      {
+        "kind": "milestone",
+        "text": "new milestone",
+        "description": "<strong>Earned skill milestones</strong><p>lvl 1: x1.05 Combat xp gain</p>"
+      }
+    ],
+    "colors": [
+      {
+        "text": "3.7",
+        "role": "loss",
+        "color": "rgb(255, 173, 186)"
+      },
+      {
+        "text": "1",
+        "role": "growth",
+        "color": "rgb(241, 166, 209)"
+      },
+      {
+        "text": "1",
+        "role": "damage",
+        "color": "rgb(255, 226, 160)"
+      },
+      {
+        "text": "x1",
+        "role": "gain",
+        "color": "rgb(154, 239, 179)"
+      },
+      {
+        "text": "1",
+        "role": "growth",
+        "color": "rgb(241, 166, 209)"
+      },
+      {
+        "text": "1",
+        "role": "damage",
+        "color": "rgb(255, 226, 160)"
+      }
+    ],
+    "capturedDescriptionStable": true,
+    "fullGameplaySaveFieldsExact": true,
+    "errors": []
+  },
+  {
+    "font": 21,
+    "subjects": [
+      {
+        "kind": "skill",
+        "text": "Combat",
+        "description": "<strong>Combat</strong><p>Overall combat ability</p><p>Multiplies AP by 1.012</p><p>Level 1 · 1.16 / 108 XP</p><strong>Earned milestones</strong><p>lvl 1: +1 hp</p>"
+      },
+      {
+        "kind": "skill",
+        "text": "Combat",
+        "description": "<strong>Combat</strong><p>Overall combat ability</p><p>Multiplies AP by 1.012</p><p>Level 1 · 1.16 / 108 XP</p><strong>Earned milestones</strong><p>lvl 1: +1 hp</p>"
+      },
+      {
+        "kind": "milestone",
+        "text": "new milestone",
+        "description": "<strong>Earned skill milestones</strong><p>lvl 1: +1 hp</p>"
+      },
+      {
+        "kind": "item",
+        "text": "Giant crab claw",
+        "description": "<b>Giant crab claw</b><br>A large claw of a crab in pristine condition, still sharp and strong enough to take a finger off<br><br>Material type: miscellaneous<br><br>Value: 10<span class=\"coin coin_copper\">C</span> [originally 10<span class=\"coin coin_copper\">C</span>]"
+      },
+      {
+        "kind": "skill",
+        "text": "Pest killer",
+        "description": "<strong>Pest killer</strong><p>Small enemies might not seem very dangerous, but it's not that easy to hit them!</p><p>Multiplies AP against small-type enemies by 1.012</p><p>Level 1 · 0.53 / 180 XP</p><strong>Earned milestones</strong><p>lvl 1: x1.05 Combat xp gain</p>"
+      },
+      {
+        "kind": "skill",
+        "text": "Pest killer",
+        "description": "<strong>Pest killer</strong><p>Small enemies might not seem very dangerous, but it's not that easy to hit them!</p><p>Multiplies AP against small-type enemies by 1.012</p><p>Level 1 · 0.53 / 180 XP</p><strong>Earned milestones</strong><p>lvl 1: x1.05 Combat xp gain</p>"
+      },
+      {
+        "kind": "milestone",
+        "text": "new milestone",
+        "description": "<strong>Earned skill milestones</strong><p>lvl 1: x1.05 Combat xp gain</p>"
+      }
+    ],
+    "colors": [
+      {
+        "text": "3.7",
+        "role": "loss",
+        "color": "rgb(255, 173, 186)"
+      },
+      {
+        "text": "1",
+        "role": "growth",
+        "color": "rgb(241, 166, 209)"
+      },
+      {
+        "text": "1",
+        "role": "damage",
+        "color": "rgb(255, 226, 160)"
+      },
+      {
+        "text": "x1",
+        "role": "gain",
+        "color": "rgb(154, 239, 179)"
+      },
+      {
+        "text": "1",
+        "role": "growth",
+        "color": "rgb(241, 166, 209)"
+      },
+      {
+        "text": "1",
+        "role": "damage",
+        "color": "rgb(255, 226, 160)"
+      }
+    ],
+    "capturedDescriptionStable": true,
+    "fullGameplaySaveFieldsExact": true,
+    "errors": []
+  }
+]

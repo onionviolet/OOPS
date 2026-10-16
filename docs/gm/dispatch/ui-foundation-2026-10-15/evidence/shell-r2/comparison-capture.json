@@ -1,0 +1,129 @@
+{
+  "views": [
+    {
+      "state": "inventory",
+      "images": [
+        {
+          "src": "source-crafting-unscaled-1366.png",
+          "width": 1366,
+          "height": 768
+        },
+        {
+          "src": "../shell/inventory-detail-1366.png",
+          "width": 1366,
+          "height": 768
+        },
+        {
+          "src": "inventory-detail-1366.png",
+          "width": 1366,
+          "height": 768
+        }
+      ]
+    },
+    {
+      "state": "focus",
+      "images": [
+        {
+          "src": "source-actions-unscaled-1366.png",
+          "width": 1366,
+          "height": 768
+        },
+        {
+          "src": "../shell/person-1366.png",
+          "width": 1366,
+          "height": 768
+        },
+        {
+          "src": "focus-1366.png",
+          "width": 1366,
+          "height": 768
+        }
+      ]
+    },
+    {
+      "state": "stats",
+      "images": [
+        {
+          "src": "source-journal-unscaled-1366.png",
+          "width": 1366,
+          "height": 768
+        },
+        {
+          "src": "../shell/stats-1366.png",
+          "width": 1366,
+          "height": 768
+        },
+        {
+          "src": "stats-1366.png",
+          "width": 1366,
+          "height": 768
+        }
+      ]
+    },
+    {
+      "state": "combat",
+      "images": [
+        {
+          "src": "source-normal-1366.png",
+          "width": 1366,
+          "height": 768
+        },
+        {
+          "src": "../shell/combat.png",
+          "width": 1366,
+          "height": 768
+        },
+        {
+          "src": "combat.png",
+          "width": 1366,
+          "height": 768
+        }
+      ]
+    },
+    {
+      "state": "crafting",
+      "images": [
+        {
+          "src": "source-crafting-unscaled-1366.png",
+          "width": 1366,
+          "height": 768
+        },
+        {
+          "src": "../shell/crafting-1366.png",
+          "width": 1366,
+          "height": 768
+        },
+        {
+          "src": "crafting-1366.png",
+          "width": 1366,
+          "height": 768
+        }
+      ]
+    },
+    {
+      "state": "large",
+      "images": [
+        {
+          "src": "source-normal-1366.png",
+          "width": 1366,
+          "height": 768
+        },
+        {
+          "src": "../shell/actual-text-1.5.png",
+          "width": 1366,
+          "height": 768
+        },
+        {
+          "src": "actual-text-1.5.png",
+          "width": 1366,
+          "height": 768
+        }
+      ]
+    }
+  ],
+  "scale": "100% mode verified",
+  "viewport": [
+    1440,
+    900
+  ]
+}

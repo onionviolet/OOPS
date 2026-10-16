@@ -1,0 +1,85 @@
+[
+  {
+    "name": "multi-opponent-free-inspection-stable-anchors",
+    "detail": {
+      "roster": 2,
+      "facts": 5,
+      "selected": "defender_1_div",
+      "gameplayClockRngExact": true,
+      "anchorIdentity": true
+    }
+  },
+  {
+    "name": "live-native-facts-log-reduced-motion",
+    "detail": {
+      "facts": [
+        {
+          "label": "Attack",
+          "value": "4 dmg",
+          "visible": true
+        },
+        {
+          "label": "| Spd",
+          "value": "0.82",
+          "visible": true
+        },
+        {
+          "label": "| Hit",
+          "value": "30%",
+          "visible": true
+        },
+        {
+          "label": "| Ddg",
+          "value": "15%",
+          "visible": true
+        },
+        {
+          "label": "| Def",
+          "value": "0",
+          "visible": true
+        }
+      ],
+      "combatAnimations": 0
+    }
+  },
+  {
+    "name": "long-name-readable-inspection",
+    "detail": {}
+  },
+  {
+    "name": "fresh-unassessed-person-no-gameplay",
+    "detail": {}
+  },
+  {
+    "name": "custom-palette-all-structural-regions",
+    "detail": {}
+  },
+  {
+    "name": "keyboard-selection-and-standard-palette",
+    "detail": {}
+  },
+  {
+    "name": "native-effects-full-no-preference",
+    "detail": {
+      "animations": 3
+    }
+  },
+  {
+    "name": "native-effects-reduced-no-preference",
+    "detail": {
+      "animations": 0
+    }
+  },
+  {
+    "name": "native-effects-off-no-preference",
+    "detail": {
+      "animations": 0
+    }
+  },
+  {
+    "name": "native-effects-full-reduce",
+    "detail": {
+      "animations": 0
+    }
+  }
+]

@@ -1,0 +1,24 @@
+{
+  "createdAt": "2026-10-15T07:22:12.165000+00:00",
+  "authorizedBy": "Weibao explicit fresh-chat Proto23 parity refactor request",
+  "sourceWriterThreadId": "01a13e70-6c75-7630-b105-26b861da80ca",
+  "previousWriterThreadId": "01a13dba-1433-7232-bd63-674e459f141a",
+  "previousWriterState": "R2_REPORT.md explicit release, live idle confirmed",
+  "scope": "R3_PARITY_REFACTOR.md, UI layout/composition/styles/shell/combat-focus presentation and affected tests, generated dist/index exclusive final build window",
+  "excludedFiles": [
+    "src/main.js",
+    "src/save_files.js",
+    "src/continuation_*.js",
+    "tests/continuation_*",
+    "src/simulation_clock.js"
+  ],
+  "excludedOwnerThreadId": "01a13e1b-6f99-79a2-8172-b0b5940e78a6",
+  "adjacentAuthority": "Root read actual human instruction in excluded owner chat and reserved those files in R3 packet",
+  "queueState": "held, do not restart",
+  "authorityDocsOwner": "root coordinator",
+  "acceptance": "rebuilt unscaled parity comparison and synthetic native/save/browser gates, visual acceptance open",
+  "buildCoordination": "Quiet-continuation owner acknowledged reservation and will use isolated output/server; R3 owns shared dist/index final window.",
+  "status": "released",
+  "releaseEvidence": "R3_REPORT.md explicit release; root reviewed source/served and frozen output proof",
+  "adjacentOwnerStatus": "quiet-continuation REPORT/RESERVATION also explicitly released"
+}

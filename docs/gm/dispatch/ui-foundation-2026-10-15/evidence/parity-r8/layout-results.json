@@ -1,0 +1,1752 @@
+[
+  {
+    "w": 1366,
+    "h": 768,
+    "font": 14,
+    "overviewStats": 12,
+    "allStatsSimultaneously": 12,
+    "automaticReadout": true,
+    "manualCloseSurvivesResize": true,
+    "gameplayExact": true,
+    "geometry": {
+      "page": [
+        1366,
+        768
+      ],
+      "viewport": [
+        1366,
+        768
+      ],
+      "regions": {
+        "player": {
+          "x": 17,
+          "y": 39,
+          "w": 467.1875,
+          "h": 422.828125,
+          "client": 417,
+          "content": 417,
+          "font": "14px"
+        },
+        "focus": {
+          "x": 488.1875,
+          "y": 39,
+          "w": 463.1875,
+          "h": 422.828125,
+          "client": 417,
+          "content": 417,
+          "font": "14px"
+        },
+        "inventory": {
+          "x": 17,
+          "y": 465.828125,
+          "w": 348.953125,
+          "h": 255.171875,
+          "client": 249,
+          "content": 249,
+          "font": "14px"
+        },
+        "actions": {
+          "x": 369.953125,
+          "y": 465.828125,
+          "w": 581.421875,
+          "h": 255.171875,
+          "client": 249,
+          "content": 249,
+          "font": "14px"
+        },
+        "log": {
+          "x": 955.375,
+          "y": 39,
+          "w": 393.609375,
+          "h": 682,
+          "client": 676,
+          "content": 676,
+          "font": "14px"
+        }
+      },
+      "list": {
+        "x": 23,
+        "y": 555.921875,
+        "w": 336.953125,
+        "h": 161.078125,
+        "client": 161,
+        "content": 581,
+        "font": "14px"
+      },
+      "rows": [
+        {
+          "text": "\"ABC for kids\"",
+          "font": "14px",
+          "box": {
+            "x": 23,
+            "y": 555.921875,
+            "w": 336.953125,
+            "h": 21.84375,
+            "client": 21,
+            "content": 21,
+            "font": "14px"
+          }
+        },
+        {
+          "text": "Apple",
+          "font": "14px",
+          "box": {
+            "x": 23,
+            "y": 577.765625,
+            "w": 336.953125,
+            "h": 21.84375,
+            "client": 21,
+            "content": 21,
+            "font": "14px"
+          }
+        },
+        {
+          "text": "Boar hide",
+          "font": "14px",
+          "box": {
+            "x": 23,
+            "y": 599.609375,
+            "w": 336.953125,
+            "h": 21.84375,
+            "client": 21,
+            "content": 21,
+            "font": "14px"
+          }
+        },
+        {
+          "text": "Boar meat",
+          "font": "14px",
+          "box": {
+            "x": 23,
+            "y": 621.453125,
+            "w": 336.953125,
+            "h": 21.84375,
+            "client": 21,
+            "content": 21,
+            "font": "14px"
+          }
+        },
+        {
+          "text": "Bread kwas",
+          "font": "14px",
+          "box": {
+            "x": 23,
+            "y": 643.296875,
+            "w": 336.953125,
+            "h": 21.84375,
+            "client": 21,
+            "content": 21,
+            "font": "14px"
+          }
+        },
+        {
+          "text": "Carrot",
+          "font": "14px",
+          "box": {
+            "x": 23,
+            "y": 665.140625,
+            "w": 336.953125,
+            "h": 21.84375,
+            "client": 21,
+            "content": 21,
+            "font": "14px"
+          }
+        },
+        {
+          "text": "Cooked carrot",
+          "font": "14px",
+          "box": {
+            "x": 23,
+            "y": 686.984375,
+            "w": 336.953125,
+            "h": 21.84375,
+            "client": 21,
+            "content": 21,
+            "font": "14px"
+          }
+        }
+      ],
+      "stats": [
+        {
+          "text": "STR12",
+          "box": {
+            "x": 20,
+            "y": 160,
+            "w": 115.296875,
+            "h": 26.1875,
+            "client": 25,
+            "content": 25,
+            "font": "14px"
+          }
+        },
+        {
+          "text": "AGL8",
+          "box": {
+            "x": 135.296875,
+            "y": 160,
+            "w": 115.296875,
+            "h": 26.1875,
+            "client": 25,
+            "content": 25,
+            "font": "14px"
+          }
+        },
+        {
+          "text": "DEX10",
+          "box": {
+            "x": 250.59375,
+            "y": 160,
+            "w": 115.296875,
+            "h": 26.1875,
+            "client": 25,
+            "content": 25,
+            "font": "14px"
+          }
+        },
+        {
+          "text": "INT10",
+          "box": {
+            "x": 365.890625,
+            "y": 160,
+            "w": 115.296875,
+            "h": 26.1875,
+            "client": 25,
+            "content": 25,
+            "font": "14px"
+          }
+        },
+        {
+          "text": "Attack1.2",
+          "box": {
+            "x": 20,
+            "y": 186.1875,
+            "w": 230.59375,
+            "h": 26.1875,
+            "client": 25,
+            "content": 25,
+            "font": "14px"
+          }
+        },
+        {
+          "text": "Defense1",
+          "box": {
+            "x": 250.59375,
+            "y": 186.1875,
+            "w": 230.59375,
+            "h": 26.1875,
+            "client": 25,
+            "content": 25,
+            "font": "14px"
+          }
+        }
+      ]
+    },
+    "errors": []
+  },
+  {
+    "w": 1366,
+    "h": 768,
+    "font": 17.5,
+    "overviewStats": 12,
+    "allStatsSimultaneously": 12,
+    "automaticReadout": true,
+    "manualCloseSurvivesResize": true,
+    "gameplayExact": true,
+    "geometry": {
+      "page": [
+        1366,
+        768
+      ],
+      "viewport": [
+        1366,
+        768
+      ],
+      "regions": {
+        "player": {
+          "x": 17,
+          "y": 39,
+          "w": 467.1875,
+          "h": 422.828125,
+          "client": 417,
+          "content": 417,
+          "font": "14px"
+        },
+        "focus": {
+          "x": 488.1875,
+          "y": 39,
+          "w": 463.1875,
+          "h": 422.828125,
+          "client": 417,
+          "content": 417,
+          "font": "14px"
+        },
+        "inventory": {
+          "x": 17,
+          "y": 465.828125,
+          "w": 348.953125,
+          "h": 255.171875,
+          "client": 249,
+          "content": 249,
+          "font": "14px"
+        },
+        "actions": {
+          "x": 369.953125,
+          "y": 465.828125,
+          "w": 581.421875,
+          "h": 255.171875,
+          "client": 249,
+          "content": 249,
+          "font": "14px"
+        },
+        "log": {
+          "x": 955.375,
+          "y": 39,
+          "w": 393.609375,
+          "h": 682,
+          "client": 676,
+          "content": 676,
+          "font": "14px"
+        }
+      },
+      "list": {
+        "x": 23,
+        "y": 570.703125,
+        "w": 336.953125,
+        "h": 146.296875,
+        "client": 146,
+        "content": 721,
+        "font": "17.5px"
+      },
+      "rows": [
+        {
+          "text": "\"ABC for kids\"",
+          "font": "17.5px",
+          "box": {
+            "x": 23,
+            "y": 570.703125,
+            "w": 336.953125,
+            "h": 27.0625,
+            "client": 26,
+            "content": 26,
+            "font": "17.5px"
+          }
+        },
+        {
+          "text": "Apple",
+          "font": "17.5px",
+          "box": {
+            "x": 23,
+            "y": 597.765625,
+            "w": 336.953125,
+            "h": 27.0625,
+            "client": 26,
+            "content": 26,
+            "font": "17.5px"
+          }
+        },
+        {
+          "text": "Boar hide",
+          "font": "17.5px",
+          "box": {
+            "x": 23,
+            "y": 624.828125,
+            "w": 336.953125,
+            "h": 27.0625,
+            "client": 26,
+            "content": 26,
+            "font": "17.5px"
+          }
+        },
+        {
+          "text": "Boar meat",
+          "font": "17.5px",
+          "box": {
+            "x": 23,
+            "y": 651.890625,
+            "w": 336.953125,
+            "h": 27.0625,
+            "client": 26,
+            "content": 26,
+            "font": "17.5px"
+          }
+        },
+        {
+          "text": "Bread kwas",
+          "font": "17.5px",
+          "box": {
+            "x": 23,
+            "y": 678.953125,
+            "w": 336.953125,
+            "h": 27.0625,
+            "client": 26,
+            "content": 26,
+            "font": "17.5px"
+          }
+        }
+      ],
+      "stats": [
+        {
+          "text": "STR12",
+          "box": {
+            "x": 20,
+            "y": 174.625,
+            "w": 115.296875,
+            "h": 32.5,
+            "client": 32,
+            "content": 32,
+            "font": "17.5px"
+          }
+        },
+        {
+          "text": "AGL8",
+          "box": {
+            "x": 135.296875,
+            "y": 174.625,
+            "w": 115.296875,
+            "h": 32.5,
+            "client": 32,
+            "content": 32,
+            "font": "17.5px"
+          }
+        },
+        {
+          "text": "DEX10",
+          "box": {
+            "x": 250.59375,
+            "y": 174.625,
+            "w": 115.296875,
+            "h": 32.5,
+            "client": 32,
+            "content": 32,
+            "font": "17.5px"
+          }
+        },
+        {
+          "text": "INT10",
+          "box": {
+            "x": 365.890625,
+            "y": 174.625,
+            "w": 115.296875,
+            "h": 32.5,
+            "client": 32,
+            "content": 32,
+            "font": "17.5px"
+          }
+        },
+        {
+          "text": "Attack1.2",
+          "box": {
+            "x": 20,
+            "y": 207.125,
+            "w": 230.59375,
+            "h": 32.5,
+            "client": 32,
+            "content": 32,
+            "font": "17.5px"
+          }
+        },
+        {
+          "text": "Defense1",
+          "box": {
+            "x": 250.59375,
+            "y": 207.125,
+            "w": 230.59375,
+            "h": 32.5,
+            "client": 32,
+            "content": 32,
+            "font": "17.5px"
+          }
+        }
+      ]
+    },
+    "errors": []
+  },
+  {
+    "w": 1366,
+    "h": 768,
+    "font": 21,
+    "overviewStats": 12,
+    "allStatsSimultaneously": 12,
+    "automaticReadout": true,
+    "manualCloseSurvivesResize": true,
+    "gameplayExact": true,
+    "geometry": {
+      "page": [
+        1366,
+        768
+      ],
+      "viewport": [
+        1366,
+        768
+      ],
+      "regions": {
+        "player": {
+          "x": 17,
+          "y": 39,
+          "w": 467.1875,
+          "h": 422.828125,
+          "client": 417,
+          "content": 417,
+          "font": "14px"
+        },
+        "focus": {
+          "x": 488.1875,
+          "y": 39,
+          "w": 463.1875,
+          "h": 422.828125,
+          "client": 417,
+          "content": 417,
+          "font": "14px"
+        },
+        "inventory": {
+          "x": 17,
+          "y": 465.828125,
+          "w": 348.953125,
+          "h": 255.171875,
+          "client": 249,
+          "content": 249,
+          "font": "14px"
+        },
+        "actions": {
+          "x": 369.953125,
+          "y": 465.828125,
+          "w": 581.421875,
+          "h": 255.171875,
+          "client": 249,
+          "content": 249,
+          "font": "14px"
+        },
+        "log": {
+          "x": 955.375,
+          "y": 39,
+          "w": 393.609375,
+          "h": 682,
+          "client": 676,
+          "content": 676,
+          "font": "14px"
+        }
+      },
+      "list": {
+        "x": 23,
+        "y": 589.453125,
+        "w": 336.953125,
+        "h": 127.546875,
+        "client": 128,
+        "content": 862,
+        "font": "21px"
+      },
+      "rows": [
+        {
+          "text": "\"ABC for kids\"",
+          "font": "21px",
+          "box": {
+            "x": 23,
+            "y": 589.453125,
+            "w": 336.953125,
+            "h": 32.28125,
+            "client": 31,
+            "content": 31,
+            "font": "21px"
+          }
+        },
+        {
+          "text": "Apple",
+          "font": "21px",
+          "box": {
+            "x": 23,
+            "y": 621.734375,
+            "w": 336.953125,
+            "h": 32.28125,
+            "client": 31,
+            "content": 31,
+            "font": "21px"
+          }
+        },
+        {
+          "text": "Boar hide",
+          "font": "21px",
+          "box": {
+            "x": 23,
+            "y": 654.015625,
+            "w": 336.953125,
+            "h": 32.28125,
+            "client": 31,
+            "content": 31,
+            "font": "21px"
+          }
+        }
+      ],
+      "stats": [
+        {
+          "text": "STR12",
+          "box": {
+            "x": 20,
+            "y": 200.75,
+            "w": 115.296875,
+            "h": 38.765625,
+            "client": 38,
+            "content": 38,
+            "font": "21px"
+          }
+        },
+        {
+          "text": "AGL8",
+          "box": {
+            "x": 135.296875,
+            "y": 200.75,
+            "w": 115.296875,
+            "h": 38.765625,
+            "client": 38,
+            "content": 38,
+            "font": "21px"
+          }
+        },
+        {
+          "text": "DEX10",
+          "box": {
+            "x": 250.59375,
+            "y": 200.75,
+            "w": 115.296875,
+            "h": 38.765625,
+            "client": 38,
+            "content": 38,
+            "font": "21px"
+          }
+        },
+        {
+          "text": "INT10",
+          "box": {
+            "x": 365.890625,
+            "y": 200.75,
+            "w": 115.296875,
+            "h": 38.765625,
+            "client": 38,
+            "content": 38,
+            "font": "21px"
+          }
+        },
+        {
+          "text": "Attack1.2",
+          "box": {
+            "x": 20,
+            "y": 239.515625,
+            "w": 230.59375,
+            "h": 38.765625,
+            "client": 38,
+            "content": 38,
+            "font": "21px"
+          }
+        },
+        {
+          "text": "Defense1",
+          "box": {
+            "x": 250.59375,
+            "y": 239.515625,
+            "w": 230.59375,
+            "h": 38.765625,
+            "client": 38,
+            "content": 38,
+            "font": "21px"
+          }
+        }
+      ]
+    },
+    "errors": []
+  },
+  {
+    "w": 1920,
+    "h": 1080,
+    "font": 21,
+    "overviewStats": 12,
+    "allStatsSimultaneously": 12,
+    "automaticReadout": true,
+    "manualCloseSurvivesResize": true,
+    "gameplayExact": true,
+    "geometry": {
+      "page": [
+        1920,
+        1080
+      ],
+      "viewport": [
+        1920,
+        1080
+      ],
+      "regions": {
+        "player": {
+          "x": 17,
+          "y": 39,
+          "w": 628.65625,
+          "h": 497,
+          "client": 491,
+          "content": 491,
+          "font": "14px"
+        },
+        "focus": {
+          "x": 651.65625,
+          "y": 39,
+          "w": 744.765625,
+          "h": 497,
+          "client": 491,
+          "content": 491,
+          "font": "14px"
+        },
+        "inventory": {
+          "x": 17,
+          "y": 542,
+          "w": 500.5625,
+          "h": 491,
+          "client": 485,
+          "content": 485,
+          "font": "14px"
+        },
+        "actions": {
+          "x": 523.5625,
+          "y": 542,
+          "w": 872.859375,
+          "h": 491,
+          "client": 485,
+          "content": 485,
+          "font": "14px"
+        },
+        "log": {
+          "x": 1402.421875,
+          "y": 39,
+          "w": 500.578125,
+          "h": 994,
+          "client": 988,
+          "content": 988,
+          "font": "14px"
+        }
+      },
+      "list": {
+        "x": 23,
+        "y": 665.625,
+        "w": 488.5625,
+        "h": 363.375,
+        "client": 363,
+        "content": 862,
+        "font": "21px"
+      },
+      "rows": [
+        {
+          "text": "\"ABC for kids\"",
+          "font": "21px",
+          "box": {
+            "x": 23,
+            "y": 665.625,
+            "w": 488.5625,
+            "h": 32.28125,
+            "client": 31,
+            "content": 31,
+            "font": "21px"
+          }
+        },
+        {
+          "text": "Apple",
+          "font": "21px",
+          "box": {
+            "x": 23,
+            "y": 697.90625,
+            "w": 488.5625,
+            "h": 32.28125,
+            "client": 31,
+            "content": 31,
+            "font": "21px"
+          }
+        },
+        {
+          "text": "Boar hide",
+          "font": "21px",
+          "box": {
+            "x": 23,
+            "y": 730.1875,
+            "w": 488.5625,
+            "h": 32.28125,
+            "client": 31,
+            "content": 31,
+            "font": "21px"
+          }
+        },
+        {
+          "text": "Boar meat",
+          "font": "21px",
+          "box": {
+            "x": 23,
+            "y": 762.46875,
+            "w": 488.5625,
+            "h": 32.28125,
+            "client": 31,
+            "content": 31,
+            "font": "21px"
+          }
+        },
+        {
+          "text": "Bread kwas",
+          "font": "21px",
+          "box": {
+            "x": 23,
+            "y": 794.75,
+            "w": 488.5625,
+            "h": 32.28125,
+            "client": 31,
+            "content": 31,
+            "font": "21px"
+          }
+        },
+        {
+          "text": "Carrot",
+          "font": "21px",
+          "box": {
+            "x": 23,
+            "y": 827.03125,
+            "w": 488.5625,
+            "h": 32.28125,
+            "client": 31,
+            "content": 31,
+            "font": "21px"
+          }
+        },
+        {
+          "text": "Cooked carrot",
+          "font": "21px",
+          "box": {
+            "x": 23,
+            "y": 859.3125,
+            "w": 488.5625,
+            "h": 32.28125,
+            "client": 31,
+            "content": 31,
+            "font": "21px"
+          }
+        },
+        {
+          "text": "Fresh bread",
+          "font": "21px",
+          "box": {
+            "x": 23,
+            "y": 891.59375,
+            "w": 488.5625,
+            "h": 32.28125,
+            "client": 31,
+            "content": 31,
+            "font": "21px"
+          }
+        },
+        {
+          "text": "\"Old combat manual\"",
+          "font": "21px",
+          "box": {
+            "x": 23,
+            "y": 923.875,
+            "w": 488.5625,
+            "h": 32.28125,
+            "client": 31,
+            "content": 31,
+            "font": "21px"
+          }
+        },
+        {
+          "text": "Potato",
+          "font": "21px",
+          "box": {
+            "x": 23,
+            "y": 956.15625,
+            "w": 488.5625,
+            "h": 32.28125,
+            "client": 31,
+            "content": 31,
+            "font": "21px"
+          }
+        },
+        {
+          "text": "Rat pelt",
+          "font": "21px",
+          "box": {
+            "x": 23,
+            "y": 988.4375,
+            "w": 488.5625,
+            "h": 32.28125,
+            "client": 31,
+            "content": 31,
+            "font": "21px"
+          }
+        }
+      ],
+      "stats": [
+        {
+          "text": "STR12",
+          "box": {
+            "x": 20,
+            "y": 200.75,
+            "w": 155.65625,
+            "h": 38.765625,
+            "client": 38,
+            "content": 38,
+            "font": "21px"
+          }
+        },
+        {
+          "text": "AGL8",
+          "box": {
+            "x": 175.65625,
+            "y": 200.75,
+            "w": 155.671875,
+            "h": 38.765625,
+            "client": 38,
+            "content": 38,
+            "font": "21px"
+          }
+        },
+        {
+          "text": "DEX10",
+          "box": {
+            "x": 331.328125,
+            "y": 200.75,
+            "w": 155.65625,
+            "h": 38.765625,
+            "client": 38,
+            "content": 38,
+            "font": "21px"
+          }
+        },
+        {
+          "text": "INT10",
+          "box": {
+            "x": 486.984375,
+            "y": 200.75,
+            "w": 155.671875,
+            "h": 38.765625,
+            "client": 38,
+            "content": 38,
+            "font": "21px"
+          }
+        },
+        {
+          "text": "Attack1.2",
+          "box": {
+            "x": 20,
+            "y": 239.515625,
+            "w": 311.328125,
+            "h": 38.765625,
+            "client": 38,
+            "content": 38,
+            "font": "21px"
+          }
+        },
+        {
+          "text": "Defense1",
+          "box": {
+            "x": 331.328125,
+            "y": 239.515625,
+            "w": 311.328125,
+            "h": 38.765625,
+            "client": 38,
+            "content": 38,
+            "font": "21px"
+          }
+        }
+      ]
+    },
+    "errors": []
+  },
+  {
+    "w": 2560,
+    "h": 1440,
+    "font": 21,
+    "overviewStats": 12,
+    "allStatsSimultaneously": 12,
+    "automaticReadout": true,
+    "manualCloseSurvivesResize": true,
+    "gameplayExact": true,
+    "geometry": {
+      "page": [
+        2560,
+        1440
+      ],
+      "viewport": [
+        2560,
+        1440
+      ],
+      "regions": {
+        "player": {
+          "x": 17,
+          "y": 39,
+          "w": 842,
+          "h": 560,
+          "client": 554,
+          "content": 554,
+          "font": "14px"
+        },
+        "focus": {
+          "x": 865,
+          "y": 39,
+          "w": 999.90625,
+          "h": 560,
+          "client": 554,
+          "content": 554,
+          "font": "14px"
+        },
+        "inventory": {
+          "x": 17,
+          "y": 605,
+          "w": 672.078125,
+          "h": 788,
+          "client": 782,
+          "content": 782,
+          "font": "14px"
+        },
+        "actions": {
+          "x": 695.078125,
+          "y": 605,
+          "w": 1169.828125,
+          "h": 788,
+          "client": 782,
+          "content": 782,
+          "font": "14px"
+        },
+        "log": {
+          "x": 1870.90625,
+          "y": 39,
+          "w": 672.09375,
+          "h": 1354,
+          "client": 1348,
+          "content": 1348,
+          "font": "14px"
+        }
+      },
+      "list": {
+        "x": 23,
+        "y": 728.625,
+        "w": 660.078125,
+        "h": 660.375,
+        "client": 660,
+        "content": 862,
+        "font": "21px"
+      },
+      "rows": [
+        {
+          "text": "\"ABC for kids\"",
+          "font": "21px",
+          "box": {
+            "x": 23,
+            "y": 728.625,
+            "w": 660.078125,
+            "h": 32.28125,
+            "client": 31,
+            "content": 31,
+            "font": "21px"
+          }
+        },
+        {
+          "text": "Apple",
+          "font": "21px",
+          "box": {
+            "x": 23,
+            "y": 760.90625,
+            "w": 660.078125,
+            "h": 32.28125,
+            "client": 31,
+            "content": 31,
+            "font": "21px"
+          }
+        },
+        {
+          "text": "Boar hide",
+          "font": "21px",
+          "box": {
+            "x": 23,
+            "y": 793.1875,
+            "w": 660.078125,
+            "h": 32.28125,
+            "client": 31,
+            "content": 31,
+            "font": "21px"
+          }
+        },
+        {
+          "text": "Boar meat",
+          "font": "21px",
+          "box": {
+            "x": 23,
+            "y": 825.46875,
+            "w": 660.078125,
+            "h": 32.28125,
+            "client": 31,
+            "content": 31,
+            "font": "21px"
+          }
+        },
+        {
+          "text": "Bread kwas",
+          "font": "21px",
+          "box": {
+            "x": 23,
+            "y": 857.75,
+            "w": 660.078125,
+            "h": 32.28125,
+            "client": 31,
+            "content": 31,
+            "font": "21px"
+          }
+        },
+        {
+          "text": "Carrot",
+          "font": "21px",
+          "box": {
+            "x": 23,
+            "y": 890.03125,
+            "w": 660.078125,
+            "h": 32.28125,
+            "client": 31,
+            "content": 31,
+            "font": "21px"
+          }
+        },
+        {
+          "text": "Cooked carrot",
+          "font": "21px",
+          "box": {
+            "x": 23,
+            "y": 922.3125,
+            "w": 660.078125,
+            "h": 32.28125,
+            "client": 31,
+            "content": 31,
+            "font": "21px"
+          }
+        },
+        {
+          "text": "Fresh bread",
+          "font": "21px",
+          "box": {
+            "x": 23,
+            "y": 954.59375,
+            "w": 660.078125,
+            "h": 32.28125,
+            "client": 31,
+            "content": 31,
+            "font": "21px"
+          }
+        },
+        {
+          "text": "\"Old combat manual\"",
+          "font": "21px",
+          "box": {
+            "x": 23,
+            "y": 986.875,
+            "w": 660.078125,
+            "h": 32.28125,
+            "client": 31,
+            "content": 31,
+            "font": "21px"
+          }
+        },
+        {
+          "text": "Potato",
+          "font": "21px",
+          "box": {
+            "x": 23,
+            "y": 1019.15625,
+            "w": 660.078125,
+            "h": 32.28125,
+            "client": 31,
+            "content": 31,
+            "font": "21px"
+          }
+        },
+        {
+          "text": "Rat pelt",
+          "font": "21px",
+          "box": {
+            "x": 23,
+            "y": 1051.4375,
+            "w": 660.078125,
+            "h": 32.28125,
+            "client": 31,
+            "content": 31,
+            "font": "21px"
+          }
+        },
+        {
+          "text": "Rat tail",
+          "font": "21px",
+          "box": {
+            "x": 23,
+            "y": 1083.71875,
+            "w": 660.078125,
+            "h": 32.28125,
+            "client": 31,
+            "content": 31,
+            "font": "21px"
+          }
+        },
+        {
+          "text": "Stale bread",
+          "font": "21px",
+          "box": {
+            "x": 23,
+            "y": 1116,
+            "w": 660.078125,
+            "h": 32.28125,
+            "client": 31,
+            "content": 31,
+            "font": "21px"
+          }
+        },
+        {
+          "text": "Wolf pelt",
+          "font": "21px",
+          "box": {
+            "x": 23,
+            "y": 1148.28125,
+            "w": 660.078125,
+            "h": 32.28125,
+            "client": 31,
+            "content": 31,
+            "font": "21px"
+          }
+        },
+        {
+          "text": "Ash wood shield",
+          "font": "21px",
+          "box": {
+            "x": 23,
+            "y": 1180.5625,
+            "w": 660.078125,
+            "h": 58.53125,
+            "client": 58,
+            "content": 58,
+            "font": "21px"
+          }
+        },
+        {
+          "text": "Cheap leather pants",
+          "font": "21px",
+          "box": {
+            "x": 23,
+            "y": 1239.09375,
+            "w": 660.078125,
+            "h": 58.53125,
+            "client": 58,
+            "content": 58,
+            "font": "21px"
+          }
+        },
+        {
+          "text": "Goat leather vest",
+          "font": "21px",
+          "box": {
+            "x": 23,
+            "y": 1297.625,
+            "w": 660.078125,
+            "h": 58.53125,
+            "client": 58,
+            "content": 58,
+            "font": "21px"
+          }
+        }
+      ],
+      "stats": [
+        {
+          "text": "STR12",
+          "box": {
+            "x": 20,
+            "y": 200.75,
+            "w": 209,
+            "h": 38.765625,
+            "client": 38,
+            "content": 38,
+            "font": "21px"
+          }
+        },
+        {
+          "text": "AGL8",
+          "box": {
+            "x": 229,
+            "y": 200.75,
+            "w": 209,
+            "h": 38.765625,
+            "client": 38,
+            "content": 38,
+            "font": "21px"
+          }
+        },
+        {
+          "text": "DEX10",
+          "box": {
+            "x": 438,
+            "y": 200.75,
+            "w": 209,
+            "h": 38.765625,
+            "client": 38,
+            "content": 38,
+            "font": "21px"
+          }
+        },
+        {
+          "text": "INT10",
+          "box": {
+            "x": 647,
+            "y": 200.75,
+            "w": 209,
+            "h": 38.765625,
+            "client": 38,
+            "content": 38,
+            "font": "21px"
+          }
+        },
+        {
+          "text": "Attack1.2",
+          "box": {
+            "x": 20,
+            "y": 239.515625,
+            "w": 418,
+            "h": 38.765625,
+            "client": 38,
+            "content": 38,
+            "font": "21px"
+          }
+        },
+        {
+          "text": "Defense1",
+          "box": {
+            "x": 438,
+            "y": 239.515625,
+            "w": 418,
+            "h": 38.765625,
+            "client": 38,
+            "content": 38,
+            "font": "21px"
+          }
+        }
+      ]
+    },
+    "errors": []
+  },
+  {
+    "w": 3600,
+    "h": 1906,
+    "font": 21,
+    "overviewStats": 12,
+    "allStatsSimultaneously": 12,
+    "automaticReadout": true,
+    "manualCloseSurvivesResize": true,
+    "gameplayExact": true,
+    "geometry": {
+      "page": [
+        3600,
+        1906
+      ],
+      "viewport": [
+        3600,
+        1906
+      ],
+      "regions": {
+        "player": {
+          "x": 20,
+          "y": 42,
+          "w": 1239.625,
+          "h": 700,
+          "client": 694,
+          "content": 694,
+          "font": "14px"
+        },
+        "focus": {
+          "x": 1267.625,
+          "y": 42,
+          "w": 1390.5625,
+          "h": 700,
+          "client": 694,
+          "content": 694,
+          "font": "14px"
+        },
+        "inventory": {
+          "x": 20,
+          "y": 750,
+          "w": 834.328125,
+          "h": 1106,
+          "client": 1100,
+          "content": 1100,
+          "font": "14px"
+        },
+        "actions": {
+          "x": 862.328125,
+          "y": 750,
+          "w": 1795.859375,
+          "h": 1106,
+          "client": 1100,
+          "content": 1100,
+          "font": "14px"
+        },
+        "log": {
+          "x": 2666.1875,
+          "y": 42,
+          "w": 913.8125,
+          "h": 1814,
+          "client": 1808,
+          "content": 1808,
+          "font": "14px"
+        }
+      },
+      "list": {
+        "x": 26,
+        "y": 873.625,
+        "w": 822.328125,
+        "h": 978.375,
+        "client": 978,
+        "content": 978,
+        "font": "21px"
+      },
+      "rows": [
+        {
+          "text": "\"ABC for kids\"",
+          "font": "21px",
+          "box": {
+            "x": 26,
+            "y": 873.625,
+            "w": 822.328125,
+            "h": 32.28125,
+            "client": 31,
+            "content": 31,
+            "font": "21px"
+          }
+        },
+        {
+          "text": "Apple",
+          "font": "21px",
+          "box": {
+            "x": 26,
+            "y": 905.90625,
+            "w": 822.328125,
+            "h": 32.28125,
+            "client": 31,
+            "content": 31,
+            "font": "21px"
+          }
+        },
+        {
+          "text": "Boar hide",
+          "font": "21px",
+          "box": {
+            "x": 26,
+            "y": 938.1875,
+            "w": 822.328125,
+            "h": 32.28125,
+            "client": 31,
+            "content": 31,
+            "font": "21px"
+          }
+        },
+        {
+          "text": "Boar meat",
+          "font": "21px",
+          "box": {
+            "x": 26,
+            "y": 970.46875,
+            "w": 822.328125,
+            "h": 32.28125,
+            "client": 31,
+            "content": 31,
+            "font": "21px"
+          }
+        },
+        {
+          "text": "Bread kwas",
+          "font": "21px",
+          "box": {
+            "x": 26,
+            "y": 1002.75,
+            "w": 822.328125,
+            "h": 32.28125,
+            "client": 31,
+            "content": 31,
+            "font": "21px"
+          }
+        },
+        {
+          "text": "Carrot",
+          "font": "21px",
+          "box": {
+            "x": 26,
+            "y": 1035.03125,
+            "w": 822.328125,
+            "h": 32.28125,
+            "client": 31,
+            "content": 31,
+            "font": "21px"
+          }
+        },
+        {
+          "text": "Cooked carrot",
+          "font": "21px",
+          "box": {
+            "x": 26,
+            "y": 1067.3125,
+            "w": 822.328125,
+            "h": 32.28125,
+            "client": 31,
+            "content": 31,
+            "font": "21px"
+          }
+        },
+        {
+          "text": "Fresh bread",
+          "font": "21px",
+          "box": {
+            "x": 26,
+            "y": 1099.59375,
+            "w": 822.328125,
+            "h": 32.28125,
+            "client": 31,
+            "content": 31,
+            "font": "21px"
+          }
+        },
+        {
+          "text": "\"Old combat manual\"",
+          "font": "21px",
+          "box": {
+            "x": 26,
+            "y": 1131.875,
+            "w": 822.328125,
+            "h": 32.28125,
+            "client": 31,
+            "content": 31,
+            "font": "21px"
+          }
+        },
+        {
+          "text": "Potato",
+          "font": "21px",
+          "box": {
+            "x": 26,
+            "y": 1164.15625,
+            "w": 822.328125,
+            "h": 32.28125,
+            "client": 31,
+            "content": 31,
+            "font": "21px"
+          }
+        },
+        {
+          "text": "Rat pelt",
+          "font": "21px",
+          "box": {
+            "x": 26,
+            "y": 1196.4375,
+            "w": 822.328125,
+            "h": 32.28125,
+            "client": 31,
+            "content": 31,
+            "font": "21px"
+          }
+        },
+        {
+          "text": "Rat tail",
+          "font": "21px",
+          "box": {
+            "x": 26,
+            "y": 1228.71875,
+            "w": 822.328125,
+            "h": 32.28125,
+            "client": 31,
+            "content": 31,
+            "font": "21px"
+          }
+        },
+        {
+          "text": "Stale bread",
+          "font": "21px",
+          "box": {
+            "x": 26,
+            "y": 1261,
+            "w": 822.328125,
+            "h": 32.28125,
+            "client": 31,
+            "content": 31,
+            "font": "21px"
+          }
+        },
+        {
+          "text": "Wolf pelt",
+          "font": "21px",
+          "box": {
+            "x": 26,
+            "y": 1293.28125,
+            "w": 822.328125,
+            "h": 32.28125,
+            "client": 31,
+            "content": 31,
+            "font": "21px"
+          }
+        },
+        {
+          "text": "Ash wood shield",
+          "font": "21px",
+          "box": {
+            "x": 26,
+            "y": 1325.5625,
+            "w": 822.328125,
+            "h": 58.53125,
+            "client": 58,
+            "content": 58,
+            "font": "21px"
+          }
+        },
+        {
+          "text": "Cheap leather pants",
+          "font": "21px",
+          "box": {
+            "x": 26,
+            "y": 1384.09375,
+            "w": 822.328125,
+            "h": 58.53125,
+            "client": 58,
+            "content": 58,
+            "font": "21px"
+          }
+        },
+        {
+          "text": "Goat leather vest",
+          "font": "21px",
+          "box": {
+            "x": 26,
+            "y": 1442.625,
+            "w": 822.328125,
+            "h": 58.53125,
+            "client": 58,
+            "content": 58,
+            "font": "21px"
+          }
+        },
+        {
+          "text": "Leather pants",
+          "font": "21px",
+          "box": {
+            "x": 26,
+            "y": 1501.15625,
+            "w": 822.328125,
+            "h": 58.53125,
+            "client": 58,
+            "content": 58,
+            "font": "21px"
+          }
+        },
+        {
+          "text": "Leather vest",
+          "font": "21px",
+          "box": {
+            "x": 26,
+            "y": 1559.6875,
+            "w": 822.328125,
+            "h": 58.53125,
+            "client": 58,
+            "content": 58,
+            "font": "21px"
+          }
+        },
+        {
+          "text": "Rat pelt cape",
+          "font": "21px",
+          "box": {
+            "x": 26,
+            "y": 1618.21875,
+            "w": 822.328125,
+            "h": 58.53125,
+            "client": 58,
+            "content": 58,
+            "font": "21px"
+          }
+        },
+        {
+          "text": "Wooden shield",
+          "font": "21px",
+          "box": {
+            "x": 26,
+            "y": 1676.75,
+            "w": 822.328125,
+            "h": 58.53125,
+            "client": 58,
+            "content": 58,
+            "font": "21px"
+          }
+        }
+      ],
+      "stats": [
+        {
+          "text": "STR12",
+          "box": {
+            "x": 23,
+            "y": 203.75,
+            "w": 308.40625,
+            "h": 38.765625,
+            "client": 38,
+            "content": 38,
+            "font": "21px"
+          }
+        },
+        {
+          "text": "AGL8",
+          "box": {
+            "x": 331.40625,
+            "y": 203.75,
+            "w": 308.40625,
+            "h": 38.765625,
+            "client": 38,
+            "content": 38,
+            "font": "21px"
+          }
+        },
+        {
+          "text": "DEX10",
+          "box": {
+            "x": 639.8125,
+            "y": 203.75,
+            "w": 308.40625,
+            "h": 38.765625,
+            "client": 38,
+            "content": 38,
+            "font": "21px"
+          }
+        },
+        {
+          "text": "INT10",
+          "box": {
+            "x": 948.21875,
+            "y": 203.75,
+            "w": 308.40625,
+            "h": 38.765625,
+            "client": 38,
+            "content": 38,
+            "font": "21px"
+          }
+        },
+        {
+          "text": "Attack1.2",
+          "box": {
+            "x": 23,
+            "y": 242.515625,
+            "w": 616.8125,
+            "h": 38.765625,
+            "client": 38,
+            "content": 38,
+            "font": "21px"
+          }
+        },
+        {
+          "text": "Defense1",
+          "box": {
+            "x": 639.8125,
+            "y": 242.515625,
+            "w": 616.8125,
+            "h": 38.765625,
+            "client": 38,
+            "content": 38,
+            "font": "21px"
+          }
+        }
+      ]
+    },
+    "errors": []
+  }
+]

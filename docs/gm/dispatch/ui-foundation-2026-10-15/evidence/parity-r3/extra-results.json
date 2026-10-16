@@ -1,0 +1,235 @@
+[
+  {
+    "name": "large-text-combat-close-and-description",
+    "detail": {
+      "closeFullyVisible": true,
+      "descriptionPixels": 61
+    }
+  },
+  {
+    "name": "custom-palette-preserved",
+    "detail": {}
+  },
+  {
+    "name": "native-effects-full-no-preference",
+    "detail": {
+      "animations": 3
+    }
+  },
+  {
+    "name": "native-effects-reduced-no-preference",
+    "detail": {
+      "animations": 0
+    }
+  },
+  {
+    "name": "native-effects-off-no-preference",
+    "detail": {
+      "animations": 0
+    }
+  },
+  {
+    "name": "native-effects-full-reduce",
+    "detail": {
+      "animations": 0
+    }
+  },
+  {
+    "name": "observer-safe-unknown-person",
+    "detail": {}
+  },
+  {
+    "name": "long-name-rendering",
+    "detail": {
+      "nativePlayerName": true,
+      "syntheticDisplayOnlyItemLabel": true
+    }
+  },
+  {
+    "name": "native-bar-boundaries",
+    "detail": {
+      "cases": [
+        {
+          "deficit": 0,
+          "rows": [
+            {
+              "id": "character_health",
+              "text": "61/61 hp",
+              "title": "61/61 hp",
+              "font": "21px",
+              "width": 459.1875,
+              "track": 459.1875,
+              "raw": "100%",
+              "zero": "false"
+            },
+            {
+              "id": "character_xp",
+              "text": "0 / 10 xp",
+              "title": "0 / 10 xp",
+              "font": "21px",
+              "width": 0,
+              "track": 459.1875,
+              "raw": "0%",
+              "zero": "false"
+            },
+            {
+              "id": "character_stamina",
+              "text": "92/92 stamina",
+              "title": "92/92 stamina",
+              "font": "21px",
+              "width": 459.1875,
+              "track": 459.1875,
+              "raw": "100%",
+              "zero": "false"
+            },
+            {
+              "id": "character_mana",
+              "text": "0/0 mana",
+              "title": "0/0 mana",
+              "font": "21px",
+              "width": 0,
+              "track": 459.1875,
+              "raw": "",
+              "zero": "true"
+            }
+          ]
+        },
+        {
+          "deficit": 60,
+          "rows": [
+            {
+              "id": "character_health",
+              "text": "1/61 hp",
+              "title": "1/61 hp",
+              "font": "21px",
+              "width": 7.515625,
+              "track": 459.1875,
+              "raw": "1.63934%",
+              "zero": "false"
+            },
+            {
+              "id": "character_xp",
+              "text": "0 / 10 xp",
+              "title": "0 / 10 xp",
+              "font": "21px",
+              "width": 0,
+              "track": 459.1875,
+              "raw": "0%",
+              "zero": "false"
+            },
+            {
+              "id": "character_stamina",
+              "text": "32/92 stamina",
+              "title": "32/92 stamina",
+              "font": "21px",
+              "width": 159.078125,
+              "track": 459.1875,
+              "raw": "34.6461%",
+              "zero": "false"
+            },
+            {
+              "id": "character_mana",
+              "text": "0/0 mana",
+              "title": "0/0 mana",
+              "font": "21px",
+              "width": 0,
+              "track": 459.1875,
+              "raw": "",
+              "zero": "true"
+            }
+          ]
+        },
+        {
+          "deficit": 999999,
+          "rows": [
+            {
+              "id": "character_health",
+              "text": "1/61 hp",
+              "title": "1/61 hp",
+              "font": "21px",
+              "width": 7.515625,
+              "track": 459.1875,
+              "raw": "1.63934%",
+              "zero": "false"
+            },
+            {
+              "id": "character_xp",
+              "text": "0 / 10 xp",
+              "title": "0 / 10 xp",
+              "font": "21px",
+              "width": 0,
+              "track": 459.1875,
+              "raw": "0%",
+              "zero": "false"
+            },
+            {
+              "id": "character_stamina",
+              "text": "0/92 stamina",
+              "title": "0/92 stamina",
+              "font": "21px",
+              "width": 0,
+              "track": 459.1875,
+              "raw": "0%",
+              "zero": "false"
+            },
+            {
+              "id": "character_mana",
+              "text": "0/0 mana",
+              "title": "0/0 mana",
+              "font": "21px",
+              "width": 0,
+              "track": 459.1875,
+              "raw": "",
+              "zero": "true"
+            }
+          ]
+        },
+        {
+          "deficit": -99999,
+          "rows": [
+            {
+              "id": "character_health",
+              "text": "61/61 hp",
+              "title": "61/61 hp",
+              "font": "21px",
+              "width": 459.1875,
+              "track": 459.1875,
+              "raw": "100%",
+              "zero": "false"
+            },
+            {
+              "id": "character_xp",
+              "text": "0 / 10 xp",
+              "title": "0 / 10 xp",
+              "font": "21px",
+              "width": 0,
+              "track": 459.1875,
+              "raw": "0%",
+              "zero": "false"
+            },
+            {
+              "id": "character_stamina",
+              "text": "92/92 stamina",
+              "title": "92/92 stamina",
+              "font": "21px",
+              "width": 459.1875,
+              "track": 459.1875,
+              "raw": "100%",
+              "zero": "false"
+            },
+            {
+              "id": "character_mana",
+              "text": "0/0 mana",
+              "title": "0/0 mana",
+              "font": "21px",
+              "width": 0,
+              "track": 459.1875,
+              "raw": "",
+              "zero": "true"
+            }
+          ]
+        }
+      ]
+    }
+  }
+]

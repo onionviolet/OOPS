@@ -1,0 +1,4889 @@
+[
+  {
+    "size": 14,
+    "rows": [
+      {
+        "name": "\"ABC for kids\"",
+        "row": {
+          "x": 23,
+          "y": 444.390625,
+          "width": 336.953125,
+          "height": 21.84375,
+          "top": 444.390625,
+          "right": 359.953125,
+          "bottom": 466.234375,
+          "left": 23
+        },
+        "fields": [
+          {
+            "cls": "book_name item_name",
+            "text": "\"ABC for kids\"",
+            "box": {
+              "x": 26.5,
+              "y": 446.0625,
+              "width": 277.375,
+              "height": 17.5,
+              "top": 446.0625,
+              "right": 303.875,
+              "bottom": 463.5625,
+              "left": 26.5
+            },
+            "font": "14px",
+            "scroll": 277,
+            "client": 277
+          },
+          {
+            "cls": "item_count",
+            "text": "",
+            "box": {
+              "x": 312.265625,
+              "y": 459.0625,
+              "width": 4.1875,
+              "height": 0,
+              "top": 459.0625,
+              "right": 316.453125,
+              "bottom": 459.0625,
+              "left": 312.265625
+            },
+            "font": "14px",
+            "scroll": 4,
+            "client": 4
+          },
+          {
+            "cls": "item_value item_controls",
+            "text": "10C",
+            "box": {
+              "x": 325.546875,
+              "y": 446.0625,
+              "width": 30.90625,
+              "height": 17.5,
+              "top": 446.0625,
+              "right": 356.453125,
+              "bottom": 463.5625,
+              "left": 325.546875
+            },
+            "font": "14px",
+            "scroll": 31,
+            "client": 31
+          }
+        ]
+      },
+      {
+        "name": "Apple",
+        "row": {
+          "x": 23,
+          "y": 466.234375,
+          "width": 336.953125,
+          "height": 21.84375,
+          "top": 466.234375,
+          "right": 359.953125,
+          "bottom": 488.078125,
+          "left": 23
+        },
+        "fields": [
+          {
+            "cls": "item_name",
+            "text": "Apple",
+            "box": {
+              "x": 26.5,
+              "y": 467.90625,
+              "width": 269.875,
+              "height": 17.5,
+              "top": 467.90625,
+              "right": 296.375,
+              "bottom": 485.40625,
+              "left": 26.5
+            },
+            "font": "14px",
+            "scroll": 270,
+            "client": 270
+          },
+          {
+            "cls": "item_count",
+            "text": " x3",
+            "box": {
+              "x": 304.765625,
+              "y": 467.90625,
+              "width": 20.890625,
+              "height": 17.5,
+              "top": 467.90625,
+              "right": 325.65625,
+              "bottom": 485.40625,
+              "left": 304.765625
+            },
+            "font": "14px",
+            "scroll": 21,
+            "client": 21
+          },
+          {
+            "cls": "item_value item_controls",
+            "text": "2C",
+            "box": {
+              "x": 334.75,
+              "y": 467.90625,
+              "width": 21.703125,
+              "height": 17.5,
+              "top": 467.90625,
+              "right": 356.453125,
+              "bottom": 485.40625,
+              "left": 334.75
+            },
+            "font": "14px",
+            "scroll": 22,
+            "client": 22
+          }
+        ]
+      },
+      {
+        "name": "Boar hide",
+        "row": {
+          "x": 23,
+          "y": 488.078125,
+          "width": 336.953125,
+          "height": 21.84375,
+          "top": 488.078125,
+          "right": 359.953125,
+          "bottom": 509.921875,
+          "left": 23
+        },
+        "fields": [
+          {
+            "cls": "item_name",
+            "text": "Boar hide",
+            "box": {
+              "x": 26.5,
+              "y": 489.75,
+              "width": 269.875,
+              "height": 17.5,
+              "top": 489.75,
+              "right": 296.375,
+              "bottom": 507.25,
+              "left": 26.5
+            },
+            "font": "14px",
+            "scroll": 270,
+            "client": 270
+          },
+          {
+            "cls": "item_count",
+            "text": " x3",
+            "box": {
+              "x": 304.765625,
+              "y": 489.75,
+              "width": 20.890625,
+              "height": 17.5,
+              "top": 489.75,
+              "right": 325.65625,
+              "bottom": 507.25,
+              "left": 304.765625
+            },
+            "font": "14px",
+            "scroll": 21,
+            "client": 21
+          },
+          {
+            "cls": "item_value item_controls",
+            "text": "3C",
+            "box": {
+              "x": 334.75,
+              "y": 489.75,
+              "width": 21.703125,
+              "height": 17.5,
+              "top": 489.75,
+              "right": 356.453125,
+              "bottom": 507.25,
+              "left": 334.75
+            },
+            "font": "14px",
+            "scroll": 22,
+            "client": 22
+          }
+        ]
+      },
+      {
+        "name": "Boar meat",
+        "row": {
+          "x": 23,
+          "y": 509.921875,
+          "width": 336.953125,
+          "height": 21.84375,
+          "top": 509.921875,
+          "right": 359.953125,
+          "bottom": 531.765625,
+          "left": 23
+        },
+        "fields": [
+          {
+            "cls": "item_name",
+            "text": "Boar meat",
+            "box": {
+              "x": 26.5,
+              "y": 511.59375,
+              "width": 269.8125,
+              "height": 17.5,
+              "top": 511.59375,
+              "right": 296.3125,
+              "bottom": 529.09375,
+              "left": 26.5
+            },
+            "font": "14px",
+            "scroll": 270,
+            "client": 270
+          },
+          {
+            "cls": "item_count",
+            "text": " x4",
+            "box": {
+              "x": 304.703125,
+              "y": 511.59375,
+              "width": 20.953125,
+              "height": 17.5,
+              "top": 511.59375,
+              "right": 325.65625,
+              "bottom": 529.09375,
+              "left": 304.703125
+            },
+            "font": "14px",
+            "scroll": 21,
+            "client": 21
+          },
+          {
+            "cls": "item_value item_controls",
+            "text": "2C",
+            "box": {
+              "x": 334.75,
+              "y": 511.59375,
+              "width": 21.703125,
+              "height": 17.5,
+              "top": 511.59375,
+              "right": 356.453125,
+              "bottom": 529.09375,
+              "left": 334.75
+            },
+            "font": "14px",
+            "scroll": 22,
+            "client": 22
+          }
+        ]
+      },
+      {
+        "name": "Bread kwas",
+        "row": {
+          "x": 23,
+          "y": 531.765625,
+          "width": 336.953125,
+          "height": 21.84375,
+          "top": 531.765625,
+          "right": 359.953125,
+          "bottom": 553.609375,
+          "left": 23
+        },
+        "fields": [
+          {
+            "cls": "item_name",
+            "text": "Bread kwas",
+            "box": {
+              "x": 26.5,
+              "y": 533.4375,
+              "width": 269.8125,
+              "height": 17.5,
+              "top": 533.4375,
+              "right": 296.3125,
+              "bottom": 550.9375,
+              "left": 26.5
+            },
+            "font": "14px",
+            "scroll": 270,
+            "client": 270
+          },
+          {
+            "cls": "item_count",
+            "text": " x2",
+            "box": {
+              "x": 304.703125,
+              "y": 533.4375,
+              "width": 20.890625,
+              "height": 17.5,
+              "top": 533.4375,
+              "right": 325.59375,
+              "bottom": 550.9375,
+              "left": 304.703125
+            },
+            "font": "14px",
+            "scroll": 21,
+            "client": 21
+          },
+          {
+            "cls": "item_value item_controls",
+            "text": "4C",
+            "box": {
+              "x": 334.6875,
+              "y": 533.4375,
+              "width": 21.765625,
+              "height": 17.5,
+              "top": 533.4375,
+              "right": 356.453125,
+              "bottom": 550.9375,
+              "left": 334.6875
+            },
+            "font": "14px",
+            "scroll": 22,
+            "client": 22
+          }
+        ]
+      },
+      {
+        "name": "Carrot",
+        "row": {
+          "x": 23,
+          "y": 553.609375,
+          "width": 336.953125,
+          "height": 21.84375,
+          "top": 553.609375,
+          "right": 359.953125,
+          "bottom": 575.453125,
+          "left": 23
+        },
+        "fields": [
+          {
+            "cls": "item_name",
+            "text": "Carrot",
+            "box": {
+              "x": 26.5,
+              "y": 555.28125,
+              "width": 269.8125,
+              "height": 17.5,
+              "top": 555.28125,
+              "right": 296.3125,
+              "bottom": 572.78125,
+              "left": 26.5
+            },
+            "font": "14px",
+            "scroll": 270,
+            "client": 270
+          },
+          {
+            "cls": "item_count",
+            "text": " x4",
+            "box": {
+              "x": 304.703125,
+              "y": 555.28125,
+              "width": 20.953125,
+              "height": 17.5,
+              "top": 555.28125,
+              "right": 325.65625,
+              "bottom": 572.78125,
+              "left": 304.703125
+            },
+            "font": "14px",
+            "scroll": 21,
+            "client": 21
+          },
+          {
+            "cls": "item_value item_controls",
+            "text": "2C",
+            "box": {
+              "x": 334.75,
+              "y": 555.28125,
+              "width": 21.703125,
+              "height": 17.5,
+              "top": 555.28125,
+              "right": 356.453125,
+              "bottom": 572.78125,
+              "left": 334.75
+            },
+            "font": "14px",
+            "scroll": 22,
+            "client": 22
+          }
+        ]
+      },
+      {
+        "name": "Cooked carrot",
+        "row": {
+          "x": 23,
+          "y": 575.453125,
+          "width": 336.953125,
+          "height": 21.84375,
+          "top": 575.453125,
+          "right": 359.953125,
+          "bottom": 597.296875,
+          "left": 23
+        },
+        "fields": [
+          {
+            "cls": "item_name",
+            "text": "Cooked carrot",
+            "box": {
+              "x": 26.5,
+              "y": 577.125,
+              "width": 269.875,
+              "height": 17.5,
+              "top": 577.125,
+              "right": 296.375,
+              "bottom": 594.625,
+              "left": 26.5
+            },
+            "font": "14px",
+            "scroll": 270,
+            "client": 270
+          },
+          {
+            "cls": "item_count",
+            "text": " x2",
+            "box": {
+              "x": 304.765625,
+              "y": 577.125,
+              "width": 20.890625,
+              "height": 17.5,
+              "top": 577.125,
+              "right": 325.65625,
+              "bottom": 594.625,
+              "left": 304.765625
+            },
+            "font": "14px",
+            "scroll": 21,
+            "client": 21
+          },
+          {
+            "cls": "item_value item_controls",
+            "text": "3C",
+            "box": {
+              "x": 334.75,
+              "y": 577.125,
+              "width": 21.703125,
+              "height": 17.5,
+              "top": 577.125,
+              "right": 356.453125,
+              "bottom": 594.625,
+              "left": 334.75
+            },
+            "font": "14px",
+            "scroll": 22,
+            "client": 22
+          }
+        ]
+      },
+      {
+        "name": "Fresh bread",
+        "row": {
+          "x": 23,
+          "y": 597.296875,
+          "width": 336.953125,
+          "height": 21.84375,
+          "top": 597.296875,
+          "right": 359.953125,
+          "bottom": 619.140625,
+          "left": 23
+        },
+        "fields": [
+          {
+            "cls": "item_name",
+            "text": "Fresh bread",
+            "box": {
+              "x": 26.5,
+              "y": 598.96875,
+              "width": 269.8125,
+              "height": 17.5,
+              "top": 598.96875,
+              "right": 296.3125,
+              "bottom": 616.46875,
+              "left": 26.5
+            },
+            "font": "14px",
+            "scroll": 270,
+            "client": 270
+          },
+          {
+            "cls": "item_count",
+            "text": " x5",
+            "box": {
+              "x": 304.703125,
+              "y": 598.96875,
+              "width": 20.890625,
+              "height": 17.5,
+              "top": 598.96875,
+              "right": 325.59375,
+              "bottom": 616.46875,
+              "left": 304.703125
+            },
+            "font": "14px",
+            "scroll": 21,
+            "client": 21
+          },
+          {
+            "cls": "item_value item_controls",
+            "text": "4C",
+            "box": {
+              "x": 334.6875,
+              "y": 598.96875,
+              "width": 21.765625,
+              "height": 17.5,
+              "top": 598.96875,
+              "right": 356.453125,
+              "bottom": 616.46875,
+              "left": 334.6875
+            },
+            "font": "14px",
+            "scroll": 22,
+            "client": 22
+          }
+        ]
+      },
+      {
+        "name": "\"Old combat manual\"",
+        "row": {
+          "x": 23,
+          "y": 619.140625,
+          "width": 336.953125,
+          "height": 21.84375,
+          "top": 619.140625,
+          "right": 359.953125,
+          "bottom": 640.984375,
+          "left": 23
+        },
+        "fields": [
+          {
+            "cls": "book_name item_name",
+            "text": "\"Old combat manual\"",
+            "box": {
+              "x": 26.5,
+              "y": 620.8125,
+              "width": 277.375,
+              "height": 17.5,
+              "top": 620.8125,
+              "right": 303.875,
+              "bottom": 638.3125,
+              "left": 26.5
+            },
+            "font": "14px",
+            "scroll": 277,
+            "client": 277
+          },
+          {
+            "cls": "item_count",
+            "text": "",
+            "box": {
+              "x": 312.265625,
+              "y": 633.8125,
+              "width": 4.1875,
+              "height": 0,
+              "top": 633.8125,
+              "right": 316.453125,
+              "bottom": 633.8125,
+              "left": 312.265625
+            },
+            "font": "14px",
+            "scroll": 4,
+            "client": 4
+          },
+          {
+            "cls": "item_value item_controls",
+            "text": "20C",
+            "box": {
+              "x": 325.546875,
+              "y": 620.8125,
+              "width": 30.90625,
+              "height": 17.5,
+              "top": 620.8125,
+              "right": 356.453125,
+              "bottom": 638.3125,
+              "left": 325.546875
+            },
+            "font": "14px",
+            "scroll": 31,
+            "client": 31
+          }
+        ]
+      },
+      {
+        "name": "Potato",
+        "row": {
+          "x": 23,
+          "y": 640.984375,
+          "width": 336.953125,
+          "height": 21.84375,
+          "top": 640.984375,
+          "right": 359.953125,
+          "bottom": 662.828125,
+          "left": 23
+        },
+        "fields": [
+          {
+            "cls": "item_name",
+            "text": "Potato",
+            "box": {
+              "x": 26.5,
+              "y": 642.65625,
+              "width": 239.796875,
+              "height": 17.5,
+              "top": 642.65625,
+              "right": 266.296875,
+              "bottom": 660.15625,
+              "left": 26.5
+            },
+            "font": "14px",
+            "scroll": 240,
+            "client": 240
+          },
+          {
+            "cls": "item_count",
+            "text": " x5",
+            "box": {
+              "x": 274.6875,
+              "y": 642.65625,
+              "width": 20.890625,
+              "height": 17.5,
+              "top": 642.65625,
+              "right": 295.578125,
+              "bottom": 660.15625,
+              "left": 274.6875
+            },
+            "font": "14px",
+            "scroll": 21,
+            "client": 21
+          },
+          {
+            "cls": "item_value item_controls",
+            "text": "1C 5W",
+            "box": {
+              "x": 304.671875,
+              "y": 642.65625,
+              "width": 51.78125,
+              "height": 17.5,
+              "top": 642.65625,
+              "right": 356.453125,
+              "bottom": 660.15625,
+              "left": 304.671875
+            },
+            "font": "14px",
+            "scroll": 52,
+            "client": 52
+          }
+        ]
+      },
+      {
+        "name": "Rat pelt",
+        "row": {
+          "x": 23,
+          "y": 662.828125,
+          "width": 336.953125,
+          "height": 21.84375,
+          "top": 662.828125,
+          "right": 359.953125,
+          "bottom": 684.671875,
+          "left": 23
+        },
+        "fields": [
+          {
+            "cls": "item_name",
+            "text": "Rat pelt",
+            "box": {
+              "x": 26.5,
+              "y": 664.5,
+              "width": 269.875,
+              "height": 17.5,
+              "top": 664.5,
+              "right": 296.375,
+              "bottom": 682,
+              "left": 26.5
+            },
+            "font": "14px",
+            "scroll": 270,
+            "client": 270
+          },
+          {
+            "cls": "item_count",
+            "text": " x5",
+            "box": {
+              "x": 304.765625,
+              "y": 664.5,
+              "width": 20.890625,
+              "height": 17.5,
+              "top": 664.5,
+              "right": 325.65625,
+              "bottom": 682,
+              "left": 304.765625
+            },
+            "font": "14px",
+            "scroll": 21,
+            "client": 21
+          },
+          {
+            "cls": "item_value item_controls",
+            "text": "1C",
+            "box": {
+              "x": 334.75,
+              "y": 664.5,
+              "width": 21.703125,
+              "height": 17.5,
+              "top": 664.5,
+              "right": 356.453125,
+              "bottom": 682,
+              "left": 334.75
+            },
+            "font": "14px",
+            "scroll": 22,
+            "client": 22
+          }
+        ]
+      },
+      {
+        "name": "Rat tail",
+        "row": {
+          "x": 23,
+          "y": 684.671875,
+          "width": 336.953125,
+          "height": 21.84375,
+          "top": 684.671875,
+          "right": 359.953125,
+          "bottom": 706.515625,
+          "left": 23
+        },
+        "fields": [
+          {
+            "cls": "item_name",
+            "text": "Rat tail",
+            "box": {
+              "x": 26.5,
+              "y": 686.34375,
+              "width": 266.046875,
+              "height": 17.5,
+              "top": 686.34375,
+              "right": 292.546875,
+              "bottom": 703.84375,
+              "left": 26.5
+            },
+            "font": "14px",
+            "scroll": 266,
+            "client": 266
+          },
+          {
+            "cls": "item_count",
+            "text": " x4",
+            "box": {
+              "x": 300.9375,
+              "y": 686.34375,
+              "width": 20.953125,
+              "height": 17.5,
+              "top": 686.34375,
+              "right": 321.890625,
+              "bottom": 703.84375,
+              "left": 300.9375
+            },
+            "font": "14px",
+            "scroll": 21,
+            "client": 21
+          },
+          {
+            "cls": "item_value item_controls",
+            "text": "4W",
+            "box": {
+              "x": 330.984375,
+              "y": 686.34375,
+              "width": 25.46875,
+              "height": 17.5,
+              "top": 686.34375,
+              "right": 356.453125,
+              "bottom": 703.84375,
+              "left": 330.984375
+            },
+            "font": "14px",
+            "scroll": 25,
+            "client": 25
+          }
+        ]
+      },
+      {
+        "name": "Stale bread",
+        "row": {
+          "x": 23,
+          "y": 695.515625,
+          "width": 336.953125,
+          "height": 21.84375,
+          "top": 695.515625,
+          "right": 359.953125,
+          "bottom": 717.359375,
+          "left": 23
+        },
+        "fields": [
+          {
+            "cls": "item_name",
+            "text": "Stale bread",
+            "box": {
+              "x": 26.5,
+              "y": 697.1875,
+              "width": 269.875,
+              "height": 17.5,
+              "top": 697.1875,
+              "right": 296.375,
+              "bottom": 714.6875,
+              "left": 26.5
+            },
+            "font": "14px",
+            "scroll": 270,
+            "client": 270
+          },
+          {
+            "cls": "item_count",
+            "text": " x5",
+            "box": {
+              "x": 304.765625,
+              "y": 697.1875,
+              "width": 20.890625,
+              "height": 17.5,
+              "top": 697.1875,
+              "right": 325.65625,
+              "bottom": 714.6875,
+              "left": 304.765625
+            },
+            "font": "14px",
+            "scroll": 21,
+            "client": 21
+          },
+          {
+            "cls": "item_value item_controls",
+            "text": "2C",
+            "box": {
+              "x": 334.75,
+              "y": 697.1875,
+              "width": 21.703125,
+              "height": 17.5,
+              "top": 697.1875,
+              "right": 356.453125,
+              "bottom": 714.6875,
+              "left": 334.75
+            },
+            "font": "14px",
+            "scroll": 22,
+            "client": 22
+          }
+        ]
+      },
+      {
+        "name": "Wolf pelt",
+        "row": {
+          "x": 23,
+          "y": 569.359375,
+          "width": 336.953125,
+          "height": 21.84375,
+          "top": 569.359375,
+          "right": 359.953125,
+          "bottom": 591.203125,
+          "left": 23
+        },
+        "fields": [
+          {
+            "cls": "item_name",
+            "text": "Wolf pelt",
+            "box": {
+              "x": 26.5,
+              "y": 571.03125,
+              "width": 269.875,
+              "height": 17.5,
+              "top": 571.03125,
+              "right": 296.375,
+              "bottom": 588.53125,
+              "left": 26.5
+            },
+            "font": "14px",
+            "scroll": 270,
+            "client": 270
+          },
+          {
+            "cls": "item_count",
+            "text": " x2",
+            "box": {
+              "x": 304.765625,
+              "y": 571.03125,
+              "width": 20.890625,
+              "height": 17.5,
+              "top": 571.03125,
+              "right": 325.65625,
+              "bottom": 588.53125,
+              "left": 304.765625
+            },
+            "font": "14px",
+            "scroll": 21,
+            "client": 21
+          },
+          {
+            "cls": "item_value item_controls",
+            "text": "2C",
+            "box": {
+              "x": 334.75,
+              "y": 571.03125,
+              "width": 21.703125,
+              "height": 17.5,
+              "top": 571.03125,
+              "right": 356.453125,
+              "bottom": 588.53125,
+              "left": 334.75
+            },
+            "font": "14px",
+            "scroll": 22,
+            "client": 22
+          }
+        ]
+      },
+      {
+        "name": "Ash wood shield",
+        "row": {
+          "x": 23,
+          "y": 591.203125,
+          "width": 336.953125,
+          "height": 39.34375,
+          "top": 591.203125,
+          "right": 359.953125,
+          "bottom": 630.546875,
+          "left": 23
+        },
+        "fields": [
+          {
+            "cls": "item_slot",
+            "text": "[off-hand]",
+            "box": {
+              "x": 26.5,
+              "y": 610.375,
+              "width": 222.734375,
+              "height": 17.5,
+              "top": 610.375,
+              "right": 249.234375,
+              "bottom": 627.875,
+              "left": 26.5
+            },
+            "font": "14px",
+            "scroll": 223,
+            "client": 223
+          },
+          {
+            "cls": "item_name",
+            "text": "Ash wood shield",
+            "box": {
+              "x": 26.5,
+              "y": 592.875,
+              "width": 222.734375,
+              "height": 17.5,
+              "top": 592.875,
+              "right": 249.234375,
+              "bottom": 610.375,
+              "left": 26.5
+            },
+            "font": "14px",
+            "scroll": 223,
+            "client": 223
+          },
+          {
+            "cls": "item_quality",
+            "text": "[80%]",
+            "box": {
+              "x": 257.625,
+              "y": 610.375,
+              "width": 42.75,
+              "height": 17.5,
+              "top": 610.375,
+              "right": 300.375,
+              "bottom": 627.875,
+              "left": 257.625
+            },
+            "font": "14px",
+            "scroll": 43,
+            "client": 43
+          },
+          {
+            "cls": "item_count",
+            "text": "",
+            "box": {
+              "x": 257.625,
+              "y": 605.875,
+              "width": 42.75,
+              "height": 0,
+              "top": 605.875,
+              "right": 300.375,
+              "bottom": 605.875,
+              "left": 257.625
+            },
+            "font": "14px",
+            "scroll": 43,
+            "client": 43
+          },
+          {
+            "cls": "item_value item_controls",
+            "text": "1S 7C",
+            "box": {
+              "x": 309.46875,
+              "y": 610.375,
+              "width": 46.984375,
+              "height": 17.5,
+              "top": 610.375,
+              "right": 356.453125,
+              "bottom": 627.875,
+              "left": 309.46875
+            },
+            "font": "14px",
+            "scroll": 47,
+            "client": 47
+          }
+        ]
+      },
+      {
+        "name": "Cheap leather pants",
+        "row": {
+          "x": 23,
+          "y": 630.546875,
+          "width": 336.953125,
+          "height": 39.34375,
+          "top": 630.546875,
+          "right": 359.953125,
+          "bottom": 669.890625,
+          "left": 23
+        },
+        "fields": [
+          {
+            "cls": "item_slot",
+            "text": "[legs]",
+            "box": {
+              "x": 26.5,
+              "y": 649.71875,
+              "width": 217.875,
+              "height": 17.5,
+              "top": 649.71875,
+              "right": 244.375,
+              "bottom": 667.21875,
+              "left": 26.5
+            },
+            "font": "14px",
+            "scroll": 218,
+            "client": 218
+          },
+          {
+            "cls": "item_name",
+            "text": "Cheap leather pants",
+            "box": {
+              "x": 26.5,
+              "y": 632.21875,
+              "width": 217.875,
+              "height": 17.5,
+              "top": 632.21875,
+              "right": 244.375,
+              "bottom": 649.71875,
+              "left": 26.5
+            },
+            "font": "14px",
+            "scroll": 218,
+            "client": 218
+          },
+          {
+            "cls": "item_quality",
+            "text": "[40%]",
+            "box": {
+              "x": 252.765625,
+              "y": 649.71875,
+              "width": 42.75,
+              "height": 17.5,
+              "top": 649.71875,
+              "right": 295.515625,
+              "bottom": 667.21875,
+              "left": 252.765625
+            },
+            "font": "14px",
+            "scroll": 43,
+            "client": 43
+          },
+          {
+            "cls": "item_count",
+            "text": "",
+            "box": {
+              "x": 252.765625,
+              "y": 645.21875,
+              "width": 42.75,
+              "height": 0,
+              "top": 645.21875,
+              "right": 295.515625,
+              "bottom": 645.21875,
+              "left": 252.765625
+            },
+            "font": "14px",
+            "scroll": 43,
+            "client": 43
+          },
+          {
+            "cls": "item_value item_controls",
+            "text": "4C 6W",
+            "box": {
+              "x": 304.609375,
+              "y": 649.71875,
+              "width": 51.84375,
+              "height": 17.5,
+              "top": 649.71875,
+              "right": 356.453125,
+              "bottom": 667.21875,
+              "left": 304.609375
+            },
+            "font": "14px",
+            "scroll": 52,
+            "client": 52
+          }
+        ]
+      },
+      {
+        "name": "Goat leather vest",
+        "row": {
+          "x": 23,
+          "y": 669.890625,
+          "width": 336.953125,
+          "height": 39.34375,
+          "top": 669.890625,
+          "right": 359.953125,
+          "bottom": 709.234375,
+          "left": 23
+        },
+        "fields": [
+          {
+            "cls": "item_slot",
+            "text": "[torso]",
+            "box": {
+              "x": 26.5,
+              "y": 689.0625,
+              "width": 238.765625,
+              "height": 17.5,
+              "top": 689.0625,
+              "right": 265.265625,
+              "bottom": 706.5625,
+              "left": 26.5
+            },
+            "font": "14px",
+            "scroll": 239,
+            "client": 239
+          },
+          {
+            "cls": "item_name",
+            "text": "Goat leather vest",
+            "box": {
+              "x": 26.5,
+              "y": 671.5625,
+              "width": 238.765625,
+              "height": 17.5,
+              "top": 671.5625,
+              "right": 265.265625,
+              "bottom": 689.0625,
+              "left": 26.5
+            },
+            "font": "14px",
+            "scroll": 239,
+            "client": 239
+          },
+          {
+            "cls": "item_quality",
+            "text": "[80%]",
+            "box": {
+              "x": 273.65625,
+              "y": 689.0625,
+              "width": 42.75,
+              "height": 17.5,
+              "top": 689.0625,
+              "right": 316.40625,
+              "bottom": 706.5625,
+              "left": 273.65625
+            },
+            "font": "14px",
+            "scroll": 43,
+            "client": 43
+          },
+          {
+            "cls": "item_count",
+            "text": "",
+            "box": {
+              "x": 273.65625,
+              "y": 684.5625,
+              "width": 42.75,
+              "height": 0,
+              "top": 684.5625,
+              "right": 316.40625,
+              "bottom": 684.5625,
+              "left": 273.65625
+            },
+            "font": "14px",
+            "scroll": 43,
+            "client": 43
+          },
+          {
+            "cls": "item_value item_controls",
+            "text": "43C",
+            "box": {
+              "x": 325.5,
+              "y": 689.0625,
+              "width": 30.953125,
+              "height": 17.5,
+              "top": 689.0625,
+              "right": 356.453125,
+              "bottom": 706.5625,
+              "left": 325.5
+            },
+            "font": "14px",
+            "scroll": 31,
+            "client": 31
+          }
+        ]
+      },
+      {
+        "name": "Leather pants",
+        "row": {
+          "x": 23,
+          "y": 677.234375,
+          "width": 336.953125,
+          "height": 39.34375,
+          "top": 677.234375,
+          "right": 359.953125,
+          "bottom": 716.578125,
+          "left": 23
+        },
+        "fields": [
+          {
+            "cls": "item_slot",
+            "text": "[legs]",
+            "box": {
+              "x": 26.5,
+              "y": 696.40625,
+              "width": 208.734375,
+              "height": 17.5,
+              "top": 696.40625,
+              "right": 235.234375,
+              "bottom": 713.90625,
+              "left": 26.5
+            },
+            "font": "14px",
+            "scroll": 209,
+            "client": 209
+          },
+          {
+            "cls": "item_name",
+            "text": "Leather pants",
+            "box": {
+              "x": 26.5,
+              "y": 678.90625,
+              "width": 208.734375,
+              "height": 17.5,
+              "top": 678.90625,
+              "right": 235.234375,
+              "bottom": 696.40625,
+              "left": 26.5
+            },
+            "font": "14px",
+            "scroll": 209,
+            "client": 209
+          },
+          {
+            "cls": "item_quality",
+            "text": "[80%]",
+            "box": {
+              "x": 243.625,
+              "y": 696.40625,
+              "width": 42.75,
+              "height": 17.5,
+              "top": 696.40625,
+              "right": 286.375,
+              "bottom": 713.90625,
+              "left": 243.625
+            },
+            "font": "14px",
+            "scroll": 43,
+            "client": 43
+          },
+          {
+            "cls": "item_count",
+            "text": "",
+            "box": {
+              "x": 243.625,
+              "y": 691.90625,
+              "width": 42.75,
+              "height": 0,
+              "top": 691.90625,
+              "right": 286.375,
+              "bottom": 691.90625,
+              "left": 243.625
+            },
+            "font": "14px",
+            "scroll": 43,
+            "client": 43
+          },
+          {
+            "cls": "item_value item_controls",
+            "text": "17C 6W",
+            "box": {
+              "x": 295.46875,
+              "y": 696.40625,
+              "width": 60.984375,
+              "height": 17.5,
+              "top": 696.40625,
+              "right": 356.453125,
+              "bottom": 713.90625,
+              "left": 295.46875
+            },
+            "font": "14px",
+            "scroll": 61,
+            "client": 61
+          }
+        ]
+      },
+      {
+        "name": "Leather vest",
+        "row": {
+          "x": 23,
+          "y": 677.578125,
+          "width": 336.953125,
+          "height": 39.34375,
+          "top": 677.578125,
+          "right": 359.953125,
+          "bottom": 716.921875,
+          "left": 23
+        },
+        "fields": [
+          {
+            "cls": "item_slot",
+            "text": "[torso]",
+            "box": {
+              "x": 26.5,
+              "y": 696.75,
+              "width": 238.8125,
+              "height": 17.5,
+              "top": 696.75,
+              "right": 265.3125,
+              "bottom": 714.25,
+              "left": 26.5
+            },
+            "font": "14px",
+            "scroll": 239,
+            "client": 239
+          },
+          {
+            "cls": "item_name",
+            "text": "Leather vest",
+            "box": {
+              "x": 26.5,
+              "y": 679.25,
+              "width": 238.8125,
+              "height": 17.5,
+              "top": 679.25,
+              "right": 265.3125,
+              "bottom": 696.75,
+              "left": 26.5
+            },
+            "font": "14px",
+            "scroll": 239,
+            "client": 239
+          },
+          {
+            "cls": "item_quality",
+            "text": "[80%]",
+            "box": {
+              "x": 273.703125,
+              "y": 696.75,
+              "width": 42.75,
+              "height": 17.5,
+              "top": 696.75,
+              "right": 316.453125,
+              "bottom": 714.25,
+              "left": 273.703125
+            },
+            "font": "14px",
+            "scroll": 43,
+            "client": 43
+          },
+          {
+            "cls": "item_count",
+            "text": "",
+            "box": {
+              "x": 273.703125,
+              "y": 692.25,
+              "width": 42.75,
+              "height": 0,
+              "top": 692.25,
+              "right": 316.453125,
+              "bottom": 692.25,
+              "left": 273.703125
+            },
+            "font": "14px",
+            "scroll": 43,
+            "client": 43
+          },
+          {
+            "cls": "item_value item_controls",
+            "text": "29C",
+            "box": {
+              "x": 325.546875,
+              "y": 696.75,
+              "width": 30.90625,
+              "height": 17.5,
+              "top": 696.75,
+              "right": 356.453125,
+              "bottom": 714.25,
+              "left": 325.546875
+            },
+            "font": "14px",
+            "scroll": 31,
+            "client": 31
+          }
+        ]
+      },
+      {
+        "name": "Rat pelt cape",
+        "row": {
+          "x": 23,
+          "y": 677.921875,
+          "width": 336.953125,
+          "height": 39.34375,
+          "top": 677.921875,
+          "right": 359.953125,
+          "bottom": 717.265625,
+          "left": 23
+        },
+        "fields": [
+          {
+            "cls": "item_slot",
+            "text": "[cape]",
+            "box": {
+              "x": 26.5,
+              "y": 697.09375,
+              "width": 248.015625,
+              "height": 17.5,
+              "top": 697.09375,
+              "right": 274.515625,
+              "bottom": 714.59375,
+              "left": 26.5
+            },
+            "font": "14px",
+            "scroll": 248,
+            "client": 248
+          },
+          {
+            "cls": "item_name",
+            "text": "Rat pelt cape",
+            "box": {
+              "x": 26.5,
+              "y": 679.59375,
+              "width": 248.015625,
+              "height": 17.5,
+              "top": 679.59375,
+              "right": 274.515625,
+              "bottom": 697.09375,
+              "left": 26.5
+            },
+            "font": "14px",
+            "scroll": 248,
+            "client": 248
+          },
+          {
+            "cls": "item_quality",
+            "text": "[80%]",
+            "box": {
+              "x": 282.90625,
+              "y": 697.09375,
+              "width": 42.75,
+              "height": 17.5,
+              "top": 697.09375,
+              "right": 325.65625,
+              "bottom": 714.59375,
+              "left": 282.90625
+            },
+            "font": "14px",
+            "scroll": 43,
+            "client": 43
+          },
+          {
+            "cls": "item_count",
+            "text": "",
+            "box": {
+              "x": 282.90625,
+              "y": 692.59375,
+              "width": 42.75,
+              "height": 0,
+              "top": 692.59375,
+              "right": 325.65625,
+              "bottom": 692.59375,
+              "left": 282.90625
+            },
+            "font": "14px",
+            "scroll": 43,
+            "client": 43
+          },
+          {
+            "cls": "item_value item_controls",
+            "text": "8C",
+            "box": {
+              "x": 334.75,
+              "y": 697.09375,
+              "width": 21.703125,
+              "height": 17.5,
+              "top": 697.09375,
+              "right": 356.453125,
+              "bottom": 714.59375,
+              "left": 334.75
+            },
+            "font": "14px",
+            "scroll": 22,
+            "client": 22
+          }
+        ]
+      },
+      {
+        "name": "Wooden shield",
+        "row": {
+          "x": 23,
+          "y": 678.265625,
+          "width": 336.953125,
+          "height": 39.34375,
+          "top": 678.265625,
+          "right": 359.953125,
+          "bottom": 717.609375,
+          "left": 23
+        },
+        "fields": [
+          {
+            "cls": "item_slot",
+            "text": "[off-hand]",
+            "box": {
+              "x": 26.5,
+              "y": 697.4375,
+              "width": 238.8125,
+              "height": 17.5,
+              "top": 697.4375,
+              "right": 265.3125,
+              "bottom": 714.9375,
+              "left": 26.5
+            },
+            "font": "14px",
+            "scroll": 239,
+            "client": 239
+          },
+          {
+            "cls": "item_name",
+            "text": "Wooden shield",
+            "box": {
+              "x": 26.5,
+              "y": 679.9375,
+              "width": 238.8125,
+              "height": 17.5,
+              "top": 679.9375,
+              "right": 265.3125,
+              "bottom": 697.4375,
+              "left": 26.5
+            },
+            "font": "14px",
+            "scroll": 239,
+            "client": 239
+          },
+          {
+            "cls": "item_quality",
+            "text": "[80%]",
+            "box": {
+              "x": 273.703125,
+              "y": 697.4375,
+              "width": 42.75,
+              "height": 17.5,
+              "top": 697.4375,
+              "right": 316.453125,
+              "bottom": 714.9375,
+              "left": 273.703125
+            },
+            "font": "14px",
+            "scroll": 43,
+            "client": 43
+          },
+          {
+            "cls": "item_count",
+            "text": "",
+            "box": {
+              "x": 273.703125,
+              "y": 692.9375,
+              "width": 42.75,
+              "height": 0,
+              "top": 692.9375,
+              "right": 316.453125,
+              "bottom": 692.9375,
+              "left": 273.703125
+            },
+            "font": "14px",
+            "scroll": 43,
+            "client": 43
+          },
+          {
+            "cls": "item_value item_controls",
+            "text": "72C",
+            "box": {
+              "x": 325.546875,
+              "y": 697.4375,
+              "width": 30.90625,
+              "height": 17.5,
+              "top": 697.4375,
+              "right": 356.453125,
+              "bottom": 714.9375,
+              "left": 325.546875
+            },
+            "font": "14px",
+            "scroll": 31,
+            "client": 31
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "size": 17.5,
+    "rows": [
+      {
+        "name": "\"ABC for kids\"",
+        "row": {
+          "x": 23,
+          "y": 459.171875,
+          "width": 336.953125,
+          "height": 27.0625,
+          "top": 459.171875,
+          "right": 359.953125,
+          "bottom": 486.234375,
+          "left": 23
+        },
+        "fields": [
+          {
+            "cls": "book_name item_name",
+            "text": "\"ABC for kids\"",
+            "box": {
+              "x": 27.375,
+              "y": 461.265625,
+              "width": 262.4375,
+              "height": 21.875,
+              "top": 461.265625,
+              "right": 289.8125,
+              "bottom": 483.140625,
+              "left": 27.375
+            },
+            "font": "17.5px",
+            "scroll": 262,
+            "client": 262
+          },
+          {
+            "cls": "item_count",
+            "text": "",
+            "box": {
+              "x": 300.3125,
+              "y": 478.265625,
+              "width": 5.25,
+              "height": 0,
+              "top": 478.265625,
+              "right": 305.5625,
+              "bottom": 478.265625,
+              "left": 300.3125
+            },
+            "font": "17.5px",
+            "scroll": 5,
+            "client": 5
+          },
+          {
+            "cls": "item_value item_controls",
+            "text": "10C",
+            "box": {
+              "x": 316.9375,
+              "y": 461.265625,
+              "width": 38.640625,
+              "height": 21.875,
+              "top": 461.265625,
+              "right": 355.578125,
+              "bottom": 483.140625,
+              "left": 316.9375
+            },
+            "font": "17.5px",
+            "scroll": 39,
+            "client": 39
+          }
+        ]
+      },
+      {
+        "name": "Apple",
+        "row": {
+          "x": 23,
+          "y": 486.234375,
+          "width": 336.953125,
+          "height": 27.0625,
+          "top": 486.234375,
+          "right": 359.953125,
+          "bottom": 513.296875,
+          "left": 23
+        },
+        "fields": [
+          {
+            "cls": "item_name",
+            "text": "Apple",
+            "box": {
+              "x": 27.375,
+              "y": 488.328125,
+              "width": 253.046875,
+              "height": 21.875,
+              "top": 488.328125,
+              "right": 280.421875,
+              "bottom": 510.203125,
+              "left": 27.375
+            },
+            "font": "17.5px",
+            "scroll": 253,
+            "client": 253
+          },
+          {
+            "cls": "item_count",
+            "text": " x3",
+            "box": {
+              "x": 290.921875,
+              "y": 488.328125,
+              "width": 26.140625,
+              "height": 21.875,
+              "top": 488.328125,
+              "right": 317.0625,
+              "bottom": 510.203125,
+              "left": 290.921875
+            },
+            "font": "17.5px",
+            "scroll": 26,
+            "client": 26
+          },
+          {
+            "cls": "item_value item_controls",
+            "text": "2C",
+            "box": {
+              "x": 328.4375,
+              "y": 488.328125,
+              "width": 27.140625,
+              "height": 21.875,
+              "top": 488.328125,
+              "right": 355.578125,
+              "bottom": 510.203125,
+              "left": 328.4375
+            },
+            "font": "17.5px",
+            "scroll": 27,
+            "client": 27
+          }
+        ]
+      },
+      {
+        "name": "Boar hide",
+        "row": {
+          "x": 23,
+          "y": 513.296875,
+          "width": 336.953125,
+          "height": 27.0625,
+          "top": 513.296875,
+          "right": 359.953125,
+          "bottom": 540.359375,
+          "left": 23
+        },
+        "fields": [
+          {
+            "cls": "item_name",
+            "text": "Boar hide",
+            "box": {
+              "x": 27.375,
+              "y": 515.390625,
+              "width": 253.046875,
+              "height": 21.875,
+              "top": 515.390625,
+              "right": 280.421875,
+              "bottom": 537.265625,
+              "left": 27.375
+            },
+            "font": "17.5px",
+            "scroll": 253,
+            "client": 253
+          },
+          {
+            "cls": "item_count",
+            "text": " x3",
+            "box": {
+              "x": 290.921875,
+              "y": 515.390625,
+              "width": 26.140625,
+              "height": 21.875,
+              "top": 515.390625,
+              "right": 317.0625,
+              "bottom": 537.265625,
+              "left": 290.921875
+            },
+            "font": "17.5px",
+            "scroll": 26,
+            "client": 26
+          },
+          {
+            "cls": "item_value item_controls",
+            "text": "3C",
+            "box": {
+              "x": 328.4375,
+              "y": 515.390625,
+              "width": 27.140625,
+              "height": 21.875,
+              "top": 515.390625,
+              "right": 355.578125,
+              "bottom": 537.265625,
+              "left": 328.4375
+            },
+            "font": "17.5px",
+            "scroll": 27,
+            "client": 27
+          }
+        ]
+      },
+      {
+        "name": "Boar meat",
+        "row": {
+          "x": 23,
+          "y": 540.359375,
+          "width": 336.953125,
+          "height": 27.0625,
+          "top": 540.359375,
+          "right": 359.953125,
+          "bottom": 567.421875,
+          "left": 23
+        },
+        "fields": [
+          {
+            "cls": "item_name",
+            "text": "Boar meat",
+            "box": {
+              "x": 27.375,
+              "y": 542.453125,
+              "width": 252.984375,
+              "height": 21.875,
+              "top": 542.453125,
+              "right": 280.359375,
+              "bottom": 564.328125,
+              "left": 27.375
+            },
+            "font": "17.5px",
+            "scroll": 253,
+            "client": 253
+          },
+          {
+            "cls": "item_count",
+            "text": " x4",
+            "box": {
+              "x": 290.859375,
+              "y": 542.453125,
+              "width": 26.203125,
+              "height": 21.875,
+              "top": 542.453125,
+              "right": 317.0625,
+              "bottom": 564.328125,
+              "left": 290.859375
+            },
+            "font": "17.5px",
+            "scroll": 26,
+            "client": 26
+          },
+          {
+            "cls": "item_value item_controls",
+            "text": "2C",
+            "box": {
+              "x": 328.4375,
+              "y": 542.453125,
+              "width": 27.140625,
+              "height": 21.875,
+              "top": 542.453125,
+              "right": 355.578125,
+              "bottom": 564.328125,
+              "left": 328.4375
+            },
+            "font": "17.5px",
+            "scroll": 27,
+            "client": 27
+          }
+        ]
+      },
+      {
+        "name": "Bread kwas",
+        "row": {
+          "x": 23,
+          "y": 567.421875,
+          "width": 336.953125,
+          "height": 27.0625,
+          "top": 567.421875,
+          "right": 359.953125,
+          "bottom": 594.484375,
+          "left": 23
+        },
+        "fields": [
+          {
+            "cls": "item_name",
+            "text": "Bread kwas",
+            "box": {
+              "x": 27.375,
+              "y": 569.515625,
+              "width": 252.96875,
+              "height": 21.875,
+              "top": 569.515625,
+              "right": 280.34375,
+              "bottom": 591.390625,
+              "left": 27.375
+            },
+            "font": "17.5px",
+            "scroll": 253,
+            "client": 253
+          },
+          {
+            "cls": "item_count",
+            "text": " x2",
+            "box": {
+              "x": 290.84375,
+              "y": 569.515625,
+              "width": 26.140625,
+              "height": 21.875,
+              "top": 569.515625,
+              "right": 316.984375,
+              "bottom": 591.390625,
+              "left": 290.84375
+            },
+            "font": "17.5px",
+            "scroll": 26,
+            "client": 26
+          },
+          {
+            "cls": "item_value item_controls",
+            "text": "4C",
+            "box": {
+              "x": 328.359375,
+              "y": 569.515625,
+              "width": 27.21875,
+              "height": 21.875,
+              "top": 569.515625,
+              "right": 355.578125,
+              "bottom": 591.390625,
+              "left": 328.359375
+            },
+            "font": "17.5px",
+            "scroll": 27,
+            "client": 27
+          }
+        ]
+      },
+      {
+        "name": "Carrot",
+        "row": {
+          "x": 23,
+          "y": 594.484375,
+          "width": 336.953125,
+          "height": 27.0625,
+          "top": 594.484375,
+          "right": 359.953125,
+          "bottom": 621.546875,
+          "left": 23
+        },
+        "fields": [
+          {
+            "cls": "item_name",
+            "text": "Carrot",
+            "box": {
+              "x": 27.375,
+              "y": 596.578125,
+              "width": 252.984375,
+              "height": 21.875,
+              "top": 596.578125,
+              "right": 280.359375,
+              "bottom": 618.453125,
+              "left": 27.375
+            },
+            "font": "17.5px",
+            "scroll": 253,
+            "client": 253
+          },
+          {
+            "cls": "item_count",
+            "text": " x4",
+            "box": {
+              "x": 290.859375,
+              "y": 596.578125,
+              "width": 26.203125,
+              "height": 21.875,
+              "top": 596.578125,
+              "right": 317.0625,
+              "bottom": 618.453125,
+              "left": 290.859375
+            },
+            "font": "17.5px",
+            "scroll": 26,
+            "client": 26
+          },
+          {
+            "cls": "item_value item_controls",
+            "text": "2C",
+            "box": {
+              "x": 328.4375,
+              "y": 596.578125,
+              "width": 27.140625,
+              "height": 21.875,
+              "top": 596.578125,
+              "right": 355.578125,
+              "bottom": 618.453125,
+              "left": 328.4375
+            },
+            "font": "17.5px",
+            "scroll": 27,
+            "client": 27
+          }
+        ]
+      },
+      {
+        "name": "Cooked carrot",
+        "row": {
+          "x": 23,
+          "y": 621.546875,
+          "width": 336.953125,
+          "height": 27.0625,
+          "top": 621.546875,
+          "right": 359.953125,
+          "bottom": 648.609375,
+          "left": 23
+        },
+        "fields": [
+          {
+            "cls": "item_name",
+            "text": "Cooked carrot",
+            "box": {
+              "x": 27.375,
+              "y": 623.640625,
+              "width": 253.046875,
+              "height": 21.875,
+              "top": 623.640625,
+              "right": 280.421875,
+              "bottom": 645.515625,
+              "left": 27.375
+            },
+            "font": "17.5px",
+            "scroll": 253,
+            "client": 253
+          },
+          {
+            "cls": "item_count",
+            "text": " x2",
+            "box": {
+              "x": 290.921875,
+              "y": 623.640625,
+              "width": 26.140625,
+              "height": 21.875,
+              "top": 623.640625,
+              "right": 317.0625,
+              "bottom": 645.515625,
+              "left": 290.921875
+            },
+            "font": "17.5px",
+            "scroll": 26,
+            "client": 26
+          },
+          {
+            "cls": "item_value item_controls",
+            "text": "3C",
+            "box": {
+              "x": 328.4375,
+              "y": 623.640625,
+              "width": 27.140625,
+              "height": 21.875,
+              "top": 623.640625,
+              "right": 355.578125,
+              "bottom": 645.515625,
+              "left": 328.4375
+            },
+            "font": "17.5px",
+            "scroll": 27,
+            "client": 27
+          }
+        ]
+      },
+      {
+        "name": "Fresh bread",
+        "row": {
+          "x": 23,
+          "y": 648.609375,
+          "width": 336.953125,
+          "height": 27.0625,
+          "top": 648.609375,
+          "right": 359.953125,
+          "bottom": 675.671875,
+          "left": 23
+        },
+        "fields": [
+          {
+            "cls": "item_name",
+            "text": "Fresh bread",
+            "box": {
+              "x": 27.375,
+              "y": 650.703125,
+              "width": 252.96875,
+              "height": 21.875,
+              "top": 650.703125,
+              "right": 280.34375,
+              "bottom": 672.578125,
+              "left": 27.375
+            },
+            "font": "17.5px",
+            "scroll": 253,
+            "client": 253
+          },
+          {
+            "cls": "item_count",
+            "text": " x5",
+            "box": {
+              "x": 290.84375,
+              "y": 650.703125,
+              "width": 26.140625,
+              "height": 21.875,
+              "top": 650.703125,
+              "right": 316.984375,
+              "bottom": 672.578125,
+              "left": 290.84375
+            },
+            "font": "17.5px",
+            "scroll": 26,
+            "client": 26
+          },
+          {
+            "cls": "item_value item_controls",
+            "text": "4C",
+            "box": {
+              "x": 328.359375,
+              "y": 650.703125,
+              "width": 27.21875,
+              "height": 21.875,
+              "top": 650.703125,
+              "right": 355.578125,
+              "bottom": 672.578125,
+              "left": 328.359375
+            },
+            "font": "17.5px",
+            "scroll": 27,
+            "client": 27
+          }
+        ]
+      },
+      {
+        "name": "\"Old combat manual\"",
+        "row": {
+          "x": 23,
+          "y": 675.671875,
+          "width": 336.953125,
+          "height": 27.0625,
+          "top": 675.671875,
+          "right": 359.953125,
+          "bottom": 702.734375,
+          "left": 23
+        },
+        "fields": [
+          {
+            "cls": "book_name item_name",
+            "text": "\"Old combat manual\"",
+            "box": {
+              "x": 27.375,
+              "y": 677.765625,
+              "width": 262.4375,
+              "height": 21.875,
+              "top": 677.765625,
+              "right": 289.8125,
+              "bottom": 699.640625,
+              "left": 27.375
+            },
+            "font": "17.5px",
+            "scroll": 262,
+            "client": 262
+          },
+          {
+            "cls": "item_count",
+            "text": "",
+            "box": {
+              "x": 300.3125,
+              "y": 694.765625,
+              "width": 5.25,
+              "height": 0,
+              "top": 694.765625,
+              "right": 305.5625,
+              "bottom": 694.765625,
+              "left": 300.3125
+            },
+            "font": "17.5px",
+            "scroll": 5,
+            "client": 5
+          },
+          {
+            "cls": "item_value item_controls",
+            "text": "20C",
+            "box": {
+              "x": 316.9375,
+              "y": 677.765625,
+              "width": 38.640625,
+              "height": 21.875,
+              "top": 677.765625,
+              "right": 355.578125,
+              "bottom": 699.640625,
+              "left": 316.9375
+            },
+            "font": "17.5px",
+            "scroll": 39,
+            "client": 39
+          }
+        ]
+      },
+      {
+        "name": "Potato",
+        "row": {
+          "x": 23,
+          "y": 689.734375,
+          "width": 336.953125,
+          "height": 27.0625,
+          "top": 689.734375,
+          "right": 359.953125,
+          "bottom": 716.796875,
+          "left": 23
+        },
+        "fields": [
+          {
+            "cls": "item_name",
+            "text": "Potato",
+            "box": {
+              "x": 27.375,
+              "y": 691.828125,
+              "width": 215.453125,
+              "height": 21.875,
+              "top": 691.828125,
+              "right": 242.828125,
+              "bottom": 713.703125,
+              "left": 27.375
+            },
+            "font": "17.5px",
+            "scroll": 215,
+            "client": 215
+          },
+          {
+            "cls": "item_count",
+            "text": " x5",
+            "box": {
+              "x": 253.328125,
+              "y": 691.828125,
+              "width": 26.140625,
+              "height": 21.875,
+              "top": 691.828125,
+              "right": 279.46875,
+              "bottom": 713.703125,
+              "left": 253.328125
+            },
+            "font": "17.5px",
+            "scroll": 26,
+            "client": 26
+          },
+          {
+            "cls": "item_value item_controls",
+            "text": "1C 5W",
+            "box": {
+              "x": 290.84375,
+              "y": 691.828125,
+              "width": 64.734375,
+              "height": 21.875,
+              "top": 691.828125,
+              "right": 355.578125,
+              "bottom": 713.703125,
+              "left": 290.84375
+            },
+            "font": "17.5px",
+            "scroll": 65,
+            "client": 65
+          }
+        ]
+      },
+      {
+        "name": "Rat pelt",
+        "row": {
+          "x": 23,
+          "y": 689.796875,
+          "width": 336.953125,
+          "height": 27.0625,
+          "top": 689.796875,
+          "right": 359.953125,
+          "bottom": 716.859375,
+          "left": 23
+        },
+        "fields": [
+          {
+            "cls": "item_name",
+            "text": "Rat pelt",
+            "box": {
+              "x": 27.375,
+              "y": 691.890625,
+              "width": 253.046875,
+              "height": 21.875,
+              "top": 691.890625,
+              "right": 280.421875,
+              "bottom": 713.765625,
+              "left": 27.375
+            },
+            "font": "17.5px",
+            "scroll": 253,
+            "client": 253
+          },
+          {
+            "cls": "item_count",
+            "text": " x5",
+            "box": {
+              "x": 290.921875,
+              "y": 691.890625,
+              "width": 26.140625,
+              "height": 21.875,
+              "top": 691.890625,
+              "right": 317.0625,
+              "bottom": 713.765625,
+              "left": 290.921875
+            },
+            "font": "17.5px",
+            "scroll": 26,
+            "client": 26
+          },
+          {
+            "cls": "item_value item_controls",
+            "text": "1C",
+            "box": {
+              "x": 328.4375,
+              "y": 691.890625,
+              "width": 27.140625,
+              "height": 21.875,
+              "top": 691.890625,
+              "right": 355.578125,
+              "bottom": 713.765625,
+              "left": 328.4375
+            },
+            "font": "17.5px",
+            "scroll": 27,
+            "client": 27
+          }
+        ]
+      },
+      {
+        "name": "Rat tail",
+        "row": {
+          "x": 23,
+          "y": 689.859375,
+          "width": 336.953125,
+          "height": 27.0625,
+          "top": 689.859375,
+          "right": 359.953125,
+          "bottom": 716.921875,
+          "left": 23
+        },
+        "fields": [
+          {
+            "cls": "item_name",
+            "text": "Rat tail",
+            "box": {
+              "x": 27.375,
+              "y": 691.953125,
+              "width": 248.28125,
+              "height": 21.875,
+              "top": 691.953125,
+              "right": 275.65625,
+              "bottom": 713.828125,
+              "left": 27.375
+            },
+            "font": "17.5px",
+            "scroll": 248,
+            "client": 248
+          },
+          {
+            "cls": "item_count",
+            "text": " x4",
+            "box": {
+              "x": 286.15625,
+              "y": 691.953125,
+              "width": 26.203125,
+              "height": 21.875,
+              "top": 691.953125,
+              "right": 312.359375,
+              "bottom": 713.828125,
+              "left": 286.15625
+            },
+            "font": "17.5px",
+            "scroll": 26,
+            "client": 26
+          },
+          {
+            "cls": "item_value item_controls",
+            "text": "4W",
+            "box": {
+              "x": 323.734375,
+              "y": 691.953125,
+              "width": 31.84375,
+              "height": 21.875,
+              "top": 691.953125,
+              "right": 355.578125,
+              "bottom": 713.828125,
+              "left": 323.734375
+            },
+            "font": "17.5px",
+            "scroll": 32,
+            "client": 32
+          }
+        ]
+      },
+      {
+        "name": "Stale bread",
+        "row": {
+          "x": 23,
+          "y": 689.921875,
+          "width": 336.953125,
+          "height": 27.0625,
+          "top": 689.921875,
+          "right": 359.953125,
+          "bottom": 716.984375,
+          "left": 23
+        },
+        "fields": [
+          {
+            "cls": "item_name",
+            "text": "Stale bread",
+            "box": {
+              "x": 27.375,
+              "y": 692.015625,
+              "width": 253.046875,
+              "height": 21.875,
+              "top": 692.015625,
+              "right": 280.421875,
+              "bottom": 713.890625,
+              "left": 27.375
+            },
+            "font": "17.5px",
+            "scroll": 253,
+            "client": 253
+          },
+          {
+            "cls": "item_count",
+            "text": " x5",
+            "box": {
+              "x": 290.921875,
+              "y": 692.015625,
+              "width": 26.140625,
+              "height": 21.875,
+              "top": 692.015625,
+              "right": 317.0625,
+              "bottom": 713.890625,
+              "left": 290.921875
+            },
+            "font": "17.5px",
+            "scroll": 26,
+            "client": 26
+          },
+          {
+            "cls": "item_value item_controls",
+            "text": "2C",
+            "box": {
+              "x": 328.4375,
+              "y": 692.015625,
+              "width": 27.140625,
+              "height": 21.875,
+              "top": 692.015625,
+              "right": 355.578125,
+              "bottom": 713.890625,
+              "left": 328.4375
+            },
+            "font": "17.5px",
+            "scroll": 27,
+            "client": 27
+          }
+        ]
+      },
+      {
+        "name": "Wolf pelt",
+        "row": {
+          "x": 23,
+          "y": 689.984375,
+          "width": 336.953125,
+          "height": 27.0625,
+          "top": 689.984375,
+          "right": 359.953125,
+          "bottom": 717.046875,
+          "left": 23
+        },
+        "fields": [
+          {
+            "cls": "item_name",
+            "text": "Wolf pelt",
+            "box": {
+              "x": 27.375,
+              "y": 692.078125,
+              "width": 253.046875,
+              "height": 21.875,
+              "top": 692.078125,
+              "right": 280.421875,
+              "bottom": 713.953125,
+              "left": 27.375
+            },
+            "font": "17.5px",
+            "scroll": 253,
+            "client": 253
+          },
+          {
+            "cls": "item_count",
+            "text": " x2",
+            "box": {
+              "x": 290.921875,
+              "y": 692.078125,
+              "width": 26.140625,
+              "height": 21.875,
+              "top": 692.078125,
+              "right": 317.0625,
+              "bottom": 713.953125,
+              "left": 290.921875
+            },
+            "font": "17.5px",
+            "scroll": 26,
+            "client": 26
+          },
+          {
+            "cls": "item_value item_controls",
+            "text": "2C",
+            "box": {
+              "x": 328.4375,
+              "y": 692.078125,
+              "width": 27.140625,
+              "height": 21.875,
+              "top": 692.078125,
+              "right": 355.578125,
+              "bottom": 713.953125,
+              "left": 328.4375
+            },
+            "font": "17.5px",
+            "scroll": 27,
+            "client": 27
+          }
+        ]
+      },
+      {
+        "name": "Ash wood shield",
+        "row": {
+          "x": 23,
+          "y": 564.046875,
+          "width": 336.953125,
+          "height": 48.9375,
+          "top": 564.046875,
+          "right": 359.953125,
+          "bottom": 612.984375,
+          "left": 23
+        },
+        "fields": [
+          {
+            "cls": "item_slot",
+            "text": "[off-hand]",
+            "box": {
+              "x": 27.375,
+              "y": 588.015625,
+              "width": 194.171875,
+              "height": 21.875,
+              "top": 588.015625,
+              "right": 221.546875,
+              "bottom": 609.890625,
+              "left": 27.375
+            },
+            "font": "17.5px",
+            "scroll": 194,
+            "client": 194
+          },
+          {
+            "cls": "item_name",
+            "text": "Ash wood shield",
+            "box": {
+              "x": 27.375,
+              "y": 566.140625,
+              "width": 194.171875,
+              "height": 21.875,
+              "top": 566.140625,
+              "right": 221.546875,
+              "bottom": 588.015625,
+              "left": 27.375
+            },
+            "font": "17.5px",
+            "scroll": 194,
+            "client": 194
+          },
+          {
+            "cls": "item_quality",
+            "text": "[80%]",
+            "box": {
+              "x": 232.046875,
+              "y": 588.015625,
+              "width": 53.421875,
+              "height": 21.875,
+              "top": 588.015625,
+              "right": 285.46875,
+              "bottom": 609.890625,
+              "left": 232.046875
+            },
+            "font": "17.5px",
+            "scroll": 53,
+            "client": 53
+          },
+          {
+            "cls": "item_count",
+            "text": "",
+            "box": {
+              "x": 232.046875,
+              "y": 583.140625,
+              "width": 53.421875,
+              "height": 0,
+              "top": 583.140625,
+              "right": 285.46875,
+              "bottom": 583.140625,
+              "left": 232.046875
+            },
+            "font": "17.5px",
+            "scroll": 53,
+            "client": 53
+          },
+          {
+            "cls": "item_value item_controls",
+            "text": "1S 7C",
+            "box": {
+              "x": 296.84375,
+              "y": 588.015625,
+              "width": 58.734375,
+              "height": 21.875,
+              "top": 588.015625,
+              "right": 355.578125,
+              "bottom": 609.890625,
+              "left": 296.84375
+            },
+            "font": "17.5px",
+            "scroll": 59,
+            "client": 59
+          }
+        ]
+      },
+      {
+        "name": "Cheap leather pants",
+        "row": {
+          "x": 23,
+          "y": 612.984375,
+          "width": 336.953125,
+          "height": 48.9375,
+          "top": 612.984375,
+          "right": 359.953125,
+          "bottom": 661.921875,
+          "left": 23
+        },
+        "fields": [
+          {
+            "cls": "item_slot",
+            "text": "[legs]",
+            "box": {
+              "x": 27.375,
+              "y": 636.953125,
+              "width": 188.09375,
+              "height": 21.875,
+              "top": 636.953125,
+              "right": 215.46875,
+              "bottom": 658.828125,
+              "left": 27.375
+            },
+            "font": "17.5px",
+            "scroll": 188,
+            "client": 188
+          },
+          {
+            "cls": "item_name",
+            "text": "Cheap leather pants",
+            "box": {
+              "x": 27.375,
+              "y": 615.078125,
+              "width": 188.09375,
+              "height": 21.875,
+              "top": 615.078125,
+              "right": 215.46875,
+              "bottom": 636.953125,
+              "left": 27.375
+            },
+            "font": "17.5px",
+            "scroll": 188,
+            "client": 188
+          },
+          {
+            "cls": "item_quality",
+            "text": "[40%]",
+            "box": {
+              "x": 225.96875,
+              "y": 636.953125,
+              "width": 53.421875,
+              "height": 21.875,
+              "top": 636.953125,
+              "right": 279.390625,
+              "bottom": 658.828125,
+              "left": 225.96875
+            },
+            "font": "17.5px",
+            "scroll": 53,
+            "client": 53
+          },
+          {
+            "cls": "item_count",
+            "text": "",
+            "box": {
+              "x": 225.96875,
+              "y": 632.078125,
+              "width": 53.421875,
+              "height": 0,
+              "top": 632.078125,
+              "right": 279.390625,
+              "bottom": 632.078125,
+              "left": 225.96875
+            },
+            "font": "17.5px",
+            "scroll": 53,
+            "client": 53
+          },
+          {
+            "cls": "item_value item_controls",
+            "text": "4C 6W",
+            "box": {
+              "x": 290.765625,
+              "y": 636.953125,
+              "width": 64.8125,
+              "height": 21.875,
+              "top": 636.953125,
+              "right": 355.578125,
+              "bottom": 658.828125,
+              "left": 290.765625
+            },
+            "font": "17.5px",
+            "scroll": 65,
+            "client": 65
+          }
+        ]
+      },
+      {
+        "name": "Goat leather vest",
+        "row": {
+          "x": 23,
+          "y": 661.921875,
+          "width": 336.953125,
+          "height": 48.9375,
+          "top": 661.921875,
+          "right": 359.953125,
+          "bottom": 710.859375,
+          "left": 23
+        },
+        "fields": [
+          {
+            "cls": "item_slot",
+            "text": "[torso]",
+            "box": {
+              "x": 27.375,
+              "y": 685.890625,
+              "width": 214.1875,
+              "height": 21.875,
+              "top": 685.890625,
+              "right": 241.5625,
+              "bottom": 707.765625,
+              "left": 27.375
+            },
+            "font": "17.5px",
+            "scroll": 214,
+            "client": 214
+          },
+          {
+            "cls": "item_name",
+            "text": "Goat leather vest",
+            "box": {
+              "x": 27.375,
+              "y": 664.015625,
+              "width": 214.1875,
+              "height": 21.875,
+              "top": 664.015625,
+              "right": 241.5625,
+              "bottom": 685.890625,
+              "left": 27.375
+            },
+            "font": "17.5px",
+            "scroll": 214,
+            "client": 214
+          },
+          {
+            "cls": "item_quality",
+            "text": "[80%]",
+            "box": {
+              "x": 252.0625,
+              "y": 685.890625,
+              "width": 53.421875,
+              "height": 21.875,
+              "top": 685.890625,
+              "right": 305.484375,
+              "bottom": 707.765625,
+              "left": 252.0625
+            },
+            "font": "17.5px",
+            "scroll": 53,
+            "client": 53
+          },
+          {
+            "cls": "item_count",
+            "text": "",
+            "box": {
+              "x": 252.0625,
+              "y": 681.015625,
+              "width": 53.421875,
+              "height": 0,
+              "top": 681.015625,
+              "right": 305.484375,
+              "bottom": 681.015625,
+              "left": 252.0625
+            },
+            "font": "17.5px",
+            "scroll": 53,
+            "client": 53
+          },
+          {
+            "cls": "item_value item_controls",
+            "text": "43C",
+            "box": {
+              "x": 316.859375,
+              "y": 685.890625,
+              "width": 38.71875,
+              "height": 21.875,
+              "top": 685.890625,
+              "right": 355.578125,
+              "bottom": 707.765625,
+              "left": 316.859375
+            },
+            "font": "17.5px",
+            "scroll": 39,
+            "client": 39
+          }
+        ]
+      },
+      {
+        "name": "Leather pants",
+        "row": {
+          "x": 23,
+          "y": 667.859375,
+          "width": 336.953125,
+          "height": 48.9375,
+          "top": 667.859375,
+          "right": 359.953125,
+          "bottom": 716.796875,
+          "left": 23
+        },
+        "fields": [
+          {
+            "cls": "item_slot",
+            "text": "[legs]",
+            "box": {
+              "x": 27.375,
+              "y": 691.828125,
+              "width": 176.671875,
+              "height": 21.875,
+              "top": 691.828125,
+              "right": 204.046875,
+              "bottom": 713.703125,
+              "left": 27.375
+            },
+            "font": "17.5px",
+            "scroll": 177,
+            "client": 177
+          },
+          {
+            "cls": "item_name",
+            "text": "Leather pants",
+            "box": {
+              "x": 27.375,
+              "y": 669.953125,
+              "width": 176.671875,
+              "height": 21.875,
+              "top": 669.953125,
+              "right": 204.046875,
+              "bottom": 691.828125,
+              "left": 27.375
+            },
+            "font": "17.5px",
+            "scroll": 177,
+            "client": 177
+          },
+          {
+            "cls": "item_quality",
+            "text": "[80%]",
+            "box": {
+              "x": 214.546875,
+              "y": 691.828125,
+              "width": 53.421875,
+              "height": 21.875,
+              "top": 691.828125,
+              "right": 267.96875,
+              "bottom": 713.703125,
+              "left": 214.546875
+            },
+            "font": "17.5px",
+            "scroll": 53,
+            "client": 53
+          },
+          {
+            "cls": "item_count",
+            "text": "",
+            "box": {
+              "x": 214.546875,
+              "y": 686.953125,
+              "width": 53.421875,
+              "height": 0,
+              "top": 686.953125,
+              "right": 267.96875,
+              "bottom": 686.953125,
+              "left": 214.546875
+            },
+            "font": "17.5px",
+            "scroll": 53,
+            "client": 53
+          },
+          {
+            "cls": "item_value item_controls",
+            "text": "17C 6W",
+            "box": {
+              "x": 279.34375,
+              "y": 691.828125,
+              "width": 76.234375,
+              "height": 21.875,
+              "top": 691.828125,
+              "right": 355.578125,
+              "bottom": 713.703125,
+              "left": 279.34375
+            },
+            "font": "17.5px",
+            "scroll": 76,
+            "client": 76
+          }
+        ]
+      },
+      {
+        "name": "Leather vest",
+        "row": {
+          "x": 23,
+          "y": 667.796875,
+          "width": 336.953125,
+          "height": 48.9375,
+          "top": 667.796875,
+          "right": 359.953125,
+          "bottom": 716.734375,
+          "left": 23
+        },
+        "fields": [
+          {
+            "cls": "item_slot",
+            "text": "[torso]",
+            "box": {
+              "x": 27.375,
+              "y": 691.765625,
+              "width": 214.265625,
+              "height": 21.875,
+              "top": 691.765625,
+              "right": 241.640625,
+              "bottom": 713.640625,
+              "left": 27.375
+            },
+            "font": "17.5px",
+            "scroll": 214,
+            "client": 214
+          },
+          {
+            "cls": "item_name",
+            "text": "Leather vest",
+            "box": {
+              "x": 27.375,
+              "y": 669.890625,
+              "width": 214.265625,
+              "height": 21.875,
+              "top": 669.890625,
+              "right": 241.640625,
+              "bottom": 691.765625,
+              "left": 27.375
+            },
+            "font": "17.5px",
+            "scroll": 214,
+            "client": 214
+          },
+          {
+            "cls": "item_quality",
+            "text": "[80%]",
+            "box": {
+              "x": 252.140625,
+              "y": 691.765625,
+              "width": 53.421875,
+              "height": 21.875,
+              "top": 691.765625,
+              "right": 305.5625,
+              "bottom": 713.640625,
+              "left": 252.140625
+            },
+            "font": "17.5px",
+            "scroll": 53,
+            "client": 53
+          },
+          {
+            "cls": "item_count",
+            "text": "",
+            "box": {
+              "x": 252.140625,
+              "y": 686.890625,
+              "width": 53.421875,
+              "height": 0,
+              "top": 686.890625,
+              "right": 305.5625,
+              "bottom": 686.890625,
+              "left": 252.140625
+            },
+            "font": "17.5px",
+            "scroll": 53,
+            "client": 53
+          },
+          {
+            "cls": "item_value item_controls",
+            "text": "29C",
+            "box": {
+              "x": 316.9375,
+              "y": 691.765625,
+              "width": 38.640625,
+              "height": 21.875,
+              "top": 691.765625,
+              "right": 355.578125,
+              "bottom": 713.640625,
+              "left": 316.9375
+            },
+            "font": "17.5px",
+            "scroll": 39,
+            "client": 39
+          }
+        ]
+      },
+      {
+        "name": "Rat pelt cape",
+        "row": {
+          "x": 23,
+          "y": 667.734375,
+          "width": 336.953125,
+          "height": 48.9375,
+          "top": 667.734375,
+          "right": 359.953125,
+          "bottom": 716.671875,
+          "left": 23
+        },
+        "fields": [
+          {
+            "cls": "item_slot",
+            "text": "[cape]",
+            "box": {
+              "x": 27.375,
+              "y": 691.703125,
+              "width": 225.765625,
+              "height": 21.875,
+              "top": 691.703125,
+              "right": 253.140625,
+              "bottom": 713.578125,
+              "left": 27.375
+            },
+            "font": "17.5px",
+            "scroll": 226,
+            "client": 226
+          },
+          {
+            "cls": "item_name",
+            "text": "Rat pelt cape",
+            "box": {
+              "x": 27.375,
+              "y": 669.828125,
+              "width": 225.765625,
+              "height": 21.875,
+              "top": 669.828125,
+              "right": 253.140625,
+              "bottom": 691.703125,
+              "left": 27.375
+            },
+            "font": "17.5px",
+            "scroll": 226,
+            "client": 226
+          },
+          {
+            "cls": "item_quality",
+            "text": "[80%]",
+            "box": {
+              "x": 263.640625,
+              "y": 691.703125,
+              "width": 53.421875,
+              "height": 21.875,
+              "top": 691.703125,
+              "right": 317.0625,
+              "bottom": 713.578125,
+              "left": 263.640625
+            },
+            "font": "17.5px",
+            "scroll": 53,
+            "client": 53
+          },
+          {
+            "cls": "item_count",
+            "text": "",
+            "box": {
+              "x": 263.640625,
+              "y": 686.828125,
+              "width": 53.421875,
+              "height": 0,
+              "top": 686.828125,
+              "right": 317.0625,
+              "bottom": 686.828125,
+              "left": 263.640625
+            },
+            "font": "17.5px",
+            "scroll": 53,
+            "client": 53
+          },
+          {
+            "cls": "item_value item_controls",
+            "text": "8C",
+            "box": {
+              "x": 328.4375,
+              "y": 691.703125,
+              "width": 27.140625,
+              "height": 21.875,
+              "top": 691.703125,
+              "right": 355.578125,
+              "bottom": 713.578125,
+              "left": 328.4375
+            },
+            "font": "17.5px",
+            "scroll": 27,
+            "client": 27
+          }
+        ]
+      },
+      {
+        "name": "Wooden shield",
+        "row": {
+          "x": 23,
+          "y": 668.671875,
+          "width": 336.953125,
+          "height": 48.9375,
+          "top": 668.671875,
+          "right": 359.953125,
+          "bottom": 717.609375,
+          "left": 23
+        },
+        "fields": [
+          {
+            "cls": "item_slot",
+            "text": "[off-hand]",
+            "box": {
+              "x": 27.375,
+              "y": 692.640625,
+              "width": 214.265625,
+              "height": 21.875,
+              "top": 692.640625,
+              "right": 241.640625,
+              "bottom": 714.515625,
+              "left": 27.375
+            },
+            "font": "17.5px",
+            "scroll": 214,
+            "client": 214
+          },
+          {
+            "cls": "item_name",
+            "text": "Wooden shield",
+            "box": {
+              "x": 27.375,
+              "y": 670.765625,
+              "width": 214.265625,
+              "height": 21.875,
+              "top": 670.765625,
+              "right": 241.640625,
+              "bottom": 692.640625,
+              "left": 27.375
+            },
+            "font": "17.5px",
+            "scroll": 214,
+            "client": 214
+          },
+          {
+            "cls": "item_quality",
+            "text": "[80%]",
+            "box": {
+              "x": 252.140625,
+              "y": 692.640625,
+              "width": 53.421875,
+              "height": 21.875,
+              "top": 692.640625,
+              "right": 305.5625,
+              "bottom": 714.515625,
+              "left": 252.140625
+            },
+            "font": "17.5px",
+            "scroll": 53,
+            "client": 53
+          },
+          {
+            "cls": "item_count",
+            "text": "",
+            "box": {
+              "x": 252.140625,
+              "y": 687.765625,
+              "width": 53.421875,
+              "height": 0,
+              "top": 687.765625,
+              "right": 305.5625,
+              "bottom": 687.765625,
+              "left": 252.140625
+            },
+            "font": "17.5px",
+            "scroll": 53,
+            "client": 53
+          },
+          {
+            "cls": "item_value item_controls",
+            "text": "72C",
+            "box": {
+              "x": 316.9375,
+              "y": 692.640625,
+              "width": 38.640625,
+              "height": 21.875,
+              "top": 692.640625,
+              "right": 355.578125,
+              "bottom": 714.515625,
+              "left": 316.9375
+            },
+            "font": "17.5px",
+            "scroll": 39,
+            "client": 39
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "size": 21,
+    "rows": [
+      {
+        "name": "\"ABC for kids\"",
+        "row": {
+          "x": 23,
+          "y": 477.921875,
+          "width": 336.953125,
+          "height": 32.28125,
+          "top": 477.921875,
+          "right": 359.953125,
+          "bottom": 510.203125,
+          "left": 23
+        },
+        "fields": [
+          {
+            "cls": "book_name item_name",
+            "text": "\"ABC for kids\"",
+            "box": {
+              "x": 28.25,
+              "y": 480.4375,
+              "width": 247.5625,
+              "height": 26.25,
+              "top": 480.4375,
+              "right": 275.8125,
+              "bottom": 506.6875,
+              "left": 28.25
+            },
+            "font": "21px",
+            "scroll": 248,
+            "client": 248
+          },
+          {
+            "cls": "item_count",
+            "text": "",
+            "box": {
+              "x": 288.40625,
+              "y": 500.4375,
+              "width": 6.296875,
+              "height": 0,
+              "top": 500.4375,
+              "right": 294.703125,
+              "bottom": 500.4375,
+              "left": 288.40625
+            },
+            "font": "21px",
+            "scroll": 6,
+            "client": 6
+          },
+          {
+            "cls": "item_value item_controls",
+            "text": "10C",
+            "box": {
+              "x": 308.34375,
+              "y": 480.4375,
+              "width": 46.359375,
+              "height": 26.25,
+              "top": 480.4375,
+              "right": 354.703125,
+              "bottom": 506.6875,
+              "left": 308.34375
+            },
+            "font": "21px",
+            "scroll": 46,
+            "client": 46
+          }
+        ]
+      },
+      {
+        "name": "Apple",
+        "row": {
+          "x": 23,
+          "y": 510.203125,
+          "width": 336.953125,
+          "height": 32.28125,
+          "top": 510.203125,
+          "right": 359.953125,
+          "bottom": 542.484375,
+          "left": 23
+        },
+        "fields": [
+          {
+            "cls": "item_name",
+            "text": "Apple",
+            "box": {
+              "x": 28.25,
+              "y": 512.71875,
+              "width": 236.296875,
+              "height": 26.25,
+              "top": 512.71875,
+              "right": 264.546875,
+              "bottom": 538.96875,
+              "left": 28.25
+            },
+            "font": "21px",
+            "scroll": 236,
+            "client": 236
+          },
+          {
+            "cls": "item_count",
+            "text": " x3",
+            "box": {
+              "x": 277.140625,
+              "y": 512.71875,
+              "width": 31.359375,
+              "height": 26.25,
+              "top": 512.71875,
+              "right": 308.5,
+              "bottom": 538.96875,
+              "left": 277.140625
+            },
+            "font": "21px",
+            "scroll": 31,
+            "client": 31
+          },
+          {
+            "cls": "item_value item_controls",
+            "text": "2C",
+            "box": {
+              "x": 322.140625,
+              "y": 512.71875,
+              "width": 32.5625,
+              "height": 26.25,
+              "top": 512.71875,
+              "right": 354.703125,
+              "bottom": 538.96875,
+              "left": 322.140625
+            },
+            "font": "21px",
+            "scroll": 33,
+            "client": 33
+          }
+        ]
+      },
+      {
+        "name": "Boar hide",
+        "row": {
+          "x": 23,
+          "y": 542.484375,
+          "width": 336.953125,
+          "height": 32.28125,
+          "top": 542.484375,
+          "right": 359.953125,
+          "bottom": 574.765625,
+          "left": 23
+        },
+        "fields": [
+          {
+            "cls": "item_name",
+            "text": "Boar hide",
+            "box": {
+              "x": 28.25,
+              "y": 545,
+              "width": 236.296875,
+              "height": 26.25,
+              "top": 545,
+              "right": 264.546875,
+              "bottom": 571.25,
+              "left": 28.25
+            },
+            "font": "21px",
+            "scroll": 236,
+            "client": 236
+          },
+          {
+            "cls": "item_count",
+            "text": " x3",
+            "box": {
+              "x": 277.140625,
+              "y": 545,
+              "width": 31.359375,
+              "height": 26.25,
+              "top": 545,
+              "right": 308.5,
+              "bottom": 571.25,
+              "left": 277.140625
+            },
+            "font": "21px",
+            "scroll": 31,
+            "client": 31
+          },
+          {
+            "cls": "item_value item_controls",
+            "text": "3C",
+            "box": {
+              "x": 322.140625,
+              "y": 545,
+              "width": 32.5625,
+              "height": 26.25,
+              "top": 545,
+              "right": 354.703125,
+              "bottom": 571.25,
+              "left": 322.140625
+            },
+            "font": "21px",
+            "scroll": 33,
+            "client": 33
+          }
+        ]
+      },
+      {
+        "name": "Boar meat",
+        "row": {
+          "x": 23,
+          "y": 574.765625,
+          "width": 336.953125,
+          "height": 32.28125,
+          "top": 574.765625,
+          "right": 359.953125,
+          "bottom": 607.046875,
+          "left": 23
+        },
+        "fields": [
+          {
+            "cls": "item_name",
+            "text": "Boar meat",
+            "box": {
+              "x": 28.25,
+              "y": 577.28125,
+              "width": 236.21875,
+              "height": 26.25,
+              "top": 577.28125,
+              "right": 264.46875,
+              "bottom": 603.53125,
+              "left": 28.25
+            },
+            "font": "21px",
+            "scroll": 236,
+            "client": 236
+          },
+          {
+            "cls": "item_count",
+            "text": " x4",
+            "box": {
+              "x": 277.0625,
+              "y": 577.28125,
+              "width": 31.4375,
+              "height": 26.25,
+              "top": 577.28125,
+              "right": 308.5,
+              "bottom": 603.53125,
+              "left": 277.0625
+            },
+            "font": "21px",
+            "scroll": 31,
+            "client": 31
+          },
+          {
+            "cls": "item_value item_controls",
+            "text": "2C",
+            "box": {
+              "x": 322.140625,
+              "y": 577.28125,
+              "width": 32.5625,
+              "height": 26.25,
+              "top": 577.28125,
+              "right": 354.703125,
+              "bottom": 603.53125,
+              "left": 322.140625
+            },
+            "font": "21px",
+            "scroll": 33,
+            "client": 33
+          }
+        ]
+      },
+      {
+        "name": "Bread kwas",
+        "row": {
+          "x": 23,
+          "y": 607.046875,
+          "width": 336.953125,
+          "height": 32.28125,
+          "top": 607.046875,
+          "right": 359.953125,
+          "bottom": 639.328125,
+          "left": 23
+        },
+        "fields": [
+          {
+            "cls": "item_name",
+            "text": "Bread kwas",
+            "box": {
+              "x": 28.25,
+              "y": 609.5625,
+              "width": 236.21875,
+              "height": 26.25,
+              "top": 609.5625,
+              "right": 264.46875,
+              "bottom": 635.8125,
+              "left": 28.25
+            },
+            "font": "21px",
+            "scroll": 236,
+            "client": 236
+          },
+          {
+            "cls": "item_count",
+            "text": " x2",
+            "box": {
+              "x": 277.0625,
+              "y": 609.5625,
+              "width": 31.359375,
+              "height": 26.25,
+              "top": 609.5625,
+              "right": 308.421875,
+              "bottom": 635.8125,
+              "left": 277.0625
+            },
+            "font": "21px",
+            "scroll": 31,
+            "client": 31
+          },
+          {
+            "cls": "item_value item_controls",
+            "text": "4C",
+            "box": {
+              "x": 322.0625,
+              "y": 609.5625,
+              "width": 32.640625,
+              "height": 26.25,
+              "top": 609.5625,
+              "right": 354.703125,
+              "bottom": 635.8125,
+              "left": 322.0625
+            },
+            "font": "21px",
+            "scroll": 33,
+            "client": 33
+          }
+        ]
+      },
+      {
+        "name": "Carrot",
+        "row": {
+          "x": 23,
+          "y": 639.328125,
+          "width": 336.953125,
+          "height": 32.28125,
+          "top": 639.328125,
+          "right": 359.953125,
+          "bottom": 671.609375,
+          "left": 23
+        },
+        "fields": [
+          {
+            "cls": "item_name",
+            "text": "Carrot",
+            "box": {
+              "x": 28.25,
+              "y": 641.84375,
+              "width": 236.21875,
+              "height": 26.25,
+              "top": 641.84375,
+              "right": 264.46875,
+              "bottom": 668.09375,
+              "left": 28.25
+            },
+            "font": "21px",
+            "scroll": 236,
+            "client": 236
+          },
+          {
+            "cls": "item_count",
+            "text": " x4",
+            "box": {
+              "x": 277.0625,
+              "y": 641.84375,
+              "width": 31.4375,
+              "height": 26.25,
+              "top": 641.84375,
+              "right": 308.5,
+              "bottom": 668.09375,
+              "left": 277.0625
+            },
+            "font": "21px",
+            "scroll": 31,
+            "client": 31
+          },
+          {
+            "cls": "item_value item_controls",
+            "text": "2C",
+            "box": {
+              "x": 322.140625,
+              "y": 641.84375,
+              "width": 32.5625,
+              "height": 26.25,
+              "top": 641.84375,
+              "right": 354.703125,
+              "bottom": 668.09375,
+              "left": 322.140625
+            },
+            "font": "21px",
+            "scroll": 33,
+            "client": 33
+          }
+        ]
+      },
+      {
+        "name": "Cooked carrot",
+        "row": {
+          "x": 23,
+          "y": 671.609375,
+          "width": 336.953125,
+          "height": 32.28125,
+          "top": 671.609375,
+          "right": 359.953125,
+          "bottom": 703.890625,
+          "left": 23
+        },
+        "fields": [
+          {
+            "cls": "item_name",
+            "text": "Cooked carrot",
+            "box": {
+              "x": 28.25,
+              "y": 674.125,
+              "width": 236.296875,
+              "height": 26.25,
+              "top": 674.125,
+              "right": 264.546875,
+              "bottom": 700.375,
+              "left": 28.25
+            },
+            "font": "21px",
+            "scroll": 236,
+            "client": 236
+          },
+          {
+            "cls": "item_count",
+            "text": " x2",
+            "box": {
+              "x": 277.140625,
+              "y": 674.125,
+              "width": 31.359375,
+              "height": 26.25,
+              "top": 674.125,
+              "right": 308.5,
+              "bottom": 700.375,
+              "left": 277.140625
+            },
+            "font": "21px",
+            "scroll": 31,
+            "client": 31
+          },
+          {
+            "cls": "item_value item_controls",
+            "text": "3C",
+            "box": {
+              "x": 322.140625,
+              "y": 674.125,
+              "width": 32.5625,
+              "height": 26.25,
+              "top": 674.125,
+              "right": 354.703125,
+              "bottom": 700.375,
+              "left": 322.140625
+            },
+            "font": "21px",
+            "scroll": 33,
+            "client": 33
+          }
+        ]
+      },
+      {
+        "name": "Fresh bread",
+        "row": {
+          "x": 23,
+          "y": 684.890625,
+          "width": 336.953125,
+          "height": 32.28125,
+          "top": 684.890625,
+          "right": 359.953125,
+          "bottom": 717.171875,
+          "left": 23
+        },
+        "fields": [
+          {
+            "cls": "item_name",
+            "text": "Fresh bread",
+            "box": {
+              "x": 28.25,
+              "y": 687.40625,
+              "width": 236.21875,
+              "height": 26.25,
+              "top": 687.40625,
+              "right": 264.46875,
+              "bottom": 713.65625,
+              "left": 28.25
+            },
+            "font": "21px",
+            "scroll": 236,
+            "client": 236
+          },
+          {
+            "cls": "item_count",
+            "text": " x5",
+            "box": {
+              "x": 277.0625,
+              "y": 687.40625,
+              "width": 31.359375,
+              "height": 26.25,
+              "top": 687.40625,
+              "right": 308.421875,
+              "bottom": 713.65625,
+              "left": 277.0625
+            },
+            "font": "21px",
+            "scroll": 31,
+            "client": 31
+          },
+          {
+            "cls": "item_value item_controls",
+            "text": "4C",
+            "box": {
+              "x": 322.0625,
+              "y": 687.40625,
+              "width": 32.640625,
+              "height": 26.25,
+              "top": 687.40625,
+              "right": 354.703125,
+              "bottom": 713.65625,
+              "left": 322.0625
+            },
+            "font": "21px",
+            "scroll": 33,
+            "client": 33
+          }
+        ]
+      },
+      {
+        "name": "\"Old combat manual\"",
+        "row": {
+          "x": 23,
+          "y": 581.171875,
+          "width": 336.953125,
+          "height": 32.28125,
+          "top": 581.171875,
+          "right": 359.953125,
+          "bottom": 613.453125,
+          "left": 23
+        },
+        "fields": [
+          {
+            "cls": "book_name item_name",
+            "text": "\"Old combat manual\"",
+            "box": {
+              "x": 28.25,
+              "y": 583.6875,
+              "width": 247.5625,
+              "height": 26.25,
+              "top": 583.6875,
+              "right": 275.8125,
+              "bottom": 609.9375,
+              "left": 28.25
+            },
+            "font": "21px",
+            "scroll": 248,
+            "client": 248
+          },
+          {
+            "cls": "item_count",
+            "text": "",
+            "box": {
+              "x": 288.40625,
+              "y": 603.6875,
+              "width": 6.296875,
+              "height": 0,
+              "top": 603.6875,
+              "right": 294.703125,
+              "bottom": 603.6875,
+              "left": 288.40625
+            },
+            "font": "21px",
+            "scroll": 6,
+            "client": 6
+          },
+          {
+            "cls": "item_value item_controls",
+            "text": "20C",
+            "box": {
+              "x": 308.34375,
+              "y": 583.6875,
+              "width": 46.359375,
+              "height": 26.25,
+              "top": 583.6875,
+              "right": 354.703125,
+              "bottom": 609.9375,
+              "left": 308.34375
+            },
+            "font": "21px",
+            "scroll": 46,
+            "client": 46
+          }
+        ]
+      },
+      {
+        "name": "Potato",
+        "row": {
+          "x": 23,
+          "y": 613.453125,
+          "width": 336.953125,
+          "height": 32.28125,
+          "top": 613.453125,
+          "right": 359.953125,
+          "bottom": 645.734375,
+          "left": 23
+        },
+        "fields": [
+          {
+            "cls": "item_name",
+            "text": "Potato",
+            "box": {
+              "x": 28.25,
+              "y": 615.96875,
+              "width": 191.1875,
+              "height": 26.25,
+              "top": 615.96875,
+              "right": 219.4375,
+              "bottom": 642.21875,
+              "left": 28.25
+            },
+            "font": "21px",
+            "scroll": 191,
+            "client": 191
+          },
+          {
+            "cls": "item_count",
+            "text": " x5",
+            "box": {
+              "x": 232.03125,
+              "y": 615.96875,
+              "width": 31.359375,
+              "height": 26.25,
+              "top": 615.96875,
+              "right": 263.390625,
+              "bottom": 642.21875,
+              "left": 232.03125
+            },
+            "font": "21px",
+            "scroll": 31,
+            "client": 31
+          },
+          {
+            "cls": "item_value item_controls",
+            "text": "1C 5W",
+            "box": {
+              "x": 277.03125,
+              "y": 615.96875,
+              "width": 77.671875,
+              "height": 26.25,
+              "top": 615.96875,
+              "right": 354.703125,
+              "bottom": 642.21875,
+              "left": 277.03125
+            },
+            "font": "21px",
+            "scroll": 78,
+            "client": 78
+          }
+        ]
+      },
+      {
+        "name": "Rat pelt",
+        "row": {
+          "x": 23,
+          "y": 645.734375,
+          "width": 336.953125,
+          "height": 32.28125,
+          "top": 645.734375,
+          "right": 359.953125,
+          "bottom": 678.015625,
+          "left": 23
+        },
+        "fields": [
+          {
+            "cls": "item_name",
+            "text": "Rat pelt",
+            "box": {
+              "x": 28.25,
+              "y": 648.25,
+              "width": 236.296875,
+              "height": 26.25,
+              "top": 648.25,
+              "right": 264.546875,
+              "bottom": 674.5,
+              "left": 28.25
+            },
+            "font": "21px",
+            "scroll": 236,
+            "client": 236
+          },
+          {
+            "cls": "item_count",
+            "text": " x5",
+            "box": {
+              "x": 277.140625,
+              "y": 648.25,
+              "width": 31.359375,
+              "height": 26.25,
+              "top": 648.25,
+              "right": 308.5,
+              "bottom": 674.5,
+              "left": 277.140625
+            },
+            "font": "21px",
+            "scroll": 31,
+            "client": 31
+          },
+          {
+            "cls": "item_value item_controls",
+            "text": "1C",
+            "box": {
+              "x": 322.140625,
+              "y": 648.25,
+              "width": 32.5625,
+              "height": 26.25,
+              "top": 648.25,
+              "right": 354.703125,
+              "bottom": 674.5,
+              "left": 322.140625
+            },
+            "font": "21px",
+            "scroll": 33,
+            "client": 33
+          }
+        ]
+      },
+      {
+        "name": "Rat tail",
+        "row": {
+          "x": 23,
+          "y": 678.015625,
+          "width": 336.953125,
+          "height": 32.28125,
+          "top": 678.015625,
+          "right": 359.953125,
+          "bottom": 710.296875,
+          "left": 23
+        },
+        "fields": [
+          {
+            "cls": "item_name",
+            "text": "Rat tail",
+            "box": {
+              "x": 28.25,
+              "y": 680.53125,
+              "width": 230.578125,
+              "height": 26.25,
+              "top": 680.53125,
+              "right": 258.828125,
+              "bottom": 706.78125,
+              "left": 28.25
+            },
+            "font": "21px",
+            "scroll": 231,
+            "client": 231
+          },
+          {
+            "cls": "item_count",
+            "text": " x4",
+            "box": {
+              "x": 271.421875,
+              "y": 680.53125,
+              "width": 31.4375,
+              "height": 26.25,
+              "top": 680.53125,
+              "right": 302.859375,
+              "bottom": 706.78125,
+              "left": 271.421875
+            },
+            "font": "21px",
+            "scroll": 31,
+            "client": 31
+          },
+          {
+            "cls": "item_value item_controls",
+            "text": "4W",
+            "box": {
+              "x": 316.5,
+              "y": 680.53125,
+              "width": 38.203125,
+              "height": 26.25,
+              "top": 680.53125,
+              "right": 354.703125,
+              "bottom": 706.78125,
+              "left": 316.5
+            },
+            "font": "21px",
+            "scroll": 38,
+            "client": 38
+          }
+        ]
+      },
+      {
+        "name": "Stale bread",
+        "row": {
+          "x": 23,
+          "y": 684.296875,
+          "width": 336.953125,
+          "height": 32.28125,
+          "top": 684.296875,
+          "right": 359.953125,
+          "bottom": 716.578125,
+          "left": 23
+        },
+        "fields": [
+          {
+            "cls": "item_name",
+            "text": "Stale bread",
+            "box": {
+              "x": 28.25,
+              "y": 686.8125,
+              "width": 236.296875,
+              "height": 26.25,
+              "top": 686.8125,
+              "right": 264.546875,
+              "bottom": 713.0625,
+              "left": 28.25
+            },
+            "font": "21px",
+            "scroll": 236,
+            "client": 236
+          },
+          {
+            "cls": "item_count",
+            "text": " x5",
+            "box": {
+              "x": 277.140625,
+              "y": 686.8125,
+              "width": 31.359375,
+              "height": 26.25,
+              "top": 686.8125,
+              "right": 308.5,
+              "bottom": 713.0625,
+              "left": 277.140625
+            },
+            "font": "21px",
+            "scroll": 31,
+            "client": 31
+          },
+          {
+            "cls": "item_value item_controls",
+            "text": "2C",
+            "box": {
+              "x": 322.140625,
+              "y": 686.8125,
+              "width": 32.5625,
+              "height": 26.25,
+              "top": 686.8125,
+              "right": 354.703125,
+              "bottom": 713.0625,
+              "left": 322.140625
+            },
+            "font": "21px",
+            "scroll": 33,
+            "client": 33
+          }
+        ]
+      },
+      {
+        "name": "Wolf pelt",
+        "row": {
+          "x": 23,
+          "y": 684.578125,
+          "width": 336.953125,
+          "height": 32.28125,
+          "top": 684.578125,
+          "right": 359.953125,
+          "bottom": 716.859375,
+          "left": 23
+        },
+        "fields": [
+          {
+            "cls": "item_name",
+            "text": "Wolf pelt",
+            "box": {
+              "x": 28.25,
+              "y": 687.09375,
+              "width": 236.296875,
+              "height": 26.25,
+              "top": 687.09375,
+              "right": 264.546875,
+              "bottom": 713.34375,
+              "left": 28.25
+            },
+            "font": "21px",
+            "scroll": 236,
+            "client": 236
+          },
+          {
+            "cls": "item_count",
+            "text": " x2",
+            "box": {
+              "x": 277.140625,
+              "y": 687.09375,
+              "width": 31.359375,
+              "height": 26.25,
+              "top": 687.09375,
+              "right": 308.5,
+              "bottom": 713.34375,
+              "left": 277.140625
+            },
+            "font": "21px",
+            "scroll": 31,
+            "client": 31
+          },
+          {
+            "cls": "item_value item_controls",
+            "text": "2C",
+            "box": {
+              "x": 322.140625,
+              "y": 687.09375,
+              "width": 32.5625,
+              "height": 26.25,
+              "top": 687.09375,
+              "right": 354.703125,
+              "bottom": 713.34375,
+              "left": 322.140625
+            },
+            "font": "21px",
+            "scroll": 33,
+            "client": 33
+          }
+        ]
+      },
+      {
+        "name": "Ash wood shield",
+        "row": {
+          "x": 23,
+          "y": 658.859375,
+          "width": 336.953125,
+          "height": 58.53125,
+          "top": 658.859375,
+          "right": 359.953125,
+          "bottom": 717.390625,
+          "left": 23
+        },
+        "fields": [
+          {
+            "cls": "item_slot",
+            "text": "[off-hand]",
+            "box": {
+              "x": 28.25,
+              "y": 687.625,
+              "width": 165.640625,
+              "height": 26.25,
+              "top": 687.625,
+              "right": 193.890625,
+              "bottom": 713.875,
+              "left": 28.25
+            },
+            "font": "21px",
+            "scroll": 166,
+            "client": 166
+          },
+          {
+            "cls": "item_name",
+            "text": "Ash wood shield",
+            "box": {
+              "x": 28.25,
+              "y": 661.375,
+              "width": 165.640625,
+              "height": 26.25,
+              "top": 661.375,
+              "right": 193.890625,
+              "bottom": 687.625,
+              "left": 28.25
+            },
+            "font": "21px",
+            "scroll": 170,
+            "client": 166
+          },
+          {
+            "cls": "item_quality",
+            "text": "[80%]",
+            "box": {
+              "x": 206.484375,
+              "y": 687.625,
+              "width": 64.109375,
+              "height": 26.25,
+              "top": 687.625,
+              "right": 270.59375,
+              "bottom": 713.875,
+              "left": 206.484375
+            },
+            "font": "21px",
+            "scroll": 64,
+            "client": 64
+          },
+          {
+            "cls": "item_count",
+            "text": "",
+            "box": {
+              "x": 206.484375,
+              "y": 681.375,
+              "width": 64.109375,
+              "height": 0,
+              "top": 681.375,
+              "right": 270.59375,
+              "bottom": 681.375,
+              "left": 206.484375
+            },
+            "font": "21px",
+            "scroll": 64,
+            "client": 64
+          },
+          {
+            "cls": "item_value item_controls",
+            "text": "1S 7C",
+            "box": {
+              "x": 284.234375,
+              "y": 687.625,
+              "width": 70.46875,
+              "height": 26.25,
+              "top": 687.625,
+              "right": 354.703125,
+              "bottom": 713.875,
+              "left": 284.234375
+            },
+            "font": "21px",
+            "scroll": 70,
+            "client": 70
+          }
+        ]
+      },
+      {
+        "name": "Cheap leather pants",
+        "row": {
+          "x": 23,
+          "y": 568.390625,
+          "width": 336.953125,
+          "height": 58.53125,
+          "top": 568.390625,
+          "right": 359.953125,
+          "bottom": 626.921875,
+          "left": 23
+        },
+        "fields": [
+          {
+            "cls": "item_slot",
+            "text": "[legs]",
+            "box": {
+              "x": 28.25,
+              "y": 597.15625,
+              "width": 158.359375,
+              "height": 26.25,
+              "top": 597.15625,
+              "right": 186.609375,
+              "bottom": 623.40625,
+              "left": 28.25
+            },
+            "font": "21px",
+            "scroll": 158,
+            "client": 158
+          },
+          {
+            "cls": "item_name",
+            "text": "Cheap leather pants",
+            "box": {
+              "x": 28.25,
+              "y": 570.90625,
+              "width": 158.359375,
+              "height": 26.25,
+              "top": 570.90625,
+              "right": 186.609375,
+              "bottom": 597.15625,
+              "left": 28.25
+            },
+            "font": "21px",
+            "scroll": 211,
+            "client": 158
+          },
+          {
+            "cls": "item_quality",
+            "text": "[40%]",
+            "box": {
+              "x": 199.203125,
+              "y": 597.15625,
+              "width": 64.109375,
+              "height": 26.25,
+              "top": 597.15625,
+              "right": 263.3125,
+              "bottom": 623.40625,
+              "left": 199.203125
+            },
+            "font": "21px",
+            "scroll": 64,
+            "client": 64
+          },
+          {
+            "cls": "item_count",
+            "text": "",
+            "box": {
+              "x": 199.203125,
+              "y": 590.90625,
+              "width": 64.109375,
+              "height": 0,
+              "top": 590.90625,
+              "right": 263.3125,
+              "bottom": 590.90625,
+              "left": 199.203125
+            },
+            "font": "21px",
+            "scroll": 64,
+            "client": 64
+          },
+          {
+            "cls": "item_value item_controls",
+            "text": "4C 6W",
+            "box": {
+              "x": 276.953125,
+              "y": 597.15625,
+              "width": 77.75,
+              "height": 26.25,
+              "top": 597.15625,
+              "right": 354.703125,
+              "bottom": 623.40625,
+              "left": 276.953125
+            },
+            "font": "21px",
+            "scroll": 78,
+            "client": 78
+          }
+        ]
+      },
+      {
+        "name": "Goat leather vest",
+        "row": {
+          "x": 23,
+          "y": 626.921875,
+          "width": 336.953125,
+          "height": 58.53125,
+          "top": 626.921875,
+          "right": 359.953125,
+          "bottom": 685.453125,
+          "left": 23
+        },
+        "fields": [
+          {
+            "cls": "item_slot",
+            "text": "[torso]",
+            "box": {
+              "x": 28.25,
+              "y": 655.6875,
+              "width": 189.671875,
+              "height": 26.25,
+              "top": 655.6875,
+              "right": 217.921875,
+              "bottom": 681.9375,
+              "left": 28.25
+            },
+            "font": "21px",
+            "scroll": 190,
+            "client": 190
+          },
+          {
+            "cls": "item_name",
+            "text": "Goat leather vest",
+            "box": {
+              "x": 28.25,
+              "y": 629.4375,
+              "width": 189.671875,
+              "height": 26.25,
+              "top": 629.4375,
+              "right": 217.921875,
+              "bottom": 655.6875,
+              "left": 28.25
+            },
+            "font": "21px",
+            "scroll": 190,
+            "client": 190
+          },
+          {
+            "cls": "item_quality",
+            "text": "[80%]",
+            "box": {
+              "x": 230.515625,
+              "y": 655.6875,
+              "width": 64.109375,
+              "height": 26.25,
+              "top": 655.6875,
+              "right": 294.625,
+              "bottom": 681.9375,
+              "left": 230.515625
+            },
+            "font": "21px",
+            "scroll": 64,
+            "client": 64
+          },
+          {
+            "cls": "item_count",
+            "text": "",
+            "box": {
+              "x": 230.515625,
+              "y": 649.4375,
+              "width": 64.109375,
+              "height": 0,
+              "top": 649.4375,
+              "right": 294.625,
+              "bottom": 649.4375,
+              "left": 230.515625
+            },
+            "font": "21px",
+            "scroll": 64,
+            "client": 64
+          },
+          {
+            "cls": "item_value item_controls",
+            "text": "43C",
+            "box": {
+              "x": 308.265625,
+              "y": 655.6875,
+              "width": 46.4375,
+              "height": 26.25,
+              "top": 655.6875,
+              "right": 354.703125,
+              "bottom": 681.9375,
+              "left": 308.265625
+            },
+            "font": "21px",
+            "scroll": 46,
+            "client": 46
+          }
+        ]
+      },
+      {
+        "name": "Leather pants",
+        "row": {
+          "x": 23,
+          "y": 658.453125,
+          "width": 336.953125,
+          "height": 58.53125,
+          "top": 658.453125,
+          "right": 359.953125,
+          "bottom": 716.984375,
+          "left": 23
+        },
+        "fields": [
+          {
+            "cls": "item_slot",
+            "text": "[legs]",
+            "box": {
+              "x": 28.25,
+              "y": 687.21875,
+              "width": 144.640625,
+              "height": 26.25,
+              "top": 687.21875,
+              "right": 172.890625,
+              "bottom": 713.46875,
+              "left": 28.25
+            },
+            "font": "21px",
+            "scroll": 145,
+            "client": 145
+          },
+          {
+            "cls": "item_name",
+            "text": "Leather pants",
+            "box": {
+              "x": 28.25,
+              "y": 660.96875,
+              "width": 144.640625,
+              "height": 26.25,
+              "top": 660.96875,
+              "right": 172.890625,
+              "bottom": 687.21875,
+              "left": 28.25
+            },
+            "font": "21px",
+            "scroll": 145,
+            "client": 145
+          },
+          {
+            "cls": "item_quality",
+            "text": "[80%]",
+            "box": {
+              "x": 185.484375,
+              "y": 687.21875,
+              "width": 64.109375,
+              "height": 26.25,
+              "top": 687.21875,
+              "right": 249.59375,
+              "bottom": 713.46875,
+              "left": 185.484375
+            },
+            "font": "21px",
+            "scroll": 64,
+            "client": 64
+          },
+          {
+            "cls": "item_count",
+            "text": "",
+            "box": {
+              "x": 185.484375,
+              "y": 680.96875,
+              "width": 64.109375,
+              "height": 0,
+              "top": 680.96875,
+              "right": 249.59375,
+              "bottom": 680.96875,
+              "left": 185.484375
+            },
+            "font": "21px",
+            "scroll": 64,
+            "client": 64
+          },
+          {
+            "cls": "item_value item_controls",
+            "text": "17C 6W",
+            "box": {
+              "x": 263.234375,
+              "y": 687.21875,
+              "width": 91.46875,
+              "height": 26.25,
+              "top": 687.21875,
+              "right": 354.703125,
+              "bottom": 713.46875,
+              "left": 263.234375
+            },
+            "font": "21px",
+            "scroll": 91,
+            "client": 91
+          }
+        ]
+      },
+      {
+        "name": "Leather vest",
+        "row": {
+          "x": 23,
+          "y": 657.984375,
+          "width": 336.953125,
+          "height": 58.53125,
+          "top": 657.984375,
+          "right": 359.953125,
+          "bottom": 716.515625,
+          "left": 23
+        },
+        "fields": [
+          {
+            "cls": "item_slot",
+            "text": "[torso]",
+            "box": {
+              "x": 28.25,
+              "y": 686.75,
+              "width": 189.75,
+              "height": 26.25,
+              "top": 686.75,
+              "right": 218,
+              "bottom": 713,
+              "left": 28.25
+            },
+            "font": "21px",
+            "scroll": 190,
+            "client": 190
+          },
+          {
+            "cls": "item_name",
+            "text": "Leather vest",
+            "box": {
+              "x": 28.25,
+              "y": 660.5,
+              "width": 189.75,
+              "height": 26.25,
+              "top": 660.5,
+              "right": 218,
+              "bottom": 686.75,
+              "left": 28.25
+            },
+            "font": "21px",
+            "scroll": 190,
+            "client": 190
+          },
+          {
+            "cls": "item_quality",
+            "text": "[80%]",
+            "box": {
+              "x": 230.59375,
+              "y": 686.75,
+              "width": 64.109375,
+              "height": 26.25,
+              "top": 686.75,
+              "right": 294.703125,
+              "bottom": 713,
+              "left": 230.59375
+            },
+            "font": "21px",
+            "scroll": 64,
+            "client": 64
+          },
+          {
+            "cls": "item_count",
+            "text": "",
+            "box": {
+              "x": 230.59375,
+              "y": 680.5,
+              "width": 64.109375,
+              "height": 0,
+              "top": 680.5,
+              "right": 294.703125,
+              "bottom": 680.5,
+              "left": 230.59375
+            },
+            "font": "21px",
+            "scroll": 64,
+            "client": 64
+          },
+          {
+            "cls": "item_value item_controls",
+            "text": "29C",
+            "box": {
+              "x": 308.34375,
+              "y": 686.75,
+              "width": 46.359375,
+              "height": 26.25,
+              "top": 686.75,
+              "right": 354.703125,
+              "bottom": 713,
+              "left": 308.34375
+            },
+            "font": "21px",
+            "scroll": 46,
+            "client": 46
+          }
+        ]
+      },
+      {
+        "name": "Rat pelt cape",
+        "row": {
+          "x": 23,
+          "y": 658.515625,
+          "width": 336.953125,
+          "height": 58.53125,
+          "top": 658.515625,
+          "right": 359.953125,
+          "bottom": 717.046875,
+          "left": 23
+        },
+        "fields": [
+          {
+            "cls": "item_slot",
+            "text": "[cape]",
+            "box": {
+              "x": 28.25,
+              "y": 687.28125,
+              "width": 203.546875,
+              "height": 26.25,
+              "top": 687.28125,
+              "right": 231.796875,
+              "bottom": 713.53125,
+              "left": 28.25
+            },
+            "font": "21px",
+            "scroll": 204,
+            "client": 204
+          },
+          {
+            "cls": "item_name",
+            "text": "Rat pelt cape",
+            "box": {
+              "x": 28.25,
+              "y": 661.03125,
+              "width": 203.546875,
+              "height": 26.25,
+              "top": 661.03125,
+              "right": 231.796875,
+              "bottom": 687.28125,
+              "left": 28.25
+            },
+            "font": "21px",
+            "scroll": 204,
+            "client": 204
+          },
+          {
+            "cls": "item_quality",
+            "text": "[80%]",
+            "box": {
+              "x": 244.390625,
+              "y": 687.28125,
+              "width": 64.109375,
+              "height": 26.25,
+              "top": 687.28125,
+              "right": 308.5,
+              "bottom": 713.53125,
+              "left": 244.390625
+            },
+            "font": "21px",
+            "scroll": 64,
+            "client": 64
+          },
+          {
+            "cls": "item_count",
+            "text": "",
+            "box": {
+              "x": 244.390625,
+              "y": 681.03125,
+              "width": 64.109375,
+              "height": 0,
+              "top": 681.03125,
+              "right": 308.5,
+              "bottom": 681.03125,
+              "left": 244.390625
+            },
+            "font": "21px",
+            "scroll": 64,
+            "client": 64
+          },
+          {
+            "cls": "item_value item_controls",
+            "text": "8C",
+            "box": {
+              "x": 322.140625,
+              "y": 687.28125,
+              "width": 32.5625,
+              "height": 26.25,
+              "top": 687.28125,
+              "right": 354.703125,
+              "bottom": 713.53125,
+              "left": 322.140625
+            },
+            "font": "21px",
+            "scroll": 33,
+            "client": 33
+          }
+        ]
+      },
+      {
+        "name": "Wooden shield",
+        "row": {
+          "x": 23,
+          "y": 658.046875,
+          "width": 336.953125,
+          "height": 58.53125,
+          "top": 658.046875,
+          "right": 359.953125,
+          "bottom": 716.578125,
+          "left": 23
+        },
+        "fields": [
+          {
+            "cls": "item_slot",
+            "text": "[off-hand]",
+            "box": {
+              "x": 28.25,
+              "y": 686.8125,
+              "width": 189.75,
+              "height": 26.25,
+              "top": 686.8125,
+              "right": 218,
+              "bottom": 713.0625,
+              "left": 28.25
+            },
+            "font": "21px",
+            "scroll": 190,
+            "client": 190
+          },
+          {
+            "cls": "item_name",
+            "text": "Wooden shield",
+            "box": {
+              "x": 28.25,
+              "y": 660.5625,
+              "width": 189.75,
+              "height": 26.25,
+              "top": 660.5625,
+              "right": 218,
+              "bottom": 686.8125,
+              "left": 28.25
+            },
+            "font": "21px",
+            "scroll": 190,
+            "client": 190
+          },
+          {
+            "cls": "item_quality",
+            "text": "[80%]",
+            "box": {
+              "x": 230.59375,
+              "y": 686.8125,
+              "width": 64.109375,
+              "height": 26.25,
+              "top": 686.8125,
+              "right": 294.703125,
+              "bottom": 713.0625,
+              "left": 230.59375
+            },
+            "font": "21px",
+            "scroll": 64,
+            "client": 64
+          },
+          {
+            "cls": "item_count",
+            "text": "",
+            "box": {
+              "x": 230.59375,
+              "y": 680.5625,
+              "width": 64.109375,
+              "height": 0,
+              "top": 680.5625,
+              "right": 294.703125,
+              "bottom": 680.5625,
+              "left": 230.59375
+            },
+            "font": "21px",
+            "scroll": 64,
+            "client": 64
+          },
+          {
+            "cls": "item_value item_controls",
+            "text": "72C",
+            "box": {
+              "x": 308.34375,
+              "y": 686.8125,
+              "width": 46.359375,
+              "height": 26.25,
+              "top": 686.8125,
+              "right": 354.703125,
+              "bottom": 713.0625,
+              "left": 308.34375
+            },
+            "font": "21px",
+            "scroll": 46,
+            "client": 46
+          }
+        ]
+      }
+    ]
+  }
+]

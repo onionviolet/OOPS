@@ -1,0 +1,298 @@
+[
+  {
+    "deficit": 0,
+    "nativeSnapshot": {
+      "name": "Hero",
+      "titles": {
+        "first_blood": {
+          "at": 481
+        },
+        "reader": {
+          "at": 481
+        }
+      },
+      "bio": {
+        "age": "adult",
+        "height": "average",
+        "race": "human",
+        "gender": "ambiguous"
+      },
+      "equipment": {},
+      "money": 5000,
+      "xp": {
+        "total_xp": 0
+      },
+      "hp_to_full": 0,
+      "stamina_to_full": 0,
+      "reputation": {
+        "Village": 0,
+        "Slums": 0,
+        "Town": 0
+      }
+    },
+    "rows": [
+      {
+        "id": "character_health",
+        "text": "61/61 hp",
+        "title": "61/61 hp",
+        "font": "21px",
+        "width": 459.1875,
+        "track": 459.1875,
+        "raw": "100%",
+        "zero": "false"
+      },
+      {
+        "id": "character_xp",
+        "text": "0 / 10 xp",
+        "title": "0 / 10 xp",
+        "font": "21px",
+        "width": 0,
+        "track": 459.1875,
+        "raw": "0%",
+        "zero": "false"
+      },
+      {
+        "id": "character_stamina",
+        "text": "92/92 stamina",
+        "title": "92/92 stamina",
+        "font": "21px",
+        "width": 459.1875,
+        "track": 459.1875,
+        "raw": "100%",
+        "zero": "false"
+      },
+      {
+        "id": "character_mana",
+        "text": "0/0 mana",
+        "title": "0/0 mana",
+        "font": "21px",
+        "width": 0,
+        "track": 459.1875,
+        "raw": "",
+        "zero": "true"
+      }
+    ]
+  },
+  {
+    "deficit": 60,
+    "nativeSnapshot": {
+      "name": "Hero",
+      "titles": {
+        "first_blood": {
+          "at": 481
+        },
+        "reader": {
+          "at": 481
+        }
+      },
+      "bio": {
+        "age": "adult",
+        "height": "average",
+        "race": "human",
+        "gender": "ambiguous"
+      },
+      "equipment": {},
+      "money": 5000,
+      "xp": {
+        "total_xp": 0
+      },
+      "hp_to_full": 60,
+      "stamina_to_full": 60,
+      "reputation": {
+        "Village": 0,
+        "Slums": 0,
+        "Town": 0
+      }
+    },
+    "rows": [
+      {
+        "id": "character_health",
+        "text": "1/61 hp",
+        "title": "1/61 hp",
+        "font": "21px",
+        "width": 7.515625,
+        "track": 459.1875,
+        "raw": "1.63934%",
+        "zero": "false"
+      },
+      {
+        "id": "character_xp",
+        "text": "0 / 10 xp",
+        "title": "0 / 10 xp",
+        "font": "21px",
+        "width": 0,
+        "track": 459.1875,
+        "raw": "0%",
+        "zero": "false"
+      },
+      {
+        "id": "character_stamina",
+        "text": "32/92 stamina",
+        "title": "32/92 stamina",
+        "font": "21px",
+        "width": 159.078125,
+        "track": 459.1875,
+        "raw": "34.6461%",
+        "zero": "false"
+      },
+      {
+        "id": "character_mana",
+        "text": "0/0 mana",
+        "title": "0/0 mana",
+        "font": "21px",
+        "width": 0,
+        "track": 459.1875,
+        "raw": "",
+        "zero": "true"
+      }
+    ]
+  },
+  {
+    "deficit": 999999,
+    "nativeSnapshot": {
+      "name": "Hero",
+      "titles": {
+        "first_blood": {
+          "at": 481
+        },
+        "reader": {
+          "at": 481
+        }
+      },
+      "bio": {
+        "age": "adult",
+        "height": "average",
+        "race": "human",
+        "gender": "ambiguous"
+      },
+      "equipment": {},
+      "money": 5000,
+      "xp": {
+        "total_xp": 0
+      },
+      "hp_to_full": 60,
+      "stamina_to_full": 91.807765875,
+      "reputation": {
+        "Village": 0,
+        "Slums": 0,
+        "Town": 0
+      }
+    },
+    "rows": [
+      {
+        "id": "character_health",
+        "text": "1/61 hp",
+        "title": "1/61 hp",
+        "font": "21px",
+        "width": 7.515625,
+        "track": 459.1875,
+        "raw": "1.63934%",
+        "zero": "false"
+      },
+      {
+        "id": "character_xp",
+        "text": "0 / 10 xp",
+        "title": "0 / 10 xp",
+        "font": "21px",
+        "width": 0,
+        "track": 459.1875,
+        "raw": "0%",
+        "zero": "false"
+      },
+      {
+        "id": "character_stamina",
+        "text": "0/92 stamina",
+        "title": "0/92 stamina",
+        "font": "21px",
+        "width": 0,
+        "track": 459.1875,
+        "raw": "0%",
+        "zero": "false"
+      },
+      {
+        "id": "character_mana",
+        "text": "0/0 mana",
+        "title": "0/0 mana",
+        "font": "21px",
+        "width": 0,
+        "track": 459.1875,
+        "raw": "",
+        "zero": "true"
+      }
+    ]
+  },
+  {
+    "deficit": -99999,
+    "nativeSnapshot": {
+      "name": "Hero",
+      "titles": {
+        "first_blood": {
+          "at": 481
+        },
+        "reader": {
+          "at": 481
+        }
+      },
+      "bio": {
+        "age": "adult",
+        "height": "average",
+        "race": "human",
+        "gender": "ambiguous"
+      },
+      "equipment": {},
+      "money": 5000,
+      "xp": {
+        "total_xp": 0
+      },
+      "hp_to_full": 0,
+      "stamina_to_full": 0,
+      "reputation": {
+        "Village": 0,
+        "Slums": 0,
+        "Town": 0
+      }
+    },
+    "rows": [
+      {
+        "id": "character_health",
+        "text": "61/61 hp",
+        "title": "61/61 hp",
+        "font": "21px",
+        "width": 459.1875,
+        "track": 459.1875,
+        "raw": "100%",
+        "zero": "false"
+      },
+      {
+        "id": "character_xp",
+        "text": "0 / 10 xp",
+        "title": "0 / 10 xp",
+        "font": "21px",
+        "width": 0,
+        "track": 459.1875,
+        "raw": "0%",
+        "zero": "false"
+      },
+      {
+        "id": "character_stamina",
+        "text": "92/92 stamina",
+        "title": "92/92 stamina",
+        "font": "21px",
+        "width": 459.1875,
+        "track": 459.1875,
+        "raw": "100%",
+        "zero": "false"
+      },
+      {
+        "id": "character_mana",
+        "text": "0/0 mana",
+        "title": "0/0 mana",
+        "font": "21px",
+        "width": 0,
+        "track": 459.1875,
+        "raw": "",
+        "zero": "true"
+      }
+    ]
+  }
+]

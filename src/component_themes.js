@@ -1,8 +1,8 @@
 // Original cosmetic directions. No world, actor or command authority.
 export const COMPONENT_THEMES = {
-    neutral: {label: 'Neutral', background: '#202a32', text: '#f1f4f5', accent: '#a9c8bd', radius: '4px', heading: 'system-ui, sans-serif'},
-    arcane: {label: 'Arcane', background: '#292637', text: '#f4f0e7', accent: '#e1c783', radius: '6px', heading: 'Georgia, serif'},
-    workshop: {label: 'Workshop', background: '#302b25', text: '#f4eee2', accent: '#ddbb88', radius: '2px', heading: 'system-ui, sans-serif'}
+    neutral: {label: 'Neutral', background: '#202a32', text: '#f1f4f5', accent: '#a9c8bd', radius: 'var(--ui-radius)', heading: 'var(--ui-font)'},
+    arcane: {label: 'Arcane', background: '#292637', text: '#f4f0e7', accent: '#e1c783', radius: 'var(--ui-radius)', heading: 'var(--ui-font)'},
+    workshop: {label: 'Workshop', background: '#302b25', text: '#f4eee2', accent: '#ddbb88', radius: 'var(--ui-radius)', heading: 'var(--ui-font)'}
 };
 const rgb = hex => hex.slice(1).match(/../g).map(n => parseInt(n,16));
 const hex = values => '#' + values.map(n => Math.round(n).toString(16).padStart(2,'0')).join('');

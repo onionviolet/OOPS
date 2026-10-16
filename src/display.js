@@ -1,3 +1,5 @@
+import {centerModes} from './center_modes.js';
+import {expandWorkspaceModule} from './workspace_layout.js';
 let nativeObservedDropReader;
 export function setNativeObservedDropReader(read){nativeObservedDropReader=read;}
 import {GRADED_IDS} from './harvest.js';
@@ -753,7 +755,7 @@ function create_item_tooltip_content({item, options={}, is_trade = false}) {
     }
 
     //for singular tooltips (i.e. not ones in crafting), add comparison with worn item
-    if(!(options?.quality?.length > 1)) {
+    if(!options.skip_comparison&&!(options?.quality?.length > 1)) {
         item_tooltip += create_equipment_comparison(item, quality);
     }
 
@@ -802,7 +804,7 @@ function create_item_tooltip_content({item, options={}, is_trade = false}) {
     if(!item.quality || !item.use_quality) {
         const count_in_main = character.getItems()[item.getInventoryKey()]?.count;
 
-        if(count_in_main) {
+        if(count_in_main&&!options.skip_inventory_count) {
             item_tooltip += `<br><br>Count in player inventory: ${count_in_main}`;
             //always show how much player currently has in inventory; this makes it easier to find (with no need for scrolling) when buying, crafting, or taking out of storage
         }
@@ -853,6 +855,7 @@ function create_effect_tooltip({effect_name, duration, add_bonus=false, descript
     let tooltip_html_content = "";
 
     tooltip.classList.add("active_effect_tooltip");
+    tooltip.dataset.effectKind=effect.tags?.debuff?'debuff':effect.tags?.buff?'buff':'condition';
 
     const name_span = document.createElement("span");
     name_span.classList.add("active_effect_name");
@@ -937,12 +940,71 @@ function end_activity_animation(remove) {
  * @param {String} message_to_add text to display
  * @param {String} message_type used for adding proper class to html element
  */
+// Snapshots contain only descriptions already available through native known
+// subjects. They belong to this event, not a later lookup by display name.
+function log_subject_snapshots(text, type, explicit=[]) {
+    const subjects=[...explicit];
+    if(type==='skill_raised'||type==='skill_unlocked')for(const skill of Object.values(skills)){
+        if(!nativeSkillDiscovery(skill,character))continue;
+        const name=skill.getName();
+        if(!(text===`Unlocked new skill: ${name}`||text.startsWith(`${name} has reached level `)||text.startsWith('Skill ')&&text.endsWith(` upgraded to ${name}`)))continue;
+        const subjectCard=document.createElement('div');
+        const title=document.createElement('strong');title.textContent=name;subjectCard.append(title);
+        const description=document.createElement('p');description.textContent=skill.description;subjectCard.append(description);
+        const effect=document.createElement('p');effect.textContent=skill.get_effect_description?.()||'';subjectCard.append(effect);
+        const level=document.createElement('p');level.textContent=`Level ${skill.getDefaultSkillXP().current_level} · ${skill.getCurrentXP()} / ${skill.getXPToNextLvl()} XP`;subjectCard.append(level);
+        const rewards=get_unlocked_skill_rewards(skill.skill_id);
+        if(rewards){const heading=document.createElement('strong');heading.textContent='Earned milestones';subjectCard.append(heading);const earned=document.createElement('p');set_HTML(earned,rewards);subjectCard.append(earned);}
+        subjects.push({name,kind:'skill',html:subjectCard.innerHTML});
+        if(text.includes('reaching a new milestone')&&rewards)subjects.push({name:'new milestone',kind:'milestone',html:`<strong>Earned skill milestones</strong><p>${rewards}</p>`});
+    }
+    // Item subjects require the original producer's key. A unique display name
+    // in the current inventory is insufficient evidence of the event's quality.
+    return subjects;
+}
+function compact_log_target(message,type){
+    const originalText=message.textContent;let compactText;
+    if(/attacked/.test(type))compactText=originalText.replace(' was hit for ',' takes ').replace(/ damage$/,'');
+    else if(/evaded/.test(type))compactText=originalText.replace(' evaded an attack',' evaded');
+    else if(type==='skill_raised'&&originalText.includes('reaching a new milestone')){const first=originalText.match(/^(.+?) has reached level (\d+)/);if(first)compactText=`${first[1]} · level ${first[2]} · new milestone`;}
+    // Keep the original presentation intact, including its native markup. The
+    // enhanced branch is visible only in the optional parity presentation.
+    const original=document.createElement('span');original.className='log-original';original.append(...message.childNodes);
+    const compact=document.createElement('span');compact.className='log-compact';
+    if(compactText&&compactText!==originalText){compact.textContent=compactText;compact.title=originalText;}
+    else compact.append(...original.cloneNode(true).childNodes);
+    for(const n of compact.querySelectorAll('[id]'))n.removeAttribute('id');
+    message.dataset.eventKind=type;message.append(original,compact);return compact;
+}
+function decorate_log_subjects(message,subjects,type){
+    for(const subject of subjects){
+        const walker=document.createTreeWalker(message,NodeFilter.SHOW_TEXT);let text;
+        while(text=walker.nextNode()){
+            if(text.parentElement.closest('button'))continue;
+            const at=text.textContent.indexOf(subject.name);if(at<0)continue;
+            const before=text.textContent.slice(0,at),after=text.textContent.slice(at+subject.name.length);
+            const link=document.createElement('button');link.type='button';link.className='log-subject';link.dataset.subjectKind=subject.kind;link.textContent=subject.name;link.setAttribute('aria-label',`Inspect ${subject.kind}: ${subject.name}`);link.logDescription=subject.html;
+            text.replaceWith(document.createTextNode(before),link,document.createTextNode(after));break;
+        }
+    }
+    const actor=message.textContent.match(/^(.+?) (?:was hit|takes|evaded(?: an attack)?|was defeated|obtained)/)?.[1];
+    if(actor){const walker=document.createTreeWalker(message,NodeFilter.SHOW_TEXT);let text;while(text=walker.nextNode()){if(text.parentElement.closest('button')||!text.textContent.startsWith(actor))continue;const span=document.createElement('span');span.className='log-actor';span.textContent=actor;text.replaceWith(span,document.createTextNode(text.textContent.slice(actor.length)));break;}}
+    if(!/attacked|loot|skill_raised|skill_unlocked|level_up|victory|defeated/.test(type))return;
+    const walker=document.createTreeWalker(message,NodeFilter.SHOW_TEXT),texts=[];let text;
+    while(text=walker.nextNode())if(!text.parentElement.closest('button'))texts.push(text);
+    for(const node of texts){const parts=node.textContent.split(/(\bx\d+|\b\d+(?:\.\d+)?%?|\[CRIT\])/g);if(parts.length===1)continue;
+        node.replaceWith(...parts.map((part,index)=>{if(index%2===0)return document.createTextNode(part);const span=document.createElement('span');span.className='log-value';span.dataset.valueRole=part==='[CRIT]'?'critical':type.startsWith('hero_attacked')?'loss':type.startsWith('enemy_attacked')?'damage':type.startsWith('skill_')?'growth':'gain';span.textContent=part;return span;}));}
+}
+let combatReportsStopped=false;
+export function setCombatReportsStopped(stopped){combatReportsStopped=!!stopped;return combatReportsStopped;}
 let nativeLogBufferReader=null;
 export function setNativeLogBufferReader(reader) {
     if(typeof reader!=='function')throw Error('Invalid native message buffer reader.');
     nativeLogBufferReader=reader;
 }
  function log_message(message_to_add, message_type, details = {}) {
+    // Explicit, transient report control. Simulation and existing history continue.
+    if(combatReportsStopped&&document.getElementById('main_content')?.dataset.parity==='r3'&&/^(?:hero|enemy)_(?:attacked|missed|blocked|defeat)/.test(message_type))return;
     const buffer=nativeLogBufferReader?.();
     if(buffer){buffer.push([message_to_add,message_type,details]);return;}
     if(typeof message_to_add === 'undefined') {
@@ -1124,8 +1186,19 @@ export function setNativeLogBufferReader(reader) {
     if(batch_log) batched_log_following = log_was_following;
 
     message.classList.add(class_to_add, group_to_add);
+    // Presentation metadata follows the native event kind, never inferred story
+    // facts. Category and actor/outcome remain readable without color.
+    message.dataset.logKind=message_type;
+    message.dataset.logLabel=({message_combat:'Combat',message_loot:'Loot',message_unlocks:'Discovery',message_events:'Event',message_background:'World',message_crafting:'Crafting'})[group_to_add]||'Event';
     if(details.safeText) message.textContent = message_to_add;
     else set_HTML(message, message_to_add);
+    decorate_log_subjects(compact_log_target(message,message_type),log_subject_snapshots(message_to_add,message_type,details.subjects),message_type);
+    const panelId=details.panelId||({message_combat:'combat',message_loot:'belongings',message_crafting:'crafting'}[group_to_add])||({skill_raised:'skills',skill_unlocked:'skills',activity_unlocked:'local-actions',location_unlocked:'local-actions'}[message_type]);
+    if(panelId){
+        const link=document.createElement('button');link.type='button';link.className='notice-panel-link';link.textContent='Open';
+        link.title='Open related panel';link.dataset.noticePanel=panelId;
+        link.onclick=()=>{if(panelId==='crafting'){if(document.querySelector('.choice_craft'))window.openCraftingWindow();}else expandWorkspaceModule(panelId);};message.append(link);
+    }
     if(details.calendarDate) {
         message.dataset.calendarDate = details.calendarDate;
         message.tabIndex = 0;
@@ -1198,6 +1271,8 @@ function format_book_bonuses(bonuses) {
 }
 
 function clear_message_log() {
+    for(const key of Object.keys(message_count))message_count[key]=0;
+    dynamic_loot_message=null;
     clear_HTML_content(message_log);
     hide_message_log_unread();
 }
@@ -1253,7 +1328,8 @@ function log_loot({loot_list, is_combat=false, is_a_summary=false, is_dynamic=fa
         }
     }
     
-    log_message(message, message_type);
+    const subjects=loot_to_use.map(entry=>{const item=entry.item_id?item_templates[entry.item_id]:getItemFromKey(entry.item_key);return {name:item.getName(),kind:'item',html:create_item_tooltip_content({item,options:{skip_comparison:true,skip_inventory_count:true}})};});
+    log_message(message, message_type,{subjects});
 }
 
 /**
@@ -1298,15 +1374,13 @@ function update_displayed_trader() {
     for(const row of seenVendorRows.values()) row.remove();
     seenVendorRows.clear();
     trader_item_divs = {};
-    action_div.style.display = "none";
-    trade_div.style.display = "inherit";
+    centerModes().open('trade', () => window.exit_trade());
     document.getElementById("trader_cost_mult_value").textContent = `${Math.round(100 * (NPCRegistry.get(current_trader).getTraderComponent().getProfitMargin(current_location.market_region)))}%`
     update_displayed_trader_inventory();
 }
 
 function update_displayed_storage() {
-    action_div.style.display = "none";
-    storage_div.style.display = "inherit";
+    centerModes().open('storage', () => document.getElementById('exit_storage_button')?.click());
     update_displayed_storage_inventory();
 }
 
@@ -1845,6 +1919,8 @@ function update_displayed_character_inventory({item_key, equip_slot, character_s
                     }
                 }
 
+                item_divs[inventory_key].dataset.item_count = String(item_count);
+
                 // A newly learned identity can change a retained vial row even
                 // when its quantity did not change. Keys/counts stay untouched.
                 const fieldcraft_view=nativeItemView(character.getItems()[inventory_key].item);
@@ -1965,8 +2041,7 @@ function update_displayed_storage_inventory({item_key, sorting_direction="asc", 
 }
 
 function exit_displayed_storage() {
-    action_div.style.display = "";
-    storage_div.style.display = "none";
+    centerModes().close('storage');
 }
 
 /**
@@ -2090,7 +2165,7 @@ function create_inventory_item_div({key, item_count, target, is_equipped, trade_
 
     if (target_item.use_quality && target_item.quality) {
         const item_rarity = target_item.getRarity();
-        item_name_div_content += ` [<b class="${rarity_outline(item_rarity)}" data-rarity="${item_rarity}" style="color: ${ rarity_color(item_rarity) } ">${target_item.quality}%</b>]`;
+        item_name_div_content += ` <span class="item_quality">[<b class="${rarity_outline(item_rarity)}" data-rarity="${item_rarity}" style="color: ${ rarity_color(item_rarity) } ">${target_item.quality}%</b>]</span>`;
     }
 
     if(item_count > 1) {
@@ -2264,6 +2339,7 @@ function update_displayed_book(book_id) {
 }
 
 function update_displayed_normal_location(location) {
+    centerModes().local();
     clear_action_div();
     clear_HTML_content(location_types_div);
     combat_div.style.display = "none";
@@ -2990,8 +3066,7 @@ function update_displayed_location_types(current_location) {
 }
 
 function open_crafting_window() {
-    action_div.style.display = "none";
-    document.getElementById("crafting_window").style.display = "block";
+    centerModes().open('crafting', () => window.closeCraftingWindow());
     if(!crafting_filter_bound) {
         document.getElementById("crafting_makeable_filter").addEventListener("change", apply_crafting_filter);
         crafting_filter_bound = true;
@@ -3027,8 +3102,7 @@ function open_crafting_window() {
 }
 
 function close_crafting_window() {
-    action_div.style.display = "block";
-    document.getElementById("crafting_window").style.display = "none";
+    centerModes().close('crafting');
     update_displayed_normal_location(current_location);
 }
 
@@ -4223,6 +4297,180 @@ function update_xp_bar_tooltip() {
     set_HTML(xp_bar_tooltip_div, html_content);
 }
 
+// Read-only current-player projection. Keep this whitelist separate from enemy appraisal.
+const playerAttributeDefinitions = [
+    ['strength','Strength','primary','points'],
+    ['agility','Agility','primary','points'],
+    ['dexterity','Dexterity','primary','points'],
+    ['intuition','Intuition','primary','points'],
+    ['magic','Magic','primary','points'],
+    ['attack_power','Attack power','offense','damage'],
+    ['attack_speed','Attack speed','offense','/s'],
+    ['attack_points','Attack rating','offense','AP'],
+    ['attack_count','Hits per attack','offense','hits'],
+    ['crit_rate','Critical chance','offense','%'],
+    ['crit_multiplier','Critical damage','offense','×'],
+    ['unarmed_power','Unarmed base power','offense','damage'],
+    ['armor_penetration','Armor penetration','offense','points'],
+    ['defense','Defense','defense','points'],
+    ['evasion_points','Evasion rating','defense','EP'],
+    ['block_chance','Block chance','defense','%'],
+    ['block_strength','Shield block strength','defense','damage'],
+    ['health','Current health','health','hp'],
+    ['max_health','Maximum health','health','hp'],
+    ['health_regeneration_flat','Health recovery','health','hp/s'],
+    ['health_regeneration_percent','Health recovery from maximum','health','% max hp/s'],
+    ['health_loss_flat','Health loss component','health','hp/s'],
+    ['health_loss_percent','Health percentage loss component','health','% max hp/s'],
+    ['stamina','Current stamina','stamina','stamina'],
+    ['max_stamina','Maximum stamina','stamina','stamina'],
+    ['stamina_regeneration_flat','Stamina recovery','stamina','stamina/s'],
+    ['stamina_regeneration_percent','Stamina recovery from maximum','stamina','% max stamina/s'],
+    ['stamina_efficiency','Stamina efficiency','stamina','×'],
+    ['mana','Current mana','mana','mana'],
+    ['max_mana','Maximum mana','mana','mana'],
+    ['mana_regeneration_flat','Mana recovery','mana','mana/s'],
+    ['mana_regeneration_percent','Mana recovery from maximum','mana','% max mana/s'],
+    ['mana_efficiency','Mana efficiency','mana','×'],
+    ['cold_tolerance','Cold tolerance','environment','°C difference'],
+    ['heat_tolerance','Heat tolerance','environment','°C difference'],
+];
+const playerAttributeSourceLabels = {
+    race:'Race', height:'Height', level:'Level', levels:'Level', skills:'Skills',
+    equipment:'Equipment', skill_milestones:'Skill milestones', books:'Books',
+    titles:'Titles', light_level:'Light', environment:'Environment', stance:'Stance',
+    active_effects:'Active effects',
+};
+
+export function readPlayerAttributeInspector() {
+    const stats = character.getStats();
+    const full = character.getFullStats();
+    const base = character.getBaseStats();
+    const finite = value => typeof value === 'number' && Number.isFinite(value) ? value : null;
+    const number = value => value == null ? 'Unavailable' : String(Number(value.toFixed(value !== 0 && Math.abs(value) < .01 ? 6 : 3)));
+    const format = (value, unit, key) => {
+        if(value == null) return 'Unavailable';
+        if(key === 'crit_rate' || key === 'block_chance') return `${number(value * 100)}%`;
+        if(unit === '×') return `×${number(value)}`;
+        return `${number(value)} ${unit}`;
+    };
+    const sourcesFor = (flat, multiplier, key, includeFlat = true) => {
+        const sources = [];
+        for(const [category, label] of Object.entries(playerAttributeSourceLabels)) {
+            const additive = includeFlat ? finite(flat?.[category]?.[key]) : null;
+            const factor = finite(multiplier?.[category]?.[key]);
+            if((additive != null && additive !== 0) || (factor != null && factor !== 1)) {
+                sources.push({label, flat:additive ?? 0, multiplier:factor ?? 1});
+            }
+        }
+        return sources;
+    };
+    // Native attack getters probe Persistence only at zero stamina. Avoid their lazy
+    // progress initialization on an exceptional player whose entry is not yet present.
+    const levelable = character.getLevelableComponent();
+    const persistence = levelable.skill_progress?.Persistence;
+    const canReadEffectiveAttack = full.stamina !== 0 || !!persistence;
+    const exhaustion = full.stamina === 0
+        ? 0.5 + skills.Persistence.get_level_bonus((persistence?.current_level ?? 0) + (levelable.bonus_skill_levels?.full?.Persistence ?? 0))
+        : 1;
+    const hasShield = character.hasShield();
+    const shield = hasShield ? character.getEquipment()['off-hand'] : null;
+    const formulaNotes = {
+        attack_power:'Derived from strength / 10 and equipped weapon power, or unarmed base power; then attack-power multipliers and the current stamina condition. Stored additive attack-power entries are not applied by this formula.',
+        attack_speed:'Model attack speed multiplied by the current stamina condition. The current value uses the native effective attack-speed getter.',
+        attack_points:'Attack rating, not a hit percentage. Native pre-multiplier total derives from dexterity, square root of intuition and Combat skill, plus the native base. Target-specific hit chance belongs to the selected combat matchup.',
+        evasion_points:'Evasion rating, not a dodge percentage. Native pre-multiplier total derives from agility, square root of intuition and Evasion skill, plus the native base. The shield route can replace evasion.',
+        block_chance:'Native base plus configured block chance and Shield blocking skill, followed by applicable multipliers. Requires an equipped shield; this is not evasion chance.',
+        block_strength:'Equipped shield base strength multiplied by applicable native block-strength factors. The raw block_strength model field is not the shield damage limit.',
+        stamina_efficiency:'Native stamina costs are divided by this factor. ×2 means half the base stamina cost, not a 200% cost reduction.',
+        unarmed_power:'Base power used in the unarmed strength-scaling formula. This is not an additive bonus to every equipped weapon.',
+        attack_count:'Number of damage hits rolled per native attack, not the number of enemies selected by a stance.',
+        crit_rate:'Native chance that a combat attack is critical.',
+        crit_multiplier:'Damage multiplier applied when the native critical roll succeeds.',
+        cold_tolerance:'Temperature difference added to the cold threshold comparison. This is a Celsius difference, not an absolute temperature.',
+    };
+    const referenceNotes = {
+        magic:'Native model value; no magic-based ability or combat consumer is established by this inspector.',
+        armor_penetration:'Native authored value; no armor-bypass combat consumer was traced. This does not establish effective armor penetration.',
+        mana_efficiency:'Native model factor; no mana-spending consumer was traced. This does not establish a working mana-cost reduction.',
+        heat_tolerance:'Native authored temperature-difference value; no active heat-protection consumer was traced.',
+    };
+    const rows = playerAttributeDefinitions.map(([id,label,group,unit]) => {
+        const mutable = ['health','stamina','mana'].includes(id);
+        const specialFormula = ['attack_power','attack_points','evasion_points','block_chance'].includes(id);
+        let value = finite(full[id]);
+        let baseValue = mutable ? null : finite(base[id]);
+        let preMultiplier = mutable ? null : finite(stats.total_flat?.[id]);
+        let totalMultiplier = mutable ? null : finite(stats.total_multiplier?.[id]);
+        let sources = mutable ? [] : sourcesFor(stats.flat, stats.multiplier, id, !specialFormula);
+        let description = formulaNotes[id] || 'Native current-player attribute. Additive source categories combine before multiplicative factors.';
+        let status = 'active';
+        let note = '';
+        if(mutable) description = 'Current resource balance changes through native play. It is not reconstructed from base values and modifier categories.';
+        if(id === 'attack_power' || id === 'attack_speed') {
+            value = finite(canReadEffectiveAttack
+                ? (id === 'attack_power' ? character.getAttackPower() : character.getAttackSpeed())
+                : full[id] * exhaustion);
+            if(exhaustion !== 1) sources.push({label:'Current stamina condition',flat:0,multiplier:exhaustion});
+        }
+        if(id === 'block_strength') {
+            if(hasShield) {
+                value = finite(character.getBlockStrength());
+                baseValue = finite(shield.getShieldStrength());
+                preMultiplier = baseValue;
+                totalMultiplier = shield.tags?.ignore_skill ? 1 : finite(stats.total_multiplier?.block_strength) ?? 1;
+                sources = shield.tags?.ignore_skill ? [] : sourcesFor(null,stats.multiplier,id,false);
+                if(shield.tags?.ignore_skill) note = 'This shield ignores skill-based block-strength factors.';
+            } else {
+                value = baseValue = preMultiplier = totalMultiplier = null;
+                sources = [];
+                status = 'unavailable';
+                note = 'Equip a shield to use shield blocking.';
+            }
+        }
+        if(id === 'block_chance' && !hasShield) {
+            status = 'conditional';
+            note = 'Model chance only; blocking is unavailable without a shield.';
+        }
+        if(id.includes('regeneration')) {
+            description = id.endsWith('_percent')
+                ? 'Percentage of the corresponding maximum resource per native recovery tick, using the native UI /s convention. Separate from flat recovery.'
+                : 'Flat resource change per native recovery tick, using the native UI /s convention. Separate from percentage-of-maximum recovery.';
+            note = 'Actual recovery depends on the active native mode; special sessions can own a separate resource loop.';
+        }
+        if(id === 'health_loss_flat') {
+            description = 'Signed flat health-loss component. Negative values represent health loss in the native tick. This is not a combined net recovery rate.';
+        }
+        if(id === 'health_loss_percent') {
+            status = 'reference';
+            note = 'The native tooltip/helper and tick use different percentage-loss sign conventions. This raw component is shown without a net-loss claim.';
+            description = 'Raw percentage-of-maximum health-loss component. Its sign must not be inferred from the flat-loss convention.';
+        }
+        if(group === 'mana') note = `${note}${note ? ' ' : ''}Mana recovery is modelled and ticked; this view establishes no useful mana-spending loop.`;
+        if(referenceNotes[id]) { status = 'reference'; note = referenceNotes[id]; }
+        return {id,label,group,unit,value,formatted:id === 'block_strength' && !hasShield ? 'No shield' : format(value,unit,id),
+            base:baseValue,baseFormatted:baseValue == null ? (mutable ? 'Current balance' : 'Unavailable') : format(baseValue,unit,id),
+            preMultiplier,totalMultiplier,sources,description,availability:{status,note},
+            hasModifiers:sources.some(source => source.flat !== 0 || source.multiplier !== 1)};
+    });
+    const xp = character.getXPBonuses();
+    const totals = character.getTotalXPMultipliers();
+    for(const [key,label] of [['all','Global personal XP factor'],['hero','Hero XP factor'],['all_skill','Skill-wide XP factor']]) {
+        const value = finite(key === 'hero' ? character.getMainXPGain() : key === 'all_skill' ? character.getSkillsOveralXPGain() : totals.all);
+        const sources = sourcesFor(null,xp.multiplier,key,false);
+        if(key !== 'all' && finite(totals.all) != null && totals.all !== 1) sources.push({label:'Global personal XP factor',flat:0,multiplier:totals.all});
+        if(key === 'hero' && finite(character.xp_multiplier) != null && character.xp_multiplier !== 1) sources.push({label:'Personal hero XP factor',flat:0,multiplier:character.xp_multiplier});
+        rows.push({id:`xp_${key}`,label,group:'learning',unit:'×',value,formatted:format(value,'×'),
+            base:1,baseFormatted:'×1',preMultiplier:1,totalMultiplier:value,sources,
+            description:key === 'all' ? 'Personal global XP factor before target-specific factors.' : key === 'hero'
+                ? 'Native effective hero XP factor, including the personal global factor and person-level hero factor.'
+                : 'Native skill-wide XP factor including the personal global factor. Known skills can have additional category, skill-specific, person-level or eligibility factors.',
+            availability:{status:'active',note:'Configured global award scaling and route-specific bonuses can apply later. This is not a guaranteed final XP award.'},
+            hasModifiers:sources.some(source => source.flat !== 0 || source.multiplier !== 1)});
+    }
+    return {rows};
+}
+
 /**
  * creates full breakdown for provided stat
  * @param {} stat 
@@ -4569,6 +4817,7 @@ function update_displayed_item_log() {
  * @param {String} origin - the key of textline that created a dialogue branch, ignored if textlines is not passed
  */
 function update_displayed_dialogue({npc_id, textlines, origin}) {
+    centerModes().open('dialogue', () => window.end_dialogue());
     const npc = NPCRegistry.get(npc_id);
     const dialogue = npc.getDialogueComponent();
     
@@ -4705,11 +4954,11 @@ function update_displayed_textline_answer({text, is_description}) {
 }
 
 function exit_displayed_trade() {
-    action_div.style.display = "";
-    trade_div.style.display = "none";
+    centerModes().close('trade');
 }
 
 function start_activity_display(current_activity) {
+    centerModes().open('activity', () => document.getElementById('action_end_div')?.click());
     const base_activity = activities[current_activity.activity_name];
     const is_job = base_activity.type === "JOB";
 
@@ -4832,6 +5081,7 @@ function update_displayed_ongoing_activity(current_activity) {
 }
 
 function start_game_action_display(npc_id, action_key) {
+    centerModes().open('action', () => document.getElementById('action_end_div')?.click());
     clear_action_div();
 
     let action;
@@ -4929,6 +5179,7 @@ function fill_action_box({content_type, data}) {
 }
 
 function start_sleeping_display(){
+    centerModes().open('sleep', () => window.end_sleeping());
     clear_action_div();
 
     const action_status_div = document.createElement("div");
@@ -4953,6 +5204,7 @@ function start_sleeping_display(){
 }
 
 function start_reading_display(title) {
+    centerModes().open('reading', () => window.end_reading());
     clear_action_div();
 
     const action_status_div = document.createElement("div");

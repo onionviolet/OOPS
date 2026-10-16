@@ -1,0 +1,26 @@
+{
+  "src/display.js": {
+    "inputSha256": "26be90f580bbc8de92f18ff797daf19fffe3117874eac375293d3121a6b94f50",
+    "outputSha256": "685c322350702a48512f2b8d7260108c51ba56b3aaacb31e3ba5c5b6f081d1e4"
+  },
+  "src/proto23_shell.js": {
+    "inputSha256": "75079034dcb6ac3b8c9d05619e8b5c6d4bdfe7709fc1cf5a6cb76d92cf24b03b",
+    "outputSha256": "130c87a413201530cd222f8b91de4fab794c4c676b813cb3659f8968f063d46a"
+  },
+  "src/village_workspace.js": {
+    "inputSha256": "e9e9df4436945c8ce5ae4bd786fcba9dc96d00cf5712d4078c16c78ca60fa60a",
+    "outputSha256": "39476fe9de22b72637b953f53be502721673fa80b5f974331ce2db7a529b8a5b"
+  },
+  "src/workspace_layout.js": {
+    "inputSha256": "64dbf1b59de2469bef877ee28f440f32f9819f2681d255d130111fee5796e2d2",
+    "outputSha256": "66adcadbb0aed3c606826d1fe6852cbfb5d55cf0b574a1bee1d6956c3250a9f7"
+  },
+  "src/workspace_navigation.js": {
+    "inputSha256": "772d9bb13bc181c912b55adc2dbef779e1f8a45c90a439da73a670527c8af35a",
+    "outputSha256": "98b624624e3f0e2d22af8668e9d57f97153a1d30af0c8c6880f970e49016d3ee"
+  },
+  "styles/ui_tokens.css": {
+    "inputSha256": "25dc7160d09ff6bb93085e7d99b93fe8c47e717e498d8c819a457e4ff997dbe2",
+    "outputSha256": "d443fb64bb918fd0eff8062c1dd29709f10d808f0f614807a9ee01ea7955d230"
+  }
+}

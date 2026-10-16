@@ -1,0 +1,580 @@
+{
+  "sha256": "a43e55e2eeb455f1c1ae589e3fc074a588813fe6cd57cfba827dcf923f3755d5",
+  "sourceEdited": false,
+  "devSeeded": true,
+  "displayScaleRemoved": true,
+  "records": [
+    {
+      "preset": "actions",
+      "viewport": [
+        1366,
+        768
+      ],
+      "transform": "none",
+      "roles": {
+        "player": {
+          "css": {
+            "backgroundColor": "rgb(0, 40, 64)",
+            "backgroundImage": "none",
+            "color": "rgb(255, 255, 255)",
+            "borderTopColor": "rgb(0, 0, 0)",
+            "borderTopWidth": "3px",
+            "fontSize": "17.6px",
+            "lineHeight": "normal"
+          },
+          "box": {
+            "x": 0,
+            "y": 0,
+            "w": 446,
+            "h": 326
+          }
+        },
+        "focus": {
+          "css": {
+            "backgroundColor": "rgb(0, 40, 64)",
+            "backgroundImage": "none",
+            "color": "rgb(255, 255, 255)",
+            "borderTopColor": "rgb(0, 0, 0)",
+            "borderTopWidth": "3px",
+            "fontSize": "17.6px",
+            "lineHeight": "normal"
+          },
+          "box": {
+            "x": 457,
+            "y": 8,
+            "w": 446,
+            "h": 326
+          }
+        },
+        "inventory": {
+          "css": {
+            "backgroundColor": "rgba(0, 0, 0, 0)",
+            "backgroundImage": "linear-gradient(90deg, rgb(0, 5, 51), rgb(0, 65, 107))",
+            "color": "rgb(188, 254, 254)",
+            "borderTopColor": "rgb(0, 0, 0)",
+            "borderTopWidth": "3px",
+            "fontSize": "17.6px",
+            "lineHeight": "normal"
+          },
+          "box": {
+            "x": 0,
+            "y": 337,
+            "w": 336,
+            "h": 436
+          }
+        },
+        "actions": {
+          "css": {
+            "backgroundColor": "rgba(0, 0, 0, 0)",
+            "backgroundImage": "linear-gradient(90deg, rgb(0, 5, 51), rgb(0, 65, 107))",
+            "color": "rgb(188, 254, 254)",
+            "borderTopColor": "rgb(0, 0, 0)",
+            "borderTopWidth": "3px",
+            "fontSize": "17.6px",
+            "lineHeight": "normal"
+          },
+          "box": {
+            "x": 347,
+            "y": 337,
+            "w": 556,
+            "h": 436
+          }
+        },
+        "log": {
+          "css": {
+            "backgroundColor": "rgba(0, 0, 0, 0)",
+            "backgroundImage": "linear-gradient(rgb(60, 50, 90), rgb(24, 16, 49))",
+            "color": "rgb(188, 254, 254)",
+            "borderTopColor": "rgb(0, 0, 0)",
+            "borderTopWidth": "3px",
+            "fontSize": "17.6px",
+            "lineHeight": "normal"
+          },
+          "box": {
+            "x": 906,
+            "y": 0,
+            "w": 379,
+            "h": 765
+          }
+        },
+        "health": {
+          "css": {
+            "backgroundColor": "rgba(0, 0, 0, 0)",
+            "backgroundImage": "linear-gradient(90deg, rgb(254, 239, 157), rgb(45, 223, 206))",
+            "color": "rgb(255, 255, 255)",
+            "borderTopColor": "rgb(255, 255, 255)",
+            "borderTopWidth": "0px",
+            "fontSize": "17.6px",
+            "lineHeight": "normal"
+          },
+          "box": {
+            "x": 8,
+            "y": 48,
+            "w": 430,
+            "h": 20
+          }
+        },
+        "xp": {
+          "css": {
+            "backgroundColor": "rgba(0, 0, 0, 0)",
+            "backgroundImage": "linear-gradient(90deg, rgb(254, 239, 157), rgb(219, 119, 158))",
+            "color": "rgb(255, 255, 255)",
+            "borderTopColor": "rgb(255, 255, 255)",
+            "borderTopWidth": "0px",
+            "fontSize": "17.6px",
+            "lineHeight": "normal"
+          },
+          "box": {
+            "x": 8,
+            "y": 68,
+            "w": 0,
+            "h": 20
+          }
+        },
+        "energy": {
+          "css": {
+            "backgroundColor": "rgba(0, 0, 0, 0)",
+            "backgroundImage": "linear-gradient(270deg, rgb(124, 68, 112), rgb(29, 29, 113))",
+            "color": "rgb(255, 255, 255)",
+            "borderTopColor": "rgb(255, 255, 255)",
+            "borderTopWidth": "0px",
+            "fontSize": "17.6px",
+            "lineHeight": "normal"
+          },
+          "box": {
+            "x": 8,
+            "y": 88,
+            "w": 430,
+            "h": 20
+          }
+        },
+        "row": null,
+        "stat": {
+          "css": {
+            "backgroundColor": "rgba(0, 0, 0, 0)",
+            "backgroundImage": "none",
+            "color": "rgb(255, 255, 255)",
+            "borderTopColor": "rgb(255, 255, 255)",
+            "borderTopWidth": "0px",
+            "fontSize": "17.6px",
+            "lineHeight": "normal"
+          },
+          "box": {
+            "x": 8,
+            "y": 128,
+            "w": 107.5,
+            "h": 20
+          }
+        }
+      },
+      "state": {
+        "seeded": [
+          "actions"
+        ],
+        "panelNames": [
+          "d lab-panel",
+          "d lab-panel",
+          "lab-panel",
+          "lab-panel",
+          "lab-panel",
+          "lab-panel",
+          "lab-panel",
+          "lab-panel"
+        ]
+      }
+    },
+    {
+      "preset": "crafting",
+      "viewport": [
+        1366,
+        768
+      ],
+      "transform": "none",
+      "roles": {
+        "player": {
+          "css": {
+            "backgroundColor": "rgb(0, 40, 64)",
+            "backgroundImage": "none",
+            "color": "rgb(255, 255, 255)",
+            "borderTopColor": "rgb(0, 0, 0)",
+            "borderTopWidth": "3px",
+            "fontSize": "17.6px",
+            "lineHeight": "normal"
+          },
+          "box": {
+            "x": 0,
+            "y": 0,
+            "w": 446,
+            "h": 326
+          }
+        },
+        "focus": {
+          "css": {
+            "backgroundColor": "rgb(0, 40, 64)",
+            "backgroundImage": "none",
+            "color": "rgb(255, 255, 255)",
+            "borderTopColor": "rgb(0, 0, 0)",
+            "borderTopWidth": "3px",
+            "fontSize": "17.6px",
+            "lineHeight": "normal"
+          },
+          "box": {
+            "x": 457,
+            "y": 8,
+            "w": 446,
+            "h": 326
+          }
+        },
+        "inventory": {
+          "css": {
+            "backgroundColor": "rgba(0, 0, 0, 0)",
+            "backgroundImage": "linear-gradient(90deg, rgb(0, 5, 51), rgb(0, 65, 107))",
+            "color": "rgb(188, 254, 254)",
+            "borderTopColor": "rgb(0, 0, 0)",
+            "borderTopWidth": "3px",
+            "fontSize": "17.6px",
+            "lineHeight": "normal"
+          },
+          "box": {
+            "x": 0,
+            "y": 337,
+            "w": 336,
+            "h": 436
+          }
+        },
+        "actions": {
+          "css": {
+            "backgroundColor": "rgba(0, 0, 0, 0)",
+            "backgroundImage": "linear-gradient(90deg, rgb(0, 5, 51), rgb(0, 65, 107))",
+            "color": "rgb(188, 254, 254)",
+            "borderTopColor": "rgb(0, 0, 0)",
+            "borderTopWidth": "3px",
+            "fontSize": "17.6px",
+            "lineHeight": "normal"
+          },
+          "box": {
+            "x": 347,
+            "y": 337,
+            "w": 556,
+            "h": 436
+          }
+        },
+        "log": {
+          "css": {
+            "backgroundColor": "rgba(0, 0, 0, 0)",
+            "backgroundImage": "linear-gradient(rgb(60, 50, 90), rgb(24, 16, 49))",
+            "color": "rgb(188, 254, 254)",
+            "borderTopColor": "rgb(0, 0, 0)",
+            "borderTopWidth": "3px",
+            "fontSize": "17.6px",
+            "lineHeight": "normal"
+          },
+          "box": {
+            "x": 906,
+            "y": 0,
+            "w": 379,
+            "h": 765
+          }
+        },
+        "health": {
+          "css": {
+            "backgroundColor": "rgba(0, 0, 0, 0)",
+            "backgroundImage": "linear-gradient(90deg, rgb(254, 239, 157), rgb(45, 223, 206))",
+            "color": "rgb(255, 255, 255)",
+            "borderTopColor": "rgb(255, 255, 255)",
+            "borderTopWidth": "0px",
+            "fontSize": "17.6px",
+            "lineHeight": "normal"
+          },
+          "box": {
+            "x": 8,
+            "y": 48,
+            "w": 430,
+            "h": 20
+          }
+        },
+        "xp": {
+          "css": {
+            "backgroundColor": "rgba(0, 0, 0, 0)",
+            "backgroundImage": "linear-gradient(90deg, rgb(254, 239, 157), rgb(219, 119, 158))",
+            "color": "rgb(255, 255, 255)",
+            "borderTopColor": "rgb(255, 255, 255)",
+            "borderTopWidth": "0px",
+            "fontSize": "17.6px",
+            "lineHeight": "normal"
+          },
+          "box": {
+            "x": 8,
+            "y": 68,
+            "w": 0,
+            "h": 20
+          }
+        },
+        "energy": {
+          "css": {
+            "backgroundColor": "rgba(0, 0, 0, 0)",
+            "backgroundImage": "linear-gradient(270deg, rgb(124, 68, 112), rgb(29, 29, 113))",
+            "color": "rgb(255, 255, 255)",
+            "borderTopColor": "rgb(255, 255, 255)",
+            "borderTopWidth": "0px",
+            "fontSize": "17.6px",
+            "lineHeight": "normal"
+          },
+          "box": {
+            "x": 8,
+            "y": 88,
+            "w": 430,
+            "h": 20
+          }
+        },
+        "row": {
+          "css": {
+            "backgroundColor": "rgba(0, 0, 0, 0)",
+            "backgroundImage": "none",
+            "color": "rgb(188, 254, 254)",
+            "borderTopColor": "rgb(188, 254, 254)",
+            "borderTopWidth": "0px",
+            "fontSize": "17.6px",
+            "lineHeight": "normal"
+          },
+          "box": {
+            "x": 8,
+            "y": 370,
+            "w": 317,
+            "h": 21
+          }
+        },
+        "stat": {
+          "css": {
+            "backgroundColor": "rgba(0, 0, 0, 0)",
+            "backgroundImage": "none",
+            "color": "rgb(255, 255, 255)",
+            "borderTopColor": "rgb(255, 255, 255)",
+            "borderTopWidth": "0px",
+            "fontSize": "17.6px",
+            "lineHeight": "normal"
+          },
+          "box": {
+            "x": 8,
+            "y": 128,
+            "w": 107.5,
+            "h": 20
+          }
+        }
+      },
+      "state": {
+        "seeded": [
+          "actions",
+          "crafting"
+        ],
+        "panelNames": [
+          "d lab-panel",
+          "d lab-panel",
+          "lab-panel",
+          "lab-panel",
+          "lab-panel",
+          "lab-panel",
+          "lab-panel",
+          "lab-panel"
+        ]
+      }
+    },
+    {
+      "preset": "skills",
+      "viewport": [
+        1366,
+        768
+      ],
+      "transform": "none",
+      "roles": {
+        "player": {
+          "css": {
+            "backgroundColor": "rgb(0, 40, 64)",
+            "backgroundImage": "none",
+            "color": "rgb(255, 255, 255)",
+            "borderTopColor": "rgb(0, 0, 0)",
+            "borderTopWidth": "3px",
+            "fontSize": "17.6px",
+            "lineHeight": "normal"
+          },
+          "box": {
+            "x": 0,
+            "y": 0,
+            "w": 446,
+            "h": 326
+          }
+        },
+        "focus": {
+          "css": {
+            "backgroundColor": "rgb(0, 40, 64)",
+            "backgroundImage": "none",
+            "color": "rgb(255, 255, 255)",
+            "borderTopColor": "rgb(0, 0, 0)",
+            "borderTopWidth": "3px",
+            "fontSize": "17.6px",
+            "lineHeight": "normal"
+          },
+          "box": {
+            "x": 457,
+            "y": 8,
+            "w": 446,
+            "h": 326
+          }
+        },
+        "inventory": {
+          "css": {
+            "backgroundColor": "rgba(0, 0, 0, 0)",
+            "backgroundImage": "linear-gradient(90deg, rgb(0, 5, 51), rgb(0, 65, 107))",
+            "color": "rgb(188, 254, 254)",
+            "borderTopColor": "rgb(0, 0, 0)",
+            "borderTopWidth": "3px",
+            "fontSize": "17.6px",
+            "lineHeight": "normal"
+          },
+          "box": {
+            "x": 0,
+            "y": 337,
+            "w": 336,
+            "h": 436
+          }
+        },
+        "actions": {
+          "css": {
+            "backgroundColor": "rgba(0, 0, 0, 0)",
+            "backgroundImage": "linear-gradient(90deg, rgb(0, 5, 51), rgb(0, 65, 107))",
+            "color": "rgb(188, 254, 254)",
+            "borderTopColor": "rgb(0, 0, 0)",
+            "borderTopWidth": "3px",
+            "fontSize": "17.6px",
+            "lineHeight": "normal"
+          },
+          "box": {
+            "x": 347,
+            "y": 337,
+            "w": 556,
+            "h": 436
+          }
+        },
+        "log": {
+          "css": {
+            "backgroundColor": "rgba(0, 0, 0, 0)",
+            "backgroundImage": "linear-gradient(rgb(60, 50, 90), rgb(24, 16, 49))",
+            "color": "rgb(188, 254, 254)",
+            "borderTopColor": "rgb(0, 0, 0)",
+            "borderTopWidth": "3px",
+            "fontSize": "17.6px",
+            "lineHeight": "normal"
+          },
+          "box": {
+            "x": 906,
+            "y": 0,
+            "w": 379,
+            "h": 765
+          }
+        },
+        "health": {
+          "css": {
+            "backgroundColor": "rgba(0, 0, 0, 0)",
+            "backgroundImage": "linear-gradient(90deg, rgb(254, 239, 157), rgb(45, 223, 206))",
+            "color": "rgb(255, 255, 255)",
+            "borderTopColor": "rgb(255, 255, 255)",
+            "borderTopWidth": "0px",
+            "fontSize": "17.6px",
+            "lineHeight": "normal"
+          },
+          "box": {
+            "x": 8,
+            "y": 48,
+            "w": 430,
+            "h": 20
+          }
+        },
+        "xp": {
+          "css": {
+            "backgroundColor": "rgba(0, 0, 0, 0)",
+            "backgroundImage": "linear-gradient(90deg, rgb(254, 239, 157), rgb(219, 119, 158))",
+            "color": "rgb(255, 255, 255)",
+            "borderTopColor": "rgb(255, 255, 255)",
+            "borderTopWidth": "0px",
+            "fontSize": "17.6px",
+            "lineHeight": "normal"
+          },
+          "box": {
+            "x": 8,
+            "y": 68,
+            "w": 0,
+            "h": 20
+          }
+        },
+        "energy": {
+          "css": {
+            "backgroundColor": "rgba(0, 0, 0, 0)",
+            "backgroundImage": "linear-gradient(270deg, rgb(124, 68, 112), rgb(29, 29, 113))",
+            "color": "rgb(255, 255, 255)",
+            "borderTopColor": "rgb(255, 255, 255)",
+            "borderTopWidth": "0px",
+            "fontSize": "17.6px",
+            "lineHeight": "normal"
+          },
+          "box": {
+            "x": 8,
+            "y": 88,
+            "w": 429.78125,
+            "h": 20
+          }
+        },
+        "row": {
+          "css": {
+            "backgroundColor": "rgba(0, 0, 0, 0)",
+            "backgroundImage": "none",
+            "color": "rgb(188, 254, 254)",
+            "borderTopColor": "rgb(188, 254, 254)",
+            "borderTopWidth": "0px",
+            "fontSize": "17.6px",
+            "lineHeight": "normal"
+          },
+          "box": {
+            "x": 8,
+            "y": 370,
+            "w": 317,
+            "h": 21
+          }
+        },
+        "stat": {
+          "css": {
+            "backgroundColor": "rgba(0, 0, 0, 0)",
+            "backgroundImage": "none",
+            "color": "rgb(255, 255, 255)",
+            "borderTopColor": "rgb(255, 255, 255)",
+            "borderTopWidth": "0px",
+            "fontSize": "17.6px",
+            "lineHeight": "normal"
+          },
+          "box": {
+            "x": 8,
+            "y": 128,
+            "w": 107.5,
+            "h": 20
+          }
+        }
+      },
+      "state": {
+        "seeded": [
+          "actions",
+          "crafting",
+          "skills"
+        ],
+        "panelNames": [
+          "d lab-panel",
+          "d lab-panel",
+          "lab-panel",
+          "lab-panel",
+          "lab-panel",
+          "lab-panel",
+          "lab-panel",
+          "lab-panel"
+        ]
+      }
+    }
+  ]
+}

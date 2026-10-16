@@ -1,0 +1,17 @@
+[
+  {
+    "w": 1366,
+    "h": 768,
+    "font": 21,
+    "cards": 3,
+    "knownFacts": 18,
+    "fit": {
+      "bottom": 436.984375,
+      "limit": 455,
+      "cols": "1"
+    },
+    "manualOverride": true,
+    "inspectionExact": true,
+    "errors": []
+  }
+]

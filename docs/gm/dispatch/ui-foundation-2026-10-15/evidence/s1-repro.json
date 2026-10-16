@@ -1,0 +1,272 @@
+{
+  "fresh": {
+    "location_actions_div": {
+      "display": "none",
+      "box": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    },
+    "crafting_window": {
+      "display": "flex",
+      "box": {
+        "x": 391.765625,
+        "y": 198.6875,
+        "width": 543.03125,
+        "height": 516.3125,
+        "top": 198.6875,
+        "right": 934.796875,
+        "bottom": 715,
+        "left": 391.765625
+      }
+    },
+    "village_mixing_panel": {
+      "display": "block",
+      "box": {
+        "x": 403.765625,
+        "y": 210.6875,
+        "width": 519.03125,
+        "height": 497.421875,
+        "top": 210.6875,
+        "right": 922.796875,
+        "bottom": 708.109375,
+        "left": 403.765625
+      }
+    },
+    "crafting_mainpage_buttons": {
+      "display": "none",
+      "box": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    }
+  },
+  "freshBack": {
+    "location_actions_div": {
+      "display": "block",
+      "box": {
+        "x": 391.765625,
+        "y": 268.59375,
+        "width": 543.03125,
+        "height": 489.9375,
+        "top": 268.59375,
+        "right": 934.796875,
+        "bottom": 758.53125,
+        "left": 391.765625
+      }
+    },
+    "crafting_window": {
+      "display": "none",
+      "box": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    },
+    "village_mixing_panel": {
+      "display": "none",
+      "box": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    },
+    "crafting_mainpage_buttons": {
+      "display": "flex",
+      "box": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    }
+  },
+  "nativeOverMixing": {
+    "location_actions_div": {
+      "display": "none",
+      "box": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    },
+    "crafting_window": {
+      "display": "flex",
+      "box": {
+        "x": 391.765625,
+        "y": 198.6875,
+        "width": 543.03125,
+        "height": 516.3125,
+        "top": 198.6875,
+        "right": 934.796875,
+        "bottom": 715,
+        "left": 391.765625
+      }
+    },
+    "village_mixing_panel": {
+      "display": "block",
+      "box": {
+        "x": 403.765625,
+        "y": 210.6875,
+        "width": 519.03125,
+        "height": 497.421875,
+        "top": 210.6875,
+        "right": 922.796875,
+        "bottom": 708.109375,
+        "left": 403.765625
+      }
+    },
+    "crafting_mainpage_buttons": {
+      "display": "none",
+      "box": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    }
+  },
+  "reopenedNative": {
+    "location_actions_div": {
+      "display": "none",
+      "box": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    },
+    "crafting_window": {
+      "display": "flex",
+      "box": {
+        "x": 391.765625,
+        "y": 198.6875,
+        "width": 543.03125,
+        "height": 516.3125,
+        "top": 198.6875,
+        "right": 934.796875,
+        "bottom": 715,
+        "left": 391.765625
+      }
+    },
+    "village_mixing_panel": {
+      "display": "none",
+      "box": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    },
+    "crafting_mainpage_buttons": {
+      "display": "none",
+      "box": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    }
+  },
+  "escape": {
+    "location_actions_div": {
+      "display": "none",
+      "box": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    },
+    "crafting_window": {
+      "display": "flex",
+      "box": {
+        "x": 391.765625,
+        "y": 198.6875,
+        "width": 543.03125,
+        "height": 516.3125,
+        "top": 198.6875,
+        "right": 934.796875,
+        "bottom": 715,
+        "left": 391.765625
+      }
+    },
+    "village_mixing_panel": {
+      "display": "none",
+      "box": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    },
+    "crafting_mainpage_buttons": {
+      "display": "none",
+      "box": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    }
+  }
+}

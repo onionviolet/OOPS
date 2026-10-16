@@ -1,0 +1,23 @@
+{
+  "date": "2026-10-15",
+  "branch": "codex/gameplay-foundations",
+  "head": "c768ad60676e76cb94cb17f7182a7234427b46ec",
+  "note": "Dirty source receipt, not a commit boundary. Verify live hashes/reservations before edits. No active child UI workers; both returned ownership. Root releases scoped UI ownership for Claude continuation; do not overwrite other project owners.",
+  "files": {
+    "src/display.js": "4530c5635d926b716d67f4ab662ebc13856a32c5dc6134558d00ed7b80f23ee1",
+    "src/proto23_shell.js": "0453467d32bd29b10cdc0cd1cafc0345c8580a618548a9d61fc088d0576a2194",
+    "src/village_workspace.js": "fd37a7ab874b9d394de0700b090fbbe827d3facb7628fcaca44257587a57ca7e",
+    "src/workspace_layout.js": "cce1a88a6e6140537c322e06c1d649660d76b802ac0970d84f73604272a3724a",
+    "src/workspace_navigation.js": "1314f5adc9f76b99ee17d66be7a1be9a9b6ee3622ea18895225dc25de38614f7",
+    "styles/ui_tokens.css": "1678140c2737fbbf252489015f141cce7d58dafba23793d0ab067b559335dcc4",
+    "src/crafting_detail.js": "4f0112feaba20103f86fbe7bb771468715551ec9df57c68bcfce567873a7aab4",
+    "styles/crafting_detail.css": "3dd028cc7721ae96c0ced0c2cd7aed0a5c9a16d2963b7330970f2401c3054487",
+    "src/main.js": "dfe9fbcc4b87e70f6993c3578b7fc789fb23a1700ffa3980e1dc75f3492d7b71",
+    "src/save_files.js": "ed3f1d2bbc12c8b2e0a1cade98cc825af27c3e5d3ab9ee904958aa2b04308b8d",
+    "src/simulation.js": "b4a5b39f5b1a6f3c5c7bbc048a44898066a437735ee34b855b8b074da7824ea4",
+    "src/simulation_clock.js": "02e5e74028285e95d0f959b5a42739500b7dc5686830467cbb2058584d3b4897",
+    "index.html": "70d81ef8d64e4c165c51abfbe85655d8f245dcacbeb8afc3de643d529e234ef7",
+    "dist/bundle.js": "3a1b00f0bb06c180e38892cbf1b5d042cbd14fcc859537dc5493abce59d34329",
+    "dist/bundle.js.map": "89ee3cd0db13350dd2e1e7494b3f43743573170db609c0895da7ab1a50a0f202"
+  }
+}

@@ -8,6 +8,6 @@
 .status_window_detail p { margin: .3em 0; }
 .cheat_start_choice { max-width: 42em; padding: .5em; }
 .cheat_start_choice select { margin-left: .5em; }
-.cheat_start_choice p { font-size: .9em; line-height: 1.4; margin: .5em 0; }
+.cheat_start_choice p { font-size: var(--ui-type-body); line-height: 1.4; margin: .5em 0; }
 
 .status_window:focus-visible { outline: 3px solid var(--workspace-focus, currentColor); outline-offset: -3px !important; }

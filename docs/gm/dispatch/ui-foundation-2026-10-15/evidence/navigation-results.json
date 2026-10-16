@@ -1,0 +1,232 @@
+[
+  {
+    "name": "ordinary-page-scroll-budget",
+    "pass": true,
+    "detail": {
+      "pageHeight": 768,
+      "viewport": 768,
+      "regions": [
+        {
+          "region": "left",
+          "visible": 680,
+          "content": 1845
+        },
+        {
+          "region": "preparation",
+          "visible": 240,
+          "content": 248
+        },
+        {
+          "region": "belongings",
+          "visible": 240,
+          "content": 874
+        },
+        {
+          "region": "notebook",
+          "visible": 460,
+          "content": 1082
+        },
+        {
+          "region": "center",
+          "visible": 680,
+          "content": 1103
+        },
+        {
+          "region": "focus",
+          "visible": 120,
+          "content": 123
+        },
+        {
+          "region": "village-scene",
+          "visible": 220,
+          "content": 285
+        },
+        {
+          "region": "local-actions",
+          "visible": 145,
+          "content": 449
+        },
+        {
+          "region": "records",
+          "visible": 140,
+          "content": 312
+        },
+        {
+          "region": "skills",
+          "visible": 150,
+          "content": 284
+        },
+        {
+          "region": "right",
+          "visible": 680,
+          "content": 1348
+        }
+      ]
+    }
+  },
+  {
+    "name": "named-history-and-return-state",
+    "pass": true,
+    "detail": {
+      "journalTabPreserved": true,
+      "inventoryScroll": 180,
+      "returnScroll": 180
+    }
+  },
+  {
+    "name": "discoverable-hotkeys",
+    "pass": true,
+    "detail": {
+      "altI": true,
+      "helpSheet": true
+    }
+  },
+  {
+    "name": "inspection-preserves-reading",
+    "pass": true,
+    "detail": {
+      "hereDoesNotStopWork": true,
+      "explicitBackStops": true
+    }
+  },
+  {
+    "name": "larger-text-1.25",
+    "pass": true,
+    "detail": {
+      "pageHeight": 768,
+      "viewport": 768,
+      "regions": [
+        {
+          "region": "left",
+          "visible": 676,
+          "content": 1922
+        },
+        {
+          "region": "vitals",
+          "visible": 145,
+          "content": 147
+        },
+        {
+          "region": "preparation",
+          "visible": 240,
+          "content": 485
+        },
+        {
+          "region": "belongings",
+          "visible": 240,
+          "content": 1219
+        },
+        {
+          "region": "notebook",
+          "visible": 460,
+          "content": 1371
+        },
+        {
+          "region": "center",
+          "visible": 676,
+          "content": 1376
+        },
+        {
+          "region": "focus",
+          "visible": 120,
+          "content": 123
+        },
+        {
+          "region": "village-scene",
+          "visible": 220,
+          "content": 337
+        },
+        {
+          "region": "center_mode_content",
+          "visible": 338,
+          "content": 746
+        },
+        {
+          "region": "records",
+          "visible": 140,
+          "content": 338
+        },
+        {
+          "region": "skills",
+          "visible": 150,
+          "content": 311
+        },
+        {
+          "region": "right",
+          "visible": 676,
+          "content": 1432
+        }
+      ]
+    }
+  },
+  {
+    "name": "larger-text-1.5",
+    "pass": true,
+    "detail": {
+      "pageHeight": 768,
+      "viewport": 768,
+      "regions": [
+        {
+          "region": "left",
+          "visible": 634,
+          "content": 2236
+        },
+        {
+          "region": "vitals",
+          "visible": 145,
+          "content": 154
+        },
+        {
+          "region": "preparation",
+          "visible": 240,
+          "content": 619
+        },
+        {
+          "region": "belongings",
+          "visible": 240,
+          "content": 1542
+        },
+        {
+          "region": "notebook",
+          "visible": 460,
+          "content": 1717
+        },
+        {
+          "region": "center",
+          "visible": 634,
+          "content": 1417
+        },
+        {
+          "region": "focus",
+          "visible": 120,
+          "content": 123
+        },
+        {
+          "region": "village-scene",
+          "visible": 220,
+          "content": 410
+        },
+        {
+          "region": "center_mode_content",
+          "visible": 334,
+          "content": 954
+        },
+        {
+          "region": "records",
+          "visible": 140,
+          "content": 344
+        },
+        {
+          "region": "skills",
+          "visible": 150,
+          "content": 347
+        },
+        {
+          "region": "right",
+          "visible": 634,
+          "content": 1559
+        }
+      ]
+    }
+  }
+]

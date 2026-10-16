@@ -28,8 +28,9 @@ export function presetLayout(name, ids) {
     const result = normalizeLayout(null, ids); result.mode = name === 'Classic' ? 'classic' : 'dock';
     result.modules.forEach((v, i) => {
         if (name === 'Workspace') {
-            const defaults = { vitals:['left',145], 'combat-controls':['left',40], preparation:['left',240], belongings:['left',240], 'equipment-comparison':['left',200,true], time:['center',40], location:['center',150], 'current-work':['center',100], combat:['center',420], stance:['left',220], 'local-actions':['center',400], records:['right',140], skills:['right',150], messages:['right',220], 'optional-worlds':['right',200,true], beginning:['right',200,true], patrol:['right',200,true], supplies:['right',200,true] };
+            const defaults = { vitals:['left',145], 'combat-controls':['left',40], preparation:['left',240], belongings:['left',480], 'equipment-comparison':['left',200,true], focus:['center',145], 'village-scene':['center',220], projects:['center',260], time:['center',40], location:['center',150], 'current-work':['center',100], combat:['center',420], stance:['left',220], 'local-actions':['center',400], records:['center',140], skills:['center',150], messages:['right',600], 'optional-worlds':['right',200,true], beginning:['right',200,true], patrol:['right',200,true], supplies:['right',200,true] };
             const config = defaults[v.id]; if(config) { v.dock=config[0]; v.height=config[1]; v.collapsed=!!config[2]; }
+            v.hidden = !['vitals','combat-controls','belongings','focus','time','location','village-scene','current-work','combat','stance','local-actions','messages'].includes(v.id);
         }
         if (name === 'Focus') { v.dock = 'center'; v.collapsed = i > 0; }
         if (name === 'Compare') { v.dock = i % 2 ? 'right' : 'left'; v.width = 460; }

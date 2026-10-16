@@ -1,0 +1,36 @@
+{
+  "nativeRows": [
+    "Atk: 4dmg",
+    "| Spd: 0.82",
+    "| Hit: 30%",
+    "| Ddg: 15%",
+    "| Def: 0"
+  ],
+  "focus": [
+    {
+      "label": "Attack",
+      "value": "4 dmg",
+      "visible": true
+    },
+    {
+      "label": "| Spd",
+      "value": "0.82",
+      "visible": true
+    },
+    {
+      "label": "| Hit",
+      "value": "30%",
+      "visible": true
+    },
+    {
+      "label": "| Ddg",
+      "value": "15%",
+      "visible": true
+    },
+    {
+      "label": "| Def",
+      "value": "0",
+      "visible": true
+    }
+  ]
+}

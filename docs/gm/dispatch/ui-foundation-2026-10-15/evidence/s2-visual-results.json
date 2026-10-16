@@ -1,0 +1,60 @@
+[
+  {
+    "name": "inventory-read-control",
+    "pass": true,
+    "detail": {
+      "fitsWithoutWrapping": true
+    }
+  },
+  {
+    "name": "sampled-text-contrast",
+    "pass": true,
+    "detail": {
+      "count": 57,
+      "min": 6.99,
+      "scope": "visible headers, selected tabs, log filters and inventory names; not a whole-game accessibility audit"
+    }
+  },
+  {
+    "name": "crafting-layout",
+    "pass": true,
+    "detail": {
+      "errors": []
+    }
+  },
+  {
+    "name": "keyboard-focus",
+    "pass": true,
+    "detail": {
+      "outlineVisible": true
+    }
+  },
+  {
+    "name": "player-palette-override",
+    "pass": true,
+    "detail": {
+      "marker": "true",
+      "bg": "rgb(90, 16, 16)",
+      "afterReload": true
+    }
+  },
+  {
+    "name": "standard-palette",
+    "pass": true,
+    "detail": {
+      "scheme": "standard"
+    }
+  },
+  {
+    "name": "emulated-150pct",
+    "pass": true,
+    "detail": {
+      "cssViewport": {
+        "width": 911,
+        "height": 512
+      },
+      "realBrowserZoom": false,
+      "saveAndLayoutReachable": true
+    }
+  }
+]

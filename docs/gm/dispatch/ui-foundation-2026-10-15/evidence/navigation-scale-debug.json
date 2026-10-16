@@ -1,0 +1,27 @@
+{
+  "mode": "mixing",
+  "hidden": false,
+  "launch": true,
+  "mixing": "block",
+  "localHidden": "flex",
+  "bar": {
+    "x": 393.765625,
+    "y": 663.171875,
+    "width": 539.03125,
+    "height": 50.296875,
+    "top": 663.171875,
+    "right": 932.796875,
+    "bottom": 713.46875,
+    "left": 393.765625
+  },
+  "content": {
+    "x": 393.765625,
+    "y": 329.46875,
+    "width": 539.03125,
+    "height": 333.703125,
+    "top": 329.46875,
+    "right": 932.796875,
+    "bottom": 663.171875,
+    "left": 393.765625
+  }
+}

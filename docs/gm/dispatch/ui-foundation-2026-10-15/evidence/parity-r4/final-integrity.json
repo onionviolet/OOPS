@@ -1,0 +1,19 @@
+{
+  "at": "2026-10-15T15:00:08.513948+00:00",
+  "sourceDrift": [],
+  "protectedArtifacts": 93,
+  "protectedDrift": [],
+  "baselineSourceChanges": [
+    "src/display.js",
+    "src/proto23_shell.js",
+    "src/workspace_layout.js",
+    "src/village_workspace.js",
+    "styles/ui_tokens.css",
+    "index.html",
+    "dist/bundle.js",
+    "dist/bundle.js.map"
+  ],
+  "excludedRuntimeUnchanged": true,
+  "runtimeOwnershipReleased": true,
+  "prototypeChoiceOpen": true
+}

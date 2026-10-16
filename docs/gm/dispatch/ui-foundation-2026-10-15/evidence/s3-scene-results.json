@@ -1,0 +1,60 @@
+[
+  {
+    "name": "inspection-costs-no-time-or-draws",
+    "pass": true,
+    "detail": {
+      "sameClock": true,
+      "sameStreams": true
+    }
+  },
+  {
+    "name": "elder-and-traveler-focus",
+    "pass": true,
+    "detail": {
+      "elderVisible": true,
+      "travelerKnownTraits": true,
+      "focusStaysOnScreen": true
+    }
+  },
+  {
+    "name": "native-delivery-memory",
+    "pass": true,
+    "detail": {
+      "issuer": "traveler_1",
+      "receipt": "story.outcome:1"
+    }
+  },
+  {
+    "name": "present-receipt-callback",
+    "pass": true,
+    "detail": {
+      "event": "village.remembered_supply",
+      "historyRef": "story.outcome:1",
+      "status": "visiting",
+      "ticks": 120
+    }
+  },
+  {
+    "name": "projects-homes",
+    "pass": true,
+    "detail": {
+      "panels": 4,
+      "opensOnRequest": true
+    }
+  },
+  {
+    "name": "native-trade-back",
+    "pass": true,
+    "detail": {
+      "escape": true
+    }
+  },
+  {
+    "name": "request-history-reload-and-literal-import",
+    "pass": true,
+    "detail": {
+      "requestsExact": true,
+      "historyExact": true
+    }
+  }
+]

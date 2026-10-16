@@ -1,7 +1,7 @@
 .customization-module { font-family: var(--custom-font); font-size: var(--custom-size); background-color: var(--custom-background) !important; color: var(--custom-text) !important; padding: var(--custom-spacing); border-color: var(--custom-accent) !important; }
 .customization-module button, .customization-module select, .customization-module input { font: inherit; }
 .customization-module > summary, .customization-module h3, .customization-module h4 { color: var(--custom-accent); }
-.customization-panel { margin-block: .5rem; border: 1px solid #85999b; border-radius: 5px; padding: .6rem; background: #1c243b; color: #f1f2f5; text-align: left; }
+.customization-panel { margin-block: .5rem; border: 1px solid var(--ui-swatch-104); border-radius: var(--ui-radius); padding: .6rem; background: var(--ui-swatch-105); color: var(--ui-swatch-106); text-align: left; }
 .customization-panel summary { cursor: pointer; font-weight: bold; }
 .customization-editor { overflow-wrap: anywhere; }
 .customization-editor fieldset { display: grid; grid-template-columns: repeat(auto-fit,minmax(185px,1fr)); gap: .6rem; min-width: 0; }
@@ -29,14 +29,14 @@
 }
 .customization-surface > h3 {
     margin: 0 0 .4rem;
-    font-size: 1.1rem;
+    font-size: var(--ui-type-title);
     flex: 0 0 auto;
 }
 .customization-draft-status {
     margin: 0 0 .55rem;
     padding: .45rem .55rem;
-    border-inline-start: 3px solid var(--custom-accent, #b5ced9);
-    background: #11192a;
+    border-inline-start: 3px solid var(--custom-accent, var(--ui-swatch-107));
+    background: var(--ui-swatch-108);
     min-height: 2.3em;
     flex: 0 0 auto;
     overflow-wrap: anywhere;
@@ -56,7 +56,7 @@
     padding: .6rem;
     grid-template-columns: repeat(auto-fit, minmax(155px, 1fr));
     gap: .7rem;
-    border: 1px solid #65768a;
+    border: 1px solid var(--ui-swatch-109);
 }
 .customization-surface fieldset label {
     align-content: start;
@@ -72,19 +72,19 @@
     flex: 0 0 auto;
     margin: .65rem 0 0;
     padding-block-start: .6rem;
-    border-block-start: 1px solid #65768a;
+    border-block-start: 1px solid var(--ui-swatch-109);
 }
 .customization-surface .customization-actions button { min-height: 2.2em; padding: .35rem .6rem; }
 .customization-surface input:focus-visible,
 .customization-surface select:focus-visible,
 .customization-surface textarea:focus-visible,
-.customization-surface button:focus-visible { outline: 2px solid #cfe8ff; outline-offset: 2px; }
+.customization-surface button:focus-visible { outline: 2px solid var(--ui-swatch-110); outline-offset: 2px; }
 
 /* C4 authored site editor: grouped fields, descriptions span the row. */
 #authored_site_editor .authored-site-wide { grid-column: 1 / -1; }
 #authored_site_editor textarea { font: inherit; }
 #authored_site_editor legend { font-weight: 600; }
-#authored_site_errors { margin: .3rem 0 0; padding-inline-start: 1.2rem; color: #ffb4a8; }
+#authored_site_errors { margin: .3rem 0 0; padding-inline-start: 1.2rem; color: var(--ui-swatch-111); }
 #main_content.workspace-active[data-workspace-context="authoring"] .workspace-module[data-module="customization-effects"]:has(~ .workspace-module[data-module="customization-sites"]) { height: auto; flex: 0 0 auto; }
 #main_content.workspace-active[data-workspace-context="authoring"] .workspace-module[data-module="customization-effects"]:has(~ .workspace-module[data-module="customization-sites"]) .workspace-module-body > div { height: auto; }
 #main_content.workspace-active[data-workspace-context="authoring"] .workspace-module[data-module="customization-sites"] { flex: 1 1 auto; min-height: 420px; }

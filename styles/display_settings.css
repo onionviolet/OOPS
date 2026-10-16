@@ -6,16 +6,16 @@
 .display-setting-row {display: grid; grid-template-columns: minmax(8rem, 12rem) minmax(0, 1fr); align-items: center; gap: .2rem .6rem; margin: 0 0 .55rem;}
 .display-setting-row > label {font-weight: 600; display: block;}
 .display-setting-row > select, .display-setting-row > input {max-width: 100%; justify-self: start;}
-.display-setting-row > .display-color-clear {grid-column: 2; justify-self: start; font: inherit; font-size: .85em;}
-.display-setting-row > .display-setting-desc {grid-column: 1 / -1; font-size: .88em; line-height: 1.35;}
+.display-setting-row > .display-color-clear {grid-column: 2; justify-self: start; font: inherit; font-size: var(--ui-type-body);}
+.display-setting-row > .display-setting-desc {grid-column: 1 / -1; font-size: var(--ui-type-body); line-height: 1.35;}
 .display-setting-row > input[type=color][data-source="scheme"] {outline: 1px dashed currentColor; outline-offset: 1px;}
 .display-settings-actions {margin-top: .4rem;}
 .display-settings-actions button {font: inherit; white-space: normal;}
 
 /* AJ1 reveal: quiet is a brief outline with no movement or filter; off, or Effects off, none. */
 @keyframes workspace-reveal-quiet {
-    from {box-shadow: 0 0 0 2px var(--vivid-accent, var(--workspace-accent, #ffc94a));}
-    to {box-shadow: 0 0 0 0 transparent;}
+    from {box-shadow: var(--ui-shadow);}
+    to {box-shadow: var(--ui-shadow);}
 }
 :root:is([data-display-reveal="quiet"], [data-effects="reduced"]) [data-workspace-reveal="new"] {animation: workspace-reveal-quiet 400ms linear 1;}
 :root:is([data-display-reveal="off"], [data-effects="off"]) [data-workspace-reveal="new"] {animation: none;}

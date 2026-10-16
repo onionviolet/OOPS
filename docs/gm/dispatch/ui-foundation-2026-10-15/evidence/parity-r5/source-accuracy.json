@@ -1,0 +1,7 @@
+{
+  "originalSha256": "a43e55e2eeb455f1c1ae589e3fc074a588813fe6cd57cfba827dcf923f3755d5",
+  "nativeCodeExactAfterRemovingOneHarnessScriptTag": true,
+  "harnessChanges": "View exposure, native grants/view calls, display fit; captures remove fit. No native engine changes.",
+  "fightJourney": "source-fight.json",
+  "naturalProgression": false
+}

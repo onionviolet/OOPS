@@ -1,0 +1,361 @@
+[
+  {
+    "name": "hover-full-village-14",
+    "detail": {
+      "box": {
+        "x": 371.953125,
+        "y": 354.296875,
+        "width": 392,
+        "height": 254.9375,
+        "top": 354.296875,
+        "right": 763.953125,
+        "bottom": 609.234375,
+        "left": 371.953125
+      },
+      "body": {
+        "client": 204,
+        "scroll": 204
+      },
+      "font": "14px",
+      "clearOfFocus": true,
+      "page": [
+        1366,
+        768
+      ],
+      "viewport": [
+        1366,
+        768
+      ],
+      "colors": [
+        [
+          "increase",
+          "rgb(154, 239, 179)"
+        ],
+        [
+          "label",
+          "rgb(186, 196, 217)"
+        ],
+        [
+          "value",
+          "rgb(255, 226, 160)"
+        ]
+      ],
+      "fonts": {
+        ".item_name": "14px",
+        ".item_count": "14px",
+        ".item_value": "14px",
+        ".item_value .coin": "14px"
+      },
+      "inspectionExact": true,
+      "fullPageBack": true,
+      "escapeFree": true,
+      "errors": []
+    }
+  },
+  {
+    "name": "hover-full-village-17.5",
+    "detail": {
+      "box": {
+        "x": 371.953125,
+        "y": 354.296875,
+        "width": 460,
+        "height": 316.875,
+        "top": 354.296875,
+        "right": 831.953125,
+        "bottom": 671.171875,
+        "left": 371.953125
+      },
+      "body": {
+        "client": 254,
+        "scroll": 254
+      },
+      "font": "17.5px",
+      "clearOfFocus": true,
+      "page": [
+        1366,
+        768
+      ],
+      "viewport": [
+        1366,
+        768
+      ],
+      "colors": [
+        [
+          "increase",
+          "rgb(154, 239, 179)"
+        ],
+        [
+          "label",
+          "rgb(186, 196, 217)"
+        ],
+        [
+          "value",
+          "rgb(255, 226, 160)"
+        ]
+      ],
+      "fonts": {
+        ".item_name": "17.5px",
+        ".item_count": "17.5px",
+        ".item_value": "17.5px",
+        ".item_value .coin": "17.5px"
+      },
+      "inspectionExact": true,
+      "fullPageBack": true,
+      "escapeFree": true,
+      "errors": []
+    }
+  },
+  {
+    "name": "hover-full-village-21",
+    "detail": {
+      "box": {
+        "x": 371.953125,
+        "y": 354.296875,
+        "width": 460,
+        "height": 359.703125,
+        "top": 354.296875,
+        "right": 831.953125,
+        "bottom": 714,
+        "left": 371.953125
+      },
+      "body": {
+        "client": 285,
+        "scroll": 333
+      },
+      "font": "21px",
+      "clearOfFocus": true,
+      "page": [
+        1366,
+        768
+      ],
+      "viewport": [
+        1366,
+        768
+      ],
+      "colors": [
+        [
+          "increase",
+          "rgb(154, 239, 179)"
+        ],
+        [
+          "label",
+          "rgb(186, 196, 217)"
+        ],
+        [
+          "value",
+          "rgb(255, 226, 160)"
+        ]
+      ],
+      "fonts": {
+        ".item_name": "21px",
+        ".item_count": "21px",
+        ".item_value": "21px",
+        ".item_value .coin": "21px"
+      },
+      "inspectionExact": true,
+      "fullPageBack": true,
+      "escapeFree": true,
+      "errors": []
+    }
+  },
+  {
+    "name": "hover-full-combat-14",
+    "detail": {
+      "box": {
+        "x": 371.953125,
+        "y": 354.296875,
+        "width": 392,
+        "height": 276.625,
+        "top": 354.296875,
+        "right": 763.953125,
+        "bottom": 630.921875,
+        "left": 371.953125
+      },
+      "body": {
+        "client": 225,
+        "scroll": 225
+      },
+      "font": "14px",
+      "clearOfFocus": true,
+      "page": [
+        1366,
+        768
+      ],
+      "viewport": [
+        1366,
+        768
+      ],
+      "colors": [
+        [
+          "increase",
+          "rgb(154, 239, 179)"
+        ],
+        [
+          "label",
+          "rgb(186, 196, 217)"
+        ],
+        [
+          "label",
+          "rgb(186, 196, 217)"
+        ],
+        [
+          "value",
+          "rgb(255, 226, 160)"
+        ]
+      ],
+      "fonts": {
+        ".item_name": "14px",
+        ".item_count": "14px",
+        ".item_value": "14px",
+        ".item_value .coin": "14px"
+      },
+      "inspectionExact": true,
+      "fullPageBack": true,
+      "escapeFree": true,
+      "errors": []
+    }
+  },
+  {
+    "name": "hover-full-combat-17.5",
+    "detail": {
+      "box": {
+        "x": 371.953125,
+        "y": 354.296875,
+        "width": 460,
+        "height": 344,
+        "top": 354.296875,
+        "right": 831.953125,
+        "bottom": 698.296875,
+        "left": 371.953125
+      },
+      "body": {
+        "client": 281,
+        "scroll": 281
+      },
+      "font": "17.5px",
+      "clearOfFocus": true,
+      "page": [
+        1366,
+        768
+      ],
+      "viewport": [
+        1366,
+        768
+      ],
+      "colors": [
+        [
+          "increase",
+          "rgb(154, 239, 179)"
+        ],
+        [
+          "label",
+          "rgb(186, 196, 217)"
+        ],
+        [
+          "label",
+          "rgb(186, 196, 217)"
+        ],
+        [
+          "value",
+          "rgb(255, 226, 160)"
+        ]
+      ],
+      "fonts": {
+        ".item_name": "17.5px",
+        ".item_count": "17.5px",
+        ".item_value": "17.5px",
+        ".item_value .coin": "17.5px"
+      },
+      "inspectionExact": true,
+      "fullPageBack": true,
+      "escapeFree": true,
+      "errors": []
+    }
+  },
+  {
+    "name": "hover-full-combat-21",
+    "detail": {
+      "box": {
+        "x": 371.953125,
+        "y": 354.296875,
+        "width": 460,
+        "height": 359.703125,
+        "top": 354.296875,
+        "right": 831.953125,
+        "bottom": 714,
+        "left": 371.953125
+      },
+      "body": {
+        "client": 285,
+        "scroll": 365
+      },
+      "font": "21px",
+      "clearOfFocus": true,
+      "page": [
+        1366,
+        768
+      ],
+      "viewport": [
+        1366,
+        768
+      ],
+      "colors": [
+        [
+          "increase",
+          "rgb(154, 239, 179)"
+        ],
+        [
+          "label",
+          "rgb(186, 196, 217)"
+        ],
+        [
+          "label",
+          "rgb(186, 196, 217)"
+        ],
+        [
+          "value",
+          "rgb(255, 226, 160)"
+        ]
+      ],
+      "fonts": {
+        ".item_name": "21px",
+        ".item_count": "21px",
+        ".item_value": "21px",
+        ".item_value .coin": "21px"
+      },
+      "inspectionExact": true,
+      "fullPageBack": true,
+      "escapeFree": true,
+      "errors": []
+    }
+  },
+  {
+    "name": "live-preview-combat-log",
+    "detail": {
+      "nativeUpdates": true,
+      "lines": [
+        {
+          "kind": "notification",
+          "label": "Event",
+          "text": "[ Home · 01/04/999, Summer, Mon ]",
+          "color": "rgb(229, 183, 250)",
+          "font": "21px"
+        },
+        {
+          "kind": "notification",
+          "label": "Event",
+          "text": "Workspace now groups You above Inventory. Character details and known records remain in the named navigation.Open",
+          "color": "rgb(229, 183, 250)",
+          "font": "21px"
+        },
+        {
+          "kind": "hero_attacked",
+          "label": "Combat",
+          "text": "Hero was hit for 3.7 physical damageOpen",
+          "color": "rgb(255, 173, 186)",
+          "font": "21px"
+        }
+      ]
+    }
+  }
+]

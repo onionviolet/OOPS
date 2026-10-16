@@ -1,0 +1,126 @@
+[
+  {
+    "preset": "shop",
+    "sourceFileUnedited": true,
+    "devSeeded": true,
+    "nativeOwners": true,
+    "displayScaleRemoved": true,
+    "errors": [],
+    "details": null,
+    "state": {
+      "font": "17.6px \"MS Gothic\"",
+      "fontFamily": "\"MS Gothic\"",
+      "scale": "none",
+      "lab": {
+        "seeded": [
+          "shop"
+        ],
+        "panelNames": [
+          "d lab-panel",
+          "d lab-panel",
+          "lab-panel",
+          "lab-panel",
+          "lab-panel",
+          "lab-panel",
+          "lab-panel",
+          "lab-panel"
+        ]
+      },
+      "inventory": []
+    }
+  },
+  {
+    "preset": "journal",
+    "sourceFileUnedited": true,
+    "devSeeded": true,
+    "nativeOwners": true,
+    "displayScaleRemoved": true,
+    "errors": [],
+    "details": null,
+    "state": {
+      "font": "17.6px \"MS Gothic\"",
+      "fontFamily": "\"MS Gothic\"",
+      "scale": "none",
+      "lab": {
+        "seeded": [
+          "journal"
+        ],
+        "panelNames": [
+          "d lab-panel",
+          "d lab-panel",
+          "lab-panel",
+          "lab-panel",
+          "lab-panel",
+          "lab-panel",
+          "lab-panel",
+          "lab-panel"
+        ]
+      },
+      "inventory": []
+    }
+  },
+  {
+    "preset": "night",
+    "sourceFileUnedited": true,
+    "devSeeded": true,
+    "nativeOwners": true,
+    "displayScaleRemoved": true,
+    "errors": [],
+    "details": null,
+    "state": {
+      "font": "17.6px \"MS Gothic\"",
+      "fontFamily": "\"MS Gothic\"",
+      "scale": "none",
+      "lab": {
+        "seeded": [],
+        "panelNames": [
+          "d lab-panel",
+          "d lab-panel",
+          "lab-panel",
+          "lab-panel",
+          "lab-panel",
+          "lab-panel",
+          "lab-panel",
+          "lab-panel"
+        ]
+      },
+      "inventory": []
+    }
+  },
+  {
+    "preset": "equipment",
+    "sourceFileUnedited": true,
+    "devSeeded": true,
+    "nativeOwners": true,
+    "displayScaleRemoved": true,
+    "errors": [],
+    "details": "Dagger\nSimple knife used by wayfarers. Not a combat weapon, has a minor domestic use\n　\nSTR: +11\n\nDP:\n22/22\n\nClass: Knife, Edged\n\nRarity: ★",
+    "state": {
+      "font": "17.6px \"MS Gothic\"",
+      "fontFamily": "\"MS Gothic\"",
+      "scale": "none",
+      "lab": {
+        "seeded": [
+          "crafting"
+        ],
+        "panelNames": [
+          "d lab-panel",
+          "d lab-panel",
+          "lab-panel",
+          "lab-panel",
+          "lab-panel",
+          "lab-panel",
+          "lab-panel",
+          "lab-panel"
+        ]
+      },
+      "inventory": [
+        "Wheat\n　new\nx5",
+        "Water\n　new\nx10",
+        "Dagger\n　new",
+        "Dry Twig\n　new",
+        "Battle Knife\n　new"
+      ]
+    }
+  }
+]

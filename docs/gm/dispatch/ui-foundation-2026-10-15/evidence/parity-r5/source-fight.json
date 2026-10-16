@@ -1,0 +1,63 @@
+{
+  "setup": "Existing lab panels + native smove(chss.tdf,false); native Easiest click",
+  "devSeeded": true,
+  "naturalProgression": false,
+  "sourceFileUnedited": true,
+  "before": {
+    "enemy": "Straw dummy",
+    "hp": 17,
+    "max": 17,
+    "area": "Training Grounds",
+    "remaining": 10,
+    "battle": true,
+    "civil": false,
+    "tick": 0,
+    "playerHp": 39,
+    "damage": 0,
+    "log": "New Skill Unlocked! \"Walking\"\nNEW PERK UNLOCKED (\"Walking\")lvl: 1\nYou learned a new action: \"Run\"",
+    "pauseText": "Pause next battle:  OFF"
+  },
+  "after": {
+    "enemy": "Straw dummy",
+    "hp": 14,
+    "max": 17,
+    "area": "Training Grounds",
+    "remaining": 10,
+    "battle": true,
+    "civil": false,
+    "tick": 1,
+    "playerHp": 39,
+    "damage": 3,
+    "log": "New Skill Unlocked! \"Walking\"\nNEW PERK UNLOCKED (\"Walking\")lvl: 1\nYou learned a new action: \"Run\"\nYou -> 3",
+    "pauseText": "Pause next battle:  OFF"
+  },
+  "pauseNext": {
+    "enemy": "Straw dummy",
+    "hp": 14,
+    "max": 17,
+    "area": "Training Grounds",
+    "remaining": 10,
+    "battle": true,
+    "civil": false,
+    "tick": 1,
+    "playerHp": 39,
+    "damage": 3,
+    "log": "New Skill Unlocked! \"Walking\"\nNEW PERK UNLOCKED (\"Walking\")lvl: 1\nYou learned a new action: \"Run\"\nYou -> 3",
+    "pauseText": "Pause next battle:  ON"
+  },
+  "resumed": {
+    "enemy": "Straw dummy",
+    "hp": 14,
+    "max": 17,
+    "area": "Training Grounds",
+    "remaining": 10,
+    "battle": true,
+    "civil": false,
+    "tick": 1,
+    "playerHp": 39,
+    "damage": 3,
+    "log": "New Skill Unlocked! \"Walking\"\nNEW PERK UNLOCKED (\"Walking\")lvl: 1\nYou learned a new action: \"Run\"\nYou -> 3",
+    "pauseText": "Pause next battle:  ON"
+  },
+  "errors": []
+}

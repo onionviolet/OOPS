@@ -1,0 +1,114 @@
+[
+  {
+    "preset": "crafting",
+    "devSeeded": true,
+    "sourceRenderer": true,
+    "wrapper": false,
+    "displayOnlyOverride": "Remove lab scale and set body to actual viewport; no source files edited.",
+    "viewport": [
+      1366,
+      768
+    ],
+    "transform": "none",
+    "playerWidth": 446,
+    "sourceState": {
+      "seeded": [
+        "crafting"
+      ],
+      "panelNames": [
+        "d lab-panel",
+        "d lab-panel",
+        "lab-panel",
+        "lab-panel",
+        "lab-panel",
+        "lab-panel",
+        "lab-panel",
+        "lab-panel"
+      ]
+    }
+  },
+  {
+    "preset": "skills",
+    "devSeeded": true,
+    "sourceRenderer": true,
+    "wrapper": false,
+    "displayOnlyOverride": "Remove lab scale and set body to actual viewport; no source files edited.",
+    "viewport": [
+      1366,
+      768
+    ],
+    "transform": "none",
+    "playerWidth": 446,
+    "sourceState": {
+      "seeded": [
+        "skills"
+      ],
+      "panelNames": [
+        "d lab-panel",
+        "d lab-panel",
+        "lab-panel",
+        "lab-panel",
+        "lab-panel",
+        "lab-panel",
+        "lab-panel",
+        "lab-panel"
+      ]
+    }
+  },
+  {
+    "preset": "actions",
+    "devSeeded": true,
+    "sourceRenderer": true,
+    "wrapper": false,
+    "displayOnlyOverride": "Remove lab scale and set body to actual viewport; no source files edited.",
+    "viewport": [
+      1366,
+      768
+    ],
+    "transform": "none",
+    "playerWidth": 446,
+    "sourceState": {
+      "seeded": [
+        "actions"
+      ],
+      "panelNames": [
+        "d lab-panel",
+        "d lab-panel",
+        "lab-panel",
+        "lab-panel",
+        "lab-panel",
+        "lab-panel",
+        "lab-panel",
+        "lab-panel"
+      ]
+    }
+  },
+  {
+    "preset": "journal",
+    "devSeeded": true,
+    "sourceRenderer": true,
+    "wrapper": false,
+    "displayOnlyOverride": "Remove lab scale and set body to actual viewport; no source files edited.",
+    "viewport": [
+      1366,
+      768
+    ],
+    "transform": "none",
+    "playerWidth": 446,
+    "sourceState": {
+      "seeded": [
+        "journal"
+      ],
+      "panelNames": [
+        "d lab-panel",
+        "d lab-panel",
+        "lab-panel",
+        "lab-panel",
+        "lab-panel",
+        "lab-panel",
+        "lab-panel",
+        "lab-panel"
+      ]
+    }
+  }
+]

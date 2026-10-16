@@ -1,0 +1,30 @@
+[
+  {
+    "font": 14,
+    "buff": 1,
+    "debuff": 2,
+    "nativeDurations": true,
+    "nativeDescription": true,
+    "inspectionExact": true,
+    "bounds": {
+      "x": 21,
+      "y": 321,
+      "width": 392,
+      "height": 329.875
+    }
+  },
+  {
+    "font": 21,
+    "buff": 1,
+    "debuff": 2,
+    "nativeDurations": true,
+    "nativeDescription": true,
+    "inspectionExact": true,
+    "bounds": {
+      "x": 21,
+      "y": 321,
+      "width": 459.1875,
+      "height": 393
+    }
+  }
+]

@@ -1,0 +1,56 @@
+{
+  "changed": [
+    {
+      "path": "src/proto23_shell.js",
+      "before": "ebf32c95befcc81f0e7e705e0f284b21cca69f6f8ea67e5ab040b6316f920fe4",
+      "after": "0453467d32bd29b10cdc0cd1cafc0345c8580a618548a9d61fc088d0576a2194"
+    },
+    {
+      "path": "src/workspace_layout.js",
+      "before": "eda13f8c24397412200a57a8684557f759d2fc359b930ae4864e4ea655ab679c",
+      "after": "cce1a88a6e6140537c322e06c1d649660d76b802ac0970d84f73604272a3724a"
+    },
+    {
+      "path": "styles/ui_tokens.css",
+      "before": "472b298949c9ac5cc4622a9da22aef679ac1c257433338b09e5d109f6eef4751",
+      "after": "1678140c2737fbbf252489015f141cce7d58dafba23793d0ab067b559335dcc4"
+    }
+  ],
+  "preserved": [
+    {
+      "path": "src/display.js",
+      "before": "4530c5635d926b716d67f4ab662ebc13856a32c5dc6134558d00ed7b80f23ee1",
+      "after": "4530c5635d926b716d67f4ab662ebc13856a32c5dc6134558d00ed7b80f23ee1"
+    },
+    {
+      "path": "src/workspace_navigation.js",
+      "before": "1314f5adc9f76b99ee17d66be7a1be9a9b6ee3622ea18895225dc25de38614f7",
+      "after": "1314f5adc9f76b99ee17d66be7a1be9a9b6ee3622ea18895225dc25de38614f7"
+    },
+    {
+      "path": "src/village_workspace.js",
+      "before": "fd37a7ab874b9d394de0700b090fbbe827d3facb7628fcaca44257587a57ca7e",
+      "after": "fd37a7ab874b9d394de0700b090fbbe827d3facb7628fcaca44257587a57ca7e"
+    },
+    {
+      "path": "src/main.js",
+      "before": "dfe9fbcc4b87e70f6993c3578b7fc789fb23a1700ffa3980e1dc75f3492d7b71",
+      "after": "dfe9fbcc4b87e70f6993c3578b7fc789fb23a1700ffa3980e1dc75f3492d7b71"
+    },
+    {
+      "path": "src/save_files.js",
+      "before": "ed3f1d2bbc12c8b2e0a1cade98cc825af27c3e5d3ab9ee904958aa2b04308b8d",
+      "after": "ed3f1d2bbc12c8b2e0a1cade98cc825af27c3e5d3ab9ee904958aa2b04308b8d"
+    },
+    {
+      "path": "src/simulation.js",
+      "before": "b4a5b39f5b1a6f3c5c7bbc048a44898066a437735ee34b855b8b074da7824ea4",
+      "after": "b4a5b39f5b1a6f3c5c7bbc048a44898066a437735ee34b855b8b074da7824ea4"
+    },
+    {
+      "path": "src/simulation_clock.js",
+      "before": "02e5e74028285e95d0f959b5a42739500b7dc5686830467cbb2058584d3b4897",
+      "after": "02e5e74028285e95d0f959b5a42739500b7dc5686830467cbb2058584d3b4897"
+    }
+  ]
+}

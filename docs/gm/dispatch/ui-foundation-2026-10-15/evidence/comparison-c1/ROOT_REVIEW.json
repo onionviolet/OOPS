@@ -1,0 +1,36 @@
+{
+  "review": "Root inspected Village/combat/expanded stance and source lab native views. Comparison viewer all four states load; source images are1366x768. Frozen site bytes checked and enters PLAY. Source provenance and discovery/seed evidence remain separate.",
+  "artifacts": [
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/evidence/c1-proto23-reference-1366.png",
+      "sha256": "f4bda8dc12a3414fd93eb3e92335f379df735573d52d3c8b1f1fdadd95b54051"
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/evidence/c1-village-1366.png",
+      "sha256": "133d5d1a1e18016c29a92733b88c7220452ab3d230e88c899dc40efd43345e33"
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/evidence/c1-combat-1366.png",
+      "sha256": "6baef7d61704f9e9d6f15b34451f1912561628e2abf73546b15d61427ce69c1b"
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/evidence/c1-crafting-1366.png",
+      "sha256": "ab964512fca7aa027956f584ad08f6f2b7e43031d47859e5bd5b5fa812e2a543"
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/evidence/c1-mixing-1366.png",
+      "sha256": "236aba1de91f4637fec519696cb702dae82ee91966e9ec0b2889ae6f7596a10e"
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/evidence/comparison-c1/side-by-side.png",
+      "sha256": "9eb427f9e0fadeb31db2bb252490c15f0da4bce39f76896bda629ad766440233"
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/evidence/comparison-c1/index.html",
+      "sha256": "0b956917bfc3fc8030c76bc7cd7cb0bebfea99ac3be1a31ea781c8ff93b55d2c"
+    }
+  ],
+  "frozenBuild": "http://127.0.0.1:19117/c1-review-site/",
+  "sourceLab": "http://127.0.0.1:19118/",
+  "humanVisualAcceptance": "OPEN"
+}

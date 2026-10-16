@@ -1,0 +1,5 @@
+page.waitForEvent: Timeout 15000ms exceeded while waiting for event "load"
+=========================== logs ===========================
+waiting for event "load"
+============================================================
+    at /Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/ui-foundation-2026-10-15/check-c1.cjs:21:288

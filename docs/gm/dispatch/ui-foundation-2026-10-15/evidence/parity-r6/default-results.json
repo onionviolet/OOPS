@@ -1,0 +1,8 @@
+{
+  "baseLayoutRawBytesExact": true,
+  "pinCollapseExact": true,
+  "originalNavigationAndLogControls": true,
+  "enhancedLogHiddenOutsideParity": true,
+  "gameplayExact": true,
+  "errors": []
+}

@@ -1,0 +1,57 @@
+[
+  {
+    "w": 1366,
+    "h": 768,
+    "font": 14,
+    "enemies": 3,
+    "stats": 12,
+    "readoutExplicit": true,
+    "optionsNative": true,
+    "allGameplaySaveFieldsExact": true,
+    "errors": []
+  },
+  {
+    "w": 1366,
+    "h": 768,
+    "font": 17.5,
+    "enemies": 3,
+    "stats": 12,
+    "readoutExplicit": true,
+    "optionsNative": true,
+    "allGameplaySaveFieldsExact": true,
+    "errors": []
+  },
+  {
+    "w": 1366,
+    "h": 768,
+    "font": 21,
+    "enemies": 3,
+    "stats": 12,
+    "readoutExplicit": true,
+    "optionsNative": true,
+    "allGameplaySaveFieldsExact": true,
+    "errors": []
+  },
+  {
+    "w": 1920,
+    "h": 1080,
+    "font": 21,
+    "enemies": 3,
+    "stats": 12,
+    "readoutExplicit": true,
+    "optionsNative": true,
+    "allGameplaySaveFieldsExact": true,
+    "errors": []
+  },
+  {
+    "w": 2560,
+    "h": 1440,
+    "font": 21,
+    "enemies": 3,
+    "stats": 12,
+    "readoutExplicit": true,
+    "optionsNative": true,
+    "allGameplaySaveFieldsExact": true,
+    "errors": []
+  }
+]

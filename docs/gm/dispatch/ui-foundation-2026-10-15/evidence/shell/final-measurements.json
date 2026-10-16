@@ -1,0 +1,54 @@
+[
+  {
+    "height": 768,
+    "width": 1366,
+    "h": 768,
+    "w": 1366,
+    "regions": [
+      {
+        "id": "inventory_content_div",
+        "visible": 121,
+        "content": 567
+      },
+      {
+        "id": "center_mode_content",
+        "visible": 179,
+        "content": 358
+      }
+    ],
+    "log": 564
+  },
+  {
+    "height": 900,
+    "width": 1440,
+    "h": 900,
+    "w": 1440,
+    "regions": [
+      {
+        "id": "inventory_content_div",
+        "visible": 253,
+        "content": 567
+      },
+      {
+        "id": "center_mode_content",
+        "visible": 270,
+        "content": 358
+      }
+    ],
+    "log": 696
+  },
+  {
+    "height": 1080,
+    "width": 1920,
+    "h": 1080,
+    "w": 1920,
+    "regions": [
+      {
+        "id": "inventory_content_div",
+        "visible": 433,
+        "content": 567
+      }
+    ],
+    "log": 904
+  }
+]

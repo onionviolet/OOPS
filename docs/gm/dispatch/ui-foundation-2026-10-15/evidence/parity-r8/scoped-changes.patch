@@ -1,0 +1,296 @@
+--- r7/src/proto23_shell.js
++++ r8/src/proto23_shell.js
+@@ -24,6 +24,7 @@
+     for(const child of [...copy.childNodes]){if(child.nodeName==='BR'){child.remove();finish();}else line.append(child);}finish();copy.append(lines);
+     return copy;
+ }
++const shortStatLabels={strength_slot:'STR',agility_slot:'AGL',dexterity_slot:'DEX',intuition_slot:'INT',magic_slot:'Magic',attack_power_slot:'Attack',attack_speed_slot:'Speed',crit_rate_slot:'Crit %',crit_multiplier_slot:'Crit ×',hit_chance_slot:'AP',defense_slot:'Defense',defensive_action_chance_slot:'EP'};
+ const active=()=>document.getElementById('main_content')?.dataset.presentation==='proto23-shell';
+ const action=(label,run)=>{const b=node('button',label);b.type='button';b.onclick=run;return b;};
+ // Presentation only: authoritative values come from the supplied native reader;
+@@ -32,21 +33,23 @@
+     const player=node('section',null,'shell-character');player.id='proto23_character';
+     const statline=node('div',null,'shell-statline'),equipment=node('div',null,'shell-equipment');
+     let allStatsOpen=false,statsSignature='';const statsCatalog=node('section',null,'shell-stats-catalog');statsCatalog.hidden=true;
+-    const details=action('All stats',()=>{allStatsOpen=!allStatsOpen;statsCatalog.hidden=!allStatsOpen;statline.hidden=allStatsOpen;combatOverview.hidden=allStatsOpen;gear.hidden=allStatsOpen;const viewport=player.closest('.workspace-module-body');if(viewport)viewport.scrollTop=0;details.textContent=allStatsOpen?'Overview':'All stats';details.setAttribute('aria-expanded',String(allStatsOpen));document.getElementById('main_content').dataset.shellStatsOpen=String(allStatsOpen);});
+-    const fullStats=action('Full stats ›',()=>expandWorkspaceModule('preparation'));statsCatalog.append(fullStats);
++    const details=action('All stats',()=>{allStatsOpen=!allStatsOpen;statsCatalog.hidden=!allStatsOpen;statline.hidden=allStatsOpen;combatOverview.hidden=allStatsOpen;gear.hidden=allStatsOpen;fullStats.hidden=!allStatsOpen;const viewport=player.closest('.workspace-module-body');if(viewport)viewport.scrollTop=0;details.textContent=allStatsOpen?'Overview':'All stats';details.setAttribute('aria-expanded',String(allStatsOpen));document.getElementById('main_content').dataset.shellStatsOpen=String(allStatsOpen);});
++    const fullStats=action('Full stats ›',()=>expandWorkspaceModule('preparation'));fullStats.hidden=true;
+     const statsRows=node('div',null,'shell-stat-records');statsCatalog.append(statsRows);
+-    const statGroups=new Map(),statRecords=new Map(),overviewRecords=new Map();let statGroup='core';const statTabs=node('nav',null,'shell-stat-tabs');statTabs.setAttribute('aria-label','Character stat groups');statsCatalog.insertBefore(statTabs,statsRows);const selectStatGroup=id=>{statGroup=id;for(const[key,rows]of statGroups)rows.parentElement.hidden=key!==id;for(const tab of statTabs.children)tab.setAttribute('aria-pressed',String(tab.dataset.statGroup===id));};
++    const statGroups=new Map(),statRecords=new Map(),overviewRecords=new Map();let statGroup='all';const statTabs=node('nav',null,'shell-stat-tabs');statTabs.setAttribute('aria-label','Character stat groups');statsCatalog.insertBefore(statTabs,statsRows);const selectStatGroup=id=>{statGroup=id;statsRows.dataset.all=String(id==='all');for(const[key,row]of statRecords)row.firstChild.textContent=id==='all'?(row.dataset.fullLabel.includes('Block')?'Block':shortStatLabels[key]||row.dataset.fullLabel):row.dataset.fullLabel;for(const[key,rows]of statGroups)rows.parentElement.hidden=id!=='all'&&key!==id;for(const tab of statTabs.children)tab.setAttribute('aria-pressed',String(tab.dataset.statGroup===id));};
+     for(const [id,label,description]of [['core','Attributes','Strength, agility, dexterity, intuition and magic.'],['offense','Attack','Power, cadence, accuracy and critical hits.'],['defense','Defense','Damage reduction and native defensive rating.']]){const group=node('section',null,'shell-stat-group');group.dataset.statGroup=id;const heading=node('strong',label),hint=node('small',description),rows=node('div');group.append(heading,hint,rows);statsRows.append(group);statGroups.set(id,rows);const tab=action(label,()=>selectStatGroup(id));tab.dataset.statGroup=id;tab.title=description;statTabs.append(tab);}
++    const allTab=action('All',()=>selectStatGroup('all'));allTab.dataset.statGroup='all';statTabs.prepend(allTab);
+     selectStatGroup(statGroup);
+     const combatOverview=node('div',null,'shell-combat-overview');player.append(combatOverview);
+ 
+     const gear=node('details',null,'shell-gear-disclosure');gear.open=innerWidth>=1700;let gearChosen=false;const gearSummary=node('summary','Equipment');gear.append(gearSummary,equipment);gearSummary.addEventListener('click',()=>{gearChosen=true;});
+-    details.title='Show all native character stats in this panel';const effectsSummary=action('Effects',()=>showContext(effectsSummary));effectsSummary.className='shell-effects-summary';effectsSummary.hidden=true;effectsSummary.dataset.contextPreview='effects';player.append(statline,combatOverview,details,effectsSummary,gear,statsCatalog);
++    details.title='Show all native character stats in this panel';const effectsSummary=action('Effects',()=>showContext(effectsSummary));effectsSummary.className='shell-effects-summary';effectsSummary.hidden=true;effectsSummary.dataset.contextPreview='effects';player.append(statline,combatOverview,details,effectsSummary,gear,fullStats,statsCatalog);
+     const detail=node('section',null,'shell-item-detail');detail.id='proto23_item_detail';
+     const title=node('strong'),meta=node('p'),body=node('div',null,'shell-item-description'),controls=node('div',null,'shell-item-actions');
+     detail.append(title,meta,body,controls);
+     let selected=null,signature='',playerSignature='';const playerStatNodes=new Map();
+-    const originalLogLabels=new Map();
++    const originalLogLabels=new Map(),originalNoticeLabels=new Map();
++    function syncNoticeLabels(){const parity=active()&&document.getElementById('main_content').dataset.parity==='r3';for(const link of document.querySelectorAll('#message_box_div .notice-panel-link')){if(parity){if(!originalNoticeLabels.has(link))originalNoticeLabels.set(link,{text:link.textContent,title:link.title});const label=({'skills':'Skills','belongings':'Inventory','crafting':'Crafting','local-actions':'Here','records':'Journal'})[link.dataset.noticePanel]||'Related panel';const text=label+' ›';if(link.textContent!==text)link.textContent=text;const description='Open '+label+' · current panel';if(link.title!==description)link.title=description;if(link.getAttribute('aria-label')!==description)link.setAttribute('aria-label',description);}else if(originalNoticeLabels.has(link)){const old=originalNoticeLabels.get(link);link.textContent=old.text;link.title=old.title;link.removeAttribute('aria-label');originalNoticeLabels.delete(link);}}for(const link of originalNoticeLabels.keys())if(!link.isConnected)originalNoticeLabels.delete(link);}
+     function syncLogLabels(){const parity=active()&&document.getElementById('main_content').dataset.parity==='r3';for(const[id,label]of [['message_show_unlocks','Growth'],['message_show_events','Events'],['message_show_crafting','Crafting'],['message_show_combat','Combat'],['message_show_loot','Loot'],['message_show_background','World']]){const control=document.getElementById(id);if(!control)continue;if(parity){if(!originalLogLabels.has(control))originalLogLabels.set(control,control.textContent);if(control.textContent!==label)control.textContent=label;}else if(originalLogLabels.has(control)){control.textContent=originalLogLabels.get(control);originalLogLabels.delete(control);}}}
+ 
+     // Context previews reuse public native descriptions. No hidden actor lookup,
+@@ -87,7 +90,7 @@
+         contextPreview.style.top=Math.max(8,box.bottom+h+8<innerHeight?box.bottom+6:box.top-h-6)+'px';
+         source.setAttribute('aria-describedby',contextPreview.id);
+     }
+-    const contextSelector='[data-native-stat],[data-effect-anchor=opponent-name],.shell-effects-summary,.combat-focus-view dl > div,.combat-focus-choices button,.log-subject,.shell-stat-record,#message_box_div .notice-panel-link,#character_health_div,#character_stamina_div,#character_xp_div';
++    const contextSelector='[data-native-stat],[data-effect-anchor=opponent-name],.shell-effects-summary,.combat-focus-view dl > div,.combat-focus-choices button,.log-subject,.shell-stat-record,#character_health_div,#character_stamina_div,#character_xp_div';
+     const contextEnter=event=>{const source=event.target.closest(contextSelector);if(source&&!source.contains(event.relatedTarget))showContext(source);};
+     const contextLeave=event=>{const source=event.target.closest(contextSelector);if(source&&!source.contains(event.relatedTarget)){clearTimeout(contextTimer);contextTimer=setTimeout(hideContext,180);}};
+     for(const type of ['mouseover','focusin'])document.addEventListener(type,contextEnter);
+@@ -137,6 +140,7 @@
+         for(const [id,text]of choices){const option=node('option',text);option.value=id;select.append(option);}
+         select.onchange=()=>document.getElementById(select.value)?.click();compact.append(select);return select;};
+     const category=makeSelect('Inventory category',[['inventory_show_all','All items'],['inventory_show_equipment','Equipment'],['inventory_show_consumable','Usable'],['inventory_show_other','Other'],['inventory_show_favs','Favorites']]);
++    category.title='Item colors: gold equipment, green usable, blue components, violet books. Quality keeps its native percentage and color; color does not imply rarity of other items.';
+     const sort=makeSelect('Inventory sort',[['inventory_sort_by_name','Name'],['inventory_sort_by_price','Value'],['inventory_sort_by_type','Type']]);
+     const reverse=action('Reverse',()=>document.getElementById(sort.value)?.click());reverse.setAttribute('aria-label','Reverse inventory sort');reverse.title='Reverse the current native sort order';compact.append(reverse);
+     const home=document.getElementById('main_content');
+@@ -169,10 +173,11 @@
+     document.addEventListener('click',inspect);document.addEventListener('focusin',inspect);
+     document.addEventListener('keydown',event=>{if(active()&&['Enter',' '].includes(event.key)&&event.target.matches('#inventory_content_div > [data-character_item]')){event.preventDefault();choose(event.target);}});
+     function render(){
+-        syncLogLabels();if(!gearChosen){const font=parseFloat(getComputedStyle(player).fontSize)||14,wanted=innerWidth>=1700&&player.clientWidth/font>=24;if(gear.open!==wanted)gear.open=wanted;}if(!active()){if(contextSource)hideContext();return;}const enabled=document.querySelectorAll('#message_controls .active_selection_button').length;filters.textContent=enabled===6?'Filters · All':`Filters · ${enabled}/6`;follow.value=getDisplaySetting('logFollow');const logBox=document.getElementById('message_box_div');latest.disabled=logBox.scrollHeight-logBox.scrollTop-logBox.clientHeight<24;
++        syncLogLabels();syncNoticeLabels();if(!gearChosen){const font=parseFloat(getComputedStyle(player).fontSize)||14,wanted=innerWidth>=1700&&player.clientWidth/font>=24;if(gear.open!==wanted)gear.open=wanted;}if(!active()){if(contextSource)hideContext();return;}const enabled=document.querySelectorAll('#message_controls .active_selection_button').length;filters.textContent=enabled===6?'Filters':`Filters ${enabled}/6`;follow.value=getDisplaySetting('logFollow');const logBox=document.getElementById('message_box_div');latest.disabled=logBox.scrollHeight-logBox.scrollTop-logBox.clientHeight<24;
+         const effectRows=[...document.querySelectorAll('#effects_tooltip .active_effect_tooltip')],effectName=effectRows[0]?.querySelector('.active_effect_name')?.textContent.replace(/^'|'\s*:\s*$/g,'').trim();effectsSummary.hidden=!effectRows.length||document.getElementById('main_content').dataset.parity!=='r3';effectsSummary.textContent=effectName?(effectName+(effectRows.length>1?' +'+(effectRows.length-1):'')):'Effects';effectsSummary.setAttribute('aria-label',`Active effects: ${effectRows.length}. ${effectName||''}`);player.dataset.hasEffects=String(!!effectRows.length);
+         if(contextSource){if(contextSource.isConnected&&!contextSource.hidden&&active())showContext(contextSource);else hideContext();}
+         if(!active())return;
++        const statFont=parseFloat(getComputedStyle(player).fontSize)||14,statColumns=String(Math.min(4,Math.max(2,Math.floor(player.clientWidth/(statFont*7)))));if(statsRows.dataset.columns!==statColumns)statsRows.dataset.columns=statColumns;
+         const nativeStats=[...document.querySelectorAll('#character_stats_div .stat_slot_div')].filter(n=>n.querySelector('.stat_value,.stat_value_long')?.textContent.trim());
+         const nextStats=nativeStats.map(n=>n.innerHTML).join('');
+         if(statsSignature!==nextStats){statsSignature=nextStats;
+@@ -180,13 +185,14 @@
+             for(const source of nativeStats){
+                 const valueNode=source.querySelector('.stat_value,.stat_value_long'),key=valueNode.id,label=source.querySelector('.stat_name,.stat_name_short')?.textContent.trim().replace(/:$/,'')||'Combat chance';seen.add(key);
+                 let row=statRecords.get(key);if(!row){row=node('button',null,'shell-stat-record');row.type='button';row.dataset.statRecord=key;row.append(node('span'),node('strong'));statRecords.set(key,row);}
+-                row.firstChild.textContent=label;row.children[1].textContent=valueNode.textContent.trim()+(key==='attack_speed_slot'?' /s':'');
++                row.dataset.fullLabel=label;row.dataset.longValue=String(valueNode.classList.contains('stat_value_long'));row.firstChild.textContent=statGroup==='all'?(label.includes('Block')?'Block':shortStatLabels[key]||label):label;row.children[1].textContent=valueNode.textContent.trim()+(key==='attack_speed_slot'?' /s':'');
++                const description=label+': '+row.children[1].textContent;if(row.getAttribute('aria-label')!==description)row.setAttribute('aria-label',description);
+                 const tooltip=source.querySelector('.stat_tooltip');if(tooltip&&row.dataset.tooltipSignature!==tooltip.innerHTML){row.dataset.tooltipSignature=tooltip.innerHTML;row.querySelector('.stat_tooltip')?.remove();const copy=tooltip.cloneNode(true);copy.removeAttribute('id');for(const n of copy.querySelectorAll('[id]'))n.removeAttribute('id');row.append(copy);}
+                 const group=/^(strength|agility|dexterity|intuition|magic)_/.test(key)?'core':/^(defense|defensive_action)/.test(key)?'defense':'offense';const host=statGroups.get(group);if(row.parentNode!==host)host.append(row);
+             }
+             for(const[key,row]of statRecords)if(!seen.has(key)){row.remove();statRecords.delete(key);}
+ 
+-            for(const[key,label]of [['attack_speed_slot','Cadence'],['crit_rate_slot','Critical'],['hit_chance_slot','Accuracy'],['defensive_action_chance_slot','Defense rating']]){const source=statRecords.get(key);if(!source)continue;let cell=overviewRecords.get(key);if(!cell){cell=node('button',null,'shell-stat-record');cell.type='button';cell.dataset.statRecord=key;cell.append(node('span',label),node('strong'));overviewRecords.set(key,cell);combatOverview.append(cell);}cell.firstChild.textContent=key==='defensive_action_chance_slot'?(source.firstChild.textContent.includes('Block')?'Block':'Evasion rating'):label;cell.children[1].textContent=source.children[1].textContent;const tip=source.querySelector('.stat_tooltip');if(tip&&cell.dataset.tip!==tip.innerHTML){cell.dataset.tip=tip.innerHTML;cell.querySelector('.stat_tooltip')?.remove();cell.append(tip.cloneNode(true));}}
++            for(const[key,label]of [['magic_slot','Magic'],['crit_multiplier_slot','Crit power'],['attack_speed_slot','Cadence'],['crit_rate_slot','Critical'],['hit_chance_slot','Accuracy'],['defensive_action_chance_slot','Defense rating']]){const source=statRecords.get(key);if(!source)continue;let cell=overviewRecords.get(key);if(!cell){cell=node('button',null,'shell-stat-record');cell.type='button';cell.dataset.statRecord=key;cell.append(node('span',label),node('strong'));overviewRecords.set(key,cell);combatOverview.append(cell);}cell.firstChild.textContent=key==='defensive_action_chance_slot'?(source.firstChild.textContent.includes('Block')?'Block':'Evasion rating'):label;cell.children[1].textContent=source.children[1].textContent;const tip=source.querySelector('.stat_tooltip');if(tip&&cell.dataset.tip!==tip.innerHTML){cell.dataset.tip=tip.innerHTML;cell.querySelector('.stat_tooltip')?.remove();cell.append(tip.cloneNode(true));}}
+         }
+         const root=document.getElementById('main_content'),context=document.getElementById('location_related_div'),style=getComputedStyle(context);
+         root.dataset.shellCustomPalette=context.dataset.customPalette||'false';
+--- r7/src/village_workspace.js
++++ r8/src/village_workspace.js
+@@ -30,11 +30,11 @@
+     enemyHealth.setAttribute('aria-live','off');enemyFacts.setAttribute('aria-live','off');
+     enemyName.dataset.effectAnchor='opponent-name';enemyHealth.dataset.effectAnchor='opponent-health';enemyFacts.dataset.effectAnchor='opponent-stats';
+     enemyCycle.max=100;enemyCycle.setAttribute('aria-label','Native attack cycle');enemyCycleLabel.append(enemyCycle);
+-    const combatDetails=node('details'),combatSummary=node('summary','Combat readout');combatDetails.className='combat-readout';combatDetails.append(combatSummary,node('small','Native readout · inspection does not change attack targeting.'),enemyFacts,enemyEmpty);enemyView.append(enemyChoices,enemyName,enemyHealth,enemyCycleLabel,combatDetails);const enemyChoiceNodes=new Map();
+-    const factNodes=new Map();
++    const combatDetails=node('details'),combatSummary=node('summary','Combat readout');combatDetails.className='combat-readout';combatDetails.append(combatSummary,enemyFacts,enemyEmpty);enemyView.append(enemyChoices,enemyName,enemyHealth,enemyCycleLabel,combatDetails);const enemyChoiceNodes=new Map();
++    const factNodes=new Map();let readoutChosen=false;combatSummary.addEventListener('click',()=>{readoutChosen=true;});
+     const rosterMode=node('button','Panels');rosterMode.type='button';rosterMode.className='combat-roster-mode';let enemyPanels=false,enemyPanelsChosen=false;
+     rosterMode.onclick=()=>{enemyPanelsChosen=true;enemyPanels=!enemyPanels;setText(rosterMode,enemyPanels?'Compact':'Panels');setAttr(rosterMode,'aria-pressed',enemyPanels);render();};rosterMode.title='Show an individual health and attack-cycle panel for each opponent. Inspection never selects an attack target.';
+-    enemyView.prepend(rosterMode);
++    enemyCycleLabel.append(rosterMode);
+ 
+     const setText=(n,text)=>{if(n.textContent!==text)n.textContent=text;};
+     const setAttr=(n,key,value)=>{value=String(value);if(n.getAttribute(key)!==value)n.setAttribute(key,value);};
+@@ -60,6 +60,12 @@
+             const own=ownId?document.querySelector(`#character_stats_div #${ownId}`)?.textContent.trim():null;
+             setText(pair.lastChild,own?`You: ${own}${fact.label==='Speed'?' /s':''}`:'');pair.tabIndex=0;pair.title=({'Attack':'Damage per connected attack, before your damage reduction.','Defense':'Damage reduction.','Speed':'Attack rate, in attacks per second.','Hit you':'This opponent’s chance to connect against you. Shield block is separate.','Evade you':'This opponent’s chance to evade your attack.','You hit them':'Your native chance to connect against this inspected opponent, before damage reduction or block. Inspection does not select an attack target.','Attack rating':'Native attack points, a rating rather than a percentage.','Evasion rating':'Native evasion points, a rating rather than a percentage.'})[fact.label]||'';}
+         enemyCycle.value=target.attackProgress||0;
++        // Fit public facts to the actual pane and selected type size. A deliberate
++        // disclosure choice lasts for this session, including live resizes.
++        const font=parseFloat(getComputedStyle(focus).fontSize)||14,columns=focus.clientWidth/font>=20?2:1;
++        setAttr(enemyFacts,'data-columns',columns);
++        if(!readoutChosen){const needed=(enemies.length>1?(enemyPanels?10:8):6)+Math.ceil(facts.length/columns)*(columns===2?3:2);const wanted=(focus.closest('.workspace-module-body')?.clientHeight||focus.clientHeight)/font>=needed;if(combatDetails.open!==wanted)combatDetails.open=wanted;}
++        setTitle(combatSummary,`${readoutChosen?'Manual':'Automatic fit'} · inspect known combat facts; inspection does not change attack targeting.`);
+     }
+     const home=document.getElementById('main_content');
+     definePanel({id:'focus',title:'Focus',role:'character',node:focus,home,defaultDock:'center',after:'time',eligible:()=>true});
+@@ -80,7 +86,7 @@
+         const parts=view.clockText.split(' · '),date=parts[1]||'',season=date.split(',')[1]?.trim();
+         setText(placeName,frame.place);
+         const conditionRows=[['season',season],['weather',parts[3]],['temperature',parts[4]]].filter(([,value])=>value);
+-        const nativeTemperatureState=document.querySelector('#weather_div .cold_temperature')?'cold_temperature':'normal_temperature';const conditionSignature=JSON.stringify([conditionRows,nativeTemperatureState]);if(conditions.dataset.signature!==conditionSignature){conditions.dataset.signature=conditionSignature;conditions.replaceChildren();for(const[kind,value]of conditionRows){const symbol=kind==='season'?({'Spring':'❀','Summer':'☀','Autumn':'❧','Fall':'❧','Winter':'❄'}[value]||'◈'):kind==='weather'?({'Dry':'◇','Rain':'☂','Snow':'❄'}[value]||'◇'):'♨';const badge=node('span');badge.dataset.condition=kind;badge.dataset.conditionValue=value.toLowerCase();const icon=node('span',symbol);icon.setAttribute('aria-hidden','true');badge.append(icon,document.createTextNode(' '+value+(kind==='temperature'&&nativeTemperatureState==='cold_temperature'?' · Cold':'')));if(kind==='temperature')badge.dataset.temperatureState=nativeTemperatureState;badge.title=kind==='temperature'?(document.getElementById('temperature_tooltip')?.textContent||value):kind==='weather'?value+' · native weather; no additional effect inferred.':value+' · native calendar season';conditions.append(badge);}}
++        const nativeTemperatureState=document.querySelector('#weather_div .cold_temperature')?'cold_temperature':'normal_temperature';const conditionSignature=JSON.stringify([conditionRows,nativeTemperatureState]);if(conditions.dataset.signature!==conditionSignature){conditions.dataset.signature=conditionSignature;conditions.replaceChildren();for(const[kind,value]of conditionRows){const symbol=kind==='season'?({'Spring':'❀','Summer':'☀','Autumn':'❧','Fall':'❧','Winter':'❄'}[value]||'◈'):kind==='weather'?({'Rain':'☂','Snow':'❄'}[value]||''):'♨';const badge=node('span');badge.dataset.condition=kind;badge.dataset.conditionValue=value.toLowerCase();const icon=node('span',symbol);icon.setAttribute('aria-hidden','true');if(symbol)badge.append(icon);badge.append(document.createTextNode((symbol?' ':'')+value+(kind==='temperature'&&nativeTemperatureState==='cold_temperature'?' · Cold':'')));if(kind==='temperature')badge.dataset.temperatureState=nativeTemperatureState;badge.title=kind==='temperature'?(document.getElementById('temperature_tooltip')?.textContent||value):kind==='weather'?value+' · native weather; no additional effect inferred.':value+' · native calendar season';conditions.append(badge);}}
+ 
+         setText(calendar,[season?date.replace(', '+season,''):date,parts[2]?((/night/i.test(parts[2])?'☾ ':'☼ ')+parts[2]):''].filter(Boolean).join(' · '));calendar.dataset.timeOfDay=/night/i.test(parts[2])?'night':'day';
+         if(!parity)setText(clock,view.clockText);setTitle(clock,view.clockText);placeTabs.hidden=!parity;people.hidden=!frame.people.length||parity&&placeTab!=='people';things.hidden=!frame.things.length||parity&&placeTab!=='things';for(const b of placeTabs.children){const count=b.dataset.placeTab==='people'?frame.people.length:b.dataset.placeTab==='things'?frame.things.length:null;setText(b,['actions','options'].includes(b.dataset.placeTab)?(b.dataset.placeTab==='actions'?'Actions':'Options'):`${b.dataset.placeTab==='people'?'People':'Things'} · ${count}`);if(b.disabled!==(count===0))b.disabled=count===0;b.hidden=count===0;b.setAttribute('aria-pressed',String(b.dataset.placeTab===placeTab));}
+--- r7/src/workspace_layout.js
++++ r8/src/workspace_layout.js
+@@ -3,6 +3,8 @@
+ import { getDisplaySettings, getDisplaySetting, replaceDisplaySettings, effectsCap } from './display_settings.js';
+ import { normalizeLayout, parseLayout, presetLayout, changeModule, reorderModule, layoutStorageKey, normalizeColumns } from './workspace_state.js';
+ const registry = new Map();
++const setProperty=(node,key,value)=>{if(node[key]!==value)node[key]=value;};
++const setAttribute=(node,key,value)=>{value=String(value);if(node.getAttribute(key)!==value)node.setAttribute(key,value);};
+ let owner;
+ let requestedComposition=false;
+ const compositionKey=narrow=>`${layoutStorageKey(narrow)}.composition`;
+@@ -81,12 +83,15 @@
+         const purse=owner.parity&&module.id==='belongings'?document.getElementById('money_div')?.textContent.trim().replace(/^Your purse contains:\s*/, ''):null;
+         const statusText=purse??(!eligible?(module.unavailableReason?.()||'Return here to use this panel'):count?`${count} entries`:({focus:module.shell.dataset.focusEmpty==='true'?'Inspect a target':'Current target',records:'Choose a tab','local-actions':'Available here',projects:`${module.node.querySelectorAll('details').length} projects`}[module.id]||(state.collapsed?'Collapsed · expand to review':'Ready')));
+         if(status.textContent!==statusText)status.textContent=statusText;
+-        status.title=purse?`Purse: ${purse}`:statusText;status.setAttribute('aria-label',status.title);
+-        header.querySelector('strong').setAttribute('aria-expanded', String(!state.collapsed));
+-        header.querySelector('[data-workspace-action="hide"]').disabled = module.critical; header.querySelector('[data-workspace-action="collapse"]').disabled = module.critical;
+-        header.querySelector('[data-workspace-action=expand]').textContent=module.expanded?'Return':'Expand';
+-        const collapse=header.querySelector('[data-workspace-action="collapse"]');collapse.textContent=state.collapsed?'▸':'▾';collapse.title=`${state.collapsed?'Open':'Collapse'} ${module.title}`;collapse.setAttribute('aria-label',collapse.title);collapse.setAttribute('aria-expanded',String(!state.collapsed));
+-        const pin=header.querySelector('[data-workspace-action="pin"]');pin.textContent=state.pinned?'Unpin':'Pin';pin.title=`${state.pinned?'Unpin':'Pin'} ${module.title}`;pin.setAttribute('aria-label',pin.title);pin.setAttribute('aria-pressed',String(state.pinned));
++        const description=purse?`Purse: ${purse}`:statusText;
++        setProperty(status,'title',description);setAttribute(status,'aria-label',description);
++        setAttribute(header.querySelector('strong'),'aria-expanded',!state.collapsed);
++        for(const control of ['hide','collapse'])setProperty(header.querySelector(`[data-workspace-action="${control}"]`),'disabled',module.critical);
++        setProperty(header.querySelector('[data-workspace-action=expand]'),'textContent',module.expanded?'Return':'Expand');
++        const collapse=header.querySelector('[data-workspace-action="collapse"]'),collapseLabel=`${state.collapsed?'Open':'Collapse'} ${module.title}`;
++        setProperty(collapse,'textContent',state.collapsed?'▸':'▾');setProperty(collapse,'title',collapseLabel);setAttribute(collapse,'aria-label',collapseLabel);setAttribute(collapse,'aria-expanded',!state.collapsed);
++        const pin=header.querySelector('[data-workspace-action="pin"]'),pinLabel=`${state.pinned?'Unpin':'Pin'} ${module.title}`;
++        setProperty(pin,'textContent',state.pinned?'Unpin':'Pin');setProperty(pin,'title',pinLabel);setAttribute(pin,'aria-label',pinLabel);setAttribute(pin,'aria-pressed',state.pinned);
+ }
+ function save() { try { const raw=JSON.stringify(owner.layout);localStorage.setItem(owner.context==='play'&&owner.shell?shellLayoutKey(owner.narrow):layoutStorageKey(owner.narrow)+(owner.context==='authoring'?'.authoring':''),raw);if(owner.context==='play'&&!owner.shell){if(owner.composition)localStorage.setItem(compositionKey(owner.narrow),raw);else localStorage.removeItem(compositionKey(owner.narrow));} } catch { owner.status.textContent = 'Layout works for this session; browser storage is unavailable.'; } }
+ // A saved layout that predates a module gets that module's default dock and anchor;
+@@ -188,14 +193,14 @@
+     let restore = owner.picker.querySelector(`[data-module="${state.id}"]`);
+     if (!known) { restore?.remove(); return; }
+     if (!restore) { restore = button(`Open ${module.title}`, 'restore', state.id); owner.picker.append(restore); }
+-    restore.disabled = !eligible; if (!classic) restore.textContent = `${state.hidden ? 'Show' : 'Open'} ${module.title}`;
++    setProperty(restore,'disabled',!eligible); if (!classic) setProperty(restore,'textContent',`${state.hidden ? 'Show' : 'Open'} ${module.title}`);
+     const reason = eligible ? '' : (module.unavailableReason?.() || 'Not available here right now');
+     if (restore.title !== reason) { restore.title = reason; if (reason) restore.setAttribute('aria-description', reason); else restore.removeAttribute('aria-description'); }
+ }
+ export function updateWorkspace() {
+     if(deferSimulationRender(updateWorkspace, updateWorkspace)) return;
+     if (!owner) return;
+-    const densityToggle=owner.toolbar.querySelector('[data-workspace-action=toggle-density]');if(densityToggle){densityToggle.textContent=owner.layout.density==='compact'?'Compact':'Comfortable';densityToggle.title='Change spacing density. Keeps your chosen font size.';densityToggle.setAttribute('aria-pressed',String(owner.layout.density==='compact'));}
++    const densityToggle=owner.toolbar.querySelector('[data-workspace-action=toggle-density]');if(densityToggle){setProperty(densityToggle,'textContent',owner.layout.density==='compact'?'Compact':'Comfortable');setProperty(densityToggle,'title','Change spacing density. Keeps your chosen font size.');setAttribute(densityToggle,'aria-pressed',owner.layout.density==='compact');}
+     owner.root.dataset.presentation=owner.shell&&owner.context==='play'?'proto23-shell':'';
+     owner.root.dataset.parity=owner.parity&&!owner.narrow&&owner.context==='play'?'r3':'';
+     owner.root.dataset.parityCombat=String(!!registry.get('combat')?.eligible());
+@@ -241,24 +246,27 @@
+         const core=['shell-inventory-tools','shell-character','shell-detail','vitals','combat-controls','shell-inventory-tools','belongings','focus','time','location','village-scene','current-work','combat','stance','local-actions','pane-navigation','messages','shell-log-tools'];
+         const parked=composed&&!state.pinned&&!core.includes(state.id);
+         shell.dataset.compositionParked=String(parked);
+-        if(known&&['vitals','belongings'].includes(state.id))shell.querySelector('.workspace-module-header > strong').textContent=composed?(state.id==='vitals'?'You':'Inventory'):module.title;
++        if(known&&['vitals','belongings'].includes(state.id))setProperty(shell.querySelector('.workspace-module-header > strong'),'textContent',composed?(state.id==='vitals'?'You':'Inventory'):module.title);
+         if(known&&state.id==='vitals'){
+             const race=document.getElementById('character_race_div');
+             const visibleRace=race?[...race.childNodes].filter(n=>n.nodeType===3).map(n=>n.textContent).join('').replace(/^[^:]*:\s*/,'').trim():'';
+             const heading=shell.querySelector('.workspace-module-header > strong');
+             heading.dataset.characterIdentity=owner.parity&&visibleRace?` · ${visibleRace}`:'';
+-            heading.title='Your native character. Open Stats for biography, attributes and equipment.';
++            setProperty(heading,'title','Your native character. Open Stats for biography, attributes and equipment.');
+         }
+         shell.hidden = state.hidden || !eligible || parked || (composed&&!owner.parity&&state.id==='belongings'&&document.documentElement.style.getPropertyValue('--inventory_div_display')==='none'); shell.classList.toggle('workspace-floating', state.dock === 'float' && !owner.narrow); shell.classList.toggle('workspace-collapsed', state.collapsed);
+         shell.style.setProperty('--workspace-width', `${state.width}px`); shell.style.setProperty('--workspace-height', `${state.height}px`);
+         shell.dataset.pinned = String(state.pinned);
+-        shell.querySelectorAll('[data-resize], [data-workspace-action=width], [data-workspace-action=height]').forEach(grip => {grip.disabled=state.pinned;});
+-        const available=floatAvailable(); shell.style.setProperty('--workspace-float-max-height', `${Math.max(48,available.bottom-available.top)}px`);
+-        const bounds=floatBounds(shell,state.width);
+-        shell.style.left = `${Math.max(bounds.left,Math.min(state.x,bounds.right))}px`;
+-        shell.style.top = `${Math.max(bounds.top,Math.min(state.y,bounds.bottom))}px`;
+-        if(owner.gesture?.kind==='move' && owner.gesture.active && owner.gesture.id===state.id && state.dock==='float') {shell.style.left=`${owner.gesture.x}px`;shell.style.top=`${owner.gesture.y}px`;}
+-        if (state.dock !== 'float' || owner.narrow) { shell.style.left = ''; shell.style.top = ''; }
++        shell.querySelectorAll('[data-resize], [data-workspace-action=width], [data-workspace-action=height]').forEach(grip => {setProperty(grip,'disabled',state.pinned);});
++        // Docked panels need no floating-window geometry. These synchronous
++        // layout reads previously ran for every module on every refresh.
++        if(state.dock==='float'&&!owner.narrow){
++            const available=floatAvailable();shell.style.setProperty('--workspace-float-max-height', `${Math.max(48,available.bottom-available.top)}px`);
++            const bounds=floatBounds(shell,state.width);
++            shell.style.left=`${Math.max(bounds.left,Math.min(state.x,bounds.right))}px`;
++            shell.style.top=`${Math.max(bounds.top,Math.min(state.y,bounds.bottom))}px`;
++            if(owner.gesture?.kind==='move'&&owner.gesture.active&&owner.gesture.id===state.id){shell.style.left=`${owner.gesture.x}px`;shell.style.top=`${owner.gesture.y}px`;}
++        }else {shell.style.left='';shell.style.top='';}
+         const d = owner.narrow ? 'center' : state.dock;
+         const region=owner.root.dataset.parity==='r3'?parityRegion(state.id):null;
+         const destination=owner.context==='authoring'&&['current-work','customization-preview'].includes(state.id)?owner.contextBar:region?owner.regions[region]:owner.docks[d];
+@@ -268,7 +276,7 @@
+         syncPanelHeader(module,state,eligible);
+         shell.querySelector('[data-workspace-action="dock"]').value = state.dock;
+         ['width', 'height'].forEach(d => shell.querySelector(`[data-workspace-action="${d}"]`).value = state[d]);
+-        ['handle', 'dock', 'earlier', 'later', 'float-left', 'float-right', 'float-up', 'float-down'].forEach(a => shell.querySelector(`[data-workspace-action="${a}"]`).disabled = state.pinned);
++        ['handle', 'dock', 'earlier', 'later', 'float-left', 'float-right', 'float-up', 'float-down'].forEach(a => setProperty(shell.querySelector(`[data-workspace-action="${a}"]`),'disabled',state.pinned));
+         syncRestore(module, state, known, eligible, false);
+     });
+     owner.board.querySelectorAll('[data-divider]').forEach(divider=>{
+@@ -385,7 +393,7 @@
+     const menu = el('details', 'workspace-layout-menu'), menuSummary = el('summary', '', 'Layout'), tools = el('div', 'workspace-layout-tools');
+     menu.append(menuSummary, tools); toolbar.append(button('Authoring', 'context'), menu);
+     const presentation=el('select');presentation.dataset.workspaceAction='presentation';presentation.setAttribute('aria-label','Presentation');
+-    for(const [value,label]of [['existing','Existing layout'],['proto23-shell','Proto23 Shell'],['proto23-parity','Proto23 UI R7']]){const option=el('option','',label);option.value=value;presentation.append(option);}
++    for(const [value,label]of [['existing','Existing layout'],['proto23-shell','Proto23 Shell'],['proto23-parity','Proto23 UI R8']]){const option=el('option','',label);option.value=value;presentation.append(option);}
+     toolbar.append(presentation,button('Comfortable','toggle-density'));tools.append(button('Edit layout', 'edit-layout'));
+     const presetLabel = el('label', '', 'Layout '), presets = el('select'); presets.dataset.workspaceAction = 'preset'; ['Workspace', 'Classic', 'Focus', 'Compare'].forEach(v => { const o = el('option', '', v); o.value = v; presets.append(o); }); presetLabel.append(presets); tools.append(presetLabel, button('Reset layout', 'reset'));
+     const densityLabel = el('label', '', 'Density '), density = el('select'); density.dataset.workspaceAction='density'; ['compact','comfortable','inspection'].forEach(v=>{const o=el('option','',v);o.value=v;density.append(o);}); densityLabel.append(density);tools.append(densityLabel);
+--- r7/styles/ui_tokens.css
++++ r8/styles/ui_tokens.css
+@@ -1209,3 +1209,63 @@
+ }
+ 
+ #main_content.workspace-active[data-parity="r3"]:not([data-shell-custom-palette="true"]) [data-temperature-state="cold_temperature"] {color:var(--p23-season-winter);font-weight:600;}
++
++/* R8: native information density follows pane geometry; type size stays chosen. */
++#main_content.workspace-active[data-parity="r3"][data-shell-stats-open="true"] .shell-stat-group > strong {display:block;font-size:.85em;}
++#main_content.workspace-active[data-parity="r3"] .shell-stat-tabs button {padding:.12em;}
++#main_content.workspace-active[data-parity="r3"] .shell-statline > span:nth-last-child(-n+2) {grid-column:span 2;}
++#main_content.workspace-active[data-parity="r3"] .combat-focus-view dl[data-columns="2"] {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 .8em;}
++#main_content.workspace-active[data-parity="r3"] .combat-focus-view dl[data-columns="2"] > div {grid-template-columns:minmax(0,1fr) auto;gap:0 .4em;}
++#main_content.workspace-active[data-parity="r3"] .combat-focus-view dl[data-columns="2"] > div > small:not(:empty) {grid-column:1/-1;}
++#main_content.workspace-active[data-parity="r3"] .combat-focus-view dl[data-columns="2"] > div > small:empty {display:none;}
++#main_content.workspace-active[data-parity="r3"] #message_box_div .notice-panel-link {opacity:0;text-decoration:none;}
++#main_content.workspace-active[data-parity="r3"] #message_box_div .message_common:is(:hover,:focus-within) > .notice-panel-link {opacity:1;text-decoration:underline;}
++@media(hover:none){
++#main_content.workspace-active[data-parity="r3"] #message_box_div .notice-panel-link {opacity:1;}
++}
++#main_content.workspace-active[data-parity="r3"] {--p23-item-equipment:#f4d27e;--p23-item-usable:#a9e88b;--p23-item-component:#99dfff;--p23-item-book:#d6bbff;--p23-item-other:#dce4ea;}
++#main_content.workspace-active[data-parity="r3"] #inventory_div:not([data-custom-palette="true"]) .item_name {color:var(--p23-item-other);}
++#main_content.workspace-active[data-parity="r3"] #inventory_div:not([data-custom-palette="true"]) .item_equippable .item_name {color:var(--p23-item-equipment);}
++#main_content.workspace-active[data-parity="r3"] #inventory_div:not([data-custom-palette="true"]) .item_usable .item_name {color:var(--p23-item-usable);}
++#main_content.workspace-active[data-parity="r3"] #inventory_div:not([data-custom-palette="true"]) .item_component .item_name {color:var(--p23-item-component);}
++#main_content.workspace-active[data-parity="r3"] #inventory_div:not([data-custom-palette="true"]) .item_book .item_name {color:var(--p23-item-book);}
++#main_content.workspace-active[data-parity="r3"] #inventory_div:not([data-custom-palette="true"]) :is(.item_category,.item_slot) {color:var(--p23-muted);}
++
++@media(min-width:1001px) and (max-width:1699px){
++#main_content.workspace-active[data-parity="r3"]:not([data-parity-item="true"]):not([data-shell-stats-open="true"]):not([data-enemy-panels="true"]):has(.combat-readout[open]) .workspace-board {grid-template-rows:minmax(0,min(380px,55%)) minmax(0,1fr);}
++}
++
++#main_content.workspace-active[data-parity="r3"] #proto23_character > button[hidden] {display:none!important;}
++#main_content.workspace-active[data-parity="r3"][data-shell-stats-open="true"] .shell-stat-records[data-all="true"] {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 .6em;}
++#main_content.workspace-active[data-parity="r3"] .shell-stat-records[data-all="true"] .shell-stat-group,
++#main_content.workspace-active[data-parity="r3"] .shell-stat-records[data-all="true"] .shell-stat-group > div {display:contents;}
++#main_content.workspace-active[data-parity="r3"] .shell-stat-records[data-all="true"] .shell-stat-group > strong {display:none;}
++#main_content.workspace-active[data-parity="r3"] .shell-stat-records[data-all="true"] .shell-stat-record {padding:.1em 0;}
++
++#main_content.workspace-active[data-parity="r3"] .combat-readout > dl {margin:.15em 0;}
++/* Expanded laptop readouts must not reduce the useful height on wide desktops. */
++@media(min-width:1700px){
++#main_content.workspace-active[data-parity="r3"][data-workspace-mode]:has(.combat-readout[open]) .workspace-board,
++#main_content.workspace-active[data-parity="r3"][data-shell-stats-open="true"][data-workspace-mode] .workspace-board {grid-template-rows:minmax(0,min(560px,50%)) minmax(0,1fr);}
++}
++@media(min-width:2800px){
++#main_content.workspace-active[data-parity="r3"][data-workspace-mode]:has(.combat-readout[open]) .workspace-board,
++#main_content.workspace-active[data-parity="r3"][data-shell-stats-open="true"][data-workspace-mode] .workspace-board {grid-template-rows:minmax(0,min(700px,48%)) minmax(0,1fr);}
++}
++
++/* Fit ordinary active-tab stats before resorting to local scrolling. */
++#main_content.workspace-active[data-parity="r3"][data-shell-stats-open="true"] .shell-stat-records[data-all="true"][data-columns="3"] {grid-template-columns:repeat(3,minmax(0,1fr));}
++#main_content.workspace-active[data-parity="r3"][data-shell-stats-open="true"] .shell-stat-records[data-all="true"][data-columns="4"] {grid-template-columns:repeat(4,minmax(0,1fr));}
++#main_content.workspace-active[data-parity="r3"] .shell-stat-records[data-all="true"] .shell-stat-record[data-long-value="true"] {grid-column:span 2;}
++#main_content.workspace-active[data-parity="r3"] .shell-log-tools {grid-template-columns:minmax(0,1fr) minmax(0,1.5fr) minmax(0,.8fr);}
++@media(min-width:1001px) and (max-width:1699px){
++#main_content.workspace-active[data-parity="r3"][data-shell-stats-open="true"][data-workspace-mode] .workspace-board {grid-template-rows:minmax(0,min(70%,max(304px,calc(var(--shell-context-size,var(--ui-type-body))*23)))) minmax(0,1fr);}
++#main_content.workspace-active[data-parity="r3"]:not([data-parity-item="true"]):not([data-shell-stats-open="true"]):not([data-enemy-panels="true"]):has(.combat-readout[open]) .workspace-board {grid-template-rows:minmax(0,min(430px,62%)) minmax(0,1fr);}
++}
++@media(min-width:2800px){
++#main_content.workspace-active[data-parity="r3"] .shell-log-tools {grid-template-columns:repeat(5,minmax(0,1fr));}
++}
++
++#main_content.workspace-active[data-parity="r3"] .combat-focus-view > label > progress {width:auto;flex:1;min-width:2em;}
++#main_content.workspace-active[data-parity="r3"] .combat-focus-view > label > .combat-roster-mode {flex:0 0 auto;align-self:center;min-height:0;padding:0 .25em;line-height:1.2;}
++#main_content.workspace-active[data-parity="r3"] .shell-log-tools > button:first-child {white-space:nowrap;}

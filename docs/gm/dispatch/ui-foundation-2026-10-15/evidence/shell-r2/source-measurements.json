@@ -1,0 +1,95 @@
+{
+  "source": {
+    "viewport": {
+      "w": 1366,
+      "h": 768
+    },
+    "transform": "none",
+    "player": {
+      "x": 8,
+      "y": 8,
+      "w": 446,
+      "h": 326,
+      "client": 320,
+      "content": 320,
+      "widthShare": 0.32650073206442165,
+      "heightShare": 0.4244791666666667
+    },
+    "focus": {
+      "x": 457,
+      "y": 8,
+      "w": 446,
+      "h": 326,
+      "client": 320,
+      "content": 320,
+      "widthShare": 0.32650073206442165,
+      "heightShare": 0.4244791666666667
+    },
+    "inventory": {
+      "x": 8,
+      "y": 337,
+      "w": 336,
+      "h": 436,
+      "client": 430,
+      "content": 430,
+      "widthShare": 0.24597364568081992,
+      "heightShare": 0.5677083333333334
+    },
+    "list": {
+      "x": 11,
+      "y": 362,
+      "w": 330,
+      "h": 385.796875,
+      "client": 386,
+      "content": 386,
+      "widthShare": 0.24158125915080528,
+      "heightShare": 0.5023396809895834
+    },
+    "actions": {
+      "x": 347,
+      "y": 337,
+      "w": 556,
+      "h": 436,
+      "client": 430,
+      "content": 430,
+      "widthShare": 0.40702781844802344,
+      "heightShare": 0.5677083333333334
+    },
+    "log": {
+      "x": 906,
+      "y": 8,
+      "w": 379,
+      "h": 765,
+      "client": 759,
+      "content": 762,
+      "widthShare": 0.2774524158125915,
+      "heightShare": 0.99609375
+    }
+  },
+  "lab": {
+    "transform": "matrix(0.8, 0, 0, 0.8, 0, 0)",
+    "unscaledWidth": 1700,
+    "unscaledHeight": 820,
+    "renderedWidth": 1360,
+    "renderedHeight": 656
+  },
+  "candidate": {
+    "height": 768,
+    "width": 1366,
+    "h": 768,
+    "w": 1366,
+    "regions": [
+      {
+        "id": "inventory_content_div",
+        "visible": 121,
+        "content": 567
+      },
+      {
+        "id": "center_mode_content",
+        "visible": 179,
+        "content": 358
+      }
+    ],
+    "log": 564
+  }
+}

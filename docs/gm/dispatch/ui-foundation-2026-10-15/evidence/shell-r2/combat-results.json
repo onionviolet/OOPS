@@ -1,0 +1,54 @@
+[
+  {
+    "name": "final-multi-combat-native-labels",
+    "detail": {
+      "facts": [
+        {
+          "label": "Attack",
+          "value": "4 dmg",
+          "fullyVisible": true
+        },
+        {
+          "label": "Attack speed",
+          "value": "0.82 /s",
+          "fullyVisible": true
+        },
+        {
+          "label": "Hit chance",
+          "value": "30%",
+          "fullyVisible": true
+        },
+        {
+          "label": "Dodge chance",
+          "value": "15%",
+          "fullyVisible": true
+        },
+        {
+          "label": "Defense",
+          "value": "0",
+          "fullyVisible": true
+        }
+      ],
+      "metrics": {
+        "height": 768,
+        "width": 1366,
+        "h": 768,
+        "w": 1366,
+        "regions": [
+          {
+            "id": "time",
+            "visible": 40,
+            "content": 43
+          },
+          {
+            "id": "center_mode_content",
+            "visible": 108,
+            "content": 159
+          }
+        ],
+        "log": 564
+      },
+      "inspectionGameplayExact": true
+    }
+  }
+]

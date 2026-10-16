@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Proto23 and YAIRPG · rebuilt composition comparison</title>
+<style>
+:root{color-scheme:dark;font:15px/1.5 system-ui,sans-serif;color:#d8eeee;background:#090f19}
+*{box-sizing:border-box}body{margin:0}header,footer{padding:18px 24px;border-bottom:1px solid #395568}h1{font-size:21px;margin:0 0 7px}p{margin:6px 0;color:#adc4cf}a{color:#9cdeed}button{font:inherit;background:#102c3c;color:#d8eeee;border:1px solid #527d91;padding:6px 12px;cursor:pointer}button[aria-pressed=true]{background:#255e68;border-color:#a6eeee}button:focus-visible,a:focus-visible{outline:2px solid #ffd37d;outline-offset:3px}.toolbar{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:14px}.spacer{flex:1}.scroll{overflow:auto;padding:18px 24px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;min-width:760px}.full .grid{grid-template-columns:repeat(2,1366px)}figure{margin:0;min-width:0}figcaption{padding:8px 12px;border:1px solid #395568;background:#102333}figcaption strong{display:block;font-size:17px}figcaption span{font-size:13px;color:#adc4cf}.frame{border:1px solid #395568;background:#03070e;aspect-ratio:1366/768}.frame img{display:block;width:100%;height:100%;object-fit:contain}footer{border-top:1px solid #395568;border-bottom:0;font-size:13px}#stateNote{min-height:24px}small{color:#adc4cf}@media(max-width:800px){header,footer{padding:14px}.scroll{padding:14px}.grid{gap:12px}}
+</style>
+<header>
+ <h1>Proto23 baseline → rebuilt YAIRPG</h1>
+ <p>Compare the layout: player above inventory, context above actions, and a dedicated log.</p>
+ <p id="stateNote">YAIRPG uses a populated disposable Village fixture. The reference shows Proto23 after its introduction. Game states differ.</p>
+ <div class="toolbar" aria-label="Compare YAIRPG states">
+  <button data-state="village" aria-pressed="true">Village</button>
+  <button data-state="combat" aria-pressed="false">Combat</button>
+  <button data-state="crafting" aria-pressed="false">Crafting</button>
+  <button data-state="mixing" aria-pressed="false">Mixing</button>
+  <span class="spacer"></span>
+  <button id="size" aria-pressed="false">View at 100%</button>
+ </div>
+</header>
+<main class="scroll" id="comparison">
+ <div class="grid">
+  <figure>
+   <figcaption><strong>Proto23 · reference</strong><span>Pinned original source · 1366 × 768</span></figcaption>
+   <div class="frame"><img id="reference" src="../c1-proto23-reference-1366.png" alt="Original Proto23 interface, showing player, inventory, opponent, action area and message log"></div>
+   <small><a href="../c1-proto23-reference-1366.png" target="_blank" rel="noopener">Open reference image</a></small>
+  </figure>
+  <figure>
+   <figcaption><strong>YAIRPG · rebuilt C1</strong><span>Fresh Workspace preset · 1366 × 768 · visual acceptance open</span></figcaption>
+   <div class="frame"><img id="candidate" src="../c1-village-1366.png" alt="Rebuilt YAIRPG Village using the Proto23 composition baseline"></div>
+   <small><a id="candidateLink" href="../c1-village-1366.png" target="_blank" rel="noopener">Open rebuilt image</a></small>
+  </figure>
+ </div>
+</main>
+<footer>
+ <p>This comparison displays saved browser captures. It does not operate either game or use personal saves.</p>
+ <p>Fresh Workspace defaults use the new composition. Existing saved layouts retain their choices; choosing the Workspace preset applies the new arrangement.</p>
+ <p><a href="../../C1_REPORT.md">C1 checks and limitations</a> · <a href="../c1-results.json">Browser results</a> · <a href="http://127.0.0.1:19117/c1-review-site/" target="_blank" rel="noopener">Play frozen C1 build</a></p>
+</footer>
+<script>
+const notes={village:'YAIRPG uses a populated disposable Village fixture. The reference shows Proto23 after its introduction. Game states differ.',combat:'YAIRPG combat: the current opponent appears above the native combat controls. The reference remains the original Proto23 opening.',crafting:'YAIRPG crafting uses native recipes and commands inside the central work area. The destination back bar stays outside its scroll.',mixing:'YAIRPG mixing uses the existing service and queue. Its bottom destination back bar remains visible.'};
+for(const b of document.querySelectorAll('[data-state]'))b.addEventListener('click',()=>{const state=b.dataset.state;for(const t of document.querySelectorAll('[data-state]'))t.setAttribute('aria-pressed',String(t===b));const path=`../c1-${state}-1366.png`;document.getElementById('candidate').src=path;document.getElementById('candidate').alt=`Rebuilt YAIRPG ${state} at 1366 by 768`;document.getElementById('candidateLink').href=path;document.getElementById('stateNote').textContent=notes[state];});
+document.getElementById('size').addEventListener('click',event=>{const full=document.getElementById('comparison').classList.toggle('full');event.currentTarget.setAttribute('aria-pressed',String(full));event.currentTarget.textContent=full?'Fit side by side':'View at 100%';});
+</script>
+</html>

@@ -1,0 +1,20 @@
+[
+  {
+    "font": 14,
+    "nativeEffect": "'Basic meal' : 60mStam regen: +0.5",
+    "contextPreviewBounded": true,
+    "keyboardHover": true,
+    "inspectionExact": true,
+    "recordedEvent": true,
+    "errors": []
+  },
+  {
+    "font": 21,
+    "nativeEffect": "'Basic meal' : 60mStam regen: +0.5",
+    "contextPreviewBounded": true,
+    "keyboardHover": true,
+    "inspectionExact": true,
+    "recordedEvent": true,
+    "errors": []
+  }
+]

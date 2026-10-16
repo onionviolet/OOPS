@@ -1,0 +1,153 @@
+{
+  "quietLink": true,
+  "keyboardLink": true,
+  "relatedPanelAndBack": true,
+  "recordedSubjectHover": true,
+  "categories": [
+    {
+      "text": "\"ABC for kids\"",
+      "kind": "book_finished inventory_item character_item item_book",
+      "color": "rgb(214, 187, 255)"
+    },
+    {
+      "text": "Apple",
+      "kind": "inventory_item character_item item_usable",
+      "color": "rgb(169, 232, 139)"
+    },
+    {
+      "text": "Boar hide",
+      "kind": "Other",
+      "color": "rgb(220, 228, 234)"
+    },
+    {
+      "text": "Boar meat",
+      "kind": "Other",
+      "color": "rgb(220, 228, 234)"
+    },
+    {
+      "text": "Bread kwas",
+      "kind": "inventory_item character_item item_usable",
+      "color": "rgb(169, 232, 139)"
+    },
+    {
+      "text": "Carrot",
+      "kind": "inventory_item character_item item_usable",
+      "color": "rgb(169, 232, 139)"
+    },
+    {
+      "text": "Cooked carrot",
+      "kind": "inventory_item character_item item_usable",
+      "color": "rgb(169, 232, 139)"
+    },
+    {
+      "text": "Fresh bread",
+      "kind": "inventory_item character_item item_usable",
+      "color": "rgb(169, 232, 139)"
+    },
+    {
+      "text": "\"Old combat manual\"",
+      "kind": "inventory_item character_item item_book",
+      "color": "rgb(214, 187, 255)"
+    },
+    {
+      "text": "Potato",
+      "kind": "inventory_item character_item item_usable",
+      "color": "rgb(169, 232, 139)"
+    },
+    {
+      "text": "Rat pelt",
+      "kind": "Other",
+      "color": "rgb(220, 228, 234)"
+    },
+    {
+      "text": "Rat tail",
+      "kind": "Other",
+      "color": "rgb(220, 228, 234)"
+    },
+    {
+      "text": "Stale bread",
+      "kind": "inventory_item character_item item_usable",
+      "color": "rgb(169, 232, 139)"
+    },
+    {
+      "text": "Wolf pelt",
+      "kind": "Other",
+      "color": "rgb(220, 228, 234)"
+    },
+    {
+      "text": "Ash wood shield",
+      "kind": "inventory_item character_item item_equippable",
+      "color": "rgb(244, 210, 126)"
+    },
+    {
+      "text": "Cheap leather pants",
+      "kind": "inventory_item character_item item_equippable",
+      "color": "rgb(244, 210, 126)"
+    },
+    {
+      "text": "Goat leather vest",
+      "kind": "inventory_item character_item item_equippable",
+      "color": "rgb(244, 210, 126)"
+    },
+    {
+      "text": "Leather pants",
+      "kind": "inventory_item character_item item_equippable",
+      "color": "rgb(244, 210, 126)"
+    },
+    {
+      "text": "Leather vest",
+      "kind": "inventory_item character_item item_equippable",
+      "color": "rgb(244, 210, 126)"
+    },
+    {
+      "text": "Rat pelt cape",
+      "kind": "inventory_item character_item item_equippable",
+      "color": "rgb(244, 210, 126)"
+    },
+    {
+      "text": "Wooden shield",
+      "kind": "inventory_item character_item item_equippable",
+      "color": "rgb(244, 210, 126)"
+    }
+  ],
+  "quality": [
+    {
+      "text": "80%",
+      "rarity": "common",
+      "color": "rgb(255, 255, 255)"
+    },
+    {
+      "text": "40%",
+      "rarity": "trash",
+      "color": "rgb(200, 204, 212)"
+    },
+    {
+      "text": "80%",
+      "rarity": "common",
+      "color": "rgb(255, 255, 255)"
+    },
+    {
+      "text": "80%",
+      "rarity": "common",
+      "color": "rgb(255, 255, 255)"
+    },
+    {
+      "text": "80%",
+      "rarity": "common",
+      "color": "rgb(255, 255, 255)"
+    },
+    {
+      "text": "80%",
+      "rarity": "common",
+      "color": "rgb(255, 255, 255)"
+    },
+    {
+      "text": "80%",
+      "rarity": "common",
+      "color": "rgb(255, 255, 255)"
+    }
+  ],
+  "dry": "Dry",
+  "gameplayExact": true,
+  "errors": []
+}

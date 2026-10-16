@@ -2,8 +2,8 @@
    once, when a panel is first met during play (never on load, reload or import), and removes it
    after about a second. The panel's role tint brightens from muted to full. */
 @keyframes workspace-reveal-arrival {
-    from {filter: saturate(.35) brightness(.72); box-shadow: 0 0 0 0 transparent;}
-    55% {filter: saturate(1.15) brightness(1.08); box-shadow: 0 0 0 2px var(--vivid-accent, var(--workspace-accent, #ffc94a));}
+    from {filter: saturate(.35) brightness(.72); box-shadow: var(--ui-shadow);}
+    55% {filter: saturate(1.15) brightness(1.08); box-shadow: var(--ui-shadow);}
     to {filter: none;}
 }
 [data-workspace-reveal="new"] {animation: workspace-reveal-arrival 900ms ease-out 1;}

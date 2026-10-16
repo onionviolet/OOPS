@@ -1,0 +1,8 @@
+AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+
+  assert(await focusVisible(p))
+
+    at /Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/ui-foundation-2026-10-15/check-scene.cjs:15:174
+    at runNextTicks (node:internal/process/task_queues:64:5)
+    at process.processImmediate (node:internal/timers:452:9)
+    at process.callbackTrampoline (node:internal/async_hooks:130:17)

@@ -1,0 +1,36 @@
+--- a/src/crafting_detail.js
++++ b/src/crafting_detail.js
+@@ -44,10 +44,11 @@
+     body.append(title);
+ 
+     const uses = el('div', 'craft_detail_section');
+-    uses.append(el('div', 'craft_detail_label', 'Uses'));
++    uses.append(el('div', 'craft_detail_label', 'Uses · have / need'));
+     for(const req of model.requirements) {
+         const row = el('div', 'craft_req');
+         row.setAttribute('data-craft-req', '');
++        row.setAttribute('aria-label', `${req.label}: have ${req.have}, need ${req.need}`);
+         row.tabIndex = -1;
+         if(req.missing) row.setAttribute('data-missing', '');
+         if(req.unknown) row.setAttribute('data-unknown', '');
+@@ -57,6 +58,9 @@
+         uses.append(row);
+     }
+     body.append(uses);
++    if(Number.isFinite(model.attempts)) {
++        body.append(fact('Can craft now', `${model.attempts} attempt${model.attempts === 1 ? '' : 's'}`, 'data-craft-attempts'));
++    }
+ 
+     body.append(fact('Makes', `${model.output.name} x${model.output.count}${model.output.scaled ? ' (partial results possible)' : ''}`, 'data-craft-output'));
+     body.append(fact('Success', `${model.chance}%`, 'data-craft-chance'));
+--- a/src/display.js
++++ b/src/display.js
+@@ -3278,7 +3278,7 @@
+         else blocked_reason = "Can't craft this right now.";
+     }
+     const receipt = crafting_receipt?.key === item_recipe_key(selection) ? crafting_receipt.text : "";
+-    return {title: recipe.name, requirements,
++    return {title: recipe.name, requirements, attempts: state.amount,
+         output: {name: item_templates[result_id].getName(), count, scaled: !!recipe.scale_results && count > 1},
+         chance, station: station_tier > 0 ? `${station_name}, tier ${station_tier}` : `${station_name}: not available here`,
+         xp, available: state.available, blocked_reason, receipt,

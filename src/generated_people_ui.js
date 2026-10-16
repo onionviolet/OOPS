@@ -1,3 +1,4 @@
+import {definePanel} from './panel_kit.js';
 import {storyRecap} from './lore_history_view.js';
 import {planStoryRequest,publishStoryRequest,salientRequestPerson,validateStoryRequests} from './story_requests.js';
 import {createGeneratedPeople,advanceGeneratedPeople,validateGeneratedPeople,generatedPeopleView,interactGeneratedPerson} from './generated_people.js';
@@ -71,7 +72,7 @@ export function registerGeneratedPeople({read,save,persist,authoredNames=[],item
                 }
             }
         }
-        const host=document.getElementById('message_box_div');if(host&&host.firstElementChild!==panel)host.prepend(panel);
     }
+    definePanel({id:'village-travelers',title:'Village travelers',role:'records',node:panel,home:document.getElementById('main_content'),defaultDock:'center',after:'records',discovered:()=>!panel.hidden,eligible:()=>!panel.hidden});
     render();const timer=setInterval(render,1000);return {render,destroy:()=>{clearInterval(timer);panel.remove();}};
 }

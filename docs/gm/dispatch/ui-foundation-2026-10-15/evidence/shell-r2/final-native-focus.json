@@ -1,0 +1,36 @@
+{
+  "facts": [
+    {
+      "label": "Attack",
+      "value": "4 dmg",
+      "fullyVisible": true
+    },
+    {
+      "label": "Attack speed",
+      "value": "0.82 /s",
+      "fullyVisible": true
+    },
+    {
+      "label": "Hit chance",
+      "value": "30%",
+      "fullyVisible": true
+    },
+    {
+      "label": "Dodge chance",
+      "value": "15%",
+      "fullyVisible": true
+    },
+    {
+      "label": "Defense",
+      "value": "0",
+      "fullyVisible": true
+    }
+  ],
+  "native": [
+    "Atk: 4dmg",
+    "| Spd: 0.82",
+    "| Hit: 30%",
+    "| Ddg: 15%",
+    "| Def: 0"
+  ]
+}

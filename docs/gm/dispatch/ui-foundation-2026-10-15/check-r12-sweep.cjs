@@ -1,0 +1,8 @@
+// R12 consideration sweep: every top navigation destination at 1366x768 14px, populated fixture. Screenshots only.
+const L=require('./r12-regress-lib.cjs');L.E=require('path').join(__dirname,'evidence/r12/sweep');
+(async()=>{const b=await L.launch();const out=[];try{const {ctx,p}=await L.open(b);
+ const items=await p.locator('#workspace_navigation [data-panel-path]').evaluateAll(ns=>ns.filter(n=>n.checkVisibility()).map(n=>({id:n.dataset.panelPath,label:n.textContent.trim(),disabled:n.disabled||n.getAttribute('aria-disabled')==='true'})));
+ const shot=async n=>{const cdp=await ctx.newCDPSession(p);const r=await cdp.send('Page.captureScreenshot',{format:'png',fromSurface:true});require('fs').writeFileSync(`${L.E}/${n}.png`,Buffer.from(r.data,'base64'));await cdp.detach();};
+ await shot('00-home');
+ for(const [i,it] of items.entries()){try{await L.nav(p,it.id);await p.waitForTimeout(500);const g=await p.evaluate(()=>{const c=document.getElementById('center_mode_content');return{page:[document.documentElement.scrollWidth,document.documentElement.scrollHeight],center:c?{client:c.clientHeight,content:c.scrollHeight,text:c.innerText.slice(0,300)}:null}});await shot(String(i+1).padStart(2,'0')+'-'+it.label.replace(/\W+/g,'_'));out.push({...it,...g});await p.keyboard.press('Escape');await p.waitForTimeout(300);}catch(e){out.push({...it,error:e.message.slice(0,200)});}}
+ out.push({errors:p.errors});await ctx.close();}finally{await b.close();}require('fs').writeFileSync(`${L.E}/sweep.json`,JSON.stringify(out,null,1));console.log(out.map(o=>`${o.label} ${o.disabled?'(disabled)':''} ${o.error?'ERR '+o.error:o.center?`center ${o.center.client}/${o.center.content}`:''}`).join('\n'));})();

@@ -1,0 +1,61 @@
+{
+  "changed": [
+    {
+      "path": "src/display.js",
+      "before": "685c322350702a48512f2b8d7260108c51ba56b3aaacb31e3ba5c5b6f081d1e4",
+      "after": "4530c5635d926b716d67f4ab662ebc13856a32c5dc6134558d00ed7b80f23ee1"
+    },
+    {
+      "path": "src/proto23_shell.js",
+      "before": "0ca97116c29a1f53eea9a008f1bb243d6c482913cf53c0e9d35a512d81712d9f",
+      "after": "ebf32c95befcc81f0e7e705e0f284b21cca69f6f8ea67e5ab040b6316f920fe4"
+    },
+    {
+      "path": "src/workspace_layout.js",
+      "before": "9a71701818dbc10483e4621ce6b2374458399ad7cb764ade33da85da5fbbda31",
+      "after": "eda13f8c24397412200a57a8684557f759d2fc359b930ae4864e4ea655ab679c"
+    },
+    {
+      "path": "styles/ui_tokens.css",
+      "before": "4244758c0ee03a7d5b43973346336587a336a22e245922c2e3cbbbe489625dfa",
+      "after": "472b298949c9ac5cc4622a9da22aef679ac1c257433338b09e5d109f6eef4751"
+    }
+  ],
+  "preserved": [
+    {
+      "path": "src/village_workspace.js",
+      "before": "fd37a7ab874b9d394de0700b090fbbe827d3facb7628fcaca44257587a57ca7e",
+      "after": "fd37a7ab874b9d394de0700b090fbbe827d3facb7628fcaca44257587a57ca7e"
+    },
+    {
+      "path": "src/main.js",
+      "before": "dfe9fbcc4b87e70f6993c3578b7fc789fb23a1700ffa3980e1dc75f3492d7b71",
+      "after": "dfe9fbcc4b87e70f6993c3578b7fc789fb23a1700ffa3980e1dc75f3492d7b71"
+    },
+    {
+      "path": "src/save_files.js",
+      "before": "ed3f1d2bbc12c8b2e0a1cade98cc825af27c3e5d3ab9ee904958aa2b04308b8d",
+      "after": "ed3f1d2bbc12c8b2e0a1cade98cc825af27c3e5d3ab9ee904958aa2b04308b8d"
+    },
+    {
+      "path": "src/simulation.js",
+      "before": "b4a5b39f5b1a6f3c5c7bbc048a44898066a437735ee34b855b8b074da7824ea4",
+      "after": "b4a5b39f5b1a6f3c5c7bbc048a44898066a437735ee34b855b8b074da7824ea4"
+    },
+    {
+      "path": "src/simulation_clock.js",
+      "before": "02e5e74028285e95d0f959b5a42739500b7dc5686830467cbb2058584d3b4897",
+      "after": "02e5e74028285e95d0f959b5a42739500b7dc5686830467cbb2058584d3b4897"
+    },
+    {
+      "path": "src/models/person.js",
+      "before": "6bb8bfa30d23e0bbfc3f4e31acee71fd400dc74e832c3b9e300e51570a19763f",
+      "after": "6bb8bfa30d23e0bbfc3f4e31acee71fd400dc74e832c3b9e300e51570a19763f"
+    },
+    {
+      "path": "src/models/stat_haver.js",
+      "before": "7f6f721b92e881abf3a9d2e4bfeef1f934d301b1ba9ea9d042bcdd25e8cee2ac",
+      "after": "7f6f721b92e881abf3a9d2e4bfeef1f934d301b1ba9ea9d042bcdd25e8cee2ac"
+    }
+  ]
+}

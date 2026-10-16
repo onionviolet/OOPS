@@ -1,0 +1,26 @@
+[
+  {
+    "kind": "notification",
+    "label": "Event",
+    "text": "[ Home · 01/04/999, Summer, Mon ]",
+    "color": "rgb(229, 183, 250)",
+    "font": "21px",
+    "html": "[ Home · 01/04/999, Summer, Mon ]<div class=\"message_border\"> </div>"
+  },
+  {
+    "kind": "notification",
+    "label": "Event",
+    "text": "Workspace now groups You above Inventory. Character details and known records remain in the named navigation.Open",
+    "color": "rgb(229, 183, 250)",
+    "font": "21px",
+    "html": "Workspace now groups You above Inventory. Character details and known records remain in the named navigation.<button type=\"button\" class=\"notice-panel-link\" title=\"Open related panel\" data-notice-panel=\"preparation\">Open</button><div class=\"message_border\"> </div>"
+  },
+  {
+    "kind": "hero_attacked",
+    "label": "Combat",
+    "text": "Hero was hit for 3.7 physical damageOpen",
+    "color": "rgb(255, 173, 186)",
+    "font": "21px",
+    "html": "Hero was hit for 3.7 physical damage<button type=\"button\" class=\"notice-panel-link\" title=\"Open related panel\" data-notice-panel=\"combat\">Open</button><div class=\"message_border\"> </div>"
+  }
+]

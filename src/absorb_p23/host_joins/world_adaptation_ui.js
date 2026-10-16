@@ -15,7 +15,7 @@ export function createMistglassPanel({host,read,act}){
             if(f.rawRemaining)text(`Rawness blocks absorption and another trial for ${f.rawRemaining} played minutes.`);
         }
         if(f.preview){text('Spend one Cloudseed dose and 2 condensate. Twelve played minutes. 75% success awards native Meditation XP.');text(f.preview.risk);}
-        for(const a of f.actions||[]){const b=document.createElement('button');b.textContent=a.label;b.dataset.mistglassAction=a.id;b.disabled=f.disabled||a.enabled===false;b.title=a.reason||'';
+        for(const a of f.actions||[]){const b=document.createElement('button');b.textContent=a.label;b.dataset.mistglassAction=a.id;b.disabled=f.disabled||a.enabled===false;b.title=f.disabled?'Finish your current work in the writable game tab.':a.reason||'';
             b.onclick=()=>{try{act(a.id);notice.textContent='';}catch(e){notice.textContent=e.message;}render();};body.append(b);}
         panel.classList.toggle('success',!!v?.cue&&v.cue==='success');panel.classList.toggle('failure',!!v?.cue&&v.cue==='failure');
     }

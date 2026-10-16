@@ -1,0 +1,63 @@
+{
+  "reviewedAt": "2026-10-15T14:29:30.825785+00:00",
+  "workerThread": "01a13e70-6c75-7630-b105-26b861da80ca",
+  "sourceStatus": "R3 report explicitly released; adjacent continuation owner also explicitly released",
+  "rootChecks": [
+    "Re-ran current source/served parity:565 sources,13 assets,zero mismatches/new exceptions; prior artifacts intact",
+    "Checked every final frozen output file against worker fingerprint",
+    "Opened final frozen comparison and verified native1366x768 image dimensions and100percent displayed widths",
+    "Reviewed structural geometry, role colors, directional native chances and actual21px selected multi-combat rows",
+    "Root native smoke: explicit parity selection,5region layout,item inspection,Use bread5to4 and native stamina effect on isolated origin",
+    "Independently loaded final populated snapshot and exercised native Apple use3to2; final demo and comparison remain open"
+  ],
+  "rootSmokeRuntimeAssetsIdenticalToFinal": false,
+  "frozenFilesVerified": 132,
+  "finalPreview": "http://127.0.0.1:19148/r3-demo.html",
+  "finalComparison": "http://127.0.0.1:19148/docs/gm/dispatch/ui-foundation-2026-10-15/evidence/parity-r3/comparison.html",
+  "humanVisualAcceptance": "OPEN",
+  "remainingLimits": [
+    "Native14px typography/semantic colors/accessibility differ from source",
+    "Long compact names truncate; full selected detail wraps",
+    "Equipment/descriptions/expanded references scroll within bounded regions",
+    "Global rank is proposal only; future VFX/new content not accepted by UI proof"
+  ],
+  "priorRootSnapshot": "preserved ignored point-in-time checkpoint; superseded by final worker snapshot",
+  "artifacts": [
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/R3_REPORT.md",
+      "sha256": "b3de053bcb425864a03acde85cb923416ed503b8c896c816dfdd1496b4f53215"
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/evidence/parity-r3/parity.json",
+      "sha256": "51b0c845b2849d10498fc48be6328e0cb818e08fd722a7fdb9979ad944fa7c41"
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/evidence/parity-r3/results.json",
+      "sha256": "ef430be371920e293af68205d4fdb1e73f230e419ff8708494e97a3c7789a5b8"
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/evidence/parity-r3/parity-results.json",
+      "sha256": "8281f2ed2dceeac60e10d653a6d5e823446791848bc3f2e5b69195b187504067"
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/evidence/parity-r3/extra-results.json",
+      "sha256": "b8b598b34c2cfff8133fc9a5046015ad3c0183b59c7bfc795567e0890faa603c"
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/evidence/parity-r3/frozen-output.json",
+      "sha256": "02964cd19b2c71c24110cbed7aa44247751e9e1aeaed0ac07e22c7ce5e6d19c7"
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/evidence/parity-r3/comparison.html",
+      "sha256": "5d79ceb1947aa69cda5112cdd0c6d7af620933c8ec51e5fef9b86a27b4d88937"
+    }
+  ],
+  "rootFinalFrozenSmoke": {
+    "origin": "http://127.0.0.1:19148/",
+    "fixture": "worker populated demo; separate browser origin",
+    "presentation": "Proto23 Parity R3 selected by demo",
+    "nativeInspection": "Apple held3",
+    "nativeUse": "Apple3to2, native stamina+0.5/s visible",
+    "personalSaveAccess": false
+  }
+}

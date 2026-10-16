@@ -1,0 +1,32 @@
+{
+  "devSeeded": true,
+  "sourceEdited": false,
+  "sourceTransformRemoved": true,
+  "errors": [],
+  "out": [
+    {
+      "mode": "actions",
+      "text": "Clear\nMonday 652/4/13 7:00\nLocation:\n|Dojo, training area|\nA c t i o n　　l i s t\nRun\n???????\nskills\nactions\n???????\nsettings"
+    },
+    {
+      "mode": "skills",
+      "text": "Clear\nMonday 652/4/13 7:00\nLocation:\n|Dojo, training area|\nS k i l l　　l i s t\nA-Z\nTPE\nLVL\nWalking lvl: 2\n　exp: 0/75　\n　\nCrafting lvl: 1\n　exp: 0/55　\n　\nPerception lvl: 1\n　exp: 0/55　\n　\n???????\nskills\nactions\n???????\nsettings"
+    },
+    {
+      "mode": "crafting",
+      "text": "Clear\nMonday 652/4/13 7:00\nLocation:\n|Dojo, training area|\nALL\nMED\nFOD\nWEP\nEQP\nMAT\nFlour\nDough\nBread\nassemble\nskills\nactions\n???????\nsettings"
+    },
+    {
+      "mode": "journal",
+      "text": "[春]Clear\nMonday 652/4/13 7:01\nLocation:\n|Dojo, training area|\nJ o u r n a l\nQ U E S T S\n????????????\n????????????\nS T A T I S T I C S\nassemble\nskills\nactions\njournal\nsettings"
+    },
+    {
+      "mode": "night",
+      "text": "[春]Clear\nMonday 652/4/13 7:01\nLocation:\n|Dojo, training area|\nMessage log limit\nBG Color\n　\n18\n18\n46\nBG presets\nWhite\ngrey\nnight\nspecial\nDestroy gradients\nExport\nImport\nassemble\nskills\nactions\njournal\nsettings"
+    },
+    {
+      "mode": "player-hover",
+      "text": "Physical Strength\nDetermines physical damage dealt and received\n　\n\nGrowth Potential: 100%"
+    }
+  ]
+}

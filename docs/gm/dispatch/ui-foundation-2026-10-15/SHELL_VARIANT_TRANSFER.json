@@ -1,0 +1,12 @@
+{
+  "authorizedBy": "Weibao explicit Proto23 shell variant instruction, recorded in USER_VISION",
+  "sourceWriterThreadId": "01a13dba-1433-7232-bd63-674e459f141a",
+  "previousWriterThreadId": "01a13e05-6d87-7d40-83e1-5f160fa0c428",
+  "previousWriterPid": 33400,
+  "previousWriterExited": true,
+  "previousReport": "docs/gm/dispatch/ui-triage-apothecary-2026-10-15/NAV_REPORT.md",
+  "previousReportSha256": "d9f2074066ff705246778d3fb8a56a6db0a3ca5c526506ff0426bec2cb42fff6",
+  "releaseEvidence": "NAV report explicitly releases shared sources; 26 PASS browser groups and source/served parity reviewed. Root sent SIGINT only to the lingering released CLI runner; it has exited. Queue coordinator stopped; no TRIAGE/APOTHECARY writer launched.",
+  "scope": "PROTO23_SHELL_VARIANT.md SV1-SV5, sole UI runtime writer; no commit/push, preserve C1 frozen output, gameplay and saves",
+  "priority": "Shell variant now precedes TRIAGE/APOTHECARY under latest user direction; older NAV handoff-to-TRIAGE paragraph is superseded for dispatch order only."
+}

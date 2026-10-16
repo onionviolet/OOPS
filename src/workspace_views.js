@@ -1,9 +1,19 @@
+import {decorateActionComponents} from './ui_components.js';
 import {definePanel} from './panel_kit.js';
+import {createReferenceDisclosure} from './workspace_disclosure.js';
 import {registerWorkspaceModule, updateWorkspace, openWorkspaceModule} from './workspace_layout.js';
 
 // Only host-supplied, already visible labels enter this presentation. No new
 // definition lookup, command dispatcher or gameplay timer belongs here.
 export function createWorkspaceViews({read,combatKnown=()=>false}) {
+    const components=decorateActionComponents(document.getElementById('location_related_div'));
+    // Native bestiary/anthology lists contain earned records, including restored
+    // history. Empty future magic navigation has no useful destination yet.
+    const references = createReferenceDisclosure({read: () => ({
+        bestiary: !!document.querySelector('#bestiary_list .bestiary_entry_div'),
+        books: !!document.querySelector('#books_list .anthology_entry_div'),
+        magic: !!document.querySelector('#magic_list > *'),
+    })});
     const panel=document.createElement('section');panel.id='workspace_current_work';
     const heading=document.createElement('strong');heading.textContent='Current work';
     const work=document.createElement('p'),ownership=document.createElement('p');
@@ -37,6 +47,7 @@ export function createWorkspaceViews({read,combatKnown=()=>false}) {
         more.textContent=open?'Less':'More about this place';more.setAttribute('aria-expanded',String(open));};
     let signature='';
     const render=()=>{
+        references.render();
         syncProse();
         const view=read(),next=JSON.stringify(view);
         if(next!==signature){signature=next;work.textContent=view.work.length?view.work.join(' · '):'No work running.';jump.textContent=view.waiting?'Open waiting response':'Open local controls';
@@ -59,7 +70,7 @@ export function createWorkspaceViews({read,combatKnown=()=>false}) {
     };
     nativeHost?.addEventListener('keydown',onKey);
     const observer=new MutationObserver(decorate);if(nativeHost)observer.observe(nativeHost,{childList:true,subtree:true,attributes:true,attributeFilter:['onclick','class']});decorate();
-    render();const timer=setInterval(render,250);return {render,destroy(){clearInterval(timer);observer.disconnect();nativeHost?.removeEventListener('keydown',onKey);panel.remove();more.remove();taskObserver.disconnect();}};
+    render();const timer=setInterval(render,250);return {render,destroy(){clearInterval(timer);components.destroy();references.destroy();observer.disconnect();nativeHost?.removeEventListener('keydown',onKey);panel.remove();more.remove();taskObserver.disconnect();}};
 }
 
 export function createEquipmentComparison({read}) {

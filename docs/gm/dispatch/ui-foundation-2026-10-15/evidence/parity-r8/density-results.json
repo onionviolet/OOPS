@@ -1,0 +1,14 @@
+{
+  "comfortable": {
+    "font": "21px",
+    "row": 32.28125,
+    "density": "comfortable"
+  },
+  "compact": {
+    "font": "21px",
+    "row": 27.25,
+    "density": "compact"
+  },
+  "fontPreserved": true,
+  "gameplayExact": true
+}

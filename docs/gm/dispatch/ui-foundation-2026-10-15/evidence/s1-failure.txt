@@ -1,0 +1,2 @@
+TypeError: Cannot read properties of undefined (reading 'methods')
+    at /Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/ui-foundation-2026-10-15/check-browser.cjs:46:379

@@ -1,3 +1,9 @@
+import {readNativeCombatFocus} from './combat_focus.js';
+import {mountProto23Shell} from './proto23_shell.js';
+import {mountWorkspaceNavigation} from './workspace_navigation.js';
+import {createVillageWorkspace} from './village_workspace.js';
+import {projectsHome,openProjects} from './projects_drawer.js';
+import {generatedPeopleView} from './generated_people.js';
 import {mistglassProfile as MISTGLASS,mistglassContent} from './absorb_p23/world_adaptation/index.js';
 import {MISTGLASS_LOCATION,MISTGLASS_KEEPER,registerMistglassNative,mistglassContext,stageMistglassTravel,stageMistglassTeaching,stageMistglassTrial,stageMistglassAdvance,stageMistglassRestock,mistglassNextBoundary,knownMistglassView} from './absorb_p23/host_joins/world_adaptation.js';
 import {createMistglassPanel} from './absorb_p23/host_joins/world_adaptation_ui.js';
@@ -225,7 +231,7 @@ import { skills } from "./data/skills.js";
 installTrainingLink(skills);
 import { which_skills_affect_skill } from "./models/skill.js";
 import { Enemy, enemy_killcount, enemy_templates, tags_for_droprate_modifier_skills } from "./enemies.js";
-import { is_in_trade, start_trade, cancel_trade, accept_trade, exit_trade,
+import { current_trader,is_in_trade, start_trade, cancel_trade, accept_trade, exit_trade,
          add_to_buying_list, remove_from_buying_list, add_to_selling_list, remove_from_selling_list} from "./trade.js";
 import { character, 
          time_until_wet,
@@ -1223,7 +1229,7 @@ function createElementalPanel() {
     const title=document.createElement('summary');title.textContent='Elemental preparation';const body=document.createElement('div'),notice=document.createElement('p');panel.append(title,body,notice);
     input.onchange=()=>{try{changeElementalPreparation(input.checked);}catch(error){notice.textContent=error.message;render();}};
     let signature='';
-    function render(){const host=document.getElementById('location_actions_div');if(panel.parentElement!==host)host.append(panel);input.checked=game_options.elemental_affinities;
+    function render(){const host=projectsHome();if(panel.parentElement!==host)host.append(panel);input.checked=game_options.elemental_affinities;
         const current=current_combat?.defenders||[],known=Object.keys(enemy_killcount).filter(id=>enemy_killcount[id]>0).map(id=>enemy_templates[id]).filter(Boolean);
         const view=describeElementalPreparation({enabled:game_options.elemental_affinities,equipment:character.getEquipment(),encounteredEnemies:[...current,...known]});
         panel.hidden=!!current_dialogue;const next=JSON.stringify(view);if(next===signature)return;signature=next;body.replaceChildren();
@@ -3402,7 +3408,7 @@ function refreshCustomization() {
     if(deferSimulationRender(refreshCustomization, refreshCustomization)) return;
     if(!customization)return;
     document.documentElement.dataset.effects=customization.profiles?.[customization.active]?.settings?.effects||'full'; // settings pass S3: save-level Effects caps per-browser motion
-    applyCustomizationProfile(customization,{season:current_game_time.getSeason(),moduleNodes:{ledger:document.getElementById('work_ledger_panel'),crafting:document.getElementById('crafting_window'),'local-actions':document.getElementById('location_related_div'),vitals:document.getElementById('basic_character_info_div'),preparation:document.getElementById('character_div'),belongings:[document.getElementById('inventory_div'),document.getElementById('inventory_combat_switch_selection')],records:document.getElementById('journal_div'),time:document.getElementById('time_and_location'),location:document.getElementById('location_div'),skills:document.getElementById('skills_and_stances_div'),messages:document.getElementById('message_log_div'),notebook:document.getElementById('adventure_notebook'),'status-window':document.getElementById('status_window_panel'),customization:[document.getElementById('customization_host'),document.getElementById('customization_effects_host'),document.getElementById('customization_rules_host')]}});
+    applyCustomizationProfile(customization,{season:current_game_time.getSeason(),moduleNodes:{ledger:document.getElementById('work_ledger_panel'),crafting:document.getElementById('crafting_window'),'local-actions':document.getElementById('location_related_div'),vitals:document.getElementById('basic_character_info_div'),preparation:[document.getElementById('character_div'),document.getElementById('proto23_character')],belongings:[document.getElementById('proto23_item_detail'),document.getElementById('inventory_div'),document.getElementById('inventory_combat_switch_selection')],records:document.getElementById('journal_div'),time:document.getElementById('time_and_location'),location:document.getElementById('location_div'),skills:document.getElementById('skills_and_stances_div'),messages:document.getElementById('message_log_div'),notebook:document.getElementById('adventure_notebook'),'status-window':document.getElementById('status_window_panel'),customization:[document.getElementById('customization_host'),document.getElementById('customization_effects_host'),document.getElementById('customization_rules_host')]}});
     customizationPanel?.refresh();workLedgerAuthor?.refresh();
 }
 function saveCustomization(next) {
@@ -5990,7 +5996,9 @@ function installKnownItemHotkeys(){
         for(const host of document.querySelectorAll('#inventory_content_div [data-character_item]')){
             const key=host.dataset.character_item,row=character.getItems()[key];if(!row||!item_log.is_known(row.item.id))continue;
             const mounted=rows.get(host);if(mounted?.key===key&&mounted.holder.parentNode===host){mounted.binding?.render();continue;}if(mounted){mounted.holder.remove();rows.delete(host);}
-            const holder=document.createElement('div');holder.className='known-item-binding';holder.addEventListener('click',event=>event.stopPropagation());holder.addEventListener('submit',event=>event.stopPropagation());
+            const holder=document.createElement('details');holder.className='known-item-binding';
+            const summary=document.createElement('summary');summary.textContent='Hotkey';holder.append(summary);
+            holder.addEventListener('click',event=>event.stopPropagation());holder.addEventListener('submit',event=>event.stopPropagation());
             if(row.item.tags.equippable&&!JSON.parse(key).e2_instance){const button=document.createElement('button');button.type='button';button.textContent='Identify this copy for a hotkey';button.addEventListener('click',()=>{try{identifyKnownHotkeyCopy(key);}catch(error){log_message(error.message,'notification');}});holder.append(button);rows.set(host,{key,holder,binding:null});}
             else if(row.item.tags.usable||row.item.tags.equippable)rows.set(host,{key,holder,binding:mountKnownItemBinding(holder,key,controller)});else {rows.set(host,{key,holder,binding:null});continue;}
             host.append(holder);
@@ -9789,7 +9797,7 @@ update_displayed_equipment();
 sort_displayed_inventory({sort_by: "name", target: "character"});
 
 if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
-    habitatPanel=createHabitatPanel({parent:document.getElementById('location_actions_div'),read:habitatContext,act:actHabitat});
+    habitatPanel=createHabitatPanel({parent:projectsHome(),read:habitatContext,act:actHabitat});
     harvestPanel=createHarvestPanel({container:document.getElementById('location_actions_div'),read:()=>({state:harvestOwner,context:harvestContext(),writable:harvestWritable(),ready:harvestReady()}),readInspector:()=>({harvest:harvestOwner,mixtures:getMixtureOwner(),ruleTrace:getMixtureOwner()?.ruleLaws?.receipts?.[getMixtureOwner()?.ruleLaws?.lastReceipt]?.trace,expansion:expansionState,inventory:character.getItems(),clock:calendarMinutes(current_game_time),handling:{context:harvestContext(),ready:harvestReady(),automaticReady:harvestWritable()&&harvestAutomaticReady()}}),act:actHarvest,developer:is_on_dev()||new URLSearchParams(location.search).get("harvest-inspector")==="1"});
     if(structuredPacks.size)structuredPanel=createStructuredPackPanel({read:readStructuredCampaign,command:commandStructuredCampaign});
     optionalPackPanel=createContentPackPanel({definitions:optionalPacks,always:true,
@@ -9973,7 +9981,7 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
     trainingPanel=createTrainingPanel({read:trainingFrame,act:actTraining});
     livingGearPanel=createLivingGearPanel({read:livingFrame,spend:spendLivingCinders});
     readingSalvagePanel=createReadingSalvagePanel({read:studyFrame,act:(id,row)=>id==='identify'?identifySalvageCopy(row.key):id==='salvage'?craftSalvage(row.recipe,row.itemKey,row.toolKey):actStudy(id)});
-    mistglassPanel=createMistglassPanel({host:document.getElementById('location_actions_div'),read:mistglassFrame,act:actMistglass});
+    mistglassPanel=createMistglassPanel({host:projectsHome(),read:mistglassFrame,act:actMistglass});
     growthPanel=createGrowthPanel({read:growthFrame,act:actGrowth});
     householdPanel=createHouseholdPanel({host:document.getElementById('location_actions_div'),read:p00HouseholdFrame,act:actP00Household});
     durabilityPanel=createDurabilityPanel();
@@ -10008,8 +10016,8 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
         ['time','Time & weather','time_and_location','center',true],
         ['location','Current location','location_div','center',true],
         ['combat-controls','Inventory & combat view','inventory_combat_switch_selection','left',true],
-        ['skills','Skills & practice','skills_and_stances_div','right',false],
-        ['records','Journal & received accounts','journal_div','right',false],
+        ['skills','Skills & practice','skills_and_stances_div','center',false],
+        ['records','Journal & received accounts','journal_div','center',false],
         ['preparation','Character & preparation','character_div','left',false],
         ['belongings','Belongings','inventory_div','left',false],
         ['local-actions','Local actions','location_related_div','center',true],
@@ -10017,6 +10025,7 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
     ]) {const node=document.getElementById(nodeId);if(node){
         const found=()=> {
             if(!openingAllows(id,getDisplaySetting('stagedOpening')==='on',openingStep))return false;
+            if(['time','location'].includes(id)&&current_location?.id==='Village'&&expansionState.actors.player.worldId==='base.frontier')return false;
             if(id==='skills')return Object.values(skills).some(skill=>nativeSkillDiscovery(skill,character));
             if(id==='records')return item_templates['Old combat manual'].isFinished() || item_templates['ABC for kids'].isFinished() || Object.values(enemy_killcount).some(n=>n>0) || metVillageElder();
             return true;
@@ -10068,6 +10077,31 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
         if(base?.type!=='JOB')return label;
         return enough_time_for_earnings(activity)?`${label} · next full-round pay in ${format_working_time(activity.gathering_time_needed-activity.gathering_time%activity.gathering_time_needed)}`:`${label} · no time for another full paid round`;
     };
+    mountProto23Shell({read:()=>{
+        const stats=character.getFullStats();
+        return {stats:[['STR',stats.strength],['AGL',stats.agility],['DEX',stats.dexterity],['INT',stats.intuition],['Attack',character.getAttackPower()],['Defense',stats.defense]].map(([label,value])=>[label,Number.isFinite(value)?Number(value.toFixed(1)):'???']),
+            equipment:[...document.querySelectorAll('#character_equipment_div .equipment_slot_div')].map(slot=>{const id=slot.id.replace(/_slot$/,'');const item=character.getEquipment()[id==='fishing'?'fishing_pole':id];return {id,label:id.replaceAll('_',' '),name:item?item.getName():null};}),
+            reason:nativeActionReasons(expansionState).join(' ')};
+    }});
+    createVillageWorkspace({read:()=>{
+        const inVillage=current_location?.id==='Village'&&expansionState.actors.player.worldId==='base.frontier';
+        const travelers=inVillage?generatedPeopleView(generatedPeopleSnapshot(calendarMinutes(current_game_time))).filter(p=>p.status!=='on_road'):[];
+        const authored=inVillage?current_location.npcs.filter(id=>{const p=NPCRegistry.get(id);return p.canBeDisplayed(get_context())&&p.getDialogueComponent().canBeDisplayed(get_context());}).map(id=>({id,name:NPCRegistry.get(id).getName({is_mofu_mofu_enabled:global_flags.is_mofu_mofu_enabled}),role:NPCRegistry.get(id).tags.trader?'Merchant':'Village neighbor',met:id==='villageElder'?metVillageElder():true,traits:[],relationship:null})):[];
+        const dealing=current_trader?{id:current_trader,name:NPCRegistry.get(current_trader).getName({is_mofu_mofu_enabled:global_flags.is_mofu_mofu_enabled}),role:'Merchant',met:true,traits:[],relationship:null}:null;
+        const people=[...authored,...travelers,...(dealing&&!authored.some(p=>p.id===dealing.id)?[dealing]:[])],things=inVillage?[{id:'mixing',name:'Village mixing counter',description:'Mix and observe your own ingredients.'},...(document.querySelector('.choice_craft')?[{id:'crafting',name:'Crafting stations',description:'Use the available native crafting stations.'}]:[]),{id:'projects',name:'Projects',description:'Read optional proposals before opting in.'}]:[];
+        const busy=!!(current_activity||current_game_action||current_combat||current_dialogue||is_sleeping||is_reading||is_in_trade()||nativeOccupationReason());
+        const actions=[...people.map(p=>({id:`talk:${p.id}`,target:p.id,label:p.met?`Talk with ${p.name}`:'Meet traveler',disabled:busy,reason:busy?'Finish your current work or conversation first.':''})),...things.map(t=>({id:t.id,target:t.id,label:t.id==='projects'?'Open Projects':`Open ${t.name}`,disabled:t.id!=='projects'&&busy,reason:busy?'Finish your current work or conversation first.':''}))];
+        const weatherNode=document.getElementById('weather_div'),weatherLabel=weatherNode?.querySelector('.material-icons')?.textContent.trim()==='ac_unit'?'Snow':is_raining()?'Rain':'Dry',temperatureText=weatherNode?.querySelector('span:not(.material-icons):not(.temperature_tooltip)')?.textContent||'';
+        const enemies=readNativeCombatFocus(current_combat?.defenders_ui_slot),enemy=enemies[0]||null;
+        return {inVillage,place:current_location?.name||current_location?.id||'',clock:`${current_location?.name||current_location?.id} · ${current_game_time.toString()} · ${current_game_time.getTimeOfDaySimple()} · ${weatherLabel} · ${temperatureText}`,people,things,actions,dialogue:current_dialogue||current_trader,enemy,enemies,history:expansionState,services:inVillage?[{id:'waypost-clerk',name:'Waypost supply clerk',role:'Supply clerk',met:true,traits:[],relationship:null}]:[]};
+    },act:id=>{
+        if(id==='mixing'){document.getElementById('village_mixing_open')?.click();return;}
+        if(id==='crafting'){window.openCraftingWindow();return;}
+        if(id==='projects'){openWorkspaceModule('projects');openProjects();return;}
+        const person=id.slice(5);
+        if(person.startsWith('traveler_')){openWorkspaceModule('village-travelers');const panel=document.getElementById('generated_people_panel');panel.open=true;const row=panel.querySelector(`[data-generated-person="${person}"]`);if(row){row.open=true;row.scrollIntoView({block:'nearest'});row.querySelector('button')?.focus();}return;}
+        window.start_dialogue(person);
+    }});
     createWorkspaceViews({read:()=>({
         work:[current_activity?nativeWorkLabel(current_activity):null,current_game_action?.name,
             harvestOwner?.job?`${harvestOwner.job.automatic?'Auto-processing':'Processing'} ${harvestOwner.job.specimen.species}: ${harvestOwner.job.choice}, ${Math.ceil(harvestOwner.job.remaining)} min remaining`:null,
@@ -10096,6 +10130,7 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
     setInterval(()=>authoredSiteEditor.refresh(),500);
     registerWorkspaceModule({id:'customization-sites',title:'Original site',node:authoredHost,home:'center'});
     mountWorkspace();
+    mountWorkspaceNavigation({notice:(text,panelId)=>log_message(text,'notification',{safeText:true,panelId})});
     refreshCustomization();
     expansionQuests = createExpansionQuests({read: readProgression,readLocalLife:()=>localLife,readLocalContext:localLifeContext});
     const bodySkills = new Set(["Running","Weightlifting","Climbing","Equilibrium","Breathing","Swimming","Fortitude","Perception","Meditation","Sleeping","Cold resistance"]);

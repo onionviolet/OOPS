@@ -1,0 +1,425 @@
+--- R6/src/display.js
++++ R7/src/display.js
+@@ -973,7 +973,7 @@
+     if(compactText&&compactText!==originalText){compact.textContent=compactText;compact.title=originalText;}
+     else compact.append(...original.cloneNode(true).childNodes);
+     for(const n of compact.querySelectorAll('[id]'))n.removeAttribute('id');
+-    message.append(original,compact);return compact;
++    message.dataset.eventKind=type;message.append(original,compact);return compact;
+ }
+ function decorate_log_subjects(message,subjects,type){
+     for(const subject of subjects){
+@@ -991,15 +991,19 @@
+     if(!/attacked|loot|skill_raised|skill_unlocked|level_up|victory|defeated/.test(type))return;
+     const walker=document.createTreeWalker(message,NodeFilter.SHOW_TEXT),texts=[];let text;
+     while(text=walker.nextNode())if(!text.parentElement.closest('button'))texts.push(text);
+-    for(const node of texts){const parts=node.textContent.split(/(\b\d+(?:\.\d+)?%?|\[CRIT\])/g);if(parts.length===1)continue;
+-        node.replaceWith(...parts.map((part,index)=>{if(index%2===0)return document.createTextNode(part);const span=document.createElement('span');span.className='log-value';span.dataset.valueRole=type.startsWith('hero_attacked')?'loss':type.startsWith('enemy_attacked')?'damage':'gain';span.textContent=part;return span;}));}
+-}
++    for(const node of texts){const parts=node.textContent.split(/(\bx\d+|\b\d+(?:\.\d+)?%?|\[CRIT\])/g);if(parts.length===1)continue;
++        node.replaceWith(...parts.map((part,index)=>{if(index%2===0)return document.createTextNode(part);const span=document.createElement('span');span.className='log-value';span.dataset.valueRole=part==='[CRIT]'?'critical':type.startsWith('hero_attacked')?'loss':type.startsWith('enemy_attacked')?'damage':type.startsWith('skill_')?'growth':'gain';span.textContent=part;return span;}));}
++}
++let combatReportsStopped=false;
++export function setCombatReportsStopped(stopped){combatReportsStopped=!!stopped;return combatReportsStopped;}
+ let nativeLogBufferReader=null;
+ export function setNativeLogBufferReader(reader) {
+     if(typeof reader!=='function')throw Error('Invalid native message buffer reader.');
+     nativeLogBufferReader=reader;
+ }
+  function log_message(message_to_add, message_type, details = {}) {
++    // Explicit, transient report control. Simulation and existing history continue.
++    if(combatReportsStopped&&document.getElementById('main_content')?.dataset.parity==='r3'&&/^(?:hero|enemy)_(?:attacked|missed|blocked|defeat)/.test(message_type))return;
+     const buffer=nativeLogBufferReader?.();
+     if(buffer){buffer.push([message_to_add,message_type,details]);return;}
+     if(typeof message_to_add === 'undefined') {
+@@ -1266,6 +1270,8 @@
+ }
+ 
+ function clear_message_log() {
++    for(const key of Object.keys(message_count))message_count[key]=0;
++    dynamic_loot_message=null;
+     clear_HTML_content(message_log);
+     hide_message_log_unread();
+ }
+--- R6/src/proto23_shell.js
++++ R7/src/proto23_shell.js
+@@ -1,3 +1,4 @@
++import {clear_message_log,setCombatReportsStopped} from './display.js';
+ import {getDisplaySetting,setDisplaySettings} from './display_settings.js';
+ import {centerModes} from './center_modes.js';
+ import {definePanel} from './panel_kit.js';
+@@ -31,11 +32,16 @@
+     const player=node('section',null,'shell-character');player.id='proto23_character';
+     const statline=node('div',null,'shell-statline'),equipment=node('div',null,'shell-equipment');
+     let allStatsOpen=false,statsSignature='';const statsCatalog=node('section',null,'shell-stats-catalog');statsCatalog.hidden=true;
+-    const details=action('All stats',()=>{allStatsOpen=!allStatsOpen;statsCatalog.hidden=!allStatsOpen;statline.hidden=allStatsOpen;details.textContent=allStatsOpen?'Overview':'All stats';details.setAttribute('aria-expanded',String(allStatsOpen));document.getElementById('main_content').dataset.shellStatsOpen=String(allStatsOpen);});
++    const details=action('All stats',()=>{allStatsOpen=!allStatsOpen;statsCatalog.hidden=!allStatsOpen;statline.hidden=allStatsOpen;combatOverview.hidden=allStatsOpen;gear.hidden=allStatsOpen;const viewport=player.closest('.workspace-module-body');if(viewport)viewport.scrollTop=0;details.textContent=allStatsOpen?'Overview':'All stats';details.setAttribute('aria-expanded',String(allStatsOpen));document.getElementById('main_content').dataset.shellStatsOpen=String(allStatsOpen);});
+     const fullStats=action('Full stats ›',()=>expandWorkspaceModule('preparation'));statsCatalog.append(fullStats);
+     const statsRows=node('div',null,'shell-stat-records');statsCatalog.append(statsRows);
+-    const gear=node('details',null,'shell-gear-disclosure'),gearSummary=node('summary','Equipment');gear.append(gearSummary,equipment);
+-    details.title='Show all native character stats in this panel';const effectsSummary=action('Effects',()=>showContext(effectsSummary));effectsSummary.className='shell-effects-summary';effectsSummary.hidden=true;effectsSummary.dataset.contextPreview='effects';player.append(statline,details,effectsSummary,gear,statsCatalog);
++    const statGroups=new Map(),statRecords=new Map(),overviewRecords=new Map();let statGroup='core';const statTabs=node('nav',null,'shell-stat-tabs');statTabs.setAttribute('aria-label','Character stat groups');statsCatalog.insertBefore(statTabs,statsRows);const selectStatGroup=id=>{statGroup=id;for(const[key,rows]of statGroups)rows.parentElement.hidden=key!==id;for(const tab of statTabs.children)tab.setAttribute('aria-pressed',String(tab.dataset.statGroup===id));};
++    for(const [id,label,description]of [['core','Attributes','Strength, agility, dexterity, intuition and magic.'],['offense','Attack','Power, cadence, accuracy and critical hits.'],['defense','Defense','Damage reduction and native defensive rating.']]){const group=node('section',null,'shell-stat-group');group.dataset.statGroup=id;const heading=node('strong',label),hint=node('small',description),rows=node('div');group.append(heading,hint,rows);statsRows.append(group);statGroups.set(id,rows);const tab=action(label,()=>selectStatGroup(id));tab.dataset.statGroup=id;tab.title=description;statTabs.append(tab);}
++    selectStatGroup(statGroup);
++    const combatOverview=node('div',null,'shell-combat-overview');player.append(combatOverview);
++
++    const gear=node('details',null,'shell-gear-disclosure');gear.open=innerWidth>=1700;let gearChosen=false;const gearSummary=node('summary','Equipment');gear.append(gearSummary,equipment);gearSummary.addEventListener('click',()=>{gearChosen=true;});
++    details.title='Show all native character stats in this panel';const effectsSummary=action('Effects',()=>showContext(effectsSummary));effectsSummary.className='shell-effects-summary';effectsSummary.hidden=true;effectsSummary.dataset.contextPreview='effects';player.append(statline,combatOverview,details,effectsSummary,gear,statsCatalog);
+     const detail=node('section',null,'shell-item-detail');detail.id='proto23_item_detail';
+     const title=node('strong'),meta=node('p'),body=node('div',null,'shell-item-description'),controls=node('div',null,'shell-item-actions');
+     detail.append(title,meta,body,controls);
+@@ -48,9 +54,9 @@
+     const contextPreview=node('aside',null,'shell-context-preview');contextPreview.id='shell_context_preview';contextPreview.setAttribute('popover','manual');contextPreview.setAttribute('role','tooltip');player.append(contextPreview);
+     let contextSource=null,contextTimer=null,contextSignature='';
+     function hideContext(){clearTimeout(contextTimer);if(contextPreview.matches(':popover-open'))contextPreview.hidePopover();contextSource?.removeAttribute('aria-describedby');contextSource=null;contextSignature='';}
+-    function showContext(source){
++    function showContext(source,interactive=false){
+         if(!active()||document.getElementById('main_content').dataset.parity!=='r3')return;
+-        clearTimeout(contextTimer);const nextSignature=source.logDescription||source.dataset.contextPreview==='effects'&&document.getElementById('effects_tooltip')?.innerHTML||source.dataset.effectAnchor==='opponent-name'&&document.getElementById('current_focus').textContent||source.innerHTML+source.title;if(contextSource===source&&contextSignature===nextSignature&&contextPreview.matches(':popover-open'))return;contextSignature=nextSignature;hidePreview();contextSource?.removeAttribute('aria-describedby');contextSource=source;
++        contextPreview.dataset.interactive=String(interactive||source.dataset.contextPreview==='effects');clearTimeout(contextTimer);const nextSignature=source.logDescription||source.dataset.contextPreview==='effects'&&document.getElementById('effects_tooltip')?.innerHTML||source.dataset.effectAnchor==='opponent-name'&&document.getElementById('current_focus').textContent||source.innerHTML+source.title;if(contextSource===source&&contextSignature===nextSignature&&contextPreview.matches(':popover-open'))return;contextSignature=nextSignature;hidePreview();contextSource?.removeAttribute('aria-describedby');contextSource=source;
+         contextPreview.replaceChildren();
+         if(source.logDescription){const saved=node('div');saved.innerHTML=source.logDescription;contextPreview.append(descriptionCopy(saved),node('small','Description recorded with this event.'));
+         }else if(source.dataset.contextPreview==='effects'){
+@@ -58,11 +64,11 @@
+             contextPreview.append(node('strong','Active effects'));
+             for(const effect of native.querySelectorAll('.active_effect_tooltip')){const copy=descriptionCopy(effect);if(effect.dataset.effectKind)copy.prepend(node('small',effect.dataset.effectKind==='debuff'?'Debuff':effect.dataset.effectKind==='buff'?'Buff':'Condition','context-effect-kind'));contextPreview.append(copy);}
+         }else if(source.dataset.effectAnchor==='opponent-name'){
+-            const focus=document.getElementById('current_focus');contextPreview.append(node('strong',source.textContent),node('p',focus.querySelector('.combat-focus-view > p')?.textContent||''),node('p',[...focus.querySelectorAll('dl > div')].map(n=>[...n.children].map(c=>c.textContent).join(': ')).join(' · ')),node('small','Current native combat facts. Level, intent and status effects are not supplied by this view.'));
++            const focus=document.getElementById('current_focus');contextPreview.append(node('strong',source.textContent),node('p',focus.querySelector('.combat-focus-view > p')?.textContent||''),node('p',[...focus.querySelectorAll('dl > div')].map(n=>[...n.children].map(c=>c.textContent).join(': ')).join(' · ')),node('small','Native compatibility readout. Knowledge and appraisal depend on the world and observer. Inspection does not change attack targeting.'));
+         }else if(source.classList.contains('notice-panel-link')){
+             contextPreview.append(node('strong','Related panel'),node('p','Open shows the current related panel. Hover an underlined subject for its recorded description.'));
+         }else{
+-            const tooltip=source.querySelector('.stat_tooltip,[id$="_tooltip"]');
++            const tooltip=source.dataset.nativeStat?document.querySelector(`#character_stats_div #${source.dataset.nativeStat}`)?.closest('.stat_slot_div')?.querySelector('.stat_tooltip'):source.querySelector('.stat_tooltip,[id$="_tooltip"]');
+             if(tooltip)contextPreview.append(descriptionCopy(tooltip));
+             else contextPreview.append(node('strong',source.matches('dl > div')?[...source.children].map(n=>n.textContent).join(': '):source.textContent.trim()),node('p',source.title||'Known native combat facts.'));
+         }
+@@ -81,7 +87,7 @@
+         contextPreview.style.top=Math.max(8,box.bottom+h+8<innerHeight?box.bottom+6:box.top-h-6)+'px';
+         source.setAttribute('aria-describedby',contextPreview.id);
+     }
+-    const contextSelector='[data-effect-anchor=opponent-name],.shell-effects-summary,.combat-focus-view dl > div,.combat-focus-choices button,.log-subject,.shell-stat-record,#message_box_div .notice-panel-link,#character_health_div,#character_stamina_div,#character_xp_div';
++    const contextSelector='[data-native-stat],[data-effect-anchor=opponent-name],.shell-effects-summary,.combat-focus-view dl > div,.combat-focus-choices button,.log-subject,.shell-stat-record,#message_box_div .notice-panel-link,#character_health_div,#character_stamina_div,#character_xp_div';
+     const contextEnter=event=>{const source=event.target.closest(contextSelector);if(source&&!source.contains(event.relatedTarget))showContext(source);};
+     const contextLeave=event=>{const source=event.target.closest(contextSelector);if(source&&!source.contains(event.relatedTarget)){clearTimeout(contextTimer);contextTimer=setTimeout(hideContext,180);}};
+     for(const type of ['mouseover','focusin'])document.addEventListener(type,contextEnter);
+@@ -89,7 +95,7 @@
+     contextPreview.addEventListener('mouseenter',()=>clearTimeout(contextTimer));contextPreview.addEventListener('mouseleave',()=>{contextTimer=setTimeout(hideContext,180);});
+     const contextDismiss=event=>{if(event.key==='Escape'&&contextPreview.matches(':popover-open')){hideContext();event.preventDefault();event.stopImmediatePropagation();}};
+     document.addEventListener('keydown',contextDismiss,true);
+-    document.addEventListener('click',event=>{const subject=event.target.closest('.log-subject');if(subject){showContext(subject);return;}if(!contextPreview.contains(event.target)&&event.target!==effectsSummary)hideContext();});
++    document.addEventListener('click',event=>{const subject=event.target.closest('.log-subject');if(subject){showContext(subject,true);return;}if(!contextPreview.contains(event.target)&&event.target!==effectsSummary)hideContext();});
+ 
+     const preview=node('aside',null,'shell-item-preview');preview.id='shell_item_preview';
+     preview.setAttribute('popover','manual');preview.setAttribute('aria-label','Item preview');
+@@ -139,7 +145,9 @@
+     definePanel({id:'shell-detail',title:'Item details',role:'records',node:detail,home,defaultDock:'center',after:'focus',eligible:()=>active()&&!!selected,discovered:active});
+     const logTools=node('div',null,'shell-log-tools');const filters=action('Filters · All',()=>{const root=document.getElementById('main_content');root.dataset.logFiltersOpen=String(root.dataset.logFiltersOpen!=='true');filters.setAttribute('aria-expanded',root.dataset.logFiltersOpen);});filters.setAttribute('aria-expanded','false');filters.setAttribute('aria-controls','message_controls');
+     const follow=node('select');follow.setAttribute('aria-label','Log follow');for(const [value,label]of [['hold','Follow: smart'],['always','Follow: always']]){const option=node('option',label);option.value=value;follow.append(option);}follow.title='Smart follow holds your place when you scroll up. Always follow jumps to new messages.';follow.onchange=()=>setDisplaySettings({logFollow:follow.value});
+-    const latest=action('Latest',()=>{const native=document.querySelector('.log-unread-anchor button');if(native)native.click();else{const box=document.getElementById('message_box_div');box.scrollTop=box.scrollHeight;}});latest.title='Jump to the latest message';logTools.append(filters,follow,latest);
++    const latest=action('Latest',()=>{const native=document.querySelector('.log-unread-anchor button');if(native)native.click();else{const box=document.getElementById('message_box_div');box.scrollTop=box.scrollHeight;}});latest.title='Jump to the latest message';let combatStopped=false;const combatLog=action('Stop combat log',()=>{combatStopped=setCombatReportsStopped(!combatStopped);combatLog.textContent=combatStopped?'Resume combat log':'Stop combat log';combatLog.setAttribute('aria-pressed',String(combatStopped));});combatLog.title='Stop recording new hit, miss, block and defeat reports in this presentation. Combat continues; existing history, loot and growth reports remain. Resets on reload.';
++    const clearLog=action('Clear',()=>{hideContext();clear_message_log();});clearLog.title='Clear the visible report history. Character, discoveries, quests and combat are unchanged.';
++    logTools.append(filters,follow,latest,combatLog,clearLog);
+     definePanel({id:'shell-log-tools',title:'Reports controls',role:'log',node:logTools,home,defaultDock:'right',after:'messages',eligible:()=>home.dataset.parity==='r3',discovered:()=>home.dataset.parity==='r3'});
+ 
+     function rowForSelection(){
+@@ -161,11 +169,25 @@
+     document.addEventListener('click',inspect);document.addEventListener('focusin',inspect);
+     document.addEventListener('keydown',event=>{if(active()&&['Enter',' '].includes(event.key)&&event.target.matches('#inventory_content_div > [data-character_item]')){event.preventDefault();choose(event.target);}});
+     function render(){
+-        syncLogLabels();if(!active()){if(contextSource)hideContext();return;}const enabled=document.querySelectorAll('#message_controls .active_selection_button').length;filters.textContent=enabled===6?'Filters · All':`Filters · ${enabled}/6`;follow.value=getDisplaySetting('logFollow');const logBox=document.getElementById('message_box_div');latest.disabled=logBox.scrollHeight-logBox.scrollTop-logBox.clientHeight<24;
++        syncLogLabels();if(!gearChosen){const font=parseFloat(getComputedStyle(player).fontSize)||14,wanted=innerWidth>=1700&&player.clientWidth/font>=24;if(gear.open!==wanted)gear.open=wanted;}if(!active()){if(contextSource)hideContext();return;}const enabled=document.querySelectorAll('#message_controls .active_selection_button').length;filters.textContent=enabled===6?'Filters · All':`Filters · ${enabled}/6`;follow.value=getDisplaySetting('logFollow');const logBox=document.getElementById('message_box_div');latest.disabled=logBox.scrollHeight-logBox.scrollTop-logBox.clientHeight<24;
+         const effectRows=[...document.querySelectorAll('#effects_tooltip .active_effect_tooltip')],effectName=effectRows[0]?.querySelector('.active_effect_name')?.textContent.replace(/^'|'\s*:\s*$/g,'').trim();effectsSummary.hidden=!effectRows.length||document.getElementById('main_content').dataset.parity!=='r3';effectsSummary.textContent=effectName?(effectName+(effectRows.length>1?' +'+(effectRows.length-1):'')):'Effects';effectsSummary.setAttribute('aria-label',`Active effects: ${effectRows.length}. ${effectName||''}`);player.dataset.hasEffects=String(!!effectRows.length);
+         if(contextSource){if(contextSource.isConnected&&!contextSource.hidden&&active())showContext(contextSource);else hideContext();}
+         if(!active())return;
+-        const nativeStats=[...document.querySelectorAll('#character_stats_div .stat_slot_div')].filter(n=>n.querySelector('.stat_value')?.textContent.trim());const nextStats=nativeStats.map(n=>n.innerHTML).join('');if(statsSignature!==nextStats){statsSignature=nextStats;const focused=document.activeElement?.dataset.statRecord;statsRows.replaceChildren();for(const source of nativeStats){const label=source.querySelector('.stat_name,.stat_name_short')?.textContent.trim()||'Combat chance',value=source.querySelector('.stat_value')?.textContent.trim();const row=node('button',null,'shell-stat-record');row.type='button';row.dataset.statRecord=source.querySelector('.stat_value')?.id||label;row.append(node('span',label.replace(/:$/,'')),node('strong',value));const tooltip=source.querySelector('.stat_tooltip');if(tooltip){const copy=tooltip.cloneNode(true);for(const n of copy.querySelectorAll('[id]'))n.removeAttribute('id');row.append(copy);}statsRows.append(row);}if(focused)statsRows.querySelector(`[data-stat-record="${CSS.escape(focused)}"]`)?.focus({preventScroll:true});}
++        const nativeStats=[...document.querySelectorAll('#character_stats_div .stat_slot_div')].filter(n=>n.querySelector('.stat_value,.stat_value_long')?.textContent.trim());
++        const nextStats=nativeStats.map(n=>n.innerHTML).join('');
++        if(statsSignature!==nextStats){statsSignature=nextStats;
++            const seen=new Set();
++            for(const source of nativeStats){
++                const valueNode=source.querySelector('.stat_value,.stat_value_long'),key=valueNode.id,label=source.querySelector('.stat_name,.stat_name_short')?.textContent.trim().replace(/:$/,'')||'Combat chance';seen.add(key);
++                let row=statRecords.get(key);if(!row){row=node('button',null,'shell-stat-record');row.type='button';row.dataset.statRecord=key;row.append(node('span'),node('strong'));statRecords.set(key,row);}
++                row.firstChild.textContent=label;row.children[1].textContent=valueNode.textContent.trim()+(key==='attack_speed_slot'?' /s':'');
++                const tooltip=source.querySelector('.stat_tooltip');if(tooltip&&row.dataset.tooltipSignature!==tooltip.innerHTML){row.dataset.tooltipSignature=tooltip.innerHTML;row.querySelector('.stat_tooltip')?.remove();const copy=tooltip.cloneNode(true);copy.removeAttribute('id');for(const n of copy.querySelectorAll('[id]'))n.removeAttribute('id');row.append(copy);}
++                const group=/^(strength|agility|dexterity|intuition|magic)_/.test(key)?'core':/^(defense|defensive_action)/.test(key)?'defense':'offense';const host=statGroups.get(group);if(row.parentNode!==host)host.append(row);
++            }
++            for(const[key,row]of statRecords)if(!seen.has(key)){row.remove();statRecords.delete(key);}
++
++            for(const[key,label]of [['attack_speed_slot','Cadence'],['crit_rate_slot','Critical'],['hit_chance_slot','Accuracy'],['defensive_action_chance_slot','Defense rating']]){const source=statRecords.get(key);if(!source)continue;let cell=overviewRecords.get(key);if(!cell){cell=node('button',null,'shell-stat-record');cell.type='button';cell.dataset.statRecord=key;cell.append(node('span',label),node('strong'));overviewRecords.set(key,cell);combatOverview.append(cell);}cell.firstChild.textContent=key==='defensive_action_chance_slot'?(source.firstChild.textContent.includes('Block')?'Block':'Evasion rating'):label;cell.children[1].textContent=source.children[1].textContent;const tip=source.querySelector('.stat_tooltip');if(tip&&cell.dataset.tip!==tip.innerHTML){cell.dataset.tip=tip.innerHTML;cell.querySelector('.stat_tooltip')?.remove();cell.append(tip.cloneNode(true));}}
++        }
+         const root=document.getElementById('main_content'),context=document.getElementById('location_related_div'),style=getComputedStyle(context);
+         root.dataset.shellCustomPalette=context.dataset.customPalette||'false';
+         for(const [key,value]of Object.entries({'--shell-context-size':style.fontSize,'--shell-context-font':style.fontFamily,'--shell-user-fill':style.getPropertyValue('--custom-background'),'--shell-user-text':style.getPropertyValue('--custom-text'),'--shell-user-accent':style.getPropertyValue('--custom-accent')}))if(root.style.getPropertyValue(key)!==value)root.style.setProperty(key,value);
+@@ -179,7 +201,7 @@
+         if(hovered){if(!hovered.isConnected)hidePreview();else showPreview(hovered);}
+         const frame=read();const nextPlayer=JSON.stringify(frame);
+         if(nextPlayer!==playerSignature){playerSignature=nextPlayer;
+-            for(const [label,value]of frame.stats){let cell=playerStatNodes.get(label);if(!cell){cell=node('span');cell.dataset.playerStat=label;cell.append(node('span',label),node('strong'));playerStatNodes.set(label,cell);statline.append(cell);}if(cell.lastChild.textContent!==String(value))cell.lastChild.textContent=String(value);}
++            for(const [label,value]of frame.stats){let cell=playerStatNodes.get(label);if(!cell){cell=node('span');cell.dataset.playerStat=label;cell.dataset.nativeStat=({STR:'strength_slot',AGL:'agility_slot',DEX:'dexterity_slot',INT:'intuition_slot',Attack:'attack_power_slot',Defense:'defense_slot'})[label]||'';cell.tabIndex=0;cell.append(node('span',label),node('strong'));playerStatNodes.set(label,cell);statline.append(cell);}if(cell.lastChild.textContent!==String(value))cell.lastChild.textContent=String(value);}
+             const worn=frame.equipment.filter(s=>s.name).length;gearSummary.textContent=`Gear · ${worn}`;gearSummary.setAttribute('aria-label',`Equipment · ${worn} worn`);gearSummary.title=`${worn} worn items. Open native equipment slots.`;
+             player.dataset.effectAnchor='player-stats';
+             const focusedSlot=document.activeElement?.dataset.shellSlot;
+--- R6/src/village_workspace.js
++++ R7/src/village_workspace.js
+@@ -30,24 +30,35 @@
+     enemyHealth.setAttribute('aria-live','off');enemyFacts.setAttribute('aria-live','off');
+     enemyName.dataset.effectAnchor='opponent-name';enemyHealth.dataset.effectAnchor='opponent-health';enemyFacts.dataset.effectAnchor='opponent-stats';
+     enemyCycle.max=100;enemyCycle.setAttribute('aria-label','Native attack cycle');enemyCycleLabel.append(enemyCycle);
+-    const combatDetails=node('details'),combatSummary=node('summary','Combat readout');combatDetails.className='combat-readout';combatDetails.append(combatSummary,node('small','Attack, defense and chances for this encounter.'),enemyFacts,enemyEmpty);enemyView.append(enemyChoices,enemyName,enemyHealth,enemyCycleLabel,combatDetails);const enemyChoiceNodes=new Map();
++    const combatDetails=node('details'),combatSummary=node('summary','Combat readout');combatDetails.className='combat-readout';combatDetails.append(combatSummary,node('small','Native readout · inspection does not change attack targeting.'),enemyFacts,enemyEmpty);enemyView.append(enemyChoices,enemyName,enemyHealth,enemyCycleLabel,combatDetails);const enemyChoiceNodes=new Map();
+     const factNodes=new Map();
++    const rosterMode=node('button','Panels');rosterMode.type='button';rosterMode.className='combat-roster-mode';let enemyPanels=false,enemyPanelsChosen=false;
++    rosterMode.onclick=()=>{enemyPanelsChosen=true;enemyPanels=!enemyPanels;setText(rosterMode,enemyPanels?'Compact':'Panels');setAttr(rosterMode,'aria-pressed',enemyPanels);render();};rosterMode.title='Show an individual health and attack-cycle panel for each opponent. Inspection never selects an attack target.';
++    enemyView.prepend(rosterMode);
++
+     const setText=(n,text)=>{if(n.textContent!==text)n.textContent=text;};
++    const setAttr=(n,key,value)=>{value=String(value);if(n.getAttribute(key)!==value)n.setAttribute(key,value);};
++    const setTitle=(n,value)=>{if(n.title!==value)n.title=value;};
+     function renderEnemy(target,enemies){
++        if(!enemyPanelsChosen){const font=parseFloat(getComputedStyle(focus).fontSize)||14;enemyPanels=innerWidth>=1700&&focus.clientWidth/font>=(enemies.length>4?36:26);setText(rosterMode,enemyPanels?'Compact':'Panels');setAttr(rosterMode,'aria-pressed',enemyPanels);}
++        setTitle(rosterMode,`${enemyPanelsChosen?'Manual':'Automatic'} ${enemyPanels?'individual panels':'compact roster'}. Show ${enemyPanels?'compact roster':'individual health and attack-cycle panels'}. Inspection never changes attack targeting.`);
+         if(enemyView.parentNode!==focus)focus.replaceChildren(enemyView);
+         focus.dataset.nativeActor=target.id||'';setText(enemyName,target.name);setText(enemyHealth,target.hp);
+         enemyHealth.dataset.healthKnown=String(target.healthProgress!=null);enemyHealth.style.setProperty('--focus-health-fill-size',`${target.healthProgress??0}%`);
+-        enemyName.title='Facts from the native combat view. No native level or intent is supplied.';
++        enemyName.title='Native compatibility readout. In-world knowledge and appraisal remain world-specific; this view supplies no level, intent or enemy effects.';
+         for(const [id,b]of enemyChoiceNodes)if(!enemies.some(e=>e.id===id)){b.remove();enemyChoiceNodes.delete(id);}
+         for(const [index,enemy]of enemies.entries()){
+-            let b=enemyChoiceNodes.get(enemy.id);if(!b){b=node('button');b.type='button';b.dataset.inspectEnemy=enemy.id;b.append(node('span'),node('small'));b.onclick=()=>{selectedEnemy=enemy.id;render();};enemyChoiceNodes.set(enemy.id,b);enemyChoices.append(b);}
+-            setText(b.firstChild,`${index+1} · ${enemy.name}`);setText(b.lastChild,enemy.hp);b.title=`Inspect opponent ${index+1}: ${enemy.name}. ${enemy.hp}`;b.setAttribute('aria-label',b.title);b.setAttribute('aria-pressed',String(enemy.id===target.id));
++            let b=enemyChoiceNodes.get(enemy.id);if(!b){b=node('button');b.type='button';b.dataset.inspectEnemy=enemy.id;b.append(node('span'),node('small'),node('progress'));b.lastChild.max=100;b.onclick=()=>{selectedEnemy=enemy.id;render();};enemyChoiceNodes.set(enemy.id,b);enemyChoices.append(b);}
++            setText(b.firstChild,`${index+1} · ${enemy.name}`);setText(b.children[1],enemy.hp);b.lastChild.value=enemy.attackProgress||0;b.lastChild.setAttribute('aria-label',`Opponent ${index+1}: ${enemy.name} attack cycle`);b.style.setProperty('--roster-health',`${enemy.healthProgress??0}%`);setTitle(b,`Inspect opponent ${index+1}: ${enemy.name}. ${enemy.hp}`);setAttr(b,'aria-label',b.title);setAttr(b,'aria-pressed',enemy.id===target.id);
+         }
+-        enemyChoices.hidden=enemies.length<2;
+-        combatSummary.textContent=`Combat readout · ${enemies.length} opponent${enemies.length===1?'':'s'}`;
+-        const facts=target.facts||[];enemyEmpty.hidden=!!facts.length;
++        enemyChoices.hidden=enemies.length<2;rosterMode.hidden=enemies.length<2;enemyChoices.dataset.presentation=enemyPanels?'panels':'compact';document.getElementById('main_content').dataset.enemyPanels=String(enemyPanels);
++        setText(combatSummary,`Combat readout · ${enemies.length} opponent${enemies.length===1?'':'s'}`);
++        const facts=(target.facts||[]).filter(fact=>fact.value!=null&&String(fact.value).trim()&&!/^(?:\?+|unknown|unavailable)(?:\s|$)/i.test(String(fact.value).trim()));enemyEmpty.hidden=!!facts.length;
+         for(const [key,pair]of factNodes)if(!facts.some(f=>f.label===key)){pair.remove();factNodes.delete(key);}
+-        for(const fact of facts){let pair=factNodes.get(fact.label);if(!pair){pair=node('div');pair.append(node('dt',fact.label),node('dd'));factNodes.set(fact.label,pair);enemyFacts.append(pair);}setText(pair.lastChild,fact.value);pair.tabIndex=0;pair.title=({'Attack':'Damage per connected attack, before your damage reduction.','Defense':'Damage reduction.','Speed':'Attack rate, in attacks per second.','Hit you':'This opponent’s chance to connect against you. Shield block is separate.','Evade you':'This opponent’s chance to evade your attack.','You hit them':'Your native chance to connect against this selected opponent, before damage reduction or block.','Attack rating':'Native attack points, a rating rather than a percentage.','Evasion rating':'Native evasion points, a rating rather than a percentage.'})[fact.label]||'';}
++        for(const fact of facts){let pair=factNodes.get(fact.label);if(!pair){pair=node('div');pair.append(node('dt',fact.label),node('dd'),node('small'));factNodes.set(fact.label,pair);enemyFacts.append(pair);}setText(pair.children[1],fact.value);
++            const ownId=({'Attack':'attack_power_slot','Defense':'defense_slot','Speed':'attack_speed_slot'})[fact.label];
++            const own=ownId?document.querySelector(`#character_stats_div #${ownId}`)?.textContent.trim():null;
++            setText(pair.lastChild,own?`You: ${own}${fact.label==='Speed'?' /s':''}`:'');pair.tabIndex=0;pair.title=({'Attack':'Damage per connected attack, before your damage reduction.','Defense':'Damage reduction.','Speed':'Attack rate, in attacks per second.','Hit you':'This opponent’s chance to connect against you. Shield block is separate.','Evade you':'This opponent’s chance to evade your attack.','You hit them':'Your native chance to connect against this inspected opponent, before damage reduction or block. Inspection does not select an attack target.','Attack rating':'Native attack points, a rating rather than a percentage.','Evasion rating':'Native evasion points, a rating rather than a percentage.'})[fact.label]||'';}
+         enemyCycle.value=target.attackProgress||0;
+     }
+     const home=document.getElementById('main_content');
+@@ -67,10 +78,12 @@
+         const parity=document.getElementById('main_content').dataset.parity==='r3';
+         if(parity&&!clock.contains(placeName))clock.replaceChildren(placeName,conditions,calendar);
+         const parts=view.clockText.split(' · '),date=parts[1]||'',season=date.split(',')[1]?.trim();
+-        placeName.textContent=frame.place;
+-        conditions.textContent=[season,parts[3],parts[4]].filter(Boolean).join(' · ');
+-        calendar.textContent=[season?date.replace(', '+season,''):date,parts[2]].filter(Boolean).join(' · ');
+-        if(!parity)clock.textContent=view.clockText;clock.title=view.clockText;placeTabs.hidden=!parity;people.hidden=!frame.people.length||parity&&placeTab!=='people';things.hidden=!frame.things.length||parity&&placeTab!=='things';for(const b of placeTabs.children){const count=b.dataset.placeTab==='people'?frame.people.length:b.dataset.placeTab==='things'?frame.things.length:null;b.textContent=['actions','options'].includes(b.dataset.placeTab)?(b.dataset.placeTab==='actions'?'Actions':'Options'):`${b.dataset.placeTab==='people'?'People':'Things'} · ${count}`;b.disabled=count===0;b.hidden=count===0;b.setAttribute('aria-pressed',String(b.dataset.placeTab===placeTab));}
++        setText(placeName,frame.place);
++        const conditionRows=[['season',season],['weather',parts[3]],['temperature',parts[4]]].filter(([,value])=>value);
++        const nativeTemperatureState=document.querySelector('#weather_div .cold_temperature')?'cold_temperature':'normal_temperature';const conditionSignature=JSON.stringify([conditionRows,nativeTemperatureState]);if(conditions.dataset.signature!==conditionSignature){conditions.dataset.signature=conditionSignature;conditions.replaceChildren();for(const[kind,value]of conditionRows){const symbol=kind==='season'?({'Spring':'❀','Summer':'☀','Autumn':'❧','Fall':'❧','Winter':'❄'}[value]||'◈'):kind==='weather'?({'Dry':'◇','Rain':'☂','Snow':'❄'}[value]||'◇'):'♨';const badge=node('span');badge.dataset.condition=kind;badge.dataset.conditionValue=value.toLowerCase();const icon=node('span',symbol);icon.setAttribute('aria-hidden','true');badge.append(icon,document.createTextNode(' '+value+(kind==='temperature'&&nativeTemperatureState==='cold_temperature'?' · Cold':'')));if(kind==='temperature')badge.dataset.temperatureState=nativeTemperatureState;badge.title=kind==='temperature'?(document.getElementById('temperature_tooltip')?.textContent||value):kind==='weather'?value+' · native weather; no additional effect inferred.':value+' · native calendar season';conditions.append(badge);}}
++
++        setText(calendar,[season?date.replace(', '+season,''):date,parts[2]?((/night/i.test(parts[2])?'☾ ':'☼ ')+parts[2]):''].filter(Boolean).join(' · '));calendar.dataset.timeOfDay=/night/i.test(parts[2])?'night':'day';
++        if(!parity)setText(clock,view.clockText);setTitle(clock,view.clockText);placeTabs.hidden=!parity;people.hidden=!frame.people.length||parity&&placeTab!=='people';things.hidden=!frame.things.length||parity&&placeTab!=='things';for(const b of placeTabs.children){const count=b.dataset.placeTab==='people'?frame.people.length:b.dataset.placeTab==='things'?frame.things.length:null;setText(b,['actions','options'].includes(b.dataset.placeTab)?(b.dataset.placeTab==='actions'?'Actions':'Options'):`${b.dataset.placeTab==='people'?'People':'Things'} · ${count}`);if(b.disabled!==(count===0))b.disabled=count===0;b.hidden=count===0;b.setAttribute('aria-pressed',String(b.dataset.placeTab===placeTab));}
+         document.getElementById('main_content').dataset.placeTab=parity?placeTab:'actions';groups.hidden=parity;
+         scene.dataset.inVillage=String(frame.inVillage);
+         const signature=JSON.stringify([frame.inVillage,frame.people,frame.things,frame.actions]);
+@@ -89,15 +102,19 @@
+         }
+         for(const b of scene.querySelectorAll('[data-scene-focus]'))b.setAttribute('aria-pressed',String(b.dataset.sceneFocus===selected));
+         const enemies=frame.enemies|| (frame.enemy?[frame.enemy]:[]),enemy=chooseCombatFocus(enemies,selectedEnemy);
+-        const target=villageFocus({...frame,enemy},selected),next=JSON.stringify(target);
++        const target=villageFocus({...frame,enemy},selected),next=JSON.stringify(target||{place:frame.place,people:frame.people,things:frame.things});
+         focus.dataset.focusEmpty=String(!target);
+         focus.closest('.workspace-module')?.setAttribute('data-focus-empty',String(!target));
+         const heading=focus.closest('.workspace-module')?.querySelector('.workspace-module-header > strong');
+         const shell=document.getElementById('main_content').dataset.presentation==='proto23-shell';
+-        if(heading){heading.textContent=shell?(target?.name||''): 'Focus';heading.title=target?.name||'Inspect a known person, place or opponent';if(shell&&target?.kind==='enemy'){heading.dataset.effectAnchor='opponent-name';heading.tabIndex=0;enemyName.removeAttribute('data-effect-anchor');}else{heading.removeAttribute('data-effect-anchor');heading.removeAttribute('tabindex');enemyName.dataset.effectAnchor='opponent-name';}}
++        if(shell&&!target){focus.dataset.focusEmpty='false';focus.closest('.workspace-module')?.setAttribute('data-focus-empty','false');}
++        if(heading){setText(heading,shell?(target?.name||'Around you'): 'Focus');setTitle(heading,target?.name||'Inspect a known person, place or opponent');if(shell&&target?.kind==='enemy'){heading.dataset.effectAnchor='opponent-name';heading.tabIndex=0;enemyName.removeAttribute('data-effect-anchor');}else{heading.removeAttribute('data-effect-anchor');heading.removeAttribute('tabindex');enemyName.dataset.effectAnchor='opponent-name';}}
+         focus.dataset.subjectHeading=String(shell&&!!target);
+         if(target?.kind==='enemy'&&shell){renderEnemy(target,enemies);focusSignature=next;return;}
+         if(next!==focusSignature||enemyView.parentNode===focus){focusSignature=next;focus.replaceChildren();
++            if(!target&&shell){const overview=node('div');overview.className='shell-place-overview';overview.append(node('strong',frame.place));const description=document.getElementById('location_description_div')?.textContent.trim();if(description)overview.append(node('p',description));
++                const nearby=node('div');nearby.className='shell-nearby';for(const person of frame.people){const b=node('button');b.type='button';b.append(node('strong',person.name),node('small',person.role||'Known person'));b.onclick=()=>choose(person.id);b.title=`Inspect ${person.name}. Does not start a conversation.`;b.dataset.inspectNearby=person.id;nearby.append(b);}if(frame.people.length)overview.append(nearby);else overview.append(node('small','Select an item or known subject to inspect.'));focus.append(overview);}
++
+             if(target){focus.append(node('strong',target.name),node('p',target.role||'Role not assessed'));
+                 if(target.kind==='enemy')focus.append(node('p',`Level/title: ${target.title||'???'} · ${target.hp||'??? hp'}`),node('p',target.stats||'Stats: ???'));
+                 if(target.kind==='person')focus.append(node('p',`Known traits: ${target.traits?.join(', ')||'Not assessed'}`),node('p',`Relationship: ${target.relationship||'No remembered dealings.'}`),node('p',target.memory||''));
+--- R6/src/workspace_layout.js
++++ R7/src/workspace_layout.js
+@@ -109,6 +109,7 @@
+     if (a === 'context') { setWorkspaceContext(owner.context==='authoring'?'play':'authoring'); return; }
+     if (a === 'edit-layout') { if(owner.shell)selectShell(false);setEditing(!owner.editing); owner.menu.open=false; owner.menuSummary.focus({preventScroll:true}); return; }
+     if (a === 'preset') { if(owner.shell)selectShell(false);owner.composition=!owner.narrow&&control.value==='Workspace';owner.layout = makePreset(control.value); save(); updateWorkspace(); return; }
++    if(a==='toggle-density'){owner.layout.density=owner.layout.density==='compact'?'comfortable':'compact';save();updateWorkspace();return;}
+     if (a === 'density') { owner.layout.density = control.value; save(); updateWorkspace(); return; }
+     if (a === 'craft-detail') { applyCraftDetail(control.value); try { localStorage.setItem(CRAFT_DETAIL_KEY, control.value); } catch { owner.status.textContent = 'Crafting detail placement applies for this session; browser storage is unavailable.'; } return; }
+     if (a === 'colors') { applyColorScheme(control.value); try { localStorage.setItem(COLOR_KEY, control.value); } catch { owner.status.textContent = 'Colors apply for this session; browser storage is unavailable.'; } return; }
+@@ -194,6 +195,7 @@
+ export function updateWorkspace() {
+     if(deferSimulationRender(updateWorkspace, updateWorkspace)) return;
+     if (!owner) return;
++    const densityToggle=owner.toolbar.querySelector('[data-workspace-action=toggle-density]');if(densityToggle){densityToggle.textContent=owner.layout.density==='compact'?'Compact':'Comfortable';densityToggle.title='Change spacing density. Keeps your chosen font size.';densityToggle.setAttribute('aria-pressed',String(owner.layout.density==='compact'));}
+     owner.root.dataset.presentation=owner.shell&&owner.context==='play'?'proto23-shell':'';
+     owner.root.dataset.parity=owner.parity&&!owner.narrow&&owner.context==='play'?'r3':'';
+     owner.root.dataset.parityCombat=String(!!registry.get('combat')?.eligible());
+@@ -383,8 +385,8 @@
+     const menu = el('details', 'workspace-layout-menu'), menuSummary = el('summary', '', 'Layout'), tools = el('div', 'workspace-layout-tools');
+     menu.append(menuSummary, tools); toolbar.append(button('Authoring', 'context'), menu);
+     const presentation=el('select');presentation.dataset.workspaceAction='presentation';presentation.setAttribute('aria-label','Presentation');
+-    for(const [value,label]of [['existing','Existing layout'],['proto23-shell','Proto23 Shell'],['proto23-parity','Proto23 UI R6']]){const option=el('option','',label);option.value=value;presentation.append(option);}
+-    toolbar.append(presentation);tools.append(button('Edit layout', 'edit-layout'));
++    for(const [value,label]of [['existing','Existing layout'],['proto23-shell','Proto23 Shell'],['proto23-parity','Proto23 UI R7']]){const option=el('option','',label);option.value=value;presentation.append(option);}
++    toolbar.append(presentation,button('Comfortable','toggle-density'));tools.append(button('Edit layout', 'edit-layout'));
+     const presetLabel = el('label', '', 'Layout '), presets = el('select'); presets.dataset.workspaceAction = 'preset'; ['Workspace', 'Classic', 'Focus', 'Compare'].forEach(v => { const o = el('option', '', v); o.value = v; presets.append(o); }); presetLabel.append(presets); tools.append(presetLabel, button('Reset layout', 'reset'));
+     const densityLabel = el('label', '', 'Density '), density = el('select'); density.dataset.workspaceAction='density'; ['compact','comfortable','inspection'].forEach(v=>{const o=el('option','',v);o.value=v;density.append(o);}); densityLabel.append(density);tools.append(densityLabel);
+     const colorsLabel = el('label', '', 'Colors '), colors = el('select'); colors.dataset.workspaceAction = 'colors'; [['standard','Standard'],['vivid','Vivid']].forEach(([v,t])=>{const o=el('option','',t);o.value=v;colors.append(o);}); colorsLabel.append(colors); tools.append(colorsLabel); colors.value = readColorScheme(); applyColorScheme(colors.value);
+--- R6/src/workspace_navigation.js
++++ R7/src/workspace_navigation.js
+@@ -32,8 +32,7 @@
+     const list=document.createElement('div'),close=document.createElement('button');close.type='button';close.textContent='Close';close.onclick=()=>sheet.close();sheet.append(title,list,close);nav.append(sheet);
+     const showHelp=()=>{list.replaceChildren();for(const [route,b]of buttons)if(!b.hidden){const p=document.createElement('p');p.textContent=b.title;list.append(p);}const p=document.createElement('p');p.textContent='Esc: return to the named previous view. F6 / Shift+F6: cycle visible panels.';list.append(p);sheet.showModal();};help.onclick=showHelp;
+     const paneNav=document.createElement('nav');paneNav.id='workspace_pane_navigation';paneNav.setAttribute('aria-label','Center views');
+-    const paneButtons=new Map();for(const label of ['Here','Skills','Crafting','Journal']){const route=routes.find(r=>r[0]===label),b=document.createElement('button');b.type='button';b.textContent=label;b.dataset.panelPath=route[2];b.onclick=()=>go(route);paneNav.append(b);paneButtons.set(route,b);}
+-    const paneMore=document.createElement('select');paneMore.setAttribute('aria-label','More game views');paneMore.onchange=()=>{const route=routes.find(r=>r[0]===paneMore.value);if(route)go(route);else if(paneMore.value){arrivals.delete(paneMore.value);expandWorkspaceModule(paneMore.value);}paneMore.value='';};paneNav.append(paneMore);
++    const paneButtons=new Map();for(const label of ['Here','Skills','Crafting','Mixing']){const route=routes.find(r=>r[0]===label),b=document.createElement('button');b.type='button';b.textContent=label;b.dataset.panelPath=route[2];b.onclick=()=>go(route);paneNav.append(b);paneButtons.set(route,b);}
+     const paneHelp=document.createElement('button');paneHelp.type='button';paneHelp.textContent='?';paneHelp.title='Keyboard shortcuts';paneHelp.onclick=showHelp;paneNav.append(paneHelp);
+     const root=document.getElementById('main_content');definePanel({id:'pane-navigation',title:'Center views',role:'actions',node:paneNav,home:root,defaultDock:'center',after:'local-actions',eligible:()=>root.dataset.parity==='r3',discovered:()=>root.dataset.parity==='r3'});
+     document.getElementById('main_content').before(nav);
+@@ -58,7 +57,6 @@
+             b.setAttribute('aria-current',centerModes().mode===`workspace:${id}`?'page':'false');
+         }
+         for(const [route,b]of paneButtons){const original=buttons.get(route);b.hidden=original.hidden;b.disabled=original.disabled;b.title=original.title;const mode=centerModes().mode;b.setAttribute('aria-current',route[2]==='local-actions'&&mode==='local'||route[2]==='crafting'&&mode==='crafting'?'page':original.getAttribute('aria-current'));if(arrivals.has(route[2]))b.dataset.newHome='true';else delete b.dataset.newHome;}
+-        const paneSignature=JSON.stringify([...buttons].map(([r,b])=>[r[0],b.hidden,b.disabled]).concat(known.map(m=>[m.id,m.eligible])));if(paneNav.dataset.signature!==paneSignature){paneNav.dataset.signature=paneSignature;paneMore.replaceChildren();const initial=document.createElement('option');initial.value='';initial.textContent='More…';paneMore.append(initial);for(const [route,b]of buttons)if(!b.hidden&&!paneButtons.has(route)){const option=document.createElement('option');option.value=route[0];option.textContent=route[0];option.disabled=b.disabled;paneMore.append(option);}const routed=new Set(routes.map(r=>r[2]));for(const m of known)if(!routed.has(m.id)&&!['pane-navigation','shell-log-tools'].includes(m.id)){const option=document.createElement('option');option.value=m.id;option.textContent=m.title;option.disabled=!m.eligible;paneMore.append(option);}}
+         const next=JSON.stringify([known,[...arrivals]]);if(next!==last){last=next;more.replaceChildren();const first=document.createElement('option');first.value='';first.textContent=arrivals.size?'More panels… •':'More panels…';more.append(first);
+             for(const m of known){if(['pane-navigation','shell-log-tools'].includes(m.id))continue;const option=document.createElement('option');option.value=m.id;option.textContent=m.title+(arrivals.has(m.id)?' •':'');option.disabled=!m.eligible;more.append(option);}}
+     };
+--- R6/styles/ui_tokens.css
++++ R7/styles/ui_tokens.css
+@@ -1086,3 +1086,126 @@
+ #main_content.workspace-active[data-parity="r3"] .workspace-module[data-module="local-actions"] > .workspace-module-header {display:none;}
+ #main_content.workspace-active[data-parity="r3"] .workspace-module[data-module="pane-navigation"] {order:3;}
+ #main_content.workspace-active[data-parity="r3"] .shell-log-tools > select {color:var(--p23-text);background:var(--p23-detail-fill);border:1px solid var(--p23-quiet-line);}
++/* R7: named destinations, grouped readings and simultaneous opponent panels. */
++body:has(#main_content[data-parity="r3"]) #workspace_navigation {display:flex;flex-wrap:wrap;gap:0;padding:0 1em;background:var(--p23-inventory-fill);}
++body:has(#main_content[data-parity="r3"]) #workspace_navigation > button[data-panel-path] {display:block!important;font-size:var(--shell-context-size,var(--ui-type-body));padding:.2em .55em;border:0;border-right:1px solid var(--p23-quiet-line);border-bottom:1px solid var(--p23-quiet-line);}
++body:has(#main_content[data-parity="r3"]) #workspace_navigation > button:is([data-panel-path="local-actions"],[data-panel-path="skills"],[data-panel-path="crafting"],[data-panel-path="mixing"]) {display:none!important;}
++body:has(#main_content[data-parity="r3"]) #workspace_navigation > button[hidden] {display:none!important;}
++#main_content.workspace-active[data-parity="r3"] .shell-combat-overview {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));flex:0 0 100%;gap:0 .8em;padding:0 .35em;box-sizing:border-box;}
++#main_content.workspace-active[data-parity="r3"] .shell-combat-overview[hidden] {display:none!important;}
++#main_content.workspace-active[data-parity="r3"] .shell-stat-records {display:block;padding:.15em .4em;}
++#main_content.workspace-active[data-parity="r3"] .shell-stat-group {padding-bottom:.35em;}
++#main_content.workspace-active[data-parity="r3"] .shell-stat-group > strong {display:block;color:var(--p23-notice);padding:.2em 0;border-bottom:1px solid var(--p23-quiet-line);}
++#main_content.workspace-active[data-parity="r3"] .shell-stat-group > small {display:block;font-size:.8em;color:var(--p23-muted);padding:.1em 0;}
++#main_content.workspace-active[data-parity="r3"] .shell-stat-group > div {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 .8em;}
++#main_content.workspace-active[data-parity="r3"] .combat-focus-view dl > div {display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr) minmax(0,1fr);gap:.4em;align-items:baseline;padding:.22em .3em;border-bottom:1px solid var(--p23-quiet-line);}
++#main_content.workspace-active[data-parity="r3"] .combat-focus-view dl > div > dd {margin:0;color:var(--p23-value);}
++#main_content.workspace-active[data-parity="r3"] .combat-focus-view dl > div > small {font-size:.85em;color:var(--p23-actor);}
++#main_content.workspace-active[data-parity="r3"] .combat-roster-mode {align-self:flex-end;font:inherit;padding:.15em .4em;background:transparent;border:1px solid var(--p23-quiet-line);}
++#main_content.workspace-active[data-parity="r3"] .combat-roster-mode[hidden] {display:none!important;}
++#main_content.workspace-active[data-parity="r3"] .combat-focus-choices {overflow:auto;max-height:7em;}
++#main_content.workspace-active[data-parity="r3"] .combat-focus-choices button {min-width:0;flex-shrink:0;}
++#main_content.workspace-active[data-parity="r3"] .combat-focus-choices button > progress {display:none;width:100%;height:.3em;}
++#main_content.workspace-active[data-parity="r3"] .combat-focus-choices[data-presentation="panels"] {grid-template-columns:repeat(auto-fit,minmax(min(11em,100%),1fr));max-height:11em;}
++#main_content.workspace-active[data-parity="r3"] .combat-focus-choices[data-presentation="panels"] > button {padding:.4em;border:1px solid var(--p23-quiet-line);background:var(--p23-detail-fill);}
++#main_content.workspace-active[data-parity="r3"] .combat-focus-choices[data-presentation="panels"] > button > small {background:var(--p23-health-fill) left/var(--roster-health) 2px no-repeat;padding:.2em 0 .35em;color:var(--p23-text);}
++#main_content.workspace-active[data-parity="r3"] .combat-focus-choices[data-presentation="panels"] button > progress {display:block;}
++#main_content.workspace-active[data-parity="r3"] .scene-conditions {display:flex;flex-wrap:wrap;justify-content:flex-end;gap:.15em .6em;}
++#main_content.workspace-active[data-parity="r3"] .scene-conditions > span {white-space:nowrap;}
++#main_content.workspace-active[data-parity="r3"] {--p23-season-spring:#9eedbc;--p23-season-summer:#f7df87;--p23-season-autumn:#ffbd85;--p23-season-winter:#c8e8ff;--p23-rain:#97d6ff;--p23-critical:#ffd18c;--p23-miss:#b6c5dc;}
++#main_content.workspace-active[data-parity="r3"] [data-condition-value="spring"] {color:var(--p23-season-spring);}
++#main_content.workspace-active[data-parity="r3"] [data-condition-value="summer"] {color:var(--p23-season-summer);}
++#main_content.workspace-active[data-parity="r3"] :is([data-condition-value="autumn"],[data-condition-value="fall"]) {color:var(--p23-season-autumn);}
++#main_content.workspace-active[data-parity="r3"] :is([data-condition-value="winter"],[data-condition-value="snow"]) {color:var(--p23-season-winter);}
++#main_content.workspace-active[data-parity="r3"] [data-condition-value="rain"] {color:var(--p23-rain);}
++#main_content.workspace-active[data-parity="r3"] [data-time-of-day="night"] {color:var(--p23-season-winter);}
++#main_content.workspace-active[data-parity="r3"] #message_log_div:not([data-custom-palette="true"]) .message_common {border-left-color:var(--p23-quiet-line);}
++#main_content.workspace-active[data-parity="r3"] #message_log_div:not([data-custom-palette="true"]) :is([data-event-kind="enemy_missed"],[data-event-kind="hero_missed"],[data-event-kind="hero_blocked"]) {color:var(--p23-miss);}
++#main_content.workspace-active[data-parity="r3"] #message_log_div:not([data-custom-palette="true"]) [data-event-kind="enemy_defeated"] {color:var(--p23-gain);border-left-color:var(--p23-gain);}
++#main_content.workspace-active[data-parity="r3"] #message_log_div:not([data-custom-palette="true"]) :is([data-event-kind="hero_defeat"],[data-event-kind="hero_attacked_critically"]) {border-left-color:var(--p23-loss);}
++#main_content.workspace-active[data-parity="r3"] #message_log_div:not([data-custom-palette="true"]) [data-value-role="critical"] {color:var(--p23-critical);text-decoration:underline;}
++#main_content.workspace-active[data-parity="r3"] #message_log_div:not([data-custom-palette="true"]) [data-value-role="damage"] {color:var(--p23-value);}
++#main_content.workspace-active[data-parity="r3"] #message_log_div:not([data-custom-palette="true"]) [data-event-kind="skill_unlocked"] {border-left-color:var(--p23-notice);}
++#main_content.workspace-active[data-parity="r3"] #message_log_div:not([data-custom-palette="true"]) [data-event-kind="skill_raised"] {border-left-color:var(--p23-notice);}
++@media(min-width:1700px){
++#main_content.workspace-active[data-parity="r3"] .combat-focus-choices[data-presentation="panels"] {grid-template-columns:repeat(3,minmax(0,1fr));max-height:12em;}
++#main_content.workspace-active[data-parity="r3"][data-shell-stats-open="true"] .shell-stat-records {display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:.3em 1em;}
++#main_content.workspace-active[data-parity="r3"][data-shell-stats-open="true"] .shell-stat-group[data-stat-group="defense"] {grid-column:1/-1;}
++}
++
++#main_content.workspace-active[data-parity="r3"] .shell-stat-tabs {display:flex;gap:.3em;}
++#main_content.workspace-active[data-parity="r3"] .shell-stat-tabs button {font:inherit;flex:1;padding:.2em;background:transparent;border:0;border-bottom:1px solid var(--p23-quiet-line);}
++#main_content.workspace-active[data-parity="r3"] .shell-stat-tabs button[aria-pressed="true"] {border-bottom:2px solid var(--p23-value);}
++#main_content.workspace-active[data-parity="r3"] .shell-stat-group[hidden] {display:none!important;}
++#main_content.workspace-active[data-parity="r3"] .combat-focus-choices[data-presentation="panels"] > button {border:1px solid var(--p23-quiet-line)!important;background:var(--p23-detail-fill)!important;}
++#main_content.workspace-active[data-parity="r3"] .combat-focus-choices[data-presentation="panels"] > button[aria-pressed="true"] {border-color:var(--p23-value)!important;}
++#main_content.workspace-active[data-parity="r3"][data-shell-stats-open="true"] .workspace-board {grid-template-rows:minmax(0,min(430px,58%)) minmax(0,1fr);}
++#main_content.workspace-active[data-parity="r3"] .shell-stat-record > strong {flex-shrink:0;}
++
++#main_content.workspace-active[data-parity="r3"][data-enemy-panels="true"]:has(.combat-readout[open]) .workspace-board {grid-template-rows:minmax(0,min(460px,62%)) minmax(0,1fr);}
++#main_content.workspace-active[data-parity="r3"] [data-native-stat] {cursor:help;}
++#main_content.workspace-active[data-parity="r3"] [data-native-stat]:focus-visible {outline:2px solid var(--p23-value);outline-offset:-2px;}
++#main_content.workspace-active[data-parity="r3"][data-shell-custom-palette="true"] :is(.scene-conditions > span,.scene-calendar,.shell-stat-group > strong,.shell-stat-group > small) {color:var(--shell-user-text);}
++
++#main_content.workspace-active[data-parity="r3"] .shell-context-preview:not([data-interactive="true"]) {pointer-events:none;}
++/* Crisp reading treatment. Individual palettes and font choices remain native. */
++#main_content.workspace-active[data-parity="r3"] {--ui-font:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;--p23-growth:#f1a6d1;--p23-log-prose:#e5e9f2;}
++#main_content.workspace-active[data-parity="r3"] .workspace-module-header strong {letter-spacing:0!important;text-transform:none;font-weight:600;}
++#main_content.workspace-active[data-parity="r3"] #basic_character_info_div:not([data-custom-palette="true"]) :is(#character_health_value,#character_xp_value,#character_stamina_value,#character_mana_value) {width:max-content!important;max-width:100%;left:50%;transform:translateX(-50%);padding:0 .35em;background:var(--p23-dark-value);color:var(--p23-text)!important;text-shadow:none!important;font-weight:600;font-variant-numeric:tabular-nums;}
++#main_content.workspace-active[data-parity="r3"] #character_mana_div[data-zero-capacity="true"] {display:none!important;}
++#main_content.workspace-active[data-parity="r3"] [data-effect-anchor="opponent-health"] {text-shadow:none!important;color:var(--p23-dark-value)!important;font-weight:600;}
++#main_content.workspace-active[data-parity="r3"] .shell-log-tools {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;}
++#main_content.workspace-active[data-parity="r3"] .shell-log-tools > select {max-width:none;}
++#main_content.workspace-active[data-parity="r3"] .shell-log-tools > button[aria-pressed="false"] {color:var(--p23-muted);}
++#main_content.workspace-active[data-parity="r3"] #message_log_div:not([data-custom-palette="true"]) [data-value-role="growth"] {color:var(--p23-growth);}
++#main_content.workspace-active[data-parity="r3"] #message_log_div:not([data-custom-palette="true"]) [data-event-kind="skill_unlocked"] .log-subject {color:var(--p23-notice);font-weight:600;}
++#main_content.workspace-active[data-parity="r3"] #message_log_div:not([data-custom-palette="true"]) [data-event-kind="enemy_defeated"] .log-actor {color:var(--p23-value);}
++#main_content.workspace-active[data-parity="r3"] #message_log_div:not([data-custom-palette="true"]) [data-event-kind="hero_blocked"] .log-actor {color:var(--p23-actor);}
++#main_content.workspace-active[data-parity="r3"] .shell-place-overview {padding:.5em .6em;line-height:1.45;}
++#main_content.workspace-active[data-parity="r3"] .shell-place-overview > p {text-align:left;color:var(--p23-log-prose);margin:.4em 0 .7em;}
++#main_content.workspace-active[data-parity="r3"] .shell-nearby {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.4em;}
++#main_content.workspace-active[data-parity="r3"] .shell-nearby > button {font:inherit;display:flex;flex-direction:column;align-items:flex-start;text-align:left;padding:.4em .5em;background:transparent;border:0;border-bottom:1px solid var(--p23-quiet-line);}
++#main_content.workspace-active[data-parity="r3"] .shell-nearby small {color:var(--p23-muted);}
++@media(min-width:1700px){
++#main_content.workspace-active[data-parity="r3"] .workspace-board {grid-template-columns:minmax(0,410fr) minmax(0,100fr) minmax(0,610fr) minmax(0,410fr);grid-template-rows:minmax(0,min(560px,50%)) minmax(0,1fr);gap:6px;}
++#main_content.workspace-active[data-parity="r3"] .shell-equipment {grid-template-columns:repeat(2,minmax(0,1fr));}
++#main_content.workspace-active[data-parity="r3"] .shell-gear-disclosure[open] {flex:0 0 100%;}
++#main_content.workspace-active[data-parity="r3"] .shell-gear-disclosure[open] > summary {text-align:left;border-bottom:1px solid var(--p23-quiet-line);}
++#main_content.workspace-active[data-parity="r3"] .shell-equipment > button {text-align:left;padding:.25em .4em;font:inherit;}
++}
++@media(min-width:2800px){
++#main_content.workspace-active[data-parity="r3"] .workspace-board {grid-template-columns:minmax(0,420fr) minmax(0,200fr) minmax(0,700fr) minmax(0,460fr);grid-template-rows:minmax(0,min(700px,48%)) minmax(0,1fr);gap:8px;padding:6px;}
++#main_content.workspace-active[data-parity="r3"] .shell-combat-overview {grid-template-columns:repeat(4,minmax(0,1fr));}
++#main_content.workspace-active[data-parity="r3"] .combat-focus-choices[data-presentation="panels"] {grid-template-columns:repeat(4,minmax(0,1fr));}
++#main_content.workspace-active[data-parity="r3"] .shell-log-tools {grid-template-columns:repeat(5,minmax(0,1fr));}
++}
++
++@media(min-width:1700px){
++#main_content.workspace-active[data-parity="r3"] #proto23_character:has(.shell-gear-disclosure[open]) > .shell-statline:not([hidden]) {display:grid;}
++}
++
++#main_content:not([data-parity="r3"]) [data-workspace-action="toggle-density"] {display:none;}
++#main_content.workspace-active[data-parity="r3"][data-density="compact"] :is(.shell-stat-record,.shell-equipment > button,.shell-nearby > button) {padding-top:.1em;padding-bottom:.1em;}
++#main_content.workspace-active[data-parity="r3"][data-density="compact"] #inventory_content_div > .inventory_item_control {min-height:1.2em;line-height:1.25;padding-top:0;padding-bottom:0;}
++#main_content.workspace-active[data-parity="r3"][data-density="compact"] #message_box_div .message_common {line-height:1.25;padding-top:.12em;padding-bottom:.12em;}
++#main_content.workspace-active[data-parity="r3"][data-density="comfortable"] #message_box_div .message_common {line-height:1.45;padding-top:.25em;padding-bottom:.25em;}
++#main_content.workspace-active[data-parity="r3"][data-density="compact"] .combat-focus-choices[data-presentation="panels"] > button {padding:.2em .35em;}
++
++@media(min-width:1001px) and (max-width:1699px){
++#main_content.workspace-active[data-parity="r3"]:not([data-shell-stats-open="true"]):not([data-enemy-panels="true"]):not([data-density="inspection"]) .workspace-board {grid-template-rows:minmax(0,min(52%,max(304px,calc(var(--shell-context-size,var(--ui-type-body))*20)))) minmax(0,1fr);}
++}
++
++/* Selected stat groups occupy the full character pane; gear returns with Overview. */
++#main_content.workspace-active[data-parity="r3"][data-shell-stats-open="true"] .shell-stat-records {display:block;}
++#main_content.workspace-active[data-parity="r3"] .shell-gear-disclosure[hidden] {display:none!important;}
++#main_content.workspace-active[data-parity="r3"] .shell-stat-group > :is(strong,small) {display:none;}
++#main_content.workspace-active[data-parity="r3"] .shell-log-tools > button:nth-child(4) {grid-column:span 2;}
++@media(min-width:2800px){
++#main_content.workspace-active[data-parity="r3"] .shell-log-tools > button:nth-child(4) {grid-column:auto;}
++}
++/* A deliberate item inspection needs room beside live combat on a laptop. */
++@media(min-width:1001px) and (max-width:1699px){
++#main_content.workspace-active[data-parity="r3"][data-parity-item="true"][data-parity-combat="true"][data-workspace-mode="dock"]:not([data-shell-stats-open="true"]) .workspace-board {grid-template-rows:minmax(0,32%) minmax(0,1fr);}
++}
++
++#main_content.workspace-active[data-parity="r3"]:not([data-shell-custom-palette="true"]) [data-temperature-state="cold_temperature"] {color:var(--p23-season-winter);font-weight:600;}

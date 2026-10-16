@@ -1,0 +1,31 @@
+{
+  "url": "http://127.0.0.1:19117/proto23.html",
+  "viewport": {
+    "width": 1366,
+    "height": 768
+  },
+  "sourceSha256": "a43e55e2eeb455f1c1ae589e3fc074a588813fe6cd57cfba827dcf923f3755d5",
+  "difficulty": "Normal",
+  "route": "Fresh disposable context; four introduction choices, then visible Normal difficulty control.",
+  "savedScreenshot": "c1-proto23-reference-1366.png",
+  "reveal": [
+    {
+      "id": "d1",
+      "opacity": "1"
+    },
+    {
+      "id": "d1",
+      "opacity": "1"
+    },
+    {
+      "id": "inv",
+      "opacity": "1"
+    },
+    {
+      "id": "gmsgs",
+      "opacity": "1"
+    }
+  ],
+  "sourceEdited": false,
+  "debugMutation": false
+}

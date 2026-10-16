@@ -1,29 +1,32 @@
+let currentPanel;
+export function openMixtureCounter(){return currentPanel?.open()??false;}
+import {centerModes} from './center_modes.js';
 import {projectMixtureFeedback,mixtureFailureText} from './mixture_feedback.js';
 import {quoteMixtureAction} from './mixture_native.js';
 import {RESPONSIVE_METHOD} from './mixture_rules.js';
 import {INGREDIENTS,getMixtureOwner,createMixtureState,mixturePresentation,mixtureKey} from './mixture_state.js';
 export function createMixturePanel({craftingContainer,actionContainer,read,act}){
     const launch=document.createElement('button');launch.id='village_mixing_open';launch.textContent='Mix at the Village counter';actionContainer.append(launch);
-    const panel=document.createElement('section');panel.id='village_mixing_panel';panel.style.cssText='padding:8px;border:1px solid var(--border-color,#888);margin:4px;display:none;max-width:850px;';
-    craftingContainer.prepend(panel);const title=document.createElement('h3');title.style.cssText='font-size:16px;margin:0 0 3px';title.textContent='Village mixing counter';panel.append(title);
-    const help=document.createElement('p');help.style.cssText='margin:2px 0 4px;font-size:13px';help.textContent='Whole packs: water + plants. Drink to observe the dose. Responsive follows local laws.';panel.append(help);
-    const rows=document.createElement('div');rows.style.cssText='display:grid;grid-template-columns:minmax(0,1fr);gap:2px';panel.append(rows);
+    const panel=document.createElement('section');panel.id='village_mixing_panel';
+    craftingContainer.before(panel);const title=document.createElement('h3');title.textContent='Village mixing counter';panel.append(title);
+    const help=document.createElement('p');help.textContent='Whole packs: water + plants. Drink to observe the dose. Responsive follows local laws.';panel.append(help);
+    const rows=document.createElement('div');rows.className='mixture-ingredients';panel.append(rows);
     const amounts={};const stockLabels={};
-    const notice=document.createElement('p');notice.style.cssText='margin:6px 0;font-size:13px';notice.id='mixture_notice';notice.setAttribute('role','status');
+    const notice=document.createElement('p');notice.id='mixture_notice';notice.setAttribute('role','status');
     let lastFailure=null,lastQueueFailure=null,lastSafeNotice='',queueChoice=null;
     const queueCounts=new Map();
     const run=request=>{try{const result=act(request);lastFailure=null;lastQueueFailure=null;if(request.type==='repeat')queueCounts.delete(request.product);notice.textContent=result?.message?.includes('Repeat stopped:')?'Batch completed. Queue finished or stopped; review the current reason below.':result?.message||'No change.';lastSafeNotice=notice.textContent;render();}catch(error){lastFailure=request.type==='mix'?error.message:null;lastQueueFailure=request.type==='repeat'?error.message:null;const message=mixtureFailureText(error.message);notice.textContent=message+(message==="Can't mix right now"&&lastSafeNotice?` · Last notice: ${lastSafeNotice}`:'');updateFeedback();}};
-    for(const i of INGREDIENTS){const row=document.createElement('label');row.style.cssText='display:grid;grid-template-columns:minmax(105px,1fr) 50px 82px 116px;gap:3px;align-items:center;font-size:13px;line-height:1.35';const name=document.createElement('span');name.textContent=i.id+' ';row.append(name);
+    for(const i of INGREDIENTS){const row=document.createElement('label');row.className='mixture-ingredient';const name=document.createElement('span');name.textContent=i.id+' ';row.append(name);
         const input=document.createElement('input');input.type='number';input.min=0;input.max=99;input.step=1;input.value=['River bellleaf','Spring water'].includes(i.id)?1:0;input.id='mixture_amount_'+i.id.replaceAll(' ','_');input.style.width='50px';input.oninput=()=>{lastFailure=null;preview();};row.append(input);amounts[i.id]=input;
-        const stock=document.createElement('span');stockLabels[i.id]=stock;row.append(stock);const buy=document.createElement('button');buy.type='button';buy.textContent=`Buy 1 (${i.price} coins)`;buy.style.cssText='padding:3px 6px;margin:2px 0;font-size:13px';buy.onclick=()=>run({type:'buy',id:i.id});row.append(buy);const route=document.createElement('small');route.style.cssText='display:none';name.title=i.route;route.textContent=i.route.includes('Forest')?'Also gather on Forest road':'Buy at this counter';row.append(route);rows.append(row);}
-    const controls=document.createElement('div');controls.style.cssText='display:flex;gap:8px;align-items:center;margin-top:6px;flex-wrap:wrap';panel.append(controls);
+        const stock=document.createElement('span');stockLabels[i.id]=stock;row.append(stock);const buy=document.createElement('button');buy.type='button';buy.textContent=`Buy 1 (${i.price} coins)`;buy.onclick=()=>run({type:'buy',id:i.id});row.append(buy);const route=document.createElement('small');route.hidden=true;name.title=i.route;route.textContent=i.route.includes('Forest')?'Also gather on Forest road':'Buy at this counter';row.append(route);rows.append(row);}
+    const controls=document.createElement('div');controls.className='mixture-controls';panel.append(controls);
     const method=document.createElement('select');method.id='mixture_method';method.setAttribute('aria-label','Mixing method');for(const [value,label]of [['ordinary@1','Ordinary method'],[RESPONSIVE_METHOD,'Responsive method']]){const option=document.createElement('option');option.value=value;option.textContent=label;method.append(option);}method.onchange=()=>{lastFailure=null;preview();};controls.append(method);
     const process=document.createElement('select');process.id='mixture_process';for(const kind of ['steep','boil']){const option=document.createElement('option');option.value=kind;option.textContent=kind==='steep'?'Steep':'Boil';process.append(option);}process.onchange=()=>{lastFailure=null;preview();};controls.append(process);
     const mix=document.createElement('button');mix.id='mixture_craft';mix.textContent='Mix one vial';mix.onclick=()=>run({type:'mix',...selection(),quote:currentQuote});controls.append(mix);
-    const close=document.createElement('button');close.textContent='Back to local actions';close.onclick=()=>{for(const child of craftingContainer.children)if(child!==panel)child.style.display=child.dataset.mixturePreviousDisplay??'';panel.style.display='none';craftingContainer.style.display='none';actionContainer.style.display='block';};controls.append(close);
-    const feedback=document.createElement('div');feedback.id='mixture_feedback';feedback.style.cssText='display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px;margin:4px 0;font-size:12px;line-height:1.35';
-    const feedbackNodes={};for(const [id,label]of [['holds','Holds and cost'],['blocker','Current blocker'],['work','Work'],['lastResult','Last result']]){const card=document.createElement('div');card.style.cssText='border:1px solid var(--border-color,#888);padding:5px;overflow-wrap:anywhere';const heading=document.createElement('strong');heading.textContent=label;const body=document.createElement('div');body.id='mixture_feedback_'+id;card.append(heading,body);feedback.append(card);feedbackNodes[id]=body;}panel.append(feedback);
-    const prediction=document.createElement('p');prediction.id='mixture_prediction';prediction.style.cssText='margin:4px 0;font-size:12px';panel.append(prediction,notice);
+
+    const feedback=document.createElement('div');feedback.id='mixture_feedback';
+    const feedbackNodes={};for(const [id,label]of [['holds','Holds and cost'],['blocker','Current blocker'],['work','Work'],['lastResult','Last result']]){const card=document.createElement('div');card.className='mixture-feedback-row';const heading=document.createElement('strong');heading.textContent=label;const body=document.createElement('div');body.id='mixture_feedback_'+id;card.append(heading,body);feedback.append(card);feedbackNodes[id]=body;}panel.append(feedback);
+    const prediction=document.createElement('p');prediction.id='mixture_prediction';panel.append(prediction,notice);
     const output=document.createElement('div');output.id='mixture_products';panel.append(output);
     let currentQuote;
     function selection(){return {method:method.value,inputs:Object.fromEntries(INGREDIENTS.map(i=>[i.id,Number(amounts[i.id].value)])),process:process.value};}
@@ -40,16 +43,17 @@ export function createMixturePanel({craftingContainer,actionContainer,read,act})
         const s=getMixtureOwner();const signature=JSON.stringify([s?.sequence,Object.entries(frame.inventory).map(([k,v])=>[k,v.count]),frame.ready]);
         const jobNode=output.querySelector?.('#mixture_job');if(jobNode&&s?.job)jobNode.textContent=`Mixing: ${Math.max(0,s.job.due-frame.clock)} minutes remaining; ${s.job.remaining} batches queued. Ingredients are held.`;
         if(signature===outputSignature)return;outputSignature=signature;output.replaceChildren();if(!s)return;
-        const job=document.createElement('p');job.id='mixture_job';job.style.cssText='margin:4px 0;font-size:13px';job.textContent=s.job?`Mixing: ${Math.max(0,s.job.due-frame.clock)} minutes remaining; ${s.job.remaining} batches queued. Ingredients are held.`:'Mixing vessel free.';output.append(job);
+        const job=document.createElement('p');job.id='mixture_job';job.textContent=s.job?`Mixing: ${Math.max(0,s.job.due-frame.clock)} minutes remaining; ${s.job.remaining} batches queued. Ingredients are held.`:'Mixing vessel free.';output.append(job);
         if(s.job){const cancel=document.createElement('button');cancel.id='mixture_cancel';cancel.textContent='Cancel and return held ingredients';cancel.onclick=()=>run({type:'cancel'});output.append(cancel);}
-        for(const p of Object.values(s.products).reverse()){const key=mixtureKey(p),n=frame.inventory[key]?.count??0,known=!!s.knowledge[p.id];if(!n&&!known)continue;const line=document.createElement('div');line.style.cssText='border-top:1px solid #888;padding:8px 0';line.dataset.mixtureProduct=key;
-            const text=document.createElement('p');text.style.cssText='font-size:13px;margin:4px 0';text.textContent=`${p.revision===2?'Responsive method · ':''}${mixturePresentation(s,p).name} (${n} owned). ${Object.entries(p.inputs).map(([id,n])=>`${n} ${id}`).join(', ')}. ${mixturePresentation(s,p).description}`;line.append(text);
+        for(const p of Object.values(s.products).reverse()){const key=mixtureKey(p),n=frame.inventory[key]?.count??0,known=!!s.knowledge[p.id];if(!n&&!known)continue;const line=document.createElement('div');line.dataset.mixtureProduct=key;
+            const text=document.createElement('p');text.textContent=`${p.revision===2?'Responsive method · ':''}${mixturePresentation(s,p).name} (${n} owned). ${Object.entries(p.inputs).map(([id,n])=>`${n} ${id}`).join(', ')}. ${mixturePresentation(s,p).description}`;line.append(text);
             if(n){const use=document.createElement('button');use.textContent=known?'Drink one dose':'Experiment: drink one dose';use.onclick=()=>run({type:'use',key});line.append(use);}
             if(known&&!s.methods[p.id]){const learn=document.createElement('button');learn.textContent='Save observed method';learn.onclick=()=>run({type:'learn',product:p.id});line.append(learn);}
             if(s.methods[p.id]){const count=document.createElement('input');count.type='number';count.value=queueCounts.get(p.id)??3;count.min=1;count.max=999;count.setAttribute('aria-label','Repeat batch count');count.style.width='55px';count.oninput=()=>{lastQueueFailure=null;queueChoice=p.id;queueCounts.set(p.id,Number(count.value));updateFeedback();};line.append(count);const repeat=document.createElement('button');repeat.textContent='Queue learned method';repeat.disabled=!!s.job;repeat.onclick=()=>{queueChoice=p.id;run({type:'repeat',product:p.id,count:Number(count.value)});};line.append(repeat);}
             output.append(line);}
     }
-    launch.onclick=()=>{actionContainer.style.display='none';for(const child of craftingContainer.children)if(child!==panel){child.dataset.mixturePreviousDisplay=child.style.display;child.style.display='none';}craftingContainer.style.display='block';panel.style.display='block';render();};
-    const interval=setInterval(()=>{const frame=read();if(frame.ready&&frame.visible&&getMixtureOwner()?.job?.due<=frame.clock)run({type:'advance'});if(panel.style.display!=='none')render();if(!launch.isConnected)actionContainer.append(launch);launch.hidden=!frame.visible;},500);
+    const open=()=>{if(!read().visible)return false;centerModes().open('mixing');render();return true;};
+    currentPanel={open};launch.onclick=open;
+    const interval=setInterval(()=>{const frame=read();if(!frame.visible&&centerModes().mode==='mixing')centerModes().close('mixing');if(frame.ready&&frame.visible&&getMixtureOwner()?.job?.due<=frame.clock)run({type:'advance'});if(panel.style.display!=='none')render();if(!launch.isConnected)actionContainer.append(launch);launch.hidden=!frame.visible;},500);
     render();return {render,destroy:()=>clearInterval(interval)};
 }

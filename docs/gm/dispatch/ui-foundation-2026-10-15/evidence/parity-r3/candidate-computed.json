@@ -1,0 +1,98 @@
+{
+  "roles": {
+    "player": {
+      "backgroundColor": "rgb(0, 40, 64)",
+      "backgroundImage": "none",
+      "color": "rgb(188, 254, 254)",
+      "borderTopColor": "rgb(0, 0, 0)",
+      "borderTopWidth": "3px",
+      "borderBottomColor": "rgb(0, 0, 0)",
+      "borderBottomWidth": "3px",
+      "fontSize": "14px"
+    },
+    "focus": {
+      "backgroundColor": "rgb(0, 40, 64)",
+      "backgroundImage": "none",
+      "color": "rgb(188, 254, 254)",
+      "borderTopColor": "rgb(0, 0, 0)",
+      "borderTopWidth": "3px",
+      "borderBottomColor": "rgb(0, 0, 0)",
+      "borderBottomWidth": "3px",
+      "fontSize": "14px"
+    },
+    "inventory": {
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "backgroundImage": "linear-gradient(90deg, rgb(0, 5, 51), rgb(0, 65, 107))",
+      "color": "rgb(188, 254, 254)",
+      "borderTopColor": "rgb(0, 0, 0)",
+      "borderTopWidth": "3px",
+      "borderBottomColor": "rgb(0, 0, 0)",
+      "borderBottomWidth": "3px",
+      "fontSize": "14px"
+    },
+    "actions": {
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "backgroundImage": "linear-gradient(90deg, rgb(0, 5, 51), rgb(0, 65, 107))",
+      "color": "rgb(188, 254, 254)",
+      "borderTopColor": "rgb(0, 0, 0)",
+      "borderTopWidth": "3px",
+      "borderBottomColor": "rgb(0, 0, 0)",
+      "borderBottomWidth": "3px",
+      "fontSize": "14px"
+    },
+    "log": {
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "backgroundImage": "linear-gradient(rgb(60, 50, 90), rgb(24, 16, 49))",
+      "color": "rgb(188, 254, 254)",
+      "borderTopColor": "rgb(0, 0, 0)",
+      "borderTopWidth": "3px",
+      "borderBottomColor": "rgb(0, 0, 0)",
+      "borderBottomWidth": "3px",
+      "fontSize": "14px"
+    },
+    "health": {
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "backgroundImage": "linear-gradient(90deg, rgb(254, 239, 157), rgb(45, 223, 206))",
+      "color": "rgb(188, 254, 254)",
+      "borderTopColor": "rgb(188, 254, 254)",
+      "borderTopWidth": "0px",
+      "borderBottomColor": "rgb(188, 254, 254)",
+      "borderBottomWidth": "0px",
+      "fontSize": "14px"
+    },
+    "xp": {
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "backgroundImage": "linear-gradient(90deg, rgb(254, 239, 157), rgb(219, 119, 158))",
+      "color": "rgb(188, 254, 254)",
+      "borderTopColor": "rgb(188, 254, 254)",
+      "borderTopWidth": "0px",
+      "borderBottomColor": "rgb(188, 254, 254)",
+      "borderBottomWidth": "0px",
+      "fontSize": "14px"
+    },
+    "energy": {
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "backgroundImage": "linear-gradient(270deg, rgb(124, 68, 112), rgb(29, 29, 113))",
+      "color": "rgb(188, 254, 254)",
+      "borderTopColor": "rgb(188, 254, 254)",
+      "borderTopWidth": "0px",
+      "borderBottomColor": "rgb(188, 254, 254)",
+      "borderBottomWidth": "0px",
+      "fontSize": "14px"
+    },
+    "row": {
+      "backgroundColor": "color(srgb 0.115294 0.251686 0.266431)",
+      "backgroundImage": "none",
+      "color": "rgb(188, 254, 254)",
+      "borderTopColor": "rgb(68, 68, 204)",
+      "borderTopWidth": "0px",
+      "borderBottomColor": "rgb(68, 68, 204)",
+      "borderBottomWidth": "1px",
+      "fontSize": "14px"
+    },
+    "hover": {
+      "backgroundImage": "linear-gradient(90deg, rgb(25, 129, 108), rgb(1, 41, 39))"
+    }
+  },
+  "sourceRolesMatch": true
+}

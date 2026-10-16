@@ -1,0 +1,2 @@
+Primary source: https://developer.apple.com/design/human-interface-guidelines/popovers/
+Read via official Markdown route after web rendering limitation. Principles paraphrased in UI_RULES UR43. Private receipt: /Users/weiwei/.codex/research/yair-ui-r5/apple-popovers-extract.txt

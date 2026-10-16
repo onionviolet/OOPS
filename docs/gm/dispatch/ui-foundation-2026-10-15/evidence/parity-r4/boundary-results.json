@@ -1,0 +1,40 @@
+[
+  {
+    "name": "existing-native-hotkey-route",
+    "expandedForm": true,
+    "returnSelection": true,
+    "gameplayExact": true
+  },
+  {
+    "name": "native-food-active-effect",
+    "effectCount": 1,
+    "nativeSnapshotEffects": [
+      "Basic meal"
+    ]
+  },
+  {
+    "name": "labelled-pin-keyboard-and-play-return",
+    "restoredPin": true
+  },
+  {
+    "name": "display-only-empty-overcap-long-number-boundary",
+    "rows": [
+      {
+        "text": "0/61 hp",
+        "title": "0/61 hp",
+        "font": "21px",
+        "textFits": true,
+        "trackClip": "hidden"
+      },
+      {
+        "text": "1000000000/610000000 hp",
+        "title": "1000000000/610000000 hp",
+        "font": "21px",
+        "textFits": true,
+        "trackClip": "hidden"
+      }
+    ],
+    "gameplayUnchanged": true,
+    "nativeOvercapNotClaimed": true
+  }
+]

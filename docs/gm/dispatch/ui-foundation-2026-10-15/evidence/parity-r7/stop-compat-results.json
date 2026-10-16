@@ -1,0 +1,6 @@
+{
+  "stopsOnlyR7": true,
+  "existingPresentationKeepsNativeCombatReports": true,
+  "resumeAfterReturning": true,
+  "errors": []
+}

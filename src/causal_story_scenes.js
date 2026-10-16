@@ -60,7 +60,12 @@ function approachFor(row) {
 }
 
 /** Read-only scene projection from player-admitted rows and a heard deadline. */
-export function projectVillageScene({id, began = false, records = [], actions = [], work = [], deadlineRemaining = null} = {}) {
+export function projectVillageScene({id, began = false, records = [], actions = [], work = [], deadlineRemaining = null, overview = null} = {}) {
+    if(overview) {
+        const targets=[...rows(overview.people),...rows(overview.things)];
+        return {title:overview.title,phaseLabel:'Here',paragraphs:[],clockText:overview.clockText,latestAccount:null,
+            groups:targets.map(target=>({id:target.id,label:target.name,actions:rows(overview.actions).filter(action=>action.target===target.id)})).filter(group=>group.actions.length)};
+    }
     if(!CAUSAL_STORY_PROOFS.includes(id)) throw new TypeError('Unknown Village delivery scene.');
     const accounts = accountRows(records);
     const heardOutcome = accounts.some(row => row.id === causalStoryId(id, 'closure'));

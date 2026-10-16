@@ -1,3 +1,4 @@
+import {definePanel} from './panel_kit.js';
 import {lifeRecordView} from './life_record.js';
 const node=(tag,text='')=>{const n=document.createElement(tag);n.textContent=text;return n;};
 // Separate mount: event-feed files remain with the experience GM.
@@ -11,7 +12,7 @@ export function createLifeRecordPanel({read,remember}) {
         const s=read(); const view=lifeRecordView(s.record);button.disabled=!s.canWrite;
         const next=JSON.stringify(view);if(next!==signature){signature=next;summary.textContent=`Remembered years · ${view.count} memories`;
             list.replaceChildren(...view.recent.map(e=>node('li',`Year ${e.year}: ${e.text}`)),...view.years.map(y=>node('li',`Year ${y.year}: ${y.count} moments remembered. ${y.highlights.join(' ')}`)),...(view.earlier.count?[node('li',`Through year ${view.earlier.throughYear}: ${view.earlier.count} moments from your earlier years.`)]:[]));}
-        const host=document.getElementById('message_box_div');if(host && panel.parentElement!==host)host.prepend(panel);
     }
+    definePanel({id:'memories',title:'Remembered years',role:'records',node:panel,home:document.getElementById('main_content'),defaultDock:'center',after:'records',discovered:()=>!panel.hidden,eligible:()=>!panel.hidden});
     render();const timer=setInterval(render,2000);return {render,destroy:()=>{clearInterval(timer);panel.remove();}};
 }

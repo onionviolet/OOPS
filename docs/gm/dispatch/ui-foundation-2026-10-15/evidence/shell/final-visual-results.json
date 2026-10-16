@@ -1,0 +1,41 @@
+[
+  {
+    "name": "final-item-detail-1366",
+    "detail": {
+      "visible": 526,
+      "content": 526
+    }
+  },
+  {
+    "name": "final-item-detail-1440",
+    "detail": {
+      "visible": 557,
+      "content": 557
+    }
+  },
+  {
+    "name": "final-item-detail-1920",
+    "detail": {
+      "visible": 759,
+      "content": 759
+    }
+  },
+  {
+    "name": "comparison-fuller-references",
+    "detail": {
+      "images": [
+        {
+          "src": "/docs/research/panel-design-2026-10-15/private/proto23-lab/crafting-detail-1366x768.png",
+          "width": 1366,
+          "height": 768
+        },
+        {
+          "src": "inventory-detail-1366.png",
+          "width": 1366,
+          "height": 768
+        }
+      ],
+      "states": 5
+    }
+  }
+]

@@ -1,0 +1,23 @@
+# R10 compact core and native Attributes candidate
+
+Status: rebuilt reversible desktop candidate. Human visual/play acceptance OPEN. Runtime writers handed ownership back to root. Existing R7/R8/R9 candidates remain preserved.
+
+User direction: oversized legacy table; show subtle existing stats and modifiers, inspired by attribute inspection in Minecraft mods. Surface: compact routine You and existing Stats/preparation reference through the shared controller. Targets:1366×768 at14/17.5/21px,1920×1080,2560×1440,3600×1906 at21px. Desktop/laptop first; mobile deferred. Authority: USER_VISION, PROJECT, UI_RULES UR41–48.
+
+## Changes and findings
+
+- D1: Twelve original core stat values use a compact3/4-column grid. Gear defaults closed with explicit disclosure. Ordinary noncombat You height follows chosen font size rather than consuming half a large display. No font shrink. Core control clipping at21px was caught visually and corrected with a larger content allowance.
+- D2: Attributes uses the existing Stats home and full center column, keeping Reports and Back/Esc. Thirty-five native attribute keys plus three personal XP factors. Group and With modifiers filters, stable selected details, keyboard list navigation and bounded local scrolling. The initial native percentage width squeezed the wide-screen view; final CSS resolves its width against the entire center pane. The browser check now asserts useful width as well as screen containment.
+- D3: Current/base/pre-multiplier/total multiplier and actual aggregate native modifier categories are exposed where supplied. Shield strength handles actual/ignored/no-shield states. Attack reflects exhaustion without creating a missing lazy skill record. No per-item provenance or gems invented. Small values retain extra precision; ordinary values use up to3decimals.
+- F1: Magic, armor penetration, mana efficiency and heat tolerance have authored fields without traced active combat/spending consumers. Their detail explains the limit. Recovery is mode/tick qualified. Native health percentage-loss helper and tick signs disagree; the raw component is labelled and not presented as a verified net loss formula. These are audit findings, not engine changes.
+- D4: The top Stats route explicitly selects Stats after Equipment/Bio. Native source nodes, tooltips and tabs remain attached. Existing layout retains its original table. The inspector owns one child within that Stats home; the exact insertion is reviewed in the UI contract ledger, not exempted by file.
+
+Reference: [official Apothic Attributes](https://github.com/Shadows-of-Fire/Apothic-Attributes), pinned source details in [APOTHIC_ATTRIBUTE_UI](parallel/APOTHIC_ATTRIBUTE_UI.md). Borrowed compact current-value/modifier inspection pattern only. Native audit and source notes: [NATIVE_ATTRIBUTE_INSPECTOR](parallel/NATIVE_ATTRIBUTE_INSPECTOR.md). Recipe legibility and known-use findings remain separate proposals in parallel/; their runtime patches were not applied.
+
+## Evidence and limits
+
+Build: npm run build. Ten focused UI/composition/focus/disclosure checks. Five source-projection fixtures cover38rows, copied contributors, latent caveats, balances, shield variants and guarded exhaustion. Fresh-origin browser matrix covers six desktop/font combinations,38rows, actual useful panel width, page containment, retained selection under filters and exact paused native state before/after inspection. Interaction check compares all12core values against original native DOM, no-shield state, focus/list scroll through3native ticks, Equipment→Stats, three XP rows and Esc. Source map and served asset parity are checked separately. See runs/r10-*.log and evidence/parity-r10/.
+
+Comparisons use the same synthetic populated save, screen size and chosen font for R9/R10. Candidate: http://127.0.0.1:19169/docs/gm/dispatch/ui-foundation-2026-10-15/evidence/parity-r10/comparison.html . Play: http://127.0.0.1:19169/r10-demo.html . Comprehensive lists intentionally scroll locally; this does not claim38rows and every explanation fit simultaneously on a laptop. No personal saves or persistence/schema changes. Save/import checks are inherited R7 evidence and were not rerun for R10. Combat mechanics and native engine files remain unchanged from the R9 input. Human visual/play acceptance remains the outstanding gate.
+
+Final delivery: all six desktop/font cases pass on frozen19169, including useful width and unclipped Attributes control. Twelve matched comparison pairs/24images pass. All10focused tests and13served assets pass;565project source-map entries match. R7/R8/R9 frozen manifests verified unchanged. Comparison visibly opened and retained in IAB tab6.

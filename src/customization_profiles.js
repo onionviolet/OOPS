@@ -128,7 +128,7 @@ export function applyCustomizationProfile(state, {season, moduleNodes = {}} = {}
         qualifyNativeTabs(node);
         node.dataset.componentTheme = settings.componentTheme || 'neutral';
         node.dataset.customizationSeason = settings.resolvedSeason || 'off';
-        const vars = {'--custom-font': {system: 'system-ui, sans-serif', serif: 'Georgia, serif', mono: 'monospace'}[settings.typography.font], '--custom-size': `${settings.typography.size}px`, '--custom-spacing': `${settings.spacing}px`, '--custom-background': settings.palette.background, '--custom-text': settings.palette.text, '--custom-accent': settings.palette.accent};
+        const vars = {'--custom-font': {system: 'var(--ui-font)', serif: 'Georgia, serif', mono: 'monospace'}[settings.typography.font], '--custom-size': `${settings.typography.size}px`, '--custom-spacing': `${settings.spacing}px`, '--custom-background': settings.palette.background, '--custom-text': settings.palette.text, '--custom-accent': settings.palette.accent};
         Object.assign(vars, componentThemeTokens(settings));
         node.dataset.contrastRecovered = vars['--theme-contrast-recovered'];
         // A player-chosen or seasonal palette stays authoritative over display schemes such as Vivid.

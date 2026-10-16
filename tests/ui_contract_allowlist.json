@@ -1,0 +1,1490 @@
+{
+  "note": "Exact existing exceptions, never file-wide. Token consumers and unresolved inline styles are retained explicitly. Remove exceptions when migrated.",
+  "entries": [
+    {
+      "key": "index.html|color|10126e14ba0e4189",
+      "path": "index.html",
+      "rule": "color",
+      "snippet": "rgba(0, 128, 0, 0.3)",
+      "count": 1
+    },
+    {
+      "key": "index.html|cssText|7f3a7834149272d7",
+      "path": "index.html",
+      "rule": "cssText",
+      "snippet": "test_div.style.cssText =",
+      "count": 1
+    },
+    {
+      "key": "src/absorb_p23/host_joins/combat_options_ui.js|foreign-host|76963b3ee791d421",
+      "path": "src/absorb_p23/host_joins/combat_options_ui.js",
+      "rule": "foreign-host",
+      "snippet": "function render(){const host=document.getElementById('location_actions_div');if(panel.parentElement!==host)host.append(panel);",
+      "count": 1
+    },
+    {
+      "key": "src/absorb_p23/host_joins/encounter_profiles_ui.js|foreign-host|daf8ca0b3c692b2f",
+      "path": "src/absorb_p23/host_joins/encounter_profiles_ui.js",
+      "rule": "foreign-host",
+      "snippet": "const host = document.getElementById('location_actions_div'); if (panel.parentElement !== host) host.append(panel);",
+      "count": 1
+    },
+    {
+      "key": "src/absorb_p23/host_joins/growth_profile_ui.js|foreign-host|7053cab0112cba0d",
+      "path": "src/absorb_p23/host_joins/growth_profile_ui.js",
+      "rule": "foreign-host",
+      "snippet": "function render(){const host=document.getElementById('location_actions_div');if(host&&panel.parentElement!==host)host.append(panel);",
+      "count": 1
+    },
+    {
+      "key": "src/absorb_p23/host_joins/tranche_four_ui.js|foreign-host|76963b3ee791d421",
+      "path": "src/absorb_p23/host_joins/tranche_four_ui.js",
+      "rule": "foreign-host",
+      "snippet": "function render(){const host=document.getElementById('location_actions_div');if(panel.parentElement!==host)host.append(panel);",
+      "count": 1
+    },
+    {
+      "key": "src/absorb_p23/host_joins/tranche_three_ui.js|foreign-host|76963b3ee791d421",
+      "path": "src/absorb_p23/host_joins/tranche_three_ui.js",
+      "rule": "foreign-host",
+      "snippet": "function render(){const host=document.getElementById('location_actions_div');if(panel.parentElement!==host)host.append(panel);",
+      "count": 1
+    },
+    {
+      "key": "src/absorb_p23/host_joins/tranche_two_ui.js|foreign-host|76963b3ee791d421",
+      "path": "src/absorb_p23/host_joins/tranche_two_ui.js",
+      "rule": "foreign-host",
+      "snippet": "function render(){const host=document.getElementById('location_actions_div');if(panel.parentElement!==host)host.append(panel);",
+      "count": 1
+    },
+    {
+      "key": "src/adventure_notebook.js|foreign-host|5f06f4089bf50643",
+      "path": "src/adventure_notebook.js",
+      "rule": "foreign-host",
+      "snippet": "if(!workspaceOwns(root) && root.parentElement !== host && host) host.append(root);",
+      "count": 1
+    },
+    {
+      "key": "src/body_ui.js|foreign-host|869570e79f38f3bb",
+      "path": "src/body_ui.js",
+      "rule": "foreign-host",
+      "snippet": "if(!panel.isConnected) document.getElementById(\"location_actions_div\")?.append(panel);",
+      "count": 1
+    },
+    {
+      "key": "src/chain_inspector_ui.js|color|1b686cf980ded44a",
+      "path": "src/chain_inspector_ui.js",
+      "rule": "color",
+      "snippet": "#20242a",
+      "count": 1
+    },
+    {
+      "key": "src/chain_inspector_ui.js|color|6391357d4cad0390",
+      "path": "src/chain_inspector_ui.js",
+      "rule": "color",
+      "snippet": "#888",
+      "count": 1
+    },
+    {
+      "key": "src/chain_inspector_ui.js|color|8c513d16a63456c2",
+      "path": "src/chain_inspector_ui.js",
+      "rule": "color",
+      "snippet": "#eee",
+      "count": 1
+    },
+    {
+      "key": "src/chain_inspector_ui.js|color|cc3158105891b3d0",
+      "path": "src/chain_inspector_ui.js",
+      "rule": "color",
+      "snippet": "#777",
+      "count": 1
+    },
+    {
+      "key": "src/chain_inspector_ui.js|cssText|95106342eb0285bb",
+      "path": "src/chain_inspector_ui.js",
+      "rule": "cssText",
+      "snippet": "summary.style.cssText = 'font-weight:bold;padding:6px 0;';",
+      "count": 1
+    },
+    {
+      "key": "src/chain_inspector_ui.js|cssText|a7e78376548b48c7",
+      "path": "src/chain_inspector_ui.js",
+      "rule": "cssText",
+      "snippet": "columns.style.cssText = 'display:grid;grid-template-columns:repeat(auto-fit,minmax(min(400px,100%),1fr));gap:12px;';",
+      "count": 1
+    },
+    {
+      "key": "src/chain_inspector_ui.js|cssText|aed6e91a28b0c967",
+      "path": "src/chain_inspector_ui.js",
+      "rule": "cssText",
+      "snippet": "line.style.cssText = 'border-top:1px solid #777;padding:6px 0;overflow-wrap:anywhere;white-space:pre-wrap;line-height:1.4;';",
+      "count": 1
+    },
+    {
+      "key": "src/chain_inspector_ui.js|cssText|e0861f79c700a43b",
+      "path": "src/chain_inspector_ui.js",
+      "rule": "cssText",
+      "snippet": "panel.style.cssText = 'padding:8px;border:1px solid var(--border-color,#888);margin:6px 0;font-size:13px;background:var(--panel-bg,#20242a);color:var(--text-color,#eee);';",
+      "count": 1
+    },
+    {
+      "key": "src/character_bio_ui.js|foreign-host|c56ea50ac410ee3f",
+      "path": "src/character_bio_ui.js",
+      "rule": "foreign-host",
+      "snippet": "const host=document.getElementById(\"character_bio_div\"); if(root.parentElement !== host && host) host.append(root);",
+      "count": 1
+    },
+    {
+      "key": "src/character_creation.js|foreign-host|00bacce14e8ea3cd",
+      "path": "src/character_creation.js",
+      "rule": "foreign-host",
+      "snippet": "document.getElementById(\"height_selection\").querySelector('[data-height=\"tall\"]').appendChild(create_height_tooltip(\"tall\",\"height_choice_tooltip\"));",
+      "count": 1
+    },
+    {
+      "key": "src/character_creation.js|foreign-host|017c0fb837de4c9f",
+      "path": "src/character_creation.js",
+      "rule": "foreign-host",
+      "snippet": "document.getElementById(\"height_selection\").querySelector('[data-height=\"short\"]').appendChild(create_height_tooltip(\"short\",\"height_choice_tooltip\"));",
+      "count": 1
+    },
+    {
+      "key": "src/character_creation.js|foreign-host|18e09b515bcb59eb",
+      "path": "src/character_creation.js",
+      "rule": "foreign-host",
+      "snippet": "document.getElementById(\"hero_creation_panel_race_default\").appendChild(race_button);",
+      "count": 1
+    },
+    {
+      "key": "src/character_creation.js|foreign-host|4d5395ac853164e7",
+      "path": "src/character_creation.js",
+      "rule": "foreign-host",
+      "snippet": "document.getElementById(\"hero_creation_panel_race_furless\").appendChild(race_button);",
+      "count": 1
+    },
+    {
+      "key": "src/character_creation.js|foreign-host|5f21986e4baac8ca",
+      "path": "src/character_creation.js",
+      "rule": "foreign-host",
+      "snippet": "document.getElementById(\"gender_selection\").querySelector('[data-gender=\"ambiguous\"]').appendChild(create_gender_tooltip(\"ambiguous\",\"gender_choice_tooltip\"));",
+      "count": 1
+    },
+    {
+      "key": "src/character_creation.js|foreign-host|8ee5bb8dc8c461bd",
+      "path": "src/character_creation.js",
+      "rule": "foreign-host",
+      "snippet": "document.getElementById(\"hero_creation_panel_race_kemonomimi\").appendChild(race_button);",
+      "count": 1
+    },
+    {
+      "key": "src/character_creation.js|foreign-host|976b20d1d0fd9725",
+      "path": "src/character_creation.js",
+      "rule": "foreign-host",
+      "snippet": "document.getElementById(\"gender_selection\").querySelector('[data-gender=\"male\"]').appendChild(create_gender_tooltip(\"male\",\"gender_choice_tooltip\"));",
+      "count": 1
+    },
+    {
+      "key": "src/character_creation.js|foreign-host|c0c5d736a40fd456",
+      "path": "src/character_creation.js",
+      "rule": "foreign-host",
+      "snippet": "document.getElementById(\"gender_selection\").querySelector('[data-gender=\"female\"]').appendChild(create_gender_tooltip(\"female\",\"gender_choice_tooltip\"));",
+      "count": 1
+    },
+    {
+      "key": "src/chronicle_ui.js|foreign-host|e23d162f5efda453",
+      "path": "src/chronicle_ui.js",
+      "rule": "foreign-host",
+      "snippet": "if(!panel.isConnected) document.getElementById(\"location_actions_div\").append(panel);",
+      "count": 1
+    },
+    {
+      "key": "src/component_themes.js|color|157076aee5edc5a4",
+      "path": "src/component_themes.js",
+      "rule": "color",
+      "snippet": "rgb(b)",
+      "count": 1
+    },
+    {
+      "key": "src/component_themes.js|color|26a903d4760b2f7b",
+      "path": "src/component_themes.js",
+      "rule": "color",
+      "snippet": "#ffb2ba",
+      "count": 1
+    },
+    {
+      "key": "src/component_themes.js|color|30b937dd212086fc",
+      "path": "src/component_themes.js",
+      "rule": "color",
+      "snippet": "#713ce5",
+      "count": 1
+    },
+    {
+      "key": "src/component_themes.js|color|3769261a2ce7ad7b",
+      "path": "src/component_themes.js",
+      "rule": "color",
+      "snippet": "#ffd391",
+      "count": 1
+    },
+    {
+      "key": "src/component_themes.js|color|4af4c0ddd7b1b3cd",
+      "path": "src/component_themes.js",
+      "rule": "color",
+      "snippet": "rgb(a)",
+      "count": 1
+    },
+    {
+      "key": "src/component_themes.js|color|576fd5beeb8625e0",
+      "path": "src/component_themes.js",
+      "rule": "color",
+      "snippet": "#f1f4f5",
+      "count": 1
+    },
+    {
+      "key": "src/component_themes.js|color|5d53eae470dc7743",
+      "path": "src/component_themes.js",
+      "rule": "color",
+      "snippet": "#292637",
+      "count": 1
+    },
+    {
+      "key": "src/component_themes.js|color|6593e6ad3a799317",
+      "path": "src/component_themes.js",
+      "rule": "color",
+      "snippet": "#b9ddff",
+      "count": 1
+    },
+    {
+      "key": "src/component_themes.js|color|7b2817bf9b80e66d",
+      "path": "src/component_themes.js",
+      "rule": "color",
+      "snippet": "#000000",
+      "count": 4
+    },
+    {
+      "key": "src/component_themes.js|color|80db749b877d8617",
+      "path": "src/component_themes.js",
+      "rule": "color",
+      "snippet": "#793d00",
+      "count": 1
+    },
+    {
+      "key": "src/component_themes.js|color|8a644e0a0377a57c",
+      "path": "src/component_themes.js",
+      "rule": "color",
+      "snippet": "#a9c8bd",
+      "count": 1
+    },
+    {
+      "key": "src/component_themes.js|color|abcd08f888737d8c",
+      "path": "src/component_themes.js",
+      "rule": "color",
+      "snippet": "#a11520",
+      "count": 1
+    },
+    {
+      "key": "src/component_themes.js|color|ad84b16c409588a6",
+      "path": "src/component_themes.js",
+      "rule": "color",
+      "snippet": "#ddbb88",
+      "count": 1
+    },
+    {
+      "key": "src/component_themes.js|color|b41b8a871c15fb0b",
+      "path": "src/component_themes.js",
+      "rule": "color",
+      "snippet": "rgb(color)",
+      "count": 1
+    },
+    {
+      "key": "src/component_themes.js|color|c4713d393dcb3ba4",
+      "path": "src/component_themes.js",
+      "rule": "color",
+      "snippet": "#f4eee2",
+      "count": 1
+    },
+    {
+      "key": "src/component_themes.js|color|cb0ebc89269ea5fe",
+      "path": "src/component_themes.js",
+      "rule": "color",
+      "snippet": "#302b25",
+      "count": 1
+    },
+    {
+      "key": "src/component_themes.js|color|cfba936a235993ba",
+      "path": "src/component_themes.js",
+      "rule": "color",
+      "snippet": "#f4f0e7",
+      "count": 1
+    },
+    {
+      "key": "src/component_themes.js|color|e8df5160de0753aa",
+      "path": "src/component_themes.js",
+      "rule": "color",
+      "snippet": "#e1c783",
+      "count": 1
+    },
+    {
+      "key": "src/component_themes.js|color|ec53400366d09e36",
+      "path": "src/component_themes.js",
+      "rule": "color",
+      "snippet": "#202a32",
+      "count": 1
+    },
+    {
+      "key": "src/component_themes.js|color|f2074b6cef37b673",
+      "path": "src/component_themes.js",
+      "rule": "color",
+      "snippet": "#ffffff",
+      "count": 4
+    },
+    {
+      "key": "src/content_pack_ui.js|foreign-host|c5554ab74318d465",
+      "path": "src/content_pack_ui.js",
+      "rule": "foreign-host",
+      "snippet": "const host=document.getElementById('location_actions_div');if(host&&!workspaceOwns(panel)&&panel.parentElement!==host)host.append(panel);",
+      "count": 1
+    },
+    {
+      "key": "src/customization_profiles.js|color|0107effa4e3e83b2",
+      "path": "src/customization_profiles.js",
+      "rule": "color",
+      "snippet": "#9bb4ae",
+      "count": 1
+    },
+    {
+      "key": "src/customization_profiles.js|color|0c7e26f5ee6add71",
+      "path": "src/customization_profiles.js",
+      "rule": "color",
+      "snippet": "#a3c7df",
+      "count": 1
+    },
+    {
+      "key": "src/customization_profiles.js|color|31ecb5bd45fa5e94",
+      "path": "src/customization_profiles.js",
+      "rule": "color",
+      "snippet": "#302b24",
+      "count": 1
+    },
+    {
+      "key": "src/customization_profiles.js|color|394898aa560a93a5",
+      "path": "src/customization_profiles.js",
+      "rule": "color",
+      "snippet": "#20322b",
+      "count": 1
+    },
+    {
+      "key": "src/customization_profiles.js|color|3ebc37dcfcca1421",
+      "path": "src/customization_profiles.js",
+      "rule": "color",
+      "snippet": "#edca80",
+      "count": 1
+    },
+    {
+      "key": "src/customization_profiles.js|color|751ffa77e21b5111",
+      "path": "src/customization_profiles.js",
+      "rule": "color",
+      "snippet": "#dca176",
+      "count": 1
+    },
+    {
+      "key": "src/customization_profiles.js|color|87b76d1480632e9d",
+      "path": "src/customization_profiles.js",
+      "rule": "color",
+      "snippet": "#352820",
+      "count": 1
+    },
+    {
+      "key": "src/customization_profiles.js|color|a9645af39b3e0ba7",
+      "path": "src/customization_profiles.js",
+      "rule": "color",
+      "snippet": "#182b3b",
+      "count": 1
+    },
+    {
+      "key": "src/customization_profiles.js|color|b359180aaec1b415",
+      "path": "src/customization_profiles.js",
+      "rule": "color",
+      "snippet": "#1c243b",
+      "count": 1
+    },
+    {
+      "key": "src/customization_profiles.js|color|ba7094da6cde25dc",
+      "path": "src/customization_profiles.js",
+      "rule": "color",
+      "snippet": "#162127",
+      "count": 1
+    },
+    {
+      "key": "src/customization_profiles.js|color|d7a1813abaa26616",
+      "path": "src/customization_profiles.js",
+      "rule": "color",
+      "snippet": "#f1f2f5",
+      "count": 1
+    },
+    {
+      "key": "src/customization_profiles.js|color|d8b5e6131bfea5e0",
+      "path": "src/customization_profiles.js",
+      "rule": "color",
+      "snippet": "#afd3a6",
+      "count": 1
+    },
+    {
+      "key": "src/customization_profiles.js|color|de57239c33f3148d",
+      "path": "src/customization_profiles.js",
+      "rule": "color",
+      "snippet": "#b8d8cf",
+      "count": 1
+    },
+    {
+      "key": "src/display_settings.js|color|7b2817bf9b80e66d",
+      "path": "src/display_settings.js",
+      "rule": "color",
+      "snippet": "#000000",
+      "count": 1
+    },
+    {
+      "key": "src/display.js|color|330bda57284bd4a0",
+      "path": "src/display.js",
+      "rule": "color",
+      "snippet": "#181818",
+      "count": 2
+    },
+    {
+      "key": "src/display.js|foreign-host|02f4f50d2fc4c592",
+      "path": "src/display.js",
+      "rule": "foreign-host",
+      "snippet": "action_div.appendChild(action_status_div);",
+      "count": 4
+    },
+    {
+      "key": "src/display.js|foreign-host|0417f32bb173d57b",
+      "path": "src/display.js",
+      "rule": "foreign-host",
+      "snippet": "//action_div.appendChild(start_sleeping_div);",
+      "count": 1
+    },
+    {
+      "key": "src/display.js|foreign-host|0fd600c6104a6f4f",
+      "path": "src/display.js",
+      "rule": "foreign-host",
+      "snippet": "}).forEach(node=>bestiary_list.appendChild(node));",
+      "count": 1
+    },
+    {
+      "key": "src/display.js|foreign-host|14d48603017b96de",
+      "path": "src/display.js",
+      "rule": "foreign-host",
+      "snippet": "//action_div.appendChild(crafting_button);",
+      "count": 1
+    },
+    {
+      "key": "src/display.js|foreign-host|1cbdb217c77b2186",
+      "path": "src/display.js",
+      "rule": "foreign-host",
+      "snippet": "action_div.append(...action);",
+      "count": 1
+    },
+    {
+      "key": "src/display.js|foreign-host|2a312fd6e8239c62",
+      "path": "src/display.js",
+      "rule": "foreign-host",
+      "snippet": "trader_inventory_div.appendChild(trader_item_divs[inventory_key]);",
+      "count": 1
+    },
+    {
+      "key": "src/display.js|foreign-host|2eaf2f97520f3a65",
+      "path": "src/display.js",
+      "rule": "foreign-host",
+      "snippet": "weather_field.appendChild(create_temperature_tooltip());",
+      "count": 1
+    },
+    {
+      "key": "src/display.js|foreign-host|2f48d6ea9c44fea5",
+      "path": "src/display.js",
+      "rule": "foreign-host",
+      "snippet": "action_div.append(...Object.values(location_choice_divs));",
+      "count": 1
+    },
+    {
+      "key": "src/display.js|foreign-host|32ba983731bae0b8",
+      "path": "src/display.js",
+      "rule": "foreign-host",
+      "snippet": "quest_list.appendChild(quest_div);",
+      "count": 1
+    },
+    {
+      "key": "src/display.js|foreign-host|42c2f71f41290465",
+      "path": "src/display.js",
+      "rule": "foreign-host",
+      "snippet": "weather_field.append(summary);",
+      "count": 1
+    },
+    {
+      "key": "src/display.js|foreign-host|48ab261920eb6185",
+      "path": "src/display.js",
+      "rule": "foreign-host",
+      "snippet": "inventory_div.appendChild(equip_div);",
+      "count": 1
+    },
+    {
+      "key": "src/display.js|foreign-host|4e46c47f0e46bebd",
+      "path": "src/display.js",
+      "rule": "foreign-host",
+      "snippet": "skill_list.appendChild(skill_category_div);",
+      "count": 1
+    },
+    {
+      "key": "src/display.js|foreign-host|505dcc94423db0f6",
+      "path": "src/display.js",
+      "rule": "foreign-host",
+      "snippet": "action_div.appendChild(action_xp_div);",
+      "count": 1
+    },
+    {
+      "key": "src/display.js|foreign-host|54e9446221ccd187",
+      "path": "src/display.js",
+      "rule": "foreign-host",
+      "snippet": "gender_div.appendChild(create_gender_tooltip(bio.gender, \"character_gender_tooltip\"));",
+      "count": 1
+    },
+    {
+      "key": "src/display.js|foreign-host|55c362292f25f655",
+      "path": "src/display.js",
+      "rule": "foreign-host",
+      "snippet": "height_div.appendChild(create_height_tooltip(bio.height, \"character_height_tooltip\"));",
+      "count": 1
+    },
+    {
+      "key": "src/display.js|foreign-host|59a7b90fb76ca15c",
+      "path": "src/display.js",
+      "rule": "foreign-host",
+      "snippet": "inventory_div.appendChild(item_buying_divs[key]);",
+      "count": 1
+    },
+    {
+      "key": "src/display.js|foreign-host|5a10d6e775d4551a",
+      "path": "src/display.js",
+      "rule": "foreign-host",
+      "snippet": "bestiary_list.appendChild(bestiary_entry_divs[enemy_name]);",
+      "count": 1
+    },
+    {
+      "key": "src/display.js|foreign-host|5aa8ff83289360f0",
+      "path": "src/display.js",
+      "rule": "foreign-host",
+      "snippet": "action_div.appendChild(dialogue_name_div);",
+      "count": 1
+    },
+    {
+      "key": "src/display.js|foreign-host|5ab5bcd072f0a8c6",
+      "path": "src/display.js",
+      "rule": "foreign-host",
+      "snippet": "storage_inventory_div.appendChild(storage_item_divs[item_key]);",
+      "count": 1
+    },
+    {
+      "key": "src/display.js|foreign-host|6187173480ffac0b",
+      "path": "src/display.js",
+      "rule": "foreign-host",
+      "snippet": "action_div.appendChild(action_end_div);",
+      "count": 4
+    },
+    {
+      "key": "src/display.js|foreign-host|628a6afacc1e075e",
+      "path": "src/display.js",
+      "rule": "foreign-host",
+      "snippet": "}).forEach(node=>skill_list.appendChild(node));",
+      "count": 1
+    },
+    {
+      "key": "src/display.js|foreign-host|70688a238054fbbe",
+      "path": "src/display.js",
+      "rule": "foreign-host",
+      "snippet": "booklist_list.appendChild(booklist_entry_divs[book_name]);",
+      "count": 1
+    },
+    {
+      "key": "src/display.js|foreign-host|77fd4eebb88e6ca6",
+      "path": "src/display.js",
+      "rule": "foreign-host",
+      "snippet": "action_div.appendChild(textline_div);",
+      "count": 2
+    },
+    {
+      "key": "src/display.js|foreign-host|7cacb2ba49bbb677",
+      "path": "src/display.js",
+      "rule": "foreign-host",
+      "snippet": "stance_list.append(stance_bar_divs[stance]);",
+      "count": 1
+    },
+    {
+      "key": "src/display.js|foreign-host|8928895b8b63c8e5",
+      "path": "src/display.js",
+      "rule": "foreign-host",
+      "snippet": "}).forEach(node=>list.appendChild(node));",
+      "count": 1
+    },
+    {
+      "key": "src/display.js|foreign-host|99a64a689dcb3fe4",
+      "path": "src/display.js",
+      "rule": "foreign-host",
+      "snippet": "action_div.appendChild(backstep_dialogue_div);",
+      "count": 1
+    },
+    {
+      "key": "src/display.js|foreign-host|a33c619fee6bac7b",
+      "path": "src/display.js",
+      "rule": "foreign-host",
+      "snippet": "race_div.appendChild(create_race_tooltip(playable_races[bio.race], \"character_race_tooltip\"));",
+      "count": 1
+    },
+    {
+      "key": "src/display.js|foreign-host|adfe12de7903ceab",
+      "path": "src/display.js",
+      "rule": "foreign-host",
+      "snippet": "message_log.appendChild(message_log_unread_anchor);",
+      "count": 1
+    },
+    {
+      "key": "src/display.js|foreign-host|af9a35401e8ed2ea",
+      "path": "src/display.js",
+      "rule": "foreign-host",
+      "snippet": "inventory_div.appendChild(item_divs[inventory_key]);",
+      "count": 1
+    },
+    {
+      "key": "src/display.js|foreign-host|b7cbb3b1151205fb",
+      "path": "src/display.js",
+      "rule": "foreign-host",
+      "snippet": "}).forEach(node=>quest_list.appendChild(node));",
+      "count": 1
+    },
+    {
+      "key": "src/display.js|foreign-host|b810baa1d9625c92",
+      "path": "src/display.js",
+      "rule": "foreign-host",
+      "snippet": "crafting_pages[category][subcategory] = document.getElementById(\"recipe_categories\").appendChild(new_category);",
+      "count": 1
+    },
+    {
+      "key": "src/display.js|foreign-host|bc327e44305e4de3",
+      "path": "src/display.js",
+      "rule": "foreign-host",
+      "snippet": "action_div.appendChild(dialogue_answer_div);",
+      "count": 1
+    },
+    {
+      "key": "src/display.js|foreign-host|c09e3b5d10e49073",
+      "path": "src/display.js",
+      "rule": "foreign-host",
+      "snippet": "action_div.appendChild(dialogue_action_div);",
+      "count": 1
+    },
+    {
+      "key": "src/display.js|foreign-host|c16ebe93f16a3c4b",
+      "path": "src/display.js",
+      "rule": "foreign-host",
+      "snippet": "trader_inventory_div.appendChild(item_selling_divs[key]);",
+      "count": 1
+    },
+    {
+      "key": "src/display.js|foreign-host|c8c5c1185c43b7a4",
+      "path": "src/display.js",
+      "rule": "foreign-host",
+      "snippet": "}).forEach(node=>stance_list.appendChild(node));",
+      "count": 1
+    },
+    {
+      "key": "src/display.js|foreign-host|c8e46674cf1b233c",
+      "path": "src/display.js",
+      "rule": "foreign-host",
+      "snippet": "location_types_div.appendChild(type_div);",
+      "count": 1
+    },
+    {
+      "key": "src/display.js|foreign-host|cbe6ee9bd9d34691",
+      "path": "src/display.js",
+      "rule": "foreign-host",
+      "snippet": "inventory_div.appendChild(item_div);",
+      "count": 1
+    },
+    {
+      "key": "src/display.js|foreign-host|d068f0cea357d722",
+      "path": "src/display.js",
+      "rule": "foreign-host",
+      "snippet": "action_div.appendChild(end_dialogue_div);",
+      "count": 1
+    },
+    {
+      "key": "src/display.js|foreign-host|d5365bdb8c5110f7",
+      "path": "src/display.js",
+      "rule": "foreign-host",
+      "snippet": "inventory_div.appendChild(item_divs[eq_slot]);",
+      "count": 1
+    },
+    {
+      "key": "src/display.js|foreign-host|d7e443a05b8c10f9",
+      "path": "src/display.js",
+      "rule": "foreign-host",
+      "snippet": "action_div.appendChild(trade_div);",
+      "count": 1
+    },
+    {
+      "key": "src/display.js|foreign-host|dc2a7677f1cd914a",
+      "path": "src/display.js",
+      "rule": "foreign-host",
+      "snippet": "trader_inventory_div.appendChild(item_div);",
+      "count": 1
+    },
+    {
+      "key": "src/display.js|foreign-host|df93272715ad5074",
+      "path": "src/display.js",
+      "rule": "foreign-host",
+      "snippet": "action_div.appendChild(action_progress_bar_max);",
+      "count": 3
+    },
+    {
+      "key": "src/display.js|foreign-host|e2af841e482cb5f3",
+      "path": "src/display.js",
+      "rule": "foreign-host",
+      "snippet": "if(!row.isConnected) trader_inventory_div.append(row);",
+      "count": 1
+    },
+    {
+      "key": "src/display.js|foreign-host|e50bfe7bb46959ea",
+      "path": "src/display.js",
+      "rule": "foreign-host",
+      "snippet": "active_effects_tooltip.appendChild(effect_divs[key]);",
+      "count": 1
+    },
+    {
+      "key": "src/display.js|foreign-host|e6f8a46f82891eab",
+      "path": "src/display.js",
+      "rule": "foreign-host",
+      "snippet": "message_log.appendChild(message);",
+      "count": 1
+    },
+    {
+      "key": "src/display.js|foreign-host|eccf12ad9396c391",
+      "path": "src/display.js",
+      "rule": "foreign-host",
+      "snippet": "//action_div.appendChild(open_storage_div);",
+      "count": 1
+    },
+    {
+      "key": "src/display.js|foreign-host|f2aae8527c1dc4a3",
+      "path": "src/display.js",
+      "rule": "foreign-host",
+      "snippet": "storage_inventory_div.appendChild(storage_item_divs[inventory_key]);",
+      "count": 1
+    },
+    {
+      "key": "src/display.js|foreign-host|f4a8af1bff5c89e8",
+      "path": "src/display.js",
+      "rule": "foreign-host",
+      "snippet": ".forEach(node=>booklist_list.appendChild(node));",
+      "count": 1
+    },
+    {
+      "key": "src/exchange_ui.js|foreign-host|9dcef4d5b7de4a74",
+      "path": "src/exchange_ui.js",
+      "rule": "foreign-host",
+      "snippet": "document.getElementById('location_actions_div')?.append(panel);render();return {render};",
+      "count": 1
+    },
+    {
+      "key": "src/expedition_ui.js|foreign-host|9760b794a06d4b58",
+      "path": "src/expedition_ui.js",
+      "rule": "foreign-host",
+      "snippet": "document.getElementById(\"location_actions_div\").append(panel);",
+      "count": 1
+    },
+    {
+      "key": "src/expedition_ui.js|foreign-host|e23d162f5efda453",
+      "path": "src/expedition_ui.js",
+      "rule": "foreign-host",
+      "snippet": "if(!panel.isConnected) document.getElementById(\"location_actions_div\").append(panel);",
+      "count": 1
+    },
+    {
+      "key": "src/feature_expansion_nested_ink_ui.js|foreign-host|f7178077f5f9a933",
+      "path": "src/feature_expansion_nested_ink_ui.js",
+      "rule": "foreign-host",
+      "snippet": "document.getElementById('location_actions_div')?.append(element);const panels=new Map();",
+      "count": 1
+    },
+    {
+      "key": "src/feature_expansion_ui.js|foreign-host|d22e394439c1ce94",
+      "path": "src/feature_expansion_ui.js",
+      "rule": "foreign-host",
+      "snippet": "document.getElementById('location_actions_div')?.append(element);",
+      "count": 1
+    },
+    {
+      "key": "src/field_ui.js|foreign-host|8e0cc3a0547b7fea",
+      "path": "src/field_ui.js",
+      "rule": "foreign-host",
+      "snippet": "if(!panel.isConnected)document.getElementById(\"location_actions_div\")?.append(panel);",
+      "count": 1
+    },
+    {
+      "key": "src/foundation_interaction_ui.js|foreign-host|900bcea1b9e81df7",
+      "path": "src/foundation_interaction_ui.js",
+      "rule": "foreign-host",
+      "snippet": "if(!panel.isConnected)document.getElementById('location_actions_div')?.append(panel);",
+      "count": 2
+    },
+    {
+      "key": "src/frontier_campaign_ui.js|foreign-host|71fe3bec37df5e72",
+      "path": "src/frontier_campaign_ui.js",
+      "rule": "foreign-host",
+      "snippet": "document.getElementById(\"location_actions_div\")?.append(panel);render();return {render};",
+      "count": 1
+    },
+    {
+      "key": "src/habitat_care_ui.js|cssText|63adacd580d61010",
+      "path": "src/habitat_care_ui.js",
+      "rule": "cssText",
+      "snippet": "controls.style.cssText='display:flex;flex-wrap:wrap;gap:6px';",
+      "count": 1
+    },
+    {
+      "key": "src/harvest_ui.js|color|6391357d4cad0390",
+      "path": "src/harvest_ui.js",
+      "rule": "color",
+      "snippet": "#888",
+      "count": 2
+    },
+    {
+      "key": "src/harvest_ui.js|cssText|478381b8a277f597",
+      "path": "src/harvest_ui.js",
+      "rule": "cssText",
+      "snippet": "for(const choice of ['whole',...partNames(species)]){const plan=planHarvest(lot[0],choice,frame.context);const line=document.createElement('div');line.style.cssText='display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:3px 0';const button=document.createElement('button');button.dataset.harvestChoice=choice;button.textContent=choice==='whole'?'Process whole':`Take only ${choice}`;button.disabled=!frame.ready||!!s.job;button.onclick=()=>run({type:'begin',species,choice});const forecast=document.createElement('span');forecast.textContent=`${plan.minutes} min, ${plan.xp} Butchering XP; `+plan.outputs.map(o=>`${o.count} ${HARVEST_PARTS[o.part].id}: ${o.completeness}, quality ${o.quality}%`).join('; ');line.append(button,forecast);row.append(line);}",
+      "count": 1
+    },
+    {
+      "key": "src/harvest_ui.js|cssText|a45e6cd4b195b4bb",
+      "path": "src/harvest_ui.js",
+      "rule": "cssText",
+      "snippet": "for(const species of HARVEST_SPECIES){const lot=s.lots[species];if(!lot?.length)continue;const row=document.createElement('div');row.style.cssText='border-top:1px solid #888;padding:6px 0;';row.dataset.harvestSpecies=species;",
+      "count": 1
+    },
+    {
+      "key": "src/harvest_ui.js|cssText|a78d4ec3c3c42672",
+      "path": "src/harvest_ui.js",
+      "rule": "cssText",
+      "snippet": "const panel=document.createElement('details');panel.id='harvest_panel';panel.style.cssText='padding:8px;border:1px solid #888;margin:6px 0;font-size:13px;max-width:900px;';",
+      "count": 1
+    },
+    {
+      "key": "src/main.js|color|27b16b724bf787d1",
+      "path": "src/main.js",
+      "rule": "color",
+      "snippet": "#252525",
+      "count": 2
+    },
+    {
+      "key": "src/main.js|color|8c513d16a63456c2",
+      "path": "src/main.js",
+      "rule": "color",
+      "snippet": "#eee",
+      "count": 2
+    },
+    {
+      "key": "src/main.js|foreign-host|0ff34e8d56e70de7",
+      "path": "src/main.js",
+      "rule": "foreign-host",
+      "snippet": "const cancelCraftEffect=document.createElement('button');cancelCraftEffect.type='button';cancelCraftEffect.textContent='Cancel visual effect';cancelCraftEffect.id='cancel_craft_visual_effect';cancelCraftEffect.addEventListener('click',()=>workLedgerCraftEffects.cancel());document.getElementById('crafting_window').append(cancelCraftEffect);",
+      "count": 1
+    },
+    {
+      "key": "src/main.js|foreign-host|13a9c09653190907",
+      "path": "src/main.js",
+      "rule": "foreign-host",
+      "snippet": "document.getElementById('location_actions_div')?.append(inkPanel.element);",
+      "count": 1
+    },
+    {
+      "key": "src/main.js|foreign-host|1a06b8d32e1993e8",
+      "path": "src/main.js",
+      "rule": "foreign-host",
+      "snippet": "const title=document.createElement('summary');title.textContent='Optional pacing';const text=document.createElement('p');panel.append(title,text);",
+      "count": 1
+    },
+    {
+      "key": "src/main.js|foreign-host|281b3edbeeb3aabd",
+      "path": "src/main.js",
+      "rule": "foreign-host",
+      "snippet": "const title=document.createElement('summary');title.textContent='Elemental preparation';const body=document.createElement('div'),notice=document.createElement('p');panel.append(title,body,notice);",
+      "count": 1
+    },
+    {
+      "key": "src/main.js|foreign-host|2958a5bd705ae180",
+      "path": "src/main.js",
+      "rule": "foreign-host",
+      "snippet": "document.getElementById('options_choices').append(box);refresh();",
+      "count": 1
+    },
+    {
+      "key": "src/main.js|foreign-host|2b21553d02e26e79",
+      "path": "src/main.js",
+      "rule": "foreign-host",
+      "snippet": "combat_window.append(attacker_box, defender_box, exit_button);",
+      "count": 1
+    },
+    {
+      "key": "src/main.js|foreign-host|30c21b43ae084f93",
+      "path": "src/main.js",
+      "rule": "foreign-host",
+      "snippet": "function render(){const target=document.getElementById('location_actions_div');if(panel.parentElement!==target)target.append(panel);input.checked=durability.enabled;",
+      "count": 1
+    },
+    {
+      "key": "src/main.js|foreign-host|3aa9785f63b12417",
+      "path": "src/main.js",
+      "rule": "foreign-host",
+      "snippet": "const title=document.createElement('summary');title.textContent='Equipment condition and repair';const body=document.createElement('div'),notice=document.createElement('p');panel.append(title,body,notice);",
+      "count": 1
+    },
+    {
+      "key": "src/main.js|foreign-host|4ce06a9f000e19bd",
+      "path": "src/main.js",
+      "rule": "foreign-host",
+      "snippet": "const authoredHost=document.createElement('div');authoredHost.id='customization_sites_host';document.getElementById('location_actions_div').append(authoredHost);",
+      "count": 1
+    },
+    {
+      "key": "src/main.js|foreign-host|52e5ef77e428aafb",
+      "path": "src/main.js",
+      "rule": "foreign-host",
+      "snippet": "const body=document.createElement('div');panel.append(summary,body);",
+      "count": 1
+    },
+    {
+      "key": "src/main.js|foreign-host|6f172fdd7ccc44df",
+      "path": "src/main.js",
+      "rule": "foreign-host",
+      "snippet": "opening.append(introduction,next);document.getElementById('main_content').prepend(opening);",
+      "count": 1
+    },
+    {
+      "key": "src/main.js|foreign-host|7148a067da2d23f4",
+      "path": "src/main.js",
+      "rule": "foreign-host",
+      "snippet": "const knownMinutesHost=document.createElement('section');knownMinutesHost.setAttribute('aria-label','Known played minutes');document.getElementById('character_bio_div').append(knownMinutesHost);",
+      "count": 1
+    },
+    {
+      "key": "src/main.js|foreign-host|7841fffd5ba4a5e2",
+      "path": "src/main.js",
+      "rule": "foreign-host",
+      "snippet": "const render=()=>{const host=document.getElementById('location_actions_div');if(panel.parentElement!==host)host.append(panel);const view=furniturePresentation(readFurnitureInput());panel.hidden=!view.visible||!!current_dialogue||!!current_combat;",
+      "count": 1
+    },
+    {
+      "key": "src/main.js|foreign-host|7c249f2b06156668",
+      "path": "src/main.js",
+      "rule": "foreign-host",
+      "snippet": "setInterval(()=>{quietPlaceDetail.render();workLedgerPanel?.render();customizationPanel?.refresh();if(!workspaceOwns(customizationHost)&&!customizationHost.isConnected)document.getElementById('location_actions_div')?.append(customizationHost);workLedgerAuthor?.refresh();},250);",
+      "count": 1
+    },
+    {
+      "key": "src/main.js|foreign-host|7c511210088e81b7",
+      "path": "src/main.js",
+      "rule": "foreign-host",
+      "snippet": "const render=()=>{const host=document.getElementById('location_actions_div');if(panel.parentElement!==host)host.append(panel);",
+      "count": 1
+    },
+    {
+      "key": "src/main.js|foreign-host|99de21c3c0266fe3",
+      "path": "src/main.js",
+      "rule": "foreign-host",
+      "snippet": "document.getElementById('location_actions_div').append(panel);",
+      "count": 1
+    },
+    {
+      "key": "src/main.js|foreign-host|a18253cc6a51ace7",
+      "path": "src/main.js",
+      "rule": "foreign-host",
+      "snippet": "document.getElementById('location_actions_div')?.append(crushSocialPanel.element);",
+      "count": 1
+    },
+    {
+      "key": "src/main.js|foreign-host|a989f89697420aaf",
+      "path": "src/main.js",
+      "rule": "foreign-host",
+      "snippet": "document.getElementById('location_actions_div').append(customizationHost,effectsHost,rulesHost,previewHost);",
+      "count": 1
+    },
+    {
+      "key": "src/main.js|foreign-host|ca3990651fa7c2b3",
+      "path": "src/main.js",
+      "rule": "foreign-host",
+      "snippet": "panel.append(message,exportButton);document.body.append(panel);",
+      "count": 1
+    },
+    {
+      "key": "src/main.js|foreign-host|d59939678050d177",
+      "path": "src/main.js",
+      "rule": "foreign-host",
+      "snippet": "input.type='checkbox';input.dataset.durabilityOption='true';option.append(input,document.createTextNode('Equipment durability (off by default)'));host.append(option);",
+      "count": 1
+    },
+    {
+      "key": "src/main.js|foreign-host|dfa71727d00522ab",
+      "path": "src/main.js",
+      "rule": "foreign-host",
+      "snippet": "host.append(holder);",
+      "count": 1
+    },
+    {
+      "key": "src/main.js|foreign-host|ea61fa7f3556a7e4",
+      "path": "src/main.js",
+      "rule": "foreign-host",
+      "snippet": "option.append(input,document.createTextNode('Elemental preparation (off by default)'));document.getElementById('options_choices').append(option);",
+      "count": 1
+    },
+    {
+      "key": "src/management/ui.js|foreign-host|ae1d6034062d9e90",
+      "path": "src/management/ui.js",
+      "rule": "foreign-host",
+      "snippet": "const host=document.getElementById('location_actions_div');if(host&&element.parentElement!==host)host.append(element);",
+      "count": 1
+    },
+    {
+      "key": "src/misc.js|color|00b78cc3e57cb5d3",
+      "path": "src/misc.js",
+      "rule": "color",
+      "snippet": "rgb(color_b)",
+      "count": 1
+    },
+    {
+      "key": "src/misc.js|color|5a5b366b2ba5642d",
+      "path": "src/misc.js",
+      "rule": "color",
+      "snippet": "rgb(color_a)",
+      "count": 1
+    },
+    {
+      "key": "src/misc.js|color|6a32048d400181d5",
+      "path": "src/misc.js",
+      "rule": "color",
+      "snippet": "rgb(hex)",
+      "count": 1
+    },
+    {
+      "key": "src/misc.js|color|7b2817bf9b80e66d",
+      "path": "src/misc.js",
+      "rule": "color",
+      "snippet": "#000000",
+      "count": 1
+    },
+    {
+      "key": "src/misc.js|color|f2074b6cef37b673",
+      "path": "src/misc.js",
+      "rule": "color",
+      "snippet": "#ffffff",
+      "count": 1
+    },
+    {
+      "key": "src/observation_ui.js|foreign-host|9dcef4d5b7de4a74",
+      "path": "src/observation_ui.js",
+      "rule": "foreign-host",
+      "snippet": "document.getElementById('location_actions_div')?.append(panel);render();return {render};",
+      "count": 1
+    },
+    {
+      "key": "src/original_frontier_campaign_ui.js|foreign-host|d22e394439c1ce94",
+      "path": "src/original_frontier_campaign_ui.js",
+      "rule": "foreign-host",
+      "snippet": "document.getElementById('location_actions_div')?.append(element);",
+      "count": 1
+    },
+    {
+      "key": "src/particles.js|color|0966076d1b34d0db",
+      "path": "src/particles.js",
+      "rule": "color",
+      "snippet": "rgba(128,128,255, ${this.opacity})",
+      "count": 1
+    },
+    {
+      "key": "src/particles.js|color|2f52ddc762211cee",
+      "path": "src/particles.js",
+      "rule": "color",
+      "snippet": "rgba(255,255,100,${this.opacity})",
+      "count": 3
+    },
+    {
+      "key": "src/particles.js|color|ec183030bba701b2",
+      "path": "src/particles.js",
+      "rule": "color",
+      "snippet": "rgba(255,255,255,${this.opacity})",
+      "count": 1
+    },
+    {
+      "key": "src/party_ui.js|foreign-host|9dcef4d5b7de4a74",
+      "path": "src/party_ui.js",
+      "rule": "foreign-host",
+      "snippet": "document.getElementById('location_actions_div')?.append(panel);render();return {render};",
+      "count": 1
+    },
+    {
+      "key": "src/pocket_realm_ui.js|cssText|57911592ff1d1f22",
+      "path": "src/pocket_realm_ui.js",
+      "rule": "cssText",
+      "snippet": "const illustration=node('img');illustration.src='assets/realm/folded-glasshouse.svg';illustration.alt='Folded glass walls surround a planted workbench and brass doorway.';illustration.width=720;illustration.height=260;illustration.style.cssText='width:100%;height:auto;border-radius:8px;margin:8px 0';",
+      "count": 1
+    },
+    {
+      "key": "src/pocket_realm_ui.js|declaration|d20972ccff8dfeea",
+      "path": "src/pocket_realm_ui.js",
+      "rule": "declaration",
+      "snippet": "border-radius:8px",
+      "count": 1
+    },
+    {
+      "key": "src/pocket_realm_ui.js|foreign-host|9dcef4d5b7de4a74",
+      "path": "src/pocket_realm_ui.js",
+      "rule": "foreign-host",
+      "snippet": "document.getElementById('location_actions_div')?.append(panel);render();return {render};",
+      "count": 1
+    },
+    {
+      "key": "src/promise_ui.js|foreign-host|8e0cc3a0547b7fea",
+      "path": "src/promise_ui.js",
+      "rule": "foreign-host",
+      "snippet": "if(!panel.isConnected)document.getElementById(\"location_actions_div\")?.append(panel);",
+      "count": 1
+    },
+    {
+      "key": "src/pursuit_ui.js|foreign-host|71fe3bec37df5e72",
+      "path": "src/pursuit_ui.js",
+      "rule": "foreign-host",
+      "snippet": "document.getElementById(\"location_actions_div\")?.append(panel);render();return {render};",
+      "count": 1
+    },
+    {
+      "key": "src/rarity_palette.js|color|0acbb34d7843d8f6",
+      "path": "src/rarity_palette.js",
+      "rule": "color",
+      "snippet": "#d3d3d3",
+      "count": 1
+    },
+    {
+      "key": "src/rarity_palette.js|color|3d69f13c707d333c",
+      "path": "src/rarity_palette.js",
+      "rule": "color",
+      "snippet": "#800080",
+      "count": 1
+    },
+    {
+      "key": "src/rarity_palette.js|color|42230f9f877f03fb",
+      "path": "src/rarity_palette.js",
+      "rule": "color",
+      "snippet": "#0000ff",
+      "count": 1
+    },
+    {
+      "key": "src/rarity_palette.js|color|51fdaf5051039aa5",
+      "path": "src/rarity_palette.js",
+      "rule": "color",
+      "snippet": "#ffb04d",
+      "count": 1
+    },
+    {
+      "key": "src/rarity_palette.js|color|5950809e7f0cd238",
+      "path": "src/rarity_palette.js",
+      "rule": "color",
+      "snippet": "#7fb2ff",
+      "count": 1
+    },
+    {
+      "key": "src/rarity_palette.js|color|74cd8ac124930e75",
+      "path": "src/rarity_palette.js",
+      "rule": "color",
+      "snippet": "#ff9ed1",
+      "count": 1
+    },
+    {
+      "key": "src/rarity_palette.js|color|86fe5afb9803009a",
+      "path": "src/rarity_palette.js",
+      "rule": "color",
+      "snippet": "#90ee90",
+      "count": 1
+    },
+    {
+      "key": "src/rarity_palette.js|color|b12b2b2e0f81862e",
+      "path": "src/rarity_palette.js",
+      "rule": "color",
+      "snippet": "#7fe88f",
+      "count": 1
+    },
+    {
+      "key": "src/rarity_palette.js|color|bd2b4a73f0556ebc",
+      "path": "src/rarity_palette.js",
+      "rule": "color",
+      "snippet": "#d29bff",
+      "count": 1
+    },
+    {
+      "key": "src/rarity_palette.js|color|ccfd5a057f30e7ef",
+      "path": "src/rarity_palette.js",
+      "rule": "color",
+      "snippet": "#ffc0cb",
+      "count": 1
+    },
+    {
+      "key": "src/rarity_palette.js|color|d4f2f1b02dfc4db6",
+      "path": "src/rarity_palette.js",
+      "rule": "color",
+      "snippet": "#c8ccd4",
+      "count": 1
+    },
+    {
+      "key": "src/rarity_palette.js|color|f2074b6cef37b673",
+      "path": "src/rarity_palette.js",
+      "rule": "color",
+      "snippet": "#ffffff",
+      "count": 2
+    },
+    {
+      "key": "src/rarity_palette.js|color|f831be7ef37e9cee",
+      "path": "src/rarity_palette.js",
+      "rule": "color",
+      "snippet": "#ffa500",
+      "count": 1
+    },
+    {
+      "key": "src/repository_absorption_ui.js|foreign-host|d22e394439c1ce94",
+      "path": "src/repository_absorption_ui.js",
+      "rule": "foreign-host",
+      "snippet": "document.getElementById('location_actions_div')?.append(element);",
+      "count": 1
+    },
+    {
+      "key": "src/reveal_chain.js|foreign-host|f4797798cdfcffe1",
+      "path": "src/reveal_chain.js",
+      "rule": "foreign-host",
+      "snippet": "document.getElementById('location_related_div').append(panel,preparations);",
+      "count": 1
+    },
+    {
+      "key": "src/simulation_ui.js|foreign-host|869570e79f38f3bb",
+      "path": "src/simulation_ui.js",
+      "rule": "foreign-host",
+      "snippet": "if(!panel.isConnected) document.getElementById(\"location_actions_div\")?.append(panel);",
+      "count": 1
+    },
+    {
+      "key": "src/skill_expansion_ui.js|foreign-host|304e7f94fc23bc38",
+      "path": "src/skill_expansion_ui.js",
+      "rule": "foreign-host",
+      "snippet": "document.getElementById('location_actions_div')?.append(panel);render();return {panel,render};",
+      "count": 1
+    },
+    {
+      "key": "src/status_window.js|foreign-host|c11a2ed7d2759f7d",
+      "path": "src/status_window.js",
+      "rule": "foreign-host",
+      "snippet": "document.getElementById('character_div').append(panel);",
+      "count": 1
+    },
+    {
+      "key": "src/storylet_ui.js|foreign-host|900bcea1b9e81df7",
+      "path": "src/storylet_ui.js",
+      "rule": "foreign-host",
+      "snippet": "if(!panel.isConnected)document.getElementById('location_actions_div')?.append(panel);",
+      "count": 1
+    },
+    {
+      "key": "src/structured_pack_ui.js|foreign-host|c5554ab74318d465",
+      "path": "src/structured_pack_ui.js",
+      "rule": "foreign-host",
+      "snippet": "const host=document.getElementById('location_actions_div');if(host&&!workspaceOwns(panel)&&panel.parentElement!==host)host.append(panel);",
+      "count": 1
+    },
+    {
+      "key": "src/technique_ui.js|foreign-host|e23d162f5efda453",
+      "path": "src/technique_ui.js",
+      "rule": "foreign-host",
+      "snippet": "if(!panel.isConnected) document.getElementById(\"location_actions_div\").append(panel);",
+      "count": 1
+    },
+    {
+      "key": "src/titles_ui.js|foreign-host|5d93b14f14c6042d",
+      "path": "src/titles_ui.js",
+      "rule": "foreign-host",
+      "snippet": "const host=document.getElementById('character_bio_div');if(host && panel.parentElement!==host)host.append(panel);",
+      "count": 1
+    },
+    {
+      "key": "src/town_ui.js|foreign-host|021977688a6ec50c",
+      "path": "src/town_ui.js",
+      "rule": "foreign-host",
+      "snippet": "const host = document.getElementById(\"location_actions_div\"); if(!panel.isConnected && host) host.append(panel);",
+      "count": 1
+    },
+    {
+      "key": "src/trade.js|foreign-host|a53198e23ca21644",
+      "path": "src/trade.js",
+      "rule": "foreign-host",
+      "snippet": "const explanation=document.createElement('p');explanation.textContent=preview.quote.explanation;box.append(label,explanation);",
+      "count": 1
+    },
+    {
+      "key": "src/ui/combat_display.js|color|a82d28d7f5333b5c",
+      "path": "src/ui/combat_display.js",
+      "rule": "color",
+      "snippet": "rgba(255, 0, 0, 0.2)",
+      "count": 1
+    },
+    {
+      "key": "src/ui/combat_display.js|color|d8ed253068942591",
+      "path": "src/ui/combat_display.js",
+      "rule": "color",
+      "snippet": "rgba(0, 124, 17, 0.2)",
+      "count": 1
+    },
+    {
+      "key": "src/ui/combat_display.js|color|ec68b6486edac3f7",
+      "path": "src/ui/combat_display.js",
+      "rule": "color",
+      "snippet": "rgba(0, 0, 0, 0)",
+      "count": 1
+    },
+    {
+      "key": "src/village_career_ui.js|foreign-host|014fcc038441c310",
+      "path": "src/village_career_ui.js",
+      "rule": "foreign-host",
+      "snippet": "const host=document.getElementById('location_actions_div');if(host && !workspaceOwns(panel) && panel.parentElement!==host)host.append(panel);",
+      "count": 1
+    },
+    {
+      "key": "src/village_career_ui.js|foreign-host|a3ade13a7f6cf68d",
+      "path": "src/village_career_ui.js",
+      "rule": "foreign-host",
+      "snippet": "const host=document.getElementById('location_actions_div');if(host && shortcut.parentElement!==host)host.prepend(shortcut);}",
+      "count": 1
+    },
+    {
+      "key": "src/workspace_views.js|foreign-host|a34bd3919418ced8",
+      "path": "src/workspace_views.js",
+      "rule": "foreign-host",
+      "snippet": "document.getElementById('location_related_div')?.prepend(panel);",
+      "count": 1
+    },
+    {
+      "key": "src/workspace_views.js|foreign-host|c0275274b2d7c970",
+      "path": "src/workspace_views.js",
+      "rule": "foreign-host",
+      "snippet": "panel.append(note,choices,table);document.getElementById('character_div')?.append(panel);",
+      "count": 1
+    },
+    {
+      "key": "style.css|declaration|9b5cbb4080c819ff",
+      "path": "style.css",
+      "rule": "declaration",
+      "snippet": "font-family: inkFree",
+      "count": 1
+    },
+    {
+      "key": "style.css|declaration|a48ea9c8643bd2ba",
+      "path": "style.css",
+      "rule": "declaration",
+      "snippet": "font-family: var(--ui-font)",
+      "count": 3
+    },
+    {
+      "key": "style.css|declaration|bc403f80588ec27d",
+      "path": "style.css",
+      "rule": "declaration",
+      "snippet": "border-radius: var(--ui-radius)",
+      "count": 20
+    },
+    {
+      "key": "style.css|declaration|d67235fb63821aef",
+      "path": "style.css",
+      "rule": "declaration",
+      "snippet": "font-family: inherit",
+      "count": 1
+    },
+    {
+      "key": "styles/action_legibility.css|declaration|bc403f80588ec27d",
+      "path": "styles/action_legibility.css",
+      "rule": "declaration",
+      "snippet": "border-radius: var(--ui-radius)",
+      "count": 2
+    },
+    {
+      "key": "styles/component_themes.css|declaration|a48ea9c8643bd2ba",
+      "path": "styles/component_themes.css",
+      "rule": "declaration",
+      "snippet": "font-family: var(--ui-font)",
+      "count": 1
+    },
+    {
+      "key": "styles/component_themes.css|declaration|bc403f80588ec27d",
+      "path": "styles/component_themes.css",
+      "rule": "declaration",
+      "snippet": "border-radius: var(--ui-radius)",
+      "count": 2
+    },
+    {
+      "key": "styles/component_themes.css|declaration|c572c5fbc229734e",
+      "path": "styles/component_themes.css",
+      "rule": "declaration",
+      "snippet": "font-family: var(--custom-font)",
+      "count": 1
+    },
+    {
+      "key": "styles/component_themes.css|declaration|d1cfa40087a1febe",
+      "path": "styles/component_themes.css",
+      "rule": "declaration",
+      "snippet": "font-family: var(--theme-heading-font)",
+      "count": 1
+    },
+    {
+      "key": "styles/crafting_detail.css|declaration|bc403f80588ec27d",
+      "path": "styles/crafting_detail.css",
+      "rule": "declaration",
+      "snippet": "border-radius: var(--ui-radius)",
+      "count": 2
+    },
+    {
+      "key": "styles/customization.css|declaration|bc403f80588ec27d",
+      "path": "styles/customization.css",
+      "rule": "declaration",
+      "snippet": "border-radius: var(--ui-radius)",
+      "count": 1
+    },
+    {
+      "key": "styles/customization.css|declaration|c572c5fbc229734e",
+      "path": "styles/customization.css",
+      "rule": "declaration",
+      "snippet": "font-family: var(--custom-font)",
+      "count": 1
+    },
+    {
+      "key": "styles/settled_text_effects.css|declaration|bc403f80588ec27d",
+      "path": "styles/settled_text_effects.css",
+      "rule": "declaration",
+      "snippet": "border-radius: var(--ui-radius)",
+      "count": 5
+    },
+    {
+      "key": "styles/workspace.css|declaration|bc403f80588ec27d",
+      "path": "styles/workspace.css",
+      "rule": "declaration",
+      "snippet": "border-radius: var(--ui-radius)",
+      "count": 12
+    },
+    {
+      "key": "src/proto23_shell.js|foreign-host|4a4a9d4f54cdc595",
+      "path": "src/proto23_shell.js",
+      "rule": "foreign-host",
+      "snippet": "const empty=node('p','No attributes match these filters.','attribute-empty');empty.hidden=true;layout.append(list,reading);section.append(tools,count,empty,layout);home?.append(section);",
+      "count": 1,
+      "note": "R10 reviewed own child: #character_attribute_inspector attaches once inside existing #character_stats_div; mount owns updates and destroy, native siblings retained; no new panel/controller."
+    }
+  ]
+}

@@ -1,0 +1,151 @@
+--- r8/src/village_workspace.js
++++ r9/src/village_workspace.js
+@@ -3,6 +3,7 @@
+ import {projectVillageScene} from './causal_story_scenes.js';
+ import {openWorkspaceModule} from './workspace_layout.js';
+ import {storyRecap} from './lore_history_view.js';
++const factHelp=label=>({'Attack':'Damage per connected attack, before your damage reduction.','Defense':'Damage reduction.','Speed':'Attack rate, in attacks per second.','Hit you':'This opponent’s chance to connect against you. Shield block is separate.','Evade you':'This opponent’s chance to evade your attack.','You hit them':'Your native chance to connect against this inspected opponent, before damage reduction or block. Inspection does not select an attack target.','Attack rating':'Native attack points, a rating rather than a percentage.','Evasion rating':'Native evasion points, a rating rather than a percentage.'})[label]||'';
+ const node=(tag,text='')=>{const n=document.createElement(tag);n.textContent=text;return n;};
+ 
+ // Input people are already observer-filtered. Selection is ephemeral presentation.
+@@ -31,16 +32,18 @@
+     enemyName.dataset.effectAnchor='opponent-name';enemyHealth.dataset.effectAnchor='opponent-health';enemyFacts.dataset.effectAnchor='opponent-stats';
+     enemyCycle.max=100;enemyCycle.setAttribute('aria-label','Native attack cycle');enemyCycleLabel.append(enemyCycle);
+     const combatDetails=node('details'),combatSummary=node('summary','Combat readout');combatDetails.className='combat-readout';combatDetails.append(combatSummary,enemyFacts,enemyEmpty);enemyView.append(enemyChoices,enemyName,enemyHealth,enemyCycleLabel,combatDetails);const enemyChoiceNodes=new Map();
++    const enemyCards=node('div'),enemyCardNodes=new Map(),rosterToolbar=node('div'),rosterCaption=node('span');enemyCards.className='enemy-cards';rosterToolbar.className='enemy-roster-toolbar';rosterToolbar.append(rosterCaption);enemyView.prepend(rosterToolbar,enemyCards);
++    const knownFacts=enemy=>(enemy.facts||[]).filter(f=>f.value!=null&&String(f.value).trim()&&!/^(?:\?+|unknown|unavailable)(?:\s|$)/i.test(String(f.value).trim()));
+     const factNodes=new Map();let readoutChosen=false;combatSummary.addEventListener('click',()=>{readoutChosen=true;});
+     const rosterMode=node('button','Panels');rosterMode.type='button';rosterMode.className='combat-roster-mode';let enemyPanels=false,enemyPanelsChosen=false;
+     rosterMode.onclick=()=>{enemyPanelsChosen=true;enemyPanels=!enemyPanels;setText(rosterMode,enemyPanels?'Compact':'Panels');setAttr(rosterMode,'aria-pressed',enemyPanels);render();};rosterMode.title='Show an individual health and attack-cycle panel for each opponent. Inspection never selects an attack target.';
+-    enemyCycleLabel.append(rosterMode);
++    rosterToolbar.append(rosterMode);
+ 
+     const setText=(n,text)=>{if(n.textContent!==text)n.textContent=text;};
+     const setAttr=(n,key,value)=>{value=String(value);if(n.getAttribute(key)!==value)n.setAttribute(key,value);};
+     const setTitle=(n,value)=>{if(n.title!==value)n.title=value;};
+     function renderEnemy(target,enemies){
+-        if(!enemyPanelsChosen){const font=parseFloat(getComputedStyle(focus).fontSize)||14;enemyPanels=innerWidth>=1700&&focus.clientWidth/font>=(enemies.length>4?36:26);setText(rosterMode,enemyPanels?'Compact':'Panels');setAttr(rosterMode,'aria-pressed',enemyPanels);}
++        if(!enemyPanelsChosen){const font=parseFloat(getComputedStyle(focus).fontSize)||14;enemyPanels=focus.clientWidth/font>=(enemies.length>3?40:20);setText(rosterMode,enemyPanels?'Compact':'Panels');setAttr(rosterMode,'aria-pressed',enemyPanels);}
+         setTitle(rosterMode,`${enemyPanelsChosen?'Manual':'Automatic'} ${enemyPanels?'individual panels':'compact roster'}. Show ${enemyPanels?'compact roster':'individual health and attack-cycle panels'}. Inspection never changes attack targeting.`);
+         if(enemyView.parentNode!==focus)focus.replaceChildren(enemyView);
+         focus.dataset.nativeActor=target.id||'';setText(enemyName,target.name);setText(enemyHealth,target.hp);
+@@ -51,14 +54,36 @@
+             let b=enemyChoiceNodes.get(enemy.id);if(!b){b=node('button');b.type='button';b.dataset.inspectEnemy=enemy.id;b.append(node('span'),node('small'),node('progress'));b.lastChild.max=100;b.onclick=()=>{selectedEnemy=enemy.id;render();};enemyChoiceNodes.set(enemy.id,b);enemyChoices.append(b);}
+             setText(b.firstChild,`${index+1} · ${enemy.name}`);setText(b.children[1],enemy.hp);b.lastChild.value=enemy.attackProgress||0;b.lastChild.setAttribute('aria-label',`Opponent ${index+1}: ${enemy.name} attack cycle`);b.style.setProperty('--roster-health',`${enemy.healthProgress??0}%`);setTitle(b,`Inspect opponent ${index+1}: ${enemy.name}. ${enemy.hp}`);setAttr(b,'aria-label',b.title);setAttr(b,'aria-pressed',enemy.id===target.id);
+         }
+-        enemyChoices.hidden=enemies.length<2;rosterMode.hidden=enemies.length<2;enemyChoices.dataset.presentation=enemyPanels?'panels':'compact';document.getElementById('main_content').dataset.enemyPanels=String(enemyPanels);
++        const fontSize=parseFloat(getComputedStyle(focus).fontSize)||14,widthEm=focus.clientWidth/fontSize,cardColumns=widthEm>=60?3:widthEm>=30?2:1;
++        const fitHeight=Math.max(304,Math.ceil(fontSize*Math.max(20,Math.ceil(enemies.length/cardColumns)*5+3))),root=document.getElementById('main_content');if(root.style.getPropertyValue('--enemy-cards-height')!==fitHeight+'px')root.style.setProperty('--enemy-cards-height',fitHeight+'px');
++        setAttr(enemyCards,'data-columns',cardColumns);setAttr(enemyCards,'data-count',enemies.length);
++        for(const[id,card]of enemyCardNodes)if(!enemies.some(e=>e.id===id)){card.remove();enemyCardNodes.delete(id);}
++        for(const[index,enemy]of enemies.entries()){
++            let card=enemyCardNodes.get(enemy.id);
++            if(!card){card=node('article');card.className='enemy-card';card.dataset.enemyCard=enemy.id;
++                const name=node('button'),hp=node('p'),cycle=node('progress'),facts=node('dl'),empty=node('small');
++                name.type='button';name.dataset.inspectEnemy=enemy.id;name.onclick=()=>{selectedEnemy=enemy.id;render();};name.className='enemy-card-name';hp.className='enemy-card-health';hp.append(node('span'));cycle.max=100;cycle.className='enemy-card-cycle';empty.textContent='No combat details observed.';
++                const identity=node('div');identity.className='enemy-card-identity';identity.append(name,hp,cycle);card.append(identity,facts,empty);card.factNodes=new Map();enemyCardNodes.set(enemy.id,card);enemyCards.append(card);}
++            const[name,hp,cycle]=card.firstChild.children,facts=card.children[1],empty=card.children[2];
++            setText(name,`${index+1} · ${enemy.name}`);setAttr(name,'aria-pressed',enemy.id===target.id);setAttr(name,'aria-label',`Inspect opponent ${index+1}: ${enemy.name}`);setTitle(name,'Inspect this opponent. Inspection does not change attack targeting.');
++            setText(hp.firstChild,enemy.hp);setAttr(hp,'data-health-known',enemy.healthProgress!=null);card.style.setProperty('--roster-health',`${enemy.healthProgress??0}%`);
++            cycle.value=enemy.attackProgress||0;setAttr(cycle,'aria-label',`${enemy.name} attack cycle`);setTitle(cycle,'Attack cycle · native progress');
++            const rows=knownFacts(enemy);empty.hidden=!!rows.length;
++            for(const[key,row]of card.factNodes)if(!rows.some(f=>f.label===key)){row.remove();card.factNodes.delete(key);}
++            for(const fact of rows){let row=card.factNodes.get(fact.label);if(!row){row=node('div');row.append(node('dt'),node('dd'));row.tabIndex=0;card.factNodes.set(fact.label,row);facts.append(row);}setText(row.firstChild,({'You hit them':'Your hit','Evade you':'Evade','Attack':'Atk','Speed':'Spd'})[fact.label]||fact.label);setText(row.lastChild,fact.value);setTitle(row,`${fact.label}: ${fact.value}. ${factHelp(fact.label)}`);setAttr(row,'aria-label',`${fact.label}: ${fact.value}`);}
++            const cardEm=widthEm/(cardColumns===2&&index===enemies.length-1&&enemies.length%2?1:cardColumns);setAttr(card,'data-presentation',cardEm>=20?'row':'stack');setAttr(facts,'data-columns',2);setAttr(card,'data-inspected',enemy.id===target.id);
++        }
++        enemyCards.hidden=!enemyPanels;enemyChoices.hidden=enemies.length<2||enemyPanels;rosterMode.hidden=false;
++        setText(rosterCaption,`${enemies.length} opponent${enemies.length===1?'':'s'} · inspect`);
++        enemyName.hidden=enemyPanels;enemyHealth.hidden=enemyPanels;enemyCycleLabel.hidden=enemyPanels;combatDetails.hidden=enemyPanels;
++        enemyChoices.dataset.presentation='compact';document.getElementById('main_content').dataset.enemyPanels=String(enemyPanels);document.getElementById('main_content').dataset.enemyCards=String(enemyPanels);
+         setText(combatSummary,`Combat readout · ${enemies.length} opponent${enemies.length===1?'':'s'}`);
+         const facts=(target.facts||[]).filter(fact=>fact.value!=null&&String(fact.value).trim()&&!/^(?:\?+|unknown|unavailable)(?:\s|$)/i.test(String(fact.value).trim()));enemyEmpty.hidden=!!facts.length;
+         for(const [key,pair]of factNodes)if(!facts.some(f=>f.label===key)){pair.remove();factNodes.delete(key);}
+         for(const fact of facts){let pair=factNodes.get(fact.label);if(!pair){pair=node('div');pair.append(node('dt',fact.label),node('dd'),node('small'));factNodes.set(fact.label,pair);enemyFacts.append(pair);}setText(pair.children[1],fact.value);
+             const ownId=({'Attack':'attack_power_slot','Defense':'defense_slot','Speed':'attack_speed_slot'})[fact.label];
+             const own=ownId?document.querySelector(`#character_stats_div #${ownId}`)?.textContent.trim():null;
+-            setText(pair.lastChild,own?`You: ${own}${fact.label==='Speed'?' /s':''}`:'');pair.tabIndex=0;pair.title=({'Attack':'Damage per connected attack, before your damage reduction.','Defense':'Damage reduction.','Speed':'Attack rate, in attacks per second.','Hit you':'This opponent’s chance to connect against you. Shield block is separate.','Evade you':'This opponent’s chance to evade your attack.','You hit them':'Your native chance to connect against this inspected opponent, before damage reduction or block. Inspection does not select an attack target.','Attack rating':'Native attack points, a rating rather than a percentage.','Evasion rating':'Native evasion points, a rating rather than a percentage.'})[fact.label]||'';}
++            setText(pair.lastChild,own?`You: ${own}${fact.label==='Speed'?' /s':''}`:'');pair.tabIndex=0;pair.title=factHelp(fact.label);}
+         enemyCycle.value=target.attackProgress||0;
+         // Fit public facts to the actual pane and selected type size. A deliberate
+         // disclosure choice lasts for this session, including live resizes.
+@@ -114,9 +139,11 @@
+         const heading=focus.closest('.workspace-module')?.querySelector('.workspace-module-header > strong');
+         const shell=document.getElementById('main_content').dataset.presentation==='proto23-shell';
+         if(shell&&!target){focus.dataset.focusEmpty='false';focus.closest('.workspace-module')?.setAttribute('data-focus-empty','false');}
+-        if(heading){setText(heading,shell?(target?.name||'Around you'): 'Focus');setTitle(heading,target?.name||'Inspect a known person, place or opponent');if(shell&&target?.kind==='enemy'){heading.dataset.effectAnchor='opponent-name';heading.tabIndex=0;enemyName.removeAttribute('data-effect-anchor');}else{heading.removeAttribute('data-effect-anchor');heading.removeAttribute('tabindex');enemyName.dataset.effectAnchor='opponent-name';}}
++        const nativeEncounter=target?.kind==='enemy'&&shell;if(nativeEncounter)renderEnemy(target,enemies);const groupHeading=nativeEncounter&&enemyPanels;
++        if(heading){setText(heading,groupHeading?`Opponents · ${enemies.length}`:shell?(target?.name||'Around you'): 'Focus');setTitle(heading,groupHeading?`${enemies.length} opponents. Select a name to inspect; inspection does not change attack targeting.`:target?.name||'Inspect a known person, place or opponent');if(nativeEncounter&&!groupHeading){heading.dataset.effectAnchor='opponent-name';heading.tabIndex=0;enemyName.removeAttribute('data-effect-anchor');}else{heading.removeAttribute('data-effect-anchor');heading.removeAttribute('tabindex');enemyName.dataset.effectAnchor='opponent-name';}}
+         focus.dataset.subjectHeading=String(shell&&!!target);
+-        if(target?.kind==='enemy'&&shell){renderEnemy(target,enemies);focusSignature=next;return;}
++        if(nativeEncounter){focusSignature=next;return;}
++        if(document.getElementById('main_content').dataset.enemyCards==='true')document.getElementById('main_content').dataset.enemyCards='false';
+         if(next!==focusSignature||enemyView.parentNode===focus){focusSignature=next;focus.replaceChildren();
+             if(!target&&shell){const overview=node('div');overview.className='shell-place-overview';overview.append(node('strong',frame.place));const description=document.getElementById('location_description_div')?.textContent.trim();if(description)overview.append(node('p',description));
+                 const nearby=node('div');nearby.className='shell-nearby';for(const person of frame.people){const b=node('button');b.type='button';b.append(node('strong',person.name),node('small',person.role||'Known person'));b.onclick=()=>choose(person.id);b.title=`Inspect ${person.name}. Does not start a conversation.`;b.dataset.inspectNearby=person.id;nearby.append(b);}if(frame.people.length)overview.append(nearby);else overview.append(node('small','Select an item or known subject to inspect.'));focus.append(overview);}
+--- r8/src/proto23_shell.js
++++ r9/src/proto23_shell.js
+@@ -90,7 +90,7 @@
+         contextPreview.style.top=Math.max(8,box.bottom+h+8<innerHeight?box.bottom+6:box.top-h-6)+'px';
+         source.setAttribute('aria-describedby',contextPreview.id);
+     }
+-    const contextSelector='[data-native-stat],[data-effect-anchor=opponent-name],.shell-effects-summary,.combat-focus-view dl > div,.combat-focus-choices button,.log-subject,.shell-stat-record,#character_health_div,#character_stamina_div,#character_xp_div';
++    const contextSelector='[data-native-stat],[data-effect-anchor=opponent-name],.shell-effects-summary,.combat-focus-view dl > div,.enemy-card dl > div,.combat-focus-choices button,.log-subject,.shell-stat-record,#character_health_div,#character_stamina_div,#character_xp_div';
+     const contextEnter=event=>{const source=event.target.closest(contextSelector);if(source&&!source.contains(event.relatedTarget))showContext(source);};
+     const contextLeave=event=>{const source=event.target.closest(contextSelector);if(source&&!source.contains(event.relatedTarget)){clearTimeout(contextTimer);contextTimer=setTimeout(hideContext,180);}};
+     for(const type of ['mouseover','focusin'])document.addEventListener(type,contextEnter);
+--- r8/src/workspace_layout.js
++++ r9/src/workspace_layout.js
+@@ -393,7 +393,7 @@
+     const menu = el('details', 'workspace-layout-menu'), menuSummary = el('summary', '', 'Layout'), tools = el('div', 'workspace-layout-tools');
+     menu.append(menuSummary, tools); toolbar.append(button('Authoring', 'context'), menu);
+     const presentation=el('select');presentation.dataset.workspaceAction='presentation';presentation.setAttribute('aria-label','Presentation');
+-    for(const [value,label]of [['existing','Existing layout'],['proto23-shell','Proto23 Shell'],['proto23-parity','Proto23 UI R8']]){const option=el('option','',label);option.value=value;presentation.append(option);}
++    for(const [value,label]of [['existing','Existing layout'],['proto23-shell','Proto23 Shell'],['proto23-parity','Proto23 UI R9']]){const option=el('option','',label);option.value=value;presentation.append(option);}
+     toolbar.append(presentation,button('Comfortable','toggle-density'));tools.append(button('Edit layout', 'edit-layout'));
+     const presetLabel = el('label', '', 'Layout '), presets = el('select'); presets.dataset.workspaceAction = 'preset'; ['Workspace', 'Classic', 'Focus', 'Compare'].forEach(v => { const o = el('option', '', v); o.value = v; presets.append(o); }); presetLabel.append(presets); tools.append(presetLabel, button('Reset layout', 'reset'));
+     const densityLabel = el('label', '', 'Density '), density = el('select'); density.dataset.workspaceAction='density'; ['compact','comfortable','inspection'].forEach(v=>{const o=el('option','',v);o.value=v;density.append(o);}); densityLabel.append(density);tools.append(densityLabel);
+--- r8/styles/ui_tokens.css
++++ r9/styles/ui_tokens.css
+@@ -1269,3 +1269,42 @@
+ #main_content.workspace-active[data-parity="r3"] .combat-focus-view > label > progress {width:auto;flex:1;min-width:2em;}
+ #main_content.workspace-active[data-parity="r3"] .combat-focus-view > label > .combat-roster-mode {flex:0 0 auto;align-self:center;min-height:0;padding:0 .25em;line-height:1.2;}
+ #main_content.workspace-active[data-parity="r3"] .shell-log-tools > button:first-child {white-space:nowrap;}
++
++/* R9: extend each actual opponent, without blank reserved enemy slots. */
++#main_content.workspace-active[data-parity="r3"] .enemy-roster-toolbar {display:flex;align-items:center;justify-content:space-between;gap:.4em;padding:0 0 .2em;}
++#main_content.workspace-active[data-parity="r3"] .enemy-roster-toolbar > span {font-size:.85em;color:var(--p23-muted);}
++#main_content.workspace-active[data-parity="r3"] .enemy-cards {display:grid;grid-template-columns:minmax(0,1fr);gap:.4em;min-height:0;}
++#main_content.workspace-active[data-parity="r3"] .enemy-cards[data-columns="2"] {grid-template-columns:repeat(2,minmax(0,1fr));}
++#main_content.workspace-active[data-parity="r3"] .enemy-cards[data-columns="3"] {grid-template-columns:repeat(3,minmax(0,1fr));}
++#main_content.workspace-active[data-parity="r3"] .enemy-card {min-width:0;border:1px solid var(--p23-quiet-line);background:var(--p23-detail-fill);padding:.2em;}
++#main_content.workspace-active[data-parity="r3"] .enemy-card[data-inspected="true"] {border-color:var(--p23-value);}
++#main_content.workspace-active[data-parity="r3"] .enemy-card-name {display:block;width:100%;font:inherit;font-weight:600;text-align:left;line-height:1.15;min-height:0;padding:0;border:0;background:transparent;white-space:normal;overflow-wrap:anywhere;color:var(--p23-text);}
++#main_content.workspace-active[data-parity="r3"] .enemy-card-health {margin:.1em 0;padding:0 .2em;text-align:center;line-height:1.15;font-variant-numeric:tabular-nums;background-color:var(--p23-track);background-image:var(--p23-health-fill);background-size:var(--roster-health) 100%;background-repeat:no-repeat;color:var(--p23-text);}
++#main_content.workspace-active[data-parity="r3"] .enemy-card-health[data-health-known="false"] {background:var(--p23-track);}
++#main_content.workspace-active[data-parity="r3"] .enemy-card-cycle {display:block;width:100%;height:.25em;margin:.2em 0;accent-color:var(--p23-value);}
++#main_content.workspace-active[data-parity="r3"] .enemy-card dl {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 .4em;margin:0;}
++#main_content.workspace-active[data-parity="r3"] .enemy-card dl[data-columns="3"] {grid-template-columns:repeat(3,minmax(0,1fr));}
++#main_content.workspace-active[data-parity="r3"] .enemy-card dl > div {display:flex;justify-content:space-between;align-items:baseline;gap:.2em;min-width:0;padding:.1em 0;border-bottom:1px solid var(--p23-quiet-line);line-height:1.15;}
++#main_content.workspace-active[data-parity="r3"] .enemy-card dt {min-width:0;font:inherit;overflow-wrap:anywhere;}
++#main_content.workspace-active[data-parity="r3"] .enemy-card dd {margin:0;font:inherit;font-weight:600;color:var(--p23-value);}
++#main_content.workspace-active[data-parity="r3"] .enemy-card > small {display:block;color:var(--p23-muted);}
++#main_content.workspace-active[data-parity="r3"] .enemy-card > small[hidden],
++#main_content.workspace-active[data-parity="r3"] .combat-focus-view > [hidden] {display:none!important;}
++#main_content.workspace-active[data-parity="r3"][data-shell-custom-palette="true"] .enemy-card {background:var(--shell-user-fill);color:var(--shell-user-text);border-color:var(--shell-user-accent);}
++#main_content.workspace-active[data-parity="r3"][data-shell-custom-palette="true"] .enemy-card :is(.enemy-card-name,dt,dd,small) {color:var(--shell-user-text);}
++@media(min-width:1001px) and (max-width:1699px){
++#main_content.workspace-active[data-parity="r3"][data-enemy-cards="true"][data-workspace-mode]:not([data-parity-item="true"]):not([data-shell-stats-open="true"]):has(.enemy-cards) .workspace-board {grid-template-rows:minmax(0,min(70%,var(--enemy-cards-height,304px),calc(100% - var(--shell-context-size,var(--ui-type-body))*11))) minmax(0,1fr);}
++}
++
++#main_content.workspace-active[data-parity="r3"] .enemy-card-health > span {background:var(--p23-context);padding:0 .2em;}
++
++#main_content.workspace-active[data-parity="r3"] .enemy-card[data-presentation="row"] {display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,2fr);align-items:center;gap:0 .45em;}
++#main_content.workspace-active[data-parity="r3"] .enemy-card[data-presentation="row"] > small {grid-column:2;}
++#main_content.workspace-active[data-parity="r3"] .enemy-cards[data-columns="2"] > .enemy-card:nth-child(odd):last-child {grid-column:span 2;}
++
++#main_content.workspace-active[data-parity="r3"] .enemy-card dt {white-space:nowrap;overflow-wrap:normal;}
++@media(min-width:1001px) and (max-width:1699px){
++#main_content.workspace-active[data-parity="r3"][data-enemy-cards="true"][data-shell-stats-open="true"][data-workspace-mode] .workspace-board {grid-template-rows:minmax(0,min(70%,max(304px,calc(var(--shell-context-size,var(--ui-type-body))*23)))) minmax(0,1fr);}
++}
++#main_content.workspace-active[data-parity="r3"] .enemy-card-name[aria-pressed="true"] {text-decoration:underline;text-underline-offset:.15em;}
++#main_content.workspace-active[data-parity="r3"][data-shell-custom-palette="true"] .enemy-card-health > span {background:var(--shell-user-fill);color:var(--shell-user-text);}

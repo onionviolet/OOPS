@@ -1,3 +1,4 @@
+import {projectsHome} from '../projects_drawer.js';
 import {FORT,ORDERS,itemSourceJournal,migrateFortSupply} from './fort.js';
 import NPCRegistry from '../data/npcs.js';
 
@@ -7,14 +8,14 @@ const sourceLabel=edge=>npcName(edge.label)||npcName(edge.sourceId)||edge.label;
 
 // A projection inside native center actions; transactions belong to the caller.
 export function createFortControls({read,act,document=globalThis.document}) {
-    const panel=document.createElement('div');panel.id='fort_supply_panel';panel.className='village_career_panel';
+    const panel=document.createElement('div');panel.id='fort_supply_panel';panel.className='village_career_panel ui-info-block';
     const title=document.createElement('strong'),text=document.createElement('div'),buttons=document.createElement('div'),journal=document.createElement('div');
     title.textContent='Waypost supply clerk';panel.append(title,text,buttons,journal);
     let previous='';
     function render(){
         const view=read();
         if(view.worldId!=='base.frontier'||!['Village',FORT.post].includes(view.location)){panel.remove();return;}
-        const host=document.getElementById('location_actions_div');if(!host)return;
+        const host=projectsHome();if(!host)return;
         // Follows native choices in DOM too, so tab order matches what players see.
         if(panel.parentElement!==host)host.append(panel);
         const fingerprint=JSON.stringify(view);if(previous===fingerprint)return;previous=fingerprint;
@@ -23,6 +24,7 @@ export function createFortControls({read,act,document=globalThis.document}) {
             (f.repaired?'Cellar hatch repaired.':f.notesIssued?'Read the repair notes; clear the yard, then bring three ore and one iron ingot to the Fort.':'After one Infested field clear the clerk offers free repair notes, or buy a copy for 10 coins.');
         const controls=[];
         const button=(id,label,disabled=false)=>{const b=document.createElement('button');b.type='button';b.dataset.fortAction=id;b.textContent=label;b.disabled=!!view.disabled||disabled;
+            b.title=!b.disabled?'':view.disabled?'Finish current work in the writable Village tab.':id==='notes'?'Clear the Infested field once for free repair notes.':id==='buy_notes'?'Requires 10 coins.':id==='repair'?'Read the repair notes, clear the yard, and bring 3 ore plus 1 iron ingot.':`Bring the listed supplies; the clerk must also have enough coins.`;
             b.onclick=()=>{try{act(id);previous='';render();}catch(error){text.textContent=error.message;}};controls.push(b);};
         if(!f.notesIssued){button('notes','Ask for repair notes (one field clear)',!(view.fieldClears>=1));button('buy_notes','Buy repair notes (10 coins)',view.money<10);}
         else for(const [id,o] of Object.entries(ORDERS))button(`deliver:${id}`,`${o.name}: ${o.count} ${o.item} → ${o.pay} coins`,f.funds<o.pay||(view.stock?.[o.item]||0)<o.count);

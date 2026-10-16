@@ -1,3 +1,4 @@
+import {definePanel} from './panel_kit.js';
 import {eventFeed} from "./event_feed.js";
 
 const node = (tag, text = "") => {const n = document.createElement(tag); n.textContent = text; return n;};
@@ -14,8 +15,6 @@ export function createEventFeed({registry, read, open}) {
     const rows = new Map(); let historySignature,lifeSignature,heardSignature;
     function render() {
         const snapshot = read(), {state,context} = snapshot, feed = eventFeed(state,registry,context.facts,snapshot.lifeRecord);
-        const host = document.getElementById("message_box_div");
-        if(panel.parentElement !== host) host.prepend(panel);
         panel.hidden = !feed.leads.length && !feed.news.length && !feed.life.length && !feed.heard.length;
         const count = feed.leads.filter(e => e.available).length;
         summary.textContent = `World events${count ? ` · ${count} available` : ""}`;
@@ -46,5 +45,6 @@ export function createEventFeed({registry, read, open}) {
         if(hs!==heardSignature){heardSignature=hs;heardHistory.replaceChildren(...feed.heard.map(m=>node('li',m.text)));}
         lifePanel.hidden=!feed.life.length;heardPanel.hidden=!feed.heard.length;
     }
+    definePanel({id:'world-events',title:'World events',role:'records',node:panel,home:document.getElementById('main_content'),defaultDock:'center',after:'records',discovered:()=>!panel.hidden,eligible:()=>!panel.hidden});
     render(); return {render};
 }

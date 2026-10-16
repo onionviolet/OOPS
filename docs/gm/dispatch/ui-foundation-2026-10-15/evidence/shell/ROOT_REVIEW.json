@@ -1,0 +1,53 @@
+{
+  "reviewedAt": "2026-10-15T06:28:45.265776+00:00",
+  "workerThread": "01a13dba-1433-7232-bd63-674e459f141a",
+  "workerStatus": "completed, source ownership explicitly released",
+  "rootChecks": [
+    "Reviewed browser assertions and final logs: 24 flow groups plus 8 supplementary groups pass",
+    "Reviewed literal-file import assertions comparing character, inventories and books exactly on synthetic fixtures",
+    "Re-ran source/served parity: 561 project sources, 13 served assets, no mismatches or unreviewed contract entries; frozen C1 intact",
+    "Opened comparison in visible in-app browser and selected inventory, person/focus and stats; each corresponding image loaded at 1366x768",
+    "Reviewed shell adapter: native stat reader and original native item controls; rendering timer only, no replacement gameplay state owner"
+  ],
+  "testState": {
+    "pass": 1768,
+    "inheritedFailures": 2,
+    "todo": 3
+  },
+  "humanVisualAcceptance": "OPEN",
+  "remainingLimits": [
+    "Compact inventory scrolls substantially at 1366x768",
+    "Representative item/custody routes checked, not every world-specific combination",
+    "Mobile and broader feature census deferred"
+  ],
+  "artifacts": [
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/SHELL_VARIANT_REPORT.md",
+      "sha256": "d4627bf7ddf702cd98efc3d5fa0f83d554dc0ed1eb6023225b90a2e630a85bdb"
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/evidence/shell/results.json",
+      "sha256": "87c7dfb6d30dcb7a60ebb0fd6761c385d50ddefd0231213f6d9e93dba6fbbcad"
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/evidence/shell/extra-results.json",
+      "sha256": "47eba9e8af5fd15afab27a3bab95636ae889b8ee190f9270b226ae905f0fad94"
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/evidence/shell/final-visual-results.json",
+      "sha256": "dc9cc4ca63bd7a7688ab0668c61cafb845e9f299eeac0f6aba100e23099f9424"
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/evidence/shell/parity.json",
+      "sha256": "acd62c285bcc4a3cc7a5a951a4bfa460007732aaffb72656b97adcc5f76bb752"
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/evidence/shell/comparison.html",
+      "sha256": "85d722cc1b306861172346bd54ac1e1c300fcf03014cc21349696be1ca604398"
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/evidence/shell/comparison.png",
+      "sha256": "cac2f2fa81f76debb3526eb3ff75197383a70192bad249b90f37232a0f907f7f"
+    }
+  ]
+}

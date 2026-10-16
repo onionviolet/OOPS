@@ -1,0 +1,184 @@
+--- r10/src/proto23_shell.js
++++ r11/src/proto23_shell.js
+@@ -27,6 +27,25 @@
+ const shortStatLabels={strength_slot:'STR',agility_slot:'AGL',dexterity_slot:'DEX',intuition_slot:'INT',magic_slot:'Magic',attack_power_slot:'Attack',attack_speed_slot:'Speed',crit_rate_slot:'Crit %',crit_multiplier_slot:'Crit ×',hit_chance_slot:'AP',defense_slot:'Defense',defensive_action_chance_slot:'EP'};
+ const active=()=>document.getElementById('main_content')?.dataset.presentation==='proto23-shell';
+ const action=(label,run)=>{const b=node('button',label);b.type='button';b.onclick=run;return b;};
++function attributeExplanation(row){
++    const fragment=document.createDocumentFragment(),numeric=value=>value==null?'Unavailable':typeof value==='number'?String(Number(value.toFixed(value!==0&&Math.abs(value)<.01?6:3))):String(value);
++        const heading=node('h3',row.label),description=node('p',row.description||'Native player attribute.','attribute-description'),facts=node('dl',null,'attribute-facts');
++        const fact=(label,value)=>{const pair=node('div');pair.append(node('dt',label),node('dd',value));facts.append(pair);};
++        fact('Current',row.formatted??numeric(row.value));
++        if(row.unit)fact('Unit',row.unit);
++        if(row.base!=null||row.baseFormatted!=null)fact('Base',row.baseFormatted??numeric(row.base));
++        if(row.preMultiplier!=null)fact('Before multipliers',numeric(row.preMultiplier));
++        if(row.totalMultiplier!=null)fact('Total multiplier','×'+numeric(row.totalMultiplier));
++        fragment.append(heading,description,facts);
++        if(row.availability?.note)fragment.append(node('p',row.availability.note,'attribute-note'));
++        const contributors=(row.sources||[]).filter(source=>source.flat!=null&&source.flat!==0||source.multiplier!=null&&source.multiplier!==1);
++        if(contributors.length){
++            fragment.append(node('h4','Native modifier sources'));
++            const table=node('table',null,'attribute-sources'),head=node('thead'),header=node('tr');for(const label of ['Source category','Flat','Multiplier'])header.append(node('th',label));head.append(header);table.append(head);
++            const body=node('tbody');for(const source of contributors){const tr=node('tr');tr.append(node('th',source.label),node('td',source.flat!=null&&source.flat!==0?(source.flat>0?'+':'')+numeric(source.flat):'None'),node('td',source.multiplier!=null&&source.multiplier!==1?'×'+numeric(source.multiplier):'None'));body.append(tr);}table.append(body);fragment.append(table,node('p','Native categories may combine several contributors. Individual item or effect attribution is shown only when supplied.','attribute-note'));
++        }else fragment.append(node('p','No non-neutral modifiers reported.','attribute-note'));
++    return fragment;
++}
+ // Own section within the existing character Stats home. This is a reader,
+ // never an attribute engine: formats, bases and contributor categories are native.
+ function mountAttributeInspector(){
+@@ -45,21 +64,7 @@
+         const signature=JSON.stringify(row||null);if(signature===detailSignature)return;detailSignature=signature;
+         const top=reading.scrollTop;reading.replaceChildren();reading.dataset.attributeId=row?.id||'';
+         if(!row){reading.append(node('p','Choose an attribute to inspect.','attribute-empty'));return;}
+-        const heading=node('h3',row.label),description=node('p',row.description||'Native player attribute.','attribute-description'),facts=node('dl',null,'attribute-facts');
+-        const fact=(label,value)=>{const pair=node('div');pair.append(node('dt',label),node('dd',value));facts.append(pair);};
+-        fact('Current',row.formatted??numeric(row.value));
+-        if(row.unit)fact('Unit',row.unit);
+-        if(row.base!=null||row.baseFormatted!=null)fact('Base',row.baseFormatted??numeric(row.base));
+-        if(row.preMultiplier!=null)fact('Before multipliers',numeric(row.preMultiplier));
+-        if(row.totalMultiplier!=null)fact('Total multiplier','×'+numeric(row.totalMultiplier));
+-        reading.append(heading,description,facts);
+-        if(row.availability?.note)reading.append(node('p',row.availability.note,'attribute-note'));
+-        const contributors=(row.sources||[]).filter(source=>source.flat!=null&&source.flat!==0||source.multiplier!=null&&source.multiplier!==1);
+-        if(contributors.length){
+-            reading.append(node('h4','Native modifier sources'));
+-            const table=node('table',null,'attribute-sources'),head=node('thead'),header=node('tr');for(const label of ['Source category','Flat','Multiplier'])header.append(node('th',label));head.append(header);table.append(head);
+-            const body=node('tbody');for(const source of contributors){const tr=node('tr');tr.append(node('th',source.label),node('td',source.flat!=null&&source.flat!==0?(source.flat>0?'+':'')+numeric(source.flat):'None'),node('td',source.multiplier!=null&&source.multiplier!==1?'×'+numeric(source.multiplier):'None'));body.append(tr);}table.append(body);reading.append(table,node('p','Native categories may combine several contributors. Individual item or effect attribution is shown only when supplied.','attribute-note'));
+-        }else reading.append(node('p','No non-neutral modifiers reported.','attribute-note'));
++        reading.append(attributeExplanation(row));
+         reading.scrollTop=top;
+     }
+     function paint(){
+@@ -88,19 +93,22 @@
+         }
+         if(!ids.has(selectedId))selectedId=rows[0]?.id||null;paint();
+     }
+-    return {refresh,setVisible(value){if(shown===value)return;shown=value;section.hidden=!value;if(value)refresh();},destroy(){section.remove();}};
++    return {refresh,getRows:()=>rows,setVisible(value){if(shown===value)return;shown=value;section.hidden=!value;if(value)refresh();},destroy(){section.remove();}};
+ }
+ // Presentation only: authoritative values come from the supplied native reader;
+ // item commands delegate to the original row control, with its native guards.
+ export function mountProto23Shell({read}) {
+     const player=node('section',null,'shell-character');player.id='proto23_character';
+     const statline=node('div',null,'shell-statline shell-core-stats'),equipment=node('div',null,'shell-equipment');
++    const secondary=node('section',null,'shell-secondary-stats'),secondaryHeading=node('div',null,'shell-secondary-heading'),secondaryGrid=node('div',null,'shell-secondary-grid');secondary.hidden=true;secondary.setAttribute('aria-label','Secondary attributes');secondary.append(secondaryHeading,secondaryGrid);
++    const secondaryRecords=new Map();let secondaryFitSignature='';
++    const secondaryOrder=[['stamina_efficiency','Sta eff.'],['cold_tolerance','Cold Δ'],['xp_hero','Hero XP'],['xp_all_skill','Skill XP'],['xp_all','Global XP'],['attack_count','Hits/atk'],['block_strength','Shield'],['block_chance','Block %'],['health_regeneration_flat','HP /s'],['stamina_regeneration_flat','Sta /s'],['unarmed_power','Unarmed'],['health_regeneration_percent','HP %/s'],['stamina_regeneration_percent','Sta %/s'],['mana_regeneration_flat','Mana /s'],['mana_regeneration_percent','Mana %/s']];
+     let statsSignature='';const statRecords=new Map();
+     const attributeInspector=mountAttributeInspector();
+     const details=action('Attributes ›',()=>{if(expandWorkspaceModule('preparation')){document.getElementById('character_show_stats')?.click();attributeInspector.refresh();}});
+     details.className='shell-attributes-open';details.title='Inspect all supported native attributes and their modifiers';
+     const gear=node('details',null,'shell-gear-disclosure');gear.open=false;let gearChosen=false;const gearSummary=node('summary','Equipment');gear.append(gearSummary,equipment);gearSummary.addEventListener('click',()=>{gearChosen=true;});
+-    const effectsSummary=action('Effects',()=>showContext(effectsSummary));effectsSummary.className='shell-effects-summary';effectsSummary.hidden=true;effectsSummary.dataset.contextPreview='effects';player.append(statline,details,effectsSummary,gear);
++    const effectsSummary=action('Effects',()=>showContext(effectsSummary));effectsSummary.className='shell-effects-summary';effectsSummary.hidden=true;effectsSummary.dataset.contextPreview='effects';player.append(statline,secondary,details,effectsSummary,gear);
+     const detail=node('section',null,'shell-item-detail');detail.id='proto23_item_detail';
+     const title=node('strong'),meta=node('p'),body=node('div',null,'shell-item-description'),controls=node('div',null,'shell-item-actions');
+     detail.append(title,meta,body,controls);
+@@ -116,9 +124,10 @@
+     function hideContext(){clearTimeout(contextTimer);if(contextPreview.matches(':popover-open'))contextPreview.hidePopover();contextSource?.removeAttribute('aria-describedby');contextSource=null;contextSignature='';}
+     function showContext(source,interactive=false){
+         if(!active()||document.getElementById('main_content').dataset.parity!=='r3')return;
+-        contextPreview.dataset.interactive=String(interactive||source.dataset.contextPreview==='effects');clearTimeout(contextTimer);const nextSignature=source.logDescription||source.dataset.contextPreview==='effects'&&document.getElementById('effects_tooltip')?.innerHTML||source.dataset.effectAnchor==='opponent-name'&&document.getElementById('current_focus').textContent||source.innerHTML+source.title;if(contextSource===source&&contextSignature===nextSignature&&contextPreview.matches(':popover-open'))return;contextSignature=nextSignature;hidePreview();contextSource?.removeAttribute('aria-describedby');contextSource=source;
++        contextPreview.dataset.interactive=String(interactive||source.dataset.contextPreview==='effects');clearTimeout(contextTimer);const attributeRow=source.dataset.attributePreview?attributeInspector.getRows().find(row=>row.id===source.dataset.attributePreview):null;const nextSignature=attributeRow?JSON.stringify(attributeRow):source.logDescription||source.dataset.contextPreview==='effects'&&document.getElementById('effects_tooltip')?.innerHTML||source.dataset.effectAnchor==='opponent-name'&&document.getElementById('current_focus').textContent||source.innerHTML+source.title;if(contextSource===source&&contextSignature===nextSignature&&contextPreview.matches(':popover-open'))return;contextSignature=nextSignature;hidePreview();contextSource?.removeAttribute('aria-describedby');contextSource=source;
+         contextPreview.replaceChildren();
+-        if(source.logDescription){const saved=node('div');saved.innerHTML=source.logDescription;contextPreview.append(descriptionCopy(saved),node('small','Description recorded with this event.'));
++        if(attributeRow){contextPreview.append(attributeExplanation(attributeRow));
++        }else if(source.logDescription){const saved=node('div');saved.innerHTML=source.logDescription;contextPreview.append(descriptionCopy(saved),node('small','Description recorded with this event.'));
+         }else if(source.dataset.contextPreview==='effects'){
+             const native=document.getElementById('effects_tooltip');if(!native)return;
+             contextPreview.append(node('strong','Active effects'));
+@@ -147,7 +156,7 @@
+         contextPreview.style.top=Math.max(8,box.bottom+h+8<innerHeight?box.bottom+6:box.top-h-6)+'px';
+         source.setAttribute('aria-describedby',contextPreview.id);
+     }
+-    const contextSelector='[data-native-stat],[data-effect-anchor=opponent-name],.shell-effects-summary,.combat-focus-view dl > div,.enemy-card dl > div,.combat-focus-choices button,.log-subject,.shell-stat-record,#character_health_div,#character_stamina_div,#character_xp_div';
++    const contextSelector='[data-attribute-preview],[data-native-stat],[data-effect-anchor=opponent-name],.shell-effects-summary,.combat-focus-view dl > div,.enemy-card dl > div,.combat-focus-choices button,.log-subject,.shell-stat-record,#character_health_div,#character_stamina_div,#character_xp_div';
+     const contextEnter=event=>{const source=event.target.closest(contextSelector);if(source&&!source.contains(event.relatedTarget))showContext(source);};
+     const contextLeave=event=>{const source=event.target.closest(contextSelector);if(source&&!source.contains(event.relatedTarget)){clearTimeout(contextTimer);contextTimer=setTimeout(hideContext,180);}};
+     for(const type of ['mouseover','focusin'])document.addEventListener(type,contextEnter);
+@@ -229,6 +238,30 @@
+     };
+     document.addEventListener('click',inspect);document.addEventListener('focusin',inspect);
+     document.addEventListener('keydown',event=>{if(active()&&['Enter',' '].includes(event.key)&&event.target.matches('#inventory_content_div > [data-character_item]')){event.preventDefault();choose(event.target);}});
++    function fitSecondary(){
++        const root=document.getElementById('main_content'),region=player.closest('.parity-region');
++        if(root.dataset.parity!=='r3'||!region){secondary.hidden=true;secondaryFitSignature='';return;}
++        const rows=attributeInspector.getRows(),byId=new Map(rows.map(row=>[row.id,row]));
++        const candidates=secondaryOrder.filter(([id])=>{const row=byId.get(id);return row?.availability?.status==='active'&&row.value!=null&&(!id.startsWith('mana_')||byId.get('max_mana')?.value>0)&&(!id.startsWith('block_')||byId.get('block_strength')?.value!=null);});
++        for(const[id,label]of candidates){const row=byId.get(id);let record=secondaryRecords.get(id);if(!record){const button=node('button',null,'shell-secondary-stat');button.type='button';button.dataset.attributePreview=id;button.append(node('span',label),node('strong'));secondaryGrid.append(button);record={button,value:button.lastChild};secondaryRecords.set(id,record);}
++            const text=row.formatted.replace('°C difference','°C Δ').replace('% max stamina/s','% /s').replace('% max hp/s','% /s').replace('% max mana/s','% /s').replace('stamina/s','/s').replace('mana/s','/s').replace(' damage','');if(record.value.textContent!==text)record.value.textContent=text;
++            const spoken=row.label+': '+row.formatted;if(record.button.getAttribute('aria-label')!==spoken)record.button.setAttribute('aria-label',spoken);
++        }
++        const font=parseFloat(getComputedStyle(player).fontSize)||14,cols=region.clientWidth/font>=52?4:region.clientWidth/font>=32?3:2;
++        const signature=[region.clientWidth,region.clientHeight,font,gear.open,gear.scrollHeight,effectsSummary.offsetHeight,player.dataset.hasEffects,root.dataset.parityExpanded,candidates.map(([id])=>id).join(','),statline.scrollHeight].join('|');
++        if(signature===secondaryFitSignature)return;secondaryFitSignature=signature;
++        const focused=document.activeElement?.closest('.shell-secondary-stat');secondary.hidden=true;
++        const module=player.closest('.workspace-module'),siblings=[...region.children],following=siblings.slice(siblings.indexOf(module)+1).filter(n=>n.checkVisibility()).reduce((sum,n)=>sum+n.getBoundingClientRect().height,0),available=region.getBoundingClientRect().bottom-player.getBoundingClientRect().bottom-following-8;
++        secondaryGrid.dataset.columns=String(cols);for(const record of secondaryRecords.values())record.button.hidden=true;
++        if(available<font*1.5||!candidates.length){root.dataset.secondaryShown='0';if(focused)details.focus({preventScroll:true});if(contextSource?.closest('.shell-secondary-stats'))hideContext();return;}
++        secondary.hidden=false;for(const[id]of candidates)secondaryRecords.get(id).button.hidden=false;
++        secondaryHeading.textContent='Secondary';
++        const headingHeight=secondaryHeading.getBoundingClientRect().height,rowHeight=Math.max(...candidates.map(([id])=>secondaryRecords.get(id).button.getBoundingClientRect().height));
++        const count=Math.min(candidates.length,Math.max(0,Math.floor((available-headingHeight-4)/rowHeight))*cols),shown=new Set(candidates.slice(0,count).map(([id])=>id));
++        if(count&&focused&&candidates.some(([id])=>id===focused.dataset.attributePreview)&&!shown.has(focused.dataset.attributePreview)){shown.delete([...shown].at(-1));shown.add(focused.dataset.attributePreview);}
++        for(const[id,record]of secondaryRecords)record.button.hidden=!shown.has(id);
++        secondary.hidden=!count;root.dataset.secondaryShown=String(count);secondaryHeading.textContent='Secondary · '+count;if(focused){if(shown.has(focused.dataset.attributePreview))focused.focus({preventScroll:true});else details.focus({preventScroll:true});}if(contextSource&&!contextSource.checkVisibility())hideContext();
++    }
+     function render(){
+         syncLogLabels();syncNoticeLabels();attributeInspector.setVisible(active()&&document.getElementById('main_content').dataset.parity==='r3');if(!gearChosen){const wanted=false;if(gear.open!==wanted)gear.open=wanted;}if(!active()){if(contextSource)hideContext();return;}const enabled=document.querySelectorAll('#message_controls .active_selection_button').length;filters.textContent=enabled===6?'Filters':`Filters ${enabled}/6`;follow.value=getDisplaySetting('logFollow');const logBox=document.getElementById('message_box_div');latest.disabled=logBox.scrollHeight-logBox.scrollTop-logBox.clientHeight<24;
+         const effectRows=[...document.querySelectorAll('#effects_tooltip .active_effect_tooltip')],effectName=effectRows[0]?.querySelector('.active_effect_name')?.textContent.replace(/^'|'\s*:\s*$/g,'').trim();effectsSummary.hidden=!effectRows.length||document.getElementById('main_content').dataset.parity!=='r3';effectsSummary.textContent=effectName?(effectName+(effectRows.length>1?' +'+(effectRows.length-1):'')):'Effects';effectsSummary.setAttribute('aria-label',`Active effects: ${effectRows.length}. ${effectName||''}`);player.dataset.hasEffects=String(!!effectRows.length);
+@@ -242,7 +275,7 @@
+             for(const source of nativeStats){
+                 const valueNode=source.querySelector('.stat_value,.stat_value_long'),key=valueNode.id,label=source.querySelector('.stat_name,.stat_name_short')?.textContent.trim().replace(/:$/,'')||'Combat chance';seen.add(key);
+                 let row=statRecords.get(key);if(!row){row=node('button',null,'shell-stat-record');row.type='button';row.dataset.statRecord=key;row.dataset.nativeStat=key;row.append(node('span'),node('strong'));statRecords.set(key,row);statline.append(row);}
+-                row.dataset.fullLabel=label;row.dataset.longValue=String(valueNode.classList.contains('stat_value_long'));row.firstChild.textContent=label.includes('Block')?'Block':shortStatLabels[key]||label;row.children[1].textContent=valueNode.textContent.trim()+(key==='attack_speed_slot'?' /s':'');
++                row.dataset.attributePreview=key==='hit_chance_slot'?'attack_points':key==='defensive_action_chance_slot'?(label.includes('Block')?'block_chance':'evasion_points'):key.replace(/_slot$/,'');row.dataset.fullLabel=label;row.dataset.longValue=String(valueNode.classList.contains('stat_value_long'));row.firstChild.textContent=label.includes('Block')?'Block':shortStatLabels[key]||label;row.children[1].textContent=valueNode.textContent.trim()+(key==='attack_speed_slot'?' /s':'');
+                 const description=label+': '+row.children[1].textContent;if(row.getAttribute('aria-label')!==description)row.setAttribute('aria-label',description);
+                 const tooltip=source.querySelector('.stat_tooltip');if(tooltip&&row.dataset.tooltipSignature!==tooltip.innerHTML){row.dataset.tooltipSignature=tooltip.innerHTML;row.querySelector('.stat_tooltip')?.remove();const copy=tooltip.cloneNode(true);copy.removeAttribute('id');for(const n of copy.querySelectorAll('[id]'))n.removeAttribute('id');row.append(copy);}
+             }
+@@ -272,6 +305,7 @@
+         }
+         const top=document.querySelector('.workspace-module[data-module=vitals]')?.getBoundingClientRect(),end=document.querySelector('.workspace-module[data-module="combat-controls"]')?.getBoundingClientRect();
+         if(root.dataset.parity!=='r3'&&top?.height&&end?.height){const height=Math.min(innerHeight*.42,Math.ceil(end.bottom-top.top));const root=document.getElementById('main_content'),value=height+'px';if(root.style.getPropertyValue('--shell-upper-height')!==value)root.style.setProperty('--shell-upper-height',value);}
++        fitSecondary();
+         if(!selected)return;
+         const row=rowForSelection();
+         const next=JSON.stringify([selected,row?.innerHTML,frame.reason,root.dataset.parity,root.dataset.parityExpanded]);if(next===signature)return;signature=next;
+--- r10/src/workspace_layout.js
++++ r11/src/workspace_layout.js
+@@ -393,7 +393,7 @@
+     const menu = el('details', 'workspace-layout-menu'), menuSummary = el('summary', '', 'Layout'), tools = el('div', 'workspace-layout-tools');
+     menu.append(menuSummary, tools); toolbar.append(button('Authoring', 'context'), menu);
+     const presentation=el('select');presentation.dataset.workspaceAction='presentation';presentation.setAttribute('aria-label','Presentation');
+-    for(const [value,label]of [['existing','Existing layout'],['proto23-shell','Proto23 Shell'],['proto23-parity','Proto23 UI R10']]){const option=el('option','',label);option.value=value;presentation.append(option);}
++    for(const [value,label]of [['existing','Existing layout'],['proto23-shell','Proto23 Shell'],['proto23-parity','Proto23 UI R11']]){const option=el('option','',label);option.value=value;presentation.append(option);}
+     toolbar.append(presentation,button('Comfortable','toggle-density'));tools.append(button('Edit layout', 'edit-layout'));
+     const presetLabel = el('label', '', 'Layout '), presets = el('select'); presets.dataset.workspaceAction = 'preset'; ['Workspace', 'Classic', 'Focus', 'Compare'].forEach(v => { const o = el('option', '', v); o.value = v; presets.append(o); }); presetLabel.append(presets); tools.append(presetLabel, button('Reset layout', 'reset'));
+     const densityLabel = el('label', '', 'Density '), density = el('select'); density.dataset.workspaceAction='density'; ['compact','comfortable','inspection'].forEach(v=>{const o=el('option','',v);o.value=v;density.append(o);}); densityLabel.append(density);tools.append(densityLabel);
+--- r10/styles/ui_tokens.css
++++ r11/styles/ui_tokens.css
+@@ -1362,3 +1362,24 @@
+ @media(min-width:1001px){
+ #main_content.workspace-active[data-parity="r3"]:not([data-parity-combat="true"]):not([data-parity-item="true"]):not([data-shell-stats-open="true"]):has(.shell-core-stats) .workspace-board {grid-template-rows:minmax(0,min(55%,max(240px,calc(var(--shell-context-size,var(--ui-type-body))*17.5)))) minmax(0,1fr);}
+ }
++/* R11: secondary facts occupy measured spare You space, never a smaller font. */
++#main_content.workspace-active[data-parity="r3"] .shell-secondary-stats {flex:0 0 100%;width:100%;min-width:0;margin:.2em 0;border-top:1px solid var(--p23-quiet-line);}
++#main_content.workspace-active[data-parity="r3"] .shell-secondary-stats[hidden] {display:none!important;}
++#main_content.workspace-active[data-parity="r3"] .shell-secondary-heading {font-size:.85em;line-height:1.3;color:var(--p23-muted);padding:.15em 0;}
++#main_content.workspace-active[data-parity="r3"] .shell-secondary-grid {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 .55em;}
++#main_content.workspace-active[data-parity="r3"] .shell-secondary-grid[data-columns="3"] {grid-template-columns:repeat(3,minmax(0,1fr));}
++#main_content.workspace-active[data-parity="r3"] .shell-secondary-grid[data-columns="4"] {grid-template-columns:repeat(4,minmax(0,1fr));}
++#main_content.workspace-active[data-parity="r3"] .shell-secondary-stat {display:flex;justify-content:space-between;align-items:baseline;gap:.2em;min-width:0;min-height:0;margin:0;padding:.1em 0;font:inherit;line-height:1.2;text-align:left;background:transparent;color:var(--p23-muted);border:0;border-bottom:1px solid var(--p23-quiet-line);}
++#main_content.workspace-active[data-parity="r3"] .shell-secondary-stat[hidden] {display:none!important;}
++#main_content.workspace-active[data-parity="r3"] .shell-secondary-stat :is(span,strong) {white-space:nowrap;}
++#main_content.workspace-active[data-parity="r3"] .shell-secondary-stat strong {color:var(--p23-value);font-variant-numeric:tabular-nums;}
++#main_content.workspace-active[data-parity="r3"] .shell-secondary-stat:focus-visible {outline:2px solid var(--p23-value);outline-offset:-2px;}
++#main_content.workspace-active[data-parity="r3"] .shell-context-preview :is(h3,h4,p) {font:inherit;margin:.2em 0 .5em;}
++#main_content.workspace-active[data-parity="r3"] .shell-context-preview :is(h3,h4) {font-weight:600;}
++@media(min-width:1001px){
++#main_content.workspace-active[data-parity="r3"]:not([data-parity-combat="true"]):not([data-parity-item="true"]):not([data-shell-stats-open="true"]):has(.shell-core-stats) .workspace-board {grid-template-rows:minmax(0,min(55%,max(240px,calc(var(--shell-context-size,var(--ui-type-body))*17.5),38vh))) minmax(0,1fr);}
++}
++/* Override the native customization control minimum for these readout buttons. */
++#main_content.workspace-active[data-parity="r3"] #proto23_character .shell-secondary-stat {min-height:0;height:auto;line-height:1.2;border:0!important;border-bottom:1px solid var(--p23-quiet-line)!important;background:transparent!important;color:var(--p23-muted)!important;box-shadow:none;}
++#main_content.workspace-active[data-parity="r3"] #proto23_character[data-custom-palette="true"] .shell-secondary-stat :is(span,strong) {color:var(--custom-text)!important;}
++#main_content.workspace-active[data-parity="r3"] .shell-secondary-heading {display:none;}

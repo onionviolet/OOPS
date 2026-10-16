@@ -1,0 +1,9 @@
+{
+  "freshBuild": true,
+  "actualText21": true,
+  "selectedMultiCombatSixRows": true,
+  "nativeFacts": 6,
+  "inspectionExact": true,
+  "saveReloadExportLiteralImport": true,
+  "characterInventoryBooksExact": true
+}

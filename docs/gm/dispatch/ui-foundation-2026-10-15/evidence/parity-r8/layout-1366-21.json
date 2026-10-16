@@ -1,0 +1,194 @@
+[
+  {
+    "w": 1366,
+    "h": 768,
+    "font": 21,
+    "overviewStats": 12,
+    "allStatsSimultaneously": 12,
+    "automaticReadout": true,
+    "manualCloseSurvivesResize": true,
+    "gameplayExact": true,
+    "geometry": {
+      "page": [
+        1366,
+        768
+      ],
+      "viewport": [
+        1366,
+        768
+      ],
+      "regions": {
+        "player": {
+          "x": 17,
+          "y": 39,
+          "w": 467.1875,
+          "h": 422.828125,
+          "client": 417,
+          "content": 417,
+          "font": "14px"
+        },
+        "focus": {
+          "x": 488.1875,
+          "y": 39,
+          "w": 463.1875,
+          "h": 422.828125,
+          "client": 417,
+          "content": 417,
+          "font": "14px"
+        },
+        "inventory": {
+          "x": 17,
+          "y": 465.828125,
+          "w": 348.953125,
+          "h": 255.171875,
+          "client": 249,
+          "content": 249,
+          "font": "14px"
+        },
+        "actions": {
+          "x": 369.953125,
+          "y": 465.828125,
+          "w": 581.421875,
+          "h": 255.171875,
+          "client": 249,
+          "content": 249,
+          "font": "14px"
+        },
+        "log": {
+          "x": 955.375,
+          "y": 39,
+          "w": 393.609375,
+          "h": 682,
+          "client": 676,
+          "content": 676,
+          "font": "14px"
+        }
+      },
+      "list": {
+        "x": 23,
+        "y": 589.453125,
+        "w": 336.953125,
+        "h": 127.546875,
+        "client": 128,
+        "content": 862,
+        "font": "21px"
+      },
+      "rows": [
+        {
+          "text": "\"ABC for kids\"",
+          "font": "21px",
+          "box": {
+            "x": 23,
+            "y": 589.453125,
+            "w": 336.953125,
+            "h": 32.28125,
+            "client": 31,
+            "content": 31,
+            "font": "21px"
+          }
+        },
+        {
+          "text": "Apple",
+          "font": "21px",
+          "box": {
+            "x": 23,
+            "y": 621.734375,
+            "w": 336.953125,
+            "h": 32.28125,
+            "client": 31,
+            "content": 31,
+            "font": "21px"
+          }
+        },
+        {
+          "text": "Boar hide",
+          "font": "21px",
+          "box": {
+            "x": 23,
+            "y": 654.015625,
+            "w": 336.953125,
+            "h": 32.28125,
+            "client": 31,
+            "content": 31,
+            "font": "21px"
+          }
+        }
+      ],
+      "stats": [
+        {
+          "text": "STR12",
+          "box": {
+            "x": 20,
+            "y": 200.75,
+            "w": 115.296875,
+            "h": 38.765625,
+            "client": 38,
+            "content": 38,
+            "font": "21px"
+          }
+        },
+        {
+          "text": "AGL8",
+          "box": {
+            "x": 135.296875,
+            "y": 200.75,
+            "w": 115.296875,
+            "h": 38.765625,
+            "client": 38,
+            "content": 38,
+            "font": "21px"
+          }
+        },
+        {
+          "text": "DEX10",
+          "box": {
+            "x": 250.59375,
+            "y": 200.75,
+            "w": 115.296875,
+            "h": 38.765625,
+            "client": 38,
+            "content": 38,
+            "font": "21px"
+          }
+        },
+        {
+          "text": "INT10",
+          "box": {
+            "x": 365.890625,
+            "y": 200.75,
+            "w": 115.296875,
+            "h": 38.765625,
+            "client": 38,
+            "content": 38,
+            "font": "21px"
+          }
+        },
+        {
+          "text": "Attack1.2",
+          "box": {
+            "x": 20,
+            "y": 239.515625,
+            "w": 230.59375,
+            "h": 38.765625,
+            "client": 38,
+            "content": 38,
+            "font": "21px"
+          }
+        },
+        {
+          "text": "Defense1",
+          "box": {
+            "x": 250.59375,
+            "y": 239.515625,
+            "w": 230.59375,
+            "h": 38.765625,
+            "client": 38,
+            "content": 38,
+            "font": "21px"
+          }
+        }
+      ]
+    },
+    "errors": []
+  }
+]

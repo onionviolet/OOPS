@@ -1,0 +1,7 @@
+{
+  "reason": "Own expanded-hover repair before final freeze",
+  "changed": [
+    "src/proto23_shell.js",
+    "styles/ui_tokens.css"
+  ]
+}

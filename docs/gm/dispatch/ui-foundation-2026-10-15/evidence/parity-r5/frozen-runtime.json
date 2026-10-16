@@ -1,0 +1,24 @@
+{
+  "root": "/Users/weiwei/.codex/candidates/yair-ui-parity-r5-2026-10-15-01a13ffc",
+  "files": {
+    "dist/bundle.js.map": "ce868d62c5d2810bed6cc6eb49d5be6e445d31481a0e2285d6f4ddf5e10283e7",
+    "dist/bundle.js": "e59c0a29641bae483d2e34a4600fb777d2d073f15f85bb7b5846057c9c27601f",
+    "dist/nethack-fieldcraft-preview.js": "e1aaca74683bcae0ce7024acc4bbb391f5622aa0c6c0e9c73b32f0bbf57e676f",
+    "dist/nethack-fieldcraft-preview.js.map": "0dbc85df0ef666db09d72ff0f424071ee5db077a809b31b07fdcb23cef34c70d",
+    "dist/INKJS_NOTICE.txt": "040e957a77e3e19432e265cb549d5c3b4ca6f3551e24d22b81785ffd1bc2b67b",
+    "dist/INKJS_AUTHORS.txt": "40cb9e4353e8b18a04079a1fd6f824540633aeae19b8a9d3da5e0d8b2983e014",
+    "styles/customization.css": "f289d1013aaeb19716d3feefad2da4d9d273a59cd0f034b49592b6628aff1872",
+    "styles/settled_text_effects.css": "8bf25806f8994584b1218b57c7bc8c2aa659567f2db19925d31089445d1c4d15",
+    "styles/display_settings.css": "38efbda0850d0a025e1953917cfd7f9273e18fe394d83d0d23812d38e038601a",
+    "styles/start_probe.css": "4a42a7ddac3d426827c637569870c526b78a13afe4b32ca268b38d15d5ff2d69",
+    "styles/workspace_discovery.css": "b5eeb0896e80ad222d9c5d4756ca40bc438139c6403c9930d8c7008ca0c2db3b",
+    "styles/component_themes.css": "3c3078d079ffd544d9f143c50b8805352d98f6b2d327f6bbacbd4436c4a4c3a5",
+    "styles/ui_tokens.css": "0bed02823dd8ab47c0c8b006c7773a1f9c61d03a550b8f7325370dc89fe0eb47",
+    "styles/crafting_detail.css": "3dd028cc7721ae96c0ced0c2cd7aed0a5c9a16d2963b7330970f2401c3054487",
+    "styles/action_legibility.css": "0eb2ba0cb8f1053e53fe6d62fdd248a2181759a5a96030adae89b9fab40dea1b",
+    "styles/workspace.css": "080232f17190db10475260d14a4355e7fd9c5f260b3fd5407e91efcfc8a6a092",
+    "styles/status_window.css": "8ca093425d58ae0ca0cd443657e4a5eec728d5521e4995f6ad57d8ca5ad05f3c",
+    "index.html": "1f0073062c684cc525774466ee9668fc95bad0f491fe2b72f5dc0701f0cef88c",
+    "style.css": "29c0cb16f1c2142f3dce23c1af2ab16e4383ac6807ba539379b517f07d9f1a00"
+  }
+}

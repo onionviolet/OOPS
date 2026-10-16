@@ -1,0 +1,14 @@
+{
+  "comparison": "http://127.0.0.1:19165/docs/gm/dispatch/ui-foundation-2026-10-15/evidence/parity-r8/comparison.html",
+  "visibleIABTab": "4",
+  "R7retainedTab": "3",
+  "fitCases": 6,
+  "all12NativeStatsInsidePlayerRegion": true,
+  "automaticKnownTargetFactsInsidePane": true,
+  "shieldLaptop21Fit": true,
+  "focusedTests": 10,
+  "sourceMapProjectSources": 565,
+  "servedAssets": 13,
+  "humanAcceptance": "OPEN",
+  "parallelRuntimeEdits": false
+}

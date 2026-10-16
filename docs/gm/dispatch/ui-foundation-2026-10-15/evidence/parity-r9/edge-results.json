@@ -1,0 +1,41 @@
+{
+  "eight": [
+    {
+      "w": 1366,
+      "font": 21,
+      "actualEnemies": 8,
+      "cards": 8,
+      "knownFacts": 48,
+      "automaticFullCards": false,
+      "expandedRouteAndBack": true,
+      "inspectionExact": true,
+      "errors": []
+    },
+    {
+      "w": 2560,
+      "font": 21,
+      "actualEnemies": 8,
+      "cards": 8,
+      "knownFacts": 48,
+      "automaticFullCards": true,
+      "expandedRouteAndBack": true,
+      "inspectionExact": true,
+      "errors": []
+    },
+    {
+      "w": 3600,
+      "font": 21,
+      "actualEnemies": 8,
+      "cards": 8,
+      "knownFacts": 48,
+      "automaticFullCards": true,
+      "expandedRouteAndBack": true,
+      "inspectionExact": true,
+      "errors": []
+    }
+  ],
+  "unknownPresentation": "DOM-only fixture; not appraisal progression",
+  "unknownOmitted": true,
+  "engineStateExactForInspection": true,
+  "liveNativeHealthRefresh": true
+}

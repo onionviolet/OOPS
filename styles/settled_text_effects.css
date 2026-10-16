@@ -1,61 +1,61 @@
 /* Isolated panel geometry follows its workspace host when moved or resized. */
-.work-ledger-panel { position: relative; overflow: hidden; border: 1px solid var(--border-color, #747b83); border-radius: 5px; margin-block: .6rem; padding: .55rem; text-align: left; min-width: 0; }
+.work-ledger-panel { position: relative; overflow: hidden; border: 1px solid var(--border-color, var(--ui-swatch-113)); border-radius: var(--ui-radius); margin-block: .6rem; padding: .55rem; text-align: left; min-width: 0; }
 .work-ledger-panel > summary { cursor: pointer; font-weight: bold; }
 .work-ledger-body { overflow-wrap: anywhere; }
 .work-ledger-body p { margin-block: .45rem; }
 .work-ledger-body h4 { margin-block: .7rem .35rem; }
 .work-ledger-status { font-weight: bold; }
-.work-ledger-commission { padding: .4rem; margin-block: .4rem; border-left: 2px solid #829397; background: #81959612; }
+.work-ledger-commission { padding: .4rem; margin-block: .4rem; border-left: 2px solid var(--ui-swatch-114); background: var(--ui-swatch-115); }
 .work-ledger-actions { display: flex; flex-wrap: wrap; gap: .35rem; margin-block: .7rem; }
 .work-ledger-actions button { flex: 0 1 auto; white-space: normal; }
 .work-ledger-actions small { flex-basis: 100%; }
 .work-ledger-presentation { display: flex; flex-wrap: wrap; gap: .55rem; padding: .55rem; min-width: 0; }
-.work-ledger-presentation legend { font-size: .9rem; }
+.work-ledger-presentation legend { font-size: var(--ui-type-body); }
 .work-ledger-presentation label { display: inline-flex; align-items: center; gap: .3rem; }
 .work-ledger-presentation select { max-width: 100%; }
 .work-ledger-presentation small { flex-basis: 100%; }
 .work-ledger-history ol { padding-inline-start: 1.5rem; max-height: 14rem; overflow: auto; }
 .work-ledger-history li { margin-block: .3rem; }
 .work-ledger-notice { min-height: 1em; }
-.work-ledger-effect { pointer-events: none; position: absolute; box-sizing: border-box; inset: 2.3rem .5rem auto; display: flex; align-items: center; gap: .6rem; padding: .7rem; background: #162127ed; color: #e7ecea; border: 1px solid #9bb4ae; border-radius: 5px; z-index: 2; font: inherit; overflow-wrap: anywhere; box-shadow: 0 2px 8px #0004; }
+.work-ledger-effect { pointer-events: none; position: absolute; box-sizing: border-box; inset: 2.3rem .5rem auto; display: flex; align-items: center; gap: .6rem; padding: .7rem; background: var(--ui-swatch-116); color: var(--ui-swatch-117); border: 1px solid var(--ui-swatch-118); border-radius: var(--ui-radius); z-index: 2; font: inherit; overflow-wrap: anywhere; box-shadow: var(--ui-shadow); }
 .work-ledger-effect[hidden] { display: none; }
-.work-ledger-effect-glyph { flex: 0 0 auto; font-size: 1.7em; }
-.work-ledger-effect[data-motif='guidance'] { border-color: #c9c49a; }
-.work-ledger-effect[data-motif='closing'] { border-color: #90999f; }
+.work-ledger-effect-glyph { flex: 0 0 auto; font-size: var(--ui-type-title); }
+.work-ledger-effect[data-motif='guidance'] { border-color: var(--ui-swatch-120); }
+.work-ledger-effect[data-motif='closing'] { border-color: var(--ui-swatch-121); }
 .work-ledger-effect[data-presentation='margin'] { inset: 2.3rem .5rem auto auto; width: fit-content; max-width: calc(100% - 1rem); padding: .3rem .7rem; }
 @media (max-width: 480px) { .work-ledger-presentation label { width: 100%; flex-wrap: wrap; } .work-ledger-actions button { flex-basis: 100%; } }
-.work-ledger-effect-glyph { width: 48px; height: 48px; color: #b8d8cf; }
-.work-ledger-effect[data-motif='guidance'] .work-ledger-effect-glyph { color: #e2dca9; }
-.work-ledger-effect[data-motif='closing'] .work-ledger-effect-glyph { color: #aab6c0; }
-.work-ledger-target-pulse { position: absolute; pointer-events: none; box-sizing: border-box; border: 2px solid #c9c49a; border-radius: 4px; z-index: 1; }
+.work-ledger-effect-glyph { width: 48px; height: 48px; color: var(--ui-swatch-122); }
+.work-ledger-effect[data-motif='guidance'] .work-ledger-effect-glyph { color: var(--ui-swatch-123); }
+.work-ledger-effect[data-motif='closing'] .work-ledger-effect-glyph { color: var(--ui-swatch-124); }
+.work-ledger-target-pulse { position: absolute; pointer-events: none; box-sizing: border-box; border: 2px solid var(--ui-swatch-120); border-radius: var(--ui-radius); z-index: 1; }
 
 .settled-effects-host { position: relative; overflow: hidden; }
 
-.work-ledger-panel { background: #1c243bf7; color: #f1f2f5; }
+.work-ledger-panel { background: var(--ui-swatch-125); color: var(--ui-swatch-106); }
 .settled-effects-host > .work-ledger-effect { inset: auto .5rem .5rem auto; max-width: min(340px, calc(100% - 1rem)); }
 /* Validated original effect definitions override motifs without touching receipts. */
-.work-ledger-effect { background: var(--settled-background, #162127ed); border-color: var(--settled-color, #9bb4ae); }
-.work-ledger-effect .work-ledger-effect-glyph { color: var(--settled-color, #b8d8cf); }
-.work-ledger-effect[data-motif='guidance'] .work-ledger-effect-glyph { color: var(--settled-color, #e2dca9); }
-.work-ledger-effect[data-motif='closing'] .work-ledger-effect-glyph { color: var(--settled-color, #aab6c0); }
-.work-ledger-effect[data-motif='guidance'], .work-ledger-effect[data-motif='closing'] { border-color: var(--settled-color, #9bb4ae); }
+.work-ledger-effect { background: var(--settled-background, var(--ui-swatch-116)); border-color: var(--settled-color, var(--ui-swatch-118)); }
+.work-ledger-effect .work-ledger-effect-glyph { color: var(--settled-color, var(--ui-swatch-122)); }
+.work-ledger-effect[data-motif='guidance'] .work-ledger-effect-glyph { color: var(--settled-color, var(--ui-swatch-123)); }
+.work-ledger-effect[data-motif='closing'] .work-ledger-effect-glyph { color: var(--settled-color, var(--ui-swatch-124)); }
+.work-ledger-effect[data-motif='guidance'], .work-ledger-effect[data-motif='closing'] { border-color: var(--settled-color, var(--ui-swatch-118)); }
 
 #cancel_craft_visual_effect {position:absolute;right:.5rem;bottom:2.8rem;z-index:4;max-width:calc(100% - 1rem);white-space:normal;}
 
 /* Original paper receipt and decorative ink. No item/reward implication. */
-.work-ledger-effect[data-craft-receipt='true'] { border-radius: 2px; border-inline-start-width: 3px; }
-.quiet-place-detail { display:block; font-size:.8em; line-height:1.3; color:var(--text-color); opacity:.8; padding:.15rem .35rem; overflow-wrap:anywhere; }
+.work-ledger-effect[data-craft-receipt='true'] { border-radius: var(--ui-radius); border-inline-start-width: 3px; }
+.quiet-place-detail { display:block; font-size: var(--ui-type-small); line-height:1.3; color:var(--text-color); opacity:.8; padding:.15rem .35rem; overflow-wrap:anywhere; }
 .quiet-place-detail[hidden] { display:none; }
 
 /* A first learned skill gets a small line signature, not a panel spectacle. */
 .native-discovery-host {position:relative;}
 .native-discovery-host > .work-ledger-effect[data-discovery='true'] {
     inset:auto .35rem .35rem auto; max-width:calc(100% - .7rem);
-    padding:.25rem .4rem; gap:.35rem; font-size:.85em;
+    padding:.25rem .4rem; gap:.35rem; font-size: var(--ui-type-body);
 }
 .work-ledger-effect[data-discovery='true'] .work-ledger-effect-glyph {width:20px;height:20px;flex-shrink:0;}
 .native-discovery-host > .work-ledger-target-pulse {border-width:1px;}
-.native-discovery-cancel {position:static;flex:0 0 auto;pointer-events:auto;margin:0;padding:0 .25em;font-size:1em;line-height:1.2;}
+.native-discovery-cancel {position:static;flex:0 0 auto;pointer-events:auto;margin:0;padding:0 .25em;font-size: var(--ui-type-title);line-height:1.2;}
 .native-discovery-cancel[hidden] {display:none;}
 /* Coin spend float (I6): anchored beside the purse line, decorative only. */
-.coin-float { position: fixed; z-index: 30; pointer-events: none; white-space: nowrap; font-weight: bold; font-size: .95em; padding: 0 .3em; border-radius: 3px; color: var(--sem-loss, #c0392b); }
+.coin-float { position: fixed; z-index: 30; pointer-events: none; white-space: nowrap; font-weight: bold; font-size: var(--ui-type-title); padding: 0 .3em; border-radius: var(--ui-radius); color: var(--sem-loss, var(--ui-swatch-126)); }

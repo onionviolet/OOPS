@@ -1,0 +1,120 @@
+{
+  "stats": [
+    {
+      "id": "",
+      "text": " \n                                     Strength: \n                                    12.0 \n                                     \n                                        Your strength. It affects power of physical attacks\n                                        Breakdown:\n        Base value: 12\n                                    \n                                ",
+      "html": " \n                                    <div class=\"stat_name\"> Strength: </div>\n                                    <div class=\"stat_value\" id=\"strength_slot\">12.0</div> \n                                    <div class=\"stat_tooltip\"> \n                                        <div>Your strength. It affects power of physical attacks</div>\n                                        <div class=\"stat_breakdown\"><br>Breakdown:\n        <br>Base value: 12</div>\n                                    </div>\n                                "
+    },
+    {
+      "id": "",
+      "text": " \n                                     Agility: \n                                    8.0 \n                                     \n                                        Your agility. It affects your evasion chance\n                                        Breakdown:\n        Base value: 8\n                                    \n                                ",
+      "html": " \n                                    <div class=\"stat_name\"> Agility: </div>\n                                    <div class=\"stat_value\" id=\"agility_slot\">8.0</div> \n                                    <div class=\"stat_tooltip\"> \n                                        <div>Your agility. It affects your evasion chance</div>\n                                        <div class=\"stat_breakdown\"><br>Breakdown:\n        <br>Base value: 8</div>\n                                    </div>\n                                "
+    },
+    {
+      "id": "",
+      "text": " \n                                     Dexterity: \n                                    10.0 \n                                     \n                                         Your dexterity. It affects your chance to hit target \n                                        Breakdown:\n        Base value: 10\n                                    \n                                ",
+      "html": " \n                                    <div class=\"stat_name\"> Dexterity: </div>\n                                    <div class=\"stat_value\" id=\"dexterity_slot\">10.0</div> \n                                    <div class=\"stat_tooltip\"> \n                                        <div> Your dexterity. It affects your chance to hit target </div>\n                                        <div class=\"stat_breakdown\"><br>Breakdown:\n        <br>Base value: 10</div>\n                                    </div>\n                                "
+    },
+    {
+      "id": "",
+      "text": " \n                                     Intuition \n                                    10.0 \n                                     \n                                        Your intuition. It's necessary for magic, while also providing slight bonus to hit chance and evasion \n                                        Breakdown:\n        Base value: 10\n                                    \n                                ",
+      "html": " \n                                    <div class=\"stat_name\"> Intuition </div>\n                                    <div class=\"stat_value\" id=\"intuition_slot\">10.0</div> \n                                    <div class=\"stat_tooltip\"> \n                                        <div>Your intuition. It's necessary for magic, while also providing slight bonus to hit chance and evasion </div>\n                                        <div class=\"stat_breakdown\"><br>Breakdown:\n        <br>Base value: 10</div>\n                                    </div>\n                                "
+    },
+    {
+      "id": "",
+      "text": " \n                                     Defense: \n                                    1.0 \n                                     \n                                        Your defense. Based on worn equipment, lowers damage taken \n                                        Breakdown:\n        Base value: 0Skills: +1\n                                    \n                                ",
+      "html": " \n                                    <div class=\"stat_name\"> Defense: </div>\n                                    <div class=\"stat_value\" id=\"defense_slot\">1.0</div> \n                                    <div class=\"stat_tooltip\"> \n                                        <div>Your defense. Based on worn equipment, lowers damage taken </div>\n                                        <div class=\"stat_breakdown\"><br>Breakdown:\n        <br>Base value: 0<br>Skills: +1</div>\n                                    </div>\n                                "
+    },
+    {
+      "id": "",
+      "text": " \n                                     Magic: \n                                    0.0 \n                                     \n                                        Your magic power. It affects the power of spells \n                                        Breakdown:\n        Base value: 0\n                                    \n                                ",
+      "html": " \n                                    <div class=\"stat_name\"> Magic: </div>\n                                    <div class=\"stat_value\" id=\"magic_slot\">0.0</div> \n                                    <div class=\"stat_tooltip\"> \n                                        <div>Your magic power. It affects the power of spells </div>\n                                        <div class=\"stat_breakdown\"><br>Breakdown:\n        <br>Base value: 0</div>\n                                    </div>\n                                "
+    },
+    {
+      "id": "",
+      "text": " \n                                     Atk power: \n                                    1.2 \n                                     \n                                        Attack power. Based on weapon statistics, strength and/or magic \n                                        Breakdown:\n        Base value (weapon * str/10): 1.2\n                                    \n                                ",
+      "html": " \n                                    <div class=\"stat_name\"> Atk power: </div>\n                                    <div class=\"stat_value\" id=\"attack_power_slot\">1.2</div> \n                                    <div class=\"stat_tooltip\"> \n                                        <div>Attack power. Based on weapon statistics, strength and/or magic </div>\n                                        <div class=\"stat_breakdown\"><br>Breakdown:\n        <br>Base value (weapon * str/10): 1.2</div>\n                                    </div>\n                                "
+    },
+    {
+      "id": "",
+      "text": " \n                                     Atk spd: \n                                    1.0 \n                                     \n                                        Attack speed. Directly affects the attack frequency \n                                        Breakdown:\n        Base value: 1\n                                    \n                                ",
+      "html": " \n                                    <div class=\"stat_name\"> Atk spd: </div>\n                                    <div class=\"stat_value\" id=\"attack_speed_slot\">1.0</div> \n                                    <div class=\"stat_tooltip\"> \n                                        <div>Attack speed. Directly affects the attack frequency </div>\n                                        <div class=\"stat_breakdown\"><br>Breakdown:\n        <br>Base value: 1</div>\n                                    </div>\n                                "
+    },
+    {
+      "id": "",
+      "text": " \n                                     Crit rate: \n                                    5.0% \n                                    \n                                         Your chance for critical attack \n                                        Breakdown:\n        Base value: 0.05\n                                    \n                                ",
+      "html": " \n                                    <div class=\"stat_name\"> Crit rate: </div>\n                                    <div class=\"stat_value\" id=\"crit_rate_slot\">5.0%</div> \n                                    <div class=\"stat_tooltip\">\n                                        <div> Your chance for critical attack </div>\n                                        <div class=\"stat_breakdown\"><br>Breakdown:\n        <br>Base value: 0.05</div>\n                                    </div>\n                                "
+    },
+    {
+      "id": "",
+      "text": " \n                                     Crit mult: \n                                    130.0% \n                                     \n                                        Damage of your critical attacks \n                                        Breakdown:\n        Base value: 1.3\n                                    \n                                ",
+      "html": " \n                                    <div class=\"stat_name\"> Crit mult: </div>\n                                    <div class=\"stat_value\" id=\"crit_multiplier_slot\">130.0%</div> \n                                    <div class=\"stat_tooltip\"> \n                                        <div>Damage of your critical attacks </div>\n                                        <div class=\"stat_breakdown\"><br>Breakdown:\n        <br>Base value: 1.3</div>\n                                    </div>\n                                "
+    },
+    {
+      "id": "",
+      "text": " \n                                     AP: \n                                    32 \n                                     \n                                         Attack points, a total value of everything that contributes to the chance to hit an enemy, except for some situational skills and modifiers. \n                                        Breakdown:\n        Base value: 32\n                                    \n                                ",
+      "html": " \n                                    <div class=\"stat_name\"> AP: </div>\n                                    <div class=\"stat_value\" id=\"hit_chance_slot\">32</div> \n                                    <div class=\"stat_tooltip\"> \n                                        <div> Attack points, a total value of everything that contributes to the chance to hit an enemy, except for some situational skills and modifiers. </div>\n                                        <div class=\"stat_breakdown\"><br>Breakdown:\n        <br>Base value: 32</div>\n                                    </div>\n                                "
+    },
+    {
+      "id": "defensive_action_chance",
+      "text": " \n                                    EP : \n                                    19 \n\n                                    \n                                    \n                                        Evasion points, a total value of everything that contributes to the evasion chance, except for some situational skills and modifiers\n                                        Breakdown:\n            Base value: 25.3Environment: x0.75\n                                    \n                                ",
+      "html": " \n                                    <div class=\"stat_name\" id=\"defensive_action_slot\">EP : </div>\n                                    <div class=\"stat_value\" id=\"defensive_action_chance_slot\">19</div> \n\n                                    <!-- tooltip content is set in display.js-->\n                                    <div class=\"stat_tooltip\">\n                                        <div>Evasion points, a total value of everything that contributes to the evasion chance, except for some situational skills and modifiers</div>\n                                        <div><br>Breakdown:\n            <br>Base value: 25.3<br>Environment: x0.75</div>\n                                    </div>\n                                "
+    }
+  ],
+  "messages": [
+    {
+      "class": "message_common message_notification message_events",
+      "text": "[ Home · 01/04/999, Summer, Mon ]"
+    },
+    {
+      "class": "message_common message_hero_attacked message_combat",
+      "text": "Hero was hit for 3.7 physical damageOpen"
+    },
+    {
+      "class": "message_common message_skill_leveled_up message_unlocks",
+      "text": "Unlocked new skill: CombatOpen"
+    },
+    {
+      "class": "message_common message_skill_leveled_up message_unlocks",
+      "text": "Combat has reached level 1\n\nThanks to Combat reaching a new milestone, Hero gained:\n+1 hpOpen"
+    },
+    {
+      "class": "message_common message_enemy_attacked message_combat",
+      "text": "Enraged giant crab was hit for 1 physical damageOpen"
+    },
+    {
+      "class": "message_common message_victory message_combat",
+      "text": "Enraged giant crab was defeatedOpen"
+    },
+    {
+      "class": "message_common message_items_obtained message_loot",
+      "text": "Looted \"Giant crab claw\" x1Open"
+    },
+    {
+      "class": "message_common message_skill_leveled_up message_unlocks",
+      "text": "Unlocked new skill: Pest killerOpen"
+    },
+    {
+      "class": "message_common message_skill_leveled_up message_unlocks",
+      "text": "Pest killer has reached level 1\n\nThanks to Pest killer reaching a new milestone, Hero gained:\nx1.05 Combat xp gainOpen"
+    },
+    {
+      "class": "message_common message_default message_combat",
+      "text": "Hero evaded an attackOpen"
+    },
+    {
+      "class": "message_common message_enemy_attacked message_combat",
+      "text": "Starving wolf rat was hit for 1 physical damageOpen"
+    },
+    {
+      "class": "message_common message_victory message_combat",
+      "text": "Starving wolf rat was defeatedOpen"
+    },
+    {
+      "class": "message_common message_default message_unlocks",
+      "text": "Title earned: Blooded. Defeat your first enemy."
+    }
+  ],
+  "weather": "<div id=\"weather_div\" class=\"weather_div\"><span class=\"normal_temperature\">15.1°C</span><div id=\"temperature_tooltip\">Lowest tolerable temperature: <strong>14</strong><br>(<strong>14</strong> base minus <strong>0</strong> cold protection)<br><br>Breakdown:\n        <br>Base value: 0</div></div>",
+  "toolbar": "<select data-workspace-action=\"presentation\" aria-label=\"Presentation\"><option value=\"existing\">Existing layout</option><option value=\"proto23-shell\">Proto23 Shell</option><option value=\"proto23-parity\">Proto23 UI R6</option></select>"
+}

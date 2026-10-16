@@ -1,0 +1,8 @@
+{
+  "nativeSummerDay": true,
+  "nativeNight": true,
+  "publicDomColdAndFahrenheitFixture": true,
+  "temperatureClassRefreshAtSameValue": true,
+  "nativeToleranceTooltip": true,
+  "gameplayExact": true
+}

@@ -1,0 +1,241 @@
+{
+  "views": [
+    {
+      "view": "inventory",
+      "images": [
+        {
+          "src": "source-crafting.png",
+          "natural": [
+            1366,
+            768
+          ]
+        },
+        {
+          "src": "../parity-r3/inventory-1366.png",
+          "natural": [
+            1366,
+            768
+          ]
+        },
+        {
+          "src": "inventory-detail-14.png",
+          "natural": [
+            1366,
+            768
+          ]
+        }
+      ]
+    },
+    {
+      "view": "hover",
+      "images": [
+        {
+          "src": "source-hover.png",
+          "natural": [
+            1366,
+            768
+          ]
+        },
+        {
+          "src": "../parity-r3/inventory-1366.png",
+          "natural": [
+            1366,
+            768
+          ]
+        },
+        {
+          "src": "hover-village-14.png",
+          "natural": [
+            1366,
+            768
+          ]
+        }
+      ]
+    },
+    {
+      "view": "full",
+      "images": [
+        {
+          "src": "source-hover.png",
+          "natural": [
+            1366,
+            768
+          ]
+        },
+        {
+          "src": "../parity-r3/inventory-1366.png",
+          "natural": [
+            1366,
+            768
+          ]
+        },
+        {
+          "src": "full-item-village-14.png",
+          "natural": [
+            1366,
+            768
+          ]
+        }
+      ]
+    },
+    {
+      "view": "middle",
+      "images": [
+        {
+          "src": "source-crafting.png",
+          "natural": [
+            1366,
+            768
+          ]
+        },
+        {
+          "src": "../parity-r3/text-17.5.png",
+          "natural": [
+            1366,
+            768
+          ]
+        },
+        {
+          "src": "detail-village-17.5.png",
+          "natural": [
+            1366,
+            768
+          ]
+        }
+      ]
+    },
+    {
+      "view": "focus",
+      "images": [
+        {
+          "src": "source-actions.png",
+          "natural": [
+            1366,
+            768
+          ]
+        },
+        {
+          "src": "../parity-r3/focus-1366.png",
+          "natural": [
+            1366,
+            768
+          ]
+        },
+        {
+          "src": "focus-1366.png",
+          "natural": [
+            1366,
+            768
+          ]
+        }
+      ]
+    },
+    {
+      "view": "stats",
+      "images": [
+        {
+          "src": "source-skills.png",
+          "natural": [
+            1366,
+            768
+          ]
+        },
+        {
+          "src": "../parity-r3/stats-1366.png",
+          "natural": [
+            1366,
+            768
+          ]
+        },
+        {
+          "src": "stats-1366.png",
+          "natural": [
+            1366,
+            768
+          ]
+        }
+      ]
+    },
+    {
+      "view": "bars",
+      "images": [
+        {
+          "src": "source-actions.png",
+          "natural": [
+            1366,
+            768
+          ]
+        },
+        {
+          "src": "../parity-r3/village-1366.png",
+          "natural": [
+            1366,
+            768
+          ]
+        },
+        {
+          "src": "village-1366.png",
+          "natural": [
+            1366,
+            768
+          ]
+        }
+      ]
+    },
+    {
+      "view": "combat",
+      "images": [
+        {
+          "src": "source-actions.png",
+          "natural": [
+            1366,
+            768
+          ]
+        },
+        {
+          "src": "../parity-r3/combat-21.png",
+          "natural": [
+            1366,
+            768
+          ]
+        },
+        {
+          "src": "detail-combat-21.png",
+          "natural": [
+            1366,
+            768
+          ]
+        }
+      ]
+    },
+    {
+      "view": "large",
+      "images": [
+        {
+          "src": "source-crafting.png",
+          "natural": [
+            1366,
+            768
+          ]
+        },
+        {
+          "src": "../parity-r3/text-21.png",
+          "natural": [
+            1366,
+            768
+          ]
+        },
+        {
+          "src": "text-21.png",
+          "natural": [
+            1366,
+            768
+          ]
+        }
+      ]
+    }
+  ],
+  "sourceGallery": 4,
+  "unscaled1366": true,
+  "versionToggles": true
+}

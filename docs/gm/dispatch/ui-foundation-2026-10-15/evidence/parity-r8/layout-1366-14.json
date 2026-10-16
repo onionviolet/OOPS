@@ -1,0 +1,246 @@
+[
+  {
+    "w": 1366,
+    "h": 768,
+    "font": 14,
+    "overviewStats": 12,
+    "allStatsSimultaneously": 12,
+    "automaticReadout": true,
+    "manualCloseSurvivesResize": true,
+    "gameplayExact": true,
+    "geometry": {
+      "page": [
+        1366,
+        768
+      ],
+      "viewport": [
+        1366,
+        768
+      ],
+      "regions": {
+        "player": {
+          "x": 17,
+          "y": 39,
+          "w": 467.1875,
+          "h": 422.828125,
+          "client": 417,
+          "content": 417,
+          "font": "14px"
+        },
+        "focus": {
+          "x": 488.1875,
+          "y": 39,
+          "w": 463.1875,
+          "h": 422.828125,
+          "client": 417,
+          "content": 417,
+          "font": "14px"
+        },
+        "inventory": {
+          "x": 17,
+          "y": 465.828125,
+          "w": 348.953125,
+          "h": 255.171875,
+          "client": 249,
+          "content": 249,
+          "font": "14px"
+        },
+        "actions": {
+          "x": 369.953125,
+          "y": 465.828125,
+          "w": 581.421875,
+          "h": 255.171875,
+          "client": 249,
+          "content": 249,
+          "font": "14px"
+        },
+        "log": {
+          "x": 955.375,
+          "y": 39,
+          "w": 393.609375,
+          "h": 682,
+          "client": 676,
+          "content": 676,
+          "font": "14px"
+        }
+      },
+      "list": {
+        "x": 23,
+        "y": 555.921875,
+        "w": 336.953125,
+        "h": 161.078125,
+        "client": 161,
+        "content": 581,
+        "font": "14px"
+      },
+      "rows": [
+        {
+          "text": "\"ABC for kids\"",
+          "font": "14px",
+          "box": {
+            "x": 23,
+            "y": 555.921875,
+            "w": 336.953125,
+            "h": 21.84375,
+            "client": 21,
+            "content": 21,
+            "font": "14px"
+          }
+        },
+        {
+          "text": "Apple",
+          "font": "14px",
+          "box": {
+            "x": 23,
+            "y": 577.765625,
+            "w": 336.953125,
+            "h": 21.84375,
+            "client": 21,
+            "content": 21,
+            "font": "14px"
+          }
+        },
+        {
+          "text": "Boar hide",
+          "font": "14px",
+          "box": {
+            "x": 23,
+            "y": 599.609375,
+            "w": 336.953125,
+            "h": 21.84375,
+            "client": 21,
+            "content": 21,
+            "font": "14px"
+          }
+        },
+        {
+          "text": "Boar meat",
+          "font": "14px",
+          "box": {
+            "x": 23,
+            "y": 621.453125,
+            "w": 336.953125,
+            "h": 21.84375,
+            "client": 21,
+            "content": 21,
+            "font": "14px"
+          }
+        },
+        {
+          "text": "Bread kwas",
+          "font": "14px",
+          "box": {
+            "x": 23,
+            "y": 643.296875,
+            "w": 336.953125,
+            "h": 21.84375,
+            "client": 21,
+            "content": 21,
+            "font": "14px"
+          }
+        },
+        {
+          "text": "Carrot",
+          "font": "14px",
+          "box": {
+            "x": 23,
+            "y": 665.140625,
+            "w": 336.953125,
+            "h": 21.84375,
+            "client": 21,
+            "content": 21,
+            "font": "14px"
+          }
+        },
+        {
+          "text": "Cooked carrot",
+          "font": "14px",
+          "box": {
+            "x": 23,
+            "y": 686.984375,
+            "w": 336.953125,
+            "h": 21.84375,
+            "client": 21,
+            "content": 21,
+            "font": "14px"
+          }
+        }
+      ],
+      "stats": [
+        {
+          "text": "STR12",
+          "box": {
+            "x": 20,
+            "y": 160,
+            "w": 115.296875,
+            "h": 26.1875,
+            "client": 25,
+            "content": 25,
+            "font": "14px"
+          }
+        },
+        {
+          "text": "AGL8",
+          "box": {
+            "x": 135.296875,
+            "y": 160,
+            "w": 115.296875,
+            "h": 26.1875,
+            "client": 25,
+            "content": 25,
+            "font": "14px"
+          }
+        },
+        {
+          "text": "DEX10",
+          "box": {
+            "x": 250.59375,
+            "y": 160,
+            "w": 115.296875,
+            "h": 26.1875,
+            "client": 25,
+            "content": 25,
+            "font": "14px"
+          }
+        },
+        {
+          "text": "INT10",
+          "box": {
+            "x": 365.890625,
+            "y": 160,
+            "w": 115.296875,
+            "h": 26.1875,
+            "client": 25,
+            "content": 25,
+            "font": "14px"
+          }
+        },
+        {
+          "text": "Attack1.2",
+          "box": {
+            "x": 20,
+            "y": 186.1875,
+            "w": 230.59375,
+            "h": 26.1875,
+            "client": 25,
+            "content": 25,
+            "font": "14px"
+          }
+        },
+        {
+          "text": "Defense1",
+          "box": {
+            "x": 250.59375,
+            "y": 186.1875,
+            "w": 230.59375,
+            "h": 26.1875,
+            "client": 25,
+            "content": 25,
+            "font": "14px"
+          }
+        }
+      ]
+    },
+    "errors": []
+  }
+]

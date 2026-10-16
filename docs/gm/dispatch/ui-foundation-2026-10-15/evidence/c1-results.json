@@ -1,0 +1,759 @@
+[
+  {
+    "name": "village-1366",
+    "pass": true,
+    "detail": {
+      "pageHeight": 768,
+      "viewport": 768,
+      "width": 1366,
+      "pageWidth": 1366,
+      "profile": "proto23",
+      "panels": [
+        {
+          "id": "vitals",
+          "x": 16,
+          "y": 44,
+          "w": 350.765625,
+          "h": 175
+        },
+        {
+          "id": "combat-controls",
+          "x": 16,
+          "y": 227.796875,
+          "w": 350.765625,
+          "h": 51
+        },
+        {
+          "id": "belongings",
+          "x": 16,
+          "y": 291.59375,
+          "w": 350.765625,
+          "h": 432.40625
+        },
+        {
+          "id": "focus",
+          "x": 382.765625,
+          "y": 44,
+          "w": 561.03125,
+          "h": 35
+        },
+        {
+          "id": "village-scene",
+          "x": 382.765625,
+          "y": 85,
+          "w": 561.03125,
+          "h": 144.78125
+        },
+        {
+          "id": "current-work",
+          "x": 382.765625,
+          "y": 235.78125,
+          "w": 561.03125,
+          "h": 38.15625
+        },
+        {
+          "id": "local-actions",
+          "x": 382.765625,
+          "y": 279.9375,
+          "w": 561.03125,
+          "h": 444.0625
+        },
+        {
+          "id": "messages",
+          "x": 959.796875,
+          "y": 44,
+          "w": 390.203125,
+          "h": 680
+        }
+      ],
+      "regions": [
+        {
+          "id": "inventory_content_div",
+          "visible": 297,
+          "content": 774
+        },
+        {
+          "id": "center_mode_content",
+          "visible": 393,
+          "content": 560
+        }
+      ],
+      "log": 569
+    }
+  },
+  {
+    "name": "modes-and-expanded-return-1366",
+    "pass": true,
+    "detail": {
+      "back": true,
+      "escape": true,
+      "inventoryScroll": 180
+    }
+  },
+  {
+    "name": "explicit-preset-reload",
+    "pass": true,
+    "detail": {
+      "layoutExact": true,
+      "profileRetained": true
+    }
+  },
+  {
+    "name": "save-and-literal-import",
+    "pass": true,
+    "detail": {
+      "identity": true,
+      "bio": true
+    }
+  },
+  {
+    "name": "actual-text-1.25",
+    "pass": true,
+    "detail": {
+      "pageHeight": 768,
+      "viewport": 768,
+      "width": 1366,
+      "pageWidth": 1366,
+      "profile": "proto23",
+      "panels": [
+        {
+          "id": "vitals",
+          "x": 16,
+          "y": 48,
+          "w": 350.765625,
+          "h": 182.5625
+        },
+        {
+          "id": "combat-controls",
+          "x": 16,
+          "y": 239.359375,
+          "w": 350.765625,
+          "h": 58
+        },
+        {
+          "id": "belongings",
+          "x": 16,
+          "y": 310.15625,
+          "w": 350.765625,
+          "h": 413.84375
+        },
+        {
+          "id": "focus",
+          "x": 382.765625,
+          "y": 48,
+          "w": 561.03125,
+          "h": 37
+        },
+        {
+          "id": "village-scene",
+          "x": 382.765625,
+          "y": 91,
+          "w": 561.03125,
+          "h": 83.78125
+        },
+        {
+          "id": "current-work",
+          "x": 382.765625,
+          "y": 180.78125,
+          "w": 561.03125,
+          "h": 43.15625
+        },
+        {
+          "id": "local-actions",
+          "x": 382.765625,
+          "y": 229.9375,
+          "w": 561.03125,
+          "h": 494.0625
+        },
+        {
+          "id": "messages",
+          "x": 959.796875,
+          "y": 48,
+          "w": 390.203125,
+          "h": 676
+        }
+      ],
+      "regions": [
+        {
+          "id": "inventory_content_div",
+          "visible": 183,
+          "content": 1023
+        },
+        {
+          "id": "center_mode_content",
+          "visible": 397,
+          "content": 746
+        }
+      ],
+      "renderedFonts": {
+        "native": "17.5px",
+        "mixingLabel": "17.5px"
+      }
+    }
+  },
+  {
+    "name": "actual-text-1.5",
+    "pass": true,
+    "detail": {
+      "pageHeight": 768,
+      "viewport": 768,
+      "width": 1366,
+      "pageWidth": 1366,
+      "profile": "proto23",
+      "panels": [
+        {
+          "id": "vitals",
+          "x": 16,
+          "y": 90,
+          "w": 350.765625,
+          "h": 193.3125
+        },
+        {
+          "id": "combat-controls",
+          "x": 16,
+          "y": 292.109375,
+          "w": 350.765625,
+          "h": 65
+        },
+        {
+          "id": "belongings",
+          "x": 16,
+          "y": 369.90625,
+          "w": 350.765625,
+          "h": 354.09375
+        },
+        {
+          "id": "focus",
+          "x": 382.765625,
+          "y": 90,
+          "w": 561.03125,
+          "h": 43
+        },
+        {
+          "id": "village-scene",
+          "x": 382.765625,
+          "y": 139,
+          "w": 561.03125,
+          "h": 127.78125
+        },
+        {
+          "id": "current-work",
+          "x": 382.765625,
+          "y": 272.78125,
+          "w": 561.03125,
+          "h": 49.15625
+        },
+        {
+          "id": "local-actions",
+          "x": 382.765625,
+          "y": 327.9375,
+          "w": 561.03125,
+          "h": 396.0625
+        },
+        {
+          "id": "messages",
+          "x": 959.796875,
+          "y": 90,
+          "w": 390.203125,
+          "h": 634
+        }
+      ],
+      "regions": [
+        {
+          "id": "inventory_content_div",
+          "visible": 86,
+          "content": 1313
+        },
+        {
+          "id": "center_mode_content",
+          "visible": 290,
+          "content": 954
+        }
+      ],
+      "renderedFonts": {
+        "native": "21px",
+        "mixingLabel": "21px"
+      }
+    }
+  },
+  {
+    "name": "stance-expanded-return-native-combat",
+    "pass": true,
+    "detail": {
+      "nativeCombatKeptRunning": true,
+      "boundedBodyHeight": 114
+    }
+  },
+  {
+    "name": "combat-1366",
+    "pass": true,
+    "detail": {
+      "pageHeight": 768,
+      "viewport": 768,
+      "width": 1366,
+      "pageWidth": 1366,
+      "profile": "proto23",
+      "panels": [
+        {
+          "id": "vitals",
+          "x": 16,
+          "y": 44,
+          "w": 350.765625,
+          "h": 175
+        },
+        {
+          "id": "combat-controls",
+          "x": 16,
+          "y": 227.796875,
+          "w": 350.765625,
+          "h": 51
+        },
+        {
+          "id": "belongings",
+          "x": 16,
+          "y": 291.59375,
+          "w": 350.765625,
+          "h": 432.40625
+        },
+        {
+          "id": "focus",
+          "x": 382.765625,
+          "y": 44,
+          "w": 561.03125,
+          "h": 143.78125
+        },
+        {
+          "id": "time",
+          "x": 382.765625,
+          "y": 193.78125,
+          "w": 561.03125,
+          "h": 46
+        },
+        {
+          "id": "location",
+          "x": 382.765625,
+          "y": 245.78125,
+          "w": 561.03125,
+          "h": 91
+        },
+        {
+          "id": "current-work",
+          "x": 382.765625,
+          "y": 342.78125,
+          "w": 561.03125,
+          "h": 41.96875
+        },
+        {
+          "id": "combat",
+          "x": 382.765625,
+          "y": 390.75,
+          "w": 561.03125,
+          "h": 169.15625
+        },
+        {
+          "id": "local-actions",
+          "x": 382.765625,
+          "y": 565.90625,
+          "w": 561.03125,
+          "h": 158.09375
+        },
+        {
+          "id": "messages",
+          "x": 959.796875,
+          "y": 44,
+          "w": 390.203125,
+          "h": 680
+        }
+      ],
+      "regions": [
+        {
+          "id": "time",
+          "visible": 40,
+          "content": 43
+        },
+        {
+          "id": "location",
+          "visible": 85,
+          "content": 127
+        },
+        {
+          "id": "center_mode_content",
+          "visible": 107,
+          "content": 119
+        }
+      ]
+    }
+  },
+  {
+    "name": "village-1440",
+    "pass": true,
+    "detail": {
+      "pageHeight": 900,
+      "viewport": 900,
+      "width": 1440,
+      "pageWidth": 1440,
+      "profile": "proto23",
+      "panels": [
+        {
+          "id": "vitals",
+          "x": 16,
+          "y": 44,
+          "w": 370.75,
+          "h": 175
+        },
+        {
+          "id": "combat-controls",
+          "x": 16,
+          "y": 227.796875,
+          "w": 370.75,
+          "h": 51
+        },
+        {
+          "id": "belongings",
+          "x": 16,
+          "y": 291.59375,
+          "w": 370.75,
+          "h": 564.40625
+        },
+        {
+          "id": "focus",
+          "x": 402.75,
+          "y": 44,
+          "w": 592.84375,
+          "h": 35
+        },
+        {
+          "id": "village-scene",
+          "x": 402.75,
+          "y": 85,
+          "w": 592.84375,
+          "h": 144.78125
+        },
+        {
+          "id": "current-work",
+          "x": 402.75,
+          "y": 235.78125,
+          "w": 592.84375,
+          "h": 38.15625
+        },
+        {
+          "id": "local-actions",
+          "x": 402.75,
+          "y": 279.9375,
+          "w": 592.84375,
+          "h": 576.0625
+        },
+        {
+          "id": "messages",
+          "x": 1011.59375,
+          "y": 44,
+          "w": 412.40625,
+          "h": 812
+        }
+      ],
+      "regions": [
+        {
+          "id": "inventory_content_div",
+          "visible": 429,
+          "content": 774
+        }
+      ],
+      "log": 701
+    }
+  },
+  {
+    "name": "modes-and-expanded-return-1440",
+    "pass": true,
+    "detail": {
+      "back": true,
+      "escape": true,
+      "inventoryScroll": 180
+    }
+  },
+  {
+    "name": "combat-1440",
+    "pass": true,
+    "detail": {
+      "pageHeight": 900,
+      "viewport": 900,
+      "width": 1440,
+      "pageWidth": 1440,
+      "profile": "proto23",
+      "panels": [
+        {
+          "id": "vitals",
+          "x": 16,
+          "y": 44,
+          "w": 370.75,
+          "h": 175
+        },
+        {
+          "id": "combat-controls",
+          "x": 16,
+          "y": 227.796875,
+          "w": 370.75,
+          "h": 51
+        },
+        {
+          "id": "belongings",
+          "x": 16,
+          "y": 291.59375,
+          "w": 370.75,
+          "h": 564.40625
+        },
+        {
+          "id": "focus",
+          "x": 402.75,
+          "y": 44,
+          "w": 592.84375,
+          "h": 143.78125
+        },
+        {
+          "id": "time",
+          "x": 402.75,
+          "y": 193.78125,
+          "w": 592.84375,
+          "h": 46
+        },
+        {
+          "id": "location",
+          "x": 402.75,
+          "y": 245.78125,
+          "w": 592.84375,
+          "h": 91
+        },
+        {
+          "id": "current-work",
+          "x": 402.75,
+          "y": 342.78125,
+          "w": 592.84375,
+          "h": 41.96875
+        },
+        {
+          "id": "combat",
+          "x": 402.75,
+          "y": 390.75,
+          "w": 592.84375,
+          "h": 169.15625
+        },
+        {
+          "id": "local-actions",
+          "x": 402.75,
+          "y": 565.90625,
+          "w": 592.84375,
+          "h": 290.09375
+        },
+        {
+          "id": "messages",
+          "x": 1011.59375,
+          "y": 44,
+          "w": 412.40625,
+          "h": 812
+        }
+      ],
+      "regions": [
+        {
+          "id": "time",
+          "visible": 40,
+          "content": 43
+        },
+        {
+          "id": "location",
+          "visible": 85,
+          "content": 127
+        }
+      ]
+    }
+  },
+  {
+    "name": "village-1920",
+    "pass": true,
+    "detail": {
+      "pageHeight": 1080,
+      "viewport": 1080,
+      "width": 1920,
+      "pageWidth": 1920,
+      "profile": "proto23",
+      "panels": [
+        {
+          "id": "vitals",
+          "x": 16,
+          "y": 44,
+          "w": 500.359375,
+          "h": 175
+        },
+        {
+          "id": "combat-controls",
+          "x": 16,
+          "y": 227.796875,
+          "w": 500.359375,
+          "h": 51
+        },
+        {
+          "id": "belongings",
+          "x": 16,
+          "y": 291.59375,
+          "w": 500.359375,
+          "h": 744.40625
+        },
+        {
+          "id": "focus",
+          "x": 532.359375,
+          "y": 44,
+          "w": 799.234375,
+          "h": 35
+        },
+        {
+          "id": "village-scene",
+          "x": 532.359375,
+          "y": 85,
+          "w": 799.234375,
+          "h": 144.78125
+        },
+        {
+          "id": "current-work",
+          "x": 532.359375,
+          "y": 235.78125,
+          "w": 799.234375,
+          "h": 38.15625
+        },
+        {
+          "id": "local-actions",
+          "x": 532.359375,
+          "y": 279.9375,
+          "w": 799.234375,
+          "h": 756.0625
+        },
+        {
+          "id": "messages",
+          "x": 1347.59375,
+          "y": 44,
+          "w": 556.40625,
+          "h": 992
+        }
+      ],
+      "regions": [
+        {
+          "id": "inventory_content_div",
+          "visible": 609,
+          "content": 774
+        }
+      ],
+      "log": 909
+    }
+  },
+  {
+    "name": "modes-and-expanded-return-1920",
+    "pass": true,
+    "detail": {
+      "back": true,
+      "escape": true,
+      "inventoryScroll": 180
+    }
+  },
+  {
+    "name": "combat-1920",
+    "pass": true,
+    "detail": {
+      "pageHeight": 1080,
+      "viewport": 1080,
+      "width": 1920,
+      "pageWidth": 1920,
+      "profile": "proto23",
+      "panels": [
+        {
+          "id": "vitals",
+          "x": 16,
+          "y": 44,
+          "w": 500.359375,
+          "h": 175
+        },
+        {
+          "id": "combat-controls",
+          "x": 16,
+          "y": 227.796875,
+          "w": 500.359375,
+          "h": 51
+        },
+        {
+          "id": "belongings",
+          "x": 16,
+          "y": 291.59375,
+          "w": 500.359375,
+          "h": 744.40625
+        },
+        {
+          "id": "focus",
+          "x": 532.359375,
+          "y": 44,
+          "w": 799.234375,
+          "h": 143.78125
+        },
+        {
+          "id": "time",
+          "x": 532.359375,
+          "y": 193.78125,
+          "w": 799.234375,
+          "h": 46
+        },
+        {
+          "id": "location",
+          "x": 532.359375,
+          "y": 245.78125,
+          "w": 799.234375,
+          "h": 91
+        },
+        {
+          "id": "current-work",
+          "x": 532.359375,
+          "y": 342.78125,
+          "w": 799.234375,
+          "h": 41.96875
+        },
+        {
+          "id": "combat",
+          "x": 532.359375,
+          "y": 390.75,
+          "w": 799.234375,
+          "h": 169.15625
+        },
+        {
+          "id": "local-actions",
+          "x": 532.359375,
+          "y": 565.90625,
+          "w": 799.234375,
+          "h": 470.09375
+        },
+        {
+          "id": "messages",
+          "x": 1347.59375,
+          "y": 44,
+          "w": 556.40625,
+          "h": 992
+        }
+      ],
+      "regions": [
+        {
+          "id": "time",
+          "visible": 40,
+          "content": 43
+        },
+        {
+          "id": "location",
+          "visible": 85,
+          "content": 107
+        }
+      ]
+    }
+  },
+  {
+    "name": "existing-layout-compatibility",
+    "pass": true,
+    "detail": {
+      "rawExact": true,
+      "pin": true,
+      "collapse": true,
+      "compositionOptOut": true
+    }
+  }
+]

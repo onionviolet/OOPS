@@ -1,0 +1,12 @@
+{
+  "src/display.js": "685c322350702a48512f2b8d7260108c51ba56b3aaacb31e3ba5c5b6f081d1e4",
+  "src/proto23_shell.js": "130c87a413201530cd222f8b91de4fab794c4c676b813cb3659f8968f063d46a",
+  "src/village_workspace.js": "39476fe9de22b72637b953f53be502721673fa80b5f974331ce2db7a529b8a5b",
+  "src/workspace_layout.js": "66adcadbb0aed3c606826d1fe6852cbfb5d55cf0b574a1bee1d6956c3250a9f7",
+  "src/workspace_navigation.js": "98b624624e3f0e2d22af8668e9d57f97153a1d30af0c8c6880f970e49016d3ee",
+  "styles/ui_tokens.css": "d443fb64bb918fd0eff8062c1dd29709f10d808f0f614807a9ee01ea7955d230",
+  "src/main.js": "dfe9fbcc4b87e70f6993c3578b7fc789fb23a1700ffa3980e1dc75f3492d7b71",
+  "src/save_files.js": "ed3f1d2bbc12c8b2e0a1cade98cc825af27c3e5d3ab9ee904958aa2b04308b8d",
+  "src/simulation.js": "b4a5b39f5b1a6f3c5c7bbc048a44898066a437735ee34b855b8b074da7824ea4",
+  "src/simulation_clock.js": "02e5e74028285e95d0f959b5a42739500b7dc5686830467cbb2058584d3b4897"
+}

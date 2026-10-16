@@ -1,0 +1,52 @@
+{
+  "reviewedAt": "2026-10-15T07:09:48.198423+00:00",
+  "workerThreadId": "01a13dba-1433-7232-bd63-674e459f141a",
+  "sourceOwnership": "worker explicitly released to root in R2_REPORT.md",
+  "rootChecks": [
+    "Reviewed native-flow/save/layout browser scripts and final logs",
+    "Reviewed final mapped native combat facts, multi-enemy selection and exact gameplay/RNG preservation",
+    "Re-ran current source/served parity:562 project sources,13 assets, no mismatches/unreviewed exceptions; prior shell/C1 intact",
+    "In-app comparison Focus/Stats/Combat images loaded at1366x768; visually reviewed final item and combat layouts"
+  ],
+  "technicalState": "delivered with recorded limits",
+  "humanVisualAcceptance": "OPEN",
+  "remainingLimits": [
+    "Upper player/focus widths differ from original",
+    "150% text compact inventory82px; Expand/filter route available",
+    "Combat item-detail body110px; expanded route available"
+  ],
+  "artifacts": [
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/R2_REPORT.md",
+      "sha256": "76037540db984dad0c7ad6ad5a097cc1b3296e6e145fd1e91d722c0799b5e6e2"
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/evidence/shell-r2/results.json",
+      "sha256": "b188ecf46d5ed246574b0c14eceef36a12a2187495aa1b2e64963cb6a565bdbf"
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/evidence/shell-r2/extra-results.json",
+      "sha256": "9a2afdd6eba30d83db5d619c33cd8fd04860e571e76bbc9af55a3f015f7aa4b3"
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/evidence/shell-r2/combat-results.json",
+      "sha256": "1b1c95a77f7fca903173dc426488baa05ee0da3d8cc3ae2951e22b50c81fb7c9"
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/evidence/shell-r2/final-native-focus.json",
+      "sha256": "5c082c72593440ad5ce4661ba12c46fc7223fac96e03207cf36fe588fd867684"
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/evidence/shell-r2/parity.json",
+      "sha256": "dbbb9d6cb5bae662193730457c81184e5029978ea4bfffd40db086771fd32d47"
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/evidence/shell-r2/comparison.html",
+      "sha256": "87c52d0dc44f02f66cffde2e4bf472dc31babbbfd7ad6e159163b0dc1d331d8c"
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/evidence/shell-r2/comparison.png",
+      "sha256": "4f4280ad9795120e89d4f54eaabba1d5c065657626102280c38c03283dd62ad3"
+    }
+  ]
+}

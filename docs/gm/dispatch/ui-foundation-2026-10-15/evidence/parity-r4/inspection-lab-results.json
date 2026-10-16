@@ -1,0 +1,86 @@
+[
+  {
+    "combat": false,
+    "font": 14,
+    "mode": "hover",
+    "inspectionExact": true
+  },
+  {
+    "combat": false,
+    "font": 14,
+    "mode": "pin",
+    "inspectionExact": true
+  },
+  {
+    "combat": false,
+    "font": 14,
+    "mode": "stable",
+    "inspectionExact": true
+  },
+  {
+    "combat": false,
+    "font": 21,
+    "mode": "hover",
+    "inspectionExact": true
+  },
+  {
+    "combat": false,
+    "font": 21,
+    "mode": "pin",
+    "inspectionExact": true
+  },
+  {
+    "combat": false,
+    "font": 21,
+    "mode": "stable",
+    "inspectionExact": true
+  },
+  {
+    "combat": false,
+    "nativeUseOnce": true,
+    "fullViewBack": true,
+    "errors": []
+  },
+  {
+    "combat": true,
+    "font": 14,
+    "mode": "hover",
+    "inspectionExact": true
+  },
+  {
+    "combat": true,
+    "font": 14,
+    "mode": "pin",
+    "inspectionExact": true
+  },
+  {
+    "combat": true,
+    "font": 14,
+    "mode": "stable",
+    "inspectionExact": true
+  },
+  {
+    "combat": true,
+    "font": 21,
+    "mode": "hover",
+    "inspectionExact": true
+  },
+  {
+    "combat": true,
+    "font": 21,
+    "mode": "pin",
+    "inspectionExact": true
+  },
+  {
+    "combat": true,
+    "font": 21,
+    "mode": "stable",
+    "inspectionExact": true
+  },
+  {
+    "combat": true,
+    "nativeUseOnce": true,
+    "fullViewBack": true,
+    "errors": []
+  }
+]

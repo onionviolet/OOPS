@@ -1,0 +1,945 @@
+[
+  {
+    "font": 14,
+    "stats": [
+      {
+        "label": "STR",
+        "box": {
+          "x": 20,
+          "y": 188,
+          "width": 115.296875,
+          "height": 26.1875,
+          "top": 188,
+          "right": 135.296875,
+          "bottom": 214.1875,
+          "left": 20
+        },
+        "children": [
+          {
+            "text": "STR",
+            "box": {
+              "x": 25.59375,
+              "y": 190.796875,
+              "width": 28.625,
+              "height": 19.59375,
+              "top": 190.796875,
+              "right": 54.21875,
+              "bottom": 210.390625,
+              "left": 25.59375
+            }
+          },
+          {
+            "text": "22.9",
+            "box": {
+              "x": 96.015625,
+              "y": 190.796875,
+              "width": 33.6875,
+              "height": 19.59375,
+              "top": 190.796875,
+              "right": 129.703125,
+              "bottom": 210.390625,
+              "left": 96.015625
+            }
+          }
+        ]
+      },
+      {
+        "label": "AGL",
+        "box": {
+          "x": 135.296875,
+          "y": 188,
+          "width": 115.296875,
+          "height": 26.1875,
+          "top": 188,
+          "right": 250.59375,
+          "bottom": 214.1875,
+          "left": 135.296875
+        },
+        "children": [
+          {
+            "text": "AGL",
+            "box": {
+              "x": 140.890625,
+              "y": 190.796875,
+              "width": 29.484375,
+              "height": 19.59375,
+              "top": 190.796875,
+              "right": 170.375,
+              "bottom": 210.390625,
+              "left": 140.890625
+            }
+          },
+          {
+            "text": "19.7",
+            "box": {
+              "x": 211.3125,
+              "y": 190.796875,
+              "width": 33.6875,
+              "height": 19.59375,
+              "top": 190.796875,
+              "right": 245,
+              "bottom": 210.390625,
+              "left": 211.3125
+            }
+          }
+        ]
+      },
+      {
+        "label": "DEX",
+        "box": {
+          "x": 250.59375,
+          "y": 188,
+          "width": 115.296875,
+          "height": 26.1875,
+          "top": 188,
+          "right": 365.890625,
+          "bottom": 214.1875,
+          "left": 250.59375
+        },
+        "children": [
+          {
+            "text": "DEX",
+            "box": {
+              "x": 256.1875,
+              "y": 190.796875,
+              "width": 29.734375,
+              "height": 19.59375,
+              "top": 190.796875,
+              "right": 285.921875,
+              "bottom": 210.390625,
+              "left": 256.1875
+            }
+          },
+          {
+            "text": "15",
+            "box": {
+              "x": 340.359375,
+              "y": 190.796875,
+              "width": 19.9375,
+              "height": 19.59375,
+              "top": 190.796875,
+              "right": 360.296875,
+              "bottom": 210.390625,
+              "left": 340.359375
+            }
+          }
+        ]
+      },
+      {
+        "label": "INT",
+        "box": {
+          "x": 365.890625,
+          "y": 188,
+          "width": 115.296875,
+          "height": 26.1875,
+          "top": 188,
+          "right": 481.1875,
+          "bottom": 214.1875,
+          "left": 365.890625
+        },
+        "children": [
+          {
+            "text": "INT",
+            "box": {
+              "x": 371.484375,
+              "y": 190.796875,
+              "width": 23.421875,
+              "height": 19.59375,
+              "top": 190.796875,
+              "right": 394.90625,
+              "bottom": 210.390625,
+              "left": 371.484375
+            }
+          },
+          {
+            "text": "27.5",
+            "box": {
+              "x": 441.90625,
+              "y": 190.796875,
+              "width": 33.6875,
+              "height": 19.59375,
+              "top": 190.796875,
+              "right": 475.59375,
+              "bottom": 210.390625,
+              "left": 441.90625
+            }
+          }
+        ]
+      },
+      {
+        "label": "Attack",
+        "box": {
+          "x": 20,
+          "y": 214.1875,
+          "width": 230.59375,
+          "height": 26.1875,
+          "top": 214.1875,
+          "right": 250.59375,
+          "bottom": 240.375,
+          "left": 20
+        },
+        "children": [
+          {
+            "text": "Attack",
+            "box": {
+              "x": 25.59375,
+              "y": 216.984375,
+              "width": 45.671875,
+              "height": 19.59375,
+              "top": 216.984375,
+              "right": 71.265625,
+              "bottom": 236.578125,
+              "left": 25.59375
+            }
+          },
+          {
+            "text": "2.3",
+            "box": {
+              "x": 221.28125,
+              "y": 216.984375,
+              "width": 23.71875,
+              "height": 19.59375,
+              "top": 216.984375,
+              "right": 245,
+              "bottom": 236.578125,
+              "left": 221.28125
+            }
+          }
+        ]
+      },
+      {
+        "label": "Defense",
+        "box": {
+          "x": 250.59375,
+          "y": 214.1875,
+          "width": 230.59375,
+          "height": 26.1875,
+          "top": 214.1875,
+          "right": 481.1875,
+          "bottom": 240.375,
+          "left": 250.59375
+        },
+        "children": [
+          {
+            "text": "Defense",
+            "box": {
+              "x": 256.1875,
+              "y": 216.984375,
+              "width": 57.328125,
+              "height": 19.59375,
+              "top": 216.984375,
+              "right": 313.515625,
+              "bottom": 236.578125,
+              "left": 256.1875
+            }
+          },
+          {
+            "text": "1",
+            "box": {
+              "x": 465.625,
+              "y": 216.984375,
+              "width": 9.96875,
+              "height": 19.59375,
+              "top": 216.984375,
+              "right": 475.59375,
+              "bottom": 236.578125,
+              "left": 465.625
+            }
+          }
+        ]
+      }
+    ],
+    "facts": [
+      {
+        "text": "4 dmg",
+        "box": {
+          "x": 665.125,
+          "y": 141.140625,
+          "width": 48.359375,
+          "height": 16.796875,
+          "top": 141.140625,
+          "right": 713.484375,
+          "bottom": 157.9375,
+          "left": 665.125
+        },
+        "inside": true
+      },
+      {
+        "text": "0.82 /s",
+        "box": {
+          "x": 883.140625,
+          "y": 141.140625,
+          "width": 53.9375,
+          "height": 16.796875,
+          "top": 141.140625,
+          "right": 937.078125,
+          "bottom": 157.9375,
+          "left": 883.140625
+        },
+        "inside": true
+      },
+      {
+        "text": "30%",
+        "box": {
+          "x": 680.453125,
+          "y": 164.53125,
+          "width": 33.03125,
+          "height": 16.796875,
+          "top": 164.53125,
+          "right": 713.484375,
+          "bottom": 181.328125,
+          "left": 680.453125
+        },
+        "inside": true
+      },
+      {
+        "text": "15%",
+        "box": {
+          "x": 904.046875,
+          "y": 164.53125,
+          "width": 33.03125,
+          "height": 16.796875,
+          "top": 164.53125,
+          "right": 937.078125,
+          "bottom": 181.328125,
+          "left": 904.046875
+        },
+        "inside": true
+      },
+      {
+        "text": "0",
+        "box": {
+          "x": 703.515625,
+          "y": 187.921875,
+          "width": 9.96875,
+          "height": 16.796875,
+          "top": 187.921875,
+          "right": 713.484375,
+          "bottom": 204.71875,
+          "left": 703.515625
+        },
+        "inside": true
+      },
+      {
+        "text": "85%",
+        "box": {
+          "x": 904.046875,
+          "y": 187.921875,
+          "width": 33.03125,
+          "height": 16.796875,
+          "top": 187.921875,
+          "right": 937.078125,
+          "bottom": 204.71875,
+          "left": 904.046875
+        },
+        "inside": true
+      },
+      {
+        "text": "Attack cycle ",
+        "box": {
+          "x": 502.484375,
+          "y": 213.3125,
+          "width": 434.59375,
+          "height": 16.796875,
+          "top": 213.3125,
+          "right": 937.078125,
+          "bottom": 230.109375,
+          "left": 502.484375
+        },
+        "inside": true
+      }
+    ],
+    "log": [
+      {
+        "text": "[ Home · 01/04/999, Summer, Mon ]",
+        "kind": "notification",
+        "color": "rgb(186, 196, 217)",
+        "categoryHeading": "none",
+        "font": "14px"
+      },
+      {
+        "text": "Workspace now groups You above Inventory. Character details and known records remain in the named navigation.Open",
+        "kind": "notification",
+        "color": "rgb(186, 196, 217)",
+        "categoryHeading": "none",
+        "font": "14px"
+      },
+      {
+        "text": "Hero was hit for 3.7 physical damageOpen",
+        "kind": "hero_attacked",
+        "color": "rgb(255, 173, 186)",
+        "categoryHeading": "none",
+        "font": "14px"
+      },
+      {
+        "text": "Starving wolf rat was hit for 1 physical damageOpen",
+        "kind": "enemy_attacked",
+        "color": "rgb(143, 232, 255)",
+        "categoryHeading": "none",
+        "font": "14px"
+      },
+      {
+        "text": "Hero evaded an attackOpen",
+        "kind": "enemy_missed",
+        "color": "rgb(188, 254, 254)",
+        "categoryHeading": "none",
+        "font": "14px"
+      },
+      {
+        "text": "Hero evaded an attackOpen",
+        "kind": "enemy_missed",
+        "color": "rgb(188, 254, 254)",
+        "categoryHeading": "none",
+        "font": "14px"
+      },
+      {
+        "text": "Starving wolf rat was hit for 1 physical damageOpen",
+        "kind": "enemy_attacked",
+        "color": "rgb(143, 232, 255)",
+        "categoryHeading": "none",
+        "font": "14px"
+      },
+      {
+        "text": "Hero was hit [CRIT] for 4.6 physical damageOpen",
+        "kind": "hero_attacked_critically",
+        "color": "rgb(255, 173, 186)",
+        "categoryHeading": "none",
+        "font": "14px"
+      },
+      {
+        "text": "Hero evaded an attackOpen",
+        "kind": "enemy_missed",
+        "color": "rgb(188, 254, 254)",
+        "categoryHeading": "none",
+        "font": "14px"
+      },
+      {
+        "text": "Starving wolf rat was hit for 1 physical damageOpen",
+        "kind": "enemy_attacked",
+        "color": "rgb(143, 232, 255)",
+        "categoryHeading": "none",
+        "font": "14px"
+      },
+      {
+        "text": "Starving wolf rat was hit for 1 physical damageOpen",
+        "kind": "enemy_attacked",
+        "color": "rgb(143, 232, 255)",
+        "categoryHeading": "none",
+        "font": "14px"
+      },
+      {
+        "text": "Hero evaded an attackOpen",
+        "kind": "enemy_missed",
+        "color": "rgb(188, 254, 254)",
+        "categoryHeading": "none",
+        "font": "14px"
+      },
+      {
+        "text": "Hero evaded an attackOpen",
+        "kind": "enemy_missed",
+        "color": "rgb(188, 254, 254)",
+        "categoryHeading": "none",
+        "font": "14px"
+      },
+      {
+        "text": "Starving wolf rat was hit for 1.4 physical damageOpen",
+        "kind": "enemy_attacked",
+        "color": "rgb(143, 232, 255)",
+        "categoryHeading": "none",
+        "font": "14px"
+      },
+      {
+        "text": "Hero evaded an attackOpen",
+        "kind": "enemy_missed",
+        "color": "rgb(188, 254, 254)",
+        "categoryHeading": "none",
+        "font": "14px"
+      },
+      {
+        "text": "Hero evaded an attackOpen",
+        "kind": "enemy_missed",
+        "color": "rgb(188, 254, 254)",
+        "categoryHeading": "none",
+        "font": "14px"
+      },
+      {
+        "text": "Starving wolf rat was hit for 1.1 physical damageOpen",
+        "kind": "enemy_attacked",
+        "color": "rgb(143, 232, 255)",
+        "categoryHeading": "none",
+        "font": "14px"
+      },
+      {
+        "text": "Hero evaded an attackOpen",
+        "kind": "enemy_missed",
+        "color": "rgb(188, 254, 254)",
+        "categoryHeading": "none",
+        "font": "14px"
+      },
+      {
+        "text": "Starving wolf rat was hit for 1.4 physical damageOpen",
+        "kind": "enemy_attacked",
+        "color": "rgb(143, 232, 255)",
+        "categoryHeading": "none",
+        "font": "14px"
+      }
+    ],
+    "filterNative": true,
+    "inspectionExact": true,
+    "errors": []
+  },
+  {
+    "font": 21,
+    "stats": [
+      {
+        "label": "STR",
+        "box": {
+          "x": 20,
+          "y": 235,
+          "width": 115.296875,
+          "height": 38.765625,
+          "top": 235,
+          "right": 135.296875,
+          "bottom": 273.765625,
+          "left": 20
+        },
+        "children": [
+          {
+            "text": "STR",
+            "box": {
+              "x": 28.390625,
+              "y": 239.1875,
+              "width": 42.9375,
+              "height": 29.390625,
+              "top": 239.1875,
+              "right": 71.328125,
+              "bottom": 268.578125,
+              "left": 28.390625
+            }
+          },
+          {
+            "text": "22.9",
+            "box": {
+              "x": 78.671875,
+              "y": 239.1875,
+              "width": 50.53125,
+              "height": 29.390625,
+              "top": 239.1875,
+              "right": 129.203125,
+              "bottom": 268.578125,
+              "left": 78.671875
+            }
+          }
+        ]
+      },
+      {
+        "label": "AGL",
+        "box": {
+          "x": 135.296875,
+          "y": 235,
+          "width": 115.296875,
+          "height": 38.765625,
+          "top": 235,
+          "right": 250.59375,
+          "bottom": 273.765625,
+          "left": 135.296875
+        },
+        "children": [
+          {
+            "text": "AGL",
+            "box": {
+              "x": 143.6875,
+              "y": 239.1875,
+              "width": 44.234375,
+              "height": 29.390625,
+              "top": 239.1875,
+              "right": 187.921875,
+              "bottom": 268.578125,
+              "left": 143.6875
+            }
+          },
+          {
+            "text": "19.7",
+            "box": {
+              "x": 195.265625,
+              "y": 239.1875,
+              "width": 50.53125,
+              "height": 29.390625,
+              "top": 239.1875,
+              "right": 245.796875,
+              "bottom": 268.578125,
+              "left": 195.265625
+            }
+          }
+        ]
+      },
+      {
+        "label": "DEX",
+        "box": {
+          "x": 250.59375,
+          "y": 235,
+          "width": 115.296875,
+          "height": 38.765625,
+          "top": 235,
+          "right": 365.890625,
+          "bottom": 273.765625,
+          "left": 250.59375
+        },
+        "children": [
+          {
+            "text": "DEX",
+            "box": {
+              "x": 258.984375,
+              "y": 239.1875,
+              "width": 44.59375,
+              "height": 29.390625,
+              "top": 239.1875,
+              "right": 303.578125,
+              "bottom": 268.578125,
+              "left": 258.984375
+            }
+          },
+          {
+            "text": "15",
+            "box": {
+              "x": 327.59375,
+              "y": 239.1875,
+              "width": 29.90625,
+              "height": 29.390625,
+              "top": 239.1875,
+              "right": 357.5,
+              "bottom": 268.578125,
+              "left": 327.59375
+            }
+          }
+        ]
+      },
+      {
+        "label": "INT",
+        "box": {
+          "x": 365.890625,
+          "y": 235,
+          "width": 115.296875,
+          "height": 38.765625,
+          "top": 235,
+          "right": 481.1875,
+          "bottom": 273.765625,
+          "left": 365.890625
+        },
+        "children": [
+          {
+            "text": "INT",
+            "box": {
+              "x": 374.28125,
+              "y": 239.1875,
+              "width": 35.125,
+              "height": 29.390625,
+              "top": 239.1875,
+              "right": 409.40625,
+              "bottom": 268.578125,
+              "left": 374.28125
+            }
+          },
+          {
+            "text": "27.5",
+            "box": {
+              "x": 422.265625,
+              "y": 239.1875,
+              "width": 50.53125,
+              "height": 29.390625,
+              "top": 239.1875,
+              "right": 472.796875,
+              "bottom": 268.578125,
+              "left": 422.265625
+            }
+          }
+        ]
+      },
+      {
+        "label": "Attack",
+        "box": {
+          "x": 20,
+          "y": 273.765625,
+          "width": 230.59375,
+          "height": 38.765625,
+          "top": 273.765625,
+          "right": 250.59375,
+          "bottom": 312.53125,
+          "left": 20
+        },
+        "children": [
+          {
+            "text": "Attack",
+            "box": {
+              "x": 28.390625,
+              "y": 277.953125,
+              "width": 68.515625,
+              "height": 29.390625,
+              "top": 277.953125,
+              "right": 96.90625,
+              "bottom": 307.34375,
+              "left": 28.390625
+            }
+          },
+          {
+            "text": "2.3",
+            "box": {
+              "x": 206.625,
+              "y": 277.953125,
+              "width": 35.578125,
+              "height": 29.390625,
+              "top": 277.953125,
+              "right": 242.203125,
+              "bottom": 307.34375,
+              "left": 206.625
+            }
+          }
+        ]
+      },
+      {
+        "label": "Defense",
+        "box": {
+          "x": 250.59375,
+          "y": 273.765625,
+          "width": 230.59375,
+          "height": 38.765625,
+          "top": 273.765625,
+          "right": 481.1875,
+          "bottom": 312.53125,
+          "left": 250.59375
+        },
+        "children": [
+          {
+            "text": "Defense",
+            "box": {
+              "x": 258.984375,
+              "y": 277.953125,
+              "width": 85.984375,
+              "height": 29.390625,
+              "top": 277.953125,
+              "right": 344.96875,
+              "bottom": 307.34375,
+              "left": 258.984375
+            }
+          },
+          {
+            "text": "1",
+            "box": {
+              "x": 457.84375,
+              "y": 277.953125,
+              "width": 14.953125,
+              "height": 29.390625,
+              "top": 277.953125,
+              "right": 472.796875,
+              "bottom": 307.34375,
+              "left": 457.84375
+            }
+          }
+        ]
+      }
+    ],
+    "facts": [
+      {
+        "text": "4 dmg",
+        "box": {
+          "x": 637.78125,
+          "y": 175.71875,
+          "width": 72.546875,
+          "height": 25.1875,
+          "top": 175.71875,
+          "right": 710.328125,
+          "bottom": 200.90625,
+          "left": 637.78125
+        },
+        "inside": true
+      },
+      {
+        "text": "0.82 /s",
+        "box": {
+          "x": 853.03125,
+          "y": 175.71875,
+          "width": 80.90625,
+          "height": 25.1875,
+          "top": 175.71875,
+          "right": 933.9375,
+          "bottom": 200.90625,
+          "left": 853.03125
+        },
+        "inside": true
+      },
+      {
+        "text": "30%",
+        "box": {
+          "x": 660.78125,
+          "y": 210.28125,
+          "width": 49.546875,
+          "height": 25.1875,
+          "top": 210.28125,
+          "right": 710.328125,
+          "bottom": 235.46875,
+          "left": 660.78125
+        },
+        "inside": true
+      },
+      {
+        "text": "15%",
+        "box": {
+          "x": 884.390625,
+          "y": 210.28125,
+          "width": 49.546875,
+          "height": 25.1875,
+          "top": 210.28125,
+          "right": 933.9375,
+          "bottom": 235.46875,
+          "left": 884.390625
+        },
+        "inside": true
+      },
+      {
+        "text": "0",
+        "box": {
+          "x": 695.375,
+          "y": 244.84375,
+          "width": 14.953125,
+          "height": 25.1875,
+          "top": 244.84375,
+          "right": 710.328125,
+          "bottom": 270.03125,
+          "left": 695.375
+        },
+        "inside": true
+      },
+      {
+        "text": "85%",
+        "box": {
+          "x": 884.390625,
+          "y": 244.84375,
+          "width": 49.546875,
+          "height": 25.1875,
+          "top": 244.84375,
+          "right": 933.9375,
+          "bottom": 270.03125,
+          "left": 884.390625
+        },
+        "inside": true
+      },
+      {
+        "text": "Attack cycle ",
+        "box": {
+          "x": 505.625,
+          "y": 281.40625,
+          "width": 428.3125,
+          "height": 25.1875,
+          "top": 281.40625,
+          "right": 933.9375,
+          "bottom": 306.59375,
+          "left": 505.625
+        },
+        "inside": true
+      }
+    ],
+    "log": [
+      {
+        "text": "[ Home · 01/04/999, Summer, Mon ]",
+        "kind": "notification",
+        "color": "rgb(186, 196, 217)",
+        "categoryHeading": "none",
+        "font": "21px"
+      },
+      {
+        "text": "Workspace now groups You above Inventory. Character details and known records remain in the named navigation.Open",
+        "kind": "notification",
+        "color": "rgb(186, 196, 217)",
+        "categoryHeading": "none",
+        "font": "21px"
+      },
+      {
+        "text": "Hero was hit for 3.7 physical damageOpen",
+        "kind": "hero_attacked",
+        "color": "rgb(255, 173, 186)",
+        "categoryHeading": "none",
+        "font": "21px"
+      },
+      {
+        "text": "Starving wolf rat was hit for 1 physical damageOpen",
+        "kind": "enemy_attacked",
+        "color": "rgb(143, 232, 255)",
+        "categoryHeading": "none",
+        "font": "21px"
+      },
+      {
+        "text": "Hero evaded an attackOpen",
+        "kind": "enemy_missed",
+        "color": "rgb(188, 254, 254)",
+        "categoryHeading": "none",
+        "font": "21px"
+      },
+      {
+        "text": "Hero evaded an attackOpen",
+        "kind": "enemy_missed",
+        "color": "rgb(188, 254, 254)",
+        "categoryHeading": "none",
+        "font": "21px"
+      },
+      {
+        "text": "Starving wolf rat was hit for 1 physical damageOpen",
+        "kind": "enemy_attacked",
+        "color": "rgb(143, 232, 255)",
+        "categoryHeading": "none",
+        "font": "21px"
+      },
+      {
+        "text": "Hero was hit [CRIT] for 4.6 physical damageOpen",
+        "kind": "hero_attacked_critically",
+        "color": "rgb(255, 173, 186)",
+        "categoryHeading": "none",
+        "font": "21px"
+      },
+      {
+        "text": "Hero evaded an attackOpen",
+        "kind": "enemy_missed",
+        "color": "rgb(188, 254, 254)",
+        "categoryHeading": "none",
+        "font": "21px"
+      },
+      {
+        "text": "Starving wolf rat was hit for 1 physical damageOpen",
+        "kind": "enemy_attacked",
+        "color": "rgb(143, 232, 255)",
+        "categoryHeading": "none",
+        "font": "21px"
+      },
+      {
+        "text": "Hero evaded an attackOpen",
+        "kind": "enemy_missed",
+        "color": "rgb(188, 254, 254)",
+        "categoryHeading": "none",
+        "font": "21px"
+      },
+      {
+        "text": "Starving wolf rat was hit for 1 physical damageOpen",
+        "kind": "enemy_attacked",
+        "color": "rgb(143, 232, 255)",
+        "categoryHeading": "none",
+        "font": "21px"
+      },
+      {
+        "text": "Hero evaded an attackOpen",
+        "kind": "enemy_missed",
+        "color": "rgb(188, 254, 254)",
+        "categoryHeading": "none",
+        "font": "21px"
+      },
+      {
+        "text": "Starving wolf rat was hit for 1.4 physical damageOpen",
+        "kind": "enemy_attacked",
+        "color": "rgb(143, 232, 255)",
+        "categoryHeading": "none",
+        "font": "21px"
+      }
+    ],
+    "filterNative": true,
+    "inspectionExact": true,
+    "errors": []
+  }
+]

@@ -1,0 +1,109 @@
+{
+  "candidate": "/Users/weiwei/.codex/candidates/yair-ui-parity-r7-2026-10-15-01a14072",
+  "browserTab": "iab:3",
+  "technicalCandidateDelivered": true,
+  "humanAccepted": false,
+  "viewportCases": 6,
+  "focusedTests": 10,
+  "comparison": {
+    "states": 6,
+    "compositions": 4,
+    "sourceComparisons": 3,
+    "allImagesLoaded": true,
+    "nativePixelAndFit": true,
+    "errors": [],
+    "retainedBrowserTab": "iab:3",
+    "visiblePageVerified": true,
+    "nativePageTitle": "R7 candidate: native YAIR \u00d7 Proto23 \u00d7 rebuilt comparison",
+    "appPanelOpenRequests": "queued; resolved through visible IAB tab"
+  },
+  "checks": {
+    "default-results.json": {
+      "baseLayoutRawBytesExact": true,
+      "pinCollapseExact": true,
+      "bothDirections": true,
+      "gameplayExact": true,
+      "errors": []
+    },
+    "density-results.json": {
+      "comfortable": {
+        "font": "21px",
+        "row": 32.28125,
+        "density": "comfortable"
+      },
+      "compact": {
+        "font": "21px",
+        "row": 27.25,
+        "density": "compact"
+      },
+      "fontPreserved": true,
+      "gameplayExact": true
+    },
+    "resize-results.json": {
+      "auto": [
+        {
+          "w": 1366,
+          "h": 768,
+          "mode": "compact",
+          "gear": false
+        },
+        {
+          "w": 1920,
+          "h": 1080,
+          "mode": "panels",
+          "gear": true
+        },
+        {
+          "w": 2560,
+          "h": 1440,
+          "mode": "panels",
+          "gear": true
+        },
+        {
+          "w": 3600,
+          "h": 1906,
+          "mode": "panels",
+          "gear": true
+        },
+        {
+          "w": 1366,
+          "h": 768,
+          "mode": "compact",
+          "gear": false
+        }
+      ],
+      "manualOverridesKept": true,
+      "gameplayExact": true,
+      "errors": []
+    },
+    "weather-results.json": {
+      "nativeSummerDay": true,
+      "nativeNight": true,
+      "publicDomColdAndFahrenheitFixture": true,
+      "temperatureClassRefreshAtSameValue": true,
+      "nativeToleranceTooltip": true,
+      "gameplayExact": true
+    },
+    "stop-compat-results.json": {
+      "stopsOnlyR7": true,
+      "existingPresentationKeepsNativeCombatReports": true,
+      "resumeAfterReturning": true,
+      "errors": []
+    },
+    "shield-results.json": {
+      "nativeEquipmentActions": 3,
+      "blockLongValueVisible": true,
+      "nativeBlockDescription": true,
+      "errors": []
+    },
+    "final-integrated.json": {
+      "freshBuild": true,
+      "actualText21": true,
+      "selectedMultiCombatSixRows": true,
+      "nativeFacts": 6,
+      "inspectionExact": true,
+      "saveReloadExportLiteralImport": true,
+      "characterInventoryBooksExact": true
+    }
+  }
+}

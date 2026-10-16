@@ -1,0 +1,72 @@
+{
+  "layout": {
+    "top": 217.71875,
+    "bottom": 587.609375,
+    "height": 369.890625,
+    "width": 419.1875
+  },
+  "actions": {
+    "top": 39,
+    "bottom": 721,
+    "width": 463.1875
+  },
+  "page": [
+    1366,
+    768
+  ],
+  "viewport": [
+    1366,
+    768
+  ],
+  "core": [
+    {
+      "text": "STR22.9 ",
+      "height": 20.578125
+    },
+    {
+      "text": "AGL19.7 ",
+      "height": 20.578125
+    },
+    {
+      "text": "DEX15.0 ",
+      "height": 20.578125
+    },
+    {
+      "text": "INT27.5 ",
+      "height": 20.578125
+    },
+    {
+      "text": "Defense1.0 ",
+      "height": 20.578125
+    },
+    {
+      "text": "Magic0.0 ",
+      "height": 20.578125
+    },
+    {
+      "text": "Attack2.3 ",
+      "height": 20.578125
+    },
+    {
+      "text": "Speed1.0 /s ",
+      "height": 20.578125
+    },
+    {
+      "text": "Crit %5.0%",
+      "height": 20.578125
+    },
+    {
+      "text": "Crit ×130.0% ",
+      "height": 20.578125
+    },
+    {
+      "text": "AP80 ",
+      "height": 20.578125
+    },
+    {
+      "text": "EP109",
+      "height": 20.578125
+    }
+  ],
+  "detail": "Stamina efficiencyNative stamina costs are divided by this factor. ×2 means half the base stamina cost, not a 200% cost reduction.Current×1.087Unit×Base×1Before multipliers1Total multiplier×1.087Native modifier sourcesSource categoryFlatMultiplierSkillsNone×1.087Native categories may combine several contributors. Individual item or effect attribution is shown only when supplied."
+}

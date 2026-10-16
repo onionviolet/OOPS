@@ -1,0 +1,19 @@
+{
+  "inputs": {
+    "src/village_workspace.js": "a56c52a00a73850647baab0d18a9ce436f36119aea474c2157c92ea66b3191ac",
+    "src/proto23_shell.js": "ed9ee69e2bc7fcf80605c85a05fb7beec7963d639de8003fc694acc21d7bf9d5",
+    "src/workspace_layout.js": "81d202e85f8f15dcfb7a7dae5d0e2ab2a18b92f684dc27e82b8dd015f781db67",
+    "styles/ui_tokens.css": "061152abfa34e62de3cbb9407111c257b00dc6825ab81fa5da43b1d04d346bae",
+    "src/display.js": "685c322350702a48512f2b8d7260108c51ba56b3aaacb31e3ba5c5b6f081d1e4",
+    "src/main.js": "dfe9fbcc4b87e70f6993c3578b7fc789fb23a1700ffa3980e1dc75f3492d7b71",
+    "src/save_files.js": "ed3f1d2bbc12c8b2e0a1cade98cc825af27c3e5d3ab9ee904958aa2b04308b8d",
+    "src/simulation.js": "b4a5b39f5b1a6f3c5c7bbc048a44898066a437735ee34b855b8b074da7824ea4",
+    "src/simulation_clock.js": "02e5e74028285e95d0f959b5a42739500b7dc5686830467cbb2058584d3b4897"
+  },
+  "outputs": {
+    "src/village_workspace.js": "fd37a7ab874b9d394de0700b090fbbe827d3facb7628fcaca44257587a57ca7e",
+    "src/proto23_shell.js": "0ca97116c29a1f53eea9a008f1bb243d6c482913cf53c0e9d35a512d81712d9f",
+    "src/workspace_layout.js": "9a71701818dbc10483e4621ce6b2374458399ad7cb764ade33da85da5fbbda31",
+    "styles/ui_tokens.css": "4244758c0ee03a7d5b43973346336587a336a22e245922c2e3cbbbe489625dfa"
+  }
+}

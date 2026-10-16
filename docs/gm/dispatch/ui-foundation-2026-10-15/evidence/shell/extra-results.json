@@ -1,0 +1,23 @@
+[
+  {
+    "name": "opt-in-and-shell-reset-preserves-base",
+    "detail": {}
+  },
+  {
+    "name": "keyboard-and-inspection-cost",
+    "detail": {
+      "clockExact": true,
+      "visibleOutline": true
+    }
+  },
+  {
+    "name": "custom-palette-and-reduced-motion",
+    "detail": {
+      "nativeSettingsApply": true
+    }
+  },
+  {
+    "name": "standard-palette",
+    "detail": {}
+  }
+]

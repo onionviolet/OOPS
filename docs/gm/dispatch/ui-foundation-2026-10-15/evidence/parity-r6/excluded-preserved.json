@@ -1,0 +1,6 @@
+{
+  "src/main.js": true,
+  "src/save_files.js": true,
+  "src/simulation_clock.js": true,
+  "src/simulation.js": true
+}

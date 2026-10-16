@@ -273,6 +273,11 @@ function update_fighter_stats({fighter_index, is_attacker}) {
         text_string +=` x${fighter_stats.attack_count}`;
     }
 
+    // Reuse this renderer's already computed opponent evasion. This is a
+    // contextual connection chance, before damage reduction or shield block.
+    if(!is_attacker && includes_player && opponents.length === 1) {
+        fighter_div.dataset.playerHitChance = `${Math.min(100,Math.max(0,Math.round(100*(1-evasion_chance))))}%`;
+    } else { delete fighter_div.dataset.playerHitChance; }
     const stats_div = fighter_div.querySelector(".fighter_stats");
 
     // opponents[0].hasShield() => show hit as 100%
@@ -411,7 +416,7 @@ function update_attack_bar({fighter_index, is_attacker, progress}) {
 }
 
 function do_onhit_animation({fighter_index, is_attacker}) {
-    if(document.documentElement.dataset.effects==='off') return; // Effects off stops combat motion too.
+    if(['off','reduced'].includes(document.documentElement.dataset.effects)||globalThis.matchMedia?.('(prefers-reduced-motion: reduce)').matches) return; // Effects off stops combat motion too.
     const animations = (is_attacker ? attacker_animations : defender_animations);
     const fighter_div = (is_attacker ? current_combat.attackers_ui_slot : current_combat.defenders_ui_slot).children[fighter_index];
     animations[fighter_index]?.cancel(); //likely unnecessary, but won't hurt
@@ -423,7 +428,7 @@ function remove_onhit_animation({fighter_index, is_attacker}) {
 }
 
 function do_onstart_animation({fighter_index, is_attacker}) {
-    if(document.documentElement.dataset.effects==='off') return;
+    if(['off','reduced'].includes(document.documentElement.dataset.effects)||globalThis.matchMedia?.('(prefers-reduced-motion: reduce)').matches) return;
     const animations = (is_attacker ? attacker_animations : defender_animations);
     const fighter_div = (is_attacker ? current_combat.attackers_ui_slot : current_combat.defenders_ui_slot).children[fighter_index];
     

@@ -1,0 +1,46 @@
+[
+  {
+    "name": "navigation-1366",
+    "pass": true,
+    "detail": {
+      "mixingButton": true,
+      "overlapCrafting": true,
+      "overlapDialogue": true,
+      "escape": true
+    }
+  },
+  {
+    "name": "queue-and-reload",
+    "pass": true,
+    "detail": {
+      "jobRetained": true,
+      "openViewReloadsToLocal": true
+    }
+  },
+  {
+    "name": "layout-compatibility",
+    "pass": true,
+    "detail": {
+      "layoutUnchanged": true,
+      "pin": true,
+      "collapse": true
+    }
+  },
+  {
+    "name": "export-literal-file-import",
+    "pass": true,
+    "detail": {
+      "methodsPreserved": true,
+      "identityPreserved": true
+    }
+  },
+  {
+    "name": "combat-log-1366",
+    "pass": true,
+    "detail": {
+      "height": 524.015625,
+      "combatMessages": true,
+      "filtersVisible": true
+    }
+  }
+]

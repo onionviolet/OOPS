@@ -27,7 +27,7 @@
     min-width: 0;
     padding: 0.75rem;
     border: 1px solid var(--al-border);
-    border-radius: 0.45rem;
+    border-radius: var(--ui-radius);
     overflow-wrap: anywhere;
 }
 
@@ -81,7 +81,7 @@
     color: inherit;
     font: inherit;
     border: 1px solid var(--al-border);
-    border-radius: 0.35rem;
+    border-radius: var(--ui-radius);
     background: transparent;
     cursor: pointer;
     text-align: start;

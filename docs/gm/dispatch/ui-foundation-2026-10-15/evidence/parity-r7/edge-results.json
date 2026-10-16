@@ -1,0 +1,34 @@
+{
+  "eightNativeRestoredEnemies": true,
+  "inspectionNotRetargeting": true,
+  "longNames": true,
+  "publicDomKnowledgeCases": [
+    {
+      "mode": "known",
+      "values": [
+        "4 dmg",
+        "0.82 /s",
+        "51%",
+        "26%",
+        "0",
+        "74%"
+      ]
+    },
+    {
+      "mode": "partial",
+      "values": [
+        "roughly 4 dmg"
+      ]
+    },
+    {
+      "mode": "unknown",
+      "values": []
+    }
+  ],
+  "knowledgeGameplayExact": true,
+  "stopResumeNewCombatReports": true,
+  "growthWhileStopped": true,
+  "clearDisplayOnly": true,
+  "postClearStreamContinues": true,
+  "postClearCheck": "10 native ticks, not a category capacity boundary stress"
+}
