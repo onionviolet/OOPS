@@ -295,3 +295,15 @@ tree's uncommitted main.js/save_files.js edits per the lane checkpoint list. Do 
   panels" select is not reachable under the in-progress shell restructure. Seam item for the UI
   owner (NX33): Herbal experiments needs a discoverable route in the new shell, and the M3 harness's
   `open()` follows whatever route that is.
+
+### Post-merge follow-up, 2026-10-16
+
+- The UI session fixed the NX33 route: "More panels…" is visible in the shell again. The M3 harness's
+  inventory-use step now presses the inline `[use]` when it is visible and otherwise selects the row
+  and presses Use in `#proto23_item_detail`, the shell route since R14. With that change,
+  `scripts/modular_crafting_browser.cjs` passes in full on the shared build, including the
+  uncommitted R16 shell (evidence went to scratch, not to this folder).
+- `[data-craft-*]` duplicates: the herbal home is a second legitimate `crafting_detail` instance.
+  Checks should scope to their view (`#crafting_window ...`), as the UI session did for
+  `check-r14.cjs`. The R12 checks (`check-r12-recipe/success/ticks.cjs`) still use unscoped selectors
+  and are UI-owned.

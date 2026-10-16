@@ -43,7 +43,10 @@ const url='http://127.0.0.1:19460/?test_hooks=1',evidence='docs/gm/dispatch/modu
  await page.locator('#center_mode_back').click();
  const row=page.locator('[data-character_item]').filter({has:page.locator('.item_use_button')});
  const keyRows=await row.evaluateAll(ns=>ns.map(n=>n.getAttribute('data-character_item')));
- const idx=keyRows.indexOf(nextProduct);assert.ok(idx>=0);await row.nth(idx).locator('.item_use_button').click();
+ const idx=keyRows.indexOf(nextProduct);assert.ok(idx>=0);
+ // Classic layout shows the inline [use]; the shell hides row actions and routes them through item detail.
+ const inline=row.nth(idx).locator('.item_use_button');
+ if(await inline.isVisible())await inline.click();else{await row.nth(idx).click();await page.locator('#proto23_item_detail').getByRole('button',{name:'Use',exact:true}).click();}
  assert.equal((await snapshot()).inventories.person.main_character[nextProduct],undefined);
  await open();await page.screenshot({path:evidence+'/M3-home-observed.png'});
  await page.keyboard.press('Escape');assert.equal(await page.locator('#crafting_engine_home').isVisible(),false);await open();
