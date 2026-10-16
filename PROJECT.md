@@ -30,6 +30,20 @@ FA13 current source passes ten focused contract checks. Native optional enrollme
 
 ## Standing priorities and document authority
 
+**Crafting engine (2026-10-15):** Weibao asked for engine-level procedural recipes,
+materials and harvesting. Pure modules are in place: material catalogue and seeded
+regional generation, a conserving batch resolver, recipe grammar and matching,
+location sources with game-time RNG yields, gates, regrowth and rare finds, an
+optional save owner with per-observer knowledge, and a product-family registry.
+There are 16 unit tests; nothing is wired into play yet. [Owner and open gates](docs/CRAFTING_ENGINE.md).
+
+**Making rules (2026-10-15):** At Weibao's request, the crafting direction is saved as
+standing [making rules](docs/MAKING_RULES.md) MR1–MR36 for every kind of making.
+Free mixing works in canon worlds too, and formulas act as attractors. [Rounds 2–4](docs/CRAFTING_ENGINE.md)
+hold the palettes: world modes and canon resource spots; styles, process
+semantics, depth and mastery; deeper potions; and the same model for smithing,
+runes and the other crafts. Nothing new is built.
+
 **Food direction (2026-10-13):** useful meal benefits, comfortable unfed
 ordinary play and no hunger death. Famine is requested as an adaptation
 skill with passive underfed XP and no active-play requirement. Slow positive

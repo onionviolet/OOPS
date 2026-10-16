@@ -2973,3 +2973,84 @@ Proposals only; every reasonable premise stays reachable rather than chosen
 either/or. Randomized premise truths follow the sealed-secrets rule.
 
 Research fold, 2026-10-15: Weibao asked to "Fold and commit and push accordingly". The multi-world audit and synthesis (world kit round 18, FK5-FK10), feature scout (chains round 6, FS1-FS9; technology round 14; genetics round 14; synthesis packet donors) and deep systems sweep (companions DSC1-DSC5 and the rows above) were folded into their owners as proposals. Many sources agree that a local rule should change one useful verb (MWA-P02), the next multi-world build candidate, not dispatched.
+
+### Procedural crafting engine and harvesting, 2026-10-15
+
+Weibao asked:
+
+> engine level stuff to allow for procedural recepipes, crafting material and more
+
+Mid-task follow-up:
+
+> what about obtaining the materials and stuff and more? Location + RNG based harvesting? other stuff?
+
+The request is engine-level groundwork for procedural materials, recipes and obtaining
+materials, with location- and RNG-based harvesting added in the follow-up. The engine
+source and unit tests are in [CRAFTING_ENGINE](CRAFTING_ENGINE.md). Live wiring, UI
+and a playable consumer are still open gates there.
+
+### Crafting engine round 2: world rules and canon resource spots, 2026-10-15
+
+Weibao asked:
+
+> consider different types of rules for generation and more? some standard recipes with room to slot in and more, for say, harry potter brewing versus brewing in other worlds? more to consider? Resource generation by world? we might need to setup rules to create resource spots based on cannon and more?
+
+These are considerations, not a dispatch. They are recorded in
+[CRAFTING_ENGINE round 2](CRAFTING_ENGINE.md#round-2-2026-10-15-world-rule-types-open-slot-recipes-and-canon-resource-spots):
+
+- GT1-GT9: generation modes per world;
+- WR1-WR10: what a world's crafting rulebook declares;
+- RS1-RS12: canon-based resource spot rules;
+- ER1-ER8: engine constraints;
+- L1-L5: later slices.
+
+### Crafting engine round 3: styles, free mixing and mastery, 2026-10-15
+
+Weibao asked:
+
+> Different worlds will have different styles and more accordingly? Of course ingredient mixing can creat some sort of random potion with better or worse effects? we can kind of recreate potion crafting rules of the world? like what swirling does and more, if anyone wants to get really in depth? and of course as getting better steps can be reduced or better result and other possibilities and more?
+
+Direction: free ingredient mixing makes original potions with better or worse
+effects in every world, including canon worlds. This corrects the round 2 reading
+that HP brewing is formula-only. Worlds have their own styles, and their process
+rules (for example what stirring does) can be recreated in depth for players who
+want it. Mastery reduces steps, improves results and opens other options.
+Considerations are recorded as
+[CRAFTING_ENGINE round 3](CRAFTING_ENGINE.md#round-3-2026-10-15-world-styles-free-mixing-process-semantics-and-mastery):
+
+- OV1-OV3: correction and the combined model;
+- ST1-ST7: per-world styles;
+- PR1-PR7: process semantics;
+- DP1-DP4: depth on demand;
+- MA1-MA9: mastery;
+- ER9-ER14: engine constraints;
+- L6-L9: later slices.
+
+Nothing is dispatched.
+
+### Making rules and cross-domain extrapolation, 2026-10-15
+
+Weibao asked:
+
+> save rules and deeper considerations for potions, and extrapolate similar stuff for creating and runes and other aspects accordingly?
+
+The crafting direction is saved as standing [making rules](MAKING_RULES.md)
+MR1–MR36, linked from AGENTS.md. Deeper potion angles (PD1–PD14), the same model
+for each kind of making (XD1–XD15), cross-domain links (XI1–XI7) and engine
+constraints (ER15–ER17) are in
+[CRAFTING_ENGINE round 4](CRAFTING_ENGINE.md#round-4-2026-10-15-deeper-potions-and-the-same-model-for-every-kind-of-making).
+The rules constrain later work; the specific mechanics in the palettes remain
+proposals. Nothing is dispatched.
+
+### Crafting long-term notes and subtle details, 2026-10-15
+
+Weibao asked:
+
+> rather than just memory note, save long term notes as well? Also for other little and subtle stuff
+
+A long-term Codex note now points to the making rules and the crafting engine, alongside
+the Claude memory note. Round 5 is in
+[CRAFTING_ENGINE](CRAFTING_ENGINE.md#round-5-2026-10-15-little-and-subtle-details).
+It records two fixed engine bugs (SF1 regrowth drift, SF2 pity spent on blocked
+rares), subtle engine details SC1–SC12, play details SP1–SP12 and per-domain details
+SX1–SX7. Nothing else is dispatched.
