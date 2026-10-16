@@ -1,0 +1,1870 @@
+{
+  "d20": {
+    "0": {
+      "schema": 1,
+      "engine": "check@1",
+      "profileRef": "test.sum_target.1d20@1",
+      "inputFingerprint": {
+        "lo": 1921189199,
+        "hi": 4291480837
+      },
+      "profile": {
+        "id": "test.sum_target.1d20",
+        "revision": 1,
+        "family": "sum_target",
+        "dice": {
+          "count": 1,
+          "sides": 20
+        }
+      },
+      "check": {
+        "modifiers": [],
+        "resources": {},
+        "spends": [],
+        "facts": {},
+        "id": "test.check",
+        "target": 12
+      },
+      "drawAddress": {
+        "root": "r1-test-root",
+        "worldId": "test.world",
+        "lifeId": "life:1",
+        "gameTime": 0,
+        "eventId": "test.check"
+      },
+      "dice": [
+        {
+          "phase": "initial",
+          "mode": "normal",
+          "candidates": [
+            {
+              "dice": [
+                {
+                  "value": 3,
+                  "address": "[\"[\\\"check@1\\\",\\\"test.sum_target.1d20\\\",1,\\\"test.check\\\",[\\\"object\\\",[[\\\"eventId\\\",\\\"test.check\\\"],[\\\"gameTime\\\",0],[\\\"lifeId\\\",\\\"life:1\\\"],[\\\"root\\\",\\\"r1-test-root\\\"],[\\\"worldId\\\",\\\"test.world\\\"]]],[\\\"object\\\",[[\\\"candidate\\\",0],[\\\"phase\\\",\\\"initial\\\"],[\\\"slot\\\",0]]]]\",[\"object\",[[\"attempt\",0]]]]",
+                  "draw": 543134507,
+                  "attempt": 0
+                }
+              ],
+              "score": 3
+            }
+          ],
+          "selected": 0
+        }
+      ],
+      "modifiers": [],
+      "spent": [],
+      "remaining": {},
+      "result": {
+        "raw": 3,
+        "bonus": 0,
+        "total": 3,
+        "target": 12,
+        "margin": -9,
+        "success": false,
+        "degree": "failure",
+        "level": -1
+      },
+      "reasons": [],
+      "top": [
+        {
+          "id": "test.sum_target.1d20",
+          "weight": 1,
+          "reason": "sum_target: failure"
+        }
+      ]
+    },
+    "1440": {
+      "schema": 1,
+      "engine": "check@1",
+      "profileRef": "test.sum_target.1d20@1",
+      "inputFingerprint": {
+        "lo": 1603714447,
+        "hi": 3693643501
+      },
+      "profile": {
+        "id": "test.sum_target.1d20",
+        "revision": 1,
+        "family": "sum_target",
+        "dice": {
+          "count": 1,
+          "sides": 20
+        }
+      },
+      "check": {
+        "modifiers": [],
+        "resources": {},
+        "spends": [],
+        "facts": {},
+        "id": "test.check",
+        "target": 12
+      },
+      "drawAddress": {
+        "root": "r1-test-root",
+        "worldId": "test.world",
+        "lifeId": "life:1",
+        "gameTime": 1440,
+        "eventId": "test.check"
+      },
+      "dice": [
+        {
+          "phase": "initial",
+          "mode": "normal",
+          "candidates": [
+            {
+              "dice": [
+                {
+                  "value": 4,
+                  "address": "[\"[\\\"check@1\\\",\\\"test.sum_target.1d20\\\",1,\\\"test.check\\\",[\\\"object\\\",[[\\\"eventId\\\",\\\"test.check\\\"],[\\\"gameTime\\\",1440],[\\\"lifeId\\\",\\\"life:1\\\"],[\\\"root\\\",\\\"r1-test-root\\\"],[\\\"worldId\\\",\\\"test.world\\\"]]],[\\\"object\\\",[[\\\"candidate\\\",0],[\\\"phase\\\",\\\"initial\\\"],[\\\"slot\\\",0]]]]\",[\"object\",[[\"attempt\",0]]]]",
+                  "draw": 783440227,
+                  "attempt": 0
+                }
+              ],
+              "score": 4
+            }
+          ],
+          "selected": 0
+        }
+      ],
+      "modifiers": [],
+      "spent": [],
+      "remaining": {},
+      "result": {
+        "raw": 4,
+        "bonus": 0,
+        "total": 4,
+        "target": 12,
+        "margin": -8,
+        "success": false,
+        "degree": "failure",
+        "level": -1
+      },
+      "reasons": [],
+      "top": [
+        {
+          "id": "test.sum_target.1d20",
+          "weight": 1,
+          "reason": "sum_target: failure"
+        }
+      ]
+    },
+    "9001": {
+      "schema": 1,
+      "engine": "check@1",
+      "profileRef": "test.sum_target.1d20@1",
+      "inputFingerprint": {
+        "lo": 2582257220,
+        "hi": 1233125857
+      },
+      "profile": {
+        "id": "test.sum_target.1d20",
+        "revision": 1,
+        "family": "sum_target",
+        "dice": {
+          "count": 1,
+          "sides": 20
+        }
+      },
+      "check": {
+        "modifiers": [],
+        "resources": {},
+        "spends": [],
+        "facts": {},
+        "id": "test.check",
+        "target": 12
+      },
+      "drawAddress": {
+        "root": "r1-test-root",
+        "worldId": "test.world",
+        "lifeId": "life:1",
+        "gameTime": 9001,
+        "eventId": "test.check"
+      },
+      "dice": [
+        {
+          "phase": "initial",
+          "mode": "normal",
+          "candidates": [
+            {
+              "dice": [
+                {
+                  "value": 9,
+                  "address": "[\"[\\\"check@1\\\",\\\"test.sum_target.1d20\\\",1,\\\"test.check\\\",[\\\"object\\\",[[\\\"eventId\\\",\\\"test.check\\\"],[\\\"gameTime\\\",9001],[\\\"lifeId\\\",\\\"life:1\\\"],[\\\"root\\\",\\\"r1-test-root\\\"],[\\\"worldId\\\",\\\"test.world\\\"]]],[\\\"object\\\",[[\\\"candidate\\\",0],[\\\"phase\\\",\\\"initial\\\"],[\\\"slot\\\",0]]]]\",[\"object\",[[\"attempt\",0]]]]",
+                  "draw": 1779576804,
+                  "attempt": 0
+                }
+              ],
+              "score": 9
+            }
+          ],
+          "selected": 0
+        }
+      ],
+      "modifiers": [],
+      "spent": [],
+      "remaining": {},
+      "result": {
+        "raw": 9,
+        "bonus": 0,
+        "total": 9,
+        "target": 12,
+        "margin": -3,
+        "success": false,
+        "degree": "failure",
+        "level": -1
+      },
+      "reasons": [],
+      "top": [
+        {
+          "id": "test.sum_target.1d20",
+          "weight": 1,
+          "reason": "sum_target: failure"
+        }
+      ]
+    }
+  },
+  "advantage": {
+    "0": {
+      "schema": 1,
+      "engine": "check@1",
+      "profileRef": "test.sum_target.1d20@1",
+      "inputFingerprint": {
+        "lo": 2254257404,
+        "hi": 2467260686
+      },
+      "profile": {
+        "id": "test.sum_target.1d20",
+        "revision": 1,
+        "family": "sum_target",
+        "dice": {
+          "count": 1,
+          "sides": 20
+        }
+      },
+      "check": {
+        "modifiers": [
+          {
+            "id": "advantage",
+            "kind": "advantage",
+            "reason": "test advantage"
+          }
+        ],
+        "resources": {},
+        "spends": [],
+        "facts": {},
+        "id": "test.check",
+        "target": 12
+      },
+      "drawAddress": {
+        "root": "r1-test-root",
+        "worldId": "test.world",
+        "lifeId": "life:1",
+        "gameTime": 0,
+        "eventId": "test.check"
+      },
+      "dice": [
+        {
+          "phase": "initial",
+          "mode": "advantage",
+          "candidates": [
+            {
+              "dice": [
+                {
+                  "value": 3,
+                  "address": "[\"[\\\"check@1\\\",\\\"test.sum_target.1d20\\\",1,\\\"test.check\\\",[\\\"object\\\",[[\\\"eventId\\\",\\\"test.check\\\"],[\\\"gameTime\\\",0],[\\\"lifeId\\\",\\\"life:1\\\"],[\\\"root\\\",\\\"r1-test-root\\\"],[\\\"worldId\\\",\\\"test.world\\\"]]],[\\\"object\\\",[[\\\"candidate\\\",0],[\\\"phase\\\",\\\"initial\\\"],[\\\"slot\\\",0]]]]\",[\"object\",[[\"attempt\",0]]]]",
+                  "draw": 543134507,
+                  "attempt": 0
+                }
+              ],
+              "score": 3
+            },
+            {
+              "dice": [
+                {
+                  "value": 7,
+                  "address": "[\"[\\\"check@1\\\",\\\"test.sum_target.1d20\\\",1,\\\"test.check\\\",[\\\"object\\\",[[\\\"eventId\\\",\\\"test.check\\\"],[\\\"gameTime\\\",0],[\\\"lifeId\\\",\\\"life:1\\\"],[\\\"root\\\",\\\"r1-test-root\\\"],[\\\"worldId\\\",\\\"test.world\\\"]]],[\\\"object\\\",[[\\\"candidate\\\",1],[\\\"phase\\\",\\\"initial\\\"],[\\\"slot\\\",0]]]]\",[\"object\",[[\"attempt\",0]]]]",
+                  "draw": 1500388114,
+                  "attempt": 0
+                }
+              ],
+              "score": 7
+            }
+          ],
+          "selected": 1
+        }
+      ],
+      "modifiers": [
+        {
+          "id": "advantage",
+          "kind": "advantage",
+          "reason": "test advantage"
+        }
+      ],
+      "spent": [],
+      "remaining": {},
+      "result": {
+        "raw": 7,
+        "bonus": 0,
+        "total": 7,
+        "target": 12,
+        "margin": -5,
+        "success": false,
+        "degree": "failure",
+        "level": -1
+      },
+      "reasons": [],
+      "top": [
+        {
+          "id": "test.sum_target.1d20",
+          "weight": 1,
+          "reason": "sum_target: failure"
+        },
+        {
+          "id": "advantage",
+          "weight": 1,
+          "reason": "test advantage"
+        }
+      ]
+    },
+    "1440": {
+      "schema": 1,
+      "engine": "check@1",
+      "profileRef": "test.sum_target.1d20@1",
+      "inputFingerprint": {
+        "lo": 113260877,
+        "hi": 3098970728
+      },
+      "profile": {
+        "id": "test.sum_target.1d20",
+        "revision": 1,
+        "family": "sum_target",
+        "dice": {
+          "count": 1,
+          "sides": 20
+        }
+      },
+      "check": {
+        "modifiers": [
+          {
+            "id": "advantage",
+            "kind": "advantage",
+            "reason": "test advantage"
+          }
+        ],
+        "resources": {},
+        "spends": [],
+        "facts": {},
+        "id": "test.check",
+        "target": 12
+      },
+      "drawAddress": {
+        "root": "r1-test-root",
+        "worldId": "test.world",
+        "lifeId": "life:1",
+        "gameTime": 1440,
+        "eventId": "test.check"
+      },
+      "dice": [
+        {
+          "phase": "initial",
+          "mode": "advantage",
+          "candidates": [
+            {
+              "dice": [
+                {
+                  "value": 4,
+                  "address": "[\"[\\\"check@1\\\",\\\"test.sum_target.1d20\\\",1,\\\"test.check\\\",[\\\"object\\\",[[\\\"eventId\\\",\\\"test.check\\\"],[\\\"gameTime\\\",1440],[\\\"lifeId\\\",\\\"life:1\\\"],[\\\"root\\\",\\\"r1-test-root\\\"],[\\\"worldId\\\",\\\"test.world\\\"]]],[\\\"object\\\",[[\\\"candidate\\\",0],[\\\"phase\\\",\\\"initial\\\"],[\\\"slot\\\",0]]]]\",[\"object\",[[\"attempt\",0]]]]",
+                  "draw": 783440227,
+                  "attempt": 0
+                }
+              ],
+              "score": 4
+            },
+            {
+              "dice": [
+                {
+                  "value": 8,
+                  "address": "[\"[\\\"check@1\\\",\\\"test.sum_target.1d20\\\",1,\\\"test.check\\\",[\\\"object\\\",[[\\\"eventId\\\",\\\"test.check\\\"],[\\\"gameTime\\\",1440],[\\\"lifeId\\\",\\\"life:1\\\"],[\\\"root\\\",\\\"r1-test-root\\\"],[\\\"worldId\\\",\\\"test.world\\\"]]],[\\\"object\\\",[[\\\"candidate\\\",1],[\\\"phase\\\",\\\"initial\\\"],[\\\"slot\\\",0]]]]\",[\"object\",[[\"attempt\",0]]]]",
+                  "draw": 1694945728,
+                  "attempt": 0
+                }
+              ],
+              "score": 8
+            }
+          ],
+          "selected": 1
+        }
+      ],
+      "modifiers": [
+        {
+          "id": "advantage",
+          "kind": "advantage",
+          "reason": "test advantage"
+        }
+      ],
+      "spent": [],
+      "remaining": {},
+      "result": {
+        "raw": 8,
+        "bonus": 0,
+        "total": 8,
+        "target": 12,
+        "margin": -4,
+        "success": false,
+        "degree": "failure",
+        "level": -1
+      },
+      "reasons": [],
+      "top": [
+        {
+          "id": "test.sum_target.1d20",
+          "weight": 1,
+          "reason": "sum_target: failure"
+        },
+        {
+          "id": "advantage",
+          "weight": 1,
+          "reason": "test advantage"
+        }
+      ]
+    },
+    "9001": {
+      "schema": 1,
+      "engine": "check@1",
+      "profileRef": "test.sum_target.1d20@1",
+      "inputFingerprint": {
+        "lo": 194577142,
+        "hi": 519565705
+      },
+      "profile": {
+        "id": "test.sum_target.1d20",
+        "revision": 1,
+        "family": "sum_target",
+        "dice": {
+          "count": 1,
+          "sides": 20
+        }
+      },
+      "check": {
+        "modifiers": [
+          {
+            "id": "advantage",
+            "kind": "advantage",
+            "reason": "test advantage"
+          }
+        ],
+        "resources": {},
+        "spends": [],
+        "facts": {},
+        "id": "test.check",
+        "target": 12
+      },
+      "drawAddress": {
+        "root": "r1-test-root",
+        "worldId": "test.world",
+        "lifeId": "life:1",
+        "gameTime": 9001,
+        "eventId": "test.check"
+      },
+      "dice": [
+        {
+          "phase": "initial",
+          "mode": "advantage",
+          "candidates": [
+            {
+              "dice": [
+                {
+                  "value": 9,
+                  "address": "[\"[\\\"check@1\\\",\\\"test.sum_target.1d20\\\",1,\\\"test.check\\\",[\\\"object\\\",[[\\\"eventId\\\",\\\"test.check\\\"],[\\\"gameTime\\\",9001],[\\\"lifeId\\\",\\\"life:1\\\"],[\\\"root\\\",\\\"r1-test-root\\\"],[\\\"worldId\\\",\\\"test.world\\\"]]],[\\\"object\\\",[[\\\"candidate\\\",0],[\\\"phase\\\",\\\"initial\\\"],[\\\"slot\\\",0]]]]\",[\"object\",[[\"attempt\",0]]]]",
+                  "draw": 1779576804,
+                  "attempt": 0
+                }
+              ],
+              "score": 9
+            },
+            {
+              "dice": [
+                {
+                  "value": 3,
+                  "address": "[\"[\\\"check@1\\\",\\\"test.sum_target.1d20\\\",1,\\\"test.check\\\",[\\\"object\\\",[[\\\"eventId\\\",\\\"test.check\\\"],[\\\"gameTime\\\",9001],[\\\"lifeId\\\",\\\"life:1\\\"],[\\\"root\\\",\\\"r1-test-root\\\"],[\\\"worldId\\\",\\\"test.world\\\"]]],[\\\"object\\\",[[\\\"candidate\\\",1],[\\\"phase\\\",\\\"initial\\\"],[\\\"slot\\\",0]]]]\",[\"object\",[[\"attempt\",0]]]]",
+                  "draw": 511964616,
+                  "attempt": 0
+                }
+              ],
+              "score": 3
+            }
+          ],
+          "selected": 0
+        }
+      ],
+      "modifiers": [
+        {
+          "id": "advantage",
+          "kind": "advantage",
+          "reason": "test advantage"
+        }
+      ],
+      "spent": [],
+      "remaining": {},
+      "result": {
+        "raw": 9,
+        "bonus": 0,
+        "total": 9,
+        "target": 12,
+        "margin": -3,
+        "success": false,
+        "degree": "failure",
+        "level": -1
+      },
+      "reasons": [],
+      "top": [
+        {
+          "id": "test.sum_target.1d20",
+          "weight": 1,
+          "reason": "sum_target: failure"
+        },
+        {
+          "id": "advantage",
+          "weight": 1,
+          "reason": "test advantage"
+        }
+      ]
+    }
+  },
+  "disadvantage": {
+    "0": {
+      "schema": 1,
+      "engine": "check@1",
+      "profileRef": "test.sum_target.1d20@1",
+      "inputFingerprint": {
+        "lo": 2998852386,
+        "hi": 3415943512
+      },
+      "profile": {
+        "id": "test.sum_target.1d20",
+        "revision": 1,
+        "family": "sum_target",
+        "dice": {
+          "count": 1,
+          "sides": 20
+        }
+      },
+      "check": {
+        "modifiers": [
+          {
+            "id": "disadvantage",
+            "kind": "disadvantage",
+            "reason": "test disadvantage"
+          }
+        ],
+        "resources": {},
+        "spends": [],
+        "facts": {},
+        "id": "test.check",
+        "target": 12
+      },
+      "drawAddress": {
+        "root": "r1-test-root",
+        "worldId": "test.world",
+        "lifeId": "life:1",
+        "gameTime": 0,
+        "eventId": "test.check"
+      },
+      "dice": [
+        {
+          "phase": "initial",
+          "mode": "disadvantage",
+          "candidates": [
+            {
+              "dice": [
+                {
+                  "value": 3,
+                  "address": "[\"[\\\"check@1\\\",\\\"test.sum_target.1d20\\\",1,\\\"test.check\\\",[\\\"object\\\",[[\\\"eventId\\\",\\\"test.check\\\"],[\\\"gameTime\\\",0],[\\\"lifeId\\\",\\\"life:1\\\"],[\\\"root\\\",\\\"r1-test-root\\\"],[\\\"worldId\\\",\\\"test.world\\\"]]],[\\\"object\\\",[[\\\"candidate\\\",0],[\\\"phase\\\",\\\"initial\\\"],[\\\"slot\\\",0]]]]\",[\"object\",[[\"attempt\",0]]]]",
+                  "draw": 543134507,
+                  "attempt": 0
+                }
+              ],
+              "score": 3
+            },
+            {
+              "dice": [
+                {
+                  "value": 7,
+                  "address": "[\"[\\\"check@1\\\",\\\"test.sum_target.1d20\\\",1,\\\"test.check\\\",[\\\"object\\\",[[\\\"eventId\\\",\\\"test.check\\\"],[\\\"gameTime\\\",0],[\\\"lifeId\\\",\\\"life:1\\\"],[\\\"root\\\",\\\"r1-test-root\\\"],[\\\"worldId\\\",\\\"test.world\\\"]]],[\\\"object\\\",[[\\\"candidate\\\",1],[\\\"phase\\\",\\\"initial\\\"],[\\\"slot\\\",0]]]]\",[\"object\",[[\"attempt\",0]]]]",
+                  "draw": 1500388114,
+                  "attempt": 0
+                }
+              ],
+              "score": 7
+            }
+          ],
+          "selected": 0
+        }
+      ],
+      "modifiers": [
+        {
+          "id": "disadvantage",
+          "kind": "disadvantage",
+          "reason": "test disadvantage"
+        }
+      ],
+      "spent": [],
+      "remaining": {},
+      "result": {
+        "raw": 3,
+        "bonus": 0,
+        "total": 3,
+        "target": 12,
+        "margin": -9,
+        "success": false,
+        "degree": "failure",
+        "level": -1
+      },
+      "reasons": [],
+      "top": [
+        {
+          "id": "test.sum_target.1d20",
+          "weight": 1,
+          "reason": "sum_target: failure"
+        },
+        {
+          "id": "disadvantage",
+          "weight": 1,
+          "reason": "test disadvantage"
+        }
+      ]
+    },
+    "1440": {
+      "schema": 1,
+      "engine": "check@1",
+      "profileRef": "test.sum_target.1d20@1",
+      "inputFingerprint": {
+        "lo": 1219335878,
+        "hi": 2396965149
+      },
+      "profile": {
+        "id": "test.sum_target.1d20",
+        "revision": 1,
+        "family": "sum_target",
+        "dice": {
+          "count": 1,
+          "sides": 20
+        }
+      },
+      "check": {
+        "modifiers": [
+          {
+            "id": "disadvantage",
+            "kind": "disadvantage",
+            "reason": "test disadvantage"
+          }
+        ],
+        "resources": {},
+        "spends": [],
+        "facts": {},
+        "id": "test.check",
+        "target": 12
+      },
+      "drawAddress": {
+        "root": "r1-test-root",
+        "worldId": "test.world",
+        "lifeId": "life:1",
+        "gameTime": 1440,
+        "eventId": "test.check"
+      },
+      "dice": [
+        {
+          "phase": "initial",
+          "mode": "disadvantage",
+          "candidates": [
+            {
+              "dice": [
+                {
+                  "value": 4,
+                  "address": "[\"[\\\"check@1\\\",\\\"test.sum_target.1d20\\\",1,\\\"test.check\\\",[\\\"object\\\",[[\\\"eventId\\\",\\\"test.check\\\"],[\\\"gameTime\\\",1440],[\\\"lifeId\\\",\\\"life:1\\\"],[\\\"root\\\",\\\"r1-test-root\\\"],[\\\"worldId\\\",\\\"test.world\\\"]]],[\\\"object\\\",[[\\\"candidate\\\",0],[\\\"phase\\\",\\\"initial\\\"],[\\\"slot\\\",0]]]]\",[\"object\",[[\"attempt\",0]]]]",
+                  "draw": 783440227,
+                  "attempt": 0
+                }
+              ],
+              "score": 4
+            },
+            {
+              "dice": [
+                {
+                  "value": 8,
+                  "address": "[\"[\\\"check@1\\\",\\\"test.sum_target.1d20\\\",1,\\\"test.check\\\",[\\\"object\\\",[[\\\"eventId\\\",\\\"test.check\\\"],[\\\"gameTime\\\",1440],[\\\"lifeId\\\",\\\"life:1\\\"],[\\\"root\\\",\\\"r1-test-root\\\"],[\\\"worldId\\\",\\\"test.world\\\"]]],[\\\"object\\\",[[\\\"candidate\\\",1],[\\\"phase\\\",\\\"initial\\\"],[\\\"slot\\\",0]]]]\",[\"object\",[[\"attempt\",0]]]]",
+                  "draw": 1694945728,
+                  "attempt": 0
+                }
+              ],
+              "score": 8
+            }
+          ],
+          "selected": 0
+        }
+      ],
+      "modifiers": [
+        {
+          "id": "disadvantage",
+          "kind": "disadvantage",
+          "reason": "test disadvantage"
+        }
+      ],
+      "spent": [],
+      "remaining": {},
+      "result": {
+        "raw": 4,
+        "bonus": 0,
+        "total": 4,
+        "target": 12,
+        "margin": -8,
+        "success": false,
+        "degree": "failure",
+        "level": -1
+      },
+      "reasons": [],
+      "top": [
+        {
+          "id": "test.sum_target.1d20",
+          "weight": 1,
+          "reason": "sum_target: failure"
+        },
+        {
+          "id": "disadvantage",
+          "weight": 1,
+          "reason": "test disadvantage"
+        }
+      ]
+    },
+    "9001": {
+      "schema": 1,
+      "engine": "check@1",
+      "profileRef": "test.sum_target.1d20@1",
+      "inputFingerprint": {
+        "lo": 3749608678,
+        "hi": 534247773
+      },
+      "profile": {
+        "id": "test.sum_target.1d20",
+        "revision": 1,
+        "family": "sum_target",
+        "dice": {
+          "count": 1,
+          "sides": 20
+        }
+      },
+      "check": {
+        "modifiers": [
+          {
+            "id": "disadvantage",
+            "kind": "disadvantage",
+            "reason": "test disadvantage"
+          }
+        ],
+        "resources": {},
+        "spends": [],
+        "facts": {},
+        "id": "test.check",
+        "target": 12
+      },
+      "drawAddress": {
+        "root": "r1-test-root",
+        "worldId": "test.world",
+        "lifeId": "life:1",
+        "gameTime": 9001,
+        "eventId": "test.check"
+      },
+      "dice": [
+        {
+          "phase": "initial",
+          "mode": "disadvantage",
+          "candidates": [
+            {
+              "dice": [
+                {
+                  "value": 9,
+                  "address": "[\"[\\\"check@1\\\",\\\"test.sum_target.1d20\\\",1,\\\"test.check\\\",[\\\"object\\\",[[\\\"eventId\\\",\\\"test.check\\\"],[\\\"gameTime\\\",9001],[\\\"lifeId\\\",\\\"life:1\\\"],[\\\"root\\\",\\\"r1-test-root\\\"],[\\\"worldId\\\",\\\"test.world\\\"]]],[\\\"object\\\",[[\\\"candidate\\\",0],[\\\"phase\\\",\\\"initial\\\"],[\\\"slot\\\",0]]]]\",[\"object\",[[\"attempt\",0]]]]",
+                  "draw": 1779576804,
+                  "attempt": 0
+                }
+              ],
+              "score": 9
+            },
+            {
+              "dice": [
+                {
+                  "value": 3,
+                  "address": "[\"[\\\"check@1\\\",\\\"test.sum_target.1d20\\\",1,\\\"test.check\\\",[\\\"object\\\",[[\\\"eventId\\\",\\\"test.check\\\"],[\\\"gameTime\\\",9001],[\\\"lifeId\\\",\\\"life:1\\\"],[\\\"root\\\",\\\"r1-test-root\\\"],[\\\"worldId\\\",\\\"test.world\\\"]]],[\\\"object\\\",[[\\\"candidate\\\",1],[\\\"phase\\\",\\\"initial\\\"],[\\\"slot\\\",0]]]]\",[\"object\",[[\"attempt\",0]]]]",
+                  "draw": 511964616,
+                  "attempt": 0
+                }
+              ],
+              "score": 3
+            }
+          ],
+          "selected": 1
+        }
+      ],
+      "modifiers": [
+        {
+          "id": "disadvantage",
+          "kind": "disadvantage",
+          "reason": "test disadvantage"
+        }
+      ],
+      "spent": [],
+      "remaining": {},
+      "result": {
+        "raw": 3,
+        "bonus": 0,
+        "total": 3,
+        "target": 12,
+        "margin": -9,
+        "success": false,
+        "degree": "failure",
+        "level": -1
+      },
+      "reasons": [],
+      "top": [
+        {
+          "id": "test.sum_target.1d20",
+          "weight": 1,
+          "reason": "sum_target: failure"
+        },
+        {
+          "id": "disadvantage",
+          "weight": 1,
+          "reason": "test disadvantage"
+        }
+      ]
+    }
+  },
+  "2d6": {
+    "0": {
+      "schema": 1,
+      "engine": "check@1",
+      "profileRef": "test.sum_target.2d6@1",
+      "inputFingerprint": {
+        "lo": 2286888208,
+        "hi": 902021844
+      },
+      "profile": {
+        "id": "test.sum_target.2d6",
+        "revision": 1,
+        "family": "sum_target",
+        "dice": {
+          "count": 2,
+          "sides": 6
+        },
+        "degreeStep": 3
+      },
+      "check": {
+        "modifiers": [],
+        "resources": {},
+        "spends": [],
+        "facts": {},
+        "id": "test.check",
+        "target": 7
+      },
+      "drawAddress": {
+        "root": "r1-test-root",
+        "worldId": "test.world",
+        "lifeId": "life:1",
+        "gameTime": 0,
+        "eventId": "test.check"
+      },
+      "dice": [
+        {
+          "phase": "initial",
+          "mode": "normal",
+          "candidates": [
+            {
+              "dice": [
+                {
+                  "value": 4,
+                  "address": "[\"[\\\"check@1\\\",\\\"test.sum_target.2d6\\\",1,\\\"test.check\\\",[\\\"object\\\",[[\\\"eventId\\\",\\\"test.check\\\"],[\\\"gameTime\\\",0],[\\\"lifeId\\\",\\\"life:1\\\"],[\\\"root\\\",\\\"r1-test-root\\\"],[\\\"worldId\\\",\\\"test.world\\\"]]],[\\\"object\\\",[[\\\"candidate\\\",0],[\\\"phase\\\",\\\"initial\\\"],[\\\"slot\\\",0]]]]\",[\"object\",[[\"attempt\",0]]]]",
+                  "draw": 2780722520,
+                  "attempt": 0
+                },
+                {
+                  "value": 2,
+                  "address": "[\"[\\\"check@1\\\",\\\"test.sum_target.2d6\\\",1,\\\"test.check\\\",[\\\"object\\\",[[\\\"eventId\\\",\\\"test.check\\\"],[\\\"gameTime\\\",0],[\\\"lifeId\\\",\\\"life:1\\\"],[\\\"root\\\",\\\"r1-test-root\\\"],[\\\"worldId\\\",\\\"test.world\\\"]]],[\\\"object\\\",[[\\\"candidate\\\",0],[\\\"phase\\\",\\\"initial\\\"],[\\\"slot\\\",1]]]]\",[\"object\",[[\"attempt\",0]]]]",
+                  "draw": 1247697190,
+                  "attempt": 0
+                }
+              ],
+              "score": 6
+            }
+          ],
+          "selected": 0
+        }
+      ],
+      "modifiers": [],
+      "spent": [],
+      "remaining": {},
+      "result": {
+        "raw": 6,
+        "bonus": 0,
+        "total": 6,
+        "target": 7,
+        "margin": -1,
+        "success": false,
+        "degree": "failure",
+        "level": -1
+      },
+      "reasons": [],
+      "top": [
+        {
+          "id": "test.sum_target.2d6",
+          "weight": 1,
+          "reason": "sum_target: failure"
+        }
+      ]
+    },
+    "1440": {
+      "schema": 1,
+      "engine": "check@1",
+      "profileRef": "test.sum_target.2d6@1",
+      "inputFingerprint": {
+        "lo": 2731354749,
+        "hi": 1339511879
+      },
+      "profile": {
+        "id": "test.sum_target.2d6",
+        "revision": 1,
+        "family": "sum_target",
+        "dice": {
+          "count": 2,
+          "sides": 6
+        },
+        "degreeStep": 3
+      },
+      "check": {
+        "modifiers": [],
+        "resources": {},
+        "spends": [],
+        "facts": {},
+        "id": "test.check",
+        "target": 7
+      },
+      "drawAddress": {
+        "root": "r1-test-root",
+        "worldId": "test.world",
+        "lifeId": "life:1",
+        "gameTime": 1440,
+        "eventId": "test.check"
+      },
+      "dice": [
+        {
+          "phase": "initial",
+          "mode": "normal",
+          "candidates": [
+            {
+              "dice": [
+                {
+                  "value": 1,
+                  "address": "[\"[\\\"check@1\\\",\\\"test.sum_target.2d6\\\",1,\\\"test.check\\\",[\\\"object\\\",[[\\\"eventId\\\",\\\"test.check\\\"],[\\\"gameTime\\\",1440],[\\\"lifeId\\\",\\\"life:1\\\"],[\\\"root\\\",\\\"r1-test-root\\\"],[\\\"worldId\\\",\\\"test.world\\\"]]],[\\\"object\\\",[[\\\"candidate\\\",0],[\\\"phase\\\",\\\"initial\\\"],[\\\"slot\\\",0]]]]\",[\"object\",[[\"attempt\",0]]]]",
+                  "draw": 185223146,
+                  "attempt": 0
+                },
+                {
+                  "value": 4,
+                  "address": "[\"[\\\"check@1\\\",\\\"test.sum_target.2d6\\\",1,\\\"test.check\\\",[\\\"object\\\",[[\\\"eventId\\\",\\\"test.check\\\"],[\\\"gameTime\\\",1440],[\\\"lifeId\\\",\\\"life:1\\\"],[\\\"root\\\",\\\"r1-test-root\\\"],[\\\"worldId\\\",\\\"test.world\\\"]]],[\\\"object\\\",[[\\\"candidate\\\",0],[\\\"phase\\\",\\\"initial\\\"],[\\\"slot\\\",1]]]]\",[\"object\",[[\"attempt\",0]]]]",
+                  "draw": 2763776215,
+                  "attempt": 0
+                }
+              ],
+              "score": 5
+            }
+          ],
+          "selected": 0
+        }
+      ],
+      "modifiers": [],
+      "spent": [],
+      "remaining": {},
+      "result": {
+        "raw": 5,
+        "bonus": 0,
+        "total": 5,
+        "target": 7,
+        "margin": -2,
+        "success": false,
+        "degree": "failure",
+        "level": -1
+      },
+      "reasons": [],
+      "top": [
+        {
+          "id": "test.sum_target.2d6",
+          "weight": 1,
+          "reason": "sum_target: failure"
+        }
+      ]
+    },
+    "9001": {
+      "schema": 1,
+      "engine": "check@1",
+      "profileRef": "test.sum_target.2d6@1",
+      "inputFingerprint": {
+        "lo": 1989989782,
+        "hi": 2248585096
+      },
+      "profile": {
+        "id": "test.sum_target.2d6",
+        "revision": 1,
+        "family": "sum_target",
+        "dice": {
+          "count": 2,
+          "sides": 6
+        },
+        "degreeStep": 3
+      },
+      "check": {
+        "modifiers": [],
+        "resources": {},
+        "spends": [],
+        "facts": {},
+        "id": "test.check",
+        "target": 7
+      },
+      "drawAddress": {
+        "root": "r1-test-root",
+        "worldId": "test.world",
+        "lifeId": "life:1",
+        "gameTime": 9001,
+        "eventId": "test.check"
+      },
+      "dice": [
+        {
+          "phase": "initial",
+          "mode": "normal",
+          "candidates": [
+            {
+              "dice": [
+                {
+                  "value": 3,
+                  "address": "[\"[\\\"check@1\\\",\\\"test.sum_target.2d6\\\",1,\\\"test.check\\\",[\\\"object\\\",[[\\\"eventId\\\",\\\"test.check\\\"],[\\\"gameTime\\\",9001],[\\\"lifeId\\\",\\\"life:1\\\"],[\\\"root\\\",\\\"r1-test-root\\\"],[\\\"worldId\\\",\\\"test.world\\\"]]],[\\\"object\\\",[[\\\"candidate\\\",0],[\\\"phase\\\",\\\"initial\\\"],[\\\"slot\\\",0]]]]\",[\"object\",[[\"attempt\",0]]]]",
+                  "draw": 1541013232,
+                  "attempt": 0
+                },
+                {
+                  "value": 4,
+                  "address": "[\"[\\\"check@1\\\",\\\"test.sum_target.2d6\\\",1,\\\"test.check\\\",[\\\"object\\\",[[\\\"eventId\\\",\\\"test.check\\\"],[\\\"gameTime\\\",9001],[\\\"lifeId\\\",\\\"life:1\\\"],[\\\"root\\\",\\\"r1-test-root\\\"],[\\\"worldId\\\",\\\"test.world\\\"]]],[\\\"object\\\",[[\\\"candidate\\\",0],[\\\"phase\\\",\\\"initial\\\"],[\\\"slot\\\",1]]]]\",[\"object\",[[\"attempt\",0]]]]",
+                  "draw": 2247623752,
+                  "attempt": 0
+                }
+              ],
+              "score": 7
+            }
+          ],
+          "selected": 0
+        }
+      ],
+      "modifiers": [],
+      "spent": [],
+      "remaining": {},
+      "result": {
+        "raw": 7,
+        "bonus": 0,
+        "total": 7,
+        "target": 7,
+        "margin": 0,
+        "success": true,
+        "degree": "success",
+        "level": 1
+      },
+      "reasons": [],
+      "top": [
+        {
+          "id": "test.sum_target.2d6",
+          "weight": 1,
+          "reason": "sum_target: success"
+        }
+      ]
+    }
+  },
+  "3d6": {
+    "0": {
+      "schema": 1,
+      "engine": "check@1",
+      "profileRef": "test.sum_target.3d6@1",
+      "inputFingerprint": {
+        "lo": 247246610,
+        "hi": 3477849901
+      },
+      "profile": {
+        "id": "test.sum_target.3d6",
+        "revision": 1,
+        "family": "sum_target",
+        "dice": {
+          "count": 3,
+          "sides": 6
+        }
+      },
+      "check": {
+        "modifiers": [],
+        "resources": {},
+        "spends": [],
+        "facts": {},
+        "id": "test.check",
+        "target": 11
+      },
+      "drawAddress": {
+        "root": "r1-test-root",
+        "worldId": "test.world",
+        "lifeId": "life:1",
+        "gameTime": 0,
+        "eventId": "test.check"
+      },
+      "dice": [
+        {
+          "phase": "initial",
+          "mode": "normal",
+          "candidates": [
+            {
+              "dice": [
+                {
+                  "value": 4,
+                  "address": "[\"[\\\"check@1\\\",\\\"test.sum_target.3d6\\\",1,\\\"test.check\\\",[\\\"object\\\",[[\\\"eventId\\\",\\\"test.check\\\"],[\\\"gameTime\\\",0],[\\\"lifeId\\\",\\\"life:1\\\"],[\\\"root\\\",\\\"r1-test-root\\\"],[\\\"worldId\\\",\\\"test.world\\\"]]],[\\\"object\\\",[[\\\"candidate\\\",0],[\\\"phase\\\",\\\"initial\\\"],[\\\"slot\\\",0]]]]\",[\"object\",[[\"attempt\",0]]]]",
+                  "draw": 2268217366,
+                  "attempt": 0
+                },
+                {
+                  "value": 1,
+                  "address": "[\"[\\\"check@1\\\",\\\"test.sum_target.3d6\\\",1,\\\"test.check\\\",[\\\"object\\\",[[\\\"eventId\\\",\\\"test.check\\\"],[\\\"gameTime\\\",0],[\\\"lifeId\\\",\\\"life:1\\\"],[\\\"root\\\",\\\"r1-test-root\\\"],[\\\"worldId\\\",\\\"test.world\\\"]]],[\\\"object\\\",[[\\\"candidate\\\",0],[\\\"phase\\\",\\\"initial\\\"],[\\\"slot\\\",1]]]]\",[\"object\",[[\"attempt\",0]]]]",
+                  "draw": 514867954,
+                  "attempt": 0
+                },
+                {
+                  "value": 6,
+                  "address": "[\"[\\\"check@1\\\",\\\"test.sum_target.3d6\\\",1,\\\"test.check\\\",[\\\"object\\\",[[\\\"eventId\\\",\\\"test.check\\\"],[\\\"gameTime\\\",0],[\\\"lifeId\\\",\\\"life:1\\\"],[\\\"root\\\",\\\"r1-test-root\\\"],[\\\"worldId\\\",\\\"test.world\\\"]]],[\\\"object\\\",[[\\\"candidate\\\",0],[\\\"phase\\\",\\\"initial\\\"],[\\\"slot\\\",2]]]]\",[\"object\",[[\"attempt\",0]]]]",
+                  "draw": 3643812449,
+                  "attempt": 0
+                }
+              ],
+              "score": 11
+            }
+          ],
+          "selected": 0
+        }
+      ],
+      "modifiers": [],
+      "spent": [],
+      "remaining": {},
+      "result": {
+        "raw": 11,
+        "bonus": 0,
+        "total": 11,
+        "target": 11,
+        "margin": 0,
+        "success": true,
+        "degree": "success",
+        "level": 1
+      },
+      "reasons": [],
+      "top": [
+        {
+          "id": "test.sum_target.3d6",
+          "weight": 1,
+          "reason": "sum_target: success"
+        }
+      ]
+    },
+    "1440": {
+      "schema": 1,
+      "engine": "check@1",
+      "profileRef": "test.sum_target.3d6@1",
+      "inputFingerprint": {
+        "lo": 2280153177,
+        "hi": 2734997578
+      },
+      "profile": {
+        "id": "test.sum_target.3d6",
+        "revision": 1,
+        "family": "sum_target",
+        "dice": {
+          "count": 3,
+          "sides": 6
+        }
+      },
+      "check": {
+        "modifiers": [],
+        "resources": {},
+        "spends": [],
+        "facts": {},
+        "id": "test.check",
+        "target": 11
+      },
+      "drawAddress": {
+        "root": "r1-test-root",
+        "worldId": "test.world",
+        "lifeId": "life:1",
+        "gameTime": 1440,
+        "eventId": "test.check"
+      },
+      "dice": [
+        {
+          "phase": "initial",
+          "mode": "normal",
+          "candidates": [
+            {
+              "dice": [
+                {
+                  "value": 4,
+                  "address": "[\"[\\\"check@1\\\",\\\"test.sum_target.3d6\\\",1,\\\"test.check\\\",[\\\"object\\\",[[\\\"eventId\\\",\\\"test.check\\\"],[\\\"gameTime\\\",1440],[\\\"lifeId\\\",\\\"life:1\\\"],[\\\"root\\\",\\\"r1-test-root\\\"],[\\\"worldId\\\",\\\"test.world\\\"]]],[\\\"object\\\",[[\\\"candidate\\\",0],[\\\"phase\\\",\\\"initial\\\"],[\\\"slot\\\",0]]]]\",[\"object\",[[\"attempt\",0]]]]",
+                  "draw": 2259086103,
+                  "attempt": 0
+                },
+                {
+                  "value": 2,
+                  "address": "[\"[\\\"check@1\\\",\\\"test.sum_target.3d6\\\",1,\\\"test.check\\\",[\\\"object\\\",[[\\\"eventId\\\",\\\"test.check\\\"],[\\\"gameTime\\\",1440],[\\\"lifeId\\\",\\\"life:1\\\"],[\\\"root\\\",\\\"r1-test-root\\\"],[\\\"worldId\\\",\\\"test.world\\\"]]],[\\\"object\\\",[[\\\"candidate\\\",0],[\\\"phase\\\",\\\"initial\\\"],[\\\"slot\\\",1]]]]\",[\"object\",[[\"attempt\",0]]]]",
+                  "draw": 1135205921,
+                  "attempt": 0
+                },
+                {
+                  "value": 6,
+                  "address": "[\"[\\\"check@1\\\",\\\"test.sum_target.3d6\\\",1,\\\"test.check\\\",[\\\"object\\\",[[\\\"eventId\\\",\\\"test.check\\\"],[\\\"gameTime\\\",1440],[\\\"lifeId\\\",\\\"life:1\\\"],[\\\"root\\\",\\\"r1-test-root\\\"],[\\\"worldId\\\",\\\"test.world\\\"]]],[\\\"object\\\",[[\\\"candidate\\\",0],[\\\"phase\\\",\\\"initial\\\"],[\\\"slot\\\",2]]]]\",[\"object\",[[\"attempt\",0]]]]",
+                  "draw": 4094129239,
+                  "attempt": 0
+                }
+              ],
+              "score": 12
+            }
+          ],
+          "selected": 0
+        }
+      ],
+      "modifiers": [],
+      "spent": [],
+      "remaining": {},
+      "result": {
+        "raw": 12,
+        "bonus": 0,
+        "total": 12,
+        "target": 11,
+        "margin": 1,
+        "success": true,
+        "degree": "success",
+        "level": 1
+      },
+      "reasons": [],
+      "top": [
+        {
+          "id": "test.sum_target.3d6",
+          "weight": 1,
+          "reason": "sum_target: success"
+        }
+      ]
+    },
+    "9001": {
+      "schema": 1,
+      "engine": "check@1",
+      "profileRef": "test.sum_target.3d6@1",
+      "inputFingerprint": {
+        "lo": 1830774466,
+        "hi": 2860842601
+      },
+      "profile": {
+        "id": "test.sum_target.3d6",
+        "revision": 1,
+        "family": "sum_target",
+        "dice": {
+          "count": 3,
+          "sides": 6
+        }
+      },
+      "check": {
+        "modifiers": [],
+        "resources": {},
+        "spends": [],
+        "facts": {},
+        "id": "test.check",
+        "target": 11
+      },
+      "drawAddress": {
+        "root": "r1-test-root",
+        "worldId": "test.world",
+        "lifeId": "life:1",
+        "gameTime": 9001,
+        "eventId": "test.check"
+      },
+      "dice": [
+        {
+          "phase": "initial",
+          "mode": "normal",
+          "candidates": [
+            {
+              "dice": [
+                {
+                  "value": 2,
+                  "address": "[\"[\\\"check@1\\\",\\\"test.sum_target.3d6\\\",1,\\\"test.check\\\",[\\\"object\\\",[[\\\"eventId\\\",\\\"test.check\\\"],[\\\"gameTime\\\",9001],[\\\"lifeId\\\",\\\"life:1\\\"],[\\\"root\\\",\\\"r1-test-root\\\"],[\\\"worldId\\\",\\\"test.world\\\"]]],[\\\"object\\\",[[\\\"candidate\\\",0],[\\\"phase\\\",\\\"initial\\\"],[\\\"slot\\\",0]]]]\",[\"object\",[[\"attempt\",0]]]]",
+                  "draw": 1271075294,
+                  "attempt": 0
+                },
+                {
+                  "value": 4,
+                  "address": "[\"[\\\"check@1\\\",\\\"test.sum_target.3d6\\\",1,\\\"test.check\\\",[\\\"object\\\",[[\\\"eventId\\\",\\\"test.check\\\"],[\\\"gameTime\\\",9001],[\\\"lifeId\\\",\\\"life:1\\\"],[\\\"root\\\",\\\"r1-test-root\\\"],[\\\"worldId\\\",\\\"test.world\\\"]]],[\\\"object\\\",[[\\\"candidate\\\",0],[\\\"phase\\\",\\\"initial\\\"],[\\\"slot\\\",1]]]]\",[\"object\",[[\"attempt\",0]]]]",
+                  "draw": 2240646268,
+                  "attempt": 0
+                },
+                {
+                  "value": 3,
+                  "address": "[\"[\\\"check@1\\\",\\\"test.sum_target.3d6\\\",1,\\\"test.check\\\",[\\\"object\\\",[[\\\"eventId\\\",\\\"test.check\\\"],[\\\"gameTime\\\",9001],[\\\"lifeId\\\",\\\"life:1\\\"],[\\\"root\\\",\\\"r1-test-root\\\"],[\\\"worldId\\\",\\\"test.world\\\"]]],[\\\"object\\\",[[\\\"candidate\\\",0],[\\\"phase\\\",\\\"initial\\\"],[\\\"slot\\\",2]]]]\",[\"object\",[[\"attempt\",0]]]]",
+                  "draw": 1822228687,
+                  "attempt": 0
+                }
+              ],
+              "score": 9
+            }
+          ],
+          "selected": 0
+        }
+      ],
+      "modifiers": [],
+      "spent": [],
+      "remaining": {},
+      "result": {
+        "raw": 9,
+        "bonus": 0,
+        "total": 9,
+        "target": 11,
+        "margin": -2,
+        "success": false,
+        "degree": "failure",
+        "level": -1
+      },
+      "reasons": [],
+      "top": [
+        {
+          "id": "test.sum_target.3d6",
+          "weight": 1,
+          "reason": "sum_target: failure"
+        }
+      ]
+    }
+  },
+  "d100": {
+    "0": {
+      "schema": 1,
+      "engine": "check@1",
+      "profileRef": "test.roll_under.1d100@1",
+      "inputFingerprint": {
+        "lo": 4149781544,
+        "hi": 2746502328
+      },
+      "profile": {
+        "id": "test.roll_under.1d100",
+        "revision": 1,
+        "family": "roll_under",
+        "dice": {
+          "count": 1,
+          "sides": 100
+        }
+      },
+      "check": {
+        "modifiers": [],
+        "resources": {},
+        "spends": [],
+        "facts": {},
+        "id": "test.check",
+        "target": 60
+      },
+      "drawAddress": {
+        "root": "r1-test-root",
+        "worldId": "test.world",
+        "lifeId": "life:1",
+        "gameTime": 0,
+        "eventId": "test.check"
+      },
+      "dice": [
+        {
+          "phase": "initial",
+          "mode": "normal",
+          "candidates": [
+            {
+              "dice": [
+                {
+                  "value": 84,
+                  "address": "[\"[\\\"check@1\\\",\\\"test.roll_under.1d100\\\",1,\\\"test.check\\\",[\\\"object\\\",[[\\\"eventId\\\",\\\"test.check\\\"],[\\\"gameTime\\\",0],[\\\"lifeId\\\",\\\"life:1\\\"],[\\\"root\\\",\\\"r1-test-root\\\"],[\\\"worldId\\\",\\\"test.world\\\"]]],[\\\"object\\\",[[\\\"candidate\\\",0],[\\\"phase\\\",\\\"initial\\\"],[\\\"slot\\\",0]]]]\",[\"object\",[[\"attempt\",0]]]]",
+                  "draw": 3575718580,
+                  "attempt": 0
+                }
+              ],
+              "score": 84
+            }
+          ],
+          "selected": 0
+        }
+      ],
+      "modifiers": [],
+      "spent": [],
+      "remaining": {},
+      "result": {
+        "raw": 84,
+        "bonus": 0,
+        "total": 84,
+        "target": 60,
+        "margin": -24,
+        "success": false,
+        "degree": "failure",
+        "level": -1
+      },
+      "reasons": [],
+      "top": [
+        {
+          "id": "test.roll_under.1d100",
+          "weight": 1,
+          "reason": "roll_under: failure"
+        }
+      ]
+    },
+    "1440": {
+      "schema": 1,
+      "engine": "check@1",
+      "profileRef": "test.roll_under.1d100@1",
+      "inputFingerprint": {
+        "lo": 916253220,
+        "hi": 3584418226
+      },
+      "profile": {
+        "id": "test.roll_under.1d100",
+        "revision": 1,
+        "family": "roll_under",
+        "dice": {
+          "count": 1,
+          "sides": 100
+        }
+      },
+      "check": {
+        "modifiers": [],
+        "resources": {},
+        "spends": [],
+        "facts": {},
+        "id": "test.check",
+        "target": 60
+      },
+      "drawAddress": {
+        "root": "r1-test-root",
+        "worldId": "test.world",
+        "lifeId": "life:1",
+        "gameTime": 1440,
+        "eventId": "test.check"
+      },
+      "dice": [
+        {
+          "phase": "initial",
+          "mode": "normal",
+          "candidates": [
+            {
+              "dice": [
+                {
+                  "value": 97,
+                  "address": "[\"[\\\"check@1\\\",\\\"test.roll_under.1d100\\\",1,\\\"test.check\\\",[\\\"object\\\",[[\\\"eventId\\\",\\\"test.check\\\"],[\\\"gameTime\\\",1440],[\\\"lifeId\\\",\\\"life:1\\\"],[\\\"root\\\",\\\"r1-test-root\\\"],[\\\"worldId\\\",\\\"test.world\\\"]]],[\\\"object\\\",[[\\\"candidate\\\",0],[\\\"phase\\\",\\\"initial\\\"],[\\\"slot\\\",0]]]]\",[\"object\",[[\"attempt\",0]]]]",
+                  "draw": 4135194375,
+                  "attempt": 0
+                }
+              ],
+              "score": 97
+            }
+          ],
+          "selected": 0
+        }
+      ],
+      "modifiers": [],
+      "spent": [],
+      "remaining": {},
+      "result": {
+        "raw": 97,
+        "bonus": 0,
+        "total": 97,
+        "target": 60,
+        "margin": -37,
+        "success": false,
+        "degree": "failure",
+        "level": -1
+      },
+      "reasons": [],
+      "top": [
+        {
+          "id": "test.roll_under.1d100",
+          "weight": 1,
+          "reason": "roll_under: failure"
+        }
+      ]
+    },
+    "9001": {
+      "schema": 1,
+      "engine": "check@1",
+      "profileRef": "test.roll_under.1d100@1",
+      "inputFingerprint": {
+        "lo": 3154447611,
+        "hi": 3424985852
+      },
+      "profile": {
+        "id": "test.roll_under.1d100",
+        "revision": 1,
+        "family": "roll_under",
+        "dice": {
+          "count": 1,
+          "sides": 100
+        }
+      },
+      "check": {
+        "modifiers": [],
+        "resources": {},
+        "spends": [],
+        "facts": {},
+        "id": "test.check",
+        "target": 60
+      },
+      "drawAddress": {
+        "root": "r1-test-root",
+        "worldId": "test.world",
+        "lifeId": "life:1",
+        "gameTime": 9001,
+        "eventId": "test.check"
+      },
+      "dice": [
+        {
+          "phase": "initial",
+          "mode": "normal",
+          "candidates": [
+            {
+              "dice": [
+                {
+                  "value": 84,
+                  "address": "[\"[\\\"check@1\\\",\\\"test.roll_under.1d100\\\",1,\\\"test.check\\\",[\\\"object\\\",[[\\\"eventId\\\",\\\"test.check\\\"],[\\\"gameTime\\\",9001],[\\\"lifeId\\\",\\\"life:1\\\"],[\\\"root\\\",\\\"r1-test-root\\\"],[\\\"worldId\\\",\\\"test.world\\\"]]],[\\\"object\\\",[[\\\"candidate\\\",0],[\\\"phase\\\",\\\"initial\\\"],[\\\"slot\\\",0]]]]\",[\"object\",[[\"attempt\",0]]]]",
+                  "draw": 3598182809,
+                  "attempt": 0
+                }
+              ],
+              "score": 84
+            }
+          ],
+          "selected": 0
+        }
+      ],
+      "modifiers": [],
+      "spent": [],
+      "remaining": {},
+      "result": {
+        "raw": 84,
+        "bonus": 0,
+        "total": 84,
+        "target": 60,
+        "margin": -24,
+        "success": false,
+        "degree": "failure",
+        "level": -1
+      },
+      "reasons": [],
+      "top": [
+        {
+          "id": "test.roll_under.1d100",
+          "weight": 1,
+          "reason": "roll_under: failure"
+        }
+      ]
+    }
+  },
+  "pool": {
+    "0": {
+      "schema": 1,
+      "engine": "check@1",
+      "profileRef": "test.success_pool.5d6@1",
+      "inputFingerprint": {
+        "lo": 2615776785,
+        "hi": 563893464
+      },
+      "profile": {
+        "id": "test.success_pool.5d6",
+        "revision": 1,
+        "family": "success_pool",
+        "dice": {
+          "count": 5,
+          "sides": 6
+        },
+        "successAt": 5
+      },
+      "check": {
+        "modifiers": [],
+        "resources": {},
+        "spends": [],
+        "facts": {},
+        "id": "test.check",
+        "target": 2
+      },
+      "drawAddress": {
+        "root": "r1-test-root",
+        "worldId": "test.world",
+        "lifeId": "life:1",
+        "gameTime": 0,
+        "eventId": "test.check"
+      },
+      "dice": [
+        {
+          "phase": "initial",
+          "mode": "normal",
+          "candidates": [
+            {
+              "dice": [
+                {
+                  "value": 2,
+                  "address": "[\"[\\\"check@1\\\",\\\"test.success_pool.5d6\\\",1,\\\"test.check\\\",[\\\"object\\\",[[\\\"eventId\\\",\\\"test.check\\\"],[\\\"gameTime\\\",0],[\\\"lifeId\\\",\\\"life:1\\\"],[\\\"root\\\",\\\"r1-test-root\\\"],[\\\"worldId\\\",\\\"test.world\\\"]]],[\\\"object\\\",[[\\\"candidate\\\",0],[\\\"phase\\\",\\\"initial\\\"],[\\\"slot\\\",0]]]]\",[\"object\",[[\"attempt\",0]]]]",
+                  "draw": 1229760576,
+                  "attempt": 0
+                },
+                {
+                  "value": 4,
+                  "address": "[\"[\\\"check@1\\\",\\\"test.success_pool.5d6\\\",1,\\\"test.check\\\",[\\\"object\\\",[[\\\"eventId\\\",\\\"test.check\\\"],[\\\"gameTime\\\",0],[\\\"lifeId\\\",\\\"life:1\\\"],[\\\"root\\\",\\\"r1-test-root\\\"],[\\\"worldId\\\",\\\"test.world\\\"]]],[\\\"object\\\",[[\\\"candidate\\\",0],[\\\"phase\\\",\\\"initial\\\"],[\\\"slot\\\",1]]]]\",[\"object\",[[\"attempt\",0]]]]",
+                  "draw": 2723367276,
+                  "attempt": 0
+                },
+                {
+                  "value": 3,
+                  "address": "[\"[\\\"check@1\\\",\\\"test.success_pool.5d6\\\",1,\\\"test.check\\\",[\\\"object\\\",[[\\\"eventId\\\",\\\"test.check\\\"],[\\\"gameTime\\\",0],[\\\"lifeId\\\",\\\"life:1\\\"],[\\\"root\\\",\\\"r1-test-root\\\"],[\\\"worldId\\\",\\\"test.world\\\"]]],[\\\"object\\\",[[\\\"candidate\\\",0],[\\\"phase\\\",\\\"initial\\\"],[\\\"slot\\\",2]]]]\",[\"object\",[[\"attempt\",0]]]]",
+                  "draw": 1653284316,
+                  "attempt": 0
+                },
+                {
+                  "value": 1,
+                  "address": "[\"[\\\"check@1\\\",\\\"test.success_pool.5d6\\\",1,\\\"test.check\\\",[\\\"object\\\",[[\\\"eventId\\\",\\\"test.check\\\"],[\\\"gameTime\\\",0],[\\\"lifeId\\\",\\\"life:1\\\"],[\\\"root\\\",\\\"r1-test-root\\\"],[\\\"worldId\\\",\\\"test.world\\\"]]],[\\\"object\\\",[[\\\"candidate\\\",0],[\\\"phase\\\",\\\"initial\\\"],[\\\"slot\\\",3]]]]\",[\"object\",[[\"attempt\",0]]]]",
+                  "draw": 689091852,
+                  "attempt": 0
+                },
+                {
+                  "value": 6,
+                  "address": "[\"[\\\"check@1\\\",\\\"test.success_pool.5d6\\\",1,\\\"test.check\\\",[\\\"object\\\",[[\\\"eventId\\\",\\\"test.check\\\"],[\\\"gameTime\\\",0],[\\\"lifeId\\\",\\\"life:1\\\"],[\\\"root\\\",\\\"r1-test-root\\\"],[\\\"worldId\\\",\\\"test.world\\\"]]],[\\\"object\\\",[[\\\"candidate\\\",0],[\\\"phase\\\",\\\"initial\\\"],[\\\"slot\\\",4]]]]\",[\"object\",[[\"attempt\",0]]]]",
+                  "draw": 3697309394,
+                  "attempt": 0
+                }
+              ],
+              "score": 1
+            }
+          ],
+          "selected": 0
+        }
+      ],
+      "modifiers": [],
+      "spent": [],
+      "remaining": {},
+      "result": {
+        "raw": 1,
+        "bonus": 0,
+        "total": 1,
+        "target": 2,
+        "margin": -1,
+        "success": false,
+        "degree": "failure",
+        "level": -1
+      },
+      "reasons": [],
+      "top": [
+        {
+          "id": "test.success_pool.5d6",
+          "weight": 1,
+          "reason": "success_pool: failure"
+        }
+      ]
+    },
+    "1440": {
+      "schema": 1,
+      "engine": "check@1",
+      "profileRef": "test.success_pool.5d6@1",
+      "inputFingerprint": {
+        "lo": 1072525097,
+        "hi": 2163416941
+      },
+      "profile": {
+        "id": "test.success_pool.5d6",
+        "revision": 1,
+        "family": "success_pool",
+        "dice": {
+          "count": 5,
+          "sides": 6
+        },
+        "successAt": 5
+      },
+      "check": {
+        "modifiers": [],
+        "resources": {},
+        "spends": [],
+        "facts": {},
+        "id": "test.check",
+        "target": 2
+      },
+      "drawAddress": {
+        "root": "r1-test-root",
+        "worldId": "test.world",
+        "lifeId": "life:1",
+        "gameTime": 1440,
+        "eventId": "test.check"
+      },
+      "dice": [
+        {
+          "phase": "initial",
+          "mode": "normal",
+          "candidates": [
+            {
+              "dice": [
+                {
+                  "value": 4,
+                  "address": "[\"[\\\"check@1\\\",\\\"test.success_pool.5d6\\\",1,\\\"test.check\\\",[\\\"object\\\",[[\\\"eventId\\\",\\\"test.check\\\"],[\\\"gameTime\\\",1440],[\\\"lifeId\\\",\\\"life:1\\\"],[\\\"root\\\",\\\"r1-test-root\\\"],[\\\"worldId\\\",\\\"test.world\\\"]]],[\\\"object\\\",[[\\\"candidate\\\",0],[\\\"phase\\\",\\\"initial\\\"],[\\\"slot\\\",0]]]]\",[\"object\",[[\"attempt\",0]]]]",
+                  "draw": 2786592762,
+                  "attempt": 0
+                },
+                {
+                  "value": 5,
+                  "address": "[\"[\\\"check@1\\\",\\\"test.success_pool.5d6\\\",1,\\\"test.check\\\",[\\\"object\\\",[[\\\"eventId\\\",\\\"test.check\\\"],[\\\"gameTime\\\",1440],[\\\"lifeId\\\",\\\"life:1\\\"],[\\\"root\\\",\\\"r1-test-root\\\"],[\\\"worldId\\\",\\\"test.world\\\"]]],[\\\"object\\\",[[\\\"candidate\\\",0],[\\\"phase\\\",\\\"initial\\\"],[\\\"slot\\\",1]]]]\",[\"object\",[[\"attempt\",0]]]]",
+                  "draw": 3003368157,
+                  "attempt": 0
+                },
+                {
+                  "value": 4,
+                  "address": "[\"[\\\"check@1\\\",\\\"test.success_pool.5d6\\\",1,\\\"test.check\\\",[\\\"object\\\",[[\\\"eventId\\\",\\\"test.check\\\"],[\\\"gameTime\\\",1440],[\\\"lifeId\\\",\\\"life:1\\\"],[\\\"root\\\",\\\"r1-test-root\\\"],[\\\"worldId\\\",\\\"test.world\\\"]]],[\\\"object\\\",[[\\\"candidate\\\",0],[\\\"phase\\\",\\\"initial\\\"],[\\\"slot\\\",2]]]]\",[\"object\",[[\"attempt\",0]]]]",
+                  "draw": 2468462012,
+                  "attempt": 0
+                },
+                {
+                  "value": 3,
+                  "address": "[\"[\\\"check@1\\\",\\\"test.success_pool.5d6\\\",1,\\\"test.check\\\",[\\\"object\\\",[[\\\"eventId\\\",\\\"test.check\\\"],[\\\"gameTime\\\",1440],[\\\"lifeId\\\",\\\"life:1\\\"],[\\\"root\\\",\\\"r1-test-root\\\"],[\\\"worldId\\\",\\\"test.world\\\"]]],[\\\"object\\\",[[\\\"candidate\\\",0],[\\\"phase\\\",\\\"initial\\\"],[\\\"slot\\\",3]]]]\",[\"object\",[[\"attempt\",0]]]]",
+                  "draw": 1669954435,
+                  "attempt": 0
+                },
+                {
+                  "value": 1,
+                  "address": "[\"[\\\"check@1\\\",\\\"test.success_pool.5d6\\\",1,\\\"test.check\\\",[\\\"object\\\",[[\\\"eventId\\\",\\\"test.check\\\"],[\\\"gameTime\\\",1440],[\\\"lifeId\\\",\\\"life:1\\\"],[\\\"root\\\",\\\"r1-test-root\\\"],[\\\"worldId\\\",\\\"test.world\\\"]]],[\\\"object\\\",[[\\\"candidate\\\",0],[\\\"phase\\\",\\\"initial\\\"],[\\\"slot\\\",4]]]]\",[\"object\",[[\"attempt\",0]]]]",
+                  "draw": 552352060,
+                  "attempt": 0
+                }
+              ],
+              "score": 1
+            }
+          ],
+          "selected": 0
+        }
+      ],
+      "modifiers": [],
+      "spent": [],
+      "remaining": {},
+      "result": {
+        "raw": 1,
+        "bonus": 0,
+        "total": 1,
+        "target": 2,
+        "margin": -1,
+        "success": false,
+        "degree": "failure",
+        "level": -1
+      },
+      "reasons": [],
+      "top": [
+        {
+          "id": "test.success_pool.5d6",
+          "weight": 1,
+          "reason": "success_pool: failure"
+        }
+      ]
+    },
+    "9001": {
+      "schema": 1,
+      "engine": "check@1",
+      "profileRef": "test.success_pool.5d6@1",
+      "inputFingerprint": {
+        "lo": 1109781227,
+        "hi": 739027438
+      },
+      "profile": {
+        "id": "test.success_pool.5d6",
+        "revision": 1,
+        "family": "success_pool",
+        "dice": {
+          "count": 5,
+          "sides": 6
+        },
+        "successAt": 5
+      },
+      "check": {
+        "modifiers": [],
+        "resources": {},
+        "spends": [],
+        "facts": {},
+        "id": "test.check",
+        "target": 2
+      },
+      "drawAddress": {
+        "root": "r1-test-root",
+        "worldId": "test.world",
+        "lifeId": "life:1",
+        "gameTime": 9001,
+        "eventId": "test.check"
+      },
+      "dice": [
+        {
+          "phase": "initial",
+          "mode": "normal",
+          "candidates": [
+            {
+              "dice": [
+                {
+                  "value": 4,
+                  "address": "[\"[\\\"check@1\\\",\\\"test.success_pool.5d6\\\",1,\\\"test.check\\\",[\\\"object\\\",[[\\\"eventId\\\",\\\"test.check\\\"],[\\\"gameTime\\\",9001],[\\\"lifeId\\\",\\\"life:1\\\"],[\\\"root\\\",\\\"r1-test-root\\\"],[\\\"worldId\\\",\\\"test.world\\\"]]],[\\\"object\\\",[[\\\"candidate\\\",0],[\\\"phase\\\",\\\"initial\\\"],[\\\"slot\\\",0]]]]\",[\"object\",[[\"attempt\",0]]]]",
+                  "draw": 2333123890,
+                  "attempt": 0
+                },
+                {
+                  "value": 1,
+                  "address": "[\"[\\\"check@1\\\",\\\"test.success_pool.5d6\\\",1,\\\"test.check\\\",[\\\"object\\\",[[\\\"eventId\\\",\\\"test.check\\\"],[\\\"gameTime\\\",9001],[\\\"lifeId\\\",\\\"life:1\\\"],[\\\"root\\\",\\\"r1-test-root\\\"],[\\\"worldId\\\",\\\"test.world\\\"]]],[\\\"object\\\",[[\\\"candidate\\\",0],[\\\"phase\\\",\\\"initial\\\"],[\\\"slot\\\",1]]]]\",[\"object\",[[\"attempt\",0]]]]",
+                  "draw": 518350350,
+                  "attempt": 0
+                },
+                {
+                  "value": 1,
+                  "address": "[\"[\\\"check@1\\\",\\\"test.success_pool.5d6\\\",1,\\\"test.check\\\",[\\\"object\\\",[[\\\"eventId\\\",\\\"test.check\\\"],[\\\"gameTime\\\",9001],[\\\"lifeId\\\",\\\"life:1\\\"],[\\\"root\\\",\\\"r1-test-root\\\"],[\\\"worldId\\\",\\\"test.world\\\"]]],[\\\"object\\\",[[\\\"candidate\\\",0],[\\\"phase\\\",\\\"initial\\\"],[\\\"slot\\\",2]]]]\",[\"object\",[[\"attempt\",0]]]]",
+                  "draw": 51482787,
+                  "attempt": 0
+                },
+                {
+                  "value": 1,
+                  "address": "[\"[\\\"check@1\\\",\\\"test.success_pool.5d6\\\",1,\\\"test.check\\\",[\\\"object\\\",[[\\\"eventId\\\",\\\"test.check\\\"],[\\\"gameTime\\\",9001],[\\\"lifeId\\\",\\\"life:1\\\"],[\\\"root\\\",\\\"r1-test-root\\\"],[\\\"worldId\\\",\\\"test.world\\\"]]],[\\\"object\\\",[[\\\"candidate\\\",0],[\\\"phase\\\",\\\"initial\\\"],[\\\"slot\\\",3]]]]\",[\"object\",[[\"attempt\",0]]]]",
+                  "draw": 179665668,
+                  "attempt": 0
+                },
+                {
+                  "value": 1,
+                  "address": "[\"[\\\"check@1\\\",\\\"test.success_pool.5d6\\\",1,\\\"test.check\\\",[\\\"object\\\",[[\\\"eventId\\\",\\\"test.check\\\"],[\\\"gameTime\\\",9001],[\\\"lifeId\\\",\\\"life:1\\\"],[\\\"root\\\",\\\"r1-test-root\\\"],[\\\"worldId\\\",\\\"test.world\\\"]]],[\\\"object\\\",[[\\\"candidate\\\",0],[\\\"phase\\\",\\\"initial\\\"],[\\\"slot\\\",4]]]]\",[\"object\",[[\"attempt\",0]]]]",
+                  "draw": 537837215,
+                  "attempt": 0
+                }
+              ],
+              "score": 0
+            }
+          ],
+          "selected": 0
+        }
+      ],
+      "modifiers": [],
+      "spent": [],
+      "remaining": {},
+      "result": {
+        "raw": 0,
+        "bonus": 0,
+        "total": 0,
+        "target": 2,
+        "margin": -2,
+        "success": false,
+        "degree": "failure",
+        "level": -1
+      },
+      "reasons": [],
+      "top": [
+        {
+          "id": "test.success_pool.5d6",
+          "weight": 1,
+          "reason": "success_pool: failure"
+        }
+      ]
+    }
+  }
+}
