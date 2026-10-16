@@ -3,7 +3,7 @@
 // Store only what play changed or revealed (P9Y30); never delete what a save holds.
 import {compareCodePoints} from './gen_kit.js';
 import {stableId, jsonData} from './simulation_contracts.js';
-import {EXCEPTION_PRIORITY} from './world_pack_manifest.js';
+import {EXCEPTION_PRIORITY, PARENT_LAYERS} from './world_pack_manifest.js';
 import {edgeKey} from './world_pack_population.js';
 
 export const WORLD_PACK_SAVES_SCHEMA = 1;
@@ -14,7 +14,9 @@ const byId = (a, b) => compareCodePoints(a, b);
 const only = (v, allowed) => object(v) && Object.keys(v).every(k => allowed.includes(k));
 
 export const emptyWorldPackSaves = () => ({schema: WORLD_PACK_SAVES_SCHEMA, sections: {}});
-export const emptyInstanceDelta = () => ({people: {}, edges: {}, exceptions: [], facts: {}});
+// P9M5b: each instance freezes the profile id@rev and axes it was played under.
+export const emptyInstanceDelta = pin => ({pin: structuredClone(pin), people: {}, edges: {}, exceptions: [], facts: {}});
+const samePin = (a, b) => object(a) && a.profile === b.profile && a.axes === b.axes;
 export const createSection = loaded => ({packId: loaded.id, packRevision: loaded.revision, schema: loaded.saveSchema, delta: {instances: {}, retired: {}}});
 
 // Defined in this revision, active or dormant. Dormant records are kept in
@@ -34,7 +36,8 @@ export function validateSection(section, loaded) {
     const d = section.delta;
     check(only(d, ['instances', 'retired']) && object(d.instances) && object(d.retired), 'Invalid section delta.');
     for (const [instanceId, inst] of Object.entries(d.instances)) {
-        check(stableId(instanceId) && only(inst, ['people', 'edges', 'exceptions', 'facts']) && object(inst.people) && object(inst.edges) && Array.isArray(inst.exceptions) && object(inst.facts), 'Invalid instance delta.');
+        check(stableId(instanceId) && only(inst, ['pin', 'people', 'edges', 'exceptions', 'facts']) && only(inst.pin, ['profile', 'axes']) &&
+            (inst.pin.profile === null || typeof inst.pin.profile === 'string') && typeof inst.pin.axes === 'string' && object(inst.people) && object(inst.edges) && Array.isArray(inst.exceptions) && object(inst.facts), 'Invalid instance delta.');
         for (const [id, row] of Object.entries(inst.people)) check(definesPerson(loaded, id) && only(row, ['rung', 'frozen']) && RUNGS.includes(row.rung) && object(row.frozen), `Invalid person delta ${id}.`);
         for (const [key, e] of Object.entries(inst.edges)) check(only(e, ['a', 'b', 'kind', 'source']) && edgeKey(e.a, e.b) === key && definesPerson(loaded, e.a) && definesPerson(loaded, e.b) && ['play', 'frozen'].includes(e.source), `Invalid edge ${key}.`);
         for (const e of inst.exceptions) check(only(e, ['id', 'kind', 'personId', 'placeId', 'start', 'end']) && stableId(e.id) && Object.hasOwn(EXCEPTION_PRIORITY, e.kind) && definesPerson(loaded, e.personId) &&
@@ -45,8 +48,9 @@ export function validateSection(section, loaded) {
     return section;
 }
 
-// Migration registry: one step per (pack, from revision). Steps are pure and
-// return the next section; they are the only sanctioned way to change frozen
+// Migration registry: one step per (pack, from revision). Steps are pure,
+// receive (section, loaded) and return the next section, including any new
+// instance pins; they are the only sanctioned way to change frozen
 // values (CG9 retcon).
 export function createMigrationRegistry() {
     const steps = new Map();
@@ -68,12 +72,16 @@ export function migrateSection(section, loaded, migrations) {
     while (work.packRevision < loaded.revision) {
         const step = migrations?.step(loaded.id, work.packRevision);
         if (step && step.to <= loaded.revision) {
-            try {work = step.migrate(structuredClone(work));} catch (error) {return {code: 'migration-failed', message: error.message};}
+            try {work = step.migrate(structuredClone(work), loaded);} catch (error) {return {code: 'migration-failed', message: error.message};}
             if (!object(work) || work.packRevision !== step.to) return {code: 'migration-failed', message: `Step from ${step.from} did not reach ${step.to}.`};
         } else if (work.packRevision >= loaded.saveCompatibleFrom) work.packRevision++;
         else return {code: 'migration-gap', message: `No migration from revision ${work.packRevision}.`};
     }
     if (work.schema !== loaded.saveSchema) return {code: 'schema-mismatch', message: `Section schema ${work.schema} needs a migration to ${loaded.saveSchema}.`};
+    // A rulebook or parent update never silently changes a lived-in world (MV12):
+    // only a migration may move an instance's pin.
+    for (const [instanceId, inst] of Object.entries(work.delta?.instances || {}))
+        if (!samePin(inst.pin, loaded.pin)) return {code: 'profile-changed', message: `Instance ${instanceId} was played under other world rules; it needs a migration.`};
     return {section: work};
 }
 
@@ -98,7 +106,8 @@ function retireUnknown(section, loaded) {
 // carried verbatim as dormant. Nothing is dropped.
 export function reconcileWorldPackSaves(saves, registry, migrations = null) {
     const state = saves ?? emptyWorldPackSaves();
-    check(object(state) && state.schema === WORLD_PACK_SAVES_SCHEMA && object(state.sections), 'Unsupported world pack save schema; the save is preserved for a matching reader.');
+    check(object(state) && state.schema === WORLD_PACK_SAVES_SCHEMA && object(state.sections) && (state.clusters == null || object(state.clusters)) &&
+        Object.keys(state).every(k => ['schema', 'sections', 'clusters'].includes(k)), 'Unsupported world pack save schema; the save is preserved for a matching reader.');
     const sections = {}, dormant = [];
     for (const packId of Object.keys(state.sections).sort(byId)) {
         const original = state.sections[packId], loaded = registry.packs.get(packId);
@@ -110,12 +119,42 @@ export function reconcileWorldPackSaves(saves, registry, migrations = null) {
         try {sections[packId] = validateSection(retireUnknown(migrated.section, loaded), loaded);}
         catch (error) {keep('invalid-section', error.message);}
     }
-    return {saves: {schema: WORLD_PACK_SAVES_SCHEMA, sections}, dormant};
+    const clusters = {};
+    for (const packId of Object.keys(state.clusters || {}).sort(byId)) {
+        const original = state.clusters[packId], parent = registry.packs.get(packId);
+        const keep = (code, message) => {clusters[packId] = structuredClone(original); dormant.push({packId, code, message, cluster: true});};
+        if (!parent) {keep('pack-missing', 'This multiverse is not available in this version.'); continue;}
+        const migrated = migrateSection(original, parent, migrations);
+        if (!migrated.section) {keep(migrated.code, migrated.message); continue;}
+        try {clusters[packId] = validateClusterSection(migrated.section, parent, registry);} catch (error) {keep('invalid-section', error.message);}
+    }
+    return {saves: {schema: WORLD_PACK_SAVES_SCHEMA, sections, ...(state.clusters != null ? {clusters} : {})}, dormant};
 }
 
-const instance = (section, instanceId) => {
-    check(stableId(instanceId), 'Invalid instance.');
-    return section.delta.instances[instanceId] ??= emptyInstanceDelta();
+// P9S3f: state spanning a series or multiverse lives with the parent pack, not
+// inside one world. Shape only in this slice; nothing writes it at runtime.
+export const createClusterSection = parent => {
+    check(PARENT_LAYERS.includes(parent.role), 'Only a parent pack holds a cluster section.');
+    return {packId: parent.id, packRevision: parent.revision, schema: parent.saveSchema, delta: {members: [], facts: {}, events: {}}};
+};
+export function validateClusterSection(section, parent, registry) {
+    jsonData(section);
+    check(PARENT_LAYERS.includes(parent.role) && only(section, ['packId', 'packRevision', 'schema', 'delta']) && section.packId === parent.id &&
+        section.packRevision === parent.revision && section.schema === parent.saveSchema, 'Cluster section header disagrees with its parent pack.');
+    const d = section.delta;
+    check(only(d, ['members', 'facts', 'events']) && Array.isArray(d.members) && object(d.facts) && object(d.events), 'Invalid cluster delta.');
+    // Members are child packs that declare this parent; a cluster never writes a child's state (INV10).
+    check(new Set(d.members).size === d.members.length && d.members.every(id => {const child = registry.packs.get(id);
+        return !child || (child.pack.memberships || []).some(m => m.parent === parent.id);}), 'Cluster members must be children of the parent.');
+    check(Object.keys(d.facts).every(k => k.startsWith(parent.id + '.')) && Object.values(d.facts).every(v => ['string', 'number', 'boolean'].includes(typeof v)), 'Invalid cluster facts.');
+    for (const [id, e] of Object.entries(d.events)) check(id.startsWith(parent.id + '.') && only(e, ['status', 'touches', 'since']) && typeof e.status === 'string' &&
+        Array.isArray(e.touches) && e.touches.every(stableId) && Number.isSafeInteger(e.since), `Invalid cluster event ${id}.`);
+    return section;
+}
+
+const instance = (section, population) => {
+    check(stableId(population.instanceId) && section.packId === population.packId, 'Section and population belong to different packs (INV10).');
+    return section.delta.instances[population.instanceId] ??= emptyInstanceDelta(population.pin);
 };
 export const FROZEN_FIELDS = Object.freeze(['name', 'house', 'club', 'tags', 'entryYear']);
 // GR3: on reveal, the shown fields are saved as values; later revisions of an
@@ -123,7 +162,7 @@ export const FROZEN_FIELDS = Object.freeze(['name', 'house', 'club', 'tags', 'en
 export function revealPerson(section, population, personId, {rung = 'met', fields = FROZEN_FIELDS} = {}) {
     const next = structuredClone(section), base = population.person(personId);
     check(base && RUNGS.includes(rung), 'Unknown person or rung.');
-    const row = instance(next, population.instanceId).people[personId] ??= {rung, frozen: {}};
+    const row = instance(next, population).people[personId] ??= {rung, frozen: {}};
     if (RUNGS.indexOf(rung) > RUNGS.indexOf(row.rung)) row.rung = rung;
     for (const f of fields) if (!Object.hasOwn(row.frozen, f)) row.frozen[f] = structuredClone(base[f]);
     return next;
@@ -139,13 +178,13 @@ export function freezeEdge(section, population, a, b) {
     const rel = population.relation(a, b);
     check(rel, 'No relationship to freeze.');
     const next = structuredClone(section);
-    instance(next, population.instanceId).edges[edgeKey(a, b)] = {a: [a, b].sort(byId)[0], b: [a, b].sort(byId)[1], kind: rel.kind, source: rel.source === 'derived' ? 'frozen' : 'play'};
+    instance(next, population).edges[edgeKey(a, b)] = {a: [a, b].sort(byId)[0], b: [a, b].sort(byId)[1], kind: rel.kind, source: rel.source === 'derived' ? 'frozen' : 'play'};
     return next;
 }
 export function addException(section, population, exception) {
     const next = structuredClone(section);
-    instance(next, population.instanceId).exceptions.push(structuredClone(exception));
-    instance(next, population.instanceId).exceptions.sort((x, y) => byId(x.id, y.id));
+    instance(next, population).exceptions.push(structuredClone(exception));
+    instance(next, population).exceptions.sort((x, y) => byId(x.id, y.id));
     return next;
 }
 // Save exceptions feed presence queries through the population's own index.

@@ -110,17 +110,24 @@ test('rule profiles stay dormant without an owner, a resolver or a valid layer, 
     assert.equal(load([makeRulebookPack()]).packs.get('test.rulebook').ruleProfile.status, 'none');
 });
 
-test('crossings need a rule, and a scale rule across scale classes', () => {
+test('crossings need an authority model, its conversion or cause, and a scale rule across scale classes', () => {
     const giant = {...makeSchoolPack(), id: 'test.giants', title: 'Giants'};
     const raw = JSON.parse(JSON.stringify(giant).replaceAll('test.school.', 'test.giants.'));
-    raw.provides.ruleProfiles[0].scaleClass = 'giant';
+    raw.axes = {scale: 'giant'};
     const school = makeSchoolPack();
-    school.content.crossings = [{id: 'test.school.cross.ok', to: 'test.giants', rule: 'test.school.cross_rule', scaleRule: 'test.school.scale_rule'},
-        {id: 'test.school.cross.norule', to: 'test.giants'}, {id: 'test.school.cross.noscale', to: 'test.giants', rule: 'test.school.cross_rule'},
-        {id: 'test.school.cross.nowhere', to: 'test.void', rule: 'test.school.cross_rule'}];
+    const to = 'test.giants', scaleRule = 'test.school.scale_rule';
+    school.content.crossings = [{id: 'test.school.cross.ok', to, authority: 'traveler', scaleRule},
+        {id: 'test.school.cross.none', to, scaleRule}, {id: 'test.school.cross.odd', to, authority: 'vibes', scaleRule},
+        {id: 'test.school.cross.equal', to, authority: 'equalized', scaleRule}, {id: 'test.school.cross.equal_ok', to, authority: 'equalized', conversion: 'test.school.conv', scaleRule},
+        {id: 'test.school.cross.dominant', to, authority: 'dominant', scaleRule}, {id: 'test.school.cross.noscale', to, authority: 'place'},
+        {id: 'test.school.cross.nowhere', to: 'test.void', authority: 'raw'}];
     const p = load([school, raw, makeRulebookPack()]).packs.get('test.school');
     assert.equal(p.dormant.has('test.school.cross.ok'), false);
-    assert.equal(p.dormant.get('test.school.cross.norule'), 'crossing-rule');
+    assert.equal(p.dormant.has('test.school.cross.equal_ok'), false);
+    assert.equal(p.dormant.get('test.school.cross.none'), 'crossing-authority');
+    assert.equal(p.dormant.get('test.school.cross.odd'), 'crossing-authority');
+    assert.equal(p.dormant.get('test.school.cross.equal'), 'crossing-conversion');
+    assert.equal(p.dormant.get('test.school.cross.dominant'), 'crossing-cause');
     assert.equal(p.dormant.get('test.school.cross.noscale'), 'crossing-scale');
     assert.equal(p.dormant.get('test.school.cross.nowhere'), 'crossing-target');
 });

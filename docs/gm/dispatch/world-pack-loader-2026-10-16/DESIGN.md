@@ -4,8 +4,11 @@ Status: proposal plus a first additive slice, 2026-10-16. Lane brief:
 [Part 9 P9P](/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/ui-foundation-2026-10-15/next-parts/part-9-complexity-and-openness.md)
 (untracked in the main checkout; read by absolute path). Rules applied: CX1–CX8
 (accepted), WP1–WP15, P9Y30 save rules, P9Q2–P9Q7 layered people, GR1–GR17,
-IS1–IS10, EP/EC/MC5. Nothing here is wired into `main.js`, saves or `dist/`.
-Codes **WPL**.
+IS1–IS10, EP/EC/MC5, and the 2026-10-16 addenda P9M (world types and
+multiverse rule sets) and P9S (series, multiverses, invariants). Nothing here
+is wired into `main.js`, saves or `dist/`. Branch base: `codex/gameplay-foundations`
+(rebased 2026-10-16 at the coordinator's request; master lacks `rule_modules.js`
+and `craft_*`). Codes **WPL**.
 
 ## WPL1: which pack system the loader extends
 
@@ -47,13 +50,19 @@ Implemented in `src/world_pack_manifest.js` (`validateWorldPack`).
   revision: 3,                 // content revision, pinned by saves
   saveSchema: 1,               // delta format of this pack's save section
   saveCompatibleFrom: 2,       // older revisions >= this need no data change (identity hop)
-  kind: 'canon' | 'generated' | 'hybrid' | 'rulebook',
+  kind: 'canon' | 'generated' | 'hybrid' | 'original',  // where content comes from
+  role: 'world' | 'series' | 'cosmology' | 'multiverse' | 'cluster' | 'universe' | 'rulebook', // structure (P9S1)
+  axes: {cosmology, law, resolution, progression, scale, time, lifeDeath,
+         metaphysics, canonCourse, persistence, tone, society, being},  // P9M1a-m, all optional
+  preset: 'pack.preset.id',              // a type name: overridable defaults only
+  lock: ['metaphysics'],                 // parent roles only: laws children may not override
+  memberships: [{parent, layer, scopes}],// list, never one parent pointer (P9M2c)
   title: 'Cyoria',
   sourceSnapshot: {hash, locator},        // canon: deep-dive snapshot; generated: none
   generator: {id, version, receipt},      // generated packs only (P9P3c)
   attribution: {source, licence, notice}, // MC5-3; licence tier enum, 'private-research' refuses (MC5-6)
   requires: {features: [], packs: [{id, minRevision}], ruleProfile: 'profile id' | undefined},
-  provides: {ruleProfiles: [...]},        // rulebook packs (P9P5)
+  provides: {ruleProfiles: [...], presets: [{id, axes}]},  // profiles carry a revision
   budgets: {entities, drawsPerEntity, saveBytes, presenceQueryMicros},
   entryArea: 'book.mol.area.station',
   retired: [{id, since}],                 // IDs never reused (IS1, WP6)
@@ -98,6 +107,7 @@ Implemented in `src/world_pack_save.js`. Proposed save key `world_packs`
 world_packs: {schema: 1, sections: {
   'book.mol': {packId: 'book.mol', packRevision: 3, schema: 1, delta: {
     instances: {'book.mol.cyoria.main': {
+      pin: {profile: 'book.mol.profile@1' | null, axes: 'ax1:…'},   // WPL13
       people: {[personId]: {frozen: {...shown fields}, rung: 'met' | 'known' | 'authored'}},
       edges: {[edgeKey]: {a, b, kind, source: 'play' | 'frozen'}},
       exceptions: [{id, personId, kind, placeId, start, end}],
@@ -105,7 +115,9 @@ world_packs: {schema: 1, sections: {
     }},
     retired: {[id]: {value, since, reason}}
   }}
-}}
+},
+clusters: {[parentPackId]: {packId, packRevision, schema, delta: {members, facts, events}}}  // WPL14
+}
 ```
 
 Rules:
@@ -146,15 +158,15 @@ the rule owner for a lock:
 3. Each module carries a ruling status (MC5-1). Only `supported` modules enter
    the lock; `needs_ruling` and `unsupported` stay dormant and are listed.
 4. The lock comes from an injected adapter `{createRuleLock(modules)}`. In the
-   runtime that adapter is `rule_modules.createRuleLock` (currently on
-   `codex/gameplay-foundations`, not on master). The resolver id must appear
+   runtime that adapter wraps `rule_modules.createRuleLock(modules, {registry})`,
+   which is on this branch's base; the wrapper supplies the tag registry the
+   rule owner needs. Tests use a fake adapter so the loader never imports the
+   rule owner directly (one writer per seam, EC6). The resolver id must appear
    in available features as `resolver:<id>`. Missing adapter or resolver →
    profile `dormant`, pack otherwise active, and the world keeps its current
    behavior (EC5, WP12). This is how the unmerged R1/R2 branches stay optional.
 5. No profile declared → status `none`, current behavior.
-6. **Crossings (P9P5d):** a crossing to another pack needs a declared rule; if
-   the two profiles' scale classes differ it also needs a `scaleRule`. Else
-   the crossing is dormant.
+6. **Crossings (P9P5d, P9M3):** see WPL12.
 
 ## WPL5: generator slots through gen_kit with scoped addresses (P9P4, WP10)
 
@@ -262,15 +274,133 @@ for the new `world_packs` save key and its compatibility decision (absent key
 | Generated-world admission (WPL6) | The P10 original-world factory has a consumer slice |
 | Non-cohort slot kinds | Their generator owner lands with a reader (GR12) |
 | Read-only inspector UI (WP14, P9Q46) | The WPL8a wiring exists |
-| Real rule lock (WPL4) | `codex/gameplay-foundations` rule_modules reaches master |
+| Real rule lock adapter (WPL4) | WPL8a wiring needs a live profile; wrap `createRuleLock` with the tag registry |
+| Multiverse/cluster/universe rule layers (WPL15) | Rule-module owner accepts the layer migration |
+| Series catalog override, era-relative sealing, overlay packs (WPL14) | First real series pack with two continuities |
+| Cluster section writes (WPL14) | First cross-world event slice (SR6) |
 
 ## WPL10: what the slice implements
 
 | File | Covers |
 | --- | --- |
-| `src/world_pack_manifest.js` | Manifest and record validation, namespaced IDs, retired-ID reuse, attribution/licence, ruling status, budgets, integer-only data, sealed-text lint, fingerprint |
-| `src/world_pack_loader.js` | Dependency order with cycle detection and ID tie-break, feature gating, reference integrity with cascading dormancy, honest coverage, rule profile resolution through an injected lock adapter, crossings, author report, player notices |
+| `src/world_pack_manifest.js` | Manifest and record validation (roles, world axes, presets, locks, memberships), namespaced IDs, retired-ID reuse, attribution/licence, ruling status, budgets, integer-only data, sealed-text lint, fingerprint |
+| `src/world_pack_loader.js` | Dependency order (requires and memberships) with cycle detection and ID tie-break, axis composition with presets and locks, membership checks, instance pins, counterpart links, authority models on crossings, feature gating, reference integrity with cascading dormancy, honest coverage, rule profile resolution through an injected lock adapter, crossings, author report, player notices |
 | `src/world_pack_population.js` | Scoped slot keys, generated cohort members with draw ledger and budgets, query-time presence with prioritized exceptions, sparse relationships |
-| `src/world_pack_save.js` | Section shape, derived validator, migration registry and chain, revision pinning, missing-pack dormancy, retired IDs, seen-beats-revised freezing |
+| `src/world_pack_save.js` | Section shape with instance pins, cluster section shape, derived validator, migration registry and chain, revision pinning, missing-pack dormancy, retired IDs, seen-beats-revised freezing |
 | `tests/world_pack_school_fixture.js` | Synthetic test-school pack, a rulebook pack and a fake lock adapter |
-| `tests/world_pack*.test.js` | Proofs, including a load-budget test (WP15, P9Q45) |
+| `tests/world_pack_multiverse_fixture.js` | Multiverse → series → two continuity worlds with different resolution, progression and time models, a shared counterpart and one crossing |
+| `tests/world_pack*.test.js` | Proofs, including a load-budget test (WP15, P9Q45), multiverse composition and generic invariants |
+
+## WPL11: world axes, presets and memberships (P9M1, P9M2b-c)
+
+"World type" is not one enum. A pack declares any of thirteen independent
+axes; a preset (`provides.presets`, referenced by `preset`) is just a named
+bundle of overridable defaults. The loader's own **composition step**
+(`composeAxes` in `world_pack_loader.js`) resolves each axis:
+
+1. **Parents, outermost first** along the ladder
+   `cosmology → multiverse → cluster → series → universe`, each only for the
+   axes its membership `scopes` name. Deeper parents override outer ones.
+2. **Preset** defaults.
+3. **The pack's own axes.**
+
+Every resolved axis carries a receipt `{value, source, locked, lockedBy}`.
+A parent's `lock` list freezes axes for everything below it, **regardless of
+scopes** (a locked law binds every member). A child or inner parent that tries
+to change a locked axis keeps the locked value and gets a `locked-override`
+error; the rest of the pack still loads (partial validity). A preset never
+overrides a lock. Memberships are dependencies: parents load first; a missing
+parent or a parent whose `role` differs from the membership `layer` makes the
+child dormant (`membership-unmet`). One membership per layer and per parent;
+a parent role sits only under outer layers.
+
+Axes are data the loader validates and resolves. Which axes change behavior is
+the P9M4 table: data-only axes feed existing owners, existing-hook axes
+reference rule profiles and clocks by ID, and axes that need new hooks
+(death model, diceless, cross-world time ratios) stay inert labels until a
+hook lands with a consumer (EC9).
+
+## WPL12: authority models on crossings (P9M3)
+
+Every crossing declares `authority`: `place`, `traveler`, `raw`, `equalized`
+(needs `conversion`) or `dominant` (needs `cause`). Missing or unknown →
+`crossing-authority`; an equalized crossing without a conversion or a
+dominant one without a cause is dormant with its own code. Across scale
+classes (`axes.scale`, else the rule profile's `scaleClass`) a `scaleRule` is
+also required (EP5, P9M5e). The loader only validates; the passage owner
+(`realm_connections.js`) executes.
+
+## WPL13: each instance freezes its world rules (P9M5b, MV12)
+
+Each loaded pack has `pin = {profile: 'id@rev' | null, axes: 'ax1:…'}`, the
+rule profile ref and a fingerprint of the composed axis values. A save
+instance stores the pin it was first played under. On reconcile a different
+pin makes that section dormant (`profile-changed`, original kept). The only
+way to move a pin is a registered migration step, which receives
+`(section, loaded)` and may write the new pin. Consequence: when a parent or
+rulebook pack changes a child's resolved rules, the child must publish a new
+revision with a migration step. A rulebook update never silently re-rules a
+lived-in world.
+
+Integration note: pins carry the profile ref, not its active/dormant status.
+When a resolver lands and a dormant profile becomes active, the integrator
+decides whether that counts as a rule change for existing saves.
+
+## WPL14: series, cosmology, counterparts and cluster state (P9S1-P9S3)
+
+- **Same format, different role.** A cosmology pack sits above series packs;
+  a series pack holds the shared census and base laws; continuity or world
+  packs are its children through memberships. The game's frame cosmology is
+  simply the outermost parent (P9S2). No separate system.
+- **Namespaces don't nest.** A child is `test.saga_dawn`, not
+  `test.saga.dawn`; the loader rejects nested pack IDs so each ID has one
+  owner. Membership, not the ID, links the tree.
+- **Counterparts (P9S3a, INV1).** People and catalog records may carry
+  `counterpartOf`, which must name an active person or catalog record in
+  **another** loaded pack (usually the series census entry). Counterparts never
+  share an ID or save state; a population refuses to write into another
+  pack's section.
+- **Cluster section (P9S3f).** Proposed `world_packs.clusters[parentId] =
+  {packId, packRevision, schema, delta: {members, facts, events}}`. Members
+  must be children that declare the parent; facts and events live in the
+  parent's namespace; the parent never writes a child's state (INV10).
+  Implemented as shape, validation and reconcile carry-through only; nothing
+  writes it at runtime.
+- **Not yet:** series catalog override by children (P9S3b "reference and
+  override"), era-relative sealing (P9S3c), overlay packs (P9S1h).
+
+## WPL15: rule-module layer gap (P9M2a), proposal for the rule-module owner
+
+`src/rule_modules.js` has `layers = ['core','world','region','actor','director']`
+(validation in `validateRuleModule`, ordering in `rank`). There is no layer for
+a rule a whole multiverse, cluster or universe shares, so today such a rule is
+copied into every world or pushed into core. The loader does not edit this
+file.
+
+Proposed migration, owned by the rule-module lane:
+
+1. Extend to `['core','multiverse','cluster','universe','world','region','actor','director']`.
+2. Map loader roles to rule layers: cosmology → `multiverse`, multiverse →
+   `multiverse`, cluster and series → `cluster`, universe → `universe`.
+3. Existing modules keep their `priority.layer` strings. `rank` uses the
+   index, so absolute indices shift but relative order among existing layers is
+   unchanged; resolution results do not change. Lock fingerprints hash module
+   data, not indices, so existing locks stay valid. Only `validateRuleModule`
+   must accept the new names.
+4. Add a `locked` notion for modules (P9M2b): a module at an outer layer that
+   lower layers may not supersede, checked at lock creation. Until then the
+   loader enforces locks at the axis level only (WPL11).
+5. Conformance: one scenario through each profile per layer (P9M5j).
+
+The loader's profile layer check (`RULE_LAYERS` in `world_pack_manifest.js`)
+mirrors the current five layers and must change with that migration.
+
+## WPL16: invariants as generic tests (P9S4-P9S5)
+
+`tests/world_pack_invariants.test.js` runs INV1, INV2 (as far as the loader
+can see: people counted once, saves never duplicate or drop entries across
+revisions), INV4, INV6, INV8, INV9 and INV10 over **every fixture set** in
+one `FIXTURE_SETS` list. A new pack is checked by adding one entry; the tests
+need no new code. INV3, INV5 and INV7-at-runtime need wiring and stay with the
+slices that meet them (subtlety register P9S7).
+

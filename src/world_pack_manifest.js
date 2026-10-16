@@ -6,7 +6,15 @@ import {stableId, jsonData} from './simulation_contracts.js';
 
 export const WORLD_PACK_FORMAT = 'yairpg.world-pack';
 export const WORLD_PACK_FORMAT_VERSION = 1;
-export const PACK_KINDS = Object.freeze(['canon', 'generated', 'hybrid', 'rulebook']);
+// Source provenance (where content comes from). Structure is `role` (P9S1).
+export const PACK_KINDS = Object.freeze(['canon', 'generated', 'hybrid', 'original']);
+export const PACK_ROLES = Object.freeze(['world', 'series', 'cosmology', 'multiverse', 'cluster', 'universe', 'rulebook']);
+// Loader composition ladder above a world, outermost first (P9M2, P9S1d-e).
+export const PARENT_LAYERS = Object.freeze(['cosmology', 'multiverse', 'cluster', 'series', 'universe']);
+// P9M1a-m: independent world axes. A preset only fills overridable defaults.
+export const WORLD_AXES = Object.freeze(['cosmology', 'law', 'resolution', 'progression', 'scale', 'time', 'lifeDeath', 'metaphysics', 'canonCourse', 'persistence', 'tone', 'society', 'being']);
+// P9M3: whose rules apply when worlds meet.
+export const AUTHORITY_MODELS = Object.freeze(['place', 'traveler', 'raw', 'equalized', 'dominant']);
 // MC5-3/MC5-6: licence tiers that may ship; private research never loads.
 export const LICENCE_TIERS = Object.freeze(['original', 'canon-reference', 'srd-cc-by', 'orc', 'fanwork-private']);
 export const REFUSED_LICENCES = Object.freeze(['private-research']);
@@ -27,6 +35,8 @@ const object = v => v !== null && typeof v === 'object' && !Array.isArray(v);
 const text = v => typeof v === 'string' && v.length > 0;
 const positive = n => Number.isSafeInteger(n) && n > 0;
 const natural = n => Number.isSafeInteger(n) && n >= 0;
+const axisMap = v => object(v) && Object.keys(v).every(k => WORLD_AXES.includes(k)) &&
+    Object.values(v).every(x => text(x) || Array.isArray(x) && x.every(text) || object(x));
 const ids = v => Array.isArray(v) && v.every(stableId) && new Set(v).size === v.length;
 const weighted = v => Array.isArray(v) && v.length > 0 && v.every(x => object(x) && text(x.id) && natural(x.weight)) && new Set(v.map(x => x.id)).size === v.length;
 const only = (v, allowed) => object(v) && Object.keys(v).every(k => allowed.includes(k));
@@ -73,20 +83,20 @@ export function sealedTermsIn(texts, secrets) {
 }
 
 const RECORD_FIELDS = {
-    catalog: ['id', 'label', 'kind', 'locator', 'era', 'canonWeight', 'containedIn', 'licence'],
+    catalog: ['id', 'label', 'kind', 'locator', 'era', 'canonWeight', 'containedIn', 'licence', 'counterpartOf'],
     areas: ['id', 'label', 'coverage', 'routes', 'activities', 'people', 'slots', 'institution', 'requiresFeatures', 'tags'],
     institutions: ['id', 'label', 'houses', 'blocks', 'calendar', 'commons', 'clubs'],
     cohorts: ['id', 'label', 'institution', 'house', 'entryYear', 'count', 'timetable', 'slot'],
-    people: ['id', 'name', 'cohort', 'canonWeight', 'locator', 'club', 'tags'],
+    people: ['id', 'name', 'cohort', 'canonWeight', 'locator', 'club', 'tags', 'counterpartOf'],
     relationships: ['id', 'a', 'b', 'kind', 'source'],
     exceptions: ['id', 'kind', 'personId', 'cohortId', 'placeId', 'start', 'end'],
     slots: ['id', 'kind', 'generator', 'table', 'budget', 'requiresFeature'],
     secrets: ['id', 'sealed', 'route', 'status', 'sealedTerms'],
-    crossings: ['id', 'to', 'rule', 'scaleRule'],
+    crossings: ['id', 'to', 'authority', 'conversion', 'cause', 'rule', 'scaleRule'],
 };
 // Shape only; references are checked by the loader once all packs are known.
 const RECORD_CHECKS = {
-    catalog: r => text(r.kind) && (r.canonWeight == null || ['W0', 'W1', 'W2', 'W3'].includes(r.canonWeight)),
+    catalog: r => text(r.kind) && (r.counterpartOf == null || stableId(r.counterpartOf)) && (r.canonWeight == null || ['W0', 'W1', 'W2', 'W3'].includes(r.canonWeight)),
     areas: r => COVERAGE.includes(r.coverage) && Array.isArray(r.routes) &&
         r.routes.every(x => only(x, ['to', 'method', 'minutes']) && stableId(x.to) && text(x.method) && positive(x.minutes)) &&
         (r.activities == null || ids(r.activities)) && (r.people == null || ids(r.people)) && (r.slots == null || ids(r.slots)) &&
@@ -98,7 +108,7 @@ const RECORD_CHECKS = {
         (r.clubs == null || Array.isArray(r.clubs) && r.clubs.every(c => only(c, ['id', 'label', 'weekday', 'block', 'place']) && stableId(c.id) && natural(c.weekday) && stableId(c.block) && stableId(c.place))),
     cohorts: r => stableId(r.institution) && stableId(r.house) && natural(r.entryYear) && natural(r.count) && object(r.timetable) &&
         Object.entries(r.timetable).every(([day, row]) => /^\d+$/.test(day) && object(row) && Object.values(row).every(stableId)) && (r.slot == null || stableId(r.slot)),
-    people: r => text(r.name) && (r.cohort == null || stableId(r.cohort)) && (r.club == null || stableId(r.club)) &&
+    people: r => text(r.name) && (r.counterpartOf == null || stableId(r.counterpartOf)) && (r.cohort == null || stableId(r.cohort)) && (r.club == null || stableId(r.club)) &&
         (r.canonWeight == null || ['W0', 'W1', 'W2', 'W3'].includes(r.canonWeight)),
     relationships: r => stableId(r.a) && stableId(r.b) && r.a !== r.b && text(r.kind) && ['canon', 'play'].includes(r.source),
     exceptions: r => Object.hasOwn(EXCEPTION_PRIORITY, r.kind) && (stableId(r.personId) !== stableId(r.cohortId)) &&
@@ -108,11 +118,12 @@ const RECORD_CHECKS = {
         (r.kind !== 'cohort_members' || r.budget.maxDrawsPerEntity >= MEMBER_DRAWS && ['given', 'family', 'traits'].every(k => weighted(r.table[k])) &&
             natural(r.table.noClubWeight) && natural(r.table.clubWeight)),
     secrets: r => r.sealed === true && text(r.route) && text(r.status) && (r.sealedTerms == null || Array.isArray(r.sealedTerms) && r.sealedTerms.every(text)),
-    crossings: r => stableId(r.to) && (r.rule == null || stableId(r.rule)) && (r.scaleRule == null || stableId(r.scaleRule)),
+    // A missing or incomplete authority model is a loader code, not a shape error, so it is reported by name.
+    crossings: r => stableId(r.to) && (r.authority == null || text(r.authority)) && ['conversion', 'cause', 'rule', 'scaleRule'].every(k => r[k] == null || stableId(r[k])),
 };
 function validateProfile(p, packId) {
-    if (!only(p, ['id', 'extends', 'resolver', 'growthUnit', 'scaleClass', 'directorPolicy', 'modules', 'rulings', 'label']) ||
-        !inNamespace(packId, p.id) || (p.extends != null && !stableId(p.extends)) || !text(p.resolver) || !text(p.growthUnit) ||
+    if (!only(p, ['id', 'revision', 'extends', 'resolver', 'growthUnit', 'scaleClass', 'directorPolicy', 'modules', 'rulings', 'label']) ||
+        !inNamespace(packId, p.id) || !positive(p.revision) || (p.extends != null && !stableId(p.extends)) || !text(p.resolver) || !text(p.growthUnit) ||
         !text(p.scaleClass) || !text(p.directorPolicy) || !Array.isArray(p.modules) || !object(p.rulings)) return 'Invalid rule profile shape.';
     for (const m of p.modules) {
         if (!object(m) || !stableId(m.id) || !object(m.priority) || !RULE_LAYERS.includes(m.priority.layer)) return 'Invalid rule module reference.';
@@ -131,12 +142,25 @@ export function validateWorldPack(raw) {
     try { jsonData(raw); } catch { return fail('not-json', 'Pack is not plain JSON data.'); }
     if (!object(raw) || raw.format !== WORLD_PACK_FORMAT) return fail('format', 'Not a world pack.');
     if (raw.formatVersion !== WORLD_PACK_FORMAT_VERSION) return fail('format-version', `Unsupported world pack format version ${raw.formatVersion}.`);
-    if (!only(raw, ['format', 'formatVersion', 'id', 'revision', 'saveSchema', 'saveCompatibleFrom', 'kind', 'title', 'sourceSnapshot', 'generator', 'attribution', 'requires', 'provides', 'budgets', 'entryArea', 'retired', 'content', 'native']))
+    if (!only(raw, ['format', 'formatVersion', 'id', 'revision', 'saveSchema', 'saveCompatibleFrom', 'kind', 'title', 'sourceSnapshot', 'generator', 'attribution', 'requires', 'provides', 'budgets', 'entryArea', 'retired', 'content', 'native',
+        'role', 'preset', 'axes', 'lock', 'memberships']))
         return fail('header-fields', 'Unknown world pack header field.');
     if (!id || !positive(raw.revision) || !positive(raw.saveSchema) || !PACK_KINDS.includes(raw.kind) || !text(raw.title) ||
         (raw.saveCompatibleFrom != null && !(positive(raw.saveCompatibleFrom) && raw.saveCompatibleFrom <= raw.revision)))
         return fail('header', 'Invalid world pack header.');
     if (!integersOnly(raw)) return fail('non-integer', 'Pack numbers must be safe integers (IS2).');
+    const role = raw.role ?? 'world';
+    if (!PACK_ROLES.includes(role)) return fail('role', 'Unknown pack role.');
+    if (raw.axes != null && !axisMap(raw.axes)) return fail('axes', 'Unknown world axis or value (P9M1).');
+    if (raw.preset != null && !stableId(raw.preset)) return fail('axes', 'Invalid preset reference.');
+    if (raw.lock != null && !(PARENT_LAYERS.includes(role) && Array.isArray(raw.lock) && raw.lock.every(x => WORLD_AXES.includes(x)) && new Set(raw.lock).size === raw.lock.length))
+        return fail('lock', 'Only parent packs lock axes, and only known axes (P9M2b).');
+    const ms = raw.memberships ?? [];
+    if (!Array.isArray(ms) || !ms.every(m => only(m, ['parent', 'layer', 'scopes']) && stableId(m.parent) && m.parent !== raw.id && PARENT_LAYERS.includes(m.layer) &&
+        Array.isArray(m.scopes) && m.scopes.length > 0 && m.scopes.every(x => WORLD_AXES.includes(x)) && new Set(m.scopes).size === m.scopes.length) ||
+        new Set(ms.map(m => m.layer)).size !== ms.length || new Set(ms.map(m => m.parent)).size !== ms.length ||
+        PARENT_LAYERS.includes(role) && ms.some(m => PARENT_LAYERS.indexOf(m.layer) >= PARENT_LAYERS.indexOf(role)))
+        return fail('memberships', 'Memberships are a list of distinct outer parents, one per layer, with declared scopes (P9M2c).');
     const a = raw.attribution;
     if (!only(a, ['source', 'licence', 'notice']) || !text(a.source) || !text(a.notice)) return fail('attribution', 'Attribution with source and notice is required (MC5-3).');
     if (REFUSED_LICENCES.includes(a.licence)) return fail('licence-refused', 'Private research never ships in a pack (MC5-6).');
@@ -162,7 +186,9 @@ export function validateWorldPack(raw) {
     if (!object(content) || !Object.keys(content).every(k => FAMILIES.includes(k)) || !Object.values(content).every(Array.isArray))
         return fail('content', 'Invalid content families.');
     const provides = raw.provides ?? {};
-    if (!only(provides, ['ruleProfiles']) || !(provides.ruleProfiles == null || Array.isArray(provides.ruleProfiles))) return fail('provides', 'Invalid provides block.');
+    if (!only(provides, ['ruleProfiles', 'presets']) || !(provides.ruleProfiles == null || Array.isArray(provides.ruleProfiles)) ||
+        !(provides.presets == null || Array.isArray(provides.presets) && provides.presets.every(x => only(x, ['id', 'label', 'axes']) && inNamespace(raw.id, x.id) && axisMap(x.axes))))
+        return fail('provides', 'Invalid provides block.');
     const profileIds = new Set();
     for (const p of provides.ruleProfiles || []) {
         const problem = validateProfile(p, id);

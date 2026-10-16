@@ -2,8 +2,8 @@
 // registry. Pure: no fetch, no storage, no native registry writes. The rule
 // lock comes from an injected adapter (rule_modules.createRuleLock at runtime);
 // a missing adapter or resolver is a dormant feature, never an error (EC5, WP12).
-import {compareCodePoints} from './gen_kit.js';
-import {validateWorldPack, diagnostic, namespacesOverlap, RULE_LAYERS, ACTIVE_SLOT_KINDS} from './world_pack_manifest.js';
+import {address, hash64, compareCodePoints} from './gen_kit.js';
+import {validateWorldPack, diagnostic, namespacesOverlap, RULE_LAYERS, ACTIVE_SLOT_KINDS, WORLD_AXES, PARENT_LAYERS, AUTHORITY_MODELS} from './world_pack_manifest.js';
 
 const byId = (a, b) => compareCodePoints(a, b);
 // Records and definitions are frozen; Maps are read-only by convention.
@@ -12,6 +12,54 @@ const freeze = v => {
     else if (v && typeof v === 'object' && !Object.isFrozen(v)) {Object.values(v).forEach(freeze); Object.freeze(v);}
     return v;
 };
+
+// Parents (memberships) are dependencies too: they load first.
+const dependsOn = pack => [...new Set([...(pack.requires?.packs || []).map(d => d.id), ...(pack.memberships || []).map(m => m.parent)])];
+function visiblePacks(v, loaded) {
+    const visible = new Set([v.id]), stack = dependsOn(v.pack);
+    while (stack.length) {const id = stack.pop(); if (!visible.has(id) && loaded.has(id)) {visible.add(id); stack.push(...dependsOn(loaded.get(id).pack));}}
+    return visible;
+}
+const axesFingerprint = axes => {const {lo, hi} = hash64('world-axes@1', address(Object.fromEntries(Object.entries(axes).map(([k, x]) => [k, x.value]))));
+    return `ax1:${hi.toString(16).padStart(8, '0')}${lo.toString(16).padStart(8, '0')}`;};
+
+// P9M1, P9M2b-c: compose world axes. Parents in ladder order (outermost first),
+// each only for the axes its membership scopes; then the preset; then the
+// pack's own axes. A locked parent axis cannot be changed below it.
+function composeAxes(v, loaded, diagnostics) {
+    const out = {};
+    const memberships = [...(v.pack.memberships || [])].sort((a, b) => PARENT_LAYERS.indexOf(a.layer) - PARENT_LAYERS.indexOf(b.layer));
+    for (const m of memberships) {
+        const parent = loaded.get(m.parent);
+        // Scopes pick what a child inherits; a locked parent law binds every member regardless.
+        const scoped = [...new Set([...m.scopes, ...Object.keys(parent.axes).filter(axis => parent.axes[axis].locked)])];
+        for (const axis of scoped) {
+            const from = parent.axes[axis];
+            if (!from) continue;
+            if (out[axis]?.locked) {
+                // An inner parent that inherited the same locked value is consistent; a different value is not.
+                if (address(from.value) !== address(out[axis].value)) diagnostics.push(diagnostic('error', 'locked-override', v.id, m.parent, `Parent ${m.parent} would override locked axis ${axis}.`));
+                continue;
+            }
+            out[axis] = {value: from.value, source: m.parent, locked: from.locked || (parent.pack.lock || []).includes(axis), lockedBy: from.locked ? from.lockedBy : (parent.pack.lock || []).includes(axis) ? m.parent : null};
+        }
+    }
+    const visible = visiblePacks(v, loaded);
+    const presets = new Map([...visible].flatMap(id => (id === v.id ? v.pack : loaded.get(id).pack).provides?.presets || []).map(x => [x.id, x]));
+    if (v.pack.preset && !presets.has(v.pack.preset)) diagnostics.push(diagnostic('error', 'preset-missing', v.id, v.pack.preset, 'Preset is not provided by this pack or its dependencies.'));
+    const layers = [['preset', presets.get(v.pack.preset)?.axes || {}], ['own', v.pack.axes || {}]];
+    for (const [source, axes] of layers) for (const axis of WORLD_AXES) if (Object.hasOwn(axes, axis)) {
+        if (out[axis]?.locked) {
+            // A preset is only a default; the pack's own override of a locked law is an error.
+            if (source === 'own') diagnostics.push(diagnostic('error', 'locked-override', v.id, out[axis].lockedBy, `Axis ${axis} is locked by ${out[axis].lockedBy}; the override is ignored.`));
+            continue;
+        }
+        out[axis] = {value: structuredClone(axes[axis]), source: source === 'preset' ? `preset:${v.pack.preset}` : v.id, locked: false, lockedBy: null};
+    }
+    // A parent's own lock applies to its children even for axes it set itself.
+    for (const axis of v.pack.lock || []) if (out[axis] && !out[axis].locked) out[axis] = {...out[axis], locked: true, lockedBy: v.id};
+    return Object.fromEntries(WORLD_AXES.filter(a => out[a]).map(a => [a, out[a]]));
+}
 
 // P9P2a, P9P2h: Kahn's algorithm with an ID-sorted ready queue, so file order
 // never changes the result. Nodes left over sit on or behind a cycle.
@@ -117,8 +165,7 @@ function coverage(v, diagnostics) {
 function resolveProfile(v, loaded, features, adapter, diagnostics) {
     const want = v.pack.requires?.ruleProfile;
     if (!want) return {status: 'none'};
-    const visible = new Set([v.id]), stack = [...(v.pack.requires?.packs || []).map(d => d.id)];
-    while (stack.length) {const id = stack.pop(); if (!visible.has(id) && loaded.has(id)) {visible.add(id); stack.push(...(loaded.get(id).pack.requires?.packs || []).map(d => d.id));}}
+    const visible = visiblePacks(v, loaded);
     const profiles = new Map();
     for (const id of visible) {const p = id === v.id ? v.pack : loaded.get(id)?.pack; for (const prof of p?.provides?.ruleProfiles || []) profiles.set(prof.id, prof);}
     const dormantProfile = (code, message) => {diagnostics.push(diagnostic('warning', code, v.id, want, message)); return {status: 'dormant', id: want, reason: code};};
@@ -139,7 +186,7 @@ function resolveProfile(v, loaded, features, adapter, diagnostics) {
     const ids = [...modules.keys()].sort(byId), supported = ids.filter(id => rulings[id] === 'supported');
     const held = ids.filter(id => rulings[id] !== 'supported').map(id => ({id, ruling: rulings[id]}));
     for (const h of held) diagnostics.push(diagnostic('info', 'rule-module-dormant', v.id, h.id, `Rule module held dormant: ${h.ruling} (MC5-1).`));
-    const summary = {id: want, chain: chain.map(p => p.id), resolver: top.resolver, growthUnit: top.growthUnit, scaleClass: top.scaleClass, directorPolicy: top.directorPolicy, dormantModules: held};
+    const summary = {id: want, ref: `${top.id}@${top.revision}`, chain: chain.map(p => p.id), resolver: top.resolver, growthUnit: top.growthUnit, scaleClass: top.scaleClass, directorPolicy: top.directorPolicy, dormantModules: held};
     if (!adapter?.createRuleLock) return {...dormantProfile('rule-owner-absent', 'No rule lock owner is available; current behavior applies.'), ...summary, status: 'dormant'};
     if (!features.has(`resolver:${top.resolver}`)) return {...dormantProfile('resolver-absent', `Resolver ${top.resolver} is absent; current behavior applies.`), ...summary, status: 'dormant'};
     try {
@@ -165,7 +212,7 @@ export function loadWorldPacks(rawPacks, {features = [], ruleAdapter = null} = {
     for (const a of ids) for (const b of ids) if (a < b && namespacesOverlap(a, b)) {dormantPack(b, 'namespace-overlap', `Pack namespace overlaps ${a}.`);}
     for (const id of ids) {const missing = (validated.get(id).pack.requires?.features || []).filter(f => !featureSet.has(f));
         if (missing.length) dormantPack(id, 'missing-feature', `Pack needs absent feature(s): ${missing.join(', ')}.`);}
-    const deps = new Map(ids.filter(id => !dormantPacks.has(id)).map(id => [id, (validated.get(id).pack.requires?.packs || []).map(d => d.id)]));
+    const deps = new Map(ids.filter(id => !dormantPacks.has(id)).map(id => [id, dependsOn(validated.get(id).pack)]));
     const {order, cyclic, blocked} = orderPacks(deps);
     for (const id of cyclic) dormantPack(id, 'dependency-cycle', 'Pack is part of a dependency cycle.');
     for (const id of blocked) dormantPack(id, 'dependency-dormant', 'Pack depends on a pack in a cycle.');
@@ -174,6 +221,8 @@ export function loadWorldPacks(rawPacks, {features = [], ruleAdapter = null} = {
         const v = validated.get(id);
         const bad = (v.pack.requires?.packs || []).find(d => !loaded.has(d.id) || loaded.get(d.id).revision < d.minRevision);
         if (bad) {dormantPack(id, 'dependency-unmet', `Needs ${bad.id} at revision ${bad.minRevision} or later.`); continue;}
+        const lost = (v.pack.memberships || []).find(m => !loaded.has(m.parent) || (loaded.get(m.parent).pack.role ?? 'world') !== m.layer);
+        if (lost) {dormantPack(id, 'membership-unmet', `Parent ${lost.parent} is not loaded as a ${lost.layer}.`); continue;}
         diagnostics.push(...v.diagnostics);
         // CX5: a slot asked to fill more than it declared is dormant; the cascade follows.
         for (const [rid, {family, record}] of v.records) if (family === 'slots' && !v.dormant.has(rid)) {
@@ -183,16 +232,33 @@ export function loadWorldPacks(rawPacks, {features = [], ruleAdapter = null} = {
         integrity(v, featureSet, diagnostics);
         const cov = coverage(v, diagnostics);
         const ruleProfile = resolveProfile(v, loaded, featureSet, ruleAdapter, diagnostics);
+        const axes = composeAxes(v, loaded, diagnostics);
+        // P9M5b: what an instance freezes. Changing either is a migration.
+        const pin = {profile: ruleProfile.ref ?? null, axes: axesFingerprint(axes)};
         const entities = [...v.records.values()].filter(x => x.family === 'cohorts' || x.family === 'people').reduce((n, x) => n + (x.family === 'cohorts' ? x.record.count : 1), 0);
         if (entities > v.pack.budgets.entities) {dormantPack(id, 'budget-entities', `Declares ${entities} people over its budget of ${v.pack.budgets.entities}.`); continue;}
         loaded.set(id, {id, revision: v.pack.revision, saveSchema: v.pack.saveSchema, saveCompatibleFrom: v.pack.saveCompatibleFrom ?? v.pack.revision,
-            fingerprint: v.fingerprint, pack: v.pack, records: v.records, dormant: v.dormant, coverage: cov.effective, routes: cov.routes, reachable: cov.reachable, ruleProfile});
+            fingerprint: v.fingerprint, pack: v.pack, records: v.records, dormant: v.dormant, coverage: cov.effective, routes: cov.routes, reachable: cov.reachable, ruleProfile,
+            role: v.pack.role ?? 'world', axes, pin});
     }
-    // P9P5d: crossings need a declared rule, and a scale rule across scale classes.
+    // P9M3, P9P5d: every crossing names an authority model (with its conversion
+    // or cause where the model needs one) and a scale rule across scale classes.
+    const scaleOf = p => p.axes.scale?.value ?? p.ruleProfile.scaleClass ?? null;
+    const crossingCode = (r, target, p) => !target ? 'crossing-target' : !r.authority ? 'crossing-authority' : !AUTHORITY_MODELS.includes(r.authority) ? 'crossing-authority' :
+        r.authority === 'equalized' && !r.conversion ? 'crossing-conversion' : r.authority === 'dominant' && !r.cause ? 'crossing-cause' :
+        scaleOf(p) && scaleOf(target) && scaleOf(p) !== scaleOf(target) && !r.scaleRule ? 'crossing-scale' : null;
+    const crossingText = {'crossing-target': 'Crossing target is not loaded.', 'crossing-authority': 'Crossing declares no known authority model (P9M3).',
+        'crossing-conversion': 'An equalized crossing needs a declared conversion.', 'crossing-cause': 'A dominant crossing needs a declared cause.',
+        'crossing-scale': 'Crossing between scale classes needs a scale rule (EP5, P9M5e).'};
     for (const p of loaded.values()) for (const [rid, {family, record}] of p.records) if (family === 'crossings' && !p.dormant.has(rid)) {
-        const target = loaded.get(record.to), crossScale = target && p.ruleProfile.scaleClass && target.ruleProfile.scaleClass && p.ruleProfile.scaleClass !== target.ruleProfile.scaleClass;
-        const code = !target ? 'crossing-target' : !record.rule ? 'crossing-rule' : crossScale && !record.scaleRule ? 'crossing-scale' : null;
-        if (code) {p.dormant.set(rid, code); diagnostics.push(diagnostic('error', code, p.id, rid, code === 'crossing-target' ? `Crossing target ${record.to} is not loaded.` : code === 'crossing-rule' ? 'Crossing declares no rule.' : 'Crossing between scale classes needs a scale rule (EP5).'));}
+        const code = crossingCode(record, loaded.get(record.to), p);
+        if (code) {p.dormant.set(rid, code); diagnostics.push(diagnostic('error', code, p.id, rid, crossingText[code]));}
+    }
+    // P9S3a, INV1: a counterpart is another record in another pack, never the same ID.
+    for (const p of loaded.values()) for (const [rid, {record}] of p.records) if (record.counterpartOf && !p.dormant.has(rid)) {
+        const owner = [...loaded.values()].find(q => q.records.has(record.counterpartOf));
+        if (!owner || owner === p || !isActive(owner, record.counterpartOf) || !['people', 'catalog'].includes(owner.records.get(record.counterpartOf).family)) {
+            p.dormant.set(rid, 'counterpart-missing'); diagnostics.push(diagnostic('error', 'counterpart-missing', p.id, rid, `Counterpart ${record.counterpartOf} is not a person or catalog entry in another loaded pack.`));}
     }
     const packs = new Map([...loaded].sort(([a], [b]) => byId(a, b)));
     return freeze({order: order.filter(id => loaded.has(id)), packs, dormantPacks: new Map([...dormantPacks].sort(([a], [b]) => byId(a, b))), diagnostics: sortDiagnostics(diagnostics)});
@@ -210,7 +276,7 @@ export function authorReport(registry) {
     const lines = [];
     for (const p of registry.packs.values()) {
         const count = level => [...p.coverage.values()].filter(x => x === level).length;
-        lines.push(`${p.id}@${p.revision} ${p.fingerprint} playable=${count('playable')} inspectable=${count('inspectable')} background=${count('background')} reachable=${p.reachable.size} dormant=${p.dormant.size} rules=${p.ruleProfile.status}`);
+        lines.push(`${p.id}@${p.revision} role=${p.role} ${p.fingerprint} ${p.pin.axes} profile=${p.pin.profile ?? 'none'} playable=${count('playable')} inspectable=${count('inspectable')} background=${count('background')} reachable=${p.reachable.size} dormant=${p.dormant.size} rules=${p.ruleProfile.status}`);
         for (const [id, {family, record}] of p.records) if (family === 'secrets') lines.push(`  secret ${id} route=${record.route} status=${record.status}`);
     }
     for (const [id, code] of registry.dormantPacks) lines.push(`${id} DORMANT ${code}`);

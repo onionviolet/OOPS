@@ -117,5 +117,5 @@ export function createPopulation(loaded, {root, instanceId}) {
         if (x.house && x.house === y.house && x.institution === y.institution) return {kind: 'housemate', source: 'derived'};
         return null;
     }
-    return {instanceId, person, members, everyone, presenceAt, relation, indexExceptions: index, stats: () => ({...ledger.stats(), materialized: memo.size})};
+    return {packId: loaded.id, instanceId, pin: loaded.pin, person, members, everyone, presenceAt, relation, indexExceptions: index, stats: () => ({...ledger.stats(), materialized: memo.size})};
 }

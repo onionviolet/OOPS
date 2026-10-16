@@ -21,12 +21,12 @@ export const fakeRuleAdapter = Object.freeze({
 
 export function makeRulebookPack({revision = 1} = {}) {
     return {
-        format: 'yairpg.world-pack', formatVersion: 1, id: 'test.rulebook', revision, saveSchema: 1, kind: 'rulebook',
+        format: 'yairpg.world-pack', formatVersion: 1, id: 'test.rulebook', revision, saveSchema: 1, kind: 'original', role: 'rulebook',
         title: 'Test dice rulebook',
         attribution: {source: 'YAIRPG test fixture', licence: 'original', notice: 'Original test rules.'},
         budgets: {entities: 1, drawsPerEntity: 1, saveBytes: 1024},
         provides: {ruleProfiles: [{
-            id: 'test.rulebook.core', resolver: 'test.d20@1', growthUnit: 'xp', scaleClass: 'human', directorPolicy: 'steady',
+            id: 'test.rulebook.core', revision: 1, resolver: 'test.d20@1', growthUnit: 'xp', scaleClass: 'human', directorPolicy: 'steady',
             modules: [
                 {id: 'test.rulebook.mod.base_check', revision: 1, priority: {layer: 'core'}},
                 {id: 'test.rulebook.mod.optional_crit', revision: 1, priority: {layer: 'core'}},
@@ -63,7 +63,7 @@ export function makeSchoolPack({revision = 1, years = 7, perCohort = 12, given =
         sourceSnapshot: {hash: 'synthetic-test-school-1', locator: 'tests/world_pack_school_fixture.js'},
         attribution: {source: 'YAIRPG synthetic fixture', licence: 'original', notice: 'Synthetic test data.'},
         requires: {features: [], packs: [{id: 'test.rulebook', minRevision: 1}], ruleProfile: id('profile')},
-        provides: {ruleProfiles: [{id: id('profile'), extends: 'test.rulebook.core', resolver: 'test.d20@1', growthUnit: 'xp', scaleClass: 'human', directorPolicy: 'term_rhythm',
+        provides: {ruleProfiles: [{id: id('profile'), revision: 1, extends: 'test.rulebook.core', resolver: 'test.d20@1', growthUnit: 'xp', scaleClass: 'human', directorPolicy: 'term_rhythm',
             modules: [{id: id('mod.curfew'), revision: 1, priority: {layer: 'world'}}], rulings: {[id('mod.curfew')]: 'supported'}}]},
         budgets: {entities: 1000, drawsPerEntity: 4, saveBytes: 200000, presenceQueryMicros: 50},
         entryArea: id('area.gate'),
