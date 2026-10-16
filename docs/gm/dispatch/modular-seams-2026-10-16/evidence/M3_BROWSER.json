@@ -1,0 +1,25 @@
+{
+  "viewport": "1366x768",
+  "errors": [],
+  "steps": [
+    "fresh generated life with controlled injury",
+    "gather",
+    "native material inventory",
+    "craft",
+    "unknown projection",
+    "drink",
+    "native recovery vs no-dose control",
+    "native inventory use",
+    "Back and Esc",
+    "Save",
+    "reload",
+    "Export download",
+    "literal Import",
+    "old missing-slice save"
+  ],
+  "treatedHpToFull": 22.1,
+  "controlHpToFull": 23,
+  "craftingIntact": true,
+  "exposureIntact": true,
+  "inventoryIntact": true
+}

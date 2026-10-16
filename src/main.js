@@ -2197,11 +2197,14 @@ function harvestContext(){
     const tool=weapon && weapon.weapon_type!=='hammer' ? (weapon.quality??100) : 0;
     return {clock:calendarMinutes(current_game_time),skill:character.getTotalSkillLevel('Butchering'),tool};
 }
-function harvestWritable(){return ownsSave&&!foundationSaveBlocked&&!importProbeToken&&!restoringNativeSave&&!is_loading_error&&!lifeStorageFailure&&character.is_alive&&expansionState.actors.player.worldId==='base.frontier';}
+// First failing native gate, in the existing wording, so a blocked action can say which one holds.
+function harvestWriteReason(){return restoringNativeSave?'Wait for the save to finish restoring.':!ownsSave?'This tab is read-only. Close the other game tab and reload to save progress.':foundationSaveBlocked||importProbeToken||is_loading_error||lifeStorageFailure?'Restore writable saving.':!character.is_alive?'A living supported body is required.':expansionState.actors.player.worldId!=='base.frontier'?'Return to the frontier world first.':'';}
+function harvestWritable(){return !harvestWriteReason();}
 function harvestAutomaticReady(){
     return !current_activity&&!current_game_action&&!current_dialogue&&!is_sleeping&&!is_reading&&!is_in_trade()&&!nativeOccupationReason();
 }
-function harvestReady(){return harvestWritable()&&!nativeOccupationReason()&&!current_activity&&!current_game_action&&!current_combat&&!current_dialogue&&!is_sleeping&&!is_reading&&!is_in_trade();}
+function harvestBlockReason(){return harvestWriteReason()||nativeOccupationReason()||(current_activity||current_game_action?'Finish your current activity first.':current_combat?'Leave combat first.':current_dialogue?'Finish the current conversation first.':is_sleeping?'Wake up first.':is_reading?'Stop reading first.':is_in_trade()?'Close trade first.':'');}
+function harvestReady(){return !harvestBlockReason();}
 function grantHarvest(plan){
     if(!plan)return;
     if(!skills.Butchering.isUnlocked()) {skills.Butchering.setUnlocked();create_new_skill_bar(skills.Butchering);}
@@ -4512,7 +4515,7 @@ function renderEffectDisplays() {update_displayed_effect_durations(); update_dis
 function renderClockPanels() {expeditionPanel?.render(); techniquePanel?.render(); chroniclePanel?.render(); villagePanel?.render(); simulationPanel?.render();}
 // Display-only panel refreshes that every tick repeats.
 function renderTickPanels() {
-    trancheFourPanel?.render();furniturePanel?.render();localLifePanel?.render();practicePanel?.render();updateWorkspace();fortControls?.render();pacingPanel?.render();pacingStatusPanel?.render();durabilityPanel?.render();elementalPanel?.render();livingGearPanel?.render();combatOptionsPanel?.render();householdPanel?.render();
+    domainRegistry.refresh();trancheFourPanel?.render();furniturePanel?.render();localLifePanel?.render();practicePanel?.render();updateWorkspace();fortControls?.render();pacingPanel?.render();pacingStatusPanel?.render();durabilityPanel?.render();elementalPanel?.render();livingGearPanel?.render();combatOptionsPanel?.render();householdPanel?.render();
 }
 
 /**
@@ -7255,6 +7258,7 @@ function load(save_data) {
                         const parsedKey=JSON.parse(key);
                         if(GRADED_IDS.includes(parsedKey.id)&&parsedKey.quality!=null){getItemFromKey(key);item_list.push({item_key:key,count:saved_inventory[key].count});return;}
                         if(parsedKey.id===MIXTURE_ID){const item=getItemFromKey(key);item_list.push({item_key:item.getInventoryKey(),count:saved_inventory[key].count});return;}
+                        if(domainRegistry.ownsItemKey(key)){getItemFromKey(key);item_list.push({item_key:key,count:saved_inventory[key].count});return;}
                         const measuredItem=worldCompletionSavedNativeItem(key,saved_inventory[key],getItemFromKey);
                         if(measuredItem){item_list.push(measuredItem);return;}
                         if(parsedKey.e2_instance!=null){
@@ -8384,7 +8388,7 @@ function load(save_data) {
         loadingReputationTotals = null;
         restoringNativeSave = false;
         if(p23LivingGear!==undefined){character.addActiveEffectBonus(active_effects);character.updateStatsAndDisplay();}
-        trancheFourPanel?.render();
+        trancheFourPanel?.render();domainRegistry.refresh();
         awakenOptionalStart();
     }
 } 
@@ -9349,7 +9353,7 @@ const saveOwnership = acquireSaveOwnership().then(owned => {
     frontierCampaignPanel?.render();partyPanel?.render();
     featureExpansionPanel?.render();foundationInteractionPanel?.render();
     knownRoutesPanel?.render();adventureNotebook?.render();livingGearPanel?.render();combatOptionsPanel?.render(); worldEventFeed?.render();
-    trancheFourPanel?.render();trainingPanel?.render();growthPanel?.render();mistglassPanel?.render();readingSalvagePanel?.render();titlesPanel?.render();updateWorkspace();
+    trancheFourPanel?.render();trainingPanel?.render();growthPanel?.render();mistglassPanel?.render();readingSalvagePanel?.render();titlesPanel?.render();updateWorkspace();domainRegistry.refresh();
     awakenOptionalStart();
     return owned;
 });
@@ -9572,7 +9576,7 @@ const loadedOptionalPacks=await loadContentPacks({registry:expeditionRegistry,lo
 for(const [id,definition] of loadedOptionalPacks)if(definition.schema===1)optionalPacks.set(id,definition);
 if(foundationProbeEnabled)await registerStructuredNative(createFoundationStartContent());
 await registerStructuredNative(createLocalLivelihoodContent());
-configureCraftingDomain({read:()=>({inventory:Object.fromEntries(Object.entries(character.getItems()).map(([k,r])=>[k,r.count])),clock:calendarMinutes(current_game_time),world:expansionState.actors.player.worldId,location:current_location?.id,ready:harvestReady(),root:streamSeed(expansionState,STREAMS.craft,'crafting.frontier@1')}),
+configureCraftingDomain({read:()=>({inventory:Object.fromEntries(Object.entries(character.getItems()).map(([k,r])=>[k,r.count])),clock:calendarMinutes(current_game_time),world:expansionState.actors.player.worldId,location:current_location?.id,blocked:harvestBlockReason(),root:streamSeed(expansionState,STREAMS.craft,'crafting.frontier@1')}),
     itemOwners:()=>[character,character.getItems(),item_log,favourite_items,favourite_consumables],assertSpend:key=>assertNativeItemDisposition(expansionState,key),
     addItem:(key,count)=>character.addToInventory([{item_key:key,count}]),removeItem:(key,count)=>character.removeFromInventory([{item_key:key,item_count:count}]),
     persist:markDurable=>{const save=create_save();if(!save)throw Error('The item action could not be saved.');validateSaveEnvelope(JSON.parse(save),game_version);lifeSaveStorage.setItem(is_on_dev()?dev_save_key:save_key,save,markDurable);},
@@ -10156,7 +10160,7 @@ document.addEventListener('visibilitychange', () => {if(document.hidden) flushDu
 if(testHooksEnabled) {
     window.advanceTicks = advanceTicks;
     window.fastForward = fastForward;
-    window.simulationTestHooks = Object.freeze({pause:pauseEngine,resume:resumeEngine,snapshot:()=>JSON.parse(create_save()),tickrate:()=>tickrate});
+    window.simulationTestHooks = Object.freeze({pause:pauseEngine,resume:resumeEngine,snapshot:()=>JSON.parse(create_save()),tickrate:()=>tickrate,saveStatus:()=>({ownsSave,restoring:restoringNativeSave,writeBlocked:harvestWriteReason()})});
 }
 
 if(config.enable_dev_mode) {

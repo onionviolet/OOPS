@@ -1,3 +1,4 @@
+import {deferSimulationRender} from './simulation_render.js';
 // One synchronous lifecycle. Native clock, transaction and storage owners stay outside.
 export function createDomainRegistry() {
     const domains=new Map();
@@ -16,7 +17,7 @@ export function createDomainRegistry() {
     function registerDomain(domain) {
         if(!domain||typeof domain.id!=='string'||!domain.id||domains.has(domain.id))throw Error('Domain needs a unique id.');
         if(domain.deps!=null&&(!Array.isArray(domain.deps)||domain.deps.some(id=>typeof id!=='string')))throw Error('Invalid domain dependencies.');
-        for(const hook of ['initialState','save','validate','migrate','load','tick','projection'])if(domain[hook]!=null&&typeof domain[hook]!=='function')throw Error(`Invalid domain hook: ${hook}`);
+        for(const hook of ['initialState','save','validate','migrate','load','tick','refresh','projection','ownsItemKey'])if(domain[hook]!=null&&typeof domain[hook]!=='function')throw Error(`Invalid domain hook: ${hook}`);
         domains.set(domain.id,Object.freeze({...domain}));return domain;
     }
     return Object.freeze({registerDomain,
@@ -26,8 +27,13 @@ export function createDomainRegistry() {
         validate:envelope=>{for(const d of ordered())d.validate?.(envelope[d.id],envelope);return envelope;},
         load:envelope=>{for(const d of ordered()){if(!d.load)continue;const slice=Object.hasOwn(envelope,d.id)?envelope[d.id]:d.initialState?.();d.load(d.migrate?d.migrate(slice,envelope):slice,envelope);}},
         tick:minutes=>{for(const d of ordered())d.tick?.(minutes);},
+        // Display only: native publications (ticks, commands, save ownership, restore end) redraw panels
+        // through the existing simulation render batch. No timer and no second refresh path.
+        refresh:()=>{for(const d of ordered())if(d.refresh&&!deferSimulationRender(d.refresh,d.refresh))d.refresh();},
         mountPanels:()=>{for(const d of ordered())for(const mount of d.panels??[])mount();},
         useItem:key=>{for(const d of ordered()){const command=d.commands?.useItem;if(!command?.accepts(key))continue;const quote=command.quote(key);if(!quote.eligible)throw Error(quote.reason);command.execute(quote);return true;}return false;},
+        // A domain-owned native item key is restored verbatim; its owner resolves and validates it.
+        ownsItemKey:key=>ordered().some(d=>d.ownsItemKey?.(key)===true),
         command:(id,name)=>domains.get(id)?.commands?.[name],
         project:(id,...args)=>domains.get(id)?.projection?.(...args)
     });

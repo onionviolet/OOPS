@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {quoteCrafting,stageCrafting,validateCraftingEnvelope,projectCrafting,validateCraftedExposure,craftedExposure,materialKey,catalogue} from '../src/crafting_frontier_runtime.js';
-const context={ready:true,world:'base.frontier',location:'Village',clock:51000000,root:123};
+const context={blocked:'',world:'base.frontier',location:'Village',clock:51000000,root:123};
 function apply(inventory,plan){const next={...inventory};for(const i of plan.items){next[i.key]=(next[i.key]||0)+i.amount;if(!next[i.key])delete next[i.key];}return next;}
 function gather(){const p=stageCrafting(null,{},quoteCrafting(null,{},{type:'harvest'},context),context);return {owner:p.state,inventory:apply({},p)};}
 test('native crafting preserves exact stock and knowledge across source, batch and oral use',()=>{
@@ -20,7 +20,8 @@ test('stale quotes, reserved/absent materials and unsupported or dangling refere
  const q=quoteCrafting(owner,inventory,{type:'craft',inputs:[{key,qty:1}]},context);
  assert.throws(()=>stageCrafting(owner,inventory,q,{...context,clock:context.clock+1}),/quote changed/);
  assert.equal(quoteCrafting(owner,{},q.request,context).eligible,false);
- assert.equal(quoteCrafting(owner,inventory,q.request,{...context,ready:false}).eligible,false);
+ const held=quoteCrafting(owner,inventory,q.request,{...context,blocked:'Restore writable saving.'});
+ assert.equal(held.eligible,false);assert.equal(held.reason,'Restore writable saving.');
  assert.throws(()=>validateCraftingEnvelope(null,{inventories:{player:inventory}}),/reference/);
  const bad=structuredClone(owner);bad.schema=99;assert.throws(()=>validateCraftingEnvelope(bad,{}));assert.deepEqual(owner,copy);
 });

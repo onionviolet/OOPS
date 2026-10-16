@@ -8,13 +8,18 @@ const url='http://127.0.0.1:19460/?test_hooks=1',evidence='docs/gm/dispatch/modu
  await context.addInitScript(()=>{Date.now=()=>1792108800000;crypto.getRandomValues=a=>{for(let i=0;i<a.length;i++)a[i]=12345+i;return a;};let n=41;Math.random=()=>((n=Math.imul(n,1664525)+1013904223>>>0)/4294967296);});
  const page=await context.newPage();page.on('pageerror',e=>{errors.push(e.message);console.log('PAGEERROR',e.message);});page.on('console',m=>{if(m.type()==='error')errors.push(m.text());});
  const snapshot=()=>page.evaluate(()=>window.simulationTestHooks.snapshot());
- async function boot(){await page.waitForFunction(()=>window.simulationTestHooks);await page.evaluate(()=>window.simulationTestHooks.pause());await startFresh(page);}
+ // UIE15: setup must reach native save ownership and restore completion through a read-only probe; a gap fails as setup, never forced.
+ async function ready(p){try{await p.waitForFunction(()=>{const s=window.simulationTestHooks.saveStatus();return s.ownsSave&&!s.restoring&&!s.writeBlocked;},null,{timeout:15000});}catch{throw Error('SETUP: native save ownership/restore did not complete: '+JSON.stringify(await p.evaluate(()=>window.simulationTestHooks.saveStatus())));}}
+ async function boot(){await page.waitForFunction(()=>window.simulationTestHooks);await page.evaluate(()=>window.simulationTestHooks.pause());await startFresh(page);await ready(page);}
  async function open(){await page.getByRole('combobox',{name:'Other known panels'}).selectOption('herbal-experiments');await page.locator('#crafting_engine_home').waitFor({state:'visible'});}
  await page.goto(url);await boot();console.log('fresh');
  const legacy=await snapshot();assert.equal(Object.hasOwn(legacy,'crafting'),false);
  // Controlled injury in this freshly generated life, solely to compare native recovery with and without a dose.
  legacy.character.hp_to_full=25;await page.evaluate(s=>localStorage.setItem('save data',JSON.stringify(s)),legacy);await page.reload();await boot();
- await open();await page.locator('#crafting_gather').click();console.log('gathered');
+ await open();
+ // UIE13/UIE14: paused, zero ticks advanced, Gather reflects current readiness; a held gate names itself.
+ const gatherState=await page.locator('#crafting_gather').evaluate(b=>({disabled:b.disabled,title:b.title}));assert.equal(gatherState.disabled,false,'Gather stale or held: '+gatherState.title);
+ await page.locator('#crafting_gather').click();console.log('gathered');
  const gathered=await snapshot();assert.ok(gathered.crafting);assert.ok(Object.keys(gathered.crafting.materials).length);
  const material=Object.keys(gathered.inventories.person.main_character).find(k=>JSON.parse(k).id==='Gathered herb');assert.ok(material);
  await page.locator('[data-craft-material]').first().check();
@@ -26,7 +31,7 @@ const url='http://127.0.0.1:19460/?test_hooks=1',evidence='docs/gm/dispatch/modu
  // Record the no-dose control from the same genuine crafted save on a separate fresh browser context.
  const control=await browser.newContext({viewport:{width:1366,height:768}});await control.route('**/private_packs/manifest.json',r=>r.fulfill({json:{schema:1,packs:[]}}));
  await control.addInitScript(s=>{Date.now=()=>1792108800000;localStorage.setItem('save data',JSON.stringify(s));},crafted);
- const cp=await control.newPage();cp.on('pageerror',e=>errors.push(e.message));await cp.goto(url);await cp.waitForFunction(()=>window.simulationTestHooks);await cp.evaluate(()=>window.simulationTestHooks.pause());await startFresh(cp);await cp.evaluate(()=>window.advanceTicks(1,{render:true}));const untreated=await cp.evaluate(()=>window.simulationTestHooks.snapshot());await control.close();
+ const cp=await control.newPage();cp.on('pageerror',e=>errors.push(e.message));await cp.goto(url);await cp.waitForFunction(()=>window.simulationTestHooks);await cp.evaluate(()=>window.simulationTestHooks.pause());await startFresh(cp);await ready(cp);await cp.evaluate(()=>window.advanceTicks(1,{render:true}));const untreated=await cp.evaluate(()=>window.simulationTestHooks.snapshot());await control.close();
  await page.locator('[data-crafted-use]').first().click();console.log('used');
  const used=await snapshot();const effect=used.active_effects['Crafted herbal preparation'];assert.ok(effect?.craftExposure);assert.ok(effect.effects.stats.health_regeneration_flat.flat>0);
  assert.ok(Object.keys(used.crafting.knowledge.player).length);assert.equal(used.inventories.person.main_character[product],undefined);

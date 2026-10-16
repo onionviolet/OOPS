@@ -3,12 +3,14 @@ import {beginNativeCraftTransaction} from './native_craft_transaction.js';
 import {active_effects} from './runtime_state.js';
 import {ActiveEffect} from './active_effects.js';
 import {calendarMinutes} from './world_rhythm.js';
-import {craftingOwner,setCraftingOwner,validateOwner,validateCraftingEnvelope,isCraftedKey,quoteCrafting,stageCrafting,projectCrafting,EFFECT_ID} from './crafting_frontier_runtime.js';
+import {craftingOwner,setCraftingOwner,validateOwner,validateCraftingEnvelope,isCraftedKey,quoteCrafting,stageCrafting,projectCrafting,EFFECT_ID,MATERIAL_CARRIER} from './crafting_frontier_runtime.js';
 import {createCraftingHome} from './crafting_home.js';
 let native,panel;
 // Each operation has one native owner. This domain never receives the game object.
 export function configureCraftingDomain(operations){native=operations;}
 function read(){return native.read();}
+// The panel view keys on the same native gate the quote reads, so a changed reason redraws (UIE16).
+function project(){const c=read();return {...projectCrafting(craftingOwner,c.inventory),blocked:c.blocked,location:c.location,world:c.world,discovered:craftingOwner!==null||c.world==='base.frontier'&&c.location==='Village'};}
 function quote(request){const c=read();return quoteCrafting(craftingOwner,c.inventory,request,c);}
 export function commitCraftingQuote(quoted){
  const c=read(),plan=stageCrafting(craftingOwner,c.inventory,quoted,c);
@@ -26,6 +28,7 @@ export function commitCraftingQuote(quoted){
 }
 const useItem={accepts:isCraftedKey,quote:key=>quote({type:'use',key}),execute:commitCraftingQuote};
 registerDomain({id:'crafting',initialState:()=>null,
+ ownsItemKey:key=>isCraftedKey(key)||JSON.parse(key).id===MATERIAL_CARRIER,
  save:()=>craftingOwner?structuredClone(validateOwner(craftingOwner)):undefined,
  validate:(slice,envelope)=>{
   validateCraftingEnvelope(slice,envelope);
@@ -35,6 +38,6 @@ registerDomain({id:'crafting',initialState:()=>null,
   }
  },migrate:slice=>slice==null?null:structuredClone(validateOwner(slice)),load:setCraftingOwner,
  commands:{quote,execute:commitCraftingQuote,useItem},
- projection:()=>{const c=read();return {...projectCrafting(craftingOwner,c.inventory),ready:c.ready,location:c.location,world:c.world,discovered:craftingOwner!==null||c.world==='base.frontier'&&c.location==='Village'};},
- tick:()=>panel?.render(),panels:[()=>{panel=createCraftingHome({quote,execute:commitCraftingQuote,read:()=>{const c=read();return {...projectCrafting(craftingOwner,c.inventory),ready:c.ready,location:c.location,world:c.world,discovered:craftingOwner!==null||c.world==='base.frontier'&&c.location==='Village'};}});}]
+ projection:project,
+ refresh:()=>panel?.render(),panels:[()=>{panel=createCraftingHome({quote,execute:commitCraftingQuote,read:project});}]
 });

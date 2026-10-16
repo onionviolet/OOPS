@@ -1,4 +1,9 @@
-# M3 stopped: crafting candidate is implemented-unverified
+# M3: crafting as first registry consumer
+
+**Status 2026-10-16: PASSED on resume (B4).** See the [checkpoint's M3 resume section](CHECKPOINT.md#m3-resume-2026-10-16-claude-session-lane-worktree)
+for diagnosis, changed inputs, regressions, gates and AR1. The stop report below is retained history.
+
+## Original stop (retained)
 
 Stopped under the dispatch's two-failure gate rule. No M3 completion or GR12
 closure is claimed. M4 was not started. Do not merge this candidate as playable.

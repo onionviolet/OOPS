@@ -63,7 +63,8 @@ export function projectCrafting(owner,inventory) {
  return {materials:Object.entries(inventory).filter(([key])=>{try{return JSON.parse(key).id===MATERIAL_CARRIER;}catch{return false;}}).map(([key,count])=>({key,count,...projectMaterial(owner,catalogue,materialFromKey(key,owner).material.id,'player')})),
   products:Object.entries(inventory).filter(([key])=>isCraftedKey(key)).map(([key,count])=>{const p=productFromNativeKey(key,owner);return {key,count,...projectProduct(owner,catalogue,p.id,'player')};})};
 }
-function eligibility(context){return context.ready&&context.world==='base.frontier'&&context.location==='Village'?'':'Return free and alive to Village, with saving available.';}
+// The first failing native gate leads; place comes after it.
+function eligibility(context){return context.blocked||(context.world==='base.frontier'&&context.location==='Village'?'':'Return to Village to experiment.');}
 function inputLots(request,owner,inventory) {
  if(!Array.isArray(request.inputs)||!request.inputs.length||request.inputs.length>12)fail('Select at least one carried material for an experiment.');
  const unique=new Set();return request.inputs.map(({key,qty})=>{
@@ -86,7 +87,7 @@ export function quoteCrafting(owner,inventory,request,context) {
    if(!(inventory[request.key]>0))fail('You no longer carry this preparation.');productFromNativeKey(request.key,owner)??fail('Choose a crafted herbal preparation.');
   }else fail('Unknown crafting command.');
  }catch(e){reason=e.message;}
- const token=JSON.stringify([owner?.sequence??null,inventory,context.clock,context.world,context.location,context.ready,request]);
+ const token=JSON.stringify([owner?.sequence??null,inventory,context.clock,context.world,context.location,context.blocked,request]);
  return {eligible:!reason,reason,token,request:structuredClone(request)};
 }
 export function stageCrafting(owner,inventory,quoted,context) {

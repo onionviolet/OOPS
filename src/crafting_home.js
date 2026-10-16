@@ -34,6 +34,6 @@ export function createCraftingHome({read,quote,execute}) {
   }
  }
  definePanel({id:'herbal-experiments',title:'Herbal experiments',role:'actions',node:panel,home:document.getElementById('main_content'),defaultDock:'center',
-  discovered:()=>read().discovered,eligible:()=>read().ready&&read().world==='base.frontier'&&read().location==='Village',unavailableReason:()=> 'Finish your current work and return to Village to experiment.'});
+  discovered:()=>read().discovered,eligible:()=>{const v=read();return !v.blocked&&v.world==='base.frontier'&&v.location==='Village';},unavailableReason:()=>read().blocked||'Return to Village to experiment.'});
  render();return {render};
 }
