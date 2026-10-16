@@ -1,7 +1,7 @@
 global.fetch=undefined;
-const {chromium}=require('/Users/weiwei/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
+const {launchChrome,waitForPage}=require('./ui_helpers.cjs');
 const fs=require('fs'),assert=require('node:assert/strict');
-const root='http://127.0.0.1:18950/', out='/tmp/sim-stepper-equivalence';fs.mkdirSync(out,{recursive:true});
+const root=process.env.YAIRPG_PROOF_URL||'http://127.0.0.1:18950/', out='/tmp/sim-stepper-equivalence';fs.mkdirSync(out,{recursive:true});
 const errors=[], results=[];
 const seed=JSON.parse(fs.readFileSync('docs/gm/dispatch/absorb-all-2026-10-14/checks/sim-stepper/fixtures/opening.json'));
 async function open(browser, hooks, initial, setup) {
@@ -21,7 +21,7 @@ async function open(browser, hooks, initial, setup) {
  await page.goto(root+(hooks?'?test_hooks=1':''));
  await page.locator('#loading_screen_play_button:not(.none_display)').waitFor({state:'visible'});
  await page.evaluate(()=>{const s=JSON.parse(localStorage.getItem('save data'));s.__proofPendingWriter=true;localStorage.setItem('save data',JSON.stringify(s));});
- await page.waitForFunction(()=>{saveProgress();return !JSON.parse(localStorage.getItem('save data')).__proofPendingWriter;},null,{polling:'raf'});
+ await waitForPage(page, ()=>{saveProgress();return !JSON.parse(localStorage.getItem('save data')).__proofPendingWriter;},null,{polling:'raf'});
  await page.evaluate(()=>{document.getElementById('loading_screen_play_button').click();const c=document.getElementById('hero_creation_panel_confirmation');if(c && c.getClientRects().length)c.click();});
  if(setup)await page.evaluate(setup);
  return {page,context};
@@ -29,7 +29,7 @@ async function open(browser, hooks, initial, setup) {
 function sameSave(a,b,label){assert.deepEqual(a,b,label);assert.equal(JSON.stringify(a),JSON.stringify(b),label+' serialized bytes');}
 function clean(s) {delete s.saved_at;delete s.last_rewarded_export;return s;}
 async function snapshot(page) {return clean(await page.evaluate(()=>{saveProgress();return JSON.parse(localStorage.getItem('save data'));}));}
-(async()=>{const browser=await chromium.launch({headless:true,channel:'chrome'});
+(async()=>{const browser=await launchChrome();
 try {
  const combat=structuredClone(seed);combat['current location']='Infested field';combat.availabilities.location['Infested field']=1;
  const job=structuredClone(seed);job['current location']='Mountain camp';job.availabilities.location['Mountain camp']=1;job.availabilities.action['frontier.fort.search']=1;

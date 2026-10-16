@@ -1,0 +1,8 @@
+# tests 1710
+# suites 0
+# pass 1707
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 3
+# duration_ms 159040.773917

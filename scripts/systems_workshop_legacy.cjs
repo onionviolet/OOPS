@@ -1,11 +1,11 @@
 // A native save produced by the shipped 0216ccde bundle, without workshop state.
 const fs=require('node:fs'),assert=require('node:assert/strict');
-const {chromium}=require('/Users/weiwei/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
+const {launchChrome,waitForPage}=require('./ui_helpers.cjs');
 const URL=process.env.YAIRPG_PROOF_URL||'http://127.0.0.1:18701/';
 const oldCommit=require('node:child_process').execFileSync('git',['-C','.proof-old','rev-parse','HEAD'],{encoding:'utf8'}).trim();
 const OUT=process.env.YAIRPG_PROOF_DIR||'/tmp/systems-workshop-proof';
-(async()=>{const b=await chromium.launch({headless:true,executablePath:'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'}),errors=[];
- const open=async(url,fixture)=>{const c=await b.newContext({viewport:{width:1366,height:768}});if(fixture)await c.addInitScript(d=>{if(!localStorage.getItem('save data'))localStorage.setItem('save data',JSON.stringify(d));},fixture);const p=await c.newPage();p.on('pageerror',e=>errors.push(e.message));await p.goto(url);await p.getByText('PLAY',{exact:true}).click();if(await p.getByText('Confirm',{exact:true}).isVisible())await p.getByText('Confirm',{exact:true}).click();await p.waitForFunction(()=>typeof window.saveProgress==='function');return {p,c};};
+(async()=>{const b=await launchChrome(),errors=[];
+ const open=async(url,fixture)=>{const c=await b.newContext({viewport:{width:1366,height:768}});if(fixture)await c.addInitScript(d=>{if(!localStorage.getItem('save data'))localStorage.setItem('save data',JSON.stringify(d));},fixture);const p=await c.newPage();p.on('pageerror',e=>errors.push(e.message));await p.goto(url);await p.getByText('PLAY',{exact:true}).click();if(await p.getByText('Confirm',{exact:true}).isVisible())await p.getByText('Confirm',{exact:true}).click();await waitForPage(p, ()=>typeof window.saveProgress==='function');return {p,c};};
  const save=async p=>{await p.evaluate(()=>window.saveProgress());return p.evaluate(()=>JSON.parse(localStorage.getItem('save data')));};
  try{let {p,c}=await open(URL+'.proof-old/');assert.equal(await p.locator('#systems_workshop_panel').count(),0);const old=await save(p);assert.equal(old.expansion.simulation,null);assert.equal(Object.keys(old.expansion.actors.player.facts).some(k=>k.startsWith('systems_workshop.')),false);fs.mkdirSync(OUT,{recursive:true});fs.writeFileSync(OUT+'/old-client-save.json',JSON.stringify(old));await c.close();
  ({p,c}=await open(URL,old));const checks=[];

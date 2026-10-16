@@ -1,4 +1,5 @@
 import { sameKnownRouteQuote } from './known_routes.js';
+import { rendered, shownOrDeferred } from './panel_reveal.js';
 
 const node = (tag, text = '', className = '') => {
     const element = document.createElement(tag);
@@ -53,6 +54,8 @@ export function createKnownRoutesPanel({ container, read, present, command, focu
         render();
     }
     function render() {
+        // In an unrendered container nothing shows; compute when it is revealed.
+        if (!shownOrDeferred(render, () => rendered(panel.parentElement))) return;
         const snapshot = read(), view = present(snapshot), section = view?.visible ? view.section : null;
         if (!section && !panel.hidden && panel.contains(document.activeElement)) moveFocus(fallback());
         panel.hidden = !section;

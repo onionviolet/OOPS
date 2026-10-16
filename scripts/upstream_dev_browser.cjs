@@ -1,9 +1,9 @@
 // Disposable generated saves only; assigned lane port, rebuilt 0216ccde baseline.
-const {chromium}=require('/Users/weiwei/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
+const {launchChrome,waitForPage}=require('./ui_helpers.cjs');
 const fs=require('fs'),assert=require('assert/strict');
 const oldCommit=require('node:child_process').execFileSync('git',['-C','.proof-old','rev-parse','HEAD'],{encoding:'utf8'}).trim();
-const URL='http://127.0.0.1:18702/',out='docs/gm/dispatch/absorb-all-2026-10-14/checks';
-(async()=>{const b=await chromium.launch({headless:true,executablePath:'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'});const errors=[];try{
+const URL=process.env.YAIRPG_PROOF_URL||'http://127.0.0.1:18702/',out='docs/gm/dispatch/absorb-all-2026-10-14/checks';
+(async()=>{const b=await launchChrome();const errors=[];try{
 const open=async(save,baseline=false)=>{const c=await b.newContext({viewport:{width:1366,height:768}});if(save)await c.addInitScript(s=>{if(!localStorage.getItem('save data'))localStorage.setItem('save data',JSON.stringify(s));},save);const p=await c.newPage();p.on('pageerror',e=>errors.push(e.message));await p.goto(baseline?URL+'.proof-old/':URL);await p.getByText('PLAY',{exact:true}).click();if(await p.locator('#hero_creation_panel_confirmation').isVisible())await p.locator('#hero_creation_panel_confirmation').click();return {c,p};};
 const save=async p=>{await p.evaluate(()=>window.saveProgress());return p.evaluate(()=>JSON.parse(localStorage.getItem('save data')));};
 let {c,p}=await open(null,true);const old=await save(p);fs.writeFileSync('/tmp/upstream-dev-generated-old-client.json',JSON.stringify(old));await c.close();

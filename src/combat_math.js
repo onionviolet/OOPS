@@ -31,7 +31,11 @@ export function mitigateCombatDamage(values, defense = 0) {
         : Math.ceil(10*Math.max(val-defense,val*.05,1))/10).reduce((sum,val) => sum+val,0);
 }
 
-export function rollBaseCombatDamage(attackPower, count, modifier = 1, random = Math.random) {
+// Every caller passes a draw from a saved stream; an unseeded call fails loudly
+// instead of silently breaking replay.
+const unseeded = () => {throw new Error("Combat rolls need a saved random stream.");};
+
+export function rollBaseCombatDamage(attackPower, count, modifier = 1, random = unseeded) {
     return Array.from({length:count},() => Math.round(10*modifier*attackPower*(1.2-random()*.4))/10).sort((a,b)=>b-a);
 }
 
@@ -41,7 +45,7 @@ export function nextAttackTiming(previous, now, interval, accumulator, limit) {
 }
 
 export function rollCombatStrike({attackPower, attacker, target, shield, shieldSkill = 0,
-    hitModifier = 1, evasionModifier = 1, damageModifier = 1, random = Math.random}) {
+    hitModifier = 1, evasionModifier = 1, damageModifier = 1, random = unseeded}) {
     let values = rollBaseCombatDamage(attackPower,attacker.attack_count || 1,damageModifier,random);
     let partiallyBlocked = false;
     if(shield) {

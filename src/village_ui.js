@@ -2,6 +2,7 @@ import {evaluateAction} from "./expansion_engine.js";
 import {NOTES_KEY, villageScene} from "./village_content.js";
 import {routeUnderstanding} from "./everyday_life.js";
 import {teacherWindow} from "./teacher_window.js";
+import {setText, syncChildren} from "./dom_sync.js";
 
 export function createVillagePanel({registry, read, command, cancel, readBook}) {
     const node = (tag, text = "", className = "") => {
@@ -14,7 +15,7 @@ export function createVillagePanel({registry, read, command, cancel, readBook}) 
     const teaching = node("p", "", "expedition_preview"), chapter = node("p"), opportunities = node("p");
     teaching.dataset.teacherWindow = "lp5"; chapter.dataset.waypostPhase = "lp5";
     body.append(teaching, chapter, opportunities);
-    let signature, notice = "";
+    let signature, rendered = null, notice = "";
     const reading = node("button", "Read the route booklet · 4 min"); reading.type = "button"; reading.dataset.villageRead = "notes";
     reading.addEventListener("click", () => {
         const snapshot = read();
@@ -66,36 +67,40 @@ export function createVillagePanel({registry, read, command, cancel, readBook}) 
         const snapshot = read(), {state, context, enabled, error} = snapshot, facts = context.facts;
         panel.hidden = !["Village", "Shack"].includes(facts.location) || !facts["village.elderMet"] || snapshot.inDialogue;
         if(panel.hidden) return;
-        const sig = JSON.stringify([state, facts, context.gameplay, context.external, enabled, error, notice]);
-        if(!force && signature === sig) return; signature = sig;
-        scene.textContent = villageScene(state, facts);
+        // States are keyed by identity, sequence and clock instead of JSON (see expedition_ui.js).
+        if(rendered && rendered.state === state && rendered.sequence === state.sequence && rendered.clock === state.clock) {
+            const sig = JSON.stringify([facts, context.gameplay, context.external, enabled, error, notice]);
+            if(!force && signature === sig) return;
+            signature = sig;
+        } else {rendered = {state, sequence: state.sequence, clock: state.clock}; signature = undefined;}
+        setText(scene, villageScene(state, facts));
         const teacher = teacherWindow(state, facts);
         teaching.hidden = chapter.hidden = opportunities.hidden = !facts["village.craftsmanMet"] || !state.actors.player.facts["village.discovered"];
-        teaching.textContent = `Proposal · ${teacher.text} Bench orders: Notebook → People → Craftsman & workshop → Commission a kit.`;
-        chapter.textContent = `Story phase: ${teacher.phase}. Route: ${teacher.learned.known ? "learned" : "not yet understood"}. This chapter does not change teaching hours or reset methods and rewards.`;
-        opportunities.textContent = teacher.preview;
+        setText(teaching, `Proposal · ${teacher.text} Bench orders: Notebook → People → Craftsman & workshop → Commission a kit.`);
+        setText(chapter, `Story phase: ${teacher.phase}. Route: ${teacher.learned.known ? "learned" : "not yet understood"}. This chapter does not change teaching hours or reset methods and rewards.`);
+        setText(opportunities, teacher.preview);
         const jobs = state.pending.filter(j => j.context.actorId === "player");
         if(facts["village.notesRead"] && notice.startsWith("Reading the surveyor")) notice = "Notes understood. The dry-bank route remains learned after you put the booklet away.";
-        status.textContent = error || notice; status.hidden = !status.textContent;
+        setText(status, error || notice); status.hidden = !status.textContent;
         reading.hidden = !!facts["village.notesRead"] || !context.gameplay.player.inventory[NOTES_KEY];
         reading.disabled = !enabled || !!error || jobs.length > 0;
         const learned = routeUnderstanding(state, facts["village.notesRead"]);
-        reading.textContent = learned.known ? "Read the booklet too · 4 min" : "Read the route booklet · 4 min";
+        setText(reading, learned.known ? "Read the booklet too · 4 min" : "Read the route booklet · 4 min");
         reading.title = learned.known ? "Reading still trains Literacy; the route is already understood." : "";
         const inspection = evaluateAction(state, registry, "frontier.inspect", context);
         inspect.hidden = !state.actors.player.facts["village.discovered"] || !!state.campaign.facts.anchor;
         inspect.disabled = !enabled || !!error || !inspection.eligible;
-        inspect.textContent = `Inspect the crossing · ${inspection.duration} min`;
+        setText(inspect, `Inspect the crossing · ${inspection.duration} min`);
         cancelButton.hidden = !jobs.some(j => j.actionId.startsWith("village.") && j.cancellation === "refund"); cancelButton.disabled = !!error;
         for(const [id, card] of cards) {
             const preview = evaluateAction(state, registry, id, context);
             card.card.hidden = !preview.visible;
             card.button.disabled = !enabled || !!error || !preview.eligible;
-            card.preview.textContent = `${preview.duration} min` + (preview.contributors.length ? ` · ${preview.contributors.join("; ")}` : "") +
-                (preview.schedule?.open ? ` · Meeting open for ${preview.schedule.remaining} more game minutes` : "");
-            card.reason.textContent = preview.reasons.join(" ");
+            setText(card.preview, `${preview.duration} min` + (preview.contributors.length ? ` · ${preview.contributors.join("; ")}` : "") +
+                (preview.schedule?.open ? ` · Meeting open for ${preview.schedule.remaining} more game minutes` : ""));
+            setText(card.reason, preview.reasons.join(" "));
         }
-        history.replaceChildren(...state.history.filter(r => r.actionId.startsWith("village.")).slice(-4).reverse().map(r => node("li", r.label)));
+        syncChildren(history, state.history.filter(r => r.actionId.startsWith("village.")).slice(-4).reverse().map(r => node("li", r.label)));
     }
     render(); return {panel, render};
 }

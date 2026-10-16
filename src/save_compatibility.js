@@ -9,8 +9,11 @@ function retiredKey(key) {
     return memo.get(key);
 }
 
+// Every save walk visits every key, so plain keys skip the throwing JSON.parse:
+// only text whose first non-whitespace character is "{" can parse to an object with an id.
 function classifyRetiredKey(key) {
     if(RETIRED_IDS.has(key)) return true;
+    if(!/^[ \t\n\r]*\{/.test(key)) return false;
     try { return RETIRED_IDS.has(JSON.parse(key)?.id); } catch { return false; }
 }
 

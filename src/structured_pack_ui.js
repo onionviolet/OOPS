@@ -1,13 +1,17 @@
 import {registerWorkspaceModule, workspaceOwns, unregisterWorkspaceModule} from './workspace_layout.js';
+import {setText} from './dom_sync.js';
 // The host supplies an observer-safe projection. This panel never reads pack
 // definitions. Explicit session repeats dispatch through normal host commands.
-export function createStructuredPackPanel({read,command}) {
+// Optional `changed()` returns the host's cheap change token (an array compared
+// element by element); the 250 ms poll then reads only after it moves. Without
+// it the poll reads every time, as before.
+export function createStructuredPackPanel({read,command,changed}) {
     const panel=document.createElement('details');panel.id='structured_pack_panel';panel.open=true;
     const summary=document.createElement('summary');summary.textContent='Your beginning';panel.append(summary);
     const body=document.createElement('div');panel.append(body);let signature,notice='',repetition=null,noticeError=false;
     const node=(tag,parent)=>{const n=document.createElement(tag);parent.append(n);return n;};
-    const info=node('section',body),work=node('section',body),plans=node('section',body),renewal=node('section',body),actions=node('section',body),message=node('p',body);
-    const actionRows=new Map(),jobRows=new Map();
+    const live={info:node('section',body)},work=node('section',body);live.plans=node('section',body);live.renewal=node('section',body);const actions=node('section',body),message=node('p',body);
+    const actionRows=new Map(),jobRows=new Map(),sectionRows={};
     const trim=(cache,ids)=>{for(const [id,row]of cache)if(!ids.has(id)){if(row.card.contains(document.activeElement))summary.focus?.();row.card.remove();cache.delete(id);}};
     const projected=()=>{const v=read();return {
         expeditions:(v.expeditions||[]).map(s=>({id:s.id,label:s.label,phase:s.phase,injury:s.injury})),available:!!v.available,active:!!v.active,title:v.title,place:v.place,description:v.description,
@@ -29,7 +33,10 @@ export function createStructuredPackPanel({read,command}) {
             }catch{noticeError=true;notice=projected().error||'The action could not be saved.';}render(true);
         };return b;
     };
+    let token=null;
+    const moved=()=>{if(!changed)return true;const next=changed();const same=token&&next.length===token.length&&next.every((v,i)=>Object.is(v,token[i]));token=next;return !same;};
     function render(force=false) {
+        if(changed)token=changed();
         const host=document.getElementById('location_actions_div');if(host&&!workspaceOwns(panel)&&panel.parentElement!==host)host.append(panel);
         const view=projected();
         if(repetition&&(!view.canWrite||view.error)){notice='Repeated work stopped. '+(view.error||'Restore saving before continuing.');repetition=null;}
@@ -50,12 +57,16 @@ export function createStructuredPackPanel({read,command}) {
         const next=JSON.stringify({view,repetition,notice});if(!force&&signature===next)return;signature=next;
         const focused=document.activeElement,focusKey=focused&&body.contains(focused)?Object.entries(focused.dataset||{}).find(([key])=>key.startsWith('structured')):null;
         panel.hidden=!view.available&&!view.active;
-        info.replaceChildren();plans.replaceChildren();renewal.replaceChildren();
-        const p=(text,parent=info)=>{if(text==null||text==='')return;const n=node('p',parent);n.textContent=String(text);return n;};
-        info.hidden=work.hidden=plans.hidden=renewal.hidden=actions.hidden=!(view.available||view.active);
+        // Prose, plans and renewal build detached; a live section is replaced only
+        // when its own rows (text, controls, disabled state) differ from last time.
+        const info=document.createElement('section'),plans=document.createElement('section'),renewal=document.createElement('section');
+        const rows=new Map([[info,[]],[plans,[]],[renewal,[]]]);
+        const p=(text,parent=info)=>{if(text==null||text==='')return;const n=node('p',parent);n.textContent=String(text);rows.get(parent).push(['p',n.textContent]);return n;};
+        const add=(parent,label,data,request,disabled)=>{parent.append(button(label,data,request,disabled));rows.get(parent).push(['b',label,data,request,disabled]);};
+        live.info.hidden=work.hidden=live.plans.hidden=live.renewal.hidden=actions.hidden=!(view.available||view.active);
         if(view.available||view.active){
             p(view.title);p(view.description);
-            if(!view.active)info.append(button(view.beginLabel||'Begin',{structuredBegin:'begin'},{type:'begin'},!view.canWrite));
+            if(!view.active)add(info,view.beginLabel||'Begin',{structuredBegin:'begin'},{type:'begin'},!view.canWrite);
             else {
                 p(view.place);
                 for(const site of view.expeditions)p(`${site.label}: ${site.phase}${site.injury>0?' · treatment needed':''}`);
@@ -65,18 +76,18 @@ export function createStructuredPackPanel({read,command}) {
                     let row=jobRows.get(job.id);
                     if(!row){const card=node('section',work);card.className='action-legibility__card action-legibility__work';card.dataset.structuredJob=job.id;
                         const text=node('p',card),progress=node('progress',card),cancel=button('Cancel '+job.label,{structuredCancel:job.id},{type:'cancel',jobId:job.id},false);card.append(cancel);row={card,text,progress,cancel};jobRows.set(job.id,row);}
-                    row.text.textContent=`${job.label} · ${view.pauseReason?view.pauseReason+' ':!view.canWrite?'Paused until saving is restored. ':'Running. '}${job.remaining} played minutes remaining.`;
+                    setText(row.text,`${job.label} · ${view.pauseReason?view.pauseReason+' ':!view.canWrite?'Paused until saving is restored. ':'Running. '}${job.remaining} played minutes remaining.`);
                     row.progress.hidden=!(job.duration>0);row.progress.max=job.duration;row.progress.value=Math.max(0,Math.min(job.duration,job.duration-job.remaining));row.progress.setAttribute?.('aria-label',job.label+' progress');
-                    row.cancel.textContent='Cancel '+job.label;row.cancel.hidden=!job.cancellable;row.cancel.disabled=!view.canWrite;
+                    setText(row.cancel,'Cancel '+job.label);row.cancel.hidden=!job.cancellable;row.cancel.disabled=!view.canWrite;
                 }
                 if(repetition){p(`${repetition.label}: ${repetition.remaining} further repetitions planned. Each rechecks inputs; closing this page stops the plan.`,plans);
-                    plans.append(button('Stop repeated work',{structuredRepeat:'stop'},{type:'stop-repeat'},false));}
+                    add(plans,'Stop repeated work',{structuredRepeat:'stop'},{type:'stop-repeat'},false);}
                 if(view.renewal?.visible){
                     p(view.renewal.label,renewal);p(view.renewal.description,renewal);
                     for(const text of view.renewal.lost||[])p(text,renewal);
                     for(const text of view.renewal.retain||[])p(text,renewal);p(view.renewal.reward,renewal);
                     for(const reason of view.renewal.reasons||[])p(reason,renewal);
-                    renewal.append(button('Accept renewal',{structuredRenewal:'accept'},{type:'renewal'},!view.canWrite||!view.renewal.eligible));
+                    add(renewal,'Accept renewal',{structuredRenewal:'accept'},{type:'renewal'},!view.canWrite||!view.renewal.eligible);
                 }
                 for(const action of view.actions){
                     let row=actionRows.get(action.id);
@@ -84,22 +95,23 @@ export function createStructuredPackPanel({read,command}) {
                         const heading=node('h4',card),description=node('p',card),state=node('p',card),duration=node('p',card),costs=node('p',card),blockers=node('p',card);
                         const act=button(action.label,{structuredAction:action.id},{type:'action',id:action.id},false),repeat=button('',{structuredRepeat:action.id},{type:'action',id:action.id,times:3},false);card.append(act,repeat);
                         row={card,heading,description,state,duration,costs,blockers,act,repeat};actionRows.set(action.id,row);}
-                    row.heading.textContent=action.label;row.description.textContent=action.description||'';
-                    const pending=view.jobs.find(j=>j.commandId===action.id);row.state.textContent=pending?(view.pauseReason?view.pauseReason+' ':!view.canWrite?'Paused. ':'Running. ')+pending.remaining+' played minutes remaining.':action.completed>0?'Settled completions: '+action.completed+'.':action.eligible?'Available.':'Unavailable.';
-                    row.duration.textContent='Time quote: '+(action.duration>0?`${action.duration} played minutes.`:'Immediate.');
-                    row.costs.textContent='Inputs: '+(action.costs.length?action.costs.join(', ')+'.':'None quoted.');
-                    row.blockers.textContent=action.reasons.join(' ');row.blockers.hidden=!action.reasons.length;row.blockers.dataset.themeState='warning';
+                    setText(row.heading,action.label);setText(row.description,action.description||'');
+                    const pending=view.jobs.find(j=>j.commandId===action.id);setText(row.state,pending?(view.pauseReason?view.pauseReason+' ':!view.canWrite?'Paused. ':'Running. ')+pending.remaining+' played minutes remaining.':action.completed>0?'Settled completions: '+action.completed+'.':action.eligible?'Available.':'Unavailable.');
+                    setText(row.duration,'Time quote: '+(action.duration>0?`${action.duration} played minutes.`:'Immediate.'));
+                    setText(row.costs,'Inputs: '+(action.costs.length?action.costs.join(', ')+'.':'None quoted.'));
+                    setText(row.blockers,action.reasons.join(' '));row.blockers.hidden=!action.reasons.length;row.blockers.dataset.themeState='warning';
                     for(const [key,n]of [['duration',row.duration],['costs',row.costs],['blockers',row.blockers]])n.id='structured-'+encodeURIComponent(action.id)+'-'+key;
                     row.act.setAttribute?.('aria-describedby',[row.duration.id,row.costs.id,...(action.reasons.length?[row.blockers.id]:[])].join(' '));
-                    row.act.textContent=action.label;row.act.disabled=!view.canWrite||!action.eligible;
-                    row.repeat.textContent='Repeat '+action.label+' 3 times';row.repeat.hidden=!action.repeatable;row.repeat.disabled=row.act.disabled;
+                    setText(row.act,action.label);row.act.disabled=!view.canWrite||!action.eligible;
+                    setText(row.repeat,'Repeat '+action.label+' 3 times');row.repeat.hidden=!action.repeatable;row.repeat.disabled=row.act.disabled;
                 }
             }
         }
+        for(const [key,fresh] of [['info',info],['plans',plans],['renewal',renewal]]){const sig=JSON.stringify(rows.get(fresh));if(sectionRows[key]!==sig){sectionRows[key]=sig;live[key].replaceChildren(...fresh.children);}}
         trim(actionRows,new Set(view.active?view.actions.map(a=>a.id):[]));trim(jobRows,new Set(view.active?view.jobs.map(j=>j.id):[]));
-        message.textContent=view.error||notice;message.hidden=!message.textContent;
+        setText(message,view.error||notice);message.hidden=!message.textContent;
         message.dataset.themeState=view.error||noticeError?'error':'status';message.setAttribute('role',view.error||noticeError?'alert':'status');
         if(focusKey){const find=node=>node.dataset?.[focusKey[0]]===focusKey[1]?node:[...node.children].map(find).find(Boolean);find(body)?.focus();}
     }
-    render();registerWorkspaceModule({id:'beginning',title:'Your beginning',node:panel,home:'right',eligible:()=>!panel.hidden});const timer=setInterval(render,250);return {render,destroy(){clearInterval(timer);unregisterWorkspaceModule('beginning');panel.remove();}};
+    render();registerWorkspaceModule({id:'beginning',title:'Your beginning',node:panel,home:'right',eligible:()=>!panel.hidden});const timer=setInterval(()=>{if(moved())render();},250);return {render,destroy(){clearInterval(timer);unregisterWorkspaceModule('beginning');panel.remove();}};
 }

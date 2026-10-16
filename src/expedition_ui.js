@@ -1,4 +1,5 @@
 import {evaluateAction, inspectCapabilities} from "./expansion_engine.js";
+import {setText, syncChildren} from "./dom_sync.js";
 
 // Rendering reads snapshots. Clicks submit IDs to the host; they never mutate state.
 export function createExpeditionPanel({registry, read, command, cancel}) {
@@ -16,7 +17,7 @@ export function createExpeditionPanel({registry, read, command, cancel}) {
         if(className) node.className = className;
         return node;
     };
-    let signature;
+    let signature, rendered = null;
     let notice = "";
     const status = element("p", "", "expedition_notice");
     status.setAttribute("role", "status");
@@ -58,24 +59,30 @@ export function createExpeditionPanel({registry, read, command, cancel}) {
     function render(force = false) {
         if(!panel.isConnected) document.getElementById("location_actions_div").append(panel);
         const {state, context, error, enabled} = read();
-        const nextSignature = JSON.stringify([state, context.facts, context.external, context.gameplay, error, enabled, notice]);
-        if(!force && signature === nextSignature) return;
-        signature = nextSignature;
+        // Published expansion states are replaced, not edited: the state is keyed
+        // by identity, sequence and clock (as framed facts are) instead of JSON.
+        // A new state always renders; the context JSON is built only to skip a
+        // repeat render of the same state.
+        if(rendered && rendered.state === state && rendered.sequence === state.sequence && rendered.clock === state.clock) {
+            const nextSignature = JSON.stringify([context.facts, context.external, context.gameplay, error, enabled, notice]);
+            if(!force && signature === nextSignature) return;
+            signature = nextSignature;
+        } else {rendered = {state, sequence: state.sequence, clock: state.clock}; signature = undefined;}
         const actor = state.actors.player;
         const world = state.worlds[actor.worldId];
         const jobs = state.pending.map(job => `${registry.actions.get(job.actionId)?.label || job.actionId}: ${job.due - state.clock} min remaining`);
         const opportunities = Object.values(state.opportunities).map(o => o.status === "scheduled"
             ? `Next departure in ${o.due - state.clock} min` : o.status === "available"
                 ? `Departure available for ${o.expires - state.clock} min` : o.status === "expired" ? "Departure missed; survey rewards retained" : "Departure joined");
-        stateText.textContent = [`Kits: ${context.facts.kits || 0}`, `Ropes: ${context.facts.rope || 0}`,
+        setText(stateText, [`Kits: ${context.facts.kits || 0}`, `Ropes: ${context.facts.rope || 0}`,
             state.campaign.facts.anchor ? "Anchor points known" : "Anchor points unknown",
             world.facts.crossing ? `Crossing: ${world.facts.crossing}` : "Crossing unsurveyed",
-            world.facts["guide.condition"] ? `Guide: ${world.facts["guide.condition"]}` : "Guide waiting", ...jobs, ...opportunities].join(" · ");
-        status.textContent = error || notice || "Expeditions advance with game minutes, including travel and sleep.";
+            world.facts["guide.condition"] ? `Guide: ${world.facts["guide.condition"]}` : "Guide waiting", ...jobs, ...opportunities].join(" · "));
+        setText(status, error || notice || "Expeditions advance with game minutes, including travel and sleep.");
         const capabilities = inspectCapabilities(state, registry, context);
-        capabilityText.textContent = "Capabilities: " + Object.values(capabilities).map(capability =>
+        setText(capabilityText, "Capabilities: " + Object.values(capabilities).map(capability =>
             `${capability.label}: ${capability.value}` + (capability.contributions.length ?
-                ` (${capability.contributions.map(source => `${source.label} · ${source.kind}`).join(", ")})` : " (no active source)")).join("; ");
+                ` (${capability.contributions.map(source => `${source.label} · ${source.kind}`).join(", ")})` : " (no active source)")).join("; "));
         const cancellable = state.pending.find(job => job.context.actorId === "player" && job.cancellation === "forfeit");
         cancelButton.hidden = !cancellable;
         cancelButton.disabled = !!error;
@@ -85,14 +92,14 @@ export function createExpeditionPanel({registry, read, command, cancel}) {
             const {card, button, previewText, requirements} = cards.get(action.id);
             card.hidden = !preview.visible;
             button.disabled = !enabled || !!error || !preview.eligible;
-            previewText.textContent = `${preview.duration} min · ` + preview.outcomes.filter(o => o.chance > 0)
+            setText(previewText, `${preview.duration} min · ` + preview.outcomes.filter(o => o.chance > 0)
                 .map(o => `${o.label}: ${Math.round(o.chance * 100)}%`).join(" · ") +
                 (preview.contributors.length ? ` · ${preview.contributors.join("; ")}` : "") +
                 (action.id === "frontier.inspect" ? [] : preview.rolls).map(roll => ` · ${roll.label}: ` + roll.outcomes.filter(o => o.chance > 0)
-                    .map(o => `${o.label} ${Math.round(o.chance * 100)}%`).join(" / ")).join("");
-            requirements.textContent = preview.reasons.join(" ");
+                    .map(o => `${o.label} ${Math.round(o.chance * 100)}%`).join(" / ")).join(""));
+            setText(requirements, preview.reasons.join(" "));
         }
-        history.replaceChildren(...state.history.filter(receipt => !["technique", "chronicle", "village", "town", "optional_pack"].includes(registry.actions.get(receipt.actionId)?.group)).slice(-6).reverse().map(receipt => element("li",
+        syncChildren(history, state.history.filter(receipt => !["technique", "chronicle", "village", "town", "optional_pack"].includes(registry.actions.get(receipt.actionId)?.group)).slice(-6).reverse().map(receipt => element("li",
             [receipt.label, ...(receipt.rolls || []).map(roll => roll.label)].join(" · "))));
     }
     render();

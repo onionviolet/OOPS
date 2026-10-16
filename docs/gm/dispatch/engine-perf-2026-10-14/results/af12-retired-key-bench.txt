@@ -1,0 +1,7 @@
+keys 3734 brace keys 19
+O normal 21.361 ms/call
+O batched 0.834 ms/call
+A normal 0.822 ms/call
+A batched 0.916 ms/call
+B normal 0.783 ms/call
+B batched 0.812 ms/call

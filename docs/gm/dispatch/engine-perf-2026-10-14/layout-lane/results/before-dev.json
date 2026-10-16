@@ -1,0 +1,78 @@
+{
+ "label": "before-dev",
+ "windows": [
+  {
+   "sec": 15,
+   "layoutsPerSec": 49.2,
+   "stylePerSec": 193,
+   "layoutMs": 151,
+   "styleMs": 136,
+   "scriptMs": 6965,
+   "busyPct": 50.8
+  },
+  {
+   "sec": 15,
+   "layoutsPerSec": 54.7,
+   "stylePerSec": 197,
+   "layoutMs": 158,
+   "styleMs": 124,
+   "scriptMs": 6068,
+   "busyPct": 44.7
+  }
+ ],
+ "errors": [],
+ "trace": [
+  [
+   "UpdateLayoutTree | t1@bundle.js?version=v0.6-cbda4592f8d0:1036:97485 < QMe@bundle.js?version=v0.6-cbda4592f8d0:1036:97578 < @bundle.js?version=v0.6-cbda4592f8d0:1036:94939",
+   288
+  ],
+  [
+   "UpdateLayoutTree | (no stack: rendering)",
+   120
+  ],
+  [
+   "Layout | (no stack: rendering)",
+   115
+  ],
+  [
+   "UpdateLayoutTree | @bundle.js?version=v0.6-cbda4592f8d0:1012:14090 < da@bundle.js?version=v0.6-cbda4592f8d0:1012:13666 < Lt@bundle.js?version=v0.6-cbda4592f8d0:1053:406447",
+   20
+  ],
+  [
+   "Layout | @bundle.js?version=v0.6-cbda4592f8d0:1012:14090 < da@bundle.js?version=v0.6-cbda4592f8d0:1012:13666 < Lt@bundle.js?version=v0.6-cbda4592f8d0:1053:406447",
+   20
+  ],
+  [
+   "Layout | t1@bundle.js?version=v0.6-cbda4592f8d0:1036:97485 < QMe@bundle.js?version=v0.6-cbda4592f8d0:1036:97578 < @bundle.js?version=v0.6-cbda4592f8d0:1036:94939",
+   12
+  ],
+  [
+   "UpdateLayoutTree | s@bundle.js?version=v0.6-cbda4592f8d0:1036:112824 < eligible@bundle.js?version=v0.6-cbda4592f8d0:1036:113282 < @bundle.js?version=v0.6-cbda4592f8d0:1036:94219",
+   12
+  ],
+  [
+   "UpdateLayoutTree | s@bundle.js?version=v0.6-cbda4592f8d0:1036:112824 < eligible@bundle.js?version=v0.6-cbda4592f8d0:1036:113086 < @bundle.js?version=v0.6-cbda4592f8d0:1036:94219",
+   12
+  ],
+  [
+   "UpdateLayoutTree | readPreview@bundle.js?version=v0.6-cbda4592f8d0:1059:16292 < Xn@bundle.js?version=v0.6-cbda4592f8d0:1036:137635 < Aie@bundle.js?version=v0.6-cbda4592f8d0:1036:143735",
+   11
+  ],
+  [
+   "UpdateLayoutTree | g@bundle.js?version=v0.6-cbda4592f8d0:1036:114421 < b@bundle.js?version=v0.6-cbda4592f8d0:1036:114554 < w.onmessage@HackTimer.min.js:1:1294",
+   10
+  ],
+  [
+   "Layout | readPreview@bundle.js?version=v0.6-cbda4592f8d0:1059:16292 < Xn@bundle.js?version=v0.6-cbda4592f8d0:1036:137635 < Aie@bundle.js?version=v0.6-cbda4592f8d0:1036:143735",
+   6
+  ],
+  [
+   "UpdateLayoutTree | f6e@bundle.js?version=v0.6-cbda4592f8d0:1011:38907 < $e@bundle.js?version=v0.6-cbda4592f8d0:1012:3022 < Lt@bundle.js?version=v0.6-cbda4592f8d0:1053:403275",
+   1
+  ],
+  [
+   "UpdateLayoutTree | o@bundle.js?version=v0.6-cbda4592f8d0:1036:131960 < @bundle.js?version=v0.6-cbda4592f8d0:1036:133210",
+   1
+  ]
+ ]
+}

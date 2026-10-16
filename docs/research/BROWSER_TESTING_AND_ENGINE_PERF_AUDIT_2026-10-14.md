@@ -339,3 +339,353 @@ did not appear.
    keeps generating people and knowledge (the workshop's natural route). Done check:
    per-part growth table to 30k with each growing part either capped in source or
    flagged.
+
+## AF1 + AF2 result, 2026-10-14 night
+
+Branch `claude/engine-perf-core-5a93e1`, rebased onto `absorb-all/integration`
+`6e5f190f`. Interleaved A/B against that tip's build, host load 22-29, so read
+the ratios, not the absolute times. [Raw results](../gm/dispatch/engine-perf-2026-10-14/results/)
+(`af12-*`).
+
+- **AF1 done.** The fast path now lives in `classifyRetiredKey`; the always-on
+  `Map` is gone and integration's batch memo is the only cache. MEASURED on the
+  developed fixture (3734 keys, 19 start with `{`): one save walk costs 19.7 ms
+  without the fast path, 0.67 ms with it and no cache, 0.77 ms with the `Map`,
+  0.69 ms with the batch memo. The fast path is the whole win; a second cache
+  adds nothing.
+- **AF2 done.** `simulation_render.js` owns the frame: `withSimulationFrame(key, run)`
+  and `framedSimulationRead(key, name, build, copy)`. `persistExpansion` opens
+  one per publication, and `endSimulationRenderBatch(expansionState)` flushes the
+  dev-stepping batch's coalesced renders inside one, so both paths share builder
+  reuse. Rules unchanged: one build per pass, a copy per caller, reuse ends when
+  the key (expansion state identity) changes; nested frames restore the outer one.
+  The frame wraps renders only, never ticks, because gameplay mutates
+  non-expansion state (body, activity) between reads of the same expansion state.
+- **Checks.** Full suite 1706 tests, 1703 pass, 0 fail, 3 todo (tip: 1702 /
+  1699 / 0 / 3; +4 frame tests). Systems workshop browser 10/10 on both builds.
+  `det.cjs` 20 game minutes from the workshop's `natural-final-save.json`
+  (clock 66 → 86): durable save byte-identical to the tip build, two reps.
+- **Idle JS-busy, tip → branch.** Fresh, per 15 s: 2.09 / 1.67 s → 0.62 / 0.58 s
+  (about −68%). Developed, per 20 game minutes (about 30 s): 14.6 / 16.2 s →
+  12.2 / 12.9 s (about −20%). `simulationFacts` is now 74.5% of developed
+  JS-busy, so D1 (preview fan-out) is next and can build on `framedSimulationRead`.
+
+## D1 result, 2026-10-14 night
+
+Branch `claude/engine-perf-d1` (commit `5855d076`) on `claude/engine-perf-core-5a93e1`
+`951792ba`. Interleaved A/B against `951792ba`'s build, fixture: the AF1+AF2
+developed save (workshop `natural-final-save.json`, clock 66). Host load 10-25
+for the developed A/B, spikes to 95-335 during later checks.
+[Raw results](../gm/dispatch/engine-perf-2026-10-14/results/) (`d1-*`).
+
+- **D1a done.** `simulationFacts` inside a publication frame goes through
+  `framedSimulationFacts` (`src/simulation_render.js`). Reuse needs the frame's
+  own state (identity), the same `sequence`, `clock` and registry, the same
+  actor and target, and a context that matches field by field two levels deep
+  against a snapshot taken at build time. Context identity is never the key.
+  Each caller gets a shallow copy; no fact value is an object (checked on the
+  fixture), so that copy is complete. Plan copies inside previews have other
+  identities and always build. MEASURED purity: an instrumented build rebuilt
+  on every hit and compared JSON, 3707 hits, 198 misses, 0 mismatches.
+- **D1b done.** `src/panel_reveal.js`: a panel whose container is not rendered,
+  or whose `<details>` body is closed, skips its previews and re-renders in the
+  MutationObserver microtask after the DOM change that reveals it (before
+  paint). Applied to Known routes (container), the feature panel (container),
+  the systems workshop (closed panel and its closed "later" group) and the
+  backlog panel (closed or container, on top of its hidden skip). Summaries are
+  static text; the feature panel and Known routes still compute while closed but
+  shown, because their own `hidden` depends on the full presentation.
+- **D1c not done.** (a)+(b) met the target without it.
+- **Calls per idle tick, base → head.** `simulationFacts` 447 builds → 241
+  calls with 36 builds. `previewSimulationCommand` 300 → 192. Nested previews
+  132 → 66, Tidemark 42 → 21, `refinementPresentation` 2 → 1.
+- **Developed idle JS-busy per 20 game minutes, base → head.** Rep 1: 10.64 →
+  3.78 s (0.36×). Rep 2: 9.11 → 3.29 s (0.36×). (a) alone measured 0.53×.
+- **Fresh idle JS-busy per 15 s, base → head.** 0.55 → 0.39 s; 0.84 → 0.55 s
+  (head rep 2 under load 95). Not worse.
+- **det.** 20 game minutes from the fixture (minute 1986 → 2006, clock 86):
+  durable save byte-identical to base, two reps.
+- **Checks.** Full suite 1710 tests, 1707 pass, 0 fail, 3 todo (base 1706 /
+  1703 / 0 / 3; +4 tests: framed facts reuse and rebuild rules, real facts
+  equality and isolation, observer reveal). Harness-branch systems workshop
+  browser check 10/10 on head (dev-stepped; its summary clicks exercise the
+  reveal path), village check passes. Perf gate (`claude/engine-perf-gate-853189`,
+  `--base 951792ba`): PASS on fresh, mid and crowded, det identical on all
+  three; load 206 during the run, so its browser numbers are flagged unreliable.
+- **Acceptance backlog.** Container reveal through the workspace (a Known
+  routes module discovered or moved out of a hidden dock) is unit-tested only,
+  not exercised in a browser. The remaining developed cost is the feature
+  panel's closed-but-shown presentation and dry-run facts on plan copies
+  (`applySimulationEffects`). D4 and D3 can start on these files now.
+
+## Wave 2 dispatch: faster engine, simulate everything, 2026-10-14 night
+
+Weibao asked how to make the engine much faster and able to test and simulate
+everything, and to send out all of it. Merge sweep first: `claude/engine-perf-wave`
+= D1 chain (first pass, AF1+AF2, D1) + layout + harness + perf gate. The gate
+branch's stale first-pass copies resolved to the rebased versions. Build OK; full suite
+1707 pass, 0 fail, 3 todo. Not merged into `absorb-all/integration`
+(coordinator-owned). Lanes start from the wave branch with disjoint files:
+
+| Lane | Work | Owns |
+| --- | --- | --- |
+| A loop | D4 hidden-tab render skip → D3 unchanged-write skip (loses at most playtime counters) → RT8 fast-forward/catch-up with yielding | `main.js`, persistence, `save_files.js`, `simulation_render.js` |
+| B state | Structural sharing instead of whole-state clones, incremental validation, scheduler due index | `expansion_engine.js`, `simulation.js`, `simulation_effects.js` |
+| C headless | Full-game Node runner (native + expansion) with real save/import paths | `scripts/headless/`, `tests/headless/` |
+| D simfuzz | Seeded engine bots over every registered command; invariants; coverage and repro seeds | `scripts/simfuzz/`, `tests/simfuzz/` |
+| E replay | `Math.random` → named streams outside core files; command-log record/replay | non-core `src/` RNG sites, `scripts/replay/` |
+| F checks | Migrate every browser check; cross-session test/browser queue | `scripts/*.cjs`, `scripts/test_queue.mjs` |
+| G render | Narrow render signatures, keyed rows, inventory/item log | five panel modules, `display.js` inventory/log functions |
+| H startup | Parse/boot/load measurement; esbuild splitting, lazy JSON/Ink | `build.js`, new loaders |
+| I combat | Deadline-scheduled attacks, rAF bars, outcome-identical replay | `src/models/combat.js` |
+
+Shared gates for every lane: interleaved A/B with host load recorded, `det.cjs`
+byte-identity where state is involved, `node --test` with 0 failures, the systems
+workshop browser check passing 10/10. Edits to files another lane owns come back as
+patch proposals. The long-session scaling lane (D5) is still running separately.
+## D4 result, 2026-10-14 night
+
+Branch `claude/wave-a-loop-53c42e` on `claude/engine-perf-wave` `7504a1e4`.
+Interleaved A/B against `7504a1e4`'s build on the developed fixture (workshop
+`natural-final-save.json`, clock 66). Host load 226-422 during the A/B, so read
+ratios, not absolute times. [Raw results](../gm/dispatch/engine-perf-2026-10-14/results/) (`d4-*`).
+
+- **Seam.** `deferWhileHidden(key, refresh)` in `src/simulation_render.js`. While
+  `document.hidden`, a display refresh is remembered (latest per key) instead of
+  run. The `visibilitychange` that reveals the document runs each one once, in
+  that task, before the first visible frame paints.
+- **What waits while hidden** (`src/main.js`): the publication render batch
+  (`renderPublicationPanels`, still inside one frame), the publication's own
+  display refreshes (time, vitals, inventory, storage stamps, item log, world
+  identity), the per-tick panel list, the clock panels `update_timer` repeats
+  after each joined-clock publication, the panels after each durable save, the
+  export reward button, effect and temperature displays, and the 250 ms, 500 ms
+  and 1 s display polls in `main.js`.
+- **What still runs:** ticks, simulation, staging, durable saves, log messages,
+  title announcements, `refreshCustomization` (gameplay reads its
+  `data-effects` attribute), and the structured pack panel's 250 ms poll
+  (it dispatches repeated work, so it is gameplay).
+- **Headless caveat.** Headless Chrome never reports a background tab as
+  hidden, so the checks override `document.hidden`/`visibilityState` in an init
+  script and fire a real `visibilitychange`. A real hidden tab also stops rAF,
+  so it can only cost less.
+- **Hidden vs visible, head build, per 20 s window:**
+
+  | Rep | Visible task busy | Hidden task busy | Ratio per wall second | Ratio per tick | Long tasks visible → hidden |
+  | --- | --- | --- | --- | --- | --- |
+  | 1 | 25.2% | 6.7% | 0.27× | 0.22× | 17 → 4 (max 62 ms) |
+  | 2 | 29.5% | 4.9% | 0.17× | 0.14× | 17 → 0 |
+
+  The hidden page runs about 25% more ticks per window (63 vs 51 durable
+  writes per minute), because visible long tasks delay the next tick; per tick
+  is the fairer engine ratio. Base build hidden: 26.0% and 23.7% (no change).
+  **Target ≤ 0.2× met in rep 2 only.** The rest is gameplay staging: context
+  builds in `persistExpansion` and `advanceChroniclePlan` (about 45% of hidden
+  JS-busy) plus two polls outside this lane's files (below).
+- **Reveal.** 30 deterministic ticks (`advanceTicks(30,{render:true})`) on an
+  always-visible page and on a hidden page, then reveal: `#main_content` text
+  stale before the reveal, identical line for line to the visible page right
+  after it, saves identical. Rendered stepping cost 8.1 s visible vs 1.2 s hidden.
+- **det.** 20 game minutes natural ticks, base visible vs head hidden (minute
+  1986 → 2006, clock 86): byte-identical.
+- **Checks.** Full suite 1724 tests, 1721 pass, 0 fail, 3 todo (+3 hidden-seam
+  tests). Systems workshop browser 10/10 (dev-stepped, 38 s). Perf gate
+  `--base 7504a1e4`: PASS on fresh, mid and crowded, det identical on all three
+  (load 115-265, browser numbers flagged unreliable).
+- **Patch proposals, not this lane's files.** `src/workspace_views.js` runs its
+  250 ms render (`updateWorkspace`) while hidden: about 7% of hidden JS-busy.
+  `src/structured_pack_ui.js` reads the full structured projection every 250 ms
+  even with no repetition pending: about 10%. Both could skip while
+  `documentHidden()` and re-render on reveal (`deferWhileHidden`), the pack
+  panel only when no repetition is active.
+- **Acceptance backlog.** A real background tab in headed Chrome (rAF and timer
+  throttling on top of the skip) was not exercised.
+
+## D3 result, 2026-10-14 night
+
+Commit after D4 `35dbab0d` on the same branch. A/B against `35dbab0d`'s build,
+developed fixture, load 27-37. [Raw results](../gm/dispatch/engine-perf-2026-10-14/results/) (`d3-*`).
+
+- **Compatibility decision (ER1-F1 recovery window).** A durable write is skipped
+  only when the new save equals the bytes this tab last stored under that key,
+  except `saved_at` and `total_playtime`, and the key still holds exactly those
+  bytes. A crash can lose at most those two counters, never game state.
+  `saved_at` is a display date string and no code derives offline time from
+  it, so stale counters cannot grant time. Save format unchanged; no migration.
+- **Mechanism.** `createDurableSaveWriter` and `serializeDurableSave` in
+  `src/save_files.js`. One `JSON.stringify` with marker counters gives both the
+  stored bytes (markers replaced, byte-identical to a plain stringify) and the
+  counter-free body the skip compares. `lifeSaveStorage.setItem` uses it on the
+  plain localStorage path; every publication step after the write (life record,
+  village career, panels, `onDurable`) still runs, so atomic publication is
+  unchanged.
+- **Always written:** any other difference, explicit save (`saveProgress`),
+  export (`save_to_file`), and a flush of skipped counters on `pagehide`,
+  `beforeunload` and `visibilitychange` to hidden. The flush never writes when
+  the tab cannot save (ownership lost, import probe, failed save, storage full)
+  or when anything else wrote the key since, so an import before reload is
+  never overwritten. A failed write throws as before and leaves no skip or
+  flush state. The native-authority path writes as before and resets the writer.
+  Web Lock ownership and import/reload code are untouched.
+- **Measured effect: about zero in play.** Every durable write on the fresh,
+  mid, crowded and developed fixtures carries real state: calendar minute,
+  expansion clock, Breathing XP and controller due times change each minute.
+  Even the 60 s autosave is real: the tick's durable write happens mid-tick and
+  the tick then adds Breathing XP, so the autosave carries that XP. Head and base
+  both wrote 121 times for 120 stepped ticks; natural idle writes per minute
+  were equal in the A/B (51-57 both builds). The skip fires only while the
+  clock is paused (manual chronicle, waiting choice, backlog pause, ended life),
+  where the autosave repeats unchanged state once a minute. **"Idle writes near
+  0 on an unchanged fresh game" is not met:** a fresh game is not unchanged.
+  E4's premise ("expansion clock stays 0") predates the joined clock. The real
+  write cost lever is ER1-F1's per-tick durable transaction, which stays a
+  separate recovery decision.
+- **Persistence checks, fresh origin, 1366x768** (`d3check.mjs`, head and base):
+  stored bytes equal live state minus counters; kill (stored bytes at that
+  moment, no flush, loaded in a new origin) restores identical state; two
+  explicit saves write twice; export through `#save_to_file_button` then import
+  through `#saved_file_input` restores identical state; no page errors. The
+  workshop check's SYS-R08 also covers save/reload and literal-file import.
+- **Other checks.** det 20 game minutes visible (minute 1986 → 2006, clock 86):
+  byte-identical to D4. Full suite 1730 tests, 1727 pass, 0 fail, 3 todo (+6
+  writer tests). Systems workshop browser 10/10 (dev-stepped, 28 s). Idle A/B at
+  load 13-20: task busy 12.8/13.1% (D4) vs 13.0/13.1% (D3), 57 writes per minute
+  both. Perf gate `--base 35dbab0d`: det identical on fresh, mid and crowded;
+  FAIL on `storageKBPerMin` for mid (7943 vs ceiling 7700) and crowded (29507 vs
+  25500) only. KB per write is unchanged from the D4 gate (141.8 and 567 KB); the
+  quieter host (load 25-78 vs 115-265) ticked more often (56 vs 52 and 52 vs 44
+  writes per minute). That is a budget set on a loaded host, not a regression;
+  the gate lane owns `budgets.json`.
+- **Caught on the way.** The first wiring captured `localStorage` at module load;
+  the alloy equipment fixture swaps the global storage after import, so its test
+  failed. The writer now takes a storage getter, as the direct calls did.
+
+## RT8 fast-forward result, 2026-10-14 night
+
+Commit after D3 `8b329076` on the same branch. Developed fixture, load 11-27.
+[Raw results](../gm/dispatch/engine-perf-2026-10-14/results/) (`rt8-*`).
+
+- **API (dev/test only, behind `testHooksEnabled`).** `window.fastForward(n,
+  {sliceMs = 30, onProgress})` returns a promise of `{ticks, callbacks,
+  autosaves, slices, maxSliceMs, wallMs}`. It pauses the engine, opens the same
+  stepper batch as `advanceTicks` (`openStepperBatch` in `src/main.js`: panel
+  renders and autosaves coalesce), then runs `runEngineTicks(1)` repeatedly,
+  yielding (`scheduler.yield`, else a `MessageChannel` task) before every slice
+  and ending a slice before a tick that would likely cross `sliceMs`. The engine
+  stays paused across yields, so no live timer interleaves; one coalesced render
+  and autosave flush at the end, then the engine resumes if it was running.
+  Nesting with `advanceTicks` or itself is refused. One tick is one game minute
+  while awake (six while sleeping), so `n` counts ticks.
+- **Catch-up.** `?test_hooks=1&catch_up_ticks=N` replays N ticks through
+  `fastForward` right after PLAY; the promise is `window.catchUpResult`. The game
+  has no offline time today: `away_ledger.js` is not wired in and
+  [USER_VISION](../USER_VISION.md) keeps offline execution deferred, so who gets
+  time away stays Weibao's design decision. This hook is the mechanism for that
+  later policy and for harness checks, not a player-facing grant.
+- **8 game hours (480 ticks), developed fixture:**
+
+  | Path | Wall | vs real time (480 s) | Long tasks | Max slice | Identity |
+  | --- | --- | --- | --- | --- | --- |
+  | `fastForward(480)` | 6.98 s | 69× | 0 | 39.7 ms | durable save and stored bytes = `advanceTicks(480)` |
+  | `advanceTicks(480)` (one task) | 7.03 s | 68× | the whole run | n/a | reference |
+  | Reload + `catch_up_ticks=480` | 6.89 s | 70× | 1 at PLAY (121 ms) | 37.1 ms | 480 game minutes |
+
+  `fastForward(60)` equals 60 separate `advanceTicks(1)` calls byte for byte.
+  The one long task after a catch-up reload is the PLAY/load handler; it appears
+  the same with `catch_up_ticks=1` (133-150 ms), so the forward adds none.
+  An earlier run at load 20 measured 8.4 s (57×). The 50× margin is thin
+  on a loaded host: per-tick cost (staging plus a full durable write) sets the
+  speed, and slicing cannot split a single tick.
+- **Checks.** Full suite 1730 tests, 1727 pass, 0 fail, 3 todo. Systems
+  workshop browser 10/10 (dev-stepped through the refactored `advanceTicks`,
+  22 s). det 20 game minutes: byte-identical to D3. Idle A/B unchanged (task
+  busy 12.0/12.0% vs 11.9/12.1%). Reveal check still identical. Perf gate
+  `--base 8b329076`: det identical on all three fixtures; FAIL on
+  `storageKBPerMin` for mid and crowded (same budget artifact as D3, 141.8 and
+  567 KB per write unchanged) and crowded `longTasks` 13 vs ceiling 12, inside
+  the gate's stated ±2 noise, with task busy lower than D3's run (29.2 vs 33.5%).
+- **Not done here.** ER1-F9's within-plan drain (`advanceChroniclePlan` paying
+  repeated 512-boundary budgets for one long command such as a journey) still
+  runs in one task. Yielding there needs the async locked-plan design (compute
+  the drain in slices over a frozen base, publish once, redo if the base
+  changed), which touches every synchronous caller. Proposal, not started.
+- **Proposals.** A player-facing "skip ahead" or offline catch-up UI on top of
+  `fastForward` (progress from `onProgress`, input blocked while it runs) is a
+  proposal only. Harness lane: a `fastForward(page, n)` wrapper in
+  `scripts/ui_helpers.cjs` next to `advanceGameMinutes`, so checks that wait on
+  many game minutes stop holding one long task.
+
+### Tools added
+
+In [tools/](../gm/dispatch/engine-perf-2026-10-14/tools/), all resolve the repo
+root from their own path and build into an OS temp dir:
+`vis.mjs` (hidden-tab emulation), `ab_hidden.mjs` (interleaved A/B, visible and
+hidden), `reveal.mjs`, `det_hidden.mjs`, `d3_persistence.mjs`,
+`fast_forward.mjs`, `catch_up.mjs`, `workshop_at.mjs` (workshop check against
+any build), `prof_hidden.mjs`, `callers.cjs` (profile caller chains),
+`savediff.mjs` (which save paths change per write).
+
+## Wave 2 merge, 2026-10-14 night
+
+Weibao: "merge, no need to rerun for now". Merged into `claude/engine-perf-wave`:
+lanes A (loop: D4, D3, RT8), B (state), C (headless), D (simfuzz), E (replay),
+G (render), H (startup measurement only) and I (combat). Lane F (browser checks)
+had no commits and is not included. Only the two audit docs conflicted, both
+append-only; both sides were kept. No `src/` conflicts.
+
+Merge-correctness checks (no perf reruns, by request):
+- esbuild build OK.
+- `node --test` (tests, tests/headless, tests/simfuzz): 1737 tests, 1734 pass,
+  0 fail, 3 todo.
+- Rebuilt fresh-origin 1366×768, `?test_hooks=1`: `systems_workshop_browser.cjs`
+  10/10, no page errors, 33 s dev-stepped; `village_browser.cjs` passes.
+
+Still open:
+- Every wave 2 time ratio is provisional until a quiet-host rerun.
+- Simfuzz F1 (`state.sequence` depends on time chunking, `audit_remainder_runtime.js:25`)
+  and F2 (an unbounded advance can soft-brick a fresh save) are unfixed. Under F1,
+  byte-identity claims hold only for identical chunking, or while the audit
+  remainder owner is closed.
+- Unapplied patch proposals to lane A's files: B's WB-V3 (pass the registry
+  into persistence validation) and G's `wave-g-render/lane-a-structured.patch`.
+- Not merged into `absorb-all/integration` or `master`.
+
+## Simfuzz F1 fixed, 2026-10-14 night
+
+What was wrong: `advanceAuditRemainder` bumped `state.sequence` at most once
+per `advanceSimulation` call, always compared against the call's input state.
+N one-minute calls ended N-1 higher than one N-minute call.
+
+What the nonce protects: every quote and command carries `expectedSequence`;
+the per-minute bump makes a quote from before a played minute stale before
+receipts join that minute. Receipts compare `simulation:<n>` causes against
+`state.sequence` only as an upper bound, so larger values stay valid.
+
+Rule now (`src/audit_remainder_runtime.js`): each played minute window
+(w, w+1] gets one bump at its first check unless something else already bumped
+in that window. `advanceSimulation` keeps one window anchor per call and calls
+`enterAuditRemainderMinute` before every clock move, which adds one bump per
+skipped event-free minute. The end-of-call and main.js calls are no-ops once
+the minute is bumped. One-minute ticks are unchanged (same sequence and save
+hash, old vs new, 20 ticks on the combat-fit fixture). Long jumps (fast-forward,
+offline catch-up, `advanceSimulation(N)`) now add one per minute instead of one
+per call.
+
+Compatibility decision: no migration. `sequence` is a monotonic nonce; old
+saves load and continue, and only future increments change.
+
+Checks:
+- `node scripts/simfuzz/run.mjs --repro 33 --stop-at 440`: no split-vs-jump.
+- Full simfuzz (50 seeds x 2000 steps + 17 reruns, 4 workers): 0 invariant
+  failure groups, 17/17 determinism reruns identical.
+- New `tests/audit_remainder_nonce_split.test.js`: event-free window, a window
+  with a finished paid job, and other bumps before and after the nonce check;
+  the first two fail on the old rule.
+- `fast_forward.mjs` on the developed workshop save: fastForward(60),
+  advanceTicks(60) and 60 single ticks byte-identical. (That save has the audit
+  remainder closed, so this is a regression guard, not an F1 proof.)
+- `node --test`: 1741 tests (tests, tests/headless, tests/simfuzz), 0 fail, 3 todo.
+- Rebuilt bundle, fresh origin 1366×768, `?test_hooks=1`, port 57594:
+  `systems_workshop_browser.cjs` 10/10, `village_browser.cjs` passes.
+
+Not covered: a browser run with the audit remainder open (no such fixture).

@@ -1,0 +1,24 @@
+{
+ "label": "final-dev",
+ "windows": [
+  {
+   "sec": 15,
+   "layoutsPerSec": 7.3,
+   "stylePerSec": 51.5,
+   "layoutMs": 10,
+   "styleMs": 75,
+   "scriptMs": 6122,
+   "busyPct": 43
+  },
+  {
+   "sec": 15,
+   "layoutsPerSec": 6.7,
+   "stylePerSec": 50,
+   "layoutMs": 9,
+   "styleMs": 77,
+   "scriptMs": 6133,
+   "busyPct": 43.1
+  }
+ ],
+ "errors": []
+}

@@ -2,13 +2,13 @@
 const assert = require('node:assert/strict');
 const fs = require('node:fs'), path = require('node:path');
 const {openNotebook} = require('./ui_helpers.cjs');
-const {chromium} = require(process.env.YAIRPG_PLAYWRIGHT || 'playwright');
+const {launchChrome,waitForPage}=require('./ui_helpers.cjs');
 const url = process.env.YAIRPG_PROOF_URL || 'http://127.0.0.1:18464/';
 const output = process.env.YAIRPG_PROOF_DIR || '/tmp/yairpg-helpers-proof';
 fs.mkdirSync(output,{recursive:true});
 (async()=>{
     const errors=[],warnings=[],findings=[];
-    const browser=await chromium.launch({headless:true,...(process.env.YAIRPG_CHROME ? {executablePath:process.env.YAIRPG_CHROME} : {})});
+    const browser=await launchChrome();try{
     const open=async fixture=>{
         const context=await browser.newContext({viewport:{width:1600,height:1100}});
         if(fixture)await context.addInitScript(data=>{if(!localStorage.getItem('save data'))localStorage.setItem('save data',JSON.stringify(data));},fixture);
@@ -26,7 +26,7 @@ fs.mkdirSync(output,{recursive:true});
     let {page,context}=await open();
     const fingerprint=await page.evaluate(()=>performance.getEntriesByType('resource').find(e=>e.name.includes('/dist/bundle.js?version='))?.name);
     assert.ok(fingerprint.endsWith(fs.readFileSync(process.env.YAIRPG_BUILD_INDEX || 'index.html','utf8').match(/dist\/bundle\.js\?version=[^&"]+/)[0]));
-    await page.getByText('Talk to someone',{exact:false}).click();await page.locator('[data-dialogue="villageElder"]').click();
+    await page.getByRole('button',{name:'Talk to someone'}).click();await page.locator('[data-dialogue="villageElder"]').click();
     await page.locator('[data-textline="hello"]').click();await page.locator('.end_dialogue_button').click();await openNotebook(page);
     assert.equal(await page.locator('#simulation_panel').isVisible(),false);
     const baseline=await save(page);assert.equal(baseline.expansion.simulation,null);
@@ -36,19 +36,19 @@ fs.mkdirSync(output,{recursive:true});
     await context.close();({page,context}=await open(ready));await panel(page);await click(page,'enroll');
     await click(page,'village.commission');await click(page,'village.study_method');const learned=await save(page);
     assert.equal(learned.character.money,28);assert.equal(learned.inventories.person.main_character[wood].count,8);
-    await page.waitForFunction(()=>!document.querySelector('[data-simulation="village.hire_helper"]').disabled);
+    await waitForPage(page, ()=>!document.querySelector('[data-simulation="village.hire_helper"]').disabled);
     await click(page,'village.hire_helper');const hired=await save(page);
     const first=Object.keys(hired.expansion.simulation.people).find(id=>id.startsWith('spawn:'));
     assert.ok(first);assert.equal(hired.character.money,25);assert.equal(hired.inventories.person.main_character[wood].count,7);
     assert.equal(hired.expansion.simulation.owners[first][wood],1);
-    await page.waitForFunction(id=>JSON.parse(localStorage.getItem('save data')).expansion.simulation.sessions[id]?.turn===1,first);
+    await waitForPage(page, id=>JSON.parse(localStorage.getItem('save data')).expansion.simulation.sessions[id]?.turn===1,first);
     const mid=await save(page);assert.equal(mid.expansion.simulation.sessions[first].answers[0],'check');
     await reload(page);const resumed=await save(page);assert.equal(resumed.expansion.simulation.people[first].definitionId,'village.route_helper');
     assert.ok(resumed.expansion.simulation.sessions[first]?.turn>=1 || resumed.expansion.actors[first].completed['village.helper_survey']===1);
-    await page.waitForFunction(()=>!document.querySelector('[data-simulation="village.hire_helper"]').disabled);
+    await waitForPage(page, ()=>!document.querySelector('[data-simulation="village.hire_helper"]').disabled);
     await click(page,'village.hire_helper');const twice=await save(page);const ids=Object.keys(twice.expansion.simulation.people).filter(id=>id.startsWith('spawn:'));
     assert.equal(ids.length,2);assert.equal(twice.character.money,22);assert.equal(twice.inventories.person.main_character[wood].count,6);
-    await page.waitForFunction(ids=>ids.every(id=>JSON.parse(localStorage.getItem('save data')).expansion.simulation.people[id].location==='Village'),ids);
+    await waitForPage(page, ids=>ids.every(id=>JSON.parse(localStorage.getItem('save data')).expansion.simulation.people[id].location==='Village'),ids);
     const returned=await save(page);
     for(const id of ids){assert.equal(returned.expansion.simulation.owners[id][kit],1);assert.equal(returned.expansion.simulation.people[id].vitals.stamina,2);assert.equal(returned.expansion.actors[id].completed['village.helper_survey'],1);}
     await page.locator(`[data-simulation-person="${ids[0]}"]`).scrollIntoViewIfNeeded();
@@ -67,7 +67,7 @@ fs.mkdirSync(output,{recursive:true});
     const imported=await save(page);assert.equal(imported.inventories.person.main_character[kit].count,2);assert.ok(ids.every(id=>imported.expansion.simulation.people[id].life==='departed'));
     findings.push('Real encoded native export, file-input import and loader preflight preserve generated identities, ownership and delivered consequences.');
     await context.close();({page,context}=await open(learned));await panel(page);
-    await page.waitForFunction(()=>!document.querySelector('[data-simulation="village.hire_helper"]').disabled);
+    await waitForPage(page, ()=>!document.querySelector('[data-simulation="village.hire_helper"]').disabled);
     const before=await page.evaluate(()=>localStorage.getItem('save data'));
     await page.evaluate(()=>{Storage.prototype.setItem=function(){throw new DOMException('Injected quota','QuotaExceededError');};});
     await click(page,'village.hire_helper');assert.equal(await page.evaluate(()=>localStorage.getItem('save data')),before);
@@ -75,5 +75,5 @@ fs.mkdirSync(output,{recursive:true});
     await reload(page);const recovered=await save(page);assert.equal(recovered.character.money,28);assert.equal(recovered.inventories.person.main_character[wood].count,8);assert.equal(Object.keys(recovered.expansion.simulation.people).filter(id=>id.startsWith('spawn:')).length,0);
     findings.push('Injected storage failure leaves the hire uncommitted: no native log transfer, coin debit or persistent helper.');
     assert.deepEqual(errors,[]);assert.deepEqual(warnings,[]);
-    const result={url,fingerprint,findings,errors,warnings,generatedSavesOnly:true};fs.writeFileSync(path.join(output,'result.json'),JSON.stringify(result,null,2));console.log(JSON.stringify(result,null,2));await browser.close();
+    const result={url,fingerprint,findings,errors,warnings,generatedSavesOnly:true};fs.writeFileSync(path.join(output,'result.json'),JSON.stringify(result,null,2));console.log(JSON.stringify(result,null,2));}finally{await browser.close().catch(()=>{});}
 })().catch(e=>{console.error(e);process.exit(1);});
