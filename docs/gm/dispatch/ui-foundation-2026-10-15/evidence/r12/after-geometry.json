@@ -1,0 +1,122 @@
+[
+ {
+  "w": 1366,
+  "h": 768,
+  "f": 14,
+  "errors": [],
+  "page": [
+   1366,
+   768
+  ],
+  "viewport": [
+   1366,
+   768
+  ],
+  "detail": {
+   "top": 250,
+   "bottom": 626,
+   "h": 376,
+   "client": 374,
+   "content": 374
+  },
+  "commit": {
+   "top": 591,
+   "bottom": 619,
+   "h": 28,
+   "client": 26,
+   "content": 26
+  },
+  "font": "14px",
+  "text": "Roasted rat meat\nUses · have / need\nRat meat chunks\n3/2\nMakesRoasted rat meat x1\nWhen used\nCheap meat meal\n45m\nSlight food poisoning\n45m\nSuccess\n70%\nCan craft now: 1 attempt\nStationCooking, tier 1\nXPvalue 9.2 per success, a quarter on failure; bonuses and level caps apply\nRelated on this station\nRoasted purified rat meat\nalso uses Rat meat chunks\nResult details\nCraft 1\n5\n10\nAll"
+ },
+ {
+  "w": 1366,
+  "h": 768,
+  "f": 17.5,
+  "errors": [],
+  "page": [
+   1366,
+   768
+  ],
+  "viewport": [
+   1366,
+   768
+  ],
+  "detail": {
+   "top": 371,
+   "bottom": 619,
+   "h": 248,
+   "client": 246,
+   "content": 246
+  },
+  "commit": {
+   "top": 576,
+   "bottom": 611,
+   "h": 35,
+   "client": 33,
+   "content": 33
+  },
+  "font": "17.5px",
+  "text": "Roasted rat meat\nUses · have / need\nRat meat chunks\n3/2\nMakesRoasted rat meat x1\nWhen used\nCheap meat meal\n45m\nSlight food poisoning\n45m\nSuccess\n70%\nCan craft now: 1 attempt\nStationCooking, tier 1\nXPvalue 9.2 per success, a quarter on failure; bonuses and level caps apply\nRelated on this station\nRoasted purified rat meat\nalso uses Rat meat chunks\nResult details\nCraft 1\n5\n10\nAll"
+ },
+ {
+  "w": 1366,
+  "h": 768,
+  "f": 21,
+  "errors": [],
+  "page": [
+   1366,
+   768
+  ],
+  "viewport": [
+   1366,
+   768
+  ],
+  "detail": {
+   "top": 387,
+   "bottom": 606,
+   "h": 219,
+   "client": 217,
+   "content": 217
+  },
+  "commit": {
+   "top": 557,
+   "bottom": 599,
+   "h": 42,
+   "client": 40,
+   "content": 40
+  },
+  "font": "21px",
+  "text": "Roasted rat meat\nUses · have / need\nRat meat chunks\n3/2\nMakesRoasted rat meat x1\nWhen used\nCheap meat meal\n45m\nSlight food poisoning\n45m\nSuccess\n70%\nCan craft now: 1 attempt\nStationCooking, tier 1\nXPvalue 9.2 per success, a quarter on failure; bonuses and level caps apply\nRelated on this station\nRoasted purified rat meat\nalso uses Rat meat chunks\nResult details\nCraft 1\n5\n10\nAll"
+ },
+ {
+  "w": 1920,
+  "h": 1080,
+  "f": 21,
+  "errors": [],
+  "page": [
+   1920,
+   1080
+  ],
+  "viewport": [
+   1920,
+   1080
+  ],
+  "detail": {
+   "top": 304,
+   "bottom": 918,
+   "h": 614,
+   "client": 612,
+   "content": 612
+  },
+  "commit": {
+   "top": 869,
+   "bottom": 911,
+   "h": 42,
+   "client": 40,
+   "content": 40
+  },
+  "font": "21px",
+  "text": "Roasted rat meat\nUses · have / need\nRat meat chunks\n3/2\nMakesRoasted rat meat x1\nWhen used\nCheap meat meal\n45m\nSlight food poisoning\n45m\nSuccess\n70%\nCan craft now: 1 attempt\nStationCooking, tier 1\nXPvalue 9.2 per success, a quarter on failure; bonuses and level caps apply\nRelated on this station\nRoasted purified rat meat\nalso uses Rat meat chunks\nResult details\nCraft 1\n5\n10\nAll"
+ }
+]

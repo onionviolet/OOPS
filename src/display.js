@@ -372,6 +372,7 @@ let crafting_filter_bound = false;
 let crafting_filter_applied = false;
 // Crafting screen (2026-10-13): the selected items recipe and its last receipt.
 let selected_item_recipe = null; // {category, subcategory, recipe_id}
+let item_recipe_return = null; // R12: {selection, title, scroll} while following a related recipe on the same station
 let crafting_receipt = null; // {key, text}
 
 const loading_progress_div = document.getElementById("loading_screen_loading_progress");
@@ -3043,6 +3044,8 @@ function switch_crafting_recipes_page(category) {
     for (let i = 0; i < elements.length; i++) {
         elements[i].style.display = recipes[category][elements[i].dataset.crafting_subcategory] ? "" : "none";
     }
+    // R12: a single subpage offers no choice; the workspace hides that row to give the recipe detail room.
+    document.getElementById('crafting_subpage_buttons').dataset.choices = String([...elements].filter(e => e.style.display !== "none").length);
 
     elements[0].click();
 
@@ -3150,7 +3153,73 @@ function sync_item_recipe_tabstops(page) {
 
 function select_item_recipe(selection) {
     selected_item_recipe = selection;
+    item_recipe_return = null;
     refresh_crafting_detail();
+}
+
+// R12: follow a related recipe on the same station page, keeping one local way back.
+function show_item_recipe_row(selection, scroll) {
+    const page = crafting_pages[selection.category]?.[selection.subcategory];
+    const row = page?.querySelector(`.recipe_div[data-recipe_id="${selection.recipe_id}"]`);
+    if(scroll != null && page) page.scrollTop = scroll;
+    else row?.scrollIntoView({block: "nearest"});
+    row?.focus({preventScroll: true});
+}
+
+function follow_related_item_recipe(recipe_id) {
+    const from = selected_item_recipe;
+    if(!from) return;
+    const page = crafting_pages[from.category]?.[from.subcategory];
+    if(!page?.querySelector(`.recipe_div[data-recipe_id="${recipe_id}"]`)) return;
+    const return_to = {selection: from, title: recipes[from.category][from.subcategory][from.recipe_id].name, scroll: page.scrollTop};
+    selected_item_recipe = {...from, recipe_id};
+    item_recipe_return = return_to;
+    refresh_crafting_detail();
+    show_item_recipe_row(selected_item_recipe);
+}
+
+function return_from_related_item_recipe() {
+    const back = item_recipe_return;
+    if(!back) return;
+    selected_item_recipe = back.selection;
+    item_recipe_return = null;
+    refresh_crafting_detail();
+    show_item_recipe_row(back.selection, back.scroll);
+}
+
+// Known effects of a usable result: the same item.effects/effect_templates data its Result details tooltip shows.
+function item_recipe_result_effects(item) {
+    if(item.item_type !== "USABLE" || !item.effects?.length) return [];
+    return item.effects.map(({effect, duration}) => {
+        const template = effect_templates[effect];
+        if(!template) return null;
+        return {name: template.name, duration: duration == null ? "until resolved" : format_time({time: {minutes: duration}}),
+            kind: template.tags?.debuff ? "debuff" : template.tags?.buff ? "buff" : "condition", description: template.description || ""};
+    }).filter(Boolean);
+}
+
+// Other unlocked recipes on this station page sharing a known, named ingredient or using this result.
+// Built only from rows the list already shows; unknown or "any type" materials never create links.
+function item_recipe_related_uses(selection, requirements_known, result_id) {
+    const {category, subcategory, recipe_id} = selection;
+    const page = crafting_pages[category]?.[subcategory];
+    if(!page) return [];
+    const related = [];
+    for(const row of page.querySelectorAll(".recipe_div[data-recipe_id]")) {
+        const other_id = row.dataset.recipe_id;
+        if(other_id === recipe_id) continue;
+        const other = recipes[category][subcategory][other_id];
+        const ids = new Set(other.materials.map(m => m.material_id).filter(Boolean));
+        let via = null;
+        if(ids.has(result_id)) via = `uses ${item_templates[result_id].getName()}`;
+        else {
+            const shared = requirements_known.find(id => ids.has(id));
+            if(shared) via = `also uses ${item_templates[shared].getName()}`;
+        }
+        if(via) related.push({recipe_id: other_id, title: other.name, via, available: item_recipe_state(category, other).available});
+        if(related.length >= 6) break;
+    }
+    return related;
 }
 
 function handle_item_recipe_key(event, recipe_div, selection) {
@@ -3195,6 +3264,7 @@ function build_item_recipe_model(selection) {
     const xp_value = Math.round(10*get_recipe_xp_value({category, subcategory, recipe_id}))/10;
     let xp = `value ${xp_value} per success, a quarter on failure; bonuses and level caps apply`;
     if(recipe.recipe_level[1] < skill.getCurrentLvl()) xp += ". You are past what this recipe teaches";
+    const known_ids = state.requirements.filter(req => req.material.material_id && !req.material.material_type && req.known).map(req => req.material.material_id);
     let blocked_reason = "";
     if(!state.available) {
         const missing = requirements.filter(r => r.missing);
@@ -3204,7 +3274,10 @@ function build_item_recipe_model(selection) {
         else blocked_reason = "Can't craft this right now.";
     }
     const receipt = crafting_receipt?.key === item_recipe_key(selection) ? crafting_receipt.text : "";
-    return {title: recipe.name, requirements,
+    const back = item_recipe_return && item_recipe_key(item_recipe_return.selection) !== item_recipe_key(selection) ? item_recipe_return.title : "";
+    return {title: recipe.name, requirements, attempts: state.amount,
+        effects: item_recipe_result_effects(item_templates[result_id]),
+        related: item_recipe_related_uses(selection, known_ids, result_id), back,
         output: {name: item_templates[result_id].getName(), count, scaled: !!recipe.scale_results && count > 1},
         chance, station: station_tier > 0 ? `${station_name}, tier ${station_tier}` : `${station_name}: not available here`,
         xp, available: state.available, blocked_reason, receipt,
@@ -3233,6 +3306,8 @@ function refresh_crafting_detail() {
     renderCraftingDetail(root, visible ? build_item_recipe_model(selected_item_recipe) : null, {
         onCommit: amount => commit_selected_item_recipe(amount),
         onBlocked: focusFirstBlocker,
+        onRelated: recipe_id => follow_related_item_recipe(recipe_id),
+        onBack: () => return_from_related_item_recipe(),
     });
 }
 

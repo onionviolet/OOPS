@@ -24,12 +24,12 @@ function fact(label, value, attr) {
  * Renders the detail for one items recipe.
  * @param {HTMLElement} root the [data-craft-detail] region
  * @param {Object|null} model null shows the empty prompt
- * @param {Object} handlers {onCommit(amount), onBlocked()}
+ * @param {Object} handlers {onCommit(amount), onBlocked(), onRelated(recipe_id), onBack()}
  */
 export function renderCraftingDetail(root, model, handlers) {
     const focused = root.contains(document.activeElement) ? document.activeElement : null;
     // Re-renders keep focus on the equivalent control (button, requirement row or reason).
-    const kind = focused && ['data-craft-commit', 'data-craft-amount', 'data-craft-req', 'data-craft-blocked-reason'].find(a => focused.hasAttribute(a));
+    const kind = focused && ['data-craft-commit', 'data-craft-amount', 'data-craft-req', 'data-craft-blocked-reason', 'data-craft-related', 'data-craft-back'].find(a => focused.hasAttribute(a));
     const focusIndex = kind ? [...root.querySelectorAll(`[${kind}]`)].indexOf(focused) : -1;
     root.replaceChildren();
     root.dataset.state = model ? (model.available ? 'ready' : 'blocked') : 'empty';
@@ -39,15 +39,24 @@ export function renderCraftingDetail(root, model, handlers) {
     }
 
     const body = el('div', 'craft_detail_body');
+    if(model.back) {
+        // R12: one local return after following a related recipe on this station.
+        const back = el('button', 'craft_detail_back', `← Back to ${model.back}`);
+        back.type = 'button';
+        back.setAttribute('data-craft-back', '');
+        back.addEventListener('click', () => handlers.onBack?.());
+        body.append(back);
+    }
     const title = el('h3', 'craft_detail_title', model.title);
     title.setAttribute('data-craft-title', '');
     body.append(title);
 
     const uses = el('div', 'craft_detail_section');
-    uses.append(el('div', 'craft_detail_label', 'Uses'));
+    uses.append(el('div', 'craft_detail_label', 'Uses · have / need'));
     for(const req of model.requirements) {
         const row = el('div', 'craft_req');
         row.setAttribute('data-craft-req', '');
+        row.setAttribute('aria-label', `${req.label}: have ${req.have}, need ${req.need}`);
         row.tabIndex = -1;
         if(req.missing) row.setAttribute('data-missing', '');
         if(req.unknown) row.setAttribute('data-unknown', '');
@@ -59,9 +68,49 @@ export function renderCraftingDetail(root, model, handlers) {
     body.append(uses);
 
     body.append(fact('Makes', `${model.output.name} x${model.output.count}${model.output.scaled ? ' (partial results possible)' : ''}`, 'data-craft-output'));
-    body.append(fact('Success', `${model.chance}%`, 'data-craft-chance'));
-    body.append(fact('Station', model.station, 'data-craft-station'));
-    body.append(fact('XP', model.xp, 'data-craft-xp'));
+    if(model.effects?.length) {
+        // Known effects of using the result, before committing (same data as Result details).
+        const effects = el('div', 'craft_detail_effects');
+        effects.setAttribute('data-craft-effects', '');
+        effects.append(el('span', 'craft_detail_label', 'When used'));
+        for(const e of model.effects) {
+            const chip = el('span', 'craft_effect');
+            chip.dataset.effectKind = e.kind;
+            chip.append(el('span', 'craft_effect_name', e.name), el('span', 'craft_effect_duration', e.duration));
+            if(e.description) chip.title = e.description;
+            effects.append(chip);
+        }
+        body.append(effects);
+    }
+    const odds = el('div', 'craft_detail_fact craft_detail_odds');
+    odds.append(el('span', 'craft_detail_label', 'Success'), el('span', 'craft_detail_value', `${model.chance}%`));
+    odds.querySelector('.craft_detail_value').setAttribute('data-craft-chance', '');
+    if(Number.isFinite(model.attempts)) {
+        // Attempts the materials allow now, not guaranteed outputs. Zero when the native guard refuses.
+        const attempts = el('span', 'craft_detail_attempts', `Can craft now: ${model.attempts} attempt${model.attempts === 1 ? '' : 's'}`);
+        attempts.setAttribute('data-craft-attempts', '');
+        odds.append(attempts);
+    }
+    body.append(odds);
+    const quiet = el('div', 'craft_detail_quiet');
+    quiet.append(fact('Station', model.station, 'data-craft-station'), fact('XP', model.xp, 'data-craft-xp'));
+    body.append(quiet);
+    if(model.related?.length) {
+        const related = el('div', 'craft_detail_section craft_detail_related');
+        related.setAttribute('data-craft-related-list', '');
+        related.append(el('div', 'craft_detail_label', 'Related on this station'));
+        for(const r of model.related) {
+            const link = el('button', 'craft_related');
+            link.type = 'button';
+            link.setAttribute('data-craft-related', r.recipe_id);
+            if(!r.available) link.dataset.unavailable = '';
+            link.append(el('span', 'craft_related_name', r.title), el('span', 'craft_related_via', r.via));
+            link.setAttribute('aria-label', `Show recipe ${r.title}, ${r.via}${r.available ? '' : ', not craftable now'}`);
+            link.addEventListener('click', () => handlers.onRelated?.(r.recipe_id));
+            related.append(link);
+        }
+        body.append(related);
+    }
     if(model.result_details) {
         // Filled only while open, so closed details add no hidden text to the window.
         const more = el('details', 'craft_detail_more');

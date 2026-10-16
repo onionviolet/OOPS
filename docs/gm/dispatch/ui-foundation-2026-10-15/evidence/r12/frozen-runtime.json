@@ -1,0 +1,62 @@
+{
+ "root": "/Users/weiwei/.codex/candidates/yair-ui-r12-recipe-2026-10-15-claude",
+ "port": 19251,
+ "restart": "python3 -m http.server 19251 --bind 127.0.0.1 --directory /Users/weiwei/.codex/candidates/yair-ui-r12-recipe-2026-10-15-claude",
+ "files": {
+  "changelog.html": "823a3f540b7074067b6004c7d8f41afb38406af1914b4f2941e6271543f70db5",
+  "dist/bundle.js": "6a38c126af81e3235aaa96780e953491c325dc4d6436df88a6b9212612dfb8bf",
+  "dist/bundle.js.map": "d09f2d775b232f7842eb39b88b1996d3e0ea967d9a61a122952a0ea52787368c",
+  "dist/nethack-fieldcraft-preview.js": "e1aaca74683bcae0ce7024acc4bbb391f5622aa0c6c0e9c73b32f0bbf57e676f",
+  "dist/nethack-fieldcraft-preview.js.map": "0dbc85df0ef666db09d72ff0f424071ee5db077a809b31b07fdcb23cef34c70d",
+  "help.html": "852b8edcc717a1291d5e1a38f00b36a70ce7683b793231e4d34e641f34757465",
+  "index.html": "f8a9b104bb2e5e0aaa2b3a13b1b58842b2f8b2102c8f494e1292e699aeae03be",
+  "locales/english.js": "55e71c7efae4a8dd2d10da707f2dd7eba0b46897dbc977becd6915be3799f5f8",
+  "r12/comparison.html": "e597b9313b60e243d4c180e542862fb5b991f89ef332dbc44984beea621c5b1e",
+  "r12-demo.html": "000ff3ffc8a5d724fba3f0820df045e6cd0927eaab2631d3ce8838339e7d1022",
+  "resources/js/HackTimer/HackTimer.js": "4236417ac81c93aec5ba39c08995d52a575b9e179215dc972c7abb9df2a0cf12",
+  "resources/js/HackTimer/HackTimer.min.js": "5494332251c417364f774623b2510aec940cbf5e433ef284158c829099a74fd4",
+  "resources/js/HackTimer/HackTimer.silent.min.js": "2f23877edd525e0892c9af796379c245ec0fff0e7682599639d6cd80c79cf412",
+  "resources/js/HackTimer/HackTimerWorker.js": "f4c5c297d64cd77df13fca8461acaeaa26cf406efdbb3fb976ceb14b0468e102",
+  "resources/js/HackTimer/HackTimerWorker.min.js": "1f315ea95d60f69b298f701bab6d6d987590510f635331fe7389cdc43967d6f4",
+  "style.css": "29c0cb16f1c2142f3dce23c1af2ab16e4383ac6807ba539379b517f07d9f1a00",
+  "styles/action_legibility.css": "0eb2ba0cb8f1053e53fe6d62fdd248a2181759a5a96030adae89b9fab40dea1b",
+  "styles/component_themes.css": "3c3078d079ffd544d9f143c50b8805352d98f6b2d327f6bbacbd4436c4a4c3a5",
+  "styles/crafting_detail.css": "6dcb1fc5d62ed94a1f5097e96384b5ecc8ead73909611274f7b57b70d0ca1fbe",
+  "styles/customization.css": "f289d1013aaeb19716d3feefad2da4d9d273a59cd0f034b49592b6628aff1872",
+  "styles/display_settings.css": "38efbda0850d0a025e1953917cfd7f9273e18fe394d83d0d23812d38e038601a",
+  "styles/settled_text_effects.css": "8bf25806f8994584b1218b57c7bc8c2aa659567f2db19925d31089445d1c4d15",
+  "styles/start_probe.css": "4a42a7ddac3d426827c637569870c526b78a13afe4b32ca268b38d15d5ff2d69",
+  "styles/status_window.css": "8ca093425d58ae0ca0cd443657e4a5eec728d5521e4995f6ad57d8ca5ad05f3c",
+  "styles/ui_tokens.css": "d1bbf1bd01f922942b727507209835423297203a0dc6fa0c72875f766927bbac",
+  "styles/workspace.css": "080232f17190db10475260d14a4355e7fd9c5f260b3fd5407e91efcfc8a6a092",
+  "styles/workspace_discovery.css": "b5eeb0896e80ad222d9c5d4756ca40bc438139c6403c9930d8c7008ca0c2db3b"
+ },
+ "source_after": {
+  "src/display.js": "f56ed3d850c07c85c408b048300015dde4e76874dc97b1a786e97ae210731ec4",
+  "src/crafting_detail.js": "bfb9473b1c5b9c9a942c8e44f5ce522a20ad48d47158bb64227d23f0c4264221",
+  "styles/crafting_detail.css": "6dcb1fc5d62ed94a1f5097e96384b5ecc8ead73909611274f7b57b70d0ca1fbe",
+  "styles/ui_tokens.css": "d1bbf1bd01f922942b727507209835423297203a0dc6fa0c72875f766927bbac",
+  "src/workspace_layout.js": "16732a735f0a901ee00d7a33330b2dee8161765942b98eebef063908ac1c35a4",
+  "index.html": "f8a9b104bb2e5e0aaa2b3a13b1b58842b2f8b2102c8f494e1292e699aeae03be",
+  "dist/bundle.js": "6a38c126af81e3235aaa96780e953491c325dc4d6436df88a6b9212612dfb8bf"
+ },
+ "unchanged_inputs": {
+  "src/proto23_shell.js": "0453467d32bd29b10cdc0cd1cafc0345c8580a618548a9d61fc088d0576a2194",
+  "src/village_workspace.js": "fd37a7ab874b9d394de0700b090fbbe827d3facb7628fcaca44257587a57ca7e",
+  "src/workspace_navigation.js": "1314f5adc9f76b99ee17d66be7a1be9a9b6ee3622ea18895225dc25de38614f7",
+  "src/main.js": "dfe9fbcc4b87e70f6993c3578b7fc789fb23a1700ffa3980e1dc75f3492d7b71",
+  "src/save_files.js": "ed3f1d2bbc12c8b2e0a1cade98cc825af27c3e5d3ab9ee904958aa2b04308b8d",
+  "src/simulation.js": "b4a5b39f5b1a6f3c5c7bbc048a44898066a437735ee34b855b8b074da7824ea4",
+  "src/simulation_clock.js": "02e5e74028285e95d0f959b5a42739500b7dc5686830467cbb2058584d3b4897",
+  "src/crafting_visibility.js": "65fb7c4cab55b91a56d156f147b89b8080efdfaa732cd75a0d0b80aa0851ad66"
+ },
+ "unchanged_vs_handoff": {
+  "src/proto23_shell.js": true,
+  "src/village_workspace.js": true,
+  "src/workspace_navigation.js": true,
+  "src/main.js": true,
+  "src/save_files.js": true,
+  "src/simulation.js": true,
+  "src/simulation_clock.js": true
+ }
+}

@@ -1,0 +1,270 @@
+[
+ {
+  "name": "1366-14 ready detail",
+  "v": {
+   "state": "ready",
+   "text": "Roasted rat meat\nUses · have / need\nRat meat chunks\n3/2\nMakesRoasted rat meat x1\nWhen used\nCheap meat meal\n45m\nSlight food poisoning\n45m\nSuccess\n70%\nCan craft now: 1 attempt\nStationCooking, tier 1\nXPvalue 9.2 per success, a quarter on failure; bonuses and level caps apply\nRelated on this station\nRoasted purified rat meat\nalso uses Rat meat chunks\nResult details\nCraft 1\n5\n10\nAll",
+   "title": "Roasted rat meat",
+   "reqs": [
+    "Rat meat chunks: have 3, need 2"
+   ],
+   "attempts": "Can craft now: 1 attempt",
+   "effects": [
+    {
+     "text": "Cheap meat meal\n45m",
+     "kind": "buff"
+    },
+    {
+     "text": "Slight food poisoning\n45m",
+     "kind": "debuff"
+    }
+   ],
+   "related": [
+    "Show recipe Roasted purified rat meat, also uses Rat meat chunks, not craftable now"
+   ],
+   "back": null,
+   "receipt": "",
+   "active": "<div class=\"recipe_div\" data-recipe_id=\"Roasted rat meat\" role=\"option\" tabindex=\"0\" aria-"
+  }
+ },
+ {
+  "name": "1366-14 craft visible",
+  "v": {
+   "commit": {
+    "top": 591,
+    "bottom": 619,
+    "h": 28,
+    "client": 26,
+    "content": 26
+   },
+   "page": [
+    1366,
+    768
+   ]
+  }
+ },
+ {
+  "name": "1366-14 unknown + blocked",
+  "v": {
+   "reqs": [
+    "Rat meat chunks: have 3, need 2",
+    "Unfamiliar material: have 0, need 1"
+   ],
+   "reason": "Can't craft yet: missing 1 Unfamiliar material."
+  }
+ },
+ {
+  "name": "1366-14 related + back"
+ },
+ {
+  "name": "1366-14 craft 1",
+  "v": {
+   "made": 0,
+   "used": 2,
+   "xp": 2.3,
+   "receipt": "Failed: 2 Rat meat chunks used, nothing made (+2.3 XP)",
+   "reason": "Can't craft yet: missing 1 Rat meat chunks."
+  }
+ },
+ {
+  "name": "1366-17.5 ready detail",
+  "v": {
+   "state": "ready",
+   "text": "Roasted rat meat\nUses · have / need\nRat meat chunks\n3/2\nMakesRoasted rat meat x1\nWhen used\nCheap meat meal\n45m\nSlight food poisoning\n45m\nSuccess\n70%\nCan craft now: 1 attempt\nStationCooking, tier 1\nXPvalue 9.2 per success, a quarter on failure; bonuses and level caps apply\nRelated on this station\nRoasted purified rat meat\nalso uses Rat meat chunks\nResult details\nCraft 1\n5\n10\nAll",
+   "title": "Roasted rat meat",
+   "reqs": [
+    "Rat meat chunks: have 3, need 2"
+   ],
+   "attempts": "Can craft now: 1 attempt",
+   "effects": [
+    {
+     "text": "Cheap meat meal\n45m",
+     "kind": "buff"
+    },
+    {
+     "text": "Slight food poisoning\n45m",
+     "kind": "debuff"
+    }
+   ],
+   "related": [
+    "Show recipe Roasted purified rat meat, also uses Rat meat chunks, not craftable now"
+   ],
+   "back": null,
+   "receipt": "",
+   "active": "<div class=\"recipe_div\" data-recipe_id=\"Roasted rat meat\" role=\"option\" tabindex=\"0\" aria-"
+  }
+ },
+ {
+  "name": "1366-17.5 craft visible",
+  "v": {
+   "commit": {
+    "top": 576,
+    "bottom": 611,
+    "h": 35,
+    "client": 33,
+    "content": 33
+   },
+   "page": [
+    1366,
+    768
+   ]
+  }
+ },
+ {
+  "name": "1366-17.5 unknown + blocked",
+  "v": {
+   "reqs": [
+    "Rat meat chunks: have 3, need 2",
+    "Unfamiliar material: have 0, need 1"
+   ],
+   "reason": "Can't craft yet: missing 1 Unfamiliar material."
+  }
+ },
+ {
+  "name": "1366-17.5 related + back"
+ },
+ {
+  "name": "1366-17.5 craft 1",
+  "v": {
+   "made": 0,
+   "used": 2,
+   "xp": 2.3,
+   "receipt": "Failed: 2 Rat meat chunks used, nothing made (+2.3 XP)",
+   "reason": "Can't craft yet: missing 1 Rat meat chunks."
+  }
+ },
+ {
+  "name": "1366-21 ready detail",
+  "v": {
+   "state": "ready",
+   "text": "Roasted rat meat\nUses · have / need\nRat meat chunks\n3/2\nMakesRoasted rat meat x1\nWhen used\nCheap meat meal\n45m\nSlight food poisoning\n45m\nSuccess\n70%\nCan craft now: 1 attempt\nStationCooking, tier 1\nXPvalue 9.2 per success, a quarter on failure; bonuses and level caps apply\nRelated on this station\nRoasted purified rat meat\nalso uses Rat meat chunks\nResult details\nCraft 1\n5\n10\nAll",
+   "title": "Roasted rat meat",
+   "reqs": [
+    "Rat meat chunks: have 3, need 2"
+   ],
+   "attempts": "Can craft now: 1 attempt",
+   "effects": [
+    {
+     "text": "Cheap meat meal\n45m",
+     "kind": "buff"
+    },
+    {
+     "text": "Slight food poisoning\n45m",
+     "kind": "debuff"
+    }
+   ],
+   "related": [
+    "Show recipe Roasted purified rat meat, also uses Rat meat chunks, not craftable now"
+   ],
+   "back": null,
+   "receipt": "",
+   "active": "<div class=\"recipe_div\" data-recipe_id=\"Roasted rat meat\" role=\"option\" tabindex=\"0\" aria-"
+  }
+ },
+ {
+  "name": "1366-21 craft visible",
+  "v": {
+   "commit": {
+    "top": 557,
+    "bottom": 599,
+    "h": 42,
+    "client": 40,
+    "content": 40
+   },
+   "page": [
+    1366,
+    768
+   ]
+  }
+ },
+ {
+  "name": "1366-21 unknown + blocked",
+  "v": {
+   "reqs": [
+    "Rat meat chunks: have 3, need 2",
+    "Unfamiliar material: have 0, need 1"
+   ],
+   "reason": "Can't craft yet: missing 1 Unfamiliar material."
+  }
+ },
+ {
+  "name": "1366-21 related + back"
+ },
+ {
+  "name": "1366-21 craft 1",
+  "v": {
+   "made": 0,
+   "used": 2,
+   "xp": 2.3,
+   "receipt": "Failed: 2 Rat meat chunks used, nothing made (+2.3 XP)",
+   "reason": "Can't craft yet: missing 1 Rat meat chunks."
+  }
+ },
+ {
+  "name": "1920-21 ready detail",
+  "v": {
+   "state": "ready",
+   "text": "Roasted rat meat\nUses · have / need\nRat meat chunks\n3/2\nMakesRoasted rat meat x1\nWhen used\nCheap meat meal\n45m\nSlight food poisoning\n45m\nSuccess\n70%\nCan craft now: 1 attempt\nStationCooking, tier 1\nXPvalue 9.2 per success, a quarter on failure; bonuses and level caps apply\nRelated on this station\nRoasted purified rat meat\nalso uses Rat meat chunks\nResult details\nCraft 1\n5\n10\nAll",
+   "title": "Roasted rat meat",
+   "reqs": [
+    "Rat meat chunks: have 3, need 2"
+   ],
+   "attempts": "Can craft now: 1 attempt",
+   "effects": [
+    {
+     "text": "Cheap meat meal\n45m",
+     "kind": "buff"
+    },
+    {
+     "text": "Slight food poisoning\n45m",
+     "kind": "debuff"
+    }
+   ],
+   "related": [
+    "Show recipe Roasted purified rat meat, also uses Rat meat chunks, not craftable now"
+   ],
+   "back": null,
+   "receipt": "",
+   "active": "<div class=\"recipe_div\" data-recipe_id=\"Roasted rat meat\" role=\"option\" tabindex=\"0\" aria-"
+  }
+ },
+ {
+  "name": "1920-21 craft visible",
+  "v": {
+   "commit": {
+    "top": 869,
+    "bottom": 911,
+    "h": 42,
+    "client": 40,
+    "content": 40
+   },
+   "page": [
+    1920,
+    1080
+   ]
+  }
+ },
+ {
+  "name": "1920-21 unknown + blocked",
+  "v": {
+   "reqs": [
+    "Rat meat chunks: have 3, need 2",
+    "Unfamiliar material: have 0, need 1"
+   ],
+   "reason": "Can't craft yet: missing 1 Unfamiliar material."
+  }
+ },
+ {
+  "name": "1920-21 related + back"
+ },
+ {
+  "name": "1920-21 craft 1",
+  "v": {
+   "made": 0,
+   "used": 2,
+   "xp": 2.3,
+   "receipt": "Failed: 2 Rat meat chunks used, nothing made (+2.3 XP)",
+   "reason": "Can't craft yet: missing 1 Rat meat chunks."
+  }
+ }
+]

@@ -34,7 +34,7 @@
     display: flex; flex-direction: column; min-height: 0; overflow: hidden; box-sizing: border-box;
     padding: .4rem .55rem; border: 1px solid var(--workspace-border, #9aa0b8); border-radius: 4px;
     background: var(--theme-surface, #181827); color: var(--theme-surface-text, #f1f3fa);
-    font-size: 15px; line-height: 1.35;
+    font-size: var(--shell-context-size, 15px); line-height: 1.35;
 }
 .crafting_detail[hidden] {display: none;}
 .craft_detail_empty {margin: .3rem 0; color: var(--theme-surface-text, #f1f3fa);}
@@ -52,7 +52,7 @@
 .craft_detail_more summary {cursor: pointer;}
 .crafting_detail .craft_detail_more summary {color: var(--theme-surface-text, #f1f3fa);}
 .craft_detail_result .coin_wood {color: #d29a52;}
-.craft_detail_result {font-size: 14px; padding: .3rem; border: 1px solid var(--workspace-border, #9aa0b8);}
+.craft_detail_result {font-size: 1em; padding: .3rem; border: 1px solid var(--workspace-border, #9aa0b8);}
 .craft_detail_actions {flex: none; border-top: 1px solid var(--workspace-border, #9aa0b8); padding-top: .35rem; margin-top: .25rem;}
 .craft_blocked_reason {margin: 0 0 .3rem; color: var(--sem-blocked, #f0a35e); font-weight: 700;}
 .craft_blocked_reason:focus {outline: 2px solid var(--sem-blocked, #f0a35e);}
@@ -67,3 +67,47 @@
 :root[data-craft-detail-place="below"] #crafting_window .crafting_body {grid-template-columns: minmax(0, 1fr); grid-template-rows: minmax(90px, 1fr) fit-content(62%);}
 :root[data-craft-detail-place="below"] #crafting_window .craft_detail_section,
 :root[data-craft-detail-place="below"] #crafting_window .craft_detail_fact {display: inline-block; margin-right: 1rem; vertical-align: top;}
+
+/* R12 (2026-10-15): known result effects, attempts, related recipes and local return.
+   Text follows the chosen size; color repeats a word, never replaces it. */
+.craft_detail_effects {display: flex; flex-wrap: wrap; align-items: baseline; gap: .2rem .35rem; margin: .12rem 0;}
+.craft_effect {display: inline-flex; gap: .3em; padding: 0 .35em; border: 1px solid var(--workspace-border, var(--ui-swatch-100));}
+.craft_effect_duration {opacity: .8; font-variant-numeric: tabular-nums;}
+.craft_effect[data-effect-kind="debuff"] {border-color: var(--sem-blocked, var(--ui-swatch-004)); color: var(--sem-blocked, var(--ui-swatch-004));}
+.craft_effect[data-effect-kind="buff"] {border-color: var(--sem-gain, var(--ui-swatch-001));}
+.craft_detail_odds {display: flex; flex-wrap: wrap; gap: 0 .9rem; align-items: baseline;}
+.craft_detail_attempts {font-variant-numeric: tabular-nums;}
+.craft_detail_quiet {opacity: .82; font-size: .92em;}
+.craft_detail_related {margin-top: .35rem; border-top: 1px solid var(--workspace-border, var(--ui-swatch-100)); padding-top: .25rem;}
+.crafting_detail .craft_related, .crafting_detail .craft_detail_back {
+    display: flex; flex-wrap: wrap; gap: 0 .5em; width: 100%; min-height: 0; margin: 0; padding: .1em .25em; box-sizing: border-box;
+    font: inherit; text-align: left; cursor: pointer; background: transparent !important; color: inherit !important; border: 0 !important;
+}
+.crafting_detail .craft_related:hover, .crafting_detail .craft_detail_back:hover {background: var(--active_button_color, var(--ui-swatch-099)) !important;}
+.crafting_detail .craft_related:focus-visible, .crafting_detail .craft_detail_back:focus-visible {outline: 2px solid var(--theme-surface-text, var(--ui-swatch-102)); outline-offset: -2px;}
+.craft_related_name {text-decoration: underline; text-underline-offset: 2px;}
+.craft_related_via {opacity: .78; font-size: .92em;}
+.craft_related[data-unavailable] .craft_related_name {opacity: .7;}
+.crafting_detail .craft_detail_back {width: auto; margin-bottom: .2rem; text-decoration: underline;}
+
+/* R12: in the workspace the window fills its pane, so the list and the detail body scroll
+   while the Craft controls stay visible. Below about 12 lines of room it falls back to the
+   pane scrolling instead of crushing either column. */
+#main_content.workspace-active #center_mode_content:has(> #crafting_window[style*="block"]) {display: flex; flex-direction: column;}
+#main_content.workspace-active #center_mode_content > #crafting_window[style*="block"] {flex: 1 0 auto; min-height: 0;}
+#main_content.workspace-active #crafting_window[style*="block"] .crafting_body {flex: 1 1 0; min-height: 12em; height: auto;}
+#main_content.workspace-active #crafting_window .crafting_body > .crafting_detail {min-height: 0;}
+#main_content.workspace-active #crafting_window .crafting_filter {margin: .2rem 4px;}
+#main_content.workspace-active #crafting_makeable_filter {min-height: 0; height: auto; margin: 0 .3em 0 0; vertical-align: middle;}
+/* The cancel control appears only while a crafting visual effect is playing. */
+#main_content.workspace-active #crafting_window:not(:has(> .work-ledger-effect:not([hidden]))) > #cancel_craft_visual_effect {display: none;}
+/* Narrow in text units (large text or a slim column): list above detail, both scrolling,
+   so neither column wraps every word. Width is measured in the chosen text size. */
+#main_content.workspace-active #crafting_window[style*="block"] {container-type: inline-size;}
+@container (max-width: 28em) {
+    #main_content.workspace-active #crafting_window[data-craft-view="items"] .crafting_body {grid-template-columns: minmax(0, 1fr); grid-template-rows: minmax(3.2em, 30%) minmax(0, 1fr); gap: .3rem;}
+}
+#main_content.workspace-active #crafting_subpage_buttons[data-choices="1"] {display: none;}
+@container (max-width: 28em) {
+    #main_content.workspace-active #crafting_window[data-craft-view="items"] .crafting_body {grid-template-rows: minmax(3.2em, 26%) minmax(0, 1fr);}
+}

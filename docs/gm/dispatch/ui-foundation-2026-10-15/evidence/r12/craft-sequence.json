@@ -1,0 +1,50 @@
+[
+ {
+  "i": 0,
+  "attemptsShown": "Can craft now: 6 attempts",
+  "made": 0,
+  "used": 2,
+  "xp": 2.3,
+  "receipt": "Failed: 2 Rat meat chunks used, nothing made (+2.3 XP)"
+ },
+ {
+  "i": 1,
+  "attemptsShown": "Can craft now: 5 attempts",
+  "made": 1,
+  "used": 2,
+  "xp": 9.2,
+  "receipt": "Made 1 Roasted rat meat from 2 Rat meat chunks (+9.2 XP)"
+ },
+ {
+  "i": 2,
+  "attemptsShown": "Can craft now: 4 attempts",
+  "made": 1,
+  "used": 2,
+  "xp": 9.2,
+  "receipt": "Made 1 Roasted rat meat from 2 Rat meat chunks (+9.2 XP)"
+ },
+ {
+  "i": 3,
+  "attemptsShown": "Can craft now: 3 attempts",
+  "made": 1,
+  "used": 2,
+  "xp": 9.2,
+  "receipt": "Made 1 Roasted rat meat from 2 Rat meat chunks (+9.2 XP)"
+ },
+ {
+  "i": 4,
+  "attemptsShown": "Can craft now: 2 attempts",
+  "made": 1,
+  "used": 2,
+  "xp": 9.2,
+  "receipt": "Made 1 Roasted rat meat from 2 Rat meat chunks (+9.2 XP)"
+ },
+ {
+  "i": 5,
+  "attemptsShown": "Can craft now: 1 attempt",
+  "made": 1,
+  "used": 2,
+  "xp": 9.2,
+  "receipt": "Made 1 Roasted rat meat from 2 Rat meat chunks (+9.2 XP)"
+ }
+]

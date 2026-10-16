@@ -1,0 +1,4 @@
+// Before images: current (R11) native Cooking detail at matched sizes.
+const T=require('./r12-lib.cjs');
+(async()=>{const b=await T.launch();const out=[];try{for(const [w,h,f] of [[1366,768,14],[1366,768,17.5],[1366,768,21],[1920,1080,21]]){const {ctx,p}=await T.open(b,{w,h});if(f!==14)await T.textSize(p,f);await T.openCooking(p);await T.pick(p,'Roasted rat meat');const g=await T.geo(p);await T.shot(p,`${process.env.R12_TAG||'before'}-${w}-${f}`);out.push({w,h,f,errors:p.errors,...g});await ctx.close();}}finally{await b.close();}
+require('fs').writeFileSync(T.path.join(T.E,`${process.env.R12_TAG||'before'}-geometry.json`),JSON.stringify(out,null,1));for(const o of out)console.log(o.w,o.f,'page',o.page,'detail',JSON.stringify(o.detail),'commit',JSON.stringify(o.commit),'err',o.errors.length);})().catch(e=>{console.error(e);process.exit(1)});
