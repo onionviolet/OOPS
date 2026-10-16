@@ -430,7 +430,7 @@ import {calendarMinutes} from "./world_rhythm.js";
 import {ROUTE_NOTES, NOTES_KEY, usesVillageClock} from "./village_content.js";
 import {createVillagePanel} from "./village_ui.js";
 import {everydayFacts, recordRouteReading} from "./everyday_life.js";
-import {townUnlocks, usesTownClock} from "./town_content.js";
+import {townUnlocks, usesTownClock, villageLedgerSentence} from "./town_content.js";
 import {createTownPanel} from "./town_ui.js";
 import {createExpansionQuests} from "./expansion_quest_ui.js";
 import {worldIdentityView} from "./world_knowledge.js";
@@ -466,6 +466,7 @@ let importInProgress = false;
 let loadingReputationTotals = null;
 let restoringNativeSave = false;
 const localDateLog = createCalendarLog((...args) => log_message(...args));
+function readVillageLedgerSentence() {return villageLedgerSentence(expansionState);}
 export function readLocalCalendar() {return resolveWorldCalendar(expansionState, current_game_time);}
 export function readLocalWeatherWords() {
     return worldWeatherWords(expansionState?.actors?.player?.worldId ?? 'base.frontier', readLocalCalendar(), current_location);
@@ -1816,6 +1817,7 @@ function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}, readF
     const p00Hidden=Object.fromEntries(['Famine','Cold resistance'].map(id=>[id,!nativeSkillDiscovery(skills[id],character)]));
     const publication = prepareGameplayPublication(plan.gameplay, {actors: actorBindings, skills, getItemFromKey, unlockAdapter});
     const townAccess = townUnlocks(expansionState, plan.state);
+    const villageTextChanged = villageLedgerSentence(expansionState) !== villageLedgerSentence(plan.state);
     const unlockPublication = prepareNativeUnlocks([...(plan.unlocks || []), ...publication.unlocks, ...townAccess], {availabilities, flags: global_flags, quests, questManager});
     const wearState=plan.nativePatch?.equipment_durability||durability.serialize();
     const structuredWear=optionalPackState.structured&&plan.equipment&&wearState.enabled?createDurability(wearState):null;
@@ -1951,7 +1953,7 @@ function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}, readF
         for(const id of publication.changes)if(p00Hidden[id]&&nativeSkillDiscovery(skills[id],character))nativeDiscoveryFeedback?.publish({type:'native-skill-discovery',id,settled:true});
         if(publication.changes.length) character.updateStatsAndDisplay();
         if(plan.calendar && (p23LivingGear!==undefined||previousNight !== is_night(current_game_time))) {character.addActiveEffectBonus(active_effects);character.updateStatsAndDisplay();}
-        if(townAccess.length && current_location.tags.safe_zone) update_displayed_normal_location(current_location);
+        if((townAccess.length || villageTextChanged && current_location.id === "Village") && current_location.tags.safe_zone) update_displayed_normal_location(current_location);
         if(!deferWhileHidden(renderPublicationPanels,renderPublicationPanels))renderPublicationPanels();
         if(plan.p00EarnedTitles){for(const id of plan.p00EarnedTitles)log_message(`Title earned: ${title_by_id[id].name}. ${title_by_id[id].text}`,'level_up');titlesPanel?.announce(plan.p00EarnedTitles);}
     } catch(error) {console.error("Saved expedition display could not refresh; reload to restore it.", error);}
@@ -10314,6 +10316,7 @@ if(config.enable_dev_mode) {
     enable_dev_console();
 }
 export { 
+    readVillageLedgerSentence,
     current_combat,
     current_location,
     can_work, active_effects,

@@ -4,6 +4,8 @@
 // No craft mechanics, odds, save or transaction logic belongs here.
 
 export const UNKNOWN_MATERIAL_LABEL = 'Unfamiliar material';
+import {craftCue} from './craft_cues.js';
+
 let resultDetailsOpen = false;
 
 function el(tag, className, text) {
@@ -120,6 +122,7 @@ export function renderCraftingDetail(root, model, handlers) {
         more.addEventListener('toggle', () => {
             resultDetailsOpen = more.open;
             inner.innerHTML = more.open ? model.result_details : '';
+            if(more.open && model.cue) inner.append(el('p', 'craft_cue', model.cue));
         });
         more.open = resultDetailsOpen;
         body.append(more);
@@ -173,10 +176,13 @@ export function focusFirstBlocker(root) {
  * Receipt from measured inventory and XP deltas, so it states what actually happened.
  * @param {Object} r {made, result_name, used: [{name, count}], xp}
  */
-export function craftReceiptText({made, result_name, used, xp}) {
+export function craftReceiptText({made, result_name, used, xp, skill_id, skill_level}) {
     const usedText = used.map(u => `${u.count} ${u.name}`).join(', ');
     const xpText = xp > 0 ? ` (+${Math.round(xp * 10) / 10} XP)` : '';
-    if(made > 0) return `Made ${made} ${result_name}${usedText ? ` from ${usedText}` : ''}${xpText}`;
+    if(made > 0) {
+        const cue = craftCue(skill_id, skill_level, {made});
+        return `Made ${made} ${result_name}${usedText ? ` from ${usedText}` : ''}${xpText}${cue ? `. ${cue}` : ''}`;
+    }
     if(usedText) return `Failed: ${usedText} used, nothing made${xpText}`;
     return 'Nothing was crafted. Your materials are unchanged.';
 }

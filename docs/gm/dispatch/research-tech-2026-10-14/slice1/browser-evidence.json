@@ -1,0 +1,91 @@
+{
+  "date": "2026-10-14",
+  "profile": "/private/tmp/rt-slice1-profile-1792005692801",
+  "origin": "http://127.0.0.1:21400",
+  "bundleSha256": "d76ae3141bbea6cd26d926435e578aca5990e21496d6335e9327faf3108f0d9c",
+  "checks": [
+    {
+      "id": "C-novice-woodworking",
+      "label": "seeded-native",
+      "detail": {
+        "viewport": "1366x768",
+        "receipt": "Made 30 Processed rough wood from 10 Rough wood log (+126.1 XP). You notice the lines in the wood.",
+        "skillXP": 4659.29,
+        "detailsMatch": true,
+        "collapsedTextAbsent": true
+      }
+    },
+    {
+      "id": "C-novice-forging",
+      "label": "seeded-native",
+      "detail": {
+        "viewport": "1366x768",
+        "receipt": "Made 4 Metal fishing hook from 10 Iron ingot (+168.9 XP). Light catches the metal's surface.",
+        "skillXP": 4702.04,
+        "detailsMatch": true,
+        "collapsedTextAbsent": true
+      }
+    },
+    {
+      "id": "V-novice",
+      "label": "seeded-native",
+      "detail": {
+        "viewport": "1366x768",
+        "nativeReturn": true,
+        "immediateDescription": true
+      }
+    },
+    {
+      "id": "C-master-woodworking",
+      "label": "seeded-native",
+      "detail": {
+        "viewport": "1600x1000",
+        "receipt": "Made 30 Processed rough wood from 10 Rough wood log (+10 XP). You read changes in the grain before judging the finished surface.",
+        "skillXP": 51009719947.12,
+        "detailsMatch": true,
+        "collapsedTextAbsent": true
+      }
+    },
+    {
+      "id": "C-master-forging",
+      "label": "seeded-native",
+      "detail": {
+        "viewport": "1600x1000",
+        "receipt": "Made 10 Metal fishing hook from 10 Iron ingot (+10 XP). You read the reflection to judge the evenness of the finished surface.",
+        "skillXP": 51009719947.12,
+        "detailsMatch": true,
+        "collapsedTextAbsent": true
+      }
+    },
+    {
+      "id": "V-master",
+      "label": "seeded-native",
+      "detail": {
+        "viewport": "1600x1000",
+        "nativeReturn": true,
+        "immediateDescription": true
+      }
+    },
+    {
+      "id": "P-reload",
+      "label": "seeded-native",
+      "detail": "Save/reload keeps the full stored envelope and Village sentence identical before PLAY."
+    },
+    {
+      "id": "P-import",
+      "label": "seeded-native",
+      "detail": "Literal native Export/Import preserves the entire exported envelope and the identical Village sentence."
+    },
+    {
+      "id": "P-old",
+      "label": "seeded-native",
+      "detail": "Old save missing town.returned retains the original Village description."
+    },
+    {
+      "id": "P-view",
+      "label": "seeded-native",
+      "detail": "Repeated reading changes no stored state."
+    }
+  ],
+  "pageErrors": []
+}

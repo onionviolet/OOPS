@@ -45,6 +45,7 @@ import { expo, format_reading_time, stat_names, round_item_price, format_working
 //import { stances } from "./combat_stances.js";
 import { recipes, get_recipe_xp_value, find_recipe_material, get_component_stats } from "./crafting_recipes.js";
 import {recipeMakeableNow, itemRecipeStatus} from "./crafting_visibility.js";
+import {craftCue} from "./craft_cues.js";
 import {renderCraftingDetail, focusFirstBlocker, craftReceiptText, UNKNOWN_MATERIAL_LABEL} from "./crafting_detail.js";
 import { effect_templates } from "./active_effects.js";
 import { player_storage } from "./data/storage.js";
@@ -3362,14 +3363,17 @@ function build_item_recipe_model(selection) {
         else if(requirements.some(r => r.held_back)) blocked_reason = "Can't craft now: a material is reserved, or you are busy elsewhere.";
         else blocked_reason = "Can't craft this right now.";
     }
-    const receipt = crafting_receipt?.key === item_recipe_key(selection) ? crafting_receipt.text : "";
+    const last = crafting_receipt?.key === item_recipe_key(selection) ? crafting_receipt : null;
+    const receipt = last?.text || "";
+    const cue = last ? craftCue(last.skill_id, last.skill_level, last)
+        : craftCue(recipe.recipe_skill, skill.getCurrentLvl(), {count});
     const back = item_recipe_return && item_recipe_key(item_recipe_return.selection) !== item_recipe_key(selection) ? item_recipe_return.title : "";
     return {title: recipe.name, requirements, attempts: state.amount,
         effects: item_recipe_result_effects(item_templates[result_id]),
         related: item_recipe_related_uses(selection, known_ids, result_id), back,
         output: {name: item_templates[result_id].getName(), count, scaled: !!recipe.scale_results && count > 1},
         chance, station: station_tier > 0 ? `${station_name}, tier ${station_tier}` : `${station_name}: not available here`,
-        xp, available: state.available, blocked_reason, receipt,
+        xp, available: state.available, blocked_reason, receipt, cue,
         result_details: create_item_tooltip_content({item: item_templates[result_id], options: {skip_quality: true, anchor_tooltip: true}})};
 }
 
@@ -3418,13 +3422,15 @@ function commit_selected_item_recipe(amount) {
         }
     }
     const skill = skills[recipe.recipe_skill];
+    const skill_level = skill.getCurrentLvl(); // Capture before craft XP can level the skill.
     const made_before = resultCount(), xp_before = skill.getTotalXP();
     const list = row.parentNode, scroll = list.scrollTop;
     window.useRecipe(row.querySelector(".recipe_item_name"), amount);
     const items = character.getItems();
     const used = Object.entries(inputs).map(([key, v]) => ({name: v.name, count: v.before - (items[key]?.count || 0)})).filter(u => u.count > 0);
-    crafting_receipt = {key: item_recipe_key(selection), text: craftReceiptText({
-        made: resultCount() - made_before, result_name: item_templates[recipe.getResult().result_id].getName(),
+    const made = resultCount() - made_before;
+    crafting_receipt = {key: item_recipe_key(selection), skill_id: recipe.recipe_skill, skill_level, made, text: craftReceiptText({
+        skill_id: recipe.recipe_skill, skill_level, made, result_name: item_templates[recipe.getResult().result_id].getName(),
         used, xp: skill.getTotalXP() - xp_before})};
     refresh_crafting_detail();
     list.scrollTop = scroll;
