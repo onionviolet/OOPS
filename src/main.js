@@ -10162,7 +10162,7 @@ document.addEventListener('visibilitychange', () => {if(document.hidden) flushDu
 if(testHooksEnabled) {
     window.advanceTicks = advanceTicks;
     window.fastForward = fastForward;
-    window.simulationTestHooks = Object.freeze({pause:pauseEngine,resume:resumeEngine,snapshot:()=>JSON.parse(create_save()),tickrate:()=>tickrate,saveStatus:()=>({ownsSave,restoring:restoringNativeSave,writeBlocked:harvestWriteReason()})});
+    window.simulationTestHooks = Object.freeze({pause:pauseEngine,resume:resumeEngine,snapshot:()=>JSON.parse(create_save()),tickrate:()=>tickrate,project:id=>structuredClone(domainRegistry.project(id)),refreshCombatView:()=>{if(current_combat&&!current_combat.is_ended)update_displayed_fighters_stats();},saveStatus:()=>({ownsSave,restoring:restoringNativeSave,writeBlocked:harvestWriteReason()})});
 }
 
 if(config.enable_dev_mode) {

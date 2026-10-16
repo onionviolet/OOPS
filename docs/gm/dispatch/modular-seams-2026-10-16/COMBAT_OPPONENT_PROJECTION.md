@@ -1,13 +1,14 @@
 # Combat opponent projection (PP5), interface note, 2026-10-16
 
-Engine lane, branch `codex/engine-combat-projection`. Proposal under implementation; the shape is the
-contract R20 can code against now with `read()` injection (GU8). Changes to it are announced here.
+Engine lane, branch `codex/engine-combat-projection`. Implemented on that branch (unmerged); the shape is the contract R20 can code against now with
+`read()` injection (GU8). Changes to it are announced here.
 
 ## Access
 
 `domainRegistry.project('combat-opponents')` returns one plain, JSON-safe object (a fresh copy per call).
 Registered by `src/combat_opponents_domain.js` with `projection` only: no save slice, no commands, no
-clock. Panels re-read it on the existing publication refresh (`domainRegistry.refresh()` / tick renders).
+clock. Registration runs when `src/ui/combat_display.js` loads; both read one `src/combat_readout.js`.
+Browser checks: `window.simulationTestHooks.project('combat-opponents')` under `?test_hooks=1`. Panels re-read it on the existing publication refresh (`domainRegistry.refresh()` / tick renders).
 
 ## Shape (schema 1)
 
@@ -36,14 +37,22 @@ clock. Panels re-read it on the existing publication refresh (`domainRegistry.re
 }
 ```
 
-Fact variants follow the native renderer's own conditions:
+Fact variants follow the native renderer's own conditions. **Correction (same day):** the switch is
+the size of the player's side, not the number of opponents.
 
-- One opponent of the player: `hits-you` and `evades-you` as percentages; a shield gives
-  `hits-you` `{value: '100%', number: 100, shield: true}`.
-- Several: `attack-rating` (AP) and `evasion-rating` (EP) replace them, numbers rounded.
+- Player fighting alone (`solo`): `hits-you` and `evades-you` as percentages, plus `you-hit`. If the
+  player holds a shield, `hits-you` is `{value: '100%', number: 100, shield: true}` (they always
+  connect; the block applies after).
+- Player in a party: `attack-rating` (AP) and `evasion-rating` (EP), rounded; no `you-hit`.
 - Opponent with a shield: `block` (rounded block strength) replaces `evades-you`/`evasion-rating`.
-- `you-hit` appears only when the native renderer shows it (player present, one opponent).
+  The native text shows a stray `2345` after that number; the projection carries the number only.
+- `defeated` opponents stay listed (native dims them) with `health.fraction` 0 when at or below zero.
 - Inactive: `{schema: 1, active: false, disclosure: 'native-legacy', count: 0, alive: 0, opponents: []}`.
+
+Freshness: the native stats text is recomputed only on some events (fill, a death, stance changes), so
+it can lag the current numbers (seen in 1–3 of 15 frames per journey). The projection computes on read
+with the same formula and inputs, so it is current. That is not new knowledge; native shows the same
+value on its next redraw.
 
 ## Knowledge (NX22, KL24/KL25, AD8)
 
