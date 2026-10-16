@@ -1,0 +1,34 @@
+[
+ {
+  "name": "idle-1366x768-14: each tab's count equals the rows the native filter shows; tabs stay put; no overflow",
+  "fail": "five tabs"
+ },
+ {
+  "name": "idle-1366x768-21: each tab's count equals the rows the native filter shows; tabs stay put; no overflow",
+  "fail": "five tabs"
+ },
+ {
+  "name": "idle-1920x1080-21: each tab's count equals the rows the native filter shows; tabs stay put; no overflow",
+  "fail": "five tabs"
+ },
+ {
+  "name": "fight-1366x768-21: each tab's count equals the rows the native filter shows; tabs stay put; no overflow",
+  "fail": "five tabs"
+ },
+ {
+  "name": "clear filter returns to All and clears the search; the empty lines tell states apart (UX13)",
+  "fail": "locator.isDisabled: Timeout 25000ms exceeded."
+ },
+ {
+  "name": "the chosen tab survives reload in this browser and stays out of the game save (NX2)",
+  "fail": "locator.click: Timeout 25000ms exceeded."
+ },
+ {
+  "name": "30 rendered ticks under a hovered tab move no tab and keep the selection (UR52)",
+  "fail": "locator.click: Timeout 25000ms exceeded."
+ },
+ {
+  "name": "value sort orders by the shown value and puts rows with no shown value last in both directions (CTL13)",
+  "fail": "locator.click: Timeout 25000ms exceeded."
+ }
+]
