@@ -203,3 +203,4 @@ with "prevents" columns, a row here and one line in PROJECT.
   Link it from AGENTS only if it binds every agent.
 - New accepted decision: add or revise its AD line here when it changes an aspect.
 - Codes are never reused. A superseded rule keeps its code with a dated note.
+- Run `npm run check:rules` after any change here or to a rulebook's codes. It checks register coverage, code ranges, AD contiguity, cited codes and links.
