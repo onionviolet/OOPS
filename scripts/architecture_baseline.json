@@ -6,8 +6,7 @@
     "src/models/hero.js -> src/main.js",
     "src/pathfinding.js -> src/main.js",
     "src/quests.js -> src/main.js",
-    "src/trade.js -> src/main.js",
-    "src/ui/combat_display.js -> src/main.js"
+    "src/trade.js -> src/main.js"
   ],
   "cycleEdges": [
     "src/absorb_d/ui.js -> src/data/npcs.js",
@@ -293,7 +292,6 @@
     "src/ui/combat_display.js -> src/data/skills.js",
     "src/ui/combat_display.js -> src/display.js",
     "src/ui/combat_display.js -> src/enemies.js",
-    "src/ui/combat_display.js -> src/main.js",
     "src/verifier.js -> src/crafting_recipes.js",
     "src/verifier.js -> src/data/character.js",
     "src/verifier.js -> src/data/locations.js",
