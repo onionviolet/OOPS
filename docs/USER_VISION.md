@@ -3084,3 +3084,24 @@ break the display/main cycle and add an architecture check, add the domain
 registry with existing domains migrated behavior-preserving, then wire crafting
 as the first new consumer. This does not change UI, making, site or procedural
 priorities.
+
+### Rules index and reconciliation, 2026-10-16
+
+Weibao, after the site and exploration rules:
+
+> reconcile and organize all the rules for other aspects as well? maybe update project.md to refer and accordinlgy make all work easier and more guided?
+
+Direction: one organized entry point for every standing rule set, with the
+accepted direction for aspects that lack a rulebook restated as citable rules,
+and PROJECT.md pointing to it. [Rules index](RULES_INDEX.md) holds the authority
+order, rulebook register, task router, AD1–AD35 (restating accepted decisions,
+which remain the authority), shared principles and reconciled tensions T1–T7.
+Organization only: no new product rules, rulebooks for other domains or
+implementation. Dedicated rulebooks for combat, cheats, characters, lives or
+time remain available on request.
+
+Follow-up, same day: "rather than memory update project.md or agents.md, or codex.md
+or claude.md?", then approval to fold repo-rule memories. Shared guidance now lives
+where both agents read it: AGENTS.md (rules index upkeep, design framing, research
+lens, shared-tree rules) and [shared worktree practice](gm/SHARED_WORKTREE_PRACTICE.md).
+No separate CODEX.md: Codex reads AGENTS.md and CLAUDE.md imports it.

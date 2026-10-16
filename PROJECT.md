@@ -30,6 +30,15 @@ FA13 current source passes ten focused contract checks. Native optional enrollme
 
 ## Standing priorities and document authority
 
+**Rules index (2026-10-16):** start any task at the [rules index](docs/RULES_INDEX.md).
+It orders authority, registers every rule set (Rulebook 1–12, AR, UR, MR, SR,
+sealed secrets, agent workflow; GR and CX as proposals), routes each task type to
+the codes that apply and restates accepted decisions as AD1–AD35 for aspects
+without a rulebook (knowledge, lives, time, recovery, entry, goals, economy, cheats).
+Shared principles and tensions T1–T7 are reconciled there. The accepted decisions
+below stay authoritative; the index adds no new rules.
+[Request](docs/USER_VISION.md#rules-index-and-reconciliation-2026-10-16).
+
 **Architecture rules (2026-10-16):** at Weibao's request, runtime work follows
 [architecture rules](docs/ARCHITECTURE_RULES.md) AR1–AR16. No whole-game rewrite;
 `main.js` becomes a composition root, domains register through one registry
