@@ -275,6 +275,14 @@ expansion proposal: [log](docs/gm/PROJECT_LOG.md#expansion-design-proposal).
 
 ## Accepted decisions
 
+- **Complexity guardrails CX1–CX8 (2026-10-16, Weibao):** "I like these rules".
+  Depth arrives on demand, connects to existing verbs and owners first, uses
+  rules over pairwise interactions, promotes instead of pre-simulating, declares
+  budgets, keeps coverage honest, finishes one slice at a time and records each
+  deferral with its reopen trigger. They pace depth; they are not a simplicity
+  ceiling. [Owner](docs/gm/dispatch/ui-foundation-2026-10-15/next-parts/part-9-complexity-and-openness.md#guides-complexity-guardrails);
+  [original answer](docs/USER_VISION.md#complexity-guardrails-accepted-canon-areas-and-saves-2026-10-16).
+  Canon/area/save proposals (P9Y) remain proposals.
 - **Cross-world detail-audit precedent (2026-10-12, Weibao):** record the HP
   discussion as reusable GM guidance for future worlds: consider small and
   exceptional mechanics alongside timelines, starts/endings, branching,
