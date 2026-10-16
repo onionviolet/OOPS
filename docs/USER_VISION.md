@@ -3065,3 +3065,22 @@ The considerations are recorded in [the opportunities palette](PROCEDURAL_AND_GE
 PG1–PG15 cover other procedural systems that reuse the crafting engine's pattern,
 and GN1–GN13 cover general tooling. Nothing is selected or dispatched. In the same
 message he asked to push with a lesser model.
+
+## Architecture rules and modular seams run, 2026-10-16
+
+Weibao, after the [modularity assessment](reviews/MODULARITY_AND_REWRITE_ASSESSMENT_2026-10-16.md)
+and Claude's review of it:
+
+> make a codex run to fix accordingly and create rules accordingly?
+
+Accepted: no whole-game rewrite; restructure around replaceable domain boundaries
+one connected slice at a time (assessment O2). Standing rules live in
+[architecture rules](ARCHITECTURE_RULES.md) AR1–AR16: `main.js` becomes a
+composition root, domains register through one registry, one authority per fact,
+no import cycles, namespaced save slices, structural moves kept separate from
+behavior, and a boundary counts only when a player journey crosses it. Execution
+runs in the [modular seams dispatch](gm/dispatch/modular-seams-2026-10-16/CHECKPOINT.md):
+break the display/main cycle and add an architecture check, add the domain
+registry with existing domains migrated behavior-preserving, then wire crafting
+as the first new consumer. This does not change UI, making, site or procedural
+priorities.

@@ -30,6 +30,15 @@ FA13 current source passes ten focused contract checks. Native optional enrollme
 
 ## Standing priorities and document authority
 
+**Architecture rules (2026-10-16):** at Weibao's request, runtime work follows
+[architecture rules](docs/ARCHITECTURE_RULES.md) AR1–AR16. No whole-game rewrite;
+`main.js` becomes a composition root, domains register through one registry
+with namespaced save slices, no new import cycles, and a module counts as
+integrated only when a player journey crosses it. The
+[modular seams dispatch](docs/gm/dispatch/modular-seams-2026-10-16/CHECKPOINT.md)
+builds the registry and check, then wires crafting as the first consumer.
+[Original request](docs/USER_VISION.md#architecture-rules-and-modular-seams-run-2026-10-16).
+
 **Crafting engine (2026-10-15):** Weibao asked for engine-level procedural recipes,
 materials and harvesting. Pure modules are in place: material catalogue and seeded
 regional generation, a conserving batch resolver, recipe grammar and matching,
