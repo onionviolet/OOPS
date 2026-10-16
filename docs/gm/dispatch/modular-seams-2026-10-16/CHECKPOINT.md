@@ -21,7 +21,7 @@ Brief: [BRIEF.md](BRIEF.md).
 | --- | --- | --- | --- |
 | M1 cycle break + check | passed | 9e089696 | build, 1793 pass / 3 TODO, arch, rebuilt before/after route + full save equality |
 | M2 registry + two domains | passed | 4498c8e6 | build, 1795 pass / 3 TODO, arch, two-domain rebuilt comparison + old save |
-| M3 crafting consumer | STOPPED, implemented-unverified | stopped candidate commit | browser failed twice; final full gate open |
+| M3 crafting consumer | STOPPED, implemented-unverified | c5f2ff6e | browser failed twice; final full gate open |
 | M4 second case | not started | | M3 did not pass |
 
 The live checkpoint is the copy in the worktree; this shared copy records the
