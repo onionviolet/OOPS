@@ -17,6 +17,26 @@ const url=process.env.PROOF_URL || 'http://127.0.0.1:19460/?test_hooks=1';
  await page.locator('[data-dialogue="villageElder"]').click();
  await page.locator('[data-textline="hello"]').click();
  await page.locator('#center_mode_back').click();
+ if(process.env.PROOF_DOMAINS==='1') {
+  const h=await import('../src/harvest.js'),{calendarMinutes}=await import('../src/world_rhythm.js');
+  console.log('domain fixture');const fixture=await page.evaluate(()=>window.simulationTestHooks.snapshot());
+  fixture.harvest=h.createHarvest();const clock=calendarMinutes(fixture['current time']);
+  h.addCarcass(fixture.harvest,h.drawSpecimen({species:'Wolf rat',key:'modular-fixture-kill',clock},()=>.5),{clock,skill:0,tool:0});
+  await page.evaluate(save=>localStorage.setItem('save data',JSON.stringify(save)),fixture);await page.reload();await boot();
+  console.log('processing');await page.locator('#harvest_panel > summary').click();
+  await page.locator('[data-harvest-choice="tail"]').click();
+  await page.evaluate(()=>window.advanceTicks(3,{render:true}));
+  assert.equal((await page.evaluate(()=>window.simulationTestHooks.snapshot())).harvest.processed,1);
+  console.log('care');await page.keyboard.press('Alt+r');if(!await page.locator('#projects_drawer').evaluate(n=>n.open))await page.locator('#projects_drawer > summary').click();
+  await page.locator('#meadow_pen_panel > summary').click();
+  for(const action of ['build','adopt','buy_feed','feed','attend']){console.log('care',action);await page.locator(`[data-habitat="${action}"]`).click();}
+  await page.evaluate(()=>window.advanceTicks(6,{render:true}));
+  // Rendering uses the played clock lazily, as before the registry move.
+  await page.waitForFunction(()=>!document.querySelector('[data-habitat="collect"]').disabled);
+  await page.locator('[data-habitat="collect"]').click();
+  const active=await page.evaluate(()=>window.simulationTestHooks.snapshot());
+  assert.equal(active.meadow_pen.collected,1);assert.equal(active.harvest.processed,1);
+ }
  await page.evaluate(()=>window.advanceTicks(3,{render:true}));
  await page.locator('#save_button').click();
  const saved=await page.evaluate(()=>JSON.parse(localStorage.getItem('save data')));
@@ -30,6 +50,14 @@ const url=process.env.PROOF_URL || 'http://127.0.0.1:19460/?test_hooks=1';
  await page.locator('#save_button').click();
  const final=await page.evaluate(()=>JSON.parse(localStorage.getItem('save data')));
  assert.equal(final.global_flags?.is_hero_created,saved.global_flags?.is_hero_created);
+ if(process.env.PROOF_DOMAINS==='1') {
+  assert.deepEqual(final.harvest,saved.harvest);assert.deepEqual(final.meadow_pen,saved.meadow_pen);
+  const legacy=structuredClone(final);delete legacy.harvest;delete legacy.meadow_pen;
+  await page.evaluate(save=>localStorage.setItem('save data',JSON.stringify(save)),legacy);await page.reload();await boot();
+  const old=await page.evaluate(()=>window.simulationTestHooks.snapshot());
+  assert.equal(Object.hasOwn(old,'harvest'),false);assert.equal(Object.hasOwn(old,'meadow_pen'),false);
+  assert.deepEqual(old.inventories,final.inventories);
+ }
  assert.deepEqual(errors,[]);
  fs.writeFileSync(output,JSON.stringify({saved,restored,imported,final},null,2));
  console.log(JSON.stringify({output,errors,viewport:'1366x768',route:'new game, elder dialogue, 3 engine ticks, Save, reload, Export download, literal Import'}));

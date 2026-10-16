@@ -19,8 +19,8 @@ Brief: [BRIEF.md](BRIEF.md).
 
 | Round | Status | Commit | Gate |
 | --- | --- | --- | --- |
-| M1 cycle break + check | passed | this round commit | build, 1793 pass / 3 TODO, arch, rebuilt before/after route + full save equality |
-| M2 registry + two domains | pending | | |
+| M1 cycle break + check | passed | 9e089696 | build, 1793 pass / 3 TODO, arch, rebuilt before/after route + full save equality |
+| M2 registry + two domains | passed | this round commit | build, 1795 pass / 3 TODO, arch, two-domain rebuilt comparison + old save |
 | M3 crafting consumer | pending | | |
 | M4 second case | optional | | |
 
@@ -47,3 +47,17 @@ uncommitted sources into this branch. No push or upstream merge authorized.
 AR5's baseline exception is necessary for existing whole-graph cycles. The check
 rejects new cycles and main imports while requiring the exemption set to shrink.
 The named assessment file is missing from this branch; standing rules are present.
+
+## M2 checkpoint
+
+See [M2 report](M2_REPORT.md). Start-of-round merge: already up to date. Core
+counts 10100 / 6655 / 256; net this round −21 / 0 / 0. Baseline remains 8 main
+imports and 298 cyclic edges. Existing transaction and writer authority retained.
+Both domains exercised on both rebuilds, complete save equality excluding saved_at;
+old saves keep both absent slices and inventory unchanged. Reservation active.
+
+M3 target: expanded center crafting home, 1366×768, harvest to useful native
+consumable with full persistence. Mobile, UI redesign and broader product modes
+stay deferred. docs/UI_RULES.md is absent on this branch. Use explicit dispatch
+surface requirements plus existing PANEL_KIT.md and center controller; record
+this missing authority as a documentation gap, not permission to invent rules.

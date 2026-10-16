@@ -1,3 +1,5 @@
+import {domainRegistry} from './domain_registry.js';
+import {configureResourceDomains,harvestOwner,habitatOwner,harvestPanel,habitatPanel,setHarvestOwner,setHabitatOwner,receiveHarvest} from './native_resources_domain.js';
 import {bindNativeView} from './native_view.js';
 import {translate, bindTranslationReaders} from './native_translation.js';
 import {can_work, enough_time_for_earnings} from './activity_time.js';
@@ -52,10 +54,10 @@ import {HOUSEHOLD,householdRest} from './absorb_p23/household/model.js';
 import {householdPresentation} from './absorb_p23/household/host.js';
 import {createHouseholdPanel} from './absorb_p23/host_joins/tranche_one_ui.js';
 import {STREAMS,ensureStreams,bindGameStreams,gameKeyedRandom,gameRandom,gameRandomRange,drawUnit,scopedStream,seededRecipe,validateNativeEncounter,streamSeed} from "./seeded_streams.js";
-import {GRADED_IDS,createHarvest,validateHarvest,supportedHarvest,drawSpecimen,addCarcass,beginHarvest,cancelHarvest,advanceHarvest,consumedHarvestQuality,gradedKey} from './harvest.js';
-import {createHarvestPanel} from './harvest_ui.js';
-import {validateHabitat,planHabitatAction} from './habitat_care.js';
-import {createHabitatPanel} from './habitat_care_ui.js';
+import {GRADED_IDS,consumedHarvestQuality,gradedKey} from './harvest.js';
+
+
+
 import {setProductAppearanceOwner} from './product_appearance_view.js';
 import {resolveWorldCalendar, createCalendarLog} from './world_calendar.js';
 import {worldWeatherWords} from './world_weather_display.js';
@@ -2149,20 +2151,19 @@ function commandOptionalPack(id,action) {
     optionalPackPanel?.render();
 }
 
-let harvestOwner=null;
-let habitatOwner=null;
-let habitatPanel;
+
+
+
 function habitatContext(){return {owner:habitatOwner,clock:calendarMinutes(current_game_time),
     money:character.money,inventory:Object.fromEntries(Object.entries(character.getItems()).map(([k,r])=>[k,r.count])),
     location:current_location?.id,world:expansionState.actors.player.worldId,
     ready:harvestReady()&&!nativeActionReasons(expansionState).length,inDialogue:!!current_dialogue,inCombat:!!current_combat};}
-function actHabitat(action){
-    const plan=planHabitatAction(habitatOwner,action,habitatContext());
+function commitHabitatPlan(plan){
     for(const row of plan.items)if(row.amount<0)assertNativeItemDisposition(expansionState,row.key);
     const transaction=beginNativeCraftTransaction({owners:[character,character.getItems(),item_log,favourite_items,favourite_consumables],
-        bindings:[{get:()=>habitatOwner,set:v=>{habitatOwner=v;}}]});
+        bindings:[{get:()=>habitatOwner,set:v=>{setHabitatOwner(v);}}]});
     try{
-        habitatOwner=plan.state;character.money=plan.money;
+        setHabitatOwner(plan.state);character.money=plan.money;
         for(const row of plan.items){
             if(row.amount<0)character.removeFromInventory([{item_key:row.key,item_count:-row.amount}]);
             else character.addToInventory([{item_key:row.key,count:row.amount}]);
@@ -2173,13 +2174,16 @@ function actHabitat(action){
     }catch(e){if(transaction.status==='pending')transaction.rollback();throw e;}
     finally{update_displayed_character_inventory();update_displayed_money();update_displayed_crafting_recipes();habitatPanel?.render();}
 }
-let harvestPanel;
+
 function harvestContext(){
     const weapon=character.getEquipment().weapon;
     const tool=weapon && weapon.weapon_type!=='hammer' ? (weapon.quality??100) : 0;
     return {clock:calendarMinutes(current_game_time),skill:character.getTotalSkillLevel('Butchering'),tool};
 }
 function harvestWritable(){return ownsSave&&!foundationSaveBlocked&&!importProbeToken&&!restoringNativeSave&&!is_loading_error&&!lifeStorageFailure&&character.is_alive&&expansionState.actors.player.worldId==='base.frontier';}
+function harvestAutomaticReady(){
+    return !current_activity&&!current_game_action&&!current_dialogue&&!is_sleeping&&!is_reading&&!is_in_trade()&&!nativeOccupationReason();
+}
 function harvestReady(){return harvestWritable()&&!nativeOccupationReason()&&!current_activity&&!current_game_action&&!current_combat&&!current_dialogue&&!is_sleeping&&!is_reading&&!is_in_trade();}
 function grantHarvest(plan){
     if(!plan)return;
@@ -2190,41 +2194,11 @@ function grantHarvest(plan){
     log_message('Processed carcass: '+plan.outputs.map(o=>`${o.count} ${getItemFromKey(o.item_key).getName()}`).join(', '),'loot');
     update_displayed_character_inventory();update_displayed_crafting_recipes();
 }
-function receiveHarvest(target){
-    if(!supportedHarvest(target.name)||!harvestWritable())return;
-    harvestOwner??=createHarvest();
-    const context=harvestContext();
-    const specimen=drawSpecimen({species:target.name,key:target.rngKey||`harvest:${harvestOwner.sequence+1}`,clock:context.clock,damage:target.harvestDamage},key=>gameKeyedRandom(STREAMS.loot,key));
-    const left=harvestOwner.left;grantHarvest(addCarcass(harvestOwner,specimen,context));
-    if(harvestOwner.left>left)log_message('Carcass lot full: one '+target.name+' left behind. Enable auto-processing to retain incoming parts.','notification');
-    harvestPanel?.render();
-}
+
 function harvestTransaction(run){
-    const transaction=beginNativeCraftTransaction({owners:[expansionState,character,character.getItems(),character.getLevelableComponent(),item_log,global_flags,availabilities,...Object.values(skills).map(s=>s.getAvailabilityComponent()),which_skills_affect_skill,...nativeCraftQuestOwners(quests,active_quests)],bindings:[{get:()=>harvestOwner,set:v=>{harvestOwner=v;}},{get:()=>expansionState,set:v=>{expansionState=v;}},{get:()=>p23Growth,set:v=>{p23Growth=v;}},{get:()=>p23GrowthEarned,set:v=>{p23GrowthEarned=v;}}]});
+    const transaction=beginNativeCraftTransaction({owners:[expansionState,character,character.getItems(),character.getLevelableComponent(),item_log,global_flags,availabilities,...Object.values(skills).map(s=>s.getAvailabilityComponent()),which_skills_affect_skill,...nativeCraftQuestOwners(quests,active_quests)],bindings:[{get:()=>harvestOwner,set:v=>{setHarvestOwner(v);}},{get:()=>expansionState,set:v=>{expansionState=v;}},{get:()=>p23Growth,set:v=>{p23Growth=v;}},{get:()=>p23GrowthEarned,set:v=>{p23GrowthEarned=v;}}]});
     try {run();const serialized=create_save();if(!serialized)throw Error('Could not save carcass processing.');validateSaveEnvelope(JSON.parse(serialized),game_version);lifeSaveStorage.setItem(is_on_dev()?dev_save_key:save_key,serialized,()=>transaction.markDurable());}
     catch(e){if(transaction.status==='pending'){transaction.rollback();update_displayed_character_inventory();}throw e;}
-}
-function actHarvest(request){
-    if(!harvestWritable())throw Error('Processing requires a living player in the writable frontier game.');
-    if(request.type==='begin'&&!harvestReady())throw Error('Finish the current activity before processing.');
-    harvestTransaction(()=>{harvestOwner??=createHarvest();
-    if(request.type==='auto')harvestOwner.auto=!!request.value;
-    else if(request.type==='cancel')cancelHarvest(harvestOwner);
-    else if(request.type==='begin')beginHarvest(harvestOwner,request.species,request.choice,harvestContext());
-    else throw Error('Unknown processing action.');});
-    harvestPanel?.render();
-}
-function harvestAutomaticReady(){
-    return !current_activity&&!current_game_action&&!current_dialogue&&!is_sleeping&&!is_reading&&!is_in_trade()&&!nativeOccupationReason();
-}
-function tickHarvest(minutes){
-    if(!harvestOwner||!harvestWritable())return;
-    // Auto handling is an idle combat companion; explicit handling occupies the player.
-    const ready=harvestOwner.job&&!harvestOwner.job.automatic || harvestAutomaticReady();
-    if(!ready || !harvestOwner.job && !harvestOwner.auto)return;
-    try {harvestTransaction(()=>{for(const plan of advanceHarvest(harvestOwner,minutes,harvestContext(),{ready:true}))grantHarvest(plan);});}
-    catch(e){log_message('Carcass processing paused: '+e.message,'notification');}
-    harvestPanel?.render();
 }
 
 function nativeOccupationReason() {
@@ -4747,7 +4721,7 @@ function runP23CombatExchange(combat,resolve) {
         validateCombatOptions(combat.combatOptions?.snapshot());if(p23LivingGear!==undefined)createLivingGear(p23LivingGear);
         transaction=beginNativeCraftTransaction({owners:[expansionState,character,character.getItems(),character.getLevelableComponent(),character.getEquipment(),character.getBioComponent(),...combat.defenders,...combat.defenders.map(enemy=>enemy.getLevelableComponent()),...(current_location.id===AREA_ID?[locations[AREA_ID],locations[AREA_ID].getAvailabilityComponent()]:[]),item_log,game_stats,global_flags,availabilities,enemy_killcount,favourite_consumables,favourite_items,favourite_locations,
             ...Object.values(skills).map(skill=>skill.getAvailabilityComponent()),which_skills_affect_skill,active_effects,...nativeCraftQuestOwners(quests,active_quests)],
-            bindings:[{get:()=>harvestOwner,set:v=>{harvestOwner=v;}},{get:()=>p23Growth,set:v=>{p23Growth=v;}},{get:()=>p23GrowthEarned,set:v=>{p23GrowthEarned=v;}},{get:()=>p23EncounterProfile,set:v=>{p23EncounterProfile=v;}},{get:()=>p23EncounterReceipt,set:v=>{p23EncounterReceipt=v;}},{get:()=>pendingNativeEncounter,set:v=>{pendingNativeEncounter=v;}},{get:()=>p23DropObservations,set:v=>{p23DropObservations=v;}},{get:()=>expansionState,set:v=>{expansionState=v;}},{get:()=>p23LivingGear,set:v=>{p23LivingGear=v;}},{get:()=>p23CombatOptions,set:v=>{p23CombatOptions=v;}},{get:()=>current_combat,set:v=>{current_combat=v;}},{get:()=>current_location,set:v=>{setCurrentLocation(v);}},{get:()=>pathfinder,set:v=>{pathfinder=v;}},{get:()=>travel_times,set:v=>{setTravelTimes(v);}}]});
+            bindings:[{get:()=>harvestOwner,set:v=>{setHarvestOwner(v);}},{get:()=>p23Growth,set:v=>{p23Growth=v;}},{get:()=>p23GrowthEarned,set:v=>{p23GrowthEarned=v;}},{get:()=>p23EncounterProfile,set:v=>{p23EncounterProfile=v;}},{get:()=>p23EncounterReceipt,set:v=>{p23EncounterReceipt=v;}},{get:()=>pendingNativeEncounter,set:v=>{pendingNativeEncounter=v;}},{get:()=>p23DropObservations,set:v=>{p23DropObservations=v;}},{get:()=>expansionState,set:v=>{expansionState=v;}},{get:()=>p23LivingGear,set:v=>{p23LivingGear=v;}},{get:()=>p23CombatOptions,set:v=>{p23CombatOptions=v;}},{get:()=>current_combat,set:v=>{current_combat=v;}},{get:()=>current_location,set:v=>{setCurrentLocation(v);}},{get:()=>pathfinder,set:v=>{pathfinder=v;}},{get:()=>travel_times,set:v=>{setTravelTimes(v);}}]});
         scope={transaction,messages:[]};nativeP23Scope=scope;nativeCraftScopes.push(scope);
         nativeP23Transaction=transaction;nativeLivingStrike=true;result=resolve();
         if(combat.combatOptions)p23CombatOptions=combat.combatOptions.snapshot();
@@ -6266,8 +6240,7 @@ function create_save({forExport = false} = {}) {
         });
         
         save_data["current location"] = current_location.id;
-        if(harvestOwner)save_data.harvest=structuredClone(validateHarvest(harvestOwner,calendarMinutes(current_game_time)));
-        if(habitatOwner)save_data.meadow_pen=structuredClone(validateHabitat(habitatOwner,calendarMinutes(current_game_time)));
+        domainRegistry.save(save_data);
         save_data.native_encounter = current_location.id===AREA_ID&&!p23EncounterProfile?.pending?null:(current_combat?.snapshot(current_location.id) || pendingNativeEncounter);
 
         save_data["locations"] = {};
@@ -6583,8 +6556,7 @@ function load(save_data) {
             p23DropObservations=save_data.p23_drop_observations===undefined?undefined:validateDropObservations(save_data.p23_drop_observations);
             loadedDisplayPreferences=save_data.display_preferences;
             setMixtureOwner(save_data.mixtures);
-            harvestOwner=save_data.harvest==null?null:structuredClone(validateHarvest(save_data.harvest,calendarMinutes(save_data["current time"])));
-            habitatOwner=save_data.meadow_pen==null?null:structuredClone(validateHabitat(save_data.meadow_pen,calendarMinutes(save_data['current time'])));
+            domainRegistry.load(save_data);
             cheatState=validateCheatState(save_data.cheats??defaultCheatState());
             optionalPackState=validatePackState(save_data.content_packs??emptyPackState());
             localLife=normalizeLocalLife(save_data.absorb_local_life);
@@ -8514,7 +8486,7 @@ function update_timer(time_in_minutes, source = null) {
             const plan = response ? makeChroniclePlan({type: "respond", action: response}) : pendingJourney ? advanceFrontierJourney({state:expansionState,external:{money:character.money},gameplay:gameplaySnapshot()},minutes) : advanceChroniclePlan({state: expansionState, external: {money: character.money}, gameplay: gameplaySnapshot()}, minutes, source === "travel",readFrame);
             const consumed = plan.state.clock - expansionState.clock;
             persistExpansion(plan,{}, {},readFrame);
-            tickHarvest(consumed);
+            domainRegistry.tick(consumed);
             if(was_night !== is_night(current_game_time)) character.updateStatsAndDisplay();
             if(nativeLifeEnded()) {if(current_combat) end_combat(); character.is_alive = false;}
             expeditionPanel?.render(); techniquePanel?.render(); chroniclePanel?.render(); villagePanel?.render(); simulationPanel?.render();
@@ -9516,6 +9488,13 @@ const loadedOptionalPacks=await loadContentPacks({registry:expeditionRegistry,lo
 for(const [id,definition] of loadedOptionalPacks)if(definition.schema===1)optionalPacks.set(id,definition);
 if(foundationProbeEnabled)await registerStructuredNative(createFoundationStartContent());
 await registerStructuredNative(createLocalLivelihoodContent());
+configureResourceDomains({harvestContext,harvestWritable,harvestReady,harvestAutomaticReady,
+    harvestTransaction,grantHarvest,logMessage:log_message,random:key=>gameKeyedRandom(STREAMS.loot,key),
+    habitatContext,commitHabitatPlan,clock:()=>calendarMinutes(current_game_time),
+    harvestContainer:()=>document.getElementById('location_actions_div'),careContainer:projectsHome,
+    readInspector:()=>({harvest:harvestOwner,mixtures:getMixtureOwner(),ruleTrace:getMixtureOwner()?.ruleLaws?.receipts?.[getMixtureOwner()?.ruleLaws?.lastReceipt]?.trace,expansion:expansionState,inventory:character.getItems(),clock:calendarMinutes(current_game_time),handling:{context:harvestContext(),ready:harvestReady(),automaticReady:harvestWritable()&&harvestAutomaticReady()}}),
+    developer:()=>is_on_dev()||new URLSearchParams(location.search).get('harvest-inspector')==='1'});
+domainRegistry.initialize();
 bindNativeView({readLocalWeatherWords, get_current_book, get_context, canConsumeNativeCraftingItem, nativeWorkLedgerChance, nativeWorkLedgerQuality});
 bindTranslationReaders(() => character.getBioComponent(), () => character.name);
 await translationManager.init(language);
@@ -9658,8 +9637,8 @@ update_displayed_equipment();
 sort_displayed_inventory({sort_by: "name", target: "character"});
 
 if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
-    habitatPanel=createHabitatPanel({parent:projectsHome(),read:habitatContext,act:actHabitat});
-    harvestPanel=createHarvestPanel({container:document.getElementById('location_actions_div'),read:()=>({state:harvestOwner,context:harvestContext(),writable:harvestWritable(),ready:harvestReady()}),readInspector:()=>({harvest:harvestOwner,mixtures:getMixtureOwner(),ruleTrace:getMixtureOwner()?.ruleLaws?.receipts?.[getMixtureOwner()?.ruleLaws?.lastReceipt]?.trace,expansion:expansionState,inventory:character.getItems(),clock:calendarMinutes(current_game_time),handling:{context:harvestContext(),ready:harvestReady(),automaticReady:harvestWritable()&&harvestAutomaticReady()}}),act:actHarvest,developer:is_on_dev()||new URLSearchParams(location.search).get("harvest-inspector")==="1"});
+
+    domainRegistry.mountPanels();
     if(structuredPacks.size)structuredPanel=createStructuredPackPanel({read:readStructuredCampaign,command:commandStructuredCampaign});
     optionalPackPanel=createContentPackPanel({definitions:optionalPacks,always:true,
         read:()=>({state:optionalPackState,pauseReason:feedbackClockPauseReason(),canEnter:ownsSave&&current_location?.id==='Village'&&!nativeOccupationReason()&&!current_activity&&!current_game_action&&!current_combat&&!current_dialogue&&!is_sleeping&&!is_reading&&!is_in_trade(),canAct:ownsSave&&!foundationSaveBlocked&&!lifeStorageFailure,
