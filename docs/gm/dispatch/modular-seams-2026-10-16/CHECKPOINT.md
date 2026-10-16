@@ -20,9 +20,9 @@ Brief: [BRIEF.md](BRIEF.md).
 | Round | Status | Commit | Gate |
 | --- | --- | --- | --- |
 | M1 cycle break + check | passed | 9e089696 | build, 1793 pass / 3 TODO, arch, rebuilt before/after route + full save equality |
-| M2 registry + two domains | passed | this round commit | build, 1795 pass / 3 TODO, arch, two-domain rebuilt comparison + old save |
-| M3 crafting consumer | pending | | |
-| M4 second case | optional | | |
+| M2 registry + two domains | passed | 4498c8e6 | build, 1795 pass / 3 TODO, arch, two-domain rebuilt comparison + old save |
+| M3 crafting consumer | STOPPED, implemented-unverified | stopped candidate commit | browser failed twice; final full gate open |
+| M4 second case | not started | | M3 did not pass |
 
 The live checkpoint is the copy in the worktree; this shared copy records the
 dispatch. Fold the worktree copy back when the branch merges.
@@ -61,3 +61,40 @@ consumable with full persistence. Mobile, UI redesign and broader product modes
 stay deferred. docs/UI_RULES.md is absent on this branch. Use explicit dispatch
 surface requirements plus existing PANEL_KIT.md and center controller; record
 this missing authority as a documentation gap, not permission to invent rules.
+
+## M3 stop checkpoint
+
+See [M3 report](M3_REPORT.md) and [stop evidence](evidence/M3_STOP.json).
+Required start merge ae9be1700 brought current branch/rule documentation only.
+Browser B1 failed on a detached launcher. After the source fix and rebuild, B2
+opened through Other known panels but Gather remained disabled in the paused
+fresh-load scenario. Stop rule applied; no further gameplay fixes/retries or M4.
+No harvest/craft/use/persistence or old-save crafting journey passed in browser.
+
+Source checks: crafting runtime 4 pass; final UI contract 2 pass. Last full suite
+1794 pass, 1 UI-contract failure, 3 TODO; focused source fix does not prove the
+full suite. Build passed before final style-to-class edit; latest source remains
+unrebuilt. Last arch check passed with the same graph baseline. Every M3 runtime
+change is implemented-unverified. GR12 stays open; canonical crafting engine
+owner still correctly lists the integration gate as not complete.
+
+Core counts: 10108 / 6655 / 257. M3 added 8 / 0 / 1 lines. Passing M1–M2 net
+reductions: main160, display9, save_files0. Final candidate net: main−152,
+display−9, save_files+1. M2 breakdown correction: 52 removed / 31 added, net−21.
+
+Reservation released at this stopped checkpoint. No worker or preview server is
+needed to keep running. Resume only from the stopped candidate and reports,
+merge current foundations at the next round start, rebuild, recover native
+readiness/open rendering, then run the complete M3 gate. Human acceptance remains
+separate. The kept journey script's later assertions have not been reached.
+
+## Additional rule feedback and reconciliation
+
+AR1: one registration import plus five adapter lines and two generic native-use
+hooks in main exceed the literal target. Missing native item-use/transaction
+ports are the demonstrated seam gap. Proposed exception only, no rule change.
+UI_RULES.md is also missing; PANEL_KIT and dispatch requirements used, with UI
+contract test catching styling/host violations. M3's item decoding and active-
+effect restoration changes also need reconciliation with later work. The
+upstream merge changed PROJECT/USER_VISION; this lane made no authored edits to
+those files. No personal saves, shared uncommitted sources, push or merge back.

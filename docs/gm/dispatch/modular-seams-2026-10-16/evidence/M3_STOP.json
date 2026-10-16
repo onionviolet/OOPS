@@ -1,0 +1,17 @@
+{
+  "status": "stopped-implemented-unverified",
+  "viewport": "1366x768",
+  "browser_attempts": [
+    {"result":"failed","stage":"opening crafting home","reason":"launcher in Local actions was detached by native redraw"},
+    {"result":"failed after launcher fix","stage":"Gather Village herbs","reason":"home opened via Other known panels, but Gather remained disabled with the native readiness reason in the paused fresh-load scenario"}
+  ],
+  "full_suite": {"tests":1798,"pass":1794,"fail":1,"todo":3,"failure":"UI contract rejected inline cssText and foreign-host launcher insertion"},
+  "subsequent_source_checks": {"ui_contract_pass":2,"crafting_runtime_pass":4},
+  "limits": [
+    "No successful browser harvest, craft, use or crafting persistence proof",
+    "No M3 old-save browser proof",
+    "The final inline-style-to-class source edit has not been rebuilt",
+    "M3-blocked-opening.png is a diagnostic opening, not accepted crafting-home evidence",
+    "M4 not started"
+  ]
+}

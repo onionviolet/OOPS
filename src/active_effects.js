@@ -1,3 +1,4 @@
+import {craftingOwner,validateCraftedExposure} from './crafting_frontier_runtime.js';
 import {validateExposure} from './mixture_state.js';
 
 const effect_templates = {}; 
@@ -517,6 +518,7 @@ Object.keys(effect_templates).forEach(effect_key => {
 });
 
 export function restoreActiveEffect(id, saved, mixtureProduct) {
+    if(saved.craftExposure){validateCraftedExposure(saved,craftingOwner?.products?.[saved.craftExposure.product],id);const effect=new ActiveEffect(structuredClone(saved));effect.craftExposure=structuredClone(saved.craftExposure);return effect;}
     if(saved.mixtureExposure){validateExposure(saved,mixtureProduct);const effect=new ActiveEffect(structuredClone(saved));effect.mixtureExposure=structuredClone(saved.mixtureExposure);return effect;}
     if(!effect_templates[id])throw new Error('Unsupported saved active effect.');
     return new ActiveEffect({...effect_templates[id],duration:saved.duration});

@@ -36,7 +36,7 @@ Projects still registers through definePanel. No gameplay changes.
 - Registry tests cover dependency order, missing-key defaults, nonmutating load,
   ordered validation, save keys, tick dispatch, commands, projections and mounts.
 
-Core lines this round: main 10121 → 10100, net 21 removed (60 removed / 39 added);
+Core lines this round: main 10121 → 10100, net 21 removed (52 removed / 31 added);
 save_files 256 → 256 (4 removed / 4 added); display unchanged at 6655.
 Cumulative net reductions: main 160, display 9, save_files 0. The registry and
 native host adapters account for the small net count; counts do not prove the seam.

@@ -27,6 +27,7 @@ export function createDomainRegistry() {
         load:envelope=>{for(const d of ordered()){if(!d.load)continue;const slice=Object.hasOwn(envelope,d.id)?envelope[d.id]:d.initialState?.();d.load(d.migrate?d.migrate(slice,envelope):slice,envelope);}},
         tick:minutes=>{for(const d of ordered())d.tick?.(minutes);},
         mountPanels:()=>{for(const d of ordered())for(const mount of d.panels??[])mount();},
+        useItem:key=>{for(const d of ordered()){const command=d.commands?.useItem;if(!command?.accepts(key))continue;const quote=command.quote(key);if(!quote.eligible)throw Error(quote.reason);command.execute(quote);return true;}return false;},
         command:(id,name)=>domains.get(id)?.commands?.[name],
         project:(id,...args)=>domains.get(id)?.projection?.(...args)
     });

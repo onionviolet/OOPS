@@ -1,3 +1,4 @@
+import {resolveNativeCraftingItem,registerCraftingCarriers} from './crafting_native_items.js';
 import {GRADED_IDS,validateGradedKey} from './harvest.js';
 import {systemsWorkshopItems} from './systems_workshop_content.js';
 import {registerFortItems} from "./fork_fort_content.js";
@@ -1219,6 +1220,7 @@ function getItem(item_data) {
  */
 function getItemFromKey(key) {return durability.bindFromKey(key,nativeGetItemFromKey(key));}
 function nativeGetItemFromKey(key) {
+    const crafted=resolveNativeCraftingItem(key,{Material,UsableItem});if(crafted)return crafted;
     let {id, components, quality, completeness} = JSON.parse(key);
     if(GRADED_IDS.includes(id) && quality != null) {
         validateGradedKey(key);
@@ -4543,6 +4545,7 @@ item_templates[BRACE_ID] = new Amulet({value: 140, item_tier: 2, use_quality: fa
     description: "Spring grade 1, derived from springsteel: +2 Agility, -1 Strength. Forceful workshop packing: 2 kits for 2 drive units instead of 1 kit for 3. Other techniques unchanged. Balance proposal."});
 
 // Original procedural carriers. Fixed prices convey no hidden properties.
+registerCraftingCarriers({templates:item_templates,Material,UsableItem});
 for(const ingredient of INGREDIENTS)item_templates[ingredient.id]=new Material({name:ingredient.id,value:ingredient.price,material_type:'mixture ingredient',description:'Original fictional mixing ingredient. Properties are unobserved; they still operate.'});
 item_templates[MIXTURE_ID]=new UsableItem({name:MIXTURE_ID,value:12,effects:[],description:'Generated Village vial. Use its exact owned mixture.',tags:{medicine:true}});
 

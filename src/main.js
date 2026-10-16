@@ -1,3 +1,4 @@
+import {configureCraftingDomain} from './crafting_domain.js';
 import {domainRegistry} from './domain_registry.js';
 import {configureResourceDomains,harvestOwner,habitatOwner,harvestPanel,habitatPanel,setHarvestOwner,setHabitatOwner,receiveHarvest} from './native_resources_domain.js';
 import {bindNativeView} from './native_view.js';
@@ -5810,6 +5811,7 @@ function commitKnownItemHotkey(request){
         applyGameplayEffect(next,{type:'item',key:request.id,amount:1},'player',true);
         persistExpansion({state:structuredClone(expansionState),gameplay:next,external:{money:character.money},equipment:{player:{...equipment,[item.equip_slot]:request.id}}});return;
     }
+    if(domainRegistry.useItem(request.id))return;
     if(character.getItems()[request.id].item.id===MIXTURE_ID){performMixtureAction({type:'use',key:request.id});return;}
     const wear=durability.serialize(),before=character.getItems()[request.id].count;
     const transaction=beginNativeCraftTransaction({owners:[character,character.getItems(),character.getLevelableComponent(),character.getEquipment(),character.getBioComponent(),item_log,game_stats,active_effects,expansionState,...Object.values(skills).map(skill=>skill.getAvailabilityComponent()),which_skills_affect_skill],bindings:[{get:()=>expansionState,set:v=>{expansionState=v;}},{get:()=>getPacingState(),set:setPacingState}]});
@@ -5903,6 +5905,7 @@ function use_item(item_key) {
     try {assertNativeItemDisposition(expansionState,item_key);} catch(e) {log_message(e.message,"notification");return;}
     if(!character.getItems()[item_key]?.count)return;
     const {id} = JSON.parse(item_key);
+    try{if(domainRegistry.useItem(item_key))return;}catch(error){log_message(error.message,'notification');return;}
     if(id===MIXTURE_ID){try{performMixtureAction({type:'use',key:item_key});}catch(error){log_message(error.message,'notification');}return;}
     const nourishment=prepareFood(getPacingState(),item_templates[id],homePacingContext());
     const item_effects = item_templates[id].effects;
@@ -9488,6 +9491,11 @@ const loadedOptionalPacks=await loadContentPacks({registry:expeditionRegistry,lo
 for(const [id,definition] of loadedOptionalPacks)if(definition.schema===1)optionalPacks.set(id,definition);
 if(foundationProbeEnabled)await registerStructuredNative(createFoundationStartContent());
 await registerStructuredNative(createLocalLivelihoodContent());
+configureCraftingDomain({read:()=>({inventory:Object.fromEntries(Object.entries(character.getItems()).map(([k,r])=>[k,r.count])),clock:calendarMinutes(current_game_time),world:expansionState.actors.player.worldId,location:current_location?.id,ready:harvestReady(),root:streamSeed(expansionState,STREAMS.craft,'crafting.frontier@1')}),
+    itemOwners:()=>[character,character.getItems(),item_log,favourite_items,favourite_consumables],assertSpend:key=>assertNativeItemDisposition(expansionState,key),
+    addItem:(key,count)=>character.addToInventory([{item_key:key,count}]),removeItem:(key,count)=>character.removeFromInventory([{item_key:key,item_count:count}]),
+    persist:markDurable=>{const save=create_save();if(!save)throw Error('The item action could not be saved.');validateSaveEnvelope(JSON.parse(save),game_version);lifeSaveStorage.setItem(is_on_dev()?dev_save_key:save_key,save,markDurable);},
+    refresh:()=>{character.addActiveEffectBonus(active_effects);character.updateStatsAndDisplay();update_displayed_character_inventory();update_displayed_effects();update_displayed_crafting_recipes();}});
 configureResourceDomains({harvestContext,harvestWritable,harvestReady,harvestAutomaticReady,
     harvestTransaction,grantHarvest,logMessage:log_message,random:key=>gameKeyedRandom(STREAMS.loot,key),
     habitatContext,commitHabitatPlan,clock:()=>calendarMinutes(current_game_time),
