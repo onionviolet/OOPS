@@ -181,7 +181,7 @@ export function fixtureSetup(name, smeltingXP, craftingXP, field) {
     character.addToInventory([{item_id:'Iron ingot',count:20},{item_id:'Steel ingot',count:20},{item_id:'Coal',count:30},{item_id:'Iron ore',count:50},{item_id:'Rough wood log',count:30}]);
     for(const id of ['Village','Shack'])locations[id].getAvailabilityComponent().setStatus({is_unlocked:true});
     expansionState=field;
-    current_location=locations.Village;
+    setCurrentLocation(locations.Village);
 }
 `,resolveDir:dirname(a.path)};
             });

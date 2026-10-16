@@ -3,7 +3,9 @@
 import { character } from "./data/character.js";
 import { config } from "./config.js";
 import { create_gender_tooltip, create_height_tooltip, create_race_tooltip, uncapitalize_first_letter } from "./display.js";
-import { global_flags, run, translate } from "./main.js";
+import {run} from "./main.js";
+import {global_flags} from "./runtime_state.js";
+import {translate} from "./native_translation.js";
 import { playable_races } from "./races.js";
 
 

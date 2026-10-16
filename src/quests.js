@@ -5,7 +5,8 @@ import AvailabilityComponent from "./components/availability_component.js";
 import { availabilities, availability_havers } from "./data/component_references.js";
 import { add_quest_to_display, log_message, update_displayed_quest, update_displayed_quest_task } from "./display.js";
 import { Rewards } from "./rewards.js";
-import { process_rewards } from "./main.js"
+import {process_rewards} from "./main.js";
+
 
 availabilities["quest"] = {};
 

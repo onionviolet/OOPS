@@ -15,7 +15,8 @@ import { skills } from "../data/skills.js";
 import { log_message, update_displayed_health, update_stance_tooltip } from "../display.js";
 import { enemy_tag_to_skill_mapping } from "../enemies.js";
 import { item_templates } from "../items.js";
-import { add_xp_to_character, add_xp_to_skill, change_stance, current_stance, finish_combat_round, game_options, game_stats, kill_target, kill_player, process_current_loot, selected_stance, tickrate, use_stamina } from "../main.js";
+import {add_xp_to_character, add_xp_to_skill, change_stance, current_stance, finish_combat_round, game_stats, kill_target, kill_player, process_current_loot, tickrate, use_stamina} from "../main.js";
+import {game_options, selected_stance} from "../runtime_state.js";
 import { get_hit_chance } from "../misc.js";
 import { do_onhit_animation, do_onstart_animation, fill_fighter_divs, remove_onhit_animation, update_attack_bar, update_displayed_health_of_fighter } from "../ui/combat_display.js";
 

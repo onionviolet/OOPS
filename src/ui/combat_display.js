@@ -4,7 +4,8 @@ import {deferSimulationRender} from '../simulation_render.js';
 import { skills } from "../data/skills.js";
 import { clear_HTML_content, set_HTML, update_displayed_faved_stances, update_displayed_health, update_displayed_stance } from "../display.js";
 import { enemy_tag_to_skill_mapping } from "../enemies.js";
-import { current_combat, selected_stance } from "../main.js";
+import {current_combat} from "../main.js";
+import {selected_stance} from "../runtime_state.js";
 import { get_hit_chance } from "../misc.js";
 
 //enemy onhit animation

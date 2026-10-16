@@ -1,6 +1,7 @@
 "use strict";
 
-import { global_flags } from "./main.js";
+
+import {global_flags} from "./runtime_state.js";
 
 //For now, translations are only used for dialogues
 

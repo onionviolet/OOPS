@@ -1,6 +1,7 @@
 "use strict";
 import { current_game_time, Game_Time, night_time } from "./game_time.js";
-import { current_location } from "./main.js";
+
+import {current_location} from "./runtime_state.js";
 
 const base_temperature = 20; //in celsius
 

@@ -1,3 +1,7 @@
+import {bindNativeView} from './native_view.js';
+import {translate, bindTranslationReaders} from './native_translation.js';
+import {can_work, enough_time_for_earnings} from './activity_time.js';
+import {global_flags, languages, language, current_location, travel_times, unlocked_beds, last_location_with_bed, last_combat_location, active_effects, selected_stance, faved_stances, favourite_consumables, favourite_items, game_options, setLanguage, setCurrentLocation, setTravelTimes, setUnlockedBeds, setLastLocationWithBed, setLastCombatLocation, setSelectedStance} from './runtime_state.js';
 import {readNativeCombatFocus} from './combat_focus.js';
 import {mountProto23Shell} from './proto23_shell.js';
 import {mountWorkspaceNavigation} from './workspace_navigation.js';
@@ -828,7 +832,7 @@ function publishStudy(plan){
     const current=expansionState.p23Reading?.current;
     if(current?.kind==='read'&&current.status==='active'){is_reading=ANTHOLOGY;is_sleeping=false;}
     else if(is_reading===ANTHOLOGY)is_reading=null;
-    if(current?.kind==='rest'){is_sleeping=true;is_reading=null;last_location_with_bed=current_location.id;}
+    if(current?.kind==='rest'){is_sleeping=true;is_reading=null;setLastLocationWithBed(current_location.id);}
     else if(plan.p00WasRest)is_sleeping=false;
     readingSalvagePanel?.render();
 }
@@ -2755,14 +2759,7 @@ async function completeHeirRequest(request) {
     await new Promise(() => {});
 }
 
-const global_flags = {
-    is_gathering_unlocked: false,
-    is_crafting_unlocked: false,
-    is_strength_proved: false, //this role could be fulfilled by a quest, but it was originally added before that mechanic; besides, flags are cool and elegant
-    is_mofu_mofu_enabled: true,
-    is_guard_met: false,
-    is_hero_created: false, //changed after going through hero creation panel
-};
+
 const flag_unlock_texts = {
     is_gathering_unlocked: "You have gained the ability to gather new materials! Remember to equip your tools first <br>[Note: equipped tools do not appear in inventory as you will be swapping them very rarely]",
     is_crafting_unlocked: "You have gained the ability to craft items and equipment!",
@@ -2770,11 +2767,9 @@ const flag_unlock_texts = {
 
 const play_button = document.getElementById("loading_screen_play_button");
 
-const languages = {
-    english: "english",
-};
 
-let language = languages.english;
+
+
 
 let is_loading_error = false;
 
@@ -2811,7 +2806,7 @@ let was_starry = false;
 let current_combat = null;
 
 //current location
-let current_location;
+
 
 let current_activity;
 
@@ -2826,11 +2821,11 @@ const current_loot = {
 }
 
 //time needed to travel from A to B
-let travel_times = {};
+
 let pathfinder;
 
 //locations for fast travel
-let unlocked_beds = {};
+
 
 //resting, true -> health regenerates
 let is_resting = true;
@@ -2838,8 +2833,8 @@ let is_resting = true;
 //sleeping, true -> health regenerates, timer goes up faster
 let is_sleeping = false;
 
-let last_location_with_bed = null; //actually last location where player slept!
-let last_combat_location = null;
+ //actually last location where player slept!
+
 
 //reading, either null or book name
 let is_reading = null;
@@ -2863,44 +2858,21 @@ let start_date;
 let end_date;
 
 let current_dialogue;
-const active_effects = {};
+
 //e.g. health regen from food
 
-let selected_stance = stances["normal"];
+setSelectedStance(stances["normal"]);
 let current_stance = stances["normal"];
-const faved_stances = {};
 
-const favourite_consumables = {};
+
+
 //consumables that are to be used automatically if their effect runs out
 
-const favourite_items = {};
+
 //items to be displayed with "show faves" option in inventory
 
 //stuff from options panel
-const game_options = {
-    elemental_affinities:false,
-    uniform_text_size_in_action: false,
-    auto_return_to_bed: true,
-    remember_message_log_filters: false,
-    remember_sorting_options: false, //not in use?
-    combat_disable_autoswitch: false,
 
-    do_dynamic_loot_message: false,
-
-    auto_use_when_longest_runs_out: true, //can't actually be changed by a player; despite the name, it decides whether to first use longest-duration item or shortest-duration item
-    use_uncivilised_temperature_scale: false, //true -> swap Celsius for Fahrenheit
-    do_background_animations: false,
-    change_background_color: false,
-    skip_play_button: false, //not really skips, just automatically clicks it right after loading
-    mofu_mofu_mode: true,
-    do_enemy_onhit_animations: true,
-    expo_threshold: 9,
-    hide_max_level_skills: false,
-    use_text_outlines_for_tooltips: true,
-    use_text_outlines_for_bars: true,
-
-    stop_crafting_on_material_change: true, //not changeable
-};
 
 let message_log_filters = {
     unlocks: true,
@@ -3205,36 +3177,11 @@ function option_do_dynamic_loot_message(option) {
  * @param {*} params
  * @returns 
  */
-function translate(text_id, params = []) {    
-    let text = translationManager.getText(text_id, language);
-    const regex = /\{%\s*(\w+)\s*(?:\(([^)]*)\))?\s*%\}/g; //scary stuff
-
-    text = text.replace(regex, (_, name, value) => {
-        if(name === "param") {
-            return params[value] ?? "";
-        } else if(name === "dynamic") {
-            return get_dynamic_translation(value);
-        } else if(name === "translation") {
-            return translationManager.getText(value, language);
-        }
-    });
-
-    return text;
-}
-
-function get_dynamic_translation(key) {
-    const bio = character.getBioComponent();
-    if(key === "gendered playful") {
-        return bio.gender === "male" ? (bio.age === "middle-aged" ? "Jii-san" : "Onii-san") : (bio.age === "middle-aged" ? "Baa-san" : "Onee-san");
-    } else if(key === "HeroName") {
-        return character.name;
-    }
-}
 
 function update_pathing() {
     pathfinder = new Pathfinder();
     pathfinder.fill_connections(locations);
-    travel_times = {};
+    setTravelTimes({});
     travel_times[current_location.id] = pathfinder.find_shortest_paths(current_location.id);
 }
 
@@ -3243,7 +3190,7 @@ function update_pathing() {
  * @param {String} location_key 
  */
 function change_current_location(location_key) {
-    current_location = locations[location_key];
+    setCurrentLocation(locations[location_key]);
 }
 
 /**
@@ -3345,7 +3292,7 @@ function change_location({location_id, event, skip_travel_time = false, do_quest
             catch(error) {log_message(error.message,"notification");return;}
         }
     }
-    current_location = location;
+    setCurrentLocation(location);
 
     if(!pathfinder) {
         pathfinder = new Pathfinder();
@@ -3378,7 +3325,7 @@ function change_location({location_id, event, skip_travel_time = false, do_quest
         }
 
         if(!current_location.is_challenge) {
-            last_combat_location = current_location.id;
+            setLastCombatLocation(current_location.id);
         }
     }
 
@@ -3984,7 +3931,7 @@ function start_sleeping() {
     is_sleeping = true;
     pursuitPanel?.render();
 
-    last_location_with_bed = current_location.id;
+    setLastLocationWithBed(current_location.id);
 }
 
 function end_sleeping() {
@@ -4542,94 +4489,6 @@ function process_mixed_rewards({mixed_rewards, source_type, source_name, is_firs
  * @param {*} selected_activity location activity property (job or training)
  * @returns if current time is within working hours
  */
-function can_work(selected_activity) {
-    //if can start at all
-    if(!selected_activity.infinite) {
-        if(selected_activity.availability_time){
-            if(selected_activity.availability_time.end > selected_activity.availability_time.start) {
-                //ends on the same day
-                if(current_game_time.hour * 60 + current_game_time.minute > selected_activity.availability_time.end*60
-                    ||  //too late
-                    current_game_time.hour * 60 + current_game_time.minute < selected_activity.availability_time.start*60
-                    ) {  //too early
-                    
-                    return false;
-                }
-                if(!selected_activity.availability_seasons?.includes(current_game_time.getSeason())) {
-                    //can't be done in current season
-                    return false;
-                }  
-            } else { //ends on the next day (i.e. working through the night)
-                if(!selected_activity.availability_seasons?.includes(current_game_time.getSeason(1))) {
-                    //ends on new season during which it's not available
-                    return false;
-                }  
-
-                if(current_game_time.hour * 60 + current_game_time.minute > selected_activity.availability_time.start*60
-                    //too late
-                    ||
-                    current_game_time.hour * 60 + current_game_time.minute < selected_activity.availability_time.end*60
-                    //too early
-
-                ) {  
-                    return false;
-                }
-            }
-        } else {
-            if(!selected_activity.availability_seasons?.includes(current_game_time.getSeason())) {
-                //can't be done in current season
-                return false;
-            }  
-        }
-    }
-
-    return true;
-}
-
-/**
- * 
- * @param {} selected_job location job property
- * @returns if there's enough time to earn anything
- */
-function enough_time_for_earnings(selected_job) {
-
-    if(!selected_job.infinite) {
-        //if enough time for at least 1 working period
-        if(selected_job.availability_time.end > selected_job.availability_time.start) {
-            //ends on the same day
-            if(current_game_time.hour * 60 + current_game_time.minute + selected_job.gathering_time_needed - selected_job.gathering_time%selected_job.gathering_time_needed > selected_job.availability_time.end*60
-                ||  //not enough time left for another work period
-                current_game_time.hour * 60 + current_game_time.minute < selected_job.availability_time.start*60
-                ) {  //too early to start (shouldn't be allowed to start and get here at all)
-                return false;
-            }
-        } else {
-            //ends on the next day (i.e. working through the night)
-  
-            if(!selected_job.availability_time.includes(current_game_time.getSeason(1))) {
-                //ends on new season during which it's not available
-                return false;
-            } 
-
-            if(current_game_time.hour * 60 + current_game_time.minute > selected_job.availability_time.start*60
-                //timer is past the starting hour, so it's the same day as job starts
-                && 
-                current_game_time.hour * 60 + current_game_time.minute + selected_job.working_period  - selected_job.gathering_time%selected_job.gathering_time_needed > selected_job.availability_time.end*60 + 24*60
-                //time available on this day + time available on next day are less than time needed
-                ||
-                current_game_time.hour * 60 + current_game_time.minute < selected_job.availability_time.start*60
-                //timer is less than the starting hour, so it's the next day
-                &&
-                current_game_time.hour * 60 + current_game_time.minute + selected_job.working_period  - selected_job.gathering_time%selected_job.gathering_time_needed > selected_job.availability_time.end*60
-                //time left on this day is not enough to finish
-                ) {  
-                return false;
-            }
-        }
-    }
-
-    return true;
-}
 
 /**
  * 
@@ -4754,7 +4613,7 @@ function change_stance({stance_id, is_temporary = false}) {
         }
 
     } else {
-        selected_stance = stances[stance_id];
+        setSelectedStance(stances[stance_id]);
         update_displayed_stance(selected_stance);
     }
     
@@ -4888,7 +4747,7 @@ function runP23CombatExchange(combat,resolve) {
         validateCombatOptions(combat.combatOptions?.snapshot());if(p23LivingGear!==undefined)createLivingGear(p23LivingGear);
         transaction=beginNativeCraftTransaction({owners:[expansionState,character,character.getItems(),character.getLevelableComponent(),character.getEquipment(),character.getBioComponent(),...combat.defenders,...combat.defenders.map(enemy=>enemy.getLevelableComponent()),...(current_location.id===AREA_ID?[locations[AREA_ID],locations[AREA_ID].getAvailabilityComponent()]:[]),item_log,game_stats,global_flags,availabilities,enemy_killcount,favourite_consumables,favourite_items,favourite_locations,
             ...Object.values(skills).map(skill=>skill.getAvailabilityComponent()),which_skills_affect_skill,active_effects,...nativeCraftQuestOwners(quests,active_quests)],
-            bindings:[{get:()=>harvestOwner,set:v=>{harvestOwner=v;}},{get:()=>p23Growth,set:v=>{p23Growth=v;}},{get:()=>p23GrowthEarned,set:v=>{p23GrowthEarned=v;}},{get:()=>p23EncounterProfile,set:v=>{p23EncounterProfile=v;}},{get:()=>p23EncounterReceipt,set:v=>{p23EncounterReceipt=v;}},{get:()=>pendingNativeEncounter,set:v=>{pendingNativeEncounter=v;}},{get:()=>p23DropObservations,set:v=>{p23DropObservations=v;}},{get:()=>expansionState,set:v=>{expansionState=v;}},{get:()=>p23LivingGear,set:v=>{p23LivingGear=v;}},{get:()=>p23CombatOptions,set:v=>{p23CombatOptions=v;}},{get:()=>current_combat,set:v=>{current_combat=v;}},{get:()=>current_location,set:v=>{current_location=v;}},{get:()=>pathfinder,set:v=>{pathfinder=v;}},{get:()=>travel_times,set:v=>{travel_times=v;}}]});
+            bindings:[{get:()=>harvestOwner,set:v=>{harvestOwner=v;}},{get:()=>p23Growth,set:v=>{p23Growth=v;}},{get:()=>p23GrowthEarned,set:v=>{p23GrowthEarned=v;}},{get:()=>p23EncounterProfile,set:v=>{p23EncounterProfile=v;}},{get:()=>p23EncounterReceipt,set:v=>{p23EncounterReceipt=v;}},{get:()=>pendingNativeEncounter,set:v=>{pendingNativeEncounter=v;}},{get:()=>p23DropObservations,set:v=>{p23DropObservations=v;}},{get:()=>expansionState,set:v=>{expansionState=v;}},{get:()=>p23LivingGear,set:v=>{p23LivingGear=v;}},{get:()=>p23CombatOptions,set:v=>{p23CombatOptions=v;}},{get:()=>current_combat,set:v=>{current_combat=v;}},{get:()=>current_location,set:v=>{setCurrentLocation(v);}},{get:()=>pathfinder,set:v=>{pathfinder=v;}},{get:()=>travel_times,set:v=>{setTravelTimes(v);}}]});
         scope={transaction,messages:[]};nativeP23Scope=scope;nativeCraftScopes.push(scope);
         nativeP23Transaction=transaction;nativeLivingStrike=true;result=resolve();
         if(combat.combatOptions)p23CombatOptions=combat.combatOptions.snapshot();
@@ -5224,7 +5083,7 @@ function add_xp_to_skill({skill, xp_to_add = 1, should_info = true, use_bonus = 
                 //check if skill affects any travel times, update pathing if so
                 pathfinder = new Pathfinder();
                 pathfinder.fill_connections(locations);
-                travel_times = {};
+                setTravelTimes({});
                 travel_times[current_location.id] = pathfinder.find_shortest_paths(current_location.id);
                 //shouldn't need any display updates
             }
@@ -5403,7 +5262,7 @@ function lock_location({location, challenge_self_lock = false}) {
         location.setLocked();
     }
     if(last_combat_location === location.id) {
-        last_combat_location = null;
+        setLastCombatLocation(null);
     }
 
     return was_locked;
@@ -5453,7 +5312,7 @@ function use_recipe(target, amount=1){
             ...Object.values(skills).map(skill=>skill.getAvailabilityComponent()),which_skills_affect_skill,favourite_consumables,favourite_items,favourite_locations,active_effects,
             ...nativeCraftQuestOwners(quests,active_quests)],
             bindings:[{get:()=>p23Growth,set:v=>{p23Growth=v;}},{get:()=>p23GrowthEarned,set:v=>{p23GrowthEarned=v;}},{get:()=>expansionState,set:v=>{expansionState=v;}},{get:()=>fortSupply,set:v=>{fortSupply=v;}},{get:()=>workLedger,set:v=>{workLedger=v;}},
-                {get:()=>pathfinder,set:v=>{pathfinder=v;}},{get:()=>travel_times,set:v=>{travel_times=v;}},{get:()=>current_location,set:v=>{current_location=v;}}]});
+                {get:()=>pathfinder,set:v=>{pathfinder=v;}},{get:()=>travel_times,set:v=>{setTravelTimes(v);}},{get:()=>current_location,set:v=>{setCurrentLocation(v);}}]});
         scope={transaction,messages:[]};nativeCraftScopes.push(scope);
         return execute_native_recipe(target,amount);
     }catch(error){
@@ -6801,7 +6660,7 @@ function load(save_data) {
 
         if(save_data.language) {
             if(languages[save_data.language]) {
-                language = save_data.language;
+                setLanguage(save_data.language);
             } else {
                 if(save_data.language !== "mofu_english") {
                     console.warn(`Language ${save_data.language} could not be found.`);
@@ -6835,8 +6694,8 @@ function load(save_data) {
             bio[info] = save_data.character?.bio?.[info];
         });
 
-        last_location_with_bed = save_data.last_location_with_bed;
-        last_combat_location = save_data.last_combat_location;
+        setLastLocationWithBed(save_data.last_location_with_bed);
+        setLastCombatLocation(save_data.last_combat_location);
 
         game_options.elemental_affinities=normalizeElementalOption(save_data.options?.elemental_affinities);
         game_options.uniform_text_size_in_action = save_data.options?.uniform_text_size_in_action;
@@ -7091,7 +6950,7 @@ function load(save_data) {
 
         if(save_data.current_stance) {
             current_stance = stances[save_data.current_stance.id] || stances[save_data.current_stance];
-            selected_stance = stances[save_data.selected_stance.id] || stances[save_data.selected_stance];
+            setSelectedStance(stances[save_data.selected_stance.id] || stances[save_data.selected_stance]);
 
             change_stance({stance_id: selected_stance.id});
         }
@@ -8103,7 +7962,7 @@ function load(save_data) {
 
         if(is_a_older_than_b(save_data["game version"], "v0.5.1.5")) {
             if(last_location_with_bed === "Lake camp") {
-                last_location_with_bed = "Lake beach";
+                setLastLocationWithBed("Lake beach");
             }
 
             if(locations["Lake beach"].actions["create lake camp"].isFinished()) {
@@ -9657,6 +9516,8 @@ const loadedOptionalPacks=await loadContentPacks({registry:expeditionRegistry,lo
 for(const [id,definition] of loadedOptionalPacks)if(definition.schema===1)optionalPacks.set(id,definition);
 if(foundationProbeEnabled)await registerStructuredNative(createFoundationStartContent());
 await registerStructuredNative(createLocalLivelihoodContent());
+bindNativeView({readLocalWeatherWords, get_current_book, get_context, canConsumeNativeCraftingItem, nativeWorkLedgerChance, nativeWorkLedgerQuality});
+bindTranslationReaders(() => character.getBioComponent(), () => character.name);
 await translationManager.init(language);
 translationManager.translateUI(language);
 

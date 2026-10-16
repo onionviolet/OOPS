@@ -8,7 +8,8 @@ import LevelableComponent from "./components/levelable_component.js";
 import { config } from "./config.js";
 import { character } from "./data/character.js";
 import { log_message } from "./display.js";
-import { add_active_effect } from "./main.js";
+import {add_active_effect} from "./main.js";
+
 
 let enemy_templates = {};
 let enemy_killcount = {};

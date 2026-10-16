@@ -2,7 +2,8 @@
 
 import {get_hit_chance} from "./combat_math.js";
 
-import { game_options } from "./main.js"
+
+import {game_options} from "./runtime_state.js";
 
 const stat_names = {  //can be removed once everything is moved to translations
     "strength": "str",

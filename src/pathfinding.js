@@ -1,7 +1,8 @@
 "use strict";
 
 import { skills } from "./data/skills.js";
-import { get_context } from "./main.js";
+import {get_context} from "./main.js";
+
 
 
 const speed_modifiers_from_skills = {};

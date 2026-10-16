@@ -8,7 +8,8 @@ import { character } from "./data/character.js";
 import { Armor, ArmorComponent, Cape, Shield, ShieldComponent, Weapon, WeaponComponent, Amulet, item_templates } from "./items.js";
 import { skills } from "./data/skills.js";
 import { clamp, random_range } from "./misc.js";
-import { game_options } from "./main.js";
+
+import {game_options} from "./runtime_state.js";
 import { availabilities, availability_havers } from "./data/component_references.js";
 import AvailabilityComponent from "./components/availability_component.js";
 import { config } from "./config.js";

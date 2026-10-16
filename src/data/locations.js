@@ -6,7 +6,8 @@ import { current_game_time } from "../game_time.js";
 import { character } from "./character.js";
 import { GameAction } from "../models/game_action.js";
 import { fill_market_regions } from "../market_saturation.js";
-import { global_flags } from "../main.js";
+
+import {global_flags} from "../runtime_state.js";
 import { availabilities } from "./component_references.js";
 import { LocationType, SafeLocation, CombatZone, ChallengeZone, LocationCrafting, 
     LocationHousing, LocationActivity, LocationGatheringActivity } from "../models/location.js";

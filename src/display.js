@@ -21,20 +21,11 @@ import { skills } from "./data/skills.js";
 import { get_next_skill_milestone, get_unlocked_skill_rewards } from "./models/skill.js";
 import { character, cold_status_temperatures, lowest_tolerable_temperature } from "./data/character.js";
 import {nativeSkillDiscovery} from './skill_discovery_native.js';
-import { game_options, 
-    can_work, current_location, readLocalWeatherWords,
-    active_effects, enough_time_for_earnings, 
-    get_current_book, last_location_with_bed, 
-    last_combat_location, faved_stances, 
-    selected_stance, 
-    global_flags,
-    unlocked_beds,
-    favourite_consumables,
-    travel_times, 
-    favourite_items,
-    get_context,
-    canConsumeNativeCraftingItem, nativeWorkLedgerChance, nativeWorkLedgerQuality,
-    translate} from "./main.js";
+
+import {game_options, current_location, active_effects, last_location_with_bed, last_combat_location, faved_stances, selected_stance, global_flags, unlocked_beds, favourite_consumables, travel_times, favourite_items} from "./runtime_state.js";
+import {can_work, enough_time_for_earnings} from "./activity_time.js";
+import {readLocalWeatherWords, get_current_book, get_context, canConsumeNativeCraftingItem, nativeWorkLedgerChance, nativeWorkLedgerQuality} from "./native_view.js";
+import {translate} from "./native_translation.js";
 import { activities } from "./activities.js";
 import { format_time, current_game_time, seasons } from "./game_time.js";
 import { book_stats, item_templates, Weapon, Armor, Shield, rarity_multipliers, getItemRarity, getItemFromKey, item_log } from "./items.js";

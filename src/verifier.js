@@ -10,7 +10,8 @@ import { quests } from "./quests.js";
 import { market_region_mapping } from "./market_saturation.js";
 import { translations } from "./translation.js";
 import { recipes } from "./crafting_recipes.js";
-import { language } from "./main.js";
+
+import {language} from "./runtime_state.js";
 import { translations_for_verifier } from "../locales/english.js";
 import NPCRegistry from "./data/npcs.js";
 
