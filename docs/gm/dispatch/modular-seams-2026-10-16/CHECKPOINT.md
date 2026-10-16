@@ -269,3 +269,29 @@ Merge into `codex/gameplay-foundations` is Weibao's decision. Nothing pushed or 
 AR1's one-line target again met generic host seams (publication refresh, domain item keys on native load).
 Suggest AR1 count registry-generic seams separately from per-feature lines. UIE15's read-only probe made
 B3 a one-read diagnosis; worth keeping as standard harness setup.
+
+## Merged into codex/gameplay-foundations, 2026-10-16
+
+Weibao approved: "Yes, merge codex/modular-seams into codex/gameplay-foundations, reconciling the shared
+tree's uncommitted main.js/save_files.js edits per the lane checkpoint list. Do not push."
+
+- Fast-forward `a595d4768` → `163d9a818` (lane contained the base), guarded `update-ref` with the old
+  value; no stash, reset or force. Not pushed.
+- Shared uncommitted edits kept in the working tree via three-way merge against `a595d4768`:
+  `main.js`, `save_files.js`, `character_creation.js` merged clean (continuation, R15 `placeTypes`,
+  `stat_names` all kept; `validateContinuationEnvelope` stays before `domainRegistry.validate`);
+  `package.json` keeps `check:arch`, `check:rules` and the shared `check:rule-behavior`. Others'
+  staged entries untouched except the two stray staged deletions of this BRIEF/CHECKPOINT, which the
+  merge resolves. The shared dispatch copy of this checkpoint is preserved verbatim as
+  [history/PRE_MERGE_SHARED_CHECKPOINT.md](history/PRE_MERGE_SHARED_CHECKPOINT.md); this file is now
+  the folded lane copy.
+- Committed tree `163d9a818` equals the lane tree that passed every gate above.
+- Shared working tree (committed + other sessions' WIP), rebuilt: `check:arch` pass (8 main imports,
+  298 cyclic edges); focused crafting/registry/save/architecture tests pass; `npm test` 2071 tests,
+  2065 pass, 3 fail, 3 TODO. All three failures reproduce in a scratch replica of the pre-merge shared
+  state (`a595d4768` plus the same WIP) or come from an untracked WIP file: `cheat_awakening` x2
+  (fail pre-merge too), `ui_contract` on untracked `styles/oops_branding.css`. None from the merge.
+- M3 browser journey on the shared WIP build could not open the crafting home: the "Other known
+  panels" select is not reachable under the in-progress shell restructure. Seam item for the UI
+  owner (NX33): Herbal experiments needs a discoverable route in the new shell, and the M3 harness's
+  `open()` follows whatever route that is.
