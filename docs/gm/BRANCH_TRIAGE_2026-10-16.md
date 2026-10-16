@@ -10,8 +10,9 @@ registry ([AR1–AR16](../ARCHITECTURE_RULES.md),
 HEAD before seams finishes gets carried through its refactor; anything landed
 after has to be re-threaded through the new registry.
 
-**Nothing was merged, deleted or pushed.** Every verdict below is a proposal.
-Merges and deletions need Weibao's explicit yes.
+The triage itself was read-only. Weibao then said "address the rest reasonably"
+(2026-10-16); the [outcome](#outcome-2026-10-16) section records what was merged,
+deleted and left. Nothing was pushed.
 
 Method, per branch: `git cherry HEAD <b>` (patch-id), ancestry between branches,
 `git diff --name-only $(git merge-base HEAD <b>) <b>` for `src/main.js`,
@@ -184,3 +185,110 @@ tests but were not newly exercised as imported legacy saves in its browser run.
 - Worktree cleanup (many `.claude/worktrees/*` and `~/code/*` worktrees hold
   these branches, several marked prunable) was not assessed beyond noting it
   blocks `git branch -d`.
+
+## Outcome, 2026-10-16
+
+Authority: Weibao, "address the rest reasonably". Merged in a scratch worktree,
+gated, then landed on `codex/gameplay-foundations` as `1e658c2f2` with a guarded
+`update-ref` over `68bf1cf2f`. Not pushed.
+
+### Merged (9)
+
+`core/a4-relationships`, `codex/rbe-r1-resolver`, `codex/rbe-r2-effect-dsl`,
+`codex/rt-slice1-fixtures`, `claude/engine-perf-scaling-afdada`,
+`hl/integration`, `absorb-all/integration` (engine perf wave 2 with F1/F2 and
+the checks migration), `codex/rt-slice1`, `proc/ta1-village-asks`. Through
+`absorb-all/integration` and `hl/integration`, all 17 contained engine-perf
+branches and LP2/LP3 are now ancestors of HEAD too.
+
+`codex/rbe-r2-effect-dsl` was merged as an inert module: its 28 importer
+questions and the 20 drafts needing semantic correction stay open in
+`r2/REPORT.md`. Nothing consumes it yet.
+
+Conflict resolutions:
+
+- `src/workspace_layout.js`: kept HEAD's UI-foundation behavior (composition
+  parking, parity regions, `syncPanelHeader`) and applied the perf wave's
+  change-guarded setters (`setStyle`, `setProp`, `setData`) to the same writes.
+- Engine perf audit doc: add/add with the scaling branch; both sections kept.
+- `src/display.js`: HEAD's recipe model (attempts, effects, related uses, back)
+  plus RT slice 1's craft cue and pre-craft skill level, using HEAD's graded
+  `resultCount()`.
+- `src/main.js`: HEAD's publication render batch, with RT slice 1's
+  `villageTextChanged` refresh condition; TA1's obtainability import added.
+- `src/generated_people.js`: TA1's revision-2 generator, using HEAD's shared
+  `xorshift32` helper (equivalent arithmetic, keeps the ratchet count).
+- Generated `dist/` and `index.html`: HEAD's copies, then one rebuild commit.
+
+Follow-up fixes (`5052c1653`): the Village supply-table script's opening-stock
+anchor (HEAD inserted `commitLocalDateHeader()`), RT slice 1 fixtures predating
+the Butchering and Famine skills (zero-XP additions ignored), and the D4
+hidden-tab wrapper renaming one existing UI-contract exception (same count,
+new key).
+
+AR1 note: the perf wave adds about 200 lines to `src/main.js`. It predates
+AR1 and is accepted as pre-AR debt for `codex/modular-seams` to migrate; that
+branch merges `codex/gameplay-foundations` each round.
+
+### Checks
+
+| Layer | Result |
+|---|---|
+| Build on merged tree | PASS |
+| `npm test`, HEAD `a7bfba2b2` baseline | 1,791 pass, 0 fail, 3 TODO |
+| `npm test`, merged tree | 2,035 pass, 0 fail, 3 TODO (2,038 tests) |
+| `check:rules` | 11 problems, identical on the unmerged tip (anchors to uncommitted entries) |
+| Lane browser harnesses (LP2/LP3 combined, systems workshop, village) | **Not usable**: all fail on plain HEAD as well. The UI foundation shell (`58b34e6a0`) hides `#notebook_tab_here` and `.end_dialogue_button`, which the scripts click |
+| Fresh-origin smoke at 1366×768, HEAD vs merged | Identical: hero confirm, clock advances 20 game minutes, Save/reload round trip matches, zero page errors. The smoke's Import step did not drive the native Import flow on either build, so Import is unverified |
+
+Acceptance backlog from this merge (implemented-unverified at browser level):
+LP2+LP3 combined path, RT slice 1 craft cue and Village sentence, TA1 reach
+bands and fees, engine perf D3/D4/RT8 in a live tab, and literal-file Import.
+All need their harnesses updated for the UI foundation shell first.
+
+### Shared checkout
+
+After landing, 326 changed paths matching the old HEAD were checked out. Seven
+files carried older uncommitted edits (`src/main.js`, `display.js`,
+`save_files.js`, `simulation.js`, `simulation_effects.js`,
+`workspace_layout.js`, `tests/helpers/story_spine.js`). Each edit was replayed
+onto the new HEAD with `git merge-file` (all clean, same added-line counts) and
+its index entry set to the new blob, so committing those edits no longer
+reverts merged code. Originals are backed up outside the repo in the session
+scratchpad. `dist/` was rebuilt from the result.
+
+### Deleted (19 branches)
+
+Superseded (work on HEAD in newer form; SHAs kept for recovery):
+`codex/absorb-2026-10-11-b` `d54bf106b`, `-c1` `a20006786`, `-c2` `3dce81868`,
+`-d` `761fde395`, `-e1` `e6c657329`, `-e2` `9ef8a719a`, `-e3` `16bb9ef85`,
+`absorb/air-micro-p1-xp` `4414ba25d`. Their clean worktrees under
+`~/code/absorb-2026-10-11-workers/` were removed.
+
+Merged: `core/a4-relationships`, `codex/rbe-r1-resolver`,
+`codex/rbe-r2-effect-dsl`, `codex/rt-slice1`, `codex/rt-slice1-fixtures`,
+`claude/engine-perf` (clean worktrees removed), and `codex/hl-lp2`,
+`codex/hl-lp3`, `hl/integration`, `proc/ta1-village-asks`,
+`claude/engine-perf-wave`. Those last five worktrees hold gitignored private
+evidence (save exports, sample logs) or untracked dispatch copies, so they were
+kept and detached rather than removed.
+
+### Left in place
+
+- `w1-campaign` (**needs-owner**, unmerged). The trial merge hit design
+  conflicts, not mechanical ones: HEAD now prefers the livelihood pack and a
+  local `structured_candidate` preview for the default beginning, while W1
+  makes the first installed pack the default; and W1's predicate-scoped
+  `simulationFacts(…, predicates)` collides with the perf wave's per-frame facts
+  memo, which would need the predicates in its cache key. Its private p09/p10
+  companions exist in `.claude/worktrees/w1-campaign/private_packs/` and are not
+  installed in the main checkout.
+- Merged but not deleted, because idle Claude sessions still run in their
+  worktrees: `claude/engine-perf-core-5a93e1`, `-d1`, `-gate-853189`,
+  `-harness-7fa4db`, `-layout-4d6570`, `-scaling-afdada`,
+  `claude/fix-f1-sequence-426668`, `claude/wave-a` through `wave-i`. Same for
+  `absorb-all/integration`, where 39 Python static servers use the worktree as
+  cwd. All are ancestors of HEAD, so `git branch -d` is safe once those
+  sessions are archived.
+- New since the triage, out of scope: `codex/modular-seams` (active Codex run)
+  and `claude/world-pack-loader-9cff81`.
