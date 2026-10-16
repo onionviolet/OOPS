@@ -9590,7 +9590,7 @@ configureResourceDomains({harvestContext,harvestWritable,harvestReady,harvestAut
     readInspector:()=>({harvest:harvestOwner,mixtures:getMixtureOwner(),ruleTrace:getMixtureOwner()?.ruleLaws?.receipts?.[getMixtureOwner()?.ruleLaws?.lastReceipt]?.trace,expansion:expansionState,inventory:character.getItems(),clock:calendarMinutes(current_game_time),handling:{context:harvestContext(),ready:harvestReady(),automaticReady:harvestWritable()&&harvestAutomaticReady()}}),
     developer:()=>is_on_dev()||new URLSearchParams(location.search).get('harvest-inspector')==='1'});
 domainRegistry.initialize();
-bindNativeView({readLocalWeatherWords, get_current_book, get_context, canConsumeNativeCraftingItem, nativeWorkLedgerChance, nativeWorkLedgerQuality, readVillageLedgerSentence});
+bindNativeView({readLocalWeatherWords, get_current_book, get_context, canConsumeNativeCraftingItem, nativeWorkLedgerChance, nativeWorkLedgerQuality, readVillageLedgerSentence, get_current_combat:()=>current_combat});
 bindTranslationReaders(() => character.getBioComponent(), () => character.name);
 await translationManager.init(language);
 translationManager.translateUI(language);
@@ -10162,7 +10162,7 @@ document.addEventListener('visibilitychange', () => {if(document.hidden) flushDu
 if(testHooksEnabled) {
     window.advanceTicks = advanceTicks;
     window.fastForward = fastForward;
-    window.simulationTestHooks = Object.freeze({pause:pauseEngine,resume:resumeEngine,snapshot:()=>JSON.parse(create_save()),tickrate:()=>tickrate,saveStatus:()=>({ownsSave,restoring:restoringNativeSave,writeBlocked:harvestWriteReason()})});
+    window.simulationTestHooks = Object.freeze({pause:pauseEngine,resume:resumeEngine,snapshot:()=>JSON.parse(create_save()),tickrate:()=>tickrate,project:id=>structuredClone(domainRegistry.project(id)),refreshCombatView:()=>{if(current_combat&&!current_combat.is_ended)update_displayed_fighters_stats();},saveStatus:()=>({ownsSave,restoring:restoringNativeSave,writeBlocked:harvestWriteReason()})});
 }
 
 if(config.enable_dev_mode) {
