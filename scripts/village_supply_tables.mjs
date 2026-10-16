@@ -24,7 +24,7 @@ export function readVillageSupplyTables() {
  const traderSource=read('data/traders.js'),trader=balanced(traderSource,traderSource.indexOf('{',traderSource.indexOf('traders["village trader"]'))),margin=Number(trader.match(/profit_margin:\s*(\d+)/)[1]);
  const inv=read('data/inventory_templates.js'),start=inv.indexOf('[',inv.indexOf('=',inv.indexOf('inventory_templates["Basic"]'))),groups=evaluate(balanced(inv,start,'[',']'));
  const stock=groups.flatMap(g=>g.items.map(i=>({item:i.item_name,count:i.count||[1],chance:i.chance??1,quality:i.quality,known:false,available:false})));
- const main=read('main.js'),opening=main.slice(main.indexOf('set_loading_screen_versions();\n    character.addToInventory(['));
+ const main=read('main.js'),opening=main.slice(main.indexOf('character.addToInventory([',main.indexOf('set_loading_screen_versions();\n')));
  const inventory={};for(const m of opening.slice(0,opening.indexOf(']);')).replace(/\/\/[^\n]*/g,'').matchAll(/item_id:\s*"([^"]+)"(?:,\s*count:\s*(\d+))?/g))inventory[m[1]]=Number(m[2]||1);
  const loc=read('data/locations.js'),locStart=loc.indexOf('{',loc.indexOf('locations["Village"].activities =')),actions=evaluate(balanced(loc,locStart));
  const gathers=Object.entries(actions).filter(([,a])=>a.gained_resources).map(([id,a])=>({source:`Village:${id}`,resources:a.gained_resources.resources.map(r=>({item:r.name,chance:r.chance,count:r.ammount?.[0]?.[0]||1})),period:a.gained_resources.time_period[0],tool:a.require_tool?id:null,season:a.availability_seasons||null,known:false,available:false}));

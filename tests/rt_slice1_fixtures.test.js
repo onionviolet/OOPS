@@ -5,6 +5,12 @@ import {decodeSaveFile} from '../src/save_files.js';
 import {rtSlice1Game, fixtureDirectory, fixtureNames} from './helpers/rt_slice1_fixtures.mjs';
 const count = (save,id) => Object.entries(save.inventories.person.main_character)
     .filter(([k])=>JSON.parse(k).id===id).reduce((sum,[,v])=>sum+v.count,0);
+// Skills added after the fixtures were captured load at zero XP; drop only those.
+const withoutAddedZeroSkills = (restored, expected) => {
+    const copy = structuredClone(restored);
+    for(const key of Object.keys(copy.skill_xp || {})) if(!(key in (expected.skill_xp || {})) && copy.skill_xp[key] === 0) delete copy.skill_xp[key];
+    return copy;
+};
 
 test('CN11 seeded saves restore crafts, levels and completed town chain through native loader', {timeout:120000}, async () => {
     const game=await rtSlice1Game();
@@ -21,7 +27,7 @@ test('CN11 seeded saves restore crafts, levels and completed town chain through 
                 assert.equal(restored.character.name,'TEST FIXTURE RT SLICE1 '+name.toUpperCase());
                 assert.equal(restored['current location'],'Village');
                 assert.deepEqual(restored.expansion.actors.player,expected.expansion.actors.player);
-                assert.deepEqual(restored.levels.person.main_character,expected.levels.person.main_character);
+                assert.deepEqual(withoutAddedZeroSkills(restored.levels.person.main_character,expected.levels.person.main_character),expected.levels.person.main_character);
                 assert.deepEqual(restored.inventories.person.main_character,expected.inventories.person.main_character);
                 assert.equal(restored.total_crafting_attempts,expected.total_crafting_attempts);
                 assert.equal(restored.total_crafting_successes,expected.total_crafting_successes);
