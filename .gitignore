@@ -39,3 +39,8 @@ disposable-profile/
 # Local-only: deep reference saves (game dialogue/text, full tables, decoded
 # flows) kept for YAIR reference per the 2026-10-14 standing rule (public repo)
 /docs/research/*/private/
+
+# Local-only: R17 shell preview bundle (built by npm run build:preview; ui-preview.html is tracked)
+/dist/ui-preview.js
+/dist/ui-preview.js.map
+/dist/ui-preview.receipt.json

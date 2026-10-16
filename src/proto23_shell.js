@@ -1,5 +1,6 @@
 import {clear_message_log,setCombatReportsStopped,readPlayerAttributeInspector} from './display.js';
-import {getDisplaySetting,setDisplaySettings} from './display_settings.js';
+import {getDisplaySetting,setDisplaySettings,registerPanelSettings} from './display_settings.js';
+import {INVENTORY_CATEGORIES,createInventoryTabs} from './inventory_tabs.js';
 import {centerModes} from './center_modes.js';
 import {definePanel} from './panel_kit.js';
 import {expandWorkspaceModule,updateWorkspace} from './workspace_layout.js';
@@ -209,10 +210,21 @@ export function mountProto23Shell({read}) {
     const makeSelect=(label,choices)=>{const select=node('select');select.setAttribute('aria-label',label);
         for(const [id,text]of choices){const option=node('option',text);option.value=id;select.append(option);}
         select.onchange=()=>document.getElementById(select.value)?.click();compact.append(select);return select;};
-    const category=makeSelect('Inventory category',[['inventory_show_all','All items'],['inventory_show_equipment','Equipment'],['inventory_show_consumable','Usable'],['inventory_show_other','Other'],['inventory_show_favs','Favorites']]);
-    category.title='Item colors: gold equipment, green usable, blue components, violet books. Quality keeps its native percentage and color; color does not imply rarity of other items.';
+    // R18: native categories as tabs with counts; the choice is a browser-local panel setting (NX2).
+    registerPanelSettings({id:'belongings',title:'Inventory',settings:[{key:'category',label:'Inventory category',description:'Which native inventory category the shell shows. Stored in this browser only.',options:INVENTORY_CATEGORIES.map(c=>[c.id,c.label]),default:'all'}]});
+    const inventoryList=document.getElementById('inventory_content_div');
+    const tabs=createInventoryTabs({list:inventoryList,search:()=>inventoryList.parentNode?.querySelector('.ui-list-tools input[type=search]'),stored:()=>getDisplaySetting('panel.belongings.category'),store:id=>setDisplaySettings({'panel.belongings.category':id})});
+    tabs.node.title='Item colors: gold equipment, green usable, blue components, violet books. Quality keeps its native percentage and color; color does not imply rarity of other items.';
+    compact.append(tabs.node);
     const sort=makeSelect('Inventory sort',[['inventory_sort_by_name','Name'],['inventory_sort_by_price','Value'],['inventory_sort_by_type','Type']]);
-    const reverse=action('Reverse',()=>document.getElementById(sort.value)?.click());reverse.setAttribute('aria-label','Reverse inventory sort');reverse.title='Reverse the current native sort order';compact.append(reverse);
+    // CTL13: the native sort toggles direction when its active control is clicked again; show it.
+    let ascending=true;sort.addEventListener('change',()=>{ascending=true;syncReverse();});
+    const reverse=action('↑',()=>{document.getElementById(sort.value)?.click();ascending=!ascending;syncReverse();});
+    const syncReverse=()=>{reverse.textContent=ascending?'↑':'↓';const label=`Sort ${ascending?'ascending':'descending'}; reverse`;reverse.setAttribute('aria-label',label);reverse.title=label;};syncReverse();
+    reverse.className='inventory-sort-direction';compact.append(reverse);
+    // R18: sort sits in the list's own search row so the tabs keep one row (same Inventory panel).
+    const sortHome=node('span',null,'inventory-sort');sortHome.append(sort,reverse);
+    const placeSort=()=>{const tools=inventoryList.previousElementSibling;if(tools?.classList.contains('ui-list-tools')&&sortHome.parentNode!==tools)tools.append(sortHome);};
     const home=document.getElementById('main_content');
     definePanel({id:'shell-inventory-tools',title:'Inventory tools',role:'records',node:compact,home,defaultDock:'left',after:'combat-controls',eligible:()=>home.dataset.parity==='r3',discovered:()=>home.dataset.parity==='r3'});
     definePanel({id:'shell-character',title:'Stats & equipment',role:'character',node:player,home,defaultDock:'left',after:'vitals',eligible:active,discovered:active});
@@ -271,6 +283,7 @@ export function mountProto23Shell({read}) {
         secondary.hidden=!count;root.dataset.secondaryShown=String(count);secondaryHeading.textContent='Secondary · '+count;if(focused){if(shown.has(focused.dataset.attributePreview))focused.focus({preventScroll:true});else details.focus({preventScroll:true});}if(contextSource&&!contextSource.checkVisibility())hideContext();
     }
     function render(){
+        placeSort();tabs.refresh();
         syncLogLabels();syncNoticeLabels();attributeInspector.setVisible(active()&&document.getElementById('main_content').dataset.parity==='r3');if(!gearChosen){const wanted=false;if(gear.open!==wanted)gear.open=wanted;}if(!active()){if(contextSource)hideContext();return;}const enabled=document.querySelectorAll('#message_controls .active_selection_button').length;filters.textContent=enabled===6?'Filters':`Filters ${enabled}/6`;follow.value=getDisplaySetting('logFollow');const logBox=document.getElementById('message_box_div');latest.disabled=logBox.scrollHeight-logBox.scrollTop-logBox.clientHeight<24;
         const effectRows=[...document.querySelectorAll('#effects_tooltip .active_effect_tooltip')],effectName=effectRows[0]?.querySelector('.active_effect_name')?.textContent.replace(/^'|'\s*:\s*$/g,'').trim();effectsSummary.hidden=!effectRows.length||document.getElementById('main_content').dataset.parity!=='r3';effectsSummary.textContent=effectName?(effectName+(effectRows.length>1?' +'+(effectRows.length-1):'')):'Effects';effectsSummary.setAttribute('aria-label',`Active effects: ${effectRows.length}. ${effectName||''}`);player.dataset.hasEffects=String(!!effectRows.length);
         if(contextSource){if(contextSource.isConnected&&!contextSource.hidden&&active())showContext(contextSource);else hideContext();}
@@ -292,7 +305,7 @@ export function mountProto23Shell({read}) {
         const root=document.getElementById('main_content'),context=document.getElementById('location_related_div'),style=getComputedStyle(context);
         root.dataset.shellCustomPalette=context.dataset.customPalette||'false';
         for(const [key,value]of Object.entries({'--shell-context-size':style.fontSize,'--shell-context-font':style.fontFamily,'--shell-user-fill':style.getPropertyValue('--custom-background'),'--shell-user-text':style.getPropertyValue('--custom-text'),'--shell-user-accent':style.getPropertyValue('--custom-accent')}))if(root.style.getPropertyValue(key)!==value)root.style.setProperty(key,value);
-        for(const select of [category,sort]){const active=[...select.options].find(o=>document.getElementById(o.value)?.classList.contains('active_selection_button'));if(active)select.value=active.value;}
+        for(const select of [sort]){const active=[...select.options].find(o=>document.getElementById(o.value)?.classList.contains('active_selection_button'));if(active)select.value=active.value;}
         // A zero-capacity native resource is empty, including the currently
         // unimplemented 0/0 mana slot. Keep native numeric text untouched.
         if(root.dataset.parity==='r3')for(const id of ['character_health','character_xp','character_stamina','character_mana']){

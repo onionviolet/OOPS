@@ -1623,22 +1623,30 @@ function sort_displayed_inventory({sort_by, target = "character", change_directi
             }
 
         } else if(sort_by === "price") {
-            
-            let value_a = Number.parseInt(a.getAttribute(`data-item_value`));
-            let value_b = Number.parseInt(b.getAttribute(`data-item_value`));
-      
-            if(value_a > value_b) {
-                return plus;
-            } else {
-                if(value_a === value_b && "item_quality" in a.dataset && "item_quality" in b.dataset) {
-                    if(Number.parseInt(a.dataset.item_quality) > Number.parseInt(b.dataset.item_quality)) {
-                        return plus;
-                    } else {
-                        return minus;
-                    }
-                }
-                return minus;
+            // R18 (CTL13): order by the value the row shows, so sorting never reveals a hidden one.
+            // A row that shows no value (unsellable) goes last in either direction; equal shown
+            // values fall back to quality, then name, never to the unrounded base value.
+            const shown_a = a.dataset.unsellable !== "true", shown_b = b.dataset.unsellable !== "true";
+            if(shown_a !== shown_b) {
+                return shown_a ? -1 : 1;
             }
+            const name_order = () => {
+                const name_a = a.querySelector(".item_name")?.innerText.toLowerCase().replaceAll('"',"") || "";
+                const name_b = b.querySelector(".item_name")?.innerText.toLowerCase().replaceAll('"',"") || "";
+                return name_a === name_b ? 0 : (name_a > name_b ? 1 : -1);
+            };
+            if(!shown_a) {
+                return name_order();
+            }
+            const value_a = round_item_price(Number.parseInt(a.getAttribute(`data-item_value`)));
+            const value_b = round_item_price(Number.parseInt(b.getAttribute(`data-item_value`)));
+            if(value_a !== value_b) {
+                return value_a > value_b ? plus : minus;
+            }
+            if("item_quality" in a.dataset && "item_quality" in b.dataset && a.dataset.item_quality !== b.dataset.item_quality) {
+                return Number.parseInt(a.dataset.item_quality) > Number.parseInt(b.dataset.item_quality) ? plus : minus;
+            }
+            return name_order() * plus;
         }
     }).forEach(node => target.appendChild(node));
 }

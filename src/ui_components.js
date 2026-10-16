@@ -46,7 +46,8 @@ export function decorateInventoryList({id='inventory_content_div',label='invento
             row.toggleAttribute('data-ui-selected',!!selected&&key(row)===selected);
         }
         const text=`${visible} / ${rows.length}`;if(count.textContent!==text)count.textContent=text;
-        empty.hidden=visible>0;const hint=rows.length?'No matches. Clear search or change the category.':emptyText;if(empty.textContent!==hint)empty.textContent=hint;
+        // A panel may describe its own empty state (R18 inventory tabs: nothing held, empty category, no match).
+        empty.hidden=visible>0;const hint=list.emptyHint?.()||(rows.length?'No matches. Clear search or change the category.':emptyText);if(empty.textContent!==hint)empty.textContent=hint;
     }
     search.addEventListener('input',()=>{refresh();list.scrollTop=0;});
     list.addEventListener('focusin',event=>{const row=[...list.querySelectorAll(rowSelector)].find(n=>n.contains(event.target));if(row){selected=key(row);refresh();row.scrollIntoView({block:'nearest'});}});

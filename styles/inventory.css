@@ -1,0 +1,41 @@
+/* R18 inventory category tabs (src/inventory_tabs.js) in the parity shell's inventory tools.
+   Shared tokens only. Tabs sit in equal grid cells (one row, or two fixed rows when the column is
+   narrow); sort and direction share the list's search row. */
+@media (min-width:1001px) {
+#main_content.workspace-active[data-parity="r3"] .parity-inventory-controls {display:block;container-type:inline-size;}
+/* Equal cells: a tab's position depends only on the column width, never on its count (UR52). */
+#main_content.workspace-active[data-parity="r3"] .inventory-tabs {display:grid;grid-template-columns:repeat(5,minmax(0,1fr)) auto;}
+#main_content.workspace-active[data-parity="r3"] .inventory-tabs > button {display:inline-flex;align-items:baseline;justify-content:center;gap:.2em;min-width:0;overflow:hidden;font:inherit;line-height:1.25;padding:0 .12em;min-height:0;color:var(--p23-muted);background:transparent;border:0;border-bottom:2px solid transparent;cursor:pointer;white-space:nowrap;}
+#main_content.workspace-active[data-parity="r3"] .inventory-tabs > button[aria-pressed="true"] {color:var(--p23-text);border-bottom-color:var(--p23-quantity);}
+#main_content.workspace-active[data-parity="r3"] .inventory-tabs > button:hover {color:var(--p23-text);background:var(--p23-hover-fill);}
+#main_content.workspace-active[data-parity="r3"] .inventory-tabs > button:focus-visible {outline:2px solid var(--workspace-focus);outline-offset:-2px;}
+#main_content.workspace-active[data-parity="r3"] .inventory-tab-label {display:none;}
+#main_content.workspace-active[data-parity="r3"] .inventory-tab-count {font-variant-numeric:tabular-nums;color:var(--p23-quantity);}
+#main_content.workspace-active[data-parity="r3"] .inventory-tabs > button[aria-pressed="true"] .inventory-tab-count {color:var(--p23-value);}
+#main_content.workspace-active[data-parity="r3"] .inventory-tabs-clear {color:var(--p23-text)!important;padding:0 .3em!important;}
+#main_content.workspace-active[data-parity="r3"] .inventory-tabs-clear[data-active="false"] {visibility:hidden;}
+/* Sort and direction share the list's search row. */
+#main_content.workspace-active[data-parity="r3"] #inventory_div > .ui-list-tools {display:flex;align-items:center;}
+#main_content.workspace-active[data-parity="r3"] #inventory_div > .ui-list-tools > input {flex:1 1 auto;min-width:4em;}
+#main_content.workspace-active[data-parity="r3"] .inventory-sort {display:flex;flex:0 0 auto;gap:2px;align-items:stretch;}
+#main_content.workspace-active[data-parity="r3"] .inventory-sort > select {font:inherit;line-height:1.25;max-width:5.5em;color:var(--p23-text);background:var(--p23-context);border:1px solid var(--p23-line);}
+#main_content.workspace-active[data-parity="r3"] .inventory-sort > .inventory-sort-direction {font:inherit;line-height:1.25;min-width:1.6em;padding:0 .2em;min-height:0;}
+}
+/* Narrow column (1366×768 at large text): three equal columns, two fixed rows. */
+@container (max-width: 20em) {
+#main_content.workspace-active[data-parity="r3"] .inventory-tabs {grid-template-columns:repeat(3,minmax(0,1fr));}
+}
+/* Full category names when the strip has room for them; short names otherwise. */
+@container (min-width: 34em) {
+#main_content.workspace-active[data-parity="r3"] .inventory-tab-label {display:inline;}
+#main_content.workspace-active[data-parity="r3"] .inventory-tab-short {display:none;}
+}
+/* The list's empty-state line (shared list tools) reads as a quiet note under the tabs. */
+#main_content.workspace-active[data-parity="r3"] #inventory_div > .ui-list-empty {margin:.3em .2em;color:var(--p23-muted);}
+/* The native category filter switches row display through CSS variables, which the shell's row
+   layout overrides; until R18 every category showed all rows in the shell. Apply the same native
+   membership here, keyed on the tab the strip set (src/inventory_tabs.js). */
+#main_content.workspace-active[data-parity="r3"] #inventory_content_div[data-inventory-category="equipment"] > .inventory_item_control:not(.character_item_equippable),
+#main_content.workspace-active[data-parity="r3"] #inventory_content_div[data-inventory-category="usable"] > .inventory_item_control:not(.character_item_usable):not(.character_item_book),
+#main_content.workspace-active[data-parity="r3"] #inventory_content_div[data-inventory-category="other"] > .inventory_item_control:not(.character_item_other):not(.character_item_loot):not(.character_item_material):not(.character_item_component),
+#main_content.workspace-active[data-parity="r3"] #inventory_content_div[data-inventory-category="favorites"] > .inventory_item_control:not(.character_item_faved) {display:none!important;}
