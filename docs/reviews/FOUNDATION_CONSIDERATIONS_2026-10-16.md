@@ -73,6 +73,9 @@ the registry.
 ## ACCOUNT FOR NOW: registry contract additions
 
 Before more domains migrate. Each is a field or convention, not feature work.
+These extend the [ER12 kernel manifest](../research/OWN_ENGINE_KERNEL_DESIGN_2026-10-14.md#module-manifest-with-two-existing-systems),
+which owns signatures; [core engine considerations](CORE_ENGINE_AND_RUNTIME_CONSIDERATIONS_2026-10-16.md)
+adds N1–N8.
 
 | Code | Constraint |
 | --- | --- |
