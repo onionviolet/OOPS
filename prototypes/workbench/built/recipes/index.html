@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>YAIR · Recipe UI comparison</title>
+<link rel="stylesheet" href="built/ui_tokens.css">
+<link rel="stylesheet" href="built/crafting_detail.css">
+<link rel="stylesheet" href="comparison.css">
+<body>
+<style>.lab,.lab-footer{display:none} .board{height:100dvh;flex:none} </style>
+<header class="lab">
+ <div class="lab-title"><strong>Recipe UI comparison</strong><span>Prototype · synthetic inventory · no save access</span></div>
+ <div class="controls">
+  <label>Layout <select id="variant"><option value="compact">B · Compact + full detail</option><option value="adjacent">A · Adjacent detail</option></select></label>
+  <label>State <select id="scenario"><option value="ready">Ready</option><option value="short">Missing materials</option><option value="station">No station</option><option value="reserved">Reserved materials</option><option value="knowledge">Limited knowledge</option></select></label>
+  <label>Text <select id="text-size"><option value="14">100%</option><option value="17.5">125%</option><option value="21">150%</option></select></label>
+  <button id="reset">Reset fixture</button>
+ </div>
+</header>
+<main class="board" id="board">
+ <section class="region player" aria-labelledby="you-title"><h1 id="you-title">You</h1><div class="region-body">
+  <div class="identity">Village cook <span class="muted">· fixture</span></div>
+  <div class="bar health">Health <span>104 / 110</span></div><div class="bar energy">Stamina <span>38 / 40</span></div>
+  <div class="pair"><span>Cooking</span><span>Level 5</span></div>
+ </div><div class="work"><strong>Current work</strong><div>Practice · simulated</div><div class="work-controls"><span id="work-progress">0 steps</span><button id="pause-work">Pause routine</button></div></div></section>
+ <section class="region focus" aria-labelledby="focus-title"><h2 id="focus-title">Here · Village</h2><div class="region-body">
+  <h3>Cooking station</h3><p id="station-state"></p><p class="muted">Select a known recipe. Inspecting and browsing references leave your practice routine running.</p>
+  <div class="pair"><span>Workmanship</span><span>Tier 1 fixture</span></div><p class="muted">Recipe and item definitions come from YAIR. Stock, access and routine progress are simulated.</p>
+ </div></section>
+ <section class="region inventory" aria-labelledby="inventory-title"><h2 id="inventory-title">Inventory</h2><div id="stock" class="region-body"></div></section>
+ <section class="region actions" aria-labelledby="task-title"><h2 id="task-title">Cooking</h2>
+  <div id="task" class="task"></div>
+  <footer class="task-footer"><button id="back" hidden></button><span id="task-context">Village · cooking recipes</span></footer>
+ </section>
+ <section class="region reports" aria-labelledby="reports-title"><h2 id="reports-title">Reports</h2><div id="log" class="region-body" tabindex="0" aria-label="Recorded activity"></div><footer><button id="follow">Follow latest</button><span id="unread" aria-live="polite"></span></footer></section>
+</main>
+<div class="lab-footer">A uses YAIR’s current detail renderer. B tests progressive disclosure within the same Proto23 regions. All craft results here are scripted successful examples.</div>
+<script type="module" src="built/comparison.js"></script>
+</body></html>

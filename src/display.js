@@ -3377,6 +3377,33 @@ function build_item_recipe_model(selection) {
         result_details: create_item_tooltip_content({item: item_templates[result_id], options: {skip_quality: true, anchor_tooltip: true}})};
 }
 
+// R14: one observer-safe row summary from the same native status as the detail/guard.
+function update_item_recipe_row_status(row, category, recipe) {
+    const state = item_recipe_state(category, recipe);
+    row.classList.toggle("recipe_unavailable", !state.available);
+    let summary = row.querySelector(".recipe_readiness");
+    if(!summary) {
+        summary = document.createElement("span");
+        summary.className = "recipe_readiness";
+        row.append(summary);
+    }
+    const short = state.available ? `${state.amount} ready`
+        : state.reasons.includes("no station here") ? "No station"
+        : state.requirements.some(r => r.missing) ? "Missing"
+        : "Unavailable";
+    const explanation = state.available
+        ? `${state.amount} ${state.amount === 1 ? "attempt" : "attempts"} ready; results may vary`
+        : state.reasons.includes("no station here") ? "No station here"
+        : state.requirements.some(r => r.missing) ? "Missing materials; select for requirements"
+        : "Unavailable; select for requirements";
+    summary.textContent = short;
+    summary.title = explanation;
+    summary.dataset.ready = String(state.available);
+    summary.setAttribute("aria-hidden", "true");
+    const count = recipe.getResult().count;
+    row.setAttribute("aria-label", `${recipe.name}${count > 1 ? `; output ×${count}` : ""}; ${explanation}`);
+}
+
 function refresh_crafting_detail() {
     const root = document.getElementById("crafting_detail");
     const win = document.getElementById("crafting_window");
@@ -3389,7 +3416,7 @@ function refresh_crafting_detail() {
     if(page) {
         for(const row of page.querySelectorAll(".recipe_div[data-recipe_id]")) {
             const recipe = recipes[selected_crafting_category].items[row.dataset.recipe_id];
-            row.classList.toggle("recipe_unavailable", !item_recipe_state(selected_crafting_category, recipe).available);
+            update_item_recipe_row_status(row, selected_crafting_category, recipe);
             row.setAttribute("aria-selected", String(is_selected_item_recipe(selected_crafting_category, "items", row.dataset.recipe_id)));
         }
         sync_item_recipe_tabstops(page);
@@ -3500,7 +3527,7 @@ function add_crafting_recipe_to_display({ category, subcategory, recipe_id }) {
             count_span.innerText = ` x${result_count}`;
             recipe_name_span.after(count_span);
         }
-        recipe_div.classList.toggle("recipe_unavailable", !item_recipe_state(category, recipe).available);
+        update_item_recipe_row_status(recipe_div, category, recipe);
 
         // Crafting screen: a click or Enter selects; crafting happens only from the detail's Craft button.
         recipe_div.setAttribute("role", "option");
@@ -3676,7 +3703,7 @@ function update_displayed_crafting_recipe({category, subcategory, recipe_id}) {
     const recipe = recipes[category][subcategory][recipe_id];
 
     if(subcategory === "items") {
-        recipe_div.classList.toggle("recipe_unavailable", !item_recipe_state(category, recipe).available);
+        update_item_recipe_row_status(recipe_div, category, recipe);
         update_recipe_tooltip({category, subcategory, recipe_id});
     } else if (subcategory === "components" || recipe.recipe_type === "component") {
         //if(recipe.get_availability().available_ammount) {
@@ -4015,7 +4042,7 @@ function update_item_recipe_visibility() {
                     return;
                 }
                 const recipe_div = crafting_pages[recipe_category][recipe_subcategory].querySelector(`[data-recipe_id="${recipe}"]`);
-                recipe_div.classList.toggle("recipe_unavailable", !item_recipe_state(recipe_category, recipes[recipe_category][recipe_subcategory][recipe]).available);
+                update_item_recipe_row_status(recipe_div, recipe_category, recipes[recipe_category][recipe_subcategory][recipe]);
             });
         })
     });

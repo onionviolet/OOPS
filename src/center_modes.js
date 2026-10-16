@@ -62,6 +62,8 @@ export function centerModes() {
         if (mixing && mixing.parentElement !== content) content.append(mixing);
         nav.hidden = !depth;
         host.classList.toggle('center-mode-open', !!depth);
+        // R13: one published fact for layout: which center task or reference is open, if any.
+        const root = document.getElementById('main_content'); if (root) { if (depth) root.dataset.centerTask = mode; else delete root.dataset.centerTask; }
         const place = document.getElementById('location_name_span')?.textContent.trim() || 'Local actions';
         const label = views.get(destination)?.label || {mixing:'Village mixing counter',dialogue:'Conversation',reading:'Reading',sleep:'Resting',activity:'Current work',action:'Current work',crafting:'Crafting',trade:'Trade',storage:'Storage'}[destination] || place;
         back.textContent = `← ${label}${mode === 'reading' ? ' · Stop reading' : mode === 'sleep' ? ' · Wake up' : ''}`;

@@ -1,0 +1,69 @@
+/* Crafting screen (2026-10-13): recipe list beside (or above) one detail region.
+   The window sizes to its workspace region instead of a fixed 400px, so Exit is never clipped. */
+#crafting_window[style*="block"] {display: flex !important; flex-direction: column; height: auto; min-height: 0; position: relative;}
+#crafting_window > * {flex: none;}
+#crafting_window .crafting_body {
+    flex: 1 1 auto; min-height: 220px; height: 330px;
+    display: grid; grid-template-columns: minmax(0, 44%) minmax(0, 1fr); grid-template-rows: minmax(0, 1fr); gap: .5rem;
+    margin-top: .25rem;
+}
+#crafting_window[data-craft-view="other"] .crafting_body {grid-template-columns: minmax(0, 1fr);}
+#crafting_window .crafting_body > #recipe_categories {min-height: 0; display: flex; flex-direction: column;}
+#crafting_window .crafting_body .crafting_recipe_list {height: auto; flex: 1 1 auto; min-height: 0; padding-bottom: 0; overflow-y: auto;}
+#crafting_window .crafting_body .crafting_recipe_list[style*="none"] {display: none;}
+#crafting_window .recipe_div {width: auto; box-sizing: border-box;}
+#crafting_window .recipe_div[role=option] {cursor: pointer;}
+/* The whole row is the control; its name span is plain text (beats the generic control skin). */
+#crafting_window.crafting_window.customization-module .recipe_div[role=option] .recipe_item_name, #crafting_window.crafting_window .recipe_div[role=option] .recipe_item_name {width: auto; display: inline; padding: 0; background: none !important; border: 0 !important; min-height: 0; color: inherit !important; font-weight: inherit;}
+#crafting_window .recipe_div[role=option] {padding: .25rem .4rem;}
+#crafting_window .recipe_div[aria-selected="true"] {background: var(--active_button_color, var(--ui-swatch-099));}
+/* The detail replaces the hover tooltip for item recipes, so nothing covers the Craft button. */
+#crafting_window .recipe_div[role=option]:hover .items_recipe_tooltip.recipe_tooltip {display: none;}
+#exit_crafting_button {position: static; top: auto; width: auto; margin-top: .4rem; float: none;}
+/* Settled receipts stay over the list column; the detail carries its own receipt line. */
+#crafting_window .work-ledger-effect {max-width: calc(44% - 1rem);}
+
+/* In the workspace the window fills the Local actions body. */
+#main_content.workspace-active .workspace-module-body:has(> #location_related_div > #crafting_window[style*="block"]) {display: flex; flex-direction: column;}
+#main_content.workspace-active .workspace-module-body > #location_related_div:has(> #crafting_window[style*="block"]) {flex: 1 1 auto; display: flex; flex-direction: column; min-height: 0;}
+#main_content.workspace-active #location_related_div > #crafting_window[style*="block"] {flex: 1 1 auto;}
+#main_content.workspace-active #crafting_window .crafting_body {height: auto;}
+
+/* Detail region */
+.crafting_detail {
+    display: flex; flex-direction: column; min-height: 0; overflow: hidden; box-sizing: border-box;
+    padding: .4rem .55rem; border: 1px solid var(--workspace-border, var(--ui-swatch-100)); border-radius: var(--ui-radius);
+    background: var(--theme-surface, var(--ui-swatch-101)); color: var(--theme-surface-text, var(--ui-swatch-102));
+    font-size: var(--ui-type-body); line-height: 1.35;
+}
+.crafting_detail[hidden] {display: none;}
+.craft_detail_empty {margin: .3rem 0; color: var(--theme-surface-text, var(--ui-swatch-102));}
+.craft_detail_body {flex: 1 1 auto; min-height: 0; overflow-y: auto;}
+.crafting_detail .craft_detail_title {margin: 0 0 .3rem; font-size: var(--ui-type-title); color: var(--theme-surface-text, var(--ui-swatch-102));}
+.craft_detail_section {margin-bottom: .3rem;}
+.craft_detail_label {font-weight: 700; margin-right: .4rem;}
+.craft_detail_fact {margin: .12rem 0;}
+.craft_req {display: flex; flex-wrap: wrap; gap: 0 .5rem; padding: 1px 4px; border-radius: var(--ui-radius);}
+.craft_req_count {font-variant-numeric: tabular-nums;}
+.craft_req[data-missing] .craft_req_count,
+.craft_req[data-missing] .craft_req_short {color: var(--sem-blocked, var(--ui-swatch-004)); font-weight: 700;}
+.craft_req[data-unknown] .craft_req_name {font-style: italic;}
+.craft_req:focus {outline: 2px solid var(--sem-blocked, var(--ui-swatch-004)); outline-offset: 1px;}
+.craft_detail_more summary {cursor: pointer;}
+.crafting_detail .craft_detail_more summary {color: var(--theme-surface-text, var(--ui-swatch-102));}
+.craft_detail_result .coin_wood {color: var(--ui-swatch-103);}
+.craft_detail_result {font-size: var(--ui-type-body); padding: .3rem; border: 1px solid var(--workspace-border, var(--ui-swatch-100));}
+.craft_detail_actions {flex: none; border-top: 1px solid var(--workspace-border, var(--ui-swatch-100)); padding-top: .35rem; margin-top: .25rem;}
+.craft_blocked_reason {margin: 0 0 .3rem; color: var(--sem-blocked, var(--ui-swatch-004)); font-weight: 700;}
+.craft_blocked_reason:focus {outline: 2px solid var(--sem-blocked, var(--ui-swatch-004));}
+.craft_detail_buttons {display: flex; flex-wrap: wrap; gap: .3rem;}
+.craft_detail_buttons button {cursor: pointer; padding: .2rem .6rem; font: inherit;}
+.craft_detail_buttons .craft_commit {flex: 1 1 6rem; font-weight: 700;}
+.craft_detail_buttons button[aria-disabled="true"] {cursor: not-allowed;}
+.craft_receipt {margin: .3rem 0 0; color: var(--theme-surface-text, var(--ui-swatch-102));}
+.crafting_detail[data-state="ready"] .craft_receipt {border-left: 3px solid var(--sem-gain, var(--ui-swatch-001)); padding-left: .4rem;}
+
+/* Layout > Crafting detail: below the list (AJ8). */
+:root[data-craft-detail-place="below"] #crafting_window .crafting_body {grid-template-columns: minmax(0, 1fr); grid-template-rows: minmax(90px, 1fr) fit-content(62%);}
+:root[data-craft-detail-place="below"] #crafting_window .craft_detail_section,
+:root[data-craft-detail-place="below"] #crafting_window .craft_detail_fact {display: inline-block; margin-right: 1rem; vertical-align: top;}

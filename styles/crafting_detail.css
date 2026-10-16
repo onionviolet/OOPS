@@ -111,3 +111,9 @@
 @container (max-width: 28em) {
     #main_content.workspace-active #crafting_window[data-craft-view="items"] .crafting_body {grid-template-rows: minmax(3.2em, 26%) minmax(0, 1fr);}
 }
+
+/* R14: names and native attempt readiness share each item row, never a second control. */
+#crafting_window .recipe_div[role=option] {display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 .4em;}
+#crafting_window .recipe_div[role=option] .recipe_item_name {flex: 1 1 auto; min-width: 0; overflow-wrap: anywhere;}
+#crafting_window .recipe_readiness {margin-left: auto; white-space: nowrap; color: var(--theme-surface-muted, var(--ui-swatch-102));}
+#crafting_window .recipe_readiness[data-ready="true"] {color: var(--sem-gain, var(--ui-swatch-001));}

@@ -1,0 +1,12 @@
+{
+  "description": "YAIR project-source snapshot for a disposable UI comparison",
+  "hashes": {
+    "src/crafting_recipes.js": "524ca70eb426164bce5ea9621c644a654be40ba61e979298318923f05e14c4d9",
+    "src/items.js": "b5e80a1406855e1d733386cd4c5253bad01bc3c9e35f6ef17d682d56a517b520",
+    "styles/ui_tokens.css": "823537c769f11a3b6e0167de72130056bff23677286ae02c9f11aac0d40698e7",
+    "styles/crafting_detail.css": "3dd028cc7721ae96c0ced0c2cd7aed0a5c9a16d2963b7330970f2401c3054487",
+    "src/crafting_detail.js": "4f0112feaba20103f86fbe7bb771468715551ec9df57c68bcfce567873a7aab4",
+    "src/crafting_visibility.js": "65fb7c4cab55b91a56d156f147b89b8080efdfaa732cd75a0d0b80aa0851ad66",
+    "src/ui_components.js": "e15000b087c30e99952c438e51a432fde7d07f87185f61e6d3593b9420d247ef"
+  }
+}

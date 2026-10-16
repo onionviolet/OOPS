@@ -21,6 +21,13 @@ export function mountWorkspaceNavigation({notice}={}) {
         if(id==='local-actions'){centerModes().showHere();return;}
         if(id==='crafting'){window.openCraftingWindow();return;}
         if(id==='mixing'){openMixtureCounter();return;}
+        // R13: Inventory already has a visible home in the parity layout. Go there instead of
+        // pulling the list into the center and leaving its own panel blank; Expand still opens it large.
+        if(id==='belongings'&&document.getElementById('main_content')?.dataset.parity==='r3'){
+            const inventoryList=document.querySelector('#inventory_content_div');
+            if(inventoryList?.checkVisibility()&&!inventoryList.closest('#center_mode_content')){
+                const region=inventoryList.closest('.parity-region');(region?.querySelector('.ui-list-tools input')||inventoryList).focus({preventScroll:true});region?.scrollIntoView({block:'nearest'});return;}
+        }
         if(expandWorkspaceModule(id,{title:tab?'Journal':route[0]})){if(tab)document.getElementById(tab)?.click();else if(id==='preparation')document.getElementById('character_show_stats')?.click();}
     }
     for(const route of routes){const [label,key,id]=route,b=document.createElement('button');b.type='button';b.textContent=label;

@@ -1384,13 +1384,22 @@ body:has(#main_content[data-parity="r3"]) #workspace_navigation > button[hidden]
 #main_content.workspace-active[data-parity="r3"] #proto23_character[data-custom-palette="true"] .shell-secondary-stat :is(span,strong) {color:var(--custom-text)!important;}
 #main_content.workspace-active[data-parity="r3"] .shell-secondary-heading {display:none;}
 
-/* R12 (2026-10-15): a place service with list + detail (Crafting) borrows the full-height
-   right-center column, as the R10 Attributes reference does. Around you is empty during the
-   service; You stays intact and Inventory widens so ingredients stay readable. Combat keeps
-   its own composition. */
+/* R13 (2026-10-15): regions yield when idle. While any center task or reference is open
+   outside combat and Focus has no subject, Focus gives its space to that task, which takes
+   the full-height right-center column (R10/R12 precedent, now one rule). You stays intact;
+   Inventory widens. A selected person, a conversation or an opponent keeps Focus. */
 @media(min-width:1001px){
-#main_content.workspace-active[data-parity="r3"][data-local-task="crafting_window"]:not([data-parity-combat="true"]) [data-region="focus"] {display:none;}
-#main_content.workspace-active[data-parity="r3"][data-local-task="crafting_window"]:not([data-parity-combat="true"]) [data-region="actions"] {grid-column:3;grid-row:1/-1;}
-#main_content.workspace-active[data-parity="r3"][data-local-task="crafting_window"]:not([data-parity-combat="true"]) [data-region="inventory"] {grid-column:1/3;}
+#main_content.workspace-active[data-parity="r3"][data-center-task]:not([data-parity-combat="true"]):not(:has(#current_focus[data-subject-heading="true"])) [data-region="focus"] {display:none;}
+#main_content.workspace-active[data-parity="r3"][data-center-task]:not([data-parity-combat="true"]):not(:has(#current_focus[data-subject-heading="true"])) [data-region="actions"] {grid-column:3;grid-row:1/-1;}
+#main_content.workspace-active[data-parity="r3"][data-center-task]:not([data-parity-combat="true"]):not(:has(#current_focus[data-subject-heading="true"])) [data-region="inventory"] {grid-column:1/3;}
 #main_content.workspace-active[data-parity="r3"][data-local-task="crafting_window"] :is(.crafting_mainpage_button,.crafting_subpage_button) {padding:.12em .35em;}
 }
+/* R13: inside a center view the destination Back bar is the one way back (UR9); the
+   header's Expand toggle (relabelled Return) would be a second one. */
+#main_content.workspace-active #center_mode_content .expanded-panel-heading [data-workspace-action="expand"] {display:none;}
+/* R13: local return from a selected subject to the place card. */
+#main_content.workspace-active[data-parity="r3"] .shell-focus-back {display:block;font:inherit;margin:0 0 .2em;padding:.1em 0;background:transparent;border:0;color:var(--p23-muted);text-decoration:underline;cursor:pointer;}
+#main_content.workspace-active[data-parity="r3"] .shell-nearby > button[data-nearby-kind="thing"] strong {font-weight:600;}
+/* R13 dedupe (U1: repeated Expand controls): panel controls appear when you point at or
+   tab into a panel, keeping their space so nothing shifts. Layout editing shows them all. */
+#main_content.workspace-active[data-parity="r3"]:not([data-layout-editing="true"]) .parity-region .workspace-module:not(:hover):not(:focus-within) > .workspace-module-header > :is([data-workspace-action="expand"],[data-workspace-action="collapse"]) {visibility:hidden;}
