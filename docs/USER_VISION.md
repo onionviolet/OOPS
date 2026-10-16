@@ -3232,3 +3232,18 @@ source and structure are separate axes; cosmology, series and continuity packs
 share one format; the game's frame cosmology hosts series clusters; subtleties
 are handled through invariants INV1–INV10 with generic tests and a subtlety
 register rather than enumerated upfront. The loader lane received an addendum.
+
+## Game name irony and core loop scope, 2026-10-16
+
+Weibao, on renaming the game:
+
+> Yet another is part of the irony, since its not jusy another one, thoughts? Webnovel RPG? fiction engine? but that sounds too bougie
+
+Then:
+
+> heir loop doesnt have to be the core loop, the core loop should probably be scoped properly upcoming? /more-to-consider Might need. seperate deeper considerations
+
+Recorded: keep the "Yet another" irony in any new name; "fiction engine" is too
+bougie as a name. No name is selected. The heir/lineage loop is not presumed to
+be the core loop; the core loop needs its own scoping pass. Considerations live
+in the [engine and identity thread](reviews/ENGINE_AND_IDENTITY_THREAD_2026-10-16.md).
