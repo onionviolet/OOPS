@@ -3054,3 +3054,14 @@ the Claude memory note. Round 5 is in
 It records two fixed engine bugs (SF1 regrowth drift, SF2 pity spent on blocked
 rares), subtle engine details SC1–SC12, play details SP1–SP12 and per-domain details
 SX1–SX7. Nothing else is dispatched.
+
+### Other procedural systems and general opportunities, 2026-10-16
+
+Weibao asked:
+
+> Other procedural thing to consider? Other things the game could make use of in genera;?
+
+The considerations are recorded in [the opportunities palette](PROCEDURAL_AND_GENERAL_OPPORTUNITIES_2026-10-16.md):
+PG1–PG15 cover other procedural systems that reuse the crafting engine's pattern,
+and GN1–GN13 cover general tooling. Nothing is selected or dispatched. In the same
+message he asked to push with a lesser model.
