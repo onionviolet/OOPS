@@ -69,6 +69,14 @@ the core. A name should not presume a core loop before it is scoped. The core
 loop gets its own deeper considerations pass; engine work stays loop-neutral
 (C1 cadences, C2 scopes and N5 absence policies support any core loop).
 
+Deeper pass: [core loop scoping considerations](CORE_LOOP_SCOPING_CONSIDERATIONS_2026-10-16.md)
+(CL codes, proposals). Recommends the core loop as a shape (choose a pursuit,
+act by hand or routine, learn and gain, open a new choice) with discovery as
+the hook, making plus exploration as the first discovery pursuits, and the one
+prestige layer as a generic fresh-life boundary where heir is one carrier.
+Source finding: the build has no offline progress, so accepted AD16 is
+unimplemented (CL25). Open for Weibao: build order and first prestige trigger.
+
 ## Open decisions for Weibao
 
 1. Game name (GN4 or another), then the player-facing rename (GN9).
