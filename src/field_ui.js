@@ -2,7 +2,7 @@ import {alloyEquipmentFacts} from "./alloy_equipment.js";
 import {previewSimulationCommand, previewSimulationResponse, simulationOccupiesActor} from "./simulation.js";
 import {fieldWorkshopView} from "./field_workshop.js";
 import {energyView} from "./energy_resources.js";
-import {leverBlockers} from './lever_lesson.js';
+import {leverBlockers,leverTaskRecord} from './lever_lesson.js';
 const node = (tag,text="",className="") => {const n=document.createElement(tag);n.textContent=text;n.className=className;return n;};
 export function createFieldPanel({registry,read,command}) {
     const panel=node("details","","expedition_panel");panel.id="field_panel";panel.append(node("summary","Field association & workshop"));
@@ -22,7 +22,7 @@ export function createFieldPanel({registry,read,command}) {
     const cancel=button("Cancel your field work · return reserved inputs","cancel",{type:"cancel"});body.append(cancel);
     const repeat=button("Make up to 3 focus kits · stop when inputs or energy run short","routine",{type:"program",id:"field.pack_focus",count:3});groups.get("workshop").append(repeat);
     const leverRepeat=button("Queue 3 lever jobs · stop if support or logs run short","lever_routine",{type:"program",id:"field.lp1.lever_work",count:3});groups.get("lever").append(leverRepeat);
-    const leverRecord=node("p");groups.get("lever").append(leverRecord);
+    const leverRecord=node("p");leverRecord.dataset.leverRecord="";groups.get("lever").insertBefore(leverRecord,groups.get("lever").children[1]);
     const pause=button("Pause after the current field job","pause",{type:"pause"}),resume=button("Resume the remaining field jobs","resume",{type:"resume"});groups.get("workshop").append(pause,resume);
     function render() {
         const snapshot=read(),{state,context,enabled,error}=snapshot,s=state.simulation,f=state.actors.player.facts,view=fieldWorkshopView(state);
@@ -56,9 +56,11 @@ export function createFieldPanel({registry,read,command}) {
         cancel.textContent=job?.cancellation === "forfeit" ? "Cancel your field work · spent inputs are forfeited" : "Cancel your field work · return reserved inputs";
         leverRepeat.hidden=!s?.knowledge.player?.['field.lp1.method'];
         leverRepeat.disabled=!enabled || !!error || !s || !previewSimulationCommand(state,registry,'field.lp1.lever_work',context).eligible;
-        const lesson=s?.knowledge.player?.['field.lp1.method'];
+        const lesson=leverTaskRecord(state);
         leverRecord.hidden=!view.introduced;
-        leverRecord.textContent=lesson ? `Learned from the old craftsman in Village at played minute ${lesson.at}. Routine lever work stays useful; it still needs your body and carried lever.` : 'Known timber task: hand work costs 6 minutes and 3 stamina. Lever-setting needs a demonstration, your pivot explanation and 3 minutes of paid practice.';
+        leverRecord.textContent=lesson.text;
+        const teacherReturn=controls.get('field.lp1.return');
+        if(teacherReturn && (lesson.legacy || lesson.learned)) teacherReturn.card.hidden=true;
         const program=s?.programs.player,isFieldProgram=program?.commandId.startsWith("field.");
         repeat.hidden=!view.facility || !ownEnergies.some(e=>e.id === "field.focus");repeat.disabled=!enabled || !!error || !s || !previewSimulationCommand(state,registry,"field.pack_focus",context).eligible;
         if(program?.commandId==='field.lp1.lever_work') {
