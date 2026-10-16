@@ -255,3 +255,53 @@ export function writeGuardedSave(storage,key,serialized) {
     }
     return serialized;
 }
+
+// Compatibility decision D3 (2026-10-14): a durable write may be skipped only when the
+// new save equals the bytes this writer last stored under the key, except saved_at and
+// total_playtime, and the key still holds exactly those bytes. A crash can then lose at
+// most those two counters, never game state. Forced writes (explicit save, export) and
+// flush() (page exit, tab hidden) store the latest counters.
+const COUNTERS = ['saved_at', 'total_playtime'];
+const MARKS = COUNTERS.map(k => `\u0000yairpg-durable-${k}\u0000`), MARK_JSON = MARKS.map(m => JSON.stringify(m));
+// One stringify gives both the stored bytes and the counter-free body they are compared by.
+export function serializeDurableSave(save) {
+    const values = COUNTERS.map(k => save?.[k]);
+    if(!save || typeof save !== 'object' || values.some(v => !['string', 'number'].includes(typeof v))) return {serialized: JSON.stringify(save), body: null};
+    COUNTERS.forEach((k, i) => {save[k] = MARKS[i];});
+    let body;
+    try {body = JSON.stringify(save);} finally {COUNTERS.forEach((k, i) => {save[k] = values[i];});}
+    let serialized = body;
+    MARK_JSON.forEach((mark, i) => {serialized = serialized.replace(mark, () => JSON.stringify(values[i]));});
+    return {serialized, body};
+}
+// storage may be a getter, so a host that swaps its storage object is always honored.
+export function createDurableSaveWriter(storage, write = writeGuardedSave) {
+    const last = new Map(), pending = new Map(), store = () => typeof storage === 'function' ? storage() : storage;
+    return {
+        // Returns true when the bytes were stored, false when the write was skipped.
+        write(key, save, {force = false} = {}) {
+            const {serialized, body} = serializeDurableSave(save), previous = last.get(key), storage = store();
+            if(!force && body !== null && previous?.body === body && storage.getItem(key) === previous.serialized) {
+                pending.set(key, serialized);
+                return false;
+            }
+            pending.delete(key); last.delete(key);
+            write(storage, key, serialized);
+            last.set(key, {body, serialized});
+            return true;
+        },
+        // Stores skipped counters, unless something else wrote the key since.
+        flush() {
+            const storage = store();
+            for(const [key, serialized] of [...pending]) {
+                pending.delete(key);
+                const previous = last.get(key);
+                if(!previous || storage.getItem(key) !== previous.serialized) continue;
+                last.delete(key);
+                write(storage, key, serialized);
+                last.set(key, {body: previous.body, serialized});
+            }
+        },
+        forget() {last.clear(); pending.clear();},
+    };
+}

@@ -1,13 +1,13 @@
 // Only generated fixtures and fresh browser contexts; no personal saves.
 const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict');
-const {chromium}=require(process.env.YAIRPG_PLAYWRIGHT || 'playwright');
+const {launchChrome,waitForPage}=require('./ui_helpers.cjs');
 const {openNotebook}=require('./ui_helpers.cjs');
 const url=process.env.YAIRPG_PROOF_URL || 'http://127.0.0.1:18625/',out=process.env.YAIRPG_PROOF_DIR || '/tmp/yairpg-storage-proof';
 const seedPath=process.env.YAIRPG_PROFILE_SEED || '/Users/weiwei/.codex/visualizations/2026/10/04/01a1051c-ed9f-7a92-81fb-53403489e007/promise-delivery-proof/generated-help-save.json';
 const wood=JSON.stringify({id:'Rough wood log'}),pants=JSON.stringify({id:'Cheap leather pants',quality:123});
 fs.mkdirSync(out,{recursive:true});
 (async()=>{
- const browser=await chromium.launch({headless:true,...(process.env.YAIRPG_CHROME ? {executablePath:process.env.YAIRPG_CHROME} : {})});
+ const browser=await launchChrome();
  const errors=[],warnings=[],findings=[];let page,context,fingerprint;
  const seed=JSON.parse(fs.readFileSync(seedPath,'utf8'));
  const base=structuredClone(seed);base['current location']='Shack';base.availabilities.location.Shack=1;

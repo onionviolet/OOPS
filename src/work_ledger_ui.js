@@ -1,5 +1,6 @@
 import {workspaceOwns} from './workspace_layout.js';
 import {createSettledTextEffects} from './settled_text_effects.js';
+import {syncChildren} from './dom_sync.js';
 
 // The runtime supplies an actor-safe projection and owns all command settlement.
 export function createWorkLedgerUI({container, read, command, cancelExternalEffects = () => {}, readSettings}) {
@@ -14,7 +15,8 @@ export function createWorkLedgerUI({container, read, command, cancelExternalEffe
     const options = () => { if(readSettings)return readSettings(); const view = read(); return view?.settings || view?.state?.settings || {effects: 'reduced', sound: false, presentation: 'inline'}; };
     const effects = createSettledTextEffects({container: panel, readSettings: options});
     const cancelEffects=()=>{effects.cancel();cancelExternalEffects();};
-    const element = (tag, text, parent = body) => { const node = document.createElement(tag); node.textContent = String(text); parent.append(node); return node; };
+    let target = body;
+    const element = (tag, text, parent = target) => { const node = document.createElement(tag); node.textContent = String(text); parent.append(node); return node; };
     async function submit(action, payload) {
         const current = read();
         if (busy || !current?.canWrite || !current?.available) return;
@@ -42,7 +44,12 @@ export function createWorkLedgerUI({container, read, command, cancelExternalEffe
         signature = next;
         const active = document.activeElement;
         const focusKey = body.contains(active) ? active.dataset.ledgerControl : null;
-        body.replaceChildren();
+        // Build detached, then keep every unchanged live node.
+        target = document.createElement('div');
+        try { build(view, state); } finally { syncChildren(body, [...target.childNodes]); target = body; }
+        if (focusKey && !body.contains(document.activeElement)) [...body.querySelectorAll('[data-ledger-control]')].find(node => node.dataset.ledgerControl === focusKey)?.focus();
+    }
+    function build(view, state) {
         if (!state) { element('p', view.reason || 'The work ledger is not available here.'); return; }
         element('p', 'Complete work, claim points, then choose a taught method or a connected assistance service.');
         const status = element('p', `Connection: ${state.connection}. Points: ${state.points}.`); status.className = 'work-ledger-status';
@@ -91,7 +98,6 @@ export function createWorkLedgerUI({container, read, command, cancelExternalEffe
             const list = element('ol', '', history);
             for (const receipt of receipts) if (typeof receipt.text === 'string') element('li', receipt.text, list);
         }
-        if (focusKey) [...body.querySelectorAll('[data-ledger-control]')].find(node => node.dataset.ledgerControl === focusKey)?.focus();
     }
     render();
     return {panel, render, present: effects.present, cancel: cancelEffects, destroy() {

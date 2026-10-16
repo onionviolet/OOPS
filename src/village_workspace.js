@@ -74,7 +74,9 @@ export function createVillageWorkspace({read,act}) {
             const cardEm=widthEm/(cardColumns===2&&index===enemies.length-1&&enemies.length%2?1:cardColumns);setAttr(card,'data-presentation',cardEm>=20?'row':'stack');setAttr(facts,'data-columns',2);setAttr(card,'data-inspected',enemy.id===target.id);
         }
         enemyCards.hidden=!enemyPanels;enemyChoices.hidden=enemies.length<2||enemyPanels;rosterMode.hidden=false;
-        setText(rosterCaption,`${enemies.length} opponent${enemies.length===1?'':'s'} · inspect`);
+        // R13: native area progress (Proto23's "Area · n" lesson) read from the native counters, never computed here.
+        const groupsLeft=document.getElementById('enemies_left_div')?.textContent.trim(),clears=document.getElementById('clear_count_div')?.textContent.replace(/\s+/g,' ').trim();
+        setText(rosterCaption,[`${enemies.length} opponent${enemies.length===1?'':'s'} · inspect`,groupsLeft?`${groupsLeft} group${groupsLeft==='1'?'':'s'} left`:'',clears||''].filter(Boolean).join(' · '));
         enemyName.hidden=enemyPanels;enemyHealth.hidden=enemyPanels;enemyCycleLabel.hidden=enemyPanels;combatDetails.hidden=enemyPanels;
         enemyChoices.dataset.presentation='compact';document.getElementById('main_content').dataset.enemyPanels=String(enemyPanels);document.getElementById('main_content').dataset.enemyCards=String(enemyPanels);
         setText(combatSummary,`Combat readout · ${enemies.length} opponent${enemies.length===1?'':'s'}`);
@@ -99,6 +101,10 @@ export function createVillageWorkspace({read,act}) {
     function choose(id){selected=id;render();}
     const followService=event=>{if(event.target.closest('#fort_supply_panel'))choose('waypost-clerk');};
     document.addEventListener('focusin',followService);
+    // R13: Esc leaves a selected subject for the place card, after the center controller
+    // has had its chance to go back (it prevents default when it handles Esc).
+    const leaveSubject=event=>{if(event.key!=='Escape'||event.defaultPrevented||!selected||document.getElementById('main_content').dataset.centerTask)return;if(event.target.closest?.('input,textarea,select,dialog'))return;choose(null);};
+    document.addEventListener('keydown',leaveSubject);
     function chip(row,kind){const b=node('button',row.name);b.type='button';
         b.dataset.sceneFocus=row.id;b.onclick=()=>choose(row.id);return b;}
     function render(){
@@ -114,7 +120,10 @@ export function createVillageWorkspace({read,act}) {
         const nativeTemperatureState=document.querySelector('#weather_div .cold_temperature')?'cold_temperature':'normal_temperature';const conditionSignature=JSON.stringify([conditionRows,nativeTemperatureState]);if(conditions.dataset.signature!==conditionSignature){conditions.dataset.signature=conditionSignature;conditions.replaceChildren();for(const[kind,value]of conditionRows){const symbol=kind==='season'?({'Spring':'❀','Summer':'☀','Autumn':'❧','Fall':'❧','Winter':'❄'}[value]||'◈'):kind==='weather'?({'Rain':'☂','Snow':'❄'}[value]||''):'♨';const badge=node('span');badge.dataset.condition=kind;badge.dataset.conditionValue=value.toLowerCase();const icon=node('span',symbol);icon.setAttribute('aria-hidden','true');if(symbol)badge.append(icon);badge.append(document.createTextNode((symbol?' ':'')+value+(kind==='temperature'&&nativeTemperatureState==='cold_temperature'?' · Cold':'')));if(kind==='temperature')badge.dataset.temperatureState=nativeTemperatureState;badge.title=kind==='temperature'?(document.getElementById('temperature_tooltip')?.textContent||value):kind==='weather'?value+' · native weather; no additional effect inferred.':value+' · native calendar season';conditions.append(badge);}}
 
         setText(calendar,[season?date.replace(', '+season,''):date,parts[2]?((/night/i.test(parts[2])?'☾ ':'☼ ')+parts[2]):''].filter(Boolean).join(' · '));calendar.dataset.timeOfDay=/night/i.test(parts[2])?'night':'day';
-        if(!parity)setText(clock,view.clockText);setTitle(clock,view.clockText);placeTabs.hidden=!parity;people.hidden=!frame.people.length||parity&&placeTab!=='people';things.hidden=!frame.things.length||parity&&placeTab!=='things';for(const b of placeTabs.children){const count=b.dataset.placeTab==='people'?frame.people.length:b.dataset.placeTab==='things'?frame.things.length:null;setText(b,['actions','options'].includes(b.dataset.placeTab)?(b.dataset.placeTab==='actions'?'Actions':'Options'):`${b.dataset.placeTab==='people'?'People':'Things'} · ${count}`);if(b.disabled!==(count===0))b.disabled=count===0;b.hidden=count===0;b.setAttribute('aria-pressed',String(b.dataset.placeTab===placeTab));}
+        // R13 dedupe: with the shell, Focus's place card is the home for who and what is here, so the
+        // lower People/Things tabs would repeat it. Actions and Options stay.
+        const focusOwnsNearby=parity&&document.getElementById('main_content').dataset.presentation==='proto23-shell';if(focusOwnsNearby&&['people','things'].includes(placeTab))placeTab='actions';
+        if(!parity)setText(clock,view.clockText);setTitle(clock,view.clockText);placeTabs.hidden=!parity;people.hidden=!frame.people.length||parity&&placeTab!=='people';things.hidden=!frame.things.length||parity&&placeTab!=='things';for(const b of placeTabs.children){const count=b.dataset.placeTab==='people'?frame.people.length:b.dataset.placeTab==='things'?frame.things.length:null;setText(b,['actions','options'].includes(b.dataset.placeTab)?(b.dataset.placeTab==='actions'?'Actions':'Options'):`${b.dataset.placeTab==='people'?'People':'Things'} · ${count}`);if(b.disabled!==(count===0))b.disabled=count===0;b.hidden=count===0||focusOwnsNearby&&count!==null;b.setAttribute('aria-pressed',String(b.dataset.placeTab===placeTab));}
         document.getElementById('main_content').dataset.placeTab=parity?placeTab:'actions';groups.hidden=parity;
         scene.dataset.inVillage=String(frame.inVillage);
         const signature=JSON.stringify([frame.inVillage,frame.people,frame.things,frame.actions]);
@@ -144,10 +153,17 @@ export function createVillageWorkspace({read,act}) {
         focus.dataset.subjectHeading=String(shell&&!!target);
         if(nativeEncounter){focusSignature=next;return;}
         if(document.getElementById('main_content').dataset.enemyCards==='true')document.getElementById('main_content').dataset.enemyCards='false';
-        if(next!==focusSignature||enemyView.parentNode===focus){focusSignature=next;focus.replaceChildren();
-            if(!target&&shell){const overview=node('div');overview.className='shell-place-overview';overview.append(node('strong',frame.place));const description=document.getElementById('location_description_div')?.textContent.trim();if(description)overview.append(node('p',description));
-                const nearby=node('div');nearby.className='shell-nearby';for(const person of frame.people){const b=node('button');b.type='button';b.append(node('strong',person.name),node('small',person.role||'Known person'));b.onclick=()=>choose(person.id);b.title=`Inspect ${person.name}. Does not start a conversation.`;b.dataset.inspectNearby=person.id;nearby.append(b);}if(frame.people.length)overview.append(nearby);else overview.append(node('small','Select an item or known subject to inspect.'));focus.append(overview);}
+        // R13: the key includes the presentation and place text, so the idle place card
+        // appears once the shell is active, not only after the subject changes.
+        const focusKey=JSON.stringify([next,shell,!target&&shell?document.getElementById('location_description_div')?.textContent.trim()||'':'']);
+        if(focusKey!==focusSignature||enemyView.parentNode===focus){focusSignature=focusKey;focus.replaceChildren();
+            if(!target&&shell){const overview=node('div');overview.className='shell-place-overview';const description=document.getElementById('location_description_div')?.textContent.trim();
+                const nearby=node('div');nearby.className='shell-nearby';for(const person of frame.people){const b=node('button');b.type='button';b.append(node('strong',person.name),node('small',person.role||'Known person'));b.onclick=()=>choose(person.id);b.title=`Inspect ${person.name}. Does not start a conversation.`;b.dataset.inspectNearby=person.id;nearby.append(b);}
+                for(const thing of frame.things){const b=node('button');b.type='button';b.append(node('strong',thing.name),node('small',thing.description||'Here'));b.onclick=()=>choose(thing.id);b.title=`Inspect ${thing.name}. Does not use it.`;b.dataset.inspectNearby=thing.id;b.dataset.nearbyKind='thing';nearby.append(b);}
+                // R13: who and what is here comes first; the longer place text follows and may scroll.
+                if(frame.people.length||frame.things.length)overview.append(nearby);else overview.append(node('small','Select an item or known subject to inspect.'));if(description)overview.append(node('p',description));focus.append(overview);}
 
+            if(target&&shell&&selected&&!frame.dialogue&&target.kind!=='enemy'){const back=node('button',`← ${frame.place}`);back.type='button';back.className='shell-focus-back';back.dataset.focusBack='';back.title='Back to the place overview. Esc also works.';back.onclick=()=>choose(null);focus.append(back);}
             if(target){focus.append(node('strong',target.name),node('p',target.role||'Role not assessed'));
                 if(target.kind==='enemy')focus.append(node('p',`Level/title: ${target.title||'???'} · ${target.hp||'??? hp'}`),node('p',target.stats||'Stats: ???'));
                 if(target.kind==='person')focus.append(node('p',`Known traits: ${target.traits?.join(', ')||'Not assessed'}`),node('p',`Relationship: ${target.relationship||'No remembered dealings.'}`),node('p',target.memory||''));
@@ -159,5 +175,5 @@ export function createVillageWorkspace({read,act}) {
         }
     }
     render();const timer=setInterval(render,250);
-    return {render,destroy:()=>{clearInterval(timer);document.removeEventListener('focusin',followService);}};
+    return {render,destroy:()=>{clearInterval(timer);document.removeEventListener('focusin',followService);document.removeEventListener('keydown',leaveSubject);}};
 }

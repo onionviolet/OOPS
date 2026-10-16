@@ -197,6 +197,13 @@ function syncRestore(module, state, known, eligible, classic) {
     const reason = eligible ? '' : (module.unavailableReason?.() || 'Not available here right now');
     if (restore.title !== reason) { restore.title = reason; if (reason) restore.setAttribute('aria-description', reason); else restore.removeAttribute('aria-description'); }
 }
+// An unchanged pass writes nothing: each setter touches the DOM only when the value differs,
+// so idle ticks leave style and layout clean (E5 layout churn, 2026-10-14).
+const setStyle=(node,name,value)=>{if(node.style.getPropertyValue(name)!==value)node.style.setProperty(name,value);};
+const setText=(node,text)=>{if(node.textContent!==text)node.textContent=text;};
+const setAttr=(node,name,value)=>{if(node.getAttribute(name)!==value)node.setAttribute(name,value);};
+const setProp=(node,key,value)=>{if(node[key]!==value)node[key]=value;};
+const setData=(node,key,value)=>{if(node.dataset[key]!==value)node.dataset[key]=value;};
 export function updateWorkspace() {
     if(deferSimulationRender(updateWorkspace, updateWorkspace)) return;
     if (!owner) return;
@@ -209,10 +216,10 @@ export function updateWorkspace() {
     owner.root.dataset.workspaceComposition=owner.composition&&!owner.narrow&&owner.context==='play'?'proto23':'';
     revealArmed(); // start the settle clock on the first pass after the start screen closes
     const focused = document.activeElement; const counts = {};
-    ['left','center','right'].forEach((d,i) => owner.board.style.setProperty(`--workspace-${d}`, `${owner.layout.columns[i]}fr`));
-    owner.board.hidden = owner.layout.mode === 'classic'; owner.root.dataset.density = owner.layout.density; owner.toolbar.querySelector('[data-workspace-action="density"]').value = owner.layout.density;
-    const preset = owner.toolbar.querySelector('[data-workspace-action="preset"]'); if (owner.layout.mode === 'classic') preset.value = 'Classic'; else if (preset.value === 'Classic') preset.value = 'Workspace'; owner.root.dataset.workspaceMode = owner.layout.mode; owner.root.dataset.workspaceContext=owner.context||'play';
-    owner.root.dataset.editorReflow=String(owner.context==='authoring'&&(['customization','customization-effects','customization-rules'].some(id=>parseFloat(getComputedStyle(registry.get(id)?.node||owner.root).fontSize)>20)||window.innerWidth/presentationScale()<1100));
+    ['left','center','right'].forEach((d,i) => setStyle(owner.board, `--workspace-${d}`, `${owner.layout.columns[i]}fr`));
+    setProp(owner.board, 'hidden', owner.layout.mode === 'classic'); setData(owner.root, 'density', owner.layout.density); setProp(owner.toolbar.querySelector('[data-workspace-action="density"]'), 'value', owner.layout.density);
+    const preset = owner.toolbar.querySelector('[data-workspace-action="preset"]'); if (owner.layout.mode === 'classic') setProp(preset, 'value', 'Classic'); else if (preset.value === 'Classic') preset.value = 'Workspace'; setData(owner.root, 'workspaceMode', owner.layout.mode); setData(owner.root, 'workspaceContext', owner.context||'play');
+    setData(owner.root, 'editorReflow', String(owner.context==='authoring'&&(['customization','customization-effects','customization-rules'].some(id=>parseFloat(getComputedStyle(registry.get(id)?.node||owner.root).fontSize)>20)||window.innerWidth/presentationScale()<1100)));
     if (owner.layout.mode === 'classic') {
         owner.layout.modules.forEach(state => {
             const module = registry.get(state.id); makeShell(module);
@@ -233,7 +240,7 @@ export function updateWorkspace() {
         if (module.node.parentNode !== module.body) module.body.append(module.node);
         const shell = module.shell; const eligible = module.eligible() !== false, known = moduleKnown(module, eligible); labelShell(module, known);
         // Undiscovered shells wait outside the labelled docks, so no dock label or text names them.
-        if (!known) { shell.hidden = true; if (shell.parentNode !== owner.vault) owner.vault.append(shell); syncRestore(module, state, known, eligible, false); return; }
+        if (!known) { setProp(shell, 'hidden', true); if (shell.parentNode !== owner.vault) owner.vault.append(shell); syncRestore(module, state, known, eligible, false); return; }
         // Reach A2 proposal: restore the vital dock only on combat entry, not every render.
         if (state.id === 'combat') {
             if (eligible && !module.wasInCombat) {
@@ -245,7 +252,7 @@ export function updateWorkspace() {
         const composed=owner.root.dataset.workspaceComposition==='proto23';
         const core=['shell-inventory-tools','shell-character','shell-detail','vitals','combat-controls','shell-inventory-tools','belongings','focus','time','location','village-scene','current-work','combat','stance','local-actions','pane-navigation','messages','shell-log-tools'];
         const parked=composed&&!state.pinned&&!core.includes(state.id);
-        shell.dataset.compositionParked=String(parked);
+        setData(shell,'compositionParked',String(parked));
         if(known&&['vitals','belongings'].includes(state.id))setProperty(shell.querySelector('.workspace-module-header > strong'),'textContent',composed?(state.id==='vitals'?'You':'Inventory'):module.title);
         if(known&&state.id==='vitals'){
             const race=document.getElementById('character_race_div');
@@ -254,35 +261,36 @@ export function updateWorkspace() {
             heading.dataset.characterIdentity=owner.parity&&visibleRace?` · ${visibleRace}`:'';
             setProperty(heading,'title','Your native character. Open Stats for biography, attributes and equipment.');
         }
-        shell.hidden = state.hidden || !eligible || parked || (composed&&!owner.parity&&state.id==='belongings'&&document.documentElement.style.getPropertyValue('--inventory_div_display')==='none'); shell.classList.toggle('workspace-floating', state.dock === 'float' && !owner.narrow); shell.classList.toggle('workspace-collapsed', state.collapsed);
-        shell.style.setProperty('--workspace-width', `${state.width}px`); shell.style.setProperty('--workspace-height', `${state.height}px`);
-        shell.dataset.pinned = String(state.pinned);
+        setProp(shell,'hidden',state.hidden || !eligible || parked || (composed&&!owner.parity&&state.id==='belongings'&&document.documentElement.style.getPropertyValue('--inventory_div_display')==='none')); shell.classList.toggle('workspace-floating', state.dock === 'float' && !owner.narrow); shell.classList.toggle('workspace-collapsed', state.collapsed);
+        setStyle(shell, '--workspace-width', `${state.width}px`); setStyle(shell, '--workspace-height', `${state.height}px`);
+        setData(shell, 'pinned', String(state.pinned));
         shell.querySelectorAll('[data-resize], [data-workspace-action=width], [data-workspace-action=height]').forEach(grip => {setProperty(grip,'disabled',state.pinned);});
         // Docked panels need no floating-window geometry. These synchronous
         // layout reads previously ran for every module on every refresh.
         if(state.dock==='float'&&!owner.narrow){
-            const available=floatAvailable();shell.style.setProperty('--workspace-float-max-height', `${Math.max(48,available.bottom-available.top)}px`);
+            const available=floatAvailable();setStyle(shell, '--workspace-float-max-height', `${Math.max(48,available.bottom-available.top)}px`);
             const bounds=floatBounds(shell,state.width);
-            shell.style.left=`${Math.max(bounds.left,Math.min(state.x,bounds.right))}px`;
-            shell.style.top=`${Math.max(bounds.top,Math.min(state.y,bounds.bottom))}px`;
-            if(owner.gesture?.kind==='move'&&owner.gesture.active&&owner.gesture.id===state.id){shell.style.left=`${owner.gesture.x}px`;shell.style.top=`${owner.gesture.y}px`;}
-        }else {shell.style.left='';shell.style.top='';}
+            const dragging=owner.gesture?.kind==='move'&&owner.gesture.active&&owner.gesture.id===state.id;
+            setStyle(shell, 'left', `${dragging ? owner.gesture.x : Math.max(bounds.left,Math.min(state.x,bounds.right))}px`);
+            setStyle(shell, 'top', `${dragging ? owner.gesture.y : Math.max(bounds.top,Math.min(state.y,bounds.bottom))}px`);
+        }else {setStyle(shell, 'left', ''); setStyle(shell, 'top', '');}
         const d = owner.narrow ? 'center' : state.dock;
         const region=owner.root.dataset.parity==='r3'?parityRegion(state.id):null;
         const destination=owner.context==='authoring'&&['current-work','customization-preview'].includes(state.id)?owner.contextBar:region?owner.regions[region]:owner.docks[d];
         const key=destination===owner.contextBar?'context':region||d,index=counts[key]||0;counts[key]=index+1;
         if (destination.children[index] !== shell) destination.insertBefore(shell, destination.children[index] || null);
-        module.body.hidden = state.collapsed;
+        setProp(module.body, 'hidden', state.collapsed);
         syncPanelHeader(module,state,eligible);
-        shell.querySelector('[data-workspace-action="dock"]').value = state.dock;
-        ['width', 'height'].forEach(d => shell.querySelector(`[data-workspace-action="${d}"]`).value = state[d]);
+        setProp(shell.querySelector('[data-workspace-action="dock"]'), 'value', state.dock);
+        ['width', 'height'].forEach(d => setProp(shell.querySelector(`[data-workspace-action="${d}"]`), 'value', String(state[d])));
         ['handle', 'dock', 'earlier', 'later', 'float-left', 'float-right', 'float-up', 'float-down'].forEach(a => setProperty(shell.querySelector(`[data-workspace-action="${a}"]`),'disabled',state.pinned));
         syncRestore(module, state, known, eligible, false);
     });
     owner.board.querySelectorAll('[data-divider]').forEach(divider=>{
         const index=Number(divider.dataset.divider), share=owner.layout.columns.slice(0,index+1).reduce((a,b)=>a+b,0);
-        divider.style.left=`calc(${share*100}% + ${6+index*12-24*share}px)`;
-        divider.style.top='0px';divider.style.height='100%';
+        const left=`calc(${share*100}% + ${6+index*12-24*share}px)`; // calc() reserializes, so compare what was written
+        if(divider.workspaceLeft!==left){divider.workspaceLeft=left;divider.style.left=left;}
+        setStyle(divider,'top','0px');setStyle(divider,'height','100%');
     });
     if (focused?.isConnected && document.activeElement !== focused && !focused.closest('[hidden]')) focused.focus({ preventScroll: true });
 }
@@ -300,7 +308,9 @@ function resizeDivider(index, delta, persist = true) {
 }
 function presentationScale() { return owner.root.offsetWidth ? owner.root.getBoundingClientRect().width/owner.root.offsetWidth : 1; }
 function floatAvailable() {
-    const scale=presentationScale(), toolbarBottom=owner.toolbar.getBoundingClientRect().bottom/scale;
+    const scale=presentationScale(), toolbar=owner.toolbar.getBoundingClientRect();
+    // The toolbar caps floats only while it sits above them; docked in the footer bar it does not.
+    const toolbarBottom=toolbar.top<window.innerHeight/2 ? toolbar.bottom/scale : 0;
     const footer=document.getElementById('bottom_panel_div')?.getBoundingClientRect();
     const bottom=(footer && footer.top>0 && footer.top<window.innerHeight ? footer.top : window.innerHeight)/scale-8;
     return {top:Math.max(8,toolbarBottom+6),bottom};
@@ -380,6 +390,8 @@ function watchStartScreen() {
         const open = getComputedStyle(screen).visibility !== 'hidden'; document.documentElement.dataset.startScreen = open ? 'open' : 'closed';
         // The game behind the start screen leaves the tab order until PLAY.
         const game = document.getElementById('main_content'); if (game) game.inert = open;
+        // The title's infinite size animation relaid the page every frame behind the closed screen (E5).
+        const author = document.getElementById('loading_screen_author'); if (author) author.style.animationPlayState = open ? '' : 'paused';
         if (open && !play.classList.contains('none_display') && !play.dataset.focused) { play.dataset.focused = 'true'; play.focus({ preventScroll: true }); }
     };
     const observer = new MutationObserver(sync); observer.observe(screen, { attributes: true, attributeFilter: ['style', 'class'] }); observer.observe(play, { attributes: true, attributeFilter: ['class'] }); sync();
@@ -393,8 +405,10 @@ export function mountWorkspace({ root = document.getElementById('main_content') 
     const menu = el('details', 'workspace-layout-menu'), menuSummary = el('summary', '', 'Layout'), tools = el('div', 'workspace-layout-tools');
     menu.append(menuSummary, tools); toolbar.append(button('Authoring', 'context'), menu);
     const presentation=el('select');presentation.dataset.workspaceAction='presentation';presentation.setAttribute('aria-label','Presentation');
-    for(const [value,label]of [['existing','Existing layout'],['proto23-shell','Proto23 Shell'],['proto23-parity','Proto23 UI R12']]){const option=el('option','',label);option.value=value;presentation.append(option);}
-    toolbar.append(presentation,button('Comfortable','toggle-density'));tools.append(button('Edit layout', 'edit-layout'));
+    for(const [value,label]of [['existing','Existing layout'],['proto23-shell','Proto23 Shell'],['proto23-parity','Proto23 layout']]){const option=el('option','',label);option.value=value;presentation.append(option);}
+    // R13 dedupe: play shows one Layout menu (PROJECT); the presentation choice lives inside it.
+    const presentationLabel=el('label','','Presentation ');presentationLabel.append(presentation);
+    toolbar.append(button('Comfortable','toggle-density'));tools.append(presentationLabel,button('Edit layout', 'edit-layout'));
     const presetLabel = el('label', '', 'Layout '), presets = el('select'); presets.dataset.workspaceAction = 'preset'; ['Workspace', 'Classic', 'Focus', 'Compare'].forEach(v => { const o = el('option', '', v); o.value = v; presets.append(o); }); presetLabel.append(presets); tools.append(presetLabel, button('Reset layout', 'reset'));
     const densityLabel = el('label', '', 'Density '), density = el('select'); density.dataset.workspaceAction='density'; ['compact','comfortable','inspection'].forEach(v=>{const o=el('option','',v);o.value=v;density.append(o);}); densityLabel.append(density);tools.append(densityLabel);
     const colorsLabel = el('label', '', 'Colors '), colors = el('select'); colors.dataset.workspaceAction = 'colors'; [['standard','Standard'],['vivid','Vivid']].forEach(([v,t])=>{const o=el('option','',t);o.value=v;colors.append(o);}); colorsLabel.append(colors); tools.append(colorsLabel); colors.value = readColorScheme(); applyColorScheme(colors.value);

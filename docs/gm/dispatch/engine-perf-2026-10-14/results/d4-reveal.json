@@ -1,0 +1,14 @@
+{
+ "ticks": {
+  "ticks": 30,
+  "callbacks": 30,
+  "autosaves": 0
+ },
+ "msVisible": 8139,
+ "msHidden": 1194,
+ "saveIdentical": true,
+ "textIdentical": true,
+ "hiddenWasStaleBeforeReveal": true,
+ "diffLines": 0,
+ "diff": []
+}

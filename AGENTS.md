@@ -181,7 +181,8 @@ Several Claude and Codex sessions share this checkout and branch. Follow
 - Edit shared docs (USER_VISION, PROJECT, IDEA_INDEX) from disk, hunk only, and
   run its zero-loss check before committing.
 - Commit only your own paths from a fresh HEAD with a guarded branch update;
-  never stash, reset or force. Push waits for Weibao's yes.
+  never stash, reset or force. Push waits for Weibao's yes. No `Co-Authored-By`
+  trailer.
 - Merge finished, gate-passing lanes before dispatching a new wave, and check
   for same-day owner docs on the same topic.
 - Detach long Codex runs in their own process group, record session IDs and

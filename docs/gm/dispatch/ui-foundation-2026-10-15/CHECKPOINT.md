@@ -3,6 +3,38 @@
 2026-10-15. Single UI writer in the shared `codex/gameplay-foundations` tree.
 No commit or push. Preserve unrelated dirty work and calm-vivid changes.
 
+## Live-tree reconciliation, 2026-10-16
+
+[Round 15 plan NX15–NX19](next-parts/round-15-whole-plan.md#reconciliation-against-the-live-tree-2026-10-16):
+stray CSS brace fixed in `styles/ui_tokens.css` (focus-back style was dropped); UI slice and
+UI_RULES still uncommitted; ARCHITECTURE_RULES staged as deleted in the shared index; R15 still
+first. No rebuild, sweep or commit.
+
+## Audit reconciliation receipt, 2026-10-16
+
+[UA2](../../cross-audit-reconciliation-2026-10-15/UA2_NATIVE_2026-10-16.md)
+records current rebuilt Craft 1 activation and native transaction proof.
+[UA3](../../cross-audit-reconciliation-2026-10-15/UA3_PANELS_2026-10-16.md)
+assigns the three late ER11 panel observations: generated-people and storylet
+focus cases remain unverified; mixture repeat-count reset is stale, with active
+control continuity/native repetition still open. No panel fix or broad UI closure.
+[R14](R14_REPORT.md), [Round 15 current index](next-parts/round-15-whole-plan.md),
+[revised next parts](NEXT_PARTS_2026-10-15.md) and the
+[Oct16 mockup workflow](../../../MOCKUP_SYSTEM.md) remain current context; old
+ER11/R12 snapshots do not replace them. Reconciliation adds evidence only and
+claims no shared runtime writer, layout selection or human visual acceptance.
+
+## M2 foundation commit and R13 (Claude), 2026-10-15
+
+Weibao approved M2. The R1–R11 UI foundation is committed as `58b34e6` on top of
+R12 `94f5059`: UI modules, tokens, styles, UI wiring hunks of main.js, tests,
+rebuilt dist/index.html and these records (screenshots stay local). Verified on a
+clean export of exactly that tree: full suite 1773 pass / 0 fail / 3 todo; R11 fit
+and modes pass; R12 journey 20/20. Continuation, story aftermath, simulation clock,
+save validation and hero parking stay uncommitted for their owners. A stale empty
+`.git/index.lock` (12:16) was removed during the R12 commit. R13 follows
+[PARITY_INTENT](PARITY_INTENT_2026-10-15.md) B1 + B2 + B11; scope in R13_CHECKPOINT.
+
 ## Current: R12 native recipe clarity (Claude), 2026-10-15
 
 Claude received the handoff below and owns the six UI paths plus
@@ -229,3 +261,9 @@ Standard palette and 150% viewport emulation (not real zoom).
 
 Next S3. Reuse existing public Village scene shape and observer-safe traveler
 view. Keep Optional worlds / Your beginning menus unchanged. Human taste open.
+
+## R14 triage continuation, 2026-10-15
+
+Current task: [ranked next UI plan](UI_NEXT_2026-10-15.md), [R14 scope/reservation](R14_CHECKPOINT.md). Rebuilt matrix at1366×76814/21px and1920×1080 21px. P1/B5 recipe readiness selected; P2/A5+B8 inventory categories next. All choices are candidate proposals, human acceptance open; no commit authorized.
+
+R14 technically complete: [report](R14_REPORT.md), [comparison](http://127.0.0.1:19256/r14/comparison.html), [play synthetic fixture](http://127.0.0.1:19256/r14-demo.html). Recipe row readiness from native status; clean-export suite1,773pass/0fail/3TODO. Source reservation released. Next ranked P2/A5+B8 inventory categories. Visual/play acceptance open, no commit.

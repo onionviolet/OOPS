@@ -8,6 +8,7 @@ import { GameAction } from "../models/game_action.js";
 import { fill_market_regions } from "../market_saturation.js";
 
 import {global_flags} from "../runtime_state.js";
+import {readVillageLedgerSentence} from "../native_view.js";
 import { availabilities } from "./component_references.js";
 import { LocationType, SafeLocation, CombatZone, ChallengeZone, LocationCrafting, 
     LocationHousing, LocationActivity, LocationGatheringActivity } from "../models/location.js";
@@ -343,7 +344,8 @@ const favourite_locations = {};
 
             return base_text + `There is a relatively calm, somewhat small river south of it with ${locations["Village"].actions["bridge construction"].isFinished()?"a sturdy, impressive bridge over it":"no bridges over it"},` 
                              + ` and with some old structures on the other side, clearly not used for years if not longer. `
-                             + `Many villagers seem to have nothing to do ${locations["Infested woods"].enemy_groups_killed >= locations["Infested woods"].enemy_count?"but it's less than it used to be, with some already occupied on the other side of the river.":"and are just sitting around."}`;
+                             + `Many villagers seem to have nothing to do ${locations["Infested woods"].enemy_groups_killed >= locations["Infested woods"].enemy_count?"but it's less than it used to be, with some already occupied on the other side of the river.":"and are just sitting around."}`
+                             + (readVillageLedgerSentence() ? ` ${readVillageLedgerSentence()}` : "");
         },
         getBackgroundNoises: function() {
             let noises = ["*You hear some rustling*"];

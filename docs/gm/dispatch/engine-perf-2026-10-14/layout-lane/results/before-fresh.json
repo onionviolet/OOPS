@@ -1,0 +1,66 @@
+{
+ "label": "before-fresh",
+ "windows": [
+  {
+   "sec": 15,
+   "layoutsPerSec": 65.7,
+   "stylePerSec": 183,
+   "layoutMs": 183,
+   "styleMs": 113,
+   "scriptMs": 2019,
+   "busyPct": 18.2
+  },
+  {
+   "sec": 15,
+   "layoutsPerSec": 64.7,
+   "stylePerSec": 177.5,
+   "layoutMs": 218,
+   "styleMs": 107,
+   "scriptMs": 1949,
+   "busyPct": 18.1
+  }
+ ],
+ "errors": [],
+ "trace": [
+  [
+   "UpdateLayoutTree | t1@bundle.js?version=v0.6-cbda4592f8d0:1036:97485 < QMe@bundle.js?version=v0.6-cbda4592f8d0:1036:97578 < @bundle.js?version=v0.6-cbda4592f8d0:1036:94939",
+   304
+  ],
+  [
+   "UpdateLayoutTree | (no stack: rendering)",
+   177
+  ],
+  [
+   "Layout | (no stack: rendering)",
+   175
+  ],
+  [
+   "Layout | t1@bundle.js?version=v0.6-cbda4592f8d0:1036:97485 < QMe@bundle.js?version=v0.6-cbda4592f8d0:1036:97578 < @bundle.js?version=v0.6-cbda4592f8d0:1036:94939",
+   14
+  ],
+  [
+   "UpdateLayoutTree | g@bundle.js?version=v0.6-cbda4592f8d0:1036:114421 < b@bundle.js?version=v0.6-cbda4592f8d0:1036:114554 < w.onmessage@HackTimer.min.js:1:1294",
+   12
+  ],
+  [
+   "UpdateLayoutTree | readPreview@bundle.js?version=v0.6-cbda4592f8d0:1059:16292 < Xn@bundle.js?version=v0.6-cbda4592f8d0:1036:137635 < Aie@bundle.js?version=v0.6-cbda4592f8d0:1036:143735",
+   8
+  ],
+  [
+   "UpdateLayoutTree | @bundle.js?version=v0.6-cbda4592f8d0:1012:14090 < da@bundle.js?version=v0.6-cbda4592f8d0:1012:13666 < Lt@bundle.js?version=v0.6-cbda4592f8d0:1053:406447",
+   4
+  ],
+  [
+   "Layout | @bundle.js?version=v0.6-cbda4592f8d0:1012:14090 < da@bundle.js?version=v0.6-cbda4592f8d0:1012:13666 < Lt@bundle.js?version=v0.6-cbda4592f8d0:1053:406447",
+   4
+  ],
+  [
+   "Layout | readPreview@bundle.js?version=v0.6-cbda4592f8d0:1059:16292 < Xn@bundle.js?version=v0.6-cbda4592f8d0:1036:137635 < Aie@bundle.js?version=v0.6-cbda4592f8d0:1036:143735",
+   2
+  ],
+  [
+   "UpdateLayoutTree | o@bundle.js?version=v0.6-cbda4592f8d0:1036:131960 < @bundle.js?version=v0.6-cbda4592f8d0:1036:133210",
+   2
+  ]
+ ]
+}

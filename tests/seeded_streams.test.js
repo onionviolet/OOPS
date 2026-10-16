@@ -93,6 +93,10 @@ test('native lineup, loot, stock and pending fighter turns survive save/restore 
         const m=await import(pathToFileURL(outfile));let current=state(535);m.bindGameStreams(()=>current);
         Math.random=()=>{throw Error('unseeded gameplay draw');};
         globalThis.document={getElementById:()=>null};globalThis.setTimeout=()=>0;
+        // Guardian bleed chance draws the saved combat stream, so a restored save replays it.
+        const guardian=m.enemy_templates['Elite wolf rat guardian'],bleed=()=>{current=state(535);for(let i=0;i<40;i++)guardian.on_hit({});return clone(current);};
+        const bleedA=bleed();assert.deepEqual(bleed(),bleedA);
+        assert.equal(bleedA.streams.cells[scopedStream(STREAMS.combat)].n,40);
         const zone=new m.CombatZone({id:'test',name:'test',description:'test',enemies_list:['Starving wolf rat'],enemy_group_size:[2,4],enemy_stat_variation:.1});
         const start=clone(current),groupA=zone.get_next_enemies(),after=clone(current);
         current=clone(start);const groupB=zone.get_next_enemies();

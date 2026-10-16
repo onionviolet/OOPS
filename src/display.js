@@ -36,6 +36,7 @@ import { expo, format_reading_time, stat_names, round_item_price, format_working
 //import { stances } from "./combat_stances.js";
 import { recipes, get_recipe_xp_value, find_recipe_material, get_component_stats } from "./crafting_recipes.js";
 import {recipeMakeableNow, itemRecipeStatus} from "./crafting_visibility.js";
+import {craftCue} from "./craft_cues.js";
 import {renderCraftingDetail, focusFirstBlocker, craftReceiptText, UNKNOWN_MATERIAL_LABEL} from "./crafting_detail.js";
 import { effect_templates } from "./active_effects.js";
 import { player_storage } from "./data/storage.js";
@@ -135,7 +136,7 @@ function refreshConditionRows() {
         const text = conditionText(equipmentDurability, character, item);
         if(!text) { label?.remove(); continue; }
         if(!label) { label = document.createElement('span'); label.dataset.itemCondition = ''; row.append(label); }
-        label.textContent = text;
+        if(label.textContent !== text) label.textContent = text;
     }
 }
 
@@ -428,6 +429,8 @@ function obscure_name_to_type(item_id) {
 
 function create_floating_effect(text, pos) {
     const effect_elem = document.createElement("div");
+    // Cosmetic randomness (offset and path): never saved, never gameplay, so it
+    // stays on Math.random and cannot shift a seeded stream.
     pos.x = pos.x + Math.random()*80-40;
 
     effect_elem.style.top = pos.y + "px";
@@ -1789,8 +1792,13 @@ function update_displayed_trader_inventory({item_key, trader_sorting="name", sor
  * @param {Object} data
  * @param {Boolean} data.is_trade whethere player is in trade, affecting whether displayed price be basic or trade-specific
  */
+// Bumped on every displayed-inventory refresh; native inventory changes all pass
+// through here, so pollers can use it as a cheap change token.
+let inventory_display_revision = 0;
+export function inventoryDisplayRevision() {return inventory_display_revision;}
 function update_displayed_character_inventory({item_key, equip_slot, character_sorting, sorting_direction="asc", was_anything_new_added=false, is_trade=false, skip_sorting=false} = {}) {
     if(deferSimulationRender(update_displayed_character_inventory, () => update_displayed_character_inventory({character_sorting, sorting_direction, is_trade}))) return;
+    inventory_display_revision++;
     if(document.getElementById("crafting_window").style.display === "block") apply_crafting_filter();
     //removal of unneeded divs
 
@@ -1898,15 +1906,19 @@ function update_displayed_character_inventory({item_key, equip_slot, character_s
                 was_anything_new_added = true;
             } else {
                 //in display, just update it
-                let div_count = Number.parseInt(item_divs[inventory_key].getElementsByClassName("item_count")[0].innerText.replace("x",""));
+                // textContent, not innerText: reading innerText after the previous
+                // row's writes forced a layout per row. Rows are written only where
+                // their count, name, tooltip or price actually changed.
+                const count_span = item_divs[inventory_key].getElementsByClassName("item_count")[0];
+                let div_count = Number.parseInt(count_span.textContent.replace("x",""));
                 if(Number.isNaN(div_count)) {
                     div_count = 0;
                 }
                 if(div_count != item_count) {
                     if(item_count > 1) {
-                        item_divs[inventory_key].getElementsByClassName("item_count")[0].innerText = ` x${item_count}`;
+                        count_span.textContent = ` x${item_count}`;
                     } else {
-                        item_divs[inventory_key].getElementsByClassName("item_count")[0].innerText = ``;
+                        count_span.textContent = ``;
                     }
                 }
 
@@ -1915,18 +1927,22 @@ function update_displayed_character_inventory({item_key, equip_slot, character_s
                 // A newly learned identity can change a retained vial row even
                 // when its quantity did not change. Keys/counts stay untouched.
                 const fieldcraft_view=nativeItemView(character.getItems()[inventory_key].item);
-                if(fieldcraft_view.charge!==null){const label=item_divs[inventory_key].querySelector(".item_name");if(label)label.textContent=fieldcraft_view.name;}
+                if(fieldcraft_view.charge!==null){const label=item_divs[inventory_key].querySelector(".item_name");if(label&&label.textContent!==fieldcraft_view.name)label.textContent=fieldcraft_view.name;}
                 //overwrite tooltip (for displayed prices)
                 const tooltip_div = item_divs[inventory_key].querySelector(".item_tooltip");
-                tooltip_div.replaceWith(create_item_tooltip(character.getItems()[inventory_key].item, {}, is_trade));
+                const next_tooltip = create_item_tooltip(character.getItems()[inventory_key].item, {}, is_trade);
+                if(!tooltip_div.isEqualNode(next_tooltip)) tooltip_div.replaceWith(next_tooltip);
 
                 //grab and update price div, do it for all as trading can affect prices of multiple items
                 if(!character.getItems()[inventory_key].item.tags.unsellable) {
                     const price_span = item_divs[inventory_key].getElementsByClassName("item_value")[0];
-                    if(is_trade) {
-                        set_HTML(price_span, `${format_money(round_item_price(character.getItems()[inventory_key].item.getValue({region: current_location.market_region})), true)}`);
-                    } else {
-                        set_HTML(price_span, `${format_money(round_item_price(character.getItems()[inventory_key].item.getBaseValue()), true)}`);
+                    const price_html = is_trade
+                        ? `${format_money(round_item_price(character.getItems()[inventory_key].item.getValue({region: current_location.market_region})), true)}`
+                        : `${format_money(round_item_price(character.getItems()[inventory_key].item.getBaseValue()), true)}`;
+                    if(price_span.__item_value_html !== price_html || price_span.innerHTML !== price_span.__item_value_rendered) {
+                        set_HTML(price_span, price_html);
+                        price_span.__item_value_html = price_html;
+                        price_span.__item_value_rendered = price_span.innerHTML;
                     }
                 }
             }
@@ -3338,15 +3354,45 @@ function build_item_recipe_model(selection) {
         else if(requirements.some(r => r.held_back)) blocked_reason = "Can't craft now: a material is reserved, or you are busy elsewhere.";
         else blocked_reason = "Can't craft this right now.";
     }
-    const receipt = crafting_receipt?.key === item_recipe_key(selection) ? crafting_receipt.text : "";
+    const last = crafting_receipt?.key === item_recipe_key(selection) ? crafting_receipt : null;
+    const receipt = last?.text || "";
+    const cue = last ? craftCue(last.skill_id, last.skill_level, last)
+        : craftCue(recipe.recipe_skill, skill.getCurrentLvl(), {count});
     const back = item_recipe_return && item_recipe_key(item_recipe_return.selection) !== item_recipe_key(selection) ? item_recipe_return.title : "";
     return {title: recipe.name, requirements, attempts: state.amount,
         effects: item_recipe_result_effects(item_templates[result_id]),
         related: item_recipe_related_uses(selection, known_ids, result_id), back,
         output: {name: item_templates[result_id].getName(), count, scaled: !!recipe.scale_results && count > 1},
         chance, station: station_tier > 0 ? `${station_name}, tier ${station_tier}` : `${station_name}: not available here`,
-        xp, available: state.available, blocked_reason, receipt,
+        xp, available: state.available, blocked_reason, receipt, cue,
         result_details: create_item_tooltip_content({item: item_templates[result_id], options: {skip_quality: true, anchor_tooltip: true}})};
+}
+
+// R14: one observer-safe row summary from the same native status as the detail/guard.
+function update_item_recipe_row_status(row, category, recipe) {
+    const state = item_recipe_state(category, recipe);
+    row.classList.toggle("recipe_unavailable", !state.available);
+    let summary = row.querySelector(".recipe_readiness");
+    if(!summary) {
+        summary = document.createElement("span");
+        summary.className = "recipe_readiness";
+        row.append(summary);
+    }
+    const short = state.available ? `${state.amount} ready`
+        : state.reasons.includes("no station here") ? "No station"
+        : state.requirements.some(r => r.missing) ? "Missing"
+        : "Unavailable";
+    const explanation = state.available
+        ? `${state.amount} ${state.amount === 1 ? "attempt" : "attempts"} ready; results may vary`
+        : state.reasons.includes("no station here") ? "No station here"
+        : state.requirements.some(r => r.missing) ? "Missing materials; select for requirements"
+        : "Unavailable; select for requirements";
+    summary.textContent = short;
+    summary.title = explanation;
+    summary.dataset.ready = String(state.available);
+    summary.setAttribute("aria-hidden", "true");
+    const count = recipe.getResult().count;
+    row.setAttribute("aria-label", `${recipe.name}${count > 1 ? `; output ×${count}` : ""}; ${explanation}`);
 }
 
 function refresh_crafting_detail() {
@@ -3361,7 +3407,7 @@ function refresh_crafting_detail() {
     if(page) {
         for(const row of page.querySelectorAll(".recipe_div[data-recipe_id]")) {
             const recipe = recipes[selected_crafting_category].items[row.dataset.recipe_id];
-            row.classList.toggle("recipe_unavailable", !item_recipe_state(selected_crafting_category, recipe).available);
+            update_item_recipe_row_status(row, selected_crafting_category, recipe);
             row.setAttribute("aria-selected", String(is_selected_item_recipe(selected_crafting_category, "items", row.dataset.recipe_id)));
         }
         sync_item_recipe_tabstops(page);
@@ -3394,13 +3440,15 @@ function commit_selected_item_recipe(amount) {
         }
     }
     const skill = skills[recipe.recipe_skill];
+    const skill_level = skill.getCurrentLvl(); // Capture before craft XP can level the skill.
     const made_before = resultCount(), xp_before = skill.getTotalXP();
     const list = row.parentNode, scroll = list.scrollTop;
     window.useRecipe(row.querySelector(".recipe_item_name"), amount);
     const items = character.getItems();
     const used = Object.entries(inputs).map(([key, v]) => ({name: v.name, count: v.before - (items[key]?.count || 0)})).filter(u => u.count > 0);
-    crafting_receipt = {key: item_recipe_key(selection), text: craftReceiptText({
-        made: resultCount() - made_before, result_name: item_templates[recipe.getResult().result_id].getName(),
+    const made = resultCount() - made_before;
+    crafting_receipt = {key: item_recipe_key(selection), skill_id: recipe.recipe_skill, skill_level, made, text: craftReceiptText({
+        skill_id: recipe.recipe_skill, skill_level, made, result_name: item_templates[recipe.getResult().result_id].getName(),
         used, xp: skill.getTotalXP() - xp_before})};
     refresh_crafting_detail();
     list.scrollTop = scroll;
@@ -3470,7 +3518,7 @@ function add_crafting_recipe_to_display({ category, subcategory, recipe_id }) {
             count_span.innerText = ` x${result_count}`;
             recipe_name_span.after(count_span);
         }
-        recipe_div.classList.toggle("recipe_unavailable", !item_recipe_state(category, recipe).available);
+        update_item_recipe_row_status(recipe_div, category, recipe);
 
         // Crafting screen: a click or Enter selects; crafting happens only from the detail's Craft button.
         recipe_div.setAttribute("role", "option");
@@ -3646,7 +3694,7 @@ function update_displayed_crafting_recipe({category, subcategory, recipe_id}) {
     const recipe = recipes[category][subcategory][recipe_id];
 
     if(subcategory === "items") {
-        recipe_div.classList.toggle("recipe_unavailable", !item_recipe_state(category, recipe).available);
+        update_item_recipe_row_status(recipe_div, category, recipe);
         update_recipe_tooltip({category, subcategory, recipe_id});
     } else if (subcategory === "components" || recipe.recipe_type === "component") {
         //if(recipe.get_availability().available_ammount) {
@@ -3985,7 +4033,7 @@ function update_item_recipe_visibility() {
                     return;
                 }
                 const recipe_div = crafting_pages[recipe_category][recipe_subcategory].querySelector(`[data-recipe_id="${recipe}"]`);
-                recipe_div.classList.toggle("recipe_unavailable", !item_recipe_state(recipe_category, recipes[recipe_category][recipe_subcategory][recipe]).available);
+                update_item_recipe_row_status(recipe_div, recipe_category, recipes[recipe_category][recipe_subcategory][recipe]);
             });
         })
     });
@@ -4763,8 +4811,6 @@ function update_displayed_reputation() {
 function update_displayed_item_log() {
     if(deferSimulationRender(update_displayed_item_log, () => update_displayed_item_log(...arguments))) return;
 
-    set_HTML(data_entry_divs.item_log,`<div id='item_log_header'>Item log</div>`)
-
     let html_content = "<table id='item_log_table'><tr><th>Item</th><th>Best</th><th>Total</th><th>Known bestiary sources</th></tr>";
 
     Object.values(item_log.items).forEach(item => {
@@ -4797,7 +4843,13 @@ function update_displayed_item_log() {
 
     html_content += "</table>";
 
-    insert_HTML(data_entry_divs.item_log, html_content);
+    // An unchanged log keeps its nodes; a change rebuilds the same markup as before.
+    const log_div = data_entry_divs.item_log;
+    if(log_div.__item_log_html === html_content && log_div.childNodes.length === 2 && log_div.lastChild === log_div.__item_log_table) return;
+    set_HTML(log_div,`<div id='item_log_header'>Item log</div>`)
+    insert_HTML(log_div, html_content);
+    log_div.__item_log_html = html_content;
+    log_div.__item_log_table = log_div.lastChild;
 }
 
 

@@ -3105,3 +3105,145 @@ or claude.md?", then approval to fold repo-rule memories. Shared guidance now li
 where both agents read it: AGENTS.md (rules index upkeep, design framing, research
 lens, shared-tree rules) and [shared worktree practice](gm/SHARED_WORKTREE_PRACTICE.md).
 No separate CODEX.md: Codex reads AGENTS.md and CLAUDE.md imports it.
+
+### Subsystem scope ladders, 2026-10-16
+
+Weibao:
+
+> for like the part 9 complexity and scope stuff, send similar complexity scoping for subsystems and more? like for fishing, Farming, ranching, other possible actions and more?
+
+Requested: Part 9-style complexity and scope guidance for activity subsystems.
+Answered as proposals in
+[subsystem scope ladders](SUBSYSTEM_SCOPE_LADDERS_2026-10-16.md): six dials
+per subsystem (space, stock, time, actors, knowledge, consumers), per-subsystem
+ladders for fishing, farming and ranching, a compact table for fifteen other
+activities, shared primitives (pools, condition tags, promotion, lazy catch-up),
+impossible scopes with achievable versions and a deferral register under the
+accepted CX1–CX8. Planning only; no slice or build order selected.
+
+### Part 9 complexity, NPCs and openness, 2026-10-16
+
+Weibao, on Part 9:
+
+> for part 9 sutff, Consider how other games and more deal wioth levels of complexities like these> more to consider? would we need to implement each npc and more? that would be really tough, More to Consider ? Scopes that are impossible to achieve? more to consider for the current format? maybe we need to setup guides so we cant reach that level of complexity quite yet and defer alot of things for the future? How to make it open world as possible and more? Generating things? Creating core things, interactions and more?
+
+Requested: how other games manage this complexity, whether every NPC must be
+implemented, which scopes are impossible, guides that defer complexity, how to
+stay open-world, generation, and core things/interactions. Recorded in the
+[Part 9 complexity and openness pass](gm/dispatch/ui-foundation-2026-10-15/next-parts/part-9-complexity-and-openness.md)
+(P9Z). Its people ladder, guardrails CX1–CX8 and deferral register are agent
+proposals, not accepted rules. Planning only; the NPC deprioritization and the
+2026-10-16 complexity clarification (depth welcome, cost managed) stand.
+
+## Architecture rules and modular seams run, 2026-10-16
+
+Weibao, after the [modularity assessment](reviews/MODULARITY_AND_REWRITE_ASSESSMENT_2026-10-16.md)
+and Claude's review of it:
+
+> make a codex run to fix accordingly and create rules accordingly?
+
+Accepted: no whole-game rewrite; restructure around replaceable domain boundaries
+one connected slice at a time (assessment O2). Standing rules live in
+[architecture rules](ARCHITECTURE_RULES.md) AR1–AR16: `main.js` becomes a
+composition root, domains register through one registry, one authority per fact,
+no import cycles, namespaced save slices, structural moves kept separate from
+behavior, and a boundary counts only when a player journey crosses it. Execution
+runs in the [modular seams dispatch](gm/dispatch/modular-seams-2026-10-16/CHECKPOINT.md):
+break the display/main cycle and add an architecture check, add the domain
+registry with existing domains migrated behavior-preserving, then wire crafting
+as the first new consumer. This does not change UI, making, site or procedural
+priorities.
+
+### Complexity guardrails accepted; canon, areas and saves, 2026-10-16
+
+Weibao, on the Part 9 complexity pass:
+
+> I like these rules, but how do we implement entire cannon with these rules in consideration? How to implement gameplay areas and content accordingly? Save accordingly?
+
+Accepted: guardrails CX1–CX8 in the
+[Part 9 complexity pass](gm/dispatch/ui-foundation-2026-10-15/next-parts/part-9-complexity-and-openness.md#guides-complexity-guardrails)
+pace depth (depth on demand, connect before adding, rules over pairs, promote
+instead of pre-simulating, declared budgets, honest coverage, one slice at a
+time, deferral register with reopen triggers). They limit when depth arrives,
+not how much the game may eventually have. The deferral register entries,
+people ladder and other P9Z items remain proposals. Requested and answered as
+proposals: how whole canon, gameplay areas and saves work under these rules
+([P9Y](gm/dispatch/ui-foundation-2026-10-15/next-parts/part-9-complexity-and-openness.md#whole-canon-gameplay-areas-and-saves-under-cx1cx8-2026-10-16)).
+Planning only.
+
+### Full detail, every student, engine limits and pack loader, 2026-10-16
+
+Weibao:
+
+> HOw to implement with full considerations and little details and everything? All the students? relevant characters and more? We can rescope external rules like the size budget by converting into real game engine and more? more to consider? Rules for World pack loader and more? Connecting with the procedural stuff?
+
+Direction recorded: full detail and whole student bodies are wanted, and
+external limits such as the save size cap may be rescoped rather than treated as
+design ceilings. Answered as proposals in
+[P9Q](gm/dispatch/ui-foundation-2026-10-15/next-parts/part-9-complexity-and-openness.md#full-detail-every-student-engine-limits-pack-loader-rules-and-procedural-links-2026-10-16):
+layered rosters with derived presence, the 4 MiB cap identified as a
+localStorage guard with storage options, loader rules WP1–WP15 and one loader
+for canon and generated worlds. Nothing selected or dispatched; any storage
+change needs a migration decision.
+
+### World pack loader dispatched, 2026-10-16
+
+Weibao:
+
+> Send out the world pack loader but consider aspects like subtle details and world gen? procedural systems? Following different rule books like rulebooks and other stuff and more? more to consider?
+
+Authorized: dispatch the world pack loader. Considerations are in
+[P9P](gm/dispatch/ui-foundation-2026-10-15/next-parts/part-9-complexity-and-openness.md#world-pack-loader-dispatch-considerations-2026-10-16):
+build on the two existing pack systems rather than adding a third, rule
+profiles through rule modules, world generation and procedural systems as pack
+slots, and rulebook licence and ruling status per record. The lane (branch
+`world-pack-loader`) delivers a design note and an additive first slice tested
+on a synthetic test-school pack. No runtime wiring, save-format change or
+storage move; gameplay stays implemented-unverified until a wiring step is
+separately approved.
+
+### World types and universe/multiverse rule sets, 2026-10-16
+
+Weibao:
+
+> what about type of world and more? different rule of world? Different rule of set of uni or multiverse, more to consider/
+
+Requested consideration of world types, per-world rules and rule sets at
+universe and multiverse level, in the context of the world pack loader. Answered
+as proposals in
+[P9M](gm/dispatch/ui-foundation-2026-10-15/next-parts/part-9-complexity-and-openness.md#world-types-world-rules-and-universemultiverse-rule-sets-2026-10-16):
+world type as independent axes with presets, a rule ladder from multiverse to
+actor, an authority model per crossing, and data-versus-hook classification.
+Existing owners (MULTIVERSE_STRUCTURES, rulebooks MV1–MV20, CHEAT_COSMOLOGY)
+stay authoritative. The loader lane received a manifest addendum; the missing
+multiverse/cluster/universe rule layers are a proposal for the rule-module owner.
+
+### Series, multiverses and handling subtleties, 2026-10-16
+
+Weibao:
+
+> Would a multiverse be considered a book world? maybe multiple book worlds of the same series? more to consider? Ad the subtle details and more, but then we will need to consider the subtltiies of how everything works and more?
+
+Requested: whether a multiverse counts as a book world, how several worlds of
+one series fit, added subtle details, and how to handle the subtleties of how
+everything works. Answered as proposals in
+[P9S](gm/dispatch/ui-foundation-2026-10-15/next-parts/part-9-complexity-and-openness.md#series-multiverses-and-how-subtleties-are-handled-2026-10-16):
+source and structure are separate axes; cosmology, series and continuity packs
+share one format; the game's frame cosmology hosts series clusters; subtleties
+are handled through invariants INV1–INV10 with generic tests and a subtlety
+register rather than enumerated upfront. The loader lane received an addendum.
+
+## Game name irony and core loop scope, 2026-10-16
+
+Weibao, on renaming the game:
+
+> Yet another is part of the irony, since its not jusy another one, thoughts? Webnovel RPG? fiction engine? but that sounds too bougie
+
+Then:
+
+> heir loop doesnt have to be the core loop, the core loop should probably be scoped properly upcoming? /more-to-consider Might need. seperate deeper considerations
+
+Recorded: keep the "Yet another" irony in any new name; "fiction engine" is too
+bougie as a name. No name is selected. The heir/lineage loop is not presumed to
+be the core loop; the core loop needs its own scoping pass. Considerations live
+in the [engine and identity thread](reviews/ENGINE_AND_IDENTITY_THREAD_2026-10-16.md).

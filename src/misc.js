@@ -64,10 +64,13 @@ function clamp(x, min, max) {
  * 
  * @param {Number} min 
  * @param {Number} max 
+ * @param {Function} [random] unit draw; gameplay callers pass a seeded stream
  * @returns "random" integer in provided range, min and max both included
  */
-function random_range(min, max) {
-    return Math.round(Math.random() * (max-min) + min);
+function random_range(min, max, random = Math.random) {
+    // Unbound fallback only: native craft commits reach this through seededRecipe's
+    // roll_quality, which draws the saved craft stream instead.
+    return Math.round(random() * (max-min) + min);
 }
 
 function slerp(arr, t) {

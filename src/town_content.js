@@ -78,3 +78,9 @@ export function townQuestView(state) {
         : "Ask about work at the survey office in Town square.";
     return {id: "town.survey", name: "Survey office", description, objective, completed: !!facts["town.returned"]};
 }
+
+// Pure projection of an existing saved fact. No adoption state or viewing reward.
+export const VILLAGE_LEDGER_CUES = {sight: 'Travelers use the corrected signs copied from your ledger.'};
+export function villageLedgerSentence(state) {
+    return state?.actors?.player?.facts?.['town.returned'] === true ? VILLAGE_LEDGER_CUES.sight : '';
+}

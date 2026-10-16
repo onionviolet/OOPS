@@ -1,0 +1,29 @@
+{
+ "N": 480,
+ "singleN": 60,
+ "fastForward": {
+  "res": {
+   "ticks": 480,
+   "callbacks": 480,
+   "autosaves": 1,
+   "slices": 270,
+   "maxSliceMs": 39.7,
+   "wallMs": 6977
+  },
+  "longTasks": 0,
+  "longTaskMaxMs": 0,
+  "lt": []
+ },
+ "ffErrors": [],
+ "advanceTicks": {
+  "res": {
+   "ticks": 480,
+   "callbacks": 480,
+   "autosaves": 1
+  },
+  "wallMs": 7029
+ },
+ "ffEqualsAdvanceTicks": true,
+ "ffStoredEqualsAt": true,
+ "ffEqualsSingleTicks": true
+}

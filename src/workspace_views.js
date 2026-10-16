@@ -43,8 +43,9 @@ export function createWorkspaceViews({read,combatKnown=()=>false}) {
     const taskObserver=new MutationObserver(syncTask);tasks.forEach(t=>taskObserver.observe(t,{attributes:true,attributeFilter:['style','class']}));syncTask();
     let proseText='';
     const syncProse=()=>{if(!prose)return;if(prose.textContent!==proseText){proseText=prose.textContent;prose.dataset.proseOpen='false';}
-        const open=prose.dataset.proseOpen==='true';more.hidden=!open&&prose.scrollHeight<=prose.clientHeight+1;
-        more.textContent=open?'Less':'More about this place';more.setAttribute('aria-expanded',String(open));};
+        // Each 250 ms tick writes only what changed, so an idle board keeps style and layout clean.
+        const open=prose.dataset.proseOpen==='true',hidden=!open&&prose.scrollHeight<=prose.clientHeight+1,label=open?'Less':'More about this place';
+        if(more.hidden!==hidden)more.hidden=hidden;if(more.textContent!==label)more.textContent=label;if(more.getAttribute('aria-expanded')!==String(open))more.setAttribute('aria-expanded',String(open));};
     let signature='';
     const render=()=>{
         references.render();
@@ -54,8 +55,9 @@ export function createWorkspaceViews({read,combatKnown=()=>false}) {
             ownership.textContent=view.canWrite?'Saving available.':view.error||'Read only. Restore saving before starting work.';
             ownership.className=view.canWrite?'':'workspace-warning';jump.hidden=!view.waiting&&!view.work.length&&view.canWrite;}
         // Generic world palettes stay deliberately independent of sealed IDs.
-        document.documentElement.dataset.world = !view.world || view.world === 'base.frontier' ? 'native' : view.world;
-        document.getElementById('main_content').dataset.worldTheme=view.away?'cool':'warm';
+        const world=!view.world || view.world === 'base.frontier' ? 'native' : view.world,theme=view.away?'cool':'warm',root=document.getElementById('main_content');
+        if(document.documentElement.dataset.world!==world)document.documentElement.dataset.world=world;
+        if(root.dataset.worldTheme!==theme)root.dataset.worldTheme=theme;
         updateWorkspace();
     };
     const nativeHost=document.getElementById('location_related_div');

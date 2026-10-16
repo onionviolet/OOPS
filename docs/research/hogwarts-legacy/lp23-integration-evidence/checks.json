@@ -1,0 +1,26 @@
+{
+  "build": {
+    "command": "npm run build",
+    "exitCode": 0,
+    "inkDiagnostics": 0
+  },
+  "focused": {
+    "command": "node --test tests/lever_lesson.test.js tests/lever_assignment.test.js tests/lp3_practice_supply.test.js",
+    "tests": 16,
+    "pass": 16,
+    "fail": 0,
+    "todo": 0,
+    "durationMs": 1640.642333
+  },
+  "full": {
+    "command": "npm test",
+    "tests": 1484,
+    "pass": 1481,
+    "fail": 0,
+    "todo": 3,
+    "skipped": 0,
+    "cancelled": 0,
+    "durationMs": 200345.807667
+  },
+  "bundleSha256": "836d97ca8e0bb72d99af1253048b5bd741911295753988ac1c41440eaa59a2eb"
+}

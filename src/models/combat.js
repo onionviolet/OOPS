@@ -18,14 +18,88 @@ import { item_templates } from "../items.js";
 import {add_xp_to_character, add_xp_to_skill, change_stance, current_stance, finish_combat_round, game_stats, kill_target, kill_player, process_current_loot, tickrate, use_stamina} from "../main.js";
 import {game_options, selected_stance} from "../runtime_state.js";
 import { get_hit_chance } from "../misc.js";
-import { do_onhit_animation, do_onstart_animation, fill_fighter_divs, remove_onhit_animation, update_attack_bar, update_displayed_health_of_fighter } from "../ui/combat_display.js";
+import { do_onhit_animation, do_onstart_animation, fill_fighter_divs, remove_onhit_animation, update_displayed_health_of_fighter } from "../ui/combat_display.js";
 
 let maximum_time_correction = 10;
+
+// An attack cycle is 60 sub-ticks. Each sub-tick used to be its own engine timer that only
+// moved the bar and the drift correction; the swing happens on the 60th. The same sub-tick
+// arithmetic now runs in plain code, and only two timers are armed per cycle: one at the
+// 59th sub-tick deadline (which arms the 60th exactly as before, so its timer id order and
+// drift correction match) and the 60th, which swings. Bars animate from the same deadlines.
+const SUBTICKS = 60;
+let schedule_sequence = 0;
+let running_final = null; // the cycle whose 60th sub-tick callback is executing
+
+const subtick_interval = (actual_cooldown, rate) => actual_cooldown*1000/(60*rate);
+
+/** The engine due time of sub-ticks from..59 when each fires on time, as engine timers did when stepped. */
+function plan_subticks({from, alloc, state, actual_cooldown, rate}) {
+    const dues = [], states = [];
+    let {prev, acc, adj} = state, t = alloc;
+    for(let k = from; k < SUBTICKS; k++) {
+        const interval = subtick_interval(actual_cooldown, rate);
+        const due = t + Math.max(0, interval - adj);
+        const timing = nextAttackTiming(prev, due, interval, acc, maximum_time_correction/rate);
+        prev = due; acc = timing.variance; adj = timing.adjustment; t = due;
+        dues[k] = due; states[k] = {prev, acc, adj};
+    }
+    return {dues, states};
+}
+
+/** Whether old sub-tick k of cycle b was allocated, so ran, before sub-tick j of cycle a when both are due together. */
+function allocated_earlier(b, k, a, j) {
+    for(;;) {
+        const alloc_b = k > b.from ? b.dues[k - 1] : b.alloc;
+        const alloc_a = j > a.from ? a.dues[j - 1] : a.alloc;
+        if(alloc_b !== alloc_a) return alloc_b < alloc_a;
+        if(k <= b.from || j <= a.from) return b.seq < a.seq;
+        k--; j--;
+    }
+}
+
+/** Sub-ticks of a cycle that the old per-sub-tick timers would have run by engine time now. */
+function fired_subticks(schedule, now) {
+    if(schedule.prefinal_done) return SUBTICKS - 1;
+    let fired = schedule.from - 1;
+    for(let k = schedule.from; k < SUBTICKS; k++) {
+        const due = schedule.dues[k];
+        if(due > now) break;
+        // A tie runs in timer allocation order; outside a swing every due timer has run.
+        if(due === now && (k === SUBTICKS - 1 || running_final) && !(running_final && allocated_earlier(schedule, k, running_final, SUBTICKS))) break;
+        fired = k;
+    }
+    return fired;
+}
+
+const bar_animations = new WeakMap();
+function draw_attack_bar(slot, fighter_index, progress, remaining_ms) {
+    const bar = slot?.children?.[fighter_index]?.querySelector?.("[data-attack_bar]");
+    if(!bar) return;
+    bar_animations.get(bar)?.cancel();
+    bar_animations.delete(bar);
+    bar.style.width = "100%";
+    bar.style.transformOrigin = bar.classList.contains("enemy_attack_bar") ? "right" : "left";
+    bar.style.transform = `scaleX(${Math.min(progress, 1)})`;
+    if(remaining_ms > 0 && typeof bar.animate === "function") {
+        bar_animations.set(bar, bar.animate([{transform: `scaleX(${Math.min(progress, 1)})`}, {transform: "scaleX(1)"}],
+            {duration: remaining_ms, easing: "linear", fill: "forwards"}));
+    }
+}
+function freeze_attack_bar(slot, fighter_index) {
+    const bar = slot?.children?.[fighter_index]?.querySelector?.("[data-attack_bar]");
+    const animation = bar && bar_animations.get(bar);
+    if(!animation) return;
+    const progress = getComputedStyle(bar).transform;
+    animation.cancel(); bar_animations.delete(bar);
+    if(progress && progress !== "none") bar.style.transform = progress;
+}
 
 class Combat {
 
     #turns = {attackers:[], defenders:[]};
     #pendingLoops = {};
+    #schedules = {};
     #resume;
     #settledTargets = new WeakSet();
 
@@ -85,12 +159,12 @@ class Combat {
 
     snapshot(locationId) {
         if(this.is_special_combat || this.actionAdapter || this.is_ended) return null;
-        return {schema:1,locationId,key:this.rngKey,turns:structuredClone(this.#turns),loops:structuredClone(Object.fromEntries(Object.entries(this.#pendingLoops).filter(([key])=>{const [side,index]=key.split(":");return this[side][index]?.is_alive;}))),
+        return {schema:1,locationId,key:this.rngKey,turns:structuredClone(this.#turns),loops:structuredClone(Object.fromEntries(Object.entries(this.#loopsNow()).filter(([key])=>{const [side,index]=key.split(":");return this[side][index]?.is_alive;}))),
             enemies:this.defenders.map(e=>({template:e.templateKey || e.name,key:e.rngKey,stats:{...e.stats},full:{...e.getFullStats()},alive:e.is_alive,...(e.harvestDamage?{harvestDamage:structuredClone(e.harvestDamage)}:{})}))};
     }
 
     strikeCheckpoint() {
-        return {turns:structuredClone(this.#turns),loops:structuredClone(this.#pendingLoops),ended:this.is_ended,options:this.combatOptions?.snapshot()};
+        return {turns:structuredClone(this.#turns),loops:structuredClone(this.#loopsNow()),ended:this.is_ended,options:this.combatOptions?.snapshot()};
     }
     restoreStrikeCheckpoint(s) {
         this.#turns=structuredClone(s.turns);this.#pendingLoops=structuredClone(s.loops);this.is_ended=s.ended;
@@ -249,35 +323,38 @@ class Combat {
     doAttackLoop({fighter_index, is_attacker, base_cooldown, actual_cooldown, attack_power, targets, target_count, is_new = false, count = 0}) {
         if(this.is_ended) { return; }
 
-        const fighter = is_attacker ? this.attackers[fighter_index] : this.defenders[fighter_index];
-
-        const side=is_attacker ? "attackers" : "defenders";
-        this.#pendingLoops[`${side}:${fighter_index}`]={base_cooldown,actual_cooldown,attack_power,target_count,count,
-            targets:targets.map(t=>(is_attacker ? this.defenders : this.attackers).indexOf(t))};
-        update_attack_bar({fighter_index, is_attacker, progress: count/60});
-
+        const side=is_attacker ? "attackers" : "defenders", key=`${side}:${fighter_index}`;
         const fighter_data = is_attacker ? this.#data.attackers : this.#data.defenders;
+        // Clearing first records where an interrupted cycle's drift correction stood, as its last sub-tick left it.
+        this.clearAttackLoop({fighter_index, is_attacker});
+
+        const entry = this.#pendingLoops[key] = {base_cooldown,actual_cooldown,attack_power,target_count,count,
+            targets:targets.map(t=>(is_attacker ? this.defenders : this.attackers).indexOf(t))};
 
         if(is_new) {
             fighter_data.time_variance_acumulators[fighter_index] = 0;
             fighter_data.timer_adjustments[fighter_index] = 0;
         }
 
-        this.clearAttackLoop({fighter_index, is_attacker});
-        fighter_data.attack_loops[fighter_index] = engineTimeout(() => {
+        const now = engineNow();
+        const schedule = {seq: ++schedule_sequence, from: count + 1, alloc: now, entry, dues: [], states: [], prefinal_done: false,
+            initial: {prev: fighter_data.timers[fighter_index][1], acc: fighter_data.time_variance_acumulators[fighter_index], adj: fighter_data.timer_adjustments[fighter_index]}};
+        this.#schedules[key] = schedule;
+
+        const final_subtick = () => {
             if(this.is_ended) { return; }
             const now=engineNow();
-            const timing=nextAttackTiming(fighter_data.timers[fighter_index][1],now,actual_cooldown*1000/(60*tickrate),
+            const timing=nextAttackTiming(fighter_data.timers[fighter_index][1],now,subtick_interval(actual_cooldown, tickrate),
                 fighter_data.time_variance_acumulators[fighter_index],maximum_time_correction/tickrate);
             fighter_data.timers[fighter_index][0]=now;
             fighter_data.timers[fighter_index][1]=now;
             fighter_data.time_variance_acumulators[fighter_index]=timing.variance;
             fighter_data.timer_adjustments[fighter_index]=timing.adjustment;
+            if(this.#schedules[key] === schedule) delete this.#schedules[key];
 
-            update_attack_bar({fighter_index, is_attacker, progress: count/60});
-            count++;
-            if(count >= 60) {
-                count = 0;
+            const outer = running_final;
+            running_final = schedule;
+            try {
                 const resolve=()=>this.resolveExchange({fighter_index,is_attacker,targets,attack_power});
                 const result=this.nativeExchangeHost?this.nativeExchangeHost(this,resolve):resolve();
                 if(!result||result.paused||result.ended||this.is_ended)return;
@@ -288,14 +365,53 @@ class Combat {
                     if(this.is_special_combat) {
                         this.clearAllAttackLoops();
                     } else {
-                        finish_combat_round(this.is_special_combat);             
+                        finish_combat_round(this.is_special_combat);
                     }
                 }
-            } else {
-                this.doAttackLoop({fighter_index, is_attacker, base_cooldown, actual_cooldown, attack_power, targets, target_count, count, is_new: false});
+            } finally {
+                running_final = outer;
             }
+        };
+        const arm_final = () => {
+            const delay = actual_cooldown*1000/(60*tickrate) - fighter_data.timer_adjustments[fighter_index];
+            fighter_data.attack_loops[fighter_index] = engineTimeout(final_subtick, delay);
+            this.#drawBar(is_attacker, fighter_index, (SUBTICKS - 1)/SUBTICKS, Math.max(0, delay));
+        };
 
-        }, actual_cooldown*1000/(60*tickrate) - fighter_data.timer_adjustments[fighter_index]);
+        if(schedule.from >= SUBTICKS) {
+            arm_final();
+            return;
+        }
+        Object.assign(schedule, plan_subticks({from: schedule.from, alloc: now, state: schedule.initial, actual_cooldown, rate: tickrate}));
+        const prefinal_due = schedule.dues[SUBTICKS - 1];
+        fighter_data.attack_loops[fighter_index] = engineTimeout(() => {
+            if(this.is_ended) { return; }
+            // Sub-ticks before the 59th ran on time; the 59th sees the real clock, as its own timer did.
+            const now=engineNow(), before=SUBTICKS - 2 >= schedule.from ? schedule.states[SUBTICKS - 2] : schedule.initial;
+            const timing=nextAttackTiming(before.prev,now,subtick_interval(actual_cooldown, tickrate),before.acc,maximum_time_correction/tickrate);
+            fighter_data.timers[fighter_index][0]=now;
+            fighter_data.timers[fighter_index][1]=now;
+            fighter_data.time_variance_acumulators[fighter_index]=timing.variance;
+            fighter_data.timer_adjustments[fighter_index]=timing.adjustment;
+            schedule.prefinal_done = true;
+            this.#pendingLoops[key] = entry;
+            entry.count = SUBTICKS - 1;
+            arm_final();
+        }, prefinal_due - now);
+        this.#drawBar(is_attacker, fighter_index, count/SUBTICKS, prefinal_due - now + subtick_interval(actual_cooldown, tickrate));
+    }
+
+    #drawBar(is_attacker, fighter_index, progress, remaining_ms) {
+        draw_attack_bar(is_attacker ? this.attackers_ui_slot : this.defenders_ui_slot, fighter_index, progress, remaining_ms);
+    }
+
+    /** Pending loops as the old sub-tick timers left them, with each live cycle's sub-tick count at this moment. */
+    #loopsNow() {
+        const now = engineNow();
+        return Object.fromEntries(Object.entries(this.#pendingLoops).map(([key, entry]) => {
+            const schedule = this.#schedules[key];
+            return [key, schedule?.entry === entry ? {...entry, count: fired_subticks(schedule, now)} : entry];
+        }));
     }
 
     resolveExchange({fighter_index,is_attacker,targets,attack_power}) {
@@ -591,9 +707,22 @@ class Combat {
     }
 
     clearAttackLoop({fighter_index, is_attacker}) {
-        clearEngineTimeout(
-            (is_attacker ? this.#data.attackers : this.#data.defenders).attack_loops[fighter_index]
-        );
+        const fighter_data = is_attacker ? this.#data.attackers : this.#data.defenders;
+        clearEngineTimeout(fighter_data.attack_loops[fighter_index]);
+        const key = `${is_attacker ? "attackers" : "defenders"}:${fighter_index}`, schedule = this.#schedules[key];
+        if(!schedule) return;
+        delete this.#schedules[key];
+        // Leave the count and drift correction where the last sub-tick that would have run put them.
+        const fired = fired_subticks(schedule, engineNow());
+        if(!schedule.prefinal_done && fired >= schedule.from) {
+            const {prev, acc, adj} = schedule.states[fired];
+            fighter_data.timers[fighter_index][0] = prev;
+            fighter_data.timers[fighter_index][1] = prev;
+            fighter_data.time_variance_acumulators[fighter_index] = acc;
+            fighter_data.timer_adjustments[fighter_index] = adj;
+        }
+        if(this.#pendingLoops[key] === schedule.entry) schedule.entry.count = fired;
+        freeze_attack_bar(is_attacker ? this.attackers_ui_slot : this.defenders_ui_slot, fighter_index);
     }
 
     /**

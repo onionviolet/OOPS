@@ -1,0 +1,2333 @@
+[
+  {
+    "schema": 1,
+    "id": "srd521.spell.acid_splash",
+    "kind": "spell",
+    "name": "Acid Splash",
+    "revision": 1,
+    "source": {
+      "document": "SRD",
+      "edition": "5.2.1",
+      "heading": "Spell Descriptions / Acid Splash",
+      "page": 107,
+      "url": "https://www.dndbeyond.com/srd",
+      "textSha256": "4456eaa81743ed341c13f19d1d7ced344a6adcbb15367941875ee45cd3f2e562"
+    },
+    "licence": "CC-BY-4.0",
+    "attribution": "This work includes material from the System Reference Document 5.2.1 (“SRD 5.2.1”) by Wizards of the Coast LLC, available at https://www.dndbeyond.com/srd. The SRD 5.2.1 is licensed under the Creative Commons Attribution 4.0 International License, available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+    "status": "supported",
+    "rulings": [],
+    "unmodeled": [],
+    "function": {
+      "doesWhat": [
+        "area_acid_damage"
+      ],
+      "carrier": "spell",
+      "needs": [
+        "spellcasting",
+        "components"
+      ],
+      "scale": {
+        "basis": "caster_level",
+        "steps": [
+          {
+            "at": 5,
+            "effectId": "main",
+            "field": "damage_dice",
+            "add": 1
+          },
+          {
+            "at": 11,
+            "effectId": "main",
+            "field": "damage_dice",
+            "add": 1
+          },
+          {
+            "at": 17,
+            "effectId": "main",
+            "field": "damage_dice",
+            "add": 1
+          }
+        ]
+      }
+    },
+    "effects": [
+      {
+        "id": "main",
+        "target": {
+          "kind": "area",
+          "count": null,
+          "disposition": "any",
+          "requiresSight": false,
+          "sizes": [],
+          "creatureTypes": []
+        },
+        "area": {
+          "shape": "sphere",
+          "feet": 5,
+          "origin": "point"
+        },
+        "range": {
+          "kind": "distance",
+          "feet": 60,
+          "longFeet": 60
+        },
+        "castingTime": {
+          "unit": "action",
+          "value": 1,
+          "trigger": null,
+          "ritual": false
+        },
+        "resolution": {
+          "kind": "save",
+          "ability": "dex",
+          "dc": "spell",
+          "success": "none",
+          "repeat": "none"
+        },
+        "damage": [
+          {
+            "type": "acid",
+            "dice": {
+              "count": 1,
+              "sides": 6,
+              "bonus": 0,
+              "ability": null
+            },
+            "instances": 1
+          }
+        ],
+        "healing": null,
+        "conditions": [],
+        "duration": {
+          "unit": "instant",
+          "value": 0,
+          "ends": []
+        },
+        "concentration": false,
+        "components": {
+          "verbal": true,
+          "somatic": true,
+          "materials": []
+        },
+        "rules": [],
+        "notes": []
+      }
+    ],
+    "spell": {
+      "level": 0,
+      "school": "evocation"
+    }
+  },
+  {
+    "schema": 1,
+    "id": "srd521.spell.fire_bolt",
+    "kind": "spell",
+    "name": "Fire Bolt",
+    "revision": 1,
+    "source": {
+      "document": "SRD",
+      "edition": "5.2.1",
+      "heading": "Spell Descriptions / Fire Bolt",
+      "page": 132,
+      "url": "https://www.dndbeyond.com/srd",
+      "textSha256": "4456eaa81743ed341c13f19d1d7ced344a6adcbb15367941875ee45cd3f2e562"
+    },
+    "licence": "CC-BY-4.0",
+    "attribution": "This work includes material from the System Reference Document 5.2.1 (“SRD 5.2.1”) by Wizards of the Coast LLC, available at https://www.dndbeyond.com/srd. The SRD 5.2.1 is licensed under the Creative Commons Attribution 4.0 International License, available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+    "status": "needs_ruling",
+    "rulings": [
+      {
+        "id": "srd521.spell.fire_bolt.q1",
+        "question": "Which object flags and Burning consumer implement ignition without igniting carried or worn objects?"
+      }
+    ],
+    "unmodeled": [
+      "Ignition and carried/worn object filtering are descriptive."
+    ],
+    "function": {
+      "doesWhat": [
+        "ranged_fire_damage",
+        "ignite_objects"
+      ],
+      "carrier": "spell",
+      "needs": [
+        "spellcasting",
+        "components"
+      ],
+      "scale": {
+        "basis": "caster_level",
+        "steps": [
+          {
+            "at": 5,
+            "effectId": "main",
+            "field": "damage_dice",
+            "add": 1
+          },
+          {
+            "at": 11,
+            "effectId": "main",
+            "field": "damage_dice",
+            "add": 1
+          },
+          {
+            "at": 17,
+            "effectId": "main",
+            "field": "damage_dice",
+            "add": 1
+          }
+        ]
+      }
+    },
+    "effects": [
+      {
+        "id": "main",
+        "target": {
+          "kind": "creature_or_object",
+          "count": 1,
+          "disposition": "any",
+          "requiresSight": false,
+          "sizes": [],
+          "creatureTypes": []
+        },
+        "area": null,
+        "range": {
+          "kind": "distance",
+          "feet": 120,
+          "longFeet": 120
+        },
+        "castingTime": {
+          "unit": "action",
+          "value": 1,
+          "trigger": null,
+          "ritual": false
+        },
+        "resolution": {
+          "kind": "attack",
+          "mode": "ranged",
+          "bonus": "spell"
+        },
+        "damage": [
+          {
+            "type": "fire",
+            "dice": {
+              "count": 1,
+              "sides": 10,
+              "bonus": 0,
+              "ability": null
+            },
+            "instances": 1
+          }
+        ],
+        "healing": null,
+        "conditions": [],
+        "duration": {
+          "unit": "instant",
+          "value": 0,
+          "ends": []
+        },
+        "concentration": false,
+        "components": {
+          "verbal": true,
+          "somatic": true,
+          "materials": []
+        },
+        "rules": [],
+        "notes": [
+          "A hit ignites flammable objects that are neither worn nor carried."
+        ]
+      }
+    ],
+    "spell": {
+      "level": 0,
+      "school": "evocation"
+    }
+  },
+  {
+    "schema": 1,
+    "id": "srd521.spell.light",
+    "kind": "spell",
+    "name": "Light",
+    "revision": 1,
+    "source": {
+      "document": "SRD",
+      "edition": "5.2.1",
+      "heading": "Spell Descriptions / Light",
+      "page": 144,
+      "url": "https://www.dndbeyond.com/srd",
+      "textSha256": "4456eaa81743ed341c13f19d1d7ced344a6adcbb15367941875ee45cd3f2e562"
+    },
+    "licence": "CC-BY-4.0",
+    "attribution": "This work includes material from the System Reference Document 5.2.1 (“SRD 5.2.1”) by Wizards of the Coast LLC, available at https://www.dndbeyond.com/srd. The SRD 5.2.1 is licensed under the Creative Commons Attribution 4.0 International License, available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+    "status": "needs_ruling",
+    "rulings": [
+      {
+        "id": "srd521.spell.light.q1",
+        "question": "How will light radii, opaque covering and ownership restrictions bind to the visibility system?"
+      }
+    ],
+    "unmodeled": [
+      "Lighting, opacity and equipment ownership are not typed."
+    ],
+    "function": {
+      "doesWhat": [
+        "emit_bright_and_dim_light"
+      ],
+      "carrier": "spell",
+      "needs": [
+        "spellcasting",
+        "components"
+      ],
+      "scale": {
+        "basis": "caster_level",
+        "steps": []
+      }
+    },
+    "effects": [
+      {
+        "id": "main",
+        "target": {
+          "kind": "object",
+          "count": 1,
+          "disposition": "any",
+          "requiresSight": false,
+          "sizes": [
+            "tiny",
+            "small",
+            "medium",
+            "large"
+          ],
+          "creatureTypes": []
+        },
+        "area": null,
+        "range": {
+          "kind": "touch",
+          "feet": 0,
+          "longFeet": 0
+        },
+        "castingTime": {
+          "unit": "action",
+          "value": 1,
+          "trigger": null,
+          "ritual": false
+        },
+        "resolution": {
+          "kind": "none"
+        },
+        "damage": [],
+        "healing": null,
+        "conditions": [],
+        "duration": {
+          "unit": "hour",
+          "value": 1,
+          "ends": [
+            "recast"
+          ]
+        },
+        "concentration": false,
+        "components": {
+          "verbal": true,
+          "somatic": false,
+          "materials": [
+            {
+              "stockId": "srd521.stock.light_material",
+              "description": "firefly or phosphorescent moss",
+              "quantity": 1,
+              "minimumValueGp": 0,
+              "consumed": false,
+              "substitutable": true
+            }
+          ]
+        },
+        "rules": [],
+        "notes": [
+          "Target cannot be worn or carried by another creature. Bright radius 20 feet plus 20 feet Dim Light; opaque cover blocks it; caster chooses color."
+        ]
+      }
+    ],
+    "spell": {
+      "level": 0,
+      "school": "evocation"
+    }
+  },
+  {
+    "schema": 1,
+    "id": "srd521.spell.mage_hand",
+    "kind": "spell",
+    "name": "Mage Hand",
+    "revision": 1,
+    "source": {
+      "document": "SRD",
+      "edition": "5.2.1",
+      "heading": "Spell Descriptions / Mage Hand",
+      "page": 145,
+      "url": "https://www.dndbeyond.com/srd",
+      "textSha256": "4456eaa81743ed341c13f19d1d7ced344a6adcbb15367941875ee45cd3f2e562"
+    },
+    "licence": "CC-BY-4.0",
+    "attribution": "This work includes material from the System Reference Document 5.2.1 (“SRD 5.2.1”) by Wizards of the Coast LLC, available at https://www.dndbeyond.com/srd. The SRD 5.2.1 is licensed under the Creative Commons Attribution 4.0 International License, available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+    "status": "needs_ruling",
+    "rulings": [
+      {
+        "id": "srd521.spell.mage_hand.q1",
+        "question": "How will the remote hand bind actual stock, container locks and the ten-pound carrying limit without duplicating items?"
+      }
+    ],
+    "unmodeled": [
+      "Remote manipulation, custody and action movement are descriptive."
+    ],
+    "function": {
+      "doesWhat": [
+        "manipulate_unattended_stock"
+      ],
+      "carrier": "spectral_hand",
+      "needs": [
+        "spellcasting",
+        "components"
+      ],
+      "scale": {
+        "basis": "caster_level",
+        "steps": []
+      }
+    },
+    "effects": [
+      {
+        "id": "main",
+        "target": {
+          "kind": "point",
+          "count": 1,
+          "disposition": "any",
+          "requiresSight": false,
+          "sizes": [],
+          "creatureTypes": []
+        },
+        "area": null,
+        "range": {
+          "kind": "distance",
+          "feet": 30,
+          "longFeet": 30
+        },
+        "castingTime": {
+          "unit": "action",
+          "value": 1,
+          "trigger": null,
+          "ritual": false
+        },
+        "resolution": {
+          "kind": "none"
+        },
+        "damage": [],
+        "healing": null,
+        "conditions": [],
+        "duration": {
+          "unit": "minute",
+          "value": 1,
+          "ends": [
+            "recast",
+            "distance_over_30_feet"
+          ]
+        },
+        "concentration": false,
+        "components": {
+          "verbal": true,
+          "somatic": true,
+          "materials": []
+        },
+        "rules": [],
+        "notes": [
+          "Can manipulate objects, unlocked doors/containers, open-container items and vial contents. Casting and later Magic actions control it, moving up to 30 feet. Cannot attack, activate magic items or carry over 10 pounds."
+        ]
+      }
+    ],
+    "spell": {
+      "level": 0,
+      "school": "conjuration"
+    }
+  },
+  {
+    "schema": 1,
+    "id": "srd521.spell.shield",
+    "kind": "spell",
+    "name": "Shield",
+    "revision": 1,
+    "source": {
+      "document": "SRD",
+      "edition": "5.2.1",
+      "heading": "Spell Descriptions / Shield",
+      "page": 161,
+      "url": "https://www.dndbeyond.com/srd",
+      "textSha256": "4456eaa81743ed341c13f19d1d7ced344a6adcbb15367941875ee45cd3f2e562"
+    },
+    "licence": "CC-BY-4.0",
+    "attribution": "This work includes material from the System Reference Document 5.2.1 (“SRD 5.2.1”) by Wizards of the Coast LLC, available at https://www.dndbeyond.com/srd. The SRD 5.2.1 is licensed under the Creative Commons Attribution 4.0 International License, available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+    "status": "needs_ruling",
+    "rulings": [
+      {
+        "id": "srd521.spell.shield.q1",
+        "question": "At which reaction boundary is the triggering attack reevaluated and Magic Missile prevented?"
+      }
+    ],
+    "unmodeled": [
+      "Retroactive AC change and named-spell immunity are not typed."
+    ],
+    "function": {
+      "doesWhat": [
+        "increase_ac",
+        "block_magic_missile"
+      ],
+      "carrier": "spell",
+      "needs": [
+        "spellcasting",
+        "components",
+        "spell_slot"
+      ],
+      "scale": {
+        "basis": "slot_level",
+        "steps": []
+      }
+    },
+    "effects": [
+      {
+        "id": "main",
+        "target": {
+          "kind": "self",
+          "count": 1,
+          "disposition": "any",
+          "requiresSight": false,
+          "sizes": [],
+          "creatureTypes": []
+        },
+        "area": null,
+        "range": {
+          "kind": "self",
+          "feet": 0,
+          "longFeet": 0
+        },
+        "castingTime": {
+          "unit": "reaction",
+          "value": 1,
+          "trigger": "Hit by an attack roll or targeted by Magic Missile",
+          "ritual": false
+        },
+        "resolution": {
+          "kind": "none"
+        },
+        "damage": [],
+        "healing": null,
+        "conditions": [],
+        "duration": {
+          "unit": "round",
+          "value": 1,
+          "ends": [
+            "start_of_next_turn"
+          ]
+        },
+        "concentration": false,
+        "components": {
+          "verbal": true,
+          "somatic": true,
+          "materials": []
+        },
+        "rules": [],
+        "notes": [
+          "AC increases by 5 including against the triggering attack; Magic Missile deals no damage."
+        ]
+      }
+    ],
+    "spell": {
+      "level": 1,
+      "school": "abjuration"
+    }
+  },
+  {
+    "schema": 1,
+    "id": "srd521.spell.magic_missile",
+    "kind": "spell",
+    "name": "Magic Missile",
+    "revision": 1,
+    "source": {
+      "document": "SRD",
+      "edition": "5.2.1",
+      "heading": "Spell Descriptions / Magic Missile",
+      "page": 146,
+      "url": "https://www.dndbeyond.com/srd",
+      "textSha256": "4456eaa81743ed341c13f19d1d7ced344a6adcbb15367941875ee45cd3f2e562"
+    },
+    "licence": "CC-BY-4.0",
+    "attribution": "This work includes material from the System Reference Document 5.2.1 (“SRD 5.2.1”) by Wizards of the Coast LLC, available at https://www.dndbeyond.com/srd. The SRD 5.2.1 is licensed under the Creative Commons Attribution 4.0 International License, available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+    "status": "needs_ruling",
+    "rulings": [
+      {
+        "id": "srd521.spell.magic_missile.q1",
+        "question": "How are individual darts allocated and resolved simultaneously, including Shield prevention and concentration checks?"
+      }
+    ],
+    "unmodeled": [
+      "Per-dart allocation, simultaneous application and Shield interaction lack a typed group."
+    ],
+    "function": {
+      "doesWhat": [
+        "automatic_force_darts"
+      ],
+      "carrier": "spell",
+      "needs": [
+        "spellcasting",
+        "components",
+        "spell_slot"
+      ],
+      "scale": {
+        "basis": "slot_level",
+        "steps": [
+          {
+            "at": 2,
+            "effectId": "main",
+            "field": "projectile_count",
+            "add": 1
+          },
+          {
+            "at": 3,
+            "effectId": "main",
+            "field": "projectile_count",
+            "add": 1
+          },
+          {
+            "at": 4,
+            "effectId": "main",
+            "field": "projectile_count",
+            "add": 1
+          },
+          {
+            "at": 5,
+            "effectId": "main",
+            "field": "projectile_count",
+            "add": 1
+          },
+          {
+            "at": 6,
+            "effectId": "main",
+            "field": "projectile_count",
+            "add": 1
+          },
+          {
+            "at": 7,
+            "effectId": "main",
+            "field": "projectile_count",
+            "add": 1
+          },
+          {
+            "at": 8,
+            "effectId": "main",
+            "field": "projectile_count",
+            "add": 1
+          },
+          {
+            "at": 9,
+            "effectId": "main",
+            "field": "projectile_count",
+            "add": 1
+          }
+        ]
+      }
+    },
+    "effects": [
+      {
+        "id": "main",
+        "target": {
+          "kind": "creature",
+          "count": 3,
+          "disposition": "any",
+          "requiresSight": true,
+          "sizes": [],
+          "creatureTypes": []
+        },
+        "area": null,
+        "range": {
+          "kind": "distance",
+          "feet": 120,
+          "longFeet": 120
+        },
+        "castingTime": {
+          "unit": "action",
+          "value": 1,
+          "trigger": null,
+          "ritual": false
+        },
+        "resolution": {
+          "kind": "none"
+        },
+        "damage": [
+          {
+            "type": "force",
+            "dice": {
+              "count": 1,
+              "sides": 4,
+              "bonus": 1,
+              "ability": null
+            },
+            "instances": 3
+          }
+        ],
+        "healing": null,
+        "conditions": [],
+        "duration": {
+          "unit": "instant",
+          "value": 0,
+          "ends": []
+        },
+        "concentration": false,
+        "components": {
+          "verbal": true,
+          "somatic": true,
+          "materials": []
+        },
+        "rules": [],
+        "notes": [
+          "Three simultaneous darts; allocate each to a visible creature, allowing repeated targets."
+        ]
+      }
+    ],
+    "spell": {
+      "level": 1,
+      "school": "evocation"
+    }
+  },
+  {
+    "schema": 1,
+    "id": "srd521.spell.cure_wounds",
+    "kind": "spell",
+    "name": "Cure Wounds",
+    "revision": 1,
+    "source": {
+      "document": "SRD",
+      "edition": "5.2.1",
+      "heading": "Spell Descriptions / Cure Wounds",
+      "page": 121,
+      "url": "https://www.dndbeyond.com/srd",
+      "textSha256": "4456eaa81743ed341c13f19d1d7ced344a6adcbb15367941875ee45cd3f2e562"
+    },
+    "licence": "CC-BY-4.0",
+    "attribution": "This work includes material from the System Reference Document 5.2.1 (“SRD 5.2.1”) by Wizards of the Coast LLC, available at https://www.dndbeyond.com/srd. The SRD 5.2.1 is licensed under the Creative Commons Attribution 4.0 International License, available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+    "status": "supported",
+    "rulings": [],
+    "unmodeled": [],
+    "function": {
+      "doesWhat": [
+        "restore_hit_points"
+      ],
+      "carrier": "touch",
+      "needs": [
+        "spellcasting",
+        "components",
+        "spell_slot"
+      ],
+      "scale": {
+        "basis": "slot_level",
+        "steps": [
+          {
+            "at": 2,
+            "effectId": "main",
+            "field": "healing_dice",
+            "add": 2
+          },
+          {
+            "at": 3,
+            "effectId": "main",
+            "field": "healing_dice",
+            "add": 2
+          },
+          {
+            "at": 4,
+            "effectId": "main",
+            "field": "healing_dice",
+            "add": 2
+          },
+          {
+            "at": 5,
+            "effectId": "main",
+            "field": "healing_dice",
+            "add": 2
+          },
+          {
+            "at": 6,
+            "effectId": "main",
+            "field": "healing_dice",
+            "add": 2
+          },
+          {
+            "at": 7,
+            "effectId": "main",
+            "field": "healing_dice",
+            "add": 2
+          },
+          {
+            "at": 8,
+            "effectId": "main",
+            "field": "healing_dice",
+            "add": 2
+          },
+          {
+            "at": 9,
+            "effectId": "main",
+            "field": "healing_dice",
+            "add": 2
+          }
+        ]
+      }
+    },
+    "effects": [
+      {
+        "id": "main",
+        "target": {
+          "kind": "creature",
+          "count": 1,
+          "disposition": "any",
+          "requiresSight": false,
+          "sizes": [],
+          "creatureTypes": []
+        },
+        "area": null,
+        "range": {
+          "kind": "touch",
+          "feet": 0,
+          "longFeet": 0
+        },
+        "castingTime": {
+          "unit": "action",
+          "value": 1,
+          "trigger": null,
+          "ritual": false
+        },
+        "resolution": {
+          "kind": "none"
+        },
+        "damage": [],
+        "healing": {
+          "count": 2,
+          "sides": 8,
+          "bonus": 0,
+          "ability": "spellcasting"
+        },
+        "conditions": [],
+        "duration": {
+          "unit": "instant",
+          "value": 0,
+          "ends": []
+        },
+        "concentration": false,
+        "components": {
+          "verbal": true,
+          "somatic": true,
+          "materials": []
+        },
+        "rules": [],
+        "notes": []
+      }
+    ],
+    "spell": {
+      "level": 1,
+      "school": "abjuration"
+    }
+  },
+  {
+    "schema": 1,
+    "id": "srd521.spell.detect_magic",
+    "kind": "spell",
+    "name": "Detect Magic",
+    "revision": 1,
+    "source": {
+      "document": "SRD",
+      "edition": "5.2.1",
+      "heading": "Spell Descriptions / Detect Magic",
+      "page": 123,
+      "url": "https://www.dndbeyond.com/srd",
+      "textSha256": "4456eaa81743ed341c13f19d1d7ced344a6adcbb15367941875ee45cd3f2e562"
+    },
+    "licence": "CC-BY-4.0",
+    "attribution": "This work includes material from the System Reference Document 5.2.1 (“SRD 5.2.1”) by Wizards of the Coast LLC, available at https://www.dndbeyond.com/srd. The SRD 5.2.1 is licensed under the Creative Commons Attribution 4.0 International License, available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+    "status": "needs_ruling",
+    "rulings": [
+      {
+        "id": "srd521.spell.detect_magic.q1",
+        "question": "How will hidden magic, visible aura inspection and each material thickness barrier map to knowledge facts?"
+      }
+    ],
+    "unmodeled": [
+      "Sensing, school knowledge, action inspection and material occlusion are not typed."
+    ],
+    "function": {
+      "doesWhat": [
+        "sense_magic",
+        "identify_spell_school"
+      ],
+      "carrier": "spell",
+      "needs": [
+        "spellcasting",
+        "components",
+        "spell_slot"
+      ],
+      "scale": {
+        "basis": "slot_level",
+        "steps": []
+      }
+    },
+    "effects": [
+      {
+        "id": "main",
+        "target": {
+          "kind": "self",
+          "count": 1,
+          "disposition": "any",
+          "requiresSight": false,
+          "sizes": [],
+          "creatureTypes": []
+        },
+        "area": {
+          "shape": "emanation",
+          "feet": 30,
+          "origin": "self"
+        },
+        "range": {
+          "kind": "self",
+          "feet": 0,
+          "longFeet": 0
+        },
+        "castingTime": {
+          "unit": "action",
+          "value": 1,
+          "trigger": null,
+          "ritual": true
+        },
+        "resolution": {
+          "kind": "none"
+        },
+        "damage": [],
+        "healing": null,
+        "conditions": [],
+        "duration": {
+          "unit": "minute",
+          "value": 10,
+          "ends": []
+        },
+        "concentration": true,
+        "components": {
+          "verbal": true,
+          "somatic": true,
+          "materials": []
+        },
+        "rules": [],
+        "notes": [
+          "Sense magical effects. Magic action shows auras on visible affected creatures/objects and schools of spell effects. Blocked by one foot of stone/dirt/wood, one inch of metal, or thin lead."
+        ]
+      }
+    ],
+    "spell": {
+      "level": 1,
+      "school": "divination"
+    }
+  },
+  {
+    "schema": 1,
+    "id": "srd521.spell.hold_person",
+    "kind": "spell",
+    "name": "Hold Person",
+    "revision": 1,
+    "source": {
+      "document": "SRD",
+      "edition": "5.2.1",
+      "heading": "Spell Descriptions / Hold Person",
+      "page": 141,
+      "url": "https://www.dndbeyond.com/srd",
+      "textSha256": "4456eaa81743ed341c13f19d1d7ced344a6adcbb15367941875ee45cd3f2e562"
+    },
+    "licence": "CC-BY-4.0",
+    "attribution": "This work includes material from the System Reference Document 5.2.1 (“SRD 5.2.1”) by Wizards of the Coast LLC, available at https://www.dndbeyond.com/srd. The SRD 5.2.1 is licensed under the Creative Commons Attribution 4.0 International License, available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+    "status": "supported",
+    "rulings": [],
+    "unmodeled": [],
+    "function": {
+      "doesWhat": [
+        "paralyze_humanoids"
+      ],
+      "carrier": "spell",
+      "needs": [
+        "spellcasting",
+        "components",
+        "spell_slot"
+      ],
+      "scale": {
+        "basis": "slot_level",
+        "steps": [
+          {
+            "at": 3,
+            "effectId": "main",
+            "field": "target_count",
+            "add": 1
+          },
+          {
+            "at": 4,
+            "effectId": "main",
+            "field": "target_count",
+            "add": 1
+          },
+          {
+            "at": 5,
+            "effectId": "main",
+            "field": "target_count",
+            "add": 1
+          },
+          {
+            "at": 6,
+            "effectId": "main",
+            "field": "target_count",
+            "add": 1
+          },
+          {
+            "at": 7,
+            "effectId": "main",
+            "field": "target_count",
+            "add": 1
+          },
+          {
+            "at": 8,
+            "effectId": "main",
+            "field": "target_count",
+            "add": 1
+          },
+          {
+            "at": 9,
+            "effectId": "main",
+            "field": "target_count",
+            "add": 1
+          }
+        ]
+      }
+    },
+    "effects": [
+      {
+        "id": "main",
+        "target": {
+          "kind": "creature",
+          "count": 1,
+          "disposition": "any",
+          "requiresSight": true,
+          "sizes": [],
+          "creatureTypes": [
+            "humanoid"
+          ]
+        },
+        "area": null,
+        "range": {
+          "kind": "distance",
+          "feet": 60,
+          "longFeet": 60
+        },
+        "castingTime": {
+          "unit": "action",
+          "value": 1,
+          "trigger": null,
+          "ritual": false
+        },
+        "resolution": {
+          "kind": "save",
+          "ability": "wis",
+          "dc": "spell",
+          "success": "ends",
+          "repeat": "end_turn"
+        },
+        "damage": [],
+        "healing": null,
+        "conditions": [
+          {
+            "id": "paralyzed",
+            "operation": "apply",
+            "when": "failed_save",
+            "duration": {
+              "unit": "minute",
+              "value": 1,
+              "ends": []
+            }
+          }
+        ],
+        "duration": {
+          "unit": "minute",
+          "value": 1,
+          "ends": []
+        },
+        "concentration": true,
+        "components": {
+          "verbal": true,
+          "somatic": true,
+          "materials": [
+            {
+              "stockId": "srd521.stock.straight_iron",
+              "description": "straight piece of iron",
+              "quantity": 1,
+              "minimumValueGp": 0,
+              "consumed": false,
+              "substitutable": true
+            }
+          ]
+        },
+        "rules": [],
+        "notes": []
+      }
+    ],
+    "spell": {
+      "level": 2,
+      "school": "enchantment"
+    }
+  },
+  {
+    "schema": 1,
+    "id": "srd521.spell.misty_step",
+    "kind": "spell",
+    "name": "Misty Step",
+    "revision": 1,
+    "source": {
+      "document": "SRD",
+      "edition": "5.2.1",
+      "heading": "Spell Descriptions / Misty Step",
+      "page": 150,
+      "url": "https://www.dndbeyond.com/srd",
+      "textSha256": "4456eaa81743ed341c13f19d1d7ced344a6adcbb15367941875ee45cd3f2e562"
+    },
+    "licence": "CC-BY-4.0",
+    "attribution": "This work includes material from the System Reference Document 5.2.1 (“SRD 5.2.1”) by Wizards of the Coast LLC, available at https://www.dndbeyond.com/srd. The SRD 5.2.1 is licensed under the Creative Commons Attribution 4.0 International License, available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+    "status": "needs_ruling",
+    "rulings": [
+      {
+        "id": "srd521.spell.misty_step.q1",
+        "question": "Which position and sight checks validate the unoccupied teleport destination?"
+      }
+    ],
+    "unmodeled": [
+      "Destination visibility, vacancy and displacement are not typed."
+    ],
+    "function": {
+      "doesWhat": [
+        "teleport_self"
+      ],
+      "carrier": "spell",
+      "needs": [
+        "spellcasting",
+        "components",
+        "spell_slot"
+      ],
+      "scale": {
+        "basis": "slot_level",
+        "steps": []
+      }
+    },
+    "effects": [
+      {
+        "id": "main",
+        "target": {
+          "kind": "self",
+          "count": 1,
+          "disposition": "any",
+          "requiresSight": false,
+          "sizes": [],
+          "creatureTypes": []
+        },
+        "area": null,
+        "range": {
+          "kind": "self",
+          "feet": 0,
+          "longFeet": 0
+        },
+        "castingTime": {
+          "unit": "bonus_action",
+          "value": 1,
+          "trigger": null,
+          "ritual": false
+        },
+        "resolution": {
+          "kind": "none"
+        },
+        "damage": [],
+        "healing": null,
+        "conditions": [],
+        "duration": {
+          "unit": "instant",
+          "value": 0,
+          "ends": []
+        },
+        "concentration": false,
+        "components": {
+          "verbal": true,
+          "somatic": false,
+          "materials": []
+        },
+        "rules": [],
+        "notes": [
+          "Teleport up to 30 feet to a visible unoccupied space."
+        ]
+      }
+    ],
+    "spell": {
+      "level": 2,
+      "school": "conjuration"
+    }
+  },
+  {
+    "schema": 1,
+    "id": "srd521.spell.lesser_restoration",
+    "kind": "spell",
+    "name": "Lesser Restoration",
+    "revision": 1,
+    "source": {
+      "document": "SRD",
+      "edition": "5.2.1",
+      "heading": "Spell Descriptions / Lesser Restoration",
+      "page": 144,
+      "url": "https://www.dndbeyond.com/srd",
+      "textSha256": "4456eaa81743ed341c13f19d1d7ced344a6adcbb15367941875ee45cd3f2e562"
+    },
+    "licence": "CC-BY-4.0",
+    "attribution": "This work includes material from the System Reference Document 5.2.1 (“SRD 5.2.1”) by Wizards of the Coast LLC, available at https://www.dndbeyond.com/srd. The SRD 5.2.1 is licensed under the Creative Commons Attribution 4.0 International License, available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+    "status": "needs_ruling",
+    "rulings": [
+      {
+        "id": "srd521.spell.lesser_restoration.q1",
+        "question": "How is exactly one eligible condition selected and removed while the other conditions remain?"
+      }
+    ],
+    "unmodeled": [
+      "A choice of one condition removal is not expressible as a simultaneous list."
+    ],
+    "function": {
+      "doesWhat": [
+        "remove_one_condition"
+      ],
+      "carrier": "touch",
+      "needs": [
+        "spellcasting",
+        "components",
+        "spell_slot"
+      ],
+      "scale": {
+        "basis": "slot_level",
+        "steps": []
+      }
+    },
+    "effects": [
+      {
+        "id": "main",
+        "target": {
+          "kind": "creature",
+          "count": 1,
+          "disposition": "any",
+          "requiresSight": false,
+          "sizes": [],
+          "creatureTypes": []
+        },
+        "area": null,
+        "range": {
+          "kind": "touch",
+          "feet": 0,
+          "longFeet": 0
+        },
+        "castingTime": {
+          "unit": "bonus_action",
+          "value": 1,
+          "trigger": null,
+          "ritual": false
+        },
+        "resolution": {
+          "kind": "none"
+        },
+        "damage": [],
+        "healing": null,
+        "conditions": [],
+        "duration": {
+          "unit": "instant",
+          "value": 0,
+          "ends": []
+        },
+        "concentration": false,
+        "components": {
+          "verbal": true,
+          "somatic": true,
+          "materials": []
+        },
+        "rules": [],
+        "notes": [
+          "Choose and end exactly one of Blinded, Deafened, Paralyzed or Poisoned."
+        ]
+      }
+    ],
+    "spell": {
+      "level": 2,
+      "school": "abjuration"
+    }
+  },
+  {
+    "schema": 1,
+    "id": "srd521.spell.silence",
+    "kind": "spell",
+    "name": "Silence",
+    "revision": 1,
+    "source": {
+      "document": "SRD",
+      "edition": "5.2.1",
+      "heading": "Spell Descriptions / Silence",
+      "page": 162,
+      "url": "https://www.dndbeyond.com/srd",
+      "textSha256": "4456eaa81743ed341c13f19d1d7ced344a6adcbb15367941875ee45cd3f2e562"
+    },
+    "licence": "CC-BY-4.0",
+    "attribution": "This work includes material from the System Reference Document 5.2.1 (“SRD 5.2.1”) by Wizards of the Coast LLC, available at https://www.dndbeyond.com/srd. The SRD 5.2.1 is licensed under the Creative Commons Attribution 4.0 International License, available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+    "status": "needs_ruling",
+    "rulings": [
+      {
+        "id": "srd521.spell.silence.q1",
+        "question": "How will full-body containment and sound paths drive immunity, Deafened lifetime and Verbal component refusal?"
+      }
+    ],
+    "unmodeled": [
+      "Sound propagation, full containment, Thunder immunity and Verbal casting gates are not all typed."
+    ],
+    "function": {
+      "doesWhat": [
+        "suppress_sound",
+        "grant_thunder_immunity",
+        "deafen"
+      ],
+      "carrier": "spell",
+      "needs": [
+        "spellcasting",
+        "components",
+        "spell_slot"
+      ],
+      "scale": {
+        "basis": "slot_level",
+        "steps": []
+      }
+    },
+    "effects": [
+      {
+        "id": "main",
+        "target": {
+          "kind": "area",
+          "count": null,
+          "disposition": "any",
+          "requiresSight": false,
+          "sizes": [],
+          "creatureTypes": []
+        },
+        "area": {
+          "shape": "sphere",
+          "feet": 20,
+          "origin": "point"
+        },
+        "range": {
+          "kind": "distance",
+          "feet": 120,
+          "longFeet": 120
+        },
+        "castingTime": {
+          "unit": "action",
+          "value": 1,
+          "trigger": null,
+          "ritual": true
+        },
+        "resolution": {
+          "kind": "none"
+        },
+        "damage": [],
+        "healing": null,
+        "conditions": [
+          {
+            "id": "deafened",
+            "operation": "apply",
+            "when": "entirely_inside",
+            "duration": {
+              "unit": "source",
+              "value": 0,
+              "ends": [
+                "leave_area",
+                "spell_ends"
+              ]
+            }
+          }
+        ],
+        "duration": {
+          "unit": "minute",
+          "value": 10,
+          "ends": []
+        },
+        "concentration": true,
+        "components": {
+          "verbal": true,
+          "somatic": true,
+          "materials": []
+        },
+        "rules": [],
+        "notes": [
+          "Sound cannot originate in or pass through the sphere. Entirely enclosed creatures and objects gain Thunder immunity; Verbal spells cannot be cast there."
+        ]
+      }
+    ],
+    "spell": {
+      "level": 2,
+      "school": "illusion"
+    }
+  },
+  {
+    "schema": 1,
+    "id": "srd521.spell.fireball",
+    "kind": "spell",
+    "name": "Fireball",
+    "revision": 1,
+    "source": {
+      "document": "SRD",
+      "edition": "5.2.1",
+      "heading": "Spell Descriptions / Fireball",
+      "page": 131,
+      "url": "https://www.dndbeyond.com/srd",
+      "textSha256": "4456eaa81743ed341c13f19d1d7ced344a6adcbb15367941875ee45cd3f2e562"
+    },
+    "licence": "CC-BY-4.0",
+    "attribution": "This work includes material from the System Reference Document 5.2.1 (“SRD 5.2.1”) by Wizards of the Coast LLC, available at https://www.dndbeyond.com/srd. The SRD 5.2.1 is licensed under the Creative Commons Attribution 4.0 International License, available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+    "status": "needs_ruling",
+    "rulings": [
+      {
+        "id": "srd521.spell.fireball.q1",
+        "question": "Which Burning and stock-ownership adapter ignites only eligible objects in the sphere?"
+      }
+    ],
+    "unmodeled": [
+      "Secondary object ignition is descriptive."
+    ],
+    "function": {
+      "doesWhat": [
+        "area_fire_damage",
+        "ignite_objects"
+      ],
+      "carrier": "spell",
+      "needs": [
+        "spellcasting",
+        "components",
+        "spell_slot"
+      ],
+      "scale": {
+        "basis": "slot_level",
+        "steps": [
+          {
+            "at": 4,
+            "effectId": "main",
+            "field": "damage_dice",
+            "add": 1
+          },
+          {
+            "at": 5,
+            "effectId": "main",
+            "field": "damage_dice",
+            "add": 1
+          },
+          {
+            "at": 6,
+            "effectId": "main",
+            "field": "damage_dice",
+            "add": 1
+          },
+          {
+            "at": 7,
+            "effectId": "main",
+            "field": "damage_dice",
+            "add": 1
+          },
+          {
+            "at": 8,
+            "effectId": "main",
+            "field": "damage_dice",
+            "add": 1
+          },
+          {
+            "at": 9,
+            "effectId": "main",
+            "field": "damage_dice",
+            "add": 1
+          }
+        ]
+      }
+    },
+    "effects": [
+      {
+        "id": "main",
+        "target": {
+          "kind": "area",
+          "count": null,
+          "disposition": "any",
+          "requiresSight": false,
+          "sizes": [],
+          "creatureTypes": []
+        },
+        "area": {
+          "shape": "sphere",
+          "feet": 20,
+          "origin": "point"
+        },
+        "range": {
+          "kind": "distance",
+          "feet": 150,
+          "longFeet": 150
+        },
+        "castingTime": {
+          "unit": "action",
+          "value": 1,
+          "trigger": null,
+          "ritual": false
+        },
+        "resolution": {
+          "kind": "save",
+          "ability": "dex",
+          "dc": "spell",
+          "success": "half_damage",
+          "repeat": "none"
+        },
+        "damage": [
+          {
+            "type": "fire",
+            "dice": {
+              "count": 8,
+              "sides": 6,
+              "bonus": 0,
+              "ability": null
+            },
+            "instances": 1
+          }
+        ],
+        "healing": null,
+        "conditions": [],
+        "duration": {
+          "unit": "instant",
+          "value": 0,
+          "ends": []
+        },
+        "concentration": false,
+        "components": {
+          "verbal": true,
+          "somatic": true,
+          "materials": [
+            {
+              "stockId": "srd521.stock.bat_guano_sulfur",
+              "description": "ball of bat guano and sulfur",
+              "quantity": 1,
+              "minimumValueGp": 0,
+              "consumed": false,
+              "substitutable": true
+            }
+          ]
+        },
+        "rules": [],
+        "notes": [
+          "Unworn, uncarried flammable objects in the area begin burning."
+        ]
+      }
+    ],
+    "spell": {
+      "level": 3,
+      "school": "evocation"
+    }
+  },
+  {
+    "schema": 1,
+    "id": "srd521.spell.counterspell",
+    "kind": "spell",
+    "name": "Counterspell",
+    "revision": 1,
+    "source": {
+      "document": "SRD",
+      "edition": "5.2.1",
+      "heading": "Spell Descriptions / Counterspell",
+      "page": 120,
+      "url": "https://www.dndbeyond.com/srd",
+      "textSha256": "4456eaa81743ed341c13f19d1d7ced344a6adcbb15367941875ee45cd3f2e562"
+    },
+    "licence": "CC-BY-4.0",
+    "attribution": "This work includes material from the System Reference Document 5.2.1 (“SRD 5.2.1”) by Wizards of the Coast LLC, available at https://www.dndbeyond.com/srd. The SRD 5.2.1 is licensed under the Creative Commons Attribution 4.0 International License, available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+    "status": "needs_ruling",
+    "rulings": [
+      {
+        "id": "srd521.spell.counterspell.q1",
+        "question": "How is a failed-save cast cancelled after spending its action but before expending its spell slot?"
+      }
+    ],
+    "unmodeled": [
+      "In-flight cast interruption and target slot preservation need a transaction boundary."
+    ],
+    "function": {
+      "doesWhat": [
+        "interrupt_cast_without_spending_target_slot"
+      ],
+      "carrier": "spell",
+      "needs": [
+        "spellcasting",
+        "components",
+        "spell_slot"
+      ],
+      "scale": {
+        "basis": "slot_level",
+        "steps": []
+      }
+    },
+    "effects": [
+      {
+        "id": "main",
+        "target": {
+          "kind": "creature",
+          "count": 1,
+          "disposition": "any",
+          "requiresSight": true,
+          "sizes": [],
+          "creatureTypes": []
+        },
+        "area": null,
+        "range": {
+          "kind": "distance",
+          "feet": 60,
+          "longFeet": 60
+        },
+        "castingTime": {
+          "unit": "reaction",
+          "value": 1,
+          "trigger": "See a creature within 60 feet casting a spell with Verbal, Somatic or Material components",
+          "ritual": false
+        },
+        "resolution": {
+          "kind": "save",
+          "ability": "con",
+          "dc": "spell",
+          "success": "none",
+          "repeat": "none"
+        },
+        "damage": [],
+        "healing": null,
+        "conditions": [],
+        "duration": {
+          "unit": "instant",
+          "value": 0,
+          "ends": []
+        },
+        "concentration": false,
+        "components": {
+          "verbal": false,
+          "somatic": true,
+          "materials": []
+        },
+        "rules": [],
+        "notes": [
+          "Failed save dissipates the spell and wastes its action, Bonus Action or Reaction; its spell slot is not expended."
+        ]
+      }
+    ],
+    "spell": {
+      "level": 3,
+      "school": "abjuration"
+    }
+  },
+  {
+    "schema": 1,
+    "id": "srd521.spell.revivify",
+    "kind": "spell",
+    "name": "Revivify",
+    "revision": 1,
+    "source": {
+      "document": "SRD",
+      "edition": "5.2.1",
+      "heading": "Spell Descriptions / Revivify",
+      "page": 159,
+      "url": "https://www.dndbeyond.com/srd",
+      "textSha256": "4456eaa81743ed341c13f19d1d7ced344a6adcbb15367941875ee45cd3f2e562"
+    },
+    "licence": "CC-BY-4.0",
+    "attribution": "This work includes material from the System Reference Document 5.2.1 (“SRD 5.2.1”) by Wizards of the Coast LLC, available at https://www.dndbeyond.com/srd. The SRD 5.2.1 is licensed under the Creative Commons Attribution 4.0 International License, available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+    "status": "needs_ruling",
+    "rulings": [
+      {
+        "id": "srd521.spell.revivify.q1",
+        "question": "Which death/body record validates the one-minute window and old-age exclusion, and restores exactly 1 HP without missing parts?"
+      }
+    ],
+    "unmodeled": [
+      "Death timestamps, revival eligibility and body continuity are not typed."
+    ],
+    "function": {
+      "doesWhat": [
+        "restore_recently_dead_creature"
+      ],
+      "carrier": "touch",
+      "needs": [
+        "spellcasting",
+        "components",
+        "spell_slot"
+      ],
+      "scale": {
+        "basis": "slot_level",
+        "steps": []
+      }
+    },
+    "effects": [
+      {
+        "id": "main",
+        "target": {
+          "kind": "creature",
+          "count": 1,
+          "disposition": "any",
+          "requiresSight": false,
+          "sizes": [],
+          "creatureTypes": []
+        },
+        "area": null,
+        "range": {
+          "kind": "touch",
+          "feet": 0,
+          "longFeet": 0
+        },
+        "castingTime": {
+          "unit": "action",
+          "value": 1,
+          "trigger": null,
+          "ritual": false
+        },
+        "resolution": {
+          "kind": "none"
+        },
+        "damage": [],
+        "healing": null,
+        "conditions": [],
+        "duration": {
+          "unit": "instant",
+          "value": 0,
+          "ends": []
+        },
+        "concentration": false,
+        "components": {
+          "verbal": true,
+          "somatic": true,
+          "materials": [
+            {
+              "stockId": "srd521.stock.revivify_diamond",
+              "description": "diamond",
+              "quantity": 1,
+              "minimumValueGp": 300,
+              "consumed": true,
+              "substitutable": false
+            }
+          ]
+        },
+        "rules": [],
+        "notes": [
+          "Target died within the last minute; revives with 1 HP. Cannot undo old-age death or restore missing body parts."
+        ]
+      }
+    ],
+    "spell": {
+      "level": 3,
+      "school": "necromancy"
+    }
+  },
+  {
+    "schema": 1,
+    "id": "srd521.spell.dispel_magic",
+    "kind": "spell",
+    "name": "Dispel Magic",
+    "revision": 1,
+    "source": {
+      "document": "SRD",
+      "edition": "5.2.1",
+      "heading": "Spell Descriptions / Dispel Magic",
+      "page": 124,
+      "url": "https://www.dndbeyond.com/srd",
+      "textSha256": "4456eaa81743ed341c13f19d1d7ced344a6adcbb15367941875ee45cd3f2e562"
+    },
+    "licence": "CC-BY-4.0",
+    "attribution": "This work includes material from the System Reference Document 5.2.1 (“SRD 5.2.1”) by Wizards of the Coast LLC, available at https://www.dndbeyond.com/srd. The SRD 5.2.1 is licensed under the Creative Commons Attribution 4.0 International License, available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+    "status": "needs_ruling",
+    "rulings": [
+      {
+        "id": "srd521.spell.dispel_magic.q1",
+        "question": "How are ongoing spells enumerated and separately checked, retaining effects not created by spells?"
+      }
+    ],
+    "unmodeled": [
+      "Per-effect spell level and ability-check resolution are not in the save/attack union."
+    ],
+    "function": {
+      "doesWhat": [
+        "end_ongoing_spells"
+      ],
+      "carrier": "spell",
+      "needs": [
+        "spellcasting",
+        "components",
+        "spell_slot"
+      ],
+      "scale": {
+        "basis": "slot_level",
+        "steps": []
+      }
+    },
+    "effects": [
+      {
+        "id": "main",
+        "target": {
+          "kind": "creature_object_or_effect",
+          "count": 1,
+          "disposition": "any",
+          "requiresSight": false,
+          "sizes": [],
+          "creatureTypes": []
+        },
+        "area": null,
+        "range": {
+          "kind": "distance",
+          "feet": 120,
+          "longFeet": 120
+        },
+        "castingTime": {
+          "unit": "action",
+          "value": 1,
+          "trigger": null,
+          "ritual": false
+        },
+        "resolution": {
+          "kind": "none"
+        },
+        "damage": [],
+        "healing": null,
+        "conditions": [],
+        "duration": {
+          "unit": "instant",
+          "value": 0,
+          "ends": []
+        },
+        "concentration": false,
+        "components": {
+          "verbal": true,
+          "somatic": true,
+          "materials": []
+        },
+        "rules": [],
+        "notes": [
+          "End ongoing spells level 3 or lower, or up to slot level if upcast. Each higher spell requires a spellcasting-ability check against DC 10 + its level."
+        ]
+      }
+    ],
+    "spell": {
+      "level": 3,
+      "school": "abjuration"
+    }
+  },
+  {
+    "schema": 1,
+    "id": "srd521.spell.banishment",
+    "kind": "spell",
+    "name": "Banishment",
+    "revision": 1,
+    "source": {
+      "document": "SRD",
+      "edition": "5.2.1",
+      "heading": "Spell Descriptions / Banishment",
+      "page": 112,
+      "url": "https://www.dndbeyond.com/srd",
+      "textSha256": "4456eaa81743ed341c13f19d1d7ced344a6adcbb15367941875ee45cd3f2e562"
+    },
+    "licence": "CC-BY-4.0",
+    "attribution": "This work includes material from the System Reference Document 5.2.1 (“SRD 5.2.1”) by Wizards of the Coast LLC, available at https://www.dndbeyond.com/srd. The SRD 5.2.1 is licensed under the Creative Commons Attribution 4.0 International License, available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+    "status": "needs_ruling",
+    "rulings": [
+      {
+        "id": "srd521.spell.banishment.q1",
+        "question": "Which world adapters choose the associated plane and addressed random destination, and restore early-return occupants without collisions?"
+      }
+    ],
+    "unmodeled": [
+      "Planar displacement, return placement and full-duration type exception are not typed."
+    ],
+    "function": {
+      "doesWhat": [
+        "banish_to_demiplane",
+        "incapacitate"
+      ],
+      "carrier": "spell",
+      "needs": [
+        "spellcasting",
+        "components",
+        "spell_slot"
+      ],
+      "scale": {
+        "basis": "slot_level",
+        "steps": [
+          {
+            "at": 5,
+            "effectId": "main",
+            "field": "target_count",
+            "add": 1
+          },
+          {
+            "at": 6,
+            "effectId": "main",
+            "field": "target_count",
+            "add": 1
+          },
+          {
+            "at": 7,
+            "effectId": "main",
+            "field": "target_count",
+            "add": 1
+          },
+          {
+            "at": 8,
+            "effectId": "main",
+            "field": "target_count",
+            "add": 1
+          },
+          {
+            "at": 9,
+            "effectId": "main",
+            "field": "target_count",
+            "add": 1
+          }
+        ]
+      }
+    },
+    "effects": [
+      {
+        "id": "main",
+        "target": {
+          "kind": "creature",
+          "count": 1,
+          "disposition": "any",
+          "requiresSight": true,
+          "sizes": [],
+          "creatureTypes": []
+        },
+        "area": null,
+        "range": {
+          "kind": "distance",
+          "feet": 30,
+          "longFeet": 30
+        },
+        "castingTime": {
+          "unit": "action",
+          "value": 1,
+          "trigger": null,
+          "ritual": false
+        },
+        "resolution": {
+          "kind": "save",
+          "ability": "cha",
+          "dc": "spell",
+          "success": "none",
+          "repeat": "none"
+        },
+        "damage": [],
+        "healing": null,
+        "conditions": [
+          {
+            "id": "incapacitated",
+            "operation": "apply",
+            "when": "failed_save",
+            "duration": {
+              "unit": "minute",
+              "value": 1,
+              "ends": []
+            }
+          }
+        ],
+        "duration": {
+          "unit": "minute",
+          "value": 1,
+          "ends": []
+        },
+        "concentration": true,
+        "components": {
+          "verbal": true,
+          "somatic": true,
+          "materials": [
+            {
+              "stockId": "srd521.stock.pentacle",
+              "description": "pentacle",
+              "quantity": 1,
+              "minimumValueGp": 0,
+              "consumed": false,
+              "substitutable": true
+            }
+          ]
+        },
+        "rules": [],
+        "notes": [
+          "Temporary harmless demiplane; return to former space or nearest vacancy. After a full minute, Aberrations, Celestials, Elementals, Fey and Fiends instead go to a random location on a GM-chosen associated plane."
+        ]
+      }
+    ],
+    "spell": {
+      "level": 4,
+      "school": "abjuration"
+    }
+  },
+  {
+    "schema": 1,
+    "id": "srd521.spell.stoneskin",
+    "kind": "spell",
+    "name": "Stoneskin",
+    "revision": 1,
+    "source": {
+      "document": "SRD",
+      "edition": "5.2.1",
+      "heading": "Spell Descriptions / Stoneskin",
+      "page": 165,
+      "url": "https://www.dndbeyond.com/srd",
+      "textSha256": "4456eaa81743ed341c13f19d1d7ced344a6adcbb15367941875ee45cd3f2e562"
+    },
+    "licence": "CC-BY-4.0",
+    "attribution": "This work includes material from the System Reference Document 5.2.1 (“SRD 5.2.1”) by Wizards of the Coast LLC, available at https://www.dndbeyond.com/srd. The SRD 5.2.1 is licensed under the Creative Commons Attribution 4.0 International License, available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+    "status": "supported",
+    "rulings": [],
+    "unmodeled": [],
+    "function": {
+      "doesWhat": [
+        "resist_physical_damage"
+      ],
+      "carrier": "touch",
+      "needs": [
+        "spellcasting",
+        "components",
+        "spell_slot"
+      ],
+      "scale": {
+        "basis": "slot_level",
+        "steps": []
+      }
+    },
+    "effects": [
+      {
+        "id": "main",
+        "target": {
+          "kind": "creature",
+          "count": 1,
+          "disposition": "willing",
+          "requiresSight": false,
+          "sizes": [],
+          "creatureTypes": []
+        },
+        "area": null,
+        "range": {
+          "kind": "touch",
+          "feet": 0,
+          "longFeet": 0
+        },
+        "castingTime": {
+          "unit": "action",
+          "value": 1,
+          "trigger": null,
+          "ritual": false
+        },
+        "resolution": {
+          "kind": "none"
+        },
+        "damage": [],
+        "healing": null,
+        "conditions": [],
+        "duration": {
+          "unit": "hour",
+          "value": 1,
+          "ends": []
+        },
+        "concentration": true,
+        "components": {
+          "verbal": true,
+          "somatic": true,
+          "materials": [
+            {
+              "stockId": "srd521.stock.stoneskin_diamond_dust",
+              "description": "diamond dust",
+              "quantity": 1,
+              "minimumValueGp": 100,
+              "consumed": true,
+              "substitutable": false
+            }
+          ]
+        },
+        "rules": [
+          {
+            "op": "resistance",
+            "subject": "bludgeoning",
+            "value": true,
+            "when": "always"
+          },
+          {
+            "op": "resistance",
+            "subject": "piercing",
+            "value": true,
+            "when": "always"
+          },
+          {
+            "op": "resistance",
+            "subject": "slashing",
+            "value": true,
+            "when": "always"
+          }
+        ],
+        "notes": []
+      }
+    ],
+    "spell": {
+      "level": 4,
+      "school": "transmutation"
+    }
+  },
+  {
+    "schema": 1,
+    "id": "srd521.spell.cone_of_cold",
+    "kind": "spell",
+    "name": "Cone of Cold",
+    "revision": 1,
+    "source": {
+      "document": "SRD",
+      "edition": "5.2.1",
+      "heading": "Spell Descriptions / Cone of Cold",
+      "page": 117,
+      "url": "https://www.dndbeyond.com/srd",
+      "textSha256": "4456eaa81743ed341c13f19d1d7ced344a6adcbb15367941875ee45cd3f2e562"
+    },
+    "licence": "CC-BY-4.0",
+    "attribution": "This work includes material from the System Reference Document 5.2.1 (“SRD 5.2.1”) by Wizards of the Coast LLC, available at https://www.dndbeyond.com/srd. The SRD 5.2.1 is licensed under the Creative Commons Attribution 4.0 International License, available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+    "status": "needs_ruling",
+    "rulings": [
+      {
+        "id": "srd521.spell.cone_of_cold.q1",
+        "question": "Which body-state adapter represents a frozen corpse and decides when it thaws?"
+      }
+    ],
+    "unmodeled": [
+      "Post-death frozen form and thaw are descriptive."
+    ],
+    "function": {
+      "doesWhat": [
+        "area_cold_damage",
+        "freeze_killed_creatures"
+      ],
+      "carrier": "spell",
+      "needs": [
+        "spellcasting",
+        "components",
+        "spell_slot"
+      ],
+      "scale": {
+        "basis": "slot_level",
+        "steps": [
+          {
+            "at": 6,
+            "effectId": "main",
+            "field": "damage_dice",
+            "add": 1
+          },
+          {
+            "at": 7,
+            "effectId": "main",
+            "field": "damage_dice",
+            "add": 1
+          },
+          {
+            "at": 8,
+            "effectId": "main",
+            "field": "damage_dice",
+            "add": 1
+          },
+          {
+            "at": 9,
+            "effectId": "main",
+            "field": "damage_dice",
+            "add": 1
+          }
+        ]
+      }
+    },
+    "effects": [
+      {
+        "id": "main",
+        "target": {
+          "kind": "area",
+          "count": null,
+          "disposition": "any",
+          "requiresSight": false,
+          "sizes": [],
+          "creatureTypes": []
+        },
+        "area": {
+          "shape": "cone",
+          "feet": 60,
+          "origin": "self"
+        },
+        "range": {
+          "kind": "self",
+          "feet": 0,
+          "longFeet": 0
+        },
+        "castingTime": {
+          "unit": "action",
+          "value": 1,
+          "trigger": null,
+          "ritual": false
+        },
+        "resolution": {
+          "kind": "save",
+          "ability": "con",
+          "dc": "spell",
+          "success": "half_damage",
+          "repeat": "none"
+        },
+        "damage": [
+          {
+            "type": "cold",
+            "dice": {
+              "count": 8,
+              "sides": 8,
+              "bonus": 0,
+              "ability": null
+            },
+            "instances": 1
+          }
+        ],
+        "healing": null,
+        "conditions": [],
+        "duration": {
+          "unit": "instant",
+          "value": 0,
+          "ends": []
+        },
+        "concentration": false,
+        "components": {
+          "verbal": true,
+          "somatic": true,
+          "materials": [
+            {
+              "stockId": "srd521.stock.crystal_or_glass_cone",
+              "description": "small crystal or glass cone",
+              "quantity": 1,
+              "minimumValueGp": 0,
+              "consumed": false,
+              "substitutable": true
+            }
+          ]
+        },
+        "rules": [],
+        "notes": [
+          "A creature killed by the spell is a frozen statue until it thaws."
+        ]
+      }
+    ],
+    "spell": {
+      "level": 5,
+      "school": "evocation"
+    }
+  },
+  {
+    "schema": 1,
+    "id": "srd521.spell.wall_of_force",
+    "kind": "spell",
+    "name": "Wall of Force",
+    "revision": 1,
+    "source": {
+      "document": "SRD",
+      "edition": "5.2.1",
+      "heading": "Spell Descriptions / Wall of Force",
+      "page": 172,
+      "url": "https://www.dndbeyond.com/srd",
+      "textSha256": "4456eaa81743ed341c13f19d1d7ced344a6adcbb15367941875ee45cd3f2e562"
+    },
+    "licence": "CC-BY-4.0",
+    "attribution": "This work includes material from the System Reference Document 5.2.1 (“SRD 5.2.1”) by Wizards of the Coast LLC, available at https://www.dndbeyond.com/srd. The SRD 5.2.1 is licensed under the Creative Commons Attribution 4.0 International License, available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+    "status": "needs_ruling",
+    "rulings": [
+      {
+        "id": "srd521.spell.wall_of_force.q1",
+        "question": "How are legal contiguous shapes, forced-side placement and the Disintegrate-only destruction rule represented in spatial and planar consumers?"
+      }
+    ],
+    "unmodeled": [
+      "Alternative geometry, collision displacement, destruction exceptions and planar blocking lack opcodes."
+    ],
+    "function": {
+      "doesWhat": [
+        "block_physical_and_ethereal_passage"
+      ],
+      "carrier": "spell",
+      "needs": [
+        "spellcasting",
+        "components",
+        "spell_slot"
+      ],
+      "scale": {
+        "basis": "slot_level",
+        "steps": []
+      }
+    },
+    "effects": [
+      {
+        "id": "main",
+        "target": {
+          "kind": "point",
+          "count": 1,
+          "disposition": "any",
+          "requiresSight": false,
+          "sizes": [],
+          "creatureTypes": []
+        },
+        "area": {
+          "shape": "wall",
+          "feet": 10,
+          "origin": "point"
+        },
+        "range": {
+          "kind": "distance",
+          "feet": 120,
+          "longFeet": 120
+        },
+        "castingTime": {
+          "unit": "action",
+          "value": 1,
+          "trigger": null,
+          "ritual": false
+        },
+        "resolution": {
+          "kind": "none"
+        },
+        "damage": [],
+        "healing": null,
+        "conditions": [],
+        "duration": {
+          "unit": "minute",
+          "value": 10,
+          "ends": []
+        },
+        "concentration": true,
+        "components": {
+          "verbal": true,
+          "somatic": true,
+          "materials": [
+            {
+              "stockId": "srd521.stock.glass_shard",
+              "description": "shard of glass",
+              "quantity": 1,
+              "minimumValueGp": 0,
+              "consumed": false,
+              "substitutable": true
+            }
+          ]
+        },
+        "rules": [],
+        "notes": [
+          "Invisible wall: globe/hemisphere up to 10-foot radius or ten contiguous 10-by-10-foot panels; any orientation; 1/4 inch thick. Caster chooses side for displaced creatures. Immune to damage and Dispel Magic; Disintegrate destroys it. Blocks Ethereal travel."
+        ]
+      }
+    ],
+    "spell": {
+      "level": 5,
+      "school": "evocation"
+    }
+  }
+]

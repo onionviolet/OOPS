@@ -1,0 +1,14 @@
+[
+  {
+    "id": "recipes",
+    "title": "Recipe browsing",
+    "question": "Does compact inspection keep results and actions readable while full reference stays easy to reach?",
+    "task": "Find a recipe, inspect its ingredient, return, cook once, then inspect the recorded result.",
+    "surface": "Cooking service, local inspection, expanded reference; You, inventory and Reports stay visible.",
+    "fixture": "Synthetic stock, access and scripted success. Pinned YAIR recipe definitions, tokens and detail renderer from the retained recipe experiment. No game save access.",
+    "limits": "Simplified five-region frame, two recipes, no native RNG/XP or production navigation. Visual choice and native integration remain open.",
+    "entry": "built/recipes/index.html",
+    "variants": [{"id":"compact","label":"B · Compact + full"},{"id":"adjacent","label":"A · Adjacent detail"}],
+    "scenarios": [{"id":"ready","label":"Ready"},{"id":"short","label":"Missing materials"},{"id":"station","label":"No station"},{"id":"reserved","label":"Reserved stock"},{"id":"knowledge","label":"Limited knowledge"},{"id":"crowded","label":"Crowded inventory + log"},{"id":"long","label":"Long fixture names"}]
+  }
+]

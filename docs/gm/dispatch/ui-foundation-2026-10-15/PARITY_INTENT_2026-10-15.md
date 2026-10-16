@@ -16,7 +16,7 @@ captures (`evidence/parity-r7/proto23-*.png`), R11/R12 captures, and the owners 
 
 | ID | YAIR choice | Reason and owner | Proto23 lesson that still fits inside it |
 | --- | --- | --- | --- |
-| K1 | Persistent top navigation bar | Weibao 2026-10-15: one-click paths to large panels, little scrolling ([UR21–UR31](../../../UI_RULES.md)). Proto23's five bottom tabs cannot carry YAIR's feature count | Reveal entries by discovery (already live: the bar grew Bestiary/Books/Travelers on the populated save). Labels must name destinations (UR10); see N3 |
+| K1 | Persistent direct navigation; stronger grouping is now eligible for comparison, not yet an accepted default ([next parts](NEXT_PARTS_2026-10-15.md)) | Weibao 2026-10-15: one-click paths to large panels, little scrolling ([UR21–UR31](../../../UI_RULES.md)). Proto23's five bottom tabs cannot carry YAIR's feature count | Reveal entries by discovery (already live: the bar grew Bestiary/Books/Travelers on the populated save). Labels must name destinations (UR10); see N3 |
 | K2 | Full-height Reports column with filters, follow, Stop combat log | UR11, UR44, R7 F17–F18 | Same column as Proto23; lesson is line richness (A3) |
 | K3 | Knowledge-gated names ("Unfamiliar material"), no invented enemy rank/level | Sealed secrets, UR36, UR40, R7 F7. Proto23 prints raw model values | Show known facts as plainly as Proto23 does; never the unknown ones |
 | K4 | Inspection is free, actions explicit (select then Craft, inspect not retarget) | UR35, crafting screen 2026-10-13 | Keep Proto23's speed with one explicit button, not click-to-act rows |
@@ -88,6 +88,10 @@ what R7–R12 did, a better shape and why. Codes continue from K/N/A. None is bu
 | M3 | Each round's comparison page is hand-built | Generate a contact sheet per scenario × size × build from M1, so before/after review is one page |
 | M4 | The R11 interaction harness reads a hover preview with no wait after a Gear click (1 of 5 failed on R12) | Wait for the preview to name the focused stat before asserting; then recheck R12 |
 
+## Status, 2026-10-15
+
+M2 committed as `58b34e6`. R13 built B1, B2, N1, B11-lite (native area progress), S3 and the duplicate-Back fix ([R13_REPORT](R13_REPORT.md)); trip tally and the rest remain proposals. A dedupe pass (DD1–DD4) and new better options (BO1–BO6) are in the same report.
+
 ## Recommended order
 
 1. **M2** (if approved), so work stops piling up uncommitted.
@@ -95,3 +99,20 @@ what R7–R12 did, a better shape and why. Codes continue from K/N/A. None is bu
 3. **B5 + B8:** list readability in crafting and inventory.
 4. **B3 + B4**, then B6, B9, B10, B7.
 5. **M1/M3** alongside R13, since R13 needs idle/fight scenarios anyway.
+
+
+## Later user clarification, 2026-10-15
+
+The initial K1 analysis does not forbid considering grouping. The current candidates,
+tradeoffs and direct-access baseline live in [next parts](NEXT_PARTS_2026-10-15.md).
+K8 protects layout choices/compatibility, not the counter or footer link placement.
+Weibao rejected attribution and R13 precedent as reasons to keep those in play;
+current Part 5 and UR50 supersede that rationale. Historical R13/R14 reports remain
+records of the earlier implementation, not current placement authority.
+
+## Accepted divergence: learned opponent numbers, 2026-10-16
+
+Weibao accepted "Learn them" (KL24, [USER_VISION](../../../USER_VISION.md#learned-opponent-numbers-and-novel-style-cheat-surfaces-2026-10-16)).
+Native YAIR shows exact opponent stats at first sight; ordinary worlds here show impressions and
+`???` until learned (NEXT_PARTS Round 11 LR1–LR12). Parity checks must not flag this. Other native
+disclosures, including your own stats and damage shown in the log, keep native behavior.

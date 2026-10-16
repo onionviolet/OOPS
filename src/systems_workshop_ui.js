@@ -1,4 +1,5 @@
 import {previewSimulationCommand} from './simulation.js';
+import {rendered,shownOrDeferred} from './panel_reveal.js';
 import {SW,SWK,APPRENTICE} from './systems_workshop_content.js';
 const node=(tag,text)=>{const n=document.createElement(tag);if(text)n.textContent=text;return n;};
 export function createSystemsWorkshopPanel({read,act,parent,registry}) {
@@ -20,7 +21,10 @@ export function createSystemsWorkshopPanel({read,act,parent,registry}) {
   const r=read(),{state,context}=r,f=state.actors.player.facts,s=state.simulation;
   if(panel.parentElement!==parent)parent.append(panel);
   panel.hidden=state.actors.player.worldId!=='base.frontier'||context.facts.location!=='Village'||r.inDialogue||r.inCombat;
-  const data=[state.sequence,state.clock,r.enabled,r.error,context.busy,r.inDialogue,r.inCombat];const next=JSON.stringify(data);if(next===sig)return;sig=next;
+  // Closed or unrendered, only the static summary shows: skip the quotes until it opens.
+  if(panel.hidden||!shownOrDeferred(render,()=>panel.open&&rendered(panel.parentElement))){sig='';return;}
+  const laterShown=later.open||shownOrDeferred(render,()=>later.open&&panel.open&&rendered(panel.parentElement));
+  const data=[state.sequence,state.clock,r.enabled,r.error,context.busy,r.inDialogue,r.inCombat,laterShown];const next=JSON.stringify(data);if(next===sig)return;sig=next;
   notice.textContent=message||r.error||'';
   recordBody.replaceChildren();for(const [id,k] of Object.entries(s?.knowledge.player||{}))if(id.startsWith(SW+'.'))recordBody.append(node('p',k.value));
   const own=r.context.gameplay?.player.inventory||{},points=state.actors.player.resources[SW+'.points']||0,ren=state.actors[APPRENTICE];
@@ -34,6 +38,7 @@ export function createSystemsWorkshopPanel({read,act,parent,registry}) {
    if(id==='enroll'){b.hidden=!!s;b.parentElement.hidden=b.hidden;b.disabled=!r.enabled||!!context.busy;continue;}
    if(id==='cancel'){const j=s?.jobs.find(j=>j.actorId==='player'&&j.commandId.startsWith(SW+'.'));b.hidden=!j;b.parentElement.hidden=b.hidden;b.disabled=!r.enabled;continue;}
    if(!s){b.hidden=true;b.parentElement.hidden=true;continue;}
+   if(!laterShown&&laterBody.contains(b))continue;
    const actual=id==='continue'?SW+'.settle_'+f[SW+'.draw']:id==='apply_model'?SW+'.apply_model_'+(f[SW+'.modelLayout']===f[SW+'.modelBest']?'recommended':'trial'):id;
    const d=registry.simulation.commands.get(actual);
    if(!d){b.hidden=true;b.parentElement.hidden=true;continue;}

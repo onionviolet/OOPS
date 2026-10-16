@@ -1,0 +1,21 @@
+{
+  "schema": 1,
+  "description": "Pinned recipe prototype plus isolated workbench adapter; no main-game build",
+  "hashes": {
+    "recipe-fixture/index.html": "e745e89906d9cf438679bc56ef79d827b65530b9630b68653ebf90c030b9624f",
+    "recipe-fixture/comparison.css": "bca08cfed7ec1dbf3e878af0fa52f3c0640b602a1f856834933c9aea59ccdb59",
+    "recipe-fixture/built/ui_tokens.css": "823537c769f11a3b6e0167de72130056bff23677286ae02c9f11aac0d40698e7",
+    "recipe-fixture/built/crafting_detail.css": "3dd028cc7721ae96c0ced0c2cd7aed0a5c9a16d2963b7330970f2401c3054487",
+    "recipe-fixture/built/recipes.json": "511b2eca5f53b3a94f5af8c9d2d1fd926b7a501005385ef039fabe93b23961a5",
+    "recipe-fixture/built/INPUTS.json": "267e17394f5480036d9ba5f9114f81631633bdb732875bceb512c6d9a3d3cae2",
+    "recipe-fixture/built/comparison.js": "410a24399f5e1b6db2d1511fd6bd54d583e1b6f0945c696c6b48bad54e701770",
+    "workbench/adapters/recipes.js": "7276c27b067668765bbba28915b27f4d4de8e5c9e18d0d640ca0a109fc5520ed",
+    "workbench/experiments.json": "be3c653a1bd0f04d1d41526d01451e76132737c5d1b8199f7b40422a6b8eb135",
+    "workbench/index.html": "26bc0b500d07d0c6af33e5eba5b28c423d36e4647b87e7f40ead02a72acfd0f1",
+    "workbench/workbench.js": "bc946a5c7f31227ca63bae02ca036a0a411c0e1c62ac296c995ee05b28a6d690",
+    "workbench/workbench.css": "cf1d899a9bd9dec3678a4dff1568401745478585a44dfa3cb6b98322108ad69e",
+    "workbench/build.mjs": "99b7245c67be00ed8b346196c8210f89446485d8ef7c84c1ce8711c54802b145",
+    "workbench/serve.mjs": "78fbfebf65e2899d171c595a1b82f650b0358e5709f31be3cff8eb52368a235c"
+  },
+  "revision": "1ff037042349385d"
+}

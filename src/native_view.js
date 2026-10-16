@@ -5,6 +5,7 @@ export let get_context;
 export let canConsumeNativeCraftingItem;
 export let nativeWorkLedgerChance;
 export let nativeWorkLedgerQuality;
+export let readVillageLedgerSentence;
 export function bindNativeView(readers) {
     readLocalWeatherWords = readers.readLocalWeatherWords;
     get_current_book = readers.get_current_book;
@@ -12,4 +13,5 @@ export function bindNativeView(readers) {
     canConsumeNativeCraftingItem = readers.canConsumeNativeCraftingItem;
     nativeWorkLedgerChance = readers.nativeWorkLedgerChance;
     nativeWorkLedgerQuality = readers.nativeWorkLedgerQuality;
+    readVillageLedgerSentence = readers.readVillageLedgerSentence;
 }

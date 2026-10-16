@@ -8,7 +8,8 @@
     "test": "node --test tests/*.test.js",
     "ink:compile": "node scripts/compile_feature_ink.mjs",
     "ink:check": "node scripts/compile_feature_ink.mjs --check",
-    "check:arch": "node scripts/check_architecture.mjs"
+    "check:arch": "node scripts/check_architecture.mjs",
+    "check:rules": "node scripts/check_rules_index.mjs"
   },
   "engines": {
     "node": ">=22.13.0"

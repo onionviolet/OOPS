@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>YAIR · Mockup workbench</title><link rel="stylesheet" href="built/ui_tokens.css"><link rel="stylesheet" href="workbench.css"></head>
+<body>
+<header>
+  <div class="heading"><strong>YAIR · Mockup workbench</strong><span>Interactive proposals · synthetic fixtures · no save access</span><button id="details" aria-expanded="false" aria-controls="brief">Task & limits</button></div>
+  <div class="tools">
+    <label>Study <select id="experiment" aria-label="Study"></select></label>
+    <label>Layout <select id="variant" aria-label="Layout"></select></label>
+    <label>Scenario <select id="scenario" aria-label="Scenario"></select></label>
+    <label>Viewport <select id="viewport" aria-label="Viewport"><option value="1366x768">Laptop · 1366 × 768</option><option value="1920x1080">Wide · 1920 × 1080</option></select></label>
+    <label>Text <select id="text" aria-label="Text"><option value="14">100% · 14 px</option><option value="17.5">125% · 17.5 px</option><option value="21">150% · 21 px</option></select></label>
+  </div>
+  <div class="tools secondary">
+    <label><input type="checkbox" id="compare"> Compare same state</label>
+    <label><input type="checkbox" id="fit" checked> Fit preview</label>
+    <button id="reset">Reset scenario</button><button id="step">Step fixture</button><button id="export">Export review</button>
+    <span id="status" role="status">Loading fixture…</span>
+  </div>
+</header>
+<section id="brief" hidden aria-label="Study brief"></section>
+<main id="stage" aria-label="Interactive comparison"><div id="canvases"></div></main>
+<footer><span id="scale-label"></span><span id="revision"></span></footer>
+<script type="module" src="workbench.js"></script>
+</body></html>

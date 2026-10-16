@@ -1,3 +1,4 @@
+import {readVillageObtainability} from '../scripts/village_supply_tables.mjs';
 import test from 'node:test';import assert from 'node:assert/strict';
 import {createGeneratedPeople,advanceGeneratedPeople,generatedPeopleView,interactGeneratedPerson,validateGeneratedPeople} from '../src/generated_people.js';
 import {restoreGeneratedPeople,generatedPeopleSnapshot} from '../src/generated_people_ui.js';
@@ -21,7 +22,7 @@ test('UI registration publishes no supply or reward when durable saving fails',a
  class Node {constructor(tag){this.tagName=tag;this.children=[];this.dataset={};this.handlers={};}append(...nodes){for(const n of nodes){n.parentElement=this;this.children.push(n);}}replaceChildren(...nodes){this.children=[];this.append(...nodes);}prepend(n){this.children=this.children.filter(c=>c!==n);this.children.unshift(n);n.parentElement=this;}get firstElementChild(){return this.children[0];}addEventListener(k,f){this.handlers[k]=f;}remove(){}}
  const host=new Node('div'),old=globalThis.document;globalThis.document={createElement:t=>new Node(t),getElementById:()=>host};
  let envelope={character:{money:100},inventories:{person:{main_character:{}}}},fail=false,published=0;
- restoreGeneratedPeople({});const panel=registerGeneratedPeople({read:()=>({canWrite:true,inVillage:true,busy:false,seed:42,at:1000}),save:()=>JSON.stringify(envelope),persist:serialized=>{if(fail)throw Error('storage full');envelope=JSON.parse(serialized);restoreGeneratedPeople(envelope);},itemKey:id=>id,canSupply:()=>true,publishSupply:()=>published++,publishReward:()=>published++});
+ restoreGeneratedPeople({});const panel=registerGeneratedPeople({read:()=>({canWrite:true,inVillage:true,busy:false,seed:42,at:1000,supplyIndex:readVillageObtainability()}),save:()=>JSON.stringify(envelope),persist:serialized=>{if(fail)throw Error('storage full');envelope=JSON.parse(serialized);restoreGeneratedPeople(envelope);},itemKey:id=>id,canSupply:()=>true,publishSupply:()=>published++,publishReward:()=>published++});
  const all=n=>[n,...n.children.flatMap(all)],button=(action,id='')=>all(host).find(n=>n.dataset.generatedAction===action&&n.dataset.personId===id);
  try {
   fail=true;button('enroll').handlers.click();assert.equal(generatedPeopleSnapshot(1000),null);fail=false;button('enroll').handlers.click();button('meet','traveler_1').handlers.click();

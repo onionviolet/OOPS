@@ -1,3 +1,6 @@
+import {VILLAGE_ASKS,askFee} from '../src/village_traveler_asks.js';
+import {reachBand} from '../src/village_obtainability.js';
+import {readVillageObtainability} from './village_supply_tables.mjs';
 import {pathToFileURL} from 'node:url';
 import {storyletEvents} from '../src/storylet_content.js';
 import {storyAftermathDefinitions} from '../src/story_aftermath.js';
@@ -13,7 +16,7 @@ const collectRules=r=>!r?[]:r.fact?[r]:r.not?collectRules(r.not):(r.all||r.any||
 const effects=d=>[...(d.effects||[]),...(d.onExpire||[]),...(d.responses||[]).flatMap(r=>[...(r.costs||[]),...(r.effects||[])])];
 // Bounded reachability lint, not a general solver. Contradictory conjunctions
 // and missing/self-locked fact producers are rejected; runtime witnesses remain QA.
-export function lintStoryContent({cards=[...storyletEvents,...storyAftermathDefinitions.events],request=REQUEST_CONTRACT,registry=expeditionRegistry,sealedStrings=['synthetic-sealed-canary']}={}) {
+export function lintStoryContent({cards=[...storyletEvents,...storyAftermathDefinitions.events],request=REQUEST_CONTRACT,asks=VILLAGE_ASKS,obtainability=readVillageObtainability(),quotes=[],registry=expeditionRegistry,sealedStrings=['synthetic-sealed-canary']}={}) {
  const findings=[],add=(code,id)=>findings.push({code,id});
  const seen=new Set(),writers=new Map();
  for(const d of cards)for(const e of effects(d))if(e.type==='fact') {const key=`actor.${e.key}`;if(!writers.has(key))writers.set(key,new Set());writers.get(key).add(d.id);}
@@ -45,8 +48,18 @@ export function lintStoryContent({cards=[...storyletEvents,...storyAftermathDefi
    if(e.type==='item'){try{if(!items.has(JSON.parse(e.key).id))add('BAD_REF',d.id);}catch{add('BAD_REF',d.id);}}
   }
  }
- if(request.revision!==1||request.place!=='Village'||request.routes.some(r=>!['take','deliver','decline'].includes(r))||request.items.some(id=>!items.has(id)))add('BAD_REQUEST_REF','request.contract');
+ if(![1,2].includes(request.revision)||request.place!=='Village'||request.routes.some(r=>!['take','deliver','decline'].includes(r))||request.items.some(id=>!items.has(id)))add('BAD_REQUEST_REF','request.contract');
+ for(const [template,entries] of Object.entries(asks))for(const a of entries) {
+  const row=obtainability[a.item],id=`${template}:${a.id}`;
+  if(!row?.routes.length||!reachBand(row)) {add('UNREACHABLE_ASK',id);continue;}
+  if(!a.quantity||!Number.isSafeInteger(a.quantity[0])||!Number.isSafeInteger(a.quantity[1])||a.quantity[0]<1||a.quantity[1]>3||a.quantity[0]>a.quantity[1]||a.grade!==null||!a.tags?.length||!a.fiction||!a.clue) {add('BAD_ASK',id);continue;}
+  if(sealedStrings.some(s=>s&&JSON.stringify(a).includes(s)))add('SEALED_TEXT',id);
+  for(let quantity=a.quantity[0];quantity<=a.quantity[1];quantity++)for(const band of ['ready','stretch','unknown']) {
+   try {const quote=askFee(row,quantity,band);if(!Number.isSafeInteger(quote.reward)||quote.reward<=quote.feeBasis.base||a.reward!=null&&a.reward!==quote.reward)add('MISPRICED_ASK',id);}catch{add('MISPRICED_ASK',id);}
+  }
+ }
+ for(const q of quotes) {try {if(q.reward!==askFee(obtainability[q.item],q.quantity,q.band).reward)add('MISPRICED_ASK',q.askId||q.item);}catch{add('MISPRICED_ASK',q.askId||q.item);}}
  if(sealedStrings.some(s=>s&&JSON.stringify(request).includes(s)))add('SEALED_TEXT','request.contract');
  return findings;
 }
-if(process.argv[1]&&import.meta.url===pathToFileURL(process.argv[1]).href){const findings=lintStoryContent();console.log(JSON.stringify({label:'SOURCE',cards:15,requestContracts:1,findings}));if(findings.length)process.exitCode=1;}
+if(process.argv[1]&&import.meta.url===pathToFileURL(process.argv[1]).href){const findings=lintStoryContent();console.log(JSON.stringify({label:'SOURCE',cards:15,requestContracts:2,askEntries:Object.values(VILLAGE_ASKS).flat().length,reachBands:['ready','stretch','unknown'],findings}));if(findings.length)process.exitCode=1;}

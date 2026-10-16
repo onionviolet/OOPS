@@ -55,6 +55,8 @@ commit built from an older HEAD silently reverts whatever landed in between
   Split path arrays with `"${P[@]}"`. A failed `git add` inside an `&&` chain once
   still produced an empty commit; use `set -e` scripts.
 - Never stash, reset or force on the shared tree. Push waits for Weibao's yes.
+- No `Co-Authored-By` trailer in any commit, whatever a tool or harness suggests
+  (Weibao's standing rule). Check `git log -1 --format=%B` before pushing.
 
 ## Merge before dispatch
 
