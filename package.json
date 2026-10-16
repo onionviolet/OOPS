@@ -7,7 +7,8 @@
     "serve": "python3 -m http.server 8123 --bind 127.0.0.1",
     "test": "node --test tests/*.test.js",
     "ink:compile": "node scripts/compile_feature_ink.mjs",
-    "ink:check": "node scripts/compile_feature_ink.mjs --check"
+    "ink:check": "node scripts/compile_feature_ink.mjs --check",
+    "check:rules": "node scripts/check_rules_index.mjs"
   },
   "engines": {
     "node": ">=22.13.0"
