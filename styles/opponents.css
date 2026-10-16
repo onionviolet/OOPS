@@ -1,0 +1,82 @@
+/* R20 opponent board, sized by count (layout_spec opponentBoard). One row per opponent: letter and
+   name, health, attack cycle. The inspected opponent's facts show once, below the rows. Tokens only
+   (UR6); text stays at the shell's context size (UR46). Loaded after shell_layout.css. */
+
+#main_content.workspace-active[data-parity="r3"] .combat-focus-view:has(> .enemy-cards[data-layout]) {gap:.15em;}
+#main_content.workspace-active[data-parity="r3"] .enemy-cards[data-layout] {
+    --board-row:1.75em;
+    display:grid;grid-template-columns:repeat(var(--board-columns,1),minmax(0,1fr));grid-auto-rows:var(--board-row);gap:0 .9em;align-content:start;
+    max-height:calc(var(--board-visible-rows,8) * var(--board-row));overflow-y:auto;overscroll-behavior:contain;flex:0 0 auto;
+}
+#main_content.workspace-active[data-parity="r3"] .enemy-cards[data-columns="2"] {--board-columns:2;}
+#main_content.workspace-active[data-parity="r3"] .enemy-cards[data-columns="3"] {--board-columns:3;}
+#main_content.workspace-active[data-parity="r3"] .enemy-cards[data-compare="true"] {--board-row:auto;max-height:calc(var(--board-visible-rows,8) * 4.6em);}
+
+/* A row: name | health on one line, the attack cycle as a hairline under it. */
+#main_content.workspace-active[data-parity="r3"] .enemy-cards[data-layout] > .enemy-card {
+    display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"name health" "cycle cycle" "facts facts";align-items:center;column-gap:.5em;
+    grid-column:auto;min-width:0;padding:0 0 0 .35em;
+    background:transparent;border:0;border-left:2px solid transparent;border-bottom:1px solid var(--p23-quiet-line);
+}
+#main_content.workspace-active[data-parity="r3"] .enemy-cards[data-layout] > .enemy-card[data-inspected="true"] {border-left-color:var(--p23-value);background:var(--p23-hover-fill);}
+#main_content.workspace-active[data-parity="r3"] .enemy-cards[data-layout] .enemy-card-name {grid-area:name;min-height:0;padding:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:1.3;}
+#main_content.workspace-active[data-parity="r3"] .enemy-cards[data-layout] .enemy-card-health {grid-area:health;margin:0;padding:0 0 .18em;min-width:5.5em;text-align:right;line-height:1.3;white-space:nowrap;background-color:transparent;background-image:var(--p23-health-fill);background-size:var(--roster-health) .16em;background-position:left bottom;background-repeat:no-repeat;box-shadow:inset 0 -.16em 0 var(--p23-track);}
+#main_content.workspace-active[data-parity="r3"] .enemy-cards[data-layout] .enemy-card-health > span {background:transparent;padding:0;color:var(--p23-text);font-variant-numeric:tabular-nums;}
+#main_content.workspace-active[data-parity="r3"] .enemy-cards[data-layout] .enemy-card-cycle {grid-area:cycle;height:.16em;margin:0;align-self:start;}
+#main_content.workspace-active[data-parity="r3"] .enemy-cards[data-layout] .enemy-card-cycle[hidden] {display:block!important;visibility:hidden;}
+#main_content.workspace-active[data-parity="r3"] .enemy-cards[data-layout] .enemy-card-facts {grid-area:facts;display:grid;grid-template-columns:repeat(auto-fill,minmax(7.5em,1fr));gap:0 .6em;margin:.1em 0 .15em;}
+#main_content.workspace-active[data-parity="r3"] .enemy-cards[data-layout] .enemy-card-facts[hidden] {display:none;}
+
+/* Defeated: stays in its slot with its letter, said in words and struck through, not by color alone. */
+#main_content.workspace-active[data-parity="r3"] .enemy-cards[data-layout] > .enemy-card[data-defeated="true"] {opacity:.6;}
+#main_content.workspace-active[data-parity="r3"] .enemy-cards[data-layout] > .enemy-card[data-defeated="true"] .enemy-card-name {text-decoration:line-through;}
+#main_content.workspace-active[data-parity="r3"] .enemy-cards[data-layout] > .enemy-card[data-defeated="true"][data-inspected="true"] .enemy-card-name {text-decoration:line-through underline;}
+#main_content.workspace-active[data-parity="r3"] .enemy-cards[data-layout] > .enemy-card[data-defeated="true"] .enemy-card-health {background-image:none;}
+#main_content.workspace-active[data-parity="r3"] .enemy-cards[data-layout] > .enemy-card[data-defeated="true"] .enemy-card-health > span {color:var(--p23-muted);}
+
+/* The inspected opponent's facts: a list with your own value for up to four opponents, a compact
+   grid beyond that. */
+#main_content.workspace-active[data-parity="r3"] .opponent-detail {flex:0 0 auto;margin:.2em 0 0;}
+#main_content.workspace-active[data-parity="r3"] .opponent-detail[hidden] {display:none;}
+#main_content.workspace-active[data-parity="r3"] .opponent-detail > dl {display:grid;margin:0;gap:0 .9em;}
+#main_content.workspace-active[data-parity="r3"] .opponent-detail[data-facts="list"] > dl {grid-template-columns:repeat(auto-fill,minmax(9.5em,1fr));}
+#main_content.workspace-active[data-parity="r3"] .opponent-detail[data-facts="grid"] > dl {grid-template-columns:repeat(auto-fill,minmax(7.5em,1fr));}
+#main_content.workspace-active[data-parity="r3"] :is(.opponent-detail, .enemy-card-facts) dl > div,
+#main_content.workspace-active[data-parity="r3"] :is(.opponent-detail > dl, .enemy-card-facts) > div {display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:baseline;gap:0 .4em;padding:.1em 0;border-bottom:1px solid var(--p23-quiet-line);line-height:1.2;min-width:0;}
+#main_content.workspace-active[data-parity="r3"] :is(.opponent-detail > dl, .enemy-card-facts) dt {font:inherit;text-align:left;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+#main_content.workspace-active[data-parity="r3"] :is(.opponent-detail > dl, .enemy-card-facts) dd {margin:0;font:inherit;font-weight:600;font-variant-numeric:tabular-nums;color:var(--p23-value);white-space:nowrap;}
+#main_content.workspace-active[data-parity="r3"] :is(.opponent-detail > dl, .enemy-card-facts) small {grid-column:1/-1;font-size:.85em;color:var(--p23-actor);}
+#main_content.workspace-active[data-parity="r3"] :is(.opponent-detail[data-facts="grid"] > dl, .enemy-card-facts) small,
+#main_content.workspace-active[data-parity="r3"] :is(.opponent-detail > dl, .enemy-card-facts) small:empty {display:none;}
+/* Not yet learned: ??? in a quiet tone, with the word in the title (factText, KNOWLEDGE_LABEL). */
+#main_content.workspace-active[data-parity="r3"] :is(.opponent-detail > dl, .enemy-card-facts) > div[data-knowledge="unknown"] dd {color:var(--p23-muted);font-weight:400;}
+#main_content.workspace-active[data-parity="r3"] .opponent-detail > p {margin:.2em 0 0;color:var(--p23-muted);}
+#main_content.workspace-active[data-parity="r3"] .opponent-detail > p[hidden] {display:none;}
+
+#main_content.workspace-active[data-parity="r3"][data-shell-custom-palette="true"] .enemy-cards[data-layout] > .enemy-card {background:transparent;border-color:var(--shell-user-accent);}
+#main_content.workspace-active[data-parity="r3"][data-shell-custom-palette="true"] .enemy-cards[data-layout] > .enemy-card[data-inspected="true"] {background:var(--shell-user-fill);}
+#main_content.workspace-active[data-parity="r3"][data-shell-custom-palette="true"] .opponent-detail :is(dt,dd,small,p) {color:var(--shell-user-text);}
+
+/* Grouped (five or more, repeated names, UX17): the name once, then one cell per opponent with its
+   own letter, health and selection. */
+#main_content.workspace-active[data-parity="r3"] .enemy-cards[data-grouped="true"] {column-gap:.6em;}
+#main_content.workspace-active[data-parity="r3"] .enemy-cards[data-columns="4"] {--board-columns:4;}
+#main_content.workspace-active[data-parity="r3"] .enemy-cards[data-layout] > .enemy-group-label {grid-column:1/-1;align-self:end;margin:0;text-align:left;color:var(--p23-muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:1.3;}
+#main_content.workspace-active[data-parity="r3"] .enemy-cards[data-grouped="true"] .enemy-card-name {font-weight:700;}
+#main_content.workspace-active[data-parity="r3"] .enemy-cards[data-grouped="true"] .enemy-card-health {min-width:0;}
+
+/* When the Focus region is shorter than the board wants (large text, a big mixed fight), the rows
+   scroll and the inspected facts stay in view. The fit engine measures the declared size
+   (data-fit-clip), not the squeezed one. */
+#main_content.workspace-active[data-parity="r3"] #current_focus:has(> .combat-focus-view > .enemy-cards[data-layout]) {display:flex;flex-direction:column;height:100%;min-height:0;overflow:hidden;}
+#main_content.workspace-active[data-parity="r3"] #current_focus > .combat-focus-view:has(> .enemy-cards[data-layout]) {flex:1 1 auto;min-height:0;}
+#main_content.workspace-active[data-parity="r3"] .combat-focus-view > .enemy-cards[data-layout] {flex:0 1 auto;min-height:calc(min(2, var(--board-visible-rows,1)) * 1.75em);}
+
+/* The encounter caption keeps a fixed two-line box, so a defeat or a group count changing mid-fight
+   never moves the rows under the pointer (UR52). Full text stays in the title. */
+#main_content.workspace-active[data-parity="r3"] .combat-focus-view:has(> .enemy-cards[data-layout]) > .enemy-roster-toolbar {align-items:start;}
+#main_content.workspace-active[data-parity="r3"] .combat-focus-view:has(> .enemy-cards[data-layout]) > .enemy-roster-toolbar > span {display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;line-height:1.2;height:calc(2 * 1.2em);}
+
+/* A name button is as wide as its own text, so health text changing next to it on ticks never
+   resizes the click target (UR52). */
+#main_content.workspace-active[data-parity="r3"] .enemy-cards[data-layout] .enemy-card-name {justify-self:start;width:auto;max-width:100%;}

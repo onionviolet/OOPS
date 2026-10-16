@@ -16,7 +16,7 @@ if (forbidden.length) throw Error(`Preview closure reaches the game core: ${forb
 const bundle = fs.readFileSync('dist/ui-preview.js');
 const fingerprint = hash(bundle).slice(0, 12);
 const page = fs.readFileSync('ui-preview.html', 'utf8');
-const styles = ['styles/ui_tokens.css', 'styles/shell_layout.css', 'styles/workspace.css', 'styles/ui_preview.css', 'style.css'];
+const styles = ['styles/ui_tokens.css', 'styles/shell_layout.css', 'styles/opponents.css', 'styles/workspace.css', 'styles/ui_preview.css', 'style.css'];
 let html = page.replace(/dist\/ui-preview\.js(?:\?version=[^&"]+)?/, `dist/ui-preview.js?version=${fingerprint}`);
 for (const file of styles) html = html.replace(new RegExp(`${file.replace(/[./]/g, m => '\\' + m)}(?:\\?version=[^&"]+)?"`), `${file}?version=${hash(fs.readFileSync(file)).slice(0, 12)}"`);
 if (!html.includes(`dist/ui-preview.js?version=${fingerprint}`)) throw Error('Missing preview entry in ui-preview.html.');

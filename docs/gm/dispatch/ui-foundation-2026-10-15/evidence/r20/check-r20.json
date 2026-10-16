@@ -1,0 +1,50 @@
+[
+ {
+  "name": "three 1366x768 21px",
+  "pass": true
+ },
+ {
+  "name": "n1 1366x768 21px",
+  "pass": true
+ },
+ {
+  "name": "n9 1366x768 21px",
+  "pass": true
+ },
+ {
+  "name": "n8-mixed 1366x768 21px",
+  "pass": true
+ },
+ {
+  "name": "three 1366x768 14px",
+  "pass": true
+ },
+ {
+  "name": "n1 1366x768 14px",
+  "pass": true
+ },
+ {
+  "name": "n9 1366x768 14px",
+  "pass": true
+ },
+ {
+  "name": "n8-mixed 1366x768 14px",
+  "pass": true
+ },
+ {
+  "name": "three 1920x1080 21px",
+  "pass": true
+ },
+ {
+  "name": "n1 1920x1080 21px",
+  "pass": true
+ },
+ {
+  "name": "n9 1920x1080 21px",
+  "pass": true
+ },
+ {
+  "name": "n8-mixed 1920x1080 21px",
+  "pass": true
+ }
+]

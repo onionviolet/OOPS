@@ -11,7 +11,7 @@ import { LAYOUT_SPEC, topRowHeight, companionsFor, frameFor } from './layout_spe
 // attributes on the shell root.
 
 // Attributes on the shell root that mark a context or size change.
-const STABLE_ATTRIBUTES = ['data-parity', 'data-parity-combat', 'data-parity-item', 'data-shell-stats-open', 'data-enemy-cards', 'data-density', 'data-presentation', 'data-parity-expanded', 'style'];
+const STABLE_ATTRIBUTES = ['data-parity', 'data-parity-combat', 'data-parity-item', 'data-shell-stats-open', 'data-enemy-cards', 'data-density', 'data-presentation', 'data-parity-expanded', 'data-opponent-board', 'style'];
 const LEAF = /^(BUTTON|SELECT|INPUT|TEXTAREA|IMG|SVG|CANVAS|PROGRESS|SUMMARY)$/;
 
 // Bottom of the lowest visible text or control inside a region, as if every inner scroll
@@ -20,6 +20,15 @@ const LEAF = /^(BUTTON|SELECT|INPUT|TEXTAREA|IMG|SVG|CANVAS|PROGRESS|SUMMARY)$/;
 export function contentExtent(region) {
     const top = region.getBoundingClientRect().top;
     let bottom = top;
+    // R20: a part that scrolls inside a declared size ([data-fit-clip], the opponent board's visible
+    // rows from layout_spec) counts at that size, even while the region squeezes it; content below
+    // it moves down by the difference. So the measure does not depend on the current squeeze.
+    const clips = [...region.querySelectorAll('[data-fit-clip]')].filter(c => c.getClientRects().length).map(clip => {
+        const r = clip.getBoundingClientRect(), max = parseFloat(getComputedStyle(clip).maxHeight);
+        const want = Math.min(clip.scrollHeight, Number.isFinite(max) ? max : Infinity);
+        let above = 0; for (let up = clip.parentElement; up && up !== region; up = up.parentElement) above += up.scrollTop;
+        return {clip, bottom: r.bottom, limit: r.top + above + want, extra: Math.max(0, want - clip.clientHeight)};
+    });
     for (const node of region.querySelectorAll('*')) {
         const rect = node.getBoundingClientRect();
         if (!rect.height || !rect.width) continue;
@@ -33,7 +42,9 @@ export function contentExtent(region) {
         if (hidden) continue;
         let scrolled = 0;
         for (let up = node.parentElement; up && up !== region; up = up.parentElement) scrolled += up.scrollTop;
-        bottom = Math.max(bottom, rect.bottom + scrolled);
+        let end = rect.bottom + scrolled;
+        for (const c of clips) end = c.clip.contains(node) ? Math.min(end, c.limit) : rect.top >= c.bottom - 1 ? end + c.extra : end;
+        bottom = Math.max(bottom, end);
     }
     return Math.ceil(bottom - top);
 }
