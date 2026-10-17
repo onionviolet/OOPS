@@ -3247,3 +3247,12 @@ Recorded: keep the "Yet another" irony in any new name; "fiction engine" is too
 bougie as a name. No name is selected. The heir/lineage loop is not presumed to
 be the core loop; the core loop needs its own scoping pass. Considerations live
 in the [engine and identity thread](reviews/ENGINE_AND_IDENTITY_THREAD_2026-10-16.md).
+
+### Shounen manga build order, 2026-10-17
+
+Weibao, after the full-read recommendations for Reincarnated in a Shounen Manga:
+"Queue A1 and A2 as engine work, then build the RS26 slice once the current UI
+lane merges and I've played it." Queued: A1 ability conditions (charges, recharge
+triggers, lasting price, bound subject) and A2 claims with dependencies (stale only
+when a named precondition changes; tests revise beliefs). RS26 waits for the UI
+lane merge and his play check. Owner: [shounen manga considerations](research/reincarnated-in-a-shounen-manga/YAIR_CONSIDERATIONS_2026-10-16.md#build-order-decided-by-weibao-2026-10-17).
