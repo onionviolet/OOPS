@@ -105,6 +105,7 @@ export function compileStructuredPack(raw, existingRegistry = null) {
     if(Object.hasOwn(d, 'abilities')) {
         const abilities = compileStructuredAbilities(d);
         d.simulation.commands = abilities.commands;
+        if(d.simulation.powers) d.simulation.powers = abilities.powers;
     }
     if(Object.hasOwn(d, 'expeditions'))d.simulation.commands = compileStructuredExpeditions(d).commands;
     const authored = {worlds: [d.world], simulation: d.simulation};
