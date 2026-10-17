@@ -275,6 +275,18 @@ expansion proposal: [log](docs/gm/PROJECT_LOG.md#expansion-design-proposal).
 
 ## Accepted decisions
 
+- **Viewport targets (2026-10-17, Weibao):** "yes, check my screen realestate and what is most
+  common?" Primary design target 1920×1080; his MacBook Pro (about 1800×1040 CSS pixels in a
+  full-screen browser) is checked every round; 1536×864 and 1366×768 are floors that must not
+  break. [Owner](docs/UI_RULES.md); [considerations](docs/gm/dispatch/ui-foundation-2026-10-15/next-parts/round-15-whole-plan.md#screen-real-estate-and-moving-menu-boxes-2026-10-17).
+- **Redesigned shell becomes the default screen; core components restructure next
+  (2026-10-16, Weibao):** "continue accordingly, making shell defualt, and then restructuring
+  core components? send out new agents accordingly? one for engine one for this". The shell
+  he flagged as looking off (big for no reason) is the R14/R15 parity shell at 1366×768 21px.
+  Players who already chose a presentation keep it. Core-first order and owner:
+  [Round 15 plan](docs/gm/dispatch/ui-foundation-2026-10-15/next-parts/round-15-whole-plan.md#feedback-core-first-2026-10-16);
+  [record](docs/USER_VISION.md#shell-default-and-two-sessions-2026-10-16).
+
 - **Complexity guardrails CX1–CX8 (2026-10-16, Weibao):** "I like these rules".
   Depth arrives on demand, connects to existing verbs and owners first, uses
   rules over pairwise interactions, promotes instead of pre-simulating, declares

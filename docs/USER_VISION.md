@@ -17,6 +17,9 @@ mobile-design workstream. Existing mobile behavior and saved layouts remain
 subject to affected compatibility checks, without promoting mobile optimization
 into a product priority.
 
+Updated 2026-10-17: the primary design target is now 1920×1080 with 1366×768 as a floor
+([viewport targets](#viewport-targets-and-moving-menu-boxes-2026-10-17)); desktop first still holds.
+
 This section owns the accepted direction and its reason. [PROJECT.md](../PROJECT.md)
 surfaces the current priority; [AGENTS.md](../AGENTS.md#standing-direction-and-consistency-gates)
 governs reconciliation and override authority. The [UI design owner](THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md#standing-ui-scope-and-acceptance-gates-2026-10-13)
@@ -3265,3 +3268,141 @@ A1/A2 stay world-neutral and dormant until a world authors them; the shounen man
 is the home world and Hunter x Hunter, Jujutsu Kaisen and Fae bargains serve as
 similar-world test fixtures (E8B Conditions / Contracts and oaths), not new playable
 worlds. Owner: [G1–G8](research/reincarnated-in-a-shounen-manga/YAIR_CONSIDERATIONS_2026-10-16.md#world-gating-and-similar-world-fixtures-2026-10-17).
+
+## Extensible panels and layout seams, 2026-10-16
+
+Weibao: "UI extension and additions? like narrowing a bannel to fit another useful
+panel? Modulizing everything underneath to allow better iterations and implementatio
+and improvemets and more?", asked twice with `/more-to-consider`. Saved in
+[round 15 whole plan](gm/dispatch/ui-foundation-2026-10-15/next-parts/round-15-whole-plan.md):
+round 1 PX1-PX5, NX20-NX24, WB9; round 2 NX25 (Crafting beside/below is the existing
+local-split precedent), PX6-PX10 (per-panel width forms, placement hints instead of
+hard-coded ID lists, one browser-local dial owner, expiring review switches, DOM
+reading order). Desired outcome: an extensible screen over replaceable modules. All
+layouts, contracts and sequences are proposals; no round or dispatch was started.
+
+Weibao: "UI extension and additions? like narrowing a bannel to fit another useful
+panel? Modulizing everything underneath to allow better iterations and implementatio
+and improvemets and more?", asked twice with `/more-to-consider`. Saved in
+[round 15 whole plan](gm/dispatch/ui-foundation-2026-10-15/next-parts/round-15-whole-plan.md):
+round 1 PX1-PX5, NX20-NX24, WB9; round 2 NX25 (Crafting beside/below is the existing
+local-split precedent), PX6-PX10 (per-panel width forms, placement hints instead of
+hard-coded ID lists, one browser-local dial owner, expiring review switches, DOM
+reading order). Desired outcome: an extensible screen over replaceable modules. All
+layouts, contracts and sequences are proposals; no round or dispatch was started.
+
+Weibao, after asking whether the mockup system is useful at all:
+
+> consideer that the mockup system looks not too much like the real deal, how can we restructure UI from the grounds up to allow for easier mockups and more in the future?
+
+Recorded as a proposal, not a decision: every panel renders from an observer-safe
+model through one view function, layout becomes data, and one preview entry mounts
+the real views over captured fixtures, migrated panel by panel as native rounds
+touch them. [UI engine round 3, UIE17–UIE26](ENGINE_EXPANSION.md#round-3-one-renderer-for-the-game-and-its-mockups-2026-10-16)
+holds the structure, costs and first step. It complements the panel-extension
+proposals PX1–PX10 in the [Round 15 plan](gm/dispatch/ui-foundation-2026-10-15/next-parts/round-15-whole-plan.md).
+No round, dispatch or runtime change was started.
+
+### UI rounds and engine plan combined, 2026-10-16
+
+Weibao: "ajudt other pklans accordingly? combining engine plan with round 15 to work
+together? more to conisder?" The [Round 15 joint schedule](gm/dispatch/ui-foundation-2026-10-15/next-parts/round-15-whole-plan.md#joint-schedule-with-the-modular-engine-plan-2026-10-16)
+(J1–J6, NX26–NX36) is now the one sequence for UI rounds and the modular-seams lane;
+[brief MP12](gm/dispatch/modular-seams-2026-10-16/BRIEF.md) and
+[ENGINE_EXPANSION UI round 4](ENGINE_EXPANSION.md#round-4-joint-schedule-with-ui-round-15-2026-10-16)
+point to it. Proposals only; merging the passed M1/M2 rounds early awaits his yes.
+
+### Round 3 blockers addressed, 2026-10-16
+
+Weibao, on the round 3 mockup answer: "how can we address these too?" Each blocker and cost
+now has a remedy, round and shrink-only done check in the
+[Round 15 plan](gm/dispatch/ui-foundation-2026-10-15/next-parts/round-15-whole-plan.md#addressing-the-round-3-blockers-and-costs-2026-10-16)
+(NX37–NX46). Proposals only; nothing built or committed.
+
+### Ideas improved, then more to consider, 2026-10-16
+
+Weibao: "improve all the ideas accordingly, and then /more-to-consider". Earlier PX, NX, WB9 and
+UIE rows are amended in place, keeping their original text. New round PV1–PV8 in the
+[Round 15 plan](gm/dispatch/ui-foundation-2026-10-15/next-parts/round-15-whole-plan.md#improved-ideas-and-preview-feasibility-2026-10-16):
+import closure as the preview test, a separate preview bundle, isolated storage, no import-time
+side effects, preview links for review, one Playwright resolver, public-safe fixtures and matched
+text size. Proposals only.
+
+### Whole-screen composition, 2026-10-16
+
+Weibao, with a screenshot of the classic layout on a fresh character: "how narrowing panels to
+fit other useful panels and how the whole screen works together, beyond just You and Equipment.
+/more-to-consider Update and save accordingly". Saved as WX1–WX14 in the
+[Round 15 plan](gm/dispatch/ui-foundation-2026-10-15/next-parts/round-15-whole-plan.md#whole-screen-composition-narrowing-to-fit-useful-panels-everywhere-2026-10-16):
+slack depends on state, shorten before narrowing, panels declare how they yield, compositions
+per context, re-compose only at stable moments, the log keeps its column, and records earn
+simultaneous space only where they drive the next action. Proposals only.
+
+Weibao, with a screenshot of the classic layout on a fresh character: "how narrowing panels to
+fit other useful panels and how the whole screen works together, beyond just You and Equipment.
+/more-to-consider Update and save accordingly". Saved as WX1–WX14 in the
+[Round 15 plan](gm/dispatch/ui-foundation-2026-10-15/next-parts/round-15-whole-plan.md#whole-screen-composition-narrowing-to-fit-useful-panels-everywhere-2026-10-16):
+slack depends on state, shorten before narrowing, panels declare how they yield, compositions
+per context, re-compose only at stable moments, the log keeps its column, and records earn
+simultaneous space only where they drive the next action. Proposals only.
+
+Weibao: "what to consider based on this and more? Every little menu considerations?
+/more-to-consider". Saved as CTL1–CTL24 in the
+[Round 15 plan](gm/dispatch/ui-foundation-2026-10-15/next-parts/round-15-whole-plan.md#every-little-control-2026-10-16),
+control by control with its round. Proposals only.
+
+### Feedback: looks big, core changes missing, 2026-10-16
+
+Weibao, after R15: "You take care of the complex stuff since thigns look big for no reason right
+now but also its lacking the necissary changes I wanted for the core stuff and for more panels and
+more or are things still in progress". Recorded: the strongest session does the complex UI work
+itself, with cheaper agents for routine runs. The current screen reads as oversized with empty
+frames, and the requested core changes (whole-screen composition, narrowing to fit more useful
+panels) are not built yet; only R15 is. Finding at the time: the redesigned shell is opt-in
+(`yairpg.presentation.proto23-shell.v1` / `-parity.v1`, default off), so default play shows the
+classic layout. The reorder this implies is in the
+[Round 15 plan](gm/dispatch/ui-foundation-2026-10-15/next-parts/round-15-whole-plan.md#feedback-core-first-2026-10-16).
+
+### Shell default and two sessions, 2026-10-16
+
+Weibao, pointing at the R15 combat screenshot at 1366×768 21px: "the thing off was this one, but
+continue accordingly, making shell defualt, and then restructuring core components? send out new
+agents accordingly? one for engine one for this". Accepted: the redesigned shell (R14/R15 parity
+shell) becomes the default presentation; an explicit stored choice is kept. The screen that looks
+big for no reason is that shell, not classic. Core restructuring follows the
+[core-first reorder](gm/dispatch/ui-foundation-2026-10-15/next-parts/round-15-whole-plan.md#feedback-core-first-2026-10-16).
+Two sessions started: one for the modular-seams engine lane, one for shell default and core UI.
+
+### Control box, 1920×1080 and crowds, 2026-10-17
+
+Weibao: "We can put selectioj menus in one box and then drop down in another one, so we have more
+effective space? also instead of 1366 x 768 we can have like 1980 x 1080 right? more to consider?
+what if there is 8 enemies? more? hundreds? more to consider?" Saved as CB1–CB5, VP1–VP4 and
+HZ1–HZ8 in the
+[Round 15 plan](gm/dispatch/ui-foundation-2026-10-15/next-parts/round-15-whole-plan.md#control-box-19201080-target-8-and-hundreds-of-opponents-2026-10-17).
+Not yet a decision: whether 1920×1080 replaces 1366×768 as the primary design target (VP1).
+
+### Viewport targets and moving menu boxes, 2026-10-17
+
+Weibao, answering "Make 1920×1080 the primary design target, keeping 1366×768 as a floor check?":
+"yes, check my screen realestate and what is most common? More to consider? moving other menu boxes
+around? More to consider?" Accepted: 1920×1080 primary, 1366×768 floor. Checked: his display is a
+14-inch MacBook Pro (3024×1964 Retina) on a scaled setting of 1800×1169 points, about 1800×1040 CSS
+pixels in a full-screen browser; that size is checked every round, and 1536×864 is added as a
+second floor. Rule owners updated: UI_RULES UR14/UR25 and its viewport note, AGENTS.md, RULES_INDEX
+and PROJECT.md. Menu-box moves are proposals in the
+[Round 15 plan](gm/dispatch/ui-foundation-2026-10-15/next-parts/round-15-whole-plan.md#screen-real-estate-and-moving-menu-boxes-2026-10-17).
+
+### R21 feedback: name, Skills, options, more panels, modular UI, 2026-10-17
+
+During R21 Weibao asked what the freed screen space should absorb (better combat screen, more
+Reports colors, Inventory color coding, a split Around you, a narrower You, future craft panels
+such as runecrafting, and what Idling to Rule the Gods and others do), said "the you in the you
+panel is meant to be a typable place for your name", "We dont need skills always be seen" and
+"what about moving the options drop down to a seperate part?", relayed "more panels ... like the
+panel for drop down choice options? another for diary/quest", and asked "Will UI design become
+modularized?". Accepted direction: the name is typed in the You header; Skills is not an idle
+default companion; the action group drop-downs live under the Options tab (all done in R21). The
+rest are proposals in [R21 feedback](gm/dispatch/ui-foundation-2026-10-15/next-parts/r21-feedback-2026-10-17.md)
+(BX4–BX15) and [UI modularity](gm/dispatch/ui-foundation-2026-10-15/next-parts/ui-modularity-2026-10-17.md)
+(UM1–UM10). Then: "Merge and commit with lesser accordingly".

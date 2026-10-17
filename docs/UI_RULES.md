@@ -35,7 +35,7 @@ acceptance. A settled production change does not require a new mockup.
 
 | Code | Rule | Mistake it prevents |
 | --- | --- | --- |
-| UR14 | **Discoverability check:** at 1366×768 on a populated save, can a first-time player name the way back, the current work and the main actions from a screenshot alone? Put the screenshot in the report | Technical proof that a button exists, while the player could not find it |
+| UR14 | **Discoverability check:** at the primary target 1920×1080 and the 1366×768 floor on a populated save, can a first-time player name the way back, the current work and the main actions from a screenshot alone? Put the screenshot in the report | Technical proof that a button exists, while the player could not find it |
 | UR15 | **Reproduce a reported problem in the player's terms first.** If it does not reproduce, ask what they saw before designing a fix. A report like "no way back" may mean "could not recognize the way back" | Hunting for a dead-end state when the real issue was an unclear label |
 | UR16 | **Proof and taste are separate gates.** Report rebuilt, fresh-origin technical proof; leave Weibao's visual-feel acceptance open | Calling a layout accepted because tests pass |
 | UR17 | **Saves first:** reorganizing UI never deletes gameplay, renames internal ids or breaks saved layouts, pins and collapse states without a written compatibility decision | Presentation work silently breaking long-running saves |
@@ -50,7 +50,7 @@ Weibao, 2026-10-15: "there should be paths back to specific large panels if some
 | UR22 | **Back goes to where you came from.** The center-mode controller keeps a history stack; the back bar names the real previous place ("← Inventory", "← Village"), not always home | A back control that throws you somewhere other than where you were |
 | UR23 | **Return restores your place:** scroll position, selection, open groups and active tab come back when you return to a view | Reopening a long list at the top and losing your spot |
 | UR24 | **Any large panel can expand** to fill the center as a focused view, and the back bar returns it to its normal home | Squinting at a big panel squeezed into a side column |
-| UR25 | **Scroll budget at 1366×768:** no page scroll in ordinary play; one scroll owner per region; routine actions, current work and the way back visible without scrolling. A panel needing more than about one and a half screens of scrolling must be split, summarized, filtered or offered as an expanded view (UR24) | Long columns where the important action sits below the fold |
+| UR25 | **Scroll budget at every target, down to the 1366×768 floor:** no page scroll in ordinary play; one scroll owner per region; routine actions, current work and the way back visible without scrolling. A panel needing more than about one and a half screens of scrolling must be split, summarized, filtered or offered as an expanded view (UR24) | Long columns where the important action sits below the fold |
 | UR26 | **Summary first:** collapsed groups show a one-line status (ready, due, counts) so the player knows whether to open them | Opening every dropdown to find out if anything inside matters |
 | UR27 | **Long lists keep their bearings:** sticky header, filter or search, a count, selection kept in view, no jump on refresh | Inventory and logs that lose your place every tick |
 | UR28 | **Quick jump:** one shortcut (for example Ctrl+K or /) searches known panels, actions, people and items and goes there. Lists only what the player knows (observer-safe) | Deep features reachable only by remembering where they live |
@@ -60,7 +60,9 @@ Weibao, 2026-10-15: "there should be paths back to specific large panels if some
 | UR32 | **Empty states say how to fill them**, rather than showing a blank box or hiding the panel without explanation | Empty frames that look broken |
 | UR33 | **Larger text still works:** at 125% and 150% text, routine controls and the back bar stay reachable; scrolling is allowed but the back bar stays pinned | Layouts that pass at default size and break for readers who zoom |
 
-Measure, don't guess: UR14 reports include page `scrollHeight` against the viewport and which regions overflow, on a populated save at 1366×768.
+Measure, don't guess: UR14 reports include page `scrollHeight` against the viewport and which regions overflow, on a populated save at 1920×1080 and the 1366×768 floor.
+
+**Viewport targets, 2026-10-17 (Weibao: "yes, check my screen realestate and what is most common?").** Primary design target 1920×1080, the most common desktop size (about half of Steam players and a fifth of all desktop web traffic). Weibao's own MacBook Pro shows about 1800×1040 CSS pixels in a full-screen browser and is checked every round. Floors that must not break: 1536×864 (the second most common size, and 1920×1080 at 125% scaling) and 1366×768. Text at 14px and 21px at each. Extra space at the primary target goes to more useful panels, not larger type. Superseded wording, kept as history: UR14, UR25 and this note measured at "1366×768" only.
 
 ## For coordinators and lane briefs
 

@@ -1231,3 +1231,117 @@ Implemented: original housing chest controls stage actual owned bag/chest moveme
 Measured subsequent gap: eligible actor/routine work computed the same full preview twice before mutation. Immediate internal reuse preserves validation and exact outcomes. Same-host64-paid-helper baseline tick median209.90ms became128.68ms; twelve-minute jump743.70ms became549.19ms. This reduces redundant planning without dropping source/body/fuel/knowledge detail. Broad rebuilt profile retains storage/claim/item owners, stable bounded DOM/listener counts and a crowded command-start p95 of115.4ms. Crowded active60fps remains unverified.
 
 All10bounded existing specialist runs completed and returned files were reviewed under the [live queue](research/novels/GM_RUN_QUEUE.md), each with exact disjoint result scopes and bounded subagent permission. Their source/design reports are reviewed inputs, not installed novel worlds. [Next checkpoint](ENGINE_GM_NEXT_CHECKPOINT.md) owns runtime recovery and actual active operations.
+
+### Round 3: one renderer for the game and its mockups, 2026-10-16
+
+Weibao: "consideer that the mockup system looks not too much like the real deal,
+how can we restructure UI from the grounds up to allow for easier mockups and
+more in the future?"
+
+Answer: the workbench looks fake because it cannot run the real UI, so every
+study redraws a copy. The fix is not a better mockup tool. It is a UI where each
+panel renders from a supplied model, so the game and the workbench mount the
+same code with different data. Everything below is a proposal; no source,
+build, dispatch or commit follows from it.
+
+#### Why the real UI cannot run outside the game (READ)
+
+- **The shell is a skin over legacy DOM.** `styles/ui_tokens.css` holds 758
+  `#main_content` selectors and 65 `display:none` declarations that hide and
+  reposition native modules. Layout lives in CSS keyed to legacy IDs.
+- **Views read the page and globals.** `src/village_workspace.js` reads
+  `#enemies_left_div`, `#clear_count_div`, `#location_description_div` and the
+  weather DOM; `src/ui/combat_display.js` imports state from `main.js`;
+  `src/display.js` (6,716 lines, 339 `document.` references) mutates the DOM
+  straight from game state.
+- **The workbench copies instead of mounting.** The recipe study appends an
+  adapter to a pinned prototype build inside a simplified five-region frame
+  (UIE10).
+- **The pattern that works already exists.** `src/crafting_detail.js` renders a
+  supplied model and emits handlers; `display.js` builds the model and owns the
+  commands. That shape, applied to every panel, is the whole proposal.
+
+#### ACCOUNT FOR NOW: target structure
+
+| Code | Layer | Default and reason | What mockups gain |
+| --- | --- | --- | --- |
+| UIE17 | **Projection** | Each panel has an observer-safe view model built by its domain (AR8), versioned, with no DOM or authority inside. Knowledge gating happens here, so a fixture cannot show more than the player would know | A fixture is just a saved model |
+| UIE18 | **View** | `render(root, model, handlers, viewState)`. Reads nothing outside its root and arguments: no `getElementById` for data, no `main.js` import (AR5). Keyed, incremental updates so ticks stay cheap (NX10, ER1 render work) | The same file draws the game and the mockup **Improved 2026-10-16:** use the existing factory form `create…Panel({container, read, command})` that 49 `*_ui.js` panels already follow; `render(root, model, handlers)` stays the stateless inner form (round 15 NX37) |
+| UIE19 | **Intents** | Handlers emit intents to the command owner, which quotes and revalidates (AR7). Local view state (selection, query, open groups) stays in the view (UIE11) | Preview routes intents to a logger or a trivial fixture reducer, never real commands |
+| UIE20 | **Layout spec** | Regions, slots, companions and the minimum useful width per text size (PX1, PX2) live in data read by the one workspace host. CSS targets component classes and slot attributes, not legacy IDs | A layout alternative is a spec diff, so "narrow You, add a companion" is a data change |
+| UIE21 | **Data source** | Game boot supplies a live source through the existing `deferSimulationRender` batching (UIE3); preview supplies a fixture source. Same shell, views and tokens | Real pixels from fake data |
+| UIE22 | **Preview host** | One preview entry in the same bundle (for example `index.html?preview=<fixture>`): no game startup, no storage, manual clock (MW6). Workbench chrome iframes it; Compare mounts two layout specs over one fixture | Retires the pinned recipe copy and study-specific shells **Improved 2026-10-16:** a separate preview page and bundle, following `scripts/build_nethack_preview.mjs`, so `main.js` (lane-reserved) is untouched; preview stubs storage (round 15 NX40, PV2, PV3) |
+| UIE23 | **Fixture capture** | A dev-only "Capture view fixture" exports the current projections from a live session. Projections are observer-safe, so sealed truths never enter a fixture. Hand edits add stress cases (500 items, 9 opponents, long names) | Fixtures have real data shapes and real states **Improved 2026-10-16:** capture only from panels whose `read()` is an observer-safe projection; raw-state panels use hand fixtures (round 15 NX38) |
+
+Unconverted panels render in preview as a labelled "Legacy panel, not
+previewable" box at their spec size, so real, simulated and absent parts stay
+explicit (MW2).
+
+#### ACCOUNT FOR NOW: migrate by touching, not by rewriting
+
+| Code | Step | Trigger and done check |
+| --- | --- | --- |
+| UIE24 | **Step 0, the frame.** Preview host, fixture source and a layout spec covering only the current R14 regions. `crafting_detail.js` is the first real view; every other panel is a placeholder | Structural round under AR9: the game is unchanged at the three targets (screenshot comparison) and the workbench shows the real shell with real Crafting detail from a captured fixture **Improved 2026-10-16:** first real view is an existing factory panel M3 does not own; crafting detail joins after M3 merges (round 15 NX40) |
+| UIE25 | **Convert as you touch.** Each native round converts the panel it changes: R15 combat descriptor, R16 and R17 inventory, R18 opponents, R19 and R20 Reports, R22 You | Each round's done check adds: the panel renders in preview from a fixture matching its native screenshot state. Expect roughly a fifth more effort per round at first, falling as shared helpers settle **Improved 2026-10-16:** convertibility is decided by import closure: panels whose closure includes `main.js` (combat display today) wait for the lane cut (round 15 NX43, PV1) |
+| UIE26 | **Layout CSS into the spec.** Move the R14 grid rules out of `ui_tokens.css` only when the companion pilot (PX3) needs a slot the CSS cannot express | Before/after screenshots identical at the three targets; legacy selectors removed only for regions the spec owns |
+
+`display.js` and `main.js` shrink only where a round touches them, through the
+modular-seams registry and its reservations (AR1, AR14, AR15). No framework
+migration: plain render functions match the existing code. A small keyed-update
+helper is added only if measurement at a stress fixture shows the need.
+
+#### What it buys and what it costs
+
+- **Buys:** mockups in real pixels; layout studies as spec diffs; deterministic
+  screenshot checks at the three targets from fixtures, without ticks, which can
+  replace many of the round-specific `check-r*.cjs` scripts; renderer unit tests;
+  world skins and cheat looks (WB5) as data over the same views.
+- **Costs:** each model now has two consumers, so schema changes need care.
+  Whole-panel redraws can regress tick cost, so views stay keyed and are measured
+  at a stress fixture. Preview must stay a viewer: any reducer beyond local
+  selection starts a second game and is out of scope.
+- **Native or mockup:** with this structure the two converge. Build natively,
+  then preview the same code with fixtures. Proposed: WB9 goes native (chat
+  answer, not yet accepted); the preview host makes later studies real.
+
+#### LATER / DELEGATE
+
+| Candidate | Level, effort and done check |
+| --- | --- |
+| UIE24 Step 0 | Strong model, high effort, medium to large. Reserve `workspace_layout.js`, `panel_kit.js`, new `src/ui/preview/` and `prototypes/workbench/`; check the modular-seams reservation first. Done: build, `npm test`, `check:arch` once it exists, unchanged game at 1366×768 14/21px and 1920×1080 21px, extended `prototypes/workbench/check.cjs` |
+| UIE25 per round | Added to each round brief from R15 on, once Step 0 lands. Before that, rounds keep their current scope |
+
+### Round 4: joint schedule with UI round 15, 2026-10-16
+
+Weibao: "ajudt other pklans accordingly? combining engine plan with round 15 to
+work together? more to conisder?" The combined sequence lives in one place, the
+[Round 15 joint schedule](gm/dispatch/ui-foundation-2026-10-15/next-parts/round-15-whole-plan.md#joint-schedule-with-the-modular-engine-plan-2026-10-16)
+(J1–J6, NX26–NX36). Changes to this section's proposals, all still proposals:
+
+- **UIE20 owns layout data.** PX7 placement hints, PX2/PX6 widths and PX8 dial
+  references are fields of the one layout spec, not a second mechanism (NX29).
+- **UIE24 Step 0 waits for the M3 crafting writer.** Its first real view is
+  `crafting_detail.js`; Step 0 starts after M3 merges or after confirming M3's
+  diff leaves that view alone (NX30). If the merge is quick, Step 0 runs before
+  R16 so Inventory converts once.
+- **UIE25 conversion is the round's means, not a second gap** (NX31).
+- **UIE13's open refresh is the only one.** UI rounds add no per-panel redraw
+  path before or after it lands (NX32); a registered domain's `projection` is
+  the panel's view model (NX34).
+- Nothing here is usable on the shared branch until the lane merges: no
+  `domain_registry.js` or `check:arch` exists there today (NX27). Merging the
+  passed M1/M2 ahead of M3 is proposed, pending Weibao's yes.
+
+Round 3 follow-up (same day): the blockers and costs above now have per-round
+remedies in the [Round 15 plan](gm/dispatch/ui-foundation-2026-10-15/next-parts/round-15-whole-plan.md#addressing-the-round-3-blockers-and-costs-2026-10-16)
+(NX37–NX46). Two corrections from source: 49 `*_ui.js` panels already use an
+injected `{read, command}` factory, which becomes the view contract instead of a
+new signature (NX37); capture is limited to panels whose `read()` is an
+observer-safe projection (NX38). Step 0 can start with a factory panel M3 does
+not own, through a separate preview entry that leaves `main.js` alone (NX40).
+
+Improvement pass (same day): UIE18 and UIE22–UIE25 above are amended in place
+(**Improved 2026-10-16**). Preview feasibility was measured by import closure
+and saved with PV1–PV8 in the [Round 15 plan](gm/dispatch/ui-foundation-2026-10-15/next-parts/round-15-whole-plan.md#improved-ideas-and-preview-feasibility-2026-10-16):
+the workspace and most factory panels bundle without `main.js`; the combat
+display (580 modules) does not.

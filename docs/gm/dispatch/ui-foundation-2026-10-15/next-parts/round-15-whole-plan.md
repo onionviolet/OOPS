@@ -711,3 +711,107 @@ core-ui turn.
 **Proposed wave:** engine-lane (combat import cut + opponent projection, its worktree), core-ui
 (R18 inventory tabs, new worktree), new session (R20 opponent board, new worktree). Prerequisite:
 PP2 commit.
+
+## Merge wave record, 2026-10-16
+
+Weibao: "Wait until R20 finishes, then merge engine, R18 and R20 in that order with checks after
+each." Merged in a temporary worktree from `ea9dbd8d2`, then the branch moved once (guarded):
+`5457a1b15` engine combat projection, `599e06e50` R18 inventory tabs, `d10599f54` R20 opponent
+board. Only build outputs (`dist`, `index.html`) and `build.js` conflicted; stylesheet links and
+build lines were unioned and the bundle rebuilt. After each merge: `check:arch` pass; check-r11
+to check-r20 and the engine combat journey pass. Suite: 2,065/0, 2,069/0, then 2,073 pass with one
+load-sensitive timing test (`p23-combat-options` R51) that passes 3/3 alone; `check-r11-interactions`
+once failed under concurrent load and passed 2/2 alone. Other sessions' uncommitted `main.js`
+edits were three-way merged onto the new HEAD without conflict. Not pushed.
+
+## Control box, 1920×1080 target, 8 and hundreds of opponents, 2026-10-17
+
+Weibao: "We can put selectioj menus in one box and then drop down in another one, so we have more
+effective space? also instead of 1366 x 768 we can have like 1980 x 1080 right? more to consider?
+what if there is 8 enemies? more? hundreds? more to consider?" Codes CB1–CB5 (control box),
+VP1–VP4 (viewport), HZ1–HZ8 (crowds). Proposals only. Read live: `src/opponent_board.js`,
+R20_REPORT, `src/data/locations.js` enemy counts, UI_RULES UR14/UR25/UR51/UR54, the standing UI
+priority in USER_VISION, and the R20 8-opponent screenshot at 1920×1080 21px.
+
+### Control box: selection controls in one box, the choices open elsewhere
+
+| Code | Consideration | Proposed default, dial and reason | Done check |
+| --- | --- | --- | --- |
+| CB1 | **stated:** at 1366×768 21px Inventory spends about three rows on controls (category select, Name, Reverse, search, R18 tabs); Reports spends two (Filters, Follow, Latest, Stop combat log, Clear) | One **control box** per panel: a single row that shows the current view as text ("All · Name ↑ · 21/21"). Activating it opens the choices (category, sort, direction, search, toggles) in a drop-down surface. Frees one to two rows per panel at 21px | Slack map (WX13): rows of content gained per panel at 1366 21px and 1920 21px |
+| CB2 | **stated:** UR21/UR51 make direct access the default and require an accepted tradeoff for an extra click; categories are switched often | The box keeps the one or two most-used choices inline (Inventory: category tabs or their icon form, O3), and moves rare ones (sort direction, hide toggles, Clear, Follow) behind the box. Dial per panel by measured frequency. Recorded tradeoff: rare controls cost one extra click | Click count per routine journey (UR57) before/after |
+| CB3 | Where the drop-down opens. "Drop down in another one" can mean an anchored popover or a panel-sized drawer in a different region | Default: a popover anchored to the box, over the panel's own list, never over the log (UR11) or a pending target (UR52); Esc closes and returns focus (UR53). Dial: at 1920 with room, the choices open in the panel's companion slot from the layout spec (UIE20) and stay open while you use them | Focus, Esc, outside-click and tick checks (CTL1 primitive) |
+| CB4 | Hidden state risk: once filters live behind a box, a forgotten filter can make items "vanish" (CTL19, CTL23) | The box always states every non-default choice in its label and shows a clear ×. A filtered-empty list says what hides the rows | Fixture: filter on, rows hidden; the label names the filter |
+| CB5 | **stated:** some control states live in the save (`are_finished_quests_hidden`, `skill_category_order`, `game_options`, CTL4); others are browser-local panel settings | The box changes presentation only; each control keeps its current storage owner. No save change | Export/import of a save is byte-identical before/after using the box |
+
+One shared component (CTL1 cross-cutting) for Inventory, Reports, Skills, Quests and Crafting;
+Inventory and Reports first, since they carry the most control rows.
+
+### Viewport: design for 1920×1080
+
+| Code | Evidence | Disposition |
+| --- | --- | --- |
+| VP1 | **stated:** the standing UI priority (USER_VISION 2026-10-13) and UI_RULES UR14/UR25 measure discoverability and the scroll budget at 1366×768; every round also checks 1920×1080 21px | **Needs Weibao's word to change.** Proposal: 1920×1080 becomes the primary design target (his screen, by inference from the question); 1366×768 stays a floor check that must not break (no page scroll, routine actions visible). 14px and 21px text both checked at each |
+| VP2 | **shown:** the R20 8-opponent screenshot at 1920×1080 21px. The shell is the 1366 composition stretched: the actions region below "Go back to Village" is mostly empty, Reports is empty below its header, and the opponent board uses half its height | At 1920 the composition should spend the extra width and height on companions (WX7): item detail beside Inventory, known routes or current work under actions, the opponent detail beside the board. Per-context column shares from the layout spec (WX12), not a stretched 1366 grid |
+| VP3 | **inferred:** 1920×1080 at 125% or 150% OS scaling reports about 1536×864 or 1280×720 CSS pixels; a "1920" screen can behave like 1366 | Checks keep a scaled case (1536×864) so a scaled 1920 screen is not left behind |
+| VP4 | **inferred:** larger targets invite larger default text; Weibao called the shell "big for no reason" at 21px | Default text stays at its current setting; 1920 space goes to more useful panels, not bigger type |
+
+### Crowds: 8 opponents, and hundreds
+
+| Code | Evidence | Disposition |
+| --- | --- | --- |
+| HZ1 | **stated:** R20 already covers 8: two-column grid from 5, repeated names grouped ("Starving wolf rat · 8"), one cell per opponent with letter, health and cycle, at most 8 visible rows then the rows scroll; facts once for the inspected opponent (R20_REPORT). The 1920 screenshot shows 8 in two compact rows | Nothing new needed for 8. Tune: at 1920 the grid can go to four columns before grouping (VP2) |
+| HZ2 | **stated:** native fights are small and sequential: `enemy_group_size` tops out at `[6,8]`; `enemy_count` 50 or 100 is the zone total fought group by group ("15/15 groups left") | "Hundreds" exists today only **over time**, as waves. The encounter caption and a trip tally (B11) are the right home for that, not the board |
+| HZ3 | **inferred:** worlds Weibao wants (sieges, sect wars, armies, swarms) could put dozens to hundreds on the field at once | Default representation by scale: 1–8 individuals (R20); 9–40 grouped individuals (name once, cells per opponent, scrolling); 40+ **units**: one row per group with count alive/total, a health spread (min–max or a small histogram), and the front rank or targeted few as individuals. Individuals stay reachable on demand (UR56: summaries keep a route to detail) |
+| HZ4 | **inferred:** the native engine runs an attack loop per defender (`native_encounter.loops`); a parallel session already works on combat timers ("deadlines, not 60 callbacks") | Hundreds on the field is an **engine** question first: per-opponent loops, projection cost per tick and save size. A unit model (one loop per group with a count and pooled health, promoted to individuals when targeted) is the likely engine shape; the UI follows the projection. Reopen trigger: the first world that needs it |
+| HZ5 | **inferred:** each projection rebuild and each DOM row costs per tick | For 40+: virtualized rows (only visible ones in the DOM), projection diffed by group, render through the existing batching (UIE3). Done check: tick render time at a 200-opponent synthetic fixture stays within a frame |
+| HZ6 | **inferred:** hundreds of hits per second would flood Reports | Log collapses by group and outcome ("Rats ×37 hit you for 4–6") per UX18/R21, with per-hit detail on demand; milestone lines (a group broken, a leader down) stay distinct |
+| HZ7 | **stated:** knowledge is per opponent today (NX22); learning one rat should inform the rest of its kind | Knowledge attaches to the kind, with per-individual exceptions (variants, leaders). A unit row shows known facts once per kind |
+| HZ8 | **inferred:** targeting and selection | Default: the game targets as now; the player can focus a group or an individual. Inspection never changes the target (UR35); selection survives the group shrinking (UX14) |
+
+### LATER / DELEGATE
+
+| Candidate | Level / effort | Trigger and done check |
+| --- | --- | --- |
+| Control box component, Inventory + Reports first | Strong, medium (shared component) | After Weibao's yes on CB2's tradeoff. Rows gained at 1366/1920 21px, click counts, focus/Esc/tick checks |
+| 1920 compositions | Strong, medium | After VP1 is decided. Companions fill the 1920 empty regions; slack map shows the gain; 1366 floor unchanged |
+| Crowd units (HZ3–HZ5) | Strong, high (engine + UI) | First world with 40+ simultaneous opponents. Engine unit model first, then the unit row, virtualized list and grouped log |
+
+## Screen real estate and moving menu boxes, 2026-10-17
+
+Weibao: "yes, check my screen realestate and what is most common? More to consider? moving other
+menu boxes around? More to consider?" VP1 is **decided**: 1920×1080 primary, 1366×768 floor (rule
+owners updated: UI_RULES UR14/UR25 and viewport note, AGENTS.md, RULES_INDEX, PROJECT.md,
+USER_VISION). Codes MB1–MB9.
+
+### Evidence
+
+- **His screen (shown, `system_profiler`, Finder desktop bounds):** 14-inch MacBook Pro, 3024×1964
+  Retina, scaled to 1800×1169 points. A full-screen browser leaves about 1800×1040 CSS pixels at
+  device pixel ratio 2 (inferred: menu bar and browser chrome subtracted).
+- **Most common (stated, secondary sources):** Steam survey mid-2026 puts 1920×1080 at about 51% of
+  players and 2560×1440 at about 22–29%; StatCounter desktop puts 1920×1080 at about 20–22%,
+  1536×864 at about 7% and 1366×768 at about 5–6%.
+- **Target set now:** 1920×1080 primary; about 1800×1040 at DPR 2 (his screen) every round; floors
+  1536×864 and 1366×768; text 14px and 21px at each.
+
+### Moving menu boxes
+
+| Code | Evidence | Disposition |
+| --- | --- | --- |
+| MB1 | **stated:** `Edit layout` first switches the shell off (`workspace_layout.js:121`, `if(owner.shell)selectShell(false)`), so in the default screen the player cannot move boxes at all | **ACCOUNT FOR NOW, high value.** Shell-aware layout editing over spec slots: drag or "Move to…" a panel between named slots, swap companions, reset per context. Stored browser-local with the spec version (GU6, WX11). Manual placement beats automatic composition |
+| MB2 | **shown (R20 1920 screenshots):** two full-width bars, a top navigation row and a bottom bar (Save, Export, Import, settings, version, help, Authoring, Layout, Comfortable, a hit counter, links) | One bar at the primary target: navigation left, save state and Save/Export/Import right, rarely used items (Authoring, version, links) in a menu. Frees one row on every screen. UR50 already says the hit counter does not earn play-bar space; UR55 keeps save state visible |
+| MB3 | **shown:** the place panel shows "Go back to [Village] [15m]" and a separate "← Village" button | **Inferred** duplicate route; trace both before changing. If they are the same action, keep the one that shows travel time |
+| MB4 | **shown:** the place panel carries two tab systems (Actions/Options at the top, Here/Crafting/Mixing/? at the bottom) plus "Open local controls" | One strip per panel (UX24, CB1); "Options" and local controls behind the control box |
+| MB5 | **shown:** Reports keeps two control rows at the bottom (Filters, Follow, Latest, Stop combat log, Clear) | Control box in the Reports header (CB1–CB4); the log keeps its full column (UR11) |
+| MB6 | **shown:** at 1920×1080 21px with 8 opponents, the actions region is mostly empty and the opponent detail sits under the board | 1920 compositions (VP2, WX7): opponent detail beside the board, item detail beside Inventory, current work or known routes under actions. Fills measured slack, not by enlarging type (VP4) |
+| MB7 | **inferred:** his screen is Retina (DPR 2); checks run at DPR 1 | Add a DPR 2 case at about 1800×1040 (`r11-lib.cjs` already takes `dpr`). Hairline borders and focus rings checked there |
+| MB8 | **inferred:** a browser beside another window on his screen is about 900px wide, under the 1000px switch that changes the whole layout (`workspace_layout.js` `max-width: 1000px`), whose mobile work is deferred | Ask only if he plays side by side. Otherwise record: half-screen play falls into the narrow layout until mobile work is scheduled |
+| MB9 | **inferred:** moving boxes changes where keyboard focus goes and what Tab order means (PX10) | Moved panels keep reading order by slot (top to bottom, left to right). Check: Tab order follows the visible order after a move |
+
+### LATER / DELEGATE
+
+| Candidate | Level / effort | Trigger and done check |
+| --- | --- | --- |
+| Shell layout editing (MB1) | Strong, medium to high | Next structural UI round. Move a panel between slots, reload, reset; spec version stored; focus order follows (MB9) |
+| One bar (MB2) + control box (CB1–CB5) | Strong, medium | With the 1920 compositions round. Rows gained per region at the target set; save state never hidden |
+| Target-set check helper (MB7) | Balanced, small | Before the next UI round: one helper runs a check at 1920×1080, 1800×1040 DPR 2, 1536×864 and 1366×768 at 14/21px |
