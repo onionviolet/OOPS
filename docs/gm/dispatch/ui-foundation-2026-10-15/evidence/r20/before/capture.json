@@ -1,0 +1,872 @@
+[
+ {
+  "tag": "three-1366x768-14",
+  "topRow": "307px",
+  "font": "14px",
+  "player": {
+   "y": 39,
+   "h": 304,
+   "w": 467,
+   "client": 298,
+   "content": 298
+  },
+  "focus": {
+   "y": 39,
+   "h": 304,
+   "w": 463,
+   "client": 298,
+   "content": 298
+  },
+  "focusBody": {
+   "y": 65,
+   "h": 275,
+   "w": 457,
+   "client": 275,
+   "content": 275
+  },
+  "board": {
+   "y": 105,
+   "h": 183,
+   "w": 435,
+   "client": 183,
+   "content": 183
+  },
+  "layout": null,
+  "cards": [
+   {
+    "id": "defender_0_div",
+    "h": 110,
+    "text": "1 \u00b7 Starving wolf rat 19/20 hp Atk 4 dmg Spd 0.82 /s Hit you 35% Evade 18% Defense 0 Your ",
+    "defeated": null
+   },
+   {
+    "id": "defender_1_div",
+    "h": 110,
+    "text": "2 \u00b7 Starving wolf rat 17/20 hp Atk 4 dmg Spd 0.82 /s Hit you 35% Evade 18% Defense 0 Your ",
+    "defeated": null
+   },
+   {
+    "id": "defender_2_div",
+    "h": 67,
+    "text": "3 \u00b7 Starving wolf rat 13/20 hp Atk 4 dmg Spd 0.82 /s Hit you 35% Evade 18% Defense 0 Your ",
+    "defeated": null
+   }
+  ],
+  "nativeFighters": 3,
+  "invRows": 14,
+  "page": [
+   1366,
+   768,
+   1366,
+   768
+  ],
+  "errors": []
+ },
+ {
+  "tag": "three-1366x768-21",
+  "topRow": "412px",
+  "font": "21px",
+  "player": {
+   "y": 39,
+   "h": 412,
+   "w": 467,
+   "client": 406,
+   "content": 406
+  },
+  "focus": {
+   "y": 39,
+   "h": 412,
+   "w": 463,
+   "client": 406,
+   "content": 406
+  },
+  "focusBody": {
+   "y": 70,
+   "h": 377,
+   "w": 457,
+   "client": 377,
+   "content": 377
+  },
+  "board": {
+   "y": 128,
+   "h": 312,
+   "w": 428,
+   "client": 312,
+   "content": 312
+  },
+  "layout": null,
+  "cards": [
+   {
+    "id": "defender_0_div",
+    "h": 99,
+    "text": "1 \u00b7 Starving wolf rat 19/20 hp Atk 4 dmg Spd 0.82 /s Hit you 35% Evade 18% Defense 0 Your ",
+    "defeated": null
+   },
+   {
+    "id": "defender_1_div",
+    "h": 99,
+    "text": "2 \u00b7 Starving wolf rat 17/20 hp Atk 4 dmg Spd 0.82 /s Hit you 35% Evade 18% Defense 0 Your ",
+    "defeated": null
+   },
+   {
+    "id": "defender_2_div",
+    "h": 99,
+    "text": "3 \u00b7 Starving wolf rat 13/20 hp Atk 4 dmg Spd 0.82 /s Hit you 35% Evade 18% Defense 0 Your ",
+    "defeated": null
+   }
+  ],
+  "nativeFighters": 3,
+  "invRows": 5,
+  "page": [
+   1366,
+   768,
+   1366,
+   768
+  ],
+  "errors": []
+ },
+ {
+  "tag": "three-1920x1080-21",
+  "topRow": "429px",
+  "font": "21px",
+  "player": {
+   "y": 39,
+   "h": 497,
+   "w": 629,
+   "client": 491,
+   "content": 491
+  },
+  "focus": {
+   "y": 39,
+   "h": 497,
+   "w": 745,
+   "client": 491,
+   "content": 491
+  },
+  "focusBody": {
+   "y": 70,
+   "h": 462,
+   "w": 739,
+   "client": 462,
+   "content": 462
+  },
+  "board": {
+   "y": 118,
+   "h": 269,
+   "w": 710,
+   "client": 269,
+   "content": 269
+  },
+  "layout": null,
+  "cards": [
+   {
+    "id": "defender_0_div",
+    "h": 162,
+    "text": "1 \u00b7 Starving wolf rat 19/20 hp Atk 4 dmg Spd 0.82 /s Hit you 35% Evade 18% Defense 0 Your ",
+    "defeated": null
+   },
+   {
+    "id": "defender_1_div",
+    "h": 162,
+    "text": "2 \u00b7 Starving wolf rat 17/20 hp Atk 4 dmg Spd 0.82 /s Hit you 35% Evade 18% Defense 0 Your ",
+    "defeated": null
+   },
+   {
+    "id": "defender_2_div",
+    "h": 98,
+    "text": "3 \u00b7 Starving wolf rat 13/20 hp Atk 4 dmg Spd 0.82 /s Hit you 35% Evade 18% Defense 0 Your ",
+    "defeated": null
+   }
+  ],
+  "nativeFighters": 3,
+  "invRows": 13,
+  "page": [
+   1920,
+   1080,
+   1920,
+   1080
+  ],
+  "errors": []
+ },
+ {
+  "tag": "n1-1366x768-14",
+  "topRow": "307px",
+  "font": "14px",
+  "player": {
+   "y": 39,
+   "h": 304,
+   "w": 467,
+   "client": 298,
+   "content": 298
+  },
+  "focus": {
+   "y": 39,
+   "h": 304,
+   "w": 463,
+   "client": 298,
+   "content": 298
+  },
+  "focusBody": {
+   "y": 65,
+   "h": 275,
+   "w": 457,
+   "client": 275,
+   "content": 275
+  },
+  "board": {
+   "y": 105,
+   "h": 67,
+   "w": 435,
+   "client": 67,
+   "content": 67
+  },
+  "layout": null,
+  "cards": [
+   {
+    "id": "defender_0_div",
+    "h": 67,
+    "text": "1 \u00b7 Starving wolf rat 20/20 hp Atk 4 dmg Spd 0.82 /s Hit you 22% Evade 10% Defense 0 Your ",
+    "defeated": null
+   }
+  ],
+  "nativeFighters": 1,
+  "invRows": 14,
+  "page": [
+   1366,
+   768,
+   1366,
+   768
+  ],
+  "errors": []
+ },
+ {
+  "tag": "n1-1366x768-21",
+  "topRow": "387px",
+  "font": "21px",
+  "player": {
+   "y": 39,
+   "h": 420,
+   "w": 467,
+   "client": 414,
+   "content": 414
+  },
+  "focus": {
+   "y": 39,
+   "h": 420,
+   "w": 463,
+   "client": 414,
+   "content": 414
+  },
+  "focusBody": {
+   "y": 70,
+   "h": 385,
+   "w": 457,
+   "client": 385,
+   "content": 385
+  },
+  "board": {
+   "y": 128,
+   "h": 99,
+   "w": 428,
+   "client": 99,
+   "content": 99
+  },
+  "layout": null,
+  "cards": [
+   {
+    "id": "defender_0_div",
+    "h": 99,
+    "text": "1 \u00b7 Starving wolf rat 20/20 hp Atk 4 dmg Spd 0.82 /s Hit you 22% Evade 10% Defense 0 Your ",
+    "defeated": null
+   }
+  ],
+  "nativeFighters": 1,
+  "invRows": 5,
+  "page": [
+   1366,
+   768,
+   1366,
+   768
+  ],
+  "errors": []
+ },
+ {
+  "tag": "n1-1920x1080-21",
+  "topRow": "429px",
+  "font": "21px",
+  "player": {
+   "y": 39,
+   "h": 497,
+   "w": 629,
+   "client": 491,
+   "content": 491
+  },
+  "focus": {
+   "y": 39,
+   "h": 497,
+   "w": 745,
+   "client": 491,
+   "content": 491
+  },
+  "focusBody": {
+   "y": 70,
+   "h": 462,
+   "w": 739,
+   "client": 462,
+   "content": 462
+  },
+  "board": {
+   "y": 118,
+   "h": 98,
+   "w": 710,
+   "client": 98,
+   "content": 98
+  },
+  "layout": null,
+  "cards": [
+   {
+    "id": "defender_0_div",
+    "h": 98,
+    "text": "1 \u00b7 Starving wolf rat 20/20 hp Atk 4 dmg Spd 0.82 /s Hit you 22% Evade 10% Defense 0 Your ",
+    "defeated": null
+   }
+  ],
+  "nativeFighters": 1,
+  "invRows": 13,
+  "page": [
+   1920,
+   1080,
+   1920,
+   1080
+  ],
+  "errors": []
+ },
+ {
+  "tag": "n5-1366x768-14",
+  "topRow": "307px",
+  "font": "14px",
+  "player": {
+   "y": 39,
+   "h": 423,
+   "w": 467,
+   "client": 417,
+   "content": 417
+  },
+  "focus": {
+   "y": 39,
+   "h": 423,
+   "w": 463,
+   "client": 417,
+   "content": 417
+  },
+  "focusBody": {
+   "y": 65,
+   "h": 393,
+   "w": 457,
+   "client": 393,
+   "content": 393
+  },
+  "board": {
+   "y": 0,
+   "h": 0,
+   "w": 0,
+   "client": 0,
+   "content": 0
+  },
+  "layout": null,
+  "cards": [],
+  "nativeFighters": 5,
+  "invRows": 9,
+  "page": [
+   1366,
+   768,
+   1366,
+   768
+  ],
+  "errors": []
+ },
+ {
+  "tag": "n5-1366x768-21",
+  "topRow": "387px",
+  "font": "21px",
+  "player": {
+   "y": 39,
+   "h": 423,
+   "w": 467,
+   "client": 417,
+   "content": 417
+  },
+  "focus": {
+   "y": 39,
+   "h": 423,
+   "w": 463,
+   "client": 417,
+   "content": 417
+  },
+  "focusBody": {
+   "y": 70,
+   "h": 388,
+   "w": 457,
+   "client": 388,
+   "content": 388
+  },
+  "board": {
+   "y": 0,
+   "h": 0,
+   "w": 0,
+   "client": 0,
+   "content": 0
+  },
+  "layout": null,
+  "cards": [],
+  "nativeFighters": 5,
+  "invRows": 5,
+  "page": [
+   1366,
+   768,
+   1366,
+   768
+  ],
+  "errors": []
+ },
+ {
+  "tag": "n5-1920x1080-21",
+  "topRow": "429px",
+  "font": "21px",
+  "player": {
+   "y": 39,
+   "h": 497,
+   "w": 629,
+   "client": 491,
+   "content": 491
+  },
+  "focus": {
+   "y": 39,
+   "h": 497,
+   "w": 745,
+   "client": 491,
+   "content": 491
+  },
+  "focusBody": {
+   "y": 70,
+   "h": 462,
+   "w": 739,
+   "client": 462,
+   "content": 462
+  },
+  "board": {
+   "y": 0,
+   "h": 0,
+   "w": 0,
+   "client": 0,
+   "content": 0
+  },
+  "layout": null,
+  "cards": [],
+  "nativeFighters": 5,
+  "invRows": 13,
+  "page": [
+   1920,
+   1080,
+   1920,
+   1080
+  ],
+  "errors": []
+ },
+ {
+  "tag": "n8-1366x768-14",
+  "topRow": "307px",
+  "font": "14px",
+  "player": {
+   "y": 39,
+   "h": 423,
+   "w": 467,
+   "client": 417,
+   "content": 417
+  },
+  "focus": {
+   "y": 39,
+   "h": 423,
+   "w": 463,
+   "client": 417,
+   "content": 417
+  },
+  "focusBody": {
+   "y": 65,
+   "h": 393,
+   "w": 457,
+   "client": 393,
+   "content": 393
+  },
+  "board": {
+   "y": 0,
+   "h": 0,
+   "w": 0,
+   "client": 0,
+   "content": 0
+  },
+  "layout": null,
+  "cards": [],
+  "nativeFighters": 8,
+  "invRows": 9,
+  "page": [
+   1366,
+   768,
+   1366,
+   768
+  ],
+  "errors": []
+ },
+ {
+  "tag": "n8-1366x768-21",
+  "topRow": "387px",
+  "font": "21px",
+  "player": {
+   "y": 39,
+   "h": 423,
+   "w": 467,
+   "client": 417,
+   "content": 417
+  },
+  "focus": {
+   "y": 39,
+   "h": 423,
+   "w": 463,
+   "client": 417,
+   "content": 417
+  },
+  "focusBody": {
+   "y": 70,
+   "h": 388,
+   "w": 457,
+   "client": 388,
+   "content": 388
+  },
+  "board": {
+   "y": 0,
+   "h": 0,
+   "w": 0,
+   "client": 0,
+   "content": 0
+  },
+  "layout": null,
+  "cards": [],
+  "nativeFighters": 8,
+  "invRows": 5,
+  "page": [
+   1366,
+   768,
+   1366,
+   768
+  ],
+  "errors": []
+ },
+ {
+  "tag": "n8-1920x1080-21",
+  "topRow": "429px",
+  "font": "21px",
+  "player": {
+   "y": 39,
+   "h": 497,
+   "w": 629,
+   "client": 491,
+   "content": 491
+  },
+  "focus": {
+   "y": 39,
+   "h": 497,
+   "w": 745,
+   "client": 491,
+   "content": 491
+  },
+  "focusBody": {
+   "y": 70,
+   "h": 462,
+   "w": 739,
+   "client": 462,
+   "content": 462
+  },
+  "board": {
+   "y": 0,
+   "h": 0,
+   "w": 0,
+   "client": 0,
+   "content": 0
+  },
+  "layout": null,
+  "cards": [],
+  "nativeFighters": 8,
+  "invRows": 13,
+  "page": [
+   1920,
+   1080,
+   1920,
+   1080
+  ],
+  "errors": []
+ },
+ {
+  "tag": "n9-1366x768-14",
+  "topRow": "307px",
+  "font": "14px",
+  "player": {
+   "y": 39,
+   "h": 423,
+   "w": 467,
+   "client": 417,
+   "content": 417
+  },
+  "focus": {
+   "y": 39,
+   "h": 423,
+   "w": 463,
+   "client": 417,
+   "content": 417
+  },
+  "focusBody": {
+   "y": 65,
+   "h": 393,
+   "w": 457,
+   "client": 393,
+   "content": 393
+  },
+  "board": {
+   "y": 0,
+   "h": 0,
+   "w": 0,
+   "client": 0,
+   "content": 0
+  },
+  "layout": null,
+  "cards": [],
+  "nativeFighters": 9,
+  "invRows": 9,
+  "page": [
+   1366,
+   768,
+   1366,
+   768
+  ],
+  "errors": []
+ },
+ {
+  "tag": "n9-1366x768-21",
+  "topRow": "401px",
+  "font": "21px",
+  "player": {
+   "y": 39,
+   "h": 423,
+   "w": 467,
+   "client": 417,
+   "content": 417
+  },
+  "focus": {
+   "y": 39,
+   "h": 423,
+   "w": 463,
+   "client": 417,
+   "content": 417
+  },
+  "focusBody": {
+   "y": 70,
+   "h": 388,
+   "w": 457,
+   "client": 388,
+   "content": 388
+  },
+  "board": {
+   "y": 0,
+   "h": 0,
+   "w": 0,
+   "client": 0,
+   "content": 0
+  },
+  "layout": null,
+  "cards": [],
+  "nativeFighters": 9,
+  "invRows": 5,
+  "page": [
+   1366,
+   768,
+   1366,
+   768
+  ],
+  "errors": []
+ },
+ {
+  "tag": "n9-1920x1080-21",
+  "topRow": "429px",
+  "font": "21px",
+  "player": {
+   "y": 39,
+   "h": 497,
+   "w": 629,
+   "client": 491,
+   "content": 491
+  },
+  "focus": {
+   "y": 39,
+   "h": 497,
+   "w": 745,
+   "client": 491,
+   "content": 491
+  },
+  "focusBody": {
+   "y": 70,
+   "h": 462,
+   "w": 739,
+   "client": 462,
+   "content": 462
+  },
+  "board": {
+   "y": 0,
+   "h": 0,
+   "w": 0,
+   "client": 0,
+   "content": 0
+  },
+  "layout": null,
+  "cards": [],
+  "nativeFighters": 9,
+  "invRows": 13,
+  "page": [
+   1920,
+   1080,
+   1920,
+   1080
+  ],
+  "errors": []
+ },
+ {
+  "tag": "n8-mixed-1366x768-14",
+  "topRow": "307px",
+  "font": "14px",
+  "player": {
+   "y": 39,
+   "h": 423,
+   "w": 467,
+   "client": 417,
+   "content": 417
+  },
+  "focus": {
+   "y": 39,
+   "h": 423,
+   "w": 463,
+   "client": 417,
+   "content": 417
+  },
+  "focusBody": {
+   "y": 65,
+   "h": 393,
+   "w": 457,
+   "client": 393,
+   "content": 393
+  },
+  "board": {
+   "y": 0,
+   "h": 0,
+   "w": 0,
+   "client": 0,
+   "content": 0
+  },
+  "layout": null,
+  "cards": [],
+  "nativeFighters": 8,
+  "invRows": 9,
+  "page": [
+   1366,
+   768,
+   1366,
+   768
+  ],
+  "errors": []
+ },
+ {
+  "tag": "n8-mixed-1366x768-21",
+  "topRow": "387px",
+  "font": "21px",
+  "player": {
+   "y": 39,
+   "h": 423,
+   "w": 467,
+   "client": 417,
+   "content": 417
+  },
+  "focus": {
+   "y": 39,
+   "h": 423,
+   "w": 463,
+   "client": 417,
+   "content": 417
+  },
+  "focusBody": {
+   "y": 70,
+   "h": 388,
+   "w": 457,
+   "client": 388,
+   "content": 388
+  },
+  "board": {
+   "y": 0,
+   "h": 0,
+   "w": 0,
+   "client": 0,
+   "content": 0
+  },
+  "layout": null,
+  "cards": [],
+  "nativeFighters": 8,
+  "invRows": 5,
+  "page": [
+   1366,
+   768,
+   1366,
+   768
+  ],
+  "errors": []
+ },
+ {
+  "tag": "n8-mixed-1920x1080-21",
+  "topRow": "429px",
+  "font": "21px",
+  "player": {
+   "y": 39,
+   "h": 497,
+   "w": 629,
+   "client": 491,
+   "content": 491
+  },
+  "focus": {
+   "y": 39,
+   "h": 497,
+   "w": 745,
+   "client": 491,
+   "content": 491
+  },
+  "focusBody": {
+   "y": 70,
+   "h": 462,
+   "w": 739,
+   "client": 462,
+   "content": 462
+  },
+  "board": {
+   "y": 0,
+   "h": 0,
+   "w": 0,
+   "client": 0,
+   "content": 0
+  },
+  "layout": null,
+  "cards": [],
+  "nativeFighters": 8,
+  "invRows": 13,
+  "page": [
+   1920,
+   1080,
+   1920,
+   1080
+  ],
+  "errors": []
+ }
+]

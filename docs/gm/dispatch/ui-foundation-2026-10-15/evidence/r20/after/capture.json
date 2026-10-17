@@ -1,0 +1,1424 @@
+[
+ {
+  "tag": "three-1366x768-14",
+  "topRow": "307px",
+  "font": "14px",
+  "player": {
+   "y": 39,
+   "h": 307,
+   "w": 467,
+   "client": 301,
+   "content": 301
+  },
+  "focus": {
+   "y": 39,
+   "h": 307,
+   "w": 463,
+   "client": 301,
+   "content": 301
+  },
+  "focusBody": {
+   "y": 65,
+   "h": 278,
+   "w": 457,
+   "client": 278,
+   "content": 278
+  },
+  "board": {
+   "y": 106,
+   "h": 74,
+   "w": 435,
+   "client": 74,
+   "content": 74
+  },
+  "layout": "rows",
+  "cards": [
+   {
+    "id": "defender_0_div",
+    "h": 25,
+    "text": "A · Starving wolf rat 19/20 hp",
+    "defeated": "false"
+   },
+   {
+    "id": "defender_1_div",
+    "h": 25,
+    "text": "B · Starving wolf rat 17/20 hp",
+    "defeated": "false"
+   },
+   {
+    "id": "defender_2_div",
+    "h": 25,
+    "text": "C · Starving wolf rat 13/20 hp",
+    "defeated": "false"
+   }
+  ],
+  "nativeFighters": 3,
+  "invRows": 14,
+  "page": [
+   1366,
+   768,
+   1366,
+   768
+  ],
+  "errors": []
+ },
+ {
+  "tag": "three-1366x768-21",
+  "topRow": "387px",
+  "font": "21px",
+  "player": {
+   "y": 39,
+   "h": 387,
+   "w": 467,
+   "client": 381,
+   "content": 381
+  },
+  "focus": {
+   "y": 39,
+   "h": 387,
+   "w": 463,
+   "client": 381,
+   "content": 381
+  },
+  "focusBody": {
+   "y": 70,
+   "h": 352,
+   "w": 457,
+   "client": 352,
+   "content": 352
+  },
+  "board": {
+   "y": 130,
+   "h": 110,
+   "w": 428,
+   "client": 110,
+   "content": 110
+  },
+  "layout": "rows",
+  "cards": [
+   {
+    "id": "defender_0_div",
+    "h": 37,
+    "text": "A · Starving wolf rat 19/20 hp",
+    "defeated": "false"
+   },
+   {
+    "id": "defender_1_div",
+    "h": 37,
+    "text": "B · Starving wolf rat 17/20 hp",
+    "defeated": "false"
+   },
+   {
+    "id": "defender_2_div",
+    "h": 37,
+    "text": "C · Starving wolf rat 13/20 hp",
+    "defeated": "false"
+   }
+  ],
+  "nativeFighters": 3,
+  "invRows": 6,
+  "page": [
+   1366,
+   768,
+   1366,
+   768
+  ],
+  "errors": []
+ },
+ {
+  "tag": "three-1920x1080-21",
+  "topRow": "429px",
+  "font": "21px",
+  "player": {
+   "y": 39,
+   "h": 429,
+   "w": 629,
+   "client": 423,
+   "content": 423
+  },
+  "focus": {
+   "y": 39,
+   "h": 429,
+   "w": 745,
+   "client": 423,
+   "content": 423
+  },
+  "focusBody": {
+   "y": 70,
+   "h": 394,
+   "w": 739,
+   "client": 394,
+   "content": 394
+  },
+  "board": {
+   "y": 130,
+   "h": 110,
+   "w": 710,
+   "client": 110,
+   "content": 110
+  },
+  "layout": "rows",
+  "cards": [
+   {
+    "id": "defender_0_div",
+    "h": 37,
+    "text": "A · Starving wolf rat 19/20 hp",
+    "defeated": "false"
+   },
+   {
+    "id": "defender_1_div",
+    "h": 37,
+    "text": "B · Starving wolf rat 17/20 hp",
+    "defeated": "false"
+   },
+   {
+    "id": "defender_2_div",
+    "h": 37,
+    "text": "C · Starving wolf rat 13/20 hp",
+    "defeated": "false"
+   }
+  ],
+  "nativeFighters": 3,
+  "invRows": 15,
+  "page": [
+   1920,
+   1080,
+   1920,
+   1080
+  ],
+  "errors": []
+ },
+ {
+  "tag": "n1-1366x768-14",
+  "topRow": "307px",
+  "font": "14px",
+  "player": {
+   "y": 39,
+   "h": 307,
+   "w": 467,
+   "client": 301,
+   "content": 301
+  },
+  "focus": {
+   "y": 39,
+   "h": 307,
+   "w": 463,
+   "client": 301,
+   "content": 301
+  },
+  "focusBody": {
+   "y": 65,
+   "h": 278,
+   "w": 457,
+   "client": 278,
+   "content": 278
+  },
+  "board": {
+   "y": 106,
+   "h": 25,
+   "w": 435,
+   "client": 25,
+   "content": 25
+  },
+  "layout": "single",
+  "cards": [
+   {
+    "id": "defender_0_div",
+    "h": 25,
+    "text": "Starving wolf rat 20/20 hp",
+    "defeated": "false"
+   }
+  ],
+  "nativeFighters": 1,
+  "invRows": 14,
+  "page": [
+   1366,
+   768,
+   1366,
+   768
+  ],
+  "errors": []
+ },
+ {
+  "tag": "n1-1366x768-21",
+  "topRow": "387px",
+  "font": "21px",
+  "player": {
+   "y": 39,
+   "h": 387,
+   "w": 467,
+   "client": 381,
+   "content": 381
+  },
+  "focus": {
+   "y": 39,
+   "h": 387,
+   "w": 463,
+   "client": 381,
+   "content": 381
+  },
+  "focusBody": {
+   "y": 70,
+   "h": 352,
+   "w": 457,
+   "client": 352,
+   "content": 352
+  },
+  "board": {
+   "y": 130,
+   "h": 37,
+   "w": 428,
+   "client": 37,
+   "content": 37
+  },
+  "layout": "single",
+  "cards": [
+   {
+    "id": "defender_0_div",
+    "h": 37,
+    "text": "Starving wolf rat 20/20 hp",
+    "defeated": "false"
+   }
+  ],
+  "nativeFighters": 1,
+  "invRows": 6,
+  "page": [
+   1366,
+   768,
+   1366,
+   768
+  ],
+  "errors": []
+ },
+ {
+  "tag": "n1-1920x1080-21",
+  "topRow": "429px",
+  "font": "21px",
+  "player": {
+   "y": 39,
+   "h": 429,
+   "w": 629,
+   "client": 423,
+   "content": 423
+  },
+  "focus": {
+   "y": 39,
+   "h": 429,
+   "w": 745,
+   "client": 423,
+   "content": 423
+  },
+  "focusBody": {
+   "y": 70,
+   "h": 394,
+   "w": 739,
+   "client": 394,
+   "content": 394
+  },
+  "board": {
+   "y": 130,
+   "h": 37,
+   "w": 710,
+   "client": 37,
+   "content": 37
+  },
+  "layout": "single",
+  "cards": [
+   {
+    "id": "defender_0_div",
+    "h": 37,
+    "text": "Starving wolf rat 20/20 hp",
+    "defeated": "false"
+   }
+  ],
+  "nativeFighters": 1,
+  "invRows": 15,
+  "page": [
+   1920,
+   1080,
+   1920,
+   1080
+  ],
+  "errors": []
+ },
+ {
+  "tag": "n5-1366x768-14",
+  "topRow": "307px",
+  "font": "14px",
+  "player": {
+   "y": 39,
+   "h": 307,
+   "w": 467,
+   "client": 301,
+   "content": 301
+  },
+  "focus": {
+   "y": 39,
+   "h": 307,
+   "w": 463,
+   "client": 301,
+   "content": 301
+  },
+  "focusBody": {
+   "y": 65,
+   "h": 278,
+   "w": 457,
+   "client": 278,
+   "content": 278
+  },
+  "board": {
+   "y": 106,
+   "h": 74,
+   "w": 435,
+   "client": 74,
+   "content": 74
+  },
+  "layout": "grid",
+  "cards": [
+   {
+    "id": "defender_0_div",
+    "h": 25,
+    "text": "A 20/20 hp",
+    "defeated": "false"
+   },
+   {
+    "id": "defender_1_div",
+    "h": 25,
+    "text": "B Defeated",
+    "defeated": "true"
+   },
+   {
+    "id": "defender_2_div",
+    "h": 25,
+    "text": "C 14/20 hp",
+    "defeated": "false"
+   },
+   {
+    "id": "defender_3_div",
+    "h": 25,
+    "text": "D 11/20 hp",
+    "defeated": "false"
+   },
+   {
+    "id": "defender_4_div",
+    "h": 25,
+    "text": "E 8/20 hp",
+    "defeated": "false"
+   }
+  ],
+  "nativeFighters": 5,
+  "invRows": 14,
+  "page": [
+   1366,
+   768,
+   1366,
+   768
+  ],
+  "errors": []
+ },
+ {
+  "tag": "n5-1366x768-21",
+  "topRow": "387px",
+  "font": "21px",
+  "player": {
+   "y": 39,
+   "h": 387,
+   "w": 467,
+   "client": 381,
+   "content": 381
+  },
+  "focus": {
+   "y": 39,
+   "h": 387,
+   "w": 463,
+   "client": 381,
+   "content": 381
+  },
+  "focusBody": {
+   "y": 70,
+   "h": 352,
+   "w": 457,
+   "client": 352,
+   "content": 352
+  },
+  "board": {
+   "y": 130,
+   "h": 110,
+   "w": 428,
+   "client": 110,
+   "content": 110
+  },
+  "layout": "grid",
+  "cards": [
+   {
+    "id": "defender_0_div",
+    "h": 37,
+    "text": "A 20/20 hp",
+    "defeated": "false"
+   },
+   {
+    "id": "defender_1_div",
+    "h": 37,
+    "text": "B Defeated",
+    "defeated": "true"
+   },
+   {
+    "id": "defender_2_div",
+    "h": 37,
+    "text": "C 14/20 hp",
+    "defeated": "false"
+   },
+   {
+    "id": "defender_3_div",
+    "h": 37,
+    "text": "D 11/20 hp",
+    "defeated": "false"
+   },
+   {
+    "id": "defender_4_div",
+    "h": 37,
+    "text": "E 8/20 hp",
+    "defeated": "false"
+   }
+  ],
+  "nativeFighters": 5,
+  "invRows": 6,
+  "page": [
+   1366,
+   768,
+   1366,
+   768
+  ],
+  "errors": []
+ },
+ {
+  "tag": "n5-1920x1080-21",
+  "topRow": "429px",
+  "font": "21px",
+  "player": {
+   "y": 39,
+   "h": 429,
+   "w": 629,
+   "client": 423,
+   "content": 423
+  },
+  "focus": {
+   "y": 39,
+   "h": 429,
+   "w": 745,
+   "client": 423,
+   "content": 423
+  },
+  "focusBody": {
+   "y": 70,
+   "h": 394,
+   "w": 739,
+   "client": 394,
+   "content": 394
+  },
+  "board": {
+   "y": 130,
+   "h": 110,
+   "w": 710,
+   "client": 110,
+   "content": 110
+  },
+  "layout": "grid",
+  "cards": [
+   {
+    "id": "defender_0_div",
+    "h": 37,
+    "text": "A 20/20 hp",
+    "defeated": "false"
+   },
+   {
+    "id": "defender_1_div",
+    "h": 37,
+    "text": "B Defeated",
+    "defeated": "true"
+   },
+   {
+    "id": "defender_2_div",
+    "h": 37,
+    "text": "C 14/20 hp",
+    "defeated": "false"
+   },
+   {
+    "id": "defender_3_div",
+    "h": 37,
+    "text": "D 11/20 hp",
+    "defeated": "false"
+   },
+   {
+    "id": "defender_4_div",
+    "h": 37,
+    "text": "E 8/20 hp",
+    "defeated": "false"
+   }
+  ],
+  "nativeFighters": 5,
+  "invRows": 15,
+  "page": [
+   1920,
+   1080,
+   1920,
+   1080
+  ],
+  "errors": []
+ },
+ {
+  "tag": "n8-1366x768-14",
+  "topRow": "307px",
+  "font": "14px",
+  "player": {
+   "y": 39,
+   "h": 307,
+   "w": 467,
+   "client": 301,
+   "content": 301
+  },
+  "focus": {
+   "y": 39,
+   "h": 307,
+   "w": 463,
+   "client": 301,
+   "content": 301
+  },
+  "focusBody": {
+   "y": 65,
+   "h": 278,
+   "w": 457,
+   "client": 278,
+   "content": 278
+  },
+  "board": {
+   "y": 106,
+   "h": 74,
+   "w": 435,
+   "client": 74,
+   "content": 74
+  },
+  "layout": "grid",
+  "cards": [
+   {
+    "id": "defender_0_div",
+    "h": 25,
+    "text": "A 20/20 hp",
+    "defeated": "false"
+   },
+   {
+    "id": "defender_1_div",
+    "h": 25,
+    "text": "B 17/20 hp",
+    "defeated": "false"
+   },
+   {
+    "id": "defender_2_div",
+    "h": 25,
+    "text": "C 14/20 hp",
+    "defeated": "false"
+   },
+   {
+    "id": "defender_3_div",
+    "h": 25,
+    "text": "D 11/20 hp",
+    "defeated": "false"
+   },
+   {
+    "id": "defender_4_div",
+    "h": 25,
+    "text": "E 8/20 hp",
+    "defeated": "false"
+   },
+   {
+    "id": "defender_5_div",
+    "h": 25,
+    "text": "F 5/20 hp",
+    "defeated": "false"
+   },
+   {
+    "id": "defender_6_div",
+    "h": 25,
+    "text": "G 19/20 hp",
+    "defeated": "false"
+   },
+   {
+    "id": "defender_7_div",
+    "h": 25,
+    "text": "H 16/20 hp",
+    "defeated": "false"
+   }
+  ],
+  "nativeFighters": 8,
+  "invRows": 14,
+  "page": [
+   1366,
+   768,
+   1366,
+   768
+  ],
+  "errors": []
+ },
+ {
+  "tag": "n8-1366x768-21",
+  "topRow": "387px",
+  "font": "21px",
+  "player": {
+   "y": 39,
+   "h": 387,
+   "w": 467,
+   "client": 381,
+   "content": 381
+  },
+  "focus": {
+   "y": 39,
+   "h": 387,
+   "w": 463,
+   "client": 381,
+   "content": 381
+  },
+  "focusBody": {
+   "y": 70,
+   "h": 352,
+   "w": 457,
+   "client": 352,
+   "content": 352
+  },
+  "board": {
+   "y": 130,
+   "h": 147,
+   "w": 428,
+   "client": 147,
+   "content": 147
+  },
+  "layout": "grid",
+  "cards": [
+   {
+    "id": "defender_0_div",
+    "h": 37,
+    "text": "A 20/20 hp",
+    "defeated": "false"
+   },
+   {
+    "id": "defender_1_div",
+    "h": 37,
+    "text": "B 17/20 hp",
+    "defeated": "false"
+   },
+   {
+    "id": "defender_2_div",
+    "h": 37,
+    "text": "C 14/20 hp",
+    "defeated": "false"
+   },
+   {
+    "id": "defender_3_div",
+    "h": 37,
+    "text": "D 11/20 hp",
+    "defeated": "false"
+   },
+   {
+    "id": "defender_4_div",
+    "h": 37,
+    "text": "E 8/20 hp",
+    "defeated": "false"
+   },
+   {
+    "id": "defender_5_div",
+    "h": 37,
+    "text": "F 5/20 hp",
+    "defeated": "false"
+   },
+   {
+    "id": "defender_6_div",
+    "h": 37,
+    "text": "G 19/20 hp",
+    "defeated": "false"
+   },
+   {
+    "id": "defender_7_div",
+    "h": 37,
+    "text": "H 16/20 hp",
+    "defeated": "false"
+   }
+  ],
+  "nativeFighters": 8,
+  "invRows": 6,
+  "page": [
+   1366,
+   768,
+   1366,
+   768
+  ],
+  "errors": []
+ },
+ {
+  "tag": "n8-1920x1080-21",
+  "topRow": "429px",
+  "font": "21px",
+  "player": {
+   "y": 39,
+   "h": 429,
+   "w": 629,
+   "client": 423,
+   "content": 423
+  },
+  "focus": {
+   "y": 39,
+   "h": 429,
+   "w": 745,
+   "client": 423,
+   "content": 423
+  },
+  "focusBody": {
+   "y": 70,
+   "h": 394,
+   "w": 739,
+   "client": 394,
+   "content": 394
+  },
+  "board": {
+   "y": 130,
+   "h": 110,
+   "w": 710,
+   "client": 110,
+   "content": 110
+  },
+  "layout": "grid",
+  "cards": [
+   {
+    "id": "defender_0_div",
+    "h": 37,
+    "text": "A 20/20 hp",
+    "defeated": "false"
+   },
+   {
+    "id": "defender_1_div",
+    "h": 37,
+    "text": "B 17/20 hp",
+    "defeated": "false"
+   },
+   {
+    "id": "defender_2_div",
+    "h": 37,
+    "text": "C 14/20 hp",
+    "defeated": "false"
+   },
+   {
+    "id": "defender_3_div",
+    "h": 37,
+    "text": "D 11/20 hp",
+    "defeated": "false"
+   },
+   {
+    "id": "defender_4_div",
+    "h": 37,
+    "text": "E 8/20 hp",
+    "defeated": "false"
+   },
+   {
+    "id": "defender_5_div",
+    "h": 37,
+    "text": "F 5/20 hp",
+    "defeated": "false"
+   },
+   {
+    "id": "defender_6_div",
+    "h": 37,
+    "text": "G 19/20 hp",
+    "defeated": "false"
+   },
+   {
+    "id": "defender_7_div",
+    "h": 37,
+    "text": "H 16/20 hp",
+    "defeated": "false"
+   }
+  ],
+  "nativeFighters": 8,
+  "invRows": 15,
+  "page": [
+   1920,
+   1080,
+   1920,
+   1080
+  ],
+  "errors": []
+ },
+ {
+  "tag": "n9-1366x768-14",
+  "topRow": "307px",
+  "font": "14px",
+  "player": {
+   "y": 39,
+   "h": 307,
+   "w": 467,
+   "client": 301,
+   "content": 301
+  },
+  "focus": {
+   "y": 39,
+   "h": 307,
+   "w": 463,
+   "client": 301,
+   "content": 301
+  },
+  "focusBody": {
+   "y": 65,
+   "h": 278,
+   "w": 457,
+   "client": 278,
+   "content": 278
+  },
+  "board": {
+   "y": 106,
+   "h": 98,
+   "w": 435,
+   "client": 98,
+   "content": 98
+  },
+  "layout": "dense",
+  "cards": [
+   {
+    "id": "defender_0_div",
+    "h": 25,
+    "text": "A 20/20 hp",
+    "defeated": "false"
+   },
+   {
+    "id": "defender_1_div",
+    "h": 25,
+    "text": "B 17/20 hp",
+    "defeated": "false"
+   },
+   {
+    "id": "defender_2_div",
+    "h": 25,
+    "text": "C 14/20 hp",
+    "defeated": "false"
+   },
+   {
+    "id": "defender_3_div",
+    "h": 25,
+    "text": "D 11/20 hp",
+    "defeated": "false"
+   },
+   {
+    "id": "defender_4_div",
+    "h": 25,
+    "text": "E Defeated",
+    "defeated": "true"
+   },
+   {
+    "id": "defender_5_div",
+    "h": 25,
+    "text": "F 5/20 hp",
+    "defeated": "false"
+   },
+   {
+    "id": "defender_6_div",
+    "h": 25,
+    "text": "G 19/20 hp",
+    "defeated": "false"
+   },
+   {
+    "id": "defender_7_div",
+    "h": 25,
+    "text": "H 16/20 hp",
+    "defeated": "false"
+   },
+   {
+    "id": "defender_8_div",
+    "h": 25,
+    "text": "I 13/20 hp",
+    "defeated": "false"
+   }
+  ],
+  "nativeFighters": 9,
+  "invRows": 14,
+  "page": [
+   1366,
+   768,
+   1366,
+   768
+  ],
+  "errors": []
+ },
+ {
+  "tag": "n9-1366x768-21",
+  "topRow": "387px",
+  "font": "21px",
+  "player": {
+   "y": 39,
+   "h": 387,
+   "w": 467,
+   "client": 381,
+   "content": 381
+  },
+  "focus": {
+   "y": 39,
+   "h": 387,
+   "w": 463,
+   "client": 381,
+   "content": 381
+  },
+  "focusBody": {
+   "y": 70,
+   "h": 352,
+   "w": 457,
+   "client": 352,
+   "content": 352
+  },
+  "board": {
+   "y": 130,
+   "h": 147,
+   "w": 428,
+   "client": 147,
+   "content": 147
+  },
+  "layout": "dense",
+  "cards": [
+   {
+    "id": "defender_0_div",
+    "h": 37,
+    "text": "A 20/20 hp",
+    "defeated": "false"
+   },
+   {
+    "id": "defender_1_div",
+    "h": 37,
+    "text": "B 17/20 hp",
+    "defeated": "false"
+   },
+   {
+    "id": "defender_2_div",
+    "h": 37,
+    "text": "C 14/20 hp",
+    "defeated": "false"
+   },
+   {
+    "id": "defender_3_div",
+    "h": 37,
+    "text": "D 11/20 hp",
+    "defeated": "false"
+   },
+   {
+    "id": "defender_4_div",
+    "h": 37,
+    "text": "E Defeated",
+    "defeated": "true"
+   },
+   {
+    "id": "defender_5_div",
+    "h": 37,
+    "text": "F 5/20 hp",
+    "defeated": "false"
+   },
+   {
+    "id": "defender_6_div",
+    "h": 37,
+    "text": "G 19/20 hp",
+    "defeated": "false"
+   },
+   {
+    "id": "defender_7_div",
+    "h": 37,
+    "text": "H 16/20 hp",
+    "defeated": "false"
+   },
+   {
+    "id": "defender_8_div",
+    "h": 37,
+    "text": "I 13/20 hp",
+    "defeated": "false"
+   }
+  ],
+  "nativeFighters": 9,
+  "invRows": 6,
+  "page": [
+   1366,
+   768,
+   1366,
+   768
+  ],
+  "errors": []
+ },
+ {
+  "tag": "n9-1920x1080-21",
+  "topRow": "429px",
+  "font": "21px",
+  "player": {
+   "y": 39,
+   "h": 429,
+   "w": 629,
+   "client": 423,
+   "content": 423
+  },
+  "focus": {
+   "y": 39,
+   "h": 429,
+   "w": 745,
+   "client": 423,
+   "content": 423
+  },
+  "focusBody": {
+   "y": 70,
+   "h": 394,
+   "w": 739,
+   "client": 394,
+   "content": 394
+  },
+  "board": {
+   "y": 130,
+   "h": 147,
+   "w": 710,
+   "client": 147,
+   "content": 147
+  },
+  "layout": "dense",
+  "cards": [
+   {
+    "id": "defender_0_div",
+    "h": 37,
+    "text": "A 20/20 hp",
+    "defeated": "false"
+   },
+   {
+    "id": "defender_1_div",
+    "h": 37,
+    "text": "B 17/20 hp",
+    "defeated": "false"
+   },
+   {
+    "id": "defender_2_div",
+    "h": 37,
+    "text": "C 14/20 hp",
+    "defeated": "false"
+   },
+   {
+    "id": "defender_3_div",
+    "h": 37,
+    "text": "D 11/20 hp",
+    "defeated": "false"
+   },
+   {
+    "id": "defender_4_div",
+    "h": 37,
+    "text": "E Defeated",
+    "defeated": "true"
+   },
+   {
+    "id": "defender_5_div",
+    "h": 37,
+    "text": "F 5/20 hp",
+    "defeated": "false"
+   },
+   {
+    "id": "defender_6_div",
+    "h": 37,
+    "text": "G 19/20 hp",
+    "defeated": "false"
+   },
+   {
+    "id": "defender_7_div",
+    "h": 37,
+    "text": "H 16/20 hp",
+    "defeated": "false"
+   },
+   {
+    "id": "defender_8_div",
+    "h": 37,
+    "text": "I 13/20 hp",
+    "defeated": "false"
+   }
+  ],
+  "nativeFighters": 9,
+  "invRows": 15,
+  "page": [
+   1920,
+   1080,
+   1920,
+   1080
+  ],
+  "errors": []
+ },
+ {
+  "tag": "n8-mixed-1366x768-14",
+  "topRow": "307px",
+  "font": "14px",
+  "player": {
+   "y": 39,
+   "h": 307,
+   "w": 467,
+   "client": 301,
+   "content": 301
+  },
+  "focus": {
+   "y": 39,
+   "h": 307,
+   "w": 463,
+   "client": 301,
+   "content": 301
+  },
+  "focusBody": {
+   "y": 65,
+   "h": 278,
+   "w": 457,
+   "client": 278,
+   "content": 278
+  },
+  "board": {
+   "y": 106,
+   "h": 147,
+   "w": 435,
+   "client": 147,
+   "content": 147
+  },
+  "layout": "grid",
+  "cards": [
+   {
+    "id": "defender_0_div",
+    "h": 25,
+    "text": "A 20/20 hp",
+    "defeated": "false"
+   },
+   {
+    "id": "defender_3_div",
+    "h": 25,
+    "text": "D 14/20 hp",
+    "defeated": "false"
+   },
+   {
+    "id": "defender_6_div",
+    "h": 25,
+    "text": "G 8/20 hp",
+    "defeated": "false"
+   },
+   {
+    "id": "defender_1_div",
+    "h": 25,
+    "text": "B 18/20 hp",
+    "defeated": "false"
+   },
+   {
+    "id": "defender_4_div",
+    "h": 25,
+    "text": "E 12/20 hp",
+    "defeated": "false"
+   },
+   {
+    "id": "defender_7_div",
+    "h": 25,
+    "text": "H 6/20 hp",
+    "defeated": "false"
+   },
+   {
+    "id": "defender_2_div",
+    "h": 25,
+    "text": "C 16/20 hp",
+    "defeated": "false"
+   },
+   {
+    "id": "defender_5_div",
+    "h": 25,
+    "text": "F 10/20 hp",
+    "defeated": "false"
+   }
+  ],
+  "nativeFighters": 8,
+  "invRows": 14,
+  "page": [
+   1366,
+   768,
+   1366,
+   768
+  ],
+  "errors": []
+ },
+ {
+  "tag": "n8-mixed-1366x768-21",
+  "topRow": "426px",
+  "font": "21px",
+  "player": {
+   "y": 39,
+   "h": 426,
+   "w": 467,
+   "client": 420,
+   "content": 420
+  },
+  "focus": {
+   "y": 39,
+   "h": 426,
+   "w": 463,
+   "client": 420,
+   "content": 420
+  },
+  "focusBody": {
+   "y": 70,
+   "h": 391,
+   "w": 457,
+   "client": 391,
+   "content": 391
+  },
+  "board": {
+   "y": 130,
+   "h": 221,
+   "w": 428,
+   "client": 221,
+   "content": 221
+  },
+  "layout": "grid",
+  "cards": [
+   {
+    "id": "defender_0_div",
+    "h": 37,
+    "text": "A 20/20 hp",
+    "defeated": "false"
+   },
+   {
+    "id": "defender_3_div",
+    "h": 37,
+    "text": "D 14/20 hp",
+    "defeated": "false"
+   },
+   {
+    "id": "defender_6_div",
+    "h": 37,
+    "text": "G 8/20 hp",
+    "defeated": "false"
+   },
+   {
+    "id": "defender_1_div",
+    "h": 37,
+    "text": "B 18/20 hp",
+    "defeated": "false"
+   },
+   {
+    "id": "defender_4_div",
+    "h": 37,
+    "text": "E 12/20 hp",
+    "defeated": "false"
+   },
+   {
+    "id": "defender_7_div",
+    "h": 37,
+    "text": "H 6/20 hp",
+    "defeated": "false"
+   },
+   {
+    "id": "defender_2_div",
+    "h": 37,
+    "text": "C 16/20 hp",
+    "defeated": "false"
+   },
+   {
+    "id": "defender_5_div",
+    "h": 37,
+    "text": "F 10/20 hp",
+    "defeated": "false"
+   }
+  ],
+  "nativeFighters": 8,
+  "invRows": 5,
+  "page": [
+   1366,
+   768,
+   1366,
+   768
+  ],
+  "errors": []
+ },
+ {
+  "tag": "n8-mixed-1920x1080-21",
+  "topRow": "429px",
+  "font": "21px",
+  "player": {
+   "y": 39,
+   "h": 429,
+   "w": 629,
+   "client": 423,
+   "content": 423
+  },
+  "focus": {
+   "y": 39,
+   "h": 429,
+   "w": 745,
+   "client": 423,
+   "content": 423
+  },
+  "focusBody": {
+   "y": 70,
+   "h": 394,
+   "w": 739,
+   "client": 394,
+   "content": 394
+  },
+  "board": {
+   "y": 130,
+   "h": 221,
+   "w": 710,
+   "client": 221,
+   "content": 221
+  },
+  "layout": "grid",
+  "cards": [
+   {
+    "id": "defender_0_div",
+    "h": 37,
+    "text": "A 20/20 hp",
+    "defeated": "false"
+   },
+   {
+    "id": "defender_3_div",
+    "h": 37,
+    "text": "D 14/20 hp",
+    "defeated": "false"
+   },
+   {
+    "id": "defender_6_div",
+    "h": 37,
+    "text": "G 8/20 hp",
+    "defeated": "false"
+   },
+   {
+    "id": "defender_1_div",
+    "h": 37,
+    "text": "B 18/20 hp",
+    "defeated": "false"
+   },
+   {
+    "id": "defender_4_div",
+    "h": 37,
+    "text": "E 12/20 hp",
+    "defeated": "false"
+   },
+   {
+    "id": "defender_7_div",
+    "h": 37,
+    "text": "H 6/20 hp",
+    "defeated": "false"
+   },
+   {
+    "id": "defender_2_div",
+    "h": 37,
+    "text": "C 16/20 hp",
+    "defeated": "false"
+   },
+   {
+    "id": "defender_5_div",
+    "h": 37,
+    "text": "F 10/20 hp",
+    "defeated": "false"
+   }
+  ],
+  "nativeFighters": 8,
+  "invRows": 15,
+  "page": [
+   1920,
+   1080,
+   1920,
+   1080
+  ],
+  "errors": []
+ }
+]

@@ -58,6 +58,7 @@ esbuild
         htmlContent=htmlContent.replace(/styles\/ui_tokens\.css(?:\?version=[^&"]+)?/,`styles/ui_tokens.css?version=${fingerprint('styles/ui_tokens.css')}`);
         htmlContent=htmlContent.replace(/styles\/shell_layout\.css(?:\?version=[^&"]+)?/,`styles/shell_layout.css?version=${fingerprint('styles/shell_layout.css')}`);
         htmlContent=htmlContent.replace(/styles\/inventory\.css(?:\?version=[^&"]+)?/,`styles/inventory.css?version=${fingerprint('styles/inventory.css')}`);
+        htmlContent=htmlContent.replace(/styles\/opponents\.css(?:\?version=[^&"]+)?/,`styles/opponents.css?version=${fingerprint('styles/opponents.css')}`);
         try {
             fs.writeFileSync(htmlPath, htmlContent);
             console.log("Bundle and style versions in .html have been updated!");

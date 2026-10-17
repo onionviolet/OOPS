@@ -14,6 +14,24 @@ const villageThings = [
     {id: 'projects', name: 'Projects', description: 'Read optional proposals before opting in.'},
 ];
 
+// R20 combat fixtures in the public opponent projection shape (opponent_board.js). Knowledge is
+// stated per fact. "All known" is a labelled fixture case only; the game has no knowledge system
+// yet and missing knowledge renders as unknown (NX22). Names and numbers mirror the base game's
+// first field fight; nothing sealed.
+const facts = (known, values = {}) => [['Attack', '4 dmg'], ['Speed', '0.82 /s'], ['Hit you', '35%'], ['Evade you', '18%'], ['Defense', '0'], ['You hit them', '82%']]
+    .map(([label, value]) => ({label, value: values[label] ?? value, knowledge: typeof known === 'function' ? known(label) : known}));
+const opponent = (slot, name, hp, knowledge, extra = {}) => ({id: `preview_opponent_${slot}`, slot, letter: String.fromCharCode(65 + slot), name,
+    defeated: hp === 0, cycle: (slot * 23) % 100, health: {text: `${hp}/20 hp`, progress: hp * 5, knowledge: knowledge === 'unknown' ? 'unknown' : knowledge === 'partial' ? 'known' : knowledge},
+    facts: facts(knowledge === 'partial' ? label => ['Attack', 'Speed'].includes(label) ? 'known' : label === 'Hit you' ? 'partial' : 'unknown' : knowledge, knowledge === 'partial' ? {'Hit you': '30–40%'} : {}), ...extra});
+const combat = (title, opponents) => ({
+    title, legacy: {location_description_div: 'Fields infested by huge rats.'},
+    village: {inVillage: false, place: 'Infested field', placeTypes: [], clock: 'Infested field · 01/04/999 08:17, Summer, Mon · Day · Dry · 15.0°C',
+        people: [], things: [], actions: [], enemies: [], enemy: null, dialogue: null, history: [],
+        opponents: {source: 'fixture', encounter: {groupsLeft: '15 / 15', clears: 'Clears: [0]'}, opponents}},
+    work: {work: [], waiting: false, canWrite: true, error: null, world: 'base.frontier', away: false},
+});
+const rats = (n, knowledge, down = -1) => Array.from({length: n}, (_, i) => opponent(i, 'Starving wolf rat', i === down ? 0 : Math.max(1, 20 - (i * 3) % 17), knowledge));
+
 export const FIXTURES = {
     village: {
         title: 'Village, morning, populated save',
@@ -42,4 +60,11 @@ export const FIXTURES = {
             'shell-log-tools': {rows: 2, note: 'Filters, follow, latest, clear'},
         },
     },
+    'combat-unknown': combat('Fight · 3 opponents · unknown (nothing learned)', rats(3, 'unknown')),
+    'combat-partial': combat('Fight · 3 opponents · partial (some facts, one estimate)', rats(3, 'partial')),
+    'combat-known': combat('Fight · 1 opponent · ALL-KNOWN fixture case (not the game default)', rats(1, 'known')),
+    'combat-five': combat('Fight · 5 opponents · native readout, one defeated', rats(5, 'native', 1)),
+    'combat-nine': combat('Fight · 9 opponents · native readout, one defeated', rats(9, 'native', 4)),
 };
+// Combat fixtures stand on the same placeholder panels as the Village.
+for (const fixture of Object.values(FIXTURES)) fixture.placeholders ||= FIXTURES.village.placeholders;

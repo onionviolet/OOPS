@@ -1,4 +1,5 @@
-import {chooseCombatFocus} from './combat_focus.js';
+import {boardLayout} from './layout_spec.js';
+import {projectNativeOpponents,knowledgeOf,healthText,healthFill,factText,factShown,encounterCaption,KNOWLEDGE_LABEL} from './opponent_board.js';
 import {definePanel} from './panel_kit.js';
 import {projectVillageScene} from './causal_story_scenes.js';
 import {openWorkspaceModule} from './workspace_layout.js';
@@ -18,81 +19,81 @@ export function villageFocus(frame,selected) {
     return thing?{kind:'thing',name:thing.name,role:thing.description}:null;
 }
 export function createVillageWorkspace({read,act}) {
-    let selected=null,selectedEnemy=null,enemyRoster='',sceneSignature='',actionSignature='',focusSignature='',lastPlace='';
+    let selected=null,selectedEnemy=null,sceneSignature='',actionSignature='',focusSignature='',lastPlace='';
     const scene=node('section');scene.id='village_scene';
     const clock=node('p'),people=node('div'),things=node('div'),groups=node('div');
     people.className='scene-chips';things.className='scene-chips';
     clock.className='scene-location-header';const placeName=node('strong'),conditions=node('span'),calendar=node('span'),placeTags=node('span');conditions.className='scene-conditions';calendar.className='scene-calendar';placeTags.className='scene-place-tags';clock.append(placeName,conditions,placeTags,calendar);
     const placeTabs=node('nav');placeTabs.className='scene-local-tabs';placeTabs.setAttribute('aria-label','Location sections');let placeTab='actions';for(const [id,label]of [['actions','Actions'],['people','People'],['things','Things'],['options','Options']]){const b=node('button',label);b.type='button';b.dataset.placeTab=id;b.onclick=()=>{placeTab=id;render();};placeTabs.append(b);}scene.append(clock,placeTabs,people,things,groups);
     const focus=node('section');focus.id='current_focus';focus.setAttribute('aria-live','polite');
+    // R20 opponent board: one row per opponent, laid out by count (layout_spec opponentBoard), and
+    // the inspected opponent's facts once below the rows instead of repeated on every card. Reads the
+    // public projection shape (opponent_board.js) only. Rows keep their node and native slot order,
+    // so nothing moves under a pending click on ticks (UR52, WX4).
     const enemyView=node('div');enemyView.className='combat-focus-view';
-    const enemyChoices=node('div'),enemyName=node('strong'),enemyHealth=node('p'),enemyFacts=node('dl'),enemyCycle=node('progress'),enemyCycleLabel=node('label','Attack cycle '),enemyEmpty=node('p','Combat facts not yet available.');
-    enemyChoices.className='combat-focus-choices';enemyChoices.setAttribute('aria-label','Inspect opponent');
-    enemyHealth.setAttribute('aria-live','off');enemyFacts.setAttribute('aria-live','off');
-    enemyName.dataset.effectAnchor='opponent-name';enemyHealth.dataset.effectAnchor='opponent-health';enemyFacts.dataset.effectAnchor='opponent-stats';
-    enemyCycle.max=100;enemyCycle.setAttribute('aria-label','Native attack cycle');enemyCycleLabel.append(enemyCycle);
-    const combatDetails=node('details'),combatSummary=node('summary','Combat readout');combatDetails.className='combat-readout';combatDetails.append(combatSummary,enemyFacts,enemyEmpty);enemyView.append(enemyChoices,enemyName,enemyHealth,enemyCycleLabel,combatDetails);const enemyChoiceNodes=new Map();
-    const enemyCards=node('div'),enemyCardNodes=new Map(),rosterToolbar=node('div'),rosterCaption=node('span');enemyCards.className='enemy-cards';rosterToolbar.className='enemy-roster-toolbar';rosterToolbar.append(rosterCaption);enemyView.prepend(rosterToolbar,enemyCards);
-    const knownFacts=enemy=>(enemy.facts||[]).filter(f=>f.value!=null&&String(f.value).trim()&&!/^(?:\?+|unknown|unavailable)(?:\s|$)/i.test(String(f.value).trim()));
-    const factNodes=new Map();let readoutChosen=false;combatSummary.addEventListener('click',()=>{readoutChosen=true;});
-    const rosterMode=node('button','Panels');rosterMode.type='button';rosterMode.className='combat-roster-mode';let enemyPanels=false,enemyPanelsChosen=false;
-    rosterMode.onclick=()=>{enemyPanelsChosen=true;enemyPanels=!enemyPanels;setText(rosterMode,enemyPanels?'Compact':'Panels');setAttr(rosterMode,'aria-pressed',enemyPanels);render();};rosterMode.title='Show an individual health and attack-cycle panel for each opponent. Inspection never selects an attack target.';
-    rosterToolbar.append(rosterMode);
+    const rosterToolbar=node('div'),rosterCaption=node('span'),enemyCards=node('div'),enemyCardNodes=new Map(),groupLabels=new Map();
+    rosterToolbar.className='enemy-roster-toolbar';enemyCards.className='enemy-cards';enemyCards.setAttribute('role','group');enemyCards.setAttribute('aria-label','Opponents');enemyCards.dataset.fitClip='';
+    const detail=node('section'),detailFacts=node('dl'),detailEmpty=node('p'),detailNodes=new Map();detail.className='opponent-detail';detailFacts.dataset.effectAnchor='opponent-stats';detailFacts.setAttribute('aria-live','off');detail.append(detailFacts,detailEmpty);
+    const rosterMode=node('button','Compare');rosterMode.type='button';rosterMode.className='combat-roster-mode';let compare=false;
+    rosterMode.onclick=()=>{compare=!compare;render();};
+    rosterToolbar.append(rosterCaption,rosterMode);enemyView.append(rosterToolbar,enemyCards,detail);
 
     const setText=(n,text)=>{if(n.textContent!==text)n.textContent=text;};
     const setAttr=(n,key,value)=>{value=String(value);if(n.getAttribute(key)!==value)n.setAttribute(key,value);};
     const setTitle=(n,value)=>{if(n.title!==value)n.title=value;};
-    function renderEnemy(target,enemies){
-        if(!enemyPanelsChosen){const font=parseFloat(getComputedStyle(focus).fontSize)||14;enemyPanels=focus.clientWidth/font>=(enemies.length>3?40:20);setText(rosterMode,enemyPanels?'Compact':'Panels');setAttr(rosterMode,'aria-pressed',enemyPanels);}
-        setTitle(rosterMode,`${enemyPanelsChosen?'Manual':'Automatic'} ${enemyPanels?'individual panels':'compact roster'}. Show ${enemyPanels?'compact roster':'individual health and attack-cycle panels'}. Inspection never changes attack targeting.`);
+    // Fact rows keyed by label inside a <dl>; `you` adds the player's own value where one exists.
+    function renderFacts(list,nodes,facts,you){
+        for(const[key,row]of nodes)if(!facts.some(f=>f.label===key)){row.remove();nodes.delete(key);}
+        for(const fact of facts){let row=nodes.get(fact.label);if(!row){row=node('div');row.append(node('dt'),node('dd'),node('small'));row.tabIndex=0;nodes.set(fact.label,row);list.append(row);}
+            const value=factText(fact),own=you?ownValue(fact.label):'';
+            setText(row.firstChild,shortLabel[fact.label]||fact.label);setText(row.children[1],value);setText(row.lastChild,own);setAttr(row,'data-knowledge',fact.knowledge||'unknown');
+            setTitle(row,`${fact.label}: ${value}. ${factHelp(fact.label)}${own?` ${own}.`:''}`);setAttr(row,'aria-label',`${fact.label}: ${value}`);}
+    }
+    const shortLabel={'You hit them':'Your hit','Evade you':'Evade','Attack':'Atk','Speed':'Spd'};
+    const ownValue=label=>{const id=({'Attack':'attack_power_slot','Defense':'defense_slot','Speed':'attack_speed_slot'})[label];const own=id?document.querySelector(`#character_stats_div #${id}`)?.textContent.trim():'';return own?`You: ${own}${label==='Speed'?' /s':''}`:'';};
+    function renderEnemy(target,board){
+        const opponents=board.opponents,count=opponents.length,root=document.getElementById('main_content');
         if(enemyView.parentNode!==focus)focus.replaceChildren(enemyView);
-        focus.dataset.nativeActor=target.id||'';setText(enemyName,target.name);setText(enemyHealth,target.hp);
-        enemyHealth.dataset.healthKnown=String(target.healthProgress!=null);enemyHealth.style.setProperty('--focus-health-fill-size',`${target.healthProgress??0}%`);
-        enemyName.title='Native compatibility readout. In-world knowledge and appraisal remain world-specific; this view supplies no level, intent or enemy effects.';
-        for(const [id,b]of enemyChoiceNodes)if(!enemies.some(e=>e.id===id)){b.remove();enemyChoiceNodes.delete(id);}
-        for(const [index,enemy]of enemies.entries()){
-            let b=enemyChoiceNodes.get(enemy.id);if(!b){b=node('button');b.type='button';b.dataset.inspectEnemy=enemy.id;b.append(node('span'),node('small'),node('progress'));b.lastChild.max=100;b.onclick=()=>{selectedEnemy=enemy.id;render();};enemyChoiceNodes.set(enemy.id,b);enemyChoices.append(b);}
-            setText(b.firstChild,`${index+1} · ${enemy.name}`);setText(b.children[1],enemy.hp);b.lastChild.value=enemy.attackProgress||0;b.lastChild.setAttribute('aria-label',`Opponent ${index+1}: ${enemy.name} attack cycle`);b.style.setProperty('--roster-health',`${enemy.healthProgress??0}%`);setTitle(b,`Inspect opponent ${index+1}: ${enemy.name}. ${enemy.hp}`);setAttr(b,'aria-label',b.title);setAttr(b,'aria-pressed',enemy.id===target.id);
+        focus.dataset.nativeActor=target.id||'';
+        // Repeated names group in first-appearance order; each group keeps native slot order.
+        const named=new Map();for(const opp of opponents){if(!named.has(opp.name))named.set(opp.name,[]);named.get(opp.name).push(opp);}
+        const fontSize=parseFloat(getComputedStyle(focus).fontSize)||14,layout=boardLayout({count,widthEm:focus.clientWidth/fontSize,groups:[...named.values()].map(g=>g.length)});
+        setAttr(enemyCards,'data-grouped',layout.grouped);
+        setAttr(enemyCards,'data-layout',layout.layout);setAttr(enemyCards,'data-columns',layout.columns);setAttr(enemyCards,'data-count',count);
+        if(enemyCards.style.getPropertyValue('--board-visible-rows')!==String(layout.visibleRows))enemyCards.style.setProperty('--board-visible-rows',String(layout.visibleRows));
+        const comparing=compare&&count>1;setAttr(enemyCards,'data-compare',comparing);rosterMode.hidden=count<2;setAttr(rosterMode,'aria-pressed',comparing);
+        setTitle(rosterMode,comparing?'Showing each opponent’s facts on its row. Select to show only the inspected opponent’s facts below.':'Show each opponent’s facts on its own row, to compare them. Inspection never changes attack targeting.');
+        for(const[id,card]of enemyCardNodes)if(!opponents.some(o=>o.id===id)){card.remove();enemyCardNodes.delete(id);}
+        for(const[name,label]of groupLabels)if(!layout.grouped||!named.has(name)){label.remove();groupLabels.delete(name);}
+        const order=layout.grouped?[...named.entries()].flatMap(([name,group])=>{let label=groupLabels.get(name);if(!label){label=node('p');label.className='enemy-group-label';groupLabels.set(name,label);}
+            setText(label,`${name} · ${group.length}`);setTitle(label,`${group.length} opponents named ${name}, ${group.map(o=>o.letter).join(', ')}. Each keeps its own health and can be inspected on its own.`);return [label,...group];}):opponents;
+        for(const[index,opp]of order.entries()){
+            if(opp.nodeType){if(enemyCards.children[index]!==opp)enemyCards.insertBefore(opp,enemyCards.children[index]||null);continue;}
+            let card=enemyCardNodes.get(opp.id);
+            if(!card){card=node('article');card.className='enemy-card';card.dataset.enemyCard=opp.id;
+                const name=node('button'),hp=node('p'),cycle=node('progress'),facts=node('dl');
+                name.type='button';name.dataset.inspectEnemy=opp.id;name.className='enemy-card-name';name.onclick=()=>{selectedEnemy=opp.id;render();};
+                hp.className='enemy-card-health';hp.append(node('span'));cycle.max=100;cycle.className='enemy-card-cycle';facts.className='enemy-card-facts';facts.nodes=new Map();
+                card.append(name,hp,cycle,facts);enemyCardNodes.set(opp.id,card);}
+            if(enemyCards.children[index]!==card)enemyCards.insertBefore(card,enemyCards.children[index]||null);
+            const[name,hp,cycle,facts]=card.children,inspected=opp.id===target.id,known=knowledgeOf(opp),label=count>1?`${opp.letter} · ${opp.name}`:opp.name,shown=layout.grouped?opp.letter:label,health=healthText(opp),fill=healthFill(opp);
+            setText(name,shown);setAttr(name,'aria-pressed',inspected);setAttr(name,'aria-label',`Inspect opponent ${label}${opp.defeated?', defeated':''}`);setTitle(name,`Inspect ${label}. Inspection does not change attack targeting. ${KNOWLEDGE_LABEL[known]}`);
+            setText(hp.firstChild,health);setAttr(hp,'data-health-known',fill!=null);setTitle(hp,opp.defeated?`Defeated · ${opp.health?.text||''}`.trim():health);card.style.setProperty('--roster-health',`${fill??0}%`);
+            if(inspected){name.dataset.effectAnchor='opponent-name';hp.dataset.effectAnchor='opponent-health';}else{name.removeAttribute('data-effect-anchor');hp.removeAttribute('data-effect-anchor');}
+            cycle.hidden=opp.defeated||opp.cycle==null;cycle.value=opp.cycle||0;setAttr(cycle,'aria-label',`${label} attack cycle`);setTitle(cycle,'Attack cycle · native progress');
+            setAttr(card,'data-inspected',inspected);setAttr(card,'data-defeated',!!opp.defeated);setAttr(card,'data-knowledge',known);
+            facts.hidden=!comparing;if(comparing)renderFacts(facts,facts.nodes,opp.facts||[],false);
         }
-        const fontSize=parseFloat(getComputedStyle(focus).fontSize)||14,widthEm=focus.clientWidth/fontSize,cardColumns=widthEm>=60?3:widthEm>=30?2:1;
-        const fitHeight=Math.max(304,Math.ceil(fontSize*Math.max(20,Math.ceil(enemies.length/cardColumns)*5+3))),root=document.getElementById('main_content');if(root.style.getPropertyValue('--enemy-cards-height')!==fitHeight+'px')root.style.setProperty('--enemy-cards-height',fitHeight+'px');
-        setAttr(enemyCards,'data-columns',cardColumns);setAttr(enemyCards,'data-count',enemies.length);
-        for(const[id,card]of enemyCardNodes)if(!enemies.some(e=>e.id===id)){card.remove();enemyCardNodes.delete(id);}
-        for(const[index,enemy]of enemies.entries()){
-            let card=enemyCardNodes.get(enemy.id);
-            if(!card){card=node('article');card.className='enemy-card';card.dataset.enemyCard=enemy.id;
-                const name=node('button'),hp=node('p'),cycle=node('progress'),facts=node('dl'),empty=node('small');
-                name.type='button';name.dataset.inspectEnemy=enemy.id;name.onclick=()=>{selectedEnemy=enemy.id;render();};name.className='enemy-card-name';hp.className='enemy-card-health';hp.append(node('span'));cycle.max=100;cycle.className='enemy-card-cycle';empty.textContent='No combat details observed.';
-                const identity=node('div');identity.className='enemy-card-identity';identity.append(name,hp,cycle);card.append(identity,facts,empty);card.factNodes=new Map();enemyCardNodes.set(enemy.id,card);enemyCards.append(card);}
-            const[name,hp,cycle]=card.firstChild.children,facts=card.children[1],empty=card.children[2];
-            setText(name,`${index+1} · ${enemy.name}`);setAttr(name,'aria-pressed',enemy.id===target.id);setAttr(name,'aria-label',`Inspect opponent ${index+1}: ${enemy.name}`);setTitle(name,'Inspect this opponent. Inspection does not change attack targeting.');
-            setText(hp.firstChild,enemy.hp);setAttr(hp,'data-health-known',enemy.healthProgress!=null);card.style.setProperty('--roster-health',`${enemy.healthProgress??0}%`);
-            cycle.value=enemy.attackProgress||0;setAttr(cycle,'aria-label',`${enemy.name} attack cycle`);setTitle(cycle,'Attack cycle · native progress');
-            const rows=knownFacts(enemy);empty.hidden=!!rows.length;
-            for(const[key,row]of card.factNodes)if(!rows.some(f=>f.label===key)){row.remove();card.factNodes.delete(key);}
-            for(const fact of rows){let row=card.factNodes.get(fact.label);if(!row){row=node('div');row.append(node('dt'),node('dd'));row.tabIndex=0;card.factNodes.set(fact.label,row);facts.append(row);}setText(row.firstChild,({'You hit them':'Your hit','Evade you':'Evade','Attack':'Atk','Speed':'Spd'})[fact.label]||fact.label);setText(row.lastChild,fact.value);setTitle(row,`${fact.label}: ${fact.value}. ${factHelp(fact.label)}`);setAttr(row,'aria-label',`${fact.label}: ${fact.value}`);}
-            const cardEm=widthEm/(cardColumns===2&&index===enemies.length-1&&enemies.length%2?1:cardColumns);setAttr(card,'data-presentation',cardEm>=20?'row':'stack');setAttr(facts,'data-columns',2);setAttr(card,'data-inspected',enemy.id===target.id);
-        }
-        enemyCards.hidden=!enemyPanels;enemyChoices.hidden=enemies.length<2||enemyPanels;rosterMode.hidden=false;
-        // R13: native area progress (Proto23's "Area · n" lesson) read from the native counters, never computed here.
-        const groupsLeft=document.getElementById('enemies_left_div')?.textContent.trim(),clears=document.getElementById('clear_count_div')?.textContent.replace(/\s+/g,' ').trim();
-        setText(rosterCaption,[`${enemies.length} opponent${enemies.length===1?'':'s'} · inspect`,groupsLeft?`${groupsLeft} group${groupsLeft==='1'?'':'s'} left`:'',clears||''].filter(Boolean).join(' · '));
-        enemyName.hidden=enemyPanels;enemyHealth.hidden=enemyPanels;enemyCycleLabel.hidden=enemyPanels;combatDetails.hidden=enemyPanels;
-        enemyChoices.dataset.presentation='compact';document.getElementById('main_content').dataset.enemyPanels=String(enemyPanels);document.getElementById('main_content').dataset.enemyCards=String(enemyPanels);
-        setText(combatSummary,`Combat readout · ${enemies.length} opponent${enemies.length===1?'':'s'}`);
-        const facts=(target.facts||[]).filter(fact=>fact.value!=null&&String(fact.value).trim()&&!/^(?:\?+|unknown|unavailable)(?:\s|$)/i.test(String(fact.value).trim()));enemyEmpty.hidden=!!facts.length;
-        for(const [key,pair]of factNodes)if(!facts.some(f=>f.label===key)){pair.remove();factNodes.delete(key);}
-        for(const fact of facts){let pair=factNodes.get(fact.label);if(!pair){pair=node('div');pair.append(node('dt',fact.label),node('dd'),node('small'));factNodes.set(fact.label,pair);enemyFacts.append(pair);}setText(pair.children[1],fact.value);
-            const ownId=({'Attack':'attack_power_slot','Defense':'defense_slot','Speed':'attack_speed_slot'})[fact.label];
-            const own=ownId?document.querySelector(`#character_stats_div #${ownId}`)?.textContent.trim():null;
-            setText(pair.lastChild,own?`You: ${own}${fact.label==='Speed'?' /s':''}`:'');pair.tabIndex=0;pair.title=factHelp(fact.label);}
-        enemyCycle.value=target.attackProgress||0;
-        // Fit public facts to the actual pane and selected type size. A deliberate
-        // disclosure choice lasts for this session, including live resizes.
-        const font=parseFloat(getComputedStyle(focus).fontSize)||14,columns=focus.clientWidth/font>=20?2:1;
-        setAttr(enemyFacts,'data-columns',columns);
-        if(!readoutChosen){const needed=(enemies.length>1?(enemyPanels?10:8):6)+Math.ceil(facts.length/columns)*(columns===2?3:2);const wanted=(focus.closest('.workspace-module-body')?.clientHeight||focus.clientHeight)/font>=needed;if(combatDetails.open!==wanted)combatDetails.open=wanted;}
-        setTitle(combatSummary,`${readoutChosen?'Manual':'Automatic fit'} · inspect known combat facts; inspection does not change attack targeting.`);
+        // The inspected opponent's facts, once. List form (with your own value) for up to four
+        // opponents, a compact grid beyond that (layout_spec opponentBoard).
+        detail.hidden=comparing;setAttr(detail,'data-facts',layout.facts);setAttr(detail,'data-knowledge',knowledgeOf(target));setTitle(detail,`${count>1?target.letter+' · ':''}${target.name}. ${KNOWLEDGE_LABEL[knowledgeOf(target)]}`);
+        const facts=target.facts||[];renderFacts(detailFacts,detailNodes,facts,layout.facts==='list');
+        detailEmpty.hidden=!!facts.length;setText(detailEmpty,'No combat facts observed yet.');
+        const caption=encounterCaption(board);setText(rosterCaption,caption);setTitle(rosterCaption,caption);
+        if(root.style.getPropertyValue('--enemy-cards-height'))root.style.removeProperty('--enemy-cards-height');
+        root.dataset.enemyPanels='true';root.dataset.enemyCards='true';
+        // A new wave with a different count is a stable moment for the fit engine (WX4).
+        const signature=`${layout.layout}:${count}:${layout.columns}`;if(root.dataset.opponentBoard!==signature)root.dataset.opponentBoard=signature;
     }
     const home=document.getElementById('main_content');
     definePanel({id:'focus',title:'Focus',role:'character',node:focus,home,defaultDock:'center',after:'time',eligible:()=>true});
@@ -150,18 +151,25 @@ export function createVillageWorkspace({read,act}) {
             }
         }
         for(const b of scene.querySelectorAll('[data-scene-focus]'))b.setAttribute('aria-pressed',String(b.dataset.sceneFocus===selected));
-        const enemies=frame.enemies|| (frame.enemy?[frame.enemy]:[]),enemy=chooseCombatFocus(enemies,selectedEnemy);
+        // R20: the board reads the public projection. A frame may carry it (preview fixtures, later
+        // the registry projection, GU8); otherwise the existing read() rows are adapted, with the
+        // encounter counters the cards already read (NX42). No new truth reads.
+        const rows=frame.enemies||(frame.enemy?[frame.enemy]:[]);
+        const board=frame.opponents||(rows.length?projectNativeOpponents(rows,{groupsLeft:document.getElementById('enemies_left_div')?.textContent.trim()||'',clears:document.getElementById('clear_count_div')?.textContent.replace(/\s+/g,' ').trim()||''}):{opponents:[]});
+        const picked=board.opponents.find(o=>o.id===selectedEnemy)||board.opponents[0]||null,row=picked&&rows.find(r=>r.id===picked.id);
+        // Classic keeps its native text (GU5); projection-only frames derive it from the shape.
+        const enemy=picked&&{...picked,hp:row?.hp??healthText(picked),stats:row?.stats??(picked.facts||[]).filter(factShown).map(f=>`${f.label}: ${factText(f)}`).join(' · ')};
         const target=villageFocus({...frame,enemy},selected),next=JSON.stringify(target||{place:frame.place,people:frame.people,things:frame.things});
         focus.dataset.focusEmpty=String(!target);
         focus.closest('.workspace-module')?.setAttribute('data-focus-empty',String(!target));
         const heading=focus.closest('.workspace-module')?.querySelector('.workspace-module-header > strong');
         const shell=document.getElementById('main_content').dataset.presentation==='proto23-shell';
         if(shell&&!target){focus.dataset.focusEmpty='false';focus.closest('.workspace-module')?.setAttribute('data-focus-empty','false');}
-        const nativeEncounter=target?.kind==='enemy'&&shell;if(nativeEncounter)renderEnemy(target,enemies);const groupHeading=nativeEncounter&&enemyPanels;
-        if(heading){setText(heading,groupHeading?`Opponents · ${enemies.length}`:shell?(target?.name||'Around you'): 'Focus');setTitle(heading,groupHeading?`${enemies.length} opponents. Select a name to inspect; inspection does not change attack targeting.`:target?.name||'Inspect a known person, place or opponent');if(nativeEncounter&&!groupHeading){heading.dataset.effectAnchor='opponent-name';heading.tabIndex=0;enemyName.removeAttribute('data-effect-anchor');}else{heading.removeAttribute('data-effect-anchor');heading.removeAttribute('tabindex');enemyName.dataset.effectAnchor='opponent-name';}}
+        const nativeEncounter=target?.kind==='enemy'&&shell;if(nativeEncounter)renderEnemy(target,board);const groupHeading=nativeEncounter,enemyCount=board.opponents.length;
+        if(heading){setText(heading,groupHeading?(enemyCount>1?`Opponents · ${enemyCount}`:'Opponent'):shell?(target?.name||'Around you'): 'Focus');setTitle(heading,groupHeading?`${enemyCount} opponent${enemyCount===1?'':'s'}. Select a name to inspect; inspection does not change attack targeting.`:target?.name||'Inspect a known person, place or opponent');heading.removeAttribute('data-effect-anchor');heading.removeAttribute('tabindex');}
         focus.dataset.subjectHeading=String(shell&&!!target);
         if(nativeEncounter){focusSignature=next;return;}
-        if(document.getElementById('main_content').dataset.enemyCards==='true')document.getElementById('main_content').dataset.enemyCards='false';
+        {const root=document.getElementById('main_content');if(root.dataset.enemyCards==='true')root.dataset.enemyCards='false';if(root.dataset.opponentBoard)delete root.dataset.opponentBoard;}
         // R13: the key includes the presentation and place text, so the idle place card
         // appears once the shell is active, not only after the subject changes.
         const focusKey=JSON.stringify([next,shell,!target&&shell?document.getElementById('location_description_div')?.textContent.trim()||'':'']);

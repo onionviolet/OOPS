@@ -40,6 +40,24 @@ export const LAYOUT_SPEC = Object.freeze({
     }),
     // After the start screen closes, re-measure for this long while first content arrives.
     settleMs: 1200,
+    // R20 opponent board, sized by count (Part 2 B1, UX17). Each band names its layout, the
+    // columns it wants and how the inspected opponent's facts show. Columns narrower than
+    // `minColumnEm` fall back to fewer columns: more rows, never smaller text (R2, UR46). The rows
+    // show at most `maxVisibleRows` before scrolling inside the board, so a large fight never
+    // pushes the top row past what the fit engine allows.
+    opponentBoard: Object.freeze({
+        bands: Object.freeze([
+            Object.freeze({upTo: 1, layout: 'single', columns: 1, facts: 'list'}),
+            Object.freeze({upTo: 4, layout: 'rows', columns: 1, facts: 'list'}),
+            Object.freeze({upTo: 8, layout: 'grid', columns: 2, facts: 'grid'}),
+            Object.freeze({upTo: Infinity, layout: 'dense', columns: 3, facts: 'grid'}),
+        ]),
+        minColumnEm: 15,
+        maxVisibleRows: 8,
+        // From five opponents, repeated names group (UX17): the name once as a group label, then one
+        // cell per opponent with its own letter, health and selection. Nothing is aggregated.
+        groupFrom: 'grid', groupCellEm: 7, groupMaxColumns: 4,
+    }),
 });
 
 export const contextOf = ({combat}) => combat ? 'combat' : 'idle';
@@ -77,4 +95,16 @@ export function topRowHeight({player, focus, combat, board, fontSize, frame = LA
     return Math.round(Math.max(low, Math.min(high, need)));
 }
 
-export const frameFor = (fontSize, spec = LAYOUT_SPEC) => spec.topRow.framePx + Math.ceil(fontSize * spec.topRow.frameLines);
+// R20: the opponent board's layout for a count at the board's width in text lines (em).
+// `groups` are the opponent counts per name in board order; repeated names group from the
+// `groupFrom` band on. `visibleRows` counts group labels as rows.
+export function boardLayout({count, widthEm, groups = [count]}, spec = LAYOUT_SPEC) {
+    const b = spec.opponentBoard, index = Math.max(0, b.bands.findIndex(x => count <= x.upTo)), band = b.bands[index];
+    const grouped = index >= b.bands.findIndex(x => x.layout === b.groupFrom) && groups.length < count;
+    const columns = grouped ? Math.max(1, Math.min(b.groupMaxColumns, Math.floor(widthEm / b.groupCellEm), Math.max(...groups)))
+        : Math.max(1, Math.min(band.columns, Math.floor(widthEm / b.minColumnEm), count || 1));
+    const rows = grouped ? groups.reduce((n, g) => n + 1 + Math.ceil(g / columns), 0) : Math.ceil((count || 1) / columns);
+    return {layout: band.layout, grouped, columns, facts: band.facts, visibleRows: Math.min(rows, b.maxVisibleRows)};
+}
+
+export const frameFor =(fontSize, spec = LAYOUT_SPEC) => spec.topRow.framePx + Math.ceil(fontSize * spec.topRow.frameLines);
