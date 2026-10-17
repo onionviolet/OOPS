@@ -106,7 +106,8 @@ export function createInventoryTabs({list, search, stored, store}) {
         clear.setAttribute('aria-label', clear.title);
         list.dataset.inventoryCategory = current;
         // The shared list tools ask for the empty-state line (ui_components.js).
-        list.emptyHint = () => emptyHint({category: current, held: counts.all.stacks > 0, inCategory: counts[current].stacks > 0, search: query});
+        // The search is read when the hint is asked for: the list tools may redraw before this strip hears the same keystroke.
+        list.emptyHint = () => emptyHint({category: current, held: counts.all.stacks > 0, inCategory: counts[current].stacks > 0, search: search()?.value.trim() || ''});
     }
     // Apply the remembered category once the native list exists.
     select(current);

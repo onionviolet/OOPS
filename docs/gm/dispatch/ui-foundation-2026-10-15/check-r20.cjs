@@ -39,7 +39,7 @@ try{for(const [w,h,font] of TARGETS)for(const [fx,[file,count,layout,defeated]] 
         // hero within ten); at least one step must be compared. Defeats inside the fight count.
         const fight=()=>p.evaluate(()=>[...document.querySelectorAll('#combat_div .enemy_div')].map(n=>n.id).join()+'|'+!!document.querySelector('#combat_div .attacker_div'));const f0=await fight();let compared=0,defeats=0;
         for(let step=0;step<10;step++){await p.evaluate(()=>advanceTicks(3,{render:true}));await p.waitForTimeout(350);if(await fight()!==f0)break;compared++;
-            assert.deepEqual(await rects(p),r0,`a row moved on ticks (step ${step+1})`);assert.equal(await p.evaluate(()=>document.getElementById('main_content').style.getPropertyValue('--shell-top-row')),top0,'top row moved on ticks');
+            {const now=await rects(p);const moved=now.map((x,j)=>JSON.stringify(x)!==JSON.stringify(r0[j])?`${JSON.stringify(r0[j])} -> ${JSON.stringify(x)}`:null).filter(Boolean);assert.deepEqual(now,r0,`a row moved on ticks (step ${step+1}): ${moved.slice(0,3).join(' | ')}`);}assert.equal(await p.evaluate(()=>document.getElementById('main_content').style.getPropertyValue('--shell-top-row')),top0,'top row moved on ticks');
             defeats=await p.locator('#current_focus .enemy-card[data-defeated=true]').count();}
         assert(compared>0,'fight ended before any tick step could be compared');console.log(`  ticks compared: ${compared*3}, defeated now ${defeats}`);
         assert.deepEqual(p.errors,[]);

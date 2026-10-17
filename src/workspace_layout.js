@@ -1,7 +1,8 @@
 import {centerModes} from './center_modes.js';
 import {deferSimulationRender} from './simulation_render.js';
 import {createShellComposition} from './shell_composition.js';
-import {regionFor,shellOrder,companionPanels} from './layout_spec.js';
+import {regionFor,shellOrder,companionPanels,contextOf,LAYOUT_SPEC} from './layout_spec.js';
+import {readPlacement,writePlacement,moveBox,swapCompanions,resetContext,isDefault,moveControl} from './shell_layout_edit.js';
 import { getDisplaySettings, getDisplaySetting, replaceDisplaySettings, effectsCap } from './display_settings.js';
 import { normalizeLayout, parseLayout, presetLayout, changeModule, reorderModule, layoutStorageKey, normalizeColumns } from './workspace_state.js';
 const registry = new Map();
@@ -39,7 +40,7 @@ function selectShell(on,parity=false){
     if(on===owner.shell&&parity===owner.parity)return;
     if(on){
         if(!owner.shell){owner.baseLayout=owner.layout;owner.baseComposition=owner.composition;}
-        owner.parity=parity;owner.layout=makeShellLayout(owner.narrow);owner.composition=true;
+        owner.parity=parity;loadPlacement();owner.layout=makeShellLayout(owner.narrow);owner.composition=true;
     } else {owner.layout=owner.baseLayout||read(owner.narrow);owner.composition=owner.baseComposition??requestedComposition;owner.parity=false;}
     owner.shell=on;owner.toolbar.querySelector('[data-workspace-action=presentation]').value=on?(parity?'proto23-parity':'proto23-shell'):'existing';
     try{localStorage.setItem(PARITY_KEY,on&&parity?'on':'off');if(!parity)localStorage.setItem(SHELL_KEY,on?'on':'off');}catch{}
@@ -48,7 +49,32 @@ function selectShell(on,parity=false){
 // A composition map changes destinations inside this sole registry/mover. The
 // native nodes, shell IDs, expansion return paths and command owners stay intact.
 // Regions come from the layout spec (R17).
-const parityRegion=id=>regionFor(id,{combat:!!registry.get('combat')?.eligible()});
+const parityCombat=()=>!!registry.get('combat')?.eligible();
+// R21 (MB1): the player's placement for this context moves boxes between the spec's slots.
+const placementKey=()=>`${shellLayoutKey(owner.narrow)}.placement`;
+const placementContext=()=>contextOf({combat:parityCombat()});
+const currentPlacement=()=>owner?.placement?.contexts[placementContext()]||null;
+const parityRegion=id=>regionFor(id,{combat:parityCombat(),placement:currentPlacement()});
+const LEADS=Object.fromEntries(Object.entries(LAYOUT_SPEC.boxes).map(([box,def])=>[box,def.lead]));
+function loadPlacement(){owner.placement=readPlacement(placementKey());if(owner.placement.stale){owner.status.textContent='The saved panel arrangement was for an older layout and was reset. Your other layout choices are kept.';writePlacement(placementKey(),owner.placement);}}
+function changePlacement(next,message){owner.placement=next;if(!writePlacement(placementKey(),next))owner.status.textContent='Layout works for this session; browser storage is unavailable.';else if(message)owner.status.textContent=message;updateWorkspace();syncShellEditing();document.dispatchEvent(new CustomEvent('workspace-presentation-change'));}
+// While editing the parity shell, each box's header carries a Move to control; the Layout menu
+// carries Swap companions and Reset this layout. Classic editing keeps its docks and drags.
+function syncShellEditing(){
+    const on=!!owner.editing&&owner.root.dataset.parity==='r3';
+    owner.shellTools.hidden=!on;
+    for(const [box,lead] of Object.entries(LEADS)){const module=registry.get(lead);if(!module?.header)continue;
+        let control=module.header.querySelector('.shell-move-control');
+        if(!on){control?.remove();continue;}
+        if(!control){control=moveControl(box).label;module.header.querySelector('strong')?.after(control);}
+        const select=control.querySelector('select'),at=currentPlacement(),def=LAYOUT_SPEC.boxes[box];
+        const automatic=!at?.companions?.[box]&&!LAYOUT_SPEC.contexts[placementContext()].companions.includes(lead);
+        const value=def.companion&&(at?.companions?.[box]==='hidden'||automatic)?'hidden':regionFor(lead,{combat:parityCombat(),placement:at});
+        if(select.value!==value)select.value=value;}
+    const label=placementContext()==='combat'?'fight':'idle';
+    owner.shellTools.querySelector('[data-workspace-action=shell-reset]').textContent=`Reset this layout (${label})`;
+    owner.shellTools.querySelector('[data-workspace-action=shell-reset]').disabled=!!owner.placement&&isDefault(owner.placement,placementContext());
+}
 const el = (tag, cls, text) => { const node = document.createElement(tag); if (cls) node.className = cls; if (text) node.textContent = text; return node; };
 function button(label, action, id) { const b = el('button', '', label); b.type = 'button'; b.dataset.workspaceAction = action; if (id) b.dataset.module = id; return b; }
 export function workspaceOwns(node) { return !!owner && [...registry.values()].some(v => v.node === node); }
@@ -117,8 +143,13 @@ function action(event) {
     const control = event.target.closest('[data-workspace-action]'); if (!control || !owner.root.contains(control)) return;
     const a = control.dataset.workspaceAction, id = control.dataset.module, state = owner.layout.modules.find(v => v.id === id);
     if (a === 'presentation') {selectShell(control.value!=='existing',control.value==='proto23-parity');return;}
+    if (a === 'shell-move') { if(event.type!=='change')return; const box=control.dataset.box,def=LAYOUT_SPEC.boxes[box],context=placementContext();
+        const message=control.value==='hidden'?`${def.title} hidden in this ${context==='combat'?'fight':'idle'} layout. Show it again with Move to, Reset this layout or its navigation button.`:`${def.title} moved to ${(LAYOUT_SPEC.slots[control.value]||'').toLowerCase()}${def.companion?'':' (swapped with the box there)'}.`;
+        changePlacement(moveBox(owner.placement,context,box,control.value),message);registry.get(LEADS[box])?.header.querySelector('.shell-move-control select')?.focus({preventScroll:true});return; }
+    if (a === 'shell-swap') { changePlacement(swapCompanions(owner.placement,placementContext()),'Companions swapped.'); return; }
+    if (a === 'shell-reset') { changePlacement(resetContext(owner.placement,placementContext()),`This ${placementContext()==='combat'?'fight':'idle'} layout is back to its default.`); return; }
     if (a === 'context') { setWorkspaceContext(owner.context==='authoring'?'play':'authoring'); return; }
-    if (a === 'edit-layout') { if(owner.shell)selectShell(false);setEditing(!owner.editing); owner.menu.open=false; owner.menuSummary.focus({preventScroll:true}); return; }
+    if (a === 'edit-layout') { if(owner.shell&&!(owner.parity&&owner.root.dataset.parity==='r3'))selectShell(false);setEditing(!owner.editing);syncShellEditing(); owner.menu.open=false; owner.menuSummary.focus({preventScroll:true}); return; }
     if (a === 'preset') { if(owner.shell)selectShell(false);owner.composition=!owner.narrow&&control.value==='Workspace';owner.layout = makePreset(control.value); save(); updateWorkspace(); return; }
     if(a==='toggle-density'){owner.layout.density=owner.layout.density==='compact'?'comfortable':'compact';save();updateWorkspace();return;}
     if (a === 'density') { owner.layout.density = control.value; save(); updateWorkspace(); return; }
@@ -145,7 +176,7 @@ function action(event) {
     else if (a.startsWith('float-') && !state.pinned) { const directions = { 'float-left': [-24, 0], 'float-right': [24, 0], 'float-up': [0, -24], 'float-down': [0, 24] }; const [x, y] = directions[a]; apply(id, { x: state.x + x, y: state.y + y }); }
 }
 function setEditing(on) {
-    if(on)owner.composition=false;
+    if(on&&owner.root.dataset.parity!=='r3')owner.composition=false;
     owner.editing=on; owner.root.dataset.layoutEditing=String(on);
     const toggle=owner.toolbar.querySelector('[data-workspace-action="edit-layout"]'); toggle.setAttribute('aria-pressed',String(on)); toggle.textContent=on?'Done editing':'Edit layout';
     owner.menuSummary.textContent=on?'Layout (editing)':'Layout';
@@ -218,6 +249,10 @@ export function updateWorkspace() {
     owner.root.dataset.parity=owner.parity&&!owner.narrow&&owner.context==='play'?'r3':'';
     owner.root.dataset.parityCombat=String(!!registry.get('combat')?.eligible());
     owner.root.dataset.parityItem=String(!!registry.get('shell-detail')?.eligible());
+    // Companions the player placed beside the actions show there even where the context would not
+    // recommend them (WX11); shell_composition.js reads this list.
+    setAttribute(owner.root,'data-shell-companions-placed',Object.entries(currentPlacement()?.companions||{}).filter(([,slot])=>slot==='actions').map(([box])=>LEADS[box]).join(' '));
+    setAttribute(owner.root,'data-shell-companion-swap',String(!!currentPlacement()?.swap&&owner.root.dataset.parity==='r3'));
     owner.root.dataset.parityExpanded=String(document.getElementById('center_mode_navigation')?.dataset.centerMode?.startsWith('workspace:')===true);
     owner.root.dataset.workspaceComposition=owner.composition&&!owner.narrow&&owner.context==='play'?'proto23':'';
     revealArmed(); // start the settle clock on the first pass after the start screen closes
@@ -268,7 +303,8 @@ export function updateWorkspace() {
             heading.dataset.characterIdentity=owner.parity&&visibleRace?` · ${visibleRace}`:'';
             setProperty(heading,'title','Your native character. Open Stats for biography, attributes and equipment.');
         }
-        setProp(shell,'hidden',state.hidden || !eligible || parked || (composed&&!owner.parity&&state.id==='belongings'&&document.documentElement.style.getPropertyValue('--inventory_div_display')==='none')); shell.classList.toggle('workspace-floating', state.dock === 'float' && !owner.narrow); shell.classList.toggle('workspace-collapsed', state.collapsed);
+        const placedHidden=owner.parity&&owner.root.dataset.parity==='r3'&&currentPlacement()?.companions?.[Object.keys(LEADS).find(b=>LEADS[b]===state.id)]==='hidden';
+        setProp(shell,'hidden',state.hidden || placedHidden || !eligible || parked || (composed&&!owner.parity&&state.id==='belongings'&&document.documentElement.style.getPropertyValue('--inventory_div_display')==='none')); shell.classList.toggle('workspace-floating', state.dock === 'float' && !owner.narrow); shell.classList.toggle('workspace-collapsed', state.collapsed);
         setStyle(shell, '--workspace-width', `${state.width}px`); setStyle(shell, '--workspace-height', `${state.height}px`);
         setData(shell, 'pinned', String(state.pinned));
         shell.querySelectorAll('[data-resize], [data-workspace-action=width], [data-workspace-action=height]').forEach(grip => {setProperty(grip,'disabled',state.pinned);});
@@ -299,6 +335,7 @@ export function updateWorkspace() {
         if(divider.workspaceLeft!==left){divider.workspaceLeft=left;divider.style.left=left;}
         setStyle(divider,'top','0px');setStyle(divider,'height','100%');
     });
+    if(owner.editing)syncShellEditing();
     if (focused?.isConnected && document.activeElement !== focused && !focused.closest('[hidden]')) focused.focus({ preventScroll: true });
 }
 function resizeColumn(dock, pixels, persist = true) {
@@ -344,7 +381,7 @@ function finishGesture(cancel = false) {
 }
 function installPointerInteractions(listen) {
     listen(owner.root,'pointerdown',e=>{
-        if(e.button!==0 || owner.layout.mode==='classic' || !owner.editing)return;
+        if(e.button!==0 || owner.layout.mode==='classic' || !owner.editing || owner.root.dataset.parity==='r3')return;
         const divider=e.target.closest('[data-divider]'), grip=e.target.closest('[data-resize]'), header=e.target.closest('.workspace-module-header');
         if(!divider && !grip && (!header || (e.target.closest('button,input,select,summary,details,a') && !e.target.closest('.workspace-drag-handle'))))return;
         const shell=(grip||header)?.closest('.workspace-module'), id=shell?.dataset.module, state=owner.layout.modules.find(v=>v.id===id);
@@ -417,6 +454,7 @@ export function mountWorkspace({ root = document.getElementById('main_content') 
     const presentationLabel=el('label','','Presentation ');presentationLabel.append(presentation);
     toolbar.append(button('Comfortable','toggle-density'));tools.append(presentationLabel,button('Edit layout', 'edit-layout'));
     const presetLabel = el('label', '', 'Layout '), presets = el('select'); presets.dataset.workspaceAction = 'preset'; ['Workspace', 'Classic', 'Focus', 'Compare'].forEach(v => { const o = el('option', '', v); o.value = v; presets.append(o); }); presetLabel.append(presets); tools.append(presetLabel, button('Reset layout', 'reset'));
+    const shellTools=el('div','shell-layout-tools');shellTools.hidden=true;shellTools.append(button('Swap companions','shell-swap'),button('Reset this layout','shell-reset'));tools.append(shellTools);
     const densityLabel = el('label', '', 'Density '), density = el('select'); density.dataset.workspaceAction='density'; ['compact','comfortable','inspection'].forEach(v=>{const o=el('option','',v);o.value=v;density.append(o);}); densityLabel.append(density);tools.append(densityLabel);
     const colorsLabel = el('label', '', 'Colors '), colors = el('select'); colors.dataset.workspaceAction = 'colors'; [['standard','Standard'],['vivid','Vivid']].forEach(([v,t])=>{const o=el('option','',t);o.value=v;colors.append(o);}); colorsLabel.append(colors); tools.append(colorsLabel); colors.value = readColorScheme(); applyColorScheme(colors.value);
     const craftLabel = el('label', '', 'Crafting detail '), craft = el('select'); craft.dataset.workspaceAction = 'craft-detail'; [['beside','Beside list'],['below','Below list']].forEach(([v,t])=>{const o=el('option','',t);o.value=v;craft.append(o);}); craftLabel.append(craft); tools.append(craftLabel); craft.value = readCraftDetail(); applyCraftDetail(craft.value);
@@ -432,8 +470,8 @@ export function mountWorkspace({ root = document.getElementById('main_content') 
     const vault=el('div','workspace-undiscovered'); vault.hidden=true; board.append(vault);
     const regions={};
     for(const id of ['player','focus','inventory','actions','log']){const region=el('div','workspace-dock parity-region');region.dataset.region=id;region.setAttribute('aria-label',`${id} region`);regions[id]=region;board.append(region);}
-    const media = window.matchMedia('(max-width: 1000px)'); owner = { root, toolbar, menu, menuSummary, board, docks, regions, contextBar,context:'play',editing:false,picker, vault, config, status, media, narrow: media.matches, layout: read(media.matches), targets, preview, cleanup: [] };
-    owner.composition=requestedComposition;owner.shell=false;owner.parity=paritySelected();
+    const media = window.matchMedia('(max-width: 1000px)'); owner = { root, toolbar, menu, menuSummary, shellTools, board, docks, regions, contextBar,context:'play',editing:false,picker, vault, config, status, media, narrow: media.matches, layout: read(media.matches), targets, preview, cleanup: [] };
+    owner.composition=requestedComposition;owner.shell=false;owner.parity=paritySelected();loadPlacement();
     if(owner.parity||shellSelected()){owner.baseLayout=owner.layout;owner.baseComposition=owner.composition;owner.shell=true;owner.layout=makeShellLayout(owner.narrow);owner.composition=true;}
     presentation.value=owner.shell?(owner.parity?'proto23-parity':'proto23-shell'):'existing';
     root.classList.add('workspace-active'); root.prepend(toolbar,contextBar,board);
@@ -467,7 +505,7 @@ export function mountWorkspace({ root = document.getElementById('main_content') 
         else if (['ArrowLeft', 'ArrowRight'].includes(e.key)) { e.preventDefault(); const ds = ['left', 'center', 'right', 'float'], i = ds.indexOf(state.dock); apply(state.id, { dock: ds[Math.min(3, Math.max(0, i + (e.key === 'ArrowLeft' ? -1 : 1)))] }); }
     });
     installPointerInteractions(listen);
-    listen(media, 'change', () => { owner.narrow = media.matches; owner.layout = read(owner.narrow);owner.composition=requestedComposition;updateWorkspace(); });
+    listen(media, 'change', () => { owner.narrow = media.matches;loadPlacement(); owner.layout = read(owner.narrow);owner.composition=requestedComposition;updateWorkspace(); });
     listen(window, 'resize', updateWorkspace);
     updateWorkspace(); return owner;
 }

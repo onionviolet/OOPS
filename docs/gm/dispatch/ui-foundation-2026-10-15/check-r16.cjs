@@ -25,7 +25,8 @@ const {chromium}=require('/Users/weiwei/.cache/codex-runtimes/codex-primary-runt
 const run=async(name,fn)=>{try{const r=await fn();results.push({name,...r});console.log('PASS',name);}catch(e){results.push({name,fail:e.message});console.log('FAIL',name,e.message.split('\n')[0]);}};
 try{for(const [w,h,font] of TARGETS){const tag=`${w}x${h}-${font}`;
     await run(`${tag} idle: companions beside actions, ticks move nothing, no overflow`,async()=>{const {ctx,p}=await openShell(b,{w,h,font});
-        const g=await geo(p);assert.equal(g.fit,'true','shell fit inactive');assert.ok(g.records&&g.skills,'Journal/Skills companions missing');assert.equal(g.recordsRegion,'actions');assert.equal(g.recordsTitle,'Journal');assert.equal(g.overlap,false,'Journal and Skills overlap');
+        const g=await geo(p);assert.equal(g.fit,'true','shell fit inactive');// R21 (Weibao 2026-10-17, "We dont need skills always be seen"): idle shows Journal only.
+        assert.ok(g.records&&!g.skills,'Journal companion missing, or Skills still shown idle');assert.equal(g.recordsRegion,'actions');assert.equal(g.recordsTitle,'Journal');assert.equal(g.overlap,false,'Journal and Skills overlap');
         // PX10: companions follow the actions in reading order.
         assert.ok(g.actionsOrder.indexOf('records')>g.actionsOrder.indexOf('local-actions'),`order ${g.actionsOrder}`);
         assert.ok(g.page.w<=g.page.vw&&g.page.h<=g.page.vh,`page overflow ${JSON.stringify(g.page)}`);
@@ -61,10 +62,10 @@ try{for(const [w,h,font] of TARGETS){const tag=`${w}x${h}-${font}`;
         await p.evaluate(()=>document.querySelector('[data-workspace-action=hide][data-module=records]').click());await p.waitForTimeout(300);
         const saved=await p.evaluate(k=>JSON.parse(localStorage.getItem(k)),LAYOUT_KEY);assert.equal(saved?.spec,1,'spec not saved');
         await p.reload({waitUntil:'domcontentloaded'});await p.waitForFunction(()=>!!window.simulationTestHooks);await L.R.startFresh(p);await p.waitForTimeout(500);
-        const g=await geo(p);assert.equal(g.records,false,'hidden Journal came back');assert.equal(g.skills,true);assert.deepEqual(p.errors,[]);await ctx.close();return{g};});
+        const g=await geo(p);assert.equal(g.records,false,'hidden Journal came back');assert.equal(g.skills,false,'R21: Skills is not an idle companion');assert.deepEqual(p.errors,[]);await ctx.close();return{g};});
     await run('an older saved parity layout gains the companions once (CZ6)',async()=>{
         const old=JSON.stringify({version:1,mode:'dock',columns:[.263,.435,.302],density:'comfortable',modules:[{id:'records',hidden:true},{id:'skills',hidden:true}]});
-        const {ctx,p}=await openShell(b,{w:1366,h:768,font:14,storage:{[LAYOUT_KEY]:old}});const g=await geo(p);assert.ok(g.records&&g.skills,'older layout kept them hidden');assert.deepEqual(p.errors,[]);await ctx.close();return{g};});
+        const {ctx,p}=await openShell(b,{w:1366,h:768,font:14,storage:{[LAYOUT_KEY]:old}});const g=await geo(p);assert.ok(g.records,'older layout kept the Journal hidden');assert.deepEqual(p.errors,[]);await ctx.close();return{g};});
     await run('a fresh character with no journal yet shows no Journal companion (CZ5)',async()=>{const {ctx,p}=await openShell(b,{w:1366,h:768,font:14,data:null});
         const g=await geo(p);assert.equal(g.records,false);const named=await p.evaluate(()=>[...document.querySelectorAll('[data-region] .workspace-module-header > strong')].some(n=>n.textContent==='Journal'&&n.getClientRects().length));
         assert.equal(named,false,'undiscovered Journal named');assert.deepEqual(p.errors,[]);await ctx.close();return{g};});

@@ -24,6 +24,10 @@ export function createVillageWorkspace({read,act}) {
     const clock=node('p'),people=node('div'),things=node('div'),groups=node('div');
     people.className='scene-chips';things.className='scene-chips';
     clock.className='scene-location-header';const placeName=node('strong'),conditions=node('span'),calendar=node('span'),placeTags=node('span');conditions.className='scene-conditions';calendar.className='scene-calendar';placeTags.className='scene-place-tags';clock.append(placeName,conditions,placeTags,calendar);
+    // R21 (Weibao, 2026-10-17): the group drop-downs live under Options, not in the action list.
+    // The tab names how many there are and how many hold ready actions (UR13).
+    const optionsLabel=()=>{const groups=[...document.querySelectorAll('#location_actions_div > details')].filter(d=>!d.hidden&&d.style.display!=='none'&&!d.classList.contains('none_display'));
+        const ready=groups.filter(d=>[...d.querySelectorAll('button')].some(b=>!b.hidden&&!b.disabled)).length;return groups.length?`Options · ${groups.length}${ready?` (${ready} ready)`:''}`:'Options';};
     const placeTabs=node('nav');placeTabs.className='scene-local-tabs';placeTabs.setAttribute('aria-label','Location sections');let placeTab='actions';for(const [id,label]of [['actions','Actions'],['people','People'],['things','Things'],['options','Options']]){const b=node('button',label);b.type='button';b.dataset.placeTab=id;b.onclick=()=>{placeTab=id;render();};placeTabs.append(b);}scene.append(clock,placeTabs,people,things,groups);
     const focus=node('section');focus.id='current_focus';focus.setAttribute('aria-live','polite');
     // R20 opponent board: one row per opponent, laid out by count (layout_spec opponentBoard), and
@@ -133,7 +137,7 @@ export function createVillageWorkspace({read,act}) {
         // R13 dedupe: with the shell, Focus's place card is the home for who and what is here, so the
         // lower People/Things tabs would repeat it. Actions and Options stay.
         const focusOwnsNearby=parity&&document.getElementById('main_content').dataset.presentation==='proto23-shell';if(focusOwnsNearby&&['people','things'].includes(placeTab))placeTab='actions';
-        if(!parity)setText(clock,view.clockText);setTitle(clock,view.clockText);placeTabs.hidden=!parity;people.hidden=!frame.people.length||parity&&placeTab!=='people';things.hidden=!frame.things.length||parity&&placeTab!=='things';for(const b of placeTabs.children){const count=b.dataset.placeTab==='people'?frame.people.length:b.dataset.placeTab==='things'?frame.things.length:null;setText(b,['actions','options'].includes(b.dataset.placeTab)?(b.dataset.placeTab==='actions'?'Actions':'Options'):`${b.dataset.placeTab==='people'?'People':'Things'} · ${count}`);if(b.disabled!==(count===0))b.disabled=count===0;b.hidden=count===0||focusOwnsNearby&&count!==null;b.setAttribute('aria-pressed',String(b.dataset.placeTab===placeTab));}
+        if(!parity)setText(clock,view.clockText);setTitle(clock,view.clockText);placeTabs.hidden=!parity;people.hidden=!frame.people.length||parity&&placeTab!=='people';things.hidden=!frame.things.length||parity&&placeTab!=='things';for(const b of placeTabs.children){const count=b.dataset.placeTab==='people'?frame.people.length:b.dataset.placeTab==='things'?frame.things.length:null;setText(b,['actions','options'].includes(b.dataset.placeTab)?(b.dataset.placeTab==='actions'?'Actions':optionsLabel()):`${b.dataset.placeTab==='people'?'People':'Things'} · ${count}`);if(b.disabled!==(count===0))b.disabled=count===0;b.hidden=count===0||focusOwnsNearby&&count!==null;b.setAttribute('aria-pressed',String(b.dataset.placeTab===placeTab));}
         document.getElementById('main_content').dataset.placeTab=parity?placeTab:'actions';groups.hidden=parity;
         scene.dataset.inVillage=String(frame.inVillage);
         const signature=JSON.stringify([frame.inVillage,frame.people,frame.things,frame.actions]);

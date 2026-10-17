@@ -1,0 +1,802 @@
+[
+ {
+  "target": "1920-14",
+  "fixture": "populated",
+  "nav": 28,
+  "bottom": 0,
+  "bar": 29,
+  "invControls": 56,
+  "logControls": 0,
+  "invRows": 21,
+  "logLines": 2,
+  "regions": {
+   "player": {
+    "x": 17,
+    "y": 40,
+    "w": 629,
+    "h": 287
+   },
+   "focus": {
+    "x": 652,
+    "y": 40,
+    "w": 745,
+    "h": 287
+   },
+   "inventory": {
+    "x": 17,
+    "y": 333,
+    "w": 501,
+    "h": 730
+   },
+   "actions": {
+    "x": 524,
+    "y": 333,
+    "w": 873,
+    "h": 730
+   },
+   "log": {
+    "x": 1402,
+    "y": 40,
+    "w": 501,
+    "h": 1023
+   }
+  },
+  "page": {
+   "w": 1920,
+   "h": 1080,
+   "vw": 1920,
+   "vh": 1080
+  },
+  "errors": []
+ },
+ {
+  "target": "1920-21",
+  "fixture": "populated",
+  "nav": 28,
+  "bottom": 0,
+  "bar": 29,
+  "invControls": 75,
+  "logControls": 0,
+  "invRows": 15,
+  "logLines": 2,
+  "regions": {
+   "player": {
+    "x": 17,
+    "y": 40,
+    "w": 629,
+    "h": 429
+   },
+   "focus": {
+    "x": 652,
+    "y": 40,
+    "w": 745,
+    "h": 429
+   },
+   "inventory": {
+    "x": 17,
+    "y": 475,
+    "w": 501,
+    "h": 588
+   },
+   "actions": {
+    "x": 524,
+    "y": 475,
+    "w": 873,
+    "h": 588
+   },
+   "log": {
+    "x": 1402,
+    "y": 40,
+    "w": 501,
+    "h": 1023
+   }
+  },
+  "page": {
+   "w": 1920,
+   "h": 1080,
+   "vw": 1920,
+   "vh": 1080
+  },
+  "errors": []
+ },
+ {
+  "target": "mbp-14",
+  "fixture": "populated",
+  "nav": 28,
+  "bottom": 0,
+  "bar": 29,
+  "invControls": 56,
+  "logControls": 0,
+  "invRows": 21,
+  "logLines": 2,
+  "regions": {
+   "player": {
+    "x": 17,
+    "y": 40,
+    "w": 589,
+    "h": 287
+   },
+   "focus": {
+    "x": 612,
+    "y": 40,
+    "w": 697,
+    "h": 287
+   },
+   "inventory": {
+    "x": 17,
+    "y": 333,
+    "w": 468,
+    "h": 690
+   },
+   "actions": {
+    "x": 491,
+    "y": 333,
+    "w": 817,
+    "h": 690
+   },
+   "log": {
+    "x": 1315,
+    "y": 40,
+    "w": 468,
+    "h": 983
+   }
+  },
+  "page": {
+   "w": 1800,
+   "h": 1040,
+   "vw": 1800,
+   "vh": 1040
+  },
+  "errors": []
+ },
+ {
+  "target": "mbp-21",
+  "fixture": "populated",
+  "nav": 28,
+  "bottom": 0,
+  "bar": 29,
+  "invControls": 75,
+  "logControls": 0,
+  "invRows": 15,
+  "logLines": 2,
+  "regions": {
+   "player": {
+    "x": 17,
+    "y": 40,
+    "w": 589,
+    "h": 414
+   },
+   "focus": {
+    "x": 612,
+    "y": 40,
+    "w": 697,
+    "h": 414
+   },
+   "inventory": {
+    "x": 17,
+    "y": 460,
+    "w": 468,
+    "h": 563
+   },
+   "actions": {
+    "x": 491,
+    "y": 460,
+    "w": 817,
+    "h": 563
+   },
+   "log": {
+    "x": 1315,
+    "y": 40,
+    "w": 468,
+    "h": 983
+   }
+  },
+  "page": {
+   "w": 1800,
+   "h": 1040,
+   "vw": 1800,
+   "vh": 1040
+  },
+  "errors": []
+ },
+ {
+  "target": "1536-14",
+  "fixture": "populated",
+  "nav": 28,
+  "bottom": 0,
+  "bar": 29,
+  "invControls": 56,
+  "logControls": 0,
+  "invRows": 18,
+  "logLines": 2,
+  "regions": {
+   "player": {
+    "x": 17,
+    "y": 40,
+    "w": 527,
+    "h": 308
+   },
+   "focus": {
+    "x": 548,
+    "y": 40,
+    "w": 523,
+    "h": 308
+   },
+   "inventory": {
+    "x": 17,
+    "y": 352,
+    "w": 394,
+    "h": 495
+   },
+   "actions": {
+    "x": 415,
+    "y": 352,
+    "w": 656,
+    "h": 495
+   },
+   "log": {
+    "x": 1075,
+    "y": 40,
+    "w": 444,
+    "h": 807
+   }
+  },
+  "page": {
+   "w": 1536,
+   "h": 864,
+   "vw": 1536,
+   "vh": 864
+  },
+  "errors": []
+ },
+ {
+  "target": "1536-21",
+  "fixture": "populated",
+  "nav": 28,
+  "bottom": 0,
+  "bar": 29,
+  "invControls": 44,
+  "logControls": 0,
+  "invRows": 12,
+  "logLines": 2,
+  "regions": {
+   "player": {
+    "x": 17,
+    "y": 40,
+    "w": 527,
+    "h": 387
+   },
+   "focus": {
+    "x": 548,
+    "y": 40,
+    "w": 523,
+    "h": 387
+   },
+   "inventory": {
+    "x": 17,
+    "y": 431,
+    "w": 394,
+    "h": 416
+   },
+   "actions": {
+    "x": 415,
+    "y": 431,
+    "w": 656,
+    "h": 416
+   },
+   "log": {
+    "x": 1075,
+    "y": 40,
+    "w": 444,
+    "h": 807
+   }
+  },
+  "page": {
+   "w": 1536,
+   "h": 864,
+   "vw": 1536,
+   "vh": 864
+  },
+  "errors": []
+ },
+ {
+  "target": "1366-14",
+  "fixture": "populated",
+  "nav": 28,
+  "bottom": 0,
+  "bar": 29,
+  "invControls": 56,
+  "logControls": 0,
+  "invRows": 15,
+  "logLines": 2,
+  "regions": {
+   "player": {
+    "x": 17,
+    "y": 40,
+    "w": 467,
+    "h": 307
+   },
+   "focus": {
+    "x": 488,
+    "y": 40,
+    "w": 463,
+    "h": 307
+   },
+   "inventory": {
+    "x": 17,
+    "y": 351,
+    "w": 349,
+    "h": 400
+   },
+   "actions": {
+    "x": 370,
+    "y": 351,
+    "w": 581,
+    "h": 400
+   },
+   "log": {
+    "x": 955,
+    "y": 40,
+    "w": 394,
+    "h": 711
+   }
+  },
+  "page": {
+   "w": 1366,
+   "h": 768,
+   "vw": 1366,
+   "vh": 768
+  },
+  "errors": []
+ },
+ {
+  "target": "1366-21",
+  "fixture": "populated",
+  "nav": 28,
+  "bottom": 0,
+  "bar": 29,
+  "invControls": 44,
+  "logControls": 0,
+  "invRows": 9,
+  "logLines": 2,
+  "regions": {
+   "player": {
+    "x": 17,
+    "y": 40,
+    "w": 467,
+    "h": 387
+   },
+   "focus": {
+    "x": 488,
+    "y": 40,
+    "w": 463,
+    "h": 387
+   },
+   "inventory": {
+    "x": 17,
+    "y": 431,
+    "w": 349,
+    "h": 320
+   },
+   "actions": {
+    "x": 370,
+    "y": 431,
+    "w": 581,
+    "h": 320
+   },
+   "log": {
+    "x": 955,
+    "y": 40,
+    "w": 394,
+    "h": 711
+   }
+  },
+  "page": {
+   "w": 1366,
+   "h": 768,
+   "vw": 1366,
+   "vh": 768
+  },
+  "errors": []
+ },
+ {
+  "target": "1920-14",
+  "fixture": "combat",
+  "nav": 28,
+  "bottom": 0,
+  "bar": 29,
+  "invControls": 56,
+  "logControls": 0,
+  "invRows": 21,
+  "logLines": 1,
+  "regions": {
+   "player": {
+    "x": 17,
+    "y": 40,
+    "w": 629,
+    "h": 287
+   },
+   "focus": {
+    "x": 652,
+    "y": 40,
+    "w": 745,
+    "h": 287
+   },
+   "inventory": {
+    "x": 17,
+    "y": 333,
+    "w": 501,
+    "h": 730
+   },
+   "actions": {
+    "x": 524,
+    "y": 333,
+    "w": 873,
+    "h": 730
+   },
+   "log": {
+    "x": 1402,
+    "y": 40,
+    "w": 501,
+    "h": 1023
+   }
+  },
+  "page": {
+   "w": 1920,
+   "h": 1080,
+   "vw": 1920,
+   "vh": 1080
+  },
+  "errors": []
+ },
+ {
+  "target": "1920-21",
+  "fixture": "combat",
+  "nav": 28,
+  "bottom": 0,
+  "bar": 29,
+  "invControls": 75,
+  "logControls": 0,
+  "invRows": 15,
+  "logLines": 1,
+  "regions": {
+   "player": {
+    "x": 17,
+    "y": 40,
+    "w": 629,
+    "h": 429
+   },
+   "focus": {
+    "x": 652,
+    "y": 40,
+    "w": 745,
+    "h": 429
+   },
+   "inventory": {
+    "x": 17,
+    "y": 475,
+    "w": 501,
+    "h": 588
+   },
+   "actions": {
+    "x": 524,
+    "y": 475,
+    "w": 873,
+    "h": 588
+   },
+   "log": {
+    "x": 1402,
+    "y": 40,
+    "w": 501,
+    "h": 1023
+   }
+  },
+  "page": {
+   "w": 1920,
+   "h": 1080,
+   "vw": 1920,
+   "vh": 1080
+  },
+  "errors": []
+ },
+ {
+  "target": "mbp-14",
+  "fixture": "combat",
+  "nav": 28,
+  "bottom": 0,
+  "bar": 29,
+  "invControls": 56,
+  "logControls": 0,
+  "invRows": 21,
+  "logLines": 1,
+  "regions": {
+   "player": {
+    "x": 17,
+    "y": 40,
+    "w": 589,
+    "h": 287
+   },
+   "focus": {
+    "x": 612,
+    "y": 40,
+    "w": 697,
+    "h": 287
+   },
+   "inventory": {
+    "x": 17,
+    "y": 333,
+    "w": 468,
+    "h": 690
+   },
+   "actions": {
+    "x": 491,
+    "y": 333,
+    "w": 817,
+    "h": 690
+   },
+   "log": {
+    "x": 1315,
+    "y": 40,
+    "w": 468,
+    "h": 983
+   }
+  },
+  "page": {
+   "w": 1800,
+   "h": 1040,
+   "vw": 1800,
+   "vh": 1040
+  },
+  "errors": []
+ },
+ {
+  "target": "mbp-21",
+  "fixture": "combat",
+  "nav": 28,
+  "bottom": 0,
+  "bar": 29,
+  "invControls": 75,
+  "logControls": 0,
+  "invRows": 15,
+  "logLines": 1,
+  "regions": {
+   "player": {
+    "x": 17,
+    "y": 40,
+    "w": 589,
+    "h": 414
+   },
+   "focus": {
+    "x": 612,
+    "y": 40,
+    "w": 697,
+    "h": 414
+   },
+   "inventory": {
+    "x": 17,
+    "y": 460,
+    "w": 468,
+    "h": 563
+   },
+   "actions": {
+    "x": 491,
+    "y": 460,
+    "w": 817,
+    "h": 563
+   },
+   "log": {
+    "x": 1315,
+    "y": 40,
+    "w": 468,
+    "h": 983
+   }
+  },
+  "page": {
+   "w": 1800,
+   "h": 1040,
+   "vw": 1800,
+   "vh": 1040
+  },
+  "errors": []
+ },
+ {
+  "target": "1536-14",
+  "fixture": "combat",
+  "nav": 28,
+  "bottom": 0,
+  "bar": 29,
+  "invControls": 56,
+  "logControls": 0,
+  "invRows": 18,
+  "logLines": 1,
+  "regions": {
+   "player": {
+    "x": 17,
+    "y": 40,
+    "w": 527,
+    "h": 308
+   },
+   "focus": {
+    "x": 548,
+    "y": 40,
+    "w": 523,
+    "h": 308
+   },
+   "inventory": {
+    "x": 17,
+    "y": 352,
+    "w": 394,
+    "h": 495
+   },
+   "actions": {
+    "x": 415,
+    "y": 352,
+    "w": 656,
+    "h": 495
+   },
+   "log": {
+    "x": 1075,
+    "y": 40,
+    "w": 444,
+    "h": 807
+   }
+  },
+  "page": {
+   "w": 1536,
+   "h": 864,
+   "vw": 1536,
+   "vh": 864
+  },
+  "errors": []
+ },
+ {
+  "target": "1536-21",
+  "fixture": "combat",
+  "nav": 28,
+  "bottom": 0,
+  "bar": 29,
+  "invControls": 44,
+  "logControls": 0,
+  "invRows": 12,
+  "logLines": 1,
+  "regions": {
+   "player": {
+    "x": 17,
+    "y": 40,
+    "w": 527,
+    "h": 387
+   },
+   "focus": {
+    "x": 548,
+    "y": 40,
+    "w": 523,
+    "h": 387
+   },
+   "inventory": {
+    "x": 17,
+    "y": 431,
+    "w": 394,
+    "h": 416
+   },
+   "actions": {
+    "x": 415,
+    "y": 431,
+    "w": 656,
+    "h": 416
+   },
+   "log": {
+    "x": 1075,
+    "y": 40,
+    "w": 444,
+    "h": 807
+   }
+  },
+  "page": {
+   "w": 1536,
+   "h": 864,
+   "vw": 1536,
+   "vh": 864
+  },
+  "errors": []
+ },
+ {
+  "target": "1366-14",
+  "fixture": "combat",
+  "nav": 28,
+  "bottom": 0,
+  "bar": 29,
+  "invControls": 56,
+  "logControls": 0,
+  "invRows": 15,
+  "logLines": 1,
+  "regions": {
+   "player": {
+    "x": 17,
+    "y": 40,
+    "w": 467,
+    "h": 307
+   },
+   "focus": {
+    "x": 488,
+    "y": 40,
+    "w": 463,
+    "h": 307
+   },
+   "inventory": {
+    "x": 17,
+    "y": 351,
+    "w": 349,
+    "h": 400
+   },
+   "actions": {
+    "x": 370,
+    "y": 351,
+    "w": 581,
+    "h": 400
+   },
+   "log": {
+    "x": 955,
+    "y": 40,
+    "w": 394,
+    "h": 711
+   }
+  },
+  "page": {
+   "w": 1366,
+   "h": 768,
+   "vw": 1366,
+   "vh": 768
+  },
+  "errors": []
+ },
+ {
+  "target": "1366-21",
+  "fixture": "combat",
+  "nav": 28,
+  "bottom": 0,
+  "bar": 29,
+  "invControls": 44,
+  "logControls": 0,
+  "invRows": 9,
+  "logLines": 1,
+  "regions": {
+   "player": {
+    "x": 17,
+    "y": 40,
+    "w": 467,
+    "h": 387
+   },
+   "focus": {
+    "x": 488,
+    "y": 40,
+    "w": 463,
+    "h": 387
+   },
+   "inventory": {
+    "x": 17,
+    "y": 431,
+    "w": 349,
+    "h": 320
+   },
+   "actions": {
+    "x": 370,
+    "y": 431,
+    "w": 581,
+    "h": 320
+   },
+   "log": {
+    "x": 955,
+    "y": 40,
+    "w": 394,
+    "h": 711
+   }
+  },
+  "page": {
+   "w": 1366,
+   "h": 768,
+   "vw": 1366,
+   "vh": 768
+  },
+  "errors": []
+ }
+]

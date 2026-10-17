@@ -5,6 +5,7 @@ import {centerModes} from './center_modes.js';
 import {definePanel} from './panel_kit.js';
 import {expandWorkspaceModule,updateWorkspace} from './workspace_layout.js';
 import {placeTypeEffectText} from './place_types_projection.js';
+import {mountShellControlBoxes} from './shell_control_boxes.js';
 const node=(tag,text,cls)=>{const n=document.createElement(tag);if(text!=null)n.textContent=text;if(cls)n.className=cls;return n;};
 // Preserve native tooltip content and markup; add presentation roles to its
 // existing lines, never synthesize item facts from names or hidden templates.
@@ -211,9 +212,11 @@ export function mountProto23Shell({read}) {
         for(const [id,text]of choices){const option=node('option',text);option.value=id;select.append(option);}
         select.onchange=()=>document.getElementById(select.value)?.click();compact.append(select);return select;};
     // R18: native categories as tabs with counts; the choice is a browser-local panel setting (NX2).
-    registerPanelSettings({id:'belongings',title:'Inventory',settings:[{key:'category',label:'Inventory category',description:'Which native inventory category the shell shows. Stored in this browser only.',options:INVENTORY_CATEGORIES.map(c=>[c.id,c.label]),default:'all'}]});
+    registerPanelSettings({id:'belongings',title:'Inventory',settings:[{key:'category',label:'Inventory category',description:'Which native inventory category the shell shows. Stored in this browser only.',options:INVENTORY_CATEGORIES.map(c=>[c.id,c.label]),default:'all'},{key:'controls',label:'Inventory view choices',description:'R21 control box: open search and sort on demand, or keep them open under the box. Stored in this browser only.',options:[['popover','Open on demand'],['kept','Keep open']],default:'popover'}]});
     const inventoryList=document.getElementById('inventory_content_div');
-    const tabs=createInventoryTabs({list:inventoryList,search:()=>inventoryList.parentNode?.querySelector('.ui-list-tools input[type=search]'),stored:()=>getDisplaySetting('panel.belongings.category'),store:id=>setDisplaySettings({'panel.belongings.category':id})});
+    // R21: the shared list tools may move into the Inventory control box, so they are found once by reference.
+    let listToolsNode=null;const listTools=()=>{if(!listToolsNode){const n=inventoryList.previousElementSibling;if(n?.classList.contains('ui-list-tools'))listToolsNode=n;}return listToolsNode;};
+    const tabs=createInventoryTabs({list:inventoryList,search:()=>listTools()?.querySelector('input[type=search]'),stored:()=>getDisplaySetting('panel.belongings.category'),store:id=>setDisplaySettings({'panel.belongings.category':id})});
     tabs.node.title='Item colors: gold equipment, green usable, blue components, violet books. Quality keeps its native percentage and color; color does not imply rarity of other items.';
     compact.append(tabs.node);
     const sort=makeSelect('Inventory sort',[['inventory_sort_by_name','Name'],['inventory_sort_by_price','Value'],['inventory_sort_by_type','Type']]);
@@ -224,7 +227,7 @@ export function mountProto23Shell({read}) {
     reverse.className='inventory-sort-direction';compact.append(reverse);
     // R18: sort sits in the list's own search row so the tabs keep one row (same Inventory panel).
     const sortHome=node('span',null,'inventory-sort');sortHome.append(sort,reverse);
-    const placeSort=()=>{const tools=inventoryList.previousElementSibling;if(tools?.classList.contains('ui-list-tools')&&sortHome.parentNode!==tools)tools.append(sortHome);};
+    const placeSort=()=>{const tools=listTools();if(tools&&sortHome.parentNode!==tools)tools.append(sortHome);};
     const home=document.getElementById('main_content');
     definePanel({id:'shell-inventory-tools',title:'Inventory tools',role:'records',node:compact,home,defaultDock:'left',after:'combat-controls',eligible:()=>home.dataset.parity==='r3',discovered:()=>home.dataset.parity==='r3'});
     definePanel({id:'shell-character',title:'Stats & equipment',role:'character',node:player,home,defaultDock:'left',after:'vitals',eligible:active,discovered:active});
@@ -234,6 +237,8 @@ export function mountProto23Shell({read}) {
     const latest=action('Latest',()=>{const native=document.querySelector('.log-unread-anchor button');if(native)native.click();else{const box=document.getElementById('message_box_div');box.scrollTop=box.scrollHeight;}});latest.title='Jump to the latest message';let combatStopped=false;const combatLog=action('Stop combat log',()=>{combatStopped=setCombatReportsStopped(!combatStopped);combatLog.textContent=combatStopped?'Resume combat log':'Stop combat log';combatLog.setAttribute('aria-pressed',String(combatStopped));});combatLog.title='Stop recording new hit, miss, block and defeat reports in this presentation. Combat continues; existing history, loot and growth reports remain. Resets on reload.';
     const clearLog=action('Clear',()=>{hideContext();clear_message_log();});clearLog.title='Clear the visible report history. Character, discoveries, quests and combat are unchanged.';
     logTools.append(filters,follow,latest,combatLog,clearLog);
+    // R21 control boxes (CB1–CB5): Inventory and Reports choices open from one box each.
+    const boxes=mountShellControlBoxes({compact,tabs,sortHome,sort,reverse,inventoryList,listTools,log:{tools:logTools,filters,follow,latest,combatLog,clearLog},keepInventory:{stored:()=>getDisplaySetting('panel.belongings.controls')==='kept',store:on=>setDisplaySettings({'panel.belongings.controls':on?'kept':'popover'})}});
     definePanel({id:'shell-log-tools',title:'Reports controls',role:'log',node:logTools,home,defaultDock:'right',after:'messages',eligible:()=>home.dataset.parity==='r3',discovered:()=>home.dataset.parity==='r3'});
 
     function rowForSelection(){
@@ -283,7 +288,7 @@ export function mountProto23Shell({read}) {
         secondary.hidden=!count;root.dataset.secondaryShown=String(count);secondaryHeading.textContent='Secondary · '+count;if(focused){if(shown.has(focused.dataset.attributePreview))focused.focus({preventScroll:true});else details.focus({preventScroll:true});}if(contextSource&&!contextSource.checkVisibility())hideContext();
     }
     function render(){
-        placeSort();tabs.refresh();
+        placeSort();tabs.refresh();boxes.render();
         syncLogLabels();syncNoticeLabels();attributeInspector.setVisible(active()&&document.getElementById('main_content').dataset.parity==='r3');if(!gearChosen){const wanted=false;if(gear.open!==wanted)gear.open=wanted;}if(!active()){if(contextSource)hideContext();return;}const enabled=document.querySelectorAll('#message_controls .active_selection_button').length;filters.textContent=enabled===6?'Filters':`Filters ${enabled}/6`;follow.value=getDisplaySetting('logFollow');const logBox=document.getElementById('message_box_div');latest.disabled=logBox.scrollHeight-logBox.scrollTop-logBox.clientHeight<24;
         const effectRows=[...document.querySelectorAll('#effects_tooltip .active_effect_tooltip')],effectName=effectRows[0]?.querySelector('.active_effect_name')?.textContent.replace(/^'|'\s*:\s*$/g,'').trim();effectsSummary.hidden=!effectRows.length||document.getElementById('main_content').dataset.parity!=='r3';effectsSummary.textContent=effectName?(effectName+(effectRows.length>1?' +'+(effectRows.length-1):'')):'Effects';effectsSummary.setAttribute('aria-label',`Active effects: ${effectRows.length}. ${effectName||''}`);player.dataset.hasEffects=String(!!effectRows.length);
         if(contextSource){if(contextSource.isConnected&&!contextSource.hidden&&active())showContext(contextSource);else hideContext();}
