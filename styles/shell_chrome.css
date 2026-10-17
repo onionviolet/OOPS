@@ -126,3 +126,15 @@ font-size:var(--shell-context-size,var(--ui-type-body));line-height:1.25;color:v
 /* The item detail replaces Around you wherever that box sits. */
 #main_content.workspace-active[data-parity="r3"][data-parity-combat="false"][data-parity-item="true"] .parity-region > .workspace-module[data-module="focus"] {display:none!important;}
 }
+
+/* ---- R21b: start-screen Beginning (replaces the retired hero creation panel's extras) ---- */
+/* PLAY is fixed at top:470px (style.css); the card sits below it, above the footer. */
+#loading_screen > #new_game_beginning {position:fixed;left:50%;top:530px;transform:translateX(-50%);z-index:101;box-sizing:border-box;width:min(34em,calc(100vw - 32px));max-height:calc(100vh - 530px - 48px);overflow:auto;
+ padding:.6em .9em;font-size:var(--ui-type-body);line-height:1.35;color:var(--p23-text);background:var(--p23-context);border:2px solid var(--p23-line);}
+#new_game_beginning > h2 {margin:0 0 .2em;font-size:1.1em;letter-spacing:.05em;}
+#new_game_beginning .new-game-beginning-note {margin:0 0 .5em;color:var(--p23-muted);}
+#new_game_beginning .cheat_start_choice {display:grid;grid-template-columns:auto 1fr;gap:.3em .6em;align-items:center;position:static;width:auto;}
+#new_game_beginning .cheat_start_choice > select {font:inherit;color:var(--p23-text);background:var(--p23-blue);border:1px solid var(--p23-line);}
+#new_game_beginning .cheat_start_choice > p {grid-column:1/-1;margin:0;font-size:.9em;color:var(--p23-muted);}
+#new_game_beginning .new-game-beginning-extras:empty {display:none;}
+#new_game_beginning [data-start-roll] {margin-top:.6em;padding-top:.5em;border-top:1px solid var(--p23-line);}

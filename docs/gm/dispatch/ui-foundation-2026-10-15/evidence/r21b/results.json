@@ -1,0 +1,58 @@
+[
+ {
+  "name": "fresh game: Beginning on the start screen, no creation panel, PLAY reaches play with a default hero (1920×1080)",
+  "ok": true,
+  "hero": {
+   "name": "Hero",
+   "bio": {
+    "age": "adult",
+    "height": "average",
+    "race": "human",
+    "gender": "ambiguous"
+   },
+   "created": true
+  }
+ },
+ {
+  "name": "Beginning fits the 1366×768 floor and keeps PLAY clear",
+  "ok": true
+ },
+ {
+  "name": "Optional beginning applies on PLAY as the panel did (CH1 start)",
+  "ok": true
+ },
+ {
+  "name": "ordinary beginning records the ordinary milestone",
+  "ok": true
+ },
+ {
+  "name": "local start probe re-homed into Beginning (?start_probe=1)",
+  "ok": true
+ },
+ {
+  "name": "old save with a custom identity loads unchanged and shows no Beginning",
+  "ok": true
+ },
+ {
+  "name": "mid-creation save completes with its own choices (defaults only fill gaps)",
+  "ok": true
+ },
+ {
+  "name": "save, reload, export and import keep the hero and never bring the panel back",
+  "ok": true,
+  "imported": {
+   "name": "Weibao",
+   "bio": {
+    "age": "adult",
+    "height": "average",
+    "race": "human",
+    "gender": "ambiguous"
+   },
+   "created": true
+  }
+ },
+ {
+  "name": "classic presentation starts a new game without the panel (GU5)",
+  "ok": true
+ }
+]

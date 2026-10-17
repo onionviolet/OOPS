@@ -5,7 +5,8 @@ export function createStartProbe(panel) {
     panel.classList.add('start-probe-active');
     const section=document.createElement('section');section.dataset.startRoll='';section.setAttribute('aria-label','Layered start probe');
     section.innerHTML='<h2>Try a layered beginning</h2><p>Local prototype. Lock a layer, roll it, or leave it unknown.</p><div data-start-axes></div><label>Seed <input data-start-seed maxlength="72" placeholder="Generate a seed"></label><button type="button" data-start-roll-button>Roll start</button><article data-start-card aria-live="polite"></article><label class="start-use"><input type="checkbox" data-start-use> Begin with this start</label>';
-    panel.querySelector('#hero_creation_panel_confirmation_wrapper').before(section);
+    // R21b: the probe may mount in the start screen's Beginning section instead of the retired panel.
+    const wrapper=panel.querySelector('#hero_creation_panel_confirmation_wrapper');if(wrapper)wrapper.before(section);else panel.append(section);
     const rows=new Map(),seed=section.querySelector('[data-start-seed]'),card=section.querySelector('[data-start-card]'),use=section.querySelector('[data-start-use]');
     let resolved=null;
     for(const axis of world.axes) {
