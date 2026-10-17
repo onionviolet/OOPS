@@ -375,6 +375,7 @@ import {nativeStructuredEquipmentTemplate,projectStructuredEquipment} from './st
 import {createContentPackPanel} from './content_pack_ui.js';
 import {SafeLocation as OptionalPackLocation} from './models/location.js';
 import {createStartProbe} from './start_probe_ui.js';
+import {mountNewGameBeginning} from './new_game_beginning.js';
 const optionalPacks=new Map();
 const foundationProbeEnabled=typeof location!=='undefined'&&['localhost','127.0.0.1'].includes(location.hostname)&&new URLSearchParams(location.search).get('foundation_probe')==='1';
 const structuredPacks=new Map();
@@ -9654,12 +9655,16 @@ if(!is_loading_error) {
 
 play_button.addEventListener("click", hide_loading_screen);
 
-if(!global_flags.is_hero_created && config.do_hero_creation) {
-    characterCreator.fill_creation_panel();
-    const startProbe=createStartProbe(document.getElementById('hero_creation_panel'));
-    // CH1 capture runs before CharacterCreator removes the creation controls.
-    document.getElementById('hero_creation_panel_confirmation').addEventListener('click', () => {
-        if(global_flags.is_hero_created) return;
+// R21b (Weibao, 2026-10-17): the hero creation panel is retired. A new game starts with a default
+// hero (name typed later in the You header); the panel's Optional beginning, the local start probe
+// and the backlog opening move to the start screen's Beginning section and apply on PLAY.
+const newGameBeginning = !global_flags.is_hero_created ? mountNewGameBeginning({screen: document.getElementById('loading_screen'), panel: document.getElementById('hero_creation_panel')}) : null;
+characterCreator.complete_default_hero();
+characterCreator.remove_creation_panel();
+if(newGameBeginning) {
+    const startProbe=createStartProbe(newGameBeginning.host);
+    // CH1 capture runs on PLAY, before run() starts the clock.
+    play_button.addEventListener('click', () => {
         const start=startProbe?.selected();
         if(start) {
             // Vanilla setup precedes PLAY; reapply before creation starts the clock.
@@ -9671,7 +9676,7 @@ if(!global_flags.is_hero_created && config.do_hero_creation) {
             lifeRecord=appendLifeMilestone(lifeRecord,{year:current_game_time.year,at:lifeCalendarMinute(current_game_time),
                 worldId:start.provenance.worldId,kind:'beginning',text:`Start layers: ${start.provenance.layers.map(l=>l.id).join(', ')}. Seed: ${start.provenance.seed}`});
         }
-        const choice = document.querySelector('[data-cheat-start]').value;
+        const choice = newGameBeginning.cheatChoice();
         if(choice === 'system-quests' || choice === 'surprise') {
             cheatState = grantCheat(cheatState, optionalStartCard(), {route: 'optional-start', at: cheatCalendarTime()});
         }
@@ -9679,12 +9684,11 @@ if(!global_flags.is_hero_created && config.do_hero_creation) {
             at: lifeCalendarMinute(current_game_time), worldId: 'base.frontier', kind: 'beginning',
             text: choice === 'none' ? 'You chose an ordinary beginning without a system.' :
                 choice === 'surprise' ? 'You chose a surprise beginning with a dormant system.' : 'You chose to begin with a dormant system.'});
-    }, {capture: true});
-    //run is triggered from confirming hero creation
-} else {
-    play_button.addEventListener("click", run);
-    characterCreator.remove_creation_panel();
+        newGameBeginning.remove();
+        log_message('Your name is set in the You panel header. Click it to rename.', 'message_unlocks');
+    }, {capture: true, once: true});
 }
+play_button.addEventListener("click", run);
 
 if(config.use_racial_bonuses) {
     character.addRaceBonus();
@@ -9796,7 +9800,7 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
     causalStoryPanel=createCausalStoryUI({registry:expeditionRegistry,read:()=>({...readProgression(),context:currentCausalContext(),canWrite:ownsSave&&!foundationSaveBlocked&&!importProbeToken}),command:actCausalStory});
     const readBacklog=()=>({...readProgression(),context:backlogContext(),inDialogue:!!current_dialogue,inCombat:!!current_combat,canWrite:ownsSave&&!foundationSaveBlocked&&!importProbeToken});
     backlogPanel=createBacklogExpansionPanel({registry:expeditionRegistry,read:readBacklog,command:actBacklog,preview:qualifiedBacklog.preview,parent:document.getElementById('location_actions_div')});
-    backlogOpeningPanel=createBacklogExpansionPanel({registry:expeditionRegistry,read:readBacklog,command:actBacklog,preview:qualifiedBacklog.preview,parent:document.getElementById('hero_creation_panel'),opening:true});
+    backlogOpeningPanel=createBacklogExpansionPanel({registry:expeditionRegistry,read:readBacklog,command:actBacklog,preview:qualifiedBacklog.preview,parent:document.getElementById('new_game_beginning')?.querySelector('.new-game-beginning-extras'),opening:true});
     replacementRecognitionPanel=createReplacementRecognitionPanel({read:replacementRecoverySnapshot,command:actBacklog,preview:qualifiedBacklog.preview,parent:document.getElementById('location_actions_div')});
     repositoryPanel=createRepositoryAbsorptionPanel({registry:expeditionRegistry,read:()=>({...readProgression(),context:featureWaveContext(),canWrite:ownsSave&&!foundationSaveBlocked&&!importProbeToken}),command:actRepository});
     inkPanel=createInkNarrativeUI({read:()=>{

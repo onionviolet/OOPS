@@ -52,14 +52,15 @@ async function fresh(browser, save=null) {
 }
 async function play(p) {await p.locator('#loading_screen_play_button').click();await p.waitForTimeout(1200);}
 async function create(p, dormant=false) {
-  const choice=p.locator('#hero_creation_panel [data-cheat-start]');
+  // R21b: the Optional beginning sits on the start screen; choosing it precedes PLAY.
+  const choice=p.locator('#new_game_beginning [data-cheat-start]');
   if(dormant) {
     const options=await choice.locator('option').evaluateAll(es=>es.map(e=>e.value));
     const reg=await registry(); const id=reg.cards.find(c=>options.includes(c.id))?.id;
-    if(!id)throw Error('no registry card is selectable in hero creation');
+    if(!id)throw Error('no registry card is selectable in the start-screen Beginning');
     await choice.selectOption(id);
   } else await choice.selectOption('none');
-  await p.locator('#hero_creation_panel_confirmation').click();await p.waitForTimeout(800);
+  await play(p);await p.waitForTimeout(800);
 }
 async function stored(p) {await p.locator('#save_button').click();await p.waitForTimeout(300);return JSON.parse(await p.evaluate(()=>localStorage.getItem('save data')));}
 async function collect(p) {
@@ -116,8 +117,8 @@ async function run() {
       const fixture=state==='awakened'?read(path.join(fixtureRoot,'held_system.save.txt')):null;
       const {ctx,p}=await fresh(browser,fixture);
       try {
-        await play(p); const beginning=await collect(p);
-        if(!fixture)await create(p,state==='dormant');
+        const beginning=await collect(p);
+        if(!fixture)await create(p,state==='dormant'); else await play(p);
         const save=await stored(p), names=forbidden(reg,save), all=await collect(p);
         for(const [k,v] of Object.entries(beginning))all[k].push(...v);
         if(state==='none' && Object.keys(save.cheats?.held||{}).length)throw Error('none holds a card');

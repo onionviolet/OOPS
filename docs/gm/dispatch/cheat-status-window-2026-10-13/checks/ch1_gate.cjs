@@ -36,15 +36,16 @@ async function awaken(b, opts = {}) {
 const checks = {
   async H1_no_cheat_default(b) {
     const {ctx, p} = await ctxPage(b); const bad = [];
-    await play(p);
-    const ctl = p.locator('#hero_creation_panel [data-cheat-start]');
-    if (!(await ctl.count())) bad.push('no [data-cheat-start] control in hero creation');
+    // R21b: the creation panel is retired; the Optional beginning sits on the start screen before PLAY.
+    await p.locator('#loading_screen_play_button:not(.none_display)').waitFor();
+    const ctl = p.locator('#new_game_beginning [data-cheat-start]');
+    if (!(await ctl.count())) bad.push('no [data-cheat-start] control in the start-screen Beginning');
     else {
       if (await ctl.first().inputValue() !== 'none') bad.push('default is not none');
-      const desc = await p.locator('#hero_creation_panel [data-cheat-start-desc]').first().textContent().catch(() => '');
+      const desc = await p.locator('#new_game_beginning [data-cheat-start-desc]').first().textContent().catch(() => '');
       if (!/dormant|wakes|awaken/i.test(desc || '')) bad.push('description does not say it starts dormant');
     }
-    await p.locator('#hero_creation_panel_confirmation').click(); await p.waitForTimeout(1000);
+    await play(p); await p.waitForTimeout(500);
     const s = await saveNow(p);
     if (!s || Object.keys(s.cheats?.held || {}).length) bad.push('no-cheat start holds a card');
     const t = await pageText(p); if (LEAK.test(t)) bad.push('cheat name visible without a cheat'); if (await pickerHas(p)) bad.push('picker names the status window');
@@ -53,9 +54,9 @@ const checks = {
   },
   async H2_dormant_start(b) {
     const {ctx, p} = await ctxPage(b); const bad = [];
-    await play(p);
-    await p.locator('#hero_creation_panel [data-cheat-start]').first().selectOption('system-quests');
-    await p.locator('#hero_creation_panel_confirmation').click(); await p.waitForTimeout(1500);
+    await p.locator('#loading_screen_play_button:not(.none_display)').waitFor();
+    await p.locator('#new_game_beginning [data-cheat-start]').first().selectOption('system-quests');
+    await play(p); await p.waitForTimeout(1000);
     const s = await saveNow(p); const h = s?.cheats?.held?.['system-quests'];
     if (!h) bad.push('system-quests not held after choosing it');
     else { if (h.acquired?.route !== 'optional-start') bad.push('route ' + h.acquired?.route); if (h.card?.state?.awakened !== false && h.state?.awakened !== false && h.awakened !== false) bad.push('card not dormant at start'); if ((h.messages || []).length) bad.push('dormant card already has messages'); }

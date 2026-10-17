@@ -14,6 +14,19 @@ class CharacterCreator {
         this.race = "";
     }
 
+    complete_default_hero() {
+        if (global_flags.is_hero_created) return;
+        const bio = character.getBioComponent();
+        // Preserve identity from an unfinished older save; fill only omissions.
+        bio.race ??= "human";
+        bio.age ??= "adult";
+        bio.gender ??= "ambiguous";
+        bio.height ??= "average";
+        character.name ||= config.default_character_name;
+        document.getElementById("character_name_field").value = character.name;
+        global_flags.is_hero_created = true;
+    }
+
     fill_creation_panel() {
         Object.values(playable_races).forEach(race => {
             this.create_race_button(race);
