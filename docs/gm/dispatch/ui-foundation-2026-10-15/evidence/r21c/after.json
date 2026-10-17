@@ -1,0 +1,22 @@
+[
+ {
+  "target": "1920-14",
+  "region": "player",
+  "parked": "false",
+  "visible": true,
+  "top": 220,
+  "height": 242,
+  "pageScroll": false,
+  "errors": []
+ },
+ {
+  "target": "mbp-14",
+  "region": "player",
+  "parked": "false",
+  "visible": true,
+  "top": 220,
+  "height": 227,
+  "pageScroll": false,
+  "errors": []
+ }
+]

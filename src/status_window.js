@@ -28,7 +28,7 @@ export function createStatusWindow({read, onKnown = () => {}}) {
     function render() {
         const snapshot = read(), entry = awakenedStatusCard(snapshot.cheats);
         panel.hidden = !entry;
-        if(!entry) return;
+        if(!entry) {delete panel.dataset.fitWant; return;}
         const newlyKnown = !known; known = true;
         panel.setAttribute('aria-label', 'Status window contents');
         onKnown();
@@ -38,6 +38,9 @@ export function createStatusWindow({read, onKnown = () => {}}) {
         fields.titles.textContent = snapshot.titles.join(', ') || 'No titles earned yet.';
         fields.points.textContent = String(entry.card.state.points ?? 0);
         fields.quests.textContent = 'No system quests yet. For now, the system only records what you know.';
+        // R21c: in the parity shell the window sits under You and yields like the secondary stats:
+        // it may grow the top row only to the elastic default, then scrolls inside You.
+        const want = String(Math.ceil(panel.scrollHeight)); if(panel.dataset.fitWant !== want) panel.dataset.fitWant = want;
         if(newlyKnown) {
             // Lay out the revealed shell before moving its useful row into view.
             updateWorkspace();
@@ -46,7 +49,7 @@ export function createStatusWindow({read, onKnown = () => {}}) {
     }
     render();
     definePanel({id: 'status-window', title: 'Status window', role: 'character', node: panel,
-        defaultDock: 'left', after: 'vitals', discovered: () => !!awakenedStatusCard(read().cheats),
+        defaultDock: 'left', after: 'shell-character', discovered: () => !!awakenedStatusCard(read().cheats),
         eligible: () => !!awakenedStatusCard(read().cheats), unavailableReason: () => 'Your system has not awakened yet.',
         settings: [{key: 'density', label: 'Row spacing', description: 'Choose comfortable or compact spacing for your known stats.',
             options: [['comfortable', 'Comfortable'], ['compact', 'Compact']], default: 'comfortable'}]});

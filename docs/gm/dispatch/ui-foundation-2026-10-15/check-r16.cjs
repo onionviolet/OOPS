@@ -60,7 +60,7 @@ try{for(const [w,h,font] of TARGETS){const tag=`${w}x${h}-${font}`;
         assert.deepEqual(p.errors,[]);await ctx.close();return{open,g};});
     await run('manual hide of the Journal companion survives reload (WX11, CZ6)',async()=>{const {ctx,p}=await openShell(b,{w:1366,h:768,font:14});
         await p.evaluate(()=>document.querySelector('[data-workspace-action=hide][data-module=records]').click());await p.waitForTimeout(300);
-        const saved=await p.evaluate(k=>JSON.parse(localStorage.getItem(k)),LAYOUT_KEY);assert.equal(saved?.spec,1,'spec not saved');
+        const saved=await p.evaluate(k=>JSON.parse(localStorage.getItem(k)),LAYOUT_KEY);assert.ok(saved?.spec>=1,'spec not saved'); // R21c raised the layout spec to 2
         await p.reload({waitUntil:'domcontentloaded'});await p.waitForFunction(()=>!!window.simulationTestHooks);await L.R.startFresh(p);await p.waitForTimeout(500);
         const g=await geo(p);assert.equal(g.records,false,'hidden Journal came back');assert.equal(g.skills,false,'R21: Skills is not an idle companion');assert.deepEqual(p.errors,[]);await ctx.close();return{g};});
     await run('an older saved parity layout gains the companions once (CZ6)',async()=>{

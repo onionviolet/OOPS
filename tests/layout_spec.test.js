@@ -5,7 +5,8 @@ import { LAYOUT_SPEC, regionFor, shellOrder, companionsFor, companionPanels, top
 // R17 is structural (AR9): the spec must reproduce the R16 decisions exactly. The R16 code is kept
 // here verbatim as the reference.
 function r16ParityRegion(id, combat) {
-    if (['vitals', 'shell-character'].includes(id)) return 'player';
+    // R21c: the status window joins You (R16 sent it to the fallback, where the shell parked it).
+    if (['vitals', 'shell-character', 'status-window'].includes(id)) return 'player';
     if (id === 'focus') return 'focus';
     if (id === 'shell-detail') return combat ? 'actions' : 'focus';
     if (['belongings', 'combat-controls', 'shell-inventory-tools'].includes(id)) return 'inventory';
@@ -13,7 +14,7 @@ function r16ParityRegion(id, combat) {
     if (['records', 'skills'].includes(id)) return 'actions';
     return 'actions';
 }
-const r16Order = companions => ['vitals', 'shell-character', 'combat-controls', 'shell-inventory-tools', 'belongings', 'focus', 'shell-detail', 'time', 'location', 'village-scene', 'current-work', 'combat', 'local-actions', ...companions, 'pane-navigation', 'messages', 'shell-log-tools'];
+const r16Order = companions => ['vitals', 'shell-character', 'status-window', 'combat-controls', 'shell-inventory-tools', 'belongings', 'focus', 'shell-detail', 'time', 'location', 'village-scene', 'current-work', 'combat', 'local-actions', ...companions, 'pane-navigation', 'messages', 'shell-log-tools'];
 // Every panel ID registered by the game at R17 start, plus an unknown one.
 const IDS = ['vitals', 'time', 'location', 'combat-controls', 'skills', 'records', 'preparation', 'belongings', 'local-actions', 'messages',
     'beginning', 'combat', 'continuation', 'current-work', 'customization', 'customization-effects', 'customization-preview', 'customization-rules', 'customization-sites',
@@ -52,7 +53,7 @@ test('a panel can be moved or a companion added by data alone', () => {
         contexts: {...LAYOUT_SPEC.contexts, idle: {companions: ['records', 'skills', 'known-routes']}}};
     assert.equal(regionFor('world-events', {}, spec), 'log');
     assert.deepEqual(companionsFor({combat: false, available: ['known-routes', 'records']}, spec), ['records', 'known-routes']);
-    assert.deepEqual(shellOrder({parity: true}, spec).slice(13, 16), ['records', 'skills', 'known-routes']);
+    assert.deepEqual(shellOrder({parity: true}, spec).slice(14, 17), ['records', 'skills', 'known-routes']);
 });
 
 // R21 (MB1): placement moves boxes between slots; an empty placement is the R20 layout.

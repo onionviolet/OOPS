@@ -1,0 +1,22 @@
+{
+ "key": "yairpg.workspace.v1.desktop.proto23-parity",
+ "old": [
+  "vitals",
+  "status-window:hidden",
+  "shell-character"
+ ],
+ "now": {
+  "spec": 1,
+  "stored": [
+   "vitals",
+   "status-window:hidden",
+   "shell-character"
+  ],
+  "region": [
+   "vitals",
+   "shell-character",
+   "status-window"
+  ]
+ },
+ "ok": true
+}

@@ -1,7 +1,7 @@
 import {centerModes} from './center_modes.js';
 import {deferSimulationRender} from './simulation_render.js';
 import {createShellComposition} from './shell_composition.js';
-import {regionFor,shellOrder,companionPanels,contextOf,LAYOUT_SPEC} from './layout_spec.js';
+import {regionFor,shellOrder,companionPanels,contextOf,boxOf,LAYOUT_SPEC} from './layout_spec.js';
 import {readPlacement,writePlacement,moveBox,swapCompanions,resetContext,isDefault,moveControl} from './shell_layout_edit.js';
 import { getDisplaySettings, getDisplaySetting, replaceDisplaySettings, effectsCap } from './display_settings.js';
 import { normalizeLayout, parseLayout, presetLayout, changeModule, reorderModule, layoutStorageKey, normalizeColumns } from './workspace_state.js';
@@ -29,7 +29,12 @@ function makeShellLayout(narrow,{fresh=false}={}){
     // hide is kept (WX11, UR17). Browser-local layout only; the game save is untouched.
     const companions=owner?.parity?companionPanels():[];
     if(saved&&companions.length&&(saved.spec||0)<1){layout.modules.forEach(v=>{if(companions.includes(v.id))v.hidden=false;});layout.spec=1;}
-    if(!saved){layout.columns=[.263,.435,.302];const order=shellOrder({parity:companions.length>0});if(companions.length)layout.spec=1;
+    // R21c: layout spec 2 unhides the status window once and puts it after the stat sheet; older shell
+    // layouts hid it because it had no home in the spec. It still shows only after the system awakens.
+    if(saved&&(saved.spec||0)<2){const at=layout.modules.findIndex(v=>v.id==='status-window'),sw=layout.modules[at];
+        if(sw){sw.hidden=false;layout.modules.splice(at,1);const after=layout.modules.findIndex(v=>v.id==='shell-character');layout.modules.splice(after<0?layout.modules.length:after+1,0,sw);layout.modules.forEach((v,i)=>v.order=i);}
+        layout.spec=2;}
+    if(!saved){layout.columns=[.263,.435,.302];const order=shellOrder({parity:companions.length>0});layout.spec=2;
         layout.modules.forEach(v=>{v.hidden=!order.includes(v.id);if(v.id==='shell-character'){v.dock='left';v.height=190;}if(v.id==='shell-detail'){v.dock='center';v.height=210;}});
         layout.modules.sort((a,b)=>(order.includes(a.id)?order.indexOf(a.id):999)-(order.includes(b.id)?order.indexOf(b.id):999));layout.modules.forEach((v,i)=>v.order=i);}
     return layout;
@@ -292,7 +297,8 @@ export function updateWorkspace() {
         }
         const composed=owner.root.dataset.workspaceComposition==='proto23';
         const core=['shell-inventory-tools','shell-character','shell-detail','vitals','combat-controls','shell-inventory-tools','belongings','focus','time','location','village-scene','current-work','combat','stance','local-actions','pane-navigation','messages','shell-log-tools'];
-        const parked=composed&&!state.pinned&&!core.includes(state.id)&&!(owner.parity&&companionPanels().includes(state.id));
+        // R21c: a panel the layout spec puts in a box (the status window under You) has a home there.
+        const parked=composed&&!state.pinned&&!core.includes(state.id)&&!(owner.parity&&(companionPanels().includes(state.id)||boxOf(state.id)));
         setData(shell,'compositionParked',String(parked));
         if(known&&['vitals','belongings'].includes(state.id))setProperty(shell.querySelector('.workspace-module-header > strong'),'textContent',composed?(state.id==='vitals'?'You':'Inventory'):module.title);
         if(known&&companionPanels().includes(state.id))setProperty(shell.querySelector('.workspace-module-header > strong'),'textContent',owner.parity?(state.id==='records'?'Journal':'Skills'):module.title);

@@ -1,0 +1,22 @@
+[
+ {
+  "target": "1920-14",
+  "region": "actions",
+  "parked": "true",
+  "visible": false,
+  "top": 0,
+  "height": 0,
+  "pageScroll": false,
+  "errors": []
+ },
+ {
+  "target": "mbp-14",
+  "region": "actions",
+  "parked": "true",
+  "visible": false,
+  "top": 0,
+  "height": 0,
+  "pageScroll": false,
+  "errors": []
+ }
+]
