@@ -31,8 +31,8 @@ test('default shell order matches R16 for the parity shell and the plain shell',
     assert.deepEqual(companionPanels(), ['records', 'skills']);
 });
 
-test('companions and top-row numbers match R16', () => {
-    assert.deepEqual(companionsFor({combat: false, available: ['skills', 'records', 'x']}), ['records', 'skills']);
+test('companions and top-row numbers match R16 (R21: Skills left the idle default)', () => {
+    assert.deepEqual(companionsFor({combat: false, available: ['skills', 'records', 'x']}), ['records']);
     assert.deepEqual(companionsFor({combat: true, available: ['skills', 'records']}), ['skills']);
     // R16 formula with its literal numbers.
     const r16 = ({player, focus, combat, board, fontSize, frame = 6, elastic = 0, viewport = 0}) => {
@@ -53,4 +53,32 @@ test('a panel can be moved or a companion added by data alone', () => {
     assert.equal(regionFor('world-events', {}, spec), 'log');
     assert.deepEqual(companionsFor({combat: false, available: ['known-routes', 'records']}, spec), ['records', 'known-routes']);
     assert.deepEqual(shellOrder({parity: true}, spec).slice(13, 16), ['records', 'skills', 'known-routes']);
+});
+
+// R21 (MB1): placement moves boxes between slots; an empty placement is the R20 layout.
+test('R21 placement: swaps main boxes, places companions, keeps the log and defaults', async () => {
+    const {boxRegion, regionFit} = await import('../src/layout_spec.js');
+    const {normalizePlacement, moveBox, resetContext, isDefault, swapCompanions} = await import('../src/shell_layout_edit.js');
+    for (const combat of [false, true]) for (const id of IDS) assert.equal(regionFor(id, {combat, placement: {boxes: {}, companions: {}}}), regionFor(id, {combat}), id);
+    let p = normalizePlacement(null);
+    assert.equal(isDefault(p, 'idle'), true);
+    p = moveBox(p, 'idle', 'inventory', 'player');
+    assert.equal(boxRegion('inventory', p.contexts.idle), 'player');
+    assert.equal(boxRegion('you', p.contexts.idle), 'inventory', 'You swaps into the slot Inventory left');
+    assert.equal(regionFor('belongings', {placement: p.contexts.idle}), 'player');
+    assert.equal(regionFor('vitals', {combat: true, placement: p.contexts.combat}), 'player', 'the fight layout is separate');
+    p = moveBox(p, 'idle', 'you', 'player');
+    assert.deepEqual(p.contexts.idle.boxes, {}, 'moving back home clears the entries');
+    assert.equal(moveBox(p, 'idle', 'you', 'log').contexts.idle.boxes.you, undefined, 'the log is not a slot (UR11)');
+    assert.equal(moveBox(p, 'idle', 'you', 'actions').contexts.idle.boxes.you, undefined, 'main boxes do not join the actions');
+    p = moveBox(p, 'idle', 'journal', 'inventory');
+    assert.equal(regionFor('records', {placement: p.contexts.idle}), 'inventory');
+    p = swapCompanions(p, 'idle'); assert.equal(p.contexts.idle.swap, true);
+    p = moveBox(p, 'idle', 'around', 'inventory');
+    assert.equal(regionFor('shell-detail', {placement: p.contexts.idle}), 'inventory', 'item detail follows Around you');
+    assert.equal(isDefault(resetContext(p, 'idle'), 'idle'), true);
+    assert.equal(normalizePlacement({version: 1, spec: 1, contexts: {idle: {boxes: {you: 'focus'}}}}).stale, true, 'an older spec version is dropped (GU6)');
+    assert.equal(regionFit(['vitals', 'shell-character']), 'content');
+    assert.equal(regionFit(['focus']), 'combat');
+    assert.equal(regionFit(['belongings', 'records']), 'fill');
 });

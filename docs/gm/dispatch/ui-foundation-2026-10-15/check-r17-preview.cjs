@@ -24,7 +24,7 @@ for(const [w,h,size] of TARGETS){const tag=`${w}x${h}-${size}`;
         const vis=await p.evaluate(()=>({scene:!!document.querySelector('#village_scene')?.checkVisibility(),focus:!!document.querySelector('#current_focus')?.checkVisibility(),work:!!document.querySelector('#workspace_current_work')?.checkVisibility(),
             parity:document.getElementById('main_content').dataset.parity,companions:document.getElementById('main_content').dataset.shellCompanions,placeholders:[...document.querySelectorAll('[data-preview-placeholder] .preview-placeholder-label')].filter(n=>n.checkVisibility()).length,
             page:{w:document.documentElement.scrollWidth,h:document.documentElement.scrollHeight}}));
-        assert.ok(vis.scene&&vis.focus&&vis.work,'real panels not visible');assert.equal(vis.parity,'r3');assert.equal(vis.companions,'records skills');assert.ok(vis.placeholders>=8,'placeholders not labelled');
+        assert.ok(vis.scene&&vis.focus&&vis.work,'real panels not visible');assert.equal(vis.parity,'r3');assert.equal(vis.companions,'records','R21: idle shows Journal only (Weibao 2026-10-17)');assert.ok(vis.placeholders>=8,'placeholders not labelled');
         assert.ok(vis.page.w<=w&&vis.page.h<=h,'preview page scrolls');await shot(p,`preview-${tag}`);await ctx.close();return{report:rep,vis};});
     await run(`${tag} PV8: real panels match the native shell's geometry at the same text size`,async()=>{
         const ctx=await b.newContext({viewport:{width:w,height:h},reducedMotion:'reduce'});const p=await preview(ctx,size);const pv=await panelGeo(p);await ctx.close();

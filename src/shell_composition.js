@@ -1,4 +1,4 @@
-import { LAYOUT_SPEC, topRowHeight, companionsFor, frameFor } from './layout_spec.js';
+import { LAYOUT_SPEC, topRowHeight, companionsFor, frameFor, regionFit } from './layout_spec.js';
 
 // R16c whole-screen composition for the parity shell (WX3–WX7, CZ3–CZ5). Two decisions, both made
 // only at stable moments (presentation, text size, viewport, a context change such as entering or
@@ -11,7 +11,7 @@ import { LAYOUT_SPEC, topRowHeight, companionsFor, frameFor } from './layout_spe
 // attributes on the shell root.
 
 // Attributes on the shell root that mark a context or size change.
-const STABLE_ATTRIBUTES = ['data-parity', 'data-parity-combat', 'data-parity-item', 'data-shell-stats-open', 'data-enemy-cards', 'data-density', 'data-presentation', 'data-parity-expanded', 'data-opponent-board', 'style'];
+const STABLE_ATTRIBUTES = ['data-shell-companions-placed', 'data-shell-companion-swap', 'data-parity', 'data-parity-combat', 'data-parity-item', 'data-shell-stats-open', 'data-enemy-cards', 'data-density', 'data-presentation', 'data-parity-expanded', 'data-opponent-board', 'style'];
 const LEAF = /^(BUTTON|SELECT|INPUT|TEXTAREA|IMG|SVG|CANVAS|PROGRESS|SUMMARY)$/;
 
 // Bottom of the lowest visible text or control inside a region, as if every inner scroll
@@ -64,6 +64,23 @@ export function elasticParts(region) {
 // and applies them. Re-exported so callers and tests keep one import.
 export { topRowHeight, companionsFor } from './layout_spec.js';
 
+// The top-row inputs from the two top regions by their fit modes: `player` is the largest
+// content-fit extent (less its elastic rows), `focus` the largest combat-fit extent.
+export function topTerms(regions, combat) {
+    let player = 0, elastic = 0, focus = 0, found = false;
+    for (const region of [regions.player, regions.focus]) {
+        if (!region) continue;
+        const ids = [...region.querySelectorAll(':scope > .workspace-module[data-module]')].filter(n => !n.hidden).map(n => n.dataset.module);
+        const fit = regionFit(ids);
+        if (fit === 'content') { found = true; const parts = elasticParts(region); player = Math.max(player, contentExtent(region) - parts.shown); elastic = Math.max(elastic, parts.want); }
+        else if (fit === 'combat' && combat) focus = Math.max(focus, contentExtent(region));
+    }
+    // No content box on top (You moved down): the row takes its elastic default instead of its
+    // minimum, so the boxes moved up keep a useful height.
+    if (!found) elastic = Infinity;
+    return {player, elastic, focus};
+}
+
 export function createShellComposition({root, board, regions}) {
     let frame = 0;
     const measure = () => {
@@ -74,13 +91,19 @@ export function createShellComposition({root, board, regions}) {
         if (!height) return;
         const fontSize = parseFloat(getComputedStyle(regions.player).getPropertyValue('--shell-context-size')) || parseFloat(getComputedStyle(regions.focus).fontSize) || 14;
         const combat = root.dataset.parityCombat === 'true';
-        const elastic = elasticParts(regions.player);
+        // R21 (MB1): a box can move between the top regions; each region drives the row by its
+        // fit mode, so a list moved up scrolls instead of growing the row. The default placement
+        // (You top left, Around you top centre) gives the R20 numbers.
+        const top = topTerms(regions, combat);
         const available = [...regions.actions.querySelectorAll(':scope > .workspace-module[data-module]')].filter(n => !n.hidden).map(n => n.dataset.module);
-        const companions = companionsFor({combat, available}).join(' ');
+        // R21: companions the player placed beside the actions show even where the context would not
+        // recommend them (WX11).
+        const placed = (root.dataset.shellCompanionsPlaced || '').split(' ').filter(id => id && available.includes(id));
+        const companions = [...new Set([...companionsFor({combat, available}), ...placed])].join(' ');
         if (root.dataset.shellCompanions !== companions) root.dataset.shellCompanions = companions;
         // The frame allowance covers region borders plus the padding and borders below the last
         // text line (opponent card lists, stat rows), which the extent does not see.
-        const value = `${topRowHeight({player: contentExtent(regions.player) - elastic.shown, elastic: elastic.want, focus: contentExtent(regions.focus), combat, board: height, fontSize, viewport: window.innerHeight, frame: frameFor(fontSize)})}px`;
+        const value = `${topRowHeight({player: top.player, elastic: top.elastic, focus: top.focus, combat, board: height, fontSize, viewport: window.innerHeight, frame: frameFor(fontSize)})}px`;
         if (root.style.getPropertyValue('--shell-top-row') !== value) root.style.setProperty('--shell-top-row', value);
         if (root.dataset.shellFit !== 'true') root.dataset.shellFit = 'true';
         // GU2: each measure is timed so checks can confirm it stays within a frame.

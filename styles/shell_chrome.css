@@ -1,0 +1,128 @@
+/* R21 shell chrome: control boxes (CB1–CB5), one bar (MB2) and shell layout editing (MB1).
+   Parity shell only (GU5); shared p23 tokens; no per-panel colors. */
+
+/* ---- Control box ---- */
+.control-box {display:inline-flex;min-width:0;}
+:is(#main_content,body) .control-box-button {display:inline-flex;align-items:baseline;gap:.3em;min-width:0;max-width:100%;font:inherit!important;line-height:1.25;padding:0 .35em;min-height:0;
+ color:var(--p23-text);background:var(--p23-context);border:1px solid var(--p23-line);cursor:pointer;white-space:nowrap;}
+.control-box-button:hover {background:var(--p23-hover-fill);}
+.control-box-button:focus-visible {outline:2px solid var(--workspace-focus);outline-offset:-2px;}
+.control-box-button[aria-expanded="true"] {border-color:var(--p23-quantity);}
+.control-box-label {min-width:0;overflow:hidden;text-overflow:ellipsis;font-variant-numeric:tabular-nums;}
+.control-box-caret {color:var(--p23-muted);font-size:.85em;}
+.control-box-panel {position:fixed;inset:auto;margin:0;padding:.3em .45em .45em;box-sizing:border-box;max-height:min(70vh,32em);overflow:auto;
+ font-size:var(--shell-context-size,var(--ui-type-body));line-height:1.3;
+ color:var(--p23-text);background:var(--p23-context);border:2px solid var(--p23-line);box-shadow:var(--ui-shadow);}
+.control-box-heading {display:flex;align-items:center;gap:.4em;padding-bottom:.2em;margin-bottom:.25em;border-bottom:1px solid var(--p23-line);}
+.control-box-heading > strong {flex:1 1 auto;font-weight:600;letter-spacing:.05em;}
+.control-box-heading > button {font:inherit;font-size:.85em;line-height:1.2;padding:0 .35em;min-height:0;color:var(--p23-text);background:transparent;border:1px solid var(--p23-line);cursor:pointer;}
+.control-box-body {display:flex;flex-direction:column;gap:.3em;}
+.control-box-body button,.control-box-body select,.control-box-body input {font:inherit;line-height:1.25;min-height:0;}
+.control-box-toggles {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2px;}
+.control-box-toggles > button {padding:.1em .3em;color:var(--p23-muted);background:transparent;border:1px solid var(--p23-line);cursor:pointer;}
+.control-box-toggles > button[aria-pressed="true"] {color:var(--p23-text);border-bottom:2px solid var(--p23-quantity);}
+.control-box-toggles > button[hidden] {display:none;}
+.control-box-options {display:flex;flex-wrap:wrap;gap:3px;}
+.control-box-options > :is(button,select) {padding:.1em .4em;color:var(--p23-text);background:var(--p23-context);border:1px solid var(--p23-line);cursor:pointer;}
+.control-box-inline {padding:.2em .3em .3em;border-bottom:1px solid var(--p23-line);font-size:inherit;}
+.control-box-inline .control-box-heading {font-size:.85em;}
+
+@media (min-width:1001px) {
+/* Inventory: the box sits in the Inventory header; the R18 tabs row stays above it unless the
+   categories fold into the box, and then the tools row is gone. */
+#main_content.workspace-active[data-parity="r3"] .workspace-module[data-module="shell-inventory-tools"]:has(.parity-inventory-controls[data-category-folded="true"]) {display:none!important;}
+#main_content.workspace-active[data-parity="r3"] .workspace-module[data-module="belongings"] > .workspace-module-header {display:flex;align-items:center;}
+#main_content.workspace-active[data-parity="r3"] .workspace-module[data-module="belongings"] > .workspace-module-header > strong {flex:0 0 auto;text-align:left;padding-left:.3em;}
+#main_content.workspace-active[data-parity="r3"] .shell-control-row .control-box-button {max-width:14em;}
+#main_content.workspace-active[data-parity="r3"] .shell-control-clear {font:inherit;line-height:1.25;padding:0 .35em;min-height:0;color:var(--p23-text);background:transparent;border:0;cursor:pointer;}
+#main_content.workspace-active[data-parity="r3"] .shell-control-clear[data-active="false"] {visibility:hidden;}
+#main_content.workspace-active[data-parity="r3"] .shell-control-clear[hidden] {display:none;}
+.control-box-body .ui-list-tools {display:flex;align-items:center;gap:3px;}
+.control-box-body .ui-list-tools > input {flex:1 1 auto;min-width:4em;color:var(--p23-text);background:var(--p23-blue);border:1px solid var(--p23-line);}
+.control-box-body .inventory-sort {display:flex;flex:0 0 auto;gap:2px;}
+.control-box-body .inventory-sort > select {max-width:6em;color:var(--p23-text);background:var(--p23-context);border:1px solid var(--p23-line);}
+.control-box-body .inventory-sort > button {min-width:1.6em;padding:0 .2em;}
+/* Folded categories inside the box keep the R18 strip look on one row. */
+.control-box-body .inventory-tabs {display:grid;grid-template-columns:repeat(5,minmax(0,1fr)) auto;}
+.control-box-body .inventory-tabs > button {display:inline-flex;align-items:baseline;justify-content:center;gap:.2em;min-width:0;padding:.1em .12em;color:var(--p23-muted);background:transparent;border:0;border-bottom:2px solid transparent;cursor:pointer;white-space:nowrap;}
+.control-box-body .inventory-tabs > button[aria-pressed="true"] {color:var(--p23-text);border-bottom-color:var(--p23-quantity);}
+.control-box-body .inventory-tab-label {display:none;}
+.control-box-body .inventory-tab-count {font-variant-numeric:tabular-nums;color:var(--p23-quantity);}
+.control-box-body .inventory-tabs-clear[data-active="false"] {visibility:hidden;}
+
+/* Reports: the box and Latest sit in the Reports header; the old two bottom rows are gone. */
+#main_content.workspace-active[data-parity="r3"] .workspace-module[data-module="shell-log-tools"] {display:none!important;}
+#main_content.workspace-active[data-parity="r3"] .workspace-module[data-module="messages"] > .workspace-module-header {display:flex;align-items:center;}
+#main_content.workspace-active[data-parity="r3"] .workspace-module[data-module="messages"] > .workspace-module-header > strong {flex:0 1 auto;text-align:left;padding-left:.3em;}
+#main_content.workspace-active[data-parity="r3"] .shell-header-tools {display:inline-flex;align-items:center;gap:3px;margin-left:auto;min-width:0;font-size:var(--shell-context-size,var(--ui-type-body));letter-spacing:0;font-weight:400;}
+#main_content.workspace-active[data-parity="r3"] .shell-header-tools > button:not(.control-box-button) {font:inherit;line-height:1.25;padding:0 .4em;min-height:0;color:var(--p23-text);background:var(--p23-context);border:1px solid var(--p23-line);cursor:pointer;}
+#main_content.workspace-active[data-parity="r3"] .shell-header-tools > button:disabled {color:var(--p23-muted);border-style:dashed;cursor:default;}
+
+/* You header: the native name field replaces the "You" title (kept for assistive tech). */
+#main_content.workspace-active[data-parity="r3"] .workspace-module-header[data-name-in-header="true"] {display:flex;align-items:center;justify-content:center;gap:.25em;}
+#main_content.workspace-active[data-parity="r3"] .workspace-module-header[data-name-in-header="true"] > strong {flex:0 1 auto;font-size:0;letter-spacing:0!important;}
+#main_content.workspace-active[data-parity="r3"] .workspace-module[data-module="vitals"] .workspace-module-header[data-name-in-header="true"] > strong::after {font-size:var(--shell-context-size,var(--ui-type-body));letter-spacing:.05em;}
+#main_content.workspace-active[data-parity="r3"] .workspace-module-header > #character_name_div {position:static;height:auto;display:inline-flex;align-items:baseline;gap:.4em;margin:0!important;order:0;font-size:var(--shell-context-size,var(--ui-type-body));}
+#main_content.workspace-active[data-parity="r3"] .workspace-module-header #character_name_field {position:static!important;inset:auto!important;width:auto!important;margin:0!important;transform:none!important;field-sizing:content;min-width:3em;max-width:12em;height:auto!important;padding:0 .15em;font:inherit;font-weight:600;text-align:center;
+ color:var(--p23-text);background:transparent!important;border:0!important;border-bottom:1px dashed var(--p23-line)!important;cursor:text;}
+#main_content.workspace-active[data-parity="r3"] .workspace-module-header #character_name_field:is(:hover,:focus) {border-bottom:1px solid var(--p23-quantity)!important;background:var(--p23-blue)!important;outline:0;}
+#main_content.workspace-active[data-parity="r3"] .workspace-module-header > #character_vitals_level {margin-left:auto;font-size:var(--shell-context-size,var(--ui-type-body));}
+}
+
+/* ---- One bar (MB2) ---- */
+#game_bar {display:none;}
+:root[data-one-bar="true"] #game_bar {position:fixed;top:0;left:0;right:0;z-index:220;display:flex;align-items:stretch;gap:.5em;min-height:0;padding:0 .5em 0 0;box-sizing:border-box;
+font-size:var(--shell-context-size,var(--ui-type-body));line-height:1.25;color:var(--p23-text);background:var(--p23-inventory-fill);border-bottom:1px solid var(--p23-line);}
+:root[data-one-bar="true"] #bottom_panel_div {display:none!important;}
+:root[data-one-bar="true"] #game_bar .game-bar-left {display:flex;align-items:stretch;flex:1 1 auto;min-width:0;overflow:hidden;}
+:root[data-one-bar="true"] #game_bar #workspace_navigation {position:static!important;flex:0 1 auto;min-width:0;flex-wrap:nowrap!important;overflow:hidden;border:0;}
+:root[data-one-bar="true"] #game_bar #workspace_navigation > [data-bar-overflow="true"] {display:none!important;}
+/* One row whatever arrives (UR52): bar items never wrap or shrink; a route that does not fit folds
+   into More instead of pushing the panels down. */
+:root[data-one-bar="true"] #game_bar {flex-wrap:nowrap;white-space:nowrap;overflow:hidden;}
+:root[data-one-bar="true"] #game_bar #workspace_navigation > * {flex:0 0 auto!important;white-space:nowrap!important;}
+:root[data-one-bar="true"] #game_bar .game-bar-right > * {flex:0 0 auto;white-space:nowrap;}
+:root[data-one-bar="true"] #game_bar #workspace_navigation > select {max-width:9em;}
+:root[data-one-bar="true"] #game_bar .game-bar-overflow[hidden] {display:none;}
+:root[data-one-bar="true"] #game_bar .game-bar-right {display:flex;align-items:center;flex:0 0 auto;gap:3px;}
+:root[data-one-bar="true"] #game_bar .game-bar-save-state {color:var(--p23-muted);font-size:.85em;white-space:nowrap;padding:0 .4em;}
+:root[data-one-bar="true"] #game_bar .game-bar-save-state[data-warning="true"] {color:var(--p23-critical);font-weight:600;}
+:root[data-one-bar="true"] #game_bar :is(#save_button,#save_to_file_button,#load_from_file_button) {position:relative;display:inline-flex;align-items:center;height:auto;min-height:0;margin:0;padding:.1em .55em;font:inherit;color:var(--p23-text);background:var(--p23-context)!important;background-image:none!important;border:1px solid var(--p23-line);cursor:pointer;width:auto;}
+:root[data-one-bar="true"] #game_bar #saved_file_input {display:none;}
+:root[data-one-bar="true"] #game_bar .control-box-button {padding:.1em .5em;}
+:root[data-one-bar="true"] :is(#control_box_game-bar-menu,#control_box_game-bar-more) {width:auto!important;min-width:14em;max-width:min(36em,calc(100vw - 16px));}
+:root[data-one-bar="true"] #control_box_game-bar-menu .workspace-layout-menu {flex:1 1 100%;}
+:root[data-one-bar="true"] #control_box_game-bar-menu .workspace-layout-tools {position:static!important;inset:auto!important;transform:none!important;width:auto!important;max-width:100%;max-height:none!important;margin-top:.3em;box-shadow:none!important;}
+:root[data-one-bar="true"] #control_box_game-bar-more .control-box-body {flex-direction:column;}
+:root[data-one-bar="true"] #control_box_game-bar-more .game-bar-overflow-item {text-align:left;padding:.15em .5em;color:var(--p23-text);background:transparent;border:0;border-bottom:1px solid var(--p23-line);cursor:pointer;}
+:root[data-one-bar="true"] #control_box_game-bar-menu .workspace-toolbar {position:static!important;transform:none!important;inset:auto!important;width:auto!important;display:flex!important;flex-wrap:wrap!important;gap:.3em;margin:0;padding:0;background:transparent;border:0;box-shadow:none;}
+:root[data-one-bar="true"] #control_box_game-bar-menu .game-bar-menu-links {display:flex;flex-wrap:wrap;align-items:center;gap:.5em;padding-top:.3em;border-top:1px solid var(--p23-line);}
+:root[data-one-bar="true"] #control_box_game-bar-menu .game-bar-menu-links > * {position:static!important;display:inline-flex!important;align-items:center;margin:0!important;}
+:root[data-one-bar="true"] #control_box_game-bar-menu .game-bar-menu-links img {height:24px!important;}
+:root[data-one-bar="true"] #control_box_game-bar-menu .game-bar-menu-links a {color:var(--p23-text);}
+@media (min-width:1001px) {
+:root[data-one-bar="true"] #main_content.workspace-active[data-parity="r3"][data-workspace-mode="dock"] {height:calc(100dvh - 22px);padding-top:var(--game-bar-height,30px);}
+}
+
+/* ---- Place: group drop-downs under Options (Weibao 2026-10-17) ---- */
+@media (min-width:1001px) {
+#main_content.workspace-active[data-parity="r3"]:not([data-place-tab="options"]) #location_related_div:not(.center-mode-open) #location_actions_div > details {display:none!important;}
+#main_content.workspace-active[data-parity="r3"][data-place-tab="options"] #location_related_div:not(.center-mode-open) #location_actions_div > :not(details) {display:none!important;}
+/* A group's ready count stays on its summary line instead of wrapping onto the divider. */
+#main_content.workspace-active[data-parity="r3"] #location_actions_div > details > summary {display:flex;align-items:baseline;gap:.5em;}
+#main_content.workspace-active[data-parity="r3"] #location_actions_div > details > summary [data-group-status] {margin-left:auto;flex:0 0 auto;white-space:nowrap;}
+
+/* ---- Shell layout editing (MB1) ---- */
+#main_content.workspace-active[data-parity="r3"] .shell-move-control {display:inline-flex;align-items:center;gap:.25em;margin-left:auto;font-size:.8em;color:var(--p23-muted);white-space:nowrap;}
+#main_content.workspace-active[data-parity="r3"] .shell-move-control > select {font:inherit;color:var(--p23-text);background:var(--p23-context);border:1px solid var(--p23-quantity);}
+#main_content.workspace-active[data-parity="r3"][data-layout-editing="true"] .parity-region {outline:2px dashed var(--p23-quantity);outline-offset:-3px;}
+#main_content.workspace-active[data-parity="r3"][data-layout-editing="true"] .parity-region[data-region="log"] {outline-color:var(--p23-line);}
+/* Companions placed under another box share its region and scroll on their own. */
+#main_content.workspace-active[data-parity="r3"] .parity-region:not([data-region="actions"]) > .workspace-module:is([data-module="records"],[data-module="skills"]) {display:flex;flex-direction:column;flex:1 1 0;min-height:5em;border-top:1px solid var(--p23-line)!important;}
+#main_content.workspace-active[data-parity="r3"] .parity-region:not([data-region="actions"]) > .workspace-module[data-module="belongings"] {flex:1 1 0;}
+#main_content.workspace-active[data-parity="r3"][data-shell-companion-swap="true"] .parity-region > .workspace-module[data-module="records"] {order:2;}
+#main_content.workspace-active[data-parity="r3"][data-shell-companion-swap="true"][data-shell-companions~="records"][data-shell-companions~="skills"] [data-region="actions"] > .workspace-module[data-module="records"] {grid-row:4/5;}
+#main_content.workspace-active[data-parity="r3"][data-shell-companion-swap="true"][data-shell-companions~="records"][data-shell-companions~="skills"] [data-region="actions"] > .workspace-module[data-module="skills"] {grid-row:2/4;}
+/* The item detail replaces Around you wherever that box sits. */
+#main_content.workspace-active[data-parity="r3"][data-parity-combat="false"][data-parity-item="true"] .parity-region > .workspace-module[data-module="focus"] {display:none!important;}
+}

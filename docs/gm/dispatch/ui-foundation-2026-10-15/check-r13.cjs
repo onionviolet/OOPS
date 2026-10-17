@@ -10,7 +10,8 @@ try{for(const[w,h,f]of[[1366,768,14],[1366,768,17.5],[1366,768,21],[1920,1080,21
  const card=await p.evaluate(()=>{const o=document.querySelector('#current_focus .shell-place-overview');return o?{people:o.querySelectorAll('[data-inspect-nearby]:not([data-nearby-kind])').length,things:o.querySelectorAll('[data-nearby-kind="thing"]').length,text:o.innerText.slice(0,80)}:null;});
  L.assert(card&&card.people>=1&&card.things>=1,JSON.stringify(card));
  const dedupe=await p.evaluate(()=>({tabs:[...document.querySelectorAll('.scene-local-tabs button')].filter(b=>b.checkVisibility()).map(b=>b.textContent.trim()),cardTitle:!!document.querySelector('.shell-place-overview > strong'),presentationVisible:!!document.querySelector('[data-workspace-action="presentation"]')?.checkVisibility(),expandVisible:[...document.querySelectorAll('.parity-region .workspace-module-header > [data-workspace-action="expand"]')].filter(b=>getComputedStyle(b).visibility==='visible').length}));
- L.assert.deepEqual(dedupe.tabs,['Actions','Options'],JSON.stringify(dedupe));L.assert.equal(dedupe.cardTitle,false);L.assert.equal(dedupe.presentationVisible,false);
+ // R21: the Options tab now counts the group drop-downs it holds ("Options · 6 (4 ready)").
+ L.assert.deepEqual(dedupe.tabs.map(t=>t.replace(/ · .*$/,'')),['Actions','Options'],JSON.stringify(dedupe));L.assert.equal(dedupe.cardTitle,false);L.assert.equal(dedupe.presentationVisible,false);
  await p.locator('[data-region="log"] .workspace-module').first().hover();await p.waitForTimeout(150);const hoverExpand=await p.evaluate(()=>getComputedStyle(document.querySelector('[data-region="log"] .workspace-module-header > [data-workspace-action="expand"]')).visibility);
  L.assert.equal(hoverExpand,'visible');await p.mouse.move(2,h-2);ok(`${tag} dedupe`,{...dedupe,hoverExpand});await shot(p,`idle-${tag}`);ok(`${tag} idle place card`,card);
  // subject, local back, Esc

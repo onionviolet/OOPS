@@ -3,6 +3,7 @@ import {openMixtureCounter} from './mixture_ui.js';
 import {knownWorkspaceModules,expandWorkspaceModule} from './workspace_layout.js';
 import {centerModes} from './center_modes.js';
 import {decorateInventoryList,summarizeGroups} from './ui_components.js';
+import {mountGameBar} from './game_bar.js';
 
 const routes=[
     ['Here','h','local-actions'],['Stats','e','preparation'],['Inventory','i','belongings'],['Crafting','c','crafting'],['Mixing','m','mixing'],
@@ -26,7 +27,8 @@ export function mountWorkspaceNavigation({notice}={}) {
         if(id==='belongings'&&document.getElementById('main_content')?.dataset.parity==='r3'){
             const inventoryList=document.querySelector('#inventory_content_div');
             if(inventoryList?.checkVisibility()&&!inventoryList.closest('#center_mode_content')){
-                const region=inventoryList.closest('.parity-region');(region?.querySelector('.ui-list-tools input')||inventoryList).focus({preventScroll:true});region?.scrollIntoView({block:'nearest'});return;}
+                const region=inventoryList.closest('.parity-region');// R21: the search may live in the Inventory control box; then the box takes focus.
+                (region?.querySelector('.ui-list-tools input, [data-control-box="inventory"] > .control-box-button')||inventoryList).focus({preventScroll:true});region?.scrollIntoView({block:'nearest'});return;}
         }
         if(expandWorkspaceModule(id,{title:tab?'Journal':route[0]})){if(tab)document.getElementById(tab)?.click();else if(id==='preparation')document.getElementById('character_show_stats')?.click();}
     }
@@ -43,6 +45,8 @@ export function mountWorkspaceNavigation({notice}={}) {
     const paneHelp=document.createElement('button');paneHelp.type='button';paneHelp.textContent='?';paneHelp.title='Keyboard shortcuts';paneHelp.onclick=showHelp;paneNav.append(paneHelp);
     const root=document.getElementById('main_content');definePanel({id:'pane-navigation',title:'Center views',role:'actions',node:paneNav,home:root,defaultDock:'center',after:'local-actions',eligible:()=>root.dataset.parity==='r3',discovered:()=>root.dataset.parity==='r3'});
     document.getElementById('main_content').before(nav);
+    // R21 (MB2): in the parity shell the navigation joins the one bar with save and menu.
+    mountGameBar({nav});
     const resize=new ResizeObserver(()=>document.documentElement.style.setProperty('--workspace-nav-height',nav.offsetHeight+'px'));resize.observe(nav);
     let last='',notified=false;
     const lists=[decorateInventoryList(),

@@ -20,11 +20,11 @@ test('a nearly empty You still gets ten text lines', () => {
     assert.equal(topRowHeight({player: 20, focus: 0, combat: false, board: 688, fontSize: 14}), 140);
 });
 
-test('companions: idle shows Journal and Skills, a fight shows Skills only, undiscovered stay out', async () => {
+test('companions: idle shows Journal (R21: Skills off by Weibao\'s word), a fight shows Skills only, undiscovered stay out', async () => {
     const { companionsFor } = await import('../src/shell_composition.js');
-    assert.deepEqual(companionsFor({combat: false, available: ['local-actions', 'records', 'skills']}), ['records', 'skills']);
+    assert.deepEqual(companionsFor({combat: false, available: ['local-actions', 'records', 'skills']}), ['records']);
     assert.deepEqual(companionsFor({combat: true, available: ['records', 'skills']}), ['skills']);
-    assert.deepEqual(companionsFor({combat: false, available: ['skills']}), ['skills']);
+    assert.deepEqual(companionsFor({combat: false, available: ['skills']}), []);
     assert.deepEqual(companionsFor({combat: true, available: ['records']}), []);
 });
 
@@ -38,4 +38,17 @@ test('rows that yield grow the top row only up to the R14 default', () => {
 
 test('on a tall screen yielding rows may use 38% of the viewport, as the R14 default did', () => {
     assert.equal(topRowHeight({player: 300, elastic: 400, focus: 0, combat: false, board: 1348, fontSize: 21, viewport: 1440}), 553);
+});
+
+test('R21 control box and bar helpers', async () => {
+    const {controlBoxLabel} = await import('../src/ui/control_box.js');
+    const {inventoryLabel, reportsLabel, foldCategory} = await import('../src/shell_control_boxes.js');
+    const {overflowFrom} = await import('../src/game_bar.js');
+    assert.equal(controlBoxLabel([{text: 'a', isDefault: true}], 'All'), 'All');
+    assert.equal(inventoryLabel({folded: false, category: 'all', categoryCount: '21', search: '', shown: '21', sort: 'Name', ascending: true}), 'Name ↑');
+    assert.equal(inventoryLabel({folded: true, category: 'usable', categoryCount: '9', search: 'br', shown: '2', sort: 'Value', ascending: false}), 'Use 9 · "br" 2 · Value ↓', 'every non-default choice is named (CB4)');
+    assert.equal(reportsLabel({enabled: 6, total: 6, follow: 'hold', combatStopped: false}), 'All reports');
+    assert.equal(reportsLabel({enabled: 4, total: 6, follow: 'always', combatStopped: true}), '4/6 kinds · Follow always · Combat off');
+    assert.equal(foldCategory(340, 21), true); assert.equal(foldCategory(500, 21), false); assert.equal(foldCategory(340, 14), false);
+    assert.equal(overflowFrom([50, 50, 50], 120), 2); assert.equal(overflowFrom([50, 50], 200), 2);
 });

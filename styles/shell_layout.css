@@ -26,19 +26,19 @@
 #main_content.workspace-active[data-parity="r3"] [data-region="actions"] > .workspace-module:is([data-module="records"],[data-module="skills"]) {grid-column:2;grid-row:2/5;}
 #main_content.workspace-active[data-parity="r3"][data-shell-companions~="records"][data-shell-companions~="skills"] [data-region="actions"] > .workspace-module[data-module="records"] {grid-row:2/4;}
 #main_content.workspace-active[data-parity="r3"][data-shell-companions~="records"][data-shell-companions~="skills"] [data-region="actions"] > .workspace-module[data-module="skills"] {grid-row:4/5;}
-#main_content.workspace-active[data-parity="r3"] [data-region="actions"] > .workspace-module:is([data-module="records"],[data-module="skills"]) > .workspace-module-body {flex:1 1 0;min-height:0;overflow:auto;}
+#main_content.workspace-active[data-parity="r3"] .parity-region > .workspace-module:is([data-module="records"],[data-module="skills"]) > .workspace-module-body {flex:1 1 0;min-height:0;overflow:auto;}
 /* CZ9: companion panels use the shell's tab and row look at the shell text size. Native nodes,
    click handlers and saved choices (Hide completed, skill sort) are unchanged. */
-#main_content.workspace-active[data-parity="r3"] [data-region="actions"] :is(#journal_div,#skills_and_stances_div) {font-size:var(--shell-context-size,var(--ui-type-body));line-height:1.3;padding:0 .2em;background:transparent!important;border:0;box-shadow:none;}
-#main_content.workspace-active[data-parity="r3"] [data-region="actions"] :is(#journal_control_div,#skill_and_stance_control_div,#skill_sorting_buttons) {display:flex;flex-wrap:wrap;gap:0 .2em;margin:0;border-bottom:1px solid var(--p23-quiet-line);}
-#main_content.workspace-active[data-parity="r3"] [data-region="actions"] :is(#journal_control_div,#skill_and_stance_control_div,#skill_sorting_buttons) > :is(div,button) {width:auto;float:none;flex:0 0 auto;font:inherit;font-size:.9em;min-height:0;margin:0;padding:.05em .3em;color:var(--p23-text);background:transparent!important;border:0!important;border-bottom:2px solid transparent!important;box-shadow:none;outline:0;cursor:pointer;}
-#main_content.workspace-active[data-parity="r3"] [data-region="actions"] :is(#journal_control_div,#skill_and_stance_control_div,#skill_sorting_buttons) > :is(div,button):focus-visible {outline:2px solid var(--workspace-focus);outline-offset:-2px;}
-#main_content.workspace-active[data-parity="r3"] [data-region="actions"] :is(#journal_control_div,#skill_and_stance_control_div,#skill_sorting_buttons) > .active_selection_button {border-bottom-color:var(--p23-quantity)!important;}
-#main_content.workspace-active[data-parity="r3"] [data-region="actions"] #journal_control_div > [hidden] {display:none;}
-#main_content.workspace-active[data-parity="r3"] [data-region="actions"] #quests_header {display:none;}
+#main_content.workspace-active[data-parity="r3"] .parity-region :is(#journal_div,#skills_and_stances_div) {font-size:var(--shell-context-size,var(--ui-type-body));line-height:1.3;padding:0 .2em;background:transparent!important;border:0;box-shadow:none;}
+#main_content.workspace-active[data-parity="r3"] .parity-region :is(#journal_control_div,#skill_and_stance_control_div,#skill_sorting_buttons) {display:flex;flex-wrap:wrap;gap:0 .2em;margin:0;border-bottom:1px solid var(--p23-quiet-line);}
+#main_content.workspace-active[data-parity="r3"] .parity-region :is(#journal_control_div,#skill_and_stance_control_div,#skill_sorting_buttons) > :is(div,button) {width:auto;float:none;flex:0 0 auto;font:inherit;font-size:.9em;min-height:0;margin:0;padding:.05em .3em;color:var(--p23-text);background:transparent!important;border:0!important;border-bottom:2px solid transparent!important;box-shadow:none;outline:0;cursor:pointer;}
+#main_content.workspace-active[data-parity="r3"] .parity-region :is(#journal_control_div,#skill_and_stance_control_div,#skill_sorting_buttons) > :is(div,button):focus-visible {outline:2px solid var(--workspace-focus);outline-offset:-2px;}
+#main_content.workspace-active[data-parity="r3"] .parity-region :is(#journal_control_div,#skill_and_stance_control_div,#skill_sorting_buttons) > .active_selection_button {border-bottom-color:var(--p23-quantity)!important;}
+#main_content.workspace-active[data-parity="r3"] .parity-region #journal_control_div > [hidden] {display:none;}
+#main_content.workspace-active[data-parity="r3"] .parity-region #quests_header {display:none;}
 /* UR42: the top nav already names every Journal tab. Beside the actions the companion shows the
    quest list without its tab strip; another tab chosen elsewhere brings the strip back. */
-#main_content.workspace-active[data-parity="r3"] [data-region="actions"] #journal_control_div:has(> #journal_show_quests.active_selection_button) {display:none;}
-#main_content.workspace-active[data-parity="r3"] [data-region="actions"] :is(#quest_hiding_div,#skill_hiding_div) {font-size:.85em;color:var(--p23-muted);padding:.1em 0;}
-#main_content.workspace-active[data-parity="r3"] [data-region="actions"] :is(#journal_content_div,#skills_and_stances_content_div) {font-size:inherit;}
+#main_content.workspace-active[data-parity="r3"] .parity-region #journal_control_div:has(> #journal_show_quests.active_selection_button) {display:none;}
+#main_content.workspace-active[data-parity="r3"] .parity-region :is(#quest_hiding_div,#skill_hiding_div) {font-size:.85em;color:var(--p23-muted);padding:.1em 0;}
+#main_content.workspace-active[data-parity="r3"] .parity-region :is(#journal_content_div,#skills_and_stances_content_div) {font-size:inherit;}
 }
