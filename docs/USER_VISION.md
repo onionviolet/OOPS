@@ -3256,3 +3256,12 @@ lane merges and I've played it." Queued: A1 ability conditions (charges, recharg
 triggers, lasting price, bound subject) and A2 claims with dependencies (stale only
 when a named precondition changes; tests revise beliefs). RS26 waits for the UI
 lane merge and his play check. Owner: [shounen manga considerations](research/reincarnated-in-a-shounen-manga/YAIR_CONSIDERATIONS_2026-10-16.md#build-order-decided-by-weibao-2026-10-17).
+
+### Shounen manga engine gating by world, 2026-10-17
+
+Weibao: "maybe need to gate for specific world or similar worlds to help flesh
+out engine and foundational level stuff and more?" Proposal recorded, not accepted:
+A1/A2 stay world-neutral and dormant until a world authors them; the shounen manga
+is the home world and Hunter x Hunter, Jujutsu Kaisen and Fae bargains serve as
+similar-world test fixtures (E8B Conditions / Contracts and oaths), not new playable
+worlds. Owner: [G1–G8](research/reincarnated-in-a-shounen-manga/YAIR_CONSIDERATIONS_2026-10-16.md#world-gating-and-similar-world-fixtures-2026-10-17).
