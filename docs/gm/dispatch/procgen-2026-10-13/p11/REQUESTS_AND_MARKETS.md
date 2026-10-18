@@ -503,6 +503,13 @@ stays a convenience.
 
 ### M7: money is local, so each world's engine is its own
 
+**Correction, 2026-10-18 (Weibao):** M7 overstated the limit. Universal currencies
+exist wherever an issuer or network spans worlds, and carrying gold or other
+valuables works wherever the destination values them. Cheats bridge the rest.
+Locality is the default, not a wall; round 3's M13–M16 replace the framing
+below, which is kept as history.
+
+
 Under AD27, coin from one world doesn't spend in another without a means. This is
 the strongest built-in balance tool: a fortune in one world is a fresh start in the
 next. Exchangers, portable valuables (gems, gold by weight, rare reagents) and
@@ -584,3 +591,144 @@ could silently delete a whole economy.
 | L11 | Large-number money plan (denomination step or BigInt) | strong coder | M–L | A save with money near 9×10^15 trades without errors; display stays readable at 1366×768 |
 | L12 | Market inspector debug view (absorption, purse, curve per good) | mid coder | S | Inspector shows live values and changes nothing; matches quoted prices |
 | L13 | One service sale (appraisal or healing) as income | designer + coder | M | Service pays from a funded NPC purse with no item moved |
+
+## Currencies and value per world, consideration round 3, 2026-10-18
+
+**Prompt (Weibao, 2026-10-18):** universal currencies exist, and cheats or carrying
+gold help accordingly. Currencies have to fit the world: mortal currencies,
+world-specific ones and more. A mana crystal may be worth little in a tech world
+unless adequate analysis shows it is useful. Consider the little details for
+each world. This extends the cross-world owner
+[MULTIVERSE_STRUCTURES OD11, EC1–EC5](../../../../worlds/MULTIVERSE_STRUCTURES.md#od11-local-economies-and-cross-world-value-2026-10-15)
+without repeating it. Proposals only.
+
+**Shown in source today:** the runtime has one `character.money` number
+(`add_money_to_character` in `src/main.js`). Newer content writes "native coins"
+into named purses. N2's quote contract already reserves a `currencyRef`.
+
+### M13: kinds of money, a palette
+
+Each kind gets its value from a different source, and that source decides
+whether the money travels:
+
+| Kind | Examples | Value comes from | Travels? |
+|---|---|---|---|
+| Mortal coin | copper, silver, gold coins, taels | the issuer's reach and trust, plus metal | Outside its realm, only as metal by weight or as a curio |
+| Paper and accounts | banknotes, bank balances, letters of credit | the issuer still existing and recognizing you | Poorly. A dead kingdom's notes are curios, and accounts need identity |
+| Commodity money | gold, salt, grain, furs, ammunition, bottle caps, cigarettes | use and ubiquity | Best of all, wherever the commodity is useful |
+| Power-bearing money | spirit stones, mana crystals, monster cores, essence | use as fuel or material under that world's laws | Only where the mechanism to use it exists or can be built |
+| Institutional credit | sect contribution points, guild merit, adventurer rank points | one institution's ledger | No. Spent only with that issuer or its branches |
+| System currency | System points, shop credits, XP as currency | the System as issuer | Wherever that System reaches, which can be many worlds (a real universal currency) |
+| Social money | favors, debts, reputation, secrets | relationships and memory | With the people who hold them |
+| Metaphysical money | lifespan, memories, years, names, merit, faith, incense | that cosmology's rules | Inside cosmologies that honor it |
+
+Power-bearing money is also fuel. Spirit stones that cultivators burn leave
+circulation, so a sect war or breakthrough season can drive their price up.
+Mortals who cannot use them see only pretty stones.
+
+### M14: value is recognition times usability times access
+
+An item's local price follows three separate things: whether anyone there
+recognizes what it is, whether its use works under that world's mechanisms
+(AD38, world laws per WA), and whether a buyer can reach and afford it.
+
+A mana crystal in a tech world shows the stages:
+
+1. **Curio:** sold to a jeweler or collector on looks alone. The price is that of
+   an odd gemstone.
+2. **Anomaly:** someone measures something strange about it. Labs and collectors
+   pay for a sample, and attention starts.
+3. **Identified use:** analysis shows what it does in that world. If the world's
+   laws let it release energy without a mage, it's worth a fortune and draws
+   governments, companies and thieves. If no local mechanism can draw on it, it
+   stays a curio however rich it is in its home world.
+
+The analysis can be the player's appraisal shared or sold, the local world's own
+science, or a cheat. Proving a use is its own step (EC2: remembering, proving and
+operating at scale are different). The reverse works too: penicillin, a lighter
+or a steel saw in a low-tech world is recognized by use quickly. Medicine needs
+proof before people trust it.
+
+### M15: little details per world, a palette
+
+Pick what fits each world. None of these is a rule for every world.
+
+- **Cultivation (xianxia):** spirit stones graded low, mid, high and supreme, burned
+  for cultivation and formations. Sect contribution points buy techniques and
+  cave time. Pills circulate as currency among cultivators. Silver taels serve
+  mortals, and cultivators sneer at them but still pay innkeepers with them.
+- **System and LitRPG:** System credits, a shop that may buy anything at its own
+  valuation (EC4), automatic loot conversion, a System fee, and local coin that
+  still matters to NPCs who can't see the System.
+- **Western fantasy:** copper, silver and gold with fixed ratios, guild letters of
+  credit, gems as portable wealth, monster cores, clipped and debased coins,
+  money changers at borders and temples.
+- **Modern and urban:** bank accounts need ID, which an isekai'd or reincarnated
+  character may lack. Selling gold asks for receipts, and money-laundering rules
+  act as an in-world agent. Pawnshops, cash and crypto fill the gaps.
+- **Sci-fi:** account credits, energy units, licensed identity. Physical gold is a
+  collector's item or an industrial input.
+- **Post-apocalyptic:** clean water, ammunition, medicine, canned food, bottle caps.
+- **Gift and tribal:** no coin. Trade is gifts, obligation and prestige, and selling
+  in the market sense may itself be rude.
+- **Underworld and divine:** merit, incense and faith. Joss paper burned in the
+  mortal world arrives as real money below. That is a natural cross-world bridge,
+  with an exchange rate set by the burner's sincerity or the paper's grade.
+- **Fae:** names, memories, years and promises. Fae gold turns to leaves by
+  morning, which makes it counterfeit by nature unless bound.
+
+### M15b: everyday frictions that make money feel real
+
+- **Change:** a gold bar can't buy bread when the baker can't make change.
+  Village traders refuse large notes. Small denominations are worth carrying.
+- **Weight:** a thousand gold coins weigh about 10 kg, which is why banks, letters
+  of credit, gems and storage cheats exist.
+- **Authenticity:** an unknown mint looks counterfeit. Foreign coin sells at melt
+  value minus suspicion until a changer vouches for it.
+- **Dumping:** selling a mountain of gold lowers the local gold price. M2's curves
+  apply to money-goods too.
+- **Inflation and debasement:** a crown that debases its coin, or a System patch
+  that changes credit rates, moves prices for a dated, saved reason.
+
+### M16: bridges between currencies
+
+Each bridge has a spread, a cost or a risk:
+
+- **Carrying valuables** whose value survives the trip (gold, gems, useful goods),
+  subject to carryover and inventory rules for that crossing.
+- **Exchangers:** money changers at gates or ports, multiversal guilds or brokers,
+  each taking a spread.
+- **Universal issuers:** a System, a god, or a guild spanning worlds.
+- **Cheats:** a currency converter, a wallet that crosses worlds, a System shop.
+- **Knowledge and services:** sell what you know or can do where that is rare
+  (M10, EC2).
+- **Goods arbitrage:** convert through goods that are cheap here and valued there
+  (EC1).
+
+### ACT NOW (done this round)
+
+- Corrected M7 with a dated note and saved M13–M16.
+
+### ACCOUNT FOR NOW
+
+- **A15:** one `character.money` number cannot hold several currencies. A purse
+  keyed by currency ID needs a save migration that maps existing money to the
+  home world's coin. Foreign coin can stay an item until a world needs it as money.
+- **A16:** "does this world recognize and use this item" is world knowledge, kept
+  separate from item truth (MR truth/knowledge split, MEANS_AND_APPRAISAL). A
+  world's hidden use for an item may be a sealed secret: refer to it by ID and route.
+- **A17:** show the purse for the current world's currencies, and show foreign
+  money as items with a melt or curio value. Don't crowd the money display
+  (UI rules, clean hierarchy).
+- **A18:** currency scales differ (copper versus supreme spirit stones). Store each
+  currency in integer minor units per currency, which also eases A10's ceiling.
+
+### LATER / DELEGATE
+
+| Code | Item | Level | Effort | Done check |
+|---|---|---|---|---|
+| L14 | Multi-currency purse with migration (home coin keeps old money) | strong coder | M | Old save loads with the same amount in home coin; a second currency adds, saves, reloads and imports |
+| L15 | Foreign coin as item with melt and curio value | mid coder | S | Foreign coin sells at melt value to a changer and less to a stranger |
+| L16 | Recognition stages for one cross-world item (curio, anomaly, identified use) | designer + coder | M | The same crystal's quote rises only after a recorded analysis; without a usable mechanism it stays a curio |
+| L17 | Per-world currency card field (kinds, ratios, frictions) in the world core kit | designer | S | Each pack names its currencies and at least one friction; no blanket rule is stated |
+| L18 | Change-making friction and denominations | mid coder | S | Paying with a large coin at a small trader fails or leaves credit, explained in text |
