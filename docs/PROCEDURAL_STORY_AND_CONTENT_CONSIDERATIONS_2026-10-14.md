@@ -958,3 +958,264 @@ or current offline-cap claim is established. Primary source pointer retained by
 that audit: https://steam.melvoridle.com/assets/js/built/game.js?12097 . Treat the
 prior findings as design leads; further reference work is optional future work,
 not a new release gate. No unrelated site summaries were adopted as authority.
+
+---
+
+## Round 12 (2026-10-18): tropes as a generation layer, and how not to overdo them
+
+Request: "Tropes as aspects of story generation to make things easier and more?
+how to not over do? /more-to-consider". Builds on W2, [P26 TROPES](gm/dispatch/procgen-2026-10-13/p26/TROPES.md)
+(TR1-TR12 vocabulary, illustrative per-world weights, `straight | inversion |
+consequence | reconstruction`), A4 coincidence budget, F5 repetition memory, Z1
+running gags and the [trope research](RESEARCH_GENRE_TROPES.md). All proposals.
+
+Baseline (checked 2026-10-18): no live content carries a trope tag.
+`src/storylet_content.js`, `src/storylet_deck.js`, `src/causal_story_content.js`
+and `src/story_requests.js` have no trope or genre field. TR1-TR12 exists only on
+paper, so the choices below are still cheap to make.
+
+**Core position.** A trope earns its place as a *recognizer and a shorthand*, not
+as an injector. It names a shape the state already has (two people with a shared
+loss and a grudge) and tells generators which next beats fit. Overdoing starts when
+tropes pull events out of nothing, decide outcomes, or pile up faster than the
+player can care. AD38 settles the boundary: a trope can shape which opportunities
+appear and how they read; the mechanisms in play decide what happens.
+
+## BR. What tropes make easier, and what more they give
+
+| Code | Idea | Notes |
+|---|---|---|
+| BR1 | **Trope as slot bundle.** A card or thread declares `tropes: [TR4]` and inherits default roles, preconditions, beats, payoff and aftermath from the trope, overriding only what differs. | The authoring saving. One tournament definition serves every world that weights TR4; per-world packs fill names and law. Reuses W1 beat templates as the bundle bodies. |
+| BR2 | **Recognize, then amplify.** A cheap pass over receipts (S-2) and relationships notices when a trope's preconditions already hold: repeated contests between the same two people read as rivalry, repeated lessons as mentorship. Only then does the trope's weight apply to follow-up cards. | Tropes ride on what the player actually did. This is the main defense against "the game decided you have a rival". Extends A1 salience casting. |
+| BR3 | **Trope composition.** Two active tropes on one thread produce known blends: rival plus mentor (the rival teaches), patron plus hidden cause (the sponsor wants something), care plus unequal threat (protect the household). A small blend table beats authoring each combination. | "More" without new systems. Blends inherit both bundles' slots; conflicts resolve toward the thread's dominant trope. |
+| BR4 | **Trope as promise.** Starting a trope opens a payoff obligation on the A6 thread registry, like A2 hooks. Unpaid promises decay quietly or close with an in-world reason (the rival moved away, and a letter says so). | Turns tropes into foreshadowing for free and keeps a count that BR8 can budget. |
+| BR5 | **Trope scales.** Scene (a quarrel), arc (a rivalry), life (a redemption) and world (a hidden war). Each scale has its own cadence adjective; a scene trope can sit inside an arc trope. | Keeps small daily texture separate from big arcs so neither crowds out the other. Fits AG stories at every power level. |
+| BR6 | **NPCs live tropes too.** The same pass runs on NPC pairs offscreen at the AM level of detail: two villagers court, a smith and an apprentice fall out. The player hears about some through gossip and can step in. | Breaks protagonist gravity, a common overdo symptom where every trope lands on the hero. Links G social web and P19. |
+| BR7 | **Tropes as real mechanism in some worlds.** Where a world's physics runs on story (Discworld narrative causality, ORV story-based powers, LOTM acting, story-as-power D-section entries), trope weight is an in-world force characters can read and exploit, with the world's costs. Elsewhere it is an authoring aid only and nobody in-world can see it. | AD38 applied: things work by how they work. Same data, two roles, chosen per world. Genre-savvy NPCs and transmigrators with foreknowledge (O1) sit in between. |
+
+## BS. How not to overdo it: six separate failure modes
+
+Each mode gets its own dial. One global "trope intensity" knob would hide which
+one is broken.
+
+| Code | Failure mode | Default and dial (in-world reason) |
+|---|---|---|
+| BS1 | **Frequency.** The same trope too often. | F5 repetition memory per trope ID and per cast pair, decaying over in-game time. Dial per world: xianxia tolerates repeated public challenges because sect culture produces them. A player "more of this" mark (P28 taste weights) raises it. |
+| BS2 | **Density.** Too many tropes in one stretch, so nothing feels ordinary. | Budget of concurrently open arc-scale promises (BR4) per world, plus a quiet-time share where only scene-scale ordinary-life texture (TR6, X3) fires. Cozy worlds keep a large quiet share; a war world a small one, because the war actually generates events. |
+| BS3 | **Predictability.** Always straight, or always subverted. | Track the realization mix (`straight / inversion / consequence / reconstruction`) per trope. Default leans straight, since earned payoff is the genre promise ([research](RESEARCH_GENRE_TROPES.md#what-the-discussions-suggest)); subversion rises only where it opens another real choice. A betrayal needs an agent with a reason, never a quota. |
+| BS4 | **Override.** The trope decides the outcome (the underdog wins because underdogs win). | Hard boundary under AD38: tropes filter and weight eligible cards; settlement reads skills, gear, law and luck. Exception only in BR7 worlds, where story force is itself a mechanism with a cost. Lint (S-5) can flag a card whose outcome references a trope field. |
+| BS5 | **Wink.** Narration names the trope or gets meta ("as tradition demands"). | Off by default. On in trope-aware worlds (ORV, A Novel Concept, a transmigrator's inner voice) and as a presentation option, matching the fourth-wall owner [PRESENTATION_AND_FOURTH_WALL](PRESENTATION_AND_FOURTH_WALL.md). |
+| BS6 | **Coincidence pile-up.** Tropes need convenient timing, and many tropes need many coincidences. | Each trope draw that needs luck spends A4 coincidence budget. Recognized tropes (BR2) spend little because the setup was earned; injected ones spend a lot. Luck and halo cheats raise the budget openly. |
+
+A symptom list for playtests: "everyone is my rival", "every mentor dies",
+"every gift is a trap", "nothing quiet happens", "I can predict the next scene",
+"the story ignored what I actually did". Each maps to BS1, BS3, BS3, BS2, BS3 and
+BS4 or BR2.
+
+## ACT NOW
+
+None. No live content uses tropes, so nothing is wrong today.
+
+## ACCOUNT FOR NOW
+
+Constraints for anyone who adds trope fields to cards, threads or the deck:
+
+- **BT1, tags never leak.** A trope tag on an actor can imply sealed truth (a
+  hidden-master or secret-heir trope). Keep trope fields out of DOM datasets, UI
+  text and logs outside the discovery route; P35 already found a product key
+  leaking through `src/mixture_ui.js:29`.
+- **BT2, determinism.** Trope weights are integers inside the existing saved draw;
+  recognition (BR2) reads saved receipts only, so reload never rerolls a trope
+  (BL4, P40).
+- **BT3, one vocabulary.** Use P26's TR1-TR12 IDs and extend that list rather than
+  inventing per-lane trope names; world packs hold sparse overrides only.
+- **BT4, no lost routes.** Novelty and density dials reorder and delay; they do not
+  remove the last legitimate route or a payoff the player asked for (W2.3).
+- **BT5, recap by thread.** Idle return letters (P16, RR1) group events by thread
+  and trope when that compresses well ("the rivalry with Mara heated up: two
+  contests, one lost"), using actual receipts only.
+
+## LATER / DELEGATE
+
+| Code | Item | Level, effort | Done check |
+|---|---|---|---|
+| BU1 | Add an optional `tropes` field and BR1 bundle inheritance to the storylet schema, with lint for missing slots. | Sonnet-medium, small | Two Village cards share one TR4 bundle; lint rejects a card missing a required role. |
+| BU2 | BR2 recognizer for rivalry and mentorship over P34 receipts. | Opus-medium, medium | Headless seeded run: rivalry cards appear only after two or more real contests with the same person. |
+| BU3 | Trope inspector (debug only): why this card fired, which trope weights and budgets applied, open promises. | Sonnet-low, small | Dev panel lists open BR4 promises and BS dials for the current world; nothing renders in player UI. |
+| BU4 | Headless trope report from F1: per-trope frequency per 100 in-game days, open/closed promise ratio, realization mix, quiet share. | Sonnet-medium, medium | Report flags a seed where one trope exceeds its dial; matches BS symptom list. |
+| BU5 | Measure per-world weights from the books already read (count scene shapes in private notes) to replace P26's inferred vectors for TTKS and Mother of Learning first. | Luna-medium reader within AU budget, medium | Weights cite locators; inferred and measured values labeled separately. |
+| BU6 | BR7 narrative-causality world pack (Discworld first), where trope weight is an exploitable in-world force with costs. | Opus-high, large; waits on that world's selection | A character exploits a known trope and pays its cost in a seeded test. |
+
+Suggested order, if Weibao picks any: BU1 then BU2 give the "easier" and the main
+"not overdo" defense together; BU3 and BU4 make the dials tunable; BU5 and BU6
+wait for world work.
+
+---
+
+## Round 13 (2026-10-18): trope chains, general versus world-specific, and canon plotlines
+
+Request: "and then extending them? Stuff that leads up to other stuff? More to
+consider? World specific or ones that helps stuff in general? playing off existing
+plotlines in book world and more". Extends round 12 (BR-BU). Canon owners stay
+authoritative: C1-C9 above, [P13](gm/dispatch/procgen-2026-10-13/p13/REPORT.md)
+F1-F5, [Timelines OD7/OD8](TIMELINES_AND_DIVERGENCE.md) (natural course; canon may
+correct itself only through a world-supported mechanism) and the
+[living-beside-protagonists](research/LIVING_BESIDE_PROTAGONISTS_2026-10-10.md)
+premise families. All proposals.
+
+**Core position.** A trope's aftermath is the next trope's precondition. Chains
+come from a successor graph read against *settled outcomes*, not from a script, so
+the same rivalry can become a friendship, a feud or nothing, depending on what
+actually happened.
+
+## BV. Chains: stuff that leads to other stuff
+
+| Code | Idea | Notes |
+|---|---|---|
+| BV1 | **Successor graph.** Each trope bundle (BR1) lists likely successors with conditions: rivalry leads to grudging respect, alliance, feud or vendetta; mentorship to graduation, the student surpassing the teacher, or the player taking a student of their own; a rare find to theft attempts, appraisal, or a patron's interest. | The chain engine. Edges read receipts (S-2) and relationship state, so the outcome picks the branch. |
+| BV2 | **Ladders go both ways.** Each trope has escalation steps and de-escalation steps. A rivalry can cool after a shared crisis; a feud can be settled by a marriage, a debt paid or a third party. | Stops every chain from only ratcheting up, a common overdo shape. |
+| BV3 | **Realization picks the branch.** Whether a beat played straight, inverted, as consequence or as reconstruction (W2.3) selects different successors. A tournament won by exposing cheating leads to an investigation, not to fame. | Gives BS3's realization mix a lasting effect. |
+| BV4 | **Residue as fuel.** Every payoff leaves one or two loose ends: a witness, a broken item, a debt, an embarrassed loser, a rumor. Successors draw from residue first; unused residue fades. | Lead-ups feel authored because they were planted by real events. Pairs with A2. |
+| BV5 | **Chains hop between people.** Your trope's aftermath starts someone else's: beat the champion and his student wants a rematch; save one village and the next one sends for you. | Spreads stories across the cast (BR6) and turns reputation into hooks. |
+| BV6 | **Promotion upward.** Repeated scene tropes promote to arc recognition (BR2), and repeated arcs to life-scale identity: a pattern of rescues becomes a protector reputation, which brings people to your door. | Bottom-up long arcs with no authored campaign. |
+| BV7 | **Generational and prestige chains.** Feuds, debts, mentorship lineages, family curses and patron ties can pass to an heir or the next life as residue, with the reset's own rules deciding what survives. | Strong idle fit: a prestige run starts mid-story. Links `heir_inheritance` and the inheritance owners. |
+| BV8 | **Convergence set pieces.** When several open threads share a place, time or person, the generator proposes one event where they meet: the festival where the rival, the creditor and the patron all show up. Dial per world. | Climaxes without authoring them. Spends A4 coincidence budget unless the threads were already heading there. |
+| BV9 | **Visible lead-up ladder.** Rumor, then sign, then encounter, then event, each step readable by the means available (gossip, scouts, divination, foreknowledge cheats). | Makes A2/A3 concrete for chains. Skipping steps is fine when the world is sudden. |
+| BV10 | **Endings are valid.** A chain may close quietly: the rival retires, the mentor is simply proud. The successor graph includes "rest" edges. | Leaves room for TR6 ordinary life and keeps BS2 density honest. |
+
+## BW. General tropes versus world-specific ones
+
+| Code | Idea | Notes |
+|---|---|---|
+| BW1 | **Three layers.** Core operations (TR1-TR12, any world), genre families (cultivation, academy, LitRPG system, regression, occult, military, cozy village) and world packs (one book or original world). World overrides family, family overrides core. | Most authoring savings sit at the family layer: one cultivation family serves ISSTH, Reverend Insanity, Renegade Immortal and A Will Eternal, each with sparse overrides. |
+| BW2 | **World-native tropes stay home.** Shapes that only make sense under one world's law (LOTM acting and digestion, ORV scenarios and sponsors, Worm trigger events, Hogwarts house points) live in that world pack and do not leak into others' draws. | Keeps worlds mechanically distinct, which PROJECT.md asks for. |
+| BW3 | **Tropes as glue for other systems.** Each gameplay system gets trope hooks instead of its own story layer: crafting gets the masterwork commission (TR2), combat the underdog stand (TR8), skills the lesson and the test (TR1), economy the patron and the debt (TR5), sites the expedition and return (TR11). | Helps everything in general: a system that emits receipts gets stories for free. Each system names which tropes its receipts can trigger. |
+| BW4 | **Era weights inside a world.** Early-canon and late-canon periods weight tropes differently (school years versus war years), read from P13 era anchors. | Extends C7 power-scale fidelity to story shape. |
+| BW5 | **Cross-world residue.** A hero moving between worlds can carry an arc (a rival who followed, a debt owed to someone in another world, a mentor's method). The destination translates it through its own law. | Coordinate with [world absorption rules](WORLD_ABSORPTION_RULES.md) when that proposal settles. |
+
+## BX. Playing off existing plotlines in book worlds
+
+| Code | Idea | Notes |
+|---|---|---|
+| BX1 | **Canon beats as anchors.** Tag canon events with trope IDs and scale (a school tournament is a world-scale TR4). Generated side arcs orbit them: lead-up (training, betting, preparation), the event itself seen from the side, and aftermath (celebration, grief, reform). | The biggest "more" for book worlds. Canon supplies the calendar; generation supplies the life around it. |
+| BX2 | **Side view.** The player lives an adjacent trope: the cook feeding the tournament, a rival of one champion, the shopkeeper the protagonist buys from. | Uses the living-beside-protagonists premise families directly. |
+| BX3 | **Rhymes at small scale.** A village-sized arc that echoes the main plot's shape (a local succession quarrel during a canon succession war) without touching canon cast. | Thematic resonance with low canon risk, so it fits dense canon zones (C1). |
+| BX4 | **Gap arcs.** Arcs set in time skips, offscreen provinces and the years before canon, labeled as fill (C3). | Where generation freedom is highest. |
+| BX5 | **Foreknowledge chains.** A transmigrator or regressor who knows canon gets "prepare for the known disaster" (TR7) chains that lead up to a canon beat; acting on it diverges causally (OD7), and their knowledge loses accuracy as canon drifts (O1). | The classic fan premise as a chain generator, with real decay. |
+| BX6 | **Antagonist plan clocks.** A canon villain's plan advances on the calendar through steps with real requirements. Each step is a trope beat the player can notice, disrupt, or ignore; ignored steps arrive at the canon beat on schedule. | Natural course made playable. Disrupting a step changes downstream steps through their actual requirements. |
+| BX7 | **Divergent successors.** When a canon beat changes, its canonical follow-ups need their causes to still hold (P13 F1). Where they fail, the successor graph (BV1) generates what follows from the new state instead of an authored AU. | Generated "what came next" after a fix-it. Canon correction only through the world's own mechanism (OD8). |
+| BX8 | **Joining a canon arc.** The player can enter a canon character's trope (becoming the mentor the protagonist lacked, or the rival they never had). Reassigning a canon role needs an actual cause (P13 F3). | Fix-it and adopted-by premises from W3 become chain starters. |
+| BX9 | **Spoiler-aware lead-ups.** Foreshadowing for canon beats follows the per-world spoiler dial (C2): full hints in books Weibao has read, vaguer ones where he has not. Changed or randomized canon truths stay sealed by ID. | Public twists are not sealed, but can still be spoilers. |
+
+## ACCOUNT FOR NOW
+
+- **BY1, one chain store.** Chain state (open promises, residue, successor
+  candidates) lives on the A6 thread registry, one authority under AR, in a
+  namespaced save slice with a migration when it is built.
+- **BY2, edges read outcomes.** Successor conditions read settled receipts and
+  relationship state, not the generator's earlier intent, so a chain cannot "know"
+  where it was supposed to go.
+- **BY3, budgets cover spawn.** Hooks spawned by chains (BV4, BV5) count against
+  BS2's open-promise budget; residue decays instead of piling up.
+- **BY4, canon labels.** Canon-anchored tropes (BX1) carry source locators and a
+  canon-status label (canon, fill, AU, inferred), matching C3 and C5.
+- **BY5, prestige carryover is a save decision.** BV7 residue crossing a reset
+  needs an explicit compatibility decision under the inheritance owners before any
+  code.
+
+## LATER / DELEGATE
+
+| Code | Item | Level, effort | Done check |
+|---|---|---|---|
+| BZ1 | Successor graph for three core tropes (rivalry, mentorship, rare find), with up and down edges, as data on BU1's bundles. | Sonnet-medium, small | Seeded headless runs show all three rivalry outcomes reachable and chosen by settled contest results. |
+| BZ2 | BW3 system hook table: which tropes each live system's receipts can trigger (crafting, combat, skills, economy, sites). | Sonnet-low, small doc | One table in this palette; each row names the receipt type it reads. |
+| BZ3 | Genre-family layer for cultivation and academy, with sparse world overrides for two books each. | Opus-medium, medium | Four world packs override fewer than five fields each and still pass BU4's trope report. |
+| BZ4 | Canon-beat anchor list for one fully read world (TTKS B1 or Harry Potter year 1): beats, trope IDs, lead-up and aftermath side arcs, locators only. | Luna-medium reader within AU budget, medium | Private notes hold locators; committed doc paraphrases; spoiler dial noted per beat. |
+| BZ5 | Antagonist plan clock (BX6) for that same world, with step requirements the player can disrupt. | Opus-high, large; waits on BZ4 and world selection | A seeded run where disrupting step 2 changes step 3 through its requirement, not a flag. |
+| BZ6 | Convergence proposer (BV8) behind a per-world dial. | Opus-medium, medium; waits on BZ1 | Report shows convergences only when threads already share place, time or person, or when coincidence budget allows. |
+
+Suggested order, if Weibao picks any: BZ1 and BZ2 make chains and system glue real
+on the Village slice; BZ4 then BZ5 are the first book-world proof.
+
+---
+
+## Round 14 (2026-10-18): building around canon events, then changing them
+
+Request: "how to extend these ideas and more? Building lots of little stuff around
+canon stuff to lead up to it? like in book events, and then we can kind of create
+relevant story/gameplay around that and more? now /more-to-consider on changing
+canon or affecting world events and more?" Extends BX (round 13). Existing owners
+not repeated here: [Timelines](TIMELINES_AND_DIVERGENCE.md) inertia and
+disturbance, divergence sense, other travelers, fate as an entity, time-keeper
+factions and its edge cases (saving or killing canon characters, bootstrap,
+information hazard, being a nobody); OD7 natural course; OD8 mechanism-driven
+correction; P13 F1-F5. All proposals.
+
+**Core position.** One structure serves both halves of the request. Each canon
+event gets a *prerequisite tree*: the people, objects, places, timing and means it
+needs. The nodes of that tree are the little stuff that leads up to it (deliveries,
+training, rumors, repairs, meals), and they are also the levers for changing it.
+Building the lead-up and building divergence are the same authoring job.
+
+## CA. Lots of little stuff around canon events
+
+| Code | Idea | Notes |
+|---|---|---|
+| CA1 | **Event dossier.** Per canon event: prerequisite tree, stakeholders, date window, place, scale, trope IDs (BX1), canon-status label and source locators. Each prerequisite node can surface as a small playable touchpoint. | The authoring unit. One dossier yields dozens of small jobs and every lever in CB. |
+| CA2 | **Event supply chains.** A tournament needs food, seating, banners, healers, wards and spare weapons; a war needs grain, horses, arrows and bandages. Demand rises in the weeks before, prices move, and crafting, gathering and trade get real orders. | BW3 glue at its best: existing systems feed canon events without new mechanics. |
+| CA3 | **Participants prepare where you can see it.** Canon characters train, shop, argue and worry in the days before, on top of C4 offscreen schedules. You can sell them gear, spar with them, or overhear them. | Makes canon cast feel present without changing what they do. |
+| CA4 | **Ambient countdown.** Signals change as the date approaches: more guards, travelers arriving, inns full, prices up, omens in worlds that have them, gossip sharpening. | Environmental storytelling (AV) with a clock. Read through the means available. |
+| CA5 | **Stakeholders as issuers.** Everyone with an interest in how the event goes (bettors, rival houses, spies, worried parents, merchants) issues small requests through S-3. | Quests with real needs instead of generic boards. |
+| CA6 | **Pick your vantage.** The same event can be approached as worker, spectator, competitor, protector, saboteur, profiteer, reporter or healer. Each role has its own small loop before, during and after. | Replay value from one dossier. Fits living-beside-protagonist premises. |
+| CA7 | **Being there matters.** Attending gives witness receipts, firsthand knowledge and reputation. Missing it gives a secondhand account with the teller's bias (AQ bulletins), which can be wrong. | Turns canon beats into knowledge play, not cutscenes. |
+| CA8 | **Aftermath scaffolds.** Cleanup, injured needing care, funerals, memorials, rule changes, new rumors, unpaid debts, and later anniversaries (Q1). | Most of the playable life around an event happens after it. Feeds BV4 residue. |
+| CA9 | **Recurring canon institutions.** Annual exams, festivals, markets and tournaments give repeatable scaffolds; one-off events get dense one-time treatment. | Idle fit: recurring events become seasonal rhythm. |
+| CA10 | **Detail by distance.** Events near in time and place get full scaffolds; distant ones stay as a dossier stub until they come close or the player heads there. | Level of detail (AM) for story, which keeps saves and authoring bounded. |
+| CA11 | **Event-type templates.** Tournament, battle, assassination, disaster, ceremony, exam, heist, revelation, arrival and election each get a dossier template with typical prerequisites, stakeholders and supply chains. A book event fills the template. | Makes the book-to-dossier step fast enough to cover whole series. |
+| CA12 | **Small things that canon never shows.** The canon hero's wand had to be made, the tournament grounds cleared, the message carried. These offscreen jobs are the player's natural niche and can be done without touching the canon outcome. | Low-risk canon contact: participation without divergence, unless the player chooses otherwise. |
+
+## CB. Changing canon and affecting world events
+
+| Code | Idea | Notes |
+|---|---|---|
+| CB1 | **Levers are prerequisite nodes.** Change happens by changing a node: delay a shipment, heal someone who should be injured, warn a guard, buy the last of an ingredient. The chain from your action to the changed event is traceable through receipts. | Small actions with big, explainable effects. Feeds Timelines' disturbance inputs with concrete causes. |
+| CB2 | **Outcomes are a spectrum.** An event can still happen but differently: later, elsewhere, smaller, with fewer deaths, a different winner or a different witness. Happen or not-happen is the rare extreme. | Most interventions should shift an event, which keeps canon recognizable and change frequent. |
+| CB3 | **The need behind the event persists.** Blocking an event usually leaves its cause intact: the ambitious noble still wants the throne, the cult still wants its ritual. The actor replans through other routes with their own means. | Delay and displacement fall out naturally. Removing the need is a bigger, separate lever. |
+| CB4 | **World deltas.** A changed event shifts prices, faction strength, who holds which office, who is alive and what people believe. Downstream dossiers read these deltas when checking their own prerequisites (BX7). | Turns divergence into a world state change other systems can read, not a flag. |
+| CB5 | **Canon's missing work.** Canon events often did a job: the hero grew strong, the villain was weakened, an alliance formed. Remove the event and that job goes undone. Someone has to fill the gap, possibly the player, or the later threat arrives unopposed. | Gives changing canon weight and a natural follow-up arc (responsibility trope). |
+| CB6 | **Credit, blame and the public account.** Who the world thinks caused a change is separate from who did. You may be blamed for a disaster you shrank, or the canon hero credited for your work. | Reuses P31 secrets-as-evidence and AQ biased accounts. Fame stays separate from truth (P33). |
+| CB7 | **Change spends foreknowledge.** Every intervention reduces the accuracy of your canon knowledge downstream (O1, BX5). A divergence map, where a world or cheat allows one, shows which future events are now uncertain. | The natural cost of changing canon, without an artificial limit. |
+| CB8 | **Keeping canon on purpose.** A player may want canon to happen (to keep foreknowledge, or because the canon outcome is good). Nudging events back on course is its own playstyle, using the same levers in reverse. | Player-as-keeper, distinct from the time-keeper NPC factions in Timelines. |
+| CB9 | **One event model for canon and original events.** Generated world events (COSMIC_EVENTS, disasters, original-world wars) use the same dossier format, so scaffolds, levers and deltas work everywhere. | Helps original worlds as much as book worlds. |
+| CB10 | **Player-made world events.** The player can start events that become world events: founding a festival, calling a duel, cornering a market, starting a feud between houses. NPCs then scaffold around them (prepare, bet, supply, gossip) using the same CA rows. | The player becomes a source of canon for their save. Links BV5 and U3 legends. |
+| CB11 | **Reach grows with power.** Early levers are small (a stall, a message); later ones move institutions and wars. The dossier tree exposes deeper nodes as the player's means and standing reach them. | Stories at every power level (AG) through the same structure. |
+| CB12 | **Counterfactual reading.** In worlds with divination, prophecy or simulation cheats, the player can read a likely outcome of a planned change before acting, with the world's accuracy and cost. Reload never rerolls. | Uses A3 readable future. Exact accuracy per world and per means. |
+
+## ACCOUNT FOR NOW
+
+- **CC1, one event model.** Canon and generated world events share the dossier
+  shape and the A6 thread registry; downstream checks read world deltas from one
+  authority (AR), not per-feature flags.
+- **CC2, causes, not scripts.** Prerequisites are checked against actual state
+  (P13 F1). A missing prerequisite changes or moves the event; canon restores
+  itself only through the world's own mechanism (OD8).
+- **CC3, versioned dossiers.** Dossiers carry source snapshot, edition and
+  locators; serial updates (C6) arrive as reviewed changes that leave existing saves
+  on their branch with a note.
+- **CC4, detail by distance.** Scaffolds expand only near the player in time and
+  place (CA10), so save size stays inside the existing budgets (BK4).
+- **CC5, spoilers and seals.** Lead-up hints follow the per-world spoiler dial
+  (C2); changed or randomized truths stay sealed by ID.
+
+## LATER / DELEGATE
+
+| Code | Item | Level, effort | Done check |
+|---|---|---|---|
+| CD1 | Dossier schema and three event-type templates (tournament, disaster, ceremony), as data. | Sonnet-medium, small | Schema doc plus one filled Village example; lint rejects a dossier with an unreachable prerequisite. |
+| CD2 | Fill one book event dossier end to end (extends BZ4), with supply chain, stakeholders and aftermath, locators only. | Luna-medium reader within AU budget, medium | Committed paraphrased dossier, private locators, spoiler dial noted. |
+| CD3 | Lever test: one seeded Village event whose prerequisite the player can delay, producing a shifted (CB2) outcome and a world delta read by a later card. | Opus-medium, medium; waits on CD1 and the P34 spine | Browser run from a fresh origin shows the delay, the shifted event and the later card citing it; save and reload keep it. |
+| CD4 | Divergence inspector (debug only): canon tree versus current state, which nodes changed and why. | Sonnet-low, small | Dev panel lists changed nodes with receipt IDs; nothing in player UI. |
+| CD5 | Player-made world event (CB10) for one case: the player founds a small festival and NPCs scaffold it. | Opus-medium, medium; waits on CD1 | Seeded run shows NPC supply and gossip cards citing the player's festival. |
+
+Suggested order, if Weibao picks any: CD1 then CD3 prove the shared structure on
+Village; CD2 is the first book-world dossier; CD4 makes it tunable.

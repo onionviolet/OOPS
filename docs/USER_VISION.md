@@ -3538,3 +3538,82 @@ SLR5 now says repetition grows fluency (faster, cheaper, steadier work on a dimi
 new information grows understanding. Added SLR34-SLR39 on repetition plateaus, real work as
 practice and memory theft (take, copy or seal; memory carries understanding, not fluency).
 Proposals; no runtime change.
+
+### Tropes in story generation, 2026-10-18
+
+Weibao: "Tropes as aspects of story generation to make things easier and more? how to not
+over do? /more-to-consider". Saved as [round 12 of the story palette](PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md#round-12-2026-10-18-tropes-as-a-generation-layer-and-how-not-to-overdo-them)
+(BR1-BR7 uses, BS1-BS6 overdo modes with per-world dials, BT1-BT5 constraints, BU1-BU6 later
+steps). Proposal only; AD38 bounds it (tropes shape opportunities, mechanisms decide outcomes).
+No runtime change.
+
+Follow-up the same day: "and then extending them? Stuff that leads up to other stuff? ...
+World specific or ones that helps stuff in general? playing off existing plotlines in book
+world and more". Saved as [round 13](PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md#round-13-2026-10-18-trope-chains-general-versus-world-specific-and-canon-plotlines)
+(BV1-BV10 chains, BW1-BW5 core/family/world layers and system glue, BX1-BX9 canon plotlines,
+BY1-BY5 constraints, BZ1-BZ6 later steps). Proposal only; OD7/OD8 and P13 still own canon.
+
+Second follow-up the same day: "Building lots of little stuff around canon stuff to lead up to
+it? like in book events, and then ... create relevant story/gameplay around that ... now
+/more-to-consider on changing canon or affecting world events". Saved as [round 14](PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md#round-14-2026-10-18-building-around-canon-events-then-changing-them)
+(CA1-CA12 lead-up scaffolds, CB1-CB12 changing canon and world events, CC1-CC5 constraints,
+CD1-CD5 later steps). Proposal only; Timelines, OD7/OD8 and P13 still own divergence.
+
+Third follow-up the same day: "What else can be considered here? Little stuff that applies to
+every world creation and more?" Saved as [world core kit round 19](worlds/WORLD_CORE_KIT_SUCCESSOR_2026-10-14.md#round-19-little-stuff-every-world-creation-needs-2026-10-18)
+(KN1-KN12 small aspects, KU1-KU6 authoring tools) with a run-log row in the
+[core audit](audits/WORLD_CORE_KIT_CORE_AUDIT.md). The relationships-and-canon angle went to its
+own session. Proposal only.
+
+### Relationships as a driver of canon change, 2026-10-18
+
+Weibao: "other little world aspects and more? Changing stuff that happens in a world, like
+becoming naruto's friend and then causing a chain of events based on that? we might need a
+separate chat work on relationships and canon and more?" Saved as a new owner,
+[relationships, canon characters and world events](RELATIONSHIPS_AND_CANON_CONSIDERATIONS_2026-10-18.md)
+(RLA-RLI ideas, RLJ1-RLJ9 constraints, RLK1-RLK8 later steps), run in its own session as he
+suggested. Proposal only; Timelines, OD7/OD8 and P13 F3 still own canon change, and AD33 keeps
+NPC-heavy builds sequenced after Village proofs. No runtime change.
+
+Follow-up the same day: "This is interesting, but consider general changes to cannon and more,
+how story progresses or how to implmenet subsequent world and more? more to consider?" Saved as
+[round 2](RELATIONSHIPS_AND_CANON_CONSIDERATIONS_2026-10-18.md#round-2-2026-10-18-canon-change-in-general-how-story-keeps-going-and-the-world-after)
+(RLL change types, RLM story after divergence, RLN baseline-plus-delta world state, RLO later
+worlds, RLP failure modes, RLQ1-RLQ6 constraints, RLR1-RLR7 later steps). Proposal only; no
+runtime change.
+
+### Content ID retirement and frozen-world idle, 2026-10-18
+
+Weibao, after the [subtle rule gaps](reviews/SUBTLE_RULE_GAPS_2026-10-18.md) report: "G5 we dont
+need to worry about safe migration, more to consider? Consider Idle mode where time doesnt move?
+more to consider?" Recorded as an explicit compatibility decision for content IDs: retiring,
+splitting or merging a content ID needs no migration; a save that names an unknown ID drops it
+with a log line. AR6 save slices are otherwise unchanged. The frozen-world idle idea is saved as
+[round 2](reviews/SUBTLE_RULE_GAPS_2026-10-18.md#round-2-frozen-world-idle-and-g5-2026-10-18)
+(G11-G17: two clocks with a time ratio, durations naming their clock, draws on both clocks).
+Proposal only; no runtime change.
+
+Follow-up the same day: "What should we do instead? if the world moves while this game is
+idling, what should happen? ... will things just past by? what happened in yair normally? What
+ideas did we have for this before?" Saved as
+[round 3](reviews/SUBTLE_RULE_GAPS_2026-10-18.md#round-3-when-the-world-keeps-moving-2026-10-18)
+(G18-G25: current code behavior, the 2026-10-15 decisions it rests on, known events as stops,
+per-category standing orders, aftermath for missed events, one runner for all time passage).
+Proposal only; no runtime change.
+
+### Source media for book worlds, 2026-10-18
+
+Weibao: "how to make most use of source material for book worlds? consider LN vs like manga and
+other options and more? more to consider?" Saved in the [source deep dive playbook](research/SOURCE_DEEP_DIVE_PLAYBOOK.md#more-to-consider-source-media-and-getting-the-most-from-them-2026-10-18)
+(SM1-SM12 media, SM-B1-SM-B9 combining, SM-A1-SM-A4 constraints, SM-L1-SM-L5 later steps).
+Proposal only; no reads or acquisition started.
+
+Follow-up: "we can extract text from manga and stuff? Anime can be deferred, SM5-SM7 would
+probably be high priority, SM9 is interesting". Recorded in the playbook as
+[media priorities](research/SOURCE_DEEP_DIVE_PLAYBOOK.md#weibaos-media-priorities-2026-10-18):
+SM5-SM7 high, SM9 next, anime deferred.
+
+Follow-up: "Can we locally run a model to process? More to consider? What games, data books
+and more and stuff should we put on shortlist to obtain?" Saved as [local models](research/SOURCE_DEEP_DIVE_PLAYBOOK.md#local-models-for-source-processing-2026-10-18)
+(LM1-LM7; local vision smoke test passed) and a [source media shortlist](research/FUTURE_ACQUISITION_QUEUE_2026-10-13.md#source-media-shortlist-for-canon-first-worlds-2026-10-18)
+in the acquisition queue. Purchases and downloads still need his yes.

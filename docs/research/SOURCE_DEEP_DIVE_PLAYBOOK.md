@@ -431,3 +431,168 @@ Validation: helper interfaces and their ordering/duplicate caveats inspected;
 updated local links and anchors resolved; the pre-fold template is gitignored;
 targeted document whitespace checks passed. No gameplay check is needed for
 this documentation-only change.
+
+## More to consider: source media and getting the most from them, 2026-10-18
+
+Weibao: "how to make most use of source material for book worlds? consider LN vs
+like manga and other options and more? more to consider?" Proposals for method,
+not new reads. Existing owners stay: M1-M5 above, [source acquisition tools](SOURCE_ACQUISITION_TOOLS.md),
+the [comic medium palette](../COMIC_WORLDS_AND_MEDIUM_CONSIDERATIONS_2026-10-14.md)
+(medium as presentation and cheats), story palette C5 adaptation versions and C8
+translation names, kit SF1-SF10 provenance tags, WAC27 canon conflicts and WAC30
+native-script names.
+
+Gap found: the modules above assume prose. Nothing says which medium to read for
+which question, how to extract from images or video, or how to use side material.
+
+**Core position.** Each medium is best at different things. Read prose for rules
+and inner life, art for look and space, animation for motion and sound, games and
+sourcebooks for numbers, and side material for daily life. Then pick the cheapest
+medium that answers each question, per arc.
+
+### What each medium gives (SM)
+
+| Code | Medium | Best for | Weak at, or watch for | Extraction route |
+|---|---|---|---|---|
+| SM1 | **Light novel, web novel, prose** | Power rules, costs, interiority, exposition, prices and numbers, a character's reasoning | Visual layout and scale; web and LN versions often differ (rewrites, added arcs); translations disagree | Existing reader shards (AU13). Record which version (WN, LN, translation) per fact. |
+| SM2 | **LN extras** | Color pages, character art, afterwords, short side stories at volume ends | Easy to skip in bulk reads | Flag extras in the shard plan; side stories are daily-life gold (SM9). |
+| SM3 | **Manga, manhwa, manhua, webtoon** | Architecture, clothing, body language, crowd and market scenes, maps, scale, fight choreography, sound effects, background signs and food | Compressed or cut exposition; adaptations reorder or drop arcs; manhwa of web novels (ORV, Solo Leveling) can change details | Page-level locators (vol, ch, page, panel). Text via OCR of the user's own copies; visuals by sampling key chapters with vision instead of reading every page. |
+| SM4 | **Anime** | Motion, voice and speech register, music, color palette, timing, ambient sound | Anime-original filler and endings (canon status: adaptation-only); cut subplots | Subtitles as text from owned files; episode guides for targeting; a few stills only where a visual question needs them. |
+| SM5 | **Official games and visual novels** | Mechanics already turned into numbers: stats, item tables, drop rates, maps, routes | Game balance changes canon numbers; game-original content | Existing decompile and source-read standing task, read-only. |
+| SM6 | **TTRPG sourcebooks** (D&D and others) | Rules already written as mechanics, stat blocks, settlement and economy tables | Edition and campaign setting differences | Treat edition as the version pin; rules to engine (M2) is nearly direct. |
+| SM7 | **Databooks, guidebooks, fanbooks, author Q&A, interviews** | Official stats, ages, heights, ranks, timelines, cut ideas ("word of God") | Can contradict the main text; later statements retcon | A canon tier between source and supplement (WA3); record date and conflicts (WAC27). |
+| SM8 | **Drama CDs, audio dramas, spin-offs, prequels** | Extra daily life, side characters, backstory | Uneven canon status | Canon status per item; usually supplement. |
+| SM9 | **Side stories, omake, extra chapters, holiday specials** | Meals, festivals, chores, jokes, hobbies, relationships at rest: the K8 and KN detail main plots skip | Scattered, often unindexed | A dedicated daily-life pass that targets them (see SM-B3). |
+| SM10 | **Translator notes and fan glossaries** | Puns, honorifics, cultural terms, alternate names | Fan opinion mixed with fact | Feed C8 and WAC30 name variants; label as fan. |
+| SM11 | **Wikis and fan fiction** | Already covered by M4 and M3 | | Unchanged. |
+| SM12 | **Weibao's own reading** | Which version he pictures, what he loved, his headcanon | Memory drift | A "director's reading" note per world. It sets which medium is the default picture and what to prioritize, without overriding source facts. |
+
+### How to combine them (SM-B)
+
+| Code | Idea | Notes |
+|---|---|---|
+| SM-B1 | **Coverage map per world.** Which arcs exist in which media and versions (manga stops at volume 12, anime covers arcs 1-2, LN rewrote arc 3). | Lets each question go to the cheapest medium that covers that arc. Also shows where only one medium exists. |
+| SM-B2 | **Question routing.** Rules and costs to prose; look, places and crowds to manga; speech and sound to anime; numbers to games, sourcebooks and databooks; daily life to side stories. | Saves budget and fills gaps a single medium leaves. |
+| SM-B3 | **Daily-life pass.** A targeted pass over SM2, SM8 and SM9 for meals, prices, chores, festivals, games and complaints, landing in K8 and kit round 19 KN rows. | Often the highest-value pass per word read. |
+| SM-B4 | **Visual reference notes, not images.** Describe looks in our own words (palette, silhouettes, building shapes, clothing cues, crowd density) for our own art and UI tone. No source images are committed or shipped. | Keeps art direction faithful without copying. Private stills may stay in gitignored `private/`. |
+| SM-B5 | **Event dossiers from panels.** Manga and anime show event logistics prose skips (stalls, crowds, banners, guards), which fill story palette round 14 CA1 dossiers and CA2 supply chains. | Visual media make canon events playable. |
+| SM-B6 | **Voice capture.** Speech register, catchphrases, address habits and verbal tics from anime and drama audio, paraphrased, for per-world dialogue grammar (kit KW2). | Short catchphrases may be quoted as names; no scripts copied. |
+| SM-B7 | **Conflicts across media are data.** When media disagree, record both with locators and the reading the pack chose (WAC27, C5). The world can switch versions later. | Unbiased lens: report what each medium shows. |
+| SM-B8 | **Default primary medium.** Start a world from the medium Weibao knows best (SM12); otherwise from the original medium (often the web novel or LN). Use others to fill gaps. | A proposal default; a world's own data can override. |
+| SM-B9 | **Budget by medium.** Images and video cost far more model input per fact than text. Prefer text routes (prose, OCR, subtitles, wikis to target chapters) and sample visuals only for visual questions. | Fits AU1-AU15. Visual readers get their own small budget line. |
+
+### ACCOUNT FOR NOW
+
+- **SM-A1, version pin per fact.** Every extracted fact records medium, version
+  (WN, LN, manga, anime, game, edition) and locator, extending SF1 provenance. A
+  fact without its medium cannot be checked against a conflict later.
+- **SM-A2, private stays private.** OCR output, subtitles, stills and scans
+  follow the same rule as raw prose: gitignored `docs/research/<source>/private/`,
+  never committed. Committed docs paraphrase.
+- **SM-A3, acquisition rules apply.** Visual and video media go through
+  [source acquisition tools](SOURCE_ACQUISITION_TOOLS.md) and its polite
+  transport. Buying needs Weibao's yes.
+- **SM-A4, adaptation-only content is labeled.** Filler arcs, game-original
+  events and adaptation endings carry an adaptation canon status and do not
+  override the world's chosen primary version unless that world picks them.
+
+### LATER / DELEGATE
+
+| Code | Item | Level, effort | Done check |
+|---|---|---|---|
+| SM-L1 | Coverage maps (SM-B1) for three priority worlds that have several media (ORV, Solo Leveling, Harry Potter). | Sonnet-low, small | One table per world: arcs by medium and version, with source gaps. |
+| SM-L2 | Manga OCR pilot on one owned chapter. `tesseract` and `ffmpeg` are installed locally; stylized balloon and vertical Japanese text may need a manga-specific OCR model. | Sonnet-medium, small | Private text file with page and panel locators; error rate noted on a sample page. |
+| SM-L3 | Subtitle extraction pilot from one owned episode file. | Sonnet-low, small | Private SRT text with episode and timestamp locators. |
+| SM-L4 | Daily-life pass (SM-B3) on one fully read world's side stories (TTKS or Mother of Learning, if extras exist). | Luna-medium reader within AU budget, medium | K8 and KN rows with locators; no raw prose committed. |
+| SM-L5 | Visual reference notes (SM-B4) for one world from sampled manga chapters. | Opus-medium with vision, medium | A palette, silhouette and place-shape note in our words; no images committed. |
+
+### Weibao's media priorities, 2026-10-18
+
+Weibao: "we can extract text from manga and stuff? Anime can be deferred, SM5-SM7 would
+probably be high priority, SM9 is interesting".
+
+- **High priority:** SM5 official games and visual novels, SM6 TTRPG sourcebooks,
+  SM7 databooks, guidebooks and author Q&A. These already hold numbers and rules
+  in near-mechanical form.
+- **Interesting, next in line:** SM9 side stories and omake, through the SM-B3
+  daily-life pass (SM-L4).
+- **Deferred:** SM4 anime and SM-L3 subtitle extraction. SM-B6 voice capture
+  falls back to prose dialogue and drama audio until anime is picked up.
+- **Manga text (SM3):** extraction is possible. Host check 2026-10-18: `tesseract`
+  has only `eng` and `osd` data; no manga-specific OCR is installed. English
+  scanlation balloons are usually readable with tesseract after cropping;
+  Japanese or stylized text needs a manga-specific model or a vision-model read,
+  which costs more per page. SM-L2 stays the pilot.
+
+### Local models for source processing, 2026-10-18
+
+Weibao: "Can we locally run a model to process? More to consider?"
+
+**Host facts (checked 2026-10-18).** Apple M5 Pro, 64 GB memory, about 163 GB disk
+free. Ollama is installed (`~/.local/bin/ollama`) with `gemma4:31b-mlx` (vision,
+262k context), `qwen3.8:27b` (vision, thinking levels) and an abliterated Qwen
+27B q8. Tesseract has `eng` and `osd` only; no MLX Python, LM Studio or
+manga-specific OCR installed.
+
+**Smoke test.** `gemma4:31b-mlx` with thinking off transcribed panel headings and
+log lines from a 1366x768 game screenshot correctly in about 36 seconds including
+model load, at about 5 output tokens a second. That proves the local vision route
+works on this host; it is not a manga accuracy measurement.
+
+| Code | Idea | Notes |
+|---|---|---|
+| LM1 | **Local first pass, frontier review.** Local models do bulk work (page transcription, OCR cleanup, tagging facts by K-part, first-pass tables); a frontier model reviews samples and does synthesis. | Local output is free in money and budget-neutral under AU rules, but weaker at long reasoning. Spot-check accuracy per source before trusting a whole run. |
+| LM2 | **Manga route.** Vision model reads each page (text plus a short visual note), optionally after tesseract on cropped balloons for English. Japanese raws go to the vision model or a manga OCR model installed later. | Output to private files with vol/ch/page/panel locators (SM-A1, SM-A2). |
+| LM3 | **Databook and scan route.** Japanese or English scans of databooks and material books: vision transcription, then local translation draft for Japanese, then frontier check on stat tables. | Directly serves SM7, Weibao's high priority. |
+| LM4 | **Game data route.** Extracted game tables (decompiles, data files, public APIs) get structured by a local model into fact records with K-part tags. | Serves SM5. Mechanical, ideal for local. |
+| LM5 | **Overnight batches.** Long runs go in a detached process group with a queue file and resumable progress, stopped by PID (AGENTS shared practice). | 5 tokens a second means hours for a volume; schedule while idle. |
+| LM6 | **Accuracy gate per source.** Before a full run, hand-check 3-5 pages against the original; record the error rate in the task record. | AD36 efficient verification: one sample gate, not per-page review. |
+| LM7 | **Privacy upside.** Local processing keeps raw scans and text on this machine, which fits the private-folder rule better than sending pages out. | |
+
+ACCOUNT FOR NOW: local output carries the same provenance (SF1, SM-A1) plus the
+model name and a `machine-transcribed` or `machine-translated` label (WAC16's
+`translated`) until checked. Disk is 82 percent full, so bulk image sets need a
+size estimate before download.
+
+#### Gemma 4 31B versus Qwen 3.8 27B, 2026-10-18
+
+Weibao: "Gemma vs Qwen? What are the benchmarks out there and more?"
+
+**Published numbers (third-party aggregators, checked 2026-10-18; not official
+model cards, and pages disagree with each other):**
+
+| Area | Gemma 4 31B | Qwen 3.8 27B | Source |
+|---|---|---|---|
+| General intelligence index | 15 or 19 (pages differ) | 34 | [Artificial Analysis](https://artificialanalysis.ai/models/comparisons/qwen3-8-27b-vs-gemma-4-31b) |
+| GPQA / Humanity's Last Exam | 84.3 / 26.5 | 89.2 / 30.8 | [BenchLM](https://benchlm.ai/compare/gemma-4-31b-vs-qwen3-8-27b) |
+| Coding (LiveCodeBench v6) | 80.0 | 90.3 | [BetterClaw blog](https://www.betterclaw.io/blog/gemma-4-27b-vs-qwen-3-6-27b) |
+| Tool calling | reported ahead | behind | same blog |
+| Vision, five-task average | 57.7 | 69.5 | [Roboflow](https://playground.roboflow.com/models/compare/gemma-4-31b-vs-qwen3-8-27b) |
+| OCR | 84.7 (small internal set) | 81.4, last of 30 (single run) | [Roboflow](https://playground.roboflow.com/models/compare/gemma-4-31b-vs-qwen3-vl-30b-a3b-instruct), [Roboflow](https://playground.roboflow.com/models/qwen/qwen3-8-27b) |
+
+No source had official OCR, MMMU or Japanese-specific scores for either model.
+Reading: Qwen leads on reasoning and coding; OCR evidence is thin and slightly
+favors Gemma.
+
+**Local head-to-head (this host, 2026-10-18).** A synthetic manga-style test page
+(two Japanese lines and an English line in balloons, a stat table, a Japanese and
+English sound effect), temperature 0, thinking off:
+
+| Check | Gemma 4 31B | Qwen 3.8 27B | Tesseract (eng only) |
+|---|---|---|---|
+| Japanese and English text | Exact | Exact | Failed on Japanese, dropped table cells |
+| Stat table to CSV | Exact | Exact | Partial |
+| Translation of 体力 | "physical strength" | "stamina" (closer) | n/a |
+| Sound effect ドドド | Kept as written | Romanized wrongly as "Dodo" | Garbled |
+| Wall time (warm Gemma, Qwen with 5 s load) | 20 s | 38 s | instant |
+| Output speed | 11 tokens/s | 10 tokens/s | n/a |
+
+Clean synthetic text is the easy case. Real scans add vertical text,
+screentones, hand lettering and low resolution, so SM-L2 on real owned pages
+remains the deciding test.
+
+**Proposed default (LM8).** Gemma 4 31B for bulk page transcription (faster here,
+slightly better OCR evidence); Qwen 3.8 27B for reasoning-heavy steps
+(translation, interpreting stat tables, turning facts into engine records). Both
+fit in memory at once. Re-run this check on the first real pages and swap if the
+real error rates disagree. The abliterated Qwen variant adds nothing for this work.

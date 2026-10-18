@@ -156,3 +156,69 @@ book priority and keeps each TTKS core separate. W15 remains the schema owner;
 the register distinguishes explicit unbound profiles, content, local handlers,
 source and proof gaps. An objective can verify a feature without defining its
 whole scope. No new kit quota, implementation gate or runtime dispatch follows.
+
+## Round 19: little stuff every world creation needs (2026-10-18)
+
+Request (Weibao, 2026-10-18), after story palette rounds 12-14 on tropes, chains
+and canon events: "What else can be considered here? Little stuff that applies to
+every world creation and more?" One palette round, no lanes. Proposals only.
+
+Coverage check first: K1-K34, the micro sections (KM, KV, KT, KK, KC, KG), the
+subtle sections (KS, KQ, KP, KD, KR) and TW-S's small touches already cover
+greetings, address, weather, festivals, queues, pets, prices, jobs, signals and
+ripples. A keyword pass over both roots and the topic wave found almost nothing on
+waste and sanitation, darkness and light, leisure (games, gambling, music,
+hobbies), folk wisdom (proverbs, lullabies, wrong common beliefs), lost things and
+petty crime, or units and measures. This round fills those and adds a few
+cross-world authoring tools. Each row is a default and a dial, set per world.
+
+### Small world aspects the kit lacked (KN)
+
+| Code | Aspect | Default and dial |
+|---|---|---|
+| KN1 | **Waste and where it goes.** Night soil, middens, sewers, recycling spells, a cleaning familiar, a disposal chute. Who does the work, what it costs, what it smells like. | One line per world. Magic worlds say what magic does to waste (Hogwarts vanishing, cultivator inedia). Dirty jobs are a ready K8 job and a class marker. |
+| KN2 | **Darkness and light.** What lights the night (tallow, oil, glowstones, ward-lamps, electric), what it costs, when people go to bed, what walks in the dark. | Sets the world's evening rhythm and makes night travel a real choice. Links weather and the clock; light is an item and a law (a world where light keeps monsters off). |
+| KN3 | **Leisure.** Local games (board, card, dice), gambling and its debts, music and instruments, sports, storytelling nights, hobbies. | Two or three per world. Games are cheap minigame or idle-skill hooks; gambling links debt chains (story palette BV4); music links instruments (tools IP rows). |
+| KN4 | **Folk wisdom.** Proverbs, lullabies, children's rhymes, nursery fears, wrong common beliefs ("iron stops ghosts"). Each can be true, half true or false under the world's laws. | Folk belief is a K11 knowledge record, never automatic truth (K2.6). A proverb that turns out literally true is a cheap discovery; a lullaby can hide a sealed secret's route. |
+| KN5 | **Lost things and petty crime.** Pickpockets, lost purses, a lost-and-found shelf at the inn, stolen laundry, lost children, petty fines. | Small, recurring, idle-friendly events that test custody (SR conserved custody) and give the watch, gossip and appraisal something to do. |
+| KN6 | **Units and measures.** How locals count distance, weight, time and value: li and shichen, leagues and bells, credits and ratings. | Display in local units with an optional hover conversion (UR hover inspection). Local units stay local (WAC23); conversion happens at crossings. |
+| KN7 | **Body care.** Bathing (bathhouses, purification arts, none), hair and grooming, teeth, shaving, cosmetics. | Feeds appearance, reputation and body owners (BHC rows). A bathhouse is a social place in many worlds. |
+| KN8 | **Small animals and pests.** Vermin, strays, birds in the eaves, insects in the stores, local nuisance creatures. | The rat-tail economy already exists in Village; every world needs its equivalent ambient creature with a use and a nuisance. |
+| KN9 | **Sounds by hour.** Bells, calls to prayer, market cries, night watch, training yards, silence. | Cheap presentation (log voice, optional audio later) that tells time and place without UI. Grows with the AX audio owners. |
+| KN10 | **Death customs.** Funerals, graves, mourning periods, inheritance practice, what happens to bodies in a world with necromancy or resurrection. | Every world needs one; it shapes heir play, ghost worlds and grief stories (story palette AC). |
+| KN11 | **Reading and writing.** Who can read, what is written down, scribes and letters, notice boards, what paper costs. | Decides how information spreads (K11) and whether the player can post a notice, forge a letter or read a ruin. |
+| KN12 | **Complaints.** What locals grumble about: taxes, the weather, the sect next door, prices, young people. | One of the fastest ways to make a world feel lived in; complaints also point at real problems the player could fix. |
+
+### Cross-world authoring tools (KU)
+
+| Code | Tool | What it does |
+|---|---|---|
+| KU1 | **Law-to-daily-life pass.** For each K2 law, ask what ordinary life does because of it: if healing magic is cheap, what happened to doctors, scars and insurance? If cultivators live centuries, who inherits? | Turns laws into dozens of small, consistent details. Cheapest way to make a world coherent. Rows land in K8 and KN. |
+| KU2 | **Three questions per noun.** For each signature item, place or job: who makes it, who wants it, what happens when it breaks or runs out. | Every answer is a job, a request or a chain start (story palette BW3). |
+| KU3 | **Texture layers.** Like tropes (story palette BW1): a core texture library (bread, rain, gossip), genre families (cultivation sect life, academy, frontier town, modern city) and world overrides. | A new world inherits plausible small stuff from its family and authors only what differs. Saves most of the per-world effort. |
+| KU4 | **Price-as-worldview.** What is cheap and what is expensive tells the player the world's logic (salt costly, spells cheap; water rationed, information free). Pick four surprising prices per world. | Extends K8.1 price anchors into a world identity signal. |
+| KU5 | **What goes wrong routinely.** Late deliveries, broken tools, sick days, spoiled food, strikes, minor fires. A world where nothing breaks feels fake. | Ambient friction at a per-world rate; cozy worlds low, frontier worlds high. Repair and making systems get steady work. |
+| KU6 | **Ordinary day sample.** Write one hour-by-hour day of an ordinary local. If it can be written from the pack and KN rows without invention, the world has its floor of daily life. | A quick readiness check that complements the K8 floor, not a new gate. |
+
+### ACCOUNT FOR NOW
+
+- **KN-A1, palette not quota.** KN and KU rows are optional texture. They never
+  become gates for a first slice (NX12, KW6); K2, K3, K6, K8 and K13 still define
+  the floor.
+- **KN-A2, beliefs are knowledge.** Folk wisdom (KN4) and complaints (KN12) are
+  actor knowledge records separate from truth (WA12), so a proverb or rumor never
+  leaks a sealed truth.
+- **KN-A3, packs hold them as data.** KN rows land as pack records with canon
+  status (WA3); texture from a family layer (KU3) carries the `generated` or
+  `authored` label, not `source`.
+
+### Suggestions (round 19, ranked)
+
+1. **KU1 law-to-daily-life pass** on the next world card refresh (NX8). Small
+   designer task; done when each K2 law has at least two daily-life rows.
+2. **KU3 texture layers** for two families (cultivation, academy), so new worlds
+   inherit small stuff. Designer plus coder, medium; done when two world packs
+   override fewer than half their texture rows.
+3. **KN1, KN2 and KN3** for Village first, since it is the live slice. Small;
+   done when a rebuilt desktop journey shows a night lighting cost, one game and
+   one waste job.

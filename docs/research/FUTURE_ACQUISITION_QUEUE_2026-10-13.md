@@ -68,3 +68,62 @@ Decompile or source-read every queued game Weibao already owns. Re-run the local
 | 15 | Godville, Progress Quest | Zero-player idle extremes | Public play; Progress Quest source is public *unverified* |
 
 The 2026-10-13 candidate list and scope-comparison discussion happened in chat. This file is now the owner of that queue.
+
+## Source media shortlist for canon-first worlds, 2026-10-18
+
+Weibao: "What games, data books and more and stuff should we put on shortlist to obtain?"
+Follows his media priorities (SM5 games, SM6 sourcebooks, SM7 databooks high; SM9 side
+stories next; anime deferred) in the [source playbook](SOURCE_DEEP_DIVE_PLAYBOOK.md#weibaos-media-priorities-2026-10-18).
+Proposal only; every purchase or download needs his yes. Titles and contents are
+**MEMORY, unverified**: confirm edition, language and availability before choosing a route.
+Ordered by the canon-first world order in PROJECT.md, then by value for mechanics.
+
+**Tier 1, free or already public (no purchase):**
+
+| Rank | Source | World | Why |
+|---:|---|---|---|
+| 1 | D&D System Reference Document 5.2 (CC-BY-4.0) | D&D | Official rules, spells, monsters and items under an open license; rules to engine is nearly direct |
+| 2 | Weaver Dice (Wildbow's tabletop rules) | Worm | The author's own power-classification and trigger rules as a game system |
+| 3 | Atlas Academy FGO game data (public database and API) | Fate | Servant parameters, skills and Noble Phantasm data already as numbers |
+| 4 | Author Q&A collections: Mother of Learning (Reddit), Worm word-of-God, Cuttlefish Q&A for LOTM | MoL, Worm, LOTM | SM7 author statements; record date and conflicts |
+| 5 | Fate/stay night [Remastered] text, if owned | Fate | Visual novel script holds the route rules and servant stat screens |
+
+**Tier 2, databooks and material books (purchase, often Japanese, so LM3 route):**
+
+| Rank | Source | World | Why |
+|---:|---|---|---|
+| 1 | Fate/complete material I-IV (Type-Moon) | Fate | Servant stat sheets (parameter ranks, skills); near-mechanical |
+| 2 | Naruto Hiden databooks (Rin, Tō, Hyō, Sha no Sho) | Naruto | Per-character stat parameters, jutsu entries, ranks |
+| 3 | Bleach SOULs., MASKED, UNMASKED (and later VIBEs) | Bleach | Character stats, zanpakutō, Gotei structure |
+| 4 | Jujutsu Kaisen official fanbook | JJK | Technique and grade details, author answers |
+| 5 | Hunter x Hunter Hunter's Guide | HxH | Nen categories and character data |
+| 6 | Fullmetal Alchemist Profiles and Perfect Guidebooks | FMA | Alchemy rules, state military structure |
+| 7 | Fantastic Beasts and Where to Find Them, Quidditch Through the Ages, Tales of Beedle the Bard | Harry Potter | In-universe canon reference books: creatures, sport rules, folklore (also SM9-style texture) |
+| 8 | D&D 2024 Player's Handbook, Dungeon Master's Guide, Monster Manual | D&D | Beyond the SRD: full classes, settlement and treasure tables |
+
+**Tier 3, official games (SM5; decompile or data-read only if owned):**
+
+| Rank | Game | World | Why |
+|---:|---|---|---|
+| 1 | Baldur's Gate 3 | D&D | 5e rules implemented as data; readable game data files |
+| 2 | Hogwarts Legacy | Harry Potter | Spell, potion, plant and beast tables, school routine; game-original content labeled adaptation |
+| 3 | Bleach Brave Souls / Solo Leveling: Arise / JJK Phantom Parade | Bleach, Solo Leveling, JJK | Gacha stat data, often mirrored on public wikis; read the wiki first |
+| 4 | Reverend Insanity playtest (already queued above) | Reverend Insanity | Licensed Gu rules as game state; access may have closed |
+
+**Gaps.** No official games or databooks are known for TTKS, A Soldier's Life,
+Shadow Slave, Reincarnation Paradise, Mother of Learning or Cradle; their best
+SM7 route is author Q&A, and SM9 is any side stories or extras.
+
+**Inventory check 2026-10-18.** Installed Steam games include The Scroll of Taiwu,
+Amazing Cultivation Simulator, Caves of Qud, Dwarf Fortress, Potionomics and
+Stardew Valley; none of the Tier 3 titles is installed. Owned-but-uninstalled titles
+were not checked.
+
+**Next sources, recommendation 2026-10-18 (proposal).** Weibao asked "what's the best
+source material that we need next?" Nothing new blocks the current build target (early
+LOTM Seer slice, Cyoria pack): the LOTM novel is already in the local Calibre library.
+Ranked by value per cost: (1) D&D SRD 5.2.1, free under CC-BY-4.0, version-locked per the
+[tabletop sweep](TABLETOP_BOOK_SWEEP_2026-10-14.md); (2) LOTM side stories and extra
+chapters for the SM9 daily-life pass, checking the local copy first; (3) the three Harry
+Potter in-universe books. Fate material books follow when Fate becomes active; anime-world
+databooks wait for their place in the canon-first order. Download needs Weibao's yes.
