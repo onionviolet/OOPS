@@ -770,6 +770,11 @@ round covers the parts of money they left out. Proposals only; codes continue.
 
 ### M19: keeping wealth safe
 
+**Correction, 2026-10-18 (Weibao):** theft is not automatic. Wealth is at risk
+only when someone notices it and wants it. M25 replaces "carrying money attracts
+thieves" below, which is kept as history.
+
+
 Carrying money attracts thieves, and storing it needs a place:
 
 - **Storage:** a home stash, a bank, a sect treasury, a spatial ring, a System
@@ -784,6 +789,12 @@ Carrying money attracts thieves, and storing it needs a place:
   watch may help where it exists.
 
 ### M20: taxes, tolls and fees
+
+**Correction, 2026-10-18 (Weibao):** not every world has a collector. Frontier,
+wild, stateless and many System worlds have none, and a peaceful world can have
+no tolls at all. "Each has a collector" below means "where a world has one"; M26
+restates it.
+
 
 Gate tolls, market stall fees, guild dues, temple tithes, import duties on
 cross-world goods and sales tax in modern worlds. Each has a collector with a
@@ -858,3 +869,112 @@ Once money stops being the bottleneck, it should open new kinds of play:
 | L22 | Stone gambling or dice using appraisal knowledge | designer + coder | M | Better appraisal improves expected value; a reload shows the same result |
 | L23 | Travelling merchant with rotating foreign stock | mid coder | S–M | Merchant arrives and leaves on a schedule, stock has a stated origin, and a returning visit shows new goods |
 | L24 | Player-issued coin accepted within a reputation radius | strong designer + coder | L | Coin is accepted where the player's name is known and refused or discounted elsewhere |
+
+## Exposure, optional institutions and carryover exchange, consideration round 5, 2026-10-18
+
+**Prompt (Weibao, 2026-10-18):** wealth doesn't have to get stolen; others have to
+see it first. A collector isn't needed in every world. Can resources from a
+previous save be exchanged for a better starting point next time? Proposals only.
+Corrections to M19 and M20 are noted in place above.
+
+### M25: wealth is information before it is a target
+
+Someone has to know, or believe, that you have wealth before anything happens:
+
+- **How they learn:** they see you pay or sell, a merchant talks, your clothes or
+  mount give it away, rumor spreads from a big sale, or an appraiser or System
+  user reads you. Each route can be blocked: pay quietly, sell through a broker,
+  dress down, or use a concealment means.
+- **Knowledge spreads at a rate and within a scope** (SR's scoped discovery). A
+  big sale in a city is known in that market the same day and in the next town
+  only later, if at all. In a hermit's valley, nobody may ever know.
+- **Belief isn't truth.** Rumor can exaggerate or understate your wealth (SR's
+  claims separate from truth). A thief may go after money you don't have, and a
+  real fortune can stay unnoticed.
+- **Knowing isn't wanting.** Most people who learn you're rich do something else:
+  merchants seek you out, beggars and fundraisers appear, sects recruit, suitors
+  call, officials want a cut, rivals get jealous. Theft is one response among
+  many, and it needs someone with motive, means and opportunity.
+- **First slice, coarse:** while NPC-heavy work is deferred (AD33), a per-place
+  "known wealth" level, raised by visible acts and fading over time, is enough.
+  The world's lawlessness and the people present decide what follows. A safe
+  world can have no thieves at all.
+
+### M26: institutions are world data, and absence is a valid value
+
+Taxes, tolls, guilds, banks, licenses and money changers exist where a world's
+society has made them. Absence is a choice as valid as presence and needs no
+explanation beyond the world's nature: no state, nobody to collect it, or a
+culture without coin. A System world may tax through the System itself, or not
+at all. Each world card lists the institutions it has (L17's currency field),
+and any absent from that list are simply not there.
+
+### M27: exchanging a previous life's resources for a better start
+
+The [accepted continuation direction](../../../../worlds/CONTINUATION_CHOICE_CONSIDERATION_2026-10-13.md#starting-continuation-answer-and-research-routes-2026-10-15)
+is modest continuation by default, with better carryover earned through play or
+special starts. Under AD11, every crossing needs a carrier. Within that, exchange
+can work several ways in-fiction:
+
+- **Conversion at death or departure:** a System, god, death reward (D3 in
+  [first cheats](../../../../worlds/FIRST_CHEATS_AND_DEATH_REWARDS_2026-10-13.md))
+  or reincarnation bureau converts what you leave behind into starting
+  advantages at its own rate: starting coin, an item, a skill head start, a
+  better origin pool or an anchor upgrade. The carrier values things by its own
+  rules (EC4), not local prices, so a mana crystal can matter a lot to it even
+  if it was a curio in the world where you held it.
+- **Planning ahead:** you stockpile before the end, pay into a soul bank or
+  life-insurance contract during life, or invest in your own next start.
+  Whether this works depends on the carrier, and research can improve it.
+- **Leaving it in the world:** worlds keep their histories (AD4) and memories
+  carry (AD11). A cache you buried, an account under a passphrase or a debt
+  someone owes you can still be there in the next life. Knowing where it is
+  is your carryover, and reaching it in your new body is the play.
+- **The heir route:** already in [the heir rule](../../../../RULES_FROM_SCRATCH.md#the-heir).
+  An heir receives property through inheritance law where it exists.
+- **Across separate saves (out of fiction):** a "legacy start" setting can let a
+  new save import a summary exported from an ended save, much like New Game+. It
+  is a player setting, labelled as such, not a carrier in the fiction. It reads
+  an export, never touches the original save, and its rate is a dial.
+
+What the exchange buys should feel like a better start, not a skipped game: a
+head start, wider choices or one strong item. It shouldn't replace the new
+world's own progression. How generous it is follows the world, the carrier and
+the setting.
+
+### M28: making an ending feel productive
+
+The fun of exchange comes from turning an ending into a decision. Before an
+ending you can see what is likely to carry and roughly at what rate (SC4,
+legibility without omniscience), so spending, stockpiling or burying becomes a
+real choice. After it, the new start names what came from the previous life.
+A sealed carrier clause stays sealed (sealed secrets). The preview shows only
+what the player knows.
+
+### ACT NOW (done this round)
+
+- Corrected M19 and M20 with dated notes and saved M25–M28.
+
+### ACCOUNT FOR NOW
+
+- **A23:** "known wealth" is information state per place with a decay, not a
+  hidden theft roll. Store it beside reputation (A13) so one record holds what a
+  place believes about you.
+- **A24:** institutions read from the world card, and code must handle a world
+  with none of them without errors or empty UI panels.
+- **A25:** a conversion at death writes a receipt that the new life reads. It
+  is part of the continuation save shape and needs a migration or a
+  compatibility decision. Existing heir saves keep their meaning.
+- **A26:** a cross-save legacy import reads an exported summary only. It never
+  opens or writes a personal save (AGENTS safety), and it is marked as a setting
+  in the save.
+
+### LATER / DELEGATE
+
+| Code | Item | Level | Effort | Done check |
+|---|---|---|---|---|
+| L25 | Per-place known-wealth level from visible acts, fading over time | mid coder | M | A big public sale raises it in that place only; a broker sale doesn't; it decays and survives save/reload/import |
+| L26 | One non-theft response to known wealth (a merchant seeks you out) | mid coder | S–M | The response cites the act that revealed the wealth |
+| L27 | Death or departure conversion through one carrier | strong designer + coder | M–L | Ending converts chosen goods at the carrier's rate; the new start lists what came from the old life; the receipt survives reload and import |
+| L28 | Memory-keyed cache found by a later life in the same world | designer + coder | M | A buried cache persists across the life change and is retrievable only by going there |
+| L29 | Cross-save legacy start setting | strong coder | M | A new save imports an export's summary at the chosen rate; the source save file is unchanged (checksum) |
