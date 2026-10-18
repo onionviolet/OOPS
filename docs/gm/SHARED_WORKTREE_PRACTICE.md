@@ -97,3 +97,32 @@ killed the P00 integrator; about 40 minutes were lost.
 - Never use `pkill -f` or `pgrep -f` loops while Codex lanes run.
 - Stop by PID or process group (`kill -TERM -<pgid>`) and wait on `kill -0 <pid>`.
 - Stop servers by port: `lsof -tiTCP:<port> -sTCP:LISTEN`.
+
+## Cleanup round, 2026-10-17
+
+After the 2026-10-17 push (`master` = `codex/gameplay-foundations` = `6fca46c1c`), Weibao asked
+"delete stuff to delete and more? more to consider?". Findings (stated unless marked):
+
+- **Stale index entries, not deletions.** Seven staged deletions (`docs/ARCHITECTURE_RULES.md`, five
+  `docs/reviews/*_2026-10-16.md`, `modular-seams/runs/launch.py`) still exist on disk, identical to
+  HEAD. Three MM files (`GENERATION_FOUNDATION_RULES_2026-10-14.md`, nonhuman-starts `SESSIONS.md`,
+  `NONHUMAN_STARTS_ENGINE_REQUIREMENTS_2026-10-14.md`) have staged line removals that the working
+  tree puts back; mtimes 2026-10-14/16. Inferred: leftovers of an interrupted move, not intent.
+- **Worktrees.** 110 registered; 8 pointed at missing directories; 62 are merged into HEAD and
+  clean (about 24 GB); 37 merged with uncommitted files; 2 unmerged (`w1-campaign` dirty,
+  `claude/world-pack-loader-9cff81` clean). Three had live processes on 2026-10-17
+  (`yair-absorb-all-20261014/integration`, `.claude/worktrees/agent-ad82f23d94f196fae`,
+  `wave-f-checks-4616ad`, `ui-r20-opponent-board-be97bc`). The app's `clean_up_worktrees` only takes
+  sessions idle 30+ days, so it does not reach these.
+- **Untracked bulk in the shared checkout** (about 2.1 GB before the push): screenshot sets,
+  capture JSON, bundle copies, third-party source copies, reader notes. Left out of the public push
+  because of size, copyright or privacy, not because they are worthless.
+
+| Disposition | Item | Done check |
+| --- | --- | --- |
+| ACT NOW (done) | `git worktree prune` removed the 8 missing-directory entries; the R22 session stopped its preview servers, removed its two `launch.json` entries, its worktree and scratch copies | `git worktree list` has no prunable rows |
+| ACCOUNT FOR NOW | A broad "commit everything" sweeps a shared checkout. Default: pathspec commits by area, a cheaper agent sorts, the coordinator checks a clean `git archive HEAD` export (tests, arch, build, links) before any push. Dial: a single owned lane commits directly | Pushed tree passes on a clean export |
+| ACCOUNT FOR NOW | Removing a worktree is safe when its HEAD is an ancestor of the branch tip, `git status --porcelain` is empty and no process has its cwd there (`lsof -d cwd`). Branches stay | Same three checks per worktree |
+| ACCOUNT FOR NOW | Bulk local-only material belongs in `.gitignore` (by directory, not `*.png`, since rounds commit chosen evidence images) or in `private/`, so `git status` stays readable | Untracked count after ignore lines |
+| LATER / DELEGATE | Per-worktree review of the 37 merged-but-dirty worktrees: keep, commit evidence, or remove. Cheap model, low effort | Each one listed with a disposition |
+| LATER / DELEGATE | `styles/oops_branding.css` fails the UI contract (`font-family`); its owner fixes or allowlists it, then the branding lands with `oops-icon.svg` | `npm test` 0 fail with the file committed |
