@@ -5,10 +5,29 @@
 //
 // Adding a panel to a region, or a companion to a context, is a data change here. Stored layouts
 // keep their storage keys and panel IDs, so version 1 layouts read unchanged (GU6, UR17).
+//
+// UIL1 (UIM1, UIM2, 2026-10-18): version 3 also says what kind of surface each panel is and lists
+// the navigation routes. Spec owns where and what kind; the registering module still owns whether
+// a panel is discovered or eligible (one authority per fact, AR3).
+
+// A surface field nobody has decided yet. Written out so a gap is visible, never guessed.
+export const UNSET = 'unset';
+export const SURFACE_TYPES = Object.freeze(['ST1', 'ST2', 'ST3', 'ST4', 'ST5', 'ST6', 'ST7', 'ST8', 'ST9']);
+// `type` ST1–ST9 (UI_SURFACE_TYPES), `home` place and keeper, `frequency` how often play needs it,
+// `status` proposal or accepted, `gate` the discovery owner ('owner': the registering module's
+// discovered()), `reads` UIX2 topics, `contexts` (UIX6), `representations` (UIZ1).
+const surface = (type, more = {}) => Object.freeze({
+    type, home: more.home ?? UNSET, frequency: more.frequency ?? UNSET, status: more.status ?? UNSET, gate: more.gate ?? 'owner',
+    reads: more.reads ? Object.freeze(more.reads) : UNSET, contexts: more.contexts ? Object.freeze(more.contexts) : UNSET,
+    representations: Object.freeze(more.representations ?? ['view']),
+});
+const routed = ['view', 'route'];
 
 export const LAYOUT_SPEC = Object.freeze({
-    // Version 2 (R21) adds boxes and slots; stored placements carry it (GU6).
-    version: 2,
+    // Version 2 (R21) adds boxes and slots; stored placements carry it (GU6). Version 3 (UIL1) adds
+    // surfaces and routes only, so placements stored under these versions read unchanged.
+    version: 3,
+    placementReads: Object.freeze([2]),
     // The five parity-shell regions in grid order. `panels` are fixed homes; a panel not listed in
     // any region lives in `fallback`. `contextual` homes depend on the context. R21c: the awakened
     // status window lives under You (it shows only once the system awakens).
@@ -77,7 +96,99 @@ export const LAYOUT_SPEC = Object.freeze({
         // cell per opponent with its own letter, health and selection. Nothing is aggregated.
         groupFrom: 'grid', groupCellEm: 7, groupMaxColumns: 4,
     }),
+    // UIM1: surface fields for every panel the game registers. Types follow the ST table and its
+    // TR2 rehoming; shell parts (You, Around you, Inventory, the place, current work) have no ST
+    // type yet and stay UNSET until the surface types cover them. Contexts are filled only where
+    // a contextual home or the panel's own eligibility fixes them (companions stay in `contexts`); reads use the UIX2 topic names.
+    surfaces: Object.freeze({
+        'vitals': surface(UNSET, {reads: ['body']}),
+        'shell-character': surface(UNSET),
+        'status-window': surface(UNSET),
+        'focus': surface(UNSET),
+        'shell-detail': surface(UNSET, {contexts: ['idle', 'combat']}),
+        'belongings': surface(UNSET, {reads: ['inventory'], representations: routed}),
+        'combat-controls': surface(UNSET),
+        'shell-inventory-tools': surface(UNSET),
+        'messages': surface('ST9', {representations: ['view', 'log']}),
+        'shell-log-tools': surface('ST9'),
+        'time': surface(UNSET, {reads: ['time']}),
+        'location': surface(UNSET, {reads: ['place']}),
+        'village-scene': surface(UNSET, {home: 'Village', reads: ['place']}),
+        'current-work': surface(UNSET, {reads: ['work']}),
+        'combat': surface(UNSET, {reads: ['combat'], contexts: ['combat']}),
+        'stance': surface(UNSET, {reads: ['combat'], contexts: ['combat']}),
+        'local-actions': surface('ST1', {reads: ['place'], representations: routed}),
+        'practice-actions': surface('ST1'),
+        'pane-navigation': surface(UNSET),
+        'records': surface('ST6', {representations: routed}),
+        'skills': surface(UNSET, {representations: routed}),
+        'preparation': surface(UNSET, {representations: routed}),
+        'known-people': surface('ST6', {representations: routed}),
+        'known-routes': surface('ST6'),
+        'memories': surface('ST6'),
+        'notebook': surface('ST6'),
+        'reading-reference': surface('ST6'),
+        'learned-preparations': surface(UNSET),
+        'village-neighbors': surface('ST6', {home: 'Village'}),
+        'village-travelers': surface('ST6', {home: 'Village', representations: routed}),
+        'world-events': surface(UNSET),
+        'patrol': surface('ST5'),
+        'ledger': surface('ST5', {representations: routed}),
+        'projects': surface('ST8', {representations: routed}),
+        'herbal-experiments': surface(UNSET),
+        'optional-worlds': surface('ST3', {representations: routed}),
+        'beginning': surface('ST3', {representations: routed}),
+        'continuation': surface(UNSET),
+        'equipment-comparison': surface(UNSET),
+        'tools': surface(UNSET),
+        'customization': surface('ST7', {representations: routed}),
+        'customization-effects': surface('ST7'),
+        'customization-preview': surface(UNSET),
+        'customization-rules': surface(UNSET),
+        'customization-sites': surface(UNSET),
+    }),
+    // Center views that are not workspace panels; each opens through its own owner.
+    views: Object.freeze({
+        crafting: surface(UNSET, {representations: routed}),
+        mixing: surface('ST2', {home: 'Village', representations: routed}),
+    }),
+    // UIM2: the navigation routes in bar order. `target` is a panel or view; `tab` selects a Journal
+    // tab after opening; `open` names how the navigation opens it ('here', 'crafting', 'mixing',
+    // 'in-place' for R13 Inventory, else expand); `select` is a control clicked after expanding;
+    // `pane` is the route's position in the Center views panel, if it has one. Route IDs are stable: quick jump (UR28),
+    // log links (UR29) and Back history (UR22) address surfaces by them.
+    routes: Object.freeze([
+        {id: 'local-actions', label: 'Here', key: 'h', target: 'local-actions', open: 'here', pane: 1},
+        {id: 'preparation', label: 'Stats', key: 'e', target: 'preparation', select: 'character_show_stats'},
+        {id: 'belongings', label: 'Inventory', key: 'i', target: 'belongings', open: 'in-place'},
+        {id: 'crafting', label: 'Crafting', key: 'c', target: 'crafting', open: 'crafting', pane: 3},
+        {id: 'mixing', label: 'Mixing', key: 'm', target: 'mixing', open: 'mixing', pane: 4},
+        {id: 'records:quests', label: 'Journal', key: 'j', target: 'records', tab: 'journal_show_quests'},
+        {id: 'records:bestiary', label: 'Bestiary', key: 'b', target: 'records', tab: 'journal_show_bestiary'},
+        {id: 'records:books', label: 'Books', key: 'a', target: 'records', tab: 'journal_show_books'},
+        {id: 'records:data', label: 'Data', key: 'd', target: 'records', tab: 'journal_show_data'},
+        {id: 'records:notebook', label: 'Notebook', key: 'n', target: 'records', tab: 'journal_show_notebook'},
+        {id: 'skills', label: 'Skills', key: 'k', target: 'skills', pane: 2},
+        {id: 'known-people', label: 'People', key: 'p', target: 'known-people'},
+        {id: 'village-travelers', label: 'Travelers', key: 't', target: 'village-travelers'},
+        {id: 'projects', label: 'Projects', key: 'r', target: 'projects'},
+        {id: 'ledger', label: 'Ledger', key: 'l', target: 'ledger'},
+        {id: 'optional-worlds', label: 'Worlds', key: 'w', target: 'optional-worlds'},
+        {id: 'beginning', label: 'Beginning', key: 'g', target: 'beginning'},
+        {id: 'customization', label: 'Settings', key: 's', target: 'customization'},
+    ].map(Object.freeze)),
 });
+
+// UIM2: the route table, one entry per route in bar order, each joined to its target's surface.
+// Navigation, and later quick jump, log links and Back history, read this instead of a list.
+export function routeTable(spec = LAYOUT_SPEC) {
+    return spec.routes.map(route => Object.freeze({...route, surface: spec.surfaces[route.target] || spec.views[route.target] || null}));
+}
+const tables = new WeakMap();
+export function routeById(id, spec = LAYOUT_SPEC) {
+    if (!tables.has(spec)) tables.set(spec, new Map(routeTable(spec).map(route => [route.id, route])));
+    return tables.get(spec).get(id) || null;
+}
 
 export const contextOf = ({combat}) => combat ? 'combat' : 'idle';
 

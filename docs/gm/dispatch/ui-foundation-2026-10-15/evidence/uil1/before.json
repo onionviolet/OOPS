@@ -1,0 +1,2534 @@
+{
+  "phase": "before",
+  "url": "http://127.0.0.1:19541",
+  "targets": {
+    "1920-14": {
+      "nav": {
+        "buttons": [
+          {
+            "label": "Here",
+            "path": "local-actions",
+            "tab": null,
+            "title": "Here · Alt+H",
+            "keys": "Alt+h",
+            "hidden": false,
+            "disabled": false,
+            "overflow": null,
+            "current": "false"
+          },
+          {
+            "label": "Stats",
+            "path": "preparation",
+            "tab": null,
+            "title": "Stats · Alt+E",
+            "keys": "Alt+e",
+            "hidden": false,
+            "disabled": false,
+            "overflow": null,
+            "current": "false"
+          },
+          {
+            "label": "Inventory",
+            "path": "belongings",
+            "tab": null,
+            "title": "Inventory · Alt+I",
+            "keys": "Alt+i",
+            "hidden": false,
+            "disabled": false,
+            "overflow": null,
+            "current": "false"
+          },
+          {
+            "label": "Crafting",
+            "path": "crafting",
+            "tab": null,
+            "title": "Crafting · Alt+C",
+            "keys": "Alt+c",
+            "hidden": false,
+            "disabled": false,
+            "overflow": null,
+            "current": "false"
+          },
+          {
+            "label": "Mixing",
+            "path": "mixing",
+            "tab": null,
+            "title": "Mixing · Alt+M",
+            "keys": "Alt+m",
+            "hidden": false,
+            "disabled": false,
+            "overflow": null,
+            "current": "false"
+          },
+          {
+            "label": "Journal",
+            "path": "records",
+            "tab": "journal_show_quests",
+            "title": "Journal · Alt+J",
+            "keys": "Alt+j",
+            "hidden": false,
+            "disabled": false,
+            "overflow": null,
+            "current": "false"
+          },
+          {
+            "label": "Bestiary",
+            "path": "records",
+            "tab": "journal_show_bestiary",
+            "title": "Bestiary · Alt+B",
+            "keys": "Alt+b",
+            "hidden": false,
+            "disabled": false,
+            "overflow": null,
+            "current": "false"
+          },
+          {
+            "label": "Books",
+            "path": "records",
+            "tab": "journal_show_books",
+            "title": "Books · Alt+A",
+            "keys": "Alt+a",
+            "hidden": false,
+            "disabled": false,
+            "overflow": null,
+            "current": "false"
+          },
+          {
+            "label": "Data",
+            "path": "records",
+            "tab": "journal_show_data",
+            "title": "Data · Alt+D",
+            "keys": "Alt+d",
+            "hidden": false,
+            "disabled": false,
+            "overflow": null,
+            "current": "false"
+          },
+          {
+            "label": "Notebook",
+            "path": "records",
+            "tab": "journal_show_notebook",
+            "title": "Notebook · Alt+N",
+            "keys": "Alt+n",
+            "hidden": false,
+            "disabled": false,
+            "overflow": null,
+            "current": "false"
+          },
+          {
+            "label": "Skills",
+            "path": "skills",
+            "tab": null,
+            "title": "Skills · Alt+K",
+            "keys": "Alt+k",
+            "hidden": false,
+            "disabled": false,
+            "overflow": null,
+            "current": "false"
+          },
+          {
+            "label": "People",
+            "path": "known-people",
+            "tab": null,
+            "title": "People · Alt+P",
+            "keys": "Alt+p",
+            "hidden": false,
+            "disabled": false,
+            "overflow": null,
+            "current": "false"
+          },
+          {
+            "label": "Travelers",
+            "path": "village-travelers",
+            "tab": null,
+            "title": "Travelers · Alt+T",
+            "keys": "Alt+t",
+            "hidden": false,
+            "disabled": false,
+            "overflow": null,
+            "current": "false"
+          },
+          {
+            "label": "Projects",
+            "path": "projects",
+            "tab": null,
+            "title": "Projects · Alt+R",
+            "keys": "Alt+r",
+            "hidden": false,
+            "disabled": false,
+            "overflow": null,
+            "current": "false"
+          },
+          {
+            "label": "Ledger",
+            "path": "ledger",
+            "tab": null,
+            "title": "Ledger · Alt+L",
+            "keys": "Alt+l",
+            "hidden": false,
+            "disabled": false,
+            "overflow": null,
+            "current": "false"
+          },
+          {
+            "label": "Worlds",
+            "path": "optional-worlds",
+            "tab": null,
+            "title": "Worlds · Alt+W",
+            "keys": "Alt+w",
+            "hidden": false,
+            "disabled": false,
+            "overflow": null,
+            "current": "false"
+          },
+          {
+            "label": "Beginning",
+            "path": "beginning",
+            "tab": null,
+            "title": "Beginning · Alt+G",
+            "keys": "Alt+g",
+            "hidden": false,
+            "disabled": false,
+            "overflow": null,
+            "current": "false"
+          },
+          {
+            "label": "Settings",
+            "path": "customization",
+            "tab": null,
+            "title": "Settings · Alt+S",
+            "keys": "Alt+s",
+            "hidden": false,
+            "disabled": false,
+            "overflow": null,
+            "current": "false"
+          }
+        ],
+        "pane": [
+          {
+            "label": "Here",
+            "path": "local-actions",
+            "hidden": false,
+            "disabled": false
+          },
+          {
+            "label": "Skills",
+            "path": "skills",
+            "hidden": false,
+            "disabled": false
+          },
+          {
+            "label": "Crafting",
+            "path": "crafting",
+            "hidden": false,
+            "disabled": false
+          },
+          {
+            "label": "Mixing",
+            "path": "mixing",
+            "hidden": false,
+            "disabled": false
+          }
+        ],
+        "more": "More 0▾",
+        "moreHidden": true,
+        "moreItems": [],
+        "morePanels": [
+          [
+            "",
+            "More panels…",
+            false
+          ],
+          [
+            "herbal-experiments",
+            "Herbal experiments",
+            false
+          ],
+          [
+            "tools",
+            "Tools",
+            false
+          ],
+          [
+            "projects",
+            "Projects",
+            false
+          ],
+          [
+            "beginning",
+            "Your beginning",
+            false
+          ],
+          [
+            "optional-worlds",
+            "Optional worlds",
+            false
+          ],
+          [
+            "notebook",
+            "Notes, practice & people",
+            false
+          ],
+          [
+            "known-people",
+            "People you know",
+            false
+          ],
+          [
+            "patrol",
+            "Patrol & custody",
+            false
+          ],
+          [
+            "village-travelers",
+            "Village travelers",
+            false
+          ],
+          [
+            "village-neighbors",
+            "Village neighbors",
+            false
+          ],
+          [
+            "memories",
+            "Remembered years",
+            false
+          ],
+          [
+            "vitals",
+            "Character vitals",
+            false
+          ],
+          [
+            "combat-controls",
+            "Inventory & combat view",
+            false
+          ],
+          [
+            "skills",
+            "Skills & practice",
+            false
+          ],
+          [
+            "records",
+            "Journal & received accounts",
+            false
+          ],
+          [
+            "preparation",
+            "Character & preparation",
+            false
+          ],
+          [
+            "belongings",
+            "Belongings",
+            false
+          ],
+          [
+            "local-actions",
+            "Local actions",
+            false
+          ],
+          [
+            "messages",
+            "Reports",
+            false
+          ],
+          [
+            "reading-reference",
+            "Reading reference",
+            false
+          ],
+          [
+            "practice-actions",
+            "Practiced actions",
+            false
+          ],
+          [
+            "equipment-comparison",
+            "Equipment comparison",
+            false
+          ],
+          [
+            "shell-inventory-tools",
+            "Inventory tools",
+            false
+          ],
+          [
+            "shell-character",
+            "Stats & equipment",
+            false
+          ],
+          [
+            "shell-detail",
+            "Item details",
+            true
+          ],
+          [
+            "focus",
+            "Focus",
+            false
+          ],
+          [
+            "village-scene",
+            "Village scene",
+            false
+          ],
+          [
+            "current-work",
+            "Current work & saving",
+            false
+          ],
+          [
+            "ledger",
+            "Work Ledger",
+            false
+          ],
+          [
+            "customization",
+            "Appearance",
+            false
+          ],
+          [
+            "customization-effects",
+            "Effects & sound",
+            false
+          ],
+          [
+            "customization-rules",
+            "Original rules",
+            false
+          ],
+          [
+            "customization-preview",
+            "Draft preview",
+            false
+          ],
+          [
+            "customization-sites",
+            "Original site",
+            false
+          ],
+          [
+            "continuation",
+            "Continuing connection",
+            false
+          ]
+        ]
+      },
+      "keys": {
+        "i": {
+          "mode": "local",
+          "back": null,
+          "focus": "control-box-button",
+          "expanded": null,
+          "heading": "Your continuing connection",
+          "afterEsc": {
+            "mode": "local",
+            "back": null,
+            "focus": "control-box-button",
+            "expanded": null,
+            "heading": "Your continuing connection"
+          }
+        },
+        "j": {
+          "mode": "workspace:records",
+          "back": "← Village",
+          "focus": "workspace-module-header expanded-panel-heading",
+          "expanded": null,
+          "heading": "Your continuing connection",
+          "afterEsc": {
+            "mode": "local",
+            "back": null,
+            "focus": null,
+            "expanded": null,
+            "heading": "Your continuing connection"
+          }
+        },
+        "b": {
+          "mode": "workspace:records",
+          "back": "← Village",
+          "focus": "workspace-module-header expanded-panel-heading",
+          "expanded": null,
+          "heading": "Your continuing connection",
+          "afterEsc": {
+            "mode": "local",
+            "back": null,
+            "focus": null,
+            "expanded": null,
+            "heading": "Your continuing connection"
+          }
+        },
+        "a": {
+          "mode": "workspace:records",
+          "back": "← Village",
+          "focus": "workspace-module-header expanded-panel-heading",
+          "expanded": null,
+          "heading": "Your continuing connection",
+          "afterEsc": {
+            "mode": "local",
+            "back": null,
+            "focus": null,
+            "expanded": null,
+            "heading": "Your continuing connection"
+          }
+        },
+        "k": {
+          "mode": "workspace:skills",
+          "back": "← Village",
+          "focus": "workspace-module-header expanded-panel-heading",
+          "expanded": null,
+          "heading": "Your continuing connection",
+          "afterEsc": {
+            "mode": "local",
+            "back": null,
+            "focus": null,
+            "expanded": null,
+            "heading": "Your continuing connection"
+          }
+        },
+        "e": {
+          "mode": "workspace:preparation",
+          "back": "← Village",
+          "focus": "workspace-module-header expanded-panel-heading",
+          "expanded": null,
+          "heading": "Your continuing connection",
+          "afterEsc": {
+            "mode": "local",
+            "back": null,
+            "focus": null,
+            "expanded": null,
+            "heading": "Your continuing connection"
+          }
+        },
+        "h": {
+          "mode": "local",
+          "back": null,
+          "focus": null,
+          "expanded": null,
+          "heading": "Your continuing connection",
+          "afterEsc": {
+            "mode": "local",
+            "back": null,
+            "focus": null,
+            "expanded": null,
+            "heading": "Your continuing connection"
+          }
+        },
+        "c": {
+          "mode": "crafting",
+          "back": "← Village",
+          "focus": "expanded-panel-heading",
+          "expanded": null,
+          "heading": "Crafting",
+          "afterEsc": {
+            "mode": "local",
+            "back": null,
+            "focus": null,
+            "expanded": null,
+            "heading": "Crafting"
+          }
+        },
+        "m": {
+          "mode": "mixing",
+          "back": "← Village",
+          "focus": "expanded-panel-heading",
+          "expanded": null,
+          "heading": "Village mixing counter",
+          "afterEsc": {
+            "mode": "local",
+            "back": null,
+            "focus": null,
+            "expanded": null,
+            "heading": "Village mixing counter"
+          }
+        },
+        "p": {
+          "mode": "workspace:known-people",
+          "back": "← Village",
+          "focus": "workspace-module-header expanded-panel-heading",
+          "expanded": null,
+          "heading": "Village mixing counter",
+          "afterEsc": {
+            "mode": "local",
+            "back": null,
+            "focus": null,
+            "expanded": null,
+            "heading": "Village mixing counter"
+          }
+        },
+        "l": {
+          "mode": "workspace:ledger",
+          "back": "← Village",
+          "focus": "workspace-module-header expanded-panel-heading",
+          "expanded": null,
+          "heading": "Village mixing counter",
+          "afterEsc": {
+            "mode": "local",
+            "back": null,
+            "focus": null,
+            "expanded": null,
+            "heading": "Village mixing counter"
+          }
+        },
+        "s": {
+          "mode": "workspace:customization",
+          "back": "← Village",
+          "focus": "workspace-module-header expanded-panel-heading",
+          "expanded": null,
+          "heading": "Village mixing counter",
+          "afterEsc": {
+            "mode": "local",
+            "back": null,
+            "focus": null,
+            "expanded": null,
+            "heading": "Village mixing counter"
+          }
+        }
+      },
+      "backChain": [
+        {
+          "mode": "workspace:skills",
+          "back": "← Journal",
+          "focus": "workspace-module-header expanded-panel-heading",
+          "expanded": null,
+          "heading": "Village mixing counter"
+        },
+        {
+          "mode": "workspace:records",
+          "back": "← Village",
+          "focus": "workspace-module-header expanded-panel-heading",
+          "expanded": null,
+          "heading": "Village mixing counter"
+        },
+        {
+          "mode": "local",
+          "back": null,
+          "focus": null,
+          "expanded": null,
+          "heading": "Village mixing counter"
+        }
+      ],
+      "errors": []
+    },
+    "1920-21": {
+      "nav": {
+        "buttons": [
+          {
+            "label": "Here",
+            "path": "local-actions",
+            "tab": null,
+            "title": "Here · Alt+H",
+            "keys": "Alt+h",
+            "hidden": false,
+            "disabled": false,
+            "overflow": null,
+            "current": "false"
+          },
+          {
+            "label": "Stats",
+            "path": "preparation",
+            "tab": null,
+            "title": "Stats · Alt+E",
+            "keys": "Alt+e",
+            "hidden": false,
+            "disabled": false,
+            "overflow": null,
+            "current": "false"
+          },
+          {
+            "label": "Inventory",
+            "path": "belongings",
+            "tab": null,
+            "title": "Inventory · Alt+I",
+            "keys": "Alt+i",
+            "hidden": false,
+            "disabled": false,
+            "overflow": null,
+            "current": "false"
+          },
+          {
+            "label": "Crafting",
+            "path": "crafting",
+            "tab": null,
+            "title": "Crafting · Alt+C",
+            "keys": "Alt+c",
+            "hidden": false,
+            "disabled": false,
+            "overflow": null,
+            "current": "false"
+          },
+          {
+            "label": "Mixing",
+            "path": "mixing",
+            "tab": null,
+            "title": "Mixing · Alt+M",
+            "keys": "Alt+m",
+            "hidden": false,
+            "disabled": false,
+            "overflow": null,
+            "current": "false"
+          },
+          {
+            "label": "Journal",
+            "path": "records",
+            "tab": "journal_show_quests",
+            "title": "Journal · Alt+J",
+            "keys": "Alt+j",
+            "hidden": false,
+            "disabled": false,
+            "overflow": null,
+            "current": "false"
+          },
+          {
+            "label": "Bestiary",
+            "path": "records",
+            "tab": "journal_show_bestiary",
+            "title": "Bestiary · Alt+B",
+            "keys": "Alt+b",
+            "hidden": false,
+            "disabled": false,
+            "overflow": null,
+            "current": "false"
+          },
+          {
+            "label": "Books",
+            "path": "records",
+            "tab": "journal_show_books",
+            "title": "Books · Alt+A",
+            "keys": "Alt+a",
+            "hidden": false,
+            "disabled": false,
+            "overflow": null,
+            "current": "false"
+          },
+          {
+            "label": "Data",
+            "path": "records",
+            "tab": "journal_show_data",
+            "title": "Data · Alt+D",
+            "keys": "Alt+d",
+            "hidden": false,
+            "disabled": false,
+            "overflow": null,
+            "current": "false"
+          },
+          {
+            "label": "Notebook",
+            "path": "records",
+            "tab": "journal_show_notebook",
+            "title": "Notebook · Alt+N",
+            "keys": "Alt+n",
+            "hidden": false,
+            "disabled": false,
+            "overflow": null,
+            "current": "false"
+          },
+          {
+            "label": "Skills",
+            "path": "skills",
+            "tab": null,
+            "title": "Skills · Alt+K",
+            "keys": "Alt+k",
+            "hidden": false,
+            "disabled": false,
+            "overflow": null,
+            "current": "false"
+          },
+          {
+            "label": "People",
+            "path": "known-people",
+            "tab": null,
+            "title": "People · Alt+P",
+            "keys": "Alt+p",
+            "hidden": false,
+            "disabled": false,
+            "overflow": null,
+            "current": "false"
+          },
+          {
+            "label": "Travelers",
+            "path": "village-travelers",
+            "tab": null,
+            "title": "Travelers · Alt+T",
+            "keys": "Alt+t",
+            "hidden": false,
+            "disabled": false,
+            "overflow": null,
+            "current": "false"
+          },
+          {
+            "label": "Projects",
+            "path": "projects",
+            "tab": null,
+            "title": "Projects · Alt+R",
+            "keys": "Alt+r",
+            "hidden": false,
+            "disabled": false,
+            "overflow": null,
+            "current": "false"
+          },
+          {
+            "label": "Ledger",
+            "path": "ledger",
+            "tab": null,
+            "title": "Ledger · Alt+L",
+            "keys": "Alt+l",
+            "hidden": false,
+            "disabled": false,
+            "overflow": null,
+            "current": "false"
+          },
+          {
+            "label": "Worlds",
+            "path": "optional-worlds",
+            "tab": null,
+            "title": "Worlds · Alt+W",
+            "keys": "Alt+w",
+            "hidden": false,
+            "disabled": false,
+            "overflow": null,
+            "current": "false"
+          },
+          {
+            "label": "Beginning",
+            "path": "beginning",
+            "tab": null,
+            "title": "Beginning · Alt+G",
+            "keys": "Alt+g",
+            "hidden": false,
+            "disabled": false,
+            "overflow": null,
+            "current": "false"
+          },
+          {
+            "label": "Settings",
+            "path": "customization",
+            "tab": null,
+            "title": "Settings · Alt+S",
+            "keys": "Alt+s",
+            "hidden": false,
+            "disabled": false,
+            "overflow": null,
+            "current": "false"
+          }
+        ],
+        "pane": [
+          {
+            "label": "Here",
+            "path": "local-actions",
+            "hidden": false,
+            "disabled": false
+          },
+          {
+            "label": "Skills",
+            "path": "skills",
+            "hidden": false,
+            "disabled": false
+          },
+          {
+            "label": "Crafting",
+            "path": "crafting",
+            "hidden": false,
+            "disabled": false
+          },
+          {
+            "label": "Mixing",
+            "path": "mixing",
+            "hidden": false,
+            "disabled": false
+          }
+        ],
+        "more": "More 0▾",
+        "moreHidden": true,
+        "moreItems": [],
+        "morePanels": [
+          [
+            "",
+            "More panels…",
+            false
+          ],
+          [
+            "herbal-experiments",
+            "Herbal experiments",
+            false
+          ],
+          [
+            "tools",
+            "Tools",
+            false
+          ],
+          [
+            "projects",
+            "Projects",
+            false
+          ],
+          [
+            "beginning",
+            "Your beginning",
+            false
+          ],
+          [
+            "optional-worlds",
+            "Optional worlds",
+            false
+          ],
+          [
+            "notebook",
+            "Notes, practice & people",
+            false
+          ],
+          [
+            "known-people",
+            "People you know",
+            false
+          ],
+          [
+            "patrol",
+            "Patrol & custody",
+            false
+          ],
+          [
+            "village-travelers",
+            "Village travelers",
+            false
+          ],
+          [
+            "village-neighbors",
+            "Village neighbors",
+            false
+          ],
+          [
+            "memories",
+            "Remembered years",
+            false
+          ],
+          [
+            "vitals",
+            "Character vitals",
+            false
+          ],
+          [
+            "combat-controls",
+            "Inventory & combat view",
+            false
+          ],
+          [
+            "skills",
+            "Skills & practice",
+            false
+          ],
+          [
+            "records",
+            "Journal & received accounts",
+            false
+          ],
+          [
+            "preparation",
+            "Character & preparation",
+            false
+          ],
+          [
+            "belongings",
+            "Belongings",
+            false
+          ],
+          [
+            "local-actions",
+            "Local actions",
+            false
+          ],
+          [
+            "messages",
+            "Reports",
+            false
+          ],
+          [
+            "reading-reference",
+            "Reading reference",
+            false
+          ],
+          [
+            "practice-actions",
+            "Practiced actions",
+            false
+          ],
+          [
+            "equipment-comparison",
+            "Equipment comparison",
+            false
+          ],
+          [
+            "shell-inventory-tools",
+            "Inventory tools",
+            false
+          ],
+          [
+            "shell-character",
+            "Stats & equipment",
+            false
+          ],
+          [
+            "shell-detail",
+            "Item details",
+            true
+          ],
+          [
+            "focus",
+            "Focus",
+            false
+          ],
+          [
+            "village-scene",
+            "Village scene",
+            false
+          ],
+          [
+            "current-work",
+            "Current work & saving",
+            false
+          ],
+          [
+            "ledger",
+            "Work Ledger",
+            false
+          ],
+          [
+            "customization",
+            "Appearance",
+            false
+          ],
+          [
+            "customization-effects",
+            "Effects & sound",
+            false
+          ],
+          [
+            "customization-rules",
+            "Original rules",
+            false
+          ],
+          [
+            "customization-preview",
+            "Draft preview",
+            false
+          ],
+          [
+            "customization-sites",
+            "Original site",
+            false
+          ],
+          [
+            "continuation",
+            "Continuing connection",
+            false
+          ]
+        ]
+      },
+      "keys": {
+        "i": {
+          "mode": "local",
+          "back": null,
+          "focus": "control-box-button",
+          "expanded": null,
+          "heading": "Your continuing connection",
+          "afterEsc": {
+            "mode": "local",
+            "back": null,
+            "focus": "control-box-button",
+            "expanded": null,
+            "heading": "Your continuing connection"
+          }
+        },
+        "j": {
+          "mode": "workspace:records",
+          "back": "← Village",
+          "focus": "workspace-module-header expanded-panel-heading",
+          "expanded": null,
+          "heading": "Your continuing connection",
+          "afterEsc": {
+            "mode": "local",
+            "back": null,
+            "focus": null,
+            "expanded": null,
+            "heading": "Your continuing connection"
+          }
+        },
+        "b": {
+          "mode": "workspace:records",
+          "back": "← Village",
+          "focus": "workspace-module-header expanded-panel-heading",
+          "expanded": null,
+          "heading": "Your continuing connection",
+          "afterEsc": {
+            "mode": "local",
+            "back": null,
+            "focus": null,
+            "expanded": null,
+            "heading": "Your continuing connection"
+          }
+        },
+        "a": {
+          "mode": "workspace:records",
+          "back": "← Village",
+          "focus": "workspace-module-header expanded-panel-heading",
+          "expanded": null,
+          "heading": "Your continuing connection",
+          "afterEsc": {
+            "mode": "local",
+            "back": null,
+            "focus": null,
+            "expanded": null,
+            "heading": "Your continuing connection"
+          }
+        },
+        "k": {
+          "mode": "workspace:skills",
+          "back": "← Village",
+          "focus": "workspace-module-header expanded-panel-heading",
+          "expanded": null,
+          "heading": "Your continuing connection",
+          "afterEsc": {
+            "mode": "local",
+            "back": null,
+            "focus": null,
+            "expanded": null,
+            "heading": "Your continuing connection"
+          }
+        },
+        "e": {
+          "mode": "workspace:preparation",
+          "back": "← Village",
+          "focus": "workspace-module-header expanded-panel-heading",
+          "expanded": null,
+          "heading": "Your continuing connection",
+          "afterEsc": {
+            "mode": "local",
+            "back": null,
+            "focus": null,
+            "expanded": null,
+            "heading": "Your continuing connection"
+          }
+        },
+        "h": {
+          "mode": "local",
+          "back": null,
+          "focus": null,
+          "expanded": null,
+          "heading": "Your continuing connection",
+          "afterEsc": {
+            "mode": "local",
+            "back": null,
+            "focus": null,
+            "expanded": null,
+            "heading": "Your continuing connection"
+          }
+        },
+        "c": {
+          "mode": "crafting",
+          "back": "← Village",
+          "focus": "expanded-panel-heading",
+          "expanded": null,
+          "heading": "Crafting",
+          "afterEsc": {
+            "mode": "local",
+            "back": null,
+            "focus": null,
+            "expanded": null,
+            "heading": "Crafting"
+          }
+        },
+        "m": {
+          "mode": "mixing",
+          "back": "← Village",
+          "focus": "expanded-panel-heading",
+          "expanded": null,
+          "heading": "Village mixing counter",
+          "afterEsc": {
+            "mode": "local",
+            "back": null,
+            "focus": null,
+            "expanded": null,
+            "heading": "Village mixing counter"
+          }
+        },
+        "p": {
+          "mode": "workspace:known-people",
+          "back": "← Village",
+          "focus": "workspace-module-header expanded-panel-heading",
+          "expanded": null,
+          "heading": "Village mixing counter",
+          "afterEsc": {
+            "mode": "local",
+            "back": null,
+            "focus": null,
+            "expanded": null,
+            "heading": "Village mixing counter"
+          }
+        },
+        "l": {
+          "mode": "workspace:ledger",
+          "back": "← Village",
+          "focus": "workspace-module-header expanded-panel-heading",
+          "expanded": null,
+          "heading": "Village mixing counter",
+          "afterEsc": {
+            "mode": "local",
+            "back": null,
+            "focus": null,
+            "expanded": null,
+            "heading": "Village mixing counter"
+          }
+        },
+        "s": {
+          "mode": "workspace:customization",
+          "back": "← Village",
+          "focus": "workspace-module-header expanded-panel-heading",
+          "expanded": null,
+          "heading": "Village mixing counter",
+          "afterEsc": {
+            "mode": "local",
+            "back": null,
+            "focus": null,
+            "expanded": null,
+            "heading": "Village mixing counter"
+          }
+        }
+      },
+      "backChain": [
+        {
+          "mode": "workspace:skills",
+          "back": "← Journal",
+          "focus": "workspace-module-header expanded-panel-heading",
+          "expanded": null,
+          "heading": "Village mixing counter"
+        },
+        {
+          "mode": "workspace:records",
+          "back": "← Village",
+          "focus": "workspace-module-header expanded-panel-heading",
+          "expanded": null,
+          "heading": "Village mixing counter"
+        },
+        {
+          "mode": "local",
+          "back": null,
+          "focus": null,
+          "expanded": null,
+          "heading": "Village mixing counter"
+        }
+      ],
+      "errors": []
+    },
+    "1366-14": {
+      "nav": {
+        "buttons": [
+          {
+            "label": "Here",
+            "path": "local-actions",
+            "tab": null,
+            "title": "Here · Alt+H",
+            "keys": "Alt+h",
+            "hidden": false,
+            "disabled": false,
+            "overflow": null,
+            "current": "false"
+          },
+          {
+            "label": "Stats",
+            "path": "preparation",
+            "tab": null,
+            "title": "Stats · Alt+E",
+            "keys": "Alt+e",
+            "hidden": false,
+            "disabled": false,
+            "overflow": null,
+            "current": "false"
+          },
+          {
+            "label": "Inventory",
+            "path": "belongings",
+            "tab": null,
+            "title": "Inventory · Alt+I",
+            "keys": "Alt+i",
+            "hidden": false,
+            "disabled": false,
+            "overflow": null,
+            "current": "false"
+          },
+          {
+            "label": "Crafting",
+            "path": "crafting",
+            "tab": null,
+            "title": "Crafting · Alt+C",
+            "keys": "Alt+c",
+            "hidden": false,
+            "disabled": false,
+            "overflow": null,
+            "current": "false"
+          },
+          {
+            "label": "Mixing",
+            "path": "mixing",
+            "tab": null,
+            "title": "Mixing · Alt+M",
+            "keys": "Alt+m",
+            "hidden": false,
+            "disabled": false,
+            "overflow": null,
+            "current": "false"
+          },
+          {
+            "label": "Journal",
+            "path": "records",
+            "tab": "journal_show_quests",
+            "title": "Journal · Alt+J",
+            "keys": "Alt+j",
+            "hidden": false,
+            "disabled": false,
+            "overflow": null,
+            "current": "false"
+          },
+          {
+            "label": "Bestiary",
+            "path": "records",
+            "tab": "journal_show_bestiary",
+            "title": "Bestiary · Alt+B",
+            "keys": "Alt+b",
+            "hidden": false,
+            "disabled": false,
+            "overflow": null,
+            "current": "false"
+          },
+          {
+            "label": "Books",
+            "path": "records",
+            "tab": "journal_show_books",
+            "title": "Books · Alt+A",
+            "keys": "Alt+a",
+            "hidden": false,
+            "disabled": false,
+            "overflow": null,
+            "current": "false"
+          },
+          {
+            "label": "Data",
+            "path": "records",
+            "tab": "journal_show_data",
+            "title": "Data · Alt+D",
+            "keys": "Alt+d",
+            "hidden": false,
+            "disabled": false,
+            "overflow": null,
+            "current": "false"
+          },
+          {
+            "label": "Notebook",
+            "path": "records",
+            "tab": "journal_show_notebook",
+            "title": "Notebook · Alt+N",
+            "keys": "Alt+n",
+            "hidden": false,
+            "disabled": false,
+            "overflow": null,
+            "current": "false"
+          },
+          {
+            "label": "Skills",
+            "path": "skills",
+            "tab": null,
+            "title": "Skills · Alt+K",
+            "keys": "Alt+k",
+            "hidden": false,
+            "disabled": false,
+            "overflow": null,
+            "current": "false"
+          },
+          {
+            "label": "People",
+            "path": "known-people",
+            "tab": null,
+            "title": "People · Alt+P",
+            "keys": "Alt+p",
+            "hidden": false,
+            "disabled": false,
+            "overflow": null,
+            "current": "false"
+          },
+          {
+            "label": "Travelers",
+            "path": "village-travelers",
+            "tab": null,
+            "title": "Travelers · Alt+T",
+            "keys": "Alt+t",
+            "hidden": false,
+            "disabled": false,
+            "overflow": null,
+            "current": "false"
+          },
+          {
+            "label": "Projects",
+            "path": "projects",
+            "tab": null,
+            "title": "Projects · Alt+R",
+            "keys": "Alt+r",
+            "hidden": false,
+            "disabled": false,
+            "overflow": null,
+            "current": "false"
+          },
+          {
+            "label": "Ledger",
+            "path": "ledger",
+            "tab": null,
+            "title": "Ledger · Alt+L",
+            "keys": "Alt+l",
+            "hidden": false,
+            "disabled": false,
+            "overflow": null,
+            "current": "false"
+          },
+          {
+            "label": "Worlds",
+            "path": "optional-worlds",
+            "tab": null,
+            "title": "Worlds · Alt+W",
+            "keys": "Alt+w",
+            "hidden": false,
+            "disabled": false,
+            "overflow": "true",
+            "current": "false"
+          },
+          {
+            "label": "Beginning",
+            "path": "beginning",
+            "tab": null,
+            "title": "Beginning · Alt+G",
+            "keys": "Alt+g",
+            "hidden": false,
+            "disabled": false,
+            "overflow": "true",
+            "current": "false"
+          },
+          {
+            "label": "Settings",
+            "path": "customization",
+            "tab": null,
+            "title": "Settings · Alt+S",
+            "keys": "Alt+s",
+            "hidden": false,
+            "disabled": false,
+            "overflow": "true",
+            "current": "false"
+          }
+        ],
+        "pane": [
+          {
+            "label": "Here",
+            "path": "local-actions",
+            "hidden": false,
+            "disabled": false
+          },
+          {
+            "label": "Skills",
+            "path": "skills",
+            "hidden": false,
+            "disabled": false
+          },
+          {
+            "label": "Crafting",
+            "path": "crafting",
+            "hidden": false,
+            "disabled": false
+          },
+          {
+            "label": "Mixing",
+            "path": "mixing",
+            "hidden": false,
+            "disabled": false
+          }
+        ],
+        "more": "More 3▾",
+        "moreHidden": false,
+        "moreItems": [
+          [
+            "Worlds",
+            "optional-worlds",
+            null
+          ],
+          [
+            "Beginning",
+            "beginning",
+            null
+          ],
+          [
+            "Settings",
+            "customization",
+            null
+          ]
+        ],
+        "morePanels": [
+          [
+            "",
+            "More panels…",
+            false
+          ],
+          [
+            "herbal-experiments",
+            "Herbal experiments",
+            false
+          ],
+          [
+            "tools",
+            "Tools",
+            false
+          ],
+          [
+            "projects",
+            "Projects",
+            false
+          ],
+          [
+            "beginning",
+            "Your beginning",
+            false
+          ],
+          [
+            "optional-worlds",
+            "Optional worlds",
+            false
+          ],
+          [
+            "notebook",
+            "Notes, practice & people",
+            false
+          ],
+          [
+            "known-people",
+            "People you know",
+            false
+          ],
+          [
+            "patrol",
+            "Patrol & custody",
+            false
+          ],
+          [
+            "village-travelers",
+            "Village travelers",
+            false
+          ],
+          [
+            "village-neighbors",
+            "Village neighbors",
+            false
+          ],
+          [
+            "memories",
+            "Remembered years",
+            false
+          ],
+          [
+            "vitals",
+            "Character vitals",
+            false
+          ],
+          [
+            "combat-controls",
+            "Inventory & combat view",
+            false
+          ],
+          [
+            "skills",
+            "Skills & practice",
+            false
+          ],
+          [
+            "records",
+            "Journal & received accounts",
+            false
+          ],
+          [
+            "preparation",
+            "Character & preparation",
+            false
+          ],
+          [
+            "belongings",
+            "Belongings",
+            false
+          ],
+          [
+            "local-actions",
+            "Local actions",
+            false
+          ],
+          [
+            "messages",
+            "Reports",
+            false
+          ],
+          [
+            "reading-reference",
+            "Reading reference",
+            false
+          ],
+          [
+            "practice-actions",
+            "Practiced actions",
+            false
+          ],
+          [
+            "equipment-comparison",
+            "Equipment comparison",
+            false
+          ],
+          [
+            "shell-inventory-tools",
+            "Inventory tools",
+            false
+          ],
+          [
+            "shell-character",
+            "Stats & equipment",
+            false
+          ],
+          [
+            "shell-detail",
+            "Item details",
+            true
+          ],
+          [
+            "focus",
+            "Focus",
+            false
+          ],
+          [
+            "village-scene",
+            "Village scene",
+            false
+          ],
+          [
+            "current-work",
+            "Current work & saving",
+            false
+          ],
+          [
+            "ledger",
+            "Work Ledger",
+            false
+          ],
+          [
+            "customization",
+            "Appearance",
+            false
+          ],
+          [
+            "customization-effects",
+            "Effects & sound",
+            false
+          ],
+          [
+            "customization-rules",
+            "Original rules",
+            false
+          ],
+          [
+            "customization-preview",
+            "Draft preview",
+            false
+          ],
+          [
+            "customization-sites",
+            "Original site",
+            false
+          ],
+          [
+            "continuation",
+            "Continuing connection",
+            false
+          ]
+        ]
+      },
+      "moreOpen": [
+        [
+          "Worlds",
+          "optional-worlds",
+          null
+        ],
+        [
+          "Beginning",
+          "beginning",
+          null
+        ],
+        [
+          "Settings",
+          "customization",
+          null
+        ]
+      ],
+      "keys": {
+        "i": {
+          "mode": "local",
+          "back": null,
+          "focus": "control-box-button",
+          "expanded": null,
+          "heading": "Your continuing connection",
+          "afterEsc": {
+            "mode": "local",
+            "back": null,
+            "focus": "control-box-button",
+            "expanded": null,
+            "heading": "Your continuing connection"
+          }
+        },
+        "j": {
+          "mode": "workspace:records",
+          "back": "← Village",
+          "focus": "workspace-module-header expanded-panel-heading",
+          "expanded": null,
+          "heading": "Your continuing connection",
+          "afterEsc": {
+            "mode": "local",
+            "back": null,
+            "focus": null,
+            "expanded": null,
+            "heading": "Your continuing connection"
+          }
+        },
+        "b": {
+          "mode": "workspace:records",
+          "back": "← Village",
+          "focus": "workspace-module-header expanded-panel-heading",
+          "expanded": null,
+          "heading": "Your continuing connection",
+          "afterEsc": {
+            "mode": "local",
+            "back": null,
+            "focus": null,
+            "expanded": null,
+            "heading": "Your continuing connection"
+          }
+        },
+        "a": {
+          "mode": "workspace:records",
+          "back": "← Village",
+          "focus": "workspace-module-header expanded-panel-heading",
+          "expanded": null,
+          "heading": "Your continuing connection",
+          "afterEsc": {
+            "mode": "local",
+            "back": null,
+            "focus": null,
+            "expanded": null,
+            "heading": "Your continuing connection"
+          }
+        },
+        "k": {
+          "mode": "workspace:skills",
+          "back": "← Village",
+          "focus": "workspace-module-header expanded-panel-heading",
+          "expanded": null,
+          "heading": "Your continuing connection",
+          "afterEsc": {
+            "mode": "local",
+            "back": null,
+            "focus": null,
+            "expanded": null,
+            "heading": "Your continuing connection"
+          }
+        },
+        "e": {
+          "mode": "workspace:preparation",
+          "back": "← Village",
+          "focus": "workspace-module-header expanded-panel-heading",
+          "expanded": null,
+          "heading": "Your continuing connection",
+          "afterEsc": {
+            "mode": "local",
+            "back": null,
+            "focus": null,
+            "expanded": null,
+            "heading": "Your continuing connection"
+          }
+        },
+        "h": {
+          "mode": "local",
+          "back": null,
+          "focus": null,
+          "expanded": null,
+          "heading": "Your continuing connection",
+          "afterEsc": {
+            "mode": "local",
+            "back": null,
+            "focus": null,
+            "expanded": null,
+            "heading": "Your continuing connection"
+          }
+        },
+        "c": {
+          "mode": "crafting",
+          "back": "← Village",
+          "focus": "expanded-panel-heading",
+          "expanded": null,
+          "heading": "Crafting",
+          "afterEsc": {
+            "mode": "local",
+            "back": null,
+            "focus": null,
+            "expanded": null,
+            "heading": "Crafting"
+          }
+        },
+        "m": {
+          "mode": "mixing",
+          "back": "← Village",
+          "focus": "expanded-panel-heading",
+          "expanded": null,
+          "heading": "Village mixing counter",
+          "afterEsc": {
+            "mode": "local",
+            "back": null,
+            "focus": null,
+            "expanded": null,
+            "heading": "Village mixing counter"
+          }
+        },
+        "p": {
+          "mode": "workspace:known-people",
+          "back": "← Village",
+          "focus": "workspace-module-header expanded-panel-heading",
+          "expanded": null,
+          "heading": "Village mixing counter",
+          "afterEsc": {
+            "mode": "local",
+            "back": null,
+            "focus": null,
+            "expanded": null,
+            "heading": "Village mixing counter"
+          }
+        },
+        "l": {
+          "mode": "workspace:ledger",
+          "back": "← Village",
+          "focus": "workspace-module-header expanded-panel-heading",
+          "expanded": null,
+          "heading": "Village mixing counter",
+          "afterEsc": {
+            "mode": "local",
+            "back": null,
+            "focus": null,
+            "expanded": null,
+            "heading": "Village mixing counter"
+          }
+        },
+        "s": {
+          "mode": "workspace:customization",
+          "back": "← Village",
+          "focus": "workspace-module-header expanded-panel-heading",
+          "expanded": null,
+          "heading": "Village mixing counter",
+          "afterEsc": {
+            "mode": "local",
+            "back": null,
+            "focus": null,
+            "expanded": null,
+            "heading": "Village mixing counter"
+          }
+        }
+      },
+      "backChain": [
+        {
+          "mode": "workspace:skills",
+          "back": "← Journal",
+          "focus": "workspace-module-header expanded-panel-heading",
+          "expanded": null,
+          "heading": "Village mixing counter"
+        },
+        {
+          "mode": "workspace:records",
+          "back": "← Village",
+          "focus": "workspace-module-header expanded-panel-heading",
+          "expanded": null,
+          "heading": "Village mixing counter"
+        },
+        {
+          "mode": "local",
+          "back": null,
+          "focus": null,
+          "expanded": null,
+          "heading": "Village mixing counter"
+        }
+      ],
+      "errors": []
+    },
+    "1366-21": {
+      "nav": {
+        "buttons": [
+          {
+            "label": "Here",
+            "path": "local-actions",
+            "tab": null,
+            "title": "Here · Alt+H",
+            "keys": "Alt+h",
+            "hidden": false,
+            "disabled": false,
+            "overflow": null,
+            "current": "false"
+          },
+          {
+            "label": "Stats",
+            "path": "preparation",
+            "tab": null,
+            "title": "Stats · Alt+E",
+            "keys": "Alt+e",
+            "hidden": false,
+            "disabled": false,
+            "overflow": null,
+            "current": "false"
+          },
+          {
+            "label": "Inventory",
+            "path": "belongings",
+            "tab": null,
+            "title": "Inventory · Alt+I",
+            "keys": "Alt+i",
+            "hidden": false,
+            "disabled": false,
+            "overflow": null,
+            "current": "false"
+          },
+          {
+            "label": "Crafting",
+            "path": "crafting",
+            "tab": null,
+            "title": "Crafting · Alt+C",
+            "keys": "Alt+c",
+            "hidden": false,
+            "disabled": false,
+            "overflow": null,
+            "current": "false"
+          },
+          {
+            "label": "Mixing",
+            "path": "mixing",
+            "tab": null,
+            "title": "Mixing · Alt+M",
+            "keys": "Alt+m",
+            "hidden": false,
+            "disabled": false,
+            "overflow": null,
+            "current": "false"
+          },
+          {
+            "label": "Journal",
+            "path": "records",
+            "tab": "journal_show_quests",
+            "title": "Journal · Alt+J",
+            "keys": "Alt+j",
+            "hidden": false,
+            "disabled": false,
+            "overflow": null,
+            "current": "false"
+          },
+          {
+            "label": "Bestiary",
+            "path": "records",
+            "tab": "journal_show_bestiary",
+            "title": "Bestiary · Alt+B",
+            "keys": "Alt+b",
+            "hidden": false,
+            "disabled": false,
+            "overflow": null,
+            "current": "false"
+          },
+          {
+            "label": "Books",
+            "path": "records",
+            "tab": "journal_show_books",
+            "title": "Books · Alt+A",
+            "keys": "Alt+a",
+            "hidden": false,
+            "disabled": false,
+            "overflow": null,
+            "current": "false"
+          },
+          {
+            "label": "Data",
+            "path": "records",
+            "tab": "journal_show_data",
+            "title": "Data · Alt+D",
+            "keys": "Alt+d",
+            "hidden": false,
+            "disabled": false,
+            "overflow": null,
+            "current": "false"
+          },
+          {
+            "label": "Notebook",
+            "path": "records",
+            "tab": "journal_show_notebook",
+            "title": "Notebook · Alt+N",
+            "keys": "Alt+n",
+            "hidden": false,
+            "disabled": false,
+            "overflow": null,
+            "current": "false"
+          },
+          {
+            "label": "Skills",
+            "path": "skills",
+            "tab": null,
+            "title": "Skills · Alt+K",
+            "keys": "Alt+k",
+            "hidden": false,
+            "disabled": false,
+            "overflow": null,
+            "current": "false"
+          },
+          {
+            "label": "People",
+            "path": "known-people",
+            "tab": null,
+            "title": "People · Alt+P",
+            "keys": "Alt+p",
+            "hidden": false,
+            "disabled": false,
+            "overflow": null,
+            "current": "false"
+          },
+          {
+            "label": "Travelers",
+            "path": "village-travelers",
+            "tab": null,
+            "title": "Travelers · Alt+T",
+            "keys": "Alt+t",
+            "hidden": false,
+            "disabled": false,
+            "overflow": null,
+            "current": "false"
+          },
+          {
+            "label": "Projects",
+            "path": "projects",
+            "tab": null,
+            "title": "Projects · Alt+R",
+            "keys": "Alt+r",
+            "hidden": false,
+            "disabled": false,
+            "overflow": null,
+            "current": "false"
+          },
+          {
+            "label": "Ledger",
+            "path": "ledger",
+            "tab": null,
+            "title": "Ledger · Alt+L",
+            "keys": "Alt+l",
+            "hidden": false,
+            "disabled": false,
+            "overflow": null,
+            "current": "false"
+          },
+          {
+            "label": "Worlds",
+            "path": "optional-worlds",
+            "tab": null,
+            "title": "Worlds · Alt+W",
+            "keys": "Alt+w",
+            "hidden": false,
+            "disabled": false,
+            "overflow": "true",
+            "current": "false"
+          },
+          {
+            "label": "Beginning",
+            "path": "beginning",
+            "tab": null,
+            "title": "Beginning · Alt+G",
+            "keys": "Alt+g",
+            "hidden": false,
+            "disabled": false,
+            "overflow": "true",
+            "current": "false"
+          },
+          {
+            "label": "Settings",
+            "path": "customization",
+            "tab": null,
+            "title": "Settings · Alt+S",
+            "keys": "Alt+s",
+            "hidden": false,
+            "disabled": false,
+            "overflow": "true",
+            "current": "false"
+          }
+        ],
+        "pane": [
+          {
+            "label": "Here",
+            "path": "local-actions",
+            "hidden": false,
+            "disabled": false
+          },
+          {
+            "label": "Skills",
+            "path": "skills",
+            "hidden": false,
+            "disabled": false
+          },
+          {
+            "label": "Crafting",
+            "path": "crafting",
+            "hidden": false,
+            "disabled": false
+          },
+          {
+            "label": "Mixing",
+            "path": "mixing",
+            "hidden": false,
+            "disabled": false
+          }
+        ],
+        "more": "More 3▾",
+        "moreHidden": false,
+        "moreItems": [
+          [
+            "Worlds",
+            "optional-worlds",
+            null
+          ],
+          [
+            "Beginning",
+            "beginning",
+            null
+          ],
+          [
+            "Settings",
+            "customization",
+            null
+          ]
+        ],
+        "morePanels": [
+          [
+            "",
+            "More panels…",
+            false
+          ],
+          [
+            "herbal-experiments",
+            "Herbal experiments",
+            false
+          ],
+          [
+            "tools",
+            "Tools",
+            false
+          ],
+          [
+            "projects",
+            "Projects",
+            false
+          ],
+          [
+            "beginning",
+            "Your beginning",
+            false
+          ],
+          [
+            "optional-worlds",
+            "Optional worlds",
+            false
+          ],
+          [
+            "notebook",
+            "Notes, practice & people",
+            false
+          ],
+          [
+            "known-people",
+            "People you know",
+            false
+          ],
+          [
+            "patrol",
+            "Patrol & custody",
+            false
+          ],
+          [
+            "village-travelers",
+            "Village travelers",
+            false
+          ],
+          [
+            "village-neighbors",
+            "Village neighbors",
+            false
+          ],
+          [
+            "memories",
+            "Remembered years",
+            false
+          ],
+          [
+            "vitals",
+            "Character vitals",
+            false
+          ],
+          [
+            "combat-controls",
+            "Inventory & combat view",
+            false
+          ],
+          [
+            "skills",
+            "Skills & practice",
+            false
+          ],
+          [
+            "records",
+            "Journal & received accounts",
+            false
+          ],
+          [
+            "preparation",
+            "Character & preparation",
+            false
+          ],
+          [
+            "belongings",
+            "Belongings",
+            false
+          ],
+          [
+            "local-actions",
+            "Local actions",
+            false
+          ],
+          [
+            "messages",
+            "Reports",
+            false
+          ],
+          [
+            "reading-reference",
+            "Reading reference",
+            false
+          ],
+          [
+            "practice-actions",
+            "Practiced actions",
+            false
+          ],
+          [
+            "equipment-comparison",
+            "Equipment comparison",
+            false
+          ],
+          [
+            "shell-inventory-tools",
+            "Inventory tools",
+            false
+          ],
+          [
+            "shell-character",
+            "Stats & equipment",
+            false
+          ],
+          [
+            "shell-detail",
+            "Item details",
+            true
+          ],
+          [
+            "focus",
+            "Focus",
+            false
+          ],
+          [
+            "village-scene",
+            "Village scene",
+            false
+          ],
+          [
+            "current-work",
+            "Current work & saving",
+            false
+          ],
+          [
+            "ledger",
+            "Work Ledger",
+            false
+          ],
+          [
+            "customization",
+            "Appearance",
+            false
+          ],
+          [
+            "customization-effects",
+            "Effects & sound",
+            false
+          ],
+          [
+            "customization-rules",
+            "Original rules",
+            false
+          ],
+          [
+            "customization-preview",
+            "Draft preview",
+            false
+          ],
+          [
+            "customization-sites",
+            "Original site",
+            false
+          ],
+          [
+            "continuation",
+            "Continuing connection",
+            false
+          ]
+        ]
+      },
+      "moreOpen": [
+        [
+          "Worlds",
+          "optional-worlds",
+          null
+        ],
+        [
+          "Beginning",
+          "beginning",
+          null
+        ],
+        [
+          "Settings",
+          "customization",
+          null
+        ]
+      ],
+      "keys": {
+        "i": {
+          "mode": "local",
+          "back": null,
+          "focus": "control-box-button",
+          "expanded": null,
+          "heading": "Your continuing connection",
+          "afterEsc": {
+            "mode": "local",
+            "back": null,
+            "focus": "control-box-button",
+            "expanded": null,
+            "heading": "Your continuing connection"
+          }
+        },
+        "j": {
+          "mode": "workspace:records",
+          "back": "← Village",
+          "focus": "workspace-module-header expanded-panel-heading",
+          "expanded": null,
+          "heading": "Your continuing connection",
+          "afterEsc": {
+            "mode": "local",
+            "back": null,
+            "focus": null,
+            "expanded": null,
+            "heading": "Your continuing connection"
+          }
+        },
+        "b": {
+          "mode": "workspace:records",
+          "back": "← Village",
+          "focus": "workspace-module-header expanded-panel-heading",
+          "expanded": null,
+          "heading": "Your continuing connection",
+          "afterEsc": {
+            "mode": "local",
+            "back": null,
+            "focus": null,
+            "expanded": null,
+            "heading": "Your continuing connection"
+          }
+        },
+        "a": {
+          "mode": "workspace:records",
+          "back": "← Village",
+          "focus": "workspace-module-header expanded-panel-heading",
+          "expanded": null,
+          "heading": "Your continuing connection",
+          "afterEsc": {
+            "mode": "local",
+            "back": null,
+            "focus": null,
+            "expanded": null,
+            "heading": "Your continuing connection"
+          }
+        },
+        "k": {
+          "mode": "workspace:skills",
+          "back": "← Village",
+          "focus": "workspace-module-header expanded-panel-heading",
+          "expanded": null,
+          "heading": "Your continuing connection",
+          "afterEsc": {
+            "mode": "local",
+            "back": null,
+            "focus": null,
+            "expanded": null,
+            "heading": "Your continuing connection"
+          }
+        },
+        "e": {
+          "mode": "workspace:preparation",
+          "back": "← Village",
+          "focus": "workspace-module-header expanded-panel-heading",
+          "expanded": null,
+          "heading": "Your continuing connection",
+          "afterEsc": {
+            "mode": "local",
+            "back": null,
+            "focus": null,
+            "expanded": null,
+            "heading": "Your continuing connection"
+          }
+        },
+        "h": {
+          "mode": "local",
+          "back": null,
+          "focus": null,
+          "expanded": null,
+          "heading": "Your continuing connection",
+          "afterEsc": {
+            "mode": "local",
+            "back": null,
+            "focus": null,
+            "expanded": null,
+            "heading": "Your continuing connection"
+          }
+        },
+        "c": {
+          "mode": "crafting",
+          "back": "← Village",
+          "focus": "expanded-panel-heading",
+          "expanded": null,
+          "heading": "Crafting",
+          "afterEsc": {
+            "mode": "local",
+            "back": null,
+            "focus": null,
+            "expanded": null,
+            "heading": "Crafting"
+          }
+        },
+        "m": {
+          "mode": "mixing",
+          "back": "← Village",
+          "focus": "expanded-panel-heading",
+          "expanded": null,
+          "heading": "Village mixing counter",
+          "afterEsc": {
+            "mode": "local",
+            "back": null,
+            "focus": null,
+            "expanded": null,
+            "heading": "Village mixing counter"
+          }
+        },
+        "p": {
+          "mode": "workspace:known-people",
+          "back": "← Village",
+          "focus": "workspace-module-header expanded-panel-heading",
+          "expanded": null,
+          "heading": "Village mixing counter",
+          "afterEsc": {
+            "mode": "local",
+            "back": null,
+            "focus": null,
+            "expanded": null,
+            "heading": "Village mixing counter"
+          }
+        },
+        "l": {
+          "mode": "workspace:ledger",
+          "back": "← Village",
+          "focus": "workspace-module-header expanded-panel-heading",
+          "expanded": null,
+          "heading": "Village mixing counter",
+          "afterEsc": {
+            "mode": "local",
+            "back": null,
+            "focus": null,
+            "expanded": null,
+            "heading": "Village mixing counter"
+          }
+        },
+        "s": {
+          "mode": "workspace:customization",
+          "back": "← Village",
+          "focus": "workspace-module-header expanded-panel-heading",
+          "expanded": null,
+          "heading": "Village mixing counter",
+          "afterEsc": {
+            "mode": "local",
+            "back": null,
+            "focus": null,
+            "expanded": null,
+            "heading": "Village mixing counter"
+          }
+        }
+      },
+      "backChain": [
+        {
+          "mode": "workspace:skills",
+          "back": "← Journal",
+          "focus": "workspace-module-header expanded-panel-heading",
+          "expanded": null,
+          "heading": "Village mixing counter"
+        },
+        {
+          "mode": "workspace:records",
+          "back": "← Village",
+          "focus": "workspace-module-header expanded-panel-heading",
+          "expanded": null,
+          "heading": "Village mixing counter"
+        },
+        {
+          "mode": "local",
+          "back": null,
+          "focus": null,
+          "expanded": null,
+          "heading": "Village mixing counter"
+        }
+      ],
+      "errors": []
+    }
+  },
+  "placement": {
+    "loaded": "player",
+    "you": "player",
+    "notice": "Edit layout to drag headers, float panels or resize edges and dividers",
+    "reloaded": "player",
+    "stored": {
+      "version": 1,
+      "spec": 2,
+      "contexts": {
+        "idle": {
+          "boxes": {
+            "inventory": "player"
+          },
+          "companions": {},
+          "swap": false
+        },
+        "combat": {
+          "boxes": {},
+          "companions": {},
+          "swap": false
+        }
+      }
+    },
+    "imported": "player",
+    "errors": []
+  }
+}

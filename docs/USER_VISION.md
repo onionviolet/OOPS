@@ -3500,3 +3500,15 @@ agent tho". Round 1 was committed and pushed first by a Sonnet agent (`fd2336aff
 (SLC47-SLC77) with SLR28-SLR33 added to the [proposed rules](SKILL_AND_LEARNING_RULES.md). Work
 began with SLL7, coached timber practice: the craftsman's attention makes the same drill teach two
 mastery instead of one. It is implemented and browser-checked, not yet accepted by him.
+
+### UI that scales: surface manifest, flows and representations, 2026-10-18
+
+Weibao: "How to design better ui that can incorporate all the scopes and more that we want in the
+future?", then "How will the plan interplay into existing R21 and R22 stuff and mroe?", then
+"/more-to-consider what else should be shown more often? what changes when others change? what
+should change because of things? mroe to consider? Ui flow and more? representations of other
+features?" Saved as
+[surface manifest and UI flow](gm/dispatch/ui-foundation-2026-10-15/next-parts/surface-manifest-and-ui-flow-2026-10-18.md)
+(UIM1–UIM5 plan extending `LAYOUT_SPEC`, R21/R22 interplay, UIW glance facts, UIX change
+propagation and contexts, UIY flows, UIZ representations, UIL1–UIL6 later steps). Proposal only;
+no runtime change.

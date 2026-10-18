@@ -83,3 +83,30 @@ test('R21 placement: swaps main boxes, places companions, keeps the log and defa
     assert.equal(regionFit(['focus']), 'combat');
     assert.equal(regionFit(['belongings', 'records']), 'fill');
 });
+
+// UIL1: v3 keeps every R21 navigation route, label and hotkey, and v2 placements read unchanged.
+test('UIL1 route table keeps the R21 routes, labels, hotkeys and tabs in bar order', async () => {
+    const {routeTable, routeById} = await import('../src/layout_spec.js');
+    const r21 = [['Here','h','local-actions'],['Stats','e','preparation'],['Inventory','i','belongings'],['Crafting','c','crafting'],['Mixing','m','mixing'],
+        ['Journal','j','records','journal_show_quests'],['Bestiary','b','records','journal_show_bestiary'],['Books','a','records','journal_show_books'],
+        ['Data','d','records','journal_show_data'],['Notebook','n','records','journal_show_notebook'],['Skills','k','skills'],
+        ['People','p','known-people'],['Travelers','t','village-travelers'],['Projects','r','projects'],['Ledger','l','ledger'],
+        ['Worlds','w','optional-worlds'],['Beginning','g','beginning'],['Settings','s','customization']];
+    assert.deepEqual(routeTable().map(r => [r.label, r.key, r.target, ...(r.tab ? [r.tab] : [])]), r21);
+    assert.deepEqual(routeTable().filter(r => r.pane).sort((x, y) => x.pane - y.pane).map(r => r.label), ['Here', 'Skills', 'Crafting', 'Mixing'], 'Center views keep their R21 order');
+    assert.equal(routeById('records:bestiary').tab, 'journal_show_bestiary');
+    assert.equal(routeById('belongings').open, 'in-place');
+});
+
+test('UIL1 v3 reads v2 placements unchanged and still drops v1 (GU6)', async () => {
+    const {normalizePlacement} = await import('../src/shell_layout_edit.js');
+    const v2 = {version: 1, spec: 2, contexts: {idle: {boxes: {inventory: 'player'}, companions: {journal: 'inventory'}, swap: true}, combat: {boxes: {}, companions: {}, swap: false}}};
+    const read = normalizePlacement(v2);
+    assert.equal(LAYOUT_SPEC.version, 3);
+    assert.equal(read.stale, false);
+    assert.equal(read.spec, 3);
+    assert.deepEqual(read.contexts, v2.contexts);
+    assert.equal(regionFor('belongings', {placement: read.contexts.idle}), 'player');
+    assert.equal(normalizePlacement({...read}).stale, false, 'a v3 placement reads back');
+    assert.equal(normalizePlacement({version: 1, spec: 1, contexts: v2.contexts}).stale, true);
+});

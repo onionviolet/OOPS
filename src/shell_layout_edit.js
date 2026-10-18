@@ -12,7 +12,9 @@ const empty = () => ({boxes: {}, companions: {}, swap: false});
 
 export function normalizePlacement(raw, spec = LAYOUT_SPEC) {
     const out = {version: PLACEMENT_VERSION, spec: spec.version, contexts: {}};
-    const fresh = raw?.version === PLACEMENT_VERSION && raw.spec === spec.version;
+    // A placement stored under a spec version whose boxes and slots this one keeps reads unchanged
+    // (UIL1: v2 placements load under v3) and is rewritten with the current version.
+    const fresh = raw?.version === PLACEMENT_VERSION && (raw.spec === spec.version || !!spec.placementReads?.includes(raw.spec));
     for (const context of CONTEXTS) {
         const from = fresh ? raw.contexts?.[context] : null, to = empty();
         for (const [box, slot] of Object.entries(from?.boxes || {})) if (spec.boxes[box] && !spec.boxes[box].companion && spec.slots[slot] && slot !== 'actions') to.boxes[box] = slot;
