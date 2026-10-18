@@ -332,3 +332,11 @@ Read 2026-10-17: `src/items.js:505–560, 732–762, 3791–3830`; `src/data/cha
 1537–1556`; `src/absorb_e2/durability.js:95–179`; `src/absorb_p23/salvage/salvage.js:1–34`;
 `src/craft_resolver.js:1–44`; `src/domain_registry.js`. One read-only Sonnet survey of `docs/worlds/`
 (no private folders). Docs only; no build, test or browser run.
+
+### Save compatibility update (2026-10-17)
+
+Weibao started IP1-IP3 and said old save compatibility is no worry for now
+([decision](../PROJECT.md)). MT1 and MT2 relax: tools may gain quality or per-instance identity
+without a migration, and the IP2 durability-off regression protects behavior, not old saves. Save,
+reload, Export and Import of new tool state remain required.
+

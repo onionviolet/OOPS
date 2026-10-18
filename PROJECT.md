@@ -649,6 +649,11 @@ build/browser/save acceptance is claimed.
 
 ## Accepted decisions
 
+- **Old save compatibility deferred (2026-10-17, Weibao):** "consider the fact that old save
+  compatibility is no worry for now". Default for current work: a schema change may drop or reset
+  old-save state instead of migrating it, stated in the task record. New state must still survive
+  Save, reload, Export and Import. Dial: revisit before any release or when he asks.
+  [Record](docs/USER_VISION.md#old-save-compatibility-deferred-2026-10-17).
 - **Viewport targets (2026-10-17, Weibao):** "yes, check my screen realestate and what is most
   common?" Primary design target 1920×1080; his MacBook Pro (about 1800×1040 CSS pixels in a
   full-screen browser) is checked every round; 1536×864 and 1366×768 are floors that must not
