@@ -106,6 +106,13 @@ owns the 2026-10-14 crafting palette beyond the materials audit and P6/P8/P11:
 consumable kinds, crafting feel, maker identity, items over time, world crafting
 laws, cheats, idle production, economy, social use and director tools. Proposals only.
 
+[Body, health, injury and medicine](BODY_AND_HEALTH_CONSIDERATIONS_2026-10-17.md)
+owns the 2026-10-17 topic audit round that extends part 35 (H35): the body as the
+first instrument (BHC1-BHC6), medicine as making (BHC7-BHC12), knowing your own
+body (BHC13-BHC16), bodies across worlds (BHC17-BHC20), harm and defeat settings
+and one condition contract on any carrier (BHC21-BHC26). Proposed rulebook:
+[BODY_AND_HEALTH_RULES](BODY_AND_HEALTH_RULES.md) BHR1-BHR30. Proposals only.
+
 [Tools, cursed tools and instruments](TOOLS_AND_INSTRUMENTS_CONSIDERATIONS_2026-10-17.md)
 owns the 2026-10-17 palette for items as instruments (verbs and control, not
 truth): three item roles (TQ1), mundane tool fit, wear, kits and improvisation
