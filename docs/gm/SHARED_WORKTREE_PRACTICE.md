@@ -127,6 +127,41 @@ After the 2026-10-17 push (`master` = `codex/gameplay-foundations` = `6fca46c1c`
 | LATER / DELEGATE | Per-worktree review of the 37 merged-but-dirty worktrees: keep, commit evidence, or remove. Cheap model, low effort | Each one listed with a disposition |
 | LATER / DELEGATE | `styles/oops_branding.css` fails the UI contract (`font-family`); its owner fixes or allowlists it, then the branding lands with `oops-icon.svg` | `npm test` 0 fail with the file committed |
 
+### Cleanup round results, 2026-10-17
+
+Done by the branch-triage session ([triage](BRANCH_TRIAGE_2026-10-16.md)), routed from the R22 chat.
+
+- **D2, merged clean worktrees: 60 removed, about 22 GB freed** (24,041,892 KB by `du`). Each passed
+  the three checks at removal time (HEAD an ancestor of the tip, empty `git status --porcelain`, no
+  process cwd) and went through plain `git worktree remove`. Ten held gitignored run logs or test save
+  exports; those were archived first to `~/.codex/research/worktree-ignored-archive-2026-10-17/`
+  (one `.tgz` per worktree). Two stayed because processes still use them
+  (`yair-absorb-all-20261014/integration`, `.claude/worktrees/wave-f-checks-4616ad`). Branches stay.
+- **Ignore rules** (`.gitignore`, by directory): finished UI rounds only (`evidence/parity-r*`,
+  `r12`–`r14`, `shell`, `shell-r2`, `next-parts/scratch`), so new rounds still add chosen images
+  without `-f`; natural-play captures; ER4 and local-ai `sources/`; MHA reader `*.jsonl`; `*.pid`;
+  `.claude/launch.json` (now untracked, file kept on disk). Shared checkout untracked files went from
+  1,455 (820 MB) to 109 (48 MB).
+- **Branding:** `styles/oops_branding.css` dropped its redundant `font-family` (body already sets
+  `var(--ui-font)`), so the UI contract passes; it and `resources/img/oops-icon.svg` are committed.
+  Gap found: HEAD's `index.html` has none of the [branding](../reviews/OOPS_BRANDING_2026-10-16.md)
+  wiring (no `loading_screen_game_subtitle`, upstream favicon and repository button), so both
+  assets are unreferenced until the branding owner re-applies it.
+
+**Merged worktrees with uncommitted files (36; one of the 37 became clean).** Proposed dispositions;
+removing any of them needs Weibao's yes, since each holds uncommitted files.
+
+| Disposition | Worktrees | Unique content |
+| --- | --- | --- |
+| Remove on yes (about 8 GB) | 23 idle ones whose only changes are rebuilt `dist/bundle.js`, its map and `index.html`: `/tmp/p00-old-main-cc04a4bf`, `/tmp/yairpg-audit-20261014`, `/tmp/yairpg-audit-current-20261014`; `yair-absorb-all-20261014/` air-wider, fork-fort, fork-resurvey, p23-leisure-memory, p23-life-loops, p23-reread, p23-reveal-chain, upstream-dev; `.claude/worktrees/` agent-a31a7ac7607bfd391, hl-lp2, hl-lp3, hv1-carcass, proc-gx5-appearances, proc-p1-streams, proc-p2-mixing, proc-p3-storylets, proc-p34-spine, proc-p4-people, proc-r3-merge, proc-wave1-integration | None (regenerable). hl-lp2/hl-lp3 also hold ignored LP save exports: archive first |
+| Remove on yes | `yair-absorb-all-20261014/natural-play`, Claude scratch `oldclient` | Only an untracked `private_packs/` identical to the main checkout's |
+| Archive, then remove on yes | `.claude/worktrees/ta1-village-asks` | Four failed-attempt screenshots; its dispatch docs match HEAD |
+| Keep for the UI owner (commit chosen evidence or archive) | Claude scratch `merge21b`, `merge21c`; `.codex/worktrees/ui-r18`; `.claude/worktrees/` ui-r21-layout-edit, ui-r21b-retire-selector, ui-r21c-status-window-home; `yair-absorb-all-20261014/p23-ui-polish` | Evidence screenshots not on HEAD or differing from HEAD's copies (13–65 per worktree) |
+| Keep | `yair-air-absorb-20261013/systems-cheats-completion` | Untracked `.proof-old/` (32 files) |
+| Keep (live process) | `.claude/worktrees/agent-ad82f23d94f196fae`, `ui-r20-opponent-board-be97bc` | Session in use |
+
+Unmerged and left alone: `w1-campaign` (dirty), `claude/world-pack-loader-9cff81` (clean).
+
 **Stale index fix, 2026-10-17 (D1).** The ten entries above were unstaged with
 `git restore --staged`, index only; no file or commit changed. The engine thread
 session (owner of `ARCHITECTURE_RULES.md`, the five `docs/reviews/*_2026-10-16.md`

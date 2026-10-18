@@ -1,0 +1,6 @@
+/* OOPS identity on the existing loading threshold; shared typography tokens.
+   The font comes from body (ui_tokens.css), so no font-family here (UI contract). */
+#loading_screen_game_subtitle {
+    font-size: var(--ui-type-title);
+    font-weight: normal;
+}

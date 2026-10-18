@@ -44,3 +44,28 @@ disposable-profile/
 /dist/ui-preview.js
 /dist/ui-preview.js.map
 /dist/ui-preview.receipt.json
+
+# Local-only bulk in the shared checkout (cleanup round 2026-10-17, see
+# docs/gm/SHARED_WORKTREE_PRACTICE.md). Ignored by directory: chosen evidence
+# already committed in these folders stays tracked. Only finished UI rounds are
+# listed, so new rounds still add their chosen images normally; a late addition
+# to a listed round needs `git add -f`.
+/docs/gm/dispatch/ui-foundation-2026-10-15/evidence/parity-r*/
+/docs/gm/dispatch/ui-foundation-2026-10-15/evidence/r12/
+/docs/gm/dispatch/ui-foundation-2026-10-15/evidence/r13/
+/docs/gm/dispatch/ui-foundation-2026-10-15/evidence/r14/
+/docs/gm/dispatch/ui-foundation-2026-10-15/evidence/shell/
+/docs/gm/dispatch/ui-foundation-2026-10-15/evidence/shell-r2/
+/docs/gm/dispatch/ui-foundation-2026-10-15/next-parts/scratch/
+# Natural-play capture runs (checkpoint JSON alone reaches 64 MB)
+/docs/gm/dispatch/absorb-all-2026-10-14/checks/natural-play/
+/docs/gm/dispatch/absorb-all-2026-10-14/checks/natural-play-2/
+# Third-party source copies (public repo); cite them by URL instead
+/docs/gm/dispatch/engine-runtime-2026-10-14/ER4/sources/
+/docs/research/local-ai-2026-10-14/*/sources/
+# Reader notes that may quote book prose
+/docs/worlds/mha/readers-2026-10-14/**/*.jsonl
+# Run PID files
+*.pid
+# Machine-local preview server config (absolute paths, per-session ports)
+/.claude/launch.json
