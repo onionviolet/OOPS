@@ -1,0 +1,16 @@
+{
+  "url": "http://127.0.0.1:62841/",
+  "checks": [
+    "Layout switch preserves spent stock, selection, query and fixture keyboard focus",
+    "Ingredient/reference/recipe journey returns by Esc with query and opener focus",
+    "Missing materials, station and reserved stock attempts spend nothing",
+    "Limited knowledge omits unknown names and recipe from rendered fixture",
+    "Both interactive layouts mirror stock, query, scroll, recorded events and navigation",
+    "Both layouts at actual 14/17.5/21px render inside 1366×768 without fixture page overflow",
+    "Long fixture names and wide viewport render; fixture ID stays stable",
+    "Actual-size mode uses no scale; manual clock stays paused, steps explicitly and resets",
+    "Review download includes exact fixture state, build revision, target, text and unaccepted status",
+    "Fresh origin, no localStorage keys, no page errors"
+  ],
+  "errors": []
+}

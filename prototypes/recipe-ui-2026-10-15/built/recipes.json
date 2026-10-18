@@ -1,0 +1,62 @@
+[
+  {
+    "id": "Roasted rat meat",
+    "name": "Roasted rat meat",
+    "materials": [
+      {
+        "material_id": "Rat meat chunks",
+        "count": 2
+      }
+    ],
+    "chance": [
+      0.7,
+      1
+    ],
+    "levels": [
+      1,
+      5
+    ],
+    "skill": "Cooking",
+    "outputCount": 1,
+    "effects": [
+      {
+        "name": "Cheap meat meal",
+        "duration": 45
+      },
+      {
+        "name": "Slight food poisoning",
+        "duration": 45
+      }
+    ]
+  },
+  {
+    "id": "Roasted purified rat meat",
+    "name": "Roasted purified rat meat",
+    "materials": [
+      {
+        "material_id": "Rat meat chunks",
+        "count": 2
+      },
+      {
+        "material_id": "Belmart leaf",
+        "count": 1
+      }
+    ],
+    "chance": [
+      0.4,
+      1
+    ],
+    "levels": [
+      1,
+      10
+    ],
+    "skill": "Cooking",
+    "outputCount": 1,
+    "effects": [
+      {
+        "name": "Cheap meat meal",
+        "duration": 45
+      }
+    ]
+  }
+]

@@ -1,0 +1,78 @@
+{
+  "schema": 1,
+  "study": "recipes",
+  "question": "Does compact inspection keep results and actions readable while full reference stays easy to reach?",
+  "viewport": "1920x1080",
+  "textPx": 21,
+  "fitPreview": true,
+  "compare": false,
+  "variants": [
+    "adjacent"
+  ],
+  "revision": "1ff037042349385d",
+  "fixture": "Synthetic stock, access and scripted success. Pinned YAIR recipe definitions, tokens and detail renderer from the retained recipe experiment. No game save access.",
+  "limits": "Simplified five-region frame, two recipes, no native RNG/XP or production navigation. Visual choice and native integration remain open.",
+  "acceptance": "Unreviewed proposal. Export does not record human acceptance.",
+  "snapshot": {
+    "schema": 1,
+    "state": {
+      "variant": "adjacent",
+      "scenario": "long",
+      "selected": "Roasted rat meat",
+      "stock": {
+        "Rat meat chunks": 6,
+        "Belmart leaf": 2,
+        "Stale bread": 3,
+        "Roasted rat meat": 0,
+        "Roasted purified rat meat": 0
+      },
+      "station": 1,
+      "reserved": false,
+      "limited": false,
+      "view": "recipes",
+      "subject": null,
+      "history": [],
+      "query": "",
+      "listScroll": 0,
+      "receipt": "",
+      "steps": 0,
+      "running": false,
+      "unread": 0,
+      "focus": null
+    },
+    "events": [
+      {
+        "text": "Known cooking recipes are available for inspection.",
+        "snapshot": null,
+        "step": 0
+      }
+    ],
+    "scroll": [
+      {
+        "key": "region-body",
+        "top": 0
+      },
+      {
+        "key": "region-body",
+        "top": 0
+      },
+      {
+        "key": "stock",
+        "top": 0
+      },
+      {
+        "key": "rows",
+        "top": 0
+      },
+      {
+        "key": "craft_detail_body",
+        "top": 0
+      },
+      {
+        "key": "log",
+        "top": 0
+      }
+    ],
+    "focus": null
+  }
+}
