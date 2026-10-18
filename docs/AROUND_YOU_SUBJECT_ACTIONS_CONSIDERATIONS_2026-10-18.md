@@ -6,6 +6,10 @@ UR42 (no duplicate facts across simultaneous panels), UR13 (nothing disappears
 silently), UR52 (stable navigation). Target viewports: 1366×768 floor and
 1920×1080 primary. Mobile is deferred.
 
+Distilled rules: [presence and interaction rules](PRESENCE_AND_INTERACTION_RULES.md)
+PIR1-PIR25 (proposal). First build slice:
+[S1-S4 packet](gm/dispatch/around-you-2026-10-18/S1_S4_PACKET.md).
+
 ## Problem
 
 In the Village, Actions → "Talk to someone" (legacy dropdown, `src/display.js`
