@@ -29,13 +29,34 @@ export const IMPROVISED = Object.freeze({
     fish: {speed: 0.5, yield: 0.6, means: 'the line wrapped on a branch'},
 });
 
-// Hand repair (IP3): skill, station tier key and material per family. Proposal defaults.
-const REPAIR = Object.freeze({
-    old: {skill: 'Forging', station: 'forging', material: 'Low quality iron ingot'},
-    iron: {skill: 'Forging', station: 'forging', material: 'Iron ingot'},
-    steel: {skill: 'Forging', station: 'forging', material: 'Steel ingot'},
-    wood: {skill: 'Woodworking', station: 'woodworking', material: 'Flax string'},
+// Repair requirements (IP3) by kind, then tool type (equip slot) with a `default` row. Values that
+// differ by tool family are keyed by family with an `any` fallback. Proposal defaults (2026-10-17).
+// Later worlds add rows or kinds (spell mend, maker-only repair, recharge) without changing the command.
+// Inputs guide rather than refuse: a short skill, station or material gives a worse band (REPAIR_BANDS).
+// A row may carry `claim: {belief, basis}` when local knowledge of the repair is missing; the Village has none.
+export const REPAIR_REQUIREMENTS = Object.freeze({
+    hand: Object.freeze({
+        default: {skill: 'Forging', level: {old: 0, iron: 2, steel: 5, any: 2}, station: {tag: 'forging', tier: 1},
+            materials: {old: [{id: 'Low quality iron ingot', count: 1}], steel: [{id: 'Steel ingot', count: 1}], any: [{id: 'Iron ingot', count: 1}]},
+            minutes: {base: 20, perPoint: 0.4}, failure: {maxLoss: 3, floor: 40}},
+        // Fishing poles are rewound and relined at a woodworking bench.
+        fishing_pole: {skill: 'Woodworking', level: {any: 0}, station: {tag: 'woodworking', tier: 1},
+            materials: {any: [{id: 'Flax string', count: 1}]}, minutes: {base: 15, perPoint: 0.3}, failure: {maxLoss: 3, floor: 40}},
+    }),
 });
+// Result band: skill sets the base; each short input lowers restore and raises the failure share.
+export const REPAIR_BANDS = Object.freeze({
+    restore: {base: 0.4, perLevel: 0.06}, chance: {base: 0.55, perLevel: 0.04, max: 0.97, min: 0.1},
+    short: {skill: {restore: 0.15, chance: 0.05}, station: {restore: 0.5, chance: 0.2, lossFactor: 2}, material: {restore: 0.6, chance: 0.25}},
+});
+const pick = (byFamily, kind) => byFamily[kind] ?? byFamily.any;
+export function repairRequirements(kind, profile) {
+    const table = REPAIR_REQUIREMENTS[kind];
+    if (!table || !profile) return null;
+    const row = table[profile.slot] ?? table.default;
+    return {kind, skill: row.skill, level: pick(row.level, profile.family) ?? 0, station: row.station,
+        materials: pick(row.materials, profile.family) ?? [], minutes: row.minutes, failure: row.failure, claim: row.claim ?? null};
+}
 
 export function isToolLike(item) { return !!item?.tags?.tool && Object.hasOwn(VERB_BY_SLOT, item.equip_slot); }
 
@@ -44,10 +65,9 @@ export function instrumentProfile(item) {
     const name = item.id || item.name, verb = VERB_BY_SLOT[item.equip_slot], kind = family(name);
     const bonus = {...(item.base_bonus_skill_levels || {})};
     const levels = Object.values(bonus).reduce((sum, value) => sum + value, 0);
-    // Fishing poles are rewound and relined at a woodworking bench; metal heads go to the forge.
-    const repair = verb === 'fish' ? REPAIR.wood : REPAIR[kind === 'wood' ? 'iron' : kind];
-    return {id: name, slot: item.equip_slot, verb, family: kind, bonus, levels, ...EXTRAS[kind],
-        verbs: {[verb]: {levels}}, improvised: IMPROVISED[verb], repair};
+    const profile = {id: name, slot: item.equip_slot, verb, family: kind, bonus, levels, ...EXTRAS[kind],
+        verbs: {[verb]: {levels}}, improvised: IMPROVISED[verb]};
+    return {...profile, repair: repairRequirements('hand', profile)};
 }
 
 // Same geometric interpolation as misc.js slerp.

@@ -8,7 +8,8 @@ import {pathToFileURL} from 'node:url';
 import {createDurability, equipmentDurability} from '../src/absorb_e2/durability.js';
 import {instrumentProfile, gatherRates, verbNumbers, improvisedRates} from '../src/tool_profiles.js';
 import {domainRegistry} from '../src/domain_registry.js';
-import {configureToolsDomain, setToolsState, toolsState, quoteHandRepair, executeHandRepair, cancelHandRepair, maxCondition, validateTools} from '../src/tools_domain.js';
+import {configureToolsDomain, setToolsState, toolsState, quoteRepair, executeRepair, cancelRepair, maxCondition, validateTools} from '../src/tools_domain.js';
+const quoteHandRepair = key => quoteRepair({kind: 'hand', key}), executeHandRepair = executeRepair, cancelHandRepair = cancelRepair;
 
 // Native item, location and activity tables, bundled with presentation stubbed (as absorb_e2 does).
 let native;
@@ -121,13 +122,25 @@ test('IP3: a hand repair quote consumes nothing (MR4)', () => {
     assert.equal(q.eligible, true, q.reason);
     assert.equal(JSON.stringify([f.inventory, f.durability.serialize(), toolsState()]), before);
     assert.deepEqual(f.draws, []); assert.equal(f.saves(), 0);
-    assert.equal(q.material, 'Iron ingot'); assert.equal(q.skill, 'Forging');
+    assert.deepEqual(q.spent, [{id: 'Iron ingot', count: 1}]); assert.equal(q.skill, 'Forging');
+    assert.ok(q.inputs.every(input => input.met));
     assert.equal(quoteHandRepair(key).minutes, 56);
+    // Short inputs guide rather than refuse: still eligible, with a worse band, and still read-only.
+    const full = quoteHandRepair(key);
     const empty = repairFixture({ingots: 0}), emptyKey = empty.tool.getInventoryKey();
     empty.durability.setCondition(emptyKey, 10);
-    assert.equal(quoteHandRepair(emptyKey).eligible, false);
-    assert.match(quoteHandRepair(emptyKey).reason, /needs 1 Iron ingot/);
-    assert.match(repairFixture({station: 0}) && (empty.durability.setCondition(emptyKey, 10), quoteHandRepair(emptyKey).reason), /forging station/);
+    const noMaterial = quoteHandRepair(emptyKey);
+    assert.equal(noMaterial.eligible, true, noMaterial.reason);
+    assert.deepEqual(noMaterial.inputs.filter(i => !i.met).map(i => i.input), ['material']);
+    assert.ok(noMaterial.restore < full.restore && noMaterial.chance < full.chance); assert.deepEqual(noMaterial.spent, []);
+    const noStation = repairFixture({station: 0}); noStation.durability.setCondition(noStation.tool.getInventoryKey(), 10);
+    const bench = quoteHandRepair(noStation.tool.getInventoryKey());
+    assert.equal(bench.eligible, true); assert.equal(bench.failureLoss, 6); assert.ok(bench.restore < full.restore);
+    const novice = repairFixture({level: 0}); novice.durability.setCondition(novice.tool.getInventoryKey(), 10);
+    const unskilled = quoteHandRepair(novice.tool.getInventoryKey());
+    assert.equal(unskilled.eligible, true); assert.deepEqual(unskilled.inputs.filter(i => !i.met).map(i => i.input), ['skill']);
+    assert.match(quoteRepair({kind: 'spell', key: novice.tool.getInventoryKey()}).reason, /Nobody here knows/);
+    assert.deepEqual(novice.draws, []);
     f.durability.load(undefined);
 });
 

@@ -1,15 +1,13 @@
 import {registerDomain} from './domain_registry.js';
 import {equipmentDurability as durability, setConditionCap, DURABILITY_PROPOSAL} from './absorb_e2/durability.js';
-import {instrumentProfile, improvisedRates, verbNumbers, VERB_LABEL} from './tool_profiles.js';
+import {instrumentProfile, improvisedRates, verbNumbers, VERB_LABEL, repairRequirements, REPAIR_BANDS} from './tool_profiles.js';
 import {createToolsPanel} from './tools_panel.js';
 import {beginNativeCraftTransaction} from './native_craft_transaction.js';
 // Tools domain (IP1-IP3, 2026-10-17). Owns per-instance tool facts that durability does not:
-// max condition and repair history, plus one hand-repair job. Condition itself stays in durability.
+// max condition and repair history, plus one repair job. Condition itself stays in durability and
+// stays one scalar (the tool's body; layered repair is a later phase).
 // Keys are durability instance keys (e2.N), bound the same way prepareEquip binds equipment.
 const MAX = DURABILITY_PROPOSAL.maximum;
-// Hand repair proposal dials: partial by skill, may fail and cost a little max condition.
-export const HAND_REPAIR = Object.freeze({baseRestore: 0.4, restorePerLevel: 0.06, baseChance: 0.55, chancePerLevel: 0.04,
-    maxChance: 0.97, failureMaxLoss: 3, maxFloor: 40, baseMinutes: 20, minutesPerPoint: 0.4, materialCount: 1});
 let state = null, ports, panel;
 const fresh = () => ({schema: 1, instances: {}, job: null});
 const INSTANCE = /"e2_instance":"e2\.[1-9]\d*"/;
@@ -27,7 +25,9 @@ export function validateTools(slice) {
         if (!INSTANCE.test(key) || !Number.isFinite(f?.max) || f.max < 0 || f.max > MAX || !Number.isSafeInteger(f.repairs) || !Number.isSafeInteger(f.failures)) throw Error('Invalid tool instance record.');
     }
     const j = slice.job;
-    if (j != null && (!INSTANCE.test(j.key) || !Number.isFinite(j.minutesLeft) || j.minutesLeft < 0 || !Number.isFinite(j.total) || typeof j.location !== 'string' || typeof j.material !== 'string' || !Number.isFinite(j.restore) || !Number.isFinite(j.chance))) throw Error('Invalid tool repair job.');
+    if (j != null && (!INSTANCE.test(j.key) || typeof j.kind !== 'string' || !Number.isFinite(j.minutesLeft) || j.minutesLeft < 0 || !Number.isFinite(j.total) || typeof j.location !== 'string'
+        || !Array.isArray(j.spent) || j.spent.some(m => typeof m?.id !== 'string' || !Number.isSafeInteger(m.count) || m.count < 1)
+        || !Number.isFinite(j.restore) || !Number.isFinite(j.chance) || !Number.isFinite(j.failureLoss) || !Number.isFinite(j.floor))) throw Error('Invalid tool repair job.');
 }
 
 // Gathering hooks. Durability off: gate always passes with no rates and wear is a no-op,
@@ -59,25 +59,40 @@ function toolRows() {
 }
 
 // MR4/AR7: a quote reads only. No stock, money, condition or draw changes.
-export function quoteHandRepair(key) {
+// Inputs guide rather than refuse: each requirement is shown met or short, and short inputs
+// lower the result band. Only the state of the tool or the player (busy, no instance) stops a quote.
+export function quoteRepair({kind = 'hand', key} = {}) {
     const actor = ports.actor(), item = durability.ownedItem(actor, key), profile = instrumentProfile(item);
-    const out = {key, eligible: false, reason: ''};
-    if (!profile) return {...out, reason: 'Only a carried or equipped tool can be repaired by hand.'};
-    const condition = durability.condition(key), max = maxCondition(key), level = ports.skillLevel(profile.repair.skill);
-    const station = ports.stationTier(profile.repair.station), have = ports.count(profile.repair.material);
-    const missing = Math.max(0, max - condition);
-    const restore = Math.round(missing * Math.min(1, HAND_REPAIR.baseRestore + HAND_REPAIR.restorePerLevel * level) * 100) / 100;
-    const chance = Math.min(HAND_REPAIR.maxChance, HAND_REPAIR.baseChance + HAND_REPAIR.chancePerLevel * level);
-    const minutes = Math.ceil(HAND_REPAIR.baseMinutes + missing * HAND_REPAIR.minutesPerPoint);
-    const q = {...out, name: item.getName(), condition, max, missing, restore, chance, minutes, skill: profile.repair.skill, level,
-        station: profile.repair.station, stationTier: station, location: ports.location(), material: profile.repair.material, have, need: HAND_REPAIR.materialCount,
-        failure: `On a failed repair the tool keeps its condition and loses ${HAND_REPAIR.failureMaxLoss} max condition.`};
+    const out = {kind, key, eligible: false, reason: '', inputs: []};
+    if (!profile) return {...out, reason: 'Only a carried or equipped tool can be repaired.'};
+    const req = repairRequirements(kind, profile);
+    if (!req) return {...out, name: item.getName(), reason: `Nobody here knows a ${kind} repair for this tool.`};
+    if (req.claim) return {...out, name: item.getName(), reason: `Nobody here knows how: ${req.claim.belief} (${req.claim.basis}).`};
+    const condition = durability.condition(key), max = maxCondition(key), missing = Math.max(0, max - condition);
+    const level = ports.skillLevel(req.skill), tier = ports.stationTier(req.station.tag), B = REPAIR_BANDS;
+    const skillGap = Math.max(0, req.level - level), stationShort = tier < req.station.tier;
+    const materials = req.materials.map(m => ({...m, have: ports.count(m.id)}));
+    const supplied = materials.length ? Math.min(...materials.map(m => Math.min(1, m.have / m.count))) : 1;
+    let restoreShare = Math.min(1, B.restore.base + B.restore.perLevel * level), chance = B.chance.base + B.chance.perLevel * level, failureLoss = req.failure.maxLoss;
+    restoreShare *= Math.max(0.25, 1 - B.short.skill.restore * skillGap); chance -= B.short.skill.chance * skillGap;
+    if (stationShort) { restoreShare *= B.short.station.restore; chance -= B.short.station.chance; failureLoss *= B.short.station.lossFactor; }
+    restoreShare *= 1 - B.short.material.restore * (1 - supplied); chance -= B.short.material.chance * (1 - supplied);
+    chance = Math.round(Math.min(B.chance.max, Math.max(B.chance.min, chance)) * 100) / 100;
+    const restore = Math.round(missing * restoreShare * 100) / 100;
+    const minutes = Math.ceil(req.minutes.base + missing * req.minutes.perPoint);
+    const inputs = [
+        {input: 'skill', label: `${req.skill} level ${level} of ${req.level}`, met: skillGap === 0},
+        {input: 'station', label: `${req.station.tag} station tier ${tier} of ${req.station.tier} here`, met: !stationShort},
+        ...materials.map(m => ({input: 'material', label: `${m.id}: ${m.have} of ${m.count}`, met: m.have >= m.count})),
+    ];
+    const spent = materials.map(m => ({id: m.id, count: Math.min(m.have, m.count)})).filter(m => m.count > 0);
+    const q = {...out, name: item.getName(), condition, max, missing, restore, chance, failureLoss, floor: req.failure.floor, minutes,
+        skill: req.skill, level, location: ports.location(), inputs, spent,
+        failure: `A failed repair keeps condition and lowers best condition by ${failureLoss} (not below ${req.failure.floor}).`};
     const blocked = !durability.enabled ? 'Turn on Equipment durability in Settings to track and repair tool wear.'
         : !INSTANCE.test(key) ? 'Equip this tool once with durability on so it has its own condition.'
         : state.job ? 'Finish or cancel the current repair first.'
         : missing <= 0 ? 'This tool is at its best condition.'
-        : station < 1 ? `Repair needs a ${profile.repair.station} station. The Village has one.`
-        : have < HAND_REPAIR.materialCount ? `Repair needs ${HAND_REPAIR.materialCount} ${profile.repair.material}.`
         : ports.blocked() || '';
     return blocked ? {...q, reason: blocked} : {...q, eligible: true};
 }
@@ -89,26 +104,27 @@ function commit(mutate) {
     catch (error) { if (transaction.status === 'pending') transaction.rollback(); throw error; }
     finally { ports.refresh(); }
 }
-// Execute revalidates (AR7), spends the material and starts a timed bench job inside the
+// Execute revalidates (AR7), spends what the quote said and starts a timed job inside the
 // native transaction boundary, then persists once.
-export function executeHandRepair(quoted) {
-    const q = quoteHandRepair(quoted.key);
+export function executeRepair(quoted) {
+    const q = quoteRepair({kind: quoted.kind, key: quoted.key});
     if (!q.eligible) throw Error(q.reason);
-    if (q.material !== quoted.material || q.minutes !== quoted.minutes || q.restore !== quoted.restore) throw Error('The repair changed since its quote. Review it again.');
-    ports.assertSpend(q.material);
+    if (JSON.stringify([q.spent, q.minutes, q.restore, q.chance, q.failureLoss]) !== JSON.stringify([quoted.spent, quoted.minutes, quoted.restore, quoted.chance, quoted.failureLoss])) throw Error('The repair changed since its quote. Review it again.');
+    for (const m of q.spent) ports.assertSpend(m.id);
     commit(() => {
-        ports.removeItem(q.material, q.need);
-        state = {...state, job: {key: q.key, name: q.name, minutesLeft: q.minutes, total: q.minutes, location: q.location, material: q.material, count: q.need, restore: q.restore, chance: q.chance, skill: q.skill}};
+        for (const m of q.spent) ports.removeItem(m.id, m.count);
+        state = {...state, job: {kind: q.kind, key: q.key, name: q.name, minutesLeft: q.minutes, total: q.minutes, location: q.location, spent: q.spent,
+            restore: q.restore, chance: q.chance, failureLoss: q.failureLoss, floor: q.floor, skill: q.skill}};
     });
-    ports.logMessage(`You start repairing your ${q.name} by hand: ${q.minutes} minutes at the bench.`);
+    ports.logMessage(`You start repairing your ${q.name} by hand: ${q.minutes} minutes${q.inputs.every(i => i.met) ? '' : ', making do with what is short'}.`);
     panel?.render();
     return q;
 }
-export function cancelHandRepair() {
+export function cancelRepair() {
     if (!state.job) throw Error('No repair is in progress.');
     const job = state.job;
-    commit(() => { ports.addItem(job.material, job.count); state = {...state, job: null}; });
-    ports.logMessage(`You stop repairing your ${job.name}. The ${job.material} is set back in your pack.`);
+    commit(() => { for (const m of job.spent) ports.addItem(m.id, m.count); state = {...state, job: null}; });
+    ports.logMessage(`You stop repairing your ${job.name}.${job.spent.length ? ' Unused materials go back in your pack.' : ''}`);
     panel?.render();
 }
 function finishJob(job) {
@@ -121,7 +137,7 @@ function finishJob(job) {
         durability.setCondition(job.key, durability.condition(job.key) + job.restore);
         ports.logMessage(`You repair your ${job.name} by hand: condition ${Math.round(durability.condition(job.key))}/${Math.round(f.max)}.`);
     } else {
-        const max = Math.max(HAND_REPAIR.maxFloor, f.max - HAND_REPAIR.failureMaxLoss);
+        const max = Math.max(Math.min(f.max, job.floor), f.max - job.failureLoss);
         state = {...state, job: null, instances: {...state.instances, [job.key]: {...f, max, failures: f.failures + 1}}};
         durability.setCondition(job.key, durability.condition(job.key));
         ports.logMessage(`The repair goes wrong. Your ${job.name} keeps its condition, and its best condition drops to ${Math.round(max)}.`);
@@ -165,8 +181,8 @@ registerDomain({id: 'tools', deps: [], initialState: () => null,
     // Old saves have no slice: start fresh. No migration (old save compatibility deferred, 2026-10-17).
     migrate: slice => slice == null ? fresh() : structuredClone(slice),
     load: setToolsState, tick,
-    commands: {gate, workCycle, quote: quoteHandRepair, execute: executeHandRepair, cancel: cancelHandRepair},
+    commands: {gate, workCycle, quote: quoteRepair, execute: executeRepair, cancel: cancelRepair},
     projection: project,
     refresh: () => panel?.render(),
-    panels: [() => { panel = createToolsPanel({read: () => project('rows'), quote: quoteHandRepair, execute: executeHandRepair, cancel: cancelHandRepair, discovered: () => toolRows().length > 0}); }],
+    panels: [() => { panel = createToolsPanel({read: () => project('rows'), quote: quoteRepair, execute: executeRepair, cancel: cancelRepair, discovered: () => toolRows().length > 0}); }],
 });
