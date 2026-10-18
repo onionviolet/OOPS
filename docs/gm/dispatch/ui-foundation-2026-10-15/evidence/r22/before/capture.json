@@ -1,0 +1,1370 @@
+[
+ {
+  "tag": "three-1920x1080-14",
+  "lines": [
+   {
+    "kind": "hero_attacked",
+    "text": "Hero takes 3 physical",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Hero evaded an attack",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "hero_missed",
+    "text": "Starving wolf rat evaded an attack",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Hero evaded an attack",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Hero evaded an attack",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "hero_attacked",
+    "text": "Hero takes 2.7 physical",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_attacked",
+    "text": "Starving wolf rat takes 1.4 physical",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "hero_attacked",
+    "text": "Hero takes 2.4 physical",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "hero_attacked",
+    "text": "Hero takes 3.2 physical",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_attacked",
+    "text": "Starving wolf rat takes 1.1 physical",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Hero evaded an attack",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_attacked",
+    "text": "Starving wolf rat takes 1.3 physical",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Hero evaded an attack",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Hero evaded an attack",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Hero evaded an attack",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_attacked",
+    "text": "Starving wolf rat takes 1.2 physical",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Hero evaded an attack",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Hero evaded an attack",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Hero evaded an attack",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_attacked_critically",
+    "text": "Starving wolf rat was hit [CRIT] for 1.7 physical",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Hero evaded an attack",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Hero evaded an attack",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Hero evaded an attack",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_attacked",
+    "text": "Starving wolf rat takes 1 physical",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   }
+  ],
+  "errors": [],
+  "page": [
+   1920,
+   1080,
+   1920,
+   1080
+  ]
+ },
+ {
+  "tag": "three-1366x768-14",
+  "lines": [
+   {
+    "kind": "hero_attacked_critically",
+    "text": "Hero was hit [CRIT] for 4.6 physical",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Hero evaded an attack",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "hero_missed",
+    "text": "Starving wolf rat evaded an attack",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Hero evaded an attack",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Hero evaded an attack",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "hero_attacked",
+    "text": "Hero takes 2.7 physical",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_attacked",
+    "text": "Starving wolf rat takes 1.4 physical",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "hero_attacked",
+    "text": "Hero takes 3.2 physical",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "hero_attacked",
+    "text": "Hero takes 2.4 physical",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_attacked",
+    "text": "Starving wolf rat takes 1.1 physical",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Hero evaded an attack",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_attacked",
+    "text": "Starving wolf rat takes 1.3 physical",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Hero evaded an attack",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Hero evaded an attack",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Hero evaded an attack",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_attacked",
+    "text": "Starving wolf rat takes 1.2 physical",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Hero evaded an attack",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Hero evaded an attack",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Hero evaded an attack",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_attacked_critically",
+    "text": "Starving wolf rat was hit [CRIT] for 1.7 physical",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Hero evaded an attack",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Hero evaded an attack",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Hero evaded an attack",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_attacked",
+    "text": "Starving wolf rat takes 1 physical",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   }
+  ],
+  "errors": [],
+  "page": [
+   1366,
+   768,
+   1366,
+   768
+  ]
+ },
+ {
+  "tag": "three-1366x768-21",
+  "lines": [
+   {
+    "kind": "hero_attacked_critically",
+    "text": "Hero was hit [CRIT] for 4.6 physical",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Hero evaded an attack",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "hero_missed",
+    "text": "Starving wolf rat evaded an attack",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Hero evaded an attack",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Hero evaded an attack",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "hero_attacked",
+    "text": "Hero takes 2.7 physical",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_attacked",
+    "text": "Starving wolf rat takes 1.4 physical",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "hero_attacked",
+    "text": "Hero takes 3.2 physical",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "hero_attacked",
+    "text": "Hero takes 2.4 physical",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_attacked",
+    "text": "Starving wolf rat takes 1.1 physical",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Hero evaded an attack",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_attacked",
+    "text": "Starving wolf rat takes 1.3 physical",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Hero evaded an attack",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Hero evaded an attack",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Hero evaded an attack",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_attacked",
+    "text": "Starving wolf rat takes 1.2 physical",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Hero evaded an attack",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Hero evaded an attack",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Hero evaded an attack",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_attacked_critically",
+    "text": "Starving wolf rat was hit [CRIT] for 1.7 physical",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Hero evaded an attack",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Hero evaded an attack",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Hero evaded an attack",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_attacked",
+    "text": "Starving wolf rat takes 1 physical",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   }
+  ],
+  "errors": [],
+  "page": [
+   1366,
+   768,
+   1366,
+   768
+  ]
+ },
+ {
+  "tag": "n8-mixed-1920x1080-14",
+  "lines": [
+   {
+    "kind": "enemy_missed",
+    "text": "Hero evaded an attack",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Hero evaded an attack",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Hero evaded an attack",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "hero_attacked_critically",
+    "text": "Hero was hit [CRIT] for 3.7 physical",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "hero_attacked",
+    "text": "Hero takes 2.2 physical",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Hero evaded an attack",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Hero evaded an attack",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_attacked",
+    "text": "Wolf rat takes 1.1 physical",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Hero evaded an attack",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Hero evaded an attack",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Hero evaded an attack",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Hero evaded an attack",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Hero evaded an attack",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Hero evaded an attack",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Hero evaded an attack",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "hero_attacked",
+    "text": "Hero takes 3.6 physical",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_attacked_critically",
+    "text": "Wolf rat was hit [CRIT] for 1.7 physical",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_defeated",
+    "text": "Wolf rat was defeated",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Hero evaded an attack",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Hero evaded an attack",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Hero evaded an attack",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "hero_attacked",
+    "text": "Hero takes 3 physical",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "hero_attacked",
+    "text": "Hero takes 2.4 physical",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Hero evaded an attack",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   }
+  ],
+  "errors": [],
+  "page": [
+   1920,
+   1080,
+   1920,
+   1080
+  ]
+ },
+ {
+  "tag": "n8-mixed-1366x768-14",
+  "lines": [
+   {
+    "kind": "enemy_attacked",
+    "text": "Wolf rat takes 1.1 physical",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Hero evaded an attack",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Hero evaded an attack",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "hero_attacked_critically",
+    "text": "Hero was hit [CRIT] for 3.7 physical",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "hero_attacked",
+    "text": "Hero takes 2.2 physical",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Hero evaded an attack",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Hero evaded an attack",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Hero evaded an attack",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_attacked",
+    "text": "Wolf rat takes 1.1 physical",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Hero evaded an attack",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Hero evaded an attack",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Hero evaded an attack",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Hero evaded an attack",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Hero evaded an attack",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Hero evaded an attack",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "hero_attacked",
+    "text": "Hero takes 3.6 physical",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Hero evaded an attack",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_attacked_critically",
+    "text": "Wolf rat was hit [CRIT] for 1.7 physical",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_defeated",
+    "text": "Wolf rat was defeated",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Hero evaded an attack",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Hero evaded an attack",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "hero_attacked",
+    "text": "Hero takes 3 physical",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "hero_attacked",
+    "text": "Hero takes 2.4 physical",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Hero evaded an attack",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   }
+  ],
+  "errors": [],
+  "page": [
+   1366,
+   768,
+   1366,
+   768
+  ]
+ },
+ {
+  "tag": "n8-mixed-1366x768-21",
+  "lines": [
+   {
+    "kind": "enemy_missed",
+    "text": "Hero evaded an attack",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Hero evaded an attack",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Hero evaded an attack",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "hero_attacked_critically",
+    "text": "Hero was hit [CRIT] for 3.7 physical",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "hero_attacked",
+    "text": "Hero takes 2.2 physical",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Hero evaded an attack",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Hero evaded an attack",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_attacked",
+    "text": "Wolf rat takes 1.1 physical",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Hero evaded an attack",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Hero evaded an attack",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Hero evaded an attack",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Hero evaded an attack",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Hero evaded an attack",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Hero evaded an attack",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Hero evaded an attack",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "hero_attacked",
+    "text": "Hero takes 3.6 physical",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_attacked_critically",
+    "text": "Wolf rat was hit [CRIT] for 1.7 physical",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_defeated",
+    "text": "Wolf rat was defeated",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Hero evaded an attack",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Hero evaded an attack",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Hero evaded an attack",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "hero_attacked",
+    "text": "Hero takes 3 physical",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "hero_attacked",
+    "text": "Hero takes 2.4 physical",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Hero evaded an attack",
+    "letters": [],
+    "sides": [],
+    "repeat": null,
+    "outcome": null,
+    "direction": null
+   }
+  ],
+  "errors": [],
+  "page": [
+   1366,
+   768,
+   1366,
+   768
+  ]
+ }
+]

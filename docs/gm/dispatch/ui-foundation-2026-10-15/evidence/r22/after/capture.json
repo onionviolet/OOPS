@@ -1,0 +1,2087 @@
+[
+ {
+  "tag": "three-1920x1080-14",
+  "lines": [
+   {
+    "kind": "hero_attacked",
+    "text": "Starving wolf rat C hits you for 3",
+    "letters": [
+     " C"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "hit",
+    "direction": "taken"
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Starving wolf rat A misses you",
+    "letters": [
+     " A"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "miss",
+    "direction": "taken"
+   },
+   {
+    "kind": "hero_missed",
+    "text": "You miss Starving wolf rat C",
+    "letters": [
+     " C"
+    ],
+    "sides": [
+     "ally",
+     "hostile"
+    ],
+    "repeat": "1",
+    "outcome": "miss",
+    "direction": "dealt"
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Starving wolf rat B misses you",
+    "letters": [
+     " B"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "miss",
+    "direction": "taken"
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Starving wolf rat C misses you",
+    "letters": [
+     " C"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "miss",
+    "direction": "taken"
+   },
+   {
+    "kind": "hero_attacked",
+    "text": "Starving wolf rat A hits you for 2.7",
+    "letters": [
+     " A"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "hit",
+    "direction": "taken"
+   },
+   {
+    "kind": "enemy_attacked",
+    "text": "You hit Starving wolf rat C for 1.4",
+    "letters": [
+     " C"
+    ],
+    "sides": [
+     "ally",
+     "hostile"
+    ],
+    "repeat": "1",
+    "outcome": "hit",
+    "direction": "dealt"
+   },
+   {
+    "kind": "hero_attacked",
+    "text": "Starving wolf rat B hits you for 2.4",
+    "letters": [
+     " B"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "hit",
+    "direction": "taken"
+   },
+   {
+    "kind": "hero_attacked",
+    "text": "Starving wolf rat C hits you for 3.2",
+    "letters": [
+     " C"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "hit",
+    "direction": "taken"
+   },
+   {
+    "kind": "enemy_attacked",
+    "text": "You hit Starving wolf rat C for 1.1",
+    "letters": [
+     " C"
+    ],
+    "sides": [
+     "ally",
+     "hostile"
+    ],
+    "repeat": "1",
+    "outcome": "hit",
+    "direction": "dealt"
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Starving wolf rat A misses you",
+    "letters": [
+     " A"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "miss",
+    "direction": "taken"
+   },
+   {
+    "kind": "enemy_attacked",
+    "text": "You hit Starving wolf rat C for 1.3",
+    "letters": [
+     " C"
+    ],
+    "sides": [
+     "ally",
+     "hostile"
+    ],
+    "repeat": "1",
+    "outcome": "hit",
+    "direction": "dealt"
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Starving wolf rat B misses you",
+    "letters": [
+     " B"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "miss",
+    "direction": "taken"
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Starving wolf rat C misses you",
+    "letters": [
+     " C"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "miss",
+    "direction": "taken"
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Starving wolf rat A misses you",
+    "letters": [
+     " A"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "miss",
+    "direction": "taken"
+   },
+   {
+    "kind": "enemy_attacked",
+    "text": "You hit Starving wolf rat C for 1.2",
+    "letters": [
+     " C"
+    ],
+    "sides": [
+     "ally",
+     "hostile"
+    ],
+    "repeat": "1",
+    "outcome": "hit",
+    "direction": "dealt"
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Starving wolf rat B misses you",
+    "letters": [
+     " B"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "miss",
+    "direction": "taken"
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Starving wolf rat C misses you",
+    "letters": [
+     " C"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "miss",
+    "direction": "taken"
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Starving wolf rat A misses you",
+    "letters": [
+     " A"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "miss",
+    "direction": "taken"
+   },
+   {
+    "kind": "enemy_attacked_critically",
+    "text": "You crit Starving wolf rat C for 1.7",
+    "letters": [
+     " C"
+    ],
+    "sides": [
+     "ally",
+     "hostile"
+    ],
+    "repeat": "1",
+    "outcome": "hit",
+    "direction": "dealt"
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Starving wolf rat B misses you",
+    "letters": [
+     " B"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "miss",
+    "direction": "taken"
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Starving wolf rat C misses you",
+    "letters": [
+     " C"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "miss",
+    "direction": "taken"
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Starving wolf rat A misses you",
+    "letters": [
+     " A"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "miss",
+    "direction": "taken"
+   },
+   {
+    "kind": "enemy_attacked",
+    "text": "You hit Starving wolf rat C for 1",
+    "letters": [
+     " C"
+    ],
+    "sides": [
+     "ally",
+     "hostile"
+    ],
+    "repeat": "1",
+    "outcome": "hit",
+    "direction": "dealt"
+   }
+  ],
+  "errors": [],
+  "page": [
+   1920,
+   1080,
+   1920,
+   1080
+  ]
+ },
+ {
+  "tag": "three-1366x768-14",
+  "lines": [
+   {
+    "kind": "hero_attacked",
+    "text": "Starving wolf rat C hits you for 3",
+    "letters": [
+     " C"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "hit",
+    "direction": "taken"
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Starving wolf rat A misses you",
+    "letters": [
+     " A"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "miss",
+    "direction": "taken"
+   },
+   {
+    "kind": "hero_missed",
+    "text": "You miss Starving wolf rat C",
+    "letters": [
+     " C"
+    ],
+    "sides": [
+     "ally",
+     "hostile"
+    ],
+    "repeat": "1",
+    "outcome": "miss",
+    "direction": "dealt"
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Starving wolf rat B misses you",
+    "letters": [
+     " B"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "miss",
+    "direction": "taken"
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Starving wolf rat C misses you",
+    "letters": [
+     " C"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "miss",
+    "direction": "taken"
+   },
+   {
+    "kind": "hero_attacked",
+    "text": "Starving wolf rat A hits you for 2.7",
+    "letters": [
+     " A"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "hit",
+    "direction": "taken"
+   },
+   {
+    "kind": "enemy_attacked",
+    "text": "You hit Starving wolf rat C for 1.4",
+    "letters": [
+     " C"
+    ],
+    "sides": [
+     "ally",
+     "hostile"
+    ],
+    "repeat": "1",
+    "outcome": "hit",
+    "direction": "dealt"
+   },
+   {
+    "kind": "hero_attacked",
+    "text": "Starving wolf rat B hits you for 2.4",
+    "letters": [
+     " B"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "hit",
+    "direction": "taken"
+   },
+   {
+    "kind": "hero_attacked",
+    "text": "Starving wolf rat C hits you for 3.2",
+    "letters": [
+     " C"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "hit",
+    "direction": "taken"
+   },
+   {
+    "kind": "enemy_attacked",
+    "text": "You hit Starving wolf rat C for 1.1",
+    "letters": [
+     " C"
+    ],
+    "sides": [
+     "ally",
+     "hostile"
+    ],
+    "repeat": "1",
+    "outcome": "hit",
+    "direction": "dealt"
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Starving wolf rat A misses you",
+    "letters": [
+     " A"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "miss",
+    "direction": "taken"
+   },
+   {
+    "kind": "enemy_attacked",
+    "text": "You hit Starving wolf rat C for 1.3",
+    "letters": [
+     " C"
+    ],
+    "sides": [
+     "ally",
+     "hostile"
+    ],
+    "repeat": "1",
+    "outcome": "hit",
+    "direction": "dealt"
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Starving wolf rat B misses you",
+    "letters": [
+     " B"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "miss",
+    "direction": "taken"
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Starving wolf rat C misses you",
+    "letters": [
+     " C"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "miss",
+    "direction": "taken"
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Starving wolf rat A misses you",
+    "letters": [
+     " A"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "miss",
+    "direction": "taken"
+   },
+   {
+    "kind": "enemy_attacked",
+    "text": "You hit Starving wolf rat C for 1.2",
+    "letters": [
+     " C"
+    ],
+    "sides": [
+     "ally",
+     "hostile"
+    ],
+    "repeat": "1",
+    "outcome": "hit",
+    "direction": "dealt"
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Starving wolf rat B misses you",
+    "letters": [
+     " B"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "miss",
+    "direction": "taken"
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Starving wolf rat C misses you",
+    "letters": [
+     " C"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "miss",
+    "direction": "taken"
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Starving wolf rat A misses you",
+    "letters": [
+     " A"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "miss",
+    "direction": "taken"
+   },
+   {
+    "kind": "enemy_attacked_critically",
+    "text": "You crit Starving wolf rat C for 1.7",
+    "letters": [
+     " C"
+    ],
+    "sides": [
+     "ally",
+     "hostile"
+    ],
+    "repeat": "1",
+    "outcome": "hit",
+    "direction": "dealt"
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Starving wolf rat B misses you",
+    "letters": [
+     " B"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "miss",
+    "direction": "taken"
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Starving wolf rat C misses you",
+    "letters": [
+     " C"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "miss",
+    "direction": "taken"
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Starving wolf rat A misses you",
+    "letters": [
+     " A"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "miss",
+    "direction": "taken"
+   },
+   {
+    "kind": "enemy_attacked",
+    "text": "You hit Starving wolf rat C for 1",
+    "letters": [
+     " C"
+    ],
+    "sides": [
+     "ally",
+     "hostile"
+    ],
+    "repeat": "1",
+    "outcome": "hit",
+    "direction": "dealt"
+   }
+  ],
+  "errors": [],
+  "page": [
+   1366,
+   768,
+   1366,
+   768
+  ]
+ },
+ {
+  "tag": "three-1366x768-21",
+  "lines": [
+   {
+    "kind": "hero_attacked",
+    "text": "Starving wolf rat C hits you for 3",
+    "letters": [
+     " C"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "hit",
+    "direction": "taken"
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Starving wolf rat A misses you",
+    "letters": [
+     " A"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "miss",
+    "direction": "taken"
+   },
+   {
+    "kind": "hero_missed",
+    "text": "You miss Starving wolf rat C",
+    "letters": [
+     " C"
+    ],
+    "sides": [
+     "ally",
+     "hostile"
+    ],
+    "repeat": "1",
+    "outcome": "miss",
+    "direction": "dealt"
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Starving wolf rat B misses you",
+    "letters": [
+     " B"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "miss",
+    "direction": "taken"
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Starving wolf rat C misses you",
+    "letters": [
+     " C"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "miss",
+    "direction": "taken"
+   },
+   {
+    "kind": "hero_attacked",
+    "text": "Starving wolf rat A hits you for 2.7",
+    "letters": [
+     " A"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "hit",
+    "direction": "taken"
+   },
+   {
+    "kind": "enemy_attacked",
+    "text": "You hit Starving wolf rat C for 1.4",
+    "letters": [
+     " C"
+    ],
+    "sides": [
+     "ally",
+     "hostile"
+    ],
+    "repeat": "1",
+    "outcome": "hit",
+    "direction": "dealt"
+   },
+   {
+    "kind": "hero_attacked",
+    "text": "Starving wolf rat B hits you for 2.4",
+    "letters": [
+     " B"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "hit",
+    "direction": "taken"
+   },
+   {
+    "kind": "hero_attacked",
+    "text": "Starving wolf rat C hits you for 3.2",
+    "letters": [
+     " C"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "hit",
+    "direction": "taken"
+   },
+   {
+    "kind": "enemy_attacked",
+    "text": "You hit Starving wolf rat C for 1.1",
+    "letters": [
+     " C"
+    ],
+    "sides": [
+     "ally",
+     "hostile"
+    ],
+    "repeat": "1",
+    "outcome": "hit",
+    "direction": "dealt"
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Starving wolf rat A misses you",
+    "letters": [
+     " A"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "miss",
+    "direction": "taken"
+   },
+   {
+    "kind": "enemy_attacked",
+    "text": "You hit Starving wolf rat C for 1.3",
+    "letters": [
+     " C"
+    ],
+    "sides": [
+     "ally",
+     "hostile"
+    ],
+    "repeat": "1",
+    "outcome": "hit",
+    "direction": "dealt"
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Starving wolf rat B misses you",
+    "letters": [
+     " B"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "miss",
+    "direction": "taken"
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Starving wolf rat C misses you",
+    "letters": [
+     " C"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "miss",
+    "direction": "taken"
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Starving wolf rat A misses you",
+    "letters": [
+     " A"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "miss",
+    "direction": "taken"
+   },
+   {
+    "kind": "enemy_attacked",
+    "text": "You hit Starving wolf rat C for 1.2",
+    "letters": [
+     " C"
+    ],
+    "sides": [
+     "ally",
+     "hostile"
+    ],
+    "repeat": "1",
+    "outcome": "hit",
+    "direction": "dealt"
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Starving wolf rat B misses you",
+    "letters": [
+     " B"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "miss",
+    "direction": "taken"
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Starving wolf rat C misses you",
+    "letters": [
+     " C"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "miss",
+    "direction": "taken"
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Starving wolf rat A misses you",
+    "letters": [
+     " A"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "miss",
+    "direction": "taken"
+   },
+   {
+    "kind": "enemy_attacked_critically",
+    "text": "You crit Starving wolf rat C for 1.7",
+    "letters": [
+     " C"
+    ],
+    "sides": [
+     "ally",
+     "hostile"
+    ],
+    "repeat": "1",
+    "outcome": "hit",
+    "direction": "dealt"
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Starving wolf rat B misses you",
+    "letters": [
+     " B"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "miss",
+    "direction": "taken"
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Starving wolf rat C misses you",
+    "letters": [
+     " C"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "miss",
+    "direction": "taken"
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Starving wolf rat A misses you",
+    "letters": [
+     " A"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "miss",
+    "direction": "taken"
+   },
+   {
+    "kind": "enemy_attacked",
+    "text": "You hit Starving wolf rat C for 1",
+    "letters": [
+     " C"
+    ],
+    "sides": [
+     "ally",
+     "hostile"
+    ],
+    "repeat": "1",
+    "outcome": "hit",
+    "direction": "dealt"
+   }
+  ],
+  "errors": [],
+  "page": [
+   1366,
+   768,
+   1366,
+   768
+  ]
+ },
+ {
+  "tag": "n8-mixed-1920x1080-14",
+  "lines": [
+   {
+    "kind": "enemy_attacked",
+    "text": "You hit Wolf rat H for 1.1",
+    "letters": [
+     " H"
+    ],
+    "sides": [
+     "ally",
+     "hostile"
+    ],
+    "repeat": "1",
+    "outcome": "hit",
+    "direction": "dealt"
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Wolf rat B misses you",
+    "letters": [
+     " B"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "miss",
+    "direction": "taken"
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Elite wolf rat C misses you",
+    "letters": [
+     " C"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "miss",
+    "direction": "taken"
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Starving wolf rat D misses you",
+    "letters": [
+     " D"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "miss",
+    "direction": "taken"
+   },
+   {
+    "kind": "hero_attacked_critically",
+    "text": "Wolf rat E crits you for 3.7",
+    "letters": [
+     " E"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "hit",
+    "direction": "taken"
+   },
+   {
+    "kind": "hero_attacked",
+    "text": "Elite wolf rat F hits you for 2.2",
+    "letters": [
+     " F"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "hit",
+    "direction": "taken"
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Starving wolf rat G misses you",
+    "letters": [
+     " G"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "miss",
+    "direction": "taken"
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Wolf rat H misses you",
+    "letters": [
+     " H"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "miss",
+    "direction": "taken"
+   },
+   {
+    "kind": "enemy_attacked",
+    "text": "You hit Wolf rat H for 1.1",
+    "letters": [
+     " H"
+    ],
+    "sides": [
+     "ally",
+     "hostile"
+    ],
+    "repeat": "1",
+    "outcome": "hit",
+    "direction": "dealt"
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Starving wolf rat A misses you",
+    "letters": [
+     " A"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "miss",
+    "direction": "taken"
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Wolf rat B misses you",
+    "letters": [
+     " B"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "miss",
+    "direction": "taken"
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Elite wolf rat C misses you",
+    "letters": [
+     " C"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "miss",
+    "direction": "taken"
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Starving wolf rat D misses you",
+    "letters": [
+     " D"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "miss",
+    "direction": "taken"
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Wolf rat E misses you",
+    "letters": [
+     " E"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "miss",
+    "direction": "taken"
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Elite wolf rat F misses you",
+    "letters": [
+     " F"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "miss",
+    "direction": "taken"
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Starving wolf rat G misses you",
+    "letters": [
+     " G"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "miss",
+    "direction": "taken"
+   },
+   {
+    "kind": "hero_attacked",
+    "text": "Wolf rat H hits you for 3.6",
+    "letters": [
+     " H"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "hit",
+    "direction": "taken"
+   },
+   {
+    "kind": "enemy_attacked_critically",
+    "text": "You crit Wolf rat H for 1.7",
+    "letters": [
+     " H"
+    ],
+    "sides": [
+     "ally",
+     "hostile"
+    ],
+    "repeat": "1",
+    "outcome": "hit",
+    "direction": "dealt"
+   },
+   {
+    "kind": "enemy_defeated",
+    "text": "Wolf rat H defeated",
+    "letters": [
+     " H"
+    ],
+    "sides": [
+     "hostile"
+    ],
+    "repeat": "1",
+    "outcome": "defeat",
+    "direction": "dealt"
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Starving wolf rat A misses you",
+    "letters": [
+     " A"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "miss",
+    "direction": "taken"
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Wolf rat B misses you",
+    "letters": [
+     " B"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "miss",
+    "direction": "taken"
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Elite wolf rat C misses you",
+    "letters": [
+     " C"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "miss",
+    "direction": "taken"
+   },
+   {
+    "kind": "hero_attacked",
+    "text": "Starving wolf rat D hits you for 3",
+    "letters": [
+     " D"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "hit",
+    "direction": "taken"
+   },
+   {
+    "kind": "hero_attacked",
+    "text": "Wolf rat E hits you for 2.4",
+    "letters": [
+     " E"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "hit",
+    "direction": "taken"
+   }
+  ],
+  "errors": [],
+  "page": [
+   1920,
+   1080,
+   1920,
+   1080
+  ]
+ },
+ {
+  "tag": "n8-mixed-1366x768-14",
+  "lines": [
+   {
+    "kind": "enemy_attacked",
+    "text": "You hit Wolf rat H for 1.1",
+    "letters": [
+     " H"
+    ],
+    "sides": [
+     "ally",
+     "hostile"
+    ],
+    "repeat": "1",
+    "outcome": "hit",
+    "direction": "dealt"
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Wolf rat B misses you",
+    "letters": [
+     " B"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "miss",
+    "direction": "taken"
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Elite wolf rat C misses you",
+    "letters": [
+     " C"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "miss",
+    "direction": "taken"
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Starving wolf rat D misses you",
+    "letters": [
+     " D"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "miss",
+    "direction": "taken"
+   },
+   {
+    "kind": "hero_attacked_critically",
+    "text": "Wolf rat E crits you for 3.7",
+    "letters": [
+     " E"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "hit",
+    "direction": "taken"
+   },
+   {
+    "kind": "hero_attacked",
+    "text": "Elite wolf rat F hits you for 2.2",
+    "letters": [
+     " F"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "hit",
+    "direction": "taken"
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Starving wolf rat G misses you",
+    "letters": [
+     " G"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "miss",
+    "direction": "taken"
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Wolf rat H misses you",
+    "letters": [
+     " H"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "miss",
+    "direction": "taken"
+   },
+   {
+    "kind": "enemy_attacked",
+    "text": "You hit Wolf rat H for 1.1",
+    "letters": [
+     " H"
+    ],
+    "sides": [
+     "ally",
+     "hostile"
+    ],
+    "repeat": "1",
+    "outcome": "hit",
+    "direction": "dealt"
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Starving wolf rat A misses you",
+    "letters": [
+     " A"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "miss",
+    "direction": "taken"
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Wolf rat B misses you",
+    "letters": [
+     " B"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "miss",
+    "direction": "taken"
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Elite wolf rat C misses you",
+    "letters": [
+     " C"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "miss",
+    "direction": "taken"
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Starving wolf rat D misses you",
+    "letters": [
+     " D"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "miss",
+    "direction": "taken"
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Wolf rat E misses you",
+    "letters": [
+     " E"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "miss",
+    "direction": "taken"
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Elite wolf rat F misses you",
+    "letters": [
+     " F"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "miss",
+    "direction": "taken"
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Starving wolf rat G misses you",
+    "letters": [
+     " G"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "miss",
+    "direction": "taken"
+   },
+   {
+    "kind": "hero_attacked",
+    "text": "Wolf rat H hits you for 3.6",
+    "letters": [
+     " H"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "hit",
+    "direction": "taken"
+   },
+   {
+    "kind": "enemy_attacked_critically",
+    "text": "You crit Wolf rat H for 1.7",
+    "letters": [
+     " H"
+    ],
+    "sides": [
+     "ally",
+     "hostile"
+    ],
+    "repeat": "1",
+    "outcome": "hit",
+    "direction": "dealt"
+   },
+   {
+    "kind": "enemy_defeated",
+    "text": "Wolf rat H defeated",
+    "letters": [
+     " H"
+    ],
+    "sides": [
+     "hostile"
+    ],
+    "repeat": "1",
+    "outcome": "defeat",
+    "direction": "dealt"
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Starving wolf rat A misses you",
+    "letters": [
+     " A"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "miss",
+    "direction": "taken"
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Wolf rat B misses you",
+    "letters": [
+     " B"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "miss",
+    "direction": "taken"
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Elite wolf rat C misses you",
+    "letters": [
+     " C"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "miss",
+    "direction": "taken"
+   },
+   {
+    "kind": "hero_attacked",
+    "text": "Starving wolf rat D hits you for 3",
+    "letters": [
+     " D"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "hit",
+    "direction": "taken"
+   },
+   {
+    "kind": "hero_attacked",
+    "text": "Wolf rat E hits you for 2.4",
+    "letters": [
+     " E"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "hit",
+    "direction": "taken"
+   }
+  ],
+  "errors": [],
+  "page": [
+   1366,
+   768,
+   1366,
+   768
+  ]
+ },
+ {
+  "tag": "n8-mixed-1366x768-21",
+  "lines": [
+   {
+    "kind": "enemy_missed",
+    "text": "Wolf rat B misses you",
+    "letters": [
+     " B"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "miss",
+    "direction": "taken"
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Elite wolf rat C misses you",
+    "letters": [
+     " C"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "miss",
+    "direction": "taken"
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Starving wolf rat D misses you",
+    "letters": [
+     " D"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "miss",
+    "direction": "taken"
+   },
+   {
+    "kind": "hero_attacked_critically",
+    "text": "Wolf rat E crits you for 3.7",
+    "letters": [
+     " E"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "hit",
+    "direction": "taken"
+   },
+   {
+    "kind": "hero_attacked",
+    "text": "Elite wolf rat F hits you for 2.2",
+    "letters": [
+     " F"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "hit",
+    "direction": "taken"
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Starving wolf rat G misses you",
+    "letters": [
+     " G"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "miss",
+    "direction": "taken"
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Wolf rat H misses you",
+    "letters": [
+     " H"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "miss",
+    "direction": "taken"
+   },
+   {
+    "kind": "enemy_attacked",
+    "text": "You hit Wolf rat H for 1.1",
+    "letters": [
+     " H"
+    ],
+    "sides": [
+     "ally",
+     "hostile"
+    ],
+    "repeat": "1",
+    "outcome": "hit",
+    "direction": "dealt"
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Starving wolf rat A misses you",
+    "letters": [
+     " A"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "miss",
+    "direction": "taken"
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Wolf rat B misses you",
+    "letters": [
+     " B"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "miss",
+    "direction": "taken"
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Elite wolf rat C misses you",
+    "letters": [
+     " C"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "miss",
+    "direction": "taken"
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Starving wolf rat D misses you",
+    "letters": [
+     " D"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "miss",
+    "direction": "taken"
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Wolf rat E misses you",
+    "letters": [
+     " E"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "miss",
+    "direction": "taken"
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Elite wolf rat F misses you",
+    "letters": [
+     " F"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "miss",
+    "direction": "taken"
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Starving wolf rat G misses you",
+    "letters": [
+     " G"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "miss",
+    "direction": "taken"
+   },
+   {
+    "kind": "hero_attacked",
+    "text": "Wolf rat H hits you for 3.6",
+    "letters": [
+     " H"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "hit",
+    "direction": "taken"
+   },
+   {
+    "kind": "enemy_attacked_critically",
+    "text": "You crit Wolf rat H for 1.7",
+    "letters": [
+     " H"
+    ],
+    "sides": [
+     "ally",
+     "hostile"
+    ],
+    "repeat": "1",
+    "outcome": "hit",
+    "direction": "dealt"
+   },
+   {
+    "kind": "enemy_defeated",
+    "text": "Wolf rat H defeated",
+    "letters": [
+     " H"
+    ],
+    "sides": [
+     "hostile"
+    ],
+    "repeat": "1",
+    "outcome": "defeat",
+    "direction": "dealt"
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Starving wolf rat A misses you",
+    "letters": [
+     " A"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "miss",
+    "direction": "taken"
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Wolf rat B misses you",
+    "letters": [
+     " B"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "miss",
+    "direction": "taken"
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Elite wolf rat C misses you",
+    "letters": [
+     " C"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "miss",
+    "direction": "taken"
+   },
+   {
+    "kind": "hero_attacked",
+    "text": "Starving wolf rat D hits you for 3",
+    "letters": [
+     " D"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "hit",
+    "direction": "taken"
+   },
+   {
+    "kind": "hero_attacked",
+    "text": "Wolf rat E hits you for 2.4",
+    "letters": [
+     " E"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "hit",
+    "direction": "taken"
+   },
+   {
+    "kind": "enemy_missed",
+    "text": "Elite wolf rat F misses you",
+    "letters": [
+     " F"
+    ],
+    "sides": [
+     "hostile",
+     "ally"
+    ],
+    "repeat": "1",
+    "outcome": "miss",
+    "direction": "taken"
+   }
+  ],
+  "errors": [],
+  "page": [
+   1366,
+   768,
+   1366,
+   768
+  ]
+ }
+]

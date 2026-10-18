@@ -4,6 +4,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import vm from 'node:vm';
 import {combatHitText} from '../src/ui_polish.js';
+import {combatLogEvent} from '../src/combat_log.js';
 import {createCombatOptions, validateCombatOptions, validateEncounterCombatProfile} from '../src/absorb_p23/combat_options/runtime.js';
 import {rollBaseCombatDamage, nextAttackTiming, get_hit_chance, mitigateCombatDamage} from '../src/combat_math.js';
 
@@ -102,7 +103,7 @@ function native(draw = 0, defense = 0, hp = 30, runtime, speeds = [1, 1]) {
         get_loot: () => (calls.loot++, []),
     });
     const hero = actor(true), target = actor(false);
-    const context = {damageRecord,supportedHarvest,combatHitText, Math, Date, structuredClone, validateEncounterCombatProfile,
+    const context = {damageRecord,supportedHarvest,combatHitText,combatLogEvent, Math, Date, structuredClone, validateEncounterCombatProfile,
         STREAMS: {combat:'encounter:core'}, gameOrdinal: () => 1, gameKeyedRandom: () => draw,
         rollBaseCombatDamage: (...args) => rollBaseCombatDamage(...args, () => draw), nextAttackTiming, get_hit_chance,
         config: {}, document: {getElementById: () => null}, character: {addToInventory() {}}, skills: {Combat: {}}, enemy_tag_to_skill_mapping: {}, item_templates: {},

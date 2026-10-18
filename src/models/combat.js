@@ -1,6 +1,7 @@
 import {damageRecord,supportedHarvest} from '../harvest.js';
 import {engineTimeout,clearEngineTimeout,engineNow} from '../simulation_clock.js';
 import {combatHitText} from '../ui_polish.js';
+import {combatLogEvent} from '../combat_log.js';
 import {STREAMS,gameOrdinal,gameKeyedRandom} from "../seeded_streams.js";
 import {getElementalDefenseModifier} from '../absorb_e3/elemental_affinities.js';
 import {equipmentDurability as durability} from '../absorb_e2/durability.js';
@@ -476,6 +477,8 @@ class Combat {
         const side=is_attacker ? "attackers" : "defenders";
         const targetIndex=(is_attacker ? this.defenders : this.attackers).indexOf(target);
         const random=decision=>this.#random(side,fighter_index,targetIndex,decision);
+        // R22: who did what to whom, snapshotted at emit time for the log (no RNG, no state change).
+        const logEvent=(outcome,extra={})=>combatLogEvent(this,{fighter,fighterIndex:fighter_index,isAttacker:is_attacker,target,outcome,...extra});
         const opponents = is_attacker ? this.defenders : this.attackers;
         const base_damage = attack_power;
         const opponent_count_xp_multiplier = this.is_special_combat? 1 : opponents.length**(1/3);
@@ -551,7 +554,7 @@ class Combat {
                 const blocked = target.getEquipment()["off-hand"].getShieldStrength() * (target.getEquipment()["off-hand"].tags.ignore_skill?1:target.getStats().total_multiplier.block_strength);
 
                 if(blocked > damages_dealt[0]) {
-                    log_message(target.name + " blocked an attack", (!this.is_special_combat && target.tags.main_character ? "hero_blocked" : "hero_missed"));
+                    log_message(target.name + " blocked an attack", (!this.is_special_combat && target.tags.main_character ? "hero_blocked" : "hero_missed"), {combat: logEvent("block")});
                     return; //damage fully blocked, nothing more can happen 
                 } else {
                     damages_dealt = damages_dealt.map(val => Math.max(0,val-blocked));
@@ -567,7 +570,7 @@ class Combat {
             const xp_to_add = target.isWearingArmor() ? fighter.xp_value : fighter.xp_value * 1.5;
 
             if(hit_chance < random("evade")) { //EVADED ATTACK
-                log_message(target.name + " evaded an attack", (!this.is_special_combat && fighter.tags.main_character ? "hero_missed" : "enemy_missed"));
+                log_message(target.name + " evaded an attack", (!this.is_special_combat && fighter.tags.main_character ? "hero_missed" : "enemy_missed"), {combat: logEvent("miss")});
 
                 if(!this.is_special_combat && target.tags.main_character) {
                     const xp_to_add = target.isWearingArmor() ? fighter.xp_value : fighter.xp_value * 1.5;
@@ -637,7 +640,8 @@ class Combat {
         log_message(combatHitText({target: target.name, damage: damage_taken,
             count: damages_dealt.length, critical: critted, blocked: partially_blocked}),
             condt ? (critted ? "hero_attacked_critically" : "hero_attacked")
-                : (critted ? "enemy_attacked_critically" : "enemy_attacked"), {damageType: "physical"});
+                : (critted ? "enemy_attacked_critically" : "enemy_attacked"), {damageType: "physical",
+                combat: logEvent("hit", {amount: damage_taken, hits: damages_dealt.length, critical: critted, partial: partially_blocked})});
 
         if(game_options.do_enemy_onhit_animations) {
             do_onhit_animation({fighter_index: (is_attacker ? this.defenders : this.attackers).findIndex(x => x === target), is_attacker: !is_attacker});
@@ -659,7 +663,7 @@ class Combat {
                     target.on_death(fighter);
                 }
 
-                log_message(target.name + " was defeated", "enemy_defeated");
+                log_message(target.name + " was defeated", "enemy_defeated", {combat: logEvent("defeat")});
 
                 let observedDrops;
                 if(!this.is_special_combat && fighter.tags.main_character && target.get_loot) {

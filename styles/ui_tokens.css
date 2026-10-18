@@ -1451,3 +1451,12 @@ body:has(#main_content[data-parity="r3"]) #workspace_navigation > button[hidden]
 body:has(#main_content[data-parity="r3"]) #workspace_navigation > select {display:block!important;max-width:12em;font-size:var(--shell-context-size,var(--ui-type-body));padding:0 .4em;color:var(--p23-text);background:transparent;border:0;border-right:1px solid var(--p23-quiet-line);border-bottom:1px solid var(--p23-quiet-line);border-radius:0;}
 body:has(#main_content[data-parity="r3"]) #workspace_navigation > select > option {background:var(--p23-context);color:var(--p23-text);}
 }
+
+/* R22 combat log roles and Report kinds (consumed by styles/combat_log.css). */
+:root {
+ --log-ally: #8fe8ff; --log-hostile: #f0b6ff;
+ --log-dealt: #ffe2a0; --log-taken: #ffa3b2; --log-defeat: #9aefb3;
+ --log-quiet: #aeb8cc;
+ --log-kind-loot: #ffe2a0; --log-kind-crafting: #ffc58f; --log-kind-discovery: #e5b7fa;
+ --log-kind-event: #9fb3d1; --log-kind-world: #6e7f99;
+}

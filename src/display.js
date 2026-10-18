@@ -6,6 +6,7 @@ import {GRADED_IDS} from './harvest.js';
 import {deferSimulationRender} from './simulation_render.js';
 import {knownBestiarySources, knownLootValue} from './fork_discovery_views.js';
 import {vendorState, conditionText} from './ui_polish.js';
+import {combatLogKey, renderCombatLine, addCombatOccurrence} from './combat_log.js';
 import {equipmentDurability} from './absorb_e2/durability.js';
 import {denominationsKnown} from './reveal_chain.js';
 import {foodPacingDescription} from './absorb_e1/panel.js';
@@ -956,6 +957,33 @@ function log_subject_snapshots(text, type, explicit=[]) {
     // in the current inventory is insufficient evidence of the event's quality.
     return subjects;
 }
+// R22: a combat line carries its event (combat_log.js). Its in-game minute is kept per
+// occurrence, so a collapsed ×N line still lists when each one happened (UX18).
+const combat_occurrence_time=()=>current_game_time.toString().split(' ')[1]?.replace(',','')||'';
+function mark_combat_line(message,event){
+    message.dataset.combatOutcome=event.outcome;message.dataset.combatDirection=event.direction;
+    message.dataset.combatKey=combatLogKey(event);message.dataset.encounter=String(event.encounter);
+    addCombatOccurrence(message,combat_occurrence_time());
+}
+// Parity shell only: the next equivalent event on the newest line adds to its ×N instead of a line.
+// Message counts and pruning stay per line; follow and unread keep their meaning.
+function collapse_combat_repeat(event){
+    if(!message_log||document.getElementById('main_content')?.dataset.parity!=='r3')return false;
+    const key=combatLogKey(event);if(!key)return false;
+    let last=message_log.lastElementChild;
+    while(last&&!last.classList.contains('message_common'))last=last.previousElementSibling;
+    if(!last||last.dataset.combatKey!==key)return false;
+    const batch_log=deferSimulationRender(finish_batched_message_log,finish_batched_message_log);
+    const following=batch_log&&batched_log_following!==undefined?batched_log_following
+        :getDisplaySetting("logFollow")==="always"||is_message_log_near_bottom();
+    if(batch_log)batched_log_following=following;
+    addCombatOccurrence(last,combat_occurrence_time());
+    if(document.getElementById('message_show_combat')?.classList.contains('active_selection_button')){
+        if(following){if(batch_log)batched_log_scroll_requested=true;else message_log.scrollTop=message_log.scrollHeight;}
+        else{message_log_unread_count+=1;show_message_log_unread();}
+    }
+    return true;
+}
 function compact_log_target(message,type){
     const originalText=message.textContent;let compactText;
     if(/attacked/.test(type))compactText=originalText.replace(' was hit for ',' takes ').replace(/ damage$/,'');
@@ -1004,6 +1032,7 @@ export function setNativeLogBufferReader(reader) {
     if(typeof message_to_add === 'undefined') {
         return;
     }
+    if(details.combat && collapse_combat_repeat(details.combat)) return;
 
     message_to_add = message_to_add.replaceAll("%HeroName%", character.name).replaceAll("\n","<br>");
     //message_to_add = message_to_add.replaceAll("%HeroName%", character.name).replaceAll("<br>","\n");
@@ -1186,7 +1215,9 @@ export function setNativeLogBufferReader(reader) {
     message.dataset.logLabel=({message_combat:'Combat',message_loot:'Loot',message_unlocks:'Discovery',message_events:'Event',message_background:'World',message_crafting:'Crafting'})[group_to_add]||'Event';
     if(details.safeText) message.textContent = message_to_add;
     else set_HTML(message, message_to_add);
-    decorate_log_subjects(compact_log_target(message,message_type),log_subject_snapshots(message_to_add,message_type,details.subjects),message_type);
+    const compact_node=compact_log_target(message,message_type);
+    if(details.combat&&renderCombatLine(compact_node,details.combat))mark_combat_line(message,details.combat);
+    else decorate_log_subjects(compact_node,log_subject_snapshots(message_to_add,message_type,details.subjects),message_type);
     const panelId=details.panelId||({message_combat:'combat',message_loot:'belongings',message_crafting:'crafting'}[group_to_add])||({skill_raised:'skills',skill_unlocked:'skills',activity_unlocked:'local-actions',location_unlocked:'local-actions'}[message_type]);
     if(panelId){
         const link=document.createElement('button');link.type='button';link.className='notice-panel-link';link.textContent='Open';
