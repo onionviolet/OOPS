@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {projectNativeOpponents, letterFor, factText, healthText, healthFill, knowledgeOf, encounterCaption} from '../src/opponent_board.js';
+import {projectNativeOpponents, letterFor, factText, healthText, healthFill, knowledgeOf, encounterCaption, kindHue, KIND_HUES} from '../src/opponent_board.js';
 import {boardLayout, LAYOUT_SPEC} from '../src/layout_spec.js';
 
 const row = (i, hp = '19/20 hp') => ({id: `defender_${i}_div`, name: 'Starving wolf rat', hp, healthProgress: 95, attackProgress: 40,
@@ -61,4 +61,23 @@ test('the engine lane projection (schema 1) maps onto the board shape', async ()
     assert.deepEqual(board.opponents.map(o => [o.id, o.letter, healthText(o)]), [['opponent-1', 'A', '19/20 hp'], ['opponent-2', 'B', 'Defeated']]);
     assert.deepEqual(board.opponents[0].facts.map(factText), ['4 dmg', '???']);
     assert.equal(fromCombatOpponentsProjection({schema: 1, active: false, opponents: []}).opponents.length, 0);
+});
+
+test('R22b: a tall slot stacks the board in one column; a short one keeps R20 bands', () => {
+    // 8 mixed opponents, 3 kinds: 8 rows plus 3 group labels.
+    const tall = boardLayout({count: 8, widthEm: 28, heightEm: 30, groups: [3, 3, 2]});
+    assert.equal(tall.columns, 1); assert.equal(tall.visibleRows, 11); assert.equal(tall.stacked, true);
+    const short = boardLayout({count: 8, widthEm: 28, heightEm: 12, groups: [3, 3, 2]});
+    assert.ok(short.columns > 1, 'not every row fits: columns as in R20');
+    assert.ok(short.visibleRows <= Math.floor(12 / LAYOUT_SPEC.opponentBoard.rowEm), 'visible rows follow the slot');
+    const r20 = boardLayout({count: 8, widthEm: 28, groups: [3, 3, 2]});
+    assert.equal(r20.columns, 3, 'no height: R20 grouped columns'); assert.equal(r20.visibleRows, 6, 'three labels and one row per group at three columns');
+});
+
+test('R22b: kind hues follow first appearance in slot order and agree for board and log', () => {
+    const names = ['Starving wolf rat', 'Wolf rat', 'Elite wolf rat', 'Starving wolf rat', 'Wolf rat'];
+    assert.deepEqual(names.map(n => kindHue(names, n)), [0, 1, 2, 0, 1]);
+    assert.equal(kindHue(names, 'Boar'), null);
+    const many = Array.from({length: KIND_HUES + 1}, (_, i) => `Kind ${i}`);
+    assert.equal(kindHue(many, `Kind ${KIND_HUES}`), 0, 'hues repeat past the set; letters still tell them apart');
 });

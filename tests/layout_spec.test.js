@@ -27,9 +27,10 @@ test('every panel lands in the same region as in R16, idle and in a fight', () =
 });
 
 test('default shell order matches R16 for the parity shell and the plain shell', () => {
-    assert.deepEqual(shellOrder({parity: true}), r16Order(['records', 'skills']));
+    // R22b (SU1): the opponent list joins the fight companions, ahead of Skills.
+    assert.deepEqual(shellOrder({parity: true}), r16Order(['records', 'opponents', 'skills']));
     assert.deepEqual(shellOrder({parity: false}), r16Order([]));
-    assert.deepEqual(companionPanels(), ['records', 'skills']);
+    assert.deepEqual(companionPanels(), ['records', 'opponents', 'skills']);
 });
 
 test('companions and top-row numbers match R16 (R21: Skills left the idle default)', () => {

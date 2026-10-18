@@ -1,0 +1,161 @@
+{
+ "B1": [
+  {
+   "target": "1920-14",
+   "region": "actions",
+   "shown": true,
+   "inList": true,
+   "columns": "1",
+   "count": 8,
+   "allRows": true,
+   "actionsVisible": true,
+   "targetLine": "A · Starving wolf rat 20/20 hp",
+   "page": true,
+   "you": 501,
+   "inventory": 501
+  },
+  {
+   "target": "1920-21",
+   "region": "actions",
+   "shown": true,
+   "inList": true,
+   "columns": "1",
+   "count": 8,
+   "allRows": true,
+   "actionsVisible": true,
+   "targetLine": "A · Starving wolf rat 20/20 hp",
+   "page": true,
+   "you": 501,
+   "inventory": 501
+  },
+  {
+   "target": "mbp-14",
+   "region": "actions",
+   "shown": true,
+   "inList": true,
+   "columns": "1",
+   "count": 8,
+   "allRows": true,
+   "actionsVisible": true,
+   "targetLine": "A · Starving wolf rat 20/20 hp",
+   "page": true,
+   "you": 468,
+   "inventory": 468
+  },
+  {
+   "target": "mbp-21",
+   "region": "actions",
+   "shown": true,
+   "inList": true,
+   "columns": "2",
+   "count": 8,
+   "allRows": false,
+   "actionsVisible": true,
+   "targetLine": "A · Starving wolf rat 20/20 hp",
+   "page": true,
+   "you": 468,
+   "inventory": 468
+  },
+  {
+   "target": "1536-14",
+   "region": "actions",
+   "shown": true,
+   "inList": true,
+   "columns": "1",
+   "count": 8,
+   "allRows": true,
+   "actionsVisible": true,
+   "targetLine": "A · Starving wolf rat 20/20 hp",
+   "page": true,
+   "you": 527,
+   "inventory": 394
+  },
+  {
+   "target": "1536-21",
+   "region": "actions",
+   "shown": true,
+   "inList": true,
+   "columns": "2",
+   "count": 8,
+   "allRows": false,
+   "actionsVisible": true,
+   "targetLine": "A · Starving wolf rat 20/20 hp",
+   "page": true,
+   "you": 527,
+   "inventory": 394
+  },
+  {
+   "target": "1366-14",
+   "region": "actions",
+   "shown": true,
+   "inList": true,
+   "columns": "2",
+   "count": 8,
+   "allRows": false,
+   "actionsVisible": true,
+   "targetLine": "A · Starving wolf rat 20/20 hp",
+   "page": true,
+   "you": 467,
+   "inventory": 349
+  },
+  {
+   "target": "1366-21",
+   "region": "actions",
+   "shown": true,
+   "inList": true,
+   "columns": "1",
+   "count": 8,
+   "allRows": false,
+   "actionsVisible": true,
+   "targetLine": "A · Starving wolf rat 20/20 hp",
+   "page": true,
+   "you": 467,
+   "inventory": 349
+  }
+ ],
+ "B2": {
+  "board": {
+   "0": "rgb(240, 182, 255)",
+   "1": "rgb(255, 179, 122)",
+   "2": "rgb(201, 227, 124)"
+  },
+  "log": {
+   "0": "rgb(240, 182, 255)",
+   "1": "rgb(255, 179, 122)",
+   "2": "rgb(201, 227, 124)"
+  },
+  "names": {
+   "0": "Starving wolf rat · 3",
+   "1": "Wolf rat · 3",
+   "2": "Elite wolf rat · 2"
+  },
+  "low": []
+ },
+ "B3": [
+  "A · Starving wolf rat",
+  "D · Starving wolf rat"
+ ],
+ "B4-one": {
+  "target": "Starving wolf rat\n19/20 hp",
+  "cards": 1,
+  "letters": 0
+ },
+ "B4-three": {
+  "target": "A · Starving wolf rat\n18/20 hp",
+  "cards": 3,
+  "letters": 10
+ },
+ "B6": {
+  "target": "1920-14",
+  "bg": "rgb(239,230,210)",
+  "low": [],
+  "lowCount": 0
+ },
+ "B7": {
+  "shown": true
+ },
+ "B8": {
+  "target": "1920-14",
+  "density": "compact"
+ }
+}

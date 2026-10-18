@@ -1,5 +1,5 @@
 import {boardLayout} from './layout_spec.js';
-import {projectNativeOpponents,knowledgeOf,healthText,healthFill,factText,factShown,encounterCaption,KNOWLEDGE_LABEL} from './opponent_board.js';
+import {projectNativeOpponents,knowledgeOf,healthText,healthFill,factText,factShown,encounterCaption,kindHue,KNOWLEDGE_LABEL} from './opponent_board.js';
 import {definePanel} from './panel_kit.js';
 import {projectVillageScene} from './causal_story_scenes.js';
 import {openWorkspaceModule} from './workspace_layout.js';
@@ -41,6 +41,14 @@ export function createVillageWorkspace({read,act}) {
     const rosterMode=node('button','Compare');rosterMode.type='button';rosterMode.className='combat-roster-mode';let compare=false;
     rosterMode.onclick=()=>{compare=!compare;render();};
     rosterToolbar.append(rosterCaption,rosterMode);enemyView.append(rosterToolbar,enemyCards,detail);
+    // R22b (SU1–SU3): in the parity shell a fight lists the opponents in their own panel beside the
+    // actions, stacked while the slot is tall enough; Around you keeps the inspected opponent's name,
+    // health and facts level with You. If that panel is hidden or yields (an item detail), the list
+    // returns to Around you as in R20. The nodes move, never rebuild, so handlers and focus survive.
+    const opponentsView=node('section');opponentsView.id='opponent_list';opponentsView.className='combat-focus-view combat-opponents-view';
+    const targetLine=node('div'),targetName=node('strong'),targetHealth=node('span'),targetCycle=node('progress');targetLine.className='opponent-target';targetHealth.className='opponent-target-health';targetCycle.className='opponent-target-cycle';targetCycle.max=100;
+    targetLine.append(targetName,targetHealth,targetCycle);targetLine.hidden=true;enemyView.prepend(targetLine);
+    const listShown=()=>document.getElementById('main_content')?.dataset.parity==='r3'&&opponentsView.isConnected&&opponentsView.checkVisibility();
 
     const setText=(n,text)=>{if(n.textContent!==text)n.textContent=text;};
     const setAttr=(n,key,value)=>{value=String(value);if(n.getAttribute(key)!==value)n.setAttribute(key,value);};
@@ -61,7 +69,12 @@ export function createVillageWorkspace({read,act}) {
         focus.dataset.nativeActor=target.id||'';
         // Repeated names group in first-appearance order; each group keeps native slot order.
         const named=new Map();for(const opp of opponents){if(!named.has(opp.name))named.set(opp.name,[]);named.get(opp.name).push(opp);}
-        const fontSize=parseFloat(getComputedStyle(focus).fontSize)||14,layout=boardLayout({count,widthEm:focus.clientWidth/fontSize,groups:[...named.values()].map(g=>g.length)});
+        const inList=listShown(),host=inList?opponentsView:enemyView;
+        if(rosterToolbar.parentNode!==host){if(inList)opponentsView.append(rosterToolbar,enemyCards);else enemyView.insertBefore(rosterToolbar,detail),enemyView.insertBefore(enemyCards,detail);}
+        targetLine.hidden=!inList;setAttr(enemyView,'data-list-elsewhere',inList);
+        const fontSize=parseFloat(getComputedStyle(host).fontSize)||14,heightEm=inList?Math.max(0,opponentsView.clientHeight-rosterToolbar.offsetHeight)/fontSize:0;
+        const layout=boardLayout({count,widthEm:host.clientWidth/fontSize,heightEm,groups:[...named.values()].map(g=>g.length)});
+        const hueOf=name=>kindHue(opponents.map(o=>o.name),name);
         setAttr(enemyCards,'data-grouped',layout.grouped);
         setAttr(enemyCards,'data-layout',layout.layout);setAttr(enemyCards,'data-columns',layout.columns);setAttr(enemyCards,'data-count',count);
         if(enemyCards.style.getPropertyValue('--board-visible-rows')!==String(layout.visibleRows))enemyCards.style.setProperty('--board-visible-rows',String(layout.visibleRows));
@@ -70,7 +83,7 @@ export function createVillageWorkspace({read,act}) {
         for(const[id,card]of enemyCardNodes)if(!opponents.some(o=>o.id===id)){card.remove();enemyCardNodes.delete(id);}
         for(const[name,label]of groupLabels)if(!layout.grouped||!named.has(name)){label.remove();groupLabels.delete(name);}
         const order=layout.grouped?[...named.entries()].flatMap(([name,group])=>{let label=groupLabels.get(name);if(!label){label=node('p');label.className='enemy-group-label';groupLabels.set(name,label);}
-            setText(label,`${name} · ${group.length}`);setTitle(label,`${group.length} opponents named ${name}, ${group.map(o=>o.letter).join(', ')}. Each keeps its own health and can be inspected on its own.`);return [label,...group];}):opponents;
+            setText(label,`${name} · ${group.length}`);setAttr(label,'data-kind-hue',hueOf(name));setTitle(label,`${group.length} opponents named ${name}, ${group.map(o=>o.letter).join(', ')}. Each keeps its own health and can be inspected on its own.`);return [label,...group];}):opponents;
         for(const[index,opp]of order.entries()){
             if(opp.nodeType){if(enemyCards.children[index]!==opp)enemyCards.insertBefore(opp,enemyCards.children[index]||null);continue;}
             let card=enemyCardNodes.get(opp.id);
@@ -85,22 +98,29 @@ export function createVillageWorkspace({read,act}) {
             setText(hp.firstChild,health);setAttr(hp,'data-health-known',fill!=null);setTitle(hp,opp.defeated?`Defeated · ${opp.health?.text||''}`.trim():health);card.style.setProperty('--roster-health',`${fill??0}%`);
             if(inspected){name.dataset.effectAnchor='opponent-name';hp.dataset.effectAnchor='opponent-health';}else{name.removeAttribute('data-effect-anchor');hp.removeAttribute('data-effect-anchor');}
             cycle.hidden=opp.defeated||opp.cycle==null;cycle.value=opp.cycle||0;setAttr(cycle,'aria-label',`${label} attack cycle`);setTitle(cycle,'Attack cycle · native progress');
-            setAttr(card,'data-inspected',inspected);setAttr(card,'data-defeated',!!opp.defeated);setAttr(card,'data-knowledge',known);
+            setAttr(card,'data-inspected',inspected);setAttr(card,'data-kind-hue',hueOf(opp.name));setAttr(card,'data-defeated',!!opp.defeated);setAttr(card,'data-knowledge',known);
             facts.hidden=!comparing;if(comparing)renderFacts(facts,facts.nodes,opp.facts||[],false);
         }
         // The inspected opponent's facts, once. List form (with your own value) for up to four
         // opponents, a compact grid beyond that (layout_spec opponentBoard).
         detail.hidden=comparing;setAttr(detail,'data-facts',layout.facts);setAttr(detail,'data-knowledge',knowledgeOf(target));setTitle(detail,`${count>1?target.letter+' · ':''}${target.name}. ${KNOWLEDGE_LABEL[knowledgeOf(target)]}`);
         const facts=target.facts||[];renderFacts(detailFacts,detailNodes,facts,layout.facts==='list');
+        if(inList){const t=opponents.find(o=>o.id===target.id)||target,fill=healthFill(t);
+            setText(targetName,count>1&&t.letter?`${t.letter} · ${t.name}`:t.name);setAttr(targetName,'data-kind-hue',hueOf(t.name));setAttr(targetLine,'data-defeated',!!t.defeated);
+            setText(targetHealth,healthText(t));targetLine.style.setProperty('--roster-health',`${fill??0}%`);setAttr(targetHealth,'data-health-known',fill!=null);
+            targetCycle.hidden=!!t.defeated||t.cycle==null;targetCycle.value=t.cycle||0;setAttr(targetCycle,'aria-label',`${t.name} attack cycle`);
+            setTitle(targetLine,`Inspecting ${count>1&&t.letter?t.letter+' · ':''}${t.name}. Select another opponent in the list to inspect it; inspection does not change attack targeting.`);}
         detailEmpty.hidden=!!facts.length;setText(detailEmpty,'No combat facts observed yet.');
         const caption=encounterCaption(board);setText(rosterCaption,caption);setTitle(rosterCaption,caption);
         if(root.style.getPropertyValue('--enemy-cards-height'))root.style.removeProperty('--enemy-cards-height');
         root.dataset.enemyPanels='true';root.dataset.enemyCards='true';
         // A new wave with a different count is a stable moment for the fit engine (WX4).
-        const signature=`${layout.layout}:${count}:${layout.columns}`;if(root.dataset.opponentBoard!==signature)root.dataset.opponentBoard=signature;
+        const signature=`${layout.layout}:${count}:${layout.columns}:${inList?'list':'focus'}`;if(root.dataset.opponentBoard!==signature)root.dataset.opponentBoard=signature;
     }
     const home=document.getElementById('main_content');
     definePanel({id:'focus',title:'Focus',role:'character',node:focus,home,defaultDock:'center',after:'time',eligible:()=>true});
+    const fighting=()=>home.dataset.parity==='r3'&&home.dataset.parityCombat==='true';
+    definePanel({id:'opponents',title:'Opponents',role:'character',node:opponentsView,home,defaultDock:'center',after:'local-actions',eligible:fighting,discovered:fighting});
     definePanel({id:'village-scene',title:'Village scene',role:'actions',node:scene,home,defaultDock:'center',after:'location',
         discovered:()=>true,eligible:()=>read().inVillage||document.getElementById('main_content').dataset.parity==='r3'});
     function choose(id){selected=id;render();}
@@ -170,7 +190,7 @@ export function createVillageWorkspace({read,act}) {
         const shell=document.getElementById('main_content').dataset.presentation==='proto23-shell';
         if(shell&&!target){focus.dataset.focusEmpty='false';focus.closest('.workspace-module')?.setAttribute('data-focus-empty','false');}
         const nativeEncounter=target?.kind==='enemy'&&shell;if(nativeEncounter)renderEnemy(target,board);const groupHeading=nativeEncounter,enemyCount=board.opponents.length;
-        if(heading){setText(heading,groupHeading?(enemyCount>1?`Opponents · ${enemyCount}`:'Opponent'):shell?(target?.name||'Around you'): 'Focus');setTitle(heading,groupHeading?`${enemyCount} opponent${enemyCount===1?'':'s'}. Select a name to inspect; inspection does not change attack targeting.`:target?.name||'Inspect a known person, place or opponent');heading.removeAttribute('data-effect-anchor');heading.removeAttribute('tabindex');}
+        if(heading){setText(heading,groupHeading?(enemyCount>1&&listShown()?'Inspecting':enemyCount>1?`Opponents · ${enemyCount}`:'Opponent'):shell?(target?.name||'Around you'): 'Focus');setTitle(heading,groupHeading?`${enemyCount} opponent${enemyCount===1?'':'s'}. Select a name to inspect; inspection does not change attack targeting.`:target?.name||'Inspect a known person, place or opponent');heading.removeAttribute('data-effect-anchor');heading.removeAttribute('tabindex');}
         focus.dataset.subjectHeading=String(shell&&!!target);
         if(nativeEncounter){focusSignature=next;return;}
         {const root=document.getElementById('main_content');if(root.dataset.enemyCards==='true')root.dataset.enemyCards='false';if(root.dataset.opponentBoard)delete root.dataset.opponentBoard;}

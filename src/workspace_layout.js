@@ -34,7 +34,10 @@ function makeShellLayout(narrow,{fresh=false}={}){
     if(saved&&(saved.spec||0)<2){const at=layout.modules.findIndex(v=>v.id==='status-window'),sw=layout.modules[at];
         if(sw){sw.hidden=false;layout.modules.splice(at,1);const after=layout.modules.findIndex(v=>v.id==='shell-character');layout.modules.splice(after<0?layout.modules.length:after+1,0,sw);layout.modules.forEach((v,i)=>v.order=i);}
         layout.spec=2;}
-    if(!saved){layout.columns=[.263,.435,.302];const order=shellOrder({parity:companions.length>0});layout.spec=2;
+    // R22b (SU8): layout spec 3 shows the new opponent list once in an older layout (it joins after
+    // the actions like any added panel). It appears only in a fight; a later manual hide is kept.
+    if(saved&&(saved.spec||0)<3){const list=layout.modules.find(v=>v.id==='opponents');if(list)list.hidden=false;layout.spec=3;}
+    if(!saved){layout.columns=[.263,.435,.302];const order=shellOrder({parity:companions.length>0});layout.spec=3;
         layout.modules.forEach(v=>{v.hidden=!order.includes(v.id);if(v.id==='shell-character'){v.dock='left';v.height=190;}if(v.id==='shell-detail'){v.dock='center';v.height=210;}});
         layout.modules.sort((a,b)=>(order.includes(a.id)?order.indexOf(a.id):999)-(order.includes(b.id)?order.indexOf(b.id):999));layout.modules.forEach((v,i)=>v.order=i);}
     return layout;
@@ -301,7 +304,7 @@ export function updateWorkspace() {
         const parked=composed&&!state.pinned&&!core.includes(state.id)&&!(owner.parity&&(companionPanels().includes(state.id)||boxOf(state.id)));
         setData(shell,'compositionParked',String(parked));
         if(known&&['vitals','belongings'].includes(state.id))setProperty(shell.querySelector('.workspace-module-header > strong'),'textContent',composed?(state.id==='vitals'?'You':'Inventory'):module.title);
-        if(known&&companionPanels().includes(state.id))setProperty(shell.querySelector('.workspace-module-header > strong'),'textContent',owner.parity?(state.id==='records'?'Journal':'Skills'):module.title);
+        if(known&&companionPanels().includes(state.id))setProperty(shell.querySelector('.workspace-module-header > strong'),'textContent',owner.parity?(LAYOUT_SPEC.boxes[boxOf(state.id)]?.title||module.title):module.title);
         if(known&&state.id==='vitals'){
             const race=document.getElementById('character_race_div');
             const visibleRace=race?[...race.childNodes].filter(n=>n.nodeType===3).map(n=>n.textContent).join('').replace(/^[^:]*:\s*/,'').trim():'';

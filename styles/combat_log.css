@@ -28,6 +28,17 @@
 #main_content.workspace-active[data-parity="r3"] #message_log_div .log-name[data-side="ally"] {color:var(--log-ally)!important;}
 #main_content.workspace-active[data-parity="r3"] #message_log_div .log-name[data-side="hostile"] {color:var(--log-hostile)!important;}
 #main_content.workspace-active[data-parity="r3"] #message_log_div .log-letter {font-weight:700;}
+/* R22b (SU4, SU5): an opponent's name takes its kind hue, the same as its row on the board, and its
+   letter shows as a small chip. Misses stay quiet below; a custom palette keeps its own text. */
+#main_content.workspace-active[data-parity="r3"] #message_log_div .log-name[data-kind-hue] {color:var(--kind-hue)!important;}
+#main_content.workspace-active[data-parity="r3"] #message_log_div .log-name[data-kind-hue="0"] {--kind-hue:var(--opponent-kind-0);}
+#main_content.workspace-active[data-parity="r3"] #message_log_div .log-name[data-kind-hue="1"] {--kind-hue:var(--opponent-kind-1);}
+#main_content.workspace-active[data-parity="r3"] #message_log_div .log-name[data-kind-hue="2"] {--kind-hue:var(--opponent-kind-2);}
+#main_content.workspace-active[data-parity="r3"] #message_log_div .log-name[data-kind-hue="3"] {--kind-hue:var(--opponent-kind-3);}
+#main_content.workspace-active[data-parity="r3"] #message_log_div .log-name[data-kind-hue="4"] {--kind-hue:var(--opponent-kind-4);}
+#main_content.workspace-active[data-parity="r3"] #message_log_div .log-name[data-kind-hue="5"] {--kind-hue:var(--opponent-kind-5);}
+#main_content.workspace-active[data-parity="r3"] #message_log_div[data-custom-palette="true"] .log-name[data-kind-hue] {--kind-hue:var(--log-hostile);}
+#main_content.workspace-active[data-parity="r3"] #message_log_div .log-name[data-kind-hue] > .log-letter {display:inline-block;min-width:1.15em;padding:0 .2em;line-height:1.15;text-align:center;border:1px solid currentColor;font-size:.85em;}
 #main_content.workspace-active[data-parity="r3"] #message_log_div [data-combat-outcome] .log-value {font-weight:700;color:var(--log-dealt)!important;}
 #main_content.workspace-active[data-parity="r3"] #message_log_div [data-combat-outcome] .log-value[data-value-role="loss"] {color:var(--log-taken)!important;}
 
@@ -43,3 +54,8 @@
 #main_content.workspace-active[data-parity="r3"] #message_log_div .log-repeat:focus-visible {outline:2px solid var(--log-dealt);outline-offset:1px;}
 #main_content.workspace-active[data-parity="r3"] #message_log_div .log-occurrences {display:flex;flex-wrap:wrap;gap:.2em .6em;list-style:none;margin:.15em 0 0;padding:0;font-size:.85em;color:var(--log-quiet);}
 .log-occurrences {font-size:.85em;}
+
+/* R22b (SU7): under a custom palette every non-combat report line takes the palette's text color.
+   Native line colors (bright yellow places and unlocks, lilac skills) were set for the dark log
+   fill and nearly vanished on a light one; the kind still shows in the left rule. */
+#main_content.workspace-active[data-parity="r3"] #message_log_div[data-custom-palette="true"] :not([data-combat-outcome]) > .log-compact {color:var(--custom-text)!important;}

@@ -4,11 +4,11 @@
 //
 // Snapshot: {encounter, outcome: 'hit'|'miss'|'block'|'defeat', actor, target, amount, hits,
 //   critical, partial, direction: 'dealt'|'taken'|'other'}
-// participant: {name, you, side: 'ally'|'hostile', slot, letter}
+// participant: {name, you, side: 'ally'|'hostile', slot, letter, hue} (hue: R22b kind hue, hostile only)
 // Letters are assigned at encounter start by native slot (R1, W3, IL60): the defender index does
 // not change during a wave, and a new wave is a new Combat object, so its serial differs and old
 // lines never resolve to the new opponent in the same slot.
-import {letterFor} from './opponent_board.js';
+import {letterFor,kindHue} from './opponent_board.js';
 
 const serials = new WeakMap();
 let nextSerial = 1;
@@ -22,7 +22,8 @@ function participant(fighter, sideFighters, slot, isAttackerSide) {
     const you = !!fighter?.tags?.main_character;
     // A letter only tells fighters apart, so a side of one gets none (the board shows one card).
     const letter = !you && sideFighters?.length > 1 && slot >= 0 ? letterFor(slot) : '';
-    return {name: you ? 'You' : String(fighter?.name ?? '?'), you, side: isAttackerSide ? 'ally' : 'hostile', slot, letter};
+    const hue = !you && !isAttackerSide ? kindHue((sideFighters || []).map(f => String(f?.name ?? '?')), String(fighter?.name ?? '?')) : null;
+    return {name: you ? 'You' : String(fighter?.name ?? '?'), you, side: isAttackerSide ? 'ally' : 'hostile', slot, letter, hue};
 }
 
 export function combatLogEvent(combat, {fighter, fighterIndex, isAttacker, target, outcome, amount = null, hits = 1, critical = false, partial = false}) {
@@ -60,8 +61,9 @@ function nameNode(p, lowerYou) {
     const span = document.createElement('span');
     span.className = 'log-name';span.dataset.side = p.side;
     if (p.you) {span.dataset.you = 'true';span.textContent = lowerYou ? 'you' : 'You';return span;}
+    if (p.hue != null) span.dataset.kindHue = String(p.hue);
     span.append(p.name);
-    if (p.letter) {const letter = document.createElement('span');letter.className = 'log-letter';letter.textContent = ` ${p.letter}`;span.append(letter);}
+    if (p.letter) {const letter = document.createElement('span');letter.className = 'log-letter';letter.textContent = p.letter;span.append(' ', letter);}
     return span;
 }
 function valueNode(event) {

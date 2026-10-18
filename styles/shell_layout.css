@@ -10,7 +10,7 @@
    shows both, a fight shows Skills (Stances). They yield to an item detail or a center view. */
 @media (min-width:1001px) {
 #main_content.workspace-active[data-parity="r3"][data-shell-fit="true"]:not([data-shell-stats-open="true"]):not([data-parity-item="true"]):not(:has(.combat-readout[open])) .workspace-board {grid-template-rows:minmax(0,var(--shell-top-row)) minmax(0,1fr)!important;}
-#main_content.workspace-active[data-parity="r3"]:is([data-shell-companions~="records"],[data-shell-companions~="skills"]):not([data-parity-item="true"]):not(:has(#location_related_div.center-mode-open)) [data-region="actions"] {
+#main_content.workspace-active[data-parity="r3"]:is([data-shell-companions~="records"],[data-shell-companions~="skills"],[data-shell-companions~="opponents"]):not([data-parity-item="true"]):not(:has(#location_related_div.center-mode-open)) [data-region="actions"] {
  display:grid;grid-template-columns:minmax(0,1fr) minmax(0,clamp(calc(var(--shell-context-size,var(--ui-type-body))*12),42%,calc(var(--shell-context-size,var(--ui-type-body))*24)));grid-template-rows:auto auto minmax(0,1fr) minmax(0,1fr) auto;
 }
 #main_content.workspace-active[data-parity="r3"] [data-region="actions"] > .workspace-module[data-module="village-scene"] {grid-row:1;grid-column:1/-1;}
@@ -18,15 +18,24 @@
 #main_content.workspace-active[data-parity="r3"] [data-region="actions"] > .workspace-module[data-module="local-actions"] {grid-row:3/5;grid-column:1;}
 #main_content.workspace-active[data-parity="r3"] [data-region="actions"] > .workspace-module[data-module="pane-navigation"] {grid-row:5;grid-column:1/-1;}
 /* A companion shows only when the latched list names it (src/shell_composition.js). */
-#main_content.workspace-active[data-parity="r3"] [data-region="actions"] > .workspace-module:is([data-module="records"],[data-module="skills"]) {display:none!important;}
+#main_content.workspace-active[data-parity="r3"] [data-region="actions"] > .workspace-module:is([data-module="records"],[data-module="skills"],[data-module="opponents"]) {display:none!important;}
 #main_content.workspace-active[data-parity="r3"][data-shell-companions~="records"]:not([data-parity-item="true"]):not(:has(#location_related_div.center-mode-open)) [data-region="actions"] > .workspace-module[data-module="records"]:not([hidden]),
-#main_content.workspace-active[data-parity="r3"][data-shell-companions~="skills"]:not([data-parity-item="true"]):not(:has(#location_related_div.center-mode-open)) [data-region="actions"] > .workspace-module[data-module="skills"]:not([hidden]) {
+#main_content.workspace-active[data-parity="r3"][data-shell-companions~="skills"]:not([data-parity-item="true"]):not(:has(#location_related_div.center-mode-open)) [data-region="actions"] > .workspace-module[data-module="skills"]:not([hidden]),
+#main_content.workspace-active[data-parity="r3"][data-shell-companions~="opponents"]:not([data-parity-item="true"]):not(:has(#location_related_div.center-mode-open)) [data-region="actions"] > .workspace-module[data-module="opponents"]:not([hidden]) {
  display:flex!important;flex-direction:column;min-height:0;border-left:1px solid var(--p23-line)!important;
 }
-#main_content.workspace-active[data-parity="r3"] [data-region="actions"] > .workspace-module:is([data-module="records"],[data-module="skills"]) {grid-column:2;grid-row:2/5;}
+#main_content.workspace-active[data-parity="r3"] [data-region="actions"] > .workspace-module:is([data-module="records"],[data-module="skills"],[data-module="opponents"]) {grid-column:2;grid-row:2/5;}
 #main_content.workspace-active[data-parity="r3"][data-shell-companions~="records"][data-shell-companions~="skills"] [data-region="actions"] > .workspace-module[data-module="records"] {grid-row:2/4;}
 #main_content.workspace-active[data-parity="r3"][data-shell-companions~="records"][data-shell-companions~="skills"] [data-region="actions"] > .workspace-module[data-module="skills"] {grid-row:4/5;}
-#main_content.workspace-active[data-parity="r3"] .parity-region > .workspace-module:is([data-module="records"],[data-module="skills"]) > .workspace-module-body {flex:1 1 0;min-height:0;overflow:auto;}
+#main_content.workspace-active[data-parity="r3"] .parity-region > .workspace-module:is([data-module="records"],[data-module="skills"],[data-module="opponents"]) > .workspace-module-body {flex:1 1 0;min-height:0;overflow:auto;}
+/* R22b (SU1, SU2): a fight splits the place region about in half, the opponent list in the second
+   column with Skills (Stances) under it. The list scrolls inside its own rows, never the page. */
+#main_content.workspace-active[data-parity="r3"][data-shell-companions~="opponents"]:not([data-parity-item="true"]):not(:has(#location_related_div.center-mode-open)) [data-region="actions"] {
+ grid-template-columns:minmax(0,1fr) minmax(0,clamp(calc(var(--shell-context-size,var(--ui-type-body))*14),48%,calc(var(--shell-context-size,var(--ui-type-body))*30)));
+}
+#main_content.workspace-active[data-parity="r3"][data-shell-companions~="opponents"][data-shell-companions~="skills"] [data-region="actions"] > .workspace-module[data-module="opponents"] {grid-row:2/4;}
+#main_content.workspace-active[data-parity="r3"][data-shell-companions~="opponents"][data-shell-companions~="skills"] [data-region="actions"] > .workspace-module[data-module="skills"] {grid-row:4/5;}
+#main_content.workspace-active[data-parity="r3"] .parity-region > .workspace-module[data-module="opponents"] > .workspace-module-body {overflow:hidden;display:flex;flex-direction:column;}
 /* CZ9: companion panels use the shell's tab and row look at the shell text size. Native nodes,
    click handlers and saved choices (Hide completed, skill sort) are unchanged. */
 #main_content.workspace-active[data-parity="r3"] .parity-region :is(#journal_div,#skills_and_stances_div) {font-size:var(--shell-context-size,var(--ui-type-body));line-height:1.3;padding:0 .2em;background:transparent!important;border:0;box-shadow:none;}

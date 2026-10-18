@@ -1460,3 +1460,15 @@ body:has(#main_content[data-parity="r3"]) #workspace_navigation > select > optio
  --log-kind-loot: #ffe2a0; --log-kind-crafting: #ffc58f; --log-kind-discovery: #e5b7fa;
  --log-kind-event: #9fb3d1; --log-kind-world: #6e7f99;
 }
+/* R22b (SU4): opponent kind hues, shared by the board and Reports (kindHue in opponent_board.js).
+   Light tones apart from your side's cyan and the dealt/taken value colors; each ≥4.5:1 on the
+   region and log fills. Kind 0 keeps R22's opponent lilac. */
+:root {
+ --opponent-kind-0: #f0b6ff; --opponent-kind-1: #ffb37a; --opponent-kind-2: #c9e37c;
+ --opponent-kind-3: #a9bfff; --opponent-kind-4: #e6c9a1; --opponent-kind-5: #ff9fd0;
+}
+/* R22b (SU6): at the primary target You takes Inventory's column width, matching the column below
+   it; the freed width goes to Around you. The floors keep the R21 widths. */
+@media (min-width:1700px) {
+#main_content.workspace-active[data-parity="r3"] .workspace-board {grid-template-areas:"player focus focus log" "inventory actions actions log";}
+}
