@@ -3479,3 +3479,15 @@ saved as [round 1 of the combat and conflict palette](COMBAT_AND_CONFLICT_CONSID
 rules](COMBAT_RULES.md) (CBR1-CBR30), registered in RULES_INDEX as a proposal. Only the rows
 restating AD8, AD19, AD20, AD25, AD28 and AD38 are accepted direction; the rest await his
 acceptance. Core audit: [COMBAT_CORE_AUDIT](audits/COMBAT_CORE_AUDIT.md).
+
+### Skills, learning and teaching round, 2026-10-18
+
+Weibao, pointing at gap G3 (skills, learning, teaching: mastery improves control, but no rule
+says how mastery is gained, lost, taught or carried to another life): "work on
+/more-to-consider on this and implementation and improvement and more". Saved as [round 1 of
+the skills and learning palette](SKILLS_AND_LEARNING_CONSIDERATIONS_2026-10-18.md)
+(SLC1-SLC46, later steps SLL1-SLL6) and the [proposed skill and learning
+rules](SKILL_AND_LEARNING_RULES.md) (SLR1-SLR27), registered in RULES_INDEX as a proposal.
+Only the rows restating MR21-MR23 and AD3, AD6, AD8, AD11, AD17 and AD38 bind now; the rest,
+including rust off by default and the relearning savings curve, await his acceptance. No
+runtime change.

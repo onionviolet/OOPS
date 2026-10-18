@@ -51,6 +51,7 @@ open here too.
 | Complexity guardrails | CX1–CX8 | Proposal 2026-10-16 | Keeping depth while bounding implementation | [Part 9 pass](gm/dispatch/ui-foundation-2026-10-15/next-parts/part-9-complexity-and-openness.md) |
 | Body and health rules | BHR1–BHR30 | Proposal 2026-10-17 (BHR1, BHR6, BHR14, BHR16 restate accepted AD13, AD8, AD19 and no hunger death; BHR21, BHR30 accepted through AD38) | Bodies, carriers, injury, illness, poison, healing, medicine, recovery, body wear across worlds | [BODY_AND_HEALTH_RULES](BODY_AND_HEALTH_RULES.md) |
 | Combat rules | CBR1–CBR30 | Proposal 2026-10-18 (CBR1, CBR7, CBR9, CBR10, CBR13, CBR18 restate accepted AD19, AD20, AD25, AD28, AD8, AD38) | Fights, encounters, enemies, weapons in use, defeat and victory outcomes, fleeing, pursuit, captives, idle combat, nonviolent conflict | [COMBAT_RULES](COMBAT_RULES.md) |
+| Skill and learning rules | SLR1–SLR27 | Proposal 2026-10-18 (SLR2, SLR5, SLR17 restate standing MR21–MR23; SLR3, SLR15, SLR20, SLR24–SLR26 restate accepted AD lines) | Skills, practice, teaching, texts, rust and loss, carrying skills across lives and worlds | [SKILL_AND_LEARNING_RULES](SKILL_AND_LEARNING_RULES.md) |
 | World completion standard | none | Proposal 2026-10-11 | Sections, detail ledger and acceptance for a world | [WORLD_COMPLETION_STANDARD](WORLD_COMPLETION_STANDARD.md) |
 
 ## Router: what applies to my task
@@ -69,6 +70,7 @@ open here too.
 | Time, idle, offline, recap | Rulebook 7, AD15–AD18, MR28, SR21 | [DIRECTION_SUMMARY](DIRECTION_SUMMARY.md), [DIRECTION_SYNTHESIS](DIRECTION_SYNTHESIS.md) |
 | Bodies, health, injury, illness, medicine, healing | AD13, AD19, AD8, AD38, MR1–MR36; BHR1–BHR30 as the proposed rulebook | [Part 35 palette](worlds/world-depth-2026-10-13/35_HEALTH_INJURY_ILLNESS_DEATH.md), [body and health palette](BODY_AND_HEALTH_CONSIDERATIONS_2026-10-17.md) |
 | Combat, enemies, weapons in use, defeat outcomes, fleeing, captives, conflict | AD8, AD19–AD21, AD25, AD28, AD38, BHR11, BHR13, BHR15; CBR1–CBR30 as the proposed rulebook | [Combat palette](COMBAT_AND_CONFLICT_CONSIDERATIONS_2026-10-18.md), [W2 combat grammar](worlds/world-core-kit-2026-10-14/W2_LAWS_POWER_COMBAT.md), [encounters and pursuit](ENCOUNTERS_AND_PURSUIT.md) |
+| Skills, practice, teaching, talents that change learning, skill loss or carryover | MR21–MR23, AD3, AD6, AD8, AD11, AD17, AD38; SLR1–SLR27 as the proposed rulebook | [Skills and learning palette](SKILLS_AND_LEARNING_CONSIDERATIONS_2026-10-18.md), [SKILLS_AND_TALENTS](SKILLS_AND_TALENTS.md), [skill mechanisms](worlds/SKILL_MECHANISMS_AND_MEANS_2026-10-13.md) |
 | Danger, defeat, difficulty, settings | AD19–AD22, SR14 | [DIRECTION_SYNTHESIS](DIRECTION_SYNTHESIS.md#od12-forgiving-recovery-direction-2026-10-15) |
 | Cheats | Rulebook 5, 11; AD26, AD28–AD30, AD11 | [CHEAT_COSMOLOGY](CHEAT_COSMOLOGY.md), [CHEAT_LIBRARY](CHEAT_LIBRARY.md) |
 | Starts and entry | AD23, Rulebook 8 | [Intro and starts index](INTRO_AND_STARTS_INDEX_2026-10-14.md) |

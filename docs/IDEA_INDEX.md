@@ -123,6 +123,15 @@ fight (CBC15-CBC19), knowing the opponent (CBC20-CBC23), idle combat
 (CBC31-CBC36), worlds and scale (CBC37-CBC42), ranked later steps CBL1-CBL10.
 Proposed rulebook: [COMBAT_RULES](COMBAT_RULES.md) CBR1-CBR30. Proposals only.
 
+[Skills, learning and teaching](SKILLS_AND_LEARNING_CONSIDERATIONS_2026-10-18.md)
+owns the 2026-10-18 more-to-consider round on gap G3: competence layers on
+different carriers (SLC1-SLC4), gaining (SLC5-SLC12), holding and losing
+(SLC13-SLC19), teaching (SLC20-SLC27), carrying across lives and worlds
+(SLC28-SLC33), knowing your own skill (SLC34-SLC36), code today (SLC37-SLC42),
+owner improvements (SLC43-SLC46), ranked later steps SLL1-SLL6. Proposed
+rulebook: [SKILL_AND_LEARNING_RULES](SKILL_AND_LEARNING_RULES.md) SLR1-SLR27.
+Proposals only.
+
 [Tools, cursed tools and instruments](TOOLS_AND_INSTRUMENTS_CONSIDERATIONS_2026-10-17.md)
 owns the 2026-10-17 palette for items as instruments (verbs and control, not
 truth): three item roles (TQ1), mundane tool fit, wear, kits and improvisation

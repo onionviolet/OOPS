@@ -11,6 +11,9 @@ like appraisal, observe and ??? and more?"
 
 **Status.** Everything here is a proposal. Nothing is implemented beyond
 vanilla YAIR's skills and the existing Rat-step technique.
+(2026-10-18: stale. Simulation methods with mastery, skill expansion
+families, lore practice and the Cooking-to-Alchemy training link now exist;
+see [skills and learning SLC37–SLC42](SKILLS_AND_LEARNING_CONSIDERATIONS_2026-10-18.md#slc-g-implementation-what-the-code-has-today).)
 
 **Builds on, does not repeat:**
 - [Means and appraisal](MEANS_AND_APPRAISAL.md): appraisal levels AP0 to
@@ -267,7 +270,10 @@ effect as "active, costs mana, public, learned."
 - Eating, absorbing, bonding, contracts.
 - Items: skill books, scrolls, crystals, gear that grants a skill while worn.
 - Titles and achievements.
-- Rebirth with memory: knowledge returns, practice doesn't.
+- Rebirth with memory: knowledge returns, practice doesn't. (2026-10-18 refinement: understanding carries and
+  fluency regrows faster in the new body; see
+  [SLC28–SLC30](SKILLS_AND_LEARNING_CONSIDERATIONS_2026-10-18.md#slc-e-carrying-to-another-life-or-world)
+  and [SLR20–SLR22](SKILL_AND_LEARNING_RULES.md#carrying-across-lives-and-worlds).)
 - Shops, systems, gods, bargains.
 
 **Ways to lose or weaken:**
