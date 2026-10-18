@@ -1,0 +1,1026 @@
+{
+  "at": "2026-10-16T05:15:04.551675+00:00",
+  "status": "PASS",
+  "local_links_checked": 779,
+  "anchors_checked": 24,
+  "private_json_parsed": 229,
+  "return_record_observations": 724,
+  "unique_matching_source_pins": 724,
+  "finding_row_observations": 10020,
+  "coverage": {
+    "compiled_at": "2026-10-16T02:41:48.900414+00:00",
+    "frozen_candidate_records": 2146,
+    "records_with_capture_or_extraction_coverage": 1365,
+    "full_capture_records": 1184,
+    "partial_capture_records": 181,
+    "candidate_records_without_capture": 1205,
+    "candidate_records_with_capture": 941,
+    "candidate_records_with_semantic_ranges": 333,
+    "records_with_explicit_semantic_ranges": 756,
+    "full_semantic_source_range_records": 414,
+    "semantic_range_accounting": "Explicit semantic ranges matching current bytes only; historical revision ranges retained separately in SEMANTIC_SOURCE_LEDGER. Originating-record semantic reading does not prove current adoption; T1 reported read scopes remain separate receipts.",
+    "v2_finding_rows": 10020,
+    "separate_semantic_returns": [
+      {
+        "return": "SEMANTIC_AUTHORITY_REFRESH_T05.json",
+        "source_ranges_applied": 0,
+        "findings": 1,
+        "schema": "semantic-authority-refresh-t05-v1",
+        "scope": "separate semantic return; grouped IDs are not individually completed findings"
+      },
+      {
+        "return": "SEMANTIC_B13_CASE_CONTRACTS.json",
+        "source_ranges_applied": 3,
+        "findings": 51,
+        "schema": "semantic-source-crosswalk-v1",
+        "scope": "separate semantic return; grouped IDs are not individually completed findings"
+      },
+      {
+        "return": "SEMANTIC_B13_DIAGNOSTICIANS.json",
+        "source_ranges_applied": 1,
+        "findings": 41,
+        "schema": "semantic-source-crosswalk-v1",
+        "scope": "separate semantic return; grouped IDs are not individually completed findings"
+      },
+      {
+        "return": "SEMANTIC_B16_DEPENDENCIES.json",
+        "source_ranges_applied": 1,
+        "findings": 20,
+        "schema": "semantic-b16-dependencies-v1",
+        "scope": "separate semantic return; grouped IDs are not individually completed findings"
+      },
+      {
+        "return": "SEMANTIC_B16_MODEL_ROADMAP.json",
+        "source_ranges_applied": 2,
+        "findings": 80,
+        "schema": "semantic-source-crosswalk-v1",
+        "scope": "separate semantic return; grouped IDs are not individually completed findings"
+      },
+      {
+        "return": "SEMANTIC_B2_AUDIT.json",
+        "source_ranges_applied": 1,
+        "findings": 73,
+        "schema": "semantic-b2-audit-v1",
+        "scope": "separate semantic return; grouped IDs are not individually completed findings"
+      },
+      {
+        "return": "SEMANTIC_B2_MIGRATION_TEST_PLAN.json",
+        "source_ranges_applied": 2,
+        "findings": 86,
+        "schema": "semantic-b2-migration-test-plan-v1",
+        "scope": "separate semantic return; grouped IDs are not individually completed findings"
+      },
+      {
+        "return": "SEMANTIC_B2_SPEC.json",
+        "source_ranges_applied": 2,
+        "findings": 85,
+        "schema": "semantic-b2-spec-v1",
+        "scope": "separate semantic return; grouped IDs are not individually completed findings"
+      },
+      {
+        "return": "SEMANTIC_B4_INVENTORY.json",
+        "source_ranges_applied": 64,
+        "findings": 283,
+        "schema": "semantic-b4-inventory-v1",
+        "scope": "separate semantic return; grouped IDs are not individually completed findings"
+      },
+      {
+        "return": "SEMANTIC_BODY_EXAMPLES_E1_E2.json",
+        "source_ranges_applied": 1,
+        "findings": 2,
+        "schema": "semantic-nonhuman-body-examples-e1-e2-v1",
+        "scope": "separate semantic return; grouped IDs are not individually completed findings"
+      },
+      {
+        "return": "SEMANTIC_BODY_EXAMPLES_E3_E4_FIXTURES.json",
+        "source_ranges_applied": 1,
+        "findings": 47,
+        "schema": "semantic-source-crosswalk-v1",
+        "scope": "separate semantic return; grouped IDs are not individually completed findings"
+      },
+      {
+        "return": "SEMANTIC_BODY_INTERFACES.json",
+        "source_ranges_applied": 1,
+        "findings": 12,
+        "schema": "semantic-body-interfaces-v1",
+        "scope": "separate semantic return; grouped IDs are not individually completed findings"
+      },
+      {
+        "return": "SEMANTIC_BODY_LINEAGE_B12_B14.json",
+        "source_ranges_applied": 3,
+        "findings": 61,
+        "schema": "semantic-source-crosswalk-v1",
+        "scope": "separate semantic return; grouped IDs are not individually completed findings"
+      },
+      {
+        "return": "SEMANTIC_BODY_LINEAGE_B15_B18.json",
+        "source_ranges_applied": 2,
+        "findings": 20,
+        "schema": "semantic-body-lineage-b15-b18-v1",
+        "scope": "separate semantic return; grouped IDs are not individually completed findings"
+      },
+      {
+        "return": "SEMANTIC_BODY_LINEAGE_B1_B3.json",
+        "source_ranges_applied": 4,
+        "findings": 27,
+        "schema": "semantic-body-lineage-b1-b3-v1",
+        "scope": "separate semantic return; grouped IDs are not individually completed findings"
+      },
+      {
+        "return": "SEMANTIC_BODY_LINEAGE_B4.json",
+        "source_ranges_applied": 4,
+        "findings": 15,
+        "schema": "semantic-body-lineage-b4-v1",
+        "scope": "separate semantic return; grouped IDs are not individually completed findings"
+      },
+      {
+        "return": "SEMANTIC_BODY_LINEAGE_B5_B8.json",
+        "source_ranges_applied": 6,
+        "findings": 70,
+        "schema": "semantic-body-lineage-b5-b8-v1",
+        "scope": "separate semantic return; grouped IDs are not individually completed findings"
+      },
+      {
+        "return": "SEMANTIC_BODY_LINEAGE_B9_B11.json",
+        "source_ranges_applied": 4,
+        "findings": 36,
+        "schema": "semantic-nonhuman-abstraction-v1",
+        "scope": "separate semantic return; grouped IDs are not individually completed findings"
+      },
+      {
+        "return": "SEMANTIC_CAUSAL_ENDINGS.json",
+        "source_ranges_applied": 2,
+        "findings": 3,
+        "schema": "semantic-causal-ending-v1",
+        "scope": "separate semantic return; grouped IDs are not individually completed findings"
+      },
+      {
+        "return": "SEMANTIC_CORE_A1_A4.json",
+        "source_ranges_applied": 7,
+        "findings": 24,
+        "schema": "semantic-source-crosswalk-v1",
+        "scope": "separate semantic return; grouped IDs are not individually completed findings"
+      },
+      {
+        "return": "SEMANTIC_CORE_A5_STATUS_R1.json",
+        "source_ranges_applied": 4,
+        "findings": 25,
+        "schema": "semantic-nonhuman-abstraction-v1",
+        "scope": "separate semantic return; grouped IDs are not individually completed findings"
+      },
+      {
+        "return": "SEMANTIC_CV1_AUDIT_ROWS.json",
+        "source_ranges_applied": 1,
+        "findings": 16,
+        "schema": "semantic-cv1-audit-rows-v1",
+        "scope": "separate semantic return; grouped IDs are not individually completed findings"
+      },
+      {
+        "return": "SEMANTIC_CV1_CARDS.json",
+        "source_ranges_applied": 1,
+        "findings": 27,
+        "schema": "semantic-cv1-cards-v1",
+        "scope": "separate semantic return; grouped IDs are not individually completed findings"
+      },
+      {
+        "return": "SEMANTIC_CV1_CONTRACT_BODY.json",
+        "source_ranges_applied": 1,
+        "findings": 33,
+        "schema": "semantic-source-crosswalk-v1",
+        "scope": "separate semantic return; grouped IDs are not individually completed findings"
+      },
+      {
+        "return": "SEMANTIC_DEFAULTS_RETURN.json",
+        "source_ranges_applied": 19,
+        "findings": 20,
+        "schema": "semantic-defaults-audit-v1",
+        "scope": "separate semantic return; grouped IDs are not individually completed findings"
+      },
+      {
+        "return": "SEMANTIC_DIAGNOSTIC_HISTORY_JOINS_T08.json",
+        "source_ranges_applied": 3,
+        "findings": 78,
+        "schema": "semantic-diagnostic-history-joins-t08-v1",
+        "scope": "separate semantic return; grouped IDs are not individually completed findings"
+      },
+      {
+        "return": "SEMANTIC_GM_SMALL_MANIFESTS.json",
+        "source_ranges_applied": 17,
+        "findings": 83,
+        "schema": "semantic-manifest-crosswalk-v1",
+        "scope": "separate semantic return; grouped IDs are not individually completed findings"
+      },
+      {
+        "return": "SEMANTIC_INDEX_ROW_REFRESH_T05.json",
+        "source_ranges_applied": 0,
+        "findings": 1,
+        "schema": "semantic-index-row-refresh-t05-v1",
+        "scope": "separate semantic return; grouped IDs are not individually completed findings"
+      },
+      {
+        "return": "SEMANTIC_LANE_REFRESH_T08.json",
+        "source_ranges_applied": 2,
+        "findings": 2,
+        "schema": "semantic-lane-refresh-t08-v1",
+        "scope": "separate semantic return; grouped IDs are not individually completed findings"
+      },
+      {
+        "return": "SEMANTIC_LANE_REFRESH_T09.json",
+        "source_ranges_applied": 1,
+        "findings": 2,
+        "schema": "semantic-lane-refresh-t09-v1",
+        "scope": "separate semantic return; grouped IDs are not individually completed findings"
+      },
+      {
+        "return": "SEMANTIC_LANE_REFRESH_T10.json",
+        "source_ranges_applied": 1,
+        "findings": 4,
+        "schema": "semantic-lane-refresh-t10-v1",
+        "scope": "separate semantic return; grouped IDs are not individually completed findings"
+      },
+      {
+        "return": "SEMANTIC_LINEAGE_PROPAGATION_T06.json",
+        "source_ranges_applied": 6,
+        "findings": 73,
+        "schema": "semantic-lineage-propagation-t06-v1",
+        "scope": "separate semantic return; grouped IDs are not individually completed findings"
+      },
+      {
+        "return": "SEMANTIC_NEXT_UNIT.json",
+        "source_ranges_applied": 5,
+        "findings": 5,
+        "schema": "semantic-next-unit-v1",
+        "scope": "separate semantic return; grouped IDs are not individually completed findings"
+      },
+      {
+        "return": "SEMANTIC_NONHUMAN_ABSTRACTION.json",
+        "source_ranges_applied": 10,
+        "findings": 33,
+        "schema": "semantic-nonhuman-abstraction-v1",
+        "scope": "separate semantic return; grouped IDs are not individually completed findings"
+      },
+      {
+        "return": "SEMANTIC_NONHUMAN_AUTHORING.json",
+        "source_ranges_applied": 1,
+        "findings": 14,
+        "schema": "semantic-nonhuman-authoring-v1",
+        "scope": "separate semantic return; grouped IDs are not individually completed findings"
+      },
+      {
+        "return": "SEMANTIC_NONHUMAN_BONDS.json",
+        "source_ranges_applied": 5,
+        "findings": 17,
+        "schema": "semantic-nonhuman-bonds-v1",
+        "scope": "separate semantic return; grouped IDs are not individually completed findings"
+      },
+      {
+        "return": "SEMANTIC_NONHUMAN_CHEATS.json",
+        "source_ranges_applied": 2,
+        "findings": 8,
+        "schema": "semantic-nonhuman-cheats-v1",
+        "scope": "separate semantic return; grouped IDs are not individually completed findings"
+      },
+      {
+        "return": "SEMANTIC_NONHUMAN_CHEAT_COMPLEMENTS.json",
+        "source_ranges_applied": 1,
+        "findings": 68,
+        "schema": "semantic-nonhuman-cheat-complements-v1",
+        "scope": "separate semantic return; grouped IDs are not individually completed findings"
+      },
+      {
+        "return": "SEMANTIC_OTHER_INVENTORY_INDEXES.json",
+        "source_ranges_applied": 8,
+        "findings": 397,
+        "schema": "semantic-other-inventory-indexes-v1",
+        "scope": "separate semantic return; grouped IDs are not individually completed findings"
+      },
+      {
+        "return": "SEMANTIC_OWNER_JOIN_REFRESH_T07.json",
+        "source_ranges_applied": 5,
+        "findings": 5,
+        "schema": "semantic-owner-join-refresh-t07-v1",
+        "scope": "separate semantic return; grouped IDs are not individually completed findings"
+      },
+      {
+        "return": "SEMANTIC_RESEARCH_SMALL_INVENTORIES.json",
+        "source_ranges_applied": 12,
+        "findings": 448,
+        "schema": "semantic-research-small-inventories-v1",
+        "scope": "separate semantic return; grouped IDs are not individually completed findings"
+      },
+      {
+        "return": "SEMANTIC_ROOT_LINEAGE.json",
+        "source_ranges_applied": 0,
+        "findings": 1,
+        "schema": "semantic-root-lineage-v1",
+        "scope": "separate semantic return; grouped IDs are not individually completed findings"
+      },
+      {
+        "return": "SEMANTIC_T10_GM_MANIFESTS.json",
+        "source_ranges_applied": 14,
+        "findings": 158,
+        "schema": "semantic-t10-gm-manifests-v1",
+        "scope": "separate semantic return; grouped IDs are not individually completed findings"
+      },
+      {
+        "return": "SEMANTIC_T10_HXH_READING_MANIFEST.json",
+        "source_ranges_applied": 1,
+        "findings": 7,
+        "schema": "semantic_hxh_reading_manifest_v1",
+        "scope": "separate semantic return; grouped IDs are not individually completed findings"
+      },
+      {
+        "return": "SEMANTIC_T10_IDEA_INDEX.json",
+        "source_ranges_applied": 1,
+        "findings": 122,
+        "schema": "semantic-t10-idea-index-v1",
+        "scope": "separate semantic return; grouped IDs are not individually completed findings"
+      },
+      {
+        "return": "SEMANTIC_T10_PARTY_SCOPE_REFRESH.json",
+        "source_ranges_applied": 2,
+        "findings": 16,
+        "schema": "semantic-party-scope-refresh-t10-v1",
+        "scope": "separate semantic return; grouped IDs are not individually completed findings"
+      },
+      {
+        "return": "SEMANTIC_T10_RESEARCH_FINAL_A.json",
+        "source_ranges_applied": 13,
+        "findings": 175,
+        "schema": "semantic-t10-research-final-a-v1",
+        "scope": "separate semantic return; grouped IDs are not individually completed findings"
+      },
+      {
+        "return": "SEMANTIC_T10_RESEARCH_FINAL_B.json",
+        "source_ranges_applied": 10,
+        "findings": 149,
+        "schema": "semantic_research_final_b_v1",
+        "scope": "separate semantic return; grouped IDs are not individually completed findings"
+      },
+      {
+        "return": "SEMANTIC_T10_RESEARCH_FINAL_C.json",
+        "source_ranges_applied": 2,
+        "findings": 65,
+        "schema": "semantic-t10-research-final-c-v1",
+        "scope": "separate semantic return; grouped IDs are not individually completed findings"
+      },
+      {
+        "return": "SEMANTIC_T10_RESEARCH_FOLLOWUP.json",
+        "source_ranges_applied": 12,
+        "findings": 2492,
+        "schema": "semantic-t10-research-inventory-followup-v1",
+        "scope": "separate semantic return; grouped IDs are not individually completed findings"
+      },
+      {
+        "return": "SEMANTIC_T10_RESEARCH_INVENTORIES.json",
+        "source_ranges_applied": 12,
+        "findings": 1418,
+        "schema": "semantic-t10-research-inventories-v1",
+        "scope": "separate semantic return; grouped IDs are not individually completed findings"
+      },
+      {
+        "return": "SEMANTIC_T10_RESEARCH_STATUS_FOLLOWUP.json",
+        "source_ranges_applied": 22,
+        "findings": 245,
+        "schema": "semantic-t10-research-status-v1",
+        "scope": "separate semantic return; grouped IDs are not individually completed findings"
+      },
+      {
+        "return": "SEMANTIC_T10_SOURCE_STATUS_ROOT.json",
+        "source_ranges_applied": 13,
+        "findings": 142,
+        "schema": "semantic-source-status-root-t10-v1",
+        "scope": "separate semantic return; grouped IDs are not individually completed findings"
+      },
+      {
+        "return": "SEMANTIC_T10_WORLD_SCOPE.json",
+        "source_ranges_applied": 4,
+        "findings": 53,
+        "schema": "semantic_world_scope_v1",
+        "scope": "separate semantic return; grouped IDs are not individually completed findings"
+      },
+      {
+        "return": "SEMANTIC_T11_AUDIT_FINDINGS.json",
+        "source_ranges_applied": 18,
+        "findings": 231,
+        "schema": "semantic-t11-audit-findings-v1",
+        "scope": "separate semantic return; grouped IDs are not individually completed findings"
+      },
+      {
+        "return": "SEMANTIC_T11_CORE_DIRECTION_AUDITS.json",
+        "source_ranges_applied": 2,
+        "findings": 151,
+        "schema": "semantic-reconciliation-v1",
+        "scope": "separate semantic return; grouped IDs are not individually completed findings"
+      },
+      {
+        "return": "SEMANTIC_T11_EMBEDDED_DESIGN.json",
+        "source_ranges_applied": 86,
+        "findings": 1254,
+        "schema": "semantic-embedded-review.v1",
+        "scope": "separate semantic return; grouped IDs are not individually completed findings"
+      },
+      {
+        "return": "SEMANTIC_T11_EMBEDDED_RESEARCH.json",
+        "source_ranges_applied": 50,
+        "findings": 1135,
+        "schema": "semantic-t11-embedded-research-v1",
+        "scope": "separate semantic return; grouped IDs are not individually completed findings"
+      },
+      {
+        "return": "SEMANTIC_T11_EXTRA_AUDITS_A.json",
+        "source_ranges_applied": 17,
+        "findings": 143,
+        "schema": "semantic-reconciliation-v1",
+        "scope": "separate semantic return; grouped IDs are not individually completed findings"
+      },
+      {
+        "return": "SEMANTIC_T11_EXTRA_AUDITS_B.json",
+        "source_ranges_applied": 11,
+        "findings": 194,
+        "schema": "semantic-t11-extra-audits-b-v1",
+        "scope": "separate semantic return; grouped IDs are not individually completed findings"
+      },
+      {
+        "return": "SEMANTIC_T11_EXTRA_AUDITS_C.json",
+        "source_ranges_applied": 14,
+        "findings": 86,
+        "schema": "semantic-t11-extra-audits-c-v1",
+        "scope": "separate semantic return; grouped IDs are not individually completed findings"
+      },
+      {
+        "return": "SEMANTIC_T11_GM_1.json",
+        "source_ranges_applied": 8,
+        "findings": 1056,
+        "schema": "semantic-t11-gm1-v1",
+        "scope": "separate semantic return; grouped IDs are not individually completed findings"
+      },
+      {
+        "return": "SEMANTIC_T11_GM_2.json",
+        "source_ranges_applied": 4,
+        "findings": 639,
+        "schema": "semantic_t11_gm2_v1",
+        "scope": "separate semantic return; grouped IDs are not individually completed findings"
+      },
+      {
+        "return": "SEMANTIC_T11_GM_3.json",
+        "source_ranges_applied": 4,
+        "findings": 771,
+        "schema": "semantic-t11-gm-3-v1",
+        "scope": "separate semantic return; grouped IDs are not individually completed findings"
+      },
+      {
+        "return": "SEMANTIC_T11_RESEARCH_1.json",
+        "source_ranges_applied": 28,
+        "findings": 1491,
+        "schema": "semantic-t11-research-1-v1",
+        "scope": "separate semantic return; grouped IDs are not individually completed findings"
+      },
+      {
+        "return": "SEMANTIC_T11_RESEARCH_1_CATALOG.json",
+        "source_ranges_applied": 0,
+        "findings": 19,
+        "schema": "t11-research-1-index-only-catalog-v1",
+        "scope": "separate semantic return; grouped IDs are not individually completed findings"
+      },
+      {
+        "return": "SEMANTIC_T11_RESEARCH_1_PENDING.json",
+        "source_ranges_applied": 0,
+        "findings": 0,
+        "schema": "t11-research-1-human-claim-lineage-v1",
+        "scope": "separate semantic return; grouped IDs are not individually completed findings"
+      },
+      {
+        "return": "SEMANTIC_T11_RESEARCH_2.json",
+        "source_ranges_applied": 6,
+        "findings": 762,
+        "schema": "semantic-t11-research-2-v2",
+        "scope": "separate semantic return; grouped IDs are not individually completed findings"
+      },
+      {
+        "return": "SEMANTIC_T11_RESEARCH_3.json",
+        "source_ranges_applied": 4,
+        "findings": 789,
+        "schema": "semantic-t11-research-3-v2",
+        "scope": "separate semantic return; grouped IDs are not individually completed findings"
+      },
+      {
+        "return": "SEMANTIC_T11_ROOT_INDEXES.json",
+        "source_ranges_applied": 3,
+        "findings": 236,
+        "schema": "semantic-t11-root-indexes-v1",
+        "scope": "separate semantic return; grouped IDs are not individually completed findings"
+      },
+      {
+        "return": "SEMANTIC_T11_SCOPE_REFRESH.json",
+        "source_ranges_applied": 4,
+        "findings": 16,
+        "schema": "semantic-t11-scope-refresh-v1",
+        "scope": "separate semantic return; grouped IDs are not individually completed findings"
+      },
+      {
+        "return": "SEMANTIC_T11_TEXT_COMPLEMENTS_GM.json",
+        "source_ranges_applied": 5,
+        "findings": 107,
+        "schema": "semantic-t11-text-complements-gm-v1",
+        "scope": "separate semantic return; grouped IDs are not individually completed findings"
+      },
+      {
+        "return": "SEMANTIC_T11_TEXT_COMPLEMENTS_RESEARCH_A.json",
+        "source_ranges_applied": 3,
+        "findings": 49,
+        "schema": "semantic-cross-audit-text-complement-v1",
+        "scope": "separate semantic return; grouped IDs are not individually completed findings"
+      },
+      {
+        "return": "SEMANTIC_T11_TEXT_COMPLEMENTS_RESEARCH_B.json",
+        "source_ranges_applied": 17,
+        "findings": 315,
+        "schema": "yair.semantic-t11-text-complements-research-b.v1",
+        "scope": "separate semantic return; grouped IDs are not individually completed findings"
+      },
+      {
+        "return": "SEMANTIC_WEAPON_OWNERS.json",
+        "source_ranges_applied": 9,
+        "findings": 5,
+        "schema": "semantic-weapon-owners-v1",
+        "scope": "separate semantic return; grouped IDs are not individually completed findings"
+      },
+      {
+        "return": "SEMANTIC_WORLD_MODULE_CATALOGUES.json",
+        "source_ranges_applied": 15,
+        "findings": 346,
+        "schema": "semantic-world-module-catalogues-v1",
+        "scope": "separate semantic return; grouped IDs are not individually completed findings"
+      }
+    ],
+    "errors": [],
+    "input_drift": [
+      {
+        "return": "SEMANTIC_AUTHORITY_REFRESH_T05.json",
+        "path": "docs/USER_VISION.md",
+        "read_hash": "1d2a69679af6f3311acb184bdf81e641aff9328114c71df03621a0b904d13285",
+        "current_hash": "61948ae9f8627710e389439fd435280a2a33a79e91b67c5b4a157b3c7be18077"
+      },
+      {
+        "return": "SEMANTIC_BODY_LINEAGE_B12_B14.json",
+        "path": "docs/USER_VISION.md",
+        "read_hash": "1d2a69679af6f3311acb184bdf81e641aff9328114c71df03621a0b904d13285",
+        "current_hash": "61948ae9f8627710e389439fd435280a2a33a79e91b67c5b4a157b3c7be18077"
+      },
+      {
+        "return": "SEMANTIC_BODY_LINEAGE_B5_B8.json",
+        "path": "docs/USER_VISION.md",
+        "read_hash": "1d2a69679af6f3311acb184bdf81e641aff9328114c71df03621a0b904d13285",
+        "current_hash": "61948ae9f8627710e389439fd435280a2a33a79e91b67c5b4a157b3c7be18077"
+      },
+      {
+        "return": "SEMANTIC_BODY_LINEAGE_B5_B8.json",
+        "path": "docs/UI_RULES.md",
+        "read_hash": "d3ce48569c23eb5198aa3600c12d557cc5684dad14e580e874d389e0e2f2f8a0",
+        "current_hash": "356d032e6ff42d52423d8cd9a319524fa4ac3882851a08cde17539969f955687"
+      },
+      {
+        "return": "SEMANTIC_BODY_LINEAGE_B9_B11.json",
+        "path": "docs/USER_VISION.md",
+        "read_hash": "1d2a69679af6f3311acb184bdf81e641aff9328114c71df03621a0b904d13285",
+        "current_hash": "61948ae9f8627710e389439fd435280a2a33a79e91b67c5b4a157b3c7be18077"
+      },
+      {
+        "return": "SEMANTIC_CORE_A1_A4.json",
+        "path": "docs/USER_VISION.md",
+        "read_hash": "1d2a69679af6f3311acb184bdf81e641aff9328114c71df03621a0b904d13285",
+        "current_hash": "61948ae9f8627710e389439fd435280a2a33a79e91b67c5b4a157b3c7be18077"
+      },
+      {
+        "return": "SEMANTIC_CORE_A5_STATUS_R1.json",
+        "path": "docs/USER_VISION.md",
+        "read_hash": "1d2a69679af6f3311acb184bdf81e641aff9328114c71df03621a0b904d13285",
+        "current_hash": "61948ae9f8627710e389439fd435280a2a33a79e91b67c5b4a157b3c7be18077"
+      },
+      {
+        "return": "SEMANTIC_DEFAULTS_RETURN.json",
+        "path": "docs/USER_VISION.md",
+        "read_hash": "a11134e73ddb999790f44feec45161c1cc9b18aad0942ec417443cecfb9d3269",
+        "current_hash": "61948ae9f8627710e389439fd435280a2a33a79e91b67c5b4a157b3c7be18077"
+      },
+      {
+        "return": "SEMANTIC_ROOT_LINEAGE.json",
+        "path": "docs/USER_VISION.md",
+        "read_hash": "a11134e73ddb999790f44feec45161c1cc9b18aad0942ec417443cecfb9d3269",
+        "current_hash": "61948ae9f8627710e389439fd435280a2a33a79e91b67c5b4a157b3c7be18077"
+      },
+      {
+        "return": "SEMANTIC_T10_IDEA_INDEX.json",
+        "path": "docs/USER_VISION.md",
+        "read_hash": "4113c00e63cba02b76b84d47b87bf97045da2e17fc717e407830d3d82189f23b",
+        "current_hash": "61948ae9f8627710e389439fd435280a2a33a79e91b67c5b4a157b3c7be18077"
+      },
+      {
+        "return": "SEMANTIC_T10_PARTY_SCOPE_REFRESH.json",
+        "path": "docs/USER_VISION.md",
+        "read_hash": "b7ad859292a853e72dfb0c3f15deb27581bfdbf5b9fe4af399e6773d2335df3b",
+        "current_hash": "61948ae9f8627710e389439fd435280a2a33a79e91b67c5b4a157b3c7be18077"
+      },
+      {
+        "return": "SEMANTIC_WEAPON_OWNERS.json",
+        "path": "docs/USER_VISION.md",
+        "read_hash": "5750013ec619de7909cb4094b7746ba7813fa565d1dda139c64e340524f255e8",
+        "current_hash": "61948ae9f8627710e389439fd435280a2a33a79e91b67c5b4a157b3c7be18077"
+      }
+    ],
+    "qualification": "Capture/parse ranges do not establish semantic review; semantic review does not establish current-consumer verification. Source-frame-only proposal status remains distinct from current adoption. Grouped IDs and recaps not counted as unique completed findings."
+  },
+  "semantic_source_observations": 1011,
+  "semantic_input_drifts": [
+    {
+      "file": "SEMANTIC_T10_PARTY_SCOPE_REFRESH.json",
+      "path": "docs/USER_VISION.md",
+      "reviewed_sha256": "b7ad859292a853e72dfb0c3f15deb27581bfdbf5b9fe4af399e6773d2335df3b",
+      "current_sha256": "9775db868abdf623805f596c96a566224df6e0900b0e15f7568bf8ddfa3f8097",
+      "scope": "dated source review retained; current input drift unresolved"
+    },
+    {
+      "file": "SEMANTIC_T10_PARTY_SCOPE_REFRESH.json",
+      "path": "PROJECT.md",
+      "reviewed_sha256": "68975974bf92c61ce76a036be2f09ffb74dbef90e34f39afaaac59324250d620",
+      "current_sha256": "dd157f7da6a2b8c372d1f513b896ba3402fbac56f21c1433b4343925d40f4762",
+      "scope": "dated source review retained; current input drift unresolved"
+    },
+    {
+      "file": "SEMANTIC_BODY_LINEAGE_B4.json",
+      "path": "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md",
+      "reviewed_sha256": "24e37300bcda8a52a478310986383cdb37719fd666a7efe8bd580f31274a4ea0",
+      "current_sha256": "0ec605a790a145774a01428e26a7f567d37dfe6b54e6f4669839e9fb20c8d1e8",
+      "scope": "dated source review retained; current input drift unresolved"
+    },
+    {
+      "file": "SEMANTIC_INDEX_ROW_REFRESH_T05.json",
+      "path": "index.html",
+      "reviewed_sha256": "43aacf5b24ec8544da9994334787d838489a26f4a0a64012035882837c0165fe",
+      "current_sha256": "c0c4d111c6d59c057f1d658b20f3ed3ebe46ceba219e1fe200dc080680c81aa3",
+      "scope": "dated source review retained; current input drift unresolved"
+    },
+    {
+      "file": "SEMANTIC_T11_EMBEDDED_DESIGN.json",
+      "path": "docs/reviews/WHOLE_PROJECT_GAME_ARCHITECTURE_REVIEW_2026-10-12.md",
+      "reviewed_sha256": "73a98610d4b253da15fff363b3804c6e3f168d866e249e98cf6966279b2e5786",
+      "current_sha256": "6cf0c1026aa987c1d16817456adaa1e7cfd73691753b5874f57a1f058756e4e3",
+      "scope": "dated source review retained; current input drift unresolved"
+    },
+    {
+      "file": "SEMANTIC_B2_AUDIT.json",
+      "path": "index.html",
+      "reviewed_sha256": "8e0514fdf669ff1657c7b54bd8c7dae8d5bfe3d30b64395e2ca43da05416ffd2",
+      "current_sha256": "c0c4d111c6d59c057f1d658b20f3ed3ebe46ceba219e1fe200dc080680c81aa3",
+      "scope": "dated source review retained; current input drift unresolved"
+    },
+    {
+      "file": "SEMANTIC_LINEAGE_PROPAGATION_T06.json",
+      "path": "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md",
+      "reviewed_sha256": "24e37300bcda8a52a478310986383cdb37719fd666a7efe8bd580f31274a4ea0",
+      "current_sha256": "0ec605a790a145774a01428e26a7f567d37dfe6b54e6f4669839e9fb20c8d1e8",
+      "scope": "dated source review retained; current input drift unresolved"
+    },
+    {
+      "file": "SEMANTIC_BODY_LINEAGE_B9_B11.json",
+      "path": "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md",
+      "reviewed_sha256": "24e37300bcda8a52a478310986383cdb37719fd666a7efe8bd580f31274a4ea0",
+      "current_sha256": "0ec605a790a145774a01428e26a7f567d37dfe6b54e6f4669839e9fb20c8d1e8",
+      "scope": "dated source review retained; current input drift unresolved"
+    },
+    {
+      "file": "SEMANTIC_BODY_LINEAGE_B9_B11.json",
+      "path": "PROJECT.md",
+      "reviewed_sha256": "bad67018c8792755a952b53565c231126227a2b781531cccf8b82724a9df9912",
+      "current_sha256": "dd157f7da6a2b8c372d1f513b896ba3402fbac56f21c1433b4343925d40f4762",
+      "scope": "dated source review retained; current input drift unresolved"
+    },
+    {
+      "file": "SEMANTIC_BODY_LINEAGE_B9_B11.json",
+      "path": "docs/USER_VISION.md",
+      "reviewed_sha256": "1d2a69679af6f3311acb184bdf81e641aff9328114c71df03621a0b904d13285",
+      "current_sha256": "9775db868abdf623805f596c96a566224df6e0900b0e15f7568bf8ddfa3f8097",
+      "scope": "dated source review retained; current input drift unresolved"
+    },
+    {
+      "file": "SEMANTIC_ROOT_LINEAGE.json",
+      "path": "docs/USER_VISION.md",
+      "reviewed_sha256": "a11134e73ddb999790f44feec45161c1cc9b18aad0942ec417443cecfb9d3269",
+      "current_sha256": "9775db868abdf623805f596c96a566224df6e0900b0e15f7568bf8ddfa3f8097",
+      "scope": "dated source review retained; current input drift unresolved"
+    },
+    {
+      "file": "SEMANTIC_AUTHORITY_REFRESH_T05.json",
+      "path": "docs/USER_VISION.md",
+      "reviewed_sha256": "1d2a69679af6f3311acb184bdf81e641aff9328114c71df03621a0b904d13285",
+      "current_sha256": "9775db868abdf623805f596c96a566224df6e0900b0e15f7568bf8ddfa3f8097",
+      "scope": "dated source review retained; current input drift unresolved"
+    },
+    {
+      "file": "SEMANTIC_T11_AUDIT_FINDINGS.json",
+      "path": "PROJECT.md",
+      "reviewed_sha256": "3f60c2df8f21b9a718928ff5bb3895d24e23afc505c9395c51139874761260dc",
+      "current_sha256": "dd157f7da6a2b8c372d1f513b896ba3402fbac56f21c1433b4343925d40f4762",
+      "scope": "dated source review retained; current input drift unresolved"
+    },
+    {
+      "file": "SEMANTIC_T11_AUDIT_FINDINGS.json",
+      "path": "docs/USER_VISION.md",
+      "reviewed_sha256": "61948ae9f8627710e389439fd435280a2a33a79e91b67c5b4a157b3c7be18077",
+      "current_sha256": "9775db868abdf623805f596c96a566224df6e0900b0e15f7568bf8ddfa3f8097",
+      "scope": "dated source review retained; current input drift unresolved"
+    },
+    {
+      "file": "SEMANTIC_T11_AUDIT_FINDINGS.json",
+      "path": "docs/UI_RULES.md",
+      "reviewed_sha256": "356d032e6ff42d52423d8cd9a319524fa4ac3882851a08cde17539969f955687",
+      "current_sha256": "7b54ea45d668011070c928214159511813a11843ee50cc81f105730a3afcc406",
+      "scope": "dated source review retained; current input drift unresolved"
+    },
+    {
+      "file": "SEMANTIC_T11_EXTRA_AUDITS_C.json",
+      "path": "PROJECT.md",
+      "reviewed_sha256": "3f60c2df8f21b9a718928ff5bb3895d24e23afc505c9395c51139874761260dc",
+      "current_sha256": "dd157f7da6a2b8c372d1f513b896ba3402fbac56f21c1433b4343925d40f4762",
+      "scope": "dated source review retained; current input drift unresolved"
+    },
+    {
+      "file": "SEMANTIC_T11_EXTRA_AUDITS_C.json",
+      "path": "docs/USER_VISION.md",
+      "reviewed_sha256": "61948ae9f8627710e389439fd435280a2a33a79e91b67c5b4a157b3c7be18077",
+      "current_sha256": "9775db868abdf623805f596c96a566224df6e0900b0e15f7568bf8ddfa3f8097",
+      "scope": "dated source review retained; current input drift unresolved"
+    },
+    {
+      "file": "SEMANTIC_T11_EXTRA_AUDITS_C.json",
+      "path": "docs/UI_RULES.md",
+      "reviewed_sha256": "356d032e6ff42d52423d8cd9a319524fa4ac3882851a08cde17539969f955687",
+      "current_sha256": "7b54ea45d668011070c928214159511813a11843ee50cc81f105730a3afcc406",
+      "scope": "dated source review retained; current input drift unresolved"
+    },
+    {
+      "file": "SEMANTIC_BODY_LINEAGE_B5_B8.json",
+      "path": "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md",
+      "reviewed_sha256": "24e37300bcda8a52a478310986383cdb37719fd666a7efe8bd580f31274a4ea0",
+      "current_sha256": "0ec605a790a145774a01428e26a7f567d37dfe6b54e6f4669839e9fb20c8d1e8",
+      "scope": "dated source review retained; current input drift unresolved"
+    },
+    {
+      "file": "SEMANTIC_BODY_LINEAGE_B5_B8.json",
+      "path": "PROJECT.md",
+      "reviewed_sha256": "bad67018c8792755a952b53565c231126227a2b781531cccf8b82724a9df9912",
+      "current_sha256": "dd157f7da6a2b8c372d1f513b896ba3402fbac56f21c1433b4343925d40f4762",
+      "scope": "dated source review retained; current input drift unresolved"
+    },
+    {
+      "file": "SEMANTIC_BODY_LINEAGE_B5_B8.json",
+      "path": "docs/USER_VISION.md",
+      "reviewed_sha256": "1d2a69679af6f3311acb184bdf81e641aff9328114c71df03621a0b904d13285",
+      "current_sha256": "9775db868abdf623805f596c96a566224df6e0900b0e15f7568bf8ddfa3f8097",
+      "scope": "dated source review retained; current input drift unresolved"
+    },
+    {
+      "file": "SEMANTIC_BODY_LINEAGE_B5_B8.json",
+      "path": "docs/UI_RULES.md",
+      "reviewed_sha256": "d3ce48569c23eb5198aa3600c12d557cc5684dad14e580e874d389e0e2f2f8a0",
+      "current_sha256": "7b54ea45d668011070c928214159511813a11843ee50cc81f105730a3afcc406",
+      "scope": "dated source review retained; current input drift unresolved"
+    },
+    {
+      "file": "SEMANTIC_LANE_REFRESH_T10.json",
+      "path": "PROJECT.md",
+      "reviewed_sha256": "1ba96d489870d6a56d93edb1d863c1bd50edd1fb39304d0034636eeff1a85b5d",
+      "current_sha256": "dd157f7da6a2b8c372d1f513b896ba3402fbac56f21c1433b4343925d40f4762",
+      "scope": "dated source review retained; current input drift unresolved"
+    },
+    {
+      "file": "SEMANTIC_LANE_REFRESH_T09.json",
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/R9_CHECKPOINT.md",
+      "reviewed_sha256": "411243d0ba40deb4dc4f0ce5c8a72e3be480c2ec3ce180a48d0dfa8b23e5183e",
+      "current_sha256": "dff9aceb207f5277c1079c5bf73075bc2d04858c6aeec97885365aef16479370",
+      "scope": "dated source review retained; current input drift unresolved"
+    },
+    {
+      "file": "SEMANTIC_LANE_REFRESH_T09.json",
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/R10_CHECKPOINT.md",
+      "reviewed_sha256": "e09c3fd592c2d4c263b43817a7b03dbb5993334c38fca44f98dd67d9463a0557",
+      "current_sha256": "026aee0a4490bff7ca5f3da6309215a09726a75d06939dba99d85494fa2474af",
+      "scope": "Historical source pin retained; cited windows have current-byte semantic followup. No whole-file unchanged claim.",
+      "followup": "private/SEMANTIC_SOURCE_LEDGER.json"
+    },
+    {
+      "file": "SEMANTIC_BODY_LINEAGE_B12_B14.json",
+      "path": "PROJECT.md",
+      "reviewed_sha256": "bad67018c8792755a952b53565c231126227a2b781531cccf8b82724a9df9912",
+      "current_sha256": "dd157f7da6a2b8c372d1f513b896ba3402fbac56f21c1433b4343925d40f4762",
+      "scope": "dated source review retained; current input drift unresolved"
+    },
+    {
+      "file": "SEMANTIC_BODY_LINEAGE_B12_B14.json",
+      "path": "docs/USER_VISION.md",
+      "reviewed_sha256": "1d2a69679af6f3311acb184bdf81e641aff9328114c71df03621a0b904d13285",
+      "current_sha256": "9775db868abdf623805f596c96a566224df6e0900b0e15f7568bf8ddfa3f8097",
+      "scope": "dated source review retained; current input drift unresolved"
+    },
+    {
+      "file": "SEMANTIC_T11_EXTRA_AUDITS_A.json",
+      "path": "PROJECT.md",
+      "reviewed_sha256": "3f60c2df8f21b9a718928ff5bb3895d24e23afc505c9395c51139874761260dc",
+      "current_sha256": "dd157f7da6a2b8c372d1f513b896ba3402fbac56f21c1433b4343925d40f4762",
+      "scope": "dated source review retained; current input drift unresolved"
+    },
+    {
+      "file": "SEMANTIC_T11_EXTRA_AUDITS_A.json",
+      "path": "docs/USER_VISION.md",
+      "reviewed_sha256": "61948ae9f8627710e389439fd435280a2a33a79e91b67c5b4a157b3c7be18077",
+      "current_sha256": "9775db868abdf623805f596c96a566224df6e0900b0e15f7568bf8ddfa3f8097",
+      "scope": "dated source review retained; current input drift unresolved"
+    },
+    {
+      "file": "SEMANTIC_T11_EXTRA_AUDITS_A.json",
+      "path": "docs/UI_RULES.md",
+      "reviewed_sha256": "356d032e6ff42d52423d8cd9a319524fa4ac3882851a08cde17539969f955687",
+      "current_sha256": "7b54ea45d668011070c928214159511813a11843ee50cc81f105730a3afcc406",
+      "scope": "dated source review retained; current input drift unresolved"
+    },
+    {
+      "file": "SEMANTIC_OWNER_JOIN_REFRESH_T07.json",
+      "path": "docs/DIRECTION_SUMMARY.md",
+      "reviewed_sha256": "2d26201b5c4c8b2da64f52e50b592149a5445afa37f8f4cd8ec016f6d257244a",
+      "current_sha256": "ec0fa046313e631cdf1f814f4c35cdb026ae543d4dc23ad6d31f8cd428310719",
+      "scope": "dated source review retained; current input drift unresolved"
+    },
+    {
+      "file": "SEMANTIC_OWNER_JOIN_REFRESH_T07.json",
+      "path": "docs/gm/OVERARCHING_DIRECTION_HANDOFF_2026-10-15.md",
+      "reviewed_sha256": "e6f953dc83b7ecac928765da67c7dc4286e36217bd15fd4389ff850e37d981e3",
+      "current_sha256": "23f2684472ad0c30df4478df48d66455237a342e433038a783bfe4fdfb6bb3b7",
+      "scope": "dated source review retained; current input drift unresolved"
+    },
+    {
+      "file": "SEMANTIC_OWNER_JOIN_REFRESH_T07.json",
+      "path": "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md",
+      "reviewed_sha256": "24e37300bcda8a52a478310986383cdb37719fd666a7efe8bd580f31274a4ea0",
+      "current_sha256": "0ec605a790a145774a01428e26a7f567d37dfe6b54e6f4669839e9fb20c8d1e8",
+      "scope": "dated source review retained; current input drift unresolved"
+    },
+    {
+      "file": "SEMANTIC_OWNER_JOIN_REFRESH_T07.json",
+      "path": "docs/GENERATION_FOUNDATION_RULES_2026-10-14.md",
+      "reviewed_sha256": "f9b3d3a0336fcd105f26519566c24aa7cd735f47a1a5acb2810cf985f7e90f31",
+      "current_sha256": "9fc34d169e76a99a81b7e431b3f72872fdb5e3dc97aef15e4c9c19fbe1656e5b",
+      "scope": "dated source review retained; current input drift unresolved"
+    },
+    {
+      "file": "SEMANTIC_B2_SPEC.json",
+      "path": "index.html",
+      "reviewed_sha256": "ea88022fad3f9c9b81f20416a470296e5d04e5a999eda41f2a84c96e776e94df",
+      "current_sha256": "c0c4d111c6d59c057f1d658b20f3ed3ebe46ceba219e1fe200dc080680c81aa3",
+      "scope": "dated source review retained; current input drift unresolved"
+    },
+    {
+      "file": "SEMANTIC_T11_TEXT_COMPLEMENTS_RESEARCH_B.json",
+      "path": "PROJECT.md",
+      "reviewed_sha256": "3f60c2df8f21b9a718928ff5bb3895d24e23afc505c9395c51139874761260dc",
+      "current_sha256": "dd157f7da6a2b8c372d1f513b896ba3402fbac56f21c1433b4343925d40f4762",
+      "scope": "dated source review retained; current input drift unresolved"
+    },
+    {
+      "file": "SEMANTIC_T11_TEXT_COMPLEMENTS_RESEARCH_B.json",
+      "path": "docs/USER_VISION.md",
+      "reviewed_sha256": "61948ae9f8627710e389439fd435280a2a33a79e91b67c5b4a157b3c7be18077",
+      "current_sha256": "9775db868abdf623805f596c96a566224df6e0900b0e15f7568bf8ddfa3f8097",
+      "scope": "dated source review retained; current input drift unresolved"
+    },
+    {
+      "file": "SEMANTIC_T11_TEXT_COMPLEMENTS_RESEARCH_B.json",
+      "path": "docs/UI_RULES.md",
+      "reviewed_sha256": "356d032e6ff42d52423d8cd9a319524fa4ac3882851a08cde17539969f955687",
+      "current_sha256": "7b54ea45d668011070c928214159511813a11843ee50cc81f105730a3afcc406",
+      "scope": "dated source review retained; current input drift unresolved"
+    },
+    {
+      "file": "SEMANTIC_CORE_A5_STATUS_R1.json",
+      "path": "docs/USER_VISION.md",
+      "reviewed_sha256": "1d2a69679af6f3311acb184bdf81e641aff9328114c71df03621a0b904d13285",
+      "current_sha256": "9775db868abdf623805f596c96a566224df6e0900b0e15f7568bf8ddfa3f8097",
+      "scope": "dated source review retained; current input drift unresolved"
+    },
+    {
+      "file": "SEMANTIC_DEFAULTS_RETURN.json",
+      "path": "docs/RULES_FROM_SCRATCH.md",
+      "reviewed_sha256": "d75f817346e2648ebb3b8bbd006b2176e0c98f6d60c763fa629a12b6b8aee6cb",
+      "current_sha256": "42b3dd3fd7d7c5f391de309a1b5f2efc3874dbf07f66c549f78dff9464d91193",
+      "scope": "dated source review retained; current input drift unresolved"
+    },
+    {
+      "file": "SEMANTIC_DEFAULTS_RETURN.json",
+      "path": "docs/GENERATION_FOUNDATION_RULES_2026-10-14.md",
+      "reviewed_sha256": "f9b3d3a0336fcd105f26519566c24aa7cd735f47a1a5acb2810cf985f7e90f31",
+      "current_sha256": "9fc34d169e76a99a81b7e431b3f72872fdb5e3dc97aef15e4c9c19fbe1656e5b",
+      "scope": "dated source review retained; current input drift unresolved"
+    },
+    {
+      "file": "SEMANTIC_DEFAULTS_RETURN.json",
+      "path": "docs/USER_VISION.md",
+      "reviewed_sha256": "a11134e73ddb999790f44feec45161c1cc9b18aad0942ec417443cecfb9d3269",
+      "current_sha256": "9775db868abdf623805f596c96a566224df6e0900b0e15f7568bf8ddfa3f8097",
+      "scope": "dated source review retained; current input drift unresolved"
+    },
+    {
+      "file": "SEMANTIC_LANE_REFRESH_T08.json",
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/R8_REPORT.md",
+      "reviewed_sha256": "60f7d22c29ef216904ce26941fddd377871bd96efe5be4f78d9b4bc79f49ba65",
+      "current_sha256": "031b1e65601b062a8912dd7d5b513efc6e23b5eefda2002d2fb8a15b21fc274b",
+      "scope": "dated source review retained; current input drift unresolved"
+    },
+    {
+      "file": "SEMANTIC_LANE_REFRESH_T08.json",
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/R8_CHECKPOINT.md",
+      "reviewed_sha256": "ea6d7b3f42da9b397f9fe55d01793c62e47ee7a81249323519b3d4143d12a3f7",
+      "current_sha256": "0555df24068ca6dc45afaee78b3b818d9c8ce58df3e5957058be52a45249e0db",
+      "scope": "dated source review retained; current input drift unresolved"
+    },
+    {
+      "file": "SEMANTIC_T11_SCOPE_REFRESH.json",
+      "path": "docs/USER_VISION.md",
+      "reviewed_sha256": "61948ae9f8627710e389439fd435280a2a33a79e91b67c5b4a157b3c7be18077",
+      "current_sha256": "9775db868abdf623805f596c96a566224df6e0900b0e15f7568bf8ddfa3f8097",
+      "scope": "dated source review retained; current input drift unresolved"
+    },
+    {
+      "file": "SEMANTIC_NONHUMAN_CHEATS.json",
+      "path": "src/display.js",
+      "reviewed_sha256": "076525d5fe99708c235d058afccbad68d4c2eb5eeafcb6ae0a5a042da9f2838b",
+      "current_sha256": "ea2fd0a3a99de52d94160f54736a75436276a60029004007e6a59156a41854a8",
+      "scope": "dated source review retained; current input drift unresolved"
+    },
+    {
+      "file": "SEMANTIC_T10_IDEA_INDEX.json",
+      "path": "PROJECT.md",
+      "reviewed_sha256": "cb03de0e89010a6e6d78380d98bc2c0bbc9b0343a42145ffe4a0020a803c8aa7",
+      "current_sha256": "dd157f7da6a2b8c372d1f513b896ba3402fbac56f21c1433b4343925d40f4762",
+      "scope": "dated source review retained; current input drift unresolved"
+    },
+    {
+      "file": "SEMANTIC_T10_IDEA_INDEX.json",
+      "path": "docs/USER_VISION.md",
+      "reviewed_sha256": "4113c00e63cba02b76b84d47b87bf97045da2e17fc717e407830d3d82189f23b",
+      "current_sha256": "9775db868abdf623805f596c96a566224df6e0900b0e15f7568bf8ddfa3f8097",
+      "scope": "dated source review retained; current input drift unresolved"
+    },
+    {
+      "file": "SEMANTIC_WEAPON_OWNERS.json",
+      "path": "docs/USER_VISION.md",
+      "reviewed_sha256": "5750013ec619de7909cb4094b7746ba7813fa565d1dda139c64e340524f255e8",
+      "current_sha256": "9775db868abdf623805f596c96a566224df6e0900b0e15f7568bf8ddfa3f8097",
+      "scope": "dated source review retained; current input drift unresolved"
+    },
+    {
+      "file": "SEMANTIC_CORE_A1_A4.json",
+      "path": "PROJECT.md",
+      "reviewed_sha256": "bad67018c8792755a952b53565c231126227a2b781531cccf8b82724a9df9912",
+      "current_sha256": "dd157f7da6a2b8c372d1f513b896ba3402fbac56f21c1433b4343925d40f4762",
+      "scope": "dated source review retained; current input drift unresolved"
+    },
+    {
+      "file": "SEMANTIC_CORE_A1_A4.json",
+      "path": "docs/USER_VISION.md",
+      "reviewed_sha256": "1d2a69679af6f3311acb184bdf81e641aff9328114c71df03621a0b904d13285",
+      "current_sha256": "9775db868abdf623805f596c96a566224df6e0900b0e15f7568bf8ddfa3f8097",
+      "scope": "dated source review retained; current input drift unresolved"
+    },
+    {
+      "file": "SEMANTIC_BODY_LINEAGE_B1_B3.json",
+      "path": "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md",
+      "reviewed_sha256": "24e37300bcda8a52a478310986383cdb37719fd666a7efe8bd580f31274a4ea0",
+      "current_sha256": "0ec605a790a145774a01428e26a7f567d37dfe6b54e6f4669839e9fb20c8d1e8",
+      "scope": "dated source review retained; current input drift unresolved"
+    },
+    {
+      "file": "SEMANTIC_BODY_LINEAGE_B1_B3.json",
+      "path": "PROJECT.md",
+      "reviewed_sha256": "bad67018c8792755a952b53565c231126227a2b781531cccf8b82724a9df9912",
+      "current_sha256": "dd157f7da6a2b8c372d1f513b896ba3402fbac56f21c1433b4343925d40f4762",
+      "scope": "dated source review retained; current input drift unresolved"
+    },
+    {
+      "file": "SEMANTIC_BODY_LINEAGE_B1_B3.json",
+      "path": "index.html",
+      "reviewed_sha256": "c0d3cc6bd42ea407859a03daa4dfd61c4188d0fdfc291359c195e73a08166900",
+      "current_sha256": "c0c4d111c6d59c057f1d658b20f3ed3ebe46ceba219e1fe200dc080680c81aa3",
+      "scope": "dated source review retained; current input drift unresolved"
+    }
+  ],
+  "qualified_historical_revision_checks": [
+    {
+      "path": "docs/reviews/WHOLE_PROJECT_GAME_ARCHITECTURE_REVIEW_2026-10-12.md",
+      "historical_copy": "docs/gm/cross-audit-reconciliation-2026-10-15/private/pre-UA-followthrough-2026-10-16/architecture-review-original.md",
+      "scope": "Exact frozen bytes validated at preserved revision; current additive pointer separately pinned"
+    }
+  ],
+  "private_ignore": true,
+  "errors": [],
+  "proof_scope": "Documentation links/anchors, source hashes/ranges, schemas, whitespace and compiler AST only. No gameplay/current source behavior/persistence/human acceptance inferred. Pending batches and source-only proposal adoption remain open."
+}

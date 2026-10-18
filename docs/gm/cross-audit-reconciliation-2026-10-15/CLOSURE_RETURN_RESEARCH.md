@@ -1,0 +1,13 @@
+> Lane return, preserved as supporting evidence. Final adjudication and active status are in [the canonical closure list](CLOSURE_2026-10-16.md).
+
+# Research-lane closure return, 2026-10-16
+
+This pass assigns a bounded disposition to all 277 frozen research report paths. It does not certify unread reports clean: each row retains its exact source hash and selected source-line pins, while syntax-selected excerpts add zero semantic full-read credit. Candidate source work stays conditional; dated audits and extraction records remain provenance under their named owners.
+
+The assignments are **243 conditional references**, **31 historical references**, and **3 reports needing a specific owner reconciliation**. No report is marked covered or superseded from a filename or directory label alone. The underlying source, current YAIR consumer, and runtime or human acceptance remain separate evidence layers. The [`NEXT_STEPS.md`](NEXT_STEPS.md) routing and [`T11 research receipts`](SEMANTIC_T11_RESEARCH_1.md) document those boundaries.
+
+Four finite unresolved units remain, each grouped under an existing owner: **R-U1** exact-byte/private-receipt comparison for seven archive counterparts; **R-U2** one existing YAIR making journey from clue/entry through inputs and committed product to useful use; **R-U3** intended double-click/repeated-Enter semantics and the native Craft 1 result; and **R-U4** owner reconciliation for three late ER11 panel observations. Questions and done checks are in the private return. MR2 remains a conditional comparison source, not an external acceptance gate. The five direct code/UI audits were read and routed: ER2, ER9, ER1 and the offline index explicitly own their measured/proposed scope; ER11 leaves the two listed owner joins open. This does not claim runtime or human acceptance.
+
+Four dated external acceptance families remain conditional on a current owner selecting the relevant work: micro-correctness runtime lifecycle, engine native/browser behavior, UI human acceptance, and game-specific payload/gameplay coverage. They are not required audits merely because their reports list open gates. The open failure/perception branches in the P12 interaction return remain unplayed references, not an additional active audit unit.
+
+The [private return](private/CLOSURE_RETURN_RESEARCH.json) includes exactly one disposition per assigned path, frozen hashes, verified current line counts, actual triage ranges and owner-receipt pins, rationale and reopen conditions. It includes no full-source reading credit. It preserves the original report paths and makes no source, runtime, or shared-owner edits.

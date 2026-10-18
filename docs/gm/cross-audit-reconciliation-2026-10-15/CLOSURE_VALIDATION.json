@@ -1,0 +1,45 @@
+{
+  "at": "2026-10-16T05:11:31.830369+00:00",
+  "status": "PASS",
+  "checks": {
+    "frozen_report_paths": 827,
+    "disposition_counts": {
+      "historical_reference": 163,
+      "archived_covered": 4,
+      "conditional_reference": 560,
+      "archived_superseded": 27,
+      "external_acceptance_gate": 73
+    },
+    "archived_reports_unchanged": 31,
+    "closed_audits": [
+      "UA1",
+      "UA2",
+      "UA3"
+    ],
+    "qualified_live_report_revisions": 1,
+    "active_audits": [],
+    "closed_documentation_actions": [
+      "DA5",
+      "DA1",
+      "DA2",
+      "DA3",
+      "DA4"
+    ],
+    "known_documentation_actions": [],
+    "root_findings_mapped": 84,
+    "automatic_next_source_queue": 0,
+    "live_pointer_revisions_preserved": 8,
+    "qualified_current_drift_outside_windows": [
+      "docs/USER_VISION.md"
+    ],
+    "correction_owner_files": 7,
+    "independent_documentation_review": "private/DA_INDEPENDENT_CHECK_2026-10-16.json",
+    "archive_counterparts_reconciled_with_residuals": 7,
+    "native_sequence_evidence_validated": 3,
+    "native_limit": "Current synthetic Cooking route only; explicit repeat=true events, not physical input cadence or all browsers",
+    "panel_observations_reconciled": 3,
+    "semantic_credit": "zero added from closure triage; original semantic ledger untouched",
+    "scope": "Finite routing and evidence checks only. UA2 native receipts, where present, are separate; this validator does not run gameplay or establish human acceptance"
+  },
+  "errors": []
+}

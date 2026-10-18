@@ -1,0 +1,5 @@
+# Embedded research inventory reconciliation
+
+All 52 registered embedded source files and all 60 candidate excerpt windows (2,382 registered lines) are pinned and represented in the [private receipt](private/SEMANTIC_T11_EMBEDDED_RESEARCH.json). The 27 scopes completed in the earlier checkpoint retain their exact ranges. The remaining 33 windows are now captured in full; each of the 1,075 registered human table-row occurrences has a separate finding with its original row text and physical line pin. Section 4's overlapping location catalog remains represented under both registered section IDs, so occurrence count is not a count of unique physical rows.
+
+The receipts preserve original row IDs, report qualifications, status and failure language where present, and unresolved owner/consumer joins. An embedded inventory is evidence of what that report recorded. It does not verify the underlying linked source, canon, current YAIR owner, actual code consumer, installed/runtime behavior, saves, gameplay, or human acceptance. No mechanics were selected and no shared owner was changed.

@@ -1,0 +1,24 @@
+# Research small inventories: bounded reconciliation
+
+This packet reads 12 assigned `SYSTEM_INVENTORY.md` files as research records only. Every explicit table row is retained individually in the [private semantic receipt](private/SEMANTIC_RESEARCH_SMALL_INVENTORIES.json), with its original line locator, source-local ID where present, quoted row cells, coverage status, named research owner, candidate YAIR route, and unresolved join. Namespace/extraction directory rows remain retrieval groupings, not gameplay systems.
+
+| Research owner | Inventory size | Linked selected-join owner |
+|---|---:|---|
+| [multiworld-synthesis-2026-10-14 inventory](../../research/multiworld-synthesis-2026-10-14/aspects-2026-10-14/SYSTEM_INVENTORY.md) | 15 lines | [multiworld-synthesis-2026-10-14 deeper-system owner](../../research/multiworld-synthesis-2026-10-14/aspects-2026-10-14/DEEPER_SYSTEMS.md) |
+| [super-robot-wars inventory](../../research/super-robot-wars/aspects-2026-10-14/SYSTEM_INVENTORY.md) | 24 lines | [super-robot-wars deeper-system owner](../../research/super-robot-wars/aspects-2026-10-14/DEEPER_SYSTEMS.md) |
+| [bitlife inventory](../../research/bitlife/aspects-2026-10-14/SYSTEM_INVENTORY.md) | 27 lines | [bitlife deeper-system owner](../../research/bitlife/aspects-2026-10-14/DEEPER_SYSTEMS.md) |
+| [multiverse-idle inventory](../../research/multiverse-idle/aspects-2026-10-14/SYSTEM_INVENTORY.md) | 27 lines | [multiverse-idle deeper-system owner](../../research/multiverse-idle/aspects-2026-10-14/DEEPER_SYSTEMS.md) |
+| [kittens-game inventory](../../research/kittens-game/aspects-2026-10-14/SYSTEM_INVENTORY.md) | 33 lines | [kittens-game deeper-system owner](../../research/kittens-game/aspects-2026-10-14/DEEPER_SYSTEMS.md) |
+| [the-strange-tabletop inventory](../../research/the-strange-tabletop/aspects-2026-10-14/SYSTEM_INVENTORY.md) | 33 lines | [the-strange-tabletop deeper-system owner](../../research/the-strange-tabletop/aspects-2026-10-14/DEEPER_SYSTEMS.md) |
+| [multi-realm-muds inventory](../../research/multi-realm-muds/aspects-2026-10-14/SYSTEM_INVENTORY.md) | 39 lines | [multi-realm-muds deeper-system owner](../../research/multi-realm-muds/aspects-2026-10-14/DEEPER_SYSTEMS.md) |
+| [heavens-vault inventory](../../research/heavens-vault/aspects-2026-10-14/SYSTEM_INVENTORY.md) | 59 lines | [heavens-vault deeper-system owner](../../research/heavens-vault/aspects-2026-10-14/DEEPER_SYSTEMS.md) |
+| [naev inventory](../../research/naev/aspects-2026-10-14/SYSTEM_INVENTORY.md) | 66 lines | [naev deeper-system owner](../../research/naev/aspects-2026-10-14/DEEPER_SYSTEMS.md) |
+| [kingdom-hearts inventory](../../research/kingdom-hearts/aspects-2026-10-14/SYSTEM_INVENTORY.md) | 67 lines | [kingdom-hearts deeper-system owner](../../research/kingdom-hearts/aspects-2026-10-14/DEEPER_SYSTEMS.md) |
+| [magical-diary-wolf-hall inventory](../../research/magical-diary-wolf-hall/aspects-2026-10-14/SYSTEM_INVENTORY.md) | 70 lines | [magical-diary-wolf-hall deeper-system owner](../../research/magical-diary-wolf-hall/aspects-2026-10-14/DEEPER_SYSTEMS.md) |
+| [bitburner inventory](../../research/bitburner/aspects-2026-10-14/SYSTEM_INVENTORY.md) | 85 lines | [bitburner deeper-system owner](../../research/bitburner/aspects-2026-10-14/DEEPER_SYSTEMS.md) |
+
+The inventories use unlike measures: document lines, files, bytes, rows, classes, decoded records, guide pages, captures and advertised catalogue sizes. These values remain source-local size/coverage signals. They cannot be added into a unique mechanic count, exhaustive coverage claim or completed-system total. The documents themselves distinguish public/guide coverage, source-tree recovery, targeted reading, partial decoding, unread internals, and absent build/runtime proof. Those exact row-level labels and scope disclaimers remain in the receipt.
+
+The candidate YAIR join is deliberately only a route for a later selected question, usually a world-local comparison under [MULTIVERSE_STRUCTURES](../../worlds/MULTIVERSE_STRUCTURES.md), or a narrower existing time, UI, or nonhuman-start owner when the row clearly calls for it. The [accepted tabletop direction](../../USER_VISION.md#tabletop-systems-and-distinct-multiverses-2026-10-14) keeps distinct world systems as a design interest; [PROJECT](../../../PROJECT.md) still keeps the first milestone to one realm and one prestige layer. No source adaptation, current game mechanic, implementation gap, or implementation requirement is selected here.
+
+No underlying game files, installed builds, current player loops, costs, failure paths, saves, or native runtime were checked. Prior statuses such as “read,” “partial,” “decoded,” “captured,” or “installed” remain dated input-bound claims, not fresh verification. If a row later answers a named player question, continue through that source’s linked `DEEPER_SYSTEMS.md` and its precise evidence gap before considering a YAIR consumer.

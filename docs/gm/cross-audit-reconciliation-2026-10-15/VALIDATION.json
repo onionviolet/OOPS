@@ -1,0 +1,83 @@
+{
+  "at": "2026-10-16T02:40:01.678774+00:00",
+  "status": "FAIL",
+  "local_links_checked": 587,
+  "anchors_checked": 24,
+  "private_json_parsed": 196,
+  "extraction_records": 72,
+  "full_line_reads": 45,
+  "partial_reads": 27,
+  "material_hash_observations": 44,
+  "material_drift": [
+    {
+      "path": "PROJECT.md",
+      "reader": "PROPAGATION_RETURN.md",
+      "read_hash": "f29b7968fb959b144106b2640ba7ead5cc6232d51c12668e56f134ed4282e90a",
+      "current_sha256": "3f60c2df8f21b9a718928ff5bb3895d24e23afc505c9395c51139874761260dc",
+      "unchanged": false
+    },
+    {
+      "path": "docs/USER_VISION.md",
+      "reader": "PROPAGATION_RETURN.md",
+      "read_hash": "9603118e42a6ff768a5ce56986446ebdbc5674a14bc930c60133318a26e6ecb9",
+      "current_sha256": "61948ae9f8627710e389439fd435280a2a33a79e91b67c5b4a157b3c7be18077",
+      "unchanged": false
+    },
+    {
+      "path": "PROJECT.md",
+      "reader": "INTERACTION_RETURN.md",
+      "read_hash": "f29b7968fb959b144106b2640ba7ead5cc6232d51c12668e56f134ed4282e90a",
+      "current_sha256": "3f60c2df8f21b9a718928ff5bb3895d24e23afc505c9395c51139874761260dc",
+      "unchanged": false
+    },
+    {
+      "path": "docs/USER_VISION.md",
+      "reader": "INTERACTION_RETURN.md",
+      "read_hash": "9603118e42a6ff768a5ce56986446ebdbc5674a14bc930c60133318a26e6ecb9",
+      "current_sha256": "61948ae9f8627710e389439fd435280a2a33a79e91b67c5b4a157b3c7be18077",
+      "unchanged": false
+    },
+    {
+      "path": "docs/UI_RULES.md",
+      "reader": "INTERACTION_RETURN.md",
+      "read_hash": "d3ce48569c23eb5198aa3600c12d557cc5684dad14e580e874d389e0e2f2f8a0",
+      "current_sha256": "356d032e6ff42d52423d8cd9a319524fa4ac3882851a08cde17539969f955687",
+      "unchanged": false
+    },
+    {
+      "path": "docs/research/qud-systems-audit-2026-10-15/CURRENT.md",
+      "reader": "INTERACTION_RETURN.md",
+      "read_hash": "e8cf56cbbb961002f2972828710d0b5401c1405eab7046124c4be407709c354b",
+      "current_sha256": "ce12eb00c2822f545cef508a3ac155306101a4c4154b738a7cd6ec59046f8d5a",
+      "unchanged": false
+    },
+    {
+      "path": "docs/research/rule-emergence-flow-2026-10-15/REPORT.md",
+      "reader": "INTERACTION_RETURN.md",
+      "read_hash": "b15f42098b05e87f62c5af2f55904f51532b414fffd77a54cbda57e8d3f9a3ba",
+      "current_sha256": "d588e4bcecb53e09212fa4cbbc4f33008b273526997979c96fedd0f1930763f8",
+      "unchanged": false
+    },
+    {
+      "path": "docs/research/rule-emergence-flow-2026-10-15/WORKFLOW.md",
+      "reader": "INTERACTION_RETURN.md",
+      "read_hash": "8e1101dd2c21637c3f0848a9c6d0a7bffc6f5924bfa58cc3b0c2d513cdc62e5c",
+      "current_sha256": "2efb2a2c07a57e7258bf25a46f4d0dd96c6d3258bc6ff2c4c654d7aa46af3f67",
+      "unchanged": false
+    }
+  ],
+  "private_ignore": true,
+  "errors": [
+    {
+      "file": "docs/gm/cross-audit-reconciliation-2026-10-15/NEXT_STEPS.md",
+      "link": "private/UNRESOLVED_JOINS_T11.json",
+      "error": "missing target"
+    },
+    {
+      "file": "docs/gm/cross-audit-reconciliation-2026-10-15/T11_SEMANTIC_CONTINUATION.md",
+      "link": "private/UNRESOLVED_JOINS_T11.json",
+      "error": "missing target"
+    }
+  ],
+  "proof_scope": "Documentation paths, anchors, JSON, hashes and batch accounting only. Original quotations/shared source were not edited by this task. No runtime tests/build/browser/game/save/human acceptance."
+}

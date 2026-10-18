@@ -1,0 +1,9 @@
+# B2 specification and checkpoint reconciliation
+
+Read the complete 333-line `SPEC.md` and 56-line `CHECKPOINT.md`. The detailed receipt keeps every PH, SG, AG, GN, quirk and adapter ID separate; it records only inherited source windows, with no fresh code reading. All body-record fields, rates, effects, migrations and UI behavior remain proposals. Checkpoint completion is a dated documentation status, not runtime acceptance.
+
+The schema keeps body, person, observer knowledge, registry claims, faculties and genetics reservation under distinct owners. No individual meanings are invented for PH2–PH11, AG1–AG6 or GN1–GN12 beyond the shared text. The Tern `currentNativeBody` bridge and the human/owner/controller-gated exposure caller are narrow existing readers; they do not establish a general B2 profile/knowledge reader.
+
+T05 preserves the source-text age-label mismatch and narrow native body reader [receipt](private/SEMANTIC_NONHUMAN_ABSTRACTION.json). T06 inspects one awakening route: it validates detached state, commits storage, then publishes in its callback before logs/render [receipt](private/SEMANTIC_BODY_LINEAGE_B15_B18.json). That is route-specific, not proof of a B2 write or universal durable-before-reveal rule. T07 refreshes named design owners only [receipt](private/SEMANTIC_OWNER_JOIN_REFRESH_T07.json). No adapter or current profile rule was adopted here.
+
+B2 `REPORT.md` was already fully read at its pin in the [B1–B3 receipt](private/SEMANTIC_BODY_LINEAGE_B1_B3.json), so only this spec and checkpoint were added here. The spec’s remaining work is an accepted schema/validator and serializer/load owner; explicit world/body profile resolution and stat buckets; separate sleep, food, combat, pursuit and craft adapters with their own transaction tests; and actual bio/knowledge UI plus human acceptance at 1366×768. None is implemented or accepted by these documents. No tests, build, game, browser or saves were used.

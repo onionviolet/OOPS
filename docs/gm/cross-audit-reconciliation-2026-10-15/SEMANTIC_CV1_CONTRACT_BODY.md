@@ -1,0 +1,9 @@
+# CV1 contract body: semantic reconciliation
+
+This packet covers only [CV1_SPEC.md lines 71–336](../dispatch/body-lineage-2026-10-14/b15/CV1_SPEC.md). The earlier CV1 ranges 1–70 and 337–349 retain their existing receipt and receive no new review credit. This range supplies the detailed proposal behind D2–D5: existing-card lens composition, enable route, observer-safe typed observations, status-window behavior, and persistence/compatibility. None of it selects or proves a runtime API.
+
+The proposal keeps authorities separate: B2 holds body and typed-observation data; the existing card holds only lens/enable references; source/faculty/condition owners retain their facts; P14 owns proposed claims/beliefs while P24 handles enquiry/evidence and copy/arrival/render/time have their own owners. T08’s inherited source windows confirm only narrow current seams: same-key stage replacement, attribution basis checks, witnessed/known-value/body-feedback People projections and some received accounts. They do not supply a CV1 diagnosis resolver or correction archive. Independent readings need distinct identities; copying one report does not make two tests. Staleness follows observer-known invalidation, never a hidden revision.
+
+The previous durable awakening path is a source-only precedent: generic enable stages and validates, writes, publishes from the durable callback, then logs/renders. CV1 still needs its own lens/evidence transaction and failure/retry behavior. Surface layout, accessibility, migration, quota, retention, old-save and human acceptance remain future gates.
+
+The [private JSON](private/SEMANTIC_CV1_CONTRACT_BODY.json) preserves every contract and unresolved join. No card-body review or source expansion was done; no tests/build/browser/game/save/runtime proof was exercised.

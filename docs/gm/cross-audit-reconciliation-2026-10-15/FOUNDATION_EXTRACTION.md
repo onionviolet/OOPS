@@ -1,0 +1,23 @@
+# Foundation audit extraction
+
+**Later-method qualification:** [F15](CONTINUATION.md#qa-method-correction-f15)
+records R15’s explicit replacement of the earlier agent-made permanent no-retry/
+natural-only rule. The historical failed/stopped lineage below remains exact;
+it is not a standing prohibition on new valid QA or a reason to relabel old proof.
+
+This is a provenance crosswalk for the 24 entries in `BATCH_foundation.txt`, not a new disposition. Per-file hashes, full-read line ranges, finding summaries, evidence stage, open gates and stated owners are in `FOUNDATION_EXTRACTION.json`.
+
+The strongest cross-round join is the evidence boundary. R1/FA06 and R3/FA08 retain actual native positive journeys and literal-file restoration. R2/FA07 stopped before acquiring balm; later G1/G10 prove treatment or acquisition only with seeded prerequisites, while fresh-start natural acquisition remains OPEN. Those receipts are not repeated independent proof of other leaves or current integrated compatibility.
+
+R4–R6 document bounded positive use of existing FA09–FA12 consumers, with exact controls left open at each round. R15 G2/G10 later add seeded-native reserve, retort, persistence, quota-failure, reader and keyboard cases; these additions narrow specific rows but do not erase earlier stop/timeout history or close every source-only scheduler context. R5’s earned manual commission was distinct from its then-open study/kit route; G3/G10 later exercise those downstream leaves with seeded prerequisites. Preserve that natural-versus-seeded distinction.
+
+R10/FA15’s spent kit-pad guard was native evidence, but its final withdrawal/Export was lost when disposable-browser cleanup failed. R11/FA18’s fresh native attempt stopped at zero paid actions. R14’s integrated recovery confirms no compatible unspent changed-positive route: the R8 export predates R10, R10 has no final export, and R11’s preserved profile has no paid change. That historical no-retry assignment forbids reconstructing, rewinding or replaying those missing artifacts. Later R15 seeded-native receipts expand positive leaves without healing those exact earlier missing artifacts.
+
+The audit/disposition join is R14. Independent F1–F8 are reviewer findings and proposed dispositions; `ROOT_RECONCILIATION.md` records root’s accept/narrow, already-covered, accepted-gap and assessment-only outcomes. F1/F2 narrow FA20 evidence to one transient player-owned slot and a synthetic local validator. F3 preserves paid/stopped lineage. At that historical assessment, R14 F4 retained FA17 as a gap in the older artifact it inspected. The later `rounds/r15/g5/REPORT.md` implements listed leftovers, recipient, estate debt and obligations; it must not inherit that old missing-implementation label. F5 keeps FA21/22 and older owner identities separate; unreadable historical chats prove neither owner availability nor release. F6 retains the finite selected denominator. F7 found no useful dependency-ready successor; F8 accepts assessment only. These review responses do not authorize lane work.
+
+Later bounded work must keep natural, seeded-native and source-only labels attached to individual leaves. G4’s FA14/15/20 positive runs rely on seeded inputs despite actual native actions. G6’s courtyard path is natural; G7’s single-site editor is natural but broader adapters and owner/taste gates remain. G9 resumes paused World1 N1–N5 only under a later explicit instruction; FA19/N4 passes seeded-native, while the wider N5 regional conversation and campaign remain open. G10 adds exact native persistence and controls, but still records fresh-start FA07, an intermediate WorkPlans1 reader, and some context-only scheduler variants as open.
+
+Across the batch, source checks, seeded native journeys, natural play, rebuilt bytes, save/reload, and literal-file Import are separate evidence stages. Repeated copied reports, shared artifacts, or inherited receipts do not create independent proof. Current authority, live ownership, and final integration must be reconciled by the parent against USER_VISION, PROJECT, checkpoints, and the designated leaf owners. This extraction resolves none of the findings.
+
+
+Identifier accounting is intentionally bounded: the private JSON indexes every explicit F/FA/C/R and related report label with its source line and status-bearing excerpt. It separately lists IDs not semantically summarized here; no semantic-complete or reconciliation claim is made. For example, R14 F1–F8 dispositions are explicit at `rounds/r14/ROOT_RECONCILIATION.md:7-14`; later G5 is a separate report/version from the older artifact described by R14 F4.

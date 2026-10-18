@@ -1,0 +1,9 @@
+# T11 core and direction audit reconciliation
+
+This documentation-only reconciliation reads the complete pinned bodies of the [overarching design core audit](../../OVERARCHING_DESIGN_CORE_AUDIT_2026-10-15.md) and [direction details review](../DIRECTION_DETAILS_REVIEW_2026-10-15.md). The private packet records each table row separately with its original ID and exact source line, plus exact section windows for substantive narrative answers. Machine-style counts, quote ledgers and historical evidence labels do not prove present behavior.
+
+The early aspect register and question queue are dated history. Later sections in the same audit record broad answers for OD1–OD16, OD23–OD25, their derivations and subsequent folds. Current accepted direction routes through USER_VISION.md and PROJECT.md; the detailed continuation, time, timeline, identity, narrative, knowledge, experiment and world owners keep their respective joins. The direction review’s F1–F10 findings mostly classify answered direction or implementation recommendations; F11 is routing to the separate continuation/cheat records; F12 found no new consequential question in its scope. Its later fold, GW1–GW5 discussion, and GW1/GW3 specimen refine authoring/evidence work without selecting a runtime slice.
+
+The main unresolved joins are exact per-slice mechanics and schemas, source/edition identity for any direct adaptation, actual authoring coverage, current runtime consumers, tested behavior, persistence compatibility, balance and human acceptance. The audit’s old screenshots, source inspections, counts and status labels remain bounded to their stated date and scope. This pass did not verify underlying canon/native behavior, run the game, or modify shared owners.
+
+Private row-level packet: [SEMANTIC_T11_CORE_DIRECTION_AUDITS.json](private/SEMANTIC_T11_CORE_DIRECTION_AUDITS.json).

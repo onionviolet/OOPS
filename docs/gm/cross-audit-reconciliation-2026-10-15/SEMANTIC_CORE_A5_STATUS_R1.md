@@ -1,0 +1,9 @@
+# Core A5 and status-window R1 semantic reconciliation
+
+This packet keeps each A5 F6–F9 and R1 F1–F4 finding distinct, with individual gate/proof locators and source hashes in the [private receipt](private/SEMANTIC_CORE_A5_STATUS_R1.json). Historical command, seeded-native, browser and screenshot results remain bound to their dated worker reports; nothing was rerun here.
+
+A5’s lexical baseline is not a current call-graph inventory. Its 48-boundary headless replay is not native gameplay/save acceptance. Its P1 stream source was unmerged at report time, but `src/seeded_streams.js` is now imported, initialized, bound and validated in the current checkout. The replay test still has the three named TODOs and no explicit stream receipt/reload or unrelated-draw assertions, so the A5 dated A6 checks are not closed by the inspected replay test. Newer separate acceptance receipts were not searched or reverified here.
+
+R1’s prior ordering defect should not be repeated as current: inspected source stages and validates the awakened envelope, commits via the shared storage owner, publishes `cheatState` at the durable callback, then logs and renders. Current validators require nonnegative safe-integer points and a first message for awakened cards; discovery also requires a message. The status panel source scrolls its level row into view at first reveal. These are source bindings only. R1’s fault-injection, travel/import, viewport/keyboard, regression and natural-win outcomes remain dated candidate evidence, with sleep and other exclusions retained separately.
+
+The stage-0 optional-start route and first-won-fight/day-3 milestone remain the bounded owner direction. AW1–AW5 are recorded as a palette, not a broader stage-1 or universal architecture decision. Current source, dated reports, runtime behavior, coordinator acceptance and human acceptance remain separate. No tests, build, game, browser, or save were exercised.
