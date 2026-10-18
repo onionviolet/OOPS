@@ -17,6 +17,7 @@
         <link rel="stylesheet" href="styles/inventory.css?version=112f136f4f01">
         <link rel="stylesheet" href="styles/opponents.css?version=5dd846f0239e">
         <link rel="stylesheet" href="styles/combat_log.css?version=7d389bc3f8f1">
+        <link rel="stylesheet" href="styles/oops_branding.css">
         <link rel="stylesheet" href="styles/shell_chrome.css?version=c5189d047c63">
         
         <script type="module" src="resources/js/HackTimer/HackTimer.min.js"></script>
@@ -27,43 +28,50 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
         <!--favicon-->
-        <link rel="icon" href="https://miktaew.github.io/yet-another-idle-rpg/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="resources/img/oops-icon.svg" type="image/svg+xml">
 
         <meta charset="UTF-8">
         
-        <meta name="google-site-verification" content="IgjSYOU5-uUlX2dSA22IZ-aU9GvRbmQ5uie5qjuRWQg">
-        
-        <meta name="description" content="A text-based idle RPG game inspired by Proto23, with heavy focus on progression through skill leveling, created by Miktaew.">
-        <meta name="author" content="Miktaew">
-        <meta property="og:title" content="Yet Another Idle RPG">
-        <meta property="og:description" content="A text-based idle RPG game inspired by Proto23, with heavy focus on progression through skill leveling, created by Miktaew. Known as Nya-iRPG, yairpg, or sometimes just yair.">
-        <meta property="og:image" content="https://miktaew.github.io/yet-another-idle-rpg/resources/img/bigger_icon.png">
+        <meta name="description" content="OOPS (Optimistic Progression Simulator), a text-based idle life-sim RPG by Weibao. A fork of Miktaew's Yet Another Idle RPG, inspired by Proto23.">
+        <meta name="author" content="Weibao">
+        <meta property="og:title" content="OOPS · Optimistic Progression Simulator">
+        <meta property="og:description" content="OOPS (Optimistic Progression Simulator), a text-based idle life-sim RPG by Weibao. A fork of Miktaew's Yet Another Idle RPG, inspired by Proto23.">
         <script type="application/ld+json">
         {
             "@context": "https://schema.org",
             "@type": "WebSite",
-            "headline": "Yet Another Idle RPG",
-            "name": "Yet Another Idle RPG",
-            "alternateName": "YAIRPG",
-            "description": "A text-based idle RPG game inspired by Proto23, with heavy focus on progression through skill leveling, created by Miktaew. Known as Nya-iRPG, yairpg, or sometimes just yair.",
-            "image": "https://miktaew.github.io/yet-another-idle-rpg/resources/img/bigger_icon.png",
+            "headline": "OOPS · Optimistic Progression Simulator",
+            "name": "OOPS",
+            "alternateName": "Optimistic Progression Simulator",
+            "description": "OOPS (Optimistic Progression Simulator), a text-based idle life-sim RPG by Weibao. A fork of Miktaew's Yet Another Idle RPG, inspired by Proto23.",
+            "url": "https://github.com/onionviolet/OOPS",
             "author": {
                 "@type": "Person",
-                "name": "Miktaew"
+                "name": "Weibao"
+            },
+            "isBasedOn": {
+                "@type": "VideoGame",
+                "name": "Yet Another Idle RPG",
+                "url": "https://github.com/miktaew/yet-another-idle-rpg",
+                "author": {
+                    "@type": "Person",
+                    "name": "Miktaew"
+                }
             }
         }
         </script>
 
-        <Title>Yet Another Idle RPG</Title>
+        <title>OOPS · Optimistic Progression Simulator</title>
     </head>
 
     <body onload = "prepareGame()">
 
         <div id = "loading_screen">
             <div id = "loading_screen_game_title">
-                Yet Another Idle RPG
+                OOPS
+                <div id = "loading_screen_game_subtitle">Optimistic Progression Simulator</div>
                 <div id = "loading_screen_author">
-                    by <span class="bold" >Miktaew 🐱</span>
+                    by <span class="bold" >Weibao</span>
                 </div>
             </div>
             
@@ -713,7 +721,7 @@
             <div id = "changelog_button" class = "game_info"><a href="changelog.html" target="_blank"></a></div>
             <div id = "help_button" class = "game_info"><a href="help.html" target="_blank"><i class="material-icons">help_outline</i></a></div>
 
-            <div id = "repo_link" class = "repo_link" title="Check out the repository!"><a href="https://github.com/miktaew/yet-another-idle-rpg" target="_blank"><img src="resources\img\github-mark-white.png" style="height:32px" alt="GitHub icon"></a></div>
+            <div id = "repo_link" class = "repo_link" title="Check out the repository!"><a href="https://github.com/onionviolet/OOPS" target="_blank"><img src="resources\img\github-mark-white.png" style="height:32px" alt="GitHub icon"></a></div>
             <div id = "ko_fi_link" class = "financial_link" title="Support me on Ko-fi!"><a href="https://ko-fi.com/miktaew" target="_blank"><img src="resources/img/ko-fi_icon.png" style="height:40px" alt="Ko-fi icon"></a></div>
         </div>
 
