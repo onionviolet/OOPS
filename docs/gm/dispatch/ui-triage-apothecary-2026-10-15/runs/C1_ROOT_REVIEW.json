@@ -1,0 +1,6 @@
+{
+  "sourceOwnershipReleased": true,
+  "reportSha256": "20de99979661e9915f677b361933f51354ed2e66b052ff50514987309afa0ae3",
+  "review": "Root inspected report, C1 Village/combat/expanded-stance images, 15 passing browser groups, parity, acknowledged source reading, saved-layout review and fuller native source lab. Frozen review site captures final static bytes. Human visual acceptance remains open.",
+  "frozenPreview": "http://127.0.0.1:19117/c1-review-site/"
+}

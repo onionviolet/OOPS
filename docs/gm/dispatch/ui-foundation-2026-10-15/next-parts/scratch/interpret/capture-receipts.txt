@@ -1,0 +1,8 @@
+docs/gm/dispatch/ui-foundation-2026-10-15/evidence/c1-proto23-reference-1366.png | sha256=f4bda8dc12a3414fd93eb3e92335f379df735573d52d3c8b1f1fdadd95b54051
+docs/gm/dispatch/ui-foundation-2026-10-15/evidence/parity-r7/user-native-yair.png | sha256=6121683ffef9ea3e7e9684bd32814c382ab1d844de352e167b1efd5f797f9cec
+docs/gm/dispatch/ui-foundation-2026-10-15/evidence/parity-r7/source-fight-active.png | sha256=ecd0dec709273d98c5f6c978c711a52b40d33faff98761890512b58836763497
+docs/gm/dispatch/ui-foundation-2026-10-15/evidence/parity-r7/proto23-skills.png | sha256=2e15d0972bfe0fb4e6233df7e6c35e0ea667baef53bb19f484c3b42e5449ad93
+docs/gm/dispatch/ui-foundation-2026-10-15/evidence/parity-r7/proto23-crafting.png | sha256=4fd960782e27befcaf42de52b3b9820254b3e2225d170e56bf12e245a0a36d62
+docs/gm/dispatch/ui-foundation-2026-10-15/evidence/r14/after/reports-live-1366-14.png | sha256=9d0cb8c7cffffb395581d61006e5a4fb27131737fd8aa21fac21a5f809abe403
+docs/research/climb-mr2-playtest-2026-10-15/private/climb-training.jpg | sha256=ae1973c72992e9bc8cf562eee7bbf46d1c81e7d67b8da1ae5051153994d2a984
+docs/research/climb-mr2-playtest-2026-10-15/private/climb-equipped.jpg | sha256=15b331b7a51dcdced102d5a5e0d19b61c93bd31b0b9fd81780170233bbe83f41

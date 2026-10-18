@@ -1,0 +1,6 @@
+{
+  "index.html": true,
+  "dist/bundle.js": true,
+  "styles/crafting_detail.css": true,
+  "styles/ui_tokens.css": true
+}

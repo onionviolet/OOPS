@@ -1,0 +1,1428 @@
+{
+  "scope": "Static HTML composites only; fixture facts; no game build or scripts",
+  "sources": [
+    {
+      "path": "next-parts/scratch/surfaces/cs4/make_mockups.py",
+      "sha256": "fdcbd3a99b5731d81d8f7848ec5c8e1b84f8b86248dcc4c3b96bc7133d2b404e",
+      "use": "Imported CSS, task() and foreign(); extended only in CY scratch"
+    },
+    {
+      "path": "next-parts/scratch/surfaces/cs4/render_mockups.cjs",
+      "sha256": "2c95666837dd3dab6ac2dcb1b217aa2deeec6e9ebe9188e83b749214d1dfccda",
+      "use": "Adapted isolated headless renderer and geometry/contrast receipt"
+    }
+  ],
+  "footer": "R14 frames still contain dummy counter; static footer reconstructed from current index.html:701-713 and shell controls; not a newer capture",
+  "scenes": [
+    {
+      "id": "system-popup-1366-14",
+      "family": "system",
+      "surface": "popup",
+      "size": 14,
+      "viewport": [
+        1366,
+        768
+      ],
+      "motion": "static",
+      "appearance": "authored",
+      "html": "system-popup-1366-14.html",
+      "png": "system-popup-1366-14.png",
+      "frame": "evidence/r14/after/nav-1366-14/00-home.png",
+      "frameSha256": "fdc594dbcbd5bbc9a00944cf214e9ffb51e949b049621291b953a5af5761a832",
+      "behavior": {
+        "owner": "SF120 shared popup owner",
+        "home": "Status record",
+        "dismiss": "Esc closes top transient first; center Back returns to Village; awakening explicit Continue/Dismiss",
+        "focus": "Keyboard entry; return to opener or containing known header",
+        "pendingClick": "Reserve notice region; queue until no pending target can be moved or covered",
+        "mirror": "One plain event line on discovery; inspection never logs again; Open current record is distinct from historical preview",
+        "contrast": "Opaque own reading base; measured authored role pairs in receipt",
+        "appearance": "Explicit L7 font/size/palette wins; authored/quiet/plain; OS/game motion ceiling",
+        "motion": "Static export; proposed cosmetic reveal only, final text and controls immediately available",
+        "secrecy": "Synthetic disclosed fixture only; register no hidden family labels or fonts before discovery",
+        "lifecycle": "Do not replay on hover, tick, Back, reload, import or world change",
+        "verification": "Static layout only. No keyboard, focus, command, pointer or persistence behavior implemented."
+      }
+    },
+    {
+      "id": "system-popup-1366-21",
+      "family": "system",
+      "surface": "popup",
+      "size": 21,
+      "viewport": [
+        1366,
+        768
+      ],
+      "motion": "static",
+      "appearance": "authored",
+      "html": "system-popup-1366-21.html",
+      "png": "system-popup-1366-21.png",
+      "frame": "evidence/r14/after/nav-1366-21/00-home.png",
+      "frameSha256": "6d083bf9b02cda2bb6511b10483709e0312a955de9f13322b4b5281aff6c5cee",
+      "behavior": {
+        "owner": "SF120 shared popup owner",
+        "home": "Status record",
+        "dismiss": "Esc closes top transient first; center Back returns to Village; awakening explicit Continue/Dismiss",
+        "focus": "Keyboard entry; return to opener or containing known header",
+        "pendingClick": "Reserve notice region; queue until no pending target can be moved or covered",
+        "mirror": "One plain event line on discovery; inspection never logs again; Open current record is distinct from historical preview",
+        "contrast": "Opaque own reading base; measured authored role pairs in receipt",
+        "appearance": "Explicit L7 font/size/palette wins; authored/quiet/plain; OS/game motion ceiling",
+        "motion": "Static export; proposed cosmetic reveal only, final text and controls immediately available",
+        "secrecy": "Synthetic disclosed fixture only; register no hidden family labels or fonts before discovery",
+        "lifecycle": "Do not replay on hover, tick, Back, reload, import or world change",
+        "verification": "Static layout only. No keyboard, focus, command, pointer or persistence behavior implemented."
+      }
+    },
+    {
+      "id": "system-notice-1366-14",
+      "family": "system",
+      "surface": "notice",
+      "size": 14,
+      "viewport": [
+        1366,
+        768
+      ],
+      "motion": "static",
+      "appearance": "authored",
+      "html": "system-notice-1366-14.html",
+      "png": "system-notice-1366-14.png",
+      "frame": "evidence/r14/after/nav-1366-14/00-home.png",
+      "frameSha256": "fdc594dbcbd5bbc9a00944cf214e9ffb51e949b049621291b953a5af5761a832",
+      "behavior": {
+        "owner": "SF123 notice/log owner",
+        "home": "Status record",
+        "dismiss": "Esc closes top transient first; center Back returns to Village; awakening explicit Continue/Dismiss",
+        "focus": "Keyboard entry; return to opener or containing known header",
+        "pendingClick": "Reserve notice region; queue until no pending target can be moved or covered",
+        "mirror": "One plain event line on discovery; inspection never logs again; Open current record is distinct from historical preview",
+        "contrast": "Opaque own reading base; measured authored role pairs in receipt",
+        "appearance": "Explicit L7 font/size/palette wins; authored/quiet/plain; OS/game motion ceiling",
+        "motion": "Static export; proposed cosmetic reveal only, final text and controls immediately available",
+        "secrecy": "Synthetic disclosed fixture only; register no hidden family labels or fonts before discovery",
+        "lifecycle": "Do not replay on hover, tick, Back, reload, import or world change",
+        "verification": "Static layout only. No keyboard, focus, command, pointer or persistence behavior implemented."
+      }
+    },
+    {
+      "id": "system-notice-1366-21",
+      "family": "system",
+      "surface": "notice",
+      "size": 21,
+      "viewport": [
+        1366,
+        768
+      ],
+      "motion": "static",
+      "appearance": "authored",
+      "html": "system-notice-1366-21.html",
+      "png": "system-notice-1366-21.png",
+      "frame": "evidence/r14/after/nav-1366-21/00-home.png",
+      "frameSha256": "6d083bf9b02cda2bb6511b10483709e0312a955de9f13322b4b5281aff6c5cee",
+      "behavior": {
+        "owner": "SF123 notice/log owner",
+        "home": "Status record",
+        "dismiss": "Esc closes top transient first; center Back returns to Village; awakening explicit Continue/Dismiss",
+        "focus": "Keyboard entry; return to opener or containing known header",
+        "pendingClick": "Reserve notice region; queue until no pending target can be moved or covered",
+        "mirror": "One plain event line on discovery; inspection never logs again; Open current record is distinct from historical preview",
+        "contrast": "Opaque own reading base; measured authored role pairs in receipt",
+        "appearance": "Explicit L7 font/size/palette wins; authored/quiet/plain; OS/game motion ceiling",
+        "motion": "Static export; proposed cosmetic reveal only, final text and controls immediately available",
+        "secrecy": "Synthetic disclosed fixture only; register no hidden family labels or fonts before discovery",
+        "lifecycle": "Do not replay on hover, tick, Back, reload, import or world change",
+        "verification": "Static layout only. No keyboard, focus, command, pointer or persistence behavior implemented."
+      }
+    },
+    {
+      "id": "system-center-1366-14",
+      "family": "system",
+      "surface": "center",
+      "size": 14,
+      "viewport": [
+        1366,
+        768
+      ],
+      "motion": "static",
+      "appearance": "authored",
+      "html": "system-center-1366-14.html",
+      "png": "system-center-1366-14.png",
+      "frame": "evidence/r14/after/nav-1366-14/00-home.png",
+      "frameSha256": "fdc594dbcbd5bbc9a00944cf214e9ffb51e949b049621291b953a5af5761a832",
+      "behavior": {
+        "owner": "SF122 shared center controller",
+        "home": "Status record",
+        "dismiss": "Esc closes top transient first; center Back returns to Village; awakening explicit Continue/Dismiss",
+        "focus": "Keyboard entry; return to opener or containing known header",
+        "pendingClick": "Reserve notice region; queue until no pending target can be moved or covered",
+        "mirror": "One plain event line on discovery; inspection never logs again; Open current record is distinct from historical preview",
+        "contrast": "Opaque own reading base; measured authored role pairs in receipt",
+        "appearance": "Explicit L7 font/size/palette wins; authored/quiet/plain; OS/game motion ceiling",
+        "motion": "Static export; proposed cosmetic reveal only, final text and controls immediately available",
+        "secrecy": "Synthetic disclosed fixture only; register no hidden family labels or fonts before discovery",
+        "lifecycle": "Do not replay on hover, tick, Back, reload, import or world change",
+        "verification": "Static layout only. No keyboard, focus, command, pointer or persistence behavior implemented."
+      }
+    },
+    {
+      "id": "system-center-1366-21",
+      "family": "system",
+      "surface": "center",
+      "size": 21,
+      "viewport": [
+        1366,
+        768
+      ],
+      "motion": "static",
+      "appearance": "authored",
+      "html": "system-center-1366-21.html",
+      "png": "system-center-1366-21.png",
+      "frame": "evidence/r14/after/nav-1366-21/00-home.png",
+      "frameSha256": "6d083bf9b02cda2bb6511b10483709e0312a955de9f13322b4b5281aff6c5cee",
+      "behavior": {
+        "owner": "SF122 shared center controller",
+        "home": "Status record",
+        "dismiss": "Esc closes top transient first; center Back returns to Village; awakening explicit Continue/Dismiss",
+        "focus": "Keyboard entry; return to opener or containing known header",
+        "pendingClick": "Reserve notice region; queue until no pending target can be moved or covered",
+        "mirror": "One plain event line on discovery; inspection never logs again; Open current record is distinct from historical preview",
+        "contrast": "Opaque own reading base; measured authored role pairs in receipt",
+        "appearance": "Explicit L7 font/size/palette wins; authored/quiet/plain; OS/game motion ceiling",
+        "motion": "Static export; proposed cosmetic reveal only, final text and controls immediately available",
+        "secrecy": "Synthetic disclosed fixture only; register no hidden family labels or fonts before discovery",
+        "lifecycle": "Do not replay on hover, tick, Back, reload, import or world change",
+        "verification": "Static layout only. No keyboard, focus, command, pointer or persistence behavior implemented."
+      }
+    },
+    {
+      "id": "sage-popup-1366-14",
+      "family": "sage",
+      "surface": "popup",
+      "size": 14,
+      "viewport": [
+        1366,
+        768
+      ],
+      "motion": "static",
+      "appearance": "authored",
+      "html": "sage-popup-1366-14.html",
+      "png": "sage-popup-1366-14.png",
+      "frame": "evidence/r14/after/nav-1366-14/00-home.png",
+      "frameSha256": "fdc594dbcbd5bbc9a00944cf214e9ffb51e949b049621291b953a5af5761a832",
+      "behavior": {
+        "owner": "SF120 shared popup owner",
+        "home": "Inner dialogue",
+        "dismiss": "Esc closes top transient first; center Back returns to Village; awakening explicit Continue/Dismiss",
+        "focus": "Keyboard entry; return to opener or containing known header",
+        "pendingClick": "Reserve notice region; queue until no pending target can be moved or covered",
+        "mirror": "One plain event line on discovery; inspection never logs again; Open current record is distinct from historical preview",
+        "contrast": "Opaque own reading base; measured authored role pairs in receipt",
+        "appearance": "Explicit L7 font/size/palette wins; authored/quiet/plain; OS/game motion ceiling",
+        "motion": "Static export; proposed cosmetic reveal only, final text and controls immediately available",
+        "secrecy": "Synthetic disclosed fixture only; register no hidden family labels or fonts before discovery",
+        "lifecycle": "Do not replay on hover, tick, Back, reload, import or world change",
+        "verification": "Static layout only. No keyboard, focus, command, pointer or persistence behavior implemented."
+      }
+    },
+    {
+      "id": "sage-popup-1366-21",
+      "family": "sage",
+      "surface": "popup",
+      "size": 21,
+      "viewport": [
+        1366,
+        768
+      ],
+      "motion": "static",
+      "appearance": "authored",
+      "html": "sage-popup-1366-21.html",
+      "png": "sage-popup-1366-21.png",
+      "frame": "evidence/r14/after/nav-1366-21/00-home.png",
+      "frameSha256": "6d083bf9b02cda2bb6511b10483709e0312a955de9f13322b4b5281aff6c5cee",
+      "behavior": {
+        "owner": "SF120 shared popup owner",
+        "home": "Inner dialogue",
+        "dismiss": "Esc closes top transient first; center Back returns to Village; awakening explicit Continue/Dismiss",
+        "focus": "Keyboard entry; return to opener or containing known header",
+        "pendingClick": "Reserve notice region; queue until no pending target can be moved or covered",
+        "mirror": "One plain event line on discovery; inspection never logs again; Open current record is distinct from historical preview",
+        "contrast": "Opaque own reading base; measured authored role pairs in receipt",
+        "appearance": "Explicit L7 font/size/palette wins; authored/quiet/plain; OS/game motion ceiling",
+        "motion": "Static export; proposed cosmetic reveal only, final text and controls immediately available",
+        "secrecy": "Synthetic disclosed fixture only; register no hidden family labels or fonts before discovery",
+        "lifecycle": "Do not replay on hover, tick, Back, reload, import or world change",
+        "verification": "Static layout only. No keyboard, focus, command, pointer or persistence behavior implemented."
+      }
+    },
+    {
+      "id": "sage-notice-1366-14",
+      "family": "sage",
+      "surface": "notice",
+      "size": 14,
+      "viewport": [
+        1366,
+        768
+      ],
+      "motion": "static",
+      "appearance": "authored",
+      "html": "sage-notice-1366-14.html",
+      "png": "sage-notice-1366-14.png",
+      "frame": "evidence/r14/after/nav-1366-14/00-home.png",
+      "frameSha256": "fdc594dbcbd5bbc9a00944cf214e9ffb51e949b049621291b953a5af5761a832",
+      "behavior": {
+        "owner": "SF123 notice/log owner",
+        "home": "Inner dialogue",
+        "dismiss": "Esc closes top transient first; center Back returns to Village; awakening explicit Continue/Dismiss",
+        "focus": "Keyboard entry; return to opener or containing known header",
+        "pendingClick": "Reserve notice region; queue until no pending target can be moved or covered",
+        "mirror": "One plain event line on discovery; inspection never logs again; Open current record is distinct from historical preview",
+        "contrast": "Opaque own reading base; measured authored role pairs in receipt",
+        "appearance": "Explicit L7 font/size/palette wins; authored/quiet/plain; OS/game motion ceiling",
+        "motion": "Static export; proposed cosmetic reveal only, final text and controls immediately available",
+        "secrecy": "Synthetic disclosed fixture only; register no hidden family labels or fonts before discovery",
+        "lifecycle": "Do not replay on hover, tick, Back, reload, import or world change",
+        "verification": "Static layout only. No keyboard, focus, command, pointer or persistence behavior implemented."
+      }
+    },
+    {
+      "id": "sage-notice-1366-21",
+      "family": "sage",
+      "surface": "notice",
+      "size": 21,
+      "viewport": [
+        1366,
+        768
+      ],
+      "motion": "static",
+      "appearance": "authored",
+      "html": "sage-notice-1366-21.html",
+      "png": "sage-notice-1366-21.png",
+      "frame": "evidence/r14/after/nav-1366-21/00-home.png",
+      "frameSha256": "6d083bf9b02cda2bb6511b10483709e0312a955de9f13322b4b5281aff6c5cee",
+      "behavior": {
+        "owner": "SF123 notice/log owner",
+        "home": "Inner dialogue",
+        "dismiss": "Esc closes top transient first; center Back returns to Village; awakening explicit Continue/Dismiss",
+        "focus": "Keyboard entry; return to opener or containing known header",
+        "pendingClick": "Reserve notice region; queue until no pending target can be moved or covered",
+        "mirror": "One plain event line on discovery; inspection never logs again; Open current record is distinct from historical preview",
+        "contrast": "Opaque own reading base; measured authored role pairs in receipt",
+        "appearance": "Explicit L7 font/size/palette wins; authored/quiet/plain; OS/game motion ceiling",
+        "motion": "Static export; proposed cosmetic reveal only, final text and controls immediately available",
+        "secrecy": "Synthetic disclosed fixture only; register no hidden family labels or fonts before discovery",
+        "lifecycle": "Do not replay on hover, tick, Back, reload, import or world change",
+        "verification": "Static layout only. No keyboard, focus, command, pointer or persistence behavior implemented."
+      }
+    },
+    {
+      "id": "sage-center-1366-14",
+      "family": "sage",
+      "surface": "center",
+      "size": 14,
+      "viewport": [
+        1366,
+        768
+      ],
+      "motion": "static",
+      "appearance": "authored",
+      "html": "sage-center-1366-14.html",
+      "png": "sage-center-1366-14.png",
+      "frame": "evidence/r14/after/nav-1366-14/00-home.png",
+      "frameSha256": "fdc594dbcbd5bbc9a00944cf214e9ffb51e949b049621291b953a5af5761a832",
+      "behavior": {
+        "owner": "SF122 shared center controller",
+        "home": "Inner dialogue",
+        "dismiss": "Esc closes top transient first; center Back returns to Village; awakening explicit Continue/Dismiss",
+        "focus": "Keyboard entry; return to opener or containing known header",
+        "pendingClick": "Reserve notice region; queue until no pending target can be moved or covered",
+        "mirror": "One plain event line on discovery; inspection never logs again; Open current record is distinct from historical preview",
+        "contrast": "Opaque own reading base; measured authored role pairs in receipt",
+        "appearance": "Explicit L7 font/size/palette wins; authored/quiet/plain; OS/game motion ceiling",
+        "motion": "Static export; proposed cosmetic reveal only, final text and controls immediately available",
+        "secrecy": "Synthetic disclosed fixture only; register no hidden family labels or fonts before discovery",
+        "lifecycle": "Do not replay on hover, tick, Back, reload, import or world change",
+        "verification": "Static layout only. No keyboard, focus, command, pointer or persistence behavior implemented."
+      }
+    },
+    {
+      "id": "sage-center-1366-21",
+      "family": "sage",
+      "surface": "center",
+      "size": 21,
+      "viewport": [
+        1366,
+        768
+      ],
+      "motion": "static",
+      "appearance": "authored",
+      "html": "sage-center-1366-21.html",
+      "png": "sage-center-1366-21.png",
+      "frame": "evidence/r14/after/nav-1366-21/00-home.png",
+      "frameSha256": "6d083bf9b02cda2bb6511b10483709e0312a955de9f13322b4b5281aff6c5cee",
+      "behavior": {
+        "owner": "SF122 shared center controller",
+        "home": "Inner dialogue",
+        "dismiss": "Esc closes top transient first; center Back returns to Village; awakening explicit Continue/Dismiss",
+        "focus": "Keyboard entry; return to opener or containing known header",
+        "pendingClick": "Reserve notice region; queue until no pending target can be moved or covered",
+        "mirror": "One plain event line on discovery; inspection never logs again; Open current record is distinct from historical preview",
+        "contrast": "Opaque own reading base; measured authored role pairs in receipt",
+        "appearance": "Explicit L7 font/size/palette wins; authored/quiet/plain; OS/game motion ceiling",
+        "motion": "Static export; proposed cosmetic reveal only, final text and controls immediately available",
+        "secrecy": "Synthetic disclosed fixture only; register no hidden family labels or fonts before discovery",
+        "lifecycle": "Do not replay on hover, tick, Back, reload, import or world change",
+        "verification": "Static layout only. No keyboard, focus, command, pointer or persistence behavior implemented."
+      }
+    },
+    {
+      "id": "ring-popup-1366-14",
+      "family": "ring",
+      "surface": "popup",
+      "size": 14,
+      "viewport": [
+        1366,
+        768
+      ],
+      "motion": "static",
+      "appearance": "authored",
+      "html": "ring-popup-1366-14.html",
+      "png": "ring-popup-1366-14.png",
+      "frame": "evidence/r14/after/nav-1366-14/00-home.png",
+      "frameSha256": "fdc594dbcbd5bbc9a00944cf214e9ffb51e949b049621291b953a5af5761a832",
+      "behavior": {
+        "owner": "SF120 shared popup owner",
+        "home": "Ring communion",
+        "dismiss": "Esc closes top transient first; center Back returns to Village; awakening explicit Continue/Dismiss",
+        "focus": "Keyboard entry; return to opener or containing known header",
+        "pendingClick": "Reserve notice region; queue until no pending target can be moved or covered",
+        "mirror": "One plain event line on discovery; inspection never logs again; Open current record is distinct from historical preview",
+        "contrast": "Opaque own reading base; measured authored role pairs in receipt",
+        "appearance": "Explicit L7 font/size/palette wins; authored/quiet/plain; OS/game motion ceiling",
+        "motion": "Static export; proposed cosmetic reveal only, final text and controls immediately available",
+        "secrecy": "Synthetic disclosed fixture only; register no hidden family labels or fonts before discovery",
+        "lifecycle": "Do not replay on hover, tick, Back, reload, import or world change",
+        "verification": "Static layout only. No keyboard, focus, command, pointer or persistence behavior implemented."
+      }
+    },
+    {
+      "id": "ring-popup-1366-21",
+      "family": "ring",
+      "surface": "popup",
+      "size": 21,
+      "viewport": [
+        1366,
+        768
+      ],
+      "motion": "static",
+      "appearance": "authored",
+      "html": "ring-popup-1366-21.html",
+      "png": "ring-popup-1366-21.png",
+      "frame": "evidence/r14/after/nav-1366-21/00-home.png",
+      "frameSha256": "6d083bf9b02cda2bb6511b10483709e0312a955de9f13322b4b5281aff6c5cee",
+      "behavior": {
+        "owner": "SF120 shared popup owner",
+        "home": "Ring communion",
+        "dismiss": "Esc closes top transient first; center Back returns to Village; awakening explicit Continue/Dismiss",
+        "focus": "Keyboard entry; return to opener or containing known header",
+        "pendingClick": "Reserve notice region; queue until no pending target can be moved or covered",
+        "mirror": "One plain event line on discovery; inspection never logs again; Open current record is distinct from historical preview",
+        "contrast": "Opaque own reading base; measured authored role pairs in receipt",
+        "appearance": "Explicit L7 font/size/palette wins; authored/quiet/plain; OS/game motion ceiling",
+        "motion": "Static export; proposed cosmetic reveal only, final text and controls immediately available",
+        "secrecy": "Synthetic disclosed fixture only; register no hidden family labels or fonts before discovery",
+        "lifecycle": "Do not replay on hover, tick, Back, reload, import or world change",
+        "verification": "Static layout only. No keyboard, focus, command, pointer or persistence behavior implemented."
+      }
+    },
+    {
+      "id": "ring-notice-1366-14",
+      "family": "ring",
+      "surface": "notice",
+      "size": 14,
+      "viewport": [
+        1366,
+        768
+      ],
+      "motion": "static",
+      "appearance": "authored",
+      "html": "ring-notice-1366-14.html",
+      "png": "ring-notice-1366-14.png",
+      "frame": "evidence/r14/after/nav-1366-14/00-home.png",
+      "frameSha256": "fdc594dbcbd5bbc9a00944cf214e9ffb51e949b049621291b953a5af5761a832",
+      "behavior": {
+        "owner": "SF123 notice/log owner",
+        "home": "Ring communion",
+        "dismiss": "Esc closes top transient first; center Back returns to Village; awakening explicit Continue/Dismiss",
+        "focus": "Keyboard entry; return to opener or containing known header",
+        "pendingClick": "Reserve notice region; queue until no pending target can be moved or covered",
+        "mirror": "One plain event line on discovery; inspection never logs again; Open current record is distinct from historical preview",
+        "contrast": "Opaque own reading base; measured authored role pairs in receipt",
+        "appearance": "Explicit L7 font/size/palette wins; authored/quiet/plain; OS/game motion ceiling",
+        "motion": "Static export; proposed cosmetic reveal only, final text and controls immediately available",
+        "secrecy": "Synthetic disclosed fixture only; register no hidden family labels or fonts before discovery",
+        "lifecycle": "Do not replay on hover, tick, Back, reload, import or world change",
+        "verification": "Static layout only. No keyboard, focus, command, pointer or persistence behavior implemented."
+      }
+    },
+    {
+      "id": "ring-notice-1366-21",
+      "family": "ring",
+      "surface": "notice",
+      "size": 21,
+      "viewport": [
+        1366,
+        768
+      ],
+      "motion": "static",
+      "appearance": "authored",
+      "html": "ring-notice-1366-21.html",
+      "png": "ring-notice-1366-21.png",
+      "frame": "evidence/r14/after/nav-1366-21/00-home.png",
+      "frameSha256": "6d083bf9b02cda2bb6511b10483709e0312a955de9f13322b4b5281aff6c5cee",
+      "behavior": {
+        "owner": "SF123 notice/log owner",
+        "home": "Ring communion",
+        "dismiss": "Esc closes top transient first; center Back returns to Village; awakening explicit Continue/Dismiss",
+        "focus": "Keyboard entry; return to opener or containing known header",
+        "pendingClick": "Reserve notice region; queue until no pending target can be moved or covered",
+        "mirror": "One plain event line on discovery; inspection never logs again; Open current record is distinct from historical preview",
+        "contrast": "Opaque own reading base; measured authored role pairs in receipt",
+        "appearance": "Explicit L7 font/size/palette wins; authored/quiet/plain; OS/game motion ceiling",
+        "motion": "Static export; proposed cosmetic reveal only, final text and controls immediately available",
+        "secrecy": "Synthetic disclosed fixture only; register no hidden family labels or fonts before discovery",
+        "lifecycle": "Do not replay on hover, tick, Back, reload, import or world change",
+        "verification": "Static layout only. No keyboard, focus, command, pointer or persistence behavior implemented."
+      }
+    },
+    {
+      "id": "ring-center-1366-14",
+      "family": "ring",
+      "surface": "center",
+      "size": 14,
+      "viewport": [
+        1366,
+        768
+      ],
+      "motion": "static",
+      "appearance": "authored",
+      "html": "ring-center-1366-14.html",
+      "png": "ring-center-1366-14.png",
+      "frame": "evidence/r14/after/nav-1366-14/00-home.png",
+      "frameSha256": "fdc594dbcbd5bbc9a00944cf214e9ffb51e949b049621291b953a5af5761a832",
+      "behavior": {
+        "owner": "SF122 shared center controller",
+        "home": "Ring communion",
+        "dismiss": "Esc closes top transient first; center Back returns to Village; awakening explicit Continue/Dismiss",
+        "focus": "Keyboard entry; return to opener or containing known header",
+        "pendingClick": "Reserve notice region; queue until no pending target can be moved or covered",
+        "mirror": "One plain event line on discovery; inspection never logs again; Open current record is distinct from historical preview",
+        "contrast": "Opaque own reading base; measured authored role pairs in receipt",
+        "appearance": "Explicit L7 font/size/palette wins; authored/quiet/plain; OS/game motion ceiling",
+        "motion": "Static export; proposed cosmetic reveal only, final text and controls immediately available",
+        "secrecy": "Synthetic disclosed fixture only; register no hidden family labels or fonts before discovery",
+        "lifecycle": "Do not replay on hover, tick, Back, reload, import or world change",
+        "verification": "Static layout only. No keyboard, focus, command, pointer or persistence behavior implemented."
+      }
+    },
+    {
+      "id": "ring-center-1366-21",
+      "family": "ring",
+      "surface": "center",
+      "size": 21,
+      "viewport": [
+        1366,
+        768
+      ],
+      "motion": "static",
+      "appearance": "authored",
+      "html": "ring-center-1366-21.html",
+      "png": "ring-center-1366-21.png",
+      "frame": "evidence/r14/after/nav-1366-21/00-home.png",
+      "frameSha256": "6d083bf9b02cda2bb6511b10483709e0312a955de9f13322b4b5281aff6c5cee",
+      "behavior": {
+        "owner": "SF122 shared center controller",
+        "home": "Ring communion",
+        "dismiss": "Esc closes top transient first; center Back returns to Village; awakening explicit Continue/Dismiss",
+        "focus": "Keyboard entry; return to opener or containing known header",
+        "pendingClick": "Reserve notice region; queue until no pending target can be moved or covered",
+        "mirror": "One plain event line on discovery; inspection never logs again; Open current record is distinct from historical preview",
+        "contrast": "Opaque own reading base; measured authored role pairs in receipt",
+        "appearance": "Explicit L7 font/size/palette wins; authored/quiet/plain; OS/game motion ceiling",
+        "motion": "Static export; proposed cosmetic reveal only, final text and controls immediately available",
+        "secrecy": "Synthetic disclosed fixture only; register no hidden family labels or fonts before discovery",
+        "lifecycle": "Do not replay on hover, tick, Back, reload, import or world change",
+        "verification": "Static layout only. No keyboard, focus, command, pointer or persistence behavior implemented."
+      }
+    },
+    {
+      "id": "jade-popup-1366-14",
+      "family": "jade",
+      "surface": "popup",
+      "size": 14,
+      "viewport": [
+        1366,
+        768
+      ],
+      "motion": "static",
+      "appearance": "authored",
+      "html": "jade-popup-1366-14.html",
+      "png": "jade-popup-1366-14.png",
+      "frame": "evidence/r14/after/nav-1366-14/00-home.png",
+      "frameSha256": "fdc594dbcbd5bbc9a00944cf214e9ffb51e949b049621291b953a5af5761a832",
+      "behavior": {
+        "owner": "SF120 shared popup owner",
+        "home": "Read inheritance",
+        "dismiss": "Esc closes top transient first; center Back returns to Village; awakening explicit Continue/Dismiss",
+        "focus": "Keyboard entry; return to opener or containing known header",
+        "pendingClick": "Reserve notice region; queue until no pending target can be moved or covered",
+        "mirror": "One plain event line on discovery; inspection never logs again; Open current record is distinct from historical preview",
+        "contrast": "Opaque own reading base; measured authored role pairs in receipt",
+        "appearance": "Explicit L7 font/size/palette wins; authored/quiet/plain; OS/game motion ceiling",
+        "motion": "Static export; proposed cosmetic reveal only, final text and controls immediately available",
+        "secrecy": "Synthetic disclosed fixture only; register no hidden family labels or fonts before discovery",
+        "lifecycle": "Do not replay on hover, tick, Back, reload, import or world change",
+        "verification": "Static layout only. No keyboard, focus, command, pointer or persistence behavior implemented."
+      }
+    },
+    {
+      "id": "jade-popup-1366-21",
+      "family": "jade",
+      "surface": "popup",
+      "size": 21,
+      "viewport": [
+        1366,
+        768
+      ],
+      "motion": "static",
+      "appearance": "authored",
+      "html": "jade-popup-1366-21.html",
+      "png": "jade-popup-1366-21.png",
+      "frame": "evidence/r14/after/nav-1366-21/00-home.png",
+      "frameSha256": "6d083bf9b02cda2bb6511b10483709e0312a955de9f13322b4b5281aff6c5cee",
+      "behavior": {
+        "owner": "SF120 shared popup owner",
+        "home": "Read inheritance",
+        "dismiss": "Esc closes top transient first; center Back returns to Village; awakening explicit Continue/Dismiss",
+        "focus": "Keyboard entry; return to opener or containing known header",
+        "pendingClick": "Reserve notice region; queue until no pending target can be moved or covered",
+        "mirror": "One plain event line on discovery; inspection never logs again; Open current record is distinct from historical preview",
+        "contrast": "Opaque own reading base; measured authored role pairs in receipt",
+        "appearance": "Explicit L7 font/size/palette wins; authored/quiet/plain; OS/game motion ceiling",
+        "motion": "Static export; proposed cosmetic reveal only, final text and controls immediately available",
+        "secrecy": "Synthetic disclosed fixture only; register no hidden family labels or fonts before discovery",
+        "lifecycle": "Do not replay on hover, tick, Back, reload, import or world change",
+        "verification": "Static layout only. No keyboard, focus, command, pointer or persistence behavior implemented."
+      }
+    },
+    {
+      "id": "jade-notice-1366-14",
+      "family": "jade",
+      "surface": "notice",
+      "size": 14,
+      "viewport": [
+        1366,
+        768
+      ],
+      "motion": "static",
+      "appearance": "authored",
+      "html": "jade-notice-1366-14.html",
+      "png": "jade-notice-1366-14.png",
+      "frame": "evidence/r14/after/nav-1366-14/00-home.png",
+      "frameSha256": "fdc594dbcbd5bbc9a00944cf214e9ffb51e949b049621291b953a5af5761a832",
+      "behavior": {
+        "owner": "SF123 notice/log owner",
+        "home": "Read inheritance",
+        "dismiss": "Esc closes top transient first; center Back returns to Village; awakening explicit Continue/Dismiss",
+        "focus": "Keyboard entry; return to opener or containing known header",
+        "pendingClick": "Reserve notice region; queue until no pending target can be moved or covered",
+        "mirror": "One plain event line on discovery; inspection never logs again; Open current record is distinct from historical preview",
+        "contrast": "Opaque own reading base; measured authored role pairs in receipt",
+        "appearance": "Explicit L7 font/size/palette wins; authored/quiet/plain; OS/game motion ceiling",
+        "motion": "Static export; proposed cosmetic reveal only, final text and controls immediately available",
+        "secrecy": "Synthetic disclosed fixture only; register no hidden family labels or fonts before discovery",
+        "lifecycle": "Do not replay on hover, tick, Back, reload, import or world change",
+        "verification": "Static layout only. No keyboard, focus, command, pointer or persistence behavior implemented."
+      }
+    },
+    {
+      "id": "jade-notice-1366-21",
+      "family": "jade",
+      "surface": "notice",
+      "size": 21,
+      "viewport": [
+        1366,
+        768
+      ],
+      "motion": "static",
+      "appearance": "authored",
+      "html": "jade-notice-1366-21.html",
+      "png": "jade-notice-1366-21.png",
+      "frame": "evidence/r14/after/nav-1366-21/00-home.png",
+      "frameSha256": "6d083bf9b02cda2bb6511b10483709e0312a955de9f13322b4b5281aff6c5cee",
+      "behavior": {
+        "owner": "SF123 notice/log owner",
+        "home": "Read inheritance",
+        "dismiss": "Esc closes top transient first; center Back returns to Village; awakening explicit Continue/Dismiss",
+        "focus": "Keyboard entry; return to opener or containing known header",
+        "pendingClick": "Reserve notice region; queue until no pending target can be moved or covered",
+        "mirror": "One plain event line on discovery; inspection never logs again; Open current record is distinct from historical preview",
+        "contrast": "Opaque own reading base; measured authored role pairs in receipt",
+        "appearance": "Explicit L7 font/size/palette wins; authored/quiet/plain; OS/game motion ceiling",
+        "motion": "Static export; proposed cosmetic reveal only, final text and controls immediately available",
+        "secrecy": "Synthetic disclosed fixture only; register no hidden family labels or fonts before discovery",
+        "lifecycle": "Do not replay on hover, tick, Back, reload, import or world change",
+        "verification": "Static layout only. No keyboard, focus, command, pointer or persistence behavior implemented."
+      }
+    },
+    {
+      "id": "jade-center-1366-14",
+      "family": "jade",
+      "surface": "center",
+      "size": 14,
+      "viewport": [
+        1366,
+        768
+      ],
+      "motion": "static",
+      "appearance": "authored",
+      "html": "jade-center-1366-14.html",
+      "png": "jade-center-1366-14.png",
+      "frame": "evidence/r14/after/nav-1366-14/00-home.png",
+      "frameSha256": "fdc594dbcbd5bbc9a00944cf214e9ffb51e949b049621291b953a5af5761a832",
+      "behavior": {
+        "owner": "SF122 shared center controller",
+        "home": "Read inheritance",
+        "dismiss": "Esc closes top transient first; center Back returns to Village; awakening explicit Continue/Dismiss",
+        "focus": "Keyboard entry; return to opener or containing known header",
+        "pendingClick": "Reserve notice region; queue until no pending target can be moved or covered",
+        "mirror": "One plain event line on discovery; inspection never logs again; Open current record is distinct from historical preview",
+        "contrast": "Opaque own reading base; measured authored role pairs in receipt",
+        "appearance": "Explicit L7 font/size/palette wins; authored/quiet/plain; OS/game motion ceiling",
+        "motion": "Static export; proposed cosmetic reveal only, final text and controls immediately available",
+        "secrecy": "Synthetic disclosed fixture only; register no hidden family labels or fonts before discovery",
+        "lifecycle": "Do not replay on hover, tick, Back, reload, import or world change",
+        "verification": "Static layout only. No keyboard, focus, command, pointer or persistence behavior implemented."
+      }
+    },
+    {
+      "id": "jade-center-1366-21",
+      "family": "jade",
+      "surface": "center",
+      "size": 21,
+      "viewport": [
+        1366,
+        768
+      ],
+      "motion": "static",
+      "appearance": "authored",
+      "html": "jade-center-1366-21.html",
+      "png": "jade-center-1366-21.png",
+      "frame": "evidence/r14/after/nav-1366-21/00-home.png",
+      "frameSha256": "6d083bf9b02cda2bb6511b10483709e0312a955de9f13322b4b5281aff6c5cee",
+      "behavior": {
+        "owner": "SF122 shared center controller",
+        "home": "Read inheritance",
+        "dismiss": "Esc closes top transient first; center Back returns to Village; awakening explicit Continue/Dismiss",
+        "focus": "Keyboard entry; return to opener or containing known header",
+        "pendingClick": "Reserve notice region; queue until no pending target can be moved or covered",
+        "mirror": "One plain event line on discovery; inspection never logs again; Open current record is distinct from historical preview",
+        "contrast": "Opaque own reading base; measured authored role pairs in receipt",
+        "appearance": "Explicit L7 font/size/palette wins; authored/quiet/plain; OS/game motion ceiling",
+        "motion": "Static export; proposed cosmetic reveal only, final text and controls immediately available",
+        "secrecy": "Synthetic disclosed fixture only; register no hidden family labels or fonts before discovery",
+        "lifecycle": "Do not replay on hover, tick, Back, reload, import or world change",
+        "verification": "Static layout only. No keyboard, focus, command, pointer or persistence behavior implemented."
+      }
+    },
+    {
+      "id": "book-popup-1366-14",
+      "family": "book",
+      "surface": "popup",
+      "size": 14,
+      "viewport": [
+        1366,
+        768
+      ],
+      "motion": "static",
+      "appearance": "authored",
+      "html": "book-popup-1366-14.html",
+      "png": "book-popup-1366-14.png",
+      "frame": "evidence/r14/after/nav-1366-14/00-home.png",
+      "frameSha256": "fdc594dbcbd5bbc9a00944cf214e9ffb51e949b049621291b953a5af5761a832",
+      "behavior": {
+        "owner": "SF120 shared popup owner",
+        "home": "Open annotated page",
+        "dismiss": "Esc closes top transient first; center Back returns to Village; awakening explicit Continue/Dismiss",
+        "focus": "Keyboard entry; return to opener or containing known header",
+        "pendingClick": "Reserve notice region; queue until no pending target can be moved or covered",
+        "mirror": "One plain event line on discovery; inspection never logs again; Open current record is distinct from historical preview",
+        "contrast": "Opaque own reading base; measured authored role pairs in receipt",
+        "appearance": "Explicit L7 font/size/palette wins; authored/quiet/plain; OS/game motion ceiling",
+        "motion": "Static export; proposed cosmetic reveal only, final text and controls immediately available",
+        "secrecy": "Synthetic disclosed fixture only; register no hidden family labels or fonts before discovery",
+        "lifecycle": "Do not replay on hover, tick, Back, reload, import or world change",
+        "verification": "Static layout only. No keyboard, focus, command, pointer or persistence behavior implemented."
+      }
+    },
+    {
+      "id": "book-popup-1366-21",
+      "family": "book",
+      "surface": "popup",
+      "size": 21,
+      "viewport": [
+        1366,
+        768
+      ],
+      "motion": "static",
+      "appearance": "authored",
+      "html": "book-popup-1366-21.html",
+      "png": "book-popup-1366-21.png",
+      "frame": "evidence/r14/after/nav-1366-21/00-home.png",
+      "frameSha256": "6d083bf9b02cda2bb6511b10483709e0312a955de9f13322b4b5281aff6c5cee",
+      "behavior": {
+        "owner": "SF120 shared popup owner",
+        "home": "Open annotated page",
+        "dismiss": "Esc closes top transient first; center Back returns to Village; awakening explicit Continue/Dismiss",
+        "focus": "Keyboard entry; return to opener or containing known header",
+        "pendingClick": "Reserve notice region; queue until no pending target can be moved or covered",
+        "mirror": "One plain event line on discovery; inspection never logs again; Open current record is distinct from historical preview",
+        "contrast": "Opaque own reading base; measured authored role pairs in receipt",
+        "appearance": "Explicit L7 font/size/palette wins; authored/quiet/plain; OS/game motion ceiling",
+        "motion": "Static export; proposed cosmetic reveal only, final text and controls immediately available",
+        "secrecy": "Synthetic disclosed fixture only; register no hidden family labels or fonts before discovery",
+        "lifecycle": "Do not replay on hover, tick, Back, reload, import or world change",
+        "verification": "Static layout only. No keyboard, focus, command, pointer or persistence behavior implemented."
+      }
+    },
+    {
+      "id": "book-notice-1366-14",
+      "family": "book",
+      "surface": "notice",
+      "size": 14,
+      "viewport": [
+        1366,
+        768
+      ],
+      "motion": "static",
+      "appearance": "authored",
+      "html": "book-notice-1366-14.html",
+      "png": "book-notice-1366-14.png",
+      "frame": "evidence/r14/after/nav-1366-14/00-home.png",
+      "frameSha256": "fdc594dbcbd5bbc9a00944cf214e9ffb51e949b049621291b953a5af5761a832",
+      "behavior": {
+        "owner": "SF123 notice/log owner",
+        "home": "Open annotated page",
+        "dismiss": "Esc closes top transient first; center Back returns to Village; awakening explicit Continue/Dismiss",
+        "focus": "Keyboard entry; return to opener or containing known header",
+        "pendingClick": "Reserve notice region; queue until no pending target can be moved or covered",
+        "mirror": "One plain event line on discovery; inspection never logs again; Open current record is distinct from historical preview",
+        "contrast": "Opaque own reading base; measured authored role pairs in receipt",
+        "appearance": "Explicit L7 font/size/palette wins; authored/quiet/plain; OS/game motion ceiling",
+        "motion": "Static export; proposed cosmetic reveal only, final text and controls immediately available",
+        "secrecy": "Synthetic disclosed fixture only; register no hidden family labels or fonts before discovery",
+        "lifecycle": "Do not replay on hover, tick, Back, reload, import or world change",
+        "verification": "Static layout only. No keyboard, focus, command, pointer or persistence behavior implemented."
+      }
+    },
+    {
+      "id": "book-notice-1366-21",
+      "family": "book",
+      "surface": "notice",
+      "size": 21,
+      "viewport": [
+        1366,
+        768
+      ],
+      "motion": "static",
+      "appearance": "authored",
+      "html": "book-notice-1366-21.html",
+      "png": "book-notice-1366-21.png",
+      "frame": "evidence/r14/after/nav-1366-21/00-home.png",
+      "frameSha256": "6d083bf9b02cda2bb6511b10483709e0312a955de9f13322b4b5281aff6c5cee",
+      "behavior": {
+        "owner": "SF123 notice/log owner",
+        "home": "Open annotated page",
+        "dismiss": "Esc closes top transient first; center Back returns to Village; awakening explicit Continue/Dismiss",
+        "focus": "Keyboard entry; return to opener or containing known header",
+        "pendingClick": "Reserve notice region; queue until no pending target can be moved or covered",
+        "mirror": "One plain event line on discovery; inspection never logs again; Open current record is distinct from historical preview",
+        "contrast": "Opaque own reading base; measured authored role pairs in receipt",
+        "appearance": "Explicit L7 font/size/palette wins; authored/quiet/plain; OS/game motion ceiling",
+        "motion": "Static export; proposed cosmetic reveal only, final text and controls immediately available",
+        "secrecy": "Synthetic disclosed fixture only; register no hidden family labels or fonts before discovery",
+        "lifecycle": "Do not replay on hover, tick, Back, reload, import or world change",
+        "verification": "Static layout only. No keyboard, focus, command, pointer or persistence behavior implemented."
+      }
+    },
+    {
+      "id": "book-center-1366-14",
+      "family": "book",
+      "surface": "center",
+      "size": 14,
+      "viewport": [
+        1366,
+        768
+      ],
+      "motion": "static",
+      "appearance": "authored",
+      "html": "book-center-1366-14.html",
+      "png": "book-center-1366-14.png",
+      "frame": "evidence/r14/after/nav-1366-14/00-home.png",
+      "frameSha256": "fdc594dbcbd5bbc9a00944cf214e9ffb51e949b049621291b953a5af5761a832",
+      "behavior": {
+        "owner": "SF122 shared center controller",
+        "home": "Open annotated page",
+        "dismiss": "Esc closes top transient first; center Back returns to Village; awakening explicit Continue/Dismiss",
+        "focus": "Keyboard entry; return to opener or containing known header",
+        "pendingClick": "Reserve notice region; queue until no pending target can be moved or covered",
+        "mirror": "One plain event line on discovery; inspection never logs again; Open current record is distinct from historical preview",
+        "contrast": "Opaque own reading base; measured authored role pairs in receipt",
+        "appearance": "Explicit L7 font/size/palette wins; authored/quiet/plain; OS/game motion ceiling",
+        "motion": "Static export; proposed cosmetic reveal only, final text and controls immediately available",
+        "secrecy": "Synthetic disclosed fixture only; register no hidden family labels or fonts before discovery",
+        "lifecycle": "Do not replay on hover, tick, Back, reload, import or world change",
+        "verification": "Static layout only. No keyboard, focus, command, pointer or persistence behavior implemented."
+      }
+    },
+    {
+      "id": "book-center-1366-21",
+      "family": "book",
+      "surface": "center",
+      "size": 21,
+      "viewport": [
+        1366,
+        768
+      ],
+      "motion": "static",
+      "appearance": "authored",
+      "html": "book-center-1366-21.html",
+      "png": "book-center-1366-21.png",
+      "frame": "evidence/r14/after/nav-1366-21/00-home.png",
+      "frameSha256": "6d083bf9b02cda2bb6511b10483709e0312a955de9f13322b4b5281aff6c5cee",
+      "behavior": {
+        "owner": "SF122 shared center controller",
+        "home": "Open annotated page",
+        "dismiss": "Esc closes top transient first; center Back returns to Village; awakening explicit Continue/Dismiss",
+        "focus": "Keyboard entry; return to opener or containing known header",
+        "pendingClick": "Reserve notice region; queue until no pending target can be moved or covered",
+        "mirror": "One plain event line on discovery; inspection never logs again; Open current record is distinct from historical preview",
+        "contrast": "Opaque own reading base; measured authored role pairs in receipt",
+        "appearance": "Explicit L7 font/size/palette wins; authored/quiet/plain; OS/game motion ceiling",
+        "motion": "Static export; proposed cosmetic reveal only, final text and controls immediately available",
+        "secrecy": "Synthetic disclosed fixture only; register no hidden family labels or fonts before discovery",
+        "lifecycle": "Do not replay on hover, tick, Back, reload, import or world change",
+        "verification": "Static layout only. No keyboard, focus, command, pointer or persistence behavior implemented."
+      }
+    },
+    {
+      "id": "simulator-popup-1366-14",
+      "family": "simulator",
+      "surface": "popup",
+      "size": 14,
+      "viewport": [
+        1366,
+        768
+      ],
+      "motion": "static",
+      "appearance": "authored",
+      "html": "simulator-popup-1366-14.html",
+      "png": "simulator-popup-1366-14.png",
+      "frame": "evidence/r14/after/nav-1366-14/00-home.png",
+      "frameSha256": "fdc594dbcbd5bbc9a00944cf214e9ffb51e949b049621291b953a5af5761a832",
+      "behavior": {
+        "owner": "SF120 shared popup owner",
+        "home": "Review foresight",
+        "dismiss": "Esc closes top transient first; center Back returns to Village; awakening explicit Continue/Dismiss",
+        "focus": "Keyboard entry; return to opener or containing known header",
+        "pendingClick": "Reserve notice region; queue until no pending target can be moved or covered",
+        "mirror": "One plain event line on discovery; inspection never logs again; Open current record is distinct from historical preview",
+        "contrast": "Opaque own reading base; measured authored role pairs in receipt",
+        "appearance": "Explicit L7 font/size/palette wins; authored/quiet/plain; OS/game motion ceiling",
+        "motion": "Static export; proposed cosmetic reveal only, final text and controls immediately available",
+        "secrecy": "Synthetic disclosed fixture only; register no hidden family labels or fonts before discovery",
+        "lifecycle": "Do not replay on hover, tick, Back, reload, import or world change",
+        "verification": "Static layout only. No keyboard, focus, command, pointer or persistence behavior implemented."
+      }
+    },
+    {
+      "id": "simulator-popup-1366-21",
+      "family": "simulator",
+      "surface": "popup",
+      "size": 21,
+      "viewport": [
+        1366,
+        768
+      ],
+      "motion": "static",
+      "appearance": "authored",
+      "html": "simulator-popup-1366-21.html",
+      "png": "simulator-popup-1366-21.png",
+      "frame": "evidence/r14/after/nav-1366-21/00-home.png",
+      "frameSha256": "6d083bf9b02cda2bb6511b10483709e0312a955de9f13322b4b5281aff6c5cee",
+      "behavior": {
+        "owner": "SF120 shared popup owner",
+        "home": "Review foresight",
+        "dismiss": "Esc closes top transient first; center Back returns to Village; awakening explicit Continue/Dismiss",
+        "focus": "Keyboard entry; return to opener or containing known header",
+        "pendingClick": "Reserve notice region; queue until no pending target can be moved or covered",
+        "mirror": "One plain event line on discovery; inspection never logs again; Open current record is distinct from historical preview",
+        "contrast": "Opaque own reading base; measured authored role pairs in receipt",
+        "appearance": "Explicit L7 font/size/palette wins; authored/quiet/plain; OS/game motion ceiling",
+        "motion": "Static export; proposed cosmetic reveal only, final text and controls immediately available",
+        "secrecy": "Synthetic disclosed fixture only; register no hidden family labels or fonts before discovery",
+        "lifecycle": "Do not replay on hover, tick, Back, reload, import or world change",
+        "verification": "Static layout only. No keyboard, focus, command, pointer or persistence behavior implemented."
+      }
+    },
+    {
+      "id": "simulator-notice-1366-14",
+      "family": "simulator",
+      "surface": "notice",
+      "size": 14,
+      "viewport": [
+        1366,
+        768
+      ],
+      "motion": "static",
+      "appearance": "authored",
+      "html": "simulator-notice-1366-14.html",
+      "png": "simulator-notice-1366-14.png",
+      "frame": "evidence/r14/after/nav-1366-14/00-home.png",
+      "frameSha256": "fdc594dbcbd5bbc9a00944cf214e9ffb51e949b049621291b953a5af5761a832",
+      "behavior": {
+        "owner": "SF123 notice/log owner",
+        "home": "Review foresight",
+        "dismiss": "Esc closes top transient first; center Back returns to Village; awakening explicit Continue/Dismiss",
+        "focus": "Keyboard entry; return to opener or containing known header",
+        "pendingClick": "Reserve notice region; queue until no pending target can be moved or covered",
+        "mirror": "One plain event line on discovery; inspection never logs again; Open current record is distinct from historical preview",
+        "contrast": "Opaque own reading base; measured authored role pairs in receipt",
+        "appearance": "Explicit L7 font/size/palette wins; authored/quiet/plain; OS/game motion ceiling",
+        "motion": "Static export; proposed cosmetic reveal only, final text and controls immediately available",
+        "secrecy": "Synthetic disclosed fixture only; register no hidden family labels or fonts before discovery",
+        "lifecycle": "Do not replay on hover, tick, Back, reload, import or world change",
+        "verification": "Static layout only. No keyboard, focus, command, pointer or persistence behavior implemented."
+      }
+    },
+    {
+      "id": "simulator-notice-1366-21",
+      "family": "simulator",
+      "surface": "notice",
+      "size": 21,
+      "viewport": [
+        1366,
+        768
+      ],
+      "motion": "static",
+      "appearance": "authored",
+      "html": "simulator-notice-1366-21.html",
+      "png": "simulator-notice-1366-21.png",
+      "frame": "evidence/r14/after/nav-1366-21/00-home.png",
+      "frameSha256": "6d083bf9b02cda2bb6511b10483709e0312a955de9f13322b4b5281aff6c5cee",
+      "behavior": {
+        "owner": "SF123 notice/log owner",
+        "home": "Review foresight",
+        "dismiss": "Esc closes top transient first; center Back returns to Village; awakening explicit Continue/Dismiss",
+        "focus": "Keyboard entry; return to opener or containing known header",
+        "pendingClick": "Reserve notice region; queue until no pending target can be moved or covered",
+        "mirror": "One plain event line on discovery; inspection never logs again; Open current record is distinct from historical preview",
+        "contrast": "Opaque own reading base; measured authored role pairs in receipt",
+        "appearance": "Explicit L7 font/size/palette wins; authored/quiet/plain; OS/game motion ceiling",
+        "motion": "Static export; proposed cosmetic reveal only, final text and controls immediately available",
+        "secrecy": "Synthetic disclosed fixture only; register no hidden family labels or fonts before discovery",
+        "lifecycle": "Do not replay on hover, tick, Back, reload, import or world change",
+        "verification": "Static layout only. No keyboard, focus, command, pointer or persistence behavior implemented."
+      }
+    },
+    {
+      "id": "simulator-center-1366-14",
+      "family": "simulator",
+      "surface": "center",
+      "size": 14,
+      "viewport": [
+        1366,
+        768
+      ],
+      "motion": "static",
+      "appearance": "authored",
+      "html": "simulator-center-1366-14.html",
+      "png": "simulator-center-1366-14.png",
+      "frame": "evidence/r14/after/nav-1366-14/00-home.png",
+      "frameSha256": "fdc594dbcbd5bbc9a00944cf214e9ffb51e949b049621291b953a5af5761a832",
+      "behavior": {
+        "owner": "SF122 shared center controller",
+        "home": "Review foresight",
+        "dismiss": "Esc closes top transient first; center Back returns to Village; awakening explicit Continue/Dismiss",
+        "focus": "Keyboard entry; return to opener or containing known header",
+        "pendingClick": "Reserve notice region; queue until no pending target can be moved or covered",
+        "mirror": "One plain event line on discovery; inspection never logs again; Open current record is distinct from historical preview",
+        "contrast": "Opaque own reading base; measured authored role pairs in receipt",
+        "appearance": "Explicit L7 font/size/palette wins; authored/quiet/plain; OS/game motion ceiling",
+        "motion": "Static export; proposed cosmetic reveal only, final text and controls immediately available",
+        "secrecy": "Synthetic disclosed fixture only; register no hidden family labels or fonts before discovery",
+        "lifecycle": "Do not replay on hover, tick, Back, reload, import or world change",
+        "verification": "Static layout only. No keyboard, focus, command, pointer or persistence behavior implemented."
+      }
+    },
+    {
+      "id": "simulator-center-1366-21",
+      "family": "simulator",
+      "surface": "center",
+      "size": 21,
+      "viewport": [
+        1366,
+        768
+      ],
+      "motion": "static",
+      "appearance": "authored",
+      "html": "simulator-center-1366-21.html",
+      "png": "simulator-center-1366-21.png",
+      "frame": "evidence/r14/after/nav-1366-21/00-home.png",
+      "frameSha256": "6d083bf9b02cda2bb6511b10483709e0312a955de9f13322b4b5281aff6c5cee",
+      "behavior": {
+        "owner": "SF122 shared center controller",
+        "home": "Review foresight",
+        "dismiss": "Esc closes top transient first; center Back returns to Village; awakening explicit Continue/Dismiss",
+        "focus": "Keyboard entry; return to opener or containing known header",
+        "pendingClick": "Reserve notice region; queue until no pending target can be moved or covered",
+        "mirror": "One plain event line on discovery; inspection never logs again; Open current record is distinct from historical preview",
+        "contrast": "Opaque own reading base; measured authored role pairs in receipt",
+        "appearance": "Explicit L7 font/size/palette wins; authored/quiet/plain; OS/game motion ceiling",
+        "motion": "Static export; proposed cosmetic reveal only, final text and controls immediately available",
+        "secrecy": "Synthetic disclosed fixture only; register no hidden family labels or fonts before discovery",
+        "lifecycle": "Do not replay on hover, tick, Back, reload, import or world change",
+        "verification": "Static layout only. No keyboard, focus, command, pointer or persistence behavior implemented."
+      }
+    },
+    {
+      "id": "system-awakening-1366-14",
+      "family": "system",
+      "surface": "awakening",
+      "size": 14,
+      "viewport": [
+        1366,
+        768
+      ],
+      "motion": "static",
+      "appearance": "authored",
+      "html": "system-awakening-1366-14.html",
+      "png": "system-awakening-1366-14.png",
+      "frame": "evidence/r14/after/nav-1366-14/00-home.png",
+      "frameSha256": "fdc594dbcbd5bbc9a00944cf214e9ffb51e949b049621291b953a5af5761a832",
+      "behavior": {
+        "owner": "SF122 shared center controller",
+        "home": "Status record",
+        "dismiss": "Esc closes top transient first; center Back returns to Village; awakening explicit Continue/Dismiss",
+        "focus": "Keyboard entry; return to opener or containing known header",
+        "pendingClick": "Reserve notice region; queue until no pending target can be moved or covered",
+        "mirror": "One plain event line on discovery; inspection never logs again; Open current record is distinct from historical preview",
+        "contrast": "Opaque own reading base; measured authored role pairs in receipt",
+        "appearance": "Explicit L7 font/size/palette wins; authored/quiet/plain; OS/game motion ceiling",
+        "motion": "Static export; proposed cosmetic reveal only, final text and controls immediately available",
+        "secrecy": "Synthetic disclosed fixture only; register no hidden family labels or fonts before discovery",
+        "lifecycle": "Do not replay on hover, tick, Back, reload, import or world change",
+        "verification": "Static layout only. No keyboard, focus, command, pointer or persistence behavior implemented."
+      }
+    },
+    {
+      "id": "system-awakening-1366-14-reduce",
+      "family": "system",
+      "surface": "awakening",
+      "size": 14,
+      "viewport": [
+        1366,
+        768
+      ],
+      "motion": "reduce",
+      "appearance": "authored",
+      "html": "system-awakening-1366-14-reduce.html",
+      "png": "system-awakening-1366-14-reduce.png",
+      "frame": "evidence/r14/after/nav-1366-14/00-home.png",
+      "frameSha256": "fdc594dbcbd5bbc9a00944cf214e9ffb51e949b049621291b953a5af5761a832",
+      "behavior": {
+        "owner": "SF122 shared center controller",
+        "home": "Status record",
+        "dismiss": "Esc closes top transient first; center Back returns to Village; awakening explicit Continue/Dismiss",
+        "focus": "Keyboard entry; return to opener or containing known header",
+        "pendingClick": "Reserve notice region; queue until no pending target can be moved or covered",
+        "mirror": "One plain event line on discovery; inspection never logs again; Open current record is distinct from historical preview",
+        "contrast": "Opaque own reading base; measured authored role pairs in receipt",
+        "appearance": "Explicit L7 font/size/palette wins; authored/quiet/plain; OS/game motion ceiling",
+        "motion": "Immediate full static content; no reveal, pulse, fade, timeout or chime",
+        "secrecy": "Synthetic disclosed fixture only; register no hidden family labels or fonts before discovery",
+        "lifecycle": "Do not replay on hover, tick, Back, reload, import or world change",
+        "verification": "Static layout only. No keyboard, focus, command, pointer or persistence behavior implemented."
+      }
+    },
+    {
+      "id": "system-awakening-1366-21",
+      "family": "system",
+      "surface": "awakening",
+      "size": 21,
+      "viewport": [
+        1366,
+        768
+      ],
+      "motion": "static",
+      "appearance": "authored",
+      "html": "system-awakening-1366-21.html",
+      "png": "system-awakening-1366-21.png",
+      "frame": "evidence/r14/after/nav-1366-21/00-home.png",
+      "frameSha256": "6d083bf9b02cda2bb6511b10483709e0312a955de9f13322b4b5281aff6c5cee",
+      "behavior": {
+        "owner": "SF122 shared center controller",
+        "home": "Status record",
+        "dismiss": "Esc closes top transient first; center Back returns to Village; awakening explicit Continue/Dismiss",
+        "focus": "Keyboard entry; return to opener or containing known header",
+        "pendingClick": "Reserve notice region; queue until no pending target can be moved or covered",
+        "mirror": "One plain event line on discovery; inspection never logs again; Open current record is distinct from historical preview",
+        "contrast": "Opaque own reading base; measured authored role pairs in receipt",
+        "appearance": "Explicit L7 font/size/palette wins; authored/quiet/plain; OS/game motion ceiling",
+        "motion": "Static export; proposed cosmetic reveal only, final text and controls immediately available",
+        "secrecy": "Synthetic disclosed fixture only; register no hidden family labels or fonts before discovery",
+        "lifecycle": "Do not replay on hover, tick, Back, reload, import or world change",
+        "verification": "Static layout only. No keyboard, focus, command, pointer or persistence behavior implemented."
+      }
+    },
+    {
+      "id": "system-awakening-1366-21-reduce",
+      "family": "system",
+      "surface": "awakening",
+      "size": 21,
+      "viewport": [
+        1366,
+        768
+      ],
+      "motion": "reduce",
+      "appearance": "authored",
+      "html": "system-awakening-1366-21-reduce.html",
+      "png": "system-awakening-1366-21-reduce.png",
+      "frame": "evidence/r14/after/nav-1366-21/00-home.png",
+      "frameSha256": "6d083bf9b02cda2bb6511b10483709e0312a955de9f13322b4b5281aff6c5cee",
+      "behavior": {
+        "owner": "SF122 shared center controller",
+        "home": "Status record",
+        "dismiss": "Esc closes top transient first; center Back returns to Village; awakening explicit Continue/Dismiss",
+        "focus": "Keyboard entry; return to opener or containing known header",
+        "pendingClick": "Reserve notice region; queue until no pending target can be moved or covered",
+        "mirror": "One plain event line on discovery; inspection never logs again; Open current record is distinct from historical preview",
+        "contrast": "Opaque own reading base; measured authored role pairs in receipt",
+        "appearance": "Explicit L7 font/size/palette wins; authored/quiet/plain; OS/game motion ceiling",
+        "motion": "Immediate full static content; no reveal, pulse, fade, timeout or chime",
+        "secrecy": "Synthetic disclosed fixture only; register no hidden family labels or fonts before discovery",
+        "lifecycle": "Do not replay on hover, tick, Back, reload, import or world change",
+        "verification": "Static layout only. No keyboard, focus, command, pointer or persistence behavior implemented."
+      }
+    },
+    {
+      "id": "system-center-1920-21",
+      "family": "system",
+      "surface": "center",
+      "size": 21,
+      "viewport": [
+        1920,
+        1080
+      ],
+      "motion": "static",
+      "appearance": "authored",
+      "html": "system-center-1920-21.html",
+      "png": "system-center-1920-21.png",
+      "frame": "evidence/r14/after/nav-1920-21/00-home.png",
+      "frameSha256": "dae15263d64380d98728976a88915cd9a30de511306cb764e30eae05034bf3b1",
+      "behavior": {
+        "owner": "SF122 shared center controller",
+        "home": "Status record",
+        "dismiss": "Esc closes top transient first; center Back returns to Village; awakening explicit Continue/Dismiss",
+        "focus": "Keyboard entry; return to opener or containing known header",
+        "pendingClick": "Reserve notice region; queue until no pending target can be moved or covered",
+        "mirror": "One plain event line on discovery; inspection never logs again; Open current record is distinct from historical preview",
+        "contrast": "Opaque own reading base; measured authored role pairs in receipt",
+        "appearance": "Explicit L7 font/size/palette wins; authored/quiet/plain; OS/game motion ceiling",
+        "motion": "Static export; proposed cosmetic reveal only, final text and controls immediately available",
+        "secrecy": "Synthetic disclosed fixture only; register no hidden family labels or fonts before discovery",
+        "lifecycle": "Do not replay on hover, tick, Back, reload, import or world change",
+        "verification": "Static layout only. No keyboard, focus, command, pointer or persistence behavior implemented."
+      }
+    },
+    {
+      "id": "sage-center-1920-21",
+      "family": "sage",
+      "surface": "center",
+      "size": 21,
+      "viewport": [
+        1920,
+        1080
+      ],
+      "motion": "static",
+      "appearance": "authored",
+      "html": "sage-center-1920-21.html",
+      "png": "sage-center-1920-21.png",
+      "frame": "evidence/r14/after/nav-1920-21/00-home.png",
+      "frameSha256": "dae15263d64380d98728976a88915cd9a30de511306cb764e30eae05034bf3b1",
+      "behavior": {
+        "owner": "SF122 shared center controller",
+        "home": "Inner dialogue",
+        "dismiss": "Esc closes top transient first; center Back returns to Village; awakening explicit Continue/Dismiss",
+        "focus": "Keyboard entry; return to opener or containing known header",
+        "pendingClick": "Reserve notice region; queue until no pending target can be moved or covered",
+        "mirror": "One plain event line on discovery; inspection never logs again; Open current record is distinct from historical preview",
+        "contrast": "Opaque own reading base; measured authored role pairs in receipt",
+        "appearance": "Explicit L7 font/size/palette wins; authored/quiet/plain; OS/game motion ceiling",
+        "motion": "Static export; proposed cosmetic reveal only, final text and controls immediately available",
+        "secrecy": "Synthetic disclosed fixture only; register no hidden family labels or fonts before discovery",
+        "lifecycle": "Do not replay on hover, tick, Back, reload, import or world change",
+        "verification": "Static layout only. No keyboard, focus, command, pointer or persistence behavior implemented."
+      }
+    },
+    {
+      "id": "ring-center-1920-21",
+      "family": "ring",
+      "surface": "center",
+      "size": 21,
+      "viewport": [
+        1920,
+        1080
+      ],
+      "motion": "static",
+      "appearance": "authored",
+      "html": "ring-center-1920-21.html",
+      "png": "ring-center-1920-21.png",
+      "frame": "evidence/r14/after/nav-1920-21/00-home.png",
+      "frameSha256": "dae15263d64380d98728976a88915cd9a30de511306cb764e30eae05034bf3b1",
+      "behavior": {
+        "owner": "SF122 shared center controller",
+        "home": "Ring communion",
+        "dismiss": "Esc closes top transient first; center Back returns to Village; awakening explicit Continue/Dismiss",
+        "focus": "Keyboard entry; return to opener or containing known header",
+        "pendingClick": "Reserve notice region; queue until no pending target can be moved or covered",
+        "mirror": "One plain event line on discovery; inspection never logs again; Open current record is distinct from historical preview",
+        "contrast": "Opaque own reading base; measured authored role pairs in receipt",
+        "appearance": "Explicit L7 font/size/palette wins; authored/quiet/plain; OS/game motion ceiling",
+        "motion": "Static export; proposed cosmetic reveal only, final text and controls immediately available",
+        "secrecy": "Synthetic disclosed fixture only; register no hidden family labels or fonts before discovery",
+        "lifecycle": "Do not replay on hover, tick, Back, reload, import or world change",
+        "verification": "Static layout only. No keyboard, focus, command, pointer or persistence behavior implemented."
+      }
+    },
+    {
+      "id": "jade-center-1920-21",
+      "family": "jade",
+      "surface": "center",
+      "size": 21,
+      "viewport": [
+        1920,
+        1080
+      ],
+      "motion": "static",
+      "appearance": "authored",
+      "html": "jade-center-1920-21.html",
+      "png": "jade-center-1920-21.png",
+      "frame": "evidence/r14/after/nav-1920-21/00-home.png",
+      "frameSha256": "dae15263d64380d98728976a88915cd9a30de511306cb764e30eae05034bf3b1",
+      "behavior": {
+        "owner": "SF122 shared center controller",
+        "home": "Read inheritance",
+        "dismiss": "Esc closes top transient first; center Back returns to Village; awakening explicit Continue/Dismiss",
+        "focus": "Keyboard entry; return to opener or containing known header",
+        "pendingClick": "Reserve notice region; queue until no pending target can be moved or covered",
+        "mirror": "One plain event line on discovery; inspection never logs again; Open current record is distinct from historical preview",
+        "contrast": "Opaque own reading base; measured authored role pairs in receipt",
+        "appearance": "Explicit L7 font/size/palette wins; authored/quiet/plain; OS/game motion ceiling",
+        "motion": "Static export; proposed cosmetic reveal only, final text and controls immediately available",
+        "secrecy": "Synthetic disclosed fixture only; register no hidden family labels or fonts before discovery",
+        "lifecycle": "Do not replay on hover, tick, Back, reload, import or world change",
+        "verification": "Static layout only. No keyboard, focus, command, pointer or persistence behavior implemented."
+      }
+    },
+    {
+      "id": "book-center-1920-21",
+      "family": "book",
+      "surface": "center",
+      "size": 21,
+      "viewport": [
+        1920,
+        1080
+      ],
+      "motion": "static",
+      "appearance": "authored",
+      "html": "book-center-1920-21.html",
+      "png": "book-center-1920-21.png",
+      "frame": "evidence/r14/after/nav-1920-21/00-home.png",
+      "frameSha256": "dae15263d64380d98728976a88915cd9a30de511306cb764e30eae05034bf3b1",
+      "behavior": {
+        "owner": "SF122 shared center controller",
+        "home": "Open annotated page",
+        "dismiss": "Esc closes top transient first; center Back returns to Village; awakening explicit Continue/Dismiss",
+        "focus": "Keyboard entry; return to opener or containing known header",
+        "pendingClick": "Reserve notice region; queue until no pending target can be moved or covered",
+        "mirror": "One plain event line on discovery; inspection never logs again; Open current record is distinct from historical preview",
+        "contrast": "Opaque own reading base; measured authored role pairs in receipt",
+        "appearance": "Explicit L7 font/size/palette wins; authored/quiet/plain; OS/game motion ceiling",
+        "motion": "Static export; proposed cosmetic reveal only, final text and controls immediately available",
+        "secrecy": "Synthetic disclosed fixture only; register no hidden family labels or fonts before discovery",
+        "lifecycle": "Do not replay on hover, tick, Back, reload, import or world change",
+        "verification": "Static layout only. No keyboard, focus, command, pointer or persistence behavior implemented."
+      }
+    },
+    {
+      "id": "simulator-center-1920-21",
+      "family": "simulator",
+      "surface": "center",
+      "size": 21,
+      "viewport": [
+        1920,
+        1080
+      ],
+      "motion": "static",
+      "appearance": "authored",
+      "html": "simulator-center-1920-21.html",
+      "png": "simulator-center-1920-21.png",
+      "frame": "evidence/r14/after/nav-1920-21/00-home.png",
+      "frameSha256": "dae15263d64380d98728976a88915cd9a30de511306cb764e30eae05034bf3b1",
+      "behavior": {
+        "owner": "SF122 shared center controller",
+        "home": "Review foresight",
+        "dismiss": "Esc closes top transient first; center Back returns to Village; awakening explicit Continue/Dismiss",
+        "focus": "Keyboard entry; return to opener or containing known header",
+        "pendingClick": "Reserve notice region; queue until no pending target can be moved or covered",
+        "mirror": "One plain event line on discovery; inspection never logs again; Open current record is distinct from historical preview",
+        "contrast": "Opaque own reading base; measured authored role pairs in receipt",
+        "appearance": "Explicit L7 font/size/palette wins; authored/quiet/plain; OS/game motion ceiling",
+        "motion": "Static export; proposed cosmetic reveal only, final text and controls immediately available",
+        "secrecy": "Synthetic disclosed fixture only; register no hidden family labels or fonts before discovery",
+        "lifecycle": "Do not replay on hover, tick, Back, reload, import or world change",
+        "verification": "Static layout only. No keyboard, focus, command, pointer or persistence behavior implemented."
+      }
+    },
+    {
+      "id": "system-center-1366-21-plain",
+      "family": "system",
+      "surface": "center",
+      "size": 21,
+      "viewport": [
+        1366,
+        768
+      ],
+      "motion": "static",
+      "appearance": "plain",
+      "html": "system-center-1366-21-plain.html",
+      "png": "system-center-1366-21-plain.png",
+      "frame": "evidence/r14/after/nav-1366-21/00-home.png",
+      "frameSha256": "6d083bf9b02cda2bb6511b10483709e0312a955de9f13322b4b5281aff6c5cee",
+      "behavior": {
+        "owner": "SF122 shared center controller",
+        "home": "Status record",
+        "dismiss": "Esc closes top transient first; center Back returns to Village; awakening explicit Continue/Dismiss",
+        "focus": "Keyboard entry; return to opener or containing known header",
+        "pendingClick": "Reserve notice region; queue until no pending target can be moved or covered",
+        "mirror": "One plain event line on discovery; inspection never logs again; Open current record is distinct from historical preview",
+        "contrast": "Opaque own reading base; measured authored role pairs in receipt",
+        "appearance": "Explicit L7 font/size/palette wins; authored/quiet/plain; OS/game motion ceiling",
+        "motion": "Static export; proposed cosmetic reveal only, final text and controls immediately available",
+        "secrecy": "Synthetic disclosed fixture only; register no hidden family labels or fonts before discovery",
+        "lifecycle": "Do not replay on hover, tick, Back, reload, import or world change",
+        "verification": "Static layout only. No keyboard, focus, command, pointer or persistence behavior implemented."
+      }
+    }
+  ]
+}

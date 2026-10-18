@@ -1,0 +1,695 @@
+https://na.finalfantasyxiv.com/game_manual/view/
+Navigating the Game Screen | Game Manual | FINAL FANTASY XIV, The Lodestone
+English (US)
+English (US)
+English (UK)
+Français
+Deutsch
+日本語
+Last Update 10/13/2026
+Game Manual
+Navigating the Game Screen
+Platform
+PS5®
+PS4®
+XBOX
+Switch 2
+Windows®
+Mac
+Recommended Search Terms
+Installation
+Data Center
+Character
+World
+Mouse
+Keyboard
+Gamepad
+Controller
+Movement
+Camera
+Menus
+Target
+Chat
+Flying
+Swimming
+Touch Pad
+Party
+Tank
+Healer
+DPS
+Duty Finder
+Friends
+Active Help
+Configuration
+Backup
+Remote Play
+Main Site
+Getting Started
+Game Setup
+Before You Start
+Starting the Game
+Data Center Selection
+Character Creation
+About Worlds
+Saving Character Appearance Data
+Version 1.0 Character Transfers
+Basic Controls
+Basic Controls
+Changing Control Settings
+About the Gamepad
+Mouse and Keyboard Controls
+Character Movement
+Camera Controls
+Target Selection
+Mouse Controls
+Keyboard Controls
+Gamepad Controls
+Character Movement
+Camera Controls
+Drawing and Sheathing Your Weapon
+Target Selection
+Target Circle and Selected Target
+Target Cycling
+Menu Navigation
+Controller Settings
+Character Movement
+Camera Controls
+Touch Pad Controls
+Drawing and Sheathing Your Weapon
+Target Selection
+Target Circle and Selected Target
+Target Cycling
+Menu Navigation
+Mouse and Keyboard Controls
+Character Movement
+Camera Controls
+Target Selection
+Mouse Controls
+Keyboard Controls
+Remote Play
+XBOX Remote Play
+PlayStation Remote Play
+Remote Play Controls
+Remote Play Control Settings
+Customizing Controls
+Navigating the Game Screen
+Heads Up Display
+Navigating the Game Screen
+Party List
+Log Window
+Hotbars and Cross Hotbars
+Parameter Bar
+Main Scenario Guide
+Minimap
+Duty List
+Gear and Inventory Grid
+Main Menu
+Status Effects
+Basic Information
+Notices
+Target Bar
+Enmity List
+Progress Bar
+Focus Target Bar
+Flying Text
+Display Name Color
+Icons displayed over enemies
+Display Name Icons
+Icons Displayed over Players and NPCs
+Icons Displayed over Enemies
+Party Play
+Party
+Types of Parties
+Party Roles
+Forming a Party
+Duty Finder
+Using the Duty Finder
+Requesting Reinforcements
+Registering With a Light or Full Party
+Duty Roulette
+Ready Check
+Countdown
+Player Commendations
+Vote Dismiss
+Party Finder
+Finding a Party
+Forming a Party
+Friend List
+Friend List
+Moogle Delivery Service
+Duty Support
+Duty Support
+Using Duty Support
+Supported Duties
+New Game+
+About New Game+
+Requirements
+Using New Game+
+Chapters
+New Game+ Guide
+Playing New Game+
+Rules and Restrictions
+Commencing/Suspending New Game+ Mode
+Quest Progression
+Quest Completion
+Other Notes and Warnings
+Precautions
+Registering for and Commencing Duties
+Unavailable Features
+Active Help
+About Active Help
+Active Help Windows
+Active Help Menu
+Accessing the Active Help Menu
+Configuration Settings
+Configuration Settings
+Character Configuration
+System Configuration
+Confirm and Adjust Configuration Settings
+Accessing the Configuration Menus
+Back Up Configuration Settings
+Using the Launcher (Windows® and Mac)
+Using the Server Backup Function
+Related Sites
+Eorzea Database
+Text Commands
+UI Guide
+Job Guide
+Crafting & Gathering Guide
+World Visit System
+Data Center Travel
+Additional Plots and Purchasing Guide
+Starter Guide Video Series
+Patch Archives
+Navigating the Game Screen
+NEW
+Updated
+The following is a comprehensive listing of the main user interface components found on your screen.
+There is nothing available for your selected platform.
+Heads Up Display
+NEW
+Updated
+Navigating the Game Screen
+NEW
+Updated
+Party List
+NEW
+Updated
+The party list displays the vital stats of all current party members, with your character's information always appearing at the top. Individual party members can be targeted by clicking on their names.
+Hiding the Party List
+If you wish to hide the party list when you are not in a party, access the Party List tab under UI Settings in the Character Configuration menu and select "Hide party list when solo."
+* This option is set to ON by default.
+Log Window
+NEW
+Updated
+Quest dialogue, system messages, conversations with other players, and more are displayed in the log window. You begin the game with three fully customizable main logs—General, Battle, and Event—but can create one more as you see fit.
+General
+Includes the chat log, and most non-battle player actions. FINAL FANTASY XIV: A Realm Reborn can be played using this tab alone.
+Battle
+Includes all battle-related messages. On-screen cues known as "fly text" remove the need to rely on the Battle log while in combat. However, this log is helpful when conducting post-battle analysis of your party's strategies.
+Event
+Includes all NPC dialogue, including quest cutscenes.
+* The submenu can be displayed by right-clicking another player's name in the log window, or selecting their name and pressing X on the gamepad.
+* The submenu can be displayed by right-clicking another player's name in the log window, or selecting their name and pressing □ on the controller.
+* The submenu can be displayed by right-clicking another player's name in the log window, or selecting their name and pressing X on the controller.
+* The submenu can be displayed by right-clicking another player's name in the log window, or selecting their name and pressing the Y button on the controller.
+Hotbars and Cross Hotbars
+NEW
+Updated
+Player actions, emotes, items, macros, and target markers can be set to these slots so that they can be accessed by selecting the icon. The number indicated in the bottom left corner of the icon is the amount of MP (Magic Points), CP (Crafting Points), or GP (Gathering Points) required to execute the command.
+Lock Bar
+New commands can be added to the hotbar at any time by dragging and dropping them into the desired slot. Clicking on the padlock locks the actions to the bar, preventing the accidental movement or discarding of an icon. Hotbar icon position is saved for each class, regardless of whether or not the Lock Bar feature is activated.
+* The lock setting for hotbars is independent of cross hotbar settings.
+Parameter Bar
+NEW
+Updated
+The parameter bar displays your current HP, MP/CP/GP, and level progress.
+Upon entering a sanctuary, such as an inn room or aetheryte camp, this icon will appear biside your experience bar, indicating that you are currently accruing a rested bonus.
+Rested bonus accrued.
+Rested bonus accrued beyond current level.
+Main Scenario Guide
+NEW
+Updated
+Indicates the location of your next available main story quest, as well as class and job quests. Its display can be enabled or disabled via the HUD tab under UI Settings in the Character Configuration interface.
+Minimap
+NEW
+Updated
+Displays the current location of your character, as well as the location of nearby landmarks such as shops, aetherytes, and quest destinations. It also displays the location of enemies (red dots) and allies (blue dots). Additionally, the sun icon bordering the minimap moves to represent the time of day.
+* To view the map when using a mouse and keyboard, click the minimap at the top right of the screen. When using a gamepad, press X.
+Duty List
+NEW
+Updated
+Displays active quest titles and objectives. Clicking on the quest title opens the journal, while clicking on the objectives displays the location of those objectives on your map.
+Gear and Inventory Grid
+NEW
+Updated
+The set of dots on the left represent your character's gear slots. The set of dots on the right, your inventory. Clicking on the sets opens the respective menus.
+In addition, clicking on the gil icon next to your current gil total will display the Currency menu.
+Main Menu
+NEW
+Updated
+1. Character
+2. Duty
+3. Logs
+4. Travel
+5. Party
+6. Social
+7. System
+* Some features cannot be accessed until they are unlocked, and therefore may not be available at the game's onset.
+1. Character
+2. Duty
+3. Logs
+4. Travel
+5. Party
+6. Social
+7. System
+* Some features cannot be accessed until they are unlocked, and therefore may not be available at the game's onset.
+1. Character
+2. Duty
+3. Logs
+4. Travel
+5. Party
+6. Social
+7. System
+* Some features cannot be accessed until they are unlocked, and therefore may not be available at the game's onset.
+1. Character
+2. Duty
+3. Logs
+4. Travel
+5. Party
+6. Social
+7. System
+* Some features cannot be accessed until they are unlocked, and therefore may not be available at the game's onset.
+Character
+Menu Option
+Description
+Stance
+Sheathe/unsheathe your main arm.
+Actions & Traits
+View and manage the actions and traits available to your character, as well as set them to your hotbars. You may also directly execute actions via this window.
+Adventurer Plate
+Edit the appearance and content of your profile to share with other adventurers.
+Portraits
+View your portrait gallery, edit or create individual portraits, apply a portrait to your adventurer plate, and more.
+Currency
+Displays information on all currencies in possession.
+Character
+Displays detailed information on your character, including attributes, gear, class levels, background data, and more.
+Armoury Chest
+Displays gear stored in your Armoury Chest. All gear obtained is automatically moved to the chest and sorted by type. From here it can be equipped, repaired, or returned to your inventory.
+Inventory
+Displays a list of all crystals and items in your inventory. From this list, items can be equipped, used, discarded, or sorted.
+Chocobo Saddlebag
+Displays a list of all items in your chocobo saddlebag. From this list, items can be transferred to your inventory, or that of a retainer.
+* This feature is unlocked after progressing to a certain point.
+Companion
+Displays information on your summonable companions, including level, class, and available actions.
+* This feature is unlocked after progressing to a certain point.
+Mount Guide
+Displays detailed information on the mounts you have acquired.
+* This feature is unlocked after progressing to a certain point.
+Minion Guide
+Displays detailed information on the minions you have collected.
+* This feature is unlocked after progressing to a certain point.
+Facewear
+Select the type and style of facewear to be equipped by your character.
+* This feature is unlocked after progressing to a certain point.
+Fashion Accessories
+Displays a list of available fashion accessories.
+* This feature is unlocked after progressing to a certain point.
+Blue Magic Spellbook
+Displays all learned blue magic spells. Here, spells can be added to and removed from your active actions.
+* This feature is unlocked after progressing to a certain point.
+Master's Bestiary
+Displays all captured beasts. Here, beasts can be assigned to and removed from your battlehorns.
+* This feature is unlocked after progressing to a certain point.
+PvP Profile
+View PvP information for your character such as rank and performance records, as well as register PvP actions to your hotbar.
+* This feature is unlocked after progressing to a certain point.
+The Gold Saucer
+Displays various information pertaining to the Gold Saucer, including MGP in possession, Cactpot draw times, Triple Triad tournament results, personal deck makeup, Lord of Verminion hotbar settings, Doman mahjong settings, and race chocobo status.
+* This feature is unlocked after progressing to a certain point.
+Achievements
+Displays a list of in-game achievements, as well as the conditions for obtaining them.
+Duty
+Menu Option
+Description
+Recommendations
+Displays a list of nearby quests and duties currently available.
+* This feature is unlocked after progressing to a certain point.
+Collection
+Displays items of interest gathered during your adventures.
+* This feature is unlocked after progressing to a certain point.
+Key Items
+Displays a list of items used only in specific quests. If a quest is abandoned, all key items associated with it will be discarded.
+Journal
+Displays a list of all current and completed quests, levequests, and company missions. From this list, objectives and locations can be confirmed, and duty can be abandoned.
+Duty Finder
+Discover and join solo and party-based duties such as instanced raids and guildhests without having to gather a party yourself.
+* This feature is unlocked after progressing to a certain point.
+Raid Finder
+Challenge the latest high-level raids. Adjustable search settings allow for solo players or parties under the minimum member requirements to be matched with players with the same goals.
+* This feature is unlocked after progressing to a certain point.
+V&C Dungeon Finder
+Adjust participation settings and register for variant and criterion dungeons, and review logs of prior discoveries made therein.
+* This feature is unlocked after progressing to a certain point.
+Duty Support
+This system allows you to enter instanced dungeons with NPCs.
+* This feature is unlocked after progressing to a certain point.
+Trust
+Assemble a party of NPC allies to challenge instanced dungeons.
+* This feature is unlocked after progressing to a certain point.
+Duty Recorder
+View recorded duties and adjust Duty Recorder settings.
+* This feature is unlocked after progressing to a certain point.
+New Game+
+Replay your favorite quests at your current level.
+* This feature is unlocked after progressing to a certain point.
+Hall of the Novice
+Grants entrance to the Hall of the Novice and access to their regimen of training exercises designed to teach new Disciples of War and Magic the basics of combat for tank, healer, and DPS roles.
+Timers
+Displays time remaining for various duties such as tribal dailies and levequest allowance allotment.
+Logs
+Menu Option
+Description
+Hunting Log
+Displays a list of hunting objectives for Disciples of War and Magic. Information on monster habitat, kills recorded, and experience earned is also available.
+* This feature is unlocked after progressing to a certain point.
+Sightseeing Log
+Displays information on sightseeing vistas.
+* This feature is unlocked after progressing to a certain point.
+Crafting Log
+Opens the crafting interface from which you can select items to synthesize.
+* This feature is unlocked after progressing to a certain point.
+Gathering Log
+Displays information on items previously gathered, as well as mining and logging locations categorized by area.
+* This feature is unlocked after progressing to a certain point.
+Fishing Log
+Displays information on your previous catches, as well as fishing hole locations categorized by area.
+* This feature is unlocked after progressing to a certain point.
+Fish Guide
+Displays details on all the fish you have caught, where you caught them, as well as your personal records.
+* This feature is unlocked after progressing to a certain point.
+Orchestrion List
+Displays information on orchestrion rolls obtained.
+* This feature is unlocked after progressing to a certain point.
+Challenge Log
+Displays a list of challenges that you can undertake. Information on progress and rewards is also available. Progress is reset on a weekly basis.
+* This feature is unlocked after progressing to a certain point.
+Travel
+Menu Option
+Description
+Aether Currents
+Displays attunement information for aether currents.
+* This feature is unlocked after progressing to a certain point.
+Mount Speed
+Displays mount movement speed for every area.
+* This feature is unlocked after progressing to a certain point.
+Shared FATE
+Displays shared FATE progress in applicable regions, including rank and number of FATEs completed with the highest rating possible.
+* This feature is unlocked after progressing to a certain point.
+Map
+Opens the map of your current location. Maps contain information on party members, aetherytes, shops, guilds, and quest destinations. Maps can also be zoomed in or out, or swapped with region or world maps.
+Teleport
+Instantly travel to any aetheryte to which you have previously attuned. A fee will be collected upon your arrival.
+* This feature is unlocked after progressing to a certain point.
+Return
+Instantly return to your current home point (or dungeon starting point). No aetheryte usage fee is required, but you can only use the spell once every 15 minutes (earth time).
+* This feature is unlocked after progressing to a certain point.
+Party
+Menu Option
+Description
+Party Members
+Displays a list of your current party members. From this list you can change member order, and if you are leader, kick other players or dissolve the party altogether.
+Party Finder
+Find and recruit party members based on conditions you specify.
+* This feature is unlocked after progressing to a certain point.
+Signs
+Mark targets with various different signs to make them easier for party and alliance members to distinguish.
+Waymarks
+Place markers to guide your party and alliance members to a destination.
+Strategy Board
+Strategy boards are created using a combination of icons, symbols, and markers to better coordinate with party members and overcome challenging duties.
+Record Ready Check
+Confirm the readiness of other party and/or alliance members before recording a duty. Can only be used while on a recordable duty.
+* This feature is unlocked after progressing to a certain point.
+Ready Check
+Confirm the readiness of other party and/or alliance members.
+Countdown
+Set and display a numerical countdown visible by all party and alliance members.
+Social
+Menu Option
+Description
+Player Search
+Search for other players using variables such as name, class, level, and online status.
+Fellowship Finder
+View a list of fellowships currently recruiting members and join them.
+Emotes
+Displays a list of available emote commands which can be executed from the list, or set to your hotbar.
+Free Company
+Opens the Free Company interface, where you can access company information, view and leave messages, and execute company commands.
+* This menu is unlocked upon joining a Free Company.
+Housing
+Opens the Housing interface, where you can view and manage your estate.
+* This option is available upon unlocking housing.
+PvP Team
+Displays information on your PvP team.
+* This menu is unlocked upon joining a PvP team.
+Linkshells
+Displays a list of all linkshell members for all your linkshells.
+* This menu is unlocked upon joining a linkshell.
+Cross-world Linkshell
+View players who belong to your cross-world linkshell.
+* If you do not belong to a cross-world linkshell, you may create one.
+Fellowships
+Create fellowships and confirm fellowship status.
+Friend List
+Displays a list of players on your friend list. From this list you can send /tell messages or invite players to a party.
+Contacts
+Displays a list of players with whom you have most recently partied. Friend requests can be sent to all players on this list.
+Blacklist
+Displays a list of players you have added to your blacklist. Not only will text from these players be hidden, but they will be unable to trade with you or invite you to parties.
+Mute List
+Displays a list of players you have added to your mute list.
+Messages from these characters will be hidden.
+Term Filter
+Displays a list of words added to the Term Filter.
+From this list you can add, remove, or edit terms to be filtered from the chat log.
+System
+Menu Option
+Description
+Support Desk
+Search for answers to frequently asked questions, report issues, and confirm messages from the FINAL FANTASY XIV support team.
+Official Sites
+Displays a list of official sites for FINAL FANTASY XIV.
+Playguide
+Opens a menu granting access to the official FINAL FANTASY XIV website, the Lodestone.
+Active Help
+Displays a list of all previously viewed active help tutorials.
+Character Configuration
+Adjust character-related settings such as camera type, targeting functionality, hotbar commands, and chat log preferences.
+System Configuration
+Adjust system-related settings such as graphics, sound, gamepad functionality, and more.
+HUD Layout
+Adjust the location, size, and display status of all user-interface components and save them to templates.
+User Macros
+Create and save multi-step macros to execute complex commands with a single button press. Macros can be assigned icons and set to your hotbar for easy access. They can also be set to an individual character or shared by several.
+Keybind
+Map various in-game functions to your keyboard to better suit your play style.
+Configuration Sharing
+Upload your hotbar and configuration settings to the server as temporary save data, enabling other characters to download and apply the same settings.
+License
+Displays the FINAL FANTASY XIV end user license agreement.
+Log Out
+Log out and return to the title screen.
+Exit Game
+Log out and exit the game.
+Status Effects
+NEW
+Updated
+Both enhancing effects and enfeebling effects are displayed as icons, with the duration of each status effect underneath. Any enhancing effect can be instantly removed by right-clicking its icon.
+Both enhancing effects and enfeebling effects are displayed as icons, with the duration of each status effect underneath. Any enhancing effect can be instantly removed by pressing X while selecting its icon.
+Both enhancing effects and enfeebling effects are displayed as icons, with the duration of each status effect underneath. Any enhancing effect can be instantly removed by pressing X while selecting its icon.
+Both enhancing effects and enfeebling effects are displayed as icons, with the duration of each status effect underneath. Any enhancing effect can be instantly removed by pressing A while selecting its icon.
+Both enhancing effects and enfeebling effects are displayed as icons, with the duration of each status effect underneath. Any enhancing effect can be instantly removed by pressing the A button while selecting its icon.
+Basic Information
+NEW
+Updated
+1. World
+Displays the name of the World you're presently playing in.
+2. Mog Letters
+Displays when you receive letters from friends.
+3. Time
+
+Eorzea time
+
+Local time
+
+Server time
+Notices
+NEW
+Updated
+All pending friend requests, party invites, etc., are displayed here. Clicking on the notice will bring up the confirmation prompt.
+Target Bar
+NEW
+Updated
+Displays information on the object, character, or enemy currently targeted. The bar directly to the right of the target bar indicates the character with which the target is interacting. In the screenshot, the black eft is targeting the player "Square Enix."
+Enmity List
+NEW
+Updated
+Indicates the enmity levels of the target with which you are currently engaged.
+Progress Bar
+NEW
+Updated
+Indicates the progress of any actions (spell casting, item usage, etc.) that are not instant.
+Focus Target Bar
+NEW
+Updated
+Displays the name, HP, and level of your current focus target.
+Focus Target
+In addition to your current target, you can also keep an eye on other enemies or allies by making them focus targets. This is a good way to keep track of one target's HP while dealing with another. A focus target can be designated by clicking on the target and selecting Focus Target from the submenu, or by pressing Shift+F. You can switch your main target to the focus target by clicking on the focus target bar or by pressing F10.
+Focus Target
+In addition to your current target, you can also keep an eye on other enemies or allies by making them focus targets. This is a good way to keep track of one target's HP while dealing with another. A focus target can be designated by clicking on the target and selecting Focus Target from the submenu, or by pressing shift+F. You can switch your main target to the focus target by clicking on the focus target bar or by pressing F10.
+Flying Text
+NEW
+Updated
+Real-time messages and information indicating your character's actions (scrolls up), as well as actions conducted on your character (scrolls down).
+Flying Text
+Description
+Damage dealt
+Critical damage
+Direct hit damage
+Critical direct hit damage
+Damage received
+Critical damage received
+Direct hit damage received
+Critical direct hit damage received
+HP recovered
+Critical heal
+MP recovered
+Attack partially or fully evaded
+Attack missed
+Target is impervious to that type of attack
+Experience earned
+The number in parentheses indicates what percentage of the experience point total was a bonus added to the base reward.
+Item Found
+The name, quantity, and quality of the item is displayed in your General log.
+Enhancing effect applied
+All enhancing effect icons point upwards.
+Detrimental effect applied
+All detrimental effect icons point downwards.
+Effect removed or expired
+Synthesis progress increased
+Synthesis quality increased
+Pop-up text indicating party and enemy actions is distinguished by color.
+Flying Text
+Description
+Party member actions
+Enemy actions
+Enhancing effects and restorative actions
+Display Name Color
+NEW
+Updated
+Icons displayed over enemies
+NEW
+Updated
+Display Names
+Status
+Unclaimed
+(Exp / credit in hunting log / quest items / loot awarded if claimed and defeated)
+Claimed by you or your party
+(Exp / credit in hunting log / quest items / loot awarded upon defeat)
+Unclaimed, yet attacking you or your party
+(Exp / credit in hunting log / quest items / loot awarded if claimed and defeated)
+Claimed by another party or individual
+(Exp / credit in hunting log / quest items awarded if sufficient damage contributed)
+Display Name Icons
+NEW
+Updated
+Icons Displayed over Players and NPCs
+NEW
+Updated
+Icons Indicating Experience
+Displayed over players with the mentor status, who offer help and advice to newer players.
+Displayed over players with the battle mentor status.
+Displayed over players with the trade mentor status.
+Displayed over players with the PvP mentor status.
+Displayed over players with the new adventurer status, who have recently begun their adventures in Eorzea.
+Displayed over players with the returner status, who have at least one class at level 50 or above, and have not visited Eorzea in more than 45 days.
+Icons Indicating Status
+Displayed over party members. (Left: Leader / Right: Member)
+Displayed over players looking for a party.
+Displayed over players recruiting party members.
+Displayed over players using the Duty Finder.
+Displayed over players undertaking duties such as instanced dungeons.
+Displayed over players undertaking guildleves, treasure hunts, or other activities.
+Displayed over players playing a Triple Triad match.
+Displayed over players watching a cutscene.
+Displayed over players who partake in roleplaying in-game.
+Displayed over players away from their keyboard.
+Displayed over players who are busy and unable to respond to messages.
+Displayed over players experiencing connection issues.
+Icons Displayed over NPCs
+Displayed over NPCs offering main scenario quests.
+Displayed over NPCs offering sidequests.
+Displayed over NPCs offering quests that unlock new duties or features.
+Displayed over NPCs offering quests related to the Hall of the Novice.
+Displayed over NPCs offering levequests.
+Displayed over NPCs offering guildhests.
+Displayed over NPCs offering supplementary information.
+Displayed over NPCs via whom useful services are unlocked.
+Displayed over NPCs that initiate FATEs.
+Displayed over NPCs that play Triple Triad.
+Displayed over NPCs that initiate GATEs.
+Displayed over NPCs with whom you can exchange tomestones and other tokens for various items.
+Displayed over NPCs that offer access to Duty Support when entering a duty.
+Displayed over NPCs that provide information or exchange items for the Moogle Treasure Trove.
+Displays on NPCs that provide information on duties.
+Icons Displayed over Enemies
+NEW
+Updated
+Displayed over passive enemies that will not attack unless provoked.
+Displayed over aggressive enemies that will attack when within range.
+Displayed over enemies that are the objective of FATEs.
+Displayed over enemies that are the objective of main scenario quests.
+Displayed over enemies that are the objective of sidequests.
+Displayed over enemies that are the objective of quests that unlock new duties or features.
+Displayed over enemies that are the objective of hunting log entries.
+Displayed over enemies that are the objective of levequests.
+Displayed over enemies that are the objective of treasure hunts.
+Displayed over enemies that are the objective of the Hunt.
+Game Download
+Official Information
+Facebook
+X
+/
+News
+YouTube
+Instagram
+Twitch
+Bluesky
+License
+Rules & Policies
+Privacy Notice
+Cookies Notice
+Do Not Sell or Share My Personal Information
+Privacy Notice
+©2026 Sony Interactive Entertainment LLC."PlayStation Family Mark", "PlayStation", "PS5 logo", "PS5", "PS4 logo" and "PS4" are registered trademarks or trademarks of Sony Interactive Entertainment Inc.
+Microsoft, the XBOX Sphere mark, the Series X|S logo and XBOX Series X|S are trademarks of the Microsoft group of companies.
+Nintendo Switch is a trademark of Nintendo.
+Windows is either a registered trademark or trademark of Microsoft Corporation in the United States and/or other countries.
+MAC is a trademark of Apple Inc., registered in the U.S. and other countries.
+©2026 Valve Corporation. Steam and the Steam logo are trademarks and/or registered trademarks of Valve Corporation in the U.S. and/or other countries.
+ESRB and the ESRB rating icon are registered trademarks of the Entertainment Software Association.
+All other trademarks are property of their respective owners.
+© SQUARE ENIX
+Square Enix, Inc., 2150 E. Grand Ave., El Segundo, CA 90245
+LOGO ILLUSTRATION:© YOSHITAKA AMANO
+Cookies Notice
+This website uses cookies. If you do not wish us to set cookies on your device, please do not use the website. Please read the Square Enix
+cookies policy
+for more information. Your use of the website is also subject to the terms in the Square Enix website
+terms of use
+and
+privacy policy
+and by using the website you are accepting those terms. The Square Enix terms of use, privacy policy and cookies policy can also be found through links at the bottom of the page.

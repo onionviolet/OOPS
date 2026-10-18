@@ -1,0 +1,55 @@
+{
+  "upstream_ref": "upstream/master",
+  "upstream_commit": "e3356432ad5112f30842cfe6a6b5c3a4ced77de9",
+  "sources": [
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/next-parts/scratch/interpret/upstream-index.html",
+      "git_source": "e3356432ad5112f30842cfe6a6b5c3a4ced77de9:index.html",
+      "sha256": "e21ad9de202d3e2e8cfbc9a88856faecbf6973d9deb28000e907f7ea46804c02"
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/next-parts/scratch/interpret/upstream-style.css",
+      "git_source": "e3356432ad5112f30842cfe6a6b5c3a4ced77de9:style.css",
+      "sha256": "d74d2751a88b616ee8a1831dff94e2ea401f0c2335b474fa86b79e26ccfc0bd9"
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/next-parts/scratch/interpret/upstream-src_locations.js",
+      "git_source": "e3356432ad5112f30842cfe6a6b5c3a4ced77de9:src/locations.js",
+      "sha256": "1b26d3fd3adfa69c7fe7a43d3a09f953a5f3e0bdca7cf082bae2c3c1bed71987"
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/next-parts/scratch/interpret/upstream-src_main.js",
+      "git_source": "e3356432ad5112f30842cfe6a6b5c3a4ced77de9:src/main.js",
+      "sha256": "1ec0c28e9468067535473330e2a480f01ca3e42b0ec2f7d76ba3c71be0c0ae82"
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/next-parts/scratch/interpret/upstream-src_combat_stances.js",
+      "git_source": "e3356432ad5112f30842cfe6a6b5c3a4ced77de9:src/combat_stances.js",
+      "sha256": "b4bc086fe4a2bac5ca337d88a6d703b71e8e9c7d1d6e70bed6e67dc93cb2bbc5"
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/next-parts/scratch/interpret/factorio397.txt",
+      "url": "https://www.factorio.com/blog/post/fff-397",
+      "raw_sha256": "b3675d604a5d402bbd4a80fe95a27ccdc116a06ffa45704275e96c87beefc907",
+      "text_sha256": "52ef5af7797c8aaa3382df3e9c01974ee16d5352a4ca885e90141d925c90b5bd"
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/next-parts/scratch/interpret/factorio400.txt",
+      "url": "https://www.factorio.com/blog/post/fff-400",
+      "raw_sha256": "66afd2d73f8776eb970249f23ec9e2e24342bd135edfc3b036190589113dbc86",
+      "text_sha256": "abc5b8ec60658a99ef68a7c9beee3aa8f07c9a6f557398b7ae5c455c35645c4f"
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/next-parts/scratch/interpret/ffxiv.txt",
+      "url": "https://na.finalfantasyxiv.com/game_manual/view/",
+      "raw_sha256": "c7ac9fdc4c5ec0bf7b3aa70fa1b5af25eab3e11018767377925c20f1b1e6ff0d",
+      "text_sha256": "00c5a2e41f58715f4bd1696631b800cac844b4122cdb6fc5d145df9765904df4"
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/next-parts/scratch/interpret/accessibility.txt",
+      "url": "https://gameaccessibilityguidelines.com/full-list/",
+      "raw_sha256": "061425748e0c2ea7e42708a47d2233b088dd2e8697b76996da970ff43bc01939",
+      "text_sha256": "1be1c16bf5912a8bbbfd0ac2bbd35364633b3e2dca7ca717ae0e1dba624b7cbf"
+    }
+  ]
+}

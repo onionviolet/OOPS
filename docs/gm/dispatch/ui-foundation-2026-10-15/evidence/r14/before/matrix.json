@@ -1,0 +1,3274 @@
+[
+  {
+    "name": "cooking-ready-1366-14",
+    "page": [
+      1366,
+      768
+    ],
+    "viewport": [
+      1366,
+      768
+    ],
+    "regions": {
+      "player": {
+        "x": 17,
+        "y": 39,
+        "w": 467.1875,
+        "h": 291.828125,
+        "client": 286,
+        "content": 286,
+        "font": "14px"
+      },
+      "focus": {
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "client": 0,
+        "content": 0,
+        "font": "14px"
+      },
+      "inventory": {
+        "x": 17,
+        "y": 334.828125,
+        "w": 467.1875,
+        "h": 386.171875,
+        "client": 380,
+        "content": 380,
+        "font": "14px"
+      },
+      "actions": {
+        "x": 488.1875,
+        "y": 39,
+        "w": 463.1875,
+        "h": 682,
+        "client": 676,
+        "content": 676,
+        "font": "14px"
+      },
+      "log": {
+        "x": 955.375,
+        "y": 39,
+        "w": 393.609375,
+        "h": 682,
+        "client": 676,
+        "content": 676,
+        "font": "14px"
+      }
+    },
+    "list": {
+      "x": 23,
+      "y": 424.921875,
+      "w": 455.1875,
+      "h": 292.078125,
+      "client": 292,
+      "content": 292,
+      "font": "14px"
+    },
+    "rows": [
+      {
+        "text": "Rat meat chunks",
+        "font": "14px",
+        "box": {
+          "x": 23,
+          "y": 424.921875,
+          "w": 455.1875,
+          "h": 21.84375,
+          "client": 21,
+          "content": 21,
+          "font": "14px"
+        }
+      },
+      {
+        "text": "Rough wood log",
+        "font": "14px",
+        "box": {
+          "x": 23,
+          "y": 446.765625,
+          "w": 455.1875,
+          "h": 21.84375,
+          "client": 21,
+          "content": 21,
+          "font": "14px"
+        }
+      },
+      {
+        "text": "Stale bread",
+        "font": "14px",
+        "box": {
+          "x": 23,
+          "y": 468.609375,
+          "w": 455.1875,
+          "h": 21.84375,
+          "client": 21,
+          "content": 21,
+          "font": "14px"
+        }
+      },
+      {
+        "text": "Cheap leather pants",
+        "font": "14px",
+        "box": {
+          "x": 23,
+          "y": 490.453125,
+          "w": 455.1875,
+          "h": 39.34375,
+          "client": 38,
+          "content": 38,
+          "font": "14px"
+        }
+      },
+      {
+        "text": "Old pickaxe",
+        "font": "14px",
+        "box": {
+          "x": 23,
+          "y": 529.796875,
+          "w": 455.1875,
+          "h": 39.34375,
+          "client": 38,
+          "content": 38,
+          "font": "14px"
+        }
+      },
+      {
+        "text": "Old shovel",
+        "font": "14px",
+        "box": {
+          "x": 23,
+          "y": 569.140625,
+          "w": 455.1875,
+          "h": 39.34375,
+          "client": 38,
+          "content": 38,
+          "font": "14px"
+        }
+      },
+      {
+        "text": "Old sickle",
+        "font": "14px",
+        "box": {
+          "x": 23,
+          "y": 608.484375,
+          "w": 455.1875,
+          "h": 39.34375,
+          "client": 38,
+          "content": 38,
+          "font": "14px"
+        }
+      }
+    ],
+    "stats": [],
+    "text": "Authoring\nLayout\nComfortable\nYou\nLv 0\n0 / 10 xp\n40/40 stamina\n60/60 hp\nSTR\n12.0\nAGL\n8.0\nDEX\n10.0\nINT\n10.0\nDefense\n1.0\nMagic\n0.0\nAttack\n1.2\nSpeed\n1.0 /s\nCrit %\n5.0%\nCrit ×\n130.0%\nAP\n32\nEP\n25\nSta eff.\n×1\nCold Δ\n0 °C Δ\nHero XP\n×1\nSkill XP\n×1\nGlobal XP\n×1\nHits/atk\n1 hits\nAttributes ›\nGear · 0\nAll items\nEquipment\nUsable\nOther\nFavorites\nName\nValue\nType\nReverse\nInventory\n10C 2W\n7 / 7\nRat meat chunks\nx3\n8W\nRough wood log\nx2\n1C\nStale bread\nx5\n2C\n[legs]\nCheap leather pants\n[40%]\n4C 6W\n[tool]\nOld pickaxe\n1C\n[tool]\nOld shovel\n1C\n[tool]\nOld sickle\n1C\n\nVillage\n☀ Summer\nDry\n♨ 15.8°C\n01/04/999 08:58, Mon · ☼ Day\n\nNo work running.\n\nSaving available.\n\nCrafting\nTinkering\nButchering\nCooking\nWoodworking\nSmelting\nForging\nAlchemy\n Makeable now\nRoasted rat meat\nRoasted purified rat meat\nFried pork\nFried goat meat\nPork roast\nGoat stew\nBread\nApple pie\nBread kwas\nCider\nFish skewer\nFried fish\nFish steak\nFried frog meat\nKingsized frog legs\nRoasted rat meat\nUses · have / need\nRat meat chunks\n3/2\nMakesRoasted rat meat x1\nWhen used\nCheap meat meal\n45m\nSlight food poisoning\n45m\nSuccess\n70%\nCan craft now: 1 attempt\nStationCooking, tier 1\nXPvalue 9.2 per success, a quarter on failure; bonuses and level caps apply\nRelated on this station\nRoasted purified rat meat\nalso uses Rat meat chunks\nResult details\nCraft 1\n5\n10\nAll\n← Village\nHere\nCrafting\nMixing\n?\nReports\n[ Home · 01/04/999, Summer, Mon ]\nFilters\nFollow: smart\nFollow: always\nLatest\nStop combat log\nClear",
+    "errors": []
+  },
+  {
+    "name": "cooking-blocked-1366-14",
+    "page": [
+      1366,
+      768
+    ],
+    "viewport": [
+      1366,
+      768
+    ],
+    "regions": {
+      "player": {
+        "x": 17,
+        "y": 39,
+        "w": 467.1875,
+        "h": 291.828125,
+        "client": 286,
+        "content": 286,
+        "font": "14px"
+      },
+      "focus": {
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "client": 0,
+        "content": 0,
+        "font": "14px"
+      },
+      "inventory": {
+        "x": 17,
+        "y": 334.828125,
+        "w": 467.1875,
+        "h": 386.171875,
+        "client": 380,
+        "content": 380,
+        "font": "14px"
+      },
+      "actions": {
+        "x": 488.1875,
+        "y": 39,
+        "w": 463.1875,
+        "h": 682,
+        "client": 676,
+        "content": 676,
+        "font": "14px"
+      },
+      "log": {
+        "x": 955.375,
+        "y": 39,
+        "w": 393.609375,
+        "h": 682,
+        "client": 676,
+        "content": 676,
+        "font": "14px"
+      }
+    },
+    "list": {
+      "x": 23,
+      "y": 424.921875,
+      "w": 455.1875,
+      "h": 292.078125,
+      "client": 292,
+      "content": 292,
+      "font": "14px"
+    },
+    "rows": [
+      {
+        "text": "Rat meat chunks",
+        "font": "14px",
+        "box": {
+          "x": 23,
+          "y": 424.921875,
+          "w": 455.1875,
+          "h": 21.84375,
+          "client": 21,
+          "content": 21,
+          "font": "14px"
+        }
+      },
+      {
+        "text": "Rough wood log",
+        "font": "14px",
+        "box": {
+          "x": 23,
+          "y": 446.765625,
+          "w": 455.1875,
+          "h": 21.84375,
+          "client": 21,
+          "content": 21,
+          "font": "14px"
+        }
+      },
+      {
+        "text": "Stale bread",
+        "font": "14px",
+        "box": {
+          "x": 23,
+          "y": 468.609375,
+          "w": 455.1875,
+          "h": 21.84375,
+          "client": 21,
+          "content": 21,
+          "font": "14px"
+        }
+      },
+      {
+        "text": "Cheap leather pants",
+        "font": "14px",
+        "box": {
+          "x": 23,
+          "y": 490.453125,
+          "w": 455.1875,
+          "h": 39.34375,
+          "client": 38,
+          "content": 38,
+          "font": "14px"
+        }
+      },
+      {
+        "text": "Old pickaxe",
+        "font": "14px",
+        "box": {
+          "x": 23,
+          "y": 529.796875,
+          "w": 455.1875,
+          "h": 39.34375,
+          "client": 38,
+          "content": 38,
+          "font": "14px"
+        }
+      },
+      {
+        "text": "Old shovel",
+        "font": "14px",
+        "box": {
+          "x": 23,
+          "y": 569.140625,
+          "w": 455.1875,
+          "h": 39.34375,
+          "client": 38,
+          "content": 38,
+          "font": "14px"
+        }
+      },
+      {
+        "text": "Old sickle",
+        "font": "14px",
+        "box": {
+          "x": 23,
+          "y": 608.484375,
+          "w": 455.1875,
+          "h": 39.34375,
+          "client": 38,
+          "content": 38,
+          "font": "14px"
+        }
+      }
+    ],
+    "stats": [],
+    "text": "Authoring\nLayout\nComfortable\nYou\nLv 0\n0 / 10 xp\n40/40 stamina\n60/60 hp\nSTR\n12.0\nAGL\n8.0\nDEX\n10.0\nINT\n10.0\nDefense\n1.0\nMagic\n0.0\nAttack\n1.2\nSpeed\n1.0 /s\nCrit %\n5.0%\nCrit ×\n130.0%\nAP\n32\nEP\n25\nSta eff.\n×1\nCold Δ\n0 °C Δ\nHero XP\n×1\nSkill XP\n×1\nGlobal XP\n×1\nHits/atk\n1 hits\nAttributes ›\nGear · 0\nAll items\nEquipment\nUsable\nOther\nFavorites\nName\nValue\nType\nReverse\nInventory\n10C 2W\n7 / 7\nRat meat chunks\nx3\n8W\nRough wood log\nx2\n1C\nStale bread\nx5\n2C\n[legs]\nCheap leather pants\n[40%]\n4C 6W\n[tool]\nOld pickaxe\n1C\n[tool]\nOld shovel\n1C\n[tool]\nOld sickle\n1C\n\nVillage\n☀ Summer\nDry\n♨ 15.8°C\n01/04/999 08:58, Mon · ☼ Day\n\nNo work running.\n\nSaving available.\n\nCrafting\nTinkering\nButchering\nCooking\nWoodworking\nSmelting\nForging\nAlchemy\n Makeable now\nRoasted rat meat\nRoasted purified rat meat\nFried pork\nFried goat meat\nPork roast\nGoat stew\nBread\nApple pie\nBread kwas\nCider\nFish skewer\nFried fish\nFish steak\nFried frog meat\nKingsized frog legs\nRoasted purified rat meat\nUses · have / need\nRat meat chunks\n3/2\nUnfamiliar material\n0/1\nmissing 1\nMakesRoasted purified rat meat x1\nWhen used\nCheap meat meal\n45m\nSuccess\n40%\nCan craft now: 0 attempts\nStationCooking, tier 1\nXPvalue 19.7 per success, a quarter on failure; bonuses and level caps apply\nRelated on this station\nRoasted rat meat\nalso uses Rat meat chunks\nResult details\n\nCan't craft yet: missing 1 Unfamiliar material.\n\nCraft 1\n5\n10\nAll\n← Village\nHere\nCrafting\nMixing\n?\nReports\n[ Home · 01/04/999, Summer, Mon ]\nFilters\nFollow: smart\nFollow: always\nLatest\nStop combat log\nClear",
+    "errors": []
+  },
+  {
+    "name": "combat-1366-14",
+    "page": [
+      1366,
+      768
+    ],
+    "viewport": [
+      1366,
+      768
+    ],
+    "regions": {
+      "player": {
+        "x": 17,
+        "y": 39,
+        "w": 467.1875,
+        "h": 304,
+        "client": 298,
+        "content": 298,
+        "font": "14px"
+      },
+      "focus": {
+        "x": 488.1875,
+        "y": 39,
+        "w": 463.1875,
+        "h": 304,
+        "client": 298,
+        "content": 298,
+        "font": "14px"
+      },
+      "inventory": {
+        "x": 17,
+        "y": 347,
+        "w": 348.953125,
+        "h": 374,
+        "client": 368,
+        "content": 368,
+        "font": "14px"
+      },
+      "actions": {
+        "x": 369.953125,
+        "y": 347,
+        "w": 581.421875,
+        "h": 374,
+        "client": 368,
+        "content": 368,
+        "font": "14px"
+      },
+      "log": {
+        "x": 955.375,
+        "y": 39,
+        "w": 393.609375,
+        "h": 682,
+        "client": 676,
+        "content": 676,
+        "font": "14px"
+      }
+    },
+    "list": {
+      "x": 23,
+      "y": 437.09375,
+      "w": 336.953125,
+      "h": 279.90625,
+      "client": 280,
+      "content": 581,
+      "font": "14px"
+    },
+    "rows": [
+      {
+        "text": "\"ABC for kids\"",
+        "font": "14px",
+        "box": {
+          "x": 23,
+          "y": 437.09375,
+          "w": 336.953125,
+          "h": 21.84375,
+          "client": 21,
+          "content": 21,
+          "font": "14px"
+        }
+      },
+      {
+        "text": "Apple",
+        "font": "14px",
+        "box": {
+          "x": 23,
+          "y": 458.9375,
+          "w": 336.953125,
+          "h": 21.84375,
+          "client": 21,
+          "content": 21,
+          "font": "14px"
+        }
+      },
+      {
+        "text": "Boar hide",
+        "font": "14px",
+        "box": {
+          "x": 23,
+          "y": 480.78125,
+          "w": 336.953125,
+          "h": 21.84375,
+          "client": 21,
+          "content": 21,
+          "font": "14px"
+        }
+      },
+      {
+        "text": "Boar meat",
+        "font": "14px",
+        "box": {
+          "x": 23,
+          "y": 502.625,
+          "w": 336.953125,
+          "h": 21.84375,
+          "client": 21,
+          "content": 21,
+          "font": "14px"
+        }
+      },
+      {
+        "text": "Bread kwas",
+        "font": "14px",
+        "box": {
+          "x": 23,
+          "y": 524.46875,
+          "w": 336.953125,
+          "h": 21.84375,
+          "client": 21,
+          "content": 21,
+          "font": "14px"
+        }
+      },
+      {
+        "text": "Carrot",
+        "font": "14px",
+        "box": {
+          "x": 23,
+          "y": 546.3125,
+          "w": 336.953125,
+          "h": 21.84375,
+          "client": 21,
+          "content": 21,
+          "font": "14px"
+        }
+      },
+      {
+        "text": "Cooked carrot",
+        "font": "14px",
+        "box": {
+          "x": 23,
+          "y": 568.15625,
+          "w": 336.953125,
+          "h": 21.84375,
+          "client": 21,
+          "content": 21,
+          "font": "14px"
+        }
+      },
+      {
+        "text": "Fresh bread",
+        "font": "14px",
+        "box": {
+          "x": 23,
+          "y": 590,
+          "w": 336.953125,
+          "h": 21.84375,
+          "client": 21,
+          "content": 21,
+          "font": "14px"
+        }
+      },
+      {
+        "text": "\"Old combat manual\"",
+        "font": "14px",
+        "box": {
+          "x": 23,
+          "y": 611.84375,
+          "w": 336.953125,
+          "h": 21.84375,
+          "client": 21,
+          "content": 21,
+          "font": "14px"
+        }
+      },
+      {
+        "text": "Potato",
+        "font": "14px",
+        "box": {
+          "x": 23,
+          "y": 633.6875,
+          "w": 336.953125,
+          "h": 21.84375,
+          "client": 21,
+          "content": 21,
+          "font": "14px"
+        }
+      },
+      {
+        "text": "Rat pelt",
+        "font": "14px",
+        "box": {
+          "x": 23,
+          "y": 655.53125,
+          "w": 336.953125,
+          "h": 21.84375,
+          "client": 21,
+          "content": 21,
+          "font": "14px"
+        }
+      },
+      {
+        "text": "Rat tail",
+        "font": "14px",
+        "box": {
+          "x": 23,
+          "y": 677.375,
+          "w": 336.953125,
+          "h": 21.84375,
+          "client": 21,
+          "content": 21,
+          "font": "14px"
+        }
+      }
+    ],
+    "stats": [],
+    "text": "Authoring\nLayout\nComfortable\nYou\nLv 0\n0 / 10 xp\n38/40 stamina\n60/60 hp\nSTR\n12.0\nAGL\n8.0\nDEX\n10.0\nINT\n10.0\nDefense\n1.0\nMagic\n0.0\nAttack\n1.2\nSpeed\n1.0 /s\nCrit %\n5.0%\nCrit ×\n130.0%\nAP\n32\nEP\n19\nSta eff.\n×1\nCold Δ\n0 °C Δ\nHero XP\n×1\nSkill XP\n×1\nGlobal XP\n×1\nHits/atk\n1 hits\nAttributes ›\nGear · 0\nOpponents · 3\n3 opponents · inspect · 15 / 15 groups left · Clears: [0]\nCompact\n1 · Starving wolf rat\n\n19/20 hp\n\nAtk\n4 dmg\nSpd\n0.82 /s\nHit you\n35%\nEvade\n18%\nDefense\n0\nYour hit\n82%\n2 · Starving wolf rat\n\n17/20 hp\n\nAtk\n4 dmg\nSpd\n0.82 /s\nHit you\n35%\nEvade\n18%\nDefense\n0\nYour hit\n82%\n3 · Starving wolf rat\n\n13/20 hp\n\nAtk\n4 dmg\nSpd\n0.82 /s\nHit you\n35%\nEvade\n18%\nDefense\n0\nYour hit\n82%\nAll items\nEquipment\nUsable\nOther\nFavorites\nName\nValue\nType\nReverse\nInventory\n10C 2W\n21 / 21\n\"ABC for kids\"\n10C\nApple\nx3\n2C\nBoar hide\nx3\n3C\nBoar meat\nx4\n2C\nBread kwas\nx2\n4C\nCarrot\nx4\n2C\nCooked carrot\nx2\n3C\nFresh bread\nx5\n4C\n\"Old combat manual\"\n20C\nPotato\nx5\n1C 5W\nRat pelt\nx5\n1C\nRat tail\nx4\n4W\nStale bread\nx5\n2C\nWolf pelt\nx2\n2C\n[off-hand]\nAsh wood shield\n[80%]\n1S 7C\n[legs]\nCheap leather pants\n[40%]\n4C 6W\n[torso]\nGoat leather vest\n[80%]\n43C\n[legs]\nLeather pants\n[80%]\n17C 6W\n[torso]\nLeather vest\n[80%]\n29C\n[cape]\nRat pelt cape\n[80%]\n8C\n[off-hand]\nWooden shield\n[80%]\n72C\n\nInfested field\n☀ Summer\nDry\n♨ 15.0°C\n01/04/999 08:17, Mon · ☼ Day\n\nActions\nOptions\n\nCombat in progress\n\nSaving available.\n\nOpen local controls\nGo back to [Village] [15m]\n← Village\nHere\nCrafting\nMixing\n?\nReports\n[ Home · 01/04/999, Summer, Mon ]\nFilters\nFollow: smart\nFollow: always\nLatest\nStop combat log\nClear",
+    "errors": []
+  },
+  {
+    "name": "reports-live-1366-14",
+    "page": [
+      1366,
+      768
+    ],
+    "viewport": [
+      1366,
+      768
+    ],
+    "regions": {
+      "player": {
+        "x": 17,
+        "y": 39,
+        "w": 467.1875,
+        "h": 304,
+        "client": 298,
+        "content": 298,
+        "font": "14px"
+      },
+      "focus": {
+        "x": 488.1875,
+        "y": 39,
+        "w": 463.1875,
+        "h": 304,
+        "client": 298,
+        "content": 298,
+        "font": "14px"
+      },
+      "inventory": {
+        "x": 17,
+        "y": 347,
+        "w": 348.953125,
+        "h": 374,
+        "client": 368,
+        "content": 368,
+        "font": "14px"
+      },
+      "actions": {
+        "x": 369.953125,
+        "y": 347,
+        "w": 581.421875,
+        "h": 374,
+        "client": 368,
+        "content": 368,
+        "font": "14px"
+      },
+      "log": {
+        "x": 955.375,
+        "y": 39,
+        "w": 393.609375,
+        "h": 682,
+        "client": 676,
+        "content": 676,
+        "font": "14px"
+      }
+    },
+    "list": {
+      "x": 23,
+      "y": 437.09375,
+      "w": 336.953125,
+      "h": 279.90625,
+      "client": 280,
+      "content": 581,
+      "font": "14px"
+    },
+    "rows": [
+      {
+        "text": "\"ABC for kids\"",
+        "font": "14px",
+        "box": {
+          "x": 23,
+          "y": 437.09375,
+          "w": 336.953125,
+          "h": 21.84375,
+          "client": 21,
+          "content": 21,
+          "font": "14px"
+        }
+      },
+      {
+        "text": "Apple",
+        "font": "14px",
+        "box": {
+          "x": 23,
+          "y": 458.9375,
+          "w": 336.953125,
+          "h": 21.84375,
+          "client": 21,
+          "content": 21,
+          "font": "14px"
+        }
+      },
+      {
+        "text": "Boar hide",
+        "font": "14px",
+        "box": {
+          "x": 23,
+          "y": 480.78125,
+          "w": 336.953125,
+          "h": 21.84375,
+          "client": 21,
+          "content": 21,
+          "font": "14px"
+        }
+      },
+      {
+        "text": "Boar meat",
+        "font": "14px",
+        "box": {
+          "x": 23,
+          "y": 502.625,
+          "w": 336.953125,
+          "h": 21.84375,
+          "client": 21,
+          "content": 21,
+          "font": "14px"
+        }
+      },
+      {
+        "text": "Bread kwas",
+        "font": "14px",
+        "box": {
+          "x": 23,
+          "y": 524.46875,
+          "w": 336.953125,
+          "h": 21.84375,
+          "client": 21,
+          "content": 21,
+          "font": "14px"
+        }
+      },
+      {
+        "text": "Carrot",
+        "font": "14px",
+        "box": {
+          "x": 23,
+          "y": 546.3125,
+          "w": 336.953125,
+          "h": 21.84375,
+          "client": 21,
+          "content": 21,
+          "font": "14px"
+        }
+      },
+      {
+        "text": "Cooked carrot",
+        "font": "14px",
+        "box": {
+          "x": 23,
+          "y": 568.15625,
+          "w": 336.953125,
+          "h": 21.84375,
+          "client": 21,
+          "content": 21,
+          "font": "14px"
+        }
+      },
+      {
+        "text": "Fresh bread",
+        "font": "14px",
+        "box": {
+          "x": 23,
+          "y": 590,
+          "w": 336.953125,
+          "h": 21.84375,
+          "client": 21,
+          "content": 21,
+          "font": "14px"
+        }
+      },
+      {
+        "text": "\"Old combat manual\"",
+        "font": "14px",
+        "box": {
+          "x": 23,
+          "y": 611.84375,
+          "w": 336.953125,
+          "h": 21.84375,
+          "client": 21,
+          "content": 21,
+          "font": "14px"
+        }
+      },
+      {
+        "text": "Potato",
+        "font": "14px",
+        "box": {
+          "x": 23,
+          "y": 633.6875,
+          "w": 336.953125,
+          "h": 21.84375,
+          "client": 21,
+          "content": 21,
+          "font": "14px"
+        }
+      },
+      {
+        "text": "Rat pelt",
+        "font": "14px",
+        "box": {
+          "x": 23,
+          "y": 655.53125,
+          "w": 336.953125,
+          "h": 21.84375,
+          "client": 21,
+          "content": 21,
+          "font": "14px"
+        }
+      },
+      {
+        "text": "Rat tail",
+        "font": "14px",
+        "box": {
+          "x": 23,
+          "y": 677.375,
+          "w": 336.953125,
+          "h": 21.84375,
+          "client": 21,
+          "content": 21,
+          "font": "14px"
+        }
+      }
+    ],
+    "stats": [],
+    "text": "Authoring\nLayout\nComfortable\nYou\nLv 0\n2.9 / 10 xp\n8/40 stamina\n10/60 hp\nSTR\n12.0\nAGL\n9.0\nDEX\n10.0\nINT\n10.0\nDefense\n1.0\nMagic\n0.0\nAttack\n1.2\nSpeed\n1.0 /s\nCrit %\n5.0%\nCrit ×\n130.0%\nAP\n32\nEP\n22\nSta eff.\n×1\nCold Δ\n0 °C Δ\nHero XP\n×1\nSkill XP\n×1\nGlobal XP\n×1\nHits/atk\n1 hits\nAttributes ›\nGear · 0\nOpponents · 3\n3 opponents · inspect · 15 / 15 groups left · Clears: [0]\nCompact\n1 · Starving wolf rat\n\n18/20 hp\n\nAtk\n4 dmg\nSpd\n0.82 /s\nHit you\n17%\nEvade\n10%\nDefense\n0\nYour hit\n90%\n2 · Starving wolf rat\n\n0/20 hp\n\nAtk\n4 dmg\nSpd\n0.82 /s\nHit you\n17%\nEvade\n10%\nDefense\n0\nYour hit\n90%\n3 · Starving wolf rat\n\n0/20 hp\n\nAtk\n4 dmg\nSpd\n0.82 /s\nHit you\n17%\nEvade\n10%\nDefense\n0\nYour hit\n90%\nAll items\nEquipment\nUsable\nOther\nFavorites\nName\nValue\nType\nReverse\nInventory\n10C 2W\n21 / 21\n\"ABC for kids\"\n10C\nApple\nx3\n2C\nBoar hide\nx3\n3C\nBoar meat\nx4\n2C\nBread kwas\nx2\n4C\nCarrot\nx4\n2C\nCooked carrot\nx2\n3C\nFresh bread\nx5\n4C\n\"Old combat manual\"\n20C\nPotato\nx5\n1C 5W\nRat pelt\nx5\n1C\nRat tail\nx4\n4W\nStale bread\nx5\n2C\nWolf pelt\nx2\n2C\n[off-hand]\nAsh wood shield\n[80%]\n1S 7C\n[legs]\nCheap leather pants\n[40%]\n4C 6W\n[torso]\nGoat leather vest\n[80%]\n43C\n[legs]\nLeather pants\n[80%]\n17C 6W\n[torso]\nLeather vest\n[80%]\n29C\n[cape]\nRat pelt cape\n[80%]\n8C\n[off-hand]\nWooden shield\n[80%]\n72C\n\nInfested field\n☀ Summer\nDry\n♨ 15.6°C\n01/04/999 08:47, Mon · ☼ Day\n\nActions\nOptions\n\nCombat in progress\n\nSaving available.\n\nOpen local controls\nGo back to [Village] [15m]\nCarcass processing\n0 ready / 4 actions\n← Village\nHere\nSkills\nCrafting\nMixing\n?\nReports\n[ Home · 01/04/999, Summer, Mon ]\nHero evaded an attack\nHero evaded an attack\nStarving wolf rat takes 1.4 physical\nHero takes 2.7 physical\nHero takes 2.4 physical\nHero takes 3.2 physical\nStarving wolf rat takes 1.1 physical\nHero evaded an attack\nStarving wolf rat takes 1.3 physical\nHero evaded an attack\nHero evaded an attack\nHero evaded an attack\nStarving wolf rat takes 1.2 physical\nHero evaded an attack\nHero evaded an attack\nHero evaded an attack\nStarving wolf rat was hit [CRIT] for 1.7 physical\nPracticed actions is now available in navigation.Related panel ›\nHero evaded an attack\nHero evaded an attack\nHero evaded an attack\nStarving wolf rat takes 1 physical\nHero evaded an attack\nHero evaded an attack\nStarving wolf rat takes 1.1 physical\nHero evaded an attack\nHero takes 2.4 physical\nHero takes 3.1 physical\nStarving wolf rat takes 1.4 physical\nUnlocked new skill: EvasionSkills ›\nSkills & practice is now available in navigation.Skills ›\nEvasion · level 1 · new milestoneSkills ›\nHero takes 2.5 physical\nStarving wolf rat takes 1.3 physical\nHero evaded an attack\nHero takes 2.8 physical\nHero evaded an attack\nStarving wolf rat takes 1.3 physical\nStarving wolf rat was defeated\nTitle earned: Blooded. Defeat your first enemy.\nHero evaded an attack\nHero evaded an attack\nStarving wolf rat takes 1.2 physical\nHero evaded an attack\nStarving wolf rat takes 1 physical\nHero evaded an attack\nHero evaded an attack\nStarving wolf rat takes 1 physical\nHero evaded an attack\nStarving wolf rat takes 1.4 physical\nHero takes 2.3 physical\nHero takes 2.8 physical\nStarving wolf rat evaded an attack\nHero evaded an attack\nHero takes 2.4 physical\nStarving wolf rat takes 1.1 physical\nHero takes 2.7 physical\nHero evaded an attack\nStarving wolf rat takes 1.3 physical\nHero evaded an attack\nStarving wolf rat takes 1.3 physical\nHero evaded an attack\nHero takes 3.3 physical\nStarving wolf rat takes 1.1 physical\nHero evaded an attack\nStarving wolf rat takes 1.3 physical\nHero evaded an attack\nHero evaded an attack\nStarving wolf rat takes 1.3 physical\nHero evaded an attack\nHero evaded an attack\nStarving wolf rat takes 1.3 physical\nHero evaded an attack\nStarving wolf rat takes 1.1 physical\nHero evaded an attack\nHero evaded an attack\nStarving wolf rat takes 1.2 physical\nHero takes 3.5 physical\nStarving wolf rat takes 1.2 physical\nHero takes 3.5 physical\nHero evaded an attack\nStarving wolf rat takes 1.4 physical\nStarving wolf rat was defeated\nHero evaded an attack\nStarving wolf rat evaded an attack\nFilters\nFollow: smart\nFollow: always\nLatest\nStop combat log\nClear",
+    "errors": []
+  },
+  {
+    "name": "person-1366-14",
+    "page": [
+      1366,
+      768
+    ],
+    "viewport": [
+      1366,
+      768
+    ],
+    "regions": {
+      "player": {
+        "x": 17,
+        "y": 39,
+        "w": 467.1875,
+        "h": 291.828125,
+        "client": 286,
+        "content": 286,
+        "font": "14px"
+      },
+      "focus": {
+        "x": 488.1875,
+        "y": 39,
+        "w": 463.1875,
+        "h": 291.828125,
+        "client": 286,
+        "content": 286,
+        "font": "14px"
+      },
+      "inventory": {
+        "x": 17,
+        "y": 334.828125,
+        "w": 348.953125,
+        "h": 386.171875,
+        "client": 380,
+        "content": 380,
+        "font": "14px"
+      },
+      "actions": {
+        "x": 369.953125,
+        "y": 334.828125,
+        "w": 581.421875,
+        "h": 386.171875,
+        "client": 380,
+        "content": 380,
+        "font": "14px"
+      },
+      "log": {
+        "x": 955.375,
+        "y": 39,
+        "w": 393.609375,
+        "h": 682,
+        "client": 676,
+        "content": 676,
+        "font": "14px"
+      }
+    },
+    "list": {
+      "x": 23,
+      "y": 424.921875,
+      "w": 336.953125,
+      "h": 292.078125,
+      "client": 292,
+      "content": 581,
+      "font": "14px"
+    },
+    "rows": [
+      {
+        "text": "\"ABC for kids\"",
+        "font": "14px",
+        "box": {
+          "x": 23,
+          "y": 424.921875,
+          "w": 336.953125,
+          "h": 21.84375,
+          "client": 21,
+          "content": 21,
+          "font": "14px"
+        }
+      },
+      {
+        "text": "Apple",
+        "font": "14px",
+        "box": {
+          "x": 23,
+          "y": 446.765625,
+          "w": 336.953125,
+          "h": 21.84375,
+          "client": 21,
+          "content": 21,
+          "font": "14px"
+        }
+      },
+      {
+        "text": "Boar hide",
+        "font": "14px",
+        "box": {
+          "x": 23,
+          "y": 468.609375,
+          "w": 336.953125,
+          "h": 21.84375,
+          "client": 21,
+          "content": 21,
+          "font": "14px"
+        }
+      },
+      {
+        "text": "Boar meat",
+        "font": "14px",
+        "box": {
+          "x": 23,
+          "y": 490.453125,
+          "w": 336.953125,
+          "h": 21.84375,
+          "client": 21,
+          "content": 21,
+          "font": "14px"
+        }
+      },
+      {
+        "text": "Bread kwas",
+        "font": "14px",
+        "box": {
+          "x": 23,
+          "y": 512.296875,
+          "w": 336.953125,
+          "h": 21.84375,
+          "client": 21,
+          "content": 21,
+          "font": "14px"
+        }
+      },
+      {
+        "text": "Carrot",
+        "font": "14px",
+        "box": {
+          "x": 23,
+          "y": 534.140625,
+          "w": 336.953125,
+          "h": 21.84375,
+          "client": 21,
+          "content": 21,
+          "font": "14px"
+        }
+      },
+      {
+        "text": "Cooked carrot",
+        "font": "14px",
+        "box": {
+          "x": 23,
+          "y": 555.984375,
+          "w": 336.953125,
+          "h": 21.84375,
+          "client": 21,
+          "content": 21,
+          "font": "14px"
+        }
+      },
+      {
+        "text": "Fresh bread",
+        "font": "14px",
+        "box": {
+          "x": 23,
+          "y": 577.828125,
+          "w": 336.953125,
+          "h": 21.84375,
+          "client": 21,
+          "content": 21,
+          "font": "14px"
+        }
+      },
+      {
+        "text": "\"Old combat manual\"",
+        "font": "14px",
+        "box": {
+          "x": 23,
+          "y": 599.671875,
+          "w": 336.953125,
+          "h": 21.84375,
+          "client": 21,
+          "content": 21,
+          "font": "14px"
+        }
+      },
+      {
+        "text": "Potato",
+        "font": "14px",
+        "box": {
+          "x": 23,
+          "y": 621.515625,
+          "w": 336.953125,
+          "h": 21.84375,
+          "client": 21,
+          "content": 21,
+          "font": "14px"
+        }
+      },
+      {
+        "text": "Rat pelt",
+        "font": "14px",
+        "box": {
+          "x": 23,
+          "y": 643.359375,
+          "w": 336.953125,
+          "h": 21.84375,
+          "client": 21,
+          "content": 21,
+          "font": "14px"
+        }
+      },
+      {
+        "text": "Rat tail",
+        "font": "14px",
+        "box": {
+          "x": 23,
+          "y": 665.203125,
+          "w": 336.953125,
+          "h": 21.84375,
+          "client": 21,
+          "content": 21,
+          "font": "14px"
+        }
+      },
+      {
+        "text": "Stale bread",
+        "font": "14px",
+        "box": {
+          "x": 23,
+          "y": 687.046875,
+          "w": 336.953125,
+          "h": 21.84375,
+          "client": 21,
+          "content": 21,
+          "font": "14px"
+        }
+      }
+    ],
+    "stats": [],
+    "text": "Authoring\nLayout\nComfortable\nYou\nLv 0\n0 / 10 xp\n92/92 stamina\n61/61 hp\nSTR\n22.9\nAGL\n19.7\nDEX\n15.0\nINT\n27.5\nDefense\n1.0\nMagic\n0.0\nAttack\n2.3\nSpeed\n1.0 /s\nCrit %\n5.0%\nCrit ×\n130.0%\nAP\n80\nEP\n109\nSta eff.\n×1.087\nCold Δ\n1 °C Δ\nHero XP\n×1.459\nSkill XP\n×1.389\nGlobal XP\n×1.323\nHits/atk\n1 hits\nAttributes ›\nGear · 0\nvillage elder\n▾\nExpand\n← Village\n\nVillage neighbor\n\nKnown traits: Not assessed\n\nRelationship: No remembered dealings.\n\nTalk with village elder\nAll items\nEquipment\nUsable\nOther\nFavorites\nName\nValue\nType\nReverse\nInventory\n5S\n21 / 21\n\"ABC for kids\"\n10C\nApple\nx3\n2C\nBoar hide\nx3\n3C\nBoar meat\nx4\n2C\nBread kwas\nx2\n4C\nCarrot\nx4\n2C\nCooked carrot\nx2\n3C\nFresh bread\nx5\n4C\n\"Old combat manual\"\n20C\nPotato\nx5\n1C 5W\nRat pelt\nx5\n1C\nRat tail\nx4\n4W\nStale bread\nx5\n2C\nWolf pelt\nx2\n2C\n[off-hand]\nAsh wood shield\n[80%]\n1S 7C\n[legs]\nCheap leather pants\n[40%]\n4C 6W\n[torso]\nGoat leather vest\n[80%]\n43C\n[legs]\nLeather pants\n[80%]\n17C 6W\n[torso]\nLeather vest\n[80%]\n29C\n[cape]\nRat pelt cape\n[80%]\n8C\n[off-hand]\nWooden shield\n[80%]\n72C\n\nVillage\n☀ Summer\nDry\n♨ 14.7°C\n01/04/999 08:01, Mon · ☼ Day\n\nActions\nOptions\n\nNo work running.\n\nSaving available.\n\ndirections Move somewhere else\nconstruction Try to craft something\nquestion_answer Talk to someone\nwork_outline Find work\nfitness_center Train\nsearch Gather resources\nVillage practice and familiar ground\n2 ready / 2 actions\nLocal life\n4 ready / 6 actions\nMarket courtyard · trade, property and projects\n1 ready / 1 actions\nBooks, earned rest and leatherwork (proposal)\n1 ready / 1 actions\nMix at the Village counter\nHere\nSkills\nCrafting\nMixing\n?\nReports\n[ Home · 01/04/999, Summer, Mon ]\nTitles recognized from your past: Blooded, Reader.\nFilters\nFollow: smart\nFollow: always\nLatest\nStop combat log\nClear",
+    "errors": []
+  },
+  {
+    "name": "dialogue-1366-14",
+    "page": [
+      1366,
+      768
+    ],
+    "viewport": [
+      1366,
+      768
+    ],
+    "regions": {
+      "player": {
+        "x": 17,
+        "y": 39,
+        "w": 467.1875,
+        "h": 291.828125,
+        "client": 286,
+        "content": 286,
+        "font": "14px"
+      },
+      "focus": {
+        "x": 488.1875,
+        "y": 39,
+        "w": 463.1875,
+        "h": 291.828125,
+        "client": 286,
+        "content": 286,
+        "font": "14px"
+      },
+      "inventory": {
+        "x": 17,
+        "y": 334.828125,
+        "w": 348.953125,
+        "h": 386.171875,
+        "client": 380,
+        "content": 380,
+        "font": "14px"
+      },
+      "actions": {
+        "x": 369.953125,
+        "y": 334.828125,
+        "w": 581.421875,
+        "h": 386.171875,
+        "client": 380,
+        "content": 380,
+        "font": "14px"
+      },
+      "log": {
+        "x": 955.375,
+        "y": 39,
+        "w": 393.609375,
+        "h": 682,
+        "client": 676,
+        "content": 676,
+        "font": "14px"
+      }
+    },
+    "list": {
+      "x": 23,
+      "y": 424.921875,
+      "w": 336.953125,
+      "h": 292.078125,
+      "client": 292,
+      "content": 581,
+      "font": "14px"
+    },
+    "rows": [
+      {
+        "text": "\"ABC for kids\"",
+        "font": "14px",
+        "box": {
+          "x": 23,
+          "y": 424.921875,
+          "w": 336.953125,
+          "h": 21.84375,
+          "client": 21,
+          "content": 21,
+          "font": "14px"
+        }
+      },
+      {
+        "text": "Apple",
+        "font": "14px",
+        "box": {
+          "x": 23,
+          "y": 446.765625,
+          "w": 336.953125,
+          "h": 21.84375,
+          "client": 21,
+          "content": 21,
+          "font": "14px"
+        }
+      },
+      {
+        "text": "Boar hide",
+        "font": "14px",
+        "box": {
+          "x": 23,
+          "y": 468.609375,
+          "w": 336.953125,
+          "h": 21.84375,
+          "client": 21,
+          "content": 21,
+          "font": "14px"
+        }
+      },
+      {
+        "text": "Boar meat",
+        "font": "14px",
+        "box": {
+          "x": 23,
+          "y": 490.453125,
+          "w": 336.953125,
+          "h": 21.84375,
+          "client": 21,
+          "content": 21,
+          "font": "14px"
+        }
+      },
+      {
+        "text": "Bread kwas",
+        "font": "14px",
+        "box": {
+          "x": 23,
+          "y": 512.296875,
+          "w": 336.953125,
+          "h": 21.84375,
+          "client": 21,
+          "content": 21,
+          "font": "14px"
+        }
+      },
+      {
+        "text": "Carrot",
+        "font": "14px",
+        "box": {
+          "x": 23,
+          "y": 534.140625,
+          "w": 336.953125,
+          "h": 21.84375,
+          "client": 21,
+          "content": 21,
+          "font": "14px"
+        }
+      },
+      {
+        "text": "Cooked carrot",
+        "font": "14px",
+        "box": {
+          "x": 23,
+          "y": 555.984375,
+          "w": 336.953125,
+          "h": 21.84375,
+          "client": 21,
+          "content": 21,
+          "font": "14px"
+        }
+      },
+      {
+        "text": "Fresh bread",
+        "font": "14px",
+        "box": {
+          "x": 23,
+          "y": 577.828125,
+          "w": 336.953125,
+          "h": 21.84375,
+          "client": 21,
+          "content": 21,
+          "font": "14px"
+        }
+      },
+      {
+        "text": "\"Old combat manual\"",
+        "font": "14px",
+        "box": {
+          "x": 23,
+          "y": 599.671875,
+          "w": 336.953125,
+          "h": 21.84375,
+          "client": 21,
+          "content": 21,
+          "font": "14px"
+        }
+      },
+      {
+        "text": "Potato",
+        "font": "14px",
+        "box": {
+          "x": 23,
+          "y": 621.515625,
+          "w": 336.953125,
+          "h": 21.84375,
+          "client": 21,
+          "content": 21,
+          "font": "14px"
+        }
+      },
+      {
+        "text": "Rat pelt",
+        "font": "14px",
+        "box": {
+          "x": 23,
+          "y": 643.359375,
+          "w": 336.953125,
+          "h": 21.84375,
+          "client": 21,
+          "content": 21,
+          "font": "14px"
+        }
+      },
+      {
+        "text": "Rat tail",
+        "font": "14px",
+        "box": {
+          "x": 23,
+          "y": 665.203125,
+          "w": 336.953125,
+          "h": 21.84375,
+          "client": 21,
+          "content": 21,
+          "font": "14px"
+        }
+      },
+      {
+        "text": "Stale bread",
+        "font": "14px",
+        "box": {
+          "x": 23,
+          "y": 687.046875,
+          "w": 336.953125,
+          "h": 21.84375,
+          "client": 21,
+          "content": 21,
+          "font": "14px"
+        }
+      }
+    ],
+    "stats": [],
+    "text": "Authoring\nLayout\nComfortable\nYou\nLv 0\n0 / 10 xp\n92/92 stamina\n61/61 hp\nSTR\n22.9\nAGL\n19.7\nDEX\n15.0\nINT\n27.5\nDefense\n1.0\nMagic\n0.0\nAttack\n2.3\nSpeed\n1.0 /s\nCrit %\n5.0%\nCrit ×\n130.0%\nAP\n80\nEP\n109\nSta eff.\n×1.087\nCold Δ\n1 °C Δ\nHero XP\n×1.459\nSkill XP\n×1.389\nGlobal XP\n×1.323\nHits/atk\n1 hits\nAttributes ›\nGear · 0\nvillage elder\n▾\nExpand\n← Village\n\nVillage neighbor\n\nKnown traits: Not assessed\n\nRelationship: No remembered dealings.\n\nTalk with village elder\nAll items\nEquipment\nUsable\nOther\nFavorites\nName\nValue\nType\nReverse\nInventory\n5S\n21 / 21\n\"ABC for kids\"\n10C\nApple\nx3\n2C\nBoar hide\nx3\n3C\nBoar meat\nx4\n2C\nBread kwas\nx2\n4C\nCarrot\nx4\n2C\nCooked carrot\nx2\n3C\nFresh bread\nx5\n4C\n\"Old combat manual\"\n20C\nPotato\nx5\n1C 5W\nRat pelt\nx5\n1C\nRat tail\nx4\n4W\nStale bread\nx5\n2C\nWolf pelt\nx2\n2C\n[off-hand]\nAsh wood shield\n[80%]\n1S 7C\n[legs]\nCheap leather pants\n[40%]\n4C 6W\n[torso]\nGoat leather vest\n[80%]\n43C\n[legs]\nLeather pants\n[80%]\n17C 6W\n[torso]\nLeather vest\n[80%]\n29C\n[cape]\nRat pelt cape\n[80%]\n8C\n[off-hand]\nWooden shield\n[80%]\n72C\n\nVillage\n☀ Summer\nDry\n♨ 14.7°C\n01/04/999 08:01, Mon · ☼ Day\n\nConversation in progress\n\nSaving available.\n\nOpen local controls\nVillage elder\n*You see an older man with curly white hair and dull, heavy horns. Despite his years, he stands with a strong posture, ready to ram any threat to the village. He eyes you with curiosity.*\n\"text not found, id: 'Ask about the moonlit herb bed'\"\n\"Who are you?\"\n\"About the spare weapon...\"\n\"Can I leave the village?\"\n\"Are wolf rats a big issue?\"\n← Village\nHere\nSkills\nCrafting\nMixing\n?\nReports\n[ Home · 01/04/999, Summer, Mon ]\nTitles recognized from your past: Blooded, Reader.\nFilters\nFollow: smart\nFollow: always\nLatest\nStop combat log\nClear",
+    "errors": []
+  },
+  {
+    "name": "cooking-ready-1366-21",
+    "page": [
+      1366,
+      768
+    ],
+    "viewport": [
+      1366,
+      768
+    ],
+    "regions": {
+      "player": {
+        "x": 17,
+        "y": 39,
+        "w": 467.1875,
+        "h": 367.5,
+        "client": 362,
+        "content": 362,
+        "font": "14px"
+      },
+      "focus": {
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "client": 0,
+        "content": 0,
+        "font": "14px"
+      },
+      "inventory": {
+        "x": 17,
+        "y": 410.5,
+        "w": 467.1875,
+        "h": 310.5,
+        "client": 305,
+        "content": 305,
+        "font": "14px"
+      },
+      "actions": {
+        "x": 488.1875,
+        "y": 39,
+        "w": 463.1875,
+        "h": 682,
+        "client": 676,
+        "content": 676,
+        "font": "14px"
+      },
+      "log": {
+        "x": 955.375,
+        "y": 39,
+        "w": 393.609375,
+        "h": 682,
+        "client": 676,
+        "content": 676,
+        "font": "14px"
+      }
+    },
+    "list": {
+      "x": 23,
+      "y": 534.125,
+      "w": 455.1875,
+      "h": 182.875,
+      "client": 183,
+      "content": 331,
+      "font": "21px"
+    },
+    "rows": [
+      {
+        "text": "Rat meat chunks",
+        "font": "21px",
+        "box": {
+          "x": 23,
+          "y": 534.125,
+          "w": 455.1875,
+          "h": 32.28125,
+          "client": 31,
+          "content": 31,
+          "font": "21px"
+        }
+      },
+      {
+        "text": "Rough wood log",
+        "font": "21px",
+        "box": {
+          "x": 23,
+          "y": 566.40625,
+          "w": 455.1875,
+          "h": 32.28125,
+          "client": 31,
+          "content": 31,
+          "font": "21px"
+        }
+      },
+      {
+        "text": "Stale bread",
+        "font": "21px",
+        "box": {
+          "x": 23,
+          "y": 598.6875,
+          "w": 455.1875,
+          "h": 32.28125,
+          "client": 31,
+          "content": 31,
+          "font": "21px"
+        }
+      },
+      {
+        "text": "Cheap leather pants",
+        "font": "21px",
+        "box": {
+          "x": 23,
+          "y": 630.96875,
+          "w": 455.1875,
+          "h": 58.53125,
+          "client": 58,
+          "content": 58,
+          "font": "21px"
+        }
+      }
+    ],
+    "stats": [],
+    "text": "Authoring\nLayout\nComfortable\nYou\nLv 0\n0 / 10 xp\n40/40 stamina\n60/60 hp\nSTR\n12.0\nAGL\n8.0\nDEX\n10.0\nINT\n10.0\nDefense\n1.0\nMagic\n0.0\nAttack\n1.2\nSpeed\n1.0 /s\nCrit %\n5.0%\nCrit ×\n130.0%\nAP\n32\nEP\n25\nAttributes ›\nGear · 0\nAll items\nEquipment\nUsable\nOther\nFavorites\nName\nValue\nType\nReverse\nInventory\n10C 2W\n7 / 7\nRat meat chunks\nx3\n8W\nRough wood log\nx2\n1C\nStale bread\nx5\n2C\n[legs]\nCheap leather pants\n[40%]\n4C 6W\n[tool]\nOld pickaxe\n1C\n[tool]\nOld shovel\n1C\n[tool]\nOld sickle\n1C\n\nVillage\n☀ Summer\nDry\n♨ 15.8°C\n01/04/999 08:58, Mon · ☼ Day\n\nNo work running.\n\nSaving available.\n\nCrafting\nTinkering\nButchering\nCooking\nWoodworking\nSmelting\nForging\nAlchemy\n Makeable now\nRoasted rat meat\nRoasted purified rat meat\nFried pork\nFried goat meat\nPork roast\nGoat stew\nBread\nApple pie\nBread kwas\nCider\nFish skewer\nFried fish\nFish steak\nFried frog meat\nKingsized frog legs\nRoasted rat meat\nUses · have / need\nRat meat chunks\n3/2\nMakesRoasted rat meat x1\nWhen used\nCheap meat meal\n45m\nSlight food poisoning\n45m\nSuccess\n70%\nCan craft now: 1 attempt\nStationCooking, tier 1\nXPvalue 9.2 per success, a quarter on failure; bonuses and level caps apply\nRelated on this station\nRoasted purified rat meat\nalso uses Rat meat chunks\nResult details\nCraft 1\n5\n10\nAll\n← Village\nHere\nCrafting\nMixing\n?\nReports\n[ Home · 01/04/999, Summer, Mon ]\nFilters\nFollow: smart\nFollow: always\nLatest\nStop combat log\nClear",
+    "errors": []
+  },
+  {
+    "name": "cooking-blocked-1366-21",
+    "page": [
+      1366,
+      768
+    ],
+    "viewport": [
+      1366,
+      768
+    ],
+    "regions": {
+      "player": {
+        "x": 17,
+        "y": 39,
+        "w": 467.1875,
+        "h": 367.5,
+        "client": 362,
+        "content": 362,
+        "font": "14px"
+      },
+      "focus": {
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "client": 0,
+        "content": 0,
+        "font": "14px"
+      },
+      "inventory": {
+        "x": 17,
+        "y": 410.5,
+        "w": 467.1875,
+        "h": 310.5,
+        "client": 305,
+        "content": 305,
+        "font": "14px"
+      },
+      "actions": {
+        "x": 488.1875,
+        "y": 39,
+        "w": 463.1875,
+        "h": 682,
+        "client": 676,
+        "content": 676,
+        "font": "14px"
+      },
+      "log": {
+        "x": 955.375,
+        "y": 39,
+        "w": 393.609375,
+        "h": 682,
+        "client": 676,
+        "content": 676,
+        "font": "14px"
+      }
+    },
+    "list": {
+      "x": 23,
+      "y": 534.125,
+      "w": 455.1875,
+      "h": 182.875,
+      "client": 183,
+      "content": 331,
+      "font": "21px"
+    },
+    "rows": [
+      {
+        "text": "Rat meat chunks",
+        "font": "21px",
+        "box": {
+          "x": 23,
+          "y": 534.125,
+          "w": 455.1875,
+          "h": 32.28125,
+          "client": 31,
+          "content": 31,
+          "font": "21px"
+        }
+      },
+      {
+        "text": "Rough wood log",
+        "font": "21px",
+        "box": {
+          "x": 23,
+          "y": 566.40625,
+          "w": 455.1875,
+          "h": 32.28125,
+          "client": 31,
+          "content": 31,
+          "font": "21px"
+        }
+      },
+      {
+        "text": "Stale bread",
+        "font": "21px",
+        "box": {
+          "x": 23,
+          "y": 598.6875,
+          "w": 455.1875,
+          "h": 32.28125,
+          "client": 31,
+          "content": 31,
+          "font": "21px"
+        }
+      },
+      {
+        "text": "Cheap leather pants",
+        "font": "21px",
+        "box": {
+          "x": 23,
+          "y": 630.96875,
+          "w": 455.1875,
+          "h": 58.53125,
+          "client": 58,
+          "content": 58,
+          "font": "21px"
+        }
+      }
+    ],
+    "stats": [],
+    "text": "Authoring\nLayout\nComfortable\nYou\nLv 0\n0 / 10 xp\n40/40 stamina\n60/60 hp\nSTR\n12.0\nAGL\n8.0\nDEX\n10.0\nINT\n10.0\nDefense\n1.0\nMagic\n0.0\nAttack\n1.2\nSpeed\n1.0 /s\nCrit %\n5.0%\nCrit ×\n130.0%\nAP\n32\nEP\n25\nAttributes ›\nGear · 0\nAll items\nEquipment\nUsable\nOther\nFavorites\nName\nValue\nType\nReverse\nInventory\n10C 2W\n7 / 7\nRat meat chunks\nx3\n8W\nRough wood log\nx2\n1C\nStale bread\nx5\n2C\n[legs]\nCheap leather pants\n[40%]\n4C 6W\n[tool]\nOld pickaxe\n1C\n[tool]\nOld shovel\n1C\n[tool]\nOld sickle\n1C\n\nVillage\n☀ Summer\nDry\n♨ 15.8°C\n01/04/999 08:58, Mon · ☼ Day\n\nNo work running.\n\nSaving available.\n\nCrafting\nTinkering\nButchering\nCooking\nWoodworking\nSmelting\nForging\nAlchemy\n Makeable now\nRoasted rat meat\nRoasted purified rat meat\nFried pork\nFried goat meat\nPork roast\nGoat stew\nBread\nApple pie\nBread kwas\nCider\nFish skewer\nFried fish\nFish steak\nFried frog meat\nKingsized frog legs\nRoasted purified rat meat\nUses · have / need\nRat meat chunks\n3/2\nUnfamiliar material\n0/1\nmissing 1\nMakesRoasted purified rat meat x1\nWhen used\nCheap meat meal\n45m\nSuccess\n40%\nCan craft now: 0 attempts\nStationCooking, tier 1\nXPvalue 19.7 per success, a quarter on failure; bonuses and level caps apply\nRelated on this station\nRoasted rat meat\nalso uses Rat meat chunks\nResult details\n\nCan't craft yet: missing 1 Unfamiliar material.\n\nCraft 1\n5\n10\nAll\n← Village\nHere\nCrafting\nMixing\n?\nReports\n[ Home · 01/04/999, Summer, Mon ]\nFilters\nFollow: smart\nFollow: always\nLatest\nStop combat log\nClear",
+    "errors": []
+  },
+  {
+    "name": "combat-1366-21",
+    "page": [
+      1366,
+      768
+    ],
+    "viewport": [
+      1366,
+      768
+    ],
+    "regions": {
+      "player": {
+        "x": 17,
+        "y": 39,
+        "w": 467.1875,
+        "h": 420,
+        "client": 414,
+        "content": 414,
+        "font": "14px"
+      },
+      "focus": {
+        "x": 488.1875,
+        "y": 39,
+        "w": 463.1875,
+        "h": 420,
+        "client": 414,
+        "content": 414,
+        "font": "14px"
+      },
+      "inventory": {
+        "x": 17,
+        "y": 463,
+        "w": 348.953125,
+        "h": 258,
+        "client": 252,
+        "content": 252,
+        "font": "14px"
+      },
+      "actions": {
+        "x": 369.953125,
+        "y": 463,
+        "w": 581.421875,
+        "h": 258,
+        "client": 252,
+        "content": 252,
+        "font": "14px"
+      },
+      "log": {
+        "x": 955.375,
+        "y": 39,
+        "w": 393.609375,
+        "h": 682,
+        "client": 676,
+        "content": 676,
+        "font": "14px"
+      }
+    },
+    "list": {
+      "x": 23,
+      "y": 586.625,
+      "w": 336.953125,
+      "h": 130.375,
+      "client": 130,
+      "content": 862,
+      "font": "21px"
+    },
+    "rows": [
+      {
+        "text": "\"ABC for kids\"",
+        "font": "21px",
+        "box": {
+          "x": 23,
+          "y": 586.625,
+          "w": 336.953125,
+          "h": 32.28125,
+          "client": 31,
+          "content": 31,
+          "font": "21px"
+        }
+      },
+      {
+        "text": "Apple",
+        "font": "21px",
+        "box": {
+          "x": 23,
+          "y": 618.90625,
+          "w": 336.953125,
+          "h": 32.28125,
+          "client": 31,
+          "content": 31,
+          "font": "21px"
+        }
+      },
+      {
+        "text": "Boar hide",
+        "font": "21px",
+        "box": {
+          "x": 23,
+          "y": 651.1875,
+          "w": 336.953125,
+          "h": 32.28125,
+          "client": 31,
+          "content": 31,
+          "font": "21px"
+        }
+      },
+      {
+        "text": "Boar meat",
+        "font": "21px",
+        "box": {
+          "x": 23,
+          "y": 683.46875,
+          "w": 336.953125,
+          "h": 32.28125,
+          "client": 31,
+          "content": 31,
+          "font": "21px"
+        }
+      }
+    ],
+    "stats": [],
+    "text": "Authoring\nLayout\nComfortable\nYou\nLv 0\n0 / 10 xp\n38/40 stamina\n60/60 hp\nSTR\n12.0\nAGL\n8.0\nDEX\n10.0\nINT\n10.0\nDefense\n1.0\nMagic\n0.0\nAttack\n1.2\nSpeed\n1.0 /s\nCrit %\n5.0%\nCrit ×\n130.0%\nAP\n32\nEP\n19\nSta eff.\n×1\nCold Δ\n0 °C Δ\nHero XP\n×1\nSkill XP\n×1\nAttributes ›\nGear · 0\nOpponents · 3\n3 opponents · inspect · 15 / 15 groups left · Clears: [0]\nCompact\n1 · Starving wolf rat\n\n19/20 hp\n\nAtk\n4 dmg\nSpd\n0.82 /s\nHit you\n35%\nEvade\n18%\nDefense\n0\nYour hit\n82%\n2 · Starving wolf rat\n\n17/20 hp\n\nAtk\n4 dmg\nSpd\n0.82 /s\nHit you\n35%\nEvade\n18%\nDefense\n0\nYour hit\n82%\n3 · Starving wolf rat\n\n13/20 hp\n\nAtk\n4 dmg\nSpd\n0.82 /s\nHit you\n35%\nEvade\n18%\nDefense\n0\nYour hit\n82%\nAll items\nEquipment\nUsable\nOther\nFavorites\nName\nValue\nType\nReverse\nInventory\n10C 2W\n21 / 21\n\"ABC for kids\"\n10C\nApple\nx3\n2C\nBoar hide\nx3\n3C\nBoar meat\nx4\n2C\nBread kwas\nx2\n4C\nCarrot\nx4\n2C\nCooked carrot\nx2\n3C\nFresh bread\nx5\n4C\n\"Old combat manual\"\n20C\nPotato\nx5\n1C 5W\nRat pelt\nx5\n1C\nRat tail\nx4\n4W\nStale bread\nx5\n2C\nWolf pelt\nx2\n2C\n[off-hand]\nAsh wood shield\n[80%]\n1S 7C\n[legs]\nCheap leather pants\n[40%]\n4C 6W\n[torso]\nGoat leather vest\n[80%]\n43C\n[legs]\nLeather pants\n[80%]\n17C 6W\n[torso]\nLeather vest\n[80%]\n29C\n[cape]\nRat pelt cape\n[80%]\n8C\n[off-hand]\nWooden shield\n[80%]\n72C\n\nInfested field\n☀ Summer\nDry\n♨ 15.0°C\n01/04/999 08:17, Mon · ☼ Day\n\nActions\nOptions\n\nCombat in progress\n\nSaving available.\n\nOpen local controls\nGo back to [Village] [15m]\n← Village\nHere\nCrafting\nMixing\n?\nReports\n[ Home · 01/04/999, Summer, Mon ]\nFilters\nFollow: smart\nFollow: always\nLatest\nStop combat log\nClear",
+    "errors": []
+  },
+  {
+    "name": "reports-live-1366-21",
+    "page": [
+      1366,
+      768
+    ],
+    "viewport": [
+      1366,
+      768
+    ],
+    "regions": {
+      "player": {
+        "x": 17,
+        "y": 39,
+        "w": 467.1875,
+        "h": 420,
+        "client": 414,
+        "content": 414,
+        "font": "14px"
+      },
+      "focus": {
+        "x": 488.1875,
+        "y": 39,
+        "w": 463.1875,
+        "h": 420,
+        "client": 414,
+        "content": 414,
+        "font": "14px"
+      },
+      "inventory": {
+        "x": 17,
+        "y": 463,
+        "w": 348.953125,
+        "h": 258,
+        "client": 252,
+        "content": 252,
+        "font": "14px"
+      },
+      "actions": {
+        "x": 369.953125,
+        "y": 463,
+        "w": 581.421875,
+        "h": 258,
+        "client": 252,
+        "content": 252,
+        "font": "14px"
+      },
+      "log": {
+        "x": 955.375,
+        "y": 39,
+        "w": 393.609375,
+        "h": 682,
+        "client": 676,
+        "content": 676,
+        "font": "14px"
+      }
+    },
+    "list": {
+      "x": 23,
+      "y": 586.625,
+      "w": 336.953125,
+      "h": 130.375,
+      "client": 130,
+      "content": 862,
+      "font": "21px"
+    },
+    "rows": [
+      {
+        "text": "\"ABC for kids\"",
+        "font": "21px",
+        "box": {
+          "x": 23,
+          "y": 586.625,
+          "w": 336.953125,
+          "h": 32.28125,
+          "client": 31,
+          "content": 31,
+          "font": "21px"
+        }
+      },
+      {
+        "text": "Apple",
+        "font": "21px",
+        "box": {
+          "x": 23,
+          "y": 618.90625,
+          "w": 336.953125,
+          "h": 32.28125,
+          "client": 31,
+          "content": 31,
+          "font": "21px"
+        }
+      },
+      {
+        "text": "Boar hide",
+        "font": "21px",
+        "box": {
+          "x": 23,
+          "y": 651.1875,
+          "w": 336.953125,
+          "h": 32.28125,
+          "client": 31,
+          "content": 31,
+          "font": "21px"
+        }
+      },
+      {
+        "text": "Boar meat",
+        "font": "21px",
+        "box": {
+          "x": 23,
+          "y": 683.46875,
+          "w": 336.953125,
+          "h": 32.28125,
+          "client": 31,
+          "content": 31,
+          "font": "21px"
+        }
+      }
+    ],
+    "stats": [],
+    "text": "Authoring\nLayout\nComfortable\nYou\nLv 0\n2.9 / 10 xp\n8/40 stamina\n10/60 hp\nSTR\n12.0\nAGL\n9.0\nDEX\n10.0\nINT\n10.0\nDefense\n1.0\nMagic\n0.0\nAttack\n1.2\nSpeed\n1.0 /s\nCrit %\n5.0%\nCrit ×\n130.0%\nAP\n32\nEP\n22\nSta eff.\n×1\nCold Δ\n0 °C Δ\nHero XP\n×1\nSkill XP\n×1\nAttributes ›\nGear · 0\nOpponents · 3\n3 opponents · inspect · 15 / 15 groups left · Clears: [0]\nCompact\n1 · Starving wolf rat\n\n18/20 hp\n\nAtk\n4 dmg\nSpd\n0.82 /s\nHit you\n17%\nEvade\n10%\nDefense\n0\nYour hit\n90%\n2 · Starving wolf rat\n\n0/20 hp\n\nAtk\n4 dmg\nSpd\n0.82 /s\nHit you\n17%\nEvade\n10%\nDefense\n0\nYour hit\n90%\n3 · Starving wolf rat\n\n0/20 hp\n\nAtk\n4 dmg\nSpd\n0.82 /s\nHit you\n17%\nEvade\n10%\nDefense\n0\nYour hit\n90%\nAll items\nEquipment\nUsable\nOther\nFavorites\nName\nValue\nType\nReverse\nInventory\n10C 2W\n21 / 21\n\"ABC for kids\"\n10C\nApple\nx3\n2C\nBoar hide\nx3\n3C\nBoar meat\nx4\n2C\nBread kwas\nx2\n4C\nCarrot\nx4\n2C\nCooked carrot\nx2\n3C\nFresh bread\nx5\n4C\n\"Old combat manual\"\n20C\nPotato\nx5\n1C 5W\nRat pelt\nx5\n1C\nRat tail\nx4\n4W\nStale bread\nx5\n2C\nWolf pelt\nx2\n2C\n[off-hand]\nAsh wood shield\n[80%]\n1S 7C\n[legs]\nCheap leather pants\n[40%]\n4C 6W\n[torso]\nGoat leather vest\n[80%]\n43C\n[legs]\nLeather pants\n[80%]\n17C 6W\n[torso]\nLeather vest\n[80%]\n29C\n[cape]\nRat pelt cape\n[80%]\n8C\n[off-hand]\nWooden shield\n[80%]\n72C\n\nInfested field\n☀ Summer\nDry\n♨ 15.6°C\n01/04/999 08:47, Mon · ☼ Day\n\nActions\nOptions\n\nCombat in progress\n\nSaving available.\n\nOpen local controls\nGo back to [Village] [15m]\nCarcass processing\n0 ready / 4 actions\n← Village\nHere\nSkills\nCrafting\nMixing\n?\nReports\n[ Home · 01/04/999, Summer, Mon ]\nHero evaded an attack\nHero evaded an attack\nStarving wolf rat takes 1.4 physical\nHero takes 2.7 physical\nHero takes 2.4 physical\nHero takes 3.2 physical\nStarving wolf rat takes 1.1 physical\nHero evaded an attack\nStarving wolf rat takes 1.3 physical\nHero evaded an attack\nHero evaded an attack\nHero evaded an attack\nStarving wolf rat takes 1.2 physical\nHero evaded an attack\nHero evaded an attack\nHero evaded an attack\nStarving wolf rat was hit [CRIT] for 1.7 physical\nPracticed actions is now available in navigation.Related panel ›\nHero evaded an attack\nHero evaded an attack\nHero evaded an attack\nStarving wolf rat takes 1 physical\nHero evaded an attack\nHero evaded an attack\nStarving wolf rat takes 1.1 physical\nHero evaded an attack\nHero takes 2.4 physical\nHero takes 3.1 physical\nStarving wolf rat takes 1.4 physical\nUnlocked new skill: EvasionSkills ›\nSkills & practice is now available in navigation.Skills ›\nEvasion · level 1 · new milestoneSkills ›\nHero takes 2.5 physical\nStarving wolf rat takes 1.3 physical\nHero evaded an attack\nHero takes 2.8 physical\nHero evaded an attack\nStarving wolf rat takes 1.3 physical\nStarving wolf rat was defeated\nTitle earned: Blooded. Defeat your first enemy.\nHero evaded an attack\nHero evaded an attack\nStarving wolf rat takes 1.2 physical\nHero evaded an attack\nStarving wolf rat takes 1 physical\nHero evaded an attack\nHero evaded an attack\nStarving wolf rat takes 1 physical\nHero evaded an attack\nStarving wolf rat takes 1.4 physical\nHero takes 2.3 physical\nHero takes 2.8 physical\nStarving wolf rat evaded an attack\nHero evaded an attack\nHero takes 2.4 physical\nStarving wolf rat takes 1.1 physical\nHero takes 2.7 physical\nHero evaded an attack\nStarving wolf rat takes 1.3 physical\nHero evaded an attack\nStarving wolf rat takes 1.3 physical\nHero evaded an attack\nHero takes 3.3 physical\nStarving wolf rat takes 1.1 physical\nHero evaded an attack\nStarving wolf rat takes 1.3 physical\nHero evaded an attack\nHero evaded an attack\nStarving wolf rat takes 1.3 physical\nHero evaded an attack\nHero evaded an attack\nStarving wolf rat takes 1.3 physical\nHero evaded an attack\nStarving wolf rat takes 1.1 physical\nHero evaded an attack\nHero evaded an attack\nStarving wolf rat takes 1.2 physical\nHero takes 3.5 physical\nStarving wolf rat takes 1.2 physical\nHero takes 3.5 physical\nHero evaded an attack\nStarving wolf rat takes 1.4 physical\nStarving wolf rat was defeated\nHero evaded an attack\nStarving wolf rat evaded an attack\nFilters\nFollow: smart\nFollow: always\nLatest\nStop combat log\nClear",
+    "errors": []
+  },
+  {
+    "name": "person-1366-21",
+    "page": [
+      1366,
+      768
+    ],
+    "viewport": [
+      1366,
+      768
+    ],
+    "regions": {
+      "player": {
+        "x": 17,
+        "y": 39,
+        "w": 467.1875,
+        "h": 367.5,
+        "client": 362,
+        "content": 362,
+        "font": "14px"
+      },
+      "focus": {
+        "x": 488.1875,
+        "y": 39,
+        "w": 463.1875,
+        "h": 367.5,
+        "client": 362,
+        "content": 362,
+        "font": "14px"
+      },
+      "inventory": {
+        "x": 17,
+        "y": 410.5,
+        "w": 348.953125,
+        "h": 310.5,
+        "client": 305,
+        "content": 305,
+        "font": "14px"
+      },
+      "actions": {
+        "x": 369.953125,
+        "y": 410.5,
+        "w": 581.421875,
+        "h": 310.5,
+        "client": 305,
+        "content": 305,
+        "font": "14px"
+      },
+      "log": {
+        "x": 955.375,
+        "y": 39,
+        "w": 393.609375,
+        "h": 682,
+        "client": 676,
+        "content": 676,
+        "font": "14px"
+      }
+    },
+    "list": {
+      "x": 23,
+      "y": 534.125,
+      "w": 336.953125,
+      "h": 182.875,
+      "client": 183,
+      "content": 862,
+      "font": "21px"
+    },
+    "rows": [
+      {
+        "text": "\"ABC for kids\"",
+        "font": "21px",
+        "box": {
+          "x": 23,
+          "y": 534.125,
+          "w": 336.953125,
+          "h": 32.28125,
+          "client": 31,
+          "content": 31,
+          "font": "21px"
+        }
+      },
+      {
+        "text": "Apple",
+        "font": "21px",
+        "box": {
+          "x": 23,
+          "y": 566.40625,
+          "w": 336.953125,
+          "h": 32.28125,
+          "client": 31,
+          "content": 31,
+          "font": "21px"
+        }
+      },
+      {
+        "text": "Boar hide",
+        "font": "21px",
+        "box": {
+          "x": 23,
+          "y": 598.6875,
+          "w": 336.953125,
+          "h": 32.28125,
+          "client": 31,
+          "content": 31,
+          "font": "21px"
+        }
+      },
+      {
+        "text": "Boar meat",
+        "font": "21px",
+        "box": {
+          "x": 23,
+          "y": 630.96875,
+          "w": 336.953125,
+          "h": 32.28125,
+          "client": 31,
+          "content": 31,
+          "font": "21px"
+        }
+      },
+      {
+        "text": "Bread kwas",
+        "font": "21px",
+        "box": {
+          "x": 23,
+          "y": 663.25,
+          "w": 336.953125,
+          "h": 32.28125,
+          "client": 31,
+          "content": 31,
+          "font": "21px"
+        }
+      }
+    ],
+    "stats": [],
+    "text": "Authoring\nLayout\nComfortable\nYou\nLv 0\n0 / 10 xp\n92/92 stamina\n61/61 hp\nSTR\n22.9\nAGL\n19.7\nDEX\n15.0\nINT\n27.5\nDefense\n1.0\nMagic\n0.0\nAttack\n2.3\nSpeed\n1.0 /s\nCrit %\n5.0%\nCrit ×\n130.0%\nAP\n80\nEP\n109\nAttributes ›\nGear · 0\nvillage elder\n▾\nExpand\n← Village\n\nVillage neighbor\n\nKnown traits: Not assessed\n\nRelationship: No remembered dealings.\n\nTalk with village elder\nAll items\nEquipment\nUsable\nOther\nFavorites\nName\nValue\nType\nReverse\nInventory\n5S\n21 / 21\n\"ABC for kids\"\n10C\nApple\nx3\n2C\nBoar hide\nx3\n3C\nBoar meat\nx4\n2C\nBread kwas\nx2\n4C\nCarrot\nx4\n2C\nCooked carrot\nx2\n3C\nFresh bread\nx5\n4C\n\"Old combat manual\"\n20C\nPotato\nx5\n1C 5W\nRat pelt\nx5\n1C\nRat tail\nx4\n4W\nStale bread\nx5\n2C\nWolf pelt\nx2\n2C\n[off-hand]\nAsh wood shield\n[80%]\n1S 7C\n[legs]\nCheap leather pants\n[40%]\n4C 6W\n[torso]\nGoat leather vest\n[80%]\n43C\n[legs]\nLeather pants\n[80%]\n17C 6W\n[torso]\nLeather vest\n[80%]\n29C\n[cape]\nRat pelt cape\n[80%]\n8C\n[off-hand]\nWooden shield\n[80%]\n72C\n\nVillage\n☀ Summer\nDry\n♨ 14.7°C\n01/04/999 08:01, Mon · ☼ Day\n\nActions\nOptions\n\nNo work running.\n\nSaving available.\n\ndirections Move somewhere else\nconstruction Try to craft something\nquestion_answer Talk to someone\nwork_outline Find work\nfitness_center Train\nsearch Gather resources\nVillage practice and familiar ground\n2 ready / 2 actions\nLocal life\n4 ready / 6 actions\nMarket courtyard · trade, property and projects\n1 ready / 1 actions\nBooks, earned rest and leatherwork (proposal)\n1 ready / 1 actions\nMix at the Village counter\nHere\nSkills\nCrafting\nMixing\n?\nReports\n[ Home · 01/04/999, Summer, Mon ]\nTitles recognized from your past: Blooded, Reader.\nFilters\nFollow: smart\nFollow: always\nLatest\nStop combat log\nClear",
+    "errors": []
+  },
+  {
+    "name": "dialogue-1366-21",
+    "page": [
+      1366,
+      768
+    ],
+    "viewport": [
+      1366,
+      768
+    ],
+    "regions": {
+      "player": {
+        "x": 17,
+        "y": 39,
+        "w": 467.1875,
+        "h": 367.5,
+        "client": 362,
+        "content": 362,
+        "font": "14px"
+      },
+      "focus": {
+        "x": 488.1875,
+        "y": 39,
+        "w": 463.1875,
+        "h": 367.5,
+        "client": 362,
+        "content": 362,
+        "font": "14px"
+      },
+      "inventory": {
+        "x": 17,
+        "y": 410.5,
+        "w": 348.953125,
+        "h": 310.5,
+        "client": 305,
+        "content": 305,
+        "font": "14px"
+      },
+      "actions": {
+        "x": 369.953125,
+        "y": 410.5,
+        "w": 581.421875,
+        "h": 310.5,
+        "client": 305,
+        "content": 305,
+        "font": "14px"
+      },
+      "log": {
+        "x": 955.375,
+        "y": 39,
+        "w": 393.609375,
+        "h": 682,
+        "client": 676,
+        "content": 676,
+        "font": "14px"
+      }
+    },
+    "list": {
+      "x": 23,
+      "y": 534.125,
+      "w": 336.953125,
+      "h": 182.875,
+      "client": 183,
+      "content": 862,
+      "font": "21px"
+    },
+    "rows": [
+      {
+        "text": "\"ABC for kids\"",
+        "font": "21px",
+        "box": {
+          "x": 23,
+          "y": 534.125,
+          "w": 336.953125,
+          "h": 32.28125,
+          "client": 31,
+          "content": 31,
+          "font": "21px"
+        }
+      },
+      {
+        "text": "Apple",
+        "font": "21px",
+        "box": {
+          "x": 23,
+          "y": 566.40625,
+          "w": 336.953125,
+          "h": 32.28125,
+          "client": 31,
+          "content": 31,
+          "font": "21px"
+        }
+      },
+      {
+        "text": "Boar hide",
+        "font": "21px",
+        "box": {
+          "x": 23,
+          "y": 598.6875,
+          "w": 336.953125,
+          "h": 32.28125,
+          "client": 31,
+          "content": 31,
+          "font": "21px"
+        }
+      },
+      {
+        "text": "Boar meat",
+        "font": "21px",
+        "box": {
+          "x": 23,
+          "y": 630.96875,
+          "w": 336.953125,
+          "h": 32.28125,
+          "client": 31,
+          "content": 31,
+          "font": "21px"
+        }
+      },
+      {
+        "text": "Bread kwas",
+        "font": "21px",
+        "box": {
+          "x": 23,
+          "y": 663.25,
+          "w": 336.953125,
+          "h": 32.28125,
+          "client": 31,
+          "content": 31,
+          "font": "21px"
+        }
+      }
+    ],
+    "stats": [],
+    "text": "Authoring\nLayout\nComfortable\nYou\nLv 0\n0 / 10 xp\n92/92 stamina\n61/61 hp\nSTR\n22.9\nAGL\n19.7\nDEX\n15.0\nINT\n27.5\nDefense\n1.0\nMagic\n0.0\nAttack\n2.3\nSpeed\n1.0 /s\nCrit %\n5.0%\nCrit ×\n130.0%\nAP\n80\nEP\n109\nAttributes ›\nGear · 0\nvillage elder\n▾\nExpand\n← Village\n\nVillage neighbor\n\nKnown traits: Not assessed\n\nRelationship: No remembered dealings.\n\nTalk with village elder\nAll items\nEquipment\nUsable\nOther\nFavorites\nName\nValue\nType\nReverse\nInventory\n5S\n21 / 21\n\"ABC for kids\"\n10C\nApple\nx3\n2C\nBoar hide\nx3\n3C\nBoar meat\nx4\n2C\nBread kwas\nx2\n4C\nCarrot\nx4\n2C\nCooked carrot\nx2\n3C\nFresh bread\nx5\n4C\n\"Old combat manual\"\n20C\nPotato\nx5\n1C 5W\nRat pelt\nx5\n1C\nRat tail\nx4\n4W\nStale bread\nx5\n2C\nWolf pelt\nx2\n2C\n[off-hand]\nAsh wood shield\n[80%]\n1S 7C\n[legs]\nCheap leather pants\n[40%]\n4C 6W\n[torso]\nGoat leather vest\n[80%]\n43C\n[legs]\nLeather pants\n[80%]\n17C 6W\n[torso]\nLeather vest\n[80%]\n29C\n[cape]\nRat pelt cape\n[80%]\n8C\n[off-hand]\nWooden shield\n[80%]\n72C\n\nVillage\n☀ Summer\nDry\n♨ 14.7°C\n01/04/999 08:01, Mon · ☼ Day\n\nConversation in progress\n\nSaving available.\n\nOpen local controls\nVillage elder\n*You see an older man with curly white hair and dull, heavy horns. Despite his years, he stands with a strong posture, ready to ram any threat to the village. He eyes you with curiosity.*\n\"text not found, id: 'Ask about the moonlit herb bed'\"\n\"Who are you?\"\n\"About the spare weapon...\"\n\"Can I leave the village?\"\n\"Are wolf rats a big issue?\"\n← Village\nHere\nSkills\nCrafting\nMixing\n?\nReports\n[ Home · 01/04/999, Summer, Mon ]\nTitles recognized from your past: Blooded, Reader.\nFilters\nFollow: smart\nFollow: always\nLatest\nStop combat log\nClear",
+    "errors": []
+  },
+  {
+    "name": "cooking-ready-1920-21",
+    "page": [
+      1920,
+      1080
+    ],
+    "viewport": [
+      1920,
+      1080
+    ],
+    "regions": {
+      "player": {
+        "x": 17,
+        "y": 39,
+        "w": 628.65625,
+        "h": 410.390625,
+        "client": 404,
+        "content": 404,
+        "font": "14px"
+      },
+      "focus": {
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "client": 0,
+        "content": 0,
+        "font": "14px"
+      },
+      "inventory": {
+        "x": 17,
+        "y": 455.390625,
+        "w": 628.65625,
+        "h": 577.609375,
+        "client": 572,
+        "content": 572,
+        "font": "14px"
+      },
+      "actions": {
+        "x": 651.65625,
+        "y": 39,
+        "w": 744.765625,
+        "h": 994,
+        "client": 988,
+        "content": 988,
+        "font": "14px"
+      },
+      "log": {
+        "x": 1402.421875,
+        "y": 39,
+        "w": 500.578125,
+        "h": 994,
+        "client": 988,
+        "content": 988,
+        "font": "14px"
+      }
+    },
+    "list": {
+      "x": 23,
+      "y": 579.015625,
+      "w": 616.65625,
+      "h": 449.984375,
+      "client": 450,
+      "content": 450,
+      "font": "21px"
+    },
+    "rows": [
+      {
+        "text": "Rat meat chunks",
+        "font": "21px",
+        "box": {
+          "x": 23,
+          "y": 579.015625,
+          "w": 616.65625,
+          "h": 32.28125,
+          "client": 31,
+          "content": 31,
+          "font": "21px"
+        }
+      },
+      {
+        "text": "Rough wood log",
+        "font": "21px",
+        "box": {
+          "x": 23,
+          "y": 611.296875,
+          "w": 616.65625,
+          "h": 32.28125,
+          "client": 31,
+          "content": 31,
+          "font": "21px"
+        }
+      },
+      {
+        "text": "Stale bread",
+        "font": "21px",
+        "box": {
+          "x": 23,
+          "y": 643.578125,
+          "w": 616.65625,
+          "h": 32.28125,
+          "client": 31,
+          "content": 31,
+          "font": "21px"
+        }
+      },
+      {
+        "text": "Cheap leather pants",
+        "font": "21px",
+        "box": {
+          "x": 23,
+          "y": 675.859375,
+          "w": 616.65625,
+          "h": 58.53125,
+          "client": 58,
+          "content": 58,
+          "font": "21px"
+        }
+      },
+      {
+        "text": "Old pickaxe",
+        "font": "21px",
+        "box": {
+          "x": 23,
+          "y": 734.390625,
+          "w": 616.65625,
+          "h": 58.53125,
+          "client": 58,
+          "content": 58,
+          "font": "21px"
+        }
+      },
+      {
+        "text": "Old shovel",
+        "font": "21px",
+        "box": {
+          "x": 23,
+          "y": 792.921875,
+          "w": 616.65625,
+          "h": 58.53125,
+          "client": 58,
+          "content": 58,
+          "font": "21px"
+        }
+      },
+      {
+        "text": "Old sickle",
+        "font": "21px",
+        "box": {
+          "x": 23,
+          "y": 851.453125,
+          "w": 616.65625,
+          "h": 58.53125,
+          "client": 58,
+          "content": 58,
+          "font": "21px"
+        }
+      }
+    ],
+    "stats": [],
+    "text": "Authoring\nLayout\nComfortable\nYou\nLv 0\n0 / 10 xp\n40/40 stamina\n60/60 hp\nSTR\n12.0\nAGL\n8.0\nDEX\n10.0\nINT\n10.0\nDefense\n1.0\nMagic\n0.0\nAttack\n1.2\nSpeed\n1.0 /s\nCrit %\n5.0%\nCrit ×\n130.0%\nAP\n32\nEP\n25\nSta eff.\n×1\nCold Δ\n0 °C Δ\nHero XP\n×1\nSkill XP\n×1\nGlobal XP\n×1\nHits/atk\n1 hits\nAttributes ›\nGear · 0\nAll items\nEquipment\nUsable\nOther\nFavorites\nName\nValue\nType\nReverse\nInventory\n10C 2W\n7 / 7\nRat meat chunks\nx3\n8W\nRough wood log\nx2\n1C\nStale bread\nx5\n2C\n[legs]\nCheap leather pants\n[40%]\n4C 6W\n[tool]\nOld pickaxe\n1C\n[tool]\nOld shovel\n1C\n[tool]\nOld sickle\n1C\n\nVillage\n☀ Summer\nDry\n♨ 15.8°C\n01/04/999 08:58, Mon · ☼ Day\n\nNo work running.\n\nSaving available.\n\nCrafting\nTinkering\nButchering\nCooking\nWoodworking\nSmelting\nForging\nAlchemy\n Makeable now\nRoasted rat meat\nRoasted purified rat meat\nFried pork\nFried goat meat\nPork roast\nGoat stew\nBread\nApple pie\nBread kwas\nCider\nFish skewer\nFried fish\nFish steak\nFried frog meat\nKingsized frog legs\nRoasted rat meat\nUses · have / need\nRat meat chunks\n3/2\nMakesRoasted rat meat x1\nWhen used\nCheap meat meal\n45m\nSlight food poisoning\n45m\nSuccess\n70%\nCan craft now: 1 attempt\nStationCooking, tier 1\nXPvalue 9.2 per success, a quarter on failure; bonuses and level caps apply\nRelated on this station\nRoasted purified rat meat\nalso uses Rat meat chunks\nResult details\nCraft 1\n5\n10\nAll\n← Village\nHere\nCrafting\nMixing\n?\nReports\n[ Home · 01/04/999, Summer, Mon ]\nFilters\nFollow: smart\nFollow: always\nLatest\nStop combat log\nClear",
+    "errors": []
+  },
+  {
+    "name": "cooking-blocked-1920-21",
+    "page": [
+      1920,
+      1080
+    ],
+    "viewport": [
+      1920,
+      1080
+    ],
+    "regions": {
+      "player": {
+        "x": 17,
+        "y": 39,
+        "w": 628.65625,
+        "h": 410.390625,
+        "client": 404,
+        "content": 404,
+        "font": "14px"
+      },
+      "focus": {
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "client": 0,
+        "content": 0,
+        "font": "14px"
+      },
+      "inventory": {
+        "x": 17,
+        "y": 455.390625,
+        "w": 628.65625,
+        "h": 577.609375,
+        "client": 572,
+        "content": 572,
+        "font": "14px"
+      },
+      "actions": {
+        "x": 651.65625,
+        "y": 39,
+        "w": 744.765625,
+        "h": 994,
+        "client": 988,
+        "content": 988,
+        "font": "14px"
+      },
+      "log": {
+        "x": 1402.421875,
+        "y": 39,
+        "w": 500.578125,
+        "h": 994,
+        "client": 988,
+        "content": 988,
+        "font": "14px"
+      }
+    },
+    "list": {
+      "x": 23,
+      "y": 579.015625,
+      "w": 616.65625,
+      "h": 449.984375,
+      "client": 450,
+      "content": 450,
+      "font": "21px"
+    },
+    "rows": [
+      {
+        "text": "Rat meat chunks",
+        "font": "21px",
+        "box": {
+          "x": 23,
+          "y": 579.015625,
+          "w": 616.65625,
+          "h": 32.28125,
+          "client": 31,
+          "content": 31,
+          "font": "21px"
+        }
+      },
+      {
+        "text": "Rough wood log",
+        "font": "21px",
+        "box": {
+          "x": 23,
+          "y": 611.296875,
+          "w": 616.65625,
+          "h": 32.28125,
+          "client": 31,
+          "content": 31,
+          "font": "21px"
+        }
+      },
+      {
+        "text": "Stale bread",
+        "font": "21px",
+        "box": {
+          "x": 23,
+          "y": 643.578125,
+          "w": 616.65625,
+          "h": 32.28125,
+          "client": 31,
+          "content": 31,
+          "font": "21px"
+        }
+      },
+      {
+        "text": "Cheap leather pants",
+        "font": "21px",
+        "box": {
+          "x": 23,
+          "y": 675.859375,
+          "w": 616.65625,
+          "h": 58.53125,
+          "client": 58,
+          "content": 58,
+          "font": "21px"
+        }
+      },
+      {
+        "text": "Old pickaxe",
+        "font": "21px",
+        "box": {
+          "x": 23,
+          "y": 734.390625,
+          "w": 616.65625,
+          "h": 58.53125,
+          "client": 58,
+          "content": 58,
+          "font": "21px"
+        }
+      },
+      {
+        "text": "Old shovel",
+        "font": "21px",
+        "box": {
+          "x": 23,
+          "y": 792.921875,
+          "w": 616.65625,
+          "h": 58.53125,
+          "client": 58,
+          "content": 58,
+          "font": "21px"
+        }
+      },
+      {
+        "text": "Old sickle",
+        "font": "21px",
+        "box": {
+          "x": 23,
+          "y": 851.453125,
+          "w": 616.65625,
+          "h": 58.53125,
+          "client": 58,
+          "content": 58,
+          "font": "21px"
+        }
+      }
+    ],
+    "stats": [],
+    "text": "Authoring\nLayout\nComfortable\nYou\nLv 0\n0 / 10 xp\n40/40 stamina\n60/60 hp\nSTR\n12.0\nAGL\n8.0\nDEX\n10.0\nINT\n10.0\nDefense\n1.0\nMagic\n0.0\nAttack\n1.2\nSpeed\n1.0 /s\nCrit %\n5.0%\nCrit ×\n130.0%\nAP\n32\nEP\n25\nSta eff.\n×1\nCold Δ\n0 °C Δ\nHero XP\n×1\nSkill XP\n×1\nGlobal XP\n×1\nHits/atk\n1 hits\nAttributes ›\nGear · 0\nAll items\nEquipment\nUsable\nOther\nFavorites\nName\nValue\nType\nReverse\nInventory\n10C 2W\n7 / 7\nRat meat chunks\nx3\n8W\nRough wood log\nx2\n1C\nStale bread\nx5\n2C\n[legs]\nCheap leather pants\n[40%]\n4C 6W\n[tool]\nOld pickaxe\n1C\n[tool]\nOld shovel\n1C\n[tool]\nOld sickle\n1C\n\nVillage\n☀ Summer\nDry\n♨ 15.8°C\n01/04/999 08:58, Mon · ☼ Day\n\nNo work running.\n\nSaving available.\n\nCrafting\nTinkering\nButchering\nCooking\nWoodworking\nSmelting\nForging\nAlchemy\n Makeable now\nRoasted rat meat\nRoasted purified rat meat\nFried pork\nFried goat meat\nPork roast\nGoat stew\nBread\nApple pie\nBread kwas\nCider\nFish skewer\nFried fish\nFish steak\nFried frog meat\nKingsized frog legs\nRoasted purified rat meat\nUses · have / need\nRat meat chunks\n3/2\nUnfamiliar material\n0/1\nmissing 1\nMakesRoasted purified rat meat x1\nWhen used\nCheap meat meal\n45m\nSuccess\n40%\nCan craft now: 0 attempts\nStationCooking, tier 1\nXPvalue 19.7 per success, a quarter on failure; bonuses and level caps apply\nRelated on this station\nRoasted rat meat\nalso uses Rat meat chunks\nResult details\n\nCan't craft yet: missing 1 Unfamiliar material.\n\nCraft 1\n5\n10\nAll\n← Village\nHere\nCrafting\nMixing\n?\nReports\n[ Home · 01/04/999, Summer, Mon ]\nFilters\nFollow: smart\nFollow: always\nLatest\nStop combat log\nClear",
+    "errors": []
+  },
+  {
+    "name": "combat-1920-21",
+    "page": [
+      1920,
+      1080
+    ],
+    "viewport": [
+      1920,
+      1080
+    ],
+    "regions": {
+      "player": {
+        "x": 17,
+        "y": 39,
+        "w": 628.65625,
+        "h": 497,
+        "client": 491,
+        "content": 491,
+        "font": "14px"
+      },
+      "focus": {
+        "x": 651.65625,
+        "y": 39,
+        "w": 744.765625,
+        "h": 497,
+        "client": 491,
+        "content": 491,
+        "font": "14px"
+      },
+      "inventory": {
+        "x": 17,
+        "y": 542,
+        "w": 500.5625,
+        "h": 491,
+        "client": 485,
+        "content": 485,
+        "font": "14px"
+      },
+      "actions": {
+        "x": 523.5625,
+        "y": 542,
+        "w": 872.859375,
+        "h": 491,
+        "client": 485,
+        "content": 485,
+        "font": "14px"
+      },
+      "log": {
+        "x": 1402.421875,
+        "y": 39,
+        "w": 500.578125,
+        "h": 994,
+        "client": 988,
+        "content": 988,
+        "font": "14px"
+      }
+    },
+    "list": {
+      "x": 23,
+      "y": 665.625,
+      "w": 488.5625,
+      "h": 363.375,
+      "client": 363,
+      "content": 862,
+      "font": "21px"
+    },
+    "rows": [
+      {
+        "text": "\"ABC for kids\"",
+        "font": "21px",
+        "box": {
+          "x": 23,
+          "y": 665.625,
+          "w": 488.5625,
+          "h": 32.28125,
+          "client": 31,
+          "content": 31,
+          "font": "21px"
+        }
+      },
+      {
+        "text": "Apple",
+        "font": "21px",
+        "box": {
+          "x": 23,
+          "y": 697.90625,
+          "w": 488.5625,
+          "h": 32.28125,
+          "client": 31,
+          "content": 31,
+          "font": "21px"
+        }
+      },
+      {
+        "text": "Boar hide",
+        "font": "21px",
+        "box": {
+          "x": 23,
+          "y": 730.1875,
+          "w": 488.5625,
+          "h": 32.28125,
+          "client": 31,
+          "content": 31,
+          "font": "21px"
+        }
+      },
+      {
+        "text": "Boar meat",
+        "font": "21px",
+        "box": {
+          "x": 23,
+          "y": 762.46875,
+          "w": 488.5625,
+          "h": 32.28125,
+          "client": 31,
+          "content": 31,
+          "font": "21px"
+        }
+      },
+      {
+        "text": "Bread kwas",
+        "font": "21px",
+        "box": {
+          "x": 23,
+          "y": 794.75,
+          "w": 488.5625,
+          "h": 32.28125,
+          "client": 31,
+          "content": 31,
+          "font": "21px"
+        }
+      },
+      {
+        "text": "Carrot",
+        "font": "21px",
+        "box": {
+          "x": 23,
+          "y": 827.03125,
+          "w": 488.5625,
+          "h": 32.28125,
+          "client": 31,
+          "content": 31,
+          "font": "21px"
+        }
+      },
+      {
+        "text": "Cooked carrot",
+        "font": "21px",
+        "box": {
+          "x": 23,
+          "y": 859.3125,
+          "w": 488.5625,
+          "h": 32.28125,
+          "client": 31,
+          "content": 31,
+          "font": "21px"
+        }
+      },
+      {
+        "text": "Fresh bread",
+        "font": "21px",
+        "box": {
+          "x": 23,
+          "y": 891.59375,
+          "w": 488.5625,
+          "h": 32.28125,
+          "client": 31,
+          "content": 31,
+          "font": "21px"
+        }
+      },
+      {
+        "text": "\"Old combat manual\"",
+        "font": "21px",
+        "box": {
+          "x": 23,
+          "y": 923.875,
+          "w": 488.5625,
+          "h": 32.28125,
+          "client": 31,
+          "content": 31,
+          "font": "21px"
+        }
+      },
+      {
+        "text": "Potato",
+        "font": "21px",
+        "box": {
+          "x": 23,
+          "y": 956.15625,
+          "w": 488.5625,
+          "h": 32.28125,
+          "client": 31,
+          "content": 31,
+          "font": "21px"
+        }
+      },
+      {
+        "text": "Rat pelt",
+        "font": "21px",
+        "box": {
+          "x": 23,
+          "y": 988.4375,
+          "w": 488.5625,
+          "h": 32.28125,
+          "client": 31,
+          "content": 31,
+          "font": "21px"
+        }
+      }
+    ],
+    "stats": [],
+    "text": "Authoring\nLayout\nComfortable\nYou\nLv 0\n0 / 10 xp\n38/40 stamina\n60/60 hp\nSTR\n12.0\nAGL\n8.0\nDEX\n10.0\nINT\n10.0\nDefense\n1.0\nMagic\n0.0\nAttack\n1.2\nSpeed\n1.0 /s\nCrit %\n5.0%\nCrit ×\n130.0%\nAP\n32\nEP\n19\nSta eff.\n×1\nCold Δ\n0 °C Δ\nHero XP\n×1\nSkill XP\n×1\nGlobal XP\n×1\nHits/atk\n1 hits\nHP /s\n0 hp/s\nSta /s\n0 /s\nUnarmed\n1\nHP %/s\n0 % /s\nAttributes ›\nGear · 0\nOpponents · 3\n3 opponents · inspect · 15 / 15 groups left · Clears: [0]\nCompact\n1 · Starving wolf rat\n\n19/20 hp\n\nAtk\n4 dmg\nSpd\n0.82 /s\nHit you\n35%\nEvade\n18%\nDefense\n0\nYour hit\n82%\n2 · Starving wolf rat\n\n17/20 hp\n\nAtk\n4 dmg\nSpd\n0.82 /s\nHit you\n35%\nEvade\n18%\nDefense\n0\nYour hit\n82%\n3 · Starving wolf rat\n\n13/20 hp\n\nAtk\n4 dmg\nSpd\n0.82 /s\nHit you\n35%\nEvade\n18%\nDefense\n0\nYour hit\n82%\nAll items\nEquipment\nUsable\nOther\nFavorites\nName\nValue\nType\nReverse\nInventory\n10C 2W\n21 / 21\n\"ABC for kids\"\n10C\nApple\nx3\n2C\nBoar hide\nx3\n3C\nBoar meat\nx4\n2C\nBread kwas\nx2\n4C\nCarrot\nx4\n2C\nCooked carrot\nx2\n3C\nFresh bread\nx5\n4C\n\"Old combat manual\"\n20C\nPotato\nx5\n1C 5W\nRat pelt\nx5\n1C\nRat tail\nx4\n4W\nStale bread\nx5\n2C\nWolf pelt\nx2\n2C\n[off-hand]\nAsh wood shield\n[80%]\n1S 7C\n[legs]\nCheap leather pants\n[40%]\n4C 6W\n[torso]\nGoat leather vest\n[80%]\n43C\n[legs]\nLeather pants\n[80%]\n17C 6W\n[torso]\nLeather vest\n[80%]\n29C\n[cape]\nRat pelt cape\n[80%]\n8C\n[off-hand]\nWooden shield\n[80%]\n72C\n\nInfested field\n☀ Summer\nDry\n♨ 15.0°C\n01/04/999 08:17, Mon · ☼ Day\n\nActions\nOptions\n\nCombat in progress\n\nSaving available.\n\nOpen local controls\nGo back to [Village] [15m]\n← Village\nHere\nCrafting\nMixing\n?\nReports\n[ Home · 01/04/999, Summer, Mon ]\nFilters\nFollow: smart\nFollow: always\nLatest\nStop combat log\nClear",
+    "errors": []
+  },
+  {
+    "name": "reports-live-1920-21",
+    "page": [
+      1920,
+      1080
+    ],
+    "viewport": [
+      1920,
+      1080
+    ],
+    "regions": {
+      "player": {
+        "x": 17,
+        "y": 39,
+        "w": 628.65625,
+        "h": 497,
+        "client": 491,
+        "content": 491,
+        "font": "14px"
+      },
+      "focus": {
+        "x": 651.65625,
+        "y": 39,
+        "w": 744.765625,
+        "h": 497,
+        "client": 491,
+        "content": 491,
+        "font": "14px"
+      },
+      "inventory": {
+        "x": 17,
+        "y": 542,
+        "w": 500.5625,
+        "h": 491,
+        "client": 485,
+        "content": 485,
+        "font": "14px"
+      },
+      "actions": {
+        "x": 523.5625,
+        "y": 542,
+        "w": 872.859375,
+        "h": 491,
+        "client": 485,
+        "content": 485,
+        "font": "14px"
+      },
+      "log": {
+        "x": 1402.421875,
+        "y": 39,
+        "w": 500.578125,
+        "h": 994,
+        "client": 988,
+        "content": 988,
+        "font": "14px"
+      }
+    },
+    "list": {
+      "x": 23,
+      "y": 665.625,
+      "w": 488.5625,
+      "h": 363.375,
+      "client": 363,
+      "content": 862,
+      "font": "21px"
+    },
+    "rows": [
+      {
+        "text": "\"ABC for kids\"",
+        "font": "21px",
+        "box": {
+          "x": 23,
+          "y": 665.625,
+          "w": 488.5625,
+          "h": 32.28125,
+          "client": 31,
+          "content": 31,
+          "font": "21px"
+        }
+      },
+      {
+        "text": "Apple",
+        "font": "21px",
+        "box": {
+          "x": 23,
+          "y": 697.90625,
+          "w": 488.5625,
+          "h": 32.28125,
+          "client": 31,
+          "content": 31,
+          "font": "21px"
+        }
+      },
+      {
+        "text": "Boar hide",
+        "font": "21px",
+        "box": {
+          "x": 23,
+          "y": 730.1875,
+          "w": 488.5625,
+          "h": 32.28125,
+          "client": 31,
+          "content": 31,
+          "font": "21px"
+        }
+      },
+      {
+        "text": "Boar meat",
+        "font": "21px",
+        "box": {
+          "x": 23,
+          "y": 762.46875,
+          "w": 488.5625,
+          "h": 32.28125,
+          "client": 31,
+          "content": 31,
+          "font": "21px"
+        }
+      },
+      {
+        "text": "Bread kwas",
+        "font": "21px",
+        "box": {
+          "x": 23,
+          "y": 794.75,
+          "w": 488.5625,
+          "h": 32.28125,
+          "client": 31,
+          "content": 31,
+          "font": "21px"
+        }
+      },
+      {
+        "text": "Carrot",
+        "font": "21px",
+        "box": {
+          "x": 23,
+          "y": 827.03125,
+          "w": 488.5625,
+          "h": 32.28125,
+          "client": 31,
+          "content": 31,
+          "font": "21px"
+        }
+      },
+      {
+        "text": "Cooked carrot",
+        "font": "21px",
+        "box": {
+          "x": 23,
+          "y": 859.3125,
+          "w": 488.5625,
+          "h": 32.28125,
+          "client": 31,
+          "content": 31,
+          "font": "21px"
+        }
+      },
+      {
+        "text": "Fresh bread",
+        "font": "21px",
+        "box": {
+          "x": 23,
+          "y": 891.59375,
+          "w": 488.5625,
+          "h": 32.28125,
+          "client": 31,
+          "content": 31,
+          "font": "21px"
+        }
+      },
+      {
+        "text": "\"Old combat manual\"",
+        "font": "21px",
+        "box": {
+          "x": 23,
+          "y": 923.875,
+          "w": 488.5625,
+          "h": 32.28125,
+          "client": 31,
+          "content": 31,
+          "font": "21px"
+        }
+      },
+      {
+        "text": "Potato",
+        "font": "21px",
+        "box": {
+          "x": 23,
+          "y": 956.15625,
+          "w": 488.5625,
+          "h": 32.28125,
+          "client": 31,
+          "content": 31,
+          "font": "21px"
+        }
+      },
+      {
+        "text": "Rat pelt",
+        "font": "21px",
+        "box": {
+          "x": 23,
+          "y": 988.4375,
+          "w": 488.5625,
+          "h": 32.28125,
+          "client": 31,
+          "content": 31,
+          "font": "21px"
+        }
+      }
+    ],
+    "stats": [],
+    "text": "Authoring\nLayout\nComfortable\nYou\nLv 0\n2.9 / 10 xp\n8/40 stamina\n10/60 hp\nSTR\n12.0\nAGL\n9.0\nDEX\n10.0\nINT\n10.0\nDefense\n1.0\nMagic\n0.0\nAttack\n1.2\nSpeed\n1.0 /s\nCrit %\n5.0%\nCrit ×\n130.0%\nAP\n32\nEP\n22\nSta eff.\n×1\nCold Δ\n0 °C Δ\nHero XP\n×1\nSkill XP\n×1\nGlobal XP\n×1\nHits/atk\n1 hits\nHP /s\n0 hp/s\nSta /s\n0 /s\nUnarmed\n1\nHP %/s\n0 % /s\nAttributes ›\nGear · 0\nOpponents · 3\n3 opponents · inspect · 15 / 15 groups left · Clears: [0]\nCompact\n1 · Starving wolf rat\n\n18/20 hp\n\nAtk\n4 dmg\nSpd\n0.82 /s\nHit you\n17%\nEvade\n10%\nDefense\n0\nYour hit\n90%\n2 · Starving wolf rat\n\n0/20 hp\n\nAtk\n4 dmg\nSpd\n0.82 /s\nHit you\n17%\nEvade\n10%\nDefense\n0\nYour hit\n90%\n3 · Starving wolf rat\n\n0/20 hp\n\nAtk\n4 dmg\nSpd\n0.82 /s\nHit you\n17%\nEvade\n10%\nDefense\n0\nYour hit\n90%\nAll items\nEquipment\nUsable\nOther\nFavorites\nName\nValue\nType\nReverse\nInventory\n10C 2W\n21 / 21\n\"ABC for kids\"\n10C\nApple\nx3\n2C\nBoar hide\nx3\n3C\nBoar meat\nx4\n2C\nBread kwas\nx2\n4C\nCarrot\nx4\n2C\nCooked carrot\nx2\n3C\nFresh bread\nx5\n4C\n\"Old combat manual\"\n20C\nPotato\nx5\n1C 5W\nRat pelt\nx5\n1C\nRat tail\nx4\n4W\nStale bread\nx5\n2C\nWolf pelt\nx2\n2C\n[off-hand]\nAsh wood shield\n[80%]\n1S 7C\n[legs]\nCheap leather pants\n[40%]\n4C 6W\n[torso]\nGoat leather vest\n[80%]\n43C\n[legs]\nLeather pants\n[80%]\n17C 6W\n[torso]\nLeather vest\n[80%]\n29C\n[cape]\nRat pelt cape\n[80%]\n8C\n[off-hand]\nWooden shield\n[80%]\n72C\n\nInfested field\n☀ Summer\nDry\n♨ 15.6°C\n01/04/999 08:47, Mon · ☼ Day\n\nActions\nOptions\n\nCombat in progress\n\nSaving available.\n\nOpen local controls\nGo back to [Village] [15m]\nCarcass processing\n0 ready / 4 actions\n← Village\nHere\nSkills\nCrafting\nMixing\n?\nReports\n[ Home · 01/04/999, Summer, Mon ]\nHero evaded an attack\nHero evaded an attack\nHero takes 2.7 physical\nStarving wolf rat takes 1.4 physical\nHero takes 2.4 physical\nHero takes 3.2 physical\nStarving wolf rat takes 1.1 physical\nHero evaded an attack\nStarving wolf rat takes 1.3 physical\nHero evaded an attack\nHero evaded an attack\nHero evaded an attack\nStarving wolf rat takes 1.2 physical\nHero evaded an attack\nHero evaded an attack\nHero evaded an attack\nStarving wolf rat was hit [CRIT] for 1.7 physical\nPracticed actions is now available in navigation.Related panel ›\nHero evaded an attack\nHero evaded an attack\nHero evaded an attack\nStarving wolf rat takes 1 physical\nHero evaded an attack\nHero evaded an attack\nStarving wolf rat takes 1.1 physical\nHero evaded an attack\nHero takes 2.4 physical\nHero takes 3.1 physical\nStarving wolf rat takes 1.4 physical\nUnlocked new skill: EvasionSkills ›\nSkills & practice is now available in navigation.Skills ›\nEvasion · level 1 · new milestoneSkills ›\nHero takes 2.5 physical\nStarving wolf rat takes 1.3 physical\nHero evaded an attack\nHero takes 2.8 physical\nHero evaded an attack\nStarving wolf rat takes 1.3 physical\nStarving wolf rat was defeated\nTitle earned: Blooded. Defeat your first enemy.\nHero evaded an attack\nHero evaded an attack\nStarving wolf rat takes 1.2 physical\nHero evaded an attack\nHero evaded an attack\nStarving wolf rat takes 1 physical\nHero evaded an attack\nStarving wolf rat takes 1 physical\nHero evaded an attack\nStarving wolf rat takes 1.4 physical\nHero takes 2.3 physical\nHero takes 2.8 physical\nStarving wolf rat evaded an attack\nHero evaded an attack\nHero takes 2.4 physical\nStarving wolf rat takes 1.1 physical\nHero takes 2.7 physical\nHero evaded an attack\nStarving wolf rat takes 1.3 physical\nHero evaded an attack\nHero evaded an attack\nStarving wolf rat takes 1.3 physical\nHero takes 3.3 physical\nStarving wolf rat takes 1.1 physical\nHero evaded an attack\nStarving wolf rat takes 1.3 physical\nHero evaded an attack\nHero evaded an attack\nStarving wolf rat takes 1.3 physical\nHero evaded an attack\nHero evaded an attack\nStarving wolf rat takes 1.3 physical\nHero evaded an attack\nHero evaded an attack\nStarving wolf rat takes 1.1 physical\nHero evaded an attack\nStarving wolf rat takes 1.2 physical\nHero takes 3.5 physical\nStarving wolf rat takes 1.2 physical\nHero takes 3.5 physical\nHero evaded an attack\nStarving wolf rat takes 1.4 physical\nStarving wolf rat was defeated\nHero evaded an attack\nStarving wolf rat evaded an attack\nFilters\nFollow: smart\nFollow: always\nLatest\nStop combat log\nClear",
+    "errors": []
+  },
+  {
+    "name": "person-1920-21",
+    "page": [
+      1920,
+      1080
+    ],
+    "viewport": [
+      1920,
+      1080
+    ],
+    "regions": {
+      "player": {
+        "x": 17,
+        "y": 39,
+        "w": 628.65625,
+        "h": 410.390625,
+        "client": 404,
+        "content": 404,
+        "font": "14px"
+      },
+      "focus": {
+        "x": 651.65625,
+        "y": 39,
+        "w": 744.765625,
+        "h": 410.390625,
+        "client": 404,
+        "content": 404,
+        "font": "14px"
+      },
+      "inventory": {
+        "x": 17,
+        "y": 455.390625,
+        "w": 500.5625,
+        "h": 577.609375,
+        "client": 572,
+        "content": 572,
+        "font": "14px"
+      },
+      "actions": {
+        "x": 523.5625,
+        "y": 455.390625,
+        "w": 872.859375,
+        "h": 577.609375,
+        "client": 572,
+        "content": 572,
+        "font": "14px"
+      },
+      "log": {
+        "x": 1402.421875,
+        "y": 39,
+        "w": 500.578125,
+        "h": 994,
+        "client": 988,
+        "content": 988,
+        "font": "14px"
+      }
+    },
+    "list": {
+      "x": 23,
+      "y": 579.015625,
+      "w": 488.5625,
+      "h": 449.984375,
+      "client": 450,
+      "content": 862,
+      "font": "21px"
+    },
+    "rows": [
+      {
+        "text": "\"ABC for kids\"",
+        "font": "21px",
+        "box": {
+          "x": 23,
+          "y": 579.015625,
+          "w": 488.5625,
+          "h": 32.28125,
+          "client": 31,
+          "content": 31,
+          "font": "21px"
+        }
+      },
+      {
+        "text": "Apple",
+        "font": "21px",
+        "box": {
+          "x": 23,
+          "y": 611.296875,
+          "w": 488.5625,
+          "h": 32.28125,
+          "client": 31,
+          "content": 31,
+          "font": "21px"
+        }
+      },
+      {
+        "text": "Boar hide",
+        "font": "21px",
+        "box": {
+          "x": 23,
+          "y": 643.578125,
+          "w": 488.5625,
+          "h": 32.28125,
+          "client": 31,
+          "content": 31,
+          "font": "21px"
+        }
+      },
+      {
+        "text": "Boar meat",
+        "font": "21px",
+        "box": {
+          "x": 23,
+          "y": 675.859375,
+          "w": 488.5625,
+          "h": 32.28125,
+          "client": 31,
+          "content": 31,
+          "font": "21px"
+        }
+      },
+      {
+        "text": "Bread kwas",
+        "font": "21px",
+        "box": {
+          "x": 23,
+          "y": 708.140625,
+          "w": 488.5625,
+          "h": 32.28125,
+          "client": 31,
+          "content": 31,
+          "font": "21px"
+        }
+      },
+      {
+        "text": "Carrot",
+        "font": "21px",
+        "box": {
+          "x": 23,
+          "y": 740.421875,
+          "w": 488.5625,
+          "h": 32.28125,
+          "client": 31,
+          "content": 31,
+          "font": "21px"
+        }
+      },
+      {
+        "text": "Cooked carrot",
+        "font": "21px",
+        "box": {
+          "x": 23,
+          "y": 772.703125,
+          "w": 488.5625,
+          "h": 32.28125,
+          "client": 31,
+          "content": 31,
+          "font": "21px"
+        }
+      },
+      {
+        "text": "Fresh bread",
+        "font": "21px",
+        "box": {
+          "x": 23,
+          "y": 804.984375,
+          "w": 488.5625,
+          "h": 32.28125,
+          "client": 31,
+          "content": 31,
+          "font": "21px"
+        }
+      },
+      {
+        "text": "\"Old combat manual\"",
+        "font": "21px",
+        "box": {
+          "x": 23,
+          "y": 837.265625,
+          "w": 488.5625,
+          "h": 32.28125,
+          "client": 31,
+          "content": 31,
+          "font": "21px"
+        }
+      },
+      {
+        "text": "Potato",
+        "font": "21px",
+        "box": {
+          "x": 23,
+          "y": 869.546875,
+          "w": 488.5625,
+          "h": 32.28125,
+          "client": 31,
+          "content": 31,
+          "font": "21px"
+        }
+      },
+      {
+        "text": "Rat pelt",
+        "font": "21px",
+        "box": {
+          "x": 23,
+          "y": 901.828125,
+          "w": 488.5625,
+          "h": 32.28125,
+          "client": 31,
+          "content": 31,
+          "font": "21px"
+        }
+      },
+      {
+        "text": "Rat tail",
+        "font": "21px",
+        "box": {
+          "x": 23,
+          "y": 934.109375,
+          "w": 488.5625,
+          "h": 32.28125,
+          "client": 31,
+          "content": 31,
+          "font": "21px"
+        }
+      },
+      {
+        "text": "Stale bread",
+        "font": "21px",
+        "box": {
+          "x": 23,
+          "y": 966.390625,
+          "w": 488.5625,
+          "h": 32.28125,
+          "client": 31,
+          "content": 31,
+          "font": "21px"
+        }
+      }
+    ],
+    "stats": [],
+    "text": "Authoring\nLayout\nComfortable\nYou\nLv 0\n0 / 10 xp\n92/92 stamina\n61/61 hp\nSTR\n22.9\nAGL\n19.7\nDEX\n15.0\nINT\n27.5\nDefense\n1.0\nMagic\n0.0\nAttack\n2.3\nSpeed\n1.0 /s\nCrit %\n5.0%\nCrit ×\n130.0%\nAP\n80\nEP\n109\nSta eff.\n×1.087\nCold Δ\n1 °C Δ\nHero XP\n×1.459\nSkill XP\n×1.389\nGlobal XP\n×1.323\nHits/atk\n1 hits\nAttributes ›\nGear · 0\nvillage elder\n▾\nExpand\n← Village\n\nVillage neighbor\n\nKnown traits: Not assessed\n\nRelationship: No remembered dealings.\n\nTalk with village elder\nAll items\nEquipment\nUsable\nOther\nFavorites\nName\nValue\nType\nReverse\nInventory\n5S\n21 / 21\n\"ABC for kids\"\n10C\nApple\nx3\n2C\nBoar hide\nx3\n3C\nBoar meat\nx4\n2C\nBread kwas\nx2\n4C\nCarrot\nx4\n2C\nCooked carrot\nx2\n3C\nFresh bread\nx5\n4C\n\"Old combat manual\"\n20C\nPotato\nx5\n1C 5W\nRat pelt\nx5\n1C\nRat tail\nx4\n4W\nStale bread\nx5\n2C\nWolf pelt\nx2\n2C\n[off-hand]\nAsh wood shield\n[80%]\n1S 7C\n[legs]\nCheap leather pants\n[40%]\n4C 6W\n[torso]\nGoat leather vest\n[80%]\n43C\n[legs]\nLeather pants\n[80%]\n17C 6W\n[torso]\nLeather vest\n[80%]\n29C\n[cape]\nRat pelt cape\n[80%]\n8C\n[off-hand]\nWooden shield\n[80%]\n72C\n\nVillage\n☀ Summer\nDry\n♨ 14.7°C\n01/04/999 08:01, Mon · ☼ Day\n\nActions\nOptions\n\nNo work running.\n\nSaving available.\n\ndirections Move somewhere else\nconstruction Try to craft something\nquestion_answer Talk to someone\nwork_outline Find work\nfitness_center Train\nsearch Gather resources\nVillage practice and familiar ground\n2 ready / 2 actions\nLocal life\n4 ready / 6 actions\nMarket courtyard · trade, property and projects\n1 ready / 1 actions\nBooks, earned rest and leatherwork (proposal)\n1 ready / 1 actions\nMix at the Village counter\nHere\nSkills\nCrafting\nMixing\n?\nReports\n[ Home · 01/04/999, Summer, Mon ]\nTitles recognized from your past: Blooded, Reader.\nFilters\nFollow: smart\nFollow: always\nLatest\nStop combat log\nClear",
+    "errors": []
+  },
+  {
+    "name": "dialogue-1920-21",
+    "page": [
+      1920,
+      1080
+    ],
+    "viewport": [
+      1920,
+      1080
+    ],
+    "regions": {
+      "player": {
+        "x": 17,
+        "y": 39,
+        "w": 628.65625,
+        "h": 410.390625,
+        "client": 404,
+        "content": 404,
+        "font": "14px"
+      },
+      "focus": {
+        "x": 651.65625,
+        "y": 39,
+        "w": 744.765625,
+        "h": 410.390625,
+        "client": 404,
+        "content": 404,
+        "font": "14px"
+      },
+      "inventory": {
+        "x": 17,
+        "y": 455.390625,
+        "w": 500.5625,
+        "h": 577.609375,
+        "client": 572,
+        "content": 572,
+        "font": "14px"
+      },
+      "actions": {
+        "x": 523.5625,
+        "y": 455.390625,
+        "w": 872.859375,
+        "h": 577.609375,
+        "client": 572,
+        "content": 572,
+        "font": "14px"
+      },
+      "log": {
+        "x": 1402.421875,
+        "y": 39,
+        "w": 500.578125,
+        "h": 994,
+        "client": 988,
+        "content": 988,
+        "font": "14px"
+      }
+    },
+    "list": {
+      "x": 23,
+      "y": 579.015625,
+      "w": 488.5625,
+      "h": 449.984375,
+      "client": 450,
+      "content": 862,
+      "font": "21px"
+    },
+    "rows": [
+      {
+        "text": "\"ABC for kids\"",
+        "font": "21px",
+        "box": {
+          "x": 23,
+          "y": 579.015625,
+          "w": 488.5625,
+          "h": 32.28125,
+          "client": 31,
+          "content": 31,
+          "font": "21px"
+        }
+      },
+      {
+        "text": "Apple",
+        "font": "21px",
+        "box": {
+          "x": 23,
+          "y": 611.296875,
+          "w": 488.5625,
+          "h": 32.28125,
+          "client": 31,
+          "content": 31,
+          "font": "21px"
+        }
+      },
+      {
+        "text": "Boar hide",
+        "font": "21px",
+        "box": {
+          "x": 23,
+          "y": 643.578125,
+          "w": 488.5625,
+          "h": 32.28125,
+          "client": 31,
+          "content": 31,
+          "font": "21px"
+        }
+      },
+      {
+        "text": "Boar meat",
+        "font": "21px",
+        "box": {
+          "x": 23,
+          "y": 675.859375,
+          "w": 488.5625,
+          "h": 32.28125,
+          "client": 31,
+          "content": 31,
+          "font": "21px"
+        }
+      },
+      {
+        "text": "Bread kwas",
+        "font": "21px",
+        "box": {
+          "x": 23,
+          "y": 708.140625,
+          "w": 488.5625,
+          "h": 32.28125,
+          "client": 31,
+          "content": 31,
+          "font": "21px"
+        }
+      },
+      {
+        "text": "Carrot",
+        "font": "21px",
+        "box": {
+          "x": 23,
+          "y": 740.421875,
+          "w": 488.5625,
+          "h": 32.28125,
+          "client": 31,
+          "content": 31,
+          "font": "21px"
+        }
+      },
+      {
+        "text": "Cooked carrot",
+        "font": "21px",
+        "box": {
+          "x": 23,
+          "y": 772.703125,
+          "w": 488.5625,
+          "h": 32.28125,
+          "client": 31,
+          "content": 31,
+          "font": "21px"
+        }
+      },
+      {
+        "text": "Fresh bread",
+        "font": "21px",
+        "box": {
+          "x": 23,
+          "y": 804.984375,
+          "w": 488.5625,
+          "h": 32.28125,
+          "client": 31,
+          "content": 31,
+          "font": "21px"
+        }
+      },
+      {
+        "text": "\"Old combat manual\"",
+        "font": "21px",
+        "box": {
+          "x": 23,
+          "y": 837.265625,
+          "w": 488.5625,
+          "h": 32.28125,
+          "client": 31,
+          "content": 31,
+          "font": "21px"
+        }
+      },
+      {
+        "text": "Potato",
+        "font": "21px",
+        "box": {
+          "x": 23,
+          "y": 869.546875,
+          "w": 488.5625,
+          "h": 32.28125,
+          "client": 31,
+          "content": 31,
+          "font": "21px"
+        }
+      },
+      {
+        "text": "Rat pelt",
+        "font": "21px",
+        "box": {
+          "x": 23,
+          "y": 901.828125,
+          "w": 488.5625,
+          "h": 32.28125,
+          "client": 31,
+          "content": 31,
+          "font": "21px"
+        }
+      },
+      {
+        "text": "Rat tail",
+        "font": "21px",
+        "box": {
+          "x": 23,
+          "y": 934.109375,
+          "w": 488.5625,
+          "h": 32.28125,
+          "client": 31,
+          "content": 31,
+          "font": "21px"
+        }
+      },
+      {
+        "text": "Stale bread",
+        "font": "21px",
+        "box": {
+          "x": 23,
+          "y": 966.390625,
+          "w": 488.5625,
+          "h": 32.28125,
+          "client": 31,
+          "content": 31,
+          "font": "21px"
+        }
+      }
+    ],
+    "stats": [],
+    "text": "Authoring\nLayout\nComfortable\nYou\nLv 0\n0 / 10 xp\n92/92 stamina\n61/61 hp\nSTR\n22.9\nAGL\n19.7\nDEX\n15.0\nINT\n27.5\nDefense\n1.0\nMagic\n0.0\nAttack\n2.3\nSpeed\n1.0 /s\nCrit %\n5.0%\nCrit ×\n130.0%\nAP\n80\nEP\n109\nSta eff.\n×1.087\nCold Δ\n1 °C Δ\nHero XP\n×1.459\nSkill XP\n×1.389\nGlobal XP\n×1.323\nHits/atk\n1 hits\nAttributes ›\nGear · 0\nvillage elder\n▾\nExpand\n← Village\n\nVillage neighbor\n\nKnown traits: Not assessed\n\nRelationship: No remembered dealings.\n\nTalk with village elder\nAll items\nEquipment\nUsable\nOther\nFavorites\nName\nValue\nType\nReverse\nInventory\n5S\n21 / 21\n\"ABC for kids\"\n10C\nApple\nx3\n2C\nBoar hide\nx3\n3C\nBoar meat\nx4\n2C\nBread kwas\nx2\n4C\nCarrot\nx4\n2C\nCooked carrot\nx2\n3C\nFresh bread\nx5\n4C\n\"Old combat manual\"\n20C\nPotato\nx5\n1C 5W\nRat pelt\nx5\n1C\nRat tail\nx4\n4W\nStale bread\nx5\n2C\nWolf pelt\nx2\n2C\n[off-hand]\nAsh wood shield\n[80%]\n1S 7C\n[legs]\nCheap leather pants\n[40%]\n4C 6W\n[torso]\nGoat leather vest\n[80%]\n43C\n[legs]\nLeather pants\n[80%]\n17C 6W\n[torso]\nLeather vest\n[80%]\n29C\n[cape]\nRat pelt cape\n[80%]\n8C\n[off-hand]\nWooden shield\n[80%]\n72C\n\nVillage\n☀ Summer\nDry\n♨ 14.7°C\n01/04/999 08:01, Mon · ☼ Day\n\nConversation in progress\n\nSaving available.\n\nOpen local controls\nVillage elder\n*You see an older man with curly white hair and dull, heavy horns. Despite his years, he stands with a strong posture, ready to ram any threat to the village. He eyes you with curiosity.*\n\"text not found, id: 'Ask about the moonlit herb bed'\"\n\"Who are you?\"\n\"About the spare weapon...\"\n\"Can I leave the village?\"\n\"Are wolf rats a big issue?\"\n← Village\nHere\nSkills\nCrafting\nMixing\n?\nReports\n[ Home · 01/04/999, Summer, Mon ]\nTitles recognized from your past: Blooded, Reader.\nFilters\nFollow: smart\nFollow: always\nLatest\nStop combat log\nClear",
+    "errors": []
+  }
+]

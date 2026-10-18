@@ -1,0 +1,116 @@
+{
+  "date": "2026-10-16",
+  "checks": "documentation-only; no game build/tests",
+  "inventory_counts": {
+    "CRF": 49,
+    "CRC": 18,
+    "CRH": 26,
+    "CRP": 12,
+    "CRU": 13,
+    "CRT": 8,
+    "CRE": 16
+  },
+  "total": 142,
+  "source_rows_matched": 93,
+  "table_blocks": 17,
+  "tables": [
+    {
+      "rows": 12,
+      "columns": 3
+    },
+    {
+      "rows": 34,
+      "columns": 3
+    },
+    {
+      "rows": 16,
+      "columns": 3
+    },
+    {
+      "rows": 12,
+      "columns": 4
+    },
+    {
+      "rows": 18,
+      "columns": 3
+    },
+    {
+      "rows": 49,
+      "columns": 7
+    },
+    {
+      "rows": 18,
+      "columns": 7
+    },
+    {
+      "rows": 26,
+      "columns": 7
+    },
+    {
+      "rows": 12,
+      "columns": 7
+    },
+    {
+      "rows": 13,
+      "columns": 4
+    },
+    {
+      "rows": 8,
+      "columns": 4
+    },
+    {
+      "rows": 16,
+      "columns": 4
+    },
+    {
+      "rows": 6,
+      "columns": 3
+    },
+    {
+      "rows": 11,
+      "columns": 3
+    },
+    {
+      "rows": 6,
+      "columns": 3
+    },
+    {
+      "rows": 8,
+      "columns": 3
+    },
+    {
+      "rows": 20,
+      "columns": 3
+    }
+  ],
+  "exclusive_discussion_unchanged_since_read_baseline": true,
+  "private_files": [
+    "docs/research/cheat-looks/private/research-notes-2026-10-16.md",
+    "docs/research/cheat-looks/private/sources-2026-10-16.md",
+    "docs/research/cheat-looks/private/visual-locators-2026-10-16.json"
+  ],
+  "errors": [],
+  "sha256": "b2e6245484b3b76fd3d51ff0933cbc9e657b497450d20844c551b89bc622a88b",
+  "local_links": [
+    {
+      "target": "../../../../research/cheat-looks/private/research-notes-2026-10-16.md",
+      "exists": true
+    },
+    {
+      "target": "../../../../research/cheat-looks/private/sources-2026-10-16.md",
+      "exists": true
+    },
+    {
+      "target": "../../../../research/cheat-looks/private/visual-locators-2026-10-16.json",
+      "exists": true
+    },
+    {
+      "target": "scratch/cheat-refs/coverage.json",
+      "exists": true
+    },
+    {
+      "target": "scratch/cheat-refs/verification.json",
+      "exists": true
+    }
+  ]
+}

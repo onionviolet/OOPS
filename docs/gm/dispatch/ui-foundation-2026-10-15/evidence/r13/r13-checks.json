@@ -1,0 +1,234 @@
+[
+ {
+  "n": "1366-14 dedupe",
+  "v": {
+   "tabs": [
+    "Actions",
+    "Options"
+   ],
+   "cardTitle": false,
+   "presentationVisible": false,
+   "expandVisible": 1,
+   "hoverExpand": "visible"
+  }
+ },
+ {
+  "n": "1366-14 idle place card",
+  "v": {
+   "people": 2,
+   "things": 3,
+   "text": "village elder\nVillage neighbor\nvillage trader\nMerchant\nVillage mixing counter\nMi"
+  }
+ },
+ {
+  "n": "1366-14 subject back + Esc"
+ },
+ {
+  "n": "1366-14 views yield + one back + restore",
+  "v": [
+   {
+    "id": "records",
+    "hgt": 516
+   },
+   {
+    "id": "known-people",
+    "hgt": 516
+   },
+   {
+    "id": "projects",
+    "hgt": 516
+   },
+   {
+    "id": "customization",
+    "hgt": 516
+   }
+  ]
+ },
+ {
+  "n": "1366-14 subject keeps Focus"
+ },
+ {
+  "n": "1366-14 inventory in place",
+  "v": {
+   "inCenter": false,
+   "active": "inventory",
+   "task": null
+  }
+ },
+ {
+  "n": "1366-14 combat progress",
+  "v": "3 opponents · inspect · 15 / 15 groups left · Clears: [0]"
+ },
+ {
+  "n": "1366-17.5 dedupe",
+  "v": {
+   "tabs": [
+    "Actions",
+    "Options"
+   ],
+   "cardTitle": false,
+   "presentationVisible": false,
+   "expandVisible": 0,
+   "hoverExpand": "visible"
+  }
+ },
+ {
+  "n": "1366-17.5 idle place card",
+  "v": {
+   "people": 2,
+   "things": 3,
+   "text": "village elder\nVillage neighbor\nvillage trader\nMerchant\nVillage mixing counter\nMi"
+  }
+ },
+ {
+  "n": "1366-17.5 subject back + Esc"
+ },
+ {
+  "n": "1366-17.5 views yield + one back + restore",
+  "v": [
+   {
+    "id": "records",
+    "hgt": 488
+   },
+   {
+    "id": "known-people",
+    "hgt": 488
+   },
+   {
+    "id": "projects",
+    "hgt": 488
+   },
+   {
+    "id": "customization",
+    "hgt": 488
+   }
+  ]
+ },
+ {
+  "n": "1366-17.5 subject keeps Focus"
+ },
+ {
+  "n": "1366-17.5 inventory in place",
+  "v": {
+   "inCenter": false,
+   "active": "inventory",
+   "task": null
+  }
+ },
+ {
+  "n": "1366-21 dedupe",
+  "v": {
+   "tabs": [
+    "Actions",
+    "Options"
+   ],
+   "cardTitle": false,
+   "presentationVisible": false,
+   "expandVisible": 0,
+   "hoverExpand": "visible"
+  }
+ },
+ {
+  "n": "1366-21 idle place card",
+  "v": {
+   "people": 2,
+   "things": 3,
+   "text": "village elder\nVillage neighbor\nvillage trader\nMerchant\nVillage mixing counter\nMi"
+  }
+ },
+ {
+  "n": "1366-21 subject back + Esc"
+ },
+ {
+  "n": "1366-21 views yield + one back + restore",
+  "v": [
+   {
+    "id": "records",
+    "hgt": 445
+   },
+   {
+    "id": "known-people",
+    "hgt": 445
+   },
+   {
+    "id": "projects",
+    "hgt": 445
+   },
+   {
+    "id": "customization",
+    "hgt": 445
+   }
+  ]
+ },
+ {
+  "n": "1366-21 subject keeps Focus"
+ },
+ {
+  "n": "1366-21 inventory in place",
+  "v": {
+   "inCenter": false,
+   "active": "inventory",
+   "task": null
+  }
+ },
+ {
+  "n": "1920-21 dedupe",
+  "v": {
+   "tabs": [
+    "Actions",
+    "Options"
+   ],
+   "cardTitle": false,
+   "presentationVisible": false,
+   "expandVisible": 0,
+   "hoverExpand": "visible"
+  }
+ },
+ {
+  "n": "1920-21 idle place card",
+  "v": {
+   "people": 2,
+   "things": 3,
+   "text": "village elder\nVillage neighbor\nvillage trader\nMerchant\nVillage mixing counter\nMi"
+  }
+ },
+ {
+  "n": "1920-21 subject back + Esc"
+ },
+ {
+  "n": "1920-21 views yield + one back + restore",
+  "v": [
+   {
+    "id": "records",
+    "hgt": 801
+   },
+   {
+    "id": "known-people",
+    "hgt": 801
+   },
+   {
+    "id": "projects",
+    "hgt": 801
+   },
+   {
+    "id": "customization",
+    "hgt": 801
+   }
+  ]
+ },
+ {
+  "n": "1920-21 subject keeps Focus"
+ },
+ {
+  "n": "1920-21 inventory in place",
+  "v": {
+   "inCenter": false,
+   "active": "inventory",
+   "task": null
+  }
+ },
+ {
+  "n": "1920-21 combat progress",
+  "v": "3 opponents · inspect · 15 / 15 groups left · Clears: [0]"
+ }
+]

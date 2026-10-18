@@ -24,15 +24,15 @@
    ],
    "back": null,
    "receipt": "",
-   "active": "<div class=\"recipe_div\" data-recipe_id=\"Roasted rat meat\" role=\"option\" tabindex=\"0\" aria-"
+   "active": "<div class=\"recipe_div\" data-recipe_id=\"Roasted rat meat\" aria-label=\"Roasted rat meat; 1 "
   }
  },
  {
   "name": "1366-14 craft visible",
   "v": {
    "commit": {
-    "top": 591,
-    "bottom": 619,
+    "top": 593,
+    "bottom": 621,
     "h": 28,
     "client": 26,
     "content": 26
@@ -91,15 +91,15 @@
    ],
    "back": null,
    "receipt": "",
-   "active": "<div class=\"recipe_div\" data-recipe_id=\"Roasted rat meat\" role=\"option\" tabindex=\"0\" aria-"
+   "active": "<div class=\"recipe_div\" data-recipe_id=\"Roasted rat meat\" aria-label=\"Roasted rat meat; 1 "
   }
  },
  {
   "name": "1366-17.5 craft visible",
   "v": {
    "commit": {
-    "top": 576,
-    "bottom": 611,
+    "top": 585,
+    "bottom": 620,
     "h": 35,
     "client": 33,
     "content": 33
@@ -158,15 +158,15 @@
    ],
    "back": null,
    "receipt": "",
-   "active": "<div class=\"recipe_div\" data-recipe_id=\"Roasted rat meat\" role=\"option\" tabindex=\"0\" aria-"
+   "active": "<div class=\"recipe_div\" data-recipe_id=\"Roasted rat meat\" aria-label=\"Roasted rat meat; 1 "
   }
  },
  {
   "name": "1366-21 craft visible",
   "v": {
    "commit": {
-    "top": 557,
-    "bottom": 599,
+    "top": 569,
+    "bottom": 611,
     "h": 42,
     "client": 40,
     "content": 40
@@ -225,15 +225,15 @@
    ],
    "back": null,
    "receipt": "",
-   "active": "<div class=\"recipe_div\" data-recipe_id=\"Roasted rat meat\" role=\"option\" tabindex=\"0\" aria-"
+   "active": "<div class=\"recipe_div\" data-recipe_id=\"Roasted rat meat\" aria-label=\"Roasted rat meat; 1 "
   }
  },
  {
   "name": "1920-21 craft visible",
   "v": {
    "commit": {
-    "top": 869,
-    "bottom": 911,
+    "top": 881,
+    "bottom": 923,
     "h": 42,
     "client": 40,
     "content": 40

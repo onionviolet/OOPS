@@ -1,0 +1,1159 @@
+[
+  {
+    "name": "scroll-1366",
+    "detail": {
+      "page": {
+        "height": 768,
+        "width": 1366,
+        "viewportHeight": 768,
+        "viewportWidth": 1366
+      },
+      "regions": [
+        {
+          "id": "inventory_content_div",
+          "module": "belongings",
+          "visible": 265,
+          "content": 774,
+          "overflow": 509
+        },
+        {
+          "id": "center_mode_content",
+          "module": "local-actions",
+          "visible": 393,
+          "content": 433,
+          "overflow": 40
+        }
+      ],
+      "panels": [
+        {
+          "id": "vitals",
+          "rect": {
+            "x": 16,
+            "y": 44,
+            "width": 350.765625,
+            "height": 175,
+            "top": 44,
+            "right": 366.765625,
+            "bottom": 219,
+            "left": 16
+          }
+        },
+        {
+          "id": "combat-controls",
+          "rect": {
+            "x": 16,
+            "y": 227.796875,
+            "width": 350.765625,
+            "height": 51,
+            "top": 227.796875,
+            "right": 366.765625,
+            "bottom": 278.796875,
+            "left": 16
+          }
+        },
+        {
+          "id": "belongings",
+          "rect": {
+            "x": 16,
+            "y": 291.59375,
+            "width": 350.765625,
+            "height": 432.40625,
+            "top": 291.59375,
+            "right": 366.765625,
+            "bottom": 724,
+            "left": 16
+          }
+        },
+        {
+          "id": "focus",
+          "rect": {
+            "x": 382.765625,
+            "y": 44,
+            "width": 561.03125,
+            "height": 35,
+            "top": 44,
+            "right": 943.796875,
+            "bottom": 79,
+            "left": 382.765625
+          }
+        },
+        {
+          "id": "village-scene",
+          "rect": {
+            "x": 382.765625,
+            "y": 85,
+            "width": 561.03125,
+            "height": 144.78125,
+            "top": 85,
+            "right": 943.796875,
+            "bottom": 229.78125,
+            "left": 382.765625
+          }
+        },
+        {
+          "id": "current-work",
+          "rect": {
+            "x": 382.765625,
+            "y": 235.78125,
+            "width": 561.03125,
+            "height": 38.15625,
+            "top": 235.78125,
+            "right": 943.796875,
+            "bottom": 273.9375,
+            "left": 382.765625
+          }
+        },
+        {
+          "id": "local-actions",
+          "rect": {
+            "x": 382.765625,
+            "y": 279.9375,
+            "width": 561.03125,
+            "height": 444.0625,
+            "top": 279.9375,
+            "right": 943.796875,
+            "bottom": 724,
+            "left": 382.765625
+          }
+        },
+        {
+          "id": "messages",
+          "rect": {
+            "x": 959.796875,
+            "y": 44,
+            "width": 390.203125,
+            "height": 680,
+            "top": 44,
+            "right": 1350,
+            "bottom": 724,
+            "left": 959.796875
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "all-nav-and-hotkeys-1366",
+    "detail": [
+      {
+        "id": "local-actions",
+        "key": "Alt+h"
+      },
+      {
+        "id": "preparation",
+        "key": "Alt+e"
+      },
+      {
+        "id": "belongings",
+        "key": "Alt+i"
+      },
+      {
+        "id": "crafting",
+        "key": "Alt+c"
+      },
+      {
+        "id": "mixing",
+        "key": "Alt+m"
+      },
+      {
+        "id": "records",
+        "tab": "journal_show_quests",
+        "key": "Alt+j"
+      },
+      {
+        "id": "records",
+        "tab": "journal_show_bestiary",
+        "key": "Alt+b"
+      },
+      {
+        "id": "records",
+        "tab": "journal_show_books",
+        "key": "Alt+a"
+      },
+      {
+        "id": "records",
+        "tab": "journal_show_data",
+        "key": "Alt+d"
+      },
+      {
+        "id": "records",
+        "tab": "journal_show_notebook",
+        "key": "Alt+n"
+      },
+      {
+        "id": "skills",
+        "key": "Alt+k"
+      },
+      {
+        "id": "known-people",
+        "key": "Alt+p"
+      },
+      {
+        "id": "village-travelers",
+        "key": "Alt+t"
+      },
+      {
+        "id": "projects",
+        "key": "Alt+r"
+      },
+      {
+        "id": "ledger",
+        "key": "Alt+l"
+      },
+      {
+        "id": "optional-worlds",
+        "key": "Alt+w"
+      },
+      {
+        "id": "beginning",
+        "key": "Alt+g"
+      },
+      {
+        "id": "customization",
+        "key": "Alt+s"
+      }
+    ]
+  },
+  {
+    "name": "history-filter-selection-scroll-1366",
+    "detail": {
+      "top": 180,
+      "key": "{\"components\":{\"shield_base\":\"Wooden shield base\",\"handle\":\"Wooden shield handle\"},\"quality\":80}",
+      "journalTab": true
+    }
+  },
+  {
+    "name": "revisited-panel-history-1366",
+    "detail": {}
+  },
+  {
+    "name": "headers-expand-collapse-empty-1366",
+    "detail": {}
+  },
+  {
+    "name": "notice-and-shortcut-sheet-1366",
+    "detail": {}
+  },
+  {
+    "name": "inspection-preserves-work",
+    "detail": {
+      "reading": "Old combat manual"
+    }
+  },
+  {
+    "name": "native-completion-beneath-inspection",
+    "detail": {}
+  },
+  {
+    "name": "actual-text-1.25",
+    "detail": {
+      "page": {
+        "height": 768,
+        "width": 1366,
+        "viewportHeight": 768,
+        "viewportWidth": 1366
+      },
+      "regions": [
+        {
+          "id": "inventory_content_div",
+          "module": "belongings",
+          "visible": 107,
+          "content": 1023,
+          "overflow": 916
+        },
+        {
+          "id": "center_mode_content",
+          "module": "local-actions",
+          "visible": 361,
+          "content": 783,
+          "overflow": 422
+        }
+      ],
+      "panels": [
+        {
+          "id": "vitals",
+          "rect": {
+            "x": 16,
+            "y": 82,
+            "width": 350.765625,
+            "height": 183.875,
+            "top": 82,
+            "right": 366.765625,
+            "bottom": 265.875,
+            "left": 16
+          }
+        },
+        {
+          "id": "combat-controls",
+          "rect": {
+            "x": 16,
+            "y": 274.671875,
+            "width": 350.765625,
+            "height": 58,
+            "top": 274.671875,
+            "right": 366.765625,
+            "bottom": 332.671875,
+            "left": 16
+          }
+        },
+        {
+          "id": "belongings",
+          "rect": {
+            "x": 16,
+            "y": 345.46875,
+            "width": 350.765625,
+            "height": 378.53125,
+            "top": 345.46875,
+            "right": 366.765625,
+            "bottom": 724,
+            "left": 16
+          }
+        },
+        {
+          "id": "focus",
+          "rect": {
+            "x": 382.765625,
+            "y": 82,
+            "width": 561.03125,
+            "height": 37,
+            "top": 82,
+            "right": 943.796875,
+            "bottom": 119,
+            "left": 382.765625
+          }
+        },
+        {
+          "id": "village-scene",
+          "rect": {
+            "x": 382.765625,
+            "y": 125,
+            "width": 561.03125,
+            "height": 83.78125,
+            "top": 125,
+            "right": 943.796875,
+            "bottom": 208.78125,
+            "left": 382.765625
+          }
+        },
+        {
+          "id": "current-work",
+          "rect": {
+            "x": 382.765625,
+            "y": 214.78125,
+            "width": 561.03125,
+            "height": 43.15625,
+            "top": 214.78125,
+            "right": 943.796875,
+            "bottom": 257.9375,
+            "left": 382.765625
+          }
+        },
+        {
+          "id": "local-actions",
+          "rect": {
+            "x": 382.765625,
+            "y": 263.9375,
+            "width": 561.03125,
+            "height": 460.0625,
+            "top": 263.9375,
+            "right": 943.796875,
+            "bottom": 724,
+            "left": 382.765625
+          }
+        },
+        {
+          "id": "messages",
+          "rect": {
+            "x": 959.796875,
+            "y": 82,
+            "width": 390.203125,
+            "height": 642,
+            "top": 82,
+            "right": 1350,
+            "bottom": 724,
+            "left": 959.796875
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "actual-text-1.5",
+    "detail": {
+      "page": {
+        "height": 768,
+        "width": 1366,
+        "viewportHeight": 768,
+        "viewportWidth": 1366
+      },
+      "regions": [
+        {
+          "id": "inventory_content_div",
+          "module": "belongings",
+          "visible": 37,
+          "content": 1313,
+          "overflow": 1276
+        },
+        {
+          "id": "center_mode_content",
+          "module": "local-actions",
+          "visible": 289,
+          "content": 997,
+          "overflow": 708
+        }
+      ],
+      "panels": [
+        {
+          "id": "vitals",
+          "rect": {
+            "x": 16,
+            "y": 90,
+            "width": 350.765625,
+            "height": 195.25,
+            "top": 90,
+            "right": 366.765625,
+            "bottom": 285.25,
+            "left": 16
+          }
+        },
+        {
+          "id": "combat-controls",
+          "rect": {
+            "x": 16,
+            "y": 294.046875,
+            "width": 350.765625,
+            "height": 65,
+            "top": 294.046875,
+            "right": 366.765625,
+            "bottom": 359.046875,
+            "left": 16
+          }
+        },
+        {
+          "id": "belongings",
+          "rect": {
+            "x": 16,
+            "y": 371.84375,
+            "width": 350.765625,
+            "height": 352.15625,
+            "top": 371.84375,
+            "right": 366.765625,
+            "bottom": 724,
+            "left": 16
+          }
+        },
+        {
+          "id": "focus",
+          "rect": {
+            "x": 382.765625,
+            "y": 90,
+            "width": 561.03125,
+            "height": 43,
+            "top": 90,
+            "right": 943.796875,
+            "bottom": 133,
+            "left": 382.765625
+          }
+        },
+        {
+          "id": "village-scene",
+          "rect": {
+            "x": 382.765625,
+            "y": 139,
+            "width": 561.03125,
+            "height": 127.78125,
+            "top": 139,
+            "right": 943.796875,
+            "bottom": 266.78125,
+            "left": 382.765625
+          }
+        },
+        {
+          "id": "current-work",
+          "rect": {
+            "x": 382.765625,
+            "y": 272.78125,
+            "width": 561.03125,
+            "height": 49.15625,
+            "top": 272.78125,
+            "right": 943.796875,
+            "bottom": 321.9375,
+            "left": 382.765625
+          }
+        },
+        {
+          "id": "local-actions",
+          "rect": {
+            "x": 382.765625,
+            "y": 327.9375,
+            "width": 561.03125,
+            "height": 396.0625,
+            "top": 327.9375,
+            "right": 943.796875,
+            "bottom": 724,
+            "left": 382.765625
+          }
+        },
+        {
+          "id": "messages",
+          "rect": {
+            "x": 959.796875,
+            "y": 90,
+            "width": 390.203125,
+            "height": 634,
+            "top": 90,
+            "right": 1350,
+            "bottom": 724,
+            "left": 959.796875
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "scroll-1440",
+    "detail": {
+      "page": {
+        "height": 900,
+        "width": 1440,
+        "viewportHeight": 900,
+        "viewportWidth": 1440
+      },
+      "regions": [
+        {
+          "id": "inventory_content_div",
+          "module": "belongings",
+          "visible": 397,
+          "content": 774,
+          "overflow": 377
+        }
+      ],
+      "panels": [
+        {
+          "id": "vitals",
+          "rect": {
+            "x": 16,
+            "y": 44,
+            "width": 370.75,
+            "height": 175,
+            "top": 44,
+            "right": 386.75,
+            "bottom": 219,
+            "left": 16
+          }
+        },
+        {
+          "id": "combat-controls",
+          "rect": {
+            "x": 16,
+            "y": 227.796875,
+            "width": 370.75,
+            "height": 51,
+            "top": 227.796875,
+            "right": 386.75,
+            "bottom": 278.796875,
+            "left": 16
+          }
+        },
+        {
+          "id": "belongings",
+          "rect": {
+            "x": 16,
+            "y": 291.59375,
+            "width": 370.75,
+            "height": 564.40625,
+            "top": 291.59375,
+            "right": 386.75,
+            "bottom": 856,
+            "left": 16
+          }
+        },
+        {
+          "id": "focus",
+          "rect": {
+            "x": 402.75,
+            "y": 44,
+            "width": 592.84375,
+            "height": 35,
+            "top": 44,
+            "right": 995.59375,
+            "bottom": 79,
+            "left": 402.75
+          }
+        },
+        {
+          "id": "village-scene",
+          "rect": {
+            "x": 402.75,
+            "y": 85,
+            "width": 592.84375,
+            "height": 144.78125,
+            "top": 85,
+            "right": 995.59375,
+            "bottom": 229.78125,
+            "left": 402.75
+          }
+        },
+        {
+          "id": "current-work",
+          "rect": {
+            "x": 402.75,
+            "y": 235.78125,
+            "width": 592.84375,
+            "height": 38.15625,
+            "top": 235.78125,
+            "right": 995.59375,
+            "bottom": 273.9375,
+            "left": 402.75
+          }
+        },
+        {
+          "id": "local-actions",
+          "rect": {
+            "x": 402.75,
+            "y": 279.9375,
+            "width": 592.84375,
+            "height": 576.0625,
+            "top": 279.9375,
+            "right": 995.59375,
+            "bottom": 856,
+            "left": 402.75
+          }
+        },
+        {
+          "id": "messages",
+          "rect": {
+            "x": 1011.59375,
+            "y": 44,
+            "width": 412.40625,
+            "height": 812,
+            "top": 44,
+            "right": 1424,
+            "bottom": 856,
+            "left": 1011.59375
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "all-nav-and-hotkeys-1440",
+    "detail": [
+      {
+        "id": "local-actions",
+        "key": "Alt+h"
+      },
+      {
+        "id": "preparation",
+        "key": "Alt+e"
+      },
+      {
+        "id": "belongings",
+        "key": "Alt+i"
+      },
+      {
+        "id": "crafting",
+        "key": "Alt+c"
+      },
+      {
+        "id": "mixing",
+        "key": "Alt+m"
+      },
+      {
+        "id": "records",
+        "tab": "journal_show_quests",
+        "key": "Alt+j"
+      },
+      {
+        "id": "records",
+        "tab": "journal_show_bestiary",
+        "key": "Alt+b"
+      },
+      {
+        "id": "records",
+        "tab": "journal_show_books",
+        "key": "Alt+a"
+      },
+      {
+        "id": "records",
+        "tab": "journal_show_data",
+        "key": "Alt+d"
+      },
+      {
+        "id": "records",
+        "tab": "journal_show_notebook",
+        "key": "Alt+n"
+      },
+      {
+        "id": "skills",
+        "key": "Alt+k"
+      },
+      {
+        "id": "known-people",
+        "key": "Alt+p"
+      },
+      {
+        "id": "village-travelers",
+        "key": "Alt+t"
+      },
+      {
+        "id": "projects",
+        "key": "Alt+r"
+      },
+      {
+        "id": "ledger",
+        "key": "Alt+l"
+      },
+      {
+        "id": "optional-worlds",
+        "key": "Alt+w"
+      },
+      {
+        "id": "beginning",
+        "key": "Alt+g"
+      },
+      {
+        "id": "customization",
+        "key": "Alt+s"
+      }
+    ]
+  },
+  {
+    "name": "history-filter-selection-scroll-1440",
+    "detail": {
+      "top": 180,
+      "key": "{\"components\":{\"shield_base\":\"Wooden shield base\",\"handle\":\"Wooden shield handle\"},\"quality\":80}",
+      "journalTab": true
+    }
+  },
+  {
+    "name": "revisited-panel-history-1440",
+    "detail": {}
+  },
+  {
+    "name": "headers-expand-collapse-empty-1440",
+    "detail": {}
+  },
+  {
+    "name": "notice-and-shortcut-sheet-1440",
+    "detail": {}
+  },
+  {
+    "name": "scroll-1920",
+    "detail": {
+      "page": {
+        "height": 1080,
+        "width": 1920,
+        "viewportHeight": 1080,
+        "viewportWidth": 1920
+      },
+      "regions": [
+        {
+          "id": "inventory_content_div",
+          "module": "belongings",
+          "visible": 577,
+          "content": 774,
+          "overflow": 197
+        }
+      ],
+      "panels": [
+        {
+          "id": "vitals",
+          "rect": {
+            "x": 16,
+            "y": 44,
+            "width": 500.359375,
+            "height": 175,
+            "top": 44,
+            "right": 516.359375,
+            "bottom": 219,
+            "left": 16
+          }
+        },
+        {
+          "id": "combat-controls",
+          "rect": {
+            "x": 16,
+            "y": 227.796875,
+            "width": 500.359375,
+            "height": 51,
+            "top": 227.796875,
+            "right": 516.359375,
+            "bottom": 278.796875,
+            "left": 16
+          }
+        },
+        {
+          "id": "belongings",
+          "rect": {
+            "x": 16,
+            "y": 291.59375,
+            "width": 500.359375,
+            "height": 744.40625,
+            "top": 291.59375,
+            "right": 516.359375,
+            "bottom": 1036,
+            "left": 16
+          }
+        },
+        {
+          "id": "focus",
+          "rect": {
+            "x": 532.359375,
+            "y": 44,
+            "width": 799.234375,
+            "height": 35,
+            "top": 44,
+            "right": 1331.59375,
+            "bottom": 79,
+            "left": 532.359375
+          }
+        },
+        {
+          "id": "village-scene",
+          "rect": {
+            "x": 532.359375,
+            "y": 85,
+            "width": 799.234375,
+            "height": 144.78125,
+            "top": 85,
+            "right": 1331.59375,
+            "bottom": 229.78125,
+            "left": 532.359375
+          }
+        },
+        {
+          "id": "current-work",
+          "rect": {
+            "x": 532.359375,
+            "y": 235.78125,
+            "width": 799.234375,
+            "height": 38.15625,
+            "top": 235.78125,
+            "right": 1331.59375,
+            "bottom": 273.9375,
+            "left": 532.359375
+          }
+        },
+        {
+          "id": "local-actions",
+          "rect": {
+            "x": 532.359375,
+            "y": 279.9375,
+            "width": 799.234375,
+            "height": 756.0625,
+            "top": 279.9375,
+            "right": 1331.59375,
+            "bottom": 1036,
+            "left": 532.359375
+          }
+        },
+        {
+          "id": "messages",
+          "rect": {
+            "x": 1347.59375,
+            "y": 44,
+            "width": 556.40625,
+            "height": 992,
+            "top": 44,
+            "right": 1904,
+            "bottom": 1036,
+            "left": 1347.59375
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "all-nav-and-hotkeys-1920",
+    "detail": [
+      {
+        "id": "local-actions",
+        "key": "Alt+h"
+      },
+      {
+        "id": "preparation",
+        "key": "Alt+e"
+      },
+      {
+        "id": "belongings",
+        "key": "Alt+i"
+      },
+      {
+        "id": "crafting",
+        "key": "Alt+c"
+      },
+      {
+        "id": "mixing",
+        "key": "Alt+m"
+      },
+      {
+        "id": "records",
+        "tab": "journal_show_quests",
+        "key": "Alt+j"
+      },
+      {
+        "id": "records",
+        "tab": "journal_show_bestiary",
+        "key": "Alt+b"
+      },
+      {
+        "id": "records",
+        "tab": "journal_show_books",
+        "key": "Alt+a"
+      },
+      {
+        "id": "records",
+        "tab": "journal_show_data",
+        "key": "Alt+d"
+      },
+      {
+        "id": "records",
+        "tab": "journal_show_notebook",
+        "key": "Alt+n"
+      },
+      {
+        "id": "skills",
+        "key": "Alt+k"
+      },
+      {
+        "id": "known-people",
+        "key": "Alt+p"
+      },
+      {
+        "id": "village-travelers",
+        "key": "Alt+t"
+      },
+      {
+        "id": "projects",
+        "key": "Alt+r"
+      },
+      {
+        "id": "ledger",
+        "key": "Alt+l"
+      },
+      {
+        "id": "optional-worlds",
+        "key": "Alt+w"
+      },
+      {
+        "id": "beginning",
+        "key": "Alt+g"
+      },
+      {
+        "id": "customization",
+        "key": "Alt+s"
+      }
+    ]
+  },
+  {
+    "name": "history-filter-selection-scroll-1920",
+    "detail": {
+      "top": 180,
+      "key": "{\"components\":{\"shield_base\":\"Wooden shield base\",\"handle\":\"Wooden shield handle\"},\"quality\":80}",
+      "journalTab": true
+    }
+  },
+  {
+    "name": "revisited-panel-history-1920",
+    "detail": {}
+  },
+  {
+    "name": "headers-expand-collapse-empty-1920",
+    "detail": {}
+  },
+  {
+    "name": "notice-and-shortcut-sheet-1920",
+    "detail": {}
+  },
+  {
+    "name": "combat-log-and-offsite-service",
+    "detail": {
+      "page": {
+        "height": 768,
+        "width": 1366,
+        "viewportHeight": 768,
+        "viewportWidth": 1366
+      },
+      "regions": [
+        {
+          "id": "workspace-module-body",
+          "module": "time",
+          "visible": 40,
+          "content": 43,
+          "overflow": 3
+        },
+        {
+          "id": "workspace-module-body",
+          "module": "location",
+          "visible": 85,
+          "content": 127,
+          "overflow": 42
+        },
+        {
+          "id": "center_mode_content",
+          "module": "local-actions",
+          "visible": 107,
+          "content": 119,
+          "overflow": 12
+        }
+      ],
+      "panels": [
+        {
+          "id": "vitals",
+          "rect": {
+            "x": 16,
+            "y": 44,
+            "width": 350.765625,
+            "height": 175,
+            "top": 44,
+            "right": 366.765625,
+            "bottom": 219,
+            "left": 16
+          }
+        },
+        {
+          "id": "combat-controls",
+          "rect": {
+            "x": 16,
+            "y": 227.796875,
+            "width": 350.765625,
+            "height": 51,
+            "top": 227.796875,
+            "right": 366.765625,
+            "bottom": 278.796875,
+            "left": 16
+          }
+        },
+        {
+          "id": "stance",
+          "rect": {
+            "x": 16,
+            "y": 291.59375,
+            "width": 350.765625,
+            "height": 148.78125,
+            "top": 291.59375,
+            "right": 366.765625,
+            "bottom": 440.375,
+            "left": 16
+          }
+        },
+        {
+          "id": "focus",
+          "rect": {
+            "x": 382.765625,
+            "y": 44,
+            "width": 561.03125,
+            "height": 143.78125,
+            "top": 44,
+            "right": 943.796875,
+            "bottom": 187.78125,
+            "left": 382.765625
+          }
+        },
+        {
+          "id": "time",
+          "rect": {
+            "x": 382.765625,
+            "y": 193.78125,
+            "width": 561.03125,
+            "height": 46,
+            "top": 193.78125,
+            "right": 943.796875,
+            "bottom": 239.78125,
+            "left": 382.765625
+          }
+        },
+        {
+          "id": "location",
+          "rect": {
+            "x": 382.765625,
+            "y": 245.78125,
+            "width": 561.03125,
+            "height": 91,
+            "top": 245.78125,
+            "right": 943.796875,
+            "bottom": 336.78125,
+            "left": 382.765625
+          }
+        },
+        {
+          "id": "current-work",
+          "rect": {
+            "x": 382.765625,
+            "y": 342.78125,
+            "width": 561.03125,
+            "height": 41.96875,
+            "top": 342.78125,
+            "right": 943.796875,
+            "bottom": 384.75,
+            "left": 382.765625
+          }
+        },
+        {
+          "id": "combat",
+          "rect": {
+            "x": 382.765625,
+            "y": 390.75,
+            "width": 561.03125,
+            "height": 169.15625,
+            "top": 390.75,
+            "right": 943.796875,
+            "bottom": 559.90625,
+            "left": 382.765625
+          }
+        },
+        {
+          "id": "local-actions",
+          "rect": {
+            "x": 382.765625,
+            "y": 565.90625,
+            "width": 561.03125,
+            "height": 158.09375,
+            "top": 565.90625,
+            "right": 943.796875,
+            "bottom": 724,
+            "left": 382.765625
+          }
+        },
+        {
+          "id": "messages",
+          "rect": {
+            "x": 959.796875,
+            "y": 44,
+            "width": 390.203125,
+            "height": 680,
+            "top": 44,
+            "right": 1350,
+            "bottom": 724,
+            "left": 959.796875
+          }
+        }
+      ],
+      "stanceHeight": 114,
+      "mixingRefused": true
+    }
+  },
+  {
+    "name": "arrival-source-link-handler",
+    "detail": {
+      "knownMarker": true,
+      "unknownIgnored": true
+    }
+  },
+  {
+    "name": "existing-layout-save-reload",
+    "detail": {
+      "rawLayoutExact": true,
+      "pins": true,
+      "collapse": true
+    }
+  },
+  {
+    "name": "export-literal-file-import",
+    "detail": {
+      "identityInventoryBooks": true,
+      "layoutExact": true
+    }
+  }
+]

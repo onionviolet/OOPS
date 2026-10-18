@@ -1,0 +1,18 @@
+locator.evaluate: Error: strict mode violation: locator('[data-module="belongings"]') resolved to 19 elements:
+    1) <button type="button" data-module="belongings" data-workspace-action="restore">Open Belongings</button> aka getByText('Open Belongings')
+    2) <section tabindex="-1" data-pinned="false" data-module="belongings" data-composition-parked="false" class="workspace-module workspace-collapsed">…</section> aka locator('section').filter({ hasText: '↕Inventory21 entries▸Expand◇' })
+    3) <button type="button" draggable="false" data-module="belongings" aria-label="Move Belongings" class="workspace-drag-handle" data-workspace-action="handle" title="Drag to reorder or dock. Arrow keys move; left/right changes dock.">↕</button> aka getByLabel('Move Belongings')
+    4) <button type="button" aria-expanded="false" title="Open Belongings" data-module="belongings" aria-label="Open Belongings" data-workspace-action="collapse">▸</button> aka getByRole('button', { name: 'Open Belongings' })
+    5) <button type="button" data-module="belongings" data-workspace-action="expand">Expand</button> aka getByRole('button', { name: 'Expand' }).nth(1)
+    6) <button type="button" aria-pressed="false" title="Pin Belongings" data-module="belongings" data-workspace-action="pin" aria-label="Pin Belongings">◇</button> aka getByRole('button', { name: 'Pin Belongings' })
+    7) <select data-module="belongings" data-workspace-action="dock">…</select> aka locator('section').filter({ hasText: '↕Inventory21 entries▸Expand◇' }).getByLabel('Dock leftcenterrightFloating')
+    8) <button type="button" data-module="belongings" data-workspace-action="earlier">Earlier</button> aka getByText('Earlier').nth(3)
+    9) <button type="button" data-module="belongings" data-workspace-action="later">Later</button> aka getByText('Later').nth(3)
+    10) <button type="button" data-module="belongings" data-workspace-action="hide">Hide</button> aka getByText('Hide').nth(3)
+    ...
+
+Call log:
+[2m  - waiting for locator('[data-module="belongings"]')[22m
+
+    at verify (/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/ui-triage-apothecary-2026-10-15/check-nav.cjs:25:144)
+    at async /Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/ui-triage-apothecary-2026-10-15/check-nav.cjs:37:89

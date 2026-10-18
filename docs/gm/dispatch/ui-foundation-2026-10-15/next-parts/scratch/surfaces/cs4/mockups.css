@@ -1,0 +1,75 @@
+
+:root { --base-bg:#07314b; --base-panel:#0c3540; --base-text:#def4f5;
+  --base-muted:#bdcedb; --base-edge:#7187ab; --base-line:#395a78;
+  --base-control:#102047; --base-log:#251839; --base-log-text:#e4deee;
+  --base-focus:#ffe498; --cs4-size:14px; }
+* { box-sizing:border-box; } html,body { width:1366px; height:768px; margin:0; overflow:hidden; }
+body { font:14px/1.35 Arial,sans-serif; color:var(--base-text); background:var(--base-bg); }
+.frame { position:absolute; inset:0; width:1366px; height:768px; pointer-events:none; }
+.stamp { position:absolute; top:1px; right:12px; padding:3px 7px; font:11px Arial,sans-serif;
+ background:var(--base-control); color:var(--base-muted); border:1px solid var(--base-edge); }
+.focus-home { position:absolute; left:489px; top:40px; width:462px; height:289px;
+ background:var(--base-panel); border:2px solid #040a12; overflow:hidden; }
+.base-heading { height:28px; padding:3px 10px; text-align:center; font-weight:bold;
+ border-bottom:1px solid var(--base-line); background:var(--base-panel); }
+.focus-body { padding:15px 18px; } .focus-body p { margin:6px 0; }
+.neighbors { display:grid; grid-template-columns:1fr 1fr; gap:16px; padding:4px 0 15px; }
+.neighbors strong { display:block; color:var(--base-text); }
+.neighbors span { color:var(--base-muted); font-size:13px; }
+.base-description { margin:4px 0; color:var(--base-text); }
+.task-home { position:absolute; left:371px; top:336px; width:580px; height:384px;
+ background:linear-gradient(120deg,#052749,#004369); border:2px solid #040a12;
+ display:flex; flex-direction:column; }
+.place { flex:none; min-height:43px; padding:4px 6px; border-bottom:1px dashed var(--base-edge); }
+.place strong { font-size:16px; }.place span { float:right; color:#f4da86; }.place small {display:block;color:var(--base-muted);}
+.local-tabs { display:flex; gap:14px; padding:5px 8px; border-bottom:1px solid var(--base-edge); }
+.local-tabs b { border-bottom:2px solid var(--base-text); padding-bottom:3px; }
+.work { padding:7px 9px; border-bottom:1px solid var(--base-edge); }
+.task-content { padding:12px 10px; min-height:0; flex:1; overflow:hidden; }
+.local-action { padding:8px 4px; border-bottom:1px solid var(--base-line); }
+.peers { flex:none; height:30px; display:flex; border-top:1px solid var(--base-edge); background:var(--base-control); }
+.peers span { flex:1; text-align:center; padding:5px; border-right:1px solid var(--base-edge); }
+.back { flex:none; height:42px; border-top:1px solid var(--base-edge); padding:7px 12px; display:flex; align-items:center; justify-content:space-between; } .scroll-hint {color:var(--base-muted);}
+.mock-control { display:inline-block; padding:5px 10px; border:1px solid var(--base-edge);
+ background:var(--base-control); color:var(--base-text); text-decoration:none; white-space:nowrap; }
+.focus-ring { outline:2px solid var(--base-focus); outline-offset:2px; }
+.popup-host { position:absolute; left:505px; top:77px; width:429px; padding:10px;
+ background:#152840; border:1px solid var(--base-edge); box-shadow:3px 3px #060c1b; }
+.world-section { padding:0 0 8px; border-bottom:1px solid var(--base-edge); margin-bottom:8px; }
+.world-section strong { display:block; }.world-section p { margin:4px 0; }
+.foreign { --cs4-ff-bg:#0b2741; --cs4-ff-text:#e4f7ff; --cs4-ff-muted:#b0cede;
+ --cs4-ff-accent:#92e0ff; --cs4-ff-edge:#72bfdc; --cs4-ff-font:Arial,sans-serif;
+ --cs4-ff-glow:none; --cs4-ff-rule:solid; --cs4-ff-focus:#ffe498;
+ background:var(--cs4-ff-bg); color:var(--cs4-ff-text); font-family:var(--cs4-ff-font);
+ font-size:var(--cs4-size); line-height:1.4; border:1px var(--cs4-ff-rule) var(--cs4-ff-edge);
+ box-shadow:var(--cs4-ff-glow); padding:12px 14px; position:relative; isolation:isolate; }
+.foreign[data-style=jade] { border-width:3px; }
+.foreign[data-style=terminal] { border-left-width:4px; }
+.foreign header { display:flex; justify-content:space-between; gap:8px; align-items:baseline;
+ color:var(--cs4-ff-accent); margin-bottom:8px; font-weight:bold; }
+.foreign p { margin:5px 0; }.foreign .muted { color:var(--cs4-ff-muted); }
+.foreign .accent { color:var(--cs4-ff-accent); }
+.foreign .fact { display:flex; justify-content:space-between; gap:8px; padding:7px 0;
+ border-top:1px solid var(--cs4-ff-edge); font-variant-numeric:tabular-nums; }
+.foreign .fact span:last-child { font-weight:bold; }.foreign .foreign-control { display:inline-block;
+ padding:5px 9px; border:1px solid var(--cs4-ff-edge); color:var(--cs4-ff-text); margin-top:9px;
+ background:var(--cs4-ff-bg); }
+.foreign .focus-ring { outline-color:var(--cs4-ff-focus); }
+.notice { display:flex; gap:12px; align-items:start; }.notice .notice-mark { font-size:22px; line-height:1.2; color:var(--cs4-ff-accent); }
+.notice header { margin-bottom:2px; }.notice p { margin:2px 0; }.notice .foreign-control {margin-top:4px;}
+.notice-remaining {margin-top:14px;}
+.center-view { height:100%; display:flex; flex-direction:column; padding:12px 16px; }
+.center-view .reading { flex:1; overflow:auto; scrollbar-gutter:stable; }.center-view .view-nav { display:flex; gap:14px;
+ padding:7px 0; border-bottom:1px solid var(--cs4-ff-edge); color:var(--cs4-ff-muted); }
+.center-view .view-nav b { color:var(--cs4-ff-accent); }
+.center-view h3 { margin:13px 0 7px; font-size:1em; font-weight:normal; }
+.center-view .balances { display:flex; gap:24px; margin-top:10px; }
+.center-view .balances strong { color:var(--cs4-ff-accent); }
+.center-view .fact { padding:8px 0; }
+.center-task .task-content { padding:0; }.center-task .work { padding:5px 9px; }
+.center-task .back { background:var(--base-control); }
+.log-mirror { position:absolute; left:967px; top:151px; width:376px; min-height:44px; padding:7px 6px;
+ background:var(--base-log); color:var(--base-log-text); border-bottom:1px solid #66577d; font:14px/1.4 Arial,sans-serif; }
+.log-mirror .source { color:#c8c0d8; }.log-mirror .open {text-decoration:underline; margin-left:5px;}
+.foreign[data-motion=reduce],.foreign[data-effects=off] { --cs4-ff-glow:none; animation:none; transition:none; }
+@media(prefers-reduced-motion:reduce) { .foreign { animation:none; transition:none; } }

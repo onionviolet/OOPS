@@ -1,0 +1,91 @@
+{
+  "scope": "Preserved R14 candidate versus preserved original Proto23 screenshots; no new gameplay proof",
+  "imageInputs": [
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/evidence/c1-proto23-reference-1366.png",
+      "sha256": "f4bda8dc12a3414fd93eb3e92335f379df735573d52d3c8b1f1fdadd95b54051"
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/evidence/parity-r7/proto23-actions.png",
+      "sha256": "b9dd500186c1f2aa1a29992ea4b7f47996e6e0fb0088ab2fbe543aeffbf40a97"
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/evidence/parity-r7/proto23-crafting.png",
+      "sha256": "4fd960782e27befcaf42de52b3b9820254b3e2225d170e56bf12e245a0a36d62"
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/evidence/parity-r7/proto23-journal.png",
+      "sha256": "bd7af2df539774173f10022b19d3723e47c77a040eeb9dbb123ea89341bb3654"
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/evidence/parity-r7/proto23-night.png",
+      "sha256": "6a29072aa9bbdf01cf0b572ce9340b32bfdb82882078bfc4704ce9818c6d548a"
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/evidence/parity-r7/proto23-skills.png",
+      "sha256": "2e15d0972bfe0fb4e6233df7e6c35e0ea667baef53bb19f484c3b42e5449ad93"
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/evidence/r14/after/cooking-ready-1366-14.png",
+      "sha256": "2619b3683fcad3b5aa768c605aa0afc2f428c99ae887b3b44ac0322e0c7f9f1e"
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/evidence/r14/after/nav-1366-14/00-home.png",
+      "sha256": "fdc594dbcbd5bbc9a00944cf214e9ffb51e949b049621291b953a5af5761a832"
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/evidence/r14/after/nav-1366-14/01-Stats.png",
+      "sha256": "ec1a8ca709bffccde0cd159c3a66787243275dc4d419527b11c1df80554a6109"
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/evidence/r14/after/nav-1366-14/03-Journal.png",
+      "sha256": "0f3bf5e857e637a6e0cc7f9128c0e5d7783eb6028a970b610e42e2e124089ffd"
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/evidence/r14/after/nav-1366-14/14-Settings.png",
+      "sha256": "f7cc7c5e257c8edd4d1b8ffd47a12c6475c52c1b76cd38e9fd4f7e3260d27825"
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/evidence/r14/after/reports-live-1366-14.png",
+      "sha256": "9d0cb8c7cffffb395581d61006e5a4fb27131737fd8aa21fac21a5f809abe403"
+    }
+  ],
+  "inspectedSources": [
+    {
+      "path": "src/panel_kit.js",
+      "sha256": "cc06cec525598db8c30271a776da914a7e097baeae449a795b361782c7d9eb43"
+    },
+    {
+      "path": "src/proto23_shell.js",
+      "sha256": "0453467d32bd29b10cdc0cd1cafc0345c8580a618548a9d61fc088d0576a2194"
+    },
+    {
+      "path": "src/village_workspace.js",
+      "sha256": "12e7500e4411c7b1e697fa43508339ace0f9b8c9db15c73443546f13ea79957e"
+    },
+    {
+      "path": "src/display.js",
+      "sha256": "ea2fd0a3a99de52d94160f54736a75436276a60029004007e6a59156a41854a8"
+    },
+    {
+      "path": "styles/ui_tokens.css",
+      "sha256": "0e1819771da7ba56e5ebba72e91b16e96e628705f5d6dca0efcad53b0e5f70b1"
+    },
+    {
+      "path": "index.html",
+      "sha256": "c0c4d111c6d59c057f1d658b20f3ed3ebe46ceba219e1fe200dc080680c81aa3"
+    }
+  ],
+  "browserChecks": {
+    "scenes": 6,
+    "imagePairsLoaded": 6,
+    "dimensions": "1366x768 all 12 inputs",
+    "controls": [
+      "scene selector",
+      "You and gear detail",
+      "100% pixels",
+      "fit images"
+    ],
+    "limits": "Viewer checks only. Original gameplay journeys not replayed."
+  }
+}

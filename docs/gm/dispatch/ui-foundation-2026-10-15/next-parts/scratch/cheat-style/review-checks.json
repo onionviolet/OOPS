@@ -1,0 +1,18 @@
+{
+  "sceneCount": 47,
+  "familyCount": 6,
+  "htmlPngHashesMatch": true,
+  "allFramesPinned": true,
+  "triageCounts": {
+    "1": 4,
+    "2": 4,
+    "3": 5,
+    "4": 3,
+    "5": 0
+  },
+  "errors": [],
+  "cssSha256": "0534f7308fbc395fb8ca6116ad01e720f28a180842aaceeda2e77f1323f75640",
+  "generatorSha256": "ff09b712f2cc40da98256ee5693c4440537770365587b6afefcb6ff5deb7cb76",
+  "reportSha256": "e7ddc4b17560a082695cec5d426cd164d09745488f125521d6d504a4c3d07f85",
+  "scope": "Artifact completeness and local-link/hash checks; no gameplay or native CS2 verification"
+}

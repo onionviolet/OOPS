@@ -1,0 +1,109 @@
+https://www.factorio.com/blog/post/fff-400
+Friday Facts #400 - Chart search and Pins | Factorio
+Factorio.com
+|
+Forums
+|
+Wiki
+|
+Mod Portal
+|
+API Docs
+Log in
+|
+Sign up
+Game
+Screenshots
+Videos
+Content
+Merch
+Artwork
+About us
+Buy
+Demo
+Space Age
+Content
+Galaxy
+Presskit
+Buy
+Blog
+Support
+Help
+FAQ
+Presskit
+Contact
+Friday Facts #400 - Chart search and Pins
+Posted by
+kovarex
+,
+Klonan
+on 2024-03-01
+Hello,
+Is it me you're looking for?
+The UI search
+kovarex
+When it comes to UI, one of the things we are proud of is the standard search feature in every window where it's even remotely relevant. It all comes nicely together. You stop thinking about it, and press the CTRL + F shortcut to search whenever you look for something.
+But once we got really used to it, we suddenly started to want to search even when not in some window, but just in the game itself. This combined with the fact, that the most frequented question in multiplayer games was,
+"Hey, where do we make X please?"
+(especially once planets were added).
+Which lead us to the most obvious complementary feature:
+The map search
+kovarex
+Why not extend the searching to the whole map as well?
+We were not sure about what exactly should be searchable, so we just started from the most obvious, the production search.
+Mp4 playback not supported on your device.
+How could we play without this?
+Other searchable stuff
+After the production search, we added a few things that we found useful after playtesting:
+Map tags, which merge into one group when they are on top of assemblers of the same thing.
+Train stops, which are forced to be at the end of the list, as in some cases there tends to be A LOT of them.
+We could consider to add more to the search, like the locations of logistic chests containing some item, but we decided to not go down this rabbit hole for now. Mainly because it would naturally lead to the need of making all items in containers searchable, and it would become a performance nightmare, not even talking about the possible huge spam of the search results.
+Of course, there might be some good ideas of other things we could make searchable, you can let us know!
+Pins
+kovarex
+As we show in the search part, there are these little pins next to the search result, which are the connection to the related feature: The pins.
+The motivation for pins was like:
+"I'm in a big base, I search for an item, and try to go there. Halfway there, I kind of lose my place and have to search for it again to keep myself on track"
+. It didn't feel right. If only I could somehow mark the place where I want to go.
+So the feature was created, and obviously, it is not rocket science, but the devil is in the details:
+You can pin a search result using the pin button, but there is also shortcut to pin any position or entity, by default ALT + Right click.
+Every pin shows you its location on the screen, or when offscreen, it shows you an arrow at the edge of the screen with the distance to it. This is mainly for when you just want to run towards your destination.
+Since we don't expect a crazy amount of pins to exist, we added a list of all your pins right under the minimap, where it can be edited or removed.
+The pin can be edited to change the caption, and you can also decide to not always show the arrow for the pin. This is mainly for cases when you use the pin as more of a long term bookmark.
+The most typical usages of the pins:
+You just temporarily pin something (possibly a search result) to run there.
+You pin something as a reminder of what you want to do next.
+You pin your car or spidertron, so you can find it.
+You pin your friends in a multiplayer game, so you always know their location.
+When you die, it automatically pins the location of your corpse, so you can actually find it.
+But we have tags and pings, isn't this too much?
+It might seem a little bit too confusing to have map tags, pings and also pins, but I still believe that all of them should exist at the same time, as they have their own use-cases.
+Map tags are shared between everyone on the map, and are meant as a persistent marker of some position.
+Pings are a very temporary way to show a place to someone in a multiplayer game.
+Pins are unique for each player, and each player can choose what they find important.
+New Alerts GUI
+Klonan
+The old alerts system was quite simple, and for its simplicity it was functional enough.
+If you clicked the flashing alert slot, it would open the map at the 'most important' alert.
+However with Space age, as with all things, we need to go further. Opening the map on a random planet when you click an alert isn't that useful. You might not care about some wall damage on Nauvis, but your Space platform being smashed apart is quite a different story.
+Now when you click on an Alert slot, it will open the new Alerts Overview:
+The list of items is separated by planet, and clicking an item will take you to the location on the map. There is also the button to pin the Alert, so you can utilize the Pins feature as mentioned before.
+The Alerts are still segregated by category, so things like missing materials and damage alerts show as separate alert slots as it is now.
+As always, pin your thoughts at the usual places.
+Discuss on our forums
+Discuss on Reddit
+Subscribe by email
+Terms of Service
+|
+Privacy
+|
+Imprint
+|
+Presskit
+|
+Contact
+|
+RSS
+|
+Jobs
+Copyright © 2015 - 2026 Wube Software - all rights reserved.

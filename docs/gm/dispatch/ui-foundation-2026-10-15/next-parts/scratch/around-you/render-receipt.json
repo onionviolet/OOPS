@@ -1,0 +1,872 @@
+{
+  "scope": "Static geometry/pixel export only. No game, interaction, storage, travel, fog or knowledge behavior tested.",
+  "count": 9,
+  "pngCount": 10,
+  "allPagesFit": true,
+  "allClearOfReports": true,
+  "allClearOfYou": true,
+  "allNoHorizontalScroll": true,
+  "allMapTextReadable": true,
+  "allStatic": true,
+  "errors": [],
+  "results": [
+    {
+      "id": "village-nodes-14",
+      "html": "village-nodes-14.html",
+      "png": "village-nodes-14.png",
+      "width": 1366,
+      "height": 768,
+      "size": 14,
+      "frame": "../../../evidence/r14/after/nav-1366-14/00-home.png",
+      "frameSha256": "fdc594dbcbd5bbc9a00944cf214e9ffb51e949b049621291b953a5af5761a832",
+      "observed": {
+        "page": [
+          1366,
+          768
+        ],
+        "panels": [
+          {
+            "bounds": {
+              "x": 489,
+              "y": 40,
+              "right": 951,
+              "bottom": 329,
+              "width": 462,
+              "height": 289
+            },
+            "font": "14px"
+          },
+          {
+            "bounds": {
+              "x": 371,
+              "y": 336,
+              "right": 951,
+              "bottom": 720,
+              "width": 580,
+              "height": 384
+            },
+            "font": "14px"
+          }
+        ],
+        "scrolling": [
+          {
+            "class": "map-body",
+            "scrollHeight": 225,
+            "clientHeight": 225,
+            "scrollWidth": 458,
+            "clientWidth": 458,
+            "overflow": "auto"
+          },
+          {
+            "class": "task-content",
+            "scrollHeight": 253,
+            "clientHeight": 246,
+            "scrollWidth": 576,
+            "clientWidth": 576,
+            "overflow": "auto"
+          }
+        ],
+        "scripts": 0,
+        "svgText": [
+          {
+            "text": "● Village",
+            "font": "14.3px",
+            "screenSize": 14.106756756756758
+          },
+          {
+            "text": "You are here",
+            "font": "14.3px",
+            "screenSize": 14.106756756756758
+          },
+          {
+            "text": "Eastern mill",
+            "font": "14.3px",
+            "screenSize": 14.106756756756758
+          },
+          {
+            "text": "30m",
+            "font": "14.3px",
+            "screenSize": 14.106756756756758
+          },
+          {
+            "text": "Nearby cave",
+            "font": "14.3px",
+            "screenSize": 14.106756756756758
+          },
+          {
+            "text": "60m",
+            "font": "14.3px",
+            "screenSize": 14.106756756756758
+          }
+        ],
+        "externalResources": 0
+      },
+      "errors": [],
+      "extra": [],
+      "htmlSha256": "e1dbfa810f818c6d042a0c8baaa9606159805dd176f1140f539f75301e3b3887",
+      "pngSha256": "5b756b8064371b46f0e415ddfc73738e08dffaca1156ecdc29b9f47398063fd6"
+    },
+    {
+      "id": "village-nodes-21",
+      "html": "village-nodes-21.html",
+      "png": "village-nodes-21.png",
+      "width": 1366,
+      "height": 768,
+      "size": 21,
+      "frame": "../../../evidence/r14/after/nav-1366-21/00-home.png",
+      "frameSha256": "6d083bf9b02cda2bb6511b10483709e0312a955de9f13322b4b5281aff6c5cee",
+      "observed": {
+        "page": [
+          1366,
+          768
+        ],
+        "panels": [
+          {
+            "bounds": {
+              "x": 489,
+              "y": 40,
+              "right": 951,
+              "bottom": 408,
+              "width": 462,
+              "height": 368
+            },
+            "font": "21px"
+          },
+          {
+            "bounds": {
+              "x": 371,
+              "y": 412,
+              "right": 951,
+              "bottom": 720,
+              "width": 580,
+              "height": 308
+            },
+            "font": "21px"
+          }
+        ],
+        "scrolling": [
+          {
+            "class": "map-body",
+            "scrollHeight": 285,
+            "clientHeight": 285,
+            "scrollWidth": 458,
+            "clientWidth": 458,
+            "overflow": "auto"
+          },
+          {
+            "class": "task-content",
+            "scrollHeight": 429,
+            "clientHeight": 132,
+            "scrollWidth": 576,
+            "clientWidth": 576,
+            "overflow": "auto"
+          }
+        ],
+        "scripts": 0,
+        "svgText": [
+          {
+            "text": "● Village",
+            "font": "21px",
+            "screenSize": 21.293023255813956
+          },
+          {
+            "text": "You are here",
+            "font": "21px",
+            "screenSize": 21.293023255813956
+          },
+          {
+            "text": "Eastern mill",
+            "font": "21px",
+            "screenSize": 21.293023255813956
+          },
+          {
+            "text": "30m",
+            "font": "21px",
+            "screenSize": 21.293023255813956
+          },
+          {
+            "text": "Nearby cave",
+            "font": "21px",
+            "screenSize": 21.293023255813956
+          },
+          {
+            "text": "60m",
+            "font": "21px",
+            "screenSize": 21.293023255813956
+          }
+        ],
+        "externalResources": 0
+      },
+      "errors": [],
+      "extra": [
+        {
+          "png": "village-nodes-21-scrolled.png",
+          "sha256": "b445fdf49000d3ce4acbfd2c7226154013645130aee2863f5fc6965af5708cb6"
+        }
+      ],
+      "htmlSha256": "f9ab00223c1ae5d9d72d6dc7bda647c54aada52981b7de008f93a33717842a60",
+      "pngSha256": "a81153ba36d4fd2f0127b48a78536dd6a69063ed8fe1c714d5581dee5f1618be"
+    },
+    {
+      "id": "village-nodes-1920-21",
+      "html": "village-nodes-1920-21.html",
+      "png": "village-nodes-1920-21.png",
+      "width": 1920,
+      "height": 1080,
+      "size": 21,
+      "frame": "../../../evidence/r14/after/nav-1920-21/00-home.png",
+      "frameSha256": "dae15263d64380d98728976a88915cd9a30de511306cb764e30eae05034bf3b1",
+      "observed": {
+        "page": [
+          1920,
+          1080
+        ],
+        "panels": [
+          {
+            "bounds": {
+              "x": 651,
+              "y": 40,
+              "right": 1395,
+              "bottom": 448,
+              "width": 744,
+              "height": 408
+            },
+            "font": "21px"
+          },
+          {
+            "bounds": {
+              "x": 524,
+              "y": 456,
+              "right": 1395,
+              "bottom": 1032,
+              "width": 871,
+              "height": 576
+            },
+            "font": "21px"
+          }
+        ],
+        "scrolling": [
+          {
+            "class": "map-body",
+            "scrollHeight": 325,
+            "clientHeight": 325,
+            "scrollWidth": 740,
+            "clientWidth": 740,
+            "overflow": "auto"
+          },
+          {
+            "class": "task-content",
+            "scrollHeight": 400,
+            "clientHeight": 400,
+            "scrollWidth": 867,
+            "clientWidth": 867,
+            "overflow": "auto"
+          }
+        ],
+        "scripts": 0,
+        "svgText": [
+          {
+            "text": "● Village",
+            "font": "21px",
+            "screenSize": 34.479729729729726
+          },
+          {
+            "text": "You are here",
+            "font": "21px",
+            "screenSize": 34.479729729729726
+          },
+          {
+            "text": "Eastern mill",
+            "font": "21px",
+            "screenSize": 34.479729729729726
+          },
+          {
+            "text": "30m",
+            "font": "21px",
+            "screenSize": 34.479729729729726
+          },
+          {
+            "text": "Nearby cave",
+            "font": "21px",
+            "screenSize": 34.479729729729726
+          },
+          {
+            "text": "60m",
+            "font": "21px",
+            "screenSize": 34.479729729729726
+          }
+        ],
+        "externalResources": 0
+      },
+      "errors": [],
+      "extra": [],
+      "htmlSha256": "a090abfde4ec0a4bb091f76f0149830a62fd9498ceb9513af128f82f983571f2",
+      "pngSha256": "51f13d3bce60f0254337f67d6aee2c6f0d0d2979ac48ac8691859e7ebe1b1cb1"
+    },
+    {
+      "id": "cave-sketch-14",
+      "html": "cave-sketch-14.html",
+      "png": "cave-sketch-14.png",
+      "width": 1366,
+      "height": 768,
+      "size": 14,
+      "frame": "../../../evidence/r14/after/nav-1366-14/00-home.png",
+      "frameSha256": "fdc594dbcbd5bbc9a00944cf214e9ffb51e949b049621291b953a5af5761a832",
+      "observed": {
+        "page": [
+          1366,
+          768
+        ],
+        "panels": [
+          {
+            "bounds": {
+              "x": 489,
+              "y": 40,
+              "right": 951,
+              "bottom": 329,
+              "width": 462,
+              "height": 289
+            },
+            "font": "14px"
+          },
+          {
+            "bounds": {
+              "x": 371,
+              "y": 336,
+              "right": 951,
+              "bottom": 720,
+              "width": 580,
+              "height": 384
+            },
+            "font": "14px"
+          }
+        ],
+        "scrolling": [
+          {
+            "class": "map-body",
+            "scrollHeight": 225,
+            "clientHeight": 225,
+            "scrollWidth": 458,
+            "clientWidth": 458,
+            "overflow": "auto"
+          },
+          {
+            "class": "task-content",
+            "scrollHeight": 253,
+            "clientHeight": 246,
+            "scrollWidth": 576,
+            "clientWidth": 576,
+            "overflow": "auto"
+          }
+        ],
+        "scripts": 0,
+        "svgText": [
+          {
+            "text": "Entrance",
+            "font": "14.3px",
+            "screenSize": 14.106756756756758
+          },
+          {
+            "text": "Known exit",
+            "font": "14.3px",
+            "screenSize": 14.106756756756758
+          },
+          {
+            "text": "● Cave room",
+            "font": "14.3px",
+            "screenSize": 14.106756756756758
+          },
+          {
+            "text": "18 / 25 groups left",
+            "font": "14.3px",
+            "screenSize": 14.106756756756758
+          },
+          {
+            "text": "No enemy positions",
+            "font": "14.3px",
+            "screenSize": 14.106756756756758
+          }
+        ],
+        "externalResources": 0
+      },
+      "errors": [],
+      "extra": [],
+      "htmlSha256": "84eb3bf775281a2cb74f728417383f21536d4726f4a329e81c9b4282c87e241c",
+      "pngSha256": "393712cebdd46ad14ffb9be69c76ca5e8b08d5aafab683a5f5afc66fc7a829e2"
+    },
+    {
+      "id": "forest-nodes-no-lens-14",
+      "html": "forest-nodes-no-lens-14.html",
+      "png": "forest-nodes-no-lens-14.png",
+      "width": 1366,
+      "height": 768,
+      "size": 14,
+      "frame": "../../../evidence/r14/after/nav-1366-14/00-home.png",
+      "frameSha256": "fdc594dbcbd5bbc9a00944cf214e9ffb51e949b049621291b953a5af5761a832",
+      "observed": {
+        "page": [
+          1366,
+          768
+        ],
+        "panels": [
+          {
+            "bounds": {
+              "x": 489,
+              "y": 40,
+              "right": 951,
+              "bottom": 329,
+              "width": 462,
+              "height": 289
+            },
+            "font": "14px"
+          },
+          {
+            "bounds": {
+              "x": 371,
+              "y": 336,
+              "right": 951,
+              "bottom": 720,
+              "width": 580,
+              "height": 384
+            },
+            "font": "14px"
+          }
+        ],
+        "scrolling": [
+          {
+            "class": "map-body",
+            "scrollHeight": 225,
+            "clientHeight": 225,
+            "scrollWidth": 458,
+            "clientWidth": 458,
+            "overflow": "auto"
+          },
+          {
+            "class": "task-content",
+            "scrollHeight": 253,
+            "clientHeight": 246,
+            "scrollWidth": 576,
+            "clientWidth": 576,
+            "overflow": "auto"
+          }
+        ],
+        "scripts": 0,
+        "svgText": [
+          {
+            "text": "Village",
+            "font": "14.3px",
+            "screenSize": 14.106756756756758
+          },
+          {
+            "text": "● Forest edge",
+            "font": "14.3px",
+            "screenSize": 14.106756756756758
+          },
+          {
+            "text": "? path",
+            "font": "14.3px",
+            "screenSize": 14.106756756756758
+          },
+          {
+            "text": "? path",
+            "font": "14.3px",
+            "screenSize": 14.106756756756758
+          }
+        ],
+        "externalResources": 0
+      },
+      "errors": [],
+      "extra": [],
+      "htmlSha256": "4966cff1b39e993843ecc0721e03ece0b9d701c2c9256071150f8cc2f8a1d2e0",
+      "pngSha256": "286a9128cbdab7150aeab8b9ad6376108dfd98f774eca87cf21f692894e0a1b6"
+    },
+    {
+      "id": "forest-nodes-hunter-14",
+      "html": "forest-nodes-hunter-14.html",
+      "png": "forest-nodes-hunter-14.png",
+      "width": 1366,
+      "height": 768,
+      "size": 14,
+      "frame": "../../../evidence/r14/after/nav-1366-14/00-home.png",
+      "frameSha256": "fdc594dbcbd5bbc9a00944cf214e9ffb51e949b049621291b953a5af5761a832",
+      "observed": {
+        "page": [
+          1366,
+          768
+        ],
+        "panels": [
+          {
+            "bounds": {
+              "x": 489,
+              "y": 40,
+              "right": 951,
+              "bottom": 329,
+              "width": 462,
+              "height": 289
+            },
+            "font": "14px"
+          },
+          {
+            "bounds": {
+              "x": 371,
+              "y": 336,
+              "right": 951,
+              "bottom": 720,
+              "width": 580,
+              "height": 384
+            },
+            "font": "14px"
+          }
+        ],
+        "scrolling": [
+          {
+            "class": "map-body",
+            "scrollHeight": 225,
+            "clientHeight": 225,
+            "scrollWidth": 458,
+            "clientWidth": 458,
+            "overflow": "auto"
+          },
+          {
+            "class": "task-content",
+            "scrollHeight": 253,
+            "clientHeight": 246,
+            "scrollWidth": 576,
+            "clientWidth": 576,
+            "overflow": "auto"
+          }
+        ],
+        "scripts": 0,
+        "svgText": [
+          {
+            "text": "Village",
+            "font": "14.3px",
+            "screenSize": 14.106756756756758
+          },
+          {
+            "text": "● Forest edge",
+            "font": "14.3px",
+            "screenSize": 14.106756756756758
+          },
+          {
+            "text": "? path",
+            "font": "14.3px",
+            "screenSize": 14.106756756756758
+          },
+          {
+            "text": "? path",
+            "font": "14.3px",
+            "screenSize": 14.106756756756758
+          }
+        ],
+        "externalResources": 0
+      },
+      "errors": [],
+      "extra": [],
+      "htmlSha256": "87994b6b725a88e10a7d7b73269b8ebba154e2100c2781c875c52b1fb8f28f64",
+      "pngSha256": "29c4722563f2624ed428e5af80923d8298b9de44c9fc4312307f77e2aaa4fa5f"
+    },
+    {
+      "id": "forest-glyph-option-14",
+      "html": "forest-glyph-option-14.html",
+      "png": "forest-glyph-option-14.png",
+      "width": 1366,
+      "height": 768,
+      "size": 14,
+      "frame": "../../../evidence/r14/after/nav-1366-14/00-home.png",
+      "frameSha256": "fdc594dbcbd5bbc9a00944cf214e9ffb51e949b049621291b953a5af5761a832",
+      "observed": {
+        "page": [
+          1366,
+          768
+        ],
+        "panels": [
+          {
+            "bounds": {
+              "x": 489,
+              "y": 40,
+              "right": 951,
+              "bottom": 329,
+              "width": 462,
+              "height": 289
+            },
+            "font": "14px"
+          },
+          {
+            "bounds": {
+              "x": 371,
+              "y": 336,
+              "right": 951,
+              "bottom": 720,
+              "width": 580,
+              "height": 384
+            },
+            "font": "14px"
+          }
+        ],
+        "scrolling": [
+          {
+            "class": "map-body",
+            "scrollHeight": 225,
+            "clientHeight": 225,
+            "scrollWidth": 458,
+            "clientWidth": 458,
+            "overflow": "auto"
+          },
+          {
+            "class": "task-content",
+            "scrollHeight": 246,
+            "clientHeight": 246,
+            "scrollWidth": 576,
+            "clientWidth": 576,
+            "overflow": "auto"
+          }
+        ],
+        "scripts": 0,
+        "svgText": [],
+        "externalResources": 0
+      },
+      "errors": [],
+      "extra": [],
+      "htmlSha256": "18a9357e4c377be2222d1e739bc9bfeb63c49fdefaffbe8bfa4cda15511a3872",
+      "pngSha256": "f01b54f4cd20c8f874dc42fc5596b422a9af5788c9c6d57f61a038263b26b40a"
+    },
+    {
+      "id": "lens-comparison-14",
+      "html": "lens-comparison-14.html",
+      "png": "lens-comparison-14.png",
+      "width": 1366,
+      "height": 768,
+      "size": 14,
+      "frame": "../../../evidence/r14/after/nav-1366-14/00-home.png",
+      "frameSha256": "fdc594dbcbd5bbc9a00944cf214e9ffb51e949b049621291b953a5af5761a832",
+      "observed": {
+        "page": [
+          1366,
+          768
+        ],
+        "panels": [
+          {
+            "bounds": {
+              "x": 489,
+              "y": 40,
+              "right": 951,
+              "bottom": 329,
+              "width": 462,
+              "height": 289
+            },
+            "font": "14px"
+          },
+          {
+            "bounds": {
+              "x": 371,
+              "y": 336,
+              "right": 951,
+              "bottom": 720,
+              "width": 580,
+              "height": 384
+            },
+            "font": "14px"
+          }
+        ],
+        "scrolling": [
+          {
+            "class": "map-body",
+            "scrollHeight": 225,
+            "clientHeight": 225,
+            "scrollWidth": 458,
+            "clientWidth": 458,
+            "overflow": "auto"
+          },
+          {
+            "class": "task-content",
+            "scrollHeight": 253,
+            "clientHeight": 246,
+            "scrollWidth": 576,
+            "clientWidth": 576,
+            "overflow": "auto"
+          }
+        ],
+        "scripts": 0,
+        "svgText": [
+          {
+            "text": "Village",
+            "font": "15px",
+            "screenSize": 13.986486486486488
+          },
+          {
+            "text": "● Forest",
+            "font": "15px",
+            "screenSize": 13.986486486486488
+          },
+          {
+            "text": "edge",
+            "font": "15px",
+            "screenSize": 13.986486486486488
+          },
+          {
+            "text": "? path",
+            "font": "15px",
+            "screenSize": 13.986486486486488
+          },
+          {
+            "text": "? path",
+            "font": "15px",
+            "screenSize": 13.986486486486488
+          },
+          {
+            "text": "Village",
+            "font": "15px",
+            "screenSize": 13.986486486486488
+          },
+          {
+            "text": "● Forest",
+            "font": "15px",
+            "screenSize": 13.986486486486488
+          },
+          {
+            "text": "edge",
+            "font": "15px",
+            "screenSize": 13.986486486486488
+          },
+          {
+            "text": "? path",
+            "font": "15px",
+            "screenSize": 13.986486486486488
+          },
+          {
+            "text": "? path",
+            "font": "15px",
+            "screenSize": 13.986486486486488
+          }
+        ],
+        "externalResources": 0
+      },
+      "errors": [],
+      "extra": [],
+      "htmlSha256": "7c4f18872471ab44ed8acb649fa40e80beec02b31b9616f0b336140cdcecf7a9",
+      "pngSha256": "aa5dd923aa804f9d400c7c199bd5caad2487466413ac18590747f488f9f49a25"
+    },
+    {
+      "id": "known-atlas-14",
+      "html": "known-atlas-14.html",
+      "png": "known-atlas-14.png",
+      "width": 1366,
+      "height": 768,
+      "size": 14,
+      "frame": "../../../evidence/r14/after/nav-1366-14/00-home.png",
+      "frameSha256": "fdc594dbcbd5bbc9a00944cf214e9ffb51e949b049621291b953a5af5761a832",
+      "observed": {
+        "page": [
+          1366,
+          768
+        ],
+        "panels": [
+          {
+            "bounds": {
+              "x": 489,
+              "y": 40,
+              "right": 951,
+              "bottom": 329,
+              "width": 462,
+              "height": 289
+            },
+            "font": "14px"
+          },
+          {
+            "bounds": {
+              "x": 371,
+              "y": 336,
+              "right": 951,
+              "bottom": 720,
+              "width": 580,
+              "height": 384
+            },
+            "font": "14px"
+          }
+        ],
+        "scrolling": [
+          {
+            "class": "map-body",
+            "scrollHeight": 225,
+            "clientHeight": 225,
+            "scrollWidth": 458,
+            "clientWidth": 458,
+            "overflow": "auto"
+          },
+          {
+            "class": "task-content",
+            "scrollHeight": 386,
+            "clientHeight": 246,
+            "scrollWidth": 576,
+            "clientWidth": 576,
+            "overflow": "auto"
+          }
+        ],
+        "scripts": 0,
+        "svgText": [
+          {
+            "text": "● Village",
+            "font": "14.3px",
+            "screenSize": 14.106756756756758
+          },
+          {
+            "text": "You are here",
+            "font": "14.3px",
+            "screenSize": 14.106756756756758
+          },
+          {
+            "text": "Eastern mill",
+            "font": "14.3px",
+            "screenSize": 14.106756756756758
+          },
+          {
+            "text": "30m",
+            "font": "14.3px",
+            "screenSize": 14.106756756756758
+          },
+          {
+            "text": "Nearby cave",
+            "font": "14.3px",
+            "screenSize": 14.106756756756758
+          },
+          {
+            "text": "60m",
+            "font": "14.3px",
+            "screenSize": 14.106756756756758
+          },
+          {
+            "text": "● Village",
+            "font": "14.3px",
+            "screenSize": 14.166976744186048
+          },
+          {
+            "text": "Nearby cave",
+            "font": "14.3px",
+            "screenSize": 14.166976744186048
+          },
+          {
+            "text": "Cave room",
+            "font": "14.3px",
+            "screenSize": 14.166976744186048
+          },
+          {
+            "text": "Forest road",
+            "font": "14.3px",
+            "screenSize": 14.166976744186048
+          },
+          {
+            "text": "Eastern mill",
+            "font": "14.3px",
+            "screenSize": 14.166976744186048
+          }
+        ],
+        "externalResources": 0
+      },
+      "errors": [],
+      "extra": [],
+      "htmlSha256": "1bcdd409e3d0fd7ae8ac39f5de99930707c43b188c9e518281b544715680f3fb",
+      "pngSha256": "0dc4c9a537177b98a09e0c426ae0d9a57981b06a1e85fbe13b1da1805ca490e7"
+    }
+  ]
+}

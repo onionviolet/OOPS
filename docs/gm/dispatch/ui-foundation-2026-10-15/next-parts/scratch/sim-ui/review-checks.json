@@ -1,0 +1,19 @@
+{
+  "manifestCount": 60,
+  "allFilesExist": true,
+  "allReceiptHashesMatch": true,
+  "requiredModePairs": true,
+  "sevenGradesAndOracleBothSizes": true,
+  "threeFurtherTypesBothSizes": true,
+  "COMMONsections": true,
+  "triageCounts": {
+    "1": 6,
+    "2": 5,
+    "3": 7,
+    "4": 6,
+    "5": 0
+  },
+  "oracleHasNoLiarLabel": true,
+  "quietAIHasNoReceipt": true,
+  "scope": "Static artifact integrity checks only; no game build, native input, save or human acceptance"
+}

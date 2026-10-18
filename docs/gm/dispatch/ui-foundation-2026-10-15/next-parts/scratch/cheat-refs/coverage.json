@@ -1,0 +1,384 @@
+{
+  "family_rows": 49,
+  "CT_rows": 18,
+  "SH_rows": 26,
+  "player_cards": 12,
+  "PANELS_keys": 13,
+  "title_rule_H_rows": 8,
+  "enemy_policy_rows": 16,
+  "total_inventory_rows": 142,
+  "rows": [
+    {
+      "line": 43,
+      "name": "Death-menu regression"
+    },
+    {
+      "line": 44,
+      "name": "Time loop"
+    },
+    {
+      "line": 45,
+      "name": "System with quests"
+    },
+    {
+      "line": 46,
+      "name": "Sign-in and daily rewards"
+    },
+    {
+      "line": 47,
+      "name": "Multiplier return"
+    },
+    {
+      "line": 48,
+      "name": "Harvest and absorb"
+    },
+    {
+      "line": 49,
+      "name": "Copy"
+    },
+    {
+      "line": 50,
+      "name": "Analysis"
+    },
+    {
+      "line": 51,
+      "name": "Storage and space"
+    },
+    {
+      "line": 52,
+      "name": "Time dilation"
+    },
+    {
+      "line": 53,
+      "name": "Fortune and fate"
+    },
+    {
+      "line": 54,
+      "name": "Companion or resident spirit"
+    },
+    {
+      "line": 55,
+      "name": "Summon and army"
+    },
+    {
+      "line": 56,
+      "name": "Clones and many selves"
+    },
+    {
+      "line": 57,
+      "name": "Follower power"
+    },
+    {
+      "line": 58,
+      "name": "Wish or edit"
+    },
+    {
+      "line": 59,
+      "name": "Knowledge of the future"
+    },
+    {
+      "line": 60,
+      "name": "Meta or fourth wall"
+    },
+    {
+      "line": 61,
+      "name": "Body growth"
+    },
+    {
+      "line": 62,
+      "name": "Revival"
+    },
+    {
+      "line": 63,
+      "name": "Building or territory"
+    },
+    {
+      "line": 149,
+      "name": "Appraisal eye"
+    },
+    {
+      "line": 150,
+      "name": "Absolute knack"
+    },
+    {
+      "line": 151,
+      "name": "Language and speech"
+    },
+    {
+      "line": 152,
+      "name": "Instant teaching"
+    },
+    {
+      "line": 153,
+      "name": "Perfect crafting"
+    },
+    {
+      "line": 154,
+      "name": "Duplication"
+    },
+    {
+      "line": 155,
+      "name": "Body swap and possession"
+    },
+    {
+      "line": 156,
+      "name": "Shapeshift"
+    },
+    {
+      "line": 157,
+      "name": "Contract and bargain"
+    },
+    {
+      "line": 158,
+      "name": "Debt to the future"
+    },
+    {
+      "line": 159,
+      "name": "Karma bank"
+    },
+    {
+      "line": 160,
+      "name": "Dream walking"
+    },
+    {
+      "line": 161,
+      "name": "Divination"
+    },
+    {
+      "line": 162,
+      "name": "Outcome selection"
+    },
+    {
+      "line": 163,
+      "name": "Checkpoint save"
+    },
+    {
+      "line": 164,
+      "name": "Talent lottery"
+    },
+    {
+      "line": 165,
+      "name": "Inheritance system"
+    },
+    {
+      "line": 166,
+      "name": "Title collector"
+    },
+    {
+      "line": 167,
+      "name": "Achievement system"
+    },
+    {
+      "line": 168,
+      "name": "Notice-me-not"
+    },
+    {
+      "line": 169,
+      "name": "Charisma or aura"
+    },
+    {
+      "line": 170,
+      "name": "Reading growth"
+    },
+    {
+      "line": 171,
+      "name": "Heroic spirit summoning"
+    },
+    {
+      "line": 172,
+      "name": "Pocket world"
+    },
+    {
+      "line": 179,
+      "name": "Parasite system"
+    },
+    {
+      "line": 180,
+      "name": "Sealed blessing"
+    },
+    {
+      "line": 181,
+      "name": "Narrow curse"
+    },
+    {
+      "line": 182,
+      "name": "Threat sight"
+    },
+    {
+      "line": 848,
+      "name": "CT1"
+    },
+    {
+      "line": 849,
+      "name": "CT2"
+    },
+    {
+      "line": 850,
+      "name": "CT3"
+    },
+    {
+      "line": 851,
+      "name": "CT4"
+    },
+    {
+      "line": 852,
+      "name": "CT5"
+    },
+    {
+      "line": 853,
+      "name": "CT6"
+    },
+    {
+      "line": 854,
+      "name": "CT7"
+    },
+    {
+      "line": 855,
+      "name": "CT8"
+    },
+    {
+      "line": 856,
+      "name": "CT9"
+    },
+    {
+      "line": 857,
+      "name": "CT10"
+    },
+    {
+      "line": 858,
+      "name": "CT11"
+    },
+    {
+      "line": 859,
+      "name": "CT12"
+    },
+    {
+      "line": 860,
+      "name": "CT13"
+    },
+    {
+      "line": 861,
+      "name": "CT14"
+    },
+    {
+      "line": 862,
+      "name": "CT15"
+    },
+    {
+      "line": 863,
+      "name": "CT16"
+    },
+    {
+      "line": 864,
+      "name": "CT17"
+    },
+    {
+      "line": 865,
+      "name": "CT18"
+    },
+    {
+      "line": 1283,
+      "name": "SH1"
+    },
+    {
+      "line": 1284,
+      "name": "SH2"
+    },
+    {
+      "line": 1285,
+      "name": "SH3"
+    },
+    {
+      "line": 1286,
+      "name": "SH4"
+    },
+    {
+      "line": 1287,
+      "name": "SH5"
+    },
+    {
+      "line": 1288,
+      "name": "SH6"
+    },
+    {
+      "line": 1289,
+      "name": "SH7"
+    },
+    {
+      "line": 1290,
+      "name": "SH8"
+    },
+    {
+      "line": 1291,
+      "name": "SH9"
+    },
+    {
+      "line": 1292,
+      "name": "SH10"
+    },
+    {
+      "line": 1293,
+      "name": "SH11"
+    },
+    {
+      "line": 1294,
+      "name": "SH12"
+    },
+    {
+      "line": 1295,
+      "name": "SH13"
+    },
+    {
+      "line": 1296,
+      "name": "SH14"
+    },
+    {
+      "line": 1297,
+      "name": "SH15"
+    },
+    {
+      "line": 1298,
+      "name": "SH16"
+    },
+    {
+      "line": 1299,
+      "name": "SH17"
+    },
+    {
+      "line": 1300,
+      "name": "SH18"
+    },
+    {
+      "line": 1392,
+      "name": "SH19"
+    },
+    {
+      "line": 1393,
+      "name": "SH20"
+    },
+    {
+      "line": 1394,
+      "name": "SH21"
+    },
+    {
+      "line": 1395,
+      "name": "SH22"
+    },
+    {
+      "line": 1396,
+      "name": "SH23"
+    },
+    {
+      "line": 1397,
+      "name": "SH24"
+    },
+    {
+      "line": 1398,
+      "name": "SH25"
+    },
+    {
+      "line": 1399,
+      "name": "SH26"
+    }
+  ]
+}

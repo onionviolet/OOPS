@@ -1,0 +1,17 @@
+# Composition coordination, 2026-10-15
+
+Weibao explicitly requested acknowledgment by the UI worker, continued refactoring, smaller subagents, and a rebuilt comparison beside Proto23. Root sent the instruction through send_message_to_thread to the existing foundation chat 01a13dba-1433-7232-bd63-674e459f141a. BASELINE_ACK.md records the reads. A follow-up explicitly authorizes that same worker as sole UI source writer for bounded C1 composition work. It must release ownership in C1_REPORT.md.
+
+The old waiting queue PID 3086 was stopped with SIGTERM before any NAV worker started. It was waiting for missing runs/ui.last.md after the foundation CLI resume, despite REPORT.md/CHECKPOINT.md releasing ownership. No NAV/TRIAGE/APOTHECARY worker was interrupted. Do not restart that stale queue concurrently with C1.
+
+Root has two read-only GPT-6 Luna medium subagents: source-reuse assessment and composition mapping. They own no runtime files. Root owns the isolated reference server on 127.0.0.1:19117 and a later comparison artifact only. Gameplay commands, save owners and existing user layouts remain authoritative.
+
+Existing NAV -> TRIAGE -> APOTHECARY order remains after C1. Recover the actual C1 report and writer processes before continuing; incorporate valid shared APIs and do not replay equivalent tests without a reason. The queue launcher needs its missing-final-output gate repaired or a documented direct NAV dispatch. This note does not mark any queued lane complete.
+
+Queue recovery: queue.py now uses delivery owners rather than the missing initial -o output. When C1_ACK exists it additionally requires root review JSON matching the C1_REPORT SHA256 and released source ownership. Readiness checks cover missing delivery, historical release, active C1, reviewed C1 and a changed report. Queue remains stopped until C1 review finishes.
+
+C1 root review completed: C1_REPORT release, 15 browser groups and source/served parity inspected; independent stance blocker corrected and expanded return observed. Static C1 site copied to ignored c1-review-site/ and served bytes checked. Source lab native views were independently exercised by root in background IAB, and NAV.md now links the deeper study. C1_ROOT_REVIEW.json authorizes the existing queue to continue in its original order. Visual-feel acceptance remains open.
+
+Latest shell-variant steering: Weibao requests an actual Proto23-shell variant over YAIR systems, especially fuller inventory/focus/stats and best-of-both-worlds presentation. Queue coordinator PID33250 stopped only, leaving active NAV PID33400 to finish its current authorized correctness work. TRIAGE/APOTHECARY remain queued while the existing foundation UI worker acknowledges the new packet and waits for NAV release; there is no concurrent runtime writer. Root will explicitly assign the shell worker as successor after NAV report/process release. See PROTO23_SHELL_VARIANT.md in foundation dispatch.
+
+NAV technical release reviewed: 26 browser PASS groups, 1,768 passing source tests with the same two inherited failures/three TODOs, and exact project/served parity. Its lingering CLI runner33400 was stopped by exact SIGINT after its explicit report release; it has exited. SHELL_VARIANT_TRANSFER.json assigns sole runtime ownership to existing UI chat01a13dba-1433-7232-bd63-674e459f141a. This overrides the NAV report default handoff-to-TRIAGE order for this newly authorized variant; TRIAGE/APOTHECARY remain queued.

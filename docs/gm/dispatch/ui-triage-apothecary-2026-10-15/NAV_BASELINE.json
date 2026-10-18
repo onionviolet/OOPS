@@ -1,0 +1,441 @@
+[
+  {
+    "viewport": [
+      1366,
+      768
+    ],
+    "page": {
+      "height": 768,
+      "width": 1366,
+      "viewportHeight": 768,
+      "viewportWidth": 1366
+    },
+    "regions": [
+      {
+        "id": "inventory_content_div",
+        "module": "belongings",
+        "visible": 297,
+        "content": 774,
+        "overflow": 477
+      },
+      {
+        "id": "center_mode_content",
+        "module": "local-actions",
+        "visible": 393,
+        "content": 433,
+        "overflow": 40
+      }
+    ],
+    "panels": [
+      {
+        "id": "vitals",
+        "rect": {
+          "x": 16,
+          "y": 44,
+          "width": 350.765625,
+          "height": 175,
+          "top": 44,
+          "right": 366.765625,
+          "bottom": 219,
+          "left": 16
+        }
+      },
+      {
+        "id": "combat-controls",
+        "rect": {
+          "x": 16,
+          "y": 227.796875,
+          "width": 350.765625,
+          "height": 51,
+          "top": 227.796875,
+          "right": 366.765625,
+          "bottom": 278.796875,
+          "left": 16
+        }
+      },
+      {
+        "id": "belongings",
+        "rect": {
+          "x": 16,
+          "y": 291.59375,
+          "width": 350.765625,
+          "height": 432.40625,
+          "top": 291.59375,
+          "right": 366.765625,
+          "bottom": 724,
+          "left": 16
+        }
+      },
+      {
+        "id": "focus",
+        "rect": {
+          "x": 382.765625,
+          "y": 44,
+          "width": 561.03125,
+          "height": 35,
+          "top": 44,
+          "right": 943.796875,
+          "bottom": 79,
+          "left": 382.765625
+        }
+      },
+      {
+        "id": "village-scene",
+        "rect": {
+          "x": 382.765625,
+          "y": 85,
+          "width": 561.03125,
+          "height": 144.78125,
+          "top": 85,
+          "right": 943.796875,
+          "bottom": 229.78125,
+          "left": 382.765625
+        }
+      },
+      {
+        "id": "current-work",
+        "rect": {
+          "x": 382.765625,
+          "y": 235.78125,
+          "width": 561.03125,
+          "height": 38.15625,
+          "top": 235.78125,
+          "right": 943.796875,
+          "bottom": 273.9375,
+          "left": 382.765625
+        }
+      },
+      {
+        "id": "local-actions",
+        "rect": {
+          "x": 382.765625,
+          "y": 279.9375,
+          "width": 561.03125,
+          "height": 444.0625,
+          "top": 279.9375,
+          "right": 943.796875,
+          "bottom": 724,
+          "left": 382.765625
+        }
+      },
+      {
+        "id": "messages",
+        "rect": {
+          "x": 959.796875,
+          "y": 44,
+          "width": 390.203125,
+          "height": 680,
+          "top": 44,
+          "right": 1350,
+          "bottom": 724,
+          "left": 959.796875
+        }
+      }
+    ],
+    "reach": [
+      {
+        "id": "belongings",
+        "shown": true,
+        "enabled": true,
+        "baselineBlock": null,
+        "clicks": 1,
+        "scrolls": 0,
+        "heading": [
+          "Inventory"
+        ]
+      },
+      {
+        "id": "crafting",
+        "shown": true,
+        "enabled": true,
+        "baselineBlock": null,
+        "clicks": 1,
+        "scrolls": 0,
+        "heading": []
+      },
+      {
+        "id": "records",
+        "shown": true,
+        "enabled": true,
+        "baselineBlock": null,
+        "clicks": 1,
+        "scrolls": 0,
+        "heading": [
+          "Journal"
+        ]
+      },
+      {
+        "id": "known-people",
+        "shown": true,
+        "enabled": true,
+        "baselineBlock": null,
+        "clicks": 1,
+        "scrolls": 0,
+        "heading": [
+          "People"
+        ]
+      },
+      {
+        "id": "projects",
+        "shown": true,
+        "enabled": true,
+        "baselineBlock": "Reproduced browser main-thread hang while opening Projects; skipped in measurement run",
+        "clicks": 1,
+        "scrolls": 0,
+        "heading": null
+      },
+      {
+        "id": "ledger",
+        "shown": true,
+        "enabled": true,
+        "baselineBlock": null,
+        "clicks": 1,
+        "scrolls": 0,
+        "heading": [
+          "Ledger"
+        ]
+      },
+      {
+        "id": "optional-worlds",
+        "shown": true,
+        "enabled": true,
+        "baselineBlock": null,
+        "clicks": 1,
+        "scrolls": 0,
+        "heading": [
+          "Worlds"
+        ]
+      },
+      {
+        "id": "customization",
+        "shown": true,
+        "enabled": true,
+        "baselineBlock": null,
+        "clicks": 1,
+        "scrolls": 0,
+        "heading": [
+          "Settings"
+        ]
+      }
+    ],
+    "journalTabs": [
+      " Quests "
+    ]
+  },
+  {
+    "viewport": [
+      1920,
+      1080
+    ],
+    "page": {
+      "height": 1080,
+      "width": 1920,
+      "viewportHeight": 1080,
+      "viewportWidth": 1920
+    },
+    "regions": [
+      {
+        "id": "inventory_content_div",
+        "module": "belongings",
+        "visible": 609,
+        "content": 774,
+        "overflow": 165
+      }
+    ],
+    "panels": [
+      {
+        "id": "vitals",
+        "rect": {
+          "x": 16,
+          "y": 44,
+          "width": 500.359375,
+          "height": 175,
+          "top": 44,
+          "right": 516.359375,
+          "bottom": 219,
+          "left": 16
+        }
+      },
+      {
+        "id": "combat-controls",
+        "rect": {
+          "x": 16,
+          "y": 227.796875,
+          "width": 500.359375,
+          "height": 51,
+          "top": 227.796875,
+          "right": 516.359375,
+          "bottom": 278.796875,
+          "left": 16
+        }
+      },
+      {
+        "id": "belongings",
+        "rect": {
+          "x": 16,
+          "y": 291.59375,
+          "width": 500.359375,
+          "height": 744.40625,
+          "top": 291.59375,
+          "right": 516.359375,
+          "bottom": 1036,
+          "left": 16
+        }
+      },
+      {
+        "id": "focus",
+        "rect": {
+          "x": 532.359375,
+          "y": 44,
+          "width": 799.234375,
+          "height": 35,
+          "top": 44,
+          "right": 1331.59375,
+          "bottom": 79,
+          "left": 532.359375
+        }
+      },
+      {
+        "id": "village-scene",
+        "rect": {
+          "x": 532.359375,
+          "y": 85,
+          "width": 799.234375,
+          "height": 144.78125,
+          "top": 85,
+          "right": 1331.59375,
+          "bottom": 229.78125,
+          "left": 532.359375
+        }
+      },
+      {
+        "id": "current-work",
+        "rect": {
+          "x": 532.359375,
+          "y": 235.78125,
+          "width": 799.234375,
+          "height": 38.15625,
+          "top": 235.78125,
+          "right": 1331.59375,
+          "bottom": 273.9375,
+          "left": 532.359375
+        }
+      },
+      {
+        "id": "local-actions",
+        "rect": {
+          "x": 532.359375,
+          "y": 279.9375,
+          "width": 799.234375,
+          "height": 756.0625,
+          "top": 279.9375,
+          "right": 1331.59375,
+          "bottom": 1036,
+          "left": 532.359375
+        }
+      },
+      {
+        "id": "messages",
+        "rect": {
+          "x": 1347.59375,
+          "y": 44,
+          "width": 556.40625,
+          "height": 992,
+          "top": 44,
+          "right": 1904,
+          "bottom": 1036,
+          "left": 1347.59375
+        }
+      }
+    ],
+    "reach": [
+      {
+        "id": "belongings",
+        "shown": true,
+        "enabled": true,
+        "baselineBlock": null,
+        "clicks": 1,
+        "scrolls": 0,
+        "heading": [
+          "Inventory"
+        ]
+      },
+      {
+        "id": "crafting",
+        "shown": true,
+        "enabled": true,
+        "baselineBlock": null,
+        "clicks": 1,
+        "scrolls": 0,
+        "heading": []
+      },
+      {
+        "id": "records",
+        "shown": true,
+        "enabled": true,
+        "baselineBlock": null,
+        "clicks": 1,
+        "scrolls": 0,
+        "heading": [
+          "Journal"
+        ]
+      },
+      {
+        "id": "known-people",
+        "shown": true,
+        "enabled": true,
+        "baselineBlock": null,
+        "clicks": 1,
+        "scrolls": 0,
+        "heading": [
+          "People"
+        ]
+      },
+      {
+        "id": "projects",
+        "shown": true,
+        "enabled": true,
+        "baselineBlock": "Reproduced browser main-thread hang while opening Projects; skipped in measurement run",
+        "clicks": 1,
+        "scrolls": 0,
+        "heading": null
+      },
+      {
+        "id": "ledger",
+        "shown": true,
+        "enabled": true,
+        "baselineBlock": null,
+        "clicks": 1,
+        "scrolls": 0,
+        "heading": [
+          "Ledger"
+        ]
+      },
+      {
+        "id": "optional-worlds",
+        "shown": true,
+        "enabled": true,
+        "baselineBlock": null,
+        "clicks": 1,
+        "scrolls": 0,
+        "heading": [
+          "Worlds"
+        ]
+      },
+      {
+        "id": "customization",
+        "shown": true,
+        "enabled": true,
+        "baselineBlock": null,
+        "clicks": 1,
+        "scrolls": 0,
+        "heading": [
+          "Settings"
+        ]
+      }
+    ],
+    "journalTabs": [
+      " Quests "
+    ]
+  }
+]

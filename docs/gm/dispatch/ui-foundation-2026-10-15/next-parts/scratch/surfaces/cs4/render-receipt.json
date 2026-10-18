@@ -1,0 +1,1486 @@
+{
+  "scope": "Static HTML render inspection only; no CS2 game behavior tested",
+  "count": 14,
+  "frame": "evidence/r14/after/nav-1366-14/00-home.png",
+  "frameSha256": "fdc594dbcbd5bbc9a00944cf214e9ffb51e949b049621291b953a5af5761a832",
+  "all1366x768": true,
+  "allForeignClearOfReports": true,
+  "minimumTextContrast": 7.041269464555732,
+  "minimumEdgeContrast": 5.126780619471971,
+  "allNoScripts": true,
+  "errors": [],
+  "clipping": [],
+  "results": [
+    {
+      "id": "system-popup",
+      "style": "system",
+      "surface": "popup",
+      "foreignTextSize": 14,
+      "appearance": "authored",
+      "motion": "static",
+      "html": "system-popup.html",
+      "png": "system-popup.png",
+      "viewport": [
+        1366,
+        768
+      ],
+      "observed": {
+        "page": [
+          1366,
+          768
+        ],
+        "foreign": [
+          {
+            "bounds": {
+              "x": 516,
+              "y": 173.671875,
+              "width": 407,
+              "height": 143.375,
+              "right": 923,
+              "bottom": 317.046875
+            },
+            "font": "14px",
+            "fontFamily": "Arial, sans-serif",
+            "text": [
+              {
+                "text": "\u3010 WORK LEDGER \u3011Known source",
+                "ratio": 10.377168219723602
+              },
+              {
+                "text": "Precision method learned.",
+                "ratio": 13.79457219105221
+              },
+              {
+                "text": "Connected assistance is unavailable here.",
+                "ratio": 9.219022035815902
+              },
+              {
+                "text": "Open Work Ledger \u203a",
+                "ratio": 13.79457219105221
+              }
+            ],
+            "edgeRatio": 7.388109145936943,
+            "focusRatio": 12.16914248755697,
+            "animations": 0,
+            "scrollWidth": 405,
+            "clientWidth": 405
+          }
+        ],
+        "task": {
+          "x": 371,
+          "y": 336,
+          "width": 580,
+          "height": 384,
+          "right": 951,
+          "bottom": 720
+        },
+        "focus": {
+          "x": 489,
+          "y": 40,
+          "width": 462,
+          "height": 289,
+          "right": 951,
+          "bottom": 329
+        },
+        "foreignClearOfReports": true,
+        "mirror": {
+          "text": "Work Ledger: Precision method learned.Open current ledger \u203a",
+          "bounds": {
+            "x": 967,
+            "y": 151,
+            "width": 376,
+            "height": 54.1875,
+            "right": 1343,
+            "bottom": 205.1875
+          }
+        },
+        "taskClipped": false,
+        "reading": null,
+        "scripts": 0
+      },
+      "errors": [],
+      "pngSha256": "2ee9a9b992e5c1fdca2e9eb9d59d64d00672a488cded1dc210df547cddfa486d",
+      "htmlSha256": "7af2eaf4eb293c85bbbd31361d9b0c406716747d2820a03aea455e8772eb6b6f"
+    },
+    {
+      "id": "system-notice",
+      "style": "system",
+      "surface": "notice",
+      "foreignTextSize": 14,
+      "appearance": "authored",
+      "motion": "static",
+      "html": "system-notice.html",
+      "png": "system-notice.png",
+      "viewport": [
+        1366,
+        768
+      ],
+      "observed": {
+        "page": [
+          1366,
+          768
+        ],
+        "foreign": [
+          {
+            "bounds": {
+              "x": 383,
+              "y": 465.125,
+              "width": 556,
+              "height": 126.375,
+              "right": 939,
+              "bottom": 591.5
+            },
+            "font": "14px",
+            "fontFamily": "Arial, sans-serif",
+            "text": [
+              {
+                "text": "\u3010 WORK LEDGER \u3011",
+                "ratio": 10.377168219723602
+              },
+              {
+                "text": "Precision method learned.",
+                "ratio": 13.79457219105221
+              },
+              {
+                "text": "Recorded in your Work Ledger.",
+                "ratio": 9.219022035815902
+              },
+              {
+                "text": "Open Work Ledger \u203a",
+                "ratio": 13.79457219105221
+              }
+            ],
+            "edgeRatio": 7.388109145936943,
+            "focusRatio": 12.16914248755697,
+            "animations": 0,
+            "scrollWidth": 554,
+            "clientWidth": 554
+          }
+        ],
+        "task": {
+          "x": 371,
+          "y": 336,
+          "width": 580,
+          "height": 384,
+          "right": 951,
+          "bottom": 720
+        },
+        "focus": {
+          "x": 489,
+          "y": 40,
+          "width": 462,
+          "height": 289,
+          "right": 951,
+          "bottom": 329
+        },
+        "foreignClearOfReports": true,
+        "mirror": {
+          "text": "Work Ledger: Precision method learned.Open current ledger \u203a",
+          "bounds": {
+            "x": 967,
+            "y": 151,
+            "width": 376,
+            "height": 54.1875,
+            "right": 1343,
+            "bottom": 205.1875
+          }
+        },
+        "taskClipped": false,
+        "reading": null,
+        "scripts": 0
+      },
+      "errors": [],
+      "pngSha256": "b4f1e2e769a31e444f40ae1aa3fd614c5b41a4829aee35fc6ef6c11cfe5c45a2",
+      "htmlSha256": "bc4470a4c7d6b2f9b6c62692cafaa7773b2eaf6271a92d0b990241e01f2c8f8a"
+    },
+    {
+      "id": "system-center",
+      "style": "system",
+      "surface": "center",
+      "foreignTextSize": 14,
+      "appearance": "authored",
+      "motion": "static",
+      "html": "system-center.html",
+      "png": "system-center.png",
+      "viewport": [
+        1366,
+        768
+      ],
+      "observed": {
+        "page": [
+          1366,
+          768
+        ],
+        "foreign": [
+          {
+            "bounds": {
+              "x": 373,
+              "y": 414.234375,
+              "width": 576,
+              "height": 231.765625,
+              "right": 949,
+              "bottom": 646
+            },
+            "font": "14px",
+            "fontFamily": "Arial, sans-serif",
+            "text": [
+              {
+                "text": "\u3010 WORK LEDGER \u30112 points",
+                "ratio": 10.377168219723602
+              },
+              {
+                "text": "Methods",
+                "ratio": 10.377168219723602
+              },
+              {
+                "text": "Commissions",
+                "ratio": 9.219022035815902
+              },
+              {
+                "text": "Receipts",
+                "ratio": 9.219022035815902
+              },
+              {
+                "text": "Acquisition and execution",
+                "ratio": 13.79457219105221
+              },
+              {
+                "text": "Precision method",
+                "ratio": 13.79457219105221
+              },
+              {
+                "text": "Learned",
+                "ratio": 10.377168219723602
+              },
+              {
+                "text": "Connected assistance",
+                "ratio": 13.79457219105221
+              },
+              {
+                "text": "Unavailable",
+                "ratio": 13.79457219105221
+              },
+              {
+                "text": "A learned method remains yours. Assistance needs a live connection.",
+                "ratio": 9.219022035815902
+              }
+            ],
+            "edgeRatio": 7.388109145936943,
+            "focusRatio": 12.16914248755697,
+            "animations": 0,
+            "scrollWidth": 574,
+            "clientWidth": 574
+          }
+        ],
+        "task": {
+          "x": 371,
+          "y": 336,
+          "width": 580,
+          "height": 384,
+          "right": 951,
+          "bottom": 720
+        },
+        "focus": {
+          "x": 489,
+          "y": 40,
+          "width": 462,
+          "height": 289,
+          "right": 951,
+          "bottom": 329
+        },
+        "foreignClearOfReports": true,
+        "mirror": {
+          "text": "Work Ledger: Precision method learned.Open current ledger \u203a",
+          "bounds": {
+            "x": 967,
+            "y": 151,
+            "width": 376,
+            "height": 54.1875,
+            "right": 1343,
+            "bottom": 205.1875
+          }
+        },
+        "taskClipped": false,
+        "reading": {
+          "client": 144,
+          "scroll": 144,
+          "overflow": "auto"
+        },
+        "scripts": 0
+      },
+      "errors": [],
+      "pngSha256": "1df10d918e25be1a44c518b049bd010c88e819b458110448576c4224078b1fee",
+      "htmlSha256": "771eca411d4fe577031adea67c40dde691cda506246c89df0d28b8b6ba585a2d"
+    },
+    {
+      "id": "jade-popup",
+      "style": "jade",
+      "surface": "popup",
+      "foreignTextSize": 14,
+      "appearance": "authored",
+      "motion": "static",
+      "html": "jade-popup.html",
+      "png": "jade-popup.png",
+      "viewport": [
+        1366,
+        768
+      ],
+      "observed": {
+        "page": [
+          1366,
+          768
+        ],
+        "foreign": [
+          {
+            "bounds": {
+              "x": 516,
+              "y": 173.671875,
+              "width": 407,
+              "height": 147.375,
+              "right": 923,
+              "bottom": 321.046875
+            },
+            "font": "14px",
+            "fontFamily": "Georgia, serif",
+            "text": [
+              {
+                "text": "WORK LEDGER \u00b7 RECORDKnown source",
+                "ratio": 9.499755998513134
+              },
+              {
+                "text": "Precision method learned.",
+                "ratio": 11.32185158265876
+              },
+              {
+                "text": "Connected assistance is unavailable here.",
+                "ratio": 7.041269464555732
+              },
+              {
+                "text": "Open Work Ledger \u203a",
+                "ratio": 11.32185158265876
+              }
+            ],
+            "edgeRatio": 5.126780619471971,
+            "focusRatio": 10.366959342222662,
+            "animations": 0,
+            "scrollWidth": 401,
+            "clientWidth": 401
+          }
+        ],
+        "task": {
+          "x": 371,
+          "y": 336,
+          "width": 580,
+          "height": 384,
+          "right": 951,
+          "bottom": 720
+        },
+        "focus": {
+          "x": 489,
+          "y": 40,
+          "width": 462,
+          "height": 289,
+          "right": 951,
+          "bottom": 329
+        },
+        "foreignClearOfReports": true,
+        "mirror": {
+          "text": "Work Ledger: Precision method learned.Open current ledger \u203a",
+          "bounds": {
+            "x": 967,
+            "y": 151,
+            "width": 376,
+            "height": 54.1875,
+            "right": 1343,
+            "bottom": 205.1875
+          }
+        },
+        "taskClipped": false,
+        "reading": null,
+        "scripts": 0
+      },
+      "errors": [],
+      "pngSha256": "164ef4ad5e303545d391ec0e8a58aa0afaef06189b199b49c79d79c95bca4a6c",
+      "htmlSha256": "db92e2ab3d603743498e4a4a0c8980fab4279c5f97439e5f425c0ca8b2e95c11"
+    },
+    {
+      "id": "jade-notice",
+      "style": "jade",
+      "surface": "notice",
+      "foreignTextSize": 14,
+      "appearance": "authored",
+      "motion": "static",
+      "html": "jade-notice.html",
+      "png": "jade-notice.png",
+      "viewport": [
+        1366,
+        768
+      ],
+      "observed": {
+        "page": [
+          1366,
+          768
+        ],
+        "foreign": [
+          {
+            "bounds": {
+              "x": 383,
+              "y": 465.125,
+              "width": 556,
+              "height": 130.375,
+              "right": 939,
+              "bottom": 595.5
+            },
+            "font": "14px",
+            "fontFamily": "Georgia, serif",
+            "text": [
+              {
+                "text": "WORK LEDGER \u00b7 RECORD",
+                "ratio": 9.499755998513134
+              },
+              {
+                "text": "Precision method learned.",
+                "ratio": 11.32185158265876
+              },
+              {
+                "text": "Recorded in your Work Ledger.",
+                "ratio": 7.041269464555732
+              },
+              {
+                "text": "Open Work Ledger \u203a",
+                "ratio": 11.32185158265876
+              }
+            ],
+            "edgeRatio": 5.126780619471971,
+            "focusRatio": 10.366959342222662,
+            "animations": 0,
+            "scrollWidth": 550,
+            "clientWidth": 550
+          }
+        ],
+        "task": {
+          "x": 371,
+          "y": 336,
+          "width": 580,
+          "height": 384,
+          "right": 951,
+          "bottom": 720
+        },
+        "focus": {
+          "x": 489,
+          "y": 40,
+          "width": 462,
+          "height": 289,
+          "right": 951,
+          "bottom": 329
+        },
+        "foreignClearOfReports": true,
+        "mirror": {
+          "text": "Work Ledger: Precision method learned.Open current ledger \u203a",
+          "bounds": {
+            "x": 967,
+            "y": 151,
+            "width": 376,
+            "height": 54.1875,
+            "right": 1343,
+            "bottom": 205.1875
+          }
+        },
+        "taskClipped": false,
+        "reading": null,
+        "scripts": 0
+      },
+      "errors": [],
+      "pngSha256": "19c24580368988d86e51a47a753a6786da06462bd5faca9a1b6eb50e86eb931e",
+      "htmlSha256": "a0314c54d4aa16a1220c9c79c77aea2440ec7a1e917981f52a11f2ebecd5cd7a"
+    },
+    {
+      "id": "jade-center",
+      "style": "jade",
+      "surface": "center",
+      "foreignTextSize": 14,
+      "appearance": "authored",
+      "motion": "static",
+      "html": "jade-center.html",
+      "png": "jade-center.png",
+      "viewport": [
+        1366,
+        768
+      ],
+      "observed": {
+        "page": [
+          1366,
+          768
+        ],
+        "foreign": [
+          {
+            "bounds": {
+              "x": 373,
+              "y": 414.234375,
+              "width": 576,
+              "height": 231.765625,
+              "right": 949,
+              "bottom": 646
+            },
+            "font": "14px",
+            "fontFamily": "Georgia, serif",
+            "text": [
+              {
+                "text": "WORK LEDGER \u00b7 RECORD2 points",
+                "ratio": 9.499755998513134
+              },
+              {
+                "text": "Methods",
+                "ratio": 9.499755998513134
+              },
+              {
+                "text": "Commissions",
+                "ratio": 7.041269464555732
+              },
+              {
+                "text": "Receipts",
+                "ratio": 7.041269464555732
+              },
+              {
+                "text": "Acquisition and execution",
+                "ratio": 11.32185158265876
+              },
+              {
+                "text": "Precision method",
+                "ratio": 11.32185158265876
+              },
+              {
+                "text": "Learned",
+                "ratio": 9.499755998513134
+              },
+              {
+                "text": "Connected assistance",
+                "ratio": 11.32185158265876
+              },
+              {
+                "text": "Unavailable",
+                "ratio": 11.32185158265876
+              },
+              {
+                "text": "A learned method remains yours. Assistance needs a live connection.",
+                "ratio": 7.041269464555732
+              }
+            ],
+            "edgeRatio": 5.126780619471971,
+            "focusRatio": 10.366959342222662,
+            "animations": 0,
+            "scrollWidth": 570,
+            "clientWidth": 570
+          }
+        ],
+        "task": {
+          "x": 371,
+          "y": 336,
+          "width": 580,
+          "height": 384,
+          "right": 951,
+          "bottom": 720
+        },
+        "focus": {
+          "x": 489,
+          "y": 40,
+          "width": 462,
+          "height": 289,
+          "right": 951,
+          "bottom": 329
+        },
+        "foreignClearOfReports": true,
+        "mirror": {
+          "text": "Work Ledger: Precision method learned.Open current ledger \u203a",
+          "bounds": {
+            "x": 967,
+            "y": 151,
+            "width": 376,
+            "height": 54.1875,
+            "right": 1343,
+            "bottom": 205.1875
+          }
+        },
+        "taskClipped": false,
+        "reading": {
+          "client": 140,
+          "scroll": 142,
+          "overflow": "auto"
+        },
+        "scripts": 0
+      },
+      "errors": [],
+      "pngSha256": "767aa3d1684aaaae902e91d03bd9138d519f9ebac54947652b8a565dab804c21",
+      "htmlSha256": "35a0070a1c165cae3cef479aad67f46172a8fe5be2cd29ac138edc6cf4a3d811"
+    },
+    {
+      "id": "terminal-popup",
+      "style": "terminal",
+      "surface": "popup",
+      "foreignTextSize": 14,
+      "appearance": "authored",
+      "motion": "static",
+      "html": "terminal-popup.html",
+      "png": "terminal-popup.png",
+      "viewport": [
+        1366,
+        768
+      ],
+      "observed": {
+        "page": [
+          1366,
+          768
+        ],
+        "foreign": [
+          {
+            "bounds": {
+              "x": 516,
+              "y": 173.671875,
+              "width": 407,
+              "height": 143.375,
+              "right": 923,
+              "bottom": 317.046875
+            },
+            "font": "14px",
+            "fontFamily": "monospace",
+            "text": [
+              {
+                "text": ">_ WORK_LEDGERKnown source",
+                "ratio": 12.279470233564378
+              },
+              {
+                "text": "Precision method learned.",
+                "ratio": 15.027890483371673
+              },
+              {
+                "text": "Connected assistance is unavailable here.",
+                "ratio": 8.54343009414539
+              },
+              {
+                "text": "Open Work Ledger \u203a",
+                "ratio": 15.027890483371673
+              }
+            ],
+            "edgeRatio": 7.550114789661092,
+            "focusRatio": 13.9770161499952,
+            "animations": 0,
+            "scrollWidth": 402,
+            "clientWidth": 402
+          }
+        ],
+        "task": {
+          "x": 371,
+          "y": 336,
+          "width": 580,
+          "height": 384,
+          "right": 951,
+          "bottom": 720
+        },
+        "focus": {
+          "x": 489,
+          "y": 40,
+          "width": 462,
+          "height": 289,
+          "right": 951,
+          "bottom": 329
+        },
+        "foreignClearOfReports": true,
+        "mirror": {
+          "text": "Work Ledger: Precision method learned.Open current ledger \u203a",
+          "bounds": {
+            "x": 967,
+            "y": 151,
+            "width": 376,
+            "height": 54.1875,
+            "right": 1343,
+            "bottom": 205.1875
+          }
+        },
+        "taskClipped": false,
+        "reading": null,
+        "scripts": 0
+      },
+      "errors": [],
+      "pngSha256": "6eee83a0524620f89e2683b083ed803718b5a171fddd2e4d9943ba1e1e659292",
+      "htmlSha256": "e4d66f457fb645daf24eb0b462b1fdf3afbf0cd69bafbaa0d5cbb97a34ca93db"
+    },
+    {
+      "id": "terminal-notice",
+      "style": "terminal",
+      "surface": "notice",
+      "foreignTextSize": 14,
+      "appearance": "authored",
+      "motion": "static",
+      "html": "terminal-notice.html",
+      "png": "terminal-notice.png",
+      "viewport": [
+        1366,
+        768
+      ],
+      "observed": {
+        "page": [
+          1366,
+          768
+        ],
+        "foreign": [
+          {
+            "bounds": {
+              "x": 383,
+              "y": 465.125,
+              "width": 556,
+              "height": 126.375,
+              "right": 939,
+              "bottom": 591.5
+            },
+            "font": "14px",
+            "fontFamily": "monospace",
+            "text": [
+              {
+                "text": ">_ WORK_LEDGER",
+                "ratio": 12.279470233564378
+              },
+              {
+                "text": "Precision method learned.",
+                "ratio": 15.027890483371673
+              },
+              {
+                "text": "Recorded in your Work Ledger.",
+                "ratio": 8.54343009414539
+              },
+              {
+                "text": "Open Work Ledger \u203a",
+                "ratio": 15.027890483371673
+              }
+            ],
+            "edgeRatio": 7.550114789661092,
+            "focusRatio": 13.9770161499952,
+            "animations": 0,
+            "scrollWidth": 551,
+            "clientWidth": 551
+          }
+        ],
+        "task": {
+          "x": 371,
+          "y": 336,
+          "width": 580,
+          "height": 384,
+          "right": 951,
+          "bottom": 720
+        },
+        "focus": {
+          "x": 489,
+          "y": 40,
+          "width": 462,
+          "height": 289,
+          "right": 951,
+          "bottom": 329
+        },
+        "foreignClearOfReports": true,
+        "mirror": {
+          "text": "Work Ledger: Precision method learned.Open current ledger \u203a",
+          "bounds": {
+            "x": 967,
+            "y": 151,
+            "width": 376,
+            "height": 54.1875,
+            "right": 1343,
+            "bottom": 205.1875
+          }
+        },
+        "taskClipped": false,
+        "reading": null,
+        "scripts": 0
+      },
+      "errors": [],
+      "pngSha256": "118e60c669f2c7aa9df5c11f30861d6490f593e2236e7a68dd2080e6573ee03a",
+      "htmlSha256": "cd4783911e5c50e14c97432cc08dc0d5d5b5c576beef9229b6238f6dc430d118"
+    },
+    {
+      "id": "terminal-center",
+      "style": "terminal",
+      "surface": "center",
+      "foreignTextSize": 14,
+      "appearance": "authored",
+      "motion": "static",
+      "html": "terminal-center.html",
+      "png": "terminal-center.png",
+      "viewport": [
+        1366,
+        768
+      ],
+      "observed": {
+        "page": [
+          1366,
+          768
+        ],
+        "foreign": [
+          {
+            "bounds": {
+              "x": 373,
+              "y": 414.234375,
+              "width": 576,
+              "height": 231.765625,
+              "right": 949,
+              "bottom": 646
+            },
+            "font": "14px",
+            "fontFamily": "monospace",
+            "text": [
+              {
+                "text": ">_ WORK_LEDGER2 points",
+                "ratio": 12.279470233564378
+              },
+              {
+                "text": "Methods",
+                "ratio": 12.279470233564378
+              },
+              {
+                "text": "Commissions",
+                "ratio": 8.54343009414539
+              },
+              {
+                "text": "Receipts",
+                "ratio": 8.54343009414539
+              },
+              {
+                "text": "Acquisition and execution",
+                "ratio": 15.027890483371673
+              },
+              {
+                "text": "Precision method",
+                "ratio": 15.027890483371673
+              },
+              {
+                "text": "Learned",
+                "ratio": 12.279470233564378
+              },
+              {
+                "text": "Connected assistance",
+                "ratio": 15.027890483371673
+              },
+              {
+                "text": "Unavailable",
+                "ratio": 15.027890483371673
+              },
+              {
+                "text": "A learned method remains yours. Assistance needs a live connection.",
+                "ratio": 8.54343009414539
+              }
+            ],
+            "edgeRatio": 7.550114789661092,
+            "focusRatio": 13.9770161499952,
+            "animations": 0,
+            "scrollWidth": 571,
+            "clientWidth": 571
+          }
+        ],
+        "task": {
+          "x": 371,
+          "y": 336,
+          "width": 580,
+          "height": 384,
+          "right": 951,
+          "bottom": 720
+        },
+        "focus": {
+          "x": 489,
+          "y": 40,
+          "width": 462,
+          "height": 289,
+          "right": 951,
+          "bottom": 329
+        },
+        "foreignClearOfReports": true,
+        "mirror": {
+          "text": "Work Ledger: Precision method learned.Open current ledger \u203a",
+          "bounds": {
+            "x": 967,
+            "y": 151,
+            "width": 376,
+            "height": 54.1875,
+            "right": 1343,
+            "bottom": 205.1875
+          }
+        },
+        "taskClipped": false,
+        "reading": {
+          "client": 144,
+          "scroll": 162,
+          "overflow": "auto"
+        },
+        "scripts": 0
+      },
+      "errors": [],
+      "pngSha256": "07fe7765bcfadad94b0a9d984b24ab0f3dd808828ec0bd9c261634bf84e4721f",
+      "htmlSha256": "f85540a22730ac991d93a9d25256202fb6f93abeb5955e72b51b18ec764b823e"
+    },
+    {
+      "id": "system-center-21-authored-static",
+      "style": "system",
+      "surface": "center",
+      "foreignTextSize": 21,
+      "appearance": "authored",
+      "motion": "static",
+      "html": "system-center-21-authored-static.html",
+      "png": "system-center-21-authored-static.png",
+      "viewport": [
+        1366,
+        768
+      ],
+      "observed": {
+        "page": [
+          1366,
+          768
+        ],
+        "foreign": [
+          {
+            "bounds": {
+              "x": 373,
+              "y": 414.234375,
+              "width": 576,
+              "height": 231.765625,
+              "right": 949,
+              "bottom": 646
+            },
+            "font": "21px",
+            "fontFamily": "Arial, sans-serif",
+            "text": [
+              {
+                "text": "\u3010 WORK LEDGER \u30112 points",
+                "ratio": 10.377168219723602
+              },
+              {
+                "text": "Methods",
+                "ratio": 10.377168219723602
+              },
+              {
+                "text": "Commissions",
+                "ratio": 9.219022035815902
+              },
+              {
+                "text": "Receipts",
+                "ratio": 9.219022035815902
+              },
+              {
+                "text": "Acquisition and execution",
+                "ratio": 13.79457219105221
+              },
+              {
+                "text": "Precision method",
+                "ratio": 13.79457219105221
+              },
+              {
+                "text": "Learned",
+                "ratio": 10.377168219723602
+              },
+              {
+                "text": "Connected assistance",
+                "ratio": 13.79457219105221
+              },
+              {
+                "text": "Unavailable",
+                "ratio": 13.79457219105221
+              },
+              {
+                "text": "A learned method remains yours. Assistance needs a live connection.",
+                "ratio": 9.219022035815902
+              }
+            ],
+            "edgeRatio": 7.388109145936943,
+            "focusRatio": 12.16914248755697,
+            "animations": 0,
+            "scrollWidth": 574,
+            "clientWidth": 574
+          }
+        ],
+        "task": {
+          "x": 371,
+          "y": 336,
+          "width": 580,
+          "height": 384,
+          "right": 951,
+          "bottom": 720
+        },
+        "focus": {
+          "x": 489,
+          "y": 40,
+          "width": 462,
+          "height": 289,
+          "right": 951,
+          "bottom": 329
+        },
+        "foreignClearOfReports": true,
+        "mirror": {
+          "text": "Work Ledger: Precision method learned.Open current ledger \u203a",
+          "bounds": {
+            "x": 967,
+            "y": 151,
+            "width": 376,
+            "height": 54.1875,
+            "right": 1343,
+            "bottom": 205.1875
+          }
+        },
+        "taskClipped": false,
+        "reading": {
+          "client": 124,
+          "scroll": 211,
+          "overflow": "auto"
+        },
+        "scripts": 0
+      },
+      "errors": [],
+      "pngSha256": "b48daee9cce2560e36c022c8993f3796e646272b117a42870b82ba47096c78cd",
+      "htmlSha256": "f052c1de3bfe3eeaa3cb5cbc9e7fb61848ebb9b3b9faa72498e2b783850d69fd"
+    },
+    {
+      "id": "jade-center-21-authored-static",
+      "style": "jade",
+      "surface": "center",
+      "foreignTextSize": 21,
+      "appearance": "authored",
+      "motion": "static",
+      "html": "jade-center-21-authored-static.html",
+      "png": "jade-center-21-authored-static.png",
+      "viewport": [
+        1366,
+        768
+      ],
+      "observed": {
+        "page": [
+          1366,
+          768
+        ],
+        "foreign": [
+          {
+            "bounds": {
+              "x": 373,
+              "y": 414.234375,
+              "width": 576,
+              "height": 231.765625,
+              "right": 949,
+              "bottom": 646
+            },
+            "font": "21px",
+            "fontFamily": "Georgia, serif",
+            "text": [
+              {
+                "text": "WORK LEDGER \u00b7 RECORD2 points",
+                "ratio": 9.499755998513134
+              },
+              {
+                "text": "Methods",
+                "ratio": 9.499755998513134
+              },
+              {
+                "text": "Commissions",
+                "ratio": 7.041269464555732
+              },
+              {
+                "text": "Receipts",
+                "ratio": 7.041269464555732
+              },
+              {
+                "text": "Acquisition and execution",
+                "ratio": 11.32185158265876
+              },
+              {
+                "text": "Precision method",
+                "ratio": 11.32185158265876
+              },
+              {
+                "text": "Learned",
+                "ratio": 9.499755998513134
+              },
+              {
+                "text": "Connected assistance",
+                "ratio": 11.32185158265876
+              },
+              {
+                "text": "Unavailable",
+                "ratio": 11.32185158265876
+              },
+              {
+                "text": "A learned method remains yours. Assistance needs a live connection.",
+                "ratio": 7.041269464555732
+              }
+            ],
+            "edgeRatio": 5.126780619471971,
+            "focusRatio": 10.366959342222662,
+            "animations": 0,
+            "scrollWidth": 570,
+            "clientWidth": 570
+          }
+        ],
+        "task": {
+          "x": 371,
+          "y": 336,
+          "width": 580,
+          "height": 384,
+          "right": 951,
+          "bottom": 720
+        },
+        "focus": {
+          "x": 489,
+          "y": 40,
+          "width": 462,
+          "height": 289,
+          "right": 951,
+          "bottom": 329
+        },
+        "foreignClearOfReports": true,
+        "mirror": {
+          "text": "Work Ledger: Precision method learned.Open current ledger \u203a",
+          "bounds": {
+            "x": 967,
+            "y": 151,
+            "width": 376,
+            "height": 54.1875,
+            "right": 1343,
+            "bottom": 205.1875
+          }
+        },
+        "taskClipped": false,
+        "reading": {
+          "client": 120,
+          "scroll": 211,
+          "overflow": "auto"
+        },
+        "scripts": 0
+      },
+      "errors": [],
+      "pngSha256": "bd402271e73927716f98766d194b0bb5f8d5bfafad370cf1ab1e2c761a9f0de2",
+      "htmlSha256": "8fb62224fe225cf535d987333478a6a75d9dcc1fe4727690fd3f2ea74e90be90"
+    },
+    {
+      "id": "terminal-center-21-authored-static",
+      "style": "terminal",
+      "surface": "center",
+      "foreignTextSize": 21,
+      "appearance": "authored",
+      "motion": "static",
+      "html": "terminal-center-21-authored-static.html",
+      "png": "terminal-center-21-authored-static.png",
+      "viewport": [
+        1366,
+        768
+      ],
+      "observed": {
+        "page": [
+          1366,
+          768
+        ],
+        "foreign": [
+          {
+            "bounds": {
+              "x": 373,
+              "y": 414.234375,
+              "width": 576,
+              "height": 231.765625,
+              "right": 949,
+              "bottom": 646
+            },
+            "font": "21px",
+            "fontFamily": "monospace",
+            "text": [
+              {
+                "text": ">_ WORK_LEDGER2 points",
+                "ratio": 12.279470233564378
+              },
+              {
+                "text": "Methods",
+                "ratio": 12.279470233564378
+              },
+              {
+                "text": "Commissions",
+                "ratio": 8.54343009414539
+              },
+              {
+                "text": "Receipts",
+                "ratio": 8.54343009414539
+              },
+              {
+                "text": "Acquisition and execution",
+                "ratio": 15.027890483371673
+              },
+              {
+                "text": "Precision method",
+                "ratio": 15.027890483371673
+              },
+              {
+                "text": "Learned",
+                "ratio": 12.279470233564378
+              },
+              {
+                "text": "Connected assistance",
+                "ratio": 15.027890483371673
+              },
+              {
+                "text": "Unavailable",
+                "ratio": 15.027890483371673
+              },
+              {
+                "text": "A learned method remains yours. Assistance needs a live connection.",
+                "ratio": 8.54343009414539
+              }
+            ],
+            "edgeRatio": 7.550114789661092,
+            "focusRatio": 13.9770161499952,
+            "animations": 0,
+            "scrollWidth": 571,
+            "clientWidth": 571
+          }
+        ],
+        "task": {
+          "x": 371,
+          "y": 336,
+          "width": 580,
+          "height": 384,
+          "right": 951,
+          "bottom": 720
+        },
+        "focus": {
+          "x": 489,
+          "y": 40,
+          "width": 462,
+          "height": 289,
+          "right": 951,
+          "bottom": 329
+        },
+        "foreignClearOfReports": true,
+        "mirror": {
+          "text": "Work Ledger: Precision method learned.Open current ledger \u203a",
+          "bounds": {
+            "x": 967,
+            "y": 151,
+            "width": 376,
+            "height": 54.1875,
+            "right": 1343,
+            "bottom": 205.1875
+          }
+        },
+        "taskClipped": false,
+        "reading": {
+          "client": 124,
+          "scroll": 211,
+          "overflow": "auto"
+        },
+        "scripts": 0
+      },
+      "errors": [],
+      "pngSha256": "1233ff59cc0b90d1ee44f5d60b1b16a72299fcf76cf4011fa2403874a12cdd96",
+      "htmlSha256": "806441646fbd5d40e0a5141131c6fcdae2a454c62f75b9216a64872bf3d9f25b"
+    },
+    {
+      "id": "system-center-14-plain-static",
+      "style": "system",
+      "surface": "center",
+      "foreignTextSize": 14,
+      "appearance": "plain",
+      "motion": "static",
+      "html": "system-center-14-plain-static.html",
+      "png": "system-center-14-plain-static.png",
+      "viewport": [
+        1366,
+        768
+      ],
+      "observed": {
+        "page": [
+          1366,
+          768
+        ],
+        "foreign": [
+          {
+            "bounds": {
+              "x": 373,
+              "y": 414.234375,
+              "width": 576,
+              "height": 231.765625,
+              "right": 949,
+              "bottom": 646
+            },
+            "font": "14px",
+            "fontFamily": "Arial, sans-serif",
+            "text": [
+              {
+                "text": "\u3010 WORK LEDGER \u30112 points",
+                "ratio": 10.038597523571024
+              },
+              {
+                "text": "Methods",
+                "ratio": 10.038597523571024
+              },
+              {
+                "text": "Commissions",
+                "ratio": 8.390839417288236
+              },
+              {
+                "text": "Receipts",
+                "ratio": 8.390839417288236
+              },
+              {
+                "text": "Acquisition and execution",
+                "ratio": 11.787292351449137
+              },
+              {
+                "text": "Precision method",
+                "ratio": 11.787292351449137
+              },
+              {
+                "text": "Learned",
+                "ratio": 10.038597523571024
+              },
+              {
+                "text": "Connected assistance",
+                "ratio": 11.787292351449137
+              },
+              {
+                "text": "Unavailable",
+                "ratio": 11.787292351449137
+              },
+              {
+                "text": "A learned method remains yours. Assistance needs a live connection.",
+                "ratio": 8.390839417288236
+              }
+            ],
+            "edgeRatio": 6.11880801458075,
+            "focusRatio": 10.524911608031662,
+            "animations": 0,
+            "scrollWidth": 574,
+            "clientWidth": 574
+          }
+        ],
+        "task": {
+          "x": 371,
+          "y": 336,
+          "width": 580,
+          "height": 384,
+          "right": 951,
+          "bottom": 720
+        },
+        "focus": {
+          "x": 489,
+          "y": 40,
+          "width": 462,
+          "height": 289,
+          "right": 951,
+          "bottom": 329
+        },
+        "foreignClearOfReports": true,
+        "mirror": {
+          "text": "Work Ledger: Precision method learned.Open current ledger \u203a",
+          "bounds": {
+            "x": 967,
+            "y": 151,
+            "width": 376,
+            "height": 54.1875,
+            "right": 1343,
+            "bottom": 205.1875
+          }
+        },
+        "taskClipped": false,
+        "reading": {
+          "client": 144,
+          "scroll": 144,
+          "overflow": "auto"
+        },
+        "scripts": 0
+      },
+      "errors": [],
+      "pngSha256": "53284ca16285a2a6c47be0c0fa0a00af17da26c08b27924294d541308c5f6b91",
+      "htmlSha256": "b4af4b9a5018a82254754974b9dd5dcab571134cceda2ad056c2c55cb97a7153"
+    },
+    {
+      "id": "system-notice-14-authored-reduce",
+      "style": "system",
+      "surface": "notice",
+      "foreignTextSize": 14,
+      "appearance": "authored",
+      "motion": "reduce",
+      "html": "system-notice-14-authored-reduce.html",
+      "png": "system-notice-14-authored-reduce.png",
+      "viewport": [
+        1366,
+        768
+      ],
+      "observed": {
+        "page": [
+          1366,
+          768
+        ],
+        "foreign": [
+          {
+            "bounds": {
+              "x": 383,
+              "y": 465.125,
+              "width": 556,
+              "height": 126.375,
+              "right": 939,
+              "bottom": 591.5
+            },
+            "font": "14px",
+            "fontFamily": "Arial, sans-serif",
+            "text": [
+              {
+                "text": "\u3010 WORK LEDGER \u3011",
+                "ratio": 10.377168219723602
+              },
+              {
+                "text": "Precision method learned.",
+                "ratio": 13.79457219105221
+              },
+              {
+                "text": "Recorded in your Work Ledger.",
+                "ratio": 9.219022035815902
+              },
+              {
+                "text": "Open Work Ledger \u203a",
+                "ratio": 13.79457219105221
+              }
+            ],
+            "edgeRatio": 7.388109145936943,
+            "focusRatio": 12.16914248755697,
+            "animations": 0,
+            "scrollWidth": 554,
+            "clientWidth": 554
+          }
+        ],
+        "task": {
+          "x": 371,
+          "y": 336,
+          "width": 580,
+          "height": 384,
+          "right": 951,
+          "bottom": 720
+        },
+        "focus": {
+          "x": 489,
+          "y": 40,
+          "width": 462,
+          "height": 289,
+          "right": 951,
+          "bottom": 329
+        },
+        "foreignClearOfReports": true,
+        "mirror": {
+          "text": "Work Ledger: Precision method learned.Open current ledger \u203a",
+          "bounds": {
+            "x": 967,
+            "y": 151,
+            "width": 376,
+            "height": 54.1875,
+            "right": 1343,
+            "bottom": 205.1875
+          }
+        },
+        "taskClipped": false,
+        "reading": null,
+        "scripts": 0
+      },
+      "errors": [],
+      "pngSha256": "3ce935d388bf667c51497ff879cfa2fa1d0a26ca8ebb9fc25ec80faeb3c68be6",
+      "htmlSha256": "55b0fccb18119f0e72330fa40fc88ab5dbc75cd91f336e8e35ba88ec776cd5a4"
+    }
+  ],
+  "formatNote": "After rendering, trailing HTML whitespace was normalized; PNG pixels unchanged; HTML hashes updated."
+}

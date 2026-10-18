@@ -1,0 +1,16 @@
+{
+  "local_links": 66,
+  "missing_links": [],
+  "cited_line_bounds": "pass",
+  "summary_lines": 5,
+  "triage_counts": {
+    "1": 4,
+    "2": 5,
+    "3": 5,
+    "4": 4,
+    "5": 0
+  },
+  "private_manifests": 10,
+  "source_records": 44,
+  "private_paths_ignored": true
+}

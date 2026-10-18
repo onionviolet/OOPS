@@ -1,0 +1,11 @@
+{
+  "changedSinceBaseline": [
+    "/Users/weiwei/code/yet-another-idle-rpg/src/display.js",
+    "/Users/weiwei/code/yet-another-idle-rpg/styles/crafting_detail.css"
+  ],
+  "expected": [
+    "src/display.js",
+    "styles/crafting_detail.css"
+  ],
+  "head": "58b34e6a04afaddafc9070b2d2bec2327ad374fa"
+}

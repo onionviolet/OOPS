@@ -1,0 +1,339 @@
+[
+ {
+  "id": "preparation",
+  "label": "Stats",
+  "title": "Stats · Alt+E",
+  "disabled": false,
+  "page": [
+   1366,
+   768
+  ],
+  "center": {
+   "client": 511,
+   "content": 511,
+   "chars": 1585,
+   "head": "Character & preparation\n▾\nAll attributes\nPrimary\nOffense\nDefense\nHealth\nStamina\nMana\nEnvironment\nLearning\n With modifiers\n\n38 attributes\n\nStrength\n22.945 points"
+  },
+  "back": [
+   "← Village"
+  ],
+  "regions": [
+   "player",
+   "inventory",
+   "actions",
+   "log"
+  ]
+ },
+ {
+  "id": "belongings",
+  "label": "Inventory",
+  "title": "Inventory · Alt+I",
+  "disabled": false,
+  "page": [
+   1366,
+   768
+  ],
+  "center": {
+   "client": 226,
+   "content": 364,
+   "chars": 415,
+   "head": "directions Move somewhere else\nconstruction Try to craft something\nquestion_answer Talk to someone\nwork_outline Find work\nfitness_center Train\nsearch Gather res"
+  },
+  "back": [
+   "← Village"
+  ],
+  "regions": [
+   "player",
+   "focus",
+   "inventory",
+   "actions",
+   "log"
+  ]
+ },
+ {
+  "id": "records",
+  "label": "Journal",
+  "title": "Journal · Alt+J",
+  "disabled": false,
+  "page": [
+   1366,
+   768
+  ],
+  "center": {
+   "client": 511,
+   "content": 511,
+   "chars": 97,
+   "head": "Journal & received accounts\n▾\nQuests\nBestiary\nAnthology\nData\nNotebook\nLost memory\nHide completed "
+  },
+  "back": [
+   "← Village"
+  ],
+  "regions": [
+   "player",
+   "inventory",
+   "actions",
+   "log"
+  ]
+ },
+ {
+  "id": "records",
+  "label": "Bestiary",
+  "title": "Bestiary · Alt+B",
+  "disabled": false,
+  "page": [
+   1366,
+   768
+  ],
+  "center": {
+   "client": 511,
+   "content": 511,
+   "chars": 97,
+   "head": "Journal & received accounts\n▾\nQuests\nBestiary\nAnthology\nData\nNotebook\nLost memory\nHide completed "
+  },
+  "back": [
+   "← Village"
+  ],
+  "regions": [
+   "player",
+   "inventory",
+   "actions",
+   "log"
+  ]
+ },
+ {
+  "id": "records",
+  "label": "Books",
+  "title": "Books · Alt+A",
+  "disabled": false,
+  "page": [
+   1366,
+   768
+  ],
+  "center": {
+   "client": 511,
+   "content": 511,
+   "chars": 97,
+   "head": "Journal & received accounts\n▾\nQuests\nBestiary\nAnthology\nData\nNotebook\nLost memory\nHide completed "
+  },
+  "back": [
+   "← Village"
+  ],
+  "regions": [
+   "player",
+   "inventory",
+   "actions",
+   "log"
+  ]
+ },
+ {
+  "id": "records",
+  "label": "Data",
+  "title": "Data · Alt+D",
+  "disabled": false,
+  "page": [
+   1366,
+   768
+  ],
+  "center": {
+   "client": 511,
+   "content": 511,
+   "chars": 97,
+   "head": "Journal & received accounts\n▾\nQuests\nBestiary\nAnthology\nData\nNotebook\nLost memory\nHide completed "
+  },
+  "back": [
+   "← Village"
+  ],
+  "regions": [
+   "player",
+   "inventory",
+   "actions",
+   "log"
+  ]
+ },
+ {
+  "id": "records",
+  "label": "Notebook",
+  "title": "Notebook · Alt+N",
+  "disabled": false,
+  "page": [
+   1366,
+   768
+  ],
+  "center": {
+   "client": 511,
+   "content": 511,
+   "chars": 97,
+   "head": "Journal & received accounts\n▾\nQuests\nBestiary\nAnthology\nData\nNotebook\nLost memory\nHide completed "
+  },
+  "back": [
+   "← Village"
+  ],
+  "regions": [
+   "player",
+   "inventory",
+   "actions",
+   "log"
+  ]
+ },
+ {
+  "id": "known-people",
+  "label": "People",
+  "title": "People · Alt+P",
+  "disabled": false,
+  "page": [
+   1366,
+   768
+  ],
+  "center": {
+   "client": 511,
+   "content": 511,
+   "chars": 164,
+   "head": "People you know\n▾\nPeople you know\n\nWhat you have learned and what happened between you. Locations are last known or agreed, rather than live reports.\n\nVillage e"
+  },
+  "back": [
+   "← Village"
+  ],
+  "regions": [
+   "player",
+   "inventory",
+   "actions",
+   "log"
+  ]
+ },
+ {
+  "id": "village-travelers",
+  "label": "Travelers",
+  "title": "Travelers · Alt+T",
+  "disabled": false,
+  "page": [
+   1366,
+   768
+  ],
+  "center": {
+   "client": 511,
+   "content": 511,
+   "chars": 37,
+   "head": "Village travelers\n▾\nVillage travelers"
+  },
+  "back": [
+   "← Village"
+  ],
+  "regions": [
+   "player",
+   "inventory",
+   "actions",
+   "log"
+  ]
+ },
+ {
+  "id": "projects",
+  "label": "Projects",
+  "title": "Projects · Alt+R",
+  "disabled": false,
+  "page": [
+   1366,
+   768
+  ],
+  "center": {
+   "client": 511,
+   "content": 511,
+   "chars": 28,
+   "head": "Projects\n▾\nOptional projects"
+  },
+  "back": [
+   "← Village"
+  ],
+  "regions": [
+   "player",
+   "inventory",
+   "actions",
+   "log"
+  ]
+ },
+ {
+  "id": "ledger",
+  "label": "Ledger",
+  "title": "Ledger · Alt+L",
+  "disabled": false,
+  "page": [
+   1366,
+   768
+  ],
+  "center": {
+   "client": 511,
+   "content": 511,
+   "chars": 25,
+   "head": "Work Ledger\n▾\nWork ledger"
+  },
+  "back": [
+   "← Village"
+  ],
+  "regions": [
+   "player",
+   "inventory",
+   "actions",
+   "log"
+  ]
+ },
+ {
+  "id": "optional-worlds",
+  "label": "Worlds",
+  "title": "Worlds · Alt+W · Return to the relevant place or finish the current conversation.",
+  "disabled": true,
+  "error": "locator.click: Timeout 25000ms exceeded.\nCall log:\n  - waiting for locator('#workspace_navigation [data-panel-path=\"optional-worlds\"]').first()\n    - locator resolved to <button disabled type=\"button\""
+ },
+ {
+  "id": "beginning",
+  "label": "Beginning",
+  "title": "Beginning · Alt+G",
+  "disabled": false,
+  "page": [
+   1366,
+   768
+  ],
+  "center": {
+   "client": 511,
+   "content": 511,
+   "chars": 523,
+   "head": "Your beginning\n▸\nYour beginning\n\nA livelihood in Reedbank\n\nOptional original local life: repair Sella’s bread carriers at Mara’s stall. Begin selects one of two"
+  },
+  "back": [
+   "← Village"
+  ],
+  "regions": [
+   "player",
+   "inventory",
+   "actions",
+   "log"
+  ]
+ },
+ {
+  "id": "customization",
+  "label": "Settings",
+  "title": "Settings · Alt+S",
+  "disabled": false,
+  "page": [
+   1366,
+   768
+  ],
+  "center": {
+   "client": 511,
+   "content": 869,
+   "chars": 673,
+   "head": "Appearance\n▾\nAppearance\n\nSaving available. Draft changes can now be applied.\n\nProfile, typography, palette and seasonal theme for native modules. Changes remain"
+  },
+  "back": [
+   "← Village"
+  ],
+  "regions": [
+   "player",
+   "inventory",
+   "actions",
+   "log"
+  ]
+ },
+ {
+  "stateUnchanged": true,
+  "errors": []
+ }
+]

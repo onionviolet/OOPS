@@ -1,0 +1,1692 @@
+{
+  "scope": "SI static proposals, synthetic fixtures, no game build, no saves",
+  "sources": [
+    {
+      "path": "next-parts/scratch/cheat-style/make_mockups.py",
+      "sha256": "ff09b712f2cc40da98256ee5693c4440537770365587b6afefcb6ff5deb7cb76",
+      "use": "Imported CSS, FAMILIES, frame/geometry and configured CS4 foreign helper; no producer scripts executed"
+    }
+  ],
+  "scenes": [
+    {
+      "id": "dream-simulator-1366-14",
+      "key": "dream",
+      "family": "simulator",
+      "identity": "Ring \u00d7 AI \u00d7 predict/simulate",
+      "size": 14,
+      "viewport": [
+        1366,
+        768
+      ],
+      "surface": "center",
+      "grade": false,
+      "typeScene": false,
+      "html": "dream-simulator-1366-14.html",
+      "png": "dream-simulator-1366-14.png",
+      "frame": "evidence/r14/after/nav-1366-14/00-home.png",
+      "frameSha256": "fdc594dbcbd5bbc9a00944cf214e9ffb51e949b049621291b953a5af5761a832",
+      "scope": "Synthetic static representation, no mechanics, input handlers or storage",
+      "behavior": {
+        "entry": "Discovered cheat canonical home; use shared host/controller",
+        "dismiss": "Top transient first, then Back/Esc; leaving is separate from ending/cancelling",
+        "focus": "Future slice must restore opener or safe known parent",
+        "log": "Life system elects lifecycle receipt; AI/other fixtures are quiet. No universal text equivalent or mirror.",
+        "knowledge": "Public projected fields only; claimed identity controls disguised looks; no grade or style certifies truth",
+        "cost": "Owner quote before a new run; no universal charges, refund or pause policy",
+        "verification": "Static geometry only; CS2 and simulator gameplay remain unimplemented"
+      }
+    },
+    {
+      "id": "dream-simulator-1366-21",
+      "key": "dream",
+      "family": "simulator",
+      "identity": "Ring \u00d7 AI \u00d7 predict/simulate",
+      "size": 21,
+      "viewport": [
+        1366,
+        768
+      ],
+      "surface": "center",
+      "grade": false,
+      "typeScene": false,
+      "html": "dream-simulator-1366-21.html",
+      "png": "dream-simulator-1366-21.png",
+      "frame": "evidence/r14/after/nav-1366-21/00-home.png",
+      "frameSha256": "6d083bf9b02cda2bb6511b10483709e0312a955de9f13322b4b5281aff6c5cee",
+      "scope": "Synthetic static representation, no mechanics, input handlers or storage",
+      "behavior": {
+        "entry": "Discovered cheat canonical home; use shared host/controller",
+        "dismiss": "Top transient first, then Back/Esc; leaving is separate from ending/cancelling",
+        "focus": "Future slice must restore opener or safe known parent",
+        "log": "Life system elects lifecycle receipt; AI/other fixtures are quiet. No universal text equivalent or mirror.",
+        "knowledge": "Public projected fields only; claimed identity controls disguised looks; no grade or style certifies truth",
+        "cost": "Owner quote before a new run; no universal charges, refund or pause policy",
+        "verification": "Static geometry only; CS2 and simulator gameplay remain unimplemented"
+      }
+    },
+    {
+      "id": "dream-jade-1366-14",
+      "key": "dream",
+      "family": "jade",
+      "identity": "Jade slip \u00d7 impersonal system \u00d7 simulate/settle",
+      "size": 14,
+      "viewport": [
+        1366,
+        768
+      ],
+      "surface": "center",
+      "grade": false,
+      "typeScene": false,
+      "html": "dream-jade-1366-14.html",
+      "png": "dream-jade-1366-14.png",
+      "frame": "evidence/r14/after/nav-1366-14/00-home.png",
+      "frameSha256": "fdc594dbcbd5bbc9a00944cf214e9ffb51e949b049621291b953a5af5761a832",
+      "scope": "Synthetic static representation, no mechanics, input handlers or storage",
+      "behavior": {
+        "entry": "Discovered cheat canonical home; use shared host/controller",
+        "dismiss": "Top transient first, then Back/Esc; leaving is separate from ending/cancelling",
+        "focus": "Future slice must restore opener or safe known parent",
+        "log": "Life system elects lifecycle receipt; AI/other fixtures are quiet. No universal text equivalent or mirror.",
+        "knowledge": "Public projected fields only; claimed identity controls disguised looks; no grade or style certifies truth",
+        "cost": "Owner quote before a new run; no universal charges, refund or pause policy",
+        "verification": "Static geometry only; CS2 and simulator gameplay remain unimplemented"
+      }
+    },
+    {
+      "id": "dream-jade-1366-21",
+      "key": "dream",
+      "family": "jade",
+      "identity": "Jade slip \u00d7 impersonal system \u00d7 simulate/settle",
+      "size": 21,
+      "viewport": [
+        1366,
+        768
+      ],
+      "surface": "center",
+      "grade": false,
+      "typeScene": false,
+      "html": "dream-jade-1366-21.html",
+      "png": "dream-jade-1366-21.png",
+      "frame": "evidence/r14/after/nav-1366-21/00-home.png",
+      "frameSha256": "6d083bf9b02cda2bb6511b10483709e0312a955de9f13322b4b5281aff6c5cee",
+      "scope": "Synthetic static representation, no mechanics, input handlers or storage",
+      "behavior": {
+        "entry": "Discovered cheat canonical home; use shared host/controller",
+        "dismiss": "Top transient first, then Back/Esc; leaving is separate from ending/cancelling",
+        "focus": "Future slice must restore opener or safe known parent",
+        "log": "Life system elects lifecycle receipt; AI/other fixtures are quiet. No universal text equivalent or mirror.",
+        "knowledge": "Public projected fields only; claimed identity controls disguised looks; no grade or style certifies truth",
+        "cost": "Owner quote before a new run; no universal charges, refund or pause policy",
+        "verification": "Static geometry only; CS2 and simulator gameplay remain unimplemented"
+      }
+    },
+    {
+      "id": "headless-simulator-1366-14",
+      "key": "headless",
+      "family": "simulator",
+      "identity": "Ring \u00d7 AI \u00d7 predict/simulate",
+      "size": 14,
+      "viewport": [
+        1366,
+        768
+      ],
+      "surface": "center",
+      "grade": false,
+      "typeScene": false,
+      "html": "headless-simulator-1366-14.html",
+      "png": "headless-simulator-1366-14.png",
+      "frame": "evidence/r14/after/nav-1366-14/00-home.png",
+      "frameSha256": "fdc594dbcbd5bbc9a00944cf214e9ffb51e949b049621291b953a5af5761a832",
+      "scope": "Synthetic static representation, no mechanics, input handlers or storage",
+      "behavior": {
+        "entry": "Discovered cheat canonical home; use shared host/controller",
+        "dismiss": "Top transient first, then Back/Esc; leaving is separate from ending/cancelling",
+        "focus": "Future slice must restore opener or safe known parent",
+        "log": "Life system elects lifecycle receipt; AI/other fixtures are quiet. No universal text equivalent or mirror.",
+        "knowledge": "Public projected fields only; claimed identity controls disguised looks; no grade or style certifies truth",
+        "cost": "Owner quote before a new run; no universal charges, refund or pause policy",
+        "verification": "Static geometry only; CS2 and simulator gameplay remain unimplemented"
+      }
+    },
+    {
+      "id": "headless-simulator-1366-21",
+      "key": "headless",
+      "family": "simulator",
+      "identity": "Ring \u00d7 AI \u00d7 predict/simulate",
+      "size": 21,
+      "viewport": [
+        1366,
+        768
+      ],
+      "surface": "center",
+      "grade": false,
+      "typeScene": false,
+      "html": "headless-simulator-1366-21.html",
+      "png": "headless-simulator-1366-21.png",
+      "frame": "evidence/r14/after/nav-1366-21/00-home.png",
+      "frameSha256": "6d083bf9b02cda2bb6511b10483709e0312a955de9f13322b4b5281aff6c5cee",
+      "scope": "Synthetic static representation, no mechanics, input handlers or storage",
+      "behavior": {
+        "entry": "Discovered cheat canonical home; use shared host/controller",
+        "dismiss": "Top transient first, then Back/Esc; leaving is separate from ending/cancelling",
+        "focus": "Future slice must restore opener or safe known parent",
+        "log": "Life system elects lifecycle receipt; AI/other fixtures are quiet. No universal text equivalent or mirror.",
+        "knowledge": "Public projected fields only; claimed identity controls disguised looks; no grade or style certifies truth",
+        "cost": "Owner quote before a new run; no universal charges, refund or pause policy",
+        "verification": "Static geometry only; CS2 and simulator gameplay remain unimplemented"
+      }
+    },
+    {
+      "id": "headless-jade-1366-14",
+      "key": "headless",
+      "family": "jade",
+      "identity": "Jade slip \u00d7 impersonal system \u00d7 simulate/settle",
+      "size": 14,
+      "viewport": [
+        1366,
+        768
+      ],
+      "surface": "center",
+      "grade": false,
+      "typeScene": false,
+      "html": "headless-jade-1366-14.html",
+      "png": "headless-jade-1366-14.png",
+      "frame": "evidence/r14/after/nav-1366-14/00-home.png",
+      "frameSha256": "fdc594dbcbd5bbc9a00944cf214e9ffb51e949b049621291b953a5af5761a832",
+      "scope": "Synthetic static representation, no mechanics, input handlers or storage",
+      "behavior": {
+        "entry": "Discovered cheat canonical home; use shared host/controller",
+        "dismiss": "Top transient first, then Back/Esc; leaving is separate from ending/cancelling",
+        "focus": "Future slice must restore opener or safe known parent",
+        "log": "Life system elects lifecycle receipt; AI/other fixtures are quiet. No universal text equivalent or mirror.",
+        "knowledge": "Public projected fields only; claimed identity controls disguised looks; no grade or style certifies truth",
+        "cost": "Owner quote before a new run; no universal charges, refund or pause policy",
+        "verification": "Static geometry only; CS2 and simulator gameplay remain unimplemented"
+      }
+    },
+    {
+      "id": "headless-jade-1366-21",
+      "key": "headless",
+      "family": "jade",
+      "identity": "Jade slip \u00d7 impersonal system \u00d7 simulate/settle",
+      "size": 21,
+      "viewport": [
+        1366,
+        768
+      ],
+      "surface": "center",
+      "grade": false,
+      "typeScene": false,
+      "html": "headless-jade-1366-21.html",
+      "png": "headless-jade-1366-21.png",
+      "frame": "evidence/r14/after/nav-1366-21/00-home.png",
+      "frameSha256": "6d083bf9b02cda2bb6511b10483709e0312a955de9f13322b4b5281aff6c5cee",
+      "scope": "Synthetic static representation, no mechanics, input handlers or storage",
+      "behavior": {
+        "entry": "Discovered cheat canonical home; use shared host/controller",
+        "dismiss": "Top transient first, then Back/Esc; leaving is separate from ending/cancelling",
+        "focus": "Future slice must restore opener or safe known parent",
+        "log": "Life system elects lifecycle receipt; AI/other fixtures are quiet. No universal text equivalent or mirror.",
+        "knowledge": "Public projected fields only; claimed identity controls disguised looks; no grade or style certifies truth",
+        "cost": "Owner quote before a new run; no universal charges, refund or pause policy",
+        "verification": "Static geometry only; CS2 and simulator gameplay remain unimplemented"
+      }
+    },
+    {
+      "id": "spread-simulator-1366-14",
+      "key": "spread",
+      "family": "simulator",
+      "identity": "Ring \u00d7 AI \u00d7 predict/simulate",
+      "size": 14,
+      "viewport": [
+        1366,
+        768
+      ],
+      "surface": "center",
+      "grade": false,
+      "typeScene": false,
+      "html": "spread-simulator-1366-14.html",
+      "png": "spread-simulator-1366-14.png",
+      "frame": "evidence/r14/after/nav-1366-14/00-home.png",
+      "frameSha256": "fdc594dbcbd5bbc9a00944cf214e9ffb51e949b049621291b953a5af5761a832",
+      "scope": "Synthetic static representation, no mechanics, input handlers or storage",
+      "behavior": {
+        "entry": "Discovered cheat canonical home; use shared host/controller",
+        "dismiss": "Top transient first, then Back/Esc; leaving is separate from ending/cancelling",
+        "focus": "Future slice must restore opener or safe known parent",
+        "log": "Life system elects lifecycle receipt; AI/other fixtures are quiet. No universal text equivalent or mirror.",
+        "knowledge": "Public projected fields only; claimed identity controls disguised looks; no grade or style certifies truth",
+        "cost": "Owner quote before a new run; no universal charges, refund or pause policy",
+        "verification": "Static geometry only; CS2 and simulator gameplay remain unimplemented"
+      }
+    },
+    {
+      "id": "spread-simulator-1366-21",
+      "key": "spread",
+      "family": "simulator",
+      "identity": "Ring \u00d7 AI \u00d7 predict/simulate",
+      "size": 21,
+      "viewport": [
+        1366,
+        768
+      ],
+      "surface": "center",
+      "grade": false,
+      "typeScene": false,
+      "html": "spread-simulator-1366-21.html",
+      "png": "spread-simulator-1366-21.png",
+      "frame": "evidence/r14/after/nav-1366-21/00-home.png",
+      "frameSha256": "6d083bf9b02cda2bb6511b10483709e0312a955de9f13322b4b5281aff6c5cee",
+      "scope": "Synthetic static representation, no mechanics, input handlers or storage",
+      "behavior": {
+        "entry": "Discovered cheat canonical home; use shared host/controller",
+        "dismiss": "Top transient first, then Back/Esc; leaving is separate from ending/cancelling",
+        "focus": "Future slice must restore opener or safe known parent",
+        "log": "Life system elects lifecycle receipt; AI/other fixtures are quiet. No universal text equivalent or mirror.",
+        "knowledge": "Public projected fields only; claimed identity controls disguised looks; no grade or style certifies truth",
+        "cost": "Owner quote before a new run; no universal charges, refund or pause policy",
+        "verification": "Static geometry only; CS2 and simulator gameplay remain unimplemented"
+      }
+    },
+    {
+      "id": "spread-jade-1366-14",
+      "key": "spread",
+      "family": "jade",
+      "identity": "Jade slip \u00d7 impersonal system \u00d7 simulate/settle",
+      "size": 14,
+      "viewport": [
+        1366,
+        768
+      ],
+      "surface": "center",
+      "grade": false,
+      "typeScene": false,
+      "html": "spread-jade-1366-14.html",
+      "png": "spread-jade-1366-14.png",
+      "frame": "evidence/r14/after/nav-1366-14/00-home.png",
+      "frameSha256": "fdc594dbcbd5bbc9a00944cf214e9ffb51e949b049621291b953a5af5761a832",
+      "scope": "Synthetic static representation, no mechanics, input handlers or storage",
+      "behavior": {
+        "entry": "Discovered cheat canonical home; use shared host/controller",
+        "dismiss": "Top transient first, then Back/Esc; leaving is separate from ending/cancelling",
+        "focus": "Future slice must restore opener or safe known parent",
+        "log": "Life system elects lifecycle receipt; AI/other fixtures are quiet. No universal text equivalent or mirror.",
+        "knowledge": "Public projected fields only; claimed identity controls disguised looks; no grade or style certifies truth",
+        "cost": "Owner quote before a new run; no universal charges, refund or pause policy",
+        "verification": "Static geometry only; CS2 and simulator gameplay remain unimplemented"
+      }
+    },
+    {
+      "id": "spread-jade-1366-21",
+      "key": "spread",
+      "family": "jade",
+      "identity": "Jade slip \u00d7 impersonal system \u00d7 simulate/settle",
+      "size": 21,
+      "viewport": [
+        1366,
+        768
+      ],
+      "surface": "center",
+      "grade": false,
+      "typeScene": false,
+      "html": "spread-jade-1366-21.html",
+      "png": "spread-jade-1366-21.png",
+      "frame": "evidence/r14/after/nav-1366-21/00-home.png",
+      "frameSha256": "6d083bf9b02cda2bb6511b10483709e0312a955de9f13322b4b5281aff6c5cee",
+      "scope": "Synthetic static representation, no mechanics, input handlers or storage",
+      "behavior": {
+        "entry": "Discovered cheat canonical home; use shared host/controller",
+        "dismiss": "Top transient first, then Back/Esc; leaving is separate from ending/cancelling",
+        "focus": "Future slice must restore opener or safe known parent",
+        "log": "Life system elects lifecycle receipt; AI/other fixtures are quiet. No universal text equivalent or mirror.",
+        "knowledge": "Public projected fields only; claimed identity controls disguised looks; no grade or style certifies truth",
+        "cost": "Owner quote before a new run; no universal charges, refund or pause policy",
+        "verification": "Static geometry only; CS2 and simulator gameplay remain unimplemented"
+      }
+    },
+    {
+      "id": "probe-simulator-1366-14",
+      "key": "probe",
+      "family": "simulator",
+      "identity": "Ring \u00d7 AI \u00d7 predict/simulate",
+      "size": 14,
+      "viewport": [
+        1366,
+        768
+      ],
+      "surface": "center",
+      "grade": false,
+      "typeScene": false,
+      "html": "probe-simulator-1366-14.html",
+      "png": "probe-simulator-1366-14.png",
+      "frame": "evidence/r14/after/nav-1366-14/00-home.png",
+      "frameSha256": "fdc594dbcbd5bbc9a00944cf214e9ffb51e949b049621291b953a5af5761a832",
+      "scope": "Synthetic static representation, no mechanics, input handlers or storage",
+      "behavior": {
+        "entry": "Discovered cheat canonical home; use shared host/controller",
+        "dismiss": "Top transient first, then Back/Esc; leaving is separate from ending/cancelling",
+        "focus": "Future slice must restore opener or safe known parent",
+        "log": "Life system elects lifecycle receipt; AI/other fixtures are quiet. No universal text equivalent or mirror.",
+        "knowledge": "Public projected fields only; claimed identity controls disguised looks; no grade or style certifies truth",
+        "cost": "Owner quote before a new run; no universal charges, refund or pause policy",
+        "verification": "Static geometry only; CS2 and simulator gameplay remain unimplemented"
+      }
+    },
+    {
+      "id": "probe-simulator-1366-21",
+      "key": "probe",
+      "family": "simulator",
+      "identity": "Ring \u00d7 AI \u00d7 predict/simulate",
+      "size": 21,
+      "viewport": [
+        1366,
+        768
+      ],
+      "surface": "center",
+      "grade": false,
+      "typeScene": false,
+      "html": "probe-simulator-1366-21.html",
+      "png": "probe-simulator-1366-21.png",
+      "frame": "evidence/r14/after/nav-1366-21/00-home.png",
+      "frameSha256": "6d083bf9b02cda2bb6511b10483709e0312a955de9f13322b4b5281aff6c5cee",
+      "scope": "Synthetic static representation, no mechanics, input handlers or storage",
+      "behavior": {
+        "entry": "Discovered cheat canonical home; use shared host/controller",
+        "dismiss": "Top transient first, then Back/Esc; leaving is separate from ending/cancelling",
+        "focus": "Future slice must restore opener or safe known parent",
+        "log": "Life system elects lifecycle receipt; AI/other fixtures are quiet. No universal text equivalent or mirror.",
+        "knowledge": "Public projected fields only; claimed identity controls disguised looks; no grade or style certifies truth",
+        "cost": "Owner quote before a new run; no universal charges, refund or pause policy",
+        "verification": "Static geometry only; CS2 and simulator gameplay remain unimplemented"
+      }
+    },
+    {
+      "id": "probe-jade-1366-14",
+      "key": "probe",
+      "family": "jade",
+      "identity": "Jade slip \u00d7 impersonal system \u00d7 simulate/settle",
+      "size": 14,
+      "viewport": [
+        1366,
+        768
+      ],
+      "surface": "center",
+      "grade": false,
+      "typeScene": false,
+      "html": "probe-jade-1366-14.html",
+      "png": "probe-jade-1366-14.png",
+      "frame": "evidence/r14/after/nav-1366-14/00-home.png",
+      "frameSha256": "fdc594dbcbd5bbc9a00944cf214e9ffb51e949b049621291b953a5af5761a832",
+      "scope": "Synthetic static representation, no mechanics, input handlers or storage",
+      "behavior": {
+        "entry": "Discovered cheat canonical home; use shared host/controller",
+        "dismiss": "Top transient first, then Back/Esc; leaving is separate from ending/cancelling",
+        "focus": "Future slice must restore opener or safe known parent",
+        "log": "Life system elects lifecycle receipt; AI/other fixtures are quiet. No universal text equivalent or mirror.",
+        "knowledge": "Public projected fields only; claimed identity controls disguised looks; no grade or style certifies truth",
+        "cost": "Owner quote before a new run; no universal charges, refund or pause policy",
+        "verification": "Static geometry only; CS2 and simulator gameplay remain unimplemented"
+      }
+    },
+    {
+      "id": "probe-jade-1366-21",
+      "key": "probe",
+      "family": "jade",
+      "identity": "Jade slip \u00d7 impersonal system \u00d7 simulate/settle",
+      "size": 21,
+      "viewport": [
+        1366,
+        768
+      ],
+      "surface": "center",
+      "grade": false,
+      "typeScene": false,
+      "html": "probe-jade-1366-21.html",
+      "png": "probe-jade-1366-21.png",
+      "frame": "evidence/r14/after/nav-1366-21/00-home.png",
+      "frameSha256": "6d083bf9b02cda2bb6511b10483709e0312a955de9f13322b4b5281aff6c5cee",
+      "scope": "Synthetic static representation, no mechanics, input handlers or storage",
+      "behavior": {
+        "entry": "Discovered cheat canonical home; use shared host/controller",
+        "dismiss": "Top transient first, then Back/Esc; leaving is separate from ending/cancelling",
+        "focus": "Future slice must restore opener or safe known parent",
+        "log": "Life system elects lifecycle receipt; AI/other fixtures are quiet. No universal text equivalent or mirror.",
+        "knowledge": "Public projected fields only; claimed identity controls disguised looks; no grade or style certifies truth",
+        "cost": "Owner quote before a new run; no universal charges, refund or pause policy",
+        "verification": "Static geometry only; CS2 and simulator gameplay remain unimplemented"
+      }
+    },
+    {
+      "id": "forecast-simulator-1366-14",
+      "key": "forecast",
+      "family": "simulator",
+      "identity": "Ring \u00d7 AI \u00d7 predict/simulate",
+      "size": 14,
+      "viewport": [
+        1366,
+        768
+      ],
+      "surface": "strip",
+      "grade": false,
+      "typeScene": false,
+      "html": "forecast-simulator-1366-14.html",
+      "png": "forecast-simulator-1366-14.png",
+      "frame": "evidence/r14/after/nav-1366-14/00-home.png",
+      "frameSha256": "fdc594dbcbd5bbc9a00944cf214e9ffb51e949b049621291b953a5af5761a832",
+      "scope": "Synthetic static representation, no mechanics, input handlers or storage",
+      "behavior": {
+        "entry": "Discovered cheat canonical home; use shared host/controller",
+        "dismiss": "Top transient first, then Back/Esc; leaving is separate from ending/cancelling",
+        "focus": "Future slice must restore opener or safe known parent",
+        "log": "Life system elects lifecycle receipt; AI/other fixtures are quiet. No universal text equivalent or mirror.",
+        "knowledge": "Public projected fields only; claimed identity controls disguised looks; no grade or style certifies truth",
+        "cost": "Owner quote before a new run; no universal charges, refund or pause policy",
+        "verification": "Static geometry only; CS2 and simulator gameplay remain unimplemented"
+      }
+    },
+    {
+      "id": "forecast-simulator-1366-21",
+      "key": "forecast",
+      "family": "simulator",
+      "identity": "Ring \u00d7 AI \u00d7 predict/simulate",
+      "size": 21,
+      "viewport": [
+        1366,
+        768
+      ],
+      "surface": "strip",
+      "grade": false,
+      "typeScene": false,
+      "html": "forecast-simulator-1366-21.html",
+      "png": "forecast-simulator-1366-21.png",
+      "frame": "evidence/r14/after/nav-1366-21/00-home.png",
+      "frameSha256": "6d083bf9b02cda2bb6511b10483709e0312a955de9f13322b4b5281aff6c5cee",
+      "scope": "Synthetic static representation, no mechanics, input handlers or storage",
+      "behavior": {
+        "entry": "Discovered cheat canonical home; use shared host/controller",
+        "dismiss": "Top transient first, then Back/Esc; leaving is separate from ending/cancelling",
+        "focus": "Future slice must restore opener or safe known parent",
+        "log": "Life system elects lifecycle receipt; AI/other fixtures are quiet. No universal text equivalent or mirror.",
+        "knowledge": "Public projected fields only; claimed identity controls disguised looks; no grade or style certifies truth",
+        "cost": "Owner quote before a new run; no universal charges, refund or pause policy",
+        "verification": "Static geometry only; CS2 and simulator gameplay remain unimplemented"
+      }
+    },
+    {
+      "id": "forecast-jade-1366-14",
+      "key": "forecast",
+      "family": "jade",
+      "identity": "Jade slip \u00d7 impersonal system \u00d7 simulate/settle",
+      "size": 14,
+      "viewport": [
+        1366,
+        768
+      ],
+      "surface": "strip",
+      "grade": false,
+      "typeScene": false,
+      "html": "forecast-jade-1366-14.html",
+      "png": "forecast-jade-1366-14.png",
+      "frame": "evidence/r14/after/nav-1366-14/00-home.png",
+      "frameSha256": "fdc594dbcbd5bbc9a00944cf214e9ffb51e949b049621291b953a5af5761a832",
+      "scope": "Synthetic static representation, no mechanics, input handlers or storage",
+      "behavior": {
+        "entry": "Discovered cheat canonical home; use shared host/controller",
+        "dismiss": "Top transient first, then Back/Esc; leaving is separate from ending/cancelling",
+        "focus": "Future slice must restore opener or safe known parent",
+        "log": "Life system elects lifecycle receipt; AI/other fixtures are quiet. No universal text equivalent or mirror.",
+        "knowledge": "Public projected fields only; claimed identity controls disguised looks; no grade or style certifies truth",
+        "cost": "Owner quote before a new run; no universal charges, refund or pause policy",
+        "verification": "Static geometry only; CS2 and simulator gameplay remain unimplemented"
+      }
+    },
+    {
+      "id": "forecast-jade-1366-21",
+      "key": "forecast",
+      "family": "jade",
+      "identity": "Jade slip \u00d7 impersonal system \u00d7 simulate/settle",
+      "size": 21,
+      "viewport": [
+        1366,
+        768
+      ],
+      "surface": "strip",
+      "grade": false,
+      "typeScene": false,
+      "html": "forecast-jade-1366-21.html",
+      "png": "forecast-jade-1366-21.png",
+      "frame": "evidence/r14/after/nav-1366-21/00-home.png",
+      "frameSha256": "6d083bf9b02cda2bb6511b10483709e0312a955de9f13322b4b5281aff6c5cee",
+      "scope": "Synthetic static representation, no mechanics, input handlers or storage",
+      "behavior": {
+        "entry": "Discovered cheat canonical home; use shared host/controller",
+        "dismiss": "Top transient first, then Back/Esc; leaving is separate from ending/cancelling",
+        "focus": "Future slice must restore opener or safe known parent",
+        "log": "Life system elects lifecycle receipt; AI/other fixtures are quiet. No universal text equivalent or mirror.",
+        "knowledge": "Public projected fields only; claimed identity controls disguised looks; no grade or style certifies truth",
+        "cost": "Owner quote before a new run; no universal charges, refund or pause policy",
+        "verification": "Static geometry only; CS2 and simulator gameplay remain unimplemented"
+      }
+    },
+    {
+      "id": "rehearsal-simulator-1366-14",
+      "key": "rehearsal",
+      "family": "simulator",
+      "identity": "Ring \u00d7 AI \u00d7 predict/simulate",
+      "size": 14,
+      "viewport": [
+        1366,
+        768
+      ],
+      "surface": "center",
+      "grade": false,
+      "typeScene": false,
+      "html": "rehearsal-simulator-1366-14.html",
+      "png": "rehearsal-simulator-1366-14.png",
+      "frame": "evidence/r14/after/nav-1366-14/00-home.png",
+      "frameSha256": "fdc594dbcbd5bbc9a00944cf214e9ffb51e949b049621291b953a5af5761a832",
+      "scope": "Synthetic static representation, no mechanics, input handlers or storage",
+      "behavior": {
+        "entry": "Discovered cheat canonical home; use shared host/controller",
+        "dismiss": "Top transient first, then Back/Esc; leaving is separate from ending/cancelling",
+        "focus": "Future slice must restore opener or safe known parent",
+        "log": "Life system elects lifecycle receipt; AI/other fixtures are quiet. No universal text equivalent or mirror.",
+        "knowledge": "Public projected fields only; claimed identity controls disguised looks; no grade or style certifies truth",
+        "cost": "Owner quote before a new run; no universal charges, refund or pause policy",
+        "verification": "Static geometry only; CS2 and simulator gameplay remain unimplemented"
+      }
+    },
+    {
+      "id": "rehearsal-simulator-1366-21",
+      "key": "rehearsal",
+      "family": "simulator",
+      "identity": "Ring \u00d7 AI \u00d7 predict/simulate",
+      "size": 21,
+      "viewport": [
+        1366,
+        768
+      ],
+      "surface": "center",
+      "grade": false,
+      "typeScene": false,
+      "html": "rehearsal-simulator-1366-21.html",
+      "png": "rehearsal-simulator-1366-21.png",
+      "frame": "evidence/r14/after/nav-1366-21/00-home.png",
+      "frameSha256": "6d083bf9b02cda2bb6511b10483709e0312a955de9f13322b4b5281aff6c5cee",
+      "scope": "Synthetic static representation, no mechanics, input handlers or storage",
+      "behavior": {
+        "entry": "Discovered cheat canonical home; use shared host/controller",
+        "dismiss": "Top transient first, then Back/Esc; leaving is separate from ending/cancelling",
+        "focus": "Future slice must restore opener or safe known parent",
+        "log": "Life system elects lifecycle receipt; AI/other fixtures are quiet. No universal text equivalent or mirror.",
+        "knowledge": "Public projected fields only; claimed identity controls disguised looks; no grade or style certifies truth",
+        "cost": "Owner quote before a new run; no universal charges, refund or pause policy",
+        "verification": "Static geometry only; CS2 and simulator gameplay remain unimplemented"
+      }
+    },
+    {
+      "id": "rehearsal-jade-1366-14",
+      "key": "rehearsal",
+      "family": "jade",
+      "identity": "Jade slip \u00d7 impersonal system \u00d7 simulate/settle",
+      "size": 14,
+      "viewport": [
+        1366,
+        768
+      ],
+      "surface": "center",
+      "grade": false,
+      "typeScene": false,
+      "html": "rehearsal-jade-1366-14.html",
+      "png": "rehearsal-jade-1366-14.png",
+      "frame": "evidence/r14/after/nav-1366-14/00-home.png",
+      "frameSha256": "fdc594dbcbd5bbc9a00944cf214e9ffb51e949b049621291b953a5af5761a832",
+      "scope": "Synthetic static representation, no mechanics, input handlers or storage",
+      "behavior": {
+        "entry": "Discovered cheat canonical home; use shared host/controller",
+        "dismiss": "Top transient first, then Back/Esc; leaving is separate from ending/cancelling",
+        "focus": "Future slice must restore opener or safe known parent",
+        "log": "Life system elects lifecycle receipt; AI/other fixtures are quiet. No universal text equivalent or mirror.",
+        "knowledge": "Public projected fields only; claimed identity controls disguised looks; no grade or style certifies truth",
+        "cost": "Owner quote before a new run; no universal charges, refund or pause policy",
+        "verification": "Static geometry only; CS2 and simulator gameplay remain unimplemented"
+      }
+    },
+    {
+      "id": "rehearsal-jade-1366-21",
+      "key": "rehearsal",
+      "family": "jade",
+      "identity": "Jade slip \u00d7 impersonal system \u00d7 simulate/settle",
+      "size": 21,
+      "viewport": [
+        1366,
+        768
+      ],
+      "surface": "center",
+      "grade": false,
+      "typeScene": false,
+      "html": "rehearsal-jade-1366-21.html",
+      "png": "rehearsal-jade-1366-21.png",
+      "frame": "evidence/r14/after/nav-1366-21/00-home.png",
+      "frameSha256": "6d083bf9b02cda2bb6511b10483709e0312a955de9f13322b4b5281aff6c5cee",
+      "scope": "Synthetic static representation, no mechanics, input handlers or storage",
+      "behavior": {
+        "entry": "Discovered cheat canonical home; use shared host/controller",
+        "dismiss": "Top transient first, then Back/Esc; leaving is separate from ending/cancelling",
+        "focus": "Future slice must restore opener or safe known parent",
+        "log": "Life system elects lifecycle receipt; AI/other fixtures are quiet. No universal text equivalent or mirror.",
+        "knowledge": "Public projected fields only; claimed identity controls disguised looks; no grade or style certifies truth",
+        "cost": "Owner quote before a new run; no universal charges, refund or pause policy",
+        "verification": "Static geometry only; CS2 and simulator gameplay remain unimplemented"
+      }
+    },
+    {
+      "id": "shadow-simulator-1366-14",
+      "key": "shadow",
+      "family": "simulator",
+      "identity": "Ring \u00d7 AI \u00d7 predict/simulate",
+      "size": 14,
+      "viewport": [
+        1366,
+        768
+      ],
+      "surface": "center",
+      "grade": false,
+      "typeScene": false,
+      "html": "shadow-simulator-1366-14.html",
+      "png": "shadow-simulator-1366-14.png",
+      "frame": "evidence/r14/after/nav-1366-14/00-home.png",
+      "frameSha256": "fdc594dbcbd5bbc9a00944cf214e9ffb51e949b049621291b953a5af5761a832",
+      "scope": "Synthetic static representation, no mechanics, input handlers or storage",
+      "behavior": {
+        "entry": "Discovered cheat canonical home; use shared host/controller",
+        "dismiss": "Top transient first, then Back/Esc; leaving is separate from ending/cancelling",
+        "focus": "Future slice must restore opener or safe known parent",
+        "log": "Life system elects lifecycle receipt; AI/other fixtures are quiet. No universal text equivalent or mirror.",
+        "knowledge": "Public projected fields only; claimed identity controls disguised looks; no grade or style certifies truth",
+        "cost": "Owner quote before a new run; no universal charges, refund or pause policy",
+        "verification": "Static geometry only; CS2 and simulator gameplay remain unimplemented"
+      }
+    },
+    {
+      "id": "shadow-simulator-1366-21",
+      "key": "shadow",
+      "family": "simulator",
+      "identity": "Ring \u00d7 AI \u00d7 predict/simulate",
+      "size": 21,
+      "viewport": [
+        1366,
+        768
+      ],
+      "surface": "center",
+      "grade": false,
+      "typeScene": false,
+      "html": "shadow-simulator-1366-21.html",
+      "png": "shadow-simulator-1366-21.png",
+      "frame": "evidence/r14/after/nav-1366-21/00-home.png",
+      "frameSha256": "6d083bf9b02cda2bb6511b10483709e0312a955de9f13322b4b5281aff6c5cee",
+      "scope": "Synthetic static representation, no mechanics, input handlers or storage",
+      "behavior": {
+        "entry": "Discovered cheat canonical home; use shared host/controller",
+        "dismiss": "Top transient first, then Back/Esc; leaving is separate from ending/cancelling",
+        "focus": "Future slice must restore opener or safe known parent",
+        "log": "Life system elects lifecycle receipt; AI/other fixtures are quiet. No universal text equivalent or mirror.",
+        "knowledge": "Public projected fields only; claimed identity controls disguised looks; no grade or style certifies truth",
+        "cost": "Owner quote before a new run; no universal charges, refund or pause policy",
+        "verification": "Static geometry only; CS2 and simulator gameplay remain unimplemented"
+      }
+    },
+    {
+      "id": "shadow-jade-1366-14",
+      "key": "shadow",
+      "family": "jade",
+      "identity": "Jade slip \u00d7 impersonal system \u00d7 simulate/settle",
+      "size": 14,
+      "viewport": [
+        1366,
+        768
+      ],
+      "surface": "center",
+      "grade": false,
+      "typeScene": false,
+      "html": "shadow-jade-1366-14.html",
+      "png": "shadow-jade-1366-14.png",
+      "frame": "evidence/r14/after/nav-1366-14/00-home.png",
+      "frameSha256": "fdc594dbcbd5bbc9a00944cf214e9ffb51e949b049621291b953a5af5761a832",
+      "scope": "Synthetic static representation, no mechanics, input handlers or storage",
+      "behavior": {
+        "entry": "Discovered cheat canonical home; use shared host/controller",
+        "dismiss": "Top transient first, then Back/Esc; leaving is separate from ending/cancelling",
+        "focus": "Future slice must restore opener or safe known parent",
+        "log": "Life system elects lifecycle receipt; AI/other fixtures are quiet. No universal text equivalent or mirror.",
+        "knowledge": "Public projected fields only; claimed identity controls disguised looks; no grade or style certifies truth",
+        "cost": "Owner quote before a new run; no universal charges, refund or pause policy",
+        "verification": "Static geometry only; CS2 and simulator gameplay remain unimplemented"
+      }
+    },
+    {
+      "id": "shadow-jade-1366-21",
+      "key": "shadow",
+      "family": "jade",
+      "identity": "Jade slip \u00d7 impersonal system \u00d7 simulate/settle",
+      "size": 21,
+      "viewport": [
+        1366,
+        768
+      ],
+      "surface": "center",
+      "grade": false,
+      "typeScene": false,
+      "html": "shadow-jade-1366-21.html",
+      "png": "shadow-jade-1366-21.png",
+      "frame": "evidence/r14/after/nav-1366-21/00-home.png",
+      "frameSha256": "6d083bf9b02cda2bb6511b10483709e0312a955de9f13322b4b5281aff6c5cee",
+      "scope": "Synthetic static representation, no mechanics, input handlers or storage",
+      "behavior": {
+        "entry": "Discovered cheat canonical home; use shared host/controller",
+        "dismiss": "Top transient first, then Back/Esc; leaving is separate from ending/cancelling",
+        "focus": "Future slice must restore opener or safe known parent",
+        "log": "Life system elects lifecycle receipt; AI/other fixtures are quiet. No universal text equivalent or mirror.",
+        "knowledge": "Public projected fields only; claimed identity controls disguised looks; no grade or style certifies truth",
+        "cost": "Owner quote before a new run; no universal charges, refund or pause policy",
+        "verification": "Static geometry only; CS2 and simulator gameplay remain unimplemented"
+      }
+    },
+    {
+      "id": "dream-setup-simulator-1366-14",
+      "key": "dream-setup",
+      "family": "simulator",
+      "identity": "Ring \u00d7 AI \u00d7 predict/simulate",
+      "size": 14,
+      "viewport": [
+        1366,
+        768
+      ],
+      "surface": "center",
+      "grade": false,
+      "typeScene": false,
+      "html": "dream-setup-simulator-1366-14.html",
+      "png": "dream-setup-simulator-1366-14.png",
+      "frame": "evidence/r14/after/nav-1366-14/00-home.png",
+      "frameSha256": "fdc594dbcbd5bbc9a00944cf214e9ffb51e949b049621291b953a5af5761a832",
+      "scope": "Synthetic static representation, no mechanics, input handlers or storage",
+      "behavior": {
+        "entry": "Discovered cheat canonical home; use shared host/controller",
+        "dismiss": "Top transient first, then Back/Esc; leaving is separate from ending/cancelling",
+        "focus": "Future slice must restore opener or safe known parent",
+        "log": "Life system elects lifecycle receipt; AI/other fixtures are quiet. No universal text equivalent or mirror.",
+        "knowledge": "Public projected fields only; claimed identity controls disguised looks; no grade or style certifies truth",
+        "cost": "Owner quote before a new run; no universal charges, refund or pause policy",
+        "verification": "Static geometry only; CS2 and simulator gameplay remain unimplemented"
+      }
+    },
+    {
+      "id": "dream-setup-simulator-1366-21",
+      "key": "dream-setup",
+      "family": "simulator",
+      "identity": "Ring \u00d7 AI \u00d7 predict/simulate",
+      "size": 21,
+      "viewport": [
+        1366,
+        768
+      ],
+      "surface": "center",
+      "grade": false,
+      "typeScene": false,
+      "html": "dream-setup-simulator-1366-21.html",
+      "png": "dream-setup-simulator-1366-21.png",
+      "frame": "evidence/r14/after/nav-1366-21/00-home.png",
+      "frameSha256": "6d083bf9b02cda2bb6511b10483709e0312a955de9f13322b4b5281aff6c5cee",
+      "scope": "Synthetic static representation, no mechanics, input handlers or storage",
+      "behavior": {
+        "entry": "Discovered cheat canonical home; use shared host/controller",
+        "dismiss": "Top transient first, then Back/Esc; leaving is separate from ending/cancelling",
+        "focus": "Future slice must restore opener or safe known parent",
+        "log": "Life system elects lifecycle receipt; AI/other fixtures are quiet. No universal text equivalent or mirror.",
+        "knowledge": "Public projected fields only; claimed identity controls disguised looks; no grade or style certifies truth",
+        "cost": "Owner quote before a new run; no universal charges, refund or pause policy",
+        "verification": "Static geometry only; CS2 and simulator gameplay remain unimplemented"
+      }
+    },
+    {
+      "id": "dream-setup-jade-1366-14",
+      "key": "dream-setup",
+      "family": "jade",
+      "identity": "Jade slip \u00d7 impersonal system \u00d7 simulate/settle",
+      "size": 14,
+      "viewport": [
+        1366,
+        768
+      ],
+      "surface": "center",
+      "grade": false,
+      "typeScene": false,
+      "html": "dream-setup-jade-1366-14.html",
+      "png": "dream-setup-jade-1366-14.png",
+      "frame": "evidence/r14/after/nav-1366-14/00-home.png",
+      "frameSha256": "fdc594dbcbd5bbc9a00944cf214e9ffb51e949b049621291b953a5af5761a832",
+      "scope": "Synthetic static representation, no mechanics, input handlers or storage",
+      "behavior": {
+        "entry": "Discovered cheat canonical home; use shared host/controller",
+        "dismiss": "Top transient first, then Back/Esc; leaving is separate from ending/cancelling",
+        "focus": "Future slice must restore opener or safe known parent",
+        "log": "Life system elects lifecycle receipt; AI/other fixtures are quiet. No universal text equivalent or mirror.",
+        "knowledge": "Public projected fields only; claimed identity controls disguised looks; no grade or style certifies truth",
+        "cost": "Owner quote before a new run; no universal charges, refund or pause policy",
+        "verification": "Static geometry only; CS2 and simulator gameplay remain unimplemented"
+      }
+    },
+    {
+      "id": "dream-setup-jade-1366-21",
+      "key": "dream-setup",
+      "family": "jade",
+      "identity": "Jade slip \u00d7 impersonal system \u00d7 simulate/settle",
+      "size": 21,
+      "viewport": [
+        1366,
+        768
+      ],
+      "surface": "center",
+      "grade": false,
+      "typeScene": false,
+      "html": "dream-setup-jade-1366-21.html",
+      "png": "dream-setup-jade-1366-21.png",
+      "frame": "evidence/r14/after/nav-1366-21/00-home.png",
+      "frameSha256": "6d083bf9b02cda2bb6511b10483709e0312a955de9f13322b4b5281aff6c5cee",
+      "scope": "Synthetic static representation, no mechanics, input handlers or storage",
+      "behavior": {
+        "entry": "Discovered cheat canonical home; use shared host/controller",
+        "dismiss": "Top transient first, then Back/Esc; leaving is separate from ending/cancelling",
+        "focus": "Future slice must restore opener or safe known parent",
+        "log": "Life system elects lifecycle receipt; AI/other fixtures are quiet. No universal text equivalent or mirror.",
+        "knowledge": "Public projected fields only; claimed identity controls disguised looks; no grade or style certifies truth",
+        "cost": "Owner quote before a new run; no universal charges, refund or pause policy",
+        "verification": "Static geometry only; CS2 and simulator gameplay remain unimplemented"
+      }
+    },
+    {
+      "id": "dream-settle-simulator-1366-14",
+      "key": "dream-settle",
+      "family": "simulator",
+      "identity": "Ring \u00d7 AI \u00d7 predict/simulate",
+      "size": 14,
+      "viewport": [
+        1366,
+        768
+      ],
+      "surface": "center",
+      "grade": false,
+      "typeScene": false,
+      "html": "dream-settle-simulator-1366-14.html",
+      "png": "dream-settle-simulator-1366-14.png",
+      "frame": "evidence/r14/after/nav-1366-14/00-home.png",
+      "frameSha256": "fdc594dbcbd5bbc9a00944cf214e9ffb51e949b049621291b953a5af5761a832",
+      "scope": "Synthetic static representation, no mechanics, input handlers or storage",
+      "behavior": {
+        "entry": "Discovered cheat canonical home; use shared host/controller",
+        "dismiss": "Top transient first, then Back/Esc; leaving is separate from ending/cancelling",
+        "focus": "Future slice must restore opener or safe known parent",
+        "log": "Life system elects lifecycle receipt; AI/other fixtures are quiet. No universal text equivalent or mirror.",
+        "knowledge": "Public projected fields only; claimed identity controls disguised looks; no grade or style certifies truth",
+        "cost": "Owner quote before a new run; no universal charges, refund or pause policy",
+        "verification": "Static geometry only; CS2 and simulator gameplay remain unimplemented"
+      }
+    },
+    {
+      "id": "dream-settle-simulator-1366-21",
+      "key": "dream-settle",
+      "family": "simulator",
+      "identity": "Ring \u00d7 AI \u00d7 predict/simulate",
+      "size": 21,
+      "viewport": [
+        1366,
+        768
+      ],
+      "surface": "center",
+      "grade": false,
+      "typeScene": false,
+      "html": "dream-settle-simulator-1366-21.html",
+      "png": "dream-settle-simulator-1366-21.png",
+      "frame": "evidence/r14/after/nav-1366-21/00-home.png",
+      "frameSha256": "6d083bf9b02cda2bb6511b10483709e0312a955de9f13322b4b5281aff6c5cee",
+      "scope": "Synthetic static representation, no mechanics, input handlers or storage",
+      "behavior": {
+        "entry": "Discovered cheat canonical home; use shared host/controller",
+        "dismiss": "Top transient first, then Back/Esc; leaving is separate from ending/cancelling",
+        "focus": "Future slice must restore opener or safe known parent",
+        "log": "Life system elects lifecycle receipt; AI/other fixtures are quiet. No universal text equivalent or mirror.",
+        "knowledge": "Public projected fields only; claimed identity controls disguised looks; no grade or style certifies truth",
+        "cost": "Owner quote before a new run; no universal charges, refund or pause policy",
+        "verification": "Static geometry only; CS2 and simulator gameplay remain unimplemented"
+      }
+    },
+    {
+      "id": "dream-settle-jade-1366-14",
+      "key": "dream-settle",
+      "family": "jade",
+      "identity": "Jade slip \u00d7 impersonal system \u00d7 simulate/settle",
+      "size": 14,
+      "viewport": [
+        1366,
+        768
+      ],
+      "surface": "center",
+      "grade": false,
+      "typeScene": false,
+      "html": "dream-settle-jade-1366-14.html",
+      "png": "dream-settle-jade-1366-14.png",
+      "frame": "evidence/r14/after/nav-1366-14/00-home.png",
+      "frameSha256": "fdc594dbcbd5bbc9a00944cf214e9ffb51e949b049621291b953a5af5761a832",
+      "scope": "Synthetic static representation, no mechanics, input handlers or storage",
+      "behavior": {
+        "entry": "Discovered cheat canonical home; use shared host/controller",
+        "dismiss": "Top transient first, then Back/Esc; leaving is separate from ending/cancelling",
+        "focus": "Future slice must restore opener or safe known parent",
+        "log": "Life system elects lifecycle receipt; AI/other fixtures are quiet. No universal text equivalent or mirror.",
+        "knowledge": "Public projected fields only; claimed identity controls disguised looks; no grade or style certifies truth",
+        "cost": "Owner quote before a new run; no universal charges, refund or pause policy",
+        "verification": "Static geometry only; CS2 and simulator gameplay remain unimplemented"
+      }
+    },
+    {
+      "id": "dream-settle-jade-1366-21",
+      "key": "dream-settle",
+      "family": "jade",
+      "identity": "Jade slip \u00d7 impersonal system \u00d7 simulate/settle",
+      "size": 21,
+      "viewport": [
+        1366,
+        768
+      ],
+      "surface": "center",
+      "grade": false,
+      "typeScene": false,
+      "html": "dream-settle-jade-1366-21.html",
+      "png": "dream-settle-jade-1366-21.png",
+      "frame": "evidence/r14/after/nav-1366-21/00-home.png",
+      "frameSha256": "6d083bf9b02cda2bb6511b10483709e0312a955de9f13322b4b5281aff6c5cee",
+      "scope": "Synthetic static representation, no mechanics, input handlers or storage",
+      "behavior": {
+        "entry": "Discovered cheat canonical home; use shared host/controller",
+        "dismiss": "Top transient first, then Back/Esc; leaving is separate from ending/cancelling",
+        "focus": "Future slice must restore opener or safe known parent",
+        "log": "Life system elects lifecycle receipt; AI/other fixtures are quiet. No universal text equivalent or mirror.",
+        "knowledge": "Public projected fields only; claimed identity controls disguised looks; no grade or style certifies truth",
+        "cost": "Owner quote before a new run; no universal charges, refund or pause policy",
+        "verification": "Static geometry only; CS2 and simulator gameplay remain unimplemented"
+      }
+    },
+    {
+      "id": "grade-guess-simulator-1366-14",
+      "key": "guess",
+      "family": "simulator",
+      "identity": "Ring \u00d7 AI \u00d7 predict/simulate",
+      "size": 14,
+      "viewport": [
+        1366,
+        768
+      ],
+      "surface": "center",
+      "grade": true,
+      "typeScene": false,
+      "html": "grade-guess-simulator-1366-14.html",
+      "png": "grade-guess-simulator-1366-14.png",
+      "frame": "evidence/r14/after/nav-1366-14/00-home.png",
+      "frameSha256": "fdc594dbcbd5bbc9a00944cf214e9ffb51e949b049621291b953a5af5761a832",
+      "scope": "Synthetic static representation, no mechanics, input handlers or storage",
+      "behavior": {
+        "entry": "Discovered cheat canonical home; use shared host/controller",
+        "dismiss": "Top transient first, then Back/Esc; leaving is separate from ending/cancelling",
+        "focus": "Future slice must restore opener or safe known parent",
+        "log": "Life system elects lifecycle receipt; AI/other fixtures are quiet. No universal text equivalent or mirror.",
+        "knowledge": "Public projected fields only; claimed identity controls disguised looks; no grade or style certifies truth",
+        "cost": "Owner quote before a new run; no universal charges, refund or pause policy",
+        "verification": "Static geometry only; CS2 and simulator gameplay remain unimplemented"
+      }
+    },
+    {
+      "id": "grade-guess-simulator-1366-21",
+      "key": "guess",
+      "family": "simulator",
+      "identity": "Ring \u00d7 AI \u00d7 predict/simulate",
+      "size": 21,
+      "viewport": [
+        1366,
+        768
+      ],
+      "surface": "center",
+      "grade": true,
+      "typeScene": false,
+      "html": "grade-guess-simulator-1366-21.html",
+      "png": "grade-guess-simulator-1366-21.png",
+      "frame": "evidence/r14/after/nav-1366-21/00-home.png",
+      "frameSha256": "6d083bf9b02cda2bb6511b10483709e0312a955de9f13322b4b5281aff6c5cee",
+      "scope": "Synthetic static representation, no mechanics, input handlers or storage",
+      "behavior": {
+        "entry": "Discovered cheat canonical home; use shared host/controller",
+        "dismiss": "Top transient first, then Back/Esc; leaving is separate from ending/cancelling",
+        "focus": "Future slice must restore opener or safe known parent",
+        "log": "Life system elects lifecycle receipt; AI/other fixtures are quiet. No universal text equivalent or mirror.",
+        "knowledge": "Public projected fields only; claimed identity controls disguised looks; no grade or style certifies truth",
+        "cost": "Owner quote before a new run; no universal charges, refund or pause policy",
+        "verification": "Static geometry only; CS2 and simulator gameplay remain unimplemented"
+      }
+    },
+    {
+      "id": "grade-forecast-grade-simulator-1366-14",
+      "key": "forecast-grade",
+      "family": "simulator",
+      "identity": "Ring \u00d7 AI \u00d7 predict/simulate",
+      "size": 14,
+      "viewport": [
+        1366,
+        768
+      ],
+      "surface": "center",
+      "grade": true,
+      "typeScene": false,
+      "html": "grade-forecast-grade-simulator-1366-14.html",
+      "png": "grade-forecast-grade-simulator-1366-14.png",
+      "frame": "evidence/r14/after/nav-1366-14/00-home.png",
+      "frameSha256": "fdc594dbcbd5bbc9a00944cf214e9ffb51e949b049621291b953a5af5761a832",
+      "scope": "Synthetic static representation, no mechanics, input handlers or storage",
+      "behavior": {
+        "entry": "Discovered cheat canonical home; use shared host/controller",
+        "dismiss": "Top transient first, then Back/Esc; leaving is separate from ending/cancelling",
+        "focus": "Future slice must restore opener or safe known parent",
+        "log": "Life system elects lifecycle receipt; AI/other fixtures are quiet. No universal text equivalent or mirror.",
+        "knowledge": "Public projected fields only; claimed identity controls disguised looks; no grade or style certifies truth",
+        "cost": "Owner quote before a new run; no universal charges, refund or pause policy",
+        "verification": "Static geometry only; CS2 and simulator gameplay remain unimplemented"
+      }
+    },
+    {
+      "id": "grade-forecast-grade-simulator-1366-21",
+      "key": "forecast-grade",
+      "family": "simulator",
+      "identity": "Ring \u00d7 AI \u00d7 predict/simulate",
+      "size": 21,
+      "viewport": [
+        1366,
+        768
+      ],
+      "surface": "center",
+      "grade": true,
+      "typeScene": false,
+      "html": "grade-forecast-grade-simulator-1366-21.html",
+      "png": "grade-forecast-grade-simulator-1366-21.png",
+      "frame": "evidence/r14/after/nav-1366-21/00-home.png",
+      "frameSha256": "6d083bf9b02cda2bb6511b10483709e0312a955de9f13322b4b5281aff6c5cee",
+      "scope": "Synthetic static representation, no mechanics, input handlers or storage",
+      "behavior": {
+        "entry": "Discovered cheat canonical home; use shared host/controller",
+        "dismiss": "Top transient first, then Back/Esc; leaving is separate from ending/cancelling",
+        "focus": "Future slice must restore opener or safe known parent",
+        "log": "Life system elects lifecycle receipt; AI/other fixtures are quiet. No universal text equivalent or mirror.",
+        "knowledge": "Public projected fields only; claimed identity controls disguised looks; no grade or style certifies truth",
+        "cost": "Owner quote before a new run; no universal charges, refund or pause policy",
+        "verification": "Static geometry only; CS2 and simulator gameplay remain unimplemented"
+      }
+    },
+    {
+      "id": "grade-projection-simulator-1366-14",
+      "key": "projection",
+      "family": "simulator",
+      "identity": "Ring \u00d7 AI \u00d7 predict/simulate",
+      "size": 14,
+      "viewport": [
+        1366,
+        768
+      ],
+      "surface": "center",
+      "grade": true,
+      "typeScene": false,
+      "html": "grade-projection-simulator-1366-14.html",
+      "png": "grade-projection-simulator-1366-14.png",
+      "frame": "evidence/r14/after/nav-1366-14/00-home.png",
+      "frameSha256": "fdc594dbcbd5bbc9a00944cf214e9ffb51e949b049621291b953a5af5761a832",
+      "scope": "Synthetic static representation, no mechanics, input handlers or storage",
+      "behavior": {
+        "entry": "Discovered cheat canonical home; use shared host/controller",
+        "dismiss": "Top transient first, then Back/Esc; leaving is separate from ending/cancelling",
+        "focus": "Future slice must restore opener or safe known parent",
+        "log": "Life system elects lifecycle receipt; AI/other fixtures are quiet. No universal text equivalent or mirror.",
+        "knowledge": "Public projected fields only; claimed identity controls disguised looks; no grade or style certifies truth",
+        "cost": "Owner quote before a new run; no universal charges, refund or pause policy",
+        "verification": "Static geometry only; CS2 and simulator gameplay remain unimplemented"
+      }
+    },
+    {
+      "id": "grade-projection-simulator-1366-21",
+      "key": "projection",
+      "family": "simulator",
+      "identity": "Ring \u00d7 AI \u00d7 predict/simulate",
+      "size": 21,
+      "viewport": [
+        1366,
+        768
+      ],
+      "surface": "center",
+      "grade": true,
+      "typeScene": false,
+      "html": "grade-projection-simulator-1366-21.html",
+      "png": "grade-projection-simulator-1366-21.png",
+      "frame": "evidence/r14/after/nav-1366-21/00-home.png",
+      "frameSha256": "6d083bf9b02cda2bb6511b10483709e0312a955de9f13322b4b5281aff6c5cee",
+      "scope": "Synthetic static representation, no mechanics, input handlers or storage",
+      "behavior": {
+        "entry": "Discovered cheat canonical home; use shared host/controller",
+        "dismiss": "Top transient first, then Back/Esc; leaving is separate from ending/cancelling",
+        "focus": "Future slice must restore opener or safe known parent",
+        "log": "Life system elects lifecycle receipt; AI/other fixtures are quiet. No universal text equivalent or mirror.",
+        "knowledge": "Public projected fields only; claimed identity controls disguised looks; no grade or style certifies truth",
+        "cost": "Owner quote before a new run; no universal charges, refund or pause policy",
+        "verification": "Static geometry only; CS2 and simulator gameplay remain unimplemented"
+      }
+    },
+    {
+      "id": "grade-true-sight-simulator-1366-14",
+      "key": "true-sight",
+      "family": "simulator",
+      "identity": "Ring \u00d7 AI \u00d7 predict/simulate",
+      "size": 14,
+      "viewport": [
+        1366,
+        768
+      ],
+      "surface": "center",
+      "grade": true,
+      "typeScene": false,
+      "html": "grade-true-sight-simulator-1366-14.html",
+      "png": "grade-true-sight-simulator-1366-14.png",
+      "frame": "evidence/r14/after/nav-1366-14/00-home.png",
+      "frameSha256": "fdc594dbcbd5bbc9a00944cf214e9ffb51e949b049621291b953a5af5761a832",
+      "scope": "Synthetic static representation, no mechanics, input handlers or storage",
+      "behavior": {
+        "entry": "Discovered cheat canonical home; use shared host/controller",
+        "dismiss": "Top transient first, then Back/Esc; leaving is separate from ending/cancelling",
+        "focus": "Future slice must restore opener or safe known parent",
+        "log": "Life system elects lifecycle receipt; AI/other fixtures are quiet. No universal text equivalent or mirror.",
+        "knowledge": "Public projected fields only; claimed identity controls disguised looks; no grade or style certifies truth",
+        "cost": "Owner quote before a new run; no universal charges, refund or pause policy",
+        "verification": "Static geometry only; CS2 and simulator gameplay remain unimplemented"
+      }
+    },
+    {
+      "id": "grade-true-sight-simulator-1366-21",
+      "key": "true-sight",
+      "family": "simulator",
+      "identity": "Ring \u00d7 AI \u00d7 predict/simulate",
+      "size": 21,
+      "viewport": [
+        1366,
+        768
+      ],
+      "surface": "center",
+      "grade": true,
+      "typeScene": false,
+      "html": "grade-true-sight-simulator-1366-21.html",
+      "png": "grade-true-sight-simulator-1366-21.png",
+      "frame": "evidence/r14/after/nav-1366-21/00-home.png",
+      "frameSha256": "6d083bf9b02cda2bb6511b10483709e0312a955de9f13322b4b5281aff6c5cee",
+      "scope": "Synthetic static representation, no mechanics, input handlers or storage",
+      "behavior": {
+        "entry": "Discovered cheat canonical home; use shared host/controller",
+        "dismiss": "Top transient first, then Back/Esc; leaving is separate from ending/cancelling",
+        "focus": "Future slice must restore opener or safe known parent",
+        "log": "Life system elects lifecycle receipt; AI/other fixtures are quiet. No universal text equivalent or mirror.",
+        "knowledge": "Public projected fields only; claimed identity controls disguised looks; no grade or style certifies truth",
+        "cost": "Owner quote before a new run; no universal charges, refund or pause policy",
+        "verification": "Static geometry only; CS2 and simulator gameplay remain unimplemented"
+      }
+    },
+    {
+      "id": "grade-prophecy-simulator-1366-14",
+      "key": "prophecy",
+      "family": "simulator",
+      "identity": "Ring \u00d7 AI \u00d7 predict/simulate",
+      "size": 14,
+      "viewport": [
+        1366,
+        768
+      ],
+      "surface": "center",
+      "grade": true,
+      "typeScene": false,
+      "html": "grade-prophecy-simulator-1366-14.html",
+      "png": "grade-prophecy-simulator-1366-14.png",
+      "frame": "evidence/r14/after/nav-1366-14/00-home.png",
+      "frameSha256": "fdc594dbcbd5bbc9a00944cf214e9ffb51e949b049621291b953a5af5761a832",
+      "scope": "Synthetic static representation, no mechanics, input handlers or storage",
+      "behavior": {
+        "entry": "Discovered cheat canonical home; use shared host/controller",
+        "dismiss": "Top transient first, then Back/Esc; leaving is separate from ending/cancelling",
+        "focus": "Future slice must restore opener or safe known parent",
+        "log": "Life system elects lifecycle receipt; AI/other fixtures are quiet. No universal text equivalent or mirror.",
+        "knowledge": "Public projected fields only; claimed identity controls disguised looks; no grade or style certifies truth",
+        "cost": "Owner quote before a new run; no universal charges, refund or pause policy",
+        "verification": "Static geometry only; CS2 and simulator gameplay remain unimplemented"
+      }
+    },
+    {
+      "id": "grade-prophecy-simulator-1366-21",
+      "key": "prophecy",
+      "family": "simulator",
+      "identity": "Ring \u00d7 AI \u00d7 predict/simulate",
+      "size": 21,
+      "viewport": [
+        1366,
+        768
+      ],
+      "surface": "center",
+      "grade": true,
+      "typeScene": false,
+      "html": "grade-prophecy-simulator-1366-21.html",
+      "png": "grade-prophecy-simulator-1366-21.png",
+      "frame": "evidence/r14/after/nav-1366-21/00-home.png",
+      "frameSha256": "6d083bf9b02cda2bb6511b10483709e0312a955de9f13322b4b5281aff6c5cee",
+      "scope": "Synthetic static representation, no mechanics, input handlers or storage",
+      "behavior": {
+        "entry": "Discovered cheat canonical home; use shared host/controller",
+        "dismiss": "Top transient first, then Back/Esc; leaving is separate from ending/cancelling",
+        "focus": "Future slice must restore opener or safe known parent",
+        "log": "Life system elects lifecycle receipt; AI/other fixtures are quiet. No universal text equivalent or mirror.",
+        "knowledge": "Public projected fields only; claimed identity controls disguised looks; no grade or style certifies truth",
+        "cost": "Owner quote before a new run; no universal charges, refund or pause policy",
+        "verification": "Static geometry only; CS2 and simulator gameplay remain unimplemented"
+      }
+    },
+    {
+      "id": "grade-vision-simulator-1366-14",
+      "key": "vision",
+      "family": "simulator",
+      "identity": "Ring \u00d7 AI \u00d7 predict/simulate",
+      "size": 14,
+      "viewport": [
+        1366,
+        768
+      ],
+      "surface": "center",
+      "grade": true,
+      "typeScene": false,
+      "html": "grade-vision-simulator-1366-14.html",
+      "png": "grade-vision-simulator-1366-14.png",
+      "frame": "evidence/r14/after/nav-1366-14/00-home.png",
+      "frameSha256": "fdc594dbcbd5bbc9a00944cf214e9ffb51e949b049621291b953a5af5761a832",
+      "scope": "Synthetic static representation, no mechanics, input handlers or storage",
+      "behavior": {
+        "entry": "Discovered cheat canonical home; use shared host/controller",
+        "dismiss": "Top transient first, then Back/Esc; leaving is separate from ending/cancelling",
+        "focus": "Future slice must restore opener or safe known parent",
+        "log": "Life system elects lifecycle receipt; AI/other fixtures are quiet. No universal text equivalent or mirror.",
+        "knowledge": "Public projected fields only; claimed identity controls disguised looks; no grade or style certifies truth",
+        "cost": "Owner quote before a new run; no universal charges, refund or pause policy",
+        "verification": "Static geometry only; CS2 and simulator gameplay remain unimplemented"
+      }
+    },
+    {
+      "id": "grade-vision-simulator-1366-21",
+      "key": "vision",
+      "family": "simulator",
+      "identity": "Ring \u00d7 AI \u00d7 predict/simulate",
+      "size": 21,
+      "viewport": [
+        1366,
+        768
+      ],
+      "surface": "center",
+      "grade": true,
+      "typeScene": false,
+      "html": "grade-vision-simulator-1366-21.html",
+      "png": "grade-vision-simulator-1366-21.png",
+      "frame": "evidence/r14/after/nav-1366-21/00-home.png",
+      "frameSha256": "6d083bf9b02cda2bb6511b10483709e0312a955de9f13322b4b5281aff6c5cee",
+      "scope": "Synthetic static representation, no mechanics, input handlers or storage",
+      "behavior": {
+        "entry": "Discovered cheat canonical home; use shared host/controller",
+        "dismiss": "Top transient first, then Back/Esc; leaving is separate from ending/cancelling",
+        "focus": "Future slice must restore opener or safe known parent",
+        "log": "Life system elects lifecycle receipt; AI/other fixtures are quiet. No universal text equivalent or mirror.",
+        "knowledge": "Public projected fields only; claimed identity controls disguised looks; no grade or style certifies truth",
+        "cost": "Owner quote before a new run; no universal charges, refund or pause policy",
+        "verification": "Static geometry only; CS2 and simulator gameplay remain unimplemented"
+      }
+    },
+    {
+      "id": "grade-counterfactual-simulator-1366-14",
+      "key": "counterfactual",
+      "family": "simulator",
+      "identity": "Ring \u00d7 AI \u00d7 predict/simulate",
+      "size": 14,
+      "viewport": [
+        1366,
+        768
+      ],
+      "surface": "center",
+      "grade": true,
+      "typeScene": false,
+      "html": "grade-counterfactual-simulator-1366-14.html",
+      "png": "grade-counterfactual-simulator-1366-14.png",
+      "frame": "evidence/r14/after/nav-1366-14/00-home.png",
+      "frameSha256": "fdc594dbcbd5bbc9a00944cf214e9ffb51e949b049621291b953a5af5761a832",
+      "scope": "Synthetic static representation, no mechanics, input handlers or storage",
+      "behavior": {
+        "entry": "Discovered cheat canonical home; use shared host/controller",
+        "dismiss": "Top transient first, then Back/Esc; leaving is separate from ending/cancelling",
+        "focus": "Future slice must restore opener or safe known parent",
+        "log": "Life system elects lifecycle receipt; AI/other fixtures are quiet. No universal text equivalent or mirror.",
+        "knowledge": "Public projected fields only; claimed identity controls disguised looks; no grade or style certifies truth",
+        "cost": "Owner quote before a new run; no universal charges, refund or pause policy",
+        "verification": "Static geometry only; CS2 and simulator gameplay remain unimplemented"
+      }
+    },
+    {
+      "id": "grade-counterfactual-simulator-1366-21",
+      "key": "counterfactual",
+      "family": "simulator",
+      "identity": "Ring \u00d7 AI \u00d7 predict/simulate",
+      "size": 21,
+      "viewport": [
+        1366,
+        768
+      ],
+      "surface": "center",
+      "grade": true,
+      "typeScene": false,
+      "html": "grade-counterfactual-simulator-1366-21.html",
+      "png": "grade-counterfactual-simulator-1366-21.png",
+      "frame": "evidence/r14/after/nav-1366-21/00-home.png",
+      "frameSha256": "6d083bf9b02cda2bb6511b10483709e0312a955de9f13322b4b5281aff6c5cee",
+      "scope": "Synthetic static representation, no mechanics, input handlers or storage",
+      "behavior": {
+        "entry": "Discovered cheat canonical home; use shared host/controller",
+        "dismiss": "Top transient first, then Back/Esc; leaving is separate from ending/cancelling",
+        "focus": "Future slice must restore opener or safe known parent",
+        "log": "Life system elects lifecycle receipt; AI/other fixtures are quiet. No universal text equivalent or mirror.",
+        "knowledge": "Public projected fields only; claimed identity controls disguised looks; no grade or style certifies truth",
+        "cost": "Owner quote before a new run; no universal charges, refund or pause policy",
+        "verification": "Static geometry only; CS2 and simulator gameplay remain unimplemented"
+      }
+    },
+    {
+      "id": "grade-oracle-simulator-1366-14",
+      "key": "oracle",
+      "family": "simulator",
+      "identity": "Ring \u00d7 AI \u00d7 predict/simulate",
+      "size": 14,
+      "viewport": [
+        1366,
+        768
+      ],
+      "surface": "center",
+      "grade": true,
+      "typeScene": false,
+      "html": "grade-oracle-simulator-1366-14.html",
+      "png": "grade-oracle-simulator-1366-14.png",
+      "frame": "evidence/r14/after/nav-1366-14/00-home.png",
+      "frameSha256": "fdc594dbcbd5bbc9a00944cf214e9ffb51e949b049621291b953a5af5761a832",
+      "scope": "Synthetic static representation, no mechanics, input handlers or storage",
+      "behavior": {
+        "entry": "Discovered cheat canonical home; use shared host/controller",
+        "dismiss": "Top transient first, then Back/Esc; leaving is separate from ending/cancelling",
+        "focus": "Future slice must restore opener or safe known parent",
+        "log": "Life system elects lifecycle receipt; AI/other fixtures are quiet. No universal text equivalent or mirror.",
+        "knowledge": "Public projected fields only; claimed identity controls disguised looks; no grade or style certifies truth",
+        "cost": "Owner quote before a new run; no universal charges, refund or pause policy",
+        "verification": "Static geometry only; CS2 and simulator gameplay remain unimplemented"
+      }
+    },
+    {
+      "id": "grade-oracle-simulator-1366-21",
+      "key": "oracle",
+      "family": "simulator",
+      "identity": "Ring \u00d7 AI \u00d7 predict/simulate",
+      "size": 21,
+      "viewport": [
+        1366,
+        768
+      ],
+      "surface": "center",
+      "grade": true,
+      "typeScene": false,
+      "html": "grade-oracle-simulator-1366-21.html",
+      "png": "grade-oracle-simulator-1366-21.png",
+      "frame": "evidence/r14/after/nav-1366-21/00-home.png",
+      "frameSha256": "6d083bf9b02cda2bb6511b10483709e0312a955de9f13322b4b5281aff6c5cee",
+      "scope": "Synthetic static representation, no mechanics, input handlers or storage",
+      "behavior": {
+        "entry": "Discovered cheat canonical home; use shared host/controller",
+        "dismiss": "Top transient first, then Back/Esc; leaving is separate from ending/cancelling",
+        "focus": "Future slice must restore opener or safe known parent",
+        "log": "Life system elects lifecycle receipt; AI/other fixtures are quiet. No universal text equivalent or mirror.",
+        "knowledge": "Public projected fields only; claimed identity controls disguised looks; no grade or style certifies truth",
+        "cost": "Owner quote before a new run; no universal charges, refund or pause policy",
+        "verification": "Static geometry only; CS2 and simulator gameplay remain unimplemented"
+      }
+    },
+    {
+      "id": "probe-simulator-1920-21",
+      "key": "probe",
+      "family": "simulator",
+      "identity": "Ring \u00d7 AI \u00d7 predict/simulate",
+      "size": 21,
+      "viewport": [
+        1920,
+        1080
+      ],
+      "surface": "center",
+      "grade": false,
+      "typeScene": false,
+      "html": "probe-simulator-1920-21.html",
+      "png": "probe-simulator-1920-21.png",
+      "frame": "evidence/r14/after/nav-1920-21/00-home.png",
+      "frameSha256": "dae15263d64380d98728976a88915cd9a30de511306cb764e30eae05034bf3b1",
+      "scope": "Synthetic static representation, no mechanics, input handlers or storage",
+      "behavior": {
+        "entry": "Discovered cheat canonical home; use shared host/controller",
+        "dismiss": "Top transient first, then Back/Esc; leaving is separate from ending/cancelling",
+        "focus": "Future slice must restore opener or safe known parent",
+        "log": "Life system elects lifecycle receipt; AI/other fixtures are quiet. No universal text equivalent or mirror.",
+        "knowledge": "Public projected fields only; claimed identity controls disguised looks; no grade or style certifies truth",
+        "cost": "Owner quote before a new run; no universal charges, refund or pause policy",
+        "verification": "Static geometry only; CS2 and simulator gameplay remain unimplemented"
+      }
+    },
+    {
+      "id": "probe-jade-1920-21",
+      "key": "probe",
+      "family": "jade",
+      "identity": "Jade slip \u00d7 impersonal system \u00d7 simulate/settle",
+      "size": 21,
+      "viewport": [
+        1920,
+        1080
+      ],
+      "surface": "center",
+      "grade": false,
+      "typeScene": false,
+      "html": "probe-jade-1920-21.html",
+      "png": "probe-jade-1920-21.png",
+      "frame": "evidence/r14/after/nav-1920-21/00-home.png",
+      "frameSha256": "dae15263d64380d98728976a88915cd9a30de511306cb764e30eae05034bf3b1",
+      "scope": "Synthetic static representation, no mechanics, input handlers or storage",
+      "behavior": {
+        "entry": "Discovered cheat canonical home; use shared host/controller",
+        "dismiss": "Top transient first, then Back/Esc; leaving is separate from ending/cancelling",
+        "focus": "Future slice must restore opener or safe known parent",
+        "log": "Life system elects lifecycle receipt; AI/other fixtures are quiet. No universal text equivalent or mirror.",
+        "knowledge": "Public projected fields only; claimed identity controls disguised looks; no grade or style certifies truth",
+        "cost": "Owner quote before a new run; no universal charges, refund or pause policy",
+        "verification": "Static geometry only; CS2 and simulator gameplay remain unimplemented"
+      }
+    },
+    {
+      "id": "millet-dream-inkdream-1366-14",
+      "key": "millet-dream",
+      "family": "inkdream",
+      "identity": "Pillow \u00d7 dream faculty \u00d7 compressed life",
+      "size": 14,
+      "viewport": [
+        1366,
+        768
+      ],
+      "surface": "center",
+      "grade": false,
+      "typeScene": true,
+      "html": "millet-dream-inkdream-1366-14.html",
+      "png": "millet-dream-inkdream-1366-14.png",
+      "frame": "evidence/r14/after/nav-1366-14/00-home.png",
+      "frameSha256": "fdc594dbcbd5bbc9a00944cf214e9ffb51e949b049621291b953a5af5761a832",
+      "scope": "Synthetic static representation, no mechanics, input handlers or storage",
+      "behavior": {
+        "entry": "Discovered cheat canonical home; use shared host/controller",
+        "dismiss": "Top transient first, then Back/Esc; leaving is separate from ending/cancelling",
+        "focus": "Future slice must restore opener or safe known parent",
+        "log": "Life system elects lifecycle receipt; AI/other fixtures are quiet. No universal text equivalent or mirror.",
+        "knowledge": "Public projected fields only; claimed identity controls disguised looks; no grade or style certifies truth",
+        "cost": "Owner quote before a new run; no universal charges, refund or pause policy",
+        "verification": "Static geometry only; CS2 and simulator gameplay remain unimplemented"
+      }
+    },
+    {
+      "id": "millet-dream-inkdream-1366-21",
+      "key": "millet-dream",
+      "family": "inkdream",
+      "identity": "Pillow \u00d7 dream faculty \u00d7 compressed life",
+      "size": 21,
+      "viewport": [
+        1366,
+        768
+      ],
+      "surface": "center",
+      "grade": false,
+      "typeScene": true,
+      "html": "millet-dream-inkdream-1366-21.html",
+      "png": "millet-dream-inkdream-1366-21.png",
+      "frame": "evidence/r14/after/nav-1366-21/00-home.png",
+      "frameSha256": "6d083bf9b02cda2bb6511b10483709e0312a955de9f13322b4b5281aff6c5cee",
+      "scope": "Synthetic static representation, no mechanics, input handlers or storage",
+      "behavior": {
+        "entry": "Discovered cheat canonical home; use shared host/controller",
+        "dismiss": "Top transient first, then Back/Esc; leaving is separate from ending/cancelling",
+        "focus": "Future slice must restore opener or safe known parent",
+        "log": "Life system elects lifecycle receipt; AI/other fixtures are quiet. No universal text equivalent or mirror.",
+        "knowledge": "Public projected fields only; claimed identity controls disguised looks; no grade or style certifies truth",
+        "cost": "Owner quote before a new run; no universal charges, refund or pause policy",
+        "verification": "Static geometry only; CS2 and simulator gameplay remain unimplemented"
+      }
+    },
+    {
+      "id": "divination-type-divination-1366-14",
+      "key": "divination-type",
+      "family": "divination",
+      "identity": "Casting board \u00d7 oracle \u00d7 divine",
+      "size": 14,
+      "viewport": [
+        1366,
+        768
+      ],
+      "surface": "center",
+      "grade": false,
+      "typeScene": true,
+      "html": "divination-type-divination-1366-14.html",
+      "png": "divination-type-divination-1366-14.png",
+      "frame": "evidence/r14/after/nav-1366-14/00-home.png",
+      "frameSha256": "fdc594dbcbd5bbc9a00944cf214e9ffb51e949b049621291b953a5af5761a832",
+      "scope": "Synthetic static representation, no mechanics, input handlers or storage",
+      "behavior": {
+        "entry": "Discovered cheat canonical home; use shared host/controller",
+        "dismiss": "Top transient first, then Back/Esc; leaving is separate from ending/cancelling",
+        "focus": "Future slice must restore opener or safe known parent",
+        "log": "Life system elects lifecycle receipt; AI/other fixtures are quiet. No universal text equivalent or mirror.",
+        "knowledge": "Public projected fields only; claimed identity controls disguised looks; no grade or style certifies truth",
+        "cost": "Owner quote before a new run; no universal charges, refund or pause policy",
+        "verification": "Static geometry only; CS2 and simulator gameplay remain unimplemented"
+      }
+    },
+    {
+      "id": "divination-type-divination-1366-21",
+      "key": "divination-type",
+      "family": "divination",
+      "identity": "Casting board \u00d7 oracle \u00d7 divine",
+      "size": 21,
+      "viewport": [
+        1366,
+        768
+      ],
+      "surface": "center",
+      "grade": false,
+      "typeScene": true,
+      "html": "divination-type-divination-1366-21.html",
+      "png": "divination-type-divination-1366-21.png",
+      "frame": "evidence/r14/after/nav-1366-21/00-home.png",
+      "frameSha256": "6d083bf9b02cda2bb6511b10483709e0312a955de9f13322b4b5281aff6c5cee",
+      "scope": "Synthetic static representation, no mechanics, input handlers or storage",
+      "behavior": {
+        "entry": "Discovered cheat canonical home; use shared host/controller",
+        "dismiss": "Top transient first, then Back/Esc; leaving is separate from ending/cancelling",
+        "focus": "Future slice must restore opener or safe known parent",
+        "log": "Life system elects lifecycle receipt; AI/other fixtures are quiet. No universal text equivalent or mirror.",
+        "knowledge": "Public projected fields only; claimed identity controls disguised looks; no grade or style certifies truth",
+        "cost": "Owner quote before a new run; no universal charges, refund or pause policy",
+        "verification": "Static geometry only; CS2 and simulator gameplay remain unimplemented"
+      }
+    },
+    {
+      "id": "return-memory-type-return-memory-1366-14",
+      "key": "return-memory-type",
+      "family": "return-memory",
+      "identity": "Personal memory \u00d7 returning self \u00d7 rewind",
+      "size": 14,
+      "viewport": [
+        1366,
+        768
+      ],
+      "surface": "center",
+      "grade": false,
+      "typeScene": true,
+      "html": "return-memory-type-return-memory-1366-14.html",
+      "png": "return-memory-type-return-memory-1366-14.png",
+      "frame": "evidence/r14/after/nav-1366-14/00-home.png",
+      "frameSha256": "fdc594dbcbd5bbc9a00944cf214e9ffb51e949b049621291b953a5af5761a832",
+      "scope": "Synthetic static representation, no mechanics, input handlers or storage",
+      "behavior": {
+        "entry": "Discovered cheat canonical home; use shared host/controller",
+        "dismiss": "Top transient first, then Back/Esc; leaving is separate from ending/cancelling",
+        "focus": "Future slice must restore opener or safe known parent",
+        "log": "Life system elects lifecycle receipt; AI/other fixtures are quiet. No universal text equivalent or mirror.",
+        "knowledge": "Public projected fields only; claimed identity controls disguised looks; no grade or style certifies truth",
+        "cost": "Owner quote before a new run; no universal charges, refund or pause policy",
+        "verification": "Static geometry only; CS2 and simulator gameplay remain unimplemented"
+      }
+    },
+    {
+      "id": "return-memory-type-return-memory-1366-21",
+      "key": "return-memory-type",
+      "family": "return-memory",
+      "identity": "Personal memory \u00d7 returning self \u00d7 rewind",
+      "size": 21,
+      "viewport": [
+        1366,
+        768
+      ],
+      "surface": "center",
+      "grade": false,
+      "typeScene": true,
+      "html": "return-memory-type-return-memory-1366-21.html",
+      "png": "return-memory-type-return-memory-1366-21.png",
+      "frame": "evidence/r14/after/nav-1366-21/00-home.png",
+      "frameSha256": "6d083bf9b02cda2bb6511b10483709e0312a955de9f13322b4b5281aff6c5cee",
+      "scope": "Synthetic static representation, no mechanics, input handlers or storage",
+      "behavior": {
+        "entry": "Discovered cheat canonical home; use shared host/controller",
+        "dismiss": "Top transient first, then Back/Esc; leaving is separate from ending/cancelling",
+        "focus": "Future slice must restore opener or safe known parent",
+        "log": "Life system elects lifecycle receipt; AI/other fixtures are quiet. No universal text equivalent or mirror.",
+        "knowledge": "Public projected fields only; claimed identity controls disguised looks; no grade or style certifies truth",
+        "cost": "Owner quote before a new run; no universal charges, refund or pause policy",
+        "verification": "Static geometry only; CS2 and simulator gameplay remain unimplemented"
+      }
+    }
+  ]
+}

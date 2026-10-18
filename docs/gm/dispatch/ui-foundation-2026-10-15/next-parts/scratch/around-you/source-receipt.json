@@ -1,0 +1,91 @@
+{
+  "climb": {
+    "repo": "tomlipo/the-climb",
+    "commit": "b3a9510f34f210cb3f731932316efe9f100f04f2",
+    "files": [
+      {
+        "path": "index.html",
+        "sha256": "2198546e4d80675c104a722f4d49dd89de676def9da999fa1dbf88cfb8d2543c",
+        "lines": 85
+      },
+      {
+        "path": "assets/index-B-sH2ct2.js",
+        "sha256": "32d9e9da3554522635966a00ddea5fd8a557f6906dcab24797379d282ba3e654",
+        "lines": 20
+      }
+    ],
+    "publishedBundleMatch": true
+  },
+  "adr": {
+    "repo": "doublespeakgames/adarkroom",
+    "commit": "1fada4620b6c66bd07bf15a3f1eb8223df8bc1d7",
+    "files": [
+      {
+        "path": "script/world.js",
+        "sha256": "330c0498855588d07c67da7361b6f02dfaa06da9c240a684998eb75629611855",
+        "lines": 1109
+      }
+    ]
+  },
+  "trimps": {
+    "repo": "Trimps/Trimps.github.io",
+    "commit": "b9edb1dfee270ebf81bef8d934dc71276bf8d963",
+    "files": [
+      {
+        "path": "main.js",
+        "sha256": "67d91e10bf3d202d573ca7c55f9822f7452c1d297cbdc011e14558a60a4feb94",
+        "lines": 20601
+      }
+    ]
+  },
+  "kittens": {
+    "repo": "nuclear-unicorn/kittensgame",
+    "commit": "781e379f79f1e7512d168849cba21ed111502644",
+    "files": [
+      {
+        "path": "js/jsx/left.jsx.js",
+        "sha256": "590359e6b44ea07b1e027a4f580a4c150556c1a91606a70f42f08d97c7b6d0a5",
+        "lines": 1026
+      }
+    ]
+  },
+  "candy": {
+    "repo": "candybox2/candybox2.github.io",
+    "commit": "35301d438aa2c1e58e8cb3ea215b0af323bddf9b",
+    "files": [
+      {
+        "path": "code/main/MainMap.ts",
+        "sha256": "eea5114aaf153cbf5d2c2de9e57e04cff42c6227479c568741ec52ab060e4260",
+        "lines": 462
+      },
+      {
+        "path": "code/main/LollipopFarm.ts",
+        "sha256": "4e992783d78810602d923115828aa2d0d54db9e3f3b9dc41545f2b793243cdf1",
+        "lines": 445
+      }
+    ]
+  },
+  "loops": {
+    "repo": "omsi6/omsi6.github.io",
+    "commit": "fa21477d424f3aa1f1bf6deb9f6f83c2569770ab",
+    "files": [
+      {
+        "path": "loops/actionList.js",
+        "sha256": "66a6e2848ded01a9b0be99e05a056427eb69fc3b81fc22cf6e19a22214e06764",
+        "matchesPublished": true
+      },
+      {
+        "path": "loops/town.js",
+        "sha256": "7c17c2b80f2d302d203ec5a8b2a1a3973032859aac43a2d9facec0ea4a3f4e90",
+        "matchesPublished": true
+      },
+      {
+        "path": "loops/views/main.view.js",
+        "sha256": "0cc9d885cf1fbb679e57b3bfa843e613077c897e5434f114f5a848cc873b4dd9",
+        "matchesPublished": true
+      }
+    ],
+    "route": "omsi6/loops repo absent; switched to published site then identified its owning repository"
+  },
+  "scope": "Read-only public clones outside YAIR at /tmp/aw-reference-20261016. No third-party source placed inside repository."
+}

@@ -1,0 +1,91 @@
+{
+  "sourceCount": 560,
+  "vendorEmbeddedSources": 44,
+  "sourceMismatches": [],
+  "served": [
+    {
+      "url": "styles/settled_text_effects.css",
+      "status": 200,
+      "match": true,
+      "sha256": "8bf25806f8994584b1218b57c7bc8c2aa659567f2db19925d31089445d1c4d15"
+    },
+    {
+      "url": "styles/customization.css",
+      "status": 200,
+      "match": true,
+      "sha256": "f289d1013aaeb19716d3feefad2da4d9d273a59cd0f034b49592b6628aff1872"
+    },
+    {
+      "url": "styles/workspace.css?version=080232f17190",
+      "status": 200,
+      "match": true,
+      "sha256": "080232f17190db10475260d14a4355e7fd9c5f260b3fd5407e91efcfc8a6a092"
+    },
+    {
+      "url": "styles/workspace_discovery.css",
+      "status": 200,
+      "match": true,
+      "sha256": "b5eeb0896e80ad222d9c5d4756ca40bc438139c6403c9930d8c7008ca0c2db3b"
+    },
+    {
+      "url": "styles/display_settings.css",
+      "status": 200,
+      "match": true,
+      "sha256": "38efbda0850d0a025e1953917cfd7f9273e18fe394d83d0d23812d38e038601a"
+    },
+    {
+      "url": "styles/status_window.css",
+      "status": 200,
+      "match": true,
+      "sha256": "8ca093425d58ae0ca0cd443657e4a5eec728d5521e4995f6ad57d8ca5ad05f3c"
+    },
+    {
+      "url": "styles/action_legibility.css?version=0eb2ba0cb8f1",
+      "status": 200,
+      "match": true,
+      "sha256": "0eb2ba0cb8f1053e53fe6d62fdd248a2181759a5a96030adae89b9fab40dea1b"
+    },
+    {
+      "url": "styles/crafting_detail.css",
+      "status": 200,
+      "match": true,
+      "sha256": "3dd028cc7721ae96c0ced0c2cd7aed0a5c9a16d2963b7330970f2401c3054487"
+    },
+    {
+      "url": "styles/component_themes.css",
+      "status": 200,
+      "match": true,
+      "sha256": "3c3078d079ffd544d9f143c50b8805352d98f6b2d327f6bbacbd4436c4a4c3a5"
+    },
+    {
+      "url": "styles/start_probe.css",
+      "status": 200,
+      "match": true,
+      "sha256": "4a42a7ddac3d426827c637569870c526b78a13afe4b32ca268b38d15d5ff2d69"
+    },
+    {
+      "url": "styles/ui_tokens.css?version=0a6c733c80b4",
+      "status": 200,
+      "match": true,
+      "sha256": "0a6c733c80b473a2d85dfd703c27d6181b324dba939734240c082a9c4edb6ffc"
+    },
+    {
+      "url": "resources/js/HackTimer/HackTimer.min.js",
+      "status": 200,
+      "match": true,
+      "sha256": "5494332251c417364f774623b2510aec940cbf5e433ef284158c829099a74fd4"
+    },
+    {
+      "url": "dist/bundle.js?version=v0.6-4c9a026baf32",
+      "status": 200,
+      "match": true,
+      "sha256": "4c9a026baf3237663d32fbe8cc95faf8374bc3c984ae06efa7d3b824518518b6"
+    }
+  ],
+  "contract": {
+    "entries": 211,
+    "occurrences": 273,
+    "unreviewed": []
+  },
+  "c1ReportUnchanged": true
+}

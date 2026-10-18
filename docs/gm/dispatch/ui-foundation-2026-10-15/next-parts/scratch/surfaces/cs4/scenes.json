@@ -1,0 +1,203 @@
+{
+  "frame": "evidence/r14/after/nav-1366-14/00-home.png",
+  "frameSha256": "fdc594dbcbd5bbc9a00944cf214e9ffb51e949b049621291b953a5af5761a832",
+  "scope": "Static HTML proposals on preserved R14 pixels; inserted fixture text only. No game scripts or interaction implementation.",
+  "scenes": [
+    {
+      "id": "system-popup",
+      "style": "system",
+      "surface": "popup",
+      "foreignTextSize": 14,
+      "appearance": "authored",
+      "motion": "static",
+      "html": "system-popup.html",
+      "png": "system-popup.png",
+      "viewport": [
+        1366,
+        768
+      ]
+    },
+    {
+      "id": "system-notice",
+      "style": "system",
+      "surface": "notice",
+      "foreignTextSize": 14,
+      "appearance": "authored",
+      "motion": "static",
+      "html": "system-notice.html",
+      "png": "system-notice.png",
+      "viewport": [
+        1366,
+        768
+      ]
+    },
+    {
+      "id": "system-center",
+      "style": "system",
+      "surface": "center",
+      "foreignTextSize": 14,
+      "appearance": "authored",
+      "motion": "static",
+      "html": "system-center.html",
+      "png": "system-center.png",
+      "viewport": [
+        1366,
+        768
+      ]
+    },
+    {
+      "id": "jade-popup",
+      "style": "jade",
+      "surface": "popup",
+      "foreignTextSize": 14,
+      "appearance": "authored",
+      "motion": "static",
+      "html": "jade-popup.html",
+      "png": "jade-popup.png",
+      "viewport": [
+        1366,
+        768
+      ]
+    },
+    {
+      "id": "jade-notice",
+      "style": "jade",
+      "surface": "notice",
+      "foreignTextSize": 14,
+      "appearance": "authored",
+      "motion": "static",
+      "html": "jade-notice.html",
+      "png": "jade-notice.png",
+      "viewport": [
+        1366,
+        768
+      ]
+    },
+    {
+      "id": "jade-center",
+      "style": "jade",
+      "surface": "center",
+      "foreignTextSize": 14,
+      "appearance": "authored",
+      "motion": "static",
+      "html": "jade-center.html",
+      "png": "jade-center.png",
+      "viewport": [
+        1366,
+        768
+      ]
+    },
+    {
+      "id": "terminal-popup",
+      "style": "terminal",
+      "surface": "popup",
+      "foreignTextSize": 14,
+      "appearance": "authored",
+      "motion": "static",
+      "html": "terminal-popup.html",
+      "png": "terminal-popup.png",
+      "viewport": [
+        1366,
+        768
+      ]
+    },
+    {
+      "id": "terminal-notice",
+      "style": "terminal",
+      "surface": "notice",
+      "foreignTextSize": 14,
+      "appearance": "authored",
+      "motion": "static",
+      "html": "terminal-notice.html",
+      "png": "terminal-notice.png",
+      "viewport": [
+        1366,
+        768
+      ]
+    },
+    {
+      "id": "terminal-center",
+      "style": "terminal",
+      "surface": "center",
+      "foreignTextSize": 14,
+      "appearance": "authored",
+      "motion": "static",
+      "html": "terminal-center.html",
+      "png": "terminal-center.png",
+      "viewport": [
+        1366,
+        768
+      ]
+    },
+    {
+      "id": "system-center-21-authored-static",
+      "style": "system",
+      "surface": "center",
+      "foreignTextSize": 21,
+      "appearance": "authored",
+      "motion": "static",
+      "html": "system-center-21-authored-static.html",
+      "png": "system-center-21-authored-static.png",
+      "viewport": [
+        1366,
+        768
+      ]
+    },
+    {
+      "id": "jade-center-21-authored-static",
+      "style": "jade",
+      "surface": "center",
+      "foreignTextSize": 21,
+      "appearance": "authored",
+      "motion": "static",
+      "html": "jade-center-21-authored-static.html",
+      "png": "jade-center-21-authored-static.png",
+      "viewport": [
+        1366,
+        768
+      ]
+    },
+    {
+      "id": "terminal-center-21-authored-static",
+      "style": "terminal",
+      "surface": "center",
+      "foreignTextSize": 21,
+      "appearance": "authored",
+      "motion": "static",
+      "html": "terminal-center-21-authored-static.html",
+      "png": "terminal-center-21-authored-static.png",
+      "viewport": [
+        1366,
+        768
+      ]
+    },
+    {
+      "id": "system-center-14-plain-static",
+      "style": "system",
+      "surface": "center",
+      "foreignTextSize": 14,
+      "appearance": "plain",
+      "motion": "static",
+      "html": "system-center-14-plain-static.html",
+      "png": "system-center-14-plain-static.png",
+      "viewport": [
+        1366,
+        768
+      ]
+    },
+    {
+      "id": "system-notice-14-authored-reduce",
+      "style": "system",
+      "surface": "notice",
+      "foreignTextSize": 14,
+      "appearance": "authored",
+      "motion": "reduce",
+      "html": "system-notice-14-authored-reduce.html",
+      "png": "system-notice-14-authored-reduce.png",
+      "viewport": [
+        1366,
+        768
+      ]
+    }
+  ]
+}

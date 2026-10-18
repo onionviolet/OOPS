@@ -1,0 +1,13 @@
+{
+  "path": "/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/yair-r14-clean-ca6kgn_x",
+  "head": "58b34e6a04afaddafc9070b2d2bec2327ad374fa",
+  "overlay": [
+    "src/display.js",
+    "styles/crafting_detail.css",
+    "src/village_workspace.js",
+    "src/center_modes.js",
+    "src/workspace_navigation.js",
+    "src/workspace_layout.js",
+    "styles/ui_tokens.css"
+  ]
+}

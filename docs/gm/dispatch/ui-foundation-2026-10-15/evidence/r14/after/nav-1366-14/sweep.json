@@ -1,0 +1,366 @@
+[
+ {
+  "id": "preparation",
+  "tab": "",
+  "label": "Stats",
+  "title": "Stats · Alt+E",
+  "disabled": false,
+  "page": [
+   1366,
+   768
+  ],
+  "center": {
+   "client": 511,
+   "content": 511,
+   "chars": 1585,
+   "head": "Character & preparation\n▾\nAll attributes\nPrimary\nOffense\nDefense\nHealth\nStamina\nMana\nEnvironment\nLearning\n With modifiers\n\n38 attributes\n\nStrength\n22.945 points",
+   "text": "Character & preparation\n▾\nAll attributes\nPrimary\nOffense\nDefense\nHealth\nStamina\nMana\nEnvironment\nLearning\n With modifiers\n\n38 attributes\n\nStrength\n22.945 points\nAgility\n19.704 points\nDexterity\n15 points\nIntuition\n27.5 points\nMagic\n0 points\nAttack power\n2.294 damage\nAttack speed\n1 /s\nAttack rating\n80.47 AP\nHits per attack\n1 hits\nCritical chance\n5%\nCritical damage\n×1.3\nUnarmed base power\n1 damage\nArmor penetration\n0 points\nDefense\n1 points\nEvasion rating\n109.424 EP\nBlock chance\n75%\nShield block strength\nNo shield\nCurrent health\n61 hp\nMaximum health\n61 hp\nHealth recovery\n0 hp/s\nHealth recovery from maximum\n0 % max hp/s\nHealth loss component\n0 hp/s\nHealth percentage loss component\n0 % max hp/s\nCurrent stamina\n91.808 stamina\nMaximum stamina\n91.808 stamina\nStamina recovery\n0 stamina/s\nStamina recovery from maximum\n0 % max stamina/s\nStamina efficiency\n×1.087\nCurrent mana\n0 mana\nMaximum mana\n0 mana\nMana recovery\n0 mana/s\nMana recovery from maximum\n0 % max mana/s\nMana efficiency\n×1\nCold tolerance\n1 °C difference\nHeat tolerance\n1 °C difference\nGlobal personal XP factor\n×1.323\nHero XP factor\n×1.459\nSkill-wide XP factor\n×1.389\nStrength\n\nNative current-player attribute. Additive source categories combine before multiplicative factors.\n\nCurrent\n22.945 points\nUnit\npoints\nBase\n12 points\nBefore multipliers\n18\nTotal multiplier\n×1.275\nNative modifier sources\nSource category\tFlat\tMultiplier\nSkills\tNone\t×1.214\nSkill milestones\t+6\t×1.05\n\nNative categories may combine several contributors. Individual item or effect attribution is shown only when supplied.\n\nStats\nBio\nEquipment\nTools"
+  },
+  "back": [
+   "← Village"
+  ],
+  "regions": [
+   "player",
+   "inventory",
+   "actions",
+   "log"
+  ]
+ },
+ {
+  "id": "belongings",
+  "tab": "",
+  "label": "Inventory",
+  "title": "Inventory · Alt+I",
+  "disabled": false,
+  "page": [
+   1366,
+   768
+  ],
+  "center": {
+   "client": 226,
+   "content": 284,
+   "chars": 281,
+   "head": "directions Move somewhere else\nconstruction Try to craft something\nquestion_answer Talk to someone\nwork_outline Find work\nfitness_center Train\nsearch Gather res",
+   "text": "directions Move somewhere else\nconstruction Try to craft something\nquestion_answer Talk to someone\nwork_outline Find work\nfitness_center Train\nsearch Gather resources\nVillage practice and familiar ground\n2 ready / 2 actions\nLocal life\n4 ready / 6 actions\nMix at the Village counter"
+  },
+  "back": [
+   "← Village"
+  ],
+  "regions": [
+   "player",
+   "focus",
+   "inventory",
+   "actions",
+   "log"
+  ]
+ },
+ {
+  "id": "records",
+  "tab": "journal_show_quests",
+  "label": "Journal",
+  "title": "Journal · Alt+J",
+  "disabled": false,
+  "page": [
+   1366,
+   768
+  ],
+  "center": {
+   "client": 511,
+   "content": 511,
+   "chars": 97,
+   "head": "Journal & received accounts\n▾\nQuests\nBestiary\nAnthology\nData\nNotebook\nLost memory\nHide completed ",
+   "text": "Journal & received accounts\n▾\nQuests\nBestiary\nAnthology\nData\nNotebook\nLost memory\nHide completed "
+  },
+  "back": [
+   "← Village"
+  ],
+  "regions": [
+   "player",
+   "inventory",
+   "actions",
+   "log"
+  ]
+ },
+ {
+  "id": "records",
+  "tab": "journal_show_bestiary",
+  "label": "Bestiary",
+  "title": "Bestiary · Alt+B",
+  "disabled": false,
+  "page": [
+   1366,
+   768
+  ],
+  "center": {
+   "client": 511,
+   "content": 511,
+   "chars": 103,
+   "head": "Journal & received accounts\n▾\nQuests\nBestiary\nAnthology\nData\nNotebook\n2 / 2\nWolf rat\n12\nStarving wolf\n3",
+   "text": "Journal & received accounts\n▾\nQuests\nBestiary\nAnthology\nData\nNotebook\n2 / 2\nWolf rat\n12\nStarving wolf\n3"
+  },
+  "back": [
+   "← Village"
+  ],
+  "regions": [
+   "player",
+   "inventory",
+   "actions",
+   "log"
+  ]
+ },
+ {
+  "id": "records",
+  "tab": "journal_show_books",
+  "label": "Books",
+  "title": "Books · Alt+A",
+  "disabled": false,
+  "page": [
+   1366,
+   768
+  ],
+  "center": {
+   "client": 511,
+   "content": 511,
+   "chars": 106,
+   "head": "Journal & received accounts\n▾\nQuests\nBestiary\nAnthology\nData\nNotebook\n2 / 2\nABC for kids\nOld combat manual",
+   "text": "Journal & received accounts\n▾\nQuests\nBestiary\nAnthology\nData\nNotebook\n2 / 2\nABC for kids\nOld combat manual"
+  },
+  "back": [
+   "← Village"
+  ],
+  "regions": [
+   "player",
+   "inventory",
+   "actions",
+   "log"
+  ]
+ },
+ {
+  "id": "records",
+  "tab": "journal_show_data",
+  "label": "Data",
+  "title": "Data · Alt+D",
+  "disabled": false,
+  "page": [
+   1366,
+   768
+  ],
+  "center": {
+   "client": 511,
+   "content": 511,
+   "chars": 435,
+   "head": "Journal & received accounts\n▾\nQuests\nBestiary\nAnthology\nData\nNotebook\nItem log\nItem\tBest\tTotal\tKnown bestiary sources\nCheap leather pants\t40%\t1\t\nStale bread\t\t5\t",
+   "text": "Journal & received accounts\n▾\nQuests\nBestiary\nAnthology\nData\nNotebook\nItem log\nItem\tBest\tTotal\tKnown bestiary sources\nCheap leather pants\t40%\t1\t\nStale bread\t\t5\t\nLeather vest\t80%\t1\t\nGoat leather vest\t80%\t1\t\nLeather pants\t80%\t1\t\nRat pelt cape\t80%\t1\t\nRat tail\t\t4\t\nRat pelt\t\t5\t\nWolf pelt\t\t2\t\nBoar hide\t\t3\t\nBoar meat\t\t4\t\nFresh bread\t\t5\t\nBread kwas\t\t2\t\nApple\t\t3\t\nCarrot\t\t4\t\nPotato\t\t5\t\nCooked carrot\t\t2\t\nABC for kids\t\t1\t\nOld combat manual\t\t1\t"
+  },
+  "back": [
+   "← Village"
+  ],
+  "regions": [
+   "player",
+   "inventory",
+   "actions",
+   "log"
+  ]
+ },
+ {
+  "id": "records",
+  "tab": "journal_show_notebook",
+  "label": "Notebook",
+  "title": "Notebook · Alt+N",
+  "disabled": false,
+  "page": [
+   1366,
+   768
+  ],
+  "center": {
+   "client": 511,
+   "content": 511,
+   "chars": 69,
+   "head": "Journal & received accounts\n▾\nQuests\nBestiary\nAnthology\nData\nNotebook",
+   "text": "Journal & received accounts\n▾\nQuests\nBestiary\nAnthology\nData\nNotebook"
+  },
+  "back": [
+   "← Village"
+  ],
+  "regions": [
+   "player",
+   "inventory",
+   "actions",
+   "log"
+  ]
+ },
+ {
+  "id": "known-people",
+  "tab": "",
+  "label": "People",
+  "title": "People · Alt+P",
+  "disabled": false,
+  "page": [
+   1366,
+   768
+  ],
+  "center": {
+   "client": 511,
+   "content": 511,
+   "chars": 164,
+   "head": "People you know\n▾\nPeople you know\n\nWhat you have learned and what happened between you. Locations are last known or agreed, rather than live reports.\n\nVillage e",
+   "text": "People you know\n▾\nPeople you know\n\nWhat you have learned and what happened between you. Locations are last known or agreed, rather than live reports.\n\nVillage elder"
+  },
+  "back": [
+   "← Village"
+  ],
+  "regions": [
+   "player",
+   "inventory",
+   "actions",
+   "log"
+  ]
+ },
+ {
+  "id": "village-travelers",
+  "tab": "",
+  "label": "Travelers",
+  "title": "Travelers · Alt+T",
+  "disabled": false,
+  "page": [
+   1366,
+   768
+  ],
+  "center": {
+   "client": 511,
+   "content": 511,
+   "chars": 37,
+   "head": "Village travelers\n▾\nVillage travelers",
+   "text": "Village travelers\n▾\nVillage travelers"
+  },
+  "back": [
+   "← Village"
+  ],
+  "regions": [
+   "player",
+   "inventory",
+   "actions",
+   "log"
+  ]
+ },
+ {
+  "id": "projects",
+  "tab": "",
+  "label": "Projects",
+  "title": "Projects · Alt+R",
+  "disabled": false,
+  "page": [
+   1366,
+   768
+  ],
+  "center": {
+   "client": 511,
+   "content": 511,
+   "chars": 28,
+   "head": "Projects\n▾\nOptional projects",
+   "text": "Projects\n▾\nOptional projects"
+  },
+  "back": [
+   "← Village"
+  ],
+  "regions": [
+   "player",
+   "inventory",
+   "actions",
+   "log"
+  ]
+ },
+ {
+  "id": "ledger",
+  "tab": "",
+  "label": "Ledger",
+  "title": "Ledger · Alt+L",
+  "disabled": false,
+  "page": [
+   1366,
+   768
+  ],
+  "center": {
+   "client": 511,
+   "content": 511,
+   "chars": 25,
+   "head": "Work Ledger\n▾\nWork ledger",
+   "text": "Work Ledger\n▾\nWork ledger"
+  },
+  "back": [
+   "← Village"
+  ],
+  "regions": [
+   "player",
+   "inventory",
+   "actions",
+   "log"
+  ]
+ },
+ {
+  "id": "optional-worlds",
+  "tab": "",
+  "label": "Worlds",
+  "title": "Worlds · Alt+W · Return to the relevant place or finish the current conversation.",
+  "disabled": true,
+  "unavailable": true
+ },
+ {
+  "id": "beginning",
+  "tab": "",
+  "label": "Beginning",
+  "title": "Beginning · Alt+G",
+  "disabled": false,
+  "page": [
+   1366,
+   768
+  ],
+  "center": {
+   "client": 511,
+   "content": 511,
+   "chars": 523,
+   "head": "Your beginning\n▸\nYour beginning\n\nA livelihood in Reedbank\n\nOptional original local life: repair Sella’s bread carriers at Mara’s stall. Begin selects one of two",
+   "text": "Your beginning\n▸\nYour beginning\n\nA livelihood in Reedbank\n\nOptional original local life: repair Sella’s bread carriers at Mara’s stall. Begin selects one of two adult human starts, with one or two usable hands; both can use the holding jig. Your native name, gender, belongings and earlier progress remain in this save. No combat or Frontier campaign is required. This finite district has local walks and continuing repair work; it currently has no route back to Village. Closing the browser pauses its played clock.\n\nBegin"
+  },
+  "back": [
+   "← Village"
+  ],
+  "regions": [
+   "player",
+   "inventory",
+   "actions",
+   "log"
+  ]
+ },
+ {
+  "id": "customization",
+  "tab": "",
+  "label": "Settings",
+  "title": "Settings · Alt+S",
+  "disabled": false,
+  "page": [
+   1366,
+   768
+  ],
+  "center": {
+   "client": 511,
+   "content": 869,
+   "chars": 659,
+   "head": "Appearance\n▾\nAppearance\n\nSaved Default. Native season: Summer.\n\nProfile, typography, palette and seasonal theme for native modules. Changes remain a draft until",
+   "text": "Appearance\n▾\nAppearance\n\nSaved Default. Native season: Summer.\n\nProfile, typography, palette and seasonal theme for native modules. Changes remain a draft until applied.\n\nProfile\nDefault\nNative module\nWhole profile\nledger\ncrafting\nlocal-actions\nvitals\npreparation\nbelongings\nrecords\ntime\nlocation\nskills\nmessages\nnotebook\ncustomization\nSeasonal theme\noff\nautomatic\nmanual\nManual season\nspring\nsummer\nautumn\nwinter\nComponent theme\nneutral\narcane\nworkshop\nNew profile name\nFont\nsystem\nserif\nmono\nFont size\nBackground\nText\nAccent\nSpacing\nProfile import / export JSON\nCreate profile draft\nApply and save\nReset draft\nDiscard draft\nImport to draft\nExport draft JSON"
+  },
+  "back": [
+   "← Village"
+  ],
+  "regions": [
+   "player",
+   "inventory",
+   "actions",
+   "log"
+  ]
+ },
+ {
+  "stateUnchanged": true,
+  "errors": []
+ }
+]

@@ -1,0 +1,9 @@
+{
+  "scope": "Read-only comparison of location-hiding CSS; not served-byte or runtime proof",
+  "current": "styles/ui_tokens.css",
+  "frozen": "/Users/weiwei/.codex/candidates/yair-ui-r14-readiness-2026-10-15/styles/ui_tokens.css",
+  "currentSha256": "0e1819771da7ba56e5ebba72e91b16e96e628705f5d6dca0efcad53b0e5f70b1",
+  "frozenSha256": "0e1819771da7ba56e5ebba72e91b16e96e628705f5d6dca0efcad53b0e5f70b1",
+  "sameBytes": true,
+  "frozenRule986": "#main_content.workspace-active[data-parity=\"r3\"] .workspace-module[data-module=\"location\"] {display:none!important;}"
+}

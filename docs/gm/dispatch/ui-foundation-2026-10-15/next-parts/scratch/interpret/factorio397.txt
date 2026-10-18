@@ -1,0 +1,95 @@
+https://www.factorio.com/blog/post/fff-397
+Friday Facts #397 - Factoriopedia | Factorio
+Factorio.com
+|
+Forums
+|
+Wiki
+|
+Mod Portal
+|
+API Docs
+Log in
+|
+Sign up
+Game
+Screenshots
+Videos
+Content
+Merch
+Artwork
+About us
+Buy
+Demo
+Space Age
+Content
+Galaxy
+Presskit
+Buy
+Blog
+Support
+Help
+FAQ
+Presskit
+Contact
+Friday Facts #397 - Factoriopedia
+Posted by
+Pard
+on 2024-02-09
+Hello,
+we have gathered here today to talk about a new quality of life feature coming with 2.0.
+Motivation
+Factorio has a quite a lot of items and recipes. Since the new things are unlocked over time, the number is manageable. However with Space age, there are a lot of new things you unlock, and you can start to lose track. Mods have had this sort of problem for a long time, and there are also mods which help to solve it , such as
+FNEI
+and
+Recipe Book
+.
+The core of the problem
+The core of the problem is the recipe tree discovery, which has 2 directions:
+The first direction is discovering what do I need to craft an item. When I want to craft an inserter, I can hover the recipe to find out what I need. But maybe I don't know how electronic circuits are made, so now I have to go, and search the electronic circuit in the crafting menu, to find it and look at its own ingredients, etc.
+This process is already slow and annoying, but at least it is possible.
+The other direction is much worse. For example, you discover you can craft an advanced circuit, and you want to figure out the purpose of the item. This mostly means: "What do I make with this".
+Answering this question is almost impossible through some kind of search now, and you just have to look through everything, or check the wiki.
+The solution to this problem was clear when we already had all the necessary information in the game. All we needed to do was just aggregate the useful information in one GUI. And just like that, Factoriopedia was born.
+The Factoriopedia
+As many of you have noticed in
+FFF-380
+there is a new button with a book icon placed conveniently between "tips and tricks" and the "train overview". Hiding behind this button is the new internal encyclopedia of all useful Factorio knowledge.
+With the Factoriopedia, you can see the problem is solved, as the advanced circuit entry not only shows all the ingredients which you directly browse, but it also shows the list of all the recipes using this item as ingredient. It also provides a quick reference to the technology needed to unlock the recipe, so you can quickly take a look how to get there.
+Technically, recipes and items and entities are independent objects, but for most of the player structures, these are tightly connected. With this in mind, we made sure, that in these cases, it is always present as one merged entry.
+Item, Recipe and entity merged into one entry with all the info in one place.
+Whenever you hover an item/recipe/entity etc. We often provide lists of related entries. But since it is a tooltip, you can't really go and click those to explore further. However, in Factoriopedia, it is not a tooltip, so you can browse through these normally.
+The list of accepted fuel we added to the description of furnaces is now even more useful in Factoriopedia.
+With the rise of specialised machines in Space Age, having the list of all the supported recipes is more useful than ever.
+Looking at planets gives you mainly info about all the local resources, and planet specific recipes.
+If an item has alternative recipes they are also shown.
+Since parts of the expansion can be toggled the same way as we do with mods, naturally the Factoriopedia will support the information about any modded content added to the game.
+Tooltip showing additional data when the Quality mod is enabled.
+These are just the most obvious examples and we covered many more similar kind of relationships to aid discoverability.
+Alt is your friend
+Factoriopedia can be opened by clicking the dedicated button, but that isn't very convenient. Especially when we are looking at an object in the game and scratching our heads saying: "What the hell is this supposed to do?".
+Don't worry you can just ALT + Left click practically anything, and you will be transported right to the correct Factoriopedia page. Whether it is an unfamiliar building, (un)friendly neighbor, a forgotten item in your inventory, or a strange new recipe.
+From this point, you can continue to navigate Factoriopedia by clicking each individual button.
+Browse history
+To wrap things up we have to address the elephant in the room in the form of the two arrows next to the search button.
+When you navigate through GUIs in the game we store the history of what you had open. You can then use the standard ALT + Left arrow and ALT + Right arrow to go backwards or forwards (or the back/forward on the mouse). Using it feels very natural.
+The initial motivation for this system was the interactions with multiple planets and remote view. The typical scenario is when you do something remotely on a different planet, and close the remote view, you can just press the shortcut to return to where you left off immediately. This might feel like a little detail, but it is one of the many features that we can't live without anymore.
+This system was extended over time to include Factoriopedia, Technology GUI, Blueprint library, Train overview, and many others.
+As always, help us expand our feedbackpedia at the usual places.
+Discuss on our forums
+Discuss on Reddit
+Subscribe by email
+Terms of Service
+|
+Privacy
+|
+Imprint
+|
+Presskit
+|
+Contact
+|
+RSS
+|
+Jobs
+Copyright © 2015 - 2026 Wube Software - all rights reserved.

@@ -1,0 +1,96 @@
+{
+  "scope": "AW authored static map studies; synthetic geometry and illustrative readings; not game evidence",
+  "tooling": "Adapted from CS4 AST CSS extraction, historical frame overlay and Playwright screenshot/geometry receipt",
+  "scenes": [
+    {
+      "id": "village-nodes-14",
+      "html": "village-nodes-14.html",
+      "png": "village-nodes-14.png",
+      "width": 1366,
+      "height": 768,
+      "size": 14,
+      "frame": "../../../evidence/r14/after/nav-1366-14/00-home.png",
+      "frameSha256": "fdc594dbcbd5bbc9a00944cf214e9ffb51e949b049621291b953a5af5761a832"
+    },
+    {
+      "id": "village-nodes-21",
+      "html": "village-nodes-21.html",
+      "png": "village-nodes-21.png",
+      "width": 1366,
+      "height": 768,
+      "size": 21,
+      "frame": "../../../evidence/r14/after/nav-1366-21/00-home.png",
+      "frameSha256": "6d083bf9b02cda2bb6511b10483709e0312a955de9f13322b4b5281aff6c5cee"
+    },
+    {
+      "id": "village-nodes-1920-21",
+      "html": "village-nodes-1920-21.html",
+      "png": "village-nodes-1920-21.png",
+      "width": 1920,
+      "height": 1080,
+      "size": 21,
+      "frame": "../../../evidence/r14/after/nav-1920-21/00-home.png",
+      "frameSha256": "dae15263d64380d98728976a88915cd9a30de511306cb764e30eae05034bf3b1"
+    },
+    {
+      "id": "cave-sketch-14",
+      "html": "cave-sketch-14.html",
+      "png": "cave-sketch-14.png",
+      "width": 1366,
+      "height": 768,
+      "size": 14,
+      "frame": "../../../evidence/r14/after/nav-1366-14/00-home.png",
+      "frameSha256": "fdc594dbcbd5bbc9a00944cf214e9ffb51e949b049621291b953a5af5761a832"
+    },
+    {
+      "id": "forest-nodes-no-lens-14",
+      "html": "forest-nodes-no-lens-14.html",
+      "png": "forest-nodes-no-lens-14.png",
+      "width": 1366,
+      "height": 768,
+      "size": 14,
+      "frame": "../../../evidence/r14/after/nav-1366-14/00-home.png",
+      "frameSha256": "fdc594dbcbd5bbc9a00944cf214e9ffb51e949b049621291b953a5af5761a832"
+    },
+    {
+      "id": "forest-nodes-hunter-14",
+      "html": "forest-nodes-hunter-14.html",
+      "png": "forest-nodes-hunter-14.png",
+      "width": 1366,
+      "height": 768,
+      "size": 14,
+      "frame": "../../../evidence/r14/after/nav-1366-14/00-home.png",
+      "frameSha256": "fdc594dbcbd5bbc9a00944cf214e9ffb51e949b049621291b953a5af5761a832"
+    },
+    {
+      "id": "forest-glyph-option-14",
+      "html": "forest-glyph-option-14.html",
+      "png": "forest-glyph-option-14.png",
+      "width": 1366,
+      "height": 768,
+      "size": 14,
+      "frame": "../../../evidence/r14/after/nav-1366-14/00-home.png",
+      "frameSha256": "fdc594dbcbd5bbc9a00944cf214e9ffb51e949b049621291b953a5af5761a832"
+    },
+    {
+      "id": "lens-comparison-14",
+      "html": "lens-comparison-14.html",
+      "png": "lens-comparison-14.png",
+      "width": 1366,
+      "height": 768,
+      "size": 14,
+      "frame": "../../../evidence/r14/after/nav-1366-14/00-home.png",
+      "frameSha256": "fdc594dbcbd5bbc9a00944cf214e9ffb51e949b049621291b953a5af5761a832"
+    },
+    {
+      "id": "known-atlas-14",
+      "html": "known-atlas-14.html",
+      "png": "known-atlas-14.png",
+      "width": 1366,
+      "height": 768,
+      "size": 14,
+      "frame": "../../../evidence/r14/after/nav-1366-14/00-home.png",
+      "frameSha256": "fdc594dbcbd5bbc9a00944cf214e9ffb51e949b049621291b953a5af5761a832"
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+[
+  {
+    "w": 1366,
+    "h": 768,
+    "font": 14,
+    "ready": "1 attempt",
+    "blocked": "Missing",
+    "afterCraft": "Missing",
+    "fit": {
+      "client": 187,
+      "content": 187
+    },
+    "inspectionUnchanged": true,
+    "unknownSafe": true,
+    "craftVisible": true
+  },
+  {
+    "w": 1366,
+    "h": 768,
+    "font": 17.5,
+    "ready": "1 attempt",
+    "blocked": "Missing",
+    "afterCraft": "Missing",
+    "fit": {
+      "client": 425,
+      "content": 425
+    },
+    "inspectionUnchanged": true,
+    "unknownSafe": true,
+    "craftVisible": true
+  },
+  {
+    "w": 1366,
+    "h": 768,
+    "font": 21,
+    "ready": "1 attempt",
+    "blocked": "Missing",
+    "afterCraft": "Missing",
+    "fit": {
+      "client": 425,
+      "content": 425
+    },
+    "inspectionUnchanged": true,
+    "unknownSafe": true,
+    "craftVisible": true
+  },
+  {
+    "w": 1920,
+    "h": 1080,
+    "font": 21,
+    "ready": "1 attempt",
+    "blocked": "Missing",
+    "afterCraft": "Missing",
+    "fit": {
+      "client": 311,
+      "content": 311
+    },
+    "inspectionUnchanged": true,
+    "unknownSafe": true,
+    "craftVisible": true
+  }
+]

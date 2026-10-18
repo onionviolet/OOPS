@@ -1,0 +1,3190 @@
+[
+  {
+    "owner": "index.html:795",
+    "source": "document.addEventListener(\"keydown\", function(e) {"
+  },
+  {
+    "owner": "index.html:1261",
+    "source": "inventory_div.onclick = function(event) {"
+  },
+  {
+    "owner": "index.html:1289",
+    "source": "equipment_div.onclick = function(event) {"
+  },
+  {
+    "owner": "index.html:1298",
+    "source": "location_icon_span.onclick = (event) => {"
+  },
+  {
+    "owner": "index.html:1624",
+    "source": "inventory_div.addEventListener('click', (event)=>move_trade_item(event, \"character\"), false);"
+  },
+  {
+    "owner": "index.html:1625",
+    "source": "trader_inventory_div.addEventListener('click', (event)=>move_trade_item(event, \"trader\"), false);"
+  },
+  {
+    "owner": "index.html:1693",
+    "source": "inventory_div.addEventListener('click', (event)=>move_storage_item(event, \"character\"), false);"
+  },
+  {
+    "owner": "index.html:1694",
+    "source": "storage_div.addEventListener('click', (event)=>move_storage_item(event, \"storage\"), false);"
+  },
+  {
+    "owner": "index.html:1747",
+    "source": "Array.from(document.getElementsByClassName(\"activable_buttons\")).forEach(element => element.addEventListener(\"click\", set_active_button));"
+  },
+  {
+    "owner": "index.html:1755",
+    "source": "clicked_element.classList.add(\"active_selection_button\");"
+  },
+  {
+    "owner": "index.html:1761",
+    "source": "document.getElementById(\"message_controls\").addEventListener(\"click\", manage_active_buttons);"
+  },
+  {
+    "owner": "index.html:1768",
+    "source": "clicked_element.classList.add(\"active_selection_button\");"
+  },
+  {
+    "owner": "index.html:1774",
+    "source": "document.getElementById(\"stance_list\").addEventListener(\"click\", event => {"
+  },
+  {
+    "owner": "src/absorb_c2/panel.js:6",
+    "source": "const summary=node('summary','Local life'),body=node('div'),status=node('p');"
+  },
+  {
+    "owner": "src/absorb_c2/panel.js:9",
+    "source": "const reminder=node('aside'),reminderText=node('p'),remind=node('button','Remind me about recurring bread'),dismiss=node('button','Dismiss bread reminder');"
+  },
+  {
+    "owner": "src/absorb_c2/panel.js:12",
+    "source": "remind.onclick=()=>{reminding=true;signature='';render();};dismiss.onclick=()=>{reminding=false;reminder.hidden=true;};"
+  },
+  {
+    "owner": "src/absorb_c2/panel.js:26",
+    "source": "for(const row of v.rows){const b=node('button',row.label);b.type='button';b.disabled=row.disabled;b.dataset.localLifeAction=row.id;"
+  },
+  {
+    "owner": "src/absorb_c2/panel.js:27",
+    "source": "b.addEventListener('click',()=>{try{const answer=act(row.id);status.textContent=answer?.messages?.join(' ')||'';}catch(e){status.textContent=e.message;}render();});body.append(b);}"
+  },
+  {
+    "owner": "src/absorb_d/ui.js:26",
+    "source": "const button=(id,label,disabled=false)=>{const b=document.createElement('button');b.type='button';b.dataset.fortAction=id;b.textContent=label;b.disabled=!!view.disabled||disabled;"
+  },
+  {
+    "owner": "src/absorb_d/ui.js:28",
+    "source": "b.onclick=()=>{try{act(id);previous='';render();}catch(error){text.textContent=error.message;}};controls.push(b);};"
+  },
+  {
+    "owner": "src/absorb_d/ui.js:29",
+    "source": "if(!f.notesIssued){button('notes','Ask for repair notes (one field clear)',!(view.fieldClears>=1));button('buy_notes','Buy repair notes (10 coins)',view.money<10);}"
+  },
+  {
+    "owner": "src/absorb_d/ui.js:30",
+    "source": "else for(const [id,o] of Object.entries(ORDERS))button(`deliver:${id}`,`${o.name}: ${o.count} ${o.item} → ${o.pay} coins`,f.funds<o.pay||(view.stock?.[o.item]||0)<o.count);"
+  },
+  {
+    "owner": "src/absorb_d/ui.js:31",
+    "source": "if(view.location===FORT.post&&!f.repaired)button('repair','Repair hatch: 3 ore + 1 iron ingot',!view.notesRead||!(view.yardClears>=1)||(view.stock?.['Iron ore']||0)<3||(view.stock?.['Iron ingot']||0)<1);"
+  },
+  {
+    "owner": "src/absorb_e1/panel.js:21",
+    "source": "const row=doc.createElement('label');const input=doc.createElement('input');input.type='checkbox';input.dataset.pacingOption=option;"
+  },
+  {
+    "owner": "src/absorb_e1/panel.js:22",
+    "source": "input.addEventListener('change',()=>{try{onChange(setPacingOption(getState(),option,input.checked));render();}catch(error){render();status.textContent=error.message;}});"
+  },
+  {
+    "owner": "src/absorb_p23/exposure/panel.js:14",
+    "source": "const label=doc.createElement('label'), input=doc.createElement('input');input.type='checkbox';input.dataset.exposureHazardous='true';"
+  },
+  {
+    "owner": "src/absorb_p23/exposure/panel.js:18",
+    "source": "input.addEventListener('change',()=>{try{onChange(setHazardousMode(getState(),input.checked));render();}catch(error){render();status.textContent=error.message;}});"
+  },
+  {
+    "owner": "src/absorb_p23/host_joins/combat_options_ui.js:3",
+    "source": "const summary=document.createElement('summary');summary.textContent='Combat options (proposal)';"
+  },
+  {
+    "owner": "src/absorb_p23/host_joins/combat_options_ui.js:8",
+    "source": "for(const action of frame.actions){const b=document.createElement('button');b.dataset.combatOption=action.id;b.textContent=action.label;b.disabled=frame.disabled||action.disabled;"
+  },
+  {
+    "owner": "src/absorb_p23/host_joins/combat_options_ui.js:9",
+    "source": "b.onclick=()=>{try{act(action.id);notice.textContent='';}catch(error){notice.textContent=error.message;}render();};body.append(b);}}"
+  },
+  {
+    "owner": "src/absorb_p23/host_joins/encounter_profiles_ui.js:4",
+    "source": "const summary = document.createElement('summary'); summary.textContent = 'Reed-circle rung (proposal)';"
+  },
+  {
+    "owner": "src/absorb_p23/host_joins/encounter_profiles_ui.js:11",
+    "source": "const b = document.createElement('button'); b.dataset.encounterProfile = action.id; b.textContent = action.label;"
+  },
+  {
+    "owner": "src/absorb_p23/host_joins/encounter_profiles_ui.js:13",
+    "source": "b.onclick = () => {try {act(action.id); notice.textContent = '';} catch (error) {notice.textContent = error.message;} render();};"
+  },
+  {
+    "owner": "src/absorb_p23/host_joins/growth_profile_ui.js:3",
+    "source": "const title=document.createElement('summary');title.textContent='Study conditioning (proposal)';"
+  },
+  {
+    "owner": "src/absorb_p23/host_joins/growth_profile_ui.js:14",
+    "source": "for(const row of f.actions){const button=document.createElement('button');button.textContent=row.label;button.dataset.p23Growth=row.id;"
+  },
+  {
+    "owner": "src/absorb_p23/host_joins/growth_profile_ui.js:15",
+    "source": "button.disabled=!!row.reason;button.title=row.reason||'';button.onclick=()=>{try{act(row.id,read().sequence);notice.textContent='';}catch(e){notice.textContent=e.message;}render();};body.append(button);}"
+  },
+  {
+    "owner": "src/absorb_p23/host_joins/tranche_four_ui.js:4",
+    "source": "const panel=node('details'),summary=node('summary','Village practice and familiar ground'),body=node('div'),notice=node('p');"
+  },
+  {
+    "owner": "src/absorb_p23/host_joins/tranche_four_ui.js:10",
+    "source": "for(const row of view.actions){const button=node('button',row.label);button.type='button';button.dataset.p23Local=row.id;button.disabled=!!row.disabled;"
+  },
+  {
+    "owner": "src/absorb_p23/host_joins/tranche_four_ui.js:11",
+    "source": "button.onclick=()=>{try{act(row.id,row);notice.textContent='';}catch(error){notice.textContent=error.message;}render();};body.append(button);}"
+  },
+  {
+    "owner": "src/absorb_p23/host_joins/tranche_one_ui.js:4",
+    "source": "const summary=document.createElement('summary');summary.textContent='A lived home (proposal)';"
+  },
+  {
+    "owner": "src/absorb_p23/host_joins/tranche_one_ui.js:9",
+    "source": "for(const action of frame.actions){const button=document.createElement('button');button.textContent=action.label;button.dataset.householdAction=action.id;"
+  },
+  {
+    "owner": "src/absorb_p23/host_joins/tranche_one_ui.js:11",
+    "source": "button.onclick=()=>{try{act(action.id);notice.textContent='';}catch(error){notice.textContent=error.message;}render();};body.append(button);}}"
+  },
+  {
+    "owner": "src/absorb_p23/host_joins/tranche_three_ui.js:3",
+    "source": "const summary=document.createElement('summary');summary.textContent='Books, earned rest and leatherwork (proposal)';"
+  },
+  {
+    "owner": "src/absorb_p23/host_joins/tranche_three_ui.js:8",
+    "source": "for(const row of f.actions){const button=document.createElement('button');button.textContent=row.label;button.dataset.p23Study=row.id;button.disabled=!!row.reason;button.title=row.reason||'';button.onclick=()=>{try{act(row.id,row);notice.textContent='';}catch(e){notice.textContent=e.message;}render();};body.append(button);}"
+  },
+  {
+    "owner": "src/absorb_p23/host_joins/tranche_two_ui.js:3",
+    "source": "const summary=document.createElement('summary');summary.textContent='Living equipment (proposal)';"
+  },
+  {
+    "owner": "src/absorb_p23/host_joins/tranche_two_ui.js:10",
+    "source": "if(row.kind==='collector'){const button=document.createElement('button');button.textContent='Spend 3 cinders for up to 5 stamina';button.dataset.livingGearAction='spend';button.disabled=frame.disabled||row.reserve<3;button.onclick=()=>{try{spend(row.key);notice.textContent='';}catch(error){notice.textContent=error.message;}render();};body.append(button);}}"
+  },
+  {
+    "owner": "src/absorb_p23/host_joins/world_adaptation_ui.js:4",
+    "source": "const summary=document.createElement('summary');summary.textContent='Mistglass conservatory (opt-in proposal)';"
+  },
+  {
+    "owner": "src/absorb_p23/host_joins/world_adaptation_ui.js:18",
+    "source": "for(const a of f.actions||[]){const b=document.createElement('button');b.textContent=a.label;b.dataset.mistglassAction=a.id;b.disabled=f.disabled||a.enabled===false;b.title=f.disabled?'Finish your current work in the writable game tab.':a.reason||'';"
+  },
+  {
+    "owner": "src/absorb_p23/host_joins/world_adaptation_ui.js:19",
+    "source": "b.onclick=()=>{try{act(a.id);notice.textContent='';}catch(e){notice.textContent=e.message;}render();};body.append(b);}"
+  },
+  {
+    "owner": "src/absorb_p23/known_detail/presentation.js:69",
+    "source": "const details = document.createElement('details'), summary = document.createElement('summary');"
+  },
+  {
+    "owner": "src/adventure_notebook.js:60",
+    "source": "const button = node(\"button\",label), section = node(\"div\", \"\", \"notebook_view\");"
+  },
+  {
+    "owner": "src/adventure_notebook.js:64",
+    "source": "button.addEventListener(\"click\",() => {selected=id; render();});"
+  },
+  {
+    "owner": "src/adventure_notebook.js:65",
+    "source": "button.addEventListener(\"keydown\", event => {"
+  },
+  {
+    "owner": "src/authored_site_ui.js:30",
+    "source": "form.addEventListener('input', () => {dirty = true; refresh();});"
+  },
+  {
+    "owner": "src/authored_site_ui.js:33",
+    "source": "form.addEventListener('keydown', event => {if(event.key === 'Enter' && event.target.tagName === 'INPUT') {event.preventDefault(); applyButton.click();}});"
+  },
+  {
+    "owner": "src/authored_site_ui.js:46",
+    "source": "const b = el('button', actions, label); b.id = id; b.type = 'button';"
+  },
+  {
+    "owner": "src/authored_site_ui.js:47",
+    "source": "b.onclick = async () => {if(busy) return; busy = true; refresh(); try {await handler();} catch(error) {fail(error);} finally {busy = false; refresh();}};"
+  },
+  {
+    "owner": "src/authored_site_ui.js:50",
+    "source": "const applyButton = button('authored_site_apply', 'Apply site', async () => {"
+  },
+  {
+    "owner": "src/authored_site_ui.js:55",
+    "source": "const openButton = button('authored_site_open', 'Go to site', () => openSite());"
+  },
+  {
+    "owner": "src/authored_site_ui.js:56",
+    "source": "button('authored_site_discard', 'Discard edits', () => {dirty = false; fill(read().applied || DEFAULT_DRAFT); show('Draft restored to the applied site.');});"
+  },
+  {
+    "owner": "src/authored_site_ui.js:57",
+    "source": "const resetButton = button('authored_site_reset', 'Reset to defaults', async () => {"
+  },
+  {
+    "owner": "src/authored_site_ui.js:61",
+    "source": "button('authored_site_export', 'Export draft', () => {"
+  },
+  {
+    "owner": "src/authored_site_ui.js:66",
+    "source": "const file = el('input', fileLabel); file.type = 'file'; file.accept = '.json,application/json'; file.id = 'authored_site_import';"
+  },
+  {
+    "owner": "src/authored_site_ui.js:67",
+    "source": "file.onchange = async () => {"
+  },
+  {
+    "owner": "src/backlog_expansion_ui.js:8",
+    "source": "const panel = node('details'), summary = node('summary','Optional lives and local experiments');"
+  },
+  {
+    "owner": "src/backlog_expansion_ui.js:16",
+    "source": "if(!group) {const details=node('details'), title=node('summary',family.replaceAll('_',' '));details.append(title);panel.append(details);group={details,title};groups.set(family,group);}"
+  },
+  {
+    "owner": "src/backlog_expansion_ui.js:17",
+    "source": "const row=node('div'), button=node('button',action.label), explanation=node('p',action.description || ''), reason=node('p');"
+  },
+  {
+    "owner": "src/backlog_expansion_ui.js:22",
+    "source": "button.addEventListener('click',()=>{try {const packet=controls.get(action.id)?.packet;"
+  },
+  {
+    "owner": "src/body_ui.js:6",
+    "source": "const panel=node(\"details\");panel.id=\"body_panel\";panel.className=\"expedition_panel\";panel.append(node(\"summary\",\"Body & recovery\"));"
+  },
+  {
+    "owner": "src/body_ui.js:10",
+    "source": "const row=node(\"section\"),button=node(\"button\",d.label),detail=node(\"p\",d.description),reason=node(\"p\");"
+  },
+  {
+    "owner": "src/body_ui.js:12",
+    "source": "button.addEventListener(\"click\",()=>{try {command(d.id === \"body.begin\" ? {type:\"body_begin\"}:{type:\"command\",id:d.id,targetId:d.targetId});notice=\"\";} catch(e){notice=e.message;}render();});"
+  },
+  {
+    "owner": "src/body_ui.js:15",
+    "source": "const cancel=node(\"button\",\"Cancel body work\");cancel.type=\"button\";cancel.dataset.bodyCancel=\"work\";"
+  },
+  {
+    "owner": "src/body_ui.js:16",
+    "source": "cancel.addEventListener(\"click\",()=>{try{command({type:\"cancel\"});notice=\"Work cancelled; no completion reward.\";}catch(e){notice=e.message;}render();});body.append(cancel);"
+  },
+  {
+    "owner": "src/causal_story_ui.js:80",
+    "source": "const summary = node('summary', 'Village crossroads');"
+  },
+  {
+    "owner": "src/causal_story_ui.js:89",
+    "source": "const refresh = node('button', 'Refresh actions');"
+  },
+  {
+    "owner": "src/causal_story_ui.js:194",
+    "source": "const control = node('button');"
+  },
+  {
+    "owner": "src/causal_story_ui.js:204",
+    "source": "control.addEventListener('click', () => {void invoke(sectionId, 'action', entry.row);});"
+  },
+  {
+    "owner": "src/causal_story_ui.js:212",
+    "source": "const control = node('button', 'Cancel accepted work');"
+  },
+  {
+    "owner": "src/causal_story_ui.js:217",
+    "source": "control.addEventListener('click', () => {void invoke(sectionId, 'work', entry.row);});"
+  },
+  {
+    "owner": "src/causal_story_ui.js:233",
+    "source": "records.append(node('summary', 'Earlier observed and received accounts'), recordList);"
+  },
+  {
+    "owner": "src/causal_story_ui.js:243",
+    "source": "const heading = node('summary'), description = node('p', '', 'expedition_preview'), actions = node('div');"
+  },
+  {
+    "owner": "src/causal_story_ui.js:333",
+    "source": "refresh.addEventListener('click', () => {"
+  },
+  {
+    "owner": "src/center_modes.js:35",
+    "source": "const back = document.createElement('button'); back.id = 'center_mode_back'; back.type = 'button';"
+  },
+  {
+    "owner": "src/center_modes.js:36",
+    "source": "back.textContent = '← Village'; back.addEventListener('click', () => owner.back());"
+  },
+  {
+    "owner": "src/center_modes.js:91",
+    "source": "document.addEventListener('keydown', event => {"
+  },
+  {
+    "owner": "src/chain_inspector_ui.js:10",
+    "source": "const title = document.createElement('summary');"
+  },
+  {
+    "owner": "src/chain_inspector_ui.js:33",
+    "source": "const summary = document.createElement('summary');"
+  },
+  {
+    "owner": "src/character_bio_ui.js:10",
+    "source": "const details=node(\"details\"), summary=node(\"summary\",label), list=node(\"ul\"); details.dataset.bioSection=key;"
+  },
+  {
+    "owner": "src/character_bio_ui.js:13",
+    "source": "const practiceButton=node(\"button\",\"Open practice notes\"); practiceButton.type=\"button\"; practiceButton.addEventListener(\"click\",practice); root.append(practiceButton);"
+  },
+  {
+    "owner": "src/character_bio_ui.js:30",
+    "source": "if(key === \"influences\") {label.type=\"button\"; label.dataset.bioSkill=item.id; label.addEventListener(\"click\",()=>showSkill(item.id));}"
+  },
+  {
+    "owner": "src/character_creation.js:34",
+    "source": "document.getElementById(\"hero_creation_panel_confirmation\").addEventListener(\"click\", () => this.confirm_hero_creation());"
+  },
+  {
+    "owner": "src/character_creation.js:48",
+    "source": "race_button.classList.add(\"race_selection_button\");"
+  },
+  {
+    "owner": "src/character_creation.js:52",
+    "source": "race_button.addEventListener(\"click\", event => {"
+  },
+  {
+    "owner": "src/character_creation.js:59",
+    "source": "target.classList.add(\"race_selection_button_active\");"
+  },
+  {
+    "owner": "src/character_creation.js:74",
+    "source": "race_button.classList.add(\"race_selection_button_active\");"
+  },
+  {
+    "owner": "src/chronicle_ui.js:9",
+    "source": "panel.append(node(\"summary\", \"Elder & chronicle\"));"
+  },
+  {
+    "owner": "src/chronicle_ui.js:18",
+    "source": "const b = node(\"button\", label); b.type = \"button\"; b.dataset.chronicle = id;"
+  },
+  {
+    "owner": "src/chronicle_ui.js:19",
+    "source": "b.addEventListener(\"click\", () => {try {action(); notice = \"Saved.\";} catch(e) {notice = e.message;} render(true);});"
+  },
+  {
+    "owner": "src/chronicle_ui.js:22",
+    "source": "add(\"begin-open\", \"Begin chronicle · age 18, no old-age ending\", () => command({type: \"enroll\", mode: \"open\"}));"
+  },
+  {
+    "owner": "src/chronicle_ui.js:23",
+    "source": "add(\"begin-mortal\", \"Begin mortal chronicle · age 18, life ends at 80\", () => command({type: \"enroll\", mode: \"mortal\"}));"
+  },
+  {
+    "owner": "src/chronicle_ui.js:24",
+    "source": "add(\"inspect\", \"Inspect the elder\", () => command({type: \"inspect\"}));"
+  },
+  {
+    "owner": "src/chronicle_ui.js:25",
+    "source": "add(\"spar\", \"Request a control challenge\", () => command({type: \"start\", intent: \"spar\"}));"
+  },
+  {
+    "owner": "src/chronicle_ui.js:26",
+    "source": "add(\"attack\", \"Attack the elder · hostile confrontation\", () => command({type: \"start\", intent: \"assault\"}));"
+  },
+  {
+    "owner": "src/chronicle_ui.js:27",
+    "source": "add(\"guard\", \"Guard\", () => command({type: \"respond\", action: \"guard\"}));"
+  },
+  {
+    "owner": "src/chronicle_ui.js:28",
+    "source": "add(\"step\", \"Ordinary sidestep\", () => command({type: \"respond\", action: \"step\"}));"
+  },
+  {
+    "owner": "src/chronicle_ui.js:29",
+    "source": "add(\"rat-step\", \"Use earned Rat-step\", () => command({type: \"respond\", action: \"rat-step\"}));"
+  },
+  {
+    "owner": "src/chronicle_ui.js:30",
+    "source": "add(\"strike\", \"Strike / counterattack\", () => command({type: \"respond\", action: \"strike\"}));"
+  },
+  {
+    "owner": "src/chronicle_ui.js:31",
+    "source": "add(\"withdraw\", \"Withdraw / concede\", () => command({type: \"withdraw\"}));"
+  },
+  {
+    "owner": "src/chronicle_ui.js:32",
+    "source": "add(\"manual\", \"Untimed manual responses\", () => command({type: \"policy\", policy: \"manual\"}));"
+  },
+  {
+    "owner": "src/chronicle_ui.js:33",
+    "source": "add(\"auto-guard\", \"Idle plan: guard, then counter\", () => command({type: \"policy\", policy: \"guard\"}));"
+  },
+  {
+    "owner": "src/chronicle_ui.js:34",
+    "source": "add(\"auto-footwork\", \"Idle plan: move on sweeps, guard tracking, then counter\", () => command({type: \"policy\", policy: \"footwork\"}));"
+  },
+  {
+    "owner": "src/chronicle_ui.js:35",
+    "source": "add(\"hear\", \"Hear local reports\", () => command({type: \"hear\"}));"
+  },
+  {
+    "owner": "src/chronicle_ui.js:36",
+    "source": "add(\"attend\", \"Attend the cartographer briefing\", () => command({type: \"attend\"}));"
+  },
+  {
+    "owner": "src/chronicle_ui.js:37",
+    "source": "add(\"pledge\", \"Accept archive duty · a concrete promise\", () => command({type: \"pledge\"}));"
+  },
+  {
+    "owner": "src/chronicle_ui.js:38",
+    "source": "add(\"duty\", \"Keep archive promise · 5 min, 1 coin\", duty);"
+  },
+  {
+    "owner": "src/chronicle_ui.js:39",
+    "source": "add(\"cancel-duty\", \"Cancel archive work · reserved coin refunded\", cancelDuty);"
+  },
+  {
+    "owner": "src/chronicle_ui.js:40",
+    "source": "add(\"inherit\", \"Claim the archive succession\", () => command({type: \"inherit\"}));"
+  },
+  {
+    "owner": "src/chronicle_ui.js:41",
+    "source": "add(\"debrief\", \"Discuss the observed counter\", () => command({type: \"debrief\"}));"
+  },
+  {
+    "owner": "src/chronicle_ui.js:42",
+    "source": "add(\"lesson\", \"Attend the private guard lesson\", () => command({type: \"lesson\"}));"
+  },
+  {
+    "owner": "src/chronicle_ui.js:43",
+    "source": "add(\"settle\", \"Settle the assault grievance · 3 coins\", () => command({type: \"settle\"}));"
+  },
+  {
+    "owner": "src/chronicle_ui.js:46",
+    "source": "add(`reflect.${lesson.id}`, `Write down ${lesson.label}`, () => command({type:'reflect',lesson:lesson.id}));"
+  },
+  {
+    "owner": "src/chronicle_ui.js:47",
+    "source": "add(`teach.${lesson.id}`, `Teach your apprentice ${lesson.label} · 5 minutes`, () => command({type:'teach',lesson:lesson.id}));"
+  },
+  {
+    "owner": "src/chronicle_ui.js:48",
+    "source": "add(`study.${lesson.id}`, `Study the old papers: ${lesson.label} · 5 minutes`, () => command({type:'study',lesson:lesson.id}));"
+  },
+  {
+    "owner": "src/chronicle_ui.js:51",
+    "source": "const archives=node('details'),heading=node('summary','Preserved independent lives');archives.append(heading);"
+  },
+  {
+    "owner": "src/chronicle_ui.js:52",
+    "source": "for(const row of archiveExports){const button=node('button','Export '+row.label);button.type='button';button.dataset.life='export-archive';button.addEventListener('click',row.export);archives.append(button);}"
+  },
+  {
+    "owner": "src/chronicle_ui.js:62",
+    "source": "const exportButton = node(\"button\", \"Export this saved life\"); exportButton.addEventListener(\"click\", exportSave);"
+  },
+  {
+    "owner": "src/chronicle_ui.js:63",
+    "source": "const resetButton = node(\"button\", \"Start a new game · resets all progress\"); resetButton.addEventListener(\"click\", reset);"
+  },
+  {
+    "owner": "src/chronicle_ui.js:64",
+    "source": "const graveText=node('p'),bequestText=node('ul'),heirButton=node('button','Begin an heir · they receive what this life left behind');bequestText.id='chronicle_heir_leftovers';"
+  },
+  {
+    "owner": "src/chronicle_ui.js:67",
+    "source": "heirButton.addEventListener('click',()=>{try {beginHeir();}catch(e){heirNotice.textContent=e.message;}});"
+  },
+  {
+    "owner": "src/chronicle_ui.js:68",
+    "source": "const independentButton=node('button','Archive this life and begin an independent character');independentButton.type='button';independentButton.dataset.life='begin-independent';independentButton.addEventListener('click',()=>{try{beginIndependent?.();}catch(e){heirNotice.textContent=e.message;}});"
+  },
+  {
+    "owner": "src/content_pack_ui.js:6",
+    "source": "const summary=document.createElement('summary');summary.textContent='Optional worlds';panel.append(summary);"
+  },
+  {
+    "owner": "src/content_pack_ui.js:10",
+    "source": "const button=(label,id,packId,action)=>{const b=document.createElement('button');b.type='button';b.textContent=label;b.dataset.packAction=id;"
+  },
+  {
+    "owner": "src/content_pack_ui.js:11",
+    "source": "b.onclick=()=>{notice='Command requested; saving…';message.textContent=notice;"
+  },
+  {
+    "owner": "src/content_pack_ui.js:25",
+    "source": "const enter=button('Visit '+d.title,id+'.enter',id,'enter'),leave=button('Return to Village',id+'.return',id,'return'),cancel=button('Cancel work',id+'.cancel',id,'cancel');card.append(enter,leave,cancel);cache={card,info,work,actions,enter,leave,cancel,rows:new Map()};packs.set(id,cache);}"
+  },
+  {
+    "owner": "src/continuation_ui.js:9",
+    "source": "const status=node('p'),open=node('button','Open your connection','action_button');open.type='button';open.id='continuation_open';home.append(status,open);"
+  },
+  {
+    "owner": "src/continuation_ui.js:18",
+    "source": "open.onclick=()=>{render(true);centerModes().open('continuation');};"
+  },
+  {
+    "owner": "src/continuation_ui.js:21",
+    "source": "const b=node('button',label,'action_button');b.type='button';b.dataset.connectionTab=id;"
+  },
+  {
+    "owner": "src/continuation_ui.js:22",
+    "source": "b.onclick=()=>{section=id;pending?.remove();pending=null;render(true);};tabs.append(b);"
+  },
+  {
+    "owner": "src/continuation_ui.js:26",
+    "source": "const b=node('button',text,'action_button');b.type='button';b.dataset.continuationAction=action;b.disabled=disabled;b.dataset.disabledReason=reason;"
+  },
+  {
+    "owner": "src/continuation_ui.js:27",
+    "source": "b.onclick=()=>run(action);return b;"
+  },
+  {
+    "owner": "src/continuation_ui.js:31",
+    "source": "b.onclick=()=>{"
+  },
+  {
+    "owner": "src/continuation_ui.js:33",
+    "source": "pending.append(node('p',explanation),button('Confirm '+text,action));"
+  },
+  {
+    "owner": "src/continuation_ui.js:34",
+    "source": "const cancel=node('button','Keep this life unchanged','action_button');cancel.type='button';cancel.onclick=()=>{pending.remove();pending=null;render(true);};"
+  },
+  {
+    "owner": "src/continuation_ui.js:48",
+    "source": "if(s.arrivalPaused)body.append(button('Continue this life from the paused boundary','continue',!!reason,reason));"
+  },
+  {
+    "owner": "src/continuation_ui.js:61",
+    "source": "const loop=node('details');loop.append(node('summary',`Intentional repeat loop · ${s.loop.enabled?'ON':'off'}`),node('p','Optional: every five played minutes, return to the selected point. This repeats time, not an invented reward. Stop the loop here whenever your means allow. A chosen bad point can trap you; ordinary save/export remains separate.'));"
+  },
+  {
+    "owner": "src/continuation_ui.js:62",
+    "source": "if(s.loop.enabled)loop.append(node('p',`Selected destination: ${s.loop.target==='initial'?'initial point':'later checkpoint'}. Completed cycles: ${s.loop.cycles}.`),button('Stop deliberate repetition','loop',!!reason,reason));"
+  },
+  {
+    "owner": "src/continuation_ui.js:63",
+    "source": "else loop.append(button('Repeat every five minutes → initial point','loop:initial',!!reason,reason),button('Repeat every five minutes → later checkpoint','loop:checkpoint',!!reason||!s.checkpointReachable,reason||(!s.checkpointReachable?'No currently reachable later checkpoint.':'')));if(section==='return')body.append(loop);"
+  },
+  {
+    "owner": "src/continuation_ui.js:64",
+    "source": "const memories=node('details');memories.append(node('summary',`Remembered learning · ${s.mastery.length} observed skills`),node('p','This connection carries reading, crafting, smelting and forging knowledge. Other training is remembered, but its bodily effects are not transferred to another embodiment by this form of the connection.'));"
+  },
+  {
+    "owner": "src/crush_social_views.js:189",
+    "source": "const element = node('details'), summary = node('summary', 'Finite preparation & Village return');"
+  },
+  {
+    "owner": "src/crush_social_views.js:199",
+    "source": "const button = (label, getAction) => {const b = node('button', label); b.type = 'button';"
+  },
+  {
+    "owner": "src/crush_social_views.js:200",
+    "source": "b.addEventListener('click', () => {try {command({...getAction(), sequence}); notice = 'Progress saved.';} catch(e) {notice = e.message;} render();}); return b;};"
+  },
+  {
+    "owner": "src/crush_social_views.js:201",
+    "source": "const pause = button('Pause future preparation', () => ({type: 'plan_control', action: 'pause', cursorId: current.id}));"
+  },
+  {
+    "owner": "src/crush_social_views.js:202",
+    "source": "const resume = button('Resume the next legal preparation step', () => ({type: 'plan_control', action: 'resume', cursorId: current.id}));"
+  },
+  {
+    "owner": "src/crush_social_views.js:203",
+    "source": "const cancel = button('Cancel future preparation', () => ({type: 'plan_control', action: 'cancel', cursorId: current.id}));"
+  },
+  {
+    "owner": "src/crush_social_views.js:204",
+    "source": "const forget = button('Remove the ended preparation phase', () => ({type: 'plan_control', action: 'forget', cursorId: current.id}));"
+  },
+  {
+    "owner": "src/crush_social_views.js:213",
+    "source": "row.button = button(`Start ${p.label}`, () => ({type: 'plan_start', id: row.plan.id}));"
+  },
+  {
+    "owner": "src/crush_social_views.js:238",
+    "source": "row.button = button(`Do now: ${a.label}`, () => row.action.action);"
+  },
+  {
+    "owner": "src/customization_ui.js:25",
+    "source": "const select = (label, values) => { const element = document.createElement('select'); for (const value of values) { const option = document.createElement('option'); option.value = value; option.textContent = value || 'Whole profile'; element.append(option); } return row(label, element); };"
+  },
+  {
+    "owner": "src/customization_ui.js:26",
+    "source": "const input = (label, type, min, max) => { const element = document.createElement('input'); element.type = type; if (min !== undefined) element.min = min; if (max !== undefined) element.max = max; return row(label, element); };"
+  },
+  {
+    "owner": "src/customization_ui.js:39",
+    "source": "const button = (label, callback) => { const node = document.createElement('button'); node.type = 'button'; node.textContent = label; node.addEventListener('click', callback); actions.append(node); return node; };"
+  },
+  {
+    "owner": "src/customization_ui.js:51",
+    "source": "const jsonLabel = document.createElement('label'); jsonLabel.textContent = 'Profile import / export JSON '; const json = document.createElement('textarea'); json.rows = 8; json.spellcheck = false; jsonLabel.append(json); body.append(jsonLabel);"
+  },
+  {
+    "owner": "src/customization_ui.js:98",
+    "source": "for (const node of [theme,manualSeason,font,size,background,text,accent,spacing,effects,sound,presentation,motif,duration,effectColor,effectBackground,staticMode,plain]) node.addEventListener('change', changed);"
+  },
+  {
+    "owner": "src/customization_ui.js:99",
+    "source": "componentTheme.addEventListener('change',()=>{const preset=COMPONENT_THEMES[componentTheme.value];background.value=preset.background;text.value=preset.text;accent.value=preset.accent;changed();render();});"
+  },
+  {
+    "owner": "src/customization_ui.js:100",
+    "source": "for(const node of [size,spacing,background,text,accent])node.addEventListener('input',changed);"
+  },
+  {
+    "owner": "src/customization_ui.js:101",
+    "source": "theme.addEventListener('change', () => { manualSeason.disabled = theme.value !== 'manual'; });"
+  },
+  {
+    "owner": "src/customization_ui.js:102",
+    "source": "profile.addEventListener('change', () => { try { capture(); draft.active = profile.value; render(); status('Draft profile selected. Apply to activate.'); } catch (error) { status(error.message); } });"
+  },
+  {
+    "owner": "src/customization_ui.js:103",
+    "source": "module.addEventListener('change', () => { try { capture(); target = module.value; render(); status(target ? `Editing ${target} override. Apply to save.` : 'Editing whole profile. Apply to save.'); } catch (error) { status(error.message); } });"
+  },
+  {
+    "owner": "src/customization_ui.js:104",
+    "source": "const create = button('Create profile draft', () => { try { capture(); const next = structuredClone(draft); if (Object.hasOwn(next.profiles, name.value)) throw new Error('Choose a new profile name.'); next.profiles[name.value] = structuredClone(next.profiles[next.active]); next.active = name.value; draft = validateCustomizationState(next); render(); status('New profile draft. Apply to save.'); } catch (error) { status(error.message); } }); create.dataset.write = 'true';"
+  },
+  {
+    "owner": "src/customization_ui.js:105",
+    "source": "const apply = button('Apply and save', async () => {"
+  },
+  {
+    "owner": "src/customization_ui.js:111",
+    "source": "const reset = button('Reset draft', () => { if (target) delete draft.profiles[draft.active].modules[target]; else draft.profiles[draft.active].settings = defaultPresentationSettings(); render(); status('Default draft restored. Apply to save.'); }); reset.dataset.write = 'true';"
+  },
+  {
+    "owner": "src/customization_ui.js:112",
+    "source": "button('Discard draft', () => { refresh({force: true}); status('Restored saved presentation.'); });"
+  },
+  {
+    "owner": "src/customization_ui.js:113",
+    "source": "const importButton = button('Import to draft', () => { try { draft = validateCustomizationState(JSON.parse(json.value)); target = ''; render(); status('Imported and validated draft. Apply to save.'); } catch (error) { status(`Import rejected: ${error.message}`); } }); importButton.dataset.write = 'true';"
+  },
+  {
+    "owner": "src/customization_ui.js:114",
+    "source": "button('Export draft JSON', () => { try { if (allowed()) capture(); json.value = JSON.stringify(validateCustomizationState(draft), null, 2); status('Export ready in the JSON field.'); } catch (error) { status(error.message); } });"
+  },
+  {
+    "owner": "src/customization_ui.js:116",
+    "source": "const node = document.createElement('button'); node.type = 'button'; node.textContent = label;"
+  },
+  {
+    "owner": "src/customization_ui.js:118",
+    "source": "node.addEventListener('click', () => original.click()); effectSurface.actions.append(node);"
+  },
+  {
+    "owner": "src/customization_ui.js:123",
+    "source": "const node=document.createElement('button');node.type='button';node.textContent=label;node.onclick=callback;effectSurface.actions.append(node);"
+  },
+  {
+    "owner": "src/display.js:111",
+    "source": "trader_inventory_div.addEventListener('click', event => {"
+  },
+  {
+    "owner": "src/display.js:179",
+    "source": "const button = document.createElement(\"button\");"
+  },
+  {
+    "owner": "src/display.js:183",
+    "source": "button.addEventListener(\"click\", () => {"
+  },
+  {
+    "owner": "src/display.js:347",
+    "source": "document.addEventListener(\"keydown\", take_inventory_baseline, true);"
+  },
+  {
+    "owner": "src/display.js:444",
+    "source": "effect_elem.classList.add(\"floating_effect\");"
+  },
+  {
+    "owner": "src/display.js:857",
+    "source": "tooltip.classList.add(\"active_effect_tooltip\");"
+  },
+  {
+    "owner": "src/display.js:861",
+    "source": "name_span.classList.add(\"active_effect_name\");"
+  },
+  {
+    "owner": "src/display.js:864",
+    "source": "duration_span.classList.add(\"active_effect_duration\");"
+  },
+  {
+    "owner": "src/display.js:867",
+    "source": "top_div.classList.add(\"active_effect_name_and_duration\");"
+  },
+  {
+    "owner": "src/display.js:874",
+    "source": "description_p.classList.add(\"active_effect_description\");"
+  },
+  {
+    "owner": "src/display.js:986",
+    "source": "const link=document.createElement('button');link.type='button';link.className='log-subject';link.dataset.subjectKind=subject.kind;link.textContent=subject.name;link.setAttribute('aria-label',`Inspect ${subject.kind}: ${subject.name}`);link.logDescription=subject.html;"
+  },
+  {
+    "owner": "src/display.js:1018",
+    "source": "message.classList.add(\"message_common\");"
+  },
+  {
+    "owner": "src/display.js:1151",
+    "source": "message.classList.add(\"message_money\");"
+  },
+  {
+    "owner": "src/display.js:1198",
+    "source": "const link=document.createElement('button');link.type='button';link.className='notice-panel-link';link.textContent='Open';"
+  },
+  {
+    "owner": "src/display.js:1200",
+    "source": "link.onclick=()=>{if(panelId==='crafting'){if(document.querySelector('.choice_craft'))window.openCraftingWindow();}else expandWorkspaceModule(panelId);};message.append(link);"
+  },
+  {
+    "owner": "src/display.js:1404",
+    "source": "trade_buttons.classList.add(\"trade_ammount_buttons\");"
+  },
+  {
+    "owner": "src/display.js:1407",
+    "source": "trade_button_5.classList.add(\"trade_ammount_button\");"
+  },
+  {
+    "owner": "src/display.js:1413",
+    "source": "trade_button_10.classList.add(\"trade_ammount_button\");"
+  },
+  {
+    "owner": "src/display.js:1419",
+    "source": "trade_button_max.classList.add(\"trade_ammount_button\");"
+  },
+  {
+    "owner": "src/display.js:2065",
+    "source": "item_additional.classList.add(\"item_additional_content\");"
+  },
+  {
+    "owner": "src/display.js:2126",
+    "source": "item_name_div.classList.add(`${item_class}_name`);"
+  },
+  {
+    "owner": "src/display.js:2129",
+    "source": "item_control_div.classList.add(`${item_class}_control`, `${target_class_name}_control`, `${target_class_name}_equippable`);"
+  },
+  {
+    "owner": "src/display.js:2133",
+    "source": "item_div.classList.add(`${item_class}`, `${target_class_name}`, `trade_item_equippable`);"
+  },
+  {
+    "owner": "src/display.js:2135",
+    "source": "item_div.classList.add(`${item_class}`, `${target_class_name}`, `item_equippable`);"
+  },
+  {
+    "owner": "src/display.js:2142",
+    "source": "item_name_div.classList.add(`${item_class}_name`);"
+  },
+  {
+    "owner": "src/display.js:2145",
+    "source": "item_control_div.classList.add(`${item_class}_control`, `${target_class_name}_control`, `${target_class_name}_component`);"
+  },
+  {
+    "owner": "src/display.js:2148",
+    "source": "item_div.classList.add(`${item_class}`, `${target_class_name}`, \"item_component\");"
+  },
+  {
+    "owner": "src/display.js:2153",
+    "source": "item_name_div.classList.add(`${item_class}`);"
+  },
+  {
+    "owner": "src/display.js:2156",
+    "source": "item_div.classList.add(\"book_finished\");"
+  },
+  {
+    "owner": "src/display.js:2158",
+    "source": "item_control_div.classList.add(\"book_active\");"
+  },
+  {
+    "owner": "src/display.js:2179",
+    "source": "item_name_div.classList.add(`${item_class}_name`);"
+  },
+  {
+    "owner": "src/display.js:2183",
+    "source": "item_faving_div.classList.add(\"item_fav_div\");"
+  },
+  {
+    "owner": "src/display.js:2185",
+    "source": "icon.classList.add(\"material-icons\", \"item_fav_icon\");"
+  },
+  {
+    "owner": "src/display.js:2189",
+    "source": "item_control_div.classList.add(\"character_item_faved\");"
+  },
+  {
+    "owner": "src/display.js:2201",
+    "source": "item_div.classList.add(`${item_class}`, `${target_class_name}`, `item_${target_item.item_type.toLowerCase()}`);"
+  },
+  {
+    "owner": "src/display.js:2205",
+    "source": "item_control_div.classList.add(`${item_class}_control`, `${target_class_name}_control`, `${target_class_name}_${target_item.item_type.toLowerCase()}`);"
+  },
+  {
+    "owner": "src/display.js:2214",
+    "source": "item_use_button.classList.add(\"item_use_button\");"
+  },
+  {
+    "owner": "src/display.js:2217",
+    "source": "item_auto_use_button.classList.add(\"item_auto_use_button\");"
+  },
+  {
+    "owner": "src/display.js:2221",
+    "source": "item_auto_use_button.classList.add(\"item_auto_use_button_active\");"
+  },
+  {
+    "owner": "src/display.js:2229",
+    "source": "item_read_button.classList.add(\"item_use_button\");"
+  },
+  {
+    "owner": "src/display.js:2233",
+    "source": "item_div.classList.add(\"item_book\");"
+  },
+  {
+    "owner": "src/display.js:2239",
+    "source": "item_equip_span.classList.add(\"equip_item_button\", \"item_controls\");"
+  },
+  {
+    "owner": "src/display.js:2244",
+    "source": "item_unequip_div.classList.add(\"unequip_item_button\", \"item_controls\");"
+  },
+  {
+    "owner": "src/display.js:2251",
+    "source": "item_value_span.classList.add(\"item_value\", \"item_controls\");"
+  },
+  {
+    "owner": "src/display.js:2265",
+    "source": "item_control_div.classList.add('item_to_trade');"
+  },
+  {
+    "owner": "src/display.js:2290",
+    "source": "eq_tooltip.classList.add(\"item_tooltip\");"
+  },
+  {
+    "owner": "src/display.js:2292",
+    "source": "equipment_slots_divs[key].classList.add(\"equipment_slot_empty\");"
+  },
+  {
+    "owner": "src/display.js:2312",
+    "source": "node.parentNode.parentNode.classList.add(\"character_item_faved\");"
+  },
+  {
+    "owner": "src/display.js:2323",
+    "source": "item_divs[book_key].classList.add(\"book_finished\");"
+  },
+  {
+    "owner": "src/display.js:2326",
+    "source": "item_divs[book_key].classList.add(\"book_active\");"
+  },
+  {
+    "owner": "src/display.js:2395",
+    "source": "crafting_button.classList.add(\"location_choices\", \"choice_craft\");"
+  },
+  {
+    "owner": "src/display.js:2396",
+    "source": "crafting_button.setAttribute(\"onclick\", 'openCraftingWindow()');"
+  },
+  {
+    "owner": "src/display.js:2411",
+    "source": "start_sleeping_div.setAttribute('onclick', 'start_sleeping()');"
+  },
+  {
+    "owner": "src/display.js:2417",
+    "source": "open_storage_div.setAttribute('onclick', 'openStorage()');"
+  },
+  {
+    "owner": "src/display.js:2545",
+    "source": "elem.classList.add(\"location_choice_dropdown\", class_name);"
+  },
+  {
+    "owner": "src/display.js:2547",
+    "source": "elem.addEventListener(\"click\", (event)=>{"
+  },
+  {
+    "owner": "src/display.js:2599",
+    "source": "dialogue_div.classList.add(\"start_dialogue\", \"location_choice\");"
+  },
+  {
+    "owner": "src/display.js:2601",
+    "source": "dialogue_div.setAttribute(\"onclick\", \"start_dialogue(this.getAttribute('data-dialogue'));\");"
+  },
+  {
+    "owner": "src/display.js:2620",
+    "source": "trader_div.classList.add(\"start_trade\", \"location_choice\");"
+  },
+  {
+    "owner": "src/display.js:2622",
+    "source": "trader_div.setAttribute(\"onclick\", \"startTrade(this.getAttribute('data-trader'));\");"
+  },
+  {
+    "owner": "src/display.js:2636",
+    "source": "activity_div.classList.add(\"activity_div\", \"location_choice\");"
+  },
+  {
+    "owner": "src/display.js:2641",
+    "source": "activity_div.classList.add(\"start_activity\");"
+  },
+  {
+    "owner": "src/display.js:2642",
+    "source": "activity_div.setAttribute(\"onclick\", \"start_activity(this.getAttribute('data-activity'));\");"
+  },
+  {
+    "owner": "src/display.js:2644",
+    "source": "activity_div.classList.add(\"activity_unavailable\");"
+  },
+  {
+    "owner": "src/display.js:2649",
+    "source": "job_tooltip.classList.add(\"job_tooltip\");"
+  },
+  {
+    "owner": "src/display.js:2684",
+    "source": "activity_div.classList.add(\"activity_div\", \"start_activity\", \"location_choice\");"
+  },
+  {
+    "owner": "src/display.js:2686",
+    "source": "activity_div.setAttribute(\"onclick\", \"start_activity(this.getAttribute('data-activity'));\");"
+  },
+  {
+    "owner": "src/display.js:2690",
+    "source": "activity_tooltip.classList.add(\"job_tooltip\");"
+  },
+  {
+    "owner": "src/display.js:2715",
+    "source": "activity_div.classList.add(\"activity_div\", \"start_activity\", \"location_choice\");"
+  },
+  {
+    "owner": "src/display.js:2720",
+    "source": "activity_div.classList.add(\"start_activity\");"
+  },
+  {
+    "owner": "src/display.js:2721",
+    "source": "activity_div.setAttribute(\"onclick\", \"start_activity(this.getAttribute('data-activity'));\");"
+  },
+  {
+    "owner": "src/display.js:2723",
+    "source": "activity_div.classList.add(\"activity_unavailable\");"
+  },
+  {
+    "owner": "src/display.js:2749",
+    "source": "action.classList.add(\"travel_normal\");"
+  },
+  {
+    "owner": "src/display.js:2756",
+    "source": "action.classList.add(\"travel_combat\");"
+  },
+  {
+    "owner": "src/display.js:2766",
+    "source": "action.classList.add(\"action_travel\", \"location_choice\");"
+  },
+  {
+    "owner": "src/display.js:2768",
+    "source": "action.setAttribute(\"onclick\", \"change_location({location_id: this.getAttribute('data-travel')});\");"
+  },
+  {
+    "owner": "src/display.js:2775",
+    "source": "action.classList.add(\"travel_normal\", \"action_travel\", \"location_choice\");"
+  },
+  {
+    "owner": "src/display.js:2790",
+    "source": "action.setAttribute(\"onclick\", \"change_location({location_id:this.getAttribute('data-travel')});\");"
+  },
+  {
+    "owner": "src/display.js:2800",
+    "source": "action.classList.add(\"action_travel\", \"travel_normal\", \"location_choice\");"
+  },
+  {
+    "owner": "src/display.js:2815",
+    "source": "action.setAttribute(\"onclick\", \"change_location({location_id:this.getAttribute('data-travel')});\");"
+  },
+  {
+    "owner": "src/display.js:2827",
+    "source": "action.classList.add(\"travel_combat\", \"location_choice\");"
+  },
+  {
+    "owner": "src/display.js:2835",
+    "source": "action.classList.add(\"action_travel\");"
+  },
+  {
+    "owner": "src/display.js:2837",
+    "source": "action.setAttribute(\"onclick\", \"change_location({location_id:this.getAttribute('data-travel')});\");"
+  },
+  {
+    "owner": "src/display.js:2849",
+    "source": "location_action_div.classList.add(\"location_action_div\", \"start_game_action\", \"location_choice\");"
+  },
+  {
+    "owner": "src/display.js:2851",
+    "source": "location_action_div.setAttribute(\"onclick\", \"start_game_action(this.getAttribute('data-location_action'));\");"
+  },
+  {
+    "owner": "src/display.js:2909",
+    "source": "action.classList.add(\"travel_normal\");"
+  },
+  {
+    "owner": "src/display.js:2917",
+    "source": "action.classList.add(\"action_travel\", \"location_choice\");"
+  },
+  {
+    "owner": "src/display.js:2919",
+    "source": "action.setAttribute(\"onclick\", \"change_location({location_id:this.getAttribute('data-travel'), event});\");"
+  },
+  {
+    "owner": "src/display.js:2921",
+    "source": "action.classList.add(\"travel_combat\");"
+  },
+  {
+    "owner": "src/display.js:2925",
+    "source": "action.classList.add(\"action_travel\", \"location_choice\");"
+  },
+  {
+    "owner": "src/display.js:2927",
+    "source": "action.setAttribute(\"onclick\", \"change_location({location_id: this.getAttribute('data-travel'), event});\");"
+  },
+  {
+    "owner": "src/display.js:2935",
+    "source": "removal_button.setAttribute(\"onclick\",\"remove_location_from_favourites({location_id:this.parentNode.getAttribute('data-travel')})\");"
+  },
+  {
+    "owner": "src/display.js:2981",
+    "source": "combat_switch.classList.add(\"active_selection_button\");"
+  },
+  {
+    "owner": "src/display.js:3008",
+    "source": "location_tooltip.classList.add(\"location_tooltip\");"
+  },
+  {
+    "owner": "src/display.js:3024",
+    "source": "type_div.classList.add(\"location_type_div\");"
+  },
+  {
+    "owner": "src/display.js:3028",
+    "source": "type_tooltip.classList.add(\"location_type_tooltip\");"
+  },
+  {
+    "owner": "src/display.js:3071",
+    "source": "document.getElementById(\"crafting_makeable_filter\").addEventListener(\"change\", apply_crafting_filter);"
+  },
+  {
+    "owner": "src/display.js:3454",
+    "source": "new_category.classList.add(\"crafting_category\");"
+  },
+  {
+    "owner": "src/display.js:3455",
+    "source": "new_category.classList.add(\"crafting_recipe_list\");"
+  },
+  {
+    "owner": "src/display.js:3496",
+    "source": "recipe_div.classList.add(\"recipe_div\");"
+  },
+  {
+    "owner": "src/display.js:3500",
+    "source": "recipe_name_span.classList.add(\"recipe_item_name\");"
+  },
+  {
+    "owner": "src/display.js:3505",
+    "source": "count_span.classList.add(\"recipe_item_count\");"
+  },
+  {
+    "owner": "src/display.js:3515",
+    "source": "recipe_div.addEventListener(\"click\", ()=>select_item_recipe({category, subcategory, recipe_id}));"
+  },
+  {
+    "owner": "src/display.js:3516",
+    "source": "recipe_div.addEventListener(\"keydown\", (event)=>handle_item_recipe_key(event, recipe_div, {category, subcategory, recipe_id}));"
+  },
+  {
+    "owner": "src/display.js:3519",
+    "source": "recipe_name_span.classList.add(\"recipe_name\");"
+  },
+  {
+    "owner": "src/display.js:3522",
+    "source": "material_selection.classList.add(\"folded_material_list\");"
+  },
+  {
+    "owner": "src/display.js:3523",
+    "source": "recipe_div.addEventListener(\"click\", (event)=>{"
+  },
+  {
+    "owner": "src/display.js:3534",
+    "source": "recipe_name_span.classList.add(\"recipe_name\");"
+  },
+  {
+    "owner": "src/display.js:3537",
+    "source": "recipe_div.classList.add(\"clothing_recipe\");"
+  },
+  {
+    "owner": "src/display.js:3542",
+    "source": "material_selection.classList.add(\"folded_material_list\");"
+  },
+  {
+    "owner": "src/display.js:3543",
+    "source": "recipe_div.addEventListener(\"click\", (event)=>{"
+  },
+  {
+    "owner": "src/display.js:3557",
+    "source": "recipe_div.classList.add(\"armor_recipe\");"
+  },
+  {
+    "owner": "src/display.js:3559",
+    "source": "recipe_div.classList.add(\"weapon_recipe\");"
+  },
+  {
+    "owner": "src/display.js:3561",
+    "source": "recipe_div.classList.add(\"shield_recipe\");"
+  },
+  {
+    "owner": "src/display.js:3566",
+    "source": "recipe_name_span.classList.add(\"recipe_name\");"
+  },
+  {
+    "owner": "src/display.js:3583",
+    "source": "recipe_div.addEventListener(\"click\", (event)=>{"
+  },
+  {
+    "owner": "src/display.js:3600",
+    "source": "accept_recipe_button.classList.add(\"recipe_creation_button\");"
+  },
+  {
+    "owner": "src/display.js:3603",
+    "source": "accept_recipe_button.addEventListener(\"click\", (event)=>{"
+  },
+  {
+    "owner": "src/display.js:3631",
+    "source": "craft_amount_buttons.classList.add(\"craft_ammount_buttons\");"
+  },
+  {
+    "owner": "src/display.js:3636",
+    "source": "button_5.classList.add(\"craft_ammount_button\");"
+  },
+  {
+    "owner": "src/display.js:3642",
+    "source": "button_10.classList.add(\"craft_ammount_button\");"
+  },
+  {
+    "owner": "src/display.js:3648",
+    "source": "button_all.classList.add(\"craft_ammount_button\");"
+  },
+  {
+    "owner": "src/display.js:3691",
+    "source": "//    recipe_div.classList.add(\"recipe_unavailable\");"
+  },
+  {
+    "owner": "src/display.js:3698",
+    "source": "//    recipe_div.classList.add(\"recipe_unavailable\");"
+  },
+  {
+    "owner": "src/display.js:3713",
+    "source": "tooltip.classList.add(\"recipe_tooltip\");"
+  },
+  {
+    "owner": "src/display.js:3716",
+    "source": "tooltip.classList.add(\"items_recipe_tooltip\");"
+  },
+  {
+    "owner": "src/display.js:3722",
+    "source": "tooltip.classList.add(\"component_recipe_tooltip\");"
+  },
+  {
+    "owner": "src/display.js:3725",
+    "source": "tooltip.classList.add(\"equipment_recipe_tooltip\");"
+  },
+  {
+    "owner": "src/display.js:3919",
+    "source": "item_div.classList.add(\"selectable_component\");"
+  },
+  {
+    "owner": "src/display.js:3926",
+    "source": "item_div.addEventListener(\"click\", () => {"
+  },
+  {
+    "owner": "src/display.js:3982",
+    "source": "name_span.classList.add(\"recipe_comp_name\");"
+  },
+  {
+    "owner": "src/display.js:3984",
+    "source": "item_div.classList.add(\"selectable_material\");"
+  },
+  {
+    "owner": "src/display.js:3988",
+    "source": "item_div.addEventListener(\"click\", (event)=>{"
+  },
+  {
+    "owner": "src/display.js:3989",
+    "source": "item_div.classList.add(\"selected_material\");"
+  },
+  {
+    "owner": "src/display.js:4000",
+    "source": "item_div.classList.add(\"recipe_unavailable\");"
+  },
+  {
+    "owner": "src/display.js:4033",
+    "source": "action_tooltip.classList.add(\"job_tooltip\",\"location_action_tooltip\");"
+  },
+  {
+    "owner": "src/display.js:4048",
+    "source": "gathering_tooltip.classList.add(\"job_tooltip\");"
+  },
+  {
+    "owner": "src/display.js:4176",
+    "source": "other_combat_divs.defensive_action.classList.add(\"stat_name_short\");"
+  },
+  {
+    "owner": "src/display.js:4178",
+    "source": "other_combat_divs.defensive_points.classList.add(\"stat_value_long\");"
+  },
+  {
+    "owner": "src/display.js:4186",
+    "source": "other_combat_divs.defensive_action.classList.add(\"stat_name\");"
+  },
+  {
+    "owner": "src/display.js:4188",
+    "source": "other_combat_divs.defensive_points.classList.add(\"stat_value\");"
+  },
+  {
+    "owner": "src/display.js:4780",
+    "source": "rep_div.classList.add(\"data_entry\");"
+  },
+  {
+    "owner": "src/display.js:4781",
+    "source": "rep_name_span.classList.add(\"data_entry_name\");"
+  },
+  {
+    "owner": "src/display.js:4782",
+    "source": "rep_value_span.classList.add(\"data_entry_value\");"
+  },
+  {
+    "owner": "src/display.js:4888",
+    "source": "textline_div.classList.add(\"dialogue_textline\");"
+  },
+  {
+    "owner": "src/display.js:4890",
+    "source": "textline_div.setAttribute(\"onclick\", `start_textline(this.getAttribute('data-textline'))`);"
+  },
+  {
+    "owner": "src/display.js:4899",
+    "source": "dialogue_action_div.classList.add(\"dialogue_textline\");"
+  },
+  {
+    "owner": "src/display.js:4901",
+    "source": "dialogue_action_div.setAttribute(\"onclick\", `start_game_action(this.getAttribute('data-location_action'), event)`);"
+  },
+  {
+    "owner": "src/display.js:4911",
+    "source": "trade_div.classList.add(\"dialogue_trade\")"
+  },
+  {
+    "owner": "src/display.js:4913",
+    "source": "trade_div.setAttribute(\"onclick\", \"startTrade(this.getAttribute('data-trader'))\")"
+  },
+  {
+    "owner": "src/display.js:4920",
+    "source": "end_dialogue_div.classList.add(\"end_dialogue_button\");"
+  },
+  {
+    "owner": "src/display.js:4921",
+    "source": "end_dialogue_div.setAttribute(\"onclick\", \"end_dialogue()\");"
+  },
+  {
+    "owner": "src/display.js:4953",
+    "source": "textline_div.classList.add(\"dialogue_textline\");"
+  },
+  {
+    "owner": "src/display.js:4955",
+    "source": "textline_div.setAttribute(\"onclick\", `start_textline(this.getAttribute('data-textline'), ${origin})`); //additional param compared to when there's no textlines passed"
+  },
+  {
+    "owner": "src/display.js:4963",
+    "source": "backstep_dialogue_div.classList.add(\"backstep_dialogue_button\");"
+  },
+  {
+    "owner": "src/display.js:4964",
+    "source": "backstep_dialogue_div.setAttribute(\"onclick\", `start_dialogue(\"${npc_id}\")`);"
+  },
+  {
+    "owner": "src/display.js:4979",
+    "source": "document.getElementById(\"dialogue_answer_div\").classList.add(\"italic\");"
+  },
+  {
+    "owner": "src/display.js:5004",
+    "source": "action_end_div.setAttribute(\"onclick\", \"end_activity()\");"
+  },
+  {
+    "owner": "src/display.js:5134",
+    "source": "action_end_div.setAttribute(\"onclick\", \"end_game_action()\");"
+  },
+  {
+    "owner": "src/display.js:5217",
+    "source": "action_end_div.setAttribute(\"onclick\", \"end_sleeping()\");"
+  },
+  {
+    "owner": "src/display.js:5252",
+    "source": "action_end_div.setAttribute(\"onclick\", \"end_reading()\");"
+  },
+  {
+    "owner": "src/display.js:5279",
+    "source": "skill_category_div.classList.add(\"skill_category_div\");"
+  },
+  {
+    "owner": "src/display.js:5286",
+    "source": "btn_up.addEventListener(\"click\", () => {"
+  },
+  {
+    "owner": "src/display.js:5298",
+    "source": "btn_down.addEventListener(\"click\", () => {"
+  },
+  {
+    "owner": "src/display.js:5315",
+    "source": "skill_category_div.addEventListener(\"click\", (event)=>{"
+  },
+  {
+    "owner": "src/display.js:5347",
+    "source": "skill_bar_max.classList.add(\"skill_bar_max\");"
+  },
+  {
+    "owner": "src/display.js:5348",
+    "source": "skill_bar_current.classList.add(\"skill_bar_current\");"
+  },
+  {
+    "owner": "src/display.js:5349",
+    "source": "skill_bar_text.classList.add(\"skill_bar_text\");"
+  },
+  {
+    "owner": "src/display.js:5350",
+    "source": "skill_bar_name.classList.add(\"skill_bar_name\");"
+  },
+  {
+    "owner": "src/display.js:5351",
+    "source": "skill_bar_xp.classList.add(\"skill_bar_xp\");"
+  },
+  {
+    "owner": "src/display.js:5352",
+    "source": "skill_tooltip.classList.add(\"skill_tooltip\");"
+  },
+  {
+    "owner": "src/display.js:5353",
+    "source": "tooltip_next.classList.add(\"skill_tooltip_next_milestone\");"
+  },
+  {
+    "owner": "src/display.js:5358",
+    "source": "tooltip_xp_gain.classList.add(\"skill_xp_gain\");"
+  },
+  {
+    "owner": "src/display.js:5383",
+    "source": "skill_bar_divs[skill.category][skill.skill_id].classList.add(\"skill_div\");"
+  },
+  {
+    "owner": "src/display.js:5438",
+    "source": "skill_bar_divs[skill.category][skill.skill_id].children[0].classList.add(\"skill_bar_capped\");"
+  },
+  {
+    "owner": "src/display.js:5614",
+    "source": "stance_bar_divs[stance].classList.add(\"stance_list_entry\");"
+  },
+  {
+    "owner": "src/display.js:5665",
+    "source": "tooltip_div.classList.add(\"stance_tooltip\");"
+  },
+  {
+    "owner": "src/display.js:5789",
+    "source": "bestiary_entry_divs[enemy_name].classList.add(\"bestiary_entry_div\");"
+  },
+  {
+    "owner": "src/display.js:5810",
+    "source": "name_div.classList.add(\"bestiary_entry_name\");"
+  },
+  {
+    "owner": "src/display.js:5813",
+    "source": "kill_counter.classList.add(\"bestiary_entry_kill_count\");"
+  },
+  {
+    "owner": "src/display.js:5824",
+    "source": "bestiary_tooltip.classList.add(\"bestiary_entry_tooltip\");"
+  },
+  {
+    "owner": "src/display.js:5843",
+    "source": "stat_line_0.classList.add(\"grid_container\");"
+  },
+  {
+    "owner": "src/display.js:5847",
+    "source": "stat_line_2.classList.add(\"grid_container\");"
+  },
+  {
+    "owner": "src/display.js:5851",
+    "source": "stat_line_4.classList.add(\"grid_container\");"
+  },
+  {
+    "owner": "src/display.js:5859",
+    "source": "tooltip_drops.classList.add(\"loot_slots_div\");"
+  },
+  {
+    "owner": "src/display.js:5882",
+    "source": "value.classList.add(\"known_loot_value\");"
+  },
+  {
+    "owner": "src/display.js:5919",
+    "source": "loot_line.classList.add(\"loot_slot_div\");"
+  },
+  {
+    "owner": "src/display.js:5920",
+    "source": "loot_name.classList.add(\"loot_name\");"
+  },
+  {
+    "owner": "src/display.js:5921",
+    "source": "loot_chance.classList.add(\"loot_chance\");"
+  },
+  {
+    "owner": "src/display.js:5922",
+    "source": "loot_chance_base.classList.add(\"loot_chance_base\");"
+  },
+  {
+    "owner": "src/display.js:5923",
+    "source": "loot_chance_current.classList.add(\"loot_chance_current\");"
+  },
+  {
+    "owner": "src/display.js:5949",
+    "source": "stat_entry.classList.add(\"stat_slot_div\");"
+  },
+  {
+    "owner": "src/display.js:5950",
+    "source": "stat_name_div.classList.add(\"stat_name\");"
+  },
+  {
+    "owner": "src/display.js:5951",
+    "source": "stat_value_div.classList.add(\"stat_value\");"
+  },
+  {
+    "owner": "src/display.js:6011",
+    "source": "name_div.classList.add(\"anthology_entry_name\");"
+  },
+  {
+    "owner": "src/display.js:6014",
+    "source": "tooltip.classList.add(\"anthology_entry_tooltip\")"
+  },
+  {
+    "owner": "src/display.js:6020",
+    "source": "booklist_entry_divs[book_name].classList.add(\"anthology_entry_div\");"
+  },
+  {
+    "owner": "src/display.js:6077",
+    "source": "quest_div.classList.add(\"quest_finished\");"
+  },
+  {
+    "owner": "src/display.js:6109",
+    "source": "quest_div.classList.add(\"quest_finished\");"
+  },
+  {
+    "owner": "src/display.js:6154",
+    "source": "quest_div.classList.add(\"quest_div\");"
+  },
+  {
+    "owner": "src/display.js:6159",
+    "source": "quest_name_div.classList.add(\"quest_name_div\");"
+  },
+  {
+    "owner": "src/display.js:6162",
+    "source": "quest_description_div.classList.add(\"quest_description_div\");"
+  },
+  {
+    "owner": "src/display.js:6168",
+    "source": "quest_div.addEventListener(\"click\", (event) => {"
+  },
+  {
+    "owner": "src/display.js:6180",
+    "source": "quest_tasks_div.classList.add(\"quest_task_list_div\");"
+  },
+  {
+    "owner": "src/display.js:6206",
+    "source": "task_div.classList.add(\"quest_task_div\");"
+  },
+  {
+    "owner": "src/display.js:6209",
+    "source": "task_status_icon_span.classList.add(\"task_status_icon\");"
+  },
+  {
+    "owner": "src/display.js:6212",
+    "source": "task_div.classList.add(\"task_finished\");"
+  },
+  {
+    "owner": "src/display.js:6221",
+    "source": "task_desc_div.classList.add(\"task_description_div\");"
+  },
+  {
+    "owner": "src/display.js:6239",
+    "source": "task_condition_div.classList.add(\"task_condition_div\");"
+  },
+  {
+    "owner": "src/display.js:6243",
+    "source": "task_type_div.classList.add(\"task_type_div\");"
+  },
+  {
+    "owner": "src/display.js:6247",
+    "source": "task_target_div.classList.add(\"task_target_div\");"
+  },
+  {
+    "owner": "src/display.js:6566",
+    "source": "document.getElementById(\"loading_screen_loading_text\").classList.add(\"fade\");"
+  },
+  {
+    "owner": "src/display.js:6572",
+    "source": "loading_screen_errors_field.classList.add('loading_screen_status_errors');"
+  },
+  {
+    "owner": "src/display.js:6579",
+    "source": "loading_screen_errors_field.classList.add('loading_screen_status_warnings');"
+  },
+  {
+    "owner": "src/display.js:6586",
+    "source": "play_button.classList.add(\"fade_in\");"
+  },
+  {
+    "owner": "src/display_settings.js:103",
+    "source": "const select = document.createElement('select');"
+  },
+  {
+    "owner": "src/display_settings.js:105",
+    "source": "select.addEventListener('change', () => setDisplaySettings({[s.key]: select.value}));"
+  },
+  {
+    "owner": "src/display_settings.js:109",
+    "source": "const input = document.createElement('input'); input.type = 'color';"
+  },
+  {
+    "owner": "src/display_settings.js:110",
+    "source": "input.addEventListener('input', () => setDisplaySettings({[c.key]: input.value}));"
+  },
+  {
+    "owner": "src/display_settings.js:111",
+    "source": "const clear = document.createElement('button'); clear.type = 'button'; clear.className = 'display-color-clear'; clear.textContent = 'Use scheme';"
+  },
+  {
+    "owner": "src/display_settings.js:112",
+    "source": "clear.addEventListener('click', () => setDisplaySettings({[c.key]: ''}));"
+  },
+  {
+    "owner": "src/display_settings.js:123",
+    "source": "const select = document.createElement('select');"
+  },
+  {
+    "owner": "src/display_settings.js:128",
+    "source": "select.addEventListener('change', () => setDisplaySettings({[s.key]: select.value}));"
+  },
+  {
+    "owner": "src/display_settings.js:136",
+    "source": "const reset = document.createElement('button'); reset.type = 'button'; reset.dataset.displayReset = ''; reset.textContent = 'Reset this browser’s display settings';"
+  },
+  {
+    "owner": "src/display_settings.js:137",
+    "source": "reset.addEventListener('click', () => resetDisplaySettings());"
+  },
+  {
+    "owner": "src/event_feed_ui.js:8",
+    "source": "const summary = node(\"summary\", \"World events\"), leads = node(\"div\"), past = node(\"details\");"
+  },
+  {
+    "owner": "src/event_feed_ui.js:9",
+    "source": "const pastSummary = node(\"summary\", \"Recent news\"), history = node(\"ol\");"
+  },
+  {
+    "owner": "src/event_feed_ui.js:14",
+    "source": "lifePanel.append(node('summary','Life'),lifeHistory);heardPanel.append(node('summary','Heard'),heardHistory);panel.append(lifePanel,heardPanel);"
+  },
+  {
+    "owner": "src/event_feed_ui.js:24",
+    "source": "const card=node(\"section\"), label=node(\"strong\"), detail=node(\"p\"), button=node(\"button\");"
+  },
+  {
+    "owner": "src/event_feed_ui.js:28",
+    "source": "button.addEventListener(\"click\", () => open(row.event));"
+  },
+  {
+    "owner": "src/exchange_ui.js:6",
+    "source": "const panel=node('details');panel.id='exchange_panel';panel.className='expedition_panel';const summary=node('summary','A clerk with a damp parcel'),intro=node('p'),records=node('div'),stock=node('p'),status=node('p');status.setAttribute('role','status');panel.append(summary,intro,records,stock,status);"
+  },
+  {
+    "owner": "src/exchange_ui.js:10",
+    "source": "const row=node('div'),button=node('button',d.label),reason=node('p');row.className='expedition_card';button.type='button';button.dataset.exchange=d.id;button.addEventListener('click',()=>run({type:'command',id:d.id,targetId:d.targetId}));row.append(button,reason);panel.append(row);controls.set(d.id,{row,button,reason});"
+  },
+  {
+    "owner": "src/exchange_ui.js:12",
+    "source": "const cancel=node('button','Cancel reserved work · inputs return');cancel.type='button';cancel.dataset.exchange='cancel';cancel.addEventListener('click',()=>run({type:'cancel'}));panel.append(cancel);"
+  },
+  {
+    "owner": "src/expansion_quest_ui.js:14",
+    "source": "const title=document.createElement(\"button\");title.type=\"button\";title.className=\"quest_name_div expansion_quest_name\";"
+  },
+  {
+    "owner": "src/expansion_quest_ui.js:18",
+    "source": "title.addEventListener(\"click\",()=>title.setAttribute(\"aria-expanded\",String(card.classList.toggle(\"quest_div_expanded\"))));"
+  },
+  {
+    "owner": "src/expedition_ui.js:8",
+    "source": "const summary = document.createElement(\"summary\");"
+  },
+  {
+    "owner": "src/expedition_ui.js:28",
+    "source": "const preparation = element(\"details\", \"\", \"notebook_preparation\"); preparation.append(element(\"summary\", \"Preparation details\"), capabilityText); body.append(preparation);"
+  },
+  {
+    "owner": "src/expedition_ui.js:29",
+    "source": "const cancelButton = element(\"button\", \"Cancel timed work · spent inputs are lost\");"
+  },
+  {
+    "owner": "src/expedition_ui.js:31",
+    "source": "cancelButton.addEventListener(\"click\", () => {"
+  },
+  {
+    "owner": "src/expedition_ui.js:42",
+    "source": "const button = element(\"button\", action.label);"
+  },
+  {
+    "owner": "src/expedition_ui.js:48",
+    "source": "button.addEventListener(\"click\", () => {"
+  },
+  {
+    "owner": "src/feature_expansion_nested_ink_ui.js:10",
+    "source": "const summary=document.createElement('summary');summary.textContent='Local conversations and return accounts';element.append(summary);"
+  },
+  {
+    "owner": "src/feature_expansion_ui.js:13",
+    "source": "const summary = node('summary', 'Tools, practice & local lives'); summary.tabIndex = 0;"
+  },
+  {
+    "owner": "src/feature_expansion_ui.js:28",
+    "source": "const row = node('section', '', 'expedition_card'), button = node('button'), description = node('p');"
+  },
+  {
+    "owner": "src/feature_expansion_ui.js:32",
+    "source": "button.addEventListener('click', () => run(() => ({...entry.action.command, sequence: entry.action.command.sequence ?? read().state.sequence})));"
+  },
+  {
+    "owner": "src/feature_expansion_ui.js:46",
+    "source": "const card = node('details', '', 'notebook_preparation'), heading = node('summary'), intro = node('p');"
+  },
+  {
+    "owner": "src/field_ui.js:8",
+    "source": "const panel=node(\"details\",\"\",\"expedition_panel\");panel.id=\"field_panel\";panel.append(node(\"summary\",\"Field association & workshop\"));"
+  },
+  {
+    "owner": "src/field_ui.js:13",
+    "source": "const button=(label,id,c)=>{const b=node(\"button\",label);b.type=\"button\";b.dataset.fieldCommand=id;b.addEventListener(\"click\",()=>run(c));return b;};"
+  },
+  {
+    "owner": "src/field_ui.js:15",
+    "source": "const group=node(\"details\",\"\",\"notebook_preparation\");group.append(node(\"summary\",label));group.open=id===\"association\";body.append(group);groups.set(id,group);"
+  },
+  {
+    "owner": "src/field_ui.js:17",
+    "source": "const begin=button(\"Ask about a shared field workshop\",\"field.begin\",{type:\"field_begin\"});groups.get(\"association\").append(begin);"
+  },
+  {
+    "owner": "src/field_ui.js:22",
+    "source": "const cancel=button(\"Cancel your field work · return reserved inputs\",\"cancel\",{type:\"cancel\"});body.append(cancel);"
+  },
+  {
+    "owner": "src/field_ui.js:23",
+    "source": "const repeat=button(\"Make up to 3 focus kits · stop when inputs or energy run short\",\"routine\",{type:\"program\",id:\"field.pack_focus\",count:3});groups.get(\"workshop\").append(repeat);"
+  },
+  {
+    "owner": "src/field_ui.js:24",
+    "source": "const leverRepeat=button(\"Queue 3 lever jobs · stop if support or logs run short\",\"lever_routine\",{type:\"program\",id:\"field.lp1.lever_work\",count:3});groups.get(\"lever\").append(leverRepeat);"
+  },
+  {
+    "owner": "src/field_ui.js:26",
+    "source": "const pause=button(\"Pause after the current field job\",\"pause\",{type:\"pause\"}),resume=button(\"Resume the remaining field jobs\",\"resume\",{type:\"resume\"});groups.get(\"workshop\").append(pause,resume);"
+  },
+  {
+    "owner": "src/field_ui.js:83",
+    "source": "if(ss !== sessionSignature){sessionSignature=ss;encounter.replaceChildren();if(session){const turn=session.turns[session.turn];encounter.append(node(\"p\",turn.cue));for(const r of turn.responses){const b=button(r.label,`response.${r.id}`,{type:\"response\",responseId:r.id}),p=previewSimulationResponse(state,registry,{kind:\"encounter\",responseId:r.id},context);b.disabled=!!error || !p.eligible;b.title=p.reasons.join(\" \");encounter.append(b);}encounter.append(button(\"Withdraw · retain spent inputs\",\"withdraw\",{type:\"withdraw\"}));}}"
+  },
+  {
+    "owner": "src/foundation_interaction_ui.js:9",
+    "source": "panel.append(node('summary','Experimental interaction arena'));"
+  },
+  {
+    "owner": "src/foundation_interaction_ui.js:16",
+    "source": "function button(label,token,action,disabled=false) {let b=buttons.get(token);if(!b){b=node('button');b.type='button';b.dataset.foundationProbe=token;buttons.set(token,b);}b.textContent=label;b.disabled=disabled;b.title='';b.onclick=()=>run(action);return b;}"
+  },
+  {
+    "owner": "src/foundation_interaction_ui.js:24",
+    "source": "if(!state.simulation?.foundationInteraction){sync(controls,[button('Complete experimental admission drill','enroll',{type:'command',id:'foundation.probe.enroll',actorId:'player',expectedSequence:sequence},!ready)]);return;}"
+  },
+  {
+    "owner": "src/frontier_campaign_ui.js:7",
+    "source": "panel.append(node(\"summary\",\"Road rivalry & field legacy\"));"
+  },
+  {
+    "owner": "src/frontier_campaign_ui.js:9",
+    "source": "legacy.append(node(\"summary\",\"Field apprenticeship renewal\"));"
+  },
+  {
+    "owner": "src/frontier_campaign_ui.js:13",
+    "source": "const button=(label,id,handler)=>{const b=node(\"button\",label);b.type=\"button\";b.dataset.campaign=id;b.addEventListener(\"click\",handler);return b;};"
+  },
+  {
+    "owner": "src/frontier_campaign_ui.js:20",
+    "source": "const resume=button(\"Start / resume the native duel\",\"resume\",()=>run({type:\"battle_resume\"})),leave=button(\"Withdraw · keep injuries and spent stamina\",\"withdraw\",()=>run({type:\"battle_withdraw\"}));"
+  },
+  {
+    "owner": "src/frontier_campaign_ui.js:22",
+    "source": "const terms=node(\"p\"),review=button(\"Review the field renewal\",\"renewal_review\",()=>{try{preview=previewFieldRenewal(read().state,registry,read().context);message=\"Review the losses and retained progress below.\";}catch(e){message=e.message;}render();}),"
+  },
+  {
+    "owner": "src/frontier_campaign_ui.js:23",
+    "source": "confirm=button(\"Confirm field renewal\",\"renewal_confirm\",()=>{if(preview)run({type:\"renewal\",sequence:preview.sequence});preview=null;render();}),"
+  },
+  {
+    "owner": "src/frontier_campaign_ui.js:24",
+    "source": "cancel=button(\"Keep current training\",\"renewal_cancel\",()=>{preview=null;render();});"
+  },
+  {
+    "owner": "src/generated_people_ui.js:12",
+    "source": "const panel=node('details');panel.id='generated_people_panel';panel.append(node('summary','Village travelers'));"
+  },
+  {
+    "owner": "src/generated_people_ui.js:43",
+    "source": "function requestButton(text,action,id,disabled){const b=node('button',text);b.type='button';b.dataset.storyRequest=action;if(id)b.dataset.requestId=id;b.disabled=disabled;b.addEventListener('click',()=>requestAct(action,id));return b;}"
+  },
+  {
+    "owner": "src/generated_people_ui.js:44",
+    "source": "function button(text,id,action,disabled=false){const b=node('button',text);b.type='button';b.dataset.generatedAction=action;b.dataset.personId=id||'';b.disabled=disabled;b.addEventListener('click',()=>act(id,action));return b;}"
+  },
+  {
+    "owner": "src/generated_people_ui.js:49",
+    "source": "if(!current){body.append(node('p','Listen for travelers on the Village road. This starts new visits from now; your existing neighbors keep their lives.'),button('Welcome road travelers',null,'enroll',disabled));}"
+  },
+  {
+    "owner": "src/generated_people_ui.js:50",
+    "source": "for(const p of view){const row=node('details');row.dataset.generatedPerson=p.id;row.open=expanded.has(p.id);row.append(node('summary',`${p.name}, ${p.role}. ${p.status==='on_road'?'Away on the road':`${p.status}; ${p.action}`}.`));row.addEventListener('toggle',()=>{if(row.open)expanded.add(p.id);else expanded.delete(p.id);});"
+  },
+  {
+    "owner": "src/generated_people_ui.js:52",
+    "source": "if(!p.met)row.append(button('Meet traveler',p.id,'meet',away));"
+  },
+  {
+    "owner": "src/generated_people_ui.js:55",
+    "source": "if(p.undiscovered)row.append(button('Talk about their travels',p.id,'talk',away));"
+  },
+  {
+    "owner": "src/generated_people_ui.js:56",
+    "source": "if(!p.goal.fulfilled&&!current?.storyRequests){row.append(node('p',`Request: bring one ${p.goal.item}. Reward: ${p.goal.reward} wood coins from their purse.`),button(`Give ${p.goal.item}`,p.id,'help',away));}"
+  },
+  {
+    "owner": "src/generated_people_ui.js:57",
+    "source": "else if(p.goal.fulfilled) {row.append(node('p','Remembers: you helped with supplies.'));if(p.status!=='resident')row.append(button('Offer a place in Village',p.id,'settle',away));}"
+  },
+  {
+    "owner": "src/generated_people_ui.js:61",
+    "source": "if(!requests)body.append(requestButton('Begin remembered requests', 'enable',null,disabled));"
+  },
+  {
+    "owner": "src/generated_people_ui.js:63",
+    "source": "const candidate=salientRequestPerson(generatedPeopleSnapshot(c.at),c.expansion);if(candidate)body.append(requestButton('Ask about a supply need','raise',null,disabled));"
+  },
+  {
+    "owner": "src/generated_people_ui.js:67",
+    "source": "if(r.status==='offered')row.append(requestButton('Take request','take',r.id,away));"
+  },
+  {
+    "owner": "src/generated_people_ui.js:68",
+    "source": "if(r.status==='accepted')row.append(requestButton(`Deliver ${r.item}`,'deliver',r.id,away));"
+  },
+  {
+    "owner": "src/generated_people_ui.js:69",
+    "source": "if(['offered','accepted'].includes(r.status))row.append(requestButton('Decline request','decline',r.id,away));"
+  },
+  {
+    "owner": "src/habitat_care_ui.js:5",
+    "source": "panel.append(node('summary','Meadow pen · care proposal'));"
+  },
+  {
+    "owner": "src/habitat_care_ui.js:8",
+    "source": "const policy=node('details');policy.append(node('summary','Care and away policy'),"
+  },
+  {
+    "owner": "src/habitat_care_ui.js:16",
+    "source": "const b=node('button',label);b.type='button';b.dataset.habitat=action;"
+  },
+  {
+    "owner": "src/habitat_care_ui.js:17",
+    "source": "b.onclick=()=>{try{act(action);message='Meadow pen progress saved.';}catch(e){message=e.message;}signature='';render();};"
+  },
+  {
+    "owner": "src/harvest_ui.js:5",
+    "source": "const title=document.createElement('summary');title.textContent='Carcass processing';panel.append(title);"
+  },
+  {
+    "owner": "src/harvest_ui.js:12",
+    "source": "const auto=document.createElement('label'),check=document.createElement('input');check.type='checkbox';check.checked=s.auto;check.disabled=!frame.writable;check.dataset.harvest='auto';check.onchange=()=>run({type:'auto',value:check.checked});auto.append(check,' Auto-process whole carcasses during idle fighting; process incoming overflow immediately');body.append(auto);"
+  },
+  {
+    "owner": "src/harvest_ui.js:13",
+    "source": "if(s.job){const job=document.createElement('p');job.id='harvest_job';job.textContent=`${s.job.specimen.species}: ${s.job.choice}, ${Math.ceil(s.job.remaining)} played minutes remaining${s.job.automatic?' (automatic)':''}.`;const stop=document.createElement('button');stop.dataset.harvest='cancel';stop.textContent='Cancel processing';stop.disabled=!frame.writable;stop.onclick=()=>run({type:'cancel'});job.append(stop);body.append(job);}"
+  },
+  {
+    "owner": "src/harvest_ui.js:16",
+    "source": "for(const choice of ['whole',...partNames(species)]){const plan=planHarvest(lot[0],choice,frame.context);const line=document.createElement('div');line.style.cssText='display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:3px 0';const button=document.createElement('button');button.dataset.harvestChoice=choice;button.textContent=choice==='whole'?'Process whole':`Take only ${choice}`;button.disabled=!frame.ready||!!s.job;button.onclick=()=>run({type:'begin',species,choice});const forecast=document.createElement('span');forecast.textContent=`${plan.minutes} min, ${plan.xp} Butchering XP; `+plan.outputs.map(o=>`${o.count} ${HARVEST_PARTS[o.part].id}: ${o.completeness}, quality ${o.quality}%`).join('; ');line.append(button,forecast);row.append(line);}"
+  },
+  {
+    "owner": "src/ink_narrative_ui.js:47",
+    "source": "const summary = node('summary', 'Conversation');"
+  },
+  {
+    "owner": "src/known_routes_ui.js:18",
+    "source": "const heading = node('summary', 'Known routes');"
+  },
+  {
+    "owner": "src/known_routes_ui.js:75",
+    "source": "const card = node('section', '', 'expedition_card'), button = node('button');"
+  },
+  {
+    "owner": "src/known_routes_ui.js:80",
+    "source": "button.addEventListener('click', () => entry.current && activate(entry.current.id, entry.current));"
+  },
+  {
+    "owner": "src/life_record_ui.js:7",
+    "source": "const summary=node('summary','Remembered years'),button=node('button','Remember this day'),status=node('p'),past=node('details'),list=node('ol');"
+  },
+  {
+    "owner": "src/life_record_ui.js:8",
+    "source": "button.type='button';button.id='life_remember_day';past.append(node('summary','Years remembered'),list);panel.append(summary,button,status,past);"
+  },
+  {
+    "owner": "src/life_record_ui.js:10",
+    "source": "button.addEventListener('click',()=>{try {remember();status.textContent='You hold this day in memory.';}catch(e){status.textContent=e.message;}render();});"
+  },
+  {
+    "owner": "src/main.js:525",
+    "source": "const summary=document.createElement('summary');summary.textContent='Backup and Undo (opt in)';box.append(summary);"
+  },
+  {
+    "owner": "src/main.js:529",
+    "source": "const action=(label,id,run)=>{const b=document.createElement('button');b.type='button';b.textContent=label;b.id=id;b.onclick=async()=>{try{await run();refresh();}catch(error){status.textContent=error.message;log_message(error.message,'message_critical');}};box.append(b);};"
+  },
+  {
+    "owner": "src/main.js:530",
+    "source": "action('Enroll this game','native_authority_enroll',()=>authorityOperation(()=>nativeAuthority.enroll(create_save())));"
+  },
+  {
+    "owner": "src/main.js:531",
+    "source": "action('Capture backup','native_authority_capture',()=>authorityOperation(()=>nativeAuthority.capture(create_save())));"
+  },
+  {
+    "owner": "src/main.js:532",
+    "source": "action('Undo to captured backup','native_authority_undo',()=>authorityOperation(()=>nativeAuthority.undo(),{reload:true}));"
+  },
+  {
+    "owner": "src/main.js:533",
+    "source": "action('Download captured backup','native_authority_download',()=>{const r=nativeAuthority.read();if(!r?.previous)throw Error('Capture a backup first.');downloadAuthorityData('YAIRPG-captured-backup.txt',r.previous);});"
+  },
+  {
+    "owner": "src/main.js:541",
+    "source": "const bytes=localStorage.getItem(key);if(bytes===null)continue;const b=document.createElement('button');b.textContent='Download '+label;b.onclick=()=>downloadAuthorityData('YAIRPG-'+label.replaceAll(' ','-')+'.txt',bytes);box.append(b);"
+  },
+  {
+    "owner": "src/main.js:1232",
+    "source": "const option=document.createElement('label'),input=document.createElement('input');input.type='checkbox';input.dataset.elementalOption='true';"
+  },
+  {
+    "owner": "src/main.js:1235",
+    "source": "const title=document.createElement('summary');title.textContent='Elemental preparation';const body=document.createElement('div'),notice=document.createElement('p');panel.append(title,body,notice);"
+  },
+  {
+    "owner": "src/main.js:1236",
+    "source": "input.onchange=()=>{try{changeElementalPreparation(input.checked);}catch(error){notice.textContent=error.message;render();}};"
+  },
+  {
+    "owner": "src/main.js:1257",
+    "source": "const host=document.getElementById('options_choices'),option=document.createElement('label'),input=document.createElement('input');"
+  },
+  {
+    "owner": "src/main.js:1260",
+    "source": "const title=document.createElement('summary');title.textContent='Equipment condition and repair';const body=document.createElement('div'),notice=document.createElement('p');panel.append(title,body,notice);"
+  },
+  {
+    "owner": "src/main.js:1261",
+    "source": "input.onchange=()=>{try{commitDurability(durability.stageToggle(character,input.checked,getItemFromKey,key=>assertNativeItemDisposition(expansionState,key)));}catch(error){notice.textContent=error.message;render();}};"
+  },
+  {
+    "owner": "src/main.js:1267",
+    "source": "const button=document.createElement('button');button.textContent='Repair';button.dataset.durabilityRepair=row.key;button.disabled=!row.cost||!row.affordable||!!current_combat||!!nativeOccupationReason();"
+  },
+  {
+    "owner": "src/main.js:1268",
+    "source": "button.onclick=()=>{try{commitDurability(durability.stageRepair(character,row.key,key=>assertNativeItemDisposition(expansionState,key)));notice.textContent='Equipment repaired.';}catch(error){notice.textContent=error.message;}};line.append(button);body.append(line);}"
+  },
+  {
+    "owner": "src/main.js:1390",
+    "source": "const title=document.createElement('summary');title.textContent='Optional pacing';const text=document.createElement('p');panel.append(title,text);"
+  },
+  {
+    "owner": "src/main.js:1637",
+    "source": "const summary=document.createElement('summary');summary.textContent='Furniture and home comforts';"
+  },
+  {
+    "owner": "src/main.js:2929",
+    "source": "name_field.addEventListener(\"change\", () => character.name = name_field.value.toString().trim().length>0?name_field.value:\"Hero\");"
+  },
+  {
+    "owner": "src/main.js:3169",
+    "source": "document.getElementById(\"character_xp_value\").classList.add(\"outline_black_static\");"
+  },
+  {
+    "owner": "src/main.js:3170",
+    "source": "document.getElementById(\"character_stamina_value\").classList.add(\"outline_black_static\");"
+  },
+  {
+    "owner": "src/main.js:3171",
+    "source": "document.getElementById(\"character_mana_value\").classList.add(\"outline_black_static\");"
+  },
+  {
+    "owner": "src/main.js:3172",
+    "source": "document.getElementById(\"character_health_value\").classList.add(\"outline_black_static\");"
+  },
+  {
+    "owner": "src/main.js:5756",
+    "source": "material_div.classList.add(\"recipe_unavailable\");"
+  },
+  {
+    "owner": "src/main.js:6007",
+    "source": "const summary=document.createElement('summary');summary.textContent='Hotkey';holder.append(summary);"
+  },
+  {
+    "owner": "src/main.js:6008",
+    "source": "holder.addEventListener('click',event=>event.stopPropagation());holder.addEventListener('submit',event=>event.stopPropagation());"
+  },
+  {
+    "owner": "src/main.js:6009",
+    "source": "if(row.item.tags.equippable&&!JSON.parse(key).e2_instance){const button=document.createElement('button');button.type='button';button.textContent='Identify this copy for a hotkey';button.addEventListener('click',()=>{try{identifyKnownHotkeyCopy(key);}catch(error){log_message(error.message,'notification');}});holder.append(button);rows.set(host,{key,holder,binding:null});}"
+  },
+  {
+    "owner": "src/main.js:8503",
+    "source": "skill_list.children[index].classList.add(\"skill_category_expanded\");"
+  },
+  {
+    "owner": "src/main.js:8824",
+    "source": "document.getElementById(\"save_to_file_button\").classList.add(\"export_button_with_reward\");"
+  },
+  {
+    "owner": "src/main.js:9135",
+    "source": "divs[i].classList.add(\"start_activity\");"
+  },
+  {
+    "owner": "src/main.js:9138",
+    "source": "divs[i].classList.add(\"activity_unavailable\");"
+  },
+  {
+    "owner": "src/main.js:9662",
+    "source": "exit_button.addEventListener(\"click\", () => {"
+  },
+  {
+    "owner": "src/main.js:9780",
+    "source": "const exportButton=document.createElement('button');exportButton.type='button';exportButton.textContent='Export preserved character';"
+  },
+  {
+    "owner": "src/main.js:9781",
+    "source": "exportButton.onclick=()=>{const encoded=save_to_file(),a=document.createElement('a');a.href=URL.createObjectURL(new Blob([encoded],{type:'text/plain'}));a.download='preserved-character.txt';a.click();URL.revokeObjectURL(a.href);};"
+  },
+  {
+    "owner": "src/main.js:9794",
+    "source": "play_button.addEventListener(\"click\", hide_loading_screen);"
+  },
+  {
+    "owner": "src/main.js:9801",
+    "source": "document.getElementById('hero_creation_panel_confirmation').addEventListener('click', () => {"
+  },
+  {
+    "owner": "src/main.js:9825",
+    "source": "play_button.addEventListener(\"click\", run);"
+  },
+  {
+    "owner": "src/main.js:9987",
+    "source": "document.getElementById('crafting_window').classList.add('settled-effects-host');"
+  },
+  {
+    "owner": "src/main.js:9997",
+    "source": "const cancelCraftEffect=document.createElement('button');cancelCraftEffect.type='button';cancelCraftEffect.textContent='Cancel visual effect';cancelCraftEffect.id='cancel_craft_visual_effect';cancelCraftEffect.addEventListener('click',()=>workLedgerCraftEffects.cancel());document.getElementById('crafting_window').append(cancelCraftEffect);"
+  },
+  {
+    "owner": "src/main.js:10112",
+    "source": "const introduction=document.createElement('p'),next=document.createElement('button');next.type='button';"
+  },
+  {
+    "owner": "src/main.js:10117",
+    "source": "next.onclick=()=>{openingStep=Math.min(3,openingStep+1);try{localStorage.setItem('yairpg.opening.v1',String(openingStep));}catch{/* Session only. */}renderOpening();updateWorkspace();};"
+  },
+  {
+    "owner": "src/main.js:10125",
+    "source": "const button=document.createElement('button');button.type='button';button.textContent='Open Journal & Bestiary';button.onclick=()=>openWorkspaceModule('records');reference.append(heading,text,button);"
+  },
+  {
+    "owner": "src/main.js:10223",
+    "source": "if(bar) {bar.closest(\"[data-skill_category]\").classList.add(\"skill_category_expanded\"); bar.tabIndex=-1; bar.focus(); bar.scrollIntoView({block:\"nearest\"});}"
+  },
+  {
+    "owner": "src/management/ui.js:5",
+    "source": "const summary=node('summary','Market courtyard · trade, property and projects');summary.tabIndex=0;"
+  },
+  {
+    "owner": "src/management/ui.js:8",
+    "source": "const sections=node('div'),history=node('details'),hs=node('summary','Your courtyard records'),records=node('div');history.append(hs,records);element.append(summary,terms,notice,sections,history);"
+  },
+  {
+    "owner": "src/management/ui.js:18",
+    "source": "if(!g){g=node('details');g.className='expedition_card';g.append(node('summary',s.label));groups.set(s.id,g);sections.append(g);if(s.id==='charter'||s.id==='work')g.open=true;}"
+  },
+  {
+    "owner": "src/management/ui.js:22",
+    "source": "if(!r){const el=node('section'),button=node('button'),description=node('p'),reason=node('p');button.type='button';el.className='expedition_card';el.append(button,description,reason);g.append(el);r={el,button,description,reason,action:a};rows.set(id,r);"
+  },
+  {
+    "owner": "src/management/ui.js:23",
+    "source": "button.addEventListener('click',()=>{try{const current=read();command({...r.action,sequence:current.state.sequence});message='Courtyard change saved.';}catch(e){message=e.message;}render();});}"
+  },
+  {
+    "owner": "src/mixture_ui.js:9",
+    "source": "const launch=document.createElement('button');launch.id='village_mixing_open';launch.textContent='Mix at the Village counter';actionContainer.append(launch);"
+  },
+  {
+    "owner": "src/mixture_ui.js:20",
+    "source": "const input=document.createElement('input');input.type='number';input.min=0;input.max=99;input.step=1;input.value=['River bellleaf','Spring water'].includes(i.id)?1:0;input.id='mixture_amount_'+i.id.replaceAll(' ','_');input.style.width='50px';input.oninput=()=>{lastFailure=null;preview();};row.append(input);amounts[i.id]=input;"
+  },
+  {
+    "owner": "src/mixture_ui.js:21",
+    "source": "const stock=document.createElement('span');stockLabels[i.id]=stock;row.append(stock);const buy=document.createElement('button');buy.type='button';buy.textContent=`Buy 1 (${i.price} coins)`;buy.onclick=()=>run({type:'buy',id:i.id});row.append(buy);const route=document.createElement('small');route.hidden=true;name.title=i.route;route.textContent=i.route.includes('Forest')?'Also gather on Forest road':'Buy at this counter';row.append(route);rows.append(row);}"
+  },
+  {
+    "owner": "src/mixture_ui.js:23",
+    "source": "const method=document.createElement('select');method.id='mixture_method';method.setAttribute('aria-label','Mixing method');for(const [value,label]of [['ordinary@1','Ordinary method'],[RESPONSIVE_METHOD,'Responsive method']]){const option=document.createElement('option');option.value=value;option.textContent=label;method.append(option);}method.onchange=()=>{lastFailure=null;preview();};controls.append(method);"
+  },
+  {
+    "owner": "src/mixture_ui.js:24",
+    "source": "const process=document.createElement('select');process.id='mixture_process';for(const kind of ['steep','boil']){const option=document.createElement('option');option.value=kind;option.textContent=kind==='steep'?'Steep':'Boil';process.append(option);}process.onchange=()=>{lastFailure=null;preview();};controls.append(process);"
+  },
+  {
+    "owner": "src/mixture_ui.js:25",
+    "source": "const mix=document.createElement('button');mix.id='mixture_craft';mix.textContent='Mix one vial';mix.onclick=()=>run({type:'mix',...selection(),quote:currentQuote});controls.append(mix);"
+  },
+  {
+    "owner": "src/mixture_ui.js:47",
+    "source": "if(s.job){const cancel=document.createElement('button');cancel.id='mixture_cancel';cancel.textContent='Cancel and return held ingredients';cancel.onclick=()=>run({type:'cancel'});output.append(cancel);}"
+  },
+  {
+    "owner": "src/mixture_ui.js:50",
+    "source": "if(n){const use=document.createElement('button');use.textContent=known?'Drink one dose':'Experiment: drink one dose';use.onclick=()=>run({type:'use',key});line.append(use);}"
+  },
+  {
+    "owner": "src/mixture_ui.js:51",
+    "source": "if(known&&!s.methods[p.id]){const learn=document.createElement('button');learn.textContent='Save observed method';learn.onclick=()=>run({type:'learn',product:p.id});line.append(learn);}"
+  },
+  {
+    "owner": "src/mixture_ui.js:52",
+    "source": "if(s.methods[p.id]){const count=document.createElement('input');count.type='number';count.value=queueCounts.get(p.id)??3;count.min=1;count.max=999;count.setAttribute('aria-label','Repeat batch count');count.style.width='55px';count.oninput=()=>{lastQueueFailure=null;queueChoice=p.id;queueCounts.set(p.id,Number(count.value));updateFeedback();};line.append(count);const repeat=document.createElement('button');repeat.textContent='Queue learned method';repeat.disabled=!!s.job;repeat.onclick=()=>{queueChoice=p.id;run({type:'repeat',product:p.id,count:Number(count.value)});};line.append(repeat);}"
+  },
+  {
+    "owner": "src/mixture_ui.js:56",
+    "source": "currentPanel={open};launch.onclick=open;"
+  },
+  {
+    "owner": "src/npc_lives_ui.js:13",
+    "source": "const panel=node('details');panel.id='village_lives_panel';panel.append(node('summary','Village neighbors'));"
+  },
+  {
+    "owner": "src/npc_lives_ui.js:14",
+    "source": "const button=node('button','Get to know your neighbors'),list=node('ul'),news=node('ol'),status=node('p');button.type='button';button.id='meet_village_neighbors';panel.append(button,status,list,news);let signature;"
+  },
+  {
+    "owner": "src/npc_lives_ui.js:15",
+    "source": "button.addEventListener('click',()=>{try{meet();status.textContent='Maia welcomes you beneath the old trees.';}catch(e){status.textContent=e.message;}render();});"
+  },
+  {
+    "owner": "src/observation_ui.js:6",
+    "source": "const panel=node('details');panel.id='observation_panel';panel.className='expedition_panel';const summary=node('summary','The glass answers back'),intro=node('p'),records=node('div'),status=node('p');status.setAttribute('role','status');panel.append(summary,intro,records,status);"
+  },
+  {
+    "owner": "src/observation_ui.js:9",
+    "source": "const open=node('button','Look through the paired glass · anonymous live view');open.type='button';open.dataset.observation='open';open.addEventListener('click',()=>run({type:'open'}));panel.append(open);"
+  },
+  {
+    "owner": "src/observation_ui.js:11",
+    "source": "const row=node('div'),b=node('button',d.label),reason=node('p');row.className='expedition_card';b.type='button';b.dataset.observation=d.id;b.addEventListener('click',()=>run({type:'command',id:d.id,targetId:d.targetId}));row.append(b,reason);panel.append(row);controls.set(d.id,{row,b,reason});"
+  },
+  {
+    "owner": "src/original_frontier_campaign_ui.js:23",
+    "source": "const summary = node('summary', 'Local work & findings');"
+  },
+  {
+    "owner": "src/original_frontier_campaign_ui.js:35",
+    "source": "records.append(node('summary', 'Your recorded findings'), recordList);"
+  },
+  {
+    "owner": "src/original_frontier_campaign_ui.js:56",
+    "source": "const control = node('button', label);"
+  },
+  {
+    "owner": "src/original_frontier_campaign_ui.js:58",
+    "source": "control.addEventListener('click', () => run(action));"
+  },
+  {
+    "owner": "src/original_frontier_campaign_ui.js:61",
+    "source": "const begin = button('Ask about local parcel work', {type: 'begin'});"
+  },
+  {
+    "owner": "src/original_frontier_campaign_ui.js:63",
+    "source": "const cancel = button('Cancel accepted work', () => ({type: 'cancel', id: currentWork.id}));"
+  },
+  {
+    "owner": "src/original_frontier_campaign_ui.js:68",
+    "source": "const pause = button('Pause after current work', {type: 'pause'});"
+  },
+  {
+    "owner": "src/original_frontier_campaign_ui.js:69",
+    "source": "const resume = button('Resume remaining target', {type: 'resume'});"
+  },
+  {
+    "owner": "src/original_frontier_campaign_ui.js:71",
+    "source": "const withdraw = button('Withdraw · spent inputs stay spent', {type: 'withdraw'});"
+  },
+  {
+    "owner": "src/original_frontier_campaign_ui.js:87",
+    "source": "const row = node('div'), label = node('label', 'Routine target: '), count = node('input');"
+  },
+  {
+    "owner": "src/original_frontier_campaign_ui.js:93",
+    "source": "const start = button('Start finite routine', () => ({type: 'program', id: entry.action.id, targetId: entry.action.targetId, count: count.valueAsNumber}));"
+  },
+  {
+    "owner": "src/original_frontier_campaign_ui.js:104",
+    "source": "count.addEventListener('input', validate);"
+  },
+  {
+    "owner": "src/party_ui.js:8",
+    "source": "const panel=node('details');panel.id='party_panel';panel.className='expedition_panel';const summary=node('summary','A porter’s guarded contest');panel.append(summary);"
+  },
+  {
+    "owner": "src/party_ui.js:11",
+    "source": "const partner=node('details');partner.id='party_partner_panel';partner.append(node('summary','Village bench partner · proposal'));const partnerReport=node('p');partnerReport.setAttribute('role','status');partner.append(partnerReport);panel.append(partner);"
+  },
+  {
+    "owner": "src/party_ui.js:14",
+    "source": "const button=(id,label,c)=>{const b=node('button',label);b.type='button';b.dataset.party=id;b.addEventListener('click',()=>run(c));if(id.startsWith('party.lp6.')){const row=node('div');row.className='expedition_card';const reason=node('p');reason.className='expedition_requirements';row.append(b,reason);partner.append(row);partnerReasons.set(id,{row,reason});}else panel.append(b);controls.set(id,b);return b;};"
+  },
+  {
+    "owner": "src/party_ui.js:16",
+    "source": "button('cancel','Cancel preparation / re-rig · reserved inputs return',{type:'party_cancel'});"
+  },
+  {
+    "owner": "src/party_ui.js:17",
+    "source": "button('ask','Ask whether Lio can assist · no commitment',{type:'party_ask'});"
+  },
+  {
+    "owner": "src/party_ui.js:18",
+    "source": "button('decline','Decline assistance · no cost',{type:'party_decline'});"
+  },
+  {
+    "owner": "src/party_ui.js:19",
+    "source": "button('start','Accept with Lio · 1 coin',{type:'party_start'});"
+  },
+  {
+    "owner": "src/party_ui.js:20",
+    "source": "button('settle','Offer a kit instead of fighting',{type:'party_settle'});"
+  },
+  {
+    "owner": "src/party_ui.js:21",
+    "source": "button('release','Ask Lio to step out · costs stay spent',{type:'party_release'});"
+  },
+  {
+    "owner": "src/pocket_realm_ui.js:6",
+    "source": "const summary=node('summary','A folded doorway'),intro=node('p'),place=node('p'),records=node('div'),viewStatus=node('p'),viewRecords=node('div'),status=node('p');status.setAttribute('role','status');panel.append(summary,illustration,intro,place,records,viewStatus,viewRecords,status);"
+  },
+  {
+    "owner": "src/pocket_realm_ui.js:8",
+    "source": "for(const action of pocketRealmActions){const row=node('div'),button=node('button',action.label),reason=node('p');row.className='expedition_card';button.type='button';button.dataset.pocketRealm=action.id;"
+  },
+  {
+    "owner": "src/pocket_realm_ui.js:9",
+    "source": "button.addEventListener('click',()=>{try{const snapshot=read();command({id:action.id,sequence:snapshot.state.sequence});message=action.id==='pocket.observation.replay'?'Stored viewing evidence displayed.':'Progress saved.';}catch(error){message=error.message;}render();});row.append(button,reason);panel.append(row);controls.set(action.id,{row,button,reason});}"
+  },
+  {
+    "owner": "src/promise_ui.js:9",
+    "source": "panel.append(node(\"summary\",\"A wary traveler\"));"
+  },
+  {
+    "owner": "src/promise_ui.js:13",
+    "source": "socialHistory.append(node('summary','Your remembered cart checks'),socialHistoryRecords);"
+  },
+  {
+    "owner": "src/promise_ui.js:23",
+    "source": "const begin=node(\"button\",\"Speak to the wary traveler\");begin.type=\"button\";begin.dataset.promiseCommand=\"promise.begin\";"
+  },
+  {
+    "owner": "src/promise_ui.js:24",
+    "source": "begin.addEventListener(\"click\",()=>run({type:\"promise_begin\"}));panel.append(begin);"
+  },
+  {
+    "owner": "src/promise_ui.js:26",
+    "source": "const row=node(\"div\",\"\",\"expedition_card\"),b=node(\"button\",d.label),reason=node(\"p\",\"\",\"expedition_requirements\");"
+  },
+  {
+    "owner": "src/promise_ui.js:27",
+    "source": "b.type=\"button\";b.dataset.promiseCommand=d.id;b.addEventListener(\"click\",()=>run({type:\"command\",id:d.id,targetId:d.targetId || null}));"
+  },
+  {
+    "owner": "src/promise_ui.js:30",
+    "source": "const cancel=node(\"button\",\"Cancel accepted work · return each participant’s reserved inputs\");cancel.type=\"button\";cancel.dataset.promiseCommand=\"cancel\";"
+  },
+  {
+    "owner": "src/promise_ui.js:31",
+    "source": "cancel.addEventListener(\"click\",()=>run({type:\"cancel\"}));panel.append(cancel);"
+  },
+  {
+    "owner": "src/proto23_shell.js:29",
+    "source": "const action=(label,run)=>{const b=node('button',label);b.type='button';b.onclick=run;return b;};"
+  },
+  {
+    "owner": "src/proto23_shell.js:53",
+    "source": "const tools=node('div',null,'attribute-inspector-tools'),group=node('select');group.setAttribute('aria-label','Attribute group');"
+  },
+  {
+    "owner": "src/proto23_shell.js:55",
+    "source": "const modifiedLabel=node('label'),modified=node('input');modified.type='checkbox';modifiedLabel.append(modified,document.createTextNode(' With modifiers'));tools.append(group,modifiedLabel);"
+  },
+  {
+    "owner": "src/proto23_shell.js:79",
+    "source": "group.addEventListener('change',paint);modified.addEventListener('change',paint);"
+  },
+  {
+    "owner": "src/proto23_shell.js:80",
+    "source": "list.addEventListener('keydown',event=>{"
+  },
+  {
+    "owner": "src/proto23_shell.js:90",
+    "source": "for(const row of rows){let record=records.get(row.id);if(!record){const button=action('',()=>select(row.id)),label=node('span'),value=node('strong');button.className='attribute-inspector-row';button.dataset.attributeId=row.id;button.append(label,value);list.append(button);record={button,label,value};records.set(row.id,record);}"
+  },
+  {
+    "owner": "src/proto23_shell.js:108",
+    "source": "const details=action('Attributes ›',()=>{if(expandWorkspaceModule('preparation')){document.getElementById('character_show_stats')?.click();attributeInspector.refresh();}});"
+  },
+  {
+    "owner": "src/proto23_shell.js:110",
+    "source": "const gear=node('details',null,'shell-gear-disclosure');gear.open=false;let gearChosen=false;const gearSummary=node('summary','Equipment');gear.append(gearSummary,equipment);gearSummary.addEventListener('click',()=>{gearChosen=true;});"
+  },
+  {
+    "owner": "src/proto23_shell.js:111",
+    "source": "const effectsSummary=action('Effects',()=>showContext(effectsSummary));effectsSummary.className='shell-effects-summary';effectsSummary.hidden=true;effectsSummary.dataset.contextPreview='effects';player.append(statline,secondary,details,effectsSummary,gear);"
+  },
+  {
+    "owner": "src/proto23_shell.js:166",
+    "source": "document.addEventListener('keydown',contextDismiss,true);"
+  },
+  {
+    "owner": "src/proto23_shell.js:167",
+    "source": "document.addEventListener('click',event=>{const subject=event.target.closest('.log-subject');if(subject){showContext(subject,true);return;}if(!contextPreview.contains(event.target)&&event.target!==effectsSummary)hideContext();});"
+  },
+  {
+    "owner": "src/proto23_shell.js:172",
+    "source": "const full=action('Full item ›',()=>{if(hovered?.isConnected){const row=hovered;row.focus({preventScroll:true});choose(row);expandWorkspaceModule('shell-detail');}});"
+  },
+  {
+    "owner": "src/proto23_shell.js:198",
+    "source": "document.addEventListener('keydown',dismiss,true);"
+  },
+  {
+    "owner": "src/proto23_shell.js:201",
+    "source": "document.addEventListener('click',dismissClick);"
+  },
+  {
+    "owner": "src/proto23_shell.js:205",
+    "source": "const makeSelect=(label,choices)=>{const select=node('select');select.setAttribute('aria-label',label);"
+  },
+  {
+    "owner": "src/proto23_shell.js:207",
+    "source": "select.onchange=()=>document.getElementById(select.value)?.click();compact.append(select);return select;};"
+  },
+  {
+    "owner": "src/proto23_shell.js:211",
+    "source": "const reverse=action('Reverse',()=>document.getElementById(sort.value)?.click());reverse.setAttribute('aria-label','Reverse inventory sort');reverse.title='Reverse the current native sort order';compact.append(reverse);"
+  },
+  {
+    "owner": "src/proto23_shell.js:216",
+    "source": "const logTools=node('div',null,'shell-log-tools');const filters=action('Filters · All',()=>{const root=document.getElementById('main_content');root.dataset.logFiltersOpen=String(root.dataset.logFiltersOpen!=='true');filters.setAttribute('aria-expanded',root.dataset.logFiltersOpen);});filters.setAttribute('aria-expanded','false');filters.setAttribute('aria-controls','message_controls');"
+  },
+  {
+    "owner": "src/proto23_shell.js:217",
+    "source": "const follow=node('select');follow.setAttribute('aria-label','Log follow');for(const [value,label]of [['hold','Follow: smart'],['always','Follow: always']]){const option=node('option',label);option.value=value;follow.append(option);}follow.title='Smart follow holds your place when you scroll up. Always follow jumps to new messages.';follow.onchange=()=>setDisplaySettings({logFollow:follow.value});"
+  },
+  {
+    "owner": "src/proto23_shell.js:218",
+    "source": "const latest=action('Latest',()=>{const native=document.querySelector('.log-unread-anchor button');if(native)native.click();else{const box=document.getElementById('message_box_div');box.scrollTop=box.scrollHeight;}});latest.title='Jump to the latest message';let combatStopped=false;const combatLog=action('Stop combat log',()=>{combatStopped=setCombatReportsStopped(!combatStopped);combatLog.textContent=combatStopped?'Resume combat log':'Stop combat log';combatLog.setAttribute('aria-pressed',String(combatStopped));});combatLog.title='Stop recording new hit, miss, block and defeat reports in this presentation. Combat continues; existing history, loot and growth reports remain. Resets on reload.';"
+  },
+  {
+    "owner": "src/proto23_shell.js:219",
+    "source": "const clearLog=action('Clear',()=>{hideContext();clear_message_log();});clearLog.title='Clear the visible report history. Character, discoveries, quests and combat are unchanged.';"
+  },
+  {
+    "owner": "src/proto23_shell.js:239",
+    "source": "document.addEventListener('click',inspect);document.addEventListener('focusin',inspect);"
+  },
+  {
+    "owner": "src/proto23_shell.js:240",
+    "source": "document.addEventListener('keydown',event=>{if(active()&&['Enter',' '].includes(event.key)&&event.target.matches('#inventory_content_div > [data-character_item]')){event.preventDefault();choose(event.target);}});"
+  },
+  {
+    "owner": "src/proto23_shell.js:246",
+    "source": "for(const[id,label]of candidates){const row=byId.get(id);let record=secondaryRecords.get(id);if(!record){const button=node('button',null,'shell-secondary-stat');button.type='button';button.dataset.attributePreview=id;button.append(node('span',label),node('strong'));secondaryGrid.append(button);record={button,value:button.lastChild};secondaryRecords.set(id,record);}"
+  },
+  {
+    "owner": "src/proto23_shell.js:277",
+    "source": "let row=statRecords.get(key);if(!row){row=node('button',null,'shell-stat-record');row.type='button';row.dataset.statRecord=key;row.dataset.nativeStat=key;row.append(node('span'),node('strong'));statRecords.set(key,row);statline.append(row);}"
+  },
+  {
+    "owner": "src/proto23_shell.js:301",
+    "source": "const tools=node('details'),toolLabel=node('summary','Tools');tools.open=!!toolsOpen;const toolGrid=node('div',null,'shell-equipment');tools.append(toolLabel,toolGrid);"
+  },
+  {
+    "owner": "src/proto23_shell.js:302",
+    "source": "for(const slot of frame.equipment){const b=action(`${slot.label} · ${slot.name||'Empty'}`,()=>{selected={slot:slot.id};signature='';render();updateWorkspace();});b.dataset.shellSlot=slot.id;b.title=slot.name||`Empty ${slot.label} slot`;(['axe','pickaxe','sickle','shovel','fishing'].includes(slot.id)?toolGrid:equipment).append(b);}"
+  },
+  {
+    "owner": "src/proto23_shell.js:321",
+    "source": "controls.replaceChildren();const more=node('details',null,'shell-item-more');more.open=!!moreWasOpen;more.append(node('summary','More actions'));more.addEventListener('toggle',()=>{if(more.open&&root.dataset.parity==='r3'&&!detail.closest('#center_mode_content'))expandWorkspaceModule('shell-detail');});"
+  },
+  {
+    "owner": "src/proto23_shell.js:322",
+    "source": "if(selected.slot&&tooltip){const takeoff=action('Take off',()=>{const source=rowForSelection();if(source&&!source.classList.contains('equipment_slot_empty'))source.click();signature='';render();});takeoff.disabled=!!frame.reason;takeoff.title=frame.reason;controls.append(takeoff);}"
+  },
+  {
+    "owner": "src/proto23_shell.js:330",
+    "source": "if(root.dataset.parity==='r3'&&row?.querySelector('.known-item-binding'))more.append(action('Hotkey…',()=>{"
+  },
+  {
+    "owner": "src/proto23_shell.js:334",
+    "source": "(root.dataset.parity==='r3'?more:controls).append(action('Compare equipment ›',()=>expandWorkspaceModule('equipment-comparison')));"
+  },
+  {
+    "owner": "src/proto23_shell.js:335",
+    "source": "if(root.dataset.parity==='r3'&&!detail.closest('#center_mode_content'))controls.append(action('Full item ›',()=>expandWorkspaceModule('shell-detail')));"
+  },
+  {
+    "owner": "src/proto23_shell.js:336",
+    "source": "controls.append(action('Close item',()=>{if(detail.closest('#center_mode_content'))centerModes().back();selected=null;signature='';updateWorkspace();}));if(root.dataset.parity==='r3')controls.append(more);"
+  },
+  {
+    "owner": "src/pursuit_ui.js:6",
+    "source": "panel.append(node(\"summary\",\"Encounters & pursuit\"));"
+  },
+  {
+    "owner": "src/pursuit_ui.js:13",
+    "source": "card.append(node(\"summary\",d.label),info,actions);panel.append(card);rows.set(d.id,{card,info,actions,definition:d});"
+  },
+  {
+    "owner": "src/pursuit_ui.js:16",
+    "source": "const trackId=d.trackId || \"village.trail_test\",row=rows.get(trackId),b=node(\"button\",d.label);b.type=\"button\";b.dataset.pursuit=d.id;"
+  },
+  {
+    "owner": "src/pursuit_ui.js:17",
+    "source": "b.addEventListener(\"click\",()=>run({type:\"command\",id:d.id,targetId:d.targetId,requestId:pursuitView(read().state,trackId)?.requestId}));"
+  },
+  {
+    "owner": "src/pursuit_ui.js:45",
+    "source": "const b=node(\"button\",r.label);b.type=\"button\";b.dataset.pursuit=`response.${r.id}`;b.addEventListener(\"click\",()=>run({type:\"response\",responseId:r.id}));encounter.append(b);"
+  },
+  {
+    "owner": "src/pursuit_ui.js:47",
+    "source": "const leave=node(\"button\",\"Withdraw from this nonlethal encounter\");leave.type=\"button\";leave.dataset.pursuit=\"withdraw\";leave.addEventListener(\"click\",()=>run({type:\"withdraw\"}));encounter.append(leave);"
+  },
+  {
+    "owner": "src/repository_absorption_ui.js:34",
+    "source": "const summary = node('summary', 'Lantern & floodline work');"
+  },
+  {
+    "owner": "src/repository_absorption_ui.js:51",
+    "source": "records.append(node('summary', 'Your recorded findings'), recordList);"
+  },
+  {
+    "owner": "src/repository_absorption_ui.js:86",
+    "source": "const control = node('button', label);"
+  },
+  {
+    "owner": "src/repository_absorption_ui.js:88",
+    "source": "control.addEventListener('click', () => run(resolve));"
+  },
+  {
+    "owner": "src/repository_absorption_ui.js:91",
+    "source": "const begin = button('Ask about the wet lantern', {type: 'begin'});"
+  },
+  {
+    "owner": "src/repository_absorption_ui.js:93",
+    "source": "const cancel = button('Cancel accepted work', view => {"
+  },
+  {
+    "owner": "src/reveal_chain.js:48",
+    "source": "const line=document.createElement('div'),button=document.createElement('button'),status=document.createElement('span');"
+  },
+  {
+    "owner": "src/reveal_chain.js:53",
+    "source": "button.onclick=()=>{row.id==='run'?toggleRun():investigate();render();update();};line.append(button,status);body.append(line);"
+  },
+  {
+    "owner": "src/reveal_chain.js:55",
+    "source": "if(view.recipe){const note=document.createElement('p');note.textContent='Learned: Weak healing powder. Preparation uses 5 Golmoon leaves. '+(view.craftReason||'An alchemy station is available.');preparations.append(note);const button=document.createElement('button');button.type='button';button.textContent='Review learned herb preparation';button.disabled=!!view.craftReason;button.onclick=craft;preparations.append(button);}"
+  },
+  {
+    "owner": "src/simulation_ui.js:8",
+    "source": "panel.append(node(\"summary\", \"Craftsman & workshop\")); const body = node(\"div\"), description = node(\"p\"), status = node(\"p\"), buttons = node(\"div\"), events = node(\"div\"), history = node(\"ol\");"
+  },
+  {
+    "owner": "src/simulation_ui.js:12",
+    "source": "conversation.open = true; conversation.append(node(\"summary\", \"Conversation & rest\"), conversations);"
+  },
+  {
+    "owner": "src/simulation_ui.js:16",
+    "source": "const button = (label, id, c) => {const b = node(\"button\", label); b.type = \"button\"; b.dataset.simulation = id; b.addEventListener(\"click\", () => run(c)); return b;};"
+  },
+  {
+    "owner": "src/simulation_ui.js:17",
+    "source": "const enroll = button(\"Follow local people and work\", \"enroll\", {type: \"enroll\"}); buttons.append(enroll);"
+  },
+  {
+    "owner": "src/simulation_ui.js:23",
+    "source": "const routine = button(\"Pack 3 kits automatically · reserve each kit's inputs when work starts\", \"routine\", {type: \"program\", id: \"village.measured_pack\", count: 3}); buttons.append(routine);"
+  },
+  {
+    "owner": "src/simulation_ui.js:24",
+    "source": "const pause = button(\"Pause automatic packing after the current kit\", \"pause\", {type: \"pause\"}); buttons.append(pause);"
+  },
+  {
+    "owner": "src/simulation_ui.js:25",
+    "source": "const resume = button(\"Resume the remaining packing target\", \"resume\", {type: \"resume\"}); buttons.append(resume);"
+  },
+  {
+    "owner": "src/simulation_ui.js:26",
+    "source": "const cancel = button(\"Cancel your current work · refund reserved inputs\", \"cancel\", {type: \"cancel\"}); buttons.append(cancel);"
+  },
+  {
+    "owner": "src/simulation_ui.js:92",
+    "source": "encounter.append(button(\"Withdraw · retain spent inputs\", \"withdraw\", {type:\"withdraw\"}));"
+  },
+  {
+    "owner": "src/skill_expansion_ui.js:5",
+    "source": "const summary=node('summary','Methods & practice');summary.tabIndex=0;"
+  },
+  {
+    "owner": "src/skill_expansion_ui.js:10",
+    "source": "const button=(text,c)=>{const b=node('button',text);b.type='button';b.addEventListener('click',()=>run(c));return b;};"
+  },
+  {
+    "owner": "src/skill_expansion_ui.js:11",
+    "source": "const enroll=button('Follow local people and work',{type:'enroll'});panel.append(enroll);"
+  },
+  {
+    "owner": "src/skill_expansion_ui.js:12",
+    "source": "const cancel=button('Cancel accepted work',{type:'cancel'});work.append(cancel);"
+  },
+  {
+    "owner": "src/skill_expansion_ui.js:14",
+    "source": "const withdraw=button('Withdraw from the agreed press · keep spent inputs',{type:'withdraw'});contest.append(withdraw);"
+  },
+  {
+    "owner": "src/start_probe_ui.js:5",
+    "source": "panel.classList.add('start-probe-active');"
+  },
+  {
+    "owner": "src/start_probe_ui.js:14",
+    "source": "const mode=document.createElement('select');mode.dataset.startMode='';mode.setAttribute('aria-label',`${axis} mode`);"
+  },
+  {
+    "owner": "src/start_probe_ui.js:17",
+    "source": "const layer=document.createElement('select');layer.dataset.startLayer='';layer.setAttribute('aria-label',`${axis} layer`);layer.title='Used when this axis is locked';"
+  },
+  {
+    "owner": "src/start_probe_ui.js:21",
+    "source": "mode.addEventListener('change',roll);layer.addEventListener('change',roll);"
+  },
+  {
+    "owner": "src/start_probe_ui.js:51",
+    "source": "seed.addEventListener('input',()=>{resolved=null;delete card.dataset.startResolved;card.textContent='Roll to preview this seed.';use.checked=false;use.disabled=true;});"
+  },
+  {
+    "owner": "src/start_probe_ui.js:52",
+    "source": "section.querySelector('[data-start-roll-button]').addEventListener('click',roll);roll();"
+  },
+  {
+    "owner": "src/storylet_ui.js:5",
+    "source": "panel.append(node('summary','Village encounters'));"
+  },
+  {
+    "owner": "src/storylet_ui.js:6",
+    "source": "const status=node('p'),begin=node('button','Begin Village encounters'),cards=node('div'),news=node('ol');"
+  },
+  {
+    "owner": "src/storylet_ui.js:10",
+    "source": "begin.addEventListener('click',()=>run({type:'storylet_begin'}));"
+  },
+  {
+    "owner": "src/storylet_ui.js:25",
+    "source": "for(const r of e.responses){const b=node('button',r.label);b.type='button';b.dataset.storyletResponse=r.id;"
+  },
+  {
+    "owner": "src/storylet_ui.js:28",
+    "source": "b.addEventListener('click',()=>run({type:'event',eventId:e.id,responseId:r.id}));section.append(b);}"
+  },
+  {
+    "owner": "src/structured_pack_ui.js:6",
+    "source": "const summary=document.createElement('summary');summary.textContent='Your beginning';panel.append(summary);"
+  },
+  {
+    "owner": "src/structured_pack_ui.js:20",
+    "source": "const b=document.createElement('button');b.type='button';b.textContent=label;Object.assign(b.dataset,data);b.disabled=disabled;"
+  },
+  {
+    "owner": "src/structured_pack_ui.js:21",
+    "source": "b.onclick=()=>{"
+  },
+  {
+    "owner": "src/structured_pack_ui.js:67",
+    "source": "const text=node('p',card),progress=node('progress',card),cancel=button('Cancel '+job.label,{structuredCancel:job.id},{type:'cancel',jobId:job.id},false);card.append(cancel);row={card,text,progress,cancel};jobRows.set(job.id,row);}"
+  },
+  {
+    "owner": "src/structured_pack_ui.js:73",
+    "source": "plans.append(button('Stop repeated work',{structuredRepeat:'stop'},{type:'stop-repeat'},false));}"
+  },
+  {
+    "owner": "src/structured_pack_ui.js:79",
+    "source": "renewal.append(button('Accept renewal',{structuredRenewal:'accept'},{type:'renewal'},!view.canWrite||!view.renewal.eligible));"
+  },
+  {
+    "owner": "src/structured_pack_ui.js:85",
+    "source": "const act=button(action.label,{structuredAction:action.id},{type:'action',id:action.id},false),repeat=button('',{structuredRepeat:action.id},{type:'action',id:action.id,times:3},false);card.append(act,repeat);"
+  },
+  {
+    "owner": "src/systems_workshop_ui.js:6",
+    "source": "panel.append(node('summary','Iona’s work ledger · systems and workshop'));const body=node('div'),intro=node('p'),status=node('p'),notice=node('p'),controls=node('div'),records=node('details'),recordBody=node('div');records.append(node('summary','Terms and observed workshop records'),recordBody);panel.append(body);body.append(intro,status,notice,controls,records);"
+  },
+  {
+    "owner": "src/systems_workshop_ui.js:12",
+    "source": "later.append(node('summary','Learning, assistance, irrigation and optional actions'),laterBody);controls.append(nextActions,later);"
+  },
+  {
+    "owner": "src/systems_workshop_ui.js:14",
+    "source": "const buttons=new Map();const add=(id,label)=>{const b=node('button',label);b.type='button';b.dataset.systems=id;b.addEventListener('click',()=>run(id));const row=node('div'),quote=node('small');row.append(b,quote);(primary.has(id)?nextActions:laterBody).append(row);buttons.set(id,b);};"
+  },
+  {
+    "owner": "src/systems_workshop_ui.js:15",
+    "source": "add('enroll','Follow local people and work');"
+  },
+  {
+    "owner": "src/systems_workshop_ui.js:17",
+    "source": "add('continue','Continue sealed draw · settle once');add('apply_model','Apply tested routing · log → real fittings · 2 min');add('cancel','Cancel reserved workshop job · return inputs');"
+  },
+  {
+    "owner": "src/technique_ui.js:11",
+    "source": "const heading = node(\"summary\", \"Movement observations\"); panel.append(heading);"
+  },
+  {
+    "owner": "src/technique_ui.js:20",
+    "source": "const card = node(\"div\", \"\", \"expedition_card\"), button = node(\"button\", \"\");"
+  },
+  {
+    "owner": "src/technique_ui.js:24",
+    "source": "button.addEventListener(\"click\", () => {"
+  },
+  {
+    "owner": "src/technique_ui.js:39",
+    "source": "const button = node(\"button\", \"\"); button.type = \"button\"; controls.append(button); buttons.push(button);"
+  },
+  {
+    "owner": "src/technique_ui.js:40",
+    "source": "button.addEventListener(\"click\", () => {"
+  },
+  {
+    "owner": "src/technique_ui.js:50",
+    "source": "const cancelButton = node(\"button\", \"\"); cancelButton.type = \"button\";"
+  },
+  {
+    "owner": "src/technique_ui.js:51",
+    "source": "cancelButton.addEventListener(\"click\", () => {"
+  },
+  {
+    "owner": "src/technique_ui.js:58",
+    "source": "const waiting = node(\"p\", \"\", \"expedition_preview\"), cancelTimed = node(\"button\", \"Cancel timed practice · no practice reward\"); cancelTimed.type=\"button\";"
+  },
+  {
+    "owner": "src/technique_ui.js:60",
+    "source": "cancelTimed.addEventListener(\"click\", () => {"
+  },
+  {
+    "owner": "src/titles_ui.js:10",
+    "source": "const summary=node('summary','Titles'),body=node('div');panel.append(summary,body);"
+  },
+  {
+    "owner": "src/titles_ui.js:33",
+    "source": "const section=node('div'),label=node('label'),toggle=node('input');"
+  },
+  {
+    "owner": "src/titles_ui.js:35",
+    "source": "toggle.addEventListener('change',()=>{selectWorn(worn.worn,toggle.checked);render();});"
+  },
+  {
+    "owner": "src/titles_ui.js:37",
+    "source": "const select=node('select');select.setAttribute('aria-label','Worn title');"
+  },
+  {
+    "owner": "src/titles_ui.js:41",
+    "source": "select.addEventListener('change',()=>{selectWorn(select.value || null,worn.enabled);render();});"
+  },
+  {
+    "owner": "src/town_ui.js:7",
+    "source": "panel.append(node(\"summary\", \"Survey office\"));"
+  },
+  {
+    "owner": "src/town_ui.js:13",
+    "source": "const card = node(\"div\", \"\", \"expedition_card\"), button = node(\"button\", action.label), reason = node(\"p\", \"\", \"expedition_requirements\"), timing=node(\"p\",\"\",\"expedition_preview\");"
+  },
+  {
+    "owner": "src/town_ui.js:15",
+    "source": "button.addEventListener(\"click\", () => {"
+  },
+  {
+    "owner": "src/town_ui.js:22",
+    "source": "const stop = node(\"button\", \"Cancel unfinished town work\"); stop.type = \"button\"; stop.dataset.townCancel = \"work\";"
+  },
+  {
+    "owner": "src/town_ui.js:23",
+    "source": "stop.addEventListener(\"click\", () => {"
+  },
+  {
+    "owner": "src/town_ui.js:30",
+    "source": "remembered.append(node(\"summary\", \"Last exchange\"), memory); body.append(remembered);"
+  },
+  {
+    "owner": "src/ui/combat_display.js:62",
+    "source": "attacker_div.classList.add(\"attacker_div\", \"fighter_div\");"
+  },
+  {
+    "owner": "src/ui/combat_display.js:65",
+    "source": "attack_stats.classList.add(\"fighter_stats\");"
+  },
+  {
+    "owner": "src/ui/combat_display.js:69",
+    "source": "attack_stat_divs[0].classList.add(\"attack_stat\", \"attack_stat_long\");"
+  },
+  {
+    "owner": "src/ui/combat_display.js:70",
+    "source": "attack_stat_divs[1].classList.add(\"attack_stat\", \"attack_stat_short\");"
+  },
+  {
+    "owner": "src/ui/combat_display.js:71",
+    "source": "attack_stat_divs[2].classList.add(\"attack_stat\", \"attack_stat_long\");"
+  },
+  {
+    "owner": "src/ui/combat_display.js:72",
+    "source": "attack_stat_divs[3].classList.add(\"attack_stat\", \"attack_stat_short\");"
+  },
+  {
+    "owner": "src/ui/combat_display.js:73",
+    "source": "attack_stat_divs[4].classList.add(\"attack_stat\", \"attack_stat_short\");"
+  },
+  {
+    "owner": "src/ui/combat_display.js:97",
+    "source": "name_div.classList.add(\"fighter_name\");"
+  },
+  {
+    "owner": "src/ui/combat_display.js:103",
+    "source": "health_div.classList.add(\"health_div\");"
+  },
+  {
+    "owner": "src/ui/combat_display.js:106",
+    "source": "healthbar_max_div.classList.add(\"healthbar_max\");"
+  },
+  {
+    "owner": "src/ui/combat_display.js:109",
+    "source": "healthbar_current_div.classList.add(\"healthbar_current\");"
+  },
+  {
+    "owner": "src/ui/combat_display.js:112",
+    "source": "health_value.classList.add(\"health_value\");"
+  },
+  {
+    "owner": "src/ui/combat_display.js:122",
+    "source": "attacker_attack_bar.classList.add(\"attacker_attack_bar\", \"fighter_attack_bar\");"
+  },
+  {
+    "owner": "src/ui/combat_display.js:147",
+    "source": "fighter_div.classList.add(\"fighter_div\", \"enemy_div\");"
+  },
+  {
+    "owner": "src/ui/combat_display.js:150",
+    "source": "name_div.classList.add(\"enemy_name\", \"fighter_name\");"
+  },
+  {
+    "owner": "src/ui/combat_display.js:153",
+    "source": "stats_div.classList.add(\"enemy_stats\", \"fighter_stats\");"
+  },
+  {
+    "owner": "src/ui/combat_display.js:157",
+    "source": "stat_div.classList.add(\"enemy_stat\", (i==0||i==2||i==3)?\"enemy_stat_long\":\"enemy_stat_short\");"
+  },
+  {
+    "owner": "src/ui/combat_display.js:162",
+    "source": "health_div.classList.add(\"enemy_health_div\", \"health_div\");"
+  },
+  {
+    "owner": "src/ui/combat_display.js:165",
+    "source": "healthbar_max_div.classList.add(\"enemy_healthbar_max\", \"healthbar_max\");"
+  },
+  {
+    "owner": "src/ui/combat_display.js:168",
+    "source": "healthbar_current_div.classList.add(\"enemy_healthbar_current\", \"healthbar_current\");"
+  },
+  {
+    "owner": "src/ui/combat_display.js:171",
+    "source": "enemy_health_value.classList.add(\"enemy_health_value\", \"health_value\");"
+  },
+  {
+    "owner": "src/ui/combat_display.js:178",
+    "source": "enemy_attack_bar.classList.add(\"enemy_attack_bar\", \"fighter_attack_bar\");"
+  },
+  {
+    "owner": "src/ui_components.js:35",
+    "source": "const search=document.createElement('input');search.type='search';search.placeholder=`Find ${label}`;search.setAttribute('aria-label',`Find ${label}`);"
+  },
+  {
+    "owner": "src/ui_components.js:51",
+    "source": "search.addEventListener('input',()=>{refresh();list.scrollTop=0;});"
+  },
+  {
+    "owner": "src/village_career_ui.js:9",
+    "source": "const action=(id,label,fn,disabled)=>{const b=node('button',label);b.type='button';b.id=id;b.disabled=disabled;b.onclick=()=>{try{fn();error.textContent='';}catch(e){error.textContent=e.message;}render();};return b;};"
+  },
+  {
+    "owner": "src/village_career_ui.js:29",
+    "source": "if(!s.recruit)controls.push(action('village_assign_recruit','Ask Tessa to assign Iona',()=>mentor('recruit'),disabled));"
+  },
+  {
+    "owner": "src/village_career_ui.js:35",
+    "source": "for(const term of TEACHING_TERMS)controls.push(action(`village_teach_${term}`,labels[term],()=>mentor(`teach:${term}`),!v.canTeach || !v.study.executable || !!s.loan?.teaching));"
+  },
+  {
+    "owner": "src/village_career_ui.js:38",
+    "source": "controls.push(action('village_recruit_solo','Send Iona on a solo patrol · 120 Village minutes · +10 coins',()=>mentor('solo'),disabled));"
+  },
+  {
+    "owner": "src/village_career_ui.js:39",
+    "source": "if(s.recruit.favors)controls.push(action('village_recruit_cover','Spend 1 favor · Iona covers 120-minute shift · +50 coins · no player career credit',()=>mentor('cover'),disabled));"
+  },
+  {
+    "owner": "src/village_career_ui.js:42",
+    "source": "controls.push(action('village_tuition_accept','Accept Iona’s tuition · +5 coins from her first solo stipend',()=>mentor('tuition:accepted'),disabled));"
+  },
+  {
+    "owner": "src/village_career_ui.js:43",
+    "source": "controls.push(action('village_tuition_decline','Decline Iona’s tuition · no coins or obligation',()=>mentor('tuition:declined'),disabled));"
+  },
+  {
+    "owner": "src/village_career_ui.js:49",
+    "source": "if(s.rank>=1 && !w.known && !s.watchcraft.tutoring)controls.push(action('village_watchcraft_tutor','Learn from Tessa in person · 6 meditation minutes · no book or coin cost',tutor,disabled));"
+  },
+  {
+    "owner": "src/village_career_ui.js:50",
+    "source": "if(s.rank>=1 && !s.watchcraft.notesIssued)controls.push(action('village_watchcraft_notes',`Ask Tessa for ${WATCHCRAFT_BOOK}`,notes,disabled));"
+  },
+  {
+    "owner": "src/village_career_ui.js:51",
+    "source": "if(s.watchcraft.issued && !w.known)controls.push(action('village_watchcraft_read','Read watchcraft notes · 6 minutes',readNotes,disabled||!v.hasNotes));"
+  },
+  {
+    "owner": "src/village_career_ui.js:53",
+    "source": "if(w.known && !w.practiced)controls.push(action('village_watchcraft_practice','Rehearse watchcraft while meditating · 5 minutes',practice,disabled));"
+  },
+  {
+    "owner": "src/village_career_ui.js:55",
+    "source": "controls.push(action('village_return_kit','Return loaned kit',()=>resolve('return'),disabled));"
+  },
+  {
+    "owner": "src/village_career_ui.js:56",
+    "source": "controls.push(s.debt?action('village_pay_debt',`Pay ${KIT_DEBT}-coin kit debt`,()=>resolve('pay'),disabled):action('village_keep_kit','Keep kit and record debt',()=>resolve('keep'),disabled));"
+  },
+  {
+    "owner": "src/village_career_ui.js:58",
+    "source": "if(s.rank<2)controls.push(action('village_promotion',`Ask Tessa: ${CAREER_RANKS[s.rank+1]}`,promote,disabled||!!unmet.length));"
+  },
+  {
+    "owner": "src/village_career_ui.js:63",
+    "source": "const shortcut=node('button','Patrol blocked: return the loaned kit · Open Patrol & custody');shortcut.type='button';shortcut.id='village_patrol_custody_link';"
+  },
+  {
+    "owner": "src/village_career_ui.js:64",
+    "source": "shortcut.onclick=()=>openWorkspaceModule('patrol');"
+  },
+  {
+    "owner": "src/village_ui.js:11",
+    "source": "panel.append(node(\"summary\", \"Village notes\"));"
+  },
+  {
+    "owner": "src/village_ui.js:18",
+    "source": "const reading = node(\"button\", \"Read the route booklet · 4 min\"); reading.type = \"button\"; reading.dataset.villageRead = \"notes\";"
+  },
+  {
+    "owner": "src/village_ui.js:19",
+    "source": "reading.addEventListener(\"click\", () => {"
+  },
+  {
+    "owner": "src/village_ui.js:27",
+    "source": "const inspect = node(\"button\", \"Inspect the crossing\"); inspect.type = \"button\"; inspect.dataset.villageBridge = \"inspect\";"
+  },
+  {
+    "owner": "src/village_ui.js:28",
+    "source": "inspect.addEventListener(\"click\", () => {"
+  },
+  {
+    "owner": "src/village_ui.js:35",
+    "source": "const cancelButton = node(\"button\", \"Cancel work · return reserved materials and coins\"); cancelButton.type = \"button\";"
+  },
+  {
+    "owner": "src/village_ui.js:37",
+    "source": "cancelButton.addEventListener(\"click\", () => {"
+  },
+  {
+    "owner": "src/village_ui.js:47",
+    "source": "const card = node(\"div\", \"\", \"expedition_card\"), button = node(\"button\", action.label); button.type = \"button\";"
+  },
+  {
+    "owner": "src/village_ui.js:50",
+    "source": "button.addEventListener(\"click\", () => {"
+  },
+  {
+    "owner": "src/village_workspace.js:26",
+    "source": "const placeTabs=node('nav');placeTabs.className='scene-local-tabs';placeTabs.setAttribute('aria-label','Location sections');let placeTab='actions';for(const [id,label]of [['actions','Actions'],['people','People'],['things','Things'],['options','Options']]){const b=node('button',label);b.type='button';b.dataset.placeTab=id;b.onclick=()=>{placeTab=id;render();};placeTabs.append(b);}scene.append(clock,placeTabs,people,things,groups);"
+  },
+  {
+    "owner": "src/village_workspace.js:34",
+    "source": "const combatDetails=node('details'),combatSummary=node('summary','Combat readout');combatDetails.className='combat-readout';combatDetails.append(combatSummary,enemyFacts,enemyEmpty);enemyView.append(enemyChoices,enemyName,enemyHealth,enemyCycleLabel,combatDetails);const enemyChoiceNodes=new Map();"
+  },
+  {
+    "owner": "src/village_workspace.js:37",
+    "source": "const factNodes=new Map();let readoutChosen=false;combatSummary.addEventListener('click',()=>{readoutChosen=true;});"
+  },
+  {
+    "owner": "src/village_workspace.js:38",
+    "source": "const rosterMode=node('button','Panels');rosterMode.type='button';rosterMode.className='combat-roster-mode';let enemyPanels=false,enemyPanelsChosen=false;"
+  },
+  {
+    "owner": "src/village_workspace.js:39",
+    "source": "rosterMode.onclick=()=>{enemyPanelsChosen=true;enemyPanels=!enemyPanels;setText(rosterMode,enemyPanels?'Compact':'Panels');setAttr(rosterMode,'aria-pressed',enemyPanels);render();};rosterMode.title='Show an individual health and attack-cycle panel for each opponent. Inspection never selects an attack target.';"
+  },
+  {
+    "owner": "src/village_workspace.js:54",
+    "source": "let b=enemyChoiceNodes.get(enemy.id);if(!b){b=node('button');b.type='button';b.dataset.inspectEnemy=enemy.id;b.append(node('span'),node('small'),node('progress'));b.lastChild.max=100;b.onclick=()=>{selectedEnemy=enemy.id;render();};enemyChoiceNodes.set(enemy.id,b);enemyChoices.append(b);}"
+  },
+  {
+    "owner": "src/village_workspace.js:64",
+    "source": "const name=node('button'),hp=node('p'),cycle=node('progress'),facts=node('dl'),empty=node('small');"
+  },
+  {
+    "owner": "src/village_workspace.js:65",
+    "source": "name.type='button';name.dataset.inspectEnemy=enemy.id;name.onclick=()=>{selectedEnemy=enemy.id;render();};name.className='enemy-card-name';hp.className='enemy-card-health';hp.append(node('span'));cycle.max=100;cycle.className='enemy-card-cycle';empty.textContent='No combat details observed.';"
+  },
+  {
+    "owner": "src/village_workspace.js:107",
+    "source": "document.addEventListener('keydown',leaveSubject);"
+  },
+  {
+    "owner": "src/village_workspace.js:108",
+    "source": "function chip(row,kind){const b=node('button',row.name);b.type='button';"
+  },
+  {
+    "owner": "src/village_workspace.js:109",
+    "source": "b.dataset.sceneFocus=row.id;b.onclick=()=>choose(row.id);return b;}"
+  },
+  {
+    "owner": "src/village_workspace.js:138",
+    "source": "for(const action of active.actions){const b=node('button',action.label);b.type='button';b.dataset.sceneAction=action.id;b.disabled=!!action.disabled;b.title=action.reason||'';"
+  },
+  {
+    "owner": "src/village_workspace.js:139",
+    "source": "b.onclick=()=>{act(action.id);render();};row.append(b);}"
+  },
+  {
+    "owner": "src/village_workspace.js:161",
+    "source": "const nearby=node('div');nearby.className='shell-nearby';for(const person of frame.people){const b=node('button');b.type='button';b.append(node('strong',person.name),node('small',person.role||'Known person'));b.onclick=()=>choose(person.id);b.title=`Inspect ${person.name}. Does not start a conversation.`;b.dataset.inspectNearby=person.id;nearby.append(b);}"
+  },
+  {
+    "owner": "src/village_workspace.js:162",
+    "source": "for(const thing of frame.things){const b=node('button');b.type='button';b.append(node('strong',thing.name),node('small',thing.description||'Here'));b.onclick=()=>choose(thing.id);b.title=`Inspect ${thing.name}. Does not use it.`;b.dataset.inspectNearby=thing.id;b.dataset.nearbyKind='thing';nearby.append(b);}"
+  },
+  {
+    "owner": "src/village_workspace.js:166",
+    "source": "if(target&&shell&&selected&&!frame.dialogue&&target.kind!=='enemy'){const back=node('button',`← ${frame.place}`);back.type='button';back.className='shell-focus-back';back.dataset.focusBack='';back.title='Back to the place overview. Esc also works.';back.onclick=()=>choose(null);focus.append(back);}"
+  },
+  {
+    "owner": "src/village_workspace.js:172",
+    "source": "for(const choice of active.actions){const b=node('button',choice.label);b.type='button';b.disabled=!!choice.disabled;b.title=choice.reason||'';b.dataset.focusAction=choice.id;b.onclick=()=>{act(choice.id);render();};menu.append(b);}focus.append(menu);}"
+  },
+  {
+    "owner": "src/work_ledger_author_ui.js:7",
+    "source": "const editor=document.createElement('textarea');editor.id='work_ledger_rules_draft';editor.rows=16;editor.setAttribute('aria-label','Original Work Ledger rule draft');reading.append(editor);"
+  },
+  {
+    "owner": "src/work_ledger_author_ui.js:10",
+    "source": "let dirty=false,busy=false;editor.addEventListener('input',()=>dirty=true);"
+  },
+  {
+    "owner": "src/work_ledger_author_ui.js:11",
+    "source": "const button=(id,label,action,persist=true)=>{const b=document.createElement('button');b.id=id;b.type='button';b.textContent=label;b.onclick=async()=>{if(busy)return;try{busy=true;refresh();await action();if(persist){dirty=false;status.textContent='Saved.';refresh(true);}else status.textContent='Draft exported.';}catch(e){status.textContent=e.message;}finally{busy=false;refresh();}};actions.append(b);return b;};"
+  },
+  {
+    "owner": "src/work_ledger_author_ui.js:12",
+    "source": "const applyButton=button('apply_work_ledger_rules','Apply rules',()=>apply(JSON.parse(editor.value)));"
+  },
+  {
+    "owner": "src/work_ledger_author_ui.js:13",
+    "source": "button('reload_work_ledger_draft','Discard draft',()=>{dirty=false;refresh(true);});"
+  },
+  {
+    "owner": "src/work_ledger_author_ui.js:14",
+    "source": "const resetButton=button('reset_work_ledger_rules','Reset original rules',()=>reset());"
+  },
+  {
+    "owner": "src/work_ledger_author_ui.js:15",
+    "source": "button('export_work_ledger_rules','Export rules',()=>{const blob=new Blob([JSON.stringify(JSON.parse(editor.value),null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='original-work-ledger-rules.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),0);},false);"
+  },
+  {
+    "owner": "src/work_ledger_author_ui.js:16",
+    "source": "const file=document.createElement('input');file.type='file';file.accept='.json,application/json';file.id='import_work_ledger_rules';file.setAttribute('aria-label','Import original rules into draft');file.onchange=async()=>{try{const raw=JSON.parse(await file.files[0].text());if(!raw||typeof raw!=='object'||Array.isArray(raw))throw new Error('Import an original rule definition.');raw.revision=read().revision;editor.value=JSON.stringify(raw,null,2);dirty=true;status.textContent='Imported into the current draft revision. Apply validates before saving.';}catch(e){status.textContent=e.message;}file.value='';};reading.append(file);"
+  },
+  {
+    "owner": "src/work_ledger_ui.js:9",
+    "source": "const summary = document.createElement('summary'); summary.textContent = 'Work ledger'; panel.append(summary);"
+  },
+  {
+    "owner": "src/work_ledger_ui.js:67",
+    "source": "const button = element('button', row.label, actions); button.type = 'button'; button.dataset.ledgerControl = row.action;"
+  },
+  {
+    "owner": "src/work_ledger_ui.js:69",
+    "source": "button.onclick = () => submit(row.action);"
+  },
+  {
+    "owner": "src/work_ledger_ui.js:77",
+    "source": "const control = document.createElement('select'); control.dataset.ledgerControl = key;"
+  },
+  {
+    "owner": "src/work_ledger_ui.js:80",
+    "source": "control.onchange = () => { cancelEffects(); submit('settings', {...settings, [key]: control.value}); };"
+  },
+  {
+    "owner": "src/work_ledger_ui.js:84",
+    "source": "const cancel = element('button', 'Cancel active effect', presentation); cancel.type = 'button'; cancel.dataset.ledgerControl = 'cancel-effect'; cancel.onclick = cancelEffects;"
+  },
+  {
+    "owner": "src/workspace_disclosure.js:20",
+    "source": "node?.addEventListener('click', event => {if(node.dataset.referenceKnown==='false'){event.preventDefault();event.stopImmediatePropagation();}},true);"
+  },
+  {
+    "owner": "src/workspace_layout.js:47",
+    "source": "function button(label, action, id) { const b = el('button', '', label); b.type = 'button'; b.dataset.workspaceAction = action; if (id) b.dataset.module = id; return b; }"
+  },
+  {
+    "owner": "src/workspace_layout.js:64",
+    "source": "const handle = button('↕', 'handle', module.id); handle.className = 'workspace-drag-handle'; handle.draggable = false; handle.title = 'Drag to reorder or dock. Arrow keys move; left/right changes dock.';"
+  },
+  {
+    "owner": "src/workspace_layout.js:67",
+    "source": "title.addEventListener('click', toggle);"
+  },
+  {
+    "owner": "src/workspace_layout.js:68",
+    "source": "title.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); } });"
+  },
+  {
+    "owner": "src/workspace_layout.js:70",
+    "source": "header.append(handle, title, status, button('Collapse', 'collapse', module.id), button('Expand', 'expand', module.id), button('Pin', 'pin', module.id));"
+  },
+  {
+    "owner": "src/workspace_layout.js:71",
+    "source": "const details = el('details', 'workspace-module-controls'); const summary = el('summary', '', 'Options'); details.append(summary);"
+  },
+  {
+    "owner": "src/workspace_layout.js:72",
+    "source": "const label = el('label', '', 'Dock '), select = el('select'); select.dataset.workspaceAction = 'dock'; select.dataset.module = module.id;"
+  },
+  {
+    "owner": "src/workspace_layout.js:74",
+    "source": "details.append(button('Earlier', 'earlier', module.id), button('Later', 'later', module.id), button('Hide', 'hide', module.id));"
+  },
+  {
+    "owner": "src/workspace_layout.js:75",
+    "source": "for (const dimension of ['width', 'height']) { const label = el('label', 'workspace-resize', `${dimension} `), range = el('input'); range.type = 'range'; range.min = dimension === 'width' ? '260' : '40'; range.max = '1000'; range.step = '20'; range.dataset.workspaceAction = dimension; range.dataset.module = module.id; label.append(range); details.append(label); }"
+  },
+  {
+    "owner": "src/workspace_layout.js:76",
+    "source": "const moves = el('div', 'workspace-float-controls'); moves.append(button('←', 'float-left', module.id), button('↑', 'float-up', module.id), button('↓', 'float-down', module.id), button('→', 'float-right', module.id)); details.append(moves);"
+  },
+  {
+    "owner": "src/workspace_layout.js:77",
+    "source": "const body = el('div', 'workspace-module-body'); body.append(module.node); header.append(details); shell.append(header, body); for (const edge of ['e','s','se']) { const grip = el('button','workspace-resize-grip'); grip.type='button'; grip.dataset.resize=edge; grip.dataset.module=module.id; shell.append(grip); } module.shell = shell; module.header=header; module.body = body; labelShell(module, false); owner.docks.left.append(shell);"
+  },
+  {
+    "owner": "src/workspace_layout.js:195",
+    "source": "if (!restore) { restore = button(`Open ${module.title}`, 'restore', state.id); owner.picker.append(restore); }"
+  },
+  {
+    "owner": "src/workspace_layout.js:351",
+    "source": "const module=registry.get(g.id),shell=module.shell; shell.classList.add('workspace-moving');"
+  },
+  {
+    "owner": "src/workspace_layout.js:378",
+    "source": "play.addEventListener('keydown', e => { if (['Enter', ' '].includes(e.key)) { e.preventDefault(); play.click(); } });"
+  },
+  {
+    "owner": "src/workspace_layout.js:393",
+    "source": "const menu = el('details', 'workspace-layout-menu'), menuSummary = el('summary', '', 'Layout'), tools = el('div', 'workspace-layout-tools');"
+  },
+  {
+    "owner": "src/workspace_layout.js:394",
+    "source": "menu.append(menuSummary, tools); toolbar.append(button('Authoring', 'context'), menu);"
+  },
+  {
+    "owner": "src/workspace_layout.js:395",
+    "source": "const presentation=el('select');presentation.dataset.workspaceAction='presentation';presentation.setAttribute('aria-label','Presentation');"
+  },
+  {
+    "owner": "src/workspace_layout.js:399",
+    "source": "toolbar.append(button('Comfortable','toggle-density'));tools.append(presentationLabel,button('Edit layout', 'edit-layout'));"
+  },
+  {
+    "owner": "src/workspace_layout.js:400",
+    "source": "const presetLabel = el('label', '', 'Layout '), presets = el('select'); presets.dataset.workspaceAction = 'preset'; ['Workspace', 'Classic', 'Focus', 'Compare'].forEach(v => { const o = el('option', '', v); o.value = v; presets.append(o); }); presetLabel.append(presets); tools.append(presetLabel, button('Reset layout', 'reset'));"
+  },
+  {
+    "owner": "src/workspace_layout.js:401",
+    "source": "const densityLabel = el('label', '', 'Density '), density = el('select'); density.dataset.workspaceAction='density'; ['compact','comfortable','inspection'].forEach(v=>{const o=el('option','',v);o.value=v;density.append(o);}); densityLabel.append(density);tools.append(densityLabel);"
+  },
+  {
+    "owner": "src/workspace_layout.js:402",
+    "source": "const colorsLabel = el('label', '', 'Colors '), colors = el('select'); colors.dataset.workspaceAction = 'colors'; [['standard','Standard'],['vivid','Vivid']].forEach(([v,t])=>{const o=el('option','',t);o.value=v;colors.append(o);}); colorsLabel.append(colors); tools.append(colorsLabel); colors.value = readColorScheme(); applyColorScheme(colors.value);"
+  },
+  {
+    "owner": "src/workspace_layout.js:403",
+    "source": "const craftLabel = el('label', '', 'Crafting detail '), craft = el('select'); craft.dataset.workspaceAction = 'craft-detail'; [['beside','Beside list'],['below','Below list']].forEach(([v,t])=>{const o=el('option','',t);o.value=v;craft.append(o);}); craftLabel.append(craft); tools.append(craftLabel); craft.value = readCraftDetail(); applyCraftDetail(craft.value);"
+  },
+  {
+    "owner": "src/workspace_layout.js:404",
+    "source": "const picker = el('details', 'workspace-picker'); picker.append(el('summary', '', 'Panels')); tools.append(picker);"
+  },
+  {
+    "owner": "src/workspace_layout.js:405",
+    "source": "const transfer = el('details', 'workspace-transfer'); transfer.append(el('summary', '', 'Layout configuration'));"
+  },
+  {
+    "owner": "src/workspace_layout.js:406",
+    "source": "const config = el('textarea'); config.setAttribute('aria-label', 'Layout configuration'); config.rows = 5; transfer.append(config, button('Export layout', 'export'), button('Import layout', 'import')); tools.append(transfer);"
+  },
+  {
+    "owner": "src/workspace_layout.js:410",
+    "source": "for(let i=0;i<2;i++) { const divider=el('button','workspace-divider'); divider.type='button'; divider.dataset.divider=i; divider.setAttribute('aria-label', `Resize ${i === 0 ? 'left and center' : 'center and right'} columns`); board.append(divider); }"
+  },
+  {
+    "owner": "src/workspace_layout.js:420",
+    "source": "root.classList.add('workspace-active'); root.prepend(toolbar,contextBar,board);"
+  },
+  {
+    "owner": "src/workspace_layout.js:519",
+    "source": "const heading=module.shell.querySelector('.workspace-module-header');heading.classList.add('expanded-panel-heading');heading.tabIndex=-1;"
+  },
+  {
+    "owner": "src/workspace_navigation.js:33",
+    "source": "for(const route of routes){const [label,key,id]=route,b=document.createElement('button');b.type='button';b.textContent=label;"
+  },
+  {
+    "owner": "src/workspace_navigation.js:34",
+    "source": "b.dataset.panelPath=id;if(route[3])b.dataset.panelTab=route[3];b.title=`${label} · Alt+${key.toUpperCase()}`;b.setAttribute('aria-keyshortcuts',`Alt+${key}`);b.onclick=()=>{delete b.dataset.newHome;go(route);};nav.append(b);buttons.set(route,b);}"
+  },
+  {
+    "owner": "src/workspace_navigation.js:35",
+    "source": "const more=document.createElement('select');more.setAttribute('aria-label','Other known panels');"
+  },
+  {
+    "owner": "src/workspace_navigation.js:36",
+    "source": "more.onchange=()=>{if(more.value){arrivals.delete(more.value);expandWorkspaceModule(more.value);}more.value='';};nav.append(more);"
+  },
+  {
+    "owner": "src/workspace_navigation.js:37",
+    "source": "const help=document.createElement('button');help.type='button';help.textContent='?';help.title='Keyboard shortcuts · ?';nav.append(help);"
+  },
+  {
+    "owner": "src/workspace_navigation.js:39",
+    "source": "const list=document.createElement('div'),close=document.createElement('button');close.type='button';close.textContent='Close';close.onclick=()=>sheet.close();sheet.append(title,list,close);nav.append(sheet);"
+  },
+  {
+    "owner": "src/workspace_navigation.js:40",
+    "source": "const showHelp=()=>{list.replaceChildren();for(const [route,b]of buttons)if(!b.hidden){const p=document.createElement('p');p.textContent=b.title;list.append(p);}const p=document.createElement('p');p.textContent='Esc: return to the named previous view. F6 / Shift+F6: cycle visible panels.';list.append(p);sheet.showModal();};help.onclick=showHelp;"
+  },
+  {
+    "owner": "src/workspace_navigation.js:42",
+    "source": "const paneButtons=new Map();for(const label of ['Here','Skills','Crafting','Mixing']){const route=routes.find(r=>r[0]===label),b=document.createElement('button');b.type='button';b.textContent=label;b.dataset.panelPath=route[2];b.onclick=()=>go(route);paneNav.append(b);paneButtons.set(route,b);}"
+  },
+  {
+    "owner": "src/workspace_navigation.js:43",
+    "source": "const paneHelp=document.createElement('button');paneHelp.type='button';paneHelp.textContent='?';paneHelp.title='Keyboard shortcuts';paneHelp.onclick=showHelp;paneNav.append(paneHelp);"
+  },
+  {
+    "owner": "src/workspace_navigation.js:71",
+    "source": "document.addEventListener('keydown',event=>{"
+  },
+  {
+    "owner": "src/workspace_views.js:20",
+    "source": "const jump=document.createElement('button');jump.type='button';jump.textContent='Open local controls';"
+  },
+  {
+    "owner": "src/workspace_views.js:21",
+    "source": "jump.onclick=()=>{if(read().waiting){openWorkspaceModule('notebook');return;}openWorkspaceModule('local-actions');const target=document.getElementById('location_related_div');target?.scrollIntoView({block:'nearest'});const first=target?.querySelector('button:not(:disabled),[role=\"button\"],summary');first?.focus();};"
+  },
+  {
+    "owner": "src/workspace_views.js:32",
+    "source": "const prose=document.getElementById('location_description_div'),more=document.createElement('button');"
+  },
+  {
+    "owner": "src/workspace_views.js:34",
+    "source": "more.onclick=()=>{const open=prose.dataset.proseOpen!=='true';prose.dataset.proseOpen=String(open);syncProse();};"
+  },
+  {
+    "owner": "src/workspace_views.js:71",
+    "source": "nativeHost?.addEventListener('keydown',onKey);"
+  },
+  {
+    "owner": "src/workspace_views.js:77",
+    "source": "const panel=document.createElement('details');panel.id='workspace_equipment_comparison';const title=document.createElement('summary');title.textContent='Equipment comparison';panel.append(title);"
+  },
+  {
+    "owner": "src/workspace_views.js:80",
+    "source": "const selects=[0,1].map(i=>{const label=document.createElement('label');label.textContent=i?'Compare with ':'Compare item ';const select=document.createElement('select');select.setAttribute('aria-label',i?'Second equipment item':'First equipment item');label.append(select);choices.append(label);select.onchange=()=>render(true);return select;});"
+  }
+]

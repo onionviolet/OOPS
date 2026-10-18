@@ -1,0 +1,189 @@
+https://gameaccessibilityguidelines.com/full-list/
+Full list – Game Accessibility Guidelines
+Skip to content
+Home
+Turn dark mode
+off
+on
+Basic
+Intermediate
+Advanced
+Full list
+Why and how
+Full list
+All three sets of guidelines displayed together as a single categorised list.
+Levels explained
+Basic
+Easy to implement, wide reaching and apply to almost all game mechanics.
+Intermediate
+Require some planning and effort but often just good general game design.
+Advanced
+Complex adaptations for profound impairments and specific niche mechanics.
+Motor
+(Control / mobility)
+Basic
+Include an option to adjust the game speed
+Include toggle/slider for any haptics
+Ensure interactive elements / virtual controls are large and well spaced, particularly on small or touch screens
+Include an option to adjust the sensitivity of controls
+Ensure that all areas of the user interface can be accessed using the same input method as the gameplay
+Ensure controls are as simple as possible, or provide a simpler alternative
+Allow controls to be remapped / reconfigured
+Intermediate
+Do not rely on motion tracking of specific body types
+Provide a macro system
+Allow interfaces to be resized
+Allow interfaces to be rearranged
+Avoid / provide alternatives to requiring buttons to be held down
+If producing a PC game, support windowed mode for compatibility with overlaid virtual keyboards
+Avoid repeated inputs (button-mashing/quick time events)
+Ensure that all key actions can be carried out by digital controls (pad / keys / presses), with more complex input (eg. analogue, speech, gesture) not required, and included only as supplementary / alternative input methods
+Ensure that multiple simultaneous actions (eg. click/drag or swipe) are not required, and included only as a supplementary / alternative input method
+Make interactive elements that require accuracy (eg. cursor/touch controlled menu options) stationary
+Support more than one input device
+Advanced
+Provide very simple control schemes that are compatible with assistive technology devices, such as switch or eye tracking
+Include a cool-down period (post acceptance delay) of 0.5 seconds between inputs
+Do not make precise timing essential to gameplay – offer alternatives, actions that can be carried out while paused, or a skip mechanism
+Allow play in both landscape and portrait
+Cognitive
+(Thought / memory / processing information)
+Basic
+Avoid flickering images and repetitive patterns
+Allow players to progress through text prompts at their own pace
+Include interactive tutorials
+Use simple clear language
+Allow the game to be started without the need to navigate through multiple levels of menus
+Use simple clear text formatting
+Use an easily readable default font size
+Intermediate
+Highlight important words
+Provide a choice of text colour, low/high contrast choice as a minimum
+Provide gameplay thumbnails with game saves
+Support voice chat as well as text for multiplayer games
+Ensure no essential information (especially instructions) is conveyed by text alone, reinforce with visuals and/or speech
+If using a long overarching narrative, provide summaries of progress
+Employ a simple, clear narrative structure
+Include a means of practicing without failure, such as a practice level or sandbox mode
+Indicate / allow reminder of controls during gameplay
+Indicate / allow reminder of current objectives during gameplay
+Include contextual in-game help / guidance / tips
+Give a clear indication that interactive elements are interactive
+Ensure sound / music choices for each key objects / events are distinct from each other
+Provide an option to turn off / hide background movement
+Provide separate volume controls or mutes for effects, speech and background / music
+Include an option to adjust the game speed
+Include toggle/slider for any haptics
+Advanced
+Provide an option to turn off / hide all non interactive elements
+Allow all narrative and instructions to be replayed
+Avoid any sudden unexpected movement or events
+Provide an option to disable blood and gore
+Provide pre-recorded voiceovers for all text, including menus and installers
+Use symbol-based chat (smileys etc)
+Vision
+Basic
+Provide high contrast between text/UI and background
+Use simple clear text formatting
+Use an easily readable default font size
+Avoid VR simulation sickness triggers
+If the game uses field of view (3D engine only), set an appropriate default for the expected viewing environment
+Ensure no essential information is conveyed by a fixed colour alone
+Ensure interactive elements / virtual controls are large and well spaced, particularly on small or touch screens
+Intermediate
+Avoid placing essential temporary information outside the player’s eye-line
+Ensure manual / website are provided in a screen reader friendly format
+Give a clear indication that interactive elements are interactive
+Provide a choice of cursor / crosshair colours / designs
+Ensure sound / music choices for each key objects / events are distinct from each other
+Provide an option to adjust contrast
+Ensure screenreader support for mobile devices
+Provide an option to turn off / hide background movement
+Use surround sound
+Avoid (or provide option to disable) any difference between controller movement and camera movement
+If the game uses field of view (3D engine only), allow a means for it to be adjusted
+Provide separate volume controls or mutes for effects, speech and background / music
+Allow interfaces to be resized
+Advanced
+Provide an audio description track
+Simulate binaural recording
+Use distinct sound / music design for all objects and events
+Ensure screen reader support, including menus & installers
+Ensure that all key actions can be carried out by digital controls (pads / keys / presses), with more complex input (eg. analogue, gesture) not required, and included only as supplementary / alternative input methods
+Allow easy orientation to / movement along compass points
+Provide a voiced GPS
+Provide pre-recorded voiceovers for all text, including menus and installers
+Provide a pingable sonar-style audio map
+Allow the font size to be adjusted
+Hearing
+Basic
+If any subtitles / captions are used, present them in a clear, easy to read way
+Ensure no essential information is conveyed by sounds alone
+Provide separate volume controls or mutes for effects, speech and background / music
+Provide subtitles for all important speech
+Intermediate
+Provide a stereo/mono toggle
+Ensure that all important supplementary information (eg. the direction you are being shot from) conveyed by audio is replicated in text / visuals
+Allow subtitle/caption presentation to be customised
+Provide a visual indication of who is currently speaking
+Provide captions or visuals for significant background sounds
+Ensure subtitles/captions are or can be turned on before any sound is played
+Provide subtitles for supplementary speech
+Keep background noise to minimum during speech
+Provide visual means of communicating in multiplayer
+Support text chat as well as voice for multiplayer
+Allow a preference to be set for playing online multiplayer with players who will only play with / are willing to play without voice chat
+Advanced
+Provide signing
+Ensure that subtitles/captions are cut down to and presented at an appropriate words-per-minute for the target age-group
+Use symbol-based chat (smileys etc)
+Speech
+Basic
+Ensure that speech input is not required, and included only as a supplementary / alternative input method
+Intermediate
+Base speech recognition on individual words from a small vocabulary (eg. ‘yes’ ‘no’ ‘open’) instead of long phrases or multi-syllable words
+Provide visual means of communicating in multiplayer
+Support text chat as well as voice for multiplayer
+Allow a preference to be set for playing online multiplayer with players who will only play with / are willing to play without voice chat
+Advanced
+Use symbol-based chat (smileys etc)
+Base speech recognition on hitting a volume threshold (eg. 50%) instead of words
+General
+Basic
+Solicit accessibility feedback
+Ensure that all settings are saved/remembered
+Provide details of accessibility features in-game
+Provide details of accessibility features on packaging and/or website
+Offer a wide choice of difficulty levels
+Intermediate
+Allow gameplay to be fine-tuned by exposing as many variables as possible
+Allow a preference to be set for playing online multiplayer with/without others who are using accessibility features that could give a competitive advantage
+Provide an autosave feature
+Provide a manual save feature
+Include assist modes such as auto-aim and assisted steering
+Offer a means to bypass gameplay elements that aren’t part of the core mechanic, via settings or in-game skip option
+Include some people with impairments amongst play-testing participants
+Allow difficulty level to be altered during gameplay, either through settings or adaptive difficulty
+Advanced
+Realtime text
+<
+-> speech transcription
+Allow settings to be saved to different profiles, at either game or platform level
+Include every relevant category of impairment (motor, cognitive etc) amongst play-testing participants, in representative numbers based on age / demographic of target audience
+All guidelines
+Basic
+Intermediate
+Advanced
+Full list
+Excel checklist download
+Help & advice
+How to work with these guidelines
+About the guidelines
+A collaborative effort between a group of studios, specialists and academics, to produce a straightforward developer friendly reference for ways to avoid unnecessarily excluding players, and ensure that games are just as fun for as wide a range of people as possible.
+Search
+Enter text to
+search
+Contact
+Send us email
+Scroll to top
+(Opens in new tab)

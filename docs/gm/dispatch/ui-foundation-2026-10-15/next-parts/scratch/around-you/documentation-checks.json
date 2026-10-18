@@ -1,0 +1,16 @@
+{
+  "scope": "Documentation, links, citation bounds, triage and asset hash checks only; no build/tests/game/save operations",
+  "localLinks": 18,
+  "repoCitationStarts": 51,
+  "triage": {
+    "1": 5,
+    "2": 6,
+    "3": 5,
+    "4": 5,
+    "5": 0
+  },
+  "taiwuPrivateIgnored": true,
+  "whitespacePass": true,
+  "laneSha256": "3c53c335e27fa3991374b8d8afd97d5b3de0141ff923dbcddde2b37d69cd1eea",
+  "errors": []
+}

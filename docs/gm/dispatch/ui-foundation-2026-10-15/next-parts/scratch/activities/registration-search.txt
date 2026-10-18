@@ -1,0 +1,191 @@
+src/display.js:38:import { activities } from "./activities.js";
+src/display.js:2464:    const available_jobs = Object.values(location.activities).filter(activity => activities[activity.activity_name].type === "JOB" 
+src/display.js:2465:                                                                    && activities[activity.activity_name].canBeDisplayed(get_context())
+src/display.js:2467:                                                                    && activities[activity.activity_name].base_skills_names.filter(skill => !skills[skill].isUnlocked()).length == 0);
+src/display.js:2479:    const available_trainings = Object.values(location.activities).filter(activity => activities[activity.activity_name].type === "TRAINING" 
+src/display.js:2480:                                                                    && activities[activity.activity_name].canBeDisplayed(get_context())
+src/display.js:2482:                                                                    && activities[activity.activity_name].base_skills_names.filter(skill => !skills[skill].isUnlocked()).length == 0);
+src/display.js:2494:        const available_gatherings = Object.values(location.activities).filter(activity => activities[activity.activity_name].type === "GATHERING" 
+src/display.js:2495:                                                                        && activities[activity.activity_name].canBeDisplayed(get_context())
+src/display.js:2497:                                                                        && activities[activity.activity_name].base_skills_names.filter(skill => !skills[skill].isUnlocked()).length == 0);
+src/display.js:2627:            if(!activities[location.activities[key].activity_name]?.isUnlocked() 
+src/display.js:2628:                || !location.activities[key]?.canBeDisplayed(get_context()) 
+src/display.js:2629:                || activities[location.activities[key].activity_name].type !== "JOB") 
+src/display.js:2640:            if(can_work(location.activities[key])) {
+src/display.js:2650:            if(!location.activities[key].infinite){
+src/display.js:2651:                if(location.activities[key].availability_time) {
+src/display.js:2652:                    job_tooltip_content = `Available from ${location.activities[key].availability_time.start} to ${location.activities[key].availability_time.end} <br>`;
+src/display.js:2654:                if(location.activities[key].availability_seasons) {
+src/display.js:2655:                    if(location.activities[key].availability_seasons.length === 3) {
+src/display.js:2656:                        const unavailable_seasons = seasons.filter(x => !location.activities[key].availability_seasons.includes(x));
+src/display.js:2659:                        job_tooltip_content += `Available during ${location.activities[key].availability_seasons.toString().replaceAll(",",", ")} <br>`;
+src/display.js:2663:            const {gathering_time_needed} =  location.activities[key].getActivityEfficiency();
+src/display.js:2664:            job_tooltip_content += `Pays ${format_money(location.activities[key].get_payment())} per every ` +  
+src/display.js:2669:            insert_HTML(activity_div, `<i class="material-icons location_choice_icon">check_box_outline_blank</i> ` + location.activities[key].starting_text);
+src/display.js:2674:            if(!activities[location.activities[key].activity_name]?.canBeDisplayed(get_context())
+src/display.js:2675:                || !location.activities[key]?.canBeDisplayed(get_context())
+src/display.js:2676:                || activities[location.activities[key].activity_name].type !== "TRAINING"
+src/display.js:2677:                || activities[location.activities[key].activity_name].base_skills_names.filter(skill => !skills[skill].isUnlocked()).length > 0) 
+src/display.js:2688:            if(location.activities[key].availability_seasons) {
+src/display.js:2691:                if(location.activities[key].availability_seasons.length === 3) {
+src/display.js:2692:                    const unavailable_seasons = seasons.filter(x => !location.activities[key].availability_seasons.includes(x));
+src/display.js:2695:                    insert_HTML(activity_tooltip, `Available during ${location.activities[key].availability_seasons.toString().replaceAll(",",", ")} <br>`);
+src/display.js:2700:            insert_HTML(activity_div, `<i class="material-icons location_choice_icon">check_box_outline_blank</i> ` + location.activities[key].starting_text);
+src/display.js:2705:            if(!activities[location.activities[key].activity_name]?.canBeDisplayed(get_context())
+src/display.js:2706:                || !location.activities[key]?.canBeDisplayed(get_context())
+src/display.js:2707:                || activities[location.activities[key].activity_name].type !== "GATHERING"
+src/display.js:2708:                || activities[location.activities[key].activity_name].base_skills_names.filter(skill => !skills[skill].isUnlocked()).length > 0) 
+src/display.js:2719:            if(can_work(location.activities[key])) {
+src/display.js:2726:            activity_div.appendChild(create_gathering_tooltip(location.activities[key]));
+src/display.js:2728:            insert_HTML(activity_div, `<i class="material-icons location_choice_icon">check_box_outline_blank</i> ` + location.activities[key].starting_text);
+src/display.js:4066:    for(let i = 0; i < activities[location_activity.activity_name].base_skills_names.length; i++) {
+src/display.js:4067:        skill_names += skills[activities[location_activity.activity_name].base_skills_names[i]].getName();
+src/display.js:4107:    for(let i = 0; i < activities[activity.activity_name].base_skills_names.length; i++) {
+src/display.js:4108:        skill_names += skills[activities[activity.activity_name].base_skills_names[i]].getName();
+src/display.js:4989:    const base_activity = activities[current_activity.activity_name];
+src/display.js:5052:    const base_activity = activities[current_activity.activity_name];
+src/activities.js:84:    activities["fieldwork"] = new Job({
+src/activities.js:91:    activities["patrolling"] = new Job({
+src/activities.js:102:    for(const name of ["scouting","lunar_gathering"])activities[name]=new Training({name,action_text:name==="scouting"?"Scouting familiar ground":"Searching the moonlit herb bed",description:"Native played-time field practice; no additional XP or generic resource roll.",base_skills_names:[],is_unlocked:true});
+src/activities.js:103:    activities["running"] = new Training({
+src/activities.js:110:    activities["weightlifting"] = new Training({
+src/activities.js:117:    activities["balancing"] = new Training({
+src/activities.js:124:    activities["swimming"] = new Training({
+src/activities.js:131:    activities["meditating"] = new Training({
+src/activities.js:138:    activities["climbing"] = new Training({
+src/activities.js:145:    activities["enduring"] = new Training({
+src/activities.js:156:    activities["mining"] = new Gathering({
+src/activities.js:165:    activities["digging"] = new Gathering({
+src/activities.js:174:    activities["woodcutting"] = new Gathering({
+src/activities.js:184:    activities["herbalism"] = new Gathering({
+src/activities.js:194:    activities["animal care"] = new Gathering({
+src/activities.js:203:    activities["harvesting"] = new Gathering({
+src/activities.js:211:    activities["fishing"] = new Gathering({
+src/models/location.js:5:import { activities } from "../activities.js";
+src/models/location.js:431:        this.activity_name = activity_name; //name of activity from activities.js
+src/models/location.js:502:            for (let i = 0; i < activities[this.activity_name].base_skills_names?.length; i++) {
+src/models/location.js:503:                skill_level_sum += character.getSkillModifier(activities[this.activity_name].base_skills_names[i], this.gained_resources.skill_required);
+src/models/location.js:505:            skill_modifier = (skill_level_sum/(activities[this.activity_name].base_skills_names?.length || 1));
+src/models/location.js:521:            const skill = skills[activities[this.activity_name].base_skills_names[0]];
+src/content_pack_ui.js:12:            try{command(packId,action);noticeError=false;const row=read().state.packs[packId],definition=definitions.get(packId)?.activities.find(a=>a.id===action);
+src/content_pack_ui.js:16:                else if(action==='return'&&row?.job){lastWork={packId,actionId:row.job.actionId,hadJob:true,label:definitions.get(packId).activities.find(a=>a.id===row.job.actionId)?.label||'Local work'};notice+=' Work paused while away; no completion pay.';}
+src/content_pack_ui.js:21:        const view=read(),next=JSON.stringify(view)+definitions.size+[...definitions.values()].map(d=>d.title+d.activities.map(a=>a.label+a.duration+(a.pay||0)).join()).join();if(!force&&signature===next)return;signature=next;
+src/content_pack_ui.js:34:                if(row.job)cache.work.textContent=(d.activities.find(a=>a.id===row.job.actionId)?.label||'Local work')+' · '+(view.pauseReason?view.pauseReason+' ':!view.canAct?'Paused until saving is restored. ':'Running. ')+row.job.remaining+' played minutes remaining. Leaving pauses this work without pay.';
+src/main.js:244:import { activities } from "./activities.js";
+src/main.js:2236:    if(!restoringNativeSave && Object.values(optionalPackState.packs).some(r=>r.active))return 'Return from your optional world before starting native activities.';
+src/main.js:3522:    current_activity = Object.assign({},current_location.activities[selected_activity]);
+src/main.js:3525:    if(!activities[current_activity.activity_name]) {
+src/main.js:3529:    if(activities[current_activity.activity_name].type === "JOB") {
+src/main.js:3534:    } else if(activities[current_activity.activity_name].type === "TRAINING") {
+src/main.js:3539:    } else if(activities[current_activity.activity_name].type === "GATHERING") { 
+src/main.js:3541:        let has_proper_tool = !activities[current_activity.activity_name].required_tool_type || character.getEquipment()[activities[current_activity.activity_name].required_tool_type];
+src/main.js:3549:    } else throw `"${activities[current_activity.activity_name].type}" is not a valid activity type!`;
+src/main.js:3592:    log_message(`%HeroName% stopped ${current_activity.activity_name}${activities[current_activity.activity_name].type === "JOB" && !paidRoundCompleted ? ": no paid round completed" : ""}`, "activity_finished");
+src/main.js:3834:    if(!activities[activity_id].isUnlocked()){
+src/main.js:3835:        activities[activity_id].setUnlocked();
+src/main.js:3838:        if(activities[activity_id].unlock_text) {
+src/main.js:3839:           message = rtp(activities[activity_id].unlock_text)+":\n";
+src/main.js:3841:        log_message(message + `Gained the ability of "${activities[activity_id].name}"`, "activity_unlocked");
+src/main.js:3855:            if(locations[activity_data.location].activities[activity_data.activity.activity_id].unlock_text) {
+src/main.js:3856:                message = locations[activity_data.location].activities[activity_data.activity.activity_id].unlock_text+":\n";
+src/main.js:3860:                (activities[activity_data.activity.activity_name].type !== "GATHERING" || global_flags.is_gathering_unlocked) 
+src/main.js:3862:                activities[activity_data.activity.activity_name].isUnlocked()
+src/main.js:3864:                activities[activity_data.activity.activity_name].base_skills_names.filter(skill_id => skills[skill_id].isUnlocked()).length > 0
+src/main.js:4284:            unlock_global_activity({activity_id: rewards.global_activities[i]});
+src/main.js:4290:            if(!locations[rewards.activities[i].location].activities[rewards.activities[i].activity].tags?.gathering || global_flags.is_gathering_unlocked) {
+src/main.js:4292:                unlock_activity({location: locations[rewards.activities[i].location].name, 
+src/main.js:4293:                                activity: locations[rewards.activities[i].location].activities[rewards.activities[i].activity],
+src/main.js:5220:                        if(activities[current_location.activities[activity_key].activity_name].base_skills_names.includes(skill.skill_id)) {
+src/main.js:5221:                            update_gathering_tooltip(current_location.activities[activity_key]);
+src/main.js:6037:            if(current_location.activities[activity_key].gained_resources) {
+src/main.js:6038:                update_gathering_tooltip(current_location.activities[activity_key]);
+src/main.js:6282:        const skill_names = activities[current_activity.activity_name].base_skills_names;
+src/main.js:8068:                        for(let i = 0; i < save_data.locations[key].unlocked_activities.length; i++) {
+src/main.js:8069:                            if(!locations[key].activities[save_data.locations[key].unlocked_activities[i]]) {
+src/main.js:8072:                            if(save_data.locations[key].unlocked_activities[i] === "plowing the fields") { //old compatibility patch
+src/main.js:8073:                                locations[key].activities["fieldwork"].setUnlocked();
+src/main.js:8075:                                locations[key].activities[save_data.locations[key].unlocked_activities[i]].setUnlocked();
+src/main.js:8146:            if(locations["Nearby cave"].activities["climbing"].isUnlocked()) {
+src/main.js:8147:                activities["climbing"].setUnlocked();
+src/main.js:8198:                if(activities[activity_key]) {
+src/main.js:8199:                    activities[activity_key].getAvailabilityComponent().setStatus({is_unlocked: save_data.activities[activity_key].is_unlocked || false});
+src/main.js:8201:                    activities["fieldwork"].getAvailabilityComponent().setStatus({is_unlocked: save_data.activities[activity_key].is_unlocked || false});
+src/main.js:8545:            if(typeof activity_id !== "undefined" && current_location.activities[activity_id] && activities[current_location.activities[activity_id].activity_name]) {
+src/main.js:8548:                if(activities[current_location.activities[activity_id].activity_name].type === "JOB") {
+src/main.js:8551:                } else if(activities[current_location.activities[activity_id].activity_name].type === "GATHERING") {
+src/main.js:9051:                if(activities[current_activity.activity_name].type === "TRAINING") {
+src/main.js:9106:                    if (activities[current_activity.activity_name].type === "JOB") {
+src/main.js:9130:                    const activity = current_location.activities[divs[i].getAttribute("data-activity")];
+src/main.js:9132:                    if(activities[activity.activity_name].type === "JOB" || activities[activity.activity_name].type === "TRAINING") {
+src/main.js:9152:                sounds = activities[current_activity.activity_name].getBackgroundNoises();
+src/main.js:10151:        const base=activities[activity.activity_name],label=(base?.action_text||activity.starting_text||'Current activity').replace(/\.+$/,'');
+src/main.js:10187:            ...Object.entries(optionalPackState.packs).filter(([,r])=>r.active&&r.job).map(([id,r])=>`${optionalPacks.get(id)?.activities.find(a=>a.id===r.job.actionId)?.label||'Local work'}: ${r.job.remaining} min remaining`),
+src/village_career_ui.js:47:            if(s.loan?.teaching)outcome.textContent={paid:'Paid mentor: full round 60 coins + 10 teaching stipend = 70. Leaving early pays nothing.',pay:'Taught on your shift: full round 60 − 10 lost wages (you patrolled less) = 50 coins. No fee paid to Iona.',time:`Time: full fresh 120-minute shift earns no pay (${s.loan.teachingMinutes}/120).`,favor:'Favor: full round 60 coins, no coin cost. Completing the lesson earns one favor.',free:'Free: full round 60 coins, no cost or obligation. Only the teaching minutes block other activities.'}[s.loan.teachingTerm];
+src/content_packs.js:73:    const registry=createContentRegistry({worlds:[d.world],simulation:{people:d.people.map(p=>({...p,revision:1,worldId:d.world.id,inventory:'simulation',provision:false}))},actions:d.activities.map(a=>({id:a.id,worldId:d.world.id,label:a.label,description:a.description,revision:1,group:'optional_pack',duration:a.duration,repeatable:true,completionScope:'actor',costs:[],outcomes:[{id:'complete',label:a.label,chance:1,effects:[]}],visibleWhen:{fact:'optional.internal',op:'eq',value:true}}))});
+src/content_packs.js:106:    if(row.job)check(d.activities.some(a=>a.id===row.job.actionId),'Saved optional activity is unavailable.');row.active=true;return validatePackState(next);
+src/content_packs.js:110:    const next=structuredClone(state),row=next.packs[d.id],action=d.activities.find(a=>a.id===actionId);
+src/content_packs.js:121:        const action=definitions.get(id)?.activities.find(a=>a.id===row.job.actionId);check(action,'Saved optional activity is unavailable.');
+src/content_packs.js:130:    const action=d.activities.find(a=>a.id===row.job.actionId);check(action,'Saved optional activity is unavailable.');
+src/verifier.js:2:import { activities } from "./activities.js";
+src/verifier.js:203:                if(!activities[location.activities[activity_key].activity_name]) {
+src/verifier.js:204:                    console.error(`Location "${key}" refers to a non-existent activity "${location.activities[activity_key].activity_name}"`);
+src/verifier.js:207:                for(let i = 0; i < location.activities[activity_key].gained_resources?.length; i++) {
+src/verifier.js:208:                    if(!item_templates[location.activities[activity_key].gained_resources.resources[i].name]) {
+src/verifier.js:209:                        console.error(`Activity "${activity_key}" in location "${key}" refers to a non-existent item "${location.activities[activity_key].gained_resources.resources[i].name}"`);
+src/mods/glassmaking.js:18:locations["Village"].activities["sand"] = new LocationActivity({
+src/mods/glassmaking.js:34:locations["Village"].activities["sand"].activity_id = "sand";   // needs to be set this way if created outside the core file, which makes it awkward
+src/data/locations.js:1938:        ...Object.fromEntries(['scouting','lunar_gathering'].map(id=>[id,new LocationActivity({activity_name:id,starting_text:id==='scouting'?'Scout familiar ground':'Search the moonlit herb bed',is_unlocked:false,skill_xp_per_tick:0,gained_skills:{},working_period:1})])),
+src/data/locations.js:1939:        "fieldwork": new LocationActivity({
+src/data/locations.js:1951:        "running": new LocationActivity({
+src/data/locations.js:1957:        "weightlifting": new LocationActivity({
+src/data/locations.js:1963:        "swimming": new LocationActivity({
+src/data/locations.js:1972:        "balancing": new LocationActivity({
+src/data/locations.js:1979:        "meditating": new LocationActivity({
+src/data/locations.js:1985:        "patrolling": new LocationActivity({
+src/data/locations.js:1993:        "woodcutting": new LocationGatheringActivity({
+src/data/locations.js:2005:        "sand": new LocationGatheringActivity({
+src/data/locations.js:2019:        "fishing": new LocationGatheringActivity({
+src/data/locations.js:2041:        "balancing": new LocationActivity({
+src/data/locations.js:2047:        "weightlifting": new LocationActivity({
+src/data/locations.js:2062:        "weightlifting": new LocationActivity({
+src/data/locations.js:2069:        "climbing": new LocationActivity({
+src/data/locations.js:2075:        "meditating": new LocationActivity({
+src/data/locations.js:2082:        "mining stone": new LocationGatheringActivity({
+src/data/locations.js:2094:        "mining": new LocationGatheringActivity({
+src/data/locations.js:2106:        "mining2": new LocationGatheringActivity({
+src/data/locations.js:2118:        "mining3": new LocationGatheringActivity({
+src/data/locations.js:2132:        "running": new LocationActivity({
+src/data/locations.js:2137:        "woodcutting": new LocationGatheringActivity({
+src/data/locations.js:2148:        "woodcutting2": new LocationGatheringActivity({
+src/data/locations.js:2160:        "herbalism": new LocationGatheringActivity({
+src/data/locations.js:2178:        "woodcutting": new LocationGatheringActivity({
+src/data/locations.js:2191:        "herbalism": new LocationGatheringActivity({
+src/data/locations.js:2209:        "herbalism": new LocationGatheringActivity({
+src/data/locations.js:2226:        "fieldwork": new LocationActivity({
+src/data/locations.js:2238:        "harvesting": new LocationGatheringActivity({
+src/data/locations.js:2253:        "animal care": new LocationGatheringActivity({
+src/data/locations.js:2268:        "balancing": new LocationActivity({
+src/data/locations.js:2276:        "herbalism": new LocationGatheringActivity({
+src/data/locations.js:2290:        "balancing": new LocationActivity({
+src/data/locations.js:2296:        "climbing": new LocationActivity({
+src/data/locations.js:2305:        "herbalism": new LocationGatheringActivity({
+src/data/locations.js:2317:        "fishing": new LocationActivity({
+src/data/locations.js:2341:        "swimming": new LocationActivity({
+src/data/locations.js:2350:        "sand": new LocationGatheringActivity({
+src/data/locations.js:2363:        "climbing": new LocationActivity({
+src/data/locations.js:2369:        "weightlifting": new LocationActivity({
+src/data/locations.js:2375:        "running": new LocationActivity({
+src/data/locations.js:2381:        "fishing": new LocationGatheringActivity({
+src/data/locations.js:2404:        "swimming": new LocationActivity({
+src/data/locations.js:2413:        "balancing": new LocationActivity({
+src/data/locations.js:2420:        "woodcutting": new LocationGatheringActivity({
+src/data/locations.js:2431:        "mining": new LocationGatheringActivity({
+src/data/locations.js:2443:        "fishing": new LocationGatheringActivity({
+src/data/locations.js:2464:        "enduring": new LocationActivity({
+src/data/locations.js:2472:        "meditating": new LocationActivity({
+src/data/locations.js:2479:        "fishing": new LocationGatheringActivity({
+src/data/locations.js:2503:        "fishing": new LocationGatheringActivity({
+src/data/locations.js:2524:        "herbalism": new LocationGatheringActivity({
+src/data/locations.js:2543:        "animal care": new LocationGatheringActivity({
+src/data/locations.js:3701:            locations[location_key].activities[activity_key].activity_id = activity_key;
+src/data/locations.js:3703:            availabilities["activity"][location_key+":"+activity_key] = locations[location_key].activities[activity_key].getAvailabilityComponent();
