@@ -110,7 +110,7 @@ After the 2026-10-17 push (`master` = `codex/gameplay-foundations` = `6fca46c1c`
   tree puts back; mtimes 2026-10-14/16. Inferred: leftovers of an interrupted move, not intent.
 - **Worktrees.** 110 registered; 8 pointed at missing directories; 62 are merged into HEAD and
   clean (about 24 GB); 37 merged with uncommitted files; 2 unmerged (`w1-campaign` dirty,
-  `claude/world-pack-loader-9cff81` clean). Three had live processes on 2026-10-17
+  `claude/world-pack-loader-9cff81` clean). Four had live processes on 2026-10-17
   (`yair-absorb-all-20261014/integration`, `.claude/worktrees/agent-ad82f23d94f196fae`,
   `wave-f-checks-4616ad`, `ui-r20-opponent-board-be97bc`). The app's `clean_up_worktrees` only takes
   sessions idle 30+ days, so it does not reach these.
