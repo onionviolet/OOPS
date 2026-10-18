@@ -3527,3 +3527,14 @@ corrections ECX1-ECX10 from lanes E1 and E2, later steps ECL1-ECL5) and the [pro
 rules](ECONOMY_RULES.md) (ECR1-ECR33), registered in RULES_INDEX as a proposal. Only the rows
 restating AD27, AD31 and AD11 are accepted direction. Core audit:
 [ECONOMY_CORE_AUDIT](audits/ECONOMY_CORE_AUDIT.md). Proposals only; no runtime change.
+
+### Skills and learning round 3: simple repetition and stolen memory, 2026-10-18
+
+Weibao, after seeing the rulebook and coached practice: "what about stolen memory and more? more
+to consider? What abut simple repitition?" Saved as [round 3 of the skills and learning
+palette](SKILLS_AND_LEARNING_CONSIDERATIONS_2026-10-18.md#round-3-stolen-memory-simple-repetition-and-more-2026-10-18)
+(SLC78-SLC104). Correction SLX1: round 1 had stretched MR22 into "repetition teaches little";
+SLR5 now says repetition grows fluency (faster, cheaper, steadier work on a diminishing curve) while
+new information grows understanding. Added SLR34-SLR39 on repetition plateaus, real work as
+practice and memory theft (take, copy or seal; memory carries understanding, not fluency).
+Proposals; no runtime change.

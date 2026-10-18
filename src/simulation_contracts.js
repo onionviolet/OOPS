@@ -125,6 +125,7 @@ export function createSimulationRegistry(definitions = {}) {
     for(const d of registry.commands.values()) {
         if(d.participantsCoLocated!=null)assert(typeof d.participantsCoLocated==='boolean', 'Invalid participant contact policy.');
         assert(natural(d.duration || 0) && ["none", "refund", "forfeit"].includes(d.cancellation || "none"), "Invalid command timing.");
+        if(d.fluency !== undefined) assert(d.powerId && natural(d.fluency.floor) && d.fluency.floor >= 1 && d.fluency.floor <= d.duration && natural(d.fluency.halfAt) && d.fluency.halfAt > 0 && Object.keys(d.fluency).length === 2, "Invalid command fluency.");
         assert(d.reservationReturns === undefined || d.reservationReturns === 1, 'Unsupported authored reservation return accounting.');
         if(d.completionRequires || d.completionCoLocated != null) {
             validatePredicate(d.completionRequires);

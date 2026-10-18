@@ -45,6 +45,14 @@ export function previewPowerModel(definition, owned, command, {state, context, f
 
 // Typed, JSON expressions permit power output, actor progress and actual native
 // stats to affect execution without callbacks/eval inside saved content.
+// Fluency from repetition (SLR5, SLR34): practiced work gets faster on a
+// falling curve, halfway to its floor after `halfAt` uses of the method. The
+// floor is the work's physical minimum; a better tool or method lifts it.
+export function fluencyDuration(base, fluency, executions = 0) {
+    if(!fluency) return base;
+    const value = fluency.floor + (base - fluency.floor) / (1 + Math.max(0, executions) / fluency.halfAt);
+    return Math.max(fluency.floor, Math.min(base, Math.round(value)));
+}
 export function resolveEffectAmount(value, facts, model = {}) {
     if(typeof value === "number") {assert(finite(value), "Invalid numeric effect."); return value;}
     assert(value && typeof value === "object" && typeof value.fact === "string", "Invalid effect formula.");

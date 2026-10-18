@@ -29,13 +29,16 @@ import {advanceWorkPlansBoundary} from './feature_expansion_work_plan.js';
 import {activePractice} from "./techniques.js";
 import {assert, natural, copy, stableId, meets, createSimulationState, validateSimulationState} from "./simulation_contracts.js";
 import {cloneData, person, participant, simulationFacts, applySimulationEffects, refundCosts, inventory, advanceNativeContainerClocks,resolveSimulationCostKeys} from "./simulation_effects.js";
-import {previewPowerModel, resolveEffectAmount} from "./power_models.js";
+import {previewPowerModel, resolveEffectAmount, fluencyDuration} from "./power_models.js";
 import {prepareSimulationEffects, resolveOutcomeWeights} from "./simulation_resolution.js";
 import {pursuitReservesActor,nextPursuitBoundary,advancePursuits} from "./pursuit.js";
 export {createSimulationRegistry} from "./simulation_contracts.js";
 export {simulationFacts} from "./simulation_effects.js";
 
 const domain = () => ({facts: {}, resources: {}, completed: {}, sources: {}, techniques: {}});
+// Base duration, shortened by the actor's repetitions of the command's method
+// when the command declares a fluency curve. Read before this run is counted.
+const commandDuration = (state, d, actorId) => fluencyDuration(d.duration || 0, d.fluency, state.simulation?.powers?.[actorId]?.[d.powerId]?.executions || 0);
 const ruleReason = (rule, facts) => meets(rule, facts) ? [] : [rule?.reason || "The required knowledge, means or circumstances are missing."];
 const log = (s, clock, text, cause) => {s.log.push({at: clock, text, cause}); s.log = s.log.slice(-100);};
 const hash = (seed, id) => {let n = seed; for(const ch of id) n = Math.imul(n ^ ch.charCodeAt(0), 16777619) >>> 0; return n || 1;};
@@ -134,7 +137,7 @@ function previewCommand(state, registry, commandId, context, rehearse, knownFact
     // validating counterfactual output for every hidden/completed/busy control.
     // Eligible actions still reserve, freeze and validate all costs/outcomes.
     if(reasons.length || !visible) return {id:d.id,label:d.label,description:d.description || "",visible,eligible:false,reasons,
-        costs:[],duration:d.duration || 0,effects:[],weights:null,revision:d.revision,model:null};
+        costs:[],duration:commandDuration(state,d,context.actorId),effects:[],weights:null,revision:d.revision,model:null};
     let model = null;
     if(d.powerId) {
         const power = registry.simulation.powers.get(d.powerId), owned = s.powers[context.actorId]?.[d.powerId];
@@ -162,7 +165,7 @@ function previewCommand(state, registry, commandId, context, rehearse, knownFact
     }
     catch(error) {reasons.push(error.message);}
     return {id: d.id, label: d.label, description: d.description || "", visible: meets(d.visibleWhen, facts), eligible: !reasons.length && meets(d.visibleWhen, facts),
-        reasons, costs, duration: d.duration || 0, effects, weights, revision: d.revision, model};
+        reasons, costs, duration: commandDuration(state, d, context.actorId), effects, weights, revision: d.revision, model};
 }
 
 function startCommand(out, registry, commandId, context, immediatePreview, contexts = {}) {
@@ -230,7 +233,7 @@ function startCommand(out, registry, commandId, context, immediatePreview, conte
         validateSimulationState(candidate.state.simulation, candidate.state, registry.simulation);
     }
     const job = {id: cause, sequence: state.sequence, commandId: d.id, revision: d.revision, actorId: context.actorId, targetId: context.targetId || null,
-        due: state.clock + (d.duration || 0), effects, costs: copy(preview.costs), cancellation: d.cancellation || "none", siteId: d.siteId || null,
+        due: state.clock + preview.duration, effects, costs: copy(preview.costs), cancellation: d.cancellation || "none", siteId: d.siteId || null,
         claim: d.claim || null, label: d.label, roll, outcomeId, context: frozenContext, participants: commandParticipants(d,context,s)};
     if(d.reservationReturns === 1 || ["original_frontier","repositories","feature_objects","feature_society","tidemark","subtlety_relay","nested_campaign","nested_chains","nested_life","book_paradise","book_paradise_npc","book_mol","book_mol_npc","book_paradise_campaign","book_paradise_campaign_npc","reference_gameplay","nethack_fieldcraft","audit_fixture","audit_lesson","remainder_livelihood","remainder_home","remainder_offers","remainder_consequences","remainder_combat_fit","remainder_combat_objectives","causal_story","causal_story_npc","game_absorption_assay"].includes(d.group)) {s.schema=Math.max(s.schema,4);job.reservationReturns = 1;}
     if(d.completionRequires || d.completionCoLocated != null) {

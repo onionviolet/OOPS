@@ -138,8 +138,9 @@ different carriers (SLC1-SLC4), gaining (SLC5-SLC12), holding and losing
 (SLC13-SLC19), teaching (SLC20-SLC27), carrying across lives and worlds
 (SLC28-SLC33), knowing your own skill (SLC34-SLC36), code today (SLC37-SLC42),
 owner improvements (SLC43-SLC46), round 2 in all directions (SLC47-SLC77),
-ranked later steps SLL1-SLL10 (SLL7 coached practice built). Proposed
-rulebook: [SKILL_AND_LEARNING_RULES](SKILL_AND_LEARNING_RULES.md) SLR1-SLR33.
+round 3 on simple repetition and stolen memory (SLC78-SLC104, correction SLX1-SLX2),
+ranked later steps SLL1-SLL13 (SLL7 coached practice built). Proposed
+rulebook: [SKILL_AND_LEARNING_RULES](SKILL_AND_LEARNING_RULES.md) SLR1-SLR39.
 Proposals only.
 
 [Tools, cursed tools and instruments](TOOLS_AND_INSTRUMENTS_CONSIDERATIONS_2026-10-17.md)

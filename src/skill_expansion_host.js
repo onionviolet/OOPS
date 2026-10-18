@@ -39,7 +39,7 @@ export function skillExpansionPresentation(state,registry,context){
    const knownRequirements=reportWait?[{known:true,text:'Start the shared field workshop before requesting its contribution report.',met:false}]:[];
    const row=projectDiscoveryFeature({id,label:d.label,description:d.description||'',discovered:true,unlocked:true,eligible:p.eligible&&p.visible,
     requirements:knownRequirements,reasons:reportWait?knownRequirements:safeReasons({...p,eligible:p.eligible&&p.visible}),
-    details:[{known:true,surface:'preview',text:`${d.duration||0} played minutes; cancellation: ${d.cancellation||'none'}.`} ]});
+    details:[{known:true,surface:'preview',text:`${p.duration??d.duration??0} played minutes${d.fluency&&p.duration<d.duration?` (practiced from ${d.duration})`:''}; cancellation: ${d.cancellation||'none'}.`} ]});
    actions.push({id,targetId:d.targetId||null,row});
   }
   const row=projectDiscoveryFeature({id:family.id,label:family.label,description:family.description,discovered:true,unlocked:!!power?.owned,

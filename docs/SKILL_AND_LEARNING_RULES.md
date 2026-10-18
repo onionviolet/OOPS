@@ -29,7 +29,7 @@ is a default; a world may state an exception with an in-world reason and cost.
 | Code | Rule | Mistake it prevents |
 | --- | --- | --- |
 | SLR4 | **Every gain has a cause** (practice, instruction, text, demonstration, failure, insight, absorption, grant), and the cause decides which layer moved. Record the cause when a later system reads it. (SLC5) | Skills that appear with no answer to "where did that come from?" |
-| SLR5 | **Deliberate learning needs new information (standing, MR22, generalized).** Harder variants, new materials, readable failures and corrections teach; repeating a mastered identical task teaches little. Volume-based fluency (native per-tick XP) is a separate legitimate model. (SLC6) | Infinite mastery from one repeated click, or vanilla XP rewritten to fit |
+| SLR5 | **New information grows understanding; repetition grows fluency.** Harder variants, new materials, readable failures and corrections teach new things (standing, MR22: an identical observation reveals nothing new). Plain repetition keeps making the work faster, cheaper and steadier on a diminishing curve (standing, MR21; accepted, AD38). (SLC6, SLC78–SLC80; corrected 2026-10-18 round 3, SLX1) | Infinite knowledge from one repeated click, or practice that stops paying for no reason |
 | SLR6 | **Feedback is a means.** Teachers, measuring tools, partners and readable outcomes raise what practice yields. (SLC7) | Tools and teachers that add nothing to learning |
 | SLR7 | **Learning rate is an adjective** per world, body, skill and talent: challenge band, consolidation, aptitude. No universal formula. (SLC8, SLC9, SLC11) | One XP curve forced on every world |
 | SLR8 | **Grants and aptitudes name the layer they give or multiply.** (SLC10, SLC11, SLC33) | A crossing that cannot tell whether a learned spell carries |
@@ -88,3 +88,14 @@ is a default; a world may state an exception with an in-world reason and cost.
 | SLR31 | **Prestige, rebirth and continuation share the layer carry rule** (SLR20); each reset declares survival per layer. (SLC69) | Three inconsistent answers to "what do I keep?" |
 | SLR32 | **Insight and epiphany draws are seeded** in the save's RNG context (accepted, AD22, Rulebook 9). (SLC73) | Reload-scumming for a breakthrough |
 | SLR33 | **Consequences for forbidden teaching come from in-world agents with reasons,** not game-level blocks (accepted, AD38). (SLC76) | A permission list on what may be taught |
+
+## Round 3 additions, 2026-10-18
+
+| Code | Rule | Mistake it prevents |
+| --- | --- | --- |
+| SLR34 | **Repetition gains diminish smoothly and do not stop by default;** a plateau is a world or skill dial and names what lifts it. (SLC80–SLC81) | Hard drill walls read as world law |
+| SLR35 | **Real work is repetition too,** slower learning than a drill but paid in goods. (SLC82) | Drills as the only way to improve |
+| SLR36 | **Memory means state take, copy or seal and the parts of memory they reach;** taken memory is conserved. (SLC88–SLC91, SLR13) | A "memory theft" that vanishes knowledge or grants full mastery by label |
+| SLR37 | **Memory loss removes understanding, not fluency,** and memory gain gives understanding, not fluency, unless the means also changes the body. (SLC88–SLC89) | Stolen techniques as instant mastery |
+| SLR38 | **Reading memories is appraisal through means (accepted, AD6),** and sealed truths stay behind their discovery route. (SLC92) | Mind reading as a spoiler machine |
+| SLR39 | **The player's own memory loss is forewarned and recoverable by default,** with a known record of what was lost. (SLC97) | Silent loss of what the player built |

@@ -297,3 +297,141 @@ title overlaps the first card heading at 1366×768; this predates the change.
 Reaching the panel takes More panels, then Notes, practice & people, then
 Practice; that discoverability question belongs to the UI owners, not this
 slice.
+
+## Round 3: stolen memory, simple repetition and more, 2026-10-18
+
+Weibao, after seeing the rulebook and coached practice: "what about stolen
+memory and more? more to consider? What abut simple repitition?" New codes
+continue from SLC78. Franchise rows marked MEMORY are recall awaiting a source
+check; public franchise facts are not sealed.
+
+### Correction first: round 1 undervalued simple repetition
+
+| Code | Finding |
+|---|---|
+| SLX1 | **SLR5 overreached.** Round 1 generalized MR22 into "repeating a mastered identical task teaches little". MR22 is about knowledge: repeating an identical *observation* reveals nothing new. MR21, also standing, counts lower time cost, narrower variance and better yield as skill, and those are exactly what repetition builds. AD38 (things work by how they work) settles it: repetition works, because practice really does make people faster and steadier. Fixed in SLR5 below |
+| SLX2 | **The prototype drill hard-stops at mastery 4**, so simple repetition currently ends at 4 for all four methods. That reads as a world law nobody chose (SLR29 already flagged naming the next route; round 3 goes further, SLC81) |
+
+### SLC-P. Simple repetition
+
+| Code | Consideration |
+|---|---|
+| SLC78 | **Repetition is the main engine of fluency.** Each repeat makes the same work faster, cheaper in stamina, steadier in outcome and less attention-hungry. Understanding grows little from it after the first few runs; fluency keeps growing. This is the layer model's answer: repetition and new information feed different layers, and both are real learning |
+| SLC79 | **What repetition buys, concretely** (MR21 control list): time cost falls, stamina cost falls, variance narrows (fewer spoiled cuts), the method becomes automatable or runs alongside something else, and fatigue sets in later. Each is a number the engine already has; none needs a new resource |
+| SLC80 | **Diminishing, not zero, by default.** Gains follow a smooth falling curve (the power law of practice: each doubling of repetitions buys about the same improvement). The thousandth swing still helps a little. Dial per world and skill: steepness, and an optional plateau that only variation, feedback or insight lifts |
+| SLC81 | **Drill limits become plateaus, not walls.** Past a drill's design point, plain repetition keeps paying at a smaller rate instead of being refused; a coach, a harder variant or a new material lifts the plateau. The old "complete at four" stays true of *that drill's fast gains* |
+| SLC82 | **Real work counts as repetition.** Cutting actual kits, brewing actual potions and fighting actual rats repeat the method too. Learning by doing is slower per minute than a focused drill and pays in goods; a drill is faster learning and pays nothing. That gives the player a real choice between drilling and working |
+| SLC83 | **The counter already exists.** Simulation power records increment `executions` on every powered command (`src/simulation.js:223`). A fluency curve can read it with no new save data; native skills already turn repetition into XP per tick |
+| SLC84 | **Repetition is the idle loop.** Set a routine, leave, come back faster at it. Weibao is the player and likes idle play; repetition that quietly stops paying would remove the genre's main pleasure. Batched recap: "Timber cuts: 40 more done, now 3 min each instead of 4" (SLC36) |
+| SLC85 | **Repetition without feedback can groove errors** where a skill opts in (SLR28). Default for ordinary crafts: off, since real work usually shows its own result. On for subtle arts (qi circulation, a misremembered form) where wrong practice looks fine until it fails |
+| SLC86 | **Mental rehearsal** is a weaker form of repetition with no body cost: visualization builds some fluency, much less than doing it. Useful where the body cannot practice (injured, imprisoned, a baby after rebirth) and as an in-world reason for "practicing in your head" during travel |
+| SLC87 | **Boredom and attention** are an optional dial, default off. A world or character may learn less from mindless repetition; the default idle game does not punish it |
+
+### SLC-Q. Stolen, copied and altered memory
+
+Memory is the carrier of understanding (SLR1, SLR20), so anything that touches
+memory touches skills.
+
+| Code | Consideration |
+|---|---|
+| SLC88 | **Taking memory takes understanding, not fluency.** A victim whose memories of swordsmanship are stolen keeps the trained hands: the body still moves right in a fight while the mind cannot explain or teach it (the amnesiac-agent trope). Relearning is fast because fluency remains (SLR11 in reverse) |
+| SLC89 | **The thief gets understanding without fluency.** Stolen knowledge of a technique lets the thief know what to do, then practice it at the savings rate, much like a reborn character. Stealing memory is a shortcut to understanding, never to instant mastery, unless the means also takes the body's training (SLR8 says the means must state it) |
+| SLC90 | **Take, copy or seal are different mechanisms.** Take moves the memory (the victim loses it); copy duplicates it (both keep it); seal blocks access (it stays, unreadable). The simulation's `transfer` and `copy` power operations already model the first two for powers. Memory theft reuses that shape with a memory carrier, conserved when taken (SLR13) |
+| SLC91 | **Memories carry more than skills.** A stolen memory can hold names, relationships, secrets, routes and identity. Taking someone's memory of a person can erase that person from their life (MEMORY: Re:Zero's Gluttony eats names and memories, and others forget the victim). Which parts go is the means' stated scope, not "everything" |
+| SLC92 | **Reading memories is appraisal of the mind** (AD6, MEANS_AND_APPRAISAL). It shows only what its means reach, and reading a sealed world truth goes through the sealed-secrets gate: the reader learns it in play, and agents still do not reveal it to Weibao outside its discovery route |
+| SLC93 | **False and implanted memories** give wrong understanding with full confidence: a forged technique that grooves a bad habit (SLC85), a fake past that bends loyalties. Testing exposes them like any wrong manual (SLR18) |
+| SLC94 | **Memory stored outside the person** (a crystal, a pensieve-style bowl, a book of one's own life, a spirit that holds it) becomes an item with custody: it can be lost, sold, stolen, inherited or read by someone else. Notes are the ordinary version (SLC26) |
+| SLC95 | **Recovering stolen memory** follows the mechanism: kill or defeat the eater, break the seal, find the crystal, or relearn from your own notes and students. Each route is an in-world path, not a menu reset |
+| SLC96 | **Where memory lives decides crossings.** If memory lives in the soul, brain injury does not erase it and rebirth carries it (AD11 default); if it lives in the brain, a body swap leaves it behind. Per world and per means, stated on the world card (MEMORY: Mother of Learning anchors memory to the soul across loops) |
+| SLC97 | **The player's own memory is protected by default.** Losing the player's memories is a severe, forewarned consequence (AD19, BHR11 pattern), never ambient, and the player keeps a known record of what was lost so recovery is possible. A world or cheat may make it a real stake with a stated reason and warning |
+| SLC98 | **NPCs follow the same rules** (MR23, SLR17): an NPC can steal the player's technique, an apprentice can be robbed of what they were taught, and a world records who holds what (SLC38) |
+
+### SLC-R. Other ways skills move between people and times
+
+| Code | Consideration |
+|---|---|
+| SLC99 | **Time loops are the cleanest layer test.** Memory carries, the body resets: understanding accumulates across loops, fluency restarts every loop, so a looper becomes a brilliant theorist who must rebuild the body each time unless the body comes too (MEMORY: Mother of Learning) |
+| SLC100 | **Time-dilated training** (a room where a day outside is a year inside) gives real repetition time. It costs what the world says (aging inside, access, price) rather than being free speed |
+| SLC101 | **Shared and linked minds** (hive minds, a familiar's bond, twins) can share understanding live without moving it; breaking the link ends the sharing and leaves what each mind learned on its own |
+| SLC102 | **Absorption** (eating, devouring, absorbing a core) takes what the mechanism says: a monster core may give a source, eating a brain may give fragments of memory, and neither gives fluency by default |
+| SLC103 | **Skill crystals and system grants** state which layer they write (SLR8); a crystal that writes fluency is a strong item and can be priced as one |
+| SLC104 | **Dream and sleep learning** fits consolidation (SLC9): sleep settles the day's repetitions; a world may add dream training as rehearsal with no body cost (SLC86) |
+
+### Implementation notes for this round
+
+Read 2026-10-18, not run.
+
+- `executions` on each power record is the repetition count (SLC83). A pure
+  function `fluencyFromExecutions(executions, curve)` returning time and
+  stamina multipliers would let a method's work commands get cheaper with use.
+  The command's `duration` and stamina cost are resolved in `previewCommand`
+  through `resolveEffectAmount`, and `previewPowerModel` already has a
+  practice-model `costScale` and `masteryBands` hook; a fluency band read from
+  executions fits there without a new store.
+- The practice drill's `lte 3` gate (SLX2) would become a plateau: past it, a
+  plain drill still runs but grants a smaller share. MR22's "identical
+  observation" stays enforced for knowledge effects (seen/understood records
+  are written once).
+- Memory theft would reuse the `copy`/`transfer` power operations with a memory
+  carrier; nothing in the current runtime models memory as a carrier yet, so it
+  stays LATER.
+
+### ACT NOW (done this round)
+
+| Code | Action | Done check |
+|---|---|---|
+| SLA10 | Corrected SLR5 so repetition builds fluency (SLX1) | SLR5 text |
+| SLA11 | Added SLR34–SLR39 for repetition and memory | Rulebook round 3 section |
+| SLA12 | Saved round 3 (SLC78–SLC104) | This section |
+
+### ACCOUNT FOR NOW, added
+
+| Code | Constraint |
+|---|---|
+| SLN10 | No new feature makes repetition stop paying entirely without a stated plateau and a named route past it (SLC80–SLC81) |
+| SLN11 | Any memory-affecting means states take, copy or seal, and which parts of memory it reaches (SLC90–SLC91) |
+| SLN12 | Repetition counts read `executions`; no second repetition counter (SLC83) |
+
+### LATER / DELEGATE, added
+
+| Code | Item | Level, effort | Done check |
+|---|---|---|---|
+| SLL11 | **Fluency from repetition** (SLC78–SLC83): timber kit cutting gets faster with `executions`, on a falling curve | Medium, M | **Done 2026-10-18, implemented and browser-verified; not yet human-accepted.** See SLL11 evidence below |
+| SLL12 | **Plateau instead of drill wall** (SLC81, SLX2): plain practice past mastery 4 still grants a reduced gain; coached lifts it | Medium, S–M | Regression on the curve; existing drill tests updated; panel names the route past the plateau |
+| SLL13 | **Memory carrier and memory theft** (SLC88–SLC97) as a scoped design pass before any runtime work | Strong, M (design) | One world card states where memory lives; one worked case shows take, copy and seal outcomes per layer |
+
+### SLL11 evidence, 2026-10-18
+
+Change: a pure `fluencyDuration(base, fluency, executions)` in
+`src/power_models.js`; `commandDuration` in `src/simulation.js` applies it in
+both preview paths, and the accepted job now takes `preview.duration` (computed
+before this run's `executions++`); `src/simulation_contracts.js` validates an
+optional `fluency: {floor, halfAt}` (needs `powerId`, floor 1 to base, halfAt
+above 0, no extra keys); the skills panel shows the practiced minutes with
+"(practiced from N)"; both timber cutting commands use `{floor: 1, halfAt: 20}`.
+Labels lost their fixed "3 min"; the details line carries the live time. No save
+field was added: the curve reads the existing `executions` and jobs still store
+a numeric `due`.
+
+Curve: 3 min for uses 0 to 6, 2 min from use 7, 1 min from use 61, never below
+1. Drills, coached drills and real cuts all count, because they are all uses of
+the method.
+
+| Check | Result |
+|---|---|
+| `node --test tests/skill_fluency.test.js` (new) | 3/3 pass: curve monotonic with floor and base; four drills plus three cuts make 7 uses, preview and the accepted job both take 2 min and the cut still makes a real kit; save round trip keeps 2 min; 61 uses reach 1 min; the contract rejects four malformed curves |
+| `tests/skill_coached_practice.test.js` | 3/3 still pass |
+| `npm test` | Run 1: 2130 pass, 1 fail (not captured, did not recur); runs 2 and 3: 2131 pass, 0 fail |
+| `npm run check:arch` | exit 0 |
+| `npm run check:rules` | Same 29 pre-existing AD38 ordering failures, none from this change |
+| Build, fresh origin `127.0.0.1:19532`, 1366×768, bundle `v0.6-ab82ffe0cc04` matching `index.html` | Generated save with the craftsman meeting, 60 coins, 40 logs; enrolled, saw, learned and cut ten real kits through the panel. The shown time switched from 3 to "2 played minutes (practiced from 3)" exactly at 7 uses; reading the save in the click's own tick, a cut at 9 uses was due in 2 minutes (clock 72, due 74) |
+| Reload | 10 uses and the 2-minute time kept after reload and PLAY |
+| Import | Exported at 10 uses, cut twice more (12), imported the export: back to 10 uses, 2 minutes, button enabled |
+| 1920×1080 | After import and PLAY, both cutting actions show "2 played minutes (practiced from 3)"; no console errors |
+
+Gaps: the card shows mastery (drill progress) but not the number of uses that
+drives fluency, so the player sees the time drop without seeing the count
+behind it; a "uses 10" line would make the curve legible (follow-up, not
+built). Mastery and fluency now move separately on purpose: ten real cuts left
+mastery at 0 and made cutting faster, which is the layer model working, and it
+may still surprise a first-time player.

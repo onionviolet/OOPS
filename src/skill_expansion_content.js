@@ -139,6 +139,9 @@ const practices = [
     coached("timber", SKILL_IDS.timber, "Woodworking", TEACHER, [item(LOG, -1)], [hands, eq("world.workbench.wet", false, "Use a dry bench for material practice.")])
 ];
 
+// SLL11: repetition of the method (drills, coached drills and real cuts all
+// count through the power's executions) shortens cutting from 3 toward 1 min.
+const CUTTING_FLUENCY = Object.freeze({floor: 1, halfAt: 20});
 const pressSupported = all(living, eq("actor.world", WORLD), eq("location", "Village"),
     eq("skills.lioSupported", true, "Lio's consent, body, trained control and owned harness must still support this press."));
 const braceResponses = [
@@ -170,16 +173,16 @@ export const skillDefinitions = {
             costs: [stamina(-2)], effects: [af("village.routeKnown"), af("village.routeOrigin", "field"), xp("Perception", 6),
                 knowledge("skills.trail.route", "understood", "Your inspected drainage cuts identify the dry-bank procedure. Use the existing dry-bank survey to guide the crossing; the ground itself remains unrepaired.")],
             description: "Costs two player stamina and three played minutes. Use real inspected ground to learn the drainage procedure. The existing dry-bank survey and route-board craft use it after ordinary waypost discovery; their survey reward and departure remain theirs."}),
-        command({id: "skills.timber.pack", skillId: SKILL_IDS.timber, label: "Cut a cautious marker batch · 2 logs + 1 coin + 3 min", powerId: SKILL_IDS.timber,
-            siteId: "village.workbench", duration: 3, cancellation: "refund", automatable: true, visibleWhen: owned(SKILL_IDS.timber),
+        command({id: "skills.timber.pack", skillId: SKILL_IDS.timber, label: "Cut a cautious marker batch · 2 logs + 1 coin", powerId: SKILL_IDS.timber,
+            siteId: "village.workbench", duration: 3, fluency: CUTTING_FLUENCY, cancellation: "refund", automatable: true, visibleWhen: owned(SKILL_IDS.timber),
             requires: all(hands, eq("world.workbench.wet", false, "Use the established dry bench and cutting tools.")),
             costs: [item(LOG, -2), money(-1)], effects: [item(KIT, 1), xp("Woodworking", 6)],
-            description: "The ordinary learned cut makes one real Prepared survey kit. Cancelling refunds both logs and the coin; preview and cancellation produce no output or XP."}),
-        command({id: "skills.timber.precise_pack", skillId: SKILL_IDS.timber, label: "Match sound cuts · 2 logs + 1 coin + 3 min → 2 kits", powerId: SKILL_IDS.timber,
-            siteId: "village.workbench", duration: 3, cancellation: "refund", automatable: true, visibleWhen: all(owned(SKILL_IDS.timber), mastery(SKILL_IDS.timber, 2)),
+            description: "The ordinary learned cut makes one real Prepared survey kit. Every use of the method makes cutting faster, from three played minutes toward one. Cancelling refunds both logs and the coin; preview and cancellation produce no output or XP."}),
+        command({id: "skills.timber.precise_pack", skillId: SKILL_IDS.timber, label: "Match sound cuts · 2 logs + 1 coin → 2 kits", powerId: SKILL_IDS.timber,
+            siteId: "village.workbench", duration: 3, fluency: CUTTING_FLUENCY, cancellation: "refund", automatable: true, visibleWhen: all(owned(SKILL_IDS.timber), mastery(SKILL_IDS.timber, 2)),
             requires: all(hands, eq("world.workbench.wet", false, "Use the established dry bench and cutting tools.")),
             costs: [item(LOG, -2), money(-1)], effects: [item(KIT, 2), xp("Woodworking", 8)],
-            description: "Earned material judgment assigns the useful cuts across two kits. Both are actual native stock for road preparation, supplied work, Lio's rest or delivery. No arbitrary quality roll or new material currency."}),
+            description: "Earned material judgment assigns the useful cuts across two kits. Practiced cutting gets faster with every use of the method. Both are actual native stock for road preparation, supplied work, Lio's rest or delivery. No arbitrary quality roll or new material currency."}),
         command({id: "skills.inquiry.compare", skillId: SKILL_IDS.inquiry, label: "Compare the crossing together · 1 coin + 3 min", powerId: SKILL_IDS.inquiry,
             targetId: TEACHER, coLocated: true, participants: ["$target"], duration: 3, cancellation: "refund", visibleWhen: owned(SKILL_IDS.inquiry),
             requires: all(teacherReady, evidence, mastery(SKILL_IDS.inquiry, 1), eq("skills.routeKnown", false, "You already understand this drainage route.")),
