@@ -1,4 +1,5 @@
 import {configureCraftingDomain} from './crafting_domain.js';
+import {configureToolsDomain} from './tools_domain.js';
 import {domainRegistry} from './domain_registry.js';
 import {configureResourceDomains,harvestOwner,habitatOwner,harvestPanel,habitatPanel,setHarvestOwner,setHabitatOwner,receiveHarvest} from './native_resources_domain.js';
 import {bindNativeView} from './native_view.js';
@@ -1272,7 +1273,7 @@ function createDurabilityPanel() {
     let signature='';
     function render(){const target=document.getElementById('location_actions_div');if(panel.parentElement!==target)target.append(panel);input.checked=durability.enabled;
         panel.hidden=!!current_dialogue;const rows=durability.rows(character),next=JSON.stringify([durability.enabled,rows,!!current_combat,!!nativeOccupationReason(),ownsSave&&!foundationSaveBlocked]);if(next===signature)return;signature=next;
-        body.replaceChildren();const help=document.createElement('p');help.textContent=durability.enabled?'Landed hits wear weapon, armor and shield copies. Lower condition reduces their native damage or protection; gear remains owned. Repair costs at most5 coins.':'Durability is off. Existing condition is frozen and native gear power applies. Activate in Settings; untouched old stacks keep their keys.';body.append(help);
+        body.replaceChildren();const help=document.createElement('p');help.textContent=durability.enabled?'Landed hits wear weapon, armor and shield copies; each completed gathering round wears the tool used. Lower condition reduces their native damage or protection; gear remains owned. Repair costs at most5 coins.':'Durability is off. Existing condition is frozen and native gear power applies. Activate in Settings; untouched old stacks keep their keys.';body.append(help);
         for(const row of rows){const line=document.createElement('p');line.textContent=`${row.name}: ${row.condition.toFixed(2)}/100 · repair ${row.cost} coins `;
             const button=document.createElement('button');button.textContent='Repair';button.dataset.durabilityRepair=row.key;button.disabled=!row.cost||!row.affordable||!!current_combat||!!nativeOccupationReason();
             button.onclick=()=>{try{commitDurability(durability.stageRepair(character,row.key,key=>assertNativeItemDisposition(expansionState,key)));notice.textContent='Equipment repaired.';}catch(error){notice.textContent=error.message;}};line.append(button);body.append(line);}
@@ -2232,6 +2233,7 @@ function harvestTransaction(run){
 }
 
 function nativeOccupationReason() {
+    if(!restoringNativeSave && domainRegistry.project('tools','occupation'))return domainRegistry.project('tools','occupation');
     if(!restoringNativeSave&&expansionState.actors.player.facts[P23_LEISURE_RESERVATION])return 'Your paid target-dice round is still settling on the played clock.';
     if(!restoringNativeSave && harvestOwner?.job && !harvestOwner.job.automatic)return "Finish or cancel carcass processing before starting another activity.";
     if(!restoringNativeSave && Object.values(optionalPackState.packs).some(r=>r.active))return 'Return from your optional world before starting native activities.';
@@ -3494,6 +3496,9 @@ function start_activity(selected_activity) {
             current_activity = null;
             return;
         }
+        const tool_gate = domainRegistry.command('tools','gate')({item: character.getEquipment()[activities[current_activity.activity_name].required_tool_type]});
+        current_activity.tool_rates = tool_gate.rates;
+        if(tool_gate.message && !restoringNativeSave) log_message(tool_gate.message, "notification");
     } else throw `"${activities[current_activity.activity_name].type}" is not a valid activity type!`;
 
     if(!restoringNativeSave && current_location.id === 'Village' && selected_activity === 'patrolling') {
@@ -8899,6 +8904,7 @@ function simulateTick() {
                 if(before<6 && villageCareer.watchcraft.tutorMinutes===6){log_message('Tessa’s instruction is complete. Watchcraft is known; rehearse it for five more minutes before use.');end_activity();}
             }
             if(current_activity && !['scouting','lunar_gathering'].includes(current_activity.id)) { // native P07 has its own saved no-XP settlement
+                let tool_wear;
                 if(villageCareer.watchcraft.issued && villageCareer.watchcraft.practiceMinutes<WATCHCRAFT_PRACTICE) {
                     const before=villageCareer.watchcraft.practiceMinutes;
                     villageCareer=practiceWatchcraft(villageCareer,{known:watchcraftKnown(),location:current_location.id,activity:current_activity.id,worldId:expansionState.actors.player.worldId,alive:character.is_alive===true});
@@ -8974,10 +8980,14 @@ function simulateTick() {
 
                     current_activity.gathering_time = 0;
                     current_activity.gathering_time_needed = gathering_time_needed;
+                    tool_wear = domainRegistry.command('tools','workCycle')({item: character.getEquipment()[activities[current_activity.activity_name].required_tool_type], rates: current_activity.tool_rates});
                 }
 
                 // A career shift is one native working period, not an endless wage loop.
-                if(current_location.id === 'Village' && current_activity.id === 'patrolling' && villageCareer.loan?.status === 'active' && current_activity.earnings > 0) {
+                if(tool_wear?.broken) {
+                    log_message(tool_wear.message, "notification");
+                    end_activity();
+                } else if(current_location.id === 'Village' && current_activity.id === 'patrolling' && villageCareer.loan?.status === 'active' && current_activity.earnings > 0) {
                     end_activity();
                 } else {
                     update_displayed_ongoing_activity(current_activity);
@@ -9658,6 +9668,13 @@ configureCraftingDomain({read:()=>({inventory:Object.fromEntries(Object.entries(
     addItem:(key,count)=>character.addToInventory([{item_key:key,count}]),removeItem:(key,count)=>character.removeFromInventory([{item_key:key,item_count:count}]),
     persist:markDurable=>{const save=create_save();if(!save)throw Error('The item action could not be saved.');validateSaveEnvelope(JSON.parse(save),game_version);lifeSaveStorage.setItem(is_on_dev()?dev_save_key:save_key,save,markDurable);},
     refresh:()=>{character.addActiveEffectBonus(active_effects);character.updateStatsAndDisplay();update_displayed_character_inventory();update_displayed_effects();update_displayed_crafting_recipes();}});
+configureToolsDomain({actor:()=>character,skillLevel:skill=>character.getTotalSkillLevel(skill),stationTier:kind=>current_location?.crafting?.tiers?.[kind]||0,location:()=>current_location?.id,count:id=>character.getItems()[item_templates[id].getInventoryKey()]?.count||0,
+    itemOwners:()=>[character,character.getItems(),item_log,favourite_items,favourite_consumables],assertSpend:id=>assertNativeItemDisposition(expansionState,item_templates[id].getInventoryKey()),
+    addItem:(id,count)=>character.addToInventory([{item_id:id,count}]),removeItem:(id,count)=>character.removeFromInventory([{item_key:item_templates[id].getInventoryKey(),item_count:count}]),
+    persist:markDurable=>{const save=create_save();if(!save)throw Error('The tool repair could not be saved.');validateSaveEnvelope(JSON.parse(save),game_version);lifeSaveStorage.setItem(is_on_dev()?dev_save_key:save_key,save,markDurable);},
+    refresh:()=>{character._equipItem(null);character.updateStatsAndDisplay();update_displayed_equipment();update_displayed_character_inventory();durabilityPanel?.render();},
+    blocked:harvestBlockReason,writable:harvestWritable,idle:()=>!current_activity&&!current_game_action&&!current_combat&&!current_dialogue&&!is_sleeping&&!is_reading&&!is_in_trade(),
+    random:key=>gameKeyedRandom(STREAMS.craft,key),logMessage:log_message});
 configureResourceDomains({harvestContext,harvestWritable,harvestReady,harvestAutomaticReady,
     harvestTransaction,grantHarvest,logMessage:log_message,random:key=>gameKeyedRandom(STREAMS.loot,key),
     habitatContext,commitHabitatPlan,clock:()=>calendarMinutes(current_game_time),

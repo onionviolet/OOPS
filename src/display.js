@@ -21,6 +21,7 @@ import { current_trader, to_buy, to_sell } from "./trade.js";
 import { skills } from "./data/skills.js";
 import { get_next_skill_milestone, get_unlocked_skill_rewards } from "./models/skill.js";
 import { character, cold_status_temperatures, lowest_tolerable_temperature } from "./data/character.js";
+import {domainRegistry} from "./domain_registry.js";
 import {nativeSkillDiscovery} from './skill_discovery_native.js';
 
 import {game_options, current_location, active_effects, last_location_with_bed, last_combat_location, faved_stances, selected_stance, global_flags, unlocked_beds, favourite_consumables, travel_times, favourite_items} from "./runtime_state.js";
@@ -4128,8 +4129,17 @@ function create_gathering_tooltip(location_activity) {
         tooltip_content += `<br>x${count[0]===count[1]?count[0]:`${count[0]}-${count[1]}`} "${obscure_name(gained_resources[i].name)}" at ${Math.round(100*gained_resources[i].chance)}%`;
     }
 
+    tooltip_content += tool_tooltip_line(location_activity);
     set_HTML(gathering_tooltip, tooltip_content);
     return gathering_tooltip;
+}
+
+// IP1: the tools domain projects the equipped tool's verb numbers for this activity.
+function tool_tooltip_line(activity) {
+    const type = activities[activity.activity_name].required_tool_type;
+    const line = type && domainRegistry.project('tools', 'tooltip', {item: character.getEquipment()[type], gained: activity.gained_resources, workingPeriod: activity.working_period,
+        levels: activities[activity.activity_name].base_skills_names.map(skill => character.getTotalSkillLevel(skill)), rates: activity.tool_rates});
+    return line ? `<br><br><span class="activity_tool_info">${line}</span>` : "";
 }
 
 /**
@@ -4166,6 +4176,7 @@ function update_gathering_tooltip(activity) {
     for (let i = 0; i < gained_resources.length; i++) {
         tooltip_content += `<br>x${gained_resources[i].count[0] === gained_resources[i].count[1] ? gained_resources[i].count[0] : `${gained_resources[i].count[0]}-${gained_resources[i].count[1]}`} "${obscure_name(gained_resources[i].name)} " at ${Math.round(100*gained_resources[i].chance)}%`;
     }
+    tooltip_content += tool_tooltip_line(activity);
     set_HTML(gathering_tooltip, tooltip_content);
 }
 

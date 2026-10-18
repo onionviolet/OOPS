@@ -13,7 +13,14 @@ export function canonicalDurabilityKey(key) {
     delete data[INSTANCE];
     return JSON.stringify(data);
 }
-export const DURABILITY_PROPOSAL = Object.freeze({maximum: MAX, wearPerHit: 0.04, fullRepairCoins: 5});
+// wearPerUse: condition lost per completed work cycle by tool verb (IP2 proposal, 2026-10-17).
+export const DURABILITY_PROPOSAL = Object.freeze({maximum: MAX, wearPerHit: 0.04, fullRepairCoins: 5,
+    wearPerUse: Object.freeze({mine: 1, chop: 1, dig: 0.8, cut: 0.5, fish: 0.4})});
+// The tools domain owns per-instance max condition (lost to failed hand repairs).
+// Durability still owns the one condition value and reads the cap here.
+let capOf = () => MAX;
+export function setConditionCap(lookup) { capOf = typeof lookup === 'function' ? lookup : () => MAX; }
+const cap = key => Math.max(0, Math.min(MAX, Number(capOf(key)) || 0));
 
 export function createDurability(initial) {
     let state;
@@ -108,6 +115,21 @@ export function createDurability(initial) {
             state.condition[key] = Math.max(0, Math.round((before - hits * DURABILITY_PROPOSAL.wearPerHit) * 10000) / 10000);
             return state.condition[key] !== before;
         },
+        // IP2: one call per completed work cycle with the cycle's tool verb.
+        wearUse(item, verb, uses = 1) {
+            const per = DURABILITY_PROPOSAL.wearPerUse[verb];
+            if (!state.enabled || !per || !item?.tags?.equippable || !identity(item.getInventoryKey())) return false;
+            if (!Number.isSafeInteger(uses) || uses < 0) throw new Error('Invalid tool use count.');
+            const key = item.getInventoryKey(), before = api.condition(key);
+            state.condition[key] = Math.max(0, Math.round((before - uses * per) * 10000) / 10000);
+            return state.condition[key] !== before;
+        },
+        broken(item) { return state.enabled && !!item && identity(item.getInventoryKey()) !== null && api.condition(item) <= 0; },
+        // Hand repair writes the restored value here; the caller owns the quote and draw.
+        setCondition(key, value) {
+            if (!identity(key) || typeof value !== 'number' || !Number.isFinite(value)) throw new Error('Invalid equipment condition.');
+            state.condition[key] = Math.max(0, Math.min(cap(key), Math.round(value * 10000) / 10000));
+        },
         // Root calls only on an actual landed hit. No additional combat loop.
         landedHit(fighter, target) {
             let changed = false;
@@ -125,7 +147,7 @@ export function createDurability(initial) {
             const item = api.ownedItem(actor, key);
             if (!item?.tags?.equippable || !identity(key)) throw new Error('Repair needs an owned equipment instance.');
             const condition = api.condition(key);
-            const cost = Math.ceil((MAX - condition) / MAX * DURABILITY_PROPOSAL.fullRepairCoins);
+            const cost = Math.ceil(Math.max(0, cap(key) - condition) / MAX * DURABILITY_PROPOSAL.fullRepairCoins);
             return {key, condition, cost, affordable: Number.isFinite(actor.money) && actor.money >= cost};
         },
         // Root owns custody preflight and native save/refresh publication. This
@@ -137,7 +159,7 @@ export function createDurability(initial) {
             const quote = api.quoteRepair(actor, key);
             if (!quote.affordable) throw new Error(`Repair needs ${quote.cost} coins.`);
             actor.money -= quote.cost;
-            state.condition[key] = MAX;
+            state.condition[key] = Math.max(quote.condition, cap(key));
             return quote;
         },
         // Stage only. persistExpansionPlan writes external/equipment/nativePatch;

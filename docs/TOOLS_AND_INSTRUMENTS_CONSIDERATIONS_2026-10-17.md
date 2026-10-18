@@ -222,6 +222,10 @@ Order: IP1 → IP2 → IP3 is the smallest useful set (tools wear and you can fi
 IP4 and IP7 add Village life. IP5 and IP6 need the crafting owners. IP8 and IP9 wait for a world slice.
 This replaces round 1's TQ62 slice, since lending and forging already exist.
 
+Status (2026-10-17): IP1–IP3 implemented in the `tools` domain on branch `claude/tools-ip1-3-8c989c`,
+browser-checked at both viewports; numbers stay proposals. Evidence and gaps:
+[task record](gm/dispatch/tools-2026-10-17/IP1-3_TASK_RECORD.md).
+
 Verification per AD36: reuse the durability and salvage tests, add a regression for IP2 (durability
 off means byte-identical gathering) and IP3 (quote consumes nothing), and one golden for IP1 rates.
 Failure scenario to guard: a tool bound to a durability instance id during gathering changes its
