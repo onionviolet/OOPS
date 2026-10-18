@@ -111,7 +111,10 @@ owns the 2026-10-17 palette for items as instruments (verbs and control, not
 truth): three item roles (TQ1), mundane tool fit, wear, kits and improvisation
 (TQ, MC), JJK cursed-tool splits (CT1-CT10), tool families in 17 other worlds
 (WX, memory pending TQ60) and the axes that separate them (AX1-AX9). Builds on
-GHS84-GHS111 for power held in things. Proposals only.
+GHS84-GHS111 for power held in things. Round 2 maps the existing tool code
+(TQ70-TQ78), an implementation plan IP1-IP9 in a `tools` domain, a verb catalog
+(VB), tools and equipment by world from the packs (WE1-WE20) and MT1-MT12.
+Proposals only.
 
 [Weaponcrafting, runes and inscription considerations](WEAPONCRAFTING_RUNES_AND_INSCRIPTION_CONSIDERATIONS_2026-10-14.md)
 is a parallel-session duplicate of the weaponcraft palette above; fold its
