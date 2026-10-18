@@ -1,0 +1,109 @@
+{
+ "C1": {
+  "lines": 46,
+  "sample": [
+   "Wolf rat E crits you for 3.7",
+   "Elite wolf rat F hits you for 2.2",
+   "Starving wolf rat G misses you",
+   "Wolf rat H misses you",
+   "Starving wolf rat D misses you"
+  ]
+ },
+ "C1single": {
+  "lines": 70
+ },
+ "C2": {
+  "expanded": "true",
+  "items": 2,
+  "repeat": 2,
+  "label": "Repeated 2 times. Show when",
+  "text": "Starving wolf rat misses you"
+ },
+ "C3": {
+  "afterClear": 3,
+  "eventsBeforeStop": 3,
+  "eventsAfterStop": 3
+ },
+ "C4": {
+  "message_common:miss": 8.45,
+  "log-name:ally": 8.45,
+  "log-name:hostile": 8.45,
+  "message_common:hit": 13.87,
+  "log-value:loss": 8.94,
+  "log-value:damage": 13.36
+ },
+ "C5": [
+  {
+   "target": "1920x1080x14",
+   "build": "before",
+   "w": 501,
+   "x": 1402,
+   "page": [
+    1920,
+    1080,
+    1920,
+    1080
+   ]
+  },
+  {
+   "target": "1920x1080x14",
+   "build": "after",
+   "w": 501,
+   "x": 1402,
+   "page": [
+    1920,
+    1080,
+    1920,
+    1080
+   ]
+  },
+  {
+   "target": "1366x768x14",
+   "build": "before",
+   "w": 394,
+   "x": 955,
+   "page": [
+    1366,
+    768,
+    1366,
+    768
+   ]
+  },
+  {
+   "target": "1366x768x14",
+   "build": "after",
+   "w": 394,
+   "x": 955,
+   "page": [
+    1366,
+    768,
+    1366,
+    768
+   ]
+  },
+  {
+   "target": "1366x768x21",
+   "build": "before",
+   "w": 394,
+   "x": 955,
+   "page": [
+    1366,
+    768,
+    1366,
+    768
+   ]
+  },
+  {
+   "target": "1366x768x21",
+   "build": "after",
+   "w": 394,
+   "x": 955,
+   "page": [
+    1366,
+    768,
+    1366,
+    768
+   ]
+  }
+ ]
+}
