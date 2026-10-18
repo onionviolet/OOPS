@@ -179,6 +179,11 @@ Round 10 runs the more-to-consider pass: code index, slice constraints
 MT1-MT7, delegated items LD1-LD6 and new angles NA1-NA6.
 Round 11 adds ownership with sibling palettes OW1-OW6, stability rules
 ST-A to ST-F, reincarnation RL1-RL6, authoring volume AV1-AV5, LD7-LD10, NA7-NA10.
+The [genetics and hero start plan](GENETICS_AND_HERO_START_PLAN_2026-10-17.md)
+(2026-10-17, proposal) turns the palette and the starts owners into a build plan: state,
+knowledge and flavour per fact, one saved start receipt and a Beginning view, slices S1-S5
+(GHS1-GHS40), then rounds on soul and fact scopes (GHS41-GHS65), talents and titles
+(GHS66-GHS83) and book items and power held in things (GHS84-GHS111).
 
 Current idea-expansion return, 2026-10-11:
 [joined planning](gm/dispatch/idea-expansion-2026-10-11/RECONCILIATION.md) retains

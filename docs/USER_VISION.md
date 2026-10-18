@@ -3406,3 +3406,41 @@ default companion; the action group drop-downs live under the Options tab (all d
 rest are proposals in [R21 feedback](gm/dispatch/ui-foundation-2026-10-15/next-parts/r21-feedback-2026-10-17.md)
 (BX4–BX15) and [UI modularity](gm/dispatch/ui-foundation-2026-10-15/next-parts/ui-modularity-2026-10-17.md)
 (UM1–UM10). Then: "Merge and commit with lesser accordingly".
+
+### Genetics and hero start plan, 2026-10-17
+
+Weibao: "send new chat to make plans on properly doing and implementing genetics and hero
+selection stuff and more?" Recorded as a planning request after R21b retired the hero creation
+panel. Proposal, not accepted: [genetics and hero start plan](GENETICS_AND_HERO_START_PLAN_2026-10-17.md)
+(GHS1–GHS40) sorts body, genetic and lineage facts into state, knowledge and flavour per world,
+routes every start through one saved receipt and a Beginning view, and ladders four slices
+starting with recorded beginnings. It builds on the [genetics palette](GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md)
+and the starts owners; open decisions Q1–Q4 are in the plan.
+
+### Genetics, constitution, physique, soul and traits round, 2026-10-17
+
+Weibao: "Aspects of genetics, constitution, physique, soul, traits, and more options?" Saved as
+round 2 of the [genetics and hero start plan](GENETICS_AND_HERO_START_PLAN_2026-10-17.md#round-2-genetics-constitution-physique-soul-traits-and-more-options-2026-10-17)
+(GHS41–GHS65), proposals only: where body, mind, soul, line and record facts live across lives
+and body changes, one trait card shape with costs and conditions, start options for unknown,
+drafted and chosen bodies, and later items.
+
+### Talents, titles and traits round, 2026-10-17
+
+Weibao: "What about talents and titiles and traits?" Saved as round 3 of the [genetics and hero
+start plan](GENETICS_AND_HERO_START_PLAN_2026-10-17.md#round-3-talents-titles-and-traits-2026-10-17)
+(GHS66–GHS83), proposals only: talents, titles and traits share the trait card. Each grant targets
+either capabilities or the stat and XP buckets, with a new heritage bucket built like the title
+bonus. Hidden talents show their exact effect with an unknown cause. Start-given titles are not
+deeds. Transfer to heirs follows E4 TR1–TR7.
+
+### Items and possibilities from books round, 2026-10-17
+
+Weibao: "consider items and possibilities from books too". Saved as round 4 of the [genetics and
+hero start plan](GENETICS_AND_HERO_START_PLAN_2026-10-17.md#round-4-items-and-possibilities-from-books-2026-10-17)
+(GHS84–GHS111), proposals only. Book patterns that keep power in things: loot left by the dead,
+stolen or transplanted powers, soul fragments, bonded tools, testers, priced trades and
+one-holder powers. Proposed engine pieces: power instances with custody, a per-world holder ledger,
+typed acquisition operations, integration with forgiving warning signs, priced costs and vows,
+slots, eligibility keys, and item classes mapped onto existing item code. Adds S5, "Power in a
+thing", after S4.

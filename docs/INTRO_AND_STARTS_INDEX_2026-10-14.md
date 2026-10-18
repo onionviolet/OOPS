@@ -167,6 +167,10 @@ INFERRED ranking for later selection, drawn from intro and lane suggestions. The
 
 Other catalog RN4/RN6/RN9 and OS follow-up scenes remain [research leads](research/START_AS_X_SOURCE_CATALOG_2026-10-14.md#ranked-read-next-at-most-ten), not added first-slice assignments. Lane S/P/RN codes are local; links distinguish them from this index's P1-P10.
 
+2026-10-17: the [genetics and hero start plan](GENETICS_AND_HERO_START_PLAN_2026-10-17.md) proposes
+P2 as its first slice (S1, GHS26): a saved start receipt, a Beginning view from the R21b start-screen
+card, and family and life-stage axes. Proposal only.
+
 ## Premise hooks, 2026-10-14
 
 Research, proposals only. [Premise hook audit](research/PREMISE_HOOK_AUDIT_2026-10-14.md) owns the H1-H6 hook grammar for comedic and ironic openings (the dragon egg raised by an unsuspecting snake), pattern families PD/PC/PS/PY/PV/PK, engine pieces PE1-PE12 mapped onto E, NK, GR, P1 and V1/V3, per-world fit and five suggestions S1-S5 for a first generator slice on the Village probe. Works: [premise hook source catalog](research/PREMISE_HOOK_SOURCE_CATALOG_2026-10-14.md). Direction: [USER_VISION](USER_VISION.md#premise-hooks-and-a-premise-generator-2026-10-14). Its S/RN codes are local to those files.
