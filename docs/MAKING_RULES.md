@@ -90,3 +90,26 @@ is in [CRAFTING_ENGINE round 4](CRAFTING_ENGINE.md#round-4-2026-10-15-deeper-pot
 | MR34 | **Prove determinism:** golden snapshots for three seeds, a seed sweep with invariants, and the same next value after save, reload and import. | Determinism bugs found by Weibao in play |
 | MR35 | **Prove the canon boundary when a canon pack exists:** the exact formula makes the canon product, a near miss makes degraded, free mixing makes originals, and cited rows have locators. | Canon packs that drift from the source |
 | MR36 | **Playable proof follows AGENTS.md:** rebuild, fresh origin, 1366×768, and Save, reload, Export and literal Import for persistence. Unit tests alone are source evidence, not gameplay. | Claiming engine code is a playable feature |
+
+## Application reconciliation, 2026-10-18
+
+At Weibao's request, apply MR1, MR5 and MR29 together with AR7 and AD38:
+a staged craft records actual completed stages, spent inputs, held stock and
+intermediate products. An interruption by combat, travel or a content edge
+settles those facts through the activity's owner before another activity takes
+control. Refund, spoilage and resumability follow the product mechanism;
+cancelling after a committed stage does not silently undo it. Atomic crafts
+remain atomic. [G28](reviews/SUBTLE_RULE_GAPS_2026-10-18.md#round-4-latest-audits-together-2026-10-18)
+is a future scenario, not a demand for a job engine.
+
+MR1 also governs warnings: unknown properties act, while projections reveal only
+what means support. Tags select modeled interactions; they are not a permission
+list that makes an untagged supported interaction impossible (AD38).
+
+**Current compatibility override:** MR30/MR33's old-content/old-save guarantees
+are qualified by the [2026-10-17 decision](USER_VISION.md#old-save-compatibility-deferred-2026-10-17)
+and [content-ID decision](USER_VISION.md#content-id-retirement-and-frozen-world-idle-2026-10-18).
+A task may reset/drop old state and records that choice. New state still needs
+Save/reload/Export/Import; current references must remain internally consistent.
+MR36's historical 1366×768 target is a floor: new UI evidence also uses the
+1920×1080 primary and other current targets in [UI_RULES](UI_RULES.md).

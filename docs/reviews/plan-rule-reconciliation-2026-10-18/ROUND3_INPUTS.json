@@ -1,0 +1,143 @@
+{
+  "round": 3,
+  "date": "2026-10-18",
+  "snapshot_HEAD": "5976bf3d3d77034cfe01b94a5e89506ac6af2509",
+  "snapshot_branch": "codex/gameplay-foundations",
+  "baseline": "Per-path dirty working-tree content captured before this round edited that path. This is not a clean checkout or a claim to own all changes since HEAD.",
+  "paths": [
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/next-parts/GRIPES_A1_A2_CHECKPOINT.md",
+      "before_sha256": "36dccbb19d069d7358976bb693cf375369c92e67c51149ee637d8f60b96dfec2",
+      "after_sha256": "468fe61095ee9e1b218c8e75bbd1d992aaec1f76e435cb8c8c5beb1f1483f143",
+      "existed_at_round_start": true
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/next-parts/GRIPES_A1_A2_REPORT.md",
+      "before_sha256": "8f988651f177a1103864083cac2615c8a93cf332b727af848c0433bbb329fbf3",
+      "after_sha256": "fe9add1c6c5d3609237185764a0182e28883932df03931f06eea23345eecf2af",
+      "existed_at_round_start": true
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/CHECKPOINT.md",
+      "before_sha256": "06278af916e18df6fb23e6887a12732fb41039d33914fe440055f64e9f9892c9",
+      "after_sha256": "2e4876ebc9d8a72de5b6233bfe183e73bfb8ed64823359d3215d5c69a08138b4",
+      "existed_at_round_start": true
+    },
+    {
+      "path": "docs/reviews/FOUNDATIONS_DIALOGUE_AND_ABSORPTION_PLAN_2026-10-12.md",
+      "before_sha256": "2ad0c388258ae87c2c53185dee6820f1ed51f3cadd1ef457368f36b2c824474d",
+      "after_sha256": "94466fe4157b055a71096f6320c9960cdb7a6df9ffeb8b2894babcd22a525d5e",
+      "existed_at_round_start": true
+    },
+    {
+      "path": "docs/worlds/world-depth-2026-10-13/00_AGENT_BRIEF.md",
+      "before_sha256": "227319a5d50cb486c0435d0b538cbaab6212880b27aa5a10dab04e3d3ec2bc39",
+      "after_sha256": "b3b90104fb3bade55ad7581246a7c164871bb6cd372c7576c27bb00685d7e678",
+      "existed_at_round_start": true
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/engine-absorption/PLAN_PACKETS.md",
+      "before_sha256": "06e9ca632bd307e9550cd902f7b2d5efc9d9ab41b44fee339c03f504be2b384b",
+      "after_sha256": "64765b2b1dd0dc83f216e2221b53de7e49bf0d5ae74237bd8859b0d130612c2e",
+      "existed_at_round_start": true
+    },
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b11/TEST_PLAN.md",
+      "before_sha256": "72b888dcfa754f80e11ec11d1ec90dfd4b47cb91ee9bfc79f65bd19366768f79",
+      "after_sha256": "aa1b88ccda428f9d28ec7d26bd2f1aec82adc4fbc92c8e07f626c19c571ccede",
+      "existed_at_round_start": true
+    },
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b15/TEST_PLAN.md",
+      "before_sha256": "169115f129ea4f38179e232f943e4fdb6cd7e4c648895a4069b3bd5ff9a9cadd",
+      "after_sha256": "c681fa39e05632fdf1f1a1706b6a8c0b23aae563ab8c1315aeeeae3b53462fc2",
+      "existed_at_round_start": true
+    },
+    {
+      "path": "docs/worlds/paradise-hub/CANON_PRIORITY_PLAN_2026-10-14.md",
+      "before_sha256": "647b80bb94aba249f1c64f5f66c8a6259f1075e8fa36e84b13c8898aa0715664",
+      "after_sha256": "464c207aa6179019d5fd47361884c9b5fb53bdee30a7df00e5e0a259a2fe9960",
+      "existed_at_round_start": true
+    },
+    {
+      "path": "docs/worlds/original-frontier/WORLD_BRIEF.md",
+      "before_sha256": "7712218c9f268b5381946a68bb8af9ec0c9ed4317c372623987d258e360d5193",
+      "after_sha256": "30dc0e529df5b3944b425f72192e99d2b8bf7b2a0cdf0fd744225ee1edb9269b",
+      "existed_at_round_start": true
+    },
+    {
+      "path": "docs/gm/world-completion-2026-10-06/BRIEF.md",
+      "before_sha256": "97c6e7fc8af15372cbdb41175cb27ca4285ddb7cffbe10b22056f37559f78140",
+      "after_sha256": "063738b1ac234e23ef41a332da0e543bee4eedfef6d3b59fde88678c09c278a7",
+      "existed_at_round_start": true
+    },
+    {
+      "path": "docs/research/tabletop-library-2026-10-14/CORE_TITLES_AND_ADAPTATION_PLAN.md",
+      "before_sha256": "287289bd5cb4c1ceb029094eb8244de63e5b191f1301cf212b183d5a07cae8b0",
+      "after_sha256": "0c8b6af0343ee0df34972c08b7d6e65327a32281d23f6d8c388bd95e79b80e71",
+      "existed_at_round_start": true
+    },
+    {
+      "path": "docs/reviews/plan-rule-reconciliation-2026-10-18/SUPERSESSION_GROUPS.json",
+      "before_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "after_sha256": "f4432cdcaa25b66240ef7c6f9439fcca4a9e6582b96b90aa0cae37c011dddb38",
+      "existed_at_round_start": false
+    },
+    {
+      "path": "docs/reviews/plan-rule-reconciliation-2026-10-18/PLAN_INVENTORY.json",
+      "before_sha256": "4d985d63aee8dc407c631bdaff008b026abc557c7d864cbdbb0c8dc686016e67",
+      "after_sha256": "cbb3679113fc531dc2645fe5af9b990f20b0411633446c28fba17cd181284288",
+      "existed_at_round_start": true
+    },
+    {
+      "path": "docs/reviews/plan-rule-reconciliation-2026-10-18/SUPERSESSION_GROUPS.md",
+      "before_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "after_sha256": "545a50535658149a51b51bd7d518444e6324b728036db68b0de0683d5470ab93",
+      "existed_at_round_start": false
+    },
+    {
+      "path": "docs/audits/tools/plan_review_status.py",
+      "before_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "after_sha256": "1ae11784c300ff2acaaae3c0ece90683e3d9acc9aa4cc9a54aa7c49414e4f0d4",
+      "existed_at_round_start": false
+    },
+    {
+      "path": "docs/audits/TOPIC_EXPANSION_AUDIT_PLAYBOOK.md",
+      "before_sha256": "0414d0bcf707dea6f6b03e4d3425cf517d5e5b1e737f87bb474f3d108dc1a89e",
+      "after_sha256": "8e17dea26a8808d0039ce3e3d41c76fa4587245740317a62f9ebde20f31d65ed",
+      "existed_at_round_start": true
+    },
+    {
+      "path": "docs/worlds/demon-slayer/WORLD_BRIEF.md",
+      "before_sha256": "d1d8878a4bfb121dd0166820c1ea97d2db34a3db1a6b7aaa19f6af5e7d8b6f9c",
+      "after_sha256": "7475b60ede544c61eed5649c5b539c34e00b0708d650224e7fb9f22622463418",
+      "existed_at_round_start": true
+    },
+    {
+      "path": "docs/reviews/plan-rule-reconciliation-2026-10-18/ROUND3_REVIEW.json",
+      "before_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "after_sha256": "0ff2f3cf60b94ba557599a6eac4c2cfe3d41581039449b523824daf58ecab372",
+      "existed_at_round_start": false
+    },
+    {
+      "path": "docs/reviews/PLAN_RULE_RECONCILIATION_2026-10-18.md",
+      "before_sha256": "8cc01775efca0e97f8451def0f19a78144de261bd6e9c70c86dca3a5d5161a5e",
+      "after_sha256": "df5a530e7f8c8466e129c27c65285af1b0271174342aaba80a45ea3c08df079f",
+      "existed_at_round_start": true
+    },
+    {
+      "path": "docs/reviews/plan-rule-reconciliation-2026-10-18/ROUND3_SUPERSEDED_TEXT.md",
+      "before_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "after_sha256": "857255b29918e615b88018ba9149d7f3519996f179125c2b3572bfea9412e29a",
+      "existed_at_round_start": false
+    },
+    {
+      "path": "docs/reviews/plan-rule-reconciliation-2026-10-18/ROUND3_CHECKS.json",
+      "before_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "after_sha256": "0b6fdaa9b7ad5825041354b10c36aeeb84916cc78aa50bc332dfa5539207dd16",
+      "existed_at_round_start": false
+    }
+  ],
+  "self_hash_excluded": true,
+  "unrelated_changes": "Preserved; no index, source/runtime, dist, user saves, commits or remote changes made by this round."
+}

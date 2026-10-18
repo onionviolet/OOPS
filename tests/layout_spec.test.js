@@ -14,7 +14,7 @@ function r16ParityRegion(id, combat) {
     if (['records', 'skills'].includes(id)) return 'actions';
     return 'actions';
 }
-const r16Order = companions => ['vitals', 'shell-character', 'status-window', 'combat-controls', 'shell-inventory-tools', 'belongings', 'focus', 'shell-detail', 'time', 'location', 'village-scene', 'current-work', 'combat', 'local-actions', ...companions, 'pane-navigation', 'messages', 'shell-log-tools'];
+const r16Order = companions => ['vitals', 'shell-character', 'condition', 'status-window', 'combat-controls', 'shell-inventory-tools', 'belongings', 'focus', 'shell-detail', 'time', 'location', 'village-scene', 'current-work', 'combat', 'local-actions', ...companions, 'pane-navigation', 'messages', 'shell-log-tools'];
 // Every panel ID registered by the game at R17 start, plus an unknown one.
 const IDS = ['vitals', 'time', 'location', 'combat-controls', 'skills', 'records', 'preparation', 'belongings', 'local-actions', 'messages',
     'beginning', 'combat', 'continuation', 'current-work', 'customization', 'customization-effects', 'customization-preview', 'customization-rules', 'customization-sites',
@@ -22,8 +22,14 @@ const IDS = ['vitals', 'time', 'location', 'combat-controls', 'skills', 'records
     'projects', 'reading-reference', 'shell-character', 'shell-detail', 'shell-inventory-tools', 'shell-log-tools', 'stance', 'status-window', 'village-neighbors',
     'village-scene', 'village-travelers', 'world-events', 'some-future-panel'];
 
-test('every panel lands in the same region as in R16, idle and in a fight', () => {
-    for (const combat of [false, true]) for (const id of IDS) assert.equal(regionFor(id, {combat}), r16ParityRegion(id, combat), `${id} combat=${combat}`);
+test('panels retain R16 region assignments except the intentionally rehomed item inspector', () => {
+    for (const combat of [false, true]) for (const id of IDS.filter(id=>id!=='shell-detail')) assert.equal(regionFor(id, {combat}), r16ParityRegion(id, combat), `${id} combat=${combat}`);
+});
+test('item inspection preserves nearby context during idle and travel, with service and combat homes retained',()=>{
+    assert.equal(regionFor('shell-detail',{context:'idle'}),'actions');
+    assert.equal(regionFor('shell-detail',{context:'travel'}),'actions');
+    assert.equal(regionFor('shell-detail',{context:'service'}),'focus');
+    assert.equal(regionFor('shell-detail',{context:'combat'}),'actions');
 });
 
 test('default shell order matches R16 for the parity shell and the plain shell', () => {
@@ -53,7 +59,7 @@ test('a panel can be moved or a companion added by data alone', () => {
         contexts: {...LAYOUT_SPEC.contexts, idle: {companions: ['records', 'skills', 'known-routes']}}};
     assert.equal(regionFor('world-events', {}, spec), 'log');
     assert.deepEqual(companionsFor({combat: false, available: ['known-routes', 'records']}, spec), ['records', 'known-routes']);
-    assert.deepEqual(shellOrder({parity: true}, spec).slice(14, 17), ['records', 'skills', 'known-routes']);
+    assert.deepEqual(shellOrder({parity: true}, spec).slice(15, 18), ['records', 'skills', 'known-routes']);
 });
 
 // R21 (MB1): placement moves boxes between slots; an empty placement is the R20 layout.
@@ -76,7 +82,7 @@ test('R21 placement: swaps main boxes, places companions, keeps the log and defa
     assert.equal(regionFor('records', {placement: p.contexts.idle}), 'inventory');
     p = swapCompanions(p, 'idle'); assert.equal(p.contexts.idle.swap, true);
     p = moveBox(p, 'idle', 'around', 'inventory');
-    assert.equal(regionFor('shell-detail', {placement: p.contexts.idle}), 'inventory', 'item detail follows Around you');
+    assert.equal(regionFor('shell-detail', {placement: p.contexts.idle}), 'actions', 'item detail keeps its task companion home when Around you moves');
     assert.equal(isDefault(resetContext(p, 'idle'), 'idle'), true);
     assert.equal(normalizePlacement({version: 1, spec: 1, contexts: {idle: {boxes: {you: 'focus'}}}}).stale, true, 'an older spec version is dropped (GU6)');
     assert.equal(regionFit(['vitals', 'shell-character']), 'content');
@@ -87,7 +93,7 @@ test('R21 placement: swaps main boxes, places companions, keeps the log and defa
 // UIL1: v3 keeps every R21 navigation route, label and hotkey, and v2 placements read unchanged.
 test('UIL1 route table keeps the R21 routes, labels, hotkeys and tabs in bar order', async () => {
     const {routeTable, routeById} = await import('../src/layout_spec.js');
-    const r21 = [['Here','h','local-actions'],['Stats','e','preparation'],['Inventory','i','belongings'],['Crafting','c','crafting'],['Mixing','m','mixing'],
+    const r21 = [['Here','h','local-actions'],['Stats','e','preparation'],['Condition','o','condition'],['Inventory','i','belongings'],['Crafting','c','crafting'],['Mixing','m','mixing'],
         ['Journal','j','records','journal_show_quests'],['Bestiary','b','records','journal_show_bestiary'],['Books','a','records','journal_show_books'],
         ['Data','d','records','journal_show_data'],['Notebook','n','records','journal_show_notebook'],['Skills','k','skills'],
         ['People','p','known-people'],['Travelers','t','village-travelers'],['Projects','r','projects'],['Ledger','l','ledger'],
@@ -107,7 +113,7 @@ test('UIL1/UIL4 the spec reads v2 and v3 placements unchanged and still drops v1
     assert.equal(read.spec, 4);
     // The contexts the old placement lacks (travel, service) start at the spec defaults.
     assert.deepEqual(Object.keys(read.contexts), ['idle', 'combat', 'travel', 'service']);
-    assert.deepEqual({idle: read.contexts.idle, combat: read.contexts.combat}, v2.contexts);
+    assert.deepEqual({idle: read.contexts.idle, combat: read.contexts.combat}, Object.fromEntries(Object.entries(v2.contexts).map(([k,v])=>[k,{...v,sizes:{}}])));
     assert.equal(normalizePlacement({...v2, spec: 3}).stale, false, 'a UIL1 (spec 3) placement reads');
     assert.equal(regionFor('belongings', {placement: read.contexts.idle}), 'player');
     assert.equal(normalizePlacement({...read}).stale, false, 'a current placement reads back');
@@ -134,7 +140,7 @@ test('UIL4 the new contexts use spec defaults and keep the idle homes and the lo
     assert.deepEqual(companionsFor({context: 'service', available: ['records', 'skills']}), [], 'service recommends none');
     assert.deepEqual(companionPanels(), ['records', 'skills'], 'the companion palette is unchanged');
     for (const context of ['idle', 'travel', 'service']) {
-        assert.equal(regionFor('shell-detail', {context}), 'focus', `${context} item detail sits where Around you is`);
+        assert.equal(regionFor('shell-detail', {context}), context==='service'?'focus':'actions', `${context} item detail keeps its declared home`);
         assert.equal(regionFor('messages', {context}), 'log', `${context} keeps the log column (UR11)`);
     }
     assert.equal(regionFor('shell-detail', {context: 'combat'}), 'actions');
@@ -152,4 +158,32 @@ test('UIL4 a placement is stored per context and one context never changes anoth
     const read = normalizePlacement(raw);
     assert.equal(read.contexts.travel.boxes.inventory, 'player');
     assert.equal('nonsense' in read.contexts, false);
+});
+
+
+test('UIL7 sizes migrate additively, stay per-context, and reset with placements', async () => {
+    const {normalizePlacement, resizeContext, resetContext, isDefault, moveBox} = await import('../src/shell_layout_edit.js');
+    const v4={version:1,spec:4,contexts:{idle:{boxes:{inventory:'player'},companions:{journal:'inventory'},swap:true}}};
+    const loaded=normalizePlacement(v4);
+    assert.deepEqual(loaded.contexts.idle.sizes,{});
+    assert.equal(loaded.contexts.idle.boxes.inventory,'player');
+    const sizes={topLeft:.4,bottomLeft:.3,log:.25,top:.55};
+    const resized=resizeContext(loaded,'service',sizes);
+    assert.deepEqual(resized.contexts.idle,loaded.contexts.idle);
+    assert.deepEqual(resized.contexts.service.sizes,sizes);
+    assert.equal(isDefault(resized,'service'),false);
+    const moved=moveBox(resized,'service','journal','actions');
+    assert.deepEqual(moved.contexts.service.sizes,sizes);
+    assert.deepEqual(normalizePlacement(JSON.parse(JSON.stringify(moved))),moved);
+    assert.equal(isDefault(resetContext(moved,'service'),'service'),true);
+    assert.deepEqual(resetContext(moved,'service').contexts.idle,loaded.contexts.idle);
+    const dirty=resizeContext(resized,'combat',{top:NaN,log:0,topLeft:Infinity,bottomLeft:2,unknown:.5});
+    assert.deepEqual(dirty.contexts.combat.sizes,{});
+});
+
+test('UIL7 split clamps protect both adjacent regions including Reports', async () => {
+    const {clampSplit}=await import('../src/shell_resize.js');
+    assert.equal(clampSplit(-50,1300,300,450),300);
+    assert.equal(clampSplit(1500,1300,300,450),850);
+    assert.equal(clampSplit(500,1300,300,450),500);
 });

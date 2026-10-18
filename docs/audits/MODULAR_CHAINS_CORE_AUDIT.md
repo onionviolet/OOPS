@@ -31,3 +31,20 @@ Prompts and shared rules live in [`gm/dispatch/modular-chains-2026-10-14/`](../g
 | 2026-10-14 | 4 | TW-C, TW-L, TW-S ([topic wave](../gm/dispatch/topic-wave-2026-10-14/COMMON.md)) | Triggers TR1 (HV1 merged) and TR2 (T3 rule reader merged); game wave evidence GW1-GW10; levels consistency ML-R4a-c |
 | 2026-10-14 | 5 | TW-C, TW-L, TW-S folded | FC1-FC7 corrections; shared pieces with two real callers (rules, seeded decisions, world instances); next slice P01 on Village mixing ([prompt](../gm/dispatch/topic-wave-2026-10-14/NEXT_SLICE_P01.md)) |
 | 2026-10-15 | 6 | feature scout, deep systems sweep folded | FS1-FS9 stage-specific interruption policies and lot-carried progress constrain T4; production picks from Immortal Life, Taiwu, Academagia, Naev, HyperRogue |
+| 2026-10-18 | 7, rule-fit only | none | Existing FS1–FS9 and finite-repeat owners reused for interrupted clock/custody case; no new chain engine |
+## Core-rule reconciliation, 2026-10-18
+
+Apply the [shared pass](TOPIC_EXPANSION_AUDIT_PLAYBOOK.md#core-rule-reconciliation-pass-2026-10-18)
+to affected future rounds. Codes: MR5/MR29, AR3/AR7/AR12, AD16–AD18/AD36/AD38.
+
+**Composed case:** One stage keeps its own real clock, custody and intermediate product across an interrupt. Reuse FS1–FS9 stage-specific policies and existing finite-repeat owners; no new generic chain engine.
+
+**Current correction:** Modular production palette reconciliation and the relevant rule owner now carry the
+constraint. Current old-save compatibility is deferred; newly built state still
+round-trips. Player-facing proof uses current UI_RULES targets. Proposals and
+NPC/layout/mobile deferrals keep their status. This is a docs-only rule-fit pass,
+not a rerun of source/game-reference lanes or evidence that gameplay works.
+
+Later execution: strong cross-domain agent, medium only when that seam is
+selected; reuse the affected existing suite and require a useful rebuilt journey
+plus current-state persistence when changed. No lane is dispatched by this entry.

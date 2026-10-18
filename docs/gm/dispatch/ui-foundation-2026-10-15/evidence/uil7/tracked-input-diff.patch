@@ -1,0 +1,227 @@
+diff --git a/src/shell_composition.js b/src/shell_composition.js
+index 1f4835036..4fad11d7a 100644
+--- a/src/shell_composition.js
++++ b/src/shell_composition.js
+@@ -81,12 +81,13 @@ export function topTerms(regions, combat) {
+     return {player, elastic, focus};
+ }
+ 
+-export function createShellComposition({root, board, regions}) {
++export function createShellComposition({root, board, regions, resize}) {
+     let frame = 0;
+     const measure = () => {
+         frame = 0;
+         const started = performance.now();
+-        if (root.dataset.parity !== 'r3' || !regions.player?.isConnected) { delete root.dataset.shellFit; delete root.dataset.shellCompanions; return; }
++        if (root.dataset.parity !== 'r3' || !regions.player?.isConnected) { resize?.measure(); delete root.dataset.shellFit; delete root.dataset.shellCompanions; return; }
++        resize?.prepare();
+         const height = board.getBoundingClientRect().height;
+         if (!height) return;
+         const fontSize = parseFloat(getComputedStyle(regions.player).getPropertyValue('--shell-context-size')) || parseFloat(getComputedStyle(regions.focus).fontSize) || 14;
+@@ -105,6 +106,7 @@ export function createShellComposition({root, board, regions}) {
+         // text line (opponent card lists, stat rows), which the extent does not see.
+         const value = `${topRowHeight({player: top.player, elastic: top.elastic, focus: top.focus, combat, board: height, fontSize, viewport: window.innerHeight, frame: frameFor(fontSize)})}px`;
+         if (root.style.getPropertyValue('--shell-top-row') !== value) root.style.setProperty('--shell-top-row', value);
++        resize?.measure();
+         if (root.dataset.shellFit !== 'true') root.dataset.shellFit = 'true';
+         // GU2: each measure is timed so checks can confirm it stays within a frame.
+         performance.measure('shell-composition', {start: started, end: performance.now()});
+diff --git a/src/shell_layout_edit.js b/src/shell_layout_edit.js
+index b177128f4..bb7058a81 100644
+--- a/src/shell_layout_edit.js
++++ b/src/shell_layout_edit.js
+@@ -7,7 +7,7 @@ import {LAYOUT_SPEC, boxRegion} from './layout_spec.js';
+ // in that context. The game save is untouched.
+ 
+ export const PLACEMENT_VERSION = 1;
+-const empty = () => ({boxes: {}, companions: {}, swap: false});
++const empty = () => ({boxes: {}, companions: {}, swap: false, sizes: {}});
+ 
+ export function normalizePlacement(raw, spec = LAYOUT_SPEC) {
+     const out = {version: PLACEMENT_VERSION, spec: spec.version, contexts: {}};
+@@ -19,6 +19,7 @@ export function normalizePlacement(raw, spec = LAYOUT_SPEC) {
+         for (const [box, slot] of Object.entries(from?.boxes || {})) if (spec.boxes[box] && !spec.boxes[box].companion && spec.slots[slot] && slot !== 'actions') to.boxes[box] = slot;
+         for (const [box, slot] of Object.entries(from?.companions || {})) if (spec.boxes[box]?.companion && (spec.slots[slot] || slot === 'hidden')) to.companions[box] = slot;
+         to.swap = !!from?.swap;
++        to.sizes = normalizeSizes(from?.sizes);
+         out.contexts[context] = to;
+     }
+     out.stale = !!raw && !fresh;
+@@ -40,7 +41,7 @@ export function moveBox(placement, context, box, slot, spec = LAYOUT_SPEC) {
+ }
+ export function swapCompanions(placement, context) { const next = structuredClone(placement); next.contexts[context].swap = !next.contexts[context].swap; return next; }
+ export function resetContext(placement, context) { const next = structuredClone(placement); next.contexts[context] = empty(); return next; }
+-export const isDefault = (placement, context) => { const at = placement.contexts[context]; return !Object.keys(at.boxes).length && !Object.keys(at.companions).length && !at.swap; };
++export const isDefault = (placement, context) => { const at = placement.contexts[context]; return !Object.keys(at.boxes).length && !Object.keys(at.companions).length && !at.swap && !Object.keys(at.sizes || {}).length; };
+ 
+ export function readPlacement(key) { try { return normalizePlacement(JSON.parse(localStorage.getItem(key))); } catch { return normalizePlacement(null); } }
+ export function writePlacement(key, placement) { try { const {stale, ...rest} = placement; localStorage.setItem(key, JSON.stringify(rest)); return true; } catch { return false; } }
+@@ -58,3 +59,18 @@ export function moveControl(box, spec = LAYOUT_SPEC) {
+     label.append(select);
+     return {label, select};
+ }
++
++// Optional additive fields: spec-4 placements without sizes retain automatic composition.
++export function normalizeSizes(raw) {
++    const sizes = {};
++    for (const key of ['topLeft', 'bottomLeft', 'log', 'top']) {
++        const n = raw?.[key];
++        if (typeof n === 'number' && Number.isFinite(n) && n > 0 && n < 1) sizes[key] = n;
++    }
++    return sizes;
++}
++export function resizeContext(placement, context, sizes) {
++    const next = structuredClone(placement);
++    next.contexts[context].sizes = normalizeSizes(sizes);
++    return next;
++}
+diff --git a/src/workspace_layout.js b/src/workspace_layout.js
+index 1d4c58510..ba7d4db16 100644
+--- a/src/workspace_layout.js
++++ b/src/workspace_layout.js
+@@ -1,8 +1,9 @@
+ import {centerModes} from './center_modes.js';
+ import {deferSimulationRender} from './simulation_render.js';
++import {createShellResize} from './shell_resize.js';
+ import {createShellComposition} from './shell_composition.js';
+ import {regionFor,shellOrder,companionPanels,contextOf,contextLabel,boxOf,LAYOUT_SPEC} from './layout_spec.js';
+-import {readPlacement,writePlacement,moveBox,swapCompanions,resetContext,isDefault,moveControl} from './shell_layout_edit.js';
++import {readPlacement,writePlacement,moveBox,swapCompanions,resetContext,isDefault,moveControl,resizeContext,normalizePlacement} from './shell_layout_edit.js';
+ import { getDisplaySettings, getDisplaySetting, replaceDisplaySettings, effectsCap } from './display_settings.js';
+ import { normalizeLayout, parseLayout, presetLayout, changeModule, reorderModule, layoutStorageKey, normalizeColumns } from './workspace_state.js';
+ const registry = new Map();
+@@ -79,7 +80,7 @@ function syncShellEditing(){
+         if(!on){control?.remove();continue;}
+         if(!control){control=moveControl(box).label;module.header.querySelector('strong')?.after(control);}
+         const select=control.querySelector('select'),at=currentPlacement(),def=LAYOUT_SPEC.boxes[box];
+-        const automatic=!at?.companions?.[box]&&!LAYOUT_SPEC.contexts[placementContext()].companions.includes(lead);
++        const automatic=!at?.companions?.[box]&&!def.home&&!LAYOUT_SPEC.contexts[placementContext()].companions.includes(lead);
+         const value=def.companion&&(at?.companions?.[box]==='hidden'||automatic)?'hidden':regionFor(lead,{combat:parityCombat(),context:placementContext(),placement:at});
+         if(select.value!==value)select.value=value;}
+     const label=contextLabel(placementContext());
+@@ -168,10 +169,11 @@ function action(event) {
+     if (a === 'colors') { applyColorScheme(control.value); try { localStorage.setItem(COLOR_KEY, control.value); } catch { owner.status.textContent = 'Colors apply for this session; browser storage is unavailable.'; } return; }
+     if (a === 'reset') { owner.composition=!owner.narrow;owner.layout = owner.shell?makeShellLayout(owner.narrow,{fresh:true}):makePreset('Workspace'); save(); updateWorkspace(); return; }
+     // One export (AJ12): layout plus this browser's color scheme and display settings. Layout-only JSON still imports.
+-    if (a === 'export') { owner.config.value = JSON.stringify({...normalizeLayout(owner.layout, [...registry.keys()]), colors: readColorScheme(), display: getDisplaySettings()}, null, 2); owner.status.textContent = 'Layout configuration ready to copy. It contains panel positions, colors and display settings only.'; return; }
++    if (a === 'export') { owner.config.value = JSON.stringify({...normalizeLayout(owner.layout, [...registry.keys()]), colors: readColorScheme(), display: getDisplaySettings(), ...(owner.parity ? {shellPlacement: owner.placement} : {})}, null, 2); owner.status.textContent = 'Layout configuration ready to copy. It contains panel positions, colors and display settings only.'; return; }
+     if (a === 'import') { try { const raw = JSON.parse(owner.config.value);owner.composition=false;if (raw.version !== 1 || !Array.isArray(raw.modules)) throw Error(); owner.layout = normalizeLayout(raw, [...registry.keys()]); save();
+         if (COLOR_SCHEMES.includes(raw.colors)) { applyColorScheme(raw.colors); const picker = owner.toolbar.querySelector('[data-workspace-action="colors"]'); if (picker) picker.value = raw.colors; try { localStorage.setItem(COLOR_KEY, raw.colors); } catch { /* session only */ } }
+         if (raw.display && typeof raw.display === 'object') replaceDisplaySettings(raw.display);
++        if (owner.parity && raw.shellPlacement) { owner.composition=true;owner.placement=normalizePlacement(raw.shellPlacement);writePlacement(placementKey(),owner.placement);document.dispatchEvent(new CustomEvent('workspace-presentation-change')); }
+         updateWorkspace(); owner.status.textContent = 'Layout imported.'; } catch { owner.status.textContent = 'Invalid layout. Current layout preserved.'; } return; }
+     if (!state) return;
+     if (moduleCritical(id) && ['hide', 'collapse'].includes(a)) { owner.status.textContent = 'This panel contains required current actions and stays open.'; return; }
+@@ -308,7 +310,7 @@ export function updateWorkspace() {
+         const parked=composed&&!state.pinned&&!core.includes(state.id)&&!(owner.parity&&(companionPanels().includes(state.id)||boxOf(state.id)));
+         setData(shell,'compositionParked',String(parked));
+         if(known&&['vitals','belongings'].includes(state.id))setProperty(shell.querySelector('.workspace-module-header > strong'),'textContent',composed?(state.id==='vitals'?'You':'Inventory'):module.title);
+-        if(known&&companionPanels().includes(state.id))setProperty(shell.querySelector('.workspace-module-header > strong'),'textContent',owner.parity?(state.id==='records'?'Journal':'Skills'):module.title);
++        if(known&&companionPanels().includes(state.id))setProperty(shell.querySelector('.workspace-module-header > strong'),'textContent',owner.parity?(state.id==='records'?'Journal':state.id==='skills'?'Skills':module.title):module.title);
+         if(known&&state.id==='vitals'){
+             const race=document.getElementById('character_race_div');
+             const visibleRace=race?[...race.childNodes].filter(n=>n.nodeType===3).map(n=>n.textContent).join('').replace(/^[^:]*:\s*/,'').trim():'';
+@@ -489,7 +491,10 @@ export function mountWorkspace({ root = document.getElementById('main_content')
+     presentation.value=owner.shell?(owner.parity?'proto23-parity':'proto23-shell'):'existing';
+     root.classList.add('workspace-active'); root.prepend(toolbar,contextBar,board);
+     function listen(target, name, handler) { target.addEventListener(name, handler); owner.cleanup.push(() => target.removeEventListener(name, handler)); }
+-    const composition=createShellComposition({root,board,regions});owner.cleanup.push(()=>{composition.destroy();root.style.removeProperty('--shell-top-row');delete root.dataset.shellFit;delete root.dataset.shellCompanions;});
++    const resize=createShellResize({root,board,regions,read:()=>currentPlacement()?.sizes||{},context:placementContext,
++        commit:sizes=>changePlacement(resizeContext(owner.placement,placementContext(),sizes),'Panel sizes saved for this context.')});
++    owner.cleanup.push(()=>resize.destroy());
++    const composition=createShellComposition({root,board,regions,resize});owner.cleanup.push(()=>{composition.destroy();root.style.removeProperty('--shell-top-row');delete root.dataset.shellFit;delete root.dataset.shellCompanions;});
+     listen(root, 'click', e => { if (e.target.closest('[data-workspace-action]')?.tagName !== 'SELECT' && e.target.closest('[data-workspace-action]')?.tagName !== 'INPUT') action(e); const floating = e.target.closest('.workspace-floating'); if (floating) { owner.front = (owner.front || 200) + 1; floating.style.zIndex = owner.front; } });
+     listen(document, 'pointerdown', e => {
+         root.querySelectorAll('.workspace-module-controls[open], .workspace-picker[open], .workspace-transfer[open], .workspace-layout-menu[open]').forEach(details => {if(!details.contains(e.target))details.open=false;});
+diff --git a/styles/shell_layout.css b/styles/shell_layout.css
+index 430edd8ec..cd568ecf5 100644
+--- a/styles/shell_layout.css
++++ b/styles/shell_layout.css
+@@ -50,3 +50,15 @@
+ #main_content.workspace-active[data-parity="r3"] .parity-region :is(#quest_hiding_div,#skill_hiding_div) {font-size:.85em;color:var(--p23-muted);padding:.1em 0;}
+ #main_content.workspace-active[data-parity="r3"] .parity-region :is(#journal_content_div,#skills_and_stances_content_div) {font-size:inherit;}
+ }
++/* UIL7 gutters overlay the existing gaps; no extra tracks or moving targets on ticks. */
++.workspace-board > .shell-resize-handle {display:none;}
++@media (min-width:1001px) {
++#main_content[data-parity="r3"] .workspace-board {position:relative;}
++#main_content[data-parity="r3"] .shell-resize-handle:not([hidden]) {display:block;position:absolute;z-index:30;touch-action:none;cursor:col-resize;background:transparent;}
++#main_content[data-parity="r3"] .shell-resize-handle[aria-orientation="horizontal"] {cursor:row-resize;}
++#main_content[data-parity="r3"] .shell-resize-handle::after {content:"";position:absolute;inset:0 -3px;}
++#main_content[data-parity="r3"] .shell-resize-handle[aria-orientation="horizontal"]::after {inset:-3px 0;}
++#main_content[data-parity="r3"] .shell-resize-handle:is(:hover,:focus-visible),
++#main_content[data-parity="r3"][data-shell-resizing="true"] .shell-resize-handle {background:var(--workspace-focus);}
++#main_content[data-parity="r3"] .shell-resize-handle:focus-visible {outline:2px solid var(--workspace-focus);outline-offset:1px;}
++}
+diff --git a/tests/layout_spec.test.js b/tests/layout_spec.test.js
+index a63d76d9e..3eea6f749 100644
+--- a/tests/layout_spec.test.js
++++ b/tests/layout_spec.test.js
+@@ -14,7 +14,7 @@ function r16ParityRegion(id, combat) {
+     if (['records', 'skills'].includes(id)) return 'actions';
+     return 'actions';
+ }
+-const r16Order = companions => ['vitals', 'shell-character', 'status-window', 'combat-controls', 'shell-inventory-tools', 'belongings', 'focus', 'shell-detail', 'time', 'location', 'village-scene', 'current-work', 'combat', 'local-actions', ...companions, 'pane-navigation', 'messages', 'shell-log-tools'];
++const r16Order = companions => ['vitals', 'shell-character', 'condition', 'status-window', 'combat-controls', 'shell-inventory-tools', 'belongings', 'focus', 'shell-detail', 'time', 'location', 'village-scene', 'current-work', 'combat', 'local-actions', ...companions, 'pane-navigation', 'messages', 'shell-log-tools'];
+ // Every panel ID registered by the game at R17 start, plus an unknown one.
+ const IDS = ['vitals', 'time', 'location', 'combat-controls', 'skills', 'records', 'preparation', 'belongings', 'local-actions', 'messages',
+     'beginning', 'combat', 'continuation', 'current-work', 'customization', 'customization-effects', 'customization-preview', 'customization-rules', 'customization-sites',
+@@ -53,7 +53,7 @@ test('a panel can be moved or a companion added by data alone', () => {
+         contexts: {...LAYOUT_SPEC.contexts, idle: {companions: ['records', 'skills', 'known-routes']}}};
+     assert.equal(regionFor('world-events', {}, spec), 'log');
+     assert.deepEqual(companionsFor({combat: false, available: ['known-routes', 'records']}, spec), ['records', 'known-routes']);
+-    assert.deepEqual(shellOrder({parity: true}, spec).slice(14, 17), ['records', 'skills', 'known-routes']);
++    assert.deepEqual(shellOrder({parity: true}, spec).slice(15, 18), ['records', 'skills', 'known-routes']);
+ });
+ 
+ // R21 (MB1): placement moves boxes between slots; an empty placement is the R20 layout.
+@@ -87,7 +87,7 @@ test('R21 placement: swaps main boxes, places companions, keeps the log and defa
+ // UIL1: v3 keeps every R21 navigation route, label and hotkey, and v2 placements read unchanged.
+ test('UIL1 route table keeps the R21 routes, labels, hotkeys and tabs in bar order', async () => {
+     const {routeTable, routeById} = await import('../src/layout_spec.js');
+-    const r21 = [['Here','h','local-actions'],['Stats','e','preparation'],['Inventory','i','belongings'],['Crafting','c','crafting'],['Mixing','m','mixing'],
++    const r21 = [['Here','h','local-actions'],['Stats','e','preparation'],['Condition','o','condition'],['Inventory','i','belongings'],['Crafting','c','crafting'],['Mixing','m','mixing'],
+         ['Journal','j','records','journal_show_quests'],['Bestiary','b','records','journal_show_bestiary'],['Books','a','records','journal_show_books'],
+         ['Data','d','records','journal_show_data'],['Notebook','n','records','journal_show_notebook'],['Skills','k','skills'],
+         ['People','p','known-people'],['Travelers','t','village-travelers'],['Projects','r','projects'],['Ledger','l','ledger'],
+@@ -107,7 +107,7 @@ test('UIL1/UIL4 the spec reads v2 and v3 placements unchanged and still drops v1
+     assert.equal(read.spec, 4);
+     // The contexts the old placement lacks (travel, service) start at the spec defaults.
+     assert.deepEqual(Object.keys(read.contexts), ['idle', 'combat', 'travel', 'service']);
+-    assert.deepEqual({idle: read.contexts.idle, combat: read.contexts.combat}, v2.contexts);
++    assert.deepEqual({idle: read.contexts.idle, combat: read.contexts.combat}, Object.fromEntries(Object.entries(v2.contexts).map(([k,v])=>[k,{...v,sizes:{}}])));
+     assert.equal(normalizePlacement({...v2, spec: 3}).stale, false, 'a UIL1 (spec 3) placement reads');
+     assert.equal(regionFor('belongings', {placement: read.contexts.idle}), 'player');
+     assert.equal(normalizePlacement({...read}).stale, false, 'a current placement reads back');
+@@ -153,3 +153,31 @@ test('UIL4 a placement is stored per context and one context never changes anoth
+     assert.equal(read.contexts.travel.boxes.inventory, 'player');
+     assert.equal('nonsense' in read.contexts, false);
+ });
++
++
++test('UIL7 sizes migrate additively, stay per-context, and reset with placements', async () => {
++    const {normalizePlacement, resizeContext, resetContext, isDefault, moveBox} = await import('../src/shell_layout_edit.js');
++    const v4={version:1,spec:4,contexts:{idle:{boxes:{inventory:'player'},companions:{journal:'inventory'},swap:true}}};
++    const loaded=normalizePlacement(v4);
++    assert.deepEqual(loaded.contexts.idle.sizes,{});
++    assert.equal(loaded.contexts.idle.boxes.inventory,'player');
++    const sizes={topLeft:.4,bottomLeft:.3,log:.25,top:.55};
++    const resized=resizeContext(loaded,'service',sizes);
++    assert.deepEqual(resized.contexts.idle,loaded.contexts.idle);
++    assert.deepEqual(resized.contexts.service.sizes,sizes);
++    assert.equal(isDefault(resized,'service'),false);
++    const moved=moveBox(resized,'service','journal','actions');
++    assert.deepEqual(moved.contexts.service.sizes,sizes);
++    assert.deepEqual(normalizePlacement(JSON.parse(JSON.stringify(moved))),moved);
++    assert.equal(isDefault(resetContext(moved,'service'),'service'),true);
++    assert.deepEqual(resetContext(moved,'service').contexts.idle,loaded.contexts.idle);
++    const dirty=resizeContext(resized,'combat',{top:NaN,log:0,topLeft:Infinity,bottomLeft:2,unknown:.5});
++    assert.deepEqual(dirty.contexts.combat.sizes,{});
++});
++
++test('UIL7 split clamps protect both adjacent regions including Reports', async () => {
++    const {clampSplit}=await import('../src/shell_resize.js');
++    assert.equal(clampSplit(-50,1300,300,450),300);
++    assert.equal(clampSplit(1500,1300,300,450),850);
++    assert.equal(clampSplit(500,1300,300,450),500);
++});

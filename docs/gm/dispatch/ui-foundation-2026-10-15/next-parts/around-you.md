@@ -182,3 +182,82 @@
 ## Questions for Weibao
 
 None. **stated:** class 1 = **5**, class 2 = **6**, class 3 = **5**, class 4 = **5**, class 5 = **0**. **inferred:** the corrected goal can proceed as map options with a proposed default and evidence-based dials; remaining uncertainty calls for focused source/runtime work or a later playable comparison, not another preference interview.
+
+## Round 2: Around you UI and flow, 2026-10-18
+
+Weibao: "how to improve the 'around you' menus, how to make their UIs better or flow, more to
+consider?" Proposals only, not accepted. Builds on AY7–AY18, AW17, BX5 and UIP5 without repeating
+them; codes AYF1–AYF16 are new and continue in later rounds.
+
+**Evidence, shown:** live build at `localhost:19532` (working tree of 2026-10-18), read-only tab,
+Village at night, 1920×1080 and 1366×768, default text. Around you lists village elder, old
+craftsman, village trader, Village mixing counter and Projects as one grid of equal buttons, then
+seven lines of place prose. Selecting a person replaces the whole panel with a three-line centered
+card, `← Village` at top left and "Talk with village elder". The header reads "Around you" while
+its region, collapse button and aria label say "Focus" and the status chip says "Current target"
+with nothing targeted. No exits or travel times appear in the panel.
+
+### Findings
+
+| Code | Finding | Consequence |
+|---|---|---|
+| AYF1 | **Two names, empty status.** Visible "Around you", accessible "Focus", status "Current target" (shown) | Screen readers, Move to and tooltips name a different panel; UR26 wants a one-line status that says whether to look |
+| AYF2 | **Mixed kinds in one grid.** People, a workstation and a meta drawer (Projects) share one button style (shown) | The player cannot scan "who is here" separately from "what I can use"; Projects is out of world (UR2, UR4) |
+| AYF3 | **Inspect replaces, then dead-ends.** Prose and siblings disappear; checking three neighbours costs six clicks; the card leaves most of the region empty (shown) | Comparing people is slow and the place context is lost while reading one person (UR41, UR46) |
+| AYF4 | **No time or presence state.** At 23:06 the trader shows like any daytime row (shown); schedules are not surfaced (inferred from code path, unverified per NPC) | Players click into closed or asleep services; night has no meaning in this panel (PL3) |
+| AYF5 | **"Around" without ways out.** Connected places and travel time live elsewhere (shown absent here) | The most decision-relevant spatial fact is missing; the Part 9 map has no small first step |
+| AYF6 | **Same prose every visit.** Seven lines at 1366 on every return (shown) | Highest height cost for zero new information after the first visit |
+
+### Proposals
+
+| Code | Proposal | Default, dial and reason |
+|---|---|---|
+| AYF7 | **One name, useful status** | Default: "Around you" in header, aria, collapse title and Move to; status "3 people · 1 station · 2 ways out · night". Keep the internal id `focus` for saved layouts and pins (UR17). Reason: AYF1 |
+| AYF8 | **Sections by kind** | Default: People here, Stations, Ways out, in that order, each a group row with a count (UR7, UR26). Meta drawers leave for navigation. Dial: worlds add kinds (spirits, constructs, animals) as data. Order stays fixed so ticks never move a target (UR52) |
+| AYF9 | **List and detail side by side** | Default at 1920: list stays left, selected subject's card fills the right; Up/Down or J/K moves between subjects. At 1366: card replaces the list with ‹ › arrows to the next subject plus the destination back label. Decide with UIP5/BX5 so the region splits once: list beside detail, with prose moving to AYF12 |
+| AYF10 | **Presence is time-aware** | Default: rows carry a state chip from the owner's schedule: here, busy, asleep, away until dawn, open until 18:00. Absent regulars dim in place rather than vanish (UR13). Dial: worlds without schedules show no chip. Reason: AYF4, night gains meaning |
+| AYF11 | **Ways out row** | Default: connected places with travel time and a danger word; selecting one previews the route (free inspection, UR35), a separate button travels. "Area ›" opens the Part 9 map center view. Smallest map step, reusing native `connected_locations` (AW16) |
+| AYF12 | **Prose by familiarity** | Default: full prose on first visit, then first sentence plus "More about this place". A "Since you were last here" line shows real changes (season, new building, someone moved in or died). Reason: AYF6, and a world that moves around you (PL3) |
+| AYF13 | **One verb owner** | Rows link to the Local actions owner for Talk, Use and Trade instead of keeping their own action code; the card's "Talk with village elder" and Local actions' "Talk to someone" run the same handler and log line (AR one authority per fact) |
+| AYF14 | **Cards that teach** | Replace dead ends like "Known traits: Not assessed" with how to learn them ("talk again or watch them work"), and fill the card with known facts: last talked, sells or teaches, usual hours, ties to others (UR32, UR46) |
+| AYF15 | **Attention dots** | A small dot on a person or station with something new (quest step, offered trade, ready craft) links to its source (UR29). Same signal feeds the Journal's "Ask the village elder" step, so the two never disagree |
+| AYF16 | **Dense places scale** | Default: up to about eight rows show; beyond that, group by role with counts ("Guards 6 ›") and a filter field (UR27). Cities and markets need this before they ship; Village does not |
+
+### Account for now
+
+- **R1 saves:** label changes only; region id, pins, collapse and per-context placement keys stay
+  `focus` (UR17, UR58).
+- **R2 one split, not two:** AYF9 (list beside detail) and BX5/UIP5 (people beside prose) compete
+  for the same width. Proposed default: AYF9 wins; prose becomes AYF12's one-line disclosure.
+- **R3 sealed subjects:** sections, counts, ways out and attention dots never include sealed people,
+  places or kinds (AY14, KL17).
+- **R4 contexts:** combat already swaps the panel to the opponent board (layout_spec `contextual`).
+  The header should name the swap ("Around you · fight") so the change is never silent (UR13).
+
+### Later or delegate
+
+| Code | Item | Level, effort, done check |
+|---|---|---|
+| AYF-L1 | Non-human senses change the panel (a tree, a sword, Nen En radius from the presentation palette): what "around" means follows the body | Design, medium; done when one alternate-sense mock exists for a non-human start |
+| AYF-L2 | Pin a person or station so its state follows you after leaving ("elder: at home") | UI lane, small; done when a pinned subject shows in You or Journal after travel, rebuilt and checked at 1920 and 1366 |
+| AYF-L3 | Quick jump (UR28) lists present people and stations | UI lane, small; done when Ctrl+K finds "elder" only while known and present |
+
+**Suggested first slice, presentation only:** AYF7, AYF8, AYF9 and AYF11 on Village at 1920×1080
+and 1366×768, with R1 checked by save, reload and import.
+
+
+## Authorized A2 first slice, 2026-10-18
+
+Weibao requested A1/A2 implementation in parallel after the Claude-chat review,
+then said “I just feel like the representation of around you is off”. The
+[shared checkpoint](GRIPES_A1_A2_CHECKPOINT.md) records scope and ownership. A2
+implements known people versus services/stations, a stable nearby list/detail
+view and compact disclosed place prose through the existing native actions.
+AYF11 Ways out remains deferred: the inspected public frame supplies no admitted
+exit list, so this slice does not manufacture routes, danger or travel quotes.
+Maps, schedules, attention dots and new simulation mechanics retain their own
+scopes. At wide actual panel widths list and detail coexist; narrower panels
+use a labelled return. Internal focus identity and combat remain intact.
+
+A1/A2 integrated candidate and final technical checks: [report](GRIPES_A1_A2_REPORT.md).
+Visual/play acceptance remains open; other proposals retain their own status.

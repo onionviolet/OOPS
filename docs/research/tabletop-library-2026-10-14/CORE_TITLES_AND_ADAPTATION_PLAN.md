@@ -1,5 +1,12 @@
 # Remaining core titles and the adaptation approach
 
+**Current reading of the inventory, 2026-10-18:** F4 is the initial title
+scan; F5 records the later GURPS file-presence correction. Neither snapshot is a
+live machine-wide ownership audit or proof of full reading. No missing-book row
+requests a purchase, and no rulebook family becomes a prerequisite for a YAIR
+slice. Current canon-first world order and already selected work remain separate
+from the illustrative Ars Magica/GURPS/Strange research comparison.
+
 2026-10-14 follow-up. Research recommendation, not an accepted implementation plan or purchase. A fresh read-only filename scan of Downloads and Calibre Library found WFRP 4e Core, Power Profiles, In Translation, a file labeled Numenera Into the Outside, GURPS How to Be a GURPS GM: High-Powered Origins, and Warhammer 40,000 Core Book 9th Edition beyond the earlier catalog. No new files downloaded or full books read this pass. The earlier buying list is a historical snapshot; exclude these newly found files from repeat acquisition pending edition/title inspection. Into the Outside's filename is ambiguous and does not establish its internal title.
 
 ## F4. Missing core books, ranked for this research goal
@@ -48,3 +55,14 @@ The next read-only Downloads filename scan found both GURPS Basic Set: Character
 Recommendation: next research packet should inspect one exact source-backed Ars Magica study/invention route and its home-community context, then compare one relevant GURPS power construction and one Strange boundary interaction. Record rules with private locators, source assumptions, missing human-GM judgments, idle scheduling options and original YAIR proposals. This requests no implementation, new world priority or new agents. Preserve the standing canon-first world order; research examples are not a decision to make Ars Magica the next playable world.
 
 Additional considerations: permit cross-world combinations to produce new supported uses rather than only stacking bonuses. Training may improve control, efficiency, precision, generalization or actual function. Keep capabilities, bodily carriers, consumable supplies and institutional authority distinct. Let local worlds remain worth inhabiting after their first reward. Version the adaptation and persist resolved generated state. Keep tabletop point budgets, session rests and seasonal calendars as source parameters to evaluate, not automatic idle-game balance rules. Scope each playable destination to supported decisions while preserving a wider research palette.
+
+## Reusable adaptation constraint, 2026-10-18
+
+A tabletop point budget, rest/session cadence or GM adjudication procedure is
+source-qualified evidence, not automatically a global idle-game rule (AD1/AD5/
+AD16/AD38). Keep source wording/provenance separate from the modeled mechanism
+and the character's knowledge. When selected, one useful native action and its
+actual resource/clock/custody consumer prove a slice; the illustrative cross-world
+proof above is a later seam test when crossing is in scope, not required for every
+local prototype. Use current AR/MR/SR/UR and compatibility decisions. This audit
+rechecked no external product claim, source book or current library contents.

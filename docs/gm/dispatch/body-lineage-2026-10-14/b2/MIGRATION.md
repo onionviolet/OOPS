@@ -1,5 +1,12 @@
 # G24-B2 migration and compatibility contract
 
+**Current applicability, 2026-10-18:** this is a retained optional migration
+proposal. The 2026-10-17 compatibility decision permits reset/drop of old state,
+so implementing every legacy case here is not a mandatory gate. If a selected
+task retains a migration, its failed-write, alias-consistency and no-grant
+invariants still apply. New-state Save/reload/Export/Import remains required;
+this audit runs no case or migration and changes no user data.
+
 Proposal, not implemented. [SPEC](SPEC.md) owns field definitions and proposed
 numbers. Compatibility means unchanged old gameplay, address strings, resources,
 RNG, body capabilities and history after loading. JSON may gain the additive

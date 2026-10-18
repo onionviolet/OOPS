@@ -307,3 +307,13 @@ tree's uncommitted main.js/save_files.js edits per the lane checkpoint list. Do 
   Checks should scope to their view (`#crafting_window ...`), as the UI session did for
   `check-r14.cjs`. The R12 checks (`check-r12-recipe/success/ticks.cjs`) still use unscoped selectors
   and are UI-owned.
+
+## Plan reconciliation receipt, 2026-10-18
+
+The shared BRIEF opening now follows the later M3 B4/merge/post-merge entries
+above, retaining the original stops as history. This folded shared checkpoint
+owns that recorded evidence; the original "live checkpoint is the copy in the
+worktree" sentence describes its pre-merge arrangement. Fresh runtime input
+recovery is still required. MP13 carries the applicable G26–G30 cases and the
+current compatibility/viewport overrides. No runtime worker, retry, M4, test,
+build, merge, commit or push was launched by this docs-only reconciliation.

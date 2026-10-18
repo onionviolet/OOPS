@@ -1,5 +1,21 @@
 # Research and technology wave status (2026-10-14)
 
+## Current routing, reconciled 2026-10-18
+
+| Track | Recorded result | Remaining gate / owner |
+|---|---|---|
+| T1–T16 | Research completed/folded; pure planner and QA merged as recorded below. | Native planner consumer remains separately selected. T12/T13's old started checkpoints now point to final reports. |
+| B1 / U40 + N19 | [Slice report](slice1/REPORT.md) records scoped source/build/seeded-native passes. `667fbe118` is in shared history; current craft detail/display/town readers are present. | Recover current inputs before combined proof. Root/feel acceptance is not established by the commit or this refresh. |
+| B2 / CN11 | [Fixture report](slice1-fixtures/REPORT.md) delivers seeded native states and import checks. | Fixtures prove their declared setup, not naturally earned progression. |
+| B3 / CN10 | [Inspector design](b3/REPORT.md) complete, runtime unselected. | Build only when selected; no inspector implementation claim. |
+| B4 / CN13 | [Correction receipt](b4/REPORT.md) records root restoration of wrongly removed provenance in `957df232`. | Preserve per-entry source lines; do not repeat that deduplication. |
+| B5 / CN14 | [Four prompts](b5/REPORT.md) delivered for steps 2–5. | Execution remains separately authorized and follows preceding playable acceptance. |
+
+## Historical wave record, 2026-10-14
+
+The process, branch and waiting-state observations below belong to that date.
+In particular, the not-dispatched line predates B1's later launch/delivery.
+
 All sixteen lanes are finished. No Codex process for this wave is running.
 Folded into [Technology and progression](../../../TECHNOLOGY_AND_PROGRESSION.md)
 ("Codex lane results" and "Lane results, part 2").

@@ -249,3 +249,19 @@ requirements, 396 unique existing public intake paths across 66 source families,
 and restricted-path exclusions. The intake worker additionally checked its three
 prior-owner paths. Whitespace checks passed for the edited routing/templates.
 No source, build or gameplay checks were run by this planning task.
+
+## Current rule qualification, 2026-10-18
+
+This proposal is a coverage/readiness standard, not a gate requiring all S00–S14
+before any playable slice. Follow the selected brief and current RULES_INDEX
+(AD32/AD33/AD36); expose relevant thin or unbuilt coverage rather than calling
+it a fictional prohibition (AD38). Source unknowns, character knowledge and
+implementation coverage remain separate facts (WA8/WA12, G30).
+
+Earlier mandatory old-save/migration wording is currently qualified by
+[the 2026-10-17 decision](USER_VISION.md#old-save-compatibility-deferred-2026-10-17).
+New-state persistence and private-save boundaries remain. Runtime UI checks use
+current UI_RULES targets. Authored start/world floors do not override accepted
+guided-random entry or require the vanilla campaign first (AD23). Apply
+[G26–G30](reviews/SUBTLE_RULE_GAPS_2026-10-18.md#round-4-latest-audits-together-2026-10-18)
+only to affected seams, with an actual player consumer.

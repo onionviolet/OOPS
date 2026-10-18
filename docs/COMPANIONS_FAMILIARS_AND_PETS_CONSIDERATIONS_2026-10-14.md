@@ -1614,3 +1614,18 @@ independently. Proposals; [sweep sessions](gm/dispatch/deep-systems-2026-10-14/r
 
 These extend the existing companion economy and collaborator rows (synthesis
 P06, named work with opportunity costs) rather than adding a new system.
+
+## Core-rule reconciliation, 2026-10-18
+
+NPC-heavy simulation remains deprioritized (AD33). The next selected companion
+case reuses actual actor custody, observer knowledge and delegated policy rather
+than requiring a society simulator. A companion's body/faculty clock can differ
+through means; an inactive world does not supply ordinary free labor or teaching.
+Memory, skill and bindings carry by their actual carriers, not by the companion
+label (AD6/AD11/AD14/AD16/AD38). This accounts for G26–G28 without adding an
+universal companion upkeep cost or anti-exploit limit.
+
+Later case: one already-supported helper pauses or settles an interrupted job,
+retaining stock and its own known facts across current-state persistence. Strong
+cross-domain agent, medium only when selected; done through real delegated
+commands and a useful rebuilt journey. The core audit owns rerun routing.

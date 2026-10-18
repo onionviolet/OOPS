@@ -1,5 +1,14 @@
 # Research and technology wave (2026-10-14)
 
+**Current routing, reconciled 2026-10-18:** T1–T16 research/engine-support
+returns are complete per [STATUS](STATUS.md). B1's craft cue/Village sentence
+has a [delivered report](slice1/REPORT.md); commit `667fbe118` is in shared
+history and its consumers are present in current source. This is source/history
+confirmation, not a fresh combined browser pass. B2 fixtures are delivered,
+B3 inspector is design-only, and B5's steps 2–5 are prepared conditional prompts.
+Use STATUS for their separate integration/play gates. The original wave tables
+below retain dispatch history; they are not a new task roster.
+
 Authority: Weibao, 2026-10-14: "Research? Technology? More to consider? ...
 save and extend accordingly", then "more to consider? other stuff and more?
 save and extend accordingly Send out codex as usesful?"
@@ -73,3 +82,19 @@ Owner: round 9 (RC, OM, IM) of the design doc. Docs only.
 |---|---|---|
 | T15 | Comic worlds: research, technology and revealer cheats (CW, RC16-RC23), verified | `t15/` (docs, main checkout) |
 | T16 | T9 build packet: planner QA, danger lint, receipts, limits | worktree `.claude/worktrees/rt-t16-qa`, branch `codex/invention-planner-qa` from `codex/invention-planner` |
+
+## Current rule-fit qualification, 2026-10-18
+
+This table is a retained dispatch history, not an active T1–T16 roster. T6's
+[report](t6/REPORT.md) records a pure planner prototype and bounded tests, with
+native wiring absent in that pass; neither a feasibility witness nor a roadmap
+grants resources, know-how or an executable command. Recover actual modules,
+writers and selected scope before any new work. New delegation uses AU1–AU15.
+
+The [technology owner](../../../TECHNOLOGY_AND_PROGRESSION.md#plan-reuse-and-core-rule-fit-2026-10-18)
+now qualifies this roadmap: physical prototype, learned claim, repeated evidence
+and usable invention are distinct; planning/coverage and world truth remain
+separate. Real work uses actual clocks, stock and AR7/AR8 publication; missing
+modeled steps are coverage diagnostics, not proof an invention is impossible.
+Choose one useful output if this seam is selected; no complete technology tree,
+NPC inventor society or generic automation framework becomes a prerequisite.

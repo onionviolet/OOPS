@@ -1990,3 +1990,42 @@ notes and remembered mastery follow their actual carriers and rewind scope.
 owns the retained learning versus executable-means distinction. Detailed P/RD
 rows remain recommendations in the [cheat record](gm/CHEAT_ACCESS_DESIGN_DISCUSSION_2026-10-15.md),
 not acceptance of every listed possibility. No runtime or play proof added here.
+
+## Plan reuse and core-rule fit, 2026-10-18
+
+The research-tech dispatch and T6 planner are inputs, not executable world law.
+Under AD6–AD9/AD11/AD16–AD18/AD38 and MR1/MR21–MR23/MR29, keep four results
+separate: a modeled feasible roadmap, an actor's hypothesis, a physical trial,
+and a usable technique/product. Repeated dependent observations do not become
+independent evidence merely because a new planner node cites them. A source
+unknown or missing primitive is a coverage gap, not proof of impossibility.
+
+For a later selected invention slice, choose one meaningful output and trace
+its real material/tool/skill/clock owner to one useful consumer (AR10/AR11).
+Interrupting research retains actual spent effort, samples and learned claims;
+resuming or importing does not award the same discovery again. An original
+mechanism or extraordinary means can remove ordinary work, costs or dependencies
+where it really supports that result. No universal tech tree or balancing tax.
+The planner's actor-safe view must not disclose hidden prerequisite identities,
+truth graph size or unknown target counts through "why blocked" diagnostics.
+No runtime work or new source acquisition is selected by this reconciliation.
+
+## Current build routing and CN follow-through, 2026-10-18
+
+This qualifies earlier round-10/11 status language without changing its history.
+[Wave STATUS](gm/dispatch/research-tech-2026-10-14/STATUS.md) owns the current
+research/build routing. T6/T16 pure planner/QA merged as `5b8989e8`; they are
+support modules, not a native invention journey. B1's U40/N19 slice has its own
+[seeded-native report](gm/dispatch/research-tech-2026-10-14/slice1/REPORT.md),
+with shared commit `667fbe118` and consumers present in current source.
+A fresh combined pass and human feel cannot be inferred from that history.
+
+CN10 now has a completed B3 inspector design, still no runtime selection.
+CN11's B2 fixture delivery is recorded, CN12's two worktrees were removed per
+the wave status, and CN13's mistaken provenance removal was restored by root
+in `957df232`. These are dated results, not fresh worktree/process checks.
+CN14's four B5 prompts were written under later explicit authorization; the
+older write-only-after-acceptance wording no longer blocks preparing them.
+Executing steps 2–5 retains its own authorization and preceding playable gate.
+New selected work follows current architecture/rule/compatibility owners;
+no second knowledge store or mandatory planner framework is selected here.

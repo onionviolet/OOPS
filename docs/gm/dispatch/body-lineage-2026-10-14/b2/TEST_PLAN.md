@@ -94,7 +94,7 @@ separate expected native changes, never excuses for differing body state.
 |---|---|---|
 | U01 | Fresh enabled creation -> bio, then legacy import -> bio | Independent identity/address/body information; exact resolved factors and truthful neutral message; no stale cosmetic promise |
 | U02 | Default Workspace, existing saved layout, widened character module | Visible useful summary, readable 14 px body text, independent action panels preserved; no forced geometry reset |
-| U03 | Expand body details and long known biography | Internal reading scroll, keyboard reachability, no overlap/clipped apply controls; no new separate window |
+| U03 | Expand body details and long known biography | Correct surface/home and navigation scope under current UI_RULES; reachable Back/Esc when applicable, intact log, readable controlled scrolling and unclipped actions |
 | U04 | Current action with known/unknown quirk; actual profile apply | Appropriate unit and source explanation; hidden data absent from DOM/ARIA/tooltips; busy reason is actionable |
 | U05 | Keyboard and laptop 150% zoom/text enlargement | Focus visible and returns correctly; controls usable without hover; no mobile workstream required |
 
@@ -109,3 +109,18 @@ Save/reload/Export/literal Import on the same candidate. Source test success,
 built assets, served assets and browser behavior are distinct evidence layers.
 Human balance/fiction/layout acceptance remains separate. Mobile, broad genetics,
 all-world social laws and hereditary prestige are outside these gates.
+
+## Current execution qualification, 2026-10-18
+
+M01–U05 remain NOT RUN. Select relevant cases under AD36; legacy migration
+cases are optional under the current compatibility decision, not a prerequisite
+bundle. Existing boundary-regression expectations preserve their pinned scenario;
+they do not prove every world's biology, require a fixed quirk size, or grant
+an authority NPC immunity to any stronger supported concealment (AD38).
+
+For newly selected UI work, replace the historical floor-only/default-workspace
+assumption with current UI_RULES targets: 1920×1080, the actual MacBook viewport,
+1536×864 and 1366×768 at 14px/21px. Respect stored presentation and the selected
+surface. Keep body/faculty carrier and clock explicit (AD11/AD13/AD16).
+Browser-local layout preferences need reload/context evidence in their actual
+owner; a game Export/Import does not prove preferences it does not serialize.

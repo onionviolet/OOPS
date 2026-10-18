@@ -561,3 +561,16 @@ shaped by local conditions (Taiwu D1 to D3); material-to-tool production
 (Academagia DS-P1); deferred repair (Naev P1); useful processes that respond to
 local conditions (HyperRogue HRD-P1). These extend T4, salvage (pick 4) and the
 second processing reader (pick 5); none changes the round 5 order.
+
+## Core-rule reconciliation, 2026-10-18
+
+T4/T5 remain selected by their existing unmet consumer gap. Apply MR5/MR29,
+AR3/AR7/AR12 and AD16–AD18/AD38 at the chosen stage boundary: reserve once,
+spend only performed work, retain the intermediate product's custody, and resume
+or abandon explicitly. A harvest/craft/trade chain cannot each claim the same
+input stock or unused time. Drying/aging advances on the process's actual clock;
+it does not infer activity in a paused world. No new repeat-order engine is
+required where the existing learned finite repeat already suffices.
+Later selected-case done check: interrupt one useful dry → kit → use chain,
+resume through the real owners and verify stock/current-state persistence. Level:
+strong runtime agent; medium only when that chain is authorized. See G27/G28.

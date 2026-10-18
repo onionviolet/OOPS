@@ -1,5 +1,12 @@
 # Procedural and generative systems: status map
 
+**Current routing, reconciled 2026-10-18:** [dispatch STATUS](gm/dispatch/procgen-2026-10-13/STATUS.md)
+records both wave-1 and R3-10 integration. The older unmerged/running rows below
+are dated observations superseded by those receipts. Open B1–B3 are separate
+from the later P34 partial B4 closure; no whole-procgen acceptance follows.
+For newly selected scope, [ruins/world-first direction](PROCEDURAL_AND_GENERAL_OPPORTUNITIES_2026-10-16.md)
+retains NPC-heavy/layout deferrals. This refresh did not rerun runtime gates.
+
 Date: 2026-10-13. Read-only survey of live `src/` and design docs. No runtime edits, build, browser run or tests. Proposals here are not accepted decisions. Sealed secrets are referenced by ID only.
 
 Direction sources: [USER_VISION](USER_VISION.md) (2026-10-02 RNG across systems; 2026-10-09 "random events, interactions, people, enemies... unscripted stuff", then implement each once comprehensive; 2026-10-10 talent generation and discoverable secrets; generated households), [EMERGENT_SYSTEMS](EMERGENT_SYSTEMS.md) index.

@@ -1,0 +1,4149 @@
+{
+  "date": "2026-10-18",
+  "method": "Filename/text candidate scan, with selected section-level owner/evidence reconciliation; not full semantic or external-source review.",
+  "initialScanRecords": 748,
+  "initialCandidateRecords": 135,
+  "sectionReviewed": [
+    "PROJECT.md",
+    "docs/DIRECTION_SUMMARY.md",
+    "docs/ENGINE_GM_NEXT_CHECKPOINT.md",
+    "docs/IDEA_INDEX.md",
+    "docs/PROCEDURAL_GENERATION_STATUS_2026-10-13.md",
+    "docs/RULES_INDEX.md",
+    "docs/TECHNOLOGY_AND_PROGRESSION.md",
+    "docs/UI_DENSITY_NEXT_PARTS_PROMPT_RECONCILED_2026-10-13.md",
+    "docs/USER_VISION.md",
+    "docs/gm/LOTM_INITIATION_IMPLEMENTATION_PLAN_2026-10-15.md",
+    "docs/gm/audit-implementation/QUEUE.json",
+    "docs/gm/dispatch/body-lineage-2026-10-14/PLAN.md",
+    "docs/gm/dispatch/core-foundations-2026-10-14/COMMON.md",
+    "docs/gm/dispatch/dual-gm-2026-10-11/implementation/REPORT.md",
+    "docs/gm/dispatch/foundation-completion-2026-10-12/CHECKPOINT.md",
+    "docs/gm/dispatch/foundation-completion-2026-10-12/REPORT.md",
+    "docs/gm/dispatch/game-source-research-2026-10-06/DEPTH_QUEUE.json",
+    "docs/gm/dispatch/harvest-modules-2026-10-14/PLAN.md",
+    "docs/gm/dispatch/idea-expansion-2026-10-11/IMPLEMENTATION_QUEUE.json",
+    "docs/gm/dispatch/idle-social-gms-2026-10-06/DEPTH_QUEUE.json",
+    "docs/gm/dispatch/modular-seams-2026-10-16/CHECKPOINT.md",
+    "docs/gm/dispatch/nonhuman-starts-2026-10-14/COMMON.md",
+    "docs/gm/dispatch/procgen-2026-10-13/PLAN.md",
+    "docs/gm/dispatch/procgen-2026-10-13/STATUS.md",
+    "docs/gm/dispatch/procgen-2026-10-13/p39/GRAPH.md",
+    "docs/gm/dispatch/procgen-2026-10-13/p39/REGISTRY.md",
+    "docs/gm/dispatch/procgen-2026-10-13/p39/WAVES.md",
+    "docs/gm/dispatch/quiet-continuation-2026-10-15/CHECKPOINT.md",
+    "docs/gm/dispatch/research-tech-2026-10-14/NEXT_SLICE_PROMPT.md",
+    "docs/gm/dispatch/research-tech-2026-10-14/PLAN.md",
+    "docs/gm/dispatch/research-tech-2026-10-14/STATUS.md",
+    "docs/gm/dispatch/research-tech-2026-10-14/b3/REPORT.md",
+    "docs/gm/dispatch/research-tech-2026-10-14/b4/REPORT.md",
+    "docs/gm/dispatch/research-tech-2026-10-14/b5/REPORT.md",
+    "docs/gm/dispatch/research-tech-2026-10-14/slice1-fixtures/REPORT.md",
+    "docs/gm/dispatch/research-tech-2026-10-14/slice1/REPORT.md",
+    "docs/gm/dispatch/research-tech-2026-10-14/t12/CHECKPOINT.md",
+    "docs/gm/dispatch/research-tech-2026-10-14/t13/CHECKPOINT.md",
+    "docs/gm/dispatch/starts-talents-continuity-2026-10-11/IMPLEMENTATION_QUEUE.json",
+    "docs/gm/dispatch/traveler-asks-2026-10-14/PLAN.md",
+    "docs/gm/dispatch/wiki-lanes-2026-10-13/STATUS.md",
+    "docs/gm/dispatch/world1-full-completion-2026-10-11/CHECKPOINT.md",
+    "docs/gm/dispatch/world1-full-completion-2026-10-11/INTEGRATION_PLAN.json",
+    "docs/gm/dispatch/world1-full-completion-2026-10-11/STATE.json",
+    "docs/gm/game-absorption-2026-10-06/QUEUE.json",
+    "docs/research/LOCAL_AI_UPGRADE_STATUS_2026-10-14.md",
+    "docs/research/SCIFI_AND_JOJO_PLAN_2026-10-10.md",
+    "docs/research/amazing-cultivation-simulator/aspects-2026-10-14/REPORT.md",
+    "docs/research/caves-of-qud/aspects-2026-10-14/REPORT.md",
+    "docs/research/caves-of-qud/repass-2026-10-14/REPORT.md",
+    "docs/research/game-discovery-2026-10-06/DEEPER_QUEUE.json",
+    "docs/research/keeperrl/aspects-2026-10-14/REPORT.md",
+    "docs/research/qud-systems-audit-2026-10-15/REPORT.md",
+    "docs/research/rimworld/aspects-2026-10-14/REPORT.md",
+    "docs/research/rimworld/feature-pass-2026-10-14/REPORT.md",
+    "docs/research/rimworld/pass-2026-10-14-deep/REPORT.md",
+    "docs/research/rimworld/pass-2026-10-14-systems/REPORT.md",
+    "docs/research/rogue-legacy/aspects-2026-10-14/REPORT.md",
+    "docs/reviews/FOUNDATIONS_DIALOGUE_AND_ABSORPTION_PLAN_2026-10-12.md",
+    "docs/reviews/PLAN_RULE_RECONCILIATION_2026-10-18.md",
+    "docs/worlds/NONHUMAN_SYNTHESIS_AND_ROADMAP_2026-10-14.md"
+  ],
+  "correctedOwners": [
+    "PROJECT.md",
+    "docs/ENGINE_GM_NEXT_CHECKPOINT.md",
+    "docs/IDEA_INDEX.md",
+    "docs/PROCEDURAL_GENERATION_STATUS_2026-10-13.md",
+    "docs/TECHNOLOGY_AND_PROGRESSION.md",
+    "docs/gm/dispatch/foundation-completion-2026-10-12/CHECKPOINT.md",
+    "docs/gm/dispatch/game-source-research-2026-10-06/DEPTH_QUEUE.json",
+    "docs/gm/dispatch/idea-expansion-2026-10-11/IMPLEMENTATION_QUEUE.json",
+    "docs/gm/dispatch/idle-social-gms-2026-10-06/DEPTH_QUEUE.json",
+    "docs/gm/dispatch/procgen-2026-10-13/PLAN.md",
+    "docs/gm/dispatch/procgen-2026-10-13/p39/GRAPH.md",
+    "docs/gm/dispatch/procgen-2026-10-13/p39/REGISTRY.md",
+    "docs/gm/dispatch/procgen-2026-10-13/p39/WAVES.md",
+    "docs/gm/dispatch/research-tech-2026-10-14/NEXT_SLICE_PROMPT.md",
+    "docs/gm/dispatch/research-tech-2026-10-14/PLAN.md",
+    "docs/gm/dispatch/research-tech-2026-10-14/STATUS.md",
+    "docs/gm/dispatch/research-tech-2026-10-14/t12/CHECKPOINT.md",
+    "docs/gm/dispatch/research-tech-2026-10-14/t13/CHECKPOINT.md",
+    "docs/gm/dispatch/starts-talents-continuity-2026-10-11/IMPLEMENTATION_QUEUE.json",
+    "docs/gm/dispatch/world1-full-completion-2026-10-11/INTEGRATION_PLAN.json",
+    "docs/research/game-discovery-2026-10-06/DEEPER_QUEUE.json",
+    "docs/reviews/FOUNDATIONS_DIALOGUE_AND_ABSORPTION_PLAN_2026-10-12.md",
+    "docs/worlds/NONHUMAN_SYNTHESIS_AND_ROADMAP_2026-10-14.md"
+  ],
+  "queueOwnersInspected": [
+    "docs/gm/audit-implementation/QUEUE.json",
+    "docs/gm/dispatch/game-source-research-2026-10-06/DEPTH_QUEUE.json",
+    "docs/gm/dispatch/idea-expansion-2026-10-11/IMPLEMENTATION_QUEUE.json",
+    "docs/gm/dispatch/idle-social-gms-2026-10-06/DEPTH_QUEUE.json",
+    "docs/gm/dispatch/starts-talents-continuity-2026-10-11/IMPLEMENTATION_QUEUE.json",
+    "docs/gm/game-absorption-2026-10-06/QUEUE.json",
+    "docs/research/game-discovery-2026-10-06/DEEPER_QUEUE.json"
+  ],
+  "scan": [
+    {
+      "path": "docs/ENGINE_GM_CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/ENGINE_GM_NEXT_CHECKPOINT.md",
+      "coverage": "section-reviewed",
+      "candidateLinesAtScan": [
+        9
+      ]
+    },
+    {
+      "path": "docs/GENETICS_AND_HERO_START_PLAN_2026-10-17.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        470
+      ]
+    },
+    {
+      "path": "docs/PROCEDURAL_GENERATION_STATUS_2026-10-13.md",
+      "coverage": "section-reviewed",
+      "candidateLinesAtScan": [
+        56,
+        140,
+        162
+      ]
+    },
+    {
+      "path": "docs/UI_DENSITY_NEXT_PARTS_PROMPT_OUTBOUND_2026-10-13.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/UI_DENSITY_NEXT_PARTS_PROMPT_RECONCILED_2026-10-13.md",
+      "coverage": "section-reviewed",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/UI_DENSITY_NEXT_PARTS_PROMPT_SENT_2026-10-13.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/LOTM_INITIATION_IMPLEMENTATION_PLAN_2026-10-15.md",
+      "coverage": "section-reviewed",
+      "candidateLinesAtScan": [
+        83
+      ]
+    },
+    {
+      "path": "docs/gm/artifact-collection/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        36
+      ]
+    },
+    {
+      "path": "docs/gm/audit-absorption-2026-10-07/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/audit-absorption-2026-10-07/balm/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/audit-absorption-2026-10-07/duty/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/audit-implementation/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/audit-implementation/earned-lesson/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        11
+      ]
+    },
+    {
+      "path": "docs/gm/audit-implementation/kit-reserve/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        9
+      ]
+    },
+    {
+      "path": "docs/gm/audit-implementation/remainder/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/audit-implementation/remainder/artifact-joins/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/audit-implementation/remainder/causal-engine/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/audit-implementation/remainder/combat_fit/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        11
+      ]
+    },
+    {
+      "path": "docs/gm/audit-implementation/remainder/combat_objectives/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        11
+      ]
+    },
+    {
+      "path": "docs/gm/audit-implementation/remainder/consequences/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/audit-implementation/remainder/home/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        7
+      ]
+    },
+    {
+      "path": "docs/gm/audit-implementation/remainder/livelihood/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        11
+      ]
+    },
+    {
+      "path": "docs/gm/audit-implementation/remainder/missed-hank/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        7
+      ]
+    },
+    {
+      "path": "docs/gm/audit-implementation/remainder/missed-provenance/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/audit-implementation/remainder/offers/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/audit-implementation/remainder/review-native/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        9
+      ]
+    },
+    {
+      "path": "docs/gm/book-lore-to-gameplay-2026-10-06/BRIEF.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/book-lore-to-gameplay-2026-10-06/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/book-world-completion-2026-10-06/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/book-world-completion-2026-10-06/MOL_CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/book-world-completion-2026-10-06/PARADISE_CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/book-world-player-agency/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/book-world-player-agency/actions/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/book-world-player-agency/contracts/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/book-world-player-agency/fieldcraft-review/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/book-world-player-agency/item-view/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/book-world-player-agency/native/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/book-world-player-agency/review/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/book-world-player-agency/source-fit/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/care-worlds-2026-10-06/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/causal-endings/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        25
+      ]
+    },
+    {
+      "path": "docs/gm/causal-endings/evidence/CHECKPOINT_BEFORE_SOURCE_RELEASE_2026_10_06.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        31
+      ]
+    },
+    {
+      "path": "docs/gm/causal-endings/implementation/content/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/cross-audit-reconciliation-2026-10-15/SEMANTIC_B16_MODEL_ROADMAP.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/cross-audit-reconciliation-2026-10-15/SEMANTIC_B2_MIGRATION_TEST_PLAN.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/cross-audit-reconciliation-2026-10-15/SEMANTIC_CORE_A5_STATUS_R1.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        5
+      ]
+    },
+    {
+      "path": "docs/gm/cross-audit-reconciliation-2026-10-15/SEMANTIC_T10_RESEARCH_STATUS_FOLLOWUP.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/cross-audit-reconciliation-2026-10-15/SEMANTIC_T10_SOURCE_STATUS_ROOT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/d1-alloy-equipment-2026-10-07/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/RIFT_AND_PLANE_RESEARCH.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/absorb-2026-10-11/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/battle-brothers-2026-10-08/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/PLAN.md",
+      "coverage": "section-reviewed",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b1/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b10/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b11/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        10
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b11/TEST_PLAN.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b12/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b13/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b14/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b15/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b15/TEST_PLAN.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b16/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b16/ROADMAP.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        46
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b17/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b18/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b2/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b2/TEST_PLAN.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b3/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b4/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b5/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b6/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b7/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b8/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b9/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/body-lineage-expansion-2026-10-11/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/calm-vivid-2026-10-14/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/canon-events-2026-10-14/cxcards/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/canon-events-2026-10-14/implmap/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/canon-events-2026-10-14/pilot-fv/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/canon-events-2026-10-14/pilot-mol/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/chain-build-2026-10-14/t2/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/chain-build-2026-10-14/t3/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        3
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/cheat-cosmology-gaps-2026-10-10/CHECKPOINT_G.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/cheat-cosmology-gaps-2026-10-10/CHECKPOINT_M.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/cheats-sfx-implementation-2026-10-12/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        34
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/connection-detail-2026-10-12/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        34
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/core-foundations-2026-10-14/a1/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/core-foundations-2026-10-14/a1/PLAN.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/core-foundations-2026-10-14/a2/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/core-foundations-2026-10-14/a3/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/core-foundations-2026-10-14/a4/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/core-foundations-2026-10-14/a5/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/crafting-screen-2026-10-13/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/cross-world-rulebook-expansion-2026-10-12/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/dependable-local-livelihood-2026-10-12/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/derived-snapshots-2026-10-14/offline/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/derived-snapshots-2026-10-14/saveshape/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/dnd-world-2026-10-11/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/dual-gm-2026-10-11/expansion/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/dual-gm-2026-10-11/expansion/audits/native-proof/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/dual-gm-2026-10-11/expansion/audits/source-v1/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/dual-gm-2026-10-11/expansion/continuation/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/dual-gm-2026-10-11/expansion/continuation/audit-review/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/dual-gm-2026-10-11/implementation/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        6,
+        39,
+        58,
+        67
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/execution/CHECKPOINT_PRE_R1_CLOSURE.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/execution/CHECKPOINT_PRE_R3_CLOSURE.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/execution/CHECKPOINT_PRE_R4_CLOSURE.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/execution/CHECKPOINT_PRE_R5_CLOSURE.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r12/CHECKPOINT_BEFORE_R12.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r12/CHECKPOINT_BEFORE_R13_TRANSFER.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r15/BRIEF.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        10
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r15/CHECKPOINT_BEFORE_R15.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r6/CHECKPOINT_PRE_R6_CLOSURE.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/foundation-completion-2026-10-12/CHECKPOINT.md",
+      "coverage": "section-reviewed",
+      "candidateLinesAtScan": [
+        19,
+        31,
+        85,
+        107
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/foundation-completion-2026-10-12/research/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        3,
+        19
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/game-source-research-2026-10-06/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/gen-rules-2026-10-14/g1/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/gen-rules-2026-10-14/g2/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/gen-rules-2026-10-14/g3/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/gen-rules-2026-10-14/g4/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/gen-rules-2026-10-14/g5/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/gen-rules-2026-10-14/g6/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/harry-potter-craft-research-2026-10-12/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/harry-potter-world-2026-10-11/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/harvest-modules-2026-10-14/PLAN.md",
+      "coverage": "section-reviewed",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/harvest-modules-2026-10-14/hv1/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/harvest-modules-2026-10-14/hv2/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/held-systems-2026-10-10/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        9
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/idea-expansion-2026-10-11/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/library-games-2026-10-09/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/life-sim-sources-2026-10-07/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/lncrawl-polite-fork-2026-10-10/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/lore-timelines-2026-10-11/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/lore-timelines-2026-10-11/bw1/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/lore-timelines-2026-10-11/jjk/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/lore-timelines-2026-10-11/jojo/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/lore-timelines-2026-10-11/review/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/lore-timelines-2026-10-11/rezero/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/lore-timelines-2026-10-11/tensura/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/lotm-initiation-2026-10-15/PLAN_BEFORE_CONSOLIDATION_2026-10-15.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        349
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/macro-micro-detail-2026-10-11/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/making-runes-2026-10-14/c1/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/making-runes-2026-10-14/c2/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        9
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/minigames-2026-10-11/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/modular-chains-2026-10-14/pc1/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/modular-chains-2026-10-14/pc2/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        13
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/modular-chains-2026-10-14/pc3/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        13
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/modular-chains-2026-10-14/pc4/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        7
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/modular-chains-2026-10-14/pc5/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        7
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/modular-seams-2026-10-16/BRIEF.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        13,
+        301
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/modular-seams-2026-10-16/CHECKPOINT.md",
+      "coverage": "section-reviewed",
+      "candidateLinesAtScan": [
+        25,
+        148,
+        265
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/new-game-audits-2026-10-07/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/nonhuman-starts-2026-10-14/abstraction/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/nonhuman-starts-2026-10-14/authoring/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        10
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/nonhuman-starts-2026-10-14/bonds/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/nonhuman-starts-2026-10-14/canon/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/nonhuman-starts-2026-10-14/cheats/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/nonhuman-starts-2026-10-14/clocks/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/nonhuman-starts-2026-10-14/engine/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/nonhuman-starts-2026-10-14/implications/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        4
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/nonhuman-starts-2026-10-14/kin/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/nonhuman-starts-2026-10-14/majority/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/nonhuman-starts-2026-10-14/making/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/nonhuman-starts-2026-10-14/micro/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/nonhuman-starts-2026-10-14/minds/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/nonhuman-starts-2026-10-14/monster/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/nonhuman-starts-2026-10-14/monsterside/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/nonhuman-starts-2026-10-14/overarching/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/nonhuman-starts-2026-10-14/play/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/nonhuman-starts-2026-10-14/progression/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/nonhuman-starts-2026-10-14/senses/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/nonhuman-starts-2026-10-14/society/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/nonhuman-starts-2026-10-14/startspecs/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/nonhuman-starts-2026-10-14/synthesis/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/nonhuman-starts-2026-10-14/transform/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/panel-kit-2026-10-13/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/paradise-priority-2026-10-14/beings/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/paradise-priority-2026-10-14/canon/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/paradise-priority-2026-10-14/hublife/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/paradise-priority-2026-10-14/missions/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/parallel-book-design-2026-10-11/legendary-mechanic/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/parallel-book-design-2026-10-11/lord-of-mysteries/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        31
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/parallel-book-design-2026-10-11/mother-of-learning/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/parallel-book-design-2026-10-11/perfect-run/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/parallel-book-design-2026-10-11/reverend-insanity/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/parallel-book-design-2026-10-11/shadow-slave/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/parallel-book-design-2026-10-11/warlock/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/parallel-book-design-2026-10-11/worm/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/PLAN.md",
+      "coverage": "section-reviewed",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/STATUS.md",
+      "coverage": "section-reviewed",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/cr1/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        27
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/cr2/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        17
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/cr3/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/cr4/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        14
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/cr5/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/cr6/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/crafting-lanes/old-p29-partial/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/gx1/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        13
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/gx2/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        11
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/gx3/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/gx4/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/gx5/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/integration/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p1/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p10/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        14
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p11/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        20
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p12/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p13/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        19
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p14/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p15/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        19
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p16/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        21
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p17/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        3
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p18/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p19/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p2/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p20/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p21/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p22/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p23/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p24/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p25/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p26/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p27/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p28/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p3/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p30/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        23
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p31/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p32/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p33/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        27
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p34/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p35/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        15,
+        49
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p36/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        11
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p37/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p38/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        15
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p39/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        9
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p4/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p40/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        17
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p5/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p6/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p7/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p8/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        21
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p9/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/wr1/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/proto23-vfx-2026-10-13/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/quiet-continuation-2026-10-15/CHECKPOINT.md",
+      "coverage": "section-reviewed",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/research-tech-2026-10-14/NEXT_SLICE_PROMPT.md",
+      "coverage": "section-reviewed",
+      "candidateLinesAtScan": [
+        1
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/research-tech-2026-10-14/PLAN.md",
+      "coverage": "section-reviewed",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/research-tech-2026-10-14/STATUS.md",
+      "coverage": "section-reviewed",
+      "candidateLinesAtScan": [
+        18
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/research-tech-2026-10-14/b3/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        5
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/research-tech-2026-10-14/b5/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/research-tech-2026-10-14/b5/STEP4_GLASS_ROADMAP_RC2.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        3,
+        13,
+        32,
+        36
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/research-tech-2026-10-14/slice1/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/research-tech-2026-10-14/t1/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/research-tech-2026-10-14/t10/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/research-tech-2026-10-14/t11/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/research-tech-2026-10-14/t12/CHECKPOINT.md",
+      "coverage": "section-reviewed",
+      "candidateLinesAtScan": [
+        26
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/research-tech-2026-10-14/t13/CHECKPOINT.md",
+      "coverage": "section-reviewed",
+      "candidateLinesAtScan": [
+        18
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/research-tech-2026-10-14/t14/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/research-tech-2026-10-14/t15/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/research-tech-2026-10-14/t15/GENIUS_AND_STATUS_QUO.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        84
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/research-tech-2026-10-14/t2/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/research-tech-2026-10-14/t3/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/research-tech-2026-10-14/t4/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/research-tech-2026-10-14/t5/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/research-tech-2026-10-14/t5/ROADMAPS.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/research-tech-2026-10-14/t6/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/research-tech-2026-10-14/t7/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/research-tech-2026-10-14/t8/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        62
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/research-tech-2026-10-14/t9-build/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/research-tech-2026-10-14/t9/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/rulebook-engine-2026-10-14/r1/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/rulebook-engine-2026-10-14/r2/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/rulebook-engine-2026-10-14/r3/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        9
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/rulebook-engine-2026-10-14/r4/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/rulebook-engine-2026-10-14/r5/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/rulebook-engine-2026-10-14/r6/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/runs-and-endings-2026-10-14/r1/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/runs-and-endings-2026-10-14/r10/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/runs-and-endings-2026-10-14/r11/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/runs-and-endings-2026-10-14/r2/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        21
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/runs-and-endings-2026-10-14/r3/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/runs-and-endings-2026-10-14/r4/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/runs-and-endings-2026-10-14/r5/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/runs-and-endings-2026-10-14/r6/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/runs-and-endings-2026-10-14/r7/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/runs-and-endings-2026-10-14/r8/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/runs-and-endings-2026-10-14/r9/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/settings-pass-2026-10-13/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/soldiers-life-world-2026-10-09/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/start-sources-2026-10-14/comics/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/start-sources-2026-10-14/games/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/start-sources-2026-10-14/ideas/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/start-sources-2026-10-14/identity/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/start-sources-2026-10-14/idgaps/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/start-sources-2026-10-14/index/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/start-sources-2026-10-14/lout-synth/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/start-sources-2026-10-14/micro/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/start-sources-2026-10-14/sources/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/starts-talents-continuity-2026-10-11/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        3,
+        15
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/steam-installs-2026-10-09/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/steam-wave-2026-10-06/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        11,
+        13
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/steam-wave-2026-10-06/native-usage/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/steam-wave-2026-10-06/native-usage/FINAL_ACQUISITION_PLAN.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/steam-wave-2026-10-06/native-usage/resume-history/2026-10-07-daemon-review/docs/gm/dispatch/steam-wave-2026-10-06/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        13
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/steam-wave-2026-10-06/native-usage/resume-history/2026-10-07-daemon-review/docs/gm/dispatch/steam-wave-2026-10-06/native-usage/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/steam-wave-2026-10-06/native-usage/resume-history/2026-10-07-daemon-review/docs/research/factorio/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/steam-wave-2026-10-06/native-usage/resume-history/2026-10-07-heat-acquisition/docs/gm/dispatch/steam-wave-2026-10-06/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        11,
+        13
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/steam-wave-2026-10-06/native-usage/resume-history/2026-10-07-heat-acquisition/docs/gm/dispatch/steam-wave-2026-10-06/native-usage/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/steam-wave-2026-10-06/native-usage/resume-history/2026-10-07-heat-acquisition/docs/research/factorio/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/systems-cheats-expansion-2026-10-11/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/systems-cheats-expansion-2026-10-11/continuation/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/topic-wave-2026-10-14/p01/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/traveler-asks-2026-10-14/PLAN.md",
+      "coverage": "section-reviewed",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/traveler-asks-2026-10-14/ta1/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/traveler-asks-2026-10-14/ta2/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/traveler-asks-2026-10-14/ta3/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/ttks-novels-2026-10-10/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/ui-density-slices-2026-10-13/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/ui-experience-completion-2026-10-12/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        11
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/ui-experience-completion-2026-10-12/feedback/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/ui-experience-completion-2026-10-12/theme/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        66
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/NEXT_UI_TRIAGE_PROMPT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/R10_CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/R11_CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/R12_CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/R13_CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/R14_CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/R15_CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/R16_CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/R17_CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/R18_CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/R20_CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/R21B_CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/R21C_CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/R21_CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/R22_CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/R3_CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/R4_CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/R5_CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/R6_CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/R7_CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/R8_CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/R9_CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/next-parts/GRIPES_A1_A2_CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/ui-modularity-2026-10-11/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/ui-modularity-2026-10-11/redesign-1920/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        17
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/village-career-2026-10-09/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/village-choices-2026-10-09/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/village-mentor-2026-10-09/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/village-study-2026-10-09/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/vivid-proto23-flow-2026-10-13/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/wider-gameplay-2026-10-11/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/wiki-lanes-2026-10-13/STATUS.md",
+      "coverage": "section-reviewed",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/workflow-foundation-audit-2026-10-12/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/world1-expansion-2026-10-11/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/dispatch/world1-full-completion-2026-10-11/CHECKPOINT.md",
+      "coverage": "section-reviewed",
+      "candidateLinesAtScan": [
+        35
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/world1-full-completion-2026-10-11/coverage/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        13
+      ]
+    },
+    {
+      "path": "docs/gm/engine-extension-2026-10-08/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/engine/observation-channels/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/engine/realm-cargo/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        15
+      ]
+    },
+    {
+      "path": "docs/gm/engine/realm-clock/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/feature-wave/backlog/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/feature-wave/features/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/feature-wave/features/CHECKPOINT_INITIAL_WAVE_48e8a7514ff2.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        21
+      ]
+    },
+    {
+      "path": "docs/gm/feature-wave/features/CHECKPOINT_REFINEMENT_11aaa9cbfc69.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/feature-wave/features/book-world-subtleties/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/feature-wave/features/book-world-subtleties/CHECKPOINT_INTEGRATION_HISTORY.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        25
+      ]
+    },
+    {
+      "path": "docs/gm/feature-wave/features/book-world-subtleties/native-qualification/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/feature-wave/features/book-world-subtleties/recognition/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/feature-wave/features/book-world-subtleties/relay/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/feature-wave/features/book-world-subtleties/roster/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/feature-wave/features/book-world-subtleties/situated/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/feature-wave/features/book-world-subtleties/ui-review/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/feature-wave/features/destination/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/feature-wave/features/nested-campaign/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/feature-wave/features/nested-campaign/chains/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/feature-wave/features/nested-campaign/continued-life/BOOK_CHECKPOINT_BEFORE_11aaa9cbfc69.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/feature-wave/features/nested-campaign/continued-life/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/feature-wave/features/nested-campaign/continued-life/NESTED_CHECKPOINT_BEFORE_11aaa9cbfc69.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/feature-wave/features/nested-campaign/continued-life/WORLD_IMPLEMENTATION_CHECKPOINT_REV13.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        3
+      ]
+    },
+    {
+      "path": "docs/gm/feature-wave/features/nested-campaign/continued-life/review/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/feature-wave/features/nested-campaign/continued-life/worker/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/feature-wave/features/nested-campaign/native-review/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/feature-wave/features/nested-campaign/source-fit/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/feature-wave/features/objects/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/feature-wave/features/powers/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/feature-wave/features/society/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/feature-wave/ink/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/feature-wave/legibility/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/feature-wave/repositories/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/feature-wave/repositories/WORKPLAN.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        15,
+        23,
+        52,
+        81
+      ]
+    },
+    {
+      "path": "docs/gm/game-absorption-2026-10-06/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/home-social-base-2026-10-07/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/home-social-base-2026-10-07/base/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/home-social-base-2026-10-07/proto23-native/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/home-social-base-2026-10-07/proto23/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/home-social-base-2026-10-07/social/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        17
+      ]
+    },
+    {
+      "path": "docs/gm/home-social-base-2026-10-07/visits/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/life-sim-experience-2026-10-07/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        3
+      ]
+    },
+    {
+      "path": "docs/gm/life-sim-foundation-2026-10-07/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/missed-work-audit/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/multi-world-paths-2026-10-07/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/nethack/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/non-factorio-absorption-2026-10-07/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/non-factorio-absorption-2026-10-07/boh/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/non-factorio-absorption-2026-10-07/df/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/non-factorio-absorption-2026-10-07/lamb/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/non-factorio-absorption-2026-10-07/oni/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/observation-power/BRIEF.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        51
+      ]
+    },
+    {
+      "path": "docs/gm/observation-power/trailblaze/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        7
+      ]
+    },
+    {
+      "path": "docs/gm/reference-gameplay/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        17
+      ]
+    },
+    {
+      "path": "docs/gm/status-care-2026-10-06/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/story-life-2026-10-07/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/story-life-2026-10-07/CHECKPOINT_BEFORE_DELIVERY.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/trailblaze/dialogue/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/trailblaze/dialogue/LOCAL_SCENE_BRIEF.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/trailblaze/traveler-profiles/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/trailblaze/world-instances/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        3
+      ]
+    },
+    {
+      "path": "docs/gm/world-completion-2026-10-06/BRIEF.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/world-completion-2026-10-06/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        13
+      ]
+    },
+    {
+      "path": "docs/gm/world-implementation/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        3
+      ]
+    },
+    {
+      "path": "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        36,
+        345,
+        347
+      ]
+    },
+    {
+      "path": "docs/gm/world-implementation/abilities/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/world-implementation/abilities/PLAN_INPUT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/world-implementation/depth/macro/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/world-implementation/depth/micro/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        108
+      ]
+    },
+    {
+      "path": "docs/gm/world-implementation/engine/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        7
+      ]
+    },
+    {
+      "path": "docs/gm/world-implementation/engine/HOLD_CHECKPOINT_2026_10_04.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/world-implementation/frontier-runtime/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/absorption-incorporation/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        9
+      ]
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/authoring/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/bases/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        28
+      ]
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/combat/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/combat/STATUS_AND_SMALL_INTERACTIONS.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/engine-absorption/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/engine-absorption/PLAN_PACKETS.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        37,
+        47,
+        57,
+        67
+      ]
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/experience/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/fork-network-absorption/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/foundations/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        3,
+        25
+      ]
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/granularity-expansion/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/integration/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        3
+      ]
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/items/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/missing-feature-audit/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/powers/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        9
+      ]
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/regions/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/repository-bank-absorption/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/runtime-efficiency/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/society/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        115
+      ]
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/society/branching/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/timelines/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        90
+      ]
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/timelines/branching/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        31
+      ]
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/token-efficiency/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        53,
+        57
+      ]
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/upstream-native-feasibility/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/world-bank/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        23
+      ]
+    },
+    {
+      "path": "docs/research/LOCAL_AI_UPGRADE_STATUS_2026-10-14.md",
+      "coverage": "section-reviewed",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/SCIFI_AND_JOJO_PLAN_2026-10-10.md",
+      "coverage": "section-reviewed",
+      "candidateLinesAtScan": [
+        7
+      ]
+    },
+    {
+      "path": "docs/research/academagia/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/academagia/aspects-2026-10-14/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/academagia/decompile-2026-10-14/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/academagia/pass-2026-10-14-adventures/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/academagia/pass-2026-10-14-systems/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/amazing-cultivation-simulator/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        17
+      ]
+    },
+    {
+      "path": "docs/research/amazing-cultivation-simulator/aspects-2026-10-14/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/ani-idle/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/ars-nouveau/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/arx-libertatis/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/battle-brothers/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/bitburner/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/bitburner/aspects-2026-10-14/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/bitlife/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/book-of-hours/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/caves-of-qud/aspects-2026-10-14/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/caves-of-qud/repass-2026-10-14/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/citizen-sleeper-2/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        3
+      ]
+    },
+    {
+      "path": "docs/research/citizen-sleeper/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        3
+      ]
+    },
+    {
+      "path": "docs/research/cividle/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/coverage-refresh-2026-10-14/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/cross-game-synthesis-2026-10-14/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/crusader-kings-3/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/crush-crush/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/cult-of-the-lamb/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/cultist-simulator/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/cultivation-idlers/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/cultivation-idlers/path-of-the-idle-cultivator/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/cultivation-idlers/path-of-the-idle-cultivator/aspects-2026-10-14/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/dcss-dda-depth/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        3
+      ]
+    },
+    {
+      "path": "docs/research/deep-detail-reaudit-2026-10-14/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        4,
+        22
+      ]
+    },
+    {
+      "path": "docs/research/disco-elysium/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        8
+      ]
+    },
+    {
+      "path": "docs/research/discworld-mud/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        11
+      ]
+    },
+    {
+      "path": "docs/research/discworld-mud/aspects-2026-10-14/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/discworld-mud/pass-2026-10-14/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/dwarf-fortress/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        3
+      ]
+    },
+    {
+      "path": "docs/research/dwarf-fortress/aspects-2026-10-14/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/dwarf-fortress/emergence-2026-10-15/audit/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/dwarf-fortress/emergence-2026-10-15/extraction/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        5
+      ]
+    },
+    {
+      "path": "docs/research/dwarf-fortress/emergence-2026-10-15/round-2/audit/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/dwarf-fortress/emergence-2026-10-15/round-2/extraction/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        5
+      ]
+    },
+    {
+      "path": "docs/research/dwarf-fortress/emergence-2026-10-15/round-3/audit/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/dwarf-fortress/emergence-2026-10-15/round-3/extraction/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/dwarf-fortress/emergence-2026-10-15/round-4/audit/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/dwarf-fortress/emergence-2026-10-15/round-4/extraction/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/dwarf-fortress/emergence-2026-10-15/round-5/audit/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/dwarf-fortress/emergence-2026-10-15/round-5/extraction/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/elin/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/endless-ascent/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/everyday-paths-ui-2026-10-15/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        3
+      ]
+    },
+    {
+      "path": "docs/research/factorio/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/factorio/native/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        3
+      ]
+    },
+    {
+      "path": "docs/research/factorio/native/readers/cross-architecture/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/factorio/native/readers/logistics-heat/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/factorio/native/readers/production-early/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/factorio/native/readers/quality-spoilage/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/far-field-tropes-2026-10-08/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/format-and-character-art-2026-10-14/NEXT_PROMPT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/free-text-worlds-2026-10-14/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/free-text-worlds-2026-10-14/aspects-2026-10-14/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/game-discovery-2026-10-06/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/game-research-adoption-audit-2026-10-13/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        3
+      ]
+    },
+    {
+      "path": "docs/research/game-research-adoption-reaudit-2026-10-14/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/groundhog-life/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/groundhog-life/aspects-2026-10-14/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/groundhog-life/pass-2026-10-14/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/hearts-of-iron-iv/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/hearts-of-iron-iv/aspects-2026-10-14/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/hearts-of-iron-iv/pass-2026-10-14-systems/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/heavens-vault/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/heavens-vault/aspects-2026-10-14/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/heavens-vault/repass-2026-10-14/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/hogwarts-games/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/hogwarts-legacy/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/hogwarts-legacy/aspects-2026-10-14/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/hogwarts-legacy/deep/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/hyperrogue/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/hyperrogue/aspects-2026-10-14/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/hyperrogue/pass-2026-10-14-systems/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/idle-reincarnator/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/idle-reincarnator/aspects-2026-10-14/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/idle-social-engine-scout-2026-10-06/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/idling-to-rule-the-gods/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/immortal-life/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        17
+      ]
+    },
+    {
+      "path": "docs/research/immortal-life/aspects-2026-10-14/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/immortal-life/pass-2026-10-14-deep/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/immortal-life/pass-2026-10-14-systems/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/immortality-idle/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/immortality-idle/aspects-2026-10-14/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/immortality-idle/pass-2026-10-14/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/increlution/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/keeperrl/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/kenshi/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/kenshi/second-pass/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/kill-the-lich-idle/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/king-of-dragon-pass/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/kingdom-hearts/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/kingdom-hearts/aspects-2026-10-14/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/kingdom-of-loathing/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/kingdom-of-loathing/aspects-2026-10-14/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/kingdom-of-loathing/pass-2026-10-14/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/kittens-game/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/kittens-game/aspects-2026-10-14/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/legends-of-idleon/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/legends-of-idleon/aspects-2026-10-14/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/library-games-2026-10-09/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        40
+      ]
+    },
+    {
+      "path": "docs/research/magic-research-2/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/magical-diary-wolf-hall/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/magical-diary-wolf-hall/aspects-2026-10-14/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/majoras-mask/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/majoras-mask/aspects-2026-10-14/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/majoras-mask/repass-2026-10-14/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/melvor-idle/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/minecraft/tfc-chains-2026-10-14/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/minecraft/tfc-chains-2026-10-14/aspects-2026-10-14/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/modding-tree/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/modding-tree/aspects-2026-10-14/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/modding-tree/pass-2026-10-14/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/multi-realm-muds/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/multi-realm-muds/aspects-2026-10-14/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/multiverse-idle/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/multiworld-synthesis-2026-10-14/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/multiworld-synthesis-2026-10-14/aspects-2026-10-14/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/naev/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/naev/aspects-2026-10-14/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/naev/pass-2026-10-14-systems/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/nethack/aspects-2026-10-14/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/ngu-idle/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/ngu-idle/aspects-2026-10-14/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/noita/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/nonhuman-fiction-2026-10-10/BRIEF.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/nonhuman-fiction-2026-10-10/C_PLANT_FUNGUS_NATURE.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/open-idle-games-2026-10-09/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        35,
+        39
+      ]
+    },
+    {
+      "path": "docs/research/orb-of-creation/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/outer-wilds/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/oxygen-not-included/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/path-of-achra/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        3
+      ]
+    },
+    {
+      "path": "docs/research/planescape-torment/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/potionomics/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/potionomics/aspects-2026-10-14/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/power-scaling-2026-10-08/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/power-systems/anime-manga/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/power-systems/broad-scout/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/power-systems/novel-crawl/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/power-systems/web-fiction/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/power-systems/western/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        39,
+        71
+      ]
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/black-clover-full/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/bleach-full/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/bleach-full/shard-a/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/bleach-full/shard-b/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/bleach-full/shard-c/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/csm-full/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/dcc-full/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        3
+      ]
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/demon-slayer-full/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/elden-full/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/fallout-full/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/fate-full/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/fate-full/r2-2026-10-13/shard-a/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/fate-full/r2-2026-10-13/shard-b/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/fate-full/r2-2026-10-13/shard-c/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/fma-full/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        3
+      ]
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/fma-full/r2-2026-10-13/review/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/frieren-full/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/hp-full/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/hxh-full/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/hxh-full/r2-2026-10-13/shard-a/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/hxh-full/r2-2026-10-13/shard-b/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/jjk-full/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/mha-full/shard-a/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/mha-full/shard-b/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/one-piece-full/shard-a/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/one-piece-full/shard-b/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/one-piece-full/shard-c/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/qualifier/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/shadow-full/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        3
+      ]
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/skyrim-full/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/procedural-crafting-ui-2026-10-15/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        15,
+        17,
+        27
+      ]
+    },
+    {
+      "path": "docs/research/project-zomboid/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/project-zomboid/aspects-2026-10-14/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/qud-systems-audit-2026-10-15/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/qud-systems-audit-2026-10-15/depth-5/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/qud-systems-audit-2026-10-15/depth-5/independent-audit/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/qud-systems-audit-2026-10-15/depth-6/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/qud-systems-audit-2026-10-15/depth-6/independent-audit/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/qud-systems-audit-2026-10-15/depth-7/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/qud-systems-audit-2026-10-15/depth-7/independent-audit/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/rain-world/emergence-2026-10-15/audit/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/rain-world/emergence-2026-10-15/extraction/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/rain-world/emergence-2026-10-15/round-2/audit/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/rain-world/emergence-2026-10-15/round-2/extraction/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/rain-world/emergence-2026-10-15/round-3/audit/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/rain-world/emergence-2026-10-15/round-3/extraction/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/rain-world/emergence-2026-10-15/round-4/audit/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/rain-world/emergence-2026-10-15/round-4/extraction/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/rain-world/emergence-2026-10-15/round-5/audit/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/rain-world/emergence-2026-10-15/round-5/extraction/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/remnant-2/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        17
+      ]
+    },
+    {
+      "path": "docs/research/remnant-2/pass-2026-10-15-deep/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/rimworld/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/rimworld/aspects-2026-10-14/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/rimworld/feature-pass-2026-10-14/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/rimworld/feature-pass-2026-10-14/aspects-2026-10-14/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/rimworld/pass-2026-10-14-deep/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/rimworld/pass-2026-10-14-deep/aspects-2026-10-14/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/rimworld/pass-2026-10-14-systems/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        12
+      ]
+    },
+    {
+      "path": "docs/research/rogue-legacy/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        23
+      ]
+    },
+    {
+      "path": "docs/research/rune-factory-5/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        12
+      ]
+    },
+    {
+      "path": "docs/research/rune-factory-5/aspects-2026-10-14/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/sapiens/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/sapiens/aspects-2026-10-14/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/scroll-of-taiwu/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/scroll-of-taiwu/aspects-2026-10-14/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/scroll-of-taiwu/pass-2026-10-14-deep/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/scroll-of-taiwu/pass-2026-10-14-systems/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/siralim-ultimate/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/siralim-ultimate/pass-2026-10-14-systems/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/six-ages-2/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/six-ages/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/soulash-2/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        3
+      ]
+    },
+    {
+      "path": "docs/research/stardew-valley/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/stardew-valley/aspects-2026-10-14/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/streets-of-rogue/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/sucker-for-love-crush-landing/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/sunless-sea/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/sunless-skies/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/super-robot-wars/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/tabletop-library-2026-10-14/CORE_TITLES_AND_ADAPTATION_PLAN.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/tabletop-library-2026-10-14/handoffs/CONVERSION_AUDIT_BRIEF.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/tabletop-library-2026-10-14/handoffs/IMPLEMENTATION_BRIEF.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/taiwu-ingredient-use-2026-10-15/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/tale-of-immortal/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/tale-of-immortal/aspects-2026-10-14/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/tale-of-immortal/pass-2026-10-14/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/tales-of-maj-eyal/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/the-lands-of-eldyn/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/the-strange-tabletop/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/the-strange-tabletop/aspects-2026-10-14/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/theory-of-magic/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/theory-of-magic/repass-2026-10-14/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/trimps-antimatter/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/upload-labs/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/ur-quan-masters/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/ur-quan-masters/aspects-2026-10-14/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/vagrus/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/vagrus/aspects-2026-10-14/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/vagrus/pass-2026-10-14/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        16
+      ]
+    },
+    {
+      "path": "docs/research/vintage-story/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/vintage-story/aspects-2026-10-14/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/warsim/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/warsim/aspects-2026-10-14/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/warsim/pass-2026-10-14-rea/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/warsim/pass-2026-10-14-systems/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/wildermyth/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/your-chronicle/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/your-chronicle/aspects-2026-10-14/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/your-chronicle/pass-2026-10-14/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/zhutian-shuabao-lu/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/research/zhutian-shuabao-lu/aspects-2026-10-14/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        5
+      ]
+    },
+    {
+      "path": "docs/reviews/FOUNDATIONS_DIALOGUE_AND_ABSORPTION_PLAN_2026-10-12.md",
+      "coverage": "section-reviewed",
+      "candidateLinesAtScan": [
+        214
+      ]
+    },
+    {
+      "path": "docs/reviews/NEXT_MILESTONE_PROMPT_IMPROVEMENT_PACKET_2026-10-12.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        35
+      ]
+    },
+    {
+      "path": "docs/reviews/PLAN_RULE_RECONCILIATION_2026-10-18.md",
+      "coverage": "section-reviewed",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/worlds/NONHUMAN_SYNTHESIS_AND_ROADMAP_2026-10-14.md",
+      "coverage": "section-reviewed",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/worlds/black-clover/WORLD_BRIEF.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/worlds/bleach/WORLD_BRIEF.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": [
+        19
+      ]
+    },
+    {
+      "path": "docs/worlds/chainsaw-man/WORLD_BRIEF.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/worlds/demon-slayer/WORLD_BRIEF.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/worlds/elden-ring/WORLD_BRIEF.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/worlds/fallout/WORLD_BRIEF.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/worlds/fate/WORLD_BRIEF.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/worlds/frieren/WORLD_BRIEF.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/worlds/fullmetal-alchemist/WORLD_BRIEF.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/worlds/harry-potter/WORLD_BRIEF.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/worlds/hunter-x-hunter/WORLD_BRIEF.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/worlds/jujutsu/WORLD_BRIEF.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/worlds/mha/WORLD_BRIEF.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/worlds/mother-of-learning/WORLD_BRIEF.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/worlds/naruto/WORLD_BRIEF.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/worlds/one-piece/WORLD_BRIEF.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/worlds/original-frontier/CHECKPOINT.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/worlds/original-frontier/WORLD_BRIEF.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/worlds/paradise-hub/CANON_PRIORITY_PLAN_2026-10-14.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/worlds/paradise-hub/WORLD_BRIEF.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/worlds/proto23/IMPLEMENTATION_STATUS.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/worlds/proto23/WORLD_BRIEF.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/worlds/proving-ground/WORLD_BRIEF.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/worlds/skyrim/WORLD_BRIEF.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    },
+    {
+      "path": "docs/worlds/world-depth-2026-10-13/00_AGENT_BRIEF.md",
+      "coverage": "text-scanned-only",
+      "candidateLinesAtScan": []
+    }
+  ]
+}

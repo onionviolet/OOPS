@@ -1,5 +1,13 @@
 # Mother of Learning: retained Cyoria visitor campaign
 
+**Latest recorded integration, reconciled 2026-10-18:** the parent
+[release checkpoint](../../gm/book-world-completion-2026-10-06/CHECKPOINT.md)
+and [delivery](../../gm/book-world-completion-2026-10-06/DELIVERY.md) record this
+finite campaign source/native/UI/current-build complete, implemented-unverified,
+on 2026-10-07. The original lane-stage integration-pending wording below is
+historical. Actual gameplay, persistence/failure and director acceptance stayed
+unrun in that delivery; no new current-build proof is claimed here.
+
 2026-10-06. Original optional independent branch authorized by the [book-world completion assignment](../../gm/book-world-completion-2026-10-06/ASSIGNMENT.md). Source/native implementation in six `src/book_world_mol_*` leaves is **implemented-unverified**; root owns registry, native publication, UI/save/build joins. Unit/browser/gameplay/save/import/failure/regression/keyboard/director journeys are deferred, not passed. [Lane checkpoint](../../gm/book-world-completion-2026-10-06/MOL_CHECKPOINT.md), [coverage](../../gm/book-world-completion-2026-10-06/MOL_COVERAGE.json) and [integration contract](../../gm/book-world-completion-2026-10-06/MOL_INTEGRATION.md) own current evidence.
 
 ## Supported scope and source rights
@@ -43,7 +51,7 @@ Exact held tool and accepted job/encounter descriptors guard current completion.
 
 Deferred acceptance is finite: prepared journey through mature mastery3and changed return; ordinary smoke then paid finite care; delivered-report Taiven cover with conserved own means; negotiated/withdrawn/declined/failed/late branches with correct watch/payment/hazard; and generated old/active/current-job/session reload/import/failure plus keyboard/director review. Root owns rebuilt-current-bundle/served-byte evidence. Passing definition/syntax/import/source/link checks is not any of these journeys.
 
-## Resume
+## Original lane-stage resume (historical)
 
 MOL worker owns only six new `src/book_world_mol_*` leaves and this world brief/MOL_* evidence. Root alone owns shared integration. Current local source/definition pass is clean; final source/native review and root integration remain. See [MOL_CHECKPOINT](../../gm/book-world-completion-2026-10-06/MOL_CHECKPOINT.md) for exact APIs, passed permitted checks and unrun gates before any successor writes.
 
@@ -79,3 +87,19 @@ is also the supported paying client for A, so both share settlement availability
 Finite tool versus ongoing service and independent mature non-device research
 are later world-scope choices, not accepted extensions. No runtime change or new
 native proof; original branch/canon and existing implementation ownership remain.
+
+## Current rule-fit reuse, 2026-10-18
+
+AD6–AD9/AD11/AD16–AD19/AD38 and AR7/AR8 qualify future extensions: dormant
+owned methods, source compatibility, local clock and observer knowledge remain
+separate. The original independent visitor/lamp branch is an authored divergence,
+not a universal claim that outsiders lack magical means. Existing paid and
+cooperative routes are examples, not a compulsory progression lock for every
+possible means. Preserve the selected source-cutoff and qualified law evidence.
+
+If a selected future action crosses unbuilt coverage, use the content-edge owner
+and honest preflight/settlement rather than inventing a canon obstacle. A current
+world pause includes linked production/deadlines under AD16; banked credit is not
+free frozen-world participation from other actors. Old-save migration is currently
+deferred, but new selected state still needs Save/reload/Export/Import. Reuse the
+parent delivery's proof only for its exact matching inputs; no play gate closed here.

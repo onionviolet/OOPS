@@ -1,0 +1,232 @@
+{
+  "round": 3,
+  "date": "2026-10-18",
+  "newly_section_reviewed_plan_records": 27,
+  "section_reviewed_plan_records_total": 70,
+  "remaining_indexed_only": 708,
+  "reviewed_plan_records": [
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/CHECKPOINT.md",
+      "priority": "P1",
+      "recorded_disposition": "historical-round-control",
+      "scope": "Old R12/R14 Next/reservations route to later round and released A1/A2 evidence; later UIL8 has its own writer."
+    },
+    {
+      "path": "docs/reviews/FOUNDATIONS_DIALOGUE_AND_ABSORPTION_PLAN_2026-10-12.md",
+      "priority": "P2",
+      "recorded_disposition": "retained-palette",
+      "scope": "Corrected current World1 qualifier to later authorized, ended/incomplete W1; observation follows actual knowledge owner, not a new engine foundation."
+    },
+    {
+      "path": "docs/worlds/world-depth-2026-10-13/00_AGENT_BRIEF.md",
+      "priority": "P2",
+      "recorded_disposition": "reusable-charter",
+      "scope": "Source scope, lore absolutes, quotas and dispatch requirements; current means/exception rules qualify inherited charter."
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/engine-absorption/PLAN_PACKETS.md",
+      "priority": "P2",
+      "recorded_disposition": "historical-architecture-input",
+      "scope": "EA-P1 through P3 are optional demonstrated gaps, not mandatory old rev-5 patches or a new universal framework."
+    },
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b11/TEST_PLAN.md",
+      "priority": "P2",
+      "recorded_disposition": "unrun-test-proposal",
+      "scope": "Prototype body budgets and stacking are scenario expectations; current persistence, observation and interruption ownership qualify reuse."
+    },
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b15/TEST_PLAN.md",
+      "priority": "P2",
+      "recorded_disposition": "unrun-test-proposal",
+      "scope": "Current target/font and preference owners, compatibility, private save truth and observer lens; test IDs retained, no cases run."
+    },
+    {
+      "path": "docs/worlds/paradise-hub/CANON_PRIORITY_PLAN_2026-10-14.md",
+      "priority": "P2",
+      "recorded_disposition": "source-qualified-palette",
+      "scope": "CRP sequencing/conversion/facilities, settlement, compatibility and first useful local journey; no full-source or canon verification."
+    },
+    {
+      "path": "docs/research/tabletop-library-2026-10-14/CORE_TITLES_AND_ADAPTATION_PLAN.md",
+      "priority": "P3",
+      "recorded_disposition": "reusable-research-plan",
+      "scope": "F4 missing-file snapshot versus F5 file-presence update; adaptation, source parameters, first native use, no purchase/full-library prerequisite."
+    },
+    {
+      "path": "docs/research/tabletop-library-2026-10-14/handoffs/IMPLEMENTATION_BRIEF.md",
+      "priority": "P3",
+      "recorded_disposition": "retained-bounded-handoff",
+      "scope": "Read operational handoff, analysis/implementation and source gaps. Already bounded; no new owner correction or source verification."
+    },
+    {
+      "path": "docs/research/tabletop-library-2026-10-14/handoffs/CONVERSION_AUDIT_BRIEF.md",
+      "priority": "P3",
+      "recorded_disposition": "retained-bounded-handoff",
+      "scope": "Read operational handoff, analysis/implementation and source gaps. Already bounded; no new owner correction or source verification."
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/PLAN.md",
+      "priority": "P2",
+      "recorded_disposition": "historical-wave-with-current-routing",
+      "scope": "Read current-use qualification and old bootstrap/acceptance. Another completed docs pass already routes to status and independent gates; no duplicate amendment."
+    },
+    {
+      "path": "docs/gm/trailblaze/dialogue/LOCAL_SCENE_BRIEF.md",
+      "priority": "P3",
+      "recorded_disposition": "bounded-prototype-contract",
+      "scope": "Read actual stock, clock, consent, private actor knowledge and paid-versus-friendly behavior. Scoped prototype assumptions already explicit."
+    },
+    {
+      "path": "docs/gm/world-implementation/abilities/PLAN_INPUT.md",
+      "priority": "P3",
+      "recorded_disposition": "design-input-not-execution",
+      "scope": "Read open-ended activity/means examples and implementation boundary; examples do not create a permission ontology."
+    },
+    {
+      "path": "docs/gm/dispatch/RIFT_AND_PLANE_RESEARCH.md",
+      "priority": "P3",
+      "recorded_disposition": "historical-source-addendum",
+      "scope": "Read source qualification, claims and reusable mechanism scope; did not open external URLs or independently verify source facts."
+    },
+    {
+      "path": "docs/gm/book-lore-to-gameplay-2026-10-06/BRIEF.md",
+      "priority": "P4",
+      "recorded_disposition": "completed-planning-charter",
+      "scope": "Read complete bounded mapping brief; planning delivery does not claim native implementation."
+    },
+    {
+      "path": "docs/gm/world-completion-2026-10-06/BRIEF.md",
+      "priority": "P4",
+      "recorded_disposition": "superseded-launch-charter",
+      "scope": "Later parent release and delivery qualify old held-stage/sole-writer instructions. No restart or runtime acceptance inferred."
+    },
+    {
+      "path": "docs/gm/dispatch/steam-wave-2026-10-06/native-usage/FINAL_ACQUISITION_PLAN.md",
+      "priority": "P4",
+      "recorded_disposition": "historical-prepared-acceptance-plan",
+      "scope": "Read whole prepared plan: immutable input release, changed-snapshot reuse, repair qualification, source versus inference and deferred gates. Historical names/leases are not current worker inspection; no corpus/native action or messaging executed."
+    },
+    {
+      "path": "docs/worlds/black-clover/WORLD_BRIEF.md",
+      "priority": "P3",
+      "recorded_disposition": "candidate-not-selected",
+      "scope": "Read operational source/first-slice/carry/return/proof sections, not whole lore packs or original sources. Existing proposal/source/means qualifications retained."
+    },
+    {
+      "path": "docs/worlds/chainsaw-man/WORLD_BRIEF.md",
+      "priority": "P3",
+      "recorded_disposition": "candidate-not-selected",
+      "scope": "Read operational source/first-slice/carry/return/proof sections, not whole lore packs or original sources. Existing proposal/source/means qualifications retained."
+    },
+    {
+      "path": "docs/worlds/demon-slayer/WORLD_BRIEF.md",
+      "priority": "P3",
+      "recorded_disposition": "candidate-not-selected",
+      "scope": "Read operational source/first-slice/carry/return/proof sections, not whole lore packs or original sources. Existing proposal/source/means qualifications retained. Corrected opaque public IDs versus stored private frozen truth."
+    },
+    {
+      "path": "docs/worlds/fate/WORLD_BRIEF.md",
+      "priority": "P3",
+      "recorded_disposition": "candidate-not-selected",
+      "scope": "Read operational source/first-slice/carry/return/proof sections, not whole lore packs or original sources. Existing proposal/source/means qualifications retained."
+    },
+    {
+      "path": "docs/worlds/frieren/WORLD_BRIEF.md",
+      "priority": "P3",
+      "recorded_disposition": "candidate-not-selected",
+      "scope": "Read operational source/first-slice/carry/return/proof sections, not whole lore packs or original sources. Existing proposal/source/means qualifications retained."
+    },
+    {
+      "path": "docs/worlds/fullmetal-alchemist/WORLD_BRIEF.md",
+      "priority": "P3",
+      "recorded_disposition": "candidate-not-selected",
+      "scope": "Read operational source/first-slice/carry/return/proof sections, not whole lore packs or original sources. Existing proposal/source/means qualifications retained."
+    },
+    {
+      "path": "docs/worlds/hunter-x-hunter/WORLD_BRIEF.md",
+      "priority": "P3",
+      "recorded_disposition": "candidate-not-selected",
+      "scope": "Read operational source/first-slice/carry/return/proof sections, not whole lore packs or original sources. Existing proposal/source/means qualifications retained."
+    },
+    {
+      "path": "docs/worlds/mha/WORLD_BRIEF.md",
+      "priority": "P3",
+      "recorded_disposition": "candidate-not-selected",
+      "scope": "Read operational source/first-slice/carry/return/proof sections, not whole lore packs or original sources. Existing proposal/source/means qualifications retained."
+    },
+    {
+      "path": "docs/worlds/one-piece/WORLD_BRIEF.md",
+      "priority": "P3",
+      "recorded_disposition": "candidate-not-selected",
+      "scope": "Read operational source/first-slice/carry/return/proof sections, not whole lore packs or original sources. Existing proposal/source/means qualifications retained."
+    },
+    {
+      "path": "docs/worlds/original-frontier/WORLD_BRIEF.md",
+      "priority": "P3",
+      "recorded_disposition": "delivered-with-unrun-acceptance",
+      "scope": "Read operational source/first-slice/carry/return/proof sections, not whole lore packs or original sources. Existing proposal/source/means qualifications retained. Corrected held-planning summary to parent expanded-world delivery; acceptance still unrun."
+    },
+    {
+      "path": "docs/worlds/proto23/WORLD_BRIEF.md",
+      "priority": "P3",
+      "recorded_disposition": "delivered-with-unrun-acceptance",
+      "scope": "Read operational source/first-slice/carry/return/proof sections, not whole lore packs or original sources. Existing proposal/source/means qualifications retained. Existing implementation-status link preserves parent delivery and unrun gates."
+    }
+  ],
+  "related_owners": [
+    "docs/gm/dispatch/ui-foundation-2026-10-15/next-parts/GRIPES_A1_A2_CHECKPOINT.md",
+    "docs/gm/dispatch/ui-foundation-2026-10-15/next-parts/GRIPES_A1_A2_REPORT.md",
+    "docs/audits/TOPIC_EXPANSION_AUDIT_PLAYBOOK.md",
+    "docs/gm/book-world-completion-2026-10-06/CHECKPOINT.md",
+    "docs/worlds/proto23/IMPLEMENTATION_STATUS.md",
+    "docs/gm/dispatch/body-lineage-2026-10-14/PLAN.md",
+    "docs/gm/dispatch/nonhuman-starts-2026-10-14/runs/SESSIONS.md",
+    "docs/PROCEDURAL_GENERATION_STATUS_2026-10-13.md",
+    "docs/gm/dispatch/research-tech-2026-10-14/STATUS.md",
+    "docs/CORE_FOUNDATIONS_SCORECARD_2026-10-14.md"
+  ],
+  "newly_promoted_paths": [
+    "docs/reviews/FOUNDATIONS_DIALOGUE_AND_ABSORPTION_PLAN_2026-10-12.md",
+    "docs/worlds/world-depth-2026-10-13/00_AGENT_BRIEF.md",
+    "docs/gm/world-implementation/second-pass/engine-absorption/PLAN_PACKETS.md",
+    "docs/gm/dispatch/body-lineage-2026-10-14/b11/TEST_PLAN.md",
+    "docs/gm/dispatch/body-lineage-2026-10-14/b15/TEST_PLAN.md",
+    "docs/worlds/paradise-hub/CANON_PRIORITY_PLAN_2026-10-14.md",
+    "docs/research/tabletop-library-2026-10-14/CORE_TITLES_AND_ADAPTATION_PLAN.md",
+    "docs/research/tabletop-library-2026-10-14/handoffs/IMPLEMENTATION_BRIEF.md",
+    "docs/research/tabletop-library-2026-10-14/handoffs/CONVERSION_AUDIT_BRIEF.md",
+    "docs/gm/dispatch/procgen-2026-10-13/PLAN.md",
+    "docs/gm/trailblaze/dialogue/LOCAL_SCENE_BRIEF.md",
+    "docs/gm/world-implementation/abilities/PLAN_INPUT.md",
+    "docs/gm/dispatch/RIFT_AND_PLANE_RESEARCH.md",
+    "docs/gm/book-lore-to-gameplay-2026-10-06/BRIEF.md",
+    "docs/gm/world-completion-2026-10-06/BRIEF.md",
+    "docs/gm/dispatch/steam-wave-2026-10-06/native-usage/FINAL_ACQUISITION_PLAN.md",
+    "docs/worlds/black-clover/WORLD_BRIEF.md",
+    "docs/worlds/chainsaw-man/WORLD_BRIEF.md",
+    "docs/worlds/demon-slayer/WORLD_BRIEF.md",
+    "docs/worlds/fate/WORLD_BRIEF.md",
+    "docs/worlds/frieren/WORLD_BRIEF.md",
+    "docs/worlds/fullmetal-alchemist/WORLD_BRIEF.md",
+    "docs/worlds/hunter-x-hunter/WORLD_BRIEF.md",
+    "docs/worlds/mha/WORLD_BRIEF.md",
+    "docs/worlds/one-piece/WORLD_BRIEF.md",
+    "docs/worlds/original-frontier/WORLD_BRIEF.md",
+    "docs/worlds/proto23/WORLD_BRIEF.md"
+  ],
+  "grouping": {
+    "groups": 9,
+    "members": 189,
+    "skip_eligible_unchanged_execution_control_only": 141,
+    "needs_successor_mapping": 48,
+    "not_semantic_review": true
+  },
+  "ownership_snapshot": "Read-only Codex thread snapshot: Review Claude chat gripes and Update project docs with latest info idle; A1/A2 checkpoint explicitly released ownership. Implement UIL8 stat-sheet tiers active, source and UIL8 report not edited. No messages sent. This is a dated snapshot, not a lease for later work.",
+  "previous_pending_amendment": "PA2-F1 target/preference constraints folded after A1/A2 release. Technical MacBook/1536, exact current input and human gates remain open. Round-2 patch and not-applied receipt remain historical.",
+  "scope_limits": [
+    "No source acquisition or original source verification",
+    "No source/runtime/build/browser tests or gameplay acceptance",
+    "No user-save access, agents, messages, commit, merge or push"
+  ]
+}

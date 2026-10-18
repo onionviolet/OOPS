@@ -1,0 +1,7 @@
+
+  dist/bundle.js       5.6mb ⚠️
+  dist/bundle.js.map  14.6mb
+
+⚡ Done in 128ms
+Javascript build complete!
+Bundle and style versions in .html have been updated!

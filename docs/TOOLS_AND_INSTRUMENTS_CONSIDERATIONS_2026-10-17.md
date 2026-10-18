@@ -716,3 +716,20 @@ These are shapes that give exceptions meaning. They are not limits.
 
 Evidence: AD5 in RULES_INDEX, AGENTS.md design framing, RULES_FROM_SCRATCH CP1 ("an outlier is not a
 universal law; unknown is not forbidden"), rounds 1–4. Docs only; no build, test or browser run.
+
+## Core-rule reconciliation, 2026-10-18
+
+TQ291–TQ295's claims/routes model is the existing home for G30: distinguish a
+world mechanism, what a maker knows, and an engine capability not built yet.
+Origin/repair tags cannot become a target permission list (AD38). Reuse IP's
+actual control and repair owners rather than introducing a parallel equipment
+truth store. A skill, tool or title may be extraordinarily effective without a
+mandatory compensating penalty (AD22/AD28).
+
+When a staged repair slice is selected, interrupt after one real restored layer:
+spent material and repaired function persist, unspent reservations return under
+the operation's terms, and later healing/repair targets the remaining mechanism
+(MR5/MR29, AR7; G28). Full object restoration is not inferred from one repaired
+layer. Use the current compatibility decision, not the old migration gate.
+Level: strong implementer, medium when selected; done: useful tool action after
+partial repair, honest quote, current-state persistence and rebuilt desktop proof.

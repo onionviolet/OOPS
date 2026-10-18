@@ -188,8 +188,8 @@ U codes refer to [shared foundations](../../SHARED_FOUNDATIONS_AUDIT_2026-10-12.
 | 1 / CRP1 | Source profile, era, branch and versioned start receipt; opening action works without foreknowledge | Fixed footprints/snapshot F26; generalize a new profile/start without changing old branch IDs or saved terms. Record WC/SR/LY fields. | U03/U04/U06/U14; RF5/RF10; EI1-EI3; SR3/SR5/LY8 |
 | 2 / CRP2 | Institution-specific status, admission and mission terms: contractor/employee/Hunter/rival are real permissions | Existing offer/accept preview F27/F28; new profile for main/side/Hunter obligations, failure jurisdiction and source exception. Exact trial penalty recheck blocks that one rule. | U08/U11/U14; RF12; E15 for body admission |
 | 3 / CRP3 | Mission lifecycle with distinct objective, failure, extraction, arrival and once-only source settlement | Reuse F28 transitions, conserved claims/reward preflight; add World Source, grade/points/access as separate settlement outputs. Do not reuse survey payout as canon formula. | U05/U09/U11/U13/U14 |
-| 4 / CRP4 | Separate money/material/item ledgers; local funds, Paradise Coins, Soul Coins, medals/merit/crystals; graded owned gear | Existing resource, stock, custody and finite commission seams F29. New denominations and era-qualified rates/cards with no unlimited conversion. | U07/U09/U14; RF9 |
-| 5 / CRP5 | Source-supported attribute/skill facilities with prerequisites and paid time | Existing learned source/faculty/mastery F29; new allocation owner, true/ordinary point distinction, actual facility service and own fuel. One basic allocation before advanced true stats. | U02/U05/U07/U09; E9; RF17 |
+| 4 / CRP4 | Separate money/material/item ledgers; local funds, Paradise Coins, Soul Coins, medals/merit/crystals; graded owned gear | Existing resource, stock, custody and finite commission seams F29. New denominations and era-qualified rates/cards follow actual issuer, source and conversion means; profitable or extraordinary conversion is not forbidden merely for balance (AD27/AD38). | U07/U09/U14; RF9 |
+| 5 / CRP5 | Source-supported attribute/skill facilities with prerequisites and paid time | Existing learned source/faculty/mastery F29; new allocation owner, true/ordinary point distinction, actual facility service and own fuel. A basic allocation is a modest first-slice proposal; advanced access follows the actual source/means, not a universal prerequisite. | U02/U05/U07/U09; E9; RF17 |
 | 6 / CRP6 | Stable cast and directed ties; contracts, knowledge and public recognition are observer-specific | Existing separate actors, private knowledge and attention F30/F32. Relationship patches must have readers: fee, referral, aid or refusal. No universal omniscient reputation. | U01/U06/U08/U10; E10; RF11/RF12 |
 | 7 / CRP7 | Per-edge body/cargo/source/companion and origin-return restrictions | Existing human/owned-cargo carrier F27; new origin endpoint and phase/authority-specific suppression. Keep passives and acquired ownership distinct from callable actives. | U01/U02/U12/U14; RF9/RF16; E7/E13 |
 | 8 / CRP8 | Body functions, slots, intake, rest/defeat, communication, controller and transitions | Current Paradise host hard-admits human F27; new shared capability/native consumers. Pet view cannot be done by changing race text. Validate one body before brood control. | U01/U02/U11/U13; E1-E15; especially E2/E4/E6/E8/E14/E15 |
@@ -234,3 +234,20 @@ Completion claim remains layered: plan written; source rules qualified; implemen
 | A5 | Make nonhuman admission/body support a shared engine slice, then add one companion perspective. | SRP9 is a concrete test of communication/reach/cargo. It avoids treating beast, construct, spirit and contractor status as cosmetic race names. |
 
 Lane receipt: one public, git-visible plan and one canon-lane checkpoint; 32 starts, 10 AU variants, 12 ranked feature requirements, eight proposed verification gates and five suggestions. No build, gameplay, save/import, download, commit, push or publication was run. Primary authentication, missing chapters, edition aliases and flagged rules remain the named source gaps. Implementation and native acceptance remain open with their existing owners.
+
+## Current planning boundary, 2026-10-18
+
+CRP1–CRP12 are a source-qualified capability palette, not a requirement to build
+all facilities, body types, rival institutions or currencies before the first
+selected canon slice. The original branch's delivered code is distinct from a
+new canon start and from human acceptance. Choose the actual era/terms and the
+subset a useful local journey consumes, using AR10/AR12, AD33/AD36/AD38.
+
+An institution's actual mission/return rule can bind locally; an implementation
+shortcut cannot become a universal ban on an extraordinary imported means.
+Cause-specific settlement is idempotent, not a lifetime limit on new missions.
+Player knowledge, actual institutional authority and implementation coverage stay
+separate. Current compatibility permits old-state reset/drop by recorded choice;
+new selected state still round-trips and follows current UI_RULES targets.
+Source cutoffs/unknowns above stay qualified; no new canon fact or runtime
+continuation is claimed by this audit.

@@ -1,5 +1,10 @@
 # Engine GM checkpoint
 
+**Historical checkpoint, routing clarified 2026-10-18.** The dated reservations,
+PIDs and sole-writer claims below do not establish current ownership. Follow
+[the successor checkpoint](ENGINE_GM_NEXT_CHECKPOINT.md) and its later scoped
+owners, then recover live assignments. This edit resumes no runtime work.
+
 Revision 5, 2026-10-04. Engine chat `01a1051c-ed9f-7a92-81fb-53403489e007`, root, sole runtime integrator; branch `codex/gameplay-foundations`, HEAD `97c28ef`. Scope is the original current-realm remembered-promise proof, then a clearly supported concrete engine prerequisite. No children, new chats/messages, commits, publication, automation or source acquisition. Research coordinator/book scopes in `docs/research/novels/GM_DISPATCH.md` are read-only. Live sidebar/process inspection found source coordinator active, old implementation chats idle/not loaded and no build/server/test writer. Four-chat project budget remains assigned to coordinator, engine and two book follow-ups.
 
 Gap: executor jobs/controllers/events and atomic native publication exist. Knowledge currently stores only stage/value/time/cause, with no typed attribution. There is no durable caused-situation context/private-truth owner. `compileSituation` makes world phase facts and caused events, but does not implement the promise scene. APIs: `enrollSimulation`, `commitSimulationCommand`, `previewSimulationCommand`, `advanceSimulation`, `persistExpansionPlan`, `knownPeopleView`; native `actSimulation`/Notebook/Events own UI and save publication.

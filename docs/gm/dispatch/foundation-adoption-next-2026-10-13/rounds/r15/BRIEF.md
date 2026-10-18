@@ -1,5 +1,13 @@
 # R15: resume the open foundation gates
 
+**Historical executable brief, qualified 2026-10-18:** R15's coordinator later
+stopped at its recorded deadline in the [parent checkpoint](../../CHECKPOINT.md).
+The old group roster, 1600×1100 smoke, commit/push grants and paid-tool/session
+instructions below belong to that task. They do not automatically start a new
+run or substitute for current UI_RULES targets, AU budget and input recovery.
+A later selected continuation preserves old evidence but chooses current required
+gates under AD36/AR16; no worker, merge, commit or push starts from this audit.
+
 2026-10-13. Root coordinator: Claude Code session in the main checkout.
 
 ## Authority

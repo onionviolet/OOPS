@@ -25,7 +25,7 @@ Go below the headline power system into the life of the world. Per world, 12-18 
 - Subtle look-alike pairs and little details a fan would notice
 
 ## Rules (hard)
-- Proposals only. Never call anything accepted. No absolutes ("never/always/only/must") as design law; write Default + Dial + Reasonably (in-world reason and cost). A single world can have its own lore absolutes.
+- Proposals only. Never call anything accepted. No absolutes ("never/always/only/must") as design law; write Default + Dial + Reasonably (in-world reason and cost). A world's stated absolute describes the ordinary case; a supported exception needs an in-world mechanism/reason (AD5/AD38).
 - No either/or questions. Write the dial instead.
 - Sealed secrets: you may read sealed files, but your output must NOT reveal a sealed truth. Refer to secrets only by ID/route/status (e.g. "ties into S2's discovery route"). Changed/randomized truths are sealed; public franchise twists are fine.
 - Franchise facts from general knowledge: label "(general knowledge)" when not from repo notes. Label shown/stated/inferred where it matters.
@@ -52,3 +52,15 @@ Per world, after the main table, add three short subsections (rows continue your
 1. **Starting points**: 3-6 distinct start eras/positions/bodies for this world beyond those already in its docs, ORIGINS_AND_WORLD_TIMELINES.md, STARTS_ENDINGS_AND_RANDOMNESS_PALETTE.md and the entry matrix. Each: when, who you are, what the start changes downstream.
 2. **Parallel versions**: 3-5 parallel/variant copies of this world (changed premise, divergent canon point, AU, mirror, rerolled truth). Each: what differs, how the player crosses or notices, what carries over. Check TIMELINES_AND_DIVERGENCE.md and docs/worlds/MULTIVERSE_STRUCTURES.md first; don't repeat. A rerolled or changed truth is sealed: name its existence and route, never its content.
 3. **Subtle details**: 4-8 small things (look-alikes, a fan-noticeable tell, an NPC habit, a texture of time or sound, a quiet consequence) that make the world feel lived-in.
+
+## Reuse boundary, 2026-10-18
+
+This is a retained research charter, not a new assignment or a fixed per-world
+quota. Current RULES_INDEX/AD35–AD37 govern evidence, private detail and any
+separately authorized reader budget. Use relevant named owner sections and
+search first; "EVERY existing doc" above describes the original bounded dossier
+pass, not mandatory bulk reading for each small extension. Do not reproduce
+superseded launch plans or turn 12–18 ideas, social texture and start variants
+into prerequisites for a playable slice. NPC-heavy work/layouts/mobile keep their
+current deferrals. Original source details still need qualified evidence; this
+charter's general-knowledge labels do not certify canon.

@@ -1,5 +1,11 @@
 # Body and lineage wave, 2026-10-14: plan
 
+**Current use, 2026-10-18:** this wave is folded, as its final status records.
+The later [genetics/hero-start plan](../../../GENETICS_AND_HERO_START_PLAN_2026-10-17.md)
+owns selected future build sequencing. B1–B18 remain proposal/source inputs,
+not an active lane roster or a reason to require hereditary prestige, a gender
+migration or population simulation before a small start slice.
+
 Authority: Weibao, 2026-10-14: “more to consider? other stuff and more? save
 and extend accordingly Send out codex as usesfule”, after the G17-G42 rounds of
 [GENETICS_CONSTITUTIONS_AND_BROOD_PLAY](../../../GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md).
@@ -66,3 +72,14 @@ Added after round 9 (comics, abstractions):
 All lanes B1-B18 complete. Returns folded into the genetics doc rounds 5, 7
 and the final [fold section](../../../GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md#fold-lanes-b10-b12-and-b14-to-b18-2026-10-14).
 No further lanes. Proposals only.
+
+## Core-rule application, 2026-10-18
+
+Use AD11/AD13/AD21/AD23/AD33/AD38 and AR3/AR7/AR8 with current GHS112–GHS114.
+Body/faculty truth, character knowledge and expressed stats remain distinct.
+Memory/skill retention follows actual means; a bloodline heir is one optional
+carrier, not the default definition of the continuing journey. A details toggle
+is not a physiology switch. Old-save migration is currently deferred; all new
+selected body/start state still needs current-state persistence and useful native
+consumer proof. B2's test matrix remains NOT RUN; expected assertions are not
+accepted universal biology or current implementation evidence.

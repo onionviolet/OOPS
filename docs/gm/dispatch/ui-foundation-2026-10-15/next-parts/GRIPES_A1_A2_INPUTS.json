@@ -1,0 +1,14 @@
+{
+  "head": "5976bf3d3d77034cfe01b94a5e89506ac6af2509",
+  "time": "2026-10-18T06:31:21.509986+00:00",
+  "sha256": {
+    "src/proto23_shell.js": "a86960a2791c5d87b8e217218ae325c0a5eb4707e8dd0d94073f77c8e76ca2bb",
+    "src/village_workspace.js": "6152fb57f2e9dffaa98f2e915c5dbe0b06bb66eb004cb9a16251c8ad6330484a",
+    "src/layout_spec.js": "6af67ad345285fc48fedf8c63d7d21ecf70559e7aa89fdd516b10fd77fd86a36",
+    "src/workspace_layout.js": "5b4289c96f12a98d4c5a0b856d777a1ece7f5ff38dc98114f5fc8f82f2de1b9d",
+    "src/shell_composition.js": "b18dd4185408ff5b775da2db31ab75fef11e9e44762c20bc1fa9baae8222ff66",
+    "styles/shell_layout.css": "99d2b416d54f2454758a557c6dcf7e9ba4f0d365494ce7b3771f642a82e8e7aa",
+    "styles/shell_chrome.css": "ceacfbda1b0ddbe517074d9f2c7204cb3a8e5f0fd056227112b7a5c4e4f6d2a3",
+    "index.html": "3356424fa758a8cc7b908931d1ab0b60fcf88c8e30745e41a24558fe79feecb5"
+  }
+}

@@ -1,0 +1,121 @@
+{
+  "date": "2026-10-18",
+  "rulesCheck": {
+    "result": "PASS",
+    "registerRows": 20,
+    "acceptedDirectionCodes": 38,
+    "relativeLinks": 77,
+    "existingUntrackedWarnings": 2
+  },
+  "taskAddedMarkdownLinksChecked": 53,
+  "queueJsonOwnersParsed": 7,
+  "jsonOriginalFieldsPreservedExceptExplicitXPClaim": [
+    "docs/gm/dispatch/idea-expansion-2026-10-11/IMPLEMENTATION_QUEUE.json",
+    "docs/gm/dispatch/starts-talents-continuity-2026-10-11/IMPLEMENTATION_QUEUE.json",
+    "docs/gm/dispatch/game-source-research-2026-10-06/DEPTH_QUEUE.json",
+    "docs/gm/dispatch/idle-social-gms-2026-10-06/DEPTH_QUEUE.json",
+    "docs/research/game-discovery-2026-10-06/DEEPER_QUEUE.json",
+    "docs/gm/dispatch/world1-full-completion-2026-10-11/INTEGRATION_PLAN.json"
+  ],
+  "supersededFragmentsPreserved": true,
+  "gitDiffCheckExitCode": 0,
+  "reviewedSections": 61,
+  "correctedOwners": 23,
+  "initialPlanTextScan": 748,
+  "candidateRecords": 135,
+  "errors": [],
+  "inputs": {
+    "docs/gm/dispatch/research-tech-2026-10-14/PLAN.md": {
+      "baselineSha256": "0214d6f5cccb7d48bde82c9135d6b7f7293712f16ee9125b82ca80e083e5270e",
+      "finalSha256": "de3e8ed3c3b8c8d85031cdffc6859003a38b5691d28bd35dc944589d6778640c"
+    },
+    "docs/gm/dispatch/research-tech-2026-10-14/STATUS.md": {
+      "baselineSha256": "e3cfa68a48355a6eb180cc1f84219fa21579f33dcd595f4dbd7ec8d9a6ff13cb",
+      "finalSha256": "caaabdaf55e967b3011080f7eb2e5c37565d92c613596da29771f8fd5f0f5cd7"
+    },
+    "docs/gm/dispatch/research-tech-2026-10-14/NEXT_SLICE_PROMPT.md": {
+      "baselineSha256": "2de5aedeb3a31ee03d05ddaa982f75fa68b31877c97ebfd679594be6b7065456",
+      "finalSha256": "a1823d20fcc13f78360a0461f528027dff6fba482b0ad125a9a14ed6d39220e2"
+    },
+    "docs/gm/dispatch/research-tech-2026-10-14/t12/CHECKPOINT.md": {
+      "baselineSha256": "29c846160860e697e0eab74f37b8972b8d27ed29a6f19a218d3aca4dd1820341",
+      "finalSha256": "c92aa8d805ad5a66803921a5d6d0e05d309300eb2a61bc261346a07ab03c3085"
+    },
+    "docs/gm/dispatch/research-tech-2026-10-14/t13/CHECKPOINT.md": {
+      "baselineSha256": "680c16e392525a682c2a91e0e652ba5e8c8dcffa79c3805406e56e89e6d409df",
+      "finalSha256": "7fc5565334cb1579b8110befb7d6631e61637328f87deee50d4ca1261a342692"
+    },
+    "docs/TECHNOLOGY_AND_PROGRESSION.md": {
+      "baselineSha256": "9d82f89e5187bf7f9e6aa0e1b91e4886cc7c9c3d7c03264c2115f7390347c397",
+      "finalSha256": "aa55071db89f48166eef9db81f7765d0b50b9ab91dcddf4d0ca5ded8e0dc8a57"
+    },
+    "docs/gm/dispatch/procgen-2026-10-13/PLAN.md": {
+      "baselineSha256": "0be50079f37aa38129955582db626d10a07e2ad6a7619884a6c8f18cfea8cd08",
+      "finalSha256": "5260d602fd70d71f33dcc8151766a90c793030f1bed9658e4b3e96aad23900d7"
+    },
+    "docs/PROCEDURAL_GENERATION_STATUS_2026-10-13.md": {
+      "baselineSha256": "eaea34836b594ae7c39a8ef24b75fc5db3a9b46a94eded91723db2b71033a436",
+      "finalSha256": "788d74ee6bbee6ce3a31bc4e09f500c760d8c6397e0a55383dd5bbfe80d0c339"
+    },
+    "docs/gm/dispatch/procgen-2026-10-13/p39/WAVES.md": {
+      "baselineSha256": "6432f4a6189fe76d797ad4c67656ed7e428acb38d9abff8d74ebd9f43990267b",
+      "finalSha256": "c79d31cc45a0d504f18d066967d21e9ae7cefae3f4a9df3113dfe2236f426855"
+    },
+    "docs/gm/dispatch/procgen-2026-10-13/p39/GRAPH.md": {
+      "baselineSha256": "d7d1d009a5d5074d45112ce1aa6090a69bd3d9281b6860b25a46aaa24865e679",
+      "finalSha256": "b9b664d22b6d1feb13492d1c89ba2a4b51f4884a2cf2a9f0031d20e534dc8ef8"
+    },
+    "docs/gm/dispatch/foundation-completion-2026-10-12/CHECKPOINT.md": {
+      "baselineSha256": "fa957a45d8b8b4b0fe1341019cc7bc4c025649172e51b4ff41a209efa8d39555",
+      "finalSha256": "4e1ec2a2db5b4de4bacbd9b67b9f5066d27e2ec0ff269d4a74772214489699bb"
+    },
+    "docs/ENGINE_GM_NEXT_CHECKPOINT.md": {
+      "baselineSha256": "99ca9c0d9097a56f685a19dc6b64c41bc5717361fc4487c673a772b0fa81aa9f",
+      "finalSha256": "bdddb2b266c79d6b78424dc3c40ae588e8cf9620228bb96a360dee9bc95b131c"
+    },
+    "docs/worlds/NONHUMAN_SYNTHESIS_AND_ROADMAP_2026-10-14.md": {
+      "baselineSha256": "8423cfe30070f879c8e210bd1a8baa23d9f86cbcb28f3ebbe8dbe2a50730cabf",
+      "finalSha256": "3c06038e4a5dd58bfa60052ff33a1debd62133772100ea8e0d403da40e58676a"
+    },
+    "docs/gm/dispatch/idea-expansion-2026-10-11/IMPLEMENTATION_QUEUE.json": {
+      "baselineSha256": "fe8bd3b57a30273d9c050d6427dcfdec6bf6000e4b19e9aaa8aed48197820cf3",
+      "finalSha256": "ecc49565443ca199abf598cbb7135fa33709377a48f750f426e78e81649cfea5"
+    },
+    "docs/gm/dispatch/starts-talents-continuity-2026-10-11/IMPLEMENTATION_QUEUE.json": {
+      "baselineSha256": "eba90acd552a4996659d6a948e98ae573f313e804575eab4454b631a41983594",
+      "finalSha256": "7a38fe1d0c4d7bcdd229f24dee61f3c13b8dd3e75c6bf3d6c4c170ba39071b64"
+    },
+    "docs/gm/dispatch/game-source-research-2026-10-06/DEPTH_QUEUE.json": {
+      "baselineSha256": "b19584f6a3e613321234ed0abd4bb6cedd97c07d5fec1f45bf74b3541beb4e84",
+      "finalSha256": "fe1599ad62e8b8c42795f6b5049903b82bbb60a3b9f2e9d3b483450cd40bbbcb"
+    },
+    "docs/gm/dispatch/idle-social-gms-2026-10-06/DEPTH_QUEUE.json": {
+      "baselineSha256": "d3445b7e088ff1422e83745d1da9321578d713a62687370ea65071eca53b42f3",
+      "finalSha256": "0bdca2e4cf65d7efbe33bddf84aec4134edfd6e240df85fc95ac6ebb1cfd6bda"
+    },
+    "docs/research/game-discovery-2026-10-06/DEEPER_QUEUE.json": {
+      "baselineSha256": "a5787e0638c08ddbc4370a6fb2585322c9844db7e314e6083fb6fbd14879b352",
+      "finalSha256": "d0845ac9671ac2f0b5dec54d1cdb5820c8d5408ff2a6686db8fb17d7cace0b2d"
+    },
+    "docs/gm/dispatch/world1-full-completion-2026-10-11/INTEGRATION_PLAN.json": {
+      "baselineSha256": "603c9b901a35964f43cc2e4f5a6e7f3f61bc073d83845abbd3327bb359c881d2",
+      "finalSha256": "6ef8904c8fe60389e8eb83786f30aaffc872ac97c35f559f3d0aedd82ff70a71"
+    },
+    "docs/reviews/FOUNDATIONS_DIALOGUE_AND_ABSORPTION_PLAN_2026-10-12.md": {
+      "baselineSha256": "fb27b8867fee4989b59e703ea800c713e16bb4ce52c7d922bfea06289f543848",
+      "finalSha256": "2ad0c388258ae87c2c53185dee6820f1ed51f3cadd1ef457368f36b2c824474d"
+    },
+    "docs/gm/dispatch/procgen-2026-10-13/p39/REGISTRY.md": {
+      "baselineSha256": "d00a78c2a9bf6ac044bc1e36a8ab8934224459d97142ce01acb76d72069035d1",
+      "finalSha256": "abd700b30891021fd4f646e9bed474dcb486246a10915e5a2efd30792eb2cf54"
+    },
+    "docs/IDEA_INDEX.md": {
+      "baselineSha256": "1d42102cbd5d896088820316bd0e4b6eb2a2aed185efae7cb69d750bee0ec3d8",
+      "finalSha256": "cd69e3157695b7ff4d73af8018da296312314bf3b6eb66426e089aaf2e92ecc1"
+    },
+    "PROJECT.md": {
+      "baselineSha256": "fdb63183ce59e4fe04f0cfede8ece0db5d737dbe68a7a923b272d7cbe6326f97",
+      "finalSha256": "0562e3b71caa9a53ac3d73e33557857cdae7937ad22c8c071cf989319e3ed1dd"
+    }
+  }
+}

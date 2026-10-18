@@ -1,5 +1,13 @@
 # BJ1: proposed implementation waves
 
+**Reuse qualification, 2026-10-18:** [dispatch STATUS](../STATUS.md) records
+P34/GX5/G1 already merged as `759dd393`; references to a current unmerged P34
+branch below are historical. Inspect the existing spine and current domain/panel
+registries before proposing a new wrapper or owner. This graph is a proposed
+slice map, not a universal prerequisite bundle. Later NPC-heavy/layout deferrals,
+current compatibility decisions and UI_RULES desktop targets qualify new work.
+Retained P2/P4 B3 proof gaps are not closed merely by the merge.
+
 2026-10-14. Proposal only, no dispatch/merge/build/commit authorization from this document. Four or five lanes below include the shared-file integrator; all other lanes write disjoint new modules/data/fixtures. Root sequences integrated gameplay slices and ends each at a playable checkpoint before starting the next. Preparatory sibling work may run beside it with frozen interfaces. No wave means “finish all higher-ranked menus before any lower option is allowed.”
 
 Source-ranked alternatives remain in [SLICES](SLICES.md). [GRAPH](GRAPH.md) supplies the critical path; [FILE_CONFLICTS](FILE_CONFLICTS.md) supplies write boundaries; [REGISTRY](REGISTRY.md) supplies adapters; [BUDGETS](BUDGETS.md) supplies measured future targets. P38 owns schemas and pins. One realm/one prestige is the default milestone; source-world/reset/body expansions below are later selectable branches, not new mandatory gates.

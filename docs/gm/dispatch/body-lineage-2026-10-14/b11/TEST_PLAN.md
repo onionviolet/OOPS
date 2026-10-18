@@ -1,5 +1,12 @@
 # G53-B11 test and acceptance plan
 
+**Reuse qualification, 2026-10-18:** every case remains NOT RUN. Select the
+cases that protect the newly chosen body-edit consumer; current old-save
+compatibility is deferred. Legacy neutral-migration rows are optional if that
+migration is selected, not a mandatory precondition to a body feature. Current
+UI_RULES targets include 1920×1080, the actual MacBook viewport, 1536×864 and
+1366×768 at 14px/21px. Current-state Save/reload/Export/Import still applies.
+
 2026-10-14. **NOT RUN.** These are future acceptance cases for [SPEC](SPEC.md),
 not test results. This lane ran only the document checks recorded in
 [REPORT](REPORT.md). No npm, build, browser or real save was used.
@@ -121,3 +128,19 @@ desktop candidate, with failure-path/source coverage. Native heritable birth,
 natural hunt procurement, generated-card variants, all-world methods and human
 fiction/balance acceptance are separate gates; do not promote unit tests into
 them. Every gameplay gate in this file remains OPEN for this docs-only return.
+
+## Core-rule application on selection, 2026-10-18
+
+P04/P05/P09's load bands, outcomes and stacking arithmetic are the selected
+prototype model, not universal biological budgets or a rule that all superior
+means cap at the same contribution (AD5/AD13/AD38). Keep pure validation and
+cause-idempotence tests; add/change a world or edit model through its actual
+owner when the mechanism differs. No new biology or source result is asserted.
+
+The useful-action check must traverse the actual native capability/transaction
+owner and show a changed available action or control, not just an altered body
+row. A real free observation can update knowledge through its owner; a repeated
+projection/render alone must not fabricate observations, draw results or XP.
+Interrupt/cancel/reversal settles actual performed work and the same body/edit
+identity, rather than universally refunding all effects (AR7/AR8, MR1/MR29).
+No new fixtures were generated and no new implementation was selected.

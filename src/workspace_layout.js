@@ -1,8 +1,9 @@
 import {centerModes} from './center_modes.js';
 import {deferSimulationRender} from './simulation_render.js';
+import {createShellResize} from './shell_resize.js';
 import {createShellComposition} from './shell_composition.js';
 import {regionFor,shellOrder,companionPanels,contextOf,contextLabel,boxOf,LAYOUT_SPEC} from './layout_spec.js';
-import {readPlacement,writePlacement,moveBox,swapCompanions,resetContext,isDefault,moveControl} from './shell_layout_edit.js';
+import {readPlacement,writePlacement,moveBox,swapCompanions,resetContext,isDefault,moveControl,resizeContext,normalizePlacement} from './shell_layout_edit.js';
 import { getDisplaySettings, getDisplaySetting, replaceDisplaySettings, effectsCap } from './display_settings.js';
 import { normalizeLayout, parseLayout, presetLayout, changeModule, reorderModule, layoutStorageKey, normalizeColumns } from './workspace_state.js';
 const registry = new Map();
@@ -79,7 +80,7 @@ function syncShellEditing(){
         if(!on){control?.remove();continue;}
         if(!control){control=moveControl(box).label;module.header.querySelector('strong')?.after(control);}
         const select=control.querySelector('select'),at=currentPlacement(),def=LAYOUT_SPEC.boxes[box];
-        const automatic=!at?.companions?.[box]&&!LAYOUT_SPEC.contexts[placementContext()].companions.includes(lead);
+        const automatic=!at?.companions?.[box]&&!def.home&&!LAYOUT_SPEC.contexts[placementContext()].companions.includes(lead);
         const value=def.companion&&(at?.companions?.[box]==='hidden'||automatic)?'hidden':regionFor(lead,{combat:parityCombat(),context:placementContext(),placement:at});
         if(select.value!==value)select.value=value;}
     const label=contextLabel(placementContext());
@@ -124,16 +125,18 @@ function syncPanelHeader(module,state,eligible) {
         const status=header.querySelector('.workspace-panel-status');
         const count=module.node.querySelectorAll('.inventory_item_control,[data-panel-row],.skill_div,.message_common').length;
         const purse=owner.parity&&module.id==='belongings'?document.getElementById('money_div')?.textContent.trim().replace(/^Your purse contains:\s*/, ''):null;
-        const statusText=purse??(!eligible?(module.unavailableReason?.()||'Return here to use this panel'):count?`${count} entries`:({focus:module.shell.dataset.focusEmpty==='true'?'Inspect a target':'Current target',records:'Choose a tab','local-actions':'Available here',projects:`${module.node.querySelectorAll('details').length} projects`}[module.id]||(state.collapsed?'Collapsed · expand to review':'Ready')));
+        const nearbySummary=owner.parity&&module.id==='focus'?module.node.dataset.nearbySummary:null;
+        const panelName=owner.parity&&module.id==='focus'?'Around you':module.title;
+        const statusText=purse??nearbySummary??(!eligible?(module.unavailableReason?.()||'Return here to use this panel'):count?`${count} entries`:({focus:module.shell.dataset.focusEmpty==='true'?'Inspect a target':'Current target',records:'Choose a tab','local-actions':'Available here',projects:`${module.node.querySelectorAll('details').length} projects`}[module.id]||(state.collapsed?'Collapsed · expand to review':'Ready')));
         if(status.textContent!==statusText)status.textContent=statusText;
         const description=purse?`Purse: ${purse}`:statusText;
         setProperty(status,'title',description);setAttribute(status,'aria-label',description);
         setAttribute(header.querySelector('strong'),'aria-expanded',!state.collapsed);
         for(const control of ['hide','collapse'])setProperty(header.querySelector(`[data-workspace-action="${control}"]`),'disabled',module.critical);
         setProperty(header.querySelector('[data-workspace-action=expand]'),'textContent',module.expanded?'Return':'Expand');
-        const collapse=header.querySelector('[data-workspace-action="collapse"]'),collapseLabel=`${state.collapsed?'Open':'Collapse'} ${module.title}`;
+        const collapse=header.querySelector('[data-workspace-action="collapse"]'),collapseLabel=`${state.collapsed?'Open':'Collapse'} ${panelName}`;
         setProperty(collapse,'textContent',state.collapsed?'▸':'▾');setProperty(collapse,'title',collapseLabel);setAttribute(collapse,'aria-label',collapseLabel);setAttribute(collapse,'aria-expanded',!state.collapsed);
-        const pin=header.querySelector('[data-workspace-action="pin"]'),pinLabel=`${state.pinned?'Unpin':'Pin'} ${module.title}`;
+        const pin=header.querySelector('[data-workspace-action="pin"]'),pinLabel=`${state.pinned?'Unpin':'Pin'} ${panelName}`;
         setProperty(pin,'textContent',state.pinned?'Unpin':'Pin');setProperty(pin,'title',pinLabel);setAttribute(pin,'aria-label',pinLabel);setAttribute(pin,'aria-pressed',state.pinned);
 }
 function save() { try { const raw=JSON.stringify(owner.layout);localStorage.setItem(owner.context==='play'&&owner.shell?shellLayoutKey(owner.narrow):layoutStorageKey(owner.narrow)+(owner.context==='authoring'?'.authoring':''),raw);if(owner.context==='play'&&!owner.shell){if(owner.composition)localStorage.setItem(compositionKey(owner.narrow),raw);else localStorage.removeItem(compositionKey(owner.narrow));} } catch { owner.status.textContent = 'Layout works for this session; browser storage is unavailable.'; } }
@@ -168,10 +171,11 @@ function action(event) {
     if (a === 'colors') { applyColorScheme(control.value); try { localStorage.setItem(COLOR_KEY, control.value); } catch { owner.status.textContent = 'Colors apply for this session; browser storage is unavailable.'; } return; }
     if (a === 'reset') { owner.composition=!owner.narrow;owner.layout = owner.shell?makeShellLayout(owner.narrow,{fresh:true}):makePreset('Workspace'); save(); updateWorkspace(); return; }
     // One export (AJ12): layout plus this browser's color scheme and display settings. Layout-only JSON still imports.
-    if (a === 'export') { owner.config.value = JSON.stringify({...normalizeLayout(owner.layout, [...registry.keys()]), colors: readColorScheme(), display: getDisplaySettings()}, null, 2); owner.status.textContent = 'Layout configuration ready to copy. It contains panel positions, colors and display settings only.'; return; }
+    if (a === 'export') { owner.config.value = JSON.stringify({...normalizeLayout(owner.layout, [...registry.keys()]), colors: readColorScheme(), display: getDisplaySettings(), ...(owner.parity ? {shellPlacement: owner.placement} : {})}, null, 2); owner.status.textContent = 'Layout configuration ready to copy. It contains panel positions, colors and display settings only.'; return; }
     if (a === 'import') { try { const raw = JSON.parse(owner.config.value);owner.composition=false;if (raw.version !== 1 || !Array.isArray(raw.modules)) throw Error(); owner.layout = normalizeLayout(raw, [...registry.keys()]); save();
         if (COLOR_SCHEMES.includes(raw.colors)) { applyColorScheme(raw.colors); const picker = owner.toolbar.querySelector('[data-workspace-action="colors"]'); if (picker) picker.value = raw.colors; try { localStorage.setItem(COLOR_KEY, raw.colors); } catch { /* session only */ } }
         if (raw.display && typeof raw.display === 'object') replaceDisplaySettings(raw.display);
+        if (owner.parity && raw.shellPlacement) { owner.composition=true;owner.placement=normalizePlacement(raw.shellPlacement);writePlacement(placementKey(),owner.placement);document.dispatchEvent(new CustomEvent('workspace-presentation-change')); }
         updateWorkspace(); owner.status.textContent = 'Layout imported.'; } catch { owner.status.textContent = 'Invalid layout. Current layout preserved.'; } return; }
     if (!state) return;
     if (moduleCritical(id) && ['hide', 'collapse'].includes(a)) { owner.status.textContent = 'This panel contains required current actions and stays open.'; return; }
@@ -308,7 +312,7 @@ export function updateWorkspace() {
         const parked=composed&&!state.pinned&&!core.includes(state.id)&&!(owner.parity&&(companionPanels().includes(state.id)||boxOf(state.id)));
         setData(shell,'compositionParked',String(parked));
         if(known&&['vitals','belongings'].includes(state.id))setProperty(shell.querySelector('.workspace-module-header > strong'),'textContent',composed?(state.id==='vitals'?'You':'Inventory'):module.title);
-        if(known&&companionPanels().includes(state.id))setProperty(shell.querySelector('.workspace-module-header > strong'),'textContent',owner.parity?(state.id==='records'?'Journal':'Skills'):module.title);
+        if(known&&companionPanels().includes(state.id))setProperty(shell.querySelector('.workspace-module-header > strong'),'textContent',owner.parity?(state.id==='records'?'Journal':state.id==='skills'?'Skills':module.title):module.title);
         if(known&&state.id==='vitals'){
             const race=document.getElementById('character_race_div');
             const visibleRace=race?[...race.childNodes].filter(n=>n.nodeType===3).map(n=>n.textContent).join('').replace(/^[^:]*:\s*/,'').trim():'';
@@ -482,14 +486,17 @@ export function mountWorkspace({ root = document.getElementById('main_content') 
     const preview=el('div','workspace-drop-preview'); preview.hidden=true; board.append(preview);
     const vault=el('div','workspace-undiscovered'); vault.hidden=true; board.append(vault);
     const regions={};
-    for(const id of ['player','focus','inventory','actions','log']){const region=el('div','workspace-dock parity-region');region.dataset.region=id;region.setAttribute('aria-label',`${id} region`);regions[id]=region;board.append(region);}
+    for(const id of ['player','focus','inventory','actions','log']){const region=el('div','workspace-dock parity-region');region.dataset.region=id;region.setAttribute('aria-label',`${id==='focus'?'Around you':id} region`);regions[id]=region;board.append(region);}
     const media = window.matchMedia('(max-width: 1000px)'); owner = { root, toolbar, menu, menuSummary, shellTools, board, docks, regions, contextBar,context:'play',editing:false,picker, vault, config, status, media, narrow: media.matches, layout: read(media.matches), targets, preview, cleanup: [] };
     owner.composition=requestedComposition;owner.shell=false;owner.parity=paritySelected();loadPlacement();
     if(owner.parity||shellSelected()){owner.baseLayout=owner.layout;owner.baseComposition=owner.composition;owner.shell=true;owner.layout=makeShellLayout(owner.narrow);owner.composition=true;}
     presentation.value=owner.shell?(owner.parity?'proto23-parity':'proto23-shell'):'existing';
     root.classList.add('workspace-active'); root.prepend(toolbar,contextBar,board);
     function listen(target, name, handler) { target.addEventListener(name, handler); owner.cleanup.push(() => target.removeEventListener(name, handler)); }
-    const composition=createShellComposition({root,board,regions});owner.cleanup.push(()=>{composition.destroy();root.style.removeProperty('--shell-top-row');delete root.dataset.shellFit;delete root.dataset.shellCompanions;});
+    const resize=createShellResize({root,board,regions,read:()=>currentPlacement()?.sizes||{},context:placementContext,
+        commit:sizes=>changePlacement(resizeContext(owner.placement,placementContext(),sizes),'Panel sizes saved for this context.')});
+    owner.cleanup.push(()=>resize.destroy());
+    const composition=createShellComposition({root,board,regions,resize});owner.cleanup.push(()=>{composition.destroy();root.style.removeProperty('--shell-top-row');delete root.dataset.shellFit;delete root.dataset.shellCompanions;});
     listen(root, 'click', e => { if (e.target.closest('[data-workspace-action]')?.tagName !== 'SELECT' && e.target.closest('[data-workspace-action]')?.tagName !== 'INPUT') action(e); const floating = e.target.closest('.workspace-floating'); if (floating) { owner.front = (owner.front || 200) + 1; floating.style.zIndex = owner.front; } });
     listen(document, 'pointerdown', e => {
         root.querySelectorAll('.workspace-module-controls[open], .workspace-picker[open], .workspace-transfer[open], .workspace-layout-menu[open]').forEach(details => {if(!details.contains(e.target))details.open=false;});

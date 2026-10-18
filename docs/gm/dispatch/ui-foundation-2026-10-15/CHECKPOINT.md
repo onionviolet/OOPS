@@ -1,5 +1,14 @@
 # UI foundation checkpoint
 
+**Current routing, reconciled 2026-10-18:** this file's R12/R14 and older
+single-writer/next-round sections are chronological history. The current
+[iteration plan](next-parts/round-15-whole-plan.md) routes later work; the
+[A1/A2 released checkpoint](next-parts/GRIPES_A1_A2_CHECKPOINT.md) records the
+latest combined candidate and its exact remaining gates. Recover later UIL8
+ownership/inputs before edits. Do not restart R14 from the old "Next" below.
+Earlier checkpoints are grouped as evidence, not alternate active plans, in the
+[supersession ledger](../../../reviews/plan-rule-reconciliation-2026-10-18/SUPERSESSION_GROUPS.md).
+
 2026-10-15. Single UI writer in the shared `codex/gameplay-foundations` tree.
 No commit or push. Preserve unrelated dirty work and calm-vivid changes.
 

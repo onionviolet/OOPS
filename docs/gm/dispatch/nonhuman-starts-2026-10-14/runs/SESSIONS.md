@@ -31,5 +31,7 @@
 | abstraction | STOPPED, relaunched as abstraction2 with AX/AB mapping | 01a138d5-2638-79d3-8526-d3ec718b60a5 | none |
 | abstraction2 | Nonhuman abstractions mapped to AX1-AX19 and AB1-AB9 (NA codes) | 01a138d6-899f-7951-b673-58f1d784f477 | docs/worlds/NONHUMAN_ABSTRACTIONS_NEEDED_2026-10-14.md |
 
-Resume: `python3 runs/launch.py <name> runs/<name>.prompt.md <session id>`.
-Next after lanes finish: fold returns into the design owner as round 3.
+**Historical launcher:** `python3 runs/launch.py <name> runs/<name>.prompt.md <session id>`.
+The wave is folded as recorded above; the old "fold as round 3" next-step text
+is superseded. Do not relaunch completed lanes from this command. Any new task
+recovers current authority, AU budget, live writer and an actual remaining gap.

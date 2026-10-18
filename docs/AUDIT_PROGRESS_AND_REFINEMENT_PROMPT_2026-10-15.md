@@ -205,3 +205,14 @@ Freeze the discovery boundary after enumerating known worktrees and referenced r
 Finish with what changed and where, duplication avoided, checks performed, unread/unavailable scope and the next useful action. If a genuine decision is ready, ask one focused question under P4. Otherwise proceed to the next authorized documentation/research unit within the bounded scope, or report the completed pass. Do not keep generating questions or audits after the done check is met.
 
 The pattern is: locate scattered work → map audit claims and decisions → recover lost ideas and nuance → test consequential premises → reconcile affected conclusions → resolve or ask real choices → update existing owners → hand off bounded follow-up with evidence. World-specific development stays in its separate assignment.
+
+## Recovery qualification, 2026-10-18
+
+P1–P3 remain the reconciliation method; dated active-chat, branch, reservation
+and runtime observations above are not today's assignments. Recover actual live
+owners and later accepted decisions before execution. The
+[current plan/rule report](reviews/PLAN_RULE_RECONCILIATION_2026-10-18.md)
+records this tranche's section-reviewed versus filename-indexed coverage and
+corrections. Apply the topic playbook's core-rule pass to affected seams rather
+than rerunning every old audit. No worker dispatch, messages, commit or runtime
+scope follows from updating this prompt.

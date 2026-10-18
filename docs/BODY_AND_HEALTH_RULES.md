@@ -73,7 +73,7 @@ exception with an in-world reason and cost.
 | Code | Rule | Mistake it prevents |
 | --- | --- | --- |
 | BHR27 | **A verb's requirements list body function, instrument and know-how together,** with the same missing-piece wording. (BHC1, TQ2, TQ6) | Three different "why can't I" messages |
-| BHR28 | **Routines reroute around injury** to a fitting verb still available, and stop only when nothing fitting remains (AD16). (BHC6) | Silent idle loss, or idle work ignoring a broken arm |
+| BHR28 | **Routines may reroute around injury through the chosen policy and actual means.** Stop at an important unresolved choice or when no permitted-by-policy fitting routine remains (AD16). (BHC6) | Silent idle loss, invented player choices, or work ignoring a broken arm |
 | BHR29 | **Bodies wear and condition from meaningful work** using the tools wear shape; conditioning is a body fact, know-how is a mind fact. A carried skill in a new body keeps knowledge and recalibrates control. (BHC3–BHC5) | Rebirth wiping skill, or a new body moving exactly like the old one |
 
 ## Worlds
@@ -88,3 +88,14 @@ These stay open in the palettes: exact rates, severity bands, the first slice,
 the condition interaction tag list, per-world healing levels, and which worlds
 suppress which power types. Part 35's five cheapest slices (H35S1–H35S5) remain
 the ranked proposals for a first build.
+
+## Cross-audit application, 2026-10-18
+
+BHR18/BHR28 use the shared routine stop and transaction owners, not a separate
+health clock or blanket automatic reroute. A reroute follows the player's chosen
+policy and actual available means; important unresolved choices still pause
+under AD16. Unknown poisons and injuries act through truth (MR1); shown stop
+reasons and diagnoses remain means-limited (AD6, AR8). Condition durations name
+the affected body/faculty clock, including when the surrounding world is paused.
+Multiple bodies need not share one personal age. See [G26–G28](reviews/SUBTLE_RULE_GAPS_2026-10-18.md#round-4-latest-audits-together-2026-10-18).
+This clarifies the proposed application; no health slice is selected.

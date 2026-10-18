@@ -1,4 +1,13 @@
-# Next slice: craft cue and village sentence (continuation prompt, not dispatched)
+# Craft cue and Village sentence: retained implementation brief
+
+**Current disposition, 2026-10-18:** this brief was dispatched and its finite
+slice delivered; see [STATUS](STATUS.md) and [slice report](slice1/REPORT.md).
+Shared history contains `667fbe118`, and current source includes its consumers.
+Do not launch a duplicate first-slice implementation from the original ready
+status below. Any further work recovers current inputs and the remaining
+integration/feel gate. New UI proof uses current UI_RULES desktop targets.
+
+## Original dispatch brief, 2026-10-14
 
 Status: ready to run once Weibao says go. Written 2026-10-14 by root from
 [round 11](../../../TECHNOLOGY_AND_PROGRESSION.md#from-palette-to-play-round-11-2026-10-14).

@@ -1,7 +1,10 @@
 # Crafting engine: procedural materials, recipes and harvesting
 
-Date: 2026-10-15. Status: **engine source and unit tests only.** It is not imported by
-`src/main.js`, has no UI and is not playable yet. Weibao's request is recorded in
+Date: 2026-10-15. **Current evidence summary, reconciled 2026-10-18:** M3 later
+reported a passing harvest → craft → useful native consumable journey, including
+Save/reload/Export/Import, in the [modular checkpoint](gm/dispatch/modular-seams-2026-10-16/CHECKPOINT.md#m3-resume-2026-10-16-claude-session-lane-worktree).
+`src/main.js` now imports `configureCraftingDomain`. This is recovered lane
+evidence, not a fresh verification of today's shared dirty build or human acceptance. Weibao's request is recorded in
 [USER_VISION](USER_VISION.md#procedural-crafting-engine-and-harvesting-2026-10-15).
 
 This layer implements the build order proposed by the
@@ -38,7 +41,7 @@ explanations, harvest gates, regrowth, pity and idle bounds.
 | CE5 | Hidden axes, such as `glow` in the example, still act on outputs. They are never projected. |
 | CE6 | No live wiring this pass. `main.js` and `save_files.js` have concurrent writers, so the engine landed in new files only. |
 
-## Open gates (not done)
+## Original engine-only gates, 2026-10-15 (historical)
 
 1. **Playable consumer (GR12).** Each item needs live wiring:
    - a `crafting` slice in `create_save`, `load` and `validateSaveEnvelope`;
@@ -386,3 +389,21 @@ Engine tests: 18 pass.
 | SX5 | Cooking | Each NPC has taste preferences; leftovers age; a shared meal carries social weight |
 | SX6 | Constructs and devices | Ambiguous instructions read literally; wear makes them quirky; maintenance as an idle chore |
 | SX7 | Harvesting | Harvest by the wrong method damages the plant's regrowth; picking the best leaves first changes later quality; footpaths form at sites you visit often |
+
+## Current plan reconciliation, 2026-10-18
+
+The original consumer/old-save gates above describe the engine-only release.
+M3's later B4 and post-merge follow-up record the narrow consumer proof;
+[checkpoint](gm/dispatch/modular-seams-2026-10-16/CHECKPOINT.md) owns its input
+and UI integration limits. Reuse only matching evidence (AD36). Broader formula
+modes, other product families and human feel remain distinct, unaccepted work.
+Old-save migration is currently deferred by the 2026-10-17 decision; new-state
+persistence still matters. No new M3 attempt is launched here.
+
+For the next selected staged craft, apply MR1/MR5/MR29, AR7/AR8 and
+[G26–G30](reviews/SUBTLE_RULE_GAPS_2026-10-18.md#round-4-latest-audits-together-2026-10-18):
+interrupt before and after one completed stage, retain genuine intermediate
+stock, and verify useful use after resumption. Personal/world clock choice must
+be explicit; a frozen world does not run an ordinary external supplier or teacher.
+This scenario is selected only when a stage/idle seam changes, not a prerequisite
+for all remaining crafting modes.

@@ -1,0 +1,214 @@
+{
+  "round": 2,
+  "date": "2026-10-18",
+  "keyword_screened": 762,
+  "newly_section_reviewed_plan_records": 27,
+  "remaining_indexed_only": 735,
+  "flag_counts": {
+    "possible_execution_marker": 673,
+    "possible_delivery_marker": 667,
+    "explicit_inactive_or_folded_marker": 5,
+    "sealed_internal_read_ban": 1,
+    "mandatory_old_save_language": 1,
+    "legacy_global_agent_cap": 1
+  },
+  "reviewed_plan_records": [
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/next-parts/GRIPES_A1_A2_CHECKPOINT.md",
+      "recorded_disposition": "active-writer",
+      "priority": "P1",
+      "scope": "Scope, reservations, budget, target and persistence gates; coordinator is actively integrating. Exact target/preference gate amendment saved separately, not applied over its reservation."
+    },
+    {
+      "path": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/CHECKPOINT.md",
+      "recorded_disposition": "recorded-ended",
+      "priority": "P2",
+      "scope": "Reconciled launch-active header to final deadline stop; W1 tip/gates retain dated limits."
+    },
+    {
+      "path": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r15/BRIEF.md",
+      "recorded_disposition": "historical-executable-brief",
+      "priority": "P2",
+      "scope": "Qualified old launch/commit/1600 viewport instructions; no re-dispatch."
+    },
+    {
+      "path": "docs/gm/dispatch/world1-full-completion-2026-10-11/CHECKPOINT.md",
+      "recorded_disposition": "historical-goal-pause-later-successor",
+      "priority": "P2",
+      "scope": "Later parent authorization and ended W1 supersede a fresh approval question; original host goal state not changed."
+    },
+    {
+      "path": "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md",
+      "recorded_disposition": "delivered-with-unrun-acceptance",
+      "priority": "P2",
+      "scope": "Operational phase/resume/test-deferral sections qualified by current scope and rules."
+    },
+    {
+      "path": "docs/gm/feature-wave/repositories/WORKPLAN.md",
+      "recorded_disposition": "released-helper-contract",
+      "priority": "P2",
+      "scope": "Actual API caps, quotes and transient intentions distinguished from world law and durable work."
+    },
+    {
+      "path": "docs/gm/observation-power/BRIEF.md",
+      "recorded_disposition": "completed-research-gate",
+      "priority": "P2",
+      "scope": "Old four-role grants and sole-writer claims are historical; observation means remain scoped."
+    },
+    {
+      "path": "docs/worlds/mother-of-learning/WORLD_BRIEF.md",
+      "recorded_disposition": "delivered-with-unrun-acceptance",
+      "priority": "P2",
+      "scope": "Lane integration-pending summary reconciled to parent release; latest input behavior still unverified."
+    },
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/PLAN.md",
+      "recorded_disposition": "folded-research-plan",
+      "priority": "P3",
+      "scope": "Routes future sequencing to later GHS plan; heir/body migration no longer a default prerequisite."
+    },
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b2/MIGRATION.md",
+      "recorded_disposition": "optional-proposal",
+      "priority": "P3",
+      "scope": "Legacy migration cases qualified; current-data integrity still applies."
+    },
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b2/TEST_PLAN.md",
+      "recorded_disposition": "unrun-test-proposal",
+      "priority": "P3",
+      "scope": "Current surface/viewport/persistence owners replace old floor-only/no-window shorthand; case IDs retained."
+    },
+    {
+      "path": "docs/gm/cross-audit-reconciliation-2026-10-15/SEMANTIC_B2_MIGRATION_TEST_PLAN.md",
+      "recorded_disposition": "historical-semantic-receipt",
+      "priority": "P3",
+      "scope": "Read receipt; all 43 case IDs remain NOT RUN. No rewrite of its historical review claim."
+    },
+    {
+      "path": "docs/gm/dispatch/core-foundations-2026-10-14/a1/PLAN.md",
+      "recorded_disposition": "superseded-architecture-proposal",
+      "priority": "P3",
+      "scope": "Registry, migration, ordering and next-change sections qualified by later AR/modular owners; census not remeasured."
+    },
+    {
+      "path": "docs/gm/dispatch/research-tech-2026-10-14/PLAN.md",
+      "recorded_disposition": "historical-dispatch-prototype-input",
+      "priority": "P3",
+      "scope": "T6 pure planner is not usable invention; no T1\u2013T16 relaunch."
+    },
+    {
+      "path": "docs/gm/dispatch/harvest-modules-2026-10-14/PLAN.md",
+      "recorded_disposition": "delivered-slice-extension-plan",
+      "priority": "P3",
+      "scope": "Historical absence claim marked; unknown physical contents, carcass outcome, custody and lot settlement qualified."
+    },
+    {
+      "path": "docs/gm/dispatch/traveler-asks-2026-10-14/PLAN.md",
+      "recorded_disposition": "delivered-slice-extension-plan",
+      "priority": "P3",
+      "scope": "Amendment bands/hints/pricing separated from hidden truth and implementation coverage; no runtime repricing."
+    },
+    {
+      "path": "docs/worlds/harry-potter/WORLD_BRIEF.md",
+      "recorded_disposition": "priority-candidate-not-selected",
+      "priority": "P3",
+      "scope": "Reviewed start/origin/means/first-proof/source boundaries and later HP/LOTM comparison. No conflicting core-rule instruction required correction."
+    },
+    {
+      "path": "docs/worlds/naruto/WORLD_BRIEF.md",
+      "recorded_disposition": "candidate-not-selected",
+      "priority": "P3",
+      "scope": "Reviewed ordinary life, carryover, return/aftermath and first-proof scope. No newly selected world or automatic awakening."
+    },
+    {
+      "path": "docs/worlds/bleach/WORLD_BRIEF.md",
+      "recorded_disposition": "research-delivered-candidate",
+      "priority": "P3",
+      "scope": "Reviewed source qualification and current/historical resume split. Secondary-wiki scope and unrun native gates are already explicit."
+    },
+    {
+      "path": "docs/worlds/paradise-hub/WORLD_BRIEF.md",
+      "recorded_disposition": "priority-delivered-slice-candidate",
+      "priority": "P3",
+      "scope": "Reviewed retained histories, mission terms, failure, calendar, source qualification and current release routing. Already preserves consumer/evidence limits."
+    },
+    {
+      "path": "docs/worlds/jujutsu/WORLD_BRIEF.md",
+      "recorded_disposition": "explicitly-parked",
+      "priority": "P4",
+      "scope": "Kept parked; carry operation uses mechanisms rather than a Frontier permission label. Later source pack still qualifies old memory examples."
+    },
+    {
+      "path": "docs/worlds/proving-ground/WORLD_BRIEF.md",
+      "recorded_disposition": "unselected-proposal",
+      "priority": "P4",
+      "scope": "Removed anti-farm universal export ban/raw player diagnostics and either/or placement question; actual carrier and isolated fixture defaults."
+    },
+    {
+      "path": "docs/worlds/skyrim/WORLD_BRIEF.md",
+      "recorded_disposition": "explicitly-inactive",
+      "priority": "P4",
+      "scope": "Read stated 2026-10-13 inactive priority plus carry/return/proof/reservation sections. No restart or rewrite of its campaign."
+    },
+    {
+      "path": "docs/worlds/fallout/WORLD_BRIEF.md",
+      "recorded_disposition": "explicitly-inactive",
+      "priority": "P4",
+      "scope": "Read inactive priority and operational proposal boundaries. No source/runtime expansion selected."
+    },
+    {
+      "path": "docs/worlds/elden-ring/WORLD_BRIEF.md",
+      "recorded_disposition": "explicitly-inactive",
+      "priority": "P4",
+      "scope": "Read inactive priority, actual sources/transfer/return and first proof. Preserve asymmetric means and unrun gates."
+    },
+    {
+      "path": "docs/gm/dispatch/absorb-2026-10-11/CHECKPOINT.md",
+      "recorded_disposition": "completed-released",
+      "priority": "P4",
+      "scope": "Read final completion/ownership release; older Next commit/push is already superseded, so no relaunch or owner edit needed."
+    },
+    {
+      "path": "docs/gm/world-implementation/engine/CHECKPOINT.md",
+      "recorded_disposition": "completed-bounded-delivery",
+      "priority": "P4",
+      "scope": "Read delivered skills-wave status, deferred play gate and released workers. No current execution inferred."
+    },
+    {
+      "path": "docs/gm/book-world-completion-2026-10-06/CHECKPOINT.md",
+      "recorded_disposition": "completed-parent-delivery",
+      "priority": "P2",
+      "scope": "Read parent release/acceptance boundary to resolve MoL lane-stage status. No rebuild performed."
+    }
+  ],
+  "related_owners": {
+    "docs/gm/dispatch/core-foundations-2026-10-14/COMMON.md": "Corrected agent-private sealed-read ban and qualified old charter grants.",
+    "docs/gm/dispatch/nonhuman-starts-2026-10-14/COMMON.md": "Corrected sealed-read ban and private extraction storage; no actor knowledge grant.",
+    "docs/gm/dispatch/nonhuman-starts-2026-10-14/runs/SESSIONS.md": "Folded-wave status supersedes historical resume text.",
+    "docs/CORE_FOUNDATIONS_SCORECARD_2026-10-14.md": "Read original verdict and folded picks; route obsolete registry recommendation to later AR/modular owner.",
+    "docs/TECHNOLOGY_AND_PROGRESSION.md": "Reviewed proposal/evidence/research-reuse sections; added actual roadmap/hypothesis/trial/output contract.",
+    "docs/worlds/NONHUMAN_STARTS_ENGINE_REQUIREMENTS_2026-10-14.md": "Reviewed audit scope, phase/selection and folded-wave boundaries; no complete taxonomy prerequisite.",
+    "docs/worlds/NONHUMAN_STARTS_ENGINE_SPEC_2026-10-14.md": "Reviewed source/proposal distinctions, body/control seams, phased implementation and open questions; not a source re-audit.",
+    "docs/gm/dispatch/harvest-modules-2026-10-14/hv1/REPORT.md": "Recovered scoped later delivery and remaining browser/source limits.",
+    "docs/gm/dispatch/traveler-asks-2026-10-14/ta1/REPORT.md": "Recovered quote/band/escrow design; existing fees were not altered.",
+    "docs/gm/dispatch/research-tech-2026-10-14/t6/REPORT.md": "Recovered pure-prototype versus native-consumer boundary.",
+    "docs/gm/book-world-completion-2026-10-06/DELIVERY.md": "Corroborated parent delivery scope only; no new behavior proof.",
+    "docs/gm/dispatch/ui-foundation-2026-10-15/next-parts/UIL7_REPORT.md": "Reviewed declared targets/ownership and inherited browser-local layout scope; not a visual acceptance rerun.",
+    "docs/gm/dispatch/ui-foundation-2026-10-15/next-parts/UIL8_REPORT.md": "Reviewed declared targets, leaf scope and integration/feel limits; no native replay."
+  },
+  "active_owner_boundary": {
+    "title": "Review Claude chat gripes",
+    "thread_id": "01a14daf-2b65-78a0-a78b-04f739bcafff",
+    "observed_status": "active",
+    "reserved_plan": "docs/gm/dispatch/ui-foundation-2026-10-15/next-parts/GRIPES_A1_A2_CHECKPOINT.md",
+    "disposition": "Reviewed; exact UI target/preference amendment saved, not applied over the active owner. No message sent.",
+    "amendment_input_sha256": "dedd569f6c19b33036476238d82a3e2ac75c1cdaf753f9c95239a2dc13438783"
+  },
+  "other_active_shared_doc_writer": {
+    "title": "Update project docs with latest info",
+    "thread_id": "01a14dbc-4d9c-7c90-9629-a9f4d632b439",
+    "observed_status": "active",
+    "disposition": "PROJECT/IDEA_INDEX/DIRECTION_SUMMARY/queue edits left to its writer; this pass uses existing reconciliation report and local owners."
+  }
+}

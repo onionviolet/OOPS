@@ -81,12 +81,13 @@ export function topTerms(regions, combat) {
     return {player, elastic, focus};
 }
 
-export function createShellComposition({root, board, regions}) {
+export function createShellComposition({root, board, regions, resize}) {
     let frame = 0;
     const measure = () => {
         frame = 0;
         const started = performance.now();
-        if (root.dataset.parity !== 'r3' || !regions.player?.isConnected) { delete root.dataset.shellFit; delete root.dataset.shellCompanions; return; }
+        if (root.dataset.parity !== 'r3' || !regions.player?.isConnected) { resize?.measure(); delete root.dataset.shellFit; delete root.dataset.shellCompanions; return; }
+        resize?.prepare();
         const height = board.getBoundingClientRect().height;
         if (!height) return;
         const fontSize = parseFloat(getComputedStyle(regions.player).getPropertyValue('--shell-context-size')) || parseFloat(getComputedStyle(regions.focus).fontSize) || 14;
@@ -105,6 +106,7 @@ export function createShellComposition({root, board, regions}) {
         // text line (opponent card lists, stat rows), which the extent does not see.
         const value = `${topRowHeight({player: top.player, elastic: top.elastic, focus: top.focus, combat, board: height, fontSize, viewport: window.innerHeight, frame: frameFor(fontSize)})}px`;
         if (root.style.getPropertyValue('--shell-top-row') !== value) root.style.setProperty('--shell-top-row', value);
+        resize?.measure();
         if (root.dataset.shellFit !== 'true') root.dataset.shellFit = 'true';
         // GU2: each measure is timed so checks can confirm it stays within a frame.
         performance.measure('shell-composition', {start: started, end: performance.now()});

@@ -181,4 +181,60 @@ after screenshots, stored placements and sizes survive save, reload and import. 
 layout owners UIL4 just changed and the shell file, so they start after UIL2 and UIL4 are
 committed, and UIL7 runs before UIL9.
 
+[UIL7 implementation and verification report](UIL7_REPORT.md): adjustable gutters and per-context sizes; visual acceptance stays open.
+
+UIL8: [Implementation, checks and before/after evidence](UIL8_REPORT.md). Source released; Weibao’s visual acceptance remains open.
+
 After UIL2, UIL4 and UIL7–UIL9 land, run the [post-build UI audit prompt](POST_BUILD_UI_AUDIT_PROMPT.md). It starts the repeatable `docs/audits/UI_CORE_AUDIT.md`: how to show more information and look better.
+
+## Core-rule reconciliation, 2026-10-18
+
+**UIR1, refresh through existing publication (AR3/AR8).** UIX2 is a proposal for
+dependency metadata and batched invalidation, not permission for a second mutable
+event bus, timer or state store. Reuse `domainRegistry.refresh`,
+`deferSimulationRender` and native ownership/restore publications first. Add a
+narrow missing topic only for a demonstrated stale consumer; a refresh never
+spends, reveals or marks a world event observed.
+
+**UIR2, summaries share discovery limits (AD3/AD6–AD9, MR31, UR41–UR48).** Route
+availability, ready counts, attention badges, sorting and "one clue left" inspect
+only permitted projections. A hidden event may require a safety pause but its
+identity/count must not appear early. An unavailable verb distinguishes unbuilt
+coverage from known missing means without explaining a sealed mechanism (G30).
+
+**UIR3, interrupted work stays visible (AR7, AD16–AD18).** A work summary reads
+the activity's settled state, including pause reason, retained intermediate work
+and which clock advances. Back/Esc closes a view unless the action explicitly
+means cancel. Remaining time must not count banked and pending credit twice.
+
+**UIR4, scoped migration and evidence (AD21/AD34/AD36).** Browser-local placement
+retention remains the selected product behavior when changing the layout spec;
+the old-game-save compatibility waiver does not by itself authorize discarding
+manual placement. State the choice at this seam. Recover actual R21/R22 merge
+status before execution; this pass has not checked its branch. Current targets
+and same-state comparison apply; no new layout or renderer is selected.
+
+First applicable slice: one real inventory/knowledge publication updates a shown
+ready count and route, preserves focus/manual placement and leaves hidden counts
+unchanged. Level: strong UI/integration agent; effort: medium only when selected;
+done: rebuilt target-set journey and the relevant existing UI checks.
+
+
+## Authorized A1 composition continuation, 2026-10-18
+
+Weibao requested starting A1/A2 from the Claude-chat gripes review in parallel,
+then emphasized narrower Inventory, stronger color hierarchy using Proto23 or
+better ideas, and an improved Around you representation. Execution is tracked
+in [GRIPES_A1_A2_CHECKPOINT](GRIPES_A1_A2_CHECKPOINT.md). A1 builds on existing
+UIL7/UIL8 and implements the bounded UIL9 inventory/composition portion; A2
+uses the Around you owner. Existing writers retain their paths until release.
+This selects implementation work, not every proposed UIP/AYF detail. The full
+post-build audit keeps its existing start gate. No commit or push authorized.
+
+
+### UIL8 follow-up: alignment and duplicate facts, 2026-10-18
+
+Weibao's later screenshot review requests aligned Attributes/Gear and weather labels, removal of the duplicate condition/weather display, and status effects considered together. This supersedes UIP5's proposed temperature duplication: the place header owns ambient temperature, comfort/exposure and weather; Condition owns body, active effects and relevant rates. Native exposure and a lingering status are separate facts. [Request](../../../../USER_VISION.md#you-controls-weather-and-status-effects-2026-10-18); [UIL8 round 2](UIL8_REPORT.md#round-2-alignment-single-homes-and-status-effects-2026-10-18).
+
+A1/A2 integrated candidate and final technical checks: [report](GRIPES_A1_A2_REPORT.md).
+Visual/play acceptance remains open; other proposals retain their own status.

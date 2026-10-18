@@ -153,3 +153,14 @@ known source bugs as features, or calling source coverage gameplay completion.
 Validation for this document: inspected the linked routing owners and current
 git status; checked local Markdown link targets and this file's whitespace.
 No gameplay files changed and no gameplay tests were run for this proposal.
+
+## Core-rule follow-through, 2026-10-18
+
+Use [RULES_INDEX](../RULES_INDEX.md) and the topic playbook's
+[core-rule pass](../audits/TOPIC_EXPANSION_AUDIT_PLAYBOOK.md#core-rule-reconciliation-pass-2026-10-18)
+for the current tranche. The [plan coverage report](../reviews/PLAN_RULE_RECONCILIATION_2026-10-18.md)
+records current-owner corrections separately from historical filename inventory.
+Resolve stale statuses and compatibility/viewport overrides from actual later
+owners, rather than reopening accepted direction or adopting old launch/commit
+instructions. No whole-world coverage or gameplay acceptance is claimed by a
+cross-plan document pass.

@@ -1,0 +1,14 @@
+ok 2155 - fingerprint follows content, not just revision
+  ---
+  duration_ms: 0.993458
+  type: 'test'
+  ...
+1..2155
+# tests 2155
+# suites 0
+# pass 2152
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 3
+# duration_ms 51755.937958

@@ -1,5 +1,12 @@
 # A1: core consolidation without stopping feature work
 
+**Current reuse boundary, 2026-10-18:** this is an unrun 2026-10-14 proposal,
+not an alternate live runtime specification. Current AR1–AR16 and the later
+modular brief/checkpoint own the implemented domain registry and M1–M3 evidence.
+Recover those before selecting another seam. The original census, API sketch,
+save-format plan and ranked worktrees below are retained design history; they
+do not require a second registry, migration chain or re-extraction.
+
 2026-10-14. Proposal only, for the coordinating Claude session and Weibao.
 Extends scorecard F2/F3 and M2-M5/M11; A1-prefixed codes avoid collisions
 with the root findings and other lanes.
@@ -711,3 +718,18 @@ this docs result does not dispatch or authorize code work.
    Gate: focused model/DOM parity and rebuilt desktop/keyboard effect view.
    This creates the first visible consumer seam for M5 without touching the
    combat, crafting or save executors.
+
+## Current rule-fit constraints, 2026-10-18
+
+Apply AR3/AR7/AR8/AR10–AR12 and AD16–AD18/AD32/AD36/AD38 at one demonstrated
+consumer. A1-D2 phases/read-write declarations may inform a missing seam; they
+are not a mandate to implement every sketched hook. Existing `domain_registry`
+uses optional hooks and native publication/clock owners. A multi-minute callback
+is not catch-up proof; an inactive world pauses by accepted policy unless actual
+means change it. Pending/banked time and stage reservations settle once.
+
+Old-save migration is currently deferred. A structural extraction still preserves
+its selected behavior for a valid before/after comparison; a new feature need not
+implement the whole A1-D4 format. First extend/reuse an existing owner rather than
+turning this census or historical `Math.random` count into today's acceptance gate.
+No runtime edit, new lane, merge or commit follows from this qualification.

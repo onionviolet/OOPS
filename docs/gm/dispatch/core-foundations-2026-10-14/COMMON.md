@@ -26,7 +26,9 @@ runs. Everything you produce is a proposal until root and Weibao review it.
   SHOWN (read in code), INFERRED (your proposal) or UNKNOWN.
 - Any proposed save shape change names its migration or compatibility
   decision. Keep user saves private and untouched.
-- Sealed secrets: never open files named `SECRETS*`; refer by ID.
+- Sealed secrets: agents may read/design/test sealed files privately. Public
+  output uses safe IDs, routes and status, with no truth outside discovery.
+  Do not turn the sealed-output boundary into a ban on inspecting implementation.
 - Do not duplicate owned work: nonhuman-starts engine lane (bodies, senses,
   control), procgen wave 1 (`proc/p1-streams` seeded streams, mixing,
   storylets, people), derived-snapshots (snapshots, offline time),
@@ -35,3 +37,14 @@ runs. Everything you produce is a proposal until root and Weibao review it.
   in the main checkout) so a resumed run continues. Finish with `REPORT.md`
   there: what changed, tests run with counts, what stays open. Never claim
   gameplay works; these are foundations and tests.
+
+## Reuse qualification, 2026-10-18
+
+This is a retained lane charter, not a standing launch/commit grant. Current
+RULES_INDEX, AR1–AR16, AD32–AD38 and AU1–AU15 govern any newly selected task;
+recover live reservations before reusing old worktree/branch/process instructions.
+The old sealed-read ban was incorrect under AGENTS: internal source inspection
+is allowed, while player/public disclosure remains sealed. Namespaced slices,
+current-state round-trips and an explicit compatibility choice apply; old-save
+migration is currently deferred. No new registry/kernel or lane is required
+before another feature may proceed.

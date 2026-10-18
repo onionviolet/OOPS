@@ -1,6 +1,15 @@
 # Foundation current checkpoint
 
-R15 active, 2026-10-13. Weibao asked to resume the chain on the open gates and
+**Current recorded disposition, reconciled 2026-10-18:** R15's final dated
+entry below says the root stopped at its 2026-10-14 deadline and no watcher or
+smoke server remained. It records W1 ended with section gates open and an
+unmerged final tip at that check. These are dated receipts, not today's branch
+or process inspection. The launch-state "R15 active" and restart commands below
+are history; they grant no new execution, integration, commit or push authority.
+Recover current branches, writers and the selected task before any resumption
+(AD32/AD36, AR15). This audit restarts nothing.
+
+**Original launch state, 2026-10-13:** R15 active. Weibao asked to resume the chain on the open gates and
 commit/push to master as work lands. Root coordinator is the Claude Code
 session in the main checkout. [R15 brief](rounds/r15/BRIEF.md) owns scope and
 the seeded-test-state verification method; R14's stopped checkpoint is preserved

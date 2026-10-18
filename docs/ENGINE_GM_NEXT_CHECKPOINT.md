@@ -1,5 +1,13 @@
 # Next engine GM checkpoint
 
+**Routing qualification, 2026-10-18:** this is a historical October 5 engine
+resume surface. Use [current queue routing](IDEA_INDEX.md#current-queue-routing-2026-10-18),
+[current modular checkpoint](gm/dispatch/modular-seams-2026-10-16/CHECKPOINT.md)
+and the selected domain owner for new work. Bundle hashes, sole-writer language
+and globally held scope below describe that snapshot; they are not today's
+build, a current reservation or a ban on later authorized slices. The old
+skill/Frontier implementation and deferred behavior claims retain their bounds.
+
 ## Current selected runtime owner, 2026-10-05
 
 INC-P1 code/native/UI/build delivered by GM01a10d9d-fd4a-7b62-8a41-a3c93cc97711 after sealed writer release. [Current checkpoint](gm/world-implementation/frontier-runtime/CHECKPOINT.md) and [delivery](gm/world-implementation/frontier-runtime/DELIVERY.md) supersede this older Engine resume for selected Frontier work. Current bundlef381c6503a58 matches160sources; all required code portions are mapped. Deferred behavior/director gate is next when authorized. Earlier Engine scope/evidence below remains historical; do not resume unrelated held world/body/time work from it.

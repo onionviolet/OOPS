@@ -1,6 +1,28 @@
 # Future download and decompile queue
 
-2026-10-13. Type: QUEUE, proposal only. Lists reference games that have no research lane yet, or whose lane names a follow-up pass. Being listed does not authorize a purchase, download, install or decompile; each one needs Weibao's go-ahead. Follow [reverse-engineering tool fit](REVERSE_ENGINEERING_TOOL_FIT_2026-10-13.md): run a pass only to answer a named mechanic question, not to have a full export.
+Created 2026-10-13; routing refreshed 2026-10-18. Type: QUEUE, proposal only.
+Being listed does not authorize purchase, download or install. The standing task
+below already authorizes read-only local source/decompile passes for owned queued
+games. Follow [reverse-engineering tool fit](REVERSE_ENGINEERING_TOOL_FIT_2026-10-13.md):
+answer a named mechanic question rather than collecting a full export.
+
+## Current routing, 2026-10-18
+
+This table supersedes dated buy/install recommendations below. It uses saved
+research receipts, not a fresh Steam entitlement/tool inventory. Recorded ownership,
+installed payload, source coverage and gameplay acceptance are separate facts.
+
+| Code | Source or group | Latest saved evidence | Next queue action |
+|---|---|---|---|
+| AQ1 | Academagia, Heaven's Vault, Immortal Life, The Scroll of Taiwu, Warsim, Idle Reincarnator | [October 14 wave results](../gm/dispatch/game-research-wave-2026-10-14/runs/SESSIONS.md) record finite PARTIAL research passes with named unread tables. Immortal Life and Taiwu installed after the initial waiting snapshot. | Recover each lane's checkpoint/unread scope; purchase/install is not a prerequisite for repeating those recorded local passes. No full-source-complete claim. |
+| AQ2 | NGU IDLE, Legends of Idleon, public/reference follow-ups | [Wave record](../gm/dispatch/game-research-wave-2026-10-14/runs/SESSIONS.md) contains later passes beyond the original free-title wishlist. | Reuse existing lanes, then name an unanswered mechanic before another pass. |
+| AQ3 | Magical Diaries, Songs of Syx, Stoneshard, Starsector | Not owned in the October 14 wave record; present entitlement unverified. | Check ownership before proposing acquisition; purchase/download still needs authorization. |
+| AQ4 | Canon-world media | [Media priorities](SOURCE_DEEP_DIVE_PLAYBOOK.md#weibaos-media-priorities-2026-10-18): games/sourcebooks/databooks high, side stories next, anime deferred. The shortlist retains unverified edition/availability labels. | Check saved/local sources first; use the shortlist when its world/mechanic is selected. |
+
+No new inventory, acquisition or source-reading run was performed by this refresh.
+The October 13 tool list and October 14 installation observations below are dated
+history, not present machine state. [Refresh record](../reviews/QUEUE_REFRESH_2026-10-18.md).
+
 
 Engine and build notes marked *unverified* are my own background knowledge, not checked this session. Confirm them before choosing a route.
 
@@ -8,7 +30,7 @@ Engine and build notes marked *unverified* are my own background knowledge, not 
 
 Decompile or source-read every queued game Weibao already owns. Re-run the local inventory and do this again whenever things change: a new purchase, a new install, a new queue entry or a new local tool. Owned games need no further go-ahead for a read-only local pass. Buying a game still needs his explicit yes. Each pass still answers a named mechanic question and saves a lane under `docs/research/<game>/`; raw decompiled code and assets stay out of git.
 
-**Last inventory run, 2026-10-13:** none of the 12 queued paid games is owned or installed, so no decompile pass ran. Installed games already have lanes. Local RE tools: Ghidra 12.1.4 (Homebrew, with keg-only openjdk@21), `strings`, `otool`. Not installed: dotnet, ILSpy/ilspycmd, a runnable Cpp2IL, AssetRipper, Java decompilers, UndertaleModTool. A .NET or Unity pass would first need dotnet plus ilspycmd.
+**Historical inventory run, 2026-10-13:** none of the 12 queued paid games is owned or installed, so no decompile pass ran. Installed games already have lanes. Local RE tools: Ghidra 12.1.4 (Homebrew, with keg-only openjdk@21), `strings`, `otool`. Not installed: dotnet, ILSpy/ilspycmd, a runnable Cpp2IL, AssetRipper, Java decompilers, UndertaleModTool. A .NET or Unity pass would first need dotnet plus ilspycmd.
 
 **Inventory run, 2026-10-14 17:00:** newly owned on Steam: Academagia, Heaven's Vault, Immortal Life, The Scroll of Taiwu, Warsim and Idle Reincarnator; Hearts of Iron IV and 100 Space Cats are installed. Only Idle Reincarnator and HoI4 have payloads; the rest are Windows-only and install through the macSteam `notproton` compatibility tool (Taiwu so far has only its soundtrack DLC). `ilspycmd` 11.1 is now installed with dotnet SDK 10 in `~/.dotnet`. Lanes and gates: [game research wave](../gm/dispatch/game-research-wave-2026-10-14/runs/SESSIONS.md). By 17:26 Academagia, Heaven's Vault, Warsim and NGU IDLE had Windows payloads and their lanes started; Taiwu and Immortal Life were still downloading. A full rewrite of this queue is proposed in [coverage refresh](coverage-refresh-2026-10-14/QUEUE_EDITS.patch); its install rows predate those payloads, so it is not applied.
 
@@ -21,7 +43,7 @@ Decompile or source-read every queued game Weibao already owns. Re-run the local
 | 3 | CivIdle | Age/tech prestige and production-chain offline catch-up. Official source is public ([fishpondstudio/CivIdle](https://github.com/fishpondstudio/CivIdle), GPL-3.0), so no install is needed; lane `cividle` started 2026-10-13 |
 | 4 | Reverend Insanity playtest | How a licensed cultivation-novel adaptation turns Gu rules into game state; access may have closed |
 
-## Short list
+## Historical short list, 2026-10-13
 
 **Decompile (closed builds, each needs a purchase go-ahead):**
 
@@ -39,7 +61,7 @@ Decompile or source-read every queued game Weibao already owns. Re-run the local
 4. **The Modding Tree**: open-source framework for layered prestige.
 5. **Cultivation idlers** (Cycle of the First Dawn, Path of the Idle Cultivator, Infinite Dao): browser builds, read the JS.
 
-## Follow-ups from the 2026-10-13 lanes
+## Historical follow-ups from the 2026-10-13 lanes
 
 | Game | Lane | Pass value | Route | Gate |
 |---|---|---|---|---|
@@ -47,7 +69,7 @@ Decompile or source-read every queued game Weibao already owns. Re-run the local
 | Groundhog Life | [groundhog-life](groundhog-life/CHECKPOINT.md) | Low; already read from public JS | Optional static read of the remaining ~3k lines of the later build | None beyond time |
 | Immortality Idle | [immortality-idle](immortality-idle/CHECKPOINT.md) | Low to moderate; full source is public | Read unread areas (hells, battle, activities) if F11/F12 is wanted | None; no license, so ideas only |
 
-## Unlogged candidates, ranked by expected design payoff
+## Historical candidate ranking, 2026-10-13
 
 | Rank | Game | Why | Likely route |
 |---:|---|---|---|

@@ -1,0 +1,38 @@
+{
+  "date": "2026-10-18",
+  "rulesCheck": "PASS; 20 register rows, 38 AD codes, 77 links; 2 existing untracked-file warnings",
+  "taskRelativeLinksChecked": 35,
+  "historicalJsonFieldsPreserved": {
+    "docs/gm/audit-implementation/QUEUE.json": true,
+    "docs/gm/game-absorption-2026-10-06/QUEUE.json": true
+  },
+  "inputIdentity": {
+    "PROJECT.md": {
+      "baselineSha256": "bb677dcaea955cb8dd06a529e83a38f78387bdfde60cf4a770f3650d20691e69",
+      "finalSha256": "bcaf2f94b56b566de2666d95a00a0705e49e885e255ca6eaf3bdc2c2cc2d7417"
+    },
+    "docs/IDEA_INDEX.md": {
+      "baselineSha256": "ba7bd5a7060585ee18615076acd0ba07e448682e8edc0cea4e1e31839ac970a3",
+      "finalSha256": "1d42102cbd5d896088820316bd0e4b6eb2a2aed185efae7cb69d750bee0ec3d8"
+    },
+    "docs/DIRECTION_SUMMARY.md": {
+      "baselineSha256": "ec0fa046313e631cdf1f814f4c35cdb026ae543d4dc23ad6d31f8cd428310719",
+      "finalSha256": "acb971f42851b32ccda63ef8aece2a6fde6b273c65858ff82bdd88a7054db727"
+    },
+    "docs/research/FUTURE_ACQUISITION_QUEUE_2026-10-13.md": {
+      "baselineSha256": "0fb5913bb20d85f73fddbf824af0795d09facef71e30e4768436ea56388bbea3",
+      "finalSha256": "9b2428acb07955f48c36300d7ca25a023a5b1a605f83dc82ae0c2de03975f5ce"
+    },
+    "docs/gm/audit-implementation/QUEUE.json": {
+      "baselineSha256": "6767d8a8c33d3133ddcd8a47813e6d6bf0ab17a42e76fee09f20399b92ed1201",
+      "finalSha256": "a53a1bd513802a13a46f8f2cd43434607e6d6b4db839831c728bbea426ca455e"
+    },
+    "docs/gm/game-absorption-2026-10-06/QUEUE.json": {
+      "baselineSha256": "1d659926018394d2c016eb3707bf5e0bf39e29a15fb86b7a4a2f49cdb69ed0d0",
+      "finalSha256": "d65e8f96c639c7a53f1dbeabdaf78a24bfe0c55276cf5761db899543fba38df3"
+    }
+  },
+  "errors": [],
+  "replacedBaselineTextPreservedInReport": true,
+  "gitDiffCheck": "PASS on six tracked task paths"
+}

@@ -1,0 +1,45 @@
+/* Around you owns one split. Actual panel width and inherited type decide fit. */
+#current_focus > .nearby-context-view {container-type:inline-size;min-width:0;text-align:left;color:var(--p23-text);font:inherit;}
+.nearby-context-view [hidden] {display:none!important;}
+.nearby-context-summary {margin:0 0 .35em!important;color:var(--p23-muted);font-size:.9em;}
+.nearby-place-description {margin:0 0 .6em;border-bottom:1px solid var(--p23-line);padding-bottom:.45em;}
+.nearby-place-description > summary {cursor:pointer;line-height:1.35;color:var(--p23-text);}
+.nearby-place-description > p {margin:.5em 0 0!important;line-height:1.4;}
+.nearby-context-split {display:grid;grid-template-columns:minmax(0,1fr);gap:.75em;min-width:0;}
+.nearby-context-list,.nearby-context-detail {min-width:0;overflow-wrap:anywhere;}
+.nearby-context-list > section > h3 {font:inherit;font-size:.88em;font-weight:600;color:var(--p23-muted);margin:.4em 0 .2em;}
+.nearby-context-list > section > div {display:grid;gap:.1em;}
+.nearby-context-list button {display:grid;width:100%;text-align:left;font:inherit;line-height:1.3;border:0;border-left:3px solid transparent;background:transparent;color:var(--p23-text);padding:.35em .45em;cursor:pointer;white-space:normal;}
+.nearby-context-list button > strong {font-weight:500;color:var(--p23-quantity);}
+.nearby-context-list button[data-nearby-kind=person] > strong {color:var(--p23-text);}
+.nearby-context-list button > small {font-size:.85em;color:var(--p23-muted);}
+.nearby-context-list button[aria-pressed=true] {border-left-color:var(--p23-quantity);background:var(--p23-blue);}
+.nearby-context-view button:focus-visible {outline:2px solid var(--p23-quantity);outline-offset:1px;}
+.nearby-context-detail > h3 {margin:.3em 0;font:inherit;font-weight:600;color:var(--p23-quantity);}
+.nearby-context-detail > p {margin:.35em 0!important;line-height:1.4;}
+.nearby-context-navigation,.nearby-context-actions {display:flex;flex-wrap:wrap;gap:.35em;}
+.nearby-context-navigation {justify-content:space-between;}
+.nearby-context-navigation button,.nearby-context-actions button,.nearby-context-detail > button {font:inherit;white-space:normal;text-align:left;color:var(--p23-text);background:var(--p23-context);border:1px solid var(--p23-line);padding:.25em .45em;cursor:pointer;}
+.nearby-context-actions {margin:.65em 0;}
+.nearby-context-actions button:disabled {color:var(--p23-muted);cursor:default;border-style:dashed;}
+.nearby-context-detail > button {margin-top:.5em;}
+.nearby-context-view[data-selected=true] .nearby-context-list {display:none;}
+@container (min-width:30em) {
+ .nearby-context-view .nearby-context-split {grid-template-columns:minmax(10em,.85fr) minmax(0,1.15fr);}
+ .nearby-context-view[data-selected=true] .nearby-context-list {display:block;}
+ .nearby-context-view .nearby-context-detail {border-left:1px solid var(--p23-line);padding-left:.75em;}
+}
+.nearby-context-view[data-selected=false] .nearby-context-split {grid-template-columns:minmax(0,1fr);}
+/* Keep place context above independent list/detail scroll owners. */
+#main_content[data-parity="r3"] #current_focus:has(> .nearby-context-view) {overflow:hidden;}
+#current_focus > .nearby-context-view {display:flex;flex-direction:column;height:100%;min-height:0;}
+.nearby-context-view > .nearby-context-summary {flex:0 0 auto;}
+.nearby-context-view > .nearby-place-description {flex:0 0 auto;max-height:45%;overflow:auto;}
+.nearby-context-view > .nearby-context-split {flex:1 1 auto;min-height:0;}
+.nearby-context-view .nearby-context-list,.nearby-context-view .nearby-context-detail {min-height:0;overflow:auto;}
+.nearby-context-view > p:last-child {flex:0 0 auto;margin:.3em 0;}
+@container (min-width:30em) {
+ .nearby-context-view[data-selected=false] .nearby-context-list {display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:.75em;align-content:start;}
+}
+/* Native generic buttons otherwise retain 14px when this surface is enlarged. */
+#main_content[data-parity="r3"] #current_focus .nearby-context-view button {font:inherit;line-height:1.3;}

@@ -1,5 +1,12 @@
 # Observation, history and emergence GM
 
+**Reuse status, reconciled 2026-10-18:** the final checkpoint below records a
+completed Research/Develop gate and release for master review. Its old chat IDs,
+four-role capacity, leaf grants and pending-owner statements are dated history,
+not live assignments. Current AU1–AU15 and AD32/AD36 govern any later scoped
+research. No worker, message, source acquisition or runtime proof is started by
+this audit. The original four causal families remain useful proposals.
+
 Human-authorized new specialist chat, 2026-10-04. Parent implementation master is chat `01a1056b-d82c-7ef2-babb-d8316c45f396`; dispatcher is `01a1074b-e2ed-7523-a0cd-56de915fbcd9`. This is a sibling world/ability GM, with bounded implementer/source-reader leaves, not another management tier.
 
 ## Request and outcome
@@ -52,3 +59,14 @@ Source reviewed: sibling's actual SOURCE_NOTES/SYNTHESIS/manifest locate the Vil
 Checks: actual rule blocks before comments on current Demiplane/Etherealness, dated2022official Ethereal overview and djkaktus SCP-3812 revision99 were inspected through web tools. Source descriptions are short attributed paraphrases; fictional incidents/theories/creator-framed statements are separate. Local Markdown/JSON/whitespace/link/anchor,13actual function names and nine EPUB-member hashes are recorded in EVIDENCE. Initial validation caught the wrong host label and a not-yet-created evidence link; repaired to actual `actSimulation` and final readback. Master-owned PROJECT/USER_VISION/run/source inputs drifted during concurrent Exchange work; current fingerprints/API checks are retained, no shared changes reverted.
 
 Return and stop at this expanded gate. One integration action: master reserves finite lens definitions/atomic host wrapper/local UI plus private-log/duplicate-control repair, then implements and rebuilds the open/actual-notice/A/B/cutoff/return journey with generated-save/failure gates. CF01 needs true interior/cargo/absence binding and CF02 actual layer contact; neither is claimed playable. Master may schedule these after its current Exchange slice; this packet does not redirect that lane. On a later authorized refresh, inspect live master/source reservations and current inputs before resuming writes/delegation.
+
+## Core-rule fit, 2026-10-18
+
+AD6/AD7/AD38 support the brief's distinction between an actual observation link
+and knowledge of that link. A real detector can notice or affect a link without
+knowing every observer fact; an observer-safe explanation follows the actual
+means. "Dev mode" does not grant a fictional actor real host access or make the
+player character learn internal truth. Keep AR7/AR8 at the selected observation/
+interaction boundary and retain any real committed consequence on interruption.
+A scenario or lint is not a played crossing. No new universal layer hierarchy,
+forced balancing cost or continuous simulation is selected.

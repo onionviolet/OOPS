@@ -64,8 +64,8 @@ Rerun the whole audit, or only the affected lanes, when any of these happen:
    current.
 8. **Commit** only this audit's paths when authorized. Other sessions edit
    USER_VISION and IDEA_INDEX at the same time: commit through a temporary
-   index with only your paragraphs (see the playbook), then reset those paths
-   in the real index. Push and merge only on Weibao's explicit yes; the branch
+   index with only your paragraphs (see the playbook), preserving the real
+   index and other sessions' staged state. Push and merge only on Weibao's explicit yes; the branch
    usually carries other sessions' commits too.
 9. **Log the run** below.
 
@@ -104,7 +104,8 @@ sections). Next run starts from those sections and the trigger table.
   silently replaced.
 - MEMORY claims are either checked (CONFIRMED / CORRECTED) or still labelled.
 - No em dashes; no absolutes; no either/or questions; no sealed truths.
-- Playable claims only with rebuilt browser evidence at 1366x768 (none so far).
+- Playable claims need rebuilt browser evidence at current UI_RULES targets,
+  including 1920×1080 primary and 1366×768 floor; historical evidence stays dated.
 - Report: what changed, lanes run, what is still running, commit state.
 
 ## Run log
@@ -112,3 +113,20 @@ sections). Next run starts from those sections and the trigger table.
 | Date | Scope | Lanes | Result | Commit |
 |---|---|---|---|---|
 | 2026-10-14 | First full run, palette rounds 1 to 11 | C1 to C16, all folded | Palette A to IC; H checked (8 confirmed, 3 corrected); Rill found as existing dog; stray-dog N1 to N5 ranked; 33 JX tensions; 59-source micro register; owner map; abstraction; C11 to C16 folded (corrections to GC3 cue saving, line-rate tension, narrower observation channels, build layers L00 to L07, CM1 to CM12) | 9a0c049b (rounds 1-11, C1-C10); be47d1dd (audit, C11-C13, C15-C16 files); fd176f27 (C14 files, by peer session); fold commit |
+| 2026-10-18 | Core-rule reconciliation | none | Actual helper means, knowledge and clock; NPC-heavy work still deferred; unsafe reset instruction qualified | not committed |
+## Core-rule reconciliation, 2026-10-18
+
+Apply the [shared pass](TOPIC_EXPANSION_AUDIT_PLAYBOOK.md#core-rule-reconciliation-pass-2026-10-18)
+to affected future rounds. Codes: AD6/AD11–AD13/AD16/AD33/AD38, AR3/AR7/AR8.
+
+**Composed case:** A companion participates only through its actual location, body/faculty clock, stock and delegated policy. A paused world does not provide a free teacher/helper, and companion knowledge is not player knowledge.
+
+**Current correction:** Companion palette reconciliation and the relevant rule owner now carry the
+constraint. Current old-save compatibility is deferred; newly built state still
+round-trips. Player-facing proof uses current UI_RULES targets. Proposals and
+NPC/layout/mobile deferrals keep their status. This is a docs-only rule-fit pass,
+not a rerun of source/game-reference lanes or evidence that gameplay works.
+
+Later execution: strong cross-domain agent, medium only when that seam is
+selected; reuse the affected existing suite and require a useful rebuilt journey
+plus current-state persistence when changed. No lane is dispatched by this entry.

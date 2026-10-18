@@ -27,6 +27,6 @@ Status: **[PROPOSAL]** canon-first world-pack design, 2026-10-14. This scope fol
 
 **[PROPOSAL]** Source boundary: the complete original manga through its ending as represented in the WikiTeam Internet Archive snapshot dated 2023-12-19. The dump may not represent every page, template or later correction. Later anime seasons, later wiki changes, and claims not covered by the snapshot remain gaps. Separate anime, film, game, novel, fanbook and Academy material at claim level. No raw source prose is reproduced.
 
-**[PROPOSAL]** Any changed or randomized truth must be stored only as sealed opaque slot IDs with discovery routes in the private pack. Canon public twists remain source truth. See [secrets standard](../WORLD_SECRETS_AND_DISCOVERY.md).
+**[PROPOSAL]** Public documents and undiscovered player projections use opaque secret IDs and discovery routes for changed or randomized truths. The private truth owner keeps the actual frozen value and revision; persistence retains the opaque state needed to restore that truth. Sealing controls disclosure, not whether the world stores its truth. Canon public twists remain source truth. See [secrets standard](../WORLD_SECRETS_AND_DISCOVERY.md).
 
 All gameplay mechanics, local people, jobs, relationships, incidents, and branching events in this folder are proposals. Source descriptions and design inference remain distinct. No world-completion claim is made.

@@ -435,3 +435,14 @@ behind it; a "uses 10" line would make the curve legible (follow-up, not
 built). Mastery and fluency now move separately on purpose: ten real cuts left
 mastery at 0 and made cutting faster, which is the layer model working, and it
 may still surprise a first-time player.
+
+## Round 4: carrier and clock fit, 2026-10-18
+
+**SLC105.** Body fluency is a useful default, not a law that memory/soul/construct means cannot bypass. Name the faculty actually changed by practice and the clock that advances it; copied memory grants whatever its actual mechanism transfers (AD11/AD38, SLR1/SLR20/SLR37). A lesson cannot borrow participation from a frozen teacher. Interrupted learning settles paid/performed segments and preserves acquired knowledge (G27/G28).
+
+ACT NOW: reconcile the rule owner and repeatable audit routing where one exists.
+ACCOUNT FOR NOW: apply this to a selected consumer; it adds no independent store,
+clock or generic resolver. LATER: one synthetic composed case at that seam,
+strong cross-domain agent, medium effort when selected; done by relevant source
+checks and a useful rebuilt desktop journey with current-state persistence.
+No runtime change or new implementation priority in this round.

@@ -8,9 +8,11 @@ the fix.
 
 Weibao asked to update this plan for cross-domain interactions and future engine
 requirements before continuing. This edit saves the continuation instructions;
-it does not launch or resume the run. M1/M2 have reported passing evidence; M3
-is STOPPED, implemented-unverified, and M4 has not started. Read the current
-checkpoint and M3 report before acting. The original dispatch is retained at
+it does not launch or resume the run. **Reconciled 2026-10-18:** M1/M2 and the
+later M3 B4 resume have reported passing evidence; the checkpoint also records
+merge and post-merge follow-up. M4 has not started under this brief. Read the
+latest checkpoint sections before acting; earlier STOPPED instructions below
+remain retry history, not the current status or authorization for another run. The original dispatch is retained at
 [history/PRE_INTERACTION_UPDATE_BRIEF.md](history/PRE_INTERACTION_UPDATE_BRIEF.md).
 
 Apply AR1–AR16, AD5–AD9, AD13–AD22, AD32–AD36, relevant MR and SR rules,
@@ -305,3 +307,20 @@ work, and editing `docs/USER_VISION.md` or `PROJECT.md`.
 End with: rounds completed, commits, gate results with commands run, lines moved
 out of the core files, AR1 line counts for M3, what is unverified, merge
 reconciliation notes, and rule feedback.
+
+## Cross-audit continuation constraints (MP13), 2026-10-18
+
+Apply AR3/AR7/AR8/AR12 and AD16–AD18/AD38 through the selected M4 seam,
+not as a compulsory kernel-hardening wave. [G26–G30](../../../reviews/SUBTLE_RULE_GAPS_2026-10-18.md#round-4-latest-audits-together-2026-10-18)
+provide candidate failures: hidden safety versus shown reason, exact pending/banked
+time, staged-work settlement, chained outcomes, and unbuilt versus impossible.
+Choose only cases the selected consumer actually exercises. `tick(minutes)` does
+not prove catch-up equivalence, and `computeAway` does not yet expose dual deltas.
+
+The 2026-10-17 compatibility decision supersedes old-save migration as a general
+new-feature gate. Existing before/after comparisons still prove a structural
+move, and new state still needs Save/reload/Export/Import. Runtime UI claims use
+current UI_RULES targets, including 1920×1080 and 1366×768, rather than treating
+the historical M3 floor-only evidence as today's full target-set proof.
+No copy in another worktree is silently synchronized by this edit: at recovery,
+read this canonical shared brief and reconcile stale copies before execution.

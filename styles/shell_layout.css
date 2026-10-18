@@ -50,3 +50,15 @@
 #main_content.workspace-active[data-parity="r3"] .parity-region :is(#quest_hiding_div,#skill_hiding_div) {font-size:.85em;color:var(--p23-muted);padding:.1em 0;}
 #main_content.workspace-active[data-parity="r3"] .parity-region :is(#journal_content_div,#skills_and_stances_content_div) {font-size:inherit;}
 }
+/* UIL7 gutters overlay the existing gaps; no extra tracks or moving targets on ticks. */
+.workspace-board > .shell-resize-handle {display:none;}
+@media (min-width:1001px) {
+#main_content[data-parity="r3"] .workspace-board {position:relative;}
+#main_content[data-parity="r3"] .shell-resize-handle:not([hidden]) {display:block;position:absolute;z-index:30;touch-action:none;cursor:col-resize;background:transparent;}
+#main_content[data-parity="r3"] .shell-resize-handle[aria-orientation="horizontal"] {cursor:row-resize;}
+#main_content[data-parity="r3"] .shell-resize-handle::after {content:"";position:absolute;inset:0 -3px;}
+#main_content[data-parity="r3"] .shell-resize-handle[aria-orientation="horizontal"]::after {inset:-3px 0;}
+#main_content[data-parity="r3"] .shell-resize-handle:is(:hover,:focus-visible),
+#main_content[data-parity="r3"][data-shell-resizing="true"] .shell-resize-handle {background:var(--workspace-focus);}
+#main_content[data-parity="r3"] .shell-resize-handle:focus-visible {outline:2px solid var(--workspace-focus);outline-offset:1px;}
+}

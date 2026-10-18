@@ -4654,6 +4654,7 @@ function update_displayed_effects() {
     if(!Object.keys(effects).length) set_HTML(active_effects_tooltip, 'No active effects');
     for(const [key,effect] of Object.entries(effects)) {
         effect_divs[key] = create_effect_tooltip({effect_name:effect.name,duration:effect.duration,add_bonus:true,descriptor:effect});
+        effect_divs[key].dataset.effectId = key;
         active_effects_tooltip.appendChild(effect_divs[key]);
     }
     update_displayed_effect_durations();
@@ -4686,6 +4687,7 @@ function update_displayed_temperature(optionalWeather = {}) {
     if (localWords !== null) {
         clear_HTML_content(weather_field);
         weather_field.textContent = localWords;
+        delete weather_field.dataset.temperatureC;
         weather_field.title = 'Display only; local climate proposals do not change weather effects.';
         return;
     }
@@ -4694,6 +4696,8 @@ function update_displayed_temperature(optionalWeather = {}) {
     let displayed_temperature = Math.round(10*(game_options.use_uncivilised_temperature_scale?celsius_to_fahrenheit(temperature):temperature))/10;
     let html_content;
     const temperature_unit = game_options.use_uncivilised_temperature_scale?"°F":"°C";
+    // UIL8 public native weather read model, including the actual optional weather offset.
+    Object.assign(weather_field.dataset, {temperatureC:String(temperature), coldTolerance:String(character.getColdTolerance()), coldThreshold:String(cold_status_temperatures[0]), temperatureLabel:`${displayed_temperature.toFixed(1)} ${temperature_unit}`});
 
     //whether temperature is low enough to give any cold effect
     const is_cold = temperature < (cold_status_temperatures[0]-character.getColdTolerance())?true:false;

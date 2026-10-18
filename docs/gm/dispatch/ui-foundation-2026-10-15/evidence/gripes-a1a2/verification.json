@@ -1,0 +1,50 @@
+{
+  "build": {
+    "command": "node build.js",
+    "exit": 0
+  },
+  "fullTests": {
+    "command": "npm test",
+    "exit": 0,
+    "pass": 2152,
+    "todo": 3,
+    "total": 2155
+  },
+  "architecture": {
+    "command": "npm run check:arch",
+    "exit": 0,
+    "mainImports": 7,
+    "cycleEdges": 297
+  },
+  "ruleBehavior": {
+    "command": "npm run check:rule-behavior",
+    "exit": 0,
+    "pass": 36
+  },
+  "inventory": {
+    "command": "R4_URL=http://127.0.0.1:19642 node docs/gm/dispatch/ui-foundation-2026-10-15/check-gripes-a1.cjs",
+    "exit": 0,
+    "targets": [
+      "1920-14",
+      "1920-21",
+      "1366-14",
+      "1366-21"
+    ],
+    "nativeItemUse": true,
+    "noInspectorCoveringPreview": true
+  },
+  "nearby": {
+    "command": "R4_URL=http://127.0.0.1:19642 node docs/gm/dispatch/ui-foundation-2026-10-15/check-gripes-integration.cjs",
+    "exit": 0,
+    "targetFontsAndNativeServicePersistence": [
+      "1920-14",
+      "1920-21",
+      "1366-14",
+      "1366-21"
+    ],
+    "combatBoard": true
+  },
+  "humanAcceptance": "OPEN",
+  "committed": false,
+  "pushed": false
+}

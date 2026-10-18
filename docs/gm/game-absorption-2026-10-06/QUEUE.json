@@ -102,5 +102,13 @@
   ],
   "currentSharedLeaseOwner": "01a114d2-2065-7b10-86b8-6c68962d9f8f",
   "sourcePacketHandoff": "RELEASE.json",
-  "updatedAtUtc": "2026-10-07T06:21:46.171508+00:00"
+  "updatedAtUtc": "2026-10-07T06:21:46.171508+00:00",
+  "routingReview": {
+    "reviewedOn": "2026-10-18",
+    "scope": "Routing only; dated packet states and reservations retained, not freshly verified or granted.",
+    "currentRouting": "docs/IDEA_INDEX.md#current-queue-routing-2026-10-18",
+    "ruleReconciliation": "docs/reviews/PLAN_RULE_RECONCILIATION_2026-10-18.md",
+    "runtimeDispatchAuthorizedByThisReview": false,
+    "evidenceReuse": "Recover current source/build identity and writer ownership before resuming. Historical compatible-state claims are retained; apply current USER_VISION compatibility decisions to newly selected work. Current-state persistence and human acceptance remain separate gates."
+  }
 }

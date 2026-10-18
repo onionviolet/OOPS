@@ -1,0 +1,154 @@
+{
+  "round": 2,
+  "recorded_at_utc": "2026-10-18T06:52:32.806460+00:00",
+  "head": "5976bf3d3d77034cfe01b94a5e89506ac6af2509",
+  "branch": "codex/gameplay-foundations",
+  "active_UI_amendment_input": {
+    "path": "docs/gm/dispatch/ui-foundation-2026-10-15/next-parts/GRIPES_A1_A2_CHECKPOINT.md",
+    "sha256": "dedd569f6c19b33036476238d82a3e2ac75c1cdaf753f9c95239a2dc13438783",
+    "applied": false
+  },
+  "source_runtime_mutation": false,
+  "document_inputs": [
+    {
+      "path": "docs/CORE_FOUNDATIONS_SCORECARD_2026-10-14.md",
+      "before_sha256": "4e1104d0274bd3213e2015cdc2c515a4c31d0b5c1a8d157d1a0eaf4ae40a8394",
+      "after_sha256": "63b24d3189dede44e00e93f01c94200fc12729fd66ae08978b711b53653d2553"
+    },
+    {
+      "path": "docs/TECHNOLOGY_AND_PROGRESSION.md",
+      "before_sha256": "f72e94f4ed0a9efdc1f05e36111f075c189b2621d71a2ebd2013741cc228bcaa",
+      "after_sha256": "aa55071db89f48166eef9db81f7765d0b50b9ab91dcddf4d0ca5ded8e0dc8a57"
+    },
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/PLAN.md",
+      "before_sha256": "a6796204c961de2153122bf6e47efcb81fdf36b0737a5c7923abfaed98aab3b7",
+      "after_sha256": "a70a6acdbadc1b03fcea94572011ec7466f1696f32f1d37551300d0d31970751"
+    },
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b2/MIGRATION.md",
+      "before_sha256": "5b58e00b81842c3eeb5d2f970355768e200b64d4c3cff2ea7c0707e0b640494e",
+      "after_sha256": "e1edf04d729b8f024fb1c888705d3b8f687b49d416b120a6228bc614b0fac429"
+    },
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b2/TEST_PLAN.md",
+      "before_sha256": "ac06894432a14449d7db53306119e817ee21d3181161c421a59a11996227bf7c",
+      "after_sha256": "0ac459ba757bb97708b1f176e2af2af5214e978c34f939c94a429190a5c3955a"
+    },
+    {
+      "path": "docs/gm/dispatch/core-foundations-2026-10-14/COMMON.md",
+      "before_sha256": "1df64b2c7db64964c6f99bb6f4c4504c39fa2d336e3d7f76f8370d91b3b160f3",
+      "after_sha256": "d28b78b7ba54f7b552c8ee1fd9b46ffc2a0931d5e214bf2a4f3e09b0b17987e8"
+    },
+    {
+      "path": "docs/gm/dispatch/core-foundations-2026-10-14/a1/PLAN.md",
+      "before_sha256": "575b53cadeed7bdde3bee5f8d8442c1ce9c275f3dab22bc5ead21d94f2cd7d4b",
+      "after_sha256": "b1dd4e824e55af53ab5c50a014547966852ec62418065d144008979e7d44ea63"
+    },
+    {
+      "path": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/CHECKPOINT.md",
+      "before_sha256": "b8c0b63a161fc2a0f6d650f8779c42dd9b89f78de3a8d9bc5a048dd150e4d14e",
+      "after_sha256": "3c8986eb4ad834688c6a400f3e39afd6ef72e03bf43956116d2baf3a28da8c27"
+    },
+    {
+      "path": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r15/BRIEF.md",
+      "before_sha256": "353ac7b3efaa8454bb54a6a19a7c037b05618b675e55fd56f188aa0726c17d7f",
+      "after_sha256": "8a659938904e72cc77aff64c5a615f7309279fe5c9e8a634212be78050ea476e"
+    },
+    {
+      "path": "docs/gm/dispatch/harvest-modules-2026-10-14/PLAN.md",
+      "before_sha256": "9df1be6a336c6041b14abaf48ec3f06392e78d8aee76c14cccbe93c7f3c67920",
+      "after_sha256": "e3f0509a750bfbc5963711df79c1ebae209533e11e06c6c11a5e0380d37f89c9"
+    },
+    {
+      "path": "docs/gm/dispatch/nonhuman-starts-2026-10-14/COMMON.md",
+      "before_sha256": "912fe647ad0f1d83a96c0d32e41c67a74ed88c61f1d1e5b012f5ceceb8b72113",
+      "after_sha256": "66a162b0b71a7748ce9aab69ff676ddf4ec282951a03242897755f845b876f95"
+    },
+    {
+      "path": "docs/gm/dispatch/nonhuman-starts-2026-10-14/runs/SESSIONS.md",
+      "before_sha256": "45a28a18dc57218fc7ffa3bd890b9c235566ad5c0a05e6c8e427682b7e80c411",
+      "after_sha256": "c2d12e0925c28df91513ab08af78fa47e9e462853fd797bd09f13496fbbfb57c"
+    },
+    {
+      "path": "docs/gm/dispatch/research-tech-2026-10-14/PLAN.md",
+      "before_sha256": "a351f5eb20101783dd248b9c78fad57106e2c1118a543043d7616c5581784e21",
+      "after_sha256": "de3e8ed3c3b8c8d85031cdffc6859003a38b5691d28bd35dc944589d6778640c"
+    },
+    {
+      "path": "docs/gm/dispatch/traveler-asks-2026-10-14/PLAN.md",
+      "before_sha256": "515b7dac964e780ef8ce1c42d93930504011482ac2c23b65622e7adae5ea63e2",
+      "after_sha256": "985eeeb9106ad6dfa9253e9e5d0aefacf2fe1d8b62d255425adca5fdd6647d8d"
+    },
+    {
+      "path": "docs/gm/dispatch/world1-full-completion-2026-10-11/CHECKPOINT.md",
+      "before_sha256": "fe8c1759ae9449b5e3ac1984945ed89d5456e2e4e37a129e03e93b50514c05e8",
+      "after_sha256": "16fb9ea7b360faa382f5319f49f2f57914871464744f9c6ea91e13a71d3c31ab"
+    },
+    {
+      "path": "docs/gm/feature-wave/repositories/WORKPLAN.md",
+      "before_sha256": "cbfa6d561f6bd2747f36b165d7ba8d111a7bec89fa03882cf6fbeb00e20220eb",
+      "after_sha256": "244aeb3a4f6215001e3193fe0b396f0265d708360660cd70d15080c7ae452105"
+    },
+    {
+      "path": "docs/gm/observation-power/BRIEF.md",
+      "before_sha256": "db0b016bb9cfb3bc85f5c12d6b654e075fc731d20163b0f0e42dbfdfd66302ae",
+      "after_sha256": "d6a6b8c64551e68a46bc3c8232c04bd4ba841c57a29301cd9866555b208b2b0d"
+    },
+    {
+      "path": "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md",
+      "before_sha256": "56673cc702e9b653dc498552724fe163ea451ad1ac8f1641d28908fd76b873d7",
+      "after_sha256": "ed571656adbc78e57b723ecaadd4a64d71c1f42460f82cad44e999c9a585d418"
+    },
+    {
+      "path": "docs/reviews/PLAN_RULE_RECONCILIATION_2026-10-18.md",
+      "before_sha256": "2153480861d8586cc6df149005f947b2044ebeb2377dc612cdd36f5319c18ead",
+      "after_sha256": "8cc01775efca0e97f8451def0f19a78144de261bd6e9c70c86dca3a5d5161a5e"
+    },
+    {
+      "path": "docs/reviews/plan-rule-reconciliation-2026-10-18/PLAN_INVENTORY.json",
+      "before_sha256": "00126db21759841ed4cfb8715ef1bbacbff1dc001f8ebeb840292c01c2cc8d4a",
+      "after_sha256": "4d985d63aee8dc407c631bdaff008b026abc557c7d864cbdbb0c8dc686016e67"
+    },
+    {
+      "path": "docs/reviews/plan-rule-reconciliation-2026-10-18/ROUND2_ACTIVE_UI_AMENDMENT.patch",
+      "before_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "after_sha256": "e829530bb30859d103b4acb08156dc696b5c4fc2c54977b6180bc7e2b33636fd"
+    },
+    {
+      "path": "docs/reviews/plan-rule-reconciliation-2026-10-18/ROUND2_CHECKS.json",
+      "before_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "after_sha256": "c490da62b81807fd44ecf12b4f0548f0dc01b41056de196a0717932f1f89040e"
+    },
+    {
+      "path": "docs/reviews/plan-rule-reconciliation-2026-10-18/ROUND2_REVIEW.json",
+      "before_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "after_sha256": "fa17bb667ba9a245ffd92825e8ea3495ca7b4aabb236bd37585c665e1497abce"
+    },
+    {
+      "path": "docs/reviews/plan-rule-reconciliation-2026-10-18/ROUND2_SUPERSEDED_TEXT.md",
+      "before_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "after_sha256": "6068fd338df831b355fcb3c8f8db5987c0ebc7537ceb2f4b0896d327f2431398"
+    },
+    {
+      "path": "docs/worlds/NONHUMAN_STARTS_ENGINE_REQUIREMENTS_2026-10-14.md",
+      "before_sha256": "61483066dc2e3278ce5e5f171e2c605b052726da7af3f5ea3a14a6a5b147c6ba",
+      "after_sha256": "7ff5c4e68642c64c282bbb1e039ab941563a6afe3b7a057a443df5a002ea2b8b"
+    },
+    {
+      "path": "docs/worlds/jujutsu/WORLD_BRIEF.md",
+      "before_sha256": "bec64635075db5fe0fb16235a93c5240842cb96be8d1d892964ead49ee21cdc4",
+      "after_sha256": "0b8fa92fc119bcae1450ba1d6be70a9d6374844a37904abd68de4ca0551924e9"
+    },
+    {
+      "path": "docs/worlds/mother-of-learning/WORLD_BRIEF.md",
+      "before_sha256": "243917d66e2afb6c39d2d618ab11b024fb4bf181ca0f89b84a080a49ca1f48e7",
+      "after_sha256": "9d9b80ad9b1287b6705d8d4e4d08882c51f061f7bf2c91c7ad6b60c3b7d06154"
+    },
+    {
+      "path": "docs/worlds/proving-ground/WORLD_BRIEF.md",
+      "before_sha256": "89a661bcca718d8b50d40905aff6d25a3523bc97044242696074619e06d0fcd6",
+      "after_sha256": "7434ee650f4f3d2ef5a293320c3a3da5a5e6f23b80669fad65c488ec14a7bedc"
+    }
+  ]
+}

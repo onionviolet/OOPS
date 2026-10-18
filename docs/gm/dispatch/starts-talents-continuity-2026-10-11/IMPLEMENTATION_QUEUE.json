@@ -66,5 +66,17 @@
     }
   ],
   "integration": "shared runtime read-only until explicit handoff",
-  "broadHorizon": "prior queue retained by reference; these ordered joins do not delete exceptional or ordinary alternatives"
+  "broadHorizon": "prior queue retained by reference; these ordered joins do not delete exceptional or ordinary alternatives",
+  "currentReview": {
+    "reviewedOn": "2026-10-18",
+    "ownerCheckpoint": "docs/gm/dispatch/starts-talents-continuity-2026-10-11/CHECKPOINT.md",
+    "disposition": "First slice retains isolated technical delivery with director/shared-integration gates open; remaining four packets are proposals, not automatically dispatched.",
+    "laterOwners": [
+      "docs/INTRO_AND_STARTS_INDEX_2026-10-14.md",
+      "docs/GENETICS_AND_HERO_START_PLAN_2026-10-17.md",
+      "docs/worlds/NONHUMAN_STARTS_ENGINE_REQUIREMENTS_2026-10-14.md"
+    ],
+    "reuse": "Old candidate path/server and reservations are dated observations, not verified live. Refresh current inputs/ownership before reuse. Apply current compatibility policy to new selected work without relabeling historical proof.",
+    "dispatchAuthorizedByReview": false
+  }
 }

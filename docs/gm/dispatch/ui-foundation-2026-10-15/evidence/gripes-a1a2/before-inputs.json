@@ -1,0 +1,10 @@
+{
+  "src/proto23_shell.js": "a86960a2791c5d87b8e217218ae325c0a5eb4707e8dd0d94073f77c8e76ca2bb",
+  "src/village_workspace.js": "6152fb57f2e9dffaa98f2e915c5dbe0b06bb66eb004cb9a16251c8ad6330484a",
+  "src/workspace_layout.js": "5b4289c96f12a98d4c5a0b856d777a1ece7f5ff38dc98114f5fc8f82f2de1b9d",
+  "src/layout_spec.js": "6af67ad345285fc48fedf8c63d7d21ecf70559e7aa89fdd516b10fd77fd86a36",
+  "src/shell_resize.js": "3a839b2346c14c31be382f43c007f68dc407b525495a360c76949aeda60a2a1c",
+  "styles/shell_layout.css": "99d2b416d54f2454758a557c6dcf7e9ba4f0d365494ce7b3771f642a82e8e7aa",
+  "styles/shell_chrome.css": "2faf02324e54884969eecdc3eb8a3c8f7ae6508313a52533838bd86a60d7425a",
+  "index.html": "6af3eb3ff158bd0b0640bf96bda7f0f7d30dde7b3069efcd94347cf58f3fbd08"
+}

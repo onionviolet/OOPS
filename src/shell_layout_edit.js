@@ -7,7 +7,7 @@ import {LAYOUT_SPEC, boxRegion} from './layout_spec.js';
 // in that context. The game save is untouched.
 
 export const PLACEMENT_VERSION = 1;
-const empty = () => ({boxes: {}, companions: {}, swap: false});
+const empty = () => ({boxes: {}, companions: {}, swap: false, sizes: {}});
 
 export function normalizePlacement(raw, spec = LAYOUT_SPEC) {
     const out = {version: PLACEMENT_VERSION, spec: spec.version, contexts: {}};
@@ -19,6 +19,7 @@ export function normalizePlacement(raw, spec = LAYOUT_SPEC) {
         for (const [box, slot] of Object.entries(from?.boxes || {})) if (spec.boxes[box] && !spec.boxes[box].companion && spec.slots[slot] && slot !== 'actions') to.boxes[box] = slot;
         for (const [box, slot] of Object.entries(from?.companions || {})) if (spec.boxes[box]?.companion && (spec.slots[slot] || slot === 'hidden')) to.companions[box] = slot;
         to.swap = !!from?.swap;
+        to.sizes = normalizeSizes(from?.sizes);
         out.contexts[context] = to;
     }
     out.stale = !!raw && !fresh;
@@ -40,7 +41,7 @@ export function moveBox(placement, context, box, slot, spec = LAYOUT_SPEC) {
 }
 export function swapCompanions(placement, context) { const next = structuredClone(placement); next.contexts[context].swap = !next.contexts[context].swap; return next; }
 export function resetContext(placement, context) { const next = structuredClone(placement); next.contexts[context] = empty(); return next; }
-export const isDefault = (placement, context) => { const at = placement.contexts[context]; return !Object.keys(at.boxes).length && !Object.keys(at.companions).length && !at.swap; };
+export const isDefault = (placement, context) => { const at = placement.contexts[context]; return !Object.keys(at.boxes).length && !Object.keys(at.companions).length && !at.swap && !Object.keys(at.sizes || {}).length; };
 
 export function readPlacement(key) { try { return normalizePlacement(JSON.parse(localStorage.getItem(key))); } catch { return normalizePlacement(null); } }
 export function writePlacement(key, placement) { try { const {stale, ...rest} = placement; localStorage.setItem(key, JSON.stringify(rest)); return true; } catch { return false; } }
@@ -57,4 +58,19 @@ export function moveControl(box, spec = LAYOUT_SPEC) {
     if (def.companion) { const hide = document.createElement('option'); hide.value = 'hidden'; hide.textContent = 'Hidden here'; select.append(hide); }
     label.append(select);
     return {label, select};
+}
+
+// Optional additive fields: spec-4 placements without sizes retain automatic composition.
+export function normalizeSizes(raw) {
+    const sizes = {};
+    for (const key of ['topLeft', 'bottomLeft', 'log', 'top']) {
+        const n = raw?.[key];
+        if (typeof n === 'number' && Number.isFinite(n) && n > 0 && n < 1) sizes[key] = n;
+    }
+    return sizes;
+}
+export function resizeContext(placement, context, sizes) {
+    const next = structuredClone(placement);
+    next.contexts[context].sizes = normalizeSizes(sizes);
+    return next;
 }

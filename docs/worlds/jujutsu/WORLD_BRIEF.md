@@ -223,8 +223,10 @@ connect to.
 | P Cursed tools, relics, fingers | Items | Carry normally; foreign worlds may not read them |
 | P Adaptation | Ledger owner | See E8E |
 
-In the Frontier, a carried technique works only if the Frontier lets it
-run: by default an outlier, rare and strange, not a new rule for everyone.
+In the Frontier, a carried technique resolves through its actual carrier,
+source and destination mechanisms (AD38). An origin label is not a permission
+list or an automatic suppression rule. A supported outlier remains an outlier,
+not a new faculty granted to everyone.
 
 ## Implementation slices (proposal)
 
@@ -475,3 +477,13 @@ A full, valid life, not a failure state:
 Weibao: "we don't quite need one quite yet, just save as possible idea."
 Recorded as a possible idea: one odd world or a family of them, each
 remixing different sources. No choice needed now.
+
+## Current rule-fit qualification, 2026-10-18
+
+The implementation slices remain parked by the recorded user instruction.
+Carry-table biology and memory-based combat examples above remain qualified by
+the later source pack, its evidence levels and actual means (AD1–AD9/AD11/AD38).
+A prototype "once per fight" is an illustrative cadence, not a universal limit
+on an extraordinary technique. A developer test hall is not a required first
+world or a reason to reveal sealed truths to the player. Current compatibility
+and UI_RULES targets apply if a slice is later selected; no build is selected here.

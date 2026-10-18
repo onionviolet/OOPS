@@ -1,0 +1,271 @@
+{
+  "recorded_at_utc": "2026-10-18T06:38:26.773715+00:00",
+  "head": "5976bf3d3d77034cfe01b94a5e89506ac6af2509",
+  "branch": "codex/gameplay-foundations",
+  "git_diff_check": {
+    "exit_code": 0,
+    "output": ""
+  },
+  "rules_check": {
+    "result": "PASS",
+    "register_rows": 20,
+    "AD_codes": 38,
+    "relative_links": 77,
+    "untracked_link_warnings": [
+      "docs/WORLD_ABSORPTION_RULES.md",
+      "docs/reviews/PLAN_RULE_RECONCILIATION_2026-10-18.md"
+    ]
+  },
+  "document_inputs": [
+    {
+      "path": "PROJECT.md",
+      "before_sha256": "0414a8d9aa03a1578b9ee10ec66d51a34e5f7308063b05af122b9bae4c692f82",
+      "after_sha256": "bb677dcaea955cb8dd06a529e83a38f78387bdfde60cf4a770f3650d20691e69"
+    },
+    {
+      "path": "docs/ARCHITECTURE_RULES.md",
+      "before_sha256": "ee2a76dc5432abd0d34a9f88ffafd654f71f2063f10f1a0b4dc2c4a7c69b147d",
+      "after_sha256": "9d587c8ba4a4edeb4e66cd56fe2e8fdb4b07d757e80cf0bf16fad65096f4e805"
+    },
+    {
+      "path": "docs/AUDIT_PROGRESS_AND_REFINEMENT_PROMPT_2026-10-15.md",
+      "before_sha256": "482b47dec2331ad8dfc3bbe1d35e75c72d174e15329489a36f4767664431997b",
+      "after_sha256": "36a057229d0a1a00223296ce76e55f9d261386b220f3c7a2841f741525648ccf"
+    },
+    {
+      "path": "docs/BODY_AND_HEALTH_CONSIDERATIONS_2026-10-17.md",
+      "before_sha256": "57e19f4930d957a56c17cbc0fdfa656439520a2687f249d7e79469903ed05498",
+      "after_sha256": "ac0b924368782862d136c0bde62b3c67f409bd84f9d7ecf1c94e5ea2da9e6fd2"
+    },
+    {
+      "path": "docs/BODY_AND_HEALTH_RULES.md",
+      "before_sha256": "79b24b1cd8ad09b6f1f4287e528f592e0083a5e8b89d11bf6453a7e0f268571b",
+      "after_sha256": "fc47de648b44f80ea8574d2865459ad9bc6a4a0c0044caf5a3104165ed2cbc40"
+    },
+    {
+      "path": "docs/COMBAT_AND_CONFLICT_CONSIDERATIONS_2026-10-18.md",
+      "before_sha256": "c05a9a88aacbca4117874e1fd35442d020bd2a60ba457a6aec088d27b3bd2866",
+      "after_sha256": "0ac49a649c5dcc08dc8231f485b047badc1a91fec01c9566df74767f2237cc0d"
+    },
+    {
+      "path": "docs/COMBAT_RULES.md",
+      "before_sha256": "979bc8a42fb31565ef43f48fcbbe7c96e209a5d7b543989b25ab695a5634d742",
+      "after_sha256": "640d4ee6500da80c547b8c666da0af1cde4e88d01621895e1eefee745557441c"
+    },
+    {
+      "path": "docs/COMPANIONS_FAMILIARS_AND_PETS_CONSIDERATIONS_2026-10-14.md",
+      "before_sha256": "79a30469a3c9e95c52e552d9d1b1e2677a647567bc4a58a96957488d8c872c42",
+      "after_sha256": "d24a356ef11d4b7c687ac60f8b54b28e01cb3d9adcc703dc38a4546858e054f7"
+    },
+    {
+      "path": "docs/CRAFTING_ENGINE.md",
+      "before_sha256": "96419ec53e6ea778995cac0438dfc90e92fe9469428e924dfefd3a45692598e6",
+      "after_sha256": "5c6c15ad688c92c62a84fd695e293485e4c69e55c18b48a6e4650c7433e7f9f4"
+    },
+    {
+      "path": "docs/ECONOMY_AND_TRADE_CONSIDERATIONS_2026-10-18.md",
+      "before_sha256": "7146bed287f8023e4bb8cefe05d322434561c211046a7580c428a03038280e34",
+      "after_sha256": "5f278e6f7186c99bf1e06ce2ed2824cb8ea809bda90e10820b86a05fbb6d1130"
+    },
+    {
+      "path": "docs/ECONOMY_RULES.md",
+      "before_sha256": "a1725fb461f37eac95c735a81bc0d9a5233ffe4a28703f682c3935a04e4caa7b",
+      "after_sha256": "f4a43811ae885cf13145b386eb4d84d55493f32ff4ce8e46a24790a9e1aef0f2"
+    },
+    {
+      "path": "docs/ENGINE_GM_CHECKPOINT.md",
+      "before_sha256": "c746df357c26f5db5756e2e5fea2f0390e36f7211f77f0b07435d1246fcd6143",
+      "after_sha256": "3dc193efec27e042aa6121a84fcf63f8de10ebd7cd249d1da38455bd7a81762c"
+    },
+    {
+      "path": "docs/ENGINE_RUNTIME_PERFORMANCE_AND_STACK_CONSIDERATIONS_2026-10-14.md",
+      "before_sha256": "e17aa32fa09bee42e8a1baf0138093076e30384fc27c5f7baab7dd8165af8360",
+      "after_sha256": "c079c33473303c1ffc27bc26db4f319fc8052b76238cbdc5e8e0cc59f304bfb9"
+    },
+    {
+      "path": "docs/GENERATION_FOUNDATION_RULES_2026-10-14.md",
+      "before_sha256": "9fc34d169e76a99a81b7e431b3f72872fdb5e3dc97aef15e4c9c19fbe1656e5b",
+      "after_sha256": "77ab713ded94e1518ffc036fb0b5a426639605d15bf41f29976744ab4836c739"
+    },
+    {
+      "path": "docs/GENETICS_AND_HERO_START_PLAN_2026-10-17.md",
+      "before_sha256": "59afa9a77df83aa2f33d8f89f87ceb9b15bea38c1fece79dc3fd5a356a32aae3",
+      "after_sha256": "66b54bc857cdd39daaf34f62e7cf680282640e65ba0d9f931733f9f2063d24d3"
+    },
+    {
+      "path": "docs/IDEA_INDEX.md",
+      "before_sha256": "bd75bad30c8324c742859a1a461144a9ae7c36a752c595a8215fa52406a9a9c2",
+      "after_sha256": "ba7bd5a7060585ee18615076acd0ba07e448682e8edc0cea4e1e31839ac970a3"
+    },
+    {
+      "path": "docs/INTRO_AND_STARTS_INDEX_2026-10-14.md",
+      "before_sha256": "67bcd97df6629bcd833264fac8a01e4097071c85465369dcfb1cc4c75ad3100b",
+      "after_sha256": "fbdd76817bb309906dab07ca11b386e545bf3e84800b3f26d91abdb485c67faf"
+    },
+    {
+      "path": "docs/MAKING_RULES.md",
+      "before_sha256": "2f95ab47afd48c05c3759f5c0fc0b491c37d9bed988211c4e326ff21938d844f",
+      "after_sha256": "33bca56d15064b7806a39301af0e0adb15676bf9f52af7c7256aed92040f0d53"
+    },
+    {
+      "path": "docs/MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md",
+      "before_sha256": "a469ede8ad898bc985bf4b785b371e0600b646ec37bc5fabb6f2385b3e8f0b26",
+      "after_sha256": "4e9c67ee7671f3062afea4a662090b716cbc2ae1374718372090bda399a6d787"
+    },
+    {
+      "path": "docs/OVERARCHING_DESIGN_CORE_AUDIT_2026-10-15.md",
+      "before_sha256": "1042f7b7588d03021ba7f6c1c9909bfd70e690a1ac71d6489d0df924468ed1a6",
+      "after_sha256": "b8071498020a8176f6d8f77502817766adbe159e8d49c31b0427b86aba1afa63"
+    },
+    {
+      "path": "docs/PLAY_BEYOND_MENU_SELECTORS_CONSIDERATIONS_2026-10-14.md",
+      "before_sha256": "df94fcad10c645b6e79c5f18049972eccbe590c73fcd26a06369f2c58c94efe4",
+      "after_sha256": "29504532a3c3358b201db2a96ddac51224540e8897fa80a3fe9b1ce10105e2e2"
+    },
+    {
+      "path": "docs/PROCEDURAL_AND_GENERAL_OPPORTUNITIES_2026-10-16.md",
+      "before_sha256": "60c71403f3c2b677b6b4a5264c9d99ca49d62d8370d235dc133cf4e44bf1a3eb",
+      "after_sha256": "abf5adf542a0f3d5664bd6bebf9bed25e536bd20ad8d2f2bd27f82bc4167e151"
+    },
+    {
+      "path": "docs/RELATIONSHIPS_AND_CANON_CONSIDERATIONS_2026-10-18.md",
+      "before_sha256": "228bc6620f5d75f8f5451c4ba5c22d214afdf8222c95f3d08419899fb6f6b496",
+      "after_sha256": "11228259bfbd1f0d89219373ac960cae457e6618b7e823e97b0b453def55cb64"
+    },
+    {
+      "path": "docs/RULES_INDEX.md",
+      "before_sha256": "64480ffdefaf47177f4a16a15e9aba8a3c8ceb4ef2d0a7e66f283fe2c2577477",
+      "after_sha256": "34298b801bcf0643c4229755129473309ac99c8877fb83f595f38b0e31fa67fe"
+    },
+    {
+      "path": "docs/SHARED_FOUNDATIONS_AUDIT_2026-10-12.md",
+      "before_sha256": "5cc4ed454060e949ebab8c61f09baa10a7874dd020bde5a41d361c5065a8ea5b",
+      "after_sha256": "03b91cd6ec3e657847a3aa0b04634addea83c07d2749d9ba51f87e89f096e82a"
+    },
+    {
+      "path": "docs/SKILLS_AND_LEARNING_CONSIDERATIONS_2026-10-18.md",
+      "before_sha256": "70685079a6a33cc4b97154a792ed0467c9174789585d180bd0c9df382a69e1dd",
+      "after_sha256": "028b623002497392026fe4cf945611de812884c512e3a90242a0c4435a0f49db"
+    },
+    {
+      "path": "docs/SKILL_AND_LEARNING_RULES.md",
+      "before_sha256": "06108dcae6547ba93901c78d0e1a04b9751a39142714f25fce6a47cf6931ec4f",
+      "after_sha256": "e77777e24c9272212804360f862b47fd956c11f82be775eb59e5cf6047ea6737"
+    },
+    {
+      "path": "docs/TOOLS_AND_INSTRUMENTS_CONSIDERATIONS_2026-10-17.md",
+      "before_sha256": "43602a0fa1dd093e453d5e84f2488c2d549f6357b5d9ec7cf4ae1bef28ee36f7",
+      "after_sha256": "c8117fb23b5f78388cfb7f9790131e91685c8387ff137784aee1001b7e5b3502"
+    },
+    {
+      "path": "docs/USER_VISION.md",
+      "before_sha256": "75416ed240c8555d07da6356aeb089ce3782371bf759aebeef1abe11005d46da",
+      "after_sha256": "b799967edd27716dee0d7ac958eaa9387571b47241fe037f28af62f5ec7372b3"
+    },
+    {
+      "path": "docs/WORLD_ABSORPTION_RULES.md",
+      "before_sha256": "f8b546e70c7989d4f1bf029994cde27dcbe6606bcf8d02d874bad1ad9db4baf1",
+      "after_sha256": "18c1653daf824e2a3cce0f1e1abc5da75c711cbcf9b7cf4bf932eed7057c5bd1"
+    },
+    {
+      "path": "docs/WORLD_COMPLETION_STANDARD.md",
+      "before_sha256": "e3c8ddc8c559204736d2ff5d8efdfd1e1f769fdbc5bc8ed2c6c86862169b2bf4",
+      "after_sha256": "4769bf541112861d1764cc490d3ac881935077c1de37e22ee861ac3af983ec85"
+    },
+    {
+      "path": "docs/audits/BODY_HEALTH_CORE_AUDIT.md",
+      "before_sha256": "45cc16e31f4656017a4f0626a2ea10b1b796188c582cce75011fba0f9845d8a8",
+      "after_sha256": "aa18a2ce8c938a728bf2d4d1de8edf2d5151e758ed7a1495d15244bde7856c1f"
+    },
+    {
+      "path": "docs/audits/COMBAT_CORE_AUDIT.md",
+      "before_sha256": "4789dce07517a15c7965c58414452bb9a07ea223b72a1b2156731201b223cfc3",
+      "after_sha256": "665f8c73e50c0e10b6678dd6b2fa936aaea02741b54d1ce34a1a8635cc4780d1"
+    },
+    {
+      "path": "docs/audits/COMPANIONS_CORE_AUDIT.md",
+      "before_sha256": "fae71ca5bfba7e6ab8e045376f404856a01d466b7f84ec60c10b139e956d98f2",
+      "after_sha256": "b5f5599d28d78f3fdb993163bb7e72f7a3b9e826cc278d711dfa5187c6fd07f3"
+    },
+    {
+      "path": "docs/audits/ECONOMY_CORE_AUDIT.md",
+      "before_sha256": "c71276966070d61567cad3826130b19679b313b3e69f6a5436c0c09ea6009ec5",
+      "after_sha256": "0a9c4c6f028bc3bb28de203c1b3c5920753a7736b35168d74566ee2d741a08be"
+    },
+    {
+      "path": "docs/audits/MODULAR_CHAINS_CORE_AUDIT.md",
+      "before_sha256": "57e1d52235f9e56fe353779a9e486e4b289f3c49a282f8539a8b4c8930d05240",
+      "after_sha256": "84abee411f60eaa85042c92a449fbf41c5220072b7a29af49b65f465a2c87969"
+    },
+    {
+      "path": "docs/audits/TOPIC_EXPANSION_AUDIT_PLAYBOOK.md",
+      "before_sha256": "25f40c9ca7fb585146f8dacc09c5cd4d78d807b85245544585c36679500acb6d",
+      "after_sha256": "0414d0bcf707dea6f6b03e4d3425cf517d5e5b1e737f87bb474f3d108dc1a89e"
+    },
+    {
+      "path": "docs/audits/WORLD_CORE_KIT_CORE_AUDIT.md",
+      "before_sha256": "aa06dfdc259693a8cc5761cae1710a82ca5b0b8b3b0367274e7bfa00718cdc17",
+      "after_sha256": "4556d1c0dd246e85cb9458a7a173fb94e294daff77140c7ad4ffa5c317f46b45"
+    },
+    {
+      "path": "docs/gm/AUDIT_RECONCILIATION_METHOD_2026-10-11.md",
+      "before_sha256": "41c3414c80247646eb23c11405ee57a9ca7d306c13abd2db71ff0a4cb4df0ff4",
+      "after_sha256": "3b81be93eed4aa63fd46e6d95f3e2f82600fc0942d7b6ba0c0525625bae65da7"
+    },
+    {
+      "path": "docs/gm/LOTM_INITIATION_IMPLEMENTATION_PLAN_2026-10-15.md",
+      "before_sha256": "2d95bc43d88d1741af55dfce9d3d0a26009d8a75f27e89ab14d5dd8478e0770e",
+      "after_sha256": "cf0b264e1f0d411ba68bf60436fecd7e3ce545572e521dc2b8494acfa781512c"
+    },
+    {
+      "path": "docs/gm/dispatch/modular-seams-2026-10-16/BRIEF.md",
+      "before_sha256": "b268e97501f2b68bcfe08a2ec66d3933a2770fcd303aebfe62b521dc55ea506c",
+      "after_sha256": "db9cda38b7a4b5457254699fdeeb2bb37da1b89975d8cbdbff9014bf7bda9894"
+    },
+    {
+      "path": "docs/gm/dispatch/modular-seams-2026-10-16/CHECKPOINT.md",
+      "before_sha256": "1bbea5bb7148798403033a8ffb31a5bddee6d1d9976ff5d94f51a68d55453382",
+      "after_sha256": "51c118854fcec3e9b696f08f20939b77c490592aa64a118a4b5b4dacd89e83d4"
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/next-parts/round-15-whole-plan.md",
+      "before_sha256": "da147d9331c9d8f0555627aa81c2f181bc768f6e2af92fb14852df7287920c24",
+      "after_sha256": "48135811110163e6a9a54e93a9aebabaf8163c2bf59b3486c1c5c840c72840f4"
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/next-parts/surface-manifest-and-ui-flow-2026-10-18.md",
+      "before_sha256": "a609c6a08eeaeec6cad8ae8413d9de09d70c6b9fe8a079976c2cd596a2551dfb",
+      "after_sha256": "1926f9fa1d240fc012f9dd5188b42ee7ed77ab2d5cf5ca7999295be7598b226c"
+    },
+    {
+      "path": "docs/reviews/CORE_ENGINE_AND_RUNTIME_CONSIDERATIONS_2026-10-16.md",
+      "before_sha256": "d3b60a07fd12a18996fa53be48dd9ddf08128e28648bd7e7a2c165a853f0a544",
+      "after_sha256": "e749adebeda73edd2597bba8e82b397aef134672e8fffa159920f77ed6e3bf40"
+    },
+    {
+      "path": "docs/reviews/PLAN_RULE_RECONCILIATION_2026-10-18.md",
+      "before_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "after_sha256": "2153480861d8586cc6df149005f947b2044ebeb2377dc612cdd36f5319c18ead"
+    },
+    {
+      "path": "docs/reviews/SUBTLE_RULE_GAPS_2026-10-18.md",
+      "before_sha256": "6ad3d988522df39824bdbc67bc3de58bbb382931ac23cdbea118088294034e42",
+      "after_sha256": "a4fac1886e890340d9ca9934d8cda6456a7ea45f1f7e54b6b7c48dd8a489ff17"
+    },
+    {
+      "path": "docs/reviews/plan-rule-reconciliation-2026-10-18/PLAN_INVENTORY.json",
+      "before_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "after_sha256": "00126db21759841ed4cfb8715ef1bbacbff1dc001f8ebeb840292c01c2cc8d4a"
+    },
+    {
+      "path": "docs/reviews/plan-rule-reconciliation-2026-10-18/SUPERSEDED_TEXT.md",
+      "before_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "after_sha256": "0407dff36c4b1f8d41bd89aa0d3e2d32d4971e14240d5e7ee02fc31fe90be6c3"
+    },
+    {
+      "path": "docs/worlds/WORLD_CORE_KIT_SUCCESSOR_2026-10-14.md",
+      "before_sha256": "55dc3f910df75f4137428cf0e1c0c9c1c6469b4f70a046a1b397b37ecf443736",
+      "after_sha256": "dbadee93b60efdc6d4ec9d1d9cec88847daa9b2a220ceabec648b3d632128f22"
+    }
+  ]
+}

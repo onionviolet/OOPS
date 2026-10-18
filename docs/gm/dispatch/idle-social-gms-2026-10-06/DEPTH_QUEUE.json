@@ -27,7 +27,13 @@
       "queue": "docs/research/game-discovery-2026-10-06/DEEPER_QUEUE.json",
       "context": "docs/research/game-discovery-2026-10-06/DEEPER_RESEARCH.md",
       "status": "Five parked, unassigned questions; all sourceReady false. Original GD-01/GD-02 research stays complete.",
-      "families": ["Brogue key/machine exploration", "Brogue status/body/equipment/environment ordering", "Shattered toolkit/recycling/competing alchemy resources", "Shattered earned blacksmith equipment/service commitments", "Sil-Q song/ward/resistance/removal/passage/persistence"],
+      "families": [
+        "Brogue key/machine exploration",
+        "Brogue status/body/equipment/environment ordering",
+        "Shattered toolkit/recycling/competing alchemy resources",
+        "Shattered earned blacksmith equipment/service commitments",
+        "Sil-Q song/ward/resistance/removal/passage/persistence"
+      ],
       "selection": "Reuse existing source pins and reviewed coverage. Select a named unresolved path separately; no new source pass or gameplay follows from this link."
     }
   ],
@@ -86,5 +92,14 @@
       "selected": false
     }
   ],
-  "gameplay_checks": "Deferred under current project policy; no runtime implementation or acceptance is implied."
+  "gameplay_checks": "Deferred under current project policy; no runtime implementation or acceptance is implied.",
+  "currentReview": {
+    "reviewedOn": "2026-10-18",
+    "disposition": "Original questions remain retained and unselected; this refresh does not adjudicate all source dependencies or dispatch a reread.",
+    "currentCoverageQueue": "docs/gm/dispatch/game-source-research-2026-10-06/DEPTH_QUEUE.json",
+    "currentCoverageRule": "Check later saved passes and their unread tables before reusing October 6 limits. Source coverage, implementation and native acceptance are distinct.",
+    "scopeRouting": "docs/PROCEDURAL_AND_GENERAL_OPPORTUNITIES_2026-10-16.md",
+    "scopeNote": "NPC-heavy implementation remains deferred; this does not prohibit reading already available source within standing research authority.",
+    "dispatchAuthorizedByReview": false
+  }
 }

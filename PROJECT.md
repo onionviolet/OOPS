@@ -1,3 +1,17 @@
+## Current queue navigation, 2026-10-18
+
+[Current queue routing](docs/IDEA_INDEX.md#current-queue-routing-2026-10-18)
+links the latest saved UI, engine, research and older packet states. UI A1/A2
+(inventory/nearby context) and engine A1/A2 (conditions/claims) are separate tracks.
+UIL7/UIL8 report candidate-specific technical passes; UI leaf delivery does not
+close combined integration or human acceptance. Engine A1/A2 are engine-only;
+RS26 retains the UI merge and Weibao play gate. M3 follows its later checkpoint;
+M4 is separately selected. See the [refresh record](docs/reviews/QUEUE_REFRESH_2026-10-18.md)
+for checked sources and open gates. Its [wider queue/plan pass](docs/reviews/QUEUE_REFRESH_2026-10-18.md#round-2-other-queues-and-plans-2026-10-18)
+checks all seven public queue owners and records corrected technology/procgen,
+Foundation and paused-world routes, with explicit review coverage.
+Dated entries below retain their history.
+
 ## OOPS identity, 2026-10-16
 
 **OOPS · Optimistic Progression Simulator** is the accepted name of this fork. OOPS is deliberately stylized; the full name has no “Overly”. [Naming direction](docs/USER_VISION.md#oops-project-identity-2026-10-16) owns the decision. Upstream remains Miktaew's Yet Another Idle RPG; historical YAIRPG wording and source-world credits are retained. The branding leaves gameplay direction and save identifiers intact. The GitHub repository is now [onionviolet/OOPS](https://github.com/onionviolet/OOPS), renamed with Weibao’s explicit authorization on 2026-10-16. [Branding implementation and checks](docs/reviews/OOPS_BRANDING_2026-10-16.md).
@@ -48,7 +62,7 @@ The exploratory four-reader limit does not cap full-book coverage.
 **Rules index (2026-10-16):** start any task at the [rules index](docs/RULES_INDEX.md).
 It orders authority, registers every rule set (Rulebook 1–12, AR, UR, MR, SR,
 sealed secrets, agent workflow; GR and CX as proposals), routes each task type to
-the codes that apply and restates accepted decisions as AD1–AD37 for aspects
+the codes that apply and restates accepted decisions as AD1–AD38 for aspects
 without a rulebook (knowledge, lives, time, recovery, entry, goals, economy, cheats).
 Shared principles and tensions T1–T7 are reconciled there. The accepted decisions
 below stay authoritative; the index adds no new rules.
@@ -59,6 +73,22 @@ guides agents to relevant checks, meaningful regressions and reuse of valid
 evidence, with focused development checks and existing completion gates.
 Keep source reads, logs and handoffs bounded; do not repeat covered checks on
 unchanged inputs. [Request](docs/USER_VISION.md#efficient-rule-checks-and-regressions-2026-10-16).
+
+**World absorption rules (proposal, 2026-10-17):** at Weibao's request,
+[WA1–WA21](docs/WORLD_ABSORPTION_RULES.md) describe absorbing a book world as a
+pack of data and rule modules over shared verbs: read once, sort into kit parts,
+encode laws as rules, generate labelled gaps, prove with a played journey.
+`src/world_pack.js` lints packs; the Cyoria pilot pack lints clean and shows K2
+and K8 below floor. Round 2 closed six lint holes (WAC14–WAC19). Engine
+ready, not integrated.
+[Request](docs/USER_VISION.md#world-absorption-rules-2026-10-17).
+
+**Plan/rule reconciliation (2026-10-18):** at Weibao's request, the
+[current report](docs/reviews/PLAN_RULE_RECONCILIATION_2026-10-18.md) records
+cross-system constraints folded into rules and live plans, corrected M3/crafting
+status summaries, current compatibility/viewport overrides and review coverage
+across the other audit families. AD38 ordering is fixed. Proposals retain their
+status; no new runtime slice, agent run or commit is selected by this docs pass.
 
 **Architecture rules (2026-10-16):** at Weibao's request, runtime work follows
 [architecture rules](docs/ARCHITECTURE_RULES.md) AR1–AR16. No whole-game rewrite;
@@ -71,9 +101,9 @@ builds the registry and check, then wires crafting as the first consumer.
 
 **Modular continuation plan updated (2026-10-16):** the
 [brief](docs/gm/dispatch/modular-seams-2026-10-16/BRIEF.md) now accounts for
-abilities, exploration and everyday interactions: readiness recovery,
-conditional hardening, the existing stopped M3 gate, then one cross-domain reuse
-proof. [EI13–EI22](docs/ENGINE_EXPANSION.md#future-fit-engine-plan-useful-depth-and-iteration-2026-10-16)
+abilities, exploration and everyday interactions. The original stopped M3 gate
+was later passed on resume according to its checkpoint; M4 remains a separately
+selected cross-domain reuse proof. Recover exact inputs before reusing evidence. [EI13–EI22](docs/ENGINE_EXPANSION.md#future-fit-engine-plan-useful-depth-and-iteration-2026-10-16)
 retain future engine proposals with triggers and done checks; they are not a
 required foundation bundle. Both dispatch copies are updated; no run resumed.
 [Request](docs/USER_VISION.md#modular-engine-plan-and-future-interactions-2026-10-16).
@@ -141,7 +171,9 @@ materials and harvesting. Pure modules are in place: material catalogue and seed
 regional generation, a conserving batch resolver, recipe grammar and matching,
 location sources with game-time RNG yields, gates, regrowth and rare finds, an
 optional save owner with per-observer knowledge, and a product-family registry.
-There are 16 unit tests; nothing is wired into play yet. [Owner and open gates](docs/CRAFTING_ENGINE.md).
+The later M3 checkpoint reports one integrated harvest/craft/use route with
+persistence proof; that dated evidence does not verify today's shared dirty build
+or broader product modes. [Current owner and evidence limits](docs/CRAFTING_ENGINE.md).
 
 **Making rules (2026-10-15):** At Weibao's request, the crafting direction is saved as
 standing [making rules](docs/MAKING_RULES.md) MR1–MR36 for every kind of making.
@@ -1212,7 +1244,10 @@ and remaining director review are owned by the
 [village study report](docs/gm/dispatch/village-study-2026-10-09/REPORT.md)
 and [checkpoint](docs/gm/dispatch/village-study-2026-10-09/CHECKPOINT.md).
 
-## Next step
+## Historical next step, 2026-10-11
+
+For current routing, use [the queue index](docs/IDEA_INDEX.md#current-queue-routing-2026-10-18).
+The activity and assignments below are the dated snapshot, not a live process check.
 
 Two new user-requested GM chats are active, 2026-10-11:
 world expansion `01a1297e-c3c2-7c23-b4ae-974565fb5cf5` deepens the existing
@@ -1431,3 +1466,19 @@ UI R10 candidate: compact12-stat core, font-aware ordinary You height, closed Ge
 UI R11 candidate follows the request for inline secondary stats: You fits stable native secondary rows to actual screen/font/panel room and reuses the full Attributes modifier explanation on hover/focus. Core/controls first, actual conditional shield, no dormant bonus claims. [R11 report](docs/gm/dispatch/ui-foundation-2026-10-15/R11_REPORT.md) reconciles the Find more Climb inspirations chat, recipe experiment and remaining native integration gaps. Rebuilt desktop candidate19171; human visual/play acceptance OPEN. R10 remains frozen19169.
 
 Claude UI continuation requested2026-10-15: [handoff](docs/gm/dispatch/ui-foundation-2026-10-15/CLAUDE_HANDOFF.md) indexes user gripes/direction, R7–R11 changes and reasons, Climb/recipe incorporation status, scope, proof and ranked next native slice. [Current checkpoint](docs/gm/dispatch/ui-foundation-2026-10-15/CHECKPOINT.md) records six-path ownership release and dirty input receipt. No receiver process launched; human visual/play acceptance remains OPEN.
+
+
+## You, weather and effects correction, 2026-10-18
+
+Weibao requested aligned Attributes/Gear and weather facts, removal of duplicated Condition information, and active status effects considered together. [UIL8 round 2](docs/gm/dispatch/ui-foundation-2026-10-15/next-parts/UIL8_REPORT.md#round-2-alignment-single-homes-and-status-effects-2026-10-18) owns the bounded correction and proof. Weather/exposure stays in the place header; body, existing native effects and relevant rates stay in Condition. This changes presentation, not effect mechanics; visual acceptance remains open.
+
+## Claude-chat gripes UI continuation, 2026-10-18
+
+Weibao authorized A1 coherent UI composition and A2 Around you flow in parallel,
+emphasizing narrower Inventory, stronger color hierarchy and better nearby
+representation. The candidate reuses UIL7 resizing and UIL8 Condition/stat work,
+then adds compact item rows, lower activity-area item inspection and grouped
+nearby list/detail. Desktop 1920×1080 first, 1366×768 floor, 14/21px; mobile
+remains deferred. [Checkpoint](docs/gm/dispatch/ui-foundation-2026-10-15/next-parts/GRIPES_A1_A2_CHECKPOINT.md)
+owns scope, writers and evidence. Candidate implementation is distinct from
+Weibao's pending visual/play acceptance; no commit or push requested.

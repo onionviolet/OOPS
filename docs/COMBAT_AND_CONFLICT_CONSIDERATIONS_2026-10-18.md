@@ -179,3 +179,14 @@ Ranked cheapest first. Each is a proposal; none is selected.
 | CBL8 | Idle combat policy with eat and withdraw thresholds paid from stock (CBC24, CBC25) | Medium, M | Away fights consume food; with no food the policy withdraws; away time stops at downed |
 | CBL9 | Source check for MEMORY rows (Mount & Blade, Darkest Dungeon, XCOM, Slay the Spire, Griftlands, Idle Clans; native combat in Kenshi, RimWorld and DF; C2 G1–G2) | Cheap reader, S | Each claim relabelled STATED with a locator or dropped |
 | CBL10 | Per-world lethality, healing and outs numbers on each W2 card (CBC37) | Cheap writer, S per world | Every active world card names the three numbers |
+
+## Round 2: related outcomes and interrupted work, 2026-10-18
+
+**CBC43.** Reflection, rescue and mutual defeat compose through one transaction/reaction boundary (CBR2/CBR3, AR3, G29). Default: stable resolution and exactly one publication per actual outcome. Dial: the encounter's simultaneous or ordered law. Reason: a listener registering earlier is not an in-world advantage. Withdrawal also settles any interrupted work without refunding already used supplies (G28).
+
+ACT NOW: reconcile the rule owner and repeatable audit routing where one exists.
+ACCOUNT FOR NOW: apply this to a selected consumer; it adds no independent store,
+clock or generic resolver. LATER: one synthetic composed case at that seam,
+strong cross-domain agent, medium effort when selected; done by relevant source
+checks and a useful rebuilt desktop journey with current-state persistence.
+No runtime change or new implementation priority in this round.

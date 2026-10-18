@@ -1,0 +1,63 @@
+UIL8 R2
+
+ duration_ms: 0.267625
+  type: 'test'
+  ...
+1..10
+# tests 10
+# suites 0
+# pass 10
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 544.93375
+
+gerprint follows content, not just revision
+  ---
+  duration_ms: 1.733625
+  type: 'test'
+  ...
+1..2155
+# tests 2155
+# suites 0
+# pass 2152
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 3
+# duration_ms 55214.813917
+
+
+> check:arch
+> node scripts/check_architecture.mjs
+
+src/main.js: 10308 lines; baseline 10260; growth 48
+src/display.js: 6761 lines; baseline 6664; growth 97
+src/save_files.js: 310 lines; baseline 256; growth 54
+Grandfathered: 7 main imports, 297 cyclic edges.
+
+
+  ---
+  duration_ms: 0.290458
+  type: 'test'
+  ...
+1..36
+# tests 36
+# suites 0
+# pass 36
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1792.758417
+
+neutral 1920-14
+neutral 1920-21
+neutral 1366-14
+neutral 1366-21
+effects 1920-14
+effects 1920-21
+effects 1366-14
+effects 1366-21
+UIL8 R2 passed

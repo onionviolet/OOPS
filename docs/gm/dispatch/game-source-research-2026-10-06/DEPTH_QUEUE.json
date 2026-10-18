@@ -39,7 +39,21 @@
         "aftermath"
       ],
       "source_questions_are_not_findings": true,
-      "selected_packets_are_separate_from_larger_lessons": true
+      "selected_packets_are_separate_from_larger_lessons": true,
+      "laterCoverageRouting": {
+        "reviewedOn": "2026-10-18",
+        "reports": [
+          "docs/research/caves-of-qud/aspects-2026-10-14/REPORT.md",
+          "docs/research/caves-of-qud/repass-2026-10-14/REPORT.md",
+          "docs/research/qud-systems-audit-2026-10-15/REPORT.md"
+        ],
+        "reportSha256": {
+          "docs/research/caves-of-qud/aspects-2026-10-14/REPORT.md": "dcc70800b4fbee8326bdff355b9e0a5b35681fb2e9a45e86567e8afda121a3a9",
+          "docs/research/caves-of-qud/repass-2026-10-14/REPORT.md": "6759128d444044147ba3e65eddffcfbd1aa4318d54a5cbbc90cdb6fb9f2947ec",
+          "docs/research/qud-systems-audit-2026-10-15/REPORT.md": "3245a1ad9303089a8a569dab051ca179f42ed6510c57c7c4322c5c5d300451da"
+        },
+        "meaning": "Later bounded static coverage exists; do not repeat the original pass or assume every old unread question remains wholly unread. Check each report for exact limits before scoping research."
+      }
     },
     {
       "game_slug": "rimworld",
@@ -70,7 +84,23 @@
         "aftermath"
       ],
       "source_questions_are_not_findings": true,
-      "selected_packets_are_separate_from_larger_lessons": true
+      "selected_packets_are_separate_from_larger_lessons": true,
+      "laterCoverageRouting": {
+        "reviewedOn": "2026-10-18",
+        "reports": [
+          "docs/research/rimworld/aspects-2026-10-14/REPORT.md",
+          "docs/research/rimworld/feature-pass-2026-10-14/REPORT.md",
+          "docs/research/rimworld/pass-2026-10-14-deep/REPORT.md",
+          "docs/research/rimworld/pass-2026-10-14-systems/REPORT.md"
+        ],
+        "reportSha256": {
+          "docs/research/rimworld/aspects-2026-10-14/REPORT.md": "317de2cfc0f0f6f0762996da9d5425725cd55d7d5a04a7650da4dd9495755b18",
+          "docs/research/rimworld/feature-pass-2026-10-14/REPORT.md": "7ffa9105657ff497e157aef49520d78b40b9359b424ca2117b7c1f0474cc8efb",
+          "docs/research/rimworld/pass-2026-10-14-deep/REPORT.md": "228cd6bd54d11a01c519b49c6419cd8b4da14b4cfe25bcee6e11e06cb8aef87f",
+          "docs/research/rimworld/pass-2026-10-14-systems/REPORT.md": "9ad9fc431b360c5f49a4a5187fcd3ca1ae694363f8cf5914e38f1614068c9f11"
+        },
+        "meaning": "Later bounded static coverage exists; do not repeat the original pass or assume every old unread question remains wholly unread. Check each report for exact limits before scoping research."
+      }
     },
     {
       "game_slug": "tales-of-maj-eyal",
@@ -194,7 +224,17 @@
         "aftermath"
       ],
       "source_questions_are_not_findings": true,
-      "selected_packets_are_separate_from_larger_lessons": true
+      "selected_packets_are_separate_from_larger_lessons": true,
+      "laterCoverageRouting": {
+        "reviewedOn": "2026-10-18",
+        "reports": [
+          "docs/research/rogue-legacy/aspects-2026-10-14/REPORT.md"
+        ],
+        "reportSha256": {
+          "docs/research/rogue-legacy/aspects-2026-10-14/REPORT.md": "f3b5c2fea0f72f4a389747c0d61f6b3fd163f911856a5f4bd204f4385d3f698b"
+        },
+        "meaning": "Later bounded static coverage exists; do not repeat the original pass or assume every old unread question remains wholly unread. Check each report for exact limits before scoping research."
+      }
     },
     {
       "game_slug": "streets-of-rogue",
@@ -256,7 +296,17 @@
         "aftermath"
       ],
       "source_questions_are_not_findings": true,
-      "selected_packets_are_separate_from_larger_lessons": true
+      "selected_packets_are_separate_from_larger_lessons": true,
+      "laterCoverageRouting": {
+        "reviewedOn": "2026-10-18",
+        "reports": [
+          "docs/research/keeperrl/aspects-2026-10-14/REPORT.md"
+        ],
+        "reportSha256": {
+          "docs/research/keeperrl/aspects-2026-10-14/REPORT.md": "82679ed74ea67d55b9c7f598f30d6a70613b8b49e05bec1949873e00f2786e72"
+        },
+        "meaning": "Later bounded static coverage exists; do not repeat the original pass or assume every old unread question remains wholly unread. Check each report for exact limits before scoping research."
+      }
     },
     {
       "game_slug": "amazing-cultivation-simulator",
@@ -287,9 +337,26 @@
         "aftermath"
       ],
       "source_questions_are_not_findings": true,
-      "selected_packets_are_separate_from_larger_lessons": true
+      "selected_packets_are_separate_from_larger_lessons": true,
+      "laterCoverageRouting": {
+        "reviewedOn": "2026-10-18",
+        "reports": [
+          "docs/research/amazing-cultivation-simulator/aspects-2026-10-14/REPORT.md"
+        ],
+        "reportSha256": {
+          "docs/research/amazing-cultivation-simulator/aspects-2026-10-14/REPORT.md": "6600de227564786946b5c570837313a8dc58ce43082cf1e947fbe9d11a390c05"
+        },
+        "meaning": "Later bounded static coverage exists; do not repeat the original pass or assume every old unread question remains wholly unread. Check each report for exact limits before scoping research."
+      }
     }
   ],
   "dispatch_policy": "Reuse completed pins/coverage. Select concrete deeper gaps only in an authorized future assignment; no blanket rereading, duplicate exports, purchases, new chats or runtime takeover.",
-  "runtime_or_behavior_checks_performed": false
+  "runtime_or_behavior_checks_performed": false,
+  "currentReview": {
+    "reviewedOn": "2026-10-18",
+    "scope": "Compare saved queue against later research reports; no new source pass.",
+    "history": "Original scope limits and fingerprints below describe the October 6 intake, not the sum of later reading.",
+    "reuse": "Read later coverage/unread tables before selecting an original open question. A later static pass does not close native or whole-game gaps. Streets gameplay-source gap is retained.",
+    "dispatchAuthorizedByReview": false
+  }
 }

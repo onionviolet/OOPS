@@ -1,5 +1,16 @@
 # Nonhuman starts: synthesis and roadmap, 2026-10-14
 
+**Reuse qualification, 2026-10-18:** this remains a proposed synthesis of the
+dated lane inputs. [Current genetics/hero plan](../GENETICS_AND_HERO_START_PLAN_2026-10-17.md)
+and [nonhuman requirements](NONHUMAN_STARTS_ENGINE_REQUIREMENTS_2026-10-14.md)
+own later carrier/start refinements. Its suggested first repair is not evidence
+that today's runtime lacks every body/typed-start seam; inspect existing consumers
+before selecting a change. [Current direction](../DIRECTION_SUMMARY.md#current-rule-and-queue-overrides-2026-10-18)
+qualifies old-save requirements and desktop targets; current-state persistence
+remains necessary when state changes. Idle/away behavior follows AD15–AD18 and
+its selected clock owner rather than promoting this roadmap's frozen-browser
+sentence into a universal world law. No new start or body engine is selected.
+
 Status: **INFERRED synthesis and proposals only**. This report selects no accepted design, assigns no runtime work and proves no gameplay. It reads the available corpus together and proposes one order for bounded implementation. [Checkpoint](../gm/dispatch/nonhuman-starts-2026-10-14/synthesis/CHECKPOINT.md) owns this lane's coverage and pending work.
 
 **STATED (Weibao, live authority):** [USER_VISION](../USER_VISION.md) and [PROJECT](../../PROJECT.md#standing-priorities-and-document-authority) retain desktop/laptop first, mobile deferred, useful meals and no hunger death, canon-first priorities including Paradise, and one realm/one prestige layer for the first milestone. [AGENTS](../../AGENTS.md) requires one playable slice before another and rebuilt browser proof. The [requirements owner](NONHUMAN_STARTS_ENGINE_REQUIREMENTS_2026-10-14.md), rounds 1-8 as assigned, with live rounds 9-10 refreshed before closure, owns E1-E15 and the N/C/OT/NR/MM/SB considerations. Sibling recommendations and this ordering remain proposals. Priority changes order, not milestone scope.

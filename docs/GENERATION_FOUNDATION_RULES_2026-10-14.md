@@ -34,7 +34,7 @@ Each rule names the failure it prevents.
 | GR4 | **Lazy, stable addresses.** Things exist as addresses (`gen:village:person:7f3a`) until observed. IDs are namespaced strings, never array indexes. Promotion from summary to detail follows P32 level of detail. | Save bloat; IDs that shift when a list grows |
 | GR5 | **Truth and knowledge are separate writes.** The generator writes truth. A projection writes what the player knows and how it is named or looks. | Identification, appearance shuffles, rumors and sealed secrets each re-solving "what does the player see" |
 | GR6 | **Constrain, retry, fall back.** Generate, validate against declared constraints, retry with `attempt` in the address, cap retries, then use a named authored fallback. Count fallbacks. | Infinite loops, impossible combos, silent empty rewards |
-| GR7 | **Tables select by tag query, not ID list.** "Things tagged `herb` and `wet` and not `toxic`." New content joins every relevant table by being tagged. | Every new item needing edits in ten tables; content nobody can reach |
+| GR7 | **Tables select by tag query, not ID list.** "Things tagged `herb` and `wet` and not `toxic`." Tags admit content to relevant selectors; mechanism compatibility is resolved by the owning law, not tag presence alone (AD38). | Every new item needing edits in ten tables; a selector becoming a permission list |
 | GR8 | **Layer tables, never copy them.** Core table, then world overlay, region overlay and person modifiers that add, remove or reweight by tag. | Seven forked Village tables drifting apart |
 | GR9 | **Integer weights with a stated reason.** Weights are integers. Each pick can return its top contributors ("why this?"). | Float drift; weights nobody can debug; cheats like "see fate" with nothing to show |
 | GR10 | **Tables carry `id@rev`.** Receipts store the revision. Frozen values keep their old revision; unseen addresses use the new one. | Patch day quietly changes a save's past |
@@ -44,7 +44,7 @@ Each rule names the failure it prevents.
 | GR14 | **Scope streams to world and life.** Stream roots derive from world and life IDs per E1 section 6, so crossings and rebirths stay independent and replayable. | One world's events reshaping another's |
 | GR15 | **Text is a grammar over fact IDs.** Generated text stores slot references and renders at display time through knowledge, so renames and discoveries propagate. Only in-world documents (a letter, a carving) freeze rendered text. | Stale names in old logs; accidental secret leaks in prose |
 | GR16 | **Every generator ships three tests.** Seed sweep (N seeds, invariants hold, distribution inside a band), golden snapshot for three fixed seeds, and save/reload/import gives the same next value. | Determinism bugs found by Weibao in play |
-| GR17 | **Keyed by game time, not ticks.** Daily and hourly draws key on the in-game day or hour, never tick count, frame or real time. | Different results when the tab was backgrounded or offline catch-up ran |
+| GR17 | **Keyed by the owning game clock, not ticks.** Each time-based draw names its world, body or space clock; repeatable actions also retain the committed attempt identity (GR2). Equivalent segmented/catch-up processing retains the same draws. | Background timing changing results; frozen world dates repeating every personal practice draw |
 
 ## Subtle stuff (SB)
 
@@ -89,7 +89,7 @@ These break generators quietly and are cheap to prevent once.
 2. Build a small shared kit (lane G1): addressed draws, integer weighted pick, stratified pick, shuffle bag, sample and score, bounded retry with fallback, explain record. New file plus tests, no edits to existing generators.
 3. Audit existing generators against GR and SB (lane G2) so migration targets are ranked, with SB1 previews first.
 4. Specify tag-query tables and overlays (lane G3) on top of the A2 tag store, with Village plus two worlds worked through.
-5. Port one live generator (P3 storylets is the smallest) onto the kit as proof, after integration lands. Not dispatched yet.
+5. Adapt P3 storylets onto the kit as a separate migration candidate after integration lands; the existing Village mixture reader already demonstrates a bounded kit consumer. P3 remains unselected and not dispatched.
 
 ## Lanes dispatched
 
@@ -255,7 +255,7 @@ proposal. No new lanes. Links: [G1](gm/dispatch/gen-rules-2026-10-14/g1/REPORT.m
 
 | Lane | Adds | Evidence level |
 |---|---|---|
-| G1 kit | `src/gen_kit.js` (194 lines, no imports): addressed two-lane hash, integer weighted and stratified picks with explain receipts, JSON shuffle bag, pity, sample-and-score, bounded retries with named fallback, peek/commit. 15-line P3 storylet example | 27/27 kit tests, 661/661 suite on its branch. Merged. No live consumer yet |
+| G1 kit | `src/gen_kit.js` (194 lines, no imports): addressed two-lane hash, integer weighted and stratified picks with explain receipts, JSON shuffle bag, pity, sample-and-score, bounded retries with named fallback, peek/commit. 15-line P3 storylet example | 27/27 kit tests, 661/661 suite on its branch. Merged. Bounded Village mixture readers bind `gen_kit` in source (`mixture_rules.js`, `mixture_native.js`); [T3](gm/dispatch/chain-build-2026-10-14/t3/REPORT.md) records its delivered source/build/browser and persistence gates. This is local adoption, not universal GR/G1 adoption |
 | G2 audit | [Conformance table](gm/dispatch/gen-rules-2026-10-14/g2/CONFORMANCE.md) for 37 generator groups against GR1-GR17; [subtle bug hits](gm/dispatch/gen-rules-2026-10-14/g2/SUBTLE_BUGS.md) with file:line; nine new failure modes | 12 read-only source probes. No harness, build or browser |
 | G3 tables | Table format, tag query grammar, integer strata, `id@rev`, budgets; overlay merge order and saved director overlays; Village, HP and JJK worked views where a new tagged item joins three selectors with zero table edits; offline pool pipeline; MC19-MC28 | JSON and arithmetic doc checks only. A2 tag API still absent |
 | G4 comics | Profiles for Worm/Ward, MHA, a Big Two pattern and an original Masked City; three-Earth variant, mantle and retcon save sketches; name grammars with collision filters; CG13-CG20, SB27-SB36 | Doc checks; Worm passages verified against the local edition; MHA glossary checked live. Big Two stays MEMORY-labeled |
@@ -286,7 +286,7 @@ proposal. No new lanes. Links: [G1](gm/dispatch/gen-rules-2026-10-14/g1/REPORT.m
 ### Top picks (proposal, ranked across lanes)
 
 1. **Fix the shared hash and ordering basics** (G2 F1 plus SB37-SB45 items surrogate drop, falsy zero, cosmetic labels): small, removes bugs before more content keys spread. A5 owns the replay checks.
-2. **Port P3 storylets onto the kit** (G1 example, G2 F3, G3 S3): first real consumer, game-time addresses, integer weights, quiet outcome kept. Gate: rebuilt fresh-origin desktop route at 1366x768 with Save/reload/literal Import keeping the next pick.
+2. **Port P3 storylets onto the kit** (G1 example, G2 F3, G3 S3): a separate, still-unselected storylet migration, with game-time addresses, integer weights and quiet outcome kept. Gate: rebuilt fresh-origin desktop route at 1366x768 with Save/reload/literal Import keeping the next pick.
 3. **Decide stream migration and scope** (C1, G2 F2, G6 CD1-CD4): one compatibility decision covering legacy roots, craft scope and life/continuity inputs.
 4. **Odds plus why lens on the status window** (G5 S1): the first generation cheat, reading the same resolver snapshot as commit. Waits on pick 2.
 5. **Table compiler on A2 tags with one Village material pool** (G3 S1): waits on A2's actual API.
@@ -296,6 +296,38 @@ reachable but behind the canon-first order; they are not promoted here.
 
 ### Remaining gates
 
-No generator has a live kit consumer. All native, persistence, browser and
-director acceptance gates stay OPEN. Unresolved owner inputs: A2 tag API, A1
-consolidation plan, A5 replay harness.
+The Village mixture path is a bounded current `gen_kit` reader; its dated T3
+report records that slice's delivery evidence. This does not establish broad
+framework adoption or select wider generation horizons. The P3 storylet port stays
+separate and unselected, with its own acceptance gate. Other native, persistence,
+browser and director acceptance gates remain OPEN. Unresolved owner inputs: A2
+tag API, A1 consolidation plan, A5 replay harness.
+
+## GW5 causal commitment before observation, 2026-10-15
+
+[Wider pass](gm/DIRECTION_DETAILS_REVIEW_2026-10-15.md#wider-gameplay-and-world-design-pass-2026-10-15)
+identifies a **proposed contract clarification**, not a proved generator defect:
+GR3's freeze-on-reveal and GR4/GR10's lazy/revisioned unseen detail must also respect
+actual already-committed causes under OD7/OD8. Distinguish pinned canon/starting
+facts, generated truth already consumed by an event/effect, and genuinely
+uncommitted detail. Hidden is not automatically uncommitted. Preserve required
+actor/resource/time/custody bindings before later reveal/promotion; fill only
+uncommitted detail lazily within those constraints. No need to generate every
+unseen person or simulate an entire universe in advance.
+
+Learning/reinterpreting a cause changes knowledge, not automatically its past truth.
+Actual illusion/fate/time powers may change their appropriate layers within scope.
+For selected content, retain the relevant source/definition revision and causal
+bindings through promotion and save/import; prove that consumer rather than launch
+another generator framework. No generator/source/runtime change made here. Existing
+GR rules and older source counts retain their original proposal/evidence status.
+
+## Cross-audit clarification, 2026-10-18
+
+GR7 and GR17 above are revised proposals under the requested reconciliation,
+not newly accepted universal world laws. Historical GR7 described automatic
+joining "every relevant table by being tagged"; historical GR17 named only the
+in-game day/hour. The owning mechanism and clock now qualify those shortcuts.
+See [G27/G30](reviews/SUBTLE_RULE_GAPS_2026-10-18.md#round-4-latest-audits-together-2026-10-18).
+A world-time credit does not itself freeze a world. Current `computeAway` has
+one positive elapsed rate; a dual-clock plan must name the missing integration.

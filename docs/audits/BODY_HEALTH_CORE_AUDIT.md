@@ -42,3 +42,20 @@ First run used Claude subagents because Codex was not installed on this machine.
 |---|---|---|
 | 2026-10-17 | 1 | Palette BHC1–BHC31, rulebook draft BHR1–BHR30, lanes B1 and B2 |
 | 2026-10-17 | 2 | AD38 accepted (things work by how they work); BHC32–BHC37, BHR21 and BHR30 rewritten, fix plan BHF1–BHF5 |
+| 2026-10-18 | 3 | BHC38 and rule-fit case: truth-driven care boundaries, actual body clocks, policy-owned reroute and interrupted-work settlement; no lanes |
+## Core-rule reconciliation, 2026-10-18
+
+Apply the [shared pass](TOPIC_EXPANSION_AUDIT_PLAYBOOK.md#core-rule-reconciliation-pass-2026-10-18)
+to affected future rounds. Codes: BHR18/BHR28, AD6–AD9/AD13/AD16/AD19, AR7/AR8, MR1.
+
+**Composed case:** An unknown condition reaches a care-needed boundary while a staged activity is running. Truth acts; the shown reason reveals no diagnosis the character lacks. Spend/reserve settlement follows the activity owner, and the body clock is explicit.
+
+**Current correction:** Body palette round 3 and the relevant rule owner now carry the
+constraint. Current old-save compatibility is deferred; newly built state still
+round-trips. Player-facing proof uses current UI_RULES targets. Proposals and
+NPC/layout/mobile deferrals keep their status. This is a docs-only rule-fit pass,
+not a rerun of source/game-reference lanes or evidence that gameplay works.
+
+Later execution: strong cross-domain agent, medium only when that seam is
+selected; reuse the affected existing suite and require a useful rebuilt journey
+plus current-state persistence when changed. No lane is dispatched by this entry.

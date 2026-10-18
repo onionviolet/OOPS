@@ -174,3 +174,13 @@ migration runner in shadow mode; extract the effect renderer from
   browser check and, if persistence changes, save/reload/import.
 - G4 A1's registry and migration moves, each with its own differential test.
 - G5 Push waits for Weibao's yes.
+
+## Current reuse boundary, 2026-10-18
+
+The source counts, lane state and ranked G1–G4 picks above are the 2026-10-14
+snapshot. Current AR rules and modular M1–M3 receipts supersede the proposal that
+a registry still needs to be built. Reconcile the actual selected consumer and
+its current inputs before adopting A1, lowering a measured ceiling, merging A4
+or repeating a gate. No new merge/worker is authorized by this scorecard.
+[Round-2 plan review](reviews/PLAN_RULE_RECONCILIATION_2026-10-18.md#round-2-indexed-plans-prioritized-by-live-evidence-2026-10-18)
+keeps historical delivery, future readiness and active execution distinct.

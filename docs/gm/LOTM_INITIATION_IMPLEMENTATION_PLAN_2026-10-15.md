@@ -590,3 +590,23 @@ payroll, language courses, full NPC schedules and institutional investigations
 remain later features unless a selected action actually requires them. Reuse
 AR3/AR6/AR8/AR9 to trace ordinary means, timing, lifecycle and persistence; no new
 blanket audit rule or further questionnaire is needed.
+
+## Core-rule reconciliation, 2026-10-18
+
+Apply AD6–AD9/AD16–AD19/AD38, AR7/AR8, MR1/MR5/MR29 and the current
+[compatibility decision](../USER_VISION.md#old-save-compatibility-deferred-2026-10-17).
+D1/D2 already distinguish consumed acquisition from unfinished teaching: reuse
+that settlement contract for G28, rather than adding a generic refund layer.
+An interrupted lesson retains the acquired source and real effort; it resumes
+from an actual completed boundary. A hidden cause can trigger a safety pause
+without its source name appearing in the warning (G26).
+
+The compatibility section already resolves optional-domain admission and
+publication, rather than requiring a new director decision. The 2026-10-17
+instruction permits reset/drop of **old-save** state where the selected task
+records that choice; it does not authorize stripping unknown active state or
+using personal saves. Newly created state must survive Save/reload/Export/Import.
+Recover current schema admission and authority first.
+A frozen-world proposal does not supply a participating supervisor or free sleep
+recovery. Source-qualified hazard limits and the selected first slice stay intact;
+no new canon fact, live run or market feature is authorized here.

@@ -1089,3 +1089,17 @@ proof. No new broad human question is ready. Only evidence forcing a materially
 different retention/control/recovery or destructive compatibility choice should
 return for decision. No runtime/source/save, worker/message, commit or exclusive
 cheat/representation-record changes by this fold.
+
+## Current-rule reconciliation, 2026-10-18
+
+The opening "no direction spine" finding and sections 3–5 describe the initial
+2026-10-15 discovery pass. Later OD answers here, DIRECTION_SUMMARY and
+RULES_INDEX now own the synthesized accepted direction. Do not reopen those
+questions from the earlier gap register or treat the pillar draft as acceptance.
+
+[The current plan/rule reconciliation](reviews/PLAN_RULE_RECONCILIATION_2026-10-18.md)
+checks the live plan families and records actual coverage. AD38 constrains local
+mechanisms; AD21 separates comfort from actual world-law changes; AD33 sequences
+complexity without making every adjacent system a prerequisite. G26–G30 are
+composed boundary scenarios, not a replacement engine plan. New runtime work
+still selects one useful playable slice and recovers its current owners first.

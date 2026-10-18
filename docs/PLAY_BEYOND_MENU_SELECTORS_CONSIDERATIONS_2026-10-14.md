@@ -384,3 +384,14 @@ edit, fresh gameplay evidence, implementation dispatch or new accepted decision.
 Check appended relative links/anchors, unique PF24–PF57 definitions in this owner,
 pre-existing text preservation and input receipts in the engine map. No gameplay
 suite is needed for these prose additions (AD36).
+
+## Current-rule reconciliation, 2026-10-18
+
+AD38/G30 refine PF's existing supported-mechanism approach: a selector tag,
+missing recipe or incomplete verb is not proof of world-law impossibility.
+Keep experiments bounded to modeled targets and effects; disclose unknowns by
+means and unbuilt coverage honestly. No general natural-language action parser
+is required. When the selected PF52–PF54 case changes a staged activity, settle
+its completed work and stock under AR7/MR29; when it chains effects, use the
+existing transaction owner and a declared outcome boundary (G28/G29).
+The next slice and NPC/layout/mobile deferrals retain their existing authority.

@@ -1,0 +1,18 @@
+--- a/docs/gm/dispatch/ui-foundation-2026-10-15/next-parts/GRIPES_A1_A2_CHECKPOINT.md
++++ b/docs/gm/dispatch/ui-foundation-2026-10-15/next-parts/GRIPES_A1_A2_CHECKPOINT.md
+@@ -80,6 +80,15 @@
+ 
+ ## Verification and acceptance
+ 
++Current UI_RULES also requires the actual MacBook viewport (about 1800×1040
++CSS pixels) and 1536×864 at 14px/21px. The two named primary/floor journeys
++remain useful evidence, but do not alone close that target set. Check these
++on the final integrated candidate after the last relevant style change (AD36).
++For browser-local placement/resize/selection preferences, reload/context/reset
++evidence uses their actual local owner; game Export/Import proves only the
++state that its serializer actually carries. Do not add preference serialization
++solely to satisfy a misplaced persistence check.
++
+ Choose meaningful focused regression checks during implementation. Root runs
+ build, npm test, check:arch, check:rule-behavior and applicable existing UI checks
+ on the integrated candidate after the active writers release inputs. Reuse valid

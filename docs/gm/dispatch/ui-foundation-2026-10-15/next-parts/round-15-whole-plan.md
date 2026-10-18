@@ -876,3 +876,13 @@ wider than Inventory beneath it for four stat column pairs.
 3. **R22a** companions (BX13 shared choices, BX14 quest companion, BX5 split Around you) now
    fill R22b's second slot instead of competing for the top row.
 4. R24 polish and the rest of the queue as listed.
+
+## Core-rule reconciliation, 2026-10-18
+
+The later [surface plan UIR1–UIR4](surface-manifest-and-ui-flow-2026-10-18.md#core-rule-reconciliation-2026-10-18)
+owns refresh, observer-safe routes/counts and interrupted-work summaries for the
+next applicable UI slice. Preserve the current small-round sequence and manual
+placement; this does not select the full surface-manifest migration as a gate.
+Use current UI_RULES target sets and native publications. Earlier round numbers,
+branch/merge claims and 1366-only evidence remain dated history; recover the
+latest round report before execution. No round was launched by this plan edit.

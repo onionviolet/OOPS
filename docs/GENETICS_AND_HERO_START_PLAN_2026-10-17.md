@@ -4,8 +4,9 @@ Weibao, 2026-10-17: "send new chat to make plans on properly doing and implement
 and hero selection stuff and more?" ([USER_VISION](USER_VISION.md#genetics-and-hero-start-plan-2026-10-17)).
 
 **Status: proposal.** Nothing here is accepted or built. It turns existing palettes into a
-build plan; it does not restart them. Codes **GHS1–GHS111** are new and unused elsewhere
-(round 1: GHS1–GHS40; round 2: GHS41–GHS65; round 3: GHS66–GHS83; round 4: GHS84–GHS111).
+build plan; it does not restart them. Codes **GHS1–GHS114** identify this plan's rows
+(round 1: GHS1–GHS40; round 2: GHS41–GHS65; round 3: GHS66–GHS83; round 4: GHS84–GHS111;
+2026-10-18 core-rule reconciliation: GHS112–GHS114).
 Rules applied: AD3, AD5, AD7, AD8, AD10–AD13, AD23, AD33, AR1–AR16, UR13, UR40–UR48, UR53,
 CX1–CX8, sealed secrets, save safety. Viewports: 1920×1080 primary, MacBook about 1800×1040,
 floors 1536×864 and 1366×768 (UI_RULES, 2026-10-17).
@@ -176,10 +177,11 @@ GHS23. Journal: first entry from the receipt. Layout spec changes only if a new 
 (none in S1).
 
 GHS25. **Checks to reuse or extend (AD36).** `tests/start_records.test.js` (resolver),
-`tests/domain_registry.test.js`, `tests/save_files.test.js` and `save_compatibility.test.js`
-(slices, old-save load), `tests/character_bio.test.js` (heritage rows), `npm run check:arch`
+`tests/domain_registry.test.js`, `tests/save_files.test.js` and the applicable current-state
+`save_compatibility.test.js` cases (old-save migration is currently deferred), `tests/character_bio.test.js` (heritage rows), `npm run check:arch`
 (AR16), `check-r21b.cjs` (start screen, classic), plus a rebuilt browser journey at 1920×1080 and
-1366×768 with save, reload, Export and Import on a fresh, an old custom-bio and a mid-creation save.
+1366×768 with save, reload, Export and Import on fresh and mid-creation current-state saves.
+Record any selected reset/drop policy for older custom-bio saves; unchanged old-save support is not a required gate.
 
 ## 4. Slice ladder
 
@@ -187,8 +189,8 @@ Each slice is a playable checkpoint (CX7). Levels: cheap, balanced, strong (AGEN
 
 | Code | Slice | Contents | Done check | Executor | Effort |
 |---|---|---|---|---|---|
-| GHS26 | **S1: Recorded beginnings** (first slice, one round) | `start` domain and slice; receipt written by PLAY, Roll and Begin; Beginning view with the existing three axes plus a **family** axis (orphan, farm family, scholar's household) and a **life stage** axis (adult default, youth) as tags and text; draft of three; Biography "How you began"; Journal first entry; old-save line | Fresh game: Choose a beginning, adopt a draft card, Begin; the card's facts show in Biography and Journal; save, reload, Export, Import keep the receipt and never reroll; old custom-bio save loads unchanged with the "before beginnings" line; PLAY one-click still works; classic starts; 1920×1080 and 1366×768 evidence; `check:arch` passes | Balanced implementer, strong reviewer for the save slice | M |
-| GHS27 | **S2: Founder heredity and constitution** | `heredity` domain; `frontier.plain` model with about four small factors and two constitution traits (reuse Natural balance as one); founder draw from the receipt; expression into body sources and a `heritage` levelable bucket (GHS66, GHS69: one aptitude, one drawback aptitude); `selfHeritageView`; one discovery route in the Village (a healer or an elder's family memory reveals one latent factor) | A new character shows expressed traits exact and one "not yet known" row; the Village route turns it into a seen claim with its basis; reload keeps the draw; old save stays `drawn:false` until the route, then gains latent factors only | Balanced implementer, strong reviewer | M |
+| GHS26 | **S1: Recorded beginnings** (first slice, one round) | `start` domain and slice; receipt written by PLAY, Roll and Begin; Beginning view with the existing three axes plus a **family** axis (orphan, farm family, scholar's household) and a **life stage** axis (adult default, youth) as tags and text; draft of three; Biography "How you began"; Journal first entry; old-save line | Fresh game: Choose a beginning, adopt a draft card, Begin; the card's facts show in Biography and Journal; save, reload, Export, Import keep the receipt and never reroll; older custom-bio retention or reset/drop is documented under the current compatibility decision; PLAY one-click still works; classic starts; 1920×1080 and 1366×768 evidence; `check:arch` passes | Balanced implementer, strong reviewer for the save slice | M |
+| GHS27 | **S2: Founder heredity and constitution** | `heredity` domain; `frontier.plain` model with about four small factors and two constitution traits (reuse Natural balance as one); founder draw from the receipt; expression into body sources and a `heritage` levelable bucket (GHS66, GHS69: one aptitude, one drawback aptitude); `selfHeritageView`; one discovery route in the Village (a healer or an elder's family memory reveals one latent factor) | A new character shows expressed traits exact and one "not yet known" row; the Village route turns it into a seen claim with its basis; reload keeps the draw; current undrawn state stays `drawn:false` until the route, then gains latent factors only | Balanced implementer, strong reviewer | M |
 | GHS28 | **S3: Inherited start** | Lineage record at a life's end (frozen parents, NK-E2 edges); `inherit()` for one child; between-lives entry and a Beginning view "Born into your line" card; heir comparison line (UI3 minimal) | Finish a life, start as its child: factors come from the frozen parent with the model's rule; estate passes through `heir_inheritance` unchanged; memories and base cheat follow AD11; a fresh random life (P1 default) still offered beside it | Strong implementer | L |
 | GHS29 | **S4: Second world, second model** (proves the seam, AR11) | A second start world (one book or original world) with its own axes and a bloodline-awakening or cultivation-roots model; one nonhuman body template (SS-A hound) admitted on the body axis | Picking that world rolls its own axes; its model draws and expresses without touching `frontier.plain`; the hound start plays its first action; no layout-host edits | Strong implementer, balanced content author | L |
 
@@ -210,9 +212,9 @@ as "a selected slice consumes it".
 | GHS36 | Rivals (RIVALS identity claims) | A rival can hunt or claim a body or line through its own means; theft declares copy/move/lease (later slice) |
 | GHS37 | Making (MR1–MR36) | Samples are information and potential (SO1–SO12); not in S1–S4 |
 | GHS38 | UI surfaces | You header (form, stage), Biography (heritage, how you began), Journal (first entry), Beginning view; at the floors nothing new pushes routine actions off-screen |
-| GHS39 | Time and offline (AD15–AD16) | Aging and growth use `game_time`; offline body time by formula only (MT2–MT3) |
+| GHS39 | Time and offline (AD15–AD18) | Ordinary aging/growth follow the game clock; a selected body/faculty clock can differ through means. Offline processing names that clock and settles time once (GHS112) |
 | GHS41a | Body and health (proposed [BHR1–BHR30](BODY_AND_HEALTH_RULES.md), AD38) | Body conditions key by the `heredity` body instance from S2 on, not by actor (BHF2); a carried skill in a new body keeps knowledge and recalibrates control (BHR29); remedies and constitutions work by their mechanism (AD38) |
-| GHS40 | Settings (AD21) | Body realism is a comfort setting (NA2); heredity effect size is a world dial, explained when changed |
+| GHS40 | Settings (AD21) | Detail visibility is comfort; future difficulty/recovery changes are explained; actual physiology and heredity effects follow world/means, not panel visibility (GHS113) |
 
 ## 6. Decisions for Weibao
 
@@ -447,3 +449,26 @@ Read-only pass 2026-10-17: the owners above, `src/start_records.js`, `src/data/s
 `src/body_progression.js`, `src/domain_registry.js`, `src/seeded_streams.js`, `src/capabilities.js`,
 and commit `dbf1b3ce5` (R21b) on `claude/ui-r21b-retire-selector`. No build, test or browser run;
 docs only.
+
+## Core-rule reconciliation, 2026-10-18
+
+**GHS112, clock ownership (AD13/AD16–AD18).** GHS39's `game_time` is the
+ordinary shared-clock case, not a universal formula. A body/faculty ages or
+practices on its own named clock when a selected means separates clocks.
+Banked time alone grants no time-stop power. Parent records and a body's latent
+truth stay fixed independently of whether the character knows them (MR1, AD7).
+
+**GHS113, settings versus physiology (AD21/AD38).** GHS40's "body realism is a
+comfort setting" needs qualification: hiding detail or changing presentation is
+comfort; changing future recovery/difficulty is an explained setting; changing
+actual body laws needs world/cheat means. Do not remove real stat effects merely
+because a panel is hidden. Current old-save migration is deferred, including
+G25 references; new body state still needs complete persistence.
+
+**GHS114, useful seam proof (AR11/AD36).** When a body-change slice is selected,
+one existing learned method should keep its supported knowledge, recalibrate
+execution through its actual carrier, and give a useful next action. Choose one
+synthetic hidden-lineage case to ensure traits, sorting and ready counts reveal
+only what means permit. This does not require population heredity or S4 before S1.
+Level: strong cross-domain implementation, medium when selected. Done: rebuilt
+current-target UI and current-state save/reload/import, without a second stat store.

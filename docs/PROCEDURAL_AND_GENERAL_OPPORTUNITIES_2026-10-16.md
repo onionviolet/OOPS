@@ -201,3 +201,14 @@ not accepted feature selections or authority to interrupt current playable work.
 two parallel reviews, followed by reconciliation. No runtime change, build,
 gameplay test, source test execution, commit or push. The crafting engine's live
 wiring and rebuilt desktop/persistence gates remain open in [its owner](CRAFTING_ENGINE.md).
+
+## Core-rule reconciliation, 2026-10-18
+
+AD33/SR4 still prioritize authored ruins/world/environment work; NPC-heavy
+commissions and generated layouts are not prerequisites. For the selected site
+slice, a discovered route, access, custody and the means to act stay separate
+(SR5/SR8/SR15/SR19). An unknown hazard still acts (MR1), but warnings, route
+badges and recap reveal only known facts (AR8). Withdrawal retains real changed
+site state and spent supplies; renewal names its cause and clock (SR14/SR20/SR21,
+G26–G28). One useful find → preparation/use → persistent aftermath is the proof,
+not a count of generated sites. No new site implementation is selected.

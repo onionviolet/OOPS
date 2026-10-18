@@ -1,5 +1,14 @@
 # Procedural generation wave 1: plan
 
+**Current use, reconciled 2026-10-18:** this is the original wave plan, not
+an active lane roster. [STATUS](STATUS.md) records P1–P4 integrated as `4e13f97f`
+and G1/GX5/P34 integrated as `759dd393`, with separate open B1–B3 and human
+acceptance gates. Documentation returns/folds and cancelled duplicate WR lanes
+are listed there. Recover exact current consumers before selecting another slice.
+Later direction defers NPC-heavy expansion and procedural layouts; see
+[the opportunities owner](../../../PROCEDURAL_AND_GENERAL_OPPORTUNITIES_2026-10-16.md).
+Current UI_RULES targets and compatibility decisions apply to new proof.
+
 Date: 2026-10-13. Authority: Weibao, 2026-10-13, after the [status map](../../../PROCEDURAL_GENERATION_STATUS_2026-10-13.md): "expand and then send out slices with relevant codex in parallel". Earlier direction: [USER_VISION](../../../USER_VISION.md) 2026-10-09 "random events, interactions, people, enemies... unscripted stuff", then implement each once comprehensive; procedural potions from mixing (materials audit request).
 
 Root coordinator: Claude session in the main checkout. Root owns this folder's PLAN/STATUS, integration and merges. Each worker owns only its worktree branch and its `pN/` report folder.

@@ -194,3 +194,14 @@ This round applies it to bodies and medicine. New angles only.
 | BHF3 | One tolerance owner (BHX4, BHN7) | First health slice that touches poison (BHL2) |
 | BHF4 | Shared defeat publisher (BHC31) before any injury-on-defeat setting | BHL7 |
 | BHF5 | One body projection for the four care hosts (BHN8) | BHL6, the cheapest first health slice |
+
+## Round 3: cross-system care boundaries, 2026-10-18
+
+**BHC38.** A treatment can restore function while its cause remains, and a safety stop need not disclose that cause. Tie the selected care-needed boundary to the real condition clock and interrupted work owner (BHR18/BHR28, MR1, G26–G28). Default: settle actual effort and continue only under the chosen routine policy. Dial: body/faculty clocks and forewarned harsher recovery. Reason: hidden illness should neither be inert nor announce itself through a badge.
+
+ACT NOW: reconcile the rule owner and repeatable audit routing where one exists.
+ACCOUNT FOR NOW: apply this to a selected consumer; it adds no independent store,
+clock or generic resolver. LATER: one synthetic composed case at that seam,
+strong cross-domain agent, medium effort when selected; done by relevant source
+checks and a useful rebuilt desktop journey with current-state persistence.
+No runtime change or new implementation priority in this round.

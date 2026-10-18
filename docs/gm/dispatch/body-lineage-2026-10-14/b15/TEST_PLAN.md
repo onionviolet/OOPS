@@ -9,8 +9,10 @@ shared checkout. Root decides source write allocation; this plan grants none.
 
 ## T0 Candidate and evidence setup
 
-Primary viewport: 1366x768 CSS pixels, Workspace, 100% zoom. Test Standard and
-Vivid. Preserve a saved custom layout as a compatibility case; test laptop
+Current viewport set: 1920×1080, the actual MacBook viewport (about 1800×1040
+CSS pixels), 1536×864 and 1366×768, each at 14px/21px under UI_RULES. Preserve
+the selected presentation; Standard/Vivid remain scoped cases where supported,
+not permission to reset the stored layout. Preserve a custom layout; test laptop
 zoom/text growth as affected accessibility, not mobile optimization. No personal
 saves. Use disposable fresh origins, real native creation and actual supported
 body actions. Synthetic fixtures can cover controlled hidden/conflict/failure
@@ -126,3 +128,19 @@ under its own assigned folder. Missing native acquisition, persistence or leak
 proof cannot be replaced by JSON validation or a wireframe. Mobile optimization
 remains deferred. Human judgment of fiction, costs and layout feel stays a
 separate acceptance state after technical gameplay evidence.
+
+## Current rule-fit qualification, 2026-10-18
+
+All S/N/P/L cases remain NOT RUN. Legacy-save rows are optional under the
+current compatibility decision; retained new lens/evidence still needs the real
+serializer/import path. Observer-safe display does not mean removing required
+private/opaque data from the native save, and browser-local preference evidence
+belongs to its own reload/reset owner (AR6/AR8, AD35).
+
+A lens's actual means decide which latent facts it can read. Free legitimate
+observation may commit a supported knowledge update through the existing owner;
+re-rendering or selecting an unrelated body must not create evidence or carry
+an old body's inspection permissions forward (AD6–AD9/AD38). A version or
+source-qualified stale report remains an attributed claim, not a new reading of
+today's truth. Developer labels/counters must not reveal sealed fact counts.
+No particular cheat, body feature or new rendering system is authorized here.

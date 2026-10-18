@@ -174,3 +174,14 @@ card, and family and life-stage axes. Proposal only.
 ## Premise hooks, 2026-10-14
 
 Research, proposals only. [Premise hook audit](research/PREMISE_HOOK_AUDIT_2026-10-14.md) owns the H1-H6 hook grammar for comedic and ironic openings (the dragon egg raised by an unsuspecting snake), pattern families PD/PC/PS/PY/PV/PK, engine pieces PE1-PE12 mapped onto E, NK, GR, P1 and V1/V3, per-world fit and five suggestions S1-S5 for a first generator slice on the Village probe. Works: [premise hook source catalog](research/PREMISE_HOOK_SOURCE_CATALOG_2026-10-14.md). Direction: [USER_VISION](USER_VISION.md#premise-hooks-and-a-premise-generator-2026-10-14). Its S/RN codes are local to those files.
+
+## Current core-rule routing, 2026-10-18
+
+This index's original rounds-1–16 scope is historical, not a current entry
+algorithm. AD23 and [GHS112–GHS114](GENETICS_AND_HERO_START_PLAN_2026-10-17.md#core-rule-reconciliation-2026-10-18)
+qualify later starts: guided randomness, vanilla optional, hidden latent factors
+behind means, and no population simulation required before a small start slice.
+A preview, pool count or lock reason cannot disclose a hidden world's trait;
+rolling/previewing must not consume committed attempts (MR2, AR7/AR8).
+A start's authoring coverage is separate from its canon laws. No start is chosen
+or rerolled by this documentation edit.

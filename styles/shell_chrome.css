@@ -143,3 +143,68 @@ font-size:var(--shell-context-size,var(--ui-type-body));line-height:1.25;color:v
 :root[data-one-bar="true"] #game_bar .game-bar-work-chip {width:15em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;text-align:left;font:inherit;font-size:.85em;font-variant-numeric:tabular-nums;padding:.1em .5em;color:var(--p23-text);background:transparent;border:1px solid var(--p23-line);cursor:pointer;}
 :root[data-one-bar="true"] #game_bar .game-bar-work-chip:hover {background:var(--p23-hover-fill);}
 :root[data-one-bar="true"] #game_bar .game-bar-work-chip[hidden] {display:none;}
+
+/* UIL8: Condition is a registered reference panel; native body/effects, no extra clock. */
+#main_content.workspace-active[data-parity="r3"] #shell_condition {padding:.2em .45em;min-width:0;font:inherit;color:var(--p23-text);}
+#main_content.workspace-active[data-parity="r3"] #shell_condition p {margin:.15em 0;line-height:1.3;}
+#main_content.workspace-active[data-parity="r3"] #shell_condition button,
+#main_content.workspace-active[data-parity="r3"] .scene-conditions button {font:inherit;line-height:1.25;color:inherit;background:transparent;border:0;text-align:left;padding:0;text-decoration:underline;text-underline-offset:.15em;cursor:pointer;}
+#main_content.workspace-active[data-parity="r3"] .condition-warning {display:inline-block;color:var(--sem-blocked);border:1px solid currentColor;padding:0 .25em;margin-left:.35em;font:inherit;}
+#main_content.workspace-active[data-parity="r3"] .condition-warning[hidden] {display:none;}
+#main_content.workspace-active[data-parity="r3"] #shell_condition .shell-secondary-stats {margin:.2em 0;}
+#main_content.workspace-active[data-parity="r3"] #shell_condition .shell-secondary-stat {color:inherit;}
+#main_content.workspace-active[data-parity="r3"] #shell_condition[data-custom-palette="true"] .shell-secondary-stat strong {color:var(--custom-text);}
+#main_content.workspace-active[data-parity="r3"] [data-context-preview="temperature"]:focus-visible {outline:2px solid var(--p23-value);outline-offset:2px;}
+#main_content.workspace-active[data-parity="r3"] .condition-status {display:flex;align-items:baseline;flex-wrap:wrap;gap:0 .5em;}
+#main_content.workspace-active[data-parity="r3"] #shell_condition .condition-summary {color:var(--p23-muted);}
+#main_content.workspace-active[data-parity="r3"] #shell_condition details {margin:.1em 0;}
+/* You keeps its intrinsic content height so Condition follows the sheet, rather than its filler. */
+#main_content.workspace-active[data-parity="r3"] .parity-region > .workspace-module[data-module="shell-character"] {flex:0 1 auto!important;}
+#main_content.workspace-active[data-parity="r3"] #shell_condition {font-size:var(--custom-size,var(--shell-context-size,var(--ui-type-body)));line-height:1.3;}
+/* Bound the weather group so its longer label leaves room for the native calendar. */
+#main_content.workspace-active[data-parity="r3"] #village_scene .scene-conditions {max-width:19em;}
+
+/* UIL8 R2: one aligned Attributes/Gear control row, independent of active effects. */
+#main_content.workspace-active[data-parity="r3"] .shell-character-tools {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-items:start;flex:0 0 100%;width:100%;min-width:0;}
+#main_content.workspace-active[data-parity="r3"] .shell-character-tools > .shell-attributes-open,
+#main_content.workspace-active[data-parity="r3"] .shell-character-tools > .shell-gear-disclosure > summary {box-sizing:border-box;min-height:0;width:100%;margin:0!important;padding:.15em .4em!important;font:inherit;line-height:1.3;text-align:center;color:inherit;background:transparent!important;border:0!important;border-bottom:1px solid var(--p23-quiet-line)!important;}
+#main_content.workspace-active[data-parity="r3"] .shell-character-tools > .shell-gear-disclosure {margin:0;min-width:0;width:100%;}
+#main_content.workspace-active[data-parity="r3"] .shell-character-tools > .shell-gear-disclosure[open] {grid-column:1/-1;}
+
+/* Local header flow: place/weather first, complete calendar and local tabs below. */
+#main_content.workspace-active[data-parity="r3"] #village_scene {display:block;}
+#main_content.workspace-active[data-parity="r3"] #village_scene > .scene-location-header {display:flex;flex-wrap:wrap;align-items:baseline;gap:.15em .6em;margin:0;}
+#main_content.workspace-active[data-parity="r3"] #village_scene .scene-location-header > strong {margin-right:auto;}
+#main_content.workspace-active[data-parity="r3"] #village_scene .scene-conditions {display:flex;flex-wrap:wrap;align-items:baseline;justify-content:flex-start;gap:.15em .6em;max-width:100%;min-width:0;text-align:left;line-height:1.25;}
+#main_content.workspace-active[data-parity="r3"] #village_scene .scene-conditions > :is(span,button) {line-height:1.25;white-space:nowrap;}
+#main_content.workspace-active[data-parity="r3"] #village_scene .scene-place-footer {display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:.15em .6em;}
+#main_content.workspace-active[data-parity="r3"] #village_scene .scene-place-footer[hidden] {display:none!important;}
+#main_content.workspace-active[data-parity="r3"] #village_scene .scene-calendar {flex:0 1 auto;min-width:0;}
+#main_content.workspace-active[data-parity="r3"] #village_scene .scene-local-tabs {margin-left:auto;padding:0;border:0;gap:.2em;font-size:.85em;}
+#main_content.workspace-active[data-parity="r3"] #village_scene .scene-local-tabs > button {padding:0 .3em;line-height:1.3;}
+#main_content.workspace-active[data-parity="r3"] .workspace-module[data-module="village-scene"] > .workspace-module-body {max-height:none!important;}
+
+/* Status effects have one readable, keyboard-inspectable list. No duplicated weather or names. */
+#main_content.workspace-active[data-parity="r3"] .condition-effects {display:flex;flex-direction:column;gap:.1em;}
+#main_content.workspace-active[data-parity="r3"] #shell_condition .condition-effect {display:grid;grid-template-columns:minmax(0,1fr) auto auto;align-items:baseline;gap:.5em;width:100%;text-decoration:none;padding:.1em 0;border-bottom:1px solid var(--p23-quiet-line);}
+#main_content.workspace-active[data-parity="r3"] .condition-effect-name {min-width:0;overflow-wrap:anywhere;text-decoration:underline;text-underline-offset:.15em;}
+#main_content.workspace-active[data-parity="r3"] .condition-effect-duration {font-variant-numeric:tabular-nums;white-space:nowrap;color:var(--p23-value);}
+#main_content.workspace-active[data-parity="r3"] .condition-effect-kind {font:inherit;color:var(--p23-muted);}
+#main_content.workspace-active[data-parity="r3"] .condition-effect[data-effect-kind="debuff"] .condition-effect-kind {color:var(--sem-blocked);}
+#main_content.workspace-active[data-parity="r3"] .condition-effect[data-effect-kind="buff"] .condition-effect-kind {color:var(--sem-gain);}
+#main_content.workspace-active[data-parity="r3"] .condition-effect[data-ended="true"] {color:var(--p23-muted);}
+/* Keep core facts and aligned tools intact; whole secondary rows yield first. */
+#main_content.workspace-active[data-parity="r3"] .workspace-module[data-module="shell-character"] > .workspace-module-body {display:flex;flex-direction:column;}
+#main_content.workspace-active[data-parity="r3"] #proto23_character {display:flex;flex-direction:column;flex-wrap:nowrap;flex:1 1 auto;min-height:0;height:auto;}
+#main_content.workspace-active[data-parity="r3"] #proto23_character > .shell-statline,
+#main_content.workspace-active[data-parity="r3"] #proto23_character > .shell-character-tools {flex:0 0 auto;width:100%;}
+#main_content.workspace-active[data-parity="r3"] #proto23_character > .shell-secondary-stats {flex:0 1 auto;min-height:0;overflow:auto;}
+#main_content.workspace-active[data-parity="r3"] .parity-region > .workspace-module[data-module="condition"] {display:flex;flex-direction:column;flex:0 1 auto;min-height:0;}
+#main_content.workspace-active[data-parity="r3"] .workspace-module[data-module="condition"] > .workspace-module-body {min-height:0;overflow:auto;}
+#main_content.workspace-active[data-parity="r3"] #village_scene .scene-conditions > button,
+#main_content.workspace-active[data-parity="r3"] #shell_condition .condition-effect {min-height:0!important;height:auto!important;}
+/* At a constrained height, status names take priority over secondary numeric rows. */
+#main_content.workspace-active[data-parity="r3"] .parity-region > .workspace-module[data-module="shell-character"] {flex:0 1 auto!important;}
+#main_content.workspace-active[data-parity="r3"] .workspace-module[data-module="condition"]:has(.condition-effect:nth-child(1)) {min-height:calc(var(--custom-size,var(--shell-context-size,var(--ui-type-body)))*3.3)!important;}
+#main_content.workspace-active[data-parity="r3"] .workspace-module[data-module="condition"]:has(.condition-effect:nth-child(2)) {min-height:calc(var(--custom-size,var(--shell-context-size,var(--ui-type-body)))*4.8)!important;}
+#main_content.workspace-active[data-parity="r3"] .workspace-module[data-module="condition"]:has(.condition-effect:nth-child(3)) {min-height:calc(var(--custom-size,var(--shell-context-size,var(--ui-type-body)))*6.3)!important;}

@@ -1,5 +1,17 @@
 # Foundation, dialogue and research implementation joins
 
+**Current reuse qualification, 2026-10-18:** the
+[full-world checkpoint](../gm/dispatch/world1-full-completion-2026-10-11/CHECKPOINT.md)
+distinguishes the historical host-goal pause from a later separately authorized
+W1 successor, recorded ended with open gates at the parent's deadline check.
+Its historical exclusive integration text grants no current lease or resume.
+The later [Foundation report](../gm/dispatch/foundation-completion-2026-10-12/REPORT.md)
+records finite technical closure and an explicit ownership release; the separate
+[FA checkpoint](../gm/dispatch/foundation-adoption-next-2026-10-13/CHECKPOINT.md)
+retains its own incomplete horizon. Recover actual owners before any shared write.
+This crosswalk remains proposals; current architecture/compatibility decisions
+qualify the dated migration and engine recommendations below.
+
 2026-10-12. Requested reconciliation, including the supplied screenshot of
 the cross-world reference return and the authoring-tool follow-up. Proposals
 only; no runtime dispatch, install, source edit or gameplay check.
@@ -237,3 +249,15 @@ fiction/pacing review stays visible without keeping autonomous chains running.
 Existing no-commit/push/install/publication limits travel with every handoff.
 The active workflow audit remains audit-only; implementing and auto-dispatching
 this broader foundation chain require their own selected execution scope.
+
+## Reuse without repeating old waves, 2026-10-18
+
+The [supersession ledger](plan-rule-reconciliation-2026-10-18/SUPERSESSION_GROUPS.md)
+groups historical launch/checkpoint instructions under current owners. Source
+findings, unresolved joins and failed evidence survive the grouping. A folded
+research wave is not proof its proposals were built, and a delivered runtime
+manifest is not human acceptance. Existing three-scale dialogue/research joins
+remain a palette for selected work, not a new required foundation bundle.
+Any reuse of a source recipe follows actual means and current AR7/AR8, including
+free observation through a real knowledge owner; re-rendering alone grants no
+new evidence, reward or authorization. No daisy-chain or worker is started here.

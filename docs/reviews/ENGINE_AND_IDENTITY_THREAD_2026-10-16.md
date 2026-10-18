@@ -80,8 +80,8 @@ unimplemented (CL25). Open for Weibao: build order and first prestige trigger.
 ## Open decisions for Weibao
 
 1. Game name (GN4 or another), then the player-facing rename (GN9).
-2. Whether to run M2.5 on `codex/modular-seams`: merge HEAD, fold C1–C8 and N1–N8
-   into the registry under ER12, then resume M3 crafting with scenarios.
+2. Resume timing for the [updated modular plan](../gm/dispatch/modular-seams-2026-10-16/BRIEF.md).
+   M3 remains stopped; M2.5 is conditional hardening rather than a C/N bundle.
 3. `w1-campaign` from the triage.
 
 ## Deeper passes worth running when wanted
@@ -90,3 +90,33 @@ unimplemented (CL25). Open for Weibao: build order and first prestige trigger.
 - Offline progress semantics per world (L6), a design pass.
 - A generated world past for one world (L2), using the Qud and Dwarf Fortress research.
 - A stats and modifiers audit (L7).
+
+
+## Modular engine and redesign continuation, 2026-10-16
+
+Weibao: "Consider the modular engine stuff and redesign and more?"
+[Core engine round 2](CORE_ENGINE_AND_RUNTIME_CONSIDERATIONS_2026-10-16.md#round-2-modular-engine-redesign-and-delivery-2026-10-16)
+adds MX1–MX12, proposals only. It qualifies the earlier M2.5 bundle and numerical
+rewrite threshold, restores AD16 inactive-world pause as the default, and traces
+load failure, command ownership, bulk-time boundaries, scenario parity and
+lifecycle/provenance concerns. Recommended next proposal is the stopped M3
+native journey, then a different existing consumer to test the smallest seam.
+The live worktree checkpoint was read; its runtime gates were not rerun. No run
+was resumed, no branches merged, and no naming or core-loop decision changed.
+
+
+## Current modular continuation plan, 2026-10-16
+
+Weibao requested a plan update for the interaction/engine gaps before continuing.
+[BRIEF MP1–MP10](../gm/dispatch/modular-seams-2026-10-16/BRIEF.md) is now the
+executable continuation owner in both checkouts. It supersedes the open-decision
+row above that proposed folding all C/N fields into M2.5: hardening is conditional
+on the traced current need; M3 remains stopped and its existing gate comes first.
+M4 is a planned cross-domain reuse proof. [EI13–EI22](../ENGINE_EXPANSION.md#future-fit-engine-plan-useful-depth-and-iteration-2026-10-16)
+retain future requirements with triggers and observable done checks. This planning
+edit launches no worker and selects no game name or new core loop.
+
+Superseded open-decision wording, retained verbatim for history (2026-10-16):
+
+2. Whether to run M2.5 on `codex/modular-seams`: merge HEAD, fold C1–C8 and N1–N8
+   into the registry under ER12, then resume M3 crafting with scenarios.

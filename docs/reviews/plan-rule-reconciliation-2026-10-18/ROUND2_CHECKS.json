@@ -1,0 +1,12 @@
+{
+  "round": 2,
+  "link_anchor_pairs": 21,
+  "replaced_fragments_preserved": 20,
+  "B2_case_IDs_retained": 43,
+  "keyword_screened_records": 762,
+  "newly_section_reviewed_plan_records": 27,
+  "remaining_indexed_only": 735,
+  "git_diff_check_exit": 0,
+  "failures": [],
+  "active_UI_amendment_applied": false
+}

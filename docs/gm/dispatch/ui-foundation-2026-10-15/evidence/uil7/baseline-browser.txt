@@ -1,0 +1,8 @@
+open 1920 14
+opened
+open 1920 21
+opened
+open 1366 14
+opened
+open 1366 21
+opened

@@ -1,6 +1,6 @@
 # Current game direction
 
-Updated 2026-10-15. Navigation summary of accepted direction, not a new
+Updated 2026-10-18. Navigation summary of accepted direction, not a new
 specification or proof of implemented gameplay. [USER_VISION](USER_VISION.md)
 preserves original requests; [PROJECT](../PROJECT.md#accepted-decisions)
 summarizes accepted decisions. Detailed owners retain their mechanics and evidence.
@@ -30,6 +30,23 @@ remain proposals, including its pillar draft.
 | OD24 | Player-chosen pursuits, useful guidance and optional campaigns. Goals can arise from cheats, relationships and responsibilities. No single compulsory global main quest. Remembered goals optional; cross-run notes useful. Actual duties follow world/means, with soul contracts/cheats able to carry benefits/burdens. Exact mechanics open. | [Goals answer](USER_VISION.md#overarching-direction-discussion-od24-2026-10-15); [goal owner](CHARACTERS_AND_WORLD_EVENTS.md#od24-player-goals-guidance-and-commitments-2026-10-15) |
 | OD25 | Known actions plus means-based experiments/research for new uses. Failed experiments can teach; cheats can help discover combinations. Procedural/modular techniques are considerations, not a chosen universal resolver. | [Experiment answer](USER_VISION.md#overarching-direction-discussion-od25-2026-10-15); [interaction owner](PLAY_BEYOND_MENU_SELECTORS_CONSIDERATIONS_2026-10-14.md#od25-experiments-failure-and-discovery-2026-10-15) |
 | OD9 | Maintain this short linked summary and mark conflicting older proposals as dated history. | [Consolidation request](USER_VISION.md#overarching-direction-discussion-od9-2026-10-15) |
+
+## Current rule and queue overrides, 2026-10-18
+
+The [rules index](RULES_INDEX.md) routes current work, including AD38: outcomes
+follow actual mechanisms rather than category permission lists. The later
+[old-save decision](USER_VISION.md#old-save-compatibility-deferred-2026-10-17)
+defers old-save compatibility; current-state save/reload/import remains relevant.
+[Content ID retirement](USER_VISION.md#content-id-retirement-and-frozen-world-idle-2026-10-18)
+has its own explicit decision and does not waive AR6 generally. New desktop UI
+evidence follows [UI_RULES](UI_RULES.md): 1920×1080 primary, 1366×768 floor;
+mobile remains deferred.
+
+[Current queues](IDEA_INDEX.md#current-queue-routing-2026-10-18) distinguish UI
+A1/A2 from engine A1/A2, retain RS26's UI merge/play gate, and route M3 to its
+later evidence. The [plan/rule reconciliation](reviews/PLAN_RULE_RECONCILIATION_2026-10-18.md)
+qualifies older plan language. Dated discussion and proposed engineering reviews
+below retain their original status; they are not fresh dispatch instructions.
 
 ## Reconciled cheat and research answers
 

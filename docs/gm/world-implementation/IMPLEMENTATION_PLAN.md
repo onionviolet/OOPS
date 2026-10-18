@@ -485,3 +485,22 @@ Engine and Ability safe-boundary replies and saved resume state are recorded in 
 | Failure and release gates | Existing save rules remain; new-world loss/death/rebirth is declared at entry and reviewed. Current extra test suites remain deferred, with built-unverified and later behavior/human gates shown separately |
 
 After Weibao reviews the wider world scope, record accepted decisions/reservations and continue each selected complete-world objective through all required IDs. The selected Frontier code/build objective is delivered with its behavioral/director backlog; skills/discovery retain their delivered foundation. No approval of the nineteen-world roster, Frontier runtime, second prestige, external dependencies or unrelated adapters is inferred. Completed audits remain receipts; no duplicate review/source-reading cascade is needed.
+
+## Current applicability of the staged plan, 2026-10-18
+
+Revision23's delivered five-row scope and its explicit unrun acceptance families
+remain the evidence boundary; the older held qualification pair/five-phase plan
+is historical guidance, not a current command to restart those worlds. In
+particular, a scope-specific test deferral from that delivery does not exempt a
+newly authorized unrelated slice from today's required checks (AD36, AR16).
+No test is run by this docs pass and deferred receipts are not rewritten.
+
+Before any later selected work, recover current RULES_INDEX and world priority,
+AR1–AR16 and relevant MR/SR/UR, the later compatibility decision, input identity
+and actual file writer. Keep one useful playable slice as the delivery unit;
+complete-world coverage remains a separate horizon, not a prerequisite bundle
+for that slice (AD33). Registration, source fidelity, knowledge, ownership,
+activation and playable integration remain different facts. Use mechanisms rather
+than permission lists (AD38), and apply G26–G30 only where a real consumer needs
+the clock, interrupted-work or reaction seam. No new code/schema/roster/dispatch
+or standing commit/push authority is selected here.

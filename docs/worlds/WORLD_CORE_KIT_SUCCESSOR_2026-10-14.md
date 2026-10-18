@@ -222,3 +222,28 @@ cross-world authoring tools. Each row is a default and a dial, set per world.
 3. **KN1, KN2 and KN3** for Village first, since it is the live slice. Small;
    done when a rebuilt desktop journey shows a night lighting cost, one game and
    one waste job.
+
+## Round 20: rule-fit across world details, 2026-10-18
+
+**KF1, texture is an authoring palette (AD5/AD33/AD36).** Round 19's "every world
+needs" phrasing means inspect the relevant ordinary-life consequence, not require
+pests, funeral mechanics or one hour-by-hour simulated day in every world. A
+world whose law removes that need states the reason; a selected playable slice
+can leave unrelated parts thin. NPC-heavy work and layouts remain deferred.
+
+**KF2, origin is provenance, destination has mechanisms (AD38/WA14).** A carried
+item keeps its origin and actual internal mechanism; operation also depends on
+local supplies, physics and crossing means. "Uses home rules" is not an automatic
+exception to destination law. KN6 local display measures do not imply one fixed
+exchange rate or universal power-level conversion (AD27/AD28).
+
+**KF3, one useful joined case (AR10/AR11, SR14/SR20/SR21).** For the next selected
+world slice, use a known route → real access → useful resource/tool use → persistent
+site aftermath. Name clock and custody owners; a stopped routine retains spent
+supplies and unused time once (G26–G30). Coverage lint and a deep dossier cannot
+substitute for that played consumer.
+
+ACT NOW: update kit/audit routing and rule clarifications. ACCOUNT FOR NOW:
+apply KF1–KF3 only to the selected kit parts. LATER: strong world/runtime agent,
+medium for one selected joined case; done with source-qualified laws, actual
+consumer and rebuilt current-target persistence evidence. No lanes launched.

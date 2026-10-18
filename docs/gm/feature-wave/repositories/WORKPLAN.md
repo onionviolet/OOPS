@@ -105,3 +105,21 @@ Snapshot hashes, observed at this worker handoff:
 | Read Features `INTERFACE.md` | `764b12915648619a84cc86f6907806b340190f42a9549ca1bde20021f2fd472d` |
 
 Live other-owner changes can supersede these read snapshots. This file and the helper are released to root for integration. No worker process or child is left running.
+
+## Current rule-fit qualification, 2026-10-18
+
+This is a released helper contract and source snapshot, not the root's live
+implementation queue (AD32/AD36). Its definition limits and `count:1` constrain
+this finite API's request shape, not the player's lifetime work or the world's
+mechanisms (AD22/AD38). A later batch API needs its own actual settlement proof;
+do not silently multiply an existing quote.
+
+Keep AR7/AR8 at preview → revalidation → publication. Read-only roadmaps,
+transient continuation tokens and queued intentions are not completed work,
+accepted obligations or durable policies. A blocked future step stays a known
+blocked/unbuilt step; it does not fabricate world impossibility or spend future
+stock. On a selected interrupt, retain already performed work and actual held
+costs through the existing owner, without counting pending time twice.
+Current-state persistence is required if a selected change adds saved policy;
+old-save migration is currently deferred. No helper tests or integration were
+rerun and no new planner framework is required.

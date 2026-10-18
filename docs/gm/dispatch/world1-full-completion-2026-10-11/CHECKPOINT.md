@@ -1,4 +1,15 @@
-# Full-world completion checkpoint: paused
+# Full-world completion: historical pause and later successors
+
+**Later scope and evidence, reconciled 2026-10-18:** the
+[foundation parent checkpoint](../foundation-adoption-next-2026-10-13/CHECKPOINT.md)
+records Weibao's later G9 authorization and then "send the full World1 campaign
+after G9 with codex". It records a separate W1 campaign session and its final
+2026-10-14 deadline disposition: ended, full section gates still open, final tip
+unmerged at that check. The original host goal's paused state below is historical;
+this audit does not alter that goal, verify today's branch/process state or
+resume either run. Do not ask Weibao to re-authorize the already recorded scope
+merely because an older paragraph says the campaign remains paused (AD32).
+Any continuation still recovers the actual current owner, input and remaining gate.
 
 2026-10-12. Owner `01a12e25-4154-7090-bcc2-d434478da4cc`. Weibao explicitly paused this goal for foundational/progression work. STATE.goalStatus is paused and requires explicit human resume. No successor was created. No active implementation writer, internal worker or proof browser remains. API get_goal returned null in this chat; no update_goal call applied.
 
@@ -31,5 +42,6 @@ leaf remains OPEN. 613/613 tests and 13 retained
 route contracts pass **source**. No runtime source changes. The
 [R15 G9 report](../foundation-adoption-next-2026-10-13/rounds/r15/g9/REPORT.md)
 owns exact scope, controlled-clock/persistence evidence and the broader regional
-language-native limit. Historical failures and receipts stay unchanged. The full
-S00–S14 campaign remains paused; resuming it is Weibao's next decision.
+language-native limit. Historical failures and receipts stay unchanged. At this bounded G9 handoff, the full S00–S14 campaign remained paused. The
+parent checkpoint later records the separately authorized W1 campaign and its
+ended/incomplete disposition; use that later scoped record for recovery.

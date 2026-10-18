@@ -671,3 +671,18 @@ are where implementation planning starts; they are not new research lanes.
 
 Wave folded 2026-10-14. All outputs are proposals. No code, build, test or
 browser verification was run by this wave.
+
+## Current plan selection boundary, 2026-10-18
+
+The nonhuman session ledger records the research wave folded. Its F/B/E/K
+census and prototype counts are dated inputs, not evidence that each listed
+seam is still missing or a required framework before any start can work.
+Current GHS112–GHS114 and AR rules own selection: choose one supported
+body/faculty, one useful native action and its actual custody/control/clock
+consumer. Form labels do not grant senses or forbid a supported mechanism
+(AD6/AD13/AD38); broad NPC-body society remains deprioritized (AD33).
+
+Current compatibility permits dropping/resetting old state by recorded choice;
+new selected state still round-trips. Agent-private sealed inspection is allowed,
+while public discovery stays behind means. A complete biology taxonomy, new
+controller ontology or migration framework is not a new prerequisite bundle.

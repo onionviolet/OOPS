@@ -1,0 +1,148 @@
+TAP version 13
+# Subtest: every panel lands in the same region as in R16, idle and in a fight
+ok 1 - every panel lands in the same region as in R16, idle and in a fight
+  ---
+  duration_ms: 2.415625
+  type: 'test'
+  ...
+# Subtest: default shell order matches R16 for the parity shell and the plain shell
+ok 2 - default shell order matches R16 for the parity shell and the plain shell
+  ---
+  duration_ms: 0.908959
+  type: 'test'
+  ...
+# Subtest: companions and top-row numbers match R16 (R21: Skills left the idle default)
+ok 3 - companions and top-row numbers match R16 (R21: Skills left the idle default)
+  ---
+  duration_ms: 2.951125
+  type: 'test'
+  ...
+# Subtest: a panel can be moved or a companion added by data alone
+ok 4 - a panel can be moved or a companion added by data alone
+  ---
+  duration_ms: 0.317167
+  type: 'test'
+  ...
+# Subtest: R21 placement: swaps main boxes, places companions, keeps the log and defaults
+ok 5 - R21 placement: swaps main boxes, places companions, keeps the log and defaults
+  ---
+  duration_ms: 2.360792
+  type: 'test'
+  ...
+# Subtest: UIL1 route table keeps the R21 routes, labels, hotkeys and tabs in bar order
+ok 6 - UIL1 route table keeps the R21 routes, labels, hotkeys and tabs in bar order
+  ---
+  duration_ms: 0.532833
+  type: 'test'
+  ...
+# Subtest: UIL1/UIL4 the spec reads v2 and v3 placements unchanged and still drops v1 (GU6)
+ok 7 - UIL1/UIL4 the spec reads v2 and v3 placements unchanged and still drops v1 (GU6)
+  ---
+  duration_ms: 0.396291
+  type: 'test'
+  ...
+# Subtest: UIL4 contextOf: combat beats an open service view, which beats travel, which beats idle
+ok 8 - UIL4 contextOf: combat beats an open service view, which beats travel, which beats idle
+  ---
+  duration_ms: 0.278917
+  type: 'test'
+  ...
+# Subtest: UIL4 the new contexts use spec defaults and keep the idle homes and the log column
+ok 9 - UIL4 the new contexts use spec defaults and keep the idle homes and the log column
+  ---
+  duration_ms: 1.103917
+  type: 'test'
+  ...
+# Subtest: UIL4 a placement is stored per context and one context never changes another
+ok 10 - UIL4 a placement is stored per context and one context never changes another
+  ---
+  duration_ms: 0.68825
+  type: 'test'
+  ...
+# Subtest: UIL7 sizes migrate additively, stay per-context, and reset with placements
+ok 11 - UIL7 sizes migrate additively, stay per-context, and reset with placements
+  ---
+  duration_ms: 0.451083
+  type: 'test'
+  ...
+# Subtest: UIL7 split clamps protect both adjacent regions including Reports
+ok 12 - UIL7 split clamps protect both adjacent regions including Reports
+  ---
+  duration_ms: 2.093208
+  type: 'test'
+  ...
+# Subtest: top row follows You when idle and ignores long place prose
+ok 13 - top row follows You when idle and ignores long place prose
+  ---
+  duration_ms: 2.114292
+  type: 'test'
+  ...
+# Subtest: in a fight the taller of You and the opponent cards sets the top row
+ok 14 - in a fight the taller of You and the opponent cards sets the top row
+  ---
+  duration_ms: 0.183917
+  type: 'test'
+  ...
+# Subtest: the bottom row keeps eleven text lines and the top row at most 62% of the board
+ok 15 - the bottom row keeps eleven text lines and the top row at most 62% of the board
+  ---
+  duration_ms: 0.105666
+  type: 'test'
+  ...
+# Subtest: a nearly empty You still gets ten text lines
+ok 16 - a nearly empty You still gets ten text lines
+  ---
+  duration_ms: 0.093083
+  type: 'test'
+  ...
+# Subtest: companions: idle shows Journal (R21: Skills off by Weibao's word), a fight shows Skills only, undiscovered stay out
+ok 17 - companions: idle shows Journal (R21: Skills off by Weibao's word), a fight shows Skills only, undiscovered stay out
+  ---
+  duration_ms: 1.51825
+  type: 'test'
+  ...
+# Subtest: rows that yield grow the top row only up to the R14 default
+ok 18 - rows that yield grow the top row only up to the R14 default
+  ---
+  duration_ms: 0.189541
+  type: 'test'
+  ...
+# Subtest: on a tall screen yielding rows may use 38% of the viewport, as the R14 default did
+ok 19 - on a tall screen yielding rows may use 38% of the viewport, as the R14 default did
+  ---
+  duration_ms: 0.300417
+  type: 'test'
+  ...
+# Subtest: R21 control box and bar helpers
+ok 20 - R21 control box and bar helpers
+  ---
+  duration_ms: 8.656
+  type: 'test'
+  ...
+# Subtest: UI changes introduce no unreviewed colors, fonts, radii, cssText or foreign-host insertion
+ok 21 - UI changes introduce no unreviewed colors, fonts, radii, cssText or foreign-host insertion
+  ---
+  duration_ms: 953.817
+  type: 'test'
+  ...
+# Subtest: UI contract catches new literal styling and aliased/direct foreign panel insertion
+ok 22 - UI contract catches new literal styling and aliased/direct foreign panel insertion
+  ---
+  duration_ms: 0.22675
+  type: 'test'
+  ...
+# Subtest: every panel declares a surface type and every route resolves through the route table
+ok 23 - every panel declares a surface type and every route resolves through the route table
+  ---
+  duration_ms: 54.015291
+  type: 'test'
+  ...
+1..23
+# tests 23
+# suites 0
+# pass 23
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1100.186708

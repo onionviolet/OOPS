@@ -2,7 +2,7 @@
 
 Weibao, 2026-10-14: "we should make resource generation more reasonable, every rat killed can be processed for their stuff and more? or we can harvest only specific stuff? per deeper modulization and stuff, that can feed skills and stuff, rarirty or compleness of pelts obtained and more?" Proposals below are not accepted decisions. Both "process everything" and "take only what you need" stay reachable (standing "everything possible, reasonably").
 
-## Live state (verified in source)
+## Original source snapshot, 2026-10-14 (historical)
 
 - Kills roll independent per-item chances: wolf rat gives Rat tail 4-8%, Rat fang 4%, Rat pelt 1-2% (`src/enemies.js:240-305`, `get_loot` at `:164`, seeded through P1 `STREAMS.loot`).
 - `Butchering` only multiplies drop chance for `beast` tags (`src/enemies.js:24`). Butchering recipes turn pelts into leather (`src/crafting_recipes.js:947+`). No carcass, no part choice, no grade, no completeness.
@@ -34,7 +34,7 @@ Weibao, 2026-10-14: "we should make resource generation more reasonable, every r
 
 ### Later / delegate (HV2, docs)
 
-Modular harvest beyond rats: plants (pick leaf versus uproot), ores and veins, magical creatures under per-world laws (P8 D3), nonlethal collection and husbandry; part templates per body plan; knowledge-gated parts (you cannot take a gland you do not know exists, which feeds "unknown" asks); sub-skills and skill tree; rarity tiers and rare variants as per-world adjectives; trophies; parts feeding P2 mixtures as properties; spoilage and preservation (salt, smoke, cold); helpers, companions and automation; part-diagram UI; cheats.
+Modular harvest beyond rats: plants (pick leaf versus uproot), ores and veins, magical creatures under per-world laws (P8 D3), nonlethal collection and husbandry; part templates per body plan; knowledge-informed part selection (deliberately selecting a gland needs a way to locate it; whole-specimen or compatible bulk processing still resolves unknown physical contents under MR1/AD38); sub-skills and skill tree; rarity tiers and rare variants as per-world adjectives; trophies; parts feeding P2 mixtures as properties; spoilage and preservation (salt, smoke, cold); helpers, companions and automation; part-diagram UI; cheats.
 
 ## Lanes
 
@@ -42,3 +42,20 @@ Modular harvest beyond rats: plants (pick leaf versus uproot), ores and veins, m
 |---|---|---|---|
 | HV1 | Wolf-rat carcass slice: carcass lots, process whole / take one part / auto-process, completeness and quality grades, Butchering feed, graded inventory, lint and browser proof | code, worktree `hv1-carcass`, branch `proc/hv1-carcass`, port 22430 | Codex default model, high |
 | HV2 | Modular harvest framework across creatures, plants, ores and magic, per-world laws, skills, rarity, preservation, knowledge-gated parts, cheats; ranked build slices on HV1's shape | docs, `hv2/` | Codex default model, medium |
+
+## Current rule qualification, 2026-10-18
+
+[HV1's report](hv1/REPORT.md) records a later carcass/graded-parts implementation
+and its own bounded source/build/browser limits. The opening "no carcass" text
+is a pre-slice snapshot, not a current absence claim. Recover the actual consumer
+before proposing a replacement or reusing evidence (AD36, AR10).
+
+Making MR1/MR5/MR29 and combat CBR2/CBR3 qualify the next selected extension:
+an actual dead specimen, shed material or other supported resource source and
+its custody determine what can be processed. A surrendered living actor is not
+a carcass just because a generic victory hook ran. Mid-processing interruption
+retains performed work and remaining stock once. Coalesced lots must retain
+observable quality/freshness/custody distinctions their consumers read; a
+technical cap cannot silently destroy valid paid outputs or become a universal
+biological limit (AD22/AD38). No new species, loot rebalance or runtime fix is
+selected by this document audit.

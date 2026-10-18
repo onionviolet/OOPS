@@ -96,7 +96,7 @@
       "observableGate": "Read definition/caller/UI/save first; repair selected source mismatch or add a meaningful title/milestone/trait/status variant, then test actual function and stacking/removal/retention.",
       "selectionRequired": "Exact local content/function subset, revisions, inspected contracts and file reservations must be frozen; this packet never silently selects every referenced variant.",
       "sourceAuditFindings": [
-        "Capped-XP guard source-inspected unreachable; inspect caller intent/compatibility and reproduce before repair.",
+        "Historical capped-XP guard defect was repaired: current source uses Number.isFinite; shared history records 252661721. MICRO-P1 isolated report retains its scoped native proof. Reproduce a present defect before proposing another repair; this review ran no gameplay tests.",
         "Native title absence claim superseded by current catalogue/caller/UI/save source.",
         "Native and simulation-issued title owners need selected semantic bridge, not blanket merging.",
         "Milestone replay and active-effect rejection/duration ordering need exact consumer reproduction; no blanket runtime-failure claim."
@@ -357,5 +357,18 @@
       ],
       "condition": "Only locally required dependencies settled; shared source/clock/save/build writes remain one owner"
     }
-  ]
+  ],
+  "currentReview": {
+    "reviewedOn": "2026-10-18",
+    "status": "Planning proposal retained; current source supersedes the old capped-XP defect claim.",
+    "evidence": [
+      "docs/gm/dispatch/dual-gm-2026-10-11/implementation/REPORT.md",
+      "src/components/levelable_component.js",
+      "docs/reviews/PLAN_RULE_RECONCILIATION_2026-10-18.md"
+    ],
+    "currentRuleRouting": "docs/RULES_INDEX.md",
+    "compatibility": "Old-save compatibility is deferred by later USER_VISION; current-state persistence and any specifically retained compatibility decision remain separate.",
+    "ownership": "Original absorption reservations are dated; recover current owners rather than inheriting a lease.",
+    "dispatchAuthorizedByReview": false
+  }
 }

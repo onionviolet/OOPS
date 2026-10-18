@@ -156,5 +156,12 @@
   ],
   "privatePolicy": "copy only retained pack revisions/manifest needed for intended installed build into ignored private_packs; source library and user saves untouched",
   "review": "review/INTEGRATION_SOURCE_REVIEW.md; F1/F2 source repairs rereviewed and 17focused checks pass",
-  "sharedSourceParity": true
+  "sharedSourceParity": true,
+  "executionStatus": "paused",
+  "executionAuthority": "docs/gm/dispatch/world1-full-completion-2026-10-11/STATE.json",
+  "currentReview": {
+    "reviewedOn": "2026-10-18",
+    "disposition": "Historical integration preparation retained. STATE.goalStatus is paused; explicit human resume is required before further implementation or integration. This refresh grants no resume.",
+    "checkpoint": "docs/gm/dispatch/world1-full-completion-2026-10-11/CHECKPOINT.md"
+  }
 }

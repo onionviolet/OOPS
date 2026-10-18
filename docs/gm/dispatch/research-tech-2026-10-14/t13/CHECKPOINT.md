@@ -1,5 +1,11 @@
 # T13 checkpoint
 
+**Final disposition recovered 2026-10-18:** [REPORT](REPORT.md) records this
+finite documentation lane complete on 2026-10-14; [wave status](../STATUS.md)
+records its fold. The started/recovering/next-writing text below is chronological
+history, not pending research. Proposals and specified-not-run gameplay gates
+retain that status. No new source verification or runtime pass occurred here.
+
 - Task: proposal-only implementation architecture for research and technology.
 - Code prefix: R.
 - State: started; recovering dispatch rules, live authority, lane reports and code evidence.

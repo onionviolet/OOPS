@@ -264,3 +264,14 @@ that the root missed.
 4. Finite purses extending the traveler shape (L7, ECX4), sell rules (L8),
    known wealth reusing the region reputation key (L25).
 5. Multi-currency purse last (L14, ECC36).
+
+## Round 2: belief, currency shape and deferred settlement, 2026-10-18
+
+**ECC37.** Speculation and bundle pricing can pay for what a merchant cannot certify. A quote expresses belief and terms, not hidden truth (ECR9, AD6–AD9). Exceptional dominant channels remain possible (AD28/AD38). A selected deferred service retains earned work and returns only genuine unused reservations; use exact units suited to its currency rather than forcing every currency into coin minor units (G28).
+
+ACT NOW: reconcile the rule owner and repeatable audit routing where one exists.
+ACCOUNT FOR NOW: apply this to a selected consumer; it adds no independent store,
+clock or generic resolver. LATER: one synthetic composed case at that seam,
+strong cross-domain agent, medium effort when selected; done by relevant source
+checks and a useful rebuilt desktop journey with current-state persistence.
+No runtime change or new implementation priority in this round.

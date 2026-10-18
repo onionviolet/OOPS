@@ -17,15 +17,17 @@ and the [JJK primitives](../jujutsu/WORLD_BRIEF.md).
 
 | Face | Who sees it | Purpose |
 |---|---|---|
-| Dev face | Behind a debug flag | Dials exposed (granularity, step trigger, decay), dummies spawn on demand, receipts shown raw |
+| Dev face | Isolated developer fixture | Dials and supported dummy controls; private diagnostics stay private, while player-visible receipts remain observer-safe |
 | Fiction face | Players, opt-in | A training hall, dream or simulation room. Same dummies, dials hidden, ordinary costs |
 
 ## Rules (its own, per rule 2)
 
-- **Nothing leaks out without a carrier** (rule 5). Learned skill can
-  travel as soul memory if the fiction face allows it; items and money
-  made here do not, so it cannot become a farm. The dev face carries
-  nothing.
+- **Crossing needs an actual carrier** (rule 5). Default training props are
+  ephemeral and have no durable external custody. Real incoming possessions and
+  genuinely acquired skills keep their actual owners; a world/cheat can provide
+  a supported outward carrier. Do not forbid a productive training realm merely
+  as anti-farming balance (AD22/AD28/AD38). Developer fixture mutations stay
+  isolated from the player journey unless a separate debug write is chosen.
 - **Save integrity first** (rule 9). Proving Ground state lives in its
   own save section, removable without touching the main life.
 - **Time:** the fiction face uses ordinary time; the dev face can pause.
@@ -37,7 +39,11 @@ and the [JJK primitives](../jujutsu/WORLD_BRIEF.md).
 - A vow table: sign, keep, break, see the penalty (E8D).
 - A sparring partner who learns your cues (Rat-step in reverse).
 
-## Open question
+## Proposed placement, qualified 2026-10-18
 
-- Q1: Should the fiction face be a place in the Frontier (a hall behind
-  the Village) or its own world reached by travel?
+Default for a selected proof: a small authored hall attached to its current
+world. Dial: an independent dream, pocket or training world when its mechanism
+needs a separate instance/clock. Both fit; placement follows the selected slice
+rather than an either/or direction question. JJK's build slices remain parked
+by Weibao's recorded instruction; this audit does not select a Proving Ground
+build or make it a prerequisite for other features.

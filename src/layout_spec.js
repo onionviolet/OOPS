@@ -34,17 +34,17 @@ export const LAYOUT_SPEC = Object.freeze({
     // any region lives in `fallback`. `contextual` homes depend on the context. R21c: the awakened
     // status window lives under You (it shows only once the system awakens).
     regions: Object.freeze({
-        player: Object.freeze({panels: ['vitals', 'shell-character', 'status-window']}),
+        player: Object.freeze({panels: ['vitals', 'shell-character', 'condition', 'status-window']}),
         focus: Object.freeze({panels: ['focus']}),
         inventory: Object.freeze({panels: ['belongings', 'combat-controls', 'shell-inventory-tools']}),
         log: Object.freeze({panels: ['messages', 'shell-log-tools']}),
         actions: Object.freeze({panels: ['records', 'skills']}),
     }),
     fallback: 'actions',
-    // The selected item's detail sits beside the actions in a fight and, otherwise, where Around
-    // you is (R21: a box name follows that box when the player moves it).
+    // A1: item inspection sits beside the activity area in idle/travel as well as combat,
+    // keeping nearby context visible. Expanded services retain their existing inspector home.
     // A context a panel does not name uses its idle home.
-    contextual: Object.freeze({'shell-detail': Object.freeze({combat: 'actions', idle: 'box:around'})}),
+    contextual: Object.freeze({'shell-detail': Object.freeze({combat: 'actions', idle: 'actions', travel: 'actions', service: 'box:around'})}),
     // R21 (MB1): the boxes a player can move, as groups of panels. A main box has a home region and
     // swaps with the box in the slot it moves to; a companion joins a slot beside that slot's box.
     // `fit` says how a box sizes the top row when it sits there (WX3): 'content' (its content),
@@ -54,6 +54,7 @@ export const LAYOUT_SPEC = Object.freeze({
         you: Object.freeze({lead: 'vitals', title: 'You', panels: Object.freeze(['vitals', 'shell-character', 'status-window']), home: 'player', fit: 'content'}),
         around: Object.freeze({lead: 'focus', title: 'Around you', panels: Object.freeze(['focus']), home: 'focus', fit: 'combat'}),
         inventory: Object.freeze({lead: 'belongings', title: 'Inventory', panels: Object.freeze(['combat-controls', 'shell-inventory-tools', 'belongings']), home: 'inventory', fit: 'fill'}),
+        condition: Object.freeze({lead: 'condition', title: 'Condition', panels: Object.freeze(['condition']), companion: true, home: 'player', fit: 'content'}),
         journal: Object.freeze({lead: 'records', title: 'Journal', panels: Object.freeze(['records']), companion: true, fit: 'fill'}),
         skills: Object.freeze({lead: 'skills', title: 'Skills', panels: Object.freeze(['skills']), companion: true, fit: 'fill'}),
     }),
@@ -62,7 +63,7 @@ export const LAYOUT_SPEC = Object.freeze({
     slots: Object.freeze({player: 'Top left', focus: 'Top centre', inventory: 'Bottom left', actions: 'Beside the actions'}),
     // Default order of the shell's panels when no layout is stored. Companions are inserted after
     // `companionsAfter` in the parity shell only.
-    shellOrder: Object.freeze(['vitals', 'shell-character', 'status-window', 'combat-controls', 'shell-inventory-tools', 'belongings', 'focus', 'shell-detail', 'time', 'location', 'village-scene', 'current-work', 'combat', 'local-actions', 'pane-navigation', 'messages', 'shell-log-tools']),
+    shellOrder: Object.freeze(['vitals', 'shell-character', 'condition', 'status-window', 'combat-controls', 'shell-inventory-tools', 'belongings', 'focus', 'shell-detail', 'time', 'location', 'village-scene', 'current-work', 'combat', 'local-actions', 'pane-navigation', 'messages', 'shell-log-tools']),
     companionsAfter: 'local-actions',
     // Default and dial per context (WX6, CZ4): idle shows Journal beside the actions; a fight shows
     // Skills (Stances) only. R21 (Weibao, 2026-10-17: "We dont need skills always be seen"): Skills
@@ -118,6 +119,7 @@ export const LAYOUT_SPEC = Object.freeze({
     surfaces: Object.freeze({
         'vitals': surface(UNSET, {reads: ['body']}),
         'shell-character': surface(UNSET),
+        'condition': surface('ST6', {home: 'Below You; native body and weather readers', frequency: 'continuous', status: 'proposal', reads: ['body', 'time', 'place'], representations: routed}),
         'status-window': surface(UNSET),
         'focus': surface(UNSET),
         'shell-detail': surface(UNSET, {contexts: ['idle', 'combat', 'travel', 'service']}),
@@ -175,6 +177,7 @@ export const LAYOUT_SPEC = Object.freeze({
     routes: Object.freeze([
         {id: 'local-actions', label: 'Here', key: 'h', target: 'local-actions', open: 'here', pane: 1},
         {id: 'preparation', label: 'Stats', key: 'e', target: 'preparation', select: 'character_show_stats'},
+        {id: 'condition', label: 'Condition', key: 'o', target: 'condition'},
         {id: 'belongings', label: 'Inventory', key: 'i', target: 'belongings', open: 'in-place'},
         {id: 'crafting', label: 'Crafting', key: 'c', target: 'crafting', open: 'crafting', pane: 3},
         {id: 'mixing', label: 'Mixing', key: 'm', target: 'mixing', open: 'mixing', pane: 4},
@@ -225,7 +228,7 @@ export function boxRegion(box, placement = null, spec = LAYOUT_SPEC) {
     const def = spec.boxes[box]; if (!def) return null;
     const chosen = def.companion ? placement?.companions?.[box] : placement?.boxes?.[box];
     if (chosen && spec.slots[chosen] && (def.companion || chosen !== 'actions')) return chosen;
-    return def.companion ? 'actions' : def.home;
+    return def.home || 'actions';
 }
 
 // Region for a panel ID in the parity shell.

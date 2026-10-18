@@ -1,10 +1,13 @@
-import {clear_message_log,setCombatReportsStopped,readPlayerAttributeInspector} from './display.js';
+import {mountInventoryComposition} from './inventory_composition.js';
+import {clear_message_log,log_message,setCombatReportsStopped,readPlayerAttributeInspector} from './display.js';
 import {getDisplaySetting,setDisplaySettings,registerPanelSettings} from './display_settings.js';
 import {INVENTORY_CATEGORIES,createInventoryTabs} from './inventory_tabs.js';
 import {centerModes} from './center_modes.js';
 import {definePanel} from './panel_kit.js';
 import {expandWorkspaceModule,updateWorkspace} from './workspace_layout.js';
 import {placeTypeEffectText} from './place_types_projection.js';
+import {SECONDARY_STATS,secondaryVisible,pinKey,isRate} from './condition_facts.js';
+import {mountConditionPanel} from './condition_panel.js';
 import {mountShellControlBoxes} from './shell_control_boxes.js';
 const node=(tag,text,cls)=>{const n=document.createElement(tag);if(text!=null)n.textContent=text;if(cls)n.className=cls;return n;};
 // Preserve native tooltip content and markup; add presentation roles to its
@@ -52,6 +55,7 @@ function attributeExplanation(row){
 // Own section within the existing character Stats home. This is a reader,
 // never an attribute engine: formats, bases and contributor categories are native.
 function mountAttributeInspector(){
+    const pinnable=new Set(SECONDARY_STATS.map(([id])=>id));
     const home=document.getElementById('character_stats_div'),section=node('section',null,'attribute-inspector');section.id='character_attribute_inspector';section.hidden=true;
     const tools=node('div',null,'attribute-inspector-tools'),group=node('select');group.setAttribute('aria-label','Attribute group');
     for(const[id,label]of [['all','All attributes'],['primary','Primary'],['offense','Offense'],['defense','Defense'],['health','Health'],['stamina','Stamina'],['mana','Mana'],['environment','Environment'],['learning','Learning']]){const option=node('option',label);option.value=id;group.append(option);}
@@ -64,10 +68,16 @@ function mountAttributeInspector(){
     const numeric=value=>value==null?'Unavailable':String(value);
     function select(id){selectedId=id;paint();}
     function paintDetail(row){
-        const signature=JSON.stringify(row||null);if(signature===detailSignature)return;detailSignature=signature;
+        const signature=JSON.stringify([row||null,row&&getDisplaySetting(pinKey(row.id))]);if(signature===detailSignature)return;detailSignature=signature;
         const top=reading.scrollTop;reading.replaceChildren();reading.dataset.attributeId=row?.id||'';
         if(!row){reading.append(node('p','Choose an attribute to inspect.','attribute-empty'));return;}
         reading.append(attributeExplanation(row));
+        if(pinnable.has(row.id)){
+            const pinned=getDisplaySetting(pinKey(row.id))==='on';
+            const pin=action(pinned?'Unpin row':'Pin row',()=>{setDisplaySettings({[pinKey(row.id)]:pinned?'off':'on'});paint();});
+            pin.dataset.pinAttribute=row.id;pin.setAttribute('aria-pressed',String(pinned));
+            reading.append(pin,node('p','Pinned rows stay in You, or Condition for rates. This browser owns pins; display export/import includes them and Reset this browser’s display settings clears them.','attribute-note'));
+        }
         reading.scrollTop=top;
     }
     function paint(){
@@ -104,33 +114,44 @@ export function mountProto23Shell({read}) {
     const player=node('section',null,'shell-character');player.id='proto23_character';
     const statline=node('div',null,'shell-statline shell-core-stats'),equipment=node('div',null,'shell-equipment');
     const secondary=node('section',null,'shell-secondary-stats'),secondaryHeading=node('div',null,'shell-secondary-heading'),secondaryGrid=node('div',null,'shell-secondary-grid');secondary.hidden=true;secondary.setAttribute('aria-label','Secondary attributes');secondary.append(secondaryHeading,secondaryGrid);
-    const secondaryRecords=new Map();let secondaryFitSignature='';
-    const secondaryOrder=[['stamina_efficiency','Sta eff.'],['cold_tolerance','Cold Δ'],['xp_hero','Hero XP'],['xp_all_skill','Skill XP'],['xp_all','Global XP'],['attack_count','Hits/atk'],['block_strength','Shield'],['block_chance','Block %'],['health_regeneration_flat','HP /s'],['stamina_regeneration_flat','Sta /s'],['unarmed_power','Unarmed'],['health_regeneration_percent','HP %/s'],['stamina_regeneration_percent','Sta %/s'],['mana_regeneration_flat','Mana /s'],['mana_regeneration_percent','Mana %/s']];
+    const secondaryRecords=new Map();
+    const secondaryOrder=SECONDARY_STATS;
+    registerPanelSettings({id:'shell-character',title:'You · pinned rows',settings:secondaryOrder.map(([id,label])=>({key:'pin.'+id,label,default:'off',options:[['off','Automatic'],['on','Pinned']],description:'This browser; reset with display settings. Rates live in Condition; other secondary rows live in You.'}))});
+    const rateSection=node('section',null,'shell-secondary-stats condition-rates'),rateGrid=node('div',null,'shell-secondary-grid');rateSection.append(rateGrid);rateSection.hidden=true;
     let statsSignature='';const statRecords=new Map();
     const attributeInspector=mountAttributeInspector();
     const details=action('Attributes ›',()=>{if(expandWorkspaceModule('preparation')){document.getElementById('character_show_stats')?.click();attributeInspector.refresh();}});
     details.className='shell-attributes-open';details.title='Inspect all supported native attributes and their modifiers';
     const gear=node('details',null,'shell-gear-disclosure');gear.open=false;let gearChosen=false;const gearSummary=node('summary','Equipment');gear.append(gearSummary,equipment);gearSummary.addEventListener('click',()=>{gearChosen=true;});
-    const effectsSummary=action('Effects',()=>showContext(effectsSummary));effectsSummary.className='shell-effects-summary';effectsSummary.hidden=true;effectsSummary.dataset.contextPreview='effects';player.append(statline,secondary,details,effectsSummary,gear);
+    const characterTools=node('div',null,'shell-character-tools');characterTools.append(details,gear);player.append(statline,secondary,characterTools);
     const detail=node('section',null,'shell-item-detail');detail.id='proto23_item_detail';
     const title=node('strong'),meta=node('p'),body=node('div',null,'shell-item-description'),controls=node('div',null,'shell-item-actions');
     detail.append(title,meta,body,controls);
     let selected=null,signature='',playerSignature='';
     const originalLogLabels=new Map(),originalNoticeLabels=new Map();
-    function syncNoticeLabels(){const parity=active()&&document.getElementById('main_content').dataset.parity==='r3';for(const link of document.querySelectorAll('#message_box_div .notice-panel-link')){if(parity){if(!originalNoticeLabels.has(link))originalNoticeLabels.set(link,{text:link.textContent,title:link.title});const label=({'skills':'Skills','belongings':'Inventory','crafting':'Crafting','local-actions':'Here','records':'Journal'})[link.dataset.noticePanel]||'Related panel';const text=label+' ›';if(link.textContent!==text)link.textContent=text;const description='Open '+label+' · current panel';if(link.title!==description)link.title=description;if(link.getAttribute('aria-label')!==description)link.setAttribute('aria-label',description);}else if(originalNoticeLabels.has(link)){const old=originalNoticeLabels.get(link);link.textContent=old.text;link.title=old.title;link.removeAttribute('aria-label');originalNoticeLabels.delete(link);}}for(const link of originalNoticeLabels.keys())if(!link.isConnected)originalNoticeLabels.delete(link);}
+    function syncNoticeLabels(){const parity=active()&&document.getElementById('main_content').dataset.parity==='r3';for(const link of document.querySelectorAll('#message_box_div .notice-panel-link')){if(parity){if(!originalNoticeLabels.has(link))originalNoticeLabels.set(link,{text:link.textContent,title:link.title});const label=({'skills':'Skills','belongings':'Inventory','crafting':'Crafting','local-actions':'Here','records':'Journal','condition':'Condition'})[link.dataset.noticePanel]||'Related panel';const text=label+' ›';if(link.textContent!==text)link.textContent=text;const description='Open '+label+' · current panel';if(link.title!==description)link.title=description;if(link.getAttribute('aria-label')!==description)link.setAttribute('aria-label',description);}else if(originalNoticeLabels.has(link)){const old=originalNoticeLabels.get(link);link.textContent=old.text;link.title=old.title;link.removeAttribute('aria-label');originalNoticeLabels.delete(link);}}for(const link of originalNoticeLabels.keys())if(!link.isConnected)originalNoticeLabels.delete(link);}
     function syncLogLabels(){const parity=active()&&document.getElementById('main_content').dataset.parity==='r3';for(const[id,label]of [['message_show_unlocks','Growth'],['message_show_events','Events'],['message_show_crafting','Crafting'],['message_show_combat','Combat'],['message_show_loot','Loot'],['message_show_background','World']]){const control=document.getElementById(id);if(!control)continue;if(parity){if(!originalLogLabels.has(control))originalLogLabels.set(control,control.textContent);if(control.textContent!==label)control.textContent=label;}else if(originalLogLabels.has(control)){control.textContent=originalLogLabels.get(control);originalLogLabels.delete(control);}}}
 
     // Context previews reuse public native descriptions. No hidden actor lookup,
     // simulation mutation, or reconstruction of an old event from current state.
     const contextPreview=node('aside',null,'shell-context-preview');contextPreview.id='shell_context_preview';contextPreview.setAttribute('popover','manual');contextPreview.setAttribute('role','tooltip');player.append(contextPreview);
-    let contextSource=null,contextTimer=null,contextSignature='';
-    function hideContext(){clearTimeout(contextTimer);if(contextPreview.matches(':popover-open'))contextPreview.hidePopover();contextSource?.removeAttribute('aria-describedby');contextSource=null;contextSignature='';}
+    let contextSource=null,contextTimer=null,contextSignature='',contextPinned=false;
+    function hideContext(){clearTimeout(contextTimer);if(contextPreview.matches(':popover-open'))contextPreview.hidePopover();contextSource?.removeAttribute('aria-describedby');contextSource=null;contextSignature='';contextPinned=false;}
     function showContext(source,interactive=false){
         if(!active()||document.getElementById('main_content').dataset.parity!=='r3')return;
-        contextPreview.dataset.interactive=String(interactive||source.dataset.contextPreview==='effects');clearTimeout(contextTimer);const attributeRow=source.dataset.attributePreview?attributeInspector.getRows().find(row=>row.id===source.dataset.attributePreview):null;const nextSignature=attributeRow?JSON.stringify(attributeRow):source.logDescription||source.dataset.contextPreview==='effects'&&document.getElementById('effects_tooltip')?.innerHTML||source.dataset.effectAnchor==='opponent-name'&&document.getElementById('current_focus').textContent||source.placeTypeView&&JSON.stringify(source.placeTypeView)||source.innerHTML+source.title;if(contextSource===source&&contextSignature===nextSignature&&contextPreview.matches(':popover-open'))return;contextSignature=nextSignature;hidePreview();contextSource?.removeAttribute('aria-describedby');contextSource=source;
+        if(contextPinned&&contextSource!==source&&!interactive)return;
+        contextPinned=interactive||contextSource===source&&contextPinned;
+        contextPreview.dataset.interactive=String(contextPinned||source.dataset.contextPreview==='effects');clearTimeout(contextTimer);const attributeRow=source.dataset.attributePreview?attributeInspector.getRows().find(row=>row.id===source.dataset.attributePreview):null;const nextSignature=attributeRow?JSON.stringify(attributeRow):source.nativeEffectView&&JSON.stringify(source.nativeEffectView)||source.logDescription||source.dataset.contextPreview==='effects'&&document.getElementById('effects_tooltip')?.innerHTML||source.dataset.effectAnchor==='opponent-name'&&document.getElementById('current_focus').textContent||source.placeTypeView&&JSON.stringify(source.placeTypeView)||source.innerHTML+source.title;if(contextSource===source&&contextSignature===nextSignature&&contextPreview.matches(':popover-open'))return;contextSignature=nextSignature;hidePreview();contextSource?.removeAttribute('aria-describedby');contextSource=source;
         contextPreview.replaceChildren();
         if(attributeRow){contextPreview.append(attributeExplanation(attributeRow));
+        }else if(source.dataset.contextPreview==='temperature'){
+            contextPreview.append(node('strong','Temperature'),node('p',source.title));
+            const native=document.getElementById('temperature_tooltip');if(native)contextPreview.append(descriptionCopy(native));
         }else if(source.logDescription){const saved=node('div');saved.innerHTML=source.logDescription;contextPreview.append(descriptionCopy(saved),node('small','Description recorded with this event.'));
+        }else if(source.dataset.contextPreview==='effect'){
+            const view=source.nativeEffectView;if(!view)return;
+            const copy=node('div');copy.innerHTML=view.html;contextPreview.append(descriptionCopy(copy));
+            if(view.ended)contextPreview.append(node('p','This effect has ended.'));
         }else if(source.dataset.contextPreview==='effects'){
             const native=document.getElementById('effects_tooltip');if(!native)return;
             contextPreview.append(node('strong','Active effects'));
@@ -152,25 +173,22 @@ export function mountProto23Shell({read}) {
         contextPreview.style.fontSize=css.fontSize;contextPreview.style.fontFamily=css.fontFamily;
         contextPreview.dataset.customPalette=region.dataset.customPalette||'false';
         for(const key of ['background','text','accent'])contextPreview.style.setProperty('--context-'+key,css.getPropertyValue('--custom-'+key));
-        const effectAnchor=source.dataset.contextPreview==='effects'?document.querySelector('.parity-region[data-region="player"]')?.getBoundingClientRect():null;
-        contextPreview.style.width=effectAnchor?Math.min(460,effectAnchor.width-8)+'px':'';
-        contextPreview.style.maxHeight=effectAnchor?Math.max(140,innerHeight-effectAnchor.bottom-60)+'px':'';
+        contextPreview.style.width='';contextPreview.style.maxHeight='';
         if(!contextPreview.matches(':popover-open'))contextPreview.showPopover();
-        if(effectAnchor){contextPreview.style.left=effectAnchor.left+4+'px';contextPreview.style.top=effectAnchor.bottom+6+'px';source.setAttribute('aria-describedby',contextPreview.id);return;}
         const box=source.getBoundingClientRect(),w=contextPreview.offsetWidth,h=contextPreview.offsetHeight;
         contextPreview.style.left=Math.max(8,Math.min(box.left,innerWidth-w-8))+'px';
         contextPreview.style.top=Math.max(8,box.bottom+h+8<innerHeight?box.bottom+6:box.top-h-6)+'px';
         source.setAttribute('aria-describedby',contextPreview.id);
     }
-    const contextSelector='.shell-place-tag,[data-attribute-preview],[data-native-stat],[data-effect-anchor=opponent-name],.shell-effects-summary,.combat-focus-view dl > div,.enemy-card dl > div,.combat-focus-choices button,.log-subject,.shell-stat-record,#character_health_div,#character_stamina_div,#character_xp_div';
+    const contextSelector='[data-context-preview=temperature],[data-context-preview=effect],.shell-place-tag,[data-attribute-preview],[data-native-stat],[data-effect-anchor=opponent-name],.shell-effects-summary,.combat-focus-view dl > div,.enemy-card dl > div,.combat-focus-choices button,.log-subject,.shell-stat-record,#character_health_div,#character_stamina_div,#character_xp_div';
     const contextEnter=event=>{const source=event.target.closest(contextSelector);if(source&&!source.contains(event.relatedTarget))showContext(source);};
-    const contextLeave=event=>{const source=event.target.closest(contextSelector);if(source&&!source.contains(event.relatedTarget)){clearTimeout(contextTimer);contextTimer=setTimeout(hideContext,180);}};
+    const contextLeave=event=>{if(contextPinned)return;const source=event.target.closest(contextSelector);if(source&&!source.contains(event.relatedTarget)){clearTimeout(contextTimer);contextTimer=setTimeout(hideContext,180);}};
     for(const type of ['mouseover','focusin'])document.addEventListener(type,contextEnter);
     for(const type of ['mouseout','focusout'])document.addEventListener(type,contextLeave);
-    contextPreview.addEventListener('mouseenter',()=>clearTimeout(contextTimer));contextPreview.addEventListener('mouseleave',()=>{contextTimer=setTimeout(hideContext,180);});
+    contextPreview.addEventListener('mouseenter',()=>clearTimeout(contextTimer));contextPreview.addEventListener('mouseleave',()=>{if(contextPinned)return;contextTimer=setTimeout(hideContext,180);});
     const contextDismiss=event=>{if(event.key==='Escape'&&contextPreview.matches(':popover-open')){hideContext();event.preventDefault();event.stopImmediatePropagation();}};
     document.addEventListener('keydown',contextDismiss,true);
-    document.addEventListener('click',event=>{const subject=event.target.closest('.log-subject,.shell-place-tag');if(subject){showContext(subject,true);return;}if(!contextPreview.contains(event.target)&&event.target!==effectsSummary)hideContext();});
+    document.addEventListener('click',event=>{const subject=event.target.closest('.log-subject,.shell-place-tag,[data-context-preview=temperature],[data-context-preview=effect]');if(subject){showContext(subject,true);return;}if(!contextPreview.contains(event.target))hideContext();});
 
     const preview=node('aside',null,'shell-item-preview');preview.id='shell_item_preview';
     preview.setAttribute('popover','manual');preview.setAttribute('aria-label','Item preview');
@@ -181,6 +199,8 @@ export function mountProto23Shell({read}) {
     function hidePreview(){clearTimeout(hideTimer);if(preview.matches(':popover-open'))preview.hidePopover();hovered?.removeAttribute('aria-describedby');hovered=null;previewSignature='';}
     function deferHide(){clearTimeout(hideTimer);hideTimer=setTimeout(hidePreview,180);}
     function showPreview(row){
+        // A visible stable inspector owns this reading space; hover must not cover its commands.
+        if(selected&&document.getElementById('proto23_item_detail')?.checkVisibility()){hidePreview();return;}
         if(!active()||document.getElementById('main_content').dataset.parity!=='r3')return;
         const tooltip=row.querySelector('.item_tooltip');if(!tooltip)return;hideContext();
         clearTimeout(hideTimer);if(hovered!==row||previewSignature!==tooltip.innerHTML){hovered?.removeAttribute('aria-describedby');hovered=row;previewSignature=tooltip.innerHTML;previewBody.replaceChildren(descriptionCopy(tooltip));}
@@ -217,6 +237,7 @@ export function mountProto23Shell({read}) {
     // R21: the shared list tools may move into the Inventory control box, so they are found once by reference.
     let listToolsNode=null;const listTools=()=>{if(!listToolsNode){const n=inventoryList.previousElementSibling;if(n?.classList.contains('ui-list-tools'))listToolsNode=n;}return listToolsNode;};
     const tabs=createInventoryTabs({list:inventoryList,search:()=>listTools()?.querySelector('input[type=search]'),stored:()=>getDisplaySetting('panel.belongings.category'),store:id=>setDisplaySettings({'panel.belongings.category':id})});
+    const inventoryComposition=mountInventoryComposition({list:inventoryList,tabs:tabs.node,detail});
     tabs.node.title='Item colors: gold equipment, green usable, blue components, violet books. Quality keeps its native percentage and color; color does not imply rarity of other items.';
     compact.append(tabs.node);
     const sort=makeSelect('Inventory sort',[['inventory_sort_by_name','Name'],['inventory_sort_by_price','Value'],['inventory_sort_by_type','Type']]);
@@ -230,6 +251,7 @@ export function mountProto23Shell({read}) {
     const placeSort=()=>{const tools=listTools();if(tools&&sortHome.parentNode!==tools)tools.append(sortHome);};
     const home=document.getElementById('main_content');
     definePanel({id:'shell-inventory-tools',title:'Inventory tools',role:'records',node:compact,home,defaultDock:'left',after:'combat-controls',eligible:()=>home.dataset.parity==='r3',discovered:()=>home.dataset.parity==='r3'});
+    const condition=mountConditionPanel({home,rates:rateSection,readRows:()=>[...rateGrid.children].filter(n=>!n.hidden),inspect:button=>showContext(button,true),isInspecting:button=>contextSource===button,notice:(text)=>log_message(text,'notification',{safeText:true,panelId:'condition'})});
     definePanel({id:'shell-character',title:'Stats & equipment',role:'character',node:player,home,defaultDock:'left',after:'vitals',eligible:active,discovered:active});
     definePanel({id:'shell-detail',title:'Item details',role:'records',node:detail,home,defaultDock:'center',after:'focus',eligible:()=>active()&&!!selected,discovered:active});
     const logTools=node('div',null,'shell-log-tools');const filters=action('Filters · All',()=>{const root=document.getElementById('main_content');root.dataset.logFiltersOpen=String(root.dataset.logFiltersOpen!=='true');filters.setAttribute('aria-expanded',root.dataset.logFiltersOpen);});filters.setAttribute('aria-expanded','false');filters.setAttribute('aria-controls','message_controls');
@@ -260,37 +282,55 @@ export function mountProto23Shell({read}) {
     document.addEventListener('click',inspect);document.addEventListener('focusin',inspect);
     document.addEventListener('keydown',event=>{if(active()&&['Enter',' '].includes(event.key)&&event.target.matches('#inventory_content_div > [data-character_item]')){event.preventDefault();choose(event.target);}});
     function fitSecondary(){
-        const root=document.getElementById('main_content'),region=player.closest('.parity-region');
-        if(root.dataset.parity!=='r3'||!region){secondary.hidden=true;secondaryFitSignature='';return;}
+        const root=document.getElementById('main_content');
+        if(root.dataset.parity!=='r3'){secondary.hidden=true;rateSection.hidden=true;const shell=player.closest('.workspace-module');if(shell?.dataset.youMinimum){shell.style.removeProperty('min-height');delete shell.dataset.youMinimum;}return;}
+        const fitBody=player.closest('.workspace-module-body');if(fitBody&&!fitBody.hasAttribute('data-fit-clip'))fitBody.dataset.fitClip='';
         const rows=attributeInspector.getRows(),byId=new Map(rows.map(row=>[row.id,row]));
-        const candidates=secondaryOrder.filter(([id])=>{const row=byId.get(id);return row?.availability?.status==='active'&&row.value!=null&&(!id.startsWith('mana_')||byId.get('max_mana')?.value>0)&&(!id.startsWith('block_')||byId.get('block_strength')?.value!=null);});
-        for(const[id,label]of candidates){const row=byId.get(id);let record=secondaryRecords.get(id);if(!record){const button=node('button',null,'shell-secondary-stat');button.type='button';button.dataset.attributePreview=id;button.append(node('span',label),node('strong'));secondaryGrid.append(button);record={button,value:button.lastChild};secondaryRecords.set(id,record);}
-            const text=row.formatted.replace('°C difference','°C Δ').replace('% max stamina/s','% /s').replace('% max hp/s','% /s').replace('% max mana/s','% /s').replace('stamina/s','/s').replace('mana/s','/s').replace(' damage','');if(record.value.textContent!==text)record.value.textContent=text;
-            const spoken=row.label+': '+row.formatted;if(record.button.getAttribute('aria-label')!==spoken)record.button.setAttribute('aria-label',spoken);
+        const candidates=secondaryOrder.filter(([id])=>secondaryVisible(byId.get(id),getDisplaySetting(pinKey(id))==='on'));
+        const shown=new Set(candidates.map(([id])=>id));
+        // Keep keyed nodes and focused/inspected rows through a tick that makes them neutral.
+        for(const[id,record]of secondaryRecords){
+            const held=record.button===document.activeElement||contextSource===record.button;
+            record.button.hidden=!shown.has(id)&&!held;
         }
-        const font=parseFloat(getComputedStyle(player).fontSize)||14,cols=region.clientWidth/font>=52?4:region.clientWidth/font>=32?3:2;
-        const signature=[region.clientWidth,region.clientHeight,font,gear.open,gear.scrollHeight,effectsSummary.offsetHeight,player.dataset.hasEffects,root.dataset.parityExpanded,candidates.map(([id])=>id).join(','),statline.scrollHeight].join('|');
-        if(signature===secondaryFitSignature)return;secondaryFitSignature=signature;
-        const focused=document.activeElement?.closest('.shell-secondary-stat');secondary.hidden=true;
-        const module=player.closest('.workspace-module'),siblings=[...region.children],following=siblings.slice(siblings.indexOf(module)+1).filter(n=>n.checkVisibility()).reduce((sum,n)=>sum+n.getBoundingClientRect().height,0),available=region.getBoundingClientRect().bottom-player.getBoundingClientRect().bottom-following-8;
-        secondaryGrid.dataset.columns=String(cols);for(const record of secondaryRecords.values())record.button.hidden=true;
-        // R16c: declare the height every candidate row would take, so the shell composition can
-        // give You that room at a stable moment; this fit still yields rows when it cannot.
-        const want=candidates.length?Math.ceil(font*1.6*(1+Math.ceil(candidates.length/cols))):0;if(secondary.dataset.fitWant!==String(want))secondary.dataset.fitWant=String(want);
-        if(available<font*1.5||!candidates.length){root.dataset.secondaryShown='0';if(focused)details.focus({preventScroll:true});if(contextSource?.closest('.shell-secondary-stats'))hideContext();return;}
-        secondary.hidden=false;for(const[id]of candidates)secondaryRecords.get(id).button.hidden=false;
-        secondaryHeading.textContent='Secondary';
-        const headingHeight=secondaryHeading.getBoundingClientRect().height,rowHeight=Math.max(...candidates.map(([id])=>secondaryRecords.get(id).button.getBoundingClientRect().height));
-        const measured=String(Math.ceil(headingHeight+4+Math.ceil(candidates.length/cols)*rowHeight));if(secondary.dataset.fitWant!==measured)secondary.dataset.fitWant=measured;
-        const count=Math.min(candidates.length,Math.max(0,Math.floor((available-headingHeight-4)/rowHeight))*cols),shown=new Set(candidates.slice(0,count).map(([id])=>id));
-        if(count&&focused&&candidates.some(([id])=>id===focused.dataset.attributePreview)&&!shown.has(focused.dataset.attributePreview)){shown.delete([...shown].at(-1));shown.add(focused.dataset.attributePreview);}
-        for(const[id,record]of secondaryRecords)record.button.hidden=!shown.has(id);
-        secondary.hidden=!count;root.dataset.secondaryShown=String(count);secondaryHeading.textContent='Secondary · '+count;if(focused){if(shown.has(focused.dataset.attributePreview))focused.focus({preventScroll:true});else details.focus({preventScroll:true});}if(contextSource&&!contextSource.checkVisibility())hideContext();
+        for(const[id,label]of candidates){const row=byId.get(id);let record=secondaryRecords.get(id);
+            if(!record){const button=node('button',null,'shell-secondary-stat');button.type='button';button.dataset.attributePreview=id;button.append(node('span',label),node('strong'));(isRate(id)?rateGrid:secondaryGrid).append(button);record={button,value:button.lastChild};secondaryRecords.set(id,record);}
+            record.button.hidden=false;
+            const text=row.formatted.replace('°C difference','°C Δ').replace(/% max (stamina|hp|mana)\/s/,'% /s').replace('stamina/s','/s').replace('mana/s','/s').replace(' damage','');
+            if(record.value.textContent!==text)record.value.textContent=text;
+            record.button.setAttribute('aria-label',row.label+': '+row.formatted);
+        }
+        secondary.hidden=![...secondaryGrid.children].some(n=>!n.hidden);
+        // At constrained sizes, whole secondary rows yield to core, controls and status effects.
+        // Attributes remains the complete home; explicit pins are first in the available rows.
+        if(fitBody){
+            const shell=player.closest('.workspace-module'),css=getComputedStyle(player),bodyCss=getComputedStyle(fitBody),shellCss=getComputedStyle(shell);
+            const inset=(cs,keys)=>keys.reduce((sum,key)=>sum+(parseFloat(cs[key])||0),0);
+            const minimum=statline.getBoundingClientRect().height+characterTools.getBoundingClientRect().height+
+                inset(css,['paddingTop','paddingBottom'])+inset(bodyCss,['paddingTop','paddingBottom'])+
+                inset(shellCss,['borderTopWidth','borderBottomWidth'])+(shell.querySelector('.workspace-module-header')?.getBoundingClientRect().height||0);
+            const value=Math.ceil(minimum)+'px';shell.dataset.youMinimum='true';if(shell.style.minHeight!==value)shell.style.setProperty('min-height',value,'important');
+        }
+        const region=player.closest('.parity-region'),shell=player.closest('.workspace-module');
+        const siblings=region?[...region.children]:[],following=siblings.slice(siblings.indexOf(shell)+1).filter(n=>n.checkVisibility()).reduce((sum,n)=>sum+(parseFloat(getComputedStyle(n).minHeight)||n.getBoundingClientRect().height),0);
+        const available=region&&fitBody?region.getBoundingClientRect().bottom-fitBody.getBoundingClientRect().top-following-statline.getBoundingClientRect().height-characterTools.getBoundingClientRect().height:Infinity;
+        const first=secondaryGrid.querySelector('button:not([hidden])'),rowHeight=first?.getBoundingClientRect().height||0;
+        const cols=parseInt(getComputedStyle(secondaryGrid).gridTemplateColumns.split(' ').length)||2;
+        const capacity=rowHeight?Math.max(0,Math.floor((available-8)/rowHeight))*cols:Infinity;
+        const ordered=candidates.filter(([id])=>!isRate(id)).sort(([a],[b])=>Number(getDisplaySetting(pinKey(b))==='on')-Number(getDisplaySetting(pinKey(a))==='on'));
+        const wanted=String(Math.ceil(rowHeight*Math.ceil(ordered.length/cols)+8));if(secondary.dataset.fitWant!==wanted)secondary.dataset.fitWant=wanted;
+        const fitted=new Set(ordered.slice(0,capacity).map(([id])=>id));
+        for(const[id,record]of secondaryRecords)if(!isRate(id)&&!fitted.has(id)&&record.button!==document.activeElement&&contextSource!==record.button)record.button.hidden=true;
+        secondary.hidden=![...secondaryGrid.children].some(n=>!n.hidden);
+        const omitted=ordered.length-fitted.size;const detailsText='Attributes ›'+(omitted>0?' · '+omitted+' more':'');if(details.textContent!==detailsText)details.textContent=detailsText;
+        rateSection.hidden=![...rateGrid.children].some(n=>!n.hidden);
+        // Whole rows yield with an explicit Attributes count; focused/inspected rows stay mounted.
+        root.dataset.secondaryShown=String([...secondaryGrid.children].filter(n=>!n.hidden).length);
     }
     function render(){
-        placeSort();tabs.refresh();boxes.render();
-        syncLogLabels();syncNoticeLabels();attributeInspector.setVisible(active()&&document.getElementById('main_content').dataset.parity==='r3');if(!gearChosen){const wanted=false;if(gear.open!==wanted)gear.open=wanted;}if(!active()){if(contextSource)hideContext();return;}const enabled=document.querySelectorAll('#message_controls .active_selection_button').length;filters.textContent=enabled===6?'Filters':`Filters ${enabled}/6`;follow.value=getDisplaySetting('logFollow');const logBox=document.getElementById('message_box_div');latest.disabled=logBox.scrollHeight-logBox.scrollTop-logBox.clientHeight<24;
-        const effectRows=[...document.querySelectorAll('#effects_tooltip .active_effect_tooltip')],effectName=effectRows[0]?.querySelector('.active_effect_name')?.textContent.replace(/^'|'\s*:\s*$/g,'').trim();effectsSummary.hidden=!effectRows.length||document.getElementById('main_content').dataset.parity!=='r3';effectsSummary.textContent=effectName?(effectName+(effectRows.length>1?' +'+(effectRows.length-1):'')):'Effects';effectsSummary.setAttribute('aria-label',`Active effects: ${effectRows.length}. ${effectName||''}`);player.dataset.hasEffects=String(!!effectRows.length);
+        placeSort();tabs.refresh();boxes.render();inventoryComposition.render(rowForSelection());
+        condition.render();syncLogLabels();syncNoticeLabels();attributeInspector.setVisible(active()&&document.getElementById('main_content').dataset.parity==='r3');if(!gearChosen){const wanted=false;if(gear.open!==wanted)gear.open=wanted;}if(!active()){if(contextSource)hideContext();return;}const enabled=document.querySelectorAll('#message_controls .active_selection_button').length;filters.textContent=enabled===6?'Filters':`Filters ${enabled}/6`;follow.value=getDisplaySetting('logFollow');const logBox=document.getElementById('message_box_div');latest.disabled=logBox.scrollHeight-logBox.scrollTop-logBox.clientHeight<24;
+
         if(contextSource){if(contextSource.isConnected&&!contextSource.hidden&&active())showContext(contextSource);else hideContext();}
         if(!active())return;
         attributeInspector.refresh();
@@ -362,5 +402,5 @@ export function mountProto23Shell({read}) {
         controls.append(action('Close item',()=>{if(detail.closest('#center_mode_content'))centerModes().back();selected=null;signature='';updateWorkspace();}));if(root.dataset.parity==='r3')controls.append(more);
     }
     document.addEventListener('workspace-presentation-change',()=>{hideContext();hidePreview();render();updateWorkspace();});
-    const timer=setInterval(render,400);return{render,destroy:()=>{hidePreview();attributeInspector.destroy();clearInterval(timer);document.removeEventListener('mouseover',hover);document.removeEventListener('mouseout',leave);document.removeEventListener('keydown',dismiss,true);document.removeEventListener('click',dismissClick);window.removeEventListener('blur',hidePreview);document.removeEventListener('click',inspect);document.removeEventListener('focusin',inspect);}};
+    const timer=setInterval(render,400);return{render,destroy:()=>{hidePreview();attributeInspector.destroy();condition.destroy();clearInterval(timer);document.removeEventListener('mouseover',hover);document.removeEventListener('mouseout',leave);document.removeEventListener('keydown',dismiss,true);document.removeEventListener('click',dismissClick);window.removeEventListener('blur',hidePreview);document.removeEventListener('click',inspect);document.removeEventListener('focusin',inspect);}};
 }

@@ -754,3 +754,30 @@ force; elsewhere the edge is named as what it is, per G1.
 Suggested order, if Weibao picks any: RLAD13 and RLAD10 are cheap and make edges
 visible; RLAD11 is the first playable proof, on the Village quest line that already
 stops at "[To be continued]".
+
+## Core-rule reconciliation, 2026-10-18
+
+**RLAC16, stop policy is not foreknowledge (AD6–AD9, AD16/AD17).** Truth-driven
+safety/content checks and player-known watch lists are separate inputs. Show only
+perceivable aftermath or a plain implementation limit, not a hidden future event,
+relationship state or uncovered-node count. Unknown threats can act without a
+pre-event warning; selected recovery still follows AD19.
+
+**RLAC17, detect a bounded content edge (AR7/AR8).** RLCE2's coverage map checks
+the selected action's represented dependencies and authoring horizon. It does
+not prove all emergent downstream consequences are covered or cheaply knowable.
+A plain technical "not built" notice grants no fictional knowledge. Prefer an
+atomic preflight boundary where possible; if a real earlier stage already
+committed, parking retains its effects and resumes the remaining stage once
+(G28). Settle unused time as pending or banked through one owner (G27).
+
+**RLAC18, freeze follows the selected world policy (AD12/AD16).** Parking a
+branch, changing the active world and setting a view aside are different acts.
+A UI close alone does not freeze world truth, undo a relationship or launch a
+substitute run. Offer alternatives with their stated clock/continuity effect.
+
+Later case, only when parking is selected: a synthetic interrupted activity hits
+one covered-to-unbuilt boundary, parks with its real stock and time receipt,
+then resumes after coverage is added without duplicate consequences. Level:
+strong runtime/authoring agent, medium; current-state persistence and rebuilt
+1920×1080 plus 1366×768 evidence, with no sealed truth in public fixtures.

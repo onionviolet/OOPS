@@ -1,5 +1,13 @@
 # BJ3/BJ4: generator, content, consumer and panel registry
 
+**Current seam qualification, 2026-10-18:** the October 14 source snapshot
+below predates the existing `src/domain_registry.js` and its crafting consumer.
+Follow [AR1–AR16](../../../../ARCHITECTURE_RULES.md) and the
+[modular checkpoint](../../modular-seams-2026-10-16/CHECKPOINT.md) before
+selecting a registry slice. Reuse actual native domain/panel/content owners;
+this proposal does not require a parallel bootstrap, receipt store or scheduler.
+Existing source imports corroborate a seam, not current native acceptance.
+
 2026-10-14. Proposal only. This is a host integration contract, not a new entity, receipt or save schema. [P38 entity refs](../p38/ENTITY_REFS.md), [receipt log](../p38/RECEIPT_LOG.md), [store owners](../p38/STORE_OWNERS.md) and [retention](../p38/RETENTION.md) own those proposal schemas and and [migration](../p38/MIGRATION.md) plus its [final report](../p38/REPORT.md) were read during the refresh. No P39 schema version is reserved. [P11 context](../p11/CONTEXT.md), [P22 retained revisions](../p22/CONTENT_PACKS.md), [P15 admission](../p15/AUTHORING_PIPELINE.md) and the existing registries remain the owners to extend.
 
 ## F1: wiring today, shown by source

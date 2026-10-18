@@ -1,0 +1,21 @@
+{
+  "head": "5976bf3d3d77034cfe01b94a5e89506ac6af2509",
+  "recordedAt": "2026-10-18T06:51:04.836488+00:00",
+  "sha256": {
+    "src/layout_spec.js": "40a539de375f0308ea195bbfac22244d81a5fffad8e5966f16a175cb9047bc15",
+    "src/workspace_layout.js": "a0d89c0cd1b6c1c69284ed05abc73cef347adddf88ace4870f81ea547a51fd53",
+    "src/proto23_shell.js": "04ab3e992ceb953e41d0e1d77d3348fb7b1be2e3378b2364c091bac38715db74",
+    "src/village_workspace.js": "7965e87b6c4c3fe24064bd75719d764d8b4911375d8f4c2a2fa87e8dd178e7d0",
+    "src/inventory_composition.js": "f98f09a662febd9eb61e969487295cda37d8780b2c7239e91bda9931034679cb",
+    "src/nearby_context_view.js": "16c8ea1f5eee1991b0f5548d934aa11595cf142325ccdc44a6563fdeff7f34ef",
+    "styles/inventory_composition.css": "deed13a9fd24a3364f7e894608e89271bcff0603bed25d4ab8004485c3a7cfca",
+    "styles/nearby_context_view.css": "de0fd95b5c00aeffd98657ab7cfff1bf491953a0294d96088fd12cd629a105da",
+    "dist/bundle.js": "d4ea1009b25ada5f8620b100cd7681238d48936fff298e66e1dedcb007726d75",
+    "index.html": "b3cb2ffc7ecd289105234db8b6004fccf33c870f2a82798e72f16cd362e665eb"
+  },
+  "indexRefresh": {
+    "previousSha256": "16e98615b2c8ffb3a53a0736207330ea7b51e1aa68d6fb36ce916368b9f659ef",
+    "note": "Build cache-version refresh; current served index and bundle/leaf styles verified against disk after final checks."
+  },
+  "finalCheckedAt": "2026-10-18T06:52:52.414577+00:00"
+}

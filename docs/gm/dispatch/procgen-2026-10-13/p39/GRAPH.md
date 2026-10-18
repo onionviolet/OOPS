@@ -1,5 +1,13 @@
 # BJ1: dependency graph and critical path
 
+**Reuse qualification, 2026-10-18:** [dispatch STATUS](../STATUS.md) records
+P34/GX5/G1 already merged as `759dd393`; references to a current unmerged P34
+branch below are historical. Inspect the existing spine and current domain/panel
+registries before proposing a new wrapper or owner. This graph is a proposed
+slice map, not a universal prerequisite bundle. Later NPC-heavy/layout deferrals,
+current compatibility decisions and UI_RULES desktop targets qualify new work.
+Retained P2/P4 B3 proof gaps are not closed merely by the merge.
+
 2026-10-14. Proposal only. Edge `A → B` means A's actual interface/evidence is needed before B's integrated playable claim. It does not authorize A/B, imply every sibling must run, or make a source test a runtime prerequisite. The complete current 158-row graph is [GRAPH_DETAIL.mmd](GRAPH_DETAIL.mmd), generated from [SLICE_INDEX.json](SLICE_INDEX.json). [SLICES](SLICES.md) keeps per-row native/source dependencies and gates, including prerequisites not present as slices.
 
 ## Readable shared graph

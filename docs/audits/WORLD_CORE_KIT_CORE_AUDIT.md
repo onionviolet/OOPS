@@ -53,7 +53,7 @@ scope, changes a standing priority or turns deferred work into a gate
    contradiction registers.
 7. **Record** the round in USER_VISION (the section above, plus a dated
    line) and IDEA_INDEX.
-8. **Commit** only this run's paths: `commit_list.py` for whole files and
+8. **Commit when authorized**, only this run's paths: `commit_list.py` for whole files and
    `docs/audits/tools/commit_own_paragraphs.py` for kit paragraphs in shared
    owners. Push or merge only on an explicit yes.
 9. **Update the run log** below.
@@ -75,3 +75,20 @@ scope, changes a standing priority or turns deferred work into a gate
 | 2026-10-14 | 17 | TW-K, TW-L, TW-S folded | this commit | FK1-FK4 corrections; card refresh (NX8) is the top kit action; next slice P01 on Village mixing; W37 reader is the kit build candidate |
 | 2026-10-15 | 18 | multi-world lanes and audit folded | this commit | FK5-FK10; MWA-P02 (local rule changes one verb) is the multi-world build candidate; UI rules UR2/UR4/UR8 constrain it |
 | 2026-10-18 | 19 | none | not committed | Little stuff every world needs: KN1-KN12 gaps found by keyword pass (waste, light, leisure, folk wisdom, petty crime, units, body care, pests, sounds, death customs, literacy, complaints); KU1-KU6 authoring tools (law-to-daily-life pass, texture layers) |
+| 2026-10-18 | 20 | none | not committed | KF1–KF3: optional texture, provenance versus destination mechanisms, one useful joined case; no full-world prerequisite bundle |
+## Core-rule reconciliation, 2026-10-18
+
+Apply the [shared pass](TOPIC_EXPANSION_AUDIT_PLAYBOOK.md#core-rule-reconciliation-pass-2026-10-18)
+to affected future rounds. Codes: AD2–AD9/AD16/AD23/AD33/AD36/AD38, SR4/SR14/SR20/SR21, WA8/WA12.
+
+**Composed case:** A world card separates source evidence, character knowledge and implementation coverage. Test one useful local mechanism and its time/custody aftermath; kit floors and round-19 texture are palettes, not mandatory bundle gates.
+
+**Current correction:** Successor root round 20 and the relevant rule owner now carry the
+constraint. Current old-save compatibility is deferred; newly built state still
+round-trips. Player-facing proof uses current UI_RULES targets. Proposals and
+NPC/layout/mobile deferrals keep their status. This is a docs-only rule-fit pass,
+not a rerun of source/game-reference lanes or evidence that gameplay works.
+
+Later execution: strong cross-domain agent, medium only when that seam is
+selected; reuse the affected existing suite and require a useful rebuilt journey
+plus current-state persistence when changed. No lane is dispatched by this entry.

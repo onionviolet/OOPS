@@ -1017,3 +1017,15 @@ are proposals until Weibao accepts them.
 | ER16 | Engine-aware cheats in sources: litRPG systems, admin/GM fiction, loop stories, meta games | `docs/research/ENGINE_AWARE_CHEATS_SOURCES_2026-10-14.md` |
 | ER17 | Comic worlds engine fit: comic doc CL/CK/CA and K-lane outputs mapped to engine foundations and stress cases | `docs/research/COMIC_WORLDS_ENGINE_FIT_2026-10-14.md` |
 | ER18 | Abstraction inventory: duplicate clocks, RNGs, registries, validators, formatters, persistence adapters in src | `docs/research/ABSTRACTION_INVENTORY_2026-10-14.md` |
+
+## Current-rule reconciliation, 2026-10-18
+
+Stack/framework/kernel options here remain a palette. AR1–AR16 and the current
+modular brief govern runtime changes; no framework conversion or new foundation
+bundle is selected. Before optimizing a selected catch-up or reaction chain,
+measure its real workload and compare semantic outcomes, including its stop/time
+receipt. A technical processing budget pauses/resumes remaining work rather than
+inventing a world law or silently discarding valid effects (AD22/AD36, G27/G29).
+Record today's source/content/fixture identity before reusing old performance or
+passing-test claims. [Current plan coverage](reviews/PLAN_RULE_RECONCILIATION_2026-10-18.md)
+separates section review from historical filename inventory.

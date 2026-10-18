@@ -1,0 +1,215 @@
+{
+  "legacy": {
+    "version": 1,
+    "spec": 4,
+    "contexts": {
+      "idle": {
+        "boxes": {
+          "inventory": "player"
+        },
+        "companions": {
+          "journal": "inventory"
+        },
+        "swap": true,
+        "sizes": {
+          "topLeft": 0.33332775695931477,
+          "bottomLeft": 0.26796707708779444,
+          "log": 0.27332876070663814,
+          "top": 0.6273352999016716
+        }
+      },
+      "combat": {
+        "boxes": {},
+        "companions": {},
+        "swap": false,
+        "sizes": {}
+      },
+      "travel": {
+        "boxes": {},
+        "companions": {},
+        "swap": false,
+        "sizes": {}
+      },
+      "service": {
+        "boxes": {},
+        "companions": {},
+        "swap": false,
+        "sizes": {}
+      }
+    }
+  },
+  "errors": [],
+  "limit": {
+    "page": [
+      1366,
+      768
+    ],
+    "viewport": [
+      1366,
+      768
+    ],
+    "regions": {
+      "player": {
+        "x": 17,
+        "y": 40,
+        "w": 467.1875,
+        "h": 407,
+        "client": 401,
+        "content": 401,
+        "font": "14px"
+      },
+      "focus": {
+        "x": 488.1875,
+        "y": 40,
+        "w": 417.8125,
+        "h": 407,
+        "client": 401,
+        "content": 401,
+        "font": "14px"
+      },
+      "inventory": {
+        "x": 17,
+        "y": 451,
+        "w": 348.953125,
+        "h": 300,
+        "client": 294,
+        "content": 294,
+        "font": "14px"
+      },
+      "actions": {
+        "x": 369.953125,
+        "y": 451,
+        "w": 536.046875,
+        "h": 300,
+        "client": 294,
+        "content": 294,
+        "font": "14px"
+      },
+      "log": {
+        "x": 910,
+        "y": 40,
+        "w": 439,
+        "h": 711,
+        "client": 705,
+        "content": 705,
+        "font": "14px"
+      }
+    },
+    "list": {
+      "x": 23,
+      "y": 495,
+      "w": 336.953125,
+      "h": 252,
+      "client": 252,
+      "content": 791,
+      "font": "21px"
+    },
+    "rows": [
+      {
+        "text": "\"ABC for kids\"",
+        "font": "21px",
+        "box": {
+          "x": 23,
+          "y": 495,
+          "w": 336.953125,
+          "h": 28.90625,
+          "client": 28,
+          "content": 28,
+          "font": "21px"
+        }
+      },
+      {
+        "text": "Apple",
+        "font": "21px",
+        "box": {
+          "x": 23,
+          "y": 523.90625,
+          "w": 336.953125,
+          "h": 28.90625,
+          "client": 28,
+          "content": 28,
+          "font": "21px"
+        }
+      },
+      {
+        "text": "Boar hide",
+        "font": "21px",
+        "box": {
+          "x": 23,
+          "y": 552.8125,
+          "w": 336.953125,
+          "h": 28.90625,
+          "client": 28,
+          "content": 28,
+          "font": "21px"
+        }
+      },
+      {
+        "text": "Boar meat",
+        "font": "21px",
+        "box": {
+          "x": 23,
+          "y": 581.71875,
+          "w": 336.953125,
+          "h": 28.90625,
+          "client": 28,
+          "content": 28,
+          "font": "21px"
+        }
+      },
+      {
+        "text": "Bread kwas",
+        "font": "21px",
+        "box": {
+          "x": 23,
+          "y": 610.625,
+          "w": 336.953125,
+          "h": 28.90625,
+          "client": 28,
+          "content": 28,
+          "font": "21px"
+        }
+      },
+      {
+        "text": "Carrot",
+        "font": "21px",
+        "box": {
+          "x": 23,
+          "y": 639.53125,
+          "w": 336.953125,
+          "h": 28.90625,
+          "client": 28,
+          "content": 28,
+          "font": "21px"
+        }
+      },
+      {
+        "text": "Cooked carrot",
+        "font": "21px",
+        "box": {
+          "x": 23,
+          "y": 668.4375,
+          "w": 336.953125,
+          "h": 28.90625,
+          "client": 28,
+          "content": 28,
+          "font": "21px"
+        }
+      },
+      {
+        "text": "Fresh bread",
+        "font": "21px",
+        "box": {
+          "x": 23,
+          "y": 697.34375,
+          "w": 336.953125,
+          "h": 28.90625,
+          "client": 28,
+          "content": 28,
+          "font": "21px"
+        }
+      }
+    ],
+    "stats": []
+  }
+}

@@ -1,0 +1,28 @@
+open 1920 14
+opened
+exercise 1920 14
+handle topLeft
+handle bottomLeft
+handle log
+handle top
+open 1920 21
+opened
+exercise 1920 21
+handle topLeft
+handle bottomLeft
+handle log
+handle top
+open 1366 14
+opened
+exercise 1366 14
+handle topLeft
+handle bottomLeft
+handle log
+handle top
+open 1366 21
+opened
+exercise 1366 21
+handle topLeft
+handle bottomLeft
+handle log
+handle top

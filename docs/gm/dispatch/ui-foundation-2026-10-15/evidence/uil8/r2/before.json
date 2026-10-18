@@ -1,0 +1,22 @@
+[
+  {
+    "target": "1920-21",
+    "condition": "14.7 \u00b0C \u00b7 comfortableCold exposureNo active effectsBody \u00b7 HumanAge: Adult \u00b7 Gender presentation: Ambiguous \u00b7 Height: Average \u00b7 Race: HumanEffects",
+    "weather": "\u2600 SummerDry14.7 \u00b0C \u00b7 comfortable"
+  },
+  {
+    "target": "1366-14",
+    "condition": "14.7 \u00b0C \u00b7 comfortableCold exposureNo active effectsBody \u00b7 HumanAge: Adult \u00b7 Gender presentation: Ambiguous \u00b7 Height: Average \u00b7 Race: HumanEffects",
+    "weather": "\u2600 SummerDry14.7 \u00b0C \u00b7 comfortable"
+  },
+  {
+    "target": "1366-21",
+    "condition": "14.7 \u00b0C \u00b7 comfortableCold exposureNo active effectsBody \u00b7 HumanAge: Adult \u00b7 Gender presentation: Ambiguous \u00b7 Height: Average \u00b7 Race: HumanEffects",
+    "weather": "\u2600 SummerDry14.7 \u00b0C \u00b7 comfortable"
+  },
+  {
+    "target": "1920-14",
+    "condition": "14.7 \u00b0C \u00b7 comfortableCold exposureNo active effectsBody \u00b7 HumanAge: Adult \u00b7 Gender presentation: Ambiguous \u00b7 Height: Average \u00b7 Race: HumanEffects",
+    "weather": "\u2600 SummerDry14.7 \u00b0C \u00b7 comfortable"
+  }
+]

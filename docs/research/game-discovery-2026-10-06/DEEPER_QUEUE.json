@@ -285,5 +285,18 @@
       "../idle-social-engine-scout-2026-10-06/REPORT.md"
     ],
     "examples": "Social commitments; institutional leverage/coalitions; production/logistics/externalities; document/evidence work; bounded rule manipulation. Source facts/proposals and access limits remain explicit."
+  },
+  "currentReview": {
+    "reviewedOn": "2026-10-18",
+    "disposition": "Original questions remain retained and unselected; this refresh does not adjudicate all source dependencies or dispatch a reread.",
+    "currentCoverageQueue": "docs/gm/dispatch/game-source-research-2026-10-06/DEPTH_QUEUE.json",
+    "currentCoverageRule": "Check later saved passes and their unread tables before reusing October 6 limits. Source coverage, implementation and native acceptance are distinct.",
+    "scopeRouting": "docs/PROCEDURAL_AND_GENERAL_OPPORTUNITIES_2026-10-16.md",
+    "scopeNote": "NPC-heavy implementation remains deferred; this does not prohibit reading already available source within standing research authority.",
+    "dispatchAuthorizedByReview": false,
+    "locatorBases": {
+      "entryPaths": "Paths relative to the referenced external game source checkout, not the OOPS src directory. Recover that game intake and source pin before opening them.",
+      "nativeOwnersToCompare": "OOPS repository-relative source comparison targets; existence does not establish API or behavior parity."
+    }
   }
 }

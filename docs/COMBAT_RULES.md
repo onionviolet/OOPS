@@ -36,7 +36,7 @@ in-world reason and cost (AD5).
 | CBR9 | **Threats develop from their actual causes (accepted, AD25).** Strength is source-authored; places and eras set danger. (CBC41) | Enemies that level with the player |
 | CBR10 | **Beaten obstacles stay beaten (accepted, AD28).** A zone respawns from a stated source, and removing the source can stop it. (CBC7) | Endless waves with no reason |
 | CBR11 | **Enemy difficulty comes from mechanisms and counters,** not only bigger numbers (Weibao, RNG and enemy systems). | Bosses that are just inflated HP |
-| CBR12 | **Each enemy template declares whether it can yield, flee, track and capture.** (CBC29, CBC30) | Animals that negotiate and bandits that fight to the death |
+| CBR12 | **Enemy templates describe actual yielding, fleeing, tracking and capture means.** Tags summarize modeled faculties rather than forbidding an otherwise supported mechanism (AD38). (CBC29, CBC30) | Animals negotiating without means, or a capable tracker disabled by a missing tag |
 
 ## Knowledge
 
@@ -87,3 +87,19 @@ These stay open in the palette: the outcome enum's final list, wear rates, the
 flee check, the idle policy fields, per-world lethality and outs numbers, body
 part depth, morale for the solo player, and the first slice. The palette's LATER
 list (CBL1–CBL10) holds the ranked proposals for a first build.
+
+## Cross-audit application, 2026-10-18
+
+CBR2/CBR3 publish outcomes at the selected encounter's declared resolution
+boundary. Reflect, rescue, healing and mutual defeat enqueue through the existing
+transaction owner (AR3); callback registration order is not a combat rule.
+Check one composed outcome rather than adding a test for every rule sentence.
+
+CBR27 safety stops can inspect real consequences without granting the player
+knowledge of their hidden cause. Watch lists are a separate policy input;
+observer-safe explanations follow AD6–AD9/AR8. CBR25 withdrawal and interrupted
+work settle actual spent/held resources before resumption (AR7, MR5).
+CBR12/CBL7 capability tags summarize modeled faculties: a creature with actual
+tracking means can track under AD38 even if a template omitted a selector tag.
+See [G26/G28/G29/G30](reviews/SUBTLE_RULE_GAPS_2026-10-18.md#round-4-latest-audits-together-2026-10-18).
+Concrete ordering and policies remain proposals, not a newly selected fight slice.

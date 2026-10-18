@@ -29,9 +29,9 @@ and cost (AD5).
 
 | Code | Rule | Mistake it prevents |
 | --- | --- | --- |
-| ECR7 | **Several channels, each a real choice:** universal buyer for convenience, specialists for value, deep-pocketed buyers for volume, plus services, consignment and standing orders. None wins in every case. (M3, M4, M10, M5.2) | One dominant channel that makes the rest dead weight |
+| ECR7 | **Several channels can offer real choices:** convenience buyers, specialists, volume buyers, services, consignment and standing orders. Which wins follows local mechanisms; dominant means remain possible (AD28, AD38). (M3, M4, M10, M5.2) | Identical channels with no useful distinction, or forced balance overriding world law |
 | ECR8 | **Buying and selling stay asymmetric by default,** so a full purse does not replace gathering and making. Worlds such as System shops may loosen this, and making then earns its place through quality and custom work. (M6) | Crafting made pointless by a shop that sells everything at fair prices |
-| ECR9 | **Merchants price what they can judge.** A buyer cannot pay for a hidden property it cannot appraise, and a perfect appraiser is an identification means. (N2, A7, AD6–AD8) | Prices leaking sealed or unknown truths |
+| ECR9 | **Merchants price from what they can judge or believe.** Knowingly valuing a hidden property needs appraisal; bundle pricing, speculation and mistakes remain possible. A quote does not certify hidden truth. (N2, A7, AD6–AD9) | Prices leaking sealed truth or merchants acting omniscient |
 | ECR10 | **Selling never destroys an item silently.** Sold goods enter the buyer's stock and can be bought back, and unique or quest items ask first and stay recoverable. Today a trader refresh deletes sold goods, so retention comes first. (M9, ECX3) | One misclick permanently losing a story item |
 | ECR11 | **Repetitive selling can be automated** with rules that skip equipped, locked, quest and unique items and log their runs. (M8, A11) | An idle game with a manual-sale chore |
 | ECR32 | **A merchant who can't buy says why** and names the alternatives (come back, consign, sell elsewhere). Purse state is shown as far as the player knows it. (ECC27) | Hidden caps that feel like bugs |
@@ -43,8 +43,8 @@ and cost (AD5).
 | ECR12 | **Money is whatever a world treats as money:** coin, commodity, power-bearing, institutional credit, System currency, social or metaphysical. Each states where its value comes from, and that decides whether it travels. (M13) | Every world defaulting to gold coins |
 | ECR13 | **Universal currencies exist where an issuer or network spans worlds;** carried valuables keep value wherever the destination values them. (M7 correction, M16) | Treating locality as a wall |
 | ECR14 | **Value depends on recognition, usability and access.** An item's price changes when a world learns what it is and whether its mechanism works there. (M14, AD38) | A mana crystal priced the same in a world with no way to use it |
-| ECR15 | **Every coin has a named source and sink,** and every transfer conserves value. Intended money engines are allowed; this is accounting, not a cap. (ECC4, N5, AD22) | Coin appearing or vanishing without a cause |
-| ECR16 | **One money authority:** one purse per currency, transactions through one seam, integer minor units per currency, and a plan for very large values. (ECC25, ECX1, A10, A15, A18; a target: 14+ direct writes exist today) | Features writing money directly, and overflow errors in long idle runs |
+| ECR15 | **Every monetary creation/destruction has a cause; transfers settle actual currency and custody once.** Intended money engines, asymmetric valuation and arbitrage remain allowed. This is accounting, not a universal conservation law for economic value. (ECC4, N5, AD22, AD27) | Coin/items duplicated or lost through publication; profitable trade mistaken for a bug |
+| ECR16 | **One money authority:** one purse per currency and transactions through one seam. Use exact units appropriate to that currency and a plan for very large values. (ECC25, ECX1, A10, A15, A18; a target: 14+ direct writes exist today) | Features writing money directly, rounding loss and overflow in long idle runs |
 | ECR33 | **Each currency states its time horizon** (now, this life, next life), and each reset states what happens to every horizon. (ECC29, ECC21) | A prestige reset silently deleting an economy |
 
 ## Wealth, exposure and safety
@@ -86,3 +86,21 @@ and cost (AD5).
 | --- | --- | --- |
 | ECR30 | **Grow the sinks, don't throttle income.** Each scale of wealth opens new things worth buying, a broken money engine is a payoff, and pushback comes from in-world agents with reasons (AD22, AD38). (M5, M24, ECC20) | Nerfs and invisible caps instead of new play |
 | ECR31 | **The economy is optional to living.** A character can thrive without commerce, and economic depth is chosen per world and activity (CX1–CX8). (ECC1) | A life sim that requires running a business |
+
+## Cross-audit application, 2026-10-18
+
+ECR7's "none wins in every case" describes a useful ordinary design, not forced
+balance: a world or exceptional means may produce a dominant channel (AD28,
+AD38). ECR9 means merchants cannot knowingly price a hidden property without
+appraisal; they may still pay for a bundle, rumor, option or mistaken belief.
+A high quote alone does not certify the hidden truth (AD6–AD9, MR31).
+
+ECR15 conserves transferred money/goods through one owner; creation, destruction
+or conversion follows the actual mechanism and its source/sink, not a universal
+ban on profitable or free outcomes (AD22/AD27). ECR16 integer units belong to
+currencies whose divisibility supports them, not a forced coin model for every
+metaphysical currency. Deferred sales/services settle spent versus reserved
+value on interrupt (AR7); current atomic trades need no staged-job conversion.
+Refresh/expiry uses the market's owning clock, and an away stop must not reveal
+a merchant's hidden appraisal or purse (AR8). Proposed mechanisms retain their
+status. See [G26–G30](reviews/SUBTLE_RULE_GAPS_2026-10-18.md#round-4-latest-audits-together-2026-10-18).

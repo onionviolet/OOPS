@@ -423,3 +423,15 @@ The review's E1–E5 source pointers are bounded observations, not a current who
 engine audit or gameplay proof. Old fragmentation counts remain historical leads,
 not freshly measured defects. Compatibility/failure/reload/import evidence belongs
 to the selected slice. No new global framework, schema or worker dispatched.
+
+## Current-rule reconciliation, 2026-10-18
+
+OD8 below/above remains accepted through its cited user answer; the older kernel
+and foundation recommendations are proposals. AR3/AR7/AR8/AR12 now route the
+selected seam: truth resolves unknown effects, projections restrict explanations,
+interrupted work settles its real stage, and time credit is accounted for once.
+Use existing transaction, native publication and clock owners; do not require a
+new event bus/kernel before another consumer can land. Current old-save migration
+is deferred; new-state persistence remains. See [plan coverage](reviews/PLAN_RULE_RECONCILIATION_2026-10-18.md)
+and the updated modular brief. This is a plan correction, not fresh foundation
+implementation or runtime verification.

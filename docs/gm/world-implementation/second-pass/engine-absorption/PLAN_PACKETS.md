@@ -1,5 +1,13 @@
 # Proposed plan amendments and later packets
 
+**Reuse status, 2026-10-18:** the revision-5 textual amendments and writer
+assignments below are historical proposals, not instructions to patch today's
+canonical plan by matching old paragraph text. The later implementation plan,
+AR1–AR16 and modular checkpoint own current integration. Preserve these recipes
+as optional reference cases; recover the actual selected consumer, writer and
+missing seam before adopting one. Their old scope-specific test deferral does
+not exempt a newly selected slice from current gates (AD36).
+
 2026-10-04. **Proposed-held.** Assigning master alone reconciles the canonical plan/RUN; shared Engine alone integrates runtime/native/save/UI/build. This file changes neither. Recheck live AGENTS/PROJECT/RUN, dirty input hashes and actual exported INTERFACE before any later executor writes. Extra gameplay suites remain deferred until the user's pace changes.
 
 ## Exact amendments for the master
@@ -65,3 +73,14 @@ These edits refine revision 5's existing direction without choosing new worlds, 
 **Required:** integer topology/coordinate convention; known contacts separate from true collision/sensing geometry; path objective; passability/authority/cargo/body checks; canonical paid movement; effect-specific target legality. Optional rot A* assumes its supported grid step metric; it is not a weighted directed road solver. FOV is visibility geometry, not belief, consent, reach or guaranteed detection.
 
 **Next action:** write the exact player decision and counterexample that the current small graph cannot express. **Gate:** static consumer closure; later obstacle/sight/contact/body/route/cargo/return evidence. If rot wins, pin v2.2.1 source/package, keep license notice, import only needed modules and use no rot scheduler/Engine/RNG. Generation, if ever selected, uses the canonical saved seeded draw through an explicit adapter and persists realized topology once. Bundle/latency/cost advantages remain unknown. Stored coordinates/topology are app-owned JSON, allowing a replacement query implementation without rewriting stock or time.
+
+## Core-rule fit, 2026-10-18
+
+EA-P1–P3 are choices for a demonstrated gap, not a dependency bundle. Keep
+preview/admission/publication through the existing owner (AR3/AR7/AR8); no new
+scheduler, grid, universal DSL or framework follows from the packet. A rejected
+precondition is distinct from an intentionally committed failed experiment.
+Current compatibility permits reset/drop of older state by recorded choice;
+new state still round-trips. Local mechanisms and extraordinary means may remove
+ordinary costs or routes (AD38); source comparison does not impose one world's
+restrictions on another. No external tool/library was fetched or adopted here.

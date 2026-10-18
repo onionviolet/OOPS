@@ -1,5 +1,41 @@
 # User vision and research coverage
 
+## Agent generation and book usage, 2026-10-16
+
+Latest correction: “How do we stop readers from carrying huge contexts through hundreds of calls? Update the rules accordingly so we can still read whole books without burning that much usage, those books should fit into one or two or 3 chats properly? more to consider?”
+
+Current workflow: target one to three coordinating chats for a full book, with one finite source-sized reading plan and fresh, short-lived internal readers. Each reader loads one bounded shard, saves source-backed evidence and retires; the coordinator carries compact indexes and retrieves exact spans when needed. AU13–AU15 distinguish visible chats from internal reader contexts, limit reader response counts, and preserve continuity without copying old raw chapters. Full-book authorization covers the declared finite pass within the usage ceiling; it does not require repeated approvals every 48,000 words. The exploratory four-reader cap and earlier 100,000-token stop threshold are superseded for this workflow. These operational limits do not claim a whole raw book fits three model contexts, guarantee a quota percentage, or authorize starting a new reading run here.
+
+The paragraphs below preserve the earlier same-day interpretations; the current AU rules above control where they differ.
+
+Follow-up correction: “Readers can spawn lesser agents, audit what happened in that chat to drain 75% of my tokens, more to consider?” Readers may delegate smaller work to lesser agents within reserved shares of the same cumulative budget. This supersedes the first implementation's blanket child-spawning prohibition, retained below as the earlier interpretation. [Usage audit](reviews/BOOK_RESEARCH_USAGE_AUDIT_2026-10-16.md) records the actual session tree and usage limits; AU9–AU12 add downward delegation, bounded tool/context loads, acquisition separation and whole-tree accounting. This is authority for the audit and workflow correction, not for launching another book-read wave.
+
+Weibao: “we need stronger rules for agent generation since I just went through 75% of my tokens going through one book”.
+
+This authorizes stronger execution-cost rules. [Agent usage rules](AGENT_USAGE_RULES.md) AU1–AU15 set conservative operational defaults: one coordinator, a shared finite budget across readers/retries/successors, one calibration reader before bulk work, smaller models and bounded context for extraction, reusable source notes and a stop at the budget boundary. A larger finite tranche needs explicit authorization; earlier full-book or autonomous-succession requests do not grant unlimited usage. These limits govern execution, while requested full coverage remains open until actually read. Numeric defaults are the implementation of this request, not a claim that Weibao selected those exact figures or that savings were measured.
+
+
+## OOPS project identity, 2026-10-16
+
+Follow-up authorization: “Can we rename the GitHub repo to OOPS too and update the links accordingly?” The current repository is `onionviolet/OOPS`; the original naming decision below preceded this separately authorized repository rename. Local origin and current project links follow the new URL. Upstream and save identifiers are unchanged.
+
+Weibao: “lets keep OOPS as the stylized name for Optimistic Progression Simulator and update the branding accordingly”. The extra O is intentional; “Overly” is not part of the full name. This is the fork's own identity, with a whimsical, unpretentious tone. It changes branding, not game design, world tone or progression rules. Miktaew's Yet Another Idle RPG remains the credited upstream project. Historical YAIR/YAIRPG references, source-world provenance, save formats, storage keys and repository URLs remain valid.
+
+
+## Reusable mockup system, 2026-10-16
+
+Weibao: “Make long standing better mockup system”, following the proposal for
+one interactive workbench with a real-game-style frame, same-state A/B switching,
+clickable journeys and shared review controls. This authorizes the reusable
+mockup tooling and its standing workflow. [Mockup system](MOCKUP_SYSTEM.md)
+owns the rules and extension protocol; [workbench](../prototypes/workbench/README.md)
+owns the runnable entry point. New UI comparisons use that host, with explicit
+fixture provenance and target sizes, rather than creating another isolated
+set of review controls. Existing experiments stay as historical evidence and
+can be adapted when revisited. Individual layouts and gameplay remain proposals
+until separately selected and natively integrated; this is not a new game UI
+baseline, gameplay priority or mobile workstream.
+
 ## Standing UI priority, 2026-10-13
 
 Accepted direction, reaffirmed by Weibao in this session: desktop and laptop play
@@ -32,6 +68,46 @@ are historical scope, not standing requirements for future UI work. Agent
 proposals and external reviews cannot change this direction. Later changes from
 Weibao must update this owner, its project summary and affected active guidance,
 with superseded wording retained as dated history.
+
+## Calmer Vivid and progressive UI disclosure, 2026-10-14
+
+Weibao reported that the current interface feels a little cluttered and asked
+for further Proto23-inspired UI unlocks, flow and color treatment. He then
+authorized implementation of a calmer Vivid layout and UI unlocks, explicitly
+retaining useful panels, fully using the laptop screen, considering latest
+integrated work and checking a populated save as well as the opening.
+
+This refines the standing laptop priority rather than replacing it with a
+single condensed view. Learned records, current relevance and personal layout
+choices remain distinct. Specific visual choices are playable proposals until
+Weibao reviews their feel. The [UI owner](THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md#density-staged-disclosure-and-visual-hierarchy-follow-up-2026-10-14)
+retains the design considerations; the [implementation report](gm/dispatch/calm-vivid-2026-10-14/REPORT.md)
+owns changes, screenshots and technical proof. Future interaction families and
+automatic contextual rearrangement remain proposals, not added completion gates.
+
+### Hero creation screen parked, 2026-10-14
+
+Weibao asked to remove/send away the current Create your hero screen for now
+because it is not useful to him at this stage. Play now bypasses that screen
+with a valid ordinary default hero. Existing character identities remain intact;
+the creation implementation is retained but disabled for a future meaningful
+starting-choice flow. This temporary presentation decision does not retire the
+broader starting-world/origin vision. [Implementation and checks](gm/dispatch/calm-vivid-2026-10-14/HERO_SCREEN.md).
+
+## Parity keeps YAIR-specific reasons, 2026-10-15
+
+Weibao, on Proto23 UI parity: "some stuff have reasons to exist for us specifically,
+like the top bar to make stuff condensed and seeable and more? Some features are
+specific ways here for specific reasons to better fit our end goal, so we need to
+establish that accordingly?"
+
+Accepted direction: Proto23 stays the visual/composition baseline (UR12), but YAIR
+choices that serve its own goals (laptop-first full screen, many worlds, life-sim
+depth, knowledge-gated discovery, explicit actions, one-click navigation) are kept.
+Parity work absorbs Proto23's lessons inside them and names the reason for each kept
+difference. [UR49](UI_RULES.md) holds the rule; the
+[intent register](gm/dispatch/ui-foundation-2026-10-15/PARITY_INTENT_2026-10-15.md)
+holds the current analysis, which is a proposal.
 
 ## World depth and canon-first world priority, 2026-10-13
 
@@ -99,11 +175,18 @@ into many forms with look-alike pairs, per the one-idea-many-forms method).
 Recorded direction: the current code's heir-only carryover is an implementation
 state, not a design limit. Earlier designs and code may be revised to fit future
 capabilities, with the usual save compatibility decision for each change.
+Carryover needs an actual carrier or world/means rule, as clarified in
+[RULES_FROM_SCRATCH](RULES_FROM_SCRATCH.md#what-no-free-carries-and-no-generic-conversion-meant).
+Free carry and supported conversion are possible; costs or conditions follow
+the relevant mechanism rather than a universal surcharge. Added as parts 17 (cross-life carryover forms and a retrofit list for
+systems that fight the future direction, with a separate "needs Weibao" list)
+and 18 (Proto23 mechanics not yet absorbed).
+
+(Superseded wording, preserved verbatim as 2026-10-16 history:
 Accepted rules (for example RULES_FROM_SCRATCH's "no free carries") still hold
 until Weibao revises them, so carries come through an in-world source with a
 cost. Added as parts 17 (cross-life carryover forms and a retrofit list for
-systems that fight the future direction, with a separate "needs Weibao" list)
-and 18 (Proto23 mechanics not yet absorbed).
+...)
 
 > more to consider? save accordingly Dialogue actions with impact and more? making friends with people? relatshionship stuff and more?
 
@@ -2975,7 +3058,1276 @@ and Village start probe. Evidence and pattern catalog:
 Proposals only; every reasonable premise stays reachable rather than chosen
 either/or. Randomized premise truths follow the sealed-secrets rule.
 
+## Tabletop systems and distinct multiverses, 2026-10-14
+
+> Go ahead and download the Ars Magica collection and whatever else is freely available from that list. Check what we already have, organize it for research, and list what still needs buying. We can incorporate different world systems as different types of multiverses for yair, more to consider? is text based uniquely suited for showing these?
+
+Requested direction: different world systems can inform distinct kinds of
+multiverses within YAIR. Acquiring and organizing reference books is authorized;
+particular cosmologies, conversion rules and gameplay remain proposals.
+The continuing traveler and earned skills/powers remain part of the stated
+interest. This does not advance deferred worlds ahead of the current playable
+slice. [Library and acquisition evidence](research/tabletop-library-2026-10-14/README.md)
+and [design considerations](research/tabletop-library-2026-10-14/DESIGN_CONSIDERATIONS.md)
+separate source capture from reading and implementation. The
+[existing multiverse owner](worlds/MULTIVERSE_STRUCTURES.md) remains authoritative.
+
+## Rulebooks for world building, and a game master, 2026-10-14
+
+> how can the core rulesets and D&D and other latest downloaded stuff help us out in creating or expanding worlds and more? more to consider? Do we need game master? / more to consider?
+
+Recorded as a considerations palette, not a decision:
+[rulebooks for worlds and GM](RULEBOOKS_FOR_WORLDS_AND_GM_CONSIDERATIONS_2026-10-14.md)
+(RB1-RB12 uses, R1-R5 risks, GM1-GM7 split of a tabletop GM's jobs onto YAIR
+owners, GMA1-GMA5 angles, L1-L5 ranked follow-ups). No new agent GM role is
+needed; the in-game "GM" is the existing director/storyteller, generator and
+rulings pieces. Canon-first world order and current slices are unchanged.
+
+Follow-up the same day:
+
+> if we incorporate more rulebooks and more? different rulebooks for different multiverses? other stuff and more? LEts consider things in detail first, and also consider more f=rulebooks to consider
+
+Recorded as round 2 in the same
+[considerations doc](RULEBOOKS_FOR_WORLDS_AND_GM_CONSIDERATIONS_2026-10-14.md#round-2-more-rulebooks-one-rulebook-per-multiverse-and-more):
+MV1-MV20 (a world's rulebook splits into resolution, progression and law
+profiles), NR1-NR37 new rulebooks not on earlier lists, OS1-OS5 non-rulebook
+sources, R6-R10 risks, L6-L10 follow-ups. "Consider first" means no dispatch.
+
+Second follow-up the same day:
+
+> incorporating stuff into engine level and more? Implementing everything that might be needed?
+
+Recorded as [round 3](RULEBOOKS_FOR_WORLDS_AND_GM_CONSIDERATIONS_2026-10-14.md#round-3-engine-level-and-should-we-implement-everything):
+EX1-EX6 existing engine seams, EP1-EP10 primitives, EC1-EC9 considerations,
+L11-L14 follow-ups. Proposal: build the shared primitives each with a playable
+consumer and make the rest data packs, rather than implementing everything up
+front. No dispatch.
+
+Third follow-up the same day:
+
+> incorporating stuff into engine level and more?
+
+Recorded as [round 4](RULEBOOKS_FOR_WORLDS_AND_GM_CONSIDERATIONS_2026-10-14.md#round-4-more-engine-level-angles):
+EX7-EX9 further existing seams, EA1-EA18 engine angles, L15-L18 follow-ups.
+No dispatch.
+
+Fourth follow-up the same day:
+
+> send out codex accordingly, but consider next best set of rulebooks and whatever that can help incorproated and more? mroe to consider?
+
+Recorded as [round 5](RULEBOOKS_FOR_WORLDS_AND_GM_CONSIDERATIONS_2026-10-14.md#round-5-next-best-rulebooks-and-helpers-and-the-codex-wave):
+HD1-HD9 machine-readable rules data, NB1-NB10 next rulebook set, MC5-1 to
+MC5-6. Dispatch authorized: six Codex lanes R1-R6 in
+[rulebook-engine-2026-10-14](gm/dispatch/rulebook-engine-2026-10-14/COMMON.md).
+Paid books (NB5-NB10) remain Weibao's buying decision.
+
+## Format, portraits and view decisions, 2026-10-14
+
+Weibao asked, across one thread:
+
+> what is the best format for the idea of YAIR? is the current the best or will we/should we consider telling the story another way? 2d world? Scope expansion? more to consider?
+
+> consider implications for book worlds and more, portrait should be largely unnecisarry? More to consider?
+
+> I want a general audit on decisions so thiings can be decided in full and have a proper direction? I want to find out and compare if hanzi and other options are the best and more, this isnt an implementation run but rather a consideration run
+
+Recorded in the [format assessment](YAIR_FORMAT_AND_STORY_DELIVERY_2026-10-14.md),
+the [art/reference report](research/format-and-character-art-2026-10-14/REPORT.md)
+and the [decision audit](FORMAT_AND_VIEW_DECISION_AUDIT_2026-10-14.md). State:
+**proposals awaiting confirmation** (audit Q1–Q3). Portraits as optional is his
+stated leaning, not yet an accepted policy. The 2026-10-02 decisions stand: center
+menu primary, Hanzi-field style endorsed.
+
+Follow-up the same day:
+
+> better 2d representations? General ui considerationjs? we should inherit more of Proto23's identity since right now's rounded stuff and style feels vibe coded and does not share the same style in a way? Other stuff accordingly? Representation of characters? Scene panels + other ideas? we can draw from text based game like nethack and bitburner, other aspects to consider? Consider best ideas and more? Easiest and most capable representations?
+
+> also right now Ui feels cluncky and we miss the side panel of attack numbers and random event text and more?also clicking into certain panels leaves no way back?
+
+Recorded in [UI identity and representation](UI_IDENTITY_AND_REPRESENTATION_CONSIDERATIONS_2026-10-14.md).
+Direction stated by Weibao: inherit more of Proto23's identity; the current rounded
+style feels inconsistent. Specific frame, font and layout values (DU1–DU7) are
+proposals awaiting Q4–Q6. Missing log and dead-end panels are reported problems.
+
+Follow-up, 2026-10-15:
+
+> Other aspects to consider? We need to work on the overarching design level stuff accordingly?/
+> Send out chat to address the following
+> Q4, sure Should everything be redeisnged from thwe way bacl?, Q5, Sure, send new chat accordingly through codex, Q6, Mix at the villiage counter,
+
+**Accepted:** Proto23 frame language as the default look (Q4); build order log and
+way-back fixes, then tokens and Proto23 skin, then scene/focus panel (Q5), sent to
+Codex. Q6: the Village mixing counter left him with no way back. Answer to the
+redesign question, a proposal: rebuild the look, placement and center-mode
+layers, then migrate features onto them, rather than rewriting features.
+[Foundation round](UI_FOUNDATION_DESIGN_ROUND_2026-10-15.md);
+[dispatch](gm/dispatch/ui-foundation-2026-10-15/COMMON.md).
+
+Further follow-ups, 2026-10-15:
+
+> Wait I just found the button but it wasnt obvious what it was so that is the issue, Consider menus like World start and stuff, maybe they should be seperate and a pop up or designed in some other way? More to consider? We can move alot of stuff back to the drawing borad  to be implemented properly?
+
+> One assumes it would be on the bottom but it is in the center of the villige mixer, but is it even logical to have a villiage mixer? maybe a apothecary? more to consider?
+
+> menu stype mismatch stuff and more?
+
+> like the drop downs...
+
+Q6 corrected: the mixing counter's back button existed but was not recognizable;
+expected at the bottom. Passed to the running UI foundation lane as a bottom-pinned
+back bar plus Esc, and one shared component style for group rows, info blocks and
+buttons. Surface types, world-start screen, drawing-board triage and the apothecary
+idea are proposals (Q7–Q9) in [surface types](UI_SURFACE_TYPES_AND_DRAWING_BOARD_2026-10-15.md).
+
+> Q7, Q8, Q9: yes. Record them and queue the triage and apothecary work after the foundation lane's slices.
+
+**Accepted 2026-10-15:** surface types ST1–ST9 as the placement rule, with world
+start as its own full screen (Q7); keep / rehome / drawing-board / retire triage
+with parked features playable in a Projects drawer and saves untouched (Q8); the
+Village mixing counter becomes a Village apothecary with a keeper, internal ids
+unchanged (Q9). Queued after the UI foundation lane:
+[triage and apothecary](gm/dispatch/ui-triage-apothecary-2026-10-15/COMMON.md).
+
+> save logical rules to address these and more so similar mistakes wount be made again?
+
+Saved as [UI rules](UI_RULES.md) UR1–UR20, linked from AGENTS.md for Codex and
+Claude, and added to the UI foundation and triage/apothecary lane briefs.
+
+## Overarching design direction core, 2026-10-15
+
+> make a prompt to decide the best way to figure out core and Other aspects to consider? We need to work on the overarching design level stuff accordingly? Like representations, style, and much more?
+
+> use /more-to-consider accordingly too?
+
+> another chat is working on ui, we need to work on long standing design direction and more?
+
+Method saved as a rerunnable [prompt](OVERARCHING_DESIGN_METHOD_PROMPT_2026-10-15.md);
+first run in the [overarching design core audit](OVERARCHING_DESIGN_CORE_AUDIT_2026-10-15.md).
+Scope per his last line: long-standing game direction; UI findings are handed to
+the UI chat, not proposed. State: **OD23 broad time direction accepted 2026-10-15; detailed pacing and lifespan rules deferred pending core discussion. Other core answers remain proposals** (audit Q1–Q5).
+Pillars PL1–PL6 are drafted only from his quoted words and are not accepted.
+
+> there should be paths back to specific large panels if someone wanted, everything should be viewable without scrolling too much, other stuff and more?
+
+Saved as [UI rules](UI_RULES.md#getting-anywhere-and-seeing-it-without-much-scrolling)
+UR21–UR33 and added to the UI foundation and triage/apothecary briefs.
+The foundation lane closed its shared layers before these rules existed, so a NAV
+lane (nav strip, history-aware back, scroll budget) now runs before triage and the
+apothecary in the same queue.
+
+## Titles, achievements and tags on rules, 2026-10-15
+
+> More to consider? Titles could grant actual powers depending on the world, or having a relevant cheat that has that too(maybe achievements and more?) and tags could affect rules themselves too? Expand across cheats, NPCs and worlds and save accordingly. Consider connecting with prior exiting thought and more?
+
+Accepted direction: titles can grant actual powers according to the world or
+a relevant cheat; achievements and other recognition routes should be
+considered alongside them. Tags may affect rules themselves, beyond describing
+items or selecting targets. Expand these possibilities across cheats, NPCs and
+worlds, connecting prior design work. This does not make every title operative
+or every rule universally editable. Specific grants, achievement conditions,
+authority conflicts and build choices remain proposals. No universal cost,
+counter, slot limit or one-time reward requirement is selected.
+
+[Connected E4 expansion](emergent/TITLES_ACHIEVEMENTS_AND_META_RULES_2026-10-15.md)
+owns the detailed considerations. Memories and the base cheat retain their
+separately accepted continuity; title powers and other rewards depend on the
+world and means, and retention can improve. Documentation only, no gameplay
+delivery or implementation priority change.
+
+### Title evolution and achievement criteria follow-up, 2026-10-15
+
+> More to consider? Titles and achievements could evolve, combine, be inherited or stolen too? What about titles for items, places and worlds, and cheats that change what counts as an achievement? Connect prior ideas and save accordingly.
+
+Requested scope explicitly includes evolution, combination, inheritance and
+theft of titles/achievements; title holders beyond people, including items,
+places and worlds; and cheats changing what qualifies as an achievement.
+Preserve these as world/cheat-dependent possibilities, not universal automatic
+behavior. The [same E4 owner, C9-C13](emergent/TITLES_ACHIEVEMENTS_AND_META_RULES_2026-10-15.md#c9-evolving-and-combining-titles-and-achievements)
+connects prior aspects/shards, adjective grammar, mantle/backing, custody,
+World Deeds and continuity ideas. Specific transformations, transfer semantics,
+criteria revisions, rewards and implementation remain proposals. No new
+priority, universal exclusivity, transfer cost or reward limit is selected.
+
+## Proto23 visual baseline reaffirmed, 2026-10-15
+
+> Results from claude code for Latest UI rules and more? We can adjust accordingly? Proto23 has a better visual deisgn so far, so we should refactor and then use that UI as baseline accordingly?
+
+Direction reaffirmed: refactor the shared UI around Proto23 as the visual and
+composition baseline, preserving gameplay. The comparison concerns hierarchy,
+panel relationships and use of space as well as square frames, gradients and
+thin rows. This is not acceptance of the current candidate's visual feel.
+[Foundation owner](UI_FOUNDATION_DESIGN_ROUND_2026-10-15.md#proto23-baseline-clarification-2026-10-15)
+records the screenshot comparison, current evidence and bounded adjustments.
+UR1–UR33 and the existing foundation → NAV → triage → apothecary order remain.
+
+
+### Overarching direction discussion: OD23, 2026-10-15
+
+Earlier discussion and transfer, preserved here on the first answer:
+
+> Lets ciscuss, but we need to consider the gameplay representations and more? mroe to consider?
+
+> hand off and stuff, we will be working in codex to dicuss these, since we are almost out of claude
+
+Codex continuation request:
+
+> Read docs/gm/OVERARCHING_DIRECTION_HANDOFF_2026-10-15.md and continue the overarching direction discussion with me, one question at a time, starting with OD23 (time scale).
+
+First answer:
+
+> Both? Time should pass during ordinary play, but we should also be able to compress settled routines. Different worlds and lifespans should have different pacing. More to consider? Consider how the original game settles these ideas of lifespan and more, or was it not even an consideration? Maybe we can defer these until we get the core figured out?
+
+Accepted direction: ordinary play advances time, settled routines can be compressed,
+and pacing varies with world and lifespan. Exact ratios, target life duration,
+mortality rules, compression stop policies and offline aging remain open; defer
+detailed tuning until the core is clearer. This does not accept earlier proposed
+life/reset rules or authorize gameplay changes. The [core audit](OVERARCHING_DESIGN_CORE_AUDIT_2026-10-15.md#od23-discussion-answer-and-focused-expansion-2026-10-15)
+records upstream evidence and further considerations as proposals. Continue one
+question at a time with OD1, the unit of play.
+
+
+### Overarching direction discussion: OD1, 2026-10-15
+
+> 1. Sure, maybe we are left with the option after our death to either go back or start something new? or always have the change to decide to start something new? a "base cheat" if you willWhats the next question for our direction?
+
+Accepted: the preceding proposed default, one life follows one person while the
+broader journey can continue across lives, with room for indefinite continuation
+through longevity or world-specific means. Consider a "base cheat" that offers
+returning or starting something new after death, and possibly departure before
+death. Those alternatives are tentative: what "go back" means, availability,
+costs and carryover remain open. No automatic rewind, resurrection, checkpoint
+restore or unrestricted world travel is selected. Continue with OD4 (Q3), idle
+and offline progress; revisit continuation mechanics under OD2.
+
+
+### Overarching direction discussion: OD4, 2026-10-15
+
+> Sure, routines should keep progressing while away, but pause for important choices. Offline aging can be optional and depend on the world. More to consider? We can adjust accordingly? have time extend accordingly like "you practiced so and so and did so and so in this time" and absorb the rewards? or could it be explained by a cheat like you simulated life and gained the following? maybe time can be less meaningful? Or having the option to skip forward or backwards or something accordingly? Whats the next question?
+
+Accepted: chosen routines progress while away and pause for important choices.
+Offline aging is optional and world-dependent. The preceding default also supplies
+resource exhaustion stops, a return summary and paused inactive worlds. Exact
+rates, caps and policies remain open. This refines earlier unresolved offline
+wording; it does not establish implemented offline gameplay.
+
+Further considerations, not selected mechanics: account for elapsed practice and
+its rewards in a recap; a cheat might instead simulate a life and transfer gains;
+time could have less importance in some modes, with forward/backward options.
+Ordinary elapsed practice, simulated experience and actual timeline changes have
+different consequences and should not be treated as interchangeable explanations.
+Detailed timeline/rewind/retention rules remain open. Next: OD2 (Q2), what resets
+and carries between lives, including the proposed base cheat.
+
+
+### Overarching direction discussion: OD2, 2026-10-15
+
+> Sure, memories and the base cheat carry over, other stuff depends on the world and means? We can add lore for base cheat for it to be a mark or a spiritual thing and more?We should be able to improve what carries over too. Implementation of roguelike style and more? more to consider? Worlds where time might be more important? like the ui stuff we can setup rules and ideas accordingly? More to consider? Whats the next question?
+
+Accepted: memories and the base cheat persist between lives; other carryover
+depends on the world and available means. Carryover can itself improve. A mark,
+spiritual connection or other lore for the base cheat is requested for
+consideration, not a selected origin or cosmology. Roguelike progression and
+world-specific importance of time are requested design considerations; no numeric
+reward, cost, permadeath, rewind rule or runtime implementation is selected.
+The [OD2 audit expansion](OVERARCHING_DESIGN_CORE_AUDIT_2026-10-15.md#od2-discussion-answer-and-proposed-design-rules-2026-10-15)
+records a proposed rule set and examples separately from accepted direction.
+
+Next: Q5 opening/OD10. Existing accepted random entry remains the default for
+the expanded run, with vanilla preserved and not a prerequisite. The audit's
+Village-first proposal conflicts with that direction and is superseded; discuss
+control over random starts rather than asking Weibao to accept that old proposal.
+
+
+### Overarching direction discussion: OD10 / Q5, 2026-10-15
+
+> Sure, guided randomness by default, but full random and choosing specific starts should be options too(maybe gated by unlocks?), depending on our means? More to consider? Save accordingly. Whats the next question? We can make it and warn the player against certain worlds without having certain cheats, since they might lose out on certain stuff and more?
+
+Accepted: guided randomness is the default. Full random and specific starts are
+also options, with access depending on available means; unlock gates are a
+possible mechanism, not a selected universal requirement. Preserve the existing
+optional vanilla campaign. Warn players about entering worlds without relevant
+cheats/means when known consequences include missing opportunities or losses.
+Exact eligibility, warnings, rerolls and pools remain open. No unrestricted
+access to every start, mandatory protection cheat or omniscient warning is chosen.
+
+The [OD10 audit expansion](OVERARCHING_DESIGN_CORE_AUDIT_2026-10-15.md#od10-discussion-answer-and-entry-considerations-2026-10-15)
+preserves proposed warning/eligibility rules and examples. Next: Q4 / OD9,
+consolidating the accepted direction into a short linked summary; then OD5,
+how worlds connect. Saving this answer authorizes documentation, not gameplay
+implementation or a commit.
+
+
+### Overarching direction discussion: OD9, 2026-10-15
+
+> Sure, make the direction summary and mark older conflicting proposals accordingly. More to consider? Then lets discuss OD5, how worlds connect, one question at a time. Consider wether its worth or not to also send out direction questioning in terms of engine stuff and other stuff while this one works on gameplay and more?
+
+Requested consolidation completed in [direction summary](DIRECTION_SUMMARY.md).
+Older conflicting defaults are labeled as dated history in the affected owners;
+the [reconciliation record](OVERARCHING_DESIGN_CORE_AUDIT_2026-10-15.md#direction-reconciliation-2026-10-15)
+separates resolved claims from evidence gaps. This accepts consolidation, not all
+audit pillars or proposed design rules. Continue with OD5, one question at a time.
+
+Routing assessment: a bounded engine constraints review could be useful after
+reading these accepted answers, rather than a competing direction interview.
+Scope it to existing clock/catch-up, life/world/branch identity, retention,
+knowledge and save contracts, returning consequential questions to this chat.
+No dispatch or separate chat was requested unequivocally here; no worker launched.
+UI remains with its existing lane. No implementation or commit.
+
+
+### Overarching direction discussion: OD5, 2026-10-15
+
+> Sure, connections and return access depend on our means. We should be able to revisit the same world or enter a fresh version too? Parallel stuff? Cheats that changes things? More to consider? Save accordingly. Seperate Ui direction stuff, like 2d representations or other stuff(such as representation for certain stuff)? Whats the next question?
+
+Accepted: worlds have their own histories and connect through available means;
+connections and return access can expand with those means. Revisit the same world
+or enter a fresh/parallel version as supported options. Crossing does not itself
+reset the visited history. Hubs, pocket realms, shared universes and branches can
+coexist where their lore supports them. Cheats that alter routes, versions or
+world conditions are requested considerations; no particular rewrite, merge,
+rewind or unrestricted access mechanism is selected.
+
+[Multiverse owner](worlds/MULTIVERSE_STRUCTURES.md#od5-accepted-connection-direction-2026-10-15)
+and [timeline owner](TIMELINES_AND_DIVERGENCE.md#od5-direction-update-2026-10-15)
+record the accepted boundaries. Further considerations are in the core audit.
+UI/representation direction, including possible 2D views or different forms for
+specific subjects, stays separate from gameplay/world laws. No particular 2D
+format, replacement UI, worker dispatch or inter-chat message is selected or sent.
+Next: OD6, who the player is across lives, one question at a time.
+
+
+### Overarching direction discussion: OD6, 2026-10-15
+
+> Sure, one continuing self by default, but possession, shared minds and multiple bodies should be possible depending on our means? Lore reasons to rationalize certain stuff for special starts and more? Send out the represententation chat More to consider? Save accordingly. Whats the next question?
+
+Accepted: one continuing self by default; possession, shared minds and multiple
+bodies are possible through suitable means. Special starts should have coherent
+lore for their actual identity/control/continuity. No universal soul substance,
+base-cheat origin, host relationship or multi-body control policy is selected.
+The [identity owner](worlds/PLAYER_CHARACTER_IDENTITY_AND_CONTROL_2026-10-13.md#od6-accepted-direction-2026-10-15)
+records this direction; further considerations remain proposals in the audit.
+
+Explicitly authorized a separate representation-direction chat, with a
+more-to-consider pass. It discusses UI/2D and subject-specific representations,
+one question at a time, within existing UI direction; this chat continues gameplay
+with OD7, story grammar/director. No runtime implementation, commit or engine
+review dispatch is authorized by this answer.
+
+
+### Overarching direction discussion: OD7, 2026-10-15
+
+> Sure, authored plots and simulation depending on the world and mode. Canon should follow its natural course unless we change things? Implications and deeper thought on what changes things and more? We can consider how various books or AU or fanficion does that as well? is there a writer's guide to help chain this? Storytellers and cheats can affect it too? More to consider? Save accordingly. Whats the next question?
+
+Accepted: authored plots and simulation combine according to world and mode.
+Canon follows its natural course unless changed. Consider causal interventions,
+books/AUs/fanfiction as references for divergence, and storyteller/cheat effects.
+This does not select universal canon pressure, fixed points, automatic replacement
+actors, a particular storyteller implementation or an AI provider.
+
+The [timeline owner](TIMELINES_AND_DIVERGENCE.md#od7-natural-course-direction-2026-10-15)
+records accepted direction and proposed causal distinctions. The existing
+[narrative-author workflow](worlds/self-as-player-expansion-2026-10-13/NARRATIVE_AUTHOR_WORKFLOW.md#od7-writing-and-continuation-chain-2026-10-15)
+now links a reusable research-to-scene-to-aftermath chain; it supplements the lore
+contract, does not replace owners or authorize implementation/research dispatch.
+No particular book/AU/fanfic was newly read in this consideration pass.
+Next: OD8, shared underlying records and separation of truth/knowledge/views,
+as an engine-direction question explained through player consequences.
+
+
+### Overarching direction discussion: OD8, 2026-10-15
+
+> Sure, one underlying record, with truth, knowledge and representations separate. These stuff can apply to skills and othr stuff and more? Cannon might have a reason to fix itself, like heavenly will, fate, historical correction, and more? Cheats and illusions can affect what we see or know depending on our means? More to consider? Save accordingly(the implication and other stuff too?).  Whats the next question?
+
+Accepted: one authoritative underlying record for a subject, with truth,
+observer knowledge and representations distinct. Applies to skills and other
+entities/events, retaining each world's rules. Cheats, illusions and other means
+can affect what an observer sees or knows. Canon can correct itself through an
+actual world mechanism such as heavenly will, fate or historical correction;
+this is not a universal restoration rule. Exact mechanisms remain world-specific.
+
+The [shared-foundations update](SHARED_FOUNDATIONS_AUDIT_2026-10-12.md#od8-accepted-direction-and-implications-2026-10-15)
+records implications and remaining design questions; the timeline and authoring
+owners preserve the causal correction clarification. This selects direction,
+not a central database, schema migration, engine rewrite or runtime proof.
+Next proposed gameplay question: OD12, difficulty and recovery/reload policy.
+OD14's truth/knowledge split is answered at the broad level through OD8;
+consolidating existing technical owners remains future engineering work.
+
+
+### Overarching direction discussion: OD12, 2026-10-15
+
+> Sure, forgiving recovery by default, how to keep reasonable? harsher modes optional or forwarned. World danger and recovery should be separate, depending on our means and cheats too? More to consider? Save accordingly. Whats the next question?
+
+Accepted: forgiving recovery by default, with ordinary saving/reloading retained.
+World danger and recovery strictness are separate; recovery also depends on actual
+means and cheats. Harsher modes or consequences are optional or forewarned, with
+specific commitment/loss rules still open. In-world rewind/resurrection and player
+save/reload remain distinct. This does not choose universal immortality, a revival
+cost, permadeath, mandatory penalties or automatic enemy scaling.
+
+The [recovery considerations](DIRECTION_SYNTHESIS.md#od12-forgiving-recovery-direction-2026-10-15)
+explain possible coherent recoveries and failure consequences, preserving existing
+native unconsciousness/recovery. Costs, warnings, cheat counters, capture and
+timeline effects remain proposals rather than newly implemented behavior.
+Next: OD11, economy and value across worlds, one question at a time.
+
+## Proto23 shell variant over YAIR systems, 2026-10-15
+
+> Proto23 still looks better. Can we build a variant using its UI shell with YAIR’s systems underneath, keeping saves and gameplay intact? Include the fuller panels and send that direction to the UI worker accordingly? Especially inventory and the focus menu and maybe stats, but we can extend and absorb best of both worlds?
+
+Accepted instruction: build a selectable Proto23 Shell presentation variant over
+YAIR's existing systems, especially fuller inventory/item details, contextual
+focus/actions and real stats/equipment. Use fuller native Proto23 views as the
+reference and preserve YAIR's working navigation, accessibility and command
+semantics. C1 is a preserved comparison, not visual acceptance of the current
+result. Gameplay, saves and existing player layouts remain intact.
+[Design owner](UI_FOUNDATION_DESIGN_ROUND_2026-10-15.md#v1-proto23-shell-variant-2026-10-15)
+and [execution packet](gm/dispatch/ui-foundation-2026-10-15/PROTO23_SHELL_VARIANT.md)
+own concrete scope and evidence. NAV retains current source ownership until its
+checkpoint/release; the shell variant follows before queued TRIAGE/APOTHECARY.
+
+
+### Overarching direction discussion: OD11 and recovery refinement, 2026-10-15
+
+> Sure, each world has its own economy, but shared currencies and cross-world trade should be possible depending on our means and cheats? From like selling cheats where something abundant or worthless elsewhere is full of value in another world? Arbitrage and bringing useful knowledge or items too? More to consider? Subtle features on these? Backup plans against dying? Loops of unavoidable defeat might have to exist... and force me to try again elsewhere? or restart/new begining in same life? How do we consider something like restart in same/different life at the same time? Save accordingly. Whats the next question?
+
+Accepted: each world has its own economy; shared currencies and cross-world trade
+are possible through means/cheats. Cross-world differences in value, arbitrage,
+useful knowledge and items are intended opportunities. Selling/transferring cheats
+is a consideration requiring an actual transferable capability or other means;
+no universal cheat market, currency, price model or automatic compatibility chosen.
+
+Recovery refinement: trapped or locally unwinnable situations can exist; continuing
+may require trying elsewhere or a restart/new beginning, including within the same
+life. Earlier RC4's implied ban on unavoidable-defeat loops is superseded by this
+clarification. Forgiving default remains, without promising every local encounter
+or situation is winnable. Backup plans against death and same/different-life
+restarts need means and selected continuity rules. No particular restart or
+simultaneous-life mechanism is chosen by this exploratory question.
+
+Economy implications are in the [multiverse owner](worlds/MULTIVERSE_STRUCTURES.md#od11-local-economies-and-cross-world-value-2026-10-15).
+The [continuation owner](worlds/CONTINUATION_CHOICE_CONSIDERATION_2026-10-13.md#restarts-backups-and-locally-unwinnable-situations-2026-10-15)
+separates life identity, history, date and retention; it preserves uncertainty
+about whether "at the same time" means the same calendar date or concurrent lives.
+Next focused question: OD3/OD2 continuation mechanics, specifically restart/backup
+anchors; numeric economy tuning and detailed implementation remain deferred.
+
+
+### Anchors, trade-cheat correction and discussion workflow, 2026-10-15
+
+> Sure, anchors depending on our means and cheats, with options to restart the same life or start another at the same time? Roguelike elements? Would we have to earn those? should we have a chat to work on cheat Implementation and access and stuff and more?  meant selling cheats as like, cheats that worlk around selling things? Anchors should be improvable too? More to consider? Save accordingly. Whats the next question?
+
+> We should probably make this question workflow solidificed and  saved?
+
+Accepted/requested direction: means-/cheat-based anchors support same-life
+restart or another life, including at the same calendar time; anchors can improve.
+Roguelike acquisition and what starts available versus must be earned remain open.
+Concurrent multiple lives are still a distinct possible means-based feature,
+not automatically selected by "at the same time".
+
+Correction: "selling cheats" meant cheats operating around selling/trading,
+not selling the cheats themselves. Earlier OD11 paraphrases and EC4 interpreted
+this incorrectly; they are superseded for this request. Literal cheat commerce
+may remain an unrelated pre-existing library idea, but this answer does not
+request its implementation. Current economy owner and PROJECT wording corrected.
+
+The [continuation owner](worlds/CONTINUATION_CHOICE_CONSIDERATION_2026-10-13.md#improvable-anchors-and-starting-access-2026-10-15)
+records anchor implications and the next starting-access question. The
+[method prompt](OVERARCHING_DESIGN_METHOD_PROMPT_2026-10-15.md#live-direction-question-workflow-2026-10-15)
+now formalizes this one-question-at-a-time workflow. A separate cheat-access/design
+chat is recommended before implementation, but the question whether to create one
+is not an explicit dispatch; none launched. Representation chat remains separate.
+No runtime changes or commit.
+
+
+### Starting continuation, research and cheat-design dispatch, 2026-10-15
+
+> Sure, modest continuation by default, with better anchors and carryover earned or available through special starts. Improvemetns through researching and more? Send out the cheat access/design chat too. More to consider? Save accordingly. Whats the next question?
+
+Accepted: modest continuation is available by default; better anchors and
+carryover are earned through play or available through special starts. Research
+is an intended possible improvement route, alongside other world-/means-supported
+routes; no universal research tree, price or recipe selected. Exact initial
+continuation behavior, anchor targeting, costs and retention still need design.
+
+Explicitly authorized a separate cheat access/design chat. Its scope is discussion
+and a bounded design/implementation brief, not runtime implementation. It should
+use the saved question workflow, read current accepted direction, preserve the
+commerce-cheat clarification and write only its own discussion record initially.
+This chat keeps shared gameplay direction; representation keeps its own record.
+Next here: OD16, when mode/rule settings can change during a life, separating
+comfort settings and future mode changes from actual in-world rule-changing powers.
+
+
+### Overarching direction discussion: OD16, 2026-10-15
+
+> Sure, comfort settings freely, difficulty and recovery changes explained and affecting future play. Cheats could change rules in-world too depending on our means? Cheat unlocks and improvement More to consider? Save accordingly. Whats the next question?
+
+Accepted: comfort settings can change freely; difficulty and recovery changes
+explain their effects and normally affect future play. Actual in-world rules
+can also change through suitable cheats/means. Earlier stricter-mode commitment
+options remain possible when explained; no particular lock or mode taxonomy chosen.
+Unlock/improvement implications are requested considerations, not selection of
+one universal unlock currency/tree or all possible rule-changing cheats.
+
+The [settings/rules owner](RULEBOOKS_FOR_WORLDS_AND_GM_CONSIDERATIONS_2026-10-14.md#od16-settings-versus-in-world-rule-changes-2026-10-15)
+records implications, including separating player comfort, mode policies and
+actual world-law powers. The cheat access/design chat owns concrete cheat/access
+exploration in its exclusive record; no additional dispatch or inter-chat message
+is made here. Next: OD15, return recap and resumption, one question at a time.
+
+
+### Overarching direction discussion: OD15 and time-free benefits, 2026-10-15
+
+> Sure, short recap with adjustable detail, we can learn from existing gmaes how that is done, pending choices paused, and reminders of what we were doing. Only what we know through our means and cheats? Considering the time flow and more for things? Maybe it should be an unlock for time to not actually pass but me earning all the benefits? More to consider? Save accordingly. Whats the next question?
+
+Accepted: a short return recap with adjustable detail, paused important pending
+choices, reminders of prior intent and information limited by available knowledge,
+means and cheats. Existing-game practices can inform the design. Time-free gains
+as an unlock are requested for consideration, not a selected starting capability,
+reward equivalence, world-clock policy or specific time power.
+
+The [recap owner](PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md#od15-return-recap-direction-2026-10-15)
+records accepted behavior, concrete implications and reference limits. The
+[time/progression note](DIRECTION_SYNTHESIS.md#time-free-benefits-and-offline-calendars-consideration-2026-10-15)
+separates wall-clock absence, routine duration, local world time, bodily aging
+and simulated/transferred benefits. No new research worker or gameplay change.
+Next question: whether ordinary offline routine duration advances the current
+world's calendar by default, while bodily aging remains optional and time-free
+benefits can come through suitable unlocked means or special starts.
+
+
+### Offline world time, decisions and responsibilities, 2026-10-15
+
+> Sure, ordinary offline progress advances world time, aging depends on the world and settings, and cheats,capabilities, means can change that. What about the decisions and responsibilities and more? More to consider? Save accordingly. Whats the next question?
+
+Accepted: ordinary offline progress advances the current world's calendar;
+bodily aging depends on world/settings; cheats, capabilities and other means can
+change those relationships. The prior proposed normal-calendar baseline is now
+accepted, with exact ratios/caps still open. Important choices remain paused
+under accepted OD4/OD15, but how that pause affects other clocks/deadlines is not
+yet decided.
+
+Requested consideration: decisions, responsibilities and their interplay with
+world time. The [responsibilities owner](CHARACTERS_AND_WORLD_EVENTS.md#offline-decisions-and-responsibilities-consideration-2026-10-15)
+records proposals for standing instructions, accepted commitments, delegated work,
+meaningful decision stops and their clock consequences. Do not infer automatic
+NPC management, spending authority or guarantees against chosen world consequences.
+Next focused question: whether an important undecided choice pauses the current
+world's catch-up at that moment by default, protecting linked deadlines and
+stopping ordinary same-world gains at that same point; explicit policies/means
+could allow continuation. This pause model is a proposal awaiting an answer.
+
+
+### Current-world pause and unused offline time, 2026-10-15
+
+> Sure, pause the current world at important choices, unless our policies, helpers or cheats let it continue. Can unused offline time be saved for later? More to consider? Save accordingly. Whats the next question?
+
+Accepted: an important unresolved choice pauses current-world catch-up, including
+linked deadlines and ordinary same-world production, unless policies, helpers or
+cheats provide supported continuation. This answers the prior pause-scope question.
+Unused offline time banking is requested for consideration; proposed behavior
+and where the balance persists/is spendable remain open.
+
+The [responsibility owner](CHARACTERS_AND_WORLD_EVENTS.md#current-world-pause-answer-2026-10-15)
+records the accepted pause. [Offline-time banking considerations](DIRECTION_SYNTHESIS.md#banking-unused-offline-time-consideration-2026-10-15)
+propose keeping unprocessed time for later forward simulation, stopping at further
+unsupported choices and settling actual costs/outcomes, not granting time-free
+rewards by default. Next question: whether banked time follows the continuing
+journey across worlds/lives and is spent in a chosen active world, subject to
+supported time rules. That portability is not yet accepted. No cap, expiry,
+conversion rate, new ledger/schema or runtime implementation selected.
+
+
+### Continuing-journey time bank and improvements, 2026-10-15
+
+> Sure, banked time follows our continuing journey, with worlds, modes and cheats affecting how we use it. Could we improve its capacity and efficiency too? More to consider? Save accordingly. Whats the next question?
+
+Accepted/requested direction: banked eligible unused time follows the continuing
+journey across lives/worlds, usable in the chosen active supported world; worlds,
+modes and cheats affect its use. Capacity and efficiency can improve. Exact base
+capacity, cap/expiry, conversion rates, improvement sources and meaning of each
+efficiency benefit remain open. Current-world choice stops and world-time/aging
+rules still apply unless actual supported means change them.
+
+The [time-bank owner](DIRECTION_SYNTHESIS.md#time-bank-continuity-and-improvement-answer-2026-10-15)
+records implications distinguishing capacity, real-time spending speed, useful
+simulated duration per credit, and rewards per simulated duration. No automatic
+reward multiplier, mandatory currency, finite cap, decay or unlock tree selected.
+Next: OD13, narration/voice across worlds and lives; exact time-bank tuning can
+wait for a concrete slice. Representation/cheat chats keep their exclusive scope.
+
+
+### Overarching direction discussion: OD13, 2026-10-15
+
+> Sure, direct narration by default, with different voices depending on the world, mode and our means? Making it a point for us to discover the powers of our base cheat? More to consider? We can also be inspired by various books, and other things? Talking cheats and unreliable narrators too? More to consider? Save accordingly. Whats the next question?
+
+Accepted: direct narration close to the current experience by default, with
+voices varying by world, mode and means. Discovering base-cheat powers is part
+of play. Talking cheats, unreliable narrators and inspiration from books/other
+media remain supported possibilities; no particular personality, lie, source work
+or hidden cheat truth selected. Existing knowledge/secret and world-law rules apply.
+
+The [voice owner](YAIR_FORMAT_AND_STORY_DELIVERY_2026-10-14.md#od13-narration-voices-and-discovery-2026-10-15)
+saves implications about narrator/source knowledge, reliability, usable discovery,
+in-world versus player-facing messages and source inspiration. The
+[discovery owner](worlds/WORLD_SECRETS_AND_DISCOVERY.md#base-cheat-discovery-direction-2026-10-15)
+records base-cheat discovery without inventing or revealing its hidden powers.
+No particular book/media source newly read, no new agent assignment or runtime work.
+Next proposed direction question: OD12 follow-up, whether challenges retain their
+own strengths as the player grows versus automatically scaling to the player.
+This aspect was not settled by forgiving recovery/danger-separation acceptance.
+
+
+### Cause-driven threats, world agendas and adaptation, 2026-10-15
+
+> Sure, threats should grow through their own causes, not automatically match us? However it could be driven by fate or the world? like how the world was helping Fang Yuan at times and then Targeting him at others? Worlds, modes and cheats could change that too? Rivals adapting to us? Implementation difficulties?More to consider? Save accordingly. Whats the next question?
+
+Accepted: threats develop through their own causes rather than automatically
+matching the player. World/fate agendas, modes, cheats and informed rival
+adaptation can supply actual causes and exceptions. A world mechanism can help
+or target someone as its goals/circumstances change. No universal hostility,
+fixed level band, resource budget or immunity to adaptation selected.
+
+Fang Yuan is the user's analogy for shifting world support/opposition, not a new
+chapter-verified source claim in this pass. A direct source adaptation still needs
+its selected continuity and inspected evidence. The [rival owner](RIVALS_IDENTITIES_AND_FATE.md#cause-driven-threats-and-adaptation-direction-2026-10-15)
+records accepted direction, implementation difficulties and scoped source observations;
+the [storyteller owner](emergent/E5_STORYTELLER_AND_FATE.md#world-agendas-and-threat-growth-direction-2026-10-15)
+keeps agenda mechanisms distinct from ordinary scaling and its older proposed schema.
+Next proposed question OD24: player goals/guidance, since causal worlds and
+independent lives need useful direction without a mandatory global quest chain.
+This is a discussion topic, not a new implementation gate or milestone change.
+
+
+### Overarching direction discussion: OD24, 2026-10-15
+
+> Sure, our own goals with guidance and optional campaigns. Goals could come from our cheats, relationships or responsibilities too? More to consider? Save accordingly. Whats the next question?
+
+Accepted: player-chosen pursuits with useful guidance and optional campaigns,
+without one compulsory global main quest. Goals may arise from cheats,
+relationships and responsibilities as well as discoveries, needs or ambition.
+No universal quest currency, completion requirement, goal tracker schema or
+automatic commitment to every offered objective is selected.
+
+The [goal/commitment owner](CHARACTERS_AND_WORLD_EVENTS.md#od24-player-goals-guidance-and-commitments-2026-10-15)
+saves implications distinguishing personal aims, offers, accepted responsibilities
+and actual binding means. Goals can evolve with knowledge and circumstances;
+quiet ordinary play is still a valid pursuit. Next focused question: whether
+unfinished personal goals remain optional remembered threads across departures,
+restarts and new lives, while actual promises/duties follow their participants,
+history and transfer rules. This continuity model is a proposal awaiting answer.
+No gameplay source, quest implementation, new dispatch or commit.
+
+
+### Remembered goals, cross-run plans and soul-bound duties, 2026-10-15
+
+> Sure, remembered goals optional, but promises and duties follow the world and our means(depending)? Or we can write down possibilties to address them on seperate runs and more? Soul contracts or cheats could carry them across lives too? Soul things could be good or for bad, cause bringing a negative contract could ruin things or cause confusion and more? More to consider? Save accordingly. Whats the next question?
+
+Accepted: remembered personal goals remain optional. Promises/duties follow their
+actual world, history, participants and means. Preserve possibilities/notes for
+addressing them on separate runs. Soul contracts or cheats can carry obligations
+across lives; soul-bound continuity can preserve beneficial or harmful effects.
+No universal cleansing on death, permanent inheritance of every debt, guaranteed
+contract portability or omniscient burden warning selected.
+
+The [goals/responsibilities owner](CHARACTERS_AND_WORLD_EVENTS.md#goal-continuity-and-cross-run-plans-answer-2026-10-15)
+records the answer and plan-versus-commitment distinction. The [continuation owner](worlds/CONTINUATION_CHOICE_CONSIDERATION_2026-10-13.md#soul-bound-benefits-burdens-and-continuation-2026-10-15)
+saves binding identity/scope, positive/negative carryover, knowledge and recovery
+considerations. Next focused question: handling harmful carryover, including
+known warnings and world-/means-supported routes to fulfil, renegotiate, suspend
+or remove a binding; whether safer modes provide extra protection remains open.
+No contract system, note UI, soul lore secret, agent dispatch or commit implemented.
+
+
+### Binding remedies and exchange-cheat interactions, 2026-10-15
+
+> Sure, bindings carry over depending on their rules and our means, with warnings for what we know. Research and cheats could help us detect, remove or change them too? Weird interaction stuff and more? like say, An universal exchange cheat could exchange bonds like that for random chance to roll or other resource and more? More to consider? Save accordingly. Whats the next question?
+
+Accepted: bindings carry according to their actual rules and available means,
+with warnings for known consequences. Research/cheats can help detect, remove or
+change bindings where supported. An exchange cheat converting a bond into a roll,
+resource or other benefit is a requested possibility, not a selected universally
+available power, reward table or automatic cleansing operation.
+
+The [cheat-interaction owner](CHEAT_COSMOLOGY.md#exchange-cheats-and-binding-conversion-consideration-2026-10-15)
+saves implications distinguishing exchanging a mark, enforcement, benefit, claim,
+relationship or whole bond, including effects on other participants and retained
+rights. The continuation owner records the accepted remedy baseline. No universal
+prohibition on using a burden as value, requirement for diminishing returns or
+chosen exchange authority/rank is introduced. Exact weird interactions remain
+world-/means-dependent.
+
+Next proposed question OD25: experimentation and creative uses of powers beyond
+listed actions, using clear known actions plus supported research/experiments to
+discover additional applications. This is a discussion topic, not authorization
+for a freeform AI resolver, new UI or universal combination engine.
+
+## Proto23 shell spacing, color and combat refinement, 2026-10-15
+
+Weibao asked to make the selectable shell closer to Proto23 proportions and spacing, give inventory more room, make focus and stats less cramped, consider color and future VFX, verify seeded enemy appearance and visible stats, and create shared UI flow rules. This authorizes the next presentation revision over native YAIR systems, retaining saves/layouts and explicit commands. Future VFX needs constrain stable readable regions; this does not accept every proposed VFX or add a portrait requirement. [Execution scope](gm/dispatch/ui-foundation-2026-10-15/SHELL_REFINEMENT.md). Earlier shell delivery remains technical evidence; its density/look is superseded as the target by this refinement, not human-accepted.
+
+
+### Overarching direction discussion: OD25, 2026-10-15
+
+> Sure, known actions plus experimenting and researching new uses depending on our means. Failed experiments could teach us things too? Cheats could help discover combinations? Procedural and modular stuff, More to consider? Save accordingly. Whats the next question?
+
+Accepted: clear known actions plus means-based experimentation/research for new
+uses. Failed experiments can teach; cheats can help discover combinations.
+Procedural/modular approaches are requested considerations, not a selected
+universal combination grammar, freeform resolver, AI provider or rewrite.
+Learning from failure does not automatically grant full mastery, unconditional
+XP on every failure or access to a true explanation beyond actual means.
+
+The [interaction owner](PLAY_BEYOND_MENU_SELECTORS_CONSIDERATIONS_2026-10-14.md#od25-experiments-failure-and-discovery-2026-10-15)
+records evidence/feedback and failed-learning implications. The [ability owner](worlds/ABILITY_AUTHORING.md#od25-modular-and-procedural-discovery-considerations-2026-10-15)
+records reuse of actual components, compatibility/exception rules and bounded
+procedural hypotheses, with concrete gameplay and persistence proof still future.
+Next focused question: experiment guidance, showing known costs, plausible risks
+and what a trial could investigate while leaving undiscovered outcomes uncertain;
+optional hint/cheat assistance can change the available guidance. No answer yet.
+No new research/implementation dispatch or commit.
+
 Research fold, 2026-10-15: Weibao asked to "Fold and commit and push accordingly". The multi-world audit and synthesis (world kit round 18, FK5-FK10), feature scout (chains round 6, FS1-FS9; technology round 14; genetics round 14; synthesis packet donors) and deep systems sweep (companions DSC1-DSC5 and the rows above) were folded into their owners as proposals. Many sources agree that a local rule should change one useful verb (MWA-P02), the next multi-world build candidate, not dispatched.
+
+
+### Experiment predictions and consolidating remaining details, 2026-10-15
+
+> Sure, known costs and risks, but uncertain outcomes depending on our knowledge and means. Expertise and cheats could improve predictions too? More to consider? Save accordingly. Whats the next question? What other direction or fine detail needs to be considered? we can send new chat accordingly for that, alot of stuff can be answered stragiht forwardly
+
+Accepted: experiment previews report known costs/risks and uncertain outcomes
+according to knowledge/means; expertise and cheats can improve predictions. No
+guarantee of exact odds, truthful instruments or universal perfect forecast chosen.
+Interaction owner records confidence/scope and observed-versus-inferred results.
+
+Workflow refinement: resolve straightforward consequences of existing direction
+directly, marking derived choices/proposals accurately instead of repeatedly asking
+for minor confirmations. User authorizes a separate remaining-direction/detail
+review chat. It should inventory consequential gaps, recommend routine defaults
+and return a short ranked set of genuine human decisions, not another open-ended
+interview, duplicate cheat/representation work or runtime implementation. Current
+milestones/priorities remain. Shared canonical writers remain here; review gets
+its own exclusive record. Next worthwhile question should come from that review's
+specific unresolved tradeoff rather than be invented to extend the questionnaire.
+
+## Direction review fold and cheat-answer reconciliation, 2026-10-15
+
+> Sure, fold the review into the owning docs and reconcile the answers already settled in the cheat chat. Keep proposals separate from accepted direction. What’s the next questions to consider or look at and more>
+
+Authorizes folding the [bounded review](gm/DIRECTION_DETAILS_REVIEW_2026-10-15.md)
+and reconciling the existing cheat-chat answers into their owners. This does not
+accept every review recommendation, adjacent cheat proposal or new runtime work.
+The earlier report-only write restriction is superseded for this documentation
+fold. Representation and cheat discussion records remain with their own writers;
+no messaging, dispatch, source/build/save change or commit is requested.
+
+Accepted continuation details are owned by
+[continuation](worlds/CONTINUATION_CHOICE_CONSIDERATION_2026-10-13.md#cheat-chat-answers-reconciled-2026-10-15),
+research/prototype details by
+[technology](TECHNOLOGY_AND_PROGRESSION.md#research-and-prototype-answers-reconciled-2026-10-15),
+and qualified repeatability by
+[timelines](TIMELINES_AND_DIVERGENCE.md#repeatability-answer-and-research-across-rewinds-2026-10-15).
+The following quotes preserve the original answers, not acceptance of every
+neighboring proposal. Review defaults and cheat-record P/RD rows remain labeled
+as implementer recommendations or considerations. CA13 presence/voice was answered while this fold was in progress and is preserved
+below. The fresh-life start/body/history profile remains pending in the existing
+brief; do not duplicate the earlier interview.
+
+### CA1 original answer, reconciled 2026-10-15
+
+> Sure, O1, both from the start. Could we activate it before death too? More to consider for what carries over and improving anchors? What is 'earned'?  Roguelike elements, or will that be an upgrade for the cheat? what earns those researces? consider ui implications and more?Save accordingly. Whats the next question?
+
+[Original discussion and acceptance qualifications](gm/CHEAT_ACCESS_DESIGN_DISCUSSION_2026-10-15.md#ca1-answer-and-requested-expansion).
+
+### CA2 original answer, reconciled 2026-10-15
+
+> Sure, learned mastery carries... depending on what it is? Stuff learned probably, but hard to carry out without physical means like the necissary brain or body to use or do? A baby cant exactly forge something..., body and power depend on means, maybe wisp of power can be brought over, upgrades let more carry over too Cheats? Maybe those needs to be earned? More to consider for research and the first anchor upgrade? Save accordingly. Whats the next question?
+
+[Original discussion and acceptance qualifications](gm/CHEAT_ACCESS_DESIGN_DISCUSSION_2026-10-15.md#ca2-answer-retained-learning-means-dependent-expression).
+
+### CA3 original answer, reconciled 2026-10-15
+
+> Sure, later checkpoint first, but upgrades can depend on research and discovery routes too? Types of cheat and medium of cheat matters? Maybe leveling up base cheat to include storage space or something, which would meaning bringing (physical) things, potentially other cheats? There are other aspects that could be the case too? Research also needs means and capabilities, More to consider for setting anchors, types of anchors? replacing them and what happens to the old timeline? Save accordingly. Whats the next question?
+
+[Original discussion and acceptance qualifications](gm/CHEAT_ACCESS_DESIGN_DISCUSSION_2026-10-15.md#ca3-answer-later-checkpoint-first-development-through-suitable-routes).
+
+### CA4 original answer, reconciled 2026-10-15
+
+> Sure, rewind by default, but depending on anchor type and means? Also consider revials like clones or backup bodies, or means like an evil technique or becoming a ring/sealed into a ring by an enemy or something? Branches could remain or be revisited with upgrades too? More to consider for what rewinds and what carries over? Save accordingly. Whats the next question?
+
+[Original discussion and acceptance qualifications](gm/CHEAT_ACCESS_DESIGN_DISCUSSION_2026-10-15.md#ca4-answer-default-rewind-other-continuity-mechanisms-remain-possible).
+
+### CA5 original answer, reconciled 2026-10-15
+
+> Sure, current world history by default, depending on means. Base cheat upgrades should carry too? What about other worlds and things outside the rewind? More to consider? Implementation difficulties and more?  Otheraspects? Save accordingly. Whats the next question?
+
+[Original discussion and acceptance qualifications](gm/CHEAT_ACCESS_DESIGN_DISCUSSION_2026-10-15.md#ca5-answer-current-world-history-and-enduring-cheat-growth).
+
+### CA6 original answer, reconciled 2026-10-15
+
+> Sure, B keeps the only sword by default, but duplication could depend on means or cheat upgrades? A future copy of the sword is not the same sword? we can mark them accordingly? What about things consumed or changed outside the rewind? More to consider? Save accordingly. Whats the next question?
+
+[Original discussion and acceptance qualifications](gm/CHEAT_ACCESS_DESIGN_DISCUSSION_2026-10-15.md#ca6-answer-external-continuity-distinct-copies-and-changed-objects).
+
+### CA7 original answer, reconciled 2026-10-15
+
+> Sure, initial fallback plus one replaceable checkpoint,  with more depending on means and upgrades? Consider how other cheats interact and more? What if we set a bad anchor or get trapped? More to consider for setting conditions and research? Save accordingly. Whats the next question?
+
+[Original discussion and acceptance qualifications](gm/CHEAT_ACCESS_DESIGN_DISCUSSION_2026-10-15.md#ca7-answer-fallback-replaceable-checkpoint-and-supported-expansion).
+
+### CA8 original answer, reconciled 2026-10-15
+
+> Sure, direct investigation from the start depending on our capabilities, with external leads and other routes too? Not sure why there would be external leads to our core cheat, More to consider for research progress, what persists and how we discover upgrades? Consider researching niche and odd things things like nuclear bombs or computing and more, for like like factory gameplay? Farming? MOre to consider? Save accordingly. Whats the next question?
+
+[Original discussion and acceptance qualifications](gm/CHEAT_ACCESS_DESIGN_DISCUSSION_2026-10-15.md#ca8-answer-and-correction-to-external-leads).
+
+### CA9 original answer, reconciled 2026-10-15
+
+> Sure, discovered questions and our own goals, depending on means and capabilities. How would the game handle weird ideas or things not authored yet? More to consider? Save accordingly. Whats the next question?
+
+[Original discussion and acceptance qualifications](gm/CHEAT_ACCESS_DESIGN_DISCUSSION_2026-10-15.md#ca9-answer-player-goals-and-discovered-questions).
+
+### CA10 original answer, reconciled 2026-10-15
+
+> Sure, suggest alternatives but keep our original goal too. Could discoveries lead to unexpected uses or new research paths? More to consider for failed experiments and partial results? Save accordingly. Whats the next question?
+
+[Original discussion and acceptance qualifications](gm/CHEAT_ACCESS_DESIGN_DISCUSSION_2026-10-15.md#ca10-answer-alternatives-unexpected-uses-and-partial-results).
+
+### CA11 original answer, reconciled 2026-10-15
+
+> Sure, imperfect prototypes can be used depending on their limits and means. Could using them improve research too? More to consider for risks, reliability and upgrading existing things? Save accordingly. Whats the next question? Answer reasonable questions like these accordingly?
+
+[Original discussion and acceptance qualifications](gm/CHEAT_ACCESS_DESIGN_DISCUSSION_2026-10-15.md#ca11-answer-and-discussion-calibration).
+
+### CA12 original answer, reconciled 2026-10-15
+
+> Sure, same conditions normally repeat outcomes, Things that rely on random chance would naturally do that, and if something relied on chance to happen it might not happen the same way the nexct time, but maybe potentialyl the same since the same seeded roll might happen, but one might get better at crafting and have chance of getting something better? also luck cheats or other means could change that? More to consider for changing actions, hidden factors and research across rewinds? Save accordingly. Whats the next question?
+
+[Original discussion and acceptance qualifications](gm/CHEAT_ACCESS_DESIGN_DISCUSSION_2026-10-15.md#ca12-answer-repeatability-chance-and-changed-capabilities).
+
+### CA13 original answer, reconciled 2026-10-15
+
+> Sure, quiet faculty or connection by default, with systems or voices possible depending on cheats and means, or maybe it remains like quiet faculty, and other cheats that tag along are the systems and stuff, . More to consider? Do they work the same way in worlds like Reincarnation paradise? Save accordingly and prepare the bounded implementation brief. Whats still open? More questions to consider?
+
+[Original answer and bounded brief](gm/CHEAT_ACCESS_DESIGN_DISCUSSION_2026-10-15.md#ca13-answer-and-paradise-compatibility-question).
+Accepted: quiet personal faculty/connection by default; systems/voices can arise
+through suitable cheats/means, including accompanying cheats while the base stays
+quiet. No mandatory evolution into a talking system; origin/ontology unselected.
+The finite implementation brief was requested and prepared as a proposal, not
+runtime authorization. Paradise-style interaction notes remain proposed and
+unverified. Next consequential detail is the ordinary fresh-life start/body/history
+profile, not whether fresh-life continuation exists. No answer selected yet.
+
+### Voluntary fresh-life history and paused former life, 2026-10-15
+
+> Sure, separate history by default, with the old life paused and return depending on our means(implementation and representation challenges?). Same-world rebirth or an active former body could depend on cheats too? More to consider? Save accordingly. Whats the next question?
+
+Accepted: ordinary voluntary fresh-life continuation starts a guided new life in
+a separate history, with the former life/history paused and return depending on
+actual means. Same-world rebirth or an active former body can be supported through
+suitable cheats/means; they are alternatives, not automatic ordinary consequences.
+This answers the bounded brief's Q1 at the broad product level, not every
+start/date/body, control, custody or technical mechanism. It does not promise
+unrestricted switching, autonomous old-body simulation or blanket world immunity.
+
+The [continuation owner](worlds/CONTINUATION_CHOICE_CONSIDERATION_2026-10-13.md#fresh-life-answer-and-transition-implications-2026-10-15)
+records the answer plus implementation/representation challenges as derived
+constraints and proposed slice-local contracts. Exact IDs/schema, archive storage,
+compatibility, transition failures and UI remain implementation work. No source,
+build, private-save change, worker/message, runtime authorization or commit.
+No additional broad direction question is required merely to keep the discussion
+going; routine activation/recovery defaults can be proposed concretely next.
+
+### Activation, recovery and fresh-life walkthrough request, 2026-10-15
+
+> Sure, work through the activation/recovery profile and fresh-life to return walkthrough. Resolve straightforward details, flag real choices and implementation/representation challenges, and save accordingly. More to consider?
+
+Requests a concrete design profile/walkthrough and reasoned resolution of routine
+details, not acceptance of each resulting product default or runtime execution.
+The [continuation owner](worlds/CONTINUATION_CHOICE_CONSIDERATION_2026-10-13.md#activation-recovery-profile-and-fresh-life-return-walkthrough-2026-10-15)
+contains the proposed profile, state/owner map, paper walkthrough and challenges.
+CA14 unconscious/incapacitated access was answered during this pass and is
+reconciled below; automatic recovery details remain proposals.
+No source/build/test/save changes, agent/message dispatch or commit authorized.
+
+### Cheat-chat embodiment clarification reconciled, 2026-10-15
+
+> Sure, one continuing self by default, with new body, date and what happens to the old body depending on means? could be that that version never exists without me? Or exists differently? Help me consider implications? Could the old body remain alive through some cheats? More to consider? Save accordingly. Whats the next question?
+
+[Original answer and qualifications](gm/CHEAT_ACCESS_DESIGN_DISCUSSION_2026-10-15.md#fresh-life-answer-continuing-self-histories-and-surviving-bodies).
+Accepted D25: one continuing self by default; new body/date and the old body's
+outcome follow actual means. Nonexistence/different development of a version and
+surviving old bodies through cheats are considerations, not mandatory erasure or
+an independent survivor. The accepted separate-history/paused-old-life default
+still controls ordinary departure. Other means need their declared body/history
+outcome. The [identity owner](worlds/PLAYER_CHARACTER_IDENTITY_AND_CONTROL_2026-10-13.md#embodiment-and-return-profile-reconciliation-2026-10-15)
+records this distinction without choosing a universal soul ontology.
+
+### Unconscious return access and automatic recovery consideration, 2026-10-15
+
+> Sure, return choice even when unconscious, depending on means and suppression. What about automatic return on death or if we can't choose? More to consider? Save accordingly and update the brief. Whats still open?
+
+Reconciled from the [existing cheat chat's CA14 answer](gm/CHEAT_ACCESS_DESIGN_DISCUSSION_2026-10-15.md#ca14-answer-and-automatic-recovery-defaults).
+Accepted D26: return choice stays accessible when the body is unconscious,
+depending on actual means and suppression. It does not automatically relocate,
+perform ordinary bodily actions or defeat every seal. Automatic return on death/
+inability to choose is requested for consideration and brief update, not selection
+of a universal destination, immunity or automatic recovery mechanism.
+
+[Worked profile](worlds/CONTINUATION_CHOICE_CONSIDERATION_2026-10-13.md#activation-recovery-profile-and-fresh-life-return-walkthrough-2026-10-15)
+AR4 records accepted access. AU1–AU4 propose choice-preserving terminal handling,
+explicit standing triggers/destinations, blocked-state integrity and one-event
+recovery with paused arrival. Those remain recommendations. No source/build/save
+work or true-death gameplay proof follows from saving these answers.
+
+### Concrete continuation coverage and compatibility request, 2026-10-15
+
+> Sure, work through the concrete state coverage and compatibility plan for this slice. Check existing source, resolve straightforward details, flag real blockers, and save accordingly. More to consider?
+
+Authorizes a source-inspected coverage/compatibility design pass and saved findings,
+not source edits, migrations, runtime tests or commitment of the resulting schema.
+The [plan](gm/CONTINUATION_STATE_COVERAGE_AND_COMPATIBILITY_2026-10-15.md)
+classifies existing native state, recommends a versioned single-authority topology,
+mastery/occupied-state mappings, explicit legacy adoption and full-root file handling,
+and identifies technical blockers. Those are implementation proposals and source
+observations, not additional accepted product defaults or playable proof. No new
+broad preference question is required. Existing accepted direction and deferred
+scope remain with their owners; no worker/message, private-save change or commit.
+
+## Proto23 structural parity and fresh UI perspective, 2026-10-15
+
+Weibao says parity has not been reached and requests matching upper-panel widths through a proper layout refactor, more room for stats/focus, usable inventory at150% and during combat, closer colors and bars, clear hit chances, explanation of corner symbols, direct Proto23 code adaptation consideration, and a fresh chat/perspective. This supersedes accepting R2's upper-width mismatch and82px150% inventory as the next target. Preserve gameplay/saves and existing layouts. Direct source-derived private experimentation is authorized; no publication or relicensing implied. Global rank is an investigation/design question, not acceptance of a universal ranking formula. [R3 scope](gm/dispatch/ui-foundation-2026-10-15/R3_PARITY_REFACTOR.md).
+
+### Intentional loops and reciprocal return reconciled, 2026-10-15
+
+> Sure, reconcile the newer reciprocal return and intentional loop answers into the owning docs. Keep implementation with the cheat chat. More to consider, and what still needs my decision?
+
+This chat owns canonical reconciliation; runtime implementation remains with cheat
+chat `01a13e1b-6f99-79a2-8172-b0b5940e78a6`, subject to its actual source reservations.
+No runtime writer, message or new worker is dispatched here. Original newer answers:
+
+#### Intentional loop answer
+
+> Sure, prepare the concrete implementation plan against live source and ownership. Resolve reasonable open details with defaults, flag meaningful choices, Being stuck in a loop is possible and can be a player choice? just make it a player option? and save accordingly. More to consider before implementation?
+
+[Original saved quote and D27 qualification](gm/CHEAT_ACCESS_DESIGN_DISCUSSION_2026-10-15.md#concrete-implementation-plan-against-live-source-and-ownership).
+Accepted D27: intentional repeating loops can be a player choice/option. Distinguish
+a chosen repeat, genuine entrapment through actual means, and erroneous duplicate
+processing. This planning answer alone did not authorize runtime work.
+
+#### Reciprocal connection and implementation assignment answer
+
+> Sure, reciprocal connection by default depending on means. Resolve live ownership and implement the bounded slice, preserving unrelated work and personal saves. More to consider? Save accordingly and show playable results. We can save this perspective accordingly?
+
+Source verified read-only from the human user turn `01a13e6d-a5bf-7c60-b8ee-55dcdc663f51`
+in cheat chat `01a13e1b-6f99-79a2-8172-b0b5940e78a6`; its exclusive disk record may
+lag the in-progress turn. The preceding MC1 ordinary reciprocal-return profile is
+accepted, qualified by actual means: the fresh-life method provides a connection
+to its living paused departure embodiment/history. Returning pauses the departing
+life and resumes that supported life at departure with current journey carryover.
+This does not grant travel to every history/date, automatic resurrection or an
+active former self. Preserve separate-history/paused-old-life and means-dependent
+mastery rules. The same answer assigns the bounded implementation and ownership
+resolution to that cheat chat, not this canonical-doc writer.
+
+[Continuation owner](worlds/CONTINUATION_CHOICE_CONSIDERATION_2026-10-13.md#reciprocal-return-and-intentional-loop-direction-2026-10-15)
+records direction and separately labeled implementation implications.
+Loop-off initially, standing trigger/target/fallback, arrival pause exceptions,
+stop behavior and cycle receipts remain reasonable proposed execution contracts,
+not verbatim acceptance of all CP/RD values or a universal loop system. No numerical
+loop cap, forced rescue, offline infinite repetition or universal suppression
+immunity selected. No additional broad human decision is ready from this fold.
+
+### Wider gameplay and world-design gap pass, 2026-10-15
+
+> Sure, while the cheat chat implements, what other overarching gameplay or world-design gaps should we consider? Resolve straightforward details, flag real choices, and save accordingly. More to consider?
+
+Authorizes a bounded consideration/documentation pass beyond the current
+continuation implementation. The [saved pass](gm/DIRECTION_DETAILS_REVIEW_2026-10-15.md#wider-gameplay-and-world-design-pass-2026-10-15)
+checks existing owners, classifies five useful authoring/evidence gaps and resolves
+routine implications as derived constraints or proposed ordinary defaults. It does
+not accept all new recommendations, select another world/slice, dispatch workers
+or expand the cheat chat's runtime scope. Canon-first priorities, full requested
+world-depth horizons, one-realm/one-prestige delivery, private saves and sealed
+secrets remain intact. No new global preference question was established by this
+bounded pass; concrete consequential conflicts should return with an actual case.
+
+### Cyoria GW1/GW3 worked comparison request, 2026-10-15
+
+> Sure, pick a suitable existing world and work through GW1 and GW3: one local rule that changes play and two useful approaches. Resolve straightforward details, flag real choices, and save accordingly. More to consider?
+
+Selected the existing Mother of Learning retained Cyoria visitor branch for this
+bounded design comparison, using its current authored/source distinctions and
+native definitions. [Worked specimen](worlds/mother-of-learning/GW1_GW3_LOCAL_RULE_AND_APPROACHES_2026-10-15.md):
+knowing a method, compatible source, actual energy, equipment and trained control
+are distinct. Compare prepared device operation with evidence-led paid specialist
+help through the same local objective. The manual keyed device is the existing
+original branch's engineered divergence, not a newly asserted novel-canon ability.
+
+This request authorizes choosing/working/saving the specimen, not acceptance of
+all branch fiction/values, a new world priority, runtime/source edits or another
+implementation assignment. Source/definition checks remain distinct from fresh
+native gameplay and persistence proof. No new broad question is ready before an
+actual route-value comparison. Cheat/representation execution ownership remains.
+
+
+### Cyoria full-cost and reuse follow-through request, 2026-10-15
+
+> Sure, work through the full preparation costs, later reuse, and helper availability for both Cyoria approaches. Resolve straightforward details, flag real choices, and save accordingly. More to consider? we might want similar pas for other worlds?
+
+[Owning comparison](worlds/mother-of-learning/GW1_GW3_LOCAL_RULE_AND_APPROACHES_2026-10-15.md#full-preparation-later-reuse-and-helper-availability-2026-10-15)
+now distinguishes funded setup, later actual consumers, finite calibration claims,
+helper availability and shared client settlement. It records two future scope
+choices: long-term lamp servicing and independent mature non-device research.
+Current source findings do not make those limitations accepted design. Similar
+passes are recommended selectively in existing world work, with Frontier the first
+candidate; interest does not dispatch all worlds, select starts or authorize code.
+No new implementation, save policy, worker or cheat-slice requirement follows.
+
+
+### Book-world feature-gap pass request, 2026-10-15
+
+> Sure, do a similar pass for other worlds, Rather than concrete objective is it possible to implemnt find specific required features that isnt quite there yet? Especially for book worldsResolve straightforward details, flag real choices, and save accordingly. More to consider?
+
+Requested shift: inspect other worlds, especially book worlds, for specific
+required capabilities that are missing or incomplete, rather than making a
+concrete objective the only design unit. [Owning feature register](worlds/BOOK_WORLD_FEATURE_GAPS_2026-10-15.md)
+records nineteen conditional feature rows, available shared code, missing native
+joins, proposed local handlers, source gaps and later verification. This is the
+current design task, replacing the earlier recommendation to inspect Frontier
+next. It does not declare every listed feature mandatory now, accept every
+proposed rule, resume Soldier runtime or assign a new implementation wave.
+
+
+### HP versus early LOTM feature comparison request, 2026-10-15
+
+> Sure, compare HP eligibility/tool support with early LOTM acquisition/progression against current source and implementation. Recommend the next playable feature, resolve straightforward details, flag real choices, and save accordingly. More to consider?
+
+[Owning comparison](worlds/HP_LOTM_NEXT_PLAYABLE_FEATURE_2026-10-15.md) recommends
+an early LOTM acquisition/control/use feature on stronger local primary-text
+support, with source acquisition distinct from learned method, finite means and
+later progression. HP tool support is corrected: imperfect matching/borrowed
+custody does not imply universal inability to cast. Specific native bindings,
+known sample effects and proof remain required. This request authorizes comparison,
+reasonable proposed defaults and saving, not acceptance of every original start,
+supervised-risk adaptation or a new runtime dispatch. Whole-pathway progression
+and cross-world compatibility are separately scoped.
+
+
+### LOTM implementation plan and new question chat request, 2026-10-15
+
+> Sure, prepare the concrete implementation plan for the LOTM initiation/control feature against current source and ownership. Resolve straightforward details, flag real choices around initiation risk, and save accordingly. More to consider? Use the question and answer workflow? Send new chat
+
+[Concrete plan](gm/LOTM_INITIATION_IMPLEMENTATION_PLAN_2026-10-15.md) and
+[exclusive LOTM question record](gm/LOTM_INITIATION_DESIGN_DISCUSSION_2026-10-15.md)
+fulfil planning/saving and the explicit new-chat request. LIQ1 originally asked
+which initiation risk scope to represent first; the later canon-led answer and
+hazard qualification below supersede its pending supervision recommendation.
+Chat creation transfers bounded documentation ownership only. No runtime editing,
+shared build, severe-failure system, source-library or personal-save work follows
+without its actual authorized implementation scope.
+
+
+### LOTM initiation risk: canon-led decision, 2026-10-15
+
+> decide based on book cannon
+
+Answer to LIQ1 in the [exclusive LOTM discussion](gm/LOTM_INITIATION_DESIGN_DISCUSSION_2026-10-15.md#liq1-answer-canon-decides-2026-10-15).
+Accepted criterion: decide from book canon. The agent's derived plan preserves
+source-causal severe loss of control and lasting consequences for exposed hazards,
+rather than granting immunity through supervision. Ordinary strain/exhaustion and
+severe outcomes remain distinct; no unsupported fatal probability or universal
+rescue. Earlier all-severe-outcomes deferral is superseded as a recommendation.
+This is planning direction, not authorization for runtime implementation or every
+possible severe-outcome mechanic. Exact source-causal cases remain to qualify in
+the [plan](gm/LOTM_INITIATION_IMPLEMENTATION_PLAN_2026-10-15.md).
+
+
+### LOTM hazard qualification and reusable auditing rules, 2026-10-15
+
+> Sure, qualify the exact hazards and consequences against book canon, resolve straightforward details and save accordingly. More to consider? Whats still open before implementation?
+
+> consider other aspects and more? The other subtle but required features? save auditing rules somewhere to consider all this in the future
+
+[Qualified hazard table and derived defaults](gm/LOTM_INITIATION_IMPLEMENTATION_PLAN_2026-10-15.md#qualified-hazards-and-consequences)
+separate supported acute overflow and exertion from incompatible sources, faulty
+doses, dangerous contact, extreme ritual drain and severe aftermath. Canon remains
+the deciding criterion; unobserved interrupted-stabilization consequences are not
+invented. A disclosed atomic ingestion/basic-attention operation precedes separate
+interruptible formal teaching; no canon immunity or all-hazard simulator is claimed.
+Exact prototype costs/recovery are authored choices, not numbers from the novel.
+
+[Reusable audit rules AR1–AR10](gm/LOTM_INITIATION_IMPLEMENTATION_PLAN_2026-10-15.md#reusable-feature-audit-rules)
+cover authority, evidence, means, transactions, hazards, clocks, reuse/uncertainty,
+lifecycle, compatibility and native UI/verification. They are a scoped planning
+method, not authorization for unrelated work or extra universal implementation gates.
+[Remaining gates IG1–IG4](gm/LOTM_INITIATION_IMPLEMENTATION_PLAN_2026-10-15.md#remaining-gates-before-implementation)
+are execution ownership and actual native/schema/UI integration. No new preference
+question is pending; no runtime implementation was requested or performed here.
+
+## Contextual UI navigation and standing conventions, 2026-10-15
+
+Original instructions in the fresh UI chat:
+
+> our reports page still isnt quite as good, Our focus and you tabs dont feel as clean either
+
+> things shouldt always open onto the bottom, the can change their specific panels too? Consider considering basic UI design conventions and stuff, for dev seeded proto23 is it accurate? did you actually put in a fight menu? More to consider?
+
+> save and update rules accordingly? Save UI conventions and more? Save ideas like these into a long standing rule when working on thigns like these
+
+Accepted direction: related views may change their appropriate panel rather than universally opening in the lower center. Review Reports, Focus and You for clean hierarchy and apply basic navigation/disclosure conventions. Save reusable rules for future UI work. [UI_RULES UR41–UR46](UI_RULES.md#contextual-navigation-quiet-hierarchy-and-faithful-references-2026-10-15) is the single rule owner, covering contextual scope, progressive disclosure, preview/pin/action/reference distinctions, compact meaningful logs, faithful varied reference evidence and hierarchy/larger-text review. Center replacements still use the shared controller; local scope does not authorize competing navigation owners.
+
+Related instruction:
+
+> rather than item details page we can have a hover menu or something? Different possibilities and more?
+
+A permanent item page is not selected as the default. Three actual-runtime disposable prototypes compare hover-only, hover→pin and a stable inspector. Hover→pin is the agent's recommendation, not a human selection. Optional fuller reference remains possible. [R4 report and experiment](gm/dispatch/ui-foundation-2026-10-15/R4_REPORT.md#later-interaction-choice-experiment-same-chat) owns technical evidence and limits; no visual acceptance is inferred.
+
+DEV SEEDED reference scenes use native renderers but do not by themselves prove natural play, a live fight or an exercised fight menu. Earlier source “combat” frames mostly exposed the default opponent. [R5 checkpoint](gm/dispatch/ui-foundation-2026-10-15/R5_CHECKPOINT.md) tracks the source-first fight-route/visual follow-up; native YAIR combat proof remains separate. No new game mechanic, global rank, VFX engine, mobile priority or publication follows from this rules request.
+
+
+### LOTM markets and secretive gatherings consideration, 2026-10-15
+
+> Consider various markets and gatherings like what klien had for secretive/niche trading/exchange and other aspects?
+
+[Source-qualified consideration](gm/LOTM_INITIATION_IMPLEMENTATION_PLAN_2026-10-15.md#markets-private-gatherings-and-niche-exchange)
+distinguishes specialist shops, institutional supply, professional clubs, hidden
+markets, invitation gatherings and remote exchange circles. MX1–MX7 trace real
+entry, offers, knowledge, terms, settlement, observers and persistent obligations;
+conditional AR11 saves this audit pattern for future features. User requested
+consideration; the recommended later local exchange slice is not an accepted
+new build priority. The initiation slice and its execution gates stay separate.
+
+
+### LOTM player-hosted gatherings direction, 2026-10-15
+
+> Sure, could we host our own gatherings too, depending on our means, contacts and reputation? Consider secrecy, trust and trading information or services too. More to consider? Other aspects from the book? Save accordingly. Whats still open before implementation?
+
+Accepted direction: the player can host gatherings through actual means, contacts
+and reputation, considering secrecy, trust and trade in information/services.
+[LOTM hosting owner](gm/LOTM_INITIATION_IMPLEMENTATION_PLAN_2026-10-15.md#player-hosted-gatherings)
+records source-qualified constraints and HG1–HG8 proposed mechanics. Small local
+circles need not wait for a special realm or global rank. Larger/specialized circles
+require appropriate actual support; the user did not select a numeric gate, automatic
+safety/enforcement, universal host surveillance or a particular fee model. The
+suggested two-contact local demonstration remains a proposal for a later selected
+feature. This answer saves design direction, not runtime authorization or a change
+to the first initiation/control/reusable-perception slice and IG1–IG4 gates.
+
+### Further UI direction in the same conversation, 2026-10-15
+
+Weibao: “we can remove the focus tag on the focus menu, consider aspects like deeper hover ui and more? What about the weather and the season for location?” He also requested deeper source-code study, ranks and item modularity, then “showing status effects in the you panel with hover, enemy stuff and using hover and more accordingly? Hovering in the message log?”
+
+The requested UI pass uses the inspected subject as the heading, groups native season/weather with location, and explores native player-effect, opponent and log previews. Save shared status/event conventions as [UI_RULES UR47–UR48](UI_RULES.md#native-status-subject-and-event-previews-2026-10-15). These requests authorize a reversible playable comparison; they do not accept a final inspection default, a global ranking formula or new item/status mechanics. [R5 report](gm/dispatch/ui-foundation-2026-10-15/R5_REPORT.md) separates implemented UI from deeper proposals.
+
+Later R5 evidence resolves the earlier native-fight uncertainty: the existing source lab can open Proto23's native difficulty menu and start its native Training Grounds fight. This verifies the menu/combat path from seeded setup, not natural progression. [Source receipts](gm/dispatch/ui-foundation-2026-10-15/evidence/parity-r5/source-fight.json) preserve that boundary; the earlier dated limitation remains historical.
+
+
+### LOTM plan consolidation request, 2026-10-15
+
+> Sure, consolidate all this into the LOTM plan, resolve straightforward details, and separate what the first playable slice needs from later features. More to consider? Whats still open before implementation?
+
+[Consolidated owner](gm/LOTM_INITIATION_IMPLEMENTATION_PLAN_2026-10-15.md#first-playable-slice)
+now separates first-slice requirements, compatible seams to account for and later
+features. Earlier accepted canon/hosting direction is preserved; routine numeric,
+stock, segment, consumer and UI defaults are derived choices, not new canon facts.
+The prior plan is archived verbatim, with detailed source and future considerations
+still accessible. Current scope remains one original local Seer acquisition/control/
+reusable-perception slice, with hosting/markets/deeper progression later. Runtime
+permission and writer assignment remain absent; native/schema/UI integration and
+proof are future execution work, not a new preference interview.
+
+
+### Richer log subjects and tucked center menus (2026-10-15)
+
+Weibao asked for actual skill, perk-equivalent and item details when hovering log
+subjects, richer player/enemy status inspection, deeper stats, multiple opponents,
+cleaner log colors and controls, and fuller use of large desktop space. Supplied
+Proto23 captures show substantial center views tucked behind bottom tabs, not
+only minor folded controls. Preserve that flow and compare populated states at
+larger text sizes while keeping saves intact. Exact enemy attack/speed visibility
+needs the existing knowledge/appraisal owners; a public legacy renderer does not
+settle universal knowledge. R6 implements a reversible UI candidate using native
+skills, earned milestones, typed item receipts and current public stat rows.
+[Report and remaining gates](gm/dispatch/ui-foundation-2026-10-15/R6_REPORT.md).
+
+## R7 panel/readability steering, 2026-10-15
+
+Weibao requested a fresh UI audit of native YAIR and pinned Proto23, then a rebuilt
+playable comparison with his saves intact. Follow-ups ask for multiple enemy
+panels, deep code review of the affected surfaces, side-by-side differences, a
+coherent You panel in a fitting style, sharper type and colors, richer reports
+and direct Stop combat log/Clear controls, plus purposeful use of his wider screen.
+The supplied stacked-column image is an Existing-layout compatibility capture,
+not the current candidate. The supplied wide Proto23 image is a visual reference,
+not evidence of YAIR progression or observer knowledge.
+
+Continue the accepted Proto23 composition baseline while making reversible
+readability and placement choices appropriate to YAIR. Preserve named panels,
+shared navigation, native discovery, actual subject hovers and observer knowledge;
+inspection must not silently retarget combat. Exact enemy numbers may be absent
+or only partially known. No universal appraisal or imported Proto23 combat/food
+mechanic is selected by this UI request.
+
+[R7 audit and dispositions](gm/dispatch/ui-foundation-2026-10-15/R7_AUDIT.md)
+trace the differences. The rebuilt layout is a candidate; human visual/default-flow
+acceptance remains open. This adds no mobile priority, engine/persistence scope,
+commit/push/publication authorization or additional workers.
+
+R7 follow-up: Weibao also requested scaling to screen size, a compact mode and
+automatic fitting. Keep chosen text size readable; geometry, spacing density and
+information depth are separate controls. The candidate uses existing layout
+owners, content-aware desktop reflow and manual overrides; no new universal
+mechanic or mobile priority follows. See the R7 audit D5–D7.
+
+### R8 feedback on the R7 comparison, 2026-10-15
+
+Weibao finds R7 You better and asks to fit more stats into its area, consider
+subject hovers instead of repeated Open controls in Reports, use the target area
+more fully, explain the symbol beside Dry, and add inventory colors like Proto23.
+R8 is a reversible UI candidate for those requests. Geometry and chosen text size
+govern automatic disclosure; manual choices persist through live resizing.
+Reports keep explicit current-panel navigation distinct from recorded subject
+previews. Category colors use native item roles, quality uses existing native
+quality, and the unexplained decorative Dry diamond is removed. No new item
+rarity, appraisal, targeting or weather mechanic is authorized by these changes.
+[R8 checkpoint](gm/dispatch/ui-foundation-2026-10-15/R8_CHECKPOINT.md). R7 remains
+available unchanged; relative preference for You is not acceptance of the whole UI.
+
+R8 follow-up: Weibao asks that panel defaults scale to fit better and show the
+selected tab's information without scrolling. Prioritize fitting ordinary finite
+stat/readout content, preserve chosen font size, and give active details more
+room. Native short labels retain full hover/focus explanations. Long histories,
+inventories and descriptions retain deliberate local scroll/expanded routes;
+this request does not silently authorize shrinking all text or hiding facts.
+
+### Extended enemies and comprehensive attributes, 2026-10-15
+
+Weibao requests full individual enemy displays for multiple opponents, with
+original YAIR captures as reference; size around actual opponents rather than
+fixed empty slots. R9 is the resulting reversible candidate, native facts only.
+
+He then notes oversized/inefficient UI and asks that All stats include subtle
+secondary stats and modifiers, using Minecraft Apotheosis/attribute mods as an
+inspection reference. Keep routine You compact and give the existing Stats home
+a truthful deeper attribute view. Display actual native values and sources;
+this does not authorize importing gem/affix mechanics or inventing attributes.
+R10 is a candidate; native source consumers, reference-only fields and human
+visual acceptance remain distinct. Parallel UI writers are explicitly scoped in
+[R10 checkpoint](gm/dispatch/ui-foundation-2026-10-15/R10_CHECKPOINT.md).
+
+### Inline secondary stats and research continuity, 2026-10-15
+
+Weibao asks for secondary attributes directly in You when room permits, with
+modifier explanations on hover and automatic screen-size fitting instead of
+opening Attributes for every value. Keep routine core/controls readable at the
+chosen font, fit stable secondary rows into measured space, and retain a full
+reference for details that do not fit. R11 is the reversible candidate, not a
+human-accepted default. He also asks whether Find more Climb inspirations was
+considered. Its live chat, sourcing, adaptation shortlist and recipe integration
+notes are reconciled in [R11 report](gm/dispatch/ui-foundation-2026-10-15/R11_REPORT.md);
+recipe experiments and broader gameplay proposals remain distinct from native
+UI incorporation.
 
 ### Procedural crafting engine and harvesting, 2026-10-15
 
@@ -3031,6 +4383,32 @@ Considerations are recorded as
 
 Nothing is dispatched.
 
+### Combat readability, knowledge and panel anatomy, 2026-10-15
+
+After R14, Weibao asked what happens with 8 or 9 opponents, mixed opponents and report
+colors, then steered across several rounds:
+
+- Enemy intent is usually unknowable without experience fighting that enemy.
+- Enemy stats may need learning or fighting to see; estimates are allowed and can be
+  wrong, and values can be given as ranges. General impressions early on are fine.
+- Duplicate opponents share one label, but opponent 1 and opponent 2 of the same kind
+  can differ.
+- Tier-colored names are not needed now; special monsters can have special name
+  effects, with hover popups for special names, titles and traits.
+- Use Proto23 style and extend hover details. Show status effects.
+- Attributes: a standard set with an option to view all; they need not take the full
+  width. Gear should look more embedded.
+- Opponents should take the same board room instead of one stretching full width.
+- Move dropdowns into their own area like upstream YAIR so they don't compete with
+  selectables; consider condensing the bottom bar; consider a separate box for quests
+  and long-term goals.
+
+This updates K3's "no invented rank" for estimates: estimates come from real data and are
+always marked as estimates. Considerations live in
+[R14 follow-up](gm/dispatch/ui-foundation-2026-10-15/R14_FOLLOWUP_CONSIDERATIONS.md); the
+ordered proposal is [next parts](gm/dispatch/ui-foundation-2026-10-15/NEXT_PARTS_2026-10-15.md).
+Nothing is dispatched; human acceptance of R11–R14 remains open.
+
 ### Making rules and cross-domain extrapolation, 2026-10-15
 
 Weibao asked:
@@ -3045,6 +4423,24 @@ constraints (ER15–ER17) are in
 The rules constrain later work; the specific mechanics in the palettes remain
 proposals. Nothing is dispatched.
 
+
+### Navigation grouping and footer purpose, 2026-10-15
+
+Weibao, reviewing NEXT_PARTS_2026-10-15.md, said grouping could be feasible if done
+well and asked for established-game comparisons, subtle details, the final user
+experience and future rules. He rejected retaining the hit counter and links merely
+because they credit the original game or an earlier round kept them: credits can
+live elsewhere.
+
+Direction: investigate grouping on its merits; do not treat the earlier flat bar
+as a prohibition on comparison. A specific grouped default and the extra-click
+tradeoffs remain unaccepted. Permanent gameplay chrome needs a present player
+reason; attribution and LICENSE remain preserved through a suitable credits home.
+[UI_RULES UR50–UR58](UI_RULES.md#grouping-and-whole-journey-review-2026-10-15)
+holds the requested reusable defaults. [Next parts](gm/dispatch/ui-foundation-2026-10-15/NEXT_PARTS_2026-10-15.md#refinement-grouping-chrome-and-the-complete-journey-2026-10-15)
+holds sourced comparison principles, candidate layouts, detailed journey constraints
+and corrected Part 5. No implementation, default change or dispatch is implied.
+
 ### Crafting long-term notes and subtle details, 2026-10-15
 
 Weibao asked:
@@ -3058,6 +4454,20 @@ It records two fixed engine bugs (SF1 regrowth drift, SF2 pity spent on blocked
 rares), subtle engine details SC1–SC12, play details SP1–SP12 and per-domain details
 SX1–SX7. Nothing else is dispatched.
 
+### Learned opponent numbers and novel-style cheat surfaces, 2026-10-16
+
+Weibao answered KL24 and the cheat-style review:
+
+> Cheats dont necissarily have to be fitting, we can have it look at ones in novels or in manhua and more, Learn them is good, maybe they can be learned after reading a book on them or something, or after fighting enough in general can have skill that does that? or we use an identify style skill? more to consider?
+
+Accepted: **learn them.** In ordinary worlds a new opponent starts with impressions and `???`;
+exact numbers are learned. Your own stats stay exact; status/appraisal worlds or means can grant
+exact facts. Accepted: cheat surfaces need not fit the base style and may draw on how cheats look
+in novels and manhua, while still interacting properly. Requested for consideration (not yet
+chosen): learning routes through books about a creature, a general combat-experience skill and an
+identify-style skill. [Next parts Round 11](gm/dispatch/ui-foundation-2026-10-15/NEXT_PARTS_2026-10-15.md#round-11-learning-routes-and-novel-style-cheat-surfaces-2026-10-16)
+holds the routes and dials. No implementation is dispatched.
+
 ### Other procedural systems and general opportunities, 2026-10-16
 
 Weibao asked:
@@ -3068,6 +4478,84 @@ The considerations are recorded in [the opportunities palette](PROCEDURAL_AND_GE
 PG1–PG15 cover other procedural systems that reuse the crafting engine's pattern,
 and GN1–GN13 cover general tooling. Nothing is selected or dispatched. In the same
 message he asked to push with a lesser model.
+
+### Procedural focus: ruins and world first, 2026-10-16
+
+Weibao, after the deeper commissions/bounties consideration:
+
+> We can deprioritize npc stuff, since those have so much more implicationsand implementation difficulties more focus on ruin and world stuff and more?
+
+Accepted direction for this procedural design pass: deprioritize NPC-heavy
+commissions, bounties and social/economic simulation; focus consideration on
+ruins, exploration and world/environment systems. This supersedes the palette's
+earlier agent recommendation to begin with commissions. It does not remove NPCs,
+change unrelated active implementation priorities, select every proposed ruin
+mechanic or lift the existing procedural-layout deferral. The prior no-implementation
+scope continues. [Current palette](PROCEDURAL_AND_GENERAL_OPPORTUNITIES_2026-10-16.md)
+routes to the [ruin/world owner](gm/dispatch/procgen-2026-10-13/p11/DUNGEON_CONTENT.md#ruins-and-world-first-consideration-2026-10-16);
+the commissions analysis is retained for later reference.
+
+### Standing site rules and more site types, 2026-10-16
+
+Weibao, following the workshop and spring/grove consideration:
+
+> What about other sites like ancient libraries, temples, mines and caves? Consider how they differ by world, useful discoveries and restoration, and more subtle interactions. Save accordingly, no implementation yet. We can buy a map and more? Save accordingly, we can just create longstanding core and logical rules to rule/decide thigns accordingly?
+
+Direction: preserve the broader site/discovery considerations and establish
+standing core/logical rules to guide future decisions. Include bought maps and
+other information routes in the design space. This authorizes documentation and
+decision rules, not implementation, universal site mechanics or a new feature queue.
+NPC-heavy work remains deprioritized and generated layouts remain deferred.
+
+[Site and exploration rules](SITE_AND_EXPLORATION_RULES.md) SR1–SR24 own the
+standing principles. The [additional sites/maps palette](gm/dispatch/procgen-2026-10-13/p11/LIBRARIES_TEMPLES_MINES_CAVES_AND_MAPS_2026-10-16.md)
+preserves library, temple, mine/cave, world-variant, map and interaction details.
+Specific mechanics remain proposals under the existing site and information owners.
+These rules do not promote all older adjacent palettes into accepted requirements.
+
+### Cheat looks follow the cheat's own type, 2026-10-16
+
+Weibao, on Round 13 and the cheat-style mockups:
+
+> These are good start, but we shouldnt be limited by these, For voice within ring, we can pull a standard image somewhere in the future, or acciii representation, and many more versions accordingly? Look online for manhua's representations and more, and the ohter types of cheats we have and more, and deeper considerations for features like simulating the future and more?
+
+> rather than By world:it should be by type, if it's ai ring, then its hologram, if its cultivator  in a ring, then specific art style and more? We dont need need a text always work,  considering more cheats and more? more to cnosider? Future simulator?
+
+Direction: a cheat's look comes from **what the cheat is** (an AI in a ring is a hologram; a
+cultivator's soul in a ring has its own art style), not from the world it is in. Many versions per
+cheat are wanted (images later, ASCII and more). A text-equivalent for every look is **not** required.
+Requested for consideration: more cheat types and deeper future-simulator design.
+[Next parts Round 14](gm/dispatch/ui-foundation-2026-10-15/NEXT_PARTS_2026-10-15.md#round-14-looks-by-cheat-type-more-cheats-and-deeper-simulators-2026-10-16).
+
+### Complexity and implementation difficulty, 2026-10-16
+
+Weibao, following the farming/building complexity review:
+
+> I like some complexity, but then implmentation would be too difficult and mmore? more to consider? how to continue through and improve while considerign these and more?
+
+Clarification: complexity is welcome; the requested consideration is how to retain
+depth while managing implementation difficulty. The earlier review's suggested
+deferrals are agent proposals, not a simplicity ceiling. No particular crop,
+building, simulation model or implementation priority is selected by this request.
+The [review continuation](gm/dispatch/ui-foundation-2026-10-15/next-parts/IMPLEMENTATION_COMPLEXITY_REVIEW_2026-10-16.md#continuation-preserve-depth-while-controlling-implementation-difficulty)
+proposes connected representative slices, bounded causal models, reuse of real
+owners, inspectable outcomes and expansion from playable evidence. Those methods
+remain recommendations. Planning only; existing active work and the procedural
+NPC deprioritization retain their scope.
+
+### Part 9 complexity, NPCs and openness, 2026-10-16
+
+Weibao, on Part 9:
+
+> for part 9 sutff, Consider how other games and more deal wioth levels of complexities like these> more to consider? would we need to implement each npc and more? that would be really tough, More to Consider ? Scopes that are impossible to achieve? more to consider for the current format? maybe we need to setup guides so we cant reach that level of complexity quite yet and defer alot of things for the future? How to make it open world as possible and more? Generating things? Creating core things, interactions and more?
+
+Requested: how other games manage this complexity, whether every NPC must be
+implemented, which scopes are impossible, guides that defer complexity, how to
+stay open-world, generation, and core things/interactions. Recorded in the
+[Part 9 complexity and openness pass](gm/dispatch/ui-foundation-2026-10-15/next-parts/part-9-complexity-and-openness.md)
+(P9Z). Its people ladder, guardrails CX1–CX8 and deferral register are agent
+proposals, not accepted rules. Planning only; the NPC deprioritization and the
+2026-10-16 complexity clarification (depth welcome, cost managed) stand.
 
 ## Architecture rules and modular seams run, 2026-10-16
 
@@ -3109,54 +4597,6 @@ where both agents read it: AGENTS.md (rules index upkeep, design framing, resear
 lens, shared-tree rules) and [shared worktree practice](gm/SHARED_WORKTREE_PRACTICE.md).
 No separate CODEX.md: Codex reads AGENTS.md and CLAUDE.md imports it.
 
-### Subsystem scope ladders, 2026-10-16
-
-Weibao:
-
-> for like the part 9 complexity and scope stuff, send similar complexity scoping for subsystems and more? like for fishing, Farming, ranching, other possible actions and more?
-
-Requested: Part 9-style complexity and scope guidance for activity subsystems.
-Answered as proposals in
-[subsystem scope ladders](SUBSYSTEM_SCOPE_LADDERS_2026-10-16.md): six dials
-per subsystem (space, stock, time, actors, knowledge, consumers), per-subsystem
-ladders for fishing, farming and ranching, a compact table for fifteen other
-activities, shared primitives (pools, condition tags, promotion, lazy catch-up),
-impossible scopes with achievable versions and a deferral register under the
-accepted CX1–CX8. Planning only; no slice or build order selected.
-
-### Part 9 complexity, NPCs and openness, 2026-10-16
-
-Weibao, on Part 9:
-
-> for part 9 sutff, Consider how other games and more deal wioth levels of complexities like these> more to consider? would we need to implement each npc and more? that would be really tough, More to Consider ? Scopes that are impossible to achieve? more to consider for the current format? maybe we need to setup guides so we cant reach that level of complexity quite yet and defer alot of things for the future? How to make it open world as possible and more? Generating things? Creating core things, interactions and more?
-
-Requested: how other games manage this complexity, whether every NPC must be
-implemented, which scopes are impossible, guides that defer complexity, how to
-stay open-world, generation, and core things/interactions. Recorded in the
-[Part 9 complexity and openness pass](gm/dispatch/ui-foundation-2026-10-15/next-parts/part-9-complexity-and-openness.md)
-(P9Z). Its people ladder, guardrails CX1–CX8 and deferral register are agent
-proposals, not accepted rules. Planning only; the NPC deprioritization and the
-2026-10-16 complexity clarification (depth welcome, cost managed) stand.
-
-## Architecture rules and modular seams run, 2026-10-16
-
-Weibao, after the [modularity assessment](reviews/MODULARITY_AND_REWRITE_ASSESSMENT_2026-10-16.md)
-and Claude's review of it:
-
-> make a codex run to fix accordingly and create rules accordingly?
-
-Accepted: no whole-game rewrite; restructure around replaceable domain boundaries
-one connected slice at a time (assessment O2). Standing rules live in
-[architecture rules](ARCHITECTURE_RULES.md) AR1–AR16: `main.js` becomes a
-composition root, domains register through one registry, one authority per fact,
-no import cycles, namespaced save slices, structural moves kept separate from
-behavior, and a boundary counts only when a player journey crosses it. Execution
-runs in the [modular seams dispatch](gm/dispatch/modular-seams-2026-10-16/CHECKPOINT.md):
-break the display/main cycle and add an architecture check, add the domain
-registry with existing domains migrated behavior-preserving, then wire crafting
-as the first new consumer. This does not change UI, making, site or procedural
-priorities.
-
 ### Complexity guardrails accepted; canon, areas and saves, 2026-10-16
 
 Weibao, on the Part 9 complexity pass:
@@ -3173,6 +4613,22 @@ people ladder and other P9Z items remain proposals. Requested and answered as
 proposals: how whole canon, gameplay areas and saves work under these rules
 ([P9Y](gm/dispatch/ui-foundation-2026-10-15/next-parts/part-9-complexity-and-openness.md#whole-canon-gameplay-areas-and-saves-under-cx1cx8-2026-10-16)).
 Planning only.
+
+### UI iterates on R14 as the working baseline, 2026-10-16
+
+Weibao, on the next-parts plan:
+
+> can can we improve the round plan accordingly? Arent we iterating on ideas? r14 is the best thus far but everything is working to finetune accordingly? More to consider? everythng that I mentioned?
+
+Direction (interpreted, reversible on his word): R14 is the best UI candidate
+so far and the working baseline. Further UI work fine-tunes it in small native
+rounds stacked on the previous candidate, rather than waiting for formal
+acceptance of R11–R14 before any code. His feedback on any candidate becomes a
+tune item in a later round; a rejected round reverts only its own paths. This
+is not final visual acceptance of R14. The schedule lives in the
+[Round 15 iteration plan](gm/dispatch/ui-foundation-2026-10-15/next-parts/round-15-whole-plan.md)
+(IT1–IT9, R15+, WB1–WB6); it supersedes the NEXT_PARTS W6 gate. Planning only:
+no round is dispatched by this entry.
 
 ### Full detail, every student, engine limits and pack loader, 2026-10-16
 
@@ -3236,6 +4692,34 @@ share one format; the game's frame cosmology hosts series clusters; subtleties
 are handled through invariants INV1–INV10 with generic tests and a subtlety
 register rather than enumerated upfront. The loader lane received an addendum.
 
+### Efficient rule checks and regressions, 2026-10-16
+
+Weibao:
+
+> can you make sure other agents know when to run the relevant rule checks, and add regression checks as they implement things without repeating unnecessary checks? Token efficientcy and more?
+
+Requested shared guidance for selecting relevant rule checks, adding regressions
+during implementation and avoiding duplicate verification and token use.
+[AD36](RULES_INDEX.md#efficient-rule-verification-ad36) owns the workflow;
+AGENTS.md links it for both Codex and Claude. Existing behavior, browser and
+persistence acceptance gates remain in force. Focused commands reuse existing
+tests, and reports identify their scope rather than claiming whole-rule compliance.
+
+### Subsystem scope ladders, 2026-10-16
+
+Weibao:
+
+> for like the part 9 complexity and scope stuff, send similar complexity scoping for subsystems and more? like for fishing, Farming, ranching, other possible actions and more?
+
+Requested: Part 9-style complexity and scope guidance for activity subsystems.
+Answered as proposals in
+[subsystem scope ladders](SUBSYSTEM_SCOPE_LADDERS_2026-10-16.md): six dials
+per subsystem (space, stock, time, actors, knowledge, consumers), per-subsystem
+ladders for fishing, farming and ranching, a compact table for fifteen other
+activities, shared primitives (pools, condition tags, promotion, lazy catch-up),
+impossible scopes with achievable versions and a deferral register under the
+accepted CX1–CX8. Planning only; no slice or build order selected.
+
 ## Game name irony and core loop scope, 2026-10-16
 
 Weibao, on renaming the game:
@@ -3251,23 +4735,35 @@ bougie as a name. No name is selected. The heir/lineage loop is not presumed to
 be the core loop; the core loop needs its own scoping pass. Considerations live
 in the [engine and identity thread](reviews/ENGINE_AND_IDENTITY_THREAD_2026-10-16.md).
 
-### Shounen manga build order, 2026-10-17
 
-Weibao, after the full-read recommendations for Reincarnated in a Shounen Manga:
-"Queue A1 and A2 as engine work, then build the RS26 slice once the current UI
-lane merges and I've played it." Queued: A1 ability conditions (charges, recharge
-triggers, lasting price, bound subject) and A2 claims with dependencies (stale only
-when a named precondition changes; tests revise beliefs). RS26 waits for the UI
-lane merge and his play check. Owner: [shounen manga considerations](research/reincarnated-in-a-shounen-manga/YAIR_CONSIDERATIONS_2026-10-16.md#build-order-decided-by-weibao-2026-10-17).
+## Modular engine plan and future interactions, 2026-10-16
 
-### Shounen manga engine gating by world, 2026-10-17
+Weibao: "Can we update the modular engine plan accordingly to account for these
+interactions and engine gaps? More to consider before continuing the run?
+eginine improvements to make it better than everything else and more and fit
+our future requirements and more? Save accordingly."
 
-Weibao: "maybe need to gate for specific world or similar worlds to help flesh
-out engine and foundational level stuff and more?" Proposal recorded, not accepted:
-A1/A2 stay world-neutral and dormant until a world authors them; the shounen manga
-is the home world and Hunter x Hunter, Jujutsu Kaisen and Fae bargains serve as
-similar-world test fixtures (E8B Conditions / Contracts and oaths), not new playable
-worlds. Owner: [G1–G8](research/reincarnated-in-a-shounen-manga/YAIR_CONSIDERATIONS_2026-10-16.md#world-gating-and-similar-world-fixtures-2026-10-17).
+Requested: update and save the continuation plan with the interaction/gap review
+and future requirements. [Modular brief](gm/dispatch/modular-seams-2026-10-16/BRIEF.md)
+owns the updated sequence and gates; [engine considerations EI13–EI22](ENGINE_EXPANSION.md#future-fit-engine-plan-useful-depth-and-iteration-2026-10-16)
+retain proposed improvements. This request authorizes planning/document updates;
+this task did not resume runtime execution, adopt every proposed mechanic or
+establish comparative superiority. Existing architecture/world/UI priorities and
+M3's stopped evidence remain intact. No new standing rule is added.
+
+
+## UI engine considerations alongside the modular plan, 2026-10-16
+
+Weibao: "also improve engine considerations for ui design and more? or send out
+new chat if that is seperate enough".
+
+Requested UI-engine consideration extends the existing modular planning work.
+[UIE1–UIE12](ENGINE_EXPANSION.md#ui-engine-support-for-design-and-iteration-2026-10-16)
+and [brief MP11](gm/dispatch/modular-seams-2026-10-16/BRIEF.md#ui-engine-support-for-the-touched-slice-mp11)
+own the saved proposals and selected-view checks. Work stayed in this chat
+because the engine boundaries are shared; no separate chat or runtime run was
+started. Visual choices still require their own UI-owner review and human
+acceptance. This request adds no new visual direction or standing rulebook.
 
 ## Extensible panels and layout seams, 2026-10-16
 
@@ -3281,15 +4777,7 @@ hard-coded ID lists, one browser-local dial owner, expiring review switches, DOM
 reading order). Desired outcome: an extensible screen over replaceable modules. All
 layouts, contracts and sequences are proposals; no round or dispatch was started.
 
-Weibao: "UI extension and additions? like narrowing a bannel to fit another useful
-panel? Modulizing everything underneath to allow better iterations and implementatio
-and improvemets and more?", asked twice with `/more-to-consider`. Saved in
-[round 15 whole plan](gm/dispatch/ui-foundation-2026-10-15/next-parts/round-15-whole-plan.md):
-round 1 PX1-PX5, NX20-NX24, WB9; round 2 NX25 (Crafting beside/below is the existing
-local-split precedent), PX6-PX10 (per-panel width forms, placement hints instead of
-hard-coded ID lists, one browser-local dial owner, expiring review switches, DOM
-reading order). Desired outcome: an extensible screen over replaceable modules. All
-layouts, contracts and sequences are proposals; no round or dispatch was started.
+### Real UI in mockups, 2026-10-16
 
 Weibao, after asking whether the mockup system is useful at all:
 
@@ -3338,13 +4826,7 @@ slack depends on state, shorten before narrowing, panels declare how they yield,
 per context, re-compose only at stable moments, the log keeps its column, and records earn
 simultaneous space only where they drive the next action. Proposals only.
 
-Weibao, with a screenshot of the classic layout on a fresh character: "how narrowing panels to
-fit other useful panels and how the whole screen works together, beyond just You and Equipment.
-/more-to-consider Update and save accordingly". Saved as WX1–WX14 in the
-[Round 15 plan](gm/dispatch/ui-foundation-2026-10-15/next-parts/round-15-whole-plan.md#whole-screen-composition-narrowing-to-fit-useful-panels-everywhere-2026-10-16):
-slack depends on state, shorten before narrowing, panels declare how they yield, compositions
-per context, re-compose only at stable moments, the log keeps its column, and records earn
-simultaneous space only where they drive the next action. Proposals only.
+### Every little control, 2026-10-16
 
 Weibao: "what to consider based on this and more? Every little menu considerations?
 /more-to-consider". Saved as CTL1–CTL24 in the
@@ -3393,6 +4875,35 @@ second floor. Rule owners updated: UI_RULES UR14/UR25 and its viewport note, AGE
 and PROJECT.md. Menu-box moves are proposals in the
 [Round 15 plan](gm/dispatch/ui-foundation-2026-10-15/next-parts/round-15-whole-plan.md#screen-real-estate-and-moving-menu-boxes-2026-10-17).
 
+
+### Shounen manga build order, 2026-10-17
+
+Weibao, after the full-read recommendations for Reincarnated in a Shounen Manga:
+"Queue A1 and A2 as engine work, then build the RS26 slice once the current UI
+lane merges and I've played it." Queued: A1 ability conditions (charges, recharge
+triggers, lasting price, bound subject) and A2 claims with dependencies (stale only
+when a named precondition changes; tests revise beliefs). RS26 waits for the UI
+lane merge and his play check. Owner: [shounen manga considerations](research/reincarnated-in-a-shounen-manga/YAIR_CONSIDERATIONS_2026-10-16.md#build-order-decided-by-weibao-2026-10-17).
+
+### Shounen manga engine gating by world, 2026-10-17
+
+Weibao: "maybe need to gate for specific world or similar worlds to help flesh
+out engine and foundational level stuff and more?" Proposal recorded, not accepted:
+A1/A2 stay world-neutral and dormant until a world authors them; the shounen manga
+is the home world and Hunter x Hunter, Jujutsu Kaisen and Fae bargains serve as
+similar-world test fixtures (E8B Conditions / Contracts and oaths), not new playable
+worlds. Owner: [G1–G8](research/reincarnated-in-a-shounen-manga/YAIR_CONSIDERATIONS_2026-10-16.md#world-gating-and-similar-world-fixtures-2026-10-17).
+
+### Retire the character selector, 2026-10-17
+
+Weibao: "also make it a point to retire the current character selector thing, update accordingly
+and /more-to-consider". Read as the upstream hero creation panel at new game (name, gender,
+height, age, race; marked cosmetic in its own note), an inference to confirm. Accepted direction:
+retire it. Routed to the UI main chat, which owns the plan update and the round that removes it.
+Saved values stay readable in old saves; the name moves to the You header (R21 tune item); the
+layered start probe (`src/start_probe_ui.js`, `start_records.js`) is the candidate future beginning.
+
+
 ### R21 feedback: name, Skills, options, more panels, modular UI, 2026-10-17
 
 During R21 Weibao asked what the freed screen space should absorb (better combat screen, more
@@ -3407,6 +4918,7 @@ rest are proposals in [R21 feedback](gm/dispatch/ui-foundation-2026-10-15/next-p
 (BX4–BX15) and [UI modularity](gm/dispatch/ui-foundation-2026-10-15/next-parts/ui-modularity-2026-10-17.md)
 (UM1–UM10). Then: "Merge and commit with lesser accordingly".
 
+
 ### Genetics and hero start plan, 2026-10-17
 
 Weibao: "send new chat to make plans on properly doing and implementing genetics and hero
@@ -3417,6 +4929,7 @@ routes every start through one saved receipt and a Beginning view, and ladders f
 starting with recorded beginnings. It builds on the [genetics palette](GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md)
 and the starts owners; open decisions Q1–Q4 are in the plan.
 
+
 ### Genetics, constitution, physique, soul and traits round, 2026-10-17
 
 Weibao: "Aspects of genetics, constitution, physique, soul, traits, and more options?" Saved as
@@ -3424,6 +4937,7 @@ round 2 of the [genetics and hero start plan](GENETICS_AND_HERO_START_PLAN_2026-
 (GHS41–GHS65), proposals only: where body, mind, soul, line and record facts live across lives
 and body changes, one trait card shape with costs and conditions, start options for unknown,
 drafted and chosen bodies, and later items.
+
 
 ### Talents, titles and traits round, 2026-10-17
 
@@ -3433,6 +4947,7 @@ start plan](GENETICS_AND_HERO_START_PLAN_2026-10-17.md#round-3-talents-titles-an
 either capabilities or the stat and XP buckets, with a new heritage bucket built like the title
 bonus. Hidden talents show their exact effect with an unknown cause. Start-given titles are not
 deeds. Transfer to heirs follows E4 TR1–TR7.
+
 
 ### Items and possibilities from books round, 2026-10-17
 
@@ -3444,6 +4959,82 @@ one-holder powers. Proposed engine pieces: power instances with custody, a per-w
 typed acquisition operations, integration with forgiving warning signs, priced costs and vows,
 slots, eligibility keys, and item classes mapped onto existing item code. Adds S5, "Power in a
 thing", after S4.
+
+
+### Tools, cursed tools and crafting round, 2026-10-17
+
+Weibao: "JJk cursed tools and more? simialr stuff in other worlds? more ot consider?" then
+"normal tools and crafting and stuff too". Saved as [tools, cursed tools and
+instruments](TOOLS_AND_INSTRUMENTS_CONSIDERATIONS_2026-10-17.md), proposals only: items as
+instruments that enable verbs and set control (separate from products and power containers),
+mundane fit, wear, kits, improvisation and lending, JJK cursed-tool splits, tool families across
+other worlds with the axes that make them differ, and a first "Village tools" slice proposal (TQ62).
+
+
+### Tools implementation and equipment by world round, 2026-10-17
+
+Weibao: "how to go about implementing the ability to create, repair, and do other things with tools
+and more? Tools and equipment in each world> more to conisder?" Saved as [round 2 of the tools
+palette](TOOLS_AND_INSTRUMENTS_CONSIDERATIONS_2026-10-17.md#round-2-how-to-implement-and-tools-and-equipment-by-world-2026-10-17),
+proposals only: the existing tool code (forging, five tool slots, opt-in durability with coin repair,
+one lantern loan), a phased plan IP1-IP9 in a `tools` domain (wear from work and hand repair first),
+a verb catalog, per-world tools and equipment from the packs, and implementation cautions MT1-MT12.
+
+
+### Old save compatibility deferred, 2026-10-17
+
+Weibao, starting the tools IP1-IP3 wave: "Start, consider the fact that old save compatibility is
+no worry for now". Recorded as an accepted decision in PROJECT.md. Current work may reset or drop
+old-save state rather than migrate it, saying so in its task record; new state still has to survive
+Save, reload, Export and Import. This supersedes MR33 ("old saves load unchanged") and AGENTS.md's
+migration requirement for the time being, not permanently.
+
+
+### World absorption rules, 2026-10-17
+
+Weibao asked which book world is coherent enough to absorb easily, then "whats the best way to go
+about implementing every little detail to be able to generate/absorb the world easily for gameplay?"
+and "create a set of rules to absorb worlds accordingly? Or expand what we have? Code to implement
+rules? More to consider?" Answered with both: a new [world absorption rulebook](WORLD_ABSORPTION_RULES.md)
+WA1-WA20 that composes the playbook, world core kit, completion standard, GR and AR owners, a pure
+pack lint in `src/world_pack.js`, a Cyoria pilot pack and a saved more-to-consider round
+(WAC1-WAC13). Proposals until he accepts them. A second "more to consider" round on the rules
+(WAC14-WAC30) closed six lint holes and added WA21 (packs are plain data).
+
+
+### Crafting kinds, repair kinds and world requirements round, 2026-10-17
+
+Weibao: "types of crafting, tyeps of repair, each world based requirements and more?" Saved as
+[round 3 of the tools palette](TOOLS_AND_INSTRUMENTS_CONSIDERATIONS_2026-10-17.md#round-3-types-of-crafting-types-of-repair-world-requirements-2026-10-17),
+proposals only: kinds of making by what happens to matter and by how work is organized, kinds of
+damage and repair with outcomes and diagnosis, one requirement record for making and repair, and
+per-world requirements. The running tools session was asked to give repair a kind field and
+data-driven requirements.
+
+
+### Layered repair, guide not constrain, 2026-10-17
+
+Weibao: "condider subtle stuff like fixing one aspect but not being able to fix another? like
+fixing physical or not the soul or other way around, something likf demon slayer, depends on the
+blade, but maybe other smith can fix, if similar skill level or some sort of material or bypass or
+else worse results? /more-to-consider dont constrain, guide?" Saved as [round 4 of the tools
+palette](TOOLS_AND_INSTRUMENTS_CONSIDERATIONS_2026-10-17.md#round-4-layered-repair-and-guiding-instead-of-gating-2026-10-17),
+proposals only. Direction applied: repair and making inputs shift odds and result quality rather
+than gate; a hard gate needs a world's stated lore. Earlier "original maker only" style rows were
+rewritten, with old wording kept in that round.
+
+
+### Nothing has to be limited; exceptions and better smiths, 2026-10-17
+
+Weibao: "nothing has to be limited and then it is possible for there to be excpetions and more?
+Better smiths, /more-to-consider other thigns and more?" Applied as direction: a stated limit,
+canon or world lore included, describes the ordinary case, and exceptions exist with an in-world
+reason, cost, rarity and record. Canon events and ordinary actors keep canon limits by default;
+exceptions past them are labelled ORIGINAL. Updated AGENTS.md design framing (superseded wording:
+"No design line holds for every world, though one world may have true absolutes as its lore") and
+the AD5 line in RULES_INDEX. Saved as [round 5 of the tools
+palette](TOOLS_AND_INSTRUMENTS_CONSIDERATIONS_2026-10-17.md#round-5-nothing-has-to-be-limited-exceptions-and-better-makers-2026-10-17)
+(TQ250-TQ296), proposals only.
 
 ### Body, health, injury and medicine round, 2026-10-17
 
@@ -3492,53 +5083,6 @@ Only the rows restating MR21-MR23 and AD3, AD6, AD8, AD11, AD17 and AD38 bind no
 including rust off by default and the relearning savings curve, await his acceptance. No
 runtime change.
 
-### Skills and learning round 2 and coached practice, 2026-10-18
-
-Weibao: "/more-to-consider in all directions and then begin, commit and push first with lesser
-agent tho". Round 1 was committed and pushed first by a Sonnet agent (`fd2336aff`). Saved as
-[round 2 of the skills and learning palette](SKILLS_AND_LEARNING_CONSIDERATIONS_2026-10-18.md#round-2-in-all-directions-2026-10-18)
-(SLC47-SLC77) with SLR28-SLR33 added to the [proposed rules](SKILL_AND_LEARNING_RULES.md). Work
-began with SLL7, coached timber practice: the craftsman's attention makes the same drill teach two
-mastery instead of one. It is implemented and browser-checked, not yet accepted by him.
-
-### UI that scales: surface manifest, flows and representations, 2026-10-18
-
-Weibao: "How to design better ui that can incorporate all the scopes and more that we want in the
-future?", then "How will the plan interplay into existing R21 and R22 stuff and mroe?", then
-"/more-to-consider what else should be shown more often? what changes when others change? what
-should change because of things? mroe to consider? Ui flow and more? representations of other
-features?" Saved as
-[surface manifest and UI flow](gm/dispatch/ui-foundation-2026-10-15/next-parts/surface-manifest-and-ui-flow-2026-10-18.md)
-(UIM1–UIM5 plan extending `LAYOUT_SPEC`, R21/R22 interplay, UIW glance facts, UIX change
-propagation and contexts, UIY flows, UIZ representations, UIL1–UIL6 later steps). Proposal only;
-no runtime change.
-
-### Economy and trade core audit, 2026-10-18
-
-Gap G4 from the accepted gap survey. Weibao, after five markets rounds on selling, buyers,
-currencies, credit, exposure and carryover: "save and push accordingly, we might want a core
-rules audit for rules accordingly." His corrections in those rounds: universal currencies exist
-and carrying gold or cheats bridge worlds (M7); currencies fit each world, and value depends on
-recognition (a mana crystal in a tech world needs analysis first); theft needs someone to see the
-wealth first; not every world has a collector or institutions; and resources from a previous life
-or save can be exchanged for a better start. Saved as the [markets palette rounds 1-5](gm/dispatch/procgen-2026-10-13/p11/REQUESTS_AND_MARKETS.md)
-(M1-M28), the [economy palette](ECONOMY_AND_TRADE_CONSIDERATIONS_2026-10-18.md) (ECC1-ECC36,
-corrections ECX1-ECX10 from lanes E1 and E2, later steps ECL1-ECL5) and the [proposed economy
-rules](ECONOMY_RULES.md) (ECR1-ECR33), registered in RULES_INDEX as a proposal. Only the rows
-restating AD27, AD31 and AD11 are accepted direction. Core audit:
-[ECONOMY_CORE_AUDIT](audits/ECONOMY_CORE_AUDIT.md). Proposals only; no runtime change.
-
-### Skills and learning round 3: simple repetition and stolen memory, 2026-10-18
-
-Weibao, after seeing the rulebook and coached practice: "what about stolen memory and more? more
-to consider? What abut simple repitition?" Saved as [round 3 of the skills and learning
-palette](SKILLS_AND_LEARNING_CONSIDERATIONS_2026-10-18.md#round-3-stolen-memory-simple-repetition-and-more-2026-10-18)
-(SLC78-SLC104). Correction SLX1: round 1 had stretched MR22 into "repetition teaches little";
-SLR5 now says repetition grows fluency (faster, cheaper, steadier work on a diminishing curve) while
-new information grows understanding. Added SLR34-SLR39 on repetition plateaus, real work as
-practice and memory theft (take, copy or seal; memory carries understanding, not fluency).
-Proposals; no runtime change.
-
 ### Tropes in story generation, 2026-10-18
 
 Weibao: "Tropes as aspects of story generation to make things easier and more? how to not
@@ -3552,6 +5096,15 @@ World specific or ones that helps stuff in general? playing off existing plotlin
 world and more". Saved as [round 13](PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md#round-13-2026-10-18-trope-chains-general-versus-world-specific-and-canon-plotlines)
 (BV1-BV10 chains, BW1-BW5 core/family/world layers and system glue, BX1-BX9 canon plotlines,
 BY1-BY5 constraints, BZ1-BZ6 later steps). Proposal only; OD7/OD8 and P13 still own canon.
+
+### Skills and learning round 2 and coached practice, 2026-10-18
+
+Weibao: "/more-to-consider in all directions and then begin, commit and push first with lesser
+agent tho". Round 1 was committed and pushed first by a Sonnet agent (`fd2336aff`). Saved as
+[round 2 of the skills and learning palette](SKILLS_AND_LEARNING_CONSIDERATIONS_2026-10-18.md#round-2-in-all-directions-2026-10-18)
+(SLC47-SLC77) with SLR28-SLR33 added to the [proposed rules](SKILL_AND_LEARNING_RULES.md). Work
+began with SLL7, coached timber practice: the craftsman's attention makes the same drill teach two
+mastery instead of one. It is implemented and browser-checked, not yet accepted by him.
 
 Second follow-up the same day: "Building lots of little stuff around canon stuff to lead up to
 it? like in book events, and then ... create relevant story/gameplay around that ... now
@@ -3601,6 +5154,70 @@ ideas did we have for this before?" Saved as
 per-category standing orders, aftermath for missed events, one runner for all time passage).
 Proposal only; no runtime change.
 
+### UI that scales: surface manifest, flows and representations, 2026-10-18
+
+Weibao: "How to design better ui that can incorporate all the scopes and more that we want in the
+future?", then "How will the plan interplay into existing R21 and R22 stuff and mroe?", then
+"/more-to-consider what else should be shown more often? what changes when others change? what
+should change because of things? mroe to consider? Ui flow and more? representations of other
+features?" Saved as
+[surface manifest and UI flow](gm/dispatch/ui-foundation-2026-10-15/next-parts/surface-manifest-and-ui-flow-2026-10-18.md)
+(UIM1–UIM5 plan extending `LAYOUT_SPEC`, R21/R22 interplay, UIW glance facts, UIX change
+propagation and contexts, UIY flows, UIZ representations, UIL1–UIL6 later steps). Proposal only;
+no runtime change.
+
+Second follow-up: "what about everytihng that changes because of the changes? wont we need to
+code new story points and possibilities and more>" Saved as [round 3](RELATIONSHIPS_AND_CANON_CONSIDERATIONS_2026-10-18.md#round-3-2026-10-18-content-for-everything-the-changes-change)
+(RLS five content layers, RLV keeping volume manageable, RLW optional live generation,
+RLT1-RLT5 constraints, RLU1-RLU4 later steps). Proposal only; no runtime change.
+
+Third follow-up: "so do we need to prewrite everything in advance? more to consider? Using
+something like "fate" to course correct? Live ai seems not competetent enough, maybe long term
+stuff? more to consider?" Saved as [round 4](RELATIONSHIPS_AND_CANON_CONSIDERATIONS_2026-10-18.md#round-4-2026-10-18-writing-ahead-fate-as-course-correction-and-ai-over-the-long-term)
+(RLY writing ahead by a horizon, RLZ fate as a world mechanism under OD8, RLAI AI roles over time,
+RLAC1-RLAC5 constraints, RLAD1-RLAD4 later steps). His view that live AI is not yet competent
+enough is recorded as context, not a ban; proposal only, no runtime change.
+
+Fourth follow-up: "MOre to consider? other things lioke fate and more? or external actor doing
+stuff like that? ... in every aspect? We can also make it so that certain actions might just end
+the run early? or make me play through something else? more to consider?" Saved as [round 5](RELATIONSHIPS_AND_CANON_CONSIDERATIONS_2026-10-18.md#round-5-2026-10-18-other-course-forces-outside-meddlers-early-endings-and-detours)
+(RLFC forces, RLEX outside actors, RLEE early endings, RLDT detours, RLXA every aspect,
+RLAC6-RLAC10, RLAD5-RLAD9). Early endings stay inside AD19: forewarned by default, reload kept
+unless he picks a stricter setting. Proposal only; no runtime change.
+
+### Skills and learning round 3: simple repetition and stolen memory, 2026-10-18
+
+Weibao, after seeing the rulebook and coached practice: "what about stolen memory and more? more
+to consider? What abut simple repitition?" Saved as [round 3 of the skills and learning
+palette](SKILLS_AND_LEARNING_CONSIDERATIONS_2026-10-18.md#round-3-stolen-memory-simple-repetition-and-more-2026-10-18)
+(SLC78-SLC104). Correction SLX1: round 1 had stretched MR22 into "repetition teaches little";
+SLR5 now says repetition grows fluency (faster, cheaper, steadier work on a diminishing curve) while
+new information grows understanding. Added SLR34-SLR39 on repetition plateaus, real work as
+practice and memory theft (take, copy or seal; memory carries understanding, not fluency).
+Proposals; no runtime change.
+
+Fifth follow-up, correcting round 5's reading: "I dont mean meddlers, but rather if the world has
+a force dedicated to maintainting timelines or something etc, but those are interesting ideas, I
+meant like doiong certain things ends the run early because the content isnt done yet?" Saved as
+[round 6](RELATIONSHIPS_AND_CANON_CONSIDERATIONS_2026-10-18.md#round-6-2026-10-18-when-an-action-runs-past-content-that-is-not-built-yet)
+(RLCE content edges, RLAC11-RLAC15, RLAD10-RLAD13). Proposed default: warn, then park the branch
+for resume rather than end it; ending stays a choice. Proposal only; no runtime change.
+
+### Economy and trade core audit, 2026-10-18
+
+Gap G4 from the accepted gap survey. Weibao, after five markets rounds on selling, buyers,
+currencies, credit, exposure and carryover: "save and push accordingly, we might want a core
+rules audit for rules accordingly." His corrections in those rounds: universal currencies exist
+and carrying gold or cheats bridge worlds (M7); currencies fit each world, and value depends on
+recognition (a mana crystal in a tech world needs analysis first); theft needs someone to see the
+wealth first; not every world has a collector or institutions; and resources from a previous life
+or save can be exchanged for a better start. Saved as the [markets palette rounds 1-5](gm/dispatch/procgen-2026-10-13/p11/REQUESTS_AND_MARKETS.md)
+(M1-M28), the [economy palette](ECONOMY_AND_TRADE_CONSIDERATIONS_2026-10-18.md) (ECC1-ECC36,
+corrections ECX1-ECX10 from lanes E1 and E2, later steps ECL1-ECL5) and the [proposed economy
+rules](ECONOMY_RULES.md) (ECR1-ECR33), registered in RULES_INDEX as a proposal. Only the rows
+restating AD27, AD31 and AD11 are accepted direction. Core audit:
+[ECONOMY_CORE_AUDIT](audits/ECONOMY_CORE_AUDIT.md). Proposals only; no runtime change.
+
 ### Source media for book worlds, 2026-10-18
 
 Weibao: "how to make most use of source material for book worlds? consider LN vs like manga and
@@ -3629,3 +5246,39 @@ into distinct panels accoridnlgyt?" Saved as
 UI once its done, how to restructure to show more information and look better and more?" Saved as
 the [post-build UI audit prompt](gm/dispatch/ui-foundation-2026-10-15/next-parts/POST_BUILD_UI_AUDIT_PROMPT.md),
 which starts the repeatable `docs/audits/UI_CORE_AUDIT.md`. Proposal only; no runtime change.
+
+### Plans and audits checked against core rules, 2026-10-18
+
+Weibao: "Update the relevant plans and rules accordingly, fix the AD38 ordering
+issue, and more to consider across the other audits? Audit each Plans accordingly
+to core rules? Other plans we have out there too?"
+
+Saved the [plan/rule reconciliation](reviews/PLAN_RULE_RECONCILIATION_2026-10-18.md):
+G26–G30 folded into existing technical/domain owners, AD38 ordering repaired,
+current plan families checked against accepted rules, and other plan-shaped
+records inventoried with review limits. Corrections include later M3/crafting
+evidence, old-save compatibility override, mechanism/carrier qualifications,
+settings and observer-safe UI summaries. Existing core audits retain a composed
+case and the shared method for future affected rounds. This authorizes the
+document reconciliation; unselected mechanics remain proposals and no new
+runtime work, dispatch, commit or push is implied.
+
+
+### Claude-chat gripes: A1/A2 UI implementation, 2026-10-18
+
+Weibao: “Start A1 and A2 accordingly, check the plans accordingly, more to
+consider first? Send in parallel to implement in each part? More to consider?”
+Then: “Consider narrowing the inventory, giving the stuff more color based on
+proto 23 or better ideas, other stuff and more? I just feel like the
+representation of around you is off”. This authorizes the bounded composition
+and Around you implementation from the Claude-chat review. These A1/A2 labels
+are unrelated to the ability/claims engine lanes. Existing UIL7/UIL8 work is
+reused. Implementation choices remain reviewable candidates; no commit or push
+was requested. [Checkpoint and scope](gm/dispatch/ui-foundation-2026-10-15/next-parts/GRIPES_A1_A2_CHECKPOINT.md).
+
+
+### You controls, weather and status effects, 2026-10-18
+
+After the UIL8 before/after comparison, Weibao: "fix misalignment in up like gear with attribute, and comfortable and the dry and stuff? Why do we need duploicate condition along the other one? Also consider status effects at the same time?"
+
+This authorizes the bounded correction: align Attributes and Gear, align weather facts, remove the duplicate ambient temperature/comfort representation, and handle active status effects together. The implementation keeps ambient weather and native exposure warnings in the place header, with body, effects and relevant rates in Condition. A native cold effect may remain after the weather becomes comfortable; exposure and an existing status are distinct facts. Existing clocks and effect owners remain authoritative. [UIL8 round 2](gm/dispatch/ui-foundation-2026-10-15/next-parts/UIL8_REPORT.md#round-2-alignment-single-homes-and-status-effects-2026-10-18) owns implementation and verification; visual acceptance stays open.

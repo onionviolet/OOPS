@@ -1,0 +1,35 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {inventoryKind, inventoryCategoryKind, mountInventoryComposition} from '../src/inventory_composition.js';
+const row = (types, data = {}) => ({dataset:{...data},isConnected:true,classList:{contains:c=>types.includes(c)},querySelector:s=>types.includes(s.slice(1))?{}:null});
+test('native kinds stay distinct from native quality and favorites',()=>{
+    const gear=row(['character_item_equippable','character_item_faved'],{item_quality:'112'});
+    assert.equal(inventoryKind(gear),'equipment');assert.equal(gear.dataset.item_quality,'112');
+    assert.equal(inventoryKind(row(['item_book'])),'book');
+    assert.equal(inventoryKind(row(['character_item_usable'])),'usable');
+    assert.equal(inventoryKind(row(['character_item_component'])),'component');
+    assert.equal(inventoryKind(row(['character_item_material'])),'other');
+    assert.equal(inventoryKind(null),null);
+    assert.equal(inventoryCategoryKind('favorites'),null);
+    assert.equal(inventoryCategoryKind('all'),null);
+});
+test('filter and tick decoration preserves native row identity, scroll and inspection; removal clears the old role',()=>{
+    const gear=row(['character_item_equippable'],{character_item:'sword',item_quality:'87'});
+    const food=row(['character_item_usable'],{character_item:'bread',item_count:'3'});
+    const tabs=[{dataset:{category:'equipment'}},{dataset:{category:'usable'}},{dataset:{category:'favorites'}}];
+    const root={dataset:{}};let rows=[gear,food],caption;
+    const list={dataset:{inventoryCategory:'all'},scrollTop:48,closest:()=>root,querySelectorAll:()=>rows};
+    const detail={dataset:{},ownerDocument:{createElement:()=>({hidden:false,textContent:''})},prepend:n=>{caption=n;}};
+    const view=mountInventoryComposition({list,tabs:{querySelectorAll:()=>tabs},detail});
+    view.render(gear);assert.equal(detail.dataset.inventoryKind,'equipment');assert.equal(caption.textContent,'Equipment');
+    list.dataset.inventoryCategory='usable';gear.hidden=true;food.dataset.item_count='2';
+    view.render(gear);view.render(gear);
+    assert.equal(detail.dataset.inventoryKind,'equipment');assert.equal(gear.dataset.item_quality,'87');
+    assert.equal(list.dataset.inventoryCategory,'usable');assert.equal(list.scrollTop,48);
+    assert.strictEqual(rows[0],gear);assert.equal(gear.hidden,true);assert.equal(food.dataset.item_count,'2');
+    assert.equal(tabs[0].dataset.inventoryKind,'equipment');assert.equal(tabs[1].dataset.inventoryKind,'usable');
+    assert(!('inventoryKind' in tabs[2].dataset));
+    gear.isConnected=false;rows=[food];view.render(gear);
+    assert(!('inventoryKind' in detail.dataset));assert.equal(caption.hidden,true);
+    view.render(food);assert.equal(caption.textContent,'Usable');assert.equal(detail.dataset.inventoryKind,'usable');
+});

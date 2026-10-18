@@ -1,5 +1,14 @@
 # Foundation completion live checkpoint
 
+**Final disposition, surfaced 2026-10-18:** the October 13 [final report](REPORT.md)
+records technical closure within the finite U01–U15/applicable-join assignment,
+including G6's combined native journey. Human fiction/balance/pacing/comfort/fun
+acceptance remains open. Opening no-runtime-gate/sole-writer text and intermediate
+failures below are dated recovery history. They grant no present lease or retry.
+Later [foundation-adoption checkpoint](../foundation-adoption-next-2026-10-13/CHECKPOINT.md)
+owns its separate FA chain and open gates; its incomplete result does not undo
+this earlier finite closure. World1 remains paused. No fresh runtime proof here.
+
 2026-10-12. Sole coordinator/integrator `01a12e94-7b63-7e12-b584-ae2265f579e1`, shared checkout `/Users/weiwei/code/yet-another-idle-rpg`. Assignment remains the full U01–U15/applicable-join horizon. World1 is explicitly paused. No runtime gate passed yet. No commits/push/publication/acquisition/automation/user-save changes authorized.
 
 Read current AGENTS/PROJECT/GM/assignment/INPUTS, paused World1 STATE/CHECKPOINT/PAUSED_HANDOFF, UI/customization checkpoints, completed workflow NEXT_PACKET and relevant Ink/Lin source. Applied daisy-chain-work and evidence-gated-handoff. Shared dirty source is authoritative; no candidate copied. Lin APIs exist shared; the initially queried missing-file concern was a status-inventory mistake, corrected to both owners.

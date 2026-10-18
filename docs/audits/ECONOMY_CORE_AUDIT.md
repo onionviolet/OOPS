@@ -44,3 +44,20 @@ First run used two Claude subagents.
 | 2026-10-18 | Markets rounds 1–5 | M1–M28 in the markets palette, with corrections to M7, M19 and M20 |
 | 2026-10-18 | 1 | Economy palette ECC1–ECC26, later list ECL1–ECL5, rulebook draft ECR1–ECR31, lanes E1 and E2 |
 | 2026-10-18 | 1 fold | Lanes E1 and E2 folded: corrections ECX1–ECX10, angles ECC27–ECC36, ECR6 amended, ECR32–ECR33 added, five missed owners linked |
+| 2026-10-18 | 2 | ECC37 and ECR qualifications: belief-based quotes, actual currency units, accounting versus valuation, deferred settlement; no lanes |
+## Core-rule reconciliation, 2026-10-18
+
+Apply the [shared pass](TOPIC_EXPANSION_AUDIT_PLAYBOOK.md#core-rule-reconciliation-pass-2026-10-18)
+to affected future rounds. Codes: ECR7/ECR9/ECR15/ECR16, AD6–AD9/AD22/AD27/AD38, AR7/AR8.
+
+**Composed case:** A speculative quote need not identify a hidden property. Interrupt a selected deferred service: settle spent and reserved value once; ordinary atomic trade remains atomic. Currency divisibility follows its mechanism.
+
+**Current correction:** Economy palette round 2 and the relevant rule owner now carry the
+constraint. Current old-save compatibility is deferred; newly built state still
+round-trips. Player-facing proof uses current UI_RULES targets. Proposals and
+NPC/layout/mobile deferrals keep their status. This is a docs-only rule-fit pass,
+not a rerun of source/game-reference lanes or evidence that gameplay works.
+
+Later execution: strong cross-domain agent, medium only when that seam is
+selected; reuse the affected existing suite and require a useful rebuilt journey
+plus current-state persistence when changed. No lane is dispatched by this entry.

@@ -1,5 +1,14 @@
 # Original Frontier: represented campaign
 
+**Later recorded delivery, reconciled 2026-10-18:** the
+[home-world release](../../gm/world-completion-2026-10-06/CHECKPOINT.md) and
+[delivery](../../gm/world-completion-2026-10-06/DELIVERY.md) supersede this
+planning-stage/held-Short-Measure status for their finite expanded Frontier
+scope. They record source/native/UI/build delivery, implemented-unverified,
+with behavioral/save/failure/director gates unrun. That is dated input-bound
+evidence, not today's full-world acceptance. Recover the current consumer and
+writer before treating an old "missing" join below as new work.
+
 Planning revision 1, 2026-10-05. Latest authority is the [skill/discovery/world-completion dispatch](../../gm/dispatch/SKILLS_DISCOVERY_AND_WORLD_COMPLETION_2026_10_05.md). This role plans only in this directory. The held episode module and all shared/native/UI/save code remain read-only. [WORLD_COMPLETION](WORLD_COMPLETION.md) owns the finite delivery requirements; [CAMPAIGN](CAMPAIGN.md) owns fiction and connected pursuits.
 
 ## Identity, scope and player experience

@@ -1,5 +1,11 @@
 # Foundation considerations, 2026-10-16
 
+Current continuation, updated 2026-10-16: [modular brief MP1–MP10](../gm/dispatch/modular-seams-2026-10-16/BRIEF.md)
+owns the next sequence. Its conditional hardening supersedes this historical
+note's suggested all-fields M2.5 bundle. M3 remains stopped; future C/N fields
+land for demonstrated consumers rather than as a prerequisite service set.
+
+
 Weibao: "What about future considerations and more? would a stronger foundation
 be better and more? /more-to-consider accordingly?" Follows the
 [architecture rules](../ARCHITECTURE_RULES.md), the

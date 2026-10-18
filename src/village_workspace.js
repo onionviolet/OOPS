@@ -1,3 +1,5 @@
+import {createNearbyContextView} from './nearby_context_view.js';
+import {readTemperature} from './condition_facts.js';
 import {boardLayout} from './layout_spec.js';
 import {projectNativeOpponents,knowledgeOf,healthText,healthFill,factText,factShown,encounterCaption,KNOWLEDGE_LABEL} from './opponent_board.js';
 import {definePanel} from './panel_kit.js';
@@ -24,7 +26,7 @@ export function createVillageWorkspace({read,act}) {
     const scene=node('section');scene.id='village_scene';
     const clock=node('p'),people=node('div'),things=node('div'),groups=node('div');
     people.className='scene-chips';things.className='scene-chips';
-    clock.className='scene-location-header';const placeName=node('strong'),conditions=node('span'),calendar=node('span'),placeTags=node('span');conditions.className='scene-conditions';calendar.className='scene-calendar';placeTags.className='scene-place-tags';clock.append(placeName,conditions,placeTags,calendar);
+    clock.className='scene-location-header';const placeName=node('strong'),conditions=node('span'),calendar=node('span'),placeTags=node('span');conditions.className='scene-conditions';calendar.className='scene-calendar';placeTags.className='scene-place-tags';clock.append(placeName,placeTags,conditions);const placeFooter=node('div');placeFooter.className='scene-place-footer';placeFooter.append(calendar);
     // R21 (Weibao, 2026-10-17): the group drop-downs live under Options, not in the action list.
     // The tab names how many there are and how many hold ready actions (UR13).
     const optionsLabel=()=>{const groups=[...document.querySelectorAll('#location_actions_div > details')].filter(d=>!d.hidden&&d.style.display!=='none'&&!d.classList.contains('none_display'));
@@ -34,7 +36,7 @@ export function createVillageWorkspace({read,act}) {
     // its own yet; a legacy bridge publishes 'place' when that list mutates.
     let optionsText='Options',stopOptions=()=>{},stopBridge=()=>{};
     const refreshOptions=()=>{optionsText=optionsLabel();const b=placeTabs.querySelector('[data-place-tab="options"]');if(b)setText(b,optionsText);};
-    const placeTabs=node('nav');placeTabs.className='scene-local-tabs';placeTabs.setAttribute('aria-label','Location sections');let placeTab='actions';for(const [id,label]of [['actions','Actions'],['people','People'],['things','Things'],['options','Options']]){const b=node('button',label);b.type='button';b.dataset.placeTab=id;b.onclick=()=>{placeTab=id;render();};placeTabs.append(b);}scene.append(clock,placeTabs,people,things,groups);
+    const placeTabs=node('nav');placeTabs.className='scene-local-tabs';placeTabs.setAttribute('aria-label','Location sections');let placeTab='actions';for(const [id,label]of [['actions','Actions'],['people','People'],['things','Things'],['options','Options']]){const b=node('button',label);b.type='button';b.dataset.placeTab=id;b.onclick=()=>{placeTab=id;render();};placeTabs.append(b);}placeFooter.append(placeTabs);scene.append(clock,placeFooter,people,things,groups);
     const focus=node('section');focus.id='current_focus';focus.setAttribute('aria-live','polite');
     // R20 opponent board: one row per opponent, laid out by count (layout_spec opponentBoard), and
     // the inspected opponent's facts once below the rows instead of repeated on every card. Reads the
@@ -110,11 +112,12 @@ export function createVillageWorkspace({read,act}) {
     definePanel({id:'village-scene',title:'Village scene',role:'actions',node:scene,home,defaultDock:'center',after:'location',
         discovered:()=>true,eligible:()=>read().inVillage||document.getElementById('main_content').dataset.parity==='r3'});
     function choose(id){selected=id;render();}
+    const nearbyContext=createNearbyContextView({choose,act:id=>{act(id);render();}});
     const followService=event=>{if(event.target.closest('#fort_supply_panel'))choose('waypost-clerk');};
     document.addEventListener('focusin',followService);
     // R13: Esc leaves a selected subject for the place card, after the center controller
     // has had its chance to go back (it prevents default when it handles Esc).
-    const leaveSubject=event=>{if(event.key!=='Escape'||event.defaultPrevented||!selected||document.getElementById('main_content').dataset.centerTask)return;if(event.target.closest?.('input,textarea,select,dialog'))return;choose(null);};
+    const leaveSubject=event=>{if(event.key!=='Escape'||event.defaultPrevented||!selected||document.getElementById('main_content').dataset.centerTask)return;if(event.target.closest?.('input,textarea,select,dialog'))return;if(document.getElementById('main_content').dataset.presentation==='proto23-shell')nearbyContext.returnToList();else choose(null);};
     document.addEventListener('keydown',leaveSubject);
     function chip(row,kind){const b=node('button',row.name);b.type='button';
         b.dataset.sceneFocus=row.id;b.onclick=()=>choose(row.id);return b;}
@@ -132,18 +135,36 @@ export function createVillageWorkspace({read,act}) {
         // This adapter reads the existing public native clock projection. It does
         // not compute weather/season or alter their world rules.
         const parity=document.getElementById('main_content').dataset.parity==='r3';
-        if(parity&&!clock.contains(placeName))clock.replaceChildren(placeName,conditions,placeTags,calendar);
+        if(parity&&!clock.contains(placeName))clock.replaceChildren(placeName,placeTags,conditions);
         renderPlaceTags(frame.placeTypes||[]);
         const parts=view.clockText.split(' · '),date=parts[1]||'',season=date.split(',')[1]?.trim();
         setText(placeName,frame.place);
         const conditionRows=[['season',season],['weather',parts[3]],['temperature',parts[4]]].filter(([,value])=>value);
-        const nativeTemperatureState=document.querySelector('#weather_div .cold_temperature')?'cold_temperature':'normal_temperature';const conditionSignature=JSON.stringify([conditionRows,nativeTemperatureState]);if(conditions.dataset.signature!==conditionSignature){conditions.dataset.signature=conditionSignature;conditions.replaceChildren();for(const[kind,value]of conditionRows){const symbol=kind==='season'?({'Spring':'❀','Summer':'☀','Autumn':'❧','Fall':'❧','Winter':'❄'}[value]||'◈'):kind==='weather'?({'Rain':'☂','Snow':'❄'}[value]||''):'♨';const badge=node('span');badge.dataset.condition=kind;badge.dataset.conditionValue=value.toLowerCase();const icon=node('span',symbol);icon.setAttribute('aria-hidden','true');if(symbol)badge.append(icon);badge.append(document.createTextNode((symbol?' ':'')+value+(kind==='temperature'&&nativeTemperatureState==='cold_temperature'?' · Cold':'')));if(kind==='temperature')badge.dataset.temperatureState=nativeTemperatureState;badge.title=kind==='temperature'?(document.getElementById('temperature_tooltip')?.textContent||value):kind==='weather'?value+' · native weather; no additional effect inferred.':value+' · native calendar season';conditions.append(badge);}}
+        const temperature=parity?readTemperature():null;
+        const nativeTemperatureState=temperature?.cold?'cold_temperature':'normal_temperature';
+        const conditionSignature=JSON.stringify([conditionRows,temperature]);
+        if(conditions.dataset.signature!==conditionSignature){
+            conditions.dataset.signature=conditionSignature;
+            // Reuse the temperature button so ticking weather never replaces keyboard focus.
+            const previous=conditions.querySelector('[data-condition=temperature]');
+            const badges=conditionRows.filter(([kind])=>kind!=='temperature').map(([kind,value])=>{
+                const symbol=kind==='season'?({'Spring':'❀','Summer':'☀','Autumn':'❧','Fall':'❧','Winter':'❄'}[value]||'◈'):({'Rain':'☂','Snow':'❄'}[value]||'');
+                const badge=node('span');if(symbol){const icon=node('span',symbol);icon.setAttribute('aria-hidden','true');badge.append(icon,document.createTextNode(' '));}badge.append(document.createTextNode(value));badge.dataset.conditionValue=value.toLowerCase();badge.dataset.condition=kind;badge.title=value+(kind==='weather'?' · native weather; no additional effect inferred.':' · native calendar season');return badge;
+            });
+            if(temperature){const badge=previous||node('button');badge.type='button';badge.dataset.condition='temperature';badge.dataset.contextPreview='temperature';badge.dataset.temperatureState=nativeTemperatureState;
+                setText(badge,temperature.label);setTitle(badge,temperature.description);badges.push(badge);
+                if(temperature.cold){const warning=node('span','Cold exposure');warning.className='condition-warning';warning.dataset.coldWarning='';badges.push(warning);}
+            }else {const value=conditionRows.find(([kind])=>kind==='temperature')?.[1];if(value)badges.push(node('span',value));}
+            // Avoid detaching the focused temperature anchor.
+            for(const child of [...conditions.children])if(!badges.includes(child))child.remove();
+            for(const [index,badge]of badges.entries())if(conditions.children[index]!==badge)conditions.insertBefore(badge,conditions.children[index]||null);
+        }
 
         setText(calendar,[season?date.replace(', '+season,''):date,parts[2]?((/night/i.test(parts[2])?'☾ ':'☼ ')+parts[2]):''].filter(Boolean).join(' · '));calendar.dataset.timeOfDay=/night/i.test(parts[2])?'night':'day';
         // R13 dedupe: with the shell, Focus's place card is the home for who and what is here, so the
         // lower People/Things tabs would repeat it. Actions and Options stay.
         const focusOwnsNearby=parity&&document.getElementById('main_content').dataset.presentation==='proto23-shell';if(focusOwnsNearby&&['people','things'].includes(placeTab))placeTab='actions';
-        if(!parity)setText(clock,view.clockText);setTitle(clock,view.clockText);placeTabs.hidden=!parity;people.hidden=!frame.people.length||parity&&placeTab!=='people';things.hidden=!frame.things.length||parity&&placeTab!=='things';for(const b of placeTabs.children){const count=b.dataset.placeTab==='people'?frame.people.length:b.dataset.placeTab==='things'?frame.things.length:null;setText(b,['actions','options'].includes(b.dataset.placeTab)?(b.dataset.placeTab==='actions'?'Actions':optionsText):`${b.dataset.placeTab==='people'?'People':'Things'} · ${count}`);if(b.disabled!==(count===0))b.disabled=count===0;b.hidden=count===0||focusOwnsNearby&&count!==null;b.setAttribute('aria-pressed',String(b.dataset.placeTab===placeTab));}
+        if(!parity)setText(clock,view.clockText);setTitle(clock,view.clockText);placeFooter.hidden=!parity;placeTabs.hidden=!parity;people.hidden=!frame.people.length||parity&&placeTab!=='people';things.hidden=!frame.things.length||parity&&placeTab!=='things';for(const b of placeTabs.children){const count=b.dataset.placeTab==='people'?frame.people.length:b.dataset.placeTab==='things'?frame.things.length:null;setText(b,['actions','options'].includes(b.dataset.placeTab)?(b.dataset.placeTab==='actions'?'Actions':optionsText):`${b.dataset.placeTab==='people'?'People':'Things'} · ${count}`);if(b.disabled!==(count===0))b.disabled=count===0;b.hidden=count===0||focusOwnsNearby&&count!==null;b.setAttribute('aria-pressed',String(b.dataset.placeTab===placeTab));}
         document.getElementById('main_content').dataset.placeTab=parity?placeTab:'actions';groups.hidden=parity;
         scene.dataset.inVillage=String(frame.inVillage);
         const signature=JSON.stringify([frame.inVillage,frame.people,frame.things,frame.actions]);
@@ -178,8 +199,20 @@ export function createVillageWorkspace({read,act}) {
         const nativeEncounter=target?.kind==='enemy'&&shell;if(nativeEncounter)renderEnemy(target,board);const groupHeading=nativeEncounter,enemyCount=board.opponents.length;
         if(heading){setText(heading,groupHeading?(enemyCount>1?`Opponents · ${enemyCount}`:'Opponent'):shell?(target?.name||'Around you'): 'Focus');setTitle(heading,groupHeading?`${enemyCount} opponent${enemyCount===1?'':'s'}. Select a name to inspect; inspection does not change attack targeting.`:target?.name||'Inspect a known person, place or opponent');heading.removeAttribute('data-effect-anchor');heading.removeAttribute('tabindex');}
         focus.dataset.subjectHeading=String(shell&&!!target);
-        if(nativeEncounter){focusSignature=next;return;}
+        if(nativeEncounter){delete focus.dataset.nearbySummary;focusSignature=next;return;}
         {const root=document.getElementById('main_content');if(root.dataset.enemyCards==='true')root.dataset.enemyCards='false';if(root.dataset.opponentBoard)delete root.dataset.opponentBoard;}
+        // A2: one observer-safe place list/detail surface, over the same native action owner.
+        if(shell){
+            const nearby=nearbyContext.update({frame,selected,description:document.getElementById('location_description_div')?.textContent.trim()||''});
+            if(selected&&!frame.dialogue)selected=nearby.selectedId;
+            if(nearbyContext.node.parentNode!==focus)focus.replaceChildren(nearbyContext.node);
+            focus.dataset.nearbySummary=nearby.summary;
+            focus.dataset.focusEmpty='false';focus.closest('.workspace-module')?.setAttribute('data-focus-empty','false');
+            focus.dataset.subjectHeading='false';
+            if(heading){setText(heading,'Around you');setTitle(heading,nearby.summary);}
+            focusSignature='';return;
+        }
+        delete focus.dataset.nearbySummary;
         // R13: the key includes the presentation and place text, so the idle place card
         // appears once the shell is active, not only after the subject changes.
         const focusKey=JSON.stringify([next,shell,!target&&shell?document.getElementById('location_description_div')?.textContent.trim()||'':'']);
@@ -204,5 +237,5 @@ export function createVillageWorkspace({read,act}) {
     stopOptions=subscribeChange({id:'village-options-ready',surface:'village-scene',refresh:refreshOptions});
     stopBridge=bridgeLegacyNode(document.getElementById('location_actions_div'),'place');refreshOptions();
     render();const timer=setInterval(render,250);
-    return {render,destroy:()=>{clearInterval(timer);stopOptions();stopBridge();document.removeEventListener('focusin',followService);document.removeEventListener('keydown',leaveSubject);}};
+    return {render,destroy:()=>{nearbyContext.destroy();clearInterval(timer);stopOptions();stopBridge();document.removeEventListener('focusin',followService);document.removeEventListener('keydown',leaveSubject);}};
 }

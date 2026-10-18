@@ -1,0 +1,58 @@
+/* UIL9: native item kinds, never a rarity/quality scale. Shared palette tokens. */
+#main_content.workspace-active[data-parity="r3"] [data-inventory-kind="equipment"] {--inventory-kind-color:var(--p23-item-equipment);}
+#main_content.workspace-active[data-parity="r3"] [data-inventory-kind="usable"] {--inventory-kind-color:var(--p23-item-usable);}
+#main_content.workspace-active[data-parity="r3"] [data-inventory-kind="component"] {--inventory-kind-color:var(--p23-item-component);}
+#main_content.workspace-active[data-parity="r3"] [data-inventory-kind="book"] {--inventory-kind-color:var(--p23-item-book);}
+#main_content.workspace-active[data-parity="r3"] [data-inventory-kind="other"] {--inventory-kind-color:var(--p23-item-other);}
+@media(min-width:1001px) {
+/* Transfer width from track 1 to track 2. You spans both: its width and Reports
+   stay as before. Ratios below reproduce the existing default breakpoints. UIL7's inline !important grid owns explicit saved sizing.
+   Service expansions have another geometry and retain its existing owner. */
+#main_content.workspace-active[data-parity="r3"][data-inventory-composition="true"]:not([data-center-task]) .workspace-board:has(> [data-region="inventory"] > [data-module="belongings"]):not([style*="grid-template-columns"]) {
+ --inventory-default-width:min(calc(var(--shell-context-size,var(--ui-type-body))*24),22%);
+ --inventory-top-share:35.0904799%;--inventory-log-share:29.8190401%;
+ grid-template-columns:minmax(0,var(--inventory-default-width)) minmax(0,calc(var(--inventory-top-share) - var(--inventory-default-width))) minmax(0,1fr) minmax(0,var(--inventory-log-share));
+}
+#main_content.workspace-active[data-parity="r3"][data-inventory-composition="true"] #inventory_content_div .inventory_item_name {
+ display:flex;flex-wrap:wrap;align-items:baseline;gap:0 .35em;
+}
+#main_content.workspace-active[data-parity="r3"][data-inventory-composition="true"] #inventory_content_div .item_name {
+ overflow:visible;text-overflow:clip;white-space:normal;overflow-wrap:anywhere;min-width:0;
+}
+#main_content.workspace-active[data-parity="r3"][data-inventory-composition="true"] #inventory_content_div .item_slot {
+ order:1;font-size:inherit;
+}
+#main_content.workspace-active[data-parity="r3"][data-inventory-composition="true"] #inventory_content_div .item_quality {order:2;}
+#main_content.workspace-active[data-parity="r3"][data-inventory-composition="true"] #inventory_content_div .item_count {order:3;}
+#main_content.workspace-active[data-parity="r3"][data-inventory-composition="true"] #inventory_content_div > [data-item_quality] > .item_additional_content {padding-top:0;}
+#main_content.workspace-active[data-parity="r3"][data-inventory-composition="true"] #inventory_div:not([data-custom-palette="true"]) #inventory_content_div > [data-inventory-kind] {
+ border-left:2px solid var(--inventory-kind-color);padding-left:.35em;
+}
+#main_content.workspace-active[data-parity="r3"][data-inventory-composition="true"] #inventory_div:not([data-custom-palette="true"]) #inventory_content_div > [data-inventory-kind] .item_name {color:var(--inventory-kind-color);}
+#main_content.workspace-active[data-parity="r3"] .inventory-tabs > [data-inventory-kind] .inventory-tab-count {color:var(--inventory-kind-color);}
+#main_content.workspace-active[data-parity="r3"] .inventory-tabs > [data-inventory-kind][aria-pressed="true"] {border-bottom-color:var(--inventory-kind-color);}
+#main_content.workspace-active[data-parity="r3"] .inventory-kind-caption {font:inherit;padding:.15em .45em;text-align:left;border-bottom:1px solid var(--p23-line);}
+#main_content.workspace-active[data-parity="r3"] .inventory-kind-caption[hidden] {display:none;}
+#main_content.workspace-active[data-parity="r3"] .shell-item-detail:not([data-custom-palette="true"]) > .inventory-kind-caption,
+#main_content.workspace-active[data-parity="r3"]:not([data-shell-custom-palette="true"]) .shell-item-detail[data-inventory-kind] > .shell-item-title {color:var(--inventory-kind-color);}
+}
+@media(min-width:1700px) {
+#main_content.workspace-active[data-parity="r3"][data-inventory-composition="true"]:not([data-center-task]) .workspace-board:has(> [data-region="inventory"] > [data-module="belongings"]):not([style*="grid-template-columns"]) {--inventory-top-share:33.3333333%;--inventory-log-share:26.7973856%;}
+}
+@media(min-width:2800px) {
+#main_content.workspace-active[data-parity="r3"][data-inventory-composition="true"]:not([data-center-task]) .workspace-board:has(> [data-region="inventory"] > [data-module="belongings"]):not([style*="grid-template-columns"]) {--inventory-top-share:34.8314607%;--inventory-log-share:25.8426966%;}
+}
+/* Ordinary item inspection is a lower companion, so Around you stays usable. */
+@media(min-width:1001px) {
+#main_content.workspace-active[data-parity="r3"][data-parity-combat="false"][data-parity-item="true"]:not([data-center-task]) .workspace-board {grid-template-rows:minmax(0,var(--shell-top-row)) minmax(0,1fr)!important;}
+#main_content.workspace-active[data-parity="r3"][data-parity-combat="false"][data-parity-item="true"]:not([data-center-task]) [data-region="focus"] > .workspace-module[data-module="focus"]:has(#current_focus > .nearby-context-view) {display:flex!important;}
+#main_content.workspace-active[data-parity="r3"][data-parity-combat="false"][data-parity-item="true"]:not([data-center-task]) [data-region="actions"] {
+ display:grid;grid-template-columns:minmax(0,1fr) minmax(0,clamp(15em,44%,30em));grid-template-rows:auto auto minmax(0,1fr) minmax(0,1fr) auto;
+}
+#main_content.workspace-active[data-parity="r3"][data-parity-combat="false"][data-parity-item="true"]:not([data-center-task]) [data-region="actions"] > .workspace-module[data-module="shell-detail"] {grid-column:2;grid-row:2/5;border-left:1px solid var(--p23-line)!important;}
+#main_content.workspace-active[data-parity="r3"][data-parity-combat="false"][data-parity-item="true"]:not([data-center-task]) [data-region="actions"] > .workspace-module:is([data-module="records"],[data-module="skills"]) {display:none!important;}
+}
+/* A short companion must scroll its complete card rather than clip native commands. */
+#main_content[data-parity="r3"] [data-region="actions"] #proto23_item_detail {display:block;overflow:auto;}
+#main_content[data-parity="r3"] [data-region="actions"] #proto23_item_detail .shell-item-description {overflow:visible;}
+#main_content[data-parity="r3"] [data-region="actions"] #proto23_item_detail .shell-item-actions {position:sticky;bottom:0;background:var(--p23-detail-fill);}

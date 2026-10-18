@@ -59,7 +59,7 @@ is a default; a world may state an exception with an in-world reason and cost.
 
 | Code | Rule | Mistake it prevents |
 | --- | --- | --- |
-| SLR20 | **Each layer carries by its carrier (accepted, AD11, CA2).** Understanding follows the journey's memory; fluency stays with the body; sources follow their custody; tools and notes follow item custody. (SLC28) | Full power in a new body, or full erasure of what the soul knows |
+| SLR20 | **Carry follows world and means (accepted, AD11, CA2).** Proposed default: understanding follows memory; fluency follows the body or faculty practice changed; sources and tools follow custody. Different carriers work through their actual mechanisms (AD38). (SLC28) | Full power copied or erased by a universal body-only assumption |
 | SLR21 | **Carried understanding regrows fluency at a savings rate** in the new body, up to the remembered level by default. (SLC29) | Rebirth as either a free power copy or a pointless reset |
 | SLR22 | **A carried skill without a mechanism in the current world is dormant:** known, shown and unexpressed, with a reason the character can know. Erasure needs a world reason and a warning. (SLC30, SLC35) | Skills silently deleted at a world border |
 | SLR23 | **Methods can outlive their learner** through students, records and institutions, and later lives meet them as world facts. (SLC31) | Teaching with no lasting effect |
@@ -99,3 +99,19 @@ is a default; a world may state an exception with an in-world reason and cost.
 | SLR37 | **Memory loss removes understanding, not fluency,** and memory gain gives understanding, not fluency, unless the means also changes the body. (SLC88–SLC89) | Stolen techniques as instant mastery |
 | SLR38 | **Reading memories is appraisal through means (accepted, AD6),** and sealed truths stay behind their discovery route. (SLC92) | Mind reading as a spoiler machine |
 | SLR39 | **The player's own memory loss is forewarned and recoverable by default,** with a known record of what was lost. (SLC97) | Silent loss of what the player built |
+
+## Cross-audit application, 2026-10-18
+
+SLR1/SLR20's body fluency is the default carrier model, not an accepted universal
+claim that all fluency stays with flesh. AD11 accepts means-based carryover;
+a soul, construct, copied faculty or loop may retain a different layer through
+its actual mechanism (AD38). SLR37 follows the same qualification: transferring
+a memory that also changes a faculty can affect execution, with that cause named.
+
+Practice/lesson progress uses the learner or faculty's owning clock; teacher,
+stock and place requirements use their actual clocks and custody. Interruption
+settles spent tuition/effort and unspent reservations, retaining learned facts
+at the real completed boundary (AR7). A frozen-world credit does not conjure a
+teacher's participation. Apply [G27/G28/G30](reviews/SUBTLE_RULE_GAPS_2026-10-18.md#round-4-latest-audits-together-2026-10-18)
+only when that seam is selected. Proposed layer schemas and new slices stay
+proposals; this pass adds no native XP migration.
