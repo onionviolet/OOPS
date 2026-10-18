@@ -113,6 +113,15 @@ body (BHC13-BHC16), bodies across worlds (BHC17-BHC20), harm and defeat settings
 and one condition contract on any carrier (BHC21-BHC26). Proposed rulebook:
 [BODY_AND_HEALTH_RULES](BODY_AND_HEALTH_RULES.md) BHR1-BHR30. Proposals only.
 
+[Combat and conflict](COMBAT_AND_CONFLICT_CONSIDERATIONS_2026-10-18.md)
+owns the 2026-10-18 topic audit round (gap G2): corrections CBX1-CBX5 (six defeat
+code paths, not three; AD8 display debt), how fights end with one typed outcome
+publisher (CBC1-CBC7), weapons as instruments with wear (CBC8-CBC14), bodies in a
+fight (CBC15-CBC19), knowing the opponent (CBC20-CBC23), idle combat
+(CBC24-CBC27), leaving and pursuit (CBC28-CBC30), conflict without killing
+(CBC31-CBC36), worlds and scale (CBC37-CBC42), ranked later steps CBL1-CBL10.
+Proposed rulebook: [COMBAT_RULES](COMBAT_RULES.md) CBR1-CBR30. Proposals only.
+
 [Tools, cursed tools and instruments](TOOLS_AND_INSTRUMENTS_CONSIDERATIONS_2026-10-17.md)
 owns the 2026-10-17 palette for items as instruments (verbs and control, not
 truth): three item roles (TQ1), mundane tool fit, wear, kits and improvisation

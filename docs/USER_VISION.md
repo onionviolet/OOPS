@@ -3469,3 +3469,13 @@ works" means there. Applied to [body and health rules](BODY_AND_HEALTH_RULES.md)
 [genetics plan](GENETICS_AND_HERO_START_PLAN_2026-10-17.md) interactions and part 35.
 [Palette round 2](BODY_AND_HEALTH_CONSIDERATIONS_2026-10-17.md#round-2-things-work-by-how-they-work-2026-10-17)
 records the consequences.
+
+### Combat and conflict round, 2026-10-18
+
+Weibao accepted topic-expansion-audit rounds on the gaps found after crafting (G1 body and
+health, G2 combat, G3 skills and learning, G4 economy and trade, G5 travel and logistics). G2 is
+saved as [round 1 of the combat and conflict palette](COMBAT_AND_CONFLICT_CONSIDERATIONS_2026-10-18.md)
+(CBC1-CBC42, corrections CBX1-CBX5, later steps CBL1-CBL10) and the [proposed combat
+rules](COMBAT_RULES.md) (CBR1-CBR30), registered in RULES_INDEX as a proposal. Only the rows
+restating AD8, AD19, AD20, AD25, AD28 and AD38 are accepted direction; the rest await his
+acceptance. Core audit: [COMBAT_CORE_AUDIT](audits/COMBAT_CORE_AUDIT.md).
