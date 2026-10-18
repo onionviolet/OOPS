@@ -10,9 +10,10 @@ export const LAYOUT_SPEC = Object.freeze({
     // Version 2 (R21) adds boxes and slots; stored placements carry it (GU6).
     version: 2,
     // The five parity-shell regions in grid order. `panels` are fixed homes; a panel not listed in
-    // any region lives in `fallback`. `contextual` homes depend on the context.
+    // any region lives in `fallback`. `contextual` homes depend on the context. R21c: the awakened
+    // status window lives under You (it shows only once the system awakens).
     regions: Object.freeze({
-        player: Object.freeze({panels: ['vitals', 'shell-character']}),
+        player: Object.freeze({panels: ['vitals', 'shell-character', 'status-window']}),
         focus: Object.freeze({panels: ['focus']}),
         inventory: Object.freeze({panels: ['belongings', 'combat-controls', 'shell-inventory-tools']}),
         log: Object.freeze({panels: ['messages', 'shell-log-tools']}),
@@ -28,7 +29,7 @@ export const LAYOUT_SPEC = Object.freeze({
     // 'combat' (its content in a fight only), 'fill' (never drives the row; it scrolls). `lead` is
     // the panel whose header carries the box's Move to control.
     boxes: Object.freeze({
-        you: Object.freeze({lead: 'vitals', title: 'You', panels: Object.freeze(['vitals', 'shell-character']), home: 'player', fit: 'content'}),
+        you: Object.freeze({lead: 'vitals', title: 'You', panels: Object.freeze(['vitals', 'shell-character', 'status-window']), home: 'player', fit: 'content'}),
         around: Object.freeze({lead: 'focus', title: 'Around you', panels: Object.freeze(['focus']), home: 'focus', fit: 'combat'}),
         inventory: Object.freeze({lead: 'belongings', title: 'Inventory', panels: Object.freeze(['combat-controls', 'shell-inventory-tools', 'belongings']), home: 'inventory', fit: 'fill'}),
         journal: Object.freeze({lead: 'records', title: 'Journal', panels: Object.freeze(['records']), companion: true, fit: 'fill'}),
@@ -39,7 +40,7 @@ export const LAYOUT_SPEC = Object.freeze({
     slots: Object.freeze({player: 'Top left', focus: 'Top centre', inventory: 'Bottom left', actions: 'Beside the actions'}),
     // Default order of the shell's panels when no layout is stored. Companions are inserted after
     // `companionsAfter` in the parity shell only.
-    shellOrder: Object.freeze(['vitals', 'shell-character', 'combat-controls', 'shell-inventory-tools', 'belongings', 'focus', 'shell-detail', 'time', 'location', 'village-scene', 'current-work', 'combat', 'local-actions', 'pane-navigation', 'messages', 'shell-log-tools']),
+    shellOrder: Object.freeze(['vitals', 'shell-character', 'status-window', 'combat-controls', 'shell-inventory-tools', 'belongings', 'focus', 'shell-detail', 'time', 'location', 'village-scene', 'current-work', 'combat', 'local-actions', 'pane-navigation', 'messages', 'shell-log-tools']),
     companionsAfter: 'local-actions',
     // Default and dial per context (WX6, CZ4): idle shows Journal beside the actions; a fight shows
     // Skills (Stances) only. R21 (Weibao, 2026-10-17: "We dont need skills always be seen"): Skills

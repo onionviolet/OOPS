@@ -23,6 +23,8 @@ async function ctxPage(b, {w = 1366, h = 768, save = null} = {}) {
 const play = async p => { await p.locator('#loading_screen_play_button:not(.none_display)').click({timeout: 8000}).catch(() => p.evaluate(() => document.getElementById('loading_screen_play_button').click())); await p.waitForTimeout(1200); };
 const saveNow = async p => { await p.evaluate(() => localStorage.removeItem('save data')); await p.locator('#save_button').click(); for (let i = 0; i < 40; i++) { const s = await p.evaluate(() => localStorage.getItem('save data')); if (s) return parse(s); await p.waitForTimeout(100); } return null; };
 const pageText = p => p.evaluate(() => document.body.innerText + '|' + [...document.querySelectorAll('[aria-label],[title],option,[aria-description]')].map(e => (e.getAttribute('aria-label') || '') + (e.getAttribute('title') || '') + (e.getAttribute('aria-description') || '') + (e.tagName === 'OPTION' ? '' : '')).join('|'));
+// R21 put the Authoring toggle inside the game bar's menu box; open the box first when it is closed (as r11-lib does).
+const context = async p => { const t = p.locator('[data-workspace-action=context]'); if (!(await t.isVisible()) && await p.locator('[data-control-box=game-bar-menu] > .control-box-button').count()) await p.locator('[data-control-box=game-bar-menu] > .control-box-button').click(); await t.click(); };
 const pickerHas = p => p.evaluate(() => [...document.querySelectorAll('[data-workspace-action=restore]')].some(x => /Status/i.test(x.textContent)));
 const statusShell = p => p.evaluate(() => { const s = document.querySelector('.workspace-module[data-module="status-window"]'); return s && !s.hidden && s.getBoundingClientRect().height > 0 ? {kit: s.dataset.panelKit, role: s.dataset.panelRole} : null; });
 async function awaken(b, opts = {}) {
@@ -97,10 +99,10 @@ const checks = {
     if (v.strength == null || (v.strengthStats != null && Number(v.strength) !== Number(v.strengthStats))) bad.push(`strength ${v.strength} vs stats ${v.strengthStats}`);
     for (const k of ['titles', 'points', 'quests']) if (!v[k]) bad.push('missing [data-status-' + k + ']');
     // Density setting registered by the panel.
-    await a.p.locator('[data-workspace-action=context]').click(); await a.p.waitForTimeout(500);
+    await context(a.p); await a.p.waitForTimeout(500);
     const c = a.p.locator('#customization_effects_host [data-display-setting="panel.status-window.density"]');
     if (!(await c.count())) bad.push('no panel.status-window.density setting');
-    else { await c.selectOption('compact'); await a.p.locator('[data-workspace-action=context]').click(); await a.p.waitForTimeout(400);
+    else { await c.selectOption('compact'); await context(a.p); await a.p.waitForTimeout(400);
       const h2 = await a.p.evaluate(() => document.querySelector('.workspace-module[data-module="status-window"] [data-status-stat]')?.getBoundingClientRect().height);
       if (!(h2 < v.rowH)) bad.push(`compact did not tighten rows (${v.rowH} -> ${h2})`); }
     await a.ctx.close(); rec('H4_panel_contents', !bad.length, bad.length ? bad : v);
