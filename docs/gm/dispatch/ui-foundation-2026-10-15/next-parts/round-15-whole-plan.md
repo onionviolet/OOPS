@@ -54,6 +54,7 @@ high effort for every native round unless noted; Codex or Claude by availability
 | R24 | **Polish 1, brought forward after R20** (IT7): inventory/combat whole-journey review, Weibao's available tune items, empty-state lines for discovered but empty routes (F16, WR61) | VC2, V18, F16, NX21, NX23 | No | R15–R20; ID retained so existing links remain valid |
 | R22 | Combat log: per-encounter letters on events, dealt/taken tokens, quieter misses, ×N collapse of equivalent lines, custom palettes | Part 2 log, R1/W3/IL55, C2, C3, A5, UX18; milestone lines distinct (B6); BX7 Report colors folded in (2026-10-17) | No | IT9 seam for the combat-text change. **Status 2026-10-17:** technically complete on `claude/ui-r22-combat-log`, visual acceptance open ([report](../R22_REPORT.md)) |
 | **R22b** | **Screen use at 1920 (Weibao's R22 check, 2026-10-17):** the center place region splits in two; a fight lists opponents stacked in that second column; opponent kinds get distinct name colors on the board and in Reports; You narrows to its content; light custom palettes keep native report colors readable | [Screen use at 1920](#screen-use-at-1920-weibaos-r22-check-2026-10-17) SU1–SU12; BX4, BX6 first slice, MB6, VP2; R22 palette finding | No (browser-local layout spec 3, migrated like spec 2) | R22 merged (done). **Next, before R23** (proposal): third time this empty space came up (VP2, BX9, now) and R23's Reports tabs do not depend on it. Weibao's go 2026-10-17, with the status window compact by default (SU11 decided). **Status 2026-10-18:** technically complete on `claude/ui-r22b-screen-use`, visual acceptance open ([report](../R22B_REPORT.md)) |
+| **R22c** | **Fill the center and color the inventory (Weibao's R22b check, 2026-10-18):** opponent rows name each opponent with the letter as a small tag; a fight's left column shows your stances and bars; idle splits into actions and a detail slot (selected item, quest or recipe); inventory gets per-category tab colors, kind-colored names and a new-item marker | [Fill the center and color the inventory](#fill-the-center-and-color-the-inventory-2026-10-18) FC1–FC10; SU12, BX8, BX9, BX14 first slice, VP2 | No | R22b merged. Proposal, waits for Weibao's go |
 | R23 | Reports category tabs replace the hidden Filters menu; full place inspection (date, weather, temperature grouped) | K8, SF230; temperature links to its native cold/heat effect (B7) | No | R22 |
 | R25 | You panel: Standard/All attribute sets, gear inline vs Equipment tab | Part 3, IL56, NX11; done check measures the selected tab's facts visible without scrolling at 1366×768 14/17.5/21px (WR42) | No | — |
 | R26 | Status-effect chips (countdown only for known duration), derived-stat breakdowns, bar text backing | Part 3, X1–X3, V19, V21, UX21 | No | R25 |
@@ -876,3 +877,48 @@ wider than Inventory beneath it for four stat column pairs.
 3. **R22a** companions (BX13 shared choices, BX14 quest companion, BX5 split Around you) now
    fill R22b's second slot instead of competing for the top row.
 4. R24 polish and the rest of the queue as listed.
+
+## Fill the center and color the inventory, 2026-10-18
+
+Weibao, on the R22b screenshots: "I feel like sectioning by letters might detract from them too
+much? how can we make more use of the panels in the center? Split and then add more panels? Improve
+the inventory? ... I feel like we need more color work since the color of the inventory feels bland
+compared to everything else? look at how proto23 works". **Direction:** names over letters, more
+use of the center, a more colorful inventory, Proto23 as the reference. The defaults below are
+proposals. Codes FC1–FC10.
+
+Proto23 reference (shown, `docs/research/panel-design-2026-10-15/private/proto23-lab/` and the
+1920 opening screenshot in `docs/reviews/ui-density-2026-10-13/screenshots/`):
+
+- Its center splits by task: crafting is a list on the left and a detail on the right, each with its
+  own tint (navy list, purple detail).
+- Category tabs carry their own fill colors (MED, FOD, WEP, EQP, MAT), not one underline style.
+- Inventory names are colored by item type (weapon orange, material green, plain white), with a
+  yellow "new" marker and the quantity right-aligned.
+- The opponent is a card that mirrors the player card (name, level, HP bar, stats), so both sides read
+  the same way.
+- Each region has its own gradient tint: player teal, inventory navy to teal, log purple.
+
+Live (shown, R22b build): the shell already has item kind tokens (`--p23-item-equipment` gold,
+`usable` green, `component` blue, `book` violet) on names, but the tabs, rows and region fill are one
+teal; the fight's left column holds one action and a back button.
+
+| Code | Consideration | Proposed default, dial and reason | Done check |
+| --- | --- | --- | --- |
+| FC1 | **Names over letters** | Each opponent row shows its full name in its kind hue, with the letter as a small muted tag after it ("Wolf rat ·B"); no group headings while one column fits. Groups return only when rows must share columns (9+, HZ3). Reports keep the letter chip so lines still match rows | 8-mixed at 1920: every row readable as a name alone; letter still present on row and log line |
+| FC2 | **Mirror card for the target** | Inspecting shows the target like Proto23's enemy card: name, HP bar, cycle bar and stats in the same rows and widths as You's bars, so the two read side by side | Your HP and the target's HP align horizontally at 1920 and MacBook |
+| FC3 | **Fight left column** | Under the place actions: Stances (Skills companion moves here in a fight) and your attack cycle, so the left half shows your side and the right half theirs | 1920 fight: left column has no empty block taller than ~6 lines |
+| FC4 | **Idle detail slot** (SU12) | Idle center splits: actions left, a detail slot right that shows what you last selected: an item (Inventory click), the active quest step (Journal), or a recipe (Crafting), Proto23's list + detail. Empty state names how to fill it. One slot, not a panel per kind (BX13) | Idle 1920: selecting an item shows its detail in the slot without hiding actions; Esc clears |
+| FC5 | **Category tab colors** (BX8) | Inventory tabs take their category's kind color as a tinted fill when active and a colored top rule when not; counts in the same hue. Same hues as the item names, one token set | Each tab's hue equals its items' name hue; contrast ≥4.5:1 on fills |
+| FC6 | **Row anatomy** | Name in kind color, a "new" marker (yellow, word not only color) for items gained since last viewed, quantity and value right-aligned in fixed columns, equipped slot as a dim tag | New item shows "new" until the row is seen; columns align across rows |
+| FC7 | **Region tints** | Inventory region gets its own navy-to-teal gradient (Proto23), distinct from You's teal; the detail slot a purple tint like Proto23's crafting detail. Tokens only | Screenshot shows four distinct region fills; text contrast unchanged |
+| FC8 | Truth and knowledge | "New" is presentation state (browser-local seen set), not a save field; kind colors read existing item kinds only | Export before and after viewing is byte-identical |
+| FC9 | Custom palettes | Tab and name hues map to the palette's own tokens as R22 did for the log | Light palette fixture: inventory text ≥4.5:1 |
+| FC10 | Floors | At 1366 the idle detail slot becomes a tab beside Actions (WX5); the fight split keeps R22b's behavior | 1366 14/21px: actions visible, no page scroll |
+
+### LATER / DELEGATE
+
+| Candidate | Level / effort | Trigger and done check |
+| --- | --- | --- |
+| Crafting as list + detail in the center (BX10 template) | Strong, medium | After FC4's slot exists; a second making system opens in the same slot |
+| Rarity scale separate from kind colors (P23-5) | Balanced, small | When items carry a rarity field; rarity as border or tag, kind stays the name color |
