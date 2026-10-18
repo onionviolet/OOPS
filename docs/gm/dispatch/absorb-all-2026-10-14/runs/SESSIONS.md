@@ -53,3 +53,4 @@ Merged via `absorb-all/integration`: air-workshop, upstream-dev, fork-resurvey, 
 | int-fix | 01a13cc9-1afb-7343-83db-d4c6d1dcaa6b | launched 19:39 on integration fc1b1696 |
 | stepper-perf | 01a13d04-2013-7b11-bf96-9b1c874707ce | launched 20:44 on 9dd86b5a |
 | gate-determinism | 01a13d08-b09d-79e1-b724-8e9a6155a1a8 | launched 20:49 on integration 9dd86b5a |
+| natural-play-2 | 01a13d7a-124b-7281-b32c-49f40861c39c | launched 22:53 on ce005a31 |

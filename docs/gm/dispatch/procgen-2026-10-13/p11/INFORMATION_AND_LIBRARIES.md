@@ -20,6 +20,13 @@ Shown/SOURCE: `src/simulation_effects.js:110-113,281-284` supports knowledge bas
 
 ## N6: generated books, knowledge items and libraries
 
+**2026-10-16 extension:** [site/exploration rules SR5–SR9 and SR17](../../../../SITE_AND_EXPLORATION_RULES.md)
+apply to maps, archive discovery and actual learning. The
+[library/map consideration](LIBRARIES_TEMPLES_MINES_CAVES_AND_MAPS_2026-10-16.md)
+extends this owner with bought/found/copied maps, scope/date/provenance,
+survey corrections and ancient-library restoration. Specific mechanics remain
+proposed; no new work/edition/copy store or implementation is selected.
+
 **Value:** knowledge has a physical/social route: find, buy, borrow, copy, translate, study, annotate, return or teach. Library collections reflect local history, law and custodians rather than serving as omniscient unlock lists.
 
 **Cost:** medium for one functional reading item/library loan; high for scholarly production, citations and archival networks. Dependencies: P6 owns creation of manuscripts/artifacts; D8 supplies known history; P7 owns author identity/naming; P2 supplies truth-versus-observation lessons; native item/knowledge/reading/ownership adapters. The writing generator must not invent an unsupported skill unlock.

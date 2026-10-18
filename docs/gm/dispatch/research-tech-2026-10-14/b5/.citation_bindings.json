@@ -1,0 +1,174 @@
+{
+  "head": "ce23ead888e6f0b76da6617f44d7598a037c87af",
+  "refs": {
+    "AGENTS.md:54": {
+      "anchor": "Finish one playable slice",
+      "lineText": "Finish one playable slice before starting the next. A wave ends",
+      "blob": "73ed7d74a2a951fcec451b1e7779df4217504103"
+    },
+    "AGENTS.md:70": {
+      "anchor": "Before calling gameplay done",
+      "lineText": "Before calling gameplay done: rebuild, then exercise the changed",
+      "blob": "73ed7d74a2a951fcec451b1e7779df4217504103"
+    },
+    "docs/TECHNOLOGY_AND_PROGRESSION.md:1824": {
+      "anchor": "**Where the lanes agree.**",
+      "lineText": "**Where the lanes agree.** T10, T11, T13 and T12 independently point at the",
+      "blob": "c9ebe638332ca65c3a6cdd2e40a24874940442e6"
+    },
+    "docs/TECHNOLOGY_AND_PROGRESSION.md:1881": {
+      "anchor": "| CN14 |",
+      "lineText": "| CN14 | **Steps 2 to 5 of the build order** (anomaly log with evidence store, teach one cue, glass roadmap plus RC2, one diffusion consequence) | One slice at a time per AGENTS.md; write each prompt only after the previous slice is accepted |",
+      "blob": "c9ebe638332ca65c3a6cdd2e40a24874940442e6"
+    },
+    "docs/TECHNOLOGY_AND_PROGRESSION.md:1804": {
+      "anchor": "### Lane results, part 2",
+      "lineText": "### Lane results, part 2 (folded 2026-10-14)",
+      "blob": "c9ebe638332ca65c3a6cdd2e40a24874940442e6"
+    },
+    "docs/gm/dispatch/research-tech-2026-10-14/t13/SAVE_SCHEMA.md:8": {
+      "anchor": "## R5.",
+      "lineText": "## R5. One optional envelope",
+      "blob": "b2763b0f51ccf37973b51fdd253f915812406ff8"
+    },
+    "docs/gm/dispatch/research-tech-2026-10-14/t13/SAVE_SCHEMA.md:71": {
+      "anchor": "## R6.",
+      "lineText": "## R6. Receipts, revisions and compaction",
+      "blob": "b2763b0f51ccf37973b51fdd253f915812406ff8"
+    },
+    "docs/gm/dispatch/research-tech-2026-10-14/t13/SAVE_SCHEMA.md:127": {
+      "anchor": "## R7.",
+      "lineText": "## R7. Required test and native acceptance matrix",
+      "blob": "b2763b0f51ccf37973b51fdd253f915812406ff8"
+    },
+    "docs/gm/dispatch/research-tech-2026-10-14/t13/REPORT.md:21": {
+      "anchor": "## R11.",
+      "lineText": "## R11. Ranked decisions, only when the corresponding slice is selected",
+      "blob": "bfaae01660feadfa37429815dda71a996e09f596"
+    },
+    "docs/gm/dispatch/research-tech-2026-10-14/t1/SLICES.md:47": {
+      "anchor": "## C1.",
+      "lineText": "## C1. Anomaly log \u2192 one open question (RQ1, G4)",
+      "blob": "d1b0860ec467765db430eb8fee1d1c03e1e45e03"
+    },
+    "docs/gm/dispatch/research-tech-2026-10-14/t3/REPORT.md:30": {
+      "anchor": "1. **Q41",
+      "lineText": "1. **Q41: one anomaly with a revisable explanation.** Extend G4 through Q10/Q13/Q33/Q34. An ordinary action records a dated observation and known conditions; one fitting follow-up can support or revise the interpretation and change one useful action. Likely fits the notebook/evidence owners, pending T1 confirmation. Proposed acceptance: actual observation and follow-up receipts, no pre-discovery answer, retained disagreement and useful consumer.",
+      "blob": "1a1dd805d5cc05482608d113f718eb2a29d69120"
+    },
+    "src/crafting_recipes.js:556": {
+      "anchor": "woodworking_recipes.components[\"Short hilt\"]",
+      "lineText": "    woodworking_recipes.components[\"Short hilt\"] = new ComponentRecipe({",
+      "blob": "a776e34b63a6eacd84b9e609f5dd43573d3bcd2d"
+    },
+    "src/main.js:4280": {
+      "anchor": "function use_recipe",
+      "lineText": "function use_recipe(target, amount=1){",
+      "blob": "43b2b27148fa795249d814fd1b66e6c27c93fb93"
+    },
+    "docs/gm/dispatch/research-tech-2026-10-14/t4/REPORT.md:37": {
+      "anchor": "1. **S1",
+      "lineText": "1. **S1, teach one operative detail:** extend an existing workshop method with a specific reproducible failure and a fitting transfer route. H6/H22/H23. Visible outcome: a second maker performs the actual operation, with sufficient tools and inputs. This deepens the existing knowledge/practice join without a new universal research subsystem.",
+      "blob": "26d7b5f939f5c84a4977199402033a2957df2095"
+    },
+    "docs/gm/dispatch/research-tech-2026-10-14/t12/MECHANICS.md:40": {
+      "anchor": "## K1.",
+      "lineText": "## K1. Operative cue",
+      "blob": "1fdcce3afd09da8e369c5d742318061958b7de27"
+    },
+    "docs/gm/dispatch/research-tech-2026-10-14/t12/MECHANICS.md:130": {
+      "anchor": "## K16.",
+      "lineText": "## K16. Apprentice a useful operation",
+      "blob": "1fdcce3afd09da8e369c5d742318061958b7de27"
+    },
+    "docs/gm/dispatch/research-tech-2026-10-14/t5/ROADMAPS.md:62": {
+      "anchor": "## V22:",
+      "lineText": "## V22: Glass",
+      "blob": "defa180d3ede84e4679d39c691107ba21bba1c44"
+    },
+    "docs/gm/dispatch/research-tech-2026-10-14/t14/REPORT.md:84": {
+      "anchor": "2. **L71",
+      "lineText": "2. **L71:** Pair RC2\u2019s targeted atlas with the separate T6 planner for an actor-view versus true-graph comparison. Preserve full-world compatibility and graph coverage limits; the independent system panel remains L30, not silently substituted.",
+      "blob": "dc77600981f484a3ed4e9d5065ef76e5a7982140"
+    },
+    "docs/gm/dispatch/research-tech-2026-10-14/t9-build/REPORT.md:29": {
+      "anchor": "| Z5 retained",
+      "lineText": "| Z5 retained receipts and detached restoration | PASS | v1 meaning, graph, law, choices and wrong knowledge remain pinned against additive/removal/rename/semantic/world changes; no current-pack lookup. Invalid/future/missing executable revision rejects before synthetic publication |",
+      "blob": "0280c8fe22ac3eeff015cbb3f4b589093b1f2d5c"
+    },
+    "docs/gm/dispatch/research-tech-2026-10-14/t9-build/REPORT.md:107": {
+      "anchor": "R3: Actual",
+      "lineText": "R3: Actual consumers, roadmap UI, native receipt-owner registration, native persistence/compatibility, rebuilt desktop acquisition/use, product/handler settlement, generation/compaction and human acceptance are separate unselected work. Current receipt product/effect/custody/settlement/generation queries are N/A. Only retain-v1 migration is supported; unsupported conversions reject. No native save or product was created.",
+      "blob": "0280c8fe22ac3eeff015cbb3f4b589093b1f2d5c"
+    },
+    "src/items.js:1356": {
+      "anchor": "book_stats[\"A Glint On The Sand\"]",
+      "lineText": "book_stats[\"A Glint On The Sand\"] = new BookData({",
+      "blob": "8562423c9066e3492b32cbdf2452478ee5353cc6"
+    },
+    "src/crafting_recipes.js:1224": {
+      "anchor": "smelting_recipes.items[\"Raw Glass\"]",
+      "lineText": "    smelting_recipes.items[\"Raw Glass\"] = new ItemRecipe({",
+      "blob": "a776e34b63a6eacd84b9e609f5dd43573d3bcd2d"
+    },
+    "src/crafting_recipes.js:1107": {
+      "anchor": "crafting_recipes.items[\"Glass phial\"]",
+      "lineText": "    crafting_recipes.items[\"Glass phial\"] = new ItemRecipe({",
+      "blob": "a776e34b63a6eacd84b9e609f5dd43573d3bcd2d"
+    },
+    "src/invention_receipts.js:28": {
+      "anchor": "if(b.consumer",
+      "lineText": "        if(b.consumer?.status!=='demo')throw Error('unsupported-product');",
+      "blob": "ee608f54ddcab0f92140ef6205980f50e2e0ee95"
+    },
+    "src/invention_receipts.js:57": {
+      "anchor": "export function migrateReceipts",
+      "lineText": "export function migrateReceipts(owner,migration,options={}) {",
+      "blob": "ee608f54ddcab0f92140ef6205980f50e2e0ee95"
+    },
+    "docs/gm/dispatch/research-tech-2026-10-14/t14/PANELS.md:9": {
+      "anchor": "| L30 |",
+      "lineText": "| L30 | `rc2-system` / `research-roadmap` | New `research-roadmap` versus `status-window` with a named subsection | Prefer the new ID for the full system form: Independent AND/OR comparison and visible bottleneck beside local actions. Reuse is a possible smaller readout; the separately authored targeted/voice cards keep their own declared surfaces. No validator edit authorized. |",
+      "blob": "5a5902825bdedb58b03f45f7bd244d2dff641b5e"
+    },
+    "src/cheat_cards.js:89": {
+      "anchor": "export function awakenedStatusCard",
+      "lineText": "export function awakenedStatusCard(state) {",
+      "blob": "65684a21c25bab20f9bf4cb24d2c5b55c9fc5889"
+    },
+    "src/cheat_cards.js:94": {
+      "anchor": "export function awakenCheats",
+      "lineText": "export function awakenCheats(state, {dayCount, wonFight = false, at}) {",
+      "blob": "65684a21c25bab20f9bf4cb24d2c5b55c9fc5889"
+    },
+    "src/status_window.js:28": {
+      "anchor": "function render()",
+      "lineText": "    function render() {",
+      "blob": "08b1f992cb5b817cc8c411a44d6d72b0d205f2fa"
+    },
+    "docs/gm/dispatch/research-tech-2026-10-14/t8/REPORT.md:70": {
+      "anchor": "| 1 / B31",
+      "lineText": "| 1 / B31 Stable two-region diffusion | One existing light method reaches a recipient through a real channel; missing fabrication means remain named; taught/commissioned production gives a usable lamp or supported service | B1-B5/B26-B30; selected T6 adapter, integrated stream/host, minimal actual history, authored endpoints and consumer. Medium/high because clocks, means and persistence join | Route/means negative controls, pure repeated previews, undisturbed baseline and affected-only intervention; actual output/use; pending/completed Save/reload and Export/literal Import preserve next draw and due arrivals |",
+      "blob": "08621b524bfc445046407811ae25c5356a72932f"
+    },
+    "docs/gm/dispatch/research-tech-2026-10-14/t15/REPORT.md:55": {
+      "anchor": "1. **M70",
+      "lineText": "1. **M70: Survey City communicator-to-rescue-drone chain.** Use M40.a/b: observe one ordinary fault, obtain a compatible part, return one drone to useful rescue service, and let a second crew learn the repair. Demonstrates research, operation and real diffusion in the first recommended comic style. It does not require sealed countermeasure access.",
+      "blob": "4a128d6d585ff345ce33a70363e660ab2a94a2e6"
+    },
+    "src/seeded_streams.js:29": {
+      "anchor": "export function createStreams",
+      "lineText": "export function createStreams(seed) {",
+      "blob": "c8a1b50bc4a78204f910846e0f2f9bc6146c6213"
+    }
+  },
+  "finalVerifiedHead": "ce23ead888e6f0b76da6617f44d7598a037c87af",
+  "checks": {
+    "uniqueLocators": 32,
+    "citationDrift": 0,
+    "promptShapes": 4,
+    "localLinks": "PASS",
+    "style": "PASS",
+    "gameplay": "NOT RUN"
+  }
+}
