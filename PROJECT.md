@@ -1,3 +1,7 @@
+## OOPS identity, 2026-10-16
+
+**OOPS · Optimistic Progression Simulator** is the accepted name of this fork. OOPS is deliberately stylized; the full name has no “Overly”. [Naming direction](docs/USER_VISION.md#oops-project-identity-2026-10-16) owns the decision. Upstream remains Miktaew's Yet Another Idle RPG; historical YAIRPG wording and source-world credits are retained. The branding leaves gameplay direction and save identifiers intact. The GitHub repository is now [onionviolet/OOPS](https://github.com/onionviolet/OOPS), renamed with Weibao’s explicit authorization on 2026-10-16. [Branding implementation and checks](docs/reviews/OOPS_BRANDING_2026-10-16.md).
+
 ## Foundation R14 final assessment, 2026-10-13
 
 Final integrated recovery assessment and independent finite-gap review accepted; technical FA01–FA23 chain remains INCOMPLETE. No authorized untouched compatible changed-positive artifact/nonretry route was established, so R14 made zero native attempts and no runtime edits/build. 51 final SOURCE checks pass; R13 scoped unchanged proof reused. Required native/integration/compatibility gates, accepted FA17 leftovers and separate FA21/22 ownership remain OPEN. All inherited failed/stopped attempts and R10 state loss stay exact. No useful dependency-ready successor established. [R14 report](docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r14/REPORT.md) owns evidence; [checkpoint](docs/gm/dispatch/foundation-adoption-next-2026-10-13/CHECKPOINT.md) owns writer and revisit conditions. Assessment completion is not gameplay completion.
@@ -30,14 +34,31 @@ FA13 current source passes ten focused contract checks. Native optional enrollme
 
 ## Standing priorities and document authority
 
+**Agent usage limits (2026-10-16):** [AD37 / AU1–AU15](docs/AGENT_USAGE_RULES.md)
+budget an explicit full-book request as one finite source-sized pass, targeting
+one to three coordinating chats. Fresh readers default to Luna medium, at most
+12,000 source words and six model responses each, then retire. The coordinator
+uses compact evidence indexes and targeted retrieval. Lesser agents share the
+same budget. A pilot calibrates the remaining plan, with two concurrent agents,
+a bounded repair reserve and allowance stops; no silent paid/premium fallback.
+The exploratory four-reader limit does not cap full-book coverage.
+[Request](docs/USER_VISION.md#agent-generation-and-book-usage-2026-10-16);
+[session audit and current round-3 corrections](docs/reviews/BOOK_RESEARCH_USAGE_AUDIT_2026-10-16.md#more-to-consider-round-3-whole-book-reading-with-bounded-contexts).
+
 **Rules index (2026-10-16):** start any task at the [rules index](docs/RULES_INDEX.md).
 It orders authority, registers every rule set (Rulebook 1–12, AR, UR, MR, SR,
 sealed secrets, agent workflow; GR and CX as proposals), routes each task type to
-the codes that apply and restates accepted decisions as AD1–AD35 for aspects
+the codes that apply and restates accepted decisions as AD1–AD37 for aspects
 without a rulebook (knowledge, lives, time, recovery, entry, goals, economy, cheats).
 Shared principles and tensions T1–T7 are reconciled there. The accepted decisions
 below stay authoritative; the index adds no new rules.
 [Request](docs/USER_VISION.md#rules-index-and-reconciliation-2026-10-16).
+
+**Efficient rule verification (2026-10-16):** [AD36](docs/RULES_INDEX.md#efficient-rule-verification-ad36)
+guides agents to relevant checks, meaningful regressions and reuse of valid
+evidence, with focused development checks and existing completion gates.
+Keep source reads, logs and handoffs bounded; do not repeat covered checks on
+unchanged inputs. [Request](docs/USER_VISION.md#efficient-rule-checks-and-regressions-2026-10-16).
 
 **Architecture rules (2026-10-16):** at Weibao's request, runtime work follows
 [architecture rules](docs/ARCHITECTURE_RULES.md) AR1–AR16. No whole-game rewrite;
@@ -47,6 +68,73 @@ integrated only when a player journey crosses it. The
 [modular seams dispatch](docs/gm/dispatch/modular-seams-2026-10-16/CHECKPOINT.md)
 builds the registry and check, then wires crafting as the first consumer.
 [Original request](docs/USER_VISION.md#architecture-rules-and-modular-seams-run-2026-10-16).
+
+**Modular continuation plan updated (2026-10-16):** the
+[brief](docs/gm/dispatch/modular-seams-2026-10-16/BRIEF.md) now accounts for
+abilities, exploration and everyday interactions: readiness recovery,
+conditional hardening, the existing stopped M3 gate, then one cross-domain reuse
+proof. [EI13–EI22](docs/ENGINE_EXPANSION.md#future-fit-engine-plan-useful-depth-and-iteration-2026-10-16)
+retain future engine proposals with triggers and done checks; they are not a
+required foundation bundle. Both dispatch copies are updated; no run resumed.
+[Request](docs/USER_VISION.md#modular-engine-plan-and-future-interactions-2026-10-16).
+UI-engine [UIE1–UIE12](docs/ENGINE_EXPANSION.md#ui-engine-support-for-design-and-iteration-2026-10-16)
+and brief MP11 extend the plan for selected-view refresh, navigation, focus,
+feedback, safe inspection and reusable fixtures. Visual design stays with its
+UI owners; no separate chat or runtime run was started.
+
+**Site/exploration rules (2026-10-16):** at Weibao's request,
+[standing rules](docs/SITE_AND_EXPLORATION_RULES.md) SR1–SR24 guide future sites,
+discovery, maps and restoration. World/instance/era, claims versus truth, useful
+consumers, actual access/means, custody and persistent aftermath stay distinct.
+Bought maps are an allowed design route; possession need not certify their
+markings or grant access/ownership. [Additional site and map palette](docs/gm/dispatch/procgen-2026-10-13/p11/LIBRARIES_TEMPLES_MINES_CAVES_AND_MAPS_2026-10-16.md)
+holds libraries, temples, mines, caves and world variants. Specific mechanisms
+are proposals; no implementation is authorized and existing deferrals remain.
+[Original request](docs/USER_VISION.md#standing-site-rules-and-more-site-types-2026-10-16).
+
+**Complexity preference (2026-10-16):** Weibao likes some complexity and wants to
+retain it while managing implementation difficulty. This does not select specific
+farming/building mechanics or change active delivery priorities.
+[Direction](docs/USER_VISION.md#complexity-and-implementation-difficulty-2026-10-16)
+and the [planning continuation](docs/gm/dispatch/ui-foundation-2026-10-15/next-parts/IMPLEMENTATION_COMPLEXITY_REVIEW_2026-10-16.md#continuation-preserve-depth-while-controlling-implementation-difficulty)
+separate that preference from proposed implementation scopes.
+
+**Reusable mockup system (2026-10-16):** Weibao requested a lasting better mockup
+system. New interactive UI comparisons use the isolated
+[workbench](prototypes/workbench/README.md) and
+[standing workflow](docs/MOCKUP_SYSTEM.md): shared review controls, explicit
+fixtures, same-state layout comparisons, desktop/text-size checks and review
+exports. The first adapter retains the recipe experiment's pinned YAIR components
+and simplified frame. Existing mockups remain available; a new registry entry
+needs its own fixture build/adapter. This tooling does not select a layout or
+establish native gameplay or visual acceptance.
+
+**Procedural focus change (2026-10-16):** Weibao deprioritized NPC-heavy work,
+including commissions/bounties, in favor of ruins, exploration and world/environment
+consideration because of the social simulation implications and implementation
+cost. This redirects the procedural design pass, not unrelated active delivery.
+[Direction](docs/USER_VISION.md#procedural-focus-ruins-and-world-first-2026-10-16)
+and [current palette](docs/PROCEDURAL_AND_GENERAL_OPPORTUNITIES_2026-10-16.md)
+supersede the earlier commissions-first recommendation. Specific ruin mechanics
+remain proposals; no implementation is authorized and procedural layouts remain
+deferred. [Ruin/world consideration](docs/gm/dispatch/procgen-2026-10-13/p11/DUNGEON_CONTENT.md#ruins-and-world-first-consideration-2026-10-16).
+
+**Navigation/footers clarification (2026-10-15):** Weibao permits exploring effective
+grouping and rejects attribution or historical retention as reasons for keeping the
+hit counter/links permanently in play. Credits can live elsewhere. Current direct
+paths remain the default pending a playable grouping comparison and accepted tradeoff.
+[User direction](docs/USER_VISION.md#navigation-grouping-and-footer-purpose-2026-10-15),
+[revised next parts](docs/gm/dispatch/ui-foundation-2026-10-15/NEXT_PARTS_2026-10-15.md)
+and [UI rules UR50–UR58](docs/UI_RULES.md#grouping-and-whole-journey-review-2026-10-15)
+cover stable navigation, task-based placement, safe menus/saving, summaries and
+whole-journey checks. Plan/rules updated only; implementation and visual acceptance
+remain open.
+
+**UI iteration baseline (2026-10-16):** R14 is the best candidate so far and the
+working baseline; UI work fine-tunes it in small native rounds R15+ with rolling
+review, plus parallel workbench studies. [User direction](docs/USER_VISION.md#ui-iterates-on-r14-as-the-working-baseline-2026-10-16),
+[iteration plan](docs/gm/dispatch/ui-foundation-2026-10-15/next-parts/round-15-whole-plan.md).
+Not final visual acceptance; no round dispatched yet.
 
 **Crafting engine (2026-10-15):** Weibao asked for engine-level procedural recipes,
 materials and harvesting. Pure modules are in place: material catalogue and seeded
@@ -61,6 +149,154 @@ Free mixing works in canon worlds too, and formulas act as attractors. [Rounds 2
 hold the palettes: world modes and canon resource spots; styles, process
 semantics, depth and mastery; deeper potions; and the same model for smithing,
 runes and the other crafts. Nothing new is built.
+
+**Titles, achievements and rule-tags (2026-10-15):** titles may grant actual
+powers through a world's rules or an appropriate cheat. Achievement rewards,
+NPC holders and tags acting on rules themselves are part of the requested
+design space. Specific mechanisms remain proposals; this selects no universal
+reward scheme, rule-editing authority or new build priority. [User direction](docs/USER_VISION.md#titles-achievements-and-tags-on-rules-2026-10-15);
+[connected E4 expansion](docs/emergent/TITLES_ACHIEVEMENTS_AND_META_RULES_2026-10-15.md).
+Runtime implementation is not claimed.
+
+Follow-up: consider evolution, combination, inheritance and theft; item,
+place and world title holders; and cheats revising achievement criteria.
+[Same design owner C9-C13](docs/emergent/TITLES_ACHIEVEMENTS_AND_META_RULES_2026-10-15.md#c9-evolving-and-combining-titles-and-achievements)
+keeps these as world/cheat-dependent possibilities with concrete mechanics
+still proposed, rather than a new universal progression or transfer rule.
+
+**Current direction summary (2026-10-15):** [linked answers and open decisions](docs/DIRECTION_SUMMARY.md)
+cover time, lives, offline progress, carryover and entry. User-approved
+consolidation preserves older conflicting proposals as dated history. The detail
+review and newer cheat answers are now reconciled in the linked owners. Further
+engineering checks attach to selected slices; no new engine review is dispatched.
+
+**UI foundation direction (2026-10-15):** Proto23 frame language (square frames,
+gradient fills, hairline rows, full-height log, You/opponent top panels) is the
+accepted default look. Accepted order: log column and way-back fixes, then one
+token set with the Proto23 skin and a UI contract test, then the scene/focus panel.
+Features keep their logic and migrate onto shared layers. Reaffirmed 2026-10-15:
+refactor around Proto23 as the visual/composition baseline, including panel
+relationships, hierarchy and space allocation, beyond matching colors and corners.
+See [baseline clarification](docs/UI_FOUNDATION_DESIGN_ROUND_2026-10-15.md#proto23-baseline-clarification-2026-10-15).
+[User vision](docs/USER_VISION.md#format-portraits-and-view-decisions-2026-10-14);
+[foundation round](docs/UI_FOUNDATION_DESIGN_ROUND_2026-10-15.md). Foundation S1–S3
+are technically checked in the uncommitted tree: destination Back/Esc, restored
+log, token/component contract, Village scene/focus, four Projects homes and
+presence-gated traveler callbacks. Final suite: 1,764 pass, two pre-existing
+cheat-awakening failures, three TODOs. [Delivery and evidence](docs/gm/dispatch/ui-foundation-2026-10-15/REPORT.md).
+Bounded nav/history/expand work was included in that foundation delivery.
+The [NAV correctness follow-up](docs/gm/dispatch/ui-triage-apothecary-2026-10-15/NAV_REPORT.md)
+now adds complete named routes/hotkeys, shared headers, stable reference/history,
+list tools and linked notices. Build and 26 fresh-origin browser groups pass;
+1,768 tests pass with the same two inherited failures and three TODOs. No page
+scroll at the laptop target; saved layout/pins/collapse and literal-file Import
+checked. Shared ownership is released to root for the Shell queue described below.
+Weibao's visual-feel acceptance remains open; no commit or push.
+
+**C1 composition follow-up (2026-10-15):** fresh/explicit Workspace now groups
+You over Inventory, contextual Focus/location/actions in center, and a tall log
+on the right; idle Focus and duplicated scene entries are reduced. Existing
+saved layouts opt out unless Workspace is explicitly chosen. Build and 15
+rebuilt desktop groups pass; suite 1,766 pass, same two baseline failures, three
+TODOs. [C1 evidence and ownership release](docs/gm/dispatch/ui-foundation-2026-10-15/C1_REPORT.md).
+The C1 comparison was reviewed and the NAV queue resumed; C1 visual acceptance
+remains open. **Latest direction:** build a separately selectable Proto23 Shell
+variant over YAIR systems, emphasizing fuller inventory/item detail, focus/menu
+and real stats/equipment. Preserve C1, existing saves/layouts and gameplay.
+[Shell scope and gates](docs/gm/dispatch/ui-foundation-2026-10-15/PROTO23_SHELL_VARIANT.md).
+NAV's release/process exit and explicit Shell transfer were verified. The
+separately selectable Proto23 Shell is now technically delivered with native
+item details/actions, contextual menu, real stats/equipment and reversible layout
+storage. Build, 24 flow groups and eight supplementary visual/accessibility
+groups pass; suite 1,768 pass, same two inherited failures, three TODOs.
+[Shell delivery and source release](docs/gm/dispatch/ui-foundation-2026-10-15/SHELL_VARIANT_REPORT.md).
+Existing default/C1/player layouts remain intact; visual acceptance is open.
+Root owns the next dispatch before TRIAGE/APOTHECARY.
+**Latest refinement:** Weibao requested closer Proto23 proportions/spacing and
+color, more inventory room, readable focus/player/enemy stats, and UI flow
+rules that account for future VFX. R2 is technically delivered: inventory rows
+121 → 245 px at 1366×768, normal 14 px stats, native multi-enemy facts/selection,
+quieter role colors and existing reduced-motion guards. Shared rules UR34–UR38
+are saved. Rebuilt native/save/import/layout checks pass; root rechecked served
+parity. Upper widths still differ from Proto23 and the 150% compact list is
+82 px; visual acceptance stays open. Source ownership is released to root.
+[Delivery and limits](docs/gm/dispatch/ui-foundation-2026-10-15/R2_REPORT.md).
+[Refinement packet](docs/gm/dispatch/ui-foundation-2026-10-15/SHELL_REFINEMENT.md).
+**Latest correction:** parity remains unaccepted. A fresh UI chat is authorized
+for a structural layout refactor matching equal upper widths, source-like colors
+and bars, and usable150%/combat inventory. R2's width mismatch/82px list are
+no longer the target. Saves/native gameplay/old layouts remain preserved.
+Global-rank presentation is being investigated separately from a new mechanic.
+[R3 packet and gates](docs/gm/dispatch/ui-foundation-2026-10-15/R3_PARITY_REFACTOR.md).
+R3 is now technically delivered: one five-region shared grid, upper widths within
+0.9%, source role palette/bars,274px ordinary inventory and243px at actual150%
+text with seven full rows. Native selected multi-enemy inspection, saves/import,
+old layout and keyboard/effects checks pass. Root verified565 source/13 served
+assets and final frozen files. Default stays unchanged; visual acceptance remains
+open. Source ownership is released to root; queue stays held.
+[R3 delivery, rank proposal and limits](docs/gm/dispatch/ui-foundation-2026-10-15/R3_REPORT.md).
+
+**Surface types (2026-10-15), accepted:** every surface declares a type (routine,
+place service, threshold screen, quick confirm, obligations, reference, settings,
+proposals drawer, ambient log); world start gets its own full screen; unaccepted
+proposals live in a Projects drawer until promoted. Triage rehomes or parks
+features without deleting gameplay or changing saves. The Village mixing counter
+becomes a Village apothecary with a keeper. [Owner](docs/UI_SURFACE_TYPES_AND_DRAWING_BOARD_2026-10-15.md).
+
+**UI rules (2026-10-15):** [UI rules](docs/UI_RULES.md) UR1–UR49 bind all
+player-facing UI work, with each rule tied to the mistake it prevents. AGENTS.md
+links them. The latest accepted navigation correction allows appropriate-panel
+replacement rather than sending every interaction to the lower center. UR41–UR48
+save contextual navigation, progressive disclosure, preview/pin/reference roles,
+compact meaningful logs, faithful DEV SEEDED/reference claims, clean hierarchy,
+native status previews and recorded-event versus current-subject semantics.
+UR49: a difference from Proto23 is a gap only when it has no YAIR reason; parity
+absorbs Proto23 lessons inside YAIR's own choices ([direction](docs/USER_VISION.md#parity-keeps-yair-specific-reasons-2026-10-15)).
+A permanent item page is not selected as the default; hover→pin remains a tested
+prototype recommendation. [Latest user direction](docs/USER_VISION.md#contextual-ui-navigation-and-standing-conventions-2026-10-15);
+[R4 delivery/experiments](docs/gm/dispatch/ui-foundation-2026-10-15/R4_REPORT.md);
+[R5 cleaner panels and native previews](docs/gm/dispatch/ui-foundation-2026-10-15/R5_REPORT.md);
+[R6 meaningful log subjects, center tabs and deeper inspection](docs/gm/dispatch/ui-foundation-2026-10-15/R6_REPORT.md).
+R6 is a rebuilt reversible candidate with native subject snapshots, optional combat
+readouts, all current public stats and populated wide-screen comparisons. Untyped
+item messages still need stable producer references; universal enemy appraisal
+and an independent perk engine are not accepted by this UI slice.
+Human visual acceptance stays open.
+
+**Current UI follow-up (2026-10-15):** R9 extends each actual opponent with
+known stats, HP and cycle; R10 follows the user's request for a smaller routine
+stat bar and comprehensive secondary-attribute/modifier inspection in existing
+Stats. Native data and source-qualified explanations only; no imported gem
+mechanics. [Direction](docs/USER_VISION.md#extended-enemies-and-comprehensive-attributes-2026-10-15);
+[R9 evidence](docs/gm/dispatch/ui-foundation-2026-10-15/R9_REPORT.md);
+[R10 scope/ownership](docs/gm/dispatch/ui-foundation-2026-10-15/R10_CHECKPOINT.md).
+These are candidates; visual/play acceptance remains open.
+
+**R8 follow-up to the R7 comparison (2026-10-15):** fuller native stats and target
+readouts, subject-led Reports inspection with quiet explicit navigation, native
+inventory category colors and removal of the unexplained Dry diamond are the
+next reversible candidate. [User steering](docs/USER_VISION.md#r8-feedback-on-the-r7-comparison-2026-10-15);
+[bounded checkpoint](docs/gm/dispatch/ui-foundation-2026-10-15/R8_CHECKPOINT.md).
+R7 is preserved; visual/play acceptance remains open. Latest steering asks
+active stat tabs and known target readouts to fit before scrolling, retaining
+chosen text size and full explanations.
+
+**R7 panel/readability follow-up (2026-10-15):** user-requested native YAIR/Proto23
+deep UI audit, multiple-enemy alternatives, sharper character/report presentation,
+named panels and purposeful wider-screen use. The supplied stacked-column image
+is an Existing-layout compatibility capture, not R7.
+[User steering](docs/USER_VISION.md#r7-panelreadability-steering-2026-10-15);
+[audit/dispositions](docs/gm/dispatch/ui-foundation-2026-10-15/R7_AUDIT.md);
+[rebuilt candidate and exact gates](docs/gm/dispatch/ui-foundation-2026-10-15/R7_REPORT.md).
+Layout recommendations remain reversible and human acceptance remains open.
+
+**Tabletop multiverse direction (2026-10-14):** different world systems can
+inform distinct multiverse types, preserving the continuing traveler and earned
+faculties as a design interest. The [research library](docs/research/tabletop-library-2026-10-14/README.md)
+tracks captured, prepared and unread sources plus acquisition gaps. Specific
+cosmologies and conversion behavior remain proposals; current slice priorities
+stay in force. [User direction](docs/USER_VISION.md#tabletop-systems-and-distinct-multiverses-2026-10-14);
+[multiverse owner](docs/worlds/MULTIVERSE_STRUCTURES.md#tabletop-system-families-2026-10-14).
 
 **Food direction (2026-10-13):** useful meal benefits, comfortable unfed
 ordinary play and no hunger death. Famine is requested as an adaptation
@@ -145,6 +381,27 @@ reaches fresh users and Reset only. Combat joins the board above Local actions;
 trade puts your stock beside the trader; PLAY works by keyboard and at 150%
 (emulated; real zoom unverified). Layout ▸ Colors adds an opt-in Vivid scheme
 (per-browser; Vivid default for new browsers since 2026-10-13, a stored Standard stays; player Appearance palettes win). Weibao: Vivid "might be the best thus far" (2026-10-13). [Until-done goal](docs/gm/dispatch/vivid-proto23-flow-2026-10-13/GOAL.md) delivered Vivid default, retuned bars, aligned vitals, readable rarity, semantic colors, Combat panel revealed at first fight, new-item dot, coin float, log unread and a 95-entry Proto23 ledger; gate passes, taste unaccepted. Same day: crafting screen (select then Craft, full detail, truthful receipt), settings pass (per-browser display settings, Effects off as master switch, one export) and panel kit (definePanel contract, F6, per-panel settings, world-frame tokens, ten cheat-panel cards) each passed their until-done gates; taste unaccepted, no commit. [Slice reports](docs/gm/dispatch/ui-density-slices-2026-10-13/REPORT.md).
+
+## Calmer Vivid and progressive disclosure, 2026-10-14
+
+Weibao authorized a calmer Vivid presentation with Proto23-style UI discovery,
+useful independent panels and full laptop use, including populated-save review.
+The existing latest skill/journal/combat gates are retained. New reference-tab
+disclosure follows actual native records; quieter controls/borders and compact
+secondary disclosures reduce competing emphasis. Inventory hotkey forms are
+available behind an explicit disclosure. No game/save schema or personal layout
+is changed. Rebuilt opening/populated desktop, native first-kill discovery,
+reload/import, keyboard, palette and contrast evidence is in the
+[report](docs/gm/dispatch/calm-vivid-2026-10-14/REPORT.md). Full suite: 1,758 pass,
+three TODOs, no failures. Visual feel and real browser zoom remain human review;
+no commit or push. [Accepted direction](docs/USER_VISION.md#calmer-vivid-and-progressive-ui-disclosure-2026-10-14).
+
+Hero-creation follow-up, 2026-10-14: Weibao requested parking the current creation
+screen. Play now enters directly with a valid default hero; completed saves keep
+their identity and unfinished saves retain existing details while filling omissions.
+Creation code remains disabled for later use. Rebuilt fresh-origin, reload,
+literal-file import and existing/unfinished identity browser checks pass, plus
+18 affected source tests. [Report](docs/gm/dispatch/calm-vivid-2026-10-14/HERO_SCREEN.md).
 
 ## Foundation adoption R1 proposal, 2026-10-13
 
@@ -273,6 +530,123 @@ Full original requests: [User vision](docs/USER_VISION.md). Design families:
 [Idea index](docs/IDEA_INDEX.md). Candidate world families and the original
 expansion proposal: [log](docs/gm/PROJECT_LOG.md#expansion-design-proposal).
 
+## Direction detail reconciliation, 2026-10-15
+
+The [detail review](docs/gm/DIRECTION_DETAILS_REVIEW_2026-10-15.md) is folded into
+existing owners at Weibao's request. It found no additional consequential question
+ready outside the existing cheat/representation tracks. Review-derived contracts
+and ordinary defaults remain recommendations, not newly accepted product rules.
+Accepted cheat-chat answers now narrow older broad “open” statements below;
+[original quotes](docs/USER_VISION.md#direction-review-fold-and-cheat-answer-reconciliation-2026-10-15)
+and the owners linked in Accepted decisions control. No gameplay implementation
+or verification follows from this documentation fold.
+
+## Activation/recovery profile proposal, 2026-10-15
+
+At Weibao's request, the existing
+[continuation owner](docs/worlds/CONTINUATION_CHOICE_CONSIDERATION_2026-10-13.md#activation-recovery-profile-and-fresh-life-return-walkthrough-2026-10-15)
+now contains a concrete activation/recovery matrix, six-step fresh-life-to-return
+paper walkthrough, affected-owner/source map and representation challenges.
+Routine preview/cancel/publication/paused-work details are proposed contracts;
+they are not silently added to Accepted decisions. The newer means-dependent
+embodiment clarification is recorded in the identity owner and USER_VISION.
+CA14 was answered during this pass: unconscious-body choice access is accepted
+subject to actual means/suppression. Automatic choice presentation, optional standing
+return instructions and loop prevention remain recommended contracts, not blanket
+automatic relocation. No runtime work, tests/build or gameplay proof here.
+
+**Concrete coverage/compatibility plan:** the
+[source-inspected state register](docs/gm/CONTINUATION_STATE_COVERAGE_AND_COMPATIBILITY_2026-10-15.md)
+classifies 83 direct native serializer fields and conditional domains, reuses real
+fresh-game/loader probes, and proposes one versioned authority plus explicit
+mastery, occupied-state, import/export and legacy handling. Missing joins and
+measured compatibility are technical blockers, not newly accepted product rules.
+No runtime or migration authorization follows from this plan.
+
+## Wider gameplay/world-design consideration, 2026-10-15
+
+[Bounded GW1–GW5 pass](docs/gm/DIRECTION_DETAILS_REVIEW_2026-10-15.md#wider-gameplay-and-world-design-pass-2026-10-15)
+checks existing world-kit, actor, progression, economy and generation/campaign
+owners. It recommends concrete authoring contracts and later play comparisons:
+local law changes an action; actors use actual means/information; alternate paths
+have useful consumers; scale needs supply/use; unseen detail respects committed
+causes. These are derived constraints/proposals, not five newly accepted systems,
+a new world priority or extra gates for the cheat implementation. No new global
+preference is ready. Existing accepted direction, one-realm/one-prestige delivery
+and full requested world-depth horizons remain intact. No runtime work here.
+
+## GW1/GW3 existing-world specimen, 2026-10-15
+
+[Cyoria comparison](docs/worlds/mother-of-learning/GW1_GW3_LOCAL_RULE_AND_APPROACHES_2026-10-15.md)
+works through one local rule and two existing approaches at Weibao's request.
+Prepared tool/control versus evidence-led specialist help demonstrate separate
+knowledge, source, fuel, equipment and mastery without a new player casting grant.
+The retained visitor campaign is an original branch; its manual lamp is not silently
+canonized. This design selection does not reprioritize world delivery or authorize
+runtime edits. Definition-only assertions passed; comparative native play,
+native full preparation/route value and persistence remain unverified for this specimen.
+No new player question is ready from source alone; implementation stays with its
+existing assigned owners and the cheat slice is not expanded.
+
+**Preparation/reuse follow-through:** [current ledger](docs/worlds/mother-of-learning/GW1_GW3_LOCAL_RULE_AND_APPROACHES_2026-10-15.md#full-preparation-later-reuse-and-helper-availability-2026-10-15)
+now counts full funded preparation, reusable consumers and finite helper means.
+The lamp has three once-only charge services; mana recovery does not renew them.
+Current mature research converges on tested lamp ownership, so collaboration is
+not yet an independent mature research career. These are source findings, not
+accepted permanent limitations. Long-term servicing and non-device maturity are
+later world-scope choices; no current decision blocks this finite design pass.
+That earlier Frontier-first recommendation is superseded for this design pass by
+the newer book-feature request below; it never selected a runtime priority.
+
+## Book-world feature gap pass, 2026-10-15
+
+[Feature register](docs/worlds/BOOK_WORLD_FEATURE_GAPS_2026-10-15.md) now follows
+Weibao's requested feature-first lens rather than requiring a concrete objective.
+Nineteen scoped rows cover priority book-world capabilities, five separate TTKS
+cores and adjacent D&D, with content/native-binding/handler/source/proof separated.
+HP and recognition/situated profiles explicitly lack their respective native joins;
+existing MoL/Paradise runtime paths and shared source/knowledge/job machinery are
+preserved rather than described as absent. Eligibility/tool support, executable
+advancement, imposed restrictions and exactly-once settlement are concrete missing
+or unestablished local consumers. Exact canonical rules remain source-qualified.
+Recommended implementation order is saved, not dispatched; Soldier runtime stays
+paused. No new accepted magic system, world start or runtime/build proof.
+
+## HP versus early LOTM recommendation, 2026-10-15
+
+[Comparison and bounded feature](docs/worlds/HP_LOTM_NEXT_PLAYABLE_FEATURE_2026-10-15.md)
+recommends early LOTM supervised Seer acquisition, learned control and reusable
+bounded material perception. Five pinned local primary-text windows support the
+acquisition/learning distinction and limited observations; HP has refreshed
+qualified official tool evidence but no selected novel spell/target case. Borrowed
+or unmatched HP wands are not universally unusable. The recommendation defers full
+digestion/promotion, whole Tingen, exceptional protagonist faculties and cross-world
+integration. Current native bindings remain absent in the inspected profile paths.
+Recommendation/defaults are not accepted runtime scope or a dispatched build.
+
+## LOTM initiation plan and question chat, 2026-10-15
+
+[Consolidated LOTM plan](docs/gm/LOTM_INITIATION_IMPLEMENTATION_PLAN_2026-10-15.md)
+leads with the first slice: a deliberate original early-Tingen adult, finite sanctioned
+Seer dose, atomic ingestion/basic stabilization, separately learned control, bounded
+material perception, supported sleep and reuse on a second actual sample. Findings
+support a real authorized sample return/custody and information transfer. No generic
+safety verdict, digestion/promotion, whole-world economy or inherited Klein privilege.
+Canon decides admitted hazards; no invented failure percentage, supervision immunity
+or severe-cancellation rule. Exact source limits and authored numeric defaults stay
+separate. [Discussion](docs/gm/LOTM_INITIATION_DESIGN_DISCUSSION_2026-10-15.md)
+preserves original answers; prior mixed-state plan is archived, not a competing owner.
+
+Player-hosted gatherings depending on means/contacts/reputation are accepted design
+direction; M/MX/HG/LW details remain later considerations/proposed mechanics. They
+are separated from current requirements, with reusable AR1–AR11 audit rules retained.
+No new preference question blocks the selected slice. IG1 remains runtime authority
+and actual writer/build assignment; IG2–IG4 describe native/profile/supplier, schema/
+publication and contextual desktop UI integration work. Latest checked UI owner
+surface is R5, resuming the transferred UI scope after R4 release; UR41–UR46 apply.
+This chat still has documentation scope only. No LOTM runtime implementation or
+build/browser/save acceptance is claimed.
+
 ## Accepted decisions
 
 - **Viewport targets (2026-10-17, Weibao):** "yes, check my screen realestate and what is most
@@ -286,7 +660,6 @@ expansion proposal: [log](docs/gm/PROJECT_LOG.md#expansion-design-proposal).
   Players who already chose a presentation keep it. Core-first order and owner:
   [Round 15 plan](docs/gm/dispatch/ui-foundation-2026-10-15/next-parts/round-15-whole-plan.md#feedback-core-first-2026-10-16);
   [record](docs/USER_VISION.md#shell-default-and-two-sessions-2026-10-16).
-
 - **Complexity guardrails CX1–CX8 (2026-10-16, Weibao):** "I like these rules".
   Depth arrives on demand, connects to existing verbs and owners first, uses
   rules over pairwise interactions, promotes instead of pre-simulating, declares
@@ -295,6 +668,293 @@ expansion proposal: [log](docs/gm/PROJECT_LOG.md#expansion-design-proposal).
   ceiling. [Owner](docs/gm/dispatch/ui-foundation-2026-10-15/next-parts/part-9-complexity-and-openness.md#guides-complexity-guardrails);
   [original answer](docs/USER_VISION.md#complexity-guardrails-accepted-canon-areas-and-saves-2026-10-16).
   Canon/area/save proposals (P9Y) remain proposals.
+- **Learned opponent numbers (2026-10-16, Weibao):** "Learn them is good". Ordinary
+  worlds show first-sight impressions and `???`; exact opponent facts are learned
+  through legitimate means (fighting, books, skills, appraisal, world rules). Own
+  stats stay exact. Cheat surfaces need not fit the base style; novel/manhua looks
+  are welcome if they interact properly. Specific routes and thresholds remain
+  proposals. [Original answer](docs/USER_VISION.md#learned-opponent-numbers-and-novel-style-cheat-surfaces-2026-10-16)
+- **Reciprocal return and intentional loops (2026-10-15, Weibao):** ordinary
+  fresh-life method has a reciprocal connection by default, depending on actual
+  means, to the living paused departure life/history. Return pauses the departing
+  life and resumes that supported embodiment/history with current journey carryover;
+  not access to every archive/date or automatic revival. Intentional repeating
+  loops are a player option; genuine traps through actual means remain possible,
+  while duplicate processing/stale callbacks remain bugs. Specific trigger/target,
+  loop-off initially, stop handling and continued-routine defaults are proposed
+  contracts, not universally accepted mechanics. [Original answers](docs/USER_VISION.md#intentional-loops-and-reciprocal-return-reconciled-2026-10-15);
+  [owner](docs/worlds/CONTINUATION_CHOICE_CONSIDERATION_2026-10-13.md#reciprocal-return-and-intentional-loop-direction-2026-10-15).
+  Implementation and live source-ownership resolution are assigned to cheat chat
+  `01a13e1b-6f99-79a2-8172-b0b5940e78a6`; this chat retains canonical documentation.
+  Authorization is not proof of implementation, integration or gameplay acceptance.
+
+- **Unconscious-body return access (2026-10-15, Weibao, CA14):** return choice
+  remains accessible even while the body is unconscious, depending on actual means
+  and suppression. This does not imply automatic relocation, ordinary unconscious
+  bodily actions or immunity to every seal. Automatic death/inability handling is
+  requested consideration; standing triggers/destinations and paused arrival remain
+  proposed defaults. [Original answer](docs/USER_VISION.md#unconscious-return-access-and-automatic-recovery-consideration-2026-10-15);
+  [worked profile](docs/worlds/CONTINUATION_CHOICE_CONSIDERATION_2026-10-13.md#activation-recovery-profile-and-fresh-life-return-walkthrough-2026-10-15).
+  Documentation direction, not implemented or verified recovery behavior.
+
+- **Voluntary fresh-life history (2026-10-15, Weibao):** separate history by
+  default, with the old life/history paused and return depending on actual means.
+  Same-world rebirth or an active former body can depend on suitable cheats/means,
+  rather than being automatic side effects. Guided entry and accepted carryover
+  still apply; no unrestricted switching or automatic autonomous copy. This
+  answers the brief's Q1 broadly; exact profile and technical/UI details remain
+  implementation work. [Original answer](docs/USER_VISION.md#voluntary-fresh-life-history-and-paused-former-life-2026-10-15);
+  [owner and proposed implications](docs/worlds/CONTINUATION_CHOICE_CONSIDERATION_2026-10-13.md#fresh-life-answer-and-transition-implications-2026-10-15).
+  Documentation direction only, no runtime authorization or gameplay proof.
+
+- **Cheat-chat continuation and research answers (2026-10-15, Weibao):**
+  initial-arrival replay and fresh-life continuation available from the start;
+  pre-death activation requested. Learned mastery carries according to its nature,
+  with actual use requiring suitable embodiment/means. First authored upgrade is
+  a later checkpoint: initial fallback plus one deliberately set replaceable point,
+  preserving the old point until setting succeeds. Ordinary temporal return rewinds
+  current-world history by default, qualified by means; enduring base-cheat upgrades
+  carry. The external recipient keeps the only exported object by default;
+  duplication requires suitable means, and actual temporal copies are distinguished.
+  [Continuation owner](docs/worlds/CONTINUATION_CHOICE_CONSIDERATION_2026-10-13.md#cheat-chat-answers-reconciled-2026-10-15).
+  Direct capability-dependent investigation, discovered questions and player goals,
+  alternatives preserving the original goal, and usable imperfect prototypes are
+  accepted. Unexpected applications are requested possibilities, not guaranteed
+  rewards. [Research owner](docs/TECHNOLOGY_AND_PROGRESSION.md#research-and-prototype-answers-reconciled-2026-10-15).
+  Same actual conditions normally repeat, qualified by chance, changed conditions,
+  skill and luck/means; no universal deterministic or fresh-roll policy selected.
+  [Timeline owner](docs/TIMELINES_AND_DIVERGENCE.md#repeatability-answer-and-research-across-rewinds-2026-10-15).
+  Exact quotes and qualifications are in [USER_VISION](docs/USER_VISION.md#direction-review-fold-and-cheat-answer-reconciliation-2026-10-15).
+  Base cheat is a quiet personal faculty/connection by default; systems or voices
+  can come through suitable means or accompanying cheats without mandatory change
+  to the base faculty. [CA13 original answer](docs/USER_VISION.md#ca13-original-answer-reconciled-2026-10-15).
+  The [finite brief](docs/gm/CHEAT_ACCESS_DESIGN_DISCUSSION_2026-10-15.md#bounded-implementation-brief-quiet-continuation-and-one-learned-checkpoint)
+  is a proposal. Ordinary fresh-life history behavior is now answered below;
+  exact start/body/transaction implementation remains open. Its Frontier test start
+  does not replace guided random entry as the project default.
+  No new runtime priority, migration, implementation or commit authorized.
+
+- **Predictions and question triage (2026-10-15, Weibao):** experiment costs,
+  risks and uncertain forecasts reflect knowledge/means; expertise/cheats can
+  improve predictions. Resolve straightforward details from existing direction
+  rather than seek repeated minor confirmations. Separate bounded remaining-detail
+  review authorized, with proposed defaults and a short list of meaningful open
+  choices; no new runtime work or priority change.
+  [Original answer](docs/USER_VISION.md#experiment-predictions-and-consolidating-remaining-details-2026-10-15).
+
+- **OD25 experimentation (2026-10-15, Weibao):** known actions plus new uses
+  discovered through experimentation/research and actual means. Failed experiments
+  can teach; cheats can help discover combinations. Procedural/modular approaches
+  are considerations, with exact grammar, rewards and inference mechanics open.
+  [Original answer](docs/USER_VISION.md#overarching-direction-discussion-od25-2026-10-15);
+  [interaction implications](docs/PLAY_BEYOND_MENU_SELECTORS_CONSIDERATIONS_2026-10-14.md#od25-experiments-failure-and-discovery-2026-10-15).
+  No universal resolver, source/build/save changes or commit.
+
+- **Binding remedies and exchange possibilities (2026-10-15, Weibao):**
+  bindings carry by their rules/means, with known-consequence warnings. Research
+  and cheats can detect/remove/change bindings where supported. Converting bonds
+  into rolls/resources through an exchange cheat is a possibility; actual scope,
+  consumed rights/effects and reward rules remain open.
+  [Original answer](docs/USER_VISION.md#binding-remedies-and-exchange-cheat-interactions-2026-10-15);
+  [implications](docs/CHEAT_COSMOLOGY.md#exchange-cheats-and-binding-conversion-consideration-2026-10-15).
+  No universal exchange system, runtime implementation or commit.
+
+- **Goals and binding continuity (2026-10-15, Weibao):** remembered personal
+  goals optional; actual promises/duties follow world/history/means. Preserve
+  notes/possibilities for separate runs. Soul contracts or cheats can carry duties,
+  benefits and burdens across lives. Exact binding scope, warning/detection and
+  release/protection policies remain open.
+  [Original answer](docs/USER_VISION.md#remembered-goals-cross-run-plans-and-soul-bound-duties-2026-10-15);
+  [continuation implications](docs/worlds/CONTINUATION_CHOICE_CONSIDERATION_2026-10-13.md#soul-bound-benefits-burdens-and-continuation-2026-10-15).
+  No contract, notebook or carryover runtime changes/commit.
+
+- **OD24 goals and guidance (2026-10-15, Weibao):** player-chosen pursuits,
+  useful guidance and optional campaigns, without one compulsory global main quest.
+  Cheats, relationships and responsibilities can generate goals. Exact commitments,
+  tracking and continuity mechanics remain open.
+  [Original answer](docs/USER_VISION.md#overarching-direction-discussion-od24-2026-10-15);
+  [implications](docs/CHARACTERS_AND_WORLD_EVENTS.md#od24-player-goals-guidance-and-commitments-2026-10-15).
+  No new goal/quest runtime implementation or commit.
+
+- **Cause-driven threats (2026-10-15, Weibao):** threats develop through
+  their actual causes, not automatic player matching. World/fate agendas, modes,
+  cheats and informed rival adaptation can change this. World support/opposition
+  may shift with its actual agenda; no universal hostility or counter to every
+  player improvement. Exact adaptation/director mechanisms remain open.
+  [Original answer](docs/USER_VISION.md#cause-driven-threats-world-agendas-and-adaptation-2026-10-15);
+  [implementation considerations](docs/RIVALS_IDENTITIES_AND_FATE.md#cause-driven-threats-and-adaptation-direction-2026-10-15).
+  Source observations only, no new gameplay implementation or commit.
+
+- **OD13 voice and cheat discovery (2026-10-15, Weibao):** direct narration
+  by default; voices vary by world/mode/means. Discovering base-cheat powers is
+  part of play; talking cheats and unreliable narrators are supported possibilities.
+  Books/other media can inspire them, with source and project truths kept distinct.
+  [Original answer](docs/USER_VISION.md#overarching-direction-discussion-od13-2026-10-15);
+  [voice implications](docs/YAIR_FORMAT_AND_STORY_DELIVERY_2026-10-14.md#od13-narration-voices-and-discovery-2026-10-15).
+  Exact voice/personality/reliability and hidden powers unselected; no implementation.
+
+- **Continuing time bank (2026-10-15, Weibao):** banked eligible unused time
+  follows the continuing journey across lives/worlds; worlds, modes and cheats
+  affect use. Capacity and efficiency can improve. Exact limits, conversion,
+  spending speed and reward-efficiency mechanics remain open, with current-world
+  choice stops and clock rules respected unless supported means alter them.
+  [Original answer](docs/USER_VISION.md#continuing-journey-time-bank-and-improvements-2026-10-15);
+  [implications](docs/DIRECTION_SYNTHESIS.md#time-bank-continuity-and-improvement-answer-2026-10-15).
+  Design direction only; no time-bank implementation or commit.
+
+- **Current-world choice pause (2026-10-15, Weibao):** pause current-world
+  catch-up at important unresolved choices, including linked deadlines and normal
+  same-world production, unless supported policies/helpers/cheats allow continuation.
+  Banking unused offline time is under consideration; portability, rates/caps and
+  retention are open.
+  [Original answer](docs/USER_VISION.md#current-world-pause-and-unused-offline-time-2026-10-15);
+  [banking considerations](docs/DIRECTION_SYNTHESIS.md#banking-unused-offline-time-consideration-2026-10-15).
+  Documentation only; no new offline/persistence implementation or commit.
+
+- **Offline calendar clarification (2026-10-15, Weibao):** ordinary offline
+  progress advances current-world time; aging depends on world/settings; suitable
+  cheats, capabilities or means can change either. Important choices still pause.
+  Scope of that pause across calendars, deadlines and responsibilities remains
+  open; exact rates/caps unchanged.
+  [Original answer](docs/USER_VISION.md#offline-world-time-decisions-and-responsibilities-2026-10-15);
+  [responsibility considerations](docs/CHARACTERS_AND_WORLD_EVENTS.md#offline-decisions-and-responsibilities-consideration-2026-10-15).
+  No new offline simulation, policy implementation or commit.
+
+- **OD15 return recap (2026-10-15, Weibao):** short recap with adjustable
+  detail, important pending choices paused, reminders of prior intent, and only
+  information available through knowledge/means/cheats. Existing games can inform
+  presentation. Time-free progress as an unlock is a consideration; calendar,
+  aging and exact power/reward rules remain distinct and open.
+  [Original answer](docs/USER_VISION.md#overarching-direction-discussion-od15-and-time-free-benefits-2026-10-15);
+  [recap owner](docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md#od15-return-recap-direction-2026-10-15).
+  No recap/offline/time-cheat implementation or commit.
+
+- **OD16 settings and rule changes (2026-10-15, Weibao):** comfort settings
+  change freely; difficulty/recovery changes are explained and normally affect
+  future play. Actual in-world rules can change through appropriate cheats/means.
+  Exact mode commitments, override/retention policies and unlock mechanisms remain
+  open. Comfort access is not an earned cheat capability.
+  [Original answer](docs/USER_VISION.md#overarching-direction-discussion-od16-2026-10-15);
+  [implications](docs/RULEBOOKS_FOR_WORLDS_AND_GM_CONSIDERATIONS_2026-10-14.md#od16-settings-versus-in-world-rule-changes-2026-10-15).
+  No runtime settings/cheat implementation or commit.
+
+- **Starting continuation and research (2026-10-15, Weibao):** modest
+  continuation by default; improved anchors/carryover earned through play or
+  supplied by special starts. Research is one possible improvement route, with
+  other means available. Later [CA1–CA13 reconciliation](docs/worlds/CONTINUATION_CHOICE_CONSIDERATION_2026-10-13.md#cheat-chat-answers-reconciled-2026-10-15)
+  narrows starter and first-upgrade behavior; exact remaining mechanism contracts
+  remain open. The later voluntary-fresh-life answer selects separate history,
+  paused former life/history and means-based return.
+  [Original answer](docs/USER_VISION.md#starting-continuation-research-and-cheat-design-dispatch-2026-10-15).
+  Cheat access/design chat explicitly authorized for discussion and a bounded
+  brief, not runtime implementation or commit.
+
+- **Improvable anchors and question workflow (2026-10-15, Weibao):** anchors
+  depend on means/cheats, can improve, and can support same-life restart or another
+  life at the same calendar time. Starting access versus earned upgrades, exact
+  restart/retention rules and concurrency remain open. Formalize and maintain the
+  [one-question workflow](docs/OVERARCHING_DESIGN_METHOD_PROMPT_2026-10-15.md#live-direction-question-workflow-2026-10-15).
+  [Original answer/correction](docs/USER_VISION.md#anchors-trade-cheat-correction-and-discussion-workflow-2026-10-15).
+  A cheat-design/access chat is recommended, not dispatched; no implementation.
+
+- **OD11 economy and recovery refinement (2026-10-15, Weibao):** local
+  economies with shared currencies/trade through means/cheats; arbitrage and
+  useful imported knowledge/items are intended opportunities. **Clarified later
+  2026-10-15:** "selling cheats" means commerce-oriented cheats, not selling cheats
+  themselves; the earlier transfer interpretation is superseded.
+  Trapped/locally unwinnable situations may require going elsewhere or restarting,
+  including within the same life; this supersedes an implied universal ban on
+  unavoidable-defeat loops. Forgiving default remains; backup/restart rules open.
+  [Original answer](docs/USER_VISION.md#overarching-direction-discussion-od11-and-recovery-refinement-2026-10-15);
+  [continuation considerations](docs/worlds/CONTINUATION_CHOICE_CONSIDERATION_2026-10-13.md#restarts-backups-and-locally-unwinnable-situations-2026-10-15).
+  No gameplay changes or commit.
+
+- **OD12 danger and recovery (2026-10-15, Weibao):** forgiving recovery and
+  ordinary save/reload by default; world danger and recovery strictness are
+  separate, with actual means/cheats affecting recovery. Harsher modes or
+  consequences are optional or forewarned. Exact losses, costs, commitments and
+  in-world rewind/resurrection rules remain open; native defeat stays recovery.
+  [Original answer](docs/USER_VISION.md#overarching-direction-discussion-od12-2026-10-15);
+  [considerations](docs/DIRECTION_SYNTHESIS.md#od12-forgiving-recovery-direction-2026-10-15).
+  No new runtime policy or implementation/commit.
+
+- **OD8 records and knowledge (2026-10-15, Weibao):** one authoritative
+  underlying record per subject; truth, observer knowledge and representations
+  remain distinct, including skills and other entities/events. Cheats/illusions
+  affect perception or knowledge through actual means. Canon correction can be
+  real through world-specific fate/heavenly will/historical mechanisms; no
+  universal restoration rule. Exact schema and mechanics remain open.
+  [Original answer](docs/USER_VISION.md#overarching-direction-discussion-od8-2026-10-15);
+  [implications](docs/SHARED_FOUNDATIONS_AUDIT_2026-10-12.md#od8-accepted-direction-and-implications-2026-10-15).
+  No engine rewrite, runtime implementation or commit.
+
+- **OD7 story direction (2026-10-15, Weibao):** authored plots and simulation
+  vary by world/mode; canon follows its natural course unless changed. Consider
+  causal divergence, books/AUs/fanfiction and storyteller/cheat effects through
+  the existing timeline and narrative-author guides. Exact pressure/fate/director
+  mechanics remain open; no new implementation or research dispatch.
+  [Original answer](docs/USER_VISION.md#overarching-direction-discussion-od7-2026-10-15);
+  [writing chain](docs/worlds/self-as-player-expansion-2026-10-13/NARRATIVE_AUTHOR_WORKFLOW.md#od7-writing-and-continuation-chain-2026-10-15).
+
+- **OD6 identity direction (2026-10-15, Weibao):** one continuing self is the
+  default. Possession, shared minds and multiple bodies remain possible through
+  means, with coherent lore for special starts. Exact ontology, host relations
+  and control/knowledge/retention rules remain open.
+  [Original answer](docs/USER_VISION.md#overarching-direction-discussion-od6-2026-10-15);
+  [identity owner](docs/worlds/PLAYER_CHARACTER_IDENTITY_AND_CONTROL_2026-10-13.md#od6-accepted-direction-2026-10-15).
+  Separate representation discussion authorized; no implementation or commit.
+
+- **OD5 world connection (2026-10-15, Weibao):** worlds retain their own
+  histories; connections and returns depend on means and can expand. Revisit the
+  same world or enter a fresh/parallel version through appropriate means; crossing
+  does not automatically reset history. Hubs, pockets and other supported
+  cosmologies remain possible. Cheat-driven changes are considerations, with
+  exact mechanics open. UI/2D representation direction stays separate.
+  [Original answer](docs/USER_VISION.md#overarching-direction-discussion-od5-2026-10-15);
+  [owner](docs/worlds/MULTIVERSE_STRUCTURES.md#od5-accepted-connection-direction-2026-10-15).
+  Documentation only; no travel/reset implementation or commit.
+
+- **OD10 entry direction (2026-10-15, Weibao):** guided randomness is the
+  default; full random and specific starts remain options depending on available
+  means, with unlock gates a possible mechanism. Warn about known world risks or
+  missed opportunities when relevant cheats/means are absent. Exact pools, access
+  gates and warning policies remain open; vanilla remains optional and preserved.
+  [Original answer](docs/USER_VISION.md#overarching-direction-discussion-od10--q5-2026-10-15).
+  Direction only; no new gameplay implementation or commit.
+
+- **OD2 carryover direction (2026-10-15, Weibao):** memories and the base
+  cheat carry across lives; other carryover depends on the world and available
+  means. What carries can improve over time. Base-cheat lore (for example a mark
+  or spiritual connection), roguelike progression and world-specific time rules
+  are considerations, with concrete mechanics still open.
+  [Original answer](docs/USER_VISION.md#overarching-direction-discussion-od2-2026-10-15).
+  This supersedes blanket proposals forbidding power/stat carryover, without
+  selecting automatic stat inheritance or authorizing runtime implementation.
+
+- **OD4 idle/offline direction (2026-10-15, Weibao):** chosen routines progress
+  while away, stopping for important choices or exhausted supplies, with a return
+  summary. Offline aging is optional and world-dependent; inactive worlds pause
+  by default. Rates, caps and detailed policies remain open. Simulated-life rewards
+  and forward/backward time options are considerations, not selected mechanics.
+  [Verbatim answer](docs/USER_VISION.md#overarching-direction-discussion-od4-2026-10-15).
+  No offline gameplay implementation is claimed or authorized by this discussion.
+
+- **OD1 unit of play (2026-10-15, Weibao):** one life follows one person;
+  the broader journey can continue across lives, with room to stay with one
+  character indefinitely through longevity or world-specific means. A "base cheat"
+  for returning or starting anew after death, possibly available before death,
+  is a consideration, with meaning, availability and retention rules still open.
+  [Verbatim answer and boundaries](docs/USER_VISION.md#overarching-direction-discussion-od1-2026-10-15).
+  No runtime changes selected.
+
+- **OD23 time direction (2026-10-15, Weibao):** ordinary play advances time;
+  settled routines can also be compressed. Different worlds and lifespans have
+  different pacing. Detailed rates, lifespan/mortality rules, compression policies
+  and offline aging remain open, with tuning deferred until the core is clearer.
+  [Original answer](docs/USER_VISION.md#overarching-direction-discussion-od23-2026-10-15);
+  [considerations and source evidence](docs/OVERARCHING_DESIGN_CORE_AUDIT_2026-10-15.md#od23-discussion-answer-and-focused-expansion-2026-10-15).
+  Direction only; no gameplay implementation authorized by this discussion.
+
 - **Cross-world detail-audit precedent (2026-10-12, Weibao):** record the HP
   discussion as reusable GM guidance for future worlds: consider small and
   exceptional mechanics alongside timelines, starts/endings, branching,
@@ -373,6 +1033,8 @@ expansion proposal: [log](docs/gm/PROJECT_LOG.md#expansion-design-proposal).
   saved data stays dormant. Cultivation remains a possible later path.
 - **Original UI is the baseline (2026-10-02):** extend existing panels and
   center actions rather than adding separate windows.
+  **Historical wording, superseded 2026-10-15:** Proto23 foundation and declared
+  surface types now govern composition; see standing priorities and UI_RULES.
 - **Worlds:** original worlds and direct book/anime/game settings are both
   allowed. A referenced book is not automatically a direct adaptation, and no
   final favorite list is required to start.
@@ -393,8 +1055,10 @@ expansion proposal: [log](docs/gm/PROJECT_LOG.md#expansion-design-proposal).
   choice. Specific numbers stay proposals. Absorption wave:
   [absorb-2026-10-11](docs/gm/dispatch/absorb-2026-10-11/ASSIGNMENT.md).
 
-Still undecided: realm names, main story, skill roster, reset and retention
-rules, balance, and which book worlds become campaigns.
+Still undecided: realm names, main story, skill roster, detailed reset/retention
+mechanics, balance, and which book worlds become campaigns. Broad retention
+direction is accepted above under OD2; this older open item is narrowed as of
+2026-10-15.
 
 - **Anything is possible (2026-10-09, Weibao):** where a design has several
   reasonable answers, implement them as player choices instead of picking
@@ -410,7 +1074,9 @@ rules, balance, and which book worlds become campaigns.
   a carrier; readings can be wrong; outliers exist; only Weibao's words
   are accepted. Agent-made "rules" were rewritten
   ([audit](docs/DESIGN_DEFAULTS_AUDIT.md)). Heirs inherit what the previous
-  life left behind (code change pending).
+  life left behind. **Historical status corrected 2026-10-15:** the rulebook
+  records a built first heir slice as of 2026-10-13, with wider inheritance gaps;
+  this is not a new runtime verification.
 - **Book worlds (2026-10-09, Weibao):** recreate read books directly, with
   premises free to change (canon, divergent, remix, swapped premise).
   Direct recreations live in a private pack outside git and outside
@@ -572,7 +1238,7 @@ and unfinished acceptance cases retain their local owners.
 
 ## Repository
 
-- Fork: https://github.com/onionviolet/yet-another-idle-rpg (public)
+- Fork: https://github.com/onionviolet/OOPS (public)
 - Upstream: https://github.com/miktaew/yet-another-idle-rpg
 - Keep the MIT license and upstream attribution.
 - Source in `src/` (content `src/data/`, models `src/models/`, shared state
@@ -749,3 +1415,9 @@ Opt-in Undo uses a single-key save authority: enrolled games need this build or
 later; old saves gain only empty counter records. A localhost-only
 `advanceTicks` stepper (`?test_hooks=1`) speeds checks with byte-identical results.
 [Integration record and evidence](docs/gm/dispatch/absorb-all-2026-10-14/INTEGRATION.md).
+
+UI R10 candidate: compact12-stat core, font-aware ordinary You height, closed Gear disclosure and38native attributes in the existing Stats home. Full center reference retains Reports/Back/Esc; native modifiers and dormant-field caveats. Rebuilt six desktop/font comparisons and source/browser checks are in [R10 report](docs/gm/dispatch/ui-foundation-2026-10-15/R10_REPORT.md). Human visual/play acceptance remains OPEN; no imported gem mechanics. R7/R8/R9 remain preserved.
+
+UI R11 candidate follows the request for inline secondary stats: You fits stable native secondary rows to actual screen/font/panel room and reuses the full Attributes modifier explanation on hover/focus. Core/controls first, actual conditional shield, no dormant bonus claims. [R11 report](docs/gm/dispatch/ui-foundation-2026-10-15/R11_REPORT.md) reconciles the Find more Climb inspirations chat, recipe experiment and remaining native integration gaps. Rebuilt desktop candidate19171; human visual/play acceptance OPEN. R10 remains frozen19169.
+
+Claude UI continuation requested2026-10-15: [handoff](docs/gm/dispatch/ui-foundation-2026-10-15/CLAUDE_HANDOFF.md) indexes user gripes/direction, R7–R11 changes and reasons, Climb/recipe incorporation status, scope, proof and ranked next native slice. [Current checkpoint](docs/gm/dispatch/ui-foundation-2026-10-15/CHECKPOINT.md) records six-path ownership release and dirty input receipt. No receiver process launched; human visual/play acceptance remains OPEN.

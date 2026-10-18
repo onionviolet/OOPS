@@ -20,33 +20,6 @@ Remaining gaps, in order:
 
 ## How ideas are kept
 
-## Research fold across owners, 2026-10-15
-
-Research fold 2026-10-15 index entry: [world kit round 18](worlds/WORLD_CORE_KIT_SUCCESSOR_2026-10-14.md#round-18-multi-world-research-folded-2026-10-15) (multi-world, MWA ranks), [chains round 6](MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md#round-6-2026-10-15-feature-scout-and-deep-systems-sweep-folded) (FS1-FS9), technology round 14 (FT6-FT8), genetics round 14 (FB4-FB6), companions DSC1-DSC5, and added packet donors in the [cross-game synthesis](research/cross-game-synthesis-2026-10-14/PACKETS.md). Proposals only.
-
-## Premise hooks and generator, 2026-10-14
-
-Requested direction (quotes in [User vision](USER_VISION.md#premise-hooks-and-a-premise-generator-2026-10-14)):
-funny, ironic openings like the dragon egg raised by an unsuspecting snake,
-and a generator for them. [Premise hook audit](research/PREMISE_HOOK_AUDIT_2026-10-14.md)
-owns the hook grammar (H1-H6), pattern catalog, engine gaps, world fit and
-first-slice suggestions; [premise hook source catalog](research/PREMISE_HOOK_SOURCE_CATALOG_2026-10-14.md)
-owns the works. Linked from the [intro and starts index](INTRO_AND_STARTS_INDEX_2026-10-14.md). Proposals only.
-
-## Topic wave over chains, technology, bodies and world kit, 2026-10-14
-
-Topic wave 2026-10-14 index entry: rounds appended to [modular chains](MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md#round-4-2026-10-14-the-game-research-wave-as-new-evidence-triggers-rerun) (GW1-GW10, ML-R4), [technology](TECHNOLOGY_AND_PROGRESSION.md#game-research-wave-as-evidence-round-12-2026-10-14) (RW1-RW10), [genetics](GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md#round-12-game-research-wave-as-evidence-2026-10-14) (BW1-BW8) and a new [world core kit successor root](worlds/WORLD_CORE_KIT_SUCCESSOR_2026-10-14.md) (KW1-KW6). Lanes in the [topic wave dispatch](gm/dispatch/topic-wave-2026-10-14/COMMON.md). Proposals only.
-
-[Modular production chains](MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md)
-owns the cross-stage view: one operation shape from harvest through refining,
-making, use and salvage, modularity from substance to network, and procedural
-rule modules (world laws, generated per-save rules, social rules). Round 2
-defers the harvest end to the harvest-modules wave (HV2 model) and adds chain
-graphs, scale regimes, stage actors, chain generation and stage cheats; lanes
-PC1-PC5. Round 3 folds them: corrections X1-X19, no universal engine, top
-picks T1-T5; repeatable via the [core audit](audits/MODULAR_CHAINS_CORE_AUDIT.md).
-Proposals only.
-
 [World core kit](worlds/WORLD_CORE_KIT_2026-10-14.md) owns the 2026-10-14
 per-world checklist of what a world needs to play in depth (K1-K34, micro,
 subtle detail, comics, lens cheats, abstractions, per-part more-to-consider
@@ -56,6 +29,40 @@ W36-W37 running; per-world
 [cards](worlds/world-core-kit-2026-10-14/cards/README.md)).
 It repeats as a standing audit: [core audit entry](audits/WORLD_CORE_KIT_CORE_AUDIT.md)
 and [playbook](worlds/WORLD_CORE_KIT_AUDIT_PLAYBOOK.md). Proposals only.
+
+[UI at scale](UI_AT_SCALE_CONSIDERATIONS_2026-10-14.md) owns the 2026-10-14
+long-term UI palette for growing scope: question homes and a contribution
+registry (SC), navigation (NV), information at scale (IN), many worlds and
+selves (MW), engineering guards (EN) and player comfort (PC). Round 2 adds
+the form ladder (PL), laptop zoning with one contextual slot (ZN), cheat
+placement by fiction (CS1-CS8), a per-system placement table and more (MC).
+Round 3 adds how other games do it (GR1-GR22, memory pending Codex lanes
+U1-U3) and more considerations (MO1-MO12). Round 4 adds time and pace (TP),
+previews (DP), goals (GP), stories (NP), world transitions (WT), pruning (SO),
+visual tokens (VI), recovery (FR) and session framing (SF); lanes U4-U6.
+Round 5 adds notes and tags (AN), player versus character knowledge (MK),
+sandbox and assists (SB), laptop battery and resizing (LP), sigils (PT),
+sharing (SH) and calm or crisis modes (QL); lanes U7-U8.
+Round 6 adds subtle micro details MI1-MI47 (numbers, words, hover, stability,
+change marks, idle, bodies and cheats, sound, errors); lane U9.
+Round 7 folds in U4 (accessibility AX1-AX12, sourced) and adds one
+interaction grammar (IG1-IG7) and micro MI48-MI64; lanes U10-U11.
+Round 8 folds in U1, U2, U3 and U8 (sourced), corrects unsourced count
+limits, and adds macro shape (MA1-MA7), outside inspirations (OI1-OI18) and
+MI65-MI72; lanes U12-U13.
+Round 9 folds in U5 (160-surface inventory; ZN2 revised to one foreground
+transaction) and U6 (lists, LS1-LS15) and adds crafting surfaces CF1-CF8.
+
+[Weaponcraft, runes and inscription](WEAPONCRAFT_RUNES_AND_INSCRIPTION_CONSIDERATIONS_2026-10-14.md)
+owns the 2026-10-14 palette for part-built weapons (WC), inscription as one
+family (RN), worlds (WW, memory pending lane R1), cheats that reveal making
+(CR1-CR15), subtle details (SU), one overarching made-thing model (OV),
+abstractions AB1-AB12 and implementation implications IM1-IM9. Round 2
+consolidates the three parallel weaponcraft palettes (crosswalk), defers records
+to P6 SMITHING/PATTERNS, and adds cross-world making (WX1-WX9), CR16-CR22 and
+SU15-SU21. Proposals only; lane R2 running, R1/R3 stopped as duplicates of
+maker-arts W1/W4.
+Desktop first; proposals only.
 
 [Engine, runtime, performance and stack](ENGINE_RUNTIME_PERFORMANCE_AND_STACK_CONSIDERATIONS_2026-10-14.md)
 owns the 2026-10-14 engine palette beyond E1-E10: runtime architecture (RT),
@@ -73,6 +80,36 @@ player: kinds, acquisition, bond tracks, care, mounts, per-world fit, cheat shap
 and expansions. Proposals only.
 Repeatable via the [companions core audit](audits/COMPANIONS_CORE_AUDIT.md);
 the general method is the [topic expansion audit playbook](audits/TOPIC_EXPANSION_AUDIT_PLAYBOOK.md).
+
+[Procedural story and content considerations](PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md)
+owns the 2026-10-14 story-generation palette (A-F): casting, hooks, readable futures,
+factions, exams, mysteries, canon density and spoilers, story as power, standing
+policies, story QA. Proposals only; lanes P12-P18 in procgen wave 1.
+
+[Weaponcraft, runes and maker arts considerations](WEAPONCRAFT_RUNES_AND_MAKER_ARTS_CONSIDERATIONS_2026-10-14.md)
+owns the 2026-10-14 palette for weapons (WC), armor (AR), runes (RN), other maker
+arts (OM), world laws (WQ), reveal cheats (RC), subtle cues (SB), overarching rules
+(OV), implementation implications (IM) and shared abstractions (AB). Proposals only.
+
+[Modular production chains](MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md)
+owns the cross-stage view: one operation shape from harvest through refining,
+making, use and salvage, modularity from substance to network, and procedural
+rule modules (world laws, generated per-save rules, social rules). Round 2
+defers the harvest end to the harvest-modules wave (HV2 model) and adds chain
+graphs, scale regimes, stage actors, chain generation and stage cheats; lanes
+PC1-PC5. Round 3 folds them: corrections X1-X19, no universal engine, top
+picks T1-T5; repeatable via the [core audit](audits/MODULAR_CHAINS_CORE_AUDIT.md).
+Proposals only.
+
+[Procedural crafting and consumables considerations](PROCEDURAL_CRAFTING_AND_CONSUMABLES_CONSIDERATIONS_2026-10-14.md)
+owns the 2026-10-14 crafting palette beyond the materials audit and P6/P8/P11:
+consumable kinds, crafting feel, maker identity, items over time, world crafting
+laws, cheats, idle production, economy, social use and director tools. Proposals only.
+
+[Weaponcrafting, runes and inscription considerations](WEAPONCRAFTING_RUNES_AND_INSCRIPTION_CONSIDERATIONS_2026-10-14.md)
+is a parallel-session duplicate of the weaponcraft palette above; fold its
+distinct rows (vanilla head plus handle assemblies, rune as a program on a
+carrier, base skill vs cheat sight) into the primary, then leave a pointer.
 
 [Engine, saves, scale and app portability](ENGINE_SAVES_AND_SCALE_REVIEW_2026-10-11.md)
 owns the 2026-10-11 engineering proposal set under I29: save/recovery and history
@@ -134,11 +171,11 @@ eight lane outputs, 179 proposed detail contracts, earlier VFX-family mappings
 and titles/skills/progression micro-audits. Linked ledger/queue route actual
 consumers, missing contracts and 693 unrun acceptance cases. This finite return
 does not adjudicate every artifact or finish local source worlds/gameplay.
+
 [Intro flow considerations](INTRO_FLOW_CONSIDERATIONS_2026-10-13.md) owns the
 2026-10-13 opening palette: flow beats, creation screen, teaching without a
 tutorial, cheat/advantage choice placement and start options, with source
 findings on the current opening. Proposals, not accepted mechanics.
-
 
 For whole book/anime worlds or a broad feature family, start with the
 [actionability GM prompt](gm/WORLD_ACTIONABILITY_GM_PROMPT.md): recover and expand
@@ -163,9 +200,39 @@ Useful statuses are **requested direction**, **proposal**, **selected for a prot
 
 The IDs below are stable navigation references, not event IDs, save IDs or a promise to implement every row. Add rows or update the owner as ideas develop; do not reuse an ID for another family.
 
+## Overarching design direction core, 2026-10-15
+
+Requested direction (quotes in [User vision](USER_VISION.md#overarching-design-direction-core-2026-10-15)).
+[Core audit](OVERARCHING_DESIGN_CORE_AUDIT_2026-10-15.md) owns the pillar draft
+(PL1-PL6), the core direction questions OD1-OD8 (unit of play, prestige, death,
+idle and offline, world connection, who the player is, story grammar, semantic
+records), stale-direction conflicts C1-C11 and rule drift RD1-RD13. Rerun via the
+[method prompt](OVERARCHING_DESIGN_METHOD_PROMPT_2026-10-15.md). Proposals only.
+
+## Premise hooks and generator, 2026-10-14
+
+Requested direction (quotes in [User vision](USER_VISION.md#premise-hooks-and-a-premise-generator-2026-10-14)):
+funny, ironic openings like the dragon egg raised by an unsuspecting snake,
+and a generator for them. [Premise hook audit](research/PREMISE_HOOK_AUDIT_2026-10-14.md)
+owns the hook grammar (H1-H6), pattern catalog, engine gaps, world fit and
+first-slice suggestions; [premise hook source catalog](research/PREMISE_HOOK_SOURCE_CATALOG_2026-10-14.md)
+owns the works. Linked from the [intro and starts index](INTRO_AND_STARTS_INDEX_2026-10-14.md). Proposals only.
+
+## Topic wave over chains, technology, bodies and world kit, 2026-10-14
+
+Topic wave 2026-10-14 index entry: rounds appended to [modular chains](MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md#round-4-2026-10-14-the-game-research-wave-as-new-evidence-triggers-rerun) (GW1-GW10, ML-R4), [technology](TECHNOLOGY_AND_PROGRESSION.md#game-research-wave-as-evidence-round-12-2026-10-14) (RW1-RW10), [genetics](GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md#round-12-game-research-wave-as-evidence-2026-10-14) (BW1-BW8) and a new [world core kit successor root](worlds/WORLD_CORE_KIT_SUCCESSOR_2026-10-14.md) (KW1-KW6). Lanes in the [topic wave dispatch](gm/dispatch/topic-wave-2026-10-14/COMMON.md). Proposals only.
+
+## Research fold across owners, 2026-10-15
+
+Research fold 2026-10-15 index entry: [world kit round 18](worlds/WORLD_CORE_KIT_SUCCESSOR_2026-10-14.md#round-18-multi-world-research-folded-2026-10-15) (multi-world, MWA ranks), [chains round 6](MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md#round-6-2026-10-15-feature-scout-and-deep-systems-sweep-folded) (FS1-FS9), technology round 14 (FT6-FT8), genetics round 14 (FB4-FB6), companions DSC1-DSC5, and added packet donors in the [cross-game synthesis](research/cross-game-synthesis-2026-10-14/PACKETS.md). Proposals only.
+
 ## Deep concepts beyond infinity, 2026-10-10
 
 Proposal from chat. [Deep concepts](DEEP_CONCEPTS.md) owns concepts K1 to K16 (kinds of infinity, Hilbert's hotel, entropy, zero, self-reference, undecidability, recursion, eternal return, Theseus, determinism, Borges' library, observation, emergence, compression, measure, scale invariance), engine considerations E1 to E6 (non-finite save values, infinity as a type, lazy generation, loop budgets) and three ranked smallest proofs. A second pass adds the implication test T1 to T10, ability shapes I1 to I22 (adaptation and perfect self generalized), fiction that weaponizes math and physics (from memory, unverified), and concepts K17 to K31. Nothing selected for a build.
+
+## Comic worlds and the comic medium, 2026-10-14
+
+[Comic worlds and medium](COMIC_WORLDS_AND_MEDIUM_CONSIDERATIONS_2026-10-14.md) owns comic traditions beyond superheroes (webtoon, manhua, BD, 2000 AD, creator-owned, rules-aware webcomics, strips), industry habits as world-law dials, comic medium and law cheats, subtle panel touches and the audience and recurring-actor abstractions. Overlaps defer to [world core kit round 6](worlds/WORLD_CORE_KIT_2026-10-14.md) and [intro round 22](INTRO_FLOW_CONSIDERATIONS_2026-10-13.md); lanes K1-K5 in [comics dispatch](gm/dispatch/comics-2026-10-14/runs/SESSIONS.md). Proposals only.
 
 ## Comics wiki pilot, 2026-10-10
 

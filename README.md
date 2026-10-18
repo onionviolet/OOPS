@@ -1,18 +1,18 @@
-Personal idle-RPG expansion fork based on Miktaew's v0.6 development source. See [PROJECT.md](PROJECT.md) for scope, setup and next work. Agent instructions: [AGENTS.md](AGENTS.md).
+# OOPS
 
-# yet another idle rpg
-###### by Miktaew
+**Optimistic Progression Simulator**. OOPS is the stylized name, with an extra O because we like it.
 
+A personal text-based RPG by Weibao, exploring discovery, experimentation and progression across distinct worlds. Based on Miktaew's **Yet Another Idle RPG** v0.6 development source, itself inspired by Proto23.
 
-### Still in development.
+See [PROJECT.md](PROJECT.md) for scope, setup and current work, and [AGENTS.md](AGENTS.md) for agent instructions.
 
-Official repo: https://github.com/miktaew/yet-another-idle-rpg  
-Official release: https://miktaew.github.io/yet-another-idle-rpg/  
-  
-  
-Dev repo: https://github.com/miktaew/yet-another-idle-rpg-dev  
-Dev release: https://miktaew.github.io/yet-another-idle-rpg-dev/  
+## Credits and upstream
 
+- [OOPS repository](https://github.com/onionviolet/OOPS)
+- [Yet Another Idle RPG by Miktaew](https://github.com/miktaew/yet-another-idle-rpg) · [original release](https://miktaew.github.io/yet-another-idle-rpg/)
+- [Upstream development repository](https://github.com/miktaew/yet-another-idle-rpg-dev) · [development release](https://miktaew.github.io/yet-another-idle-rpg-dev/)
+
+OOPS is a fork, with original upstream attribution and LICENSE retained. The new name does not change existing saves, internal identifiers or repository URLs.
 
 ---
 Be warned, the game balance remains a WIP

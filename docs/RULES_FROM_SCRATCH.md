@@ -28,7 +28,10 @@ added, and the heir reworked. The answers section stays as background.
 - **Now:** carry and conversion are per-edge dials. Free carry and
   generic conversion are possible where a world, hub, cheat or
   [verse equalization](CHEAT_COSMOLOGY.md#verse-equalization-converting-between-systems)
-  mode allows them.
+  mode allows them. Costs and conditions follow the actual means and selected
+  source, including supported absence of cost; do not add a universal surcharge.
+  Actual finite supplies, agreed transaction costs and credential jurisdiction
+  remain binding. The older labels above describe the superseded rationale.
 
 ### The heir
 
@@ -138,6 +141,15 @@ but it doesn't have to be the source or origin world."
   cosmology.
 
 ### Idle and offline
+
+**Direction update, 2026-10-15:** [OD4](USER_VISION.md#overarching-direction-discussion-od4-2026-10-15)
+accepts offline routines with important-choice/resource stops and a return summary;
+offline aging is optional by world. The older no-aging starting setting below is
+historical proposal, not a universal restriction. [OD2](USER_VISION.md#overarching-direction-discussion-od2-2026-10-15)
+accepts memory/base-cheat retention and developable carryover through world/means.
+Rule 7 describes world-sensitive time, not mandatory mortality in every life.
+Rule 8's original-panel restriction is historical UI wording superseded by the
+2026-10-15 Proto23 foundation and [UI rules](UI_RULES.md). Vanilla play is preserved.
 
 Weibao likes "absent worlds freeze; no aging while closed", and asks about
 the idle side. Proposal, as defaults with dials:

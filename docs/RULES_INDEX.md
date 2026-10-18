@@ -36,7 +36,7 @@ open here too.
 | Set | Codes | Status | Covers | Owner |
 |---|---|---|---|---|
 | Foundational rulebook | Rulebook 1–12 | Accepted 2026-10-10 | Multiverse-wide principles: worlds set their own rules, carriers, means, bodies, time, outliers | [RULES_FROM_SCRATCH](RULES_FROM_SCRATCH.md#the-rulebook-accepted-2026-10-10) |
-| Accepted direction rules | AD1–AD35 | Restates accepted decisions | Aspects without a rulebook: knowledge, lives, time, recovery, entry, goals, economy, cheats, process | [Below](#accepted-direction-rules-ad) |
+| Accepted direction rules | AD1–AD37 | Restates accepted decisions | Aspects without a rulebook: knowledge, lives, time, recovery, entry, goals, economy, cheats, process | [Below](#accepted-direction-rules-ad) |
 | UI rules | UR1–UR58 | Standing 2026-10-15 | All player-facing UI | [UI_RULES](UI_RULES.md) |
 | Architecture rules | AR1–AR16 | Standing 2026-10-16 | All runtime code: composition root, domain registry, save slices, seams | [ARCHITECTURE_RULES](ARCHITECTURE_RULES.md) |
 | Mockup workflow | none | Standing 2026-10-16 | Unsettled layouts and interaction comparisons | [MOCKUP_SYSTEM](MOCKUP_SYSTEM.md) |
@@ -44,8 +44,9 @@ open here too.
 | Site and exploration rules | SR1–SR24 | Standing 2026-10-16 | Sites, ruins, natural places, maps, discovery, restoration | [SITE_AND_EXPLORATION_RULES](SITE_AND_EXPLORATION_RULES.md) |
 | Sealed secrets | none | Standing 2026-10-10 | Hiding world truths from Weibao outside play | [AGENTS](../AGENTS.md#sealed-secrets), [discovery doc](worlds/WORLD_SECRETS_AND_DISCOVERY.md#sealed-secrets-standard-rule-2026-10-10) |
 | Means and appraisal | none | Accepted principle 2026-10-10 | What each side can know and do | [MEANS_AND_APPRAISAL](MEANS_AND_APPRAISAL.md) |
+| Agent usage | AU1–AU15 | Standing 2026-10-16 | Whole-book plans, short-lived readers, bounded continuity, tree budgets and stop conditions | [Agent usage rules](AGENT_USAGE_RULES.md) |
 | Agent workflow | AGENTS sections | Standing | Design framing, scope, research lens, verification, saves, sources, deep-detail storage, multi-agent ownership | [AGENTS](../AGENTS.md), [GM prompt](GAME_MASTER_PROMPT.md), [shared worktree practice](gm/SHARED_WORKTREE_PRACTICE.md) |
-| Source research | none | Standing | Acquiring and deep-diving books, games and wikis | [Acquisition tools](research/SOURCE_ACQUISITION_TOOLS.md), [deep dive playbook](research/SOURCE_DEEP_DIVE_PLAYBOOK.md) |
+| Source research | none | Standing | Saved-source reuse, acquisition and bounded deep dives of books, games and wikis | [Acquisition tools](research/SOURCE_ACQUISITION_TOOLS.md), [deep dive playbook](research/SOURCE_DEEP_DIVE_PLAYBOOK.md) |
 | Generation foundation rules | GR1–GR17 | Proposal 2026-10-14 | Contract for every generator | [GENERATION_FOUNDATION_RULES](GENERATION_FOUNDATION_RULES_2026-10-14.md) |
 | Complexity guardrails | CX1–CX8 | Proposal 2026-10-16 | Keeping depth while bounding implementation | [Part 9 pass](gm/dispatch/ui-foundation-2026-10-15/next-parts/part-9-complexity-and-openness.md) |
 | World completion standard | none | Proposal 2026-10-11 | Sections, detail ledger and acceptance for a world | [WORLD_COMPLETION_STANDARD](WORLD_COMPLETION_STANDARD.md) |
@@ -72,8 +73,9 @@ open here too.
 | Economy, trade, property | AD27, AD31, MR5, SR15, SR19 | [Requests and markets](gm/dispatch/procgen-2026-10-13/p11/REQUESTS_AND_MARKETS.md) |
 | NPCs, companions, social systems | AD6, AD33 (NPC-heavy work deprioritized), MR23 | [Companions audit](audits/COMPANIONS_CORE_AUDIT.md) |
 | Saves and persistence | Rulebook 9, AR6, MR3, MR30, MR33, SR22, AGENTS safety | Migration or explicit compatibility decision required |
-| Research passes and sources | AD35, AGENTS scope and source acquisition | [Source tools](research/SOURCE_ACQUISITION_TOOLS.md) |
-| Dispatching or coordinating agents | AGENTS multi-agent, AD32 | [GM prompt](GAME_MASTER_PROMPT.md) |
+| Research passes and sources | AD35, AD37, AU1–AU15 for readers; AGENTS scope and source acquisition | [Saved-source modes and playbook](research/SOURCE_DEEP_DIVE_PLAYBOOK.md#saved-sources-first), [source tools](research/SOURCE_ACQUISITION_TOOLS.md) |
+| Dispatching or coordinating agents | AU1–AU15, AD32, AD37; AGENTS multi-agent | [Agent usage rules](AGENT_USAGE_RULES.md), [GM prompt](GAME_MASTER_PROMPT.md) |
+| Selecting checks, adding regressions, reporting or handing off evidence | AD36; touched domain rules | [Efficient rule verification](#efficient-rule-verification-ad36) |
 
 ## Accepted direction rules (AD)
 
@@ -152,10 +154,67 @@ unless another owner is linked.
 
 | Code | Rule | Source |
 |---|---|---|
-| AD32 | **Accepted means Weibao said so.** Agent text is proposal until he accepts it. Resolve straightforward details from existing direction instead of asking again. | Rulebook 10; Predictions and question triage |
+| AD32 | **Accepted means Weibao said so.** Agent text is proposal until he accepts it. Resolve straightforward details from existing direction instead of asking again. Project identity: **OOPS · Optimistic Progression Simulator**, with an intentional extra O. | Rulebook 10; Predictions and question triage; [OOPS identity](USER_VISION.md#oops-project-identity-2026-10-16) |
 | AD33 | **Complexity is welcome; slices sequence it.** NPC-heavy work is deprioritized and procedural layouts stay deferred. | [Complexity](USER_VISION.md#complexity-and-implementation-difficulty-2026-10-16); [procedural focus](USER_VISION.md#procedural-focus-ruins-and-world-first-2026-10-16) |
 | AD34 | **Desktop and laptop first; mobile deferred.** | [Standing UI priority](USER_VISION.md#standing-ui-priority-2026-10-13) |
 | AD35 | **Research passes save deep details privately** in gitignored `docs/research/<source>/private/`. | [Standing rule](USER_VISION.md#save-deep-details-for-reference-2026-10-14) |
+| AD36 | **Check relevant behavior, add meaningful regressions and reuse valid evidence.** Bound verification and context cost without dropping required gates. | [Request](USER_VISION.md#efficient-rule-checks-and-regressions-2026-10-16); [workflow](#efficient-rule-verification-ad36) |
+| AD37 | **Agent generation has a shared finite usage budget.** Full books use fresh short-lived readers and bounded continuity across one to three coordinating chats; count repairs/successors and preserve unread coverage at a limit. | [Request](USER_VISION.md#agent-generation-and-book-usage-2026-10-16); [AU1–AU15](AGENT_USAGE_RULES.md) |
+
+## Efficient rule verification (AD36)
+
+Standing workflow from Weibao's 2026-10-16 request, implemented in the existing
+task record and checks. No separate checklist file or universal compliance score.
+
+1. **Choose before editing.** Name touched rule codes, affected producers/consumers
+   and the failure to prevent. Find existing tests first. Use the table below;
+   groups cover specific scenarios, not the whole rule or domain. Read the relevant
+   source and test before relying on a filename or a prior pass.
+2. **Extend where behavior changes.** For a meaningful invariant or reproduced
+   defect, add a regression in the existing suite with initial state, real action
+   and observable expected/forbidden result. Demonstrate the reproduced failure
+   before fixing when practical. Prefer the real boundary to a mock that bypasses
+   it. No test per rule sentence, trivial edit or duplicate implementation detail.
+   Include a new test in the focused runner only if its scenario fits that group;
+   otherwise run it directly. Tests must be discovered by the intended suite.
+3. **Run at the right time.** Use focused checks after a coherent edit. At completion,
+   run gates required by the applicable rulebooks, build and changed browser journey
+   for runtime claims, and persistence checks when affected. Docs-only work needs
+   relevant document/link checks, not a gameplay build. Shared code, ordering,
+   persistence or cross-domain changes can justify broader coverage; state why.
+4. **Reuse with an input identity.** Record command, revision plus relevant dirty
+   diff/hash or equivalent reproducible snapshot, result and gaps in the existing
+   checkpoint. Another agent can reuse it after verifying those inputs, dependencies,
+   fixtures, configuration and relevant environment still match. HEAD alone is
+   insufficient in this shared dirty checkout. Invalidate affected evidence after
+   changes or integration; run the affected checks again. A full suite covers its
+   included groups, so do not run both on unchanged inputs. Do not duplicate an
+   authoritative running CI job unless reproducing a named failure. Local unit
+   evidence cannot substitute for required fresh rebuilt browser evidence.
+5. **Bound time and tokens.** Search first, read relevant sections, batch independent
+   reads and keep successful logs to a short result plus an evidence path when
+   needed. Inspect the failing assertion and cause before rerunning; avoid unchanged
+   retry loops. Reuse existing records and fixtures; do not spawn reviewers or run
+   whole-project audits for routine changes. Authorized lane briefs include the
+   relevant codes, chosen commands, regression scenario and reusable evidence links,
+   rather than copies of all rulebooks. Stop equivalent checks once required gates
+   pass. Save integrity, sealed truths and technical versus human acceptance still
+   apply; retain useful diagnostics privately where needed.
+
+| Change or boundary | Focused route | Scope / additional evidence |
+|---|---|---|
+| Index, rule codes or index links | `npm run check:rules` | Document consistency only |
+| People/world knowledge projections | `npm run check:rule-behavior -- knowledge` | Extend relevant projection tests for new observers or disclosure paths |
+| Native crafting transactions and mixture quote admission | `npm run check:rule-behavior -- transactions` | Other command, cost, preview and product changes need their own relevant tests |
+| Foundation save compatibility helper | `npm run check:rule-behavior -- saves` | Other save slices/migrations need their own tests; persistence also needs browser save/reload/Export/Import |
+| Center-mode lifecycle | `npm run check:rule-behavior -- navigation` | Actual Back/Esc, focus and visibility need rebuilt desktop browser evidence |
+| UI tokens and panel ownership | `node --test tests/ui_contract.test.js` | Structural baseline check; visual/discoverability evidence at 1920×1080 and the 1366×768 floor stays separate |
+| Other runtime behavior | `node --test tests/<relevant>.test.js` | Find/extend the actual owner suite; no mapped group means uncovered by this runner, not exempt |
+| Architecture boundaries | AR16's architecture command when available in the active checkout | Follow the modular-seams owner; do not duplicate its checker or silently skip a required gate |
+
+`npm test` already includes `tests/*.test.js`, including the focused groups.
+An inherited pass without enough input identity is a lead, not reusable proof.
+Report an unavailable or unrun required check explicitly; do not label it passed.
 
 ## Shared principles across rulebooks
 
@@ -198,6 +257,13 @@ one of these, write it like SR: a dated request in USER_VISION, a coded file
 with "prevents" columns, a row here and one line in PROJECT.
 
 ## Changing this index
+
+For implementation evidence, `npm run check:rule-behavior` maps a small set of
+existing tests to rule codes and prints their limited scope. It also accepts a
+group, for example `npm run check:rule-behavior -- knowledge`. These tests already
+run in `npm test`; this is an optional focused route, not an extra completion
+gate or whole-rule compliance verdict. See the [implementation check assessment](reviews/RULE_IMPLEMENTATION_CHECKS_2026-10-16.md)
+for covered scenarios, gaps and cost recommendations.
 
 - New rulebook: only on Weibao's request. Record the request in USER_VISION, add
   a register row and router rows here, and one line in PROJECT standing priorities.

@@ -29,7 +29,7 @@ affected active instructions, and preserve superseded wording as dated history.
 Handoffs link to owners rather than copying another competing specification.
 
 Start every task at the [rules index](docs/RULES_INDEX.md) (2026-10-16): its
-router names the rule codes that apply to the task, and AD1–AD35 restate the
+router names the rule codes that apply to the task, and AD1–AD36 restate the
 accepted direction for aspects without their own rulebook. Cite codes in task
 records and handoffs. The rulebooks below keep their own detail. Keep the index
 current in the same change: a new or changed rulebook updates its register and
@@ -62,6 +62,15 @@ per fact; no new import cycles or imports of `main.js`; namespaced save slices
 with migrations; structural moves separate from behavior changes; integration
 means a player journey crosses the module. Runtime lane briefs name their seam
 and link that file.
+
+Sites, ruins, natural places, maps and exploration follow
+[site/exploration rules](docs/SITE_AND_EXPLORATION_RULES.md) SR1–SR24
+(2026-10-16): world-qualified identity, claims separate from truth, scoped
+discovery, useful readers, actual means/access, conserved custody and persistent
+aftermath. A map is an information artifact, not automatic truth, permission or
+ownership. Apply relevant rules to a selected slice; do not turn adjacent proposals
+into prerequisites. NPC-heavy systems and procedural layouts retain their current
+deferrals. Domain mechanics and new implementation still require their own scope.
 
 ## Role
 
@@ -151,6 +160,17 @@ apply to both Codex and Claude through CLAUDE.md's AGENTS.md import.
 
 ## Verification
 
+Follow [AD36: efficient rule verification](docs/RULES_INDEX.md#efficient-rule-verification-ad36).
+Before implementation, choose relevant existing checks and a failure scenario
+from the touched rules and consumers. Add or extend a regression for changed
+behavior or a reproduced defect when it protects a meaningful invariant; avoid
+duplicate assertions and tests of incidental implementation details. Run focused
+checks while editing, then the existing required completion gates. Reuse passing
+evidence only for unchanged relevant inputs; a full suite already covers its
+focused subsets. Record commands, input identity, results and gaps in the existing
+task record. Load bounded sources and summarize successful output; investigate
+failures before retrying. This applies to lane briefs and handoffs too.
+
 Before calling gameplay done: rebuild, then exercise the changed
 behavior in a browser from a fresh test origin. When persistence changes, also
 save, reload and import. Label anything not exercised as implemented-unverified
@@ -176,6 +196,19 @@ indexes, commit messages or UI text outside its discovery route. Refer to
 secrets by ID, route and status ("S2: Medicine route works"). Unseal only
 when he asks for that secret or world. Public franchise twists are not
 sealed; a changed or randomized truth is.
+
+## Agent usage budget
+
+Before generating agents or bulk book readers, follow [agent usage rules](docs/AGENT_USAGE_RULES.md)
+AU1–AU15 / AD37. One coordinator, one shared budget including retries and successors;
+readers may spawn lesser agents from reserved portions of that same budget.
+For full-book requests, declare one finite whole-source plan (AU13), target one
+to three coordinating chats, and use fresh Luna-medium reader contexts when
+available. Each reader owns at most 12,000 source words and six model responses,
+then retires; never feed it the next shard. Keep raw chapters out of coordinator
+history and use bounded continuity notes (AU15). Two generated agents run at once
+by default. The old four-reader cap applies to exploratory tasks, not full books.
+Budget and allowance ceilings still apply; no silent paid or stronger-model fallback.
 
 ## Multi-agent work
 
