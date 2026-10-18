@@ -732,3 +732,129 @@ Each bridge has a spread, a cost or a risk:
 | L16 | Recognition stages for one cross-world item (curio, anomaly, identified use) | designer + coder | M | The same crystal's quote rises only after a recorded analysis; without a usable mechanism it stays a curio |
 | L17 | Per-world currency card field (kinds, ratios, frictions) in the world core kit | designer | S | Each pack names its currencies and at least one friction; no blanket rule is stated |
 | L18 | Change-making friction and denominations | mid coder | S | Paying with a large coin at a small trader fails or leaves credit, explained in text |
+
+## Buying, credit, safety and endgame money, consideration round 4, 2026-10-18
+
+**Prompt (Weibao, 2026-10-18):** "more to consider? save accordingly, other stuff
+and more?" Rounds 1–3 covered selling, buyers, trade forms and currencies. This
+round covers the parts of money they left out. Proposals only; codes continue.
+
+### M17: buying is half the fun
+
+- **Browsing as discovery:** merchant stock that rotates for a reason (a caravan
+  arrived, a dungeon was cleared, the season turned) makes a shop visit worth
+  checking, the way a new drop is.
+- **Travelling and cross-world merchants:** a peddler who shows up with goods from
+  elsewhere, including from other worlds, is a natural first sight of EC1
+  arbitrage before the player can travel themselves.
+- **Ordering what isn't stocked:** "find me a silver needle" becomes a dated order
+  with a deposit, delivered later. This is the buying mirror of standing orders (L3).
+- **Wishlist and price memory:** the player's own ledger of prices seen where and
+  when. It's knowledge (M11), so it can be wrong or out of date, and it's the
+  in-world source for a "best place to buy" hint.
+
+### M18: credit, loans and debt
+
+- **Pawning:** leave an item, get cash, redeem by a date or lose it. This is
+  short-term credit with collateral, and a pawnbroker exists in most worlds.
+- **Loans:** from a moneylender, a bank, a sect or a patron, at interest. Terms
+  vary by world and lender: the sect wants service, the patron wants loyalty and
+  the loan shark wants your kneecaps.
+- **Deposits:** a bank keeps coin safe and may pay interest. Banks can fail, be
+  robbed or be seized, each with a dated cause.
+- **Debt as story:** owing someone powerful opens and closes doors. Debt bondage,
+  debtor's prison and inherited debt exist where a world's law has them.
+- **Defaults:** forgiving recovery (AD19–AD22) applies. Missing a payment has
+  in-world consequences such as losing the collateral, a ruined reputation or
+  collectors, never a hidden game-over.
+
+### M19: keeping wealth safe
+
+Carrying money attracts thieves, and storing it needs a place:
+
+- **Storage:** a home stash, a bank, a sect treasury, a spatial ring, a System
+  wallet. Each has its own capacity and risk.
+- **Theft:** pickpockets in crowds, bandits on roads, burglary of a stash, a
+  corrupt official's "fee." The chance follows what people can see and how
+  guarded you are (SR's claims and custody rules).
+- **While idle or offline:** robbery risk is a per-world dial that defaults to low
+  and is always reported in the recap. Losing everything while away should be a
+  rare, explained event and never a silent drain.
+- **Recovery:** stolen goods turn up at a fence. A thief can be tracked, and the
+  watch may help where it exists.
+
+### M20: taxes, tolls and fees
+
+Gate tolls, market stall fees, guild dues, temple tithes, import duties on
+cross-world goods and sales tax in modern worlds. Each has a collector with a
+reason, and each can be avoided by smuggling, an exemption, a title or a cheat at
+the matching risk. Unlicensed selling where a guild controls the trade invites
+fines or enforcers. All of this is world data, never a global rate.
+
+### M21: gambling and games of chance
+
+Dice in taverns, card games, betting on arena fights or races, lotteries, and
+cultivation-world stone gambling (buying uncut ore that may hold treasure).
+These are fun money sinks with stories attached. Odds are set by the house's
+real edge and the player's knowledge: appraisal can beat stone gambling, and a
+cheat can read cards. Results use the saved RNG stream (N2), so reloading
+doesn't change a result you've already seen.
+
+### M22: wealth changes how people treat you
+
+Visible wealth (clothes, a mount, a retinue, spending) changes prices, invitations,
+suspicion and theft risk. Showing up rich gets you into the noble quarter and
+also raises the innkeeper's prices. Hiding wealth is a choice with its own
+costs. Selling under an alias, or anonymously through a broker or fence, keeps a
+reputation clean at a cut. Sudden wealth from nowhere draws questions in worlds
+with tax collectors or paperwork (M15).
+
+### M23: giving money away
+
+Donations to temples, orphanages, a village rebuilding or a struggling NPC are a
+sink with meaning. They change reputation, relationships and sometimes the world
+(a funded bridge stays built, SR aftermath). In worlds with merit or faith
+(M13), charity can also earn metaphysical currency. Public giving and anonymous
+giving have different effects.
+
+### M24: endgame money
+
+Once money stops being the bottleneck, it should open new kinds of play:
+
+- **Land, titles and property:** buy an estate or a noble rank where it's sold.
+- **Found institutions:** a guild, a bank, a trading company or a sect.
+- **Become an issuer:** mint your own coin or open a ledger of credit. Its value
+  depends on how far your name is trusted. Becoming an issuer is a natural
+  universal-currency path across the worlds you trade in (M16).
+- **Shape markets:** corner a good, fund a rival's competitor, break a monopoly.
+  The in-world response follows M5's rule.
+- **Fund the world:** pay for research, expeditions or a city's walls, with
+  aftermath that persists.
+
+### ACT NOW (done this round)
+
+- Saved M17–M24.
+
+### ACCOUNT FOR NOW
+
+- **A19:** pawning and loans need dated terms that survive save, reload and
+  import, and they need offline accounting (A8). Interest that accrues while the
+  player is away must be shown in the recap.
+- **A20:** theft, collateral loss and bank failure each move real items or coin
+  between owners. Reuse the custody and conservation rules (SR, N5). Nothing
+  vanishes without a recorded destination.
+- **A21:** gambling and stone gambling draw from the saved RNG stream so a result
+  is fixed once it's seen. That's save integrity, not anti-cheat (AD22).
+- **A22:** a player-issued currency is a currency ID like any other (A15), with
+  an acceptance radius stored as reputation (A13) rather than a new system.
+
+### LATER / DELEGATE
+
+| Code | Item | Level | Effort | Done check |
+|---|---|---|---|---|
+| L19 | Pawnbroker: pawn, redeem by date, forfeit | mid coder | S–M | Pawned item returns on redeem; after the date it appears in the pawnbroker's stock; survives save/reload/import |
+| L20 | One lender with interest and a forgiving default | mid coder | M | Interest accrues offline and shows in the recap; a missed payment takes collateral, with no game-over |
+| L21 | Stash or bank storage with a low, reported theft dial | mid coder | M | Stored coin survives travel; a theft event names what was lost and where it went |
+| L22 | Stone gambling or dice using appraisal knowledge | designer + coder | M | Better appraisal improves expected value; a reload shows the same result |
+| L23 | Travelling merchant with rotating foreign stock | mid coder | S–M | Merchant arrives and leaves on a schedule, stock has a stated origin, and a returning visit shows new goods |
+| L24 | Player-issued coin accepted within a reputation radius | strong designer + coder | L | Coin is accepted where the player's name is known and refused or discounted elsewhere |
