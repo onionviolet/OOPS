@@ -1,0 +1,36 @@
+{
+  "date": "2026-10-15",
+  "scope": "Planning/document consolidation only; no runtime source, tests, build, browser, saves, library mutation, workers/messages, commits or publication.",
+  "changedOwners": [
+    "docs/gm/LOTM_INITIATION_IMPLEMENTATION_PLAN_2026-10-15.md",
+    "docs/gm/LOTM_INITIATION_DESIGN_DISCUSSION_2026-10-15.md",
+    "PROJECT.md",
+    "docs/USER_VISION.md"
+  ],
+  "historicalPlan": "docs/gm/dispatch/lotm-initiation-2026-10-15/PLAN_BEFORE_CONSOLIDATION_2026-10-15.md",
+  "historicalPlanSha256": "7eca700af866593eca27d3b331e366b04cb35cdaa9ee0677b4fed9ca420564a9",
+  "currentPlanSha256": "2d95bc43d88d1741af55dfce9d3d0a26009d8a75f27e89ab14d5dd8478e0770e",
+  "existingHeadingAnchorsPreserved": true,
+  "localLinksChecked": 35,
+  "errors": [],
+  "originalSourceSnapshotDrift": [],
+  "inspectedRuntimeFiles": 13,
+  "latestUIOwnershipEvidence": "R5_CHECKPOINT.md documents resumed UI scope in existing UI chat after R4 release; current runtime assignment not inferred.",
+  "resolvedDefaults": [
+    "S1-S5 selected first loop and deliberate local profile",
+    "finite opening dose plus comparator/two sample lots with declared prehistory accounting",
+    "actual custody return with attributed finding",
+    "paid practice five-minute segment, bounded one-minute exam",
+    "D3 integer reserve/strain and D4 native sleep completion once",
+    "additive versioned optional-owner behavior; admitted schema number chosen at integration",
+    "contextual shared UI under UR41-UR46"
+  ],
+  "remainingPrerequisite": "IG1 runtime authority and actual writer/build reservation",
+  "duringImplementation": [
+    "IG2 native bindings and access",
+    "IG3 compatible staged publication and strict reader",
+    "IG4 contextual UI and isolated build/evidence"
+  ],
+  "laterScope": "Market exchange, accepted means-dependent hosting, broader everyday systems, digestion/promotion and added severe routes remain separate.",
+  "pendingPreferenceQuestion": null
+}

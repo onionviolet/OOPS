@@ -1,0 +1,16 @@
+{
+  "checks": [
+    "existing native authority enrollment is active",
+    "native work actually started",
+    "occupied A can depart through continuation boundary",
+    "paused A retains native activity",
+    "paused work restores at exact departure progress",
+    "arrival actually freezes native time and work",
+    "deliberately continuing advances resumed work",
+    "quota rejection preserves exact enrolled root",
+    "quota error is shown",
+    "second tab cannot obtain save writer",
+    "boundary journey has no runtime errors"
+  ],
+  "errors": []
+}

@@ -1,0 +1,4 @@
+Document-only verification
+AB1-AB10 sections present; path references exist; tables have no isolated rows.
+No runtime tests/build/browser/commit/merge performed.
+Issues: []

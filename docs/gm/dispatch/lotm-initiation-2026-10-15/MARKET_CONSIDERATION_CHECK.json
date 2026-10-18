@@ -1,0 +1,61 @@
+{
+  "date": "2026-10-15",
+  "scope": "Read-only source qualification and LOTM planning docs; no runtime execution or changes.",
+  "primarySourceSha256": "6126274478a95dbe03eb904bc35c409067c7022563e52997a46e98be07b2d70d",
+  "primaryWindowsActuallyRead": [
+    {
+      "member": "OEBPS/Text/lotm_c_0034.xhtml",
+      "paragraphs": [
+        39,
+        63
+      ],
+      "sha256": "5dcb168a24abd9f0b7a1817f662f89d0a1cbf9fb37eed8501361db4fb0685b98"
+    },
+    {
+      "member": "OEBPS/Text/lotm_c_0047.xhtml",
+      "paragraphs": [
+        53,
+        73
+      ],
+      "sha256": "3cd06fca4b40785bc792126c905ac85a8d12d0c1f1348f409e94eeb70e96a95a"
+    },
+    {
+      "member": "OEBPS/Text/lotm_c_0048.xhtml",
+      "paragraphs": [
+        15,
+        35
+      ],
+      "sha256": "5007d2e8bc831bc1dc04cf9bd2e1c363c6aa1340acecc5cf71f1c9b9006a7fda"
+    },
+    {
+      "member": "OEBPS/Text/lotm_c_0068.xhtml",
+      "paragraphs": [
+        33,
+        47
+      ],
+      "sha256": "6bd4b4528ef7333264649e844a009d91a863490ab73a7f29544abd54c99cc42f"
+    },
+    {
+      "member": "OEBPS/Text/lotm_c_0069.xhtml",
+      "paragraphs": [
+        36,
+        74
+      ],
+      "sha256": "c643295e171f7e88fd26787ba538331391cc524456144c13516619dd980805b1"
+    },
+    {
+      "member": "OEBPS/Text/lotm_c_0132.xhtml",
+      "paragraphs": [
+        1,
+        38
+      ],
+      "sha256": "1f88bdd6530fa1376dc16231b21cc5cd66b1c23410902c26f8c308ba78f97ad0"
+    }
+  ],
+  "uniqueParagraphs": 159,
+  "localLinksChecked": 25,
+  "errors": [],
+  "originalSourceSnapshotDrift": [],
+  "disposition": "M1-M6/MX1-MX7 future considerations, AR11 conditional audit; initiation scope and IG1-IG4 unchanged.",
+  "qualification": "Supplied compilation authenticity remains qualified; events, reports and authoring proposals distinguished."
+}

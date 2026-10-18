@@ -1,0 +1,527 @@
+--- prior-plan
++++ consolidated-plan
+@@ -1,110 +1,132 @@
+ # LOTM initiation/control: concrete implementation plan
+ 
+-2026-10-15. **Planning and question/answer phase. No runtime write reservation.**
+-[User request](../USER_VISION.md#lotm-implementation-plan-and-new-question-chat-request-2026-10-15).
+-[REC1 comparison](../worlds/HP_LOTM_NEXT_PLAYABLE_FEATURE_2026-10-15.md) owns the
+-selection rationale/source checks; [discussion](LOTM_INITIATION_DESIGN_DISCUSSION_2026-10-15.md)
+-owns LIQ1 and subsequent exact answers. This plan turns that recommended
+-feature into an executable scope under the canon-led LIQ1 resolution below, once runtime
+-ownership is assigned. The present request authorizes this plan and a new chat,
+-not source implementation, a build, commit or an all-pathway system.
++Consolidated 2026-10-15. **Planning complete for the selected scope; runtime not
++implemented or assigned.** [Latest instruction](../USER_VISION.md#lotm-plan-consolidation-request-2026-10-15).
++This file owns the first-slice brief, later-feature boundaries and reusable audit
++rules. The [discussion](LOTM_INITIATION_DESIGN_DISCUSSION_2026-10-15.md) preserves exact
++answers/history; [REC1](../worlds/HP_LOTM_NEXT_PLAYABLE_FEATURE_2026-10-15.md) owns the
++HP/LOTM comparison, not a competing specification. The [pre-consolidation snapshot](dispatch/lotm-initiation-2026-10-15/PLAN_BEFORE_CONSOLIDATION_2026-10-15.md)
++preserves superseded wording and prior source receipts verbatim. Its relative links
++retain the original file's base and it is historical, not an executable plan.
++
++## First playable slice
++
++**S1, outcome:** a deliberate original early-Tingen adult records probationer can
++decline an allocated Seer dose, or take it under supported supervision, establish
++basic stability, separately learn control, use limited material perception on a
++real sample, sleep to recover and reuse the same method on another actual sample.
++This is a playable local branch, not Klein's body/memories or an automatic new-game
++default. Acquisition -> control -> repeatable execution is the progression delivered.
++Full digestion/Sequence advancement remains separate.
++
++**S2, entry and minimum authored world:** use a labelled disposable prototype start
++that deliberately instantiates the local adult, one institutional supervisor who
++can supply/teach the selected operation, a local preparation/teaching place and an
++available sleeping place. No retained Frontier visitor substitution. The original
++supervisor and local branch are authored, not claims about a new canon character.
++The profile has no earlier conflicting source/innate corresponding trait; actual
++body/history is still validated at execution. Do not change the default world or
++load, overwrite or migrate personal saves to enter this prototype.
++
++**S3, stock and real consumer:** opening native state contains one prepared-dose lot
++owned by the supplier, one ordinary comparator and two distinct supported
++supernatural sample lots, one inspectable unit each, under actual custody. Preparation
++is authored prehistory with a pinned qualified recipe/provenance receipt, not an
++interactive general crafting system. Do not also pretend its consumed preparation
++inputs remain available stock, or debit them again at ingestion. Allocation transfers
++no faculty; one valid ingestion consumes the single dose once. The same observation
++method supports both supernatural lots and the ordinary comparator without per-target
++quest grants. Findings have a real downstream handling use: player can return a
++screened sample through an authorized custody transfer with its limited finding,
++so an actor/stock owner actually receives the material and attributed information.
++This does not certify safety or manufacture an item; grant no automatic reward.
++
++**S4, explicit interaction contract:** preview/decline spends nothing; ingestion and
++initial guided attention publish atomically; formal teaching remains interruptible.
++Then perform bounded examination, end sight, optionally return the sample with its
++finding, recover through supported native sleep and examine the second sample.
++D1–D5 below own cancellation, resource, recovery and uncertainty semantics. Source
++ownership survives canceled teaching; opening/rendering/closing a view never consumes,
++refunds, cures, restocks or advances a method. No sustained acute-control branch,
++forced overdraw or unsupported hazardous invocation is exposed.
++
++**S5, ready to code, not proven:** no further consequential player preference is
++pending for this scope. Source qualification and reversible authoring choices are
++resolved below. Runtime authorization and actual write/build assignment remain
++required; IG2–IG4 are concrete integration work/checks for the authorized executor,
++not a new interview or a requirement to prove gameplay before writing code.
++
++## Required now versus later features
++
++| Area | Required for this slice | Account for without building | Later feature / current status |
++| --- | --- | --- | --- |
++| Power and risk | One Seer source, basic stabilization, learned bounded method, finite effort, stop/sleep, H1/H2 symptoms and truthful known warnings. | Separate source, control, strain and any later corruption; never grant supervision immunity or infer fatal odds. | Digestion/promotion, additional paths, bad-dose experiments, specific dangerous-contact/severe-outcome routes. Canon decides admitted causes; no generic catastrophe simulator is required for this loop. |
++| Native people and supplies | Original eligible body, present qualified supervisor, actual finite dose/sample stock, co-location/custody, native places and time. | Definition/source revisions and genuine authority; no second inventory/body truth. | Full Tingen, autonomous NPC schedules, universal eligibility, public potion crafting and supply chains. |
++| Exchange and gatherings | Institutional allocation and supplier ownership only. | Future provenance/appraisal/terms remain compatible with existing custody and knowledge owners. | M1–M6/MX1–MX7 markets; player-hosted gatherings are accepted as means-dependent design direction. HG1–HG8 and the two-contact event are proposed later mechanics, not the next mandatory build. |
++| Everyday world | Usable local teaching/rest space, real teacher availability, actual body/source and sample knowledge. | LW1–LW8 explain the relevant means checks, not mandatory new subsystems. | Housing upgrades, salaries/taxes/debt, language courses, extensive archives, cover stories and institutional investigations. |
++| Integration and delivery | One optional LOTM domain, active-world exclusivity, root native publication, save/reload/import, native sleep join and contextual desktop UI. | Preserve unknown active data, old inactive state, private saves, sealed discoveries and shared owners. | Cross-world travel/continuation, mobile optimization, global rank, new shell or universal death/respawn systems. |
+ 
+ ## Outcome and fixed boundaries
+ 
+-**LI1:** one explicitly original early-Tingen adult probationer profile can decline
+-or undertake one legitimately supplied, supervised Seer initiation, learn control,
+-then use one bounded material-perception method again on a second actual target.
+-Readiness, actual dose allocation, post-ingestion status, source ownership, learned
+-method, effort/reserve and observed findings are distinct. Actual tray/custody or
+-known handling changes make use consequential. No compulsory retrieval contract.
+-
+-**LI2:** meaningful progression in this slice is acquisition -> learned control ->
+-repeatable supported execution. Digestion and later Sequence advancement remain
+-separate. No Klein replacement/memories/fog access, COI boon, automatic protagonist
+-resistance, general potion editor, whole Tingen, universal terminal-death framework, passive
+-absence, universal rank or cross-world continuation adapter. LIQ1 now requires
+-canon-led causal risk: severe consequences of exposed hazards cannot be silently
+-removed. A narrow necessary body/life/agency outcome is not a universal death system.
+-
+-**LI3:** use the existing T2 local adult records-probationer proposal and E1 early
+-source horizon as the reversible authoring default. Do not quietly turn that into
+-a Frontier visitor or default new-game world. The global entry adapter must either
+-instantiate this local profile deliberately or expose a clearly labelled disposable
+-prototype start during review. Shipping access remains a native integration gate;
+-a fixture-only walkthrough is not delivery. If retained-body entry would be easier,
+-record its source compatibility as a separate proposal rather than changing T2.
+-
+-## Current source and ownership snapshot
+-
+-[Source hashes](dispatch/lotm-initiation-2026-10-15/SOURCE_SNAPSHOT.json) pin relevant
+-dirty files and HEAD; they grant no reservation and must be refreshed before coding.
+-Unrelated dirty state is extensive. Current outputs/builds and open browser/test
+-processes belong to other work; no process was stopped or test origin reused.
+-
+-| Area | Observed owner / state | Consequence for receiver |
+-| --- | --- | --- |
+-| Direction/detail docs | Parent `01a13e47-e9d3-76a3-ac9c-e21475e8ff96`; this plan/discussion created for explicit LOTM handoff | Effective transfer names this receiver `01a1400c-d1f1-7333-be3b-cdc0a54daf3a` for the bounded LOTM documentation area. Broader direction remains with parent. |
+-| Shared presentation | Effective R4 transfer names `01a13ffc-dd13-7c81-b87a-cc235dbb8c82`; checkpoint says implementing | Workspace/controller/styles/UI tests/shared build remain held by that owner. Consume public APIs later; no shell redesign or concurrent shared build. |
+-| Main/save/clock/continuation | Quiet-continuation reservation is explicitly released; R4 excludes these paths | Release is not automatic assignment to the new chat. Recover newer reservations and receive an actual scoped writer assignment before changes. Continuation modules stay out of this slice. |
+-| Craft/fishing | Live chats active; R4 checkpoint describes their research-folder boundaries | No transfer of recipe, procedural-crafting, fishing or their design folders. Read relevant interfaces only if this feature actually uses them. |
+-| Novel source/indexes | LOTM supplied-edition source/read-review owners remain their own lanes | Read-only targeted claim/primary access allowed for needed qualification. No reopening full-book goal, library write, raw prose commit or source-owner rewrite. |
+-
+-Original snapshot used app status plus `R4_TRANSFER.json`, `R4_CHECKPOINT.md`
+-and quiet-continuation `RESERVATION.json`. This qualification pass reread the
+-transfer/reservation files only; current app/worker activity must be refreshed
+-when assigning runtime scope. Ownership is not inferred from idle status alone.
+-No messages sent to the existing chats. Check these again when work resumes.
+-
+-## Source qualification and canon-led risk decision
+-
+-Reuse the five pinned windows in REC1: 0029 p1–13, 0031 p41–79, 0032 p46–56,
+-0033 p1–18, 0040 p14–38 in the supplied Chinese EPUB. Source SHA-256 remains
+-`6126274478a95dbe03eb904bc35c409067c7022563e52997a46e98be07b2d70d`.
+-The previous pass actually read these windows. This receiver additionally checked
+-0018 p35–64, 0031 p60–76, 0032 p1–45 and 0033 p19–65 read-only against the same
+-hash-pinned EPUB and r003 C12–C14 / r004 C13–C19 reviewed claims. These are local
+-supplied-edition observations, not fresh verification of original publication.
+-
+-**LIQ1 resolved by delegated canon judgment.** Exact user answer:
+-“decide based on book cannon”. This accepts canon as the deciding criterion; it
+-does not literally endorse every proposed failure mechanic. Derived planning
+-selection: preserve source-causal severe loss of control and lasting consequences
+-for hazards the first slice actually exposes. Do not make supervision a safety
+-flag or suppress a supported serious outcome to finish sooner. Acquisition,
+-attention/control training and finite perception/recovery remain the core loop.
+-
+-| Evidence | What the plan may use | What it does not establish |
+-| --- | --- | --- |
+-| 0018 p35–52 | Dunn reports distinct hazards from nonstandard/high-grade ingestion and incompatible traits/pathways, including loss of agency, bodily destruction and death. | No universal cross-pathway algorithm; institutional teaching is not a tested ordinary novice case. Incompatible-path exploration remains outside this one Seer start. |
+-| 0018 p55–64 | Dunn warns that institutional advancement precautions do not eliminate casualties and describes dangerous heightened perception/exposure. | Advancement casualties are not a measured initial Seer ingestion rate. No guarantee of immunity from correct preparation. |
+-| 0031 p61–71 | Neil warns excess principal ingredients can cause mental injury or death; actual preparation shows careful measure/handling. | No precise tolerance, probability or rescue protocol. General potion editing remains deferred. |
+-| 0032 p12–44 | One supervised ingestion produces distress, whispers and destructive agitation; guided attention reduces it. | One actor's success is neither universal rescue nor evidence that every interruption becomes severe loss. No protagonist protection is granted to the original probationer. |
+-| 0033 p19–41, p49–65 | Neil teaches stopping/control and moderation; excessive practice produces exhaustion, followed by sleep and observed recovery. Dunn warns against dangerous exposure. | Ordinary exhaustion is not automatically corruption, permanent madness or death; sleep is not a cure for every loss of control. |
+-
+-**Implementation consequence:** freeze a compact causal table before runtime work:
+-each exposed hazard needs source locator, actual trigger/body/source/exposure,
+-known warning, supported control/help, durable outcome and limits of recovery.
+-Do not add a random initial-failure roll merely because danger exists. Unknown
+-probabilities stay unknown. Do not fabricate exact severe triggers from general
+-warnings. If a hazardous command lacks sufficient causal/outcome qualification,
+-leave that command unavailable as an implementation limit; do not show it as safe.
+-A correctly prepared supervised success remains supported, without an immunity
+-flag. Full digestion/promotion, arbitrary dose/path experiments and exceptional
+-protagonist metaphysics stay deferred. This changes planning scope only.
++**LI1:** readiness, dose allocation, irreversible source acquisition, basic stability,
++formal method learning, finite effort and observed findings are distinct. S1–S4
++own the playable route; no compulsory retrieval commission or reward loop.
++**LI2:** one local profile, one Seer acquisition and reusable method. No digestion,
++promotion, alternate paths, protagonist faculties, world-spanning continuation,
++universal rank/death engine or general potion editor in this slice.
++**LI3:** S2 resolves the T2 local-adult/E1 early-Tingen prototype entry. It does not
++replace the default new game or convert a retained Frontier body. Any later entry
++change needs an actual compatibility decision, not a renamed profile.
++
++## Remaining gates before implementation
++
++| Gate | Current state and exact next action | Needs another player preference? |
++| --- | --- | --- |
++| IG1, execution authority/writers | Planning-only transfer remains effective. A later runtime instruction must assign the LOTM leaves and root integration paths; recover main/save/engine/UI/build owners at that moment. R5 checkpoint documents resumed UI ownership after R4 release; quiet-continuation is released, not assigned here. | No design interview; actual implementation authorization and scoped assignment are still required. |
++| IG2, native entry/supplier/stock | Freeze a deliberate disposable prototype entry for the original local probationer, the S2/S3 finite opening lot/allocation and real rest place/sample lots using current native registries. No visitor/body substitution, default-world change or dialogue-spawned stock. Shipping access is the later native acceptance gate. | No; routine authored names, IDs, schedule and exact quantities may be resolved in the owned implementation. |
++| IG3, schema and publication | Use the current engine's actual version admission rules, optional owner validation and staged native save publication. Add LOTM to active-world validation; choose the admitted version with the integrator after live source recovery. Existing code explicitly lists optional owners, so an unregistered extra field is insufficient. | No; this is an engineering decision and compatibility check. |
++| IG4, UI home and build window | Entry is a threshold/prototype choice; supervised initiation is a place service; lessons, examination and sleep use routine actions; ability/source explanation uses reference/detail; findings use the existing log. Follow [UI rules](../UI_RULES.md), especially UR41–UR46: contextual local scope/return, shared controller and bottom Back/Esc for center replacements, accessible stable detail and intact log at populated 1366×768 and affected 125/150% text. No current global inspection default is selected here. Shared UI owner confirms adapter/home and build window; mobile and visual redesign remain deferred. | No new broad style question. Native discoverability and human feel remain later evidence. |
++
++IG1 is the authorization/ownership prerequisite. IG2–IG4 define integration work
++and ownership coordination, not unresolved player preferences. No further source
++research is a prerequisite for the admitted H1/H2 loop. Specific
++unsafe actions remain unavailable; adding them would reopen AR2/AR5/AR8 rather than
++silently accept guessed risk. Unit/transaction/native browser/save/import checks
++belong during implementation, not as impossible pre-implementation prerequisites.
++
++## State and operation contract
++
++Names below are **proposed identifiers**, not existing APIs/registered world data:
++`book.lotm.tingen`, `book.lotm.tingen.initiation.branch`, profile
++`lotm.early_tingen.local_probationer@1`, source `book.lotm.seer`, method
++`book.lotm.material_perception`. Freeze exact identifiers only in authorized code.
++
++| Operation/state | Producer, precondition and actual commit | Invariant / cancellation |
++| --- | --- | --- |
++| Dormant -> enrolled | Explicit supported profile selection; qualified adult body, one instance/local actors and finite native stock | Absent domain stays absent on old saves. No chart/render seeding. Add LOTM to one-controlled-body active-visit validation. Do not allow simultaneous native locations. |
++| Supplier allocation | One real owned source-qualified prepared dose, provenance/recipe revision, lawful supplier authority, current supervisor and eligible recipient | Allocation/reservation cannot duplicate stock. Use a dedicated admitted dose/lot identity and actual custody; a generic healing potion is not convertible by label. Opening lot/provenance is actual authored initial state under S3; do not double-count prehistory inputs or spawn stock from dialogue. |
++| Review / consent | Pure preview of known conditions/terms and implemented risk scope; explicit command commits ingestion | Preview/Back/decline spends nothing. Ingredients/policy/risk target cannot change behind the accepted quote. Recheck sequence and current support at commit. |
++| Ingestion and initial stabilization committed | Remove one actual dose, record the actual guided-attention event and grant one acquired source with causal receipt; formal control method remains unlearned | This is irreversible consumption, not a cancel/refund job. Later interruption cannot restore the dose or remove the acquired source. A failed publication before commit changes neither. Duplicate submit rejects. |
++| Control lesson | Actual supported teacher, co-location, own attention/effort and learner body, admitted current source/basic stabilization/formal method status | Accepted held-work descriptor freezes participant/body/definition revisions. Cancel returns only genuine held tools/unspent reservations. No refund of earlier ingestion or already expended recovery. |
++| Control achieved / method learned | Completed supported exercise activates qualified voluntary execution and learns one method | Generic acquired faculty alone does not grant every method. Involuntary initial perceptions/conditions are not a freely executable learned power. Keep source ownership after missing/unfinished lesson. |
++| Observe / use | Current supported source/body, learned method/control, actual target/custody/permission/channel and finite usable reserve | One plan spends actual means, records attributed limited observation and changes the authored target handling/tray state. Unknown/inconclusive target has no invented verdict. Held target/tool returned as appropriate. |
++| Practice / recovery / later reuse | Performed supported use can refine control; explicit played-time supported recovery restores only its declared reserve/strain | No digestion/Sequence increase from a lesson. No passive stock/teacher/energy refill, duplicate observation rewards or permanent escort. Same method works on another qualified sample without a new quest button. |
++
++Use existing actor sources/faculties/powers/knowledge/conditions/jobs/claims/custody
++as their owners. Small optional LOTM metadata should contain only pinned profile/
++source/body/instance/native revisions, local enrollment/absence support and phase
++references that cannot be derived safely. Do not duplicate power ownership,
++resource totals or every observation in an extra campaign ledger.
++
++**Energy decision:** use D3 above with the existing integer policy; D4 owns the
++sleep completion contract. No parallel resource ledger. The integrator must prove
++native sleep is charged and recovery published exactly once.
+ 
+ ## Qualified hazards and consequences
+ 
+-Updated after Weibao requested exact hazard qualification and reusable audit rules.
+-The following is the current derived implementation brief under his canon criterion.
+-Source facts, institutional teaching and authored discretization are separate.
+-
+-**F1, correction to the preceding interpretation:** serious consequences are required
+-when a supported cause is exposed. Canon does not require inventing a catastrophic
+-branch for each lesson interruption. The initial claim that a severe resolver might
+-be necessary for this supervised loop was too broad without an admitted severe
+-cause. The narrow first loop below has directly supported distress and exhaustion;
+-it does not claim to simulate every possible canon hazard or grant actual immunity.
+-No unsupported severe command is made available as secretly harmless.
++H1/H2 are the admitted first-slice hazards. H1a is the authored transaction
++boundary; H3–H7 constrain excluded/future operations. The table records source
++facts and limits separately from the derived implementation contract.
+ 
+ | Case | Qualified cause, evidence and consequence | First-slice disposition and limits |
+ | --- | --- | --- |
+@@ -146,8 +168,11 @@
+ **D3, one resource truth:** reuse the inspected integer energy policy for reserve
+ and strain, with a LOTM-specific definition. Prototype values: capacity 6, output 1,
+ control 1, efficiency 1:1, strain limit 6, strain per performed use 1. Each bounded
+-examination costs one unit; formal practice has one performed paid segment and
+-then stops. Acquisition provisions the original profile's initial reserve once,
++examination costs one unit; formal practice has one five-minute performed segment costing one unit; a bounded
++examination costs one unit over one played minute. These durations are prototype
++authoring. Cost for performed work commits at that segment’s start and is not
++refunded by cancellation; formal learning/refinement commits only on completed
++qualified work, with an idempotent receipt. Practice stops at completion/cancel. Acquisition provisions the original profile's initial reserve once,
+ never on render, lesson restart or reload. These are author values, not novel
+ measurements. Keep overflow symptoms, exertional strain and any later corruption
+ separate; a second mirrored stamina/sanity ledger is unnecessary.
+@@ -157,8 +182,9 @@
+ clamped to capacity; duration/amount are prototype tuning. It requires the actual
+ living body, a supported available rest place and normal native sleep eligibility.
+ Canceling before completion gives no completion recovery; native elapsed time and
+-other actual costs stay spent. Finishing early by changing a clock, opening a menu
+-or importing an already-completed receipt cannot award again. Sleep never removes
++other actual costs stay spent. Loading a completed receipt or reopening a menu cannot award recovery again.
++Only the shared clock’s supported job completion can award it; no alternate clock
++writer or direct elapsed-time setter is introduced. Sleep never removes
+ a source, grants method/digestion, cleanses corruption or reverses death. This
+ bounded implementation uses completion-based recovery, not a universal biological
+ claim that partial sleep has no value. The native integrator must reconcile existing
+@@ -167,7 +193,8 @@
+ **D5, real consumer:** one qualified ordinary comparator and two distinct actual
+ source-qualified supernatural sample lots share the same observation method and
+ custody checks. Observing a signal records only its supported limited finding.
+-The informed player may then choose actual authorized tray/handling changes;
++The informed player may then choose the S3 return-with-finding operation or
++other actual authorized handling;
+ perception does not itself move items, identify the whole recipe or certify safety.
+ A moved/replaced sample invalidates the old preview and basis. Negative sight is
+ not proof there is no supernatural hazard, hidden observer or poisoned material.
+@@ -176,39 +203,22 @@
+ new user quotations or implemented behavior. Numeric tuning is no longer an open
+ preference question. The resource and sleep/native joins need implementation proof.
+ 
+-Earlier proposal history: initially the agent proposed deferring every severe
+-outcome for speed; LIQ1 replaced that priority with canon. The intervening plan
+-then left acute interruption and a possible severe resolver open. This qualification
+-resolves the first loop's authoring boundary without inventing a severe trigger.
+-Canon-led causes/consequences remain the deciding rule for any later expansion.
+-
+-## State and operation contract
+-
+-Names below are **proposed identifiers**, not existing APIs/registered world data:
+-`book.lotm.tingen`, `book.lotm.tingen.initiation.branch`, profile
+-`lotm.early_tingen.local_probationer@1`, source `book.lotm.seer`, method
+-`book.lotm.material_perception`. Freeze exact identifiers only in authorized code.
+-
+-| Operation/state | Producer, precondition and actual commit | Invariant / cancellation |
+-| --- | --- | --- |
+-| Dormant -> enrolled | Explicit supported profile selection; qualified adult body, one instance/local actors and finite native stock | Absent domain stays absent on old saves. No chart/render seeding. Add LOTM to one-controlled-body active-visit validation. Do not allow simultaneous native locations. |
+-| Supplier allocation | One real owned source-qualified prepared dose, provenance/recipe revision, lawful supplier authority, current supervisor and eligible recipient | Allocation/reservation cannot duplicate stock. Use a dedicated admitted dose/lot identity and actual custody; a generic healing potion is not convertible by label. Supplier inputs/stock must be actual, even if preparation is prehistory. |
+-| Review / consent | Pure preview of known conditions/terms and implemented risk scope; explicit command commits ingestion | Preview/Back/decline spends nothing. Ingredients/policy/risk target cannot change behind the accepted quote. Recheck sequence and current support at commit. |
+-| Ingestion and initial stabilization committed | Remove one actual dose, record the actual guided-attention event and grant one acquired source with causal receipt; formal control method remains unlearned | This is irreversible consumption, not a cancel/refund job. Later interruption cannot restore the dose or remove the acquired source. A failed publication before commit changes neither. Duplicate submit rejects. |
+-| Control lesson | Actual supported teacher, co-location, own attention/effort and learner body, admitted current source/basic stabilization/formal method status | Accepted held-work descriptor freezes participant/body/definition revisions. Cancel returns only genuine held tools/unspent reservations. No refund of earlier ingestion or already expended recovery. |
+-| Control achieved / method learned | Completed supported exercise activates qualified voluntary execution and learns one method | Generic acquired faculty alone does not grant every method. Involuntary initial perceptions/conditions are not a freely executable learned power. Keep source ownership after missing/unfinished lesson. |
+-| Observe / use | Current supported source/body, learned method/control, actual target/custody/permission/channel and finite usable reserve | One plan spends actual means, records attributed limited observation and changes the authored target handling/tray state. Unknown/inconclusive target has no invented verdict. Held target/tool returned as appropriate. |
+-| Practice / recovery / later reuse | Performed supported use can refine control; explicit played-time supported recovery restores only its declared reserve/strain | No digestion/Sequence increase from a lesson. No passive stock/teacher/energy refill, duplicate observation rewards or permanent escort. Same method works on another qualified sample without a new quest button. |
+-
+-Use existing actor sources/faculties/powers/knowledge/conditions/jobs/claims/custody
+-as their owners. Small optional LOTM metadata should contain only pinned profile/
+-source/body/instance/native revisions, local enrollment/absence support and phase
+-references that cannot be derived safely. Do not duplicate power ownership,
+-resource totals or every observation in an extra campaign ledger.
+-
+-**Energy decision:** use D3 above with the existing integer policy; D4 owns the
+-sleep completion contract. No parallel resource ledger. The integrator must prove
+-native sleep is charged and recovery published exactly once.
++## Compatibility decision to make before coding persistence
++
++Resolved compatibility contract: additive optional versioned LOTM domain and native metadata,
++explicit inactive legacy behavior, and a new admitted engine/content version only
++if actual strict-reader semantics require it. Pin profile/definition/source revisions
++and actual body/instance. This fixes the behavior, not a speculative version number. Choose the actual
++admitted schema/version after refreshing the integrating reader; do not preselect “schema12”. The new reader must support explicit older inactive states; old reader
++may reject new active state before mutation. Unknown active LOTM data is preserved/
++refused, never reset or stripped. Do not promise generic dormant-pack support where
++current readers lack it.
++
++Ingestion, source ownership, pending control, resources, target custody and result
++must serialize together under the existing root publisher. New local profile
++activation must respect current optional worlds, jobs, sessions and one active
++native body. Existing quiet continuation explicitly excludes other active retained
++worlds; keep that rejection/preservation intact. Do not fix it by deleting LOTM state.
+ 
+ ## Concrete code seams and proposed files
+ 
+@@ -220,28 +230,11 @@
+ | `expansion_engine.js` | Add optional LOTM validation, explicit active-visit exclusivity, supported occupied/absence clock contexts and only needed boundaries | Current schema admission accepts a finite version set; schema11's required-owner check explicitly names existing owners. Do not insert LOTM behind it unreviewed. Decide compatibility with the integrator. |
+ | `main.js` native contexts/commit/publication/save/restore | Existing MoL pattern: `molNative.read`, context join, `commitMolCommand`, `molNative.stage` in one root publication, snapshot and restore | Proposed LOTM equivalents are missing. Root integration must bind actual NPC/item/location/stock/body/quest state, not a separate toy simulation. |
+ | `expansion_persistence.js`, `save_files.js`, `save_compatibility.js` | Reuse staged native publication and existing durable writer; add explicit envelope/preflight/restore validation for new domain and source/definition revisions | No second save key, localStorage writer or import shortcut. Refresh actual current main/save ownership first. |
+-| Existing UI_RULES, native Notebook/action/detail homes | Prefer existing routine local-action list, source/learning status detail, actual item inspection and log result | UI owner validates surface/home. Native controller/navigation remain shared. No new permanent side column or full-screen art/style project. |
++| Existing UI_RULES UR41–UR46, routine/place actions and contextual detail homes | Use the corresponding task/Focus/You/detail scope. A stable accessible item inspection may be anchored/pinned; do not force it into a permanent page or lower center. Center replacements use the shared controller; local routes preserve their own return | UI owner validates surface/home. Native controller/navigation remain shared. No new permanent side column or full-screen art/style project. |
+ | Proposed `tests/lotm_initiation*.test.js` and browser script | Meaningful state/transaction/native lifecycle and two-target repeat proof | Only after runtime scope. Use disposable origins/synthetic exported files, not personal saves or someone else's running server. |
+ 
+ Exact import/export names for new LOTM code must be chosen from actual implementation,
+ not asserted by this table. Source fingerprints are inspection evidence only.
+-
+-## Compatibility decision to make before coding persistence
+-
+-Preferred plan: additive optional versioned LOTM domain and native metadata,
+-explicit inactive legacy behavior, and a new admitted engine/content version only
+-if actual strict-reader semantics require it. Pin profile/definition/source revisions
+-and actual body/instance. This is a proposed compatibility choice, not “schema12”
+-selected blindly. Forward reader supports explicit older inactive states; old reader
+-may reject new active state before mutation. Unknown active LOTM data is preserved/
+-refused, never reset or stripped. Do not promise generic dormant-pack support where
+-current readers lack it.
+-
+-Ingestion, source ownership, pending control, resources, target custody and result
+-must serialize together under the existing root publisher. New local profile
+-activation must respect current optional worlds, jobs, sessions and one active
+-native body. Existing quiet continuation explicitly excludes other active retained
+-worlds; keep that rejection/preservation intact. Do not fix it by deleting LOTM state.
+ 
+ ## Bounded implementation sequence after authorization
+ 
+@@ -263,11 +256,11 @@
+    remaining human fiction/feel gate saved. Complete this slice before broadening
+    to digestion, additional pathways or another world. No auto commit/push.
+ 
+-A new implementation instruction and effective runtime scope are needed because
+-the present user asked for a plan and discussion chat. This is the task's authority
+-boundary, not an extra approval imposed by the skill. Do all independent planning
+-now; do not use an unanswered risk question to stop harmless source/compatibility
+-work. No worker delegation is implied by creating the user-requested chat.
++Runtime authority is still absent under the effective documentation-only transfer.
++Once the user assigns implementation, execute this sequence without another taste
++interview. Tests/build/native/save/import checks are work during that implementation;
++they do not prove the current plan is already implemented. No worker, further chat,
++commit, push or publication is implied.
+ 
+ ## Acceptance matrix and first failure cases
+ 
+@@ -287,37 +280,74 @@
+ 
+ ## More to consider and real remaining choices
+ 
+-**R1, committed change versus work cancellation:** plan must preserve post-dose
+-acquisition and real symptoms even if the player refuses further teaching or a
+-supervisor becomes unavailable. A source is not a rented lesson. Provide known
+-ordinary rest/help/decline options only where their actual means support them.
+-
+-**R2, trait observation versus hidden truth:** a material signal is not its full
+-recipe, identity, health safety or soul. Neither numeric readiness nor target
+-listing can leak sealed facts. Test target changes and unsupported channels.
+-
+-**R3, branch and time:** an original local initiation is not a replay guaranteed
+-by chapter order. Local permission, institutional supply and instructor knowledge
+-must be actual; source preconditions and delayed revelation remain separate. No
+-exact novel calendar or absence advancement invented for convenience.
+-
+-**Q1/LIQ1:** answered with canon as the deciding criterion. The causal table and
+-source qualification for H1–H7 is recorded above. No canon formula is missing for
+-the admitted bounded operations; new hazardous commands require separate qualification. Local budgets/names/phase IDs/UI grouping and routine recovery values
+-are reversible authoring choices; resolve them without asking a string of taste
+-questions. If an entry-body or source contradiction materially changes the promised
+-feature, surface that exact conflict next, at most one question at a time.
++**R1:** consume once, preserve acquisition through canceled teaching, and publish
++native stock/source/body/job/receipt together. Segment-start spending and completion
++learning are distinct; never refund real performed work through cancellation.
++**R2:** the same limited finding can support an actual return/handling operation,
++but never imply safety, identity or omniscient sealed truth. Unknown and moved
++samples retain qualified, revision-bound observations, not stale success.
++**R3:** use actual local authority and world timing. Opening a tab is not a clock,
++stock refresh, witness or privacy guarantee. Native sleep must restore the selected
++pool once, while ordinary native sleep effects keep their own legitimate owners.
++
++**Q1/LIQ1:** answered. No further consequential player question blocks this slice.
++Names and actual definition IDs are executor choices within S1–S5. Only a newly
++found source/body/entry contradiction that changes the promised behavior warrants
++a new question; report that concrete conflict instead of reopening settled direction.
++
++## Source qualification and canon-led risk decision
++
++**Accepted criterion:** Weibao answered LIQ1, “decide based on book cannon”. This
++chooses canon as the deciding rule; it does not endorse invented probabilities or
++every proposed outcome. Player hosting is separately accepted as a means-dependent
++direction. Concrete profile, transaction granularity, numbers and later HG/MX/LW
++mechanics remain labelled authored choices, not quotations from the book.
++
++Use the supplied Chinese EPUB SHA-256
++`6126274478a95dbe03eb904bc35c409067c7022563e52997a46e98be07b2d70d`.
++Members are `OEBPS/Text/lotm_c_NNNN.xhtml`; locators count nonempty HTML p blocks
++from 1 using the existing tolerant parser. Compilation authenticity/completeness
++is qualified, not newly certified. REC1 pins 0029 p1–13, 0031 p41–79, 0032 p46–56,
++0033 p1–18 and 0040 p14–38. Subsequent checked windows and evidence levels are
++retained in H1–H7, M1–M6, HG and LW below and the saved check receipts.
++
++The source supports immediate distress, guided attention, training, exertion and
++sleep recovery. It supplies no universal novice-failure percentage or observed
++ordinary canceled-lesson catastrophe. Other severe cases constrain future hazards;
++they do not grant this original actor protagonist protection or require replaying
++later events. For each newly admitted hazard, pin cause, actual means, known warning,
++control/help, durable outcome and recovery limits before exposing it as playable.
++Keep teaching, witnessed event, viewpoint inference and authoring values distinct.
++No further book research is a prerequisite for the current bounded H1/H2 loop.
++
++## Current source and ownership snapshot
++
++[Source hashes](dispatch/lotm-initiation-2026-10-15/SOURCE_SNAPSHOT.json) pin relevant
++dirty files and HEAD; they grant no reservation and must be refreshed before coding.
++Unrelated dirty state is extensive. Existing outputs/builds are not LOTM delivery evidence; current browser/test
++processes were not inventoried for a runtime assignment in this documentation pass; no process was stopped or test origin reused.
++
++| Area | Observed owner / state | Consequence for receiver |
++| --- | --- | --- |
++| Direction/detail docs | Parent `01a13e47-e9d3-76a3-ac9c-e21475e8ff96`; this plan/discussion created for explicit LOTM handoff | Effective transfer names this receiver `01a1400c-d1f1-7333-be3b-cdc0a54daf3a` for the bounded LOTM documentation area. Broader direction remains with parent. |
++| Shared presentation | R5 checkpoint names `01a13ffc-dd13-7c81-b87a-cc235dbb8c82` resuming the transferred UI scope | R4 release does not release the subsequently resumed R5 scope; recover its live reservation before integration/build. Consume public APIs later; no shell redesign or concurrent shared build. |
++| Main/save/clock/continuation | Quiet-continuation reservation is explicitly released; R4 excludes these paths | Release is not automatic assignment to the new chat. Recover newer reservations and receive an actual scoped writer assignment before changes. Continuation modules stay out of this slice. |
++| Craft/fishing | Earlier snapshot recorded active research chats; their current activity is not reverified in this consolidation | No transfer of recipe, procedural-crafting, fishing or their design folders. Read relevant interfaces only if this feature actually uses them. |
++| Novel source/indexes | LOTM supplied-edition source/read-review owners remain their own lanes | Read-only targeted claim/primary access allowed for needed qualification. No reopening full-book goal, library write, raw prose commit or source-owner rewrite. |
++
++Original snapshot used app status plus `R4_TRANSFER.json`, `R4_CHECKPOINT.md`
++and quiet-continuation `RESERVATION.json`. This consolidation reread R5 checkpoint and
++quiet-continuation reservation files only; current app/worker activity must be refreshed
++when assigning runtime scope. Ownership is not inferred from idle status alone.
++No messages sent to the existing chats. Check these again when work resumes.
+ 
+ ## Dispatch state
+ 
+-New discussion chat requested explicitly. Its actual ID and bounded documentation
+-transfer are recorded in [TRANSFER](dispatch/lotm-initiation-2026-10-15/TRANSFER.json)
+-after creation. Initial owner may review sources, develop this plan, record
+-LIQ1 and relevant answers, and save its own evidence. No runtime, shared UI/build,
+-source-library, private saves, worker or commit authority is transferred.
+-Parent retains broader gameplay direction; receiver may update only the named
+-LOTM plan/discussion and LOTM-specific canonical sections under that transfer.
+-
++[TRANSFER](dispatch/lotm-initiation-2026-10-15/TRANSFER.json) is effective for receiver
++`01a1400c-d1f1-7333-be3b-cdc0a54daf3a`, documentation only. Parent retains broader
++direction; this receiver owns the LOTM plan/discussion/dispatch and narrowly scoped
++LOTM canonical updates with concurrent-edit checks. No runtime source/test/UI/build,
++private-save/library, worker, extra-chat/message, commit or publication assignment.
+ 
+ ## Reusable feature audit rules
+ 
+@@ -344,21 +374,6 @@
+ promotion, hostile-contact investigation and cross-world continuation remain later
+ features. Do not add a timer, another chat/agent or recurring audit through these rules.
+ 
+-## Remaining gates before implementation
+-
+-| Gate | Current state and exact next action | Needs another player preference? |
+-| --- | --- | --- |
+-| IG1, execution authority/writers | Planning-only transfer remains effective. A later runtime instruction must assign the LOTM leaves and root integration paths; recover main/save/engine/UI/build owners at that moment. R4 transfer is still effective in the checked file; quiet-continuation is released, not assigned here. | No design interview; actual implementation authorization and scoped assignment are still required. |
+-| IG2, native entry/supplier/stock | Freeze a deliberate disposable prototype entry for the original local probationer, one finite supplier preparation/allocation and real rest place/sample lots using current native registries. No visitor/body substitution, default-world change or dialogue-spawned stock. Shipping access is the later native acceptance gate. | No; routine authored names, IDs, schedule and exact quantities may be resolved in the owned implementation. |
+-| IG3, schema and publication | Use the current engine's actual version admission rules, optional owner validation and staged native save publication. Add LOTM to active-world validation; choose the admitted version with the integrator after live source recovery. Existing code explicitly lists optional owners, so an unregistered extra field is insufficient. | No; this is an engineering decision and compatibility check. |
+-| IG4, UI home and build window | Entry is a threshold/prototype choice; supervised initiation is a place service; lessons, examination and sleep use routine actions; ability/source explanation uses reference/detail; findings use the existing log. Follow [UI rules](../UI_RULES.md), center controller, Back/Esc and intact log at populated 1366×768. Shared UI owner confirms adapter/home and build window; mobile and visual redesign remain deferred. | No new broad style question. Native discoverability and human feel remain later evidence. |
+-
+-No further source research is a prerequisite for the admitted H1/H2 loop. Specific
+-unsafe actions remain unavailable; adding them would reopen AR2/AR5/AR8 rather than
+-silently accept guessed risk. Unit/transaction/native browser/save/import checks
+-belong during implementation, not as impossible pre-implementation prerequisites.
+-
+-
+ ## Markets, private gatherings and niche exchange
+ 
+ Requested 2026-10-15 after hazard qualification. These are source-grounded future
+@@ -466,7 +481,6 @@
+ This extends the reusable AR1–AR10 rules without requiring every feature to build
+ a market, loan system or networked gathering.
+ 
+-
+ ## Player-hosted gatherings
+ 
+ 2026-10-15. [Original answer](../USER_VISION.md#lotm-player-hosted-gatherings-direction-2026-10-15).
+@@ -518,10 +532,8 @@
+ 
+ ### Scope and remaining implementation questions
+ 
+-**Current initiation:** IG1–IG4 remain the actual gates: execution ownership,
+-native profile/supplier/body/stock/rest/sample joins, compatible root publication,
+-and shared UI/build integration. Hosting is not required to learn control or make
+-the second perception use. No further player preference is needed before that slice.
++**Current initiation:** [S1–S5](#first-playable-slice) and [IG1–IG4](#remaining-gates-before-implementation)
++own current scope/readiness. Hosting is not required to finish that slice.
+ 
+ **Later minimal hosting proposal:** one private local event, two existing reachable
+ contacts, explicit invitation/consent and a supported room. Let attendees offer one
+@@ -545,7 +557,6 @@
+ knowledge/service, supportable remedy and event lifecycle. A hosted room or completed
+ conversation is not proof that the service was performed or the bargain settled.
+ 
+-
+ ## Small world details that change play
+ 
+ Consideration requested 2026-10-15. These LW entries are derived suggestions and

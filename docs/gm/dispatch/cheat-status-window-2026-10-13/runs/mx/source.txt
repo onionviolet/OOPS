@@ -1,0 +1,417 @@
+src/status_window.js
+1: import {awakenedStatusCard} from './cheat_cards.js';
+2: import {definePanel} from './panel_kit.js';
+3: import {getDisplaySetting, subscribeDisplaySettings} from './display_settings.js';
+4: 
+5: const coreStats = ['strength', 'agility', 'dexterity', 'intuition', 'magic'];
+6: const node = (tag, text = '') => {const n = document.createElement(tag); n.textContent = text; return n;};
+7: export function createStatusWindow({read, onKnown = () => {}}) {
+8:     const panel = node('section'); panel.id = 'status_window_panel'; panel.className = 'status_window'; panel.hidden = true;
+9:     document.getElementById('character_div').append(panel);
+10:     const level = node('span'); level.dataset.statusLevel = '';
+11:     const levelRow = node('div'); levelRow.className = 'status_window_row'; levelRow.append(node('span', 'Level'), level); panel.append(levelRow);
+12:     const values = new Map();
+13:     for(const stat of coreStats) {
+14:         const row = node('div'), value = node('span'); row.className = 'status_window_row'; row.dataset.panelRow = '';
+15:         value.dataset.statusStat = stat;
+16:         row.append(node('span', stat[0].toUpperCase() + stat.slice(1)), value); panel.append(row); values.set(stat, value);
+17:     }
+18:     const fields = {};
+19:     for(const [key, label] of [['titles', 'Earned titles'], ['points', 'System points'], ['quests', 'Quests']]) {
+20:         const section = node('div'); section.className = 'status_window_detail';
+21:         const value = node('p'); value.setAttribute(`data-status-${key}`, ''); section.append(node('strong', label), value); panel.append(section); fields[key] = value;
+22:     }
+23:     function render() {
+24:         const snapshot = read(), entry = awakenedStatusCard(snapshot.cheats);
+25:         panel.hidden = !entry;
+26:         if(!entry) return;
+27:         onKnown();
+28:         panel.dataset.density = getDisplaySetting('panel.status-window.density') || 'comfortable';
+29:         level.textContent = String(snapshot.level);
+30:         for(const [stat, value] of values) value.textContent = snapshot.stats[stat].toFixed(1);
+31:         fields.titles.textContent = snapshot.titles.join(', ') || 'No titles earned yet.';
+32:         fields.points.textContent = String(entry.card.state.points ?? 0);
+33:         fields.quests.textContent = 'No system quests yet. For now, the system only records what you know.';
+34:     }
+35:     render();
+36:     definePanel({id: 'status-window', title: 'Status window', role: 'character', node: panel,
+37:         defaultDock: 'left', after: 'vitals', discovered: () => !!awakenedStatusCard(read().cheats),
+38:         eligible: () => !!awakenedStatusCard(read().cheats), unavailableReason: () => 'Your system has not awakened yet.',
+39:         settings: [{key: 'density', label: 'Row spacing', description: 'Choose comfortable or compact spacing for your known stats.',
+40:             options: [['comfortable', 'Comfortable'], ['compact', 'Compact']], default: 'comfortable'}]});
+41:     const unsubscribe = subscribeDisplaySettings(render), timer = setInterval(render, 250);
+42:     return {render, destroy() {clearInterval(timer); unsubscribe(); panel.remove();}};
+43: }
+
+src/cheat_cards.js
+65: export function grantCheat(state, card, {route, at}) {
+66:     const next = validateCheatState(state), validated = validateCheatCard(card);
+67:     if(Object.hasOwn(next.held, validated.id)) throw new Error('Cheat card is already held.');
+68:     Object.defineProperty(next.held, validated.id, {value: {card: validated, acquired: {route, at: structuredClone(at)}, messages: []}, enumerable: true, writable: true, configurable: true});
+69:     return validateCheatState(next);
+70: }
+71: export function recordCheatMessage(state, id, text, at) {
+72:     const next = validateCheatState(state);
+73:     if(!Object.hasOwn(next.held, id)) throw new Error('Cannot record a message for an unheld cheat.');
+74:     next.held[id].messages.push({text, at: structuredClone(at)});
+75:     return validateCheatState(next);
+76: }
+77: export const SYSTEM_QUESTS_CARD = Object.freeze({id: 'system-quests', family: 'system', name: 'Quest system',
+78:     ui: 'status-window', terms: 'gift', hooks: Object.freeze([]), state: Object.freeze({}),
+79:     stages: Object.freeze([]), observers: Object.freeze([]), sources: Object.freeze([])});
+80: 
+81: // CH1: explicit dormancy is opt-in; legacy C0 cards and messages stay valid.
+82: export function optionalStartCard() {
+83:     return {...structuredClone(SYSTEM_QUESTS_CARD), state: {awakened: false, points: 0}};
+84: }
+85: export function awakenedStatusCard(state) {
+86:     return Object.values(state.held).find(entry => entry.card.ui === 'status-window' &&
+87:         (entry.card.state.awakened === true || (entry.card.state.awakened === undefined && entry.messages.length > 0)));
+88: }
+89: export const FIRST_SYSTEM_MESSAGE = 'Your system is awake. You can now read your level and known abilities.';
+90: export function awakenCheats(state, {dayCount, wonFight = false, at}) {
+91:     const next = validateCheatState(state), messages = [];
+92:     if(!wonFight && !(dayCount >= 3)) return {state: next, messages};
+93:     for(const [id, entry] of Object.entries(next.held)) {
+94:         if(entry.card.ui !== 'status-window' || entry.card.state.awakened !== false) continue;
+95:         entry.card.state.awakened = true;
+96:         const recorded = recordCheatMessage(next, id, FIRST_SYSTEM_MESSAGE, at);
+97:         next.held[id] = recorded.held[id];
+98:         messages.push(FIRST_SYSTEM_MESSAGE);
+99:     }
+100:     return {state: validateCheatState(next), messages};
+101: }
+
+src/display.js
+863:  function log_message(message_to_add, message_type) {
+864:     if(typeof message_to_add === 'undefined') {
+865:         return;
+866:     }
+867: 
+868:     message_to_add = message_to_add.replaceAll("%HeroName%", character.name).replaceAll("\n","<br>");
+869:     //message_to_add = message_to_add.replaceAll("%HeroName%", character.name).replaceAll("<br>","\n");
+870: 
+871:     let message = document.createElement("div");
+872:     message.classList.add("message_common");
+873: 
+874:     let class_to_add = "message_default";
+875:     let group_to_add = "message_events";
+876: 
+877:     //selects proper class to add based on argument
+878:     switch(message_type) {
+879:         case "enemy_defeated":
+880:             class_to_add = "message_victory";
+881:             group_to_add = "message_combat";
+882:             message_count.message_combat += 1;
+883:             break;
+884:         case "hero_defeat":
+885:             class_to_add = "message_hero_defeated";
+886:             group_to_add = "message_combat";
+887:             message_count.message_combat += 1;
+888:             break;
+889:         case "enemy_attacked":
+890:             class_to_add = "message_enemy_attacked";
+891:             group_to_add = "message_combat";
+892:             message_count.message_combat += 1;
+893:             break;
+894:         case "enemy_attacked_critically":
+895:             class_to_add = "message_enemy_attacked_critically";
+896:             group_to_add = "message_combat";
+897:             message_count.message_combat += 1;
+898:             break;
+899:         case "hero_attacked":
+900:             class_to_add = "message_hero_attacked";
+901:             group_to_add = "message_combat";
+902:             message_count.message_combat += 1;
+903:             break;
+904:         case "hero_missed":
+905:             group_to_add = "message_combat";
+
+src/display.js
+963:             message_count.message_unlocks += 1;
+964:             break;
+965: 
+966:         case "message_travel":
+967:             class_to_add = "message_travel";
+968:             group_to_add = "message_events";
+969:             message_count.message_events += 1;
+970:             break;
+971:         case "export_reward":
+972:             class_to_add = "message_export_reward";
+973:             group_to_add = "message_events";
+974:             message_count.message_events += 1;
+975:             break;
+976:         case "activity_finished":
+977:             group_to_add = "message_events";
+978:             message_count.message_events += 1;
+979:             break;
+980:         case "activity_money":
+981:             group_to_add = "message_events";
+982:             message_count.message_events += 1;
+983:             break;
+984:         case "notification":
+985:             message_count.message_events += 1;
+986:             group_to_add = "message_events";
+987:             class_to_add = "message_notification";
+988:             break;
+989:         case "background":
+990:             message_count.message_background +=1;
+991:             group_to_add = "message_background";
+992:             break;
+993:         case "crafting":
+994:             message_count.message_crafting +=1;
+995:             group_to_add = "message_crafting";
+996:             break;
+997:         case "purchase":
+998:             message_count.message_events += 1;
+999:             group_to_add = "message_events";
+1000:             class_to_add = "message_notification";
+1001:             message.classList.add("message_money");
+1002:             break;
+1003:         case "message_critical":
+1004:             message_count.message_events += 1;
+1005:             group_to_add = "message_events";
+1006:             class_to_add = "message_critical";
+1007:             break;
+1008:     }
+1009: 
+1010:     if(dynamic_loot_message_types[message_type] && game_options.do_dynamic_loot_message) {
+1011:         if(dynamic_loot_message) {
+1012:             dynamic_loot_message.remove();
+1013:             message_count.message_loot--; //count gets increased in the other place, so this is necessary to balance it (since the actual message number stays unchanged in this case)
+1014:         }
+1015: 
+1016:         dynamic_loot_message = message;
+1017:     }
+1018: 
+1019:     if(group_to_add === "message_combat" && message_count.message_combat > 80
+1020:     || group_to_add === "message_loot" && message_count.message_loot > 28
+1021:     || group_to_add === "message_unlocks" && message_count.message_unlocks > 40
+1022:     || group_to_add === "message_events" && message_count.message_events > 40
+1023:     || group_to_add === "message_background" && message_count.message_background > 28
+1024:     || group_to_add === "message_crafting" && message_count.message_crafting > 28
+1025:     ) {
+1026:         // find first child with specified group
+1027:         // delete it
+1028:         message_log.removeChild(message_log.getElementsByClassName(group_to_add)[0]);
+1029:         message_count[group_to_add]--;
+1030:     }
+1031:         
+1032:     // Log follow "always" (display setting) jumps to the newest line even while scrolled up.
+1033:     const log_was_following = getDisplaySetting("logFollow") === "always" || is_message_log_near_bottom();
+1034: 
+1035:     message.classList.add(class_to_add, group_to_add);
+1036:     set_HTML(message, message_to_add);
+1037:     //message.innerText = message_to_add;
+1038:     insert_HTML(message, "<div class='message_border'> </>");
+1039: 
+1040:     message_log.appendChild(message);
+1041: 
+1042:     const button_id = group_to_add.replace("_","_show_"); //not the best way but likelihood of the ids being changed is quite low
+1043:     if(document.getElementById(button_id).classList.contains("active_selection_button")) {
+
+src/display.js
+3848:  * updates displayed stats and their breakdowns (including health and stamina)
+3849:  */
+3850: function update_displayed_stats() {
+3851:     const full_stats = character.getFullStats();
+3852:     const equipment = character.getEquipment();
+3853:     Object.keys(stats_divs).forEach(function(key){
+3854:         if(key === "crit_rate" || key === "crit_multiplier") {
+3855:             stats_divs[key].innerText = `${(full_stats[key]*100).toFixed(1)}%`;
+3856:         } 
+3857:         else if(key === "attack_speed") {
+3858:             stats_divs[key].innerText = `${(character.getAttackSpeed()).toFixed(1)}`;
+3859:         }
+3860:         else if(key === "attack_power") {
+3861:             stats_divs[key].innerText = `${(character.getAttackPower()).toFixed(1)}`;
+3862:         }
+3863:         else {
+3864:             stats_divs[key].innerText = `${(full_stats[key]).toFixed(1)}`;
+3865:         }
+3866:         update_stat_description(key);
+3867:     });
+3868: 
+
+src/main.js
+303: let statusWindow;
+304: function cheatCalendarTime() {
+305:     const {year, month, day, hour, minute, day_count} = current_game_time;
+306:     return {year, month, day, hour, minute, day_count};
+307: }
+308: function awakenOptionalStart(wonFight = false) {
+309:     const result = awakenCheats(cheatState, {dayCount: current_game_time.day_count, wonFight, at: cheatCalendarTime()});
+310:     if(!result.messages.length) return;
+311:     cheatState = result.state;
+312:     for(const message of result.messages) log_message(message, 'notification');
+313:     statusWindow?.render();
+314:     save_progress();
+315: }
+316: let optionalPackState=emptyPackState();
+317: let optionalPackPanel;
+
+src/main.js
+3639: 
+3640: function finish_combat_round(was_special_combat) {
+3641:     // CH1: the native combat calls this only after the player wins.
+3642:     awakenOptionalStart(true);
+3643:     // Clear rewards may move the player. Retain the defeated zone for its event.
+3644:     const cleared_location=current_location;
+3645:     if(!was_special_combat){
+3646:         const contribution=recordOriginalFrontierEncounter(expansionState,campaignContext(),cleared_location.id,cleared_location.enemy_groups_killed+1);
+3647:         if(contribution)persistExpansion(contribution);
+3648:     }
+3649:     cleared_location.enemy_groups_killed += 1;
+3650:     if(cleared_location.enemy_groups_killed > 0 && cleared_location.enemy_groups_killed % cleared_location.enemy_count == 0) {
+3651:         get_location_rewards(cleared_location);
+3652: 
+3653:         if(!was_special_combat) {
+3654:             do_quest_event({
+3655:                 quest_event_type: "clear",
+3656:                 quest_event_target: cleared_location.id,
+3657:                 quest_event_count: 1,
+3658:             });
+3659:         }
+3660:     }
+3661:     if(current_location?.tags.combat_zone)update_location_kill_count(current_location);
+3662:     set_new_combat();
+
+src/main.js
+3948:  * @param {Boolean} should_info 
+3949:  */
+3950: function add_xp_to_character(xp_to_add, should_info = true, use_bonus) {
+3951:     if(!restoringNativeSave)xp_to_add*=getPacingEffects(homePacingContext()).efficiency;
+3952:     const level_up = character.addXP({xp_to_add, use_bonus});
+3953:     
+3954:     if(level_up) {
+3955:         if(should_info) {
+3956:             log_message(level_up, "level_up");
+3957:         }
+3958:         
+3959:         full_stats.health = full_stats.max_health; //free healing on level up, because it's a nice thing to have
+3960:         character.updateStatsAndDisplay();
+3961:     }
+3962: 
+3963:     update_displayed_character_xp(level_up);
+3964: }
+3965: 
+
+src/models/combat.js
+217:                 }
+218: 
+219:                 if(!this.is_special_combat && fighter.tags?.main_character && current_stance.related_skill) {
+220:                     leveled = add_xp_to_skill({skill: skills[current_stance.related_skill], xp_to_add: targets.reduce((sum,enemy)=>sum+enemy.xp_value,0)/targets.length});
+221:                     
+222:                     if(leveled) {
+223:                         update_stance_tooltip(current_stance);
+224:                         fighter.updateStatsAndDisplay();
+225:                     }
+226:                 }
+227: 
+228:                 if((is_attacker ? this.defenders : this.attackers).filter(enemy => enemy.is_alive).length != 0) { //set next loop if there's still an enemy left;
+229:                     this.setAttackLoop({fighter_index, base_cooldown, is_attacker});
+230:                 } else { //all enemies defeated, do relevant things and set new combat if applicable
+231:                     if(this.is_special_combat) {
+232:                         this.clearAllAttackLoops();
+233:                     } else {
+234:                         finish_combat_round(this.is_special_combat);             
+235:                     }
+236:                 }
+237:             } else {
+238:                 this.doAttackLoop({fighter_index, is_attacker, base_cooldown, actual_cooldown, attack_power, targets, target_count, count, is_new: false});
+239:             }
+240: 
+241:         }, actual_cooldown*1000/(60*tickrate) - fighter_data.timer_adjustments[fighter_index]);
+242:     }
+
+src/models/combat.js
+437:                 if(fighter.tags.main_character) {
+438:                     target.on_death(fighter);
+439:                 }
+440: 
+441:                 log_message(target.name + " was defeated", "enemy_defeated");
+442: 
+443:                 if(!this.is_special_combat && fighter.tags.main_character && target.get_loot) {
+444:                     add_xp_to_character(target.xp_value * target_count_xp_modifier, true);
+445: 
+446:                     let loot = target.get_loot({drop_chance_modifier: accessoryDropModifier(1/target_count**0.6667)});
+447:                     if(loot.length > 0) {
+448:                         process_current_loot({loot_list: loot, is_combat: true});
+449:                         loot = loot.map(x => {return {item_key: item_templates[x.item_id].getInventoryKey(), count: x.count}});
+450:                         character.addToInventory(loot);
+451:                     }
+452:                 }
+453:                 
+454:                 kill_target({fighter_index, target_index, is_target_an_attacker: !is_attacker});
+455:                 this.clearAttackLoop({fighter_index: target_index, is_attacker: !is_attacker});
+
+src/workspace_layout.js
+116: function reveal(module) {
+117:     const target = owner.layout.mode === 'classic' ? module.node : module.shell; if (!target) return;
+118:     // Reveal setting (AJ1): off, or save-level Effects off, shows the panel with no marker or motion.
+119:     if (getDisplaySetting('reveal') === 'off' || effectsCap() === 'off') return;
+120:     target.dataset.workspaceReveal = 'new'; clearTimeout(module.revealTimer);
+121:     const reduced = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+122:     module.revealTimer = setTimeout(() => { if (target.dataset.workspaceReveal === 'new') delete target.dataset.workspaceReveal; }, reduced ? 60 : 1000);
+123: }
+124: function syncRestore(module, state, known, eligible, classic) {
+
+src/workspace_layout.js
+315:     // DOM order follows the visible dock order, including saved reordering.
+316:     listen(document, 'keydown', e => {
+317:         if (e.key !== 'F6' || e.altKey || e.ctrlKey || e.metaKey || owner.root.inert) return;
+318:         const panels = [...owner.board.querySelectorAll('.workspace-module')]
+319:             .filter(s => !s.hidden && s.getClientRects().length && !s.closest('[hidden]'));
+320:         if (!panels.length) return;
+321:         const at = panels.indexOf(document.activeElement?.closest('.workspace-module'));
+322:         const next = at < 0 ? (e.shiftKey ? panels.length - 1 : 0)
+323:             : (at + (e.shiftKey ? -1 : 1) + panels.length) % panels.length;
+324:         e.preventDefault(); panels[next].focus({preventScroll: true});
+325:         panels[next].querySelector('.workspace-module-header')?.scrollIntoView({block: 'nearest', inline: 'nearest'});
+326:     });
+327:     listen(toolbar, 'keydown', e => { if(e.key==='Escape' && owner.menu.open) { e.preventDefault(); owner.menu.open=false; owner.menuSummary.focus(); } });
+328:     listen(root, 'change', action);
+329:     listen(root, 'keydown', e => {
+
+styles/status_window.css
+1: /* Inherit kit and Player Appearance colors, font and size. */
+2: .status_window { padding: .6em; min-width: 0; }
+3: .status_window_row { display: flex; justify-content: space-between; gap: 1em; padding: .45em .2em; }
+4: .status_window_row > [data-status-stat] { padding-block: .25em; font-variant-numeric: tabular-nums; }
+5: .status_window[data-density="compact"] .status_window_row { padding-block: .1em; }
+6: .status_window[data-density="compact"] [data-status-stat] { padding-block: 0; }
+7: .status_window_detail { padding: .4em .2em; overflow-wrap: anywhere; }
+8: .status_window_detail p { margin: .3em 0; }
+9: .cheat_start_choice { max-width: 42em; padding: .5em; }
+10: .cheat_start_choice select { margin-left: .5em; }
+11: .cheat_start_choice p { font-size: .9em; line-height: 1.4; margin: .5em 0; }
+
+styles/workspace_discovery.css
+1: /* Panel discovery arrival (I4/V10). src/workspace_layout.js sets data-workspace-reveal="new"
+2:    once, when a panel is first met during play (never on load, reload or import), and removes it
+3:    after about a second. The panel's role tint brightens from muted to full. */
+4: @keyframes workspace-reveal-arrival {
+5:     from {filter: saturate(.35) brightness(.72); box-shadow: 0 0 0 0 transparent;}
+6:     55% {filter: saturate(1.15) brightness(1.08); box-shadow: 0 0 0 2px var(--vivid-accent, var(--workspace-accent, #ffc94a));}
+7:     to {filter: none;}
+8: }
+9: [data-workspace-reveal="new"] {animation: workspace-reveal-arrival 900ms ease-out 1;}
+10: @media (prefers-reduced-motion: reduce) {
+11:     [data-workspace-reveal="new"] {animation: none;}
+12: }
+13: 
+14: /* Holding area for undiscovered panel shells (outside every labelled dock). */
+15: .workspace-undiscovered {display: none !important;}
+
+styles/display_settings.css
+15: /* AJ1 reveal: quiet is a brief outline with no movement or filter; off, or Effects off, none. */
+16: @keyframes workspace-reveal-quiet {
+17:     from {box-shadow: 0 0 0 2px var(--vivid-accent, var(--workspace-accent, #ffc94a));}
+18:     to {box-shadow: 0 0 0 0 transparent;}
+19: }
+20: :root:is([data-display-reveal="quiet"], [data-effects="reduced"]) [data-workspace-reveal="new"] {animation: workspace-reveal-quiet 400ms linear 1;}
+21: :root:is([data-display-reveal="off"], [data-effects="off"]) [data-workspace-reveal="new"] {animation: none;}
+22: 
+23: /* AJ5 vitals: value beside the bar instead of over it; level shown or hidden. */
+24: :root[data-display-vitals-value="beside"] #main_content #basic_character_info_div .character_bar_parent_div {display: flex; align-items: center; gap: .4rem;}
+25: :root[data-display-vitals-value="beside"] #main_content #basic_character_info_div :is(#character_xp_bar_max, #character_stamina_bar_max, #character_mana_bar_max, #character_healthbar_max) {flex: 1 1 auto; min-width: 0; margin: 0;}

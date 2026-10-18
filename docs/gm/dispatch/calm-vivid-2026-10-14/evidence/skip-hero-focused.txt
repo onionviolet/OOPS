@@ -1,0 +1,118 @@
+TAP version 13
+# Subtest: old biographies disclose no unseen source, technique, identity or invented life history
+ok 1 - old biographies disclose no unseen source, technique, identity or invented life history
+  ---
+  duration_ms: 2.223083
+  type: 'test'
+  ...
+# Subtest: body training exposes only learned skill levels and their existing effects
+ok 2 - body training exposes only learned skill levels and their existing effects
+  ---
+  duration_ms: 0.935958
+  type: 'test'
+  ...
+# Subtest: lasting discoveries stay separate from temporary briefings and survive reload without rewards
+ok 3 - lasting discoveries stay separate from temporary briefings and survive reload without rewards
+  ---
+  duration_ms: 18.139625
+  type: 'test'
+  ...
+# Subtest: observed movement does not masquerade as owned or executable movement in Bio
+ok 4 - observed movement does not masquerade as owned or executable movement in Bio
+  ---
+  duration_ms: 0.532375
+  type: 'test'
+  ...
+# Subtest: two typed living starts compile without native identity changes and admit a useful one-hand alternative
+ok 5 - two typed living starts compile without native identity changes and admit a useful one-hand alternative
+  ---
+  duration_ms: 83.707959
+  type: 'test'
+  ...
+# Subtest: loss of live hand support stops accepted work, refunds its actual blank and awards no output or practice
+ok 6 - loss of live hand support stops accepted work, refunds its actual blank and awards no output or practice
+  ---
+  duration_ms: 52.350625
+  type: 'test'
+  ...
+# Subtest: one-hand output is consumed in real refit and changes only actual worn garment protection
+ok 7 - one-hand output is consumed in real refit and changes only actual worn garment protection
+  ---
+  duration_ms: 48.772
+  type: 'test'
+  ...
+# Subtest: earned renewal preserves actual carriers, resets exact practice owners once and allows continued useful work
+ok 8 - earned renewal preserves actual carriers, resets exact practice owners once and allows continued useful work
+  ---
+  duration_ms: 63.180041
+  type: 'test'
+  ...
+# Subtest: every Frontier item has a plain single-sentence pocket history
+ok 9 - every Frontier item has a plain single-sentence pocket history
+  ---
+  duration_ms: 1.800875
+  type: 'test'
+  ...
+# Subtest: pocket histories keep separate layer origins when bread stacks merge
+ok 10 - pocket histories keep separate layer origins when bread stacks merge
+  ---
+  duration_ms: 1.641542
+  type: 'test'
+  ...
+# Subtest: pockets have one entry per layer and item, including hidden axes and quality variants
+ok 11 - pockets have one entry per layer and item, including hidden axes and quality variants
+  ---
+  duration_ms: 0.599875
+  type: 'test'
+  ...
+# Subtest: start seeds are deterministic, varied and leave world and choices untouched
+ok 12 - start seeds are deterministic, varied and leave world and choices untouched
+  ---
+  duration_ms: 2.427416
+  type: 'test'
+  ...
+# Subtest: locked vanilla is native parity and provenance names every revision
+ok 13 - locked vanilla is native parity and provenance names every revision
+  ---
+  duration_ms: 0.428167
+  type: 'test'
+  ...
+# Subtest: unknown resolves normally but stays in the hidden axis list
+ok 14 - unknown resolves normally but stays in the hidden axis list
+  ---
+  duration_ms: 0.275959
+  type: 'test'
+  ...
+# Subtest: locks hold and excludes never coexist over 200 seeds
+ok 15 - locks hold and excludes never coexist over 200 seeds
+  ---
+  duration_ms: 12.698708
+  type: 'test'
+  ...
+# Subtest: patch rules preserve order and merge by item quality
+ok 16 - patch rules preserve order and merge by item quality
+  ---
+  duration_ms: 0.359917
+  type: 'test'
+  ...
+# Subtest: dead-end guard rerolls the offending axis without changing unrelated rolls
+ok 17 - dead-end guard rerolls the offending axis without changing unrelated rolls
+  ---
+  duration_ms: 3.22875
+  type: 'test'
+  ...
+# Subtest: later locked exclusions reroll an earlier roll while incompatible locks fail
+ok 18 - later locked exclusions reroll an earlier roll while incompatible locks fail
+  ---
+  duration_ms: 2.09
+  type: 'test'
+  ...
+1..18
+# tests 18
+# suites 0
+# pass 18
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 554.404167

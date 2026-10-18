@@ -1,0 +1,26 @@
+{
+  "date": "2026-10-15",
+  "scope": "LOTM plan/discussion only; no runtime implementation or tests/build/browser/save work.",
+  "newReadWindows": {
+    "0030": [
+      1,
+      18
+    ],
+    "0041": [
+      17,
+      23
+    ],
+    "0065": [
+      1,
+      18
+    ]
+  },
+  "newParagraphsRead": 43,
+  "sourceSha256": "6126274478a95dbe03eb904bc35c409067c7022563e52997a46e98be07b2d70d",
+  "qualification": "Supplied compilation; authenticity unverified. Other source references are attributed earlier checks/reviewed notes.",
+  "considerations": "LW1-LW8; no eight-system implementation requirement.",
+  "localLinksChecked": 19,
+  "errors": [],
+  "originalSourceSnapshotDrift": [],
+  "pendingPreferenceQuestion": null
+}

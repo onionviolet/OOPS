@@ -1,0 +1,81 @@
+{
+  "mutation": {
+    "path": "cheats.held[system-quests].card.hooks",
+    "before": [],
+    "after": {}
+  },
+  "healthySHA256": "786d60db656e87dc733b9be3b1403aa82f0335a56890f9a5380682c1a0e85f03",
+  "invalidSHA256": "22131ec7f5f59e9eaff36fa03f2610e7acc7fa6b3ad8650450a8602ff5e7fe92",
+  "control": {
+    "saved": true,
+    "errors": [],
+    "name": "LQ NATIVE CONTROL"
+  },
+  "normalLoad": {
+    "before": {
+      "loading": "Yet Another Idle RPG\nby Miktaew 🐱\nLOADING\nSomething went wrong 😭\nSave game version: v0.6\nCurrent game version: v0.6\n\nNo changes since the last time you played~\nAn error has occured on loading! Please open the browser console to check for details and then let the developer know!\nPlay...?",
+      "play": "Play...?",
+      "heroName": "",
+      "time": "01/04/999 08:00, Summer, Mon",
+      "body": "Yet Another Idle RPG\nby Miktaew 🐱\nLOADING\nSomething went wrong 😭\nSave game version: v0.6\nCurrent game version: v0.6\n\nNo changes since the last time you played~\nAn error has occured on loading! Please open the browser console to check for details and then let the developer know!\nPlay...?\nCreate your hero\nEverything in this entire panel is purely cosmetic\nName (can be changed at any time):\n\nGender presentation (perception, not identity):\nFemale\nambiguous\nMale\nHeight (relative to race average):\nShort\nAverage\nTall\nAge (relative to race's aging):\nYoung adult\nAdult\nMiddle aged\nDefault race\nHuman\nHumanoid races\nElf\nHalf-elf\nDwarf\nHalf-dwarf\nBeastkin races\nNekomimi\n(cat person)\nNezumimi\n(mouse person)\nInumimi\n(dog person)\nKitsunemimi\n(fox person)\nUsagimimi\n(rabbit person)\nLizardkin\nOptional beginning \nNo system\nBegin with a system\nSurprise me\n\nA chosen system starts dormant and wakes on your first won fight or day 3. It adds an informational view of your level and known abilities, without granting power. You can leave it off. Surprise me chooses from available starts; currently only this system is available.\n\nConfirm\nLv 0\n40/40 stamina\n0/0 mana\n60/60 hp\n01/04/999 08:00, Summer, Mon \nSort by name\nSort by value\nSort by type\nAll\nEquipment\nUsable\nOther\nFavs\nInventory\nCombat\nClears: [0]\nEnemy groups left: \n Hide max level skills\nSort by name\nSort by level\nSort by progress\nSkills\nStances\nMagic\nQuests\nBestiary\nAnthology\nData\n= Quests =\nHide completed \nLvl: 0\nStrength: 12.0\nAgility: 8.0\nDexterity: 10.0\nIntuition 10.0\nDefense: 1.0\nMagic: 0.0\nAtk power: 1.2\nAtk spd: 1.0\nCrit rate: 5.0%\nCrit mult: 130.0%\nAP: 32\nEP : 25\nActive effects: 0\nStats\nBio\nEquipment\nTools\nLevels / unlocks\nEvents\nCrafting\nCombat\nLoot\nBGM\nSave\nExport\nImport\nsettings\nv0.6\nhelp_outline",
+      "log": "",
+      "rawUnchanged": true
+    },
+    "afterPlay": {
+      "loading": "",
+      "play": "",
+      "heroName": "",
+      "time": "01/04/999 08:00, Summer, Mon",
+      "body": "Create your hero\nEverything in this entire panel is purely cosmetic\nName (can be changed at any time):\n\nGender presentation (perception, not identity):\nFemale\nambiguous\nMale\nHeight (relative to race average):\nShort\nAverage\nTall\nAge (relative to race's aging):\nYoung adult\nAdult\nMiddle aged\nDefault race\nHuman\nHumanoid races\nElf\nHalf-elf\nDwarf\nHalf-dwarf\nBeastkin races\nNekomimi\n(cat person)\nNezumimi\n(mouse person)\nInumimi\n(dog person)\nKitsunemimi\n(fox person)\nUsagimimi\n(rabbit person)\nLizardkin\nOptional beginning \nNo system\nBegin with a system\nSurprise me\n\nA chosen system starts dormant and wakes on your first won fight or day 3. It adds an informational view of your level and known abilities, without granting power. You can leave it off. Surprise me chooses from available starts; currently only this system is available.\n\nConfirm\nLv 0\n40/40 stamina\n0/0 mana\n60/60 hp\n01/04/999 08:00, Summer, Mon \nSort by name\nSort by value\nSort by type\nAll\nEquipment\nUsable\nOther\nFavs\nInventory\nCombat\nClears: [0]\nEnemy groups left: \n Hide max level skills\nSort by name\nSort by level\nSort by progress\nSkills\nStances\nMagic\nQuests\nBestiary\nAnthology\nData\n= Quests =\nHide completed \nLvl: 0\nStrength: 12.0\nAgility: 8.0\nDexterity: 10.0\nIntuition 10.0\nDefense: 1.0\nMagic: 0.0\nAtk power: 1.2\nAtk spd: 1.0\nCrit rate: 5.0%\nCrit mult: 130.0%\nAP: 32\nEP : 25\nActive effects: 0\nStats\nBio\nEquipment\nTools\nLevels / unlocks\nEvents\nCrafting\nCombat\nLoot\nBGM\nSave\nExport\nImport\nsettings\nv0.6\nhelp_outline",
+      "log": "",
+      "rawUnchanged": true
+    },
+    "afterWait": {
+      "loading": "",
+      "play": "",
+      "heroName": "",
+      "time": "01/04/999 08:00, Summer, Mon",
+      "body": "Create your hero\nEverything in this entire panel is purely cosmetic\nName (can be changed at any time):\n\nGender presentation (perception, not identity):\nFemale\nambiguous\nMale\nHeight (relative to race average):\nShort\nAverage\nTall\nAge (relative to race's aging):\nYoung adult\nAdult\nMiddle aged\nDefault race\nHuman\nHumanoid races\nElf\nHalf-elf\nDwarf\nHalf-dwarf\nBeastkin races\nNekomimi\n(cat person)\nNezumimi\n(mouse person)\nInumimi\n(dog person)\nKitsunemimi\n(fox person)\nUsagimimi\n(rabbit person)\nLizardkin\nOptional beginning \nNo system\nBegin with a system\nSurprise me\n\nA chosen system starts dormant and wakes on your first won fight or day 3. It adds an informational view of your level and known abilities, without granting power. You can leave it off. Surprise me chooses from available starts; currently only this system is available.\n\nConfirm\nLv 0\n40/40 stamina\n0/0 mana\n60/60 hp\n01/04/999 08:00, Summer, Mon \nSort by name\nSort by value\nSort by type\nAll\nEquipment\nUsable\nOther\nFavs\nInventory\nCombat\nClears: [0]\nEnemy groups left: \n Hide max level skills\nSort by name\nSort by level\nSort by progress\nSkills\nStances\nMagic\nQuests\nBestiary\nAnthology\nData\n= Quests =\nHide completed \nLvl: 0\nStrength: 12.0\nAgility: 8.0\nDexterity: 10.0\nIntuition 10.0\nDefense: 1.0\nMagic: 0.0\nAtk power: 1.2\nAtk spd: 1.0\nCrit rate: 5.0%\nCrit mult: 130.0%\nAP: 32\nEP : 25\nActive effects: 0\nStats\nBio\nEquipment\nTools\nLevels / unlocks\nEvents\nCrafting\nCombat\nLoot\nBGM\nSave\nExport\nImport\nsettings\nv0.6\nhelp_outline",
+      "log": "",
+      "rawUnchanged": true
+    },
+    "final": {
+      "loading": "",
+      "play": "",
+      "heroName": "",
+      "time": "01/04/999 08:00, Summer, Mon",
+      "body": "Create your hero\nEverything in this entire panel is purely cosmetic\nName (can be changed at any time):\n\nGender presentation (perception, not identity):\nFemale\nambiguous\nMale\nHeight (relative to race average):\nShort\nAverage\nTall\nAge (relative to race's aging):\nYoung adult\nAdult\nMiddle aged\nDefault race\nHuman\nHumanoid races\nElf\nHalf-elf\nDwarf\nHalf-dwarf\nBeastkin races\nNekomimi\n(cat person)\nNezumimi\n(mouse person)\nInumimi\n(dog person)\nKitsunemimi\n(fox person)\nUsagimimi\n(rabbit person)\nLizardkin\nOptional beginning \nNo system\nBegin with a system\nSurprise me\n\nA chosen system starts dormant and wakes on your first won fight or day 3. It adds an informational view of your level and known abilities, without granting power. You can leave it off. Surprise me chooses from available starts; currently only this system is available.\n\nConfirm\nLv 0\n40/40 stamina\n0/0 mana\n60/60 hp\n01/04/999 08:00, Summer, Mon \nSort by name\nSort by value\nSort by type\nAll\nEquipment\nUsable\nOther\nFavs\nInventory\nCombat\nClears: [0]\nEnemy groups left: \n Hide max level skills\nSort by name\nSort by level\nSort by progress\nSkills\nStances\nMagic\nQuests\nBestiary\nAnthology\nData\n= Quests =\nHide completed \nLvl: 0\nStrength: 12.0\nAgility: 8.0\nDexterity: 10.0\nIntuition 10.0\nDefense: 1.0\nMagic: 0.0\nAtk power: 1.2\nAtk spd: 1.0\nCrit rate: 5.0%\nCrit mult: 130.0%\nAP: 32\nEP : 25\nActive effects: 0\nStats\nBio\nEquipment\nTools\nFAILED TO CREATE A SAVE FILE, PLEASE CHECK CONSOLE FOR ERRORS AND REPORT IT\nFAILED TO CREATE A SAVE FILE, PLEASE CHECK CONSOLE FOR ERRORS AND REPORT IT\nExport canceled: no valid save file could be created. No valid save was created; export canceled.\nLevels / unlocks\nEvents\nCrafting\nCombat\nLoot\nBGM\nSave\nExport\nImport\nsettings\nv0.6\nhelp_outline",
+      "log": "FAILED TO CREATE A SAVE FILE, PLEASE CHECK CONSOLE FOR ERRORS AND REPORT IT\nFAILED TO CREATE A SAVE FILE, PLEASE CHECK CONSOLE FOR ERRORS AND REPORT IT\nExport canceled: no valid save file could be created. No valid save was created; export canceled.",
+      "rawUnchanged": true
+    },
+    "exportResult": null,
+    "pageErrors": [],
+    "consoleErrors": [
+      "Failed to load resource: the server responded with a status of 404 (File not found)",
+      "Something went wrong on loading from localStorage!",
+      "Error: Invalid cheat card hooks: expected an array.\n    at S5e (http://127.0.0.1:18481/dist/bundle.js?version=v0.6-012297afd9c7:1050:16937)\n    at Mw (http://127.0.0.1:18481/dist/bundle.js?version=v0.6-012297afd9c7:1050:17341)\n    at ZO (http://127.0.0.1:18481/dist/bundle.js?version=v0.6-012297afd9c7:1050:52957)\n    at hX (http://127.0.0.1:18481/dist/bundle.js?version=v0.6-012297afd9c7:1054:39891)\n    at cze (http://127.0.0.1:18481/dist/bundle.js?version=v0.6-012297afd9c7:1054:80622)\n    at http://127.0.0.1:18481/dist/bundle.js?version=v0.6-012297afd9c7:1056:2497",
+      "Something went wrong on saving the game!",
+      "Error: Saving disabled after a loading error. Preserve the original save and use a compatible build.\n    at ch (http://127.0.0.1:18481/dist/bundle.js?version=v0.6-012297afd9c7:1054:33744)\n    at G4 (http://127.0.0.1:18481/dist/bundle.js?version=v0.6-012297afd9c7:1054:39432)\n    at $Ne (http://127.0.0.1:18481/dist/bundle.js?version=v0.6-012297afd9c7:1054:39637)\n    at HTMLDivElement.onclick (http://127.0.0.1:18481/:700:84)",
+      "Something went wrong on saving the game!",
+      "Error: Saving disabled after a loading error. Preserve the original save and use a compatible build.\n    at ch (http://127.0.0.1:18481/dist/bundle.js?version=v0.6-012297afd9c7:1054:33744)\n    at RNe (http://127.0.0.1:18481/dist/bundle.js?version=v0.6-012297afd9c7:1054:38977)\n    at eval (eval at evaluate (:311:30), <anonymous>:1:12)\n    at UtilityScript.evaluate (<anonymous>:313:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+    ],
+    "rawCardKept": true
+  },
+  "import": {
+    "log": "Remembered years · 2 memories\nRemember this day\n\nYears remembered\nVillage neighbors\nSaved the game manually\nImport rejected. Current save kept. Invalid cheat card hooks: expected an array.",
+    "pageErrors": [],
+    "rawUnchanged": false,
+    "invalidWritten": false,
+    "writeCount": 1,
+    "changedTopLevel": [
+      "current time",
+      "saved_at",
+      "levels",
+      "absorb_local_life",
+      "expansion"
+    ],
+    "heldCardUnchanged": true,
+    "heldCardHealthy": true,
+    "heroName": "LQ NATIVE CONTROL"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "src/main.js": true,
+  "src/workspace_views.js": true,
+  "src/workspace_disclosure.js": true,
+  "src/workspace_layout.js": true,
+  "served:dist/bundle.js": true,
+  "served:styles/workspace.css": true,
+  "css-fingerprint": true
+}

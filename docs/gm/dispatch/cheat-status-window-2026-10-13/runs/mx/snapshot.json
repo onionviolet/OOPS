@@ -1,0 +1,15 @@
+{
+  "commit": "cc5fa55614985127a28058368f5722ef9a1848e5",
+  "files": {
+    "src/status_window.js": "7f26cc81f03ebc3549fc35ea191196c148f83aa5ddf18101a6d6f954ecc9d641",
+    "src/cheat_cards.js": "8ca52e83187845d8da7bdb11d5ba96befe81bd3f2ebbe932f0c664f8140273d4",
+    "src/display.js": "da4b693e743ccba934955e883c05fb7ad868c72b76f4dbd9c2df06215d6a7fa8",
+    "src/main.js": "fc0743237c7c93a62ac834bd636afe5c6c7858172b77d1a53d01a84b1195172f",
+    "src/models/combat.js": "ef133e52be5db0660d48fad15f4c8f3a9c5ada505acc2286c31cbe6d43d3c1d0",
+    "src/workspace_layout.js": "51d9ecdf3cbb29a55d431582c489563d36ad6b36adabc9db2e7dfabd464c23c7",
+    "styles/status_window.css": "20982dcf1ff278b9dfb2f18df03d2b543619bb4dfe3666167fd6bac85bc37fe2",
+    "styles/workspace_discovery.css": "fb51b7e1423a342daad2ace37edbd20e0c2313ab3e730564ae42ab66f515638d",
+    "styles/display_settings.css": "68ee4681806bb0309c0ee006212159519e8fdb64022e9a5d289e5897bfa04b75"
+  },
+  "bundle": "012297afd9c7a4d0884beb775bceb5c82004876f23100270461ea72d2246554f"
+}

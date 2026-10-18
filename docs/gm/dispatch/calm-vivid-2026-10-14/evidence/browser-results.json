@@ -1,0 +1,161 @@
+[
+  {
+    "name": "baseline-opening",
+    "pass": true,
+    "detail": {
+      "errors": []
+    }
+  },
+  {
+    "name": "baseline-populated",
+    "pass": true,
+    "detail": {
+      "errors": []
+    }
+  },
+  {
+    "name": "populated-1366",
+    "pass": true,
+    "detail": {
+      "width": 1366,
+      "overflow": false,
+      "panelCount": 20,
+      "tabs": {
+        "journal_show_bestiary": {
+          "hidden": false,
+          "label": "Bestiary"
+        },
+        "journal_show_books": {
+          "hidden": false,
+          "label": "Anthology"
+        },
+        "show_magic": {
+          "hidden": true,
+          "label": ""
+        }
+      },
+      "collapsedBindings": 14
+    }
+  },
+  {
+    "name": "item-hotkey-keyboard",
+    "pass": true,
+    "detail": {
+      "opened": true,
+      "focusPreserved": true
+    }
+  },
+  {
+    "name": "reference-selection",
+    "pass": true,
+    "detail": {
+      "anthology": true
+    }
+  },
+  {
+    "name": "reload-preserves-layout-and-knowledge",
+    "pass": true,
+    "detail": {
+      "pinned": true,
+      "collapsed": true
+    }
+  },
+  {
+    "name": "literal-file-import",
+    "pass": true,
+    "detail": {
+      "knownReferences": true
+    }
+  },
+  {
+    "name": "populated-1440",
+    "pass": true,
+    "detail": {
+      "width": 1440,
+      "overflow": false,
+      "panelCount": 20,
+      "tabs": {
+        "journal_show_bestiary": {
+          "hidden": false,
+          "label": "Bestiary"
+        },
+        "journal_show_books": {
+          "hidden": false,
+          "label": "Anthology"
+        },
+        "show_magic": {
+          "hidden": true,
+          "label": ""
+        }
+      },
+      "collapsedBindings": 14
+    }
+  },
+  {
+    "name": "populated-1920",
+    "pass": true,
+    "detail": {
+      "width": 1920,
+      "overflow": false,
+      "panelCount": 20,
+      "tabs": {
+        "journal_show_bestiary": {
+          "hidden": false,
+          "label": "Bestiary"
+        },
+        "journal_show_books": {
+          "hidden": false,
+          "label": "Anthology"
+        },
+        "show_magic": {
+          "hidden": true,
+          "label": ""
+        }
+      },
+      "collapsedBindings": 14
+    }
+  },
+  {
+    "name": "opening-discovery",
+    "pass": true,
+    "detail": {
+      "tabs": {
+        "journal_show_bestiary": {
+          "hidden": true,
+          "label": ""
+        },
+        "journal_show_books": {
+          "hidden": true,
+          "label": ""
+        },
+        "show_magic": {
+          "hidden": true,
+          "label": ""
+        }
+      },
+      "errors": []
+    }
+  },
+  {
+    "name": "native-first-kill-discovery",
+    "pass": true,
+    "detail": {
+      "preservedAfterReload": true,
+      "errors": []
+    }
+  },
+  {
+    "name": "standard-preserved",
+    "pass": true,
+    "detail": {
+      "errors": []
+    }
+  },
+  {
+    "name": "restore-no-reveal",
+    "pass": true,
+    "detail": {
+      "errors": []
+    }
+  }
+]

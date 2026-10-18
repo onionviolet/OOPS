@@ -1,0 +1,26 @@
+{
+  "servers_stopped": true,
+  "ports_closed": {
+    "18461": true,
+    "18462": true,
+    "18463": true,
+    "18464": true,
+    "18465": true,
+    "18466": true,
+    "18467": true,
+    "18468": true,
+    "18469": true
+  },
+  "detached_worktree_removed": true,
+  "build_commands": [
+    "git -C /Users/weiwei/code/yet-another-idle-rpg worktree add --detach /tmp/yairpg-mx master",
+    "npm ci",
+    "node build.js"
+  ],
+  "cleanup_commands": [
+    "kill 22643 27612",
+    "git -C /tmp/yairpg-mx restore dist/bundle.js.map",
+    "git -C /Users/weiwei/code/yet-another-idle-rpg worktree remove /tmp/yairpg-mx"
+  ],
+  "note": "Restored only generated map in detached audit worktree so ordinary worktree remove could succeed."
+}

@@ -1,0 +1,18 @@
+{
+  "arrivalAt": 1791952942292,
+  "time": {
+    "year": 999,
+    "month": 4,
+    "day": 3,
+    "hour": 0,
+    "minute": 0,
+    "day_count": 3
+  },
+  "reveals": [
+    "notebook",
+    "known-people",
+    "status-window"
+  ],
+  "startAt": 1791950504843,
+  "elapsedSeconds": 2437.449
+}

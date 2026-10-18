@@ -1,0 +1,40 @@
+{
+  "onePoint": "1",
+  "unchanged": true,
+  "stats": {
+    "111": 26.015625,
+    "888": 26.015625,
+    "11.1": 30.015625,
+    "88.8": 30.015625
+  },
+  "level": {
+    "111": 19.03125,
+    "888": 26.375,
+    "11.1": 22.296875,
+    "88.8": 29.421875
+  },
+  "points": {
+    "111": 19.03125,
+    "888": 26.375,
+    "11.1": 22.296875,
+    "88.8": 29.421875
+  },
+  "numeric": [
+    {
+      "selector": "[data-status-stat]",
+      "font": "system-ui, sans-serif",
+      "variant": "tabular-nums"
+    },
+    {
+      "selector": "[data-status-level]",
+      "font": "system-ui, sans-serif",
+      "variant": "normal"
+    },
+    {
+      "selector": "[data-status-points]",
+      "font": "system-ui, sans-serif",
+      "variant": "normal"
+    }
+  ],
+  "tooltipNodes": 0
+}

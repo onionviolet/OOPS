@@ -1,0 +1,19 @@
+{
+  "head": "c768ad60676e76cb94cb17f7182a7234427b46ec",
+  "scope": "read-only planning inspection; hashes do not reserve files",
+  "sha256": {
+    "src/expansion_engine.js": "d8832839dc2664068fa7453d3a78ee4b147ff2b0e523283e2973a5dcbe490c32",
+    "src/expansion_persistence.js": "2f658af3fa9d66b2bafc785b7e061f85489f2c9cb6d09c9384659c53356df3a3",
+    "src/simulation.js": "b4a5b39f5b1a6f3c5c7bbc048a44898066a437735ee34b855b8b074da7824ea4",
+    "src/simulation_contracts.js": "519b55317952eb7b4cd10a0cabb899542e7af706f568358f146b241be81b301c",
+    "src/simulation_effects.js": "3d83a7f2816c91f5a17d0dc321551bf7d3d550c34273ec9a2e8fe742c51fe9ff",
+    "src/simulation_content.js": "c67c90dfb7ab6649820814db366cab59b343837d825d2c6bdb2d67c549db3949",
+    "src/energy_resources.js": "cc619def4c618a7b7128c43c499864a4ccc306d5f54dc20660f15004bbbb55ef",
+    "src/book_world_mol_host.js": "d5d4417217390d0d15c7ec732c99d33c244eb23867869673da7defdaef9c3879",
+    "src/book_world_mol_state.js": "6d67e9b60ccb6f057bf56faf25d98e6475f47463f43daa5fe9ade8a883cdc651",
+    "src/book_world_mol_native.js": "afa9e225d96af65729048f756e9413190b1347aaf6a3297208f797ed8a69ebe5",
+    "src/main.js": "dfe9fbcc4b87e70f6993c3578b7fc789fb23a1700ffa3980e1dc75f3492d7b71",
+    "src/save_files.js": "ed3f1d2bbc12c8b2e0a1cade98cc825af27c3e5d3ab9ee904958aa2b04308b8d",
+    "src/continuation_state.js": "5617eb61ffbd6cc0a0a24856432395799a385a81983d7446e86cf8890112f45a"
+  }
+}

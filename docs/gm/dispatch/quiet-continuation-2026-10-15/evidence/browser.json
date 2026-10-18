@@ -1,0 +1,25 @@
+{
+  "checks": [
+    "native fresh start establishes truthful initial fallback",
+    "ordinary native-time study unlocks later checkpoint",
+    "checkpoint records later actual moment",
+    "fresh B has different history identity",
+    "living A pauses at departure instead of ending",
+    "checkpoint capability carries into B",
+    "reciprocal route resumes A",
+    "B now paused",
+    "A keeps learned checkpoint",
+    "rewind preserves enduring upgrade",
+    "rewind restores initial calendar",
+    "arrival is deliberately paused",
+    "reload preserves return and paused state",
+    "literal exported file imports with both histories and upgrade",
+    "no browser runtime errors"
+  ],
+  "errors": [],
+  "final": {
+    "history": "life-1",
+    "sequence": 5,
+    "bytes": 531058
+  }
+}

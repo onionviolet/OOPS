@@ -1,0 +1,23 @@
+{
+  "cards": [
+    {
+      "id": "system-quests",
+      "name": "Quest system",
+      "ui": "status-window"
+    }
+  ],
+  "labels": {
+    "optional-worlds": "Optional worlds",
+    "ledger": "Work Ledger",
+    "customization": "Appearance",
+    "customization-effects": "Effects & sound",
+    "customization-rules": "Original rules",
+    "customization-preview": "Draft preview",
+    "customization-sites": "Original site",
+    "status-window": "Status window",
+    "beginning": "Your beginning",
+    "patrol": "Patrol & custody",
+    "current-work": "Current work & saving",
+    "equipment-comparison": "Equipment comparison"
+  }
+}

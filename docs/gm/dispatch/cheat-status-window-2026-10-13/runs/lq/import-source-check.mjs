@@ -1,0 +1,11 @@
+import fs from 'node:fs';
+import {pathToFileURL} from 'node:url';
+import assert from 'node:assert/strict';
+const {importSaveFile}=await import(pathToFileURL(process.env.REPO+'/src/save_files.js'));
+const base=new URL('./',import.meta.url);
+const healthy=JSON.parse(fs.readFileSync(new URL('healthy-native.save.json',base),'utf8'));
+const encoded=fs.readFileSync(new URL('invalid-native.save.txt',base),'utf8');
+let preflight=0,writes=0;
+await assert.rejects(importSaveFile(encoded,{currentVersion:healthy['game version'],preflight:()=>{preflight++;},storage:{setItem(){writes++;}},key:'save data'}),/Invalid cheat card hooks: expected an array/);
+assert.equal(preflight,0);assert.equal(writes,0);
+console.log('PASS source import rejects invalid held card before preflight and storage write (0/0)');

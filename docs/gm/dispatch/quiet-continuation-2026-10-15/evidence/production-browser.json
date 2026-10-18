@@ -1,0 +1,10 @@
+{
+  "checks": [
+    "production preview has no test hook",
+    "unmodified real-time engine learns checkpoint",
+    "chosen loop executes actual return then can be stopped",
+    "stopped loop does not fire again",
+    "production route has no runtime errors"
+  ],
+  "errors": []
+}

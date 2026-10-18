@@ -1,0 +1,50 @@
+[
+  {
+    "name": "ch1",
+    "exit_code": 0
+  },
+  {
+    "name": "c0-and-npm",
+    "exit_code": 0
+  },
+  {
+    "name": "panelkit",
+    "exit_code": 0
+  },
+  {
+    "name": "settings",
+    "exit_code": 0
+  },
+  {
+    "name": "crafting",
+    "exit_code": 0
+  },
+  {
+    "name": "vivid",
+    "exit_code": 0
+  },
+  {
+    "name": "supplemental",
+    "exit_code": 0
+  },
+  {
+    "name": "failure-storage",
+    "exit_code": 0
+  },
+  {
+    "name": "travel-boundary",
+    "exit_code": 0
+  },
+  {
+    "name": "reveal-visibility",
+    "exit_code": 0
+  },
+  {
+    "name": "surprise",
+    "exit_code": 0
+  },
+  {
+    "name": "natural-postwin-recovered",
+    "exit_code": 0
+  }
+]

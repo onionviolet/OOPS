@@ -1,0 +1,23 @@
+{
+  "status": "effective-documentation-only",
+  "parentThreadId": "01a13e47-e9d3-76a3-ac9c-e21475e8ff96",
+  "receiverThreadId": "01a1400c-d1f1-7333-be3b-cdc0a54daf3a",
+  "authorizedBy": "Direct user request to prepare the concrete LOTM implementation plan, use Q&A workflow and send new chat",
+  "exclusiveDocs": [
+    "docs/gm/LOTM_INITIATION_IMPLEMENTATION_PLAN_2026-10-15.md",
+    "docs/gm/LOTM_INITIATION_DESIGN_DISCUSSION_2026-10-15.md",
+    "docs/gm/dispatch/lotm-initiation-2026-10-15/"
+  ],
+  "scopedCanonicalUpdates": [
+    "Only LOTM initiation-specific sections/quotes in PROJECT.md and docs/USER_VISION.md; preserve unrelated edits and compare snapshots before writes"
+  ],
+  "excluded": [
+    "all runtime source/tests/shared UI/build reservations",
+    "shared dist/index and other servers",
+    "personal saves, libraries, raw novel prose",
+    "other exclusive discussion records",
+    "workers, further chats, commits/push/publication"
+  ],
+  "initialQuestion": "LIQ1 initiation severe-failure scope",
+  "runtimeReservation": null
+}

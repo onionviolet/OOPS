@@ -1,0 +1,40 @@
+{
+  "date": "2026-10-15",
+  "scope": "Planning/source review and scoped documentation only. No runtime/tests/build/browser/save/worker/message/commit/publication work.",
+  "acceptedDirection": "Player-hosted gatherings through means, contacts and reputation; consider secrecy, trust, information/services.",
+  "derivedNotAcceptedMechanics": "HG1-HG8; two-contact local event and specific roles, terms and visibility remain proposed.",
+  "sourceSha256": "6126274478a95dbe03eb904bc35c409067c7022563e52997a46e98be07b2d70d",
+  "actuallyReadWindows": [
+    {
+      "member": "OEBPS/Text/lotm_c_0035.xhtml",
+      "paragraphs": [
+        21,
+        49
+      ],
+      "sha256": "b6e8e569b7f6cb70f547e25ff1ee70d69f0667f048159abf7e9e08c487bbfa25"
+    },
+    {
+      "member": "OEBPS/Text/lotm_c_0181.xhtml",
+      "paragraphs": [
+        20,
+        69
+      ],
+      "sha256": "c2e17b81e2254dd30b8a42c85973de37622c4fbaf28c20eabbb14543cba9cc47"
+    },
+    {
+      "member": "OEBPS/Text/lotm_c_0182.xhtml",
+      "paragraphs": [
+        52,
+        62
+      ],
+      "sha256": "4db94afa2bd6d42308bfad019b378fe7572d05ffe1ab859cd96ef080a455390d"
+    }
+  ],
+  "paragraphsRead": 90,
+  "qualification": "Hash-pinned supplied compilation, original publication authenticity unverified; witnessed events, character explanations and hypotheses distinguished.",
+  "localLinksChecked": 28,
+  "errors": [],
+  "originalSourceSnapshotDrift": [],
+  "pendingPreferenceQuestion": null,
+  "implementationGates": "IG1-IG4 unchanged for initiation; hosting is a later selected feature, with specific native content and integration to author then."
+}

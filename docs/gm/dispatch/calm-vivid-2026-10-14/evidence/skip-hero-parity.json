@@ -1,0 +1,6 @@
+{
+  "src/main.js": "33e0ae5f1de93a575e891a58d1180d3ca99ea193d618fca1f0aeadd5c4db784d",
+  "src/config.js": "551266561279efdc0c71b529b7a3117e94156d4c56581a4510fc95c6af07311b",
+  "src/character_creation.js": "d542197d9d4717ed348ed95621a9c87d4a859ce4cd6fba3ae772a24e94620a41",
+  "dist/bundle.js": "dd7e167c2cd6c116aaa683046d0416fa146f144b66de6b8ef769e37bd4ef1b3b"
+}

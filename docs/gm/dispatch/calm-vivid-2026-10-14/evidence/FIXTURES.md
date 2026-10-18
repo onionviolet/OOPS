@@ -1,0 +1,1 @@
+Populated UI stress fixture: synthetic inventory, XP, money, kills and reading progress added to the existing disposable precombat test export. It tests density and restored UI, not earned progression or natural balance. No personal save used. Native discovery is checked separately.

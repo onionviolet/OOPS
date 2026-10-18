@@ -1,0 +1,54 @@
+[
+  {
+    "name": "direct-play-default-identity",
+    "pass": true,
+    "detail": {
+      "bio": {
+        "age": "adult",
+        "height": "average",
+        "race": "human",
+        "gender": "ambiguous"
+      },
+      "location": "Village"
+    }
+  },
+  {
+    "name": "reload-keeps-defaults",
+    "pass": true,
+    "detail": {
+      "created": true
+    }
+  },
+  {
+    "name": "literal-import-keeps-identity",
+    "pass": true,
+    "detail": {
+      "created": true
+    }
+  },
+  {
+    "name": "existing-character-preserved",
+    "pass": true,
+    "detail": {
+      "name": "Existing explorer",
+      "bio": {
+        "age": "young",
+        "height": "tall",
+        "race": "human",
+        "gender": "female"
+      }
+    }
+  },
+  {
+    "name": "unfinished-save-fills-only-missing",
+    "pass": true,
+    "detail": {
+      "bio": {
+        "age": "young",
+        "height": "average",
+        "race": "human",
+        "gender": "female"
+      }
+    }
+  }
+]
