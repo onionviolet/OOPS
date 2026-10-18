@@ -53,6 +53,7 @@ high effort for every native round unless noted; Codex or Claude by availability
 | R21c | **Status window home in the parity shell** (R21b finding F1): the awakened status window has no region, box or companion in the layout spec, so the shell parks it and CH1 H3–H6 fail since the parity default | R21B_REPORT F1; CH1 gate; UR13 | No | Next after R21b: a cheat panel hidden from the player is a regression, the fix is a spec entry plus the CH1 gate |
 | R24 | **Polish 1, brought forward after R20** (IT7): inventory/combat whole-journey review, Weibao's available tune items, empty-state lines for discovered but empty routes (F16, WR61) | VC2, V18, F16, NX21, NX23 | No | R15–R20; ID retained so existing links remain valid |
 | R22 | Combat log: per-encounter letters on events, dealt/taken tokens, quieter misses, ×N collapse of equivalent lines, custom palettes | Part 2 log, R1/W3/IL55, C2, C3, A5, UX18; milestone lines distinct (B6); BX7 Report colors folded in (2026-10-17) | No | IT9 seam for the combat-text change. **Status 2026-10-17:** technically complete on `claude/ui-r22-combat-log`, visual acceptance open ([report](../R22_REPORT.md)) |
+| **R22b** | **Screen use at 1920 (Weibao's R22 check, 2026-10-17):** the center place region splits in two; a fight lists opponents stacked in that second column; opponent kinds get distinct name colors on the board and in Reports; You narrows to its content; light custom palettes keep native report colors readable | [Screen use at 1920](#screen-use-at-1920-weibaos-r22-check-2026-10-17) SU1–SU12; BX4, BX6 first slice, MB6, VP2; R22 palette finding | No (browser-local layout spec 3, migrated like spec 2) | R22 merged (done). **Next, before R23** (proposal): third time this empty space came up (VP2, BX9, now) and R23's Reports tabs do not depend on it |
 | R23 | Reports category tabs replace the hidden Filters menu; full place inspection (date, weather, temperature grouped) | K8, SF230; temperature links to its native cold/heat effect (B7) | No | R22 |
 | R25 | You panel: Standard/All attribute sets, gear inline vs Equipment tab | Part 3, IL56, NX11; done check measures the selected tab's facts visible without scrolling at 1366×768 14/17.5/21px (WR42) | No | — |
 | R26 | Status-effect chips (countdown only for known duration), derived-stat breakdowns, bar text backing | Part 3, X1–X3, V19, V21, UX21 | No | R25 |
@@ -817,3 +818,61 @@ USER_VISION). Codes MB1–MB9.
 | Shell layout editing (MB1) | Strong, medium to high | Next structural UI round. Move a panel between slots, reload, reset; spec version stored; focus order follows (MB9) |
 | One bar (MB2) + control box (CB1–CB5) | Strong, medium | With the 1920 compositions round. Rows gained per region at the target set; save state never hidden |
 | Target-set check helper (MB7) | Balanced, small | Before the next UI round: one helper runs a check at 1920×1080, 1800×1040 DPR 2, 1536×864 and 1366×768 at 14/21px |
+
+## Screen use at 1920 (Weibao's R22 check), 2026-10-17
+
+Weibao, on the R22 8-opponent fight at his MacBook size: "there is so much space with the center
+middle panel, why not split it? also when fighting multiple enemies, why not stack them more
+vertically? make their names and colors more distinct? Also the Character panel doesnt need to be
+so wide, we should make more use of the screen realestate". **Direction** for the four asks; the
+defaults below are proposals. Codes SU1–SU12. Third time the 1920 slack came up (VP2, BX9), so it
+gets its own round, R22b, before R23.
+
+Measured on the rebuilt branch tip (`3d43257ba`, 14px, fixtures r21c `awakened` and r20
+`opponents-8-mixed`), shown in the R22 visual-check screenshots:
+
+| Region (fight, 8 opponents) | 1920×1080 | 1800×1040 DPR 2 | 1366×768 |
+| --- | --- | --- | --- |
+| You (player) | 629 × 287 | 589 × 287 | 467 × 307 |
+| Opponent board in Around you | 716 × 147, 3 columns | 668 × 147, 3 columns | 435 × 147, 3 columns |
+| Place region (center bottom) | 873 × 730, one action row and a back button; about 480px empty (shown) | 817 × 690, same | 581 × 400 |
+| Inventory | 501 wide | 468 wide | 349 wide |
+
+The board is squeezed into the short top row while the tall region under it is empty. You is
+wider than Inventory beneath it for four stat column pairs.
+
+### ACT NOW (this round)
+
+| Code | Consideration | Proposed default, dial and reason | Done check |
+| --- | --- | --- | --- |
+| SU1 | **Split the center** | The place region becomes two columns when it is at least about 2 × 28em wide: left keeps the place header, actions and options; right is a **second slot** whose content follows the context. Fight: the opponent list (SU2). Idle: the existing Journal companion (BX2, BX14 later fills it), no new panel. Dial: narrower than 56em (1366 at 21px) the slot stacks under the actions or becomes a tab, as companions already yield (WX5) | 1920 and MacBook, fight and idle: right column filled; actions unchanged in place; 1366 floor no page scroll |
+| SU2 | **Stack opponents vertically** | In the fight slot the board is one column, one row per opponent: letter, name, health bar, cycle bar; kind groups keep their header ("Wolf rat · 3"). `boardLayout` already picks columns from width; it also takes the slot's height, so a tall narrow slot gives one column up to 8 rows before going to two. Defeated stay in place (R20, UR52) | 8-mixed at 1920: 8 rows visible without scrolling, one column; 1 and 3 opponents unchanged in content |
+| SU3 | **Target detail moves up** | With the board out of the top row, the inspected opponent's facts (Atk, Spd, Hit you, Evade) sit in the top row beside You, so your bars and the target's are level (BX6 first slice) | Fight: your HP and the target's HP both visible in the top row at every target |
+| SU4 | **Distinct names and colors** | One hue per opponent **kind** (Starving wolf rat, Wolf rat, Elite wolf rat), from a fixed categorical set of about six hues with contrast ≥4.5:1 on the board and log fills; letters keep telling individuals apart. The same hue marks the name on the board and in Reports, plus a small letter chip there, so "Wolf rat B" in the log matches its row. Variant words stay text ("Starving", "Elite"), so color never carries meaning alone (UR37). More kinds than hues: hues repeat and the letter carries it. Your side keeps cyan | Grayscale screenshot still tells kinds apart by name; contrast check passes on board and log fills, default and a light custom palette |
+| SU5 | R22 log sides | R22 colors every opponent lilac. SU4 replaces that with the kind hue; dealt/taken stay on the values and left rules, so direction still reads | check-r22 C1–C5 still pass with the new hues |
+| SU6 | **Narrow You** (BX4) | You takes its content width: two stat column pairs instead of four, short labels with full names on hover (CTL7), matching Inventory's column below it. The freed width goes to Around you and the top-row target detail. Dial: at 1366 21px the current width stays | No stat label or value wraps at the target set; Around you or the target detail gains the measured width |
+| SU7 | **Palette finding (R22 visual check)** | Under a light custom palette on Reports, combat lines read well, but native message colors (the yellow system line, the lilac title line, the faint "level" in the Evasion line) nearly vanish. Map those native message kinds onto the palette's recovered tokens, as R22 did for combat | Light palette fixture: every visible log line ≥4.5:1 on its fill |
+
+### ACCOUNT FOR NOW
+
+| Code | Consideration | Default and reason |
+| --- | --- | --- |
+| SU8 | Saved browser layouts (R21 Move to) | Layout spec 3 adds the second slot. A spec-2 layout migrates once: boxes keep their slots, the board's home moves to the fight slot unless the player moved it. Game save untouched (UR17) |
+| SU9 | One authority | The second slot is spec data per context (UIE20), not a new layout host; Move to lists it like any slot. Kind hues come from one table keyed by kind id, read by board and log |
+| SU10 | Crowds | Past 8 opponents the list scrolls inside its slot, then groups per HZ3; the slot's height sets the visible rows, so a fight never pushes the actions off screen |
+| SU11 | Status window density | The R21c window cuts off at Magic at 1920 in comfortable spacing and shows Magic plus Earned titles in compact (shown). Compact as the default is a proposal awaiting Weibao's word |
+
+### LATER / DELEGATE
+
+| Candidate | Level / effort | Trigger and done check |
+| --- | --- | --- |
+| SU12 Idle second slot content (BX14 quest step, BX9 item detail, R28 routes) | Strong, medium | After R22b lands the slot. Idle at 1920: next quest step visible without opening Journal |
+| Per-world kind palettes | Balanced, small | When a second world has opponents. Hues come from world data; same contrast check |
+
+### Readjusted order (proposal)
+
+1. **R22b** screen use at 1920 (SU1–SU11), presentation only, own worktree.
+2. **R23** Reports tabs and place inspection, unchanged.
+3. **R22a** companions (BX13 shared choices, BX14 quest companion, BX5 split Around you) now
+   fill R22b's second slot instead of competing for the top row.
+4. R24 polish and the rest of the queue as listed.
