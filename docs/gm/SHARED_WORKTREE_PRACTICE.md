@@ -162,6 +162,13 @@ removing any of them needs Weibao's yes, since each holds uncommitted files.
 
 Unmerged and left alone: `w1-campaign` (dirty), `claude/world-pack-loader-9cff81` (clean).
 
+**Removal on Weibao's yes, 2026-10-17** ("remove the 23 rebuilt-bundle-only worktrees … and the two
+with duplicate private_packs"): all 25 removed, about 8.7 GB freed (9,087,692 KB). Each was
+rechecked first (merged, no process cwd, no changes beyond `dist/bundle.js`, its map and
+`index.html`). Ignored LP save exports from hl-lp2 and hl-lp3 went to the same archive folder.
+The two `private_packs` entries were symlinks to the main checkout's folder, not copies; the links
+were deleted before removal and the main `private_packs/` is unchanged. 17 linked worktrees remain.
+
 **Stale index fix, 2026-10-17 (D1).** The ten entries above were unstaged with
 `git restore --staged`, index only; no file or commit changed. The engine thread
 session (owner of `ARCHITECTURE_RULES.md`, the five `docs/reviews/*_2026-10-16.md`
