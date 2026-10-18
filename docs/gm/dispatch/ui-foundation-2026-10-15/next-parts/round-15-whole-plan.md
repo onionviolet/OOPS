@@ -54,7 +54,7 @@ high effort for every native round unless noted; Codex or Claude by availability
 | R24 | **Polish 1, brought forward after R20** (IT7): inventory/combat whole-journey review, Weibao's available tune items, empty-state lines for discovered but empty routes (F16, WR61) | VC2, V18, F16, NX21, NX23 | No | R15–R20; ID retained so existing links remain valid |
 | R22 | Combat log: per-encounter letters on events, dealt/taken tokens, quieter misses, ×N collapse of equivalent lines, custom palettes | Part 2 log, R1/W3/IL55, C2, C3, A5, UX18; milestone lines distinct (B6); BX7 Report colors folded in (2026-10-17) | No | IT9 seam for the combat-text change. **Status 2026-10-17:** technically complete on `claude/ui-r22-combat-log`, visual acceptance open ([report](../R22_REPORT.md)) |
 | **R22b** | **Screen use at 1920 (Weibao's R22 check, 2026-10-17):** the center place region splits in two; a fight lists opponents stacked in that second column; opponent kinds get distinct name colors on the board and in Reports; You narrows to its content; light custom palettes keep native report colors readable | [Screen use at 1920](#screen-use-at-1920-weibaos-r22-check-2026-10-17) SU1–SU12; BX4, BX6 first slice, MB6, VP2; R22 palette finding | No (browser-local layout spec 3, migrated like spec 2) | R22 merged (done). **Next, before R23** (proposal): third time this empty space came up (VP2, BX9, now) and R23's Reports tabs do not depend on it. Weibao's go 2026-10-17, with the status window compact by default (SU11 decided). **Status 2026-10-18:** technically complete on `claude/ui-r22b-screen-use`, visual acceptance open ([report](../R22B_REPORT.md)) |
-| **R22c** | **Fill the center and color the inventory (Weibao's R22b check, 2026-10-18):** opponent rows name each opponent with the letter as a small tag; a fight's left column shows your stances and bars; idle splits into actions and a detail slot (selected item, quest or recipe); inventory gets per-category tab colors, kind-colored names and a new-item marker | [Fill the center and color the inventory](#fill-the-center-and-color-the-inventory-2026-10-18) FC1–FC10; SU12, BX8, BX9, BX14 first slice, VP2 | No | R22b merged. Proposal, waits for Weibao's go |
+| **R22c** | **Fill the center and color the inventory (Weibao's R22b check, 2026-10-18):** opponent rows show names only, letters off by default (FC11, round 2), Inspecting splits into Target and Encounter; a fight's left column shows your stances and bars; idle splits into actions and a detail slot (selected item, quest or recipe); inventory gets per-category tab colors, kind-colored names and a new-item marker | [Fill the center and color the inventory](#fill-the-center-and-color-the-inventory-2026-10-18) FC1–FC10; SU12, BX8, BX9, BX14 first slice, VP2 | No | R22b merged. Proposal, waits for Weibao's go. R22d (Encounter panel, FC15, FC16, FC18) follows |
 | R23 | Reports category tabs replace the hidden Filters menu; full place inspection (date, weather, temperature grouped) | K8, SF230; temperature links to its native cold/heat effect (B7) | No | R22 |
 | R25 | You panel: Standard/All attribute sets, gear inline vs Equipment tab | Part 3, IL56, NX11; done check measures the selected tab's facts visible without scrolling at 1366×768 14/17.5/21px (WR42) | No | — |
 | R26 | Status-effect chips (countdown only for known duration), derived-stat breakdowns, bar text backing | Part 3, X1–X3, V19, V21, UX21 | No | R25 |
@@ -922,3 +922,44 @@ teal; the fight's left column holds one action and a back button.
 | --- | --- | --- |
 | Crafting as list + detail in the center (BX10 template) | Strong, medium | After FC4's slot exists; a second making system opens in the same slot |
 | Rarity scale separate from kind colors (P23-5) | Balanced, small | When items carry a rarity field; rarity as border or tag, kind stays the name color |
+
+### Round 2: split Inspecting, names without letters, more panels (2026-10-18)
+
+Weibao: "what about splitting the inspecting? Moving things around? Those are better but maybe we can
+do more? maybe its just Wolf rat and Wolf rat, no need for A and B? More to consider? More panels?"
+**Direction:** names without letters, a split Inspecting box, more panels where they earn a place.
+New angle this round: R22's per-event snapshots (`src/combat_log.js`, not saved, W3) are now a
+producer that a panel can read, so an encounter summary no longer waits on an engine projection
+(B11's reopen condition).
+
+#### ACT NOW (into R22c)
+
+| Code | Consideration | Proposed default, dial and reason | Done check |
+| --- | --- | --- | --- |
+| FC11 | **No letters by default** (replaces FC1's tag) | Board rows and Reports show names only ("Wolf rat"). Row order is the identity on screen; screen readers still hear "Wolf rat, 2 of 3". Dial in Appearance, *Opponent letters*: off (default), on hover, always. Letters stay in the event data (UX18 keys, ×N lists) | 8-mixed at 1920: no letter on rows or log lines; switching the setting brings them back without reload |
+| FC12 | **Hover links instead of letters** | Hovering or focusing a combat line highlights its opponent's row and Inspecting; hovering a row highlights its recent lines. Lines from an earlier wave link to nothing and say so (encounter serial, R22) | Hover a line: exactly one row highlights; an old-wave line highlights none |
+| FC13 | **Same text, one line** | With letters off, adjacent lines that read the same ("Wolf rat misses you") from different opponents of one kind show as one line with ×N; its list names each occurrence with time and which row (by hover). Events stay distinct and countable, so UX18's purpose holds; its no-merge clause yields only while letters are off (letters on restores per-opponent lines) | 8 rats: a round of misses by three Wolf rats is one "×3" line; opening it lists three occurrences |
+| FC14 | **Split Inspecting** | The top-centre box in a fight becomes two halves: **Target** (FC2's mirror card: name, HP, cycle, facts) and **Encounter** (FC15). Idle keeps Around you whole | 1920 fight: both halves filled, no empty block taller than ~4 lines |
+
+#### ACCOUNT FOR NOW
+
+| Code | Consideration | Proposed default, dial and reason | Done check |
+| --- | --- | --- | --- |
+| FC15 | **Encounter panel** (new, decision value: stay or retreat) | From this fight's event snapshots: damage dealt and taken (total and per minute), your hit rate and theirs, defeated n of total, groups left, time in fight, and "at this rate you last about N s" marked ~ and computed only from observed events. Resets per wave, with a trip line across waves in the same place. Not saved (W3) | Fixture fight: numbers equal a count of the visible combat lines; ~ estimate shown only after 5+ taken hits |
+| FC16 | **Misses leave the log** (R22 open item) | Reports default to hits, crits, blocks, defeats; misses count in Encounter. Dial: Reports filter *Misses: summary / all* | 8-mixed: log lines under half of R22b's for the same fight; Encounter's miss count equals the hidden lines |
+| FC17 | **Context tab for Inventory** | A fight opens Inventory on Usable (potions, food) and returns to your last idle tab after; each context remembers its own tab (browser-local) | Enter fight: Usable active; leave: previous tab back |
+| FC18 | **Loot this trip** | Encounter's foot lists items gained since you arrived, from existing loot lines (`message_loot`), so you need not scan Reports | Loot line count matches the list; leaving the place clears it |
+| FC19 | **Panel budget** | Each new panel shows by default only where it changes a decision now (PX3) and passes the target-set fit; the rest stay reachable through Move to and navigation. Fight default after R22c and R22d: You, Target, Encounter, Inventory (Usable), Actions plus Stances, Opponents, Reports | Slack map at 1920: no region under ~50% used; 1366 floors no page scroll |
+
+#### LATER / DELEGATE
+
+| Candidate | Level / effort | Trigger and done check |
+| --- | --- | --- |
+| FC20 Second target pinned in Target for side-by-side compare | Balanced, small | After FC14; Compare mode on the board already lists facts per row |
+| Per-context layout presets ("Fight focus") saved from Edit layout | Strong, medium | After R22c; a preset applies all box moves for one context in one step and resets |
+
+#### Readjusted order (proposal)
+
+1. **R22c** center and color: FC2–FC7, FC11–FC14, FC17 (FC1 superseded by FC11).
+2. **R22d** encounter: FC15, FC16, FC18.
+3. **R23** Reports tabs and place inspection, then R22a companions as listed before.
