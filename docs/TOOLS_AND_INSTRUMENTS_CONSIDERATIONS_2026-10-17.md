@@ -97,7 +97,7 @@ A world's tool rulebook can be written as a setting on each axis, so a new world
 | AX6 | **Custody and law** | School store (JJK), Church seal (LotM), Ministry (HP), license (MHA), none (frontier) |
 | AX7 | **Will** | None, preference, refusal, hunger, active spirit with its own goals (WC5) |
 | AX8 | **Detachability** | Fixed to the tool, movable between tools (Ashes of War, seals on kunai), carried on the body (FMA tattoos) |
-| AX9 | **Repair** | Mundane smith on the housing, specialist on the function, original maker only (Demon Slayer), impossible (fragile relics) |
+| AX9 | **Repair** | Which layers each repairer reaches and how well (round 4, TQ210+): a mundane smith does the body well and the soul poorly or not at all; the original maker does best on their own work (Demon Slayer), and others close the gap with skill, material, notes or the user present; fragile relics are very hard, not forbidden, unless a world's lore makes them absolute |
 
 ## MC. Mundane tools and crafting
 
@@ -233,7 +233,7 @@ inventory key and breaks stack merging or a loan record; IP2 must bind the same 
 | Code | Verb | Phase | Notes |
 |---|---|---|---|
 | VB1 | Make | exists, IP5 | Forge or assemble; maker skill, station and tool set quality |
-| VB2 | Repair | exists (coins), IP3 | By coin, by hand, by specialist, by original maker (Demon Slayer, AX9) |
+| VB2 | Repair | exists (coins), IP3 | By coin, by hand, by specialist; the original maker repairs their own work best (AX9, round 4) |
 | VB3 | Maintain | IP4 | Sharpen, oil, restring, rewrap a grip |
 | VB4 | Modify | IP6 | Rehandle, regrind, add a fitting, socket a gem or Ash of War (world rule) |
 | VB5 | Salvage | exists (p23), IP6 | Parts by condition |
@@ -417,8 +417,8 @@ later phase could split it into; each world uses the ones that fit.
 | TQ145 | Field patch | Portable kit, improvised parts | Quick, temporary; lowers max until done properly |
 | TQ146 | Part replacement | Any maker who can make or buy the part | Keeps the rest; provenance records the swap |
 | TQ147 | Reforge | A smith, the pieces | Rebuilt from fragments; identity question (TQ170) |
-| TQ148 | Specialist repair | The only people who can, by skill or law | Automail mechanics (WE5), MHA support course (WE6), Church for sealed artifacts |
-| TQ149 | Original maker only | That smith or workshop | Demon Slayer (WE2); the maker can die or refuse |
+| TQ148 | Specialist repair | People whose skill, knowledge or license gives them the best results | Automail mechanics (WE5), MHA support course (WE6), Church for sealed artifacts; outsiders can try with worse odds or an illicit route |
+| TQ149 | Original maker's advantage | That smith or workshop does best; others can match them through skill, matching material, the maker's notes, the same school, or the user's help, or accept worse results | Demon Slayer (WE2); if the maker dies or refuses, the item still has routes (round 4, TQ214) |
 | TQ150 | Spell mend | A spell or technique | D&D Mending (WE10), HP Reparo (MEMORY): instant, often only for plain objects |
 | TQ151 | Transmuted repair | Alchemy with matching material | FMA: needs the right matter and understanding of the structure |
 | TQ152 | Self-repair | The tool itself, over time or by feeding | Zanpakutō regrowing from spirit (MEMORY, check WE4 `U`), Samehada, living tools |
@@ -443,7 +443,7 @@ does nothing to the real one.
 
 | Code | Consideration |
 |---|---|
-| TQ163 | **One requirement record** for making and repair: `{skill: {id, level}, station: tag, tools: verbs, materials, power: {kind, amount}, knowledge: method id, eligibility: keys, permit, people: roles, time, calendar}`. Each field is optional. Worlds fill rows; the resolver reads them. This matches GHS92 eligibility keys and the existing `requires` language |
+| TQ163 | **One input record** for making and repair (revised round 4: these are inputs that shift results, not gates; a world marks a field as a hard gate only when its lore says so): `{skill: {id, level}, station: tag, tools: verbs, materials, power: {kind, amount}, knowledge: method id, eligibility: keys, permit, people: roles, time, calendar}`. Each field is optional. Worlds fill rows; the resolver reads them. This matches GHS92 eligibility keys and the existing `requires` language |
 | TQ164 | **Requirements are shown before commit.** The quote lists each one as met, missing, or unknown (unknown when the player lacks the means to tell), consuming nothing (MR4) |
 | TQ165 | **Substitutes per field.** A missing station may have an improvised substitute (TQ7); a missing permit may have an illicit route (TQ125); a missing skill may have a commission (TQ118). Substitutes are rows, not special cases |
 | TQ166 | **People are a requirement too.** Collaboration (TQ120) and original-maker repair (TQ149) need a named person available, with their own schedule and willingness |
@@ -456,7 +456,7 @@ is MEMORY, to be checked under TQ60.
 | Code | World | Making needs | Repair needs | What is special |
 |---|---|---|---|---|
 | TQ170 | Village (WE1) | Skill, station (smithy, workbench), material | Coin or hand repair | None beyond skill: the baseline |
-| TQ171 | Demon Slayer (WE2) | Sunlight-ore material, swordsmith skill and village access | The original smith (TQ149) | Power belongs to the swordsman; the blade's color reads the wielder |
+| TQ171 | Demon Slayer (WE2) | Sunlight-ore material, swordsmith skill and village access | The original smith does best; another village smith of similar skill with matching ore comes close; an outside smith restores the body with weaker fit (TQ214) | Power belongs to the swordsman; the blade's color reads the wielder |
 | TQ172 | Jujutsu Kaisen (WE3) | Ordinary maker for the housing, plus a sorcerer's energy and time for infusion (TQ120, CT6) | Housing: any smith. Function: a qualified sorcerer (authentication, WE3) | Custody by school; grade; tools do not teach their method |
 | TQ173 | Bleach (WE4) | Asauchi from the forger (Nimaiya); the user's soul makes the Zanpakutō | Housing repair, or a paid qualified survey (WE4); deeper damage `U` | The blade is part of the soul; loss is injury |
 | TQ174 | FMA (WE5) | Circle, understanding of the structure, matching matter; automail needs a mechanic | Transmuted repair, or the automail mechanic with climate upkeep | Equivalent exchange; knowledge, matter, body and permission are separate means |
@@ -486,7 +486,7 @@ is MEMORY, to be checked under TQ60.
 | TQ193 | **Repair skill grows separately from making skill.** A good mender is not always a good maker | ACCOUNT FOR NOW: IP3 uses the making skill (Forging); a separate repair skill is a dial for later, not a new skill now |
 | TQ194 | **Repair can improve what was known.** Taking a tool apart reveals its maker, materials and hidden flaws | ACCOUNT FOR NOW: repair writes knowledge claims about the item (MR31) as a side effect, never changes truth |
 | TQ195 | **Cost of not repairing.** A cracked tool fails at a bad time; a dull one just slows you | LATER: typed damage lets failure happen at the right moment instead of a flat stat penalty |
-| TQ196 | **Cross-world repair.** A Village smith on a JJK tool fixes the housing only (MR14) | ACCOUNT FOR NOW: repair rows are per world and per item kind; with no row, only housing repair applies |
+| TQ196 | **Cross-world repair.** A Village smith on a JJK tool does the housing well and cannot perceive the cursed layer (MR14) | ACCOUNT FOR NOW: repair rows are per world and per item kind; with no row, the repairer works on the layers they can perceive, and the others are unchanged and unknown to them (round 4) |
 | TQ197 | **Nonhuman bodies as tools and repairers.** A golem repairs itself with clay; a slime cannot hold tongs | LATER: body template functions feed TQ163 eligibility (nonhuman making doc) |
 
 ### ACT NOW (done this round)
@@ -504,3 +504,102 @@ is MEMORY, to be checked under TQ60.
 
 Evidence: CRAFTING_ENGINE round 2 (GT, WR, RS), MAKER_ARTS world rows W01–W19, MAKING_RULES MR11,
 round 2's WE survey. Docs only; no build, test or browser run.
+
+## Round 4: layered repair, and guiding instead of gating (2026-10-17)
+
+Weibao (2026-10-17): "condider subtle stuff like fixing one aspect but not being able to fix
+another? like fixing physical or not the soul or other way around, something likf demon slayer,
+depends on the blade, but maybe other smith can fix, if similar skill level or some sort of material
+or bypass or else worse results? /more-to-consider dont constrain, guide?"
+
+### What was wrong in rounds 1 to 3
+
+Several rows were written as gates ("original maker only", "the only people who can", "housing
+only", a requirement record). That breaks Rulebook 1 and AD5: limits are adjectives with an in-world
+reason, not locks. The rows were rewritten in place. Old wording, kept as history:
+
+| Row | Old wording (2026-10-17, rounds 1–3) |
+|---|---|
+| AX9 | "original maker only (Demon Slayer), impossible (fragile relics)" |
+| VB2 | "by original maker (Demon Slayer, AX9)" |
+| TQ148 | "The only people who can, by skill or law" |
+| TQ149 | "Original maker only" |
+| TQ163 | "One requirement record" |
+| TQ171 | Repair needs: "The original smith (TQ149)" |
+| TQ196 | "fixes the housing only"; "only housing repair applies" |
+
+**Default from here (TQ209).** A repair or making input changes the odds and the quality band.
+Anyone may attempt anything they can perceive and reach. A hard gate appears only where a world's
+lore states one, and it is labelled as that world's absolute with its source.
+
+### Layers: what an item is made of (TQ210)
+
+Damage and repair happen per layer. A world declares which layers its items have; the Village
+has only the first three.
+
+| Layer | What it is | Examples of damage | Who usually reaches it |
+|---|---|---|---|
+| Body | Matter and form | Crack, chip, break, rot | Any maker of that material |
+| Function | Edge geometry, balance, mechanism, calibration | Off-balance after a crude reforge, a sticky trigger | A skilled maker; a skilled user can tell |
+| Fit | How it suits this user (TQ5) | Reforged to a stranger's taste, long disuse | The user over time, or a maker working with the user present |
+| Pattern | Inscription, circle, enchantment, seal | A scratched rune, a broken seal line | Someone who knows or can read the pattern |
+| Charge | Stored energy or fuel | Drained, overcharged | A power source and a way to feed it |
+| Bond | Allegiance or chosen-ness | Stolen, defeated owner, refusal | The user and the tool; sometimes a rite |
+| Soul or will | A spirit, a curse, a stored self | Wounded, sleeping, corrupted, angry | Spirit-capable people; the tool itself, slowly |
+| Record | Name, provenance, history, legal status | Forged papers, lost registration | Archives, institutions, appraisers |
+
+### How a repair resolves (TQ211–TQ216)
+
+| Code | Rule (default, dial, reason) |
+|---|---|
+| TQ211 | **Per-layer outcome.** One repair attempt names the layers it works on. Each layer's result is drawn from a band set by the repairer's reach, not a pass or fail: restored, restored differently (a new quirk, a color shift), restored weaker, looks fixed but is not, worsened, or knock-on damage to another layer |
+| TQ212 | **Reach is a gradient.** Each repairer has a reach per layer from skill, knowledge and perception. Beyond their reach they can still work, at worse bands; outside what they can perceive at all they cannot target it, and that layer is left unchanged without their knowing |
+| TQ213 | **Gap to the work.** The bigger the gap between the repairer's level and the item's grade or maker's level, the worse the band. A peer of the maker repairs nearly as well as the maker |
+| TQ214 | **What closes the gap** (the "bypasses"). Each is a modifier, and they stack: matching or better material (the same ore); the maker's notes or pattern; the same school, lineage or village; the user present during the work (fit); the right station; more time; a second repairer for the layer the first cannot reach; a cheat; a sacrifice or extra power (the world's own cost) |
+| TQ215 | **Layers are coupled.** Working one layer can disturb another: reforging the body loosens fit and may scar a soul; re-enchanting needs a sound body first; cleansing a curse can strip a wanted effect. Each world declares couplings with a risk |
+| TQ216 | **Repair can reveal.** Opening a layer can show damage in another (fix the crack, find the soul is wounded). The repair writes what was learned as knowledge claims (TQ194) |
+
+### Examples (MEMORY unless a WE row is cited; source check under TQ200)
+
+| Code | Case | How layers play out |
+|---|---|---|
+| TQ217 | **Demon Slayer blade** (WE2) | Body: any capable smith with the right ore. Function and fit: the swordsman's own smith knows their grip, and an equally skilled village smith with that smith's notes comes close. An outside smith with plain steel gives a sound blade that cuts demons poorly (the ore is the anti-demon layer). A broken blade reforged by a stranger may change color or feel, which the slayer notices |
+| TQ218 | **JJK cursed tool** (WE3) | Body by a mundane smith; the stored technique (pattern and charge) by a sorcerer who can perceive it. A mundane repair can look perfect while the technique has weakened, unseen until used |
+| TQ219 | **Zanpakutō** (WE4) | Body regrows with the wielder's spirit; soul damage (MEMORY: a broken Bankai) is a soul injury where a smith adds little, and time, training or a rare specialist does more. Pack marks these procedures `U` |
+| TQ220 | **FMA armor with a soul seal** (WE5) | Body repair by alchemy is easy; touching the seal risks the soul (strong coupling, TQ215). A careful repairer works around the seal at more time |
+| TQ221 | **Wand** (WE9) | Reparo can fix the wood while a damaged core leaves the wand unreliable (MEMORY). A wandmaker reaches the core; others replace the wand |
+| TQ222 | **Automail** (WE5) | Mechanism by any good mechanic; the nerve fitting (fit layer) is best by the original fitter, who knows that limb |
+| TQ223 | **LotM sealed artifact** | Re-sealing restores containment (pattern) without removing the side effect (soul or will); a Beyonder of the right pathway does better |
+| TQ224 | **Village heirloom** | Body by the smith; fit is the grandmother's, which a new owner rebuilds by use; record (the story) survives only if someone remembers it |
+
+### Who perceives what (TQ225)
+
+What a repairer, user or onlooker can perceive follows means (MEANS). A mundane smith sees body and
+function. A skilled user feels fit and function. A sorcerer sees charge and pattern. Spirit sight
+sees soul. The UI shows only perceived layers (MR31), so "looks fixed but is not" is real play: a
+second opinion, or a use under load, can reveal it.
+
+### Subtle details (TQ226–TQ235)
+
+- TQ226. The repairer's imprint joins the item's record; a strong repairer's style can show in use.
+- TQ227. A living or willful tool remembers who repaired it, and may favor or resent them.
+- TQ228. A master user notices a function error a novice never feels (perception by user skill).
+- TQ229. Two-person repair: a smith on the body while a priest steadies the soul, each on their layer.
+- TQ230. Honest and dishonest assessments: an NPC repairer may oversell what they can do; reputation follows actual outcomes.
+- TQ231. Soul and fit layers heal over game time, not in one action; the body is often quick.
+- TQ232. A repair can improve one layer past its old level while another stays worse (a better edge, a weaker bond).
+- TQ233. Some users would rather keep a damaged tool than let a stranger touch its soul.
+- TQ234. Price follows layers: body cheap, soul dear, and shops quote only what they can reach.
+- TQ235. The same layered model fits bodies and healing (JJK reverse technique heals body, not soul, MEMORY; MoL soul scars, GHS96). Kept as a later link, not a merge.
+
+### Engine shape
+
+| Code | Disposition | Item |
+|---|---|---|
+| TQ236 | ACCOUNT FOR NOW | Hand repair (IP3, in progress) should give a worse result band instead of refusing when a station, material or skill level is short, unless a row marks that input as a gate. Sent to the running session |
+| TQ237 | ACCOUNT FOR NOW | Layers are a later split of today's scalar condition: `layers: {body, function, fit, ...}` per item kind, with the Village using body, function and fit. IP3's scalar condition maps to body |
+| TQ238 | ACCOUNT FOR NOW | Repairer profile `{reach: {layer: level}, perceives: [layers], school, notes}`; item layer `{condition, grade, author}`; couplings `{from, to, risk}` per world. Pure resolver with a committed draw (MR2), quote consumes nothing (MR4) |
+| TQ239 | LATER | Layered repair phase after TQ199 typed damage: Village body/function/fit, then the Demon Slayer blade as the first world case (TQ217). Strong implementer, M to L. Done check: the same broken blade repaired by its own smith, a peer with notes, and an outsider gives three different bands; the outsider's repair looks fine in the UI until used against a demon; save, reload, Export, Import keep layers |
+| TQ240 | LATER | A director inspector showing all layers, including unperceived ones, read-only, to verify "looks fixed but is not" |
+
+Evidence: rounds 1–3 of this file, WE1–WE20 pack rows. Docs only; no build, test or browser run.

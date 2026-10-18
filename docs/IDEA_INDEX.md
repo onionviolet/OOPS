@@ -117,6 +117,8 @@ GHS84-GHS111 for power held in things. Round 2 maps the existing tool code
 Round 3 adds kinds of making by material change and organization
 (TQ100-TQ125), damage and repair kinds (TQ130-TQ162), one requirement record
 (TQ163-TQ166) and making and repair requirements per world (TQ170-TQ189).
+Round 4 adds layered repair (body, function, fit, pattern, charge, bond, soul,
+record; TQ210-TQ240) and turns earlier repair gates into guidance (TQ209).
 Proposals only.
 
 [Weaponcrafting, runes and inscription considerations](WEAPONCRAFTING_RUNES_AND_INSCRIPTION_CONSIDERATIONS_2026-10-14.md)
