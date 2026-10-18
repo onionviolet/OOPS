@@ -1,0 +1,176 @@
+{
+  "kind": "documentation_integrity_only",
+  "generated_at": "2026-10-15T03:23:25.122786+00:00",
+  "passed": 17,
+  "failed": 0,
+  "checks": [
+    {
+      "name": "four_exact_packets",
+      "passed": true,
+      "detail": {
+        "swn-free": 46,
+        "wwn-free": 86,
+        "godbound-free": 10,
+        "ironsworn-core-itch": 101
+      }
+    },
+    {
+      "name": "243_pages_exactly_preserved",
+      "passed": true,
+      "detail": "All extracted page text matches original form-feed segments and SHA256"
+    },
+    {
+      "name": "captured_edition_records",
+      "passed": true,
+      "detail": "Each private record ties to the captured library manifest"
+    },
+    {
+      "name": "printed_pdf_locator_offsets",
+      "passed": true,
+      "detail": "Four running printed-page markers checked"
+    },
+    {
+      "name": "ten_complete_original_cards",
+      "passed": true,
+      "detail": "10 rows, five component columns each"
+    },
+    {
+      "name": "example_titles_not_source_tag_names",
+      "passed": true,
+      "detail": "Ten distinct new titles absent from SWN/WWN text; this is a collision check, not a copyright classifier"
+    },
+    {
+      "name": "original_consequence_weights",
+      "passed": true,
+      "detail": [
+        25,
+        20,
+        15,
+        15,
+        15,
+        10
+      ]
+    },
+    {
+      "name": "json_shape_examples_parse",
+      "passed": true,
+      "detail": "Two illustrative JSON blocks; not existing save-validator admission"
+    },
+    {
+      "name": "all_patterns_cover_need_save_and_play",
+      "passed": true,
+      "detail": "Five proposal sections each include seams, compatibility and a test"
+    },
+    {
+      "name": "source_anchor_bounds",
+      "passed": true,
+      "detail": {
+        "files": 13,
+        "spans": 44
+      }
+    },
+    {
+      "name": "local_document_links_resolve",
+      "passed": true,
+      "detail": "21 file targets exist; heading fragments not programmatically checked"
+    },
+    {
+      "name": "private_files_ignored",
+      "passed": true,
+      "detail": "8 existing private files ignored by lane rule"
+    },
+    {
+      "name": "private_files_untracked",
+      "passed": true,
+      "detail": "No private paths in Git index"
+    },
+    {
+      "name": "public_style_and_whitespace",
+      "passed": true,
+      "detail": "Public Markdown has no forbidden dash or trailing whitespace"
+    },
+    {
+      "name": "faction_profiles_differ",
+      "passed": true,
+      "detail": {
+        "swn": 1,
+        "wwn": 2,
+        "fixture": "wealth2 force1 cunning1"
+      }
+    },
+    {
+      "name": "documentary_three_outcome_fixtures",
+      "passed": true,
+      "detail": "Strict comparison and all three illustrative outcomes"
+    },
+    {
+      "name": "full_progress_is_not_certain",
+      "passed": true,
+      "detail": {
+        "strong": 81,
+        "weak": 18,
+        "miss": 1
+      }
+    }
+  ],
+  "source_snapshot": {
+    "src/tag_store.js": {
+      "sha256": "dfe5c6f2acc09ff72a1f6013efbd421a8f34a290d747209e3276ec9188b1a5af",
+      "lines": 235
+    },
+    "src/rule_modules.js": {
+      "sha256": "02eb99b11c38c899a9aabca46f6a04686d8e8048e70649dfba9558d9fe9077aa",
+      "lines": 123
+    },
+    "src/rules.js": {
+      "sha256": "3f20c44464efa945d35e5c42bdfccf27df7e2846acc2b314b07c22074a6e9c9a",
+      "lines": 62
+    },
+    "src/gen_kit.js": {
+      "sha256": "bbbd05aea220aae5f1a8af48252f771851ad089690c9e68f2be0e19c99d38ec4",
+      "lines": 194
+    },
+    "src/simulation.js": {
+      "sha256": "bcc9bc565fab0a8fba967f11e5760a1ead9e8303d65b06ac6483a9f0546c2f37",
+      "lines": 647
+    },
+    "src/expansion_engine.js": {
+      "sha256": "d8832839dc2664068fa7453d3a78ee4b147ff2b0e523283e2973a5dcbe490c32",
+      "lines": 699
+    },
+    "src/simulation_clock.js": {
+      "sha256": "e2511cbc013f22e1863f8b4a6a20d9bbef8e35a96916d107eb00706aa6acec02",
+      "lines": 80
+    },
+    "src/storylet_deck.js": {
+      "sha256": "073442908c9efc2e4602037b6d8a05c34c0674ea0b5ce1f53693cbc5132d1e9a",
+      "lines": 102
+    },
+    "src/simulation_contracts.js": {
+      "sha256": "519b55317952eb7b4cd10a0cabb899542e7af706f568358f146b241be81b301c",
+      "lines": 322
+    },
+    "src/active_effects.js": {
+      "sha256": "43b704e835c55b12c8281ab253ade5339fa83e6284bc248c9beda7cc0ed2eacb",
+      "lines": 524
+    },
+    "src/power_models.js": {
+      "sha256": "cbf6d86aea5cdfd1fda9bb39dddb208944c210e91c60196283f5ea731d3c23b7",
+      "lines": 55
+    },
+    "src/realm_traveler_profiles.js": {
+      "sha256": "d4e98f8d9dd3fe2efe49e57ded583ef1ed2910b91d711eb2ece25f4f77aa774f",
+      "lines": 532
+    },
+    "src/expansion_persistence.js": {
+      "sha256": "2f658af3fa9d66b2bafc785b7e061f85489f2c9cb6d09c9384659c53356df3a3",
+      "lines": 54
+    }
+  },
+  "limits": [
+    "No runtime feature tests",
+    "No seed sweep or golden gameplay snapshots",
+    "No build/browser/save/reload/import",
+    "Source anchor bounds are not semantic code proof; reads underpin claims"
+  ]
+}

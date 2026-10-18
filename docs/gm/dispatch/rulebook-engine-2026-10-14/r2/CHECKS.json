@@ -1,0 +1,41 @@
+{
+  "date": "2026-10-14",
+  "branch": "codex/rbe-r2-effect-dsl",
+  "focused": {
+    "command": "node --test tests/effect_dsl.test.js",
+    "tests": 93,
+    "passed": 93,
+    "failed": 0
+  },
+  "full": {
+    "command": "npm test",
+    "invocations": 1,
+    "exitCode": 0,
+    "tests": 1852,
+    "passed": 1849,
+    "failed": 0,
+    "todo": 3,
+    "durationMs": 77691.712625
+  },
+  "pack": {
+    "total": 45,
+    "conditions": 15,
+    "spells": 20,
+    "monsters": 10,
+    "supported": 17,
+    "needs_ruling": 28,
+    "unsupported": 0,
+    "allValidate": true,
+    "allCarryAttribution": true
+  },
+  "importerTrial": {
+    "drafts": 20,
+    "schemaValid": 20,
+    "reviewLaneFixRequired": 20,
+    "humanFixesObserved": 0
+  },
+  "nativeGameplay": "not_in_scope",
+  "persistence": "unchanged",
+  "commit": "186b553f75d4448a7659a44f31bf73314ffd032a",
+  "worktreeCleanAfterCommit": true
+}

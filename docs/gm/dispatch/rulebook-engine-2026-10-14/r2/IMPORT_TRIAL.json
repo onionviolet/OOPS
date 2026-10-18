@@ -1,0 +1,211 @@
+{
+  "canonicalTextSha256": "4456eaa81743ed341c13f19d1d7ced344a6adcbb15367941875ee45cd3f2e562",
+  "total": 20,
+  "schemaValid": 20,
+  "schemaInvalid": 0,
+  "requiresReviewLaneFix": 20,
+  "humanFixesObserved": 0,
+  "humanApprovalObserved": false,
+  "rows": [
+    {
+      "id": "srd521.spell.acid_splash",
+      "validDraft": true,
+      "errors": [],
+      "correctedFields": [
+        "effects",
+        "function"
+      ],
+      "requiresReviewLaneFix": true
+    },
+    {
+      "id": "srd521.spell.fire_bolt",
+      "validDraft": true,
+      "errors": [],
+      "correctedFields": [
+        "effects",
+        "function"
+      ],
+      "requiresReviewLaneFix": true
+    },
+    {
+      "id": "srd521.spell.light",
+      "validDraft": true,
+      "errors": [],
+      "correctedFields": [
+        "effects",
+        "function"
+      ],
+      "requiresReviewLaneFix": true
+    },
+    {
+      "id": "srd521.spell.mage_hand",
+      "validDraft": true,
+      "errors": [],
+      "correctedFields": [
+        "effects",
+        "function"
+      ],
+      "requiresReviewLaneFix": true
+    },
+    {
+      "id": "srd521.spell.shield",
+      "validDraft": true,
+      "errors": [],
+      "correctedFields": [
+        "effects",
+        "function"
+      ],
+      "requiresReviewLaneFix": true
+    },
+    {
+      "id": "srd521.spell.magic_missile",
+      "validDraft": true,
+      "errors": [],
+      "correctedFields": [
+        "effects",
+        "function"
+      ],
+      "requiresReviewLaneFix": true
+    },
+    {
+      "id": "srd521.spell.cure_wounds",
+      "validDraft": true,
+      "errors": [],
+      "correctedFields": [
+        "effects",
+        "function"
+      ],
+      "requiresReviewLaneFix": true
+    },
+    {
+      "id": "srd521.spell.detect_magic",
+      "validDraft": true,
+      "errors": [],
+      "correctedFields": [
+        "effects",
+        "function"
+      ],
+      "requiresReviewLaneFix": true
+    },
+    {
+      "id": "srd521.spell.hold_person",
+      "validDraft": true,
+      "errors": [],
+      "correctedFields": [
+        "effects",
+        "function"
+      ],
+      "requiresReviewLaneFix": true
+    },
+    {
+      "id": "srd521.spell.misty_step",
+      "validDraft": true,
+      "errors": [],
+      "correctedFields": [
+        "effects",
+        "function"
+      ],
+      "requiresReviewLaneFix": true
+    },
+    {
+      "id": "srd521.spell.lesser_restoration",
+      "validDraft": true,
+      "errors": [],
+      "correctedFields": [
+        "effects",
+        "function"
+      ],
+      "requiresReviewLaneFix": true
+    },
+    {
+      "id": "srd521.spell.silence",
+      "validDraft": true,
+      "errors": [],
+      "correctedFields": [
+        "effects",
+        "function"
+      ],
+      "requiresReviewLaneFix": true
+    },
+    {
+      "id": "srd521.spell.fireball",
+      "validDraft": true,
+      "errors": [],
+      "correctedFields": [
+        "effects",
+        "function"
+      ],
+      "requiresReviewLaneFix": true
+    },
+    {
+      "id": "srd521.spell.counterspell",
+      "validDraft": true,
+      "errors": [],
+      "correctedFields": [
+        "effects",
+        "function"
+      ],
+      "requiresReviewLaneFix": true
+    },
+    {
+      "id": "srd521.spell.revivify",
+      "validDraft": true,
+      "errors": [],
+      "correctedFields": [
+        "effects",
+        "function"
+      ],
+      "requiresReviewLaneFix": true
+    },
+    {
+      "id": "srd521.spell.dispel_magic",
+      "validDraft": true,
+      "errors": [],
+      "correctedFields": [
+        "effects",
+        "function"
+      ],
+      "requiresReviewLaneFix": true
+    },
+    {
+      "id": "srd521.spell.banishment",
+      "validDraft": true,
+      "errors": [],
+      "correctedFields": [
+        "effects",
+        "function"
+      ],
+      "requiresReviewLaneFix": true
+    },
+    {
+      "id": "srd521.spell.stoneskin",
+      "validDraft": true,
+      "errors": [],
+      "correctedFields": [
+        "effects",
+        "function"
+      ],
+      "requiresReviewLaneFix": true
+    },
+    {
+      "id": "srd521.spell.cone_of_cold",
+      "validDraft": true,
+      "errors": [],
+      "correctedFields": [
+        "effects",
+        "function"
+      ],
+      "requiresReviewLaneFix": true
+    },
+    {
+      "id": "srd521.spell.wall_of_force",
+      "validDraft": true,
+      "errors": [],
+      "correctedFields": [
+        "effects",
+        "function"
+      ],
+      "requiresReviewLaneFix": true
+    }
+  ]
+}

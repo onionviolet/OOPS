@@ -4,6 +4,22 @@
  "effort": "medium",
  "lanes": [
   {
+   "name": "fix-csm",
+   "prompt": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/wiki-lanes-2026-10-13/FIX-CSM.md",
+   "cwd": "/Users/weiwei/code/yet-another-idle-rpg",
+   "done": "/Users/weiwei/code/yet-another-idle-rpg/docs/worlds/chainsaw-man/FIXES_APPLIED.md",
+   "deps": [],
+   "progress": null
+  },
+  {
+   "name": "fix-fma",
+   "prompt": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/wiki-lanes-2026-10-13/FIX-FMA.md",
+   "cwd": "/Users/weiwei/code/yet-another-idle-rpg",
+   "done": "/Users/weiwei/code/yet-another-idle-rpg/docs/worlds/fullmetal-alchemist/FIXES_APPLIED.md",
+   "deps": [],
+   "progress": null
+  },
+  {
    "name": "csm",
    "prompt": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/wiki-lanes-2026-10-13/CSM.md",
    "cwd": "/Users/weiwei/code/yet-another-idle-rpg",
@@ -420,6 +436,96 @@
    "progress": null,
    "model": "gpt-6-sol",
    "effort": "high"
+  },
+  {
+   "name": "fix-jjk",
+   "prompt": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/wiki-lanes-2026-10-13/FIX-JJK.md",
+   "cwd": "/Users/weiwei/code/yet-another-idle-rpg",
+   "done": "/Users/weiwei/code/yet-another-idle-rpg/docs/worlds/jujutsu/FIXES_APPLIED.md",
+   "deps": [
+    "review-jjk"
+   ],
+   "progress": null
+  },
+  {
+   "name": "fix-bleach",
+   "prompt": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/wiki-lanes-2026-10-13/FIX-BLEACH.md",
+   "cwd": "/Users/weiwei/code/yet-another-idle-rpg",
+   "done": "/Users/weiwei/code/yet-another-idle-rpg/docs/worlds/bleach/FIXES_APPLIED.md",
+   "deps": [
+    "review-bleach"
+   ],
+   "progress": null
+  },
+  {
+   "name": "fix-fate",
+   "prompt": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/wiki-lanes-2026-10-13/FIX-FATE.md",
+   "cwd": "/Users/weiwei/code/yet-another-idle-rpg",
+   "done": "/Users/weiwei/code/yet-another-idle-rpg/docs/worlds/fate/FIXES_APPLIED.md",
+   "deps": [
+    "review-fate"
+   ],
+   "progress": null
+  },
+  {
+   "name": "fix-hxh",
+   "prompt": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/wiki-lanes-2026-10-13/FIX-HXH.md",
+   "cwd": "/Users/weiwei/code/yet-another-idle-rpg",
+   "done": "/Users/weiwei/code/yet-another-idle-rpg/docs/worlds/hunter-x-hunter/FIXES_APPLIED.md",
+   "deps": [
+    "review-hxh"
+   ],
+   "progress": null
+  },
+  {
+   "name": "fix-frieren",
+   "prompt": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/wiki-lanes-2026-10-13/FIX-FRIEREN.md",
+   "cwd": "/Users/weiwei/code/yet-another-idle-rpg",
+   "done": "/Users/weiwei/code/yet-another-idle-rpg/docs/worlds/frieren/FIXES_APPLIED.md",
+   "deps": [
+    "review-frieren"
+   ],
+   "progress": null
+  },
+  {
+   "name": "fix-demon-slayer",
+   "prompt": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/wiki-lanes-2026-10-13/FIX-DEMON-SLAYER.md",
+   "cwd": "/Users/weiwei/code/yet-another-idle-rpg",
+   "done": "/Users/weiwei/code/yet-another-idle-rpg/docs/worlds/demon-slayer/FIXES_APPLIED.md",
+   "deps": [
+    "review-demon-slayer"
+   ],
+   "progress": null
+  },
+  {
+   "name": "fix-black-clover",
+   "prompt": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/wiki-lanes-2026-10-13/FIX-BLACK-CLOVER.md",
+   "cwd": "/Users/weiwei/code/yet-another-idle-rpg",
+   "done": "/Users/weiwei/code/yet-another-idle-rpg/docs/worlds/black-clover/FIXES_APPLIED.md",
+   "deps": [
+    "review-black-clover"
+   ],
+   "progress": null
+  },
+  {
+   "name": "fix-mha",
+   "prompt": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/wiki-lanes-2026-10-13/FIX-MHA.md",
+   "cwd": "/Users/weiwei/code/yet-another-idle-rpg",
+   "done": "/Users/weiwei/code/yet-another-idle-rpg/docs/worlds/mha/FIXES_APPLIED.md",
+   "deps": [
+    "review-mha"
+   ],
+   "progress": null
+  },
+  {
+   "name": "fix-one-piece",
+   "prompt": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/wiki-lanes-2026-10-13/FIX-ONE-PIECE.md",
+   "cwd": "/Users/weiwei/code/yet-another-idle-rpg",
+   "done": "/Users/weiwei/code/yet-another-idle-rpg/docs/worlds/one-piece/FIXES_APPLIED.md",
+   "deps": [
+    "review-one-piece"
+   ],
+   "progress": null
   }
  ],
  "resume_gap": 240
