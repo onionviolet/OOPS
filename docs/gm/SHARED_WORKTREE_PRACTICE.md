@@ -126,3 +126,14 @@ After the 2026-10-17 push (`master` = `codex/gameplay-foundations` = `6fca46c1c`
 | ACCOUNT FOR NOW | Bulk local-only material belongs in `.gitignore` (by directory, not `*.png`, since rounds commit chosen evidence images) or in `private/`, so `git status` stays readable | Untracked count after ignore lines |
 | LATER / DELEGATE | Per-worktree review of the 37 merged-but-dirty worktrees: keep, commit evidence, or remove. Cheap model, low effort | Each one listed with a disposition |
 | LATER / DELEGATE | `styles/oops_branding.css` fails the UI contract (`font-family`); its owner fixes or allowlists it, then the branding lands with `oops-icon.svg` | `npm test` 0 fail with the file committed |
+
+**Stale index fix, 2026-10-17 (D1).** The ten entries above were unstaged with
+`git restore --staged`, index only; no file or commit changed. The engine thread
+session (owner of `ARCHITECTURE_RULES.md`, the five `docs/reviews/*_2026-10-16.md`
+files and `launch.py`) never staged them: its commits used private indexes.
+`launch.py` was already back in the index. The three MM files' staged blobs were
+subsets of HEAD (0 lines added) and stay recoverable as `06006feac19e`,
+`717e9923507d` and `33d53994d993`. Left for owners, not committed: the working-tree
+edit in `GENERATION_FOUNDATION_RULES_2026-10-14.md` (+28/−6), and the modular-plan
+session's uncommitted cross-link notes in three of the engine thread's review docs.
+Those notes say "M3 remains stopped", which the later M3 resume (B4) superseded.
