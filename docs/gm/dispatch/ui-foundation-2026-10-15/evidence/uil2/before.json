@@ -1,0 +1,345 @@
+{
+  "label": "before",
+  "url": "http://127.0.0.1:19542",
+  "targets": {
+    "1920-14": {
+      "signal": false,
+      "optionsBefore": "Options · 4 (2 ready)",
+      "optionsAfter": "Options · 7 (5 ready)",
+      "lookAround": {
+        "frames": 96,
+        "mismatch": [
+          {
+            "frame": 4,
+            "tab": "Options · 4 (2 ready)",
+            "groups": 7,
+            "ready": 5
+          },
+          {
+            "frame": 5,
+            "tab": "Options · 4 (2 ready)",
+            "groups": 7,
+            "ready": 5
+          },
+          {
+            "frame": 6,
+            "tab": "Options · 4 (2 ready)",
+            "groups": 7,
+            "ready": 5
+          },
+          {
+            "frame": 7,
+            "tab": "Options · 4 (2 ready)",
+            "groups": 7,
+            "ready": 5
+          },
+          {
+            "frame": 8,
+            "tab": "Options · 4 (2 ready)",
+            "groups": 7,
+            "ready": 5
+          },
+          {
+            "frame": 9,
+            "tab": "Options · 4 (2 ready)",
+            "groups": 7,
+            "ready": 5
+          }
+        ],
+        "mismatches": 6
+      },
+      "timeRuns": {
+        "frames": 286,
+        "mismatches": 0,
+        "first": []
+      },
+      "chipIdle": {
+        "shown": false,
+        "text": "",
+        "work": "No work running.",
+        "panelOnScreen": true
+      },
+      "chipWorkInView": {
+        "shown": false,
+        "text": "",
+        "work": "Just running around",
+        "panelOnScreen": true
+      },
+      "chipWorkOutOfView": {
+        "shown": false,
+        "text": "",
+        "work": "Just running around",
+        "panelOnScreen": false
+      },
+      "chipBackInView": {
+        "shown": false,
+        "text": "",
+        "work": "Just running around",
+        "panelOnScreen": true
+      },
+      "holdOnEnd": {
+        "chipBefore": false,
+        "chipDuring": false,
+        "rectsSame": true,
+        "moved": [],
+        "focusSame": true,
+        "chipAfterLeave": false
+      },
+      "holdOnStart": {
+        "chipBefore": false,
+        "chipDuring": false,
+        "rectsSame": true,
+        "moved": [],
+        "focusSame": true,
+        "chipAfterLeave": false
+      },
+      "chipNoWork": {
+        "shown": false,
+        "text": "",
+        "work": "No work running.",
+        "panelOnScreen": false
+      },
+      "errors": []
+    },
+    "1920-21": {
+      "signal": false,
+      "optionsBefore": "Options · 4 (2 ready)",
+      "optionsAfter": "Options · 7 (5 ready)",
+      "lookAround": {
+        "frames": 95,
+        "mismatch": [
+          {
+            "frame": 3,
+            "tab": "Options · 4 (2 ready)",
+            "groups": 7,
+            "ready": 5
+          }
+        ],
+        "mismatches": 1
+      },
+      "timeRuns": {
+        "frames": 280,
+        "mismatches": 0,
+        "first": []
+      },
+      "chipIdle": {
+        "shown": false,
+        "text": "",
+        "work": "No work running.",
+        "panelOnScreen": true
+      },
+      "chipWorkInView": {
+        "shown": false,
+        "text": "",
+        "work": "Just running around",
+        "panelOnScreen": true
+      },
+      "chipWorkOutOfView": {
+        "shown": false,
+        "text": "",
+        "work": "Just running around",
+        "panelOnScreen": false
+      },
+      "chipBackInView": {
+        "shown": false,
+        "text": "",
+        "work": "Just running around",
+        "panelOnScreen": true
+      },
+      "holdOnEnd": {
+        "chipBefore": false,
+        "chipDuring": false,
+        "rectsSame": true,
+        "moved": [],
+        "focusSame": true,
+        "chipAfterLeave": false
+      },
+      "holdOnStart": {
+        "chipBefore": false,
+        "chipDuring": false,
+        "rectsSame": true,
+        "moved": [],
+        "focusSame": true,
+        "chipAfterLeave": false
+      },
+      "chipNoWork": {
+        "shown": false,
+        "text": "",
+        "work": "No work running.",
+        "panelOnScreen": false
+      },
+      "errors": []
+    },
+    "1366-14": {
+      "signal": false,
+      "optionsBefore": "Options · 4 (2 ready)",
+      "optionsAfter": "Options · 7 (5 ready)",
+      "lookAround": {
+        "frames": 96,
+        "mismatch": [
+          {
+            "frame": 4,
+            "tab": "Options · 4 (2 ready)",
+            "groups": 7,
+            "ready": 5
+          }
+        ],
+        "mismatches": 1
+      },
+      "timeRuns": {
+        "frames": 282,
+        "mismatches": 0,
+        "first": []
+      },
+      "chipIdle": {
+        "shown": false,
+        "text": "",
+        "work": "No work running.",
+        "panelOnScreen": true
+      },
+      "chipWorkInView": {
+        "shown": false,
+        "text": "",
+        "work": "Just running around",
+        "panelOnScreen": true
+      },
+      "chipWorkOutOfView": {
+        "shown": false,
+        "text": "",
+        "work": "Just running around",
+        "panelOnScreen": false
+      },
+      "chipBackInView": {
+        "shown": false,
+        "text": "",
+        "work": "Just running around",
+        "panelOnScreen": true
+      },
+      "holdOnEnd": {
+        "chipBefore": false,
+        "chipDuring": false,
+        "rectsSame": true,
+        "moved": [],
+        "focusSame": true,
+        "chipAfterLeave": false
+      },
+      "holdOnStart": {
+        "chipBefore": false,
+        "chipDuring": false,
+        "rectsSame": true,
+        "moved": [],
+        "focusSame": true,
+        "chipAfterLeave": false
+      },
+      "chipNoWork": {
+        "shown": false,
+        "text": "",
+        "work": "No work running.",
+        "panelOnScreen": false
+      },
+      "errors": []
+    },
+    "1366-21": {
+      "signal": false,
+      "optionsBefore": "Options · 4 (2 ready)",
+      "optionsAfter": "Options · 7 (5 ready)",
+      "lookAround": {
+        "frames": 95,
+        "mismatch": [
+          {
+            "frame": 4,
+            "tab": "Options · 4 (2 ready)",
+            "groups": 7,
+            "ready": 5
+          },
+          {
+            "frame": 5,
+            "tab": "Options · 4 (2 ready)",
+            "groups": 7,
+            "ready": 5
+          },
+          {
+            "frame": 6,
+            "tab": "Options · 4 (2 ready)",
+            "groups": 7,
+            "ready": 5
+          },
+          {
+            "frame": 7,
+            "tab": "Options · 4 (2 ready)",
+            "groups": 7,
+            "ready": 5
+          }
+        ],
+        "mismatches": 4
+      },
+      "timeRuns": {
+        "frames": 285,
+        "mismatches": 0,
+        "first": []
+      },
+      "chipIdle": {
+        "shown": false,
+        "text": "",
+        "work": "No work running.",
+        "panelOnScreen": true
+      },
+      "chipWorkInView": {
+        "shown": false,
+        "text": "",
+        "work": "Just running around",
+        "panelOnScreen": true
+      },
+      "chipWorkOutOfView": {
+        "shown": false,
+        "text": "",
+        "work": "Just running around",
+        "panelOnScreen": false
+      },
+      "chipBackInView": {
+        "shown": false,
+        "text": "",
+        "work": "Just running around",
+        "panelOnScreen": true
+      },
+      "holdOnEnd": {
+        "chipBefore": false,
+        "chipDuring": false,
+        "rectsSame": true,
+        "moved": [],
+        "focusSame": true,
+        "chipAfterLeave": false
+      },
+      "holdOnStart": {
+        "chipBefore": false,
+        "chipDuring": false,
+        "rectsSame": true,
+        "moved": [],
+        "focusSame": true,
+        "chipAfterLeave": false
+      },
+      "chipNoWork": {
+        "shown": false,
+        "text": "",
+        "work": "No work running.",
+        "panelOnScreen": false
+      },
+      "errors": []
+    }
+  },
+  "roundtrip": {
+    "before": {
+      "options": "Options · 4 (2 ready)",
+      "nav": "Here Stats Inventory Crafting Mixing Journal Bestiary Books Data Notebook Skills People Travelers Projects Ledger Worlds Beginning Settings"
+    },
+    "reloaded": {
+      "options": "Options · 4 (2 ready)",
+      "nav": "Here Stats Inventory Crafting Mixing Journal Bestiary Books Data Notebook Skills People Travelers Projects Ledger Worlds Beginning Settings"
+    },
+    "imported": {
+      "options": "Options · 4 (2 ready)",
+      "nav": "Here Stats Inventory Crafting Mixing Journal Bestiary Books Data Notebook Skills People Travelers Projects Ledger Worlds Beginning Settings"
+    },
+    "errors": []
+  }
+}

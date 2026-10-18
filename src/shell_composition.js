@@ -11,7 +11,7 @@ import { LAYOUT_SPEC, topRowHeight, companionsFor, frameFor, regionFit } from '.
 // attributes on the shell root.
 
 // Attributes on the shell root that mark a context or size change.
-const STABLE_ATTRIBUTES = ['data-shell-companions-placed', 'data-shell-companion-swap', 'data-parity', 'data-parity-combat', 'data-parity-item', 'data-shell-stats-open', 'data-enemy-cards', 'data-density', 'data-presentation', 'data-parity-expanded', 'data-opponent-board', 'style'];
+const STABLE_ATTRIBUTES = ['data-shell-companions-placed', 'data-shell-companion-swap', 'data-parity', 'data-parity-combat', 'data-layout-context', 'data-parity-item', 'data-shell-stats-open', 'data-enemy-cards', 'data-density', 'data-presentation', 'data-parity-expanded', 'data-opponent-board', 'style'];
 const LEAF = /^(BUTTON|SELECT|INPUT|TEXTAREA|IMG|SVG|CANVAS|PROGRESS|SUMMARY)$/;
 
 // Bottom of the lowest visible text or control inside a region, as if every inner scroll
@@ -99,7 +99,7 @@ export function createShellComposition({root, board, regions}) {
         // R21: companions the player placed beside the actions show even where the context would not
         // recommend them (WX11).
         const placed = (root.dataset.shellCompanionsPlaced || '').split(' ').filter(id => id && available.includes(id));
-        const companions = [...new Set([...companionsFor({combat, available}), ...placed])].join(' ');
+        const companions = [...new Set([...companionsFor({combat, context: root.dataset.layoutContext || null, available}), ...placed])].join(' ');
         if (root.dataset.shellCompanions !== companions) root.dataset.shellCompanions = companions;
         // The frame allowance covers region borders plus the padding and borders below the last
         // text line (opponent card lists, stat rows), which the extent does not see.

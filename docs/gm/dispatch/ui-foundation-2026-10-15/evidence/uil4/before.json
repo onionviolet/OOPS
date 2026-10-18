@@ -1,0 +1,608 @@
+{
+  "phase": "before",
+  "targets": {
+    "1920-14": {
+      "idle": {
+        "context": null,
+        "combat": "false",
+        "companions": "records",
+        "centerTask": null,
+        "regions": {
+          "player": [
+            "vitals",
+            "shell-character"
+          ],
+          "focus": [
+            "shell-detail"
+          ],
+          "inventory": [
+            "shell-inventory-tools",
+            "belongings"
+          ],
+          "actions": [
+            "village-scene",
+            "current-work",
+            "local-actions",
+            "pane-navigation"
+          ],
+          "log": [
+            "messages"
+          ]
+        },
+        "detail": "focus",
+        "logRegion": "log"
+      },
+      "selectedBefore": null,
+      "mixing": {
+        "context": null,
+        "combat": "false",
+        "companions": "records",
+        "centerTask": "mixing",
+        "regions": {
+          "player": [
+            "vitals",
+            "shell-character"
+          ],
+          "focus": [],
+          "inventory": [
+            "shell-inventory-tools",
+            "belongings"
+          ],
+          "actions": [
+            "village-scene",
+            "current-work",
+            "local-actions",
+            "pane-navigation"
+          ],
+          "log": [
+            "messages"
+          ]
+        },
+        "detail": "focus",
+        "logRegion": "log"
+      },
+      "mixingLeft": {
+        "context": null,
+        "combat": "false",
+        "companions": "records",
+        "centerTask": null,
+        "regions": {
+          "player": [
+            "vitals",
+            "shell-character"
+          ],
+          "focus": [
+            "shell-detail"
+          ],
+          "inventory": [
+            "shell-inventory-tools",
+            "belongings"
+          ],
+          "actions": [
+            "village-scene",
+            "current-work",
+            "local-actions",
+            "pane-navigation"
+          ],
+          "log": [
+            "messages"
+          ]
+        },
+        "detail": "focus",
+        "logRegion": "log",
+        "scrollKept": null
+      },
+      "crafting": {
+        "context": null,
+        "combat": "false",
+        "companions": "records",
+        "centerTask": "crafting",
+        "regions": {
+          "player": [
+            "vitals",
+            "shell-character"
+          ],
+          "focus": [],
+          "inventory": [
+            "shell-inventory-tools",
+            "belongings"
+          ],
+          "actions": [
+            "village-scene",
+            "current-work",
+            "local-actions",
+            "pane-navigation"
+          ],
+          "log": [
+            "messages"
+          ]
+        },
+        "detail": "focus",
+        "logRegion": "log"
+      },
+      "craftingLeft": {
+        "context": null,
+        "combat": "false",
+        "companions": "records",
+        "centerTask": null,
+        "regions": {
+          "player": [
+            "vitals",
+            "shell-character"
+          ],
+          "focus": [
+            "shell-detail"
+          ],
+          "inventory": [
+            "shell-inventory-tools",
+            "belongings"
+          ],
+          "actions": [
+            "village-scene",
+            "current-work",
+            "local-actions",
+            "pane-navigation"
+          ],
+          "log": [
+            "messages"
+          ]
+        },
+        "detail": "focus",
+        "logRegion": "log",
+        "scrollKept": null
+      },
+      "errors": []
+    },
+    "1920-21": {
+      "idle": {
+        "context": null,
+        "combat": "false",
+        "companions": "records",
+        "centerTask": null,
+        "regions": {
+          "player": [
+            "vitals",
+            "shell-character"
+          ],
+          "focus": [
+            "shell-detail"
+          ],
+          "inventory": [
+            "shell-inventory-tools",
+            "belongings"
+          ],
+          "actions": [
+            "village-scene",
+            "current-work",
+            "local-actions",
+            "pane-navigation"
+          ],
+          "log": [
+            "messages"
+          ]
+        },
+        "detail": "focus",
+        "logRegion": "log"
+      },
+      "selectedBefore": null,
+      "mixing": {
+        "context": null,
+        "combat": "false",
+        "companions": "records",
+        "centerTask": "mixing",
+        "regions": {
+          "player": [
+            "vitals",
+            "shell-character"
+          ],
+          "focus": [],
+          "inventory": [
+            "shell-inventory-tools",
+            "belongings"
+          ],
+          "actions": [
+            "village-scene",
+            "current-work",
+            "local-actions",
+            "pane-navigation"
+          ],
+          "log": [
+            "messages"
+          ]
+        },
+        "detail": "focus",
+        "logRegion": "log"
+      },
+      "mixingLeft": {
+        "context": null,
+        "combat": "false",
+        "companions": "records",
+        "centerTask": null,
+        "regions": {
+          "player": [
+            "vitals",
+            "shell-character"
+          ],
+          "focus": [
+            "shell-detail"
+          ],
+          "inventory": [
+            "shell-inventory-tools",
+            "belongings"
+          ],
+          "actions": [
+            "village-scene",
+            "current-work",
+            "local-actions",
+            "pane-navigation"
+          ],
+          "log": [
+            "messages"
+          ]
+        },
+        "detail": "focus",
+        "logRegion": "log",
+        "scrollKept": null
+      },
+      "crafting": {
+        "context": null,
+        "combat": "false",
+        "companions": "records",
+        "centerTask": "crafting",
+        "regions": {
+          "player": [
+            "vitals",
+            "shell-character"
+          ],
+          "focus": [],
+          "inventory": [
+            "shell-inventory-tools",
+            "belongings"
+          ],
+          "actions": [
+            "village-scene",
+            "current-work",
+            "local-actions",
+            "pane-navigation"
+          ],
+          "log": [
+            "messages"
+          ]
+        },
+        "detail": "focus",
+        "logRegion": "log"
+      },
+      "craftingLeft": {
+        "context": null,
+        "combat": "false",
+        "companions": "records",
+        "centerTask": null,
+        "regions": {
+          "player": [
+            "vitals",
+            "shell-character"
+          ],
+          "focus": [
+            "shell-detail"
+          ],
+          "inventory": [
+            "shell-inventory-tools",
+            "belongings"
+          ],
+          "actions": [
+            "village-scene",
+            "current-work",
+            "local-actions",
+            "pane-navigation"
+          ],
+          "log": [
+            "messages"
+          ]
+        },
+        "detail": "focus",
+        "logRegion": "log",
+        "scrollKept": null
+      },
+      "errors": []
+    },
+    "1366-14": {
+      "idle": {
+        "context": null,
+        "combat": "false",
+        "companions": "records",
+        "centerTask": null,
+        "regions": {
+          "player": [
+            "vitals",
+            "shell-character"
+          ],
+          "focus": [
+            "shell-detail"
+          ],
+          "inventory": [
+            "shell-inventory-tools",
+            "belongings"
+          ],
+          "actions": [
+            "village-scene",
+            "current-work",
+            "local-actions",
+            "pane-navigation"
+          ],
+          "log": [
+            "messages"
+          ]
+        },
+        "detail": "focus",
+        "logRegion": "log"
+      },
+      "selectedBefore": null,
+      "mixing": {
+        "context": null,
+        "combat": "false",
+        "companions": "records",
+        "centerTask": "mixing",
+        "regions": {
+          "player": [
+            "vitals",
+            "shell-character"
+          ],
+          "focus": [],
+          "inventory": [
+            "shell-inventory-tools",
+            "belongings"
+          ],
+          "actions": [
+            "village-scene",
+            "current-work",
+            "local-actions",
+            "pane-navigation"
+          ],
+          "log": [
+            "messages"
+          ]
+        },
+        "detail": "focus",
+        "logRegion": "log"
+      },
+      "mixingLeft": {
+        "context": null,
+        "combat": "false",
+        "companions": "records",
+        "centerTask": null,
+        "regions": {
+          "player": [
+            "vitals",
+            "shell-character"
+          ],
+          "focus": [
+            "shell-detail"
+          ],
+          "inventory": [
+            "shell-inventory-tools",
+            "belongings"
+          ],
+          "actions": [
+            "village-scene",
+            "current-work",
+            "local-actions",
+            "pane-navigation"
+          ],
+          "log": [
+            "messages"
+          ]
+        },
+        "detail": "focus",
+        "logRegion": "log",
+        "scrollKept": null
+      },
+      "crafting": {
+        "context": null,
+        "combat": "false",
+        "companions": "records",
+        "centerTask": "crafting",
+        "regions": {
+          "player": [
+            "vitals",
+            "shell-character"
+          ],
+          "focus": [],
+          "inventory": [
+            "shell-inventory-tools",
+            "belongings"
+          ],
+          "actions": [
+            "village-scene",
+            "current-work",
+            "local-actions",
+            "pane-navigation"
+          ],
+          "log": [
+            "messages"
+          ]
+        },
+        "detail": "focus",
+        "logRegion": "log"
+      },
+      "craftingLeft": {
+        "context": null,
+        "combat": "false",
+        "companions": "records",
+        "centerTask": null,
+        "regions": {
+          "player": [
+            "vitals",
+            "shell-character"
+          ],
+          "focus": [
+            "shell-detail"
+          ],
+          "inventory": [
+            "shell-inventory-tools",
+            "belongings"
+          ],
+          "actions": [
+            "village-scene",
+            "current-work",
+            "local-actions",
+            "pane-navigation"
+          ],
+          "log": [
+            "messages"
+          ]
+        },
+        "detail": "focus",
+        "logRegion": "log",
+        "scrollKept": null
+      },
+      "errors": []
+    },
+    "1366-21": {
+      "idle": {
+        "context": null,
+        "combat": "false",
+        "companions": "records",
+        "centerTask": null,
+        "regions": {
+          "player": [
+            "vitals",
+            "shell-character"
+          ],
+          "focus": [
+            "shell-detail"
+          ],
+          "inventory": [
+            "belongings"
+          ],
+          "actions": [
+            "village-scene",
+            "current-work",
+            "local-actions",
+            "pane-navigation"
+          ],
+          "log": [
+            "messages"
+          ]
+        },
+        "detail": "focus",
+        "logRegion": "log"
+      },
+      "selectedBefore": null,
+      "mixing": {
+        "context": null,
+        "combat": "false",
+        "companions": "records",
+        "centerTask": "mixing",
+        "regions": {
+          "player": [
+            "vitals",
+            "shell-character"
+          ],
+          "focus": [],
+          "inventory": [
+            "belongings"
+          ],
+          "actions": [
+            "village-scene",
+            "current-work",
+            "local-actions",
+            "pane-navigation"
+          ],
+          "log": [
+            "messages"
+          ]
+        },
+        "detail": "focus",
+        "logRegion": "log"
+      },
+      "mixingLeft": {
+        "context": null,
+        "combat": "false",
+        "companions": "records",
+        "centerTask": null,
+        "regions": {
+          "player": [
+            "vitals",
+            "shell-character"
+          ],
+          "focus": [
+            "shell-detail"
+          ],
+          "inventory": [
+            "belongings"
+          ],
+          "actions": [
+            "village-scene",
+            "current-work",
+            "local-actions",
+            "pane-navigation"
+          ],
+          "log": [
+            "messages"
+          ]
+        },
+        "detail": "focus",
+        "logRegion": "log",
+        "scrollKept": null
+      },
+      "crafting": {
+        "context": null,
+        "combat": "false",
+        "companions": "records",
+        "centerTask": "crafting",
+        "regions": {
+          "player": [
+            "vitals",
+            "shell-character"
+          ],
+          "focus": [],
+          "inventory": [
+            "belongings"
+          ],
+          "actions": [
+            "village-scene",
+            "current-work",
+            "local-actions",
+            "pane-navigation"
+          ],
+          "log": [
+            "messages"
+          ]
+        },
+        "detail": "focus",
+        "logRegion": "log"
+      },
+      "craftingLeft": {
+        "context": null,
+        "combat": "false",
+        "companions": "records",
+        "centerTask": null,
+        "regions": {
+          "player": [
+            "vitals",
+            "shell-character"
+          ],
+          "focus": [
+            "shell-detail"
+          ],
+          "inventory": [
+            "belongings"
+          ],
+          "actions": [
+            "village-scene",
+            "current-work",
+            "local-actions",
+            "pane-navigation"
+          ],
+          "log": [
+            "messages"
+          ]
+        },
+        "detail": "focus",
+        "logRegion": "log",
+        "scrollKept": null
+      },
+      "errors": []
+    }
+  }
+}

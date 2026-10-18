@@ -1,0 +1,524 @@
+{
+  "label": "after",
+  "url": "http://127.0.0.1:19541",
+  "targets": {
+    "1920-14": {
+      "signal": true,
+      "optionsBefore": "Options · 4 (2 ready)",
+      "optionsAfter": "Options · 7 (5 ready)",
+      "lookAround": {
+        "frames": 100,
+        "mismatch": [],
+        "mismatches": 0
+      },
+      "lookAroundSignal": {
+        "delta": {
+          "village-options-ready": {
+            "refreshes": 1,
+            "polls": 0
+          },
+          "game-bar-current-work": {
+            "refreshes": 0,
+            "polls": 0
+          },
+          "workspace-navigation": {
+            "refreshes": 1,
+            "polls": 3
+          }
+        },
+        "publishes": {
+          "inventory": 1,
+          "place": 5,
+          "time": 0,
+          "body": 0,
+          "knowledge": 0,
+          "combat": 0,
+          "world": 0,
+          "work": 1
+        }
+      },
+      "timeRuns": {
+        "frames": 243,
+        "mismatches": 0,
+        "first": []
+      },
+      "timeRunsSignal": {
+        "batches": 5,
+        "delta": {
+          "village-options-ready": {
+            "refreshes": 5,
+            "polls": 0
+          },
+          "game-bar-current-work": {
+            "refreshes": 0,
+            "polls": 0
+          },
+          "workspace-navigation": {
+            "refreshes": 5,
+            "polls": 6
+          }
+        },
+        "publishes": {
+          "inventory": 0,
+          "place": 5,
+          "time": 4,
+          "body": 0,
+          "knowledge": 0,
+          "combat": 0,
+          "world": 0,
+          "work": 0
+        },
+        "pending": [
+          "place",
+          "work",
+          "combat",
+          "knowledge",
+          "inventory"
+        ]
+      },
+      "chipIdle": {
+        "shown": false,
+        "text": "No work running.",
+        "work": "No work running.",
+        "panelOnScreen": true
+      },
+      "chipWorkInView": {
+        "shown": false,
+        "text": "Just running around",
+        "work": "Just running around",
+        "panelOnScreen": true
+      },
+      "chipWorkOutOfView": {
+        "shown": true,
+        "text": "Just running around",
+        "work": "Just running around",
+        "panelOnScreen": false
+      },
+      "chipBackInView": {
+        "shown": false,
+        "text": "Just running around",
+        "work": "Just running around",
+        "panelOnScreen": true
+      },
+      "holdOnEnd": {
+        "chipBefore": true,
+        "chipDuring": true,
+        "rectsSame": true,
+        "moved": [],
+        "focusSame": true,
+        "chipAfterLeave": false
+      },
+      "holdOnStart": {
+        "chipBefore": false,
+        "chipDuring": false,
+        "rectsSame": true,
+        "moved": [],
+        "focusSame": true,
+        "chipAfterLeave": true
+      },
+      "chipNoWork": {
+        "shown": false,
+        "text": "No work running.",
+        "work": "No work running.",
+        "panelOnScreen": false
+      },
+      "errors": []
+    },
+    "1920-21": {
+      "signal": true,
+      "optionsBefore": "Options · 4 (2 ready)",
+      "optionsAfter": "Options · 7 (5 ready)",
+      "lookAround": {
+        "frames": 95,
+        "mismatch": [],
+        "mismatches": 0
+      },
+      "lookAroundSignal": {
+        "delta": {
+          "village-options-ready": {
+            "refreshes": 1,
+            "polls": 0
+          },
+          "game-bar-current-work": {
+            "refreshes": 0,
+            "polls": 0
+          },
+          "workspace-navigation": {
+            "refreshes": 1,
+            "polls": 2
+          }
+        },
+        "publishes": {
+          "inventory": 1,
+          "place": 5,
+          "time": 0,
+          "body": 0,
+          "knowledge": 0,
+          "combat": 0,
+          "world": 0,
+          "work": 1
+        }
+      },
+      "timeRuns": {
+        "frames": 275,
+        "mismatches": 0,
+        "first": []
+      },
+      "timeRunsSignal": {
+        "batches": 5,
+        "delta": {
+          "village-options-ready": {
+            "refreshes": 5,
+            "polls": 0
+          },
+          "game-bar-current-work": {
+            "refreshes": 0,
+            "polls": 0
+          },
+          "workspace-navigation": {
+            "refreshes": 5,
+            "polls": 6
+          }
+        },
+        "publishes": {
+          "inventory": 0,
+          "place": 5,
+          "time": 4,
+          "body": 0,
+          "knowledge": 0,
+          "combat": 0,
+          "world": 0,
+          "work": 0
+        },
+        "pending": [
+          "place",
+          "work",
+          "combat",
+          "knowledge",
+          "inventory"
+        ]
+      },
+      "chipIdle": {
+        "shown": false,
+        "text": "No work running.",
+        "work": "No work running.",
+        "panelOnScreen": true
+      },
+      "chipWorkInView": {
+        "shown": false,
+        "text": "Just running around",
+        "work": "Just running around",
+        "panelOnScreen": true
+      },
+      "chipWorkOutOfView": {
+        "shown": true,
+        "text": "Just running around",
+        "work": "Just running around",
+        "panelOnScreen": false
+      },
+      "chipBackInView": {
+        "shown": false,
+        "text": "Just running around",
+        "work": "Just running around",
+        "panelOnScreen": true
+      },
+      "holdOnEnd": {
+        "chipBefore": true,
+        "chipDuring": true,
+        "rectsSame": true,
+        "moved": [],
+        "focusSame": true,
+        "chipAfterLeave": false
+      },
+      "holdOnStart": {
+        "chipBefore": false,
+        "chipDuring": false,
+        "rectsSame": true,
+        "moved": [],
+        "focusSame": true,
+        "chipAfterLeave": true
+      },
+      "chipNoWork": {
+        "shown": false,
+        "text": "No work running.",
+        "work": "No work running.",
+        "panelOnScreen": false
+      },
+      "errors": []
+    },
+    "1366-14": {
+      "signal": true,
+      "optionsBefore": "Options · 4 (2 ready)",
+      "optionsAfter": "Options · 7 (5 ready)",
+      "lookAround": {
+        "frames": 98,
+        "mismatch": [],
+        "mismatches": 0
+      },
+      "lookAroundSignal": {
+        "delta": {
+          "village-options-ready": {
+            "refreshes": 1,
+            "polls": 0
+          },
+          "game-bar-current-work": {
+            "refreshes": 0,
+            "polls": 0
+          },
+          "workspace-navigation": {
+            "refreshes": 1,
+            "polls": 3
+          }
+        },
+        "publishes": {
+          "inventory": 1,
+          "place": 5,
+          "time": 0,
+          "body": 0,
+          "knowledge": 0,
+          "combat": 0,
+          "world": 0,
+          "work": 1
+        }
+      },
+      "timeRuns": {
+        "frames": 286,
+        "mismatches": 0,
+        "first": []
+      },
+      "timeRunsSignal": {
+        "batches": 5,
+        "delta": {
+          "village-options-ready": {
+            "refreshes": 5,
+            "polls": 0
+          },
+          "game-bar-current-work": {
+            "refreshes": 0,
+            "polls": 0
+          },
+          "workspace-navigation": {
+            "refreshes": 5,
+            "polls": 6
+          }
+        },
+        "publishes": {
+          "inventory": 0,
+          "place": 5,
+          "time": 4,
+          "body": 0,
+          "knowledge": 0,
+          "combat": 0,
+          "world": 0,
+          "work": 0
+        },
+        "pending": [
+          "place",
+          "work",
+          "combat",
+          "knowledge",
+          "inventory"
+        ]
+      },
+      "chipIdle": {
+        "shown": false,
+        "text": "No work running.",
+        "work": "No work running.",
+        "panelOnScreen": true
+      },
+      "chipWorkInView": {
+        "shown": false,
+        "text": "Just running around",
+        "work": "Just running around",
+        "panelOnScreen": true
+      },
+      "chipWorkOutOfView": {
+        "shown": true,
+        "text": "Just running around",
+        "work": "Just running around",
+        "panelOnScreen": false
+      },
+      "chipBackInView": {
+        "shown": false,
+        "text": "Just running around",
+        "work": "Just running around",
+        "panelOnScreen": true
+      },
+      "holdOnEnd": {
+        "chipBefore": true,
+        "chipDuring": true,
+        "rectsSame": true,
+        "moved": [],
+        "focusSame": true,
+        "chipAfterLeave": false
+      },
+      "holdOnStart": {
+        "chipBefore": false,
+        "chipDuring": false,
+        "rectsSame": true,
+        "moved": [],
+        "focusSame": true,
+        "chipAfterLeave": true
+      },
+      "chipNoWork": {
+        "shown": false,
+        "text": "No work running.",
+        "work": "No work running.",
+        "panelOnScreen": false
+      },
+      "errors": []
+    },
+    "1366-21": {
+      "signal": true,
+      "optionsBefore": "Options · 4 (2 ready)",
+      "optionsAfter": "Options · 7 (5 ready)",
+      "lookAround": {
+        "frames": 96,
+        "mismatch": [],
+        "mismatches": 0
+      },
+      "lookAroundSignal": {
+        "delta": {
+          "village-options-ready": {
+            "refreshes": 1,
+            "polls": 0
+          },
+          "game-bar-current-work": {
+            "refreshes": 0,
+            "polls": 0
+          },
+          "workspace-navigation": {
+            "refreshes": 1,
+            "polls": 2
+          }
+        },
+        "publishes": {
+          "inventory": 1,
+          "place": 5,
+          "time": 0,
+          "body": 0,
+          "knowledge": 0,
+          "combat": 0,
+          "world": 0,
+          "work": 1
+        }
+      },
+      "timeRuns": {
+        "frames": 281,
+        "mismatches": 0,
+        "first": []
+      },
+      "timeRunsSignal": {
+        "batches": 5,
+        "delta": {
+          "village-options-ready": {
+            "refreshes": 5,
+            "polls": 0
+          },
+          "game-bar-current-work": {
+            "refreshes": 0,
+            "polls": 0
+          },
+          "workspace-navigation": {
+            "refreshes": 5,
+            "polls": 6
+          }
+        },
+        "publishes": {
+          "inventory": 0,
+          "place": 5,
+          "time": 4,
+          "body": 0,
+          "knowledge": 0,
+          "combat": 0,
+          "world": 0,
+          "work": 0
+        },
+        "pending": [
+          "place",
+          "work",
+          "combat",
+          "knowledge",
+          "inventory"
+        ]
+      },
+      "chipIdle": {
+        "shown": false,
+        "text": "No work running.",
+        "work": "No work running.",
+        "panelOnScreen": true
+      },
+      "chipWorkInView": {
+        "shown": false,
+        "text": "Just running around",
+        "work": "Just running around",
+        "panelOnScreen": true
+      },
+      "chipWorkOutOfView": {
+        "shown": true,
+        "text": "Just running around",
+        "work": "Just running around",
+        "panelOnScreen": false
+      },
+      "chipBackInView": {
+        "shown": false,
+        "text": "Just running around",
+        "work": "Just running around",
+        "panelOnScreen": true
+      },
+      "holdOnEnd": {
+        "chipBefore": true,
+        "chipDuring": true,
+        "rectsSame": true,
+        "moved": [],
+        "focusSame": true,
+        "chipAfterLeave": false
+      },
+      "holdOnStart": {
+        "chipBefore": false,
+        "chipDuring": false,
+        "rectsSame": true,
+        "moved": [],
+        "focusSame": true,
+        "chipAfterLeave": true
+      },
+      "chipNoWork": {
+        "shown": false,
+        "text": "No work running.",
+        "work": "No work running.",
+        "panelOnScreen": false
+      },
+      "errors": []
+    }
+  },
+  "roundtrip": {
+    "before": {
+      "options": "Options · 4 (2 ready)",
+      "nav": "Here Stats Inventory Crafting Mixing Journal Bestiary Books Data Notebook Skills People Travelers Projects Ledger Worlds Beginning Settings",
+      "readers": [
+        "village-options-ready",
+        "game-bar-current-work",
+        "workspace-navigation"
+      ]
+    },
+    "reloaded": {
+      "options": "Options · 4 (2 ready)",
+      "nav": "Here Stats Inventory Crafting Mixing Journal Bestiary Books Data Notebook Skills People Travelers Projects Ledger Worlds Beginning Settings",
+      "readers": [
+        "village-options-ready",
+        "game-bar-current-work",
+        "workspace-navigation"
+      ]
+    },
+    "imported": {
+      "options": "Options · 4 (2 ready)",
+      "nav": "Here Stats Inventory Crafting Mixing Journal Bestiary Books Data Notebook Skills People Travelers Projects Ledger Worlds Beginning Settings",
+      "readers": [
+        "village-options-ready",
+        "game-bar-current-work",
+        "workspace-navigation"
+      ]
+    },
+    "errors": []
+  }
+}

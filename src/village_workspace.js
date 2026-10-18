@@ -4,6 +4,7 @@ import {definePanel} from './panel_kit.js';
 import {projectVillageScene} from './causal_story_scenes.js';
 import {openWorkspaceModule} from './workspace_layout.js';
 import {storyRecap} from './lore_history_view.js';
+import {subscribeChange,bridgeLegacyNode} from './ui_change_signal.js';
 const factHelp=label=>({'Attack':'Damage per connected attack, before your damage reduction.','Defense':'Damage reduction.','Speed':'Attack rate, in attacks per second.','Hit you':'This opponent’s chance to connect against you. Shield block is separate.','Evade you':'This opponent’s chance to evade your attack.','You hit them':'Your native chance to connect against this inspected opponent, before damage reduction or block. Inspection does not select an attack target.','Attack rating':'Native attack points, a rating rather than a percentage.','Evasion rating':'Native evasion points, a rating rather than a percentage.'})[label]||'';
 const node=(tag,text='')=>{const n=document.createElement(tag);n.textContent=text;return n;};
 
@@ -28,6 +29,11 @@ export function createVillageWorkspace({read,act}) {
     // The tab names how many there are and how many hold ready actions (UR13).
     const optionsLabel=()=>{const groups=[...document.querySelectorAll('#location_actions_div > details')].filter(d=>!d.hidden&&d.style.display!=='none'&&!d.classList.contains('none_display'));
         const ready=groups.filter(d=>[...d.querySelectorAll('button')].some(b=>!b.hidden&&!b.disabled)).length;return groups.length?`Options · ${groups.length}${ready?` (${ready} ready)`:''}`:'Options';};
+    // UIL2 (UIX2): the count is a change reader, not part of the 250 ms scene poll, so it never lags
+    // the action list it summarizes. Its input is the native action list, which has no publisher of
+    // its own yet; a legacy bridge publishes 'place' when that list mutates.
+    let optionsText='Options',stopOptions=()=>{},stopBridge=()=>{};
+    const refreshOptions=()=>{optionsText=optionsLabel();const b=placeTabs.querySelector('[data-place-tab="options"]');if(b)setText(b,optionsText);};
     const placeTabs=node('nav');placeTabs.className='scene-local-tabs';placeTabs.setAttribute('aria-label','Location sections');let placeTab='actions';for(const [id,label]of [['actions','Actions'],['people','People'],['things','Things'],['options','Options']]){const b=node('button',label);b.type='button';b.dataset.placeTab=id;b.onclick=()=>{placeTab=id;render();};placeTabs.append(b);}scene.append(clock,placeTabs,people,things,groups);
     const focus=node('section');focus.id='current_focus';focus.setAttribute('aria-live','polite');
     // R20 opponent board: one row per opponent, laid out by count (layout_spec opponentBoard), and
@@ -137,7 +143,7 @@ export function createVillageWorkspace({read,act}) {
         // R13 dedupe: with the shell, Focus's place card is the home for who and what is here, so the
         // lower People/Things tabs would repeat it. Actions and Options stay.
         const focusOwnsNearby=parity&&document.getElementById('main_content').dataset.presentation==='proto23-shell';if(focusOwnsNearby&&['people','things'].includes(placeTab))placeTab='actions';
-        if(!parity)setText(clock,view.clockText);setTitle(clock,view.clockText);placeTabs.hidden=!parity;people.hidden=!frame.people.length||parity&&placeTab!=='people';things.hidden=!frame.things.length||parity&&placeTab!=='things';for(const b of placeTabs.children){const count=b.dataset.placeTab==='people'?frame.people.length:b.dataset.placeTab==='things'?frame.things.length:null;setText(b,['actions','options'].includes(b.dataset.placeTab)?(b.dataset.placeTab==='actions'?'Actions':optionsLabel()):`${b.dataset.placeTab==='people'?'People':'Things'} · ${count}`);if(b.disabled!==(count===0))b.disabled=count===0;b.hidden=count===0||focusOwnsNearby&&count!==null;b.setAttribute('aria-pressed',String(b.dataset.placeTab===placeTab));}
+        if(!parity)setText(clock,view.clockText);setTitle(clock,view.clockText);placeTabs.hidden=!parity;people.hidden=!frame.people.length||parity&&placeTab!=='people';things.hidden=!frame.things.length||parity&&placeTab!=='things';for(const b of placeTabs.children){const count=b.dataset.placeTab==='people'?frame.people.length:b.dataset.placeTab==='things'?frame.things.length:null;setText(b,['actions','options'].includes(b.dataset.placeTab)?(b.dataset.placeTab==='actions'?'Actions':optionsText):`${b.dataset.placeTab==='people'?'People':'Things'} · ${count}`);if(b.disabled!==(count===0))b.disabled=count===0;b.hidden=count===0||focusOwnsNearby&&count!==null;b.setAttribute('aria-pressed',String(b.dataset.placeTab===placeTab));}
         document.getElementById('main_content').dataset.placeTab=parity?placeTab:'actions';groups.hidden=parity;
         scene.dataset.inVillage=String(frame.inVillage);
         const signature=JSON.stringify([frame.inVillage,frame.people,frame.things,frame.actions]);
@@ -195,6 +201,8 @@ export function createVillageWorkspace({read,act}) {
             }
         }
     }
+    stopOptions=subscribeChange({id:'village-options-ready',surface:'village-scene',refresh:refreshOptions});
+    stopBridge=bridgeLegacyNode(document.getElementById('location_actions_div'),'place');refreshOptions();
     render();const timer=setInterval(render,250);
-    return {render,destroy:()=>{clearInterval(timer);document.removeEventListener('focusin',followService);document.removeEventListener('keydown',leaveSubject);}};
+    return {render,destroy:()=>{clearInterval(timer);stopOptions();stopBridge();document.removeEventListener('focusin',followService);document.removeEventListener('keydown',leaveSubject);}};
 }

@@ -1,13 +1,12 @@
 import {LAYOUT_SPEC, boxRegion} from './layout_spec.js';
 
-// R21 shell layout editing (MB1). Placement says which slot each box sits in, per context (idle,
-// combat). It is a browser-local layout preference beside the stored shell layout (UR58: owner is
+// R21 shell layout editing (MB1). Placement says which slot each box sits in, per context (the spec's
+// contexts: idle, combat, travel, service). It is a browser-local layout preference beside the stored shell layout (UR58: owner is
 // this browser; reset per context), versioned with the layout spec (GU6). Manual placement beats
 // the automatic composition (WX11): a companion the player placed outside the actions shows there
 // in that context. The game save is untouched.
 
 export const PLACEMENT_VERSION = 1;
-const CONTEXTS = ['idle', 'combat'];
 const empty = () => ({boxes: {}, companions: {}, swap: false});
 
 export function normalizePlacement(raw, spec = LAYOUT_SPEC) {
@@ -15,7 +14,7 @@ export function normalizePlacement(raw, spec = LAYOUT_SPEC) {
     // A placement stored under a spec version whose boxes and slots this one keeps reads unchanged
     // (UIL1: v2 placements load under v3) and is rewritten with the current version.
     const fresh = raw?.version === PLACEMENT_VERSION && (raw.spec === spec.version || !!spec.placementReads?.includes(raw.spec));
-    for (const context of CONTEXTS) {
+    for (const context of Object.keys(spec.contexts)) {
         const from = fresh ? raw.contexts?.[context] : null, to = empty();
         for (const [box, slot] of Object.entries(from?.boxes || {})) if (spec.boxes[box] && !spec.boxes[box].companion && spec.slots[slot] && slot !== 'actions') to.boxes[box] = slot;
         for (const [box, slot] of Object.entries(from?.companions || {})) if (spec.boxes[box]?.companion && (spec.slots[slot] || slot === 'hidden')) to.companions[box] = slot;

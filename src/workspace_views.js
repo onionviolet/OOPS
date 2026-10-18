@@ -2,6 +2,7 @@ import {decorateActionComponents} from './ui_components.js';
 import {definePanel} from './panel_kit.js';
 import {createReferenceDisclosure} from './workspace_disclosure.js';
 import {registerWorkspaceModule, updateWorkspace, openWorkspaceModule} from './workspace_layout.js';
+import {publishChange} from './ui_change_signal.js';
 
 // Only host-supplied, already visible labels enter this presentation. No new
 // definition lookup, command dispatcher or gameplay timer belongs here.
@@ -53,7 +54,9 @@ export function createWorkspaceViews({read,combatKnown=()=>false}) {
         const view=read(),next=JSON.stringify(view);
         if(next!==signature){signature=next;work.textContent=view.work.length?view.work.join(' · '):'No work running.';jump.textContent=view.waiting?'Open waiting response':'Open local controls';
             ownership.textContent=view.canWrite?'Saving available.':view.error||'Read only. Restore saving before starting work.';
-            ownership.className=view.canWrite?'':'workspace-warning';jump.hidden=!view.waiting&&!view.work.length&&view.canWrite;}
+            ownership.className=view.canWrite?'':'workspace-warning';jump.hidden=!view.waiting&&!view.work.length&&view.canWrite;
+            // UIX2: this panel owns the current-work presentation; readers (the bar chip) re-read it.
+            panel.dataset.workCount=String(view.work.length);publishChange('work','current-work');}
         // Generic world palettes stay deliberately independent of sealed IDs.
         const world=!view.world || view.world === 'base.frontier' ? 'native' : view.world,theme=view.away?'cool':'warm',root=document.getElementById('main_content');
         if(document.documentElement.dataset.world!==world)document.documentElement.dataset.world=world;

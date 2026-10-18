@@ -3617,3 +3617,15 @@ Follow-up: "Can we locally run a model to process? More to consider? What games,
 and more and stuff should we put on shortlist to obtain?" Saved as [local models](research/SOURCE_DEEP_DIVE_PLAYBOOK.md#local-models-for-source-processing-2026-10-18)
 (LM1-LM7; local vision smoke test passed) and a [source media shortlist](research/FUTURE_ACQUISITION_QUEUE_2026-10-13.md#source-media-shortlist-for-canon-first-worlds-2026-10-18)
 in the acquisition queue. Purchases and downloads still need his yes.
+
+### UI that scales, round 2 and audit prompt, 2026-10-18
+
+Follow-up to the surface manifest section above, with a 1920×1080 screenshot: "Any way to make each panel individually
+adjustable? also Cold shoudnt be a stat? HP%/s? Some of those can be hidden away into the larger
+stats, Inventory currently too wide right? We should incorporate new panels/split existing ones
+into distinct panels accoridnlgyt?" Saved as
+[round 2](gm/dispatch/ui-foundation-2026-10-15/next-parts/surface-manifest-and-ui-flow-2026-10-18.md#round-2-adjustable-panels-stat-sheet-and-splits-2026-10-18)
+(UIP1–UIP6, later steps UIL7–UIL9). Then: "save ideas accordingly, create a prompt to audit latest
+UI once its done, how to restructure to show more information and look better and more?" Saved as
+the [post-build UI audit prompt](gm/dispatch/ui-foundation-2026-10-15/next-parts/POST_BUILD_UI_AUDIT_PROMPT.md),
+which starts the repeatable `docs/audits/UI_CORE_AUDIT.md`. Proposal only; no runtime change.

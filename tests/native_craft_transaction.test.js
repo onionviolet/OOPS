@@ -120,7 +120,7 @@ test('actual private inventory and availability components restore without inven
         return vm.runInNewContext(`${source}\n${className}`, dependencies);
     }
     const item = new Item(); let created = 0;
-    const Inventory = component('../src/components/inventory_component.js', 'InventoryComponent', {getItemFromKey: () => {created++; return item;}});
+    const Inventory = component('../src/components/inventory_component.js', 'InventoryComponent', {getItemFromKey: () => {created++; return item;}, publishChange: () => {}});
     const Availability = component('../src/components/availability_component.js', 'AvailabilityComponent', {process_conditions: () => true});
     const inv = new Inventory(); inv.addToInventory([{item_key: 'material', count: 3}]);
     const items = inv.getItems(), stack = items.material;

@@ -85,7 +85,7 @@ import {createFoundationInteractionPanel} from './foundation_interaction_ui.js';
 import {foundationInteractionProbeContext,foundationInteractionProbeGuard,FOUNDATION_PROBE_GROUP} from './foundation_interaction_content.js';
 import {createFoundationStartContent,FOUNDATION_START_PACK_ID} from './foundation_start_content.js';
 import {createLocalLivelihoodContent,LIVELIHOOD_PACK_ID} from './local_livelihood_content.js';
-import {mountWorkspace,registerWorkspaceModule,workspaceOwns,openWorkspaceModule,updateWorkspace} from './workspace_layout.js';
+import {mountWorkspace,registerWorkspaceModule,registerLayoutSignal,workspaceOwns,openWorkspaceModule,updateWorkspace} from './workspace_layout.js';
 import {createWorkspaceViews,createEquipmentComparison} from './workspace_views.js';
 import {defaultCustomizationState,validateCustomizationState,getCustomizationSettings,applyCustomizationProfile} from './customization_profiles.js';
 import {createCustomizationUI} from './customization_ui.js';
@@ -628,6 +628,7 @@ const lifeSaveStorage = {
 function renderSavedPanels(){workLedgerPanel?.render();optionalPackPanel?.render();villageCareerControls?.render();lifeRecordPanel?.render();villageLivesPanel?.render();}
 
 let expansionState = initializeExpedition(createExpansionState(crypto.getRandomValues(new Uint32Array(1))[0]));
+registerLayoutSignal('travel',()=>expansionState.actors.player.facts['original_frontier.travel.remaining']>0); // UIL4: a native journey in progress selects the travel layout context
 ensureStreams(expansionState);
 bindGameStreams(() => expansionState);
 registerLivingGearItems({item_templates,Amulet,getItem,WeaponComponent,Weapon});

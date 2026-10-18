@@ -138,3 +138,8 @@ font-size:var(--shell-context-size,var(--ui-type-body));line-height:1.25;color:v
 #new_game_beginning .cheat_start_choice > p {grid-column:1/-1;margin:0;font-size:.9em;color:var(--p23-muted);}
 #new_game_beginning .new-game-beginning-extras:empty {display:none;}
 #new_game_beginning [data-start-roll] {margin-top:.6em;padding-top:.5em;border-top:1px solid var(--p23-line);}
+/* UIL2 (UIW1): current work while its panel is out of view. Fixed width, so ticking text never
+   moves the save state or the navigation beside it (UR52). */
+:root[data-one-bar="true"] #game_bar .game-bar-work-chip {width:15em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;text-align:left;font:inherit;font-size:.85em;font-variant-numeric:tabular-nums;padding:.1em .5em;color:var(--p23-text);background:transparent;border:1px solid var(--p23-line);cursor:pointer;}
+:root[data-one-bar="true"] #game_bar .game-bar-work-chip:hover {background:var(--p23-hover-fill);}
+:root[data-one-bar="true"] #game_bar .game-bar-work-chip[hidden] {display:none;}

@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { LAYOUT_SPEC, regionFor, shellOrder, companionsFor, companionPanels, topRowHeight } from '../src/layout_spec.js';
+import { LAYOUT_SPEC, regionFor, shellOrder, companionsFor, companionPanels, topRowHeight, contextOf, contextLabel } from '../src/layout_spec.js';
 
 // R17 is structural (AR9): the spec must reproduce the R16 decisions exactly. The R16 code is kept
 // here verbatim as the reference.
@@ -98,15 +98,58 @@ test('UIL1 route table keeps the R21 routes, labels, hotkeys and tabs in bar ord
     assert.equal(routeById('belongings').open, 'in-place');
 });
 
-test('UIL1 v3 reads v2 placements unchanged and still drops v1 (GU6)', async () => {
+test('UIL1/UIL4 the spec reads v2 and v3 placements unchanged and still drops v1 (GU6)', async () => {
     const {normalizePlacement} = await import('../src/shell_layout_edit.js');
     const v2 = {version: 1, spec: 2, contexts: {idle: {boxes: {inventory: 'player'}, companions: {journal: 'inventory'}, swap: true}, combat: {boxes: {}, companions: {}, swap: false}}};
     const read = normalizePlacement(v2);
-    assert.equal(LAYOUT_SPEC.version, 3);
+    assert.equal(LAYOUT_SPEC.version, 4);
     assert.equal(read.stale, false);
-    assert.equal(read.spec, 3);
-    assert.deepEqual(read.contexts, v2.contexts);
+    assert.equal(read.spec, 4);
+    // The contexts the old placement lacks (travel, service) start at the spec defaults.
+    assert.deepEqual(Object.keys(read.contexts), ['idle', 'combat', 'travel', 'service']);
+    assert.deepEqual({idle: read.contexts.idle, combat: read.contexts.combat}, v2.contexts);
+    assert.equal(normalizePlacement({...v2, spec: 3}).stale, false, 'a UIL1 (spec 3) placement reads');
     assert.equal(regionFor('belongings', {placement: read.contexts.idle}), 'player');
-    assert.equal(normalizePlacement({...read}).stale, false, 'a v3 placement reads back');
+    assert.equal(normalizePlacement({...read}).stale, false, 'a current placement reads back');
     assert.equal(normalizePlacement({version: 1, spec: 1, contexts: v2.contexts}).stale, true);
+});
+
+// UIL4 (UIX6): contexts follow what the player is doing, through the one contextOf mechanism.
+test('UIL4 contextOf: combat beats an open service view, which beats travel, which beats idle', () => {
+    assert.equal(contextOf({}), 'idle');
+    assert.equal(contextOf({travel: true}), 'travel');
+    for (const task of ['mixing', 'crafting']) {
+        assert.equal(contextOf({task}), 'service');
+        assert.equal(contextOf({task, travel: true}), 'service', 'an open service view is the current act');
+        assert.equal(contextOf({task, travel: true, combat: true}), 'combat');
+    }
+    assert.equal(contextOf({combat: true, travel: true}), 'combat');
+    // Reference views and other center tasks are not services; unknown tasks fall to idle.
+    for (const task of ['reading', 'dialogue', 'workspace:records', 'nonsense', null]) assert.equal(contextOf({task}), 'idle', String(task));
+    assert.equal(contextLabel('combat'), 'fight');
+});
+
+test('UIL4 the new contexts use spec defaults and keep the idle homes and the log column', () => {
+    assert.deepEqual(companionsFor({context: 'travel', available: ['records', 'skills']}), ['records']);
+    assert.deepEqual(companionsFor({context: 'service', available: ['records', 'skills']}), [], 'service recommends none');
+    assert.deepEqual(companionPanels(), ['records', 'skills'], 'the companion palette is unchanged');
+    for (const context of ['idle', 'travel', 'service']) {
+        assert.equal(regionFor('shell-detail', {context}), 'focus', `${context} item detail sits where Around you is`);
+        assert.equal(regionFor('messages', {context}), 'log', `${context} keeps the log column (UR11)`);
+    }
+    assert.equal(regionFor('shell-detail', {context: 'combat'}), 'actions');
+});
+
+test('UIL4 a placement is stored per context and one context never changes another', async () => {
+    const {normalizePlacement, moveBox, resetContext, isDefault} = await import('../src/shell_layout_edit.js');
+    let p = normalizePlacement(null);
+    p = moveBox(p, 'service', 'journal', 'actions');
+    assert.deepEqual(p.contexts.service.companions, {journal: 'actions'});
+    for (const other of ['idle', 'combat', 'travel']) assert.equal(isDefault(p, other), true, `${other} untouched`);
+    assert.equal(isDefault(resetContext(p, 'service'), 'service'), true);
+    // A stored placement with an unknown context keeps only the contexts the spec declares.
+    const raw = {version: 1, spec: 4, contexts: {travel: {boxes: {inventory: 'player'}, companions: {}, swap: false}, nonsense: {boxes: {you: 'focus'}}}};
+    const read = normalizePlacement(raw);
+    assert.equal(read.contexts.travel.boxes.inventory, 'player');
+    assert.equal('nonsense' in read.contexts, false);
 });

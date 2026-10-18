@@ -24,10 +24,12 @@ const surface = (type, more = {}) => Object.freeze({
 const routed = ['view', 'route'];
 
 export const LAYOUT_SPEC = Object.freeze({
-    // Version 2 (R21) adds boxes and slots; stored placements carry it (GU6). Version 3 (UIL1) adds
-    // surfaces and routes only, so placements stored under these versions read unchanged.
-    version: 3,
-    placementReads: Object.freeze([2]),
+    // Version 2 (R21) adds boxes and slots; stored placements carry it (GU6). Versions 3 (UIL1,
+    // surfaces and routes) and 4 (UIL4, contexts) add data only, so earlier placements read unchanged.
+    // Version 4 (UIL4) adds the travel and service contexts; placements stored under 2 and 3 read
+    // unchanged and a context they lack starts at the spec defaults.
+    version: 4,
+    placementReads: Object.freeze([2, 3]),
     // The five parity-shell regions in grid order. `panels` are fixed homes; a panel not listed in
     // any region lives in `fallback`. `contextual` homes depend on the context. R21c: the awakened
     // status window lives under You (it shows only once the system awakens).
@@ -41,6 +43,7 @@ export const LAYOUT_SPEC = Object.freeze({
     fallback: 'actions',
     // The selected item's detail sits beside the actions in a fight and, otherwise, where Around
     // you is (R21: a box name follows that box when the player moves it).
+    // A context a panel does not name uses its idle home.
     contextual: Object.freeze({'shell-detail': Object.freeze({combat: 'actions', idle: 'box:around'})}),
     // R21 (MB1): the boxes a player can move, as groups of panels. A main box has a home region and
     // swaps with the box in the slot it moves to; a companion joins a slot beside that slot's box.
@@ -64,10 +67,22 @@ export const LAYOUT_SPEC = Object.freeze({
     // Default and dial per context (WX6, CZ4): idle shows Journal beside the actions; a fight shows
     // Skills (Stances) only. R21 (Weibao, 2026-10-17: "We dont need skills always be seen"): Skills
     // left the idle default; its Skills tab, navigation and Move to still reach it.
+    // UIL4 (UIX6, 2026-10-18): `label` names the context where the player sees it (Reset this
+    // layout (travel)); `contextPriority` orders them: the first whose `when` holds wins, so combat
+    // beats an open service view, which beats travel, which beats idle. Nothing is stored on entry,
+    // so leaving a context returns to the one beneath it with its layout intact (UR23).
+    // `when` names its inputs: 'combat' (the combat panel is eligible), 'travel' (the 'travel'
+    // layout signal, registered by the journey's owner) and `centerTasks` (the open center view, as
+    // center_modes.js publishes it in data-center-task). Defaults are proposals: travel keeps the
+    // Journal (its notes carry the journey); service recommends none, because the view needs the
+    // room at the 1366×768 floor, and a Journal the player places there shows as a strip.
     contexts: Object.freeze({
-        idle: Object.freeze({companions: Object.freeze(['records'])}),
-        combat: Object.freeze({companions: Object.freeze(['skills'])}),
+        idle: Object.freeze({label: 'idle', companions: Object.freeze(['records'])}),
+        combat: Object.freeze({label: 'fight', when: Object.freeze({combat: true}), companions: Object.freeze(['skills'])}),
+        travel: Object.freeze({label: 'travel', when: Object.freeze({signal: 'travel'}), companions: Object.freeze(['records'])}),
+        service: Object.freeze({label: 'service', when: Object.freeze({centerTasks: Object.freeze(['mixing', 'crafting'])}), companions: Object.freeze([])}),
     }),
+    contextPriority: Object.freeze(['combat', 'service', 'travel']),
     // Top-row fit (WX3). The top row takes what You needs, or the opponent cards in a fight, plus
     // a frame. Caps keep the bottom row useful. Rows that yield (secondary stats) may grow it only
     // to the R14 default, so at laptop sizes they yield before inventory and actions (R11 order).
@@ -105,7 +120,7 @@ export const LAYOUT_SPEC = Object.freeze({
         'shell-character': surface(UNSET),
         'status-window': surface(UNSET),
         'focus': surface(UNSET),
-        'shell-detail': surface(UNSET, {contexts: ['idle', 'combat']}),
+        'shell-detail': surface(UNSET, {contexts: ['idle', 'combat', 'travel', 'service']}),
         'belongings': surface(UNSET, {reads: ['inventory'], representations: routed}),
         'combat-controls': surface(UNSET),
         'shell-inventory-tools': surface(UNSET),
@@ -190,7 +205,16 @@ export function routeById(id, spec = LAYOUT_SPEC) {
     return tables.get(spec).get(id) || null;
 }
 
-export const contextOf = ({combat}) => combat ? 'combat' : 'idle';
+// The context for the facts the shell reads: `combat`, `travel` (a boolean signal) and `task` (the
+// open center view, if any). Pure; the spec's `when` rules and their order decide (UIL4).
+export function contextOf({combat = false, travel = false, task = null} = {}, spec = LAYOUT_SPEC) {
+    for (const name of spec.contextPriority) {
+        const when = spec.contexts[name].when;
+        if ((when.combat && combat) || (when.signal === 'travel' && travel) || (when.centerTasks && task && when.centerTasks.includes(task))) return name;
+    }
+    return 'idle';
+}
+export const contextLabel = (context, spec = LAYOUT_SPEC) => spec.contexts[context]?.label || context;
 
 // The box a panel belongs to, if any.
 export const boxOf = (id, spec = LAYOUT_SPEC) => Object.keys(spec.boxes).find(box => spec.boxes[box].panels.includes(id)) || null;
@@ -205,9 +229,9 @@ export function boxRegion(box, placement = null, spec = LAYOUT_SPEC) {
 }
 
 // Region for a panel ID in the parity shell.
-export function regionFor(id, {combat = false, placement = null} = {}, spec = LAYOUT_SPEC) {
+export function regionFor(id, {combat = false, context = null, placement = null} = {}, spec = LAYOUT_SPEC) {
     const contextual = spec.contextual[id];
-    if (contextual) { const at = contextual[contextOf({combat})]; return at.startsWith('box:') ? boxRegion(at.slice(4), placement, spec) : at; }
+    if (contextual) { const at = contextual[context || contextOf({combat}, spec)] || contextual.idle; return at.startsWith('box:') ? boxRegion(at.slice(4), placement, spec) : at; }
     const box = boxOf(id, spec);
     if (box && placement) return boxRegion(box, placement, spec);
     for (const [region, {panels}] of Object.entries(spec.regions)) if (panels.includes(id)) return region;
@@ -234,8 +258,8 @@ export function shellOrder({parity}, spec = LAYOUT_SPEC) {
 }
 
 // Which companions show now, from those available (registered, discovered and not hidden).
-export function companionsFor({combat, available}, spec = LAYOUT_SPEC) {
-    return spec.contexts[contextOf({combat})].companions.filter(id => available.includes(id));
+export function companionsFor({combat, context = null, available}, spec = LAYOUT_SPEC) {
+    return spec.contexts[context || contextOf({combat}, spec)].companions.filter(id => available.includes(id));
 }
 
 export function topRowHeight({player, focus, combat, board, fontSize, frame = LAYOUT_SPEC.topRow.framePx, elastic = 0, viewport = 0}, spec = LAYOUT_SPEC) {

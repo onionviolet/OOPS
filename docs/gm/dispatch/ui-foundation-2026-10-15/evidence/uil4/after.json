@@ -1,0 +1,2011 @@
+{
+  "phase": "after",
+  "targets": {
+    "1920-14": {
+      "idle": {
+        "context": "idle",
+        "combat": "false",
+        "companions": "records",
+        "centerTask": null,
+        "regions": {
+          "player": [
+            "vitals",
+            "shell-character"
+          ],
+          "focus": [
+            "shell-detail"
+          ],
+          "inventory": [
+            "shell-inventory-tools",
+            "belongings"
+          ],
+          "actions": [
+            "village-scene",
+            "current-work",
+            "local-actions",
+            "pane-navigation"
+          ],
+          "log": [
+            "messages"
+          ]
+        },
+        "detail": "focus",
+        "logRegion": "log",
+        "detailText": "\"ABC for kids\"Book · Held: 1 · 10CThe simplest book on the m",
+        "journal": {
+          "region": "actions",
+          "visible": false,
+          "h": 0
+        }
+      },
+      "selectedBefore": null,
+      "mixing": {
+        "context": "service",
+        "combat": "false",
+        "companions": "",
+        "centerTask": "mixing",
+        "regions": {
+          "player": [
+            "vitals",
+            "shell-character"
+          ],
+          "focus": [],
+          "inventory": [
+            "shell-inventory-tools",
+            "belongings"
+          ],
+          "actions": [
+            "village-scene",
+            "current-work",
+            "local-actions",
+            "pane-navigation"
+          ],
+          "log": [
+            "messages"
+          ]
+        },
+        "detail": "focus",
+        "logRegion": "log",
+        "detailText": "\"ABC for kids\"Book · Held: 1 · 10CThe simplest book on the m",
+        "journal": {
+          "region": "actions",
+          "visible": false,
+          "h": 0
+        }
+      },
+      "mixingLeft": {
+        "context": "idle",
+        "combat": "false",
+        "companions": "records",
+        "centerTask": null,
+        "regions": {
+          "player": [
+            "vitals",
+            "shell-character"
+          ],
+          "focus": [
+            "shell-detail"
+          ],
+          "inventory": [
+            "shell-inventory-tools",
+            "belongings"
+          ],
+          "actions": [
+            "village-scene",
+            "current-work",
+            "local-actions",
+            "pane-navigation"
+          ],
+          "log": [
+            "messages"
+          ]
+        },
+        "detail": "focus",
+        "logRegion": "log",
+        "detailText": "\"ABC for kids\"Book · Held: 1 · 10CThe simplest book on the m",
+        "journal": {
+          "region": "actions",
+          "visible": false,
+          "h": 0
+        },
+        "scrollKept": null
+      },
+      "crafting": {
+        "context": "service",
+        "combat": "false",
+        "companions": "",
+        "centerTask": "crafting",
+        "regions": {
+          "player": [
+            "vitals",
+            "shell-character"
+          ],
+          "focus": [],
+          "inventory": [
+            "shell-inventory-tools",
+            "belongings"
+          ],
+          "actions": [
+            "village-scene",
+            "current-work",
+            "local-actions",
+            "pane-navigation"
+          ],
+          "log": [
+            "messages"
+          ]
+        },
+        "detail": "focus",
+        "logRegion": "log",
+        "detailText": "\"ABC for kids\"Book · Held: 1 · 10CThe simplest book on the m",
+        "journal": {
+          "region": "actions",
+          "visible": false,
+          "h": 0
+        }
+      },
+      "craftingLeft": {
+        "context": "idle",
+        "combat": "false",
+        "companions": "records",
+        "centerTask": null,
+        "regions": {
+          "player": [
+            "vitals",
+            "shell-character"
+          ],
+          "focus": [
+            "shell-detail"
+          ],
+          "inventory": [
+            "shell-inventory-tools",
+            "belongings"
+          ],
+          "actions": [
+            "village-scene",
+            "current-work",
+            "local-actions",
+            "pane-navigation"
+          ],
+          "log": [
+            "messages"
+          ]
+        },
+        "detail": "focus",
+        "logRegion": "log",
+        "detailText": "\"ABC for kids\"Book · Held: 1 · 10CThe simplest book on the m",
+        "journal": {
+          "region": "actions",
+          "visible": false,
+          "h": 0
+        },
+        "scrollKept": null
+      },
+      "travel": {
+        "context": "travel",
+        "combat": "false",
+        "companions": "records",
+        "centerTask": null,
+        "regions": {
+          "player": [
+            "vitals",
+            "shell-character"
+          ],
+          "focus": [
+            "shell-detail"
+          ],
+          "inventory": [
+            "shell-inventory-tools",
+            "belongings"
+          ],
+          "actions": [
+            "village-scene",
+            "current-work",
+            "local-actions",
+            "pane-navigation"
+          ],
+          "log": [
+            "messages"
+          ]
+        },
+        "detail": "focus",
+        "logRegion": "log",
+        "detailText": "\"ABC for kids\"Book · Held: 1 · 10CThe simplest book on the m",
+        "journal": {
+          "region": "actions",
+          "visible": false,
+          "h": 0
+        }
+      },
+      "travelMixing": {
+        "context": "service",
+        "combat": "false",
+        "companions": "",
+        "centerTask": "mixing",
+        "regions": {
+          "player": [
+            "vitals",
+            "shell-character"
+          ],
+          "focus": [],
+          "inventory": [
+            "shell-inventory-tools",
+            "belongings"
+          ],
+          "actions": [
+            "village-scene",
+            "current-work",
+            "local-actions",
+            "pane-navigation"
+          ],
+          "log": [
+            "messages"
+          ]
+        },
+        "detail": "focus",
+        "logRegion": "log",
+        "detailText": "\"ABC for kids\"Book · Held: 1 · 10CThe simplest book on the m",
+        "journal": {
+          "region": "actions",
+          "visible": false,
+          "h": 0
+        }
+      },
+      "travelMixingLeft": {
+        "context": "travel",
+        "combat": "false",
+        "companions": "records",
+        "centerTask": null,
+        "regions": {
+          "player": [
+            "vitals",
+            "shell-character"
+          ],
+          "focus": [
+            "shell-detail"
+          ],
+          "inventory": [
+            "shell-inventory-tools",
+            "belongings"
+          ],
+          "actions": [
+            "village-scene",
+            "current-work",
+            "local-actions",
+            "pane-navigation"
+          ],
+          "log": [
+            "messages"
+          ]
+        },
+        "detail": "focus",
+        "logRegion": "log",
+        "detailText": "\"ABC for kids\"Book · Held: 1 · 10CThe simplest book on the m",
+        "journal": {
+          "region": "actions",
+          "visible": false,
+          "h": 0
+        }
+      },
+      "afterTravel": {
+        "context": "idle",
+        "combat": "false",
+        "companions": "records",
+        "centerTask": null,
+        "regions": {
+          "player": [
+            "vitals",
+            "shell-character"
+          ],
+          "focus": [
+            "shell-detail"
+          ],
+          "inventory": [
+            "shell-inventory-tools",
+            "belongings"
+          ],
+          "actions": [
+            "village-scene",
+            "current-work",
+            "local-actions",
+            "pane-navigation"
+          ],
+          "log": [
+            "messages"
+          ]
+        },
+        "detail": "focus",
+        "logRegion": "log",
+        "detailText": "\"ABC for kids\"Book · Held: 1 · 10CThe simplest book on the m",
+        "journal": {
+          "region": "actions",
+          "visible": false,
+          "h": 0
+        }
+      },
+      "errors": []
+    },
+    "1920-21": {
+      "idle": {
+        "context": "idle",
+        "combat": "false",
+        "companions": "records",
+        "centerTask": null,
+        "regions": {
+          "player": [
+            "vitals",
+            "shell-character"
+          ],
+          "focus": [
+            "shell-detail"
+          ],
+          "inventory": [
+            "shell-inventory-tools",
+            "belongings"
+          ],
+          "actions": [
+            "village-scene",
+            "current-work",
+            "local-actions",
+            "pane-navigation"
+          ],
+          "log": [
+            "messages"
+          ]
+        },
+        "detail": "focus",
+        "logRegion": "log",
+        "detailText": "\"ABC for kids\"Book · Held: 1 · 10CThe simplest book on the m",
+        "journal": {
+          "region": "actions",
+          "visible": false,
+          "h": 0
+        }
+      },
+      "selectedBefore": null,
+      "mixing": {
+        "context": "service",
+        "combat": "false",
+        "companions": "",
+        "centerTask": "mixing",
+        "regions": {
+          "player": [
+            "vitals",
+            "shell-character"
+          ],
+          "focus": [],
+          "inventory": [
+            "shell-inventory-tools",
+            "belongings"
+          ],
+          "actions": [
+            "village-scene",
+            "current-work",
+            "local-actions",
+            "pane-navigation"
+          ],
+          "log": [
+            "messages"
+          ]
+        },
+        "detail": "focus",
+        "logRegion": "log",
+        "detailText": "\"ABC for kids\"Book · Held: 1 · 10CThe simplest book on the m",
+        "journal": {
+          "region": "actions",
+          "visible": false,
+          "h": 0
+        }
+      },
+      "mixingLeft": {
+        "context": "idle",
+        "combat": "false",
+        "companions": "records",
+        "centerTask": null,
+        "regions": {
+          "player": [
+            "vitals",
+            "shell-character"
+          ],
+          "focus": [
+            "shell-detail"
+          ],
+          "inventory": [
+            "shell-inventory-tools",
+            "belongings"
+          ],
+          "actions": [
+            "village-scene",
+            "current-work",
+            "local-actions",
+            "pane-navigation"
+          ],
+          "log": [
+            "messages"
+          ]
+        },
+        "detail": "focus",
+        "logRegion": "log",
+        "detailText": "\"ABC for kids\"Book · Held: 1 · 10CThe simplest book on the m",
+        "journal": {
+          "region": "actions",
+          "visible": false,
+          "h": 0
+        },
+        "scrollKept": null
+      },
+      "crafting": {
+        "context": "service",
+        "combat": "false",
+        "companions": "",
+        "centerTask": "crafting",
+        "regions": {
+          "player": [
+            "vitals",
+            "shell-character"
+          ],
+          "focus": [],
+          "inventory": [
+            "shell-inventory-tools",
+            "belongings"
+          ],
+          "actions": [
+            "village-scene",
+            "current-work",
+            "local-actions",
+            "pane-navigation"
+          ],
+          "log": [
+            "messages"
+          ]
+        },
+        "detail": "focus",
+        "logRegion": "log",
+        "detailText": "\"ABC for kids\"Book · Held: 1 · 10CThe simplest book on the m",
+        "journal": {
+          "region": "actions",
+          "visible": false,
+          "h": 0
+        }
+      },
+      "craftingLeft": {
+        "context": "idle",
+        "combat": "false",
+        "companions": "records",
+        "centerTask": null,
+        "regions": {
+          "player": [
+            "vitals",
+            "shell-character"
+          ],
+          "focus": [
+            "shell-detail"
+          ],
+          "inventory": [
+            "shell-inventory-tools",
+            "belongings"
+          ],
+          "actions": [
+            "village-scene",
+            "current-work",
+            "local-actions",
+            "pane-navigation"
+          ],
+          "log": [
+            "messages"
+          ]
+        },
+        "detail": "focus",
+        "logRegion": "log",
+        "detailText": "\"ABC for kids\"Book · Held: 1 · 10CThe simplest book on the m",
+        "journal": {
+          "region": "actions",
+          "visible": false,
+          "h": 0
+        },
+        "scrollKept": null
+      },
+      "travel": {
+        "context": "travel",
+        "combat": "false",
+        "companions": "records",
+        "centerTask": null,
+        "regions": {
+          "player": [
+            "vitals",
+            "shell-character"
+          ],
+          "focus": [
+            "shell-detail"
+          ],
+          "inventory": [
+            "shell-inventory-tools",
+            "belongings"
+          ],
+          "actions": [
+            "village-scene",
+            "current-work",
+            "local-actions",
+            "pane-navigation"
+          ],
+          "log": [
+            "messages"
+          ]
+        },
+        "detail": "focus",
+        "logRegion": "log",
+        "detailText": "\"ABC for kids\"Book · Held: 1 · 10CThe simplest book on the m",
+        "journal": {
+          "region": "actions",
+          "visible": false,
+          "h": 0
+        }
+      },
+      "travelMixing": {
+        "context": "service",
+        "combat": "false",
+        "companions": "",
+        "centerTask": "mixing",
+        "regions": {
+          "player": [
+            "vitals",
+            "shell-character"
+          ],
+          "focus": [],
+          "inventory": [
+            "shell-inventory-tools",
+            "belongings"
+          ],
+          "actions": [
+            "village-scene",
+            "current-work",
+            "local-actions",
+            "pane-navigation"
+          ],
+          "log": [
+            "messages"
+          ]
+        },
+        "detail": "focus",
+        "logRegion": "log",
+        "detailText": "\"ABC for kids\"Book · Held: 1 · 10CThe simplest book on the m",
+        "journal": {
+          "region": "actions",
+          "visible": false,
+          "h": 0
+        }
+      },
+      "travelMixingLeft": {
+        "context": "travel",
+        "combat": "false",
+        "companions": "records",
+        "centerTask": null,
+        "regions": {
+          "player": [
+            "vitals",
+            "shell-character"
+          ],
+          "focus": [
+            "shell-detail"
+          ],
+          "inventory": [
+            "shell-inventory-tools",
+            "belongings"
+          ],
+          "actions": [
+            "village-scene",
+            "current-work",
+            "local-actions",
+            "pane-navigation"
+          ],
+          "log": [
+            "messages"
+          ]
+        },
+        "detail": "focus",
+        "logRegion": "log",
+        "detailText": "\"ABC for kids\"Book · Held: 1 · 10CThe simplest book on the m",
+        "journal": {
+          "region": "actions",
+          "visible": false,
+          "h": 0
+        }
+      },
+      "afterTravel": {
+        "context": "idle",
+        "combat": "false",
+        "companions": "records",
+        "centerTask": null,
+        "regions": {
+          "player": [
+            "vitals",
+            "shell-character"
+          ],
+          "focus": [
+            "shell-detail"
+          ],
+          "inventory": [
+            "shell-inventory-tools",
+            "belongings"
+          ],
+          "actions": [
+            "village-scene",
+            "current-work",
+            "local-actions",
+            "pane-navigation"
+          ],
+          "log": [
+            "messages"
+          ]
+        },
+        "detail": "focus",
+        "logRegion": "log",
+        "detailText": "\"ABC for kids\"Book · Held: 1 · 10CThe simplest book on the m",
+        "journal": {
+          "region": "actions",
+          "visible": false,
+          "h": 0
+        }
+      },
+      "errors": []
+    },
+    "1366-14": {
+      "idle": {
+        "context": "idle",
+        "combat": "false",
+        "companions": "records",
+        "centerTask": null,
+        "regions": {
+          "player": [
+            "vitals",
+            "shell-character"
+          ],
+          "focus": [
+            "shell-detail"
+          ],
+          "inventory": [
+            "shell-inventory-tools",
+            "belongings"
+          ],
+          "actions": [
+            "village-scene",
+            "current-work",
+            "local-actions",
+            "pane-navigation"
+          ],
+          "log": [
+            "messages"
+          ]
+        },
+        "detail": "focus",
+        "logRegion": "log",
+        "detailText": "\"ABC for kids\"Book · Held: 1 · 10CThe simplest book on the m",
+        "journal": {
+          "region": "actions",
+          "visible": false,
+          "h": 0
+        }
+      },
+      "selectedBefore": null,
+      "mixing": {
+        "context": "service",
+        "combat": "false",
+        "companions": "",
+        "centerTask": "mixing",
+        "regions": {
+          "player": [
+            "vitals",
+            "shell-character"
+          ],
+          "focus": [],
+          "inventory": [
+            "shell-inventory-tools",
+            "belongings"
+          ],
+          "actions": [
+            "village-scene",
+            "current-work",
+            "local-actions",
+            "pane-navigation"
+          ],
+          "log": [
+            "messages"
+          ]
+        },
+        "detail": "focus",
+        "logRegion": "log",
+        "detailText": "\"ABC for kids\"Book · Held: 1 · 10CThe simplest book on the m",
+        "journal": {
+          "region": "actions",
+          "visible": false,
+          "h": 0
+        }
+      },
+      "mixingLeft": {
+        "context": "idle",
+        "combat": "false",
+        "companions": "records",
+        "centerTask": null,
+        "regions": {
+          "player": [
+            "vitals",
+            "shell-character"
+          ],
+          "focus": [
+            "shell-detail"
+          ],
+          "inventory": [
+            "shell-inventory-tools",
+            "belongings"
+          ],
+          "actions": [
+            "village-scene",
+            "current-work",
+            "local-actions",
+            "pane-navigation"
+          ],
+          "log": [
+            "messages"
+          ]
+        },
+        "detail": "focus",
+        "logRegion": "log",
+        "detailText": "\"ABC for kids\"Book · Held: 1 · 10CThe simplest book on the m",
+        "journal": {
+          "region": "actions",
+          "visible": false,
+          "h": 0
+        },
+        "scrollKept": null
+      },
+      "crafting": {
+        "context": "service",
+        "combat": "false",
+        "companions": "",
+        "centerTask": "crafting",
+        "regions": {
+          "player": [
+            "vitals",
+            "shell-character"
+          ],
+          "focus": [],
+          "inventory": [
+            "shell-inventory-tools",
+            "belongings"
+          ],
+          "actions": [
+            "village-scene",
+            "current-work",
+            "local-actions",
+            "pane-navigation"
+          ],
+          "log": [
+            "messages"
+          ]
+        },
+        "detail": "focus",
+        "logRegion": "log",
+        "detailText": "\"ABC for kids\"Book · Held: 1 · 10CThe simplest book on the m",
+        "journal": {
+          "region": "actions",
+          "visible": false,
+          "h": 0
+        }
+      },
+      "craftingLeft": {
+        "context": "idle",
+        "combat": "false",
+        "companions": "records",
+        "centerTask": null,
+        "regions": {
+          "player": [
+            "vitals",
+            "shell-character"
+          ],
+          "focus": [
+            "shell-detail"
+          ],
+          "inventory": [
+            "shell-inventory-tools",
+            "belongings"
+          ],
+          "actions": [
+            "village-scene",
+            "current-work",
+            "local-actions",
+            "pane-navigation"
+          ],
+          "log": [
+            "messages"
+          ]
+        },
+        "detail": "focus",
+        "logRegion": "log",
+        "detailText": "\"ABC for kids\"Book · Held: 1 · 10CThe simplest book on the m",
+        "journal": {
+          "region": "actions",
+          "visible": false,
+          "h": 0
+        },
+        "scrollKept": null
+      },
+      "travel": {
+        "context": "travel",
+        "combat": "false",
+        "companions": "records",
+        "centerTask": null,
+        "regions": {
+          "player": [
+            "vitals",
+            "shell-character"
+          ],
+          "focus": [
+            "shell-detail"
+          ],
+          "inventory": [
+            "shell-inventory-tools",
+            "belongings"
+          ],
+          "actions": [
+            "village-scene",
+            "current-work",
+            "local-actions",
+            "pane-navigation"
+          ],
+          "log": [
+            "messages"
+          ]
+        },
+        "detail": "focus",
+        "logRegion": "log",
+        "detailText": "\"ABC for kids\"Book · Held: 1 · 10CThe simplest book on the m",
+        "journal": {
+          "region": "actions",
+          "visible": false,
+          "h": 0
+        }
+      },
+      "travelMixing": {
+        "context": "service",
+        "combat": "false",
+        "companions": "",
+        "centerTask": "mixing",
+        "regions": {
+          "player": [
+            "vitals",
+            "shell-character"
+          ],
+          "focus": [],
+          "inventory": [
+            "shell-inventory-tools",
+            "belongings"
+          ],
+          "actions": [
+            "village-scene",
+            "current-work",
+            "local-actions",
+            "pane-navigation"
+          ],
+          "log": [
+            "messages"
+          ]
+        },
+        "detail": "focus",
+        "logRegion": "log",
+        "detailText": "\"ABC for kids\"Book · Held: 1 · 10CThe simplest book on the m",
+        "journal": {
+          "region": "actions",
+          "visible": false,
+          "h": 0
+        }
+      },
+      "travelMixingLeft": {
+        "context": "travel",
+        "combat": "false",
+        "companions": "records",
+        "centerTask": null,
+        "regions": {
+          "player": [
+            "vitals",
+            "shell-character"
+          ],
+          "focus": [
+            "shell-detail"
+          ],
+          "inventory": [
+            "shell-inventory-tools",
+            "belongings"
+          ],
+          "actions": [
+            "village-scene",
+            "current-work",
+            "local-actions",
+            "pane-navigation"
+          ],
+          "log": [
+            "messages"
+          ]
+        },
+        "detail": "focus",
+        "logRegion": "log",
+        "detailText": "\"ABC for kids\"Book · Held: 1 · 10CThe simplest book on the m",
+        "journal": {
+          "region": "actions",
+          "visible": false,
+          "h": 0
+        }
+      },
+      "afterTravel": {
+        "context": "idle",
+        "combat": "false",
+        "companions": "records",
+        "centerTask": null,
+        "regions": {
+          "player": [
+            "vitals",
+            "shell-character"
+          ],
+          "focus": [
+            "shell-detail"
+          ],
+          "inventory": [
+            "shell-inventory-tools",
+            "belongings"
+          ],
+          "actions": [
+            "village-scene",
+            "current-work",
+            "local-actions",
+            "pane-navigation"
+          ],
+          "log": [
+            "messages"
+          ]
+        },
+        "detail": "focus",
+        "logRegion": "log",
+        "detailText": "\"ABC for kids\"Book · Held: 1 · 10CThe simplest book on the m",
+        "journal": {
+          "region": "actions",
+          "visible": false,
+          "h": 0
+        }
+      },
+      "errors": []
+    },
+    "1366-21": {
+      "idle": {
+        "context": "idle",
+        "combat": "false",
+        "companions": "records",
+        "centerTask": null,
+        "regions": {
+          "player": [
+            "vitals",
+            "shell-character"
+          ],
+          "focus": [
+            "shell-detail"
+          ],
+          "inventory": [
+            "belongings"
+          ],
+          "actions": [
+            "village-scene",
+            "current-work",
+            "local-actions",
+            "pane-navigation"
+          ],
+          "log": [
+            "messages"
+          ]
+        },
+        "detail": "focus",
+        "logRegion": "log",
+        "detailText": "\"ABC for kids\"Book · Held: 1 · 10CThe simplest book on the m",
+        "journal": {
+          "region": "actions",
+          "visible": false,
+          "h": 0
+        }
+      },
+      "selectedBefore": null,
+      "mixing": {
+        "context": "service",
+        "combat": "false",
+        "companions": "",
+        "centerTask": "mixing",
+        "regions": {
+          "player": [
+            "vitals",
+            "shell-character"
+          ],
+          "focus": [],
+          "inventory": [
+            "belongings"
+          ],
+          "actions": [
+            "village-scene",
+            "current-work",
+            "local-actions",
+            "pane-navigation"
+          ],
+          "log": [
+            "messages"
+          ]
+        },
+        "detail": "focus",
+        "logRegion": "log",
+        "detailText": "\"ABC for kids\"Book · Held: 1 · 10CThe simplest book on the m",
+        "journal": {
+          "region": "actions",
+          "visible": false,
+          "h": 0
+        }
+      },
+      "mixingLeft": {
+        "context": "idle",
+        "combat": "false",
+        "companions": "records",
+        "centerTask": null,
+        "regions": {
+          "player": [
+            "vitals",
+            "shell-character"
+          ],
+          "focus": [
+            "shell-detail"
+          ],
+          "inventory": [
+            "belongings"
+          ],
+          "actions": [
+            "village-scene",
+            "current-work",
+            "local-actions",
+            "pane-navigation"
+          ],
+          "log": [
+            "messages"
+          ]
+        },
+        "detail": "focus",
+        "logRegion": "log",
+        "detailText": "\"ABC for kids\"Book · Held: 1 · 10CThe simplest book on the m",
+        "journal": {
+          "region": "actions",
+          "visible": false,
+          "h": 0
+        },
+        "scrollKept": null
+      },
+      "crafting": {
+        "context": "service",
+        "combat": "false",
+        "companions": "",
+        "centerTask": "crafting",
+        "regions": {
+          "player": [
+            "vitals",
+            "shell-character"
+          ],
+          "focus": [],
+          "inventory": [
+            "belongings"
+          ],
+          "actions": [
+            "village-scene",
+            "current-work",
+            "local-actions",
+            "pane-navigation"
+          ],
+          "log": [
+            "messages"
+          ]
+        },
+        "detail": "focus",
+        "logRegion": "log",
+        "detailText": "\"ABC for kids\"Book · Held: 1 · 10CThe simplest book on the m",
+        "journal": {
+          "region": "actions",
+          "visible": false,
+          "h": 0
+        }
+      },
+      "craftingLeft": {
+        "context": "idle",
+        "combat": "false",
+        "companions": "records",
+        "centerTask": null,
+        "regions": {
+          "player": [
+            "vitals",
+            "shell-character"
+          ],
+          "focus": [
+            "shell-detail"
+          ],
+          "inventory": [
+            "belongings"
+          ],
+          "actions": [
+            "village-scene",
+            "current-work",
+            "local-actions",
+            "pane-navigation"
+          ],
+          "log": [
+            "messages"
+          ]
+        },
+        "detail": "focus",
+        "logRegion": "log",
+        "detailText": "\"ABC for kids\"Book · Held: 1 · 10CThe simplest book on the m",
+        "journal": {
+          "region": "actions",
+          "visible": false,
+          "h": 0
+        },
+        "scrollKept": null
+      },
+      "travel": {
+        "context": "travel",
+        "combat": "false",
+        "companions": "records",
+        "centerTask": null,
+        "regions": {
+          "player": [
+            "vitals",
+            "shell-character"
+          ],
+          "focus": [
+            "shell-detail"
+          ],
+          "inventory": [
+            "belongings"
+          ],
+          "actions": [
+            "village-scene",
+            "current-work",
+            "local-actions",
+            "pane-navigation"
+          ],
+          "log": [
+            "messages"
+          ]
+        },
+        "detail": "focus",
+        "logRegion": "log",
+        "detailText": "\"ABC for kids\"Book · Held: 1 · 10CThe simplest book on the m",
+        "journal": {
+          "region": "actions",
+          "visible": false,
+          "h": 0
+        }
+      },
+      "travelMixing": {
+        "context": "service",
+        "combat": "false",
+        "companions": "",
+        "centerTask": "mixing",
+        "regions": {
+          "player": [
+            "vitals",
+            "shell-character"
+          ],
+          "focus": [],
+          "inventory": [
+            "belongings"
+          ],
+          "actions": [
+            "village-scene",
+            "current-work",
+            "local-actions",
+            "pane-navigation"
+          ],
+          "log": [
+            "messages"
+          ]
+        },
+        "detail": "focus",
+        "logRegion": "log",
+        "detailText": "\"ABC for kids\"Book · Held: 1 · 10CThe simplest book on the m",
+        "journal": {
+          "region": "actions",
+          "visible": false,
+          "h": 0
+        }
+      },
+      "travelMixingLeft": {
+        "context": "travel",
+        "combat": "false",
+        "companions": "records",
+        "centerTask": null,
+        "regions": {
+          "player": [
+            "vitals",
+            "shell-character"
+          ],
+          "focus": [
+            "shell-detail"
+          ],
+          "inventory": [
+            "belongings"
+          ],
+          "actions": [
+            "village-scene",
+            "current-work",
+            "local-actions",
+            "pane-navigation"
+          ],
+          "log": [
+            "messages"
+          ]
+        },
+        "detail": "focus",
+        "logRegion": "log",
+        "detailText": "\"ABC for kids\"Book · Held: 1 · 10CThe simplest book on the m",
+        "journal": {
+          "region": "actions",
+          "visible": false,
+          "h": 0
+        }
+      },
+      "afterTravel": {
+        "context": "idle",
+        "combat": "false",
+        "companions": "records",
+        "centerTask": null,
+        "regions": {
+          "player": [
+            "vitals",
+            "shell-character"
+          ],
+          "focus": [
+            "shell-detail"
+          ],
+          "inventory": [
+            "belongings"
+          ],
+          "actions": [
+            "village-scene",
+            "current-work",
+            "local-actions",
+            "pane-navigation"
+          ],
+          "log": [
+            "messages"
+          ]
+        },
+        "detail": "focus",
+        "logRegion": "log",
+        "detailText": "\"ABC for kids\"Book · Held: 1 · 10CThe simplest book on the m",
+        "journal": {
+          "region": "actions",
+          "visible": false,
+          "h": 0
+        }
+      },
+      "errors": []
+    }
+  },
+  "placement": {
+    "service-journal": {
+      "loaded": {
+        "idle": {
+          "context": "idle",
+          "combat": "false",
+          "companions": "records",
+          "centerTask": null,
+          "regions": {
+            "player": [
+              "vitals",
+              "shell-character"
+            ],
+            "focus": [
+              "focus"
+            ],
+            "inventory": [
+              "shell-inventory-tools",
+              "belongings"
+            ],
+            "actions": [
+              "village-scene",
+              "current-work",
+              "local-actions",
+              "pane-navigation",
+              "records"
+            ],
+            "log": [
+              "messages"
+            ]
+          },
+          "detail": "focus",
+          "logRegion": "log",
+          "detailText": null,
+          "journal": {
+            "region": "actions",
+            "visible": true,
+            "h": 646
+          }
+        },
+        "inventoryRegion": "inventory",
+        "notice": "Edit layout to drag headers, float panels or resize edges and dividers"
+      },
+      "atMixing": {
+        "context": "service",
+        "combat": "false",
+        "companions": "records",
+        "centerTask": "mixing",
+        "regions": {
+          "player": [
+            "vitals",
+            "shell-character"
+          ],
+          "focus": [],
+          "inventory": [
+            "shell-inventory-tools",
+            "belongings"
+          ],
+          "actions": [
+            "village-scene",
+            "current-work",
+            "local-actions",
+            "pane-navigation",
+            "records"
+          ],
+          "log": [
+            "messages"
+          ]
+        },
+        "detail": "focus",
+        "logRegion": "log",
+        "detailText": null,
+        "journal": {
+          "region": "actions",
+          "visible": true,
+          "h": 264
+        }
+      },
+      "reloadedIdle": {
+        "context": "idle",
+        "combat": "false",
+        "companions": "records",
+        "centerTask": null,
+        "regions": {
+          "player": [
+            "vitals",
+            "shell-character"
+          ],
+          "focus": [
+            "focus"
+          ],
+          "inventory": [
+            "shell-inventory-tools",
+            "belongings"
+          ],
+          "actions": [
+            "village-scene",
+            "current-work",
+            "local-actions",
+            "pane-navigation",
+            "records"
+          ],
+          "log": [
+            "messages"
+          ]
+        },
+        "detail": "focus",
+        "logRegion": "log",
+        "detailText": null,
+        "journal": {
+          "region": "actions",
+          "visible": true,
+          "h": 646
+        }
+      },
+      "reloadedInventory": "inventory",
+      "reloadedMixing": {
+        "context": "service",
+        "combat": "false",
+        "companions": "records",
+        "centerTask": "mixing",
+        "regions": {
+          "player": [
+            "vitals",
+            "shell-character"
+          ],
+          "focus": [],
+          "inventory": [
+            "shell-inventory-tools",
+            "belongings"
+          ],
+          "actions": [
+            "village-scene",
+            "current-work",
+            "local-actions",
+            "pane-navigation",
+            "records"
+          ],
+          "log": [
+            "messages"
+          ]
+        },
+        "detail": "focus",
+        "logRegion": "log",
+        "detailText": null,
+        "journal": {
+          "region": "actions",
+          "visible": true,
+          "h": 264
+        }
+      },
+      "importedIdle": {
+        "context": "idle",
+        "combat": "false",
+        "companions": "records",
+        "centerTask": null,
+        "regions": {
+          "player": [
+            "vitals",
+            "shell-character"
+          ],
+          "focus": [
+            "focus"
+          ],
+          "inventory": [
+            "shell-inventory-tools",
+            "belongings"
+          ],
+          "actions": [
+            "village-scene",
+            "current-work",
+            "local-actions",
+            "pane-navigation",
+            "records"
+          ],
+          "log": [
+            "messages"
+          ]
+        },
+        "detail": "focus",
+        "logRegion": "log",
+        "detailText": null,
+        "journal": {
+          "region": "actions",
+          "visible": true,
+          "h": 646
+        }
+      },
+      "importedInventory": "inventory",
+      "importedMixing": {
+        "context": "service",
+        "combat": "false",
+        "companions": "records",
+        "centerTask": "mixing",
+        "regions": {
+          "player": [
+            "vitals",
+            "shell-character"
+          ],
+          "focus": [],
+          "inventory": [
+            "shell-inventory-tools",
+            "belongings"
+          ],
+          "actions": [
+            "village-scene",
+            "current-work",
+            "local-actions",
+            "pane-navigation",
+            "records"
+          ],
+          "log": [
+            "messages"
+          ]
+        },
+        "detail": "focus",
+        "logRegion": "log",
+        "detailText": null,
+        "journal": {
+          "region": "actions",
+          "visible": true,
+          "h": 264
+        }
+      },
+      "stored": {
+        "version": 1,
+        "spec": 4,
+        "contexts": {
+          "idle": {
+            "boxes": {},
+            "companions": {},
+            "swap": false
+          },
+          "combat": {
+            "boxes": {},
+            "companions": {},
+            "swap": false
+          },
+          "travel": {
+            "boxes": {},
+            "companions": {},
+            "swap": false
+          },
+          "service": {
+            "boxes": {},
+            "companions": {
+              "journal": "actions"
+            },
+            "swap": false
+          }
+        }
+      },
+      "errors": []
+    },
+    "spec3-idle": {
+      "loaded": {
+        "idle": {
+          "context": "idle",
+          "combat": "false",
+          "companions": "records",
+          "centerTask": null,
+          "regions": {
+            "player": [
+              "vitals",
+              "shell-character",
+              "shell-inventory-tools",
+              "belongings"
+            ],
+            "focus": [
+              "focus"
+            ],
+            "inventory": [],
+            "actions": [
+              "village-scene",
+              "current-work",
+              "local-actions",
+              "pane-navigation",
+              "records"
+            ],
+            "log": [
+              "messages"
+            ]
+          },
+          "detail": "focus",
+          "logRegion": "log",
+          "detailText": null,
+          "journal": {
+            "region": "actions",
+            "visible": true,
+            "h": 295
+          }
+        },
+        "inventoryRegion": "player",
+        "notice": "Edit layout to drag headers, float panels or resize edges and dividers"
+      },
+      "atMixing": {
+        "context": "service",
+        "combat": "false",
+        "companions": "",
+        "centerTask": "mixing",
+        "regions": {
+          "player": [
+            "vitals",
+            "shell-character"
+          ],
+          "focus": [],
+          "inventory": [
+            "shell-inventory-tools",
+            "belongings"
+          ],
+          "actions": [
+            "village-scene",
+            "current-work",
+            "local-actions",
+            "pane-navigation"
+          ],
+          "log": [
+            "messages"
+          ]
+        },
+        "detail": "focus",
+        "logRegion": "log",
+        "detailText": null,
+        "journal": {
+          "region": "actions",
+          "visible": false,
+          "h": 0
+        }
+      },
+      "reloadedIdle": {
+        "context": "idle",
+        "combat": "false",
+        "companions": "records",
+        "centerTask": null,
+        "regions": {
+          "player": [
+            "vitals",
+            "shell-character",
+            "shell-inventory-tools",
+            "belongings"
+          ],
+          "focus": [
+            "focus"
+          ],
+          "inventory": [],
+          "actions": [
+            "village-scene",
+            "current-work",
+            "local-actions",
+            "pane-navigation",
+            "records"
+          ],
+          "log": [
+            "messages"
+          ]
+        },
+        "detail": "focus",
+        "logRegion": "log",
+        "detailText": null,
+        "journal": {
+          "region": "actions",
+          "visible": true,
+          "h": 295
+        }
+      },
+      "reloadedInventory": "player",
+      "reloadedMixing": {
+        "context": "service",
+        "combat": "false",
+        "companions": "",
+        "centerTask": "mixing",
+        "regions": {
+          "player": [
+            "vitals",
+            "shell-character"
+          ],
+          "focus": [],
+          "inventory": [
+            "shell-inventory-tools",
+            "belongings"
+          ],
+          "actions": [
+            "village-scene",
+            "current-work",
+            "local-actions",
+            "pane-navigation"
+          ],
+          "log": [
+            "messages"
+          ]
+        },
+        "detail": "focus",
+        "logRegion": "log",
+        "detailText": null,
+        "journal": {
+          "region": "actions",
+          "visible": false,
+          "h": 0
+        }
+      },
+      "importedIdle": {
+        "context": "idle",
+        "combat": "false",
+        "companions": "records",
+        "centerTask": null,
+        "regions": {
+          "player": [
+            "vitals",
+            "shell-character",
+            "shell-inventory-tools",
+            "belongings"
+          ],
+          "focus": [
+            "focus"
+          ],
+          "inventory": [],
+          "actions": [
+            "village-scene",
+            "current-work",
+            "local-actions",
+            "pane-navigation",
+            "records"
+          ],
+          "log": [
+            "messages"
+          ]
+        },
+        "detail": "focus",
+        "logRegion": "log",
+        "detailText": null,
+        "journal": {
+          "region": "actions",
+          "visible": true,
+          "h": 295
+        }
+      },
+      "importedInventory": "player",
+      "importedMixing": {
+        "context": "service",
+        "combat": "false",
+        "companions": "",
+        "centerTask": "mixing",
+        "regions": {
+          "player": [
+            "vitals",
+            "shell-character"
+          ],
+          "focus": [],
+          "inventory": [
+            "shell-inventory-tools",
+            "belongings"
+          ],
+          "actions": [
+            "village-scene",
+            "current-work",
+            "local-actions",
+            "pane-navigation"
+          ],
+          "log": [
+            "messages"
+          ]
+        },
+        "detail": "focus",
+        "logRegion": "log",
+        "detailText": null,
+        "journal": {
+          "region": "actions",
+          "visible": false,
+          "h": 0
+        }
+      },
+      "stored": {
+        "version": 1,
+        "spec": 3,
+        "contexts": {
+          "idle": {
+            "boxes": {
+              "inventory": "player"
+            },
+            "companions": {},
+            "swap": false
+          },
+          "combat": {
+            "boxes": {},
+            "companions": {},
+            "swap": false
+          }
+        }
+      },
+      "errors": []
+    }
+  },
+  "combat": {
+    "1920-14": {
+      "fight": {
+        "context": "combat",
+        "combat": "true",
+        "companions": "skills",
+        "centerTask": null,
+        "regions": {
+          "player": [
+            "vitals",
+            "shell-character"
+          ],
+          "focus": [
+            "focus"
+          ],
+          "inventory": [
+            "shell-inventory-tools",
+            "belongings"
+          ],
+          "actions": [
+            "village-scene",
+            "current-work",
+            "local-actions",
+            "pane-navigation",
+            "skills"
+          ],
+          "log": [
+            "messages"
+          ]
+        },
+        "detail": "actions",
+        "logRegion": "log",
+        "detailText": null,
+        "journal": {
+          "region": "actions",
+          "visible": false,
+          "h": 0
+        }
+      },
+      "travelAndMixingKey": {
+        "context": "combat",
+        "combat": "true",
+        "companions": "skills",
+        "centerTask": null,
+        "regions": {
+          "player": [
+            "vitals",
+            "shell-character"
+          ],
+          "focus": [
+            "focus"
+          ],
+          "inventory": [
+            "shell-inventory-tools",
+            "belongings"
+          ],
+          "actions": [
+            "village-scene",
+            "current-work",
+            "local-actions",
+            "pane-navigation",
+            "skills"
+          ],
+          "log": [
+            "messages"
+          ]
+        },
+        "detail": "actions",
+        "logRegion": "log",
+        "detailText": null,
+        "journal": {
+          "region": "actions",
+          "visible": false,
+          "h": 0
+        }
+      },
+      "after": {
+        "context": "combat",
+        "combat": "true",
+        "companions": "skills",
+        "centerTask": null,
+        "regions": {
+          "player": [
+            "vitals",
+            "shell-character"
+          ],
+          "focus": [
+            "focus"
+          ],
+          "inventory": [
+            "shell-inventory-tools",
+            "belongings"
+          ],
+          "actions": [
+            "village-scene",
+            "current-work",
+            "local-actions",
+            "pane-navigation",
+            "skills"
+          ],
+          "log": [
+            "messages"
+          ]
+        },
+        "detail": "actions",
+        "logRegion": "log",
+        "detailText": null,
+        "journal": {
+          "region": "actions",
+          "visible": false,
+          "h": 0
+        }
+      },
+      "errors": []
+    },
+    "1366-21": {
+      "fight": {
+        "context": "combat",
+        "combat": "true",
+        "companions": "skills",
+        "centerTask": null,
+        "regions": {
+          "player": [
+            "vitals",
+            "shell-character"
+          ],
+          "focus": [
+            "focus"
+          ],
+          "inventory": [
+            "belongings"
+          ],
+          "actions": [
+            "village-scene",
+            "current-work",
+            "local-actions",
+            "pane-navigation",
+            "skills"
+          ],
+          "log": [
+            "messages"
+          ]
+        },
+        "detail": "actions",
+        "logRegion": "log",
+        "detailText": null,
+        "journal": {
+          "region": "actions",
+          "visible": false,
+          "h": 0
+        }
+      },
+      "travelAndMixingKey": {
+        "context": "combat",
+        "combat": "true",
+        "companions": "skills",
+        "centerTask": null,
+        "regions": {
+          "player": [
+            "vitals",
+            "shell-character"
+          ],
+          "focus": [
+            "focus"
+          ],
+          "inventory": [
+            "belongings"
+          ],
+          "actions": [
+            "village-scene",
+            "current-work",
+            "local-actions",
+            "pane-navigation",
+            "skills"
+          ],
+          "log": [
+            "messages"
+          ]
+        },
+        "detail": "actions",
+        "logRegion": "log",
+        "detailText": null,
+        "journal": {
+          "region": "actions",
+          "visible": false,
+          "h": 0
+        }
+      },
+      "after": {
+        "context": "combat",
+        "combat": "true",
+        "companions": "skills",
+        "centerTask": null,
+        "regions": {
+          "player": [
+            "vitals",
+            "shell-character"
+          ],
+          "focus": [
+            "focus"
+          ],
+          "inventory": [
+            "belongings"
+          ],
+          "actions": [
+            "village-scene",
+            "current-work",
+            "local-actions",
+            "pane-navigation",
+            "skills"
+          ],
+          "log": [
+            "messages"
+          ]
+        },
+        "detail": "actions",
+        "logRegion": "log",
+        "detailText": null,
+        "journal": {
+          "region": "actions",
+          "visible": false,
+          "h": 0
+        }
+      },
+      "errors": []
+    }
+  }
+}

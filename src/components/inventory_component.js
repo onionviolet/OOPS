@@ -2,6 +2,7 @@ import {MIXTURE_ID,getMixtureOwner,productFromKey} from '../mixture_state.js';
 "use strict";
 
 import { getItem, getItemFromKey, item_templates } from "../items.js";
+import { publishChange } from "../ui_change_signal.js";
 
 const inventories = {};
 
@@ -55,6 +56,7 @@ class InventoryComponent {
                 }
             }
         }
+        if(items.length) publishChange("inventory", "inventory"); //UIX2: observers re-read; publishes no state
         return anything_new;
     }
 
@@ -83,10 +85,12 @@ class InventoryComponent {
                 throw new Error("Tried to remove item that was not present in inventory");
             }
         }
+        if(items.length) publishChange("inventory", "inventory");
     }
 
     emptyInventory() {
         this.#items = {};
+        publishChange("inventory", "inventory");
     }
 }
 

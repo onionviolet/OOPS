@@ -138,9 +138,47 @@ These become the standing journey set for UR57 checks at 1920×1080 and 1366×76
 
 UIL1 implemented 2026-10-18, uncommitted, visual acceptance open: [UIL1 report](UIL1_REPORT.md).
 
+UIL2 implemented 2026-10-18, uncommitted, visual acceptance open: [UIL2 report](UIL2_REPORT.md).
+
+UIL4 implemented 2026-10-18, uncommitted, visual acceptance open: [UIL4 report](UIL4_REPORT.md).
+
 ## Suggested order (proposal)
 
 1. UIL1, since everything else reads the surface fields and route table.
 2. UIL2, since UIW summaries are only trustworthy with a shared change signal.
 3. UIL6 batches alongside UIL4.
 4. UIL3 and UIL5 once routes and contexts exist; R22 log links once it merges.
+
+## Round 2: adjustable panels, stat sheet and splits, 2026-10-18
+
+Weibao, with a 1920×1080 screenshot of the parity shell at the Village mixing counter: "Any way to
+make each panel individually adjustable? also Cold shoudnt be a stat? HP%/s? Some of those can be
+hidden away into the larger stats, Inventory currently too wide right? We should incorporate new
+panels/split existing ones into distinct panels accoridnlgyt?" Proposal only.
+
+Read from the screenshot (shown): columns are about 623 px (You and Inventory), 738 px (centre)
+and 495 px (Reports). Inventory names end near 160 px while values sit at the right edge, yet
+equipment rows still wrap their slot ("[torso]") onto a second line. The centre repeats "Village
+mixing counter" twice, and the Journal companion shows one row in about 250 px. Read from code
+(shown): R21 lets a box move between slots (Move to); nothing resizes a column or row today.
+`cold_tolerance` is a real native modifier (`src/display.js`: added to the cold threshold
+comparison), listed in the always-visible secondary grid (`src/proto23_shell.js` `secondaryOrder`).
+
+| Code | Consideration | Default, dial and reason |
+| --- | --- | --- |
+| UIP1 | **Adjustable panels** | Drag gutters between columns and between the top and bottom rows, plus per-box collapse and expand (UR24, UR30). Sizes are stored in the same per-context placement as Move to (R21 MB1, UR58), with a Reset. Minimum sizes come from content at the current text size, never smaller text (UR46). Gutters are keyboard-operable (UR53). The log column can be resized but not hidden or squeezed below its minimum (UR11) |
+| UIP2 | **Stat sheet tiers** | Always visible: vitals and the core attributes. Secondary rows show only when they differ from the neutral value or an effect changes them (HP/s at 0, HP %/s at 0 and ×1.000 multipliers hide). Everything stays in Attributes › with its modifiers. Dial: the player can pin any row back. Reason: a fact earns permanent space when it changes a decision (UIW) |
+| UIP3 | **Cold tolerance belongs with the weather** | It is a real modifier, so it stays in Attributes ›, but its everyday home is the place header's temperature: "14.7 °C · comfortable" with tolerance in the hover card, and a warning chip when cold starts to bite (UIW5). Same for future heat, altitude or mana-density tolerances per world |
+| UIP4 | **Inventory width** | At 1920 the list wastes about half its row. Default: the inventory column follows content (BX4, WX12), slot labels sit on the same line as the name when they fit, and freed width goes to the centre. Dial: UIP1 lets the player widen it again |
+| UIP5 | **Split into distinct surfaces** | Each split is its own registered surface with a route, so Move to, resize and contexts work on it (UIM1): You → You (vitals, core) and Condition (effects, body, temperature, rates); Inventory → list and Item detail (VP2, BX9); Around you → people and services, and place prose (BX5). Equipment stays a tab or disclosure of You |
+| UIP6 | **Empty space rules** | A companion with one row shrinks to content and yields its height (UR32 empty states); a service view does not repeat its own title. Applies to the Journal companion and the mixing counter in this screenshot |
+
+LATER / DELEGATE: **UIL7** adjustable gutters plus per-context sizes (UIP1); **UIL8** stat tiers,
+Condition split and cold in the place header (UIP2, UIP3, UIP5 first slice); **UIL9** inventory
+content width, one-line slots, item detail split and empty-space fixes (UIP4–UIP6). Strong coder,
+medium each. Done check: rebuilt browser at 1920×1080 and 1366×768, 14 px and 21 px, before and
+after screenshots, stored placements and sizes survive save, reload and import. They touch the
+layout owners UIL4 just changed and the shell file, so they start after UIL2 and UIL4 are
+committed, and UIL7 runs before UIL9.
+
+After UIL2, UIL4 and UIL7–UIL9 land, run the [post-build UI audit prompt](POST_BUILD_UI_AUDIT_PROMPT.md). It starts the repeatable `docs/audits/UI_CORE_AUDIT.md`: how to show more information and look better.

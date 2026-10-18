@@ -1,7 +1,7 @@
 import {centerModes} from './center_modes.js';
 import {deferSimulationRender} from './simulation_render.js';
 import {createShellComposition} from './shell_composition.js';
-import {regionFor,shellOrder,companionPanels,contextOf,boxOf,LAYOUT_SPEC} from './layout_spec.js';
+import {regionFor,shellOrder,companionPanels,contextOf,contextLabel,boxOf,LAYOUT_SPEC} from './layout_spec.js';
 import {readPlacement,writePlacement,moveBox,swapCompanions,resetContext,isDefault,moveControl} from './shell_layout_edit.js';
 import { getDisplaySettings, getDisplaySetting, replaceDisplaySettings, effectsCap } from './display_settings.js';
 import { normalizeLayout, parseLayout, presetLayout, changeModule, reorderModule, layoutStorageKey, normalizeColumns } from './workspace_state.js';
@@ -57,9 +57,15 @@ function selectShell(on,parity=false){
 const parityCombat=()=>!!registry.get('combat')?.eligible();
 // R21 (MB1): the player's placement for this context moves boxes between the spec's slots.
 const placementKey=()=>`${shellLayoutKey(owner.narrow)}.placement`;
-const placementContext=()=>contextOf({combat:parityCombat()});
+// UIL4: the layout context follows what the player is doing: a fight, an open service view
+// (data-center-task, published by center_modes.js), a journey in progress (a signal the journey's
+// owner registers; this file never reads game state) or idle. Priority and inputs live in the spec.
+const signals=new Map();
+export function registerLayoutSignal(name,read){signals.set(name,read);}
+const layoutSignal=name=>{try{return !!signals.get(name)?.();}catch{return false;}};
+const placementContext=()=>contextOf({combat:parityCombat(),travel:layoutSignal('travel'),task:document.getElementById('main_content')?.dataset.centerTask||null});
 const currentPlacement=()=>owner?.placement?.contexts[placementContext()]||null;
-const parityRegion=id=>regionFor(id,{combat:parityCombat(),placement:currentPlacement()});
+const parityRegion=id=>regionFor(id,{combat:parityCombat(),context:placementContext(),placement:currentPlacement()});
 const LEADS=Object.fromEntries(Object.entries(LAYOUT_SPEC.boxes).map(([box,def])=>[box,def.lead]));
 function loadPlacement(){owner.placement=readPlacement(placementKey());if(owner.placement.stale){owner.status.textContent='The saved panel arrangement was for an older layout and was reset. Your other layout choices are kept.';writePlacement(placementKey(),owner.placement);}}
 function changePlacement(next,message){owner.placement=next;if(!writePlacement(placementKey(),next))owner.status.textContent='Layout works for this session; browser storage is unavailable.';else if(message)owner.status.textContent=message;updateWorkspace();syncShellEditing();document.dispatchEvent(new CustomEvent('workspace-presentation-change'));}
@@ -74,9 +80,9 @@ function syncShellEditing(){
         if(!control){control=moveControl(box).label;module.header.querySelector('strong')?.after(control);}
         const select=control.querySelector('select'),at=currentPlacement(),def=LAYOUT_SPEC.boxes[box];
         const automatic=!at?.companions?.[box]&&!LAYOUT_SPEC.contexts[placementContext()].companions.includes(lead);
-        const value=def.companion&&(at?.companions?.[box]==='hidden'||automatic)?'hidden':regionFor(lead,{combat:parityCombat(),placement:at});
+        const value=def.companion&&(at?.companions?.[box]==='hidden'||automatic)?'hidden':regionFor(lead,{combat:parityCombat(),context:placementContext(),placement:at});
         if(select.value!==value)select.value=value;}
-    const label=placementContext()==='combat'?'fight':'idle';
+    const label=contextLabel(placementContext());
     owner.shellTools.querySelector('[data-workspace-action=shell-reset]').textContent=`Reset this layout (${label})`;
     owner.shellTools.querySelector('[data-workspace-action=shell-reset]').disabled=!!owner.placement&&isDefault(owner.placement,placementContext());
 }
@@ -149,10 +155,10 @@ function action(event) {
     const a = control.dataset.workspaceAction, id = control.dataset.module, state = owner.layout.modules.find(v => v.id === id);
     if (a === 'presentation') {selectShell(control.value!=='existing',control.value==='proto23-parity');return;}
     if (a === 'shell-move') { if(event.type!=='change')return; const box=control.dataset.box,def=LAYOUT_SPEC.boxes[box],context=placementContext();
-        const message=control.value==='hidden'?`${def.title} hidden in this ${context==='combat'?'fight':'idle'} layout. Show it again with Move to, Reset this layout or its navigation button.`:`${def.title} moved to ${(LAYOUT_SPEC.slots[control.value]||'').toLowerCase()}${def.companion?'':' (swapped with the box there)'}.`;
+        const message=control.value==='hidden'?`${def.title} hidden in this ${contextLabel(context)} layout. Show it again with Move to, Reset this layout or its navigation button.`:`${def.title} moved to ${(LAYOUT_SPEC.slots[control.value]||'').toLowerCase()}${def.companion?'':' (swapped with the box there)'}.`;
         changePlacement(moveBox(owner.placement,context,box,control.value),message);registry.get(LEADS[box])?.header.querySelector('.shell-move-control select')?.focus({preventScroll:true});return; }
     if (a === 'shell-swap') { changePlacement(swapCompanions(owner.placement,placementContext()),'Companions swapped.'); return; }
-    if (a === 'shell-reset') { changePlacement(resetContext(owner.placement,placementContext()),`This ${placementContext()==='combat'?'fight':'idle'} layout is back to its default.`); return; }
+    if (a === 'shell-reset') { changePlacement(resetContext(owner.placement,placementContext()),`This ${contextLabel(placementContext())} layout is back to its default.`); return; }
     if (a === 'context') { setWorkspaceContext(owner.context==='authoring'?'play':'authoring'); return; }
     if (a === 'edit-layout') { if(owner.shell&&!(owner.parity&&owner.root.dataset.parity==='r3'))selectShell(false);setEditing(!owner.editing);syncShellEditing(); owner.menu.open=false; owner.menuSummary.focus({preventScroll:true}); return; }
     if (a === 'preset') { if(owner.shell)selectShell(false);owner.composition=!owner.narrow&&control.value==='Workspace';owner.layout = makePreset(control.value); save(); updateWorkspace(); return; }
@@ -253,6 +259,7 @@ export function updateWorkspace() {
     owner.root.dataset.presentation=owner.shell&&owner.context==='play'?'proto23-shell':'';
     owner.root.dataset.parity=owner.parity&&!owner.narrow&&owner.context==='play'?'r3':'';
     owner.root.dataset.parityCombat=String(!!registry.get('combat')?.eligible());
+    setData(owner.root,'layoutContext',placementContext());
     owner.root.dataset.parityItem=String(!!registry.get('shell-detail')?.eligible());
     // Companions the player placed beside the actions show there even where the context would not
     // recommend them (WX11); shell_composition.js reads this list.

@@ -27,6 +27,14 @@
 #main_content.workspace-active[data-parity="r3"][data-shell-companions~="records"][data-shell-companions~="skills"] [data-region="actions"] > .workspace-module[data-module="records"] {grid-row:2/4;}
 #main_content.workspace-active[data-parity="r3"][data-shell-companions~="records"][data-shell-companions~="skills"] [data-region="actions"] > .workspace-module[data-module="skills"] {grid-row:4/5;}
 #main_content.workspace-active[data-parity="r3"] .parity-region > .workspace-module:is([data-module="records"],[data-module="skills"]) > .workspace-module-body {flex:1 1 0;min-height:0;overflow:auto;}
+/* UIL4: at a service (Mixing, Crafting) the actions column is the view's. The service context
+   recommends no companion (the view needs the room at the 1366 floor, UIL4_REPORT), but a Journal
+   the player placed beside the actions for this context shows as a strip under the view, above the
+   view tabs, not as a column beside it. It appears on entering the view and goes on leaving it. */
+#main_content.workspace-active[data-parity="r3"][data-layout-context="service"][data-shell-companions~="records"] [data-region="actions"] > .workspace-module[data-module="records"]:not([hidden]) {
+ display:flex!important;flex-direction:column;flex:0 1 26%;order:3;min-height:5em;border-top:1px solid var(--p23-line)!important;
+}
+#main_content.workspace-active[data-parity="r3"][data-layout-context="service"][data-shell-companions~="records"] [data-region="actions"] > .workspace-module[data-module="pane-navigation"] {order:4;}
 /* CZ9: companion panels use the shell's tab and row look at the shell text size. Native nodes,
    click handlers and saved choices (Hide completed, skill sort) are unchanged. */
 #main_content.workspace-active[data-parity="r3"] .parity-region :is(#journal_div,#skills_and_stances_div) {font-size:var(--shell-context-size,var(--ui-type-body));line-height:1.3;padding:0 .2em;background:transparent!important;border:0;box-shadow:none;}
