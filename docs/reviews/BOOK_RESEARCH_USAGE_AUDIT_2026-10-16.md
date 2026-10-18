@@ -1,0 +1,79 @@
+# Book research usage audit, 2026-10-16
+
+Authority: Weibao requested stronger agent-generation rules after reporting 75% usage on one book, then corrected: “Readers can spawn lesser agents, audit what happened in that chat to drain 75% of my tokens, more to consider?” Rules: AD35–AD37, AU1–AU12. This report records findings and workflow corrections; adjacent instrumentation remains proposed.
+
+Audited chat: **Review Reincarnated in a Shounen**, `01a14364-4204-7152-911a-5c0613d3fbe7`, plus its five direct workers. Scope ends at the completed book turn, 2026-10-16 18:58:14 UTC (2:58:14 p.m. Eastern). Later activity in that chat is excluded. No worker spawned a child. No new research agent was launched for this audit.
+
+Private evidence: [session metrics](../research/reincarnated-in-a-shounen-manga/private/usage-audit-2026-10-16/SESSION_METRICS.json), ignored by git, stores exact local log paths, prefix hashes/byte boundaries, session IDs, models, per-response totals, read-request overlaps, truncation line numbers and observed meter changes. Original session logs remain untouched. This public report contains no source-world truths, raw prose, account balances or credentials.
+
+## Measured workload
+
+| Session / role | Model / effort | Model responses | Cumulative input | Cached input included in that input | Output | Largest single input |
+|---|---|---:|---:|---:|---:|---:|
+| Coordinator | GPT-6.1 Sol / medium | 106 | 23,202,267 | 22,538,240 | 60,611 | 312,457 |
+| Early reader, entries 1–64 | GPT-6 Sol / medium | 118 | 18,327,294 | 18,033,536 | 34,999 | 245,708 |
+| Middle reader, entries 65–128, including coverage repair | GPT-6 Sol / medium | 80 | 9,608,860 | 9,366,272 | 32,423 | 249,162 |
+| Late reader, entries 129–192 | GPT-6 Sol / medium | 102 | 14,556,376 | 14,306,176 | 33,620 | 245,483 |
+| Final reader, entries 193–256 | GPT-6 Sol / medium | 103 | 12,951,922 | 12,693,248 | 30,011 | 244,991 |
+| Capture helper | GPT-6 Sol / low | 9 | 507,631 | 445,696 | 764 | 60,462 |
+| **Total** | | **518** | **79,154,350** | **77,383,168** | **192,428** | |
+
+Method: sum each unique `token_usage_record.usage` exactly once across all six logs. All 518 response IDs are unique. Cumulative `token_count` snapshots are not summed. Cached input is a subset of input; reasoning output (31,048) is a subset of output and is not added again. Uncached input is 1,771,182. Approximately 97.76% of input was cached. These numbers describe repeated model input traffic, not 79 million distinct source tokens or a quota charge calculation.
+
+The local capture contains 256 catalogue entries and 434,016 whitespace-delimited words. The prior chat reports full reading through four consecutive ranges. This audit checks usage and execution traces; it does not reread the novel or independently certify every semantic coverage claim.
+
+## Findings and dispositions
+
+**F1: The allowance loss is observed, but exact attribution remains unresolved.** The root's weekly meter changed from 21% at 06:26:53 UTC to 95% at 18:58:13 UTC, a 74-percentage-point increase. The bulk-reading turn began around 22%. One root update jumped from 23% at 17:59:56 to 91% at 18:11:47, a 68-point step. The root continued afterward and launched the late and final readers after that observation. Other account activity and meter reporting/batching were not isolated, so this does not prove the book caused every point. The unchanged reported credit balance at the sampled endpoints does not establish a billing explanation either. Disposition: AU7/AU12 stop further expansion on observed breaches; distinguish task tokens from shared-account meters. No API-price conversion or claim of an exact 75% task charge.
+
+**F2: Reader model selection missed the lower-cost route.** All five workers used GPT-6 Sol; the four extraction readers used medium effort. They were explicitly fresh-context spawns (`fork_turns: none`), so inherited full conversation was not the cause of their later context growth. The existing recorded chapter-extraction preference was Luna medium. The transcript does not establish a failed Luna pilot or unavailability that justified selecting Sol for all readers. Disposition: retain AU5, explicitly record chosen model and named reason for escalation, allow a reader to delegate smaller extraction to a lesser agent under AU9. No projected savings percentage is asserted.
+
+**F3: Long raw-reading contexts and many round trips compounded the workload.** Four readers each received 64 entries, roughly a quarter of a 434,016-word book. Their largest inputs were about 245,000–249,000 tokens. Together the readers made 403 model responses; the root made 106. Traces show repeated cycles of chapter printing, evidence editing and coverage housekeeping. These are measured work and context signals, not a claim that every evidence write was wasteful. Disposition: AU10 bounds raw batches and context, and AU11 batches durable notes/coverage work. Keep deep details privately; reduce repeated model traffic rather than discarding evidence.
+
+**F4: Truncation caused concrete rework.** Tool outputs contain 24 truncation markers across the tree, 14 in the four readers. Reader command arguments request 21 chapter reads beyond the first request for each assigned entry, distributed across all four readers. A middle-reader example requests entries 65–68 and then reprints entry 66 after a truncated batch. Request overlap alone does not prove every duplicate was unnecessary; fetching omitted source is required for honest coverage. Disposition: AU10 sizes output before loading it and retrieves only omitted spans after truncation. Coverage must preserve what was actually visible.
+
+**F5: Acquisition and semantic work were interleaved, with no cumulative stop budget.** The root made 45 direct browser calls while orchestrating capture, readers, synthesis and validation. A capture helper made three browser calls, but did not remove the root's ongoing capture orchestration. A reader used polling to wait for an unfinished shard. Across the six sessions there are at least 504 tool calls. The audit found no recorded task-wide finite invocation/usage budget or response to the meter jump as a stop condition. Disposition: AU2/AU3 reserve one shared tree budget; AU11 waits for complete local shards and budgets browser-only fallback. Finite acquisition failures remain acquisition work, not permission for unlimited model-mediated navigation.
+
+The evidence supports improving model choice, context size, batch output, housekeeping and stop behavior. It does not support a blanket ban on reader children: these workers had none. A lesser extractor can be useful if it replaces a large reader context rather than duplicating it. Official OpenAI documentation supports bounded subagent summaries and using Luna for narrow high-volume work; it also notes that subagents do their own model/tool work and can increase token use. [Official subagent guidance](https://learn.chatgpt.com/docs/agent-configuration/subagents).
+
+## More to consider, round 2
+
+### ACT NOW
+
+**A1: Correct downward delegation and reconcile callers. Done.** AU2/AU3/AU9 allow a reader to reserve lesser agents inside the same global invocation/concurrency/source budget. Default topology: root, reader, lesser extractor. A child receives a bounded fresh brief, not another copy of all parent context. AGENTS, PROJECT, USER_VISION, RULES_INDEX, the GM prompt, both role templates and the deep-dive playbook point to AU1–AU12. The earlier child prohibition is superseded by the user's correction.
+
+**A2: Address demonstrated sources of rework. Done.** AU10–AU12 add bounded raw output, omitted-span recovery, context checkpoints, complete-shard readiness, batched deterministic housekeeping, whole-tree measurement and stop behavior after a quota breach. These are instructions; no host quota controller was installed, no unrelated agents were stopped, and no new book read was started.
+
+### ACCOUNT FOR NOW
+
+**C1: Budget boundaries need both breadth and context.** Four invocations can still be expensive if each carries 250,000 tokens for 100 turns. Keep invocation, source-word, tool-output, observed context and available allowance bounds together. A reader that delegates must surrender that source range to its child and integrate its notes, rather than read the same text again. Shared counts must be reserved before spawning to prevent sibling races.
+
+**C2: Preserve depth while measuring useful output.** Full-book requests remain full-book requests. Estimate the finite whole-book cost after a representative pilot and authorize a suitable larger budget explicitly when needed. Preserve detailed source notes, provenance, exceptions and unread spans. Avoid treating tiny final replies as evidence of cheap execution, or replacing a full read with keyword search while retaining the full-coverage label. Historical cached-input traffic cannot be converted directly into subscription percentages, and a cheaper model's result still needs the same source-evidence standard.
+
+### LATER / DELEGATE
+
+**L1: Enforce the ledger and qualify the route. Proposal only.** Level: local launcher/tooling; effort: medium. Add invocation reservations, source/context/output ceilings and a meter-based stop where supported, covering nested agents and resume. First verify the actual launcher; the playbook's historical `launch_codex_reader.py` path was absent in this checkout. Done check: a synthetic parent/reader/lesser-extractor case shares one budget, refuses an extra slot and cannot reset it by resume; a truncated range is recovered without reprinting its visible prefix; a simulated meter breach blocks new dispatch and preserves partial work. A later small Luna pilot on an already captured representative shard can measure source-backed output quality and token usage against existing Sol evidence without rereading the whole book. Its budget must be approved before any model benchmark or paid route. No additional agent or benchmark is authorized by this proposal alone.
+
+## Checks and limitations
+
+Arithmetic reconciles with each session's final cumulative usage within the audited cutoff; duplicate response IDs are absent. Private metric locators/prefix hashes are saved, added policy links resolve, and the live instruction surfaces were checked for stale blanket child prohibitions. Documentation changes preserve unrelated work. Verification is source-level and offline; no gameplay/build checks apply, no fresh agent behavior trial was run, and no measured savings or hard cap is claimed. The unresolved authoritative usage question is the cause and allocation of the 68-point shared-account meter jump.
+
+## More to consider, round 3: whole-book reading with bounded contexts
+
+Authority: Weibao asked how to prevent hundreds of calls carrying huge contexts, requested updated rules while retaining whole-book coverage, and suggested one, two or three chats. This supersedes round 2's use of the four-reader exploratory cap as the default limit for an explicitly requested full-book pass. Historical measured usage and attribution gaps above remain unchanged. Current owner: [AU1–AU15](../AGENT_USAGE_RULES.md); AD37.
+
+### ACT NOW
+
+**A3: Budget the full source once. Done.** AU3/AU4/AU13 distinguish a small exploratory pass from a requested whole book. A full read uses one finite source-sized plan, including the first actual shard as pilot, two concurrent generated agents by default and a bounded repair reserve. Do not ask again after every 48,000 words. The existing allowance ceiling still applies; changing that ceiling, spending, stronger-model bulk work or expanding scope requires the relevant authority. Unknown allowance is disclosed, with finite source and response limits retained. For the audited 434,016-word edition, ceil(434,016 / 12,000) = 37 source shards and min(3, ceil(0.1 × 37)) = 3 repair slots, before named helpers and any adjustments for actual token/chapter boundaries. This arithmetic plans coverage; it is not a fresh dispatch, cost estimate or efficiency measurement.
+
+**A4: End reader contexts at artifact delivery. Done.** AU6/AU10/AU11/AU14 target one prepared source load, one consolidated note write and a final return, with at most six model responses including recovery/final return. A fresh reader owns at most 12,000 source words and then retires. Do not resume it for the next shard, poll acquisition or repeatedly append evidence after each chapter. Preflight source size and output fit offline; save hashes/locator skeletons with deterministic tools. Target input below 60,000 tokens including host instructions, stop raw loading at 60,000, and avoid another tool round at 80,000. These thresholds replace the previous 100,000-token stop. A fresh job reduces retained source history by construction; writing “forget earlier chapters” or invoking compaction does not establish that history disappeared. Links in AGENTS, PROJECT, RULES_INDEX, the GM prompt, both role templates and the deep-dive playbook now point to the full workflow.
+
+### ACCOUNT FOR NOW
+
+**C3: One to three coordinating chats is a useful organization target, not a raw-text capacity guarantee.** Default to one coordinator; a second can handle synthesis and a third a justified phase boundary under host authorization. Short internal reader contexts can remain under that work, rather than becoming dozens of visible sidebar chats. The root keeps incremental summaries and a working finding index around 4,000 tokens, not all raw chapters or all detailed reader notes. A reader receives at most 1,500 tokens of relevant continuity with locators. Smaller models, fresh bounded briefs and one final evidence write matter together; replacing four long readers with dozens of full-size managers would repeat the problem. Mandatory host instruction overhead must be measured by the pilot, since a fresh reader is not an empty context.
+
+**C4: Preserve chronology, ambiguity and small details across shards.** AU15 keeps detailed private artifacts and stable source-qualified claim IDs. Record prior claims that later evidence corroborates, contradicts or leaves unresolved; distinguish speaker beliefs, occurrence order and revelation order. Retrieve only exact supporting or disputed spans. Any added reread is named and debited to the repair budget. Keep raw captured source available for later retrieval, without copying it into synthesis history. Full-body reading remains the coverage standard when requested; keyword search, a coverage skeleton or a compact continuity capsule does not substitute for it. Word-based chunks are a starting default: pilot actual tokenization for Chinese/Japanese and adjust for long chapters, fixed host overhead and output capacity.
+
+### LATER / DELEGATE
+
+**L2: Qualify the new lifetime policy before scaling. Proposal only, extends L1.** Level: reader/launcher integration; effort: small pilot, medium enforcement work. On the next separately authorized full-book task, use its first real shard to measure accepted source-backed notes, fixed host overhead, total responses, input/cached/output and available meter observations. Done check: the pilot finishes within the response/source/context bounds, writes complete inspectable evidence, and the next shard runs fresh without the first shard's raw history. A known cross-shard contradiction must remain discoverable through its locator. A forced truncation case fetches only the omitted span; a seventh response or meter breach checkpoints instead of continuing. Use the result to resize that one book plan. Do not launch a duplicate benchmark or reread the full audited book just to prove savings. Hard host enforcement and actual savings remain unverified; no new agents, reading run, account configuration or API billing were started by this documentation update.

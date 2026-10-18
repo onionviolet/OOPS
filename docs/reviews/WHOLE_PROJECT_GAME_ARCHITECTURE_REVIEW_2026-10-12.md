@@ -1,5 +1,10 @@
 # Whole-project game architecture and long-term design review
 
+Later bounded follow-up: [modularity and rewrite assessment, 2026-10-16](MODULARITY_AND_REWRITE_ASSESSMENT_2026-10-16.md)
+rechecks source integration pressure and compares continued patching, incremental
+domain extraction and whole-game replacement. It is a recommendation, not new
+implementation authority. This document's original dated evidence remains below.
+
 October 12, 2026, America/New_York. Repository snapshot inspected around 23:00 EDT.
 Review only. No gameplay changes, builds, new agents, campaign resumption, source acquisition, private-pack edits, personal-save access, commits or publication.
 

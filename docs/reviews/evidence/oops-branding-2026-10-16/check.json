@@ -1,0 +1,10 @@
+{
+  "viewport": [
+    1366,
+    768
+  ],
+  "title": "OOPS · Optimistic Progression Simulator",
+  "bundleSha256": "5b709d608b0cf88ee07b2969058df06f1027eb2c5548badb8f976525c171d70a",
+  "errors": [],
+  "checks": "title, loading identity, metadata, JSON-LD, fork link, local favicon, viewport fit, rebuilt served bytes"
+}
