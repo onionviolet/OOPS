@@ -339,3 +339,141 @@ test counts cannot answer those questions.
 
 **This pass:** owner/source inspection and design proposals only. No runtime
 edits, implementation, build, test execution, save access, commit or push.
+
+## Selling, merchant sinks and money fun, consideration round 1, 2026-10-18
+
+**Prompt (Weibao, 2026-10-18):** selling may not need a deep economy; a shopkeeper
+or any merchant could buy. Does the 40th sale have to pay less than the first?
+What about fast-cycling goods in constant demand, shopkeepers with huge budgets,
+"anyone can buy anything" to keep things easy, stock markets and other trade, and
+how to balance capability against fun? This round is a palette and proposals,
+not accepted rules. It builds on N2 and N5 above rather than replacing them.
+
+**Shown in source today:** [market_saturation.js](../../../../../src/market_saturation.js)
+applies one downward saturation curve to every good (ordinary items fall to about
+a tenth near 1,000 sold, equipment near 200), recovers over time and trickles
+between linked regions. [trader_component.js](../../../../../src/components/trader_component.js)
+has no merchant purse. So today every merchant already has an unlimited budget
+and every good already saturates the same way.
+
+### M1: selling to a merchant is the default sink
+
+The default sale is to a local merchant, so moving goods means the player's own
+trip and nothing sits in transit. Transit custody, route risk and cross-market
+supply only matter once a world or player chooses to move goods between local
+economies (AD27). Then [P8 TRADE_SUPPLY](../p8/TRADE_SUPPLY.md) owns them.
+
+### M2: the price response is a per-good curve, not a rule that sales fall
+
+Saturation comes from the player's volume compared with how fast the market uses
+the good up. It is a dial per good and per place, with a reason:
+
+- **Fast-cycling staples:** bread, arrows, healing draughts in a garrison town,
+  lamp oil. Consumption refills demand faster than one maker can supply it, so the
+  price stays flat in ordinary volumes. The curve only bites at industrial scale,
+  and even then it may stay flat if the town really does eat that much.
+- **Slow durables:** swords, furniture, rare reagents. Each buyer needs one, so
+  the price falls quickly and recovers slowly.
+- **Rising curves:** a maker's name becomes known (reputation premium), a trend
+  catches on, collectors want a full set, or a good that others now depend on
+  (a standard tool, a medicine people trust) commands loyalty. Volume can raise
+  the price until a rival, a copycat or a guild reacts (an in-world agent with a
+  reason, never an invisible cap).
+- **Event shifts:** war, plague, festival or winter move a good's absorption rate
+  for a saved, dated reason (N2's festival rule).
+
+One reconciled quote formula carries this, not a new factor stacked on the
+existing saturation (N2 contract).
+
+### M3: buyer tiers trade convenience against value
+
+- **Universal buyer:** "anyone buys anything" at a modest fixed fraction. In-world
+  forms: a general store, a pawnbroker, a System shop in LitRPG worlds, a temple
+  that takes donations for credit, a guild clearing house. It is the easy default
+  and is never forbidden.
+- **Specialist buyer:** an apothecary for potions, a smith for ore. Pays more,
+  wants specific goods and can judge quality.
+- **Deep-pocketed buyers:** a royal quartermaster, an army before a campaign, a
+  trading company, a sect treasury or an interworld broker. They can absorb huge
+  volume at steady prices because they really spend that much. A village trader's
+  purse runs dry and a broker's doesn't; both are true per world.
+
+The fun comes from choosing between convenience and value. The universal buyer
+needs to stay useful and never strictly better than a specialist.
+
+### M4: other ways to turn work into money
+
+All of these avoid transit logistics unless noted:
+
+- **Consignment:** leave goods with a merchant and get paid as they sell. It fits
+  idle play and offline time naturally.
+- **Standing orders:** "20 draughts a day to the garrison." This turns making into
+  steady idle income, with a renewed need behind it (N5).
+- **Own shop or stall:** property (AD31) plus a hired or companion seller. Prices
+  are yours and customers come to you.
+- **Auctions:** for rare one-offs, so a unique find gets a dramatic price.
+- **Barter, favors and patronage:** for worlds or people short on coin (N5).
+- **Investment:** stakes in a merchant, a caravan, a ship or a workshop pay
+  dividends and can fail. Commodity bets (buy grain before winter) and, in modern
+  or urban worlds, an actual stock market. A transmigrator who knows the canon
+  holds a real trading edge (AD2): betting on events they foresee pays until
+  their own disturbance changes the course. Insider foreknowledge is a feature,
+  and divergence is its risk.
+- **Currency exchange between worlds:** shared currencies come only through
+  means (AD27). A converter, broker or cheat is a trade form of its own.
+- **Arbitrage and caravans:** the one form that needs logistics (P8).
+
+### M5: balancing capability and fun
+
+Weibao is essentially the only player (AD22), so balance serves fun rather than
+fairness. Proposed defaults:
+
+1. **Grow the sinks, don't throttle income.** Money stops being fun when there is
+   nothing worth buying, not when the player has a lot. Each scale of wealth should
+   open new purchases: property, staff, funding research or expeditions,
+   investments, commissions to great makers, cross-world exchange.
+2. **Every sale channel should be a real choice.** A channel that loses in every
+   case is dead weight, and one that wins in every case removes the choice.
+   Diminishing returns only create a decision when an alternative exists (another
+   product, buyer or market).
+3. **A broken money engine is a payoff.** Building an engine that floods the market
+   is a legitimate idle-game climax. After that, an in-world response follows:
+   rivals copy the recipe, guilds want dues, a lord taxes, thieves notice. The
+   player gets a new problem instead of a nerf.
+4. **Readable cause beats hidden math.** The player can see why a price moved
+   ("the garrison left", "your name is known in Riverside"). Unexplained decay
+   feels like a penalty, while an explained one gives information.
+5. **The pace is a dial per world and setting** (AD19–AD22), not one global curve.
+
+### ACT NOW (done this round)
+
+- Saved M1–M5 here. Linked the economy row in the [rules index](../../../../RULES_INDEX.md)
+  to this round.
+
+### ACCOUNT FOR NOW
+
+- **A6:** a finite merchant purse changes save shape. Adding one needs a migration
+  that defaults existing traders to their current unlimited behavior (AGENTS safety).
+- **A7:** a buyer that appraises perfectly (a System shop) works as an
+  identification means. Its quote can reveal hidden potency or sealed truths, so
+  treat it deliberately as a means under AD6–AD8 and MEANS_AND_APPRAISAL, never
+  as an accidental leak through price.
+- **A8:** consignment, standing orders and dividends earn while the player is
+  away. They must use the same offline/idle accounting as other progress
+  (AD15–AD18), with a recap line showing where the money came from.
+- **A9:** replacing the uniform curve with per-good absorption touches the existing
+  trader and saturation consumers. Keep one reconciled formula (N2) and a
+  regression that buying and reselling an unchanged item still gives the intended
+  result.
+
+### LATER / DELEGATE
+
+| Code | Item | Level | Effort | Done check |
+|---|---|---|---|---|
+| L1 | Per-good absorption rate and direction in the saturation data (staple, durable, rising) | mid coder | S–M | Staple price flat over 100 sales, durable falls, quote shows reason text; existing saturation tests pass |
+| L2 | Universal buyer plus one specialist with a better price | mid coder | S | Same potion sells for less at the general store than at the apothecary at 1366×768 and 1920×1080 |
+| L3 | Standing order as idle income | mid coder | M | An order pays daily offline, shows in recap, survives save/reload/import |
+| L4 | Consignment shelf | mid coder | M | Goods leave inventory, coin arrives as they sell, cancel returns unsold stock |
+| L5 | Investment stake with dividends and failure | strong designer + coder | M–L | A stake pays over time, can fail for a stated reason and is saved exactly |
+| L6 | Canon foreknowledge trading in one adapted world | designer | M | A foreseen event pays, and a disturbed course shows a visible divergence loss |
+| L7 | Finite merchant purses by settlement size | mid coder | S–M | Migration keeps old saves unlimited; a village purse empties and refills over time |

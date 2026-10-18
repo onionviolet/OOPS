@@ -76,7 +76,7 @@ open here too.
 | Starts and entry | AD23, Rulebook 8 | [Intro and starts index](INTRO_AND_STARTS_INDEX_2026-10-14.md) |
 | Goals, story, rivals, threats | AD2, AD24–AD25, AD6 | [CHARACTERS_AND_WORLD_EVENTS](CHARACTERS_AND_WORLD_EVENTS.md), [RIVALS_IDENTITIES_AND_FATE](RIVALS_IDENTITIES_AND_FATE.md), [TIMELINES_AND_DIVERGENCE](TIMELINES_AND_DIVERGENCE.md) |
 | Activity depth and scope (fishing, farming, ranching, gathering, jobs) | CX1–CX8, AD33, MR18, MR29; SSD10–SSD14 as proposed vocabulary | [Subsystem scope ladders](SUBSYSTEM_SCOPE_LADDERS_2026-10-16.md), [complexity review](gm/dispatch/ui-foundation-2026-10-15/next-parts/IMPLEMENTATION_COMPLEXITY_REVIEW_2026-10-16.md) |
-| Economy, trade, property | AD27, AD31, MR5, SR15, SR19 | [Requests and markets](gm/dispatch/procgen-2026-10-13/p11/REQUESTS_AND_MARKETS.md) |
+| Economy, trade, property | AD27, AD31, MR5, SR15, SR19 | [Requests and markets](gm/dispatch/procgen-2026-10-13/p11/REQUESTS_AND_MARKETS.md), [selling and merchant sinks round](gm/dispatch/procgen-2026-10-13/p11/REQUESTS_AND_MARKETS.md#selling-merchant-sinks-and-money-fun-consideration-round-1-2026-10-18) |
 | NPCs, companions, social systems | AD6, AD33 (NPC-heavy work deprioritized), MR23 | [Companions audit](audits/COMPANIONS_CORE_AUDIT.md) |
 | Saves and persistence | Rulebook 9, AR6, MR3, MR30, MR33, SR22, AGENTS safety | Migration or explicit compatibility decision required |
 | Research passes and sources | AD35, AD37, AU1–AU15 for readers; AGENTS scope and source acquisition | [Saved-source modes and playbook](research/SOURCE_DEEP_DIVE_PLAYBOOK.md#saved-sources-first), [source tools](research/SOURCE_ACQUISITION_TOOLS.md) |
