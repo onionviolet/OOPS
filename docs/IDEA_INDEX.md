@@ -106,6 +106,13 @@ owns the 2026-10-14 crafting palette beyond the materials audit and P6/P8/P11:
 consumable kinds, crafting feel, maker identity, items over time, world crafting
 laws, cheats, idle production, economy, social use and director tools. Proposals only.
 
+[Tools, cursed tools and instruments](TOOLS_AND_INSTRUMENTS_CONSIDERATIONS_2026-10-17.md)
+owns the 2026-10-17 palette for items as instruments (verbs and control, not
+truth): three item roles (TQ1), mundane tool fit, wear, kits and improvisation
+(TQ, MC), JJK cursed-tool splits (CT1-CT10), tool families in 17 other worlds
+(WX, memory pending TQ60) and the axes that separate them (AX1-AX9). Builds on
+GHS84-GHS111 for power held in things. Proposals only.
+
 [Weaponcrafting, runes and inscription considerations](WEAPONCRAFTING_RUNES_AND_INSCRIPTION_CONSIDERATIONS_2026-10-14.md)
 is a parallel-session duplicate of the weaponcraft palette above; fold its
 distinct rows (vanilla head plus handle assemblies, rune as a program on a
