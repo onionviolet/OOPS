@@ -123,6 +123,15 @@ fight (CBC15-CBC19), knowing the opponent (CBC20-CBC23), idle combat
 (CBC31-CBC36), worlds and scale (CBC37-CBC42), ranked later steps CBL1-CBL10.
 Proposed rulebook: [COMBAT_RULES](COMBAT_RULES.md) CBR1-CBR30. Proposals only.
 
+[Economy and trade](ECONOMY_AND_TRADE_CONSIDERATIONS_2026-10-18.md) owns the
+2026-10-18 topic audit round (gap G4), built on the markets palette rounds M1-M28:
+principles and the reference basket (ECC1-ECC4), property (ECC5-ECC7), baseline
+income and hiring (ECC8-ECC9), crafting margins and market knowledge (ECC10-ECC12),
+cheats (ECC13-ECC14), contracts and fraud (ECC15-ECC16), other world types
+(ECC17-ECC19), idle and prestige (ECC20-ECC21), micro details (ECC22-ECC24),
+implementation (ECC25-ECC26), lane corrections ECX1-ECX10 and angles ECC27-ECC36.
+Proposed rulebook: [ECONOMY_RULES](ECONOMY_RULES.md) ECR1-ECR33. Proposals only.
+
 [Skills, learning and teaching](SKILLS_AND_LEARNING_CONSIDERATIONS_2026-10-18.md)
 owns the 2026-10-18 more-to-consider round on gap G3: competence layers on
 different carriers (SLC1-SLC4), gaining (SLC5-SLC12), holding and losing
