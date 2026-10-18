@@ -3512,3 +3512,18 @@ features?" Saved as
 (UIM1–UIM5 plan extending `LAYOUT_SPEC`, R21/R22 interplay, UIW glance facts, UIX change
 propagation and contexts, UIY flows, UIZ representations, UIL1–UIL6 later steps). Proposal only;
 no runtime change.
+
+### Economy and trade core audit, 2026-10-18
+
+Gap G4 from the accepted gap survey. Weibao, after five markets rounds on selling, buyers,
+currencies, credit, exposure and carryover: "save and push accordingly, we might want a core
+rules audit for rules accordingly." His corrections in those rounds: universal currencies exist
+and carrying gold or cheats bridge worlds (M7); currencies fit each world, and value depends on
+recognition (a mana crystal in a tech world needs analysis first); theft needs someone to see the
+wealth first; not every world has a collector or institutions; and resources from a previous life
+or save can be exchanged for a better start. Saved as the [markets palette rounds 1-5](gm/dispatch/procgen-2026-10-13/p11/REQUESTS_AND_MARKETS.md)
+(M1-M28), the [economy palette](ECONOMY_AND_TRADE_CONSIDERATIONS_2026-10-18.md) (ECC1-ECC36,
+corrections ECX1-ECX10 from lanes E1 and E2, later steps ECL1-ECL5) and the [proposed economy
+rules](ECONOMY_RULES.md) (ECR1-ECR33), registered in RULES_INDEX as a proposal. Only the rows
+restating AD27, AD31 and AD11 are accepted direction. Core audit:
+[ECONOMY_CORE_AUDIT](audits/ECONOMY_CORE_AUDIT.md). Proposals only; no runtime change.
