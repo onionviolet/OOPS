@@ -183,6 +183,14 @@ Carry capacity, decay, theft during absence and universal hunger are optional me
 
 ## Traits, titles and conditions
 
+**2026-10-15 extension:** titles may confer actual powers through worlds or
+cheats. [E4 expansion C5](emergent/TITLES_ACHIEVEMENTS_AND_META_RULES_2026-10-15.md#c5-npcs-institutions-and-shared-accomplishments)
+owns proposed NPC grant routes, motives, joint deeds, institutional recognition,
+inheritance and independent growth. Important holders need durable identity
+and consequences; hidden grants must respect observer knowledge. This is
+design direction and proposals, not a claim that all NPCs have native
+achievement simulation. [User direction](USER_VISION.md#titles-achievements-and-tags-on-rules-2026-10-15).
+
 | Kind | Proposed distinction | Original example |
 |---|---|---|
 | Temperament/background trait | Influences choices or access; context can outweigh a tendency | Cautious apprentice prefers a partner for an unsafe expedition |
@@ -429,3 +437,175 @@ The player can enroll a new age record now and choose open or mortal lifespan po
 [Collaborators and growing places](BOOKSHELF_INSPIRATION.md#4-collaborators-multiple-selves-and-growing-places) distinguishes hires, students, summons/constructs, copies and domains. [Scenario D](BOOKSHELF_INSPIRATION.md#d-a-project-that-needs-two-different-specialists) uses a few durable specialists, their actual means and one useful staged project. Independent goals, legal commands, supported availability, causal memories and output ownership stay with the existing character/work owners. Shared clone consciousness, a whole population and native party combat remain separate engineering scope.
 
 The [detail map](IDEA_INDEX.md#bookshelf-detail-map-2026-10-03) routes these elaborations; no new character roster, relationship formula, lethal/offline policy or gameplay delivery is claimed by saving them.
+
+
+## Offline decisions and responsibilities consideration, 2026-10-15
+
+[Accepted clock direction](USER_VISION.md#offline-world-time-decisions-and-responsibilities-2026-10-15):
+ordinary offline progress advances current-world time; world/settings govern aging;
+means/cheats/capabilities can change this. Earlier accepted important-choice stops,
+known-context recaps and forgiving recovery remain in force. This section proposes
+responsibility/decision behavior, not newly implemented autonomous routines.
+
+### ACCOUNT FOR NOW: proposed responsibilities rules
+
+- **DR1, standing instructions:** familiar permitted actions may repeat under an
+  actual chosen routine, budget or policy. Do not auto-accept a new job, allegiance,
+  major bargain or irreversible commitment merely because it offers a reward.
+  A player-chosen policy can explicitly delegate more discretion.
+- **DR2, commitments and competence:** a job, household, companion, institution,
+  loan, project or promise has actual terms, participants and available means.
+  A routine can fulfill it if assigned and capable. Human absence is not itself
+  refusal, but the character's simulated choices/actions still have consequences.
+  Forewarn relevant known terms; no compulsory daily maintenance or universal
+  rent/debt/relationship-decay mechanic is selected.
+- **DR3, delegation is gameplay:** a steward, partner, proxy, automated process or
+  another body may handle supported duties through its actual knowledge, access,
+  resources and authority. Delegation need not guarantee success or cause betrayal;
+  those follow selected facts/world rules. Costs, spending caps and fallback terms
+  should be explicit where they matter. No helpers are retroactively granted.
+- **DR4, meaningful stops:** pause at an unresolved consequential choice that lacks
+  a permitted policy, or when resources/support invalidate the plan. A routine
+  warning, repeated output or known completion need not demand a click. Compare
+  all affected duties before spending the same supply/time twice. Exact exception
+  handling and what counts as consequential remain design details.
+- **DR5, clocks and fairness:** if a choice pauses progress, define the affected
+  calendar/deadlines and rewards consistently. Freezing a decision alone while its
+  deadline expires can negate the promised pause; freezing the world's danger
+  while granting unlimited same-world production can silently create a time cheat.
+  Either behavior can be an explicit mode/means, not an unexplained default.
+
+### Pause baseline accepted later 2026-10-15; remainder policy still open
+
+At the first important choice without standing instructions, stop current-world
+catch-up at its event time, keeping linked deadlines and ordinary same-world
+production at that same point. Return recap explains the stop and pending duties.
+Do not claim rewards for the unprocessed remainder of the absence. Whether that
+remainder is discarded, banked or resumable was open in this proposal. Weibao
+subsequently asked to consider banking it; no exact time-bank policy implemented. A supported independent clock, delegated decision policy or
+actual time cheat can allow other behavior through its rules.
+
+This is a player-facing simulation policy, not necessarily a literal in-world
+stasis field. Important responsibilities can remain interesting without requiring
+the player to log in at a real hour. Stricter world/mode policies can differ when
+forewarned and selected consistently with existing direction. Save/load, repeated
+catch-up and interruption recovery require separate implementation/persistence
+proof when a slice is authorized. No runtime changes or new agent assignment.
+
+
+## Current-world pause answer, 2026-10-15
+
+[Accepted](USER_VISION.md#current-world-pause-and-unused-offline-time-2026-10-15):
+pause the current world at important unresolved choices unless policies/helpers/
+cheats allow continuation. Linked deadlines and ordinary same-world production
+pause at the same event time under the preceding baseline. This is no longer
+merely a proposed pause model. Actual helper/policy support is still required;
+this answer does not retroactively grant autonomous decision capabilities.
+
+Unused offline time can be considered for later banking; [banking owner note](DIRECTION_SYNTHESIS.md#banking-unused-offline-time-consideration-2026-10-15)
+keeps deferred simulation distinct from free-time rewards and actual rewind.
+No choice is auto-answered merely to consume remaining time. Bank portability,
+expiration, caps, resumed costs and save/restart behavior remain unselected.
+
+
+## OD24 player goals, guidance and commitments, 2026-10-15
+
+[Accepted answer](USER_VISION.md#overarching-direction-discussion-od24-2026-10-15):
+player-chosen pursuits with guidance/optional campaigns, goals also arising from
+cheats, relationships and responsibilities. No global compulsory main quest or
+automatic enrollment in every offer. Concrete goal representation remains open.
+
+### ACCOUNT FOR NOW: proposed implications
+
+- **GG1, sources and terms:** distinguish a private wish, observed lead, invitation,
+  accepted promise, employment/duty, a cheat's suggestion and a binding pact or
+  actual compulsion. A displayed objective alone does not establish consent to a
+  new obligation. World/source/mode can support stronger constraints where their
+  actual terms apply. Do not silently make every talking cheat's request binding.
+- **GG2, evolving aims:** a goal may be revised, parked, completed, superseded or
+  rendered impossible by changed knowledge/circumstances. Proposed plans guide
+  without granting hidden prerequisites, future certainty or a promised reward.
+  A failure can create a new aim; not every closed opportunity must reopen.
+- **GG3, competing responsibilities:** a friend's request, a job, a power's demands
+  and a personal project can conflict. Show known deadlines, commitments and actual
+  means to delegate/negotiate/decline where available. Do not make every friendship
+  a chore schedule, every failure a betrayal or every responsibility escapable at
+  no consequence. Actual world/relationship history determines the result.
+- **GG4, scale and quiet play:** short routines can serve a longer aspiration:
+  learn a method, build a home, support someone, explore or seek longevity. Rest,
+  ordinary work and settlement can be valid play; a campaign is one useful form
+  of structure. Progress can change access/capability/relationships without every
+  aim needing a numeric bar, universal quest points or constant escalation.
+- **GG5, continuity and knowledge:** keep chosen intent separate from a system's
+  prediction and an actor's promise. Recaps recover the actual last plan and what
+  changed; guidance uses known means, not secret solutions. Exact persistence of
+  optional personal threads versus duties through returns/rewinds/new lives needs
+  the selected continuity rules. Previous counterpart claims do not auto-transfer.
+
+### Unfinished-goal continuity baseline, accepted later 2026-10-15
+
+Personal goals can remain remembered optional threads through the continuing
+journey, with the ability to revise, park or abandon them. Concrete promises,
+relationships and institutional duties stay with their actual participants and
+history, carrying or transferring through supported means rather than becoming
+an automatic universal quest checklist. Abandoning a personal plan differs from
+breaking an actual commitment. Rewinding a history versus returning to it can
+therefore produce different responsibilities. **Later answer accepts this broad
+continuity, with cross-run notes and means-based soul-contract carryover.** No
+specific legal/debt inheritance, obligatory quest log or universal escape rule
+is selected. No runtime system, source/build/save change or new worker assigned.
+
+
+## Goal continuity and cross-run plans answer, 2026-10-15
+
+[Accepted answer](USER_VISION.md#remembered-goals-cross-run-plans-and-soul-bound-duties-2026-10-15):
+optional remembered goals, actual world-/means-dependent promises/duties, notes
+for possibilities in other runs, soul/cheat-bound beneficial or harmful continuity.
+The earlier broad unfinished-goal default is answered; exact contracts remain open.
+
+**ACCOUNT FOR NOW, proposals:** notes can distinguish a goal, a possible method,
+the world/history where it mattered, actual evidence and uncertainty. "Try this
+in a fresh version" does not guarantee it works or settles the original world's
+promise. An idea can remain useful when circumstances change without becoming
+a binding objective. Record actual chosen plans and learned alternatives rather
+than automatically turning every hypothetical into another task.
+
+Separate a player/journey planning aid, retained personal memory and a physical
+in-world document. NPCs or another body do not gain its contents by implication;
+sharing/access follows actual means. A remembered relationship with a counterpart
+does not create the same promise with a new person. An actual cross-history
+contract can differ where its defined scope reaches. No note schema/UI or new
+memory-transfer capability is implemented by these considerations.
+
+## Interrupted decisions review fold, 2026-10-15
+
+The [detail review](gm/DIRECTION_DETAILS_REVIEW_2026-10-15.md) confirms the accepted
+[current-world pause](#current-world-pause-answer-2026-10-15): linked deadlines and
+ordinary production pause at important unresolved choices unless supported
+policies/helpers/cheats permit continuation. That preference is answered.
+
+**Proposed implementer contract:** record the actual stop reason/boundary and
+remaining work, recheck prerequisites when resuming, and retain the prior intent
+for the knowledge-qualified recap. A pending offer is not an accepted commitment;
+a remembered goal is not automatic authority to spend or delegate. Reuse existing
+owners; [bank defaults](DIRECTION_SYNTHESIS.md#direction-detail-review-fold-2026-10-15)
+and exact clock/transaction checks attach to the selected routine. No generic NPC
+manager, new duty system or extra completion gate selected.
+
+## GW2 bounded agency and player intent follow-up, 2026-10-15
+
+[Wider pass](gm/DIRECTION_DETAILS_REVIEW_2026-10-15.md#wider-gameplay-and-world-design-pass-2026-10-15),
+GW2: existing causal/knowledge/pause direction is answered. **Recommended detail:**
+for one relevant actor plan, name motive, actual evidence, time/resources, legal
+in-world actions and affected custody/claims; revise on meaningful causes rather
+than simulate every person each tick. Exceptional information/means must actually
+exist. Separate occurrence, learning, response and aftermath; reputation is not
+instant global knowledge. A lost teacher/contact is not automatically replaced.
+Actual alternate routes or advertised closure follow the selected world/mode.
+
+Chosen routines and standing instructions should not fabricate the player's vows,
+relationships, debt or other unrelated commitments during compression. Pause for
+an unsupported important decision. Inactive worlds and important-choice pauses
+retain accepted scope; autonomous NPC ambition does not silently defeat them.
+These are derived constraints/proposed authoring details, not a new actor planner,
+mandatory population simulation, protective NPC flag or implementation assignment.

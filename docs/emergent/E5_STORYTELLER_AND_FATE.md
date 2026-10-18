@@ -751,3 +751,22 @@ Added to [SHARED_VOCABULARY](SHARED_VOCABULARY.md) terms. None renames an existi
 **IDs:** fate instance `storyteller:fate.<personId>`.
 
 **Streams:** none new. Uses `director`, `deck:<deckId>`, `fate:<personId>`.
+
+
+## World agendas and threat growth direction, 2026-10-15
+
+[Accepted direction](../USER_VISION.md#cause-driven-threats-world-agendas-and-adaptation-2026-10-15):
+cause-driven threat growth; fate/world agendas, modes/cheats and informed adaptation
+can legitimately change it. World support and opposition may shift. This accepts
+that possibility, not the earlier proposed T/C/P formulas, universal fate reserve,
+personality table, schema or mandatory global difficulty controller.
+
+An authoring proposal should separate choosing an eligible event, changing an
+actual probability/cause and an actor deliberately pursuing an agenda. Record the
+actual supported mechanism and selected world facts; don't invent a world mind
+merely to explain all difficulty changes. An intelligent or impersonal correction
+mechanism can be powerful where its world says so. Different mechanisms may
+cooperate, conflict or target different outcomes. What they know and what the
+player discovers remain means-dependent. Rival and implementation implications
+are owned by [cause-driven threats](../RIVALS_IDENTITIES_AND_FATE.md#cause-driven-threats-and-adaptation-direction-2026-10-15).
+No new source-specific fact or runtime implementation is established here.

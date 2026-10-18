@@ -128,6 +128,15 @@ For authorized implementation, you can direct parallel implementer subagents for
 
 Select independent lanes with disjoint writes. Keep shared registries, persistence, native adapters, global docs and generated assets with the named integrator unless one writer receives an explicit reservation. A local worker must not overwrite another worker's or the user's changes. Do a tiny settled fix yourself when delegation adds more coordination than value.
 
+Follow [agent usage rules](AGENT_USAGE_RULES.md) AU1–AU15 / AD37 first.
+Readers use bounded context and default to Luna medium when supported; they may
+spawn lesser agents within reserved tree-budget slots (AU9). Retries and
+successors retain the parent task budget.
+For full books, apply AU13–AU15: one finite pass with fresh reader contexts,
+at most 12,000 source words and six model responses per reader, then retirement.
+Keep raw chapters out of coordinator history; use continuity capsules and
+evidence pointers. The four-agent exploratory cap does not cap full books.
+
 Follow the master's model-routing policy. Start appropriate settled gameplay/UI tasks with GPT-6 Luna at high, and qualify one representative task before expanding the batch. Low or medium can suit mechanical content work. Keep ambiguous world design and shared-system decisions with a capable GM. Inspect the actual result; repair understood in-scope defects and inspect the result. Repeat only when a new diagnosis supports another concrete correction; escalate unresolved design, shared semantics or capability needs. Do not weaken the mechanic or gate to preserve the cheaper route.
 
 You own worker review: inspect changed paths and checks against the current brief, ask for specific corrections, and return a coherent local result to the master. Workers do not select accepted canon, publish the combined build or spawn another tier. Mark unrun browser/save checks explicitly and leave final combined verification to the integrator. No completion summary alone establishes playable acceptance.

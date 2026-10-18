@@ -4,6 +4,61 @@ Source-facing audits use the [lore and timeline contract](research/LORE_TIMELINE
 to establish version-qualified event causes, chronology, knowledge and deliberate
 departures before proposing their implementation.
 
+## OD8 clarification: causal canon correction, 2026-10-15
+
+[Weibao explicitly allows](USER_VISION.md#overarching-direction-discussion-od8-2026-10-15)
+canon to fix itself through a world-supported mechanism: heavenly will, fate,
+historical correction or another actual means. This refines OD7, not a universal
+law for all worlds. A proposed authoring treatment identifies what detects the
+divergence, what it can affect, its triggers/reach/costs or lack of limits, who
+can perceive it, and relevant resistance or exceptions. Do not invent artificial
+limits against a source's premise. Mechanism-driven restoration can be real and
+powerful; arbitrary restoration to preserve an author's planned scene is different.
+Knowledge of the mechanism remains means-dependent; player interference need not
+immediately expose it. No specific franchise rule was newly verified here.
+
+## OD7 natural-course direction, 2026-10-15
+
+[Accepted answer](USER_VISION.md#overarching-direction-discussion-od7-2026-10-15):
+authored plots plus simulation according to world/mode; canon follows its natural
+course unless changed. Existing causal T3 and natural-course sections implement
+the design vocabulary, not new runtime proof. Tables below proposing canon
+pressure, substitutes, fixed points or particular generation policies remain
+proposals, not universal rules accepted by this answer.
+
+**Considerations:** change can come from player action, an informed NPC's action,
+an AU's starting premise, altered resources/timing, or an actual world/cheat/fate
+mechanism. An attempted intervention is not automatically a successful one;
+indirect changes can matter without being intentional. Preserve independent
+causes and distinguish occurrence from who learns of it. A downstream change
+needs a plausible dependency, not blanket butterfly effects everywhere.
+
+Actors may pursue surviving motives with remaining means, but a substitute
+requires its own motive/access/opportunity. A saved person need not be killed
+another way to restore a planned scene. World-supported fate/canon pressure may
+route around intervention when its own rules justify that result. Storyteller
+pacing versus an in-world power that changes causes are different capabilities;
+exact policies remain open. Success can resolve a problem rather than create a
+mandatory compensating catastrophe.
+
+For books/AUs/fanfiction, pin the chosen continuity and explicit changed premise;
+use alternative works to explore causal possibilities, not silently import their
+laws into baseline canon. Further direct source inspection uses the existing
+[lore contract](research/LORE_TIMELINE_AUDIT_CONTRACT.md). No new source claim or
+research dispatch is made here. Use the existing [writing chain](worlds/self-as-player-expansion-2026-10-13/NARRATIVE_AUTHOR_WORKFLOW.md#od7-writing-and-continuation-chain-2026-10-15)
+to carry an accepted premise through scenes and durable aftermath.
+
+## OD5 direction update, 2026-10-15
+
+Accepted: [same-world revisits and fresh/parallel versions](USER_VISION.md#overarching-direction-discussion-od5-2026-10-15)
+are available possibilities through means. Preserve the visited world's history
+when returning; crossing by itself does not reset it. The implementation proposals
+below distinguish histories and visits but are not newly accepted schemas or
+implemented travel. Whether a cheat rewinds, forks, alters a world or connects
+versions needs its actual rule. Fresh-version access does not itself decide
+which possessions, relationships, claims or rewards transfer. Inactive worlds
+pause by default under OD4; exceptions require their supported world/means rules.
+
 ## Implementation planning: starts, histories and parallel worlds, 2026-10-11
 
 Requested extension: "What about implementing timelines, different starting
@@ -600,3 +655,68 @@ depending on situation"; your current self can have "different stuff or
 the same stuff depending on my actions"; and consider generating future
 selves like the perfect version from *A Novel Concept*. All moved to
 [selves and echoes](SELVES_AND_ECHOES.md).
+
+## Repeatability answer and research across rewinds, 2026-10-15
+
+**Accepted CA12:** [original answer](USER_VISION.md#ca12-original-answer-reconciled-2026-10-15).
+Same actual conditions normally repeat outcomes, qualified by genuine chance,
+changed skill/conditions and luck or other means. Chance-dependent events may
+differ; a repeated seeded draw may reproduce an outcome. No universal deterministic
+history, fresh roll on every rewind or one global RNG algorithm selected.
+Ordinary save/load preserves committed outcomes; it is distinct from temporal return.
+
+**Derived implications / implementer defaults:** a repeated draw and a repeated
+outcome differ: better effective skill/tools/method can change the result of the
+same draw. Relevant timing, samples, actions, external actors and environment
+may change actual conditions. Hidden causes need actual mechanism support; do
+not invent them retrospectively to defeat planning. An unrelated UI action should
+not silently change another system's result through accidental RNG consumption.
+A known luck power acts through its authored reach, not an assumed universal bonus.
+
+Remembered findings can guide another attempt. Identical replay is not automatically
+an independent sample or fresh insight; deliberate replication can still answer a
+repeatability question. Record useful conditions/provenance without exposing hidden
+draws or sealed causes. These are recommendations, not a new evidence/XP formula.
+[Research](TECHNOLOGY_AND_PROGRESSION.md#research-and-prototype-answers-reconciled-2026-10-15)
+and [continuation](worlds/CONTINUATION_CHOICE_CONSIDERATION_2026-10-13.md#cheat-chat-answers-reconciled-2026-10-15)
+own learning and affected histories. Exact slice-specific RNG/snapshot behavior,
+external changes and bank restoration still need selected contracts and proof.
+
+## Fresh-life history default accepted, 2026-10-15
+
+[Original answer](USER_VISION.md#voluntary-fresh-life-history-and-paused-former-life-2026-10-15):
+ordinary voluntary fresh life enters a separate history while the former life/
+history pauses; return depends on actual means. Same-world rebirth or an active
+former body can depend on cheats/means. This settles the ordinary continuity
+profile, not all starting eras, control or exception mechanisms.
+[Continuation owner](worlds/CONTINUATION_CHOICE_CONSIDERATION_2026-10-13.md#fresh-life-answer-and-transition-implications-2026-10-15)
+owns the new answer and proposed switch/archive/representation contracts.
+
+**Derived distinction:** fresh entry, resuming a paused life, checkpoint rewind,
+same-history rebirth and a concurrently active embodiment are different operations.
+A separate history does not silently clone journey resources or local ownership;
+actual transfer/duplication follows supported means. Preserve the real paused
+history and observer knowledge, not a regenerated canon synopsis. Detailed archive,
+RNG, custody, clock and storage implementation remains unverified. No universe-wide
+simulator, automatic former-self agent or new temporal feature dispatched.
+
+## Reciprocal resume and chosen loops reconciled, 2026-10-15
+
+[Accepted answers](USER_VISION.md#intentional-loops-and-reciprocal-return-reconciled-2026-10-15)
+select ordinary reciprocal return depending on actual means to the living paused
+departure life/history, and intentional loops as a player option. Ordinary resume
+is not a rewind to any chosen date. A/B pause/resume keeps each actual history;
+checkpoint return restores the affected earlier scope. The
+[continuation owner](worlds/CONTINUATION_CHOICE_CONSIDERATION_2026-10-13.md#reciprocal-return-and-intentional-loop-direction-2026-10-15)
+owns accepted terms and separately labeled execution defaults.
+
+**Derived:** attempt identity must distinguish a new chosen cycle from another
+processing of its command. Rewinding to the same event/date does not make a new
+intentional cycle a duplicate bug; retry/reload of the same attempt is not new
+progress. Save selected results and current journey state under actual means.
+CA12's chance/changed-skill/luck qualification remains; loops do not universally
+reroll outcomes or imply fixed destiny. External histories/contracts/cargo outside
+the selected rewind retain their actual state. Stop automation is player control,
+not automatic in-world escape or erasure of already committed consequences.
+Runtime implementation/proof remains with the assigned cheat chat; this is direction
+reconciliation, not evidence of a functioning loop or all-world temporal model.

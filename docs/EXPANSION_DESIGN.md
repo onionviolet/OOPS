@@ -2,7 +2,13 @@
 
 Date: 2026-09-30. All specific names, costs, reset rules and upcoming mechanics here are agent proposals awaiting creative review. Broad expansion direction is authorized in PROJECT.md.
 
-## First slice: Jade Hollow
+## Historical proposal: first slice Jade Hollow
+
+**Dated history notice, 2026-10-15:** this 2026-09-30 slice was retired on
+2026-10-01 (PROJECT.md); it is not the current first milestone or reset policy.
+The original proposal below is retained for reference. Original heading:
+`## First slice: Jade Hollow`. [Current direction](DIRECTION_SUMMARY.md)
+links the accepted time, carryover and entry answers.
 
 Original region, reached from Village. Prototype costs are deliberately short enough to review in a few minutes.
 

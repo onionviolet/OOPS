@@ -331,3 +331,149 @@ a pattern note and an alignment check. The vitals panel is the first
 frame decorates the molded panel rather than replacing it.
 
 Shared contract proposal and acceptance template: [Panel kit](PANEL_KIT.md).
+
+## Density, staged disclosure and visual hierarchy follow-up, 2026-10-14
+
+Weibao's feedback: the UI currently feels a little cluttered; consider Proto23's
+UI unlocks, flow and color scheme more deeply. This records that feedback and
+proposed responses, not approval of a particular redesign. Laptop-first direction
+and existing independent panels remain in force. No runtime changes or new
+gameplay verification were made in this pass.
+
+### F1: Density includes competing emphasis
+
+Inspected the saved YAIR Vivid 1366×768 capture in
+`gm/dispatch/vivid-proto23-flow-2026-10-13/evidence/vivid_1366x768.png`, Proto23's
+opening capture in `reviews/ui-density-2026-10-13/screenshots/`, and its
+[post-difficulty capture](research/proto23/UI_AFTER_DIFFICULTY_2026-10-13.png).
+These are dated evidence, not the user's current browser state. The YAIR capture
+has many outlined controls, gold selected tabs, vivid headers, empty sections
+and explanatory text competing with the central next action. The inference is
+that stronger hierarchy could reduce clutter without reducing useful content.
+The captured save-ownership warning is a legitimate critical state, not clutter
+to suppress. Proto23's fixed layout and unused space are not a target to copy.
+
+### F2: Reveal work already exists, but adoption is not universal
+
+Current `src/workspace_layout.js` distinguishes discovered, eligible, hidden and
+collapsed; it parks undiscovered panels outside named docks. `src/workspace_views.js`
+supplies combat discovery gates, and `src/panel_kit.js` exposes those hooks to
+panels. Some registrations supply eligibility only, with discovery defaulting to
+true. That is not proof of a leak or defect for each panel; inspect its intended
+content and host before assigning a gate. Do not create a parallel reveal manager.
+
+The [Proto23 source study](research/proto23/SOURCE_MECHANISMS_AND_ADOPTION_2026-10-13.md)
+corrects the earlier claim: native skill entries reveal on first level-up, not
+first XP. Its recipe, action and reference unlock chains provide patterns, not
+universal thresholds for YAIR. The earlier
+[Vivid/flow proposal](research/proto23/VIVID_AND_UI_FLOW_CONSIDERATIONS_2026-10-13.md)
+contains historical suggestions already partly implemented; current source and
+each delivery owner establish status, rather than treating its whole list as new.
+
+### D8–D12: Account for these together
+
+| Code | Proposed treatment | Implementation consequence |
+| --- | --- | --- |
+| D8 | Separate never-discovered, discovered-but-unusable, currently relevant and user-pinned content | Discovery comes from durable knowledge/progress; current relevance comes from context; saved layout is user preference. A collapsed panel is not an undiscovered panel. Keep known records reachable when their active controls cannot operate |
+| D9 | Reserve strongest emphasis for the current decision, critical problems and meaningful change | Retain the Vivid family, calm broad surfaces and inactive tabs, soften redundant borders, and distinguish selected state from gain/money/new/urgent states. Selection can use an underline or edge plus text/icon. Validate the actual palette with screenshots and contrast, not hue names alone |
+| D10 | Group by the player's task before adding panel shells | Equipment and inventory can support preparation; journal/history can provide a nearby detail destination. Extend existing regions when appropriate rather than giving every feature a new header. Preserve useful simultaneous views, stable placement, text size and per-region scrolling |
+| D11 | Stage both first discovery and the populated experience | A newly learned feature can announce itself quietly and become reachable without permanently expanding every learned section. Do not auto-collapse pinned content, steal focus, move a clicked target or replay unlocks on reload. Essential controls and known actionable costs remain accessible |
+| D12 | Separate compact facts from explanation | Keep verb, cost, duration and relevant blocker near the action; put longer context beside the selection or in an explicit detail region. Do not remove meaningful tradeoffs or require hover. Tune group spacing before shrinking fonts or hit targets |
+
+This is a proposal for defaults and emphasis, not a new global rule to hide
+previously visible content. Any automatic contextual behavior needs predictable
+entry/exit, preservation of the player's selection and a clear way to restore
+known content. Do not assume temporary visibility proves permanent discovery.
+Restore and import must derive learned state from genuine facts without replaying
+rewards, leaking unknown names or overwriting personal layouts. Old-save cases
+without adequate facts need an explicit compatibility choice.
+
+### A2: Recommended bounded comparison, later
+
+At 1366×768, compare the existing Vivid presentation with a calmer hierarchy using
+the same content/state: quieter inactive navigation and borders, consistent
+label/value alignment, clear selected actions, and less repeated panel chrome.
+Then separately compare one genuine discovery transition through the existing
+panel hooks. Separating those trials distinguishes palette/layout improvement
+from the apparent cleanliness of simply showing less early content.
+
+Compare a fresh eligible start, a populated save with multiple learned systems,
+combat, and crafting/trade. Frontier is a compatibility case, not a required run
+opening. Check where the eye goes, whether the next action and its costs are
+clear, and whether inventory/character information remains easy to compare.
+Verify keyboard/focus, larger text, manual pin/collapse behavior, reload/import,
+no repeated reveals or sealed names, and saving/error visibility where affected.
+Rebuild and use fresh-origin laptop evidence before UI behavior claims. Human
+judgment of calmness and flow remains distinct from technical proof.
+
+Future direct-interaction work should fit this hierarchy rather than stack extra
+boards and controls on top; see the
+[play-beyond-selectors proposal](PLAY_BEYOND_MENU_SELECTORS_CONSIDERATIONS_2026-10-14.md).
+No new framework, full UI rewrite, mobile work, implementation dispatch or
+additional gate for active waves follows from this consideration pass.
+
+Implementation authorized later in the same conversation, 2026-10-14:
+[direction](USER_VISION.md#calmer-vivid-and-progressive-ui-disclosure-2026-10-14),
+[delivery report and desktop evidence](gm/dispatch/calm-vivid-2026-10-14/REPORT.md).
+That bounded delivery implements calmer emphasis and native reference disclosure;
+the broader automatic relevance, layout and interaction proposals above remain
+future considerations. The earlier proposal-only status describes the preceding
+discussion, not a prohibition on this later authorized implementation.
+
+
+## Foundation implementation receipt, 2026-10-15
+
+S1–S3 are technically checked in the shared, uncommitted tree. The
+[delivery report](gm/dispatch/ui-foundation-2026-10-15/REPORT.md) owns counts,
+screenshots, the corrected Q6 discoverability issue, compatibility and limits.
+One bottom-pinned destination Back/Esc owner, a dedicated log, shared Proto23
+frame tokens/components, observer-safe Village scene/focus and declared Projects
+homes are implemented. A bounded nav/history/expand adapter is also present.
+The final suite has 1,764 passes, the two baseline cheat-awakening failures and
+three TODOs; no overall green-suite or human acceptance is claimed.
+
+The later [composition clarification](UI_FOUNDATION_DESIGN_ROUND_2026-10-15.md#proto23-baseline-clarification-2026-10-15)
+was read by the foundation writer. Its queued NAV pass still owns consolidation,
+remaining navigation/scroll rules and the measured reference comparison. Existing
+layout/pin/collapse data is preserved; normal columns still have nested overflow.
+Do not treat skin measurements or this technical receipt as acceptance of the
+current composition. Visual feel remains Weibao's gate; mobile stays deferred.
+
+
+## UI engine implications for design, 2026-10-16
+
+Weibao asked to improve engine considerations for UI design and whether that
+needed a separate chat. [UIE1–UIE12](ENGINE_EXPANSION.md#ui-engine-support-for-design-and-iteration-2026-10-16)
+own the engine gap map; [MP11](gm/dispatch/modular-seams-2026-10-16/BRIEF.md#ui-engine-support-for-the-touched-slice-mp11)
+puts applicable checks into the modular continuation. This is a design/engineering
+proposal, not acceptance of a visual variant or new standing UI rules.
+
+**UD1, stable inspection.** A subject can have a quick preview, pinned detail
+and fuller reference while all read the same observer-safe facts. Important
+actions remain explicit and keyboard accessible. Compare a known item, an
+unknown object and a historical event when those are the selected subjects;
+no requirement to build all inspectors at once.
+
+**UD2, decisions stay put.** Preserve the selected subject, filter, drafts and
+focus as stock, work or knowledge changes. When a fact makes an action stale,
+update the known explanation rather than silently switching its target. A
+removed subject needs a sensible visible fallback, not an invisible selection.
+
+**UD3, disclosure follows task.** Ordinary use stays direct; less frequent modes
+and supported experiments have a labelled route. A wide screen can show a useful
+comparison beside a task; a tighter desktop region can drill down with a clear
+return. Both use the existing navigation owner and preserve current work/log.
+Do not enumerate sealed possibilities as unavailable actions.
+
+**UD4, feedback belongs to the journey.** Find, inspect, act, read the result,
+return and resume need one coherent story. A fleeting toast is insufficient
+for a result the player must use; a persistent error banner for every ordinary
+blocked action is excessive. Use the actual command/receipt and relevant local
+context without turning every action into a modal or a card in the log.
+
+**UD5, prototype the uncertainty.** Use the existing workbench for a named layout
+question on a populated observer-safe fixture at 1366×768, with actual text-size
+checks and explicit provenance. Compare against the same state. Prefer current
+public components/projections; label pinned older renderers and simplified shell
+geometry. No new mockup is made by this considerations pass, and no visual or
+native gameplay acceptance is claimed.

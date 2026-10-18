@@ -150,6 +150,17 @@ Use these five coordination rules:
 
 #### Delegation and succession
 
+**2026-10-16 usage override:** [AU1–AU15](AGENT_USAGE_RULES.md) / AD37 govern
+all dispatches and successors. Capacity is not a spending budget. Run one pilot
+before bulk reading, keep one cumulative ledger and stop at its limit. Historical
+standing authority below permits delegation within that budget, not automatic
+budget renewal or silent model escalation. Readers may delegate lesser agents
+from their reserved share of the same tree budget (AU9).
+Full-book assignments use AU13–AU15: one finite full-source plan, one to three
+coordinating chats as the target, fresh <=12,000-word reader shards with <=6
+model responses each, then retirement. Coordinator history carries compact
+evidence indexes, not accumulated raw chapters.
+
 Standing human authority from 2026-10-04 (history: [capacity packet](gm/dispatch/GM_CAPACITY_AND_SUCCESSION.md), now historical): every GM may use bounded internal agents, open useful project chats and hand off to a fresh-context same-role successor without new approval. Keep these limits:
 
 - **One active writer per goal.** A successor starts only at a meaningful phase boundary or a recorded context problem, after a saved checkpoint and an explicit writer release. The predecessor stops writing and stops re-running final verification; it may answer questions.

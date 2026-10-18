@@ -43,6 +43,24 @@ The existing `registerWorkspaceModule({ id, title, node, home = node?.parentNode
 
 Register each panel's settings under its discovered name in **This browser**, stored in `yairpg.display.v1`. Use namespaced keys such as `panel.known-people.sort`, with `recent`/`name` choices, and apply the selection to `[data-panel-row]` rows. These are display preferences, not cheat ownership or save-schema additions.
 
+## Shared NAV implementation, 2026-10-15
+
+[NAV report and rebuilt proof](gm/dispatch/ui-triage-apothecary-2026-10-15/NAV_REPORT.md)
+record the current implementation. The workspace shell owns one header (title,
+status, collapse, expand/return, pin); focused views borrow that header and the
+native content node. Use `expandWorkspaceModule(id)` and `centerModes()` for
+navigation rather than adding a mover. Native commands still own work/stop.
+The shared list decorator in `ui_components.js` supplies search/count/empty
+text over known native rows, without replacing category filters or item actions.
+
+Live discovery emits `workspace-panel-arrival` with a registered known `id`;
+navigation derives its label from the registry and adds a source-linked notice
+and destination marker. Explicit notices use
+`log_message(text, 'notification', {safeText:true, panelId:id})`. Unknown panel
+IDs grant no discovery or access. Feature-local status text stays at its source.
+These are presentation APIs, not save/progression owners. The later Shell
+variant consumes this correctness work; human visual acceptance remains open.
+
 ## Cheat panels
 
 [CH1-CH10 data cards](gm/dispatch/panel-kit-2026-10-13/CHEAT_PANEL_CARDS.json) specify reusable screens, not runtime. `discoveredBy` names a proposed persisted fact, not an existing save-field path. All ten need Foundation-owned C0 or later runtime before activation. Follow the [library card fields and C0-C6 phases](CHEAT_LIBRARY.md#building-it-proposal-not-started); quiet cheats have no panel. CH7 is a hover/focus overlay, not a workspace region. CH10 is embedded in its cheat's panel, not a new global settings screen.

@@ -279,3 +279,108 @@ which doc keeps the row; this doc's row then only adds the noted extra.
 Net new from this doc, ranked by value (proposal): CW1/CW7 traditions as
 cheap distinct targets, CA6 audience resource, CK18 montage on top of the
 away report, CA8 recurring actor, CL12 tournament as an event card.
+
+
+## RS. Reincarnated in a Shounen Manga consideration, 2026-10-16
+
+User request: “consider” [CasualBear's story](https://www.royalroad.com/fiction/63639/reincarnated-in-a-shounen-manga).
+Bounded source consideration, not an accepted adaptation or build instruction.
+Applies Rulebook 2–3, AD1–AD3, AD6–AD7, AD23–AD25, AD32–AD36.
+Existing title-level coverage: [trope atlas T035](research/royal-road-2026-10-10/TROPE_ATLAS.md).
+This round adds chapter-qualified implications to this palette; it does not
+select a new world or alter current slice priorities.
+
+### Evidence and limits
+
+Read the synopsis and chapter bodies **1, 3 and 8**, through the web tool on
+2026-10-16. This is a nonconsecutive sample, not a full read or full system audit.
+[Private source ledger](research/reincarnated-in-a-shounen-manga/private/COVERAGE_2026-10-16.md)
+keeps exact chapter URLs, paragraph locators and unresolved claims.
+Royal Road currently labels the work inactive; its table contains 256 entries,
+including an announcement. Catalogue size does not establish a completed story.
+No raw chapter prose was copied into the repository.
+
+### Proposals grounded in the sample
+
+| Code | Source observation | Proposed YAIR consequence |
+|---|---|---|
+| RS1 | Ch. 1: the arrival inherits a minor antagonist's identity and prior conduct. SHOWN/STATED. | Entry can attach a social history as well as a body. Begin from an existing incident; subsequent choices can change what people believe. Use the identity/start owners rather than a separate villain-start engine. |
+| RS2 | Ch. 1: remembered plot is broad, incomplete and sometimes speculative. STATED by narrator. | Foreknowledge is observer knowledge with provenance and gaps. A remembered event can provide a preparation lead without exposing its exact date, every participant or hidden cause. |
+| RS3 | Ch. 3: imported chess knowledge does not make the local opponent trivial. SHOWN. | Prior-life expertise grants relevant techniques or information; local aptitude and practice still matter. Do not convert modern knowledge into a universal intelligence bonus. |
+| RS4 | Ch. 3 presents affinity teaching; ch. 8 presents personal ability planning. STATED, not a complete tested power model. | Distinguish aptitude, trained control, designed technique and the behavior that actually manifests. Link [ability authoring](worlds/ABILITY_AUTHORING.md); preserve world-specific costs and exceptions rather than importing a global four-class system. |
+| RS5 | Ch. 8: conversation supplies a timeline correction; another character notices changed conduct. SHOWN. | Ordinary sources can correct remembered dates, and observers can revise their view through witnessed behavior. Any deception or suspicion follows their actual evidence, not automatic detection of a transmigrator. |
+
+### ACCOUNT FOR NOW
+
+**RS6: narrator theory is not world law.** The protagonist's genre expectations
+are evidence of his beliefs. The sample does not establish literal narrative
+immunity, universal protagonist luck, compulsory catastrophe or a cosmic
+punishment for changing canon. Keep this distinction when using CL8, CL10 or
+CK19 above. Default: cause-driven events (AD2, AD25). Dial: explicit fate or
+narrative protection if later source evidence or a selected variant supports
+it. Reason: genre recognition alone cannot prove a supernatural mechanism.
+
+**RS7: useful foreknowledge can survive a change.** Proposal: invalidate a
+prediction when its relevant causes change, rather than applying one global
+knowledge-decay percentage. Physical facts, a learned technique and an event's
+schedule can remain reliable to different degrees. This is a design option,
+not a verified late-story behavior. The timeline and knowledge owners remain
+authoritative; no new state model was implemented or audited here.
+
+### LATER / DELEGATE
+
+**RS8: candidate playable comparison.** Level: small authored prototype;
+effort: medium, later. An original academy extra learns of a coming field
+exercise, verifies the date, chooses preparation or withdrawal, and encounters
+consequences determined by those choices and existing causes. Default: a local
+survival/preparation opportunity. Dial: ally with the central cast, compete or
+pursue another life where means allow. Reason: the premise should support
+player pursuits, not require participation in the protagonist's story.
+Done check: different preparations produce explainable outcomes; unchanged
+inputs survive save/reload; remembered claims remain distinguishable from
+verified information. NPC-heavy simulation stays deferred (AD33).
+
+**RS9: deeper source pass.** Level: bounded research; effort: medium to large,
+later. Verify the affinity test, ability manifestation, costs, failures and
+actual divergence across later chapters before proposing a faithful world
+pack. Done check: chapter-backed rules and exceptions, actual reading coverage,
+and unresolved narrator claims recorded. Use existing acquisition tools if
+full-text acquisition becomes necessary; this sample did not run a downloader.
+
+Verification for this round: source bodies inspected; local atlas and palette
+checked; private path confirmed ignored; documentation diff and links checked.
+No runtime, UI, persistence, build or gameplay claim is made.
+
+
+### RS10. Full-read request and acquisition checkpoint, 2026-10-16
+
+Weibao requested the full story, with deeper power-system, ability-creation,
+foreknowledge and divergence research, asking about the polite scraper.
+The existing transport reproduces its stored Royal Road robots-policy stop
+before network access. No whole-text local copy was found in the bounded
+Downloads/Calibre/research search; no chapters were acquired in this attempt.
+[Full-read plan and exact gap](research/reincarnated-in-a-shounen-manga/private/FULL_READ_PLAN_2026-10-16.md)
+links the private acquisition receipt. RS1–RS9 remain sample-qualified;
+full reading and synthesis are pending an accessible source or explicit
+scraper-policy change. Current implementation priorities remain in force.
+
+### RS11–RS26. Full available-story read and transfer round, 2026-10-16
+
+**RS10's acquisition block is superseded:** Weibao explicitly authorized the
+one-book robots exception and browser route. HTTP returned 403 and stopped;
+serial background browser capture succeeded. Four consecutive full-body
+readers covered all 255 available story chapters plus the announcement,
+approximately 434,000 words. Source hashes, order and reading coverage pass.
+
+[Full-read considerations, RS11–RS26](research/reincarnated-in-a-shounen-manga/YAIR_CONSIDERATIONS_2026-10-16.md)
+extend this palette: creation routes and exceptional authors, separate power
+axes, conditions and subject-bound wording, assisted versus learned execution,
+discoverable counters, provenance-qualified foreknowledge, causal divergence,
+prediction interpretation and the late alternate-world correction. Literal
+fate powers do occur; that does not prove automatic restoration of plot events.
+
+[Tool comparison and receipts](research/reincarnated-in-a-shounen-manga/README.md)
+link the private detailed dossier and all four reading ranges. The available
+chapter255 leaves an unresolved confrontation. Research is complete for this
+source boundary; no world adaptation, implementation or new priority is
+accepted by saving it. AD1–AD7, AD9–AD14, AD23–AD25, AD32–AD36 apply.

@@ -364,6 +364,58 @@ The current answer belongs to the [Engine readiness audit, 2026-10-02](ENGINE_EX
 
 The earlier pre-v0.6/cultivation readiness assessment is preserved verbatim in [Prototype history](PROTOTYPE_HISTORY.md#superseded-engine-readiness-assessment-2026-10-02). Retain the foundation and test the proposed combat/actor/time/world proofs before reconsidering larger architecture. First-realm and later second-world acceptance remain separate; passing the present tests does not validate every researched power or campaign.
 
+## OD12 forgiving recovery direction, 2026-10-15
+
+[Accepted answer](USER_VISION.md#overarching-direction-discussion-od12-2026-10-15):
+forgiving recovery and ordinary save/reload by default. Danger and recovery are
+separate, with actual means/cheats affecting recovery; harsher modes/consequences
+are optional or forewarned. Exact loss/commitment rules remain open. Earlier fixed
+run-end or anchor-exhaustion proposals do not universally override this direction.
+
+### ACCOUNT FOR NOW: proposed ways to keep recovery coherent
+
+- **RC1, match the cause:** ordinary defeat may mean retreat, rescue, treatment
+  or unconsciousness. Actual death can invoke a supported return/rebirth/rewind
+  means. Do not label a lethal outcome unconsciousness without a suitable premise.
+  A harsh setting can change this, with known terms before commitment.
+- **RC2, preserve stakes without required erasure:** a failed objective, changed
+  opportunity, lost position or new recovery problem can matter even if the player
+  continues. No mandatory resource tax, capture or permanent loss is selected.
+  Successful recovery need not restore every event, nor must every defeat damage
+  a relationship or trigger punishment. Exact world/timeline policies remain open.
+- **RC3, strong protection stays useful:** reliable revival, extraction or a safe
+  anchor may be earned powers. Do not invent a new counter for every threat merely
+  to nullify them. A world-supported limitation can matter; warn about its known
+  consequence at the right knowledge level without exposing sealed truths.
+- **RC4, revised 2026-10-15:** locally unwinnable/trapped situations and repeated
+  unavoidable defeats may exist. Continuing may require leaving, a backup, trying
+  elsewhere or a same-/different-life restart through actual means. Forgiving
+  default does not guarantee every local situation is solvable. Specific fallback
+  availability, commitments and treatment of obligations remain open.
+
+  **Earlier proposal, superseded by Weibao's refinement:** "recovery should offer
+  an actual playable next step, not repeated unavoidable defeat or debt that cannot
+  be escaped. Preserve a way to recover the play session in the forgiving mode."
+  See [answer](USER_VISION.md#overarching-direction-discussion-od11-and-recovery-refinement-2026-10-15).
+- **RC5, distinguish three layers:** encounter/world danger, in-world recovery
+  capabilities and player save/reload policy. Loading an earlier save need not be
+  lore-aware time travel or let actors remember a discarded future. A selected
+  cheat may make such continuity real; its retained memories/rewards/history then
+  need explicit rules. Harsher restrictions require known player-facing terms.
+
+These are considerations, not a new rescue service, universal resurrection rule,
+loss table or implementation assignment. Existing proofs keep their dated limits.
+
+## Direction reconciliation, 2026-10-15
+
+[Current accepted answers](DIRECTION_SUMMARY.md) supersede conflicting earlier
+recommendations in this document. Offline routines progress with important-choice
+and resource stops; aging is optional by world. The older no-offline-decay line
+below is a historical proposal, not a prohibition on all world-specific change.
+Memories/base cheat carry across lives and retention can improve through means;
+older fixed reset/carryover suggestions do not settle those detailed mechanics.
+Vanilla remains optional; the expanded run defaults to guided randomness.
+
 ## Further considerations
 
 | Question | Recommended initial answer |
@@ -400,3 +452,163 @@ No runtime files, bundles or personal saves changed in this synthesis. New playa
 A substantial campaign can alternate routine preparation, discovery, meaningful visits and remembered aftermath. Local progression should produce useful methods, routes, facilities, relationships and easier earlier obstacles. Some worlds can be stronger while others remain valuable through distinctive materials, expertise or contacts. Portable power retains its defined useful strength where supported; any incompatibility needs a real local rule. Existing branch-dimension framing and the native opening remain preserved.
 
 [Five original scenario cards](BOOKSHELF_INSPIRATION.md#five-original-scenario-cards) connect these ideas to a practical acquisition choice, a contact with conflicting history, a working institution, a specialist project and a later complementary-world round trip. [Scenario E](BOOKSHELF_INSPIRATION.md#e-foreign-tools-become-useful-back-home) explicitly requires independent native world-state and travel/transfer bindings before its acceptance gate. [Source questions](BOOKSHELF_INSPIRATION.md#source-questions-and-implementation-boundaries) retain direct-adaptation and history/retention gaps. The detailed-saving request expands the retained design, not the current implemented world count or prestige scope.
+
+
+## Time-free benefits and offline calendars consideration, 2026-10-15
+
+[Weibao asks](USER_VISION.md#overarching-direction-discussion-od15-and-time-free-benefits-2026-10-15)
+about an unlock granting benefits without time actually passing. Preserve this as
+a possible cheat/means, not an assumed replacement for ordinary offline routines.
+Offline aging is already optional by world; that alone does not settle world time.
+
+Proposed distinctions: wall-clock absence determines available catch-up; an action
+has game duration; a local calendar measures world elapsed time; a body has its
+own aging policy; an actual time/experience/resource power can alter one or more
+of those. Rates and caps remain open. Offline processing must not grant both the
+same completed routine and an accidentally duplicated version of its rewards.
+Intentional multiplication or duplication cheats can have their own actual rules.
+
+Possible routes include a mental simulation transferring learned experience,
+accelerated private training, a world/region held in stasis or direct creation of
+resources. They need not grant identical benefits. Mental learning need not forge
+physical goods or reproduce real relationships; an actual stronger power may.
+Do not silently convert one explanation into another, or require every world to
+accept the same physiology, materials or time law. Acquisition, scope, costs and
+improvements belong to the bounded cheat-design discussion when selected.
+
+**Baseline accepted later 2026-10-15:** ordinary offline routines advance the
+current world's calendar; bodily aging follows world/settings; cheats/capabilities/
+means can change these relationships. Exact duration ratios and time-free unlocks
+are still not fixed. See [answer](USER_VISION.md#offline-world-time-decisions-and-responsibilities-2026-10-15).
+The earlier proposed baseline is now answered at this broad level, not a new
+rule for unrelated offscreen worlds. Scope of important-choice pauses is the
+next question; [responsibility proposals](CHARACTERS_AND_WORLD_EVENTS.md#offline-decisions-and-responsibilities-consideration-2026-10-15)
+distinguish permitted routines, commitments, delegation and clock consistency.
+
+
+## Banking unused offline time consideration, 2026-10-15
+
+[Weibao accepts the pause and asks about saved unused time](USER_VISION.md#current-world-pause-and-unused-offline-time-2026-10-15).
+Current-world catch-up stops at important unresolved choices unless supported
+policies/helpers/cheats can continue. Banking is a proposed answer to the unused
+remainder. **Later 2026-10-15 update:** the continuing-journey bank/portability
+and improvable capacity/efficiency are accepted below; the original proposals
+remain useful detail, not an implemented system.
+
+### ACCOUNT FOR NOW: proposed bank behavior
+
+- **BT1, preserve only unprocessed time:** if a chosen offline allowance is stopped
+  early, bank its unused eligible remainder rather than pretend it was simulated.
+  Distinguish elapsed real absence, allowed processing and game duration. Do not
+  credit already processed time again. Rates/caps/eligibility remain open.
+- **BT2, spend on forward play:** after resolving a choice or choosing a routine,
+  let the player spend banked time on supported activity. Supplies, production,
+  world events, deadlines and optional aging advance under their actual rules.
+  Stop again at an important unsupported choice or lost prerequisites. A goal such
+  as train until a threshold can be a useful stop target, not an automatic unlock.
+- **BT3, real duration versus time power:** spending banked time normally advances
+  game/world time; it does not itself supply the proposed time-free-gains cheat,
+  rewind history or guarantee rewards. It can use current chosen preparations as
+  a delayed-forward mechanic rather than falsely report they happened in the past.
+  Explicit time-related means may change those rules.
+- **BT4, scope and continuity:** determine whether the balance belongs to the player
+  journey, a life, a world or a particular interval. A portable balance can be
+  spent once in a chosen supported world; do not silently clone it into parallel
+  histories or duplicate it on restoration. Intentional multiplication/retention
+  powers remain possible through actual means. Save/reload/import and restart
+  semantics require a later compatibility/transaction design, not an ad hoc store.
+- **BT5, clear control:** show available balance, amount actually processed and the
+  reason processing stopped. Avoid spending it automatically across a death,
+  restart or new commitment without a selected policy. Expiry, caps, automatic
+  resumption and cross-world conversion rates remain open; no punitive rule chosen.
+
+**Baseline accepted later 2026-10-15:** bank unprocessed eligible time as a
+continuing-journey resource, spendable in the player's chosen active supported
+world across lives, with actual duration/aging/deadlines and repeated choice stops.
+Worlds, modes and cheats can affect its use; detailed limits/rates remain open.
+This is a player-side time facility unless a selected lore/cheat explanation makes
+it an in-world possession; its exact presentation is separate UI work.
+
+
+## Time-bank continuity and improvement answer, 2026-10-15
+
+[Accepted/requested direction](USER_VISION.md#continuing-journey-time-bank-and-improvements-2026-10-15):
+continuing-journey bank across worlds/lives; world/mode/cheat-dependent use;
+improvable capacity and efficiency. This resolves the earlier scope question at
+the broad level. No numeric base/cap/expiry or implementation is selected.
+
+### ACCOUNT FOR NOW: proposed improvement distinctions
+
+- **BT6, capacity:** increase how much eligible unused time can be retained.
+  Whether baseline capacity is finite, unlimited in a mode, or altered by a means
+  is open. Do not invent a punitive expiry/overflow rule to make upgrades useful.
+- **BT7, spending speed:** process banked time faster in real time. This does not
+  by itself improve rewards per game day or change the number of game days spent.
+  Consequential choice stops still interrupt processing under actual policies.
+- **BT8, conversion efficiency:** a credit may buy more useful simulated duration
+  through an actual means. Specify which clocks advance and at what relationship;
+  temporal training, external stasis and reward multipliers are distinct effects.
+  No universal conversion factor or forced real-time cadence selected.
+- **BT9, activity efficiency:** skill, tools, insight or cheat mastery may improve
+  output or reduce costs per simulated hour. That is different from growing the
+  time balance itself. Combinations can intentionally be powerful; name their
+  operation/order rather than secretly clipping them to preserve a fixed grind.
+- **BT10, continuity and legibility:** communicate available balance, applicable
+  capacity and active conversion/clock rules through allowed knowledge. Separate
+  a permanent journey improvement from a temporary world bonus or carried item.
+  Do not automatically assume current-life source loss removes permanent upgrades
+  or leaves every temporary benefit intact. Exact retention, upgrade pricing,
+  restored-history balances and intentional time-generation loops need selected
+  rules and later compatibility/transaction proof.
+
+Research, practice, finding an artifact, bargaining, building infrastructure or
+special starts are possible routes where they fit actual means. No requirement
+to implement every route, another dedicated currency or a global upgrade tree.
+Routine play should remain useful while banked-time capabilities develop.
+Next OD13: narration/voice; return here when concrete tuning changes a real choice.
+No gameplay code, save migration, implementation tests or new dispatch.
+
+## Direction detail review fold, 2026-10-15
+
+[Weibao requested folding the review](USER_VISION.md#direction-review-fold-and-cheat-answer-reconciliation-2026-10-15).
+Accepted time-bank scope/continuity and improvable capacity/efficiency remain in
+[BT6–BT10](#time-bank-continuity-and-improvement-answer-2026-10-15).
+[Newer continuation answers](worlds/CONTINUATION_CHOICE_CONSIDERATION_2026-10-13.md#cheat-chat-answers-reconciled-2026-10-15)
+select ordinary current-world rewind and enduring cheat growth; they do not decide
+bank restoration, expiry, capacity or credit conversion.
+
+**Proposed ordinary defaults:** distinguish elapsed eligible, actually processed
+and remaining duration; spending unused time advances supported forward activity
+and applicable clocks, stopping at unresolved important choices or prerequisites.
+Prefer deliberate bank spending on a chosen routine; revalidate after resolving
+a stop. Do not silently spend across a new life or commitment. Automatic policies
+can be authored where supported. This is a recommendation, not a selected UI or
+an acceptance of every BT proposal. No arbitrary cap, expiry penalty, new currency
+or time-free reward power is introduced to make the design feel complete.
+
+**Play evidence to collect, not a new global gate:** apply the existing balance
+policy to the next already authorized connected slice. Compare fresh and relevant
+established characters, two useful approaches, ordinary and strong supported
+combinations; record useful-choice time, manual interventions, unattended waiting,
+inputs, recovery and outcome differences. Ask about an experienced tradeoff if
+one remains. Active/idle percentages, reward ratios, lifespan rates and bank tuning
+wait for such a case; arbitrage and earned power are not automatically clipped.
+No slice, implementation or extra test run dispatched by this note.
+
+## Reciprocal recovery and optional intentional loops, 2026-10-15
+
+[New accepted answers](USER_VISION.md#intentional-loops-and-reciprocal-return-reconciled-2026-10-15)
+select a means-dependent reciprocal connection for the ordinary A/B fresh-life
+method and player-chosen intentional loops. The [continuation owner](worlds/CONTINUATION_CHOICE_CONSIDERATION_2026-10-13.md#reciprocal-return-and-intentional-loop-direction-2026-10-15)
+qualifies reach/control and separates accepted direction from RL recommendations.
+Earlier blanket pause-after-arrival/fatal-routine warnings mean unchosen or stale
+execution. They do not prohibit explicitly chosen new repeat cycles. Ordinary
+arrival still pauses under the recommended default; a repeat policy may continue.
+
+Genuinely trapped situations can remain under actual means, consistent with prior
+recovery direction. Stopping automation does not itself remove a trap or revive a
+body. Preserve existing available recovery routes; do not manufacture universal
+rescue or suppress the base faculty merely to force danger. Actual cost/retention
+and external-world scope govern loops, without a new generic anti-profit/cap rule.
+Numeric rates, capacities, charges and balance wait for the selected playable
+slice. Its implementation and proof are with the cheat chat, not this doc fold.

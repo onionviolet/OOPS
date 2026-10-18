@@ -16,6 +16,14 @@ table into a full layer. Ties together [E8 aspects](E8_POWER_ASPECTS.md)
 cancels), the [E8B variant generator](E8B_POWER_CATALOG.md#generating-subtle-variants)
 and [E8D vows](E8D_VOW_SYSTEM.md). Each world sets its own scales (rule 2).
 
+**2026-10-15 connection:** titles can be actual power sources through world
+laws or appropriate cheats, and adjectives/tags can affect operative rules.
+The [E4 expansion](TITLES_ACHIEVEMENTS_AND_META_RULES_2026-10-15.md) connects
+literal words, achievement grants, rule annotation, NPCs and worlds. C4
+distinguishes selecting a rule, changing its operation and changing its
+observed label. [User direction](../USER_VISION.md#titles-achievements-and-tags-on-rules-2026-10-15)
+accepts these possibilities; exact semantics remain proposals.
+
 ## The idea
 
 Everything in the game is **a noun plus adjectives**. A power, a limit, an
@@ -72,6 +80,13 @@ Adjectives combine like words, and the grammar is where the subtlety is.
 | **Titles** | *the* Taco Ascetic, *the* Rat Butcher | Adjectives earned by deeds, worn by people |
 
 ## How adjectives change
+
+**2026-10-15 title extension:** evolution can branch, compose, fuse, split or
+be reinterpreted; titles can belong to items, places and worlds as well as
+people. [E4 C9-C13](TITLES_ACHIEVEMENTS_AND_META_RULES_2026-10-15.md#c9-evolving-and-combining-titles-and-achievements)
+owns proposed transformation, transfer, holder identity and criterion-editing
+semantics. Combining names need not combine powers, while a literal synthesis
+cheat may make it do so. The operations below remain possible dials.
 
 | Operation | Example | Sources |
 |---|---|---|

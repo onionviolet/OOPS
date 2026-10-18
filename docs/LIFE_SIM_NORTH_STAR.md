@@ -4,6 +4,17 @@
 chat with Weibao. Nothing here is a decision until it is recorded under
 Accepted decisions in [PROJECT.md](../PROJECT.md).*
 
+## Direction reconciliation, 2026-10-15
+
+[Current summary](DIRECTION_SUMMARY.md) links later accepted answers. Historical
+proposals below do not override them: a mandatory vanilla first life is superseded
+by guided random entry with full random/specific options; death-to-next-life is
+one possible transition, not a requirement; power retention can improve through
+means. Per-world creation remains an idea, while the existing creation screen
+is parked (PROJECT.md). The proposed every-wave life-feel test is an evaluative
+lens, not an extra acceptance gate for unrelated work. Exact mortality, rewind,
+body identity and retention mechanics remain open.
+
 ## Why this exists
 
 Weibao's banked idea, in his words: "I had the idea of a text based game like
@@ -7635,3 +7646,17 @@ institutions; lives and a psychopomp; a self-revealing skill tree),
 revelation design law; skill-trial breakthroughs with multi-life seals)
 and [CivIdle](research/cividle/REPORT.md) (run/meta split with earned
 capped carry; derived item values; an opt-in absence split).
+
+
+## Everyday possibilities across pursuits, 2026-10-16
+
+Continuation of P6–P10 above, requested by Weibao after the modularity assessment.
+[Interaction round 3](PLAY_BEYOND_MENU_SELECTORS_CONSIDERATIONS_2026-10-14.md#round-3-abilities-exploration-and-everyday-possibilities-2026-10-16)
+owns PF43–PF51 everyday proposals: carrying versus containment, cleaning/drying/
+mending, body/tool fit, records, comfortable preparation, functional maintenance,
+support arrangements, simple cooperation and reusable routines. PF52–PF54 link
+ordinary means and abilities to useful exploration results. Detail need not
+become a meter, chore, bonus or penalty; model it where it changes a selected
+interaction, and allow descriptive texture too. [Engine gap map](ENGINE_EXPANSION.md#possibility-support-across-domains-2026-10-16)
+distinguishes existing seams from proposed work. No new NPC-heavy work, offline
+policy or implementation slice follows from this palette.

@@ -13,6 +13,15 @@ storyteller or player decides.
 Labels: **[V]** verified in source on 2026-10-09 (`file:line`). **[P]**
 proposal. **[I]** inference from verified code, not run.
 
+**2026-10-15 direction and expansion:** titles may grant real powers through
+worlds or cheats, achievements may supply grants, and tags may act on rules
+themselves. [User direction](../USER_VISION.md#titles-achievements-and-tags-on-rules-2026-10-15)
+owns the accepted possibilities; the [connected expansion](TITLES_ACHIEVEMENTS_AND_META_RULES_2026-10-15.md)
+owns proposed grant modes, cheat loops, NPC/world interactions and persistence.
+The 2026-10-09 schemas, costs, seats and tier ladder below remain historical
+proposal choices, not universal restrictions or the current runtime contract.
+Current source seams are mapped in the [Proto23 follow-up](../research/proto23/TAGS_IDENTITY_AND_COMIC_LOGIC_2026-10-15.md#f8-the-live-yairpg-seams-are-more-developed-than-the-old-draft).
+
 ## 1. What the source says today
 
 ### 1.1 Verified facts [V]

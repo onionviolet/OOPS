@@ -1279,3 +1279,80 @@ how long awakening sleep lasts varies; fusing skills can lose functions.
   foreign court builds royal legitimacy on a visitor's offhand remark.
   The world reacts to accounts that are wrong, which makes historians,
   teachers and record keepers real life-sim careers.
+
+
+## Exchange cheats and binding conversion consideration, 2026-10-15
+
+[Weibao's answer](USER_VISION.md#binding-remedies-and-exchange-cheat-interactions-2026-10-15)
+accepts rules-/means-dependent binding continuity and known warnings, with
+research/cheats able to detect/remove/change bindings where supported. He offers
+converting bonds into rolls or resources through an exchange cheat as a possibility.
+No actual universal-exchange power, price list or result distribution is selected.
+Existing means-based collision/equalization direction still governs; do not assign
+an arbitrary global power rank or weaken a genuinely universal selected premise.
+
+### ACCOUNT FOR NOW: proposed interaction distinctions
+
+- **BX1, exchanged subject:** a curse mark, enforcement channel, promised service,
+  contractual right, benefit, entire two-party bond or a memory of the promise can
+  be different targets. Specify what is consumed/changed and what remains. A power
+  may truly exchange the entire relationship where its actual scope permits it.
+- **BX2, authority and other participants:** can this means reach or alter the
+  target, including another holder's claim or an external enforcer? Ordinary
+  ownership can matter without becoming a universal restriction on reality-changing
+  cheats. Other parties retain only the rights, knowledge and possible reactions
+  their actual surviving state supports, not an automatic revenge event.
+- **BX3, burden as value:** a harmful binding may be valuable fuel, a research
+  specimen, a rare principle or a desired exposure for the exchange system.
+  Local appraisal and the cheat's valuation need not agree. Repeatedly acquiring
+  convertible burdens could be a legitimate build; define its real operation,
+  not a blanket ban on profitable loops or compulsory diminishing-return patch.
+- **BX4, bundled effects:** conversion might also remove a linked blessing, release
+  a protection, change recognition or leave ordinary memories/claims intact.
+  Treat these as actual consequences of that mechanism, not automatic penalties.
+  Distinguish cancellation, transfer, suppression, replacement and completed
+  fulfilment; no universal creditor satisfaction or full history erasure inferred.
+- **BX5, outcome and continuity:** a roll opportunity, a drawn result and a granted
+  resource differ. Declare when the input is committed and what actually settles,
+  including failure/refund rules if relevant. Rewinding the spent input, carrying
+  the gained reward or exchanging a parallel copy follows selected history/means
+  rules. Intentional duplication/luck manipulation may work; accidental double
+  grants on reload are different from those powers. Exact persistence unresolved.
+
+Investigation can reveal what is bound, who/what enforces it and candidate exchange
+routes before a risky commitment. A preview reports known terms, actor claims and
+uncertainty; it is not an omniscient display of sealed clauses or hidden odds.
+Unknown interactions can become research/discovery opportunities. Physical rituals,
+proxy contracts, fragmented bonds, shared souls and multiple bodies can change
+which subject is actually reached; no new universal resolution engine implied.
+
+This is a palette for the assigned cheat-access/design discussion to consider
+when relevant, not a new message or implementation assignment. Detailed interactions
+need a chosen source/world and an observable result/persistence proof for a later
+slice. No broad exchange schema, randomized reward system or source-specific rule
+was implemented or newly verified here.
+
+## Starter cheat direction reconciliation, 2026-10-15
+
+[CA1–CA13 original answers](USER_VISION.md#direction-review-fold-and-cheat-answer-reconciliation-2026-10-15)
+now have canonical homes: [starter/checkpoint/retention](worlds/CONTINUATION_CHOICE_CONSIDERATION_2026-10-13.md#cheat-chat-answers-reconciled-2026-10-15),
+[research/prototypes](TECHNOLOGY_AND_PROGRESSION.md#research-and-prototype-answers-reconciled-2026-10-15)
+and [repeatability](TIMELINES_AND_DIVERGENCE.md#repeatability-answer-and-research-across-rewinds-2026-10-15).
+Enduring base-cheat growth is distinct from local facilities, carried artifacts
+and expended charges. Cheat type/carrier and actual means govern its operation.
+These answers do not select every exchange/storage/embodiment variant in this
+palette or establish universal soul ontology, power transfer or automatic refill.
+
+**Accepted CA13:** [quiet personal faculty/connection by default](USER_VISION.md#ca13-original-answer-reconciled-2026-10-15).
+Systems/voices may arise through appropriate means or accompanying cheats while
+the base remains quiet. No compulsory speaking guide, quest shop, patron or soul
+ontology. Talking cheats/unreliable narration remain possible under OD13.
+
+The [bounded brief](gm/CHEAT_ACCESS_DESIGN_DISCUSSION_2026-10-15.md#bounded-implementation-brief-quiet-continuation-and-one-learned-checkpoint)
+is a proposal, not an accepted build scope or dispatched worker. Q1 fresh-life
+profile is still pending. Paradise-style world/system coexistence and external
+contract/settlement reach remain proposed interaction profiles. The original
+faculty does not gain universal immunity, host omniscience or repeated outside
+payouts by implication. A later selected compatibility slice needs real evidence;
+it is not a prerequisite for the one-world proposal. No sealed truth or new canon
+claim, source research, runtime work or dispatch authorized by this fold.

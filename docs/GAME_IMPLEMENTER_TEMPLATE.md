@@ -74,6 +74,15 @@ NEXT: Ready for parent review, or the specific correction/reassignment needed.
 
 A suitable smaller task has a settled outcome, existing interface, bounded write scope and an observable check. Examples include a defined scene using existing effects, one local menu projection, a specific reproduced UI fix, or a regression check for a known behavior. A short patch to migration, cross-world transfer or reward ownership can still require the capable integrator.
 
+Follow [agent usage rules](AGENT_USAGE_RULES.md) AU1–AU15 / AD37 first.
+Readers use bounded context and default to Luna medium when supported; they may
+spawn lesser agents within reserved tree-budget slots (AU9). Retries and
+successors retain the parent task budget.
+For full books, apply AU13–AU15: one finite pass with fresh reader contexts,
+at most 12,000 source words and six model responses per reader, then retirement.
+Keep raw chapters out of coordinator history; use continuity capsules and
+evidence pointers. The four-agent exploratory cap does not cap full books.
+
 Use the model and effort assigned in the packet. The master's proposed default is GPT-6 Luna at high for a representative settled code/UI task, with low or medium for genuinely mechanical work. This is a route to qualify through actual results, not a capability guarantee. Broad creative synthesis and shared-system decisions stay with a capable coordinator. [Official OpenAI subagent guidance](https://learn.chatgpt.com/docs/agent-configuration/subagents). Checked 2026-10-03.
 
 For a new task family, first try one representative slice and let the GM review its behavior, edge cases and design fit before batching. Retain the same acceptance bar across models. Record repairs and usage when available so model choice is based on accepted output rather than how quickly the worker says it finished.

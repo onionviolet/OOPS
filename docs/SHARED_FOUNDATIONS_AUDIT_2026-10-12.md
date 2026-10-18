@@ -356,3 +356,70 @@ world behavior. No runtime work or acceptance case was run in this proposal.
 2026-10-13 pointer: a source-read foundations check for abilities, automation, progression and cheats, with a shared rule kernel proposal, lives in [ability authoring](worlds/ABILITY_AUTHORING.md#foundations-check-and-other-systems-that-share-the-pattern-2026-10-13).
 
 2026-10-14 pointer: a code-grounded scorecard of U01-U15 and the kernel pieces, with more angles (M1-M12) and queued Codex lanes, lives in [core foundations scorecard](CORE_FOUNDATIONS_SCORECARD_2026-10-14.md).
+
+
+## OD8 accepted direction and implications, 2026-10-15
+
+[Weibao's answer](USER_VISION.md#overarching-direction-discussion-od8-2026-10-15)
+accepts an authoritative underlying record per subject, with truth, observer
+knowledge and representations separate. Applies to people, bodies, places,
+items, skills/abilities, conditions and events, while world-specific laws remain
+local. Cheats and illusions affect perception/knowledge through actual means.
+This is design direction, not evidence that existing code already conforms.
+
+### ACCOUNT FOR NOW: proposed design implications
+
+- **KR1, identity and ownership:** one authoritative subject does not require
+  one huge record or universal database. Existing components may own different
+  fields and derive views from them. Distinct actors, learned skill instances,
+  parallel counterparts and historical states are distinct subjects; do not merge
+  them because they share a name or definition. Technical layout is unresolved.
+- **KR2, skill depth:** separate skill definition, actual learned capability,
+  observer understanding and displayed appraisal. Knowing a method exists,
+  understanding it, retaining its memory, possessing required faculties and
+  executing it need not be equivalent. A cheat may connect these through its
+  own power. Displayed ranks need not reveal hidden potential or exact values.
+- **KR3, illusion and deception:** distinguish altered appearance/signal, false
+  belief or planted memory, suppressed knowledge and actual reality change.
+  These affect different layers; exceptional powers may affect several. Track
+  relevant observer/source/time/scope so two people can disagree without corrupting
+  world truth. Truth can change when a real power changes it.
+- **KR4, discovery and correction:** beliefs can be uncertain, stale, disproved
+  or manipulated. Detecting an illusion does not automatically reveal everything
+  behind it. Appraisal/counter-appraisal compares actual means rather than a
+  mandatory universal level check. Revealing power can legitimately reveal truth
+  within its scope; preserve sealed discoveries outside that route.
+- **KR5, consistent consumers:** action checks, logs, portraits/maps, tooltips
+  and cheats use their authorized facts/projections. A counterfeit may look real
+  without obtaining the real item's effects; a true transformation can change
+  effects as well. Historical reports/documents can preserve what was recorded
+  then, while current knowledge later interprets it differently. Don't rewrite
+  every old statement into current omniscience.
+
+### Later engineering work
+
+Map existing owners before changing schemas. Resolve conflicting writers and
+knowledge stores, save compatibility and stable IDs as bounded technical work;
+do not introduce another parallel knowledge registry. Source/tests, rebuilt
+browser discovery, and save/reload/import remain distinct evidence. Neither this
+record nor the accepted direction dispatches engine work.
+
+## Direction detail review fold, 2026-10-15
+
+[Bounded review](gm/DIRECTION_DETAILS_REVIEW_2026-10-15.md), folded at
+[Weibao's request](USER_VISION.md#direction-review-fold-and-cheat-answer-reconciliation-2026-10-15).
+OD8 remains accepted direction; exact engineering layout remains open. Distinct
+counterparts/copies, remembered mastery and actual executable faculties must stay
+consistent with their identities and means. This does not require one database.
+
+**Proposed implementation contract:** for the next selected affected consumer,
+map authoritative fields, qualified projections, actor/life/history/custody,
+revision, clocks and publication path. Reuse existing owners and stable IDs.
+Check preview/search/tooltip/recap knowledge boundaries for that consumer, without
+requiring every unrelated system to consolidate first. A selected transition must
+restore one coherent result across its affected owners, pending work and rewards.
+
+The review's E1–E5 source pointers are bounded observations, not a current whole-
+engine audit or gameplay proof. Old fragmentation counts remain historical leads,
+not freshly measured defects. Compatibility/failure/reload/import evidence belongs
+to the selected slice. No new global framework, schema or worker dispatched.

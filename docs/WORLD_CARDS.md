@@ -37,6 +37,11 @@ ritual, a rift or a world law can get around it, at a cost.
 
 ## 1. The Frontier (home world, vanilla YAIR)
 
+**Dated history notice, 2026-10-15:** the default-origin/first-campaign wording
+below is superseded by accepted guided random entry. Frontier remains an optional
+preserved campaign; "home world" here is historical shorthand, not a mandatory
+origin or a universal property of Frontier. [Current direction](DIRECTION_SUMMARY.md).
+
 **Premise.** The vanilla YAIR world, as a branch dimension: a village, a
 forest, a frontier, and the quiet life of someone who woke up there. It is
 the default origin and the first campaign. "Home world" only means the

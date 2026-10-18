@@ -17,7 +17,26 @@ patron terms), [cheats by world](CHEATS_BY_WORLD.md) (95 cheats from our
 notes) and the [rulebook](RULES_FROM_SCRATCH.md). Everything here is a
 proposal.
 
+## Titles, achievements and rule-editing cheats, 2026-10-15
+
+[User direction](USER_VISION.md#titles-achievements-and-tags-on-rules-2026-10-15)
+explicitly includes titles granting actual powers through worlds or cheats and
+tags acting on rules. The [E4 expansion](emergent/TITLES_ACHIEVEMENTS_AND_META_RULES_2026-10-15.md)
+connects the existing title collector, achievement system, World Deeds and
+status-window ideas to proposed mantle transfer, deed distillation, rule
+annotation/collection, NPC holders and cross-life retention. Its C3 owns cheat
+variants; C4 owns rules as targets. Specific rewards and powers remain
+proposals, with backing and authority chosen per world/card. This does not
+expand the current status-window stage or require universal costs/counters.
+
 ## Gameplay by cheat family
+
+Title/achievement follow-up: [E4 C9-C13](emergent/TITLES_ACHIEVEMENTS_AND_META_RULES_2026-10-15.md#c9-evolving-and-combining-titles-and-achievements)
+expands evolving/fusing titles, inheritance/theft/copying, non-person holders
+and criterion-editing cheats. C12 distinguishes changing event meaning,
+methods, attribution, evidence, thresholds, windows, repeatability and authorship
+from changing rewards or rewriting history. This extends H1-H8 proposals;
+it does not expand the active status-window build or impose a reward cap.
 
 | Cheat family | The loop it adds | New verbs | New resources | Screens it needs | Book and game examples |
 |---|---|---|---|---|---|

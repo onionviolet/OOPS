@@ -340,3 +340,63 @@ Relative implementation cost: an authored dispute is small content plus save int
 Future source work should answer the chosen mechanic's missing question. For *Reverend Insanity*, locate an authenticated luck-transfer/theft example and a disguise case rather than infer mechanics from names. For *Lord of Mysteries*, verify a selected impersonation method, recognition counter and identity limit against an authenticated edition. For the Fated Villain reference, inspect an accessible licensed episode or original chapter for the intended harvesting preconditions. For rivalry references, review an accessible full developer talk or exercise one focused scenario before claiming detailed algorithm or pacing conclusions.
 
 Completed here: current-source audit, bounded primary-source checks, broad trope inventory, original mechanic contracts, candidate slices and documentation links. No source code, built bundle or personal saves changed. No new gameplay, balance validation or creative acceptance is claimed. The remaining playable gate is a selected ordinary dispute with two meaningfully different resolutions and persistent aftermath.
+
+
+## Cause-driven threats and adaptation direction, 2026-10-15
+
+[Accepted answer](USER_VISION.md#cause-driven-threats-world-agendas-and-adaptation-2026-10-15):
+threats grow through actual causes, not automatic matching to the player. Rivals
+may adapt, and fate/world agendas, modes or cheats can alter challenge growth.
+Support or hostility may change with an agenda/circumstances. The user's Fang Yuan
+analogy is not independently reverified source evidence here. Direct recreation
+needs the existing source/continuity contract, not an invented universal law.
+
+### ACCOUNT FOR NOW: proposed implications
+
+- **TG1, different causes:** time/resources/training, witnessed tactics, institutional
+  response, a world's actual intervention and a selected adaptive mode can each
+  explain changed threats. Do not treat a scheduler's hidden difficulty weight as
+  a known in-world actor unless that fiction/mechanism is actually selected.
+- **TG2, informed adaptation:** an ordinary rival can learn from surviving an
+  encounter, witnesses, spies or shared records. Determine what evidence reaches
+  which actor, its reliability and whether countermeasures are feasible. A
+  clairvoyant or world-authority means may know more under its actual rules;
+  don't impose ordinary observer limits on a genuinely exceptional faculty.
+- **TG3, useful counterplay:** a counter can alter tactics, equipment, allies,
+  routes or preparation rather than grant blanket immunity. Adaptation needn't
+  erase earned superiority. It may fail, be misinformed or open other weaknesses,
+  without every stronger method requiring an artificial balancing weakness.
+- **TG4, changing agendas:** aid and opposition can serve the same changing goal,
+  different world actors or rival mechanisms. Detection, intervention and what
+  the player can learn are separate. World help needn't be altruism or automatic
+  rescue; opposition needn't be personal hatred. Exact truth remains discoverable.
+- **TG5, persistence and absence:** knowledge/counters need holders, acquisition
+  times and compatibility with the selected world clock, pause, branch and memory
+  rules. A fresh counterpart needn't inherit another history's observations;
+  an actual cross-history means can enable it. No global rival memory assumed.
+
+### Implementation difficulties and current evidence
+
+Focused read-only source inspection, not gameplay verification:
+`src/pursuit.js` already validates persistent actor/target identity, timed evidence
+leads, supply accounting, distinct locator modes and staged caller-owned changes.
+It illustrates separating ordinary evidence from declared exceptional detection.
+It does not by itself implement a general learning rival or every world agenda.
+`src/storylet_deck.js:31` filters candidates through current facts, requirements,
+cooldowns and configured weights. Candidate selection is not proof of a persistent
+world intelligence or power to rewrite rules. No source edit/build/test performed.
+
+The difficult integration is preserving actor identity and observations across
+encounters, publishing a feasible learned counter into actual combat/interaction,
+and keeping evidence, costs, clocks and branch/reload state consistent. Content
+combinations and repeated feedback loops can make a generic adversarial planner
+expensive. A new response should not be counted as adaptation merely because
+prose says the rival learned.
+
+A possible later bounded proof uses one known tactic, one actual witness/rival,
+one supported response and a later encounter with changed feasible outcomes,
+including concealment/control comparison and relevant persistence. World-agenda
+support-to-opposition would be a separate causal slice with a declared trigger
+and actual effect. These are implementation proposals, not dispatched workers,
+mandatory gates for unrelated work or a replacement AI framework. Do not introduce
+a new system where existing event/pursuit/actor owners can handle the chosen case.

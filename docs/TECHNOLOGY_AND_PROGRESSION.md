@@ -1950,3 +1950,43 @@ Weibao, 2026-10-15: "Fold and commit and push accordingly".
 
 The CN14 build order is unchanged; NEXT_SLICE stays ready and must now follow
 [UI rules](UI_RULES.md) UR2 (new features start in the Projects drawer).
+
+## Research and prototype answers reconciled, 2026-10-15
+
+Accepted direction from [CA8–CA11](USER_VISION.md#ca8-original-answer-reconciled-2026-10-15),
+folded at [Weibao's request](USER_VISION.md#direction-review-fold-and-cheat-answer-reconciliation-2026-10-15).
+These supplement the existing research palettes without selecting every proposed
+technology, factory, farm, research framework or generator.
+
+| Code | Accepted direction / requested possibility |
+| --- | --- |
+| CA8 | Direct investigation is available from the start according to capabilities. External leads and other routes coexist. Outsiders can supply relevant principles/tools/methods, but do not automatically know the unique core cheat or its upgrade list. |
+| CA9 | Research supports discovered questions and player-proposed goals, depending on actual means/capabilities. No free-text UI, runtime model or guaranteed arbitrary invention selected. |
+| CA10 | Suggest alternatives while retaining the original goal. Unexpected uses/new paths are requested possibilities, not guaranteed side rewards or silent substitution of the objective. |
+| CA11 | Imperfect prototypes can be used within their actual limits and means. Handle reasonable routine questions with judgment rather than another approval question. |
+
+**Implementer defaults, not additional user decisions:** distinguish failed
+hypothesis, failed procedure, inconclusive observation, partial working result
+and side discovery. Use may inform research when it produces relevant observable
+evidence; it does not automatically grant upgrades or hidden explanations.
+Reliability follows actual method/condition, not a compulsory failure percentage.
+A prototype may be reliable within narrow limits. Preserve an existing working
+setup until a deliberate change where the chosen method permits. Maintenance,
+retrofit, replacement and actual cheat transformation are different operations.
+New knowledge alone does not upgrade all deployed copies.
+
+For a selected finite experiment, record objective/exact constraints, procedure
+and conditions, actual observable result, supported inference and known next
+steps. Preserve uncertainty and the original goal when offering another method.
+Distinguish unknown technique, absent means, actual world prohibition and missing
+game implementation. An unsupported effect is not made functional by a generated
+name or plausible explanation. Use actual existing effects/consumers before
+promising results; no universal resolver is selected.
+
+[CA12 repeatability](TIMELINES_AND_DIVERGENCE.md#repeatability-answer-and-research-across-rewinds-2026-10-15)
+qualifies remembered/repeated evidence. Physical prototypes, samples, external
+notes and remembered mastery follow their actual carriers and rewind scope.
+[Continuation](worlds/CONTINUATION_CHOICE_CONSIDERATION_2026-10-13.md#cheat-chat-answers-reconciled-2026-10-15)
+owns the retained learning versus executable-means distinction. Detailed P/RD
+rows remain recommendations in the [cheat record](gm/CHEAT_ACCESS_DESIGN_DISCUSSION_2026-10-15.md),
+not acceptance of every listed possibility. No runtime or play proof added here.

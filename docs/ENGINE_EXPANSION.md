@@ -1232,6 +1232,297 @@ Measured subsequent gap: eligible actor/routine work computed the same full prev
 
 All10bounded existing specialist runs completed and returned files were reviewed under the [live queue](research/novels/GM_RUN_QUEUE.md), each with exact disjoint result scopes and bounded subagent permission. Their source/design reports are reviewed inputs, not installed novel worlds. [Next checkpoint](ENGINE_GM_NEXT_CHECKPOINT.md) owns runtime recovery and actual active operations.
 
+## Direction review engineering follow-up, 2026-10-15
+
+The [review's checked seams](gm/DIRECTION_DETAILS_REVIEW_2026-10-15.md#checked-source-seams-and-finite-evidence-gaps)
+update routing, not all historical source inspections above. World instance/visit
+IDs and played clocks, knowledge-qualified projections, joined-clock choice stops,
+validated imports and optional enrolled save authority are existing seams to map
+before proposing replacements. They do not prove portable banking or whole-world
+rewind works.
+
+**Proposed bounded contract:** use the [shared-foundations field map](SHARED_FOUNDATIONS_AUDIT_2026-10-12.md#direction-detail-review-fold-2026-10-15)
+for the next selected transition. Preserve committed procedure revision/inputs or
+explicitly declare revalidation; preserve actual settled outcomes on reload.
+Exercise affected stop boundaries, failed publication and relevant save/reload/
+literal-file import when implemented. These checks attach to changed behavior,
+not unrelated delivered work. No repository-wide rewrite or review dispatched.
+Accepted [continuation](worlds/CONTINUATION_CHOICE_CONSIDERATION_2026-10-13.md#cheat-chat-answers-reconciled-2026-10-15)
+and [repeatability](TIMELINES_AND_DIVERGENCE.md#repeatability-answer-and-research-across-rewinds-2026-10-15)
+qualify older proposals; exact snapshot/RNG/bank interactions remain local contracts.
+
+## Continuation slice state and compatibility plan, 2026-10-15
+
+[Requested plan and source register](gm/CONTINUATION_STATE_COVERAGE_AND_COMPATIBILITY_2026-10-15.md)
+map create_save/load, freshNativeSave/preflightImport, current save authority,
+XP reconstruction, occupied-state gates, clocks/streams and native extension roots.
+The existing genuine fresh-game builder should be reused with explicit selected
+context. Proposed continuation storage stays under the existing writer/authority;
+current schema 1 current/previous is not already a multi-life journey store.
+
+The 83 direct-root classification is a finite source inventory, not full nested
+coverage or an implemented schema. Mastery, paid/in-flight activity disposition,
+suspended arrival, normal save/boot/export/Undo, legacy/dormant preservation and
+measured origin budget need cohesive joins. B1–B5 are engineering blockers;
+T1–T5 describe future authorized execution/evidence, not dispatched work. Current
+source observations do not replace rebuilt browser, save/import or human acceptance.
+
+
+## Small design freedoms and reusable interactions, 2026-10-16
+
+Weibao asked for small design details that support "making everything possible"
+after the modular-engine discussion. [Interaction palette PF1–PF23](PLAY_BEYOND_MENU_SELECTORS_CONSIDERATIONS_2026-10-14.md#small-design-freedoms-making-possibilities-compose-2026-10-16)
+owns the proposals: qualities beyond item categories, intent and method,
+substitutions, preparation, quantities, alternate uses, partial work, local
+boundaries, precision, sequence, traces and remembered methods. These translate
+Rulebook 1 and existing means/making direction into bounded interaction examples,
+not a universal action language or a new kernel prerequisite. Broaden through
+selected real consumers; unsupported coverage is not an in-world prohibition.
+No runtime work or change to accepted direction follows from saving the palette.
+
+
+## Possibility support across domains, 2026-10-16
+
+Weibao requested small interactions beyond crafting and the engine requirements,
+then asked for the latest expansion of the [modularity assessment](reviews/MODULARITY_AND_REWRITE_ASSESSMENT_2026-10-16.md).
+[Interaction round 3, PF24–PF57](PLAY_BEYOND_MENU_SELECTORS_CONSIDERATIONS_2026-10-14.md#round-3-abilities-exploration-and-everyday-possibilities-2026-10-16)
+owns the design examples. This section owns the engine gap map, not new API
+signatures. ER12, AR1–AR16 and existing domain authorities retain their roles.
+Everything below is a proposal or bounded source observation, not a report of
+implemented arbitrary interaction support. Earlier engine PF codes are unrelated
+to this interaction palette's PF numbering.
+
+### ACT NOW: distinction recorded
+
+**EI1. Domain integration and cross-domain applicability are different tests.**
+The registry can make a feature easy to mount/load/tick while its useful effects
+remain confined to that feature's menu. A second application should test an actual
+handoff: a supported light changes reading conditions; a force changes access;
+a record guides travel. Keep a different domain consumer as the AR11 test, not
+merely a second cosmetic variant. This refines the original P5 pilot proposal;
+it does not add new gameplay requirements to a behavior-preserving M1/M2 refactor
+or the stopped M3 gate.
+
+### ACCOUNT FOR NOW: source-grounded requirements
+
+READ means inspected source in the current dirty shared checkout, not executed.
+ABSENT HERE means the named seam does not establish the broader behavior; it is
+not a claim that no useful adapter exists elsewhere. Before implementation,
+trace actual native callers, matching tests and the selected owning task.
+
+| Code | Required capability when selected | Existing support READ | Proposed gap / modest implementation boundary |
+| --- | --- | --- | --- |
+| EI2 | A specific method reaches a specific kind of target | `structured_ability_runtime.js` compiles source/control/target predicates into owned commands; targeted abilities require declared participants. `simulation_effects.js` resolves an actor/person for effects in its main loop. | Do not pass a door or pool off as a person to get an effect accepted. Add a narrow target adapter for the selected object/site feature with stable identity, valid operations and revalidation; preserve existing person effects. No universal entity rewrite or unrestricted retargeting is implied. |
+| EI3 | Functional facts with units, scope and readers | `capabilities.js` makes pure max/sum queries with source provenance; `power_models.js` evaluates practice/design/investment/authority/hybrid models. | A capability score or matching tag is not a temperature, light field or causal law. Define a selected domain's actual state/predicate and two readers where useful, with unit/aggregation decisions locally. Keep conceptual/authority relations as first-class local mechanisms. |
+| EI4 | Persist meaningful effects on things and places | Typed item, body, condition, world, site and observation branches already exist in `simulation_effects.js`; `site_projects.js` compiles phases to existing jobs/facts/claims. | Extend the existing appropriate owner for one condition or support relation, such as a shutter state or placed rope. Specify instance versus template, intrinsic versus local-field state, saved versus derived state and old-save default. No duplicate environment database or global condition component is required. |
+| EI5 | Separate path, contact, location and jurisdiction | Structured ability predicates and power authority checks supply bounded eligibility; foundation delivery names exact bodies, source and channel. | Co-location does not prove line of sight, reach or magical permission. Begin with authored relations such as adjacent/behind/anchored/reachable and local predicates. Continuous coordinates, collision, range geometry and pathfinding await a selected consumer. |
+| EI6 | Activation, sustained support, release and cleanup | `foundation_interaction_policy.js` has a finite opt-in policy for activation/delivery/sustained stages; released support is limited to physical projectile instances there. `structured_ability_runtime.js` rechecks timed support and currently requires refund cancellation/completion policy for timed abilities. | Reuse the principle, not the probe's exact restrictions as world law. A maintained light, permanent repair or partly completed channel needs explicit domain interruption and durable-result rules; forfeit/partial-result abilities need a scoped adapter change, not a fabricated refund promise. No generic reflection or arbitrary recursive chains are established. |
+| EI7 | One committed action crosses domain owners | Shared simulation planning applies typed effects and native transaction adapters exist; rules require a single publication authority. | Trace the chosen publication path. Stage cost, changed target, downstream state and observed receipt together; fail a write without partial costs or rewards. Notifications can request later commands through the owner, not mutate another domain or start an unbounded synchronous reaction chain. Keep deliberate strong synergies. |
+| EI8 | Actual context changes feasibility and execution | Power parameters, energy output/control and rules already feed costs/eligibility. The inspected energy policy requires positive paid use; it is not a universal model for free or non-energy faculties. | Carry the selected tool/body/environment/mode into quote and execute, including exact source and target revisions. Revalidate meaningful changes. Preserve deliberate snapshot commitments when their policy freezes inputs; do not silently recompute already paid outcomes. Bound parameter input to supported choices without inventing global slots, cooldowns or fees. |
+| EI9 | Evidence becomes a useful action without leaking truth | `action_legibility.js` projects known requirements, costs and selected safe blockers; hidden OR alternatives are intentionally not enumerated. Knowledge/observation effects exist. | Add the selected observer-safe result and downstream reader: observed inscription to directions, not automatic surveyed map or ownership. Discovery lists, sorting, disabled actions and errors must not reveal hidden methods. Clearly separate unimplemented coverage in development tools from in-world uncertainty. |
+| EI10 | Changed time/absence and routine execution remain coherent | Existing expansion scheduler exposes blocking choices, remaining advance and a boundary budget; domain clock rules and AD16 govern pause. | A placed lamp's expiry, drying job and movement cannot each invent their own timer. Retain unused advancement at stops, conserve supplies and pause inactive worlds under accepted policy. Bulk advance or offline behavior needs equivalent segmented results for touched domains; none is assumed from a minutes argument. |
+| EI11 | Content authors can add a real alternate application | `authored_site.js` supports a deliberately narrow draft of timed work/gather/inputs/pay. Structured abilities reject unsupported fields and require concrete effects. | Add a supported method/target/consumer row or a narrow code handler when the mechanism is new. Author validation should catch missing readers, bad target bindings and unsupported operations. Do not treat an editable name, generated prose or the inert DSL as an implemented interaction. Existing simple static content needs no lifecycle manifest. |
+| EI12 | Verify reusable behavior and replacement cost | Relevant existing tests include structured abilities, foundation interaction policy and world knowledge; their files were inspected/listed, not run in this docs pass. AR9/AR10/AR11 and AD36 own verification. | Choose the touched focused checks, then existing completion gates. Capture input hashes and comparable semantic results; test one ordinary application, one cross-domain use, a failed commit and an applicable interruption/unknown-knowledge case. Browser evidence at 1366×768 and actual persistence remain required for gameplay claims. Measure bespoke joins and debug/setup effort, not module counts. |
+
+### Smallest useful engine change versus future machinery
+
+For a selected light/reading example, an authored lighting predicate, existing
+ability/item command, knowledge projection and existing save owner may be enough.
+For moving one obstruction, a stable site object ID, explicit open/blocked state
+and a movement method may be enough. A timed supported effect adds lifecycle
+work only if the selected behavior actually lasts over time. More elaborate
+propagation, continuous spatial queries, arbitrary body components, signal
+networks and rule-addressing DSLs remain separate proposals.
+
+Do not reuse foundation probe constraints as universal requirements: its
+support check currently requires a mobile humanoid body with usable hands, and
+its channel/policy vocabulary is deliberately finite. Those are facts about
+that selected consumer. A nonhuman method needs a fitting body/means adapter,
+not a global fiction that all bodies need two hands. Likewise, phase-based site
+projects are not proof of freely repeatable repair or renewal.
+
+### LATER / DELEGATE: proposed execution shape, no launch
+
+| Item | Level / effort / done check |
+| --- | --- |
+| EI2/EI4 target-state adapter for one selected non-person target | Strong boundary review, balanced implementation / medium. Preserve old person commands, reject stale/wrong target, change one site/object through existing publication, pass failed-write and old-save checks. |
+| EI3/EI9 one shared cause with two different readers | Balanced / medium. Existing or explicitly implemented cause affects an everyday action and exploration action with local world rules and useful results. No second state store or omniscient projection. |
+| EI6/EI10 lifecycle only where the chosen effect persists | Strong / medium. End support, reload at a boundary and resume with exact retained consequences, costs and remainder; no duplicated timers. |
+
+These are separable candidate costs, not simultaneous lanes. Existing stopped
+runtime work keeps its own recovery gates. Select the smallest actual consumer
+before defining interface fields; recover its writer before edits. No wider
+engine redesign or new active slice is authorized by this saved consideration.
+
+### Evidence and checks
+
+Docs-only source snapshot. Input SHA-256 receipts follow. No runtime suite,
+build, browser, performance result or compatibility rehearsal was run. Existing
+test names identify candidate coverage, not passing evidence. New links/anchors,
+proposal status and append-only preservation were checked for this pass.
+
+Inspected source inputs (SHA-256):
+
+```text
+995639bebd80cc5206f256a868a28ad3731084844d79a4f45928a07b7298133e  src/structured_ability_runtime.js
+c72b4c32d26ffb4988e970e6aa849498e3fb79e5bd987b7ab86d449a15322b35  src/capabilities.js
+cbf6d86aea5cdfd1fda9bb39dddb208944c210e91c60196283f5ea731d3c23b7  src/power_models.js
+cc619def4c618a7b7128c43c499864a4ccc306d5f54dc20660f15004bbbb55ef  src/energy_resources.js
+19741927673b8508d37575112dfe80d97cfcedc9067f622af78c073610782433  src/simulation_effects.js
+4e3abc409d7f291b00875c623678c1a5653b427e2a8a6b53c708bfd55d113bcd  src/foundation_interaction_policy.js
+0a9eeb705992b988e5d678f2bd9f4d62f1fc4e911cdb1b456df69787c042583c  src/site_projects.js
+c5eef75524b22bc6accbde8ad3d40e3d5e7cdf71cf608d461c4082a594b59d4d  src/action_legibility.js
+dcf782b0ef076c57f661e4f7a868dba5333e56a1f205209384fabdb32fdb8599  src/authored_site.js
+```
+
+
+## Future-fit engine plan: useful depth and iteration, 2026-10-16
+
+Weibao requested updating the modular run plan to account for interactions and
+engine gaps, asked for more to consider before continuing, and wants improvements
+that fit future requirements and surpass existing approaches. The executable
+[modular brief](gm/dispatch/modular-seams-2026-10-16/BRIEF.md) now contains
+MP1–MP10 and the [checkpoint](gm/dispatch/modular-seams-2026-10-16/CHECKPOINT.md)
+separates inherited runtime evidence from this planning update. EI13–EI22 extend
+EI1–EI12 as engineering proposals, not claims of superiority or implemented
+services. AR rules/ER12 retain their authority/signature ownership.
+
+### ACT NOW completed
+
+Updated the actual brief in both shared and lane checkouts, recovered the M3
+stop, repaired the stale shared state summary and preserved original dispatch
+text as history. Kept M3's native gate intact, made hardening conditional and
+reframed M4 as one cause useful across pursuits. No worker resumed or runtime
+source changed. Prior C/N proposal bundles are not prerequisite services.
+
+### ACCOUNT FOR NOW: deeper improvements and when they earn their cost
+
+| Code | Improvement and future requirement | Modest starting point / trigger | Done check and place in plan |
+| --- | --- | --- | --- |
+| EI13 | **One evaluation can explain its decision.** Alternate methods, nonhuman bodies, unusual targets and unknown world law become hard to debug when UI and execution tell different stories. | Reuse the selected evaluator's source/target/condition/cost result for the quote and rejection explanation. Keep full internal diagnostic causes separate from observer-safe terms. A structured reason tree is optional until flat reasons fail the selected case. | Same relevant state gives consistent preview/commit decisions; stale execution explains only known changes; hidden target predicates do not leak. MP2 diagnoses readiness this way; broader tooling follows a real need. |
+| EI14 | **Local law is an explicit dependency with a narrow special-rule path.** World variety includes physical, conceptual, social and rule-editing powers; a universal numeric score would lose it. | Bind selected resolution to world/instance and retained definition. Use an ordinary local handler inside the same staged command for an unusual mechanism. Declare its changed facts and reader; do not force it into a generic DSL or silently fall back to another world's rule. | Two deliberately different local laws can use the common publication/disclosure boundary without becoming identical. A rule-changing cheat modifies only its supported scope with known consequences; no global rules editor is required. MP5/MP6 apply only to the selected law. |
+| EI15 | **A committed cause survives retries and multi-stage effects.** Routines, ability handoffs, paid jobs and future branches need durable distinction between preview, accepted commitment, settlement and observation. | Reuse current command/job/receipt identities; add a missing link only on a reproduced ambiguous path. A display failure after a committed save is not a failed action. Track reservation versus consumed input and chosen snapshot/revalidation policy locally. | Failed write changes none of cost/target/result; retry cannot settle the same commitment twice; reopening a view cannot reroll or republish it. Scope IDs to actual world/life/branch where those owners require it. MP3/M3/M4 check affected paths, not every future lifecycle. |
+| EI16 | **Reaction work can pause without changing fictional power.** Strong synergies and long routines can create much processing even when each result is valid. | Keep deterministic ordering and a bounded continuation/remainder through the existing scheduler. Model feedback only for authored supported reactions. A technical execution budget yields or reports failure before publication under its declared policy; it is not a lore cap or automatic nerf. | Resuming the same remainder reaches the same semantic result as supported uninterrupted execution; save/reload cannot lose or duplicate reactions. Per-domain cadence/batching is optional and measured. MP10 only when a real chain needs it. |
+| EI17 | **Definitions evolve without rewriting a life already lived.** Parallel worlds, retained procedures, missing private packs and future alternate histories need exact identities, not mutable names. | Reuse current world/instance/life/content revision owners; retain applicable definition revisions and instance deltas. Separate renamed labels, retired definitions, lost access and deleted truth. Overlays bind a versioned world instance rather than mutate every world sharing a template. | Content changes do not reroll observed material, redirect a target to another instance, erase dormant progress or silently replace a paid job. Missing content blocks affected execution with recovery. MP8 when the selected lifecycle touches it; no pack ecosystem prerequisite. |
+| EI18 | **Derived data can be cached and invalidated deliberately.** Large worlds and richer UI need cheaper reads without a stale second truth store. | Profile context/projection work, then cache one expensive pure read within a committed revision using explicit dependencies or coarse per-commit invalidation first. Avoid distributing fragile manual dirty flags across every feature. UI rendering uses the same known read model. | A changed relevant fact invalidates the cache; an unrelated change need not rebuild expensive work once selective invalidation is justified. Read/preview changes no state or RNG. Same outputs, measured lower total CPU including validation/render costs. MP9 after profiling. |
+| EI19 | **Authors get executable feedback.** More content and agent-built lanes need fast detection of an unsupported method, missing target reader or false output claim. | Extend existing validators with checks for selected registrations/definition references/target kinds/effect support. Give a minimal synthetic scenario using real commands and readable rejected reasons. Keep narrative prose separate from the resolver's capability. | A broken content row fails before activation/spending and points to the owning definition; a valid row reaches a real downstream reader. Allow narrow code handlers, no scripts in saved strings or mandatory manifest for static data. MP10 as actual authoring failures appear. |
+| EI20 | **A semantic reference makes replacement safer.** Incremental extraction, fast-forward and alternate implementations need comparable outcomes rather than module-count metrics. | Preserve one old implementation or small reference model on disposable state only for the touched seam. Compare exact relevant identity/cost/order/knowledge/persistence semantics, with exclusions such as timestamps explicitly named. Headless checks use the real command path where available. | Meaningful properties include save/load/continue equivalence, wrong-instance refusal, pure preview, segmentation equivalence where promised and failed-write conservation. Choose applicable existing checks; no duplicate full suites or test per rule. Native browser remains the integration gate. MP3/M4/MP7. |
+| EI21 | **Behavioral reuse has a discoverable boundary.** A powerful general method is frustrating if every new use is hidden, while an exhaustive menu can leak secrets and overwhelm play. | Derive a small known action set from actual supported methods/targets; retain direct ordinary actions and a stable route to alternate methods. Show learned applications and permitted experiment affordances without listing all sealed possibilities. | An ordinary use and a less obvious cross-domain use are reachable at 1366×768; failed guesses give proportionate evidence; a coverage gap is honestly developer-labelled rather than invented world law. Log/Back/Esc and focus access stay intact. MP4 surface plus existing UI rules. |
+| EI22 | **Measure the task the engine exists to support.** Future flexibility, authoring speed, correctness and late-state cost are a more useful ambition than an unmeasured 'best engine' label. | For the same selected scenario, record setup-to-play time, debugging effort, bespoke core joins, command/validation/serialize/write/render cost and retained behavior. Include one more developed synthetic state if scale affects the claim. Set thresholds from measured baseline and the player's needs, not invented benchmark numbers. | A proposed service earns its place by removing a demonstrated failure/cost or supporting the selected new behavior without unacceptable regression. Report setup/runtime/native/human gates separately. MP7 and the selected MP9/MP10 study; no industry superiority claim without a separate fair comparison. |
+
+A future requirement is retained here without becoming an immediate service.
+Default to an authored relation and a narrow local resolver; increase fidelity
+when the player decision or a measured failure needs it. Preserve strong powers,
+free faculties and world-specific absolutes when supported. Shared plumbing must
+not silently impose human anatomy, a universal energy fee, one concentration
+slot, an anti-arbitrage rule or an inevitable counter to every advantage.
+
+### LATER / DELEGATE, no run launched
+
+The MP8–MP10 backlog in the executable brief supplies level, effort and done
+checks. A useful next design review after the first cross-domain proof is to
+ask which two existing consumers now reuse a cause, which bespoke joins remain,
+and which single missing behavior warrants the next adapter. Do not open all
+future services as parallel lanes or extend foundations indefinitely before a
+playable return. A wider rewrite still needs the assessment's demonstrated
+mismatch and cost comparison; no fixed migration-count trigger applies.
+
+### Planning verification
+
+Both brief copies match; prior briefs and the stale shared checkpoint are
+archived verbatim. Current checkpoint statuses derive from the lane's M3 report,
+not rerun gates. The original recorded PID/PGID had no matching process in the
+bounded check. Current task edits docs only, preserves unrelated state and
+performs no branch merge, commit, launch, tests/build/browser or save mutation.
+New document links/anchors, MP/EI coverage and history preservation are checked.
+
+
+## UI engine support for design and iteration, 2026-10-16
+
+Weibao: "also improve engine considerations for ui design and more? or send out
+new chat if that is seperate enough". Kept within this plan because command,
+projection, refresh and lifecycle seams are shared with the interaction work.
+Visual comparisons remain with the UI/mockup owners; no new chat or UI worker
+was launched. UIE1–UIE12 are engineering proposals, not added standing UR rules.
+Authority: AR3–AR10, AD6–AD9/AD34/AD36, UR1–UR17, UR21–UR33, UR41–UR48
+and the existing [mockup workflow](MOCKUP_SYSTEM.md). Source observations below
+are READ, not rebuilt native evidence.
+
+### ACT NOW completed
+
+Added the selected UI seam constraints to [modular brief MP11](gm/dispatch/modular-seams-2026-10-16/BRIEF.md#ui-engine-support-for-the-touched-slice-mp11)
+in both checkouts. M3's stopped gameplay gate is retained, not enlarged into a
+whole-UI project. [UI design considerations](THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md#ui-engine-implications-for-design-2026-10-16)
+own the interaction/design implications. The existing standing workflow, tokens,
+components, layout controller and navigation owners are reused.
+
+### ACCOUNT FOR NOW: engine seams and concrete UI outcomes
+
+| Code | UI need | Existing seam READ / bounded improvement | Observable check when the seam changes |
+| --- | --- | --- | --- |
+| UIE1 | A view is correct when opened, not after another gameplay tick | The stopped M3 report names readiness/open-refresh uncertainty, not a proven cause. `panel_kit.js` delegates discovery/eligibility to the workspace; lane crafting renders on registry ticks/commands. Trace initialization, native readiness and view-open refresh before choosing a fix. | Open while paused after valid restoration and inspect the same native readiness/eligibility used by execution. If not ready, show a truthful known reason. No forced eligibility, extra timer or speculative fix to an unconfirmed cause. |
+| UIE2 | Multiple views agree about one action | `crafting_detail.js` renders a supplied public model and emits handlers; action terms already have knowledge-qualified projections. Reuse the real quote and committed receipt across row, detail, shortcut and result surfaces; presentation does not calculate a second cost/chance. | Current stock/cost/eligibility agree across touched surfaces. An old quote revalidates at execution. Inspection, hover, layout and search consume nothing and draw no RNG. |
+| UIE3 | Refresh is timely and cheap without running gameplay | `simulation_render.js` already coalesces refreshes, caches framed reads and defers hidden-document display work. Extend that owner for a demonstrated stale/expensive path; it is not proof all domains already invalidate correctly. | Relevant publication/open/visibility changes refresh the touched view, and rapid renders coalesce without skipping gameplay or changing saves. Pausing gameplay does not make inspection stale. Measure refresh cost before replacing polling or adding another reactive system. |
+| UIE4 | Selection and keyboard work survive changes | Native crafting restores focus by control kind/index; center history keeps some DOM-node scroll/group references. Those techniques do not establish semantic restoration when rows reorder or nodes are replaced. Prefer stable public subject/control IDs for the selected list, with a local per-view state owner. | While typing, selecting an item or inspecting a changing list, refresh retains the same subject, query, selection and sensible focus. If the subject disappears, explain and choose the nearest valid fallback without jumping into a different command. No mutation merely to preserve a selection. |
+| UIE5 | Navigation has a single owner and real return path | `center_modes.js` owns center history/Back/Esc; workspace navigation and local pane scopes already exist. Keep route/subject/view-state distinct from gameplay jobs. Closing an inspection differs from the native command that stops work. | Reach the chosen panel from its actual home, inspect, return to the original place, restore selection/scroll and resume. Esc dismisses the top applicable layer; it neither falls through to another action nor cancels work without the declared native behavior. No second global router. |
+| UIE6 | Feedback survives redraw and distinguishes outcomes | Use authoritative committed receipts for pending/accepted/completed/interrupted/error states only when those states exist. Disable or guard a real in-flight command through the command owner, not an optimistic inventory decrement or a fabricated async delay. | Rapid clicks and keyboard repeat cannot duplicate a settlement. Failed storage does not look successful; a render failure after committed storage does not refund or retry the action. Feedback and next action stay discoverable after redraw. Not every synchronous action needs a spinner or modal. |
+| UIE7 | Inspection is useful without revealing truth | Panel kit guards undiscovered labels; action-legibility projections already protect known terms. Share observer-safe explanation models for hover/focus, pinned detail and reference views. Historical event inspection uses retained known event data, not the subject's current secret state. | Known effects show source/duration only if supported; keyboard/pinned reading works without hover. Switching current subject or observer never reuses another scope's cached preview. Old log inspection does not silently become current-state inspection; links can explicitly open the current subject. |
+| UIE8 | Responsive layout respects task and text | Workspace owns placement/disclosure; shared tokens/components own appearance. Renderers should accept the public model and local view state without requiring a particular column width. Measure available space with existing layout tools where needed. | At 1366×768 and relevant 125/150% text, ordinary action/current work/return remain usable with the log intact and one scroll owner per region. Long names and populated lists do not hide critical controls. Keep meaningful facts; do not solve overflow by shrinking text or hiding the current action. Mobile remains deferred. |
+| UIE9 | Mount/unmount and subject changes are safe | `definePanel` uses workspace registration; workspace exposes unregister and center controller has register/release views. Trace cleanup for the touched consumer rather than assume registry mount is repeat-safe. Explicitly release owned subscriptions, callbacks, previews and transient nodes where those lifecycles exist. | Reopen, reset or switch context without duplicated panels/listeners/commands, detached launcher paths, stale async replies or a pinned preview attached to the wrong subject. Production hot reload remains a separate feature. |
+| UIE10 | Fixtures accelerate design without pretending to be the game | Workbench already has schema/provenance, same-state comparisons and capture/restore protocol. Its initial recipe build still appends an adapter to a pinned compiled prototype; build-private bindings are transitional, not a durable production API. Prefer a source-owned public fixture facade for the next materially different study when it earns its cost. | Compare layouts on the same observer-safe state without replaying gameplay commands or copying private saves. Label exact real/simulated/absent parts. A second study works without study-specific host branches; native testing still traverses actual startup/commands/storage. |
+| UIE11 | Display preferences and gameplay commitments evolve separately | Existing workspace stores layout preferences and center navigation is ephemeral. Declare ownership for query, open groups, pins, draft parameters and active committed work locally. Preserve existing preference keys and compatibility unless explicitly changed. | Reload/import or a renamed display label does not lose gameplay, alias another world/body subject or apply a draft command. Retained pins degrade gracefully if content is missing. A prototype review export is not a game save or a promise of native screen geometry. |
+| UIE12 | Evidence catches changing-state UI defects | Existing center/workspace/UI-contract tests are candidate coverage, not proof of native discoverability. Use the selected scenario's same commands/public model across appropriate harnesses and add only meaningful regressions. | Test find → inspect → act → read result → return → resume on a rebuilt native origin; include one relevant blocked/failure/changing state, crowded data and text settings. Technical browser evidence, prototype comparison and human visual selection stay separate. Measure setup time and update cost where improved. |
+
+### LATER / DELEGATE, bounded candidates only
+
+| Candidate / trigger | Level, effort and done check |
+| --- | --- |
+| UIE1/UIE3 M3 readiness/open-refresh investigation | Balanced tracing; strong review if native save authority changes / small to medium. Reproduce the blocked state, identify its cause without spending, add a meaningful regression if fixed, then run the retained M3 gate. Not a generic UI refresh rewrite. |
+| UIE4/UIE5 stable subject restoration on the selected M4 surface | Balanced / medium. Reordering/removal/Back retain sensible semantic state and keyboard focus, with no duplicate command or save change. Reuse local navigation owners. |
+| UIE10 next workbench adapter as a public source facade | Balanced / medium after an actual second study. Same-state comparison and fixture commands preserve behavior, host stays study-independent; no native integration claim or archive-wide migration. |
+| UIE7/UIE8 richer inspection and density comparison | Balanced prototype/design / small to medium if an actual discoverability/layout uncertainty remains. Apply MW workflow at the required desktop/text settings; selected native implementation and human acceptance are separate. |
+
+No independent UI redesign run is required for these considerations. A later
+visual-design chat would be useful for an unsettled named layout study with its
+own fixtures, target task and acceptance question; it should not own competing
+commands, projections or global navigation. This task launches no such chat.
+
+### Evidence and limits
+
+READ: shared `panel_kit.js`, `center_modes.js`, `crafting_detail.js`,
+`simulation_render.js`; bounded workspace layout/navigation symbols; workbench
+build/README and mockup protocol; UI rules and modular lane M3 report.
+Inspected current dirty sources, preserving other UI sessions' edits. No runtime
+change, test/build/browser, new mockup or visual acceptance. Documentation checks
+verify links/anchors, matching briefs, preserved prior text and scoped MP11.
+
+### Round 2: what the M3 block suggests, 2026-10-16
+
+Weibao asked what this section needs done. Answer: no standalone UI engine
+project. The first required work is the existing UIE1/UIE3 M3 investigation;
+UIE4/UIE5 apply when M4 touches a surface; UIE10 and UIE7/UIE8 wait for their
+triggers. This round READ the stopped lane candidate at `codex/modular-seams`
+`3b24c469c` (`crafting_home.js`, `crafting_domain.js`,
+`crafting_frontier_runtime.js`, `domain_registry.js`, the M3 browser script and
+`harvestReady`/`harvestWritable` in `main.js`). Nothing was run; causes below
+are INFERRED hypotheses to test first, not a diagnosis.
+
+#### ACCOUNT FOR NOW
+
+| Code | Observation (READ) | Constraint and check |
+| --- | --- | --- |
+| UIE13 | `domainRegistry` offers only `tick` and `mountPanels`. The crafting home redraws from `tick: () => panel?.render()`; nothing redraws it when the center view opens or a native readiness flag changes. The M3 script pauses before `startFresh`, so a panel drawn while saving was still restoring can stay disabled indefinitely. | Strongest M3 hypothesis. A domain panel needs one open/publication refresh routed through the existing `deferSimulationRender` batching, not a timer or a second refresh system. Check: paused fresh load, open the home, Gather reflects current readiness with zero ticks advanced. |
+| UIE14 | `eligibility()` collapses about twelve native gates (`ownsSave`, `foundationSaveBlocked`, `importProbeToken`, `restoringNativeSave`, storage failure, activity, combat, dialogue, sleep, trade...) into one string, "Return free and alive to Village, with saving available." Neither the player nor the stop report could tell which gate held. | Surface the first failing native reason, reusing existing wording such as "Restore writable saving." This turns UIE1 into a one-read diagnosis and serves UR player legibility. No secret truth is involved. |
+| UIE15 | The M3 script writes `localStorage` and reloads while paused; the opening showed the native read-only / restore-saving notice. That may be correct native behavior under harness setup rather than a game defect. | Harness steps assert save ownership and restore completion through a read-only `simulationTestHooks` probe before acting, so a setup gap fails as setup. Do not force writability from the harness. |
+| UIE16 | `crafting_home` skips redraw when `JSON.stringify([view, selected])` is unchanged, while `quote()` reads the native context separately. Today `ready` is in both, so it is consistent. | A memoized panel keys on every input its quotes read. A new quote gate added outside the view projection would silently go stale. Cheapest guard: build the view from the same context object the quote uses. |
+
+#### LATER / DELEGATE
+
+| Candidate / trigger | Level, effort and done check |
+| --- | --- |
+| M3 resume: test UIE15, then UIE13, then UIE14 | Balanced, small. Rebuild final source first (the last bundle predates the style-to-class edit). Probe ownership/restore state paused; if the harness is fine, add the open/publication refresh and a regression that fails on a stale disabled Gather. Then the retained M3 gate: full `npm test`, `check:arch`, native browser harvest/craft/use/save/reload/import at 1366×768. |
+| Generalize UIE13 to other registry domains (harvest, meadow care) | Balanced, small, only after the M3 fix proves the hook. Each registered panel redraws on open while paused; no per-domain timers. |
+
 ### Round 3: one renderer for the game and its mockups, 2026-10-16
 
 Weibao: "consideer that the mockup system looks not too much like the real deal,
@@ -1332,6 +1623,7 @@ work together? more to conisder?" The combined sequence lives in one place, the
   `domain_registry.js` or `check:arch` exists there today (NX27). Merging the
   passed M1/M2 ahead of M3 is proposed, pending Weibao's yes.
 
+
 Round 3 follow-up (same day): the blockers and costs above now have per-round
 remedies in the [Round 15 plan](gm/dispatch/ui-foundation-2026-10-15/next-parts/round-15-whole-plan.md#addressing-the-round-3-blockers-and-costs-2026-10-16)
 (NX37–NX46). Two corrections from source: 49 `*_ui.js` panels already use an
@@ -1345,3 +1637,4 @@ Improvement pass (same day): UIE18 and UIE22–UIE25 above are amended in place
 and saved with PV1–PV8 in the [Round 15 plan](gm/dispatch/ui-foundation-2026-10-15/next-parts/round-15-whole-plan.md#improved-ideas-and-preview-feasibility-2026-10-16):
 the workspace and most factory panels bundle without `main.js`; the combat
 display (580 modules) does not.
+

@@ -27,6 +27,11 @@ native game. The build copies those inputs, hashes them, and appends the local
 adapter without modifying the older experiment. Its frame is a simplified
 five-region fixture rather than a claim of exact current Shell geometry.
 
+Proposed direction, 2026-10-16: studies should mount the real game views over
+fixture data rather than redraw a copy. See
+[UI engine round 3, UIE17–UIE26](ENGINE_EXPANSION.md#round-3-one-renderer-for-the-game-and-its-mockups-2026-10-16).
+Not accepted yet; the rules below still apply.
+
 ## Standing rules
 
 | Code | Requirement | Reason |

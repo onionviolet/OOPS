@@ -9,6 +9,8 @@ It records possibilities, not accepted rules, a runtime claim or an execution
 assignment. No existing secret is disclosed. No universal flaw, slot budget,
 dominance model, rarity ladder or power ceiling is introduced.
 
+Implementation plan (proposal, 2026-10-17): [genetics and hero start plan](GENETICS_AND_HERO_START_PLAN_2026-10-17.md).
+
 ## G1 Distinct layers, connected effects
 
 | Layer | Question it answers | Possible gameplay |
@@ -1025,7 +1027,7 @@ Lane B10 maps these per world.
 | GM5 | Precise editing | Tech | Read, design, edit; delivery, off-target effects, mosaic results |
 | GM6 | Viral or vector delivery | Tech | Can change adults; can spread; can be weaponised (HI6) |
 | GM7 | Nanotech and synthetic biology | High tech | Programmable bodies, maintenance needs, hacking risk (BM1) |
-| GM8 | Implanted gene-organs | Tech or grimdark | An organ that rewrites its host over time (Warhammer 40k's gene-seed is the public reference) |
+| GM8 | Implanted gene-organs | Tech or grimdark | Package and implant production; Warhammer 40k's gene-seed is a design reference for a production system, not one host-rewriting organ. Recoverable material and actual recipient procedures need separate authoring. |
 | GM9 | Uplift | Tech or magic | Raise animals or plants to sapience; their society and rights follow |
 | GM10 | De-extinction | Tech or magic | Revive lost species or bloodlines from samples (PG3) |
 | GM11 | Gene drives | Tech | Push a trait through a whole population; ecological and political fallout (G8) |
@@ -1034,7 +1036,7 @@ Lane B10 maps these per world.
 |---|---|---|
 | GD1 | Somatic or heritable | Change only this body, or also descendants; a world can make both possible |
 | GD2 | Read before write | Sequencing, diagnosis or a seer's reading first; editing blind is possible and riskier |
-| GD3 | Capacity budget | Where a world says so, a body holds only so much change: complexity, metabolism, stability (RimWorld Biotech's complexity and metabolic budget is a design reference); a local profile, not a global law (B16 C7) |
+| GD3 | Capacity budget | Where a world says so, a body may have local limits on genetic change. Keep clinic assembly complexity separate from recipient metabolic demand; active energy use and equipped loadout are distinct dimensions too. RimWorld Biotech is a design reference, not a borrowed formula; this is a local profile, not a global law (B16 C7). |
 | GD4 | Side effects | Off-target changes, rejection, instability, appearance shifts, shortened life; or none in a clean world |
 | GD5 | Reversal | Undo, partial undo, or permanent (BM6) |
 | GD6 | Who can do it | A lab, a sect alchemist, a lone genius, a cheat, the player's own system |
@@ -1444,8 +1446,9 @@ against the Marvel, DC, Worm and Godclads digests.
 - Power-rating windows round people into categories; edge cases get
   misfiled (SI3, CN8).
 - Children of famous heroes carry the face and the target (MH1, CL6).
-- Sliding time leaves the rest of the world aging around unchanging bodies
-  (CB13, SP5).
+- An explicitly authored stasis/nonaging route can leave others aging around a
+  stable body; editorial redating alone supplies no such bodily effect (CB13,
+  SP5).
 
 ### G78 Abstractions the body work needs
 

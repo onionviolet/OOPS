@@ -910,3 +910,51 @@ Folded at the request of the gameplay-foundations session after the returns were
 | [P40](gm/dispatch/procgen-2026-10-13/p40/REPORT.md) determinism (BL) | F01-F19 mapped to BL1-BL12 with locators; proposed lexical lint; tests T01-T21. Large scan JSON left uncommitted on purpose | BL1-BL12; GI4; R3-3; P38 retention; P39 BK2 | Still live: `localeCompare` ordering in `src/storylet_deck.js`, `src/generated_people.js`, `src/story_requests.js` (F04). BL4 prefers integer weights; P1/P3 v1 use floats, keep v1 (GX4 agrees). Branch snapshots predate `759dd393` | R1 eviction and operation dedupe (F11), R2 scheduler-owned mixture repeats (F09), R3 versioned deterministic order (F04) |
 
 **Cross-lane.** Teaching appears three times (P27.S3, P30.S3, P31.S1): one slice, three angles. Obligations appear in P31 and P33. P31 and P33 both use M1-M6 for different P2 audits. Picks that run on live code now: P40.R1 (history dedupe), P40.R3 (ordering), P36.A1 and BH-S1 (names and address on P4 travelers), P33.S3 (bookings).
+
+
+## OD15 return recap direction, 2026-10-15
+
+[Accepted answer](USER_VISION.md#overarching-direction-discussion-od15-and-time-free-benefits-2026-10-15):
+short adjustable recap, important pending choices paused, reminders of prior
+intent, and knowledge through available means/cheats only. Existing recap owners
+and implementations remain authoritative for their evidence; no new digest
+service or UI design is selected by this direction.
+
+### ACCOUNT FOR NOW, proposed behavior
+
+- **RR1, actual outcomes:** summarize meaningful settled gains, consumed resources,
+  relevant known world changes, discoveries and why work stopped. Group repeated
+  routine activity rather than replay every tick. Avoid claiming predicted maximum
+  rewards as earned. Report uncertainty and knowledge source where material.
+- **RR2, intent and resume:** recover the last chosen objective/routine, its actual
+  stop condition, pending choices and useful known next action. Don't invent a
+  goal the player never chose. Comfortable detail controls and revisitable history
+  can help without mandatory clicks through every resource change.
+- **RR3, no omniscient recap:** distinguish what happened, what an actor learned,
+  and what a delayed report says. Unknown offscreen causes stay unknown; an
+  applicable appraisal, remote sense or knowledge cheat may reveal more. A pending
+  player choice does not automatically freeze every independent world process;
+  exact interruption/calendar policy remains open under OD4/OD23.
+- **RR4, faithful time account:** distinguish wall-clock absence, actual routine
+  time processed, bodily aging, world-calendar advancement and any banked or
+  simulated time. A simulated-life cheat can report transferred benefits without
+  claiming a real NPC was met or an external institution advanced, unless its
+  power actually does that. Time-free effects remain a consideration, not default.
+
+### Focused reference pass and evidence limits
+
+The existing [Melvor source audit OFF01](research/melvor-idle/FINDINGS.json)
+(v1.3.1, script query 12097, checked 2026-10-06) reports an OfflineProgressElement
+comparing before/after XP, currency, inventories and other snapshots, including
+loss and stopping messages. It suggests RR1's real-delta summary. OFF02 reports
+lost goods/full-bank conditions, supporting clear distinction between gains,
+costs and failures. These are earlier source-audit claims, not newly exercised
+current-game or UI behavior. The audit's raw path was not present on this host.
+
+Live reference refresh was unsuccessful: Melvor wiki returned 403, official
+script URL was not accessible through the browser tool, and the attempted second
+game documentation/source routes were unavailable. No fresh two-game comparison
+or current offline-cap claim is established. Primary source pointer retained by
+that audit: https://steam.melvoridle.com/assets/js/built/game.js?12097 . Treat the
+prior findings as design leads; further reference work is optional future work,
+not a new release gate. No unrelated site summaries were adopted as authority.
