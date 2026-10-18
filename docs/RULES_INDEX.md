@@ -54,7 +54,30 @@ open here too.
 | Combat rules | CBR1–CBR30 | Proposal 2026-10-18 (CBR1, CBR7, CBR9, CBR10, CBR13, CBR18 restate accepted AD19, AD20, AD25, AD28, AD8, AD38) | Fights, encounters, enemies, weapons in use, defeat and victory outcomes, fleeing, pursuit, captives, idle combat, nonviolent conflict; 2026-10-18 application: queued outcomes, withdrawal settlement and actual faculties | [COMBAT_RULES](COMBAT_RULES.md) |
 | Economy rules | ECR1–ECR33 | Proposal 2026-10-18 (ECR1, ECR24, ECR27 restate accepted AD27, AD31, AD11) | Money, prices, merchants, trade, currencies, credit, wealth, property, carryover of wealth; 2026-10-18 application: belief-based quotes, currency shape and transfer accounting | [ECONOMY_RULES](ECONOMY_RULES.md) |
 | Skill and learning rules | SLR1–SLR39 | Proposal 2026-10-18 (SLR2, SLR5, SLR17 restate standing MR21–MR23; SLR3, SLR15, SLR20, SLR24–SLR26, SLR32–SLR33, SLR38 restate accepted AD lines) | Skills, practice, teaching, texts, rust and loss, carrying skills across lives and worlds; 2026-10-18 application: actual faculty carriers/clocks and lesson settlement | [SKILL_AND_LEARNING_RULES](SKILL_AND_LEARNING_RULES.md) |
+| Presence and interaction rules | PIR1–PIR25 | Proposal 2026-10-18 (PIR5, PIR6, PIR12, PIR20–PIR23, PIR25 restate accepted sealed secrets, UR35, UR52, AD16, D11, AD11–AD12, AR and AD34) | Who and what is present in a place, selecting people, stations, events and ways out, verbs on them, new and heard dialogue, presence across idle time, rewinds and lives | [PRESENCE_AND_INTERACTION_RULES](PRESENCE_AND_INTERACTION_RULES.md) |
 | World completion standard | none | Proposal 2026-10-11 | Sections, detail ledger and acceptance for a world | [WORLD_COMPLETION_STANDARD](WORLD_COMPLETION_STANDARD.md) |
+
+## Core digest (read this first, 2026-10-18)
+
+The rules that bind almost every task, one line each. Cite the code for detail;
+this adds no authority. Proposal rulebooks bind only through the AD or standing
+line they restate.
+
+| Idea | Code |
+|---|---|
+| Weibao's words are authority; agent text is proposal | AD32 |
+| Anything is possible, reasonably; things work by how they work | AD5, AD38 |
+| Limits are defaults with a dial, reason and cost, not never/always | AD5, AD22 |
+| Each world sets its own rules; special rules start hidden | AD1, AD3 |
+| Means decide what anyone knows or does; truth, knowledge and display stay separate | AD6, AD7, AD8 |
+| Recovery is forgiving; firm lines are save integrity only | AD19, AD22 |
+| One authority per fact; `main.js` is a composition root | AR1–AR16 |
+| UI: desktop first, shared tokens and controller, evidence at 1920×1080 and 1366×768 | AD34, UR1–UR58 |
+| Time is game time; away time runs chosen routines | AD15, AD16, AD17 |
+| Build one playable slice; complexity welcome, sequenced | AD33 |
+| Verify only what changed, rebuild and exercise it in a browser before "done" | AD36 |
+| Sealed secrets stay out of chat and reports | Sealed secrets |
+| Agent runs share one finite budget | AD37, AU1–AU15 |
 
 ## Router: what applies to my task
 
@@ -73,6 +96,7 @@ open here too.
 | Bodies, health, injury, illness, medicine, healing | AD13, AD19, AD8, AD38, MR1–MR36; BHR1–BHR30 as the proposed rulebook | [Part 35 palette](worlds/world-depth-2026-10-13/35_HEALTH_INJURY_ILLNESS_DEATH.md), [body and health palette](BODY_AND_HEALTH_CONSIDERATIONS_2026-10-17.md); BHR18/BHR28 application names actual body clock and chosen reroute policy |
 | Combat, enemies, weapons in use, defeat outcomes, fleeing, captives, conflict | AD8, AD19–AD21, AD25, AD28, AD38, BHR11, BHR13, BHR15; CBR1–CBR30 as the proposed rulebook | [Combat palette](COMBAT_AND_CONFLICT_CONSIDERATIONS_2026-10-18.md), [W2 combat grammar](worlds/world-core-kit-2026-10-14/W2_LAWS_POWER_COMBAT.md), [encounters and pursuit](ENCOUNTERS_AND_PURSUIT.md); CBR2/CBR27 application separates outcome boundaries from shown stop reasons |
 | Skills, practice, teaching, talents that change learning, skill loss or carryover | MR21–MR23, AD3, AD6, AD8, AD11, AD17, AD38; SLR1–SLR39 as the proposed rulebook | [Skills and learning palette](SKILLS_AND_LEARNING_CONSIDERATIONS_2026-10-18.md), [SKILLS_AND_TALENTS](SKILLS_AND_TALENTS.md), [skill mechanisms](worlds/SKILL_MECHANISMS_AND_MEANS_2026-10-13.md); SLR20 application follows the actual faculty carrier and clock |
+| Who is here, talking, trading or using a station, selecting subjects, new and heard dialogue | UR35, UR42, UR52, AD6, AD11–AD12, AD16, AD33; PIR1–PIR25 as the proposed rulebook | [Around you considerations](AROUND_YOU_SUBJECT_ACTIONS_CONSIDERATIONS_2026-10-18.md), [S1–S4 packet](gm/dispatch/around-you-2026-10-18/S1_S4_PACKET.md) |
 | Danger, defeat, difficulty, settings | AD19–AD22, SR14 | [DIRECTION_SYNTHESIS](DIRECTION_SYNTHESIS.md#od12-forgiving-recovery-direction-2026-10-15) |
 | Cheats | Rulebook 5, 11; AD26, AD28–AD30, AD11 | [CHEAT_COSMOLOGY](CHEAT_COSMOLOGY.md), [CHEAT_LIBRARY](CHEAT_LIBRARY.md) |
 | Starts and entry | AD23, Rulebook 8 | [Intro and starts index](INTRO_AND_STARTS_INDEX_2026-10-14.md) |
@@ -263,6 +287,16 @@ Each tension is resolved from existing authority; none needs a new decision.
 | T5 | Rulebook 9 allows only two firm lines; SR14 and AD19 allow harsh play. | Harshness is chosen or forewarned, not a firm line. Anti-abuse beyond save integrity is not a rule (AD22). |
 | T6 | The rulebook's "more to consider" candidates (consequences persist, many routes, information when it comes up, sources first) read like rules. | Still candidates in general. They are standing only where a later rulebook adopts them: SR22 for site persistence, AD5 for routes, UR42 for disclosure, AGENTS scope for sources. |
 | T7 | LOTM planning docs use "AR1–AR11" for audit rules; ARCHITECTURE_RULES uses AR1–AR16. | Unqualified AR means architecture rules. Cite the LOTM set as "LOTM AR" with its link. |
+
+## Retired and archived
+
+Finished or superseded records. They stay at their paths because other docs link
+to them, and no rule code is removed or reused. History only, never a rule source.
+
+| Record | Retired | Why |
+|---|---|---|
+| [Design defaults audit](DESIGN_DEFAULTS_AUDIT.md) | 2026-10-18 | All 24 rows applied 2026-10-10; outcome lives in Rulebook 1–12 and AD5 |
+| [Superseded queue/plan text](reviews/QUEUE_PLAN_SUPERSEDED_2026-10-18.md) | 2026-10-18 | Dated history of replaced plan text; owners are in the refresh report |
 
 ## Aspects without a dedicated rulebook
 

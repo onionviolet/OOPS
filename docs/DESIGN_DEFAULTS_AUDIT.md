@@ -1,5 +1,10 @@
 # Rules we never established: design defaults audit (2026-10-10)
 
+> **Archived 2026-10-18: finished, kept as history.** All rows were applied on
+> 2026-10-10 and the outcome lives in Rulebook 1–12 and AD5. Not a live rule
+> source. It stays at this path because AGENTS, PROJECT and others link here.
+> See [Retired and archived](RULES_INDEX.md#retired-and-archived).
+
 Weibao: "What are other rules like that that we never established?" after
 finding that "no universal rank" was presented as accepted when he never
 accepted it. A read-only audit across the design docs (a Sonnet reader,

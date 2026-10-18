@@ -21,7 +21,7 @@ exception with an in-world reason and cost.
 
 | Code | Rule | Mistake it prevents |
 | --- | --- | --- |
-| BHR1 | **Bodies are real (accepted, AD13).** Species, bloodline, constitution, sex, age and size carry stats, needs and lifespans. | A reskinned human for every species |
+| BHR1 | **Pointer: AD13.** Bodies are real (accepted). | A reskinned human for every species |
 | BHR2 | **Put each harm on its actual carrier:** flesh, channels or energy body, mind, soul, or a held power instance. Healing one layer does not promise another. (H35M12) | One "heal" that silently restores soul, memory and curse damage |
 | BHR3 | **Every fact names its scope** (GHS44: body, mind, soul, line, record) before it gets a save field. Body facts stay with the body and are keyed by body instance; mind and soul facts follow their carrier. (Today's simulation conditions are keyed by actor, lane B1-X6.) | Injuries lost on possession or wrongly kept on rebirth |
 | BHR4 | **Each body kind declares its harm channels and its repair kind.** Organic bodies heal, constructs are repaired, spirits reform, plants regrow, all under one integrity contract. (BHC19) | A separate health engine per species, or a golem catching a cold |
@@ -49,7 +49,7 @@ exception with an in-world reason and cost.
 
 | Code | Rule | Mistake it prevents |
 | --- | --- | --- |
-| BHR14 | **Recovery is forgiving by default (accepted, AD19).** Native defeat is unconsciousness and recovery; harsher play is optional or forewarned. | Defeat as a hidden permanent tax |
+| BHR14 | **Pointer: AD19.** Forgiving recovery (accepted). | Defeat as a hidden permanent tax |
 | BHR15 | **Lasting injuries from defeat are a difficulty setting,** explained when chosen and applied to future play (AD21). (BHC21) | Battle Brothers harshness by default |
 | BHR16 | **No hunger death; food is a boost (accepted).** Unfed ordinary play stays comfortable. Read as the ordinary case under AD5: an exception needs Weibao's direction plus an in-world reason and forewarning. | Survival-meter pressure in an idle game |
 | BHR17 | **Unconscious, critical and dead are different states,** each with its own rules and rescue window. A counter named "deaths" is not terminal death. (H35D3, H35C2) | Old defeat counts read as mortality |

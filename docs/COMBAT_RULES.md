@@ -20,13 +20,13 @@ in-world reason and cost (AD5).
 
 | Code | Rule | Mistake it prevents |
 | --- | --- | --- |
-| CBR1 | **Recovery is forgiving by default (accepted, AD19).** Native defeat is unconsciousness and recovery; harsher play is optional or forewarned. | Defeat as a hidden permanent tax |
+| CBR1 | **Pointer: AD19.** Forgiving recovery (accepted). | Defeat as a hidden permanent tax |
 | CBR2 | **Every fight ends through one outcome publisher** with a typed outcome (unconscious, knocked out, yielded, routed, captured, withdrew, escaped, killed where allowed) and a separate cause. All code paths call it. (CBC1, CBC2, CBX1) | A body or law setting that works in one fight type only |
 | CBR3 | **Winning has outcomes too:** killed, knocked out, let go, surrender accepted, captured, drove off. Loot and harvest follow the outcome. (CBC3, MF4) | A pelt taken from a neighbor who yielded |
 | CBR4 | **What a winner does with the loser follows the winner's means and motive** (AD6, AD25), within the recovery floor of CBR1. (CBC5) | Every defeat ending in the same generic penalty |
 | CBR5 | **Unconscious, downed, critical and dead are different states** with their own windows (BHR17); counters say which they count. (CBC4, CBX5) | Old unconsciousness counts read as deaths |
 | CBR6 | **World danger and player recovery are separate dials.** The world card states how lethal defeat usually is; the recovery setting decides how much of it lands; a harsher world forewarns at entry. (AD19, CBX4, CBC37) | World cards and AD19 contradicting each other |
-| CBR7 | **A locally unwinnable fight may require going elsewhere or restarting (accepted, AD20).** | Every threat tuned to be beatable on the spot |
+| CBR7 | **Pointer: AD20.** Locally unwinnable fights (accepted). | Every threat tuned to be beatable on the spot |
 | CBR8 | **Fated characters survive through in-world agents** (escape, rescue, capture), and losing that fate removes the protection. (CBC6) | Invulnerable protagonists or scripted saves |
 
 ## Threats and enemies
@@ -42,7 +42,7 @@ in-world reason and cost (AD5).
 
 | Code | Rule | Mistake it prevents |
 | --- | --- | --- |
-| CBR13 | **Opponent numbers are learned; own stats are exact (accepted, AD8).** First sight shows impressions and `???`. (CBC20, CBX3) | Full enemy stat blocks on first sight |
+| CBR13 | **Pointer: AD8.** Learned opponent numbers, exact own stats (accepted). (CBC20, CBX3) | Full enemy stat blocks on first sight |
 | CBR14 | **Intent, weakness and hidden abilities are learned fields** with source and confidence, per kind and per individual. (CBC20, CBC21) | Opponent 2 assumed identical to opponent 1 |
 | CBR15 | **Fights are evidence for both sides.** A survivor learns your methods and can tell others through a real channel (AD6). (CBC22) | Fleeing enemies who forget everything |
 | CBR16 | **Deception writes wrong beliefs, not wrong truth** (AD7). (CBC23) | Feints implemented as hidden stat modifiers |

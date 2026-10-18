@@ -21,7 +21,7 @@ is a default; a world may state an exception with an in-world reason and cost.
 | Code | Rule | Mistake it prevents |
 | --- | --- | --- |
 | SLR1 | **Competence has layers on different carriers:** understanding (memory), fluency (the body or faculty the practice shaped), source (core, pool, pact, grant; its own custody) and expression (derived now from body, tools and world). A world may collapse them when they never come apart. (SLC1–SLC3) | "Level 7 swordsman" meaning the same thing in a baby's body |
-| SLR2 | **Mastery improves control, not truth (standing, MR21).** | Skill that changes what iron or an herb is |
+| SLR2 | **Pointer: MR21.** Mastery improves control, not truth (standing). | Skill that changes what iron or an herb is |
 | SLR3 | **Expression needs actual means (accepted, AD6, AD38, CA2).** A method works wherever its mechanism works, and only there. | Skills that work by label in a world without their mechanism, or fail by label where the mechanism is present |
 
 ## Gaining
@@ -51,7 +51,7 @@ is a default; a world may state an exception with an in-world reason and cost.
 | SLR14 | **Teaching passes understanding and feedback;** the student still builds fluency. A means that transfers fluency or memory directly works by its mechanism and says so. (SLC20, AD38) | Paid lessons that hand over finished mastery |
 | SLR15 | **Teachers teach only what they hold, through means (accepted, AD6).** Teaching ability is its own competence. (SLC21) | Every NPC as an omniscient tutor |
 | SLR16 | **Lessons are transactions** with consent, price, time and access, and guarded methods have keepers. (SLC24) | Free instant teaching from anyone present |
-| SLR17 | **Same rules for every learner (standing, MR23).** Apprentices, heirs, NPCs, constructs and the player learn through one resolver. (SLC25) | Two learning economies and two balance passes |
+| SLR17 | **Pointer: MR23.** One learner resolver for everyone (standing). (SLC25) | Two learning economies and two balance passes |
 | SLR18 | **Texts are claims with a source** and can be wrong or partial; testing settles them. (SLC26, BHR8) | Every manual treated as correct |
 | SLR19 | **Rank and competence are separate facts.** A certificate, rank or office is recognition and access, not skill. (SLC27) | Revoking a title erasing what someone can do |
 

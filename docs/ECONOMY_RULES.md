@@ -18,7 +18,7 @@ and cost (AD5).
 
 | Code | Rule | Mistake it prevents |
 | --- | --- | --- |
-| ECR1 | **Economies are local; trade and arbitrage are intended (accepted, AD27).** Cross-world value moves through means, carriers or cheats. (EC1, M16) | Prices normalized across worlds, or arbitrage treated as an exploit |
+| ECR1 | **Pointer: AD27.** Local economies, intended arbitrage (accepted). (EC1, M16) | Prices normalized across worlds, or arbitrage treated as an exploit |
 | ECR2 | **Selling to a local merchant is the default sink.** Transit, route risk and supply chains are added only where a world or player moves goods between markets. (M1) | A logistics simulation required before anything can be sold |
 | ECR3 | **Price response is a per-good, per-place curve with a stated reason:** flat for fast-cycling staples, falling for durables, rising with reputation or trend, shifting for dated events. (M2) | One downward saturation curve for every good |
 | ECR4 | **One reconciled quote formula** carries every price input; nothing stacks a new factor beside it. (N2, A9) | Saturation, haggling and scarcity multiplying into nonsense |
